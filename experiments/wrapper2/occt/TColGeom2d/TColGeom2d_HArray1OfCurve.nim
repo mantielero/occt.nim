@@ -14,38 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Geom2d/Geom2d_Curve, TColGeom2d_Array1OfCurve,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  TColGeom2d_HArray1OfCurve* {.importcpp: "TColGeom2d_HArray1OfCurve",
-                              header: "TColGeom2d_HArray1OfCurve.hxx", bycopy.} = object of TColGeom2d_Array1OfCurve
+  TColGeom2dHArray1OfCurve* {.importcpp: "TColGeom2d_HArray1OfCurve",
+                             header: "TColGeom2d_HArray1OfCurve.hxx", bycopy.} = object of TColGeom2dArray1OfCurve
 
 
-proc constructTColGeom2d_HArray1OfCurve*(theLower: Standard_Integer;
-                                        theUpper: Standard_Integer): TColGeom2d_HArray1OfCurve {.
+proc constructTColGeom2dHArray1OfCurve*(theLower: int; theUpper: int): TColGeom2dHArray1OfCurve {.
     constructor, importcpp: "TColGeom2d_HArray1OfCurve(@)",
     header: "TColGeom2d_HArray1OfCurve.hxx".}
-proc constructTColGeom2d_HArray1OfCurve*(theLower: Standard_Integer;
-                                        theUpper: Standard_Integer;
-                                        theValue: value_type): TColGeom2d_HArray1OfCurve {.
+proc constructTColGeom2dHArray1OfCurve*(theLower: int; theUpper: int;
+                                       theValue: ValueType): TColGeom2dHArray1OfCurve {.
     constructor, importcpp: "TColGeom2d_HArray1OfCurve(@)",
     header: "TColGeom2d_HArray1OfCurve.hxx".}
-proc constructTColGeom2d_HArray1OfCurve*(theOther: TColGeom2d_Array1OfCurve): TColGeom2d_HArray1OfCurve {.
+proc constructTColGeom2dHArray1OfCurve*(theOther: TColGeom2dArray1OfCurve): TColGeom2dHArray1OfCurve {.
     constructor, importcpp: "TColGeom2d_HArray1OfCurve(@)",
     header: "TColGeom2d_HArray1OfCurve.hxx".}
-proc Array1*(this: TColGeom2d_HArray1OfCurve): TColGeom2d_Array1OfCurve {.
+proc array1*(this: TColGeom2dHArray1OfCurve): TColGeom2dArray1OfCurve {.
     noSideEffect, importcpp: "Array1", header: "TColGeom2d_HArray1OfCurve.hxx".}
-proc ChangeArray1*(this: var TColGeom2d_HArray1OfCurve): var TColGeom2d_Array1OfCurve {.
+proc changeArray1*(this: var TColGeom2dHArray1OfCurve): var TColGeom2dArray1OfCurve {.
     importcpp: "ChangeArray1", header: "TColGeom2d_HArray1OfCurve.hxx".}
 type
-  TColGeom2d_HArray1OfCurvebase_type* = MMgt_TShared
+  TColGeom2dHArray1OfCurvebaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TColGeom2d_HArray1OfCurve::get_type_name(@)",
-                              header: "TColGeom2d_HArray1OfCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TColGeom2d_HArray1OfCurve::get_type_name(@)",
+                            header: "TColGeom2d_HArray1OfCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TColGeom2d_HArray1OfCurve::get_type_descriptor(@)",
     header: "TColGeom2d_HArray1OfCurve.hxx".}
-proc DynamicType*(this: TColGeom2d_HArray1OfCurve): handle[Standard_Type] {.
+proc dynamicType*(this: TColGeom2dHArray1OfCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TColGeom2d_HArray1OfCurve.hxx".}

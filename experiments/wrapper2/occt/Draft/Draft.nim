@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real
-
 discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Dir"
 discard "forward decl of Draft_Modification"
@@ -34,5 +30,5 @@ type
                                                               ## ! Otherwise, the exception DomainError is raised.
 
 
-proc Angle*(F: TopoDS_Face; Direction: gp_Dir): Standard_Real {.
-    importcpp: "Draft::Angle(@)", header: "Draft.hxx".}
+proc angle*(f: TopoDS_Face; direction: Dir): float {.importcpp: "Draft::Angle(@)",
+    header: "Draft.hxx".}

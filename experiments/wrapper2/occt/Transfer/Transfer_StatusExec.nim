@@ -17,8 +17,9 @@
 ## ! execution status of an individual transfer (see Transcriptor)
 
 type
-  Transfer_StatusExec* {.size: sizeof(cint), importcpp: "Transfer_StatusExec",
-                        header: "Transfer_StatusExec.hxx".} = enum
-    Transfer_StatusInitial, Transfer_StatusRun, Transfer_StatusDone,
-    Transfer_StatusError, Transfer_StatusLoop
+  TransferStatusExec* {.size: sizeof(cint), importcpp: "Transfer_StatusExec",
+                       header: "Transfer_StatusExec.hxx".} = enum
+    TransferStatusInitial, TransferStatusRun, TransferStatusDone,
+    TransferStatusError, TransferStatusLoop
+
 

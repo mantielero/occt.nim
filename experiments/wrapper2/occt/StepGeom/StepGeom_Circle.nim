@@ -14,36 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  StepGeom_Conic
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_Axis2Placement"
 discard "forward decl of StepGeom_Circle"
 discard "forward decl of StepGeom_Circle"
 type
-  Handle_StepGeom_Circle* = handle[StepGeom_Circle]
-  StepGeom_Circle* {.importcpp: "StepGeom_Circle", header: "StepGeom_Circle.hxx",
-                    bycopy.} = object of StepGeom_Conic ## ! Returns a Circle
+  HandleStepGeomCircle* = Handle[StepGeomCircle]
+  StepGeomCircle* {.importcpp: "StepGeom_Circle", header: "StepGeom_Circle.hxx",
+                   bycopy.} = object of StepGeomConic ## ! Returns a Circle
 
 
-proc constructStepGeom_Circle*(): StepGeom_Circle {.constructor,
+proc constructStepGeomCircle*(): StepGeomCircle {.constructor,
     importcpp: "StepGeom_Circle(@)", header: "StepGeom_Circle.hxx".}
-proc Init*(this: var StepGeom_Circle; aName: handle[TCollection_HAsciiString];
-          aPosition: StepGeom_Axis2Placement; aRadius: Standard_Real) {.
-    importcpp: "Init", header: "StepGeom_Circle.hxx".}
-proc SetRadius*(this: var StepGeom_Circle; aRadius: Standard_Real) {.
-    importcpp: "SetRadius", header: "StepGeom_Circle.hxx".}
-proc Radius*(this: StepGeom_Circle): Standard_Real {.noSideEffect,
-    importcpp: "Radius", header: "StepGeom_Circle.hxx".}
+proc init*(this: var StepGeomCircle; aName: Handle[TCollectionHAsciiString];
+          aPosition: StepGeomAxis2Placement; aRadius: float) {.importcpp: "Init",
+    header: "StepGeom_Circle.hxx".}
+proc setRadius*(this: var StepGeomCircle; aRadius: float) {.importcpp: "SetRadius",
+    header: "StepGeom_Circle.hxx".}
+proc radius*(this: StepGeomCircle): float {.noSideEffect, importcpp: "Radius",
+                                        header: "StepGeom_Circle.hxx".}
 type
-  StepGeom_Circlebase_type* = StepGeom_Conic
+  StepGeomCirclebaseType* = StepGeomConic
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_Circle::get_type_name(@)",
-                              header: "StepGeom_Circle.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_Circle::get_type_name(@)",
+                            header: "StepGeom_Circle.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_Circle::get_type_descriptor(@)",
     header: "StepGeom_Circle.hxx".}
-proc DynamicType*(this: StepGeom_Circle): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepGeomCircle): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Circle.hxx".}

@@ -14,35 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TDF/TDF_DeltaOnRemoval
-
 discard "forward decl of TNaming_DeltaOnModification"
 discard "forward decl of TNaming_NamedShape"
 discard "forward decl of TNaming_DeltaOnRemoval"
 discard "forward decl of TNaming_DeltaOnRemoval"
 type
-  Handle_TNaming_DeltaOnRemoval* = handle[TNaming_DeltaOnRemoval]
-  TNaming_DeltaOnRemoval* {.importcpp: "TNaming_DeltaOnRemoval",
-                           header: "TNaming_DeltaOnRemoval.hxx", bycopy.} = object of TDF_DeltaOnRemoval ##
-                                                                                                  ## !
-                                                                                                  ## Initializes
-                                                                                                  ## a
-                                                                                                  ## TDF_DeltaOnModification.
+  HandleTNamingDeltaOnRemoval* = Handle[TNamingDeltaOnRemoval]
+  TNamingDeltaOnRemoval* {.importcpp: "TNaming_DeltaOnRemoval",
+                          header: "TNaming_DeltaOnRemoval.hxx", bycopy.} = object of TDF_DeltaOnRemoval ##
+                                                                                                 ## !
+                                                                                                 ## Initializes
+                                                                                                 ## a
+                                                                                                 ## TDF_DeltaOnModification.
 
 
-proc constructTNaming_DeltaOnRemoval*(NS: handle[TNaming_NamedShape]): TNaming_DeltaOnRemoval {.
+proc constructTNamingDeltaOnRemoval*(ns: Handle[TNamingNamedShape]): TNamingDeltaOnRemoval {.
     constructor, importcpp: "TNaming_DeltaOnRemoval(@)",
     header: "TNaming_DeltaOnRemoval.hxx".}
-proc Apply*(this: var TNaming_DeltaOnRemoval) {.importcpp: "Apply",
+proc apply*(this: var TNamingDeltaOnRemoval) {.importcpp: "Apply",
     header: "TNaming_DeltaOnRemoval.hxx".}
 type
-  TNaming_DeltaOnRemovalbase_type* = TDF_DeltaOnRemoval
+  TNamingDeltaOnRemovalbaseType* = TDF_DeltaOnRemoval
 
-proc get_type_name*(): cstring {.importcpp: "TNaming_DeltaOnRemoval::get_type_name(@)",
-                              header: "TNaming_DeltaOnRemoval.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TNaming_DeltaOnRemoval::get_type_name(@)",
+                            header: "TNaming_DeltaOnRemoval.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TNaming_DeltaOnRemoval::get_type_descriptor(@)",
     header: "TNaming_DeltaOnRemoval.hxx".}
-proc DynamicType*(this: TNaming_DeltaOnRemoval): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "TNaming_DeltaOnRemoval.hxx".}
+proc dynamicType*(this: TNamingDeltaOnRemoval): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "TNaming_DeltaOnRemoval.hxx".}

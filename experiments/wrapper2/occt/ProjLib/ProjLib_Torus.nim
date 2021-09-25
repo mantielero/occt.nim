@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Torus, ProjLib_Projector
-
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of gp_Torus"
 discard "forward decl of gp_Circ"
@@ -26,27 +22,27 @@ discard "forward decl of gp_Elips"
 discard "forward decl of gp_Parab"
 discard "forward decl of gp_Hypr"
 type
-  ProjLib_Torus* {.importcpp: "ProjLib_Torus", header: "ProjLib_Torus.hxx", bycopy.} = object of ProjLib_Projector ##
-                                                                                                         ## !
-                                                                                                         ## Undefined
-                                                                                                         ## projection.
+  ProjLibTorus* {.importcpp: "ProjLib_Torus", header: "ProjLib_Torus.hxx", bycopy.} = object of ProjLibProjector ##
+                                                                                                       ## !
+                                                                                                       ## Undefined
+                                                                                                       ## projection.
 
 
-proc constructProjLib_Torus*(): ProjLib_Torus {.constructor,
+proc constructProjLibTorus*(): ProjLibTorus {.constructor,
     importcpp: "ProjLib_Torus(@)", header: "ProjLib_Torus.hxx".}
-proc constructProjLib_Torus*(To: gp_Torus): ProjLib_Torus {.constructor,
+proc constructProjLibTorus*(to: Torus): ProjLibTorus {.constructor,
     importcpp: "ProjLib_Torus(@)", header: "ProjLib_Torus.hxx".}
-proc constructProjLib_Torus*(To: gp_Torus; C: gp_Circ): ProjLib_Torus {.constructor,
+proc constructProjLibTorus*(to: Torus; c: Circ): ProjLibTorus {.constructor,
     importcpp: "ProjLib_Torus(@)", header: "ProjLib_Torus.hxx".}
-proc Init*(this: var ProjLib_Torus; To: gp_Torus) {.importcpp: "Init",
+proc init*(this: var ProjLibTorus; to: Torus) {.importcpp: "Init",
     header: "ProjLib_Torus.hxx".}
-proc Project*(this: var ProjLib_Torus; L: gp_Lin) {.importcpp: "Project",
+proc project*(this: var ProjLibTorus; L: Lin) {.importcpp: "Project",
     header: "ProjLib_Torus.hxx".}
-proc Project*(this: var ProjLib_Torus; C: gp_Circ) {.importcpp: "Project",
+proc project*(this: var ProjLibTorus; c: Circ) {.importcpp: "Project",
     header: "ProjLib_Torus.hxx".}
-proc Project*(this: var ProjLib_Torus; E: gp_Elips) {.importcpp: "Project",
+proc project*(this: var ProjLibTorus; e: Elips) {.importcpp: "Project",
     header: "ProjLib_Torus.hxx".}
-proc Project*(this: var ProjLib_Torus; P: gp_Parab) {.importcpp: "Project",
+proc project*(this: var ProjLibTorus; p: Parab) {.importcpp: "Project",
     header: "ProjLib_Torus.hxx".}
-proc Project*(this: var ProjLib_Torus; H: gp_Hypr) {.importcpp: "Project",
+proc project*(this: var ProjLibTorus; h: Hypr) {.importcpp: "Project",
     header: "ProjLib_Torus.hxx".}

@@ -13,32 +13,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_Representation
-
 discard "forward decl of StepRepr_ConstructiveGeometryRepresentation"
 discard "forward decl of StepRepr_ConstructiveGeometryRepresentation"
 type
-  Handle_StepRepr_ConstructiveGeometryRepresentation* = handle[
-      StepRepr_ConstructiveGeometryRepresentation]
-  StepRepr_ConstructiveGeometryRepresentation* {.
+  HandleStepReprConstructiveGeometryRepresentation* = Handle[
+      StepReprConstructiveGeometryRepresentation]
+  StepReprConstructiveGeometryRepresentation* {.
       importcpp: "StepRepr_ConstructiveGeometryRepresentation",
-      header: "StepRepr_ConstructiveGeometryRepresentation.hxx", bycopy.} = object of StepRepr_Representation ##
-                                                                                                       ## !
-                                                                                                       ## Returns
-                                                                                                       ## a
-                                                                                                       ## ConstructiveGeometryRepresentation
+      header: "StepRepr_ConstructiveGeometryRepresentation.hxx", bycopy.} = object of StepReprRepresentation ##
+                                                                                                      ## !
+                                                                                                      ## Returns
+                                                                                                      ## a
+                                                                                                      ## ConstructiveGeometryRepresentation
 
 
-proc constructStepRepr_ConstructiveGeometryRepresentation*(): StepRepr_ConstructiveGeometryRepresentation {.
+proc constructStepReprConstructiveGeometryRepresentation*(): StepReprConstructiveGeometryRepresentation {.
     constructor, importcpp: "StepRepr_ConstructiveGeometryRepresentation(@)",
     header: "StepRepr_ConstructiveGeometryRepresentation.hxx".}
 type
-  StepRepr_ConstructiveGeometryRepresentationbase_type* = StepRepr_Representation
+  StepReprConstructiveGeometryRepresentationbaseType* = StepReprRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_ConstructiveGeometryRepresentation::get_type_name(@)", header: "StepRepr_ConstructiveGeometryRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepRepr_ConstructiveGeometryRepresentation::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepRepr_ConstructiveGeometryRepresentation::get_type_name(@)", header: "StepRepr_ConstructiveGeometryRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_ConstructiveGeometryRepresentation::get_type_descriptor(@)",
     header: "StepRepr_ConstructiveGeometryRepresentation.hxx".}
-proc DynamicType*(this: StepRepr_ConstructiveGeometryRepresentation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepRepr_ConstructiveGeometryRepresentation.hxx".}
+proc dynamicType*(this: StepReprConstructiveGeometryRepresentation): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepRepr_ConstructiveGeometryRepresentation.hxx".}

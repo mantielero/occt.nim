@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  NCollection_BaseAllocator
-
 ## ! This memory allocator creates dedicated heap for allocations.
 ## ! This technics available only on Windows platform
 ## ! (no alternative on Unix systems).
@@ -31,40 +28,45 @@ import
 ## ! allocated with him.
 
 type
-  NCollection_WinHeapAllocator* {.importcpp: "NCollection_WinHeapAllocator",
-                                 header: "NCollection_WinHeapAllocator.hxx",
-                                 bycopy.} = object of NCollection_BaseAllocator ## ! Main
-                                                                           ## constructor
-                                                                           ## ! Copy
-                                                                           ## constructor -
-                                                                           ## prohibited
-    when (defined(_WIN32) or defined(__WIN32__)):
-      discard
+  NCollectionWinHeapAllocator* {.importcpp: "NCollection_WinHeapAllocator",
+                                header: "NCollection_WinHeapAllocator.hxx", bycopy.} = object of NCollectionBaseAllocator ##
+                                                                                                                   ## !
+                                                                                                                   ## Main
+                                                                                                                   ## constructor
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## Copy
+                                                                                                                   ## constructor
+                                                                                                                   ## -
+                                                                                                                   ## prohibited
+#     when (defined(win32) or defined(win32)):
+#       discard
 
 
-proc constructNCollection_WinHeapAllocator*(theInitSizeBytes: csize_t = 0x80000): NCollection_WinHeapAllocator {.
+proc constructNCollectionWinHeapAllocator*(theInitSizeBytes: csize_t = 0x80000): NCollectionWinHeapAllocator {.
     constructor, importcpp: "NCollection_WinHeapAllocator(@)",
     header: "NCollection_WinHeapAllocator.hxx".}
-proc destroyNCollection_WinHeapAllocator*(this: var NCollection_WinHeapAllocator) {.
+proc destroyNCollectionWinHeapAllocator*(this: var NCollectionWinHeapAllocator) {.
     importcpp: "#.~NCollection_WinHeapAllocator()",
     header: "NCollection_WinHeapAllocator.hxx".}
-proc Allocate*(this: var NCollection_WinHeapAllocator; theSize: Standard_Size): pointer {.
+proc allocate*(this: var NCollectionWinHeapAllocator; theSize: StandardSize): pointer {.
     importcpp: "Allocate", header: "NCollection_WinHeapAllocator.hxx".}
-proc Free*(this: var NCollection_WinHeapAllocator; theAddress: pointer) {.
+proc free*(this: var NCollectionWinHeapAllocator; theAddress: pointer) {.
     importcpp: "Free", header: "NCollection_WinHeapAllocator.hxx".}
 type
-  NCollection_WinHeapAllocatorbase_type* = NCollection_BaseAllocator
+  NCollectionWinHeapAllocatorbaseType* = NCollectionBaseAllocator
 
-proc get_type_name*(): cstring {.importcpp: "NCollection_WinHeapAllocator::get_type_name(@)",
-                              header: "NCollection_WinHeapAllocator.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "NCollection_WinHeapAllocator::get_type_name(@)",
+                            header: "NCollection_WinHeapAllocator.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "NCollection_WinHeapAllocator::get_type_descriptor(@)",
     header: "NCollection_WinHeapAllocator.hxx".}
-proc DynamicType*(this: NCollection_WinHeapAllocator): handle[Standard_Type] {.
+proc dynamicType*(this: NCollectionWinHeapAllocator): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "NCollection_WinHeapAllocator.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of NCollection_WinHeapAllocator"
 type
-  Handle_NCollection_WinHeapAllocator* = handle[NCollection_WinHeapAllocator]
+  HandleNCollectionWinHeapAllocator* = Handle[NCollectionWinHeapAllocator]
+

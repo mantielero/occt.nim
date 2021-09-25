@@ -14,34 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_ItemDefinedTransformation"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepRepr_RWItemDefinedTransformation* {.
+  RWStepReprRWItemDefinedTransformation* {.
       importcpp: "RWStepRepr_RWItemDefinedTransformation",
       header: "RWStepRepr_RWItemDefinedTransformation.hxx", bycopy.} = object
 
 
-proc constructRWStepRepr_RWItemDefinedTransformation*(): RWStepRepr_RWItemDefinedTransformation {.
+proc constructRWStepReprRWItemDefinedTransformation*(): RWStepReprRWItemDefinedTransformation {.
     constructor, importcpp: "RWStepRepr_RWItemDefinedTransformation(@)",
     header: "RWStepRepr_RWItemDefinedTransformation.hxx".}
-proc ReadStep*(this: RWStepRepr_RWItemDefinedTransformation;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepRepr_ItemDefinedTransformation]) {.noSideEffect,
+proc readStep*(this: RWStepReprRWItemDefinedTransformation;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepReprItemDefinedTransformation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWItemDefinedTransformation.hxx".}
-proc WriteStep*(this: RWStepRepr_RWItemDefinedTransformation;
-               SW: var StepData_StepWriter;
-               ent: handle[StepRepr_ItemDefinedTransformation]) {.noSideEffect,
+proc writeStep*(this: RWStepReprRWItemDefinedTransformation;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepReprItemDefinedTransformation]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepRepr_RWItemDefinedTransformation.hxx".}
-proc Share*(this: RWStepRepr_RWItemDefinedTransformation;
-           ent: handle[StepRepr_ItemDefinedTransformation];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepReprRWItemDefinedTransformation;
+           ent: Handle[StepReprItemDefinedTransformation];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWItemDefinedTransformation.hxx".}

@@ -14,42 +14,38 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation Copyright: (C) RINA S.p.A
 
-import
-  ../TObj/TObj_Common, ../XmlLDrivers/XmlLDrivers_DocumentRetrievalDriver,
-  ../XmlMDF/XmlMDF_ADriverTable
-
 ##  Retrieval driver of a TObj XML document
 ##
 
 type
-  XmlTObjDrivers_DocumentRetrievalDriver* {.
+  XmlTObjDriversDocumentRetrievalDriver* {.
       importcpp: "XmlTObjDrivers_DocumentRetrievalDriver",
-      header: "XmlTObjDrivers_DocumentRetrievalDriver.hxx", bycopy.} = object of XmlLDrivers_DocumentRetrievalDriver ##  ---------- PUBLIC METHODS ----------
-                                                                                                              ##  Declaration of CASCADE RTTI
+      header: "XmlTObjDrivers_DocumentRetrievalDriver.hxx", bycopy.} = object of XmlLDriversDocumentRetrievalDriver ##  ---------- PUBLIC METHODS ----------
+                                                                                                             ##  Declaration of CASCADE RTTI
 
 
-proc constructXmlTObjDrivers_DocumentRetrievalDriver*(): XmlTObjDrivers_DocumentRetrievalDriver {.
+proc constructXmlTObjDriversDocumentRetrievalDriver*(): XmlTObjDriversDocumentRetrievalDriver {.
     constructor, importcpp: "XmlTObjDrivers_DocumentRetrievalDriver(@)",
     header: "XmlTObjDrivers_DocumentRetrievalDriver.hxx".}
-proc AttributeDrivers*(this: var XmlTObjDrivers_DocumentRetrievalDriver;
-                      theMsgDriver: handle[Message_Messenger]): handle[
+proc attributeDrivers*(this: var XmlTObjDriversDocumentRetrievalDriver;
+                      theMsgDriver: Handle[MessageMessenger]): Handle[
     XmlMDF_ADriverTable] {.importcpp: "AttributeDrivers",
                           header: "XmlTObjDrivers_DocumentRetrievalDriver.hxx".}
 type
-  XmlTObjDrivers_DocumentRetrievalDriverbase_type* = XmlLDrivers_DocumentRetrievalDriver
+  XmlTObjDriversDocumentRetrievalDriverbaseType* = XmlLDriversDocumentRetrievalDriver
 
-proc get_type_name*(): cstring {.importcpp: "XmlTObjDrivers_DocumentRetrievalDriver::get_type_name(@)", header: "XmlTObjDrivers_DocumentRetrievalDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "XmlTObjDrivers_DocumentRetrievalDriver::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "XmlTObjDrivers_DocumentRetrievalDriver::get_type_name(@)", header: "XmlTObjDrivers_DocumentRetrievalDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "XmlTObjDrivers_DocumentRetrievalDriver::get_type_descriptor(@)",
     header: "XmlTObjDrivers_DocumentRetrievalDriver.hxx".}
-proc DynamicType*(this: XmlTObjDrivers_DocumentRetrievalDriver): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "XmlTObjDrivers_DocumentRetrievalDriver.hxx".}
+proc dynamicType*(this: XmlTObjDriversDocumentRetrievalDriver): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "XmlTObjDrivers_DocumentRetrievalDriver.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of XmlTObjDrivers_DocumentRetrievalDriver"
 type
-  Handle_XmlTObjDrivers_DocumentRetrievalDriver* = handle[
-      XmlTObjDrivers_DocumentRetrievalDriver]
+  HandleXmlTObjDriversDocumentRetrievalDriver* = Handle[
+      XmlTObjDriversDocumentRetrievalDriver]
 
-when defined(_MSC_VER):
-  discard
+# when defined(_MSC_VER):
+#   discard

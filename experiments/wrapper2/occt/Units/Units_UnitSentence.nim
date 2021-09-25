@@ -14,54 +14,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Units_Sentence, ../Standard/Standard_CString,
-  Units_QuantitiesSequence
-
 ## ! This   class describes   all    the  facilities to
 ## ! manipulate and compute units contained in a string
 ## ! expression.
 
 type
-  Units_UnitSentence* {.importcpp: "Units_UnitSentence",
-                       header: "Units_UnitSentence.hxx", bycopy.} = object of Units_Sentence ##
-                                                                                      ## !
-                                                                                      ## Creates
-                                                                                      ## and
-                                                                                      ## returns
-                                                                                      ## a
-                                                                                      ## UnitSentence.
-                                                                                      ## The
-                                                                                      ## string
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## <astring>
-                                                                                      ## describes
-                                                                                      ## in
-                                                                                      ## natural
-                                                                                      ## language
-                                                                                      ## the
-                                                                                      ## unit
-                                                                                      ## or
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## the
-                                                                                      ## composed
-                                                                                      ## unit
-                                                                                      ## to
-                                                                                      ## be
-                                                                                      ## analysed.
+  UnitsUnitSentence* {.importcpp: "Units_UnitSentence",
+                      header: "Units_UnitSentence.hxx", bycopy.} = object of UnitsSentence ##
+                                                                                    ## !
+                                                                                    ## Creates
+                                                                                    ## and
+                                                                                    ## returns
+                                                                                    ## a
+                                                                                    ## UnitSentence.
+                                                                                    ## The
+                                                                                    ## string
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## <astring>
+                                                                                    ## describes
+                                                                                    ## in
+                                                                                    ## natural
+                                                                                    ## language
+                                                                                    ## the
+                                                                                    ## unit
+                                                                                    ## or
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## the
+                                                                                    ## composed
+                                                                                    ## unit
+                                                                                    ## to
+                                                                                    ## be
+                                                                                    ## analysed.
 
 
-proc constructUnits_UnitSentence*(astring: Standard_CString): Units_UnitSentence {.
+proc constructUnitsUnitSentence*(astring: StandardCString): UnitsUnitSentence {.
     constructor, importcpp: "Units_UnitSentence(@)",
     header: "Units_UnitSentence.hxx".}
-proc constructUnits_UnitSentence*(astring: Standard_CString; aquantitiessequence: handle[
-    Units_QuantitiesSequence]): Units_UnitSentence {.constructor,
+proc constructUnitsUnitSentence*(astring: StandardCString; aquantitiessequence: Handle[
+    UnitsQuantitiesSequence]): UnitsUnitSentence {.constructor,
     importcpp: "Units_UnitSentence(@)", header: "Units_UnitSentence.hxx".}
-proc Analyse*(this: var Units_UnitSentence) {.importcpp: "Analyse",
+proc analyse*(this: var UnitsUnitSentence) {.importcpp: "Analyse",
     header: "Units_UnitSentence.hxx".}
-proc SetUnits*(this: var Units_UnitSentence;
-              aquantitiessequence: handle[Units_QuantitiesSequence]) {.
+proc setUnits*(this: var UnitsUnitSentence;
+              aquantitiessequence: Handle[UnitsQuantitiesSequence]) {.
     importcpp: "SetUnits", header: "Units_UnitSentence.hxx".}

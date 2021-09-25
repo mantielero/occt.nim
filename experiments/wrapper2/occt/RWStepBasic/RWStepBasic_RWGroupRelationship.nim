@@ -13,32 +13,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_GroupRelationship"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasic_RWGroupRelationship* {.importcpp: "RWStepBasic_RWGroupRelationship", header: "RWStepBasic_RWGroupRelationship.hxx",
-                                    bycopy.} = object ## ! Empty constructor
+  RWStepBasicRWGroupRelationship* {.importcpp: "RWStepBasic_RWGroupRelationship", header: "RWStepBasic_RWGroupRelationship.hxx",
+                                   bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepBasic_RWGroupRelationship*(): RWStepBasic_RWGroupRelationship {.
+proc constructRWStepBasicRWGroupRelationship*(): RWStepBasicRWGroupRelationship {.
     constructor, importcpp: "RWStepBasic_RWGroupRelationship(@)",
     header: "RWStepBasic_RWGroupRelationship.hxx".}
-proc ReadStep*(this: RWStepBasic_RWGroupRelationship;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepBasic_GroupRelationship]) {.noSideEffect,
+proc readStep*(this: RWStepBasicRWGroupRelationship;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepBasicGroupRelationship]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWGroupRelationship.hxx".}
-proc WriteStep*(this: RWStepBasic_RWGroupRelationship; SW: var StepData_StepWriter;
-               ent: handle[StepBasic_GroupRelationship]) {.noSideEffect,
+proc writeStep*(this: RWStepBasicRWGroupRelationship; sw: var StepDataStepWriter;
+               ent: Handle[StepBasicGroupRelationship]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWGroupRelationship.hxx".}
-proc Share*(this: RWStepBasic_RWGroupRelationship;
-           ent: handle[StepBasic_GroupRelationship];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepBasicRWGroupRelationship;
+           ent: Handle[StepBasicGroupRelationship];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWGroupRelationship.hxx".}

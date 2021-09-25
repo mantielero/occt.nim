@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../TColStd/TColStd_SequenceOfInteger,
-  ../Interface/Interface_Graph, ../IFGraph/IFGraph_SubPartsIterator
-
 discard "forward decl of IFSelect_ShareOut"
 discard "forward decl of IFSelect_Dispatch"
 discard "forward decl of Standard_NoSuchObject"
@@ -30,79 +24,74 @@ discard "forward decl of IFSelect_PacketList"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of TCollection_AsciiString"
 type
-  IFSelect_ShareOutResult* {.importcpp: "IFSelect_ShareOutResult",
-                            header: "IFSelect_ShareOutResult.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Creates
-                                                                                ## a
-                                                                                ## ShareOutResult
-                                                                                ## from
-                                                                                ## a
-                                                                                ## ShareOut,
-                                                                                ## to
-                                                                                ## work
-                                                                                ## on
-                                                                                ## a
-                                                                                ## Model
-                                                                                ##
-                                                                                ## !
-                                                                                ## (without
-                                                                                ## any
-                                                                                ## more
-                                                                                ## precision;
-                                                                                ## uses
-                                                                                ## Active
-                                                                                ## Protocol)
+  IFSelectShareOutResult* {.importcpp: "IFSelect_ShareOutResult",
+                           header: "IFSelect_ShareOutResult.hxx", bycopy.} = object ## !
+                                                                               ## Creates a
+                                                                               ## ShareOutResult
+                                                                               ## from a
+                                                                               ## ShareOut,
+                                                                               ## to
+                                                                               ## work
+                                                                               ## on a
+                                                                               ## Model
+                                                                               ## !
+                                                                               ## (without
+                                                                               ## any
+                                                                               ## more
+                                                                               ## precision;
+                                                                               ## uses
+                                                                               ## Active
+                                                                               ## Protocol)
 
 
-proc constructIFSelect_ShareOutResult*(sho: handle[IFSelect_ShareOut];
-                                      `mod`: handle[Interface_InterfaceModel]): IFSelect_ShareOutResult {.
+proc constructIFSelectShareOutResult*(sho: Handle[IFSelectShareOut];
+                                     `mod`: Handle[InterfaceInterfaceModel]): IFSelectShareOutResult {.
     constructor, importcpp: "IFSelect_ShareOutResult(@)",
     header: "IFSelect_ShareOutResult.hxx".}
-proc constructIFSelect_ShareOutResult*(sho: handle[IFSelect_ShareOut];
-                                      G: Interface_Graph): IFSelect_ShareOutResult {.
+proc constructIFSelectShareOutResult*(sho: Handle[IFSelectShareOut];
+                                     g: InterfaceGraph): IFSelectShareOutResult {.
     constructor, importcpp: "IFSelect_ShareOutResult(@)",
     header: "IFSelect_ShareOutResult.hxx".}
-proc constructIFSelect_ShareOutResult*(disp: handle[IFSelect_Dispatch];
-                                      `mod`: handle[Interface_InterfaceModel]): IFSelect_ShareOutResult {.
+proc constructIFSelectShareOutResult*(disp: Handle[IFSelectDispatch];
+                                     `mod`: Handle[InterfaceInterfaceModel]): IFSelectShareOutResult {.
     constructor, importcpp: "IFSelect_ShareOutResult(@)",
     header: "IFSelect_ShareOutResult.hxx".}
-proc constructIFSelect_ShareOutResult*(disp: handle[IFSelect_Dispatch];
-                                      G: Interface_Graph): IFSelect_ShareOutResult {.
+proc constructIFSelectShareOutResult*(disp: Handle[IFSelectDispatch];
+                                     g: InterfaceGraph): IFSelectShareOutResult {.
     constructor, importcpp: "IFSelect_ShareOutResult(@)",
     header: "IFSelect_ShareOutResult.hxx".}
-proc ShareOut*(this: IFSelect_ShareOutResult): handle[IFSelect_ShareOut] {.
+proc shareOut*(this: IFSelectShareOutResult): Handle[IFSelectShareOut] {.
     noSideEffect, importcpp: "ShareOut", header: "IFSelect_ShareOutResult.hxx".}
-proc Graph*(this: IFSelect_ShareOutResult): Interface_Graph {.noSideEffect,
+proc graph*(this: IFSelectShareOutResult): InterfaceGraph {.noSideEffect,
     importcpp: "Graph", header: "IFSelect_ShareOutResult.hxx".}
-proc Reset*(this: var IFSelect_ShareOutResult) {.importcpp: "Reset",
+proc reset*(this: var IFSelectShareOutResult) {.importcpp: "Reset",
     header: "IFSelect_ShareOutResult.hxx".}
-proc Evaluate*(this: var IFSelect_ShareOutResult) {.importcpp: "Evaluate",
+proc evaluate*(this: var IFSelectShareOutResult) {.importcpp: "Evaluate",
     header: "IFSelect_ShareOutResult.hxx".}
-proc Packets*(this: var IFSelect_ShareOutResult;
-             complete: Standard_Boolean = Standard_True): handle[IFSelect_PacketList] {.
-    importcpp: "Packets", header: "IFSelect_ShareOutResult.hxx".}
-proc NbPackets*(this: var IFSelect_ShareOutResult): Standard_Integer {.
-    importcpp: "NbPackets", header: "IFSelect_ShareOutResult.hxx".}
-proc Prepare*(this: var IFSelect_ShareOutResult) {.importcpp: "Prepare",
+proc packets*(this: var IFSelectShareOutResult; complete: bool = true): Handle[
+    IFSelectPacketList] {.importcpp: "Packets",
+                         header: "IFSelect_ShareOutResult.hxx".}
+proc nbPackets*(this: var IFSelectShareOutResult): int {.importcpp: "NbPackets",
     header: "IFSelect_ShareOutResult.hxx".}
-proc More*(this: var IFSelect_ShareOutResult): Standard_Boolean {.importcpp: "More",
+proc prepare*(this: var IFSelectShareOutResult) {.importcpp: "Prepare",
     header: "IFSelect_ShareOutResult.hxx".}
-proc Next*(this: var IFSelect_ShareOutResult) {.importcpp: "Next",
+proc more*(this: var IFSelectShareOutResult): bool {.importcpp: "More",
     header: "IFSelect_ShareOutResult.hxx".}
-proc NextDispatch*(this: var IFSelect_ShareOutResult) {.importcpp: "NextDispatch",
+proc next*(this: var IFSelectShareOutResult) {.importcpp: "Next",
     header: "IFSelect_ShareOutResult.hxx".}
-proc Dispatch*(this: IFSelect_ShareOutResult): handle[IFSelect_Dispatch] {.
+proc nextDispatch*(this: var IFSelectShareOutResult) {.importcpp: "NextDispatch",
+    header: "IFSelect_ShareOutResult.hxx".}
+proc dispatch*(this: IFSelectShareOutResult): Handle[IFSelectDispatch] {.
     noSideEffect, importcpp: "Dispatch", header: "IFSelect_ShareOutResult.hxx".}
-proc DispatchRank*(this: IFSelect_ShareOutResult): Standard_Integer {.noSideEffect,
+proc dispatchRank*(this: IFSelectShareOutResult): int {.noSideEffect,
     importcpp: "DispatchRank", header: "IFSelect_ShareOutResult.hxx".}
-proc PacketsInDispatch*(this: IFSelect_ShareOutResult;
-                       numpack: var Standard_Integer; nbpacks: var Standard_Integer) {.
-    noSideEffect, importcpp: "PacketsInDispatch",
-    header: "IFSelect_ShareOutResult.hxx".}
-proc PacketRoot*(this: var IFSelect_ShareOutResult): Interface_EntityIterator {.
+proc packetsInDispatch*(this: IFSelectShareOutResult; numpack: var int;
+                       nbpacks: var int) {.noSideEffect,
+                                        importcpp: "PacketsInDispatch",
+                                        header: "IFSelect_ShareOutResult.hxx".}
+proc packetRoot*(this: var IFSelectShareOutResult): InterfaceEntityIterator {.
     importcpp: "PacketRoot", header: "IFSelect_ShareOutResult.hxx".}
-proc PacketContent*(this: var IFSelect_ShareOutResult): Interface_EntityIterator {.
+proc packetContent*(this: var IFSelectShareOutResult): InterfaceEntityIterator {.
     importcpp: "PacketContent", header: "IFSelect_ShareOutResult.hxx".}
-proc FileName*(this: IFSelect_ShareOutResult): TCollection_AsciiString {.
-    noSideEffect, importcpp: "FileName", header: "IFSelect_ShareOutResult.hxx".}
+proc fileName*(this: IFSelectShareOutResult): TCollectionAsciiString {.noSideEffect,
+    importcpp: "FileName", header: "IFSelect_ShareOutResult.hxx".}

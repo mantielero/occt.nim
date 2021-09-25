@@ -14,31 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer
-
 discard "forward decl of IntCurve_PConic"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 type
-  IntCurve_PConicTool* {.importcpp: "IntCurve_PConicTool",
-                        header: "IntCurve_PConicTool.hxx", bycopy.} = object
+  IntCurvePConicTool* {.importcpp: "IntCurve_PConicTool",
+                       header: "IntCurve_PConicTool.hxx", bycopy.} = object
 
 
-proc EpsX*(C: IntCurve_PConic): Standard_Real {.
-    importcpp: "IntCurve_PConicTool::EpsX(@)", header: "IntCurve_PConicTool.hxx".}
-proc NbSamples*(C: IntCurve_PConic): Standard_Integer {.
+proc epsX*(c: IntCurvePConic): float {.importcpp: "IntCurve_PConicTool::EpsX(@)",
+                                   header: "IntCurve_PConicTool.hxx".}
+proc nbSamples*(c: IntCurvePConic): int {.importcpp: "IntCurve_PConicTool::NbSamples(@)",
+                                      header: "IntCurve_PConicTool.hxx".}
+proc nbSamples*(c: IntCurvePConic; u0: float; u1: float): int {.
     importcpp: "IntCurve_PConicTool::NbSamples(@)",
     header: "IntCurve_PConicTool.hxx".}
-proc NbSamples*(C: IntCurve_PConic; U0: Standard_Real; U1: Standard_Real): Standard_Integer {.
-    importcpp: "IntCurve_PConicTool::NbSamples(@)",
-    header: "IntCurve_PConicTool.hxx".}
-proc Value*(C: IntCurve_PConic; X: Standard_Real): gp_Pnt2d {.
+proc value*(c: IntCurvePConic; x: float): Pnt2d {.
     importcpp: "IntCurve_PConicTool::Value(@)", header: "IntCurve_PConicTool.hxx".}
-proc D1*(C: IntCurve_PConic; U: Standard_Real; P: var gp_Pnt2d; T: var gp_Vec2d) {.
+proc d1*(c: IntCurvePConic; u: float; p: var Pnt2d; t: var Vec2d) {.
     importcpp: "IntCurve_PConicTool::D1(@)", header: "IntCurve_PConicTool.hxx".}
-proc D2*(C: IntCurve_PConic; U: Standard_Real; P: var gp_Pnt2d; T: var gp_Vec2d;
-        N: var gp_Vec2d) {.importcpp: "IntCurve_PConicTool::D2(@)",
-                        header: "IntCurve_PConicTool.hxx".}
+proc d2*(c: IntCurvePConic; u: float; p: var Pnt2d; t: var Vec2d; n: var Vec2d) {.
+    importcpp: "IntCurve_PConicTool::D2(@)", header: "IntCurve_PConicTool.hxx".}

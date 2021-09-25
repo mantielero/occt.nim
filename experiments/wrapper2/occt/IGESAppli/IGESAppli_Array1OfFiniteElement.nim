@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IGESAppli_FiniteElement, ../NCollection/NCollection_Array1
-
 type
-  IGESAppli_Array1OfFiniteElement* = NCollection_Array1[
-      handle[IGESAppli_FiniteElement]]
+  IGESAppliArray1OfFiniteElement* = NCollectionArray1[
+      Handle[IGESAppliFiniteElement]]
+

@@ -14,42 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_Document"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_DocumentReference"
 discard "forward decl of StepBasic_DocumentReference"
 type
-  Handle_StepBasic_DocumentReference* = handle[StepBasic_DocumentReference]
-  StepBasic_DocumentReference* {.importcpp: "StepBasic_DocumentReference",
-                                header: "StepBasic_DocumentReference.hxx", bycopy.} = object of Standard_Transient
+  HandleStepBasicDocumentReference* = Handle[StepBasicDocumentReference]
+  StepBasicDocumentReference* {.importcpp: "StepBasic_DocumentReference",
+                               header: "StepBasic_DocumentReference.hxx", bycopy.} = object of StandardTransient
 
 
-proc Init0*(this: var StepBasic_DocumentReference;
-           aAssignedDocument: handle[StepBasic_Document];
-           aSource: handle[TCollection_HAsciiString]) {.importcpp: "Init0",
+proc init0*(this: var StepBasicDocumentReference;
+           aAssignedDocument: Handle[StepBasicDocument];
+           aSource: Handle[TCollectionHAsciiString]) {.importcpp: "Init0",
     header: "StepBasic_DocumentReference.hxx".}
-proc AssignedDocument*(this: StepBasic_DocumentReference): handle[
-    StepBasic_Document] {.noSideEffect, importcpp: "AssignedDocument",
-                         header: "StepBasic_DocumentReference.hxx".}
-proc SetAssignedDocument*(this: var StepBasic_DocumentReference;
-                         aAssignedDocument: handle[StepBasic_Document]) {.
+proc assignedDocument*(this: StepBasicDocumentReference): Handle[StepBasicDocument] {.
+    noSideEffect, importcpp: "AssignedDocument",
+    header: "StepBasic_DocumentReference.hxx".}
+proc setAssignedDocument*(this: var StepBasicDocumentReference;
+                         aAssignedDocument: Handle[StepBasicDocument]) {.
     importcpp: "SetAssignedDocument", header: "StepBasic_DocumentReference.hxx".}
-proc Source*(this: StepBasic_DocumentReference): handle[TCollection_HAsciiString] {.
+proc source*(this: StepBasicDocumentReference): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Source", header: "StepBasic_DocumentReference.hxx".}
-proc SetSource*(this: var StepBasic_DocumentReference;
-               aSource: handle[TCollection_HAsciiString]) {.
-    importcpp: "SetSource", header: "StepBasic_DocumentReference.hxx".}
+proc setSource*(this: var StepBasicDocumentReference;
+               aSource: Handle[TCollectionHAsciiString]) {.importcpp: "SetSource",
+    header: "StepBasic_DocumentReference.hxx".}
 type
-  StepBasic_DocumentReferencebase_type* = Standard_Transient
+  StepBasicDocumentReferencebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_DocumentReference::get_type_name(@)",
-                              header: "StepBasic_DocumentReference.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_DocumentReference::get_type_name(@)",
+                            header: "StepBasic_DocumentReference.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_DocumentReference::get_type_descriptor(@)",
     header: "StepBasic_DocumentReference.hxx".}
-proc DynamicType*(this: StepBasic_DocumentReference): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicDocumentReference): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_DocumentReference.hxx".}

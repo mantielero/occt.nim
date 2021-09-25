@@ -14,32 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopoDSToStep_MakeWireError, TopoDSToStep_Root
-
 discard "forward decl of StepShape_TopologicalRepresentationItem"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDSToStep_Tool"
 discard "forward decl of Transfer_FinderProcess"
 type
-  TopoDSToStep_MakeStepWire* {.importcpp: "TopoDSToStep_MakeStepWire",
-                              header: "TopoDSToStep_MakeStepWire.hxx", bycopy.} = object of TopoDSToStep_Root
+  TopoDSToStepMakeStepWire* {.importcpp: "TopoDSToStep_MakeStepWire",
+                             header: "TopoDSToStep_MakeStepWire.hxx", bycopy.} = object of TopoDSToStepRoot
 
 
-proc constructTopoDSToStep_MakeStepWire*(): TopoDSToStep_MakeStepWire {.
+proc constructTopoDSToStepMakeStepWire*(): TopoDSToStepMakeStepWire {.constructor,
+    importcpp: "TopoDSToStep_MakeStepWire(@)",
+    header: "TopoDSToStep_MakeStepWire.hxx".}
+proc constructTopoDSToStepMakeStepWire*(w: TopoDS_Wire; t: var TopoDSToStepTool;
+                                       fp: Handle[TransferFinderProcess]): TopoDSToStepMakeStepWire {.
     constructor, importcpp: "TopoDSToStep_MakeStepWire(@)",
     header: "TopoDSToStep_MakeStepWire.hxx".}
-proc constructTopoDSToStep_MakeStepWire*(W: TopoDS_Wire; T: var TopoDSToStep_Tool;
-                                        FP: handle[Transfer_FinderProcess]): TopoDSToStep_MakeStepWire {.
-    constructor, importcpp: "TopoDSToStep_MakeStepWire(@)",
-    header: "TopoDSToStep_MakeStepWire.hxx".}
-proc Init*(this: var TopoDSToStep_MakeStepWire; W: TopoDS_Wire;
-          T: var TopoDSToStep_Tool; FP: handle[Transfer_FinderProcess]) {.
+proc init*(this: var TopoDSToStepMakeStepWire; w: TopoDS_Wire;
+          t: var TopoDSToStepTool; fp: Handle[TransferFinderProcess]) {.
     importcpp: "Init", header: "TopoDSToStep_MakeStepWire.hxx".}
-proc Value*(this: TopoDSToStep_MakeStepWire): handle[
-    StepShape_TopologicalRepresentationItem] {.noSideEffect, importcpp: "Value",
+proc value*(this: TopoDSToStepMakeStepWire): Handle[
+    StepShapeTopologicalRepresentationItem] {.noSideEffect, importcpp: "Value",
     header: "TopoDSToStep_MakeStepWire.hxx".}
-proc Error*(this: TopoDSToStep_MakeStepWire): TopoDSToStep_MakeWireError {.
+proc error*(this: TopoDSToStepMakeStepWire): TopoDSToStepMakeWireError {.
     noSideEffect, importcpp: "Error", header: "TopoDSToStep_MakeStepWire.hxx".}

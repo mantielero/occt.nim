@@ -14,148 +14,145 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation Copyright: (C) RINA S.p.A
 
-import
-  TObj_Common, TObj_Container, ../TDF/TDF_Attribute
-
 discard "forward decl of TObj_TNameContainer"
 type
-  TObj_TNameContainer* {.importcpp: "TObj_TNameContainer",
-                        header: "TObj_TNameContainer.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                       ## !
-                                                                                       ## Standard
-                                                                                       ## methods
-                                                                                       ## of
-                                                                                       ## OCAF
-                                                                                       ## attribute
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Empty
-                                                                                       ## constructor
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Method
-                                                                                       ## for
-                                                                                       ## create
-                                                                                       ## TObj_TNameContainer
-                                                                                       ## object
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Creates
-                                                                                       ## TObj_DataMapOfNameLabel
-                                                                                       ## attribute
-                                                                                       ## on
-                                                                                       ## given
-                                                                                       ## label
-                                                                                       ## if
-                                                                                       ## not
-                                                                                       ## exist
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Methods
-                                                                                       ## for
-                                                                                       ## adding
-                                                                                       ## and
-                                                                                       ## removing
-                                                                                       ## names
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Records
-                                                                                       ## name
-                                                                                       ## with
-                                                                                       ## label
-                                                                                       ## attached
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Methods
-                                                                                       ## for
-                                                                                       ## setting
-                                                                                       ## and
-                                                                                       ## obtaining
-                                                                                       ## TObj_TNameContainer
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Sets
-                                                                                       ## the
-                                                                                       ## TObj_DataMapOfNameLabel
-                                                                                       ## object
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Redefined
-                                                                                       ## OCAF
-                                                                                       ## abstract
-                                                                                       ## methods
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Returns
-                                                                                       ## an
-                                                                                       ## new
-                                                                                       ## empty
-                                                                                       ## TObj_TNameContainer
-                                                                                       ## attribute.
-                                                                                       ## It
-                                                                                       ## is
-                                                                                       ## used
-                                                                                       ## by
-                                                                                       ## the
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## copy
-                                                                                       ## algorithm.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Fields
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## CASCADE
-                                                                                       ## RTTI
+  TObjTNameContainer* {.importcpp: "TObj_TNameContainer",
+                       header: "TObj_TNameContainer.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                      ## !
+                                                                                      ## Standard
+                                                                                      ## methods
+                                                                                      ## of
+                                                                                      ## OCAF
+                                                                                      ## attribute
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Empty
+                                                                                      ## constructor
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Method
+                                                                                      ## for
+                                                                                      ## create
+                                                                                      ## TObj_TNameContainer
+                                                                                      ## object
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Creates
+                                                                                      ## TObj_DataMapOfNameLabel
+                                                                                      ## attribute
+                                                                                      ## on
+                                                                                      ## given
+                                                                                      ## label
+                                                                                      ## if
+                                                                                      ## not
+                                                                                      ## exist
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Methods
+                                                                                      ## for
+                                                                                      ## adding
+                                                                                      ## and
+                                                                                      ## removing
+                                                                                      ## names
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Records
+                                                                                      ## name
+                                                                                      ## with
+                                                                                      ## label
+                                                                                      ## attached
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Methods
+                                                                                      ## for
+                                                                                      ## setting
+                                                                                      ## and
+                                                                                      ## obtaining
+                                                                                      ## TObj_TNameContainer
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Sets
+                                                                                      ## the
+                                                                                      ## TObj_DataMapOfNameLabel
+                                                                                      ## object
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Redefined
+                                                                                      ## OCAF
+                                                                                      ## abstract
+                                                                                      ## methods
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## an
+                                                                                      ## new
+                                                                                      ## empty
+                                                                                      ## TObj_TNameContainer
+                                                                                      ## attribute.
+                                                                                      ## It
+                                                                                      ## is
+                                                                                      ## used
+                                                                                      ## by
+                                                                                      ## the
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## copy
+                                                                                      ## algorithm.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Fields
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## CASCADE
+                                                                                      ## RTTI
     ## !< The map of the names
 
 
-proc constructTObj_TNameContainer*(): TObj_TNameContainer {.constructor,
+proc constructTObjTNameContainer*(): TObjTNameContainer {.constructor,
     importcpp: "TObj_TNameContainer(@)", header: "TObj_TNameContainer.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "TObj_TNameContainer::GetID(@)",
-                            header: "TObj_TNameContainer.hxx".}
-proc ID*(this: TObj_TNameContainer): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc getID*(): StandardGUID {.importcpp: "TObj_TNameContainer::GetID(@)",
+                           header: "TObj_TNameContainer.hxx".}
+proc id*(this: TObjTNameContainer): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TObj_TNameContainer.hxx".}
-proc Set*(theLabel: TDF_Label): handle[TObj_TNameContainer] {.
+proc set*(theLabel: TDF_Label): Handle[TObjTNameContainer] {.
     importcpp: "TObj_TNameContainer::Set(@)", header: "TObj_TNameContainer.hxx".}
-proc RecordName*(this: var TObj_TNameContainer;
-                theName: handle[TCollection_HExtendedString]; theLabel: TDF_Label) {.
+proc recordName*(this: var TObjTNameContainer;
+                theName: Handle[TCollectionHExtendedString]; theLabel: TDF_Label) {.
     importcpp: "RecordName", header: "TObj_TNameContainer.hxx".}
-proc RemoveName*(this: var TObj_TNameContainer;
-                theName: handle[TCollection_HExtendedString]) {.
+proc removeName*(this: var TObjTNameContainer;
+                theName: Handle[TCollectionHExtendedString]) {.
     importcpp: "RemoveName", header: "TObj_TNameContainer.hxx".}
-proc IsRegistered*(this: TObj_TNameContainer;
-                  theName: handle[TCollection_HExtendedString]): Standard_Boolean {.
+proc isRegistered*(this: TObjTNameContainer;
+                  theName: Handle[TCollectionHExtendedString]): bool {.
     noSideEffect, importcpp: "IsRegistered", header: "TObj_TNameContainer.hxx".}
-proc Clear*(this: var TObj_TNameContainer) {.importcpp: "Clear",
-    header: "TObj_TNameContainer.hxx".}
-proc Set*(this: var TObj_TNameContainer; theElem: TObj_DataMapOfNameLabel) {.
+proc clear*(this: var TObjTNameContainer) {.importcpp: "Clear",
+                                        header: "TObj_TNameContainer.hxx".}
+proc set*(this: var TObjTNameContainer; theElem: TObjDataMapOfNameLabel) {.
     importcpp: "Set", header: "TObj_TNameContainer.hxx".}
-proc Get*(this: TObj_TNameContainer): TObj_DataMapOfNameLabel {.noSideEffect,
+proc get*(this: TObjTNameContainer): TObjDataMapOfNameLabel {.noSideEffect,
     importcpp: "Get", header: "TObj_TNameContainer.hxx".}
-proc NewEmpty*(this: TObj_TNameContainer): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TObjTNameContainer): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TObj_TNameContainer.hxx".}
-proc Restore*(this: var TObj_TNameContainer; theWith: handle[TDF_Attribute]) {.
+proc restore*(this: var TObjTNameContainer; theWith: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TObj_TNameContainer.hxx".}
-proc Paste*(this: TObj_TNameContainer; theInto: handle[TDF_Attribute];
-           theRT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TObjTNameContainer; theInto: Handle[TDF_Attribute];
+           theRT: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TObj_TNameContainer.hxx".}
 type
-  TObj_TNameContainerbase_type* = TDF_Attribute
+  TObjTNameContainerbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TObj_TNameContainer::get_type_name(@)",
-                              header: "TObj_TNameContainer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TObj_TNameContainer::get_type_name(@)",
+                            header: "TObj_TNameContainer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TObj_TNameContainer::get_type_descriptor(@)",
     header: "TObj_TNameContainer.hxx".}
-proc DynamicType*(this: TObj_TNameContainer): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TObjTNameContainer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TObj_TNameContainer.hxx".}
 ## ! Define handle class for TObj_TObject
 
 discard "forward decl of TObj_TNameContainer"
 type
-  Handle_TObj_TNameContainer* = handle[TObj_TNameContainer]
+  HandleTObjTNameContainer* = Handle[TObjTNameContainer]
 
-when defined(_MSC_VER):
-  discard
+# when defined(_MSC_VER):
+#   discard

@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IGESData_DirPart, ../NCollection/NCollection_Array1
-
 type
-  IGESData_Array1OfDirPart* = NCollection_Array1[IGESData_DirPart]
+  IGESDataArray1OfDirPart* = NCollectionArray1[IGESDataDirPart]
+

@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_HArray1OfInteger, ../IGESData/IGESData_HArray1OfIGESEntity,
-  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of IGESBasic_HArray1OfHArray1OfInteger"
 discard "forward decl of IGESBasic_HArray1OfHArray1OfIGESEntity"
 discard "forward decl of Standard_DimensionMismatch"
@@ -28,7 +22,7 @@ discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESSolid_Loop"
 discard "forward decl of IGESSolid_Loop"
 type
-  Handle_IGESSolid_Loop* = handle[IGESSolid_Loop]
+  HandleIGESSolidLoop* = Handle[IGESSolidLoop]
 
 ## ! defines Loop, Type <508> Form Number <1>
 ## ! in package IGESSolid
@@ -40,48 +34,47 @@ type
 ## ! else it is a bound of a face (it is the default)
 
 type
-  IGESSolid_Loop* {.importcpp: "IGESSolid_Loop", header: "IGESSolid_Loop.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESSolidLoop* {.importcpp: "IGESSolid_Loop", header: "IGESSolid_Loop.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESSolid_Loop*(): IGESSolid_Loop {.constructor,
+proc constructIGESSolidLoop*(): IGESSolidLoop {.constructor,
     importcpp: "IGESSolid_Loop(@)", header: "IGESSolid_Loop.hxx".}
-proc Init*(this: var IGESSolid_Loop; types: handle[TColStd_HArray1OfInteger];
-          edges: handle[IGESData_HArray1OfIGESEntity];
-          index: handle[TColStd_HArray1OfInteger];
-          orient: handle[TColStd_HArray1OfInteger];
-          nbParameterCurves: handle[TColStd_HArray1OfInteger];
-          isoparametricFlags: handle[IGESBasic_HArray1OfHArray1OfInteger];
-          curves: handle[IGESBasic_HArray1OfHArray1OfIGESEntity]) {.
+proc init*(this: var IGESSolidLoop; types: Handle[TColStdHArray1OfInteger];
+          edges: Handle[IGESDataHArray1OfIGESEntity];
+          index: Handle[TColStdHArray1OfInteger];
+          orient: Handle[TColStdHArray1OfInteger];
+          nbParameterCurves: Handle[TColStdHArray1OfInteger];
+          isoparametricFlags: Handle[IGESBasicHArray1OfHArray1OfInteger];
+          curves: Handle[IGESBasicHArray1OfHArray1OfIGESEntity]) {.
     importcpp: "Init", header: "IGESSolid_Loop.hxx".}
-proc IsBound*(this: IGESSolid_Loop): Standard_Boolean {.noSideEffect,
-    importcpp: "IsBound", header: "IGESSolid_Loop.hxx".}
-proc SetBound*(this: var IGESSolid_Loop; bound: Standard_Boolean) {.
-    importcpp: "SetBound", header: "IGESSolid_Loop.hxx".}
-proc NbEdges*(this: IGESSolid_Loop): Standard_Integer {.noSideEffect,
-    importcpp: "NbEdges", header: "IGESSolid_Loop.hxx".}
-proc EdgeType*(this: IGESSolid_Loop; Index: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "EdgeType", header: "IGESSolid_Loop.hxx".}
-proc Edge*(this: IGESSolid_Loop; Index: Standard_Integer): handle[IGESData_IGESEntity] {.
+proc isBound*(this: IGESSolidLoop): bool {.noSideEffect, importcpp: "IsBound",
+                                       header: "IGESSolid_Loop.hxx".}
+proc setBound*(this: var IGESSolidLoop; bound: bool) {.importcpp: "SetBound",
+    header: "IGESSolid_Loop.hxx".}
+proc nbEdges*(this: IGESSolidLoop): int {.noSideEffect, importcpp: "NbEdges",
+                                      header: "IGESSolid_Loop.hxx".}
+proc edgeType*(this: IGESSolidLoop; index: int): int {.noSideEffect,
+    importcpp: "EdgeType", header: "IGESSolid_Loop.hxx".}
+proc edge*(this: IGESSolidLoop; index: int): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Edge", header: "IGESSolid_Loop.hxx".}
-proc Orientation*(this: IGESSolid_Loop; Index: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "Orientation", header: "IGESSolid_Loop.hxx".}
-proc NbParameterCurves*(this: IGESSolid_Loop; Index: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "NbParameterCurves", header: "IGESSolid_Loop.hxx".}
-proc IsIsoparametric*(this: IGESSolid_Loop; EdgeIndex: Standard_Integer;
-                     CurveIndex: Standard_Integer): Standard_Boolean {.
+proc orientation*(this: IGESSolidLoop; index: int): bool {.noSideEffect,
+    importcpp: "Orientation", header: "IGESSolid_Loop.hxx".}
+proc nbParameterCurves*(this: IGESSolidLoop; index: int): int {.noSideEffect,
+    importcpp: "NbParameterCurves", header: "IGESSolid_Loop.hxx".}
+proc isIsoparametric*(this: IGESSolidLoop; edgeIndex: int; curveIndex: int): bool {.
     noSideEffect, importcpp: "IsIsoparametric", header: "IGESSolid_Loop.hxx".}
-proc ParametricCurve*(this: IGESSolid_Loop; EdgeIndex: Standard_Integer;
-                     CurveIndex: Standard_Integer): handle[IGESData_IGESEntity] {.
-    noSideEffect, importcpp: "ParametricCurve", header: "IGESSolid_Loop.hxx".}
-proc ListIndex*(this: IGESSolid_Loop; num: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "ListIndex", header: "IGESSolid_Loop.hxx".}
+proc parametricCurve*(this: IGESSolidLoop; edgeIndex: int; curveIndex: int): Handle[
+    IGESDataIGESEntity] {.noSideEffect, importcpp: "ParametricCurve",
+                         header: "IGESSolid_Loop.hxx".}
+proc listIndex*(this: IGESSolidLoop; num: int): int {.noSideEffect,
+    importcpp: "ListIndex", header: "IGESSolid_Loop.hxx".}
 type
-  IGESSolid_Loopbase_type* = IGESData_IGESEntity
+  IGESSolidLoopbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESSolid_Loop::get_type_name(@)",
-                              header: "IGESSolid_Loop.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSolid_Loop::get_type_name(@)",
+                            header: "IGESSolid_Loop.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSolid_Loop::get_type_descriptor(@)",
     header: "IGESSolid_Loop.hxx".}
-proc DynamicType*(this: IGESSolid_Loop): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IGESSolidLoop): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSolid_Loop.hxx".}

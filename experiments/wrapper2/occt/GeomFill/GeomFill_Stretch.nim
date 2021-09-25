@@ -14,31 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GeomFill_Filling, ../TColgp/TColgp_Array1OfPnt,
-  ../TColStd/TColStd_Array1OfReal
-
 type
-  GeomFill_Stretch* {.importcpp: "GeomFill_Stretch",
-                     header: "GeomFill_Stretch.hxx", bycopy.} = object of GeomFill_Filling
+  GeomFillStretch* {.importcpp: "GeomFill_Stretch", header: "GeomFill_Stretch.hxx",
+                    bycopy.} = object of GeomFillFilling
 
 
-proc constructGeomFill_Stretch*(): GeomFill_Stretch {.constructor,
+proc constructGeomFillStretch*(): GeomFillStretch {.constructor,
     importcpp: "GeomFill_Stretch(@)", header: "GeomFill_Stretch.hxx".}
-proc constructGeomFill_Stretch*(P1: TColgp_Array1OfPnt; P2: TColgp_Array1OfPnt;
-                               P3: TColgp_Array1OfPnt; P4: TColgp_Array1OfPnt): GeomFill_Stretch {.
+proc constructGeomFillStretch*(p1: TColgpArray1OfPnt; p2: TColgpArray1OfPnt;
+                              p3: TColgpArray1OfPnt; p4: TColgpArray1OfPnt): GeomFillStretch {.
     constructor, importcpp: "GeomFill_Stretch(@)", header: "GeomFill_Stretch.hxx".}
-proc constructGeomFill_Stretch*(P1: TColgp_Array1OfPnt; P2: TColgp_Array1OfPnt;
-                               P3: TColgp_Array1OfPnt; P4: TColgp_Array1OfPnt;
-                               W1: TColStd_Array1OfReal; W2: TColStd_Array1OfReal;
-                               W3: TColStd_Array1OfReal; W4: TColStd_Array1OfReal): GeomFill_Stretch {.
+proc constructGeomFillStretch*(p1: TColgpArray1OfPnt; p2: TColgpArray1OfPnt;
+                              p3: TColgpArray1OfPnt; p4: TColgpArray1OfPnt;
+                              w1: TColStdArray1OfReal; w2: TColStdArray1OfReal;
+                              w3: TColStdArray1OfReal; w4: TColStdArray1OfReal): GeomFillStretch {.
     constructor, importcpp: "GeomFill_Stretch(@)", header: "GeomFill_Stretch.hxx".}
-proc Init*(this: var GeomFill_Stretch; P1: TColgp_Array1OfPnt; P2: TColgp_Array1OfPnt;
-          P3: TColgp_Array1OfPnt; P4: TColgp_Array1OfPnt) {.importcpp: "Init",
+proc init*(this: var GeomFillStretch; p1: TColgpArray1OfPnt; p2: TColgpArray1OfPnt;
+          p3: TColgpArray1OfPnt; p4: TColgpArray1OfPnt) {.importcpp: "Init",
     header: "GeomFill_Stretch.hxx".}
-proc Init*(this: var GeomFill_Stretch; P1: TColgp_Array1OfPnt; P2: TColgp_Array1OfPnt;
-          P3: TColgp_Array1OfPnt; P4: TColgp_Array1OfPnt; W1: TColStd_Array1OfReal;
-          W2: TColStd_Array1OfReal; W3: TColStd_Array1OfReal;
-          W4: TColStd_Array1OfReal) {.importcpp: "Init",
-                                    header: "GeomFill_Stretch.hxx".}
+proc init*(this: var GeomFillStretch; p1: TColgpArray1OfPnt; p2: TColgpArray1OfPnt;
+          p3: TColgpArray1OfPnt; p4: TColgpArray1OfPnt; w1: TColStdArray1OfReal;
+          w2: TColStdArray1OfReal; w3: TColStdArray1OfReal; w4: TColStdArray1OfReal) {.
+    importcpp: "Init", header: "GeomFill_Stretch.hxx".}

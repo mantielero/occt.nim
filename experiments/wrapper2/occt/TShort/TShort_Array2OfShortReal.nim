@@ -12,8 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_ShortReal, ../NCollection/NCollection_Array2
-
 type
-  TShort_Array2OfShortReal* = NCollection_Array2[Standard_ShortReal]
+  TShortArray2OfShortReal* = NCollectionArray2[StandardShortReal]
+

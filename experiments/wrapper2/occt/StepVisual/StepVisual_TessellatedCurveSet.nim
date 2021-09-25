@@ -13,51 +13,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, StepVisual_CoordinatesList,
-  StepVisual_TessellatedItem, ../NCollection/NCollection_Vector,
-  ../NCollection/NCollection_Handle, StepVisual_CoordinatesList,
-  ../TColStd/TColStd_HSequenceOfInteger
-
 discard "forward decl of Standard_Transient"
 type
-  StepVisual_VectorOfHSequenceOfInteger* = NCollection_Vector[
-      handle[TColStd_HSequenceOfInteger]]
+  StepVisualVectorOfHSequenceOfInteger* = NCollectionVector[
+      Handle[TColStdHSequenceOfInteger]]
 
 discard "forward decl of StepVisual_TessellatedCurveSet"
 type
-  Handle_StepVisual_TessellatedCurveSet* = handle[StepVisual_TessellatedCurveSet]
-  StepVisual_TessellatedCurveSet* {.importcpp: "StepVisual_TessellatedCurveSet", header: "StepVisual_TessellatedCurveSet.hxx",
-                                   bycopy.} = object of StepVisual_TessellatedItem ## !
-                                                                              ## Returns a
-                                                                              ## DraughtingCalloutElement
-                                                                              ## select
-                                                                              ## type
+  HandleStepVisualTessellatedCurveSet* = Handle[StepVisualTessellatedCurveSet]
+  StepVisualTessellatedCurveSet* {.importcpp: "StepVisual_TessellatedCurveSet",
+                                  header: "StepVisual_TessellatedCurveSet.hxx",
+                                  bycopy.} = object of StepVisualTessellatedItem ## !
+                                                                            ## Returns a
+                                                                            ## DraughtingCalloutElement
+                                                                            ## select type
 
 
-proc constructStepVisual_TessellatedCurveSet*(): StepVisual_TessellatedCurveSet {.
+proc constructStepVisualTessellatedCurveSet*(): StepVisualTessellatedCurveSet {.
     constructor, importcpp: "StepVisual_TessellatedCurveSet(@)",
     header: "StepVisual_TessellatedCurveSet.hxx".}
-proc Init*(this: var StepVisual_TessellatedCurveSet;
-          theName: handle[TCollection_HAsciiString];
-          theCoordList: handle[StepVisual_CoordinatesList];
-          theCurves: NCollection_Handle[StepVisual_VectorOfHSequenceOfInteger]) {.
+proc init*(this: var StepVisualTessellatedCurveSet;
+          theName: Handle[TCollectionHAsciiString];
+          theCoordList: Handle[StepVisualCoordinatesList];
+          theCurves: NCollectionHandle[StepVisualVectorOfHSequenceOfInteger]) {.
     importcpp: "Init", header: "StepVisual_TessellatedCurveSet.hxx".}
-proc CoordList*(this: StepVisual_TessellatedCurveSet): handle[
-    StepVisual_CoordinatesList] {.noSideEffect, importcpp: "CoordList",
-                                 header: "StepVisual_TessellatedCurveSet.hxx".}
-proc Curves*(this: StepVisual_TessellatedCurveSet): NCollection_Handle[
-    StepVisual_VectorOfHSequenceOfInteger] {.noSideEffect, importcpp: "Curves",
+proc coordList*(this: StepVisualTessellatedCurveSet): Handle[
+    StepVisualCoordinatesList] {.noSideEffect, importcpp: "CoordList",
+                                header: "StepVisual_TessellatedCurveSet.hxx".}
+proc curves*(this: StepVisualTessellatedCurveSet): NCollectionHandle[
+    StepVisualVectorOfHSequenceOfInteger] {.noSideEffect, importcpp: "Curves",
     header: "StepVisual_TessellatedCurveSet.hxx".}
 type
-  StepVisual_TessellatedCurveSetbase_type* = StepVisual_TessellatedItem
+  StepVisualTessellatedCurveSetbaseType* = StepVisualTessellatedItem
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_TessellatedCurveSet::get_type_name(@)",
-                              header: "StepVisual_TessellatedCurveSet.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_TessellatedCurveSet::get_type_name(@)",
+                            header: "StepVisual_TessellatedCurveSet.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_TessellatedCurveSet::get_type_descriptor(@)",
     header: "StepVisual_TessellatedCurveSet.hxx".}
-proc DynamicType*(this: StepVisual_TessellatedCurveSet): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualTessellatedCurveSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_TessellatedCurveSet.hxx".}

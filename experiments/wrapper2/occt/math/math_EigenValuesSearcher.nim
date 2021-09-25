@@ -13,28 +13,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColStd/TColStd_HArray1OfReal,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_HArray2OfReal, ../TColStd/TColStd_Array1OfReal,
-  ../Standard/Standard_Real, math_Vector
-
 discard "forward decl of StdFail_NotDone"
 type
-  math_EigenValuesSearcher* {.importcpp: "math_EigenValuesSearcher",
-                             header: "math_EigenValuesSearcher.hxx", bycopy.} = object
+  MathEigenValuesSearcher* {.importcpp: "math_EigenValuesSearcher",
+                            header: "math_EigenValuesSearcher.hxx", bycopy.} = object
 
 
-proc constructmath_EigenValuesSearcher*(Diagonal: TColStd_Array1OfReal;
-                                       Subdiagonal: TColStd_Array1OfReal): math_EigenValuesSearcher {.
+proc constructMathEigenValuesSearcher*(diagonal: TColStdArray1OfReal;
+                                      subdiagonal: TColStdArray1OfReal): MathEigenValuesSearcher {.
     constructor, importcpp: "math_EigenValuesSearcher(@)",
     header: "math_EigenValuesSearcher.hxx".}
-proc IsDone*(this: math_EigenValuesSearcher): Standard_Boolean {.noSideEffect,
+proc isDone*(this: MathEigenValuesSearcher): bool {.noSideEffect,
     importcpp: "IsDone", header: "math_EigenValuesSearcher.hxx".}
-proc Dimension*(this: math_EigenValuesSearcher): Standard_Integer {.noSideEffect,
+proc dimension*(this: MathEigenValuesSearcher): int {.noSideEffect,
     importcpp: "Dimension", header: "math_EigenValuesSearcher.hxx".}
-proc EigenValue*(this: math_EigenValuesSearcher; Index: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "EigenValue", header: "math_EigenValuesSearcher.hxx".}
-proc EigenVector*(this: math_EigenValuesSearcher; Index: Standard_Integer): math_Vector {.
+proc eigenValue*(this: MathEigenValuesSearcher; index: int): float {.noSideEffect,
+    importcpp: "EigenValue", header: "math_EigenValuesSearcher.hxx".}
+proc eigenVector*(this: MathEigenValuesSearcher; index: int): MathVector {.
     noSideEffect, importcpp: "EigenVector", header: "math_EigenValuesSearcher.hxx".}

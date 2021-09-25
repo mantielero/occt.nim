@@ -13,9 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Bnd/Bnd_Box, ../NCollection/NCollection_List
-
 type
-  IntTools_ListOfBox* = NCollection_List[Bnd_Box]
-  IntTools_ListIteratorOfListOfBox* = Iterator[Bnd_Box]
+  IntToolsListOfBox* = NCollectionList[BndBox]
+  IntToolsListIteratorOfListOfBox* = Iterator[BndBox]
+

@@ -14,4 +14,5 @@
 
 discard "forward decl of BOPAlgo_WireEdgeSet"
 type
-  BOPAlgo_PWireEdgeSet* = ptr BOPAlgo_WireEdgeSet
+  BOPAlgoPWireEdgeSet* = ptr BOPAlgoWireEdgeSet
+

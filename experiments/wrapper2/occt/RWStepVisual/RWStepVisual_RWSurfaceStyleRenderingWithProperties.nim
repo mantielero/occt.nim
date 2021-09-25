@@ -14,37 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of StepVisual_SurfaceStyleRenderingWithProperties"
 type
-  RWStepVisual_RWSurfaceStyleRenderingWithProperties* {.
+  RWStepVisualRWSurfaceStyleRenderingWithProperties* {.
       importcpp: "RWStepVisual_RWSurfaceStyleRenderingWithProperties",
       header: "RWStepVisual_RWSurfaceStyleRenderingWithProperties.hxx", bycopy.} = object
 
 
-proc constructRWStepVisual_RWSurfaceStyleRenderingWithProperties*(): RWStepVisual_RWSurfaceStyleRenderingWithProperties {.
+proc constructRWStepVisualRWSurfaceStyleRenderingWithProperties*(): RWStepVisualRWSurfaceStyleRenderingWithProperties {.
     constructor,
     importcpp: "RWStepVisual_RWSurfaceStyleRenderingWithProperties(@)",
     header: "RWStepVisual_RWSurfaceStyleRenderingWithProperties.hxx".}
-proc ReadStep*(this: RWStepVisual_RWSurfaceStyleRenderingWithProperties;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepVisual_SurfaceStyleRenderingWithProperties]) {.
+proc readStep*(this: RWStepVisualRWSurfaceStyleRenderingWithProperties;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepVisualSurfaceStyleRenderingWithProperties]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepVisual_RWSurfaceStyleRenderingWithProperties.hxx".}
-proc WriteStep*(this: RWStepVisual_RWSurfaceStyleRenderingWithProperties;
-               SW: var StepData_StepWriter;
-               ent: handle[StepVisual_SurfaceStyleRenderingWithProperties]) {.
+proc writeStep*(this: RWStepVisualRWSurfaceStyleRenderingWithProperties;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepVisualSurfaceStyleRenderingWithProperties]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepVisual_RWSurfaceStyleRenderingWithProperties.hxx".}
-proc Share*(this: RWStepVisual_RWSurfaceStyleRenderingWithProperties;
-           ent: handle[StepVisual_SurfaceStyleRenderingWithProperties];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepVisualRWSurfaceStyleRenderingWithProperties;
+           ent: Handle[StepVisualSurfaceStyleRenderingWithProperties];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWSurfaceStyleRenderingWithProperties.hxx".}

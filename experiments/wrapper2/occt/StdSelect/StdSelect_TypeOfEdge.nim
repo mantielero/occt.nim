@@ -19,7 +19,8 @@
 ## ! inheriting StdSelect_EdgeFilter.
 
 type
-  StdSelect_TypeOfEdge* {.size: sizeof(cint), importcpp: "StdSelect_TypeOfEdge",
-                         header: "StdSelect_TypeOfEdge.hxx".} = enum
-    StdSelect_AnyEdge, StdSelect_Line, StdSelect_Circle
+  StdSelectTypeOfEdge* {.size: sizeof(cint), importcpp: "StdSelect_TypeOfEdge",
+                        header: "StdSelect_TypeOfEdge.hxx".} = enum
+    StdSelectAnyEdge, StdSelectLine, StdSelectCircle
+
 

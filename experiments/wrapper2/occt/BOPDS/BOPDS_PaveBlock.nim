@@ -12,19 +12,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Bnd/Bnd_Box,
-  BOPDS_ListOfPave, BOPDS_ListOfPaveBlock, BOPDS_Pave,
-  ../NCollection/NCollection_BaseAllocator, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real,
-  ../Standard/Standard_Transient, ../TColStd/TColStd_MapOfInteger
-
 discard "forward decl of BOPDS_Pave"
 discard "forward decl of Bnd_Box"
 discard "forward decl of BOPDS_PaveBlock"
 discard "forward decl of BOPDS_PaveBlock"
 type
-  Handle_BOPDS_PaveBlock* = handle[BOPDS_PaveBlock]
+  HandleBOPDS_PaveBlock* = Handle[BOPDS_PaveBlock]
 
 ## ! The class BOPDS_PaveBlock is to store
 ## ! the information about pave block on an edge.
@@ -32,81 +25,77 @@ type
 
 type
   BOPDS_PaveBlock* {.importcpp: "BOPDS_PaveBlock", header: "BOPDS_PaveBlock.hxx",
-                    bycopy.} = object of Standard_Transient ## ! Empty contructor
+                    bycopy.} = object of StandardTransient ## ! Empty contructor
 
 
 proc constructBOPDS_PaveBlock*(): BOPDS_PaveBlock {.constructor,
     importcpp: "BOPDS_PaveBlock(@)", header: "BOPDS_PaveBlock.hxx".}
-proc constructBOPDS_PaveBlock*(theAllocator: handle[NCollection_BaseAllocator]): BOPDS_PaveBlock {.
+proc constructBOPDS_PaveBlock*(theAllocator: Handle[NCollectionBaseAllocator]): BOPDS_PaveBlock {.
     constructor, importcpp: "BOPDS_PaveBlock(@)", header: "BOPDS_PaveBlock.hxx".}
-proc SetPave1*(this: var BOPDS_PaveBlock; thePave: BOPDS_Pave) {.
+proc setPave1*(this: var BOPDS_PaveBlock; thePave: BOPDS_Pave) {.
     importcpp: "SetPave1", header: "BOPDS_PaveBlock.hxx".}
-proc Pave1*(this: BOPDS_PaveBlock): BOPDS_Pave {.noSideEffect, importcpp: "Pave1",
+proc pave1*(this: BOPDS_PaveBlock): BOPDS_Pave {.noSideEffect, importcpp: "Pave1",
     header: "BOPDS_PaveBlock.hxx".}
-proc SetPave2*(this: var BOPDS_PaveBlock; thePave: BOPDS_Pave) {.
+proc setPave2*(this: var BOPDS_PaveBlock; thePave: BOPDS_Pave) {.
     importcpp: "SetPave2", header: "BOPDS_PaveBlock.hxx".}
-proc Pave2*(this: BOPDS_PaveBlock): BOPDS_Pave {.noSideEffect, importcpp: "Pave2",
+proc pave2*(this: BOPDS_PaveBlock): BOPDS_Pave {.noSideEffect, importcpp: "Pave2",
     header: "BOPDS_PaveBlock.hxx".}
-proc SetEdge*(this: var BOPDS_PaveBlock; theEdge: Standard_Integer) {.
-    importcpp: "SetEdge", header: "BOPDS_PaveBlock.hxx".}
-proc Edge*(this: BOPDS_PaveBlock): Standard_Integer {.noSideEffect,
-    importcpp: "Edge", header: "BOPDS_PaveBlock.hxx".}
-proc HasEdge*(this: BOPDS_PaveBlock): Standard_Boolean {.noSideEffect,
+proc setEdge*(this: var BOPDS_PaveBlock; theEdge: int) {.importcpp: "SetEdge",
+    header: "BOPDS_PaveBlock.hxx".}
+proc edge*(this: BOPDS_PaveBlock): int {.noSideEffect, importcpp: "Edge",
+                                     header: "BOPDS_PaveBlock.hxx".}
+proc hasEdge*(this: BOPDS_PaveBlock): bool {.noSideEffect, importcpp: "HasEdge",
+    header: "BOPDS_PaveBlock.hxx".}
+proc hasEdge*(this: BOPDS_PaveBlock; theEdge: var int): bool {.noSideEffect,
     importcpp: "HasEdge", header: "BOPDS_PaveBlock.hxx".}
-proc HasEdge*(this: BOPDS_PaveBlock; theEdge: var Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "HasEdge", header: "BOPDS_PaveBlock.hxx".}
-proc SetOriginalEdge*(this: var BOPDS_PaveBlock; theEdge: Standard_Integer) {.
+proc setOriginalEdge*(this: var BOPDS_PaveBlock; theEdge: int) {.
     importcpp: "SetOriginalEdge", header: "BOPDS_PaveBlock.hxx".}
-proc OriginalEdge*(this: BOPDS_PaveBlock): Standard_Integer {.noSideEffect,
+proc originalEdge*(this: BOPDS_PaveBlock): int {.noSideEffect,
     importcpp: "OriginalEdge", header: "BOPDS_PaveBlock.hxx".}
-proc IsSplitEdge*(this: BOPDS_PaveBlock): Standard_Boolean {.noSideEffect,
+proc isSplitEdge*(this: BOPDS_PaveBlock): bool {.noSideEffect,
     importcpp: "IsSplitEdge", header: "BOPDS_PaveBlock.hxx".}
-proc Range*(this: BOPDS_PaveBlock; theT1: var Standard_Real; theT2: var Standard_Real) {.
-    noSideEffect, importcpp: "Range", header: "BOPDS_PaveBlock.hxx".}
-proc HasSameBounds*(this: BOPDS_PaveBlock; theOther: handle[BOPDS_PaveBlock]): Standard_Boolean {.
+proc range*(this: BOPDS_PaveBlock; theT1: var float; theT2: var float) {.noSideEffect,
+    importcpp: "Range", header: "BOPDS_PaveBlock.hxx".}
+proc hasSameBounds*(this: BOPDS_PaveBlock; theOther: Handle[BOPDS_PaveBlock]): bool {.
     noSideEffect, importcpp: "HasSameBounds", header: "BOPDS_PaveBlock.hxx".}
-proc Indices*(this: BOPDS_PaveBlock; theIndex1: var Standard_Integer;
-             theIndex2: var Standard_Integer) {.noSideEffect, importcpp: "Indices",
-    header: "BOPDS_PaveBlock.hxx".}
-proc IsToUpdate*(this: BOPDS_PaveBlock): Standard_Boolean {.noSideEffect,
+proc indices*(this: BOPDS_PaveBlock; theIndex1: var int; theIndex2: var int) {.
+    noSideEffect, importcpp: "Indices", header: "BOPDS_PaveBlock.hxx".}
+proc isToUpdate*(this: BOPDS_PaveBlock): bool {.noSideEffect,
     importcpp: "IsToUpdate", header: "BOPDS_PaveBlock.hxx".}
-proc AppendExtPave*(this: var BOPDS_PaveBlock; thePave: BOPDS_Pave) {.
+proc appendExtPave*(this: var BOPDS_PaveBlock; thePave: BOPDS_Pave) {.
     importcpp: "AppendExtPave", header: "BOPDS_PaveBlock.hxx".}
-proc AppendExtPave1*(this: var BOPDS_PaveBlock; thePave: BOPDS_Pave) {.
+proc appendExtPave1*(this: var BOPDS_PaveBlock; thePave: BOPDS_Pave) {.
     importcpp: "AppendExtPave1", header: "BOPDS_PaveBlock.hxx".}
-proc RemoveExtPave*(this: var BOPDS_PaveBlock; theVertNum: Standard_Integer) {.
+proc removeExtPave*(this: var BOPDS_PaveBlock; theVertNum: int) {.
     importcpp: "RemoveExtPave", header: "BOPDS_PaveBlock.hxx".}
-proc ExtPaves*(this: BOPDS_PaveBlock): BOPDS_ListOfPave {.noSideEffect,
+proc extPaves*(this: BOPDS_PaveBlock): BOPDS_ListOfPave {.noSideEffect,
     importcpp: "ExtPaves", header: "BOPDS_PaveBlock.hxx".}
-proc ChangeExtPaves*(this: var BOPDS_PaveBlock): var BOPDS_ListOfPave {.
+proc changeExtPaves*(this: var BOPDS_PaveBlock): var BOPDS_ListOfPave {.
     importcpp: "ChangeExtPaves", header: "BOPDS_PaveBlock.hxx".}
-proc Update*(this: var BOPDS_PaveBlock; theLPB: var BOPDS_ListOfPaveBlock;
-            theFlag: Standard_Boolean = Standard_True) {.importcpp: "Update",
-    header: "BOPDS_PaveBlock.hxx".}
-proc ContainsParameter*(this: BOPDS_PaveBlock; thePrm: Standard_Real;
-                       theTol: Standard_Real; theInd: var Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "ContainsParameter", header: "BOPDS_PaveBlock.hxx".}
-proc SetShrunkData*(this: var BOPDS_PaveBlock; theTS1: Standard_Real;
-                   theTS2: Standard_Real; theBox: Bnd_Box;
-                   theIsSplittable: Standard_Boolean) {.
+proc update*(this: var BOPDS_PaveBlock; theLPB: var BOPDS_ListOfPaveBlock;
+            theFlag: bool = true) {.importcpp: "Update", header: "BOPDS_PaveBlock.hxx".}
+proc containsParameter*(this: BOPDS_PaveBlock; thePrm: float; theTol: float;
+                       theInd: var int): bool {.noSideEffect,
+    importcpp: "ContainsParameter", header: "BOPDS_PaveBlock.hxx".}
+proc setShrunkData*(this: var BOPDS_PaveBlock; theTS1: float; theTS2: float;
+                   theBox: BndBox; theIsSplittable: bool) {.
     importcpp: "SetShrunkData", header: "BOPDS_PaveBlock.hxx".}
-proc ShrunkData*(this: BOPDS_PaveBlock; theTS1: var Standard_Real;
-                theTS2: var Standard_Real; theBox: var Bnd_Box;
-                theIsSplittable: var Standard_Boolean) {.noSideEffect,
+proc shrunkData*(this: BOPDS_PaveBlock; theTS1: var float; theTS2: var float;
+                theBox: var BndBox; theIsSplittable: var bool) {.noSideEffect,
     importcpp: "ShrunkData", header: "BOPDS_PaveBlock.hxx".}
-proc HasShrunkData*(this: BOPDS_PaveBlock): Standard_Boolean {.noSideEffect,
+proc hasShrunkData*(this: BOPDS_PaveBlock): bool {.noSideEffect,
     importcpp: "HasShrunkData", header: "BOPDS_PaveBlock.hxx".}
-proc Dump*(this: BOPDS_PaveBlock) {.noSideEffect, importcpp: "Dump",
+proc dump*(this: BOPDS_PaveBlock) {.noSideEffect, importcpp: "Dump",
                                  header: "BOPDS_PaveBlock.hxx".}
-proc IsSplittable*(this: BOPDS_PaveBlock): Standard_Boolean {.noSideEffect,
+proc isSplittable*(this: BOPDS_PaveBlock): bool {.noSideEffect,
     importcpp: "IsSplittable", header: "BOPDS_PaveBlock.hxx".}
 type
-  BOPDS_PaveBlockbase_type* = Standard_Transient
+  BOPDS_PaveBlockbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "BOPDS_PaveBlock::get_type_name(@)",
-                              header: "BOPDS_PaveBlock.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BOPDS_PaveBlock::get_type_name(@)",
+                            header: "BOPDS_PaveBlock.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BOPDS_PaveBlock::get_type_descriptor(@)",
     header: "BOPDS_PaveBlock.hxx".}
-proc DynamicType*(this: BOPDS_PaveBlock): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: BOPDS_PaveBlock): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BOPDS_PaveBlock.hxx".}

@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean
-
 discard "forward decl of XSControl_WorkSession"
 discard "forward decl of Transfer_FinderProcess"
 discard "forward decl of Transfer_TransientProcess"
@@ -24,28 +20,28 @@ discard "forward decl of Interface_HGraph"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_Graph"
 type
-  STEPConstruct_Tool* {.importcpp: "STEPConstruct_Tool",
-                       header: "STEPConstruct_Tool.hxx", bycopy.} = object ## ! Creates an empty tool
-                                                                      ## ! Load
-                                                                      ## worksession; returns True if succeeded
-                                                                      ## ! Returns False if either
-                                                                      ## FinderProcess of
-                                                                      ## TransientProcess
-                                                                      ## ! cannot be obtained or are Null
+  STEPConstructTool* {.importcpp: "STEPConstruct_Tool",
+                      header: "STEPConstruct_Tool.hxx", bycopy.} = object ## ! Creates an empty tool
+                                                                     ## ! Load
+                                                                     ## worksession; returns True if succeeded
+                                                                     ## ! Returns False if either
+                                                                     ## FinderProcess of
+                                                                     ## TransientProcess
+                                                                     ## ! cannot be obtained or are Null
 
 
-proc constructSTEPConstruct_Tool*(): STEPConstruct_Tool {.constructor,
+proc constructSTEPConstructTool*(): STEPConstructTool {.constructor,
     importcpp: "STEPConstruct_Tool(@)", header: "STEPConstruct_Tool.hxx".}
-proc constructSTEPConstruct_Tool*(WS: handle[XSControl_WorkSession]): STEPConstruct_Tool {.
+proc constructSTEPConstructTool*(ws: Handle[XSControlWorkSession]): STEPConstructTool {.
     constructor, importcpp: "STEPConstruct_Tool(@)",
     header: "STEPConstruct_Tool.hxx".}
-proc WS*(this: STEPConstruct_Tool): handle[XSControl_WorkSession] {.noSideEffect,
+proc ws*(this: STEPConstructTool): Handle[XSControlWorkSession] {.noSideEffect,
     importcpp: "WS", header: "STEPConstruct_Tool.hxx".}
-proc Model*(this: STEPConstruct_Tool): handle[Interface_InterfaceModel] {.
+proc model*(this: STEPConstructTool): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "Model", header: "STEPConstruct_Tool.hxx".}
-proc Graph*(this: STEPConstruct_Tool; recompute: Standard_Boolean = Standard_False): Interface_Graph {.
+proc graph*(this: STEPConstructTool; recompute: bool = false): InterfaceGraph {.
     noSideEffect, importcpp: "Graph", header: "STEPConstruct_Tool.hxx".}
-proc TransientProcess*(this: STEPConstruct_Tool): handle[Transfer_TransientProcess] {.
+proc transientProcess*(this: STEPConstructTool): Handle[TransferTransientProcess] {.
     noSideEffect, importcpp: "TransientProcess", header: "STEPConstruct_Tool.hxx".}
-proc FinderProcess*(this: STEPConstruct_Tool): handle[Transfer_FinderProcess] {.
+proc finderProcess*(this: STEPConstructTool): Handle[TransferFinderProcess] {.
     noSideEffect, importcpp: "FinderProcess", header: "STEPConstruct_Tool.hxx".}

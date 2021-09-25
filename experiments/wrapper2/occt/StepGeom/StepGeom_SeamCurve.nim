@@ -14,30 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_SurfaceCurve
-
 discard "forward decl of StepGeom_SeamCurve"
 discard "forward decl of StepGeom_SeamCurve"
 type
-  Handle_StepGeom_SeamCurve* = handle[StepGeom_SeamCurve]
-  StepGeom_SeamCurve* {.importcpp: "StepGeom_SeamCurve",
-                       header: "StepGeom_SeamCurve.hxx", bycopy.} = object of StepGeom_SurfaceCurve ##
-                                                                                             ## !
-                                                                                             ## Returns
-                                                                                             ## a
-                                                                                             ## SeamCurve
+  HandleStepGeomSeamCurve* = Handle[StepGeomSeamCurve]
+  StepGeomSeamCurve* {.importcpp: "StepGeom_SeamCurve",
+                      header: "StepGeom_SeamCurve.hxx", bycopy.} = object of StepGeomSurfaceCurve ##
+                                                                                           ## !
+                                                                                           ## Returns
+                                                                                           ## a
+                                                                                           ## SeamCurve
 
 
-proc constructStepGeom_SeamCurve*(): StepGeom_SeamCurve {.constructor,
+proc constructStepGeomSeamCurve*(): StepGeomSeamCurve {.constructor,
     importcpp: "StepGeom_SeamCurve(@)", header: "StepGeom_SeamCurve.hxx".}
 type
-  StepGeom_SeamCurvebase_type* = StepGeom_SurfaceCurve
+  StepGeomSeamCurvebaseType* = StepGeomSurfaceCurve
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_SeamCurve::get_type_name(@)",
-                              header: "StepGeom_SeamCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_SeamCurve::get_type_name(@)",
+                            header: "StepGeom_SeamCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_SeamCurve::get_type_descriptor(@)",
     header: "StepGeom_SeamCurve.hxx".}
-proc DynamicType*(this: StepGeom_SeamCurve): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepGeomSeamCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_SeamCurve.hxx".}

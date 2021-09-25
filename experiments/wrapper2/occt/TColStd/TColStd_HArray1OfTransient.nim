@@ -12,38 +12,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Transient, TColStd_Array1OfTransient,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  TColStd_HArray1OfTransient* {.importcpp: "TColStd_HArray1OfTransient",
-                               header: "TColStd_HArray1OfTransient.hxx", bycopy.} = object of TColStd_Array1OfTransient
+  TColStdHArray1OfTransient* {.importcpp: "TColStd_HArray1OfTransient",
+                              header: "TColStd_HArray1OfTransient.hxx", bycopy.} = object of TColStdArray1OfTransient
 
 
-proc constructTColStd_HArray1OfTransient*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): TColStd_HArray1OfTransient {.constructor,
-    importcpp: "TColStd_HArray1OfTransient(@)",
-    header: "TColStd_HArray1OfTransient.hxx".}
-proc constructTColStd_HArray1OfTransient*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): TColStd_HArray1OfTransient {.
+proc constructTColStdHArray1OfTransient*(theLower: int; theUpper: int): TColStdHArray1OfTransient {.
     constructor, importcpp: "TColStd_HArray1OfTransient(@)",
     header: "TColStd_HArray1OfTransient.hxx".}
-proc constructTColStd_HArray1OfTransient*(theOther: TColStd_Array1OfTransient): TColStd_HArray1OfTransient {.
+proc constructTColStdHArray1OfTransient*(theLower: int; theUpper: int;
+                                        theValue: ValueType): TColStdHArray1OfTransient {.
     constructor, importcpp: "TColStd_HArray1OfTransient(@)",
     header: "TColStd_HArray1OfTransient.hxx".}
-proc Array1*(this: TColStd_HArray1OfTransient): TColStd_Array1OfTransient {.
+proc constructTColStdHArray1OfTransient*(theOther: TColStdArray1OfTransient): TColStdHArray1OfTransient {.
+    constructor, importcpp: "TColStd_HArray1OfTransient(@)",
+    header: "TColStd_HArray1OfTransient.hxx".}
+proc array1*(this: TColStdHArray1OfTransient): TColStdArray1OfTransient {.
     noSideEffect, importcpp: "Array1", header: "TColStd_HArray1OfTransient.hxx".}
-proc ChangeArray1*(this: var TColStd_HArray1OfTransient): var TColStd_Array1OfTransient {.
+proc changeArray1*(this: var TColStdHArray1OfTransient): var TColStdArray1OfTransient {.
     importcpp: "ChangeArray1", header: "TColStd_HArray1OfTransient.hxx".}
 type
-  TColStd_HArray1OfTransientbase_type* = MMgt_TShared
+  TColStdHArray1OfTransientbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TColStd_HArray1OfTransient::get_type_name(@)",
-                              header: "TColStd_HArray1OfTransient.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TColStd_HArray1OfTransient::get_type_name(@)",
+                            header: "TColStd_HArray1OfTransient.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TColStd_HArray1OfTransient::get_type_descriptor(@)",
     header: "TColStd_HArray1OfTransient.hxx".}
-proc DynamicType*(this: TColStd_HArray1OfTransient): handle[Standard_Type] {.
+proc dynamicType*(this: TColStdHArray1OfTransient): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TColStd_HArray1OfTransient.hxx".}

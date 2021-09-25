@@ -309,8 +309,8 @@ type
 
   Standard_Transientbase_type* = void      
 ## ! Forms the root of the entire exception hierarchy.
-when defined(WIN32):
-  discard
+# when defined(WIN32):
+#   discard
 else:
   type
     GUID* {.importcpp: "GUID", header: "Standard_UUID.hxx", bycopy.} = object
@@ -3966,3 +3966,8 @@ when defined(MSC_VER):
                                     header: "Standard_math.hxx".}
     proc atanh*(a1: cdouble): cdouble {.cdecl, importcpp: "atanh(@)",
                                     header: "Standard_math.hxx".}
+
+
+
+
+

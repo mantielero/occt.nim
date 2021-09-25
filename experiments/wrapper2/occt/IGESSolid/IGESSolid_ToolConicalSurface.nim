@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESSolid_ConicalSurface"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,40 +26,46 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESSolid_ToolConicalSurface* {.importcpp: "IGESSolid_ToolConicalSurface",
-                                 header: "IGESSolid_ToolConicalSurface.hxx",
-                                 bycopy.} = object ## ! Returns a ToolConicalSurface, ready to work
+  IGESSolidToolConicalSurface* {.importcpp: "IGESSolid_ToolConicalSurface",
+                                header: "IGESSolid_ToolConicalSurface.hxx", bycopy.} = object ##
+                                                                                         ## !
+                                                                                         ## Returns
+                                                                                         ## a
+                                                                                         ## ToolConicalSurface,
+                                                                                         ## ready
+                                                                                         ## to
+                                                                                         ## work
 
 
-proc constructIGESSolid_ToolConicalSurface*(): IGESSolid_ToolConicalSurface {.
+proc constructIGESSolidToolConicalSurface*(): IGESSolidToolConicalSurface {.
     constructor, importcpp: "IGESSolid_ToolConicalSurface(@)",
     header: "IGESSolid_ToolConicalSurface.hxx".}
-proc ReadOwnParams*(this: IGESSolid_ToolConicalSurface;
-                   ent: handle[IGESSolid_ConicalSurface];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESSolid_ToolConicalSurface.hxx".}
-proc WriteOwnParams*(this: IGESSolid_ToolConicalSurface;
-                    ent: handle[IGESSolid_ConicalSurface];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESSolidToolConicalSurface;
+                   ent: Handle[IGESSolidConicalSurface];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESSolid_ToolConicalSurface.hxx".}
+proc writeOwnParams*(this: IGESSolidToolConicalSurface;
+                    ent: Handle[IGESSolidConicalSurface];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESSolid_ToolConicalSurface.hxx".}
-proc OwnShared*(this: IGESSolid_ToolConicalSurface;
-               ent: handle[IGESSolid_ConicalSurface];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESSolidToolConicalSurface;
+               ent: Handle[IGESSolidConicalSurface];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESSolid_ToolConicalSurface.hxx".}
-proc DirChecker*(this: IGESSolid_ToolConicalSurface;
-                ent: handle[IGESSolid_ConicalSurface]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESSolidToolConicalSurface;
+                ent: Handle[IGESSolidConicalSurface]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESSolid_ToolConicalSurface.hxx".}
-proc OwnCheck*(this: IGESSolid_ToolConicalSurface;
-              ent: handle[IGESSolid_ConicalSurface]; shares: Interface_ShareTool;
-              ach: var handle[Interface_Check]) {.noSideEffect,
+proc ownCheck*(this: IGESSolidToolConicalSurface;
+              ent: Handle[IGESSolidConicalSurface]; shares: InterfaceShareTool;
+              ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "OwnCheck", header: "IGESSolid_ToolConicalSurface.hxx".}
-proc OwnCopy*(this: IGESSolid_ToolConicalSurface;
-             entfrom: handle[IGESSolid_ConicalSurface];
-             entto: handle[IGESSolid_ConicalSurface]; TC: var Interface_CopyTool) {.
+proc ownCopy*(this: IGESSolidToolConicalSurface;
+             entfrom: Handle[IGESSolidConicalSurface];
+             entto: Handle[IGESSolidConicalSurface]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESSolid_ToolConicalSurface.hxx".}
-proc OwnDump*(this: IGESSolid_ToolConicalSurface;
-             ent: handle[IGESSolid_ConicalSurface]; dumper: IGESData_IGESDumper;
-             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
-    importcpp: "OwnDump", header: "IGESSolid_ToolConicalSurface.hxx".}
+proc ownDump*(this: IGESSolidToolConicalSurface;
+             ent: Handle[IGESSolidConicalSurface]; dumper: IGESDataIGESDumper;
+             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+    header: "IGESSolid_ToolConicalSurface.hxx".}

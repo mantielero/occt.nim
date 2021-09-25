@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GC_Root, ../Geom/Geom_Plane
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Pln"
@@ -40,23 +36,22 @@ type
                                                                                             ## gp.
 
 
-proc constructGC_MakePlane*(Pl: gp_Pln): GC_MakePlane {.constructor,
+proc constructGC_MakePlane*(pl: Pln): GC_MakePlane {.constructor,
     importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
-proc constructGC_MakePlane*(P: gp_Pnt; V: gp_Dir): GC_MakePlane {.constructor,
+proc constructGC_MakePlane*(p: Pnt; v: Dir): GC_MakePlane {.constructor,
     importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
-proc constructGC_MakePlane*(A: Standard_Real; B: Standard_Real; C: Standard_Real;
-                           D: Standard_Real): GC_MakePlane {.constructor,
-    importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
-proc constructGC_MakePlane*(Pln: gp_Pln; Point: gp_Pnt): GC_MakePlane {.constructor,
-    importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
-proc constructGC_MakePlane*(Pln: gp_Pln; Dist: Standard_Real): GC_MakePlane {.
+proc constructGC_MakePlane*(a: float; b: float; c: float; d: float): GC_MakePlane {.
     constructor, importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
-proc constructGC_MakePlane*(P1: gp_Pnt; P2: gp_Pnt; P3: gp_Pnt): GC_MakePlane {.
-    constructor, importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
-proc constructGC_MakePlane*(Axis: gp_Ax1): GC_MakePlane {.constructor,
+proc constructGC_MakePlane*(pln: Pln; point: Pnt): GC_MakePlane {.constructor,
     importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
-proc Value*(this: GC_MakePlane): handle[Geom_Plane] {.noSideEffect,
+proc constructGC_MakePlane*(pln: Pln; dist: float): GC_MakePlane {.constructor,
+    importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
+proc constructGC_MakePlane*(p1: Pnt; p2: Pnt; p3: Pnt): GC_MakePlane {.constructor,
+    importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
+proc constructGC_MakePlane*(axis: Ax1): GC_MakePlane {.constructor,
+    importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
+proc value*(this: GC_MakePlane): Handle[GeomPlane] {.noSideEffect,
     importcpp: "Value", header: "GC_MakePlane.hxx".}
-converter `constopencascade`*(this: GC_MakePlane): handle[Geom_Plane] {.
-    noSideEffect, importcpp: "GC_MakePlane::operator constopencascade",
+converter `constopencascade`*(this: GC_MakePlane): Handle[GeomPlane] {.noSideEffect,
+    importcpp: "GC_MakePlane::operator constopencascade",
     header: "GC_MakePlane.hxx".}

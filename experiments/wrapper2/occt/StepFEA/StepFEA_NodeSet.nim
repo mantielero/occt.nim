@@ -13,43 +13,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepFEA_HArray1OfNodeRepresentation,
-  ../StepGeom/StepGeom_GeometricRepresentationItem
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepFEA_NodeSet"
 discard "forward decl of StepFEA_NodeSet"
 type
-  Handle_StepFEA_NodeSet* = handle[StepFEA_NodeSet]
+  HandleStepFEA_NodeSet* = Handle[StepFEA_NodeSet]
 
 ## ! Representation of STEP entity NodeSet
 
 type
   StepFEA_NodeSet* {.importcpp: "StepFEA_NodeSet", header: "StepFEA_NodeSet.hxx",
-                    bycopy.} = object of StepGeom_GeometricRepresentationItem ## ! Empty
-                                                                         ## constructor
+                    bycopy.} = object of StepGeomGeometricRepresentationItem ## ! Empty
+                                                                        ## constructor
 
 
 proc constructStepFEA_NodeSet*(): StepFEA_NodeSet {.constructor,
     importcpp: "StepFEA_NodeSet(@)", header: "StepFEA_NodeSet.hxx".}
-proc Init*(this: var StepFEA_NodeSet;
-          aRepresentationItem_Name: handle[TCollection_HAsciiString];
-          aNodes: handle[StepFEA_HArray1OfNodeRepresentation]) {.
+proc init*(this: var StepFEA_NodeSet;
+          aRepresentationItemName: Handle[TCollectionHAsciiString];
+          aNodes: Handle[StepFEA_HArray1OfNodeRepresentation]) {.
     importcpp: "Init", header: "StepFEA_NodeSet.hxx".}
-proc Nodes*(this: StepFEA_NodeSet): handle[StepFEA_HArray1OfNodeRepresentation] {.
+proc nodes*(this: StepFEA_NodeSet): Handle[StepFEA_HArray1OfNodeRepresentation] {.
     noSideEffect, importcpp: "Nodes", header: "StepFEA_NodeSet.hxx".}
-proc SetNodes*(this: var StepFEA_NodeSet;
-              Nodes: handle[StepFEA_HArray1OfNodeRepresentation]) {.
+proc setNodes*(this: var StepFEA_NodeSet;
+              nodes: Handle[StepFEA_HArray1OfNodeRepresentation]) {.
     importcpp: "SetNodes", header: "StepFEA_NodeSet.hxx".}
 type
-  StepFEA_NodeSetbase_type* = StepGeom_GeometricRepresentationItem
+  StepFEA_NodeSetbaseType* = StepGeomGeometricRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_NodeSet::get_type_name(@)",
-                              header: "StepFEA_NodeSet.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_NodeSet::get_type_name(@)",
+                            header: "StepFEA_NodeSet.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_NodeSet::get_type_descriptor(@)",
     header: "StepFEA_NodeSet.hxx".}
-proc DynamicType*(this: StepFEA_NodeSet): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepFEA_NodeSet): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepFEA_NodeSet.hxx".}

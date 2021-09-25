@@ -13,34 +13,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepDimTol_GeoTolAndGeoTolWthMaxTol"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepDimTol_RWGeoTolAndGeoTolWthMaxTol* {.
+  RWStepDimTolRWGeoTolAndGeoTolWthMaxTol* {.
       importcpp: "RWStepDimTol_RWGeoTolAndGeoTolWthMaxTol",
       header: "RWStepDimTol_RWGeoTolAndGeoTolWthMaxTol.hxx", bycopy.} = object
 
 
-proc constructRWStepDimTol_RWGeoTolAndGeoTolWthMaxTol*(): RWStepDimTol_RWGeoTolAndGeoTolWthMaxTol {.
+proc constructRWStepDimTolRWGeoTolAndGeoTolWthMaxTol*(): RWStepDimTolRWGeoTolAndGeoTolWthMaxTol {.
     constructor, importcpp: "RWStepDimTol_RWGeoTolAndGeoTolWthMaxTol(@)",
     header: "RWStepDimTol_RWGeoTolAndGeoTolWthMaxTol.hxx".}
-proc ReadStep*(this: RWStepDimTol_RWGeoTolAndGeoTolWthMaxTol;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepDimTol_GeoTolAndGeoTolWthMaxTol]) {.noSideEffect,
+proc readStep*(this: RWStepDimTolRWGeoTolAndGeoTolWthMaxTol;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepDimTolGeoTolAndGeoTolWthMaxTol]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepDimTol_RWGeoTolAndGeoTolWthMaxTol.hxx".}
-proc WriteStep*(this: RWStepDimTol_RWGeoTolAndGeoTolWthMaxTol;
-               SW: var StepData_StepWriter;
-               ent: handle[StepDimTol_GeoTolAndGeoTolWthMaxTol]) {.noSideEffect,
+proc writeStep*(this: RWStepDimTolRWGeoTolAndGeoTolWthMaxTol;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepDimTolGeoTolAndGeoTolWthMaxTol]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepDimTol_RWGeoTolAndGeoTolWthMaxTol.hxx".}
-proc Share*(this: RWStepDimTol_RWGeoTolAndGeoTolWthMaxTol;
-           ent: handle[StepDimTol_GeoTolAndGeoTolWthMaxTol];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepDimTolRWGeoTolAndGeoTolWthMaxTol;
+           ent: Handle[StepDimTolGeoTolAndGeoTolWthMaxTol];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWGeoTolAndGeoTolWthMaxTol.hxx".}

@@ -18,3 +18,4 @@ type
   StepToTopoDS_TranslateVertexError* {.size: sizeof(cint), importcpp: "StepToTopoDS_TranslateVertexError", header: "StepToTopoDS_TranslateVertexError.hxx".} = enum
     StepToTopoDS_TranslateVertexDone, StepToTopoDS_TranslateVertexOther
 
+

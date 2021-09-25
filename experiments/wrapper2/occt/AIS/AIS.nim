@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Prs3d/Prs3d_Presentation, ../Standard/Standard,
-  ../Standard/Standard_DefineAlloc
-
 ## ! Application Interactive Services provide the means to create links between an application GUI viewer and
 ## ! the packages which are used to manage selection and presentation.
 ## ! The tools AIS defined in order to do this include different sorts of entities:
@@ -66,5 +62,6 @@ import
 ## ! When an interactive object is visualized, the required graphic attributes are first taken from the object's own Drawer if one exists, or from the context drawer for the others.
 
 type
-  AIS* {.importcpp: "AIS", header: "AIS.hxx", bycopy.} = object
+  Ais* {.importcpp: "AIS", header: "AIS.hxx", bycopy.} = object
+
 

@@ -13,64 +13,63 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _IntTools_CArray1OfInteger_HeaderFile [NewLine] # _IntTools_CArray1OfInteger_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Standard/Standard_Address.hxx [NewLine] # ../Standard/Standard_Integer.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] class Standard_ConstructionError ;
+## !!!Ignored construct:  # _IntTools_CArray1OfInteger_HeaderFile [NewLine] # _IntTools_CArray1OfInteger_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Standard_Address . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] class Standard_ConstructionError ;
 ## Error: did not expect <!!!
 
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_OutOfMemory"
 type
-  IntTools_CArray1OfInteger* {.importcpp: "IntTools_CArray1OfInteger",
-                              header: "IntTools_CArray1OfInteger.hxx", bycopy.} = object ##
-                                                                                    ## !
-                                                                                    ## Creates
-                                                                                    ## an
-                                                                                    ## array
-                                                                                    ## of
-                                                                                    ## given
-                                                                                    ## Length.
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## Prohibits
-                                                                                    ## the
-                                                                                    ## creator
-                                                                                    ## by
-                                                                                    ## copy
+  IntToolsCArray1OfInteger* {.importcpp: "IntTools_CArray1OfInteger",
+                             header: "IntTools_CArray1OfInteger.hxx", bycopy.} = object ##
+                                                                                   ## !
+                                                                                   ## Creates
+                                                                                   ## an
+                                                                                   ## array
+                                                                                   ## of
+                                                                                   ## given
+                                                                                   ## Length.
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## Prohibits
+                                                                                   ## the
+                                                                                   ## creator
+                                                                                   ## by
+                                                                                   ## copy
 
 
-proc constructIntTools_CArray1OfInteger*(Length: Standard_Integer = 0): IntTools_CArray1OfInteger {.
+proc constructIntToolsCArray1OfInteger*(length: int = 0): IntToolsCArray1OfInteger {.
     constructor, importcpp: "IntTools_CArray1OfInteger(@)",
     header: "IntTools_CArray1OfInteger.hxx".}
-proc constructIntTools_CArray1OfInteger*(Item: Standard_Integer;
-                                        Length: Standard_Integer): IntTools_CArray1OfInteger {.
+proc constructIntToolsCArray1OfInteger*(item: int; length: int): IntToolsCArray1OfInteger {.
     constructor, importcpp: "IntTools_CArray1OfInteger(@)",
     header: "IntTools_CArray1OfInteger.hxx".}
-proc Init*(this: var IntTools_CArray1OfInteger; V: Standard_Integer) {.
-    importcpp: "Init", header: "IntTools_CArray1OfInteger.hxx".}
-proc Resize*(this: var IntTools_CArray1OfInteger; theNewLength: Standard_Integer) {.
+proc init*(this: var IntToolsCArray1OfInteger; v: int) {.importcpp: "Init",
+    header: "IntTools_CArray1OfInteger.hxx".}
+proc resize*(this: var IntToolsCArray1OfInteger; theNewLength: int) {.
     importcpp: "Resize", header: "IntTools_CArray1OfInteger.hxx".}
-proc Destroy*(this: var IntTools_CArray1OfInteger) {.importcpp: "Destroy",
+proc destroy*(this: var IntToolsCArray1OfInteger) {.importcpp: "Destroy",
     header: "IntTools_CArray1OfInteger.hxx".}
-proc destroyIntTools_CArray1OfInteger*(this: var IntTools_CArray1OfInteger) {.
+proc destroyIntToolsCArray1OfInteger*(this: var IntToolsCArray1OfInteger) {.
     importcpp: "#.~IntTools_CArray1OfInteger()",
     header: "IntTools_CArray1OfInteger.hxx".}
-proc Length*(this: IntTools_CArray1OfInteger): Standard_Integer {.noSideEffect,
+proc length*(this: IntToolsCArray1OfInteger): int {.noSideEffect,
     importcpp: "Length", header: "IntTools_CArray1OfInteger.hxx".}
-proc Append*(this: var IntTools_CArray1OfInteger; Value: Standard_Integer) {.
-    importcpp: "Append", header: "IntTools_CArray1OfInteger.hxx".}
-proc SetValue*(this: var IntTools_CArray1OfInteger; Index: Standard_Integer;
-              Value: Standard_Integer) {.importcpp: "SetValue",
-                                       header: "IntTools_CArray1OfInteger.hxx".}
-proc Value*(this: IntTools_CArray1OfInteger; Index: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "Value", header: "IntTools_CArray1OfInteger.hxx".}
-proc `()`*(this: IntTools_CArray1OfInteger; Index: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "#(@)", header: "IntTools_CArray1OfInteger.hxx".}
-proc ChangeValue*(this: var IntTools_CArray1OfInteger; Index: Standard_Integer): var Standard_Integer {.
-    importcpp: "ChangeValue", header: "IntTools_CArray1OfInteger.hxx".}
-proc `()`*(this: var IntTools_CArray1OfInteger; Index: Standard_Integer): var Standard_Integer {.
+proc append*(this: var IntToolsCArray1OfInteger; value: int) {.importcpp: "Append",
+    header: "IntTools_CArray1OfInteger.hxx".}
+proc setValue*(this: var IntToolsCArray1OfInteger; index: int; value: int) {.
+    importcpp: "SetValue", header: "IntTools_CArray1OfInteger.hxx".}
+proc value*(this: IntToolsCArray1OfInteger; index: int): int {.noSideEffect,
+    importcpp: "Value", header: "IntTools_CArray1OfInteger.hxx".}
+proc `()`*(this: IntToolsCArray1OfInteger; index: int): int {.noSideEffect,
     importcpp: "#(@)", header: "IntTools_CArray1OfInteger.hxx".}
-proc IsEqual*(this: IntTools_CArray1OfInteger; Other: IntTools_CArray1OfInteger): Standard_Boolean {.
+proc changeValue*(this: var IntToolsCArray1OfInteger; index: int): var int {.
+    importcpp: "ChangeValue", header: "IntTools_CArray1OfInteger.hxx".}
+proc `()`*(this: var IntToolsCArray1OfInteger; index: int): var int {.importcpp: "#(@)",
+    header: "IntTools_CArray1OfInteger.hxx".}
+proc isEqual*(this: IntToolsCArray1OfInteger; other: IntToolsCArray1OfInteger): bool {.
     noSideEffect, importcpp: "IsEqual", header: "IntTools_CArray1OfInteger.hxx".}
-proc `==`*(this: IntTools_CArray1OfInteger; Other: IntTools_CArray1OfInteger): Standard_Boolean {.
+proc `==`*(this: IntToolsCArray1OfInteger; other: IntToolsCArray1OfInteger): bool {.
     noSideEffect, importcpp: "(# == #)", header: "IntTools_CArray1OfInteger.hxx".}
-## !!!Ignored construct:  # Array1Item Standard_Integer [NewLine] # Array1Item_hxx < Standard_Integer . hxx > [NewLine] # IntTools_CArray1 IntTools_CArray1OfInteger [NewLine] # IntTools_CArray1_hxx < IntTools_CArray1OfInteger . hxx > [NewLine] # < IntTools_CArray1 . lxx > [NewLine] # Array1Item [NewLine] # Array1Item_hxx [NewLine] # IntTools_CArray1 [NewLine] # IntTools_CArray1_hxx [NewLine] #  _IntTools_CArray1OfInteger_HeaderFile [NewLine]
+## !!!Ignored construct:  # Array1Item Standard_Integer [NewLine] # Array1Item_hxx < Standard_Integer . hxx > [NewLine] # IntTools_CArray1 IntTools_CArray1OfInteger [NewLine] # IntTools_CArray1_hxx < IntTools_CArray1OfInteger . hxx > [NewLine] # < IntTools_CArray1 . lxx > [NewLine] # Array1Item [NewLine] # Array1Item_hxx [NewLine] # IntTools_CArray1 [NewLine] # IntTools_CArray1_hxx [NewLine] #  _IntTools_CArray1OfInteger_HeaderFile
 ## Error: did not expect <!!!
+

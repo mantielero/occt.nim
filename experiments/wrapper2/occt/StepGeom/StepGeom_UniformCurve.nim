@@ -14,30 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_BSplineCurve
-
 discard "forward decl of StepGeom_UniformCurve"
 discard "forward decl of StepGeom_UniformCurve"
 type
-  Handle_StepGeom_UniformCurve* = handle[StepGeom_UniformCurve]
-  StepGeom_UniformCurve* {.importcpp: "StepGeom_UniformCurve",
-                          header: "StepGeom_UniformCurve.hxx", bycopy.} = object of StepGeom_BSplineCurve ##
-                                                                                                   ## !
-                                                                                                   ## Returns
-                                                                                                   ## a
-                                                                                                   ## UniformCurve
+  HandleStepGeomUniformCurve* = Handle[StepGeomUniformCurve]
+  StepGeomUniformCurve* {.importcpp: "StepGeom_UniformCurve",
+                         header: "StepGeom_UniformCurve.hxx", bycopy.} = object of StepGeomBSplineCurve ##
+                                                                                                 ## !
+                                                                                                 ## Returns
+                                                                                                 ## a
+                                                                                                 ## UniformCurve
 
 
-proc constructStepGeom_UniformCurve*(): StepGeom_UniformCurve {.constructor,
+proc constructStepGeomUniformCurve*(): StepGeomUniformCurve {.constructor,
     importcpp: "StepGeom_UniformCurve(@)", header: "StepGeom_UniformCurve.hxx".}
 type
-  StepGeom_UniformCurvebase_type* = StepGeom_BSplineCurve
+  StepGeomUniformCurvebaseType* = StepGeomBSplineCurve
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_UniformCurve::get_type_name(@)",
-                              header: "StepGeom_UniformCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_UniformCurve::get_type_name(@)",
+                            header: "StepGeom_UniformCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_UniformCurve::get_type_descriptor(@)",
     header: "StepGeom_UniformCurve.hxx".}
-proc DynamicType*(this: StepGeom_UniformCurve): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepGeom_UniformCurve.hxx".}
+proc dynamicType*(this: StepGeomUniformCurve): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepGeom_UniformCurve.hxx".}

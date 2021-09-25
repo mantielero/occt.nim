@@ -11,9 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Type
-
 discard "forward decl of Graphic3d_Structure"
 discard "forward decl of Graphic3d_TransformPers"
 discard "forward decl of SelectMgr_Selection"
@@ -26,7 +23,7 @@ type
                                                                           ## objects.
 
 
-proc ComputeSensitivePrs*(theStructure: handle[Graphic3d_Structure];
-                         theSel: handle[SelectMgr_Selection]; theLoc: gp_Trsf;
-                         theTrsfPers: handle[Graphic3d_TransformPers]) {.
+proc computeSensitivePrs*(theStructure: Handle[Graphic3dStructure];
+                         theSel: Handle[SelectMgrSelection]; theLoc: Trsf;
+                         theTrsfPers: Handle[Graphic3dTransformPers]) {.
     importcpp: "SelectMgr::ComputeSensitivePrs(@)", header: "SelectMgr.hxx".}

@@ -14,50 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Adaptor3d/Adaptor3d_SurfacePtr,
-  ../Standard/Standard_Boolean, Extrema_ExtElSS, Extrema_SequenceOfPOnSurf,
-  ../Standard/Standard_Real, ../TColStd/TColStd_SequenceOfReal,
-  ../GeomAbs/GeomAbs_SurfaceType, ../Standard/Standard_Integer
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of Adaptor3d_Surface"
 discard "forward decl of Extrema_POnSurf"
 type
-  Extrema_ExtSS* {.importcpp: "Extrema_ExtSS", header: "Extrema_ExtSS.hxx", bycopy.} = object
+  ExtremaExtSS* {.importcpp: "Extrema_ExtSS", header: "Extrema_ExtSS.hxx", bycopy.} = object
 
 
-proc constructExtrema_ExtSS*(): Extrema_ExtSS {.constructor,
+proc constructExtremaExtSS*(): ExtremaExtSS {.constructor,
     importcpp: "Extrema_ExtSS(@)", header: "Extrema_ExtSS.hxx".}
-proc constructExtrema_ExtSS*(S1: Adaptor3d_Surface; S2: Adaptor3d_Surface;
-                            TolS1: Standard_Real; TolS2: Standard_Real): Extrema_ExtSS {.
-    constructor, importcpp: "Extrema_ExtSS(@)", header: "Extrema_ExtSS.hxx".}
-proc constructExtrema_ExtSS*(S1: Adaptor3d_Surface; S2: Adaptor3d_Surface;
-                            Uinf1: Standard_Real; Usup1: Standard_Real;
-                            Vinf1: Standard_Real; Vsup1: Standard_Real;
-                            Uinf2: Standard_Real; Usup2: Standard_Real;
-                            Vinf2: Standard_Real; Vsup2: Standard_Real;
-                            TolS1: Standard_Real; TolS2: Standard_Real): Extrema_ExtSS {.
-    constructor, importcpp: "Extrema_ExtSS(@)", header: "Extrema_ExtSS.hxx".}
-proc Initialize*(this: var Extrema_ExtSS; S2: Adaptor3d_Surface; Uinf2: Standard_Real;
-                Usup2: Standard_Real; Vinf2: Standard_Real; Vsup2: Standard_Real;
-                TolS1: Standard_Real) {.importcpp: "Initialize",
-                                      header: "Extrema_ExtSS.hxx".}
-proc Perform*(this: var Extrema_ExtSS; S1: Adaptor3d_Surface; Uinf1: Standard_Real;
-             Usup1: Standard_Real; Vinf1: Standard_Real; Vsup1: Standard_Real;
-             TolS1: Standard_Real) {.importcpp: "Perform",
+proc constructExtremaExtSS*(s1: Adaptor3dSurface; s2: Adaptor3dSurface; tolS1: float;
+                           tolS2: float): ExtremaExtSS {.constructor,
+    importcpp: "Extrema_ExtSS(@)", header: "Extrema_ExtSS.hxx".}
+proc constructExtremaExtSS*(s1: Adaptor3dSurface; s2: Adaptor3dSurface; uinf1: float;
+                           usup1: float; vinf1: float; vsup1: float; uinf2: float;
+                           usup2: float; vinf2: float; vsup2: float; tolS1: float;
+                           tolS2: float): ExtremaExtSS {.constructor,
+    importcpp: "Extrema_ExtSS(@)", header: "Extrema_ExtSS.hxx".}
+proc initialize*(this: var ExtremaExtSS; s2: Adaptor3dSurface; uinf2: float;
+                usup2: float; vinf2: float; vsup2: float; tolS1: float) {.
+    importcpp: "Initialize", header: "Extrema_ExtSS.hxx".}
+proc perform*(this: var ExtremaExtSS; s1: Adaptor3dSurface; uinf1: float; usup1: float;
+             vinf1: float; vsup1: float; tolS1: float) {.importcpp: "Perform",
+    header: "Extrema_ExtSS.hxx".}
+proc isDone*(this: ExtremaExtSS): bool {.noSideEffect, importcpp: "IsDone",
+                                     header: "Extrema_ExtSS.hxx".}
+proc isParallel*(this: ExtremaExtSS): bool {.noSideEffect, importcpp: "IsParallel",
+    header: "Extrema_ExtSS.hxx".}
+proc nbExt*(this: ExtremaExtSS): int {.noSideEffect, importcpp: "NbExt",
                                    header: "Extrema_ExtSS.hxx".}
-proc IsDone*(this: Extrema_ExtSS): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "Extrema_ExtSS.hxx".}
-proc IsParallel*(this: Extrema_ExtSS): Standard_Boolean {.noSideEffect,
-    importcpp: "IsParallel", header: "Extrema_ExtSS.hxx".}
-proc NbExt*(this: Extrema_ExtSS): Standard_Integer {.noSideEffect,
-    importcpp: "NbExt", header: "Extrema_ExtSS.hxx".}
-proc SquareDistance*(this: Extrema_ExtSS; N: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "SquareDistance", header: "Extrema_ExtSS.hxx".}
-proc Points*(this: Extrema_ExtSS; N: Standard_Integer; P1: var Extrema_POnSurf;
-            P2: var Extrema_POnSurf) {.noSideEffect, importcpp: "Points",
-                                    header: "Extrema_ExtSS.hxx".}
+proc squareDistance*(this: ExtremaExtSS; n: int): float {.noSideEffect,
+    importcpp: "SquareDistance", header: "Extrema_ExtSS.hxx".}
+proc points*(this: ExtremaExtSS; n: int; p1: var ExtremaPOnSurf; p2: var ExtremaPOnSurf) {.
+    noSideEffect, importcpp: "Points", header: "Extrema_ExtSS.hxx".}

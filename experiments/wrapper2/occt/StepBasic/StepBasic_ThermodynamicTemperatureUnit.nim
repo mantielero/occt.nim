@@ -13,35 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_NamedUnit
-
 discard "forward decl of StepBasic_ThermodynamicTemperatureUnit"
 discard "forward decl of StepBasic_ThermodynamicTemperatureUnit"
 type
-  Handle_StepBasic_ThermodynamicTemperatureUnit* = handle[
-      StepBasic_ThermodynamicTemperatureUnit]
+  HandleStepBasicThermodynamicTemperatureUnit* = Handle[
+      StepBasicThermodynamicTemperatureUnit]
 
 ## ! Representation of STEP entity ThermodynamicTemperatureUnit
 
 type
-  StepBasic_ThermodynamicTemperatureUnit* {.
+  StepBasicThermodynamicTemperatureUnit* {.
       importcpp: "StepBasic_ThermodynamicTemperatureUnit",
-      header: "StepBasic_ThermodynamicTemperatureUnit.hxx", bycopy.} = object of StepBasic_NamedUnit ##
-                                                                                              ## !
-                                                                                              ## Empty
-                                                                                              ## constructor
+      header: "StepBasic_ThermodynamicTemperatureUnit.hxx", bycopy.} = object of StepBasicNamedUnit ##
+                                                                                             ## !
+                                                                                             ## Empty
+                                                                                             ## constructor
 
 
-proc constructStepBasic_ThermodynamicTemperatureUnit*(): StepBasic_ThermodynamicTemperatureUnit {.
+proc constructStepBasicThermodynamicTemperatureUnit*(): StepBasicThermodynamicTemperatureUnit {.
     constructor, importcpp: "StepBasic_ThermodynamicTemperatureUnit(@)",
     header: "StepBasic_ThermodynamicTemperatureUnit.hxx".}
 type
-  StepBasic_ThermodynamicTemperatureUnitbase_type* = StepBasic_NamedUnit
+  StepBasicThermodynamicTemperatureUnitbaseType* = StepBasicNamedUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ThermodynamicTemperatureUnit::get_type_name(@)", header: "StepBasic_ThermodynamicTemperatureUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepBasic_ThermodynamicTemperatureUnit::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ThermodynamicTemperatureUnit::get_type_name(@)", header: "StepBasic_ThermodynamicTemperatureUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_ThermodynamicTemperatureUnit::get_type_descriptor(@)",
     header: "StepBasic_ThermodynamicTemperatureUnit.hxx".}
-proc DynamicType*(this: StepBasic_ThermodynamicTemperatureUnit): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepBasic_ThermodynamicTemperatureUnit.hxx".}
+proc dynamicType*(this: StepBasicThermodynamicTemperatureUnit): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepBasic_ThermodynamicTemperatureUnit.hxx".}

@@ -14,36 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_Date"
 discard "forward decl of StepBasic_Date"
 type
-  Handle_StepBasic_Date* = handle[StepBasic_Date]
-  StepBasic_Date* {.importcpp: "StepBasic_Date", header: "StepBasic_Date.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                             ## !
-                                                                                                             ## Returns
-                                                                                                             ## a
-                                                                                                             ## Date
+  HandleStepBasicDate* = Handle[StepBasicDate]
+  StepBasicDate* {.importcpp: "StepBasic_Date", header: "StepBasic_Date.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                           ## !
+                                                                                                           ## Returns
+                                                                                                           ## a
+                                                                                                           ## Date
 
 
-proc constructStepBasic_Date*(): StepBasic_Date {.constructor,
+proc constructStepBasicDate*(): StepBasicDate {.constructor,
     importcpp: "StepBasic_Date(@)", header: "StepBasic_Date.hxx".}
-proc Init*(this: var StepBasic_Date; aYearComponent: Standard_Integer) {.
-    importcpp: "Init", header: "StepBasic_Date.hxx".}
-proc SetYearComponent*(this: var StepBasic_Date; aYearComponent: Standard_Integer) {.
+proc init*(this: var StepBasicDate; aYearComponent: int) {.importcpp: "Init",
+    header: "StepBasic_Date.hxx".}
+proc setYearComponent*(this: var StepBasicDate; aYearComponent: int) {.
     importcpp: "SetYearComponent", header: "StepBasic_Date.hxx".}
-proc YearComponent*(this: StepBasic_Date): Standard_Integer {.noSideEffect,
+proc yearComponent*(this: StepBasicDate): int {.noSideEffect,
     importcpp: "YearComponent", header: "StepBasic_Date.hxx".}
 type
-  StepBasic_Datebase_type* = Standard_Transient
+  StepBasicDatebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_Date::get_type_name(@)",
-                              header: "StepBasic_Date.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_Date::get_type_name(@)",
+                            header: "StepBasic_Date.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_Date::get_type_descriptor(@)",
     header: "StepBasic_Date.hxx".}
-proc DynamicType*(this: StepBasic_Date): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepBasicDate): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_Date.hxx".}

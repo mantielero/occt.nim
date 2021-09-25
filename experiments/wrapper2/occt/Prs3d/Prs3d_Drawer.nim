@@ -12,7 +12,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Prs3d_Drawer_HeaderFile [NewLine] # _Prs3d_Drawer_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_Integer.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # ../Aspect/Aspect_TypeOfDeflection.hxx [NewLine] # ../Graphic3d/Graphic3d_GroupAspect.hxx [NewLine] # ../Graphic3d/Graphic3d_PresentationAttributes.hxx [NewLine] # ../Graphic3d/Graphic3d_ShaderProgram.hxx [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # Prs3d_VertexDrawMode.hxx [NewLine] # Prs3d_DimensionUnits.hxx [NewLine] # Prs3d_TypeOfHLR.hxx [NewLine] # ../Standard/Standard_Transient.hxx [NewLine] # ../GeomAbs/GeomAbs_Shape.hxx [NewLine] class Prs3d_IsoAspect ;
+## !!!Ignored construct:  # _Prs3d_Drawer_HeaderFile [NewLine] # _Prs3d_Drawer_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < Aspect_TypeOfDeflection . hxx > [NewLine] # < Graphic3d_GroupAspect . hxx > [NewLine] # < Graphic3d_PresentationAttributes . hxx > [NewLine] # < Graphic3d_ShaderProgram . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] # < Prs3d_VertexDrawMode . hxx > [NewLine] # < Prs3d_DimensionUnits . hxx > [NewLine] # < Prs3d_TypeOfHLR . hxx > [NewLine] # < Standard_Transient . hxx > [NewLine] # < GeomAbs_Shape . hxx > [NewLine] class Prs3d_IsoAspect ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Prs3d_LineAspect"
@@ -26,432 +26,416 @@ discard "forward decl of Prs3d_DimensionAspect"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Prs3d_Drawer"
 type
-  Handle_Prs3d_DrawerPrs3d_Drawer* = handle[Prs3d_Drawer]
+  HandlePrs3dDrawerPrs3dDrawer* = Handle[Prs3dDrawer]
 
 ## ! A graphic attribute manager which governs how
 ## ! objects such as color, width, line thickness and deflection are displayed.
 ## ! A drawer includes an instance of the Aspect classes with particular default values.
 
 type
-  Prs3d_Drawer* {.importcpp: "Prs3d_Drawer", header: "Prs3d_Drawer.hxx", bycopy.} = object of Graphic3d_PresentationAttributes ##
-                                                                                                                     ## !
-                                                                                                                     ## Default
-                                                                                                                     ## constructor.
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## @name
-                                                                                                                     ## deprecated
-                                                                                                                     ## methods
-    myNbPoints* {.importc: "myNbPoints".}: Standard_Integer
-    myHasOwnNbPoints* {.importc: "myHasOwnNbPoints".}: Standard_Boolean
-    myMaximalParameterValue* {.importc: "myMaximalParameterValue".}: Standard_Real
-    myHasOwnMaximalParameterValue* {.importc: "myHasOwnMaximalParameterValue".}: Standard_Boolean
-    myChordialDeviation* {.importc: "myChordialDeviation".}: Standard_Real
-    myHasOwnChordialDeviation* {.importc: "myHasOwnChordialDeviation".}: Standard_Boolean
-    myTypeOfDeflection* {.importc: "myTypeOfDeflection".}: Aspect_TypeOfDeflection
-    myHasOwnTypeOfDeflection* {.importc: "myHasOwnTypeOfDeflection".}: Standard_Boolean
-    myTypeOfHLR* {.importc: "myTypeOfHLR".}: Prs3d_TypeOfHLR
-    myDeviationCoefficient* {.importc: "myDeviationCoefficient".}: Standard_Real
-    myPreviousDeviationCoefficient* {.importc: "myPreviousDeviationCoefficient".}: Standard_Real
-    myHasOwnDeviationCoefficient* {.importc: "myHasOwnDeviationCoefficient".}: Standard_Boolean
-    myDeviationAngle* {.importc: "myDeviationAngle".}: Standard_Real
-    myHasOwnDeviationAngle* {.importc: "myHasOwnDeviationAngle".}: Standard_Boolean
-    myPreviousDeviationAngle* {.importc: "myPreviousDeviationAngle".}: Standard_Real
-    myIsoOnPlane* {.importc: "myIsoOnPlane".}: Standard_Boolean
-    myHasOwnIsoOnPlane* {.importc: "myHasOwnIsoOnPlane".}: Standard_Boolean
-    myIsoOnTriangulation* {.importc: "myIsoOnTriangulation".}: Standard_Boolean
-    myHasOwnIsoOnTriangulation* {.importc: "myHasOwnIsoOnTriangulation".}: Standard_Boolean
-    myIsAutoTriangulated* {.importc: "myIsAutoTriangulated".}: Standard_Boolean
-    myHasOwnIsAutoTriangulated* {.importc: "myHasOwnIsAutoTriangulated".}: Standard_Boolean
-    myUIsoAspect* {.importc: "myUIsoAspect".}: handle[Prs3d_IsoAspect]
-    myHasOwnUIsoAspect* {.importc: "myHasOwnUIsoAspect".}: Standard_Boolean
-    myVIsoAspect* {.importc: "myVIsoAspect".}: handle[Prs3d_IsoAspect]
-    myHasOwnVIsoAspect* {.importc: "myHasOwnVIsoAspect".}: Standard_Boolean
-    myWireAspect* {.importc: "myWireAspect".}: handle[Prs3d_LineAspect]
-    myHasOwnWireAspect* {.importc: "myHasOwnWireAspect".}: Standard_Boolean
-    myWireDraw* {.importc: "myWireDraw".}: Standard_Boolean
-    myHasOwnWireDraw* {.importc: "myHasOwnWireDraw".}: Standard_Boolean
-    myPointAspect* {.importc: "myPointAspect".}: handle[Prs3d_PointAspect]
-    myHasOwnPointAspect* {.importc: "myHasOwnPointAspect".}: Standard_Boolean
-    myLineAspect* {.importc: "myLineAspect".}: handle[Prs3d_LineAspect]
-    myHasOwnLineAspect* {.importc: "myHasOwnLineAspect".}: Standard_Boolean
-    myTextAspect* {.importc: "myTextAspect".}: handle[Prs3d_TextAspect]
-    myHasOwnTextAspect* {.importc: "myHasOwnTextAspect".}: Standard_Boolean
-    myShadingAspect* {.importc: "myShadingAspect".}: handle[Prs3d_ShadingAspect]
-    myHasOwnShadingAspect* {.importc: "myHasOwnShadingAspect".}: Standard_Boolean
-    myPlaneAspect* {.importc: "myPlaneAspect".}: handle[Prs3d_PlaneAspect]
-    myHasOwnPlaneAspect* {.importc: "myHasOwnPlaneAspect".}: Standard_Boolean
-    mySeenLineAspect* {.importc: "mySeenLineAspect".}: handle[Prs3d_LineAspect]
-    myHasOwnSeenLineAspect* {.importc: "myHasOwnSeenLineAspect".}: Standard_Boolean
-    myArrowAspect* {.importc: "myArrowAspect".}: handle[Prs3d_ArrowAspect]
-    myHasOwnArrowAspect* {.importc: "myHasOwnArrowAspect".}: Standard_Boolean
-    myLineArrowDraw* {.importc: "myLineArrowDraw".}: Standard_Boolean
-    myHasOwnLineArrowDraw* {.importc: "myHasOwnLineArrowDraw".}: Standard_Boolean
-    myHiddenLineAspect* {.importc: "myHiddenLineAspect".}: handle[Prs3d_LineAspect]
-    myHasOwnHiddenLineAspect* {.importc: "myHasOwnHiddenLineAspect".}: Standard_Boolean
-    myDrawHiddenLine* {.importc: "myDrawHiddenLine".}: Standard_Boolean
-    myHasOwnDrawHiddenLine* {.importc: "myHasOwnDrawHiddenLine".}: Standard_Boolean
-    myVectorAspect* {.importc: "myVectorAspect".}: handle[Prs3d_LineAspect]
-    myHasOwnVectorAspect* {.importc: "myHasOwnVectorAspect".}: Standard_Boolean
-    myVertexDrawMode* {.importc: "myVertexDrawMode".}: Prs3d_VertexDrawMode
-    myDatumAspect* {.importc: "myDatumAspect".}: handle[Prs3d_DatumAspect]
-    myHasOwnDatumAspect* {.importc: "myHasOwnDatumAspect".}: Standard_Boolean
-    mySectionAspect* {.importc: "mySectionAspect".}: handle[Prs3d_LineAspect]
-    myHasOwnSectionAspect* {.importc: "myHasOwnSectionAspect".}: Standard_Boolean
-    myFreeBoundaryAspect* {.importc: "myFreeBoundaryAspect".}: handle[
-        Prs3d_LineAspect]
-    myHasOwnFreeBoundaryAspect* {.importc: "myHasOwnFreeBoundaryAspect".}: Standard_Boolean
-    myFreeBoundaryDraw* {.importc: "myFreeBoundaryDraw".}: Standard_Boolean
-    myHasOwnFreeBoundaryDraw* {.importc: "myHasOwnFreeBoundaryDraw".}: Standard_Boolean
-    myUnFreeBoundaryAspect* {.importc: "myUnFreeBoundaryAspect".}: handle[
-        Prs3d_LineAspect]
-    myHasOwnUnFreeBoundaryAspect* {.importc: "myHasOwnUnFreeBoundaryAspect".}: Standard_Boolean
-    myUnFreeBoundaryDraw* {.importc: "myUnFreeBoundaryDraw".}: Standard_Boolean
-    myHasOwnUnFreeBoundaryDraw* {.importc: "myHasOwnUnFreeBoundaryDraw".}: Standard_Boolean
-    myFaceBoundaryAspect* {.importc: "myFaceBoundaryAspect".}: handle[
-        Prs3d_LineAspect]
-    myFaceBoundaryUpperContinuity* {.importc: "myFaceBoundaryUpperContinuity".}: Standard_Integer ## !< the most edge continuity class (GeomAbs_Shape) to be included to face boundaries presentation, or -1 if undefined
-    myHasOwnFaceBoundaryAspect* {.importc: "myHasOwnFaceBoundaryAspect".}: Standard_Boolean
-    myFaceBoundaryDraw* {.importc: "myFaceBoundaryDraw".}: Standard_Boolean
-    myHasOwnFaceBoundaryDraw* {.importc: "myHasOwnFaceBoundaryDraw".}: Standard_Boolean
-    myDimensionAspect* {.importc: "myDimensionAspect".}: handle[
-        Prs3d_DimensionAspect]
-    myHasOwnDimensionAspect* {.importc: "myHasOwnDimensionAspect".}: Standard_Boolean
-    myDimensionModelUnits* {.importc: "myDimensionModelUnits".}: Prs3d_DimensionUnits
-    myHasOwnDimLengthModelUnits* {.importc: "myHasOwnDimLengthModelUnits".}: Standard_Boolean
-    myHasOwnDimAngleModelUnits* {.importc: "myHasOwnDimAngleModelUnits".}: Standard_Boolean
-    myDimensionDisplayUnits* {.importc: "myDimensionDisplayUnits".}: Prs3d_DimensionUnits
-    myHasOwnDimLengthDisplayUnits* {.importc: "myHasOwnDimLengthDisplayUnits".}: Standard_Boolean
-    myHasOwnDimAngleDisplayUnits* {.importc: "myHasOwnDimAngleDisplayUnits".}: Standard_Boolean
+  Prs3dDrawer* {.importcpp: "Prs3d_Drawer", header: "Prs3d_Drawer.hxx", bycopy.} = object of Graphic3dPresentationAttributes ##
+                                                                                                                   ## !
+                                                                                                                   ## Default
+                                                                                                                   ## constructor.
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## @name
+                                                                                                                   ## deprecated
+                                                                                                                   ## methods
+    myNbPoints* {.importc: "myNbPoints".}: int
+    myHasOwnNbPoints* {.importc: "myHasOwnNbPoints".}: bool
+    myMaximalParameterValue* {.importc: "myMaximalParameterValue".}: float
+    myHasOwnMaximalParameterValue* {.importc: "myHasOwnMaximalParameterValue".}: bool
+    myChordialDeviation* {.importc: "myChordialDeviation".}: float
+    myHasOwnChordialDeviation* {.importc: "myHasOwnChordialDeviation".}: bool
+    myTypeOfDeflection* {.importc: "myTypeOfDeflection".}: AspectTypeOfDeflection
+    myHasOwnTypeOfDeflection* {.importc: "myHasOwnTypeOfDeflection".}: bool
+    myTypeOfHLR* {.importc: "myTypeOfHLR".}: Prs3dTypeOfHLR
+    myDeviationCoefficient* {.importc: "myDeviationCoefficient".}: float
+    myPreviousDeviationCoefficient* {.importc: "myPreviousDeviationCoefficient".}: float
+    myHasOwnDeviationCoefficient* {.importc: "myHasOwnDeviationCoefficient".}: bool
+    myDeviationAngle* {.importc: "myDeviationAngle".}: float
+    myHasOwnDeviationAngle* {.importc: "myHasOwnDeviationAngle".}: bool
+    myPreviousDeviationAngle* {.importc: "myPreviousDeviationAngle".}: float
+    myIsoOnPlane* {.importc: "myIsoOnPlane".}: bool
+    myHasOwnIsoOnPlane* {.importc: "myHasOwnIsoOnPlane".}: bool
+    myIsoOnTriangulation* {.importc: "myIsoOnTriangulation".}: bool
+    myHasOwnIsoOnTriangulation* {.importc: "myHasOwnIsoOnTriangulation".}: bool
+    myIsAutoTriangulated* {.importc: "myIsAutoTriangulated".}: bool
+    myHasOwnIsAutoTriangulated* {.importc: "myHasOwnIsAutoTriangulated".}: bool
+    myUIsoAspect* {.importc: "myUIsoAspect".}: Handle[Prs3dIsoAspect]
+    myHasOwnUIsoAspect* {.importc: "myHasOwnUIsoAspect".}: bool
+    myVIsoAspect* {.importc: "myVIsoAspect".}: Handle[Prs3dIsoAspect]
+    myHasOwnVIsoAspect* {.importc: "myHasOwnVIsoAspect".}: bool
+    myWireAspect* {.importc: "myWireAspect".}: Handle[Prs3dLineAspect]
+    myHasOwnWireAspect* {.importc: "myHasOwnWireAspect".}: bool
+    myWireDraw* {.importc: "myWireDraw".}: bool
+    myHasOwnWireDraw* {.importc: "myHasOwnWireDraw".}: bool
+    myPointAspect* {.importc: "myPointAspect".}: Handle[Prs3dPointAspect]
+    myHasOwnPointAspect* {.importc: "myHasOwnPointAspect".}: bool
+    myLineAspect* {.importc: "myLineAspect".}: Handle[Prs3dLineAspect]
+    myHasOwnLineAspect* {.importc: "myHasOwnLineAspect".}: bool
+    myTextAspect* {.importc: "myTextAspect".}: Handle[Prs3dTextAspect]
+    myHasOwnTextAspect* {.importc: "myHasOwnTextAspect".}: bool
+    myShadingAspect* {.importc: "myShadingAspect".}: Handle[Prs3dShadingAspect]
+    myHasOwnShadingAspect* {.importc: "myHasOwnShadingAspect".}: bool
+    myPlaneAspect* {.importc: "myPlaneAspect".}: Handle[Prs3dPlaneAspect]
+    myHasOwnPlaneAspect* {.importc: "myHasOwnPlaneAspect".}: bool
+    mySeenLineAspect* {.importc: "mySeenLineAspect".}: Handle[Prs3dLineAspect]
+    myHasOwnSeenLineAspect* {.importc: "myHasOwnSeenLineAspect".}: bool
+    myArrowAspect* {.importc: "myArrowAspect".}: Handle[Prs3dArrowAspect]
+    myHasOwnArrowAspect* {.importc: "myHasOwnArrowAspect".}: bool
+    myLineArrowDraw* {.importc: "myLineArrowDraw".}: bool
+    myHasOwnLineArrowDraw* {.importc: "myHasOwnLineArrowDraw".}: bool
+    myHiddenLineAspect* {.importc: "myHiddenLineAspect".}: Handle[Prs3dLineAspect]
+    myHasOwnHiddenLineAspect* {.importc: "myHasOwnHiddenLineAspect".}: bool
+    myDrawHiddenLine* {.importc: "myDrawHiddenLine".}: bool
+    myHasOwnDrawHiddenLine* {.importc: "myHasOwnDrawHiddenLine".}: bool
+    myVectorAspect* {.importc: "myVectorAspect".}: Handle[Prs3dLineAspect]
+    myHasOwnVectorAspect* {.importc: "myHasOwnVectorAspect".}: bool
+    myVertexDrawMode* {.importc: "myVertexDrawMode".}: Prs3dVertexDrawMode
+    myDatumAspect* {.importc: "myDatumAspect".}: Handle[Prs3dDatumAspect]
+    myHasOwnDatumAspect* {.importc: "myHasOwnDatumAspect".}: bool
+    mySectionAspect* {.importc: "mySectionAspect".}: Handle[Prs3dLineAspect]
+    myHasOwnSectionAspect* {.importc: "myHasOwnSectionAspect".}: bool
+    myFreeBoundaryAspect* {.importc: "myFreeBoundaryAspect".}: Handle[
+        Prs3dLineAspect]
+    myHasOwnFreeBoundaryAspect* {.importc: "myHasOwnFreeBoundaryAspect".}: bool
+    myFreeBoundaryDraw* {.importc: "myFreeBoundaryDraw".}: bool
+    myHasOwnFreeBoundaryDraw* {.importc: "myHasOwnFreeBoundaryDraw".}: bool
+    myUnFreeBoundaryAspect* {.importc: "myUnFreeBoundaryAspect".}: Handle[
+        Prs3dLineAspect]
+    myHasOwnUnFreeBoundaryAspect* {.importc: "myHasOwnUnFreeBoundaryAspect".}: bool
+    myUnFreeBoundaryDraw* {.importc: "myUnFreeBoundaryDraw".}: bool
+    myHasOwnUnFreeBoundaryDraw* {.importc: "myHasOwnUnFreeBoundaryDraw".}: bool
+    myFaceBoundaryAspect* {.importc: "myFaceBoundaryAspect".}: Handle[
+        Prs3dLineAspect]
+    myFaceBoundaryUpperContinuity* {.importc: "myFaceBoundaryUpperContinuity".}: int ## !< the most edge continuity class (GeomAbs_Shape) to be included to face boundaries presentation, or -1 if undefined
+    myHasOwnFaceBoundaryAspect* {.importc: "myHasOwnFaceBoundaryAspect".}: bool
+    myFaceBoundaryDraw* {.importc: "myFaceBoundaryDraw".}: bool
+    myHasOwnFaceBoundaryDraw* {.importc: "myHasOwnFaceBoundaryDraw".}: bool
+    myDimensionAspect* {.importc: "myDimensionAspect".}: Handle[
+        Prs3dDimensionAspect]
+    myHasOwnDimensionAspect* {.importc: "myHasOwnDimensionAspect".}: bool
+    myDimensionModelUnits* {.importc: "myDimensionModelUnits".}: Prs3dDimensionUnits
+    myHasOwnDimLengthModelUnits* {.importc: "myHasOwnDimLengthModelUnits".}: bool
+    myHasOwnDimAngleModelUnits* {.importc: "myHasOwnDimAngleModelUnits".}: bool
+    myDimensionDisplayUnits* {.importc: "myDimensionDisplayUnits".}: Prs3dDimensionUnits
+    myHasOwnDimLengthDisplayUnits* {.importc: "myHasOwnDimLengthDisplayUnits".}: bool
+    myHasOwnDimAngleDisplayUnits* {.importc: "myHasOwnDimAngleDisplayUnits".}: bool
 
-  Prs3d_Drawerbase_type* = Graphic3d_PresentationAttributes
+  Prs3dDrawerbaseType* = Graphic3dPresentationAttributes
 
-proc get_type_name*(): cstring {.importcpp: "Prs3d_Drawer::get_type_name(@)",
-                              header: "Prs3d_Drawer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Prs3d_Drawer::get_type_name(@)",
+                            header: "Prs3d_Drawer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Prs3d_Drawer::get_type_descriptor(@)", header: "Prs3d_Drawer.hxx".}
-proc DynamicType*(this: Prs3d_Drawer): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: Prs3dDrawer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Prs3d_Drawer.hxx".}
-proc constructPrs3d_Drawer*(): Prs3d_Drawer {.constructor,
+proc constructPrs3dDrawer*(): Prs3dDrawer {.constructor,
     importcpp: "Prs3d_Drawer(@)", header: "Prs3d_Drawer.hxx".}
-proc SetTypeOfDeflection*(this: var Prs3d_Drawer;
-                         theTypeOfDeflection: Aspect_TypeOfDeflection) {.
+proc setTypeOfDeflection*(this: var Prs3dDrawer;
+                         theTypeOfDeflection: AspectTypeOfDeflection) {.
     importcpp: "SetTypeOfDeflection", header: "Prs3d_Drawer.hxx".}
-proc TypeOfDeflection*(this: Prs3d_Drawer): Aspect_TypeOfDeflection {.noSideEffect,
+proc typeOfDeflection*(this: Prs3dDrawer): AspectTypeOfDeflection {.noSideEffect,
     importcpp: "TypeOfDeflection", header: "Prs3d_Drawer.hxx".}
-proc HasOwnTypeOfDeflection*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnTypeOfDeflection*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnTypeOfDeflection", header: "Prs3d_Drawer.hxx".}
-proc SetMaximalChordialDeviation*(this: var Prs3d_Drawer;
-                                 theChordialDeviation: Standard_Real) {.
+proc setMaximalChordialDeviation*(this: var Prs3dDrawer; theChordialDeviation: float) {.
     importcpp: "SetMaximalChordialDeviation", header: "Prs3d_Drawer.hxx".}
-proc MaximalChordialDeviation*(this: Prs3d_Drawer): Standard_Real {.noSideEffect,
+proc maximalChordialDeviation*(this: Prs3dDrawer): float {.noSideEffect,
     importcpp: "MaximalChordialDeviation", header: "Prs3d_Drawer.hxx".}
-proc HasOwnMaximalChordialDeviation*(this: Prs3d_Drawer): Standard_Boolean {.
-    noSideEffect, importcpp: "HasOwnMaximalChordialDeviation",
-    header: "Prs3d_Drawer.hxx".}
-proc SetTypeOfHLR*(this: var Prs3d_Drawer; theTypeOfHLR: Prs3d_TypeOfHLR) {.
+proc hasOwnMaximalChordialDeviation*(this: Prs3dDrawer): bool {.noSideEffect,
+    importcpp: "HasOwnMaximalChordialDeviation", header: "Prs3d_Drawer.hxx".}
+proc setTypeOfHLR*(this: var Prs3dDrawer; theTypeOfHLR: Prs3dTypeOfHLR) {.
     importcpp: "SetTypeOfHLR", header: "Prs3d_Drawer.hxx".}
-proc TypeOfHLR*(this: var Prs3d_Drawer): Prs3d_TypeOfHLR {.importcpp: "TypeOfHLR",
+proc typeOfHLR*(this: var Prs3dDrawer): Prs3dTypeOfHLR {.importcpp: "TypeOfHLR",
     header: "Prs3d_Drawer.hxx".}
-proc HasOwnTypeOfHLR*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnTypeOfHLR*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnTypeOfHLR", header: "Prs3d_Drawer.hxx".}
-proc SetMaximalParameterValue*(this: var Prs3d_Drawer; theValue: Standard_Real) {.
+proc setMaximalParameterValue*(this: var Prs3dDrawer; theValue: float) {.
     importcpp: "SetMaximalParameterValue", header: "Prs3d_Drawer.hxx".}
-proc MaximalParameterValue*(this: Prs3d_Drawer): Standard_Real {.noSideEffect,
+proc maximalParameterValue*(this: Prs3dDrawer): float {.noSideEffect,
     importcpp: "MaximalParameterValue", header: "Prs3d_Drawer.hxx".}
-proc HasOwnMaximalParameterValue*(this: Prs3d_Drawer): Standard_Boolean {.
-    noSideEffect, importcpp: "HasOwnMaximalParameterValue",
-    header: "Prs3d_Drawer.hxx".}
-proc SetIsoOnPlane*(this: var Prs3d_Drawer; theIsEnabled: Standard_Boolean) {.
+proc hasOwnMaximalParameterValue*(this: Prs3dDrawer): bool {.noSideEffect,
+    importcpp: "HasOwnMaximalParameterValue", header: "Prs3d_Drawer.hxx".}
+proc setIsoOnPlane*(this: var Prs3dDrawer; theIsEnabled: bool) {.
     importcpp: "SetIsoOnPlane", header: "Prs3d_Drawer.hxx".}
-proc IsoOnPlane*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
-    importcpp: "IsoOnPlane", header: "Prs3d_Drawer.hxx".}
-proc HasOwnIsoOnPlane*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc isoOnPlane*(this: Prs3dDrawer): bool {.noSideEffect, importcpp: "IsoOnPlane",
+                                        header: "Prs3d_Drawer.hxx".}
+proc hasOwnIsoOnPlane*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnIsoOnPlane", header: "Prs3d_Drawer.hxx".}
-proc IsoOnTriangulation*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc isoOnTriangulation*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "IsoOnTriangulation", header: "Prs3d_Drawer.hxx".}
-proc HasOwnIsoOnTriangulation*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnIsoOnTriangulation*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnIsoOnTriangulation", header: "Prs3d_Drawer.hxx".}
-proc SetIsoOnTriangulation*(this: var Prs3d_Drawer; theToEnable: Standard_Boolean) {.
+proc setIsoOnTriangulation*(this: var Prs3dDrawer; theToEnable: bool) {.
     importcpp: "SetIsoOnTriangulation", header: "Prs3d_Drawer.hxx".}
-proc SetDiscretisation*(this: var Prs3d_Drawer; theValue: Standard_Integer) {.
+proc setDiscretisation*(this: var Prs3dDrawer; theValue: int) {.
     importcpp: "SetDiscretisation", header: "Prs3d_Drawer.hxx".}
-proc Discretisation*(this: Prs3d_Drawer): Standard_Integer {.noSideEffect,
+proc discretisation*(this: Prs3dDrawer): int {.noSideEffect,
     importcpp: "Discretisation", header: "Prs3d_Drawer.hxx".}
-proc HasOwnDiscretisation*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnDiscretisation*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnDiscretisation", header: "Prs3d_Drawer.hxx".}
-proc SetDeviationCoefficient*(this: var Prs3d_Drawer; theCoefficient: Standard_Real) {.
+proc setDeviationCoefficient*(this: var Prs3dDrawer; theCoefficient: float) {.
     importcpp: "SetDeviationCoefficient", header: "Prs3d_Drawer.hxx".}
-proc DeviationCoefficient*(this: Prs3d_Drawer): Standard_Real {.noSideEffect,
+proc deviationCoefficient*(this: Prs3dDrawer): float {.noSideEffect,
     importcpp: "DeviationCoefficient", header: "Prs3d_Drawer.hxx".}
-proc SetDeviationCoefficient*(this: var Prs3d_Drawer) {.
+proc setDeviationCoefficient*(this: var Prs3dDrawer) {.
     importcpp: "SetDeviationCoefficient", header: "Prs3d_Drawer.hxx".}
-proc HasOwnDeviationCoefficient*(this: Prs3d_Drawer): Standard_Boolean {.
-    noSideEffect, importcpp: "HasOwnDeviationCoefficient",
-    header: "Prs3d_Drawer.hxx".}
-proc PreviousDeviationCoefficient*(this: Prs3d_Drawer): Standard_Real {.
-    noSideEffect, importcpp: "PreviousDeviationCoefficient",
-    header: "Prs3d_Drawer.hxx".}
-proc UpdatePreviousDeviationCoefficient*(this: var Prs3d_Drawer) {.
+proc hasOwnDeviationCoefficient*(this: Prs3dDrawer): bool {.noSideEffect,
+    importcpp: "HasOwnDeviationCoefficient", header: "Prs3d_Drawer.hxx".}
+proc previousDeviationCoefficient*(this: Prs3dDrawer): float {.noSideEffect,
+    importcpp: "PreviousDeviationCoefficient", header: "Prs3d_Drawer.hxx".}
+proc updatePreviousDeviationCoefficient*(this: var Prs3dDrawer) {.
     importcpp: "UpdatePreviousDeviationCoefficient", header: "Prs3d_Drawer.hxx".}
-proc SetDeviationAngle*(this: var Prs3d_Drawer; theAngle: Standard_Real) {.
+proc setDeviationAngle*(this: var Prs3dDrawer; theAngle: float) {.
     importcpp: "SetDeviationAngle", header: "Prs3d_Drawer.hxx".}
-proc DeviationAngle*(this: Prs3d_Drawer): Standard_Real {.noSideEffect,
+proc deviationAngle*(this: Prs3dDrawer): float {.noSideEffect,
     importcpp: "DeviationAngle", header: "Prs3d_Drawer.hxx".}
-proc SetDeviationAngle*(this: var Prs3d_Drawer) {.importcpp: "SetDeviationAngle",
+proc setDeviationAngle*(this: var Prs3dDrawer) {.importcpp: "SetDeviationAngle",
     header: "Prs3d_Drawer.hxx".}
-proc HasOwnDeviationAngle*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnDeviationAngle*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnDeviationAngle", header: "Prs3d_Drawer.hxx".}
-proc PreviousDeviationAngle*(this: Prs3d_Drawer): Standard_Real {.noSideEffect,
+proc previousDeviationAngle*(this: Prs3dDrawer): float {.noSideEffect,
     importcpp: "PreviousDeviationAngle", header: "Prs3d_Drawer.hxx".}
-proc UpdatePreviousDeviationAngle*(this: var Prs3d_Drawer) {.
+proc updatePreviousDeviationAngle*(this: var Prs3dDrawer) {.
     importcpp: "UpdatePreviousDeviationAngle", header: "Prs3d_Drawer.hxx".}
-proc SetAutoTriangulation*(this: var Prs3d_Drawer; theIsEnabled: Standard_Boolean) {.
+proc setAutoTriangulation*(this: var Prs3dDrawer; theIsEnabled: bool) {.
     importcpp: "SetAutoTriangulation", header: "Prs3d_Drawer.hxx".}
-proc IsAutoTriangulation*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc isAutoTriangulation*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "IsAutoTriangulation", header: "Prs3d_Drawer.hxx".}
-proc HasOwnIsAutoTriangulation*(this: Prs3d_Drawer): Standard_Boolean {.
-    noSideEffect, importcpp: "HasOwnIsAutoTriangulation",
-    header: "Prs3d_Drawer.hxx".}
-proc UIsoAspect*(this: var Prs3d_Drawer): handle[Prs3d_IsoAspect] {.
+proc hasOwnIsAutoTriangulation*(this: Prs3dDrawer): bool {.noSideEffect,
+    importcpp: "HasOwnIsAutoTriangulation", header: "Prs3d_Drawer.hxx".}
+proc uIsoAspect*(this: var Prs3dDrawer): Handle[Prs3dIsoAspect] {.
     importcpp: "UIsoAspect", header: "Prs3d_Drawer.hxx".}
-proc SetUIsoAspect*(this: var Prs3d_Drawer; theAspect: handle[Prs3d_IsoAspect]) {.
+proc setUIsoAspect*(this: var Prs3dDrawer; theAspect: Handle[Prs3dIsoAspect]) {.
     importcpp: "SetUIsoAspect", header: "Prs3d_Drawer.hxx".}
-proc HasOwnUIsoAspect*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnUIsoAspect*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnUIsoAspect", header: "Prs3d_Drawer.hxx".}
-proc VIsoAspect*(this: var Prs3d_Drawer): handle[Prs3d_IsoAspect] {.
+proc vIsoAspect*(this: var Prs3dDrawer): Handle[Prs3dIsoAspect] {.
     importcpp: "VIsoAspect", header: "Prs3d_Drawer.hxx".}
-proc SetVIsoAspect*(this: var Prs3d_Drawer; theAspect: handle[Prs3d_IsoAspect]) {.
+proc setVIsoAspect*(this: var Prs3dDrawer; theAspect: Handle[Prs3dIsoAspect]) {.
     importcpp: "SetVIsoAspect", header: "Prs3d_Drawer.hxx".}
-proc HasOwnVIsoAspect*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnVIsoAspect*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnVIsoAspect", header: "Prs3d_Drawer.hxx".}
-proc WireAspect*(this: var Prs3d_Drawer): handle[Prs3d_LineAspect] {.
+proc wireAspect*(this: var Prs3dDrawer): Handle[Prs3dLineAspect] {.
     importcpp: "WireAspect", header: "Prs3d_Drawer.hxx".}
-proc SetWireAspect*(this: var Prs3d_Drawer; theAspect: handle[Prs3d_LineAspect]) {.
+proc setWireAspect*(this: var Prs3dDrawer; theAspect: Handle[Prs3dLineAspect]) {.
     importcpp: "SetWireAspect", header: "Prs3d_Drawer.hxx".}
-proc HasOwnWireAspect*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnWireAspect*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnWireAspect", header: "Prs3d_Drawer.hxx".}
-proc SetWireDraw*(this: var Prs3d_Drawer; theIsEnabled: Standard_Boolean) {.
+proc setWireDraw*(this: var Prs3dDrawer; theIsEnabled: bool) {.
     importcpp: "SetWireDraw", header: "Prs3d_Drawer.hxx".}
-proc WireDraw*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
-    importcpp: "WireDraw", header: "Prs3d_Drawer.hxx".}
-proc HasOwnWireDraw*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc wireDraw*(this: Prs3dDrawer): bool {.noSideEffect, importcpp: "WireDraw",
+                                      header: "Prs3d_Drawer.hxx".}
+proc hasOwnWireDraw*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnWireDraw", header: "Prs3d_Drawer.hxx".}
-proc PointAspect*(this: var Prs3d_Drawer): handle[Prs3d_PointAspect] {.
+proc pointAspect*(this: var Prs3dDrawer): Handle[Prs3dPointAspect] {.
     importcpp: "PointAspect", header: "Prs3d_Drawer.hxx".}
-proc SetPointAspect*(this: var Prs3d_Drawer; theAspect: handle[Prs3d_PointAspect]) {.
+proc setPointAspect*(this: var Prs3dDrawer; theAspect: Handle[Prs3dPointAspect]) {.
     importcpp: "SetPointAspect", header: "Prs3d_Drawer.hxx".}
-proc HasOwnPointAspect*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnPointAspect*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnPointAspect", header: "Prs3d_Drawer.hxx".}
-proc SetupOwnPointAspect*(this: var Prs3d_Drawer; theDefaults: handle[Prs3d_Drawer] = handle[
-    Prs3d_Drawer]()): Standard_Boolean {.importcpp: "SetupOwnPointAspect",
-                                       header: "Prs3d_Drawer.hxx".}
-proc LineAspect*(this: var Prs3d_Drawer): handle[Prs3d_LineAspect] {.
+proc setupOwnPointAspect*(this: var Prs3dDrawer; theDefaults: Handle[Prs3dDrawer] = handle[
+    Prs3dDrawer]()): bool {.importcpp: "SetupOwnPointAspect",
+                          header: "Prs3d_Drawer.hxx".}
+proc lineAspect*(this: var Prs3dDrawer): Handle[Prs3dLineAspect] {.
     importcpp: "LineAspect", header: "Prs3d_Drawer.hxx".}
-proc SetLineAspect*(this: var Prs3d_Drawer; theAspect: handle[Prs3d_LineAspect]) {.
+proc setLineAspect*(this: var Prs3dDrawer; theAspect: Handle[Prs3dLineAspect]) {.
     importcpp: "SetLineAspect", header: "Prs3d_Drawer.hxx".}
-proc HasOwnLineAspect*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnLineAspect*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnLineAspect", header: "Prs3d_Drawer.hxx".}
-proc SetOwnLineAspects*(this: var Prs3d_Drawer; theDefaults: handle[Prs3d_Drawer] = handle[
-    Prs3d_Drawer]()): Standard_Boolean {.importcpp: "SetOwnLineAspects",
-                                       header: "Prs3d_Drawer.hxx".}
-proc SetOwnDatumAspects*(this: var Prs3d_Drawer; theDefaults: handle[Prs3d_Drawer] = handle[
-    Prs3d_Drawer]()): Standard_Boolean {.importcpp: "SetOwnDatumAspects",
-                                       header: "Prs3d_Drawer.hxx".}
-proc TextAspect*(this: var Prs3d_Drawer): handle[Prs3d_TextAspect] {.
+proc setOwnLineAspects*(this: var Prs3dDrawer;
+                       theDefaults: Handle[Prs3dDrawer] = handle[Prs3dDrawer]()): bool {.
+    importcpp: "SetOwnLineAspects", header: "Prs3d_Drawer.hxx".}
+proc setOwnDatumAspects*(this: var Prs3dDrawer; theDefaults: Handle[Prs3dDrawer] = handle[
+    Prs3dDrawer]()): bool {.importcpp: "SetOwnDatumAspects",
+                          header: "Prs3d_Drawer.hxx".}
+proc textAspect*(this: var Prs3dDrawer): Handle[Prs3dTextAspect] {.
     importcpp: "TextAspect", header: "Prs3d_Drawer.hxx".}
-proc SetTextAspect*(this: var Prs3d_Drawer; theAspect: handle[Prs3d_TextAspect]) {.
+proc setTextAspect*(this: var Prs3dDrawer; theAspect: Handle[Prs3dTextAspect]) {.
     importcpp: "SetTextAspect", header: "Prs3d_Drawer.hxx".}
-proc HasOwnTextAspect*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnTextAspect*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnTextAspect", header: "Prs3d_Drawer.hxx".}
-proc ShadingAspect*(this: var Prs3d_Drawer): handle[Prs3d_ShadingAspect] {.
+proc shadingAspect*(this: var Prs3dDrawer): Handle[Prs3dShadingAspect] {.
     importcpp: "ShadingAspect", header: "Prs3d_Drawer.hxx".}
-proc SetShadingAspect*(this: var Prs3d_Drawer;
-                      theAspect: handle[Prs3d_ShadingAspect]) {.
+proc setShadingAspect*(this: var Prs3dDrawer; theAspect: Handle[Prs3dShadingAspect]) {.
     importcpp: "SetShadingAspect", header: "Prs3d_Drawer.hxx".}
-proc HasOwnShadingAspect*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnShadingAspect*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnShadingAspect", header: "Prs3d_Drawer.hxx".}
-proc SetupOwnShadingAspect*(this: var Prs3d_Drawer; theDefaults: handle[Prs3d_Drawer] = handle[
-    Prs3d_Drawer]()): Standard_Boolean {.importcpp: "SetupOwnShadingAspect",
-                                       header: "Prs3d_Drawer.hxx".}
-proc SeenLineAspect*(this: var Prs3d_Drawer): handle[Prs3d_LineAspect] {.
+proc setupOwnShadingAspect*(this: var Prs3dDrawer; theDefaults: Handle[Prs3dDrawer] = handle[
+    Prs3dDrawer]()): bool {.importcpp: "SetupOwnShadingAspect",
+                          header: "Prs3d_Drawer.hxx".}
+proc seenLineAspect*(this: var Prs3dDrawer): Handle[Prs3dLineAspect] {.
     importcpp: "SeenLineAspect", header: "Prs3d_Drawer.hxx".}
-proc SetSeenLineAspect*(this: var Prs3d_Drawer; theAspect: handle[Prs3d_LineAspect]) {.
+proc setSeenLineAspect*(this: var Prs3dDrawer; theAspect: Handle[Prs3dLineAspect]) {.
     importcpp: "SetSeenLineAspect", header: "Prs3d_Drawer.hxx".}
-proc HasOwnSeenLineAspect*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnSeenLineAspect*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnSeenLineAspect", header: "Prs3d_Drawer.hxx".}
-proc PlaneAspect*(this: var Prs3d_Drawer): handle[Prs3d_PlaneAspect] {.
+proc planeAspect*(this: var Prs3dDrawer): Handle[Prs3dPlaneAspect] {.
     importcpp: "PlaneAspect", header: "Prs3d_Drawer.hxx".}
-proc SetPlaneAspect*(this: var Prs3d_Drawer; theAspect: handle[Prs3d_PlaneAspect]) {.
+proc setPlaneAspect*(this: var Prs3dDrawer; theAspect: Handle[Prs3dPlaneAspect]) {.
     importcpp: "SetPlaneAspect", header: "Prs3d_Drawer.hxx".}
-proc HasOwnPlaneAspect*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnPlaneAspect*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnPlaneAspect", header: "Prs3d_Drawer.hxx".}
-proc ArrowAspect*(this: var Prs3d_Drawer): handle[Prs3d_ArrowAspect] {.
+proc arrowAspect*(this: var Prs3dDrawer): Handle[Prs3dArrowAspect] {.
     importcpp: "ArrowAspect", header: "Prs3d_Drawer.hxx".}
-proc SetArrowAspect*(this: var Prs3d_Drawer; theAspect: handle[Prs3d_ArrowAspect]) {.
+proc setArrowAspect*(this: var Prs3dDrawer; theAspect: Handle[Prs3dArrowAspect]) {.
     importcpp: "SetArrowAspect", header: "Prs3d_Drawer.hxx".}
-proc HasOwnArrowAspect*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnArrowAspect*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnArrowAspect", header: "Prs3d_Drawer.hxx".}
-proc SetLineArrowDraw*(this: var Prs3d_Drawer; theIsEnabled: Standard_Boolean) {.
+proc setLineArrowDraw*(this: var Prs3dDrawer; theIsEnabled: bool) {.
     importcpp: "SetLineArrowDraw", header: "Prs3d_Drawer.hxx".}
-proc LineArrowDraw*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc lineArrowDraw*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "LineArrowDraw", header: "Prs3d_Drawer.hxx".}
-proc HasOwnLineArrowDraw*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnLineArrowDraw*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnLineArrowDraw", header: "Prs3d_Drawer.hxx".}
-proc HiddenLineAspect*(this: var Prs3d_Drawer): handle[Prs3d_LineAspect] {.
+proc hiddenLineAspect*(this: var Prs3dDrawer): Handle[Prs3dLineAspect] {.
     importcpp: "HiddenLineAspect", header: "Prs3d_Drawer.hxx".}
-proc SetHiddenLineAspect*(this: var Prs3d_Drawer;
-                         theAspect: handle[Prs3d_LineAspect]) {.
+proc setHiddenLineAspect*(this: var Prs3dDrawer; theAspect: Handle[Prs3dLineAspect]) {.
     importcpp: "SetHiddenLineAspect", header: "Prs3d_Drawer.hxx".}
-proc HasOwnHiddenLineAspect*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnHiddenLineAspect*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnHiddenLineAspect", header: "Prs3d_Drawer.hxx".}
-proc DrawHiddenLine*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc drawHiddenLine*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "DrawHiddenLine", header: "Prs3d_Drawer.hxx".}
-proc EnableDrawHiddenLine*(this: var Prs3d_Drawer) {.
+proc enableDrawHiddenLine*(this: var Prs3dDrawer) {.
     importcpp: "EnableDrawHiddenLine", header: "Prs3d_Drawer.hxx".}
-proc DisableDrawHiddenLine*(this: var Prs3d_Drawer) {.
+proc disableDrawHiddenLine*(this: var Prs3dDrawer) {.
     importcpp: "DisableDrawHiddenLine", header: "Prs3d_Drawer.hxx".}
-proc HasOwnDrawHiddenLine*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnDrawHiddenLine*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnDrawHiddenLine", header: "Prs3d_Drawer.hxx".}
-proc VectorAspect*(this: var Prs3d_Drawer): handle[Prs3d_LineAspect] {.
+proc vectorAspect*(this: var Prs3dDrawer): Handle[Prs3dLineAspect] {.
     importcpp: "VectorAspect", header: "Prs3d_Drawer.hxx".}
-proc SetVectorAspect*(this: var Prs3d_Drawer; theAspect: handle[Prs3d_LineAspect]) {.
+proc setVectorAspect*(this: var Prs3dDrawer; theAspect: Handle[Prs3dLineAspect]) {.
     importcpp: "SetVectorAspect", header: "Prs3d_Drawer.hxx".}
-proc HasOwnVectorAspect*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnVectorAspect*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnVectorAspect", header: "Prs3d_Drawer.hxx".}
-proc SetVertexDrawMode*(this: var Prs3d_Drawer; theMode: Prs3d_VertexDrawMode) {.
+proc setVertexDrawMode*(this: var Prs3dDrawer; theMode: Prs3dVertexDrawMode) {.
     importcpp: "SetVertexDrawMode", header: "Prs3d_Drawer.hxx".}
-proc VertexDrawMode*(this: var Prs3d_Drawer): Prs3d_VertexDrawMode {.
+proc vertexDrawMode*(this: var Prs3dDrawer): Prs3dVertexDrawMode {.
     importcpp: "VertexDrawMode", header: "Prs3d_Drawer.hxx".}
-proc HasOwnVertexDrawMode*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnVertexDrawMode*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnVertexDrawMode", header: "Prs3d_Drawer.hxx".}
-proc DatumAspect*(this: var Prs3d_Drawer): handle[Prs3d_DatumAspect] {.
+proc datumAspect*(this: var Prs3dDrawer): Handle[Prs3dDatumAspect] {.
     importcpp: "DatumAspect", header: "Prs3d_Drawer.hxx".}
-proc SetDatumAspect*(this: var Prs3d_Drawer; theAspect: handle[Prs3d_DatumAspect]) {.
+proc setDatumAspect*(this: var Prs3dDrawer; theAspect: Handle[Prs3dDatumAspect]) {.
     importcpp: "SetDatumAspect", header: "Prs3d_Drawer.hxx".}
-proc HasOwnDatumAspect*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnDatumAspect*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnDatumAspect", header: "Prs3d_Drawer.hxx".}
-proc SectionAspect*(this: var Prs3d_Drawer): handle[Prs3d_LineAspect] {.
+proc sectionAspect*(this: var Prs3dDrawer): Handle[Prs3dLineAspect] {.
     importcpp: "SectionAspect", header: "Prs3d_Drawer.hxx".}
-proc SetSectionAspect*(this: var Prs3d_Drawer; theAspect: handle[Prs3d_LineAspect]) {.
+proc setSectionAspect*(this: var Prs3dDrawer; theAspect: Handle[Prs3dLineAspect]) {.
     importcpp: "SetSectionAspect", header: "Prs3d_Drawer.hxx".}
-proc HasOwnSectionAspect*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnSectionAspect*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnSectionAspect", header: "Prs3d_Drawer.hxx".}
-proc SetFreeBoundaryAspect*(this: var Prs3d_Drawer;
-                           theAspect: handle[Prs3d_LineAspect]) {.
+proc setFreeBoundaryAspect*(this: var Prs3dDrawer;
+                           theAspect: Handle[Prs3dLineAspect]) {.
     importcpp: "SetFreeBoundaryAspect", header: "Prs3d_Drawer.hxx".}
-proc FreeBoundaryAspect*(this: var Prs3d_Drawer): handle[Prs3d_LineAspect] {.
+proc freeBoundaryAspect*(this: var Prs3dDrawer): Handle[Prs3dLineAspect] {.
     importcpp: "FreeBoundaryAspect", header: "Prs3d_Drawer.hxx".}
-proc HasOwnFreeBoundaryAspect*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnFreeBoundaryAspect*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnFreeBoundaryAspect", header: "Prs3d_Drawer.hxx".}
-proc SetFreeBoundaryDraw*(this: var Prs3d_Drawer; theIsEnabled: Standard_Boolean) {.
+proc setFreeBoundaryDraw*(this: var Prs3dDrawer; theIsEnabled: bool) {.
     importcpp: "SetFreeBoundaryDraw", header: "Prs3d_Drawer.hxx".}
-proc FreeBoundaryDraw*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc freeBoundaryDraw*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "FreeBoundaryDraw", header: "Prs3d_Drawer.hxx".}
-proc HasOwnFreeBoundaryDraw*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnFreeBoundaryDraw*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnFreeBoundaryDraw", header: "Prs3d_Drawer.hxx".}
-proc SetUnFreeBoundaryAspect*(this: var Prs3d_Drawer;
-                             theAspect: handle[Prs3d_LineAspect]) {.
+proc setUnFreeBoundaryAspect*(this: var Prs3dDrawer;
+                             theAspect: Handle[Prs3dLineAspect]) {.
     importcpp: "SetUnFreeBoundaryAspect", header: "Prs3d_Drawer.hxx".}
-proc UnFreeBoundaryAspect*(this: var Prs3d_Drawer): handle[Prs3d_LineAspect] {.
+proc unFreeBoundaryAspect*(this: var Prs3dDrawer): Handle[Prs3dLineAspect] {.
     importcpp: "UnFreeBoundaryAspect", header: "Prs3d_Drawer.hxx".}
-proc HasOwnUnFreeBoundaryAspect*(this: Prs3d_Drawer): Standard_Boolean {.
-    noSideEffect, importcpp: "HasOwnUnFreeBoundaryAspect",
-    header: "Prs3d_Drawer.hxx".}
-proc SetUnFreeBoundaryDraw*(this: var Prs3d_Drawer; theIsEnabled: Standard_Boolean) {.
+proc hasOwnUnFreeBoundaryAspect*(this: Prs3dDrawer): bool {.noSideEffect,
+    importcpp: "HasOwnUnFreeBoundaryAspect", header: "Prs3d_Drawer.hxx".}
+proc setUnFreeBoundaryDraw*(this: var Prs3dDrawer; theIsEnabled: bool) {.
     importcpp: "SetUnFreeBoundaryDraw", header: "Prs3d_Drawer.hxx".}
-proc UnFreeBoundaryDraw*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc unFreeBoundaryDraw*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "UnFreeBoundaryDraw", header: "Prs3d_Drawer.hxx".}
-proc HasOwnUnFreeBoundaryDraw*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnUnFreeBoundaryDraw*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnUnFreeBoundaryDraw", header: "Prs3d_Drawer.hxx".}
-proc SetFaceBoundaryAspect*(this: var Prs3d_Drawer;
-                           theAspect: handle[Prs3d_LineAspect]) {.
+proc setFaceBoundaryAspect*(this: var Prs3dDrawer;
+                           theAspect: Handle[Prs3dLineAspect]) {.
     importcpp: "SetFaceBoundaryAspect", header: "Prs3d_Drawer.hxx".}
-proc FaceBoundaryAspect*(this: var Prs3d_Drawer): handle[Prs3d_LineAspect] {.
+proc faceBoundaryAspect*(this: var Prs3dDrawer): Handle[Prs3dLineAspect] {.
     importcpp: "FaceBoundaryAspect", header: "Prs3d_Drawer.hxx".}
-proc HasOwnFaceBoundaryAspect*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnFaceBoundaryAspect*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnFaceBoundaryAspect", header: "Prs3d_Drawer.hxx".}
-proc SetupOwnFaceBoundaryAspect*(this: var Prs3d_Drawer; theDefaults: handle[
-    Prs3d_Drawer] = handle[Prs3d_Drawer]()): Standard_Boolean {.
+proc setupOwnFaceBoundaryAspect*(this: var Prs3dDrawer; theDefaults: Handle[
+    Prs3dDrawer] = handle[Prs3dDrawer]()): bool {.
     importcpp: "SetupOwnFaceBoundaryAspect", header: "Prs3d_Drawer.hxx".}
-proc SetFaceBoundaryDraw*(this: var Prs3d_Drawer; theIsEnabled: Standard_Boolean) {.
+proc setFaceBoundaryDraw*(this: var Prs3dDrawer; theIsEnabled: bool) {.
     importcpp: "SetFaceBoundaryDraw", header: "Prs3d_Drawer.hxx".}
-proc FaceBoundaryDraw*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc faceBoundaryDraw*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "FaceBoundaryDraw", header: "Prs3d_Drawer.hxx".}
-proc HasOwnFaceBoundaryDraw*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnFaceBoundaryDraw*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnFaceBoundaryDraw", header: "Prs3d_Drawer.hxx".}
-proc HasOwnFaceBoundaryUpperContinuity*(this: Prs3d_Drawer): Standard_Boolean {.
-    noSideEffect, importcpp: "HasOwnFaceBoundaryUpperContinuity",
-    header: "Prs3d_Drawer.hxx".}
-proc FaceBoundaryUpperContinuity*(this: Prs3d_Drawer): GeomAbs_Shape {.noSideEffect,
+proc hasOwnFaceBoundaryUpperContinuity*(this: Prs3dDrawer): bool {.noSideEffect,
+    importcpp: "HasOwnFaceBoundaryUpperContinuity", header: "Prs3d_Drawer.hxx".}
+proc faceBoundaryUpperContinuity*(this: Prs3dDrawer): GeomAbsShape {.noSideEffect,
     importcpp: "FaceBoundaryUpperContinuity", header: "Prs3d_Drawer.hxx".}
-proc SetFaceBoundaryUpperContinuity*(this: var Prs3d_Drawer;
-                                    theMostAllowedEdgeClass: GeomAbs_Shape) {.
+proc setFaceBoundaryUpperContinuity*(this: var Prs3dDrawer;
+                                    theMostAllowedEdgeClass: GeomAbsShape) {.
     importcpp: "SetFaceBoundaryUpperContinuity", header: "Prs3d_Drawer.hxx".}
-proc UnsetFaceBoundaryUpperContinuity*(this: var Prs3d_Drawer) {.
+proc unsetFaceBoundaryUpperContinuity*(this: var Prs3dDrawer) {.
     importcpp: "UnsetFaceBoundaryUpperContinuity", header: "Prs3d_Drawer.hxx".}
-proc DimensionAspect*(this: var Prs3d_Drawer): handle[Prs3d_DimensionAspect] {.
+proc dimensionAspect*(this: var Prs3dDrawer): Handle[Prs3dDimensionAspect] {.
     importcpp: "DimensionAspect", header: "Prs3d_Drawer.hxx".}
-proc SetDimensionAspect*(this: var Prs3d_Drawer;
-                        theAspect: handle[Prs3d_DimensionAspect]) {.
+proc setDimensionAspect*(this: var Prs3dDrawer;
+                        theAspect: Handle[Prs3dDimensionAspect]) {.
     importcpp: "SetDimensionAspect", header: "Prs3d_Drawer.hxx".}
-proc HasOwnDimensionAspect*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc hasOwnDimensionAspect*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnDimensionAspect", header: "Prs3d_Drawer.hxx".}
-proc SetDimLengthModelUnits*(this: var Prs3d_Drawer;
-                            theUnits: TCollection_AsciiString) {.
+proc setDimLengthModelUnits*(this: var Prs3dDrawer; theUnits: TCollectionAsciiString) {.
     importcpp: "SetDimLengthModelUnits", header: "Prs3d_Drawer.hxx".}
-proc SetDimAngleModelUnits*(this: var Prs3d_Drawer;
-                           theUnits: TCollection_AsciiString) {.
+proc setDimAngleModelUnits*(this: var Prs3dDrawer; theUnits: TCollectionAsciiString) {.
     importcpp: "SetDimAngleModelUnits", header: "Prs3d_Drawer.hxx".}
-proc DimLengthModelUnits*(this: Prs3d_Drawer): TCollection_AsciiString {.
-    noSideEffect, importcpp: "DimLengthModelUnits", header: "Prs3d_Drawer.hxx".}
-proc DimAngleModelUnits*(this: Prs3d_Drawer): TCollection_AsciiString {.
-    noSideEffect, importcpp: "DimAngleModelUnits", header: "Prs3d_Drawer.hxx".}
-proc HasOwnDimLengthModelUnits*(this: Prs3d_Drawer): Standard_Boolean {.
-    noSideEffect, importcpp: "HasOwnDimLengthModelUnits",
-    header: "Prs3d_Drawer.hxx".}
-proc HasOwnDimAngleModelUnits*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
+proc dimLengthModelUnits*(this: Prs3dDrawer): TCollectionAsciiString {.noSideEffect,
+    importcpp: "DimLengthModelUnits", header: "Prs3d_Drawer.hxx".}
+proc dimAngleModelUnits*(this: Prs3dDrawer): TCollectionAsciiString {.noSideEffect,
+    importcpp: "DimAngleModelUnits", header: "Prs3d_Drawer.hxx".}
+proc hasOwnDimLengthModelUnits*(this: Prs3dDrawer): bool {.noSideEffect,
+    importcpp: "HasOwnDimLengthModelUnits", header: "Prs3d_Drawer.hxx".}
+proc hasOwnDimAngleModelUnits*(this: Prs3dDrawer): bool {.noSideEffect,
     importcpp: "HasOwnDimAngleModelUnits", header: "Prs3d_Drawer.hxx".}
-proc SetDimLengthDisplayUnits*(this: var Prs3d_Drawer;
-                              theUnits: TCollection_AsciiString) {.
+proc setDimLengthDisplayUnits*(this: var Prs3dDrawer;
+                              theUnits: TCollectionAsciiString) {.
     importcpp: "SetDimLengthDisplayUnits", header: "Prs3d_Drawer.hxx".}
-proc SetDimAngleDisplayUnits*(this: var Prs3d_Drawer;
-                             theUnits: TCollection_AsciiString) {.
+proc setDimAngleDisplayUnits*(this: var Prs3dDrawer;
+                             theUnits: TCollectionAsciiString) {.
     importcpp: "SetDimAngleDisplayUnits", header: "Prs3d_Drawer.hxx".}
-proc DimLengthDisplayUnits*(this: Prs3d_Drawer): TCollection_AsciiString {.
+proc dimLengthDisplayUnits*(this: Prs3dDrawer): TCollectionAsciiString {.
     noSideEffect, importcpp: "DimLengthDisplayUnits", header: "Prs3d_Drawer.hxx".}
-proc DimAngleDisplayUnits*(this: Prs3d_Drawer): TCollection_AsciiString {.
+proc dimAngleDisplayUnits*(this: Prs3dDrawer): TCollectionAsciiString {.
     noSideEffect, importcpp: "DimAngleDisplayUnits", header: "Prs3d_Drawer.hxx".}
-proc HasOwnDimLengthDisplayUnits*(this: Prs3d_Drawer): Standard_Boolean {.
-    noSideEffect, importcpp: "HasOwnDimLengthDisplayUnits",
+proc hasOwnDimLengthDisplayUnits*(this: Prs3dDrawer): bool {.noSideEffect,
+    importcpp: "HasOwnDimLengthDisplayUnits", header: "Prs3d_Drawer.hxx".}
+proc hasOwnDimAngleDisplayUnits*(this: Prs3dDrawer): bool {.noSideEffect,
+    importcpp: "HasOwnDimAngleDisplayUnits", header: "Prs3d_Drawer.hxx".}
+proc link*(this: var Prs3dDrawer): Handle[Prs3dDrawer] {.importcpp: "Link",
     header: "Prs3d_Drawer.hxx".}
-proc HasOwnDimAngleDisplayUnits*(this: Prs3d_Drawer): Standard_Boolean {.
-    noSideEffect, importcpp: "HasOwnDimAngleDisplayUnits",
+proc hasLink*(this: Prs3dDrawer): bool {.noSideEffect, importcpp: "HasLink",
+                                     header: "Prs3d_Drawer.hxx".}
+proc link*(this: var Prs3dDrawer; theDrawer: Handle[Prs3dDrawer]) {.importcpp: "Link",
     header: "Prs3d_Drawer.hxx".}
-proc Link*(this: var Prs3d_Drawer): handle[Prs3d_Drawer] {.importcpp: "Link",
-    header: "Prs3d_Drawer.hxx".}
-proc HasLink*(this: Prs3d_Drawer): Standard_Boolean {.noSideEffect,
-    importcpp: "HasLink", header: "Prs3d_Drawer.hxx".}
-proc Link*(this: var Prs3d_Drawer; theDrawer: handle[Prs3d_Drawer]) {.
-    importcpp: "Link", header: "Prs3d_Drawer.hxx".}
-proc SetLink*(this: var Prs3d_Drawer; theDrawer: handle[Prs3d_Drawer]) {.
+proc setLink*(this: var Prs3dDrawer; theDrawer: Handle[Prs3dDrawer]) {.
     importcpp: "SetLink", header: "Prs3d_Drawer.hxx".}
-proc ClearLocalAttributes*(this: var Prs3d_Drawer) {.
+proc clearLocalAttributes*(this: var Prs3dDrawer) {.
     importcpp: "ClearLocalAttributes", header: "Prs3d_Drawer.hxx".}
-proc SetShaderProgram*(this: var Prs3d_Drawer;
-                      theProgram: handle[Graphic3d_ShaderProgram];
-                      theAspect: Graphic3d_GroupAspect;
+proc setShaderProgram*(this: var Prs3dDrawer;
+                      theProgram: Handle[Graphic3dShaderProgram];
+                      theAspect: Graphic3dGroupAspect;
                       theToOverrideDefaults: bool = false): bool {.
     importcpp: "SetShaderProgram", header: "Prs3d_Drawer.hxx".}
-proc SetShadingModel*(this: var Prs3d_Drawer;
-                     theModel: Graphic3d_TypeOfShadingModel;
+proc setShadingModel*(this: var Prs3dDrawer; theModel: Graphic3dTypeOfShadingModel;
                      theToOverrideDefaults: bool = false): bool {.
     importcpp: "SetShadingModel", header: "Prs3d_Drawer.hxx".}
-proc DumpJson*(this: Prs3d_Drawer; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Prs3d_Drawer.hxx".}
+proc dumpJson*(this: Prs3dDrawer; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "Prs3d_Drawer.hxx".}
 ## !!!Ignored construct:  public : ! @name deprecated methods Standard_DEPRECATED ( SetDeviationAngle() should be used instead ) void SetHLRAngle ( const Standard_Real theAngle ) { SetDeviationAngle ( theAngle ) ; } Standard_DEPRECATED ( DeviationAngle() should be used instead ) Standard_Real HLRAngle ( ) const { return DeviationAngle ( ) ; } Standard_DEPRECATED ( SetDeviationAngle() should be used instead ) void SetHLRAngle ( ) { SetDeviationAngle ( ) ; } Standard_DEPRECATED ( HasOwnDeviationAngle() should be used instead ) Standard_Boolean HasOwnHLRDeviationAngle ( ) const { return HasOwnDeviationAngle ( ) ; } Standard_DEPRECATED ( PreviousDeviationAngle() should be used instead ) Standard_Real PreviousHLRDeviationAngle ( ) const { return PreviousDeviationAngle ( ) ; } protected : opencascade :: handle < Prs3d_Drawer > [end of template] myLink ;
 ## Error: identifier expected, but got: SetDeviationAngle() should be used instead!!!
 
 ## !!!Ignored construct:  Standard_DEPRECATED ( Class name is deprecated - use Prs3d_Drawer instead ) typedef Prs3d_Drawer Graphic3d_HighlightStyle ;
 ## Error: expected ';'!!!
+

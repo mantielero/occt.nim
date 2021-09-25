@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../IGESData/IGESData_GeneralModule, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of IGESData_DirChecker"
@@ -29,58 +24,58 @@ discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESDimen_GeneralModule"
 discard "forward decl of IGESDimen_GeneralModule"
 type
-  Handle_IGESDimen_GeneralModule* = handle[IGESDimen_GeneralModule]
+  HandleIGESDimenGeneralModule* = Handle[IGESDimenGeneralModule]
 
 ## ! Definition of General Services for IGESDimen (specific part)
 ## ! This Services comprise : Shared & Implied Lists, Copy, Check
 
 type
-  IGESDimen_GeneralModule* {.importcpp: "IGESDimen_GeneralModule",
-                            header: "IGESDimen_GeneralModule.hxx", bycopy.} = object of IGESData_GeneralModule ##
-                                                                                                        ## !
-                                                                                                        ## Creates
-                                                                                                        ## a
-                                                                                                        ## GeneralModule
-                                                                                                        ## from
-                                                                                                        ## IGESDimen
-                                                                                                        ## and
-                                                                                                        ## puts
-                                                                                                        ## it
-                                                                                                        ## into
-                                                                                                        ## GeneralLib
+  IGESDimenGeneralModule* {.importcpp: "IGESDimen_GeneralModule",
+                           header: "IGESDimen_GeneralModule.hxx", bycopy.} = object of IGESDataGeneralModule ##
+                                                                                                      ## !
+                                                                                                      ## Creates
+                                                                                                      ## a
+                                                                                                      ## GeneralModule
+                                                                                                      ## from
+                                                                                                      ## IGESDimen
+                                                                                                      ## and
+                                                                                                      ## puts
+                                                                                                      ## it
+                                                                                                      ## into
+                                                                                                      ## GeneralLib
 
 
-proc constructIGESDimen_GeneralModule*(): IGESDimen_GeneralModule {.constructor,
+proc constructIGESDimenGeneralModule*(): IGESDimenGeneralModule {.constructor,
     importcpp: "IGESDimen_GeneralModule(@)", header: "IGESDimen_GeneralModule.hxx".}
-proc OwnSharedCase*(this: IGESDimen_GeneralModule; CN: Standard_Integer;
-                   ent: handle[IGESData_IGESEntity];
-                   iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownSharedCase*(this: IGESDimenGeneralModule; cn: int;
+                   ent: Handle[IGESDataIGESEntity];
+                   iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnSharedCase", header: "IGESDimen_GeneralModule.hxx".}
-proc DirChecker*(this: IGESDimen_GeneralModule; CN: Standard_Integer;
-                ent: handle[IGESData_IGESEntity]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESDimenGeneralModule; cn: int;
+                ent: Handle[IGESDataIGESEntity]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESDimen_GeneralModule.hxx".}
-proc OwnCheckCase*(this: IGESDimen_GeneralModule; CN: Standard_Integer;
-                  ent: handle[IGESData_IGESEntity]; shares: Interface_ShareTool;
-                  ach: var handle[Interface_Check]) {.noSideEffect,
+proc ownCheckCase*(this: IGESDimenGeneralModule; cn: int;
+                  ent: Handle[IGESDataIGESEntity]; shares: InterfaceShareTool;
+                  ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "OwnCheckCase", header: "IGESDimen_GeneralModule.hxx".}
-proc NewVoid*(this: IGESDimen_GeneralModule; CN: Standard_Integer;
-             entto: var handle[Standard_Transient]): Standard_Boolean {.
-    noSideEffect, importcpp: "NewVoid", header: "IGESDimen_GeneralModule.hxx".}
-proc OwnCopyCase*(this: IGESDimen_GeneralModule; CN: Standard_Integer;
-                 entfrom: handle[IGESData_IGESEntity];
-                 entto: handle[IGESData_IGESEntity]; TC: var Interface_CopyTool) {.
+proc newVoid*(this: IGESDimenGeneralModule; cn: int;
+             entto: var Handle[StandardTransient]): bool {.noSideEffect,
+    importcpp: "NewVoid", header: "IGESDimen_GeneralModule.hxx".}
+proc ownCopyCase*(this: IGESDimenGeneralModule; cn: int;
+                 entfrom: Handle[IGESDataIGESEntity];
+                 entto: Handle[IGESDataIGESEntity]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopyCase", header: "IGESDimen_GeneralModule.hxx".}
-proc CategoryNumber*(this: IGESDimen_GeneralModule; CN: Standard_Integer;
-                    ent: handle[Standard_Transient]; shares: Interface_ShareTool): Standard_Integer {.
+proc categoryNumber*(this: IGESDimenGeneralModule; cn: int;
+                    ent: Handle[StandardTransient]; shares: InterfaceShareTool): int {.
     noSideEffect, importcpp: "CategoryNumber",
     header: "IGESDimen_GeneralModule.hxx".}
 type
-  IGESDimen_GeneralModulebase_type* = IGESData_GeneralModule
+  IGESDimenGeneralModulebaseType* = IGESDataGeneralModule
 
-proc get_type_name*(): cstring {.importcpp: "IGESDimen_GeneralModule::get_type_name(@)",
-                              header: "IGESDimen_GeneralModule.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESDimen_GeneralModule::get_type_name(@)",
+                            header: "IGESDimen_GeneralModule.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESDimen_GeneralModule::get_type_descriptor(@)",
     header: "IGESDimen_GeneralModule.hxx".}
-proc DynamicType*(this: IGESDimen_GeneralModule): handle[Standard_Type] {.
+proc dynamicType*(this: IGESDimenGeneralModule): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDimen_GeneralModule.hxx".}

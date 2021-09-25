@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TDF_LabelMap, TDF_AttributeMap
-
 discard "forward decl of TDF_DataSet"
 discard "forward decl of TDF_IDFilter"
 discard "forward decl of TDF_ClosureMode"
@@ -28,12 +24,12 @@ type
                                    ## ! Adds label attributes and dependences.
 
 
-proc Closure*(aDataSet: handle[TDF_DataSet]) {.
+proc closure*(aDataSet: Handle[TDF_DataSet]) {.
     importcpp: "TDF_ClosureTool::Closure(@)", header: "TDF_ClosureTool.hxx".}
-proc Closure*(aDataSet: handle[TDF_DataSet]; aFilter: TDF_IDFilter;
+proc closure*(aDataSet: Handle[TDF_DataSet]; aFilter: TDF_IDFilter;
              aMode: TDF_ClosureMode) {.importcpp: "TDF_ClosureTool::Closure(@)",
                                      header: "TDF_ClosureTool.hxx".}
-proc Closure*(aLabel: TDF_Label; aLabMap: var TDF_LabelMap;
+proc closure*(aLabel: TDF_Label; aLabMap: var TDF_LabelMap;
              anAttMap: var TDF_AttributeMap; aFilter: TDF_IDFilter;
              aMode: TDF_ClosureMode) {.importcpp: "TDF_ClosureTool::Closure(@)",
                                      header: "TDF_ClosureTool.hxx".}

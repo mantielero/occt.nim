@@ -17,9 +17,6 @@
 ## ! for compatibility with previous versions of OCCT.
 ## ! Since OCCT 7.0, relevant macros are provided by Standard_Type.hxx and Standard_Handle.hxx.
 
-import
-  Standard_Type
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Standard_Persistent"
 discard "forward decl of Standard_Type"

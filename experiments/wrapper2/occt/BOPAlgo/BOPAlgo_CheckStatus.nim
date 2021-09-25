@@ -13,11 +13,12 @@
 ##  commercial license or contractual agreement.
 
 type
-  BOPAlgo_CheckStatus* {.size: sizeof(cint), importcpp: "BOPAlgo_CheckStatus",
-                        header: "BOPAlgo_CheckStatus.hxx".} = enum
-    BOPAlgo_CheckUnknown, BOPAlgo_BadType, BOPAlgo_SelfIntersect,
-    BOPAlgo_TooSmallEdge, BOPAlgo_NonRecoverableFace,
-    BOPAlgo_IncompatibilityOfVertex, BOPAlgo_IncompatibilityOfEdge,
-    BOPAlgo_IncompatibilityOfFace, BOPAlgo_OperationAborted, BOPAlgo_GeomAbs_C0,
-    BOPAlgo_InvalidCurveOnSurface, BOPAlgo_NotValid
+  BOPAlgoCheckStatus* {.size: sizeof(cint), importcpp: "BOPAlgo_CheckStatus",
+                       header: "BOPAlgo_CheckStatus.hxx".} = enum
+    BOPAlgoCheckUnknown, BOPAlgoBadType, BOPAlgoSelfIntersect, BOPAlgoTooSmallEdge,
+    BOPAlgoNonRecoverableFace, BOPAlgoIncompatibilityOfVertex,
+    BOPAlgoIncompatibilityOfEdge, BOPAlgoIncompatibilityOfFace,
+    BOPAlgoOperationAborted, BOPAlgoGeomAbsC0, BOPAlgoInvalidCurveOnSurface,
+    BOPAlgoNotValid
+
 

@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  BRepAlgo_CheckStatus* {.size: sizeof(cint), importcpp: "BRepAlgo_CheckStatus",
-                         header: "BRepAlgo_CheckStatus.hxx".} = enum
-    BRepAlgo_OK, BRepAlgo_NOK
+  BRepAlgoCheckStatus* {.size: sizeof(cint), importcpp: "BRepAlgo_CheckStatus",
+                        header: "BRepAlgo_CheckStatus.hxx".} = enum
+    BRepAlgoOK, BRepAlgoNOK
+
 

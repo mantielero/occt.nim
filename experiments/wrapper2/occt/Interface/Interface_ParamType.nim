@@ -15,10 +15,11 @@
 ##  commercial license or contractual agreement.
 
 type
-  Interface_ParamType* {.size: sizeof(cint), importcpp: "Interface_ParamType",
-                        header: "Interface_ParamType.hxx".} = enum
-    Interface_ParamMisc, Interface_ParamInteger, Interface_ParamReal,
-    Interface_ParamIdent, Interface_ParamVoid, Interface_ParamText,
-    Interface_ParamEnum, Interface_ParamLogical, Interface_ParamSub,
-    Interface_ParamHexa, Interface_ParamBinary
+  InterfaceParamType* {.size: sizeof(cint), importcpp: "Interface_ParamType",
+                       header: "Interface_ParamType.hxx".} = enum
+    InterfaceParamMisc, InterfaceParamInteger, InterfaceParamReal,
+    InterfaceParamIdent, InterfaceParamVoid, InterfaceParamText,
+    InterfaceParamEnum, InterfaceParamLogical, InterfaceParamSub,
+    InterfaceParamHexa, InterfaceParamBinary
+
 

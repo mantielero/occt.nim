@@ -18,8 +18,9 @@
 ## ! Notice that for textures without mipmaps linear interpolation will be used instead of TOTF_BILINEAR and TOTF_TRILINEAR.
 
 type
-  Graphic3d_TypeOfTextureFilter* {.size: sizeof(cint),
-                                  importcpp: "Graphic3d_TypeOfTextureFilter",
-                                  header: "Graphic3d_TypeOfTextureFilter.hxx".} = enum
-    Graphic3d_TOTF_NEAREST, Graphic3d_TOTF_BILINEAR, Graphic3d_TOTF_TRILINEAR
+  Graphic3dTypeOfTextureFilter* {.size: sizeof(cint),
+                                 importcpp: "Graphic3d_TypeOfTextureFilter",
+                                 header: "Graphic3d_TypeOfTextureFilter.hxx".} = enum
+    Graphic3dTOTF_NEAREST, Graphic3dTOTF_BILINEAR, Graphic3dTOTF_TRILINEAR
+
 

@@ -15,9 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  Vrml_MaterialBindingAndNormalBinding* {.size: sizeof(cint),
-      importcpp: "Vrml_MaterialBindingAndNormalBinding",
-      header: "Vrml_MaterialBindingAndNormalBinding.hxx".} = enum
-    Vrml_DEFAULT, Vrml_OVERALL, Vrml_PER_PART, Vrml_PER_PART_INDEXED, Vrml_PER_FACE,
-    Vrml_PER_FACE_INDEXED, Vrml_PER_VERTEX, Vrml_PER_VERTEX_INDEXED
+  VrmlMaterialBindingAndNormalBinding* {.size: sizeof(cint), importcpp: "Vrml_MaterialBindingAndNormalBinding", header: "Vrml_MaterialBindingAndNormalBinding.hxx".} = enum
+    VrmlDEFAULT, VrmlOVERALL, VrmlPER_PART, VrmlPER_PART_INDEXED, VrmlPER_FACE,
+    VrmlPER_FACE_INDEXED, VrmlPER_VERTEX, VrmlPER_VERTEX_INDEXED
+
 

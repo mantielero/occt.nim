@@ -13,14 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../BinObjMgt/BinObjMgt_Persistent, ../BinObjMgt/BinObjMgt_RRelocationTable,
-  ../TColStd/TColStd_MapOfInteger, BinLDrivers_VectorOfDocumentSection,
-  ../PCDM/PCDM_RetrievalDriver, ../Standard/Standard_Integer,
-  ../Standard/Standard_IStream, ../Storage/Storage_Position,
-  ../Standard/Standard_Boolean, ../Storage/Storage_Data
-
 discard "forward decl of BinMDF_ADriverTable"
 discard "forward decl of Message_Messenger"
 discard "forward decl of TCollection_ExtendedString"
@@ -34,49 +26,46 @@ discard "forward decl of BinLDrivers_DocumentSection"
 discard "forward decl of BinLDrivers_DocumentRetrievalDriver"
 discard "forward decl of BinLDrivers_DocumentRetrievalDriver"
 type
-  Handle_BinLDrivers_DocumentRetrievalDriver* = handle[
-      BinLDrivers_DocumentRetrievalDriver]
-  BinLDrivers_DocumentRetrievalDriver* {.importcpp: "BinLDrivers_DocumentRetrievalDriver", header: "BinLDrivers_DocumentRetrievalDriver.hxx",
-                                        bycopy.} = object of PCDM_RetrievalDriver ## !
-                                                                             ## Constructor
-                                                                             ## !
-                                                                             ## Read the
-                                                                             ## tree
-                                                                             ## from the
-                                                                             ## stream
-                                                                             ## <theIS> to
-                                                                             ## <theLabel>
+  HandleBinLDriversDocumentRetrievalDriver* = Handle[
+      BinLDriversDocumentRetrievalDriver]
+  BinLDriversDocumentRetrievalDriver* {.importcpp: "BinLDrivers_DocumentRetrievalDriver", header: "BinLDrivers_DocumentRetrievalDriver.hxx",
+                                       bycopy.} = object of PCDM_RetrievalDriver ## !
+                                                                            ## Constructor
+                                                                            ## ! Read the tree from the
+                                                                            ## stream
+                                                                            ## <theIS> to
+                                                                            ## <theLabel>
 
 
-proc constructBinLDrivers_DocumentRetrievalDriver*(): BinLDrivers_DocumentRetrievalDriver {.
+proc constructBinLDriversDocumentRetrievalDriver*(): BinLDriversDocumentRetrievalDriver {.
     constructor, importcpp: "BinLDrivers_DocumentRetrievalDriver(@)",
     header: "BinLDrivers_DocumentRetrievalDriver.hxx".}
-proc CreateDocument*(this: var BinLDrivers_DocumentRetrievalDriver): handle[
+proc createDocument*(this: var BinLDriversDocumentRetrievalDriver): Handle[
     CDM_Document] {.importcpp: "CreateDocument",
                    header: "BinLDrivers_DocumentRetrievalDriver.hxx".}
-proc Read*(this: var BinLDrivers_DocumentRetrievalDriver;
-          theFileName: TCollection_ExtendedString;
-          theNewDocument: handle[CDM_Document];
-          theApplication: handle[CDM_Application];
-          theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc read*(this: var BinLDriversDocumentRetrievalDriver;
+          theFileName: TCollectionExtendedString;
+          theNewDocument: Handle[CDM_Document];
+          theApplication: Handle[CDM_Application];
+          theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Read", header: "BinLDrivers_DocumentRetrievalDriver.hxx".}
-proc Read*(this: var BinLDrivers_DocumentRetrievalDriver;
-          theIStream: var Standard_IStream; theStorageData: handle[Storage_Data];
-          theDoc: handle[CDM_Document]; theApplication: handle[CDM_Application];
-          theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc read*(this: var BinLDriversDocumentRetrievalDriver;
+          theIStream: var StandardIStream; theStorageData: Handle[StorageData];
+          theDoc: Handle[CDM_Document]; theApplication: Handle[CDM_Application];
+          theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Read", header: "BinLDrivers_DocumentRetrievalDriver.hxx".}
-proc AttributeDrivers*(this: var BinLDrivers_DocumentRetrievalDriver;
-                      theMsgDriver: handle[Message_Messenger]): handle[
+proc attributeDrivers*(this: var BinLDriversDocumentRetrievalDriver;
+                      theMsgDriver: Handle[MessageMessenger]): Handle[
     BinMDF_ADriverTable] {.importcpp: "AttributeDrivers",
                           header: "BinLDrivers_DocumentRetrievalDriver.hxx".}
 type
-  BinLDrivers_DocumentRetrievalDriverbase_type* = PCDM_RetrievalDriver
+  BinLDriversDocumentRetrievalDriverbaseType* = PCDM_RetrievalDriver
 
-proc get_type_name*(): cstring {.importcpp: "BinLDrivers_DocumentRetrievalDriver::get_type_name(@)",
-                              header: "BinLDrivers_DocumentRetrievalDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BinLDrivers_DocumentRetrievalDriver::get_type_name(@)",
+                            header: "BinLDrivers_DocumentRetrievalDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BinLDrivers_DocumentRetrievalDriver::get_type_descriptor(@)",
     header: "BinLDrivers_DocumentRetrievalDriver.hxx".}
-proc DynamicType*(this: BinLDrivers_DocumentRetrievalDriver): handle[Standard_Type] {.
+proc dynamicType*(this: BinLDriversDocumentRetrievalDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinLDrivers_DocumentRetrievalDriver.hxx".}

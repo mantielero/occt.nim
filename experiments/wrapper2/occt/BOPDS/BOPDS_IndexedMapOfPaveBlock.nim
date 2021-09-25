@@ -12,10 +12,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_IndexedMap, ../TColStd/TColStd_MapTransientHasher,
-  BOPDS_PaveBlock
-
 type
-  BOPDS_IndexedMapOfPaveBlock* = NCollection_IndexedMap[handle[BOPDS_PaveBlock],
-      TColStd_MapTransientHasher]
+  BOPDS_IndexedMapOfPaveBlock* = NCollectionIndexedMap[Handle[BOPDS_PaveBlock],
+      TColStdMapTransientHasher]
+

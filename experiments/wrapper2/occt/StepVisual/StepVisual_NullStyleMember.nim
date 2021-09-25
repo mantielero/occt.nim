@@ -13,53 +13,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../StepData/StepData_SelectInt,
-  ../Standard/Standard_Boolean, ../Standard/Standard_CString,
-  ../Standard/Standard_Integer, StepVisual_NullStyle
-
 discard "forward decl of StepVisual_NullStyleMember"
 discard "forward decl of StepVisual_NullStyleMember"
 type
-  Handle_StepVisual_NullStyleMember* = handle[StepVisual_NullStyleMember]
+  HandleStepVisualNullStyleMember* = Handle[StepVisualNullStyleMember]
 
 ## ! Defines NullStyle as unique member of PresentationStyleSelect
 ## ! Works with an EnumTool
 
 type
-  StepVisual_NullStyleMember* {.importcpp: "StepVisual_NullStyleMember",
-                               header: "StepVisual_NullStyleMember.hxx", bycopy.} = object of StepData_SelectInt
+  StepVisualNullStyleMember* {.importcpp: "StepVisual_NullStyleMember",
+                              header: "StepVisual_NullStyleMember.hxx", bycopy.} = object of StepDataSelectInt
 
 
-proc constructStepVisual_NullStyleMember*(): StepVisual_NullStyleMember {.
+proc constructStepVisualNullStyleMember*(): StepVisualNullStyleMember {.
     constructor, importcpp: "StepVisual_NullStyleMember(@)",
     header: "StepVisual_NullStyleMember.hxx".}
-proc HasName*(this: StepVisual_NullStyleMember): Standard_Boolean {.noSideEffect,
+proc hasName*(this: StepVisualNullStyleMember): bool {.noSideEffect,
     importcpp: "HasName", header: "StepVisual_NullStyleMember.hxx".}
-proc Name*(this: StepVisual_NullStyleMember): Standard_CString {.noSideEffect,
+proc name*(this: StepVisualNullStyleMember): StandardCString {.noSideEffect,
     importcpp: "Name", header: "StepVisual_NullStyleMember.hxx".}
-proc SetName*(this: var StepVisual_NullStyleMember; a2: Standard_CString): Standard_Boolean {.
+proc setName*(this: var StepVisualNullStyleMember; a2: StandardCString): bool {.
     importcpp: "SetName", header: "StepVisual_NullStyleMember.hxx".}
   ## theName
-proc Kind*(this: StepVisual_NullStyleMember): Standard_Integer {.noSideEffect,
-    importcpp: "Kind", header: "StepVisual_NullStyleMember.hxx".}
-proc EnumText*(this: StepVisual_NullStyleMember): Standard_CString {.noSideEffect,
-    importcpp: "EnumText", header: "StepVisual_NullStyleMember.hxx".}
-proc SetEnumText*(this: var StepVisual_NullStyleMember; theValue: Standard_Integer;
-                 theText: Standard_CString) {.importcpp: "SetEnumText",
+proc kind*(this: StepVisualNullStyleMember): int {.noSideEffect, importcpp: "Kind",
     header: "StepVisual_NullStyleMember.hxx".}
-proc SetValue*(this: var StepVisual_NullStyleMember; theValue: StepVisual_NullStyle) {.
+proc enumText*(this: StepVisualNullStyleMember): StandardCString {.noSideEffect,
+    importcpp: "EnumText", header: "StepVisual_NullStyleMember.hxx".}
+proc setEnumText*(this: var StepVisualNullStyleMember; theValue: int;
+                 theText: StandardCString) {.importcpp: "SetEnumText",
+    header: "StepVisual_NullStyleMember.hxx".}
+proc setValue*(this: var StepVisualNullStyleMember; theValue: StepVisualNullStyle) {.
     importcpp: "SetValue", header: "StepVisual_NullStyleMember.hxx".}
-proc Value*(this: StepVisual_NullStyleMember): StepVisual_NullStyle {.noSideEffect,
+proc value*(this: StepVisualNullStyleMember): StepVisualNullStyle {.noSideEffect,
     importcpp: "Value", header: "StepVisual_NullStyleMember.hxx".}
 type
-  StepVisual_NullStyleMemberbase_type* = StepData_SelectInt
+  StepVisualNullStyleMemberbaseType* = StepDataSelectInt
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_NullStyleMember::get_type_name(@)",
-                              header: "StepVisual_NullStyleMember.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_NullStyleMember::get_type_name(@)",
+                            header: "StepVisual_NullStyleMember.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_NullStyleMember::get_type_descriptor(@)",
     header: "StepVisual_NullStyleMember.hxx".}
-proc DynamicType*(this: StepVisual_NullStyleMember): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualNullStyleMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_NullStyleMember.hxx".}

@@ -17,12 +17,13 @@
 ## ! Nature of the reflection of a material.
 
 type
-  Graphic3d_TypeOfReflection* {.size: sizeof(cint),
-                               importcpp: "Graphic3d_TypeOfReflection",
-                               header: "Graphic3d_TypeOfReflection.hxx".} = enum
-    Graphic3d_TOR_AMBIENT = 0, Graphic3d_TOR_DIFFUSE, Graphic3d_TOR_SPECULAR,
-    Graphic3d_TOR_EMISSION
+  Graphic3dTypeOfReflection* {.size: sizeof(cint),
+                              importcpp: "Graphic3d_TypeOfReflection",
+                              header: "Graphic3d_TypeOfReflection.hxx".} = enum
+    Graphic3dTOR_AMBIENT = 0, Graphic3dTOR_DIFFUSE, Graphic3dTOR_SPECULAR,
+    Graphic3dTOR_EMISSION
 
 
 const
-  Graphic3d_TypeOfReflection_NB* = 4
+  Graphic3dTypeOfReflectionNB* = 4
+

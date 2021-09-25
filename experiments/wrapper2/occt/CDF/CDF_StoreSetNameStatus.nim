@@ -20,3 +20,4 @@ type
                            header: "CDF_StoreSetNameStatus.hxx".} = enum
     CDF_SSNS_OK, CDF_SSNS_ReplacingAnExistentDocument, CDF_SSNS_OpenDocument
 
+

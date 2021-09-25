@@ -14,53 +14,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GeomFill_FillingStyle
-
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Geom_BSplineCurve"
 type
-  GeomFill_BSplineCurves* {.importcpp: "GeomFill_BSplineCurves",
-                           header: "GeomFill_BSplineCurves.hxx", bycopy.} = object ## !
-                                                                              ## Constructs a
-                                                                              ## default
-                                                                              ## BSpline
-                                                                              ## surface
-                                                                              ## framework.
+  GeomFillBSplineCurves* {.importcpp: "GeomFill_BSplineCurves",
+                          header: "GeomFill_BSplineCurves.hxx", bycopy.} = object ## !
+                                                                             ## Constructs a
+                                                                             ## default
+                                                                             ## BSpline
+                                                                             ## surface
+                                                                             ## framework.
 
 
-proc constructGeomFill_BSplineCurves*(): GeomFill_BSplineCurves {.constructor,
+proc constructGeomFillBSplineCurves*(): GeomFillBSplineCurves {.constructor,
     importcpp: "GeomFill_BSplineCurves(@)", header: "GeomFill_BSplineCurves.hxx".}
-proc constructGeomFill_BSplineCurves*(C1: handle[Geom_BSplineCurve];
-                                     C2: handle[Geom_BSplineCurve];
-                                     C3: handle[Geom_BSplineCurve];
-                                     C4: handle[Geom_BSplineCurve];
-                                     Type: GeomFill_FillingStyle): GeomFill_BSplineCurves {.
+proc constructGeomFillBSplineCurves*(c1: Handle[GeomBSplineCurve];
+                                    c2: Handle[GeomBSplineCurve];
+                                    c3: Handle[GeomBSplineCurve];
+                                    c4: Handle[GeomBSplineCurve];
+                                    `type`: GeomFillFillingStyle): GeomFillBSplineCurves {.
     constructor, importcpp: "GeomFill_BSplineCurves(@)",
     header: "GeomFill_BSplineCurves.hxx".}
-proc constructGeomFill_BSplineCurves*(C1: handle[Geom_BSplineCurve];
-                                     C2: handle[Geom_BSplineCurve];
-                                     C3: handle[Geom_BSplineCurve];
-                                     Type: GeomFill_FillingStyle): GeomFill_BSplineCurves {.
+proc constructGeomFillBSplineCurves*(c1: Handle[GeomBSplineCurve];
+                                    c2: Handle[GeomBSplineCurve];
+                                    c3: Handle[GeomBSplineCurve];
+                                    `type`: GeomFillFillingStyle): GeomFillBSplineCurves {.
     constructor, importcpp: "GeomFill_BSplineCurves(@)",
     header: "GeomFill_BSplineCurves.hxx".}
-proc constructGeomFill_BSplineCurves*(C1: handle[Geom_BSplineCurve];
-                                     C2: handle[Geom_BSplineCurve];
-                                     Type: GeomFill_FillingStyle): GeomFill_BSplineCurves {.
+proc constructGeomFillBSplineCurves*(c1: Handle[GeomBSplineCurve];
+                                    c2: Handle[GeomBSplineCurve];
+                                    `type`: GeomFillFillingStyle): GeomFillBSplineCurves {.
     constructor, importcpp: "GeomFill_BSplineCurves(@)",
     header: "GeomFill_BSplineCurves.hxx".}
-proc Init*(this: var GeomFill_BSplineCurves; C1: handle[Geom_BSplineCurve];
-          C2: handle[Geom_BSplineCurve]; C3: handle[Geom_BSplineCurve];
-          C4: handle[Geom_BSplineCurve]; Type: GeomFill_FillingStyle) {.
+proc init*(this: var GeomFillBSplineCurves; c1: Handle[GeomBSplineCurve];
+          c2: Handle[GeomBSplineCurve]; c3: Handle[GeomBSplineCurve];
+          c4: Handle[GeomBSplineCurve]; `type`: GeomFillFillingStyle) {.
     importcpp: "Init", header: "GeomFill_BSplineCurves.hxx".}
-proc Init*(this: var GeomFill_BSplineCurves; C1: handle[Geom_BSplineCurve];
-          C2: handle[Geom_BSplineCurve]; C3: handle[Geom_BSplineCurve];
-          Type: GeomFill_FillingStyle) {.importcpp: "Init",
-                                       header: "GeomFill_BSplineCurves.hxx".}
-proc Init*(this: var GeomFill_BSplineCurves; C1: handle[Geom_BSplineCurve];
-          C2: handle[Geom_BSplineCurve]; Type: GeomFill_FillingStyle) {.
+proc init*(this: var GeomFillBSplineCurves; c1: Handle[GeomBSplineCurve];
+          c2: Handle[GeomBSplineCurve]; c3: Handle[GeomBSplineCurve];
+          `type`: GeomFillFillingStyle) {.importcpp: "Init",
+                                        header: "GeomFill_BSplineCurves.hxx".}
+proc init*(this: var GeomFillBSplineCurves; c1: Handle[GeomBSplineCurve];
+          c2: Handle[GeomBSplineCurve]; `type`: GeomFillFillingStyle) {.
     importcpp: "Init", header: "GeomFill_BSplineCurves.hxx".}
-proc Surface*(this: GeomFill_BSplineCurves): handle[Geom_BSplineSurface] {.
+proc surface*(this: GeomFillBSplineCurves): Handle[GeomBSplineSurface] {.
     noSideEffect, importcpp: "Surface", header: "GeomFill_BSplineCurves.hxx".}

@@ -13,12 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, ../TDF/TDF_Label, ../TopTools/TopTools_ShapeMapHasher,
-  ../NCollection/NCollection_DataMap
-
 type
-  XCAFDoc_DataMapOfShapeLabel* = NCollection_DataMap[TopoDS_Shape, TDF_Label,
-      TopTools_ShapeMapHasher]
-  XCAFDoc_DataMapIteratorOfDataMapOfShapeLabel* = Iterator[TopoDS_Shape, TDF_Label,
-      TopTools_ShapeMapHasher]
+  XCAFDocDataMapOfShapeLabel* = NCollectionDataMap[TopoDS_Shape, TDF_Label,
+      TopToolsShapeMapHasher]
+  XCAFDocDataMapIteratorOfDataMapOfShapeLabel* = Iterator[TopoDS_Shape, TDF_Label,
+      TopToolsShapeMapHasher]
+

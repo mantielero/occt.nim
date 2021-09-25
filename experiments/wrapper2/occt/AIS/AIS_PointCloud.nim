@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  AIS, AIS_InteractiveObject, ../Bnd/Bnd_Box, ../Graphic3d/Graphic3d_ArrayOfPoints,
-  ../Quantity/Quantity_HArray1OfColor, ../SelectMgr/SelectMgr_EntityOwner,
-  ../TColgp/TColgp_HArray1OfDir, ../TColgp/TColgp_HArray1OfPnt
-
 discard "forward decl of TColStd_HPackedMapOfInteger"
 type
   AIS_PointCloud* {.importcpp: "AIS_PointCloud", header: "AIS_PointCloud.hxx", bycopy.} = object of AIS_InteractiveObject ##
@@ -88,14 +83,14 @@ type
     ## !< points array for presentation
     ## !< bounding box for presentation
 
-  AIS_PointCloudbase_type* = AIS_InteractiveObject
+  AIS_PointCloudbaseType* = AIS_InteractiveObject
 
-proc get_type_name*(): cstring {.importcpp: "AIS_PointCloud::get_type_name(@)",
-                              header: "AIS_PointCloud.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "AIS_PointCloud::get_type_name(@)",
+                            header: "AIS_PointCloud.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "AIS_PointCloud::get_type_descriptor(@)",
     header: "AIS_PointCloud.hxx".}
-proc DynamicType*(this: AIS_PointCloud): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: AIS_PointCloud): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_PointCloud.hxx".}
 type
   AIS_PointCloudDisplayMode* {.size: sizeof(cint),
@@ -116,67 +111,65 @@ type
 
 proc constructAIS_PointCloud*(): AIS_PointCloud {.constructor,
     importcpp: "AIS_PointCloud(@)", header: "AIS_PointCloud.hxx".}
-proc SetPoints*(this: var AIS_PointCloud; thePoints: handle[Graphic3d_ArrayOfPoints]) {.
+proc setPoints*(this: var AIS_PointCloud; thePoints: Handle[Graphic3dArrayOfPoints]) {.
     importcpp: "SetPoints", header: "AIS_PointCloud.hxx".}
-proc SetPoints*(this: var AIS_PointCloud; theCoords: handle[TColgp_HArray1OfPnt];
-               theColors: handle[Quantity_HArray1OfColor] = nil;
-               theNormals: handle[TColgp_HArray1OfDir] = nil) {.
+proc setPoints*(this: var AIS_PointCloud; theCoords: Handle[TColgpHArray1OfPnt];
+               theColors: Handle[QuantityHArray1OfColor] = nil;
+               theNormals: Handle[TColgpHArray1OfDir] = nil) {.
     importcpp: "SetPoints", header: "AIS_PointCloud.hxx".}
-proc GetPoints*(this: AIS_PointCloud): handle[Graphic3d_ArrayOfPoints] {.
+proc getPoints*(this: AIS_PointCloud): Handle[Graphic3dArrayOfPoints] {.
     noSideEffect, importcpp: "GetPoints", header: "AIS_PointCloud.hxx".}
-proc GetBoundingBox*(this: AIS_PointCloud): Bnd_Box {.noSideEffect,
+proc getBoundingBox*(this: AIS_PointCloud): BndBox {.noSideEffect,
     importcpp: "GetBoundingBox", header: "AIS_PointCloud.hxx".}
-proc SetColor*(this: var AIS_PointCloud; theColor: Quantity_Color) {.
+proc setColor*(this: var AIS_PointCloud; theColor: QuantityColor) {.
     importcpp: "SetColor", header: "AIS_PointCloud.hxx".}
-proc UnsetColor*(this: var AIS_PointCloud) {.importcpp: "UnsetColor",
+proc unsetColor*(this: var AIS_PointCloud) {.importcpp: "UnsetColor",
     header: "AIS_PointCloud.hxx".}
-proc SetMaterial*(this: var AIS_PointCloud; theMat: Graphic3d_MaterialAspect) {.
+proc setMaterial*(this: var AIS_PointCloud; theMat: Graphic3dMaterialAspect) {.
     importcpp: "SetMaterial", header: "AIS_PointCloud.hxx".}
-proc UnsetMaterial*(this: var AIS_PointCloud) {.importcpp: "UnsetMaterial",
+proc unsetMaterial*(this: var AIS_PointCloud) {.importcpp: "UnsetMaterial",
     header: "AIS_PointCloud.hxx".}
 discard "forward decl of AIS_PointCloud"
 type
-  Handle_AIS_PointCloud* = handle[AIS_PointCloud]
+  HandleAIS_PointCloud* = Handle[AIS_PointCloud]
 
 ## ! Custom owner for highlighting selected points.
 
 type
   AIS_PointCloudOwner* {.importcpp: "AIS_PointCloudOwner",
-                        header: "AIS_PointCloud.hxx", bycopy.} = object of SelectMgr_EntityOwner ##
-                                                                                          ## !
-                                                                                          ## Main
-                                                                                          ## constructor.
+                        header: "AIS_PointCloud.hxx", bycopy.} = object of SelectMgrEntityOwner ##
+                                                                                         ## !
+                                                                                         ## Main
+                                                                                         ## constructor.
     ## !< last detected points
     ## !< selected points
 
-  AIS_PointCloudOwnerbase_type* = SelectMgr_EntityOwner
+  AIS_PointCloudOwnerbaseType* = SelectMgrEntityOwner
 
-proc get_type_name*(): cstring {.importcpp: "AIS_PointCloudOwner::get_type_name(@)",
-                              header: "AIS_PointCloud.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "AIS_PointCloudOwner::get_type_name(@)",
+                            header: "AIS_PointCloud.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "AIS_PointCloudOwner::get_type_descriptor(@)",
     header: "AIS_PointCloud.hxx".}
-proc DynamicType*(this: AIS_PointCloudOwner): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: AIS_PointCloudOwner): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_PointCloud.hxx".}
-proc constructAIS_PointCloudOwner*(theOrigin: handle[AIS_PointCloud]): AIS_PointCloudOwner {.
+proc constructAIS_PointCloudOwner*(theOrigin: Handle[AIS_PointCloud]): AIS_PointCloudOwner {.
     constructor, importcpp: "AIS_PointCloudOwner(@)", header: "AIS_PointCloud.hxx".}
 proc destroyAIS_PointCloudOwner*(this: var AIS_PointCloudOwner) {.
     importcpp: "#.~AIS_PointCloudOwner()", header: "AIS_PointCloud.hxx".}
-proc SelectedPoints*(this: AIS_PointCloudOwner): handle[TColStd_HPackedMapOfInteger] {.
+proc selectedPoints*(this: AIS_PointCloudOwner): Handle[TColStdHPackedMapOfInteger] {.
     noSideEffect, importcpp: "SelectedPoints", header: "AIS_PointCloud.hxx".}
-proc DetectedPoints*(this: AIS_PointCloudOwner): handle[TColStd_HPackedMapOfInteger] {.
+proc detectedPoints*(this: AIS_PointCloudOwner): Handle[TColStdHPackedMapOfInteger] {.
     noSideEffect, importcpp: "DetectedPoints", header: "AIS_PointCloud.hxx".}
-proc IsForcedHilight*(this: AIS_PointCloudOwner): Standard_Boolean {.noSideEffect,
+proc isForcedHilight*(this: AIS_PointCloudOwner): bool {.noSideEffect,
     importcpp: "IsForcedHilight", header: "AIS_PointCloud.hxx".}
-proc HilightWithColor*(this: var AIS_PointCloudOwner;
-                      thePrsMgr: handle[PrsMgr_PresentationManager3d];
-                      theStyle: handle[Prs3d_Drawer]; theMode: Standard_Integer) {.
+proc hilightWithColor*(this: var AIS_PointCloudOwner;
+                      thePrsMgr: Handle[PrsMgrPresentationManager3d];
+                      theStyle: Handle[Prs3dDrawer]; theMode: int) {.
     importcpp: "HilightWithColor", header: "AIS_PointCloud.hxx".}
-proc Unhilight*(this: var AIS_PointCloudOwner;
-               thePrsMgr: handle[PrsMgr_PresentationManager];
-               theMode: Standard_Integer) {.importcpp: "Unhilight",
-    header: "AIS_PointCloud.hxx".}
-proc Clear*(this: var AIS_PointCloudOwner;
-           thePrsMgr: handle[PrsMgr_PresentationManager];
-           theMode: Standard_Integer) {.importcpp: "Clear",
-                                      header: "AIS_PointCloud.hxx".}
+proc unhilight*(this: var AIS_PointCloudOwner;
+               thePrsMgr: Handle[PrsMgrPresentationManager]; theMode: int) {.
+    importcpp: "Unhilight", header: "AIS_PointCloud.hxx".}
+proc clear*(this: var AIS_PointCloudOwner;
+           thePrsMgr: Handle[PrsMgrPresentationManager]; theMode: int) {.
+    importcpp: "Clear", header: "AIS_PointCloud.hxx".}

@@ -14,29 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepRepr_RepresentationRelationship
-
 discard "forward decl of StepRepr_ShapeRepresentationRelationship"
 discard "forward decl of StepRepr_ShapeRepresentationRelationship"
 type
-  Handle_StepRepr_ShapeRepresentationRelationship* = handle[
-      StepRepr_ShapeRepresentationRelationship]
-  StepRepr_ShapeRepresentationRelationship* {.
+  HandleStepReprShapeRepresentationRelationship* = Handle[
+      StepReprShapeRepresentationRelationship]
+  StepReprShapeRepresentationRelationship* {.
       importcpp: "StepRepr_ShapeRepresentationRelationship",
-      header: "StepRepr_ShapeRepresentationRelationship.hxx", bycopy.} = object of StepRepr_RepresentationRelationship
+      header: "StepRepr_ShapeRepresentationRelationship.hxx", bycopy.} = object of StepReprRepresentationRelationship
 
 
-proc constructStepRepr_ShapeRepresentationRelationship*(): StepRepr_ShapeRepresentationRelationship {.
+proc constructStepReprShapeRepresentationRelationship*(): StepReprShapeRepresentationRelationship {.
     constructor, importcpp: "StepRepr_ShapeRepresentationRelationship(@)",
     header: "StepRepr_ShapeRepresentationRelationship.hxx".}
 type
-  StepRepr_ShapeRepresentationRelationshipbase_type* = StepRepr_RepresentationRelationship
+  StepReprShapeRepresentationRelationshipbaseType* = StepReprRepresentationRelationship
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_ShapeRepresentationRelationship::get_type_name(@)", header: "StepRepr_ShapeRepresentationRelationship.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepRepr_ShapeRepresentationRelationship::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepRepr_ShapeRepresentationRelationship::get_type_name(@)", header: "StepRepr_ShapeRepresentationRelationship.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_ShapeRepresentationRelationship::get_type_descriptor(@)",
     header: "StepRepr_ShapeRepresentationRelationship.hxx".}
-proc DynamicType*(this: StepRepr_ShapeRepresentationRelationship): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepRepr_ShapeRepresentationRelationship.hxx".}
+proc dynamicType*(this: StepReprShapeRepresentationRelationship): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepRepr_ShapeRepresentationRelationship.hxx".}

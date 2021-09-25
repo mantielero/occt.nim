@@ -14,16 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of Geom_Point"
 type
-  StdPrs_ToolPoint* {.importcpp: "StdPrs_ToolPoint",
-                     header: "StdPrs_ToolPoint.hxx", bycopy.} = object
+  StdPrsToolPoint* {.importcpp: "StdPrs_ToolPoint", header: "StdPrs_ToolPoint.hxx",
+                    bycopy.} = object
 
 
-proc Coord*(aPoint: handle[Geom_Point]; X: var Standard_Real; Y: var Standard_Real;
-           Z: var Standard_Real) {.importcpp: "StdPrs_ToolPoint::Coord(@)",
-                                header: "StdPrs_ToolPoint.hxx".}
+proc coord*(aPoint: Handle[GeomPoint]; x: var float; y: var float; z: var float) {.
+    importcpp: "StdPrs_ToolPoint::Coord(@)", header: "StdPrs_ToolPoint.hxx".}

@@ -14,79 +14,69 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean, math_Vector,
-  math_Matrix, ../Standard/Standard_Integer, math_IntegerVector,
-  ../Standard/Standard_OStream
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of math_FunctionSetWithDerivatives"
 discard "forward decl of math_Matrix"
 type
-  math_FunctionSetRoot* {.importcpp: "math_FunctionSetRoot",
-                         header: "math_FunctionSetRoot.hxx", bycopy.} = object ## ! is used in a
-                                                                          ## sub-class to
-                                                                          ## initialize
-                                                                          ## correctly all the fields
-                                                                          ## ! of this class.
-                                                                          ## ! The range (1,
-                                                                          ## F.NbVariables()) must be
-                                                                          ## especially
-                                                                          ## !
-                                                                          ## respected for all
-                                                                          ## vectors and matrix
-                                                                          ## declarations.
+  MathFunctionSetRoot* {.importcpp: "math_FunctionSetRoot",
+                        header: "math_FunctionSetRoot.hxx", bycopy.} = object ## ! is used in a
+                                                                         ## sub-class to
+                                                                         ## initialize
+                                                                         ## correctly all the fields
+                                                                         ## ! of this class.
+                                                                         ## ! The range (1,
+                                                                         ## F.NbVariables()) must be
+                                                                         ## especially
+                                                                         ## !
+                                                                         ## respected for all vectors and matrix
+                                                                         ## declarations.
 
 
-proc constructmath_FunctionSetRoot*(F: var math_FunctionSetWithDerivatives;
-                                   Tolerance: math_Vector;
-                                   NbIterations: Standard_Integer = 100): math_FunctionSetRoot {.
+proc constructMathFunctionSetRoot*(f: var MathFunctionSetWithDerivatives;
+                                  tolerance: MathVector; nbIterations: int = 100): MathFunctionSetRoot {.
     constructor, importcpp: "math_FunctionSetRoot(@)",
     header: "math_FunctionSetRoot.hxx".}
-proc constructmath_FunctionSetRoot*(F: var math_FunctionSetWithDerivatives;
-                                   NbIterations: Standard_Integer = 100): math_FunctionSetRoot {.
+proc constructMathFunctionSetRoot*(f: var MathFunctionSetWithDerivatives;
+                                  nbIterations: int = 100): MathFunctionSetRoot {.
     constructor, importcpp: "math_FunctionSetRoot(@)",
     header: "math_FunctionSetRoot.hxx".}
-proc destroymath_FunctionSetRoot*(this: var math_FunctionSetRoot) {.
+proc destroyMathFunctionSetRoot*(this: var MathFunctionSetRoot) {.
     importcpp: "#.~math_FunctionSetRoot()", header: "math_FunctionSetRoot.hxx".}
-proc SetTolerance*(this: var math_FunctionSetRoot; Tolerance: math_Vector) {.
+proc setTolerance*(this: var MathFunctionSetRoot; tolerance: MathVector) {.
     importcpp: "SetTolerance", header: "math_FunctionSetRoot.hxx".}
-proc IsSolutionReached*(this: var math_FunctionSetRoot;
-                       F: var math_FunctionSetWithDerivatives): Standard_Boolean {.
+proc isSolutionReached*(this: var MathFunctionSetRoot;
+                       f: var MathFunctionSetWithDerivatives): bool {.
     importcpp: "IsSolutionReached", header: "math_FunctionSetRoot.hxx".}
-proc Perform*(this: var math_FunctionSetRoot;
-             theFunction: var math_FunctionSetWithDerivatives;
-             theStartingPoint: math_Vector;
-             theStopOnDivergent: Standard_Boolean = Standard_False) {.
+proc perform*(this: var MathFunctionSetRoot;
+             theFunction: var MathFunctionSetWithDerivatives;
+             theStartingPoint: MathVector; theStopOnDivergent: bool = false) {.
     importcpp: "Perform", header: "math_FunctionSetRoot.hxx".}
-proc Perform*(this: var math_FunctionSetRoot;
-             theFunction: var math_FunctionSetWithDerivatives;
-             theStartingPoint: math_Vector; theInfBound: math_Vector;
-             theSupBound: math_Vector;
-             theStopOnDivergent: Standard_Boolean = Standard_False) {.
+proc perform*(this: var MathFunctionSetRoot;
+             theFunction: var MathFunctionSetWithDerivatives;
+             theStartingPoint: MathVector; theInfBound: MathVector;
+             theSupBound: MathVector; theStopOnDivergent: bool = false) {.
     importcpp: "Perform", header: "math_FunctionSetRoot.hxx".}
-proc IsDone*(this: math_FunctionSetRoot): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "math_FunctionSetRoot.hxx".}
-proc NbIterations*(this: math_FunctionSetRoot): Standard_Integer {.noSideEffect,
+proc isDone*(this: MathFunctionSetRoot): bool {.noSideEffect, importcpp: "IsDone",
+    header: "math_FunctionSetRoot.hxx".}
+proc nbIterations*(this: MathFunctionSetRoot): int {.noSideEffect,
     importcpp: "NbIterations", header: "math_FunctionSetRoot.hxx".}
-proc StateNumber*(this: math_FunctionSetRoot): Standard_Integer {.noSideEffect,
+proc stateNumber*(this: MathFunctionSetRoot): int {.noSideEffect,
     importcpp: "StateNumber", header: "math_FunctionSetRoot.hxx".}
-proc Root*(this: math_FunctionSetRoot): math_Vector {.noSideEffect,
+proc root*(this: MathFunctionSetRoot): MathVector {.noSideEffect, importcpp: "Root",
+    header: "math_FunctionSetRoot.hxx".}
+proc root*(this: MathFunctionSetRoot; root: var MathVector) {.noSideEffect,
     importcpp: "Root", header: "math_FunctionSetRoot.hxx".}
-proc Root*(this: math_FunctionSetRoot; Root: var math_Vector) {.noSideEffect,
-    importcpp: "Root", header: "math_FunctionSetRoot.hxx".}
-proc Derivative*(this: math_FunctionSetRoot): math_Matrix {.noSideEffect,
+proc derivative*(this: MathFunctionSetRoot): MathMatrix {.noSideEffect,
     importcpp: "Derivative", header: "math_FunctionSetRoot.hxx".}
-proc Derivative*(this: math_FunctionSetRoot; Der: var math_Matrix) {.noSideEffect,
+proc derivative*(this: MathFunctionSetRoot; der: var MathMatrix) {.noSideEffect,
     importcpp: "Derivative", header: "math_FunctionSetRoot.hxx".}
-proc FunctionSetErrors*(this: math_FunctionSetRoot): math_Vector {.noSideEffect,
+proc functionSetErrors*(this: MathFunctionSetRoot): MathVector {.noSideEffect,
     importcpp: "FunctionSetErrors", header: "math_FunctionSetRoot.hxx".}
-proc FunctionSetErrors*(this: math_FunctionSetRoot; Err: var math_Vector) {.
+proc functionSetErrors*(this: MathFunctionSetRoot; err: var MathVector) {.
     noSideEffect, importcpp: "FunctionSetErrors",
     header: "math_FunctionSetRoot.hxx".}
-proc Dump*(this: math_FunctionSetRoot; o: var Standard_OStream) {.noSideEffect,
+proc dump*(this: MathFunctionSetRoot; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_FunctionSetRoot.hxx".}
-proc IsDivergent*(this: math_FunctionSetRoot): Standard_Boolean {.noSideEffect,
+proc isDivergent*(this: MathFunctionSetRoot): bool {.noSideEffect,
     importcpp: "IsDivergent", header: "math_FunctionSetRoot.hxx".}

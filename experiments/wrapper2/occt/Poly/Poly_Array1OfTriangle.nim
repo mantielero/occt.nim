@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Poly_Triangle, ../NCollection/NCollection_Array1
-
 type
-  Poly_Array1OfTriangle* = NCollection_Array1[Poly_Triangle]
+  PolyArray1OfTriangle* = NCollectionArray1[PolyTriangle]
+

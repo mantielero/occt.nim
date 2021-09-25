@@ -14,28 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ShapeUpgrade_ShapeDivide, ../Standard/Standard_Real
-
 discard "forward decl of TopoDS_Shape"
 type
-  ShapeUpgrade_ShapeDivideAngle* {.importcpp: "ShapeUpgrade_ShapeDivideAngle",
-                                  header: "ShapeUpgrade_ShapeDivideAngle.hxx",
-                                  bycopy.} = object of ShapeUpgrade_ShapeDivide ## ! Empty
-                                                                           ## constructor.
+  ShapeUpgradeShapeDivideAngle* {.importcpp: "ShapeUpgrade_ShapeDivideAngle",
+                                 header: "ShapeUpgrade_ShapeDivideAngle.hxx",
+                                 bycopy.} = object of ShapeUpgradeShapeDivide ## ! Empty
+                                                                         ## constructor.
 
 
-proc constructShapeUpgrade_ShapeDivideAngle*(MaxAngle: Standard_Real): ShapeUpgrade_ShapeDivideAngle {.
+proc constructShapeUpgradeShapeDivideAngle*(maxAngle: float): ShapeUpgradeShapeDivideAngle {.
     constructor, importcpp: "ShapeUpgrade_ShapeDivideAngle(@)",
     header: "ShapeUpgrade_ShapeDivideAngle.hxx".}
-proc constructShapeUpgrade_ShapeDivideAngle*(MaxAngle: Standard_Real;
-    S: TopoDS_Shape): ShapeUpgrade_ShapeDivideAngle {.constructor,
-    importcpp: "ShapeUpgrade_ShapeDivideAngle(@)",
+proc constructShapeUpgradeShapeDivideAngle*(maxAngle: float; s: TopoDS_Shape): ShapeUpgradeShapeDivideAngle {.
+    constructor, importcpp: "ShapeUpgrade_ShapeDivideAngle(@)",
     header: "ShapeUpgrade_ShapeDivideAngle.hxx".}
-proc InitTool*(this: var ShapeUpgrade_ShapeDivideAngle; MaxAngle: Standard_Real) {.
+proc initTool*(this: var ShapeUpgradeShapeDivideAngle; maxAngle: float) {.
     importcpp: "InitTool", header: "ShapeUpgrade_ShapeDivideAngle.hxx".}
-proc SetMaxAngle*(this: var ShapeUpgrade_ShapeDivideAngle; MaxAngle: Standard_Real) {.
+proc setMaxAngle*(this: var ShapeUpgradeShapeDivideAngle; maxAngle: float) {.
     importcpp: "SetMaxAngle", header: "ShapeUpgrade_ShapeDivideAngle.hxx".}
-proc MaxAngle*(this: ShapeUpgrade_ShapeDivideAngle): Standard_Real {.noSideEffect,
+proc maxAngle*(this: ShapeUpgradeShapeDivideAngle): float {.noSideEffect,
     importcpp: "MaxAngle", header: "ShapeUpgrade_ShapeDivideAngle.hxx".}

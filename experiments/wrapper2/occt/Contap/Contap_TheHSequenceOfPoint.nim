@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # Contap_TheHSequenceOfPoint_HeaderFile [NewLine] # Contap_TheHSequenceOfPoint_HeaderFile [NewLine] # Contap_Point.hxx [NewLine] # Contap_TheSequenceOfPoint.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( Contap_TheHSequenceOfPoint , Contap_TheSequenceOfPoint ) # [NewLine]
+## !!!Ignored construct:  # Contap_TheHSequenceOfPoint_HeaderFile [NewLine] # Contap_TheHSequenceOfPoint_HeaderFile [NewLine] # < Contap_Point . hxx > [NewLine] # < Contap_TheSequenceOfPoint . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( Contap_TheHSequenceOfPoint , Contap_TheSequenceOfPoint ) # [NewLine]
 ## Error: expected ';'!!!
+

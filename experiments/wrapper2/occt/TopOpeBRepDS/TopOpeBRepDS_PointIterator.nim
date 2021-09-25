@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRepDS_InterferenceIterator,
-  TopOpeBRepDS_ListOfInterference, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../TopAbs/TopAbs_Orientation,
-  ../TopAbs/TopAbs_State, ../Standard/Standard_Real
-
 discard "forward decl of TopOpeBRepDS_Interference"
 type
   TopOpeBRepDS_PointIterator* {.importcpp: "TopOpeBRepDS_PointIterator",
@@ -47,26 +40,23 @@ type
 proc constructTopOpeBRepDS_PointIterator*(L: TopOpeBRepDS_ListOfInterference): TopOpeBRepDS_PointIterator {.
     constructor, importcpp: "TopOpeBRepDS_PointIterator(@)",
     header: "TopOpeBRepDS_PointIterator.hxx".}
-proc MatchInterference*(this: TopOpeBRepDS_PointIterator;
-                       I: handle[TopOpeBRepDS_Interference]): Standard_Boolean {.
-    noSideEffect, importcpp: "MatchInterference",
-    header: "TopOpeBRepDS_PointIterator.hxx".}
-proc Current*(this: TopOpeBRepDS_PointIterator): Standard_Integer {.noSideEffect,
+proc matchInterference*(this: TopOpeBRepDS_PointIterator;
+                       i: Handle[TopOpeBRepDS_Interference]): bool {.noSideEffect,
+    importcpp: "MatchInterference", header: "TopOpeBRepDS_PointIterator.hxx".}
+proc current*(this: TopOpeBRepDS_PointIterator): int {.noSideEffect,
     importcpp: "Current", header: "TopOpeBRepDS_PointIterator.hxx".}
-proc Orientation*(this: TopOpeBRepDS_PointIterator; S: TopAbs_State): TopAbs_Orientation {.
+proc orientation*(this: TopOpeBRepDS_PointIterator; s: TopAbsState): TopAbsOrientation {.
     noSideEffect, importcpp: "Orientation",
     header: "TopOpeBRepDS_PointIterator.hxx".}
-proc Parameter*(this: TopOpeBRepDS_PointIterator): Standard_Real {.noSideEffect,
+proc parameter*(this: TopOpeBRepDS_PointIterator): float {.noSideEffect,
     importcpp: "Parameter", header: "TopOpeBRepDS_PointIterator.hxx".}
-proc IsVertex*(this: TopOpeBRepDS_PointIterator): Standard_Boolean {.noSideEffect,
+proc isVertex*(this: TopOpeBRepDS_PointIterator): bool {.noSideEffect,
     importcpp: "IsVertex", header: "TopOpeBRepDS_PointIterator.hxx".}
-proc IsPoint*(this: TopOpeBRepDS_PointIterator): Standard_Boolean {.noSideEffect,
+proc isPoint*(this: TopOpeBRepDS_PointIterator): bool {.noSideEffect,
     importcpp: "IsPoint", header: "TopOpeBRepDS_PointIterator.hxx".}
-proc DiffOriented*(this: TopOpeBRepDS_PointIterator): Standard_Boolean {.
-    noSideEffect, importcpp: "DiffOriented",
-    header: "TopOpeBRepDS_PointIterator.hxx".}
-proc SameOriented*(this: TopOpeBRepDS_PointIterator): Standard_Boolean {.
-    noSideEffect, importcpp: "SameOriented",
-    header: "TopOpeBRepDS_PointIterator.hxx".}
-proc Support*(this: TopOpeBRepDS_PointIterator): Standard_Integer {.noSideEffect,
+proc diffOriented*(this: TopOpeBRepDS_PointIterator): bool {.noSideEffect,
+    importcpp: "DiffOriented", header: "TopOpeBRepDS_PointIterator.hxx".}
+proc sameOriented*(this: TopOpeBRepDS_PointIterator): bool {.noSideEffect,
+    importcpp: "SameOriented", header: "TopOpeBRepDS_PointIterator.hxx".}
+proc support*(this: TopOpeBRepDS_PointIterator): int {.noSideEffect,
     importcpp: "Support", header: "TopOpeBRepDS_PointIterator.hxx".}

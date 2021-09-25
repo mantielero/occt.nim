@@ -13,16 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepFEA_CurveElementInterval
-
 discard "forward decl of StepElement_CurveElementSectionDefinition"
 discard "forward decl of StepFEA_CurveElementLocation"
 discard "forward decl of StepBasic_EulerAngles"
 discard "forward decl of StepFEA_CurveElementIntervalConstant"
 discard "forward decl of StepFEA_CurveElementIntervalConstant"
 type
-  Handle_StepFEA_CurveElementIntervalConstant* = handle[
+  HandleStepFEA_CurveElementIntervalConstant* = Handle[
       StepFEA_CurveElementIntervalConstant]
 
 ## ! Representation of STEP entity CurveElementIntervalConstant
@@ -39,24 +36,25 @@ type
 proc constructStepFEA_CurveElementIntervalConstant*(): StepFEA_CurveElementIntervalConstant {.
     constructor, importcpp: "StepFEA_CurveElementIntervalConstant(@)",
     header: "StepFEA_CurveElementIntervalConstant.hxx".}
-proc Init*(this: var StepFEA_CurveElementIntervalConstant;
-    aCurveElementInterval_FinishPosition: handle[StepFEA_CurveElementLocation];
-          aCurveElementInterval_EuAngles: handle[StepBasic_EulerAngles];
-          aSection: handle[StepElement_CurveElementSectionDefinition]) {.
+proc init*(this: var StepFEA_CurveElementIntervalConstant;
+    aCurveElementIntervalFinishPosition: Handle[StepFEA_CurveElementLocation];
+          aCurveElementIntervalEuAngles: Handle[StepBasicEulerAngles];
+          aSection: Handle[StepElementCurveElementSectionDefinition]) {.
     importcpp: "Init", header: "StepFEA_CurveElementIntervalConstant.hxx".}
-proc Section*(this: StepFEA_CurveElementIntervalConstant): handle[
-    StepElement_CurveElementSectionDefinition] {.noSideEffect,
+proc section*(this: StepFEA_CurveElementIntervalConstant): Handle[
+    StepElementCurveElementSectionDefinition] {.noSideEffect,
     importcpp: "Section", header: "StepFEA_CurveElementIntervalConstant.hxx".}
-proc SetSection*(this: var StepFEA_CurveElementIntervalConstant;
-                Section: handle[StepElement_CurveElementSectionDefinition]) {.
+proc setSection*(this: var StepFEA_CurveElementIntervalConstant;
+                section: Handle[StepElementCurveElementSectionDefinition]) {.
     importcpp: "SetSection", header: "StepFEA_CurveElementIntervalConstant.hxx".}
 type
-  StepFEA_CurveElementIntervalConstantbase_type* = StepFEA_CurveElementInterval
+  StepFEA_CurveElementIntervalConstantbaseType* = StepFEA_CurveElementInterval
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_CurveElementIntervalConstant::get_type_name(@)", header: "StepFEA_CurveElementIntervalConstant.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_CurveElementIntervalConstant::get_type_name(@)",
+                            header: "StepFEA_CurveElementIntervalConstant.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_CurveElementIntervalConstant::get_type_descriptor(@)",
     header: "StepFEA_CurveElementIntervalConstant.hxx".}
-proc DynamicType*(this: StepFEA_CurveElementIntervalConstant): handle[Standard_Type] {.
+proc dynamicType*(this: StepFEA_CurveElementIntervalConstant): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_CurveElementIntervalConstant.hxx".}

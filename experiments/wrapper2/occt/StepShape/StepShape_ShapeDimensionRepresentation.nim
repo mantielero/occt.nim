@@ -13,54 +13,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepShape_HArray1OfShapeDimensionRepresentationItem,
-  StepShape_ShapeRepresentation
-
 discard "forward decl of StepShape_ShapeDimensionRepresentation"
 discard "forward decl of StepShape_ShapeDimensionRepresentation"
 type
-  Handle_StepShape_ShapeDimensionRepresentation* = handle[
-      StepShape_ShapeDimensionRepresentation]
+  HandleStepShapeShapeDimensionRepresentation* = Handle[
+      StepShapeShapeDimensionRepresentation]
 
 ## ! Representation of STEP entity ShapeDimensionRepresentation
 
 type
-  StepShape_ShapeDimensionRepresentation* {.
+  StepShapeShapeDimensionRepresentation* {.
       importcpp: "StepShape_ShapeDimensionRepresentation",
-      header: "StepShape_ShapeDimensionRepresentation.hxx", bycopy.} = object of StepShape_ShapeRepresentation ##
-                                                                                                        ## !
-                                                                                                        ## Empty
-                                                                                                        ## constructor
+      header: "StepShape_ShapeDimensionRepresentation.hxx", bycopy.} = object of StepShapeShapeRepresentation ##
+                                                                                                       ## !
+                                                                                                       ## Empty
+                                                                                                       ## constructor
 
 
-proc constructStepShape_ShapeDimensionRepresentation*(): StepShape_ShapeDimensionRepresentation {.
+proc constructStepShapeShapeDimensionRepresentation*(): StepShapeShapeDimensionRepresentation {.
     constructor, importcpp: "StepShape_ShapeDimensionRepresentation(@)",
     header: "StepShape_ShapeDimensionRepresentation.hxx".}
-proc Init*(this: var StepShape_ShapeDimensionRepresentation;
-          theName: handle[TCollection_HAsciiString];
-          theItems: handle[StepRepr_HArray1OfRepresentationItem];
-          theContextOfItems: handle[StepRepr_RepresentationContext]) {.
+proc init*(this: var StepShapeShapeDimensionRepresentation;
+          theName: Handle[TCollectionHAsciiString];
+          theItems: Handle[StepReprHArray1OfRepresentationItem];
+          theContextOfItems: Handle[StepReprRepresentationContext]) {.
     importcpp: "Init", header: "StepShape_ShapeDimensionRepresentation.hxx".}
-proc Init*(this: var StepShape_ShapeDimensionRepresentation;
-          theName: handle[TCollection_HAsciiString]; theItems: handle[
-    StepShape_HArray1OfShapeDimensionRepresentationItem];
-          theContextOfItems: handle[StepRepr_RepresentationContext]) {.
+proc init*(this: var StepShapeShapeDimensionRepresentation;
+          theName: Handle[TCollectionHAsciiString];
+          theItems: Handle[StepShapeHArray1OfShapeDimensionRepresentationItem];
+          theContextOfItems: Handle[StepReprRepresentationContext]) {.
     importcpp: "Init", header: "StepShape_ShapeDimensionRepresentation.hxx".}
-proc SetItemsAP242*(this: var StepShape_ShapeDimensionRepresentation; theItems: handle[
-    StepShape_HArray1OfShapeDimensionRepresentationItem]) {.
+proc setItemsAP242*(this: var StepShapeShapeDimensionRepresentation; theItems: Handle[
+    StepShapeHArray1OfShapeDimensionRepresentationItem]) {.
     importcpp: "SetItemsAP242",
     header: "StepShape_ShapeDimensionRepresentation.hxx".}
-proc ItemsAP242*(this: StepShape_ShapeDimensionRepresentation): handle[
-    StepShape_HArray1OfShapeDimensionRepresentationItem] {.noSideEffect,
+proc itemsAP242*(this: StepShapeShapeDimensionRepresentation): Handle[
+    StepShapeHArray1OfShapeDimensionRepresentationItem] {.noSideEffect,
     importcpp: "ItemsAP242", header: "StepShape_ShapeDimensionRepresentation.hxx".}
 type
-  StepShape_ShapeDimensionRepresentationbase_type* = StepShape_ShapeRepresentation
+  StepShapeShapeDimensionRepresentationbaseType* = StepShapeShapeRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_ShapeDimensionRepresentation::get_type_name(@)", header: "StepShape_ShapeDimensionRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepShape_ShapeDimensionRepresentation::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepShape_ShapeDimensionRepresentation::get_type_name(@)", header: "StepShape_ShapeDimensionRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_ShapeDimensionRepresentation::get_type_descriptor(@)",
     header: "StepShape_ShapeDimensionRepresentation.hxx".}
-proc DynamicType*(this: StepShape_ShapeDimensionRepresentation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepShape_ShapeDimensionRepresentation.hxx".}
+proc dynamicType*(this: StepShapeShapeDimensionRepresentation): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepShape_ShapeDimensionRepresentation.hxx".}

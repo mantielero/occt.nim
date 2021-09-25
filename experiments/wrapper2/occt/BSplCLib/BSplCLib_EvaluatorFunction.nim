@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_TypeDef
-
 ##  This is a one dimensional function
 ##  NOTE: StartEnd[2]
 ##  Serves to multiply a given vectorial BSpline by a function
@@ -24,36 +21,34 @@ import
 ##  in order to get rid of usage of static functions and static data
 
 type
-  BSplCLib_EvaluatorFunction* {.importcpp: "BSplCLib_EvaluatorFunction",
-                               header: "BSplCLib_EvaluatorFunction.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Empty
-                                                                                      ## constructor
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Copy
-                                                                                      ## constructor
-                                                                                      ## is
-                                                                                      ## declared
-                                                                                      ## private
-                                                                                      ## to
-                                                                                      ## forbid
-                                                                                      ## copying
+  BSplCLibEvaluatorFunction* {.importcpp: "BSplCLib_EvaluatorFunction",
+                              header: "BSplCLib_EvaluatorFunction.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Empty
+                                                                                     ## constructor
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Copy
+                                                                                     ## constructor
+                                                                                     ## is
+                                                                                     ## declared
+                                                                                     ## private
+                                                                                     ## to
+                                                                                     ## forbid
+                                                                                     ## copying
 
 
-proc constructBSplCLib_EvaluatorFunction*(): BSplCLib_EvaluatorFunction {.
+proc constructBSplCLibEvaluatorFunction*(): BSplCLibEvaluatorFunction {.
     constructor, importcpp: "BSplCLib_EvaluatorFunction(@)",
     header: "BSplCLib_EvaluatorFunction.hxx".}
-proc destroyBSplCLib_EvaluatorFunction*(this: var BSplCLib_EvaluatorFunction) {.
+proc destroyBSplCLibEvaluatorFunction*(this: var BSplCLibEvaluatorFunction) {.
     importcpp: "#.~BSplCLib_EvaluatorFunction()",
     header: "BSplCLib_EvaluatorFunction.hxx".}
-proc Evaluate*(this: BSplCLib_EvaluatorFunction;
-              theDerivativeRequest: Standard_Integer;
-              theStartEnd: ptr Standard_Real; theParameter: Standard_Real;
-              theResult: var Standard_Real; theErrorCode: var Standard_Integer) {.
-    noSideEffect, importcpp: "Evaluate", header: "BSplCLib_EvaluatorFunction.hxx".}
-proc `()`*(this: BSplCLib_EvaluatorFunction;
-          theDerivativeRequest: Standard_Integer; theStartEnd: ptr Standard_Real;
-          theParameter: Standard_Real; theResult: var Standard_Real;
-          theErrorCode: var Standard_Integer) {.noSideEffect, importcpp: "#(@)",
-    header: "BSplCLib_EvaluatorFunction.hxx".}
+proc evaluate*(this: BSplCLibEvaluatorFunction; theDerivativeRequest: int;
+              theStartEnd: ptr float; theParameter: float; theResult: var float;
+              theErrorCode: var int) {.noSideEffect, importcpp: "Evaluate",
+                                    header: "BSplCLib_EvaluatorFunction.hxx".}
+proc `()`*(this: BSplCLibEvaluatorFunction; theDerivativeRequest: int;
+          theStartEnd: ptr float; theParameter: float; theResult: var float;
+          theErrorCode: var int) {.noSideEffect, importcpp: "#(@)",
+                                header: "BSplCLib_EvaluatorFunction.hxx".}

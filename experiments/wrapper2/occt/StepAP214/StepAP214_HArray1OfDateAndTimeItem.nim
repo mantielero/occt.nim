@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP214_DateAndTimeItem, StepAP214_Array1OfDateAndTimeItem,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepAP214_HArray1OfDateAndTimeItem* {.importcpp: "StepAP214_HArray1OfDateAndTimeItem", header: "StepAP214_HArray1OfDateAndTimeItem.hxx",
-                                       bycopy.} = object of StepAP214_Array1OfDateAndTimeItem
+  StepAP214HArray1OfDateAndTimeItem* {.importcpp: "StepAP214_HArray1OfDateAndTimeItem", header: "StepAP214_HArray1OfDateAndTimeItem.hxx",
+                                      bycopy.} = object of StepAP214Array1OfDateAndTimeItem
 
 
-proc constructStepAP214_HArray1OfDateAndTimeItem*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepAP214_HArray1OfDateAndTimeItem {.constructor,
+proc constructStepAP214HArray1OfDateAndTimeItem*(theLower: int; theUpper: int): StepAP214HArray1OfDateAndTimeItem {.
+    constructor, importcpp: "StepAP214_HArray1OfDateAndTimeItem(@)",
+    header: "StepAP214_HArray1OfDateAndTimeItem.hxx".}
+proc constructStepAP214HArray1OfDateAndTimeItem*(theLower: int; theUpper: int;
+    theValue: ValueType): StepAP214HArray1OfDateAndTimeItem {.constructor,
     importcpp: "StepAP214_HArray1OfDateAndTimeItem(@)",
     header: "StepAP214_HArray1OfDateAndTimeItem.hxx".}
-proc constructStepAP214_HArray1OfDateAndTimeItem*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepAP214_HArray1OfDateAndTimeItem {.
+proc constructStepAP214HArray1OfDateAndTimeItem*(
+    theOther: StepAP214Array1OfDateAndTimeItem): StepAP214HArray1OfDateAndTimeItem {.
     constructor, importcpp: "StepAP214_HArray1OfDateAndTimeItem(@)",
     header: "StepAP214_HArray1OfDateAndTimeItem.hxx".}
-proc constructStepAP214_HArray1OfDateAndTimeItem*(
-    theOther: StepAP214_Array1OfDateAndTimeItem): StepAP214_HArray1OfDateAndTimeItem {.
-    constructor, importcpp: "StepAP214_HArray1OfDateAndTimeItem(@)",
-    header: "StepAP214_HArray1OfDateAndTimeItem.hxx".}
-proc Array1*(this: StepAP214_HArray1OfDateAndTimeItem): StepAP214_Array1OfDateAndTimeItem {.
+proc array1*(this: StepAP214HArray1OfDateAndTimeItem): StepAP214Array1OfDateAndTimeItem {.
     noSideEffect, importcpp: "Array1",
     header: "StepAP214_HArray1OfDateAndTimeItem.hxx".}
-proc ChangeArray1*(this: var StepAP214_HArray1OfDateAndTimeItem): var StepAP214_Array1OfDateAndTimeItem {.
+proc changeArray1*(this: var StepAP214HArray1OfDateAndTimeItem): var StepAP214Array1OfDateAndTimeItem {.
     importcpp: "ChangeArray1", header: "StepAP214_HArray1OfDateAndTimeItem.hxx".}
 type
-  StepAP214_HArray1OfDateAndTimeItembase_type* = MMgt_TShared
+  StepAP214HArray1OfDateAndTimeItembaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_HArray1OfDateAndTimeItem::get_type_name(@)",
-                              header: "StepAP214_HArray1OfDateAndTimeItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP214_HArray1OfDateAndTimeItem::get_type_name(@)",
+                            header: "StepAP214_HArray1OfDateAndTimeItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP214_HArray1OfDateAndTimeItem::get_type_descriptor(@)",
     header: "StepAP214_HArray1OfDateAndTimeItem.hxx".}
-proc DynamicType*(this: StepAP214_HArray1OfDateAndTimeItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepAP214HArray1OfDateAndTimeItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_HArray1OfDateAndTimeItem.hxx".}

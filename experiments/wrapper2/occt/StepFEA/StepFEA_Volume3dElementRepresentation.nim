@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepFEA_ElementRepresentation,
-  ../StepRepr/StepRepr_HArray1OfRepresentationItem,
-  StepFEA_HArray1OfNodeRepresentation
-
 discard "forward decl of StepFEA_FeaModel3d"
 discard "forward decl of StepElement_Volume3dElementDescriptor"
 discard "forward decl of StepElement_ElementMaterial"
@@ -26,7 +21,7 @@ discard "forward decl of StepRepr_RepresentationContext"
 discard "forward decl of StepFEA_Volume3dElementRepresentation"
 discard "forward decl of StepFEA_Volume3dElementRepresentation"
 type
-  Handle_StepFEA_Volume3dElementRepresentation* = handle[
+  HandleStepFEA_Volume3dElementRepresentation* = Handle[
       StepFEA_Volume3dElementRepresentation]
 
 ## ! Representation of STEP entity Volume3dElementRepresentation
@@ -43,41 +38,42 @@ type
 proc constructStepFEA_Volume3dElementRepresentation*(): StepFEA_Volume3dElementRepresentation {.
     constructor, importcpp: "StepFEA_Volume3dElementRepresentation(@)",
     header: "StepFEA_Volume3dElementRepresentation.hxx".}
-proc Init*(this: var StepFEA_Volume3dElementRepresentation;
-          aRepresentation_Name: handle[TCollection_HAsciiString];
-          aRepresentation_Items: handle[StepRepr_HArray1OfRepresentationItem];
-    aRepresentation_ContextOfItems: handle[StepRepr_RepresentationContext];
-    aElementRepresentation_NodeList: handle[StepFEA_HArray1OfNodeRepresentation];
-          aModelRef: handle[StepFEA_FeaModel3d];
-          aElementDescriptor: handle[StepElement_Volume3dElementDescriptor];
-          aMaterial: handle[StepElement_ElementMaterial]) {.importcpp: "Init",
+proc init*(this: var StepFEA_Volume3dElementRepresentation;
+          aRepresentationName: Handle[TCollectionHAsciiString];
+          aRepresentationItems: Handle[StepReprHArray1OfRepresentationItem];
+          aRepresentationContextOfItems: Handle[StepReprRepresentationContext];
+    aElementRepresentationNodeList: Handle[StepFEA_HArray1OfNodeRepresentation];
+          aModelRef: Handle[StepFEA_FeaModel3d];
+          aElementDescriptor: Handle[StepElementVolume3dElementDescriptor];
+          aMaterial: Handle[StepElementElementMaterial]) {.importcpp: "Init",
     header: "StepFEA_Volume3dElementRepresentation.hxx".}
-proc ModelRef*(this: StepFEA_Volume3dElementRepresentation): handle[
+proc modelRef*(this: StepFEA_Volume3dElementRepresentation): Handle[
     StepFEA_FeaModel3d] {.noSideEffect, importcpp: "ModelRef",
                          header: "StepFEA_Volume3dElementRepresentation.hxx".}
-proc SetModelRef*(this: var StepFEA_Volume3dElementRepresentation;
-                 ModelRef: handle[StepFEA_FeaModel3d]) {.importcpp: "SetModelRef",
+proc setModelRef*(this: var StepFEA_Volume3dElementRepresentation;
+                 modelRef: Handle[StepFEA_FeaModel3d]) {.importcpp: "SetModelRef",
     header: "StepFEA_Volume3dElementRepresentation.hxx".}
-proc ElementDescriptor*(this: StepFEA_Volume3dElementRepresentation): handle[
-    StepElement_Volume3dElementDescriptor] {.noSideEffect,
+proc elementDescriptor*(this: StepFEA_Volume3dElementRepresentation): Handle[
+    StepElementVolume3dElementDescriptor] {.noSideEffect,
     importcpp: "ElementDescriptor",
     header: "StepFEA_Volume3dElementRepresentation.hxx".}
-proc SetElementDescriptor*(this: var StepFEA_Volume3dElementRepresentation;
-    ElementDescriptor: handle[StepElement_Volume3dElementDescriptor]) {.
+proc setElementDescriptor*(this: var StepFEA_Volume3dElementRepresentation;
+    elementDescriptor: Handle[StepElementVolume3dElementDescriptor]) {.
     importcpp: "SetElementDescriptor",
     header: "StepFEA_Volume3dElementRepresentation.hxx".}
-proc Material*(this: StepFEA_Volume3dElementRepresentation): handle[
-    StepElement_ElementMaterial] {.noSideEffect, importcpp: "Material", header: "StepFEA_Volume3dElementRepresentation.hxx".}
-proc SetMaterial*(this: var StepFEA_Volume3dElementRepresentation;
-                 Material: handle[StepElement_ElementMaterial]) {.
+proc material*(this: StepFEA_Volume3dElementRepresentation): Handle[
+    StepElementElementMaterial] {.noSideEffect, importcpp: "Material", header: "StepFEA_Volume3dElementRepresentation.hxx".}
+proc setMaterial*(this: var StepFEA_Volume3dElementRepresentation;
+                 material: Handle[StepElementElementMaterial]) {.
     importcpp: "SetMaterial", header: "StepFEA_Volume3dElementRepresentation.hxx".}
 type
-  StepFEA_Volume3dElementRepresentationbase_type* = StepFEA_ElementRepresentation
+  StepFEA_Volume3dElementRepresentationbaseType* = StepFEA_ElementRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_Volume3dElementRepresentation::get_type_name(@)", header: "StepFEA_Volume3dElementRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_Volume3dElementRepresentation::get_type_name(@)",
+                            header: "StepFEA_Volume3dElementRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_Volume3dElementRepresentation::get_type_descriptor(@)",
     header: "StepFEA_Volume3dElementRepresentation.hxx".}
-proc DynamicType*(this: StepFEA_Volume3dElementRepresentation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepFEA_Volume3dElementRepresentation.hxx".}
+proc dynamicType*(this: StepFEA_Volume3dElementRepresentation): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepFEA_Volume3dElementRepresentation.hxx".}

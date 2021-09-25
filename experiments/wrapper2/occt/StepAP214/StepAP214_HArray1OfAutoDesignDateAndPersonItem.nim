@@ -14,40 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP214_AutoDesignDateAndPersonItem,
-  StepAP214_Array1OfAutoDesignDateAndPersonItem,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepAP214_HArray1OfAutoDesignDateAndPersonItem* {.
+  StepAP214HArray1OfAutoDesignDateAndPersonItem* {.
       importcpp: "StepAP214_HArray1OfAutoDesignDateAndPersonItem",
-      header: "StepAP214_HArray1OfAutoDesignDateAndPersonItem.hxx", bycopy.} = object of StepAP214_Array1OfAutoDesignDateAndPersonItem
+      header: "StepAP214_HArray1OfAutoDesignDateAndPersonItem.hxx", bycopy.} = object of StepAP214Array1OfAutoDesignDateAndPersonItem
 
 
-proc constructStepAP214_HArray1OfAutoDesignDateAndPersonItem*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepAP214_HArray1OfAutoDesignDateAndPersonItem {.
+proc constructStepAP214HArray1OfAutoDesignDateAndPersonItem*(theLower: int;
+    theUpper: int): StepAP214HArray1OfAutoDesignDateAndPersonItem {.constructor,
+    importcpp: "StepAP214_HArray1OfAutoDesignDateAndPersonItem(@)",
+    header: "StepAP214_HArray1OfAutoDesignDateAndPersonItem.hxx".}
+proc constructStepAP214HArray1OfAutoDesignDateAndPersonItem*(theLower: int;
+    theUpper: int; theValue: ValueType): StepAP214HArray1OfAutoDesignDateAndPersonItem {.
     constructor, importcpp: "StepAP214_HArray1OfAutoDesignDateAndPersonItem(@)",
     header: "StepAP214_HArray1OfAutoDesignDateAndPersonItem.hxx".}
-proc constructStepAP214_HArray1OfAutoDesignDateAndPersonItem*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepAP214_HArray1OfAutoDesignDateAndPersonItem {.
+proc constructStepAP214HArray1OfAutoDesignDateAndPersonItem*(
+    theOther: StepAP214Array1OfAutoDesignDateAndPersonItem): StepAP214HArray1OfAutoDesignDateAndPersonItem {.
     constructor, importcpp: "StepAP214_HArray1OfAutoDesignDateAndPersonItem(@)",
     header: "StepAP214_HArray1OfAutoDesignDateAndPersonItem.hxx".}
-proc constructStepAP214_HArray1OfAutoDesignDateAndPersonItem*(
-    theOther: StepAP214_Array1OfAutoDesignDateAndPersonItem): StepAP214_HArray1OfAutoDesignDateAndPersonItem {.
-    constructor, importcpp: "StepAP214_HArray1OfAutoDesignDateAndPersonItem(@)",
-    header: "StepAP214_HArray1OfAutoDesignDateAndPersonItem.hxx".}
-proc Array1*(this: StepAP214_HArray1OfAutoDesignDateAndPersonItem): StepAP214_Array1OfAutoDesignDateAndPersonItem {.
+proc array1*(this: StepAP214HArray1OfAutoDesignDateAndPersonItem): StepAP214Array1OfAutoDesignDateAndPersonItem {.
     noSideEffect, importcpp: "Array1",
     header: "StepAP214_HArray1OfAutoDesignDateAndPersonItem.hxx".}
-proc ChangeArray1*(this: var StepAP214_HArray1OfAutoDesignDateAndPersonItem): var StepAP214_Array1OfAutoDesignDateAndPersonItem {.
+proc changeArray1*(this: var StepAP214HArray1OfAutoDesignDateAndPersonItem): var StepAP214Array1OfAutoDesignDateAndPersonItem {.
     importcpp: "ChangeArray1",
     header: "StepAP214_HArray1OfAutoDesignDateAndPersonItem.hxx".}
 type
-  StepAP214_HArray1OfAutoDesignDateAndPersonItembase_type* = MMgt_TShared
+  StepAP214HArray1OfAutoDesignDateAndPersonItembaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_HArray1OfAutoDesignDateAndPersonItem::get_type_name(@)", header: "StepAP214_HArray1OfAutoDesignDateAndPersonItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP214_HArray1OfAutoDesignDateAndPersonItem::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP214_HArray1OfAutoDesignDateAndPersonItem::get_type_name(@)", header: "StepAP214_HArray1OfAutoDesignDateAndPersonItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_HArray1OfAutoDesignDateAndPersonItem::get_type_descriptor(@)",
     header: "StepAP214_HArray1OfAutoDesignDateAndPersonItem.hxx".}
-proc DynamicType*(this: StepAP214_HArray1OfAutoDesignDateAndPersonItem): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepAP214_HArray1OfAutoDesignDateAndPersonItem.hxx".}
+proc dynamicType*(this: StepAP214HArray1OfAutoDesignDateAndPersonItem): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepAP214_HArray1OfAutoDesignDateAndPersonItem.hxx".}

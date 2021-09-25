@@ -11,13 +11,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Real
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepMesh_DiscretRoot"
 type
-  BRepMesh_PluginEntryType* = proc (theShape: TopoDS_Shape;
-                                 theLinDeflection: Standard_Real;
-                                 theAngDeflection: Standard_Real;
-                                 theMeshAlgoInstance: ptr BRepMesh_DiscretRoot): Standard_Integer
+  BRepMeshPluginEntryType* = proc (theShape: TopoDS_Shape; theLinDeflection: float;
+                                theAngDeflection: float;
+                                theMeshAlgoInstance: ptr BRepMeshDiscretRoot): int
+

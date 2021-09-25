@@ -14,13 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Wire, PrsDim_Relation
-
 discard "forward decl of Geom_Plane"
 discard "forward decl of PrsDim_FixRelation"
 type
-  Handle_PrsDim_FixRelation* = handle[PrsDim_FixRelation]
+  HandlePrsDimFixRelation* = Handle[PrsDimFixRelation]
 
 ## ! Constructs and manages a constraint by a fixed
 ## ! relation between two or more interactive datums. This
@@ -32,63 +29,62 @@ type
 ## ! object.
 
 type
-  PrsDim_FixRelation* {.importcpp: "PrsDim_FixRelation",
-                       header: "PrsDim_FixRelation.hxx", bycopy.} = object of PrsDim_Relation ##
-                                                                                       ## !
-                                                                                       ## initializes
-                                                                                       ## the
-                                                                                       ## vertex
-                                                                                       ## aShape,
-                                                                                       ## the
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## plane
-                                                                                       ## aPlane
-                                                                                       ## and
-                                                                                       ## the
-                                                                                       ## wire
-                                                                                       ## aWire,
-                                                                                       ## which
-                                                                                       ## connects
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## the
-                                                                                       ## two
-                                                                                       ## vertices
-                                                                                       ## in
-                                                                                       ## a
-                                                                                       ## fixed
-                                                                                       ## relation.
+  PrsDimFixRelation* {.importcpp: "PrsDim_FixRelation",
+                      header: "PrsDim_FixRelation.hxx", bycopy.} = object of PrsDimRelation ##
+                                                                                     ## !
+                                                                                     ## initializes
+                                                                                     ## the
+                                                                                     ## vertex
+                                                                                     ## aShape,
+                                                                                     ## the
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## plane
+                                                                                     ## aPlane
+                                                                                     ## and
+                                                                                     ## the
+                                                                                     ## wire
+                                                                                     ## aWire,
+                                                                                     ## which
+                                                                                     ## connects
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## the
+                                                                                     ## two
+                                                                                     ## vertices
+                                                                                     ## in
+                                                                                     ## a
+                                                                                     ## fixed
+                                                                                     ## relation.
 
-  PrsDim_FixRelationbase_type* = PrsDim_Relation
+  PrsDimFixRelationbaseType* = PrsDimRelation
 
-proc get_type_name*(): cstring {.importcpp: "PrsDim_FixRelation::get_type_name(@)",
-                              header: "PrsDim_FixRelation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "PrsDim_FixRelation::get_type_name(@)",
+                            header: "PrsDim_FixRelation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "PrsDim_FixRelation::get_type_descriptor(@)",
     header: "PrsDim_FixRelation.hxx".}
-proc DynamicType*(this: PrsDim_FixRelation): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: PrsDimFixRelation): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "PrsDim_FixRelation.hxx".}
-proc constructPrsDim_FixRelation*(aShape: TopoDS_Shape; aPlane: handle[Geom_Plane];
-                                 aWire: TopoDS_Wire): PrsDim_FixRelation {.
+proc constructPrsDimFixRelation*(aShape: TopoDS_Shape; aPlane: Handle[GeomPlane];
+                                aWire: TopoDS_Wire): PrsDimFixRelation {.
     constructor, importcpp: "PrsDim_FixRelation(@)",
     header: "PrsDim_FixRelation.hxx".}
-proc constructPrsDim_FixRelation*(aShape: TopoDS_Shape; aPlane: handle[Geom_Plane];
-                                 aWire: TopoDS_Wire; aPosition: gp_Pnt;
-                                 anArrowSize: Standard_Real = 0.01): PrsDim_FixRelation {.
+proc constructPrsDimFixRelation*(aShape: TopoDS_Shape; aPlane: Handle[GeomPlane];
+                                aWire: TopoDS_Wire; aPosition: Pnt;
+                                anArrowSize: float = 0.01): PrsDimFixRelation {.
     constructor, importcpp: "PrsDim_FixRelation(@)",
     header: "PrsDim_FixRelation.hxx".}
-proc constructPrsDim_FixRelation*(aShape: TopoDS_Shape; aPlane: handle[Geom_Plane]): PrsDim_FixRelation {.
+proc constructPrsDimFixRelation*(aShape: TopoDS_Shape; aPlane: Handle[GeomPlane]): PrsDimFixRelation {.
     constructor, importcpp: "PrsDim_FixRelation(@)",
     header: "PrsDim_FixRelation.hxx".}
-proc constructPrsDim_FixRelation*(aShape: TopoDS_Shape; aPlane: handle[Geom_Plane];
-                                 aPosition: gp_Pnt;
-                                 anArrowSize: Standard_Real = 0.01): PrsDim_FixRelation {.
+proc constructPrsDimFixRelation*(aShape: TopoDS_Shape; aPlane: Handle[GeomPlane];
+                                aPosition: Pnt; anArrowSize: float = 0.01): PrsDimFixRelation {.
     constructor, importcpp: "PrsDim_FixRelation(@)",
     header: "PrsDim_FixRelation.hxx".}
-proc Wire*(this: var PrsDim_FixRelation): TopoDS_Wire {.importcpp: "Wire",
+proc wire*(this: var PrsDimFixRelation): TopoDS_Wire {.importcpp: "Wire",
     header: "PrsDim_FixRelation.hxx".}
-proc SetWire*(this: var PrsDim_FixRelation; aWire: TopoDS_Wire) {.
-    importcpp: "SetWire", header: "PrsDim_FixRelation.hxx".}
-proc IsMovable*(this: PrsDim_FixRelation): Standard_Boolean {.noSideEffect,
+proc setWire*(this: var PrsDimFixRelation; aWire: TopoDS_Wire) {.importcpp: "SetWire",
+    header: "PrsDim_FixRelation.hxx".}
+proc isMovable*(this: PrsDimFixRelation): bool {.noSideEffect,
     importcpp: "IsMovable", header: "PrsDim_FixRelation.hxx".}

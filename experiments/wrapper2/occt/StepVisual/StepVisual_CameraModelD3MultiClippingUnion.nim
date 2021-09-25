@@ -13,47 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepGeom/StepGeom_GeometricRepresentationItem
-
 discard "forward decl of StepVisual_HArray1OfCameraModelD3MultiClippingUnionSelect"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_GeometricRepresentationItem"
 discard "forward decl of StepVisual_CameraModelD3MultiClippingUnion"
 type
-  Handle_StepVisual_CameraModelD3MultiClippingUnion* = handle[
-      StepVisual_CameraModelD3MultiClippingUnion]
-  StepVisual_CameraModelD3MultiClippingUnion* {.
+  HandleStepVisualCameraModelD3MultiClippingUnion* = Handle[
+      StepVisualCameraModelD3MultiClippingUnion]
+  StepVisualCameraModelD3MultiClippingUnion* {.
       importcpp: "StepVisual_CameraModelD3MultiClippingUnion",
-      header: "StepVisual_CameraModelD3MultiClippingUnion.hxx", bycopy.} = object of StepGeom_GeometricRepresentationItem ##
-                                                                                                                   ## !
-                                                                                                                   ## Returns
-                                                                                                                   ## a
-                                                                                                                   ## StepVisual_CameraModelD3MultiClippingUnion
+      header: "StepVisual_CameraModelD3MultiClippingUnion.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
+                                                                                                                  ## !
+                                                                                                                  ## Returns
+                                                                                                                  ## a
+                                                                                                                  ## StepVisual_CameraModelD3MultiClippingUnion
 
 
-proc constructStepVisual_CameraModelD3MultiClippingUnion*(): StepVisual_CameraModelD3MultiClippingUnion {.
+proc constructStepVisualCameraModelD3MultiClippingUnion*(): StepVisualCameraModelD3MultiClippingUnion {.
     constructor, importcpp: "StepVisual_CameraModelD3MultiClippingUnion(@)",
     header: "StepVisual_CameraModelD3MultiClippingUnion.hxx".}
-proc Init*(this: var StepVisual_CameraModelD3MultiClippingUnion;
-          theName: handle[TCollection_HAsciiString]; theShapeClipping: handle[
-    StepVisual_HArray1OfCameraModelD3MultiClippingUnionSelect]) {.
+proc init*(this: var StepVisualCameraModelD3MultiClippingUnion;
+          theName: Handle[TCollectionHAsciiString]; theShapeClipping: Handle[
+    StepVisualHArray1OfCameraModelD3MultiClippingUnionSelect]) {.
     importcpp: "Init", header: "StepVisual_CameraModelD3MultiClippingUnion.hxx".}
-proc SetShapeClipping*(this: var StepVisual_CameraModelD3MultiClippingUnion;
-    theShapeClipping: handle[StepVisual_HArray1OfCameraModelD3MultiClippingUnionSelect]) {.
+proc setShapeClipping*(this: var StepVisualCameraModelD3MultiClippingUnion;
+    theShapeClipping: Handle[StepVisualHArray1OfCameraModelD3MultiClippingUnionSelect]) {.
     importcpp: "SetShapeClipping",
     header: "StepVisual_CameraModelD3MultiClippingUnion.hxx".}
-proc ShapeClipping*(this: var StepVisual_CameraModelD3MultiClippingUnion): handle[
-    StepVisual_HArray1OfCameraModelD3MultiClippingUnionSelect] {.
+proc shapeClipping*(this: var StepVisualCameraModelD3MultiClippingUnion): Handle[
+    StepVisualHArray1OfCameraModelD3MultiClippingUnionSelect] {.
     importcpp: "ShapeClipping",
     header: "StepVisual_CameraModelD3MultiClippingUnion.hxx".}
 type
-  StepVisual_CameraModelD3MultiClippingUnionbase_type* = StepGeom_GeometricRepresentationItem
+  StepVisualCameraModelD3MultiClippingUnionbaseType* = StepGeomGeometricRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_CameraModelD3MultiClippingUnion::get_type_name(@)", header: "StepVisual_CameraModelD3MultiClippingUnion.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_CameraModelD3MultiClippingUnion::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepVisual_CameraModelD3MultiClippingUnion::get_type_name(@)", header: "StepVisual_CameraModelD3MultiClippingUnion.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_CameraModelD3MultiClippingUnion::get_type_descriptor(@)",
     header: "StepVisual_CameraModelD3MultiClippingUnion.hxx".}
-proc DynamicType*(this: StepVisual_CameraModelD3MultiClippingUnion): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepVisual_CameraModelD3MultiClippingUnion.hxx".}
+proc dynamicType*(this: StepVisualCameraModelD3MultiClippingUnion): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepVisual_CameraModelD3MultiClippingUnion.hxx".}

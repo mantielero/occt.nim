@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TColStd/TColStd_DataMapOfStringInteger
-
 type
-  CDM_NamesDirectory* = TColStd_DataMapOfStringInteger
+  CDM_NamesDirectory* = TColStdDataMapOfStringInteger
+

@@ -14,64 +14,56 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  StepShape_OpenShell, StepShape_HArray1OfFace, ../Standard/Standard_Integer
-
 discard "forward decl of StepShape_OpenShell"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_Face"
 discard "forward decl of StepShape_OrientedOpenShell"
 discard "forward decl of StepShape_OrientedOpenShell"
 type
-  Handle_StepShape_OrientedOpenShell* = handle[StepShape_OrientedOpenShell]
-  StepShape_OrientedOpenShell* {.importcpp: "StepShape_OrientedOpenShell",
-                                header: "StepShape_OrientedOpenShell.hxx", bycopy.} = object of StepShape_OpenShell ##
-                                                                                                             ## !
-                                                                                                             ## Returns
-                                                                                                             ## a
-                                                                                                             ## OrientedOpenShell
+  HandleStepShapeOrientedOpenShell* = Handle[StepShapeOrientedOpenShell]
+  StepShapeOrientedOpenShell* {.importcpp: "StepShape_OrientedOpenShell",
+                               header: "StepShape_OrientedOpenShell.hxx", bycopy.} = object of StepShapeOpenShell ##
+                                                                                                           ## !
+                                                                                                           ## Returns
+                                                                                                           ## a
+                                                                                                           ## OrientedOpenShell
 
 
-proc constructStepShape_OrientedOpenShell*(): StepShape_OrientedOpenShell {.
+proc constructStepShapeOrientedOpenShell*(): StepShapeOrientedOpenShell {.
     constructor, importcpp: "StepShape_OrientedOpenShell(@)",
     header: "StepShape_OrientedOpenShell.hxx".}
-proc Init*(this: var StepShape_OrientedOpenShell;
-          aName: handle[TCollection_HAsciiString];
-          aOpenShellElement: handle[StepShape_OpenShell];
-          aOrientation: Standard_Boolean) {.importcpp: "Init",
-    header: "StepShape_OrientedOpenShell.hxx".}
-proc SetOpenShellElement*(this: var StepShape_OrientedOpenShell;
-                         aOpenShellElement: handle[StepShape_OpenShell]) {.
+proc init*(this: var StepShapeOrientedOpenShell;
+          aName: Handle[TCollectionHAsciiString];
+          aOpenShellElement: Handle[StepShapeOpenShell]; aOrientation: bool) {.
+    importcpp: "Init", header: "StepShape_OrientedOpenShell.hxx".}
+proc setOpenShellElement*(this: var StepShapeOrientedOpenShell;
+                         aOpenShellElement: Handle[StepShapeOpenShell]) {.
     importcpp: "SetOpenShellElement", header: "StepShape_OrientedOpenShell.hxx".}
-proc OpenShellElement*(this: StepShape_OrientedOpenShell): handle[
-    StepShape_OpenShell] {.noSideEffect, importcpp: "OpenShellElement",
-                          header: "StepShape_OrientedOpenShell.hxx".}
-proc SetOrientation*(this: var StepShape_OrientedOpenShell;
-                    aOrientation: Standard_Boolean) {.importcpp: "SetOrientation",
+proc openShellElement*(this: StepShapeOrientedOpenShell): Handle[StepShapeOpenShell] {.
+    noSideEffect, importcpp: "OpenShellElement",
     header: "StepShape_OrientedOpenShell.hxx".}
-proc Orientation*(this: StepShape_OrientedOpenShell): Standard_Boolean {.
-    noSideEffect, importcpp: "Orientation",
-    header: "StepShape_OrientedOpenShell.hxx".}
-proc SetCfsFaces*(this: var StepShape_OrientedOpenShell;
-                 aCfsFaces: handle[StepShape_HArray1OfFace]) {.
+proc setOrientation*(this: var StepShapeOrientedOpenShell; aOrientation: bool) {.
+    importcpp: "SetOrientation", header: "StepShape_OrientedOpenShell.hxx".}
+proc orientation*(this: StepShapeOrientedOpenShell): bool {.noSideEffect,
+    importcpp: "Orientation", header: "StepShape_OrientedOpenShell.hxx".}
+proc setCfsFaces*(this: var StepShapeOrientedOpenShell;
+                 aCfsFaces: Handle[StepShapeHArray1OfFace]) {.
     importcpp: "SetCfsFaces", header: "StepShape_OrientedOpenShell.hxx".}
-proc CfsFaces*(this: StepShape_OrientedOpenShell): handle[StepShape_HArray1OfFace] {.
+proc cfsFaces*(this: StepShapeOrientedOpenShell): Handle[StepShapeHArray1OfFace] {.
     noSideEffect, importcpp: "CfsFaces", header: "StepShape_OrientedOpenShell.hxx".}
-proc CfsFacesValue*(this: StepShape_OrientedOpenShell; num: Standard_Integer): handle[
-    StepShape_Face] {.noSideEffect, importcpp: "CfsFacesValue",
-                     header: "StepShape_OrientedOpenShell.hxx".}
-proc NbCfsFaces*(this: StepShape_OrientedOpenShell): Standard_Integer {.
-    noSideEffect, importcpp: "NbCfsFaces",
+proc cfsFacesValue*(this: StepShapeOrientedOpenShell; num: int): Handle[StepShapeFace] {.
+    noSideEffect, importcpp: "CfsFacesValue",
     header: "StepShape_OrientedOpenShell.hxx".}
+proc nbCfsFaces*(this: StepShapeOrientedOpenShell): int {.noSideEffect,
+    importcpp: "NbCfsFaces", header: "StepShape_OrientedOpenShell.hxx".}
 type
-  StepShape_OrientedOpenShellbase_type* = StepShape_OpenShell
+  StepShapeOrientedOpenShellbaseType* = StepShapeOpenShell
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_OrientedOpenShell::get_type_name(@)",
-                              header: "StepShape_OrientedOpenShell.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_OrientedOpenShell::get_type_name(@)",
+                            header: "StepShape_OrientedOpenShell.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_OrientedOpenShell::get_type_descriptor(@)",
     header: "StepShape_OrientedOpenShell.hxx".}
-proc DynamicType*(this: StepShape_OrientedOpenShell): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeOrientedOpenShell): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_OrientedOpenShell.hxx".}

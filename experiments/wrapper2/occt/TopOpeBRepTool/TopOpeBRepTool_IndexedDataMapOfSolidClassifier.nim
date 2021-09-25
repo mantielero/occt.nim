@@ -14,10 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, ../BRepClass3d/BRepClass3d_SolidClassifier,
-  ../TopTools/TopTools_ShapeMapHasher, ../NCollection/NCollection_IndexedDataMap
-
 type
-  TopOpeBRepTool_IndexedDataMapOfSolidClassifier* = NCollection_IndexedDataMap[
-      TopoDS_Shape, BRepClass3d_SolidClassifier, TopTools_ShapeMapHasher]
+  TopOpeBRepToolIndexedDataMapOfSolidClassifier* = NCollectionIndexedDataMap[
+      TopoDS_Shape, BRepClass3dSolidClassifier, TopToolsShapeMapHasher]
+

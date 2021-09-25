@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  FSD_FStream, ../Storage/Storage_BaseDriver
-
 discard "forward decl of Storage_StreamTypeMismatchError"
 discard "forward decl of Storage_StreamFormatError"
 discard "forward decl of Storage_StreamWriteError"
@@ -26,241 +23,235 @@ discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of Storage_BaseDriver"
 discard "forward decl of FSD_File"
 type
-  Handle_FSD_File* = handle[FSD_File]
+  HandleFSD_File* = Handle[FSD_File]
 
 ## ! A general driver which defines as a file, the
 ## ! physical container for data to be stored or retrieved.
 
 type
-  FSD_File* {.importcpp: "FSD_File", header: "FSD_File.hxx", bycopy.} = object of Storage_BaseDriver ##
-                                                                                           ## !
-                                                                                           ## Constructs
-                                                                                           ## a
-                                                                                           ## driver
-                                                                                           ## defining
-                                                                                           ## as
-                                                                                           ## a
-                                                                                           ## file,
-                                                                                           ## the
-                                                                                           ## physical
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## container
-                                                                                           ## for
-                                                                                           ## data
-                                                                                           ## to
-                                                                                           ## be
-                                                                                           ## stored
-                                                                                           ## or
-                                                                                           ## retrieved.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Use
-                                                                                           ## the
-                                                                                           ## function
-                                                                                           ## Open
-                                                                                           ## to
-                                                                                           ## give
-                                                                                           ## the
-                                                                                           ## name
-                                                                                           ## of
-                                                                                           ## the
-                                                                                           ## driven
-                                                                                           ## file.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## read
-                                                                                           ## from
-                                                                                           ## the
-                                                                                           ## current
-                                                                                           ## position
-                                                                                           ## to
-                                                                                           ## the
-                                                                                           ## end
-                                                                                           ## of
-                                                                                           ## line.
-# 
-#   FSD_Filebase_type* = Storage_BaseDriver
-# 
-# proc get_type_name*(): cstring {.importcpp: "FSD_File::get_type_name(@)",
-                              header: "FSD_File.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
-    importcpp: "FSD_File::get_type_descriptor(@)", header: "FSD_File.hxx".}
-proc DynamicType*(this: FSD_File): handle[Standard_Type] {.noSideEffect,
+  FSD_File* {.importcpp: "FSD_File", header: "FSD_File.hxx", bycopy.} = object of StorageBaseDriver ##
+                                                                                          ## !
+                                                                                          ## Constructs
+                                                                                          ## a
+                                                                                          ## driver
+                                                                                          ## defining
+                                                                                          ## as
+                                                                                          ## a
+                                                                                          ## file,
+                                                                                          ## the
+                                                                                          ## physical
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## container
+                                                                                          ## for
+                                                                                          ## data
+                                                                                          ## to
+                                                                                          ## be
+                                                                                          ## stored
+                                                                                          ## or
+                                                                                          ## retrieved.
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## Use
+                                                                                          ## the
+                                                                                          ## function
+                                                                                          ## Open
+                                                                                          ## to
+                                                                                          ## give
+                                                                                          ## the
+                                                                                          ## name
+                                                                                          ## of
+                                                                                          ## the
+                                                                                          ## driven
+                                                                                          ## file.
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## read
+                                                                                          ## from
+                                                                                          ## the
+                                                                                          ## current
+                                                                                          ## position
+                                                                                          ## to
+                                                                                          ## the
+                                                                                          ## end
+                                                                                          ## of
+                                                                                          ## line.
+
+  FSD_FilebaseType* = StorageBaseDriver
+
+# proc getTypeName*(): cstring {.importcpp: "FSD_File::get_type_name(@)",
+#                             header: "FSD_File.hxx".}
+# proc getTypeDescriptor*(): Handle[StandardType] {.
+#     importcpp: "FSD_File::get_type_descriptor(@)", header: "FSD_File.hxx".}
+proc dynamicType*(this: FSD_File): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "FSD_File.hxx".}
 proc constructFSD_File*(): FSD_File {.constructor, importcpp: "FSD_File(@)",
                                    header: "FSD_File.hxx".}
-proc Open*(this: var FSD_File; aName: TCollection_AsciiString; aMode: Storage_OpenMode): Storage_Error {.
+proc open*(this: var FSD_File; aName: TCollectionAsciiString; aMode: StorageOpenMode): StorageError {.
     importcpp: "Open", header: "FSD_File.hxx".}
-proc IsEnd*(this: var FSD_File): Standard_Boolean {.importcpp: "IsEnd",
-#     header: "FSD_File.hxx".}
-# proc Tell*(this: var FSD_File): Storage_Position {.importcpp: "Tell",
+proc isEnd*(this: var FSD_File): bool {.importcpp: "IsEnd", header: "FSD_File.hxx".}
+proc tell*(this: var FSD_File): StoragePosition {.importcpp: "Tell",
     header: "FSD_File.hxx".}
-proc IsGoodFileType*(aName: TCollection_AsciiString): Storage_Error {.
-    importcpp: "FSD_File::IsGoodFileType(@)", header: "FSD_File.hxx".}
-proc BeginWriteInfoSection*(this: var FSD_File): Storage_Error {.
+proc isGoodFileType*(aName: TCollectionAsciiString): StorageError {.
+#     importcpp: "FSD_File::IsGoodFileType(@)", header: "FSD_File.hxx".}
+# proc beginWriteInfoSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginWriteInfoSection", header: "FSD_File.hxx".}
-proc WriteInfo*(this: var FSD_File; nbObj: Standard_Integer;
-               dbVersion: TCollection_AsciiString; date: TCollection_AsciiString;
-               schemaName: TCollection_AsciiString;
-               schemaVersion: TCollection_AsciiString;
-               appName: TCollection_ExtendedString;
-               appVersion: TCollection_AsciiString;
-               objectType: TCollection_ExtendedString;
-               userInfo: TColStd_SequenceOfAsciiString) {.importcpp: "WriteInfo",
+proc writeInfo*(this: var FSD_File; nbObj: int; dbVersion: TCollectionAsciiString;
+               date: TCollectionAsciiString; schemaName: TCollectionAsciiString;
+               schemaVersion: TCollectionAsciiString;
+               appName: TCollectionExtendedString;
+               appVersion: TCollectionAsciiString;
+               objectType: TCollectionExtendedString;
+               userInfo: TColStdSequenceOfAsciiString) {.importcpp: "WriteInfo",
     header: "FSD_File.hxx".}
-proc EndWriteInfoSection*(this: var FSD_File): Storage_Error {.
+proc endWriteInfoSection*(this: var FSD_File): StorageError {.
     importcpp: "EndWriteInfoSection", header: "FSD_File.hxx".}
-proc BeginReadInfoSection*(this: var FSD_File): Storage_Error {.
+proc beginReadInfoSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginReadInfoSection", header: "FSD_File.hxx".}
-proc ReadInfo*(this: var FSD_File; nbObj: var Standard_Integer;
-              dbVersion: var TCollection_AsciiString;
-              date: var TCollection_AsciiString;
-              schemaName: var TCollection_AsciiString;
-              schemaVersion: var TCollection_AsciiString;
-              appName: var TCollection_ExtendedString;
-              appVersion: var TCollection_AsciiString;
-              objectType: var TCollection_ExtendedString;
-              userInfo: var TColStd_SequenceOfAsciiString) {.importcpp: "ReadInfo",
+proc readInfo*(this: var FSD_File; nbObj: var int;
+              dbVersion: var TCollectionAsciiString;
+              date: var TCollectionAsciiString;
+              schemaName: var TCollectionAsciiString;
+              schemaVersion: var TCollectionAsciiString;
+              appName: var TCollectionExtendedString;
+              appVersion: var TCollectionAsciiString;
+              objectType: var TCollectionExtendedString;
+              userInfo: var TColStdSequenceOfAsciiString) {.importcpp: "ReadInfo",
     header: "FSD_File.hxx".}
-proc ReadCompleteInfo*(this: var FSD_File; theIStream: var Standard_IStream;
-                      theData: var handle[Storage_Data]) {.
+proc readCompleteInfo*(this: var FSD_File; theIStream: var StandardIStream;
+                      theData: var Handle[StorageData]) {.
     importcpp: "ReadCompleteInfo", header: "FSD_File.hxx".}
-proc EndReadInfoSection*(this: var FSD_File): Storage_Error {.
+proc endReadInfoSection*(this: var FSD_File): StorageError {.
     importcpp: "EndReadInfoSection", header: "FSD_File.hxx".}
-proc BeginWriteCommentSection*(this: var FSD_File): Storage_Error {.
+proc beginWriteCommentSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginWriteCommentSection", header: "FSD_File.hxx".}
-proc WriteComment*(this: var FSD_File;
-                  userComments: TColStd_SequenceOfExtendedString) {.
+proc writeComment*(this: var FSD_File; userComments: TColStdSequenceOfExtendedString) {.
     importcpp: "WriteComment", header: "FSD_File.hxx".}
-proc EndWriteCommentSection*(this: var FSD_File): Storage_Error {.
+proc endWriteCommentSection*(this: var FSD_File): StorageError {.
     importcpp: "EndWriteCommentSection", header: "FSD_File.hxx".}
-proc BeginReadCommentSection*(this: var FSD_File): Storage_Error {.
+proc beginReadCommentSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginReadCommentSection", header: "FSD_File.hxx".}
-proc ReadComment*(this: var FSD_File;
-                 userComments: var TColStd_SequenceOfExtendedString) {.
+proc readComment*(this: var FSD_File;
+                 userComments: var TColStdSequenceOfExtendedString) {.
     importcpp: "ReadComment", header: "FSD_File.hxx".}
-proc EndReadCommentSection*(this: var FSD_File): Storage_Error {.
+proc endReadCommentSection*(this: var FSD_File): StorageError {.
     importcpp: "EndReadCommentSection", header: "FSD_File.hxx".}
-proc BeginWriteTypeSection*(this: var FSD_File): Storage_Error {.
+proc beginWriteTypeSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginWriteTypeSection", header: "FSD_File.hxx".}
-proc SetTypeSectionSize*(this: var FSD_File; aSize: Standard_Integer) {.
+proc setTypeSectionSize*(this: var FSD_File; aSize: int) {.
     importcpp: "SetTypeSectionSize", header: "FSD_File.hxx".}
-proc WriteTypeInformations*(this: var FSD_File; typeNum: Standard_Integer;
-                           typeName: TCollection_AsciiString) {.
+proc writeTypeInformations*(this: var FSD_File; typeNum: int;
+                           typeName: TCollectionAsciiString) {.
     importcpp: "WriteTypeInformations", header: "FSD_File.hxx".}
-proc EndWriteTypeSection*(this: var FSD_File): Storage_Error {.
+proc endWriteTypeSection*(this: var FSD_File): StorageError {.
     importcpp: "EndWriteTypeSection", header: "FSD_File.hxx".}
-proc BeginReadTypeSection*(this: var FSD_File): Storage_Error {.
+proc beginReadTypeSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginReadTypeSection", header: "FSD_File.hxx".}
-proc TypeSectionSize*(this: var FSD_File): Standard_Integer {.
-    importcpp: "TypeSectionSize", header: "FSD_File.hxx".}
-proc ReadTypeInformations*(this: var FSD_File; typeNum: var Standard_Integer;
-                          typeName: var TCollection_AsciiString) {.
+proc typeSectionSize*(this: var FSD_File): int {.importcpp: "TypeSectionSize",
+    header: "FSD_File.hxx".}
+proc readTypeInformations*(this: var FSD_File; typeNum: var int;
+                          typeName: var TCollectionAsciiString) {.
     importcpp: "ReadTypeInformations", header: "FSD_File.hxx".}
-proc EndReadTypeSection*(this: var FSD_File): Storage_Error {.
+proc endReadTypeSection*(this: var FSD_File): StorageError {.
     importcpp: "EndReadTypeSection", header: "FSD_File.hxx".}
-proc BeginWriteRootSection*(this: var FSD_File): Storage_Error {.
+proc beginWriteRootSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginWriteRootSection", header: "FSD_File.hxx".}
-proc SetRootSectionSize*(this: var FSD_File; aSize: Standard_Integer) {.
+proc setRootSectionSize*(this: var FSD_File; aSize: int) {.
     importcpp: "SetRootSectionSize", header: "FSD_File.hxx".}
-proc WriteRoot*(this: var FSD_File; rootName: TCollection_AsciiString;
-               aRef: Standard_Integer; aType: TCollection_AsciiString) {.
-    importcpp: "WriteRoot", header: "FSD_File.hxx".}
-proc EndWriteRootSection*(this: var FSD_File): Storage_Error {.
+proc writeRoot*(this: var FSD_File; rootName: TCollectionAsciiString; aRef: int;
+               aType: TCollectionAsciiString) {.importcpp: "WriteRoot",
+    header: "FSD_File.hxx".}
+proc endWriteRootSection*(this: var FSD_File): StorageError {.
     importcpp: "EndWriteRootSection", header: "FSD_File.hxx".}
-proc BeginReadRootSection*(this: var FSD_File): Storage_Error {.
+proc beginReadRootSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginReadRootSection", header: "FSD_File.hxx".}
-proc RootSectionSize*(this: var FSD_File): Standard_Integer {.
-    importcpp: "RootSectionSize", header: "FSD_File.hxx".}
-proc ReadRoot*(this: var FSD_File; rootName: var TCollection_AsciiString;
-              aRef: var Standard_Integer; aType: var TCollection_AsciiString) {.
-    importcpp: "ReadRoot", header: "FSD_File.hxx".}
-proc EndReadRootSection*(this: var FSD_File): Storage_Error {.
+proc rootSectionSize*(this: var FSD_File): int {.importcpp: "RootSectionSize",
+    header: "FSD_File.hxx".}
+proc readRoot*(this: var FSD_File; rootName: var TCollectionAsciiString; aRef: var int;
+              aType: var TCollectionAsciiString) {.importcpp: "ReadRoot",
+    header: "FSD_File.hxx".}
+proc endReadRootSection*(this: var FSD_File): StorageError {.
     importcpp: "EndReadRootSection", header: "FSD_File.hxx".}
-proc BeginWriteRefSection*(this: var FSD_File): Storage_Error {.
+proc beginWriteRefSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginWriteRefSection", header: "FSD_File.hxx".}
-proc SetRefSectionSize*(this: var FSD_File; aSize: Standard_Integer) {.
+proc setRefSectionSize*(this: var FSD_File; aSize: int) {.
     importcpp: "SetRefSectionSize", header: "FSD_File.hxx".}
-proc WriteReferenceType*(this: var FSD_File; reference: Standard_Integer;
-                        typeNum: Standard_Integer) {.
+proc writeReferenceType*(this: var FSD_File; reference: int; typeNum: int) {.
     importcpp: "WriteReferenceType", header: "FSD_File.hxx".}
-proc EndWriteRefSection*(this: var FSD_File): Storage_Error {.
+proc endWriteRefSection*(this: var FSD_File): StorageError {.
     importcpp: "EndWriteRefSection", header: "FSD_File.hxx".}
-proc BeginReadRefSection*(this: var FSD_File): Storage_Error {.
+proc beginReadRefSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginReadRefSection", header: "FSD_File.hxx".}
-proc RefSectionSize*(this: var FSD_File): Standard_Integer {.
-    importcpp: "RefSectionSize", header: "FSD_File.hxx".}
-proc ReadReferenceType*(this: var FSD_File; reference: var Standard_Integer;
-                       typeNum: var Standard_Integer) {.
+proc refSectionSize*(this: var FSD_File): int {.importcpp: "RefSectionSize",
+    header: "FSD_File.hxx".}
+proc readReferenceType*(this: var FSD_File; reference: var int; typeNum: var int) {.
     importcpp: "ReadReferenceType", header: "FSD_File.hxx".}
-proc EndReadRefSection*(this: var FSD_File): Storage_Error {.
+proc endReadRefSection*(this: var FSD_File): StorageError {.
     importcpp: "EndReadRefSection", header: "FSD_File.hxx".}
-proc BeginWriteDataSection*(this: var FSD_File): Storage_Error {.
+proc beginWriteDataSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginWriteDataSection", header: "FSD_File.hxx".}
-proc WritePersistentObjectHeader*(this: var FSD_File; aRef: Standard_Integer;
-                                 aType: Standard_Integer) {.
+proc writePersistentObjectHeader*(this: var FSD_File; aRef: int; aType: int) {.
     importcpp: "WritePersistentObjectHeader", header: "FSD_File.hxx".}
-proc BeginWritePersistentObjectData*(this: var FSD_File) {.
+proc beginWritePersistentObjectData*(this: var FSD_File) {.
     importcpp: "BeginWritePersistentObjectData", header: "FSD_File.hxx".}
-proc BeginWriteObjectData*(this: var FSD_File) {.importcpp: "BeginWriteObjectData",
+proc beginWriteObjectData*(this: var FSD_File) {.importcpp: "BeginWriteObjectData",
     header: "FSD_File.hxx".}
-proc EndWriteObjectData*(this: var FSD_File) {.importcpp: "EndWriteObjectData",
+proc endWriteObjectData*(this: var FSD_File) {.importcpp: "EndWriteObjectData",
     header: "FSD_File.hxx".}
-proc EndWritePersistentObjectData*(this: var FSD_File) {.
+proc endWritePersistentObjectData*(this: var FSD_File) {.
     importcpp: "EndWritePersistentObjectData", header: "FSD_File.hxx".}
-proc EndWriteDataSection*(this: var FSD_File): Storage_Error {.
+proc endWriteDataSection*(this: var FSD_File): StorageError {.
     importcpp: "EndWriteDataSection", header: "FSD_File.hxx".}
-proc BeginReadDataSection*(this: var FSD_File): Storage_Error {.
+proc beginReadDataSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginReadDataSection", header: "FSD_File.hxx".}
-proc ReadPersistentObjectHeader*(this: var FSD_File; aRef: var Standard_Integer;
-                                aType: var Standard_Integer) {.
+proc readPersistentObjectHeader*(this: var FSD_File; aRef: var int; aType: var int) {.
     importcpp: "ReadPersistentObjectHeader", header: "FSD_File.hxx".}
-proc BeginReadPersistentObjectData*(this: var FSD_File) {.
+proc beginReadPersistentObjectData*(this: var FSD_File) {.
     importcpp: "BeginReadPersistentObjectData", header: "FSD_File.hxx".}
-proc BeginReadObjectData*(this: var FSD_File) {.importcpp: "BeginReadObjectData",
+proc beginReadObjectData*(this: var FSD_File) {.importcpp: "BeginReadObjectData",
     header: "FSD_File.hxx".}
-proc EndReadObjectData*(this: var FSD_File) {.importcpp: "EndReadObjectData",
+proc endReadObjectData*(this: var FSD_File) {.importcpp: "EndReadObjectData",
     header: "FSD_File.hxx".}
-proc EndReadPersistentObjectData*(this: var FSD_File) {.
+proc endReadPersistentObjectData*(this: var FSD_File) {.
     importcpp: "EndReadPersistentObjectData", header: "FSD_File.hxx".}
-proc EndReadDataSection*(this: var FSD_File): Storage_Error {.
+proc endReadDataSection*(this: var FSD_File): StorageError {.
     importcpp: "EndReadDataSection", header: "FSD_File.hxx".}
-proc SkipObject*(this: var FSD_File) {.importcpp: "SkipObject", header: "FSD_File.hxx".}
-proc PutReference*(this: var FSD_File; aValue: Standard_Integer): var Storage_BaseDriver {.
+proc skipObject*(this: var FSD_File) {.importcpp: "SkipObject", header: "FSD_File.hxx".}
+proc putReference*(this: var FSD_File; aValue: int): var StorageBaseDriver {.
     importcpp: "PutReference", header: "FSD_File.hxx".}
-proc PutCharacter*(this: var FSD_File; aValue: Standard_Character): var Storage_BaseDriver {.
+proc putCharacter*(this: var FSD_File; aValue: StandardCharacter): var StorageBaseDriver {.
     importcpp: "PutCharacter", header: "FSD_File.hxx".}
-proc PutExtCharacter*(this: var FSD_File; aValue: Standard_ExtCharacter): var Storage_BaseDriver {.
+proc putExtCharacter*(this: var FSD_File; aValue: StandardExtCharacter): var StorageBaseDriver {.
     importcpp: "PutExtCharacter", header: "FSD_File.hxx".}
-proc PutInteger*(this: var FSD_File; aValue: Standard_Integer): var Storage_BaseDriver {.
+proc putInteger*(this: var FSD_File; aValue: int): var StorageBaseDriver {.
     importcpp: "PutInteger", header: "FSD_File.hxx".}
-proc PutBoolean*(this: var FSD_File; aValue: Standard_Boolean): var Storage_BaseDriver {.
+proc putBoolean*(this: var FSD_File; aValue: bool): var StorageBaseDriver {.
     importcpp: "PutBoolean", header: "FSD_File.hxx".}
-proc PutReal*(this: var FSD_File; aValue: Standard_Real): var Storage_BaseDriver {.
+proc putReal*(this: var FSD_File; aValue: float): var StorageBaseDriver {.
     importcpp: "PutReal", header: "FSD_File.hxx".}
-proc PutShortReal*(this: var FSD_File; aValue: Standard_ShortReal): var Storage_BaseDriver {.
+proc putShortReal*(this: var FSD_File; aValue: StandardShortReal): var StorageBaseDriver {.
     importcpp: "PutShortReal", header: "FSD_File.hxx".}
-proc GetReference*(this: var FSD_File; aValue: var Standard_Integer): var Storage_BaseDriver {.
+proc getReference*(this: var FSD_File; aValue: var int): var StorageBaseDriver {.
     importcpp: "GetReference", header: "FSD_File.hxx".}
-proc GetCharacter*(this: var FSD_File; aValue: var Standard_Character): var Storage_BaseDriver {.
+proc getCharacter*(this: var FSD_File; aValue: var StandardCharacter): var StorageBaseDriver {.
     importcpp: "GetCharacter", header: "FSD_File.hxx".}
-proc GetExtCharacter*(this: var FSD_File; aValue: var Standard_ExtCharacter): var Storage_BaseDriver {.
+proc getExtCharacter*(this: var FSD_File; aValue: var StandardExtCharacter): var StorageBaseDriver {.
     importcpp: "GetExtCharacter", header: "FSD_File.hxx".}
-proc GetInteger*(this: var FSD_File; aValue: var Standard_Integer): var Storage_BaseDriver {.
+proc getInteger*(this: var FSD_File; aValue: var int): var StorageBaseDriver {.
     importcpp: "GetInteger", header: "FSD_File.hxx".}
-proc GetBoolean*(this: var FSD_File; aValue: var Standard_Boolean): var Storage_BaseDriver {.
+proc getBoolean*(this: var FSD_File; aValue: var bool): var StorageBaseDriver {.
     importcpp: "GetBoolean", header: "FSD_File.hxx".}
-proc GetReal*(this: var FSD_File; aValue: var Standard_Real): var Storage_BaseDriver {.
+proc getReal*(this: var FSD_File; aValue: var float): var StorageBaseDriver {.
     importcpp: "GetReal", header: "FSD_File.hxx".}
-proc GetShortReal*(this: var FSD_File; aValue: var Standard_ShortReal): var Storage_BaseDriver {.
+proc getShortReal*(this: var FSD_File; aValue: var StandardShortReal): var StorageBaseDriver {.
     importcpp: "GetShortReal", header: "FSD_File.hxx".}
-proc Close*(this: var FSD_File): Storage_Error {.importcpp: "Close",
-#     header: "FSD_File.hxx".}
-# proc Destroy*(this: var FSD_File) {.importcpp: "Destroy", header: "FSD_File.hxx".}
+proc close*(this: var FSD_File): StorageError {.importcpp: "Close",
+    header: "FSD_File.hxx".}
+proc destroy*(this: var FSD_File) {.importcpp: "Destroy", header: "FSD_File.hxx".}
 proc destroyFSD_File*(this: var FSD_File) {.importcpp: "#.~FSD_File()",
                                         header: "FSD_File.hxx".}
-proc MagicNumber*(): Standard_CString {.importcpp: "FSD_File::MagicNumber(@)",
-                                     header: "FSD_File.hxx".}
+proc magicNumber*(): StandardCString {.importcpp: "FSD_File::MagicNumber(@)",
+                                    header: "FSD_File.hxx".}
+
 
 

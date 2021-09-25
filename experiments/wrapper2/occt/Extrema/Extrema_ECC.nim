@@ -14,75 +14,61 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, ../math/math_Vector,
-  ../TColStd/TColStd_SequenceOfReal, ../Standard/Standard_Address,
-  ../TColgp/TColgp_HArray1OfPnt, ../Standard/Standard_Integer
-
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Extrema_CurveTool"
 discard "forward decl of Extrema_POnCurv"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 type
-  Extrema_ECC* {.importcpp: "Extrema_ECC", header: "Extrema_ECC.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Calculates
-                                                                                ## all
-                                                                                ## the
-                                                                                ## distances
-                                                                                ## as
-                                                                                ## above
-                                                                                ##
-                                                                                ## !
-                                                                                ## between
-                                                                                ## Uinf
-                                                                                ## and
-                                                                                ## Usup
-                                                                                ## for
-                                                                                ## C1
-                                                                                ## and
-                                                                                ## between
-                                                                                ## Vinf
-                                                                                ## and
-                                                                                ## Vsup
-                                                                                ##
-                                                                                ## !
-                                                                                ## for
-                                                                                ## C2.
+  ExtremaECC* {.importcpp: "Extrema_ECC", header: "Extrema_ECC.hxx", bycopy.} = object ## !
+                                                                               ## Calculates
+                                                                               ## all
+                                                                               ## the
+                                                                               ## distances
+                                                                               ## as
+                                                                               ## above
+                                                                               ## !
+                                                                               ## between
+                                                                               ## Uinf
+                                                                               ## and
+                                                                               ## Usup
+                                                                               ## for
+                                                                               ## C1
+                                                                               ## and
+                                                                               ## between
+                                                                               ## Vinf
+                                                                               ## and
+                                                                               ## Vsup
+                                                                               ## !
+                                                                               ## for
+                                                                               ## C2.
     ##  Default value is false.
 
 
-proc constructExtrema_ECC*(): Extrema_ECC {.constructor,
-    importcpp: "Extrema_ECC(@)", header: "Extrema_ECC.hxx".}
-proc constructExtrema_ECC*(C1: Adaptor3d_Curve; C2: Adaptor3d_Curve): Extrema_ECC {.
+proc constructExtremaECC*(): ExtremaECC {.constructor, importcpp: "Extrema_ECC(@)",
+                                       header: "Extrema_ECC.hxx".}
+proc constructExtremaECC*(c1: Adaptor3dCurve; c2: Adaptor3dCurve): ExtremaECC {.
     constructor, importcpp: "Extrema_ECC(@)", header: "Extrema_ECC.hxx".}
-proc constructExtrema_ECC*(C1: Adaptor3d_Curve; C2: Adaptor3d_Curve;
-                          Uinf: Standard_Real; Usup: Standard_Real;
-                          Vinf: Standard_Real; Vsup: Standard_Real): Extrema_ECC {.
+proc constructExtremaECC*(c1: Adaptor3dCurve; c2: Adaptor3dCurve; uinf: float;
+                         usup: float; vinf: float; vsup: float): ExtremaECC {.
     constructor, importcpp: "Extrema_ECC(@)", header: "Extrema_ECC.hxx".}
-proc SetParams*(this: var Extrema_ECC; C1: Adaptor3d_Curve; C2: Adaptor3d_Curve;
-               Uinf: Standard_Real; Usup: Standard_Real; Vinf: Standard_Real;
-               Vsup: Standard_Real) {.importcpp: "SetParams",
-                                    header: "Extrema_ECC.hxx".}
-proc SetTolerance*(this: var Extrema_ECC; Tol: Standard_Real) {.
-    importcpp: "SetTolerance", header: "Extrema_ECC.hxx".}
-proc SetSingleSolutionFlag*(this: var Extrema_ECC;
-                           theSingleSolutionFlag: Standard_Boolean) {.
-    importcpp: "SetSingleSolutionFlag", header: "Extrema_ECC.hxx".}
-proc GetSingleSolutionFlag*(this: Extrema_ECC): Standard_Boolean {.noSideEffect,
-    importcpp: "GetSingleSolutionFlag", header: "Extrema_ECC.hxx".}
-proc Perform*(this: var Extrema_ECC) {.importcpp: "Perform", header: "Extrema_ECC.hxx".}
-proc IsDone*(this: Extrema_ECC): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "Extrema_ECC.hxx".}
-proc IsParallel*(this: Extrema_ECC): Standard_Boolean {.noSideEffect,
-    importcpp: "IsParallel", header: "Extrema_ECC.hxx".}
-proc NbExt*(this: Extrema_ECC): Standard_Integer {.noSideEffect, importcpp: "NbExt",
+proc setParams*(this: var ExtremaECC; c1: Adaptor3dCurve; c2: Adaptor3dCurve;
+               uinf: float; usup: float; vinf: float; vsup: float) {.
+    importcpp: "SetParams", header: "Extrema_ECC.hxx".}
+proc setTolerance*(this: var ExtremaECC; tol: float) {.importcpp: "SetTolerance",
     header: "Extrema_ECC.hxx".}
-proc SquareDistance*(this: Extrema_ECC; N: Standard_Integer = 1): Standard_Real {.
-    noSideEffect, importcpp: "SquareDistance", header: "Extrema_ECC.hxx".}
-proc Points*(this: Extrema_ECC; N: Standard_Integer; P1: var Extrema_POnCurv;
-            P2: var Extrema_POnCurv) {.noSideEffect, importcpp: "Points",
-                                    header: "Extrema_ECC.hxx".}
+proc setSingleSolutionFlag*(this: var ExtremaECC; theSingleSolutionFlag: bool) {.
+    importcpp: "SetSingleSolutionFlag", header: "Extrema_ECC.hxx".}
+proc getSingleSolutionFlag*(this: ExtremaECC): bool {.noSideEffect,
+    importcpp: "GetSingleSolutionFlag", header: "Extrema_ECC.hxx".}
+proc perform*(this: var ExtremaECC) {.importcpp: "Perform", header: "Extrema_ECC.hxx".}
+proc isDone*(this: ExtremaECC): bool {.noSideEffect, importcpp: "IsDone",
+                                   header: "Extrema_ECC.hxx".}
+proc isParallel*(this: ExtremaECC): bool {.noSideEffect, importcpp: "IsParallel",
+                                       header: "Extrema_ECC.hxx".}
+proc nbExt*(this: ExtremaECC): int {.noSideEffect, importcpp: "NbExt",
+                                 header: "Extrema_ECC.hxx".}
+proc squareDistance*(this: ExtremaECC; n: int = 1): float {.noSideEffect,
+    importcpp: "SquareDistance", header: "Extrema_ECC.hxx".}
+proc points*(this: ExtremaECC; n: int; p1: var ExtremaPOnCurv; p2: var ExtremaPOnCurv) {.
+    noSideEffect, importcpp: "Points", header: "Extrema_ECC.hxx".}

@@ -14,43 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_DateAndTime"
 discard "forward decl of StepBasic_DateTimeRole"
 discard "forward decl of StepBasic_DateAndTimeAssignment"
 discard "forward decl of StepBasic_DateAndTimeAssignment"
 type
-  Handle_StepBasic_DateAndTimeAssignment* = handle[StepBasic_DateAndTimeAssignment]
-  StepBasic_DateAndTimeAssignment* {.importcpp: "StepBasic_DateAndTimeAssignment", header: "StepBasic_DateAndTimeAssignment.hxx",
-                                    bycopy.} = object of Standard_Transient
+  HandleStepBasicDateAndTimeAssignment* = Handle[StepBasicDateAndTimeAssignment]
+  StepBasicDateAndTimeAssignment* {.importcpp: "StepBasic_DateAndTimeAssignment", header: "StepBasic_DateAndTimeAssignment.hxx",
+                                   bycopy.} = object of StandardTransient
 
 
-proc Init*(this: var StepBasic_DateAndTimeAssignment;
-          aAssignedDateAndTime: handle[StepBasic_DateAndTime];
-          aRole: handle[StepBasic_DateTimeRole]) {.importcpp: "Init",
+proc init*(this: var StepBasicDateAndTimeAssignment;
+          aAssignedDateAndTime: Handle[StepBasicDateAndTime];
+          aRole: Handle[StepBasicDateTimeRole]) {.importcpp: "Init",
     header: "StepBasic_DateAndTimeAssignment.hxx".}
-proc SetAssignedDateAndTime*(this: var StepBasic_DateAndTimeAssignment;
-                            aAssignedDateAndTime: handle[StepBasic_DateAndTime]) {.
+proc setAssignedDateAndTime*(this: var StepBasicDateAndTimeAssignment;
+                            aAssignedDateAndTime: Handle[StepBasicDateAndTime]) {.
     importcpp: "SetAssignedDateAndTime",
     header: "StepBasic_DateAndTimeAssignment.hxx".}
-proc AssignedDateAndTime*(this: StepBasic_DateAndTimeAssignment): handle[
-    StepBasic_DateAndTime] {.noSideEffect, importcpp: "AssignedDateAndTime",
-                            header: "StepBasic_DateAndTimeAssignment.hxx".}
-proc SetRole*(this: var StepBasic_DateAndTimeAssignment;
-             aRole: handle[StepBasic_DateTimeRole]) {.importcpp: "SetRole",
+proc assignedDateAndTime*(this: StepBasicDateAndTimeAssignment): Handle[
+    StepBasicDateAndTime] {.noSideEffect, importcpp: "AssignedDateAndTime",
+                           header: "StepBasic_DateAndTimeAssignment.hxx".}
+proc setRole*(this: var StepBasicDateAndTimeAssignment;
+             aRole: Handle[StepBasicDateTimeRole]) {.importcpp: "SetRole",
     header: "StepBasic_DateAndTimeAssignment.hxx".}
-proc Role*(this: StepBasic_DateAndTimeAssignment): handle[StepBasic_DateTimeRole] {.
+proc role*(this: StepBasicDateAndTimeAssignment): Handle[StepBasicDateTimeRole] {.
     noSideEffect, importcpp: "Role", header: "StepBasic_DateAndTimeAssignment.hxx".}
 type
-  StepBasic_DateAndTimeAssignmentbase_type* = Standard_Transient
+  StepBasicDateAndTimeAssignmentbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_DateAndTimeAssignment::get_type_name(@)",
-                              header: "StepBasic_DateAndTimeAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_DateAndTimeAssignment::get_type_name(@)",
+                            header: "StepBasic_DateAndTimeAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_DateAndTimeAssignment::get_type_descriptor(@)",
     header: "StepBasic_DateAndTimeAssignment.hxx".}
-proc DynamicType*(this: StepBasic_DateAndTimeAssignment): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicDateAndTimeAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_DateAndTimeAssignment.hxx".}

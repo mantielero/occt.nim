@@ -13,41 +13,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  TDataStd_DataMapOfStringHArray1OfReal, ../Standard/Standard_Transient,
-  ../Standard/Standard_Integer
-
 ## ! Extension of TDataStd_DataMapOfStringHArray1OfReal class
 ## ! to be manipulated by handle.
 
 type
-  TDataStd_HDataMapOfStringHArray1OfReal* {.
+  TDataStdHDataMapOfStringHArray1OfReal* {.
       importcpp: "TDataStd_HDataMapOfStringHArray1OfReal",
-      header: "TDataStd_HDataMapOfStringHArray1OfReal.hxx", bycopy.} = object of Standard_Transient
+      header: "TDataStd_HDataMapOfStringHArray1OfReal.hxx", bycopy.} = object of StandardTransient
 
-  TDataStd_HDataMapOfStringHArray1OfRealbase_type* = Standard_Transient
+  TDataStdHDataMapOfStringHArray1OfRealbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TDataStd_HDataMapOfStringHArray1OfReal::get_type_name(@)", header: "TDataStd_HDataMapOfStringHArray1OfReal.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "TDataStd_HDataMapOfStringHArray1OfReal::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "TDataStd_HDataMapOfStringHArray1OfReal::get_type_name(@)", header: "TDataStd_HDataMapOfStringHArray1OfReal.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "TDataStd_HDataMapOfStringHArray1OfReal::get_type_descriptor(@)",
     header: "TDataStd_HDataMapOfStringHArray1OfReal.hxx".}
-proc DynamicType*(this: TDataStd_HDataMapOfStringHArray1OfReal): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "TDataStd_HDataMapOfStringHArray1OfReal.hxx".}
-proc constructTDataStd_HDataMapOfStringHArray1OfReal*(
-    NbBuckets: Standard_Integer = 1): TDataStd_HDataMapOfStringHArray1OfReal {.
+proc dynamicType*(this: TDataStdHDataMapOfStringHArray1OfReal): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "TDataStd_HDataMapOfStringHArray1OfReal.hxx".}
+proc constructTDataStdHDataMapOfStringHArray1OfReal*(nbBuckets: int = 1): TDataStdHDataMapOfStringHArray1OfReal {.
     constructor, importcpp: "TDataStd_HDataMapOfStringHArray1OfReal(@)",
     header: "TDataStd_HDataMapOfStringHArray1OfReal.hxx".}
-proc constructTDataStd_HDataMapOfStringHArray1OfReal*(
-    theOther: TDataStd_DataMapOfStringHArray1OfReal): TDataStd_HDataMapOfStringHArray1OfReal {.
+proc constructTDataStdHDataMapOfStringHArray1OfReal*(
+    theOther: TDataStdDataMapOfStringHArray1OfReal): TDataStdHDataMapOfStringHArray1OfReal {.
     constructor, importcpp: "TDataStd_HDataMapOfStringHArray1OfReal(@)",
     header: "TDataStd_HDataMapOfStringHArray1OfReal.hxx".}
-proc Map*(this: TDataStd_HDataMapOfStringHArray1OfReal): TDataStd_DataMapOfStringHArray1OfReal {.
+proc map*(this: TDataStdHDataMapOfStringHArray1OfReal): TDataStdDataMapOfStringHArray1OfReal {.
     noSideEffect, importcpp: "Map",
     header: "TDataStd_HDataMapOfStringHArray1OfReal.hxx".}
-proc ChangeMap*(this: var TDataStd_HDataMapOfStringHArray1OfReal): var TDataStd_DataMapOfStringHArray1OfReal {.
+proc changeMap*(this: var TDataStdHDataMapOfStringHArray1OfReal): var TDataStdDataMapOfStringHArray1OfReal {.
     importcpp: "ChangeMap", header: "TDataStd_HDataMapOfStringHArray1OfReal.hxx".}
 discard "forward decl of TDataStd_HDataMapOfStringHArray1OfReal"
 type
-  Handle_TDataStd_HDataMapOfStringHArray1OfReal* = handle[
-      TDataStd_HDataMapOfStringHArray1OfReal]
+  HandleTDataStdHDataMapOfStringHArray1OfReal* = Handle[
+      TDataStdHDataMapOfStringHArray1OfReal]
+

@@ -14,24 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Trsf, ../Standard/Standard_OStream
-
 discard "forward decl of gp_Trsf"
 type
-  Vrml_MatrixTransform* {.importcpp: "Vrml_MatrixTransform",
-                         header: "Vrml_MatrixTransform.hxx", bycopy.} = object
+  VrmlMatrixTransform* {.importcpp: "Vrml_MatrixTransform",
+                        header: "Vrml_MatrixTransform.hxx", bycopy.} = object
 
 
-proc constructVrml_MatrixTransform*(): Vrml_MatrixTransform {.constructor,
+proc constructVrmlMatrixTransform*(): VrmlMatrixTransform {.constructor,
     importcpp: "Vrml_MatrixTransform(@)", header: "Vrml_MatrixTransform.hxx".}
-proc constructVrml_MatrixTransform*(aMatrix: gp_Trsf): Vrml_MatrixTransform {.
+proc constructVrmlMatrixTransform*(aMatrix: Trsf): VrmlMatrixTransform {.
     constructor, importcpp: "Vrml_MatrixTransform(@)",
     header: "Vrml_MatrixTransform.hxx".}
-proc SetMatrix*(this: var Vrml_MatrixTransform; aMatrix: gp_Trsf) {.
+proc setMatrix*(this: var VrmlMatrixTransform; aMatrix: Trsf) {.
     importcpp: "SetMatrix", header: "Vrml_MatrixTransform.hxx".}
-proc Matrix*(this: Vrml_MatrixTransform): gp_Trsf {.noSideEffect,
-    importcpp: "Matrix", header: "Vrml_MatrixTransform.hxx".}
-proc Print*(this: Vrml_MatrixTransform; anOStream: var Standard_OStream): var Standard_OStream {.
+proc matrix*(this: VrmlMatrixTransform): Trsf {.noSideEffect, importcpp: "Matrix",
+    header: "Vrml_MatrixTransform.hxx".}
+proc print*(this: VrmlMatrixTransform; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_MatrixTransform.hxx".}

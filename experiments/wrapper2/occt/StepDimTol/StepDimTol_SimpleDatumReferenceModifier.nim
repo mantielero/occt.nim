@@ -13,24 +13,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_PrimitiveTypes
-
 type
-  StepDimTol_SimpleDatumReferenceModifier* {.size: sizeof(cint),
+  StepDimTolSimpleDatumReferenceModifier* {.size: sizeof(cint),
       importcpp: "StepDimTol_SimpleDatumReferenceModifier",
       header: "StepDimTol_SimpleDatumReferenceModifier.hxx".} = enum
-    StepDimTol_SDRMAnyCrossSection, StepDimTol_SDRMAnyLongitudinalSection,
-    StepDimTol_SDRMBasic, StepDimTol_SDRMContactingFeature,
-    StepDimTol_SDRMDegreeOfFreedomConstraintU,
-    StepDimTol_SDRMDegreeOfFreedomConstraintV,
-    StepDimTol_SDRMDegreeOfFreedomConstraintW,
-    StepDimTol_SDRMDegreeOfFreedomConstraintX,
-    StepDimTol_SDRMDegreeOfFreedomConstraintY,
-    StepDimTol_SDRMDegreeOfFreedomConstraintZ, StepDimTol_SDRMDistanceVariable,
-    StepDimTol_SDRMFreeState, StepDimTol_SDRMLeastMaterialRequirement,
-    StepDimTol_SDRMLine, StepDimTol_SDRMMajorDiameter,
-    StepDimTol_SDRMMaximumMaterialRequirement, StepDimTol_SDRMMinorDiameter,
-    StepDimTol_SDRMOrientation, StepDimTol_SDRMPitchDiameter,
-    StepDimTol_SDRMPlane, StepDimTol_SDRMPoint, StepDimTol_SDRMTranslation
+    StepDimTolSDRMAnyCrossSection, StepDimTolSDRMAnyLongitudinalSection,
+    StepDimTolSDRMBasic, StepDimTolSDRMContactingFeature,
+    StepDimTolSDRMDegreeOfFreedomConstraintU,
+    StepDimTolSDRMDegreeOfFreedomConstraintV,
+    StepDimTolSDRMDegreeOfFreedomConstraintW,
+    StepDimTolSDRMDegreeOfFreedomConstraintX,
+    StepDimTolSDRMDegreeOfFreedomConstraintY,
+    StepDimTolSDRMDegreeOfFreedomConstraintZ, StepDimTolSDRMDistanceVariable,
+    StepDimTolSDRMFreeState, StepDimTolSDRMLeastMaterialRequirement,
+    StepDimTolSDRMLine, StepDimTolSDRMMajorDiameter,
+    StepDimTolSDRMMaximumMaterialRequirement, StepDimTolSDRMMinorDiameter,
+    StepDimTolSDRMOrientation, StepDimTolSDRMPitchDiameter, StepDimTolSDRMPlane,
+    StepDimTolSDRMPoint, StepDimTolSDRMTranslation
+
 

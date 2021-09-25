@@ -14,30 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_ProductDefinitionRelationship"
 discard "forward decl of StepBasic_ProductDefinition"
 type
-  StepAP214_PresentedItemSelect* {.importcpp: "StepAP214_PresentedItemSelect",
-                                  header: "StepAP214_PresentedItemSelect.hxx",
-                                  bycopy.} = object of StepData_SelectType ## ! Returns a
-                                                                      ## PresentedItemSelect SelectType
+  StepAP214PresentedItemSelect* {.importcpp: "StepAP214_PresentedItemSelect",
+                                 header: "StepAP214_PresentedItemSelect.hxx",
+                                 bycopy.} = object of StepDataSelectType ## ! Returns a
+                                                                    ## PresentedItemSelect SelectType
 
 
-proc constructStepAP214_PresentedItemSelect*(): StepAP214_PresentedItemSelect {.
+proc constructStepAP214PresentedItemSelect*(): StepAP214PresentedItemSelect {.
     constructor, importcpp: "StepAP214_PresentedItemSelect(@)",
     header: "StepAP214_PresentedItemSelect.hxx".}
-proc CaseNum*(this: StepAP214_PresentedItemSelect; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepAP214PresentedItemSelect; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP214_PresentedItemSelect.hxx".}
-proc ProductDefinitionRelationship*(this: StepAP214_PresentedItemSelect): handle[
-    StepBasic_ProductDefinitionRelationship] {.noSideEffect,
+proc productDefinitionRelationship*(this: StepAP214PresentedItemSelect): Handle[
+    StepBasicProductDefinitionRelationship] {.noSideEffect,
     importcpp: "ProductDefinitionRelationship",
     header: "StepAP214_PresentedItemSelect.hxx".}
-proc ProductDefinition*(this: StepAP214_PresentedItemSelect): handle[
-    StepBasic_ProductDefinition] {.noSideEffect, importcpp: "ProductDefinition",
-                                  header: "StepAP214_PresentedItemSelect.hxx".}
+proc productDefinition*(this: StepAP214PresentedItemSelect): Handle[
+    StepBasicProductDefinition] {.noSideEffect, importcpp: "ProductDefinition",
+                                 header: "StepAP214_PresentedItemSelect.hxx".}

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, BRepToIGES_BREntity,
-  ../Message/Message_ProgressRange
-
 discard "forward decl of BRepToIGES_BREntity"
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of TopoDS_Shape"
@@ -31,18 +26,18 @@ type
 
 proc constructBRepToIGES_BRShell*(): BRepToIGES_BRShell {.constructor,
     importcpp: "BRepToIGES_BRShell(@)", header: "BRepToIGES_BRShell.hxx".}
-proc constructBRepToIGES_BRShell*(BR: BRepToIGES_BREntity): BRepToIGES_BRShell {.
+proc constructBRepToIGES_BRShell*(br: BRepToIGES_BREntity): BRepToIGES_BRShell {.
     constructor, importcpp: "BRepToIGES_BRShell(@)",
     header: "BRepToIGES_BRShell.hxx".}
-proc TransferShell*(this: var BRepToIGES_BRShell; start: TopoDS_Shape;
-                   theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferShell",
-                          header: "BRepToIGES_BRShell.hxx".}
-proc TransferShell*(this: var BRepToIGES_BRShell; start: TopoDS_Shell;
-                   theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferShell",
-                          header: "BRepToIGES_BRShell.hxx".}
-proc TransferFace*(this: var BRepToIGES_BRShell; start: TopoDS_Face;
-                  theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferFace",
-                          header: "BRepToIGES_BRShell.hxx".}
+proc transferShell*(this: var BRepToIGES_BRShell; start: TopoDS_Shape;
+                   theProgress: MessageProgressRange = messageProgressRange()): Handle[
+    IGESDataIGESEntity] {.importcpp: "TransferShell",
+                         header: "BRepToIGES_BRShell.hxx".}
+proc transferShell*(this: var BRepToIGES_BRShell; start: TopoDS_Shell;
+                   theProgress: MessageProgressRange = messageProgressRange()): Handle[
+    IGESDataIGESEntity] {.importcpp: "TransferShell",
+                         header: "BRepToIGES_BRShell.hxx".}
+proc transferFace*(this: var BRepToIGES_BRShell; start: TopoDS_Face;
+                  theProgress: MessageProgressRange = messageProgressRange()): Handle[
+    IGESDataIGESEntity] {.importcpp: "TransferFace",
+                         header: "BRepToIGES_BRShell.hxx".}

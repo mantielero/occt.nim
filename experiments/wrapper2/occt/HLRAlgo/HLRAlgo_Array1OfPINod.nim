@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  HLRAlgo_PolyInternalNode, ../NCollection/NCollection_Array1
-
 type
-  HLRAlgo_Array1OfPINod* = NCollection_Array1[handle[HLRAlgo_PolyInternalNode]]
+  HLRAlgoArray1OfPINod* = NCollectionArray1[Handle[HLRAlgoPolyInternalNode]]
+

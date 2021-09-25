@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Transient, ../Standard/Standard_CString,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of Interface_UndefinedContent"
 discard "forward decl of StepData_StepReaderData"
@@ -29,7 +24,7 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of StepData_UndefinedEntity"
 discard "forward decl of StepData_UndefinedEntity"
 type
-  Handle_StepData_UndefinedEntity* = handle[StepData_UndefinedEntity]
+  HandleStepDataUndefinedEntity* = Handle[StepDataUndefinedEntity]
 
 ## ! Undefined entity specific to Step Interface, in which StepType
 ## ! is defined at each instance, or is a SubList of another one
@@ -38,53 +33,53 @@ type
 ## ! ANDOR clause in Express).
 
 type
-  StepData_UndefinedEntity* {.importcpp: "StepData_UndefinedEntity",
-                             header: "StepData_UndefinedEntity.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                      ## !
-                                                                                                      ## creates
-                                                                                                      ## an
-                                                                                                      ## Unknown
-                                                                                                      ## entity
+  StepDataUndefinedEntity* {.importcpp: "StepData_UndefinedEntity",
+                            header: "StepData_UndefinedEntity.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                    ## !
+                                                                                                    ## creates
+                                                                                                    ## an
+                                                                                                    ## Unknown
+                                                                                                    ## entity
 
 
-proc constructStepData_UndefinedEntity*(): StepData_UndefinedEntity {.constructor,
+proc constructStepDataUndefinedEntity*(): StepDataUndefinedEntity {.constructor,
     importcpp: "StepData_UndefinedEntity(@)",
     header: "StepData_UndefinedEntity.hxx".}
-proc constructStepData_UndefinedEntity*(issub: Standard_Boolean): StepData_UndefinedEntity {.
+proc constructStepDataUndefinedEntity*(issub: bool): StepDataUndefinedEntity {.
     constructor, importcpp: "StepData_UndefinedEntity(@)",
     header: "StepData_UndefinedEntity.hxx".}
-proc UndefinedContent*(this: StepData_UndefinedEntity): handle[
-    Interface_UndefinedContent] {.noSideEffect, importcpp: "UndefinedContent",
-                                 header: "StepData_UndefinedEntity.hxx".}
-proc IsSub*(this: StepData_UndefinedEntity): Standard_Boolean {.noSideEffect,
-    importcpp: "IsSub", header: "StepData_UndefinedEntity.hxx".}
-proc Super*(this: StepData_UndefinedEntity): handle[StepData_UndefinedEntity] {.
+proc undefinedContent*(this: StepDataUndefinedEntity): Handle[
+    InterfaceUndefinedContent] {.noSideEffect, importcpp: "UndefinedContent",
+                                header: "StepData_UndefinedEntity.hxx".}
+proc isSub*(this: StepDataUndefinedEntity): bool {.noSideEffect, importcpp: "IsSub",
+    header: "StepData_UndefinedEntity.hxx".}
+proc super*(this: StepDataUndefinedEntity): Handle[StepDataUndefinedEntity] {.
     noSideEffect, importcpp: "Super", header: "StepData_UndefinedEntity.hxx".}
-proc IsComplex*(this: StepData_UndefinedEntity): Standard_Boolean {.noSideEffect,
+proc isComplex*(this: StepDataUndefinedEntity): bool {.noSideEffect,
     importcpp: "IsComplex", header: "StepData_UndefinedEntity.hxx".}
-proc Next*(this: StepData_UndefinedEntity): handle[StepData_UndefinedEntity] {.
+proc next*(this: StepDataUndefinedEntity): Handle[StepDataUndefinedEntity] {.
     noSideEffect, importcpp: "Next", header: "StepData_UndefinedEntity.hxx".}
-proc StepType*(this: StepData_UndefinedEntity): Standard_CString {.noSideEffect,
+proc stepType*(this: StepDataUndefinedEntity): StandardCString {.noSideEffect,
     importcpp: "StepType", header: "StepData_UndefinedEntity.hxx".}
-proc ReadRecord*(this: var StepData_UndefinedEntity;
-                SR: handle[StepData_StepReaderData]; num: Standard_Integer;
-                ach: var handle[Interface_Check]) {.importcpp: "ReadRecord",
+proc readRecord*(this: var StepDataUndefinedEntity;
+                sr: Handle[StepDataStepReaderData]; num: int;
+                ach: var Handle[InterfaceCheck]) {.importcpp: "ReadRecord",
     header: "StepData_UndefinedEntity.hxx".}
-proc WriteParams*(this: StepData_UndefinedEntity; SW: var StepData_StepWriter) {.
+proc writeParams*(this: StepDataUndefinedEntity; sw: var StepDataStepWriter) {.
     noSideEffect, importcpp: "WriteParams", header: "StepData_UndefinedEntity.hxx".}
-proc GetFromAnother*(this: var StepData_UndefinedEntity;
-                    other: handle[StepData_UndefinedEntity];
-                    TC: var Interface_CopyTool) {.importcpp: "GetFromAnother",
+proc getFromAnother*(this: var StepDataUndefinedEntity;
+                    other: Handle[StepDataUndefinedEntity];
+                    tc: var InterfaceCopyTool) {.importcpp: "GetFromAnother",
     header: "StepData_UndefinedEntity.hxx".}
-proc FillShared*(this: StepData_UndefinedEntity; list: var Interface_EntityIterator) {.
+proc fillShared*(this: StepDataUndefinedEntity; list: var InterfaceEntityIterator) {.
     noSideEffect, importcpp: "FillShared", header: "StepData_UndefinedEntity.hxx".}
 type
-  StepData_UndefinedEntitybase_type* = Standard_Transient
+  StepDataUndefinedEntitybaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepData_UndefinedEntity::get_type_name(@)",
-                              header: "StepData_UndefinedEntity.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepData_UndefinedEntity::get_type_name(@)",
+                            header: "StepData_UndefinedEntity.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepData_UndefinedEntity::get_type_descriptor(@)",
     header: "StepData_UndefinedEntity.hxx".}
-proc DynamicType*(this: StepData_UndefinedEntity): handle[Standard_Type] {.
+proc dynamicType*(this: StepDataUndefinedEntity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepData_UndefinedEntity.hxx".}

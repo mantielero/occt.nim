@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepDimTol_LimitCondition,
-  StepDimTol_GeometricTolerance
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_MeasureWithUnit"
 discard "forward decl of StepDimTol_GeometricToleranceTarget"
@@ -24,50 +20,51 @@ discard "forward decl of StepRepr_ShapeAspect"
 discard "forward decl of StepDimTol_ModifiedGeometricTolerance"
 discard "forward decl of StepDimTol_ModifiedGeometricTolerance"
 type
-  Handle_StepDimTol_ModifiedGeometricTolerance* = handle[
-      StepDimTol_ModifiedGeometricTolerance]
+  HandleStepDimTolModifiedGeometricTolerance* = Handle[
+      StepDimTolModifiedGeometricTolerance]
 
 ## ! Representation of STEP entity ModifiedGeometricTolerance
 
 type
-  StepDimTol_ModifiedGeometricTolerance* {.
+  StepDimTolModifiedGeometricTolerance* {.
       importcpp: "StepDimTol_ModifiedGeometricTolerance",
-      header: "StepDimTol_ModifiedGeometricTolerance.hxx", bycopy.} = object of StepDimTol_GeometricTolerance ##
-                                                                                                       ## !
-                                                                                                       ## Empty
-                                                                                                       ## constructor
+      header: "StepDimTol_ModifiedGeometricTolerance.hxx", bycopy.} = object of StepDimTolGeometricTolerance ##
+                                                                                                      ## !
+                                                                                                      ## Empty
+                                                                                                      ## constructor
 
 
-proc constructStepDimTol_ModifiedGeometricTolerance*(): StepDimTol_ModifiedGeometricTolerance {.
+proc constructStepDimTolModifiedGeometricTolerance*(): StepDimTolModifiedGeometricTolerance {.
     constructor, importcpp: "StepDimTol_ModifiedGeometricTolerance(@)",
     header: "StepDimTol_ModifiedGeometricTolerance.hxx".}
-proc Init*(this: var StepDimTol_ModifiedGeometricTolerance;
-          theGeometricTolerance_Name: handle[TCollection_HAsciiString];
-          theGeometricTolerance_Description: handle[TCollection_HAsciiString];
-          theGeometricTolerance_Magnitude: handle[StepBasic_MeasureWithUnit];
-    theGeometricTolerance_TolerancedShapeAspect: handle[StepRepr_ShapeAspect];
-          theModifier: StepDimTol_LimitCondition) {.importcpp: "Init",
+proc init*(this: var StepDimTolModifiedGeometricTolerance;
+          theGeometricToleranceName: Handle[TCollectionHAsciiString];
+          theGeometricToleranceDescription: Handle[TCollectionHAsciiString];
+          theGeometricToleranceMagnitude: Handle[StepBasicMeasureWithUnit];
+    theGeometricToleranceTolerancedShapeAspect: Handle[StepReprShapeAspect];
+          theModifier: StepDimTolLimitCondition) {.importcpp: "Init",
     header: "StepDimTol_ModifiedGeometricTolerance.hxx".}
-proc Init*(this: var StepDimTol_ModifiedGeometricTolerance;
-          theGeometricTolerance_Name: handle[TCollection_HAsciiString];
-          theGeometricTolerance_Description: handle[TCollection_HAsciiString];
-          theGeometricTolerance_Magnitude: handle[StepBasic_MeasureWithUnit];
-    theGeometricTolerance_TolerancedShapeAspect: StepDimTol_GeometricToleranceTarget;
-          theModifier: StepDimTol_LimitCondition) {.importcpp: "Init",
+proc init*(this: var StepDimTolModifiedGeometricTolerance;
+          theGeometricToleranceName: Handle[TCollectionHAsciiString];
+          theGeometricToleranceDescription: Handle[TCollectionHAsciiString];
+          theGeometricToleranceMagnitude: Handle[StepBasicMeasureWithUnit];
+    theGeometricToleranceTolerancedShapeAspect: StepDimTolGeometricToleranceTarget;
+          theModifier: StepDimTolLimitCondition) {.importcpp: "Init",
     header: "StepDimTol_ModifiedGeometricTolerance.hxx".}
-proc Modifier*(this: StepDimTol_ModifiedGeometricTolerance): StepDimTol_LimitCondition {.
+proc modifier*(this: StepDimTolModifiedGeometricTolerance): StepDimTolLimitCondition {.
     noSideEffect, importcpp: "Modifier",
     header: "StepDimTol_ModifiedGeometricTolerance.hxx".}
-proc SetModifier*(this: var StepDimTol_ModifiedGeometricTolerance;
-                 theModifier: StepDimTol_LimitCondition) {.
+proc setModifier*(this: var StepDimTolModifiedGeometricTolerance;
+                 theModifier: StepDimTolLimitCondition) {.
     importcpp: "SetModifier", header: "StepDimTol_ModifiedGeometricTolerance.hxx".}
 type
-  StepDimTol_ModifiedGeometricTolerancebase_type* = StepDimTol_GeometricTolerance
+  StepDimTolModifiedGeometricTolerancebaseType* = StepDimTolGeometricTolerance
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_ModifiedGeometricTolerance::get_type_name(@)", header: "StepDimTol_ModifiedGeometricTolerance.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_ModifiedGeometricTolerance::get_type_name(@)",
+                            header: "StepDimTol_ModifiedGeometricTolerance.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_ModifiedGeometricTolerance::get_type_descriptor(@)",
     header: "StepDimTol_ModifiedGeometricTolerance.hxx".}
-proc DynamicType*(this: StepDimTol_ModifiedGeometricTolerance): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepDimTol_ModifiedGeometricTolerance.hxx".}
+proc dynamicType*(this: StepDimTolModifiedGeometricTolerance): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepDimTol_ModifiedGeometricTolerance.hxx".}

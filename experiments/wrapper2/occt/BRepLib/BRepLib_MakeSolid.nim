@@ -14,46 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopTools/TopTools_ListOfShape,
-  BRepLib_MakeShape, BRepLib_ShapeModification
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_CompSolid"
 discard "forward decl of TopoDS_Shell"
 discard "forward decl of TopoDS_Solid"
 discard "forward decl of TopoDS_Face"
 type
-  BRepLib_MakeSolid* {.importcpp: "BRepLib_MakeSolid",
-                      header: "BRepLib_MakeSolid.hxx", bycopy.} = object of BRepLib_MakeShape ##
-                                                                                       ## !
-                                                                                       ## Solid
-                                                                                       ## covers
-                                                                                       ## whole
-                                                                                       ## space.
+  BRepLibMakeSolid* {.importcpp: "BRepLib_MakeSolid",
+                     header: "BRepLib_MakeSolid.hxx", bycopy.} = object of BRepLibMakeShape ##
+                                                                                     ## !
+                                                                                     ## Solid
+                                                                                     ## covers
+                                                                                     ## whole
+                                                                                     ## space.
 
 
-proc constructBRepLib_MakeSolid*(): BRepLib_MakeSolid {.constructor,
+proc constructBRepLibMakeSolid*(): BRepLibMakeSolid {.constructor,
     importcpp: "BRepLib_MakeSolid(@)", header: "BRepLib_MakeSolid.hxx".}
-proc constructBRepLib_MakeSolid*(S: TopoDS_CompSolid): BRepLib_MakeSolid {.
+proc constructBRepLibMakeSolid*(s: TopoDS_CompSolid): BRepLibMakeSolid {.
     constructor, importcpp: "BRepLib_MakeSolid(@)", header: "BRepLib_MakeSolid.hxx".}
-proc constructBRepLib_MakeSolid*(S: TopoDS_Shell): BRepLib_MakeSolid {.constructor,
+proc constructBRepLibMakeSolid*(s: TopoDS_Shell): BRepLibMakeSolid {.constructor,
     importcpp: "BRepLib_MakeSolid(@)", header: "BRepLib_MakeSolid.hxx".}
-proc constructBRepLib_MakeSolid*(S1: TopoDS_Shell; S2: TopoDS_Shell): BRepLib_MakeSolid {.
+proc constructBRepLibMakeSolid*(s1: TopoDS_Shell; s2: TopoDS_Shell): BRepLibMakeSolid {.
     constructor, importcpp: "BRepLib_MakeSolid(@)", header: "BRepLib_MakeSolid.hxx".}
-proc constructBRepLib_MakeSolid*(S1: TopoDS_Shell; S2: TopoDS_Shell; S3: TopoDS_Shell): BRepLib_MakeSolid {.
+proc constructBRepLibMakeSolid*(s1: TopoDS_Shell; s2: TopoDS_Shell; s3: TopoDS_Shell): BRepLibMakeSolid {.
     constructor, importcpp: "BRepLib_MakeSolid(@)", header: "BRepLib_MakeSolid.hxx".}
-proc constructBRepLib_MakeSolid*(So: TopoDS_Solid): BRepLib_MakeSolid {.constructor,
+proc constructBRepLibMakeSolid*(so: TopoDS_Solid): BRepLibMakeSolid {.constructor,
     importcpp: "BRepLib_MakeSolid(@)", header: "BRepLib_MakeSolid.hxx".}
-proc constructBRepLib_MakeSolid*(So: TopoDS_Solid; S: TopoDS_Shell): BRepLib_MakeSolid {.
+proc constructBRepLibMakeSolid*(so: TopoDS_Solid; s: TopoDS_Shell): BRepLibMakeSolid {.
     constructor, importcpp: "BRepLib_MakeSolid(@)", header: "BRepLib_MakeSolid.hxx".}
-proc Add*(this: var BRepLib_MakeSolid; S: TopoDS_Shell) {.importcpp: "Add",
+proc add*(this: var BRepLibMakeSolid; s: TopoDS_Shell) {.importcpp: "Add",
     header: "BRepLib_MakeSolid.hxx".}
-proc Solid*(this: var BRepLib_MakeSolid): TopoDS_Solid {.importcpp: "Solid",
+proc solid*(this: var BRepLibMakeSolid): TopoDS_Solid {.importcpp: "Solid",
     header: "BRepLib_MakeSolid.hxx".}
-converter `TopoDS_Solid`*(this: var BRepLib_MakeSolid): TopoDS_Solid {.
+converter `topoDS_Solid`*(this: var BRepLibMakeSolid): TopoDS_Solid {.
     importcpp: "BRepLib_MakeSolid::operator TopoDS_Solid",
     header: "BRepLib_MakeSolid.hxx".}
-proc FaceStatus*(this: BRepLib_MakeSolid; F: TopoDS_Face): BRepLib_ShapeModification {.
+proc faceStatus*(this: BRepLibMakeSolid; f: TopoDS_Face): BRepLibShapeModification {.
     noSideEffect, importcpp: "FaceStatus", header: "BRepLib_MakeSolid.hxx".}

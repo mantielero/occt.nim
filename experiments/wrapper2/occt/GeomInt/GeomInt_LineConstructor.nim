@@ -14,37 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../TColStd/TColStd_SequenceOfReal, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real
-
 discard "forward decl of Adaptor3d_TopolTool"
 discard "forward decl of GeomAdaptor_HSurface"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IntPatch_Line"
 type
-  GeomInt_LineConstructor* {.importcpp: "GeomInt_LineConstructor",
-                            header: "GeomInt_LineConstructor.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Empty
-                                                                                ## constructor
+  GeomIntLineConstructor* {.importcpp: "GeomInt_LineConstructor",
+                           header: "GeomInt_LineConstructor.hxx", bycopy.} = object ## !
+                                                                               ## Empty
+                                                                               ## constructor
 
 
-proc constructGeomInt_LineConstructor*(): GeomInt_LineConstructor {.constructor,
+proc constructGeomIntLineConstructor*(): GeomIntLineConstructor {.constructor,
     importcpp: "GeomInt_LineConstructor(@)", header: "GeomInt_LineConstructor.hxx".}
-proc Load*(this: var GeomInt_LineConstructor; D1: handle[Adaptor3d_TopolTool];
-          D2: handle[Adaptor3d_TopolTool]; S1: handle[GeomAdaptor_HSurface];
-          S2: handle[GeomAdaptor_HSurface]) {.importcpp: "Load",
+proc load*(this: var GeomIntLineConstructor; d1: Handle[Adaptor3dTopolTool];
+          d2: Handle[Adaptor3dTopolTool]; s1: Handle[GeomAdaptorHSurface];
+          s2: Handle[GeomAdaptorHSurface]) {.importcpp: "Load",
     header: "GeomInt_LineConstructor.hxx".}
-proc Perform*(this: var GeomInt_LineConstructor; L: handle[IntPatch_Line]) {.
+proc perform*(this: var GeomIntLineConstructor; L: Handle[IntPatchLine]) {.
     importcpp: "Perform", header: "GeomInt_LineConstructor.hxx".}
-proc IsDone*(this: GeomInt_LineConstructor): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "GeomInt_LineConstructor.hxx".}
-proc NbParts*(this: GeomInt_LineConstructor): Standard_Integer {.noSideEffect,
+proc isDone*(this: GeomIntLineConstructor): bool {.noSideEffect, importcpp: "IsDone",
+    header: "GeomInt_LineConstructor.hxx".}
+proc nbParts*(this: GeomIntLineConstructor): int {.noSideEffect,
     importcpp: "NbParts", header: "GeomInt_LineConstructor.hxx".}
-proc Part*(this: GeomInt_LineConstructor; I: Standard_Integer;
-          WFirst: var Standard_Real; WLast: var Standard_Real) {.noSideEffect,
-    importcpp: "Part", header: "GeomInt_LineConstructor.hxx".}
+proc part*(this: GeomIntLineConstructor; i: int; wFirst: var float; wLast: var float) {.
+    noSideEffect, importcpp: "Part", header: "GeomInt_LineConstructor.hxx".}

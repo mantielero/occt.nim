@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_GUID, TPrsStd_Driver, ../Standard/Standard_GUID,
-  ../NCollection/NCollection_DataMap
-
 type
-  TPrsStd_DataMapOfGUIDDriver* = NCollection_DataMap[Standard_GUID,
-      handle[TPrsStd_Driver], Standard_GUID]
-  TPrsStd_DataMapIteratorOfDataMapOfGUIDDriver* = Iterator[Standard_GUID,
-      handle[TPrsStd_Driver], Standard_GUID]
+  TPrsStdDataMapOfGUIDDriver* = NCollectionDataMap[StandardGUID,
+      Handle[TPrsStdDriver], StandardGUID]
+  TPrsStdDataMapIteratorOfDataMapOfGUIDDriver* = Iterator[StandardGUID,
+      Handle[TPrsStdDriver], StandardGUID]
+

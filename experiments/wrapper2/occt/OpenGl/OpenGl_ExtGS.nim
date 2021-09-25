@@ -13,14 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_GlFunctions
-
 ## ! Geometry shader as extension is available on OpenGL 2.0+
 
 type
-  OpenGl_ExtGS* {.importcpp: "OpenGl_ExtGS", header: "OpenGl_ExtGS.hxx", bycopy.} = object of OpenGl_GlFunctions
+  OpenGlExtGS* {.importcpp: "OpenGl_ExtGS", header: "OpenGl_ExtGS.hxx", bycopy.} = object of OpenGlGlFunctions
 
 
-when not defined(GL_ES_VERSION_2_0):
-  discard
+# when not defined(gl_Es_Version_20):
+#   discard

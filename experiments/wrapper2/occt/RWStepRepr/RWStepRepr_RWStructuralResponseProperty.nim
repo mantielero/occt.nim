@@ -13,35 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_StructuralResponseProperty"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepRepr_RWStructuralResponseProperty* {.
+  RWStepReprRWStructuralResponseProperty* {.
       importcpp: "RWStepRepr_RWStructuralResponseProperty",
       header: "RWStepRepr_RWStructuralResponseProperty.hxx", bycopy.} = object ## ! Empty
                                                                           ## constructor
 
 
-proc constructRWStepRepr_RWStructuralResponseProperty*(): RWStepRepr_RWStructuralResponseProperty {.
+proc constructRWStepReprRWStructuralResponseProperty*(): RWStepReprRWStructuralResponseProperty {.
     constructor, importcpp: "RWStepRepr_RWStructuralResponseProperty(@)",
     header: "RWStepRepr_RWStructuralResponseProperty.hxx".}
-proc ReadStep*(this: RWStepRepr_RWStructuralResponseProperty;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepRepr_StructuralResponseProperty]) {.noSideEffect,
+proc readStep*(this: RWStepReprRWStructuralResponseProperty;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepReprStructuralResponseProperty]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWStructuralResponseProperty.hxx".}
-proc WriteStep*(this: RWStepRepr_RWStructuralResponseProperty;
-               SW: var StepData_StepWriter;
-               ent: handle[StepRepr_StructuralResponseProperty]) {.noSideEffect,
+proc writeStep*(this: RWStepReprRWStructuralResponseProperty;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepReprStructuralResponseProperty]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepRepr_RWStructuralResponseProperty.hxx".}
-proc Share*(this: RWStepRepr_RWStructuralResponseProperty;
-           ent: handle[StepRepr_StructuralResponseProperty];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepReprRWStructuralResponseProperty;
+           ent: Handle[StepReprStructuralResponseProperty];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWStructuralResponseProperty.hxx".}

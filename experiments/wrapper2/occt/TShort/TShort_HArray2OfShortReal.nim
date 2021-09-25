@@ -12,5 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # TShort_HArray2OfShortReal_HeaderFile [NewLine] # TShort_HArray2OfShortReal_HeaderFile [NewLine] # ../Standard/Standard_ShortReal.hxx [NewLine] # TShort_Array2OfShortReal.hxx [NewLine] # ../NCollection/NCollection_DefineHArray2.hxx [NewLine] DEFINE_HARRAY2 ( TShort_HArray2OfShortReal , TShort_Array2OfShortReal ) # [NewLine]
+## !!!Ignored construct:  # TShort_HArray2OfShortReal_HeaderFile [NewLine] # TShort_HArray2OfShortReal_HeaderFile [NewLine] # < Standard_ShortReal . hxx > [NewLine] # < TShort_Array2OfShortReal . hxx > [NewLine] # < NCollection_DefineHArray2 . hxx > [NewLine] DEFINE_HARRAY2 ( TShort_HArray2OfShortReal , TShort_Array2OfShortReal ) # [NewLine]
 ## Error: expected ';'!!!
+

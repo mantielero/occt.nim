@@ -14,10 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Lin, ../NCollection/NCollection_Array1
-
 ## ! Describes  a set of Straight Lines  to  intersect with the Polyhedron.
 
 type
-  Intf_Array1OfLin* = NCollection_Array1[gp_Lin]
+  IntfArray1OfLin* = NCollectionArray1[Lin]
+

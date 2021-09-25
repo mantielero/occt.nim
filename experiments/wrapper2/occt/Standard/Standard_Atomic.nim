@@ -30,7 +30,7 @@
 ## ! Decrements atomically integer variable pointed by theValue
 ## ! and returns resulting decremented value.
 
-proc Standard_Atomic_Decrement*(theValue: ptr cint): cint {.
+proc standardAtomicDecrement*(theValue: ptr cint): cint {.
     importcpp: "Standard_Atomic_Decrement(@)", header: "Standard_Atomic.hxx".}
 ## ! Perform an atomic compare and swap.
 ## ! That is, if the current value of *theValue is theOldValue, then write theNewValue into *theValue.
@@ -39,8 +39,8 @@ proc Standard_Atomic_Decrement*(theValue: ptr cint): cint {.
 ## ! @param theNewValue new value to set in case if *theValue was equal to theOldValue
 ## ! @return TRUE if theNewValue has been set to *theValue
 
-proc Standard_Atomic_CompareAndSwap*(theValue: ptr cint; theOldValue: cint;
-                                    theNewValue: cint): bool {.
+proc standardAtomicCompareAndSwap*(theValue: ptr cint; theOldValue: cint;
+                                  theNewValue: cint): bool {.
     importcpp: "Standard_Atomic_CompareAndSwap(@)", header: "Standard_Atomic.hxx".}
 ##  Platform-dependent implementation
 
@@ -55,5 +55,6 @@ proc Standard_Atomic_CompareAndSwap*(theValue: ptr cint; theOldValue: cint;
 ##  provide any memory barriers, which created potential issues on
 ##  multi-core devices. Starting from ndk version r7b they are defined as
 ##  inlined calls to GCC sync builtins, which always provide a full barrier.
-##  It is strongly recommended to use newer versions of ndk. # < sys / atomics . h > [NewLine] int Standard_Atomic_Increment ( volatile int * theValue ) { return __atomic_inc ( theValue ) + 1 ;  analog of __sync_fetch_and_add } int Standard_Atomic_Decrement ( volatile int * theValue ) { return __atomic_dec ( theValue ) - 1 ;  analog of __sync_fetch_and_sub } bool Standard_Atomic_CompareAndSwap ( volatile int * theValue , int theOldValue , int theNewValue ) { return __atomic_cmpxchg ( theOldValue , theNewValue , theValue ) == 0 ; } # [NewLine] # IGNORE_NO_ATOMICS [NewLine] # Atomic operation isn't implemented for current platform! [NewLine] # [NewLine] int Standard_Atomic_Increment ( volatile int * theValue ) { return ++ ( * theValue ) ; } int Standard_Atomic_Decrement ( volatile int * theValue ) { return -- ( * theValue ) ; } bool Standard_Atomic_CompareAndSwap ( volatile int * theValue , int theOldValue , int theNewValue ) { if ( * theValue == theOldValue ) { * theValue = theNewValue ; return true ; } return false ; } # [NewLine] # _Standard_Atomic_HeaderFile [NewLine]
+##  It is strongly recommended to use newer versions of ndk. # < sys / atomics . h > [NewLine] int Standard_Atomic_Increment ( volatile int * theValue ) { return __atomic_inc ( theValue ) + 1 ;  analog of __sync_fetch_and_add } int Standard_Atomic_Decrement ( volatile int * theValue ) { return __atomic_dec ( theValue ) - 1 ;  analog of __sync_fetch_and_sub } bool Standard_Atomic_CompareAndSwap ( volatile int * theValue , int theOldValue , int theNewValue ) { return __atomic_cmpxchg ( theOldValue , theNewValue , theValue ) == 0 ; } # [NewLine] # IGNORE_NO_ATOMICS [NewLine] # Atomic operation isn't implemented for current platform! [NewLine] # [NewLine] int Standard_Atomic_Increment ( volatile int * theValue ) { return ++ ( * theValue ) ; } int Standard_Atomic_Decrement ( volatile int * theValue ) { return -- ( * theValue ) ; } bool Standard_Atomic_CompareAndSwap ( volatile int * theValue , int theOldValue , int theNewValue ) { if ( * theValue == theOldValue ) { * theValue = theNewValue ; return true ; } return false ; } # [NewLine] # _Standard_Atomic_HeaderFile
 ## Error: identifier expected, but got: {!!!
+

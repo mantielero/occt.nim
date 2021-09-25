@@ -13,79 +13,75 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Transient
-
 discard "forward decl of ShapeCustom_RestrictionParameters"
 discard "forward decl of ShapeCustom_RestrictionParameters"
 type
-  Handle_ShapeCustom_RestrictionParameters* = handle[
-      ShapeCustom_RestrictionParameters]
+  HandleShapeCustomRestrictionParameters* = Handle[
+      ShapeCustomRestrictionParameters]
 
 ## ! This class is axuluary tool which contains parameters for
 ## ! BSplineRestriction class.
 
 type
-  ShapeCustom_RestrictionParameters* {.importcpp: "ShapeCustom_RestrictionParameters", header: "ShapeCustom_RestrictionParameters.hxx",
-                                      bycopy.} = object of Standard_Transient ## ! Sets default
-                                                                         ## parameters.
+  ShapeCustomRestrictionParameters* {.importcpp: "ShapeCustom_RestrictionParameters", header: "ShapeCustom_RestrictionParameters.hxx",
+                                     bycopy.} = object of StandardTransient ## ! Sets default
+                                                                       ## parameters.
 
 
-proc constructShapeCustom_RestrictionParameters*(): ShapeCustom_RestrictionParameters {.
+proc constructShapeCustomRestrictionParameters*(): ShapeCustomRestrictionParameters {.
     constructor, importcpp: "ShapeCustom_RestrictionParameters(@)",
     header: "ShapeCustom_RestrictionParameters.hxx".}
-proc GMaxDegree*(this: var ShapeCustom_RestrictionParameters): var Standard_Integer {.
+proc gMaxDegree*(this: var ShapeCustomRestrictionParameters): var int {.
     importcpp: "GMaxDegree", header: "ShapeCustom_RestrictionParameters.hxx".}
-proc GMaxSeg*(this: var ShapeCustom_RestrictionParameters): var Standard_Integer {.
+proc gMaxSeg*(this: var ShapeCustomRestrictionParameters): var int {.
     importcpp: "GMaxSeg", header: "ShapeCustom_RestrictionParameters.hxx".}
-proc ConvertPlane*(this: var ShapeCustom_RestrictionParameters): var Standard_Boolean {.
+proc convertPlane*(this: var ShapeCustomRestrictionParameters): var bool {.
     importcpp: "ConvertPlane", header: "ShapeCustom_RestrictionParameters.hxx".}
-proc ConvertBezierSurf*(this: var ShapeCustom_RestrictionParameters): var Standard_Boolean {.
+proc convertBezierSurf*(this: var ShapeCustomRestrictionParameters): var bool {.
     importcpp: "ConvertBezierSurf",
     header: "ShapeCustom_RestrictionParameters.hxx".}
-proc ConvertRevolutionSurf*(this: var ShapeCustom_RestrictionParameters): var Standard_Boolean {.
+proc convertRevolutionSurf*(this: var ShapeCustomRestrictionParameters): var bool {.
     importcpp: "ConvertRevolutionSurf",
     header: "ShapeCustom_RestrictionParameters.hxx".}
-proc ConvertExtrusionSurf*(this: var ShapeCustom_RestrictionParameters): var Standard_Boolean {.
+proc convertExtrusionSurf*(this: var ShapeCustomRestrictionParameters): var bool {.
     importcpp: "ConvertExtrusionSurf",
     header: "ShapeCustom_RestrictionParameters.hxx".}
-proc ConvertOffsetSurf*(this: var ShapeCustom_RestrictionParameters): var Standard_Boolean {.
+proc convertOffsetSurf*(this: var ShapeCustomRestrictionParameters): var bool {.
     importcpp: "ConvertOffsetSurf",
     header: "ShapeCustom_RestrictionParameters.hxx".}
-proc ConvertCylindricalSurf*(this: var ShapeCustom_RestrictionParameters): var Standard_Boolean {.
+proc convertCylindricalSurf*(this: var ShapeCustomRestrictionParameters): var bool {.
     importcpp: "ConvertCylindricalSurf",
     header: "ShapeCustom_RestrictionParameters.hxx".}
-proc ConvertConicalSurf*(this: var ShapeCustom_RestrictionParameters): var Standard_Boolean {.
+proc convertConicalSurf*(this: var ShapeCustomRestrictionParameters): var bool {.
     importcpp: "ConvertConicalSurf",
     header: "ShapeCustom_RestrictionParameters.hxx".}
-proc ConvertToroidalSurf*(this: var ShapeCustom_RestrictionParameters): var Standard_Boolean {.
+proc convertToroidalSurf*(this: var ShapeCustomRestrictionParameters): var bool {.
     importcpp: "ConvertToroidalSurf",
     header: "ShapeCustom_RestrictionParameters.hxx".}
-proc ConvertSphericalSurf*(this: var ShapeCustom_RestrictionParameters): var Standard_Boolean {.
+proc convertSphericalSurf*(this: var ShapeCustomRestrictionParameters): var bool {.
     importcpp: "ConvertSphericalSurf",
     header: "ShapeCustom_RestrictionParameters.hxx".}
-proc SegmentSurfaceMode*(this: var ShapeCustom_RestrictionParameters): var Standard_Boolean {.
+proc segmentSurfaceMode*(this: var ShapeCustomRestrictionParameters): var bool {.
     importcpp: "SegmentSurfaceMode",
     header: "ShapeCustom_RestrictionParameters.hxx".}
-proc ConvertCurve3d*(this: var ShapeCustom_RestrictionParameters): var Standard_Boolean {.
+proc convertCurve3d*(this: var ShapeCustomRestrictionParameters): var bool {.
     importcpp: "ConvertCurve3d", header: "ShapeCustom_RestrictionParameters.hxx".}
-proc ConvertOffsetCurv3d*(this: var ShapeCustom_RestrictionParameters): var Standard_Boolean {.
+proc convertOffsetCurv3d*(this: var ShapeCustomRestrictionParameters): var bool {.
     importcpp: "ConvertOffsetCurv3d",
     header: "ShapeCustom_RestrictionParameters.hxx".}
-proc ConvertCurve2d*(this: var ShapeCustom_RestrictionParameters): var Standard_Boolean {.
+proc convertCurve2d*(this: var ShapeCustomRestrictionParameters): var bool {.
     importcpp: "ConvertCurve2d", header: "ShapeCustom_RestrictionParameters.hxx".}
-proc ConvertOffsetCurv2d*(this: var ShapeCustom_RestrictionParameters): var Standard_Boolean {.
+proc convertOffsetCurv2d*(this: var ShapeCustomRestrictionParameters): var bool {.
     importcpp: "ConvertOffsetCurv2d",
     header: "ShapeCustom_RestrictionParameters.hxx".}
 type
-  ShapeCustom_RestrictionParametersbase_type* = Standard_Transient
+  ShapeCustomRestrictionParametersbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "ShapeCustom_RestrictionParameters::get_type_name(@)",
-                              header: "ShapeCustom_RestrictionParameters.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeCustom_RestrictionParameters::get_type_name(@)",
+                            header: "ShapeCustom_RestrictionParameters.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeCustom_RestrictionParameters::get_type_descriptor(@)",
     header: "ShapeCustom_RestrictionParameters.hxx".}
-proc DynamicType*(this: ShapeCustom_RestrictionParameters): handle[Standard_Type] {.
+proc dynamicType*(this: ShapeCustomRestrictionParameters): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeCustom_RestrictionParameters.hxx".}

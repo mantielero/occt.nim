@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, IntCurveSurface_Intersection,
-  ../Standard/Standard_Real, ../TColgp/TColgp_Array2OfPnt,
-  ../TColStd/TColStd_Array1OfReal
-
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of IntCurveSurface_TheHCurveTool"
 discard "forward decl of Adaptor3d_HSurface"
@@ -42,47 +36,47 @@ discard "forward decl of gp_Hypr"
 discard "forward decl of IntAna_IntConicQuad"
 discard "forward decl of Bnd_Box"
 type
-  IntCurveSurface_HInter* {.importcpp: "IntCurveSurface_HInter",
-                           header: "IntCurveSurface_HInter.hxx", bycopy.} = object of IntCurveSurface_Intersection ##
-                                                                                                            ## !
-                                                                                                            ## Empty
-                                                                                                            ## Constructor
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Compute
-                                                                                                            ## the
-                                                                                                            ## Intersection
-                                                                                                            ## between
-                                                                                                            ## the
-                                                                                                            ## curve
-                                                                                                            ## and
-                                                                                                            ## the
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## surface
+  IntCurveSurfaceHInter* {.importcpp: "IntCurveSurface_HInter",
+                          header: "IntCurveSurface_HInter.hxx", bycopy.} = object of IntCurveSurfaceIntersection ##
+                                                                                                          ## !
+                                                                                                          ## Empty
+                                                                                                          ## Constructor
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## Compute
+                                                                                                          ## the
+                                                                                                          ## Intersection
+                                                                                                          ## between
+                                                                                                          ## the
+                                                                                                          ## curve
+                                                                                                          ## and
+                                                                                                          ## the
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## surface
 
 
-proc constructIntCurveSurface_HInter*(): IntCurveSurface_HInter {.constructor,
+proc constructIntCurveSurfaceHInter*(): IntCurveSurfaceHInter {.constructor,
     importcpp: "IntCurveSurface_HInter(@)", header: "IntCurveSurface_HInter.hxx".}
-proc Perform*(this: var IntCurveSurface_HInter; Curve: handle[Adaptor3d_HCurve];
-             Surface: handle[Adaptor3d_HSurface]) {.importcpp: "Perform",
+proc perform*(this: var IntCurveSurfaceHInter; curve: Handle[Adaptor3dHCurve];
+             surface: Handle[Adaptor3dHSurface]) {.importcpp: "Perform",
     header: "IntCurveSurface_HInter.hxx".}
-proc Perform*(this: var IntCurveSurface_HInter; Curve: handle[Adaptor3d_HCurve];
-             Polygon: IntCurveSurface_ThePolygonOfHInter;
-             Surface: handle[Adaptor3d_HSurface]) {.importcpp: "Perform",
+proc perform*(this: var IntCurveSurfaceHInter; curve: Handle[Adaptor3dHCurve];
+             polygon: IntCurveSurfaceThePolygonOfHInter;
+             surface: Handle[Adaptor3dHSurface]) {.importcpp: "Perform",
     header: "IntCurveSurface_HInter.hxx".}
-proc Perform*(this: var IntCurveSurface_HInter; Curve: handle[Adaptor3d_HCurve];
-             ThePolygon: IntCurveSurface_ThePolygonOfHInter;
-             Surface: handle[Adaptor3d_HSurface];
-             Polyhedron: IntCurveSurface_ThePolyhedronOfHInter) {.
+proc perform*(this: var IntCurveSurfaceHInter; curve: Handle[Adaptor3dHCurve];
+             thePolygon: IntCurveSurfaceThePolygonOfHInter;
+             surface: Handle[Adaptor3dHSurface];
+             polyhedron: IntCurveSurfaceThePolyhedronOfHInter) {.
     importcpp: "Perform", header: "IntCurveSurface_HInter.hxx".}
-proc Perform*(this: var IntCurveSurface_HInter; Curve: handle[Adaptor3d_HCurve];
-             ThePolygon: IntCurveSurface_ThePolygonOfHInter;
-             Surface: handle[Adaptor3d_HSurface];
-             Polyhedron: IntCurveSurface_ThePolyhedronOfHInter;
-             BndBSB: var Bnd_BoundSortBox) {.importcpp: "Perform",
+proc perform*(this: var IntCurveSurfaceHInter; curve: Handle[Adaptor3dHCurve];
+             thePolygon: IntCurveSurfaceThePolygonOfHInter;
+             surface: Handle[Adaptor3dHSurface];
+             polyhedron: IntCurveSurfaceThePolyhedronOfHInter;
+             bndBSB: var BndBoundSortBox) {.importcpp: "Perform",
     header: "IntCurveSurface_HInter.hxx".}
-proc Perform*(this: var IntCurveSurface_HInter; Curve: handle[Adaptor3d_HCurve];
-             Surface: handle[Adaptor3d_HSurface];
-             Polyhedron: IntCurveSurface_ThePolyhedronOfHInter) {.
+proc perform*(this: var IntCurveSurfaceHInter; curve: Handle[Adaptor3dHCurve];
+             surface: Handle[Adaptor3dHSurface];
+             polyhedron: IntCurveSurfaceThePolyhedronOfHInter) {.
     importcpp: "Perform", header: "IntCurveSurface_HInter.hxx".}

@@ -14,46 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../StepGeom/StepGeom_GeometricRepresentationItem
-
 discard "forward decl of StepGeom_Axis1Placement"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_Torus"
 discard "forward decl of StepShape_Torus"
 type
-  Handle_StepShape_Torus* = handle[StepShape_Torus]
-  StepShape_Torus* {.importcpp: "StepShape_Torus", header: "StepShape_Torus.hxx",
-                    bycopy.} = object of StepGeom_GeometricRepresentationItem ## ! Returns a Torus
+  HandleStepShapeTorus* = Handle[StepShapeTorus]
+  StepShapeTorus* {.importcpp: "StepShape_Torus", header: "StepShape_Torus.hxx",
+                   bycopy.} = object of StepGeomGeometricRepresentationItem ## ! Returns a Torus
 
 
-proc constructStepShape_Torus*(): StepShape_Torus {.constructor,
+proc constructStepShapeTorus*(): StepShapeTorus {.constructor,
     importcpp: "StepShape_Torus(@)", header: "StepShape_Torus.hxx".}
-proc Init*(this: var StepShape_Torus; aName: handle[TCollection_HAsciiString];
-          aPosition: handle[StepGeom_Axis1Placement]; aMajorRadius: Standard_Real;
-          aMinorRadius: Standard_Real) {.importcpp: "Init",
-                                       header: "StepShape_Torus.hxx".}
-proc SetPosition*(this: var StepShape_Torus;
-                 aPosition: handle[StepGeom_Axis1Placement]) {.
+proc init*(this: var StepShapeTorus; aName: Handle[TCollectionHAsciiString];
+          aPosition: Handle[StepGeomAxis1Placement]; aMajorRadius: float;
+          aMinorRadius: float) {.importcpp: "Init", header: "StepShape_Torus.hxx".}
+proc setPosition*(this: var StepShapeTorus;
+                 aPosition: Handle[StepGeomAxis1Placement]) {.
     importcpp: "SetPosition", header: "StepShape_Torus.hxx".}
-proc Position*(this: StepShape_Torus): handle[StepGeom_Axis1Placement] {.
-    noSideEffect, importcpp: "Position", header: "StepShape_Torus.hxx".}
-proc SetMajorRadius*(this: var StepShape_Torus; aMajorRadius: Standard_Real) {.
+proc position*(this: StepShapeTorus): Handle[StepGeomAxis1Placement] {.noSideEffect,
+    importcpp: "Position", header: "StepShape_Torus.hxx".}
+proc setMajorRadius*(this: var StepShapeTorus; aMajorRadius: float) {.
     importcpp: "SetMajorRadius", header: "StepShape_Torus.hxx".}
-proc MajorRadius*(this: StepShape_Torus): Standard_Real {.noSideEffect,
+proc majorRadius*(this: StepShapeTorus): float {.noSideEffect,
     importcpp: "MajorRadius", header: "StepShape_Torus.hxx".}
-proc SetMinorRadius*(this: var StepShape_Torus; aMinorRadius: Standard_Real) {.
+proc setMinorRadius*(this: var StepShapeTorus; aMinorRadius: float) {.
     importcpp: "SetMinorRadius", header: "StepShape_Torus.hxx".}
-proc MinorRadius*(this: StepShape_Torus): Standard_Real {.noSideEffect,
+proc minorRadius*(this: StepShapeTorus): float {.noSideEffect,
     importcpp: "MinorRadius", header: "StepShape_Torus.hxx".}
 type
-  StepShape_Torusbase_type* = StepGeom_GeometricRepresentationItem
+  StepShapeTorusbaseType* = StepGeomGeometricRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_Torus::get_type_name(@)",
-                              header: "StepShape_Torus.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_Torus::get_type_name(@)",
+                            header: "StepShape_Torus.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_Torus::get_type_descriptor(@)",
     header: "StepShape_Torus.hxx".}
-proc DynamicType*(this: StepShape_Torus): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepShapeTorus): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_Torus.hxx".}

@@ -13,45 +13,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepRepr_CompoundRepresentationItem"
 discard "forward decl of StepRepr_DescriptiveRepresentationItem"
 discard "forward decl of StepRepr_MeasureRepresentationItem"
 discard "forward decl of StepGeom_Placement"
 type
-  StepShape_ShapeDimensionRepresentationItem* {.
+  StepShapeShapeDimensionRepresentationItem* {.
       importcpp: "StepShape_ShapeDimensionRepresentationItem",
-      header: "StepShape_ShapeDimensionRepresentationItem.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                  ## !
-                                                                                                  ## Returns
-                                                                                                  ## a
-                                                                                                  ## ShapeDimensionRepresentationItem
-                                                                                                  ## select
-                                                                                                  ## type
+      header: "StepShape_ShapeDimensionRepresentationItem.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                 ## !
+                                                                                                 ## Returns
+                                                                                                 ## a
+                                                                                                 ## ShapeDimensionRepresentationItem
+                                                                                                 ## select
+                                                                                                 ## type
 
 
-proc constructStepShape_ShapeDimensionRepresentationItem*(): StepShape_ShapeDimensionRepresentationItem {.
+proc constructStepShapeShapeDimensionRepresentationItem*(): StepShapeShapeDimensionRepresentationItem {.
     constructor, importcpp: "StepShape_ShapeDimensionRepresentationItem(@)",
     header: "StepShape_ShapeDimensionRepresentationItem.hxx".}
-proc CaseNum*(this: StepShape_ShapeDimensionRepresentationItem;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepShapeShapeDimensionRepresentationItem;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepShape_ShapeDimensionRepresentationItem.hxx".}
-proc CompoundRepresentationItem*(this: StepShape_ShapeDimensionRepresentationItem): handle[
-    StepRepr_CompoundRepresentationItem] {.noSideEffect,
+proc compoundRepresentationItem*(this: StepShapeShapeDimensionRepresentationItem): Handle[
+    StepReprCompoundRepresentationItem] {.noSideEffect,
     importcpp: "CompoundRepresentationItem",
     header: "StepShape_ShapeDimensionRepresentationItem.hxx".}
-proc DescriptiveRepresentationItem*(this: StepShape_ShapeDimensionRepresentationItem): handle[
-    StepRepr_DescriptiveRepresentationItem] {.noSideEffect,
+proc descriptiveRepresentationItem*(this: StepShapeShapeDimensionRepresentationItem): Handle[
+    StepReprDescriptiveRepresentationItem] {.noSideEffect,
     importcpp: "DescriptiveRepresentationItem",
     header: "StepShape_ShapeDimensionRepresentationItem.hxx".}
-proc MeasureRepresentationItem*(this: StepShape_ShapeDimensionRepresentationItem): handle[
-    StepRepr_MeasureRepresentationItem] {.noSideEffect,
-    importcpp: "MeasureRepresentationItem",
-    header: "StepShape_ShapeDimensionRepresentationItem.hxx".}
-proc Placement*(this: StepShape_ShapeDimensionRepresentationItem): handle[
-    StepGeom_Placement] {.noSideEffect, importcpp: "Placement", header: "StepShape_ShapeDimensionRepresentationItem.hxx".}
+proc measureRepresentationItem*(this: StepShapeShapeDimensionRepresentationItem): Handle[
+    StepReprMeasureRepresentationItem] {.noSideEffect,
+                                        importcpp: "MeasureRepresentationItem", header: "StepShape_ShapeDimensionRepresentationItem.hxx".}
+proc placement*(this: StepShapeShapeDimensionRepresentationItem): Handle[
+    StepGeomPlacement] {.noSideEffect, importcpp: "Placement", header: "StepShape_ShapeDimensionRepresentationItem.hxx".}

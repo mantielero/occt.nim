@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_HArray1OfDocument,
-  StepBasic_ProductDefinition, ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_ProductDefinitionFormation"
 discard "forward decl of StepBasic_ProductDefinitionContext"
@@ -25,46 +21,44 @@ discard "forward decl of StepBasic_Document"
 discard "forward decl of StepBasic_ProductDefinitionWithAssociatedDocuments"
 discard "forward decl of StepBasic_ProductDefinitionWithAssociatedDocuments"
 type
-  Handle_StepBasic_ProductDefinitionWithAssociatedDocuments* = handle[
-      StepBasic_ProductDefinitionWithAssociatedDocuments]
-  StepBasic_ProductDefinitionWithAssociatedDocuments* {.
+  HandleStepBasicProductDefinitionWithAssociatedDocuments* = Handle[
+      StepBasicProductDefinitionWithAssociatedDocuments]
+  StepBasicProductDefinitionWithAssociatedDocuments* {.
       importcpp: "StepBasic_ProductDefinitionWithAssociatedDocuments",
-      header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx", bycopy.} = object of StepBasic_ProductDefinition
+      header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx", bycopy.} = object of StepBasicProductDefinition
 
 
-proc constructStepBasic_ProductDefinitionWithAssociatedDocuments*(): StepBasic_ProductDefinitionWithAssociatedDocuments {.
+proc constructStepBasicProductDefinitionWithAssociatedDocuments*(): StepBasicProductDefinitionWithAssociatedDocuments {.
     constructor,
     importcpp: "StepBasic_ProductDefinitionWithAssociatedDocuments(@)",
     header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx".}
-proc Init*(this: var StepBasic_ProductDefinitionWithAssociatedDocuments;
-          aId: handle[TCollection_HAsciiString];
-          aDescription: handle[TCollection_HAsciiString];
-          aFormation: handle[StepBasic_ProductDefinitionFormation];
-          aFrame: handle[StepBasic_ProductDefinitionContext];
-          aDocIds: handle[StepBasic_HArray1OfDocument]) {.importcpp: "Init",
+proc init*(this: var StepBasicProductDefinitionWithAssociatedDocuments;
+          aId: Handle[TCollectionHAsciiString];
+          aDescription: Handle[TCollectionHAsciiString];
+          aFormation: Handle[StepBasicProductDefinitionFormation];
+          aFrame: Handle[StepBasicProductDefinitionContext];
+          aDocIds: Handle[StepBasicHArray1OfDocument]) {.importcpp: "Init",
     header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx".}
-proc DocIds*(this: StepBasic_ProductDefinitionWithAssociatedDocuments): handle[
-    StepBasic_HArray1OfDocument] {.noSideEffect, importcpp: "DocIds", header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx".}
-proc SetDocIds*(this: var StepBasic_ProductDefinitionWithAssociatedDocuments;
-               DocIds: handle[StepBasic_HArray1OfDocument]) {.
+proc docIds*(this: StepBasicProductDefinitionWithAssociatedDocuments): Handle[
+    StepBasicHArray1OfDocument] {.noSideEffect, importcpp: "DocIds", header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx".}
+proc setDocIds*(this: var StepBasicProductDefinitionWithAssociatedDocuments;
+               docIds: Handle[StepBasicHArray1OfDocument]) {.
     importcpp: "SetDocIds",
     header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx".}
-proc NbDocIds*(this: StepBasic_ProductDefinitionWithAssociatedDocuments): Standard_Integer {.
+proc nbDocIds*(this: StepBasicProductDefinitionWithAssociatedDocuments): int {.
     noSideEffect, importcpp: "NbDocIds",
     header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx".}
-proc DocIdsValue*(this: StepBasic_ProductDefinitionWithAssociatedDocuments;
-                 num: Standard_Integer): handle[StepBasic_Document] {.noSideEffect,
-    importcpp: "DocIdsValue",
-    header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx".}
-proc SetDocIdsValue*(this: var StepBasic_ProductDefinitionWithAssociatedDocuments;
-                    num: Standard_Integer; adoc: handle[StepBasic_Document]) {.
+proc docIdsValue*(this: StepBasicProductDefinitionWithAssociatedDocuments; num: int): Handle[
+    StepBasicDocument] {.noSideEffect, importcpp: "DocIdsValue", header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx".}
+proc setDocIdsValue*(this: var StepBasicProductDefinitionWithAssociatedDocuments;
+                    num: int; adoc: Handle[StepBasicDocument]) {.
     importcpp: "SetDocIdsValue",
     header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx".}
 type
-  StepBasic_ProductDefinitionWithAssociatedDocumentsbase_type* = StepBasic_ProductDefinition
+  StepBasicProductDefinitionWithAssociatedDocumentsbaseType* = StepBasicProductDefinition
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ProductDefinitionWithAssociatedDocuments::get_type_name(@)", header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepBasic_ProductDefinitionWithAssociatedDocuments::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ProductDefinitionWithAssociatedDocuments::get_type_name(@)", header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_ProductDefinitionWithAssociatedDocuments::get_type_descriptor(@)",
     header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx".}
-proc DynamicType*(this: StepBasic_ProductDefinitionWithAssociatedDocuments): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx".}
+proc dynamicType*(this: StepBasicProductDefinitionWithAssociatedDocuments): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx".}

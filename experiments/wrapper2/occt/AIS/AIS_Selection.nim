@@ -14,60 +14,57 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  AIS_NListOfEntityOwner, AIS_SelectStatus, ../Standard/Standard,
-  ../Standard/Standard_Type
-
 ## ! Class holding the list of selected owners.
 
 type
-  AIS_Selection* {.importcpp: "AIS_Selection", header: "AIS_Selection.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                          ## !
-                                                                                                          ## creates
-                                                                                                          ## a
-                                                                                                          ## new
-                                                                                                          ## selection.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Start
-                                                                                                          ## iteration
-                                                                                                          ## through
-                                                                                                          ## selected
-                                                                                                          ## objects.
+  AIS_Selection* {.importcpp: "AIS_Selection", header: "AIS_Selection.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                         ## !
+                                                                                                         ## creates
+                                                                                                         ## a
+                                                                                                         ## new
+                                                                                                         ## selection.
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Start
+                                                                                                         ## iteration
+                                                                                                         ## through
+                                                                                                         ## selected
+                                                                                                         ## objects.
 
-  AIS_Selectionbase_type* = Standard_Transient
+  AIS_SelectionbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "AIS_Selection::get_type_name(@)",
-                              header: "AIS_Selection.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "AIS_Selection::get_type_name(@)",
+                            header: "AIS_Selection.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "AIS_Selection::get_type_descriptor(@)",
     header: "AIS_Selection.hxx".}
-proc DynamicType*(this: AIS_Selection): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: AIS_Selection): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_Selection.hxx".}
 proc constructAIS_Selection*(): AIS_Selection {.constructor,
     importcpp: "AIS_Selection(@)", header: "AIS_Selection.hxx".}
-proc Clear*(this: var AIS_Selection) {.importcpp: "Clear", header: "AIS_Selection.hxx".}
-proc Select*(this: var AIS_Selection; theObject: handle[SelectMgr_EntityOwner]): AIS_SelectStatus {.
+proc clear*(this: var AIS_Selection) {.importcpp: "Clear", header: "AIS_Selection.hxx".}
+proc select*(this: var AIS_Selection; theObject: Handle[SelectMgrEntityOwner]): AIS_SelectStatus {.
     importcpp: "Select", header: "AIS_Selection.hxx".}
-proc AddSelect*(this: var AIS_Selection; theObject: handle[SelectMgr_EntityOwner]): AIS_SelectStatus {.
+proc addSelect*(this: var AIS_Selection; theObject: Handle[SelectMgrEntityOwner]): AIS_SelectStatus {.
     importcpp: "AddSelect", header: "AIS_Selection.hxx".}
-proc ClearAndSelect*(this: var AIS_Selection;
-                    theObject: handle[SelectMgr_EntityOwner]) {.
+proc clearAndSelect*(this: var AIS_Selection;
+                    theObject: Handle[SelectMgrEntityOwner]) {.
     importcpp: "ClearAndSelect", header: "AIS_Selection.hxx".}
-proc IsSelected*(this: AIS_Selection; theObject: handle[SelectMgr_EntityOwner]): Standard_Boolean {.
+proc isSelected*(this: AIS_Selection; theObject: Handle[SelectMgrEntityOwner]): bool {.
     noSideEffect, importcpp: "IsSelected", header: "AIS_Selection.hxx".}
-proc Objects*(this: AIS_Selection): AIS_NListOfEntityOwner {.noSideEffect,
+proc objects*(this: AIS_Selection): AIS_NListOfEntityOwner {.noSideEffect,
     importcpp: "Objects", header: "AIS_Selection.hxx".}
-proc Extent*(this: AIS_Selection): Standard_Integer {.noSideEffect,
-    importcpp: "Extent", header: "AIS_Selection.hxx".}
-proc IsEmpty*(this: AIS_Selection): Standard_Boolean {.noSideEffect,
-    importcpp: "IsEmpty", header: "AIS_Selection.hxx".}
-proc Init*(this: var AIS_Selection) {.importcpp: "Init", header: "AIS_Selection.hxx".}
-proc More*(this: AIS_Selection): Standard_Boolean {.noSideEffect, importcpp: "More",
-    header: "AIS_Selection.hxx".}
-proc Next*(this: var AIS_Selection) {.importcpp: "Next", header: "AIS_Selection.hxx".}
-proc Value*(this: AIS_Selection): handle[SelectMgr_EntityOwner] {.noSideEffect,
+proc extent*(this: AIS_Selection): int {.noSideEffect, importcpp: "Extent",
+                                     header: "AIS_Selection.hxx".}
+proc isEmpty*(this: AIS_Selection): bool {.noSideEffect, importcpp: "IsEmpty",
+                                       header: "AIS_Selection.hxx".}
+proc init*(this: var AIS_Selection) {.importcpp: "Init", header: "AIS_Selection.hxx".}
+proc more*(this: AIS_Selection): bool {.noSideEffect, importcpp: "More",
+                                    header: "AIS_Selection.hxx".}
+proc next*(this: var AIS_Selection) {.importcpp: "Next", header: "AIS_Selection.hxx".}
+proc value*(this: AIS_Selection): Handle[SelectMgrEntityOwner] {.noSideEffect,
     importcpp: "Value", header: "AIS_Selection.hxx".}
 discard "forward decl of AIS_Selection"
 type
-  Handle_AIS_Selection* = handle[AIS_Selection]
+  HandleAIS_Selection* = Handle[AIS_Selection]
+

@@ -11,7 +11,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _gp_TrsfNLerp_HeaderFile [NewLine] # _gp_TrsfNLerp_HeaderFile [NewLine] # gp_Trsf.hxx [NewLine] # gp_QuaternionNLerp.hxx [NewLine] # ../NCollection/NCollection_Lerp.hxx [NewLine] # ../Precision/Precision.hxx [NewLine] ! Linear interpolation tool for transformation defined by gp_Trsf.
+## !!!Ignored construct:  # _gp_TrsfNLerp_HeaderFile [NewLine] # _gp_TrsfNLerp_HeaderFile [NewLine] # < gp_Trsf . hxx > [NewLine] # < gp_QuaternionNLerp . hxx > [NewLine] # < NCollection_Lerp . hxx > [NewLine] # < Precision . hxx > [NewLine] ! Linear interpolation tool for transformation defined by gp_Trsf.
 ## !
 ## ! In general case, there is a no well-defined interpolation between arbitrary transformations,
 ## ! because desired transient values might vary depending on application needs.
@@ -26,4 +26,5 @@
 ## Error: token expected: ; but got: <!!!
 
 type
-  NCollection_Lerpgp_TrsfNLerp* = NCollection_Lerp[gp_Trsf]
+  NCollectionLerpgpTrsfNLerp* = NCollectionLerp[Trsf]
+

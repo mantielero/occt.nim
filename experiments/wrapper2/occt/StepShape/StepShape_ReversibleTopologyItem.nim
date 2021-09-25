@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepShape_Edge"
 discard "forward decl of StepShape_Path"
@@ -27,30 +22,30 @@ discard "forward decl of StepShape_FaceBound"
 discard "forward decl of StepShape_ClosedShell"
 discard "forward decl of StepShape_OpenShell"
 type
-  StepShape_ReversibleTopologyItem* {.importcpp: "StepShape_ReversibleTopologyItem", header: "StepShape_ReversibleTopologyItem.hxx",
-                                     bycopy.} = object of StepData_SelectType ## ! Returns a
-                                                                         ## ReversibleTopologyItem
-                                                                         ## SelectType
+  StepShapeReversibleTopologyItem* {.importcpp: "StepShape_ReversibleTopologyItem", header: "StepShape_ReversibleTopologyItem.hxx",
+                                    bycopy.} = object of StepDataSelectType ## ! Returns a
+                                                                       ## ReversibleTopologyItem
+                                                                       ## SelectType
 
 
-proc constructStepShape_ReversibleTopologyItem*(): StepShape_ReversibleTopologyItem {.
+proc constructStepShapeReversibleTopologyItem*(): StepShapeReversibleTopologyItem {.
     constructor, importcpp: "StepShape_ReversibleTopologyItem(@)",
     header: "StepShape_ReversibleTopologyItem.hxx".}
-proc CaseNum*(this: StepShape_ReversibleTopologyItem;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
-    importcpp: "CaseNum", header: "StepShape_ReversibleTopologyItem.hxx".}
-proc Edge*(this: StepShape_ReversibleTopologyItem): handle[StepShape_Edge] {.
+proc caseNum*(this: StepShapeReversibleTopologyItem; ent: Handle[StandardTransient]): int {.
+    noSideEffect, importcpp: "CaseNum",
+    header: "StepShape_ReversibleTopologyItem.hxx".}
+proc edge*(this: StepShapeReversibleTopologyItem): Handle[StepShapeEdge] {.
     noSideEffect, importcpp: "Edge", header: "StepShape_ReversibleTopologyItem.hxx".}
-proc Path*(this: StepShape_ReversibleTopologyItem): handle[StepShape_Path] {.
+proc path*(this: StepShapeReversibleTopologyItem): Handle[StepShapePath] {.
     noSideEffect, importcpp: "Path", header: "StepShape_ReversibleTopologyItem.hxx".}
-proc Face*(this: StepShape_ReversibleTopologyItem): handle[StepShape_Face] {.
+proc face*(this: StepShapeReversibleTopologyItem): Handle[StepShapeFace] {.
     noSideEffect, importcpp: "Face", header: "StepShape_ReversibleTopologyItem.hxx".}
-proc FaceBound*(this: StepShape_ReversibleTopologyItem): handle[StepShape_FaceBound] {.
+proc faceBound*(this: StepShapeReversibleTopologyItem): Handle[StepShapeFaceBound] {.
     noSideEffect, importcpp: "FaceBound",
     header: "StepShape_ReversibleTopologyItem.hxx".}
-proc ClosedShell*(this: StepShape_ReversibleTopologyItem): handle[
-    StepShape_ClosedShell] {.noSideEffect, importcpp: "ClosedShell",
-                            header: "StepShape_ReversibleTopologyItem.hxx".}
-proc OpenShell*(this: StepShape_ReversibleTopologyItem): handle[StepShape_OpenShell] {.
+proc closedShell*(this: StepShapeReversibleTopologyItem): Handle[
+    StepShapeClosedShell] {.noSideEffect, importcpp: "ClosedShell",
+                           header: "StepShape_ReversibleTopologyItem.hxx".}
+proc openShell*(this: StepShapeReversibleTopologyItem): Handle[StepShapeOpenShell] {.
     noSideEffect, importcpp: "OpenShell",
     header: "StepShape_ReversibleTopologyItem.hxx".}

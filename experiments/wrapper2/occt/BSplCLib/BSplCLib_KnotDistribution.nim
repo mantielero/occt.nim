@@ -21,8 +21,9 @@
 ## ! <NonUniform>
 
 type
-  BSplCLib_KnotDistribution* {.size: sizeof(cint),
-                              importcpp: "BSplCLib_KnotDistribution",
-                              header: "BSplCLib_KnotDistribution.hxx".} = enum
-    BSplCLib_NonUniform, BSplCLib_Uniform
+  BSplCLibKnotDistribution* {.size: sizeof(cint),
+                             importcpp: "BSplCLib_KnotDistribution",
+                             header: "BSplCLib_KnotDistribution.hxx".} = enum
+    BSplCLibNonUniform, BSplCLibUniform
+
 

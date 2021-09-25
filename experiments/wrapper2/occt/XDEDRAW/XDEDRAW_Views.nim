@@ -13,15 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor
-
 ## ! Contains commands to work with GDTs
 
 type
   XDEDRAW_Views* {.importcpp: "XDEDRAW_Views", header: "XDEDRAW_Views.hxx", bycopy.} = object
 
 
-proc InitCommands*(theCommands: var Draw_Interpretor) {.
+proc initCommands*(theCommands: var DrawInterpretor) {.
     importcpp: "XDEDRAW_Views::InitCommands(@)", header: "XDEDRAW_Views.hxx".}

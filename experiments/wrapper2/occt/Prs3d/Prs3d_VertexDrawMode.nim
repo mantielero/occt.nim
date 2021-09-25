@@ -20,7 +20,8 @@
 ## ! VDM_Inherited - the global settings are inherited and applied to the shape's presentation.
 
 type
-  Prs3d_VertexDrawMode* {.size: sizeof(cint), importcpp: "Prs3d_VertexDrawMode",
-                         header: "Prs3d_VertexDrawMode.hxx".} = enum
-    Prs3d_VDM_Isolated, Prs3d_VDM_All, Prs3d_VDM_Inherited
+  Prs3dVertexDrawMode* {.size: sizeof(cint), importcpp: "Prs3d_VertexDrawMode",
+                        header: "Prs3d_VertexDrawMode.hxx".} = enum
+    Prs3dVDM_Isolated, Prs3dVDM_All, Prs3dVDM_Inherited
+
 

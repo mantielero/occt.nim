@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real
-
 discard "forward decl of GeomInt_IntSS"
 discard "forward decl of GeomInt_LineConstructor"
 discard "forward decl of GeomInt_LineTool"
@@ -51,8 +46,7 @@ type
   GeomInt* {.importcpp: "GeomInt", header: "GeomInt.hxx", bycopy.} = object ## ! Adjusts the parameter <thePar> to the range [theParMin,  theParMax]
 
 
-proc AdjustPeriodic*(thePar: Standard_Real; theParMin: Standard_Real;
-                    theParMax: Standard_Real; thePeriod: Standard_Real;
-                    theNewPar: var Standard_Real; theOffset: var Standard_Real;
-                    theEps: Standard_Real = 0.0): Standard_Boolean {.
+proc adjustPeriodic*(thePar: float; theParMin: float; theParMax: float;
+                    thePeriod: float; theNewPar: var float; theOffset: var float;
+                    theEps: float = 0.0): bool {.
     importcpp: "GeomInt::AdjustPeriodic(@)", header: "GeomInt.hxx".}

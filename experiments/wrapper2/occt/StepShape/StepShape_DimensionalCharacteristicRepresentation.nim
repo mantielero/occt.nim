@@ -13,58 +13,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepShape_DimensionalCharacteristic, ../Standard/Standard_Transient
-
 discard "forward decl of StepShape_ShapeDimensionRepresentation"
 discard "forward decl of StepShape_DimensionalCharacteristic"
 discard "forward decl of StepShape_DimensionalCharacteristicRepresentation"
 discard "forward decl of StepShape_DimensionalCharacteristicRepresentation"
 type
-  Handle_StepShape_DimensionalCharacteristicRepresentation* = handle[
-      StepShape_DimensionalCharacteristicRepresentation]
+  HandleStepShapeDimensionalCharacteristicRepresentation* = Handle[
+      StepShapeDimensionalCharacteristicRepresentation]
 
 ## ! Representation of STEP entity DimensionalCharacteristicRepresentation
 
 type
-  StepShape_DimensionalCharacteristicRepresentation* {.
+  StepShapeDimensionalCharacteristicRepresentation* {.
       importcpp: "StepShape_DimensionalCharacteristicRepresentation",
-      header: "StepShape_DimensionalCharacteristicRepresentation.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                        ## !
-                                                                                                        ## Empty
-                                                                                                        ## constructor
+      header: "StepShape_DimensionalCharacteristicRepresentation.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                       ## !
+                                                                                                       ## Empty
+                                                                                                       ## constructor
 
 
-proc constructStepShape_DimensionalCharacteristicRepresentation*(): StepShape_DimensionalCharacteristicRepresentation {.
+proc constructStepShapeDimensionalCharacteristicRepresentation*(): StepShapeDimensionalCharacteristicRepresentation {.
     constructor,
     importcpp: "StepShape_DimensionalCharacteristicRepresentation(@)",
     header: "StepShape_DimensionalCharacteristicRepresentation.hxx".}
-proc Init*(this: var StepShape_DimensionalCharacteristicRepresentation;
-          aDimension: StepShape_DimensionalCharacteristic;
-          aRepresentation: handle[StepShape_ShapeDimensionRepresentation]) {.
+proc init*(this: var StepShapeDimensionalCharacteristicRepresentation;
+          aDimension: StepShapeDimensionalCharacteristic;
+          aRepresentation: Handle[StepShapeShapeDimensionRepresentation]) {.
     importcpp: "Init",
     header: "StepShape_DimensionalCharacteristicRepresentation.hxx".}
-proc Dimension*(this: StepShape_DimensionalCharacteristicRepresentation): StepShape_DimensionalCharacteristic {.
+proc dimension*(this: StepShapeDimensionalCharacteristicRepresentation): StepShapeDimensionalCharacteristic {.
     noSideEffect, importcpp: "Dimension",
     header: "StepShape_DimensionalCharacteristicRepresentation.hxx".}
-proc SetDimension*(this: var StepShape_DimensionalCharacteristicRepresentation;
-                  Dimension: StepShape_DimensionalCharacteristic) {.
+proc setDimension*(this: var StepShapeDimensionalCharacteristicRepresentation;
+                  dimension: StepShapeDimensionalCharacteristic) {.
     importcpp: "SetDimension",
     header: "StepShape_DimensionalCharacteristicRepresentation.hxx".}
-proc Representation*(this: StepShape_DimensionalCharacteristicRepresentation): handle[
-    StepShape_ShapeDimensionRepresentation] {.noSideEffect,
+proc representation*(this: StepShapeDimensionalCharacteristicRepresentation): Handle[
+    StepShapeShapeDimensionRepresentation] {.noSideEffect,
     importcpp: "Representation",
     header: "StepShape_DimensionalCharacteristicRepresentation.hxx".}
-proc SetRepresentation*(this: var StepShape_DimensionalCharacteristicRepresentation;
-    Representation: handle[StepShape_ShapeDimensionRepresentation]) {.
+proc setRepresentation*(this: var StepShapeDimensionalCharacteristicRepresentation;
+    representation: Handle[StepShapeShapeDimensionRepresentation]) {.
     importcpp: "SetRepresentation",
     header: "StepShape_DimensionalCharacteristicRepresentation.hxx".}
 type
-  StepShape_DimensionalCharacteristicRepresentationbase_type* = Standard_Transient
+  StepShapeDimensionalCharacteristicRepresentationbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_DimensionalCharacteristicRepresentation::get_type_name(@)", header: "StepShape_DimensionalCharacteristicRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepShape_DimensionalCharacteristicRepresentation::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepShape_DimensionalCharacteristicRepresentation::get_type_name(@)", header: "StepShape_DimensionalCharacteristicRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_DimensionalCharacteristicRepresentation::get_type_descriptor(@)",
     header: "StepShape_DimensionalCharacteristicRepresentation.hxx".}
-proc DynamicType*(this: StepShape_DimensionalCharacteristicRepresentation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_DimensionalCharacteristicRepresentation.hxx".}
+proc dynamicType*(this: StepShapeDimensionalCharacteristicRepresentation): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_DimensionalCharacteristicRepresentation.hxx".}

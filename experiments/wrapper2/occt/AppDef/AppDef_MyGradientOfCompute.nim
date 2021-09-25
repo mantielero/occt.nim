@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../AppParCurves/AppParCurves_MultiCurve,
-  ../math/math_Vector, ../Standard/Standard_Real, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer,
-  ../AppParCurves/AppParCurves_HArray1OfConstraintCouple
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of AppDef_MultiLine"
@@ -31,89 +24,89 @@ discard "forward decl of AppDef_ParFunctionOfMyGradientOfCompute"
 discard "forward decl of AppDef_Gradient_BFGSOfMyGradientOfCompute"
 discard "forward decl of AppParCurves_MultiCurve"
 type
-  AppDef_MyGradientOfCompute* {.importcpp: "AppDef_MyGradientOfCompute",
-                               header: "AppDef_MyGradientOfCompute.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Tries
-                                                                                      ## to
-                                                                                      ## minimize
-                                                                                      ## the
-                                                                                      ## sum
-                                                                                      ## (square(||Qui
-                                                                                      ## -
-                                                                                      ## Bi*Pi||))
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## where
-                                                                                      ## Pui
-                                                                                      ## describe
-                                                                                      ## the
-                                                                                      ## approximating
-                                                                                      ## Bezier
-                                                                                      ## curves'Poles
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## and
-                                                                                      ## Qi
-                                                                                      ## the
-                                                                                      ## MultiLine
-                                                                                      ## points
-                                                                                      ## with
-                                                                                      ## a
-                                                                                      ## parameter
-                                                                                      ## ui.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## In
-                                                                                      ## this
-                                                                                      ## algorithm,
-                                                                                      ## the
-                                                                                      ## parameters
-                                                                                      ## ui
-                                                                                      ## are
-                                                                                      ## the
-                                                                                      ## unknowns.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## The
-                                                                                      ## tolerance
-                                                                                      ## required
-                                                                                      ## on
-                                                                                      ## this
-                                                                                      ## sum
-                                                                                      ## is
-                                                                                      ## given
-                                                                                      ## by
-                                                                                      ## Tol.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## The
-                                                                                      ## desired
-                                                                                      ## degree
-                                                                                      ## of
-                                                                                      ## the
-                                                                                      ## resulting
-                                                                                      ## curve
-                                                                                      ## is
-                                                                                      ## Deg.
+  AppDefMyGradientOfCompute* {.importcpp: "AppDef_MyGradientOfCompute",
+                              header: "AppDef_MyGradientOfCompute.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Tries
+                                                                                     ## to
+                                                                                     ## minimize
+                                                                                     ## the
+                                                                                     ## sum
+                                                                                     ## (square(||Qui
+                                                                                     ## -
+                                                                                     ## Bi*Pi||))
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## where
+                                                                                     ## Pui
+                                                                                     ## describe
+                                                                                     ## the
+                                                                                     ## approximating
+                                                                                     ## Bezier
+                                                                                     ## curves'Poles
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## and
+                                                                                     ## Qi
+                                                                                     ## the
+                                                                                     ## MultiLine
+                                                                                     ## points
+                                                                                     ## with
+                                                                                     ## a
+                                                                                     ## parameter
+                                                                                     ## ui.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## In
+                                                                                     ## this
+                                                                                     ## algorithm,
+                                                                                     ## the
+                                                                                     ## parameters
+                                                                                     ## ui
+                                                                                     ## are
+                                                                                     ## the
+                                                                                     ## unknowns.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## The
+                                                                                     ## tolerance
+                                                                                     ## required
+                                                                                     ## on
+                                                                                     ## this
+                                                                                     ## sum
+                                                                                     ## is
+                                                                                     ## given
+                                                                                     ## by
+                                                                                     ## Tol.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## The
+                                                                                     ## desired
+                                                                                     ## degree
+                                                                                     ## of
+                                                                                     ## the
+                                                                                     ## resulting
+                                                                                     ## curve
+                                                                                     ## is
+                                                                                     ## Deg.
 
 
-proc constructAppDef_MyGradientOfCompute*(SSP: AppDef_MultiLine;
-    FirstPoint: Standard_Integer; LastPoint: Standard_Integer;
-    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
-    Parameters: var math_Vector; Deg: Standard_Integer; Tol3d: Standard_Real;
-    Tol2d: Standard_Real; NbIterations: Standard_Integer = 200): AppDef_MyGradientOfCompute {.
+proc constructAppDefMyGradientOfCompute*(ssp: AppDefMultiLine; firstPoint: int;
+                                        lastPoint: int; theConstraints: Handle[
+    AppParCurvesHArray1OfConstraintCouple]; parameters: var MathVector; deg: int;
+                                        tol3d: float; tol2d: float;
+                                        nbIterations: int = 200): AppDefMyGradientOfCompute {.
     constructor, importcpp: "AppDef_MyGradientOfCompute(@)",
     header: "AppDef_MyGradientOfCompute.hxx".}
-proc IsDone*(this: AppDef_MyGradientOfCompute): Standard_Boolean {.noSideEffect,
+proc isDone*(this: AppDefMyGradientOfCompute): bool {.noSideEffect,
     importcpp: "IsDone", header: "AppDef_MyGradientOfCompute.hxx".}
-proc Value*(this: AppDef_MyGradientOfCompute): AppParCurves_MultiCurve {.
-    noSideEffect, importcpp: "Value", header: "AppDef_MyGradientOfCompute.hxx".}
-proc Error*(this: AppDef_MyGradientOfCompute; Index: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "Error", header: "AppDef_MyGradientOfCompute.hxx".}
-proc MaxError3d*(this: AppDef_MyGradientOfCompute): Standard_Real {.noSideEffect,
+proc value*(this: AppDefMyGradientOfCompute): AppParCurvesMultiCurve {.noSideEffect,
+    importcpp: "Value", header: "AppDef_MyGradientOfCompute.hxx".}
+proc error*(this: AppDefMyGradientOfCompute; index: int): float {.noSideEffect,
+    importcpp: "Error", header: "AppDef_MyGradientOfCompute.hxx".}
+proc maxError3d*(this: AppDefMyGradientOfCompute): float {.noSideEffect,
     importcpp: "MaxError3d", header: "AppDef_MyGradientOfCompute.hxx".}
-proc MaxError2d*(this: AppDef_MyGradientOfCompute): Standard_Real {.noSideEffect,
+proc maxError2d*(this: AppDefMyGradientOfCompute): float {.noSideEffect,
     importcpp: "MaxError2d", header: "AppDef_MyGradientOfCompute.hxx".}
-proc AverageError*(this: AppDef_MyGradientOfCompute): Standard_Real {.noSideEffect,
+proc averageError*(this: AppDefMyGradientOfCompute): float {.noSideEffect,
     importcpp: "AverageError", header: "AppDef_MyGradientOfCompute.hxx".}

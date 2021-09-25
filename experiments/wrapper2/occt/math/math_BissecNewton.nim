@@ -14,39 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean, math_Status,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer,
-  ../Standard/Standard_OStream
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of math_FunctionWithDerivative"
 type
-  math_BissecNewton* {.importcpp: "math_BissecNewton",
-                      header: "math_BissecNewton.hxx", bycopy.} = object ## ! Constructor.
-                                                                    ## ! @param
-                                                                    ## theXTolerance - algorithm tolerance.
+  MathBissecNewton* {.importcpp: "math_BissecNewton",
+                     header: "math_BissecNewton.hxx", bycopy.} = object ## ! Constructor.
+                                                                   ## ! @param theXTolerance - algorithm tolerance.
 
 
-proc constructmath_BissecNewton*(theXTolerance: Standard_Real): math_BissecNewton {.
+proc constructMathBissecNewton*(theXTolerance: float): MathBissecNewton {.
     constructor, importcpp: "math_BissecNewton(@)", header: "math_BissecNewton.hxx".}
-proc Perform*(this: var math_BissecNewton; F: var math_FunctionWithDerivative;
-             Bound1: Standard_Real; Bound2: Standard_Real;
-             NbIterations: Standard_Integer = 100) {.importcpp: "Perform",
-    header: "math_BissecNewton.hxx".}
-proc IsSolutionReached*(this: var math_BissecNewton;
-                       theFunction: var math_FunctionWithDerivative): Standard_Boolean {.
+proc perform*(this: var MathBissecNewton; f: var MathFunctionWithDerivative;
+             bound1: float; bound2: float; nbIterations: int = 100) {.
+    importcpp: "Perform", header: "math_BissecNewton.hxx".}
+proc isSolutionReached*(this: var MathBissecNewton;
+                       theFunction: var MathFunctionWithDerivative): bool {.
     importcpp: "IsSolutionReached", header: "math_BissecNewton.hxx".}
-proc IsDone*(this: math_BissecNewton): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "math_BissecNewton.hxx".}
-proc Root*(this: math_BissecNewton): Standard_Real {.noSideEffect, importcpp: "Root",
+proc isDone*(this: MathBissecNewton): bool {.noSideEffect, importcpp: "IsDone",
     header: "math_BissecNewton.hxx".}
-proc Derivative*(this: math_BissecNewton): Standard_Real {.noSideEffect,
+proc root*(this: MathBissecNewton): float {.noSideEffect, importcpp: "Root",
+                                        header: "math_BissecNewton.hxx".}
+proc derivative*(this: MathBissecNewton): float {.noSideEffect,
     importcpp: "Derivative", header: "math_BissecNewton.hxx".}
-proc Value*(this: math_BissecNewton): Standard_Real {.noSideEffect,
-    importcpp: "Value", header: "math_BissecNewton.hxx".}
-proc Dump*(this: math_BissecNewton; o: var Standard_OStream) {.noSideEffect,
+proc value*(this: MathBissecNewton): float {.noSideEffect, importcpp: "Value",
+    header: "math_BissecNewton.hxx".}
+proc dump*(this: MathBissecNewton; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_BissecNewton.hxx".}
-proc destroymath_BissecNewton*(this: var math_BissecNewton) {.
+proc destroyMathBissecNewton*(this: var MathBissecNewton) {.
     importcpp: "#.~math_BissecNewton()", header: "math_BissecNewton.hxx".}

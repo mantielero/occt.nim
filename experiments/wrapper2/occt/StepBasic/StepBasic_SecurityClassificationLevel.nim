@@ -14,42 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_SecurityClassificationLevel"
 discard "forward decl of StepBasic_SecurityClassificationLevel"
 type
-  Handle_StepBasic_SecurityClassificationLevel* = handle[
-      StepBasic_SecurityClassificationLevel]
-  StepBasic_SecurityClassificationLevel* {.
+  HandleStepBasicSecurityClassificationLevel* = Handle[
+      StepBasicSecurityClassificationLevel]
+  StepBasicSecurityClassificationLevel* {.
       importcpp: "StepBasic_SecurityClassificationLevel",
-      header: "StepBasic_SecurityClassificationLevel.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## a
-                                                                                            ## SecurityClassificationLevel
+      header: "StepBasic_SecurityClassificationLevel.hxx", bycopy.} = object of StandardTransient ##
+                                                                                           ## !
+                                                                                           ## Returns
+                                                                                           ## a
+                                                                                           ## SecurityClassificationLevel
 
 
-proc constructStepBasic_SecurityClassificationLevel*(): StepBasic_SecurityClassificationLevel {.
+proc constructStepBasicSecurityClassificationLevel*(): StepBasicSecurityClassificationLevel {.
     constructor, importcpp: "StepBasic_SecurityClassificationLevel(@)",
     header: "StepBasic_SecurityClassificationLevel.hxx".}
-proc Init*(this: var StepBasic_SecurityClassificationLevel;
-          aName: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepBasicSecurityClassificationLevel;
+          aName: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepBasic_SecurityClassificationLevel.hxx".}
-proc SetName*(this: var StepBasic_SecurityClassificationLevel;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepBasicSecurityClassificationLevel;
+             aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepBasic_SecurityClassificationLevel.hxx".}
-proc Name*(this: StepBasic_SecurityClassificationLevel): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Name", header: "StepBasic_SecurityClassificationLevel.hxx".}
+proc name*(this: StepBasicSecurityClassificationLevel): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Name", header: "StepBasic_SecurityClassificationLevel.hxx".}
 type
-  StepBasic_SecurityClassificationLevelbase_type* = Standard_Transient
+  StepBasicSecurityClassificationLevelbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_SecurityClassificationLevel::get_type_name(@)", header: "StepBasic_SecurityClassificationLevel.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_SecurityClassificationLevel::get_type_name(@)",
+                            header: "StepBasic_SecurityClassificationLevel.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_SecurityClassificationLevel::get_type_descriptor(@)",
     header: "StepBasic_SecurityClassificationLevel.hxx".}
-proc DynamicType*(this: StepBasic_SecurityClassificationLevel): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepBasic_SecurityClassificationLevel.hxx".}
+proc dynamicType*(this: StepBasicSecurityClassificationLevel): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepBasic_SecurityClassificationLevel.hxx".}

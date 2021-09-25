@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Geom_Surface"
 type
   TopOpeBRepDS_Surface* {.importcpp: "TopOpeBRepDS_Surface",
@@ -27,21 +22,21 @@ type
 
 proc constructTopOpeBRepDS_Surface*(): TopOpeBRepDS_Surface {.constructor,
     importcpp: "TopOpeBRepDS_Surface(@)", header: "TopOpeBRepDS_Surface.hxx".}
-proc constructTopOpeBRepDS_Surface*(P: handle[Geom_Surface]; T: Standard_Real): TopOpeBRepDS_Surface {.
+proc constructTopOpeBRepDS_Surface*(p: Handle[GeomSurface]; t: float): TopOpeBRepDS_Surface {.
     constructor, importcpp: "TopOpeBRepDS_Surface(@)",
     header: "TopOpeBRepDS_Surface.hxx".}
-proc constructTopOpeBRepDS_Surface*(Other: TopOpeBRepDS_Surface): TopOpeBRepDS_Surface {.
+proc constructTopOpeBRepDS_Surface*(other: TopOpeBRepDS_Surface): TopOpeBRepDS_Surface {.
     constructor, importcpp: "TopOpeBRepDS_Surface(@)",
     header: "TopOpeBRepDS_Surface.hxx".}
-proc Assign*(this: var TopOpeBRepDS_Surface; Other: TopOpeBRepDS_Surface) {.
+proc assign*(this: var TopOpeBRepDS_Surface; other: TopOpeBRepDS_Surface) {.
     importcpp: "Assign", header: "TopOpeBRepDS_Surface.hxx".}
-proc Surface*(this: TopOpeBRepDS_Surface): handle[Geom_Surface] {.noSideEffect,
+proc surface*(this: TopOpeBRepDS_Surface): Handle[GeomSurface] {.noSideEffect,
     importcpp: "Surface", header: "TopOpeBRepDS_Surface.hxx".}
-proc Tolerance*(this: TopOpeBRepDS_Surface): Standard_Real {.noSideEffect,
+proc tolerance*(this: TopOpeBRepDS_Surface): float {.noSideEffect,
     importcpp: "Tolerance", header: "TopOpeBRepDS_Surface.hxx".}
-proc Tolerance*(this: var TopOpeBRepDS_Surface; theTol: Standard_Real) {.
+proc tolerance*(this: var TopOpeBRepDS_Surface; theTol: float) {.
     importcpp: "Tolerance", header: "TopOpeBRepDS_Surface.hxx".}
-proc Keep*(this: TopOpeBRepDS_Surface): Standard_Boolean {.noSideEffect,
-    importcpp: "Keep", header: "TopOpeBRepDS_Surface.hxx".}
-proc ChangeKeep*(this: var TopOpeBRepDS_Surface; theToKeep: Standard_Boolean) {.
+proc keep*(this: TopOpeBRepDS_Surface): bool {.noSideEffect, importcpp: "Keep",
+    header: "TopOpeBRepDS_Surface.hxx".}
+proc changeKeep*(this: var TopOpeBRepDS_Surface; theToKeep: bool) {.
     importcpp: "ChangeKeep", header: "TopOpeBRepDS_Surface.hxx".}

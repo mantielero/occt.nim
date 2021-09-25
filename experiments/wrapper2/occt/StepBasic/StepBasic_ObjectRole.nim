@@ -13,50 +13,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_ObjectRole"
 discard "forward decl of StepBasic_ObjectRole"
 type
-  Handle_StepBasic_ObjectRole* = handle[StepBasic_ObjectRole]
+  HandleStepBasicObjectRole* = Handle[StepBasicObjectRole]
 
 ## ! Representation of STEP entity ObjectRole
 
 type
-  StepBasic_ObjectRole* {.importcpp: "StepBasic_ObjectRole",
-                         header: "StepBasic_ObjectRole.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                              ## !
-                                                                                              ## Empty
-                                                                                              ## constructor
+  StepBasicObjectRole* {.importcpp: "StepBasic_ObjectRole",
+                        header: "StepBasic_ObjectRole.hxx", bycopy.} = object of StandardTransient ##
+                                                                                            ## !
+                                                                                            ## Empty
+                                                                                            ## constructor
 
 
-proc constructStepBasic_ObjectRole*(): StepBasic_ObjectRole {.constructor,
+proc constructStepBasicObjectRole*(): StepBasicObjectRole {.constructor,
     importcpp: "StepBasic_ObjectRole(@)", header: "StepBasic_ObjectRole.hxx".}
-proc Init*(this: var StepBasic_ObjectRole; aName: handle[TCollection_HAsciiString];
-          hasDescription: Standard_Boolean;
-          aDescription: handle[TCollection_HAsciiString]) {.importcpp: "Init",
-    header: "StepBasic_ObjectRole.hxx".}
-proc Name*(this: StepBasic_ObjectRole): handle[TCollection_HAsciiString] {.
+proc init*(this: var StepBasicObjectRole; aName: Handle[TCollectionHAsciiString];
+          hasDescription: bool; aDescription: Handle[TCollectionHAsciiString]) {.
+    importcpp: "Init", header: "StepBasic_ObjectRole.hxx".}
+proc name*(this: StepBasicObjectRole): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepBasic_ObjectRole.hxx".}
-proc SetName*(this: var StepBasic_ObjectRole; Name: handle[TCollection_HAsciiString]) {.
+proc setName*(this: var StepBasicObjectRole; name: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetName", header: "StepBasic_ObjectRole.hxx".}
-proc Description*(this: StepBasic_ObjectRole): handle[TCollection_HAsciiString] {.
+proc description*(this: StepBasicObjectRole): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Description", header: "StepBasic_ObjectRole.hxx".}
-proc SetDescription*(this: var StepBasic_ObjectRole;
-                    Description: handle[TCollection_HAsciiString]) {.
+proc setDescription*(this: var StepBasicObjectRole;
+                    description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepBasic_ObjectRole.hxx".}
-proc HasDescription*(this: StepBasic_ObjectRole): Standard_Boolean {.noSideEffect,
+proc hasDescription*(this: StepBasicObjectRole): bool {.noSideEffect,
     importcpp: "HasDescription", header: "StepBasic_ObjectRole.hxx".}
 type
-  StepBasic_ObjectRolebase_type* = Standard_Transient
+  StepBasicObjectRolebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ObjectRole::get_type_name(@)",
-                              header: "StepBasic_ObjectRole.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ObjectRole::get_type_name(@)",
+                            header: "StepBasic_ObjectRole.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_ObjectRole::get_type_descriptor(@)",
     header: "StepBasic_ObjectRole.hxx".}
-proc DynamicType*(this: StepBasic_ObjectRole): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepBasicObjectRole): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_ObjectRole.hxx".}

@@ -12,8 +12,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepElement_Element2dShape* {.size: sizeof(cint),
-                               importcpp: "StepElement_Element2dShape",
-                               header: "StepElement_Element2dShape.hxx".} = enum
-    StepElement_Quadrilateral, StepElement_Triangle
+  StepElementElement2dShape* {.size: sizeof(cint),
+                              importcpp: "StepElement_Element2dShape",
+                              header: "StepElement_Element2dShape.hxx".} = enum
+    StepElementQuadrilateral, StepElementTriangle
+
 

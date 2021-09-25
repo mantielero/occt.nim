@@ -14,31 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepVisual_PresentationArea"
 discard "forward decl of StepVisual_PresentationView"
 type
-  StepVisual_AreaOrView* {.importcpp: "StepVisual_AreaOrView",
-                          header: "StepVisual_AreaOrView.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                 ## !
-                                                                                                 ## Returns
-                                                                                                 ## a
-                                                                                                 ## AreaOrView
-                                                                                                 ## SelectType
+  StepVisualAreaOrView* {.importcpp: "StepVisual_AreaOrView",
+                         header: "StepVisual_AreaOrView.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                               ## !
+                                                                                               ## Returns
+                                                                                               ## a
+                                                                                               ## AreaOrView
+                                                                                               ## SelectType
 
 
-proc constructStepVisual_AreaOrView*(): StepVisual_AreaOrView {.constructor,
+proc constructStepVisualAreaOrView*(): StepVisualAreaOrView {.constructor,
     importcpp: "StepVisual_AreaOrView(@)", header: "StepVisual_AreaOrView.hxx".}
-proc CaseNum*(this: StepVisual_AreaOrView; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepVisualAreaOrView; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_AreaOrView.hxx".}
-proc PresentationArea*(this: StepVisual_AreaOrView): handle[
-    StepVisual_PresentationArea] {.noSideEffect, importcpp: "PresentationArea",
-                                  header: "StepVisual_AreaOrView.hxx".}
-proc PresentationView*(this: StepVisual_AreaOrView): handle[
-    StepVisual_PresentationView] {.noSideEffect, importcpp: "PresentationView",
-                                  header: "StepVisual_AreaOrView.hxx".}
+proc presentationArea*(this: StepVisualAreaOrView): Handle[
+    StepVisualPresentationArea] {.noSideEffect, importcpp: "PresentationArea",
+                                 header: "StepVisual_AreaOrView.hxx".}
+proc presentationView*(this: StepVisualAreaOrView): Handle[
+    StepVisualPresentationView] {.noSideEffect, importcpp: "PresentationView",
+                                 header: "StepVisual_AreaOrView.hxx".}

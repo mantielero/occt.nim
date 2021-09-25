@@ -13,59 +13,52 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepShape_HArray1OfValueQualifier, ../StepRepr/StepRepr_RepresentationItem,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_ValueQualifier"
 discard "forward decl of StepShape_QualifiedRepresentationItem"
 discard "forward decl of StepShape_QualifiedRepresentationItem"
 type
-  Handle_StepShape_QualifiedRepresentationItem* = handle[
-      StepShape_QualifiedRepresentationItem]
+  HandleStepShapeQualifiedRepresentationItem* = Handle[
+      StepShapeQualifiedRepresentationItem]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepShape_QualifiedRepresentationItem* {.
+  StepShapeQualifiedRepresentationItem* {.
       importcpp: "StepShape_QualifiedRepresentationItem",
-      header: "StepShape_QualifiedRepresentationItem.hxx", bycopy.} = object of StepRepr_RepresentationItem
+      header: "StepShape_QualifiedRepresentationItem.hxx", bycopy.} = object of StepReprRepresentationItem
 
 
-proc constructStepShape_QualifiedRepresentationItem*(): StepShape_QualifiedRepresentationItem {.
+proc constructStepShapeQualifiedRepresentationItem*(): StepShapeQualifiedRepresentationItem {.
     constructor, importcpp: "StepShape_QualifiedRepresentationItem(@)",
     header: "StepShape_QualifiedRepresentationItem.hxx".}
-proc Init*(this: var StepShape_QualifiedRepresentationItem;
-          aName: handle[TCollection_HAsciiString];
-          qualifiers: handle[StepShape_HArray1OfValueQualifier]) {.
+proc init*(this: var StepShapeQualifiedRepresentationItem;
+          aName: Handle[TCollectionHAsciiString];
+          qualifiers: Handle[StepShapeHArray1OfValueQualifier]) {.
     importcpp: "Init", header: "StepShape_QualifiedRepresentationItem.hxx".}
-proc Qualifiers*(this: StepShape_QualifiedRepresentationItem): handle[
-    StepShape_HArray1OfValueQualifier] {.noSideEffect, importcpp: "Qualifiers", header: "StepShape_QualifiedRepresentationItem.hxx".}
-proc NbQualifiers*(this: StepShape_QualifiedRepresentationItem): Standard_Integer {.
-    noSideEffect, importcpp: "NbQualifiers",
-    header: "StepShape_QualifiedRepresentationItem.hxx".}
-proc SetQualifiers*(this: var StepShape_QualifiedRepresentationItem;
-                   qualifiers: handle[StepShape_HArray1OfValueQualifier]) {.
+proc qualifiers*(this: StepShapeQualifiedRepresentationItem): Handle[
+    StepShapeHArray1OfValueQualifier] {.noSideEffect, importcpp: "Qualifiers", header: "StepShape_QualifiedRepresentationItem.hxx".}
+proc nbQualifiers*(this: StepShapeQualifiedRepresentationItem): int {.noSideEffect,
+    importcpp: "NbQualifiers", header: "StepShape_QualifiedRepresentationItem.hxx".}
+proc setQualifiers*(this: var StepShapeQualifiedRepresentationItem;
+                   qualifiers: Handle[StepShapeHArray1OfValueQualifier]) {.
     importcpp: "SetQualifiers",
     header: "StepShape_QualifiedRepresentationItem.hxx".}
-proc QualifiersValue*(this: StepShape_QualifiedRepresentationItem;
-                     num: Standard_Integer): StepShape_ValueQualifier {.
+proc qualifiersValue*(this: StepShapeQualifiedRepresentationItem; num: int): StepShapeValueQualifier {.
     noSideEffect, importcpp: "QualifiersValue",
     header: "StepShape_QualifiedRepresentationItem.hxx".}
-proc SetQualifiersValue*(this: var StepShape_QualifiedRepresentationItem;
-                        num: Standard_Integer;
-                        aqualifier: StepShape_ValueQualifier) {.
+proc setQualifiersValue*(this: var StepShapeQualifiedRepresentationItem; num: int;
+                        aqualifier: StepShapeValueQualifier) {.
     importcpp: "SetQualifiersValue",
     header: "StepShape_QualifiedRepresentationItem.hxx".}
 type
-  StepShape_QualifiedRepresentationItembase_type* = StepRepr_RepresentationItem
+  StepShapeQualifiedRepresentationItembaseType* = StepReprRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_QualifiedRepresentationItem::get_type_name(@)", header: "StepShape_QualifiedRepresentationItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_QualifiedRepresentationItem::get_type_name(@)",
+                            header: "StepShape_QualifiedRepresentationItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_QualifiedRepresentationItem::get_type_descriptor(@)",
     header: "StepShape_QualifiedRepresentationItem.hxx".}
-proc DynamicType*(this: StepShape_QualifiedRepresentationItem): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepShape_QualifiedRepresentationItem.hxx".}
+proc dynamicType*(this: StepShapeQualifiedRepresentationItem): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepShape_QualifiedRepresentationItem.hxx".}

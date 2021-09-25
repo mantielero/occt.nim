@@ -11,26 +11,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../StdLPersistent/StdLPersistent_HArray2, ../StdObject/StdObject_gp_Vectors,
-  ../StdObject/StdObject_gp_Curves, ../TColgp/TColgp_HArray2OfXYZ,
-  ../TColgp/TColgp_HArray2OfPnt, ../TColgp/TColgp_HArray2OfDir,
-  ../TColgp/TColgp_HArray2OfVec, ../TColgp/TColgp_HArray2OfXY,
-  ../TColgp/TColgp_HArray2OfPnt2d, ../TColgp/TColgp_HArray2OfDir2d,
-  ../TColgp/TColgp_HArray2OfVec2d, ../TColgp/TColgp_HArray2OfLin2d,
-  ../TColgp/TColgp_HArray2OfCirc2d
-
 type
-  ShapePersistent_HArray2* {.importcpp: "ShapePersistent_HArray2",
-                            header: "ShapePersistent_HArray2.hxx", bycopy.} = object of StdLPersistent_HArray2
+  ShapePersistentHArray2* {.importcpp: "ShapePersistent_HArray2",
+                           header: "ShapePersistent_HArray2.hxx", bycopy.} = object of StdLPersistentHArray2
 
-  ShapePersistent_HArray2XYZ* = instance[TColgp_HArray2OfXYZ]
-  ShapePersistent_HArray2Pnt* = instance[TColgp_HArray2OfPnt]
-  ShapePersistent_HArray2Dir* = instance[TColgp_HArray2OfDir]
-  ShapePersistent_HArray2Vec* = instance[TColgp_HArray2OfVec]
-  ShapePersistent_HArray2XY* = instance[TColgp_HArray2OfXY]
-  ShapePersistent_HArray2Pnt2d* = instance[TColgp_HArray2OfPnt2d]
-  ShapePersistent_HArray2Dir2d* = instance[TColgp_HArray2OfDir2d]
-  ShapePersistent_HArray2Vec2d* = instance[TColgp_HArray2OfVec2d]
-  ShapePersistent_HArray2Lin2d* = instance[TColgp_HArray2OfLin2d]
-  ShapePersistent_HArray2Circ2d* = instance[TColgp_HArray2OfCirc2d]
+  ShapePersistentHArray2XYZ* = Instance[TColgpHArray2OfXYZ]
+  ShapePersistentHArray2Pnt* = Instance[TColgpHArray2OfPnt]
+  ShapePersistentHArray2Dir* = Instance[TColgpHArray2OfDir]
+  ShapePersistentHArray2Vec* = Instance[TColgpHArray2OfVec]
+  ShapePersistentHArray2XY* = Instance[TColgpHArray2OfXY]
+  ShapePersistentHArray2Pnt2d* = Instance[TColgpHArray2OfPnt2d]
+  ShapePersistentHArray2Dir2d* = Instance[TColgpHArray2OfDir2d]
+  ShapePersistentHArray2Vec2d* = Instance[TColgpHArray2OfVec2d]
+  ShapePersistentHArray2Lin2d* = Instance[TColgpHArray2OfLin2d]
+  ShapePersistentHArray2Circ2d* = Instance[TColgpHArray2OfCirc2d]
+

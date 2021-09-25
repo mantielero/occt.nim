@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepAP214_AutoDesignOrganizationAssignment"
 discard "forward decl of StepBasic_Product"
@@ -30,51 +25,51 @@ discard "forward decl of StepRepr_ExternallyDefinedRepresentation"
 discard "forward decl of StepBasic_ProductDefinitionRelationship"
 discard "forward decl of StepBasic_ProductDefinitionWithAssociatedDocuments"
 type
-  StepAP214_AutoDesignDateAndPersonItem* {.
+  StepAP214AutoDesignDateAndPersonItem* {.
       importcpp: "StepAP214_AutoDesignDateAndPersonItem",
-      header: "StepAP214_AutoDesignDateAndPersonItem.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                             ## !
-                                                                                             ## Returns
-                                                                                             ## a
-                                                                                             ## AutoDesignDateAndPersonItem
-                                                                                             ## SelectType
+      header: "StepAP214_AutoDesignDateAndPersonItem.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## a
+                                                                                            ## AutoDesignDateAndPersonItem
+                                                                                            ## SelectType
 
 
-proc constructStepAP214_AutoDesignDateAndPersonItem*(): StepAP214_AutoDesignDateAndPersonItem {.
+proc constructStepAP214AutoDesignDateAndPersonItem*(): StepAP214AutoDesignDateAndPersonItem {.
     constructor, importcpp: "StepAP214_AutoDesignDateAndPersonItem(@)",
     header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
-proc CaseNum*(this: StepAP214_AutoDesignDateAndPersonItem;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepAP214AutoDesignDateAndPersonItem;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
-proc AutoDesignOrganizationAssignment*(this: StepAP214_AutoDesignDateAndPersonItem): handle[
-    StepAP214_AutoDesignOrganizationAssignment] {.noSideEffect,
+proc autoDesignOrganizationAssignment*(this: StepAP214AutoDesignDateAndPersonItem): Handle[
+    StepAP214AutoDesignOrganizationAssignment] {.noSideEffect,
     importcpp: "AutoDesignOrganizationAssignment",
     header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
-proc Product*(this: StepAP214_AutoDesignDateAndPersonItem): handle[
-    StepBasic_Product] {.noSideEffect, importcpp: "Product",
-                        header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
-proc ProductDefinition*(this: StepAP214_AutoDesignDateAndPersonItem): handle[
-    StepBasic_ProductDefinition] {.noSideEffect, importcpp: "ProductDefinition", header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
-proc ProductDefinitionFormation*(this: StepAP214_AutoDesignDateAndPersonItem): handle[
-    StepBasic_ProductDefinitionFormation] {.noSideEffect,
+proc product*(this: StepAP214AutoDesignDateAndPersonItem): Handle[StepBasicProduct] {.
+    noSideEffect, importcpp: "Product",
+    header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
+proc productDefinition*(this: StepAP214AutoDesignDateAndPersonItem): Handle[
+    StepBasicProductDefinition] {.noSideEffect, importcpp: "ProductDefinition", header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
+proc productDefinitionFormation*(this: StepAP214AutoDesignDateAndPersonItem): Handle[
+    StepBasicProductDefinitionFormation] {.noSideEffect,
     importcpp: "ProductDefinitionFormation",
     header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
-proc Representation*(this: StepAP214_AutoDesignDateAndPersonItem): handle[
-    StepRepr_Representation] {.noSideEffect, importcpp: "Representation", header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
-proc AutoDesignDocumentReference*(this: StepAP214_AutoDesignDateAndPersonItem): handle[
-    StepAP214_AutoDesignDocumentReference] {.noSideEffect,
+proc representation*(this: StepAP214AutoDesignDateAndPersonItem): Handle[
+    StepReprRepresentation] {.noSideEffect, importcpp: "Representation", header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
+proc autoDesignDocumentReference*(this: StepAP214AutoDesignDateAndPersonItem): Handle[
+    StepAP214AutoDesignDocumentReference] {.noSideEffect,
     importcpp: "AutoDesignDocumentReference",
     header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
-proc ExternallyDefinedRepresentation*(this: StepAP214_AutoDesignDateAndPersonItem): handle[
-    StepRepr_ExternallyDefinedRepresentation] {.noSideEffect,
+proc externallyDefinedRepresentation*(this: StepAP214AutoDesignDateAndPersonItem): Handle[
+    StepReprExternallyDefinedRepresentation] {.noSideEffect,
     importcpp: "ExternallyDefinedRepresentation",
     header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
-proc ProductDefinitionRelationship*(this: StepAP214_AutoDesignDateAndPersonItem): handle[
-    StepBasic_ProductDefinitionRelationship] {.noSideEffect,
+proc productDefinitionRelationship*(this: StepAP214AutoDesignDateAndPersonItem): Handle[
+    StepBasicProductDefinitionRelationship] {.noSideEffect,
     importcpp: "ProductDefinitionRelationship",
     header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
-proc ProductDefinitionWithAssociatedDocuments*(
-    this: StepAP214_AutoDesignDateAndPersonItem): handle[
-    StepBasic_ProductDefinitionWithAssociatedDocuments] {.noSideEffect,
+proc productDefinitionWithAssociatedDocuments*(
+    this: StepAP214AutoDesignDateAndPersonItem): Handle[
+    StepBasicProductDefinitionWithAssociatedDocuments] {.noSideEffect,
     importcpp: "ProductDefinitionWithAssociatedDocuments",
     header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}

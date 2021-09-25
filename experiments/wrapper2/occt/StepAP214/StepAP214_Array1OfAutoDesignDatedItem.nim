@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP214_AutoDesignDatedItem, ../NCollection/NCollection_Array1
-
 type
-  StepAP214_Array1OfAutoDesignDatedItem* = NCollection_Array1[
-      StepAP214_AutoDesignDatedItem]
+  StepAP214Array1OfAutoDesignDatedItem* = NCollectionArray1[
+      StepAP214AutoDesignDatedItem]
+

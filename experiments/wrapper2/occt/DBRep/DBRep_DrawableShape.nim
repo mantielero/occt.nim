@@ -14,145 +14,132 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  DBRep_ListOfEdge, DBRep_ListOfFace, DBRep_ListOfHideData, ../Draw/Draw_Color,
-  ../Draw/Draw_Drawable3D, ../Draw/Draw_Interpretor,
-  ../NCollection/NCollection_DataMap, ../NCollection/NCollection_Vector,
-  ../Standard/Standard_OStream, ../TopoDS/TopoDS_Shape
-
 discard "forward decl of Draw_Display"
 discard "forward decl of Poly_Triangulation"
 discard "forward decl of gp_Trsf"
 type
-  DBRep_DrawableShape* {.importcpp: "DBRep_DrawableShape",
-                        header: "DBRep_DrawableShape.hxx", bycopy.} = object of Draw_Drawable3D ##
-                                                                                         ## !
-                                                                                         ## Auxiliary
-                                                                                         ## method
-                                                                                         ## computing
-                                                                                         ## nodal
-                                                                                         ## normals
-                                                                                         ## for
-                                                                                         ## presentation
-                                                                                         ## purposes.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @param
-                                                                                         ## theNormals
-                                                                                         ## [out]
-                                                                                         ## vector
-                                                                                         ## of
-                                                                                         ## computed
-                                                                                         ## normals
-                                                                                         ## (pair
-                                                                                         ## of
-                                                                                         ## points
-                                                                                         ## [from,
-                                                                                         ## to])
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @param
-                                                                                         ## theFace
-                                                                                         ## [in]
-                                                                                         ## input
-                                                                                         ## face
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @param
-                                                                                         ## theLength
-                                                                                         ## [in]
-                                                                                         ## normal
-                                                                                         ## length
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @return
-                                                                                         ## FALSE
-                                                                                         ## if
-                                                                                         ## normals
-                                                                                         ## can
-                                                                                         ## not
-                                                                                         ## be
-                                                                                         ## computed
+  DBRepDrawableShape* {.importcpp: "DBRep_DrawableShape",
+                       header: "DBRep_DrawableShape.hxx", bycopy.} = object of DrawDrawable3D ##
+                                                                                       ## !
+                                                                                       ## Auxiliary
+                                                                                       ## method
+                                                                                       ## computing
+                                                                                       ## nodal
+                                                                                       ## normals
+                                                                                       ## for
+                                                                                       ## presentation
+                                                                                       ## purposes.
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## @param
+                                                                                       ## theNormals
+                                                                                       ## [out]
+                                                                                       ## vector
+                                                                                       ## of
+                                                                                       ## computed
+                                                                                       ## normals
+                                                                                       ## (pair
+                                                                                       ## of
+                                                                                       ## points
+                                                                                       ## [from,
+                                                                                       ## to])
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## @param
+                                                                                       ## theFace
+                                                                                       ## [in]
+                                                                                       ## input
+                                                                                       ## face
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## @param
+                                                                                       ## theLength
+                                                                                       ## [in]
+                                                                                       ## normal
+                                                                                       ## length
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## @return
+                                                                                       ## FALSE
+                                                                                       ## if
+                                                                                       ## normals
+                                                                                       ## can
+                                                                                       ## not
+                                                                                       ## be
+                                                                                       ## computed
 
-  DBRep_DrawableShapebase_type* = Draw_Drawable3D
+  DBRepDrawableShapebaseType* = DrawDrawable3D
 
-proc get_type_name*(): cstring {.importcpp: "DBRep_DrawableShape::get_type_name(@)",
-                              header: "DBRep_DrawableShape.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "DBRep_DrawableShape::get_type_name(@)",
+                            header: "DBRep_DrawableShape.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "DBRep_DrawableShape::get_type_descriptor(@)",
     header: "DBRep_DrawableShape.hxx".}
-proc DynamicType*(this: DBRep_DrawableShape): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: DBRepDrawableShape): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DBRep_DrawableShape.hxx".}
-proc constructDBRep_DrawableShape*(C: TopoDS_Shape; FreeCol: Draw_Color;
-                                  ConnCol: Draw_Color; EdgeCol: Draw_Color;
-                                  IsosCol: Draw_Color; size: Standard_Real;
-                                  nbisos: Standard_Integer;
-                                  discret: Standard_Integer): DBRep_DrawableShape {.
-    constructor, importcpp: "DBRep_DrawableShape(@)",
-    header: "DBRep_DrawableShape.hxx".}
-proc ChangeNbIsos*(this: var DBRep_DrawableShape; NbIsos: Standard_Integer) {.
+proc constructDBRepDrawableShape*(c: TopoDS_Shape; freeCol: DrawColor;
+                                 connCol: DrawColor; edgeCol: DrawColor;
+                                 isosCol: DrawColor; size: float; nbisos: int;
+                                 discret: int): DBRepDrawableShape {.constructor,
+    importcpp: "DBRep_DrawableShape(@)", header: "DBRep_DrawableShape.hxx".}
+proc changeNbIsos*(this: var DBRepDrawableShape; nbIsos: int) {.
     importcpp: "ChangeNbIsos", header: "DBRep_DrawableShape.hxx".}
-proc NbIsos*(this: DBRep_DrawableShape): Standard_Integer {.noSideEffect,
-    importcpp: "NbIsos", header: "DBRep_DrawableShape.hxx".}
-proc ChangeDiscret*(this: var DBRep_DrawableShape; Discret: Standard_Integer) {.
-    importcpp: "ChangeDiscret", header: "DBRep_DrawableShape.hxx".}
-proc Discret*(this: DBRep_DrawableShape): Standard_Integer {.noSideEffect,
-    importcpp: "Discret", header: "DBRep_DrawableShape.hxx".}
-proc Shape*(this: DBRep_DrawableShape): TopoDS_Shape {.noSideEffect,
-    importcpp: "Shape", header: "DBRep_DrawableShape.hxx".}
-proc DisplayOrientation*(this: var DBRep_DrawableShape; D: Standard_Boolean) {.
-    importcpp: "DisplayOrientation", header: "DBRep_DrawableShape.hxx".}
-proc DisplayTriangulation*(this: var DBRep_DrawableShape; D: Standard_Boolean) {.
-    importcpp: "DisplayTriangulation", header: "DBRep_DrawableShape.hxx".}
-proc DisplayPolygons*(this: var DBRep_DrawableShape; D: Standard_Boolean) {.
-    importcpp: "DisplayPolygons", header: "DBRep_DrawableShape.hxx".}
-proc DisplayHLR*(this: var DBRep_DrawableShape; withHLR: Standard_Boolean;
-                withRg1: Standard_Boolean; withRgN: Standard_Boolean;
-                withHid: Standard_Boolean; ang: Standard_Real) {.
-    importcpp: "DisplayHLR", header: "DBRep_DrawableShape.hxx".}
-proc DisplayTriangulation*(this: DBRep_DrawableShape): Standard_Boolean {.
-    noSideEffect, importcpp: "DisplayTriangulation",
+proc nbIsos*(this: DBRepDrawableShape): int {.noSideEffect, importcpp: "NbIsos",
     header: "DBRep_DrawableShape.hxx".}
-proc DisplayPolygons*(this: DBRep_DrawableShape): Standard_Boolean {.noSideEffect,
+proc changeDiscret*(this: var DBRepDrawableShape; discret: int) {.
+    importcpp: "ChangeDiscret", header: "DBRep_DrawableShape.hxx".}
+proc discret*(this: DBRepDrawableShape): int {.noSideEffect, importcpp: "Discret",
+    header: "DBRep_DrawableShape.hxx".}
+proc shape*(this: DBRepDrawableShape): TopoDS_Shape {.noSideEffect,
+    importcpp: "Shape", header: "DBRep_DrawableShape.hxx".}
+proc displayOrientation*(this: var DBRepDrawableShape; d: bool) {.
+    importcpp: "DisplayOrientation", header: "DBRep_DrawableShape.hxx".}
+proc displayTriangulation*(this: var DBRepDrawableShape; d: bool) {.
+    importcpp: "DisplayTriangulation", header: "DBRep_DrawableShape.hxx".}
+proc displayPolygons*(this: var DBRepDrawableShape; d: bool) {.
     importcpp: "DisplayPolygons", header: "DBRep_DrawableShape.hxx".}
-proc GetDisplayHLR*(this: DBRep_DrawableShape; withHLR: var Standard_Boolean;
-                   withRg1: var Standard_Boolean; withRgN: var Standard_Boolean;
-                   withHid: var Standard_Boolean; ang: var Standard_Real) {.
-    noSideEffect, importcpp: "GetDisplayHLR", header: "DBRep_DrawableShape.hxx".}
-proc DrawOn*(this: DBRep_DrawableShape; dis: var Draw_Display) {.noSideEffect,
+proc displayHLR*(this: var DBRepDrawableShape; withHLR: bool; withRg1: bool;
+                withRgN: bool; withHid: bool; ang: float) {.importcpp: "DisplayHLR",
+    header: "DBRep_DrawableShape.hxx".}
+proc displayTriangulation*(this: DBRepDrawableShape): bool {.noSideEffect,
+    importcpp: "DisplayTriangulation", header: "DBRep_DrawableShape.hxx".}
+proc displayPolygons*(this: DBRepDrawableShape): bool {.noSideEffect,
+    importcpp: "DisplayPolygons", header: "DBRep_DrawableShape.hxx".}
+proc getDisplayHLR*(this: DBRepDrawableShape; withHLR: var bool; withRg1: var bool;
+                   withRgN: var bool; withHid: var bool; ang: var float) {.noSideEffect,
+    importcpp: "GetDisplayHLR", header: "DBRep_DrawableShape.hxx".}
+proc drawOn*(this: DBRepDrawableShape; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "DBRep_DrawableShape.hxx".}
-proc DisplayHiddenLines*(this: var DBRep_DrawableShape; dis: var Draw_Display) {.
+proc displayHiddenLines*(this: var DBRepDrawableShape; dis: var DrawDisplay) {.
     importcpp: "DisplayHiddenLines", header: "DBRep_DrawableShape.hxx".}
-proc Copy*(this: DBRep_DrawableShape): handle[Draw_Drawable3D] {.noSideEffect,
+proc copy*(this: DBRepDrawableShape): Handle[DrawDrawable3D] {.noSideEffect,
     importcpp: "Copy", header: "DBRep_DrawableShape.hxx".}
-proc Dump*(this: DBRep_DrawableShape; S: var Standard_OStream) {.noSideEffect,
+proc dump*(this: DBRepDrawableShape; s: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "DBRep_DrawableShape.hxx".}
-proc Whatis*(this: DBRep_DrawableShape; I: var Draw_Interpretor) {.noSideEffect,
+proc whatis*(this: DBRepDrawableShape; i: var DrawInterpretor) {.noSideEffect,
     importcpp: "Whatis", header: "DBRep_DrawableShape.hxx".}
-proc LastPick*(S: var TopoDS_Shape; u: var Standard_Real; v: var Standard_Real) {.
+proc lastPick*(s: var TopoDS_Shape; u: var float; v: var float) {.
     importcpp: "DBRep_DrawableShape::LastPick(@)",
     header: "DBRep_DrawableShape.hxx".}
-proc addMeshNormals*(theNormals: var NCollection_Vector[pair[gp_Pnt, gp_Pnt]];
-                    theFace: TopoDS_Face; theLength: Standard_Real): Standard_Boolean {.
+proc addMeshNormals*(theNormals: var NCollectionVector[Pair[Pnt, Pnt]];
+                    theFace: TopoDS_Face; theLength: float): bool {.
     importcpp: "DBRep_DrawableShape::addMeshNormals(@)",
     header: "DBRep_DrawableShape.hxx".}
-proc addMeshNormals*(theNormals: var NCollection_DataMap[TopoDS_Face,
-    NCollection_Vector[pair[gp_Pnt, gp_Pnt]]]; theShape: TopoDS_Shape;
-                    theLength: Standard_Real) {.
+proc addMeshNormals*(theNormals: var NCollectionDataMap[TopoDS_Face,
+    NCollectionVector[Pair[Pnt, Pnt]]]; theShape: TopoDS_Shape; theLength: float) {.
     importcpp: "DBRep_DrawableShape::addMeshNormals(@)",
     header: "DBRep_DrawableShape.hxx".}
-proc addSurfaceNormals*(theNormals: var NCollection_Vector[pair[gp_Pnt, gp_Pnt]];
-                       theFace: TopoDS_Face; theLength: Standard_Real;
-                       theNbAlongU: Standard_Integer;
-                       theNbAlongV: Standard_Integer): Standard_Boolean {.
+proc addSurfaceNormals*(theNormals: var NCollectionVector[Pair[Pnt, Pnt]];
+                       theFace: TopoDS_Face; theLength: float; theNbAlongU: int;
+                       theNbAlongV: int): bool {.
     importcpp: "DBRep_DrawableShape::addSurfaceNormals(@)",
     header: "DBRep_DrawableShape.hxx".}
-proc addSurfaceNormals*(theNormals: var NCollection_DataMap[TopoDS_Face,
-    NCollection_Vector[pair[gp_Pnt, gp_Pnt]]]; theShape: TopoDS_Shape;
-                       theLength: Standard_Real; theNbAlongU: Standard_Integer;
-                       theNbAlongV: Standard_Integer) {.
+proc addSurfaceNormals*(theNormals: var NCollectionDataMap[TopoDS_Face,
+    NCollectionVector[Pair[Pnt, Pnt]]]; theShape: TopoDS_Shape; theLength: float;
+                       theNbAlongU: int; theNbAlongV: int) {.
     importcpp: "DBRep_DrawableShape::addSurfaceNormals(@)",
     header: "DBRep_DrawableShape.hxx".}
 discard "forward decl of DBRep_DrawableShape"
 type
-  Handle_DBRep_DrawableShape* = handle[DBRep_DrawableShape]
+  HandleDBRepDrawableShape* = Handle[DBRepDrawableShape]
+

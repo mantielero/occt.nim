@@ -13,12 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  MeshVS_SequenceOfPrsBuilder, MeshVS_DataMapOfIntegerOwner,
-  MeshVS_MeshSelectionMethod, ../AIS/AIS_InteractiveObject,
-  ../SelectMgr/SelectMgr_SequenceOfOwner, ../Quantity/Quantity_NameOfColor,
-  ../Standard/Standard_CString
-
 discard "forward decl of MeshVS_PrsBuilder"
 discard "forward decl of TColStd_HPackedMapOfInteger"
 discard "forward decl of MeshVS_DataSource"
@@ -26,7 +20,7 @@ discard "forward decl of MeshVS_Drawer"
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of MeshVS_Mesh"
 type
-  Handle_MeshVS_Mesh* = handle[MeshVS_Mesh]
+  HandleMeshVS_Mesh* = Handle[MeshVS_Mesh]
 
 ## ! the main class provides interface to create mesh presentation as a whole
 
@@ -119,100 +113,98 @@ type
                                                                                                        ## least
 
 
-proc constructMeshVS_Mesh*(theIsAllowOverlapped: Standard_Boolean = Standard_False): MeshVS_Mesh {.
+proc constructMeshVS_Mesh*(theIsAllowOverlapped: bool = false): MeshVS_Mesh {.
     constructor, importcpp: "MeshVS_Mesh(@)", header: "MeshVS_Mesh.hxx".}
-proc AcceptDisplayMode*(this: MeshVS_Mesh; theMode: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "AcceptDisplayMode", header: "MeshVS_Mesh.hxx".}
-proc Compute*(this: var MeshVS_Mesh; PM: handle[PrsMgr_PresentationManager3d];
-             Prs: handle[Prs3d_Presentation]; DisplayMode: Standard_Integer) {.
+proc acceptDisplayMode*(this: MeshVS_Mesh; theMode: int): bool {.noSideEffect,
+    importcpp: "AcceptDisplayMode", header: "MeshVS_Mesh.hxx".}
+proc compute*(this: var MeshVS_Mesh; pm: Handle[PrsMgrPresentationManager3d];
+             prs: Handle[Prs3dPresentation]; displayMode: int) {.
     importcpp: "Compute", header: "MeshVS_Mesh.hxx".}
-proc ComputeSelection*(this: var MeshVS_Mesh; Sel: handle[SelectMgr_Selection];
-                      SelectMode: Standard_Integer) {.
-    importcpp: "ComputeSelection", header: "MeshVS_Mesh.hxx".}
-proc HilightSelected*(this: var MeshVS_Mesh;
-                     PM: handle[PrsMgr_PresentationManager3d];
-                     Owners: SelectMgr_SequenceOfOwner) {.
+proc computeSelection*(this: var MeshVS_Mesh; sel: Handle[SelectMgrSelection];
+                      selectMode: int) {.importcpp: "ComputeSelection",
+                                       header: "MeshVS_Mesh.hxx".}
+proc hilightSelected*(this: var MeshVS_Mesh;
+                     pm: Handle[PrsMgrPresentationManager3d];
+                     owners: SelectMgrSequenceOfOwner) {.
     importcpp: "HilightSelected", header: "MeshVS_Mesh.hxx".}
-proc HilightOwnerWithColor*(this: var MeshVS_Mesh;
-                           thePM: handle[PrsMgr_PresentationManager3d];
-                           theColor: handle[Prs3d_Drawer];
-                           theOwner: handle[SelectMgr_EntityOwner]) {.
+proc hilightOwnerWithColor*(this: var MeshVS_Mesh;
+                           thePM: Handle[PrsMgrPresentationManager3d];
+                           theColor: Handle[Prs3dDrawer];
+                           theOwner: Handle[SelectMgrEntityOwner]) {.
     importcpp: "HilightOwnerWithColor", header: "MeshVS_Mesh.hxx".}
-proc ClearSelected*(this: var MeshVS_Mesh) {.importcpp: "ClearSelected",
+proc clearSelected*(this: var MeshVS_Mesh) {.importcpp: "ClearSelected",
     header: "MeshVS_Mesh.hxx".}
-proc GetBuildersCount*(this: MeshVS_Mesh): Standard_Integer {.noSideEffect,
+proc getBuildersCount*(this: MeshVS_Mesh): int {.noSideEffect,
     importcpp: "GetBuildersCount", header: "MeshVS_Mesh.hxx".}
-proc GetBuilder*(this: MeshVS_Mesh; Index: Standard_Integer): handle[
-    MeshVS_PrsBuilder] {.noSideEffect, importcpp: "GetBuilder",
-                        header: "MeshVS_Mesh.hxx".}
-proc GetBuilderById*(this: MeshVS_Mesh; Id: Standard_Integer): handle[
-    MeshVS_PrsBuilder] {.noSideEffect, importcpp: "GetBuilderById",
-                        header: "MeshVS_Mesh.hxx".}
-proc GetFreeId*(this: MeshVS_Mesh): Standard_Integer {.noSideEffect,
-    importcpp: "GetFreeId", header: "MeshVS_Mesh.hxx".}
-proc AddBuilder*(this: var MeshVS_Mesh; Builder: handle[MeshVS_PrsBuilder];
-                TreatAsHilighter: Standard_Boolean = Standard_False) {.
-    importcpp: "AddBuilder", header: "MeshVS_Mesh.hxx".}
-proc SetHilighter*(this: var MeshVS_Mesh; Builder: handle[MeshVS_PrsBuilder]) {.
+proc getBuilder*(this: MeshVS_Mesh; index: int): Handle[MeshVS_PrsBuilder] {.
+    noSideEffect, importcpp: "GetBuilder", header: "MeshVS_Mesh.hxx".}
+proc getBuilderById*(this: MeshVS_Mesh; id: int): Handle[MeshVS_PrsBuilder] {.
+    noSideEffect, importcpp: "GetBuilderById", header: "MeshVS_Mesh.hxx".}
+proc getFreeId*(this: MeshVS_Mesh): int {.noSideEffect, importcpp: "GetFreeId",
+                                      header: "MeshVS_Mesh.hxx".}
+proc addBuilder*(this: var MeshVS_Mesh; builder: Handle[MeshVS_PrsBuilder];
+                treatAsHilighter: bool = false) {.importcpp: "AddBuilder",
+    header: "MeshVS_Mesh.hxx".}
+proc setHilighter*(this: var MeshVS_Mesh; builder: Handle[MeshVS_PrsBuilder]) {.
     importcpp: "SetHilighter", header: "MeshVS_Mesh.hxx".}
-proc SetHilighter*(this: var MeshVS_Mesh; Index: Standard_Integer): Standard_Boolean {.
+proc setHilighter*(this: var MeshVS_Mesh; index: int): bool {.
     importcpp: "SetHilighter", header: "MeshVS_Mesh.hxx".}
-proc SetHilighterById*(this: var MeshVS_Mesh; Id: Standard_Integer): Standard_Boolean {.
+proc setHilighterById*(this: var MeshVS_Mesh; id: int): bool {.
     importcpp: "SetHilighterById", header: "MeshVS_Mesh.hxx".}
-proc GetHilighter*(this: MeshVS_Mesh): handle[MeshVS_PrsBuilder] {.noSideEffect,
+proc getHilighter*(this: MeshVS_Mesh): Handle[MeshVS_PrsBuilder] {.noSideEffect,
     importcpp: "GetHilighter", header: "MeshVS_Mesh.hxx".}
-proc RemoveBuilder*(this: var MeshVS_Mesh; Index: Standard_Integer) {.
-    importcpp: "RemoveBuilder", header: "MeshVS_Mesh.hxx".}
-proc RemoveBuilderById*(this: var MeshVS_Mesh; Id: Standard_Integer) {.
+proc removeBuilder*(this: var MeshVS_Mesh; index: int) {.importcpp: "RemoveBuilder",
+    header: "MeshVS_Mesh.hxx".}
+proc removeBuilderById*(this: var MeshVS_Mesh; id: int) {.
     importcpp: "RemoveBuilderById", header: "MeshVS_Mesh.hxx".}
-proc FindBuilder*(this: MeshVS_Mesh; TypeString: Standard_CString): handle[
+proc findBuilder*(this: MeshVS_Mesh; typeString: StandardCString): Handle[
     MeshVS_PrsBuilder] {.noSideEffect, importcpp: "FindBuilder",
                         header: "MeshVS_Mesh.hxx".}
-proc GetOwnerMaps*(this: var MeshVS_Mesh; IsElement: Standard_Boolean): MeshVS_DataMapOfIntegerOwner {.
+proc getOwnerMaps*(this: var MeshVS_Mesh; isElement: bool): MeshVS_DataMapOfIntegerOwner {.
     importcpp: "GetOwnerMaps", header: "MeshVS_Mesh.hxx".}
-proc GetDataSource*(this: MeshVS_Mesh): handle[MeshVS_DataSource] {.noSideEffect,
+proc getDataSource*(this: MeshVS_Mesh): Handle[MeshVS_DataSource] {.noSideEffect,
     importcpp: "GetDataSource", header: "MeshVS_Mesh.hxx".}
-proc SetDataSource*(this: var MeshVS_Mesh; aDataSource: handle[MeshVS_DataSource]) {.
+proc setDataSource*(this: var MeshVS_Mesh; aDataSource: Handle[MeshVS_DataSource]) {.
     importcpp: "SetDataSource", header: "MeshVS_Mesh.hxx".}
-proc GetDrawer*(this: MeshVS_Mesh): handle[MeshVS_Drawer] {.noSideEffect,
+proc getDrawer*(this: MeshVS_Mesh): Handle[MeshVS_Drawer] {.noSideEffect,
     importcpp: "GetDrawer", header: "MeshVS_Mesh.hxx".}
-proc SetDrawer*(this: var MeshVS_Mesh; aDrawer: handle[MeshVS_Drawer]) {.
+proc setDrawer*(this: var MeshVS_Mesh; aDrawer: Handle[MeshVS_Drawer]) {.
     importcpp: "SetDrawer", header: "MeshVS_Mesh.hxx".}
-proc IsHiddenElem*(this: MeshVS_Mesh; ID: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsHiddenElem", header: "MeshVS_Mesh.hxx".}
-proc IsHiddenNode*(this: MeshVS_Mesh; ID: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsHiddenNode", header: "MeshVS_Mesh.hxx".}
-proc IsSelectableElem*(this: MeshVS_Mesh; ID: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsSelectableElem", header: "MeshVS_Mesh.hxx".}
-proc IsSelectableNode*(this: MeshVS_Mesh; ID: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsSelectableNode", header: "MeshVS_Mesh.hxx".}
-proc GetHiddenNodes*(this: MeshVS_Mesh): handle[TColStd_HPackedMapOfInteger] {.
+proc isHiddenElem*(this: MeshVS_Mesh; id: int): bool {.noSideEffect,
+    importcpp: "IsHiddenElem", header: "MeshVS_Mesh.hxx".}
+proc isHiddenNode*(this: MeshVS_Mesh; id: int): bool {.noSideEffect,
+    importcpp: "IsHiddenNode", header: "MeshVS_Mesh.hxx".}
+proc isSelectableElem*(this: MeshVS_Mesh; id: int): bool {.noSideEffect,
+    importcpp: "IsSelectableElem", header: "MeshVS_Mesh.hxx".}
+proc isSelectableNode*(this: MeshVS_Mesh; id: int): bool {.noSideEffect,
+    importcpp: "IsSelectableNode", header: "MeshVS_Mesh.hxx".}
+proc getHiddenNodes*(this: MeshVS_Mesh): Handle[TColStdHPackedMapOfInteger] {.
     noSideEffect, importcpp: "GetHiddenNodes", header: "MeshVS_Mesh.hxx".}
-proc SetHiddenNodes*(this: var MeshVS_Mesh; Ids: handle[TColStd_HPackedMapOfInteger]) {.
+proc setHiddenNodes*(this: var MeshVS_Mesh; ids: Handle[TColStdHPackedMapOfInteger]) {.
     importcpp: "SetHiddenNodes", header: "MeshVS_Mesh.hxx".}
-proc GetHiddenElems*(this: MeshVS_Mesh): handle[TColStd_HPackedMapOfInteger] {.
+proc getHiddenElems*(this: MeshVS_Mesh): Handle[TColStdHPackedMapOfInteger] {.
     noSideEffect, importcpp: "GetHiddenElems", header: "MeshVS_Mesh.hxx".}
-proc SetHiddenElems*(this: var MeshVS_Mesh; Ids: handle[TColStd_HPackedMapOfInteger]) {.
+proc setHiddenElems*(this: var MeshVS_Mesh; ids: Handle[TColStdHPackedMapOfInteger]) {.
     importcpp: "SetHiddenElems", header: "MeshVS_Mesh.hxx".}
-proc GetSelectableNodes*(this: MeshVS_Mesh): handle[TColStd_HPackedMapOfInteger] {.
+proc getSelectableNodes*(this: MeshVS_Mesh): Handle[TColStdHPackedMapOfInteger] {.
     noSideEffect, importcpp: "GetSelectableNodes", header: "MeshVS_Mesh.hxx".}
-proc SetSelectableNodes*(this: var MeshVS_Mesh;
-                        Ids: handle[TColStd_HPackedMapOfInteger]) {.
+proc setSelectableNodes*(this: var MeshVS_Mesh;
+                        ids: Handle[TColStdHPackedMapOfInteger]) {.
     importcpp: "SetSelectableNodes", header: "MeshVS_Mesh.hxx".}
-proc UpdateSelectableNodes*(this: var MeshVS_Mesh) {.
+proc updateSelectableNodes*(this: var MeshVS_Mesh) {.
     importcpp: "UpdateSelectableNodes", header: "MeshVS_Mesh.hxx".}
-proc GetMeshSelMethod*(this: MeshVS_Mesh): MeshVS_MeshSelectionMethod {.
+proc getMeshSelMethod*(this: MeshVS_Mesh): MeshVS_MeshSelectionMethod {.
     noSideEffect, importcpp: "GetMeshSelMethod", header: "MeshVS_Mesh.hxx".}
-proc SetMeshSelMethod*(this: var MeshVS_Mesh; M: MeshVS_MeshSelectionMethod) {.
+proc setMeshSelMethod*(this: var MeshVS_Mesh; m: MeshVS_MeshSelectionMethod) {.
     importcpp: "SetMeshSelMethod", header: "MeshVS_Mesh.hxx".}
-proc IsWholeMeshOwner*(this: MeshVS_Mesh; theOwner: handle[SelectMgr_EntityOwner]): Standard_Boolean {.
+proc isWholeMeshOwner*(this: MeshVS_Mesh; theOwner: Handle[SelectMgrEntityOwner]): bool {.
     noSideEffect, importcpp: "IsWholeMeshOwner", header: "MeshVS_Mesh.hxx".}
 type
-  MeshVS_Meshbase_type* = AIS_InteractiveObject
+  MeshVS_MeshbaseType* = AIS_InteractiveObject
 
-proc get_type_name*(): cstring {.importcpp: "MeshVS_Mesh::get_type_name(@)",
-                              header: "MeshVS_Mesh.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "MeshVS_Mesh::get_type_name(@)",
+                            header: "MeshVS_Mesh.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "MeshVS_Mesh::get_type_descriptor(@)", header: "MeshVS_Mesh.hxx".}
-proc DynamicType*(this: MeshVS_Mesh): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: MeshVS_Mesh): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MeshVS_Mesh.hxx".}

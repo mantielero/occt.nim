@@ -37,9 +37,9 @@
 ## ! as input data)
 
 type
-  CSLib_DerivativeStatus* {.size: sizeof(cint),
-                           importcpp: "CSLib_DerivativeStatus",
-                           header: "CSLib_DerivativeStatus.hxx".} = enum
-    CSLib_Done, CSLib_D1uIsNull, CSLib_D1vIsNull, CSLib_D1IsNull,
-    CSLib_D1uD1vRatioIsNull, CSLib_D1vD1uRatioIsNull, CSLib_D1uIsParallelD1v
+  CSLibDerivativeStatus* {.size: sizeof(cint), importcpp: "CSLib_DerivativeStatus",
+                          header: "CSLib_DerivativeStatus.hxx".} = enum
+    CSLibDone, CSLibD1uIsNull, CSLibD1vIsNull, CSLibD1IsNull,
+    CSLibD1uD1vRatioIsNull, CSLibD1vD1uRatioIsNull, CSLibD1uIsParallelD1v
+
 

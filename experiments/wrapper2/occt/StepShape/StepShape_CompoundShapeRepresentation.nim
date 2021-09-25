@@ -13,36 +13,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_ShapeRepresentation
-
 discard "forward decl of StepShape_CompoundShapeRepresentation"
 discard "forward decl of StepShape_CompoundShapeRepresentation"
 type
-  Handle_StepShape_CompoundShapeRepresentation* = handle[
-      StepShape_CompoundShapeRepresentation]
+  HandleStepShapeCompoundShapeRepresentation* = Handle[
+      StepShapeCompoundShapeRepresentation]
 
 ## ! Representation of STEP entity CompoundShapeRepresentation
 
 type
-  StepShape_CompoundShapeRepresentation* {.
+  StepShapeCompoundShapeRepresentation* {.
       importcpp: "StepShape_CompoundShapeRepresentation",
-      header: "StepShape_CompoundShapeRepresentation.hxx", bycopy.} = object of StepShape_ShapeRepresentation ##
-                                                                                                       ## !
-                                                                                                       ## Empty
-                                                                                                       ## constructor
+      header: "StepShape_CompoundShapeRepresentation.hxx", bycopy.} = object of StepShapeShapeRepresentation ##
+                                                                                                      ## !
+                                                                                                      ## Empty
+                                                                                                      ## constructor
 
 
-proc constructStepShape_CompoundShapeRepresentation*(): StepShape_CompoundShapeRepresentation {.
+proc constructStepShapeCompoundShapeRepresentation*(): StepShapeCompoundShapeRepresentation {.
     constructor, importcpp: "StepShape_CompoundShapeRepresentation(@)",
     header: "StepShape_CompoundShapeRepresentation.hxx".}
 type
-  StepShape_CompoundShapeRepresentationbase_type* = StepShape_ShapeRepresentation
+  StepShapeCompoundShapeRepresentationbaseType* = StepShapeShapeRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_CompoundShapeRepresentation::get_type_name(@)", header: "StepShape_CompoundShapeRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_CompoundShapeRepresentation::get_type_name(@)",
+                            header: "StepShape_CompoundShapeRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_CompoundShapeRepresentation::get_type_descriptor(@)",
     header: "StepShape_CompoundShapeRepresentation.hxx".}
-proc DynamicType*(this: StepShape_CompoundShapeRepresentation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepShape_CompoundShapeRepresentation.hxx".}
+proc dynamicType*(this: StepShapeCompoundShapeRepresentation): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepShape_CompoundShapeRepresentation.hxx".}

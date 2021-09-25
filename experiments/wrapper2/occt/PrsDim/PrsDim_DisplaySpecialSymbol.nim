@@ -17,9 +17,10 @@
 ## ! Specifies dimension special symbol display options
 
 type
-  PrsDim_DisplaySpecialSymbol* {.size: sizeof(cint),
-                                importcpp: "PrsDim_DisplaySpecialSymbol",
-                                header: "PrsDim_DisplaySpecialSymbol.hxx".} = enum
-    PrsDim_DisplaySpecialSymbol_No, PrsDim_DisplaySpecialSymbol_Before,
-    PrsDim_DisplaySpecialSymbol_After
+  PrsDimDisplaySpecialSymbol* {.size: sizeof(cint),
+                               importcpp: "PrsDim_DisplaySpecialSymbol",
+                               header: "PrsDim_DisplaySpecialSymbol.hxx".} = enum
+    PrsDimDisplaySpecialSymbolNo, PrsDimDisplaySpecialSymbolBefore,
+    PrsDimDisplaySpecialSymbolAfter
+
 

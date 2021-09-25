@@ -14,20 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../ChFi2d/ChFi2d_Builder,
-  ../BRepBuilderAPI/BRepBuilderAPI_MakeShape, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../TopTools/TopTools_SequenceOfShape,
-  ../Standard/Standard_Integer, ../TopTools/TopTools_ListOfShape,
-  ../ChFi2d/ChFi2d_ConstructionError
-
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Shape"
-when defined(Status):
-  discard
+# when defined(Status):
+#   discard
 ## ! Describes functions to build fillets and chamfers on the
 ## ! vertices of a planar face.
 ## ! Fillets and Chamfers on the Vertices of a Planar Face
@@ -152,64 +144,62 @@ type
 proc constructBRepFilletAPI_MakeFillet2d*(): BRepFilletAPI_MakeFillet2d {.
     constructor, importcpp: "BRepFilletAPI_MakeFillet2d(@)",
     header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc constructBRepFilletAPI_MakeFillet2d*(F: TopoDS_Face): BRepFilletAPI_MakeFillet2d {.
+proc constructBRepFilletAPI_MakeFillet2d*(f: TopoDS_Face): BRepFilletAPI_MakeFillet2d {.
     constructor, importcpp: "BRepFilletAPI_MakeFillet2d(@)",
     header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc Init*(this: var BRepFilletAPI_MakeFillet2d; F: TopoDS_Face) {.importcpp: "Init",
+proc init*(this: var BRepFilletAPI_MakeFillet2d; f: TopoDS_Face) {.importcpp: "Init",
     header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc Init*(this: var BRepFilletAPI_MakeFillet2d; RefFace: TopoDS_Face;
-          ModFace: TopoDS_Face) {.importcpp: "Init",
+proc init*(this: var BRepFilletAPI_MakeFillet2d; refFace: TopoDS_Face;
+          modFace: TopoDS_Face) {.importcpp: "Init",
                                 header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc AddFillet*(this: var BRepFilletAPI_MakeFillet2d; V: TopoDS_Vertex;
-               Radius: Standard_Real): TopoDS_Edge {.importcpp: "AddFillet",
+proc addFillet*(this: var BRepFilletAPI_MakeFillet2d; v: TopoDS_Vertex; radius: float): TopoDS_Edge {.
+    importcpp: "AddFillet", header: "BRepFilletAPI_MakeFillet2d.hxx".}
+proc modifyFillet*(this: var BRepFilletAPI_MakeFillet2d; fillet: TopoDS_Edge;
+                  radius: float): TopoDS_Edge {.importcpp: "ModifyFillet",
     header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc ModifyFillet*(this: var BRepFilletAPI_MakeFillet2d; Fillet: TopoDS_Edge;
-                  Radius: Standard_Real): TopoDS_Edge {.importcpp: "ModifyFillet",
-    header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc RemoveFillet*(this: var BRepFilletAPI_MakeFillet2d; Fillet: TopoDS_Edge): TopoDS_Vertex {.
+proc removeFillet*(this: var BRepFilletAPI_MakeFillet2d; fillet: TopoDS_Edge): TopoDS_Vertex {.
     importcpp: "RemoveFillet", header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc AddChamfer*(this: var BRepFilletAPI_MakeFillet2d; E1: TopoDS_Edge;
-                E2: TopoDS_Edge; D1: Standard_Real; D2: Standard_Real): TopoDS_Edge {.
+proc addChamfer*(this: var BRepFilletAPI_MakeFillet2d; e1: TopoDS_Edge;
+                e2: TopoDS_Edge; d1: float; d2: float): TopoDS_Edge {.
     importcpp: "AddChamfer", header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc AddChamfer*(this: var BRepFilletAPI_MakeFillet2d; E: TopoDS_Edge;
-                V: TopoDS_Vertex; D: Standard_Real; Ang: Standard_Real): TopoDS_Edge {.
+proc addChamfer*(this: var BRepFilletAPI_MakeFillet2d; e: TopoDS_Edge;
+                v: TopoDS_Vertex; d: float; ang: float): TopoDS_Edge {.
     importcpp: "AddChamfer", header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc ModifyChamfer*(this: var BRepFilletAPI_MakeFillet2d; Chamfer: TopoDS_Edge;
-                   E1: TopoDS_Edge; E2: TopoDS_Edge; D1: Standard_Real;
-                   D2: Standard_Real): TopoDS_Edge {.importcpp: "ModifyChamfer",
-    header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc ModifyChamfer*(this: var BRepFilletAPI_MakeFillet2d; Chamfer: TopoDS_Edge;
-                   E: TopoDS_Edge; D: Standard_Real; Ang: Standard_Real): TopoDS_Edge {.
+proc modifyChamfer*(this: var BRepFilletAPI_MakeFillet2d; chamfer: TopoDS_Edge;
+                   e1: TopoDS_Edge; e2: TopoDS_Edge; d1: float; d2: float): TopoDS_Edge {.
     importcpp: "ModifyChamfer", header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc RemoveChamfer*(this: var BRepFilletAPI_MakeFillet2d; Chamfer: TopoDS_Edge): TopoDS_Vertex {.
+proc modifyChamfer*(this: var BRepFilletAPI_MakeFillet2d; chamfer: TopoDS_Edge;
+                   e: TopoDS_Edge; d: float; ang: float): TopoDS_Edge {.
+    importcpp: "ModifyChamfer", header: "BRepFilletAPI_MakeFillet2d.hxx".}
+proc removeChamfer*(this: var BRepFilletAPI_MakeFillet2d; chamfer: TopoDS_Edge): TopoDS_Vertex {.
     importcpp: "RemoveChamfer", header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc IsModified*(this: BRepFilletAPI_MakeFillet2d; E: TopoDS_Edge): Standard_Boolean {.
+proc isModified*(this: BRepFilletAPI_MakeFillet2d; e: TopoDS_Edge): bool {.
     noSideEffect, importcpp: "IsModified", header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc FilletEdges*(this: BRepFilletAPI_MakeFillet2d): TopTools_SequenceOfShape {.
+proc filletEdges*(this: BRepFilletAPI_MakeFillet2d): TopToolsSequenceOfShape {.
     noSideEffect, importcpp: "FilletEdges",
     header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc NbFillet*(this: BRepFilletAPI_MakeFillet2d): Standard_Integer {.noSideEffect,
+proc nbFillet*(this: BRepFilletAPI_MakeFillet2d): int {.noSideEffect,
     importcpp: "NbFillet", header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc ChamferEdges*(this: BRepFilletAPI_MakeFillet2d): TopTools_SequenceOfShape {.
+proc chamferEdges*(this: BRepFilletAPI_MakeFillet2d): TopToolsSequenceOfShape {.
     noSideEffect, importcpp: "ChamferEdges",
     header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc NbChamfer*(this: BRepFilletAPI_MakeFillet2d): Standard_Integer {.noSideEffect,
+proc nbChamfer*(this: BRepFilletAPI_MakeFillet2d): int {.noSideEffect,
     importcpp: "NbChamfer", header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc Modified*(this: var BRepFilletAPI_MakeFillet2d; S: TopoDS_Shape): TopTools_ListOfShape {.
+proc modified*(this: var BRepFilletAPI_MakeFillet2d; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Modified", header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc NbCurves*(this: BRepFilletAPI_MakeFillet2d): Standard_Integer {.noSideEffect,
+proc nbCurves*(this: BRepFilletAPI_MakeFillet2d): int {.noSideEffect,
     importcpp: "NbCurves", header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc NewEdges*(this: var BRepFilletAPI_MakeFillet2d; I: Standard_Integer): TopTools_ListOfShape {.
+proc newEdges*(this: var BRepFilletAPI_MakeFillet2d; i: int): TopToolsListOfShape {.
     importcpp: "NewEdges", header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc HasDescendant*(this: BRepFilletAPI_MakeFillet2d; E: TopoDS_Edge): Standard_Boolean {.
+proc hasDescendant*(this: BRepFilletAPI_MakeFillet2d; e: TopoDS_Edge): bool {.
     noSideEffect, importcpp: "HasDescendant",
     header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc DescendantEdge*(this: BRepFilletAPI_MakeFillet2d; E: TopoDS_Edge): TopoDS_Edge {.
+proc descendantEdge*(this: BRepFilletAPI_MakeFillet2d; e: TopoDS_Edge): TopoDS_Edge {.
     noSideEffect, importcpp: "DescendantEdge",
     header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc BasisEdge*(this: BRepFilletAPI_MakeFillet2d; E: TopoDS_Edge): TopoDS_Edge {.
+proc basisEdge*(this: BRepFilletAPI_MakeFillet2d; e: TopoDS_Edge): TopoDS_Edge {.
     noSideEffect, importcpp: "BasisEdge", header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc Status*(this: BRepFilletAPI_MakeFillet2d): ChFi2d_ConstructionError {.
+proc status*(this: BRepFilletAPI_MakeFillet2d): ChFi2dConstructionError {.
     noSideEffect, importcpp: "Status", header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc Build*(this: var BRepFilletAPI_MakeFillet2d) {.importcpp: "Build",
+proc build*(this: var BRepFilletAPI_MakeFillet2d) {.importcpp: "Build",
     header: "BRepFilletAPI_MakeFillet2d.hxx".}

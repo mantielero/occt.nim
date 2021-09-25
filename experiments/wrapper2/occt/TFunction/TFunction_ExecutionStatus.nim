@@ -15,9 +15,10 @@
 ##  commercial license or contractual agreement.
 
 type
-  TFunction_ExecutionStatus* {.size: sizeof(cint),
-                              importcpp: "TFunction_ExecutionStatus",
-                              header: "TFunction_ExecutionStatus.hxx".} = enum
-    TFunction_ES_WrongDefinition, TFunction_ES_NotExecuted,
-    TFunction_ES_Executing, TFunction_ES_Succeeded, TFunction_ES_Failed
+  TFunctionExecutionStatus* {.size: sizeof(cint),
+                             importcpp: "TFunction_ExecutionStatus",
+                             header: "TFunction_ExecutionStatus.hxx".} = enum
+    TFunctionES_WrongDefinition, TFunctionES_NotExecuted, TFunctionES_Executing,
+    TFunctionES_Succeeded, TFunctionES_Failed
+
 

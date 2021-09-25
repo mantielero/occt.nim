@@ -14,58 +14,52 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP214_HArray1OfAutoDesignDateAndTimeItem,
-  ../StepBasic/StepBasic_DateAndTimeAssignment, ../Standard/Standard_Integer
-
 discard "forward decl of StepBasic_DateAndTime"
 discard "forward decl of StepBasic_DateTimeRole"
 discard "forward decl of StepAP214_AutoDesignDateAndTimeItem"
 discard "forward decl of StepAP214_AutoDesignNominalDateAndTimeAssignment"
 discard "forward decl of StepAP214_AutoDesignNominalDateAndTimeAssignment"
 type
-  Handle_StepAP214_AutoDesignNominalDateAndTimeAssignment* = handle[
-      StepAP214_AutoDesignNominalDateAndTimeAssignment]
-  StepAP214_AutoDesignNominalDateAndTimeAssignment* {.
+  HandleStepAP214AutoDesignNominalDateAndTimeAssignment* = Handle[
+      StepAP214AutoDesignNominalDateAndTimeAssignment]
+  StepAP214AutoDesignNominalDateAndTimeAssignment* {.
       importcpp: "StepAP214_AutoDesignNominalDateAndTimeAssignment",
-      header: "StepAP214_AutoDesignNominalDateAndTimeAssignment.hxx", bycopy.} = object of StepBasic_DateAndTimeAssignment ##
-                                                                                                                    ## !
-                                                                                                                    ## Returns
-                                                                                                                    ## a
-                                                                                                                    ## AutoDesignNominalDateAndTimeAssignment
+      header: "StepAP214_AutoDesignNominalDateAndTimeAssignment.hxx", bycopy.} = object of StepBasicDateAndTimeAssignment ##
+                                                                                                                   ## !
+                                                                                                                   ## Returns
+                                                                                                                   ## a
+                                                                                                                   ## AutoDesignNominalDateAndTimeAssignment
 
 
-proc constructStepAP214_AutoDesignNominalDateAndTimeAssignment*(): StepAP214_AutoDesignNominalDateAndTimeAssignment {.
+proc constructStepAP214AutoDesignNominalDateAndTimeAssignment*(): StepAP214AutoDesignNominalDateAndTimeAssignment {.
     constructor,
     importcpp: "StepAP214_AutoDesignNominalDateAndTimeAssignment(@)",
     header: "StepAP214_AutoDesignNominalDateAndTimeAssignment.hxx".}
-proc Init*(this: var StepAP214_AutoDesignNominalDateAndTimeAssignment;
-          aAssignedDateAndTime: handle[StepBasic_DateAndTime];
-          aRole: handle[StepBasic_DateTimeRole];
-          aItems: handle[StepAP214_HArray1OfAutoDesignDateAndTimeItem]) {.
+proc init*(this: var StepAP214AutoDesignNominalDateAndTimeAssignment;
+          aAssignedDateAndTime: Handle[StepBasicDateAndTime];
+          aRole: Handle[StepBasicDateTimeRole];
+          aItems: Handle[StepAP214HArray1OfAutoDesignDateAndTimeItem]) {.
     importcpp: "Init",
     header: "StepAP214_AutoDesignNominalDateAndTimeAssignment.hxx".}
-proc SetItems*(this: var StepAP214_AutoDesignNominalDateAndTimeAssignment;
-              aItems: handle[StepAP214_HArray1OfAutoDesignDateAndTimeItem]) {.
+proc setItems*(this: var StepAP214AutoDesignNominalDateAndTimeAssignment;
+              aItems: Handle[StepAP214HArray1OfAutoDesignDateAndTimeItem]) {.
     importcpp: "SetItems",
     header: "StepAP214_AutoDesignNominalDateAndTimeAssignment.hxx".}
-proc Items*(this: StepAP214_AutoDesignNominalDateAndTimeAssignment): handle[
-    StepAP214_HArray1OfAutoDesignDateAndTimeItem] {.noSideEffect,
+proc items*(this: StepAP214AutoDesignNominalDateAndTimeAssignment): Handle[
+    StepAP214HArray1OfAutoDesignDateAndTimeItem] {.noSideEffect,
     importcpp: "Items",
     header: "StepAP214_AutoDesignNominalDateAndTimeAssignment.hxx".}
-proc ItemsValue*(this: StepAP214_AutoDesignNominalDateAndTimeAssignment;
-                num: Standard_Integer): StepAP214_AutoDesignDateAndTimeItem {.
+proc itemsValue*(this: StepAP214AutoDesignNominalDateAndTimeAssignment; num: int): StepAP214AutoDesignDateAndTimeItem {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AutoDesignNominalDateAndTimeAssignment.hxx".}
-proc NbItems*(this: StepAP214_AutoDesignNominalDateAndTimeAssignment): Standard_Integer {.
+proc nbItems*(this: StepAP214AutoDesignNominalDateAndTimeAssignment): int {.
     noSideEffect, importcpp: "NbItems",
     header: "StepAP214_AutoDesignNominalDateAndTimeAssignment.hxx".}
 type
-  StepAP214_AutoDesignNominalDateAndTimeAssignmentbase_type* = StepBasic_DateAndTimeAssignment
+  StepAP214AutoDesignNominalDateAndTimeAssignmentbaseType* = StepBasicDateAndTimeAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_AutoDesignNominalDateAndTimeAssignment::get_type_name(@)", header: "StepAP214_AutoDesignNominalDateAndTimeAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP214_AutoDesignNominalDateAndTimeAssignment::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP214_AutoDesignNominalDateAndTimeAssignment::get_type_name(@)", header: "StepAP214_AutoDesignNominalDateAndTimeAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_AutoDesignNominalDateAndTimeAssignment::get_type_descriptor(@)",
     header: "StepAP214_AutoDesignNominalDateAndTimeAssignment.hxx".}
-proc DynamicType*(this: StepAP214_AutoDesignNominalDateAndTimeAssignment): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepAP214_AutoDesignNominalDateAndTimeAssignment.hxx".}
+proc dynamicType*(this: StepAP214AutoDesignNominalDateAndTimeAssignment): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepAP214_AutoDesignNominalDateAndTimeAssignment.hxx".}

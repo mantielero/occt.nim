@@ -14,24 +14,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_OStream
-
 ## ! defines a Sphere node of VRML specifying geometry shapes.
 ## ! This  node  represents  a  sphere.
 ## ! By  default ,  the  sphere  is  centred  at  (0,0,0) and  has  a  radius  of  1.
 
 type
-  Vrml_Sphere* {.importcpp: "Vrml_Sphere", header: "Vrml_Sphere.hxx", bycopy.} = object
+  VrmlSphere* {.importcpp: "Vrml_Sphere", header: "Vrml_Sphere.hxx", bycopy.} = object
 
 
-proc constructVrml_Sphere*(aRadius: Standard_Real = 1): Vrml_Sphere {.constructor,
+proc constructVrmlSphere*(aRadius: float = 1): VrmlSphere {.constructor,
     importcpp: "Vrml_Sphere(@)", header: "Vrml_Sphere.hxx".}
-proc SetRadius*(this: var Vrml_Sphere; aRadius: Standard_Real) {.
-    importcpp: "SetRadius", header: "Vrml_Sphere.hxx".}
-proc Radius*(this: Vrml_Sphere): Standard_Real {.noSideEffect, importcpp: "Radius",
+proc setRadius*(this: var VrmlSphere; aRadius: float) {.importcpp: "SetRadius",
     header: "Vrml_Sphere.hxx".}
-proc Print*(this: Vrml_Sphere; anOStream: var Standard_OStream): var Standard_OStream {.
+proc radius*(this: VrmlSphere): float {.noSideEffect, importcpp: "Radius",
+                                    header: "Vrml_Sphere.hxx".}
+proc print*(this: VrmlSphere; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Sphere.hxx".}

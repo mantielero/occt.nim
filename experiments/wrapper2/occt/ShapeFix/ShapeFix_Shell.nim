@@ -14,76 +14,70 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../TopoDS/TopoDS_Shell, ../TopoDS/TopoDS_Compound,
-  ShapeFix_Root, ../ShapeExtend/ShapeExtend_Status,
-  ../Message/Message_ProgressRange
-
 discard "forward decl of ShapeFix_Face"
 discard "forward decl of ShapeExtend_BasicMsgRegistrator"
-when defined(Status):
-  discard
+# when defined(Status):
+#   discard
 discard "forward decl of ShapeFix_Shell"
 discard "forward decl of ShapeFix_Shell"
 type
-  Handle_ShapeFix_Shell* = handle[ShapeFix_Shell]
+  HandleShapeFixShell* = Handle[ShapeFixShell]
 
 ## ! Fixing orientation of faces in shell
 
 type
-  ShapeFix_Shell* {.importcpp: "ShapeFix_Shell", header: "ShapeFix_Shell.hxx", bycopy.} = object of ShapeFix_Root ##
-                                                                                                        ## !
-                                                                                                        ## Empty
-                                                                                                        ## constructor
+  ShapeFixShell* {.importcpp: "ShapeFix_Shell", header: "ShapeFix_Shell.hxx", bycopy.} = object of ShapeFixRoot ##
+                                                                                                      ## !
+                                                                                                      ## Empty
+                                                                                                      ## constructor
 
 
-proc constructShapeFix_Shell*(): ShapeFix_Shell {.constructor,
+proc constructShapeFixShell*(): ShapeFixShell {.constructor,
     importcpp: "ShapeFix_Shell(@)", header: "ShapeFix_Shell.hxx".}
-proc constructShapeFix_Shell*(shape: TopoDS_Shell): ShapeFix_Shell {.constructor,
+proc constructShapeFixShell*(shape: TopoDS_Shell): ShapeFixShell {.constructor,
     importcpp: "ShapeFix_Shell(@)", header: "ShapeFix_Shell.hxx".}
-proc Init*(this: var ShapeFix_Shell; shell: TopoDS_Shell) {.importcpp: "Init",
+proc init*(this: var ShapeFixShell; shell: TopoDS_Shell) {.importcpp: "Init",
     header: "ShapeFix_Shell.hxx".}
-proc Perform*(this: var ShapeFix_Shell;
-             theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
+proc perform*(this: var ShapeFixShell;
+             theProgress: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "Perform", header: "ShapeFix_Shell.hxx".}
-proc FixFaceOrientation*(this: var ShapeFix_Shell; shell: TopoDS_Shell;
-                        isAccountMultiConex: Standard_Boolean = Standard_True;
-                        NonManifold: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc fixFaceOrientation*(this: var ShapeFixShell; shell: TopoDS_Shell;
+                        isAccountMultiConex: bool = true; nonManifold: bool = false): bool {.
     importcpp: "FixFaceOrientation", header: "ShapeFix_Shell.hxx".}
-proc Shell*(this: var ShapeFix_Shell): TopoDS_Shell {.importcpp: "Shell",
+proc shell*(this: var ShapeFixShell): TopoDS_Shell {.importcpp: "Shell",
     header: "ShapeFix_Shell.hxx".}
-proc Shape*(this: var ShapeFix_Shell): TopoDS_Shape {.importcpp: "Shape",
+proc shape*(this: var ShapeFixShell): TopoDS_Shape {.importcpp: "Shape",
     header: "ShapeFix_Shell.hxx".}
-proc NbShells*(this: ShapeFix_Shell): Standard_Integer {.noSideEffect,
-    importcpp: "NbShells", header: "ShapeFix_Shell.hxx".}
-proc ErrorFaces*(this: ShapeFix_Shell): TopoDS_Compound {.noSideEffect,
+proc nbShells*(this: ShapeFixShell): int {.noSideEffect, importcpp: "NbShells",
+                                       header: "ShapeFix_Shell.hxx".}
+proc errorFaces*(this: ShapeFixShell): TopoDS_Compound {.noSideEffect,
     importcpp: "ErrorFaces", header: "ShapeFix_Shell.hxx".}
-proc Status*(this: ShapeFix_Shell; status: ShapeExtend_Status): Standard_Boolean {.
-    noSideEffect, importcpp: "Status", header: "ShapeFix_Shell.hxx".}
-proc FixFaceTool*(this: var ShapeFix_Shell): handle[ShapeFix_Face] {.
+proc status*(this: ShapeFixShell; status: ShapeExtendStatus): bool {.noSideEffect,
+    importcpp: "Status", header: "ShapeFix_Shell.hxx".}
+proc fixFaceTool*(this: var ShapeFixShell): Handle[ShapeFixFace] {.
     importcpp: "FixFaceTool", header: "ShapeFix_Shell.hxx".}
-proc SetMsgRegistrator*(this: var ShapeFix_Shell;
-                       msgreg: handle[ShapeExtend_BasicMsgRegistrator]) {.
+proc setMsgRegistrator*(this: var ShapeFixShell;
+                       msgreg: Handle[ShapeExtendBasicMsgRegistrator]) {.
     importcpp: "SetMsgRegistrator", header: "ShapeFix_Shell.hxx".}
-proc SetPrecision*(this: var ShapeFix_Shell; preci: Standard_Real) {.
-    importcpp: "SetPrecision", header: "ShapeFix_Shell.hxx".}
-proc SetMinTolerance*(this: var ShapeFix_Shell; mintol: Standard_Real) {.
+proc setPrecision*(this: var ShapeFixShell; preci: float) {.importcpp: "SetPrecision",
+    header: "ShapeFix_Shell.hxx".}
+proc setMinTolerance*(this: var ShapeFixShell; mintol: float) {.
     importcpp: "SetMinTolerance", header: "ShapeFix_Shell.hxx".}
-proc SetMaxTolerance*(this: var ShapeFix_Shell; maxtol: Standard_Real) {.
+proc setMaxTolerance*(this: var ShapeFixShell; maxtol: float) {.
     importcpp: "SetMaxTolerance", header: "ShapeFix_Shell.hxx".}
-proc FixFaceMode*(this: var ShapeFix_Shell): var Standard_Integer {.
-    importcpp: "FixFaceMode", header: "ShapeFix_Shell.hxx".}
-proc FixOrientationMode*(this: var ShapeFix_Shell): var Standard_Integer {.
+proc fixFaceMode*(this: var ShapeFixShell): var int {.importcpp: "FixFaceMode",
+    header: "ShapeFix_Shell.hxx".}
+proc fixOrientationMode*(this: var ShapeFixShell): var int {.
     importcpp: "FixOrientationMode", header: "ShapeFix_Shell.hxx".}
-proc SetNonManifoldFlag*(this: var ShapeFix_Shell; isNonManifold: Standard_Boolean) {.
+proc setNonManifoldFlag*(this: var ShapeFixShell; isNonManifold: bool) {.
     importcpp: "SetNonManifoldFlag", header: "ShapeFix_Shell.hxx".}
 type
-  ShapeFix_Shellbase_type* = ShapeFix_Root
+  ShapeFixShellbaseType* = ShapeFixRoot
 
-proc get_type_name*(): cstring {.importcpp: "ShapeFix_Shell::get_type_name(@)",
-                              header: "ShapeFix_Shell.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeFix_Shell::get_type_name(@)",
+                            header: "ShapeFix_Shell.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeFix_Shell::get_type_descriptor(@)",
     header: "ShapeFix_Shell.hxx".}
-proc DynamicType*(this: ShapeFix_Shell): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: ShapeFixShell): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeFix_Shell.hxx".}

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../IFSelect/IFSelect_Editor,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_EditForm"
 discard "forward decl of TCollection_HAsciiString"
@@ -26,37 +22,35 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of APIHeaderSection_EditHeader"
 discard "forward decl of APIHeaderSection_EditHeader"
 type
-  Handle_APIHeaderSection_EditHeader* = handle[APIHeaderSection_EditHeader]
-  APIHeaderSection_EditHeader* {.importcpp: "APIHeaderSection_EditHeader",
-                                header: "APIHeaderSection_EditHeader.hxx", bycopy.} = object of IFSelect_Editor
+  HandleAPIHeaderSectionEditHeader* = Handle[APIHeaderSectionEditHeader]
+  APIHeaderSectionEditHeader* {.importcpp: "APIHeaderSection_EditHeader",
+                               header: "APIHeaderSection_EditHeader.hxx", bycopy.} = object of IFSelectEditor
 
 
-proc constructAPIHeaderSection_EditHeader*(): APIHeaderSection_EditHeader {.
+proc constructAPIHeaderSectionEditHeader*(): APIHeaderSectionEditHeader {.
     constructor, importcpp: "APIHeaderSection_EditHeader(@)",
     header: "APIHeaderSection_EditHeader.hxx".}
-proc Label*(this: APIHeaderSection_EditHeader): TCollection_AsciiString {.
+proc label*(this: APIHeaderSectionEditHeader): TCollectionAsciiString {.
     noSideEffect, importcpp: "Label", header: "APIHeaderSection_EditHeader.hxx".}
-proc Recognize*(this: APIHeaderSection_EditHeader; form: handle[IFSelect_EditForm]): Standard_Boolean {.
+proc recognize*(this: APIHeaderSectionEditHeader; form: Handle[IFSelectEditForm]): bool {.
     noSideEffect, importcpp: "Recognize", header: "APIHeaderSection_EditHeader.hxx".}
-proc StringValue*(this: APIHeaderSection_EditHeader;
-                 form: handle[IFSelect_EditForm]; num: Standard_Integer): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "StringValue",
-                               header: "APIHeaderSection_EditHeader.hxx".}
-proc Apply*(this: APIHeaderSection_EditHeader; form: handle[IFSelect_EditForm];
-           ent: handle[Standard_Transient];
-           model: handle[Interface_InterfaceModel]): Standard_Boolean {.
+proc stringValue*(this: APIHeaderSectionEditHeader; form: Handle[IFSelectEditForm];
+                 num: int): Handle[TCollectionHAsciiString] {.noSideEffect,
+    importcpp: "StringValue", header: "APIHeaderSection_EditHeader.hxx".}
+proc apply*(this: APIHeaderSectionEditHeader; form: Handle[IFSelectEditForm];
+           ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, importcpp: "Apply", header: "APIHeaderSection_EditHeader.hxx".}
-proc Load*(this: APIHeaderSection_EditHeader; form: handle[IFSelect_EditForm];
-          ent: handle[Standard_Transient]; model: handle[Interface_InterfaceModel]): Standard_Boolean {.
+proc load*(this: APIHeaderSectionEditHeader; form: Handle[IFSelectEditForm];
+          ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, importcpp: "Load", header: "APIHeaderSection_EditHeader.hxx".}
 type
-  APIHeaderSection_EditHeaderbase_type* = IFSelect_Editor
+  APIHeaderSectionEditHeaderbaseType* = IFSelectEditor
 
-proc get_type_name*(): cstring {.importcpp: "APIHeaderSection_EditHeader::get_type_name(@)",
-                              header: "APIHeaderSection_EditHeader.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "APIHeaderSection_EditHeader::get_type_name(@)",
+                            header: "APIHeaderSection_EditHeader.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "APIHeaderSection_EditHeader::get_type_descriptor(@)",
     header: "APIHeaderSection_EditHeader.hxx".}
-proc DynamicType*(this: APIHeaderSection_EditHeader): handle[Standard_Type] {.
+proc dynamicType*(this: APIHeaderSectionEditHeader): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "APIHeaderSection_EditHeader.hxx".}

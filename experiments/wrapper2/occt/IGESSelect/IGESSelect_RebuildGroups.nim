@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, IGESSelect_ModelModifier
-
 discard "forward decl of IFSelect_ContextModif"
 discard "forward decl of IGESData_IGESModel"
 discard "forward decl of Interface_CopyTool"
@@ -24,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_RebuildGroups"
 discard "forward decl of IGESSelect_RebuildGroups"
 type
-  Handle_IGESSelect_RebuildGroups* = handle[IGESSelect_RebuildGroups]
+  HandleIGESSelectRebuildGroups* = Handle[IGESSelectRebuildGroups]
 
 ## ! Rebuilds Groups which were bypassed to produce new models.
 ## ! If a set of entities, all put into a same IGESModel, were
@@ -38,34 +35,34 @@ type
 ## ! groups for all the transferred entities.
 
 type
-  IGESSelect_RebuildGroups* {.importcpp: "IGESSelect_RebuildGroups",
-                             header: "IGESSelect_RebuildGroups.hxx", bycopy.} = object of IGESSelect_ModelModifier ##
-                                                                                                            ## !
-                                                                                                            ## Creates
-                                                                                                            ## an
-                                                                                                            ## RebuildGroups,
-                                                                                                            ## which
-                                                                                                            ## uses
-                                                                                                            ## the
-                                                                                                            ## system
-                                                                                                            ## Date
+  IGESSelectRebuildGroups* {.importcpp: "IGESSelect_RebuildGroups",
+                            header: "IGESSelect_RebuildGroups.hxx", bycopy.} = object of IGESSelectModelModifier ##
+                                                                                                          ## !
+                                                                                                          ## Creates
+                                                                                                          ## an
+                                                                                                          ## RebuildGroups,
+                                                                                                          ## which
+                                                                                                          ## uses
+                                                                                                          ## the
+                                                                                                          ## system
+                                                                                                          ## Date
 
 
-proc constructIGESSelect_RebuildGroups*(): IGESSelect_RebuildGroups {.constructor,
+proc constructIGESSelectRebuildGroups*(): IGESSelectRebuildGroups {.constructor,
     importcpp: "IGESSelect_RebuildGroups(@)",
     header: "IGESSelect_RebuildGroups.hxx".}
-proc Performing*(this: IGESSelect_RebuildGroups; ctx: var IFSelect_ContextModif;
-                target: handle[IGESData_IGESModel]; TC: var Interface_CopyTool) {.
+proc performing*(this: IGESSelectRebuildGroups; ctx: var IFSelectContextModif;
+                target: Handle[IGESDataIGESModel]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "Performing", header: "IGESSelect_RebuildGroups.hxx".}
-proc Label*(this: IGESSelect_RebuildGroups): TCollection_AsciiString {.noSideEffect,
+proc label*(this: IGESSelectRebuildGroups): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "IGESSelect_RebuildGroups.hxx".}
 type
-  IGESSelect_RebuildGroupsbase_type* = IGESSelect_ModelModifier
+  IGESSelectRebuildGroupsbaseType* = IGESSelectModelModifier
 
-proc get_type_name*(): cstring {.importcpp: "IGESSelect_RebuildGroups::get_type_name(@)",
-                              header: "IGESSelect_RebuildGroups.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_RebuildGroups::get_type_name(@)",
+                            header: "IGESSelect_RebuildGroups.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSelect_RebuildGroups::get_type_descriptor(@)",
     header: "IGESSelect_RebuildGroups.hxx".}
-proc DynamicType*(this: IGESSelect_RebuildGroups): handle[Standard_Type] {.
+proc dynamicType*(this: IGESSelectRebuildGroups): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSelect_RebuildGroups.hxx".}

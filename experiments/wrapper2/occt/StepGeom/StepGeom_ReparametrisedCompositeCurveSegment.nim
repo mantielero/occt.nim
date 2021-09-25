@@ -14,45 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  StepGeom_CompositeCurveSegment, StepGeom_TransitionCode,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of StepGeom_Curve"
 discard "forward decl of StepGeom_ReparametrisedCompositeCurveSegment"
 discard "forward decl of StepGeom_ReparametrisedCompositeCurveSegment"
 type
-  Handle_StepGeom_ReparametrisedCompositeCurveSegment* = handle[
-      StepGeom_ReparametrisedCompositeCurveSegment]
-  StepGeom_ReparametrisedCompositeCurveSegment* {.
+  HandleStepGeomReparametrisedCompositeCurveSegment* = Handle[
+      StepGeomReparametrisedCompositeCurveSegment]
+  StepGeomReparametrisedCompositeCurveSegment* {.
       importcpp: "StepGeom_ReparametrisedCompositeCurveSegment",
-      header: "StepGeom_ReparametrisedCompositeCurveSegment.hxx", bycopy.} = object of StepGeom_CompositeCurveSegment ##
-                                                                                                               ## !
-                                                                                                               ## Returns
-                                                                                                               ## a
-                                                                                                               ## ReparametrisedCompositeCurveSegment
+      header: "StepGeom_ReparametrisedCompositeCurveSegment.hxx", bycopy.} = object of StepGeomCompositeCurveSegment ##
+                                                                                                              ## !
+                                                                                                              ## Returns
+                                                                                                              ## a
+                                                                                                              ## ReparametrisedCompositeCurveSegment
 
 
-proc constructStepGeom_ReparametrisedCompositeCurveSegment*(): StepGeom_ReparametrisedCompositeCurveSegment {.
+proc constructStepGeomReparametrisedCompositeCurveSegment*(): StepGeomReparametrisedCompositeCurveSegment {.
     constructor, importcpp: "StepGeom_ReparametrisedCompositeCurveSegment(@)",
     header: "StepGeom_ReparametrisedCompositeCurveSegment.hxx".}
-proc Init*(this: var StepGeom_ReparametrisedCompositeCurveSegment;
-          aTransition: StepGeom_TransitionCode; aSameSense: Standard_Boolean;
-          aParentCurve: handle[StepGeom_Curve]; aParamLength: Standard_Real) {.
+proc init*(this: var StepGeomReparametrisedCompositeCurveSegment;
+          aTransition: StepGeomTransitionCode; aSameSense: bool;
+          aParentCurve: Handle[StepGeomCurve]; aParamLength: float) {.
     importcpp: "Init", header: "StepGeom_ReparametrisedCompositeCurveSegment.hxx".}
-proc SetParamLength*(this: var StepGeom_ReparametrisedCompositeCurveSegment;
-                    aParamLength: Standard_Real) {.importcpp: "SetParamLength",
+proc setParamLength*(this: var StepGeomReparametrisedCompositeCurveSegment;
+                    aParamLength: float) {.importcpp: "SetParamLength",
     header: "StepGeom_ReparametrisedCompositeCurveSegment.hxx".}
-proc ParamLength*(this: StepGeom_ReparametrisedCompositeCurveSegment): Standard_Real {.
+proc paramLength*(this: StepGeomReparametrisedCompositeCurveSegment): float {.
     noSideEffect, importcpp: "ParamLength",
     header: "StepGeom_ReparametrisedCompositeCurveSegment.hxx".}
 type
-  StepGeom_ReparametrisedCompositeCurveSegmentbase_type* = StepGeom_CompositeCurveSegment
+  StepGeomReparametrisedCompositeCurveSegmentbaseType* = StepGeomCompositeCurveSegment
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_ReparametrisedCompositeCurveSegment::get_type_name(@)", header: "StepGeom_ReparametrisedCompositeCurveSegment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepGeom_ReparametrisedCompositeCurveSegment::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepGeom_ReparametrisedCompositeCurveSegment::get_type_name(@)", header: "StepGeom_ReparametrisedCompositeCurveSegment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_ReparametrisedCompositeCurveSegment::get_type_descriptor(@)",
     header: "StepGeom_ReparametrisedCompositeCurveSegment.hxx".}
-proc DynamicType*(this: StepGeom_ReparametrisedCompositeCurveSegment): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepGeom_ReparametrisedCompositeCurveSegment.hxx".}
+proc dynamicType*(this: StepGeomReparametrisedCompositeCurveSegment): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepGeom_ReparametrisedCompositeCurveSegment.hxx".}

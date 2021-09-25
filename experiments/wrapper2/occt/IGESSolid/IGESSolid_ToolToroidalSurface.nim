@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESSolid_ToroidalSurface"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,40 +26,40 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESSolid_ToolToroidalSurface* {.importcpp: "IGESSolid_ToolToroidalSurface",
-                                  header: "IGESSolid_ToolToroidalSurface.hxx",
-                                  bycopy.} = object ## ! Returns a ToolToroidalSurface, ready to work
+  IGESSolidToolToroidalSurface* {.importcpp: "IGESSolid_ToolToroidalSurface",
+                                 header: "IGESSolid_ToolToroidalSurface.hxx",
+                                 bycopy.} = object ## ! Returns a ToolToroidalSurface, ready to work
 
 
-proc constructIGESSolid_ToolToroidalSurface*(): IGESSolid_ToolToroidalSurface {.
+proc constructIGESSolidToolToroidalSurface*(): IGESSolidToolToroidalSurface {.
     constructor, importcpp: "IGESSolid_ToolToroidalSurface(@)",
     header: "IGESSolid_ToolToroidalSurface.hxx".}
-proc ReadOwnParams*(this: IGESSolid_ToolToroidalSurface;
-                   ent: handle[IGESSolid_ToroidalSurface];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESSolid_ToolToroidalSurface.hxx".}
-proc WriteOwnParams*(this: IGESSolid_ToolToroidalSurface;
-                    ent: handle[IGESSolid_ToroidalSurface];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESSolidToolToroidalSurface;
+                   ent: Handle[IGESSolidToroidalSurface];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESSolid_ToolToroidalSurface.hxx".}
+proc writeOwnParams*(this: IGESSolidToolToroidalSurface;
+                    ent: Handle[IGESSolidToroidalSurface];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESSolid_ToolToroidalSurface.hxx".}
-proc OwnShared*(this: IGESSolid_ToolToroidalSurface;
-               ent: handle[IGESSolid_ToroidalSurface];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESSolidToolToroidalSurface;
+               ent: Handle[IGESSolidToroidalSurface];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESSolid_ToolToroidalSurface.hxx".}
-proc DirChecker*(this: IGESSolid_ToolToroidalSurface;
-                ent: handle[IGESSolid_ToroidalSurface]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESSolidToolToroidalSurface;
+                ent: Handle[IGESSolidToroidalSurface]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESSolid_ToolToroidalSurface.hxx".}
-proc OwnCheck*(this: IGESSolid_ToolToroidalSurface;
-              ent: handle[IGESSolid_ToroidalSurface]; shares: Interface_ShareTool;
-              ach: var handle[Interface_Check]) {.noSideEffect,
+proc ownCheck*(this: IGESSolidToolToroidalSurface;
+              ent: Handle[IGESSolidToroidalSurface]; shares: InterfaceShareTool;
+              ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "OwnCheck", header: "IGESSolid_ToolToroidalSurface.hxx".}
-proc OwnCopy*(this: IGESSolid_ToolToroidalSurface;
-             entfrom: handle[IGESSolid_ToroidalSurface];
-             entto: handle[IGESSolid_ToroidalSurface]; TC: var Interface_CopyTool) {.
+proc ownCopy*(this: IGESSolidToolToroidalSurface;
+             entfrom: Handle[IGESSolidToroidalSurface];
+             entto: Handle[IGESSolidToroidalSurface]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESSolid_ToolToroidalSurface.hxx".}
-proc OwnDump*(this: IGESSolid_ToolToroidalSurface;
-             ent: handle[IGESSolid_ToroidalSurface]; dumper: IGESData_IGESDumper;
-             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
-    importcpp: "OwnDump", header: "IGESSolid_ToolToroidalSurface.hxx".}
+proc ownDump*(this: IGESSolidToolToroidalSurface;
+             ent: Handle[IGESSolidToroidalSurface]; dumper: IGESDataIGESDumper;
+             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+    header: "IGESSolid_ToolToroidalSurface.hxx".}

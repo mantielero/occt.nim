@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP214_ApprovalItem, StepAP214_Array1OfApprovalItem,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepAP214_HArray1OfApprovalItem* {.importcpp: "StepAP214_HArray1OfApprovalItem", header: "StepAP214_HArray1OfApprovalItem.hxx",
-                                    bycopy.} = object of StepAP214_Array1OfApprovalItem
+  StepAP214HArray1OfApprovalItem* {.importcpp: "StepAP214_HArray1OfApprovalItem", header: "StepAP214_HArray1OfApprovalItem.hxx",
+                                   bycopy.} = object of StepAP214Array1OfApprovalItem
 
 
-proc constructStepAP214_HArray1OfApprovalItem*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepAP214_HArray1OfApprovalItem {.constructor,
+proc constructStepAP214HArray1OfApprovalItem*(theLower: int; theUpper: int): StepAP214HArray1OfApprovalItem {.
+    constructor, importcpp: "StepAP214_HArray1OfApprovalItem(@)",
+    header: "StepAP214_HArray1OfApprovalItem.hxx".}
+proc constructStepAP214HArray1OfApprovalItem*(theLower: int; theUpper: int;
+    theValue: ValueType): StepAP214HArray1OfApprovalItem {.constructor,
     importcpp: "StepAP214_HArray1OfApprovalItem(@)",
     header: "StepAP214_HArray1OfApprovalItem.hxx".}
-proc constructStepAP214_HArray1OfApprovalItem*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepAP214_HArray1OfApprovalItem {.
+proc constructStepAP214HArray1OfApprovalItem*(
+    theOther: StepAP214Array1OfApprovalItem): StepAP214HArray1OfApprovalItem {.
     constructor, importcpp: "StepAP214_HArray1OfApprovalItem(@)",
     header: "StepAP214_HArray1OfApprovalItem.hxx".}
-proc constructStepAP214_HArray1OfApprovalItem*(
-    theOther: StepAP214_Array1OfApprovalItem): StepAP214_HArray1OfApprovalItem {.
-    constructor, importcpp: "StepAP214_HArray1OfApprovalItem(@)",
-    header: "StepAP214_HArray1OfApprovalItem.hxx".}
-proc Array1*(this: StepAP214_HArray1OfApprovalItem): StepAP214_Array1OfApprovalItem {.
+proc array1*(this: StepAP214HArray1OfApprovalItem): StepAP214Array1OfApprovalItem {.
     noSideEffect, importcpp: "Array1",
     header: "StepAP214_HArray1OfApprovalItem.hxx".}
-proc ChangeArray1*(this: var StepAP214_HArray1OfApprovalItem): var StepAP214_Array1OfApprovalItem {.
+proc changeArray1*(this: var StepAP214HArray1OfApprovalItem): var StepAP214Array1OfApprovalItem {.
     importcpp: "ChangeArray1", header: "StepAP214_HArray1OfApprovalItem.hxx".}
 type
-  StepAP214_HArray1OfApprovalItembase_type* = MMgt_TShared
+  StepAP214HArray1OfApprovalItembaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_HArray1OfApprovalItem::get_type_name(@)",
-                              header: "StepAP214_HArray1OfApprovalItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP214_HArray1OfApprovalItem::get_type_name(@)",
+                            header: "StepAP214_HArray1OfApprovalItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP214_HArray1OfApprovalItem::get_type_descriptor(@)",
     header: "StepAP214_HArray1OfApprovalItem.hxx".}
-proc DynamicType*(this: StepAP214_HArray1OfApprovalItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepAP214HArray1OfApprovalItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_HArray1OfApprovalItem.hxx".}

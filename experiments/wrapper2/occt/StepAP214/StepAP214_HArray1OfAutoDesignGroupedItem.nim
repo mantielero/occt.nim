@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP214_AutoDesignGroupedItem, StepAP214_Array1OfAutoDesignGroupedItem,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepAP214_HArray1OfAutoDesignGroupedItem* {.
+  StepAP214HArray1OfAutoDesignGroupedItem* {.
       importcpp: "StepAP214_HArray1OfAutoDesignGroupedItem",
-      header: "StepAP214_HArray1OfAutoDesignGroupedItem.hxx", bycopy.} = object of StepAP214_Array1OfAutoDesignGroupedItem
+      header: "StepAP214_HArray1OfAutoDesignGroupedItem.hxx", bycopy.} = object of StepAP214Array1OfAutoDesignGroupedItem
 
 
-proc constructStepAP214_HArray1OfAutoDesignGroupedItem*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepAP214_HArray1OfAutoDesignGroupedItem {.
+proc constructStepAP214HArray1OfAutoDesignGroupedItem*(theLower: int; theUpper: int): StepAP214HArray1OfAutoDesignGroupedItem {.
     constructor, importcpp: "StepAP214_HArray1OfAutoDesignGroupedItem(@)",
     header: "StepAP214_HArray1OfAutoDesignGroupedItem.hxx".}
-proc constructStepAP214_HArray1OfAutoDesignGroupedItem*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepAP214_HArray1OfAutoDesignGroupedItem {.
+proc constructStepAP214HArray1OfAutoDesignGroupedItem*(theLower: int;
+    theUpper: int; theValue: ValueType): StepAP214HArray1OfAutoDesignGroupedItem {.
     constructor, importcpp: "StepAP214_HArray1OfAutoDesignGroupedItem(@)",
     header: "StepAP214_HArray1OfAutoDesignGroupedItem.hxx".}
-proc constructStepAP214_HArray1OfAutoDesignGroupedItem*(
-    theOther: StepAP214_Array1OfAutoDesignGroupedItem): StepAP214_HArray1OfAutoDesignGroupedItem {.
+proc constructStepAP214HArray1OfAutoDesignGroupedItem*(
+    theOther: StepAP214Array1OfAutoDesignGroupedItem): StepAP214HArray1OfAutoDesignGroupedItem {.
     constructor, importcpp: "StepAP214_HArray1OfAutoDesignGroupedItem(@)",
     header: "StepAP214_HArray1OfAutoDesignGroupedItem.hxx".}
-proc Array1*(this: StepAP214_HArray1OfAutoDesignGroupedItem): StepAP214_Array1OfAutoDesignGroupedItem {.
+proc array1*(this: StepAP214HArray1OfAutoDesignGroupedItem): StepAP214Array1OfAutoDesignGroupedItem {.
     noSideEffect, importcpp: "Array1",
     header: "StepAP214_HArray1OfAutoDesignGroupedItem.hxx".}
-proc ChangeArray1*(this: var StepAP214_HArray1OfAutoDesignGroupedItem): var StepAP214_Array1OfAutoDesignGroupedItem {.
+proc changeArray1*(this: var StepAP214HArray1OfAutoDesignGroupedItem): var StepAP214Array1OfAutoDesignGroupedItem {.
     importcpp: "ChangeArray1",
     header: "StepAP214_HArray1OfAutoDesignGroupedItem.hxx".}
 type
-  StepAP214_HArray1OfAutoDesignGroupedItembase_type* = MMgt_TShared
+  StepAP214HArray1OfAutoDesignGroupedItembaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_HArray1OfAutoDesignGroupedItem::get_type_name(@)", header: "StepAP214_HArray1OfAutoDesignGroupedItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP214_HArray1OfAutoDesignGroupedItem::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP214_HArray1OfAutoDesignGroupedItem::get_type_name(@)", header: "StepAP214_HArray1OfAutoDesignGroupedItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_HArray1OfAutoDesignGroupedItem::get_type_descriptor(@)",
     header: "StepAP214_HArray1OfAutoDesignGroupedItem.hxx".}
-proc DynamicType*(this: StepAP214_HArray1OfAutoDesignGroupedItem): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepAP214_HArray1OfAutoDesignGroupedItem.hxx".}
+proc dynamicType*(this: StepAP214HArray1OfAutoDesignGroupedItem): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepAP214_HArray1OfAutoDesignGroupedItem.hxx".}

@@ -12,9 +12,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_List, BOPTools_CoupleOfShape
-
 type
-  BOPTools_ListOfCoupleOfShape* = NCollection_List[BOPTools_CoupleOfShape]
-  BOPTools_ListIteratorOfListOfCoupleOfShape* = Iterator
+  BOPToolsListOfCoupleOfShape* = NCollectionList[BOPToolsCoupleOfShape]
+  BOPToolsListIteratorOfListOfCoupleOfShape* = Iterator
+

@@ -13,12 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_PrimitiveTypes
-
 type
-  StepDimTol_AreaUnitType* {.size: sizeof(cint),
-                            importcpp: "StepDimTol_AreaUnitType",
-                            header: "StepDimTol_AreaUnitType.hxx".} = enum
-    StepDimTol_Circular, StepDimTol_Rectangular, StepDimTol_Square
+  StepDimTolAreaUnitType* {.size: sizeof(cint),
+                           importcpp: "StepDimTol_AreaUnitType",
+                           header: "StepDimTol_AreaUnitType.hxx".} = enum
+    StepDimTolCircular, StepDimTolRectangular, StepDimTolSquare
+
 

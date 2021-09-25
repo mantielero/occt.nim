@@ -11,142 +11,137 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  BRepMesh_DiscretRoot, ../IMeshTools/IMeshTools_Parameters,
-  ../IMeshTools/IMeshTools_Context
-
 ## ! Builds the mesh of a shape with respect of their
 ## ! correctly triangulated parts
 
 type
-  BRepMesh_IncrementalMesh* {.importcpp: "BRepMesh_IncrementalMesh",
-                             header: "BRepMesh_IncrementalMesh.hxx", bycopy.} = object of BRepMesh_DiscretRoot ##
-                                                                                                        ## !
-                                                                                                        ## @name
-                                                                                                        ## mesher
-                                                                                                        ## API
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Default
-                                                                                                        ## constructor
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## @name
-                                                                                                        ## accessing
-                                                                                                        ## to
-                                                                                                        ## parameters.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Returns
-                                                                                                        ## meshing
-                                                                                                        ## parameters
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Initializes
-                                                                                                        ## specific
-                                                                                                        ## parameters
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## @name
-                                                                                                        ## plugin
-                                                                                                        ## API
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Plugin
-                                                                                                        ## interface
-                                                                                                        ## for
-                                                                                                        ## the
-                                                                                                        ## Mesh
-                                                                                                        ## Factories.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Initializes
-                                                                                                        ## meshing
-                                                                                                        ## algorithm
-                                                                                                        ## with
-                                                                                                        ## the
-                                                                                                        ## given
-                                                                                                        ## parameters.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## @param
-                                                                                                        ## theShape
-                                                                                                        ## shape
-                                                                                                        ## to
-                                                                                                        ## be
-                                                                                                        ## meshed.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## @param
-                                                                                                        ## theLinDeflection
-                                                                                                        ## linear
-                                                                                                        ## deflection.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## @param
-                                                                                                        ## theAngDeflection
-                                                                                                        ## angular
-                                                                                                        ## deflection.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## @param[out]
-                                                                                                        ## theAlgo
-                                                                                                        ## pointer
-                                                                                                        ## to
-                                                                                                        ## initialized
-                                                                                                        ## algorithm.
+  BRepMeshIncrementalMesh* {.importcpp: "BRepMesh_IncrementalMesh",
+                            header: "BRepMesh_IncrementalMesh.hxx", bycopy.} = object of BRepMeshDiscretRoot ##
+                                                                                                      ## !
+                                                                                                      ## @name
+                                                                                                      ## mesher
+                                                                                                      ## API
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Default
+                                                                                                      ## constructor
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## @name
+                                                                                                      ## accessing
+                                                                                                      ## to
+                                                                                                      ## parameters.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Returns
+                                                                                                      ## meshing
+                                                                                                      ## parameters
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Initializes
+                                                                                                      ## specific
+                                                                                                      ## parameters
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## @name
+                                                                                                      ## plugin
+                                                                                                      ## API
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Plugin
+                                                                                                      ## interface
+                                                                                                      ## for
+                                                                                                      ## the
+                                                                                                      ## Mesh
+                                                                                                      ## Factories.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Initializes
+                                                                                                      ## meshing
+                                                                                                      ## algorithm
+                                                                                                      ## with
+                                                                                                      ## the
+                                                                                                      ## given
+                                                                                                      ## parameters.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## @param
+                                                                                                      ## theShape
+                                                                                                      ## shape
+                                                                                                      ## to
+                                                                                                      ## be
+                                                                                                      ## meshed.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## @param
+                                                                                                      ## theLinDeflection
+                                                                                                      ## linear
+                                                                                                      ## deflection.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## @param
+                                                                                                      ## theAngDeflection
+                                                                                                      ## angular
+                                                                                                      ## deflection.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## @param[out]
+                                                                                                      ## theAlgo
+                                                                                                      ## pointer
+                                                                                                      ## to
+                                                                                                      ## initialized
+                                                                                                      ## algorithm.
 
 
-proc constructBRepMesh_IncrementalMesh*(): BRepMesh_IncrementalMesh {.constructor,
+proc constructBRepMeshIncrementalMesh*(): BRepMeshIncrementalMesh {.constructor,
     importcpp: "BRepMesh_IncrementalMesh(@)",
     header: "BRepMesh_IncrementalMesh.hxx".}
-proc destroyBRepMesh_IncrementalMesh*(this: var BRepMesh_IncrementalMesh) {.
+proc destroyBRepMeshIncrementalMesh*(this: var BRepMeshIncrementalMesh) {.
     importcpp: "#.~BRepMesh_IncrementalMesh()",
     header: "BRepMesh_IncrementalMesh.hxx".}
-proc constructBRepMesh_IncrementalMesh*(theShape: TopoDS_Shape;
-                                       theLinDeflection: Standard_Real; isRelative: Standard_Boolean = Standard_False;
-                                       theAngDeflection: Standard_Real = 0.5;
-    isInParallel: Standard_Boolean = Standard_False): BRepMesh_IncrementalMesh {.
+proc constructBRepMeshIncrementalMesh*(theShape: TopoDS_Shape;
+                                      theLinDeflection: float;
+                                      isRelative: bool = false;
+                                      theAngDeflection: float = 0.5;
+                                      isInParallel: bool = false): BRepMeshIncrementalMesh {.
     constructor, importcpp: "BRepMesh_IncrementalMesh(@)",
     header: "BRepMesh_IncrementalMesh.hxx".}
-proc constructBRepMesh_IncrementalMesh*(theShape: TopoDS_Shape;
-                                       theParameters: IMeshTools_Parameters;
-    theRange: Message_ProgressRange = Message_ProgressRange()): BRepMesh_IncrementalMesh {.
+proc constructBRepMeshIncrementalMesh*(theShape: TopoDS_Shape;
+                                      theParameters: IMeshToolsParameters;
+    theRange: MessageProgressRange = messageProgressRange()): BRepMeshIncrementalMesh {.
     constructor, importcpp: "BRepMesh_IncrementalMesh(@)",
     header: "BRepMesh_IncrementalMesh.hxx".}
-proc Perform*(this: var BRepMesh_IncrementalMesh;
-             theRange: Message_ProgressRange = Message_ProgressRange()) {.
+proc perform*(this: var BRepMeshIncrementalMesh;
+             theRange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Perform", header: "BRepMesh_IncrementalMesh.hxx".}
-proc Perform*(this: var BRepMesh_IncrementalMesh;
-             theContext: handle[IMeshTools_Context];
-             theRange: Message_ProgressRange = Message_ProgressRange()) {.
+proc perform*(this: var BRepMeshIncrementalMesh;
+             theContext: Handle[IMeshToolsContext];
+             theRange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Perform", header: "BRepMesh_IncrementalMesh.hxx".}
-proc Parameters*(this: BRepMesh_IncrementalMesh): IMeshTools_Parameters {.
+proc parameters*(this: BRepMeshIncrementalMesh): IMeshToolsParameters {.
     noSideEffect, importcpp: "Parameters", header: "BRepMesh_IncrementalMesh.hxx".}
-proc ChangeParameters*(this: var BRepMesh_IncrementalMesh): var IMeshTools_Parameters {.
+proc changeParameters*(this: var BRepMeshIncrementalMesh): var IMeshToolsParameters {.
     importcpp: "ChangeParameters", header: "BRepMesh_IncrementalMesh.hxx".}
-proc IsModified*(this: BRepMesh_IncrementalMesh): Standard_Boolean {.noSideEffect,
+proc isModified*(this: BRepMeshIncrementalMesh): bool {.noSideEffect,
     importcpp: "IsModified", header: "BRepMesh_IncrementalMesh.hxx".}
-proc GetStatusFlags*(this: BRepMesh_IncrementalMesh): Standard_Integer {.
-    noSideEffect, importcpp: "GetStatusFlags",
-    header: "BRepMesh_IncrementalMesh.hxx".}
-proc Discret*(theShape: TopoDS_Shape; theLinDeflection: Standard_Real;
-             theAngDeflection: Standard_Real; theAlgo: ptr BRepMesh_DiscretRoot): Standard_Integer {.
+proc getStatusFlags*(this: BRepMeshIncrementalMesh): int {.noSideEffect,
+    importcpp: "GetStatusFlags", header: "BRepMesh_IncrementalMesh.hxx".}
+proc discret*(theShape: TopoDS_Shape; theLinDeflection: float;
+             theAngDeflection: float; theAlgo: ptr BRepMeshDiscretRoot): int {.
     importcpp: "BRepMesh_IncrementalMesh::Discret(@)",
     header: "BRepMesh_IncrementalMesh.hxx".}
-proc IsParallelDefault*(): Standard_Boolean {.
-    importcpp: "BRepMesh_IncrementalMesh::IsParallelDefault(@)",
-    header: "BRepMesh_IncrementalMesh.hxx".}
-proc SetParallelDefault*(isInParallel: Standard_Boolean) {.
+proc isParallelDefault*(): bool {.importcpp: "BRepMesh_IncrementalMesh::IsParallelDefault(@)",
+                               header: "BRepMesh_IncrementalMesh.hxx".}
+proc setParallelDefault*(isInParallel: bool) {.
     importcpp: "BRepMesh_IncrementalMesh::SetParallelDefault(@)",
     header: "BRepMesh_IncrementalMesh.hxx".}
 type
-  BRepMesh_IncrementalMeshbase_type* = BRepMesh_DiscretRoot
+  BRepMeshIncrementalMeshbaseType* = BRepMeshDiscretRoot
 
-proc get_type_name*(): cstring {.importcpp: "BRepMesh_IncrementalMesh::get_type_name(@)",
-                              header: "BRepMesh_IncrementalMesh.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepMesh_IncrementalMesh::get_type_name(@)",
+                            header: "BRepMesh_IncrementalMesh.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepMesh_IncrementalMesh::get_type_descriptor(@)",
     header: "BRepMesh_IncrementalMesh.hxx".}
-proc DynamicType*(this: BRepMesh_IncrementalMesh): handle[Standard_Type] {.
+proc dynamicType*(this: BRepMeshIncrementalMesh): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BRepMesh_IncrementalMesh.hxx".}

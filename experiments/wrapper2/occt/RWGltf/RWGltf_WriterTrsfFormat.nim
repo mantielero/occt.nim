@@ -14,16 +14,17 @@
 ## ! Transformation format.
 
 type
-  RWGltf_WriterTrsfFormat* {.size: sizeof(cint),
-                            importcpp: "RWGltf_WriterTrsfFormat",
-                            header: "RWGltf_WriterTrsfFormat.hxx".} = enum
-    RWGltf_WriterTrsfFormat_Compact = 0, ## !< automatically choose most compact representation between Mat4 and TRS
-    RWGltf_WriterTrsfFormat_Mat4 = 1, ## !< 4x4 transformation Matrix
-    RWGltf_WriterTrsfFormat_TRS = 2 ## !< transformation decomposed into Translation vector, Rotation quaternion and Scale factor (T * R * S)
+  RWGltfWriterTrsfFormat* {.size: sizeof(cint),
+                           importcpp: "RWGltf_WriterTrsfFormat",
+                           header: "RWGltf_WriterTrsfFormat.hxx".} = enum
+    RWGltfWriterTrsfFormatCompact = 0, ## !< automatically choose most compact representation between Mat4 and TRS
+    RWGltfWriterTrsfFormatMat4 = 1, ## !< 4x4 transformation Matrix
+    RWGltfWriterTrsfFormatTRS = 2 ## !< transformation decomposed into Translation vector, Rotation quaternion and Scale factor (T * R * S)
 
 
 const
-  RWGltf_WriterTrsfFormat_LOWER* = 0
-  RWGltf_WriterTrsfFormat_UPPER* = RWGltf_WriterTrsfFormat_TRS
+  RWGltfWriterTrsfFormatLOWER* = 0
+  RWGltfWriterTrsfFormatUPPER* = rWGltfWriterTrsfFormatTRS
 
 ##  aliases
+

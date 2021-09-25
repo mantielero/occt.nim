@@ -13,35 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepDimTol_GeometricTolerance
-
 discard "forward decl of StepDimTol_PositionTolerance"
 discard "forward decl of StepDimTol_PositionTolerance"
 type
-  Handle_StepDimTol_PositionTolerance* = handle[StepDimTol_PositionTolerance]
+  HandleStepDimTolPositionTolerance* = Handle[StepDimTolPositionTolerance]
 
 ## ! Representation of STEP entity PositionTolerance
 
 type
-  StepDimTol_PositionTolerance* {.importcpp: "StepDimTol_PositionTolerance",
-                                 header: "StepDimTol_PositionTolerance.hxx",
-                                 bycopy.} = object of StepDimTol_GeometricTolerance ## !
-                                                                               ## Empty
-                                                                               ## constructor
+  StepDimTolPositionTolerance* {.importcpp: "StepDimTol_PositionTolerance",
+                                header: "StepDimTol_PositionTolerance.hxx", bycopy.} = object of StepDimTolGeometricTolerance ##
+                                                                                                                       ## !
+                                                                                                                       ## Empty
+                                                                                                                       ## constructor
 
 
-proc constructStepDimTol_PositionTolerance*(): StepDimTol_PositionTolerance {.
+proc constructStepDimTolPositionTolerance*(): StepDimTolPositionTolerance {.
     constructor, importcpp: "StepDimTol_PositionTolerance(@)",
     header: "StepDimTol_PositionTolerance.hxx".}
 type
-  StepDimTol_PositionTolerancebase_type* = StepDimTol_GeometricTolerance
+  StepDimTolPositionTolerancebaseType* = StepDimTolGeometricTolerance
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_PositionTolerance::get_type_name(@)",
-                              header: "StepDimTol_PositionTolerance.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_PositionTolerance::get_type_name(@)",
+                            header: "StepDimTol_PositionTolerance.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_PositionTolerance::get_type_descriptor(@)",
     header: "StepDimTol_PositionTolerance.hxx".}
-proc DynamicType*(this: StepDimTol_PositionTolerance): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolPositionTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_PositionTolerance.hxx".}

@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IFSelect_GeneralModifier, ../NCollection/NCollection_Sequence
-
 type
-  IFSelect_SequenceOfGeneralModifier* = NCollection_Sequence[
-      handle[IFSelect_GeneralModifier]]
+  IFSelectSequenceOfGeneralModifier* = NCollectionSequence[
+      Handle[IFSelectGeneralModifier]]
+

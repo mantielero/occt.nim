@@ -14,41 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_RepresentationItem"
 discard "forward decl of StepRepr_RepresentationItem"
 type
-  Handle_StepRepr_RepresentationItem* = handle[StepRepr_RepresentationItem]
-  StepRepr_RepresentationItem* {.importcpp: "StepRepr_RepresentationItem",
-                                header: "StepRepr_RepresentationItem.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                            ## !
-                                                                                                            ## Returns
-                                                                                                            ## a
-                                                                                                            ## RepresentationItem
+  HandleStepReprRepresentationItem* = Handle[StepReprRepresentationItem]
+  StepReprRepresentationItem* {.importcpp: "StepRepr_RepresentationItem",
+                               header: "StepRepr_RepresentationItem.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                          ## !
+                                                                                                          ## Returns
+                                                                                                          ## a
+                                                                                                          ## RepresentationItem
 
 
-proc constructStepRepr_RepresentationItem*(): StepRepr_RepresentationItem {.
+proc constructStepReprRepresentationItem*(): StepReprRepresentationItem {.
     constructor, importcpp: "StepRepr_RepresentationItem(@)",
     header: "StepRepr_RepresentationItem.hxx".}
-proc Init*(this: var StepRepr_RepresentationItem;
-          aName: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepReprRepresentationItem;
+          aName: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepRepr_RepresentationItem.hxx".}
-proc SetName*(this: var StepRepr_RepresentationItem;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepReprRepresentationItem;
+             aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepRepr_RepresentationItem.hxx".}
-proc Name*(this: StepRepr_RepresentationItem): handle[TCollection_HAsciiString] {.
+proc name*(this: StepReprRepresentationItem): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepRepr_RepresentationItem.hxx".}
 type
-  StepRepr_RepresentationItembase_type* = Standard_Transient
+  StepReprRepresentationItembaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_RepresentationItem::get_type_name(@)",
-                              header: "StepRepr_RepresentationItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_RepresentationItem::get_type_name(@)",
+                            header: "StepRepr_RepresentationItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_RepresentationItem::get_type_descriptor(@)",
     header: "StepRepr_RepresentationItem.hxx".}
-proc DynamicType*(this: StepRepr_RepresentationItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprRepresentationItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_RepresentationItem.hxx".}

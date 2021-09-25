@@ -13,35 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepDimTol_DatumTarget
-
 discard "forward decl of StepDimTol_PlacedDatumTargetFeature"
 discard "forward decl of StepDimTol_PlacedDatumTargetFeature"
 type
-  Handle_StepDimTol_PlacedDatumTargetFeature* = handle[
-      StepDimTol_PlacedDatumTargetFeature]
+  HandleStepDimTolPlacedDatumTargetFeature* = Handle[
+      StepDimTolPlacedDatumTargetFeature]
 
 ## ! Representation of STEP entity PlacedDatumTargetFeature
 
 type
-  StepDimTol_PlacedDatumTargetFeature* {.importcpp: "StepDimTol_PlacedDatumTargetFeature", header: "StepDimTol_PlacedDatumTargetFeature.hxx",
-                                        bycopy.} = object of StepDimTol_DatumTarget ## !
-                                                                               ## Empty
-                                                                               ## constructor
+  StepDimTolPlacedDatumTargetFeature* {.importcpp: "StepDimTol_PlacedDatumTargetFeature", header: "StepDimTol_PlacedDatumTargetFeature.hxx",
+                                       bycopy.} = object of StepDimTolDatumTarget ## !
+                                                                             ## Empty
+                                                                             ## constructor
 
 
-proc constructStepDimTol_PlacedDatumTargetFeature*(): StepDimTol_PlacedDatumTargetFeature {.
+proc constructStepDimTolPlacedDatumTargetFeature*(): StepDimTolPlacedDatumTargetFeature {.
     constructor, importcpp: "StepDimTol_PlacedDatumTargetFeature(@)",
     header: "StepDimTol_PlacedDatumTargetFeature.hxx".}
 type
-  StepDimTol_PlacedDatumTargetFeaturebase_type* = StepDimTol_DatumTarget
+  StepDimTolPlacedDatumTargetFeaturebaseType* = StepDimTolDatumTarget
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_PlacedDatumTargetFeature::get_type_name(@)",
-                              header: "StepDimTol_PlacedDatumTargetFeature.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_PlacedDatumTargetFeature::get_type_name(@)",
+                            header: "StepDimTol_PlacedDatumTargetFeature.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_PlacedDatumTargetFeature::get_type_descriptor(@)",
     header: "StepDimTol_PlacedDatumTargetFeature.hxx".}
-proc DynamicType*(this: StepDimTol_PlacedDatumTargetFeature): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolPlacedDatumTargetFeature): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_PlacedDatumTargetFeature.hxx".}

@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepGeom_KnotType* {.size: sizeof(cint), importcpp: "StepGeom_KnotType",
-                      header: "StepGeom_KnotType.hxx".} = enum
-    StepGeom_ktUniformKnots, StepGeom_ktUnspecified, StepGeom_ktQuasiUniformKnots,
-    StepGeom_ktPiecewiseBezierKnots
+  StepGeomKnotType* {.size: sizeof(cint), importcpp: "StepGeom_KnotType",
+                     header: "StepGeom_KnotType.hxx".} = enum
+    StepGeomKtUniformKnots, StepGeomKtUnspecified, StepGeomKtQuasiUniformKnots,
+    StepGeomKtPiecewiseBezierKnots
+
 

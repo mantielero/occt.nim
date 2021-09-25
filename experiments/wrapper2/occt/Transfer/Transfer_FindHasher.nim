@@ -14,30 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Transfer_Finder"
 type
-  Transfer_FindHasher* {.importcpp: "Transfer_FindHasher",
-                        header: "Transfer_FindHasher.hxx", bycopy.} = object ## ! Returns hash code for the given finder, in the range [1,
-                                                                        ## theUpperBound].
-                                                                        ## ! Asks the finder its hash code, then
-                                                                        ## transforms it to be in the required range
-                                                                        ## ! @param
-                                                                        ## theFinder the finder which hash code is to be computed
-                                                                        ## ! @param
-                                                                        ## theUpperBound the upper bound of the range a
-                                                                        ## computing hash code must be within
-                                                                        ## ! @return a computed hash code, in the range [1,
-                                                                        ## theUpperBound]
+  TransferFindHasher* {.importcpp: "Transfer_FindHasher",
+                       header: "Transfer_FindHasher.hxx", bycopy.} = object ## ! Returns hash code for the given finder, in the range [1,
+                                                                       ## theUpperBound].
+                                                                       ## ! Asks the finder its hash code, then
+                                                                       ## transforms it to be in the required range
+                                                                       ## ! @param theFinder the finder which hash code is to be computed
+                                                                       ## ! @param
+                                                                       ## theUpperBound the upper bound of the range a computing hash code must be within
+                                                                       ## ! @return a computed hash code, in the range [1,
+                                                                       ## theUpperBound]
 
 
-proc HashCode*(theFinder: handle[Transfer_Finder]; theUpperBound: Standard_Integer): Standard_Integer {.
+proc hashCode*(theFinder: Handle[TransferFinder]; theUpperBound: int): int {.
     importcpp: "Transfer_FindHasher::HashCode(@)",
     header: "Transfer_FindHasher.hxx".}
-proc IsEqual*(K1: handle[Transfer_Finder]; K2: handle[Transfer_Finder]): Standard_Boolean {.
+proc isEqual*(k1: Handle[TransferFinder]; k2: Handle[TransferFinder]): bool {.
     importcpp: "Transfer_FindHasher::IsEqual(@)",
     header: "Transfer_FindHasher.hxx".}

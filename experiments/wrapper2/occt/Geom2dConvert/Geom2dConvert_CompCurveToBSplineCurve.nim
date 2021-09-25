@@ -14,15 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Convert/Convert_ParameterisationType, ../Standard/Standard_Boolean
-
 discard "forward decl of Geom2d_BSplineCurve"
 discard "forward decl of Geom2d_BoundedCurve"
 type
-  Geom2dConvert_CompCurveToBSplineCurve* {.
+  Geom2dConvertCompCurveToBSplineCurve* {.
       importcpp: "Geom2dConvert_CompCurveToBSplineCurve",
       header: "Geom2dConvert_CompCurveToBSplineCurve.hxx", bycopy.} = object ## !
                                                                         ## Initialize the
@@ -33,21 +28,20 @@ type
                                                                         ## BSplineCurves.
 
 
-proc constructGeom2dConvert_CompCurveToBSplineCurve*(
-    Parameterisation: Convert_ParameterisationType = Convert_TgtThetaOver2): Geom2dConvert_CompCurveToBSplineCurve {.
+proc constructGeom2dConvertCompCurveToBSplineCurve*(
+    parameterisation: ConvertParameterisationType = convertTgtThetaOver2): Geom2dConvertCompCurveToBSplineCurve {.
     constructor, importcpp: "Geom2dConvert_CompCurveToBSplineCurve(@)",
     header: "Geom2dConvert_CompCurveToBSplineCurve.hxx".}
-proc constructGeom2dConvert_CompCurveToBSplineCurve*(
-    BasisCurve: handle[Geom2d_BoundedCurve];
-    Parameterisation: Convert_ParameterisationType = Convert_TgtThetaOver2): Geom2dConvert_CompCurveToBSplineCurve {.
+proc constructGeom2dConvertCompCurveToBSplineCurve*(
+    basisCurve: Handle[Geom2dBoundedCurve];
+    parameterisation: ConvertParameterisationType = convertTgtThetaOver2): Geom2dConvertCompCurveToBSplineCurve {.
     constructor, importcpp: "Geom2dConvert_CompCurveToBSplineCurve(@)",
     header: "Geom2dConvert_CompCurveToBSplineCurve.hxx".}
-proc Add*(this: var Geom2dConvert_CompCurveToBSplineCurve;
-         NewCurve: handle[Geom2d_BoundedCurve]; Tolerance: Standard_Real;
-         After: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc add*(this: var Geom2dConvertCompCurveToBSplineCurve;
+         newCurve: Handle[Geom2dBoundedCurve]; tolerance: float; after: bool = false): bool {.
     importcpp: "Add", header: "Geom2dConvert_CompCurveToBSplineCurve.hxx".}
-proc BSplineCurve*(this: Geom2dConvert_CompCurveToBSplineCurve): handle[
-    Geom2d_BSplineCurve] {.noSideEffect, importcpp: "BSplineCurve",
-                          header: "Geom2dConvert_CompCurveToBSplineCurve.hxx".}
-proc Clear*(this: var Geom2dConvert_CompCurveToBSplineCurve) {.importcpp: "Clear",
+proc bSplineCurve*(this: Geom2dConvertCompCurveToBSplineCurve): Handle[
+    Geom2dBSplineCurve] {.noSideEffect, importcpp: "BSplineCurve",
+                         header: "Geom2dConvert_CompCurveToBSplineCurve.hxx".}
+proc clear*(this: var Geom2dConvertCompCurveToBSplineCurve) {.importcpp: "Clear",
     header: "Geom2dConvert_CompCurveToBSplineCurve.hxx".}

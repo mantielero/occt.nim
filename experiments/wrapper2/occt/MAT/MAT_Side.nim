@@ -20,3 +20,4 @@ type
   MAT_Side* {.size: sizeof(cint), importcpp: "MAT_Side", header: "MAT_Side.hxx".} = enum
     MAT_Left, MAT_Right
 
+

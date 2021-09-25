@@ -11,5 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _AIS_TangentRelation_HeaderFile [NewLine] # _AIS_TangentRelation_HeaderFile [NewLine] # ../PrsDim/PrsDim_TangentRelation.hxx [NewLine] Standard_DEPRECATED ( Deprecated alias to moved class ) typedef PrsDim_TangentRelation AIS_TangentRelation ;
+## !!!Ignored construct:  # _AIS_TangentRelation_HeaderFile [NewLine] # _AIS_TangentRelation_HeaderFile [NewLine] # < PrsDim_TangentRelation . hxx > [NewLine] Standard_DEPRECATED ( Deprecated alias to moved class ) typedef PrsDim_TangentRelation AIS_TangentRelation ;
 ## Error: expected ';'!!!
+

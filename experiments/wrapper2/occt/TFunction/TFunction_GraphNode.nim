@@ -13,12 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_MapOfInteger, TFunction_ExecutionStatus,
-  ../TDF/TDF_Attribute, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../Standard/Standard_OStream
-
 discard "forward decl of TDF_Label"
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Attribute"
@@ -27,93 +21,93 @@ discard "forward decl of TDF_DataSet"
 discard "forward decl of TFunction_GraphNode"
 discard "forward decl of TFunction_GraphNode"
 type
-  Handle_TFunction_GraphNode* = handle[TFunction_GraphNode]
+  HandleTFunctionGraphNode* = Handle[TFunctionGraphNode]
 
 ## ! Provides links between functions.
 
 type
-  TFunction_GraphNode* {.importcpp: "TFunction_GraphNode",
-                        header: "TFunction_GraphNode.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                       ## !
-                                                                                       ## Static
-                                                                                       ## methods
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## ==============
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Finds
-                                                                                       ## or
-                                                                                       ## Creates
-                                                                                       ## a
-                                                                                       ## graph
-                                                                                       ## node
-                                                                                       ## attribute
-                                                                                       ## at
-                                                                                       ## the
-                                                                                       ## label
-                                                                                       ## <L>.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Returns
-                                                                                       ## the
-                                                                                       ## attribute.
+  TFunctionGraphNode* {.importcpp: "TFunction_GraphNode",
+                       header: "TFunction_GraphNode.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                      ## !
+                                                                                      ## Static
+                                                                                      ## methods
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## ==============
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Finds
+                                                                                      ## or
+                                                                                      ## Creates
+                                                                                      ## a
+                                                                                      ## graph
+                                                                                      ## node
+                                                                                      ## attribute
+                                                                                      ## at
+                                                                                      ## the
+                                                                                      ## label
+                                                                                      ## <L>.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## the
+                                                                                      ## attribute.
 
 
-proc Set*(L: TDF_Label): handle[TFunction_GraphNode] {.
+proc set*(L: TDF_Label): Handle[TFunctionGraphNode] {.
     importcpp: "TFunction_GraphNode::Set(@)", header: "TFunction_GraphNode.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "TFunction_GraphNode::GetID(@)",
-                            header: "TFunction_GraphNode.hxx".}
-proc constructTFunction_GraphNode*(): TFunction_GraphNode {.constructor,
+proc getID*(): StandardGUID {.importcpp: "TFunction_GraphNode::GetID(@)",
+                           header: "TFunction_GraphNode.hxx".}
+proc constructTFunctionGraphNode*(): TFunctionGraphNode {.constructor,
     importcpp: "TFunction_GraphNode(@)", header: "TFunction_GraphNode.hxx".}
-proc AddPrevious*(this: var TFunction_GraphNode; funcID: Standard_Integer): Standard_Boolean {.
+proc addPrevious*(this: var TFunctionGraphNode; funcID: int): bool {.
     importcpp: "AddPrevious", header: "TFunction_GraphNode.hxx".}
-proc AddPrevious*(this: var TFunction_GraphNode; `func`: TDF_Label): Standard_Boolean {.
+proc addPrevious*(this: var TFunctionGraphNode; `func`: TDF_Label): bool {.
     importcpp: "AddPrevious", header: "TFunction_GraphNode.hxx".}
-proc RemovePrevious*(this: var TFunction_GraphNode; funcID: Standard_Integer): Standard_Boolean {.
+proc removePrevious*(this: var TFunctionGraphNode; funcID: int): bool {.
     importcpp: "RemovePrevious", header: "TFunction_GraphNode.hxx".}
-proc RemovePrevious*(this: var TFunction_GraphNode; `func`: TDF_Label): Standard_Boolean {.
+proc removePrevious*(this: var TFunctionGraphNode; `func`: TDF_Label): bool {.
     importcpp: "RemovePrevious", header: "TFunction_GraphNode.hxx".}
-proc GetPrevious*(this: TFunction_GraphNode): TColStd_MapOfInteger {.noSideEffect,
+proc getPrevious*(this: TFunctionGraphNode): TColStdMapOfInteger {.noSideEffect,
     importcpp: "GetPrevious", header: "TFunction_GraphNode.hxx".}
-proc RemoveAllPrevious*(this: var TFunction_GraphNode) {.
+proc removeAllPrevious*(this: var TFunctionGraphNode) {.
     importcpp: "RemoveAllPrevious", header: "TFunction_GraphNode.hxx".}
-proc AddNext*(this: var TFunction_GraphNode; funcID: Standard_Integer): Standard_Boolean {.
+proc addNext*(this: var TFunctionGraphNode; funcID: int): bool {.importcpp: "AddNext",
+    header: "TFunction_GraphNode.hxx".}
+proc addNext*(this: var TFunctionGraphNode; `func`: TDF_Label): bool {.
     importcpp: "AddNext", header: "TFunction_GraphNode.hxx".}
-proc AddNext*(this: var TFunction_GraphNode; `func`: TDF_Label): Standard_Boolean {.
-    importcpp: "AddNext", header: "TFunction_GraphNode.hxx".}
-proc RemoveNext*(this: var TFunction_GraphNode; funcID: Standard_Integer): Standard_Boolean {.
+proc removeNext*(this: var TFunctionGraphNode; funcID: int): bool {.
     importcpp: "RemoveNext", header: "TFunction_GraphNode.hxx".}
-proc RemoveNext*(this: var TFunction_GraphNode; `func`: TDF_Label): Standard_Boolean {.
+proc removeNext*(this: var TFunctionGraphNode; `func`: TDF_Label): bool {.
     importcpp: "RemoveNext", header: "TFunction_GraphNode.hxx".}
-proc GetNext*(this: TFunction_GraphNode): TColStd_MapOfInteger {.noSideEffect,
+proc getNext*(this: TFunctionGraphNode): TColStdMapOfInteger {.noSideEffect,
     importcpp: "GetNext", header: "TFunction_GraphNode.hxx".}
-proc RemoveAllNext*(this: var TFunction_GraphNode) {.importcpp: "RemoveAllNext",
+proc removeAllNext*(this: var TFunctionGraphNode) {.importcpp: "RemoveAllNext",
     header: "TFunction_GraphNode.hxx".}
-proc GetStatus*(this: TFunction_GraphNode): TFunction_ExecutionStatus {.
-    noSideEffect, importcpp: "GetStatus", header: "TFunction_GraphNode.hxx".}
-proc SetStatus*(this: var TFunction_GraphNode; status: TFunction_ExecutionStatus) {.
+proc getStatus*(this: TFunctionGraphNode): TFunctionExecutionStatus {.noSideEffect,
+    importcpp: "GetStatus", header: "TFunction_GraphNode.hxx".}
+proc setStatus*(this: var TFunctionGraphNode; status: TFunctionExecutionStatus) {.
     importcpp: "SetStatus", header: "TFunction_GraphNode.hxx".}
-proc ID*(this: TFunction_GraphNode): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TFunctionGraphNode): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TFunction_GraphNode.hxx".}
-proc Restore*(this: var TFunction_GraphNode; with: handle[TDF_Attribute]) {.
+proc restore*(this: var TFunctionGraphNode; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TFunction_GraphNode.hxx".}
-proc Paste*(this: TFunction_GraphNode; into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TFunctionGraphNode; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TFunction_GraphNode.hxx".}
-proc NewEmpty*(this: TFunction_GraphNode): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TFunctionGraphNode): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TFunction_GraphNode.hxx".}
-proc References*(this: TFunction_GraphNode; aDataSet: handle[TDF_DataSet]) {.
+proc references*(this: TFunctionGraphNode; aDataSet: Handle[TDF_DataSet]) {.
     noSideEffect, importcpp: "References", header: "TFunction_GraphNode.hxx".}
-proc Dump*(this: TFunction_GraphNode; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TFunctionGraphNode; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TFunction_GraphNode.hxx".}
 type
-  TFunction_GraphNodebase_type* = TDF_Attribute
+  TFunctionGraphNodebaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TFunction_GraphNode::get_type_name(@)",
-                              header: "TFunction_GraphNode.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TFunction_GraphNode::get_type_name(@)",
+                            header: "TFunction_GraphNode.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TFunction_GraphNode::get_type_descriptor(@)",
     header: "TFunction_GraphNode.hxx".}
-proc DynamicType*(this: TFunction_GraphNode): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TFunctionGraphNode): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TFunction_GraphNode.hxx".}

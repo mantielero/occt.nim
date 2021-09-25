@@ -14,4 +14,5 @@
 
 discard "forward decl of BOPAlgo_Section"
 type
-  BOPAlgo_PSection* = ptr BOPAlgo_Section
+  BOPAlgoPSection* = ptr BOPAlgoSection
+

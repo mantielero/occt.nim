@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Storage_BaseDriver, Storage_HArrayOfSchema, Storage_InternalData,
-  Storage_MapOfCallBack, Storage_SolveMode,
-  ../TCollection/TCollection_AsciiString,
-  ../TColStd/TColStd_SequenceOfAsciiString,
-  ../TColStd/TColStd_HSequenceOfAsciiString
-
 discard "forward decl of Storage_CallBack"
 discard "forward decl of Storage_StreamFormatError"
 discard "forward decl of TCollection_AsciiString"
@@ -33,7 +26,7 @@ discard "forward decl of Standard_Persistent"
 discard "forward decl of Storage_Schema"
 discard "forward decl of Storage_Schema"
 type
-  Handle_Storage_Schema* = handle[Storage_Schema]
+  HandleStorageSchema* = Handle[StorageSchema]
 
 ## ! Root class for basic storage/retrieval algorithms.
 ## ! A Storage_Schema object processes:
@@ -60,146 +53,146 @@ type
 ## ! between containers.
 
 type
-  Storage_Schema* {.importcpp: "Storage_Schema", header: "Storage_Schema.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                             ## !
-                                                                                                             ## Builds
-                                                                                                             ## a
-                                                                                                             ## storage/retrieval
-                                                                                                             ## algorithm
-                                                                                                             ## based
-                                                                                                             ## on
-                                                                                                             ## a
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## given
-                                                                                                             ## data
-                                                                                                             ## schema.
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## Example
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## For
-                                                                                                             ## example,
-                                                                                                             ## if
-                                                                                                             ## ShapeSchema
-                                                                                                             ## is
-                                                                                                             ## the
-                                                                                                             ## class
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## inheriting
-                                                                                                             ## from
-                                                                                                             ## Storage_Schema
-                                                                                                             ## and
-                                                                                                             ## containing
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## the
-                                                                                                             ## description
-                                                                                                             ## of
-                                                                                                             ## your
-                                                                                                             ## application
-                                                                                                             ## data
-                                                                                                             ## schema,
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## you
-                                                                                                             ## create
-                                                                                                             ## a
-                                                                                                             ## storage/retrieval
-                                                                                                             ## algorithm
-                                                                                                             ## as
-                                                                                                             ## follows:
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## Handle(ShapeSchema)
-                                                                                                             ## s
-                                                                                                             ## =
-                                                                                                             ## new
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## ShapeSchema;
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## --------
-                                                                                                             ## --
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## USER
-                                                                                                             ## API
-                                                                                                             ## --
-                                                                                                             ## --------------------------------------------------------------
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## --------
-                                                                                                             ## --
+  StorageSchema* {.importcpp: "Storage_Schema", header: "Storage_Schema.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                           ## !
+                                                                                                           ## Builds
+                                                                                                           ## a
+                                                                                                           ## storage/retrieval
+                                                                                                           ## algorithm
+                                                                                                           ## based
+                                                                                                           ## on
+                                                                                                           ## a
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## given
+                                                                                                           ## data
+                                                                                                           ## schema.
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## Example
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## For
+                                                                                                           ## example,
+                                                                                                           ## if
+                                                                                                           ## ShapeSchema
+                                                                                                           ## is
+                                                                                                           ## the
+                                                                                                           ## class
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## inheriting
+                                                                                                           ## from
+                                                                                                           ## Storage_Schema
+                                                                                                           ## and
+                                                                                                           ## containing
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## the
+                                                                                                           ## description
+                                                                                                           ## of
+                                                                                                           ## your
+                                                                                                           ## application
+                                                                                                           ## data
+                                                                                                           ## schema,
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## you
+                                                                                                           ## create
+                                                                                                           ## a
+                                                                                                           ## storage/retrieval
+                                                                                                           ## algorithm
+                                                                                                           ## as
+                                                                                                           ## follows:
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## Handle(ShapeSchema)
+                                                                                                           ## s
+                                                                                                           ## =
+                                                                                                           ## new
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## ShapeSchema;
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## --------
+                                                                                                           ## --
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## USER
+                                                                                                           ## API
+                                                                                                           ## --
+                                                                                                           ## --------------------------------------------------------------
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## --------
+                                                                                                           ## --
 
 
-proc constructStorage_Schema*(): Storage_Schema {.constructor,
+proc constructStorageSchema*(): StorageSchema {.constructor,
     importcpp: "Storage_Schema(@)", header: "Storage_Schema.hxx".}
-proc SetVersion*(this: var Storage_Schema; aVersion: TCollection_AsciiString) {.
+proc setVersion*(this: var StorageSchema; aVersion: TCollectionAsciiString) {.
     importcpp: "SetVersion", header: "Storage_Schema.hxx".}
-proc Version*(this: Storage_Schema): TCollection_AsciiString {.noSideEffect,
+proc version*(this: StorageSchema): TCollectionAsciiString {.noSideEffect,
     importcpp: "Version", header: "Storage_Schema.hxx".}
-proc SetName*(this: var Storage_Schema; aSchemaName: TCollection_AsciiString) {.
+proc setName*(this: var StorageSchema; aSchemaName: TCollectionAsciiString) {.
     importcpp: "SetName", header: "Storage_Schema.hxx".}
-proc Name*(this: Storage_Schema): TCollection_AsciiString {.noSideEffect,
+proc name*(this: StorageSchema): TCollectionAsciiString {.noSideEffect,
     importcpp: "Name", header: "Storage_Schema.hxx".}
-proc Write*(this: Storage_Schema; s: handle[Storage_BaseDriver];
-           aData: handle[Storage_Data]) {.noSideEffect, importcpp: "Write",
-                                        header: "Storage_Schema.hxx".}
-proc ICreationDate*(): TCollection_AsciiString {.
+proc write*(this: StorageSchema; s: Handle[StorageBaseDriver];
+           aData: Handle[StorageData]) {.noSideEffect, importcpp: "Write",
+                                       header: "Storage_Schema.hxx".}
+proc iCreationDate*(): TCollectionAsciiString {.
     importcpp: "Storage_Schema::ICreationDate(@)", header: "Storage_Schema.hxx".}
-proc CheckTypeMigration*(theTypeName: TCollection_AsciiString;
-                        theNewName: var TCollection_AsciiString): Standard_Boolean {.
+proc checkTypeMigration*(theTypeName: TCollectionAsciiString;
+                        theNewName: var TCollectionAsciiString): bool {.
     importcpp: "Storage_Schema::CheckTypeMigration(@)",
     header: "Storage_Schema.hxx".}
-proc AddReadUnknownTypeCallBack*(this: var Storage_Schema;
-                                aTypeName: TCollection_AsciiString;
-                                aCallBack: handle[Storage_CallBack]) {.
+proc addReadUnknownTypeCallBack*(this: var StorageSchema;
+                                aTypeName: TCollectionAsciiString;
+                                aCallBack: Handle[StorageCallBack]) {.
     importcpp: "AddReadUnknownTypeCallBack", header: "Storage_Schema.hxx".}
-proc RemoveReadUnknownTypeCallBack*(this: var Storage_Schema;
-                                   aTypeName: TCollection_AsciiString) {.
+proc removeReadUnknownTypeCallBack*(this: var StorageSchema;
+                                   aTypeName: TCollectionAsciiString) {.
     importcpp: "RemoveReadUnknownTypeCallBack", header: "Storage_Schema.hxx".}
-proc InstalledCallBackList*(this: Storage_Schema): handle[
-    TColStd_HSequenceOfAsciiString] {.noSideEffect,
-                                     importcpp: "InstalledCallBackList",
-                                     header: "Storage_Schema.hxx".}
-proc ClearCallBackList*(this: var Storage_Schema) {.importcpp: "ClearCallBackList",
+proc installedCallBackList*(this: StorageSchema): Handle[
+    TColStdHSequenceOfAsciiString] {.noSideEffect,
+                                    importcpp: "InstalledCallBackList",
+                                    header: "Storage_Schema.hxx".}
+proc clearCallBackList*(this: var StorageSchema) {.importcpp: "ClearCallBackList",
     header: "Storage_Schema.hxx".}
-proc UseDefaultCallBack*(this: var Storage_Schema) {.
-    importcpp: "UseDefaultCallBack", header: "Storage_Schema.hxx".}
-proc DontUseDefaultCallBack*(this: var Storage_Schema) {.
+proc useDefaultCallBack*(this: var StorageSchema) {.importcpp: "UseDefaultCallBack",
+    header: "Storage_Schema.hxx".}
+proc dontUseDefaultCallBack*(this: var StorageSchema) {.
     importcpp: "DontUseDefaultCallBack", header: "Storage_Schema.hxx".}
-proc IsUsingDefaultCallBack*(this: Storage_Schema): Standard_Boolean {.noSideEffect,
+proc isUsingDefaultCallBack*(this: StorageSchema): bool {.noSideEffect,
     importcpp: "IsUsingDefaultCallBack", header: "Storage_Schema.hxx".}
-proc SetDefaultCallBack*(this: var Storage_Schema; f: handle[Storage_CallBack]) {.
+proc setDefaultCallBack*(this: var StorageSchema; f: Handle[StorageCallBack]) {.
     importcpp: "SetDefaultCallBack", header: "Storage_Schema.hxx".}
-proc ResetDefaultCallBack*(this: var Storage_Schema) {.
+proc resetDefaultCallBack*(this: var StorageSchema) {.
     importcpp: "ResetDefaultCallBack", header: "Storage_Schema.hxx".}
-proc DefaultCallBack*(this: Storage_Schema): handle[Storage_CallBack] {.
-    noSideEffect, importcpp: "DefaultCallBack", header: "Storage_Schema.hxx".}
-proc WritePersistentObjectHeader*(this: var Storage_Schema;
-                                 sp: handle[Standard_Persistent];
-                                 theDriver: handle[Storage_BaseDriver]) {.
+proc defaultCallBack*(this: StorageSchema): Handle[StorageCallBack] {.noSideEffect,
+    importcpp: "DefaultCallBack", header: "Storage_Schema.hxx".}
+proc writePersistentObjectHeader*(this: var StorageSchema;
+                                 sp: Handle[StandardPersistent];
+                                 theDriver: Handle[StorageBaseDriver]) {.
     importcpp: "WritePersistentObjectHeader", header: "Storage_Schema.hxx".}
-proc WritePersistentReference*(this: var Storage_Schema;
-                              sp: handle[Standard_Persistent];
-                              theDriver: handle[Storage_BaseDriver]) {.
+proc writePersistentReference*(this: var StorageSchema;
+                              sp: Handle[StandardPersistent];
+                              theDriver: Handle[StorageBaseDriver]) {.
     importcpp: "WritePersistentReference", header: "Storage_Schema.hxx".}
-proc AddPersistent*(this: Storage_Schema; sp: handle[Standard_Persistent];
-                   tName: Standard_CString): Standard_Boolean {.noSideEffect,
+proc addPersistent*(this: StorageSchema; sp: Handle[StandardPersistent];
+                   tName: StandardCString): bool {.noSideEffect,
     importcpp: "AddPersistent", header: "Storage_Schema.hxx".}
-proc PersistentToAdd*(this: Storage_Schema; sp: handle[Standard_Persistent]): Standard_Boolean {.
+proc persistentToAdd*(this: StorageSchema; sp: Handle[StandardPersistent]): bool {.
     noSideEffect, importcpp: "PersistentToAdd", header: "Storage_Schema.hxx".}
 type
-  Storage_Schemabase_type* = Standard_Transient
+  StorageSchemabaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Storage_Schema::get_type_name(@)",
-                              header: "Storage_Schema.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Storage_Schema::get_type_name(@)",
+                            header: "Storage_Schema.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Storage_Schema::get_type_descriptor(@)",
     header: "Storage_Schema.hxx".}
-proc DynamicType*(this: Storage_Schema): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StorageSchema): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Storage_Schema.hxx".}

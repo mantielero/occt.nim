@@ -18,24 +18,19 @@
 
 ## ! Basic CASCADE definitions
 
-import
-  ../Standard/Standard_Type, ../Standard/Standard_Type,
-  ../Standard/Standard_Transient, ../TCollection/TCollection_ExtendedString,
-  ../TCollection/TCollection_HExtendedString, ../Standard/Standard_Failure
-
 ## ! Methods inline implimentation for HExtendedString
 ## ! Computes a hash code for the given handle referred to extended string, in the range [1, theUpperBound]
 ## ! @param theHExtendedString the handle referred to extended string which hash code is to be computed
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
-proc HashCode*(theHExtendedString: handle[TCollection_HExtendedString];
-              theUpperBound: Standard_Integer): Standard_Integer =
+proc hashCode*(theHExtendedString: Handle[TCollectionHExtendedString];
+              theUpperBound: int): int =
   discard
 
-proc IsEqual*(theStr1: handle[TCollection_HExtendedString];
-             theStr2: handle[TCollection_HExtendedString]): Standard_Boolean =
+proc isEqual*(theStr1: Handle[TCollectionHExtendedString];
+             theStr2: Handle[TCollectionHExtendedString]): bool =
   discard
 
-when defined(_MSC_VER):
-  discard
+# when defined(_MSC_VER):
+#   discard

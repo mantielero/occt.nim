@@ -12,10 +12,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Transient, TColStd_MapTransientHasher,
-  ../NCollection/NCollection_IndexedMap
-
 type
-  TColStd_IndexedMapOfTransient* = NCollection_IndexedMap[
-      handle[Standard_Transient], TColStd_MapTransientHasher]
+  TColStdIndexedMapOfTransient* = NCollectionIndexedMap[Handle[StandardTransient],
+      TColStdMapTransientHasher]
+

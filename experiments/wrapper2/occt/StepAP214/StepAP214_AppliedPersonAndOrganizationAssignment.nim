@@ -14,59 +14,52 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP214_HArray1OfPersonAndOrganizationItem,
-  ../StepBasic/StepBasic_PersonAndOrganizationAssignment,
-  ../Standard/Standard_Integer
-
 discard "forward decl of StepBasic_PersonAndOrganization"
 discard "forward decl of StepBasic_PersonAndOrganizationRole"
 discard "forward decl of StepAP214_PersonAndOrganizationItem"
 discard "forward decl of StepAP214_AppliedPersonAndOrganizationAssignment"
 discard "forward decl of StepAP214_AppliedPersonAndOrganizationAssignment"
 type
-  Handle_StepAP214_AppliedPersonAndOrganizationAssignment* = handle[
-      StepAP214_AppliedPersonAndOrganizationAssignment]
-  StepAP214_AppliedPersonAndOrganizationAssignment* {.
+  HandleStepAP214AppliedPersonAndOrganizationAssignment* = Handle[
+      StepAP214AppliedPersonAndOrganizationAssignment]
+  StepAP214AppliedPersonAndOrganizationAssignment* {.
       importcpp: "StepAP214_AppliedPersonAndOrganizationAssignment",
-      header: "StepAP214_AppliedPersonAndOrganizationAssignment.hxx", bycopy.} = object of StepBasic_PersonAndOrganizationAssignment ##
-                                                                                                                              ## !
-                                                                                                                              ## Returns
-                                                                                                                              ## a
-                                                                                                                              ## AutoDesignDateAndPersonAssignment
+      header: "StepAP214_AppliedPersonAndOrganizationAssignment.hxx", bycopy.} = object of StepBasicPersonAndOrganizationAssignment ##
+                                                                                                                             ## !
+                                                                                                                             ## Returns
+                                                                                                                             ## a
+                                                                                                                             ## AutoDesignDateAndPersonAssignment
 
 
-proc constructStepAP214_AppliedPersonAndOrganizationAssignment*(): StepAP214_AppliedPersonAndOrganizationAssignment {.
+proc constructStepAP214AppliedPersonAndOrganizationAssignment*(): StepAP214AppliedPersonAndOrganizationAssignment {.
     constructor,
     importcpp: "StepAP214_AppliedPersonAndOrganizationAssignment(@)",
     header: "StepAP214_AppliedPersonAndOrganizationAssignment.hxx".}
-proc Init*(this: var StepAP214_AppliedPersonAndOrganizationAssignment;
-    aAssignedPersonAndOrganization: handle[StepBasic_PersonAndOrganization];
-          aRole: handle[StepBasic_PersonAndOrganizationRole];
-          aItems: handle[StepAP214_HArray1OfPersonAndOrganizationItem]) {.
+proc init*(this: var StepAP214AppliedPersonAndOrganizationAssignment;
+    aAssignedPersonAndOrganization: Handle[StepBasicPersonAndOrganization];
+          aRole: Handle[StepBasicPersonAndOrganizationRole];
+          aItems: Handle[StepAP214HArray1OfPersonAndOrganizationItem]) {.
     importcpp: "Init",
     header: "StepAP214_AppliedPersonAndOrganizationAssignment.hxx".}
-proc SetItems*(this: var StepAP214_AppliedPersonAndOrganizationAssignment;
-              aItems: handle[StepAP214_HArray1OfPersonAndOrganizationItem]) {.
+proc setItems*(this: var StepAP214AppliedPersonAndOrganizationAssignment;
+              aItems: Handle[StepAP214HArray1OfPersonAndOrganizationItem]) {.
     importcpp: "SetItems",
     header: "StepAP214_AppliedPersonAndOrganizationAssignment.hxx".}
-proc Items*(this: StepAP214_AppliedPersonAndOrganizationAssignment): handle[
-    StepAP214_HArray1OfPersonAndOrganizationItem] {.noSideEffect,
+proc items*(this: StepAP214AppliedPersonAndOrganizationAssignment): Handle[
+    StepAP214HArray1OfPersonAndOrganizationItem] {.noSideEffect,
     importcpp: "Items",
     header: "StepAP214_AppliedPersonAndOrganizationAssignment.hxx".}
-proc ItemsValue*(this: StepAP214_AppliedPersonAndOrganizationAssignment;
-                num: Standard_Integer): StepAP214_PersonAndOrganizationItem {.
+proc itemsValue*(this: StepAP214AppliedPersonAndOrganizationAssignment; num: int): StepAP214PersonAndOrganizationItem {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AppliedPersonAndOrganizationAssignment.hxx".}
-proc NbItems*(this: StepAP214_AppliedPersonAndOrganizationAssignment): Standard_Integer {.
+proc nbItems*(this: StepAP214AppliedPersonAndOrganizationAssignment): int {.
     noSideEffect, importcpp: "NbItems",
     header: "StepAP214_AppliedPersonAndOrganizationAssignment.hxx".}
 type
-  StepAP214_AppliedPersonAndOrganizationAssignmentbase_type* = StepBasic_PersonAndOrganizationAssignment
+  StepAP214AppliedPersonAndOrganizationAssignmentbaseType* = StepBasicPersonAndOrganizationAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_AppliedPersonAndOrganizationAssignment::get_type_name(@)", header: "StepAP214_AppliedPersonAndOrganizationAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP214_AppliedPersonAndOrganizationAssignment::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP214_AppliedPersonAndOrganizationAssignment::get_type_name(@)", header: "StepAP214_AppliedPersonAndOrganizationAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_AppliedPersonAndOrganizationAssignment::get_type_descriptor(@)",
     header: "StepAP214_AppliedPersonAndOrganizationAssignment.hxx".}
-proc DynamicType*(this: StepAP214_AppliedPersonAndOrganizationAssignment): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepAP214_AppliedPersonAndOrganizationAssignment.hxx".}
+proc dynamicType*(this: StepAP214AppliedPersonAndOrganizationAssignment): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepAP214_AppliedPersonAndOrganizationAssignment.hxx".}

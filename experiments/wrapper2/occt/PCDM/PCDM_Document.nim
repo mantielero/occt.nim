@@ -14,21 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Persistent
-
 discard "forward decl of PCDM_Document"
 discard "forward decl of PCDM_Document"
 type
-  Handle_PCDM_Document* = handle[PCDM_Document]
-  PCDM_Document* {.importcpp: "PCDM_Document", header: "PCDM_Document.hxx", bycopy.} = object of Standard_Persistent
+  HandlePCDM_Document* = Handle[PCDM_Document]
+  PCDM_Document* {.importcpp: "PCDM_Document", header: "PCDM_Document.hxx", bycopy.} = object of StandardPersistent
 
-  PCDM_Documentbase_type* = Standard_Persistent
+  PCDM_DocumentbaseType* = StandardPersistent
 
-proc get_type_name*(): cstring {.importcpp: "PCDM_Document::get_type_name(@)",
-                              header: "PCDM_Document.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "PCDM_Document::get_type_name(@)",
+                            header: "PCDM_Document.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "PCDM_Document::get_type_descriptor(@)",
     header: "PCDM_Document.hxx".}
-proc DynamicType*(this: PCDM_Document): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: PCDM_Document): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "PCDM_Document.hxx".}

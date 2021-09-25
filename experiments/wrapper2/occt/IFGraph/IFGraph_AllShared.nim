@@ -14,41 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Interface/Interface_Graph,
-  ../Interface/Interface_GraphContent
-
 discard "forward decl of Interface_Graph"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_EntityIterator"
 type
-  IFGraph_AllShared* {.importcpp: "IFGraph_AllShared",
-                      header: "IFGraph_AllShared.hxx", bycopy.} = object of Interface_GraphContent ##
-                                                                                            ## !
-                                                                                            ## creates
-                                                                                            ## an
-                                                                                            ## AllShared
-                                                                                            ## from
-                                                                                            ## a
-                                                                                            ## graph,
-                                                                                            ## empty
-                                                                                            ## ready
-                                                                                            ## to
-                                                                                            ## be
-                                                                                            ## filled
+  IFGraphAllShared* {.importcpp: "IFGraph_AllShared",
+                     header: "IFGraph_AllShared.hxx", bycopy.} = object of InterfaceGraphContent ##
+                                                                                          ## !
+                                                                                          ## creates
+                                                                                          ## an
+                                                                                          ## AllShared
+                                                                                          ## from
+                                                                                          ## a
+                                                                                          ## graph,
+                                                                                          ## empty
+                                                                                          ## ready
+                                                                                          ## to
+                                                                                          ## be
+                                                                                          ## filled
 
 
-proc constructIFGraph_AllShared*(agraph: Interface_Graph): IFGraph_AllShared {.
+proc constructIFGraphAllShared*(agraph: InterfaceGraph): IFGraphAllShared {.
     constructor, importcpp: "IFGraph_AllShared(@)", header: "IFGraph_AllShared.hxx".}
-proc constructIFGraph_AllShared*(agraph: Interface_Graph;
-                                ent: handle[Standard_Transient]): IFGraph_AllShared {.
+proc constructIFGraphAllShared*(agraph: InterfaceGraph;
+                               ent: Handle[StandardTransient]): IFGraphAllShared {.
     constructor, importcpp: "IFGraph_AllShared(@)", header: "IFGraph_AllShared.hxx".}
-proc GetFromEntity*(this: var IFGraph_AllShared; ent: handle[Standard_Transient]) {.
+proc getFromEntity*(this: var IFGraphAllShared; ent: Handle[StandardTransient]) {.
     importcpp: "GetFromEntity", header: "IFGraph_AllShared.hxx".}
-proc GetFromIter*(this: var IFGraph_AllShared; iter: Interface_EntityIterator) {.
+proc getFromIter*(this: var IFGraphAllShared; iter: InterfaceEntityIterator) {.
     importcpp: "GetFromIter", header: "IFGraph_AllShared.hxx".}
-proc ResetData*(this: var IFGraph_AllShared) {.importcpp: "ResetData",
+proc resetData*(this: var IFGraphAllShared) {.importcpp: "ResetData",
     header: "IFGraph_AllShared.hxx".}
-proc Evaluate*(this: var IFGraph_AllShared) {.importcpp: "Evaluate",
+proc evaluate*(this: var IFGraphAllShared) {.importcpp: "Evaluate",
     header: "IFGraph_AllShared.hxx".}

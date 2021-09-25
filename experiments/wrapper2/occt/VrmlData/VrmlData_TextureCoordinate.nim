@@ -13,54 +13,53 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  VrmlData_Node
-
 discard "forward decl of gp_XY"
 type
-  VrmlData_TextureCoordinate* {.importcpp: "VrmlData_TextureCoordinate",
-                               header: "VrmlData_TextureCoordinate.hxx", bycopy.} = object of VrmlData_Node ##  ---------- PUBLIC METHODS ----------
-                                                                                                     ## *
-                                                                                                     ##  Empty constructor
-                                                                                                     ##
-                                                                                                     ##  ---------- PRIVATE FIELDS ----------
-                                                                                                     ##  Declaration of CASCADE RTTI
+  VrmlDataTextureCoordinate* {.importcpp: "VrmlData_TextureCoordinate",
+                              header: "VrmlData_TextureCoordinate.hxx", bycopy.} = object of VrmlDataNode ##  ---------- PUBLIC METHODS ----------
+                                                                                                   ## *
+                                                                                                   ##  Empty constructor
+                                                                                                   ##
+                                                                                                   ##  ---------- PRIVATE FIELDS ----------
+                                                                                                   ##  Declaration of CASCADE RTTI
 
 
-proc constructVrmlData_TextureCoordinate*(): VrmlData_TextureCoordinate {.
+proc constructVrmlDataTextureCoordinate*(): VrmlDataTextureCoordinate {.
     constructor, importcpp: "VrmlData_TextureCoordinate(@)",
     header: "VrmlData_TextureCoordinate.hxx".}
-proc constructVrmlData_TextureCoordinate*(theScene: VrmlData_Scene;
-    theName: cstring; nPoints: csize_t = 0; arrPoints: ptr gp_XY = 0L'i64): VrmlData_TextureCoordinate {.
+proc constructVrmlDataTextureCoordinate*(theScene: VrmlDataScene; theName: cstring;
+                                        nPoints: csize_t = 0;
+                                        arrPoints: ptr Xy = 0'i64): VrmlDataTextureCoordinate {.
     constructor, importcpp: "VrmlData_TextureCoordinate(@)",
     header: "VrmlData_TextureCoordinate.hxx".}
-proc AllocateValues*(this: var VrmlData_TextureCoordinate; theLength: Standard_Size): Standard_Boolean {.
+proc allocateValues*(this: var VrmlDataTextureCoordinate; theLength: StandardSize): bool {.
     importcpp: "AllocateValues", header: "VrmlData_TextureCoordinate.hxx".}
-proc Length*(this: var VrmlData_TextureCoordinate): csize_t {.importcpp: "Length",
+proc length*(this: var VrmlDataTextureCoordinate): csize_t {.importcpp: "Length",
     header: "VrmlData_TextureCoordinate.hxx".}
-proc Points*(this: var VrmlData_TextureCoordinate): ptr gp_XY {.importcpp: "Points",
+proc points*(this: var VrmlDataTextureCoordinate): ptr Xy {.importcpp: "Points",
     header: "VrmlData_TextureCoordinate.hxx".}
-proc SetPoints*(this: var VrmlData_TextureCoordinate; nPoints: csize_t;
-               arrPoints: ptr gp_XY) {.importcpp: "SetPoints",
-                                    header: "VrmlData_TextureCoordinate.hxx".}
-proc Clone*(this: VrmlData_TextureCoordinate; theOther: handle[VrmlData_Node]): handle[
-    VrmlData_Node] {.noSideEffect, importcpp: "Clone",
-                    header: "VrmlData_TextureCoordinate.hxx".}
-proc Read*(this: var VrmlData_TextureCoordinate; theBuffer: var VrmlData_InBuffer): VrmlData_ErrorStatus {.
+proc setPoints*(this: var VrmlDataTextureCoordinate; nPoints: csize_t;
+               arrPoints: ptr Xy) {.importcpp: "SetPoints",
+                                 header: "VrmlData_TextureCoordinate.hxx".}
+proc clone*(this: VrmlDataTextureCoordinate; theOther: Handle[VrmlDataNode]): Handle[
+    VrmlDataNode] {.noSideEffect, importcpp: "Clone",
+                   header: "VrmlData_TextureCoordinate.hxx".}
+proc read*(this: var VrmlDataTextureCoordinate; theBuffer: var VrmlDataInBuffer): VrmlDataErrorStatus {.
     importcpp: "Read", header: "VrmlData_TextureCoordinate.hxx".}
 type
-  VrmlData_TextureCoordinatebase_type* = VrmlData_Node
+  VrmlDataTextureCoordinatebaseType* = VrmlDataNode
 
-proc get_type_name*(): cstring {.importcpp: "VrmlData_TextureCoordinate::get_type_name(@)",
-                              header: "VrmlData_TextureCoordinate.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "VrmlData_TextureCoordinate::get_type_name(@)",
+                            header: "VrmlData_TextureCoordinate.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "VrmlData_TextureCoordinate::get_type_descriptor(@)",
     header: "VrmlData_TextureCoordinate.hxx".}
-proc DynamicType*(this: VrmlData_TextureCoordinate): handle[Standard_Type] {.
+proc dynamicType*(this: VrmlDataTextureCoordinate): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "VrmlData_TextureCoordinate.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of VrmlData_TextureCoordinate"
 type
-  Handle_VrmlData_TextureCoordinate* = handle[VrmlData_TextureCoordinate]
+  HandleVrmlDataTextureCoordinate* = Handle[VrmlDataTextureCoordinate]
+

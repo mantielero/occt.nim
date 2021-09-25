@@ -14,44 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Convert_ConicToBSplineCurve,
-  ../Standard/Standard_Real
-
 discard "forward decl of gp_Parab2d"
 type
-  Convert_ParabolaToBSplineCurve* {.importcpp: "Convert_ParabolaToBSplineCurve", header: "Convert_ParabolaToBSplineCurve.hxx",
-                                   bycopy.} = object of Convert_ConicToBSplineCurve ## !
-                                                                               ## The
-                                                                               ## parabola
-                                                                               ## Prb
-                                                                               ## is
-                                                                               ## limited
-                                                                               ## between
-                                                                               ## the
-                                                                               ## parametric
-                                                                               ## values
-                                                                               ## U1,
-                                                                               ## U2
-                                                                               ## !
-                                                                               ## and
-                                                                               ## the
-                                                                               ## equivalent
-                                                                               ## B-spline
-                                                                               ## curve
-                                                                               ## as
-                                                                               ## the
-                                                                               ## same
-                                                                               ## orientation
-                                                                               ## as
-                                                                               ## the
-                                                                               ## !
-                                                                               ## parabola
-                                                                               ## Prb.
+  ConvertParabolaToBSplineCurve* {.importcpp: "Convert_ParabolaToBSplineCurve",
+                                  header: "Convert_ParabolaToBSplineCurve.hxx",
+                                  bycopy.} = object of ConvertConicToBSplineCurve ## ! The
+                                                                             ## parabola Prb is
+                                                                             ## limited
+                                                                             ## between the
+                                                                             ## parametric
+                                                                             ## values U1, U2
+                                                                             ## ! and the
+                                                                             ## equivalent
+                                                                             ## B-spline
+                                                                             ## curve as the
+                                                                             ## same
+                                                                             ## orientation as the
+                                                                             ## !
+                                                                             ## parabola
+                                                                             ## Prb.
 
 
-proc constructConvert_ParabolaToBSplineCurve*(Prb: gp_Parab2d; U1: Standard_Real;
-    U2: Standard_Real): Convert_ParabolaToBSplineCurve {.constructor,
-    importcpp: "Convert_ParabolaToBSplineCurve(@)",
+proc constructConvertParabolaToBSplineCurve*(prb: Parab2d; u1: float; u2: float): ConvertParabolaToBSplineCurve {.
+    constructor, importcpp: "Convert_ParabolaToBSplineCurve(@)",
     header: "Convert_ParabolaToBSplineCurve.hxx".}

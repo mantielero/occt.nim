@@ -13,35 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepDimTol_NonUniformZoneDefinition"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepDimTol_RWNonUniformZoneDefinition* {.
+  RWStepDimTolRWNonUniformZoneDefinition* {.
       importcpp: "RWStepDimTol_RWNonUniformZoneDefinition",
       header: "RWStepDimTol_RWNonUniformZoneDefinition.hxx", bycopy.} = object ## ! Empty
                                                                           ## constructor
 
 
-proc constructRWStepDimTol_RWNonUniformZoneDefinition*(): RWStepDimTol_RWNonUniformZoneDefinition {.
+proc constructRWStepDimTolRWNonUniformZoneDefinition*(): RWStepDimTolRWNonUniformZoneDefinition {.
     constructor, importcpp: "RWStepDimTol_RWNonUniformZoneDefinition(@)",
     header: "RWStepDimTol_RWNonUniformZoneDefinition.hxx".}
-proc ReadStep*(this: RWStepDimTol_RWNonUniformZoneDefinition;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepDimTol_NonUniformZoneDefinition]) {.noSideEffect,
+proc readStep*(this: RWStepDimTolRWNonUniformZoneDefinition;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepDimTolNonUniformZoneDefinition]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepDimTol_RWNonUniformZoneDefinition.hxx".}
-proc WriteStep*(this: RWStepDimTol_RWNonUniformZoneDefinition;
-               SW: var StepData_StepWriter;
-               ent: handle[StepDimTol_NonUniformZoneDefinition]) {.noSideEffect,
+proc writeStep*(this: RWStepDimTolRWNonUniformZoneDefinition;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepDimTolNonUniformZoneDefinition]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepDimTol_RWNonUniformZoneDefinition.hxx".}
-proc Share*(this: RWStepDimTol_RWNonUniformZoneDefinition;
-           ent: handle[StepDimTol_NonUniformZoneDefinition];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepDimTolRWNonUniformZoneDefinition;
+           ent: Handle[StepDimTolNonUniformZoneDefinition];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWNonUniformZoneDefinition.hxx".}

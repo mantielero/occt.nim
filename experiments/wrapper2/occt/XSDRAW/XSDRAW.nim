@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Handle, ../Draw/Draw_Interpretor,
-  ../TColStd/TColStd_HSequenceOfTransient, ../TopTools/TopTools_HSequenceOfShape
-
 discard "forward decl of IFSelect_SessionPilot"
 discard "forward decl of XSControl_WorkSession"
 discard "forward decl of XSControl_Controller"
@@ -31,7 +27,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of XSDRAW_Functions"
 discard "forward decl of XSDRAW_Vars"
 type
-  XSDRAW* {.importcpp: "XSDRAW", header: "XSDRAW.hxx", bycopy.} = object ## ! Takes variables to/from the DRAW session
+  Xsdraw* {.importcpp: "XSDRAW", header: "XSDRAW.hxx", bycopy.} = object ## ! Takes variables to/from the DRAW session
                                                                  ## ! Implements
                                                                  ## ProgressIndicator for DRAW
                                                                  ## ! Changes the name under which a command of xstep is known by
@@ -39,58 +35,57 @@ type
                                                                  ## ! To be called before LoadDraw or any other xstep initialisation
 
 
-proc ChangeCommand*(oldname: Standard_CString; newname: Standard_CString) {.
+proc changeCommand*(oldname: StandardCString; newname: StandardCString) {.
     importcpp: "XSDRAW::ChangeCommand(@)", header: "XSDRAW.hxx".}
-proc RemoveCommand*(oldname: Standard_CString) {.
+proc removeCommand*(oldname: StandardCString) {.
     importcpp: "XSDRAW::RemoveCommand(@)", header: "XSDRAW.hxx".}
-proc LoadSession*(): Standard_Boolean {.importcpp: "XSDRAW::LoadSession(@)",
-                                     header: "XSDRAW.hxx".}
-proc LoadDraw*(theCommands: var Draw_Interpretor) {.
-    importcpp: "XSDRAW::LoadDraw(@)", header: "XSDRAW.hxx".}
-proc Execute*(command: Standard_CString; `var`: Standard_CString = ""): Standard_Integer {.
+proc loadSession*(): bool {.importcpp: "XSDRAW::LoadSession(@)", header: "XSDRAW.hxx".}
+proc loadDraw*(theCommands: var DrawInterpretor) {.importcpp: "XSDRAW::LoadDraw(@)",
+    header: "XSDRAW.hxx".}
+proc execute*(command: StandardCString; `var`: StandardCString = ""): int {.
     importcpp: "XSDRAW::Execute(@)", header: "XSDRAW.hxx".}
-proc Pilot*(): handle[IFSelect_SessionPilot] {.importcpp: "XSDRAW::Pilot(@)",
+proc pilot*(): Handle[IFSelectSessionPilot] {.importcpp: "XSDRAW::Pilot(@)",
     header: "XSDRAW.hxx".}
-proc Session*(): handle[XSControl_WorkSession] {.importcpp: "XSDRAW::Session(@)",
+proc session*(): Handle[XSControlWorkSession] {.importcpp: "XSDRAW::Session(@)",
     header: "XSDRAW.hxx".}
-proc SetController*(control: handle[XSControl_Controller]) {.
+proc setController*(control: Handle[XSControlController]) {.
     importcpp: "XSDRAW::SetController(@)", header: "XSDRAW.hxx".}
-proc Controller*(): handle[XSControl_Controller] {.
+proc controller*(): Handle[XSControlController] {.
     importcpp: "XSDRAW::Controller(@)", header: "XSDRAW.hxx".}
-proc SetNorm*(normname: Standard_CString): Standard_Boolean {.
-    importcpp: "XSDRAW::SetNorm(@)", header: "XSDRAW.hxx".}
-proc Protocol*(): handle[Interface_Protocol] {.importcpp: "XSDRAW::Protocol(@)",
+proc setNorm*(normname: StandardCString): bool {.importcpp: "XSDRAW::SetNorm(@)",
     header: "XSDRAW.hxx".}
-proc Model*(): handle[Interface_InterfaceModel] {.importcpp: "XSDRAW::Model(@)",
+proc protocol*(): Handle[InterfaceProtocol] {.importcpp: "XSDRAW::Protocol(@)",
     header: "XSDRAW.hxx".}
-proc SetModel*(model: handle[Interface_InterfaceModel]; file: Standard_CString = "") {.
+proc model*(): Handle[InterfaceInterfaceModel] {.importcpp: "XSDRAW::Model(@)",
+    header: "XSDRAW.hxx".}
+proc setModel*(model: Handle[InterfaceInterfaceModel]; file: StandardCString = "") {.
     importcpp: "XSDRAW::SetModel(@)", header: "XSDRAW.hxx".}
-proc NewModel*(): handle[Interface_InterfaceModel] {.
+proc newModel*(): Handle[InterfaceInterfaceModel] {.
     importcpp: "XSDRAW::NewModel(@)", header: "XSDRAW.hxx".}
-proc Entity*(num: Standard_Integer): handle[Standard_Transient] {.
-    importcpp: "XSDRAW::Entity(@)", header: "XSDRAW.hxx".}
-proc Number*(ent: handle[Standard_Transient]): Standard_Integer {.
-    importcpp: "XSDRAW::Number(@)", header: "XSDRAW.hxx".}
-proc SetTransferProcess*(TP: handle[Standard_Transient]) {.
+proc entity*(num: int): Handle[StandardTransient] {.importcpp: "XSDRAW::Entity(@)",
+    header: "XSDRAW.hxx".}
+proc number*(ent: Handle[StandardTransient]): int {.importcpp: "XSDRAW::Number(@)",
+    header: "XSDRAW.hxx".}
+proc setTransferProcess*(tp: Handle[StandardTransient]) {.
     importcpp: "XSDRAW::SetTransferProcess(@)", header: "XSDRAW.hxx".}
-proc TransientProcess*(): handle[Transfer_TransientProcess] {.
+proc transientProcess*(): Handle[TransferTransientProcess] {.
     importcpp: "XSDRAW::TransientProcess(@)", header: "XSDRAW.hxx".}
-proc FinderProcess*(): handle[Transfer_FinderProcess] {.
+proc finderProcess*(): Handle[TransferFinderProcess] {.
     importcpp: "XSDRAW::FinderProcess(@)", header: "XSDRAW.hxx".}
-proc InitTransferReader*(mode: Standard_Integer) {.
-    importcpp: "XSDRAW::InitTransferReader(@)", header: "XSDRAW.hxx".}
-proc TransferReader*(): handle[XSControl_TransferReader] {.
-    importcpp: "XSDRAW::TransferReader(@)", header: "XSDRAW.hxx".}
-proc GetEntity*(name: Standard_CString = ""): handle[Standard_Transient] {.
-    importcpp: "XSDRAW::GetEntity(@)", header: "XSDRAW.hxx".}
-proc GetEntityNumber*(name: Standard_CString = ""): Standard_Integer {.
-    importcpp: "XSDRAW::GetEntityNumber(@)", header: "XSDRAW.hxx".}
-proc GetList*(first: Standard_CString = ""; second: Standard_CString = ""): handle[
-    TColStd_HSequenceOfTransient] {.importcpp: "XSDRAW::GetList(@)",
+proc initTransferReader*(mode: int) {.importcpp: "XSDRAW::InitTransferReader(@)",
                                    header: "XSDRAW.hxx".}
-proc FileAndVar*(file: Standard_CString; `var`: Standard_CString;
-                def: Standard_CString; resfile: var TCollection_AsciiString;
-                resvar: var TCollection_AsciiString): Standard_Boolean {.
+proc transferReader*(): Handle[XSControlTransferReader] {.
+    importcpp: "XSDRAW::TransferReader(@)", header: "XSDRAW.hxx".}
+proc getEntity*(name: StandardCString = ""): Handle[StandardTransient] {.
+    importcpp: "XSDRAW::GetEntity(@)", header: "XSDRAW.hxx".}
+proc getEntityNumber*(name: StandardCString = ""): int {.
+    importcpp: "XSDRAW::GetEntityNumber(@)", header: "XSDRAW.hxx".}
+proc getList*(first: StandardCString = ""; second: StandardCString = ""): Handle[
+    TColStdHSequenceOfTransient] {.importcpp: "XSDRAW::GetList(@)",
+                                  header: "XSDRAW.hxx".}
+proc fileAndVar*(file: StandardCString; `var`: StandardCString; def: StandardCString;
+                resfile: var TCollectionAsciiString;
+                resvar: var TCollectionAsciiString): bool {.
     importcpp: "XSDRAW::FileAndVar(@)", header: "XSDRAW.hxx".}
-proc MoreShapes*(list: var handle[TopTools_HSequenceOfShape]; name: Standard_CString): Standard_Integer {.
+proc moreShapes*(list: var Handle[TopToolsHSequenceOfShape]; name: StandardCString): int {.
     importcpp: "XSDRAW::MoreShapes(@)", header: "XSDRAW.hxx".}

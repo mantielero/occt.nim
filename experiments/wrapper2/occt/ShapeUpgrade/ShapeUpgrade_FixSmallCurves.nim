@@ -13,52 +13,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../TopoDS/TopoDS_Edge, ../TopoDS/TopoDS_Face, ShapeUpgrade_Tool,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
-  ../ShapeExtend/ShapeExtend_Status
-
 discard "forward decl of ShapeUpgrade_SplitCurve3d"
 discard "forward decl of ShapeUpgrade_SplitCurve2d"
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom2d_Curve"
-when defined(Status):
-  discard
+# when defined(Status):
+#   discard
 discard "forward decl of ShapeUpgrade_FixSmallCurves"
 discard "forward decl of ShapeUpgrade_FixSmallCurves"
 type
-  Handle_ShapeUpgrade_FixSmallCurves* = handle[ShapeUpgrade_FixSmallCurves]
-  ShapeUpgrade_FixSmallCurves* {.importcpp: "ShapeUpgrade_FixSmallCurves",
-                                header: "ShapeUpgrade_FixSmallCurves.hxx", bycopy.} = object of ShapeUpgrade_Tool
+  HandleShapeUpgradeFixSmallCurves* = Handle[ShapeUpgradeFixSmallCurves]
+  ShapeUpgradeFixSmallCurves* {.importcpp: "ShapeUpgrade_FixSmallCurves",
+                               header: "ShapeUpgrade_FixSmallCurves.hxx", bycopy.} = object of ShapeUpgradeTool
 
 
-proc constructShapeUpgrade_FixSmallCurves*(): ShapeUpgrade_FixSmallCurves {.
+proc constructShapeUpgradeFixSmallCurves*(): ShapeUpgradeFixSmallCurves {.
     constructor, importcpp: "ShapeUpgrade_FixSmallCurves(@)",
     header: "ShapeUpgrade_FixSmallCurves.hxx".}
-proc Init*(this: var ShapeUpgrade_FixSmallCurves; theEdge: TopoDS_Edge;
+proc init*(this: var ShapeUpgradeFixSmallCurves; theEdge: TopoDS_Edge;
           theFace: TopoDS_Face) {.importcpp: "Init",
                                 header: "ShapeUpgrade_FixSmallCurves.hxx".}
-proc Approx*(this: var ShapeUpgrade_FixSmallCurves; Curve3d: var handle[Geom_Curve];
-            Curve2d: var handle[Geom2d_Curve]; Curve2dR: var handle[Geom2d_Curve];
-            First: var Standard_Real; Last: var Standard_Real): Standard_Boolean {.
-    importcpp: "Approx", header: "ShapeUpgrade_FixSmallCurves.hxx".}
-proc SetSplitCurve3dTool*(this: var ShapeUpgrade_FixSmallCurves;
-                         splitCurve3dTool: handle[ShapeUpgrade_SplitCurve3d]) {.
+proc approx*(this: var ShapeUpgradeFixSmallCurves; curve3d: var Handle[GeomCurve];
+            curve2d: var Handle[Geom2dCurve]; curve2dR: var Handle[Geom2dCurve];
+            first: var float; last: var float): bool {.importcpp: "Approx",
+    header: "ShapeUpgrade_FixSmallCurves.hxx".}
+proc setSplitCurve3dTool*(this: var ShapeUpgradeFixSmallCurves;
+                         splitCurve3dTool: Handle[ShapeUpgradeSplitCurve3d]) {.
     importcpp: "SetSplitCurve3dTool", header: "ShapeUpgrade_FixSmallCurves.hxx".}
-proc SetSplitCurve2dTool*(this: var ShapeUpgrade_FixSmallCurves;
-                         splitCurve2dTool: handle[ShapeUpgrade_SplitCurve2d]) {.
+proc setSplitCurve2dTool*(this: var ShapeUpgradeFixSmallCurves;
+                         splitCurve2dTool: Handle[ShapeUpgradeSplitCurve2d]) {.
     importcpp: "SetSplitCurve2dTool", header: "ShapeUpgrade_FixSmallCurves.hxx".}
-proc Status*(this: ShapeUpgrade_FixSmallCurves; status: ShapeExtend_Status): Standard_Boolean {.
+proc status*(this: ShapeUpgradeFixSmallCurves; status: ShapeExtendStatus): bool {.
     noSideEffect, importcpp: "Status", header: "ShapeUpgrade_FixSmallCurves.hxx".}
 type
-  ShapeUpgrade_FixSmallCurvesbase_type* = ShapeUpgrade_Tool
+  ShapeUpgradeFixSmallCurvesbaseType* = ShapeUpgradeTool
 
-proc get_type_name*(): cstring {.importcpp: "ShapeUpgrade_FixSmallCurves::get_type_name(@)",
-                              header: "ShapeUpgrade_FixSmallCurves.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeUpgrade_FixSmallCurves::get_type_name(@)",
+                            header: "ShapeUpgrade_FixSmallCurves.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeUpgrade_FixSmallCurves::get_type_descriptor(@)",
     header: "ShapeUpgrade_FixSmallCurves.hxx".}
-proc DynamicType*(this: ShapeUpgrade_FixSmallCurves): handle[Standard_Type] {.
+proc dynamicType*(this: ShapeUpgradeFixSmallCurves): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_FixSmallCurves.hxx".}

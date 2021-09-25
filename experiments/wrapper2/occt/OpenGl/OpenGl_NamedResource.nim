@@ -13,30 +13,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_Resource, ../TCollection/TCollection_AsciiString
-
 ## ! Named resource object.
 
 type
-  OpenGl_NamedResource* {.importcpp: "OpenGl_NamedResource",
-                         header: "OpenGl_NamedResource.hxx", bycopy.} = object of OpenGl_Resource ##
-                                                                                           ## !
-                                                                                           ## Empty
-                                                                                           ## constructor
+  OpenGlNamedResource* {.importcpp: "OpenGl_NamedResource",
+                        header: "OpenGl_NamedResource.hxx", bycopy.} = object of OpenGlResource ##
+                                                                                         ## !
+                                                                                         ## Empty
+                                                                                         ## constructor
     ## !< resource name
 
-  OpenGl_NamedResourcebase_type* = OpenGl_Resource
+  OpenGlNamedResourcebaseType* = OpenGlResource
 
-proc get_type_name*(): cstring {.importcpp: "OpenGl_NamedResource::get_type_name(@)",
-                              header: "OpenGl_NamedResource.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "OpenGl_NamedResource::get_type_name(@)",
+                            header: "OpenGl_NamedResource.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "OpenGl_NamedResource::get_type_descriptor(@)",
     header: "OpenGl_NamedResource.hxx".}
-proc DynamicType*(this: OpenGl_NamedResource): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: OpenGlNamedResource): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "OpenGl_NamedResource.hxx".}
-proc constructOpenGl_NamedResource*(theId: TCollection_AsciiString): OpenGl_NamedResource {.
+proc constructOpenGlNamedResource*(theId: TCollectionAsciiString): OpenGlNamedResource {.
     constructor, importcpp: "OpenGl_NamedResource(@)",
     header: "OpenGl_NamedResource.hxx".}
-proc ResourceId*(this: OpenGl_NamedResource): TCollection_AsciiString {.
-    noSideEffect, importcpp: "ResourceId", header: "OpenGl_NamedResource.hxx".}
+proc resourceId*(this: OpenGlNamedResource): TCollectionAsciiString {.noSideEffect,
+    importcpp: "ResourceId", header: "OpenGl_NamedResource.hxx".}

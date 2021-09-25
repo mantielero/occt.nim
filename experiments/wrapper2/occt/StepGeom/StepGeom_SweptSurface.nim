@@ -14,40 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_Surface
-
 discard "forward decl of StepGeom_Curve"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_SweptSurface"
 discard "forward decl of StepGeom_SweptSurface"
 type
-  Handle_StepGeom_SweptSurface* = handle[StepGeom_SweptSurface]
-  StepGeom_SweptSurface* {.importcpp: "StepGeom_SweptSurface",
-                          header: "StepGeom_SweptSurface.hxx", bycopy.} = object of StepGeom_Surface ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## a
-                                                                                              ## SweptSurface
+  HandleStepGeomSweptSurface* = Handle[StepGeomSweptSurface]
+  StepGeomSweptSurface* {.importcpp: "StepGeom_SweptSurface",
+                         header: "StepGeom_SweptSurface.hxx", bycopy.} = object of StepGeomSurface ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## a
+                                                                                            ## SweptSurface
 
 
-proc constructStepGeom_SweptSurface*(): StepGeom_SweptSurface {.constructor,
+proc constructStepGeomSweptSurface*(): StepGeomSweptSurface {.constructor,
     importcpp: "StepGeom_SweptSurface(@)", header: "StepGeom_SweptSurface.hxx".}
-proc Init*(this: var StepGeom_SweptSurface; aName: handle[TCollection_HAsciiString];
-          aSweptCurve: handle[StepGeom_Curve]) {.importcpp: "Init",
+proc init*(this: var StepGeomSweptSurface; aName: Handle[TCollectionHAsciiString];
+          aSweptCurve: Handle[StepGeomCurve]) {.importcpp: "Init",
     header: "StepGeom_SweptSurface.hxx".}
-proc SetSweptCurve*(this: var StepGeom_SweptSurface;
-                   aSweptCurve: handle[StepGeom_Curve]) {.
+proc setSweptCurve*(this: var StepGeomSweptSurface;
+                   aSweptCurve: Handle[StepGeomCurve]) {.
     importcpp: "SetSweptCurve", header: "StepGeom_SweptSurface.hxx".}
-proc SweptCurve*(this: StepGeom_SweptSurface): handle[StepGeom_Curve] {.
-    noSideEffect, importcpp: "SweptCurve", header: "StepGeom_SweptSurface.hxx".}
+proc sweptCurve*(this: StepGeomSweptSurface): Handle[StepGeomCurve] {.noSideEffect,
+    importcpp: "SweptCurve", header: "StepGeom_SweptSurface.hxx".}
 type
-  StepGeom_SweptSurfacebase_type* = StepGeom_Surface
+  StepGeomSweptSurfacebaseType* = StepGeomSurface
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_SweptSurface::get_type_name(@)",
-                              header: "StepGeom_SweptSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_SweptSurface::get_type_name(@)",
+                            header: "StepGeom_SweptSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_SweptSurface::get_type_descriptor(@)",
     header: "StepGeom_SweptSurface.hxx".}
-proc DynamicType*(this: StepGeom_SweptSurface): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepGeom_SweptSurface.hxx".}
+proc dynamicType*(this: StepGeomSweptSurface): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepGeom_SweptSurface.hxx".}

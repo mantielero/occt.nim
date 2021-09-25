@@ -14,63 +14,55 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  StepBasic_AheadOrBehind, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_CoordinatedUniversalTimeOffset"
 discard "forward decl of StepBasic_CoordinatedUniversalTimeOffset"
 type
-  Handle_StepBasic_CoordinatedUniversalTimeOffset* = handle[
-      StepBasic_CoordinatedUniversalTimeOffset]
-  StepBasic_CoordinatedUniversalTimeOffset* {.
+  HandleStepBasicCoordinatedUniversalTimeOffset* = Handle[
+      StepBasicCoordinatedUniversalTimeOffset]
+  StepBasicCoordinatedUniversalTimeOffset* {.
       importcpp: "StepBasic_CoordinatedUniversalTimeOffset",
-      header: "StepBasic_CoordinatedUniversalTimeOffset.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                               ## !
-                                                                                               ## Returns
-                                                                                               ## a
-                                                                                               ## CoordinatedUniversalTimeOffset
+      header: "StepBasic_CoordinatedUniversalTimeOffset.hxx", bycopy.} = object of StandardTransient ##
+                                                                                              ## !
+                                                                                              ## Returns
+                                                                                              ## a
+                                                                                              ## CoordinatedUniversalTimeOffset
 
 
-proc constructStepBasic_CoordinatedUniversalTimeOffset*(): StepBasic_CoordinatedUniversalTimeOffset {.
+proc constructStepBasicCoordinatedUniversalTimeOffset*(): StepBasicCoordinatedUniversalTimeOffset {.
     constructor, importcpp: "StepBasic_CoordinatedUniversalTimeOffset(@)",
     header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
-proc Init*(this: var StepBasic_CoordinatedUniversalTimeOffset;
-          aHourOffset: Standard_Integer; hasAminuteOffset: Standard_Boolean;
-          aMinuteOffset: Standard_Integer; aSense: StepBasic_AheadOrBehind) {.
+proc init*(this: var StepBasicCoordinatedUniversalTimeOffset; aHourOffset: int;
+          hasAminuteOffset: bool; aMinuteOffset: int; aSense: StepBasicAheadOrBehind) {.
     importcpp: "Init", header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
-proc SetHourOffset*(this: var StepBasic_CoordinatedUniversalTimeOffset;
-                   aHourOffset: Standard_Integer) {.importcpp: "SetHourOffset",
+proc setHourOffset*(this: var StepBasicCoordinatedUniversalTimeOffset;
+                   aHourOffset: int) {.importcpp: "SetHourOffset", header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
+proc hourOffset*(this: StepBasicCoordinatedUniversalTimeOffset): int {.noSideEffect,
+    importcpp: "HourOffset",
     header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
-proc HourOffset*(this: StepBasic_CoordinatedUniversalTimeOffset): Standard_Integer {.
-    noSideEffect, importcpp: "HourOffset",
+proc setMinuteOffset*(this: var StepBasicCoordinatedUniversalTimeOffset;
+                     aMinuteOffset: int) {.importcpp: "SetMinuteOffset",
     header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
-proc SetMinuteOffset*(this: var StepBasic_CoordinatedUniversalTimeOffset;
-                     aMinuteOffset: Standard_Integer) {.
-    importcpp: "SetMinuteOffset",
-    header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
-proc UnSetMinuteOffset*(this: var StepBasic_CoordinatedUniversalTimeOffset) {.
+proc unSetMinuteOffset*(this: var StepBasicCoordinatedUniversalTimeOffset) {.
     importcpp: "UnSetMinuteOffset",
     header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
-proc MinuteOffset*(this: StepBasic_CoordinatedUniversalTimeOffset): Standard_Integer {.
+proc minuteOffset*(this: StepBasicCoordinatedUniversalTimeOffset): int {.
     noSideEffect, importcpp: "MinuteOffset",
     header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
-proc HasMinuteOffset*(this: StepBasic_CoordinatedUniversalTimeOffset): Standard_Boolean {.
+proc hasMinuteOffset*(this: StepBasicCoordinatedUniversalTimeOffset): bool {.
     noSideEffect, importcpp: "HasMinuteOffset",
     header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
-proc SetSense*(this: var StepBasic_CoordinatedUniversalTimeOffset;
-              aSense: StepBasic_AheadOrBehind) {.importcpp: "SetSense",
+proc setSense*(this: var StepBasicCoordinatedUniversalTimeOffset;
+              aSense: StepBasicAheadOrBehind) {.importcpp: "SetSense",
     header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
-proc Sense*(this: StepBasic_CoordinatedUniversalTimeOffset): StepBasic_AheadOrBehind {.
+proc sense*(this: StepBasicCoordinatedUniversalTimeOffset): StepBasicAheadOrBehind {.
     noSideEffect, importcpp: "Sense",
     header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
 type
-  StepBasic_CoordinatedUniversalTimeOffsetbase_type* = Standard_Transient
+  StepBasicCoordinatedUniversalTimeOffsetbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_CoordinatedUniversalTimeOffset::get_type_name(@)", header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepBasic_CoordinatedUniversalTimeOffset::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepBasic_CoordinatedUniversalTimeOffset::get_type_name(@)", header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_CoordinatedUniversalTimeOffset::get_type_descriptor(@)",
     header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
-proc DynamicType*(this: StepBasic_CoordinatedUniversalTimeOffset): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
+proc dynamicType*(this: StepBasicCoordinatedUniversalTimeOffset): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}

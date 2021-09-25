@@ -14,59 +14,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../StepData/StepData_Logical,
-  ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_ProductDefinitionShape"
 discard "forward decl of StepRepr_ShapeAspect"
 discard "forward decl of StepRepr_ShapeAspect"
 type
-  Handle_StepRepr_ShapeAspect* = handle[StepRepr_ShapeAspect]
-  StepRepr_ShapeAspect* {.importcpp: "StepRepr_ShapeAspect",
-                         header: "StepRepr_ShapeAspect.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## a
-                                                                                              ## ShapeAspect
+  HandleStepReprShapeAspect* = Handle[StepReprShapeAspect]
+  StepReprShapeAspect* {.importcpp: "StepRepr_ShapeAspect",
+                        header: "StepRepr_ShapeAspect.hxx", bycopy.} = object of StandardTransient ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## a
+                                                                                            ## ShapeAspect
 
 
-proc constructStepRepr_ShapeAspect*(): StepRepr_ShapeAspect {.constructor,
+proc constructStepReprShapeAspect*(): StepReprShapeAspect {.constructor,
     importcpp: "StepRepr_ShapeAspect(@)", header: "StepRepr_ShapeAspect.hxx".}
-proc Init*(this: var StepRepr_ShapeAspect; aName: handle[TCollection_HAsciiString];
-          aDescription: handle[TCollection_HAsciiString];
-          aOfShape: handle[StepRepr_ProductDefinitionShape];
-          aProductDefinitional: StepData_Logical) {.importcpp: "Init",
+proc init*(this: var StepReprShapeAspect; aName: Handle[TCollectionHAsciiString];
+          aDescription: Handle[TCollectionHAsciiString];
+          aOfShape: Handle[StepReprProductDefinitionShape];
+          aProductDefinitional: StepDataLogical) {.importcpp: "Init",
     header: "StepRepr_ShapeAspect.hxx".}
-proc SetName*(this: var StepRepr_ShapeAspect;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
-    header: "StepRepr_ShapeAspect.hxx".}
-proc Name*(this: StepRepr_ShapeAspect): handle[TCollection_HAsciiString] {.
+proc setName*(this: var StepReprShapeAspect; aName: Handle[TCollectionHAsciiString]) {.
+    importcpp: "SetName", header: "StepRepr_ShapeAspect.hxx".}
+proc name*(this: StepReprShapeAspect): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepRepr_ShapeAspect.hxx".}
-proc SetDescription*(this: var StepRepr_ShapeAspect;
-                    aDescription: handle[TCollection_HAsciiString]) {.
+proc setDescription*(this: var StepReprShapeAspect;
+                    aDescription: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepRepr_ShapeAspect.hxx".}
-proc Description*(this: StepRepr_ShapeAspect): handle[TCollection_HAsciiString] {.
+proc description*(this: StepReprShapeAspect): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Description", header: "StepRepr_ShapeAspect.hxx".}
-proc SetOfShape*(this: var StepRepr_ShapeAspect;
-                aOfShape: handle[StepRepr_ProductDefinitionShape]) {.
+proc setOfShape*(this: var StepReprShapeAspect;
+                aOfShape: Handle[StepReprProductDefinitionShape]) {.
     importcpp: "SetOfShape", header: "StepRepr_ShapeAspect.hxx".}
-proc OfShape*(this: StepRepr_ShapeAspect): handle[StepRepr_ProductDefinitionShape] {.
+proc ofShape*(this: StepReprShapeAspect): Handle[StepReprProductDefinitionShape] {.
     noSideEffect, importcpp: "OfShape", header: "StepRepr_ShapeAspect.hxx".}
-proc SetProductDefinitional*(this: var StepRepr_ShapeAspect;
-                            aProductDefinitional: StepData_Logical) {.
+proc setProductDefinitional*(this: var StepReprShapeAspect;
+                            aProductDefinitional: StepDataLogical) {.
     importcpp: "SetProductDefinitional", header: "StepRepr_ShapeAspect.hxx".}
-proc ProductDefinitional*(this: StepRepr_ShapeAspect): StepData_Logical {.
+proc productDefinitional*(this: StepReprShapeAspect): StepDataLogical {.
     noSideEffect, importcpp: "ProductDefinitional",
     header: "StepRepr_ShapeAspect.hxx".}
 type
-  StepRepr_ShapeAspectbase_type* = Standard_Transient
+  StepReprShapeAspectbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_ShapeAspect::get_type_name(@)",
-                              header: "StepRepr_ShapeAspect.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_ShapeAspect::get_type_name(@)",
+                            header: "StepRepr_ShapeAspect.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_ShapeAspect::get_type_descriptor(@)",
     header: "StepRepr_ShapeAspect.hxx".}
-proc DynamicType*(this: StepRepr_ShapeAspect): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepReprShapeAspect): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepRepr_ShapeAspect.hxx".}

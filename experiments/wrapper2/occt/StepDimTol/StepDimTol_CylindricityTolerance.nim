@@ -13,36 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepDimTol_GeometricTolerance
-
 discard "forward decl of StepDimTol_CylindricityTolerance"
 discard "forward decl of StepDimTol_CylindricityTolerance"
 type
-  Handle_StepDimTol_CylindricityTolerance* = handle[
-      StepDimTol_CylindricityTolerance]
+  HandleStepDimTolCylindricityTolerance* = Handle[StepDimTolCylindricityTolerance]
 
 ## ! Representation of STEP entity CylindricityTolerance
 
 type
-  StepDimTol_CylindricityTolerance* {.importcpp: "StepDimTol_CylindricityTolerance", header: "StepDimTol_CylindricityTolerance.hxx",
-                                     bycopy.} = object of StepDimTol_GeometricTolerance ##
-                                                                                   ## !
-                                                                                   ## Empty
-                                                                                   ## constructor
+  StepDimTolCylindricityTolerance* {.importcpp: "StepDimTol_CylindricityTolerance", header: "StepDimTol_CylindricityTolerance.hxx",
+                                    bycopy.} = object of StepDimTolGeometricTolerance ##
+                                                                                 ## !
+                                                                                 ## Empty
+                                                                                 ## constructor
 
 
-proc constructStepDimTol_CylindricityTolerance*(): StepDimTol_CylindricityTolerance {.
+proc constructStepDimTolCylindricityTolerance*(): StepDimTolCylindricityTolerance {.
     constructor, importcpp: "StepDimTol_CylindricityTolerance(@)",
     header: "StepDimTol_CylindricityTolerance.hxx".}
 type
-  StepDimTol_CylindricityTolerancebase_type* = StepDimTol_GeometricTolerance
+  StepDimTolCylindricityTolerancebaseType* = StepDimTolGeometricTolerance
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_CylindricityTolerance::get_type_name(@)",
-                              header: "StepDimTol_CylindricityTolerance.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_CylindricityTolerance::get_type_name(@)",
+                            header: "StepDimTol_CylindricityTolerance.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_CylindricityTolerance::get_type_descriptor(@)",
     header: "StepDimTol_CylindricityTolerance.hxx".}
-proc DynamicType*(this: StepDimTol_CylindricityTolerance): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolCylindricityTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_CylindricityTolerance.hxx".}

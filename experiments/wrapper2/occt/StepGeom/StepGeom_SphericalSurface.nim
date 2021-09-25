@@ -14,42 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  StepGeom_ElementarySurface
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_Axis2Placement3d"
 discard "forward decl of StepGeom_SphericalSurface"
 discard "forward decl of StepGeom_SphericalSurface"
 type
-  Handle_StepGeom_SphericalSurface* = handle[StepGeom_SphericalSurface]
-  StepGeom_SphericalSurface* {.importcpp: "StepGeom_SphericalSurface",
-                              header: "StepGeom_SphericalSurface.hxx", bycopy.} = object of StepGeom_ElementarySurface ##
-                                                                                                                ## !
-                                                                                                                ## Returns
-                                                                                                                ## a
-                                                                                                                ## SphericalSurface
+  HandleStepGeomSphericalSurface* = Handle[StepGeomSphericalSurface]
+  StepGeomSphericalSurface* {.importcpp: "StepGeom_SphericalSurface",
+                             header: "StepGeom_SphericalSurface.hxx", bycopy.} = object of StepGeomElementarySurface ##
+                                                                                                              ## !
+                                                                                                              ## Returns
+                                                                                                              ## a
+                                                                                                              ## SphericalSurface
 
 
-proc constructStepGeom_SphericalSurface*(): StepGeom_SphericalSurface {.
-    constructor, importcpp: "StepGeom_SphericalSurface(@)",
+proc constructStepGeomSphericalSurface*(): StepGeomSphericalSurface {.constructor,
+    importcpp: "StepGeom_SphericalSurface(@)",
     header: "StepGeom_SphericalSurface.hxx".}
-proc Init*(this: var StepGeom_SphericalSurface;
-          aName: handle[TCollection_HAsciiString];
-          aPosition: handle[StepGeom_Axis2Placement3d]; aRadius: Standard_Real) {.
+proc init*(this: var StepGeomSphericalSurface;
+          aName: Handle[TCollectionHAsciiString];
+          aPosition: Handle[StepGeomAxis2Placement3d]; aRadius: float) {.
     importcpp: "Init", header: "StepGeom_SphericalSurface.hxx".}
-proc SetRadius*(this: var StepGeom_SphericalSurface; aRadius: Standard_Real) {.
+proc setRadius*(this: var StepGeomSphericalSurface; aRadius: float) {.
     importcpp: "SetRadius", header: "StepGeom_SphericalSurface.hxx".}
-proc Radius*(this: StepGeom_SphericalSurface): Standard_Real {.noSideEffect,
+proc radius*(this: StepGeomSphericalSurface): float {.noSideEffect,
     importcpp: "Radius", header: "StepGeom_SphericalSurface.hxx".}
 type
-  StepGeom_SphericalSurfacebase_type* = StepGeom_ElementarySurface
+  StepGeomSphericalSurfacebaseType* = StepGeomElementarySurface
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_SphericalSurface::get_type_name(@)",
-                              header: "StepGeom_SphericalSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_SphericalSurface::get_type_name(@)",
+                            header: "StepGeom_SphericalSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_SphericalSurface::get_type_descriptor(@)",
     header: "StepGeom_SphericalSurface.hxx".}
-proc DynamicType*(this: StepGeom_SphericalSurface): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomSphericalSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_SphericalSurface.hxx".}

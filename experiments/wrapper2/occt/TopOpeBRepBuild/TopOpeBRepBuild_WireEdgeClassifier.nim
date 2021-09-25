@@ -14,62 +14,55 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean, ../gp/gp_Pnt2d,
-  ../BRepClass/BRepClass_Edge, ../BRepClass/BRepClass_FacePassiveClassifier,
-  ../TopoDS/TopoDS_Shape, TopOpeBRepBuild_CompositeClassifier,
-  ../TopAbs/TopAbs_State
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRepBuild_BlockBuilder"
 discard "forward decl of TopOpeBRepBuild_Loop"
 type
-  TopOpeBRepBuild_WireEdgeClassifier* {.importcpp: "TopOpeBRepBuild_WireEdgeClassifier", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx",
-                                       bycopy.} = object of TopOpeBRepBuild_CompositeClassifier ##
-                                                                                           ## !
-                                                                                           ## Creates
-                                                                                           ## a
-                                                                                           ## classifier
-                                                                                           ## on
-                                                                                           ## edge
-                                                                                           ## <F>.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Used
-                                                                                           ## to
-                                                                                           ## compare
-                                                                                           ## edges
-                                                                                           ## and
-                                                                                           ## wires
-                                                                                           ## on
-                                                                                           ## the
-                                                                                           ## edge
-                                                                                           ## <F>.
+  TopOpeBRepBuildWireEdgeClassifier* {.importcpp: "TopOpeBRepBuild_WireEdgeClassifier", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx",
+                                      bycopy.} = object of TopOpeBRepBuildCompositeClassifier ##
+                                                                                         ## !
+                                                                                         ## Creates
+                                                                                         ## a
+                                                                                         ## classifier
+                                                                                         ## on
+                                                                                         ## edge
+                                                                                         ## <F>.
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## Used
+                                                                                         ## to
+                                                                                         ## compare
+                                                                                         ## edges
+                                                                                         ## and
+                                                                                         ## wires
+                                                                                         ## on
+                                                                                         ## the
+                                                                                         ## edge
+                                                                                         ## <F>.
 
 
-proc constructTopOpeBRepBuild_WireEdgeClassifier*(F: TopoDS_Shape;
-    BB: TopOpeBRepBuild_BlockBuilder): TopOpeBRepBuild_WireEdgeClassifier {.
+proc constructTopOpeBRepBuildWireEdgeClassifier*(f: TopoDS_Shape;
+    bb: TopOpeBRepBuildBlockBuilder): TopOpeBRepBuildWireEdgeClassifier {.
     constructor, importcpp: "TopOpeBRepBuild_WireEdgeClassifier(@)",
     header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
-proc Compare*(this: var TopOpeBRepBuild_WireEdgeClassifier;
-             L1: handle[TopOpeBRepBuild_Loop]; L2: handle[TopOpeBRepBuild_Loop]): TopAbs_State {.
+proc compare*(this: var TopOpeBRepBuildWireEdgeClassifier;
+             l1: Handle[TopOpeBRepBuildLoop]; l2: Handle[TopOpeBRepBuildLoop]): TopAbsState {.
     importcpp: "Compare", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
-proc LoopToShape*(this: var TopOpeBRepBuild_WireEdgeClassifier;
-                 L: handle[TopOpeBRepBuild_Loop]): TopoDS_Shape {.
+proc loopToShape*(this: var TopOpeBRepBuildWireEdgeClassifier;
+                 L: Handle[TopOpeBRepBuildLoop]): TopoDS_Shape {.
     importcpp: "LoopToShape", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
-proc CompareShapes*(this: var TopOpeBRepBuild_WireEdgeClassifier; B1: TopoDS_Shape;
-                   B2: TopoDS_Shape): TopAbs_State {.importcpp: "CompareShapes",
+proc compareShapes*(this: var TopOpeBRepBuildWireEdgeClassifier; b1: TopoDS_Shape;
+                   b2: TopoDS_Shape): TopAbsState {.importcpp: "CompareShapes",
     header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
-proc CompareElementToShape*(this: var TopOpeBRepBuild_WireEdgeClassifier;
-                           E: TopoDS_Shape; B: TopoDS_Shape): TopAbs_State {.
+proc compareElementToShape*(this: var TopOpeBRepBuildWireEdgeClassifier;
+                           e: TopoDS_Shape; b: TopoDS_Shape): TopAbsState {.
     importcpp: "CompareElementToShape",
     header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
-proc ResetShape*(this: var TopOpeBRepBuild_WireEdgeClassifier; B: TopoDS_Shape) {.
+proc resetShape*(this: var TopOpeBRepBuildWireEdgeClassifier; b: TopoDS_Shape) {.
     importcpp: "ResetShape", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
-proc ResetElement*(this: var TopOpeBRepBuild_WireEdgeClassifier; E: TopoDS_Shape) {.
+proc resetElement*(this: var TopOpeBRepBuildWireEdgeClassifier; e: TopoDS_Shape) {.
     importcpp: "ResetElement", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
-proc CompareElement*(this: var TopOpeBRepBuild_WireEdgeClassifier; E: TopoDS_Shape): Standard_Boolean {.
+proc compareElement*(this: var TopOpeBRepBuildWireEdgeClassifier; e: TopoDS_Shape): bool {.
     importcpp: "CompareElement", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
-proc State*(this: var TopOpeBRepBuild_WireEdgeClassifier): TopAbs_State {.
+proc state*(this: var TopOpeBRepBuildWireEdgeClassifier): TopAbsState {.
     importcpp: "State", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}

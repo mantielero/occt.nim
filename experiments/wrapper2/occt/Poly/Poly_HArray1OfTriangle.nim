@@ -14,37 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Poly_Triangle, Poly_Array1OfTriangle, ../NCollection/NCollection_DefineHArray1
-
 type
-  Poly_HArray1OfTriangle* {.importcpp: "Poly_HArray1OfTriangle",
-                           header: "Poly_HArray1OfTriangle.hxx", bycopy.} = object of Poly_Array1OfTriangle
+  PolyHArray1OfTriangle* {.importcpp: "Poly_HArray1OfTriangle",
+                          header: "Poly_HArray1OfTriangle.hxx", bycopy.} = object of PolyArray1OfTriangle
 
 
-proc constructPoly_HArray1OfTriangle*(theLower: Standard_Integer;
-                                     theUpper: Standard_Integer): Poly_HArray1OfTriangle {.
+proc constructPolyHArray1OfTriangle*(theLower: int; theUpper: int): PolyHArray1OfTriangle {.
     constructor, importcpp: "Poly_HArray1OfTriangle(@)",
     header: "Poly_HArray1OfTriangle.hxx".}
-proc constructPoly_HArray1OfTriangle*(theLower: Standard_Integer;
-                                     theUpper: Standard_Integer;
-                                     theValue: value_type): Poly_HArray1OfTriangle {.
+proc constructPolyHArray1OfTriangle*(theLower: int; theUpper: int;
+                                    theValue: ValueType): PolyHArray1OfTriangle {.
     constructor, importcpp: "Poly_HArray1OfTriangle(@)",
     header: "Poly_HArray1OfTriangle.hxx".}
-proc constructPoly_HArray1OfTriangle*(theOther: Poly_Array1OfTriangle): Poly_HArray1OfTriangle {.
+proc constructPolyHArray1OfTriangle*(theOther: PolyArray1OfTriangle): PolyHArray1OfTriangle {.
     constructor, importcpp: "Poly_HArray1OfTriangle(@)",
     header: "Poly_HArray1OfTriangle.hxx".}
-proc Array1*(this: Poly_HArray1OfTriangle): Poly_Array1OfTriangle {.noSideEffect,
+proc array1*(this: PolyHArray1OfTriangle): PolyArray1OfTriangle {.noSideEffect,
     importcpp: "Array1", header: "Poly_HArray1OfTriangle.hxx".}
-proc ChangeArray1*(this: var Poly_HArray1OfTriangle): var Poly_Array1OfTriangle {.
+proc changeArray1*(this: var PolyHArray1OfTriangle): var PolyArray1OfTriangle {.
     importcpp: "ChangeArray1", header: "Poly_HArray1OfTriangle.hxx".}
 type
-  Poly_HArray1OfTrianglebase_type* = MMgt_TShared
+  PolyHArray1OfTrianglebaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "Poly_HArray1OfTriangle::get_type_name(@)",
-                              header: "Poly_HArray1OfTriangle.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Poly_HArray1OfTriangle::get_type_name(@)",
+                            header: "Poly_HArray1OfTriangle.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Poly_HArray1OfTriangle::get_type_descriptor(@)",
     header: "Poly_HArray1OfTriangle.hxx".}
-proc DynamicType*(this: Poly_HArray1OfTriangle): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Poly_HArray1OfTriangle.hxx".}
+proc dynamicType*(this: PolyHArray1OfTriangle): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Poly_HArray1OfTriangle.hxx".}

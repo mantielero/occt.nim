@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Address,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer, ../gp/gp_Pnt,
-  ../gp/gp_Vec, ../gp/gp_Dir, ../LProp/LProp_Status, ../Standard/Standard_Boolean
-
 discard "forward decl of LProp_BadContinuity"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_OutOfRange"
@@ -29,67 +23,65 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Dir"
 type
-  HLRBRep_SLProps* {.importcpp: "HLRBRep_SLProps", header: "HLRBRep_SLProps.hxx",
-                    bycopy.} = object ## ! Initializes the local properties of the surface <S>
-                                   ## ! for the parameter values (<U>, <V>).
-                                   ## ! The current point and the derivatives are
-                                   ## ! computed at the same time, which allows an
-                                   ## ! optimization of the computation time.
-                                   ## ! <N> indicates the maximum number of derivations to
-                                   ## ! be done (0, 1, or 2). For example, to compute
-                                   ## ! only the tangent, N should be equal to 1.
-                                   ## ! <Resolution> is the linear tolerance (it is used to test
-                                   ## ! if a vector is null).
+  HLRBRepSLProps* {.importcpp: "HLRBRep_SLProps", header: "HLRBRep_SLProps.hxx",
+                   bycopy.} = object ## ! Initializes the local properties of the surface <S>
+                                  ## ! for the parameter values (<U>, <V>).
+                                  ## ! The current point and the derivatives are
+                                  ## ! computed at the same time, which allows an
+                                  ## ! optimization of the computation time.
+                                  ## ! <N> indicates the maximum number of derivations to
+                                  ## ! be done (0, 1, or 2). For example, to compute
+                                  ## ! only the tangent, N should be equal to 1.
+                                  ## ! <Resolution> is the linear tolerance (it is used to test
+                                  ## ! if a vector is null).
 
 
-proc constructHLRBRep_SLProps*(S: Standard_Address; U: Standard_Real;
-                              V: Standard_Real; N: Standard_Integer;
-                              Resolution: Standard_Real): HLRBRep_SLProps {.
+proc constructHLRBRepSLProps*(s: StandardAddress; u: float; v: float; n: int;
+                             resolution: float): HLRBRepSLProps {.constructor,
+    importcpp: "HLRBRep_SLProps(@)", header: "HLRBRep_SLProps.hxx".}
+proc constructHLRBRepSLProps*(s: StandardAddress; n: int; resolution: float): HLRBRepSLProps {.
     constructor, importcpp: "HLRBRep_SLProps(@)", header: "HLRBRep_SLProps.hxx".}
-proc constructHLRBRep_SLProps*(S: Standard_Address; N: Standard_Integer;
-                              Resolution: Standard_Real): HLRBRep_SLProps {.
+proc constructHLRBRepSLProps*(n: int; resolution: float): HLRBRepSLProps {.
     constructor, importcpp: "HLRBRep_SLProps(@)", header: "HLRBRep_SLProps.hxx".}
-proc constructHLRBRep_SLProps*(N: Standard_Integer; Resolution: Standard_Real): HLRBRep_SLProps {.
-    constructor, importcpp: "HLRBRep_SLProps(@)", header: "HLRBRep_SLProps.hxx".}
-proc SetSurface*(this: var HLRBRep_SLProps; S: Standard_Address) {.
+proc setSurface*(this: var HLRBRepSLProps; s: StandardAddress) {.
     importcpp: "SetSurface", header: "HLRBRep_SLProps.hxx".}
-proc SetParameters*(this: var HLRBRep_SLProps; U: Standard_Real; V: Standard_Real) {.
+proc setParameters*(this: var HLRBRepSLProps; u: float; v: float) {.
     importcpp: "SetParameters", header: "HLRBRep_SLProps.hxx".}
-proc Value*(this: HLRBRep_SLProps): gp_Pnt {.noSideEffect, importcpp: "Value",
-    header: "HLRBRep_SLProps.hxx".}
-proc D1U*(this: var HLRBRep_SLProps): gp_Vec {.importcpp: "D1U",
-    header: "HLRBRep_SLProps.hxx".}
-proc D1V*(this: var HLRBRep_SLProps): gp_Vec {.importcpp: "D1V",
-    header: "HLRBRep_SLProps.hxx".}
-proc D2U*(this: var HLRBRep_SLProps): gp_Vec {.importcpp: "D2U",
-    header: "HLRBRep_SLProps.hxx".}
-proc D2V*(this: var HLRBRep_SLProps): gp_Vec {.importcpp: "D2V",
-    header: "HLRBRep_SLProps.hxx".}
-proc DUV*(this: var HLRBRep_SLProps): gp_Vec {.importcpp: "DUV",
-    header: "HLRBRep_SLProps.hxx".}
-proc IsTangentUDefined*(this: var HLRBRep_SLProps): Standard_Boolean {.
+proc value*(this: HLRBRepSLProps): Pnt {.noSideEffect, importcpp: "Value",
+                                     header: "HLRBRep_SLProps.hxx".}
+proc d1u*(this: var HLRBRepSLProps): Vec {.importcpp: "D1U",
+                                      header: "HLRBRep_SLProps.hxx".}
+proc d1v*(this: var HLRBRepSLProps): Vec {.importcpp: "D1V",
+                                      header: "HLRBRep_SLProps.hxx".}
+proc d2u*(this: var HLRBRepSLProps): Vec {.importcpp: "D2U",
+                                      header: "HLRBRep_SLProps.hxx".}
+proc d2v*(this: var HLRBRepSLProps): Vec {.importcpp: "D2V",
+                                      header: "HLRBRep_SLProps.hxx".}
+proc duv*(this: var HLRBRepSLProps): Vec {.importcpp: "DUV",
+                                      header: "HLRBRep_SLProps.hxx".}
+proc isTangentUDefined*(this: var HLRBRepSLProps): bool {.
     importcpp: "IsTangentUDefined", header: "HLRBRep_SLProps.hxx".}
-proc TangentU*(this: var HLRBRep_SLProps; D: var gp_Dir) {.importcpp: "TangentU",
+proc tangentU*(this: var HLRBRepSLProps; d: var Dir) {.importcpp: "TangentU",
     header: "HLRBRep_SLProps.hxx".}
-proc IsTangentVDefined*(this: var HLRBRep_SLProps): Standard_Boolean {.
+proc isTangentVDefined*(this: var HLRBRepSLProps): bool {.
     importcpp: "IsTangentVDefined", header: "HLRBRep_SLProps.hxx".}
-proc TangentV*(this: var HLRBRep_SLProps; D: var gp_Dir) {.importcpp: "TangentV",
+proc tangentV*(this: var HLRBRepSLProps; d: var Dir) {.importcpp: "TangentV",
     header: "HLRBRep_SLProps.hxx".}
-proc IsNormalDefined*(this: var HLRBRep_SLProps): Standard_Boolean {.
-    importcpp: "IsNormalDefined", header: "HLRBRep_SLProps.hxx".}
-proc Normal*(this: var HLRBRep_SLProps): gp_Dir {.importcpp: "Normal",
+proc isNormalDefined*(this: var HLRBRepSLProps): bool {.importcpp: "IsNormalDefined",
     header: "HLRBRep_SLProps.hxx".}
-proc IsCurvatureDefined*(this: var HLRBRep_SLProps): Standard_Boolean {.
+proc normal*(this: var HLRBRepSLProps): Dir {.importcpp: "Normal",
+    header: "HLRBRep_SLProps.hxx".}
+proc isCurvatureDefined*(this: var HLRBRepSLProps): bool {.
     importcpp: "IsCurvatureDefined", header: "HLRBRep_SLProps.hxx".}
-proc IsUmbilic*(this: var HLRBRep_SLProps): Standard_Boolean {.
-    importcpp: "IsUmbilic", header: "HLRBRep_SLProps.hxx".}
-proc MaxCurvature*(this: var HLRBRep_SLProps): Standard_Real {.
-    importcpp: "MaxCurvature", header: "HLRBRep_SLProps.hxx".}
-proc MinCurvature*(this: var HLRBRep_SLProps): Standard_Real {.
-    importcpp: "MinCurvature", header: "HLRBRep_SLProps.hxx".}
-proc CurvatureDirections*(this: var HLRBRep_SLProps; MaxD: var gp_Dir; MinD: var gp_Dir) {.
+proc isUmbilic*(this: var HLRBRepSLProps): bool {.importcpp: "IsUmbilic",
+    header: "HLRBRep_SLProps.hxx".}
+proc maxCurvature*(this: var HLRBRepSLProps): float {.importcpp: "MaxCurvature",
+    header: "HLRBRep_SLProps.hxx".}
+proc minCurvature*(this: var HLRBRepSLProps): float {.importcpp: "MinCurvature",
+    header: "HLRBRep_SLProps.hxx".}
+proc curvatureDirections*(this: var HLRBRepSLProps; maxD: var Dir; minD: var Dir) {.
     importcpp: "CurvatureDirections", header: "HLRBRep_SLProps.hxx".}
-proc MeanCurvature*(this: var HLRBRep_SLProps): Standard_Real {.
-    importcpp: "MeanCurvature", header: "HLRBRep_SLProps.hxx".}
-proc GaussianCurvature*(this: var HLRBRep_SLProps): Standard_Real {.
+proc meanCurvature*(this: var HLRBRepSLProps): float {.importcpp: "MeanCurvature",
+    header: "HLRBRep_SLProps.hxx".}
+proc gaussianCurvature*(this: var HLRBRepSLProps): float {.
     importcpp: "GaussianCurvature", header: "HLRBRep_SLProps.hxx".}

@@ -14,9 +14,10 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepDimTol_LimitCondition* {.size: sizeof(cint),
-                              importcpp: "StepDimTol_LimitCondition",
-                              header: "StepDimTol_LimitCondition.hxx".} = enum
-    StepDimTol_MaximumMaterialCondition, StepDimTol_LeastMaterialCondition,
-    StepDimTol_RegardlessOfFeatureSize
+  StepDimTolLimitCondition* {.size: sizeof(cint),
+                             importcpp: "StepDimTol_LimitCondition",
+                             header: "StepDimTol_LimitCondition.hxx".} = enum
+    StepDimTolMaximumMaterialCondition, StepDimTolLeastMaterialCondition,
+    StepDimTolRegardlessOfFeatureSize
+
 

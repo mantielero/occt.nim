@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_Integer, PCDM_SequenceOfReference,
-  ../TColStd/TColStd_SequenceOfExtendedString, ../Storage/Storage_OpenMode
-
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Storage_Data"
 discard "forward decl of CDM_Document"
@@ -28,63 +23,63 @@ discard "forward decl of Storage_BaseDriver"
 discard "forward decl of PCDM_ReadWriter"
 discard "forward decl of PCDM_ReadWriter"
 type
-  Handle_PCDM_ReadWriter* = handle[PCDM_ReadWriter]
+  HandlePCDM_ReadWriter* = Handle[PCDM_ReadWriter]
   PCDM_ReadWriter* {.importcpp: "PCDM_ReadWriter", header: "PCDM_ReadWriter.hxx",
-                    bycopy.} = object of Standard_Transient ## ! returns PCDM_ReadWriter_1.
+                    bycopy.} = object of StandardTransient ## ! returns PCDM_ReadWriter_1.
 
 
-proc Version*(this: PCDM_ReadWriter): TCollection_AsciiString {.noSideEffect,
+proc version*(this: PCDM_ReadWriter): TCollectionAsciiString {.noSideEffect,
     importcpp: "Version", header: "PCDM_ReadWriter.hxx".}
-proc WriteReferenceCounter*(this: PCDM_ReadWriter; aData: handle[Storage_Data];
-                           aDocument: handle[CDM_Document]) {.noSideEffect,
+proc writeReferenceCounter*(this: PCDM_ReadWriter; aData: Handle[StorageData];
+                           aDocument: Handle[CDM_Document]) {.noSideEffect,
     importcpp: "WriteReferenceCounter", header: "PCDM_ReadWriter.hxx".}
-proc WriteReferences*(this: PCDM_ReadWriter; aData: handle[Storage_Data];
-                     aDocument: handle[CDM_Document];
-                     theReferencerFileName: TCollection_ExtendedString) {.
+proc writeReferences*(this: PCDM_ReadWriter; aData: Handle[StorageData];
+                     aDocument: Handle[CDM_Document];
+                     theReferencerFileName: TCollectionExtendedString) {.
     noSideEffect, importcpp: "WriteReferences", header: "PCDM_ReadWriter.hxx".}
-proc WriteExtensions*(this: PCDM_ReadWriter; aData: handle[Storage_Data];
-                     aDocument: handle[CDM_Document]) {.noSideEffect,
+proc writeExtensions*(this: PCDM_ReadWriter; aData: Handle[StorageData];
+                     aDocument: Handle[CDM_Document]) {.noSideEffect,
     importcpp: "WriteExtensions", header: "PCDM_ReadWriter.hxx".}
-proc WriteVersion*(this: PCDM_ReadWriter; aData: handle[Storage_Data];
-                  aDocument: handle[CDM_Document]) {.noSideEffect,
+proc writeVersion*(this: PCDM_ReadWriter; aData: Handle[StorageData];
+                  aDocument: Handle[CDM_Document]) {.noSideEffect,
     importcpp: "WriteVersion", header: "PCDM_ReadWriter.hxx".}
-proc ReadReferenceCounter*(this: PCDM_ReadWriter;
-                          theFileName: TCollection_ExtendedString;
-                          theMsgDriver: handle[Message_Messenger]): Standard_Integer {.
+proc readReferenceCounter*(this: PCDM_ReadWriter;
+                          theFileName: TCollectionExtendedString;
+                          theMsgDriver: Handle[MessageMessenger]): int {.
     noSideEffect, importcpp: "ReadReferenceCounter", header: "PCDM_ReadWriter.hxx".}
-proc ReadReferences*(this: PCDM_ReadWriter; aFileName: TCollection_ExtendedString;
+proc readReferences*(this: PCDM_ReadWriter; aFileName: TCollectionExtendedString;
                     theReferences: var PCDM_SequenceOfReference;
-                    theMsgDriver: handle[Message_Messenger]) {.noSideEffect,
+                    theMsgDriver: Handle[MessageMessenger]) {.noSideEffect,
     importcpp: "ReadReferences", header: "PCDM_ReadWriter.hxx".}
-proc ReadExtensions*(this: PCDM_ReadWriter; aFileName: TCollection_ExtendedString;
-                    theExtensions: var TColStd_SequenceOfExtendedString;
-                    theMsgDriver: handle[Message_Messenger]) {.noSideEffect,
+proc readExtensions*(this: PCDM_ReadWriter; aFileName: TCollectionExtendedString;
+                    theExtensions: var TColStdSequenceOfExtendedString;
+                    theMsgDriver: Handle[MessageMessenger]) {.noSideEffect,
     importcpp: "ReadExtensions", header: "PCDM_ReadWriter.hxx".}
-proc ReadDocumentVersion*(this: PCDM_ReadWriter;
-                         aFileName: TCollection_ExtendedString;
-                         theMsgDriver: handle[Message_Messenger]): Standard_Integer {.
+proc readDocumentVersion*(this: PCDM_ReadWriter;
+                         aFileName: TCollectionExtendedString;
+                         theMsgDriver: Handle[MessageMessenger]): int {.
     noSideEffect, importcpp: "ReadDocumentVersion", header: "PCDM_ReadWriter.hxx".}
-proc Open*(aDriver: handle[Storage_BaseDriver];
-          aFileName: TCollection_ExtendedString; anOpenMode: Storage_OpenMode) {.
+proc open*(aDriver: Handle[StorageBaseDriver];
+          aFileName: TCollectionExtendedString; anOpenMode: StorageOpenMode) {.
     importcpp: "PCDM_ReadWriter::Open(@)", header: "PCDM_ReadWriter.hxx".}
-proc Reader*(aFileName: TCollection_ExtendedString): handle[PCDM_ReadWriter] {.
+proc reader*(aFileName: TCollectionExtendedString): Handle[PCDM_ReadWriter] {.
     importcpp: "PCDM_ReadWriter::Reader(@)", header: "PCDM_ReadWriter.hxx".}
-proc Writer*(): handle[PCDM_ReadWriter] {.importcpp: "PCDM_ReadWriter::Writer(@)",
+proc writer*(): Handle[PCDM_ReadWriter] {.importcpp: "PCDM_ReadWriter::Writer(@)",
                                        header: "PCDM_ReadWriter.hxx".}
-proc WriteFileFormat*(aData: handle[Storage_Data]; aDocument: handle[CDM_Document]) {.
+proc writeFileFormat*(aData: Handle[StorageData]; aDocument: Handle[CDM_Document]) {.
     importcpp: "PCDM_ReadWriter::WriteFileFormat(@)",
     header: "PCDM_ReadWriter.hxx".}
-proc FileFormat*(aFileName: TCollection_ExtendedString): TCollection_ExtendedString {.
+proc fileFormat*(aFileName: TCollectionExtendedString): TCollectionExtendedString {.
     importcpp: "PCDM_ReadWriter::FileFormat(@)", header: "PCDM_ReadWriter.hxx".}
-proc FileFormat*(theIStream: var Standard_IStream; theData: var handle[Storage_Data]): TCollection_ExtendedString {.
+proc fileFormat*(theIStream: var StandardIStream; theData: var Handle[StorageData]): TCollectionExtendedString {.
     importcpp: "PCDM_ReadWriter::FileFormat(@)", header: "PCDM_ReadWriter.hxx".}
 type
-  PCDM_ReadWriterbase_type* = Standard_Transient
+  PCDM_ReadWriterbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "PCDM_ReadWriter::get_type_name(@)",
-                              header: "PCDM_ReadWriter.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "PCDM_ReadWriter::get_type_name(@)",
+                            header: "PCDM_ReadWriter.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "PCDM_ReadWriter::get_type_descriptor(@)",
     header: "PCDM_ReadWriter.hxx".}
-proc DynamicType*(this: PCDM_ReadWriter): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: PCDM_ReadWriter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "PCDM_ReadWriter.hxx".}

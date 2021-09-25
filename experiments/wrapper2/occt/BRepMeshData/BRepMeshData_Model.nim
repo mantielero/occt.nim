@@ -13,81 +13,76 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../IMeshData/IMeshData_Model, ../IMeshData/IMeshData_Types,
-  ../NCollection/NCollection_IncAllocator, ../IMeshData/IMeshData_Face,
-  ../IMeshData/IMeshData_Edge
-
 ## ! Default implementation of model entity.
 
 type
-  BRepMeshData_Model* {.importcpp: "BRepMeshData_Model",
-                       header: "BRepMeshData_Model.hxx", bycopy.} = object of IMeshData_Model ##
-                                                                                       ## !
-                                                                                       ## Constructor.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Initializes
-                                                                                       ## empty
-                                                                                       ## model.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## @name
-                                                                                       ## discrete
-                                                                                       ## faces
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Returns
-                                                                                       ## number
-                                                                                       ## of
-                                                                                       ## faces
-                                                                                       ## in
-                                                                                       ## discrete
-                                                                                       ## model.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## @name
-                                                                                       ## discrete
-                                                                                       ## edges
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Returns
-                                                                                       ## number
-                                                                                       ## of
-                                                                                       ## edges
-                                                                                       ## in
-                                                                                       ## discrete
-                                                                                       ## model.
+  BRepMeshDataModel* {.importcpp: "BRepMeshData_Model",
+                      header: "BRepMeshData_Model.hxx", bycopy.} = object of IMeshDataModel ##
+                                                                                     ## !
+                                                                                     ## Constructor.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Initializes
+                                                                                     ## empty
+                                                                                     ## model.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @name
+                                                                                     ## discrete
+                                                                                     ## faces
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Returns
+                                                                                     ## number
+                                                                                     ## of
+                                                                                     ## faces
+                                                                                     ## in
+                                                                                     ## discrete
+                                                                                     ## model.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @name
+                                                                                     ## discrete
+                                                                                     ## edges
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Returns
+                                                                                     ## number
+                                                                                     ## of
+                                                                                     ## edges
+                                                                                     ## in
+                                                                                     ## discrete
+                                                                                     ## model.
 
 
-proc constructBRepMeshData_Model*(theShape: TopoDS_Shape): BRepMeshData_Model {.
+proc constructBRepMeshDataModel*(theShape: TopoDS_Shape): BRepMeshDataModel {.
     constructor, importcpp: "BRepMeshData_Model(@)",
     header: "BRepMeshData_Model.hxx".}
-proc destroyBRepMeshData_Model*(this: var BRepMeshData_Model) {.
+proc destroyBRepMeshDataModel*(this: var BRepMeshDataModel) {.
     importcpp: "#.~BRepMeshData_Model()", header: "BRepMeshData_Model.hxx".}
-proc GetMaxSize*(this: BRepMeshData_Model): Standard_Real {.noSideEffect,
+proc getMaxSize*(this: BRepMeshDataModel): float {.noSideEffect,
     importcpp: "GetMaxSize", header: "BRepMeshData_Model.hxx".}
-proc SetMaxSize*(this: var BRepMeshData_Model; theValue: Standard_Real) {.
+proc setMaxSize*(this: var BRepMeshDataModel; theValue: float) {.
     importcpp: "SetMaxSize", header: "BRepMeshData_Model.hxx".}
 type
-  BRepMeshData_Modelbase_type* = IMeshData_Model
+  BRepMeshDataModelbaseType* = IMeshDataModel
 
-proc get_type_name*(): cstring {.importcpp: "BRepMeshData_Model::get_type_name(@)",
-                              header: "BRepMeshData_Model.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepMeshData_Model::get_type_name(@)",
+                            header: "BRepMeshData_Model.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepMeshData_Model::get_type_descriptor(@)",
     header: "BRepMeshData_Model.hxx".}
-proc DynamicType*(this: BRepMeshData_Model): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: BRepMeshDataModel): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMeshData_Model.hxx".}
-proc FacesNb*(this: BRepMeshData_Model): Standard_Integer {.noSideEffect,
-    importcpp: "FacesNb", header: "BRepMeshData_Model.hxx".}
-proc AddFace*(this: var BRepMeshData_Model; theFace: TopoDS_Face): IFaceHandle {.
+proc facesNb*(this: BRepMeshDataModel): int {.noSideEffect, importcpp: "FacesNb",
+    header: "BRepMeshData_Model.hxx".}
+proc addFace*(this: var BRepMeshDataModel; theFace: TopoDS_Face): IFaceHandle {.
     importcpp: "AddFace", header: "BRepMeshData_Model.hxx".}
-proc GetFace*(this: BRepMeshData_Model; theIndex: Standard_Integer): IFaceHandle {.
-    noSideEffect, importcpp: "GetFace", header: "BRepMeshData_Model.hxx".}
-proc EdgesNb*(this: BRepMeshData_Model): Standard_Integer {.noSideEffect,
-    importcpp: "EdgesNb", header: "BRepMeshData_Model.hxx".}
-proc AddEdge*(this: var BRepMeshData_Model; theEdge: TopoDS_Edge): IEdgeHandle {.
+proc getFace*(this: BRepMeshDataModel; theIndex: int): IFaceHandle {.noSideEffect,
+    importcpp: "GetFace", header: "BRepMeshData_Model.hxx".}
+proc edgesNb*(this: BRepMeshDataModel): int {.noSideEffect, importcpp: "EdgesNb",
+    header: "BRepMeshData_Model.hxx".}
+proc addEdge*(this: var BRepMeshDataModel; theEdge: TopoDS_Edge): IEdgeHandle {.
     importcpp: "AddEdge", header: "BRepMeshData_Model.hxx".}
-proc GetEdge*(this: BRepMeshData_Model; theIndex: Standard_Integer): IEdgeHandle {.
-    noSideEffect, importcpp: "GetEdge", header: "BRepMeshData_Model.hxx".}
+proc getEdge*(this: BRepMeshDataModel; theIndex: int): IEdgeHandle {.noSideEffect,
+    importcpp: "GetEdge", header: "BRepMeshData_Model.hxx".}

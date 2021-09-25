@@ -14,4 +14,5 @@
 
 discard "forward decl of BOPDS_DS"
 type
-  BOPDS_PDS* = ptr BOPDS_DS
+  Bopds_Pds* = ptr Bopds_Ds
+

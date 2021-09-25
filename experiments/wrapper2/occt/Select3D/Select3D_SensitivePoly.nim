@@ -11,10 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Select3D_PointData, Select3D_SensitiveSet, Select3D_TypeOfSensitivity,
-  ../TColStd/TColStd_HArray1OfInteger, ../TColgp/TColgp_HArray1OfPnt
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_OutOfRange"
 type
@@ -79,57 +75,54 @@ type
     ## !< Bounding box of the poly
     ## !< Is true if all the points and data structures of polygon are initialized
 
-  Select3D_SensitivePolybase_type* = Select3D_SensitiveSet
+  Select3D_SensitivePolybaseType* = Select3D_SensitiveSet
 
-proc get_type_name*(): cstring {.importcpp: "Select3D_SensitivePoly::get_type_name(@)",
-                              header: "Select3D_SensitivePoly.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Select3D_SensitivePoly::get_type_name(@)",
+                            header: "Select3D_SensitivePoly.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Select3D_SensitivePoly::get_type_descriptor(@)",
     header: "Select3D_SensitivePoly.hxx".}
-proc DynamicType*(this: Select3D_SensitivePoly): handle[Standard_Type] {.
+proc dynamicType*(this: Select3D_SensitivePoly): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Select3D_SensitivePoly.hxx".}
-proc constructSelect3D_SensitivePoly*(theOwnerId: handle[SelectMgr_EntityOwner];
-                                     thePoints: TColgp_Array1OfPnt;
-                                     theIsBVHEnabled: Standard_Boolean): Select3D_SensitivePoly {.
+proc constructSelect3D_SensitivePoly*(theOwnerId: Handle[SelectMgrEntityOwner];
+                                     thePoints: TColgpArray1OfPnt;
+                                     theIsBVHEnabled: bool): Select3D_SensitivePoly {.
     constructor, importcpp: "Select3D_SensitivePoly(@)",
     header: "Select3D_SensitivePoly.hxx".}
-proc constructSelect3D_SensitivePoly*(theOwnerId: handle[SelectMgr_EntityOwner];
-                                     thePoints: handle[TColgp_HArray1OfPnt];
-                                     theIsBVHEnabled: Standard_Boolean): Select3D_SensitivePoly {.
+proc constructSelect3D_SensitivePoly*(theOwnerId: Handle[SelectMgrEntityOwner];
+                                     thePoints: Handle[TColgpHArray1OfPnt];
+                                     theIsBVHEnabled: bool): Select3D_SensitivePoly {.
     constructor, importcpp: "Select3D_SensitivePoly(@)",
     header: "Select3D_SensitivePoly.hxx".}
-proc constructSelect3D_SensitivePoly*(theOwnerId: handle[SelectMgr_EntityOwner];
-                                     theIsBVHEnabled: Standard_Boolean;
-                                     theNbPnts: Standard_Integer = 6): Select3D_SensitivePoly {.
+proc constructSelect3D_SensitivePoly*(theOwnerId: Handle[SelectMgrEntityOwner];
+                                     theIsBVHEnabled: bool; theNbPnts: int = 6): Select3D_SensitivePoly {.
     constructor, importcpp: "Select3D_SensitivePoly(@)",
     header: "Select3D_SensitivePoly.hxx".}
-proc NbSubElements*(this: Select3D_SensitivePoly): Standard_Integer {.noSideEffect,
+proc nbSubElements*(this: Select3D_SensitivePoly): int {.noSideEffect,
     importcpp: "NbSubElements", header: "Select3D_SensitivePoly.hxx".}
-proc Points3D*(this: var Select3D_SensitivePoly;
-              theHArrayOfPnt: var handle[TColgp_HArray1OfPnt]) {.
+proc points3D*(this: var Select3D_SensitivePoly;
+              theHArrayOfPnt: var Handle[TColgpHArray1OfPnt]) {.
     importcpp: "Points3D", header: "Select3D_SensitivePoly.hxx".}
-proc ArrayBounds*(this: Select3D_SensitivePoly; theLow: var Standard_Integer;
-                 theUp: var Standard_Integer) {.noSideEffect,
-    importcpp: "ArrayBounds", header: "Select3D_SensitivePoly.hxx".}
-proc GetPoint3d*(this: Select3D_SensitivePoly; thePntIdx: Standard_Integer): gp_Pnt {.
-    noSideEffect, importcpp: "GetPoint3d", header: "Select3D_SensitivePoly.hxx".}
-proc BoundingBox*(this: var Select3D_SensitivePoly): Select3D_BndBox3d {.
+proc arrayBounds*(this: Select3D_SensitivePoly; theLow: var int; theUp: var int) {.
+    noSideEffect, importcpp: "ArrayBounds", header: "Select3D_SensitivePoly.hxx".}
+proc getPoint3d*(this: Select3D_SensitivePoly; thePntIdx: int): Pnt {.noSideEffect,
+    importcpp: "GetPoint3d", header: "Select3D_SensitivePoly.hxx".}
+proc boundingBox*(this: var Select3D_SensitivePoly): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "Select3D_SensitivePoly.hxx".}
-proc CenterOfGeometry*(this: Select3D_SensitivePoly): gp_Pnt {.noSideEffect,
+proc centerOfGeometry*(this: Select3D_SensitivePoly): Pnt {.noSideEffect,
     importcpp: "CenterOfGeometry", header: "Select3D_SensitivePoly.hxx".}
-proc Size*(this: Select3D_SensitivePoly): Standard_Integer {.noSideEffect,
-    importcpp: "Size", header: "Select3D_SensitivePoly.hxx".}
-proc Box*(this: Select3D_SensitivePoly; theIdx: Standard_Integer): Select3D_BndBox3d {.
-    noSideEffect, importcpp: "Box", header: "Select3D_SensitivePoly.hxx".}
-proc Center*(this: Select3D_SensitivePoly; theIdx: Standard_Integer;
-            theAxis: Standard_Integer): Standard_Real {.noSideEffect,
-    importcpp: "Center", header: "Select3D_SensitivePoly.hxx".}
-proc Swap*(this: var Select3D_SensitivePoly; theIdx1: Standard_Integer;
-          theIdx2: Standard_Integer) {.importcpp: "Swap",
-                                     header: "Select3D_SensitivePoly.hxx".}
-proc DumpJson*(this: Select3D_SensitivePoly; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
+proc size*(this: Select3D_SensitivePoly): int {.noSideEffect, importcpp: "Size",
     header: "Select3D_SensitivePoly.hxx".}
+proc box*(this: Select3D_SensitivePoly; theIdx: int): Select3D_BndBox3d {.
+    noSideEffect, importcpp: "Box", header: "Select3D_SensitivePoly.hxx".}
+proc center*(this: Select3D_SensitivePoly; theIdx: int; theAxis: int): float {.
+    noSideEffect, importcpp: "Center", header: "Select3D_SensitivePoly.hxx".}
+proc swap*(this: var Select3D_SensitivePoly; theIdx1: int; theIdx2: int) {.
+    importcpp: "Swap", header: "Select3D_SensitivePoly.hxx".}
+proc dumpJson*(this: Select3D_SensitivePoly; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Select3D_SensitivePoly.hxx".}
 discard "forward decl of Select3D_SensitivePoly"
 type
-  Handle_Select3D_SensitivePoly* = handle[Select3D_SensitivePoly]
+  HandleSelect3D_SensitivePoly* = Handle[Select3D_SensitivePoly]
+

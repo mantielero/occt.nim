@@ -14,39 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  GeomFill_SectionLaw, GeomFill_Array1OfSectionLaw,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  GeomFill_HArray1OfSectionLaw* {.importcpp: "GeomFill_HArray1OfSectionLaw",
-                                 header: "GeomFill_HArray1OfSectionLaw.hxx",
-                                 bycopy.} = object of GeomFill_Array1OfSectionLaw
+  GeomFillHArray1OfSectionLaw* {.importcpp: "GeomFill_HArray1OfSectionLaw",
+                                header: "GeomFill_HArray1OfSectionLaw.hxx", bycopy.} = object of GeomFillArray1OfSectionLaw
 
 
-proc constructGeomFill_HArray1OfSectionLaw*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): GeomFill_HArray1OfSectionLaw {.constructor,
+proc constructGeomFillHArray1OfSectionLaw*(theLower: int; theUpper: int): GeomFillHArray1OfSectionLaw {.
+    constructor, importcpp: "GeomFill_HArray1OfSectionLaw(@)",
+    header: "GeomFill_HArray1OfSectionLaw.hxx".}
+proc constructGeomFillHArray1OfSectionLaw*(theLower: int; theUpper: int;
+    theValue: ValueType): GeomFillHArray1OfSectionLaw {.constructor,
     importcpp: "GeomFill_HArray1OfSectionLaw(@)",
     header: "GeomFill_HArray1OfSectionLaw.hxx".}
-proc constructGeomFill_HArray1OfSectionLaw*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): GeomFill_HArray1OfSectionLaw {.
+proc constructGeomFillHArray1OfSectionLaw*(theOther: GeomFillArray1OfSectionLaw): GeomFillHArray1OfSectionLaw {.
     constructor, importcpp: "GeomFill_HArray1OfSectionLaw(@)",
     header: "GeomFill_HArray1OfSectionLaw.hxx".}
-proc constructGeomFill_HArray1OfSectionLaw*(theOther: GeomFill_Array1OfSectionLaw): GeomFill_HArray1OfSectionLaw {.
-    constructor, importcpp: "GeomFill_HArray1OfSectionLaw(@)",
-    header: "GeomFill_HArray1OfSectionLaw.hxx".}
-proc Array1*(this: GeomFill_HArray1OfSectionLaw): GeomFill_Array1OfSectionLaw {.
+proc array1*(this: GeomFillHArray1OfSectionLaw): GeomFillArray1OfSectionLaw {.
     noSideEffect, importcpp: "Array1", header: "GeomFill_HArray1OfSectionLaw.hxx".}
-proc ChangeArray1*(this: var GeomFill_HArray1OfSectionLaw): var GeomFill_Array1OfSectionLaw {.
+proc changeArray1*(this: var GeomFillHArray1OfSectionLaw): var GeomFillArray1OfSectionLaw {.
     importcpp: "ChangeArray1", header: "GeomFill_HArray1OfSectionLaw.hxx".}
 type
-  GeomFill_HArray1OfSectionLawbase_type* = MMgt_TShared
+  GeomFillHArray1OfSectionLawbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "GeomFill_HArray1OfSectionLaw::get_type_name(@)",
-                              header: "GeomFill_HArray1OfSectionLaw.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "GeomFill_HArray1OfSectionLaw::get_type_name(@)",
+                            header: "GeomFill_HArray1OfSectionLaw.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GeomFill_HArray1OfSectionLaw::get_type_descriptor(@)",
     header: "GeomFill_HArray1OfSectionLaw.hxx".}
-proc DynamicType*(this: GeomFill_HArray1OfSectionLaw): handle[Standard_Type] {.
+proc dynamicType*(this: GeomFillHArray1OfSectionLaw): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "GeomFill_HArray1OfSectionLaw.hxx".}

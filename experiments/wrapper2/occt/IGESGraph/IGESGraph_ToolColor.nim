@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESGraph_Color"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,32 +26,30 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESGraph_ToolColor* {.importcpp: "IGESGraph_ToolColor",
-                        header: "IGESGraph_ToolColor.hxx", bycopy.} = object ## ! Returns a
-                                                                        ## ToolColor, ready to work
+  IGESGraphToolColor* {.importcpp: "IGESGraph_ToolColor",
+                       header: "IGESGraph_ToolColor.hxx", bycopy.} = object ## ! Returns a
+                                                                       ## ToolColor, ready to work
 
 
-proc constructIGESGraph_ToolColor*(): IGESGraph_ToolColor {.constructor,
+proc constructIGESGraphToolColor*(): IGESGraphToolColor {.constructor,
     importcpp: "IGESGraph_ToolColor(@)", header: "IGESGraph_ToolColor.hxx".}
-proc ReadOwnParams*(this: IGESGraph_ToolColor; ent: handle[IGESGraph_Color];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESGraph_ToolColor.hxx".}
-proc WriteOwnParams*(this: IGESGraph_ToolColor; ent: handle[IGESGraph_Color];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESGraphToolColor; ent: Handle[IGESGraphColor];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams", header: "IGESGraph_ToolColor.hxx".}
+proc writeOwnParams*(this: IGESGraphToolColor; ent: Handle[IGESGraphColor];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESGraph_ToolColor.hxx".}
-proc OwnShared*(this: IGESGraph_ToolColor; ent: handle[IGESGraph_Color];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESGraphToolColor; ent: Handle[IGESGraphColor];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESGraph_ToolColor.hxx".}
-proc DirChecker*(this: IGESGraph_ToolColor; ent: handle[IGESGraph_Color]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESGraphToolColor; ent: Handle[IGESGraphColor]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESGraph_ToolColor.hxx".}
-proc OwnCheck*(this: IGESGraph_ToolColor; ent: handle[IGESGraph_Color];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESGraphToolColor; ent: Handle[IGESGraphColor];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESGraph_ToolColor.hxx".}
-proc OwnCopy*(this: IGESGraph_ToolColor; entfrom: handle[IGESGraph_Color];
-             entto: handle[IGESGraph_Color]; TC: var Interface_CopyTool) {.
+proc ownCopy*(this: IGESGraphToolColor; entfrom: Handle[IGESGraphColor];
+             entto: Handle[IGESGraphColor]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGraph_ToolColor.hxx".}
-proc OwnDump*(this: IGESGraph_ToolColor; ent: handle[IGESGraph_Color];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
-                                    header: "IGESGraph_ToolColor.hxx".}
+proc ownDump*(this: IGESGraphToolColor; ent: Handle[IGESGraphColor];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump", header: "IGESGraph_ToolColor.hxx".}

@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OSD_FileNode, OSD_FromWhere, OSD_KindFile, OSD_LockType, OSD_OpenMode
-
 discard "forward decl of Standard_ProgramError"
 discard "forward decl of OSD_Path"
 discard "forward decl of OSD_Protection"
@@ -26,71 +23,65 @@ type
                                                                                      ## Creates
                                                                                      ## File
                                                                                      ## object.
-    when defined(_WIN32):
-      discard
-    when not defined(_WIN32):
-      discard
-    when not defined(_WIN32):
-      discard
+#     when defined windows:
+#       discard
+#     when not defined windows:
+#       discard
+#     when not defined windows:
+#       discard
 
 
 proc constructOSD_File*(): OSD_File {.constructor, importcpp: "OSD_File(@)",
                                    header: "OSD_File.hxx".}
-proc constructOSD_File*(Name: OSD_Path): OSD_File {.constructor,
+proc constructOSD_File*(name: OSD_Path): OSD_File {.constructor,
     importcpp: "OSD_File(@)", header: "OSD_File.hxx".}
 proc destroyOSD_File*(this: var OSD_File) {.importcpp: "#.~OSD_File()",
                                         header: "OSD_File.hxx".}
-proc Build*(this: var OSD_File; Mode: OSD_OpenMode; Protect: OSD_Protection) {.
+proc build*(this: var OSD_File; mode: OSD_OpenMode; protect: OSD_Protection) {.
     importcpp: "Build", header: "OSD_File.hxx".}
-proc Open*(this: var OSD_File; Mode: OSD_OpenMode; Protect: OSD_Protection) {.
+proc open*(this: var OSD_File; mode: OSD_OpenMode; protect: OSD_Protection) {.
     importcpp: "Open", header: "OSD_File.hxx".}
-proc Append*(this: var OSD_File; Mode: OSD_OpenMode; Protect: OSD_Protection) {.
+proc append*(this: var OSD_File; mode: OSD_OpenMode; protect: OSD_Protection) {.
     importcpp: "Append", header: "OSD_File.hxx".}
-proc Read*(this: var OSD_File; Buffer: var TCollection_AsciiString;
-          Nbyte: Standard_Integer) {.importcpp: "Read", header: "OSD_File.hxx".}
-proc ReadLine*(this: var OSD_File; Buffer: var TCollection_AsciiString;
-              NByte: Standard_Integer; NbyteRead: var Standard_Integer) {.
+proc read*(this: var OSD_File; buffer: var TCollectionAsciiString; nbyte: int) {.
+    importcpp: "Read", header: "OSD_File.hxx".}
+proc readLine*(this: var OSD_File; buffer: var TCollectionAsciiString; nByte: int;
+              nbyteRead: var int) {.importcpp: "ReadLine", header: "OSD_File.hxx".}
+proc readLine*(this: var OSD_File; buffer: var TCollectionAsciiString; nByte: int): int {.
     importcpp: "ReadLine", header: "OSD_File.hxx".}
-proc ReadLine*(this: var OSD_File; Buffer: var TCollection_AsciiString;
-              NByte: Standard_Integer): Standard_Integer {.importcpp: "ReadLine",
+proc read*(this: var OSD_File; buffer: StandardAddress; nbyte: int; readbyte: var int) {.
+    importcpp: "Read", header: "OSD_File.hxx".}
+proc write*(this: var OSD_File; theBuffer: TCollectionAsciiString; theNbBytes: int) {.
+    importcpp: "Write", header: "OSD_File.hxx".}
+proc write*(this: var OSD_File; theBuffer: StandardAddress; theNbBytes: int) {.
+    importcpp: "Write", header: "OSD_File.hxx".}
+proc seek*(this: var OSD_File; offset: int; whence: OSD_FromWhere) {.importcpp: "Seek",
     header: "OSD_File.hxx".}
-proc Read*(this: var OSD_File; Buffer: Standard_Address; Nbyte: Standard_Integer;
-          Readbyte: var Standard_Integer) {.importcpp: "Read", header: "OSD_File.hxx".}
-proc Write*(this: var OSD_File; theBuffer: TCollection_AsciiString;
-           theNbBytes: Standard_Integer) {.importcpp: "Write",
-    header: "OSD_File.hxx".}
-proc Write*(this: var OSD_File; theBuffer: Standard_Address;
-           theNbBytes: Standard_Integer) {.importcpp: "Write",
-    header: "OSD_File.hxx".}
-proc Seek*(this: var OSD_File; Offset: Standard_Integer; Whence: OSD_FromWhere) {.
-    importcpp: "Seek", header: "OSD_File.hxx".}
-proc Close*(this: var OSD_File) {.importcpp: "Close", header: "OSD_File.hxx".}
-proc IsAtEnd*(this: var OSD_File): Standard_Boolean {.importcpp: "IsAtEnd",
-    header: "OSD_File.hxx".}
-proc KindOfFile*(this: OSD_File): OSD_KindFile {.noSideEffect,
+proc close*(this: var OSD_File) {.importcpp: "Close", header: "OSD_File.hxx".}
+proc isAtEnd*(this: var OSD_File): bool {.importcpp: "IsAtEnd", header: "OSD_File.hxx".}
+proc kindOfFile*(this: OSD_File): OSD_KindFile {.noSideEffect,
     importcpp: "KindOfFile", header: "OSD_File.hxx".}
-proc BuildTemporary*(this: var OSD_File) {.importcpp: "BuildTemporary",
+proc buildTemporary*(this: var OSD_File) {.importcpp: "BuildTemporary",
                                        header: "OSD_File.hxx".}
-proc SetLock*(this: var OSD_File; Lock: OSD_LockType) {.importcpp: "SetLock",
+proc setLock*(this: var OSD_File; lock: OSD_LockType) {.importcpp: "SetLock",
     header: "OSD_File.hxx".}
-proc UnLock*(this: var OSD_File) {.importcpp: "UnLock", header: "OSD_File.hxx".}
-proc GetLock*(this: OSD_File): OSD_LockType {.noSideEffect, importcpp: "GetLock",
+proc unLock*(this: var OSD_File) {.importcpp: "UnLock", header: "OSD_File.hxx".}
+proc getLock*(this: OSD_File): OSD_LockType {.noSideEffect, importcpp: "GetLock",
     header: "OSD_File.hxx".}
-proc IsLocked*(this: OSD_File): Standard_Boolean {.noSideEffect,
-    importcpp: "IsLocked", header: "OSD_File.hxx".}
-proc Size*(this: var OSD_File): Standard_Size {.importcpp: "Size",
+proc isLocked*(this: OSD_File): bool {.noSideEffect, importcpp: "IsLocked",
+                                   header: "OSD_File.hxx".}
+proc size*(this: var OSD_File): StandardSize {.importcpp: "Size",
     header: "OSD_File.hxx".}
-proc IsOpen*(this: OSD_File): Standard_Boolean {.noSideEffect, importcpp: "IsOpen",
+proc isOpen*(this: OSD_File): bool {.noSideEffect, importcpp: "IsOpen",
+                                 header: "OSD_File.hxx".}
+proc isReadable*(this: var OSD_File): bool {.importcpp: "IsReadable",
+                                        header: "OSD_File.hxx".}
+proc isWriteable*(this: var OSD_File): bool {.importcpp: "IsWriteable",
     header: "OSD_File.hxx".}
-proc IsReadable*(this: var OSD_File): Standard_Boolean {.importcpp: "IsReadable",
+proc isExecutable*(this: var OSD_File): bool {.importcpp: "IsExecutable",
     header: "OSD_File.hxx".}
-proc IsWriteable*(this: var OSD_File): Standard_Boolean {.importcpp: "IsWriteable",
-    header: "OSD_File.hxx".}
-proc IsExecutable*(this: var OSD_File): Standard_Boolean {.importcpp: "IsExecutable",
-    header: "OSD_File.hxx".}
-proc ReadLastLine*(this: var OSD_File; aLine: var TCollection_AsciiString;
-                  aDelay: Standard_Integer; aNbTries: Standard_Integer): Standard_Boolean {.
-    importcpp: "ReadLastLine", header: "OSD_File.hxx".}
-proc Edit*(this: var OSD_File): Standard_Boolean {.importcpp: "Edit",
-    header: "OSD_File.hxx".}
-proc Rewind*(this: var OSD_File) {.importcpp: "Rewind", header: "OSD_File.hxx".}
+proc readLastLine*(this: var OSD_File; aLine: var TCollectionAsciiString; aDelay: int;
+                  aNbTries: int): bool {.importcpp: "ReadLastLine",
+                                      header: "OSD_File.hxx".}
+proc edit*(this: var OSD_File): bool {.importcpp: "Edit", header: "OSD_File.hxx".}
+proc rewind*(this: var OSD_File) {.importcpp: "Rewind", header: "OSD_File.hxx".}

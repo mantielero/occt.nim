@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Units_Quantity, ../NCollection/NCollection_Sequence
-
 type
-  Units_QtsSequence* = NCollection_Sequence[handle[Units_Quantity]]
+  UnitsQtsSequence* = NCollectionSequence[Handle[UnitsQuantity]]
+

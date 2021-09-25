@@ -14,18 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_OStream
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of VrmlConverter_Drawer"
 type
-  VrmlConverter_WFDeflectionShape* {.importcpp: "VrmlConverter_WFDeflectionShape", header: "VrmlConverter_WFDeflectionShape.hxx",
-                                    bycopy.} = object
+  VrmlConverterWFDeflectionShape* {.importcpp: "VrmlConverter_WFDeflectionShape", header: "VrmlConverter_WFDeflectionShape.hxx",
+                                   bycopy.} = object
 
 
-proc Add*(anOStream: var Standard_OStream; aShape: TopoDS_Shape;
-         aDrawer: handle[VrmlConverter_Drawer]) {.
+proc add*(anOStream: var StandardOStream; aShape: TopoDS_Shape;
+         aDrawer: Handle[VrmlConverterDrawer]) {.
     importcpp: "VrmlConverter_WFDeflectionShape::Add(@)",
     header: "VrmlConverter_WFDeflectionShape.hxx".}

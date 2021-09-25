@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of IGESData_SpecificModule"
 discard "forward decl of IGESData_Protocol"
 discard "forward decl of IGESData_IGESEntity"
@@ -25,36 +22,35 @@ discard "forward decl of IGESData_NodeOfSpecificLib"
 discard "forward decl of IGESData_GlobalNodeOfSpecificLib"
 discard "forward decl of IGESData_GlobalNodeOfSpecificLib"
 type
-  Handle_IGESData_GlobalNodeOfSpecificLib* = handle[
-      IGESData_GlobalNodeOfSpecificLib]
-  IGESData_GlobalNodeOfSpecificLib* {.importcpp: "IGESData_GlobalNodeOfSpecificLib", header: "IGESData_GlobalNodeOfSpecificLib.hxx",
-                                     bycopy.} = object of Standard_Transient ## ! Creates an empty
-                                                                        ## GlobalNode, with no Next
+  HandleIGESDataGlobalNodeOfSpecificLib* = Handle[IGESDataGlobalNodeOfSpecificLib]
+  IGESDataGlobalNodeOfSpecificLib* {.importcpp: "IGESData_GlobalNodeOfSpecificLib", header: "IGESData_GlobalNodeOfSpecificLib.hxx",
+                                    bycopy.} = object of StandardTransient ## ! Creates an empty
+                                                                      ## GlobalNode, with no Next
 
 
-proc constructIGESData_GlobalNodeOfSpecificLib*(): IGESData_GlobalNodeOfSpecificLib {.
+proc constructIGESDataGlobalNodeOfSpecificLib*(): IGESDataGlobalNodeOfSpecificLib {.
     constructor, importcpp: "IGESData_GlobalNodeOfSpecificLib(@)",
     header: "IGESData_GlobalNodeOfSpecificLib.hxx".}
-proc Add*(this: var IGESData_GlobalNodeOfSpecificLib;
-         amodule: handle[IGESData_SpecificModule];
-         aprotocol: handle[IGESData_Protocol]) {.importcpp: "Add",
+proc add*(this: var IGESDataGlobalNodeOfSpecificLib;
+         amodule: Handle[IGESDataSpecificModule];
+         aprotocol: Handle[IGESDataProtocol]) {.importcpp: "Add",
     header: "IGESData_GlobalNodeOfSpecificLib.hxx".}
-proc Module*(this: IGESData_GlobalNodeOfSpecificLib): handle[
-    IGESData_SpecificModule] {.noSideEffect, importcpp: "Module",
-                              header: "IGESData_GlobalNodeOfSpecificLib.hxx".}
-proc Protocol*(this: IGESData_GlobalNodeOfSpecificLib): handle[IGESData_Protocol] {.
+proc module*(this: IGESDataGlobalNodeOfSpecificLib): Handle[IGESDataSpecificModule] {.
+    noSideEffect, importcpp: "Module",
+    header: "IGESData_GlobalNodeOfSpecificLib.hxx".}
+proc protocol*(this: IGESDataGlobalNodeOfSpecificLib): Handle[IGESDataProtocol] {.
     noSideEffect, importcpp: "Protocol",
     header: "IGESData_GlobalNodeOfSpecificLib.hxx".}
-proc Next*(this: IGESData_GlobalNodeOfSpecificLib): handle[
-    IGESData_GlobalNodeOfSpecificLib] {.noSideEffect, importcpp: "Next", header: "IGESData_GlobalNodeOfSpecificLib.hxx".}
+proc next*(this: IGESDataGlobalNodeOfSpecificLib): Handle[
+    IGESDataGlobalNodeOfSpecificLib] {.noSideEffect, importcpp: "Next", header: "IGESData_GlobalNodeOfSpecificLib.hxx".}
 type
-  IGESData_GlobalNodeOfSpecificLibbase_type* = Standard_Transient
+  IGESDataGlobalNodeOfSpecificLibbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "IGESData_GlobalNodeOfSpecificLib::get_type_name(@)",
-                              header: "IGESData_GlobalNodeOfSpecificLib.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESData_GlobalNodeOfSpecificLib::get_type_name(@)",
+                            header: "IGESData_GlobalNodeOfSpecificLib.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESData_GlobalNodeOfSpecificLib::get_type_descriptor(@)",
     header: "IGESData_GlobalNodeOfSpecificLib.hxx".}
-proc DynamicType*(this: IGESData_GlobalNodeOfSpecificLib): handle[Standard_Type] {.
+proc dynamicType*(this: IGESDataGlobalNodeOfSpecificLib): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESData_GlobalNodeOfSpecificLib.hxx".}

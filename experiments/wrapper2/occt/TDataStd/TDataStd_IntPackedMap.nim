@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../TDF/TDF_Attribute, ../TColStd/TColStd_HPackedMapOfInteger,
-  ../Standard/Standard_Integer, ../Standard/Standard_OStream
-
 discard "forward decl of TDataStd_DeltaOnModificationOfIntPackedMap"
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
@@ -27,84 +22,84 @@ discard "forward decl of TDF_DeltaOnModification"
 discard "forward decl of TDataStd_IntPackedMap"
 discard "forward decl of TDataStd_IntPackedMap"
 type
-  Handle_TDataStd_IntPackedMap* = handle[TDataStd_IntPackedMap]
+  HandleTDataStdIntPackedMap* = Handle[TDataStdIntPackedMap]
 
 ## ! Attribute for storing TColStd_PackedMapOfInteger
 
 type
-  TDataStd_IntPackedMap* {.importcpp: "TDataStd_IntPackedMap",
-                          header: "TDataStd_IntPackedMap.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                           ## !
-                                                                                           ## class
-                                                                                           ## methods
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## =============
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Returns
-                                                                                           ## the
-                                                                                           ## GUID
-                                                                                           ## of
-                                                                                           ## the
-                                                                                           ## attribute.
+  TDataStdIntPackedMap* {.importcpp: "TDataStd_IntPackedMap",
+                         header: "TDataStd_IntPackedMap.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                          ## !
+                                                                                          ## class
+                                                                                          ## methods
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## =============
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## Returns
+                                                                                          ## the
+                                                                                          ## GUID
+                                                                                          ## of
+                                                                                          ## the
+                                                                                          ## attribute.
 
-  TDataStd_IntPackedMapbase_type* = TDF_Attribute
+  TDataStdIntPackedMapbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TDataStd_IntPackedMap::get_type_name(@)",
-                              header: "TDataStd_IntPackedMap.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDataStd_IntPackedMap::get_type_name(@)",
+                            header: "TDataStd_IntPackedMap.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDataStd_IntPackedMap::get_type_descriptor(@)",
     header: "TDataStd_IntPackedMap.hxx".}
-proc DynamicType*(this: TDataStd_IntPackedMap): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "TDataStd_IntPackedMap.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "TDataStd_IntPackedMap::GetID(@)",
-                            header: "TDataStd_IntPackedMap.hxx".}
-proc Set*(label: TDF_Label; isDelta: Standard_Boolean = Standard_False): handle[
-    TDataStd_IntPackedMap] {.importcpp: "TDataStd_IntPackedMap::Set(@)",
-                            header: "TDataStd_IntPackedMap.hxx".}
-proc constructTDataStd_IntPackedMap*(): TDataStd_IntPackedMap {.constructor,
+proc dynamicType*(this: TDataStdIntPackedMap): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "TDataStd_IntPackedMap.hxx".}
+proc getID*(): StandardGUID {.importcpp: "TDataStd_IntPackedMap::GetID(@)",
+                           header: "TDataStd_IntPackedMap.hxx".}
+proc set*(label: TDF_Label; isDelta: bool = false): Handle[TDataStdIntPackedMap] {.
+    importcpp: "TDataStd_IntPackedMap::Set(@)",
+    header: "TDataStd_IntPackedMap.hxx".}
+proc constructTDataStdIntPackedMap*(): TDataStdIntPackedMap {.constructor,
     importcpp: "TDataStd_IntPackedMap(@)", header: "TDataStd_IntPackedMap.hxx".}
-proc ChangeMap*(this: var TDataStd_IntPackedMap;
-               theMap: handle[TColStd_HPackedMapOfInteger]): Standard_Boolean {.
+proc changeMap*(this: var TDataStdIntPackedMap;
+               theMap: Handle[TColStdHPackedMapOfInteger]): bool {.
     importcpp: "ChangeMap", header: "TDataStd_IntPackedMap.hxx".}
-proc ChangeMap*(this: var TDataStd_IntPackedMap; theMap: TColStd_PackedMapOfInteger): Standard_Boolean {.
+proc changeMap*(this: var TDataStdIntPackedMap; theMap: TColStdPackedMapOfInteger): bool {.
     importcpp: "ChangeMap", header: "TDataStd_IntPackedMap.hxx".}
-proc GetMap*(this: TDataStd_IntPackedMap): TColStd_PackedMapOfInteger {.
-    noSideEffect, importcpp: "GetMap", header: "TDataStd_IntPackedMap.hxx".}
-proc GetHMap*(this: TDataStd_IntPackedMap): handle[TColStd_HPackedMapOfInteger] {.
+proc getMap*(this: TDataStdIntPackedMap): TColStdPackedMapOfInteger {.noSideEffect,
+    importcpp: "GetMap", header: "TDataStd_IntPackedMap.hxx".}
+proc getHMap*(this: TDataStdIntPackedMap): Handle[TColStdHPackedMapOfInteger] {.
     noSideEffect, importcpp: "GetHMap", header: "TDataStd_IntPackedMap.hxx".}
-proc Clear*(this: var TDataStd_IntPackedMap): Standard_Boolean {.importcpp: "Clear",
+proc clear*(this: var TDataStdIntPackedMap): bool {.importcpp: "Clear",
     header: "TDataStd_IntPackedMap.hxx".}
-proc Add*(this: var TDataStd_IntPackedMap; theKey: Standard_Integer): Standard_Boolean {.
-    importcpp: "Add", header: "TDataStd_IntPackedMap.hxx".}
-proc Remove*(this: var TDataStd_IntPackedMap; theKey: Standard_Integer): Standard_Boolean {.
-    importcpp: "Remove", header: "TDataStd_IntPackedMap.hxx".}
-proc Contains*(this: TDataStd_IntPackedMap; theKey: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "Contains", header: "TDataStd_IntPackedMap.hxx".}
-proc Extent*(this: TDataStd_IntPackedMap): Standard_Integer {.noSideEffect,
-    importcpp: "Extent", header: "TDataStd_IntPackedMap.hxx".}
-proc IsEmpty*(this: TDataStd_IntPackedMap): Standard_Boolean {.noSideEffect,
-    importcpp: "IsEmpty", header: "TDataStd_IntPackedMap.hxx".}
-proc GetDelta*(this: TDataStd_IntPackedMap): Standard_Boolean {.noSideEffect,
+proc add*(this: var TDataStdIntPackedMap; theKey: int): bool {.importcpp: "Add",
+    header: "TDataStd_IntPackedMap.hxx".}
+proc remove*(this: var TDataStdIntPackedMap; theKey: int): bool {.importcpp: "Remove",
+    header: "TDataStd_IntPackedMap.hxx".}
+proc contains*(this: TDataStdIntPackedMap; theKey: int): bool {.noSideEffect,
+    importcpp: "Contains", header: "TDataStd_IntPackedMap.hxx".}
+proc extent*(this: TDataStdIntPackedMap): int {.noSideEffect, importcpp: "Extent",
+    header: "TDataStd_IntPackedMap.hxx".}
+proc isEmpty*(this: TDataStdIntPackedMap): bool {.noSideEffect, importcpp: "IsEmpty",
+    header: "TDataStd_IntPackedMap.hxx".}
+proc getDelta*(this: TDataStdIntPackedMap): bool {.noSideEffect,
     importcpp: "GetDelta", header: "TDataStd_IntPackedMap.hxx".}
-proc SetDelta*(this: var TDataStd_IntPackedMap; isDelta: Standard_Boolean) {.
-    importcpp: "SetDelta", header: "TDataStd_IntPackedMap.hxx".}
-proc ID*(this: TDataStd_IntPackedMap): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc setDelta*(this: var TDataStdIntPackedMap; isDelta: bool) {.importcpp: "SetDelta",
     header: "TDataStd_IntPackedMap.hxx".}
-proc Restore*(this: var TDataStd_IntPackedMap; with: handle[TDF_Attribute]) {.
+proc id*(this: TDataStdIntPackedMap): StandardGUID {.noSideEffect, importcpp: "ID",
+    header: "TDataStd_IntPackedMap.hxx".}
+proc restore*(this: var TDataStdIntPackedMap; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TDataStd_IntPackedMap.hxx".}
-proc NewEmpty*(this: TDataStd_IntPackedMap): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TDataStdIntPackedMap): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TDataStd_IntPackedMap.hxx".}
-proc Paste*(this: TDataStd_IntPackedMap; into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TDataStdIntPackedMap; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TDataStd_IntPackedMap.hxx".}
-proc Dump*(this: TDataStd_IntPackedMap; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDataStdIntPackedMap; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_IntPackedMap.hxx".}
-proc DeltaOnModification*(this: TDataStd_IntPackedMap;
-                         anOldAttribute: handle[TDF_Attribute]): handle[
+proc deltaOnModification*(this: TDataStdIntPackedMap;
+                         anOldAttribute: Handle[TDF_Attribute]): Handle[
     TDF_DeltaOnModification] {.noSideEffect, importcpp: "DeltaOnModification",
                               header: "TDataStd_IntPackedMap.hxx".}
-proc DumpJson*(this: TDataStd_IntPackedMap; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TDataStd_IntPackedMap.hxx".}
+proc dumpJson*(this: TDataStdIntPackedMap; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TDataStd_IntPackedMap.hxx".}

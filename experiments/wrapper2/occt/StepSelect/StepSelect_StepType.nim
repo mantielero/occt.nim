@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../StepData/StepData_WriterLib,
-  ../IFSelect/IFSelect_Signature, ../Standard/Standard_CString
-
 discard "forward decl of StepData_Protocol"
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of Interface_Protocol"
@@ -26,7 +22,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of StepSelect_StepType"
 discard "forward decl of StepSelect_StepType"
 type
-  Handle_StepSelect_StepType* = handle[StepSelect_StepType]
+  HandleStepSelectStepType* = Handle[StepSelectStepType]
 
 ## ! StepType is a Signature specific to Step definitions : it
 ## ! considers the type as defined in STEP Schemas, the same which
@@ -39,54 +35,54 @@ type
 ## ! Write time only), StepType produces : "(..COMPLEX TYPE..)"
 
 type
-  StepSelect_StepType* {.importcpp: "StepSelect_StepType",
-                        header: "StepSelect_StepType.hxx", bycopy.} = object of IFSelect_Signature ##
-                                                                                            ## !
-                                                                                            ## Creates
-                                                                                            ## a
-                                                                                            ## Signature
-                                                                                            ## for
-                                                                                            ## Step
-                                                                                            ## Type.
-                                                                                            ## Protocol
-                                                                                            ## is
-                                                                                            ## undefined
-                                                                                            ## here,
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## hence
-                                                                                            ## no
-                                                                                            ## Signature
-                                                                                            ## may
-                                                                                            ## yet
-                                                                                            ## be
-                                                                                            ## produced.
-                                                                                            ## The
-                                                                                            ## StepType
-                                                                                            ## signature
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## requires
-                                                                                            ## a
-                                                                                            ## Protocol
-                                                                                            ## before
-                                                                                            ## working
+  StepSelectStepType* {.importcpp: "StepSelect_StepType",
+                       header: "StepSelect_StepType.hxx", bycopy.} = object of IFSelectSignature ##
+                                                                                          ## !
+                                                                                          ## Creates
+                                                                                          ## a
+                                                                                          ## Signature
+                                                                                          ## for
+                                                                                          ## Step
+                                                                                          ## Type.
+                                                                                          ## Protocol
+                                                                                          ## is
+                                                                                          ## undefined
+                                                                                          ## here,
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## hence
+                                                                                          ## no
+                                                                                          ## Signature
+                                                                                          ## may
+                                                                                          ## yet
+                                                                                          ## be
+                                                                                          ## produced.
+                                                                                          ## The
+                                                                                          ## StepType
+                                                                                          ## signature
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## requires
+                                                                                          ## a
+                                                                                          ## Protocol
+                                                                                          ## before
+                                                                                          ## working
 
 
-proc constructStepSelect_StepType*(): StepSelect_StepType {.constructor,
+proc constructStepSelectStepType*(): StepSelectStepType {.constructor,
     importcpp: "StepSelect_StepType(@)", header: "StepSelect_StepType.hxx".}
-proc SetProtocol*(this: var StepSelect_StepType; proto: handle[Interface_Protocol]) {.
+proc setProtocol*(this: var StepSelectStepType; proto: Handle[InterfaceProtocol]) {.
     importcpp: "SetProtocol", header: "StepSelect_StepType.hxx".}
-proc Value*(this: StepSelect_StepType; ent: handle[Standard_Transient];
-           model: handle[Interface_InterfaceModel]): Standard_CString {.
-    noSideEffect, importcpp: "Value", header: "StepSelect_StepType.hxx".}
+proc value*(this: StepSelectStepType; ent: Handle[StandardTransient];
+           model: Handle[InterfaceInterfaceModel]): StandardCString {.noSideEffect,
+    importcpp: "Value", header: "StepSelect_StepType.hxx".}
 type
-  StepSelect_StepTypebase_type* = IFSelect_Signature
+  StepSelectStepTypebaseType* = IFSelectSignature
 
-proc get_type_name*(): cstring {.importcpp: "StepSelect_StepType::get_type_name(@)",
-                              header: "StepSelect_StepType.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepSelect_StepType::get_type_name(@)",
+                            header: "StepSelect_StepType.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepSelect_StepType::get_type_descriptor(@)",
     header: "StepSelect_StepType.hxx".}
-proc DynamicType*(this: StepSelect_StepType): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepSelectStepType): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepSelect_StepType.hxx".}

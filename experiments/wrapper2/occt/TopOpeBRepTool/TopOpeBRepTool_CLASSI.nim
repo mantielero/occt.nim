@@ -14,42 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Face,
-  TopOpeBRepTool_IndexedDataMapOfShapeBox2d, TopOpeBRepTool_DataMapOfShapeface,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../TopTools/TopTools_ListOfShape,
-  ../TopTools/TopTools_DataMapOfShapeListOfShape
-
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Bnd_Box2d"
 discard "forward decl of TopOpeBRepTool_face"
 type
-  TopOpeBRepTool_CLASSI* {.importcpp: "TopOpeBRepTool_CLASSI",
-                          header: "TopOpeBRepTool_CLASSI.hxx", bycopy.} = object
+  TopOpeBRepToolCLASSI* {.importcpp: "TopOpeBRepTool_CLASSI",
+                         header: "TopOpeBRepTool_CLASSI.hxx", bycopy.} = object
 
 
-proc constructTopOpeBRepTool_CLASSI*(): TopOpeBRepTool_CLASSI {.constructor,
+proc constructTopOpeBRepToolCLASSI*(): TopOpeBRepToolCLASSI {.constructor,
     importcpp: "TopOpeBRepTool_CLASSI(@)", header: "TopOpeBRepTool_CLASSI.hxx".}
-proc Init2d*(this: var TopOpeBRepTool_CLASSI; Fref: TopoDS_Face) {.
-    importcpp: "Init2d", header: "TopOpeBRepTool_CLASSI.hxx".}
-proc HasInit2d*(this: TopOpeBRepTool_CLASSI): Standard_Boolean {.noSideEffect,
+proc init2d*(this: var TopOpeBRepToolCLASSI; fref: TopoDS_Face) {.importcpp: "Init2d",
+    header: "TopOpeBRepTool_CLASSI.hxx".}
+proc hasInit2d*(this: TopOpeBRepToolCLASSI): bool {.noSideEffect,
     importcpp: "HasInit2d", header: "TopOpeBRepTool_CLASSI.hxx".}
-proc Add2d*(this: var TopOpeBRepTool_CLASSI; S: TopoDS_Shape): Standard_Boolean {.
+proc add2d*(this: var TopOpeBRepToolCLASSI; s: TopoDS_Shape): bool {.
     importcpp: "Add2d", header: "TopOpeBRepTool_CLASSI.hxx".}
-proc GetBox2d*(this: var TopOpeBRepTool_CLASSI; S: TopoDS_Shape; Box2d: var Bnd_Box2d): Standard_Boolean {.
+proc getBox2d*(this: var TopOpeBRepToolCLASSI; s: TopoDS_Shape; box2d: var BndBox2d): bool {.
     importcpp: "GetBox2d", header: "TopOpeBRepTool_CLASSI.hxx".}
-proc ClassiBnd2d*(this: var TopOpeBRepTool_CLASSI; S1: TopoDS_Shape; S2: TopoDS_Shape;
-                 tol: Standard_Real; checklarge: Standard_Boolean): Standard_Integer {.
-    importcpp: "ClassiBnd2d", header: "TopOpeBRepTool_CLASSI.hxx".}
-proc Classip2d*(this: var TopOpeBRepTool_CLASSI; S1: TopoDS_Shape; S2: TopoDS_Shape;
-               stabnd2d12: Standard_Integer): Standard_Integer {.
-    importcpp: "Classip2d", header: "TopOpeBRepTool_CLASSI.hxx".}
-proc Getface*(this: TopOpeBRepTool_CLASSI; S: TopoDS_Shape;
-             fa: var TopOpeBRepTool_face): Standard_Boolean {.noSideEffect,
-    importcpp: "Getface", header: "TopOpeBRepTool_CLASSI.hxx".}
-proc Classilist*(this: var TopOpeBRepTool_CLASSI; lS: TopTools_ListOfShape;
-                mapgreasma: var TopTools_DataMapOfShapeListOfShape): Standard_Boolean {.
+proc classiBnd2d*(this: var TopOpeBRepToolCLASSI; s1: TopoDS_Shape; s2: TopoDS_Shape;
+                 tol: float; checklarge: bool): int {.importcpp: "ClassiBnd2d",
+    header: "TopOpeBRepTool_CLASSI.hxx".}
+proc classip2d*(this: var TopOpeBRepToolCLASSI; s1: TopoDS_Shape; s2: TopoDS_Shape;
+               stabnd2d12: int): int {.importcpp: "Classip2d",
+                                    header: "TopOpeBRepTool_CLASSI.hxx".}
+proc getface*(this: TopOpeBRepToolCLASSI; s: TopoDS_Shape; fa: var TopOpeBRepToolFace): bool {.
+    noSideEffect, importcpp: "Getface", header: "TopOpeBRepTool_CLASSI.hxx".}
+proc classilist*(this: var TopOpeBRepToolCLASSI; lS: TopToolsListOfShape;
+                mapgreasma: var TopToolsDataMapOfShapeListOfShape): bool {.
     importcpp: "Classilist", header: "TopOpeBRepTool_CLASSI.hxx".}

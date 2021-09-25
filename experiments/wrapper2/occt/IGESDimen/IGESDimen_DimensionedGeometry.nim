@@ -14,16 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../IGESData/IGESData_HArray1OfIGESEntity, ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESDimen_DimensionedGeometry"
 discard "forward decl of IGESDimen_DimensionedGeometry"
 type
-  Handle_IGESDimen_DimensionedGeometry* = handle[IGESDimen_DimensionedGeometry]
+  HandleIGESDimenDimensionedGeometry* = Handle[IGESDimenDimensionedGeometry]
 
 ## ! Defines IGES Dimensioned Geometry, Type <402> Form <13>,
 ## ! in package IGESDimen
@@ -32,38 +28,36 @@ type
 ## ! longer be used by preprocessors.
 
 type
-  IGESDimen_DimensionedGeometry* {.importcpp: "IGESDimen_DimensionedGeometry",
-                                  header: "IGESDimen_DimensionedGeometry.hxx",
-                                  bycopy.} = object of IGESData_IGESEntity
+  IGESDimenDimensionedGeometry* {.importcpp: "IGESDimen_DimensionedGeometry",
+                                 header: "IGESDimen_DimensionedGeometry.hxx",
+                                 bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESDimen_DimensionedGeometry*(): IGESDimen_DimensionedGeometry {.
+proc constructIGESDimenDimensionedGeometry*(): IGESDimenDimensionedGeometry {.
     constructor, importcpp: "IGESDimen_DimensionedGeometry(@)",
     header: "IGESDimen_DimensionedGeometry.hxx".}
-proc Init*(this: var IGESDimen_DimensionedGeometry; nbDims: Standard_Integer;
-          aDimension: handle[IGESData_IGESEntity];
-          entities: handle[IGESData_HArray1OfIGESEntity]) {.importcpp: "Init",
+proc init*(this: var IGESDimenDimensionedGeometry; nbDims: int;
+          aDimension: Handle[IGESDataIGESEntity];
+          entities: Handle[IGESDataHArray1OfIGESEntity]) {.importcpp: "Init",
     header: "IGESDimen_DimensionedGeometry.hxx".}
-proc NbDimensions*(this: IGESDimen_DimensionedGeometry): Standard_Integer {.
-    noSideEffect, importcpp: "NbDimensions",
-    header: "IGESDimen_DimensionedGeometry.hxx".}
-proc NbGeometryEntities*(this: IGESDimen_DimensionedGeometry): Standard_Integer {.
-    noSideEffect, importcpp: "NbGeometryEntities",
-    header: "IGESDimen_DimensionedGeometry.hxx".}
-proc DimensionEntity*(this: IGESDimen_DimensionedGeometry): handle[
-    IGESData_IGESEntity] {.noSideEffect, importcpp: "DimensionEntity",
-                          header: "IGESDimen_DimensionedGeometry.hxx".}
-proc GeometryEntity*(this: IGESDimen_DimensionedGeometry; Index: Standard_Integer): handle[
-    IGESData_IGESEntity] {.noSideEffect, importcpp: "GeometryEntity",
-                          header: "IGESDimen_DimensionedGeometry.hxx".}
+proc nbDimensions*(this: IGESDimenDimensionedGeometry): int {.noSideEffect,
+    importcpp: "NbDimensions", header: "IGESDimen_DimensionedGeometry.hxx".}
+proc nbGeometryEntities*(this: IGESDimenDimensionedGeometry): int {.noSideEffect,
+    importcpp: "NbGeometryEntities", header: "IGESDimen_DimensionedGeometry.hxx".}
+proc dimensionEntity*(this: IGESDimenDimensionedGeometry): Handle[
+    IGESDataIGESEntity] {.noSideEffect, importcpp: "DimensionEntity",
+                         header: "IGESDimen_DimensionedGeometry.hxx".}
+proc geometryEntity*(this: IGESDimenDimensionedGeometry; index: int): Handle[
+    IGESDataIGESEntity] {.noSideEffect, importcpp: "GeometryEntity",
+                         header: "IGESDimen_DimensionedGeometry.hxx".}
 type
-  IGESDimen_DimensionedGeometrybase_type* = IGESData_IGESEntity
+  IGESDimenDimensionedGeometrybaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESDimen_DimensionedGeometry::get_type_name(@)",
-                              header: "IGESDimen_DimensionedGeometry.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESDimen_DimensionedGeometry::get_type_name(@)",
+                            header: "IGESDimen_DimensionedGeometry.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESDimen_DimensionedGeometry::get_type_descriptor(@)",
     header: "IGESDimen_DimensionedGeometry.hxx".}
-proc DynamicType*(this: IGESDimen_DimensionedGeometry): handle[Standard_Type] {.
+proc dynamicType*(this: IGESDimenDimensionedGeometry): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESDimen_DimensionedGeometry.hxx".}

@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  BVH_Set
-
 ## ! Tool object to sort abstract primitive set.
 
 type
@@ -28,15 +25,12 @@ proc constructBVH_Sorter*[T; N: static[cint]](): BVH_Sorter[T, N] {.constructor,
     importcpp: "BVH_Sorter<\'*0,\'*1>(@)", header: "BVH_Sorter.hxx".}
 proc destroyBVH_Sorter*[T; N: static[cint]](this: var BVH_Sorter[T, N]) {.
     importcpp: "#.~BVH_Sorter()", header: "BVH_Sorter.hxx".}
-proc Perform*[T; N: static[cint]](this: var BVH_Sorter[T, N]; theSet: ptr BVH_Set[T, N]) {.
+proc perform*[T; N: static[cint]](this: var BVH_Sorter[T, N]; theSet: ptr BVH_Set[T, N]) {.
     importcpp: "Perform", header: "BVH_Sorter.hxx".}
-proc Perform*[T; N: static[cint]](this: var BVH_Sorter[T, N];
-                               theSet: ptr BVH_Set[T, N];
-                               theStart: Standard_Integer;
-                               theFinal: Standard_Integer) {.importcpp: "Perform",
-    header: "BVH_Sorter.hxx".}
-proc IsParallel*[T; N: static[cint]](this: BVH_Sorter[T, N]): Standard_Boolean {.
-    noSideEffect, importcpp: "IsParallel", header: "BVH_Sorter.hxx".}
-proc SetParallel*[T; N: static[cint]](this: var BVH_Sorter[T, N];
-                                   isParallel: Standard_Boolean) {.
+proc perform*[T; N: static[cint]](this: var BVH_Sorter[T, N];
+                               theSet: ptr BVH_Set[T, N]; theStart: int; theFinal: int) {.
+    importcpp: "Perform", header: "BVH_Sorter.hxx".}
+proc isParallel*[T; N: static[cint]](this: BVH_Sorter[T, N]): bool {.noSideEffect,
+    importcpp: "IsParallel", header: "BVH_Sorter.hxx".}
+proc setParallel*[T; N: static[cint]](this: var BVH_Sorter[T, N]; isParallel: bool) {.
     importcpp: "SetParallel", header: "BVH_Sorter.hxx".}

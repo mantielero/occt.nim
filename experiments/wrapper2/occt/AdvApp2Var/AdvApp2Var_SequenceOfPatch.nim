@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  AdvApp2Var_Patch, ../NCollection/NCollection_Sequence
-
 type
-  AdvApp2Var_SequenceOfPatch* = NCollection_Sequence[handle[AdvApp2Var_Patch]]
+  AdvApp2VarSequenceOfPatch* = NCollectionSequence[Handle[AdvApp2VarPatch]]
+

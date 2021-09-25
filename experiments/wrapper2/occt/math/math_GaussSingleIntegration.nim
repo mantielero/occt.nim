@@ -14,38 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
-  ../Standard/Standard_OStream
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of math_Function"
 type
-  math_GaussSingleIntegration* {.importcpp: "math_GaussSingleIntegration",
-                                header: "math_GaussSingleIntegration.hxx", bycopy.} = object ##
-                                                                                        ## !
-                                                                                        ## perfoms
-                                                                                        ## actual
-                                                                                        ## computation
+  MathGaussSingleIntegration* {.importcpp: "math_GaussSingleIntegration",
+                               header: "math_GaussSingleIntegration.hxx", bycopy.} = object ##
+                                                                                       ## !
+                                                                                       ## perfoms
+                                                                                       ## actual
+                                                                                       ## computation
 
 
-proc constructmath_GaussSingleIntegration*(): math_GaussSingleIntegration {.
+proc constructMathGaussSingleIntegration*(): MathGaussSingleIntegration {.
     constructor, importcpp: "math_GaussSingleIntegration(@)",
     header: "math_GaussSingleIntegration.hxx".}
-proc constructmath_GaussSingleIntegration*(F: var math_Function;
-    Lower: Standard_Real; Upper: Standard_Real; Order: Standard_Integer): math_GaussSingleIntegration {.
-    constructor, importcpp: "math_GaussSingleIntegration(@)",
-    header: "math_GaussSingleIntegration.hxx".}
-proc constructmath_GaussSingleIntegration*(F: var math_Function;
-    Lower: Standard_Real; Upper: Standard_Real; Order: Standard_Integer;
-    Tol: Standard_Real): math_GaussSingleIntegration {.constructor,
+proc constructMathGaussSingleIntegration*(f: var MathFunction; lower: float;
+    upper: float; order: int): MathGaussSingleIntegration {.constructor,
     importcpp: "math_GaussSingleIntegration(@)",
     header: "math_GaussSingleIntegration.hxx".}
-proc IsDone*(this: math_GaussSingleIntegration): Standard_Boolean {.noSideEffect,
+proc constructMathGaussSingleIntegration*(f: var MathFunction; lower: float;
+    upper: float; order: int; tol: float): MathGaussSingleIntegration {.constructor,
+    importcpp: "math_GaussSingleIntegration(@)",
+    header: "math_GaussSingleIntegration.hxx".}
+proc isDone*(this: MathGaussSingleIntegration): bool {.noSideEffect,
     importcpp: "IsDone", header: "math_GaussSingleIntegration.hxx".}
-proc Value*(this: math_GaussSingleIntegration): Standard_Real {.noSideEffect,
+proc value*(this: MathGaussSingleIntegration): float {.noSideEffect,
     importcpp: "Value", header: "math_GaussSingleIntegration.hxx".}
-proc Dump*(this: math_GaussSingleIntegration; o: var Standard_OStream) {.noSideEffect,
+proc dump*(this: MathGaussSingleIntegration; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_GaussSingleIntegration.hxx".}

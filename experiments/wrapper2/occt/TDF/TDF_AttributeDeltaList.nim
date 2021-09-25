@@ -13,9 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TDF_AttributeDelta, ../NCollection/NCollection_List
-
 type
-  TDF_AttributeDeltaList* = NCollection_List[handle[TDF_AttributeDelta]]
-  TDF_ListIteratorOfAttributeDeltaList* = Iterator[handle[TDF_AttributeDelta]]
+  TDF_AttributeDeltaList* = NCollectionList[Handle[TDF_AttributeDelta]]
+  TDF_ListIteratorOfAttributeDeltaList* = Iterator[Handle[TDF_AttributeDelta]]
+

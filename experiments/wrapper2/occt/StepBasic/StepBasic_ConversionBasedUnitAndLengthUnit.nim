@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_ConversionBasedUnit
-
 discard "forward decl of StepBasic_LengthUnit"
 discard "forward decl of StepBasic_DimensionalExponents"
 discard "forward decl of TCollection_HAsciiString"
@@ -24,37 +21,37 @@ discard "forward decl of StepBasic_MeasureWithUnit"
 discard "forward decl of StepBasic_ConversionBasedUnitAndLengthUnit"
 discard "forward decl of StepBasic_ConversionBasedUnitAndLengthUnit"
 type
-  Handle_StepBasic_ConversionBasedUnitAndLengthUnit* = handle[
-      StepBasic_ConversionBasedUnitAndLengthUnit]
-  StepBasic_ConversionBasedUnitAndLengthUnit* {.
+  HandleStepBasicConversionBasedUnitAndLengthUnit* = Handle[
+      StepBasicConversionBasedUnitAndLengthUnit]
+  StepBasicConversionBasedUnitAndLengthUnit* {.
       importcpp: "StepBasic_ConversionBasedUnitAndLengthUnit",
-      header: "StepBasic_ConversionBasedUnitAndLengthUnit.hxx", bycopy.} = object of StepBasic_ConversionBasedUnit ##
-                                                                                                            ## !
-                                                                                                            ## Returns
-                                                                                                            ## a
-                                                                                                            ## ConversionBasedUnitAndLengthUnit
+      header: "StepBasic_ConversionBasedUnitAndLengthUnit.hxx", bycopy.} = object of StepBasicConversionBasedUnit ##
+                                                                                                           ## !
+                                                                                                           ## Returns
+                                                                                                           ## a
+                                                                                                           ## ConversionBasedUnitAndLengthUnit
 
 
-proc constructStepBasic_ConversionBasedUnitAndLengthUnit*(): StepBasic_ConversionBasedUnitAndLengthUnit {.
+proc constructStepBasicConversionBasedUnitAndLengthUnit*(): StepBasicConversionBasedUnitAndLengthUnit {.
     constructor, importcpp: "StepBasic_ConversionBasedUnitAndLengthUnit(@)",
     header: "StepBasic_ConversionBasedUnitAndLengthUnit.hxx".}
-proc Init*(this: var StepBasic_ConversionBasedUnitAndLengthUnit;
-          aDimensions: handle[StepBasic_DimensionalExponents];
-          aName: handle[TCollection_HAsciiString];
-          aConversionFactor: handle[StepBasic_MeasureWithUnit]) {.
+proc init*(this: var StepBasicConversionBasedUnitAndLengthUnit;
+          aDimensions: Handle[StepBasicDimensionalExponents];
+          aName: Handle[TCollectionHAsciiString];
+          aConversionFactor: Handle[StepBasicMeasureWithUnit]) {.
     importcpp: "Init", header: "StepBasic_ConversionBasedUnitAndLengthUnit.hxx".}
-proc SetLengthUnit*(this: var StepBasic_ConversionBasedUnitAndLengthUnit;
-                   aLengthUnit: handle[StepBasic_LengthUnit]) {.
+proc setLengthUnit*(this: var StepBasicConversionBasedUnitAndLengthUnit;
+                   aLengthUnit: Handle[StepBasicLengthUnit]) {.
     importcpp: "SetLengthUnit",
     header: "StepBasic_ConversionBasedUnitAndLengthUnit.hxx".}
-proc LengthUnit*(this: StepBasic_ConversionBasedUnitAndLengthUnit): handle[
-    StepBasic_LengthUnit] {.noSideEffect, importcpp: "LengthUnit", header: "StepBasic_ConversionBasedUnitAndLengthUnit.hxx".}
+proc lengthUnit*(this: StepBasicConversionBasedUnitAndLengthUnit): Handle[
+    StepBasicLengthUnit] {.noSideEffect, importcpp: "LengthUnit", header: "StepBasic_ConversionBasedUnitAndLengthUnit.hxx".}
 type
-  StepBasic_ConversionBasedUnitAndLengthUnitbase_type* = StepBasic_ConversionBasedUnit
+  StepBasicConversionBasedUnitAndLengthUnitbaseType* = StepBasicConversionBasedUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ConversionBasedUnitAndLengthUnit::get_type_name(@)", header: "StepBasic_ConversionBasedUnitAndLengthUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepBasic_ConversionBasedUnitAndLengthUnit::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ConversionBasedUnitAndLengthUnit::get_type_name(@)", header: "StepBasic_ConversionBasedUnitAndLengthUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_ConversionBasedUnitAndLengthUnit::get_type_descriptor(@)",
     header: "StepBasic_ConversionBasedUnitAndLengthUnit.hxx".}
-proc DynamicType*(this: StepBasic_ConversionBasedUnitAndLengthUnit): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepBasic_ConversionBasedUnitAndLengthUnit.hxx".}
+proc dynamicType*(this: StepBasicConversionBasedUnitAndLengthUnit): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepBasic_ConversionBasedUnitAndLengthUnit.hxx".}

@@ -13,40 +13,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TColStd/TColStd_DataMapOfIntegerTransient, ../Storage/Storage_HeaderData
-
 ## ! Retrieval relocation table is modeled as a child class of
 ## ! TColStd_DataMapOfIntegerTransient that stores a handle to the file
 ## ! header section. With that attribute drivers have access to the file header
 ## ! section.
 
 type
-  XmlObjMgt_RRelocationTable* {.importcpp: "XmlObjMgt_RRelocationTable",
-                               header: "XmlObjMgt_RRelocationTable.hxx", bycopy.} = object of TColStd_DataMapOfIntegerTransient ##
-                                                                                                                         ## !
-                                                                                                                         ## Returns
-                                                                                                                         ## a
-                                                                                                                         ## handle
-                                                                                                                         ## to
-                                                                                                                         ## the
-                                                                                                                         ## header
-                                                                                                                         ## data
-                                                                                                                         ## of
-                                                                                                                         ## the
-                                                                                                                         ## file
-                                                                                                                         ## that
-                                                                                                                         ## is
-                                                                                                                         ## begin
-                                                                                                                         ## read
+  XmlObjMgtRRelocationTable* {.importcpp: "XmlObjMgt_RRelocationTable",
+                              header: "XmlObjMgt_RRelocationTable.hxx", bycopy.} = object of TColStdDataMapOfIntegerTransient ##
+                                                                                                                       ## !
+                                                                                                                       ## Returns
+                                                                                                                       ## a
+                                                                                                                       ## handle
+                                                                                                                       ## to
+                                                                                                                       ## the
+                                                                                                                       ## header
+                                                                                                                       ## data
+                                                                                                                       ## of
+                                                                                                                       ## the
+                                                                                                                       ## file
+                                                                                                                       ## that
+                                                                                                                       ## is
+                                                                                                                       ## begin
+                                                                                                                       ## read
 
 
-proc GetHeaderData*(this: XmlObjMgt_RRelocationTable): handle[Storage_HeaderData] {.
+proc getHeaderData*(this: XmlObjMgtRRelocationTable): Handle[StorageHeaderData] {.
     noSideEffect, importcpp: "GetHeaderData",
     header: "XmlObjMgt_RRelocationTable.hxx".}
-proc SetHeaderData*(this: var XmlObjMgt_RRelocationTable;
-                   theHeaderData: handle[Storage_HeaderData]) {.
+proc setHeaderData*(this: var XmlObjMgtRRelocationTable;
+                   theHeaderData: Handle[StorageHeaderData]) {.
     importcpp: "SetHeaderData", header: "XmlObjMgt_RRelocationTable.hxx".}
-proc Clear*(this: var XmlObjMgt_RRelocationTable;
-           doReleaseMemory: Standard_Boolean = Standard_True) {.importcpp: "Clear",
-    header: "XmlObjMgt_RRelocationTable.hxx".}
+proc clear*(this: var XmlObjMgtRRelocationTable; doReleaseMemory: bool = true) {.
+    importcpp: "Clear", header: "XmlObjMgt_RRelocationTable.hxx".}

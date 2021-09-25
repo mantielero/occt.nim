@@ -14,29 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopTools/TopTools_SequenceOfShape,
-  ../TopoDS/TopoDS_Shell, ../TopTools/TopTools_DataMapOfShapeListOfShape,
-  ../TopTools/TopTools_ListOfShape
-
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Shell"
 discard "forward decl of TopoDS_Shape"
 type
-  BRepFill_Generator* {.importcpp: "BRepFill_Generator",
-                       header: "BRepFill_Generator.hxx", bycopy.} = object
+  BRepFillGenerator* {.importcpp: "BRepFill_Generator",
+                      header: "BRepFill_Generator.hxx", bycopy.} = object
 
 
-proc constructBRepFill_Generator*(): BRepFill_Generator {.constructor,
+proc constructBRepFillGenerator*(): BRepFillGenerator {.constructor,
     importcpp: "BRepFill_Generator(@)", header: "BRepFill_Generator.hxx".}
-proc AddWire*(this: var BRepFill_Generator; Wire: TopoDS_Wire) {.importcpp: "AddWire",
+proc addWire*(this: var BRepFillGenerator; wire: TopoDS_Wire) {.importcpp: "AddWire",
     header: "BRepFill_Generator.hxx".}
-proc Perform*(this: var BRepFill_Generator) {.importcpp: "Perform",
+proc perform*(this: var BRepFillGenerator) {.importcpp: "Perform",
     header: "BRepFill_Generator.hxx".}
-proc Shell*(this: BRepFill_Generator): TopoDS_Shell {.noSideEffect,
+proc shell*(this: BRepFillGenerator): TopoDS_Shell {.noSideEffect,
     importcpp: "Shell", header: "BRepFill_Generator.hxx".}
-proc Generated*(this: BRepFill_Generator): TopTools_DataMapOfShapeListOfShape {.
+proc generated*(this: BRepFillGenerator): TopToolsDataMapOfShapeListOfShape {.
     noSideEffect, importcpp: "Generated", header: "BRepFill_Generator.hxx".}
-proc GeneratedShapes*(this: BRepFill_Generator; SSection: TopoDS_Shape): TopTools_ListOfShape {.
+proc generatedShapes*(this: BRepFillGenerator; sSection: TopoDS_Shape): TopToolsListOfShape {.
     noSideEffect, importcpp: "GeneratedShapes", header: "BRepFill_Generator.hxx".}

@@ -14,42 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TPrsStd_Driver,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TDF_Label"
 discard "forward decl of AIS_InteractiveObject"
 discard "forward decl of TPrsStd_AxisDriver"
 discard "forward decl of TPrsStd_AxisDriver"
 type
-  Handle_TPrsStd_AxisDriver* = handle[TPrsStd_AxisDriver]
+  HandleTPrsStdAxisDriver* = Handle[TPrsStdAxisDriver]
 
 ## ! An implementation of TPrsStd_Driver for axes.
 
 type
-  TPrsStd_AxisDriver* {.importcpp: "TPrsStd_AxisDriver",
-                       header: "TPrsStd_AxisDriver.hxx", bycopy.} = object of TPrsStd_Driver ##
-                                                                                      ## !
-                                                                                      ## Constructs
-                                                                                      ## an
-                                                                                      ## empty
-                                                                                      ## axis
-                                                                                      ## driver.
+  TPrsStdAxisDriver* {.importcpp: "TPrsStd_AxisDriver",
+                      header: "TPrsStd_AxisDriver.hxx", bycopy.} = object of TPrsStdDriver ##
+                                                                                    ## !
+                                                                                    ## Constructs
+                                                                                    ## an
+                                                                                    ## empty
+                                                                                    ## axis
+                                                                                    ## driver.
 
 
-proc constructTPrsStd_AxisDriver*(): TPrsStd_AxisDriver {.constructor,
+proc constructTPrsStdAxisDriver*(): TPrsStdAxisDriver {.constructor,
     importcpp: "TPrsStd_AxisDriver(@)", header: "TPrsStd_AxisDriver.hxx".}
-proc Update*(this: var TPrsStd_AxisDriver; aLabel: TDF_Label;
-            anAISObject: var handle[AIS_InteractiveObject]): Standard_Boolean {.
+proc update*(this: var TPrsStdAxisDriver; aLabel: TDF_Label;
+            anAISObject: var Handle[AIS_InteractiveObject]): bool {.
     importcpp: "Update", header: "TPrsStd_AxisDriver.hxx".}
 type
-  TPrsStd_AxisDriverbase_type* = TPrsStd_Driver
+  TPrsStdAxisDriverbaseType* = TPrsStdDriver
 
-proc get_type_name*(): cstring {.importcpp: "TPrsStd_AxisDriver::get_type_name(@)",
-                              header: "TPrsStd_AxisDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TPrsStd_AxisDriver::get_type_name(@)",
+                            header: "TPrsStd_AxisDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TPrsStd_AxisDriver::get_type_descriptor(@)",
     header: "TPrsStd_AxisDriver.hxx".}
-proc DynamicType*(this: TPrsStd_AxisDriver): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TPrsStdAxisDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TPrsStd_AxisDriver.hxx".}

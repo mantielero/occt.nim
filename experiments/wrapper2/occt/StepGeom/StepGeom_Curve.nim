@@ -14,30 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepGeom_GeometricRepresentationItem
-
 discard "forward decl of StepGeom_Curve"
 discard "forward decl of StepGeom_Curve"
 type
-  Handle_StepGeom_Curve* = handle[StepGeom_Curve]
-  StepGeom_Curve* {.importcpp: "StepGeom_Curve", header: "StepGeom_Curve.hxx", bycopy.} = object of StepGeom_GeometricRepresentationItem ##
-                                                                                                                               ## !
-                                                                                                                               ## Returns
-                                                                                                                               ## a
-                                                                                                                               ## Curve
+  HandleStepGeomCurve* = Handle[StepGeomCurve]
+  StepGeomCurve* {.importcpp: "StepGeom_Curve", header: "StepGeom_Curve.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
+                                                                                                                             ## !
+                                                                                                                             ## Returns
+                                                                                                                             ## a
+                                                                                                                             ## Curve
 
 
-proc constructStepGeom_Curve*(): StepGeom_Curve {.constructor,
+proc constructStepGeomCurve*(): StepGeomCurve {.constructor,
     importcpp: "StepGeom_Curve(@)", header: "StepGeom_Curve.hxx".}
 type
-  StepGeom_Curvebase_type* = StepGeom_GeometricRepresentationItem
+  StepGeomCurvebaseType* = StepGeomGeometricRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_Curve::get_type_name(@)",
-                              header: "StepGeom_Curve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_Curve::get_type_name(@)",
+                            header: "StepGeom_Curve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_Curve::get_type_descriptor(@)",
     header: "StepGeom_Curve.hxx".}
-proc DynamicType*(this: StepGeom_Curve): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepGeomCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Curve.hxx".}

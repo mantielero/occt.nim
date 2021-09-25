@@ -14,64 +14,57 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_ActionMethod"
 discard "forward decl of StepBasic_ActionMethod"
 type
-  Handle_StepBasic_ActionMethod* = handle[StepBasic_ActionMethod]
+  HandleStepBasicActionMethod* = Handle[StepBasicActionMethod]
 
 ## ! Representation of STEP entity ActionMethod
 
 type
-  StepBasic_ActionMethod* {.importcpp: "StepBasic_ActionMethod",
-                           header: "StepBasic_ActionMethod.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                  ## !
-                                                                                                  ## Empty
-                                                                                                  ## constructor
+  StepBasicActionMethod* {.importcpp: "StepBasic_ActionMethod",
+                          header: "StepBasic_ActionMethod.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                ## !
+                                                                                                ## Empty
+                                                                                                ## constructor
 
 
-proc constructStepBasic_ActionMethod*(): StepBasic_ActionMethod {.constructor,
+proc constructStepBasicActionMethod*(): StepBasicActionMethod {.constructor,
     importcpp: "StepBasic_ActionMethod(@)", header: "StepBasic_ActionMethod.hxx".}
-proc Init*(this: var StepBasic_ActionMethod;
-          aName: handle[TCollection_HAsciiString];
-          hasDescription: Standard_Boolean;
-          aDescription: handle[TCollection_HAsciiString];
-          aConsequence: handle[TCollection_HAsciiString];
-          aPurpose: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepBasicActionMethod; aName: Handle[TCollectionHAsciiString];
+          hasDescription: bool; aDescription: Handle[TCollectionHAsciiString];
+          aConsequence: Handle[TCollectionHAsciiString];
+          aPurpose: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepBasic_ActionMethod.hxx".}
-proc Name*(this: StepBasic_ActionMethod): handle[TCollection_HAsciiString] {.
+proc name*(this: StepBasicActionMethod): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepBasic_ActionMethod.hxx".}
-proc SetName*(this: var StepBasic_ActionMethod;
-             Name: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
-    header: "StepBasic_ActionMethod.hxx".}
-proc Description*(this: StepBasic_ActionMethod): handle[TCollection_HAsciiString] {.
+proc setName*(this: var StepBasicActionMethod; name: Handle[TCollectionHAsciiString]) {.
+    importcpp: "SetName", header: "StepBasic_ActionMethod.hxx".}
+proc description*(this: StepBasicActionMethod): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Description", header: "StepBasic_ActionMethod.hxx".}
-proc SetDescription*(this: var StepBasic_ActionMethod;
-                    Description: handle[TCollection_HAsciiString]) {.
+proc setDescription*(this: var StepBasicActionMethod;
+                    description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepBasic_ActionMethod.hxx".}
-proc HasDescription*(this: StepBasic_ActionMethod): Standard_Boolean {.noSideEffect,
+proc hasDescription*(this: StepBasicActionMethod): bool {.noSideEffect,
     importcpp: "HasDescription", header: "StepBasic_ActionMethod.hxx".}
-proc Consequence*(this: StepBasic_ActionMethod): handle[TCollection_HAsciiString] {.
+proc consequence*(this: StepBasicActionMethod): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Consequence", header: "StepBasic_ActionMethod.hxx".}
-proc SetConsequence*(this: var StepBasic_ActionMethod;
-                    Consequence: handle[TCollection_HAsciiString]) {.
+proc setConsequence*(this: var StepBasicActionMethod;
+                    consequence: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetConsequence", header: "StepBasic_ActionMethod.hxx".}
-proc Purpose*(this: StepBasic_ActionMethod): handle[TCollection_HAsciiString] {.
+proc purpose*(this: StepBasicActionMethod): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Purpose", header: "StepBasic_ActionMethod.hxx".}
-proc SetPurpose*(this: var StepBasic_ActionMethod;
-                Purpose: handle[TCollection_HAsciiString]) {.
+proc setPurpose*(this: var StepBasicActionMethod;
+                purpose: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetPurpose", header: "StepBasic_ActionMethod.hxx".}
 type
-  StepBasic_ActionMethodbase_type* = Standard_Transient
+  StepBasicActionMethodbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ActionMethod::get_type_name(@)",
-                              header: "StepBasic_ActionMethod.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ActionMethod::get_type_name(@)",
+                            header: "StepBasic_ActionMethod.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_ActionMethod::get_type_descriptor(@)",
     header: "StepBasic_ActionMethod.hxx".}
-proc DynamicType*(this: StepBasic_ActionMethod): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepBasic_ActionMethod.hxx".}
+proc dynamicType*(this: StepBasicActionMethod): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepBasic_ActionMethod.hxx".}

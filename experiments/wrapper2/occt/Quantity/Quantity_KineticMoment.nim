@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_KineticMoment_HeaderFile [NewLine] # _Quantity_KineticMoment_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the product of momentum of a body
+## !!!Ignored construct:  # _Quantity_KineticMoment_HeaderFile [NewLine] # _Quantity_KineticMoment_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the product of momentum of a body
 ## ! and the distance of its centre of gravity from an axis.
 ## ! It is measured in kilogram-square-metres per second. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_KineticMoment ;
 ## Error: expected ';'!!!
+

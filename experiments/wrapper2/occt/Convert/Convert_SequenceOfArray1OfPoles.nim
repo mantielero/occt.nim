@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TColgp/TColgp_HArray1OfPnt, ../NCollection/NCollection_Sequence
-
 type
-  Convert_SequenceOfArray1OfPoles* = NCollection_Sequence[
-      handle[TColgp_HArray1OfPnt]]
+  ConvertSequenceOfArray1OfPoles* = NCollectionSequence[Handle[TColgpHArray1OfPnt]]
+

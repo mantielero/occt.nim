@@ -14,24 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Pln, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom_Surface"
 discard "forward decl of gp_Pln"
 type
-  GeomLib_IsPlanarSurface* {.importcpp: "GeomLib_IsPlanarSurface",
-                            header: "GeomLib_IsPlanarSurface.hxx", bycopy.} = object
+  GeomLibIsPlanarSurface* {.importcpp: "GeomLib_IsPlanarSurface",
+                           header: "GeomLib_IsPlanarSurface.hxx", bycopy.} = object
 
 
-proc constructGeomLib_IsPlanarSurface*(S: handle[Geom_Surface];
-                                      Tol: Standard_Real = 1.0e-7): GeomLib_IsPlanarSurface {.
+proc constructGeomLibIsPlanarSurface*(s: Handle[GeomSurface]; tol: float = 1.0e-7): GeomLibIsPlanarSurface {.
     constructor, importcpp: "GeomLib_IsPlanarSurface(@)",
     header: "GeomLib_IsPlanarSurface.hxx".}
-proc IsPlanar*(this: GeomLib_IsPlanarSurface): Standard_Boolean {.noSideEffect,
+proc isPlanar*(this: GeomLibIsPlanarSurface): bool {.noSideEffect,
     importcpp: "IsPlanar", header: "GeomLib_IsPlanarSurface.hxx".}
-proc Plan*(this: GeomLib_IsPlanarSurface): gp_Pln {.noSideEffect, importcpp: "Plan",
+proc plan*(this: GeomLibIsPlanarSurface): Pln {.noSideEffect, importcpp: "Plan",
     header: "GeomLib_IsPlanarSurface.hxx".}

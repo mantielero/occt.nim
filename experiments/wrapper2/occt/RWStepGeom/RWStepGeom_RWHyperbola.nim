@@ -14,29 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_Hyperbola"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeom_RWHyperbola* {.importcpp: "RWStepGeom_RWHyperbola",
-                           header: "RWStepGeom_RWHyperbola.hxx", bycopy.} = object
+  RWStepGeomRWHyperbola* {.importcpp: "RWStepGeom_RWHyperbola",
+                          header: "RWStepGeom_RWHyperbola.hxx", bycopy.} = object
 
 
-proc constructRWStepGeom_RWHyperbola*(): RWStepGeom_RWHyperbola {.constructor,
+proc constructRWStepGeomRWHyperbola*(): RWStepGeomRWHyperbola {.constructor,
     importcpp: "RWStepGeom_RWHyperbola(@)", header: "RWStepGeom_RWHyperbola.hxx".}
-proc ReadStep*(this: RWStepGeom_RWHyperbola; data: handle[StepData_StepReaderData];
-              num: Standard_Integer; ach: var handle[Interface_Check];
-              ent: handle[StepGeom_Hyperbola]) {.noSideEffect,
+proc readStep*(this: RWStepGeomRWHyperbola; data: Handle[StepDataStepReaderData];
+              num: int; ach: var Handle[InterfaceCheck];
+              ent: Handle[StepGeomHyperbola]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWHyperbola.hxx".}
-proc WriteStep*(this: RWStepGeom_RWHyperbola; SW: var StepData_StepWriter;
-               ent: handle[StepGeom_Hyperbola]) {.noSideEffect,
+proc writeStep*(this: RWStepGeomRWHyperbola; sw: var StepDataStepWriter;
+               ent: Handle[StepGeomHyperbola]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWHyperbola.hxx".}
-proc Share*(this: RWStepGeom_RWHyperbola; ent: handle[StepGeom_Hyperbola];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepGeomRWHyperbola; ent: Handle[StepGeomHyperbola];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWHyperbola.hxx".}

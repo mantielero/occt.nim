@@ -13,14 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  AIS_Shape, ../gp/gp_Pnt2d, ../Graphic3d/Graphic3d_NameOfTexture2D,
-  ../Image/Image_PixMap, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString,
-  ../Graphic3d/Graphic3d_AspectFillArea3d,
-  ../Graphic3d/Graphic3d_Texture2Dmanual, ../Prs3d/Prs3d_Presentation,
-  ../PrsMgr/PrsMgr_PresentationManager3d
-
 discard "forward decl of Graphic3d_AspectFillArea3d"
 discard "forward decl of Graphic3d_Texture2Dmanual"
 type
@@ -144,86 +136,82 @@ type
 
 proc constructAIS_TexturedShape*(theShape: TopoDS_Shape): AIS_TexturedShape {.
     constructor, importcpp: "AIS_TexturedShape(@)", header: "AIS_TexturedShape.hxx".}
-proc SetTextureFileName*(this: var AIS_TexturedShape;
-                        theTextureFileName: TCollection_AsciiString) {.
+proc setTextureFileName*(this: var AIS_TexturedShape;
+                        theTextureFileName: TCollectionAsciiString) {.
     importcpp: "SetTextureFileName", header: "AIS_TexturedShape.hxx".}
-proc SetTexturePixMap*(this: var AIS_TexturedShape;
-                      theTexturePixMap: handle[Image_PixMap]) {.
+proc setTexturePixMap*(this: var AIS_TexturedShape;
+                      theTexturePixMap: Handle[ImagePixMap]) {.
     importcpp: "SetTexturePixMap", header: "AIS_TexturedShape.hxx".}
-proc TextureMapState*(this: AIS_TexturedShape): Standard_Boolean {.noSideEffect,
+proc textureMapState*(this: AIS_TexturedShape): bool {.noSideEffect,
     importcpp: "TextureMapState", header: "AIS_TexturedShape.hxx".}
-proc SetTextureMapOn*(this: var AIS_TexturedShape) {.importcpp: "SetTextureMapOn",
+proc setTextureMapOn*(this: var AIS_TexturedShape) {.importcpp: "SetTextureMapOn",
     header: "AIS_TexturedShape.hxx".}
-proc SetTextureMapOff*(this: var AIS_TexturedShape) {.importcpp: "SetTextureMapOff",
+proc setTextureMapOff*(this: var AIS_TexturedShape) {.importcpp: "SetTextureMapOff",
     header: "AIS_TexturedShape.hxx".}
-proc TextureFile*(this: AIS_TexturedShape): Standard_CString {.noSideEffect,
+proc textureFile*(this: AIS_TexturedShape): StandardCString {.noSideEffect,
     importcpp: "TextureFile", header: "AIS_TexturedShape.hxx".}
-proc TexturePixMap*(this: AIS_TexturedShape): handle[Image_PixMap] {.noSideEffect,
+proc texturePixMap*(this: AIS_TexturedShape): Handle[ImagePixMap] {.noSideEffect,
     importcpp: "TexturePixMap", header: "AIS_TexturedShape.hxx".}
-proc UpdateAttributes*(this: var AIS_TexturedShape) {.importcpp: "UpdateAttributes",
+proc updateAttributes*(this: var AIS_TexturedShape) {.importcpp: "UpdateAttributes",
     header: "AIS_TexturedShape.hxx".}
-proc SetColor*(this: var AIS_TexturedShape; theColor: Quantity_Color) {.
+proc setColor*(this: var AIS_TexturedShape; theColor: QuantityColor) {.
     importcpp: "SetColor", header: "AIS_TexturedShape.hxx".}
-proc UnsetColor*(this: var AIS_TexturedShape) {.importcpp: "UnsetColor",
+proc unsetColor*(this: var AIS_TexturedShape) {.importcpp: "UnsetColor",
     header: "AIS_TexturedShape.hxx".}
-proc SetMaterial*(this: var AIS_TexturedShape; theAspect: Graphic3d_MaterialAspect) {.
+proc setMaterial*(this: var AIS_TexturedShape; theAspect: Graphic3dMaterialAspect) {.
     importcpp: "SetMaterial", header: "AIS_TexturedShape.hxx".}
-proc UnsetMaterial*(this: var AIS_TexturedShape) {.importcpp: "UnsetMaterial",
+proc unsetMaterial*(this: var AIS_TexturedShape) {.importcpp: "UnsetMaterial",
     header: "AIS_TexturedShape.hxx".}
-proc EnableTextureModulate*(this: var AIS_TexturedShape) {.
+proc enableTextureModulate*(this: var AIS_TexturedShape) {.
     importcpp: "EnableTextureModulate", header: "AIS_TexturedShape.hxx".}
-proc DisableTextureModulate*(this: var AIS_TexturedShape) {.
+proc disableTextureModulate*(this: var AIS_TexturedShape) {.
     importcpp: "DisableTextureModulate", header: "AIS_TexturedShape.hxx".}
-proc TextureRepeat*(this: AIS_TexturedShape): Standard_Boolean {.noSideEffect,
+proc textureRepeat*(this: AIS_TexturedShape): bool {.noSideEffect,
     importcpp: "TextureRepeat", header: "AIS_TexturedShape.hxx".}
-proc URepeat*(this: AIS_TexturedShape): Standard_Real {.noSideEffect,
-    importcpp: "URepeat", header: "AIS_TexturedShape.hxx".}
-proc VRepeat*(this: AIS_TexturedShape): Standard_Real {.noSideEffect,
-    importcpp: "VRepeat", header: "AIS_TexturedShape.hxx".}
-proc SetTextureRepeat*(this: var AIS_TexturedShape; theToRepeat: Standard_Boolean;
-                      theURepeat: Standard_Real = 1.0;
-                      theVRepeat: Standard_Real = 1.0) {.
+proc uRepeat*(this: AIS_TexturedShape): float {.noSideEffect, importcpp: "URepeat",
+    header: "AIS_TexturedShape.hxx".}
+proc vRepeat*(this: AIS_TexturedShape): float {.noSideEffect, importcpp: "VRepeat",
+    header: "AIS_TexturedShape.hxx".}
+proc setTextureRepeat*(this: var AIS_TexturedShape; theToRepeat: bool;
+                      theURepeat: float = 1.0; theVRepeat: float = 1.0) {.
     importcpp: "SetTextureRepeat", header: "AIS_TexturedShape.hxx".}
-proc TextureOrigin*(this: AIS_TexturedShape): Standard_Boolean {.noSideEffect,
+proc textureOrigin*(this: AIS_TexturedShape): bool {.noSideEffect,
     importcpp: "TextureOrigin", header: "AIS_TexturedShape.hxx".}
-proc TextureUOrigin*(this: AIS_TexturedShape): Standard_Real {.noSideEffect,
+proc textureUOrigin*(this: AIS_TexturedShape): float {.noSideEffect,
     importcpp: "TextureUOrigin", header: "AIS_TexturedShape.hxx".}
-proc TextureVOrigin*(this: AIS_TexturedShape): Standard_Real {.noSideEffect,
+proc textureVOrigin*(this: AIS_TexturedShape): float {.noSideEffect,
     importcpp: "TextureVOrigin", header: "AIS_TexturedShape.hxx".}
-proc SetTextureOrigin*(this: var AIS_TexturedShape;
-                      theToSetTextureOrigin: Standard_Boolean;
-                      theUOrigin: Standard_Real = 0.0;
-                      theVOrigin: Standard_Real = 0.0) {.
+proc setTextureOrigin*(this: var AIS_TexturedShape; theToSetTextureOrigin: bool;
+                      theUOrigin: float = 0.0; theVOrigin: float = 0.0) {.
     importcpp: "SetTextureOrigin", header: "AIS_TexturedShape.hxx".}
-proc TextureScale*(this: AIS_TexturedShape): Standard_Boolean {.noSideEffect,
+proc textureScale*(this: AIS_TexturedShape): bool {.noSideEffect,
     importcpp: "TextureScale", header: "AIS_TexturedShape.hxx".}
-proc TextureScaleU*(this: AIS_TexturedShape): Standard_Real {.noSideEffect,
+proc textureScaleU*(this: AIS_TexturedShape): float {.noSideEffect,
     importcpp: "TextureScaleU", header: "AIS_TexturedShape.hxx".}
-proc TextureScaleV*(this: AIS_TexturedShape): Standard_Real {.noSideEffect,
+proc textureScaleV*(this: AIS_TexturedShape): float {.noSideEffect,
     importcpp: "TextureScaleV", header: "AIS_TexturedShape.hxx".}
-proc SetTextureScale*(this: var AIS_TexturedShape;
-                     theToSetTextureScale: Standard_Boolean;
-                     theScaleU: Standard_Real = 1.0; theScaleV: Standard_Real = 1.0) {.
+proc setTextureScale*(this: var AIS_TexturedShape; theToSetTextureScale: bool;
+                     theScaleU: float = 1.0; theScaleV: float = 1.0) {.
     importcpp: "SetTextureScale", header: "AIS_TexturedShape.hxx".}
-proc ShowTriangles*(this: AIS_TexturedShape): Standard_Boolean {.noSideEffect,
+proc showTriangles*(this: AIS_TexturedShape): bool {.noSideEffect,
     importcpp: "ShowTriangles", header: "AIS_TexturedShape.hxx".}
-proc ShowTriangles*(this: var AIS_TexturedShape;
-                   theToShowTriangles: Standard_Boolean) {.
+proc showTriangles*(this: var AIS_TexturedShape; theToShowTriangles: bool) {.
     importcpp: "ShowTriangles", header: "AIS_TexturedShape.hxx".}
-proc TextureModulate*(this: AIS_TexturedShape): Standard_Boolean {.noSideEffect,
+proc textureModulate*(this: AIS_TexturedShape): bool {.noSideEffect,
     importcpp: "TextureModulate", header: "AIS_TexturedShape.hxx".}
-proc AcceptDisplayMode*(this: AIS_TexturedShape; theMode: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "AcceptDisplayMode", header: "AIS_TexturedShape.hxx".}
+proc acceptDisplayMode*(this: AIS_TexturedShape; theMode: int): bool {.noSideEffect,
+    importcpp: "AcceptDisplayMode", header: "AIS_TexturedShape.hxx".}
 type
-  AIS_TexturedShapebase_type* = AIS_Shape
+  AIS_TexturedShapebaseType* = AIS_Shape
 
-proc get_type_name*(): cstring {.importcpp: "AIS_TexturedShape::get_type_name(@)",
-                              header: "AIS_TexturedShape.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "AIS_TexturedShape::get_type_name(@)",
+                            header: "AIS_TexturedShape.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "AIS_TexturedShape::get_type_descriptor(@)",
     header: "AIS_TexturedShape.hxx".}
-proc DynamicType*(this: AIS_TexturedShape): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: AIS_TexturedShape): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_TexturedShape.hxx".}
 discard "forward decl of AIS_TexturedShape"
 type
-  Handle_AIS_TexturedShape* = handle[AIS_TexturedShape]
+  HandleAIS_TexturedShape* = Handle[AIS_TexturedShape]
+

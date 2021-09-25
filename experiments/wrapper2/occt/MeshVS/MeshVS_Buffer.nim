@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../gp/gp_Pnt
-
 ## *
 ##  General purpose buffer that is allocated on the stack with a
 ##  constant size MeshVS_BufSize, or is allocated dynamically if the requested
@@ -46,17 +43,17 @@ type
                                                                                       ## constructor
 
 
-proc constructMeshVS_Buffer*(theSize: Standard_Size): MeshVS_Buffer {.constructor,
+proc constructMeshVS_Buffer*(theSize: StandardSize): MeshVS_Buffer {.constructor,
     importcpp: "MeshVS_Buffer(@)", header: "MeshVS_Buffer.hxx".}
 proc destroyMeshVS_Buffer*(this: var MeshVS_Buffer) {.
     importcpp: "#.~MeshVS_Buffer()", header: "MeshVS_Buffer.hxx".}
 converter `void*`*(this: var MeshVS_Buffer): pointer {.
     importcpp: "MeshVS_Buffer::operator void*", header: "MeshVS_Buffer.hxx".}
-converter `Standard_Real&`*(this: var MeshVS_Buffer): var Standard_Real {.
+converter `float&`*(this: var MeshVS_Buffer): var float {.
     importcpp: "MeshVS_Buffer::operator Standard_Real&",
     header: "MeshVS_Buffer.hxx".}
-converter `Standard_Integer&`*(this: var MeshVS_Buffer): var Standard_Integer {.
+converter `int&`*(this: var MeshVS_Buffer): var int {.
     importcpp: "MeshVS_Buffer::operator Standard_Integer&",
     header: "MeshVS_Buffer.hxx".}
-converter `gp_Pnt&`*(this: var MeshVS_Buffer): var gp_Pnt {.
+converter `pnt&`*(this: var MeshVS_Buffer): var Pnt {.
     importcpp: "MeshVS_Buffer::operator gp_Pnt&", header: "MeshVS_Buffer.hxx".}

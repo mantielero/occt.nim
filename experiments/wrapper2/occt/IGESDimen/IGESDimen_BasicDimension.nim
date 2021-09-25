@@ -14,16 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../gp/gp_XY, ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of gp_XY"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of IGESDimen_BasicDimension"
 discard "forward decl of IGESDimen_BasicDimension"
 type
-  Handle_IGESDimen_BasicDimension* = handle[IGESDimen_BasicDimension]
+  HandleIGESDimenBasicDimension* = Handle[IGESDimenBasicDimension]
 
 ## ! Defines IGES Basic Dimension, Type 406, Form 31,
 ## ! in package IGESDimen
@@ -31,34 +27,33 @@ type
 ## ! dimension entity is to be displayed with a box around text.
 
 type
-  IGESDimen_BasicDimension* {.importcpp: "IGESDimen_BasicDimension",
-                             header: "IGESDimen_BasicDimension.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESDimenBasicDimension* {.importcpp: "IGESDimen_BasicDimension",
+                            header: "IGESDimen_BasicDimension.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESDimen_BasicDimension*(): IGESDimen_BasicDimension {.constructor,
+proc constructIGESDimenBasicDimension*(): IGESDimenBasicDimension {.constructor,
     importcpp: "IGESDimen_BasicDimension(@)",
     header: "IGESDimen_BasicDimension.hxx".}
-proc Init*(this: var IGESDimen_BasicDimension; nbPropVal: Standard_Integer;
-          lowerLeft: gp_XY; lowerRight: gp_XY; upperRight: gp_XY; upperLeft: gp_XY) {.
-    importcpp: "Init", header: "IGESDimen_BasicDimension.hxx".}
-proc NbPropertyValues*(this: IGESDimen_BasicDimension): Standard_Integer {.
-    noSideEffect, importcpp: "NbPropertyValues",
+proc init*(this: var IGESDimenBasicDimension; nbPropVal: int; lowerLeft: Xy;
+          lowerRight: Xy; upperRight: Xy; upperLeft: Xy) {.importcpp: "Init",
     header: "IGESDimen_BasicDimension.hxx".}
-proc LowerLeft*(this: IGESDimen_BasicDimension): gp_Pnt2d {.noSideEffect,
+proc nbPropertyValues*(this: IGESDimenBasicDimension): int {.noSideEffect,
+    importcpp: "NbPropertyValues", header: "IGESDimen_BasicDimension.hxx".}
+proc lowerLeft*(this: IGESDimenBasicDimension): Pnt2d {.noSideEffect,
     importcpp: "LowerLeft", header: "IGESDimen_BasicDimension.hxx".}
-proc LowerRight*(this: IGESDimen_BasicDimension): gp_Pnt2d {.noSideEffect,
+proc lowerRight*(this: IGESDimenBasicDimension): Pnt2d {.noSideEffect,
     importcpp: "LowerRight", header: "IGESDimen_BasicDimension.hxx".}
-proc UpperRight*(this: IGESDimen_BasicDimension): gp_Pnt2d {.noSideEffect,
+proc upperRight*(this: IGESDimenBasicDimension): Pnt2d {.noSideEffect,
     importcpp: "UpperRight", header: "IGESDimen_BasicDimension.hxx".}
-proc UpperLeft*(this: IGESDimen_BasicDimension): gp_Pnt2d {.noSideEffect,
+proc upperLeft*(this: IGESDimenBasicDimension): Pnt2d {.noSideEffect,
     importcpp: "UpperLeft", header: "IGESDimen_BasicDimension.hxx".}
 type
-  IGESDimen_BasicDimensionbase_type* = IGESData_IGESEntity
+  IGESDimenBasicDimensionbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESDimen_BasicDimension::get_type_name(@)",
-                              header: "IGESDimen_BasicDimension.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESDimen_BasicDimension::get_type_name(@)",
+                            header: "IGESDimen_BasicDimension.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESDimen_BasicDimension::get_type_descriptor(@)",
     header: "IGESDimen_BasicDimension.hxx".}
-proc DynamicType*(this: IGESDimen_BasicDimension): handle[Standard_Type] {.
+proc dynamicType*(this: IGESDimenBasicDimension): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDimen_BasicDimension.hxx".}

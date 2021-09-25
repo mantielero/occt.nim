@@ -17,7 +17,8 @@
 ## ! write bitmaps in a window.
 
 type
-  Aspect_FillMethod* {.size: sizeof(cint), importcpp: "Aspect_FillMethod",
-                      header: "Aspect_FillMethod.hxx".} = enum
-    Aspect_FM_NONE, Aspect_FM_CENTERED, Aspect_FM_TILED, Aspect_FM_STRETCH
+  AspectFillMethod* {.size: sizeof(cint), importcpp: "Aspect_FillMethod",
+                     header: "Aspect_FillMethod.hxx".} = enum
+    AspectFM_NONE, AspectFM_CENTERED, AspectFM_TILED, AspectFM_STRETCH
+
 

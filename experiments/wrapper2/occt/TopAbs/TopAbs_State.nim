@@ -21,7 +21,8 @@
 ## ! to the face which it intersects.
 
 type
-  TopAbs_State* {.size: sizeof(cint), importcpp: "TopAbs_State",
-                 header: "TopAbs_State.hxx".} = enum
-    TopAbs_IN, TopAbs_OUT, TopAbs_ON, TopAbs_UNKNOWN
+  TopAbsState* {.size: sizeof(cint), importcpp: "TopAbs_State",
+                header: "TopAbs_State.hxx".} = enum
+    TopAbsIN, TopAbsOUT, TopAbsON, TopAbsUNKNOWN
+
 

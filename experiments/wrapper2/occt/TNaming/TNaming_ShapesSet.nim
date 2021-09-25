@@ -14,42 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopTools/TopTools_MapOfShape,
-  ../TopAbs/TopAbs_ShapeEnum, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TopoDS_Shape"
 type
-  TNaming_ShapesSet* {.importcpp: "TNaming_ShapesSet",
-                      header: "TNaming_ShapesSet.hxx", bycopy.} = object
+  TNamingShapesSet* {.importcpp: "TNaming_ShapesSet",
+                     header: "TNaming_ShapesSet.hxx", bycopy.} = object
 
 
-proc constructTNaming_ShapesSet*(): TNaming_ShapesSet {.constructor,
+proc constructTNamingShapesSet*(): TNamingShapesSet {.constructor,
     importcpp: "TNaming_ShapesSet(@)", header: "TNaming_ShapesSet.hxx".}
-proc constructTNaming_ShapesSet*(S: TopoDS_Shape;
-                                Type: TopAbs_ShapeEnum = TopAbs_SHAPE): TNaming_ShapesSet {.
+proc constructTNamingShapesSet*(s: TopoDS_Shape;
+                               `type`: TopAbsShapeEnum = topAbsSHAPE): TNamingShapesSet {.
     constructor, importcpp: "TNaming_ShapesSet(@)", header: "TNaming_ShapesSet.hxx".}
-proc Clear*(this: var TNaming_ShapesSet) {.importcpp: "Clear",
-                                       header: "TNaming_ShapesSet.hxx".}
-proc Add*(this: var TNaming_ShapesSet; S: TopoDS_Shape): Standard_Boolean {.
-    importcpp: "Add", header: "TNaming_ShapesSet.hxx".}
-proc Contains*(this: TNaming_ShapesSet; S: TopoDS_Shape): Standard_Boolean {.
-    noSideEffect, importcpp: "Contains", header: "TNaming_ShapesSet.hxx".}
-proc Remove*(this: var TNaming_ShapesSet; S: TopoDS_Shape): Standard_Boolean {.
-    importcpp: "Remove", header: "TNaming_ShapesSet.hxx".}
-proc Add*(this: var TNaming_ShapesSet; Shapes: TNaming_ShapesSet) {.importcpp: "Add",
+proc clear*(this: var TNamingShapesSet) {.importcpp: "Clear",
+                                      header: "TNaming_ShapesSet.hxx".}
+proc add*(this: var TNamingShapesSet; s: TopoDS_Shape): bool {.importcpp: "Add",
     header: "TNaming_ShapesSet.hxx".}
-proc Filter*(this: var TNaming_ShapesSet; Shapes: TNaming_ShapesSet) {.
+proc contains*(this: TNamingShapesSet; s: TopoDS_Shape): bool {.noSideEffect,
+    importcpp: "Contains", header: "TNaming_ShapesSet.hxx".}
+proc remove*(this: var TNamingShapesSet; s: TopoDS_Shape): bool {.importcpp: "Remove",
+    header: "TNaming_ShapesSet.hxx".}
+proc add*(this: var TNamingShapesSet; shapes: TNamingShapesSet) {.importcpp: "Add",
+    header: "TNaming_ShapesSet.hxx".}
+proc filter*(this: var TNamingShapesSet; shapes: TNamingShapesSet) {.
     importcpp: "Filter", header: "TNaming_ShapesSet.hxx".}
-proc Remove*(this: var TNaming_ShapesSet; Shapes: TNaming_ShapesSet) {.
+proc remove*(this: var TNamingShapesSet; shapes: TNamingShapesSet) {.
     importcpp: "Remove", header: "TNaming_ShapesSet.hxx".}
-proc IsEmpty*(this: TNaming_ShapesSet): Standard_Boolean {.noSideEffect,
-    importcpp: "IsEmpty", header: "TNaming_ShapesSet.hxx".}
-proc NbShapes*(this: TNaming_ShapesSet): Standard_Integer {.noSideEffect,
-    importcpp: "NbShapes", header: "TNaming_ShapesSet.hxx".}
-proc ChangeMap*(this: var TNaming_ShapesSet): var TopTools_MapOfShape {.
+proc isEmpty*(this: TNamingShapesSet): bool {.noSideEffect, importcpp: "IsEmpty",
+    header: "TNaming_ShapesSet.hxx".}
+proc nbShapes*(this: TNamingShapesSet): int {.noSideEffect, importcpp: "NbShapes",
+    header: "TNaming_ShapesSet.hxx".}
+proc changeMap*(this: var TNamingShapesSet): var TopToolsMapOfShape {.
     importcpp: "ChangeMap", header: "TNaming_ShapesSet.hxx".}
-proc Map*(this: TNaming_ShapesSet): TopTools_MapOfShape {.noSideEffect,
+proc map*(this: TNamingShapesSet): TopToolsMapOfShape {.noSideEffect,
     importcpp: "Map", header: "TNaming_ShapesSet.hxx".}

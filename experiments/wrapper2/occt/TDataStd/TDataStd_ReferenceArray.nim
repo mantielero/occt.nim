@@ -13,12 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TDataStd_HLabelArray1,
-  ../TDF/TDF_Attribute, ../Standard/Standard_Integer, ../TDF/TDF_Label,
-  ../Standard/Standard_Boolean, ../Standard/Standard_OStream,
-  ../Standard/Standard_GUID
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
 discard "forward decl of TDF_Attribute"
@@ -27,93 +21,90 @@ discard "forward decl of TDF_DataSet"
 discard "forward decl of TDataStd_ReferenceArray"
 discard "forward decl of TDataStd_ReferenceArray"
 type
-  Handle_TDataStd_ReferenceArray* = handle[TDataStd_ReferenceArray]
+  HandleTDataStdReferenceArray* = Handle[TDataStdReferenceArray]
 
 ## ! Contains an array of references to the labels.
 
 type
-  TDataStd_ReferenceArray* {.importcpp: "TDataStd_ReferenceArray",
-                            header: "TDataStd_ReferenceArray.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                               ## !
-                                                                                               ## Static
-                                                                                               ## methods
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## ==============
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Returns
-                                                                                               ## the
-                                                                                               ## ID
-                                                                                               ## of
-                                                                                               ## the
-                                                                                               ## array
-                                                                                               ## of
-                                                                                               ## references
-                                                                                               ## (labels)
-                                                                                               ## attribute.
+  TDataStdReferenceArray* {.importcpp: "TDataStd_ReferenceArray",
+                           header: "TDataStd_ReferenceArray.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                              ## !
+                                                                                              ## Static
+                                                                                              ## methods
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## ==============
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Returns
+                                                                                              ## the
+                                                                                              ## ID
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ## array
+                                                                                              ## of
+                                                                                              ## references
+                                                                                              ## (labels)
+                                                                                              ## attribute.
 
 
-proc GetID*(): Standard_GUID {.importcpp: "TDataStd_ReferenceArray::GetID(@)",
-                            header: "TDataStd_ReferenceArray.hxx".}
-proc Set*(label: TDF_Label; lower: Standard_Integer; upper: Standard_Integer): handle[
-    TDataStd_ReferenceArray] {.importcpp: "TDataStd_ReferenceArray::Set(@)",
-                              header: "TDataStd_ReferenceArray.hxx".}
-proc Set*(label: TDF_Label; theGuid: Standard_GUID; lower: Standard_Integer;
-         upper: Standard_Integer): handle[TDataStd_ReferenceArray] {.
+proc getID*(): StandardGUID {.importcpp: "TDataStd_ReferenceArray::GetID(@)",
+                           header: "TDataStd_ReferenceArray.hxx".}
+proc set*(label: TDF_Label; lower: int; upper: int): Handle[TDataStdReferenceArray] {.
     importcpp: "TDataStd_ReferenceArray::Set(@)",
     header: "TDataStd_ReferenceArray.hxx".}
-proc Init*(this: var TDataStd_ReferenceArray; lower: Standard_Integer;
-          upper: Standard_Integer) {.importcpp: "Init",
-                                   header: "TDataStd_ReferenceArray.hxx".}
-proc SetValue*(this: var TDataStd_ReferenceArray; index: Standard_Integer;
-              value: TDF_Label) {.importcpp: "SetValue",
-                                header: "TDataStd_ReferenceArray.hxx".}
-proc SetID*(this: var TDataStd_ReferenceArray; theGuid: Standard_GUID) {.
+proc set*(label: TDF_Label; theGuid: StandardGUID; lower: int; upper: int): Handle[
+    TDataStdReferenceArray] {.importcpp: "TDataStd_ReferenceArray::Set(@)",
+                             header: "TDataStd_ReferenceArray.hxx".}
+proc init*(this: var TDataStdReferenceArray; lower: int; upper: int) {.
+    importcpp: "Init", header: "TDataStd_ReferenceArray.hxx".}
+proc setValue*(this: var TDataStdReferenceArray; index: int; value: TDF_Label) {.
+    importcpp: "SetValue", header: "TDataStd_ReferenceArray.hxx".}
+proc setID*(this: var TDataStdReferenceArray; theGuid: StandardGUID) {.
     importcpp: "SetID", header: "TDataStd_ReferenceArray.hxx".}
-proc SetID*(this: var TDataStd_ReferenceArray) {.importcpp: "SetID",
+proc setID*(this: var TDataStdReferenceArray) {.importcpp: "SetID",
     header: "TDataStd_ReferenceArray.hxx".}
-proc Value*(this: TDataStd_ReferenceArray; Index: Standard_Integer): TDF_Label {.
-    noSideEffect, importcpp: "Value", header: "TDataStd_ReferenceArray.hxx".}
-proc `()`*(this: TDataStd_ReferenceArray; Index: Standard_Integer): TDF_Label {.
-    noSideEffect, importcpp: "#(@)", header: "TDataStd_ReferenceArray.hxx".}
-proc Lower*(this: TDataStd_ReferenceArray): Standard_Integer {.noSideEffect,
-    importcpp: "Lower", header: "TDataStd_ReferenceArray.hxx".}
-proc Upper*(this: TDataStd_ReferenceArray): Standard_Integer {.noSideEffect,
-    importcpp: "Upper", header: "TDataStd_ReferenceArray.hxx".}
-proc Length*(this: TDataStd_ReferenceArray): Standard_Integer {.noSideEffect,
-    importcpp: "Length", header: "TDataStd_ReferenceArray.hxx".}
-proc InternalArray*(this: TDataStd_ReferenceArray): handle[TDataStd_HLabelArray1] {.
+proc value*(this: TDataStdReferenceArray; index: int): TDF_Label {.noSideEffect,
+    importcpp: "Value", header: "TDataStd_ReferenceArray.hxx".}
+proc `()`*(this: TDataStdReferenceArray; index: int): TDF_Label {.noSideEffect,
+    importcpp: "#(@)", header: "TDataStd_ReferenceArray.hxx".}
+proc lower*(this: TDataStdReferenceArray): int {.noSideEffect, importcpp: "Lower",
+    header: "TDataStd_ReferenceArray.hxx".}
+proc upper*(this: TDataStdReferenceArray): int {.noSideEffect, importcpp: "Upper",
+    header: "TDataStd_ReferenceArray.hxx".}
+proc length*(this: TDataStdReferenceArray): int {.noSideEffect, importcpp: "Length",
+    header: "TDataStd_ReferenceArray.hxx".}
+proc internalArray*(this: TDataStdReferenceArray): Handle[TDataStdHLabelArray1] {.
     noSideEffect, importcpp: "InternalArray", header: "TDataStd_ReferenceArray.hxx".}
-proc SetInternalArray*(this: var TDataStd_ReferenceArray;
-                      values: handle[TDataStd_HLabelArray1];
-                      isCheckItems: Standard_Boolean = Standard_True) {.
-    importcpp: "SetInternalArray", header: "TDataStd_ReferenceArray.hxx".}
-proc constructTDataStd_ReferenceArray*(): TDataStd_ReferenceArray {.constructor,
+proc setInternalArray*(this: var TDataStdReferenceArray;
+                      values: Handle[TDataStdHLabelArray1];
+                      isCheckItems: bool = true) {.importcpp: "SetInternalArray",
+    header: "TDataStd_ReferenceArray.hxx".}
+proc constructTDataStdReferenceArray*(): TDataStdReferenceArray {.constructor,
     importcpp: "TDataStd_ReferenceArray(@)", header: "TDataStd_ReferenceArray.hxx".}
-proc ID*(this: TDataStd_ReferenceArray): Standard_GUID {.noSideEffect,
-    importcpp: "ID", header: "TDataStd_ReferenceArray.hxx".}
-proc Restore*(this: var TDataStd_ReferenceArray; With: handle[TDF_Attribute]) {.
+proc id*(this: TDataStdReferenceArray): StandardGUID {.noSideEffect, importcpp: "ID",
+    header: "TDataStd_ReferenceArray.hxx".}
+proc restore*(this: var TDataStdReferenceArray; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TDataStd_ReferenceArray.hxx".}
-proc NewEmpty*(this: TDataStd_ReferenceArray): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TDataStdReferenceArray): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TDataStd_ReferenceArray.hxx".}
-proc Paste*(this: TDataStd_ReferenceArray; Into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TDataStdReferenceArray; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TDataStd_ReferenceArray.hxx".}
-proc References*(this: TDataStd_ReferenceArray; DS: handle[TDF_DataSet]) {.
+proc references*(this: TDataStdReferenceArray; ds: Handle[TDF_DataSet]) {.
     noSideEffect, importcpp: "References", header: "TDataStd_ReferenceArray.hxx".}
-proc Dump*(this: TDataStd_ReferenceArray; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDataStdReferenceArray; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_ReferenceArray.hxx".}
-proc DumpJson*(this: TDataStd_ReferenceArray; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TDataStd_ReferenceArray.hxx".}
+proc dumpJson*(this: TDataStdReferenceArray; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TDataStd_ReferenceArray.hxx".}
 type
-  TDataStd_ReferenceArraybase_type* = TDF_Attribute
+  TDataStdReferenceArraybaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TDataStd_ReferenceArray::get_type_name(@)",
-                              header: "TDataStd_ReferenceArray.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDataStd_ReferenceArray::get_type_name(@)",
+                            header: "TDataStd_ReferenceArray.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDataStd_ReferenceArray::get_type_descriptor(@)",
     header: "TDataStd_ReferenceArray.hxx".}
-proc DynamicType*(this: TDataStd_ReferenceArray): handle[Standard_Type] {.
+proc dynamicType*(this: TDataStdReferenceArray): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TDataStd_ReferenceArray.hxx".}

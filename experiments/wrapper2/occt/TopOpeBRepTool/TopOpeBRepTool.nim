@@ -14,15 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../TopTools/TopTools_DataMapOfShapeInteger,
-  ../TopTools/TopTools_IndexedMapOfOrientedShape,
-  ../TopTools/TopTools_ListOfShape,
-  ../TopTools/TopTools_DataMapOfShapeListOfShape, ../Standard/Standard_OStream,
-  TopOpeBRepTool_OutCurveType
-
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Solid"
 discard "forward decl of TopOpeBRepTool_GeomTool"
@@ -145,36 +136,36 @@ type
                                                                                          ## fails
 
 
-proc PurgeClosingEdges*(F: TopoDS_Face; FF: TopoDS_Face;
-                       MWisOld: TopTools_DataMapOfShapeInteger;
-                       MshNOK: var TopTools_IndexedMapOfOrientedShape): Standard_Boolean {.
+proc purgeClosingEdges*(f: TopoDS_Face; ff: TopoDS_Face;
+                       mWisOld: TopToolsDataMapOfShapeInteger;
+                       mshNOK: var TopToolsIndexedMapOfOrientedShape): bool {.
     importcpp: "TopOpeBRepTool::PurgeClosingEdges(@)",
     header: "TopOpeBRepTool.hxx".}
-proc PurgeClosingEdges*(F: TopoDS_Face; LOF: TopTools_ListOfShape;
-                       MWisOld: TopTools_DataMapOfShapeInteger;
-                       MshNOK: var TopTools_IndexedMapOfOrientedShape): Standard_Boolean {.
+proc purgeClosingEdges*(f: TopoDS_Face; lof: TopToolsListOfShape;
+                       mWisOld: TopToolsDataMapOfShapeInteger;
+                       mshNOK: var TopToolsIndexedMapOfOrientedShape): bool {.
     importcpp: "TopOpeBRepTool::PurgeClosingEdges(@)",
     header: "TopOpeBRepTool.hxx".}
-proc CorrectONUVISO*(F: TopoDS_Face; Fsp: var TopoDS_Face): Standard_Boolean {.
+proc correctONUVISO*(f: TopoDS_Face; fsp: var TopoDS_Face): bool {.
     importcpp: "TopOpeBRepTool::CorrectONUVISO(@)", header: "TopOpeBRepTool.hxx".}
-proc MakeFaces*(F: TopoDS_Face; LOF: TopTools_ListOfShape;
-               MshNOK: TopTools_IndexedMapOfOrientedShape;
-               LOFF: var TopTools_ListOfShape): Standard_Boolean {.
+proc makeFaces*(f: TopoDS_Face; lof: TopToolsListOfShape;
+               mshNOK: TopToolsIndexedMapOfOrientedShape;
+               loff: var TopToolsListOfShape): bool {.
     importcpp: "TopOpeBRepTool::MakeFaces(@)", header: "TopOpeBRepTool.hxx".}
-proc Regularize*(aFace: TopoDS_Face; aListOfFaces: var TopTools_ListOfShape;
-                ESplits: var TopTools_DataMapOfShapeListOfShape): Standard_Boolean {.
+proc regularize*(aFace: TopoDS_Face; aListOfFaces: var TopToolsListOfShape;
+                eSplits: var TopToolsDataMapOfShapeListOfShape): bool {.
     importcpp: "TopOpeBRepTool::Regularize(@)", header: "TopOpeBRepTool.hxx".}
-proc RegularizeWires*(aFace: TopoDS_Face;
-                     OldWiresNewWires: var TopTools_DataMapOfShapeListOfShape;
-                     ESplits: var TopTools_DataMapOfShapeListOfShape): Standard_Boolean {.
+proc regularizeWires*(aFace: TopoDS_Face;
+                     oldWiresNewWires: var TopToolsDataMapOfShapeListOfShape;
+                     eSplits: var TopToolsDataMapOfShapeListOfShape): bool {.
     importcpp: "TopOpeBRepTool::RegularizeWires(@)", header: "TopOpeBRepTool.hxx".}
-proc RegularizeFace*(aFace: TopoDS_Face;
-                    OldWiresnewWires: TopTools_DataMapOfShapeListOfShape;
-                    aListOfFaces: var TopTools_ListOfShape): Standard_Boolean {.
+proc regularizeFace*(aFace: TopoDS_Face;
+                    oldWiresnewWires: TopToolsDataMapOfShapeListOfShape;
+                    aListOfFaces: var TopToolsListOfShape): bool {.
     importcpp: "TopOpeBRepTool::RegularizeFace(@)", header: "TopOpeBRepTool.hxx".}
-proc RegularizeShells*(aSolid: TopoDS_Solid;
-                      OldSheNewShe: var TopTools_DataMapOfShapeListOfShape;
-                      FSplits: var TopTools_DataMapOfShapeListOfShape): Standard_Boolean {.
+proc regularizeShells*(aSolid: TopoDS_Solid;
+                      oldSheNewShe: var TopToolsDataMapOfShapeListOfShape;
+                      fSplits: var TopToolsDataMapOfShapeListOfShape): bool {.
     importcpp: "TopOpeBRepTool::RegularizeShells(@)", header: "TopOpeBRepTool.hxx".}
-proc Print*(OCT: TopOpeBRepTool_OutCurveType; S: var Standard_OStream): var Standard_OStream {.
+proc print*(oct: TopOpeBRepToolOutCurveType; s: var StandardOStream): var StandardOStream {.
     importcpp: "TopOpeBRepTool::Print(@)", header: "TopOpeBRepTool.hxx".}

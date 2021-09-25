@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../GeomAbs/GeomAbs_CurveType, ../gp/gp_Pnt,
-  ../gp/gp_Dir, ../Standard/Standard_Real, ../gp/gp_Circ
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_OutOfRange"
@@ -30,36 +24,36 @@ discard "forward decl of gp_Cylinder"
 discard "forward decl of gp_Cone"
 discard "forward decl of gp_Lin"
 type
-  Contap_ContAna* {.importcpp: "Contap_ContAna", header: "Contap_ContAna.hxx", bycopy.} = object
+  ContapContAna* {.importcpp: "Contap_ContAna", header: "Contap_ContAna.hxx", bycopy.} = object
 
 
-proc constructContap_ContAna*(): Contap_ContAna {.constructor,
+proc constructContapContAna*(): ContapContAna {.constructor,
     importcpp: "Contap_ContAna(@)", header: "Contap_ContAna.hxx".}
-proc Perform*(this: var Contap_ContAna; S: gp_Sphere; D: gp_Dir) {.importcpp: "Perform",
+proc perform*(this: var ContapContAna; s: Sphere; d: Dir) {.importcpp: "Perform",
     header: "Contap_ContAna.hxx".}
-proc Perform*(this: var Contap_ContAna; S: gp_Sphere; D: gp_Dir; Ang: Standard_Real) {.
+proc perform*(this: var ContapContAna; s: Sphere; d: Dir; ang: float) {.
     importcpp: "Perform", header: "Contap_ContAna.hxx".}
-proc Perform*(this: var Contap_ContAna; S: gp_Sphere; Eye: gp_Pnt) {.
-    importcpp: "Perform", header: "Contap_ContAna.hxx".}
-proc Perform*(this: var Contap_ContAna; C: gp_Cylinder; D: gp_Dir) {.
-    importcpp: "Perform", header: "Contap_ContAna.hxx".}
-proc Perform*(this: var Contap_ContAna; C: gp_Cylinder; D: gp_Dir; Ang: Standard_Real) {.
-    importcpp: "Perform", header: "Contap_ContAna.hxx".}
-proc Perform*(this: var Contap_ContAna; C: gp_Cylinder; Eye: gp_Pnt) {.
-    importcpp: "Perform", header: "Contap_ContAna.hxx".}
-proc Perform*(this: var Contap_ContAna; C: gp_Cone; D: gp_Dir) {.importcpp: "Perform",
+proc perform*(this: var ContapContAna; s: Sphere; eye: Pnt) {.importcpp: "Perform",
     header: "Contap_ContAna.hxx".}
-proc Perform*(this: var Contap_ContAna; C: gp_Cone; D: gp_Dir; Ang: Standard_Real) {.
-    importcpp: "Perform", header: "Contap_ContAna.hxx".}
-proc Perform*(this: var Contap_ContAna; C: gp_Cone; Eye: gp_Pnt) {.importcpp: "Perform",
+proc perform*(this: var ContapContAna; c: Cylinder; d: Dir) {.importcpp: "Perform",
     header: "Contap_ContAna.hxx".}
-proc IsDone*(this: Contap_ContAna): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "Contap_ContAna.hxx".}
-proc NbContours*(this: Contap_ContAna): Standard_Integer {.noSideEffect,
-    importcpp: "NbContours", header: "Contap_ContAna.hxx".}
-proc TypeContour*(this: Contap_ContAna): GeomAbs_CurveType {.noSideEffect,
+proc perform*(this: var ContapContAna; c: Cylinder; d: Dir; ang: float) {.
+    importcpp: "Perform", header: "Contap_ContAna.hxx".}
+proc perform*(this: var ContapContAna; c: Cylinder; eye: Pnt) {.importcpp: "Perform",
+    header: "Contap_ContAna.hxx".}
+proc perform*(this: var ContapContAna; c: Cone; d: Dir) {.importcpp: "Perform",
+    header: "Contap_ContAna.hxx".}
+proc perform*(this: var ContapContAna; c: Cone; d: Dir; ang: float) {.
+    importcpp: "Perform", header: "Contap_ContAna.hxx".}
+proc perform*(this: var ContapContAna; c: Cone; eye: Pnt) {.importcpp: "Perform",
+    header: "Contap_ContAna.hxx".}
+proc isDone*(this: ContapContAna): bool {.noSideEffect, importcpp: "IsDone",
+                                      header: "Contap_ContAna.hxx".}
+proc nbContours*(this: ContapContAna): int {.noSideEffect, importcpp: "NbContours",
+    header: "Contap_ContAna.hxx".}
+proc typeContour*(this: ContapContAna): GeomAbsCurveType {.noSideEffect,
     importcpp: "TypeContour", header: "Contap_ContAna.hxx".}
-proc Circle*(this: Contap_ContAna): gp_Circ {.noSideEffect, importcpp: "Circle",
+proc circle*(this: ContapContAna): Circ {.noSideEffect, importcpp: "Circle",
+                                      header: "Contap_ContAna.hxx".}
+proc line*(this: ContapContAna; index: int): Lin {.noSideEffect, importcpp: "Line",
     header: "Contap_ContAna.hxx".}
-proc Line*(this: Contap_ContAna; Index: Standard_Integer): gp_Lin {.noSideEffect,
-    importcpp: "Line", header: "Contap_ContAna.hxx".}

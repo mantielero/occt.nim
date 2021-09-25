@@ -14,45 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Prs3d/Prs3d_Root, ../Prs3d/Prs3d_Drawer
-
 discard "forward decl of Adaptor3d_HSurface"
 type
-  StdPrs_WFSurface* {.importcpp: "StdPrs_WFSurface",
-                     header: "StdPrs_WFSurface.hxx", bycopy.} = object of Prs3d_Root ## !
-                                                                              ## Draws a
-                                                                              ## surface by
-                                                                              ## drawing
-                                                                              ## the
-                                                                              ## isoparametric
-                                                                              ## curves
-                                                                              ## with
-                                                                              ## respect to
-                                                                              ## ! a
-                                                                              ## fixed
-                                                                              ## number of
-                                                                              ## points
-                                                                              ## given by
-                                                                              ## the
-                                                                              ## Drawer.
-                                                                              ## !
-                                                                              ## The
-                                                                              ## number of
-                                                                              ## isoparametric
-                                                                              ## curves to be
-                                                                              ## drawn
-                                                                              ## and
-                                                                              ## their
-                                                                              ## color
-                                                                              ## are
-                                                                              ## !
-                                                                              ## controlled by
-                                                                              ## the
-                                                                              ## furnished
-                                                                              ## Drawer.
+  StdPrsWFSurface* {.importcpp: "StdPrs_WFSurface", header: "StdPrs_WFSurface.hxx",
+                    bycopy.} = object of Prs3dRoot ## ! Draws a surface by drawing the isoparametric curves with respect to
+                                              ## ! a fixed number of points given by the Drawer.
+                                              ## ! The number of isoparametric curves to be drawn and their color are
+                                              ## ! controlled by the furnished Drawer.
 
 
-proc Add*(aPresentation: handle[Prs3d_Presentation];
-         aSurface: handle[Adaptor3d_HSurface]; aDrawer: handle[Prs3d_Drawer]) {.
+proc add*(aPresentation: Handle[Prs3dPresentation];
+         aSurface: Handle[Adaptor3dHSurface]; aDrawer: Handle[Prs3dDrawer]) {.
     importcpp: "StdPrs_WFSurface::Add(@)", header: "StdPrs_WFSurface.hxx".}

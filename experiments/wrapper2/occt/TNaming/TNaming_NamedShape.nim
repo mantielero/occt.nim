@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TNaming_PtrNode,
-  TNaming_Evolution, ../Standard/Standard_Integer, ../TDF/TDF_Attribute,
-  ../Standard/Standard_Boolean, ../Standard/Standard_OStream
-
 discard "forward decl of TNaming_Builder"
 discard "forward decl of TNaming_Iterator"
 discard "forward decl of TNaming_NewShapeIterator"
@@ -34,7 +29,7 @@ discard "forward decl of TDF_AttributeDelta"
 discard "forward decl of TNaming_NamedShape"
 discard "forward decl of TNaming_NamedShape"
 type
-  Handle_TNaming_NamedShape* = handle[TNaming_NamedShape]
+  HandleTNamingNamedShape* = Handle[TNamingNamedShape]
 
 ## ! The basis to define an attribute for the storage of
 ## ! topology and naming data.
@@ -46,91 +41,89 @@ type
 ## ! depends on the type of evolution.
 
 type
-  TNaming_NamedShape* {.importcpp: "TNaming_NamedShape",
-                       header: "TNaming_NamedShape.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                     ## !
-                                                                                     ## class
-                                                                                     ## method
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## ============
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Returns
-                                                                                     ## the
-                                                                                     ## GUID
-                                                                                     ## for
-                                                                                     ## named
-                                                                                     ## shapes.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Adds
-                                                                                     ## an
-                                                                                     ## evolution
+  TNamingNamedShape* {.importcpp: "TNaming_NamedShape",
+                      header: "TNaming_NamedShape.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                    ## !
+                                                                                    ## class
+                                                                                    ## method
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## ============
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Returns
+                                                                                    ## the
+                                                                                    ## GUID
+                                                                                    ## for
+                                                                                    ## named
+                                                                                    ## shapes.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Adds
+                                                                                    ## an
+                                                                                    ## evolution
 
 
-proc GetID*(): Standard_GUID {.importcpp: "TNaming_NamedShape::GetID(@)",
-                            header: "TNaming_NamedShape.hxx".}
-proc constructTNaming_NamedShape*(): TNaming_NamedShape {.constructor,
+proc getID*(): StandardGUID {.importcpp: "TNaming_NamedShape::GetID(@)",
+                           header: "TNaming_NamedShape.hxx".}
+proc constructTNamingNamedShape*(): TNamingNamedShape {.constructor,
     importcpp: "TNaming_NamedShape(@)", header: "TNaming_NamedShape.hxx".}
-proc IsEmpty*(this: TNaming_NamedShape): Standard_Boolean {.noSideEffect,
-    importcpp: "IsEmpty", header: "TNaming_NamedShape.hxx".}
-proc Get*(this: TNaming_NamedShape): TopoDS_Shape {.noSideEffect, importcpp: "Get",
+proc isEmpty*(this: TNamingNamedShape): bool {.noSideEffect, importcpp: "IsEmpty",
     header: "TNaming_NamedShape.hxx".}
-proc Evolution*(this: TNaming_NamedShape): TNaming_Evolution {.noSideEffect,
+proc get*(this: TNamingNamedShape): TopoDS_Shape {.noSideEffect, importcpp: "Get",
+    header: "TNaming_NamedShape.hxx".}
+proc evolution*(this: TNamingNamedShape): TNamingEvolution {.noSideEffect,
     importcpp: "Evolution", header: "TNaming_NamedShape.hxx".}
-proc Version*(this: TNaming_NamedShape): Standard_Integer {.noSideEffect,
-    importcpp: "Version", header: "TNaming_NamedShape.hxx".}
-proc SetVersion*(this: var TNaming_NamedShape; version: Standard_Integer) {.
-    importcpp: "SetVersion", header: "TNaming_NamedShape.hxx".}
-proc Clear*(this: var TNaming_NamedShape) {.importcpp: "Clear",
-                                        header: "TNaming_NamedShape.hxx".}
-proc destroyTNaming_NamedShape*(this: var TNaming_NamedShape) {.
-    importcpp: "#.~TNaming_NamedShape()", header: "TNaming_NamedShape.hxx".}
-proc ID*(this: TNaming_NamedShape): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc version*(this: TNamingNamedShape): int {.noSideEffect, importcpp: "Version",
     header: "TNaming_NamedShape.hxx".}
-proc BackupCopy*(this: TNaming_NamedShape): handle[TDF_Attribute] {.noSideEffect,
+proc setVersion*(this: var TNamingNamedShape; version: int) {.importcpp: "SetVersion",
+    header: "TNaming_NamedShape.hxx".}
+proc clear*(this: var TNamingNamedShape) {.importcpp: "Clear",
+                                       header: "TNaming_NamedShape.hxx".}
+proc destroyTNamingNamedShape*(this: var TNamingNamedShape) {.
+    importcpp: "#.~TNaming_NamedShape()", header: "TNaming_NamedShape.hxx".}
+proc id*(this: TNamingNamedShape): StandardGUID {.noSideEffect, importcpp: "ID",
+    header: "TNaming_NamedShape.hxx".}
+proc backupCopy*(this: TNamingNamedShape): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "BackupCopy", header: "TNaming_NamedShape.hxx".}
-proc Restore*(this: var TNaming_NamedShape; anAttribute: handle[TDF_Attribute]) {.
+proc restore*(this: var TNamingNamedShape; anAttribute: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TNaming_NamedShape.hxx".}
-proc DeltaOnModification*(this: TNaming_NamedShape;
-                         anOldAttribute: handle[TDF_Attribute]): handle[
+proc deltaOnModification*(this: TNamingNamedShape;
+                         anOldAttribute: Handle[TDF_Attribute]): Handle[
     TDF_DeltaOnModification] {.noSideEffect, importcpp: "DeltaOnModification",
                               header: "TNaming_NamedShape.hxx".}
-proc DeltaOnModification*(this: var TNaming_NamedShape;
-                         aDelta: handle[TDF_DeltaOnModification]) {.
+proc deltaOnModification*(this: var TNamingNamedShape;
+                         aDelta: Handle[TDF_DeltaOnModification]) {.
     importcpp: "DeltaOnModification", header: "TNaming_NamedShape.hxx".}
-proc DeltaOnRemoval*(this: TNaming_NamedShape): handle[TDF_DeltaOnRemoval] {.
+proc deltaOnRemoval*(this: TNamingNamedShape): Handle[TDF_DeltaOnRemoval] {.
     noSideEffect, importcpp: "DeltaOnRemoval", header: "TNaming_NamedShape.hxx".}
-proc NewEmpty*(this: TNaming_NamedShape): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TNamingNamedShape): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TNaming_NamedShape.hxx".}
-proc Paste*(this: TNaming_NamedShape; intoAttribute: handle[TDF_Attribute];
-           aRelocTationable: handle[TDF_RelocationTable]) {.noSideEffect,
+proc paste*(this: TNamingNamedShape; intoAttribute: Handle[TDF_Attribute];
+           aRelocTationable: Handle[TDF_RelocationTable]) {.noSideEffect,
     importcpp: "Paste", header: "TNaming_NamedShape.hxx".}
-proc References*(this: TNaming_NamedShape; aDataSet: handle[TDF_DataSet]) {.
+proc references*(this: TNamingNamedShape; aDataSet: Handle[TDF_DataSet]) {.
     noSideEffect, importcpp: "References", header: "TNaming_NamedShape.hxx".}
-proc BeforeRemoval*(this: var TNaming_NamedShape) {.importcpp: "BeforeRemoval",
+proc beforeRemoval*(this: var TNamingNamedShape) {.importcpp: "BeforeRemoval",
     header: "TNaming_NamedShape.hxx".}
-proc BeforeUndo*(this: var TNaming_NamedShape;
-                anAttDelta: handle[TDF_AttributeDelta];
-                forceIt: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc beforeUndo*(this: var TNamingNamedShape;
+                anAttDelta: Handle[TDF_AttributeDelta]; forceIt: bool = false): bool {.
     importcpp: "BeforeUndo", header: "TNaming_NamedShape.hxx".}
-proc AfterUndo*(this: var TNaming_NamedShape;
-               anAttDelta: handle[TDF_AttributeDelta];
-               forceIt: Standard_Boolean = Standard_False): Standard_Boolean {.
-    importcpp: "AfterUndo", header: "TNaming_NamedShape.hxx".}
-proc Dump*(this: TNaming_NamedShape; anOS: var Standard_OStream): var Standard_OStream {.
-    noSideEffect, importcpp: "Dump", header: "TNaming_NamedShape.hxx".}
-proc DumpJson*(this: TNaming_NamedShape; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
+proc afterUndo*(this: var TNamingNamedShape; anAttDelta: Handle[TDF_AttributeDelta];
+               forceIt: bool = false): bool {.importcpp: "AfterUndo",
     header: "TNaming_NamedShape.hxx".}
+proc dump*(this: TNamingNamedShape; anOS: var StandardOStream): var StandardOStream {.
+    noSideEffect, importcpp: "Dump", header: "TNaming_NamedShape.hxx".}
+proc dumpJson*(this: TNamingNamedShape; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TNaming_NamedShape.hxx".}
 type
-  TNaming_NamedShapebase_type* = TDF_Attribute
+  TNamingNamedShapebaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TNaming_NamedShape::get_type_name(@)",
-                              header: "TNaming_NamedShape.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TNaming_NamedShape::get_type_name(@)",
+                            header: "TNaming_NamedShape.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TNaming_NamedShape::get_type_descriptor(@)",
     header: "TNaming_NamedShape.hxx".}
-proc DynamicType*(this: TNaming_NamedShape): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TNamingNamedShape): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TNaming_NamedShape.hxx".}

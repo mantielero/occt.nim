@@ -13,10 +13,11 @@
 ##  commercial license or contractual agreement.
 
 type
-  PrsDim_KindOfRelation* {.size: sizeof(cint), importcpp: "PrsDim_KindOfRelation",
-                          header: "PrsDim_KindOfRelation.hxx".} = enum
-    PrsDim_KOR_NONE = 0, PrsDim_KOR_CONCENTRIC, PrsDim_KOR_EQUALDISTANCE,
-    PrsDim_KOR_EQUALRADIUS, PrsDim_KOR_FIX, PrsDim_KOR_IDENTIC, PrsDim_KOR_OFFSET,
-    PrsDim_KOR_PARALLEL, PrsDim_KOR_PERPENDICULAR, PrsDim_KOR_TANGENT,
-    PrsDim_KOR_SYMMETRIC
+  PrsDimKindOfRelation* {.size: sizeof(cint), importcpp: "PrsDim_KindOfRelation",
+                         header: "PrsDim_KindOfRelation.hxx".} = enum
+    PrsDimKOR_NONE = 0, PrsDimKOR_CONCENTRIC, PrsDimKOR_EQUALDISTANCE,
+    PrsDimKOR_EQUALRADIUS, PrsDimKOR_FIX, PrsDimKOR_IDENTIC, PrsDimKOR_OFFSET,
+    PrsDimKOR_PARALLEL, PrsDimKOR_PERPENDICULAR, PrsDimKOR_TANGENT,
+    PrsDimKOR_SYMMETRIC
+
 

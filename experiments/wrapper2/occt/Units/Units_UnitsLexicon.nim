@@ -14,16 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Time,
-  Units_Lexicon, ../Standard/Standard_CString, ../Standard/Standard_Boolean
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Units_UnitsLexicon"
 discard "forward decl of Units_UnitsLexicon"
 type
-  Handle_Units_UnitsLexicon* = handle[Units_UnitsLexicon]
+  HandleUnitsUnitsLexicon* = Handle[UnitsUnitsLexicon]
 
 ## ! This class defines a lexicon useful to analyse and
 ## ! recognize the different key  words  included  in a
@@ -31,30 +27,30 @@ type
 ## ! tokens.
 
 type
-  Units_UnitsLexicon* {.importcpp: "Units_UnitsLexicon",
-                       header: "Units_UnitsLexicon.hxx", bycopy.} = object of Units_Lexicon ##
-                                                                                     ## !
-                                                                                     ## Returns
-                                                                                     ## an
-                                                                                     ## empty
-                                                                                     ## instance
-                                                                                     ## of
-                                                                                     ## UnitsLexicon
+  UnitsUnitsLexicon* {.importcpp: "Units_UnitsLexicon",
+                      header: "Units_UnitsLexicon.hxx", bycopy.} = object of UnitsLexicon ##
+                                                                                   ## !
+                                                                                   ## Returns
+                                                                                   ## an
+                                                                                   ## empty
+                                                                                   ## instance
+                                                                                   ## of
+                                                                                   ## UnitsLexicon
 
 
-proc constructUnits_UnitsLexicon*(): Units_UnitsLexicon {.constructor,
+proc constructUnitsUnitsLexicon*(): UnitsUnitsLexicon {.constructor,
     importcpp: "Units_UnitsLexicon(@)", header: "Units_UnitsLexicon.hxx".}
-proc Creates*(this: var Units_UnitsLexicon; amode: Standard_Boolean = Standard_True) {.
-    importcpp: "Creates", header: "Units_UnitsLexicon.hxx".}
-proc Dump*(this: Units_UnitsLexicon) {.noSideEffect, importcpp: "Dump",
-                                    header: "Units_UnitsLexicon.hxx".}
+proc creates*(this: var UnitsUnitsLexicon; amode: bool = true) {.importcpp: "Creates",
+    header: "Units_UnitsLexicon.hxx".}
+proc dump*(this: UnitsUnitsLexicon) {.noSideEffect, importcpp: "Dump",
+                                   header: "Units_UnitsLexicon.hxx".}
 type
-  Units_UnitsLexiconbase_type* = Units_Lexicon
+  UnitsUnitsLexiconbaseType* = UnitsLexicon
 
-proc get_type_name*(): cstring {.importcpp: "Units_UnitsLexicon::get_type_name(@)",
-                              header: "Units_UnitsLexicon.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Units_UnitsLexicon::get_type_name(@)",
+                            header: "Units_UnitsLexicon.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Units_UnitsLexicon::get_type_descriptor(@)",
     header: "Units_UnitsLexicon.hxx".}
-proc DynamicType*(this: Units_UnitsLexicon): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: UnitsUnitsLexicon): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Units_UnitsLexicon.hxx".}

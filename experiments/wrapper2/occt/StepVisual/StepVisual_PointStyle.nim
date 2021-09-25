@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepVisual_MarkerSelect,
-  ../StepBasic/StepBasic_SizeSelect, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepVisual_Colour"
 discard "forward decl of StepVisual_MarkerSelect"
@@ -25,47 +21,45 @@ discard "forward decl of StepBasic_SizeSelect"
 discard "forward decl of StepVisual_PointStyle"
 discard "forward decl of StepVisual_PointStyle"
 type
-  Handle_StepVisual_PointStyle* = handle[StepVisual_PointStyle]
-  StepVisual_PointStyle* {.importcpp: "StepVisual_PointStyle",
-                          header: "StepVisual_PointStyle.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                ## !
-                                                                                                ## Returns
-                                                                                                ## a
-                                                                                                ## PointStyle
+  HandleStepVisualPointStyle* = Handle[StepVisualPointStyle]
+  StepVisualPointStyle* {.importcpp: "StepVisual_PointStyle",
+                         header: "StepVisual_PointStyle.hxx", bycopy.} = object of StandardTransient ##
+                                                                                              ## !
+                                                                                              ## Returns
+                                                                                              ## a
+                                                                                              ## PointStyle
 
 
-proc constructStepVisual_PointStyle*(): StepVisual_PointStyle {.constructor,
+proc constructStepVisualPointStyle*(): StepVisualPointStyle {.constructor,
     importcpp: "StepVisual_PointStyle(@)", header: "StepVisual_PointStyle.hxx".}
-proc Init*(this: var StepVisual_PointStyle; aName: handle[TCollection_HAsciiString];
-          aMarker: StepVisual_MarkerSelect; aMarkerSize: StepBasic_SizeSelect;
-          aMarkerColour: handle[StepVisual_Colour]) {.importcpp: "Init",
+proc init*(this: var StepVisualPointStyle; aName: Handle[TCollectionHAsciiString];
+          aMarker: StepVisualMarkerSelect; aMarkerSize: StepBasicSizeSelect;
+          aMarkerColour: Handle[StepVisualColour]) {.importcpp: "Init",
     header: "StepVisual_PointStyle.hxx".}
-proc SetName*(this: var StepVisual_PointStyle;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
-    header: "StepVisual_PointStyle.hxx".}
-proc Name*(this: StepVisual_PointStyle): handle[TCollection_HAsciiString] {.
+proc setName*(this: var StepVisualPointStyle; aName: Handle[TCollectionHAsciiString]) {.
+    importcpp: "SetName", header: "StepVisual_PointStyle.hxx".}
+proc name*(this: StepVisualPointStyle): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepVisual_PointStyle.hxx".}
-proc SetMarker*(this: var StepVisual_PointStyle; aMarker: StepVisual_MarkerSelect) {.
+proc setMarker*(this: var StepVisualPointStyle; aMarker: StepVisualMarkerSelect) {.
     importcpp: "SetMarker", header: "StepVisual_PointStyle.hxx".}
-proc Marker*(this: StepVisual_PointStyle): StepVisual_MarkerSelect {.noSideEffect,
+proc marker*(this: StepVisualPointStyle): StepVisualMarkerSelect {.noSideEffect,
     importcpp: "Marker", header: "StepVisual_PointStyle.hxx".}
-proc SetMarkerSize*(this: var StepVisual_PointStyle;
-                   aMarkerSize: StepBasic_SizeSelect) {.
+proc setMarkerSize*(this: var StepVisualPointStyle; aMarkerSize: StepBasicSizeSelect) {.
     importcpp: "SetMarkerSize", header: "StepVisual_PointStyle.hxx".}
-proc MarkerSize*(this: StepVisual_PointStyle): StepBasic_SizeSelect {.noSideEffect,
+proc markerSize*(this: StepVisualPointStyle): StepBasicSizeSelect {.noSideEffect,
     importcpp: "MarkerSize", header: "StepVisual_PointStyle.hxx".}
-proc SetMarkerColour*(this: var StepVisual_PointStyle;
-                     aMarkerColour: handle[StepVisual_Colour]) {.
+proc setMarkerColour*(this: var StepVisualPointStyle;
+                     aMarkerColour: Handle[StepVisualColour]) {.
     importcpp: "SetMarkerColour", header: "StepVisual_PointStyle.hxx".}
-proc MarkerColour*(this: StepVisual_PointStyle): handle[StepVisual_Colour] {.
+proc markerColour*(this: StepVisualPointStyle): Handle[StepVisualColour] {.
     noSideEffect, importcpp: "MarkerColour", header: "StepVisual_PointStyle.hxx".}
 type
-  StepVisual_PointStylebase_type* = Standard_Transient
+  StepVisualPointStylebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_PointStyle::get_type_name(@)",
-                              header: "StepVisual_PointStyle.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_PointStyle::get_type_name(@)",
+                            header: "StepVisual_PointStyle.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_PointStyle::get_type_descriptor(@)",
     header: "StepVisual_PointStyle.hxx".}
-proc DynamicType*(this: StepVisual_PointStyle): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepVisual_PointStyle.hxx".}
+proc dynamicType*(this: StepVisualPointStyle): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepVisual_PointStyle.hxx".}

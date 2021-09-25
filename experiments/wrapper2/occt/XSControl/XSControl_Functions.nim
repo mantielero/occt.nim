@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard
-
 ## ! Functions from XSControl gives access to actions which can be
 ## ! commanded with the resources provided by XSControl: especially
 ## ! Controller and Transfer
@@ -24,11 +21,9 @@ import
 ## ! It works by adding functions by method Init
 
 type
-  XSControl_Functions* {.importcpp: "XSControl_Functions",
-                        header: "XSControl_Functions.hxx", bycopy.} = object ## ! Defines and loads all
-                                                                        ## functions for
-                                                                        ## XSControl (as ActFunc)
+  XSControlFunctions* {.importcpp: "XSControl_Functions",
+                       header: "XSControl_Functions.hxx", bycopy.} = object ## ! Defines and loads all functions for XSControl (as ActFunc)
 
 
-proc Init*() {.importcpp: "XSControl_Functions::Init(@)",
+proc init*() {.importcpp: "XSControl_Functions::Init(@)",
              header: "XSControl_Functions.hxx".}

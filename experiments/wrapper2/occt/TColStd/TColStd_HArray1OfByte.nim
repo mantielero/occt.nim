@@ -12,38 +12,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Byte, TColStd_Array1OfByte,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  TColStd_HArray1OfByte* {.importcpp: "TColStd_HArray1OfByte",
-                          header: "TColStd_HArray1OfByte.hxx", bycopy.} = object of TColStd_Array1OfByte
+  TColStdHArray1OfByte* {.importcpp: "TColStd_HArray1OfByte",
+                         header: "TColStd_HArray1OfByte.hxx", bycopy.} = object of TColStdArray1OfByte
 
 
-proc constructTColStd_HArray1OfByte*(theLower: Standard_Integer;
-                                    theUpper: Standard_Integer): TColStd_HArray1OfByte {.
+proc constructTColStdHArray1OfByte*(theLower: int; theUpper: int): TColStdHArray1OfByte {.
     constructor, importcpp: "TColStd_HArray1OfByte(@)",
     header: "TColStd_HArray1OfByte.hxx".}
-proc constructTColStd_HArray1OfByte*(theLower: Standard_Integer;
-                                    theUpper: Standard_Integer;
-                                    theValue: value_type): TColStd_HArray1OfByte {.
+proc constructTColStdHArray1OfByte*(theLower: int; theUpper: int; theValue: ValueType): TColStdHArray1OfByte {.
     constructor, importcpp: "TColStd_HArray1OfByte(@)",
     header: "TColStd_HArray1OfByte.hxx".}
-proc constructTColStd_HArray1OfByte*(theOther: TColStd_Array1OfByte): TColStd_HArray1OfByte {.
+proc constructTColStdHArray1OfByte*(theOther: TColStdArray1OfByte): TColStdHArray1OfByte {.
     constructor, importcpp: "TColStd_HArray1OfByte(@)",
     header: "TColStd_HArray1OfByte.hxx".}
-proc Array1*(this: TColStd_HArray1OfByte): TColStd_Array1OfByte {.noSideEffect,
+proc array1*(this: TColStdHArray1OfByte): TColStdArray1OfByte {.noSideEffect,
     importcpp: "Array1", header: "TColStd_HArray1OfByte.hxx".}
-proc ChangeArray1*(this: var TColStd_HArray1OfByte): var TColStd_Array1OfByte {.
+proc changeArray1*(this: var TColStdHArray1OfByte): var TColStdArray1OfByte {.
     importcpp: "ChangeArray1", header: "TColStd_HArray1OfByte.hxx".}
 type
-  TColStd_HArray1OfBytebase_type* = MMgt_TShared
+  TColStdHArray1OfBytebaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TColStd_HArray1OfByte::get_type_name(@)",
-                              header: "TColStd_HArray1OfByte.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TColStd_HArray1OfByte::get_type_name(@)",
+                            header: "TColStd_HArray1OfByte.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TColStd_HArray1OfByte::get_type_descriptor(@)",
     header: "TColStd_HArray1OfByte.hxx".}
-proc DynamicType*(this: TColStd_HArray1OfByte): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "TColStd_HArray1OfByte.hxx".}
+proc dynamicType*(this: TColStdHArray1OfByte): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "TColStd_HArray1OfByte.hxx".}

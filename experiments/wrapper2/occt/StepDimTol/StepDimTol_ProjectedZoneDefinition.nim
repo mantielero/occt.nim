@@ -13,57 +13,52 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../StepBasic/StepBasic_LengthMeasureWithUnit,
-  StepDimTol_ToleranceZoneDefinition, ../StepRepr/StepRepr_ShapeAspect
-
 discard "forward decl of StepDimTol_ProjectedZoneDefinition"
 discard "forward decl of StepDimTol_ProjectedZoneDefinition"
 type
-  Handle_StepDimTol_ProjectedZoneDefinition* = handle[
-      StepDimTol_ProjectedZoneDefinition]
+  HandleStepDimTolProjectedZoneDefinition* = Handle[
+      StepDimTolProjectedZoneDefinition]
 
 ## ! Representation of STEP entity ProjectedZoneDefinition
 
 type
-  StepDimTol_ProjectedZoneDefinition* {.importcpp: "StepDimTol_ProjectedZoneDefinition", header: "StepDimTol_ProjectedZoneDefinition.hxx",
-                                       bycopy.} = object of StepDimTol_ToleranceZoneDefinition ##
-                                                                                          ## !
-                                                                                          ## Empty
-                                                                                          ## constructor
+  StepDimTolProjectedZoneDefinition* {.importcpp: "StepDimTol_ProjectedZoneDefinition", header: "StepDimTol_ProjectedZoneDefinition.hxx",
+                                      bycopy.} = object of StepDimTolToleranceZoneDefinition ##
+                                                                                        ## !
+                                                                                        ## Empty
+                                                                                        ## constructor
 
 
-proc constructStepDimTol_ProjectedZoneDefinition*(): StepDimTol_ProjectedZoneDefinition {.
+proc constructStepDimTolProjectedZoneDefinition*(): StepDimTolProjectedZoneDefinition {.
     constructor, importcpp: "StepDimTol_ProjectedZoneDefinition(@)",
     header: "StepDimTol_ProjectedZoneDefinition.hxx".}
-proc Init*(this: var StepDimTol_ProjectedZoneDefinition;
-          theZone: handle[StepDimTol_ToleranceZone];
-          theBoundaries: handle[StepRepr_HArray1OfShapeAspect];
-          theProjectionEnd: handle[StepRepr_ShapeAspect];
-          theProjectionLength: handle[StepBasic_LengthMeasureWithUnit]) {.
+proc init*(this: var StepDimTolProjectedZoneDefinition;
+          theZone: Handle[StepDimTolToleranceZone];
+          theBoundaries: Handle[StepReprHArray1OfShapeAspect];
+          theProjectionEnd: Handle[StepReprShapeAspect];
+          theProjectionLength: Handle[StepBasicLengthMeasureWithUnit]) {.
     importcpp: "Init", header: "StepDimTol_ProjectedZoneDefinition.hxx".}
-proc ProjectionEnd*(this: StepDimTol_ProjectedZoneDefinition): handle[
-    StepRepr_ShapeAspect] {.noSideEffect, importcpp: "ProjectionEnd",
-                           header: "StepDimTol_ProjectedZoneDefinition.hxx".}
-proc SetProjectionEnd*(this: var StepDimTol_ProjectedZoneDefinition;
-                      theProjectionEnd: handle[StepRepr_ShapeAspect]) {.
+proc projectionEnd*(this: StepDimTolProjectedZoneDefinition): Handle[
+    StepReprShapeAspect] {.noSideEffect, importcpp: "ProjectionEnd",
+                          header: "StepDimTol_ProjectedZoneDefinition.hxx".}
+proc setProjectionEnd*(this: var StepDimTolProjectedZoneDefinition;
+                      theProjectionEnd: Handle[StepReprShapeAspect]) {.
     importcpp: "SetProjectionEnd",
     header: "StepDimTol_ProjectedZoneDefinition.hxx".}
-proc ProjectionLength*(this: var StepDimTol_ProjectedZoneDefinition): handle[
-    StepBasic_LengthMeasureWithUnit] {.importcpp: "ProjectionLength", header: "StepDimTol_ProjectedZoneDefinition.hxx".}
-proc SetProjectionLength*(this: var StepDimTol_ProjectedZoneDefinition;
-    theProjectionLength: handle[StepBasic_LengthMeasureWithUnit]) {.
+proc projectionLength*(this: var StepDimTolProjectedZoneDefinition): Handle[
+    StepBasicLengthMeasureWithUnit] {.importcpp: "ProjectionLength", header: "StepDimTol_ProjectedZoneDefinition.hxx".}
+proc setProjectionLength*(this: var StepDimTolProjectedZoneDefinition;
+    theProjectionLength: Handle[StepBasicLengthMeasureWithUnit]) {.
     importcpp: "SetProjectionLength",
     header: "StepDimTol_ProjectedZoneDefinition.hxx".}
 type
-  StepDimTol_ProjectedZoneDefinitionbase_type* = StepDimTol_ToleranceZoneDefinition
+  StepDimTolProjectedZoneDefinitionbaseType* = StepDimTolToleranceZoneDefinition
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_ProjectedZoneDefinition::get_type_name(@)",
-                              header: "StepDimTol_ProjectedZoneDefinition.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_ProjectedZoneDefinition::get_type_name(@)",
+                            header: "StepDimTol_ProjectedZoneDefinition.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_ProjectedZoneDefinition::get_type_descriptor(@)",
     header: "StepDimTol_ProjectedZoneDefinition.hxx".}
-proc DynamicType*(this: StepDimTol_ProjectedZoneDefinition): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolProjectedZoneDefinition): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_ProjectedZoneDefinition.hxx".}

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Expr_UnaryExpression,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
-  Expr_Array1OfNamedUnknown, ../TColStd/TColStd_Array1OfReal
-
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Expr_NotEvaluable"
 discard "forward decl of Expr_GeneralExpression"
@@ -27,40 +22,40 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_Sine"
 discard "forward decl of Expr_Sine"
 type
-  Handle_Expr_Sine* = handle[Expr_Sine]
-  Expr_Sine* {.importcpp: "Expr_Sine", header: "Expr_Sine.hxx", bycopy.} = object of Expr_UnaryExpression ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## the
-                                                                                                ## sine
-                                                                                                ## of
-                                                                                                ## <exp>.
+  HandleExprSine* = Handle[ExprSine]
+  ExprSine* {.importcpp: "Expr_Sine", header: "Expr_Sine.hxx", bycopy.} = object of ExprUnaryExpression ##
+                                                                                              ## !
+                                                                                              ## Creates
+                                                                                              ## the
+                                                                                              ## sine
+                                                                                              ## of
+                                                                                              ## <exp>.
 
 
-proc constructExpr_Sine*(exp: handle[Expr_GeneralExpression]): Expr_Sine {.
-    constructor, importcpp: "Expr_Sine(@)", header: "Expr_Sine.hxx".}
-proc ShallowSimplified*(this: Expr_Sine): handle[Expr_GeneralExpression] {.
+proc constructExprSine*(exp: Handle[ExprGeneralExpression]): ExprSine {.constructor,
+    importcpp: "Expr_Sine(@)", header: "Expr_Sine.hxx".}
+proc shallowSimplified*(this: ExprSine): Handle[ExprGeneralExpression] {.
     noSideEffect, importcpp: "ShallowSimplified", header: "Expr_Sine.hxx".}
-proc Copy*(this: Expr_Sine): handle[Expr_GeneralExpression] {.noSideEffect,
+proc copy*(this: ExprSine): Handle[ExprGeneralExpression] {.noSideEffect,
     importcpp: "Copy", header: "Expr_Sine.hxx".}
-proc IsIdentical*(this: Expr_Sine; Other: handle[Expr_GeneralExpression]): Standard_Boolean {.
+proc isIdentical*(this: ExprSine; other: Handle[ExprGeneralExpression]): bool {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_Sine.hxx".}
-proc IsLinear*(this: Expr_Sine): Standard_Boolean {.noSideEffect,
-    importcpp: "IsLinear", header: "Expr_Sine.hxx".}
-proc Derivative*(this: Expr_Sine; X: handle[Expr_NamedUnknown]): handle[
-    Expr_GeneralExpression] {.noSideEffect, importcpp: "Derivative",
-                             header: "Expr_Sine.hxx".}
-proc Evaluate*(this: Expr_Sine; vars: Expr_Array1OfNamedUnknown;
-              vals: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
+proc isLinear*(this: ExprSine): bool {.noSideEffect, importcpp: "IsLinear",
+                                   header: "Expr_Sine.hxx".}
+proc derivative*(this: ExprSine; x: Handle[ExprNamedUnknown]): Handle[
+    ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
+                            header: "Expr_Sine.hxx".}
+proc evaluate*(this: ExprSine; vars: ExprArray1OfNamedUnknown;
+              vals: TColStdArray1OfReal): float {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_Sine.hxx".}
-proc String*(this: Expr_Sine): TCollection_AsciiString {.noSideEffect,
+proc string*(this: ExprSine): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_Sine.hxx".}
 type
-  Expr_Sinebase_type* = Expr_UnaryExpression
+  ExprSinebaseType* = ExprUnaryExpression
 
-proc get_type_name*(): cstring {.importcpp: "Expr_Sine::get_type_name(@)",
-                              header: "Expr_Sine.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Expr_Sine::get_type_name(@)",
+                            header: "Expr_Sine.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Expr_Sine::get_type_descriptor(@)", header: "Expr_Sine.hxx".}
-proc DynamicType*(this: Expr_Sine): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: ExprSine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_Sine.hxx".}

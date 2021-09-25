@@ -13,12 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, XmlObjMgt_DOMString, ../Standard/Standard_Boolean,
-  XmlObjMgt_Element, ../Standard/Standard_Integer, ../Standard/Standard_CString,
-  ../Standard/Standard_Real
-
 discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of XmlObjMgt_Persistent"
@@ -30,35 +24,34 @@ type
                                                                           ## everywhere)
 
 
-proc IdString*(): XmlObjMgt_DOMString {.importcpp: "XmlObjMgt::IdString(@)",
-                                     header: "XmlObjMgt.hxx".}
-proc SetExtendedString*(theElement: var XmlObjMgt_Element;
-                       theString: TCollection_ExtendedString): Standard_Boolean {.
+proc idString*(): XmlObjMgtDOMString {.importcpp: "XmlObjMgt::IdString(@)",
+                                    header: "XmlObjMgt.hxx".}
+proc setExtendedString*(theElement: var XmlObjMgtElement;
+                       theString: TCollectionExtendedString): bool {.
     importcpp: "XmlObjMgt::SetExtendedString(@)", header: "XmlObjMgt.hxx".}
-proc GetExtendedString*(theElement: XmlObjMgt_Element;
-                       theString: var TCollection_ExtendedString): Standard_Boolean {.
+proc getExtendedString*(theElement: XmlObjMgtElement;
+                       theString: var TCollectionExtendedString): bool {.
     importcpp: "XmlObjMgt::GetExtendedString(@)", header: "XmlObjMgt.hxx".}
-proc GetStringValue*(theElement: XmlObjMgt_Element): XmlObjMgt_DOMString {.
+proc getStringValue*(theElement: XmlObjMgtElement): XmlObjMgtDOMString {.
     importcpp: "XmlObjMgt::GetStringValue(@)", header: "XmlObjMgt.hxx".}
-proc SetStringValue*(theElement: var XmlObjMgt_Element;
-                    theData: XmlObjMgt_DOMString;
-                    isClearText: Standard_Boolean = Standard_False) {.
+proc setStringValue*(theElement: var XmlObjMgtElement; theData: XmlObjMgtDOMString;
+                    isClearText: bool = false) {.
     importcpp: "XmlObjMgt::SetStringValue(@)", header: "XmlObjMgt.hxx".}
-proc GetTagEntryString*(theTarget: XmlObjMgt_DOMString;
-                       theTagEntry: var TCollection_AsciiString): Standard_Boolean {.
+proc getTagEntryString*(theTarget: XmlObjMgtDOMString;
+                       theTagEntry: var TCollectionAsciiString): bool {.
     importcpp: "XmlObjMgt::GetTagEntryString(@)", header: "XmlObjMgt.hxx".}
-proc SetTagEntryString*(theSource: var XmlObjMgt_DOMString;
-                       theTagEntry: TCollection_AsciiString) {.
+proc setTagEntryString*(theSource: var XmlObjMgtDOMString;
+                       theTagEntry: TCollectionAsciiString) {.
     importcpp: "XmlObjMgt::SetTagEntryString(@)", header: "XmlObjMgt.hxx".}
-proc FindChildElement*(theSource: XmlObjMgt_Element; theObjId: Standard_Integer): XmlObjMgt_Element {.
+proc findChildElement*(theSource: XmlObjMgtElement; theObjId: int): XmlObjMgtElement {.
     importcpp: "XmlObjMgt::FindChildElement(@)", header: "XmlObjMgt.hxx".}
-proc FindChildByRef*(theSource: XmlObjMgt_Element; theRefName: XmlObjMgt_DOMString): XmlObjMgt_Element {.
+proc findChildByRef*(theSource: XmlObjMgtElement; theRefName: XmlObjMgtDOMString): XmlObjMgtElement {.
     importcpp: "XmlObjMgt::FindChildByRef(@)", header: "XmlObjMgt.hxx".}
-proc FindChildByName*(theSource: XmlObjMgt_Element; theName: XmlObjMgt_DOMString): XmlObjMgt_Element {.
+proc findChildByName*(theSource: XmlObjMgtElement; theName: XmlObjMgtDOMString): XmlObjMgtElement {.
     importcpp: "XmlObjMgt::FindChildByName(@)", header: "XmlObjMgt.hxx".}
-proc GetInteger*(theString: var Standard_CString; theValue: var Standard_Integer): Standard_Boolean {.
+proc getInteger*(theString: var StandardCString; theValue: var int): bool {.
     importcpp: "XmlObjMgt::GetInteger(@)", header: "XmlObjMgt.hxx".}
-proc GetReal*(theString: var Standard_CString; theValue: var Standard_Real): Standard_Boolean {.
+proc getReal*(theString: var StandardCString; theValue: var float): bool {.
     importcpp: "XmlObjMgt::GetReal(@)", header: "XmlObjMgt.hxx".}
-proc GetReal*(theString: XmlObjMgt_DOMString; theValue: var Standard_Real): Standard_Boolean {.
+proc getReal*(theString: XmlObjMgtDOMString; theValue: var float): bool {.
     importcpp: "XmlObjMgt::GetReal(@)", header: "XmlObjMgt.hxx".}

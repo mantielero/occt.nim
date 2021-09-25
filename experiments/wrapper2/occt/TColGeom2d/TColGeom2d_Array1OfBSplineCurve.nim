@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Geom2d/Geom2d_BSplineCurve, ../NCollection/NCollection_Array1
-
 type
-  TColGeom2d_Array1OfBSplineCurve* = NCollection_Array1[
-      handle[Geom2d_BSplineCurve]]
+  TColGeom2dArray1OfBSplineCurve* = NCollectionArray1[Handle[Geom2dBSplineCurve]]
+

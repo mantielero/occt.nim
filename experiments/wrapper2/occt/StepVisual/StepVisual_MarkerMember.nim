@@ -14,48 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../StepData/StepData_SelectInt,
-  ../Standard/Standard_Boolean, ../Standard/Standard_CString,
-  ../Standard/Standard_Integer, StepVisual_MarkerType
-
 discard "forward decl of StepVisual_MarkerMember"
 discard "forward decl of StepVisual_MarkerMember"
 type
-  Handle_StepVisual_MarkerMember* = handle[StepVisual_MarkerMember]
+  HandleStepVisualMarkerMember* = Handle[StepVisualMarkerMember]
 
 ## ! Defines MarkerType as unique member of MarkerSelect
 ## ! Works with an EnumTool
 
 type
-  StepVisual_MarkerMember* {.importcpp: "StepVisual_MarkerMember",
-                            header: "StepVisual_MarkerMember.hxx", bycopy.} = object of StepData_SelectInt
+  StepVisualMarkerMember* {.importcpp: "StepVisual_MarkerMember",
+                           header: "StepVisual_MarkerMember.hxx", bycopy.} = object of StepDataSelectInt
 
 
-proc constructStepVisual_MarkerMember*(): StepVisual_MarkerMember {.constructor,
+proc constructStepVisualMarkerMember*(): StepVisualMarkerMember {.constructor,
     importcpp: "StepVisual_MarkerMember(@)", header: "StepVisual_MarkerMember.hxx".}
-proc HasName*(this: StepVisual_MarkerMember): Standard_Boolean {.noSideEffect,
+proc hasName*(this: StepVisualMarkerMember): bool {.noSideEffect,
     importcpp: "HasName", header: "StepVisual_MarkerMember.hxx".}
-proc Name*(this: StepVisual_MarkerMember): Standard_CString {.noSideEffect,
+proc name*(this: StepVisualMarkerMember): StandardCString {.noSideEffect,
     importcpp: "Name", header: "StepVisual_MarkerMember.hxx".}
-proc SetName*(this: var StepVisual_MarkerMember; name: Standard_CString): Standard_Boolean {.
+proc setName*(this: var StepVisualMarkerMember; name: StandardCString): bool {.
     importcpp: "SetName", header: "StepVisual_MarkerMember.hxx".}
-proc EnumText*(this: StepVisual_MarkerMember): Standard_CString {.noSideEffect,
+proc enumText*(this: StepVisualMarkerMember): StandardCString {.noSideEffect,
     importcpp: "EnumText", header: "StepVisual_MarkerMember.hxx".}
-proc SetEnumText*(this: var StepVisual_MarkerMember; val: Standard_Integer;
-                 text: Standard_CString) {.importcpp: "SetEnumText",
-    header: "StepVisual_MarkerMember.hxx".}
-proc SetValue*(this: var StepVisual_MarkerMember; val: StepVisual_MarkerType) {.
+proc setEnumText*(this: var StepVisualMarkerMember; val: int; text: StandardCString) {.
+    importcpp: "SetEnumText", header: "StepVisual_MarkerMember.hxx".}
+proc setValue*(this: var StepVisualMarkerMember; val: StepVisualMarkerType) {.
     importcpp: "SetValue", header: "StepVisual_MarkerMember.hxx".}
-proc Value*(this: StepVisual_MarkerMember): StepVisual_MarkerType {.noSideEffect,
+proc value*(this: StepVisualMarkerMember): StepVisualMarkerType {.noSideEffect,
     importcpp: "Value", header: "StepVisual_MarkerMember.hxx".}
 type
-  StepVisual_MarkerMemberbase_type* = StepData_SelectInt
+  StepVisualMarkerMemberbaseType* = StepDataSelectInt
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_MarkerMember::get_type_name(@)",
-                              header: "StepVisual_MarkerMember.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_MarkerMember::get_type_name(@)",
+                            header: "StepVisual_MarkerMember.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_MarkerMember::get_type_descriptor(@)",
     header: "StepVisual_MarkerMember.hxx".}
-proc DynamicType*(this: StepVisual_MarkerMember): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualMarkerMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepVisual_MarkerMember.hxx".}

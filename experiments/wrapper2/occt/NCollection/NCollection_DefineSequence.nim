@@ -16,11 +16,9 @@
 ##  Purpose:     Definition of a sequence of elements indexed by
 ##               an Integer in range of 1..n
 
-import
-  NCollection_Sequence
-
 ##  **************************************** Template for Sequence class ********
 
-template DEFINE_SEQUENCE*(_ClassName_, _BaseCollection_, TheItemType: untyped): void =
+template define_Sequence*(className, baseCollection, theItemType: untyped): void =
   type
-    _ClassName_* = NCollection_Sequence[TheItemType]
+    ClassName* = NCollectionSequence[TheItemType]
+

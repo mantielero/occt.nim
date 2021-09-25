@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../ChFi3d/ChFi3d_FilBuilder,
-  ../ChFi3d/ChFi3d_FilletShape, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer, ../TopTools/TopTools_ListOfShape,
-  ../Standard/Standard_Boolean, ../ChFiDS/ChFiDS_SequenceOfSurfData,
-  ../math/math_Vector, ../TopAbs/TopAbs_Orientation, FilletSurf_StatusType
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of ChFiDS_HElSpine"
 discard "forward decl of ChFiDS_Spine"
@@ -34,84 +26,82 @@ discard "forward decl of Geom_Curve"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Geom_TrimmedCurve"
 type
-  FilletSurf_InternalBuilder* {.importcpp: "FilletSurf_InternalBuilder",
-                               header: "FilletSurf_InternalBuilder.hxx", bycopy.} = object of ChFi3d_FilBuilder ##
-                                                                                                         ## !
-                                                                                                         ## This
-                                                                                                         ## method
-                                                                                                         ## calculates
-                                                                                                         ## the
-                                                                                                         ## elements
-                                                                                                         ## of
-                                                                                                         ## construction
-                                                                                                         ## of
-                                                                                                         ## the
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## fillet
-                                                                                                         ## (constant
-                                                                                                         ## or
-                                                                                                         ## evolutive).
+  FilletSurfInternalBuilder* {.importcpp: "FilletSurf_InternalBuilder",
+                              header: "FilletSurf_InternalBuilder.hxx", bycopy.} = object of ChFi3dFilBuilder ##
+                                                                                                       ## !
+                                                                                                       ## This
+                                                                                                       ## method
+                                                                                                       ## calculates
+                                                                                                       ## the
+                                                                                                       ## elements
+                                                                                                       ## of
+                                                                                                       ## construction
+                                                                                                       ## of
+                                                                                                       ## the
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## fillet
+                                                                                                       ## (constant
+                                                                                                       ## or
+                                                                                                       ## evolutive).
 
 
-proc constructFilletSurf_InternalBuilder*(S: TopoDS_Shape;
-    FShape: ChFi3d_FilletShape = ChFi3d_Polynomial; Ta: Standard_Real = 1.0e-2;
-    Tapp3d: Standard_Real = 1.0e-4; Tapp2d: Standard_Real = 1.0e-5): FilletSurf_InternalBuilder {.
+proc constructFilletSurfInternalBuilder*(s: TopoDS_Shape; fShape: ChFi3dFilletShape = chFi3dPolynomial;
+                                        ta: float = 1.0e-2; tapp3d: float = 1.0e-4;
+                                        tapp2d: float = 1.0e-5): FilletSurfInternalBuilder {.
     constructor, importcpp: "FilletSurf_InternalBuilder(@)",
     header: "FilletSurf_InternalBuilder.hxx".}
-proc Add*(this: var FilletSurf_InternalBuilder; E: TopTools_ListOfShape;
-         R: Standard_Real): Standard_Integer {.importcpp: "Add",
+proc add*(this: var FilletSurfInternalBuilder; e: TopToolsListOfShape; r: float): int {.
+    importcpp: "Add", header: "FilletSurf_InternalBuilder.hxx".}
+proc perform*(this: var FilletSurfInternalBuilder) {.importcpp: "Perform",
     header: "FilletSurf_InternalBuilder.hxx".}
-proc Perform*(this: var FilletSurf_InternalBuilder) {.importcpp: "Perform",
+proc done*(this: FilletSurfInternalBuilder): bool {.noSideEffect, importcpp: "Done",
     header: "FilletSurf_InternalBuilder.hxx".}
-proc Done*(this: FilletSurf_InternalBuilder): Standard_Boolean {.noSideEffect,
-    importcpp: "Done", header: "FilletSurf_InternalBuilder.hxx".}
-proc NbSurface*(this: FilletSurf_InternalBuilder): Standard_Integer {.noSideEffect,
+proc nbSurface*(this: FilletSurfInternalBuilder): int {.noSideEffect,
     importcpp: "NbSurface", header: "FilletSurf_InternalBuilder.hxx".}
-proc SurfaceFillet*(this: FilletSurf_InternalBuilder; Index: Standard_Integer): handle[
-    Geom_Surface] {.noSideEffect, importcpp: "SurfaceFillet",
-                   header: "FilletSurf_InternalBuilder.hxx".}
-proc TolApp3d*(this: FilletSurf_InternalBuilder; Index: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "TolApp3d", header: "FilletSurf_InternalBuilder.hxx".}
-proc SupportFace1*(this: FilletSurf_InternalBuilder; Index: Standard_Integer): TopoDS_Face {.
+proc surfaceFillet*(this: FilletSurfInternalBuilder; index: int): Handle[GeomSurface] {.
+    noSideEffect, importcpp: "SurfaceFillet",
+    header: "FilletSurf_InternalBuilder.hxx".}
+proc tolApp3d*(this: FilletSurfInternalBuilder; index: int): float {.noSideEffect,
+    importcpp: "TolApp3d", header: "FilletSurf_InternalBuilder.hxx".}
+proc supportFace1*(this: FilletSurfInternalBuilder; index: int): TopoDS_Face {.
     noSideEffect, importcpp: "SupportFace1",
     header: "FilletSurf_InternalBuilder.hxx".}
-proc SupportFace2*(this: FilletSurf_InternalBuilder; Index: Standard_Integer): TopoDS_Face {.
+proc supportFace2*(this: FilletSurfInternalBuilder; index: int): TopoDS_Face {.
     noSideEffect, importcpp: "SupportFace2",
     header: "FilletSurf_InternalBuilder.hxx".}
-proc CurveOnFace1*(this: FilletSurf_InternalBuilder; Index: Standard_Integer): handle[
-    Geom_Curve] {.noSideEffect, importcpp: "CurveOnFace1",
-                 header: "FilletSurf_InternalBuilder.hxx".}
-proc CurveOnFace2*(this: FilletSurf_InternalBuilder; Index: Standard_Integer): handle[
-    Geom_Curve] {.noSideEffect, importcpp: "CurveOnFace2",
-                 header: "FilletSurf_InternalBuilder.hxx".}
-proc PCurveOnFace1*(this: FilletSurf_InternalBuilder; Index: Standard_Integer): handle[
-    Geom2d_Curve] {.noSideEffect, importcpp: "PCurveOnFace1",
-                   header: "FilletSurf_InternalBuilder.hxx".}
-proc PCurve1OnFillet*(this: FilletSurf_InternalBuilder; Index: Standard_Integer): handle[
-    Geom2d_Curve] {.noSideEffect, importcpp: "PCurve1OnFillet",
-                   header: "FilletSurf_InternalBuilder.hxx".}
-proc PCurveOnFace2*(this: FilletSurf_InternalBuilder; Index: Standard_Integer): handle[
-    Geom2d_Curve] {.noSideEffect, importcpp: "PCurveOnFace2",
-                   header: "FilletSurf_InternalBuilder.hxx".}
-proc PCurve2OnFillet*(this: FilletSurf_InternalBuilder; Index: Standard_Integer): handle[
-    Geom2d_Curve] {.noSideEffect, importcpp: "PCurve2OnFillet",
-                   header: "FilletSurf_InternalBuilder.hxx".}
-proc FirstParameter*(this: FilletSurf_InternalBuilder): Standard_Real {.
-    noSideEffect, importcpp: "FirstParameter",
+proc curveOnFace1*(this: FilletSurfInternalBuilder; index: int): Handle[GeomCurve] {.
+    noSideEffect, importcpp: "CurveOnFace1",
     header: "FilletSurf_InternalBuilder.hxx".}
-proc LastParameter*(this: FilletSurf_InternalBuilder): Standard_Real {.noSideEffect,
+proc curveOnFace2*(this: FilletSurfInternalBuilder; index: int): Handle[GeomCurve] {.
+    noSideEffect, importcpp: "CurveOnFace2",
+    header: "FilletSurf_InternalBuilder.hxx".}
+proc pCurveOnFace1*(this: FilletSurfInternalBuilder; index: int): Handle[Geom2dCurve] {.
+    noSideEffect, importcpp: "PCurveOnFace1",
+    header: "FilletSurf_InternalBuilder.hxx".}
+proc pCurve1OnFillet*(this: FilletSurfInternalBuilder; index: int): Handle[
+    Geom2dCurve] {.noSideEffect, importcpp: "PCurve1OnFillet",
+                  header: "FilletSurf_InternalBuilder.hxx".}
+proc pCurveOnFace2*(this: FilletSurfInternalBuilder; index: int): Handle[Geom2dCurve] {.
+    noSideEffect, importcpp: "PCurveOnFace2",
+    header: "FilletSurf_InternalBuilder.hxx".}
+proc pCurve2OnFillet*(this: FilletSurfInternalBuilder; index: int): Handle[
+    Geom2dCurve] {.noSideEffect, importcpp: "PCurve2OnFillet",
+                  header: "FilletSurf_InternalBuilder.hxx".}
+proc firstParameter*(this: FilletSurfInternalBuilder): float {.noSideEffect,
+    importcpp: "FirstParameter", header: "FilletSurf_InternalBuilder.hxx".}
+proc lastParameter*(this: FilletSurfInternalBuilder): float {.noSideEffect,
     importcpp: "LastParameter", header: "FilletSurf_InternalBuilder.hxx".}
-proc StartSectionStatus*(this: FilletSurf_InternalBuilder): FilletSurf_StatusType {.
+proc startSectionStatus*(this: FilletSurfInternalBuilder): FilletSurfStatusType {.
     noSideEffect, importcpp: "StartSectionStatus",
     header: "FilletSurf_InternalBuilder.hxx".}
-proc EndSectionStatus*(this: FilletSurf_InternalBuilder): FilletSurf_StatusType {.
+proc endSectionStatus*(this: FilletSurfInternalBuilder): FilletSurfStatusType {.
     noSideEffect, importcpp: "EndSectionStatus",
     header: "FilletSurf_InternalBuilder.hxx".}
-proc Simulate*(this: var FilletSurf_InternalBuilder) {.importcpp: "Simulate",
+proc simulate*(this: var FilletSurfInternalBuilder) {.importcpp: "Simulate",
     header: "FilletSurf_InternalBuilder.hxx".}
-proc NbSection*(this: FilletSurf_InternalBuilder; IndexSurf: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "NbSection", header: "FilletSurf_InternalBuilder.hxx".}
-proc Section*(this: FilletSurf_InternalBuilder; IndexSurf: Standard_Integer;
-             IndexSec: Standard_Integer; Circ: var handle[Geom_TrimmedCurve]) {.
-    noSideEffect, importcpp: "Section", header: "FilletSurf_InternalBuilder.hxx".}
+proc nbSection*(this: FilletSurfInternalBuilder; indexSurf: int): int {.noSideEffect,
+    importcpp: "NbSection", header: "FilletSurf_InternalBuilder.hxx".}
+proc section*(this: FilletSurfInternalBuilder; indexSurf: int; indexSec: int;
+             circ: var Handle[GeomTrimmedCurve]) {.noSideEffect,
+    importcpp: "Section", header: "FilletSurf_InternalBuilder.hxx".}

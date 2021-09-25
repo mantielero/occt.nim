@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TopBas_TestInterference, ../NCollection/NCollection_List
-
 type
-  TopBas_ListOfTestInterference* = NCollection_List[TopBas_TestInterference]
-  TopBas_ListIteratorOfListOfTestInterference* = Iterator[TopBas_TestInterference]
+  TopBasListOfTestInterference* = NCollectionList[TopBasTestInterference]
+  TopBasListIteratorOfListOfTestInterference* = Iterator[TopBasTestInterference]
+

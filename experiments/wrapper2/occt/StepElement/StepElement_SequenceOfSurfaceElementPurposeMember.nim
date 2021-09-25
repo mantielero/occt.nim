@@ -11,9 +11,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepElement_SurfaceElementPurposeMember, ../NCollection/NCollection_Sequence
-
 type
-  StepElement_SequenceOfSurfaceElementPurposeMember* = NCollection_Sequence[
-      handle[StepElement_SurfaceElementPurposeMember]]
+  StepElementSequenceOfSurfaceElementPurposeMember* = NCollectionSequence[
+      Handle[StepElementSurfaceElementPurposeMember]]
+

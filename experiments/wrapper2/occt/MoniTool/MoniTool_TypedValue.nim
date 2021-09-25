@@ -14,16 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString, MoniTool_ValueType,
-  ../NCollection/NCollection_DataMap, ../Standard/Standard_Type,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real,
-  ../TColStd/TColStd_HArray1OfAsciiString, MoniTool_ValueInterpret,
-  MoniTool_ValueSatisfies, ../Standard/Standard_Transient,
-  ../Standard/Standard_CString, ../Standard/Standard_Boolean,
-  ../TColStd/TColStd_HSequenceOfAsciiString
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Standard_ConstructionError"
@@ -31,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of MoniTool_TypedValue"
 discard "forward decl of MoniTool_TypedValue"
 type
-  Handle_MoniTool_TypedValue* = handle[MoniTool_TypedValue]
+  HandleMoniToolTypedValue* = Handle[MoniToolTypedValue]
 
 ## ! This class allows to dynamically manage .. typed values, i.e.
 ## ! values which have an alphanumeric expression, but with
@@ -47,231 +37,225 @@ type
 ## ! access to its value.
 
 type
-  MoniTool_TypedValue* {.importcpp: "MoniTool_TypedValue",
-                        header: "MoniTool_TypedValue.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                            ## !
-                                                                                            ## Creates
-                                                                                            ## a
-                                                                                            ## TypedValue,
-                                                                                            ## with
-                                                                                            ## a
-                                                                                            ## name
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## type
-                                                                                            ## gives
-                                                                                            ## the
-                                                                                            ## type
-                                                                                            ## of
-                                                                                            ## the
-                                                                                            ## parameter,
-                                                                                            ## default
-                                                                                            ## is
-                                                                                            ## free
-                                                                                            ## text
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Also
-                                                                                            ## available
-                                                                                            ## :
-                                                                                            ## Integer,
-                                                                                            ## Real,
-                                                                                            ## Enum,
-                                                                                            ## Entity
-                                                                                            ## (i.e.
-                                                                                            ## Object)
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## More
-                                                                                            ## precise
-                                                                                            ## specifications,
-                                                                                            ## titles,
-                                                                                            ## can
-                                                                                            ## be
-                                                                                            ## given
-                                                                                            ## to
-                                                                                            ## the
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## TypedValue
-                                                                                            ## once
-                                                                                            ## created
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## init
-                                                                                            ## gives
-                                                                                            ## an
-                                                                                            ## initial
-                                                                                            ## value.
-                                                                                            ## If
-                                                                                            ## it
-                                                                                            ## is
-                                                                                            ## not
-                                                                                            ## given,
-                                                                                            ## the
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## TypedValue
-                                                                                            ## begins
-                                                                                            ## as
-                                                                                            ## "not
-                                                                                            ## set",
-                                                                                            ## its
-                                                                                            ## value
-                                                                                            ## is
-                                                                                            ## empty
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Gives
-                                                                                            ## the
-                                                                                            ## internal
-                                                                                            ## library
-                                                                                            ## of
-                                                                                            ## static
-                                                                                            ## values
+  MoniToolTypedValue* {.importcpp: "MoniTool_TypedValue",
+                       header: "MoniTool_TypedValue.hxx", bycopy.} = object of StandardTransient ##
+                                                                                          ## !
+                                                                                          ## Creates
+                                                                                          ## a
+                                                                                          ## TypedValue,
+                                                                                          ## with
+                                                                                          ## a
+                                                                                          ## name
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## type
+                                                                                          ## gives
+                                                                                          ## the
+                                                                                          ## type
+                                                                                          ## of
+                                                                                          ## the
+                                                                                          ## parameter,
+                                                                                          ## default
+                                                                                          ## is
+                                                                                          ## free
+                                                                                          ## text
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## Also
+                                                                                          ## available
+                                                                                          ## :
+                                                                                          ## Integer,
+                                                                                          ## Real,
+                                                                                          ## Enum,
+                                                                                          ## Entity
+                                                                                          ## (i.e.
+                                                                                          ## Object)
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## More
+                                                                                          ## precise
+                                                                                          ## specifications,
+                                                                                          ## titles,
+                                                                                          ## can
+                                                                                          ## be
+                                                                                          ## given
+                                                                                          ## to
+                                                                                          ## the
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## TypedValue
+                                                                                          ## once
+                                                                                          ## created
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## init
+                                                                                          ## gives
+                                                                                          ## an
+                                                                                          ## initial
+                                                                                          ## value.
+                                                                                          ## If
+                                                                                          ## it
+                                                                                          ## is
+                                                                                          ## not
+                                                                                          ## given,
+                                                                                          ## the
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## TypedValue
+                                                                                          ## begins
+                                                                                          ## as
+                                                                                          ## "not
+                                                                                          ## set",
+                                                                                          ## its
+                                                                                          ## value
+                                                                                          ## is
+                                                                                          ## empty
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## Gives
+                                                                                          ## the
+                                                                                          ## internal
+                                                                                          ## library
+                                                                                          ## of
+                                                                                          ## static
+                                                                                          ## values
 
 
-proc constructMoniTool_TypedValue*(name: Standard_CString; `type`: MoniTool_ValueType = MoniTool_ValueText;
-                                  init: Standard_CString = ""): MoniTool_TypedValue {.
+proc constructMoniToolTypedValue*(name: StandardCString;
+                                 `type`: MoniToolValueType = moniToolValueText;
+                                 init: StandardCString = ""): MoniToolTypedValue {.
     constructor, importcpp: "MoniTool_TypedValue(@)",
     header: "MoniTool_TypedValue.hxx".}
-proc constructMoniTool_TypedValue*(other: handle[MoniTool_TypedValue]): MoniTool_TypedValue {.
+proc constructMoniToolTypedValue*(other: Handle[MoniToolTypedValue]): MoniToolTypedValue {.
     constructor, importcpp: "MoniTool_TypedValue(@)",
     header: "MoniTool_TypedValue.hxx".}
-proc Internals*(this: MoniTool_TypedValue; interp: var MoniTool_ValueInterpret;
-               satisf: var MoniTool_ValueSatisfies;
-               satisname: var Standard_CString; enums: var NCollection_DataMap[
-    TCollection_AsciiString, Standard_Integer]) {.noSideEffect,
-    importcpp: "Internals", header: "MoniTool_TypedValue.hxx".}
-proc Name*(this: MoniTool_TypedValue): Standard_CString {.noSideEffect,
+proc internals*(this: MoniToolTypedValue; interp: var MoniToolValueInterpret;
+               satisf: var MoniToolValueSatisfies; satisname: var StandardCString;
+               enums: var NCollectionDataMap[TCollectionAsciiString, int]) {.
+    noSideEffect, importcpp: "Internals", header: "MoniTool_TypedValue.hxx".}
+proc name*(this: MoniToolTypedValue): StandardCString {.noSideEffect,
     importcpp: "Name", header: "MoniTool_TypedValue.hxx".}
-proc ValueType*(this: MoniTool_TypedValue): MoniTool_ValueType {.noSideEffect,
+proc valueType*(this: MoniToolTypedValue): MoniToolValueType {.noSideEffect,
     importcpp: "ValueType", header: "MoniTool_TypedValue.hxx".}
-proc Definition*(this: MoniTool_TypedValue): TCollection_AsciiString {.noSideEffect,
+proc definition*(this: MoniToolTypedValue): TCollectionAsciiString {.noSideEffect,
     importcpp: "Definition", header: "MoniTool_TypedValue.hxx".}
-proc SetDefinition*(this: var MoniTool_TypedValue; deftext: Standard_CString) {.
+proc setDefinition*(this: var MoniToolTypedValue; deftext: StandardCString) {.
     importcpp: "SetDefinition", header: "MoniTool_TypedValue.hxx".}
-proc Print*(this: MoniTool_TypedValue; S: var Standard_OStream) {.noSideEffect,
+proc print*(this: MoniToolTypedValue; s: var StandardOStream) {.noSideEffect,
     importcpp: "Print", header: "MoniTool_TypedValue.hxx".}
-proc PrintValue*(this: MoniTool_TypedValue; S: var Standard_OStream) {.noSideEffect,
+proc printValue*(this: MoniToolTypedValue; s: var StandardOStream) {.noSideEffect,
     importcpp: "PrintValue", header: "MoniTool_TypedValue.hxx".}
-proc AddDef*(this: var MoniTool_TypedValue; initext: Standard_CString): Standard_Boolean {.
+proc addDef*(this: var MoniToolTypedValue; initext: StandardCString): bool {.
     importcpp: "AddDef", header: "MoniTool_TypedValue.hxx".}
-proc SetLabel*(this: var MoniTool_TypedValue; label: Standard_CString) {.
+proc setLabel*(this: var MoniToolTypedValue; label: StandardCString) {.
     importcpp: "SetLabel", header: "MoniTool_TypedValue.hxx".}
-proc Label*(this: MoniTool_TypedValue): Standard_CString {.noSideEffect,
+proc label*(this: MoniToolTypedValue): StandardCString {.noSideEffect,
     importcpp: "Label", header: "MoniTool_TypedValue.hxx".}
-proc SetMaxLength*(this: var MoniTool_TypedValue; max: Standard_Integer) {.
+proc setMaxLength*(this: var MoniToolTypedValue; max: int) {.
     importcpp: "SetMaxLength", header: "MoniTool_TypedValue.hxx".}
-proc MaxLength*(this: MoniTool_TypedValue): Standard_Integer {.noSideEffect,
+proc maxLength*(this: MoniToolTypedValue): int {.noSideEffect,
     importcpp: "MaxLength", header: "MoniTool_TypedValue.hxx".}
-proc SetIntegerLimit*(this: var MoniTool_TypedValue; max: Standard_Boolean;
-                     val: Standard_Integer) {.importcpp: "SetIntegerLimit",
-    header: "MoniTool_TypedValue.hxx".}
-proc IntegerLimit*(this: MoniTool_TypedValue; max: Standard_Boolean;
-                  val: var Standard_Integer): Standard_Boolean {.noSideEffect,
-    importcpp: "IntegerLimit", header: "MoniTool_TypedValue.hxx".}
-proc SetRealLimit*(this: var MoniTool_TypedValue; max: Standard_Boolean;
-                  val: Standard_Real) {.importcpp: "SetRealLimit",
-                                      header: "MoniTool_TypedValue.hxx".}
-proc RealLimit*(this: MoniTool_TypedValue; max: Standard_Boolean;
-               val: var Standard_Real): Standard_Boolean {.noSideEffect,
-    importcpp: "RealLimit", header: "MoniTool_TypedValue.hxx".}
-proc SetUnitDef*(this: var MoniTool_TypedValue; def: Standard_CString) {.
+proc setIntegerLimit*(this: var MoniToolTypedValue; max: bool; val: int) {.
+    importcpp: "SetIntegerLimit", header: "MoniTool_TypedValue.hxx".}
+proc integerLimit*(this: MoniToolTypedValue; max: bool; val: var int): bool {.
+    noSideEffect, importcpp: "IntegerLimit", header: "MoniTool_TypedValue.hxx".}
+proc setRealLimit*(this: var MoniToolTypedValue; max: bool; val: float) {.
+    importcpp: "SetRealLimit", header: "MoniTool_TypedValue.hxx".}
+proc realLimit*(this: MoniToolTypedValue; max: bool; val: var float): bool {.
+    noSideEffect, importcpp: "RealLimit", header: "MoniTool_TypedValue.hxx".}
+proc setUnitDef*(this: var MoniToolTypedValue; def: StandardCString) {.
     importcpp: "SetUnitDef", header: "MoniTool_TypedValue.hxx".}
-proc UnitDef*(this: MoniTool_TypedValue): Standard_CString {.noSideEffect,
+proc unitDef*(this: MoniToolTypedValue): StandardCString {.noSideEffect,
     importcpp: "UnitDef", header: "MoniTool_TypedValue.hxx".}
-proc StartEnum*(this: var MoniTool_TypedValue; start: Standard_Integer = 0;
-               match: Standard_Boolean = Standard_True) {.importcpp: "StartEnum",
-    header: "MoniTool_TypedValue.hxx".}
-proc AddEnum*(this: var MoniTool_TypedValue; v1: Standard_CString = "";
-             v2: Standard_CString = ""; v3: Standard_CString = "";
-             v4: Standard_CString = ""; v5: Standard_CString = "";
-             v6: Standard_CString = ""; v7: Standard_CString = "";
-             v8: Standard_CString = ""; v9: Standard_CString = "";
-             v10: Standard_CString = "") {.importcpp: "AddEnum",
-                                       header: "MoniTool_TypedValue.hxx".}
-proc AddEnumValue*(this: var MoniTool_TypedValue; val: Standard_CString;
-                  num: Standard_Integer) {.importcpp: "AddEnumValue",
-    header: "MoniTool_TypedValue.hxx".}
-proc EnumDef*(this: MoniTool_TypedValue; startcase: var Standard_Integer;
-             endcase: var Standard_Integer; match: var Standard_Boolean): Standard_Boolean {.
-    noSideEffect, importcpp: "EnumDef", header: "MoniTool_TypedValue.hxx".}
-proc EnumVal*(this: MoniTool_TypedValue; num: Standard_Integer): Standard_CString {.
-    noSideEffect, importcpp: "EnumVal", header: "MoniTool_TypedValue.hxx".}
-proc EnumCase*(this: MoniTool_TypedValue; val: Standard_CString): Standard_Integer {.
-    noSideEffect, importcpp: "EnumCase", header: "MoniTool_TypedValue.hxx".}
-proc SetObjectType*(this: var MoniTool_TypedValue; typ: handle[Standard_Type]) {.
+proc startEnum*(this: var MoniToolTypedValue; start: int = 0; match: bool = true) {.
+    importcpp: "StartEnum", header: "MoniTool_TypedValue.hxx".}
+proc addEnum*(this: var MoniToolTypedValue; v1: StandardCString = "";
+             v2: StandardCString = ""; v3: StandardCString = "";
+             v4: StandardCString = ""; v5: StandardCString = "";
+             v6: StandardCString = ""; v7: StandardCString = "";
+             v8: StandardCString = ""; v9: StandardCString = "";
+             v10: StandardCString = "") {.importcpp: "AddEnum",
+                                      header: "MoniTool_TypedValue.hxx".}
+proc addEnumValue*(this: var MoniToolTypedValue; val: StandardCString; num: int) {.
+    importcpp: "AddEnumValue", header: "MoniTool_TypedValue.hxx".}
+proc enumDef*(this: MoniToolTypedValue; startcase: var int; endcase: var int;
+             match: var bool): bool {.noSideEffect, importcpp: "EnumDef",
+                                  header: "MoniTool_TypedValue.hxx".}
+proc enumVal*(this: MoniToolTypedValue; num: int): StandardCString {.noSideEffect,
+    importcpp: "EnumVal", header: "MoniTool_TypedValue.hxx".}
+proc enumCase*(this: MoniToolTypedValue; val: StandardCString): int {.noSideEffect,
+    importcpp: "EnumCase", header: "MoniTool_TypedValue.hxx".}
+proc setObjectType*(this: var MoniToolTypedValue; typ: Handle[StandardType]) {.
     importcpp: "SetObjectType", header: "MoniTool_TypedValue.hxx".}
-proc ObjectType*(this: MoniTool_TypedValue): handle[Standard_Type] {.noSideEffect,
+proc objectType*(this: MoniToolTypedValue): Handle[StandardType] {.noSideEffect,
     importcpp: "ObjectType", header: "MoniTool_TypedValue.hxx".}
-proc SetInterpret*(this: var MoniTool_TypedValue; `func`: MoniTool_ValueInterpret) {.
+proc setInterpret*(this: var MoniToolTypedValue; `func`: MoniToolValueInterpret) {.
     importcpp: "SetInterpret", header: "MoniTool_TypedValue.hxx".}
-proc HasInterpret*(this: MoniTool_TypedValue): Standard_Boolean {.noSideEffect,
+proc hasInterpret*(this: MoniToolTypedValue): bool {.noSideEffect,
     importcpp: "HasInterpret", header: "MoniTool_TypedValue.hxx".}
-proc SetSatisfies*(this: var MoniTool_TypedValue; `func`: MoniTool_ValueSatisfies;
-                  name: Standard_CString) {.importcpp: "SetSatisfies",
+proc setSatisfies*(this: var MoniToolTypedValue; `func`: MoniToolValueSatisfies;
+                  name: StandardCString) {.importcpp: "SetSatisfies",
     header: "MoniTool_TypedValue.hxx".}
-proc SatisfiesName*(this: MoniTool_TypedValue): Standard_CString {.noSideEffect,
+proc satisfiesName*(this: MoniToolTypedValue): StandardCString {.noSideEffect,
     importcpp: "SatisfiesName", header: "MoniTool_TypedValue.hxx".}
-proc IsSetValue*(this: MoniTool_TypedValue): Standard_Boolean {.noSideEffect,
+proc isSetValue*(this: MoniToolTypedValue): bool {.noSideEffect,
     importcpp: "IsSetValue", header: "MoniTool_TypedValue.hxx".}
-proc CStringValue*(this: MoniTool_TypedValue): Standard_CString {.noSideEffect,
+proc cStringValue*(this: MoniToolTypedValue): StandardCString {.noSideEffect,
     importcpp: "CStringValue", header: "MoniTool_TypedValue.hxx".}
-proc HStringValue*(this: MoniTool_TypedValue): handle[TCollection_HAsciiString] {.
+proc hStringValue*(this: MoniToolTypedValue): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "HStringValue", header: "MoniTool_TypedValue.hxx".}
-proc Interpret*(this: MoniTool_TypedValue; hval: handle[TCollection_HAsciiString];
-               native: Standard_Boolean): handle[TCollection_HAsciiString] {.
-    noSideEffect, importcpp: "Interpret", header: "MoniTool_TypedValue.hxx".}
-proc Satisfies*(this: MoniTool_TypedValue; hval: handle[TCollection_HAsciiString]): Standard_Boolean {.
+proc interpret*(this: MoniToolTypedValue; hval: Handle[TCollectionHAsciiString];
+               native: bool): Handle[TCollectionHAsciiString] {.noSideEffect,
+    importcpp: "Interpret", header: "MoniTool_TypedValue.hxx".}
+proc satisfies*(this: MoniToolTypedValue; hval: Handle[TCollectionHAsciiString]): bool {.
     noSideEffect, importcpp: "Satisfies", header: "MoniTool_TypedValue.hxx".}
-proc ClearValue*(this: var MoniTool_TypedValue) {.importcpp: "ClearValue",
+proc clearValue*(this: var MoniToolTypedValue) {.importcpp: "ClearValue",
     header: "MoniTool_TypedValue.hxx".}
-proc SetCStringValue*(this: var MoniTool_TypedValue; val: Standard_CString): Standard_Boolean {.
+proc setCStringValue*(this: var MoniToolTypedValue; val: StandardCString): bool {.
     importcpp: "SetCStringValue", header: "MoniTool_TypedValue.hxx".}
-proc SetHStringValue*(this: var MoniTool_TypedValue;
-                     hval: handle[TCollection_HAsciiString]): Standard_Boolean {.
+proc setHStringValue*(this: var MoniToolTypedValue;
+                     hval: Handle[TCollectionHAsciiString]): bool {.
     importcpp: "SetHStringValue", header: "MoniTool_TypedValue.hxx".}
-proc IntegerValue*(this: MoniTool_TypedValue): Standard_Integer {.noSideEffect,
+proc integerValue*(this: MoniToolTypedValue): int {.noSideEffect,
     importcpp: "IntegerValue", header: "MoniTool_TypedValue.hxx".}
-proc SetIntegerValue*(this: var MoniTool_TypedValue; ival: Standard_Integer): Standard_Boolean {.
+proc setIntegerValue*(this: var MoniToolTypedValue; ival: int): bool {.
     importcpp: "SetIntegerValue", header: "MoniTool_TypedValue.hxx".}
-proc RealValue*(this: MoniTool_TypedValue): Standard_Real {.noSideEffect,
+proc realValue*(this: MoniToolTypedValue): float {.noSideEffect,
     importcpp: "RealValue", header: "MoniTool_TypedValue.hxx".}
-proc SetRealValue*(this: var MoniTool_TypedValue; rval: Standard_Real): Standard_Boolean {.
+proc setRealValue*(this: var MoniToolTypedValue; rval: float): bool {.
     importcpp: "SetRealValue", header: "MoniTool_TypedValue.hxx".}
-proc ObjectValue*(this: MoniTool_TypedValue): handle[Standard_Transient] {.
+proc objectValue*(this: MoniToolTypedValue): Handle[StandardTransient] {.
     noSideEffect, importcpp: "ObjectValue", header: "MoniTool_TypedValue.hxx".}
-proc GetObjectValue*(this: MoniTool_TypedValue; val: var handle[Standard_Transient]) {.
+proc getObjectValue*(this: MoniToolTypedValue; val: var Handle[StandardTransient]) {.
     noSideEffect, importcpp: "GetObjectValue", header: "MoniTool_TypedValue.hxx".}
-proc SetObjectValue*(this: var MoniTool_TypedValue; obj: handle[Standard_Transient]): Standard_Boolean {.
+proc setObjectValue*(this: var MoniToolTypedValue; obj: Handle[StandardTransient]): bool {.
     importcpp: "SetObjectValue", header: "MoniTool_TypedValue.hxx".}
-proc ObjectTypeName*(this: MoniTool_TypedValue): Standard_CString {.noSideEffect,
+proc objectTypeName*(this: MoniToolTypedValue): StandardCString {.noSideEffect,
     importcpp: "ObjectTypeName", header: "MoniTool_TypedValue.hxx".}
-proc AddLib*(tv: handle[MoniTool_TypedValue]; def: Standard_CString = ""): Standard_Boolean {.
+proc addLib*(tv: Handle[MoniToolTypedValue]; def: StandardCString = ""): bool {.
     importcpp: "MoniTool_TypedValue::AddLib(@)", header: "MoniTool_TypedValue.hxx".}
-proc Lib*(def: Standard_CString): handle[MoniTool_TypedValue] {.
+proc lib*(def: StandardCString): Handle[MoniToolTypedValue] {.
     importcpp: "MoniTool_TypedValue::Lib(@)", header: "MoniTool_TypedValue.hxx".}
-proc FromLib*(def: Standard_CString): handle[MoniTool_TypedValue] {.
+proc fromLib*(def: StandardCString): Handle[MoniToolTypedValue] {.
     importcpp: "MoniTool_TypedValue::FromLib(@)",
     header: "MoniTool_TypedValue.hxx".}
-proc LibList*(): handle[TColStd_HSequenceOfAsciiString] {.
+proc libList*(): Handle[TColStdHSequenceOfAsciiString] {.
     importcpp: "MoniTool_TypedValue::LibList(@)",
     header: "MoniTool_TypedValue.hxx".}
-proc StaticValue*(name: Standard_CString): handle[MoniTool_TypedValue] {.
+proc staticValue*(name: StandardCString): Handle[MoniToolTypedValue] {.
     importcpp: "MoniTool_TypedValue::StaticValue(@)",
     header: "MoniTool_TypedValue.hxx".}
 type
-  MoniTool_TypedValuebase_type* = Standard_Transient
+  MoniToolTypedValuebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "MoniTool_TypedValue::get_type_name(@)",
-                              header: "MoniTool_TypedValue.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "MoniTool_TypedValue::get_type_name(@)",
+                            header: "MoniTool_TypedValue.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "MoniTool_TypedValue::get_type_descriptor(@)",
     header: "MoniTool_TypedValue.hxx".}
-proc DynamicType*(this: MoniTool_TypedValue): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: MoniToolTypedValue): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MoniTool_TypedValue.hxx".}

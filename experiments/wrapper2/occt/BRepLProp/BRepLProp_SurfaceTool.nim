@@ -14,40 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer
-
 discard "forward decl of BRepAdaptor_Surface"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 type
-  BRepLProp_SurfaceTool* {.importcpp: "BRepLProp_SurfaceTool",
-                          header: "BRepLProp_SurfaceTool.hxx", bycopy.} = object ## !
-                                                                            ## Computes the
-                                                                            ## point <P> of
-                                                                            ## parameter <U> and <V> on the
-                                                                            ## !
-                                                                            ## Surface <S>.
+  BRepLPropSurfaceTool* {.importcpp: "BRepLProp_SurfaceTool",
+                         header: "BRepLProp_SurfaceTool.hxx", bycopy.} = object ## !
+                                                                           ## Computes the point <P> of
+                                                                           ## parameter <U> and <V> on the
+                                                                           ## !
+                                                                           ## Surface <S>.
 
 
-proc Value*(S: BRepAdaptor_Surface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt) {.
+proc value*(s: BRepAdaptorSurface; u: float; v: float; p: var Pnt) {.
     importcpp: "BRepLProp_SurfaceTool::Value(@)",
     header: "BRepLProp_SurfaceTool.hxx".}
-proc D1*(S: BRepAdaptor_Surface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
-        D1U: var gp_Vec; D1V: var gp_Vec) {.importcpp: "BRepLProp_SurfaceTool::D1(@)",
-                                      header: "BRepLProp_SurfaceTool.hxx".}
-proc D2*(S: BRepAdaptor_Surface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
-        D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec; DUV: var gp_Vec) {.
+proc d1*(s: BRepAdaptorSurface; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec) {.
+    importcpp: "BRepLProp_SurfaceTool::D1(@)", header: "BRepLProp_SurfaceTool.hxx".}
+proc d2*(s: BRepAdaptorSurface; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec;
+        d2u: var Vec; d2v: var Vec; duv: var Vec) {.
     importcpp: "BRepLProp_SurfaceTool::D2(@)", header: "BRepLProp_SurfaceTool.hxx".}
-proc DN*(S: BRepAdaptor_Surface; U: Standard_Real; V: Standard_Real;
-        IU: Standard_Integer; IV: Standard_Integer): gp_Vec {.
+proc dn*(s: BRepAdaptorSurface; u: float; v: float; iu: int; iv: int): Vec {.
     importcpp: "BRepLProp_SurfaceTool::DN(@)", header: "BRepLProp_SurfaceTool.hxx".}
-proc Continuity*(S: BRepAdaptor_Surface): Standard_Integer {.
+proc continuity*(s: BRepAdaptorSurface): int {.
     importcpp: "BRepLProp_SurfaceTool::Continuity(@)",
     header: "BRepLProp_SurfaceTool.hxx".}
-proc Bounds*(S: BRepAdaptor_Surface; U1: var Standard_Real; V1: var Standard_Real;
-            U2: var Standard_Real; V2: var Standard_Real) {.
-    importcpp: "BRepLProp_SurfaceTool::Bounds(@)",
-    header: "BRepLProp_SurfaceTool.hxx".}
+proc bounds*(s: BRepAdaptorSurface; u1: var float; v1: var float; u2: var float;
+            v2: var float) {.importcpp: "BRepLProp_SurfaceTool::Bounds(@)",
+                          header: "BRepLProp_SurfaceTool.hxx".}

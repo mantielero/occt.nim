@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TDF/TDF_IDList, ../Standard/Standard_OStream,
-  TDataXtd_GeometryEnum, TDataXtd_ConstraintEnum
-
 discard "forward decl of TDataXtd_Position"
 discard "forward decl of TDataXtd_Constraint"
 discard "forward decl of TDataXtd_Placement"
@@ -42,9 +37,9 @@ type
                                                                        ## =============================
 
 
-proc IDList*(anIDList: var TDF_IDList) {.importcpp: "TDataXtd::IDList(@)",
+proc iDList*(anIDList: var TDF_IDList) {.importcpp: "TDataXtd::IDList(@)",
                                      header: "TDataXtd.hxx".}
-proc Print*(GEO: TDataXtd_GeometryEnum; S: var Standard_OStream): var Standard_OStream {.
+proc print*(geo: TDataXtdGeometryEnum; s: var StandardOStream): var StandardOStream {.
     importcpp: "TDataXtd::Print(@)", header: "TDataXtd.hxx".}
-proc Print*(CTR: TDataXtd_ConstraintEnum; S: var Standard_OStream): var Standard_OStream {.
+proc print*(ctr: TDataXtdConstraintEnum; s: var StandardOStream): var StandardOStream {.
     importcpp: "TDataXtd::Print(@)", header: "TDataXtd.hxx".}

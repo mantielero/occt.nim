@@ -17,9 +17,6 @@
 ## Version	Date		Purpose
 ## 		0.0	Feb 16 1998	Creation
 
-import
-  TDF_Attribute, TDF_Label, TDF_LabelNodePtr
-
 ##  This class provides a way to iterates on the
 ##  up-to-date (current) valid attributes of a label.
 ##
@@ -49,27 +46,29 @@ type
 
 proc constructTDF_AttributeIterator*(): TDF_AttributeIterator {.constructor,
     importcpp: "TDF_AttributeIterator(@)", header: "TDF_AttributeIterator.hxx".}
-proc constructTDF_AttributeIterator*(aLabel: TDF_Label; withoutForgotten: Standard_Boolean = Standard_True): TDF_AttributeIterator {.
+proc constructTDF_AttributeIterator*(aLabel: TDF_Label;
+                                    withoutForgotten: bool = true): TDF_AttributeIterator {.
     constructor, importcpp: "TDF_AttributeIterator(@)",
     header: "TDF_AttributeIterator.hxx".}
-proc constructTDF_AttributeIterator*(aLabelNode: TDF_LabelNodePtr; withoutForgotten: Standard_Boolean = Standard_True): TDF_AttributeIterator {.
+proc constructTDF_AttributeIterator*(aLabelNode: TDF_LabelNodePtr;
+                                    withoutForgotten: bool = true): TDF_AttributeIterator {.
     constructor, importcpp: "TDF_AttributeIterator(@)",
     header: "TDF_AttributeIterator.hxx".}
-proc Initialize*(this: var TDF_AttributeIterator; aLabel: TDF_Label;
-                withoutForgotten: Standard_Boolean = Standard_True) {.
-    importcpp: "Initialize", header: "TDF_AttributeIterator.hxx".}
-proc More*(this: TDF_AttributeIterator): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "TDF_AttributeIterator.hxx".}
-proc Next*(this: var TDF_AttributeIterator) {.importcpp: "Next",
+proc initialize*(this: var TDF_AttributeIterator; aLabel: TDF_Label;
+                withoutForgotten: bool = true) {.importcpp: "Initialize",
     header: "TDF_AttributeIterator.hxx".}
-proc Value*(this: TDF_AttributeIterator): handle[TDF_Attribute] {.noSideEffect,
+proc more*(this: TDF_AttributeIterator): bool {.noSideEffect, importcpp: "More",
+    header: "TDF_AttributeIterator.hxx".}
+proc next*(this: var TDF_AttributeIterator) {.importcpp: "Next",
+    header: "TDF_AttributeIterator.hxx".}
+proc value*(this: TDF_AttributeIterator): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "Value", header: "TDF_AttributeIterator.hxx".}
-proc PtrValue*(this: TDF_AttributeIterator): ptr TDF_Attribute {.noSideEffect,
+proc ptrValue*(this: TDF_AttributeIterator): ptr TDF_Attribute {.noSideEffect,
     importcpp: "PtrValue", header: "TDF_AttributeIterator.hxx".}
 ##  other inline functions and methods (like "C++: function call" methods)
 ##
 
-proc More*(this: TDF_AttributeIterator): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "TDF_AttributeIterator.hxx".}
-proc Value*(this: TDF_AttributeIterator): handle[TDF_Attribute] {.noSideEffect,
+proc more*(this: TDF_AttributeIterator): bool {.noSideEffect, importcpp: "More",
+    header: "TDF_AttributeIterator.hxx".}
+proc value*(this: TDF_AttributeIterator): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "Value", header: "TDF_AttributeIterator.hxx".}

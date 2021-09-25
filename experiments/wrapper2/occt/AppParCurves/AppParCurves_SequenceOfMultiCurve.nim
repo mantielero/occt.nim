@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  AppParCurves_MultiCurve, ../NCollection/NCollection_Sequence
-
 type
-  AppParCurves_SequenceOfMultiCurve* = NCollection_Sequence[
-      AppParCurves_MultiCurve]
+  AppParCurvesSequenceOfMultiCurve* = NCollectionSequence[AppParCurvesMultiCurve]
+

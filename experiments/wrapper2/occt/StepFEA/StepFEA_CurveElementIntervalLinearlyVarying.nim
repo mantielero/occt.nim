@@ -13,17 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepElement/StepElement_HArray1OfCurveElementSectionDefinition,
-  StepFEA_CurveElementInterval
-
 discard "forward decl of StepFEA_CurveElementLocation"
 discard "forward decl of StepBasic_EulerAngles"
 discard "forward decl of StepFEA_CurveElementIntervalLinearlyVarying"
 discard "forward decl of StepFEA_CurveElementIntervalLinearlyVarying"
 type
-  Handle_StepFEA_CurveElementIntervalLinearlyVarying* = handle[
+  HandleStepFEA_CurveElementIntervalLinearlyVarying* = Handle[
       StepFEA_CurveElementIntervalLinearlyVarying]
 
 ## ! Representation of STEP entity CurveElementIntervalLinearlyVarying
@@ -40,25 +35,25 @@ type
 proc constructStepFEA_CurveElementIntervalLinearlyVarying*(): StepFEA_CurveElementIntervalLinearlyVarying {.
     constructor, importcpp: "StepFEA_CurveElementIntervalLinearlyVarying(@)",
     header: "StepFEA_CurveElementIntervalLinearlyVarying.hxx".}
-proc Init*(this: var StepFEA_CurveElementIntervalLinearlyVarying;
-    aCurveElementInterval_FinishPosition: handle[StepFEA_CurveElementLocation];
-          aCurveElementInterval_EuAngles: handle[StepBasic_EulerAngles];
-          aSections: handle[StepElement_HArray1OfCurveElementSectionDefinition]) {.
+proc init*(this: var StepFEA_CurveElementIntervalLinearlyVarying;
+    aCurveElementIntervalFinishPosition: Handle[StepFEA_CurveElementLocation];
+          aCurveElementIntervalEuAngles: Handle[StepBasicEulerAngles];
+          aSections: Handle[StepElementHArray1OfCurveElementSectionDefinition]) {.
     importcpp: "Init", header: "StepFEA_CurveElementIntervalLinearlyVarying.hxx".}
-proc Sections*(this: StepFEA_CurveElementIntervalLinearlyVarying): handle[
-    StepElement_HArray1OfCurveElementSectionDefinition] {.noSideEffect,
+proc sections*(this: StepFEA_CurveElementIntervalLinearlyVarying): Handle[
+    StepElementHArray1OfCurveElementSectionDefinition] {.noSideEffect,
     importcpp: "Sections",
     header: "StepFEA_CurveElementIntervalLinearlyVarying.hxx".}
-proc SetSections*(this: var StepFEA_CurveElementIntervalLinearlyVarying; Sections: handle[
-    StepElement_HArray1OfCurveElementSectionDefinition]) {.
+proc setSections*(this: var StepFEA_CurveElementIntervalLinearlyVarying; sections: Handle[
+    StepElementHArray1OfCurveElementSectionDefinition]) {.
     importcpp: "SetSections",
     header: "StepFEA_CurveElementIntervalLinearlyVarying.hxx".}
 type
-  StepFEA_CurveElementIntervalLinearlyVaryingbase_type* = StepFEA_CurveElementInterval
+  StepFEA_CurveElementIntervalLinearlyVaryingbaseType* = StepFEA_CurveElementInterval
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_CurveElementIntervalLinearlyVarying::get_type_name(@)", header: "StepFEA_CurveElementIntervalLinearlyVarying.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepFEA_CurveElementIntervalLinearlyVarying::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepFEA_CurveElementIntervalLinearlyVarying::get_type_name(@)", header: "StepFEA_CurveElementIntervalLinearlyVarying.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_CurveElementIntervalLinearlyVarying::get_type_descriptor(@)",
     header: "StepFEA_CurveElementIntervalLinearlyVarying.hxx".}
-proc DynamicType*(this: StepFEA_CurveElementIntervalLinearlyVarying): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepFEA_CurveElementIntervalLinearlyVarying.hxx".}
+proc dynamicType*(this: StepFEA_CurveElementIntervalLinearlyVarying): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepFEA_CurveElementIntervalLinearlyVarying.hxx".}

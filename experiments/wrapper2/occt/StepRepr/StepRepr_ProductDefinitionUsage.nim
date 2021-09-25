@@ -13,36 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepBasic/StepBasic_ProductDefinitionRelationship
-
 discard "forward decl of StepRepr_ProductDefinitionUsage"
 discard "forward decl of StepRepr_ProductDefinitionUsage"
 type
-  Handle_StepRepr_ProductDefinitionUsage* = handle[StepRepr_ProductDefinitionUsage]
+  HandleStepReprProductDefinitionUsage* = Handle[StepReprProductDefinitionUsage]
 
 ## ! Representation of STEP entity ProductDefinitionUsage
 
 type
-  StepRepr_ProductDefinitionUsage* {.importcpp: "StepRepr_ProductDefinitionUsage", header: "StepRepr_ProductDefinitionUsage.hxx",
-                                    bycopy.} = object of StepBasic_ProductDefinitionRelationship ##
-                                                                                            ## !
-                                                                                            ## Empty
-                                                                                            ## constructor
+  StepReprProductDefinitionUsage* {.importcpp: "StepRepr_ProductDefinitionUsage", header: "StepRepr_ProductDefinitionUsage.hxx",
+                                   bycopy.} = object of StepBasicProductDefinitionRelationship ##
+                                                                                          ## !
+                                                                                          ## Empty
+                                                                                          ## constructor
 
 
-proc constructStepRepr_ProductDefinitionUsage*(): StepRepr_ProductDefinitionUsage {.
+proc constructStepReprProductDefinitionUsage*(): StepReprProductDefinitionUsage {.
     constructor, importcpp: "StepRepr_ProductDefinitionUsage(@)",
     header: "StepRepr_ProductDefinitionUsage.hxx".}
 type
-  StepRepr_ProductDefinitionUsagebase_type* = StepBasic_ProductDefinitionRelationship
+  StepReprProductDefinitionUsagebaseType* = StepBasicProductDefinitionRelationship
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_ProductDefinitionUsage::get_type_name(@)",
-                              header: "StepRepr_ProductDefinitionUsage.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_ProductDefinitionUsage::get_type_name(@)",
+                            header: "StepRepr_ProductDefinitionUsage.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_ProductDefinitionUsage::get_type_descriptor(@)",
     header: "StepRepr_ProductDefinitionUsage.hxx".}
-proc DynamicType*(this: StepRepr_ProductDefinitionUsage): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprProductDefinitionUsage): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_ProductDefinitionUsage.hxx".}

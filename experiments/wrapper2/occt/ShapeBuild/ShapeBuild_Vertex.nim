@@ -14,29 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real
-
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of gp_Pnt"
 type
-  ShapeBuild_Vertex* {.importcpp: "ShapeBuild_Vertex",
-                      header: "ShapeBuild_Vertex.hxx", bycopy.} = object ## ! Combines new vertex from two others. This new one is the
-                                                                    ## ! smallest vertex which comprises both of the source vertices.
-                                                                    ## ! The function takes into account the positions and tolerances
-                                                                    ## ! of the source vertices.
-                                                                    ## ! The tolerance of the new vertex will be equal to the minimal
-                                                                    ## ! tolerance that is required to comprise source vertices
-                                                                    ## ! multiplied by tolFactor (in order to avoid errors because
-                                                                    ## ! of discreteness of
-                                                                    ## calculations).
+  ShapeBuildVertex* {.importcpp: "ShapeBuild_Vertex",
+                     header: "ShapeBuild_Vertex.hxx", bycopy.} = object ## ! Combines new vertex from two others. This new one is the
+                                                                   ## ! smallest vertex which comprises both of the source vertices.
+                                                                   ## ! The function takes into account the positions and tolerances
+                                                                   ## ! of the source vertices.
+                                                                   ## ! The tolerance of the new vertex will be equal to the minimal
+                                                                   ## ! tolerance that is required to comprise source vertices
+                                                                   ## ! multiplied by tolFactor (in order to avoid errors because
+                                                                   ## ! of discreteness of
+                                                                   ## calculations).
 
 
-proc CombineVertex*(this: ShapeBuild_Vertex; V1: TopoDS_Vertex; V2: TopoDS_Vertex;
-                   tolFactor: Standard_Real = 1.0001): TopoDS_Vertex {.noSideEffect,
+proc combineVertex*(this: ShapeBuildVertex; v1: TopoDS_Vertex; v2: TopoDS_Vertex;
+                   tolFactor: float = 1.0001): TopoDS_Vertex {.noSideEffect,
     importcpp: "CombineVertex", header: "ShapeBuild_Vertex.hxx".}
-proc CombineVertex*(this: ShapeBuild_Vertex; pnt1: gp_Pnt; pnt2: gp_Pnt;
-                   tol1: Standard_Real; tol2: Standard_Real;
-                   tolFactor: Standard_Real = 1.0001): TopoDS_Vertex {.noSideEffect,
-    importcpp: "CombineVertex", header: "ShapeBuild_Vertex.hxx".}
+proc combineVertex*(this: ShapeBuildVertex; pnt1: Pnt; pnt2: Pnt; tol1: float;
+                   tol2: float; tolFactor: float = 1.0001): TopoDS_Vertex {.
+    noSideEffect, importcpp: "CombineVertex", header: "ShapeBuild_Vertex.hxx".}

@@ -13,11 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_PrimitiveTypes
-
 type
-  StepVisual_NullStyle* {.size: sizeof(cint), importcpp: "StepVisual_NullStyle",
-                         header: "StepVisual_NullStyle.hxx".} = enum
-    StepVisual_Null
+  StepVisualNullStyle* {.size: sizeof(cint), importcpp: "StepVisual_NullStyle",
+                        header: "StepVisual_NullStyle.hxx".} = enum
+    StepVisualNull
+
 

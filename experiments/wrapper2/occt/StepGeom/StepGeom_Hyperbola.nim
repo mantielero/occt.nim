@@ -14,45 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  StepGeom_Conic
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_Axis2Placement"
 discard "forward decl of StepGeom_Hyperbola"
 discard "forward decl of StepGeom_Hyperbola"
 type
-  Handle_StepGeom_Hyperbola* = handle[StepGeom_Hyperbola]
-  StepGeom_Hyperbola* {.importcpp: "StepGeom_Hyperbola",
-                       header: "StepGeom_Hyperbola.hxx", bycopy.} = object of StepGeom_Conic ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## a
-                                                                                      ## Hyperbola
+  HandleStepGeomHyperbola* = Handle[StepGeomHyperbola]
+  StepGeomHyperbola* {.importcpp: "StepGeom_Hyperbola",
+                      header: "StepGeom_Hyperbola.hxx", bycopy.} = object of StepGeomConic ##
+                                                                                    ## !
+                                                                                    ## Returns
+                                                                                    ## a
+                                                                                    ## Hyperbola
 
 
-proc constructStepGeom_Hyperbola*(): StepGeom_Hyperbola {.constructor,
+proc constructStepGeomHyperbola*(): StepGeomHyperbola {.constructor,
     importcpp: "StepGeom_Hyperbola(@)", header: "StepGeom_Hyperbola.hxx".}
-proc Init*(this: var StepGeom_Hyperbola; aName: handle[TCollection_HAsciiString];
-          aPosition: StepGeom_Axis2Placement; aSemiAxis: Standard_Real;
-          aSemiImagAxis: Standard_Real) {.importcpp: "Init",
-                                        header: "StepGeom_Hyperbola.hxx".}
-proc SetSemiAxis*(this: var StepGeom_Hyperbola; aSemiAxis: Standard_Real) {.
+proc init*(this: var StepGeomHyperbola; aName: Handle[TCollectionHAsciiString];
+          aPosition: StepGeomAxis2Placement; aSemiAxis: float; aSemiImagAxis: float) {.
+    importcpp: "Init", header: "StepGeom_Hyperbola.hxx".}
+proc setSemiAxis*(this: var StepGeomHyperbola; aSemiAxis: float) {.
     importcpp: "SetSemiAxis", header: "StepGeom_Hyperbola.hxx".}
-proc SemiAxis*(this: StepGeom_Hyperbola): Standard_Real {.noSideEffect,
-    importcpp: "SemiAxis", header: "StepGeom_Hyperbola.hxx".}
-proc SetSemiImagAxis*(this: var StepGeom_Hyperbola; aSemiImagAxis: Standard_Real) {.
+proc semiAxis*(this: StepGeomHyperbola): float {.noSideEffect, importcpp: "SemiAxis",
+    header: "StepGeom_Hyperbola.hxx".}
+proc setSemiImagAxis*(this: var StepGeomHyperbola; aSemiImagAxis: float) {.
     importcpp: "SetSemiImagAxis", header: "StepGeom_Hyperbola.hxx".}
-proc SemiImagAxis*(this: StepGeom_Hyperbola): Standard_Real {.noSideEffect,
+proc semiImagAxis*(this: StepGeomHyperbola): float {.noSideEffect,
     importcpp: "SemiImagAxis", header: "StepGeom_Hyperbola.hxx".}
 type
-  StepGeom_Hyperbolabase_type* = StepGeom_Conic
+  StepGeomHyperbolabaseType* = StepGeomConic
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_Hyperbola::get_type_name(@)",
-                              header: "StepGeom_Hyperbola.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_Hyperbola::get_type_name(@)",
+                            header: "StepGeom_Hyperbola.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_Hyperbola::get_type_descriptor(@)",
     header: "StepGeom_Hyperbola.hxx".}
-proc DynamicType*(this: StepGeom_Hyperbola): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepGeomHyperbola): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Hyperbola.hxx".}

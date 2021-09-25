@@ -17,3 +17,4 @@ type
                                  header: "StepFEA_CoordinateSystemType.hxx".} = enum
     StepFEA_Cartesian, StepFEA_Cylindrical, StepFEA_Spherical
 
+

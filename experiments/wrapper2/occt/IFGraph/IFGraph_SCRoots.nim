@@ -14,23 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, IFGraph_StrongComponants,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Interface_Graph"
 discard "forward decl of IFGraph_StrongComponants"
 type
-  IFGraph_SCRoots* {.importcpp: "IFGraph_SCRoots", header: "IFGraph_SCRoots.hxx",
-                    bycopy.} = object of IFGraph_StrongComponants ## ! creates with a Graph, and will analyse :
-                                                             ## ! whole True  : all the contents of the Model
-                                                             ## ! whole False : sub-parts which will be given later
+  IFGraphSCRoots* {.importcpp: "IFGraph_SCRoots", header: "IFGraph_SCRoots.hxx",
+                   bycopy.} = object of IFGraphStrongComponants ## ! creates with a Graph, and will analyse :
+                                                           ## ! whole True  : all the contents of the Model
+                                                           ## ! whole False : sub-parts which will be given later
 
 
-proc constructIFGraph_SCRoots*(agraph: Interface_Graph; whole: Standard_Boolean): IFGraph_SCRoots {.
+proc constructIFGraphSCRoots*(agraph: InterfaceGraph; whole: bool): IFGraphSCRoots {.
     constructor, importcpp: "IFGraph_SCRoots(@)", header: "IFGraph_SCRoots.hxx".}
-proc constructIFGraph_SCRoots*(subparts: var IFGraph_StrongComponants): IFGraph_SCRoots {.
+proc constructIFGraphSCRoots*(subparts: var IFGraphStrongComponants): IFGraphSCRoots {.
     constructor, importcpp: "IFGraph_SCRoots(@)", header: "IFGraph_SCRoots.hxx".}
-proc Evaluate*(this: var IFGraph_SCRoots) {.importcpp: "Evaluate",
-                                        header: "IFGraph_SCRoots.hxx".}
+proc evaluate*(this: var IFGraphSCRoots) {.importcpp: "Evaluate",
+                                       header: "IFGraph_SCRoots.hxx".}

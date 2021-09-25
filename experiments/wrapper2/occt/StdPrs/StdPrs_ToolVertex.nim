@@ -14,16 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of TopoDS_Vertex"
 type
-  StdPrs_ToolVertex* {.importcpp: "StdPrs_ToolVertex",
-                      header: "StdPrs_ToolVertex.hxx", bycopy.} = object
+  StdPrsToolVertex* {.importcpp: "StdPrs_ToolVertex",
+                     header: "StdPrs_ToolVertex.hxx", bycopy.} = object
 
 
-proc Coord*(aPoint: TopoDS_Vertex; X: var Standard_Real; Y: var Standard_Real;
-           Z: var Standard_Real) {.importcpp: "StdPrs_ToolVertex::Coord(@)",
-                                header: "StdPrs_ToolVertex.hxx".}
+proc coord*(aPoint: TopoDS_Vertex; x: var float; y: var float; z: var float) {.
+    importcpp: "StdPrs_ToolVertex::Coord(@)", header: "StdPrs_ToolVertex.hxx".}

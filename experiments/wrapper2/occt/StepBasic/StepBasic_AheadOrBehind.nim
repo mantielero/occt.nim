@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepBasic_AheadOrBehind* {.size: sizeof(cint),
-                            importcpp: "StepBasic_AheadOrBehind",
-                            header: "StepBasic_AheadOrBehind.hxx".} = enum
-    StepBasic_aobAhead, StepBasic_aobExact, StepBasic_aobBehind
+  StepBasicAheadOrBehind* {.size: sizeof(cint),
+                           importcpp: "StepBasic_AheadOrBehind",
+                           header: "StepBasic_AheadOrBehind.hxx".} = enum
+    StepBasicAobAhead, StepBasicAobExact, StepBasicAobBehind
+
 

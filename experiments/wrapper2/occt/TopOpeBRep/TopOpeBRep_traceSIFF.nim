@@ -15,36 +15,33 @@
 ##  commercial license or contractual agreement.
 
 when defined(OCCT_DEBUG):
-  import
-    ../TopOpeBRepTool/TopOpeBRepTool_define, ../Standard/Standard_OStream,
-    ../TopoDS/TopoDS_Shape
-
   type
-    TopOpeBRep_traceSIFF* {.importcpp: "TopOpeBRep_traceSIFF",
-                           header: "TopOpeBRep_traceSIFF.hxx", bycopy.} = object
+    TopOpeBRepTraceSIFF* {.importcpp: "TopOpeBRep_traceSIFF",
+                          header: "TopOpeBRep_traceSIFF.hxx", bycopy.} = object
 
-  proc constructTopOpeBRep_traceSIFF*(): TopOpeBRep_traceSIFF {.constructor,
+  proc constructTopOpeBRepTraceSIFF*(): TopOpeBRepTraceSIFF {.constructor,
       importcpp: "TopOpeBRep_traceSIFF(@)", header: "TopOpeBRep_traceSIFF.hxx".}
-  proc Reset*(this: var TopOpeBRep_traceSIFF) {.importcpp: "Reset",
+  proc reset*(this: var TopOpeBRepTraceSIFF) {.importcpp: "Reset",
       header: "TopOpeBRep_traceSIFF.hxx".}
-  proc Set*(this: var TopOpeBRep_traceSIFF; b: Standard_Boolean; n: Standard_Integer;
-           a: cstringArray) {.importcpp: "Set", header: "TopOpeBRep_traceSIFF.hxx".}
-  proc Set*(this: var TopOpeBRep_traceSIFF; brep1: TCollection_AsciiString;
-           brep2: TCollection_AsciiString; n: TCollection_AsciiString) {.
+  proc set*(this: var TopOpeBRepTraceSIFF; b: bool; n: int; a: cstringArray) {.
       importcpp: "Set", header: "TopOpeBRep_traceSIFF.hxx".}
-  proc Name1*(this: TopOpeBRep_traceSIFF; I: Standard_Integer): TCollection_AsciiString {.
+  proc set*(this: var TopOpeBRepTraceSIFF; brep1: TCollectionAsciiString;
+           brep2: TCollectionAsciiString; n: TCollectionAsciiString) {.
+      importcpp: "Set", header: "TopOpeBRep_traceSIFF.hxx".}
+  proc name1*(this: TopOpeBRepTraceSIFF; i: int): TCollectionAsciiString {.
       noSideEffect, importcpp: "Name1", header: "TopOpeBRep_traceSIFF.hxx".}
-  proc Name2*(this: TopOpeBRep_traceSIFF; I: Standard_Integer): TCollection_AsciiString {.
+  proc name2*(this: TopOpeBRepTraceSIFF; i: int): TCollectionAsciiString {.
       noSideEffect, importcpp: "Name2", header: "TopOpeBRep_traceSIFF.hxx".}
-  proc File*(this: TopOpeBRep_traceSIFF): TCollection_AsciiString {.noSideEffect,
+  proc file*(this: TopOpeBRepTraceSIFF): TCollectionAsciiString {.noSideEffect,
       importcpp: "File", header: "TopOpeBRep_traceSIFF.hxx".}
-  proc Start*(this: var TopOpeBRep_traceSIFF; s: TCollection_AsciiString;
-             OS: var Standard_OStream): Standard_Boolean {.importcpp: "Start",
+  proc start*(this: var TopOpeBRepTraceSIFF; s: TCollectionAsciiString;
+             os: var StandardOStream): bool {.importcpp: "Start",
       header: "TopOpeBRep_traceSIFF.hxx".}
-  proc Add*(this: var TopOpeBRep_traceSIFF; I1: Standard_Integer; I2: Standard_Integer) {.
-      importcpp: "Add", header: "TopOpeBRep_traceSIFF.hxx".}
-  proc End*(this: var TopOpeBRep_traceSIFF; s: TCollection_AsciiString;
-           OS: var Standard_OStream) {.importcpp: "End",
-                                    header: "TopOpeBRep_traceSIFF.hxx".}
+  proc add*(this: var TopOpeBRepTraceSIFF; i1: int; i2: int) {.importcpp: "Add",
+      header: "TopOpeBRep_traceSIFF.hxx".}
+  proc `end`*(this: var TopOpeBRepTraceSIFF; s: TCollectionAsciiString;
+             os: var StandardOStream) {.importcpp: "End",
+                                     header: "TopOpeBRep_traceSIFF.hxx".}
   ##  #ifdef OCCT_DEBUG
 ##  #define _TopOpeBRep_traceSIFF_HeaderFile
+

@@ -14,46 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  StepGeom_Point
-
 discard "forward decl of StepGeom_Curve"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_PointOnCurve"
 discard "forward decl of StepGeom_PointOnCurve"
 type
-  Handle_StepGeom_PointOnCurve* = handle[StepGeom_PointOnCurve]
-  StepGeom_PointOnCurve* {.importcpp: "StepGeom_PointOnCurve",
-                          header: "StepGeom_PointOnCurve.hxx", bycopy.} = object of StepGeom_Point ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## a
-                                                                                            ## PointOnCurve
+  HandleStepGeomPointOnCurve* = Handle[StepGeomPointOnCurve]
+  StepGeomPointOnCurve* {.importcpp: "StepGeom_PointOnCurve",
+                         header: "StepGeom_PointOnCurve.hxx", bycopy.} = object of StepGeomPoint ##
+                                                                                          ## !
+                                                                                          ## Returns
+                                                                                          ## a
+                                                                                          ## PointOnCurve
 
 
-proc constructStepGeom_PointOnCurve*(): StepGeom_PointOnCurve {.constructor,
+proc constructStepGeomPointOnCurve*(): StepGeomPointOnCurve {.constructor,
     importcpp: "StepGeom_PointOnCurve(@)", header: "StepGeom_PointOnCurve.hxx".}
-proc Init*(this: var StepGeom_PointOnCurve; aName: handle[TCollection_HAsciiString];
-          aBasisCurve: handle[StepGeom_Curve]; aPointParameter: Standard_Real) {.
+proc init*(this: var StepGeomPointOnCurve; aName: Handle[TCollectionHAsciiString];
+          aBasisCurve: Handle[StepGeomCurve]; aPointParameter: float) {.
     importcpp: "Init", header: "StepGeom_PointOnCurve.hxx".}
-proc SetBasisCurve*(this: var StepGeom_PointOnCurve;
-                   aBasisCurve: handle[StepGeom_Curve]) {.
+proc setBasisCurve*(this: var StepGeomPointOnCurve;
+                   aBasisCurve: Handle[StepGeomCurve]) {.
     importcpp: "SetBasisCurve", header: "StepGeom_PointOnCurve.hxx".}
-proc BasisCurve*(this: StepGeom_PointOnCurve): handle[StepGeom_Curve] {.
-    noSideEffect, importcpp: "BasisCurve", header: "StepGeom_PointOnCurve.hxx".}
-proc SetPointParameter*(this: var StepGeom_PointOnCurve;
-                       aPointParameter: Standard_Real) {.
+proc basisCurve*(this: StepGeomPointOnCurve): Handle[StepGeomCurve] {.noSideEffect,
+    importcpp: "BasisCurve", header: "StepGeom_PointOnCurve.hxx".}
+proc setPointParameter*(this: var StepGeomPointOnCurve; aPointParameter: float) {.
     importcpp: "SetPointParameter", header: "StepGeom_PointOnCurve.hxx".}
-proc PointParameter*(this: StepGeom_PointOnCurve): Standard_Real {.noSideEffect,
+proc pointParameter*(this: StepGeomPointOnCurve): float {.noSideEffect,
     importcpp: "PointParameter", header: "StepGeom_PointOnCurve.hxx".}
 type
-  StepGeom_PointOnCurvebase_type* = StepGeom_Point
+  StepGeomPointOnCurvebaseType* = StepGeomPoint
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_PointOnCurve::get_type_name(@)",
-                              header: "StepGeom_PointOnCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_PointOnCurve::get_type_name(@)",
+                            header: "StepGeom_PointOnCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_PointOnCurve::get_type_descriptor(@)",
     header: "StepGeom_PointOnCurve.hxx".}
-proc DynamicType*(this: StepGeom_PointOnCurve): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepGeom_PointOnCurve.hxx".}
+proc dynamicType*(this: StepGeomPointOnCurve): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepGeom_PointOnCurve.hxx".}

@@ -14,20 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, ../math/math_Matrix, ../math/math_Vector,
-  ../Standard/Standard_Integer, ../TColStd/TColStd_Array1OfInteger,
-  ../AppParCurves/AppParCurves_HArray1OfConstraintCouple
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of BRepApprox_TheMultiLineOfApprox"
 discard "forward decl of BRepApprox_TheMultiLineToolOfApprox"
 discard "forward decl of AppParCurves_MultiCurve"
 discard "forward decl of math_Matrix"
 type
-  BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox* {.importcpp: "BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox", header: "BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox.hxx",
+  BRepApproxResConstraintOfMyGradientbisOfTheComputeLineOfApprox* {.importcpp: "BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox", header: "BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox.hxx",
       bycopy.} = object ## ! Given a MultiLine SSP with constraints points, this
                      ## ! algorithm finds the best curve solution to approximate it.
                      ## ! The poles from SCurv issued for example from the least
@@ -41,25 +34,23 @@ type
                      ## ! is used internally to create the fields.
 
 
-proc constructBRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox*(
-    SSP: BRepApprox_TheMultiLineOfApprox; SCurv: var AppParCurves_MultiCurve;
-    FirstPoint: Standard_Integer; LastPoint: Standard_Integer;
-    Constraints: handle[AppParCurves_HArray1OfConstraintCouple];
-    Bern: math_Matrix; DerivativeBern: math_Matrix;
-    Tolerance: Standard_Real = 1.0e-10): BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox {.
+proc constructBRepApproxResConstraintOfMyGradientbisOfTheComputeLineOfApprox*(
+    ssp: BRepApproxTheMultiLineOfApprox; sCurv: var AppParCurvesMultiCurve;
+    firstPoint: int; lastPoint: int;
+    constraints: Handle[AppParCurvesHArray1OfConstraintCouple]; bern: MathMatrix;
+    derivativeBern: MathMatrix; tolerance: float = 1.0e-10): BRepApproxResConstraintOfMyGradientbisOfTheComputeLineOfApprox {.
     constructor, importcpp: "BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox(@)", header: "BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc IsDone*(this: BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox): Standard_Boolean {.
+proc isDone*(this: BRepApproxResConstraintOfMyGradientbisOfTheComputeLineOfApprox): bool {.
     noSideEffect, importcpp: "IsDone", header: "BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc Error*(this: BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox): Standard_Real {.
+proc error*(this: BRepApproxResConstraintOfMyGradientbisOfTheComputeLineOfApprox): float {.
     noSideEffect, importcpp: "Error", header: "BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc ConstraintMatrix*(this: BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox): math_Matrix {.
+proc constraintMatrix*(this: BRepApproxResConstraintOfMyGradientbisOfTheComputeLineOfApprox): MathMatrix {.
     noSideEffect, importcpp: "ConstraintMatrix", header: "BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc Duale*(this: BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox): math_Vector {.
+proc duale*(this: BRepApproxResConstraintOfMyGradientbisOfTheComputeLineOfApprox): MathVector {.
     noSideEffect, importcpp: "Duale", header: "BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc ConstraintDerivative*(this: var BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox;
-                          SSP: BRepApprox_TheMultiLineOfApprox;
-                          Parameters: math_Vector; Deg: Standard_Integer;
-                          DA: math_Matrix): math_Matrix {.
+proc constraintDerivative*(this: var BRepApproxResConstraintOfMyGradientbisOfTheComputeLineOfApprox;
+                          ssp: BRepApproxTheMultiLineOfApprox;
+                          parameters: MathVector; deg: int; da: MathMatrix): MathMatrix {.
     importcpp: "ConstraintDerivative", header: "BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc InverseMatrix*(this: BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox): math_Matrix {.
+proc inverseMatrix*(this: BRepApproxResConstraintOfMyGradientbisOfTheComputeLineOfApprox): MathMatrix {.
     noSideEffect, importcpp: "InverseMatrix", header: "BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox.hxx".}

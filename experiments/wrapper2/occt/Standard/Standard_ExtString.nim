@@ -18,13 +18,10 @@
 ## ====        typedef short* Standard_ExtString;
 ## ============================================================================
 
-import
-  Standard_TypeDef
-
 ## ! Computes a hash code for the given wide character string, in the range [1, theUpperBound]
 ## ! @param theExtString the wide character string which hash code is to be computed
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
-proc HashCode*(theExtString: Standard_ExtString; theUpperBound: Standard_Integer): Standard_Integer {.
+proc hashCode*(theExtString: StandardExtString; theUpperBound: int): int {.
     importcpp: "HashCode(@)", header: "Standard_ExtString.hxx".}

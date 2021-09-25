@@ -14,44 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Pnt, ../Standard/Standard_Real,
-  ../IntCurveSurface/IntCurveSurface_TransitionOnCurve,
-  ../Standard/Standard_Boolean, ../TopAbs/TopAbs_State, ../TopoDS/TopoDS_Face
-
 discard "forward decl of gp_Lin"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Pnt"
 type
-  BRepClass3d_Intersector3d* {.importcpp: "BRepClass3d_Intersector3d",
-                              header: "BRepClass3d_Intersector3d.hxx", bycopy.} = object ##
-                                                                                    ## !
-                                                                                    ## Empty
-                                                                                    ## constructor.
+  BRepClass3dIntersector3d* {.importcpp: "BRepClass3d_Intersector3d",
+                             header: "BRepClass3d_Intersector3d.hxx", bycopy.} = object ##
+                                                                                   ## !
+                                                                                   ## Empty
+                                                                                   ## constructor.
 
 
-proc constructBRepClass3d_Intersector3d*(): BRepClass3d_Intersector3d {.
-    constructor, importcpp: "BRepClass3d_Intersector3d(@)",
+proc constructBRepClass3dIntersector3d*(): BRepClass3dIntersector3d {.constructor,
+    importcpp: "BRepClass3d_Intersector3d(@)",
     header: "BRepClass3d_Intersector3d.hxx".}
-proc Perform*(this: var BRepClass3d_Intersector3d; L: gp_Lin; Prm: Standard_Real;
-             Tol: Standard_Real; F: TopoDS_Face) {.importcpp: "Perform",
-    header: "BRepClass3d_Intersector3d.hxx".}
-proc IsDone*(this: BRepClass3d_Intersector3d): Standard_Boolean {.noSideEffect,
+proc perform*(this: var BRepClass3dIntersector3d; L: Lin; prm: float; tol: float;
+             f: TopoDS_Face) {.importcpp: "Perform",
+                             header: "BRepClass3d_Intersector3d.hxx".}
+proc isDone*(this: BRepClass3dIntersector3d): bool {.noSideEffect,
     importcpp: "IsDone", header: "BRepClass3d_Intersector3d.hxx".}
-proc HasAPoint*(this: BRepClass3d_Intersector3d): Standard_Boolean {.noSideEffect,
+proc hasAPoint*(this: BRepClass3dIntersector3d): bool {.noSideEffect,
     importcpp: "HasAPoint", header: "BRepClass3d_Intersector3d.hxx".}
-proc UParameter*(this: BRepClass3d_Intersector3d): Standard_Real {.noSideEffect,
+proc uParameter*(this: BRepClass3dIntersector3d): float {.noSideEffect,
     importcpp: "UParameter", header: "BRepClass3d_Intersector3d.hxx".}
-proc VParameter*(this: BRepClass3d_Intersector3d): Standard_Real {.noSideEffect,
+proc vParameter*(this: BRepClass3dIntersector3d): float {.noSideEffect,
     importcpp: "VParameter", header: "BRepClass3d_Intersector3d.hxx".}
-proc WParameter*(this: BRepClass3d_Intersector3d): Standard_Real {.noSideEffect,
+proc wParameter*(this: BRepClass3dIntersector3d): float {.noSideEffect,
     importcpp: "WParameter", header: "BRepClass3d_Intersector3d.hxx".}
-proc Pnt*(this: BRepClass3d_Intersector3d): gp_Pnt {.noSideEffect, importcpp: "Pnt",
+proc pnt*(this: BRepClass3dIntersector3d): Pnt {.noSideEffect, importcpp: "Pnt",
     header: "BRepClass3d_Intersector3d.hxx".}
-proc Transition*(this: BRepClass3d_Intersector3d): IntCurveSurface_TransitionOnCurve {.
+proc transition*(this: BRepClass3dIntersector3d): IntCurveSurfaceTransitionOnCurve {.
     noSideEffect, importcpp: "Transition", header: "BRepClass3d_Intersector3d.hxx".}
-proc State*(this: BRepClass3d_Intersector3d): TopAbs_State {.noSideEffect,
+proc state*(this: BRepClass3dIntersector3d): TopAbsState {.noSideEffect,
     importcpp: "State", header: "BRepClass3d_Intersector3d.hxx".}
-proc Face*(this: BRepClass3d_Intersector3d): TopoDS_Face {.noSideEffect,
+proc face*(this: BRepClass3dIntersector3d): TopoDS_Face {.noSideEffect,
     importcpp: "Face", header: "BRepClass3d_Intersector3d.hxx".}

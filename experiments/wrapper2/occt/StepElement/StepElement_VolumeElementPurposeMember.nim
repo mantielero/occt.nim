@@ -13,49 +13,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../StepData/StepData_SelectNamed, ../Standard/Standard_Boolean,
-  ../Standard/Standard_CString
-
 discard "forward decl of StepElement_VolumeElementPurposeMember"
 discard "forward decl of StepElement_VolumeElementPurposeMember"
 type
-  Handle_StepElement_VolumeElementPurposeMember* = handle[
-      StepElement_VolumeElementPurposeMember]
+  HandleStepElementVolumeElementPurposeMember* = Handle[
+      StepElementVolumeElementPurposeMember]
 
 ## ! Representation of member for  STEP SELECT type VolumeElementPurpose
 
 type
-  StepElement_VolumeElementPurposeMember* {.
+  StepElementVolumeElementPurposeMember* {.
       importcpp: "StepElement_VolumeElementPurposeMember",
-      header: "StepElement_VolumeElementPurposeMember.hxx", bycopy.} = object of StepData_SelectNamed ##
-                                                                                               ## !
-                                                                                               ## Empty
-                                                                                               ## constructor
+      header: "StepElement_VolumeElementPurposeMember.hxx", bycopy.} = object of StepDataSelectNamed ##
+                                                                                              ## !
+                                                                                              ## Empty
+                                                                                              ## constructor
 
 
-proc constructStepElement_VolumeElementPurposeMember*(): StepElement_VolumeElementPurposeMember {.
+proc constructStepElementVolumeElementPurposeMember*(): StepElementVolumeElementPurposeMember {.
     constructor, importcpp: "StepElement_VolumeElementPurposeMember(@)",
     header: "StepElement_VolumeElementPurposeMember.hxx".}
-proc HasName*(this: StepElement_VolumeElementPurposeMember): Standard_Boolean {.
-    noSideEffect, importcpp: "HasName",
-    header: "StepElement_VolumeElementPurposeMember.hxx".}
-proc Name*(this: StepElement_VolumeElementPurposeMember): Standard_CString {.
+proc hasName*(this: StepElementVolumeElementPurposeMember): bool {.noSideEffect,
+    importcpp: "HasName", header: "StepElement_VolumeElementPurposeMember.hxx".}
+proc name*(this: StepElementVolumeElementPurposeMember): StandardCString {.
     noSideEffect, importcpp: "Name",
     header: "StepElement_VolumeElementPurposeMember.hxx".}
-proc SetName*(this: var StepElement_VolumeElementPurposeMember;
-             name: Standard_CString): Standard_Boolean {.importcpp: "SetName",
-    header: "StepElement_VolumeElementPurposeMember.hxx".}
-proc Matches*(this: StepElement_VolumeElementPurposeMember; name: Standard_CString): Standard_Boolean {.
+proc setName*(this: var StepElementVolumeElementPurposeMember; name: StandardCString): bool {.
+    importcpp: "SetName", header: "StepElement_VolumeElementPurposeMember.hxx".}
+proc matches*(this: StepElementVolumeElementPurposeMember; name: StandardCString): bool {.
     noSideEffect, importcpp: "Matches",
     header: "StepElement_VolumeElementPurposeMember.hxx".}
 type
-  StepElement_VolumeElementPurposeMemberbase_type* = StepData_SelectNamed
+  StepElementVolumeElementPurposeMemberbaseType* = StepDataSelectNamed
 
-proc get_type_name*(): cstring {.importcpp: "StepElement_VolumeElementPurposeMember::get_type_name(@)", header: "StepElement_VolumeElementPurposeMember.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepElement_VolumeElementPurposeMember::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepElement_VolumeElementPurposeMember::get_type_name(@)", header: "StepElement_VolumeElementPurposeMember.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_VolumeElementPurposeMember::get_type_descriptor(@)",
     header: "StepElement_VolumeElementPurposeMember.hxx".}
-proc DynamicType*(this: StepElement_VolumeElementPurposeMember): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepElement_VolumeElementPurposeMember.hxx".}
+proc dynamicType*(this: StepElementVolumeElementPurposeMember): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepElement_VolumeElementPurposeMember.hxx".}

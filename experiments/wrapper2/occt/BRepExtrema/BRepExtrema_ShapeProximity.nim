@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_DataMap, ../TColStd/TColStd_PackedMapOfInteger,
-  BRepExtrema_TriangleSet, BRepExtrema_OverlapTool
-
 ## ! Tool class for shape proximity detection.
 ## ! For two given shapes and given tolerance (offset from the mesh) the algorithm allows
 ## ! to determine whether or not they are overlapped. The algorithm input consists of any
@@ -31,29 +27,29 @@ import
 ## ! on distance less than the given tolerance from each other.
 
 type
-  BRepExtrema_ShapeProximity* {.importcpp: "BRepExtrema_ShapeProximity",
-                               header: "BRepExtrema_ShapeProximity.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Creates
-                                                                                      ## empty
-                                                                                      ## proximity
-                                                                                      ## tool.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## tolerance
-                                                                                      ## value
-                                                                                      ## for
-                                                                                      ## overlap
-                                                                                      ## test
-                                                                                      ## (distance
-                                                                                      ## between
-                                                                                      ## shapes).
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Maximum
-                                                                                      ## overlapping
-                                                                                      ## distance.
+  BRepExtremaShapeProximity* {.importcpp: "BRepExtrema_ShapeProximity",
+                              header: "BRepExtrema_ShapeProximity.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Creates
+                                                                                     ## empty
+                                                                                     ## proximity
+                                                                                     ## tool.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Returns
+                                                                                     ## tolerance
+                                                                                     ## value
+                                                                                     ## for
+                                                                                     ## overlap
+                                                                                     ## test
+                                                                                     ## (distance
+                                                                                     ## between
+                                                                                     ## shapes).
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Maximum
+                                                                                     ## overlapping
+                                                                                     ## distance.
     ## ! Is the 1st shape initialized?
     ## ! Is the 2nd shape initialized?
     ## ! List of faces of the 1st shape.
@@ -63,40 +59,41 @@ type
     ## ! Overlap tool used for intersection/overlap test.
 
 
-proc constructBRepExtrema_ShapeProximity*(theTolerance: Standard_Real = 0.0): BRepExtrema_ShapeProximity {.
+proc constructBRepExtremaShapeProximity*(theTolerance: float = 0.0): BRepExtremaShapeProximity {.
     constructor, importcpp: "BRepExtrema_ShapeProximity(@)",
     header: "BRepExtrema_ShapeProximity.hxx".}
-proc constructBRepExtrema_ShapeProximity*(theShape1: TopoDS_Shape;
-    theShape2: TopoDS_Shape; theTolerance: Standard_Real = 0.0): BRepExtrema_ShapeProximity {.
+proc constructBRepExtremaShapeProximity*(theShape1: TopoDS_Shape;
+                                        theShape2: TopoDS_Shape;
+                                        theTolerance: float = 0.0): BRepExtremaShapeProximity {.
     constructor, importcpp: "BRepExtrema_ShapeProximity(@)",
     header: "BRepExtrema_ShapeProximity.hxx".}
-proc Tolerance*(this: BRepExtrema_ShapeProximity): Standard_Real {.noSideEffect,
+proc tolerance*(this: BRepExtremaShapeProximity): float {.noSideEffect,
     importcpp: "Tolerance", header: "BRepExtrema_ShapeProximity.hxx".}
-proc SetTolerance*(this: var BRepExtrema_ShapeProximity; theTolerance: Standard_Real) {.
+proc setTolerance*(this: var BRepExtremaShapeProximity; theTolerance: float) {.
     importcpp: "SetTolerance", header: "BRepExtrema_ShapeProximity.hxx".}
-proc LoadShape1*(this: var BRepExtrema_ShapeProximity; theShape1: TopoDS_Shape): Standard_Boolean {.
+proc loadShape1*(this: var BRepExtremaShapeProximity; theShape1: TopoDS_Shape): bool {.
     importcpp: "LoadShape1", header: "BRepExtrema_ShapeProximity.hxx".}
-proc LoadShape2*(this: var BRepExtrema_ShapeProximity; theShape2: TopoDS_Shape): Standard_Boolean {.
+proc loadShape2*(this: var BRepExtremaShapeProximity; theShape2: TopoDS_Shape): bool {.
     importcpp: "LoadShape2", header: "BRepExtrema_ShapeProximity.hxx".}
-proc Perform*(this: var BRepExtrema_ShapeProximity) {.importcpp: "Perform",
+proc perform*(this: var BRepExtremaShapeProximity) {.importcpp: "Perform",
     header: "BRepExtrema_ShapeProximity.hxx".}
-proc IsDone*(this: BRepExtrema_ShapeProximity): Standard_Boolean {.noSideEffect,
+proc isDone*(this: BRepExtremaShapeProximity): bool {.noSideEffect,
     importcpp: "IsDone", header: "BRepExtrema_ShapeProximity.hxx".}
-proc OverlapSubShapes1*(this: BRepExtrema_ShapeProximity): BRepExtrema_MapOfIntegerPackedMapOfInteger {.
+proc overlapSubShapes1*(this: BRepExtremaShapeProximity): BRepExtremaMapOfIntegerPackedMapOfInteger {.
     noSideEffect, importcpp: "OverlapSubShapes1",
     header: "BRepExtrema_ShapeProximity.hxx".}
-proc OverlapSubShapes2*(this: BRepExtrema_ShapeProximity): BRepExtrema_MapOfIntegerPackedMapOfInteger {.
+proc overlapSubShapes2*(this: BRepExtremaShapeProximity): BRepExtremaMapOfIntegerPackedMapOfInteger {.
     noSideEffect, importcpp: "OverlapSubShapes2",
     header: "BRepExtrema_ShapeProximity.hxx".}
-proc GetSubShape1*(this: BRepExtrema_ShapeProximity; theID: Standard_Integer): TopoDS_Face {.
+proc getSubShape1*(this: BRepExtremaShapeProximity; theID: int): TopoDS_Face {.
     noSideEffect, importcpp: "GetSubShape1",
     header: "BRepExtrema_ShapeProximity.hxx".}
-proc GetSubShape2*(this: BRepExtrema_ShapeProximity; theID: Standard_Integer): TopoDS_Face {.
+proc getSubShape2*(this: BRepExtremaShapeProximity; theID: int): TopoDS_Face {.
     noSideEffect, importcpp: "GetSubShape2",
     header: "BRepExtrema_ShapeProximity.hxx".}
-proc ElementSet1*(this: BRepExtrema_ShapeProximity): handle[BRepExtrema_TriangleSet] {.
+proc elementSet1*(this: BRepExtremaShapeProximity): Handle[BRepExtremaTriangleSet] {.
     noSideEffect, importcpp: "ElementSet1",
     header: "BRepExtrema_ShapeProximity.hxx".}
-proc ElementSet2*(this: BRepExtrema_ShapeProximity): handle[BRepExtrema_TriangleSet] {.
+proc elementSet2*(this: BRepExtremaShapeProximity): Handle[BRepExtremaTriangleSet] {.
     noSideEffect, importcpp: "ElementSet2",
     header: "BRepExtrema_ShapeProximity.hxx".}

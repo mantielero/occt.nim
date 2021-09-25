@@ -13,40 +13,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepRepr_ShapeAspect, StepRepr_Array1OfShapeAspect,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepRepr_HArray1OfShapeAspect* {.importcpp: "StepRepr_HArray1OfShapeAspect",
-                                  header: "StepRepr_HArray1OfShapeAspect.hxx",
-                                  bycopy.} = object of StepRepr_Array1OfShapeAspect
+  StepReprHArray1OfShapeAspect* {.importcpp: "StepRepr_HArray1OfShapeAspect",
+                                 header: "StepRepr_HArray1OfShapeAspect.hxx",
+                                 bycopy.} = object of StepReprArray1OfShapeAspect
 
 
-proc constructStepRepr_HArray1OfShapeAspect*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepRepr_HArray1OfShapeAspect {.constructor,
+proc constructStepReprHArray1OfShapeAspect*(theLower: int; theUpper: int): StepReprHArray1OfShapeAspect {.
+    constructor, importcpp: "StepRepr_HArray1OfShapeAspect(@)",
+    header: "StepRepr_HArray1OfShapeAspect.hxx".}
+proc constructStepReprHArray1OfShapeAspect*(theLower: int; theUpper: int;
+    theValue: ValueType): StepReprHArray1OfShapeAspect {.constructor,
     importcpp: "StepRepr_HArray1OfShapeAspect(@)",
     header: "StepRepr_HArray1OfShapeAspect.hxx".}
-proc constructStepRepr_HArray1OfShapeAspect*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepRepr_HArray1OfShapeAspect {.
+proc constructStepReprHArray1OfShapeAspect*(theOther: StepReprArray1OfShapeAspect): StepReprHArray1OfShapeAspect {.
     constructor, importcpp: "StepRepr_HArray1OfShapeAspect(@)",
     header: "StepRepr_HArray1OfShapeAspect.hxx".}
-proc constructStepRepr_HArray1OfShapeAspect*(
-    theOther: StepRepr_Array1OfShapeAspect): StepRepr_HArray1OfShapeAspect {.
-    constructor, importcpp: "StepRepr_HArray1OfShapeAspect(@)",
-    header: "StepRepr_HArray1OfShapeAspect.hxx".}
-proc Array1*(this: StepRepr_HArray1OfShapeAspect): StepRepr_Array1OfShapeAspect {.
+proc array1*(this: StepReprHArray1OfShapeAspect): StepReprArray1OfShapeAspect {.
     noSideEffect, importcpp: "Array1", header: "StepRepr_HArray1OfShapeAspect.hxx".}
-proc ChangeArray1*(this: var StepRepr_HArray1OfShapeAspect): var StepRepr_Array1OfShapeAspect {.
+proc changeArray1*(this: var StepReprHArray1OfShapeAspect): var StepReprArray1OfShapeAspect {.
     importcpp: "ChangeArray1", header: "StepRepr_HArray1OfShapeAspect.hxx".}
 type
-  StepRepr_HArray1OfShapeAspectbase_type* = MMgt_TShared
+  StepReprHArray1OfShapeAspectbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_HArray1OfShapeAspect::get_type_name(@)",
-                              header: "StepRepr_HArray1OfShapeAspect.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_HArray1OfShapeAspect::get_type_name(@)",
+                            header: "StepRepr_HArray1OfShapeAspect.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_HArray1OfShapeAspect::get_type_descriptor(@)",
     header: "StepRepr_HArray1OfShapeAspect.hxx".}
-proc DynamicType*(this: StepRepr_HArray1OfShapeAspect): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprHArray1OfShapeAspect): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_HArray1OfShapeAspect.hxx".}

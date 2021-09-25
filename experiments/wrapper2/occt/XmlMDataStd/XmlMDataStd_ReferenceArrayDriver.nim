@@ -13,47 +13,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../XmlMDF/XmlMDF_ADriver,
-  ../Standard/Standard_Boolean, ../XmlObjMgt/XmlObjMgt_RRelocationTable,
-  ../XmlObjMgt/XmlObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDataStd_ReferenceArrayDriver"
 discard "forward decl of XmlMDataStd_ReferenceArrayDriver"
 type
-  Handle_XmlMDataStd_ReferenceArrayDriver* = handle[
-      XmlMDataStd_ReferenceArrayDriver]
-  XmlMDataStd_ReferenceArrayDriver* {.importcpp: "XmlMDataStd_ReferenceArrayDriver", header: "XmlMDataStd_ReferenceArrayDriver.hxx",
-                                     bycopy.} = object of XmlMDF_ADriver
+  HandleXmlMDataStdReferenceArrayDriver* = Handle[XmlMDataStdReferenceArrayDriver]
+  XmlMDataStdReferenceArrayDriver* {.importcpp: "XmlMDataStd_ReferenceArrayDriver", header: "XmlMDataStd_ReferenceArrayDriver.hxx",
+                                    bycopy.} = object of XmlMDF_ADriver
 
 
-proc constructXmlMDataStd_ReferenceArrayDriver*(
-    theMessageDriver: handle[Message_Messenger]): XmlMDataStd_ReferenceArrayDriver {.
+proc constructXmlMDataStdReferenceArrayDriver*(
+    theMessageDriver: Handle[MessageMessenger]): XmlMDataStdReferenceArrayDriver {.
     constructor, importcpp: "XmlMDataStd_ReferenceArrayDriver(@)",
     header: "XmlMDataStd_ReferenceArrayDriver.hxx".}
-proc NewEmpty*(this: XmlMDataStd_ReferenceArrayDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: XmlMDataStdReferenceArrayDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty",
     header: "XmlMDataStd_ReferenceArrayDriver.hxx".}
-proc Paste*(this: XmlMDataStd_ReferenceArrayDriver; Source: XmlObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var XmlObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste",
-    header: "XmlMDataStd_ReferenceArrayDriver.hxx".}
-proc Paste*(this: XmlMDataStd_ReferenceArrayDriver; Source: handle[TDF_Attribute];
-           Target: var XmlObjMgt_Persistent;
-           RelocTable: var XmlObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: XmlMDataStdReferenceArrayDriver; source: XmlObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var XmlObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "XmlMDataStd_ReferenceArrayDriver.hxx".}
+proc paste*(this: XmlMDataStdReferenceArrayDriver; source: Handle[TDF_Attribute];
+           target: var XmlObjMgtPersistent;
+           relocTable: var XmlObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "XmlMDataStd_ReferenceArrayDriver.hxx".}
 type
-  XmlMDataStd_ReferenceArrayDriverbase_type* = XmlMDF_ADriver
+  XmlMDataStdReferenceArrayDriverbaseType* = XmlMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "XmlMDataStd_ReferenceArrayDriver::get_type_name(@)",
-                              header: "XmlMDataStd_ReferenceArrayDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XmlMDataStd_ReferenceArrayDriver::get_type_name(@)",
+                            header: "XmlMDataStd_ReferenceArrayDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XmlMDataStd_ReferenceArrayDriver::get_type_descriptor(@)",
     header: "XmlMDataStd_ReferenceArrayDriver.hxx".}
-proc DynamicType*(this: XmlMDataStd_ReferenceArrayDriver): handle[Standard_Type] {.
+proc dynamicType*(this: XmlMDataStdReferenceArrayDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMDataStd_ReferenceArrayDriver.hxx".}

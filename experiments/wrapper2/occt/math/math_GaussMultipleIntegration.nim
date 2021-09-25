@@ -14,29 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, math_Vector, math_IntegerVector,
-  ../Standard/Standard_OStream
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of math_MultipleVarFunction"
 type
-  math_GaussMultipleIntegration* {.importcpp: "math_GaussMultipleIntegration",
-                                  header: "math_GaussMultipleIntegration.hxx",
-                                  bycopy.} = object ## ! The Gauss-Legendre integration with Order = points of
-                                                 ## ! integration for each unknow, is done on the function F
-                                                 ## ! between the bounds Lower and Upper.
+  MathGaussMultipleIntegration* {.importcpp: "math_GaussMultipleIntegration",
+                                 header: "math_GaussMultipleIntegration.hxx",
+                                 bycopy.} = object ## ! The Gauss-Legendre integration with Order = points of
+                                                ## ! integration for each unknow, is done on the function F
+                                                ## ! between the bounds Lower and Upper.
 
 
-proc constructmath_GaussMultipleIntegration*(F: var math_MultipleVarFunction;
-    Lower: math_Vector; Upper: math_Vector; Order: math_IntegerVector): math_GaussMultipleIntegration {.
+proc constructMathGaussMultipleIntegration*(f: var MathMultipleVarFunction;
+    lower: MathVector; upper: MathVector; order: MathIntegerVector): MathGaussMultipleIntegration {.
     constructor, importcpp: "math_GaussMultipleIntegration(@)",
     header: "math_GaussMultipleIntegration.hxx".}
-proc IsDone*(this: math_GaussMultipleIntegration): Standard_Boolean {.noSideEffect,
+proc isDone*(this: MathGaussMultipleIntegration): bool {.noSideEffect,
     importcpp: "IsDone", header: "math_GaussMultipleIntegration.hxx".}
-proc Value*(this: math_GaussMultipleIntegration): Standard_Real {.noSideEffect,
+proc value*(this: MathGaussMultipleIntegration): float {.noSideEffect,
     importcpp: "Value", header: "math_GaussMultipleIntegration.hxx".}
-proc Dump*(this: math_GaussMultipleIntegration; o: var Standard_OStream) {.
-    noSideEffect, importcpp: "Dump", header: "math_GaussMultipleIntegration.hxx".}
+proc dump*(this: MathGaussMultipleIntegration; o: var StandardOStream) {.noSideEffect,
+    importcpp: "Dump", header: "math_GaussMultipleIntegration.hxx".}

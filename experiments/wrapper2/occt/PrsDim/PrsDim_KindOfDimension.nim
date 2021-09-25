@@ -18,11 +18,11 @@
 ## ! display of Interactive Objects.
 
 type
-  PrsDim_KindOfDimension* {.size: sizeof(cint),
-                           importcpp: "PrsDim_KindOfDimension",
-                           header: "PrsDim_KindOfDimension.hxx".} = enum
-    PrsDim_KOD_NONE, PrsDim_KOD_LENGTH, PrsDim_KOD_PLANEANGLE,
-    PrsDim_KOD_SOLIDANGLE, PrsDim_KOD_AREA, PrsDim_KOD_VOLUME, PrsDim_KOD_MASS,
-    PrsDim_KOD_TIME, PrsDim_KOD_RADIUS, PrsDim_KOD_DIAMETER, PrsDim_KOD_CHAMF2D,
-    PrsDim_KOD_CHAMF3D, PrsDim_KOD_OFFSET, PrsDim_KOD_ELLIPSERADIUS
+  PrsDimKindOfDimension* {.size: sizeof(cint), importcpp: "PrsDim_KindOfDimension",
+                          header: "PrsDim_KindOfDimension.hxx".} = enum
+    PrsDimKOD_NONE, PrsDimKOD_LENGTH, PrsDimKOD_PLANEANGLE, PrsDimKOD_SOLIDANGLE,
+    PrsDimKOD_AREA, PrsDimKOD_VOLUME, PrsDimKOD_MASS, PrsDimKOD_TIME,
+    PrsDimKOD_RADIUS, PrsDimKOD_DIAMETER, PrsDimKOD_CHAMF2D, PrsDimKOD_CHAMF3D,
+    PrsDimKOD_OFFSET, PrsDimKOD_ELLIPSERADIUS
+
 

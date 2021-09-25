@@ -14,17 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../GeomAbs/GeomAbs_Shape,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer,
-  ShapeUpgrade_SplitCurve3d
-
 discard "forward decl of Geom_Curve"
 discard "forward decl of ShapeUpgrade_SplitCurve3dContinuity"
 discard "forward decl of ShapeUpgrade_SplitCurve3dContinuity"
 type
-  Handle_ShapeUpgrade_SplitCurve3dContinuity* = handle[
-      ShapeUpgrade_SplitCurve3dContinuity]
+  HandleShapeUpgradeSplitCurve3dContinuity* = Handle[
+      ShapeUpgradeSplitCurve3dContinuity]
 
 ## ! Corrects/splits a 2d curve with a continuity criterion.
 ## ! Tolerance is used to correct the curve at a knot that respects
@@ -32,34 +27,34 @@ type
 ## ! multiplicity of the knot.
 
 type
-  ShapeUpgrade_SplitCurve3dContinuity* {.importcpp: "ShapeUpgrade_SplitCurve3dContinuity", header: "ShapeUpgrade_SplitCurve3dContinuity.hxx",
-                                        bycopy.} = object of ShapeUpgrade_SplitCurve3d ##
-                                                                                  ## !
-                                                                                  ## Empty
-                                                                                  ## constructor.
+  ShapeUpgradeSplitCurve3dContinuity* {.importcpp: "ShapeUpgrade_SplitCurve3dContinuity", header: "ShapeUpgrade_SplitCurve3dContinuity.hxx",
+                                       bycopy.} = object of ShapeUpgradeSplitCurve3d ##
+                                                                                ## !
+                                                                                ## Empty
+                                                                                ## constructor.
 
 
-proc constructShapeUpgrade_SplitCurve3dContinuity*(): ShapeUpgrade_SplitCurve3dContinuity {.
+proc constructShapeUpgradeSplitCurve3dContinuity*(): ShapeUpgradeSplitCurve3dContinuity {.
     constructor, importcpp: "ShapeUpgrade_SplitCurve3dContinuity(@)",
     header: "ShapeUpgrade_SplitCurve3dContinuity.hxx".}
-proc SetCriterion*(this: var ShapeUpgrade_SplitCurve3dContinuity;
-                  Criterion: GeomAbs_Shape) {.importcpp: "SetCriterion",
+proc setCriterion*(this: var ShapeUpgradeSplitCurve3dContinuity;
+                  criterion: GeomAbsShape) {.importcpp: "SetCriterion",
     header: "ShapeUpgrade_SplitCurve3dContinuity.hxx".}
-proc SetTolerance*(this: var ShapeUpgrade_SplitCurve3dContinuity; Tol: Standard_Real) {.
+proc setTolerance*(this: var ShapeUpgradeSplitCurve3dContinuity; tol: float) {.
     importcpp: "SetTolerance", header: "ShapeUpgrade_SplitCurve3dContinuity.hxx".}
-proc Compute*(this: var ShapeUpgrade_SplitCurve3dContinuity) {.importcpp: "Compute",
+proc compute*(this: var ShapeUpgradeSplitCurve3dContinuity) {.importcpp: "Compute",
     header: "ShapeUpgrade_SplitCurve3dContinuity.hxx".}
-proc GetCurve*(this: ShapeUpgrade_SplitCurve3dContinuity): handle[Geom_Curve] {.
+proc getCurve*(this: ShapeUpgradeSplitCurve3dContinuity): Handle[GeomCurve] {.
     noSideEffect, importcpp: "GetCurve",
     header: "ShapeUpgrade_SplitCurve3dContinuity.hxx".}
 type
-  ShapeUpgrade_SplitCurve3dContinuitybase_type* = ShapeUpgrade_SplitCurve3d
+  ShapeUpgradeSplitCurve3dContinuitybaseType* = ShapeUpgradeSplitCurve3d
 
-proc get_type_name*(): cstring {.importcpp: "ShapeUpgrade_SplitCurve3dContinuity::get_type_name(@)",
-                              header: "ShapeUpgrade_SplitCurve3dContinuity.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeUpgrade_SplitCurve3dContinuity::get_type_name(@)",
+                            header: "ShapeUpgrade_SplitCurve3dContinuity.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeUpgrade_SplitCurve3dContinuity::get_type_descriptor(@)",
     header: "ShapeUpgrade_SplitCurve3dContinuity.hxx".}
-proc DynamicType*(this: ShapeUpgrade_SplitCurve3dContinuity): handle[Standard_Type] {.
+proc dynamicType*(this: ShapeUpgradeSplitCurve3dContinuity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_SplitCurve3dContinuity.hxx".}

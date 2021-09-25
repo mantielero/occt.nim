@@ -14,56 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GCE2d_Root, ../Geom2d/Geom2d_TrimmedCurve
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Dir2d"
 discard "forward decl of gp_Lin2d"
 type
-  GCE2d_MakeSegment* {.importcpp: "GCE2d_MakeSegment",
-                      header: "GCE2d_MakeSegment.hxx", bycopy.} = object of GCE2d_Root ##
-                                                                                ## !
-                                                                                ## Make
-                                                                                ## a
-                                                                                ## segment
-                                                                                ## of
-                                                                                ## Line
-                                                                                ## from
-                                                                                ## the
-                                                                                ## 2
-                                                                                ## points
-                                                                                ## <P1>
-                                                                                ## and
-                                                                                ## <P2>.
-                                                                                ##
-                                                                                ## !
-                                                                                ## Status
-                                                                                ## is
-                                                                                ## "ConfusedPoints"
-                                                                                ## if
-                                                                                ## <P1>
-                                                                                ## and
-                                                                                ## <P2>
-                                                                                ## are
-                                                                                ## confused.
+  GCE2dMakeSegment* {.importcpp: "GCE2d_MakeSegment",
+                     header: "GCE2d_MakeSegment.hxx", bycopy.} = object of GCE2dRoot ## !
+                                                                              ## Make a
+                                                                              ## segment of
+                                                                              ## Line
+                                                                              ## from
+                                                                              ## the 2
+                                                                              ## points
+                                                                              ## <P1>
+                                                                              ## and
+                                                                              ## <P2>.
+                                                                              ## !
+                                                                              ## Status is
+                                                                              ## "ConfusedPoints" if
+                                                                              ## <P1>
+                                                                              ## and
+                                                                              ## <P2>
+                                                                              ## are
+                                                                              ## confused.
 
 
-proc constructGCE2d_MakeSegment*(P1: gp_Pnt2d; P2: gp_Pnt2d): GCE2d_MakeSegment {.
+proc constructGCE2dMakeSegment*(p1: Pnt2d; p2: Pnt2d): GCE2dMakeSegment {.constructor,
+    importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
+proc constructGCE2dMakeSegment*(p1: Pnt2d; v: Dir2d; p2: Pnt2d): GCE2dMakeSegment {.
     constructor, importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
-proc constructGCE2d_MakeSegment*(P1: gp_Pnt2d; V: gp_Dir2d; P2: gp_Pnt2d): GCE2d_MakeSegment {.
+proc constructGCE2dMakeSegment*(line: Lin2d; u1: float; u2: float): GCE2dMakeSegment {.
     constructor, importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
-proc constructGCE2d_MakeSegment*(Line: gp_Lin2d; U1: Standard_Real; U2: Standard_Real): GCE2d_MakeSegment {.
+proc constructGCE2dMakeSegment*(line: Lin2d; point: Pnt2d; ulast: float): GCE2dMakeSegment {.
     constructor, importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
-proc constructGCE2d_MakeSegment*(Line: gp_Lin2d; Point: gp_Pnt2d;
-                                Ulast: Standard_Real): GCE2d_MakeSegment {.
+proc constructGCE2dMakeSegment*(line: Lin2d; p1: Pnt2d; p2: Pnt2d): GCE2dMakeSegment {.
     constructor, importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
-proc constructGCE2d_MakeSegment*(Line: gp_Lin2d; P1: gp_Pnt2d; P2: gp_Pnt2d): GCE2d_MakeSegment {.
-    constructor, importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
-proc Value*(this: GCE2d_MakeSegment): handle[Geom2d_TrimmedCurve] {.noSideEffect,
+proc value*(this: GCE2dMakeSegment): Handle[Geom2dTrimmedCurve] {.noSideEffect,
     importcpp: "Value", header: "GCE2d_MakeSegment.hxx".}
-converter `constopencascade`*(this: GCE2d_MakeSegment): handle[Geom2d_TrimmedCurve] {.
+converter `constopencascade`*(this: GCE2dMakeSegment): Handle[Geom2dTrimmedCurve] {.
     noSideEffect, importcpp: "GCE2d_MakeSegment::operator constopencascade",
     header: "GCE2d_MakeSegment.hxx".}

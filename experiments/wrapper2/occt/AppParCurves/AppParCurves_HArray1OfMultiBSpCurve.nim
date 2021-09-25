@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  AppParCurves_MultiBSpCurve, AppParCurves_Array1OfMultiBSpCurve,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  AppParCurves_HArray1OfMultiBSpCurve* {.importcpp: "AppParCurves_HArray1OfMultiBSpCurve", header: "AppParCurves_HArray1OfMultiBSpCurve.hxx",
-                                        bycopy.} = object of AppParCurves_Array1OfMultiBSpCurve
+  AppParCurvesHArray1OfMultiBSpCurve* {.importcpp: "AppParCurves_HArray1OfMultiBSpCurve", header: "AppParCurves_HArray1OfMultiBSpCurve.hxx",
+                                       bycopy.} = object of AppParCurvesArray1OfMultiBSpCurve
 
 
-proc constructAppParCurves_HArray1OfMultiBSpCurve*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): AppParCurves_HArray1OfMultiBSpCurve {.constructor,
+proc constructAppParCurvesHArray1OfMultiBSpCurve*(theLower: int; theUpper: int): AppParCurvesHArray1OfMultiBSpCurve {.
+    constructor, importcpp: "AppParCurves_HArray1OfMultiBSpCurve(@)",
+    header: "AppParCurves_HArray1OfMultiBSpCurve.hxx".}
+proc constructAppParCurvesHArray1OfMultiBSpCurve*(theLower: int; theUpper: int;
+    theValue: ValueType): AppParCurvesHArray1OfMultiBSpCurve {.constructor,
     importcpp: "AppParCurves_HArray1OfMultiBSpCurve(@)",
     header: "AppParCurves_HArray1OfMultiBSpCurve.hxx".}
-proc constructAppParCurves_HArray1OfMultiBSpCurve*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): AppParCurves_HArray1OfMultiBSpCurve {.
+proc constructAppParCurvesHArray1OfMultiBSpCurve*(
+    theOther: AppParCurvesArray1OfMultiBSpCurve): AppParCurvesHArray1OfMultiBSpCurve {.
     constructor, importcpp: "AppParCurves_HArray1OfMultiBSpCurve(@)",
     header: "AppParCurves_HArray1OfMultiBSpCurve.hxx".}
-proc constructAppParCurves_HArray1OfMultiBSpCurve*(
-    theOther: AppParCurves_Array1OfMultiBSpCurve): AppParCurves_HArray1OfMultiBSpCurve {.
-    constructor, importcpp: "AppParCurves_HArray1OfMultiBSpCurve(@)",
-    header: "AppParCurves_HArray1OfMultiBSpCurve.hxx".}
-proc Array1*(this: AppParCurves_HArray1OfMultiBSpCurve): AppParCurves_Array1OfMultiBSpCurve {.
+proc array1*(this: AppParCurvesHArray1OfMultiBSpCurve): AppParCurvesArray1OfMultiBSpCurve {.
     noSideEffect, importcpp: "Array1",
     header: "AppParCurves_HArray1OfMultiBSpCurve.hxx".}
-proc ChangeArray1*(this: var AppParCurves_HArray1OfMultiBSpCurve): var AppParCurves_Array1OfMultiBSpCurve {.
+proc changeArray1*(this: var AppParCurvesHArray1OfMultiBSpCurve): var AppParCurvesArray1OfMultiBSpCurve {.
     importcpp: "ChangeArray1", header: "AppParCurves_HArray1OfMultiBSpCurve.hxx".}
 type
-  AppParCurves_HArray1OfMultiBSpCurvebase_type* = MMgt_TShared
+  AppParCurvesHArray1OfMultiBSpCurvebaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "AppParCurves_HArray1OfMultiBSpCurve::get_type_name(@)",
-                              header: "AppParCurves_HArray1OfMultiBSpCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "AppParCurves_HArray1OfMultiBSpCurve::get_type_name(@)",
+                            header: "AppParCurves_HArray1OfMultiBSpCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "AppParCurves_HArray1OfMultiBSpCurve::get_type_descriptor(@)",
     header: "AppParCurves_HArray1OfMultiBSpCurve.hxx".}
-proc DynamicType*(this: AppParCurves_HArray1OfMultiBSpCurve): handle[Standard_Type] {.
+proc dynamicType*(this: AppParCurvesHArray1OfMultiBSpCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "AppParCurves_HArray1OfMultiBSpCurve.hxx".}

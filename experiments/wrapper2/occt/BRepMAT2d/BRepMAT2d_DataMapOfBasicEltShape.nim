@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../MAT/MAT_BasicElt, ../TopoDS/TopoDS_Shape,
-  ../TColStd/TColStd_MapTransientHasher, ../NCollection/NCollection_DataMap
-
 type
-  BRepMAT2d_DataMapOfBasicEltShape* = NCollection_DataMap[handle[MAT_BasicElt],
-      TopoDS_Shape, TColStd_MapTransientHasher]
-  BRepMAT2d_DataMapIteratorOfDataMapOfBasicEltShape* = Iterator[
-      handle[MAT_BasicElt], TopoDS_Shape, TColStd_MapTransientHasher]
+  BRepMAT2dDataMapOfBasicEltShape* = NCollectionDataMap[Handle[MAT_BasicElt],
+      TopoDS_Shape, TColStdMapTransientHasher]
+  BRepMAT2dDataMapIteratorOfDataMapOfBasicEltShape* = Iterator[
+      Handle[MAT_BasicElt], TopoDS_Shape, TColStdMapTransientHasher]
+

@@ -12,27 +12,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_CString
-
 ## ! Low-level glTF enumeration defining Accessor layout.
 ## ! Similar to Graphic3d_TypeOfData but does not define actual type and includes matrices.
 
 type
-  RWGltf_GltfAccessorLayout* {.size: sizeof(cint),
-                              importcpp: "RWGltf_GltfAccessorLayout",
-                              header: "RWGltf_GltfAccessorLayout.hxx".} = enum
-    RWGltf_GltfAccessorLayout_UNKNOWN, ## !< unknown or invalid type
-    RWGltf_GltfAccessorLayout_Scalar, ## !< "SCALAR"
-    RWGltf_GltfAccessorLayout_Vec2, ## !< "VEC2"
-    RWGltf_GltfAccessorLayout_Vec3, ## !< "VEC3"
-    RWGltf_GltfAccessorLayout_Vec4, ## !< "VEC4"
-    RWGltf_GltfAccessorLayout_Mat2, ## !< "MAT2"
-    RWGltf_GltfAccessorLayout_Mat3, ## !< "MAT3"
-    RWGltf_GltfAccessorLayout_Mat4 ## !< "MAT4"
+  RWGltfGltfAccessorLayout* {.size: sizeof(cint),
+                             importcpp: "RWGltf_GltfAccessorLayout",
+                             header: "RWGltf_GltfAccessorLayout.hxx".} = enum
+    RWGltfGltfAccessorLayoutUNKNOWN, ## !< unknown or invalid type
+    RWGltfGltfAccessorLayoutScalar, ## !< "SCALAR"
+    RWGltfGltfAccessorLayoutVec2, ## !< "VEC2"
+    RWGltfGltfAccessorLayoutVec3, ## !< "VEC3"
+    RWGltfGltfAccessorLayoutVec4, ## !< "VEC4"
+    RWGltfGltfAccessorLayoutMat2, ## !< "MAT2"
+    RWGltfGltfAccessorLayoutMat3, ## !< "MAT3"
+    RWGltfGltfAccessorLayoutMat4 ## !< "MAT4"
 
 
 ## ! Parse GltfAccessorLayout from string.
 
-proc RWGltf_GltfParseAccessorType*(theType: cstring): RWGltf_GltfAccessorLayout =
+proc rWGltfGltfParseAccessorType*(theType: cstring): RWGltfGltfAccessorLayout =
   discard
+

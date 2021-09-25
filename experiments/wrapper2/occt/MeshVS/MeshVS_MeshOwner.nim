@@ -13,17 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../SelectMgr/SelectMgr_EntityOwner, ../PrsMgr/PrsMgr_PresentationManager3d,
-  ../Quantity/Quantity_NameOfColor
-
 discard "forward decl of MeshVS_DataSource"
 discard "forward decl of TColStd_HPackedMapOfInteger"
 discard "forward decl of PrsMgr_PresentationManager"
 discard "forward decl of MeshVS_MeshOwner"
 discard "forward decl of MeshVS_MeshOwner"
 type
-  Handle_MeshVS_MeshOwner* = handle[MeshVS_MeshOwner]
+  HandleMeshVS_MeshOwner* = Handle[MeshVS_MeshOwner]
 
 ## ! The custom mesh owner used for advanced mesh selection. This class provides methods to store information:
 ## ! 1) IDs of hilighted mesh nodes and elements
@@ -31,52 +27,50 @@ type
 
 type
   MeshVS_MeshOwner* {.importcpp: "MeshVS_MeshOwner",
-                     header: "MeshVS_MeshOwner.hxx", bycopy.} = object of SelectMgr_EntityOwner
+                     header: "MeshVS_MeshOwner.hxx", bycopy.} = object of SelectMgrEntityOwner
 
 
-proc constructMeshVS_MeshOwner*(theSelObj: ptr SelectMgr_SelectableObject;
-                               theDS: handle[MeshVS_DataSource];
-                               thePriority: Standard_Integer = 0): MeshVS_MeshOwner {.
-    constructor, importcpp: "MeshVS_MeshOwner(@)", header: "MeshVS_MeshOwner.hxx".}
-proc GetDataSource*(this: MeshVS_MeshOwner): handle[MeshVS_DataSource] {.
+proc constructMeshVS_MeshOwner*(theSelObj: ptr SelectMgrSelectableObject;
+                               theDS: Handle[MeshVS_DataSource];
+                               thePriority: int = 0): MeshVS_MeshOwner {.constructor,
+    importcpp: "MeshVS_MeshOwner(@)", header: "MeshVS_MeshOwner.hxx".}
+proc getDataSource*(this: MeshVS_MeshOwner): Handle[MeshVS_DataSource] {.
     noSideEffect, importcpp: "GetDataSource", header: "MeshVS_MeshOwner.hxx".}
-proc GetSelectedNodes*(this: MeshVS_MeshOwner): handle[TColStd_HPackedMapOfInteger] {.
+proc getSelectedNodes*(this: MeshVS_MeshOwner): Handle[TColStdHPackedMapOfInteger] {.
     noSideEffect, importcpp: "GetSelectedNodes", header: "MeshVS_MeshOwner.hxx".}
-proc GetSelectedElements*(this: MeshVS_MeshOwner): handle[
-    TColStd_HPackedMapOfInteger] {.noSideEffect, importcpp: "GetSelectedElements",
-                                  header: "MeshVS_MeshOwner.hxx".}
-proc AddSelectedEntities*(this: var MeshVS_MeshOwner;
-                         Nodes: handle[TColStd_HPackedMapOfInteger];
-                         Elems: handle[TColStd_HPackedMapOfInteger]) {.
+proc getSelectedElements*(this: MeshVS_MeshOwner): Handle[
+    TColStdHPackedMapOfInteger] {.noSideEffect, importcpp: "GetSelectedElements",
+                                 header: "MeshVS_MeshOwner.hxx".}
+proc addSelectedEntities*(this: var MeshVS_MeshOwner;
+                         nodes: Handle[TColStdHPackedMapOfInteger];
+                         elems: Handle[TColStdHPackedMapOfInteger]) {.
     importcpp: "AddSelectedEntities", header: "MeshVS_MeshOwner.hxx".}
-proc ClearSelectedEntities*(this: var MeshVS_MeshOwner) {.
+proc clearSelectedEntities*(this: var MeshVS_MeshOwner) {.
     importcpp: "ClearSelectedEntities", header: "MeshVS_MeshOwner.hxx".}
-proc GetDetectedNodes*(this: MeshVS_MeshOwner): handle[TColStd_HPackedMapOfInteger] {.
+proc getDetectedNodes*(this: MeshVS_MeshOwner): Handle[TColStdHPackedMapOfInteger] {.
     noSideEffect, importcpp: "GetDetectedNodes", header: "MeshVS_MeshOwner.hxx".}
-proc GetDetectedElements*(this: MeshVS_MeshOwner): handle[
-    TColStd_HPackedMapOfInteger] {.noSideEffect, importcpp: "GetDetectedElements",
-                                  header: "MeshVS_MeshOwner.hxx".}
-proc SetDetectedEntities*(this: var MeshVS_MeshOwner;
-                         Nodes: handle[TColStd_HPackedMapOfInteger];
-                         Elems: handle[TColStd_HPackedMapOfInteger]) {.
+proc getDetectedElements*(this: MeshVS_MeshOwner): Handle[
+    TColStdHPackedMapOfInteger] {.noSideEffect, importcpp: "GetDetectedElements",
+                                 header: "MeshVS_MeshOwner.hxx".}
+proc setDetectedEntities*(this: var MeshVS_MeshOwner;
+                         nodes: Handle[TColStdHPackedMapOfInteger];
+                         elems: Handle[TColStdHPackedMapOfInteger]) {.
     importcpp: "SetDetectedEntities", header: "MeshVS_MeshOwner.hxx".}
-proc HilightWithColor*(this: var MeshVS_MeshOwner;
-                      thePM: handle[PrsMgr_PresentationManager3d];
-                      theColor: handle[Prs3d_Drawer];
-                      theMode: Standard_Integer = 0) {.
+proc hilightWithColor*(this: var MeshVS_MeshOwner;
+                      thePM: Handle[PrsMgrPresentationManager3d];
+                      theColor: Handle[Prs3dDrawer]; theMode: int = 0) {.
     importcpp: "HilightWithColor", header: "MeshVS_MeshOwner.hxx".}
-proc Unhilight*(this: var MeshVS_MeshOwner; PM: handle[PrsMgr_PresentationManager];
-               Mode: Standard_Integer = 0) {.importcpp: "Unhilight",
-    header: "MeshVS_MeshOwner.hxx".}
-proc IsForcedHilight*(this: MeshVS_MeshOwner): Standard_Boolean {.noSideEffect,
+proc unhilight*(this: var MeshVS_MeshOwner; pm: Handle[PrsMgrPresentationManager];
+               mode: int = 0) {.importcpp: "Unhilight", header: "MeshVS_MeshOwner.hxx".}
+proc isForcedHilight*(this: MeshVS_MeshOwner): bool {.noSideEffect,
     importcpp: "IsForcedHilight", header: "MeshVS_MeshOwner.hxx".}
 type
-  MeshVS_MeshOwnerbase_type* = SelectMgr_EntityOwner
+  MeshVS_MeshOwnerbaseType* = SelectMgrEntityOwner
 
-proc get_type_name*(): cstring {.importcpp: "MeshVS_MeshOwner::get_type_name(@)",
-                              header: "MeshVS_MeshOwner.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "MeshVS_MeshOwner::get_type_name(@)",
+                            header: "MeshVS_MeshOwner.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "MeshVS_MeshOwner::get_type_descriptor(@)",
     header: "MeshVS_MeshOwner.hxx".}
-proc DynamicType*(this: MeshVS_MeshOwner): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: MeshVS_MeshOwner): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MeshVS_MeshOwner.hxx".}

@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_ConversionBasedUnit
-
 discard "forward decl of StepBasic_TimeUnit"
 discard "forward decl of StepBasic_DimensionalExponents"
 discard "forward decl of TCollection_HAsciiString"
@@ -24,38 +21,37 @@ discard "forward decl of StepBasic_MeasureWithUnit"
 discard "forward decl of StepBasic_ConversionBasedUnitAndTimeUnit"
 discard "forward decl of StepBasic_ConversionBasedUnitAndTimeUnit"
 type
-  Handle_StepBasic_ConversionBasedUnitAndTimeUnit* = handle[
-      StepBasic_ConversionBasedUnitAndTimeUnit]
-  StepBasic_ConversionBasedUnitAndTimeUnit* {.
+  HandleStepBasicConversionBasedUnitAndTimeUnit* = Handle[
+      StepBasicConversionBasedUnitAndTimeUnit]
+  StepBasicConversionBasedUnitAndTimeUnit* {.
       importcpp: "StepBasic_ConversionBasedUnitAndTimeUnit",
-      header: "StepBasic_ConversionBasedUnitAndTimeUnit.hxx", bycopy.} = object of StepBasic_ConversionBasedUnit ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## a
-                                                                                                          ## ConversionBasedUnitAndTimeUnit
+      header: "StepBasic_ConversionBasedUnitAndTimeUnit.hxx", bycopy.} = object of StepBasicConversionBasedUnit ##
+                                                                                                         ## !
+                                                                                                         ## Returns
+                                                                                                         ## a
+                                                                                                         ## ConversionBasedUnitAndTimeUnit
 
 
-proc constructStepBasic_ConversionBasedUnitAndTimeUnit*(): StepBasic_ConversionBasedUnitAndTimeUnit {.
+proc constructStepBasicConversionBasedUnitAndTimeUnit*(): StepBasicConversionBasedUnitAndTimeUnit {.
     constructor, importcpp: "StepBasic_ConversionBasedUnitAndTimeUnit(@)",
     header: "StepBasic_ConversionBasedUnitAndTimeUnit.hxx".}
-proc Init*(this: var StepBasic_ConversionBasedUnitAndTimeUnit;
-          aDimensions: handle[StepBasic_DimensionalExponents];
-          aName: handle[TCollection_HAsciiString];
-          aConversionFactor: handle[StepBasic_MeasureWithUnit]) {.
+proc init*(this: var StepBasicConversionBasedUnitAndTimeUnit;
+          aDimensions: Handle[StepBasicDimensionalExponents];
+          aName: Handle[TCollectionHAsciiString];
+          aConversionFactor: Handle[StepBasicMeasureWithUnit]) {.
     importcpp: "Init", header: "StepBasic_ConversionBasedUnitAndTimeUnit.hxx".}
-proc SetTimeUnit*(this: var StepBasic_ConversionBasedUnitAndTimeUnit;
-                 aTimeUnit: handle[StepBasic_TimeUnit]) {.
-    importcpp: "SetTimeUnit",
+proc setTimeUnit*(this: var StepBasicConversionBasedUnitAndTimeUnit;
+                 aTimeUnit: Handle[StepBasicTimeUnit]) {.importcpp: "SetTimeUnit",
     header: "StepBasic_ConversionBasedUnitAndTimeUnit.hxx".}
-proc TimeUnit*(this: StepBasic_ConversionBasedUnitAndTimeUnit): handle[
-    StepBasic_TimeUnit] {.noSideEffect, importcpp: "TimeUnit",
-                         header: "StepBasic_ConversionBasedUnitAndTimeUnit.hxx".}
+proc timeUnit*(this: StepBasicConversionBasedUnitAndTimeUnit): Handle[
+    StepBasicTimeUnit] {.noSideEffect, importcpp: "TimeUnit",
+                        header: "StepBasic_ConversionBasedUnitAndTimeUnit.hxx".}
 type
-  StepBasic_ConversionBasedUnitAndTimeUnitbase_type* = StepBasic_ConversionBasedUnit
+  StepBasicConversionBasedUnitAndTimeUnitbaseType* = StepBasicConversionBasedUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ConversionBasedUnitAndTimeUnit::get_type_name(@)", header: "StepBasic_ConversionBasedUnitAndTimeUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepBasic_ConversionBasedUnitAndTimeUnit::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ConversionBasedUnitAndTimeUnit::get_type_name(@)", header: "StepBasic_ConversionBasedUnitAndTimeUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_ConversionBasedUnitAndTimeUnit::get_type_descriptor(@)",
     header: "StepBasic_ConversionBasedUnitAndTimeUnit.hxx".}
-proc DynamicType*(this: StepBasic_ConversionBasedUnitAndTimeUnit): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepBasic_ConversionBasedUnitAndTimeUnit.hxx".}
+proc dynamicType*(this: StepBasicConversionBasedUnitAndTimeUnit): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepBasic_ConversionBasedUnitAndTimeUnit.hxx".}

@@ -14,21 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TopOpeBRepTool_define, TopOpeBRepTool_ShapeClassifier,
-  TopOpeBRepTool_PShapeClassifier
-
-proc FSC_GetPSC*(): var TopOpeBRepTool_ShapeClassifier {.importcpp: "FSC_GetPSC(@)",
+proc fSC_GetPSC*(): var TopOpeBRepToolShapeClassifier {.importcpp: "FSC_GetPSC(@)",
     header: "TopOpeBRepTool_SC.hxx".}
-proc FSC_GetPSC*(S: TopoDS_Shape): var TopOpeBRepTool_ShapeClassifier {.
+proc fSC_GetPSC*(s: TopoDS_Shape): var TopOpeBRepToolShapeClassifier {.
     importcpp: "FSC_GetPSC(@)", header: "TopOpeBRepTool_SC.hxx".}
 ##  ----------------------------------------------------------------------
 ##   state point <P> on/in shapes (edge <E>,face <F>)
 ##  ----------------------------------------------------------------------
 
-proc FSC_StatePonFace*(P: gp_Pnt; F: TopoDS_Shape;
-                      PSC: var TopOpeBRepTool_ShapeClassifier): TopAbs_State {.
+proc fSC_StatePonFace*(p: Pnt; f: TopoDS_Shape;
+                      psc: var TopOpeBRepToolShapeClassifier): TopAbsState {.
     importcpp: "FSC_StatePonFace(@)", header: "TopOpeBRepTool_SC.hxx".}
-proc FSC_StateEonFace*(E: TopoDS_Shape; t: Standard_Real; F: TopoDS_Shape;
-                      PSC: var TopOpeBRepTool_ShapeClassifier): TopAbs_State {.
+proc fSC_StateEonFace*(e: TopoDS_Shape; t: float; f: TopoDS_Shape;
+                      psc: var TopOpeBRepToolShapeClassifier): TopAbsState {.
     importcpp: "FSC_StateEonFace(@)", header: "TopOpeBRepTool_SC.hxx".}

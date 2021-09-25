@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopAbs/TopAbs_ShapeEnum,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of TopOpeBRepDS_HDataStructure"
 discard "forward decl of Standard_NoMoreObject"
 discard "forward decl of Standard_NoSuchObject"
@@ -33,29 +28,28 @@ type
 
 proc constructTopOpeBRepDS_Explorer*(): TopOpeBRepDS_Explorer {.constructor,
     importcpp: "TopOpeBRepDS_Explorer(@)", header: "TopOpeBRepDS_Explorer.hxx".}
-proc constructTopOpeBRepDS_Explorer*(HDS: handle[TopOpeBRepDS_HDataStructure];
-                                    T: TopAbs_ShapeEnum = TopAbs_SHAPE;
-                                    findkeep: Standard_Boolean = Standard_True): TopOpeBRepDS_Explorer {.
+proc constructTopOpeBRepDS_Explorer*(hds: Handle[TopOpeBRepDS_HDataStructure];
+                                    t: TopAbsShapeEnum = topAbsSHAPE;
+                                    findkeep: bool = true): TopOpeBRepDS_Explorer {.
     constructor, importcpp: "TopOpeBRepDS_Explorer(@)",
     header: "TopOpeBRepDS_Explorer.hxx".}
-proc Init*(this: var TopOpeBRepDS_Explorer;
-          HDS: handle[TopOpeBRepDS_HDataStructure];
-          T: TopAbs_ShapeEnum = TopAbs_SHAPE;
-          findkeep: Standard_Boolean = Standard_True) {.importcpp: "Init",
+proc init*(this: var TopOpeBRepDS_Explorer;
+          hds: Handle[TopOpeBRepDS_HDataStructure];
+          t: TopAbsShapeEnum = topAbsSHAPE; findkeep: bool = true) {.importcpp: "Init",
     header: "TopOpeBRepDS_Explorer.hxx".}
-proc Type*(this: TopOpeBRepDS_Explorer): TopAbs_ShapeEnum {.noSideEffect,
+proc `type`*(this: TopOpeBRepDS_Explorer): TopAbsShapeEnum {.noSideEffect,
     importcpp: "Type", header: "TopOpeBRepDS_Explorer.hxx".}
-proc More*(this: TopOpeBRepDS_Explorer): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "TopOpeBRepDS_Explorer.hxx".}
-proc Next*(this: var TopOpeBRepDS_Explorer) {.importcpp: "Next",
+proc more*(this: TopOpeBRepDS_Explorer): bool {.noSideEffect, importcpp: "More",
     header: "TopOpeBRepDS_Explorer.hxx".}
-proc Current*(this: TopOpeBRepDS_Explorer): TopoDS_Shape {.noSideEffect,
+proc next*(this: var TopOpeBRepDS_Explorer) {.importcpp: "Next",
+    header: "TopOpeBRepDS_Explorer.hxx".}
+proc current*(this: TopOpeBRepDS_Explorer): TopoDS_Shape {.noSideEffect,
     importcpp: "Current", header: "TopOpeBRepDS_Explorer.hxx".}
-proc Index*(this: TopOpeBRepDS_Explorer): Standard_Integer {.noSideEffect,
-    importcpp: "Index", header: "TopOpeBRepDS_Explorer.hxx".}
-proc Face*(this: TopOpeBRepDS_Explorer): TopoDS_Face {.noSideEffect,
+proc index*(this: TopOpeBRepDS_Explorer): int {.noSideEffect, importcpp: "Index",
+    header: "TopOpeBRepDS_Explorer.hxx".}
+proc face*(this: TopOpeBRepDS_Explorer): TopoDS_Face {.noSideEffect,
     importcpp: "Face", header: "TopOpeBRepDS_Explorer.hxx".}
-proc Edge*(this: TopOpeBRepDS_Explorer): TopoDS_Edge {.noSideEffect,
+proc edge*(this: TopOpeBRepDS_Explorer): TopoDS_Edge {.noSideEffect,
     importcpp: "Edge", header: "TopOpeBRepDS_Explorer.hxx".}
-proc Vertex*(this: TopOpeBRepDS_Explorer): TopoDS_Vertex {.noSideEffect,
+proc vertex*(this: TopOpeBRepDS_Explorer): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex", header: "TopOpeBRepDS_Explorer.hxx".}

@@ -14,17 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean
-
 ## ! This class implements the common services for
 ## ! all classes of GeomToStep which report error.
 
 type
-  GeomToStep_Root* {.importcpp: "GeomToStep_Root", header: "GeomToStep_Root.hxx",
-                    bycopy.} = object
+  GeomToStepRoot* {.importcpp: "GeomToStep_Root", header: "GeomToStep_Root.hxx",
+                   bycopy.} = object
 
 
-proc IsDone*(this: GeomToStep_Root): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "GeomToStep_Root.hxx".}
+proc isDone*(this: GeomToStepRoot): bool {.noSideEffect, importcpp: "IsDone",
+                                       header: "GeomToStep_Root.hxx".}

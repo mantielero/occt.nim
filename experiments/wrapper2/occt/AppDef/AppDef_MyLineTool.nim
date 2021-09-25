@@ -14,62 +14,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../TColgp/TColgp_Array1OfPnt, ../TColgp/TColgp_Array1OfPnt2d,
-  ../Standard/Standard_Boolean, ../TColgp/TColgp_Array1OfVec,
-  ../TColgp/TColgp_Array1OfVec2d, ../Approx/Approx_Status
-
 discard "forward decl of AppDef_MultiLine"
 type
-  AppDef_MyLineTool* {.importcpp: "AppDef_MyLineTool",
-                      header: "AppDef_MyLineTool.hxx", bycopy.} = object ## ! Returns the first index of multipoints of the MultiLine.
+  AppDefMyLineTool* {.importcpp: "AppDef_MyLineTool",
+                     header: "AppDef_MyLineTool.hxx", bycopy.} = object ## ! Returns the first index of multipoints of the MultiLine.
 
 
-proc FirstPoint*(ML: AppDef_MultiLine): Standard_Integer {.
+proc firstPoint*(ml: AppDefMultiLine): int {.
     importcpp: "AppDef_MyLineTool::FirstPoint(@)", header: "AppDef_MyLineTool.hxx".}
-proc LastPoint*(ML: AppDef_MultiLine): Standard_Integer {.
-    importcpp: "AppDef_MyLineTool::LastPoint(@)", header: "AppDef_MyLineTool.hxx".}
-proc NbP2d*(ML: AppDef_MultiLine): Standard_Integer {.
-    importcpp: "AppDef_MyLineTool::NbP2d(@)", header: "AppDef_MyLineTool.hxx".}
-proc NbP3d*(ML: AppDef_MultiLine): Standard_Integer {.
-    importcpp: "AppDef_MyLineTool::NbP3d(@)", header: "AppDef_MyLineTool.hxx".}
-proc Value*(ML: AppDef_MultiLine; MPointIndex: Standard_Integer;
-           tabPt: var TColgp_Array1OfPnt) {.
+proc lastPoint*(ml: AppDefMultiLine): int {.importcpp: "AppDef_MyLineTool::LastPoint(@)",
+                                        header: "AppDef_MyLineTool.hxx".}
+proc nbP2d*(ml: AppDefMultiLine): int {.importcpp: "AppDef_MyLineTool::NbP2d(@)",
+                                    header: "AppDef_MyLineTool.hxx".}
+proc nbP3d*(ml: AppDefMultiLine): int {.importcpp: "AppDef_MyLineTool::NbP3d(@)",
+                                    header: "AppDef_MyLineTool.hxx".}
+proc value*(ml: AppDefMultiLine; mPointIndex: int; tabPt: var TColgpArray1OfPnt) {.
     importcpp: "AppDef_MyLineTool::Value(@)", header: "AppDef_MyLineTool.hxx".}
-proc Value*(ML: AppDef_MultiLine; MPointIndex: Standard_Integer;
-           tabPt2d: var TColgp_Array1OfPnt2d) {.
+proc value*(ml: AppDefMultiLine; mPointIndex: int; tabPt2d: var TColgpArray1OfPnt2d) {.
     importcpp: "AppDef_MyLineTool::Value(@)", header: "AppDef_MyLineTool.hxx".}
-proc Value*(ML: AppDef_MultiLine; MPointIndex: Standard_Integer;
-           tabPt: var TColgp_Array1OfPnt; tabPt2d: var TColgp_Array1OfPnt2d) {.
+proc value*(ml: AppDefMultiLine; mPointIndex: int; tabPt: var TColgpArray1OfPnt;
+           tabPt2d: var TColgpArray1OfPnt2d) {.
     importcpp: "AppDef_MyLineTool::Value(@)", header: "AppDef_MyLineTool.hxx".}
-proc Tangency*(ML: AppDef_MultiLine; MPointIndex: Standard_Integer;
-              tabV: var TColgp_Array1OfVec): Standard_Boolean {.
+proc tangency*(ml: AppDefMultiLine; mPointIndex: int; tabV: var TColgpArray1OfVec): bool {.
     importcpp: "AppDef_MyLineTool::Tangency(@)", header: "AppDef_MyLineTool.hxx".}
-proc Tangency*(ML: AppDef_MultiLine; MPointIndex: Standard_Integer;
-              tabV2d: var TColgp_Array1OfVec2d): Standard_Boolean {.
+proc tangency*(ml: AppDefMultiLine; mPointIndex: int; tabV2d: var TColgpArray1OfVec2d): bool {.
     importcpp: "AppDef_MyLineTool::Tangency(@)", header: "AppDef_MyLineTool.hxx".}
-proc Tangency*(ML: AppDef_MultiLine; MPointIndex: Standard_Integer;
-              tabV: var TColgp_Array1OfVec; tabV2d: var TColgp_Array1OfVec2d): Standard_Boolean {.
+proc tangency*(ml: AppDefMultiLine; mPointIndex: int; tabV: var TColgpArray1OfVec;
+              tabV2d: var TColgpArray1OfVec2d): bool {.
     importcpp: "AppDef_MyLineTool::Tangency(@)", header: "AppDef_MyLineTool.hxx".}
-proc Curvature*(ML: AppDef_MultiLine; MPointIndex: Standard_Integer;
-               tabV: var TColgp_Array1OfVec): Standard_Boolean {.
+proc curvature*(ml: AppDefMultiLine; mPointIndex: int; tabV: var TColgpArray1OfVec): bool {.
     importcpp: "AppDef_MyLineTool::Curvature(@)", header: "AppDef_MyLineTool.hxx".}
-proc Curvature*(ML: AppDef_MultiLine; MPointIndex: Standard_Integer;
-               tabV2d: var TColgp_Array1OfVec2d): Standard_Boolean {.
+proc curvature*(ml: AppDefMultiLine; mPointIndex: int;
+               tabV2d: var TColgpArray1OfVec2d): bool {.
     importcpp: "AppDef_MyLineTool::Curvature(@)", header: "AppDef_MyLineTool.hxx".}
-proc Curvature*(ML: AppDef_MultiLine; MPointIndex: Standard_Integer;
-               tabV: var TColgp_Array1OfVec; tabV2d: var TColgp_Array1OfVec2d): Standard_Boolean {.
+proc curvature*(ml: AppDefMultiLine; mPointIndex: int; tabV: var TColgpArray1OfVec;
+               tabV2d: var TColgpArray1OfVec2d): bool {.
     importcpp: "AppDef_MyLineTool::Curvature(@)", header: "AppDef_MyLineTool.hxx".}
-proc WhatStatus*(ML: AppDef_MultiLine; I1: Standard_Integer; I2: Standard_Integer): Approx_Status {.
+proc whatStatus*(ml: AppDefMultiLine; i1: int; i2: int): ApproxStatus {.
     importcpp: "AppDef_MyLineTool::WhatStatus(@)", header: "AppDef_MyLineTool.hxx".}
-proc MakeMLBetween*(ML: AppDef_MultiLine; I1: Standard_Integer; I2: Standard_Integer;
-                   NbPMin: Standard_Integer): AppDef_MultiLine {.
+proc makeMLBetween*(ml: AppDefMultiLine; i1: int; i2: int; nbPMin: int): AppDefMultiLine {.
     importcpp: "AppDef_MyLineTool::MakeMLBetween(@)",
     header: "AppDef_MyLineTool.hxx".}
-proc MakeMLOneMorePoint*(ML: AppDef_MultiLine; I1: Standard_Integer;
-                        I2: Standard_Integer; indbad: Standard_Integer;
-                        OtherLine: var AppDef_MultiLine): Standard_Boolean {.
+proc makeMLOneMorePoint*(ml: AppDefMultiLine; i1: int; i2: int; indbad: int;
+                        otherLine: var AppDefMultiLine): bool {.
     importcpp: "AppDef_MyLineTool::MakeMLOneMorePoint(@)",
     header: "AppDef_MyLineTool.hxx".}

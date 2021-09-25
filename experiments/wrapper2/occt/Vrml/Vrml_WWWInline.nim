@@ -14,33 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TCollection/TCollection_AsciiString,
-  ../gp/gp_Vec, ../Standard/Standard_OStream
-
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of gp_Vec"
 type
-  Vrml_WWWInline* {.importcpp: "Vrml_WWWInline", header: "Vrml_WWWInline.hxx", bycopy.} = object
+  VrmlWWWInline* {.importcpp: "Vrml_WWWInline", header: "Vrml_WWWInline.hxx", bycopy.} = object
 
 
-proc constructVrml_WWWInline*(): Vrml_WWWInline {.constructor,
+proc constructVrmlWWWInline*(): VrmlWWWInline {.constructor,
     importcpp: "Vrml_WWWInline(@)", header: "Vrml_WWWInline.hxx".}
-proc constructVrml_WWWInline*(aName: TCollection_AsciiString; aBboxSize: gp_Vec;
-                             aBboxCenter: gp_Vec): Vrml_WWWInline {.constructor,
+proc constructVrmlWWWInline*(aName: TCollectionAsciiString; aBboxSize: Vec;
+                            aBboxCenter: Vec): VrmlWWWInline {.constructor,
     importcpp: "Vrml_WWWInline(@)", header: "Vrml_WWWInline.hxx".}
-proc SetName*(this: var Vrml_WWWInline; aName: TCollection_AsciiString) {.
+proc setName*(this: var VrmlWWWInline; aName: TCollectionAsciiString) {.
     importcpp: "SetName", header: "Vrml_WWWInline.hxx".}
-proc Name*(this: Vrml_WWWInline): TCollection_AsciiString {.noSideEffect,
+proc name*(this: VrmlWWWInline): TCollectionAsciiString {.noSideEffect,
     importcpp: "Name", header: "Vrml_WWWInline.hxx".}
-proc SetBboxSize*(this: var Vrml_WWWInline; aBboxSize: gp_Vec) {.
-    importcpp: "SetBboxSize", header: "Vrml_WWWInline.hxx".}
-proc BboxSize*(this: Vrml_WWWInline): gp_Vec {.noSideEffect, importcpp: "BboxSize",
+proc setBboxSize*(this: var VrmlWWWInline; aBboxSize: Vec) {.importcpp: "SetBboxSize",
     header: "Vrml_WWWInline.hxx".}
-proc SetBboxCenter*(this: var Vrml_WWWInline; aBboxCenter: gp_Vec) {.
+proc bboxSize*(this: VrmlWWWInline): Vec {.noSideEffect, importcpp: "BboxSize",
+                                       header: "Vrml_WWWInline.hxx".}
+proc setBboxCenter*(this: var VrmlWWWInline; aBboxCenter: Vec) {.
     importcpp: "SetBboxCenter", header: "Vrml_WWWInline.hxx".}
-proc BboxCenter*(this: Vrml_WWWInline): gp_Vec {.noSideEffect,
-    importcpp: "BboxCenter", header: "Vrml_WWWInline.hxx".}
-proc Print*(this: Vrml_WWWInline; anOStream: var Standard_OStream): var Standard_OStream {.
+proc bboxCenter*(this: VrmlWWWInline): Vec {.noSideEffect, importcpp: "BboxCenter",
+    header: "Vrml_WWWInline.hxx".}
+proc print*(this: VrmlWWWInline; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_WWWInline.hxx".}

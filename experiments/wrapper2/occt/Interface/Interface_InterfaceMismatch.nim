@@ -14,16 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Interface_InterfaceMismatch_HeaderFile [NewLine] # _Interface_InterfaceMismatch_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # Interface_InterfaceError.hxx [NewLine] class Interface_InterfaceMismatch ;
+## !!!Ignored construct:  # _Interface_InterfaceMismatch_HeaderFile [NewLine] # _Interface_InterfaceMismatch_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Interface_InterfaceError . hxx > [NewLine] class Interface_InterfaceMismatch ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Interface_InterfaceMismatch"
 type
-  Handle_Interface_InterfaceMismatchInterface_InterfaceMismatch* = handle[
-      Interface_InterfaceMismatch]
+  HandleInterfaceInterfaceMismatchInterfaceInterfaceMismatch* = Handle[
+      InterfaceInterfaceMismatch]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Interface_InterfaceMismatch [NewLine] # if ( CONDITION ) throw Interface_InterfaceMismatch ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Interface_InterfaceMismatch , Interface_InterfaceError ) #  _Interface_InterfaceMismatch_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Interface_InterfaceMismatch , Interface_InterfaceError ) #  _Interface_InterfaceMismatch_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

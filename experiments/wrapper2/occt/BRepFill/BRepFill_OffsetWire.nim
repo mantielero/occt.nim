@@ -14,16 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Face, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../TopoDS/TopoDS_Shape,
-  ../GeomAbs/GeomAbs_JoinType, BRepFill_IndexedDataMapOfOrientedShapeListOfShape,
-  ../BRepMAT2d/BRepMAT2d_BisectingLocus, ../BRepMAT2d/BRepMAT2d_LinkTopoBilo,
-  ../TopTools/TopTools_DataMapOfShapeShape, ../TopTools/TopTools_ListOfShape,
-  BRepFill_DataMapOfOrientedShapeListOfShape,
-  ../TopTools/TopTools_SequenceOfShape, ../TColgp/TColgp_SequenceOfPnt
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopoDS_Face"
@@ -33,35 +23,34 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of Bisector_Bisec"
 discard "forward decl of BRepFill_TrimEdgeTool"
 type
-  BRepFill_OffsetWire* {.importcpp: "BRepFill_OffsetWire",
-                        header: "BRepFill_OffsetWire.hxx", bycopy.} = object
+  BRepFillOffsetWire* {.importcpp: "BRepFill_OffsetWire",
+                       header: "BRepFill_OffsetWire.hxx", bycopy.} = object
 
 
-proc constructBRepFill_OffsetWire*(): BRepFill_OffsetWire {.constructor,
+proc constructBRepFillOffsetWire*(): BRepFillOffsetWire {.constructor,
     importcpp: "BRepFill_OffsetWire(@)", header: "BRepFill_OffsetWire.hxx".}
-proc constructBRepFill_OffsetWire*(Spine: TopoDS_Face;
-                                  Join: GeomAbs_JoinType = GeomAbs_Arc; IsOpenResult: Standard_Boolean = Standard_False): BRepFill_OffsetWire {.
+proc constructBRepFillOffsetWire*(spine: TopoDS_Face;
+                                 join: GeomAbsJoinType = geomAbsArc;
+                                 isOpenResult: bool = false): BRepFillOffsetWire {.
     constructor, importcpp: "BRepFill_OffsetWire(@)",
     header: "BRepFill_OffsetWire.hxx".}
-proc Init*(this: var BRepFill_OffsetWire; Spine: TopoDS_Face;
-          Join: GeomAbs_JoinType = GeomAbs_Arc;
-          IsOpenResult: Standard_Boolean = Standard_False) {.importcpp: "Init",
-    header: "BRepFill_OffsetWire.hxx".}
-proc Perform*(this: var BRepFill_OffsetWire; Offset: Standard_Real;
-             Alt: Standard_Real = 0.0) {.importcpp: "Perform",
-                                     header: "BRepFill_OffsetWire.hxx".}
-proc PerformWithBiLo*(this: var BRepFill_OffsetWire; WSP: TopoDS_Face;
-                     Offset: Standard_Real; Locus: BRepMAT2d_BisectingLocus;
-                     Link: var BRepMAT2d_LinkTopoBilo;
-                     Join: GeomAbs_JoinType = GeomAbs_Arc; Alt: Standard_Real = 0.0) {.
+proc init*(this: var BRepFillOffsetWire; spine: TopoDS_Face;
+          join: GeomAbsJoinType = geomAbsArc; isOpenResult: bool = false) {.
+    importcpp: "Init", header: "BRepFill_OffsetWire.hxx".}
+proc perform*(this: var BRepFillOffsetWire; offset: float; alt: float = 0.0) {.
+    importcpp: "Perform", header: "BRepFill_OffsetWire.hxx".}
+proc performWithBiLo*(this: var BRepFillOffsetWire; wsp: TopoDS_Face; offset: float;
+                     locus: BRepMAT2dBisectingLocus;
+                     link: var BRepMAT2dLinkTopoBilo;
+                     join: GeomAbsJoinType = geomAbsArc; alt: float = 0.0) {.
     importcpp: "PerformWithBiLo", header: "BRepFill_OffsetWire.hxx".}
-proc IsDone*(this: BRepFill_OffsetWire): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "BRepFill_OffsetWire.hxx".}
-proc Spine*(this: BRepFill_OffsetWire): TopoDS_Face {.noSideEffect,
+proc isDone*(this: BRepFillOffsetWire): bool {.noSideEffect, importcpp: "IsDone",
+    header: "BRepFill_OffsetWire.hxx".}
+proc spine*(this: BRepFillOffsetWire): TopoDS_Face {.noSideEffect,
     importcpp: "Spine", header: "BRepFill_OffsetWire.hxx".}
-proc Shape*(this: BRepFill_OffsetWire): TopoDS_Shape {.noSideEffect,
+proc shape*(this: BRepFillOffsetWire): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "BRepFill_OffsetWire.hxx".}
-proc GeneratedShapes*(this: var BRepFill_OffsetWire; SpineShape: TopoDS_Shape): TopTools_ListOfShape {.
+proc generatedShapes*(this: var BRepFillOffsetWire; spineShape: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "GeneratedShapes", header: "BRepFill_OffsetWire.hxx".}
-proc JoinType*(this: BRepFill_OffsetWire): GeomAbs_JoinType {.noSideEffect,
+proc joinType*(this: BRepFillOffsetWire): GeomAbsJoinType {.noSideEffect,
     importcpp: "JoinType", header: "BRepFill_OffsetWire.hxx".}

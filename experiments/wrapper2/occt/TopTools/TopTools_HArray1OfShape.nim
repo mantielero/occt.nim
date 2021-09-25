@@ -14,38 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, TopTools_Array1OfShape,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  TopTools_HArray1OfShape* {.importcpp: "TopTools_HArray1OfShape",
-                            header: "TopTools_HArray1OfShape.hxx", bycopy.} = object of TopTools_Array1OfShape
+  TopToolsHArray1OfShape* {.importcpp: "TopTools_HArray1OfShape",
+                           header: "TopTools_HArray1OfShape.hxx", bycopy.} = object of TopToolsArray1OfShape
 
 
-proc constructTopTools_HArray1OfShape*(theLower: Standard_Integer;
-                                      theUpper: Standard_Integer): TopTools_HArray1OfShape {.
+proc constructTopToolsHArray1OfShape*(theLower: int; theUpper: int): TopToolsHArray1OfShape {.
     constructor, importcpp: "TopTools_HArray1OfShape(@)",
     header: "TopTools_HArray1OfShape.hxx".}
-proc constructTopTools_HArray1OfShape*(theLower: Standard_Integer;
-                                      theUpper: Standard_Integer;
-                                      theValue: value_type): TopTools_HArray1OfShape {.
+proc constructTopToolsHArray1OfShape*(theLower: int; theUpper: int;
+                                     theValue: ValueType): TopToolsHArray1OfShape {.
     constructor, importcpp: "TopTools_HArray1OfShape(@)",
     header: "TopTools_HArray1OfShape.hxx".}
-proc constructTopTools_HArray1OfShape*(theOther: TopTools_Array1OfShape): TopTools_HArray1OfShape {.
+proc constructTopToolsHArray1OfShape*(theOther: TopToolsArray1OfShape): TopToolsHArray1OfShape {.
     constructor, importcpp: "TopTools_HArray1OfShape(@)",
     header: "TopTools_HArray1OfShape.hxx".}
-proc Array1*(this: TopTools_HArray1OfShape): TopTools_Array1OfShape {.noSideEffect,
+proc array1*(this: TopToolsHArray1OfShape): TopToolsArray1OfShape {.noSideEffect,
     importcpp: "Array1", header: "TopTools_HArray1OfShape.hxx".}
-proc ChangeArray1*(this: var TopTools_HArray1OfShape): var TopTools_Array1OfShape {.
+proc changeArray1*(this: var TopToolsHArray1OfShape): var TopToolsArray1OfShape {.
     importcpp: "ChangeArray1", header: "TopTools_HArray1OfShape.hxx".}
 type
-  TopTools_HArray1OfShapebase_type* = MMgt_TShared
+  TopToolsHArray1OfShapebaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TopTools_HArray1OfShape::get_type_name(@)",
-                              header: "TopTools_HArray1OfShape.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TopTools_HArray1OfShape::get_type_name(@)",
+                            header: "TopTools_HArray1OfShape.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopTools_HArray1OfShape::get_type_descriptor(@)",
     header: "TopTools_HArray1OfShape.hxx".}
-proc DynamicType*(this: TopTools_HArray1OfShape): handle[Standard_Type] {.
+proc dynamicType*(this: TopToolsHArray1OfShape): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TopTools_HArray1OfShape.hxx".}

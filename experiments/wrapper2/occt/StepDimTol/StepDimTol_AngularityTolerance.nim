@@ -13,36 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepDimTol_GeometricToleranceWithDatumReference
-
 discard "forward decl of StepDimTol_AngularityTolerance"
 discard "forward decl of StepDimTol_AngularityTolerance"
 type
-  Handle_StepDimTol_AngularityTolerance* = handle[StepDimTol_AngularityTolerance]
+  HandleStepDimTolAngularityTolerance* = Handle[StepDimTolAngularityTolerance]
 
 ## ! Representation of STEP entity AngularityTolerance
 
 type
-  StepDimTol_AngularityTolerance* {.importcpp: "StepDimTol_AngularityTolerance", header: "StepDimTol_AngularityTolerance.hxx",
-                                   bycopy.} = object of StepDimTol_GeometricToleranceWithDatumReference ##
-                                                                                                   ## !
-                                                                                                   ## Empty
-                                                                                                   ## constructor
+  StepDimTolAngularityTolerance* {.importcpp: "StepDimTol_AngularityTolerance",
+                                  header: "StepDimTol_AngularityTolerance.hxx",
+                                  bycopy.} = object of StepDimTolGeometricToleranceWithDatumReference ##
+                                                                                                 ## !
+                                                                                                 ## Empty
+                                                                                                 ## constructor
 
 
-proc constructStepDimTol_AngularityTolerance*(): StepDimTol_AngularityTolerance {.
+proc constructStepDimTolAngularityTolerance*(): StepDimTolAngularityTolerance {.
     constructor, importcpp: "StepDimTol_AngularityTolerance(@)",
     header: "StepDimTol_AngularityTolerance.hxx".}
 type
-  StepDimTol_AngularityTolerancebase_type* = StepDimTol_GeometricToleranceWithDatumReference
+  StepDimTolAngularityTolerancebaseType* = StepDimTolGeometricToleranceWithDatumReference
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_AngularityTolerance::get_type_name(@)",
-                              header: "StepDimTol_AngularityTolerance.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_AngularityTolerance::get_type_name(@)",
+                            header: "StepDimTol_AngularityTolerance.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_AngularityTolerance::get_type_descriptor(@)",
     header: "StepDimTol_AngularityTolerance.hxx".}
-proc DynamicType*(this: StepDimTol_AngularityTolerance): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolAngularityTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_AngularityTolerance.hxx".}

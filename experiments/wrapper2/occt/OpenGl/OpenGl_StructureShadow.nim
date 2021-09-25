@@ -13,45 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_Structure
-
 ## ! Dummy structure which just redirects to groups of another structure.
 
 type
-  OpenGl_StructureShadow* {.importcpp: "OpenGl_StructureShadow",
-                           header: "OpenGl_StructureShadow.hxx", bycopy.} = object of OpenGl_Structure ##
-                                                                                                ## !
-                                                                                                ## Create
-                                                                                                ## empty
-                                                                                                ## structure
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Raise
-                                                                                                ## exception
-                                                                                                ## on
-                                                                                                ## API
-                                                                                                ## misuse.
+  OpenGlStructureShadow* {.importcpp: "OpenGl_StructureShadow",
+                          header: "OpenGl_StructureShadow.hxx", bycopy.} = object of OpenGlStructure ##
+                                                                                              ## !
+                                                                                              ## Create
+                                                                                              ## empty
+                                                                                              ## structure
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Raise
+                                                                                              ## exception
+                                                                                              ## on
+                                                                                              ## API
+                                                                                              ## misuse.
 
 
-proc constructOpenGl_StructureShadow*(theManager: handle[
-    Graphic3d_StructureManager]; theStructure: handle[OpenGl_Structure]): OpenGl_StructureShadow {.
+proc constructOpenGlStructureShadow*(theManager: Handle[Graphic3dStructureManager];
+                                    theStructure: Handle[OpenGlStructure]): OpenGlStructureShadow {.
     constructor, importcpp: "OpenGl_StructureShadow(@)",
     header: "OpenGl_StructureShadow.hxx".}
-proc Connect*(this: var OpenGl_StructureShadow; a2: var Graphic3d_CStructure) {.
+proc connect*(this: var OpenGlStructureShadow; a2: var Graphic3dCStructure) {.
     importcpp: "Connect", header: "OpenGl_StructureShadow.hxx".}
-proc Disconnect*(this: var OpenGl_StructureShadow; a2: var Graphic3d_CStructure) {.
+proc disconnect*(this: var OpenGlStructureShadow; a2: var Graphic3dCStructure) {.
     importcpp: "Disconnect", header: "OpenGl_StructureShadow.hxx".}
 type
-  OpenGl_StructureShadowbase_type* = OpenGl_Structure
+  OpenGlStructureShadowbaseType* = OpenGlStructure
 
-proc get_type_name*(): cstring {.importcpp: "OpenGl_StructureShadow::get_type_name(@)",
-                              header: "OpenGl_StructureShadow.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "OpenGl_StructureShadow::get_type_name(@)",
+                            header: "OpenGl_StructureShadow.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "OpenGl_StructureShadow::get_type_descriptor(@)",
     header: "OpenGl_StructureShadow.hxx".}
-proc DynamicType*(this: OpenGl_StructureShadow): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "OpenGl_StructureShadow.hxx".}
+proc dynamicType*(this: OpenGlStructureShadow): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "OpenGl_StructureShadow.hxx".}
 discard "forward decl of OpenGl_StructureShadow"
 type
-  Handle_OpenGl_StructureShadow* = handle[OpenGl_StructureShadow]
+  HandleOpenGlStructureShadow* = Handle[OpenGlStructureShadow]
+

@@ -14,31 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepGeom_CompositeCurveOnSurface
-
 discard "forward decl of StepGeom_BoundaryCurve"
 discard "forward decl of StepGeom_BoundaryCurve"
 type
-  Handle_StepGeom_BoundaryCurve* = handle[StepGeom_BoundaryCurve]
-  StepGeom_BoundaryCurve* {.importcpp: "StepGeom_BoundaryCurve",
-                           header: "StepGeom_BoundaryCurve.hxx", bycopy.} = object of StepGeom_CompositeCurveOnSurface ##
-                                                                                                                ## !
-                                                                                                                ## Returns
-                                                                                                                ## a
-                                                                                                                ## BoundaryCurve
+  HandleStepGeomBoundaryCurve* = Handle[StepGeomBoundaryCurve]
+  StepGeomBoundaryCurve* {.importcpp: "StepGeom_BoundaryCurve",
+                          header: "StepGeom_BoundaryCurve.hxx", bycopy.} = object of StepGeomCompositeCurveOnSurface ##
+                                                                                                              ## !
+                                                                                                              ## Returns
+                                                                                                              ## a
+                                                                                                              ## BoundaryCurve
 
 
-proc constructStepGeom_BoundaryCurve*(): StepGeom_BoundaryCurve {.constructor,
+proc constructStepGeomBoundaryCurve*(): StepGeomBoundaryCurve {.constructor,
     importcpp: "StepGeom_BoundaryCurve(@)", header: "StepGeom_BoundaryCurve.hxx".}
 type
-  StepGeom_BoundaryCurvebase_type* = StepGeom_CompositeCurveOnSurface
+  StepGeomBoundaryCurvebaseType* = StepGeomCompositeCurveOnSurface
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_BoundaryCurve::get_type_name(@)",
-                              header: "StepGeom_BoundaryCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_BoundaryCurve::get_type_name(@)",
+                            header: "StepGeom_BoundaryCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_BoundaryCurve::get_type_descriptor(@)",
     header: "StepGeom_BoundaryCurve.hxx".}
-proc DynamicType*(this: StepGeom_BoundaryCurve): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepGeom_BoundaryCurve.hxx".}
+proc dynamicType*(this: StepGeomBoundaryCurve): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepGeom_BoundaryCurve.hxx".}

@@ -11,8 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Prs3d/Prs3d_BndBox
-
 type
-  StdPrs_BndBox* = Prs3d_BndBox
+  StdPrsBndBox* = Prs3dBndBox
+

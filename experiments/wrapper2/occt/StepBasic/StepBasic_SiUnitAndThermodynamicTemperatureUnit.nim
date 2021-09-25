@@ -13,45 +13,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_SiUnit,
-  ../Standard/Standard_Boolean, StepBasic_SiPrefix, StepBasic_SiUnitName
-
 discard "forward decl of StepBasic_ThermodynamicTemperatureUnit"
 discard "forward decl of StepBasic_DimensionalExponents"
 discard "forward decl of StepBasic_SiUnitAndThermodynamicTemperatureUnit"
 discard "forward decl of StepBasic_SiUnitAndThermodynamicTemperatureUnit"
 type
-  Handle_StepBasic_SiUnitAndThermodynamicTemperatureUnit* = handle[
-      StepBasic_SiUnitAndThermodynamicTemperatureUnit]
-  StepBasic_SiUnitAndThermodynamicTemperatureUnit* {.
+  HandleStepBasicSiUnitAndThermodynamicTemperatureUnit* = Handle[
+      StepBasicSiUnitAndThermodynamicTemperatureUnit]
+  StepBasicSiUnitAndThermodynamicTemperatureUnit* {.
       importcpp: "StepBasic_SiUnitAndThermodynamicTemperatureUnit",
-      header: "StepBasic_SiUnitAndThermodynamicTemperatureUnit.hxx", bycopy.} = object of StepBasic_SiUnit ##
-                                                                                                    ## !
-                                                                                                    ## Returns
-                                                                                                    ## a
-                                                                                                    ## SiUnitAndThermodynamicTemperatureUnit
+      header: "StepBasic_SiUnitAndThermodynamicTemperatureUnit.hxx", bycopy.} = object of StepBasicSiUnit ##
+                                                                                                   ## !
+                                                                                                   ## Returns
+                                                                                                   ## a
+                                                                                                   ## SiUnitAndThermodynamicTemperatureUnit
 
 
-proc constructStepBasic_SiUnitAndThermodynamicTemperatureUnit*(): StepBasic_SiUnitAndThermodynamicTemperatureUnit {.
+proc constructStepBasicSiUnitAndThermodynamicTemperatureUnit*(): StepBasicSiUnitAndThermodynamicTemperatureUnit {.
     constructor, importcpp: "StepBasic_SiUnitAndThermodynamicTemperatureUnit(@)",
     header: "StepBasic_SiUnitAndThermodynamicTemperatureUnit.hxx".}
-proc Init*(this: var StepBasic_SiUnitAndThermodynamicTemperatureUnit;
-          hasAprefix: Standard_Boolean; aPrefix: StepBasic_SiPrefix;
-          aName: StepBasic_SiUnitName) {.importcpp: "Init", header: "StepBasic_SiUnitAndThermodynamicTemperatureUnit.hxx".}
-proc SetThermodynamicTemperatureUnit*(this: var StepBasic_SiUnitAndThermodynamicTemperatureUnit;
-    aThermodynamicTemperatureUnit: handle[StepBasic_ThermodynamicTemperatureUnit]) {.
+proc init*(this: var StepBasicSiUnitAndThermodynamicTemperatureUnit;
+          hasAprefix: bool; aPrefix: StepBasicSiPrefix; aName: StepBasicSiUnitName) {.
+    importcpp: "Init",
+    header: "StepBasic_SiUnitAndThermodynamicTemperatureUnit.hxx".}
+proc setThermodynamicTemperatureUnit*(this: var StepBasicSiUnitAndThermodynamicTemperatureUnit;
+    aThermodynamicTemperatureUnit: Handle[StepBasicThermodynamicTemperatureUnit]) {.
     importcpp: "SetThermodynamicTemperatureUnit",
     header: "StepBasic_SiUnitAndThermodynamicTemperatureUnit.hxx".}
-proc ThermodynamicTemperatureUnit*(this: StepBasic_SiUnitAndThermodynamicTemperatureUnit): handle[
-    StepBasic_ThermodynamicTemperatureUnit] {.noSideEffect,
+proc thermodynamicTemperatureUnit*(this: StepBasicSiUnitAndThermodynamicTemperatureUnit): Handle[
+    StepBasicThermodynamicTemperatureUnit] {.noSideEffect,
     importcpp: "ThermodynamicTemperatureUnit",
     header: "StepBasic_SiUnitAndThermodynamicTemperatureUnit.hxx".}
 type
-  StepBasic_SiUnitAndThermodynamicTemperatureUnitbase_type* = StepBasic_SiUnit
+  StepBasicSiUnitAndThermodynamicTemperatureUnitbaseType* = StepBasicSiUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_SiUnitAndThermodynamicTemperatureUnit::get_type_name(@)", header: "StepBasic_SiUnitAndThermodynamicTemperatureUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepBasic_SiUnitAndThermodynamicTemperatureUnit::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepBasic_SiUnitAndThermodynamicTemperatureUnit::get_type_name(@)", header: "StepBasic_SiUnitAndThermodynamicTemperatureUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_SiUnitAndThermodynamicTemperatureUnit::get_type_descriptor(@)",
     header: "StepBasic_SiUnitAndThermodynamicTemperatureUnit.hxx".}
-proc DynamicType*(this: StepBasic_SiUnitAndThermodynamicTemperatureUnit): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepBasic_SiUnitAndThermodynamicTemperatureUnit.hxx".}
+proc dynamicType*(this: StepBasicSiUnitAndThermodynamicTemperatureUnit): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepBasic_SiUnitAndThermodynamicTemperatureUnit.hxx".}

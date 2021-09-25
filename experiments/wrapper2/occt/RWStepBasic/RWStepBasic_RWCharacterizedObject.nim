@@ -13,33 +13,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_CharacterizedObject"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasic_RWCharacterizedObject* {.importcpp: "RWStepBasic_RWCharacterizedObject", header: "RWStepBasic_RWCharacterizedObject.hxx",
-                                      bycopy.} = object ## ! Empty constructor
+  RWStepBasicRWCharacterizedObject* {.importcpp: "RWStepBasic_RWCharacterizedObject", header: "RWStepBasic_RWCharacterizedObject.hxx",
+                                     bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepBasic_RWCharacterizedObject*(): RWStepBasic_RWCharacterizedObject {.
+proc constructRWStepBasicRWCharacterizedObject*(): RWStepBasicRWCharacterizedObject {.
     constructor, importcpp: "RWStepBasic_RWCharacterizedObject(@)",
     header: "RWStepBasic_RWCharacterizedObject.hxx".}
-proc ReadStep*(this: RWStepBasic_RWCharacterizedObject;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepBasic_CharacterizedObject]) {.noSideEffect,
+proc readStep*(this: RWStepBasicRWCharacterizedObject;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepBasicCharacterizedObject]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWCharacterizedObject.hxx".}
-proc WriteStep*(this: RWStepBasic_RWCharacterizedObject;
-               SW: var StepData_StepWriter;
-               ent: handle[StepBasic_CharacterizedObject]) {.noSideEffect,
+proc writeStep*(this: RWStepBasicRWCharacterizedObject; sw: var StepDataStepWriter;
+               ent: Handle[StepBasicCharacterizedObject]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWCharacterizedObject.hxx".}
-proc Share*(this: RWStepBasic_RWCharacterizedObject;
-           ent: handle[StepBasic_CharacterizedObject];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepBasicRWCharacterizedObject;
+           ent: Handle[StepBasicCharacterizedObject];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWCharacterizedObject.hxx".}

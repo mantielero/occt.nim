@@ -13,36 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepDimTol_GeometricTolerance
-
 discard "forward decl of StepDimTol_StraightnessTolerance"
 discard "forward decl of StepDimTol_StraightnessTolerance"
 type
-  Handle_StepDimTol_StraightnessTolerance* = handle[
-      StepDimTol_StraightnessTolerance]
+  HandleStepDimTolStraightnessTolerance* = Handle[StepDimTolStraightnessTolerance]
 
 ## ! Representation of STEP entity StraightnessTolerance
 
 type
-  StepDimTol_StraightnessTolerance* {.importcpp: "StepDimTol_StraightnessTolerance", header: "StepDimTol_StraightnessTolerance.hxx",
-                                     bycopy.} = object of StepDimTol_GeometricTolerance ##
-                                                                                   ## !
-                                                                                   ## Empty
-                                                                                   ## constructor
+  StepDimTolStraightnessTolerance* {.importcpp: "StepDimTol_StraightnessTolerance", header: "StepDimTol_StraightnessTolerance.hxx",
+                                    bycopy.} = object of StepDimTolGeometricTolerance ##
+                                                                                 ## !
+                                                                                 ## Empty
+                                                                                 ## constructor
 
 
-proc constructStepDimTol_StraightnessTolerance*(): StepDimTol_StraightnessTolerance {.
+proc constructStepDimTolStraightnessTolerance*(): StepDimTolStraightnessTolerance {.
     constructor, importcpp: "StepDimTol_StraightnessTolerance(@)",
     header: "StepDimTol_StraightnessTolerance.hxx".}
 type
-  StepDimTol_StraightnessTolerancebase_type* = StepDimTol_GeometricTolerance
+  StepDimTolStraightnessTolerancebaseType* = StepDimTolGeometricTolerance
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_StraightnessTolerance::get_type_name(@)",
-                              header: "StepDimTol_StraightnessTolerance.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_StraightnessTolerance::get_type_name(@)",
+                            header: "StepDimTol_StraightnessTolerance.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_StraightnessTolerance::get_type_descriptor(@)",
     header: "StepDimTol_StraightnessTolerance.hxx".}
-proc DynamicType*(this: StepDimTol_StraightnessTolerance): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolStraightnessTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_StraightnessTolerance.hxx".}

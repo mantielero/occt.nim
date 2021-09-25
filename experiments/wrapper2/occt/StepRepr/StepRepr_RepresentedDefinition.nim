@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_GeneralProperty"
 discard "forward decl of StepRepr_PropertyDefinition"
@@ -25,30 +20,30 @@ discard "forward decl of StepRepr_PropertyDefinitionRelationship"
 discard "forward decl of StepRepr_ShapeAspect"
 discard "forward decl of StepRepr_ShapeAspectRelationship"
 type
-  StepRepr_RepresentedDefinition* {.importcpp: "StepRepr_RepresentedDefinition", header: "StepRepr_RepresentedDefinition.hxx",
-                                   bycopy.} = object of StepData_SelectType ## ! Empty
-                                                                       ## constructor
+  StepReprRepresentedDefinition* {.importcpp: "StepRepr_RepresentedDefinition",
+                                  header: "StepRepr_RepresentedDefinition.hxx",
+                                  bycopy.} = object of StepDataSelectType ## ! Empty constructor
 
 
-proc constructStepRepr_RepresentedDefinition*(): StepRepr_RepresentedDefinition {.
+proc constructStepReprRepresentedDefinition*(): StepReprRepresentedDefinition {.
     constructor, importcpp: "StepRepr_RepresentedDefinition(@)",
     header: "StepRepr_RepresentedDefinition.hxx".}
-proc CaseNum*(this: StepRepr_RepresentedDefinition; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepReprRepresentedDefinition; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepRepr_RepresentedDefinition.hxx".}
-proc GeneralProperty*(this: StepRepr_RepresentedDefinition): handle[
-    StepBasic_GeneralProperty] {.noSideEffect, importcpp: "GeneralProperty",
-                                header: "StepRepr_RepresentedDefinition.hxx".}
-proc PropertyDefinition*(this: StepRepr_RepresentedDefinition): handle[
-    StepRepr_PropertyDefinition] {.noSideEffect, importcpp: "PropertyDefinition",
-                                  header: "StepRepr_RepresentedDefinition.hxx".}
-proc PropertyDefinitionRelationship*(this: StepRepr_RepresentedDefinition): handle[
-    StepRepr_PropertyDefinitionRelationship] {.noSideEffect,
+proc generalProperty*(this: StepReprRepresentedDefinition): Handle[
+    StepBasicGeneralProperty] {.noSideEffect, importcpp: "GeneralProperty",
+                               header: "StepRepr_RepresentedDefinition.hxx".}
+proc propertyDefinition*(this: StepReprRepresentedDefinition): Handle[
+    StepReprPropertyDefinition] {.noSideEffect, importcpp: "PropertyDefinition",
+                                 header: "StepRepr_RepresentedDefinition.hxx".}
+proc propertyDefinitionRelationship*(this: StepReprRepresentedDefinition): Handle[
+    StepReprPropertyDefinitionRelationship] {.noSideEffect,
     importcpp: "PropertyDefinitionRelationship",
     header: "StepRepr_RepresentedDefinition.hxx".}
-proc ShapeAspect*(this: StepRepr_RepresentedDefinition): handle[
-    StepRepr_ShapeAspect] {.noSideEffect, importcpp: "ShapeAspect",
-                           header: "StepRepr_RepresentedDefinition.hxx".}
-proc ShapeAspectRelationship*(this: StepRepr_RepresentedDefinition): handle[
-    StepRepr_ShapeAspectRelationship] {.noSideEffect,
-                                       importcpp: "ShapeAspectRelationship", header: "StepRepr_RepresentedDefinition.hxx".}
+proc shapeAspect*(this: StepReprRepresentedDefinition): Handle[StepReprShapeAspect] {.
+    noSideEffect, importcpp: "ShapeAspect",
+    header: "StepRepr_RepresentedDefinition.hxx".}
+proc shapeAspectRelationship*(this: StepReprRepresentedDefinition): Handle[
+    StepReprShapeAspectRelationship] {.noSideEffect,
+                                      importcpp: "ShapeAspectRelationship", header: "StepRepr_RepresentedDefinition.hxx".}

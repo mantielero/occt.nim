@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepFEA_CurveElementInterval"
@@ -30,16 +26,15 @@ type
 proc constructRWStepFEA_RWCurveElementInterval*(): RWStepFEA_RWCurveElementInterval {.
     constructor, importcpp: "RWStepFEA_RWCurveElementInterval(@)",
     header: "RWStepFEA_RWCurveElementInterval.hxx".}
-proc ReadStep*(this: RWStepFEA_RWCurveElementInterval;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepFEA_CurveElementInterval]) {.noSideEffect,
+proc readStep*(this: RWStepFEA_RWCurveElementInterval;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepFEA_CurveElementInterval]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWCurveElementInterval.hxx".}
-proc WriteStep*(this: RWStepFEA_RWCurveElementInterval;
-               SW: var StepData_StepWriter;
-               ent: handle[StepFEA_CurveElementInterval]) {.noSideEffect,
+proc writeStep*(this: RWStepFEA_RWCurveElementInterval; sw: var StepDataStepWriter;
+               ent: Handle[StepFEA_CurveElementInterval]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepFEA_RWCurveElementInterval.hxx".}
-proc Share*(this: RWStepFEA_RWCurveElementInterval;
-           ent: handle[StepFEA_CurveElementInterval];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepFEA_RWCurveElementInterval;
+           ent: Handle[StepFEA_CurveElementInterval];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWCurveElementInterval.hxx".}

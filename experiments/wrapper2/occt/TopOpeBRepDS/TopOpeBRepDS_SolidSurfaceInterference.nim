@@ -14,15 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TopOpeBRepDS_Interference,
-  TopOpeBRepDS_Kind, ../Standard/Standard_Integer, ../Standard/Standard_OStream
-
 discard "forward decl of TopOpeBRepDS_Transition"
 discard "forward decl of TopOpeBRepDS_SolidSurfaceInterference"
 discard "forward decl of TopOpeBRepDS_SolidSurfaceInterference"
 type
-  Handle_TopOpeBRepDS_SolidSurfaceInterference* = handle[
+  HandleTopOpeBRepDS_SolidSurfaceInterference* = Handle[
       TopOpeBRepDS_SolidSurfaceInterference]
 
 ## ! Interference
@@ -34,18 +30,18 @@ type
 
 
 proc constructTopOpeBRepDS_SolidSurfaceInterference*(
-    Transition: TopOpeBRepDS_Transition; SupportType: TopOpeBRepDS_Kind;
-    Support: Standard_Integer; GeometryType: TopOpeBRepDS_Kind;
-    Geometry: Standard_Integer): TopOpeBRepDS_SolidSurfaceInterference {.
+    transition: TopOpeBRepDS_Transition; supportType: TopOpeBRepDS_Kind;
+    support: int; geometryType: TopOpeBRepDS_Kind; geometry: int): TopOpeBRepDS_SolidSurfaceInterference {.
     constructor, importcpp: "TopOpeBRepDS_SolidSurfaceInterference(@)",
     header: "TopOpeBRepDS_SolidSurfaceInterference.hxx".}
 type
-  TopOpeBRepDS_SolidSurfaceInterferencebase_type* = TopOpeBRepDS_Interference
+  TopOpeBRepDS_SolidSurfaceInterferencebaseType* = TopOpeBRepDS_Interference
 
-proc get_type_name*(): cstring {.importcpp: "TopOpeBRepDS_SolidSurfaceInterference::get_type_name(@)", header: "TopOpeBRepDS_SolidSurfaceInterference.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TopOpeBRepDS_SolidSurfaceInterference::get_type_name(@)",
+                            header: "TopOpeBRepDS_SolidSurfaceInterference.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopOpeBRepDS_SolidSurfaceInterference::get_type_descriptor(@)",
     header: "TopOpeBRepDS_SolidSurfaceInterference.hxx".}
-proc DynamicType*(this: TopOpeBRepDS_SolidSurfaceInterference): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "TopOpeBRepDS_SolidSurfaceInterference.hxx".}
+proc dynamicType*(this: TopOpeBRepDS_SolidSurfaceInterference): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "TopOpeBRepDS_SolidSurfaceInterference.hxx".}

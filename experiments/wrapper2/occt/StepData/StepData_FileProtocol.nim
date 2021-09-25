@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_SequenceOfTransient, StepData_Protocol,
-  ../Standard/Standard_Integer, ../Standard/Standard_Type,
-  ../Standard/Standard_Boolean, ../Standard/Standard_CString
-
 discard "forward decl of StepData_Protocol"
 discard "forward decl of Interface_Protocol"
 discard "forward decl of Interface_Graph"
@@ -27,7 +21,7 @@ discard "forward decl of Interface_Check"
 discard "forward decl of StepData_FileProtocol"
 discard "forward decl of StepData_FileProtocol"
 type
-  Handle_StepData_FileProtocol* = handle[StepData_FileProtocol]
+  HandleStepDataFileProtocol* = Handle[StepDataFileProtocol]
 
 ## ! A FileProtocol is defined as the addition of several already
 ## ! existing Protocols. It corresponds to the definition of a
@@ -37,38 +31,37 @@ type
 ## ! compound Protocol, a FileProtocol
 
 type
-  StepData_FileProtocol* {.importcpp: "StepData_FileProtocol",
-                          header: "StepData_FileProtocol.hxx", bycopy.} = object of StepData_Protocol ##
-                                                                                               ## !
-                                                                                               ## Creates
-                                                                                               ## an
-                                                                                               ## empty
-                                                                                               ## FileProtocol
+  StepDataFileProtocol* {.importcpp: "StepData_FileProtocol",
+                         header: "StepData_FileProtocol.hxx", bycopy.} = object of StepDataProtocol ##
+                                                                                             ## !
+                                                                                             ## Creates
+                                                                                             ## an
+                                                                                             ## empty
+                                                                                             ## FileProtocol
 
 
-proc constructStepData_FileProtocol*(): StepData_FileProtocol {.constructor,
+proc constructStepDataFileProtocol*(): StepDataFileProtocol {.constructor,
     importcpp: "StepData_FileProtocol(@)", header: "StepData_FileProtocol.hxx".}
-proc Add*(this: var StepData_FileProtocol; protocol: handle[StepData_Protocol]) {.
+proc add*(this: var StepDataFileProtocol; protocol: Handle[StepDataProtocol]) {.
     importcpp: "Add", header: "StepData_FileProtocol.hxx".}
-proc NbResources*(this: StepData_FileProtocol): Standard_Integer {.noSideEffect,
+proc nbResources*(this: StepDataFileProtocol): int {.noSideEffect,
     importcpp: "NbResources", header: "StepData_FileProtocol.hxx".}
-proc Resource*(this: StepData_FileProtocol; num: Standard_Integer): handle[
-    Interface_Protocol] {.noSideEffect, importcpp: "Resource",
-                         header: "StepData_FileProtocol.hxx".}
-proc TypeNumber*(this: StepData_FileProtocol; atype: handle[Standard_Type]): Standard_Integer {.
+proc resource*(this: StepDataFileProtocol; num: int): Handle[InterfaceProtocol] {.
+    noSideEffect, importcpp: "Resource", header: "StepData_FileProtocol.hxx".}
+proc typeNumber*(this: StepDataFileProtocol; atype: Handle[StandardType]): int {.
     noSideEffect, importcpp: "TypeNumber", header: "StepData_FileProtocol.hxx".}
-proc GlobalCheck*(this: StepData_FileProtocol; G: Interface_Graph;
-                 ach: var handle[Interface_Check]): Standard_Boolean {.noSideEffect,
+proc globalCheck*(this: StepDataFileProtocol; g: InterfaceGraph;
+                 ach: var Handle[InterfaceCheck]): bool {.noSideEffect,
     importcpp: "GlobalCheck", header: "StepData_FileProtocol.hxx".}
-proc SchemaName*(this: StepData_FileProtocol): Standard_CString {.noSideEffect,
+proc schemaName*(this: StepDataFileProtocol): StandardCString {.noSideEffect,
     importcpp: "SchemaName", header: "StepData_FileProtocol.hxx".}
 type
-  StepData_FileProtocolbase_type* = StepData_Protocol
+  StepDataFileProtocolbaseType* = StepDataProtocol
 
-proc get_type_name*(): cstring {.importcpp: "StepData_FileProtocol::get_type_name(@)",
-                              header: "StepData_FileProtocol.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepData_FileProtocol::get_type_name(@)",
+                            header: "StepData_FileProtocol.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepData_FileProtocol::get_type_descriptor(@)",
     header: "StepData_FileProtocol.hxx".}
-proc DynamicType*(this: StepData_FileProtocol): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepData_FileProtocol.hxx".}
+proc dynamicType*(this: StepDataFileProtocol): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepData_FileProtocol.hxx".}

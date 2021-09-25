@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Adaptor3d/Adaptor3d_HSurface, ../NCollection/NCollection_Array1
-
 type
-  Approx_Array1OfAdHSurface* = NCollection_Array1[handle[Adaptor3d_HSurface]]
+  ApproxArray1OfAdHSurface* = NCollectionArray1[Handle[Adaptor3dHSurface]]
+

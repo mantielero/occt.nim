@@ -17,11 +17,12 @@
 ## ! different state of a Selection in a ViewerSelector...
 
 type
-  SelectMgr_StateOfSelection* {.size: sizeof(cint),
-                               importcpp: "SelectMgr_StateOfSelection",
-                               header: "SelectMgr_StateOfSelection.hxx".} = enum
-    SelectMgr_SOS_Any = -2,     ## !< ANY selection state (for querying selections)
-    SelectMgr_SOS_Unknown = -1, ## !< selection, which has  never been in SelectMgr_SOS_Activated state (almost the same thing as SelectMgr_SOS_Deactivated)
-    SelectMgr_SOS_Deactivated = 0, ## !< deactivated selection, once been in SelectMgr_SOS_Activated state
-    SelectMgr_SOS_Activated   ## !< activated selection
+  SelectMgrStateOfSelection* {.size: sizeof(cint),
+                              importcpp: "SelectMgr_StateOfSelection",
+                              header: "SelectMgr_StateOfSelection.hxx".} = enum
+    SelectMgrSOS_Any = -2,      ## !< ANY selection state (for querying selections)
+    SelectMgrSOS_Unknown = -1,  ## !< selection, which has  never been in SelectMgr_SOS_Activated state (almost the same thing as SelectMgr_SOS_Deactivated)
+    SelectMgrSOS_Deactivated = 0, ## !< deactivated selection, once been in SelectMgr_SOS_Activated state
+    SelectMgrSOS_Activated    ## !< activated selection
+
 

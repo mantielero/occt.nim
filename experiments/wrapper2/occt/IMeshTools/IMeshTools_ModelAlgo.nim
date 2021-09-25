@@ -13,35 +13,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_ErrorHandler, ../Standard/Standard_Failure,
-  ../Standard/Standard_Transient, ../Standard/Standard_Type,
-  ../Message/Message_ProgressRange
-
 discard "forward decl of IMeshData_Model"
 discard "forward decl of IMeshTools_Parameters"
 type
-  IMeshTools_ModelAlgo* {.importcpp: "IMeshTools_ModelAlgo",
-                         header: "IMeshTools_ModelAlgo.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                              ## !
-                                                                                              ## Destructor.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Constructor.
+  IMeshToolsModelAlgo* {.importcpp: "IMeshTools_ModelAlgo",
+                        header: "IMeshTools_ModelAlgo.hxx", bycopy.} = object of StandardTransient ##
+                                                                                            ## !
+                                                                                            ## Destructor.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Constructor.
 
 
-proc destroyIMeshTools_ModelAlgo*(this: var IMeshTools_ModelAlgo) {.
+proc destroyIMeshToolsModelAlgo*(this: var IMeshToolsModelAlgo) {.
     importcpp: "#.~IMeshTools_ModelAlgo()", header: "IMeshTools_ModelAlgo.hxx".}
-proc Perform*(this: var IMeshTools_ModelAlgo; theModel: handle[IMeshData_Model];
-             theParameters: IMeshTools_Parameters; theRange: Message_ProgressRange): Standard_Boolean {.
+proc perform*(this: var IMeshToolsModelAlgo; theModel: Handle[IMeshDataModel];
+             theParameters: IMeshToolsParameters; theRange: MessageProgressRange): bool {.
     importcpp: "Perform", header: "IMeshTools_ModelAlgo.hxx".}
 type
-  IMeshTools_ModelAlgobase_type* = Standard_Transient
+  IMeshToolsModelAlgobaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "IMeshTools_ModelAlgo::get_type_name(@)",
-                              header: "IMeshTools_ModelAlgo.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IMeshTools_ModelAlgo::get_type_name(@)",
+                            header: "IMeshTools_ModelAlgo.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IMeshTools_ModelAlgo::get_type_descriptor(@)",
     header: "IMeshTools_ModelAlgo.hxx".}
-proc DynamicType*(this: IMeshTools_ModelAlgo): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IMeshToolsModelAlgo): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IMeshTools_ModelAlgo.hxx".}

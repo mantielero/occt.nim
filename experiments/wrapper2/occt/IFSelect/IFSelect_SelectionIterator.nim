@@ -14,43 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  IFSelect_HSeqOfSelection, IFSelect_TSeqOfSelection, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of IFSelect_Selection"
 type
-  IFSelect_SelectionIterator* {.importcpp: "IFSelect_SelectionIterator",
-                               header: "IFSelect_SelectionIterator.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Creates
-                                                                                      ## an
-                                                                                      ## empty
-                                                                                      ## iterator,
-                                                                                      ## ready
-                                                                                      ## to
-                                                                                      ## be
-                                                                                      ## filled
+  IFSelectSelectionIterator* {.importcpp: "IFSelect_SelectionIterator",
+                              header: "IFSelect_SelectionIterator.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Creates
+                                                                                     ## an
+                                                                                     ## empty
+                                                                                     ## iterator,
+                                                                                     ## ready
+                                                                                     ## to
+                                                                                     ## be
+                                                                                     ## filled
 
 
-proc constructIFSelect_SelectionIterator*(): IFSelect_SelectionIterator {.
+proc constructIFSelectSelectionIterator*(): IFSelectSelectionIterator {.
     constructor, importcpp: "IFSelect_SelectionIterator(@)",
     header: "IFSelect_SelectionIterator.hxx".}
-proc constructIFSelect_SelectionIterator*(sel: handle[IFSelect_Selection]): IFSelect_SelectionIterator {.
+proc constructIFSelectSelectionIterator*(sel: Handle[IFSelectSelection]): IFSelectSelectionIterator {.
     constructor, importcpp: "IFSelect_SelectionIterator(@)",
     header: "IFSelect_SelectionIterator.hxx".}
-proc AddFromIter*(this: var IFSelect_SelectionIterator;
-                 iter: var IFSelect_SelectionIterator) {.importcpp: "AddFromIter",
+proc addFromIter*(this: var IFSelectSelectionIterator;
+                 iter: var IFSelectSelectionIterator) {.importcpp: "AddFromIter",
     header: "IFSelect_SelectionIterator.hxx".}
-proc AddItem*(this: var IFSelect_SelectionIterator; sel: handle[IFSelect_Selection]) {.
+proc addItem*(this: var IFSelectSelectionIterator; sel: Handle[IFSelectSelection]) {.
     importcpp: "AddItem", header: "IFSelect_SelectionIterator.hxx".}
-proc AddList*(this: var IFSelect_SelectionIterator; list: IFSelect_TSeqOfSelection) {.
+proc addList*(this: var IFSelectSelectionIterator; list: IFSelectTSeqOfSelection) {.
     importcpp: "AddList", header: "IFSelect_SelectionIterator.hxx".}
-proc More*(this: IFSelect_SelectionIterator): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "IFSelect_SelectionIterator.hxx".}
-proc Next*(this: var IFSelect_SelectionIterator) {.importcpp: "Next",
+proc more*(this: IFSelectSelectionIterator): bool {.noSideEffect, importcpp: "More",
     header: "IFSelect_SelectionIterator.hxx".}
-proc Value*(this: IFSelect_SelectionIterator): handle[IFSelect_Selection] {.
+proc next*(this: var IFSelectSelectionIterator) {.importcpp: "Next",
+    header: "IFSelect_SelectionIterator.hxx".}
+proc value*(this: IFSelectSelectionIterator): Handle[IFSelectSelection] {.
     noSideEffect, importcpp: "Value", header: "IFSelect_SelectionIterator.hxx".}

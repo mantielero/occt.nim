@@ -13,13 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../BinTools/BinTools_ShapeSet,
-  ../Standard/Standard_Integer, ../BinMDF/BinMDF_ADriver,
-  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
-  ../BinObjMgt/BinObjMgt_SRelocationTable, ../Standard/Standard_IStream,
-  ../Standard/Standard_OStream
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
@@ -27,59 +20,57 @@ discard "forward decl of BinTools_LocationSet"
 discard "forward decl of BinMNaming_NamedShapeDriver"
 discard "forward decl of BinMNaming_NamedShapeDriver"
 type
-  Handle_BinMNaming_NamedShapeDriver* = handle[BinMNaming_NamedShapeDriver]
+  HandleBinMNamingNamedShapeDriver* = Handle[BinMNamingNamedShapeDriver]
 
 ## ! NamedShape  Attribute Driver.
 
 type
-  BinMNaming_NamedShapeDriver* {.importcpp: "BinMNaming_NamedShapeDriver",
-                                header: "BinMNaming_NamedShapeDriver.hxx", bycopy.} = object of BinMDF_ADriver
+  BinMNamingNamedShapeDriver* {.importcpp: "BinMNaming_NamedShapeDriver",
+                               header: "BinMNaming_NamedShapeDriver.hxx", bycopy.} = object of BinMDF_ADriver
 
 
-proc constructBinMNaming_NamedShapeDriver*(
-    theMessageDriver: handle[Message_Messenger]): BinMNaming_NamedShapeDriver {.
+proc constructBinMNamingNamedShapeDriver*(
+    theMessageDriver: Handle[MessageMessenger]): BinMNamingNamedShapeDriver {.
     constructor, importcpp: "BinMNaming_NamedShapeDriver(@)",
     header: "BinMNaming_NamedShapeDriver.hxx".}
-proc NewEmpty*(this: BinMNaming_NamedShapeDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: BinMNamingNamedShapeDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty", header: "BinMNaming_NamedShapeDriver.hxx".}
-proc Paste*(this: BinMNaming_NamedShapeDriver; Source: BinObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "BinMNaming_NamedShapeDriver.hxx".}
-proc Paste*(this: BinMNaming_NamedShapeDriver; Source: handle[TDF_Attribute];
-           Target: var BinObjMgt_Persistent;
-           RelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: BinMNamingNamedShapeDriver; source: BinObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var BinObjMgtRRelocationTable): bool {.noSideEffect,
     importcpp: "Paste", header: "BinMNaming_NamedShapeDriver.hxx".}
-proc ReadShapeSection*(this: var BinMNaming_NamedShapeDriver;
-                      theIS: var Standard_IStream;
-                      therange: Message_ProgressRange = Message_ProgressRange()) {.
+proc paste*(this: BinMNamingNamedShapeDriver; source: Handle[TDF_Attribute];
+           target: var BinObjMgtPersistent;
+           relocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
+    importcpp: "Paste", header: "BinMNaming_NamedShapeDriver.hxx".}
+proc readShapeSection*(this: var BinMNamingNamedShapeDriver;
+                      theIS: var StandardIStream;
+                      therange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "ReadShapeSection", header: "BinMNaming_NamedShapeDriver.hxx".}
-proc WriteShapeSection*(this: var BinMNaming_NamedShapeDriver;
-                       theOS: var Standard_OStream; therange: Message_ProgressRange = Message_ProgressRange()) {.
+proc writeShapeSection*(this: var BinMNamingNamedShapeDriver;
+                       theOS: var StandardOStream;
+                       therange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "WriteShapeSection", header: "BinMNaming_NamedShapeDriver.hxx".}
-proc Clear*(this: var BinMNaming_NamedShapeDriver) {.importcpp: "Clear",
+proc clear*(this: var BinMNamingNamedShapeDriver) {.importcpp: "Clear",
     header: "BinMNaming_NamedShapeDriver.hxx".}
-proc IsWithTriangles*(this: BinMNaming_NamedShapeDriver): Standard_Boolean {.
-    noSideEffect, importcpp: "IsWithTriangles",
-    header: "BinMNaming_NamedShapeDriver.hxx".}
-proc SetWithTriangles*(this: var BinMNaming_NamedShapeDriver;
-                      isWithTriangles: Standard_Boolean) {.
+proc isWithTriangles*(this: BinMNamingNamedShapeDriver): bool {.noSideEffect,
+    importcpp: "IsWithTriangles", header: "BinMNaming_NamedShapeDriver.hxx".}
+proc setWithTriangles*(this: var BinMNamingNamedShapeDriver; isWithTriangles: bool) {.
     importcpp: "SetWithTriangles", header: "BinMNaming_NamedShapeDriver.hxx".}
-proc SetFormatNb*(this: var BinMNaming_NamedShapeDriver; theFormat: Standard_Integer) {.
+proc setFormatNb*(this: var BinMNamingNamedShapeDriver; theFormat: int) {.
     importcpp: "SetFormatNb", header: "BinMNaming_NamedShapeDriver.hxx".}
-proc GetFormatNb*(this: BinMNaming_NamedShapeDriver): Standard_Integer {.
-    noSideEffect, importcpp: "GetFormatNb",
-    header: "BinMNaming_NamedShapeDriver.hxx".}
-proc GetShapesLocations*(this: var BinMNaming_NamedShapeDriver): var BinTools_LocationSet {.
+proc getFormatNb*(this: BinMNamingNamedShapeDriver): int {.noSideEffect,
+    importcpp: "GetFormatNb", header: "BinMNaming_NamedShapeDriver.hxx".}
+proc getShapesLocations*(this: var BinMNamingNamedShapeDriver): var BinToolsLocationSet {.
     importcpp: "GetShapesLocations", header: "BinMNaming_NamedShapeDriver.hxx".}
 type
-  BinMNaming_NamedShapeDriverbase_type* = BinMDF_ADriver
+  BinMNamingNamedShapeDriverbaseType* = BinMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "BinMNaming_NamedShapeDriver::get_type_name(@)",
-                              header: "BinMNaming_NamedShapeDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BinMNaming_NamedShapeDriver::get_type_name(@)",
+                            header: "BinMNaming_NamedShapeDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BinMNaming_NamedShapeDriver::get_type_descriptor(@)",
     header: "BinMNaming_NamedShapeDriver.hxx".}
-proc DynamicType*(this: BinMNaming_NamedShapeDriver): handle[Standard_Type] {.
+proc dynamicType*(this: BinMNamingNamedShapeDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMNaming_NamedShapeDriver.hxx".}

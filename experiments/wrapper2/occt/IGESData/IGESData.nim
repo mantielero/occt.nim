@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of IGESData_Protocol"
 discard "forward decl of IGESData_Protocol"
 discard "forward decl of IGESData_IGESModel"
@@ -65,6 +61,6 @@ type
                                                                        ## UndefinedEntity
 
 
-proc Init*() {.importcpp: "IGESData::Init(@)", header: "IGESData.hxx".}
-proc Protocol*(): handle[IGESData_Protocol] {.importcpp: "IGESData::Protocol(@)",
+proc init*() {.importcpp: "IGESData::Init(@)", header: "IGESData.hxx".}
+proc protocol*(): Handle[IGESDataProtocol] {.importcpp: "IGESData::Protocol(@)",
     header: "IGESData.hxx".}

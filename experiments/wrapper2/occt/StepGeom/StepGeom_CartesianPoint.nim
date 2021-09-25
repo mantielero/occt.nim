@@ -14,54 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, StepGeom_Point, ../TColStd/TColStd_HArray1OfReal
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_CartesianPoint"
 discard "forward decl of StepGeom_CartesianPoint"
 type
-  Handle_StepGeom_CartesianPoint* = handle[StepGeom_CartesianPoint]
-  StepGeom_CartesianPoint* {.importcpp: "StepGeom_CartesianPoint",
-                            header: "StepGeom_CartesianPoint.hxx", bycopy.} = object of StepGeom_Point ##
-                                                                                                ## !
-                                                                                                ## Returns
-                                                                                                ## a
-                                                                                                ## CartesianPoint
+  HandleStepGeomCartesianPoint* = Handle[StepGeomCartesianPoint]
+  StepGeomCartesianPoint* {.importcpp: "StepGeom_CartesianPoint",
+                           header: "StepGeom_CartesianPoint.hxx", bycopy.} = object of StepGeomPoint ##
+                                                                                              ## !
+                                                                                              ## Returns
+                                                                                              ## a
+                                                                                              ## CartesianPoint
 
 
-proc constructStepGeom_CartesianPoint*(): StepGeom_CartesianPoint {.constructor,
+proc constructStepGeomCartesianPoint*(): StepGeomCartesianPoint {.constructor,
     importcpp: "StepGeom_CartesianPoint(@)", header: "StepGeom_CartesianPoint.hxx".}
-proc Init*(this: var StepGeom_CartesianPoint;
-          aName: handle[TCollection_HAsciiString];
-          aCoordinates: handle[TColStd_HArray1OfReal]) {.importcpp: "Init",
+proc init*(this: var StepGeomCartesianPoint; aName: Handle[TCollectionHAsciiString];
+          aCoordinates: Handle[TColStdHArray1OfReal]) {.importcpp: "Init",
     header: "StepGeom_CartesianPoint.hxx".}
-proc Init2D*(this: var StepGeom_CartesianPoint;
-            aName: handle[TCollection_HAsciiString]; X: Standard_Real;
-            Y: Standard_Real) {.importcpp: "Init2D",
-                              header: "StepGeom_CartesianPoint.hxx".}
-proc Init3D*(this: var StepGeom_CartesianPoint;
-            aName: handle[TCollection_HAsciiString]; X: Standard_Real;
-            Y: Standard_Real; Z: Standard_Real) {.importcpp: "Init3D",
-    header: "StepGeom_CartesianPoint.hxx".}
-proc SetCoordinates*(this: var StepGeom_CartesianPoint;
-                    aCoordinates: handle[TColStd_HArray1OfReal]) {.
+proc init2D*(this: var StepGeomCartesianPoint;
+            aName: Handle[TCollectionHAsciiString]; x: float; y: float) {.
+    importcpp: "Init2D", header: "StepGeom_CartesianPoint.hxx".}
+proc init3D*(this: var StepGeomCartesianPoint;
+            aName: Handle[TCollectionHAsciiString]; x: float; y: float; z: float) {.
+    importcpp: "Init3D", header: "StepGeom_CartesianPoint.hxx".}
+proc setCoordinates*(this: var StepGeomCartesianPoint;
+                    aCoordinates: Handle[TColStdHArray1OfReal]) {.
     importcpp: "SetCoordinates", header: "StepGeom_CartesianPoint.hxx".}
-proc Coordinates*(this: StepGeom_CartesianPoint): handle[TColStd_HArray1OfReal] {.
+proc coordinates*(this: StepGeomCartesianPoint): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "Coordinates", header: "StepGeom_CartesianPoint.hxx".}
-proc CoordinatesValue*(this: StepGeom_CartesianPoint; num: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "CoordinatesValue",
-    header: "StepGeom_CartesianPoint.hxx".}
-proc NbCoordinates*(this: StepGeom_CartesianPoint): Standard_Integer {.noSideEffect,
+proc coordinatesValue*(this: StepGeomCartesianPoint; num: int): float {.noSideEffect,
+    importcpp: "CoordinatesValue", header: "StepGeom_CartesianPoint.hxx".}
+proc nbCoordinates*(this: StepGeomCartesianPoint): int {.noSideEffect,
     importcpp: "NbCoordinates", header: "StepGeom_CartesianPoint.hxx".}
 type
-  StepGeom_CartesianPointbase_type* = StepGeom_Point
+  StepGeomCartesianPointbaseType* = StepGeomPoint
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_CartesianPoint::get_type_name(@)",
-                              header: "StepGeom_CartesianPoint.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_CartesianPoint::get_type_name(@)",
+                            header: "StepGeom_CartesianPoint.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_CartesianPoint::get_type_descriptor(@)",
     header: "StepGeom_CartesianPoint.hxx".}
-proc DynamicType*(this: StepGeom_CartesianPoint): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomCartesianPoint): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_CartesianPoint.hxx".}

@@ -20,7 +20,8 @@
 ## ! - LProp_MaxCur: a maximum of curvature.
 
 type
-  LProp_CIType* {.size: sizeof(cint), importcpp: "LProp_CIType",
-                 header: "LProp_CIType.hxx".} = enum
-    LProp_Inflection, LProp_MinCur, LProp_MaxCur
+  LPropCIType* {.size: sizeof(cint), importcpp: "LProp_CIType",
+                header: "LProp_CIType.hxx".} = enum
+    LPropInflection, LPropMinCur, LPropMaxCur
+
 

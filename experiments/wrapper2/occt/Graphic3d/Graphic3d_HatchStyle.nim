@@ -13,74 +13,71 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Aspect/Aspect_HatchStyle, ../Image/Image_PixMap,
-  ../NCollection/NCollection_Buffer
-
 ## ! A class that provides an API to use standard OCCT hatch styles
 ## ! defined in Aspect_HatchStyle enum or to create custom styles
 ## ! from a user-defined bitmap
 
 type
-  Graphic3d_HatchStyle* {.importcpp: "Graphic3d_HatchStyle",
-                         header: "Graphic3d_HatchStyle.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                              ## !
-                                                                                              ## Creates
-                                                                                              ## a
-                                                                                              ## new
-                                                                                              ## custom
-                                                                                              ## hatch
-                                                                                              ## style
-                                                                                              ## with
-                                                                                              ## the
-                                                                                              ## given
-                                                                                              ## pattern
-                                                                                              ## and
-                                                                                              ## unique
-                                                                                              ## style
-                                                                                              ## id
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @warning
-                                                                                              ## Raises
-                                                                                              ## a
-                                                                                              ## program
-                                                                                              ## error
-                                                                                              ## if
-                                                                                              ## given
-                                                                                              ## pattern
-                                                                                              ## image
-                                                                                              ## is
-                                                                                              ## not
-                                                                                              ## a
-                                                                                              ## valid
-                                                                                              ## 32*32
-                                                                                              ## bitmap
+  Graphic3dHatchStyle* {.importcpp: "Graphic3d_HatchStyle",
+                        header: "Graphic3d_HatchStyle.hxx", bycopy.} = object of StandardTransient ##
+                                                                                            ## !
+                                                                                            ## Creates
+                                                                                            ## a
+                                                                                            ## new
+                                                                                            ## custom
+                                                                                            ## hatch
+                                                                                            ## style
+                                                                                            ## with
+                                                                                            ## the
+                                                                                            ## given
+                                                                                            ## pattern
+                                                                                            ## and
+                                                                                            ## unique
+                                                                                            ## style
+                                                                                            ## id
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## @warning
+                                                                                            ## Raises
+                                                                                            ## a
+                                                                                            ## program
+                                                                                            ## error
+                                                                                            ## if
+                                                                                            ## given
+                                                                                            ## pattern
+                                                                                            ## image
+                                                                                            ## is
+                                                                                            ## not
+                                                                                            ## a
+                                                                                            ## valid
+                                                                                            ## 32*32
+                                                                                            ## bitmap
     ## !< Image bitmap with custom hatch pattern
     ## !< Index of used style
 
-  Graphic3d_HatchStylebase_type* = Standard_Transient
+  Graphic3dHatchStylebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_HatchStyle::get_type_name(@)",
-                              header: "Graphic3d_HatchStyle.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_HatchStyle::get_type_name(@)",
+                            header: "Graphic3d_HatchStyle.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_HatchStyle::get_type_descriptor(@)",
     header: "Graphic3d_HatchStyle.hxx".}
-proc DynamicType*(this: Graphic3d_HatchStyle): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: Graphic3dHatchStyle): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Graphic3d_HatchStyle.hxx".}
-proc constructGraphic3d_HatchStyle*(thePattern: handle[Image_PixMap]): Graphic3d_HatchStyle {.
+proc constructGraphic3dHatchStyle*(thePattern: Handle[ImagePixMap]): Graphic3dHatchStyle {.
     constructor, importcpp: "Graphic3d_HatchStyle(@)",
     header: "Graphic3d_HatchStyle.hxx".}
-proc constructGraphic3d_HatchStyle*(theType: Aspect_HatchStyle): Graphic3d_HatchStyle {.
+proc constructGraphic3dHatchStyle*(theType: AspectHatchStyle): Graphic3dHatchStyle {.
     constructor, importcpp: "Graphic3d_HatchStyle(@)",
     header: "Graphic3d_HatchStyle.hxx".}
-proc Pattern*(this: Graphic3d_HatchStyle): ptr Standard_Byte {.noSideEffect,
+proc pattern*(this: Graphic3dHatchStyle): ptr StandardByte {.noSideEffect,
     importcpp: "Pattern", header: "Graphic3d_HatchStyle.hxx".}
-proc HatchType*(this: Graphic3d_HatchStyle): Standard_Integer {.noSideEffect,
+proc hatchType*(this: Graphic3dHatchStyle): int {.noSideEffect,
     importcpp: "HatchType", header: "Graphic3d_HatchStyle.hxx".}
-proc DumpJson*(this: Graphic3d_HatchStyle; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Graphic3d_HatchStyle.hxx".}
+proc dumpJson*(this: Graphic3dHatchStyle; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Graphic3d_HatchStyle.hxx".}
 discard "forward decl of Graphic3d_HatchStyle"
 type
-  Handle_Graphic3d_HatchStyle* = handle[Graphic3d_HatchStyle]
+  HandleGraphic3dHatchStyle* = Handle[Graphic3dHatchStyle]
+

@@ -14,56 +14,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Dir, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../TopAbs/TopAbs_Orientation,
-  ../TopAbs/TopAbs_State, ../Standard/Standard_Integer
-
 discard "forward decl of gp_Dir"
 type
-  TopTrans_CurveTransition* {.importcpp: "TopTrans_CurveTransition",
-                             header: "TopTrans_CurveTransition.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Create
-                                                                                  ## an
-                                                                                  ## empty
-                                                                                  ## Curve
-                                                                                  ## Transition.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Compare
-                                                                                  ## two
-                                                                                  ## curvature
-                                                                                  ## and
-                                                                                  ## return
-                                                                                  ## true
-                                                                                  ## if
-                                                                                  ## N1,C1
-                                                                                  ## is
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## before
-                                                                                  ## N2,C2
-                                                                                  ## in
-                                                                                  ## the
-                                                                                  ## edge
-                                                                                  ## orientation
+  TopTransCurveTransition* {.importcpp: "TopTrans_CurveTransition",
+                            header: "TopTrans_CurveTransition.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## Create
+                                                                                 ## an
+                                                                                 ## empty
+                                                                                 ## Curve
+                                                                                 ## Transition.
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## Compare
+                                                                                 ## two
+                                                                                 ## curvature
+                                                                                 ## and
+                                                                                 ## return
+                                                                                 ## true
+                                                                                 ## if
+                                                                                 ## N1,C1
+                                                                                 ## is
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## before
+                                                                                 ## N2,C2
+                                                                                 ## in
+                                                                                 ## the
+                                                                                 ## edge
+                                                                                 ## orientation
 
 
-proc constructTopTrans_CurveTransition*(): TopTrans_CurveTransition {.constructor,
+proc constructTopTransCurveTransition*(): TopTransCurveTransition {.constructor,
     importcpp: "TopTrans_CurveTransition(@)",
     header: "TopTrans_CurveTransition.hxx".}
-proc Reset*(this: var TopTrans_CurveTransition; Tgt: gp_Dir; Norm: gp_Dir;
-           Curv: Standard_Real) {.importcpp: "Reset",
-                                header: "TopTrans_CurveTransition.hxx".}
-proc Reset*(this: var TopTrans_CurveTransition; Tgt: gp_Dir) {.importcpp: "Reset",
+proc reset*(this: var TopTransCurveTransition; tgt: Dir; norm: Dir; curv: float) {.
+    importcpp: "Reset", header: "TopTrans_CurveTransition.hxx".}
+proc reset*(this: var TopTransCurveTransition; tgt: Dir) {.importcpp: "Reset",
     header: "TopTrans_CurveTransition.hxx".}
-proc Compare*(this: var TopTrans_CurveTransition; Tole: Standard_Real; Tang: gp_Dir;
-             Norm: gp_Dir; Curv: Standard_Real; S: TopAbs_Orientation;
-             Or: TopAbs_Orientation) {.importcpp: "Compare",
-                                     header: "TopTrans_CurveTransition.hxx".}
-proc StateBefore*(this: TopTrans_CurveTransition): TopAbs_State {.noSideEffect,
+proc compare*(this: var TopTransCurveTransition; tole: float; tang: Dir; norm: Dir;
+             curv: float; s: TopAbsOrientation; `or`: TopAbsOrientation) {.
+    importcpp: "Compare", header: "TopTrans_CurveTransition.hxx".}
+proc stateBefore*(this: TopTransCurveTransition): TopAbsState {.noSideEffect,
     importcpp: "StateBefore", header: "TopTrans_CurveTransition.hxx".}
-proc StateAfter*(this: TopTrans_CurveTransition): TopAbs_State {.noSideEffect,
+proc stateAfter*(this: TopTransCurveTransition): TopAbsState {.noSideEffect,
     importcpp: "StateAfter", header: "TopTrans_CurveTransition.hxx".}

@@ -13,37 +13,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepBasic/StepBasic_ExternallyDefinedItem
-
 discard "forward decl of StepVisual_ExternallyDefinedCurveFont"
 discard "forward decl of StepVisual_ExternallyDefinedCurveFont"
 type
-  Handle_StepVisual_ExternallyDefinedCurveFont* = handle[
-      StepVisual_ExternallyDefinedCurveFont]
+  HandleStepVisualExternallyDefinedCurveFont* = Handle[
+      StepVisualExternallyDefinedCurveFont]
 
 ## ! Representation of STEP entity ExternallyDefinedCurveFont
 
 type
-  StepVisual_ExternallyDefinedCurveFont* {.
+  StepVisualExternallyDefinedCurveFont* {.
       importcpp: "StepVisual_ExternallyDefinedCurveFont",
-      header: "StepVisual_ExternallyDefinedCurveFont.hxx", bycopy.} = object of StepBasic_ExternallyDefinedItem ##
-                                                                                                         ## !
-                                                                                                         ## Empty
-                                                                                                         ## constructor
+      header: "StepVisual_ExternallyDefinedCurveFont.hxx", bycopy.} = object of StepBasicExternallyDefinedItem ##
+                                                                                                        ## !
+                                                                                                        ## Empty
+                                                                                                        ## constructor
 
 
-proc constructStepVisual_ExternallyDefinedCurveFont*(): StepVisual_ExternallyDefinedCurveFont {.
+proc constructStepVisualExternallyDefinedCurveFont*(): StepVisualExternallyDefinedCurveFont {.
     constructor, importcpp: "StepVisual_ExternallyDefinedCurveFont(@)",
     header: "StepVisual_ExternallyDefinedCurveFont.hxx".}
 type
-  StepVisual_ExternallyDefinedCurveFontbase_type* = StepBasic_ExternallyDefinedItem
+  StepVisualExternallyDefinedCurveFontbaseType* = StepBasicExternallyDefinedItem
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_ExternallyDefinedCurveFont::get_type_name(@)", header: "StepVisual_ExternallyDefinedCurveFont.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_ExternallyDefinedCurveFont::get_type_name(@)",
+                            header: "StepVisual_ExternallyDefinedCurveFont.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_ExternallyDefinedCurveFont::get_type_descriptor(@)",
     header: "StepVisual_ExternallyDefinedCurveFont.hxx".}
-proc DynamicType*(this: StepVisual_ExternallyDefinedCurveFont): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepVisual_ExternallyDefinedCurveFont.hxx".}
+proc dynamicType*(this: StepVisualExternallyDefinedCurveFont): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepVisual_ExternallyDefinedCurveFont.hxx".}

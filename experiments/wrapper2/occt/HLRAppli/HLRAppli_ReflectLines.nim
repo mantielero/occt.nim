@@ -14,34 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../HLRAlgo/HLRAlgo_Projector,
-  ../HLRBRep/HLRBRep_Algo, ../HLRBRep/HLRBRep_TypeOfResultingEdge,
-  ../TopoDS/TopoDS_Shape, ../Standard/Standard_Real
-
 discard "forward decl of TopoDS_Shape"
 type
-  HLRAppli_ReflectLines* {.importcpp: "HLRAppli_ReflectLines",
-                          header: "HLRAppli_ReflectLines.hxx", bycopy.} = object ## !
-                                                                            ## Constructor
+  HLRAppliReflectLines* {.importcpp: "HLRAppli_ReflectLines",
+                         header: "HLRAppli_ReflectLines.hxx", bycopy.} = object ## !
+                                                                           ## Constructor
     ## TopoDS_Shape myCompound;
 
 
-proc constructHLRAppli_ReflectLines*(aShape: TopoDS_Shape): HLRAppli_ReflectLines {.
+proc constructHLRAppliReflectLines*(aShape: TopoDS_Shape): HLRAppliReflectLines {.
     constructor, importcpp: "HLRAppli_ReflectLines(@)",
     header: "HLRAppli_ReflectLines.hxx".}
-proc SetAxes*(this: var HLRAppli_ReflectLines; Nx: Standard_Real; Ny: Standard_Real;
-             Nz: Standard_Real; XAt: Standard_Real; YAt: Standard_Real;
-             ZAt: Standard_Real; XUp: Standard_Real; YUp: Standard_Real;
-             ZUp: Standard_Real) {.importcpp: "SetAxes",
-                                 header: "HLRAppli_ReflectLines.hxx".}
-proc Perform*(this: var HLRAppli_ReflectLines) {.importcpp: "Perform",
+proc setAxes*(this: var HLRAppliReflectLines; nx: float; ny: float; nz: float; xAt: float;
+             yAt: float; zAt: float; xUp: float; yUp: float; zUp: float) {.
+    importcpp: "SetAxes", header: "HLRAppli_ReflectLines.hxx".}
+proc perform*(this: var HLRAppliReflectLines) {.importcpp: "Perform",
     header: "HLRAppli_ReflectLines.hxx".}
-proc GetResult*(this: HLRAppli_ReflectLines): TopoDS_Shape {.noSideEffect,
+proc getResult*(this: HLRAppliReflectLines): TopoDS_Shape {.noSideEffect,
     importcpp: "GetResult", header: "HLRAppli_ReflectLines.hxx".}
-proc GetCompoundOf3dEdges*(this: HLRAppli_ReflectLines;
-                          `type`: HLRBRep_TypeOfResultingEdge;
-                          visible: Standard_Boolean; In3d: Standard_Boolean): TopoDS_Shape {.
-    noSideEffect, importcpp: "GetCompoundOf3dEdges",
-    header: "HLRAppli_ReflectLines.hxx".}
+proc getCompoundOf3dEdges*(this: HLRAppliReflectLines;
+                          `type`: HLRBRepTypeOfResultingEdge; visible: bool;
+                          in3d: bool): TopoDS_Shape {.noSideEffect,
+    importcpp: "GetCompoundOf3dEdges", header: "HLRAppli_ReflectLines.hxx".}

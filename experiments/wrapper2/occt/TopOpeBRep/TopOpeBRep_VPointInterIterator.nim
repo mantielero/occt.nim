@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRep_PLineInter,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of TopOpeBRep_LineInter"
 discard "forward decl of TopOpeBRep_VPointInter"
 type
-  TopOpeBRep_VPointInterIterator* {.importcpp: "TopOpeBRep_VPointInterIterator", header: "TopOpeBRep_VPointInterIterator.hxx",
-                                   bycopy.} = object
+  TopOpeBRepVPointInterIterator* {.importcpp: "TopOpeBRep_VPointInterIterator",
+                                  header: "TopOpeBRep_VPointInterIterator.hxx",
+                                  bycopy.} = object
 
 
-proc constructTopOpeBRep_VPointInterIterator*(): TopOpeBRep_VPointInterIterator {.
+proc constructTopOpeBRepVPointInterIterator*(): TopOpeBRepVPointInterIterator {.
     constructor, importcpp: "TopOpeBRep_VPointInterIterator(@)",
     header: "TopOpeBRep_VPointInterIterator.hxx".}
-proc constructTopOpeBRep_VPointInterIterator*(LI: TopOpeBRep_LineInter): TopOpeBRep_VPointInterIterator {.
+proc constructTopOpeBRepVPointInterIterator*(li: TopOpeBRepLineInter): TopOpeBRepVPointInterIterator {.
     constructor, importcpp: "TopOpeBRep_VPointInterIterator(@)",
     header: "TopOpeBRep_VPointInterIterator.hxx".}
-proc Init*(this: var TopOpeBRep_VPointInterIterator; LI: TopOpeBRep_LineInter;
-          checkkeep: Standard_Boolean = Standard_False) {.importcpp: "Init",
+proc init*(this: var TopOpeBRepVPointInterIterator; li: TopOpeBRepLineInter;
+          checkkeep: bool = false) {.importcpp: "Init",
+                                 header: "TopOpeBRep_VPointInterIterator.hxx".}
+proc init*(this: var TopOpeBRepVPointInterIterator) {.importcpp: "Init",
     header: "TopOpeBRep_VPointInterIterator.hxx".}
-proc Init*(this: var TopOpeBRep_VPointInterIterator) {.importcpp: "Init",
-    header: "TopOpeBRep_VPointInterIterator.hxx".}
-proc More*(this: TopOpeBRep_VPointInterIterator): Standard_Boolean {.noSideEffect,
+proc more*(this: TopOpeBRepVPointInterIterator): bool {.noSideEffect,
     importcpp: "More", header: "TopOpeBRep_VPointInterIterator.hxx".}
-proc Next*(this: var TopOpeBRep_VPointInterIterator) {.importcpp: "Next",
+proc next*(this: var TopOpeBRepVPointInterIterator) {.importcpp: "Next",
     header: "TopOpeBRep_VPointInterIterator.hxx".}
-proc CurrentVP*(this: var TopOpeBRep_VPointInterIterator): TopOpeBRep_VPointInter {.
+proc currentVP*(this: var TopOpeBRepVPointInterIterator): TopOpeBRepVPointInter {.
     importcpp: "CurrentVP", header: "TopOpeBRep_VPointInterIterator.hxx".}
-proc CurrentVPIndex*(this: TopOpeBRep_VPointInterIterator): Standard_Integer {.
-    noSideEffect, importcpp: "CurrentVPIndex",
-    header: "TopOpeBRep_VPointInterIterator.hxx".}
-proc ChangeCurrentVP*(this: var TopOpeBRep_VPointInterIterator): var TopOpeBRep_VPointInter {.
+proc currentVPIndex*(this: TopOpeBRepVPointInterIterator): int {.noSideEffect,
+    importcpp: "CurrentVPIndex", header: "TopOpeBRep_VPointInterIterator.hxx".}
+proc changeCurrentVP*(this: var TopOpeBRepVPointInterIterator): var TopOpeBRepVPointInter {.
     importcpp: "ChangeCurrentVP", header: "TopOpeBRep_VPointInterIterator.hxx".}
-proc PLineInterDummy*(this: TopOpeBRep_VPointInterIterator): TopOpeBRep_PLineInter {.
+proc pLineInterDummy*(this: TopOpeBRepVPointInterIterator): TopOpeBRepPLineInter {.
     noSideEffect, importcpp: "PLineInterDummy",
     header: "TopOpeBRep_VPointInterIterator.hxx".}

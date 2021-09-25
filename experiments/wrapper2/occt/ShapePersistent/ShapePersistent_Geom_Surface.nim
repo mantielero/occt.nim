@@ -11,86 +11,92 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _ShapePersistent_Geom_Surface_HeaderFile [NewLine] # _ShapePersistent_Geom_Surface_HeaderFile [NewLine] # ../StdObjMgt/StdObjMgt_TransientPersistentMap.hxx [NewLine] # ShapePersistent_Geom.hxx [NewLine] # ShapePersistent_HArray2.hxx [NewLine] # ../StdLPersistent/StdLPersistent_HArray1.hxx [NewLine] # ../StdLPersistent/StdLPersistent_HArray2.hxx [NewLine] # ../Geom/Geom_Plane.hxx [NewLine] # ../Geom/Geom_ConicalSurface.hxx [NewLine] # ../Geom/Geom_CylindricalSurface.hxx [NewLine] # ../Geom/Geom_SphericalSurface.hxx [NewLine] # ../Geom/Geom_ToroidalSurface.hxx [NewLine] # ../Geom/Geom_SurfaceOfLinearExtrusion.hxx [NewLine] # ../Geom/Geom_SurfaceOfRevolution.hxx [NewLine] # ../Geom/Geom_BezierSurface.hxx [NewLine] # ../Geom/Geom_BSplineSurface.hxx [NewLine] # ../Geom/Geom_RectangularTrimmedSurface.hxx [NewLine] # ../Geom/Geom_OffsetSurface.hxx [NewLine] # ../gp/gp_Ax3.hxx [NewLine] # ../gp/gp_Cone.hxx [NewLine] # ../gp/gp_Cylinder.hxx [NewLine] # ../gp/gp_Sphere.hxx [NewLine] # ../gp/gp_Torus.hxx [NewLine] class gp_Dir ;
+## !!!Ignored construct:  # _ShapePersistent_Geom_Surface_HeaderFile [NewLine] # _ShapePersistent_Geom_Surface_HeaderFile [NewLine] # < StdObjMgt_TransientPersistentMap . hxx > [NewLine] # < ShapePersistent_Geom . hxx > [NewLine] # < ShapePersistent_HArray2 . hxx > [NewLine] # < StdLPersistent_HArray1 . hxx > [NewLine] # < StdLPersistent_HArray2 . hxx > [NewLine] # < Geom_Plane . hxx > [NewLine] # < Geom_ConicalSurface . hxx > [NewLine] # < Geom_CylindricalSurface . hxx > [NewLine] # < Geom_SphericalSurface . hxx > [NewLine] # < Geom_ToroidalSurface . hxx > [NewLine] # < Geom_SurfaceOfLinearExtrusion . hxx > [NewLine] # < Geom_SurfaceOfRevolution . hxx > [NewLine] # < Geom_BezierSurface . hxx > [NewLine] # < Geom_BSplineSurface . hxx > [NewLine] # < Geom_RectangularTrimmedSurface . hxx > [NewLine] # < Geom_OffsetSurface . hxx > [NewLine] # < gp_Ax3 . hxx > [NewLine] # < gp_Cone . hxx > [NewLine] # < gp_Cylinder . hxx > [NewLine] # < gp_Sphere . hxx > [NewLine] # < gp_Torus . hxx > [NewLine] class gp_Dir ;
 ## Error: token expected: ( but got: <!!!
 
 discard "forward decl of gp_Pnt"
 type
-  ShapePersistent_Geom_Surface* {.importcpp: "ShapePersistent_Geom_Surface",
-                                 header: "ShapePersistent_Geom_Surface.hxx",
-                                 bycopy.} = object of ShapePersistent_Geom ## ! Create a persistent object for a plane
+  ShapePersistentGeomSurface* {.importcpp: "ShapePersistent_Geom_Surface",
+                               header: "ShapePersistent_Geom_Surface.hxx", bycopy.} = object of ShapePersistentGeom ##
+                                                                                                             ## !
+                                                                                                             ## Create
+                                                                                                             ## a
+                                                                                                             ## persistent
+                                                                                                             ## object
+                                                                                                             ## for
+                                                                                                             ## a
+                                                                                                             ## plane
 
-  ShapePersistent_Geom_SurfaceElementary* = subBase_gp[Surface, gp_Ax3]
-  ShapePersistent_Geom_SurfacePlane* = instance[
-      ShapePersistent_Geom_SurfaceElementary, Geom_Plane, gp_Ax3]
-  ShapePersistent_Geom_SurfaceConical* = instance[
-      ShapePersistent_Geom_SurfaceElementary, Geom_ConicalSurface, gp_Cone]
-  ShapePersistent_Geom_SurfaceCylindrical* = instance[
-      ShapePersistent_Geom_SurfaceElementary, Geom_CylindricalSurface, gp_Cylinder]
-  ShapePersistent_Geom_SurfaceSpherical* = instance[
-      ShapePersistent_Geom_SurfaceElementary, Geom_SphericalSurface, gp_Sphere]
-  ShapePersistent_Geom_SurfaceToroidal* = instance[
-      ShapePersistent_Geom_SurfaceElementary, Geom_ToroidalSurface, gp_Torus]
-  ShapePersistent_Geom_SurfaceSwept* = subBase[Surface,
-      ShapePersistent_Geom_SurfacepSweptData]
-  ShapePersistent_Geom_SurfaceLinearExtrusion* = Delayed[
-      ShapePersistent_Geom_SurfaceSwept,
-      ShapePersistent_Geom_SurfacepLinearExtrusion]
-  ShapePersistent_Geom_SurfaceRevolution* = Delayed[
-      ShapePersistent_Geom_SurfaceSwept, ShapePersistent_Geom_SurfacepRevolution]
-  ShapePersistent_Geom_SurfaceBounded* = subBase_empty[Surface]
-  ShapePersistent_Geom_SurfaceBezier* = Delayed[
-      ShapePersistent_Geom_SurfaceBounded, ShapePersistent_Geom_SurfacepBezier]
-  ShapePersistent_Geom_SurfaceBSpline* = Delayed[
-      ShapePersistent_Geom_SurfaceBounded, ShapePersistent_Geom_SurfacepBSpline]
-  ShapePersistent_Geom_SurfaceRectangularTrimmed* = Delayed[
-      ShapePersistent_Geom_SurfaceBounded,
-      ShapePersistent_Geom_SurfacepRectangularTrimmed]
-  ShapePersistent_Geom_SurfaceOffset* = Delayed[Surface,
-      ShapePersistent_Geom_SurfacepOffset]
+  ShapePersistentGeomSurfaceElementary* = SubBaseGp[Surface, Ax3]
+  ShapePersistentGeomSurfacePlane* = Instance[
+      ShapePersistentGeomSurfaceElementary, GeomPlane, Ax3]
+  ShapePersistentGeomSurfaceConical* = Instance[
+      ShapePersistentGeomSurfaceElementary, GeomConicalSurface, Cone]
+  ShapePersistentGeomSurfaceCylindrical* = Instance[
+      ShapePersistentGeomSurfaceElementary, GeomCylindricalSurface, Cylinder]
+  ShapePersistentGeomSurfaceSpherical* = Instance[
+      ShapePersistentGeomSurfaceElementary, GeomSphericalSurface, Sphere]
+  ShapePersistentGeomSurfaceToroidal* = Instance[
+      ShapePersistentGeomSurfaceElementary, GeomToroidalSurface, Torus]
+  ShapePersistentGeomSurfaceSwept* = SubBase[Surface,
+      ShapePersistentGeomSurfacepSweptData]
+  ShapePersistentGeomSurfaceLinearExtrusion* = Delayed[
+      ShapePersistentGeomSurfaceSwept, ShapePersistentGeomSurfacepLinearExtrusion]
+  ShapePersistentGeomSurfaceRevolution* = Delayed[ShapePersistentGeomSurfaceSwept,
+      ShapePersistentGeomSurfacepRevolution]
+  ShapePersistentGeomSurfaceBounded* = SubBaseEmpty[Surface]
+  ShapePersistentGeomSurfaceBezier* = Delayed[ShapePersistentGeomSurfaceBounded,
+      ShapePersistentGeomSurfacepBezier]
+  ShapePersistentGeomSurfaceBSpline* = Delayed[ShapePersistentGeomSurfaceBounded,
+      ShapePersistentGeomSurfacepBSpline]
+  ShapePersistentGeomSurfaceRectangularTrimmed* = Delayed[
+      ShapePersistentGeomSurfaceBounded,
+      ShapePersistentGeomSurfacepRectangularTrimmed]
+  ShapePersistentGeomSurfaceOffset* = Delayed[Surface,
+      ShapePersistentGeomSurfacepOffset]
 
-proc Translate*(theSurf: handle[Geom_Plane];
-               theMap: var StdObjMgt_TransientPersistentMap): handle[Surface] {.
+proc translate*(theSurf: Handle[GeomPlane];
+               theMap: var StdObjMgtTransientPersistentMap): Handle[Surface] {.
     importcpp: "ShapePersistent_Geom_Surface::Translate(@)",
     header: "ShapePersistent_Geom_Surface.hxx".}
-proc Translate*(theSurf: handle[Geom_CylindricalSurface];
-               theMap: var StdObjMgt_TransientPersistentMap): handle[Surface] {.
+proc translate*(theSurf: Handle[GeomCylindricalSurface];
+               theMap: var StdObjMgtTransientPersistentMap): Handle[Surface] {.
     importcpp: "ShapePersistent_Geom_Surface::Translate(@)",
     header: "ShapePersistent_Geom_Surface.hxx".}
-proc Translate*(theSurf: handle[Geom_ConicalSurface];
-               theMap: var StdObjMgt_TransientPersistentMap): handle[Surface] {.
+proc translate*(theSurf: Handle[GeomConicalSurface];
+               theMap: var StdObjMgtTransientPersistentMap): Handle[Surface] {.
     importcpp: "ShapePersistent_Geom_Surface::Translate(@)",
     header: "ShapePersistent_Geom_Surface.hxx".}
-proc Translate*(theSurf: handle[Geom_SphericalSurface];
-               theMap: var StdObjMgt_TransientPersistentMap): handle[Surface] {.
+proc translate*(theSurf: Handle[GeomSphericalSurface];
+               theMap: var StdObjMgtTransientPersistentMap): Handle[Surface] {.
     importcpp: "ShapePersistent_Geom_Surface::Translate(@)",
     header: "ShapePersistent_Geom_Surface.hxx".}
-proc Translate*(theSurf: handle[Geom_ToroidalSurface];
-               theMap: var StdObjMgt_TransientPersistentMap): handle[Surface] {.
+proc translate*(theSurf: Handle[GeomToroidalSurface];
+               theMap: var StdObjMgtTransientPersistentMap): Handle[Surface] {.
     importcpp: "ShapePersistent_Geom_Surface::Translate(@)",
     header: "ShapePersistent_Geom_Surface.hxx".}
-proc Translate*(theSurf: handle[Geom_SurfaceOfLinearExtrusion];
-               theMap: var StdObjMgt_TransientPersistentMap): handle[Surface] {.
+proc translate*(theSurf: Handle[GeomSurfaceOfLinearExtrusion];
+               theMap: var StdObjMgtTransientPersistentMap): Handle[Surface] {.
     importcpp: "ShapePersistent_Geom_Surface::Translate(@)",
     header: "ShapePersistent_Geom_Surface.hxx".}
-proc Translate*(theSurf: handle[Geom_SurfaceOfRevolution];
-               theMap: var StdObjMgt_TransientPersistentMap): handle[Surface] {.
+proc translate*(theSurf: Handle[GeomSurfaceOfRevolution];
+               theMap: var StdObjMgtTransientPersistentMap): Handle[Surface] {.
     importcpp: "ShapePersistent_Geom_Surface::Translate(@)",
     header: "ShapePersistent_Geom_Surface.hxx".}
-proc Translate*(theSurf: handle[Geom_BezierSurface];
-               theMap: var StdObjMgt_TransientPersistentMap): handle[Surface] {.
+proc translate*(theSurf: Handle[GeomBezierSurface];
+               theMap: var StdObjMgtTransientPersistentMap): Handle[Surface] {.
     importcpp: "ShapePersistent_Geom_Surface::Translate(@)",
     header: "ShapePersistent_Geom_Surface.hxx".}
-proc Translate*(theSurf: handle[Geom_BSplineSurface];
-               theMap: var StdObjMgt_TransientPersistentMap): handle[Surface] {.
+proc translate*(theSurf: Handle[GeomBSplineSurface];
+               theMap: var StdObjMgtTransientPersistentMap): Handle[Surface] {.
     importcpp: "ShapePersistent_Geom_Surface::Translate(@)",
     header: "ShapePersistent_Geom_Surface.hxx".}
-proc Translate*(theSurf: handle[Geom_RectangularTrimmedSurface];
-               theMap: var StdObjMgt_TransientPersistentMap): handle[Surface] {.
+proc translate*(theSurf: Handle[GeomRectangularTrimmedSurface];
+               theMap: var StdObjMgtTransientPersistentMap): Handle[Surface] {.
     importcpp: "ShapePersistent_Geom_Surface::Translate(@)",
     header: "ShapePersistent_Geom_Surface.hxx".}
-proc Translate*(theSurf: handle[Geom_OffsetSurface];
-               theMap: var StdObjMgt_TransientPersistentMap): handle[Surface] {.
+proc translate*(theSurf: Handle[GeomOffsetSurface];
+               theMap: var StdObjMgtTransientPersistentMap): Handle[Surface] {.
     importcpp: "ShapePersistent_Geom_Surface::Translate(@)",
     header: "ShapePersistent_Geom_Surface.hxx".}
 ## =======================================================================
@@ -149,3 +155,4 @@ proc Translate*(theSurf: handle[Geom_OffsetSurface];
 
 ## !!!Ignored construct:  template < > [end of template] void ShapePersistent_Geom :: instance < ShapePersistent_Geom :: subBase_gp < ShapePersistent_Geom :: Surface , gp_Ax3 > , Geom_ToroidalSurface , gp_Torus > :: Write ( StdObjMgt_WriteData & theWriteData ) const ;
 ## Error: token expected: ( but got: <!!!
+

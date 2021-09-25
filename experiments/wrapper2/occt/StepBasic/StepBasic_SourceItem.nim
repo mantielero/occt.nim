@@ -13,27 +13,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepData_SelectMember"
 discard "forward decl of TCollection_HAsciiString"
 type
-  StepBasic_SourceItem* {.importcpp: "StepBasic_SourceItem",
-                         header: "StepBasic_SourceItem.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                               ## !
-                                                                                               ## Empty
-                                                                                               ## constructor
+  StepBasicSourceItem* {.importcpp: "StepBasic_SourceItem",
+                        header: "StepBasic_SourceItem.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                             ## !
+                                                                                             ## Empty
+                                                                                             ## constructor
 
 
-proc constructStepBasic_SourceItem*(): StepBasic_SourceItem {.constructor,
+proc constructStepBasicSourceItem*(): StepBasicSourceItem {.constructor,
     importcpp: "StepBasic_SourceItem(@)", header: "StepBasic_SourceItem.hxx".}
-proc CaseNum*(this: StepBasic_SourceItem; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepBasicSourceItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepBasic_SourceItem.hxx".}
-proc NewMember*(this: StepBasic_SourceItem): handle[StepData_SelectMember] {.
+proc newMember*(this: StepBasicSourceItem): Handle[StepDataSelectMember] {.
     noSideEffect, importcpp: "NewMember", header: "StepBasic_SourceItem.hxx".}
-proc Identifier*(this: StepBasic_SourceItem): handle[TCollection_HAsciiString] {.
+proc identifier*(this: StepBasicSourceItem): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Identifier", header: "StepBasic_SourceItem.hxx".}

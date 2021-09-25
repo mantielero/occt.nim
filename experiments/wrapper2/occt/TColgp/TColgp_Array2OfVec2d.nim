@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Vec2d, ../NCollection/NCollection_Array2
-
 type
-  TColgp_Array2OfVec2d* = NCollection_Array2[gp_Vec2d]
+  TColgpArray2OfVec2d* = NCollectionArray2[Vec2d]
+

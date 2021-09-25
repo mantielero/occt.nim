@@ -13,75 +13,69 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepShape_HArray1OfValueQualifier, ../Standard/Standard_Transient,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_MeasureWithUnit"
 discard "forward decl of StepShape_ValueQualifier"
 discard "forward decl of StepShape_MeasureQualification"
 discard "forward decl of StepShape_MeasureQualification"
 type
-  Handle_StepShape_MeasureQualification* = handle[StepShape_MeasureQualification]
+  HandleStepShapeMeasureQualification* = Handle[StepShapeMeasureQualification]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepShape_MeasureQualification* {.importcpp: "StepShape_MeasureQualification", header: "StepShape_MeasureQualification.hxx",
-                                   bycopy.} = object of Standard_Transient
+  StepShapeMeasureQualification* {.importcpp: "StepShape_MeasureQualification",
+                                  header: "StepShape_MeasureQualification.hxx",
+                                  bycopy.} = object of StandardTransient
 
 
-proc constructStepShape_MeasureQualification*(): StepShape_MeasureQualification {.
+proc constructStepShapeMeasureQualification*(): StepShapeMeasureQualification {.
     constructor, importcpp: "StepShape_MeasureQualification(@)",
     header: "StepShape_MeasureQualification.hxx".}
-proc Init*(this: var StepShape_MeasureQualification;
-          name: handle[TCollection_HAsciiString];
-          description: handle[TCollection_HAsciiString];
-          qualified_measure: handle[StepBasic_MeasureWithUnit];
-          qualifiers: handle[StepShape_HArray1OfValueQualifier]) {.
+proc init*(this: var StepShapeMeasureQualification;
+          name: Handle[TCollectionHAsciiString];
+          description: Handle[TCollectionHAsciiString];
+          qualifiedMeasure: Handle[StepBasicMeasureWithUnit];
+          qualifiers: Handle[StepShapeHArray1OfValueQualifier]) {.
     importcpp: "Init", header: "StepShape_MeasureQualification.hxx".}
-proc Name*(this: StepShape_MeasureQualification): handle[TCollection_HAsciiString] {.
+proc name*(this: StepShapeMeasureQualification): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepShape_MeasureQualification.hxx".}
-proc SetName*(this: var StepShape_MeasureQualification;
-             name: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepShapeMeasureQualification;
+             name: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepShape_MeasureQualification.hxx".}
-proc Description*(this: StepShape_MeasureQualification): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description",
-                               header: "StepShape_MeasureQualification.hxx".}
-proc SetDescription*(this: var StepShape_MeasureQualification;
-                    description: handle[TCollection_HAsciiString]) {.
+proc description*(this: StepShapeMeasureQualification): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Description",
+                              header: "StepShape_MeasureQualification.hxx".}
+proc setDescription*(this: var StepShapeMeasureQualification;
+                    description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepShape_MeasureQualification.hxx".}
-proc QualifiedMeasure*(this: StepShape_MeasureQualification): handle[
-    StepBasic_MeasureWithUnit] {.noSideEffect, importcpp: "QualifiedMeasure",
-                                header: "StepShape_MeasureQualification.hxx".}
-proc SetQualifiedMeasure*(this: var StepShape_MeasureQualification;
-                         qualified_measure: handle[StepBasic_MeasureWithUnit]) {.
+proc qualifiedMeasure*(this: StepShapeMeasureQualification): Handle[
+    StepBasicMeasureWithUnit] {.noSideEffect, importcpp: "QualifiedMeasure",
+                               header: "StepShape_MeasureQualification.hxx".}
+proc setQualifiedMeasure*(this: var StepShapeMeasureQualification;
+                         qualifiedMeasure: Handle[StepBasicMeasureWithUnit]) {.
     importcpp: "SetQualifiedMeasure", header: "StepShape_MeasureQualification.hxx".}
-proc Qualifiers*(this: StepShape_MeasureQualification): handle[
-    StepShape_HArray1OfValueQualifier] {.noSideEffect, importcpp: "Qualifiers", header: "StepShape_MeasureQualification.hxx".}
-proc NbQualifiers*(this: StepShape_MeasureQualification): Standard_Integer {.
-    noSideEffect, importcpp: "NbQualifiers",
-    header: "StepShape_MeasureQualification.hxx".}
-proc SetQualifiers*(this: var StepShape_MeasureQualification;
-                   qualifiers: handle[StepShape_HArray1OfValueQualifier]) {.
+proc qualifiers*(this: StepShapeMeasureQualification): Handle[
+    StepShapeHArray1OfValueQualifier] {.noSideEffect, importcpp: "Qualifiers", header: "StepShape_MeasureQualification.hxx".}
+proc nbQualifiers*(this: StepShapeMeasureQualification): int {.noSideEffect,
+    importcpp: "NbQualifiers", header: "StepShape_MeasureQualification.hxx".}
+proc setQualifiers*(this: var StepShapeMeasureQualification;
+                   qualifiers: Handle[StepShapeHArray1OfValueQualifier]) {.
     importcpp: "SetQualifiers", header: "StepShape_MeasureQualification.hxx".}
-proc QualifiersValue*(this: StepShape_MeasureQualification; num: Standard_Integer): StepShape_ValueQualifier {.
+proc qualifiersValue*(this: StepShapeMeasureQualification; num: int): StepShapeValueQualifier {.
     noSideEffect, importcpp: "QualifiersValue",
     header: "StepShape_MeasureQualification.hxx".}
-proc SetQualifiersValue*(this: var StepShape_MeasureQualification;
-                        num: Standard_Integer;
-                        aqualifier: StepShape_ValueQualifier) {.
+proc setQualifiersValue*(this: var StepShapeMeasureQualification; num: int;
+                        aqualifier: StepShapeValueQualifier) {.
     importcpp: "SetQualifiersValue", header: "StepShape_MeasureQualification.hxx".}
 type
-  StepShape_MeasureQualificationbase_type* = Standard_Transient
+  StepShapeMeasureQualificationbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_MeasureQualification::get_type_name(@)",
-                              header: "StepShape_MeasureQualification.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_MeasureQualification::get_type_name(@)",
+                            header: "StepShape_MeasureQualification.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_MeasureQualification::get_type_descriptor(@)",
     header: "StepShape_MeasureQualification.hxx".}
-proc DynamicType*(this: StepShape_MeasureQualification): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeMeasureQualification): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_MeasureQualification.hxx".}

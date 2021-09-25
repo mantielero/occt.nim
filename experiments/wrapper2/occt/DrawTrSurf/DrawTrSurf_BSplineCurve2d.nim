@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Draw/Draw_MarkerShape, ../Draw/Draw_Color, ../Standard/Standard_Integer,
-  DrawTrSurf_Curve2d, ../Standard/Standard_Real
-
 discard "forward decl of Geom2d_BSplineCurve"
 discard "forward decl of Draw_Color"
 discard "forward decl of Draw_Display"
@@ -26,77 +21,75 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DrawTrSurf_BSplineCurve2d"
 discard "forward decl of DrawTrSurf_BSplineCurve2d"
 type
-  Handle_DrawTrSurf_BSplineCurve2d* = handle[DrawTrSurf_BSplineCurve2d]
-  DrawTrSurf_BSplineCurve2d* {.importcpp: "DrawTrSurf_BSplineCurve2d",
-                              header: "DrawTrSurf_BSplineCurve2d.hxx", bycopy.} = object of DrawTrSurf_Curve2d ##
-                                                                                                        ## !
-                                                                                                        ## creates
-                                                                                                        ## a
-                                                                                                        ## drawable
-                                                                                                        ## BSpline
-                                                                                                        ## curve
-                                                                                                        ## from
-                                                                                                        ## a
-                                                                                                        ## BSpline
-                                                                                                        ## curve
-                                                                                                        ## of
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## package
-                                                                                                        ## Geom2d.
+  HandleDrawTrSurfBSplineCurve2d* = Handle[DrawTrSurfBSplineCurve2d]
+  DrawTrSurfBSplineCurve2d* {.importcpp: "DrawTrSurf_BSplineCurve2d",
+                             header: "DrawTrSurf_BSplineCurve2d.hxx", bycopy.} = object of DrawTrSurfCurve2d ##
+                                                                                                      ## !
+                                                                                                      ## creates
+                                                                                                      ## a
+                                                                                                      ## drawable
+                                                                                                      ## BSpline
+                                                                                                      ## curve
+                                                                                                      ## from
+                                                                                                      ## a
+                                                                                                      ## BSpline
+                                                                                                      ## curve
+                                                                                                      ## of
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## package
+                                                                                                      ## Geom2d.
 
 
-proc constructDrawTrSurf_BSplineCurve2d*(C: handle[Geom2d_BSplineCurve]): DrawTrSurf_BSplineCurve2d {.
+proc constructDrawTrSurfBSplineCurve2d*(c: Handle[Geom2dBSplineCurve]): DrawTrSurfBSplineCurve2d {.
     constructor, importcpp: "DrawTrSurf_BSplineCurve2d(@)",
     header: "DrawTrSurf_BSplineCurve2d.hxx".}
-proc constructDrawTrSurf_BSplineCurve2d*(C: handle[Geom2d_BSplineCurve];
-                                        CurvColor: Draw_Color;
-                                        PolesColor: Draw_Color;
-                                        KnotsColor: Draw_Color;
-                                        KnotsShape: Draw_MarkerShape;
-                                        KnotsSize: Standard_Integer;
-                                        ShowPoles: Standard_Boolean;
-                                        ShowKnots: Standard_Boolean;
-                                        Discret: Standard_Integer): DrawTrSurf_BSplineCurve2d {.
+proc constructDrawTrSurfBSplineCurve2d*(c: Handle[Geom2dBSplineCurve];
+                                       curvColor: DrawColor;
+                                       polesColor: DrawColor;
+                                       knotsColor: DrawColor;
+                                       knotsShape: DrawMarkerShape;
+                                       knotsSize: int; showPoles: bool;
+                                       showKnots: bool; discret: int): DrawTrSurfBSplineCurve2d {.
     constructor, importcpp: "DrawTrSurf_BSplineCurve2d(@)",
     header: "DrawTrSurf_BSplineCurve2d.hxx".}
-proc DrawOn*(this: DrawTrSurf_BSplineCurve2d; dis: var Draw_Display) {.noSideEffect,
+proc drawOn*(this: DrawTrSurfBSplineCurve2d; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "DrawTrSurf_BSplineCurve2d.hxx".}
-proc ShowPoles*(this: var DrawTrSurf_BSplineCurve2d) {.importcpp: "ShowPoles",
+proc showPoles*(this: var DrawTrSurfBSplineCurve2d) {.importcpp: "ShowPoles",
     header: "DrawTrSurf_BSplineCurve2d.hxx".}
-proc ShowKnots*(this: var DrawTrSurf_BSplineCurve2d) {.importcpp: "ShowKnots",
+proc showKnots*(this: var DrawTrSurfBSplineCurve2d) {.importcpp: "ShowKnots",
     header: "DrawTrSurf_BSplineCurve2d.hxx".}
-proc ClearPoles*(this: var DrawTrSurf_BSplineCurve2d) {.importcpp: "ClearPoles",
+proc clearPoles*(this: var DrawTrSurfBSplineCurve2d) {.importcpp: "ClearPoles",
     header: "DrawTrSurf_BSplineCurve2d.hxx".}
-proc ClearKnots*(this: var DrawTrSurf_BSplineCurve2d) {.importcpp: "ClearKnots",
+proc clearKnots*(this: var DrawTrSurfBSplineCurve2d) {.importcpp: "ClearKnots",
     header: "DrawTrSurf_BSplineCurve2d.hxx".}
-proc FindPole*(this: DrawTrSurf_BSplineCurve2d; X: Standard_Real; Y: Standard_Real;
-              D: Draw_Display; Prec: Standard_Real; Index: var Standard_Integer) {.
-    noSideEffect, importcpp: "FindPole", header: "DrawTrSurf_BSplineCurve2d.hxx".}
-proc FindKnot*(this: DrawTrSurf_BSplineCurve2d; X: Standard_Real; Y: Standard_Real;
-              D: Draw_Display; Prec: Standard_Real; Index: var Standard_Integer) {.
-    noSideEffect, importcpp: "FindKnot", header: "DrawTrSurf_BSplineCurve2d.hxx".}
-proc SetPolesColor*(this: var DrawTrSurf_BSplineCurve2d; aColor: Draw_Color) {.
+proc findPole*(this: DrawTrSurfBSplineCurve2d; x: float; y: float; d: DrawDisplay;
+              prec: float; index: var int) {.noSideEffect, importcpp: "FindPole",
+                                        header: "DrawTrSurf_BSplineCurve2d.hxx".}
+proc findKnot*(this: DrawTrSurfBSplineCurve2d; x: float; y: float; d: DrawDisplay;
+              prec: float; index: var int) {.noSideEffect, importcpp: "FindKnot",
+                                        header: "DrawTrSurf_BSplineCurve2d.hxx".}
+proc setPolesColor*(this: var DrawTrSurfBSplineCurve2d; aColor: DrawColor) {.
     importcpp: "SetPolesColor", header: "DrawTrSurf_BSplineCurve2d.hxx".}
-proc SetKnotsColor*(this: var DrawTrSurf_BSplineCurve2d; aColor: Draw_Color) {.
+proc setKnotsColor*(this: var DrawTrSurfBSplineCurve2d; aColor: DrawColor) {.
     importcpp: "SetKnotsColor", header: "DrawTrSurf_BSplineCurve2d.hxx".}
-proc SetKnotsShape*(this: var DrawTrSurf_BSplineCurve2d; Shape: Draw_MarkerShape) {.
+proc setKnotsShape*(this: var DrawTrSurfBSplineCurve2d; shape: DrawMarkerShape) {.
     importcpp: "SetKnotsShape", header: "DrawTrSurf_BSplineCurve2d.hxx".}
-proc KnotsShape*(this: DrawTrSurf_BSplineCurve2d): Draw_MarkerShape {.noSideEffect,
+proc knotsShape*(this: DrawTrSurfBSplineCurve2d): DrawMarkerShape {.noSideEffect,
     importcpp: "KnotsShape", header: "DrawTrSurf_BSplineCurve2d.hxx".}
-proc KnotsColor*(this: DrawTrSurf_BSplineCurve2d): Draw_Color {.noSideEffect,
+proc knotsColor*(this: DrawTrSurfBSplineCurve2d): DrawColor {.noSideEffect,
     importcpp: "KnotsColor", header: "DrawTrSurf_BSplineCurve2d.hxx".}
-proc PolesColor*(this: DrawTrSurf_BSplineCurve2d): Draw_Color {.noSideEffect,
+proc polesColor*(this: DrawTrSurfBSplineCurve2d): DrawColor {.noSideEffect,
     importcpp: "PolesColor", header: "DrawTrSurf_BSplineCurve2d.hxx".}
-proc Copy*(this: DrawTrSurf_BSplineCurve2d): handle[Draw_Drawable3D] {.noSideEffect,
+proc copy*(this: DrawTrSurfBSplineCurve2d): Handle[DrawDrawable3D] {.noSideEffect,
     importcpp: "Copy", header: "DrawTrSurf_BSplineCurve2d.hxx".}
 type
-  DrawTrSurf_BSplineCurve2dbase_type* = DrawTrSurf_Curve2d
+  DrawTrSurfBSplineCurve2dbaseType* = DrawTrSurfCurve2d
 
-proc get_type_name*(): cstring {.importcpp: "DrawTrSurf_BSplineCurve2d::get_type_name(@)",
-                              header: "DrawTrSurf_BSplineCurve2d.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "DrawTrSurf_BSplineCurve2d::get_type_name(@)",
+                            header: "DrawTrSurf_BSplineCurve2d.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "DrawTrSurf_BSplineCurve2d::get_type_descriptor(@)",
     header: "DrawTrSurf_BSplineCurve2d.hxx".}
-proc DynamicType*(this: DrawTrSurf_BSplineCurve2d): handle[Standard_Type] {.
+proc dynamicType*(this: DrawTrSurfBSplineCurve2d): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "DrawTrSurf_BSplineCurve2d.hxx".}

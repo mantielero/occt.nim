@@ -14,17 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  TopOpeBRepDS_ShapeShapeInterference, TopOpeBRepDS_Kind,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean, TopOpeBRepDS_Config,
-  ../Standard/Standard_OStream
-
 discard "forward decl of TopOpeBRepDS_Transition"
 discard "forward decl of TopOpeBRepDS_EdgeVertexInterference"
 discard "forward decl of TopOpeBRepDS_EdgeVertexInterference"
 type
-  Handle_TopOpeBRepDS_EdgeVertexInterference* = handle[
+  HandleTopOpeBRepDS_EdgeVertexInterference* = Handle[
       TopOpeBRepDS_EdgeVertexInterference]
 
 ## ! An interference with a parameter (ShapeShapeInterference).
@@ -130,29 +124,27 @@ type
                                                                                             ## edge.
 
 
-proc constructTopOpeBRepDS_EdgeVertexInterference*(T: TopOpeBRepDS_Transition;
-    ST: TopOpeBRepDS_Kind; S: Standard_Integer; G: Standard_Integer;
-    GIsBound: Standard_Boolean; C: TopOpeBRepDS_Config; P: Standard_Real): TopOpeBRepDS_EdgeVertexInterference {.
+proc constructTopOpeBRepDS_EdgeVertexInterference*(t: TopOpeBRepDS_Transition;
+    st: TopOpeBRepDS_Kind; s: int; g: int; gIsBound: bool; c: TopOpeBRepDS_Config;
+    p: float): TopOpeBRepDS_EdgeVertexInterference {.constructor,
+    importcpp: "TopOpeBRepDS_EdgeVertexInterference(@)",
+    header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}
+proc constructTopOpeBRepDS_EdgeVertexInterference*(t: TopOpeBRepDS_Transition;
+    s: int; g: int; gIsBound: bool; c: TopOpeBRepDS_Config; p: float): TopOpeBRepDS_EdgeVertexInterference {.
     constructor, importcpp: "TopOpeBRepDS_EdgeVertexInterference(@)",
     header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}
-proc constructTopOpeBRepDS_EdgeVertexInterference*(T: TopOpeBRepDS_Transition;
-    S: Standard_Integer; G: Standard_Integer; GIsBound: Standard_Boolean;
-    C: TopOpeBRepDS_Config; P: Standard_Real): TopOpeBRepDS_EdgeVertexInterference {.
-    constructor, importcpp: "TopOpeBRepDS_EdgeVertexInterference(@)",
-    header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}
-proc Parameter*(this: TopOpeBRepDS_EdgeVertexInterference): Standard_Real {.
-    noSideEffect, importcpp: "Parameter",
-    header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}
-proc Parameter*(this: var TopOpeBRepDS_EdgeVertexInterference; P: Standard_Real) {.
+proc parameter*(this: TopOpeBRepDS_EdgeVertexInterference): float {.noSideEffect,
+    importcpp: "Parameter", header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}
+proc parameter*(this: var TopOpeBRepDS_EdgeVertexInterference; p: float) {.
     importcpp: "Parameter", header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}
 type
-  TopOpeBRepDS_EdgeVertexInterferencebase_type* = TopOpeBRepDS_ShapeShapeInterference
+  TopOpeBRepDS_EdgeVertexInterferencebaseType* = TopOpeBRepDS_ShapeShapeInterference
 
-proc get_type_name*(): cstring {.importcpp: "TopOpeBRepDS_EdgeVertexInterference::get_type_name(@)",
-                              header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TopOpeBRepDS_EdgeVertexInterference::get_type_name(@)",
+                            header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopOpeBRepDS_EdgeVertexInterference::get_type_descriptor(@)",
     header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}
-proc DynamicType*(this: TopOpeBRepDS_EdgeVertexInterference): handle[Standard_Type] {.
+proc dynamicType*(this: TopOpeBRepDS_EdgeVertexInterference): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}

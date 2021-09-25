@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Bnd_B3d_HeaderFile [NewLine] # _Bnd_B3d_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # ../gp/gp_XYZ.hxx [NewLine] class gp_XYZ ;
+## !!!Ignored construct:  # _Bnd_B3d_HeaderFile [NewLine] # _Bnd_B3d_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < gp_XYZ . hxx > [NewLine] class gp_XYZ ;
 ## Error: did not expect <!!!
 
 discard "forward decl of gp_Pnt"
@@ -22,54 +22,53 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Ax3"
 type
-  Bnd_B3d* {.importcpp: "Bnd_B3d", header: "Bnd_B3d.hxx", bycopy.} = object ## ! Empty constructor.
-    Bnd_B3d* {.importc: "Bnd_B3d".}: Standard_NODISCARD
+  BndB3d* {.importcpp: "Bnd_B3d", header: "Bnd_B3d.hxx", bycopy.} = object ## ! Empty constructor.
 
 
-proc constructBnd_B3d*(): Bnd_B3d {.constructor, importcpp: "Bnd_B3d(@)",
-                                 header: "Bnd_B3d.hxx".}
-proc constructBnd_B3d*(theCenter: gp_XYZ; theHSize: gp_XYZ): Bnd_B3d {.constructor,
+proc constructBndB3d*(): BndB3d {.constructor, importcpp: "Bnd_B3d(@)",
+                               header: "Bnd_B3d.hxx".}
+proc constructBndB3d*(theCenter: Xyz; theHSize: Xyz): BndB3d {.constructor,
     importcpp: "Bnd_B3d(@)", header: "Bnd_B3d.hxx".}
-proc IsVoid*(this: Bnd_B3d): Standard_Boolean {.noSideEffect, importcpp: "IsVoid",
+proc isVoid*(this: BndB3d): bool {.noSideEffect, importcpp: "IsVoid",
+                               header: "Bnd_B3d.hxx".}
+proc clear*(this: var BndB3d) {.importcpp: "Clear", header: "Bnd_B3d.hxx".}
+proc add*(this: var BndB3d; thePnt: Xyz) {.importcpp: "Add", header: "Bnd_B3d.hxx".}
+proc add*(this: var BndB3d; thePnt: Pnt) {.importcpp: "Add", header: "Bnd_B3d.hxx".}
+proc add*(this: var BndB3d; theBox: BndB3d) {.importcpp: "Add", header: "Bnd_B3d.hxx".}
+proc cornerMin*(this: BndB3d): Xyz {.noSideEffect, importcpp: "CornerMin",
+                                 header: "Bnd_B3d.hxx".}
+proc cornerMax*(this: BndB3d): Xyz {.noSideEffect, importcpp: "CornerMax",
+                                 header: "Bnd_B3d.hxx".}
+proc squareExtent*(this: BndB3d): float {.noSideEffect, importcpp: "SquareExtent",
+                                      header: "Bnd_B3d.hxx".}
+proc enlarge*(this: var BndB3d; theDiff: float) {.importcpp: "Enlarge",
     header: "Bnd_B3d.hxx".}
-proc Clear*(this: var Bnd_B3d) {.importcpp: "Clear", header: "Bnd_B3d.hxx".}
-proc Add*(this: var Bnd_B3d; thePnt: gp_XYZ) {.importcpp: "Add", header: "Bnd_B3d.hxx".}
-proc Add*(this: var Bnd_B3d; thePnt: gp_Pnt) {.importcpp: "Add", header: "Bnd_B3d.hxx".}
-proc Add*(this: var Bnd_B3d; theBox: Bnd_B3d) {.importcpp: "Add", header: "Bnd_B3d.hxx".}
-proc CornerMin*(this: Bnd_B3d): gp_XYZ {.noSideEffect, importcpp: "CornerMin",
-                                     header: "Bnd_B3d.hxx".}
-proc CornerMax*(this: Bnd_B3d): gp_XYZ {.noSideEffect, importcpp: "CornerMax",
-                                     header: "Bnd_B3d.hxx".}
-proc SquareExtent*(this: Bnd_B3d): Standard_Real {.noSideEffect,
-    importcpp: "SquareExtent", header: "Bnd_B3d.hxx".}
-proc Enlarge*(this: var Bnd_B3d; theDiff: Standard_Real) {.importcpp: "Enlarge",
+proc limit*(this: var BndB3d; theOtherBox: BndB3d): bool {.importcpp: "Limit",
     header: "Bnd_B3d.hxx".}
-proc Limit*(this: var Bnd_B3d; theOtherBox: Bnd_B3d): Standard_Boolean {.
-    importcpp: "Limit", header: "Bnd_B3d.hxx".}
-## !!!Ignored construct:  Transformed ( const gp_Trsf & theTrsf ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc IsOut*(this: Bnd_B3d; thePnt: gp_XYZ): Standard_Boolean {.noSideEffect,
+proc transformed*(this: BndB3d; theTrsf: Trsf): BndB3d {.noSideEffect,
+    importcpp: "Transformed", header: "Bnd_B3d.hxx".}
+proc isOut*(this: BndB3d; thePnt: Xyz): bool {.noSideEffect, importcpp: "IsOut",
+    header: "Bnd_B3d.hxx".}
+proc isOut*(this: BndB3d; theCenter: Xyz; theRadius: float;
+           isSphereHollow: bool = false): bool {.noSideEffect, importcpp: "IsOut",
+    header: "Bnd_B3d.hxx".}
+proc isOut*(this: BndB3d; theOtherBox: BndB3d): bool {.noSideEffect,
     importcpp: "IsOut", header: "Bnd_B3d.hxx".}
-proc IsOut*(this: Bnd_B3d; theCenter: gp_XYZ; theRadius: Standard_Real;
-           isSphereHollow: Standard_Boolean = Standard_False): Standard_Boolean {.
-    noSideEffect, importcpp: "IsOut", header: "Bnd_B3d.hxx".}
-proc IsOut*(this: Bnd_B3d; theOtherBox: Bnd_B3d): Standard_Boolean {.noSideEffect,
+proc isOut*(this: BndB3d; theOtherBox: BndB3d; theTrsf: Trsf): bool {.noSideEffect,
     importcpp: "IsOut", header: "Bnd_B3d.hxx".}
-proc IsOut*(this: Bnd_B3d; theOtherBox: Bnd_B3d; theTrsf: gp_Trsf): Standard_Boolean {.
-    noSideEffect, importcpp: "IsOut", header: "Bnd_B3d.hxx".}
-proc IsOut*(this: Bnd_B3d; theLine: gp_Ax1; isRay: Standard_Boolean = Standard_False;
-           theOverthickness: Standard_Real = 0.0): Standard_Boolean {.noSideEffect,
-    importcpp: "IsOut", header: "Bnd_B3d.hxx".}
-proc IsOut*(this: Bnd_B3d; thePlane: gp_Ax3): Standard_Boolean {.noSideEffect,
-    importcpp: "IsOut", header: "Bnd_B3d.hxx".}
-proc IsIn*(this: Bnd_B3d; theBox: Bnd_B3d): Standard_Boolean {.noSideEffect,
+proc isOut*(this: BndB3d; theLine: Ax1; isRay: bool = false;
+           theOverthickness: float = 0.0): bool {.noSideEffect, importcpp: "IsOut",
+    header: "Bnd_B3d.hxx".}
+proc isOut*(this: BndB3d; thePlane: Ax3): bool {.noSideEffect, importcpp: "IsOut",
+    header: "Bnd_B3d.hxx".}
+proc isIn*(this: BndB3d; theBox: BndB3d): bool {.noSideEffect, importcpp: "IsIn",
+    header: "Bnd_B3d.hxx".}
+proc isIn*(this: BndB3d; theBox: BndB3d; theTrsf: Trsf): bool {.noSideEffect,
     importcpp: "IsIn", header: "Bnd_B3d.hxx".}
-proc IsIn*(this: Bnd_B3d; theBox: Bnd_B3d; theTrsf: gp_Trsf): Standard_Boolean {.
-    noSideEffect, importcpp: "IsIn", header: "Bnd_B3d.hxx".}
-proc SetCenter*(this: var Bnd_B3d; theCenter: gp_XYZ) {.importcpp: "SetCenter",
+proc setCenter*(this: var BndB3d; theCenter: Xyz) {.importcpp: "SetCenter",
     header: "Bnd_B3d.hxx".}
-proc SetHSize*(this: var Bnd_B3d; theHSize: gp_XYZ) {.importcpp: "SetHSize",
+proc setHSize*(this: var BndB3d; theHSize: Xyz) {.importcpp: "SetHSize",
     header: "Bnd_B3d.hxx".}
-## !!!Ignored construct:  # RealType Standard_Real [NewLine] # RealType_hxx < Standard_Real . hxx > [NewLine] # Bnd_B3x Bnd_B3d [NewLine] # Bnd_B3x_hxx < Bnd_B3d . hxx > [NewLine] # < Bnd_B3x . lxx > [NewLine] # RealType [NewLine] # RealType_hxx [NewLine] # Bnd_B3x [NewLine] # Bnd_B3x_hxx [NewLine] #  _Bnd_B3d_HeaderFile [NewLine]
+## !!!Ignored construct:  # RealType Standard_Real [NewLine] # RealType_hxx < Standard_Real . hxx > [NewLine] # Bnd_B3x Bnd_B3d [NewLine] # Bnd_B3x_hxx < Bnd_B3d . hxx > [NewLine] # < Bnd_B3x . lxx > [NewLine] # RealType [NewLine] # RealType_hxx [NewLine] # Bnd_B3x [NewLine] # Bnd_B3x_hxx [NewLine] #  _Bnd_B3d_HeaderFile
 ## Error: did not expect <!!!
+

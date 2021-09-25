@@ -15,14 +15,15 @@
 ## ! Low-level glTF enumeration defining Accessor component type.
 
 type
-  RWGltf_GltfAccessorCompType* {.size: sizeof(cint),
-                                importcpp: "RWGltf_GltfAccessorCompType",
-                                header: "RWGltf_GltfAccessorCompType.hxx".} = enum
-    RWGltf_GltfAccessorCompType_UNKNOWN, ## !< unknown or invalid type
-    RWGltf_GltfAccessorCompType_Int8 = 5120, ## !< GL_BYTE
-    RWGltf_GltfAccessorCompType_UInt8 = 5121, ## !< GL_UNSIGNED_BYTE
-    RWGltf_GltfAccessorCompType_Int16 = 5122, ## !< GL_SHORT
-    RWGltf_GltfAccessorCompType_UInt16 = 5123, ## !< GL_UNSIGNED_SHORT
-    RWGltf_GltfAccessorCompType_UInt32 = 5125, ## !< GL_UNSIGNED_INT
-    RWGltf_GltfAccessorCompType_Float32 = 5126 ## !< GL_FLOAT
+  RWGltfGltfAccessorCompType* {.size: sizeof(cint),
+                               importcpp: "RWGltf_GltfAccessorCompType",
+                               header: "RWGltf_GltfAccessorCompType.hxx".} = enum
+    RWGltfGltfAccessorCompTypeUNKNOWN, ## !< unknown or invalid type
+    RWGltfGltfAccessorCompTypeInt8 = 5120, ## !< GL_BYTE
+    RWGltfGltfAccessorCompTypeUInt8 = 5121, ## !< GL_UNSIGNED_BYTE
+    RWGltfGltfAccessorCompTypeInt16 = 5122, ## !< GL_SHORT
+    RWGltfGltfAccessorCompTypeUInt16 = 5123, ## !< GL_UNSIGNED_SHORT
+    RWGltfGltfAccessorCompTypeUInt32 = 5125, ## !< GL_UNSIGNED_INT
+    RWGltfGltfAccessorCompTypeFloat32 = 5126 ## !< GL_FLOAT
+
 

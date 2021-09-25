@@ -13,31 +13,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../IGESToBRep/IGESToBRep_AlgoContainer
-
 discard "forward decl of IGESControl_AlgoContainer"
 discard "forward decl of IGESControl_AlgoContainer"
 type
-  Handle_IGESControl_AlgoContainer* = handle[IGESControl_AlgoContainer]
-  IGESControl_AlgoContainer* {.importcpp: "IGESControl_AlgoContainer",
-                              header: "IGESControl_AlgoContainer.hxx", bycopy.} = object of IGESToBRep_AlgoContainer ##
-                                                                                                              ## !
-                                                                                                              ## Empty
-                                                                                                              ## constructor
+  HandleIGESControlAlgoContainer* = Handle[IGESControlAlgoContainer]
+  IGESControlAlgoContainer* {.importcpp: "IGESControl_AlgoContainer",
+                             header: "IGESControl_AlgoContainer.hxx", bycopy.} = object of IGESToBRepAlgoContainer ##
+                                                                                                            ## !
+                                                                                                            ## Empty
+                                                                                                            ## constructor
 
 
-proc constructIGESControl_AlgoContainer*(): IGESControl_AlgoContainer {.
-    constructor, importcpp: "IGESControl_AlgoContainer(@)",
+proc constructIGESControlAlgoContainer*(): IGESControlAlgoContainer {.constructor,
+    importcpp: "IGESControl_AlgoContainer(@)",
     header: "IGESControl_AlgoContainer.hxx".}
 type
-  IGESControl_AlgoContainerbase_type* = IGESToBRep_AlgoContainer
+  IGESControlAlgoContainerbaseType* = IGESToBRepAlgoContainer
 
-proc get_type_name*(): cstring {.importcpp: "IGESControl_AlgoContainer::get_type_name(@)",
-                              header: "IGESControl_AlgoContainer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESControl_AlgoContainer::get_type_name(@)",
+                            header: "IGESControl_AlgoContainer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESControl_AlgoContainer::get_type_descriptor(@)",
     header: "IGESControl_AlgoContainer.hxx".}
-proc DynamicType*(this: IGESControl_AlgoContainer): handle[Standard_Type] {.
+proc dynamicType*(this: IGESControlAlgoContainer): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESControl_AlgoContainer.hxx".}

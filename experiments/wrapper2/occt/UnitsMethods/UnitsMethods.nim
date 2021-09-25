@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Geom_Surface"
 type
@@ -37,31 +32,30 @@ type
                                                                                    ## units
 
 
-proc InitializeFactors*(LengthFactor: Standard_Real;
-                       PlaneAngleFactor: Standard_Real;
-                       SolidAngleFactor: Standard_Real) {.
+proc initializeFactors*(lengthFactor: float; planeAngleFactor: float;
+                       solidAngleFactor: float) {.
     importcpp: "UnitsMethods::InitializeFactors(@)", header: "UnitsMethods.hxx".}
-proc LengthFactor*(): Standard_Real {.importcpp: "UnitsMethods::LengthFactor(@)",
-                                   header: "UnitsMethods.hxx".}
-proc PlaneAngleFactor*(): Standard_Real {.importcpp: "UnitsMethods::PlaneAngleFactor(@)",
-                                       header: "UnitsMethods.hxx".}
-proc SolidAngleFactor*(): Standard_Real {.importcpp: "UnitsMethods::SolidAngleFactor(@)",
-                                       header: "UnitsMethods.hxx".}
-proc Set3dConversion*(B: Standard_Boolean) {.
-    importcpp: "UnitsMethods::Set3dConversion(@)", header: "UnitsMethods.hxx".}
-proc Convert3d*(): Standard_Boolean {.importcpp: "UnitsMethods::Convert3d(@)",
-                                   header: "UnitsMethods.hxx".}
-proc RadianToDegree*(C: handle[Geom2d_Curve]; S: handle[Geom_Surface]): handle[
-    Geom2d_Curve] {.importcpp: "UnitsMethods::RadianToDegree(@)",
-                   header: "UnitsMethods.hxx".}
-proc DegreeToRadian*(C: handle[Geom2d_Curve]; S: handle[Geom_Surface]): handle[
-    Geom2d_Curve] {.importcpp: "UnitsMethods::DegreeToRadian(@)",
-                   header: "UnitsMethods.hxx".}
-proc MirrorPCurve*(C: handle[Geom2d_Curve]): handle[Geom2d_Curve] {.
+proc lengthFactor*(): float {.importcpp: "UnitsMethods::LengthFactor(@)",
+                           header: "UnitsMethods.hxx".}
+proc planeAngleFactor*(): float {.importcpp: "UnitsMethods::PlaneAngleFactor(@)",
+                               header: "UnitsMethods.hxx".}
+proc solidAngleFactor*(): float {.importcpp: "UnitsMethods::SolidAngleFactor(@)",
+                               header: "UnitsMethods.hxx".}
+proc set3dConversion*(b: bool) {.importcpp: "UnitsMethods::Set3dConversion(@)",
+                              header: "UnitsMethods.hxx".}
+proc convert3d*(): bool {.importcpp: "UnitsMethods::Convert3d(@)",
+                       header: "UnitsMethods.hxx".}
+proc radianToDegree*(c: Handle[Geom2dCurve]; s: Handle[GeomSurface]): Handle[
+    Geom2dCurve] {.importcpp: "UnitsMethods::RadianToDegree(@)",
+                  header: "UnitsMethods.hxx".}
+proc degreeToRadian*(c: Handle[Geom2dCurve]; s: Handle[GeomSurface]): Handle[
+    Geom2dCurve] {.importcpp: "UnitsMethods::DegreeToRadian(@)",
+                  header: "UnitsMethods.hxx".}
+proc mirrorPCurve*(c: Handle[Geom2dCurve]): Handle[Geom2dCurve] {.
     importcpp: "UnitsMethods::MirrorPCurve(@)", header: "UnitsMethods.hxx".}
-proc GetLengthFactorValue*(param: Standard_Integer): Standard_Real {.
+proc getLengthFactorValue*(param: int): float {.
     importcpp: "UnitsMethods::GetLengthFactorValue(@)", header: "UnitsMethods.hxx".}
-proc GetCasCadeLengthUnit*(): Standard_Real {.
-    importcpp: "UnitsMethods::GetCasCadeLengthUnit(@)", header: "UnitsMethods.hxx".}
-proc SetCasCadeLengthUnit*(param: Standard_Integer) {.
-    importcpp: "UnitsMethods::SetCasCadeLengthUnit(@)", header: "UnitsMethods.hxx".}
+proc getCasCadeLengthUnit*(): float {.importcpp: "UnitsMethods::GetCasCadeLengthUnit(@)",
+                                   header: "UnitsMethods.hxx".}
+proc setCasCadeLengthUnit*(param: int) {.importcpp: "UnitsMethods::SetCasCadeLengthUnit(@)",
+                                      header: "UnitsMethods.hxx".}

@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TColStd/TColStd_HArray1OfReal, ../NCollection/NCollection_Array2
-
 type
-  IGESBasic_Array2OfHArray1OfReal* = NCollection_Array2[
-      handle[TColStd_HArray1OfReal]]
+  IGESBasicArray2OfHArray1OfReal* = NCollectionArray2[Handle[TColStdHArray1OfReal]]
+

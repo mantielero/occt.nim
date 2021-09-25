@@ -15,10 +15,11 @@
 ## ! @sa SelectMgr_SortCriterion, SelectMgr_ViewerSelector
 
 type
-  SelectMgr_TypeOfDepthTolerance* {.size: sizeof(cint),
-                                   importcpp: "SelectMgr_TypeOfDepthTolerance",
-                                   header: "SelectMgr_TypeOfDepthTolerance.hxx".} = enum
-    SelectMgr_TypeOfDepthTolerance_Uniform, ## !< use a predefined tolerance value (defined in 3D world scale) to compare any entities
-    SelectMgr_TypeOfDepthTolerance_UniformPixels, ## !< use a predefined tolerance value (defined in pixels) to compare any entities
-    SelectMgr_TypeOfDepthTolerance_SensitivityFactor ## !< use sensitivity factor (in pixels) assigned to specific entity
+  SelectMgrTypeOfDepthTolerance* {.size: sizeof(cint),
+                                  importcpp: "SelectMgr_TypeOfDepthTolerance",
+                                  header: "SelectMgr_TypeOfDepthTolerance.hxx".} = enum
+    SelectMgrTypeOfDepthToleranceUniform, ## !< use a predefined tolerance value (defined in 3D world scale) to compare any entities
+    SelectMgrTypeOfDepthToleranceUniformPixels, ## !< use a predefined tolerance value (defined in pixels) to compare any entities
+    SelectMgrTypeOfDepthToleranceSensitivityFactor ## !< use sensitivity factor (in pixels) assigned to specific entity
+
 

@@ -13,12 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Integer, ../SelectMgr/SelectMgr_EntityOwner,
-  ../TColStd/TColStd_MapIntegerHasher, ../NCollection/NCollection_DataMap
-
 type
-  MeshVS_DataMapOfIntegerOwner* = NCollection_DataMap[Standard_Integer,
-      handle[SelectMgr_EntityOwner], TColStd_MapIntegerHasher]
-  MeshVS_DataMapIteratorOfDataMapOfIntegerOwner* = Iterator[Standard_Integer,
-      handle[SelectMgr_EntityOwner], TColStd_MapIntegerHasher]
+  MeshVS_DataMapOfIntegerOwner* = NCollectionDataMap[int,
+      Handle[SelectMgrEntityOwner], TColStdMapIntegerHasher]
+  MeshVS_DataMapIteratorOfDataMapOfIntegerOwner* = Iterator[int,
+      Handle[SelectMgrEntityOwner], TColStdMapIntegerHasher]
+

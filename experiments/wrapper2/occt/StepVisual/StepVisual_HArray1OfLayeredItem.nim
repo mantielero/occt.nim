@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_LayeredItem, StepVisual_Array1OfLayeredItem,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepVisual_HArray1OfLayeredItem* {.importcpp: "StepVisual_HArray1OfLayeredItem", header: "StepVisual_HArray1OfLayeredItem.hxx",
-                                    bycopy.} = object of StepVisual_Array1OfLayeredItem
+  StepVisualHArray1OfLayeredItem* {.importcpp: "StepVisual_HArray1OfLayeredItem", header: "StepVisual_HArray1OfLayeredItem.hxx",
+                                   bycopy.} = object of StepVisualArray1OfLayeredItem
 
 
-proc constructStepVisual_HArray1OfLayeredItem*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepVisual_HArray1OfLayeredItem {.constructor,
+proc constructStepVisualHArray1OfLayeredItem*(theLower: int; theUpper: int): StepVisualHArray1OfLayeredItem {.
+    constructor, importcpp: "StepVisual_HArray1OfLayeredItem(@)",
+    header: "StepVisual_HArray1OfLayeredItem.hxx".}
+proc constructStepVisualHArray1OfLayeredItem*(theLower: int; theUpper: int;
+    theValue: ValueType): StepVisualHArray1OfLayeredItem {.constructor,
     importcpp: "StepVisual_HArray1OfLayeredItem(@)",
     header: "StepVisual_HArray1OfLayeredItem.hxx".}
-proc constructStepVisual_HArray1OfLayeredItem*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepVisual_HArray1OfLayeredItem {.
+proc constructStepVisualHArray1OfLayeredItem*(
+    theOther: StepVisualArray1OfLayeredItem): StepVisualHArray1OfLayeredItem {.
     constructor, importcpp: "StepVisual_HArray1OfLayeredItem(@)",
     header: "StepVisual_HArray1OfLayeredItem.hxx".}
-proc constructStepVisual_HArray1OfLayeredItem*(
-    theOther: StepVisual_Array1OfLayeredItem): StepVisual_HArray1OfLayeredItem {.
-    constructor, importcpp: "StepVisual_HArray1OfLayeredItem(@)",
-    header: "StepVisual_HArray1OfLayeredItem.hxx".}
-proc Array1*(this: StepVisual_HArray1OfLayeredItem): StepVisual_Array1OfLayeredItem {.
+proc array1*(this: StepVisualHArray1OfLayeredItem): StepVisualArray1OfLayeredItem {.
     noSideEffect, importcpp: "Array1",
     header: "StepVisual_HArray1OfLayeredItem.hxx".}
-proc ChangeArray1*(this: var StepVisual_HArray1OfLayeredItem): var StepVisual_Array1OfLayeredItem {.
+proc changeArray1*(this: var StepVisualHArray1OfLayeredItem): var StepVisualArray1OfLayeredItem {.
     importcpp: "ChangeArray1", header: "StepVisual_HArray1OfLayeredItem.hxx".}
 type
-  StepVisual_HArray1OfLayeredItembase_type* = MMgt_TShared
+  StepVisualHArray1OfLayeredItembaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_HArray1OfLayeredItem::get_type_name(@)",
-                              header: "StepVisual_HArray1OfLayeredItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_HArray1OfLayeredItem::get_type_name(@)",
+                            header: "StepVisual_HArray1OfLayeredItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_HArray1OfLayeredItem::get_type_descriptor(@)",
     header: "StepVisual_HArray1OfLayeredItem.hxx".}
-proc DynamicType*(this: StepVisual_HArray1OfLayeredItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualHArray1OfLayeredItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_HArray1OfLayeredItem.hxx".}

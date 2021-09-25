@@ -11,25 +11,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../StdObjMgt/StdObjMgt_Attribute, StdLPersistent_HArray1,
-  StdLPersistent_HArray2, ../TDataStd/TDataStd_NamedData,
-  ../TCollection/TCollection_HExtendedString
-
 type
-  StdLPersistent_NamedData* {.importcpp: "StdLPersistent_NamedData",
-                             header: "StdLPersistent_NamedData.hxx", bycopy.} = object of StdObjMgt_Attribute[
-      TDataStd_NamedData]     ## ! Read persistent data from a file.
+  StdLPersistentNamedData* {.importcpp: "StdLPersistent_NamedData",
+                            header: "StdLPersistent_NamedData.hxx", bycopy.} = object of StdObjMgtAttribute[
+      TDataStdNamedData]      ## ! Read persistent data from a file.
 
 
-proc Read*(this: var StdLPersistent_NamedData; theReadData: var StdObjMgt_ReadData) {.
+proc read*(this: var StdLPersistentNamedData; theReadData: var StdObjMgtReadData) {.
     importcpp: "Read", header: "StdLPersistent_NamedData.hxx".}
-proc Write*(this: StdLPersistent_NamedData; theWriteData: var StdObjMgt_WriteData) {.
+proc write*(this: StdLPersistentNamedData; theWriteData: var StdObjMgtWriteData) {.
     noSideEffect, importcpp: "Write", header: "StdLPersistent_NamedData.hxx".}
-proc PChildren*(this: StdLPersistent_NamedData; a2: var SequenceOfPersistent) {.
+proc pChildren*(this: StdLPersistentNamedData; a2: var SequenceOfPersistent) {.
     noSideEffect, importcpp: "PChildren", header: "StdLPersistent_NamedData.hxx".}
-proc PName*(this: StdLPersistent_NamedData): Standard_CString {.noSideEffect,
+proc pName*(this: StdLPersistentNamedData): StandardCString {.noSideEffect,
     importcpp: "PName", header: "StdLPersistent_NamedData.hxx".}
-proc Import*(this: StdLPersistent_NamedData;
-            theAttribute: handle[TDataStd_NamedData]) {.noSideEffect,
+proc `import`*(this: StdLPersistentNamedData;
+              theAttribute: Handle[TDataStdNamedData]) {.noSideEffect,
     importcpp: "Import", header: "StdLPersistent_NamedData.hxx".}

@@ -13,37 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineHandle,
-  ../Standard/Standard_Macro, StepDimTol_GeneralDatumReference
-
 discard "forward decl of StepDimTol_DatumReferenceElement"
 discard "forward decl of StepDimTol_DatumReferenceElement"
 type
-  Handle_StepDimTol_DatumReferenceElement* = handle[
-      StepDimTol_DatumReferenceElement]
+  HandleStepDimTolDatumReferenceElement* = Handle[StepDimTolDatumReferenceElement]
 
 ## ! Representation of STEP entity DatumReferenceElement
 
 type
-  StepDimTol_DatumReferenceElement* {.importcpp: "StepDimTol_DatumReferenceElement", header: "StepDimTol_DatumReferenceElement.hxx",
-                                     bycopy.} = object of StepDimTol_GeneralDatumReference ##
-                                                                                      ## !
-                                                                                      ## Empty
-                                                                                      ## constructor
+  StepDimTolDatumReferenceElement* {.importcpp: "StepDimTol_DatumReferenceElement", header: "StepDimTol_DatumReferenceElement.hxx",
+                                    bycopy.} = object of StepDimTolGeneralDatumReference ##
+                                                                                    ## !
+                                                                                    ## Empty
+                                                                                    ## constructor
 
 
-proc constructStepDimTol_DatumReferenceElement*(): StepDimTol_DatumReferenceElement {.
+proc constructStepDimTolDatumReferenceElement*(): StepDimTolDatumReferenceElement {.
     constructor, importcpp: "StepDimTol_DatumReferenceElement(@)",
     header: "StepDimTol_DatumReferenceElement.hxx".}
 type
-  StepDimTol_DatumReferenceElementbase_type* = StepDimTol_GeneralDatumReference
+  StepDimTolDatumReferenceElementbaseType* = StepDimTolGeneralDatumReference
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_DatumReferenceElement::get_type_name(@)",
-                              header: "StepDimTol_DatumReferenceElement.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_DatumReferenceElement::get_type_name(@)",
+                            header: "StepDimTol_DatumReferenceElement.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_DatumReferenceElement::get_type_descriptor(@)",
     header: "StepDimTol_DatumReferenceElement.hxx".}
-proc DynamicType*(this: StepDimTol_DatumReferenceElement): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolDatumReferenceElement): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_DatumReferenceElement.hxx".}

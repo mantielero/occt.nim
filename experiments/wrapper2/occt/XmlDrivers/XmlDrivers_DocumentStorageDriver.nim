@@ -13,42 +13,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../XmlLDrivers/XmlLDrivers_DocumentStorageDriver, ../Standard/Standard_Boolean,
-  ../XmlObjMgt/XmlObjMgt_Element
-
 discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of XmlMDF_ADriverTable"
 discard "forward decl of Message_Messenger"
 discard "forward decl of XmlDrivers_DocumentStorageDriver"
 discard "forward decl of XmlDrivers_DocumentStorageDriver"
 type
-  Handle_XmlDrivers_DocumentStorageDriver* = handle[
-      XmlDrivers_DocumentStorageDriver]
-  XmlDrivers_DocumentStorageDriver* {.importcpp: "XmlDrivers_DocumentStorageDriver", header: "XmlDrivers_DocumentStorageDriver.hxx",
-                                     bycopy.} = object of XmlLDrivers_DocumentStorageDriver
+  HandleXmlDriversDocumentStorageDriver* = Handle[XmlDriversDocumentStorageDriver]
+  XmlDriversDocumentStorageDriver* {.importcpp: "XmlDrivers_DocumentStorageDriver", header: "XmlDrivers_DocumentStorageDriver.hxx",
+                                    bycopy.} = object of XmlLDriversDocumentStorageDriver
 
 
-proc constructXmlDrivers_DocumentStorageDriver*(
-    theCopyright: TCollection_ExtendedString): XmlDrivers_DocumentStorageDriver {.
+proc constructXmlDriversDocumentStorageDriver*(
+    theCopyright: TCollectionExtendedString): XmlDriversDocumentStorageDriver {.
     constructor, importcpp: "XmlDrivers_DocumentStorageDriver(@)",
     header: "XmlDrivers_DocumentStorageDriver.hxx".}
-proc AttributeDrivers*(this: var XmlDrivers_DocumentStorageDriver;
-                      theMsgDriver: handle[Message_Messenger]): handle[
+proc attributeDrivers*(this: var XmlDriversDocumentStorageDriver;
+                      theMsgDriver: Handle[MessageMessenger]): Handle[
     XmlMDF_ADriverTable] {.importcpp: "AttributeDrivers",
                           header: "XmlDrivers_DocumentStorageDriver.hxx".}
-proc WriteShapeSection*(this: var XmlDrivers_DocumentStorageDriver;
-                       thePDoc: var XmlObjMgt_Element; theRange: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
+proc writeShapeSection*(this: var XmlDriversDocumentStorageDriver;
+                       thePDoc: var XmlObjMgtElement;
+                       theRange: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "WriteShapeSection", header: "XmlDrivers_DocumentStorageDriver.hxx".}
 type
-  XmlDrivers_DocumentStorageDriverbase_type* = XmlLDrivers_DocumentStorageDriver
+  XmlDriversDocumentStorageDriverbaseType* = XmlLDriversDocumentStorageDriver
 
-proc get_type_name*(): cstring {.importcpp: "XmlDrivers_DocumentStorageDriver::get_type_name(@)",
-                              header: "XmlDrivers_DocumentStorageDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XmlDrivers_DocumentStorageDriver::get_type_name(@)",
+                            header: "XmlDrivers_DocumentStorageDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XmlDrivers_DocumentStorageDriver::get_type_descriptor(@)",
     header: "XmlDrivers_DocumentStorageDriver.hxx".}
-proc DynamicType*(this: XmlDrivers_DocumentStorageDriver): handle[Standard_Type] {.
+proc dynamicType*(this: XmlDriversDocumentStorageDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlDrivers_DocumentStorageDriver.hxx".}

@@ -14,22 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GeomToStep_Root
-
 discard "forward decl of StepGeom_SurfaceOfLinearExtrusion"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom_SurfaceOfLinearExtrusion"
 type
-  GeomToStep_MakeSurfaceOfLinearExtrusion* {.
+  GeomToStepMakeSurfaceOfLinearExtrusion* {.
       importcpp: "GeomToStep_MakeSurfaceOfLinearExtrusion",
-      header: "GeomToStep_MakeSurfaceOfLinearExtrusion.hxx", bycopy.} = object of GeomToStep_Root
+      header: "GeomToStep_MakeSurfaceOfLinearExtrusion.hxx", bycopy.} = object of GeomToStepRoot
 
 
-proc constructGeomToStep_MakeSurfaceOfLinearExtrusion*(
-    CSurf: handle[Geom_SurfaceOfLinearExtrusion]): GeomToStep_MakeSurfaceOfLinearExtrusion {.
+proc constructGeomToStepMakeSurfaceOfLinearExtrusion*(
+    cSurf: Handle[GeomSurfaceOfLinearExtrusion]): GeomToStepMakeSurfaceOfLinearExtrusion {.
     constructor, importcpp: "GeomToStep_MakeSurfaceOfLinearExtrusion(@)",
     header: "GeomToStep_MakeSurfaceOfLinearExtrusion.hxx".}
-proc Value*(this: GeomToStep_MakeSurfaceOfLinearExtrusion): handle[
-    StepGeom_SurfaceOfLinearExtrusion] {.noSideEffect, importcpp: "Value", header: "GeomToStep_MakeSurfaceOfLinearExtrusion.hxx".}
+proc value*(this: GeomToStepMakeSurfaceOfLinearExtrusion): Handle[
+    StepGeomSurfaceOfLinearExtrusion] {.noSideEffect, importcpp: "Value", header: "GeomToStep_MakeSurfaceOfLinearExtrusion.hxx".}

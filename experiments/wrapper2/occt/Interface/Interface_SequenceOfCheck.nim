@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Interface_Check, ../NCollection/NCollection_Sequence
-
 type
-  Interface_SequenceOfCheck* = NCollection_Sequence[handle[Interface_Check]]
+  InterfaceSequenceOfCheck* = NCollectionSequence[Handle[InterfaceCheck]]
+

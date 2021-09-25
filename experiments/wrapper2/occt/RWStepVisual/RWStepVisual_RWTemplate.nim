@@ -14,29 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_Template"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisual_RWTemplate* {.importcpp: "RWStepVisual_RWTemplate",
-                            header: "RWStepVisual_RWTemplate.hxx", bycopy.} = object
+  RWStepVisualRWTemplate* {.importcpp: "RWStepVisual_RWTemplate",
+                           header: "RWStepVisual_RWTemplate.hxx", bycopy.} = object
 
 
-proc constructRWStepVisual_RWTemplate*(): RWStepVisual_RWTemplate {.constructor,
+proc constructRWStepVisualRWTemplate*(): RWStepVisualRWTemplate {.constructor,
     importcpp: "RWStepVisual_RWTemplate(@)", header: "RWStepVisual_RWTemplate.hxx".}
-proc ReadStep*(this: RWStepVisual_RWTemplate;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check]; ent: handle[StepVisual_Template]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWTemplate.hxx".}
-proc WriteStep*(this: RWStepVisual_RWTemplate; SW: var StepData_StepWriter;
-               ent: handle[StepVisual_Template]) {.noSideEffect,
+proc readStep*(this: RWStepVisualRWTemplate; data: Handle[StepDataStepReaderData];
+              num: int; ach: var Handle[InterfaceCheck];
+              ent: Handle[StepVisualTemplate]) {.noSideEffect,
+    importcpp: "ReadStep", header: "RWStepVisual_RWTemplate.hxx".}
+proc writeStep*(this: RWStepVisualRWTemplate; sw: var StepDataStepWriter;
+               ent: Handle[StepVisualTemplate]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWTemplate.hxx".}
-proc Share*(this: RWStepVisual_RWTemplate; ent: handle[StepVisual_Template];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepVisualRWTemplate; ent: Handle[StepVisualTemplate];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWTemplate.hxx".}

@@ -13,46 +13,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_RepresentationItem
-
 discard "forward decl of StepBasic_MeasureValueMember"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_ValueRepresentationItem"
 discard "forward decl of StepRepr_ValueRepresentationItem"
 type
-  Handle_StepRepr_ValueRepresentationItem* = handle[
-      StepRepr_ValueRepresentationItem]
-  StepRepr_ValueRepresentationItem* {.importcpp: "StepRepr_ValueRepresentationItem", header: "StepRepr_ValueRepresentationItem.hxx",
-                                     bycopy.} = object of StepRepr_RepresentationItem ##
-                                                                                 ## !
-                                                                                 ## Returns
-                                                                                 ## a
-                                                                                 ## ValueRepresentationItem
+  HandleStepReprValueRepresentationItem* = Handle[StepReprValueRepresentationItem]
+  StepReprValueRepresentationItem* {.importcpp: "StepRepr_ValueRepresentationItem", header: "StepRepr_ValueRepresentationItem.hxx",
+                                    bycopy.} = object of StepReprRepresentationItem ## !
+                                                                               ## Returns a
+                                                                               ## ValueRepresentationItem
 
 
-proc constructStepRepr_ValueRepresentationItem*(): StepRepr_ValueRepresentationItem {.
+proc constructStepReprValueRepresentationItem*(): StepReprValueRepresentationItem {.
     constructor, importcpp: "StepRepr_ValueRepresentationItem(@)",
     header: "StepRepr_ValueRepresentationItem.hxx".}
-proc Init*(this: var StepRepr_ValueRepresentationItem;
-          theName: handle[TCollection_HAsciiString];
-          theValueComponentMember: handle[StepBasic_MeasureValueMember]) {.
+proc init*(this: var StepReprValueRepresentationItem;
+          theName: Handle[TCollectionHAsciiString];
+          theValueComponentMember: Handle[StepBasicMeasureValueMember]) {.
     importcpp: "Init", header: "StepRepr_ValueRepresentationItem.hxx".}
-proc SetValueComponentMember*(this: var StepRepr_ValueRepresentationItem;
-    theValueComponentMember: handle[StepBasic_MeasureValueMember]) {.
+proc setValueComponentMember*(this: var StepReprValueRepresentationItem;
+    theValueComponentMember: Handle[StepBasicMeasureValueMember]) {.
     importcpp: "SetValueComponentMember",
     header: "StepRepr_ValueRepresentationItem.hxx".}
-proc ValueComponentMember*(this: StepRepr_ValueRepresentationItem): handle[
-    StepBasic_MeasureValueMember] {.noSideEffect,
-                                   importcpp: "ValueComponentMember", header: "StepRepr_ValueRepresentationItem.hxx".}
+proc valueComponentMember*(this: StepReprValueRepresentationItem): Handle[
+    StepBasicMeasureValueMember] {.noSideEffect,
+                                  importcpp: "ValueComponentMember", header: "StepRepr_ValueRepresentationItem.hxx".}
 type
-  StepRepr_ValueRepresentationItembase_type* = StepRepr_RepresentationItem
+  StepReprValueRepresentationItembaseType* = StepReprRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_ValueRepresentationItem::get_type_name(@)",
-                              header: "StepRepr_ValueRepresentationItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_ValueRepresentationItem::get_type_name(@)",
+                            header: "StepRepr_ValueRepresentationItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_ValueRepresentationItem::get_type_descriptor(@)",
     header: "StepRepr_ValueRepresentationItem.hxx".}
-proc DynamicType*(this: StepRepr_ValueRepresentationItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprValueRepresentationItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_ValueRepresentationItem.hxx".}

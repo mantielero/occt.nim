@@ -13,64 +13,56 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_Integer, ../StepRepr/StepRepr_HArray1OfShapeAspect,
-  ../StepRepr/StepRepr_ShapeAspect, StepDimTol_ToleranceZone
-
 discard "forward decl of StepRepr_HArray1OfShapeAspect"
 discard "forward decl of StepDimTol_ToleranceZoneDefinition"
 discard "forward decl of StepDimTol_ToleranceZoneDefinition"
 type
-  Handle_StepDimTol_ToleranceZoneDefinition* = handle[
-      StepDimTol_ToleranceZoneDefinition]
+  HandleStepDimTolToleranceZoneDefinition* = Handle[
+      StepDimTolToleranceZoneDefinition]
 
 ## ! Representation of STEP entity ToleranceZoneDefinition
 
 type
-  StepDimTol_ToleranceZoneDefinition* {.importcpp: "StepDimTol_ToleranceZoneDefinition", header: "StepDimTol_ToleranceZoneDefinition.hxx",
-                                       bycopy.} = object of Standard_Transient ## ! Empty
-                                                                          ## constructor
+  StepDimTolToleranceZoneDefinition* {.importcpp: "StepDimTol_ToleranceZoneDefinition", header: "StepDimTol_ToleranceZoneDefinition.hxx",
+                                      bycopy.} = object of StandardTransient ## ! Empty
+                                                                        ## constructor
 
 
-proc constructStepDimTol_ToleranceZoneDefinition*(): StepDimTol_ToleranceZoneDefinition {.
+proc constructStepDimTolToleranceZoneDefinition*(): StepDimTolToleranceZoneDefinition {.
     constructor, importcpp: "StepDimTol_ToleranceZoneDefinition(@)",
     header: "StepDimTol_ToleranceZoneDefinition.hxx".}
-proc Init*(this: var StepDimTol_ToleranceZoneDefinition;
-          theZone: handle[StepDimTol_ToleranceZone];
-          theBoundaries: handle[StepRepr_HArray1OfShapeAspect]) {.
+proc init*(this: var StepDimTolToleranceZoneDefinition;
+          theZone: Handle[StepDimTolToleranceZone];
+          theBoundaries: Handle[StepReprHArray1OfShapeAspect]) {.
     importcpp: "Init", header: "StepDimTol_ToleranceZoneDefinition.hxx".}
-proc Boundaries*(this: StepDimTol_ToleranceZoneDefinition): handle[
-    StepRepr_HArray1OfShapeAspect] {.noSideEffect, importcpp: "Boundaries", header: "StepDimTol_ToleranceZoneDefinition.hxx".}
-proc SetBoundaries*(this: var StepDimTol_ToleranceZoneDefinition;
-                   theBoundaries: handle[StepRepr_HArray1OfShapeAspect]) {.
+proc boundaries*(this: StepDimTolToleranceZoneDefinition): Handle[
+    StepReprHArray1OfShapeAspect] {.noSideEffect, importcpp: "Boundaries", header: "StepDimTol_ToleranceZoneDefinition.hxx".}
+proc setBoundaries*(this: var StepDimTolToleranceZoneDefinition;
+                   theBoundaries: Handle[StepReprHArray1OfShapeAspect]) {.
     importcpp: "SetBoundaries", header: "StepDimTol_ToleranceZoneDefinition.hxx".}
-proc NbBoundaries*(this: StepDimTol_ToleranceZoneDefinition): Standard_Integer {.
-    noSideEffect, importcpp: "NbBoundaries",
-    header: "StepDimTol_ToleranceZoneDefinition.hxx".}
-proc BoundariesValue*(this: StepDimTol_ToleranceZoneDefinition;
-                     theNum: Standard_Integer): handle[StepRepr_ShapeAspect] {.
-    noSideEffect, importcpp: "BoundariesValue",
-    header: "StepDimTol_ToleranceZoneDefinition.hxx".}
-proc SetBoundariesValue*(this: var StepDimTol_ToleranceZoneDefinition;
-                        theNum: Standard_Integer;
-                        theItem: handle[StepRepr_ShapeAspect]) {.
+proc nbBoundaries*(this: StepDimTolToleranceZoneDefinition): int {.noSideEffect,
+    importcpp: "NbBoundaries", header: "StepDimTol_ToleranceZoneDefinition.hxx".}
+proc boundariesValue*(this: StepDimTolToleranceZoneDefinition; theNum: int): Handle[
+    StepReprShapeAspect] {.noSideEffect, importcpp: "BoundariesValue",
+                          header: "StepDimTol_ToleranceZoneDefinition.hxx".}
+proc setBoundariesValue*(this: var StepDimTolToleranceZoneDefinition; theNum: int;
+                        theItem: Handle[StepReprShapeAspect]) {.
     importcpp: "SetBoundariesValue",
     header: "StepDimTol_ToleranceZoneDefinition.hxx".}
-proc Zone*(this: var StepDimTol_ToleranceZoneDefinition): handle[
-    StepDimTol_ToleranceZone] {.importcpp: "Zone",
-                               header: "StepDimTol_ToleranceZoneDefinition.hxx".}
-proc SetZone*(this: var StepDimTol_ToleranceZoneDefinition;
-             theZone: handle[StepDimTol_ToleranceZone]) {.importcpp: "SetZone",
+proc zone*(this: var StepDimTolToleranceZoneDefinition): Handle[
+    StepDimTolToleranceZone] {.importcpp: "Zone",
+                              header: "StepDimTol_ToleranceZoneDefinition.hxx".}
+proc setZone*(this: var StepDimTolToleranceZoneDefinition;
+             theZone: Handle[StepDimTolToleranceZone]) {.importcpp: "SetZone",
     header: "StepDimTol_ToleranceZoneDefinition.hxx".}
 type
-  StepDimTol_ToleranceZoneDefinitionbase_type* = Standard_Transient
+  StepDimTolToleranceZoneDefinitionbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_ToleranceZoneDefinition::get_type_name(@)",
-                              header: "StepDimTol_ToleranceZoneDefinition.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_ToleranceZoneDefinition::get_type_name(@)",
+                            header: "StepDimTol_ToleranceZoneDefinition.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_ToleranceZoneDefinition::get_type_descriptor(@)",
     header: "StepDimTol_ToleranceZoneDefinition.hxx".}
-proc DynamicType*(this: StepDimTol_ToleranceZoneDefinition): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolToleranceZoneDefinition): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_ToleranceZoneDefinition.hxx".}

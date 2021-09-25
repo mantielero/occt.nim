@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../BRepLib/BRepLib_MakeSolid,
-  BRepBuilderAPI_MakeShape, ../Standard/Standard_Boolean
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_CompSolid"
 discard "forward decl of TopoDS_Shell"
@@ -64,33 +59,33 @@ type
 proc constructBRepBuilderAPI_MakeSolid*(): BRepBuilderAPI_MakeSolid {.constructor,
     importcpp: "BRepBuilderAPI_MakeSolid(@)",
     header: "BRepBuilderAPI_MakeSolid.hxx".}
-proc constructBRepBuilderAPI_MakeSolid*(S: TopoDS_CompSolid): BRepBuilderAPI_MakeSolid {.
+proc constructBRepBuilderAPI_MakeSolid*(s: TopoDS_CompSolid): BRepBuilderAPI_MakeSolid {.
     constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)",
     header: "BRepBuilderAPI_MakeSolid.hxx".}
-proc constructBRepBuilderAPI_MakeSolid*(S: TopoDS_Shell): BRepBuilderAPI_MakeSolid {.
+proc constructBRepBuilderAPI_MakeSolid*(s: TopoDS_Shell): BRepBuilderAPI_MakeSolid {.
     constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)",
     header: "BRepBuilderAPI_MakeSolid.hxx".}
-proc constructBRepBuilderAPI_MakeSolid*(S1: TopoDS_Shell; S2: TopoDS_Shell): BRepBuilderAPI_MakeSolid {.
+proc constructBRepBuilderAPI_MakeSolid*(s1: TopoDS_Shell; s2: TopoDS_Shell): BRepBuilderAPI_MakeSolid {.
     constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)",
     header: "BRepBuilderAPI_MakeSolid.hxx".}
-proc constructBRepBuilderAPI_MakeSolid*(S1: TopoDS_Shell; S2: TopoDS_Shell;
-                                       S3: TopoDS_Shell): BRepBuilderAPI_MakeSolid {.
+proc constructBRepBuilderAPI_MakeSolid*(s1: TopoDS_Shell; s2: TopoDS_Shell;
+                                       s3: TopoDS_Shell): BRepBuilderAPI_MakeSolid {.
     constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)",
     header: "BRepBuilderAPI_MakeSolid.hxx".}
-proc constructBRepBuilderAPI_MakeSolid*(So: TopoDS_Solid): BRepBuilderAPI_MakeSolid {.
+proc constructBRepBuilderAPI_MakeSolid*(so: TopoDS_Solid): BRepBuilderAPI_MakeSolid {.
     constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)",
     header: "BRepBuilderAPI_MakeSolid.hxx".}
-proc constructBRepBuilderAPI_MakeSolid*(So: TopoDS_Solid; S: TopoDS_Shell): BRepBuilderAPI_MakeSolid {.
+proc constructBRepBuilderAPI_MakeSolid*(so: TopoDS_Solid; s: TopoDS_Shell): BRepBuilderAPI_MakeSolid {.
     constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)",
     header: "BRepBuilderAPI_MakeSolid.hxx".}
-proc Add*(this: var BRepBuilderAPI_MakeSolid; S: TopoDS_Shell) {.importcpp: "Add",
+proc add*(this: var BRepBuilderAPI_MakeSolid; s: TopoDS_Shell) {.importcpp: "Add",
     header: "BRepBuilderAPI_MakeSolid.hxx".}
-proc IsDone*(this: BRepBuilderAPI_MakeSolid): Standard_Boolean {.noSideEffect,
+proc isDone*(this: BRepBuilderAPI_MakeSolid): bool {.noSideEffect,
     importcpp: "IsDone", header: "BRepBuilderAPI_MakeSolid.hxx".}
-proc Solid*(this: var BRepBuilderAPI_MakeSolid): TopoDS_Solid {.importcpp: "Solid",
+proc solid*(this: var BRepBuilderAPI_MakeSolid): TopoDS_Solid {.importcpp: "Solid",
     header: "BRepBuilderAPI_MakeSolid.hxx".}
-converter `TopoDS_Solid`*(this: var BRepBuilderAPI_MakeSolid): TopoDS_Solid {.
+converter `topoDS_Solid`*(this: var BRepBuilderAPI_MakeSolid): TopoDS_Solid {.
     importcpp: "BRepBuilderAPI_MakeSolid::operator TopoDS_Solid",
     header: "BRepBuilderAPI_MakeSolid.hxx".}
-proc IsDeleted*(this: var BRepBuilderAPI_MakeSolid; S: TopoDS_Shape): Standard_Boolean {.
+proc isDeleted*(this: var BRepBuilderAPI_MakeSolid; s: TopoDS_Shape): bool {.
     importcpp: "IsDeleted", header: "BRepBuilderAPI_MakeSolid.hxx".}

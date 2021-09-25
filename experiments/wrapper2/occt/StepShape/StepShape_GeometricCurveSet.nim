@@ -14,32 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_GeometricSet
-
 discard "forward decl of StepShape_GeometricCurveSet"
 discard "forward decl of StepShape_GeometricCurveSet"
 type
-  Handle_StepShape_GeometricCurveSet* = handle[StepShape_GeometricCurveSet]
-  StepShape_GeometricCurveSet* {.importcpp: "StepShape_GeometricCurveSet",
-                                header: "StepShape_GeometricCurveSet.hxx", bycopy.} = object of StepShape_GeometricSet ##
-                                                                                                                ## !
-                                                                                                                ## Returns
-                                                                                                                ## a
-                                                                                                                ## GeometricCurveSet
+  HandleStepShapeGeometricCurveSet* = Handle[StepShapeGeometricCurveSet]
+  StepShapeGeometricCurveSet* {.importcpp: "StepShape_GeometricCurveSet",
+                               header: "StepShape_GeometricCurveSet.hxx", bycopy.} = object of StepShapeGeometricSet ##
+                                                                                                              ## !
+                                                                                                              ## Returns
+                                                                                                              ## a
+                                                                                                              ## GeometricCurveSet
 
 
-proc constructStepShape_GeometricCurveSet*(): StepShape_GeometricCurveSet {.
+proc constructStepShapeGeometricCurveSet*(): StepShapeGeometricCurveSet {.
     constructor, importcpp: "StepShape_GeometricCurveSet(@)",
     header: "StepShape_GeometricCurveSet.hxx".}
 type
-  StepShape_GeometricCurveSetbase_type* = StepShape_GeometricSet
+  StepShapeGeometricCurveSetbaseType* = StepShapeGeometricSet
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_GeometricCurveSet::get_type_name(@)",
-                              header: "StepShape_GeometricCurveSet.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_GeometricCurveSet::get_type_name(@)",
+                            header: "StepShape_GeometricCurveSet.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_GeometricCurveSet::get_type_descriptor(@)",
     header: "StepShape_GeometricCurveSet.hxx".}
-proc DynamicType*(this: StepShape_GeometricCurveSet): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeGeometricCurveSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_GeometricCurveSet.hxx".}

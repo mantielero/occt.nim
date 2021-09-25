@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_DirectionCountSelect, StepVisual_Array1OfDirectionCountSelect,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepVisual_HArray1OfDirectionCountSelect* {.
+  StepVisualHArray1OfDirectionCountSelect* {.
       importcpp: "StepVisual_HArray1OfDirectionCountSelect",
-      header: "StepVisual_HArray1OfDirectionCountSelect.hxx", bycopy.} = object of StepVisual_Array1OfDirectionCountSelect
+      header: "StepVisual_HArray1OfDirectionCountSelect.hxx", bycopy.} = object of StepVisualArray1OfDirectionCountSelect
 
 
-proc constructStepVisual_HArray1OfDirectionCountSelect*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepVisual_HArray1OfDirectionCountSelect {.
+proc constructStepVisualHArray1OfDirectionCountSelect*(theLower: int; theUpper: int): StepVisualHArray1OfDirectionCountSelect {.
     constructor, importcpp: "StepVisual_HArray1OfDirectionCountSelect(@)",
     header: "StepVisual_HArray1OfDirectionCountSelect.hxx".}
-proc constructStepVisual_HArray1OfDirectionCountSelect*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepVisual_HArray1OfDirectionCountSelect {.
+proc constructStepVisualHArray1OfDirectionCountSelect*(theLower: int;
+    theUpper: int; theValue: ValueType): StepVisualHArray1OfDirectionCountSelect {.
     constructor, importcpp: "StepVisual_HArray1OfDirectionCountSelect(@)",
     header: "StepVisual_HArray1OfDirectionCountSelect.hxx".}
-proc constructStepVisual_HArray1OfDirectionCountSelect*(
-    theOther: StepVisual_Array1OfDirectionCountSelect): StepVisual_HArray1OfDirectionCountSelect {.
+proc constructStepVisualHArray1OfDirectionCountSelect*(
+    theOther: StepVisualArray1OfDirectionCountSelect): StepVisualHArray1OfDirectionCountSelect {.
     constructor, importcpp: "StepVisual_HArray1OfDirectionCountSelect(@)",
     header: "StepVisual_HArray1OfDirectionCountSelect.hxx".}
-proc Array1*(this: StepVisual_HArray1OfDirectionCountSelect): StepVisual_Array1OfDirectionCountSelect {.
+proc array1*(this: StepVisualHArray1OfDirectionCountSelect): StepVisualArray1OfDirectionCountSelect {.
     noSideEffect, importcpp: "Array1",
     header: "StepVisual_HArray1OfDirectionCountSelect.hxx".}
-proc ChangeArray1*(this: var StepVisual_HArray1OfDirectionCountSelect): var StepVisual_Array1OfDirectionCountSelect {.
+proc changeArray1*(this: var StepVisualHArray1OfDirectionCountSelect): var StepVisualArray1OfDirectionCountSelect {.
     importcpp: "ChangeArray1",
     header: "StepVisual_HArray1OfDirectionCountSelect.hxx".}
 type
-  StepVisual_HArray1OfDirectionCountSelectbase_type* = MMgt_TShared
+  StepVisualHArray1OfDirectionCountSelectbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_HArray1OfDirectionCountSelect::get_type_name(@)", header: "StepVisual_HArray1OfDirectionCountSelect.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_HArray1OfDirectionCountSelect::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepVisual_HArray1OfDirectionCountSelect::get_type_name(@)", header: "StepVisual_HArray1OfDirectionCountSelect.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_HArray1OfDirectionCountSelect::get_type_descriptor(@)",
     header: "StepVisual_HArray1OfDirectionCountSelect.hxx".}
-proc DynamicType*(this: StepVisual_HArray1OfDirectionCountSelect): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepVisual_HArray1OfDirectionCountSelect.hxx".}
+proc dynamicType*(this: StepVisualHArray1OfDirectionCountSelect): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepVisual_HArray1OfDirectionCountSelect.hxx".}

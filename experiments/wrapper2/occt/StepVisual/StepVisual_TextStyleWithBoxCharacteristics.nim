@@ -14,57 +14,52 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepVisual_HArray1OfBoxCharacteristicSelect, StepVisual_TextStyle,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepVisual_TextStyleForDefinedFont"
 discard "forward decl of StepVisual_BoxCharacteristicSelect"
 discard "forward decl of StepVisual_TextStyleWithBoxCharacteristics"
 discard "forward decl of StepVisual_TextStyleWithBoxCharacteristics"
 type
-  Handle_StepVisual_TextStyleWithBoxCharacteristics* = handle[
-      StepVisual_TextStyleWithBoxCharacteristics]
-  StepVisual_TextStyleWithBoxCharacteristics* {.
+  HandleStepVisualTextStyleWithBoxCharacteristics* = Handle[
+      StepVisualTextStyleWithBoxCharacteristics]
+  StepVisualTextStyleWithBoxCharacteristics* {.
       importcpp: "StepVisual_TextStyleWithBoxCharacteristics",
-      header: "StepVisual_TextStyleWithBoxCharacteristics.hxx", bycopy.} = object of StepVisual_TextStyle ##
-                                                                                                   ## !
-                                                                                                   ## Returns
-                                                                                                   ## a
-                                                                                                   ## TextStyleWithBoxCharacteristics
+      header: "StepVisual_TextStyleWithBoxCharacteristics.hxx", bycopy.} = object of StepVisualTextStyle ##
+                                                                                                  ## !
+                                                                                                  ## Returns
+                                                                                                  ## a
+                                                                                                  ## TextStyleWithBoxCharacteristics
 
 
-proc constructStepVisual_TextStyleWithBoxCharacteristics*(): StepVisual_TextStyleWithBoxCharacteristics {.
+proc constructStepVisualTextStyleWithBoxCharacteristics*(): StepVisualTextStyleWithBoxCharacteristics {.
     constructor, importcpp: "StepVisual_TextStyleWithBoxCharacteristics(@)",
     header: "StepVisual_TextStyleWithBoxCharacteristics.hxx".}
-proc Init*(this: var StepVisual_TextStyleWithBoxCharacteristics;
-          aName: handle[TCollection_HAsciiString];
-          aCharacterAppearance: handle[StepVisual_TextStyleForDefinedFont];
-          aCharacteristics: handle[StepVisual_HArray1OfBoxCharacteristicSelect]) {.
+proc init*(this: var StepVisualTextStyleWithBoxCharacteristics;
+          aName: Handle[TCollectionHAsciiString];
+          aCharacterAppearance: Handle[StepVisualTextStyleForDefinedFont];
+          aCharacteristics: Handle[StepVisualHArray1OfBoxCharacteristicSelect]) {.
     importcpp: "Init", header: "StepVisual_TextStyleWithBoxCharacteristics.hxx".}
-proc SetCharacteristics*(this: var StepVisual_TextStyleWithBoxCharacteristics;
-    aCharacteristics: handle[StepVisual_HArray1OfBoxCharacteristicSelect]) {.
+proc setCharacteristics*(this: var StepVisualTextStyleWithBoxCharacteristics;
+    aCharacteristics: Handle[StepVisualHArray1OfBoxCharacteristicSelect]) {.
     importcpp: "SetCharacteristics",
     header: "StepVisual_TextStyleWithBoxCharacteristics.hxx".}
-proc Characteristics*(this: StepVisual_TextStyleWithBoxCharacteristics): handle[
-    StepVisual_HArray1OfBoxCharacteristicSelect] {.noSideEffect,
+proc characteristics*(this: StepVisualTextStyleWithBoxCharacteristics): Handle[
+    StepVisualHArray1OfBoxCharacteristicSelect] {.noSideEffect,
     importcpp: "Characteristics",
     header: "StepVisual_TextStyleWithBoxCharacteristics.hxx".}
-proc CharacteristicsValue*(this: StepVisual_TextStyleWithBoxCharacteristics;
-                          num: Standard_Integer): StepVisual_BoxCharacteristicSelect {.
+proc characteristicsValue*(this: StepVisualTextStyleWithBoxCharacteristics;
+                          num: int): StepVisualBoxCharacteristicSelect {.
     noSideEffect, importcpp: "CharacteristicsValue",
     header: "StepVisual_TextStyleWithBoxCharacteristics.hxx".}
-proc NbCharacteristics*(this: StepVisual_TextStyleWithBoxCharacteristics): Standard_Integer {.
+proc nbCharacteristics*(this: StepVisualTextStyleWithBoxCharacteristics): int {.
     noSideEffect, importcpp: "NbCharacteristics",
     header: "StepVisual_TextStyleWithBoxCharacteristics.hxx".}
 type
-  StepVisual_TextStyleWithBoxCharacteristicsbase_type* = StepVisual_TextStyle
+  StepVisualTextStyleWithBoxCharacteristicsbaseType* = StepVisualTextStyle
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_TextStyleWithBoxCharacteristics::get_type_name(@)", header: "StepVisual_TextStyleWithBoxCharacteristics.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_TextStyleWithBoxCharacteristics::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepVisual_TextStyleWithBoxCharacteristics::get_type_name(@)", header: "StepVisual_TextStyleWithBoxCharacteristics.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_TextStyleWithBoxCharacteristics::get_type_descriptor(@)",
     header: "StepVisual_TextStyleWithBoxCharacteristics.hxx".}
-proc DynamicType*(this: StepVisual_TextStyleWithBoxCharacteristics): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepVisual_TextStyleWithBoxCharacteristics.hxx".}
+proc dynamicType*(this: StepVisualTextStyleWithBoxCharacteristics): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepVisual_TextStyleWithBoxCharacteristics.hxx".}

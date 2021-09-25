@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Integer, MAT_Bisector, ../TColStd/TColStd_MapIntegerHasher,
-  ../NCollection/NCollection_DataMap
-
 type
-  MAT_DataMapOfIntegerBisector* = NCollection_DataMap[Standard_Integer,
-      handle[MAT_Bisector], TColStd_MapIntegerHasher]
-  MAT_DataMapIteratorOfDataMapOfIntegerBisector* = Iterator[Standard_Integer,
-      handle[MAT_Bisector], TColStd_MapIntegerHasher]
+  MAT_DataMapOfIntegerBisector* = NCollectionDataMap[int, Handle[MAT_Bisector],
+      TColStdMapIntegerHasher]
+  MAT_DataMapIteratorOfDataMapOfIntegerBisector* = Iterator[int,
+      Handle[MAT_Bisector], TColStdMapIntegerHasher]
+

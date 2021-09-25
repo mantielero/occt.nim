@@ -13,27 +13,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_SiUnitAndMassUnit"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepBasic_RWSiUnitAndMassUnit* {.importcpp: "RWStepBasic_RWSiUnitAndMassUnit", header: "RWStepBasic_RWSiUnitAndMassUnit.hxx",
-                                    bycopy.} = object
+  RWStepBasicRWSiUnitAndMassUnit* {.importcpp: "RWStepBasic_RWSiUnitAndMassUnit", header: "RWStepBasic_RWSiUnitAndMassUnit.hxx",
+                                   bycopy.} = object
 
 
-proc constructRWStepBasic_RWSiUnitAndMassUnit*(): RWStepBasic_RWSiUnitAndMassUnit {.
+proc constructRWStepBasicRWSiUnitAndMassUnit*(): RWStepBasicRWSiUnitAndMassUnit {.
     constructor, importcpp: "RWStepBasic_RWSiUnitAndMassUnit(@)",
     header: "RWStepBasic_RWSiUnitAndMassUnit.hxx".}
-proc ReadStep*(this: RWStepBasic_RWSiUnitAndMassUnit;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepBasic_SiUnitAndMassUnit]) {.noSideEffect,
+proc readStep*(this: RWStepBasicRWSiUnitAndMassUnit;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepBasicSiUnitAndMassUnit]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWSiUnitAndMassUnit.hxx".}
-proc WriteStep*(this: RWStepBasic_RWSiUnitAndMassUnit; SW: var StepData_StepWriter;
-               ent: handle[StepBasic_SiUnitAndMassUnit]) {.noSideEffect,
+proc writeStep*(this: RWStepBasicRWSiUnitAndMassUnit; sw: var StepDataStepWriter;
+               ent: Handle[StepBasicSiUnitAndMassUnit]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWSiUnitAndMassUnit.hxx".}

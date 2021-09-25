@@ -11,63 +11,57 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Ax2, ../gp/gp_Pnt, ../Standard/Standard, ../Standard/Standard_Transient,
-  ../Standard/Standard_Type, ../TopoDS/TopoDS_Shape
-
 ## ! object to store note auxiliary data
 
 type
-  XCAFNoteObjects_NoteObject* {.importcpp: "XCAFNoteObjects_NoteObject",
-                               header: "XCAFNoteObjects_NoteObject.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                          ## !
-                                                                                                          ## Empty
-                                                                                                          ## object
+  XCAFNoteObjectsNoteObject* {.importcpp: "XCAFNoteObjects_NoteObject",
+                              header: "XCAFNoteObjects_NoteObject.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                        ## !
+                                                                                                        ## Empty
+                                                                                                        ## object
 
-  XCAFNoteObjects_NoteObjectbase_type* = Standard_Transient
+  XCAFNoteObjectsNoteObjectbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "XCAFNoteObjects_NoteObject::get_type_name(@)",
-                              header: "XCAFNoteObjects_NoteObject.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XCAFNoteObjects_NoteObject::get_type_name(@)",
+                            header: "XCAFNoteObjects_NoteObject.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XCAFNoteObjects_NoteObject::get_type_descriptor(@)",
     header: "XCAFNoteObjects_NoteObject.hxx".}
-proc DynamicType*(this: XCAFNoteObjects_NoteObject): handle[Standard_Type] {.
+proc dynamicType*(this: XCAFNoteObjectsNoteObject): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XCAFNoteObjects_NoteObject.hxx".}
-proc constructXCAFNoteObjects_NoteObject*(): XCAFNoteObjects_NoteObject {.
+proc constructXCAFNoteObjectsNoteObject*(): XCAFNoteObjectsNoteObject {.
     constructor, importcpp: "XCAFNoteObjects_NoteObject(@)",
     header: "XCAFNoteObjects_NoteObject.hxx".}
-proc constructXCAFNoteObjects_NoteObject*(
-    theObj: handle[XCAFNoteObjects_NoteObject]): XCAFNoteObjects_NoteObject {.
+proc constructXCAFNoteObjectsNoteObject*(theObj: Handle[XCAFNoteObjectsNoteObject]): XCAFNoteObjectsNoteObject {.
     constructor, importcpp: "XCAFNoteObjects_NoteObject(@)",
     header: "XCAFNoteObjects_NoteObject.hxx".}
-proc HasPlane*(this: XCAFNoteObjects_NoteObject): Standard_Boolean {.noSideEffect,
+proc hasPlane*(this: XCAFNoteObjectsNoteObject): bool {.noSideEffect,
     importcpp: "HasPlane", header: "XCAFNoteObjects_NoteObject.hxx".}
-proc GetPlane*(this: XCAFNoteObjects_NoteObject): gp_Ax2 {.noSideEffect,
+proc getPlane*(this: XCAFNoteObjectsNoteObject): Ax2 {.noSideEffect,
     importcpp: "GetPlane", header: "XCAFNoteObjects_NoteObject.hxx".}
-proc SetPlane*(this: var XCAFNoteObjects_NoteObject; thePlane: gp_Ax2) {.
+proc setPlane*(this: var XCAFNoteObjectsNoteObject; thePlane: Ax2) {.
     importcpp: "SetPlane", header: "XCAFNoteObjects_NoteObject.hxx".}
-proc HasPoint*(this: XCAFNoteObjects_NoteObject): Standard_Boolean {.noSideEffect,
+proc hasPoint*(this: XCAFNoteObjectsNoteObject): bool {.noSideEffect,
     importcpp: "HasPoint", header: "XCAFNoteObjects_NoteObject.hxx".}
-proc GetPoint*(this: XCAFNoteObjects_NoteObject): gp_Pnt {.noSideEffect,
+proc getPoint*(this: XCAFNoteObjectsNoteObject): Pnt {.noSideEffect,
     importcpp: "GetPoint", header: "XCAFNoteObjects_NoteObject.hxx".}
-proc SetPoint*(this: var XCAFNoteObjects_NoteObject; thePnt: gp_Pnt) {.
+proc setPoint*(this: var XCAFNoteObjectsNoteObject; thePnt: Pnt) {.
     importcpp: "SetPoint", header: "XCAFNoteObjects_NoteObject.hxx".}
-proc HasPointText*(this: XCAFNoteObjects_NoteObject): Standard_Boolean {.
-    noSideEffect, importcpp: "HasPointText",
-    header: "XCAFNoteObjects_NoteObject.hxx".}
-proc GetPointText*(this: XCAFNoteObjects_NoteObject): gp_Pnt {.noSideEffect,
+proc hasPointText*(this: XCAFNoteObjectsNoteObject): bool {.noSideEffect,
+    importcpp: "HasPointText", header: "XCAFNoteObjects_NoteObject.hxx".}
+proc getPointText*(this: XCAFNoteObjectsNoteObject): Pnt {.noSideEffect,
     importcpp: "GetPointText", header: "XCAFNoteObjects_NoteObject.hxx".}
-proc SetPointText*(this: var XCAFNoteObjects_NoteObject; thePnt: gp_Pnt) {.
+proc setPointText*(this: var XCAFNoteObjectsNoteObject; thePnt: Pnt) {.
     importcpp: "SetPointText", header: "XCAFNoteObjects_NoteObject.hxx".}
-proc GetPresentation*(this: XCAFNoteObjects_NoteObject): TopoDS_Shape {.
-    noSideEffect, importcpp: "GetPresentation",
-    header: "XCAFNoteObjects_NoteObject.hxx".}
-proc SetPresentation*(this: var XCAFNoteObjects_NoteObject;
+proc getPresentation*(this: XCAFNoteObjectsNoteObject): TopoDS_Shape {.noSideEffect,
+    importcpp: "GetPresentation", header: "XCAFNoteObjects_NoteObject.hxx".}
+proc setPresentation*(this: var XCAFNoteObjectsNoteObject;
                      thePresentation: TopoDS_Shape) {.
     importcpp: "SetPresentation", header: "XCAFNoteObjects_NoteObject.hxx".}
-proc Reset*(this: var XCAFNoteObjects_NoteObject) {.importcpp: "Reset",
+proc reset*(this: var XCAFNoteObjectsNoteObject) {.importcpp: "Reset",
     header: "XCAFNoteObjects_NoteObject.hxx".}
 discard "forward decl of XCAFNoteObjects_NoteObject"
 type
-  Handle_XCAFNoteObjects_NoteObject* = handle[XCAFNoteObjects_NoteObject]
+  HandleXCAFNoteObjectsNoteObject* = Handle[XCAFNoteObjectsNoteObject]
+

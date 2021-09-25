@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_AcousticIntensity_HeaderFile [NewLine] # _Quantity_AcousticIntensity_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as a dimensionless comparison of sound pressure
+## !!!Ignored construct:  # _Quantity_AcousticIntensity_HeaderFile [NewLine] # _Quantity_AcousticIntensity_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as a dimensionless comparison of sound pressure
 ## ! levels. The conventional unit, the bel, is the base ten
 ## ! logarithm of the ratio of the two pressures. In practice
 ## ! the decibel (one tenth of a bel) is used. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_AcousticIntensity ;
 ## Error: expected ';'!!!
+

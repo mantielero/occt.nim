@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  GeomFill_SectionLaw, ../Standard/Standard_Boolean, ../TColgp/TColgp_Array1OfPnt,
-  ../TColStd/TColStd_Array1OfReal, ../TColgp/TColgp_Array1OfVec,
-  ../Standard/Standard_Integer, ../TColStd/TColStd_Array1OfInteger,
-  ../GeomAbs/GeomAbs_Shape
-
 discard "forward decl of Geom_Curve"
 discard "forward decl of Law_Function"
 discard "forward decl of Geom_BSplineCurve"
@@ -30,95 +23,90 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of GeomFill_EvolvedSection"
 discard "forward decl of GeomFill_EvolvedSection"
 type
-  Handle_GeomFill_EvolvedSection* = handle[GeomFill_EvolvedSection]
+  HandleGeomFillEvolvedSection* = Handle[GeomFillEvolvedSection]
 
 ## ! Define an Constant Section Law
 
 type
-  GeomFill_EvolvedSection* {.importcpp: "GeomFill_EvolvedSection",
-                            header: "GeomFill_EvolvedSection.hxx", bycopy.} = object of GeomFill_SectionLaw ##
-                                                                                                     ## !
-                                                                                                     ## Make
-                                                                                                     ## an
-                                                                                                     ## SectionLaw
-                                                                                                     ## with
-                                                                                                     ## a
-                                                                                                     ## Curve
-                                                                                                     ## and
-                                                                                                     ## a
-                                                                                                     ## real
-                                                                                                     ## Law.
+  GeomFillEvolvedSection* {.importcpp: "GeomFill_EvolvedSection",
+                           header: "GeomFill_EvolvedSection.hxx", bycopy.} = object of GeomFillSectionLaw ##
+                                                                                                   ## !
+                                                                                                   ## Make
+                                                                                                   ## an
+                                                                                                   ## SectionLaw
+                                                                                                   ## with
+                                                                                                   ## a
+                                                                                                   ## Curve
+                                                                                                   ## and
+                                                                                                   ## a
+                                                                                                   ## real
+                                                                                                   ## Law.
 
 
-proc constructGeomFill_EvolvedSection*(C: handle[Geom_Curve];
-                                      L: handle[Law_Function]): GeomFill_EvolvedSection {.
+proc constructGeomFillEvolvedSection*(c: Handle[GeomCurve]; L: Handle[LawFunction]): GeomFillEvolvedSection {.
     constructor, importcpp: "GeomFill_EvolvedSection(@)",
     header: "GeomFill_EvolvedSection.hxx".}
-proc D0*(this: var GeomFill_EvolvedSection; Param: Standard_Real;
-        Poles: var TColgp_Array1OfPnt; Weigths: var TColStd_Array1OfReal): Standard_Boolean {.
-    importcpp: "D0", header: "GeomFill_EvolvedSection.hxx".}
-proc D1*(this: var GeomFill_EvolvedSection; Param: Standard_Real;
-        Poles: var TColgp_Array1OfPnt; DPoles: var TColgp_Array1OfVec;
-        Weigths: var TColStd_Array1OfReal; DWeigths: var TColStd_Array1OfReal): Standard_Boolean {.
-    importcpp: "D1", header: "GeomFill_EvolvedSection.hxx".}
-proc D2*(this: var GeomFill_EvolvedSection; Param: Standard_Real;
-        Poles: var TColgp_Array1OfPnt; DPoles: var TColgp_Array1OfVec;
-        D2Poles: var TColgp_Array1OfVec; Weigths: var TColStd_Array1OfReal;
-        DWeigths: var TColStd_Array1OfReal; D2Weigths: var TColStd_Array1OfReal): Standard_Boolean {.
-    importcpp: "D2", header: "GeomFill_EvolvedSection.hxx".}
-proc BSplineSurface*(this: GeomFill_EvolvedSection): handle[Geom_BSplineSurface] {.
+proc d0*(this: var GeomFillEvolvedSection; param: float; poles: var TColgpArray1OfPnt;
+        weigths: var TColStdArray1OfReal): bool {.importcpp: "D0",
+    header: "GeomFill_EvolvedSection.hxx".}
+proc d1*(this: var GeomFillEvolvedSection; param: float; poles: var TColgpArray1OfPnt;
+        dPoles: var TColgpArray1OfVec; weigths: var TColStdArray1OfReal;
+        dWeigths: var TColStdArray1OfReal): bool {.importcpp: "D1",
+    header: "GeomFill_EvolvedSection.hxx".}
+proc d2*(this: var GeomFillEvolvedSection; param: float; poles: var TColgpArray1OfPnt;
+        dPoles: var TColgpArray1OfVec; d2Poles: var TColgpArray1OfVec;
+        weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal;
+        d2Weigths: var TColStdArray1OfReal): bool {.importcpp: "D2",
+    header: "GeomFill_EvolvedSection.hxx".}
+proc bSplineSurface*(this: GeomFillEvolvedSection): Handle[GeomBSplineSurface] {.
     noSideEffect, importcpp: "BSplineSurface",
     header: "GeomFill_EvolvedSection.hxx".}
-proc SectionShape*(this: GeomFill_EvolvedSection; NbPoles: var Standard_Integer;
-                  NbKnots: var Standard_Integer; Degree: var Standard_Integer) {.
-    noSideEffect, importcpp: "SectionShape", header: "GeomFill_EvolvedSection.hxx".}
-proc Knots*(this: GeomFill_EvolvedSection; TKnots: var TColStd_Array1OfReal) {.
+proc sectionShape*(this: GeomFillEvolvedSection; nbPoles: var int; nbKnots: var int;
+                  degree: var int) {.noSideEffect, importcpp: "SectionShape",
+                                  header: "GeomFill_EvolvedSection.hxx".}
+proc knots*(this: GeomFillEvolvedSection; tKnots: var TColStdArray1OfReal) {.
     noSideEffect, importcpp: "Knots", header: "GeomFill_EvolvedSection.hxx".}
-proc Mults*(this: GeomFill_EvolvedSection; TMults: var TColStd_Array1OfInteger) {.
+proc mults*(this: GeomFillEvolvedSection; tMults: var TColStdArray1OfInteger) {.
     noSideEffect, importcpp: "Mults", header: "GeomFill_EvolvedSection.hxx".}
-proc IsRational*(this: GeomFill_EvolvedSection): Standard_Boolean {.noSideEffect,
+proc isRational*(this: GeomFillEvolvedSection): bool {.noSideEffect,
     importcpp: "IsRational", header: "GeomFill_EvolvedSection.hxx".}
-proc IsUPeriodic*(this: GeomFill_EvolvedSection): Standard_Boolean {.noSideEffect,
+proc isUPeriodic*(this: GeomFillEvolvedSection): bool {.noSideEffect,
     importcpp: "IsUPeriodic", header: "GeomFill_EvolvedSection.hxx".}
-proc IsVPeriodic*(this: GeomFill_EvolvedSection): Standard_Boolean {.noSideEffect,
+proc isVPeriodic*(this: GeomFillEvolvedSection): bool {.noSideEffect,
     importcpp: "IsVPeriodic", header: "GeomFill_EvolvedSection.hxx".}
-proc NbIntervals*(this: GeomFill_EvolvedSection; S: GeomAbs_Shape): Standard_Integer {.
-    noSideEffect, importcpp: "NbIntervals", header: "GeomFill_EvolvedSection.hxx".}
-proc Intervals*(this: GeomFill_EvolvedSection; T: var TColStd_Array1OfReal;
-               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
-                                 header: "GeomFill_EvolvedSection.hxx".}
-proc SetInterval*(this: var GeomFill_EvolvedSection; First: Standard_Real;
-                 Last: Standard_Real) {.importcpp: "SetInterval",
-                                      header: "GeomFill_EvolvedSection.hxx".}
-proc GetInterval*(this: GeomFill_EvolvedSection; First: var Standard_Real;
-                 Last: var Standard_Real) {.noSideEffect, importcpp: "GetInterval",
-    header: "GeomFill_EvolvedSection.hxx".}
-proc GetDomain*(this: GeomFill_EvolvedSection; First: var Standard_Real;
-               Last: var Standard_Real) {.noSideEffect, importcpp: "GetDomain",
-                                       header: "GeomFill_EvolvedSection.hxx".}
-proc GetTolerance*(this: GeomFill_EvolvedSection; BoundTol: Standard_Real;
-                  SurfTol: Standard_Real; AngleTol: Standard_Real;
-                  Tol3d: var TColStd_Array1OfReal) {.noSideEffect,
+proc nbIntervals*(this: GeomFillEvolvedSection; s: GeomAbsShape): int {.noSideEffect,
+    importcpp: "NbIntervals", header: "GeomFill_EvolvedSection.hxx".}
+proc intervals*(this: GeomFillEvolvedSection; t: var TColStdArray1OfReal;
+               s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
+                                header: "GeomFill_EvolvedSection.hxx".}
+proc setInterval*(this: var GeomFillEvolvedSection; first: float; last: float) {.
+    importcpp: "SetInterval", header: "GeomFill_EvolvedSection.hxx".}
+proc getInterval*(this: GeomFillEvolvedSection; first: var float; last: var float) {.
+    noSideEffect, importcpp: "GetInterval", header: "GeomFill_EvolvedSection.hxx".}
+proc getDomain*(this: GeomFillEvolvedSection; first: var float; last: var float) {.
+    noSideEffect, importcpp: "GetDomain", header: "GeomFill_EvolvedSection.hxx".}
+proc getTolerance*(this: GeomFillEvolvedSection; boundTol: float; surfTol: float;
+                  angleTol: float; tol3d: var TColStdArray1OfReal) {.noSideEffect,
     importcpp: "GetTolerance", header: "GeomFill_EvolvedSection.hxx".}
-proc BarycentreOfSurf*(this: GeomFill_EvolvedSection): gp_Pnt {.noSideEffect,
+proc barycentreOfSurf*(this: GeomFillEvolvedSection): Pnt {.noSideEffect,
     importcpp: "BarycentreOfSurf", header: "GeomFill_EvolvedSection.hxx".}
-proc MaximalSection*(this: GeomFill_EvolvedSection): Standard_Real {.noSideEffect,
+proc maximalSection*(this: GeomFillEvolvedSection): float {.noSideEffect,
     importcpp: "MaximalSection", header: "GeomFill_EvolvedSection.hxx".}
-proc GetMinimalWeight*(this: GeomFill_EvolvedSection;
-                      Weigths: var TColStd_Array1OfReal) {.noSideEffect,
+proc getMinimalWeight*(this: GeomFillEvolvedSection;
+                      weigths: var TColStdArray1OfReal) {.noSideEffect,
     importcpp: "GetMinimalWeight", header: "GeomFill_EvolvedSection.hxx".}
-proc IsConstant*(this: GeomFill_EvolvedSection; Error: var Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "IsConstant", header: "GeomFill_EvolvedSection.hxx".}
-proc ConstantSection*(this: GeomFill_EvolvedSection): handle[Geom_Curve] {.
+proc isConstant*(this: GeomFillEvolvedSection; error: var float): bool {.noSideEffect,
+    importcpp: "IsConstant", header: "GeomFill_EvolvedSection.hxx".}
+proc constantSection*(this: GeomFillEvolvedSection): Handle[GeomCurve] {.
     noSideEffect, importcpp: "ConstantSection",
     header: "GeomFill_EvolvedSection.hxx".}
 type
-  GeomFill_EvolvedSectionbase_type* = GeomFill_SectionLaw
+  GeomFillEvolvedSectionbaseType* = GeomFillSectionLaw
 
-proc get_type_name*(): cstring {.importcpp: "GeomFill_EvolvedSection::get_type_name(@)",
-                              header: "GeomFill_EvolvedSection.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "GeomFill_EvolvedSection::get_type_name(@)",
+                            header: "GeomFill_EvolvedSection.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GeomFill_EvolvedSection::get_type_descriptor(@)",
     header: "GeomFill_EvolvedSection.hxx".}
-proc DynamicType*(this: GeomFill_EvolvedSection): handle[Standard_Type] {.
+proc dynamicType*(this: GeomFillEvolvedSection): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "GeomFill_EvolvedSection.hxx".}

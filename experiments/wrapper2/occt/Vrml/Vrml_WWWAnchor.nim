@@ -14,31 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TCollection/TCollection_AsciiString,
-  Vrml_WWWAnchorMap, ../Standard/Standard_OStream
-
 discard "forward decl of TCollection_AsciiString"
 type
-  Vrml_WWWAnchor* {.importcpp: "Vrml_WWWAnchor", header: "Vrml_WWWAnchor.hxx", bycopy.} = object
+  VrmlWWWAnchor* {.importcpp: "Vrml_WWWAnchor", header: "Vrml_WWWAnchor.hxx", bycopy.} = object
 
 
-proc constructVrml_WWWAnchor*(aName: TCollection_AsciiString = "";
-                             aDescription: TCollection_AsciiString = "";
-                             aMap: Vrml_WWWAnchorMap = Vrml_MAP_NONE): Vrml_WWWAnchor {.
+proc constructVrmlWWWAnchor*(aName: TCollectionAsciiString = "";
+                            aDescription: TCollectionAsciiString = "";
+                            aMap: VrmlWWWAnchorMap = vrmlMAP_NONE): VrmlWWWAnchor {.
     constructor, importcpp: "Vrml_WWWAnchor(@)", header: "Vrml_WWWAnchor.hxx".}
-proc SetName*(this: var Vrml_WWWAnchor; aName: TCollection_AsciiString) {.
+proc setName*(this: var VrmlWWWAnchor; aName: TCollectionAsciiString) {.
     importcpp: "SetName", header: "Vrml_WWWAnchor.hxx".}
-proc Name*(this: Vrml_WWWAnchor): TCollection_AsciiString {.noSideEffect,
+proc name*(this: VrmlWWWAnchor): TCollectionAsciiString {.noSideEffect,
     importcpp: "Name", header: "Vrml_WWWAnchor.hxx".}
-proc SetDescription*(this: var Vrml_WWWAnchor; aDescription: TCollection_AsciiString) {.
+proc setDescription*(this: var VrmlWWWAnchor; aDescription: TCollectionAsciiString) {.
     importcpp: "SetDescription", header: "Vrml_WWWAnchor.hxx".}
-proc Description*(this: Vrml_WWWAnchor): TCollection_AsciiString {.noSideEffect,
+proc description*(this: VrmlWWWAnchor): TCollectionAsciiString {.noSideEffect,
     importcpp: "Description", header: "Vrml_WWWAnchor.hxx".}
-proc SetMap*(this: var Vrml_WWWAnchor; aMap: Vrml_WWWAnchorMap) {.importcpp: "SetMap",
+proc setMap*(this: var VrmlWWWAnchor; aMap: VrmlWWWAnchorMap) {.importcpp: "SetMap",
     header: "Vrml_WWWAnchor.hxx".}
-proc Map*(this: Vrml_WWWAnchor): Vrml_WWWAnchorMap {.noSideEffect, importcpp: "Map",
+proc map*(this: VrmlWWWAnchor): VrmlWWWAnchorMap {.noSideEffect, importcpp: "Map",
     header: "Vrml_WWWAnchor.hxx".}
-proc Print*(this: Vrml_WWWAnchor; anOStream: var Standard_OStream): var Standard_OStream {.
+proc print*(this: VrmlWWWAnchor; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_WWWAnchor.hxx".}

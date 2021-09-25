@@ -14,68 +14,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../GeomAbs/GeomAbs_SurfaceType, ../gp/gp_Ax3,
-  ../TColStd/TColStd_ListOfReal
-
 ## ! Definition of a parametric Curve which is the result
 ## ! of the intersection between two quadrics.
 
 type
-  IntAna_Curve* {.importcpp: "IntAna_Curve", header: "IntAna_Curve.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Empty
-                                                                                   ## Constructor
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Protected
-                                                                                   ## function.
+  IntAnaCurve* {.importcpp: "IntAna_Curve", header: "IntAna_Curve.hxx", bycopy.} = object ##
+                                                                                  ## !
+                                                                                  ## Empty
+                                                                                  ## Constructor
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## Protected
+                                                                                  ## function.
     ## ! Internal fields defining the default domain
     ## ! Trim boundaries
 
 
-proc constructIntAna_Curve*(): IntAna_Curve {.constructor,
+proc constructIntAnaCurve*(): IntAnaCurve {.constructor,
     importcpp: "IntAna_Curve(@)", header: "IntAna_Curve.hxx".}
-proc SetCylinderQuadValues*(this: var IntAna_Curve; Cylinder: gp_Cylinder;
-                           Qxx: Standard_Real; Qyy: Standard_Real;
-                           Qzz: Standard_Real; Qxy: Standard_Real;
-                           Qxz: Standard_Real; Qyz: Standard_Real;
-                           Qx: Standard_Real; Qy: Standard_Real; Qz: Standard_Real;
-                           Q1: Standard_Real; Tol: Standard_Real;
-                           DomInf: Standard_Real; DomSup: Standard_Real;
-                           TwoZForATheta: Standard_Boolean;
-                           ZIsPositive: Standard_Boolean) {.
+proc setCylinderQuadValues*(this: var IntAnaCurve; cylinder: Cylinder; qxx: float;
+                           qyy: float; qzz: float; qxy: float; qxz: float; qyz: float;
+                           qx: float; qy: float; qz: float; q1: float; tol: float;
+                           domInf: float; domSup: float; twoZForATheta: bool;
+                           zIsPositive: bool) {.
     importcpp: "SetCylinderQuadValues", header: "IntAna_Curve.hxx".}
-proc SetConeQuadValues*(this: var IntAna_Curve; Cone: gp_Cone; Qxx: Standard_Real;
-                       Qyy: Standard_Real; Qzz: Standard_Real; Qxy: Standard_Real;
-                       Qxz: Standard_Real; Qyz: Standard_Real; Qx: Standard_Real;
-                       Qy: Standard_Real; Qz: Standard_Real; Q1: Standard_Real;
-                       Tol: Standard_Real; DomInf: Standard_Real;
-                       DomSup: Standard_Real; TwoZForATheta: Standard_Boolean;
-                       ZIsPositive: Standard_Boolean) {.
+proc setConeQuadValues*(this: var IntAnaCurve; cone: Cone; qxx: float; qyy: float;
+                       qzz: float; qxy: float; qxz: float; qyz: float; qx: float;
+                       qy: float; qz: float; q1: float; tol: float; domInf: float;
+                       domSup: float; twoZForATheta: bool; zIsPositive: bool) {.
     importcpp: "SetConeQuadValues", header: "IntAna_Curve.hxx".}
-proc IsOpen*(this: IntAna_Curve): Standard_Boolean {.noSideEffect,
-    importcpp: "IsOpen", header: "IntAna_Curve.hxx".}
-proc Domain*(this: IntAna_Curve; theFirst: var Standard_Real;
-            theLast: var Standard_Real) {.noSideEffect, importcpp: "Domain",
-                                       header: "IntAna_Curve.hxx".}
-proc IsConstant*(this: IntAna_Curve): Standard_Boolean {.noSideEffect,
-    importcpp: "IsConstant", header: "IntAna_Curve.hxx".}
-proc IsFirstOpen*(this: IntAna_Curve): Standard_Boolean {.noSideEffect,
-    importcpp: "IsFirstOpen", header: "IntAna_Curve.hxx".}
-proc IsLastOpen*(this: IntAna_Curve): Standard_Boolean {.noSideEffect,
-    importcpp: "IsLastOpen", header: "IntAna_Curve.hxx".}
-proc Value*(this: var IntAna_Curve; Theta: Standard_Real): gp_Pnt {.importcpp: "Value",
+proc isOpen*(this: IntAnaCurve): bool {.noSideEffect, importcpp: "IsOpen",
+                                    header: "IntAna_Curve.hxx".}
+proc domain*(this: IntAnaCurve; theFirst: var float; theLast: var float) {.noSideEffect,
+    importcpp: "Domain", header: "IntAna_Curve.hxx".}
+proc isConstant*(this: IntAnaCurve): bool {.noSideEffect, importcpp: "IsConstant",
+                                        header: "IntAna_Curve.hxx".}
+proc isFirstOpen*(this: IntAnaCurve): bool {.noSideEffect, importcpp: "IsFirstOpen",
     header: "IntAna_Curve.hxx".}
-proc D1u*(this: var IntAna_Curve; Theta: Standard_Real; P: var gp_Pnt; V: var gp_Vec): Standard_Boolean {.
+proc isLastOpen*(this: IntAnaCurve): bool {.noSideEffect, importcpp: "IsLastOpen",
+                                        header: "IntAna_Curve.hxx".}
+proc value*(this: var IntAnaCurve; theta: float): Pnt {.importcpp: "Value",
+    header: "IntAna_Curve.hxx".}
+proc d1u*(this: var IntAnaCurve; theta: float; p: var Pnt; v: var Vec): bool {.
     importcpp: "D1u", header: "IntAna_Curve.hxx".}
-proc FindParameter*(this: IntAna_Curve; P: gp_Pnt; theParams: var TColStd_ListOfReal) {.
+proc findParameter*(this: IntAnaCurve; p: Pnt; theParams: var TColStdListOfReal) {.
     noSideEffect, importcpp: "FindParameter", header: "IntAna_Curve.hxx".}
-proc SetIsFirstOpen*(this: var IntAna_Curve; Flag: Standard_Boolean) {.
-    importcpp: "SetIsFirstOpen", header: "IntAna_Curve.hxx".}
-proc SetIsLastOpen*(this: var IntAna_Curve; Flag: Standard_Boolean) {.
-    importcpp: "SetIsLastOpen", header: "IntAna_Curve.hxx".}
-proc SetDomain*(this: var IntAna_Curve; theFirst: Standard_Real;
-               theLast: Standard_Real) {.importcpp: "SetDomain",
-                                       header: "IntAna_Curve.hxx".}
+proc setIsFirstOpen*(this: var IntAnaCurve; flag: bool) {.importcpp: "SetIsFirstOpen",
+    header: "IntAna_Curve.hxx".}
+proc setIsLastOpen*(this: var IntAnaCurve; flag: bool) {.importcpp: "SetIsLastOpen",
+    header: "IntAna_Curve.hxx".}
+proc setDomain*(this: var IntAnaCurve; theFirst: float; theLast: float) {.
+    importcpp: "SetDomain", header: "IntAna_Curve.hxx".}

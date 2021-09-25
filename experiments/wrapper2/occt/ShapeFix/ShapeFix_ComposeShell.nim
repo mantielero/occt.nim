@@ -14,26 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TopLoc/TopLoc_Location,
-  ../TopoDS/TopoDS_Face, ../TopAbs/TopAbs_Orientation, ../TopoDS/TopoDS_Shape,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ShapeFix_Root, ../ShapeExtend/ShapeExtend_Status,
-  ShapeFix_SequenceOfWireSegment, ../TColStd/TColStd_SequenceOfInteger,
-  ../TColStd/TColStd_SequenceOfReal, ../TopTools/TopTools_SequenceOfShape
-
 discard "forward decl of ShapeExtend_CompositeSurface"
 discard "forward decl of ShapeAnalysis_TransferParameters"
 discard "forward decl of ShapeExtend_WireData"
 discard "forward decl of gp_Lin2d"
 discard "forward decl of ShapeFix_WireSegment"
 discard "forward decl of Geom_Surface"
-when defined(Status):
-  discard
+# when defined(Status):
+#   discard
 discard "forward decl of ShapeFix_ComposeShell"
 discard "forward decl of ShapeFix_ComposeShell"
 type
-  Handle_ShapeFix_ComposeShell* = handle[ShapeFix_ComposeShell]
+  HandleShapeFixComposeShell* = Handle[ShapeFixComposeShell]
 
 ## ! This class is intended to create a shell from the composite
 ## ! surface (grid of surfaces) and set of wires.
@@ -74,86 +66,85 @@ type
 ## ! (ShapeBuild_ReShape).
 
 type
-  ShapeFix_ComposeShell* {.importcpp: "ShapeFix_ComposeShell",
-                          header: "ShapeFix_ComposeShell.hxx", bycopy.} = object of ShapeFix_Root ##
-                                                                                           ## !
-                                                                                           ## Creates
-                                                                                           ## empty
-                                                                                           ## tool.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Fill
-                                                                                           ## sequence
-                                                                                           ## of
-                                                                                           ## wire
-                                                                                           ## segments
-                                                                                           ## by
-                                                                                           ## wires
-                                                                                           ## from
-                                                                                           ## myFace
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## (pre-loaded).
-                                                                                           ## It
-                                                                                           ## performs
-                                                                                           ## reorder
-                                                                                           ## so
-                                                                                           ## that
-                                                                                           ## edges
-                                                                                           ## in
-                                                                                           ## segments
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## are
-                                                                                           ## well-ordered.
-                                                                                           ## The
-                                                                                           ## context
-                                                                                           ## is
-                                                                                           ## applied
-                                                                                           ## to
-                                                                                           ## all
-                                                                                           ## wires
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## before
-                                                                                           ## using
-                                                                                           ## them.
+  ShapeFixComposeShell* {.importcpp: "ShapeFix_ComposeShell",
+                         header: "ShapeFix_ComposeShell.hxx", bycopy.} = object of ShapeFixRoot ##
+                                                                                         ## !
+                                                                                         ## Creates
+                                                                                         ## empty
+                                                                                         ## tool.
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## Fill
+                                                                                         ## sequence
+                                                                                         ## of
+                                                                                         ## wire
+                                                                                         ## segments
+                                                                                         ## by
+                                                                                         ## wires
+                                                                                         ## from
+                                                                                         ## myFace
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## (pre-loaded).
+                                                                                         ## It
+                                                                                         ## performs
+                                                                                         ## reorder
+                                                                                         ## so
+                                                                                         ## that
+                                                                                         ## edges
+                                                                                         ## in
+                                                                                         ## segments
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## are
+                                                                                         ## well-ordered.
+                                                                                         ## The
+                                                                                         ## context
+                                                                                         ## is
+                                                                                         ## applied
+                                                                                         ## to
+                                                                                         ## all
+                                                                                         ## wires
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## before
+                                                                                         ## using
+                                                                                         ## them.
 
 
-proc constructShapeFix_ComposeShell*(): ShapeFix_ComposeShell {.constructor,
+proc constructShapeFixComposeShell*(): ShapeFixComposeShell {.constructor,
     importcpp: "ShapeFix_ComposeShell(@)", header: "ShapeFix_ComposeShell.hxx".}
-proc Init*(this: var ShapeFix_ComposeShell;
-          Grid: handle[ShapeExtend_CompositeSurface]; L: TopLoc_Location;
-          Face: TopoDS_Face; Prec: Standard_Real) {.importcpp: "Init",
-    header: "ShapeFix_ComposeShell.hxx".}
-proc ClosedMode*(this: var ShapeFix_ComposeShell): var Standard_Boolean {.
-    importcpp: "ClosedMode", header: "ShapeFix_ComposeShell.hxx".}
-proc Perform*(this: var ShapeFix_ComposeShell): Standard_Boolean {.
-    importcpp: "Perform", header: "ShapeFix_ComposeShell.hxx".}
-proc SplitEdges*(this: var ShapeFix_ComposeShell) {.importcpp: "SplitEdges",
-    header: "ShapeFix_ComposeShell.hxx".}
-proc Result*(this: ShapeFix_ComposeShell): TopoDS_Shape {.noSideEffect,
-    importcpp: "Result", header: "ShapeFix_ComposeShell.hxx".}
-proc Status*(this: ShapeFix_ComposeShell; status: ShapeExtend_Status): Standard_Boolean {.
-    noSideEffect, importcpp: "Status", header: "ShapeFix_ComposeShell.hxx".}
-proc DispatchWires*(this: ShapeFix_ComposeShell;
-                   faces: var TopTools_SequenceOfShape;
-                   wires: var ShapeFix_SequenceOfWireSegment) {.noSideEffect,
-    importcpp: "DispatchWires", header: "ShapeFix_ComposeShell.hxx".}
-proc SetTransferParamTool*(this: var ShapeFix_ComposeShell; TransferParam: handle[
-    ShapeAnalysis_TransferParameters]) {.importcpp: "SetTransferParamTool",
+proc init*(this: var ShapeFixComposeShell;
+          grid: Handle[ShapeExtendCompositeSurface]; L: TopLocLocation;
+          face: TopoDS_Face; prec: float) {.importcpp: "Init",
                                         header: "ShapeFix_ComposeShell.hxx".}
-proc GetTransferParamTool*(this: ShapeFix_ComposeShell): handle[
-    ShapeAnalysis_TransferParameters] {.noSideEffect,
-                                       importcpp: "GetTransferParamTool",
+proc closedMode*(this: var ShapeFixComposeShell): var bool {.importcpp: "ClosedMode",
+    header: "ShapeFix_ComposeShell.hxx".}
+proc perform*(this: var ShapeFixComposeShell): bool {.importcpp: "Perform",
+    header: "ShapeFix_ComposeShell.hxx".}
+proc splitEdges*(this: var ShapeFixComposeShell) {.importcpp: "SplitEdges",
+    header: "ShapeFix_ComposeShell.hxx".}
+proc result*(this: ShapeFixComposeShell): TopoDS_Shape {.noSideEffect,
+    importcpp: "Result", header: "ShapeFix_ComposeShell.hxx".}
+proc status*(this: ShapeFixComposeShell; status: ShapeExtendStatus): bool {.
+    noSideEffect, importcpp: "Status", header: "ShapeFix_ComposeShell.hxx".}
+proc dispatchWires*(this: ShapeFixComposeShell; faces: var TopToolsSequenceOfShape;
+                   wires: var ShapeFixSequenceOfWireSegment) {.noSideEffect,
+    importcpp: "DispatchWires", header: "ShapeFix_ComposeShell.hxx".}
+proc setTransferParamTool*(this: var ShapeFixComposeShell; transferParam: Handle[
+    ShapeAnalysisTransferParameters]) {.importcpp: "SetTransferParamTool",
                                        header: "ShapeFix_ComposeShell.hxx".}
+proc getTransferParamTool*(this: ShapeFixComposeShell): Handle[
+    ShapeAnalysisTransferParameters] {.noSideEffect,
+                                      importcpp: "GetTransferParamTool",
+                                      header: "ShapeFix_ComposeShell.hxx".}
 type
-  ShapeFix_ComposeShellbase_type* = ShapeFix_Root
+  ShapeFixComposeShellbaseType* = ShapeFixRoot
 
-proc get_type_name*(): cstring {.importcpp: "ShapeFix_ComposeShell::get_type_name(@)",
-                              header: "ShapeFix_ComposeShell.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeFix_ComposeShell::get_type_name(@)",
+                            header: "ShapeFix_ComposeShell.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeFix_ComposeShell::get_type_descriptor(@)",
     header: "ShapeFix_ComposeShell.hxx".}
-proc DynamicType*(this: ShapeFix_ComposeShell): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "ShapeFix_ComposeShell.hxx".}
+proc dynamicType*(this: ShapeFixComposeShell): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "ShapeFix_ComposeShell.hxx".}

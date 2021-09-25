@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../IntRes2d/IntRes2d_Intersection,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Bisector_Bisec"
 discard "forward decl of IntRes2d_Domain"
@@ -26,22 +21,21 @@ discard "forward decl of Geom2d_Curve"
 discard "forward decl of Bisector_BisecCC"
 discard "forward decl of Geom2d_Line"
 type
-  Bisector_Inter* {.importcpp: "Bisector_Inter", header: "Bisector_Inter.hxx", bycopy.} = object of IntRes2d_Intersection ##
-                                                                                                                ## !
-                                                                                                                ## Intersection
-                                                                                                                ## between
-                                                                                                                ## 2
-                                                                                                                ## curves.
+  BisectorInter* {.importcpp: "Bisector_Inter", header: "Bisector_Inter.hxx", bycopy.} = object of IntRes2dIntersection ##
+                                                                                                              ## !
+                                                                                                              ## Intersection
+                                                                                                              ## between
+                                                                                                              ## 2
+                                                                                                              ## curves.
 
 
-proc constructBisector_Inter*(): Bisector_Inter {.constructor,
+proc constructBisectorInter*(): BisectorInter {.constructor,
     importcpp: "Bisector_Inter(@)", header: "Bisector_Inter.hxx".}
-proc constructBisector_Inter*(C1: Bisector_Bisec; D1: IntRes2d_Domain;
-                             C2: Bisector_Bisec; D2: IntRes2d_Domain;
-                             TolConf: Standard_Real; Tol: Standard_Real;
-                             ComunElement: Standard_Boolean): Bisector_Inter {.
+proc constructBisectorInter*(c1: BisectorBisec; d1: IntRes2dDomain;
+                            c2: BisectorBisec; d2: IntRes2dDomain; tolConf: float;
+                            tol: float; comunElement: bool): BisectorInter {.
     constructor, importcpp: "Bisector_Inter(@)", header: "Bisector_Inter.hxx".}
-proc Perform*(this: var Bisector_Inter; C1: Bisector_Bisec; D1: IntRes2d_Domain;
-             C2: Bisector_Bisec; D2: IntRes2d_Domain; TolConf: Standard_Real;
-             Tol: Standard_Real; ComunElement: Standard_Boolean) {.
-    importcpp: "Perform", header: "Bisector_Inter.hxx".}
+proc perform*(this: var BisectorInter; c1: BisectorBisec; d1: IntRes2dDomain;
+             c2: BisectorBisec; d2: IntRes2dDomain; tolConf: float; tol: float;
+             comunElement: bool) {.importcpp: "Perform",
+                                 header: "Bisector_Inter.hxx".}

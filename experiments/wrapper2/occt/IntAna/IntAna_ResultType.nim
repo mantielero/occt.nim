@@ -15,9 +15,10 @@
 ##  commercial license or contractual agreement.
 
 type
-  IntAna_ResultType* {.size: sizeof(cint), importcpp: "IntAna_ResultType",
-                      header: "IntAna_ResultType.hxx".} = enum
-    IntAna_Point, IntAna_Line, IntAna_Circle, IntAna_PointAndCircle, IntAna_Ellipse,
-    IntAna_Parabola, IntAna_Hyperbola, IntAna_Empty, IntAna_Same,
-    IntAna_NoGeometricSolution
+  IntAnaResultType* {.size: sizeof(cint), importcpp: "IntAna_ResultType",
+                     header: "IntAna_ResultType.hxx".} = enum
+    IntAnaPoint, IntAnaLine, IntAnaCircle, IntAnaPointAndCircle, IntAnaEllipse,
+    IntAnaParabola, IntAnaHyperbola, IntAnaEmpty, IntAnaSame,
+    IntAnaNoGeometricSolution
+
 

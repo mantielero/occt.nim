@@ -12,11 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, gp_XYZ, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_OutOfRange"
@@ -26,109 +21,81 @@ discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Trsf"
 type
-  gp_Dir* {.importcpp: "gp_Dir", header: "gp_Dir.hxx", bycopy.} = object ## ! Creates a direction corresponding to X axis.
-    gp_Dir* {.importc: "gp_Dir".}: Standard_NODISCARD
-    gp_Dir* {.importc: "gp_Dir".}: Standard_NODISCARD
-    gp_Dir* {.importc: "gp_Dir".}: Standard_NODISCARD
-    gp_Dir* {.importc: "gp_Dir".}: Standard_NODISCARD
-    gp_Dir* {.importc: "gp_Dir".}: Standard_NODISCARD
-    gp_Dir* {.importc: "gp_Dir".}: Standard_NODISCARD
-    gp_Dir* {.importc: "gp_Dir".}: Standard_NODISCARD
-    gp_Dir* {.importc: "gp_Dir".}: Standard_NODISCARD
-    gp_Dir* {.importc: "gp_Dir".}: Standard_NODISCARD
-    gp_Dir* {.importc: "gp_Dir".}: Standard_NODISCARD
+  Dir* {.importcpp: "gp_Dir", header: "gp_Dir.hxx", bycopy.} = object ## ! Creates a direction corresponding to X axis.
 
 
-proc constructgp_Dir*(): gp_Dir {.constructor, importcpp: "gp_Dir(@)",
-                               header: "gp_Dir.hxx".}
-proc constructgp_Dir*(V: gp_Vec): gp_Dir {.constructor, importcpp: "gp_Dir(@)",
-                                       header: "gp_Dir.hxx".}
-proc constructgp_Dir*(Coord: gp_XYZ): gp_Dir {.constructor, importcpp: "gp_Dir(@)",
+proc constructDir*(): Dir {.constructor, importcpp: "gp_Dir(@)", header: "gp_Dir.hxx".}
+proc constructDir*(v: Vec): Dir {.constructor, importcpp: "gp_Dir(@)",
+                              header: "gp_Dir.hxx".}
+proc constructDir*(coord: Xyz): Dir {.constructor, importcpp: "gp_Dir(@)",
+                                  header: "gp_Dir.hxx".}
+proc constructDir*(xv: float; yv: float; zv: float): Dir {.constructor,
+    importcpp: "gp_Dir(@)", header: "gp_Dir.hxx".}
+proc setCoord*(this: var Dir; index: int; xi: float) {.importcpp: "SetCoord",
     header: "gp_Dir.hxx".}
-proc constructgp_Dir*(Xv: Standard_Real; Yv: Standard_Real; Zv: Standard_Real): gp_Dir {.
-    constructor, importcpp: "gp_Dir(@)", header: "gp_Dir.hxx".}
-proc SetCoord*(this: var gp_Dir; Index: Standard_Integer; Xi: Standard_Real) {.
-    importcpp: "SetCoord", header: "gp_Dir.hxx".}
-proc SetCoord*(this: var gp_Dir; Xv: Standard_Real; Yv: Standard_Real; Zv: Standard_Real) {.
-    importcpp: "SetCoord", header: "gp_Dir.hxx".}
-proc SetX*(this: var gp_Dir; X: Standard_Real) {.importcpp: "SetX", header: "gp_Dir.hxx".}
-proc SetY*(this: var gp_Dir; Y: Standard_Real) {.importcpp: "SetY", header: "gp_Dir.hxx".}
-proc SetZ*(this: var gp_Dir; Z: Standard_Real) {.importcpp: "SetZ", header: "gp_Dir.hxx".}
-proc SetXYZ*(this: var gp_Dir; Coord: gp_XYZ) {.importcpp: "SetXYZ",
+proc setCoord*(this: var Dir; xv: float; yv: float; zv: float) {.importcpp: "SetCoord",
     header: "gp_Dir.hxx".}
-proc Coord*(this: gp_Dir; Index: Standard_Integer): Standard_Real {.noSideEffect,
+proc setX*(this: var Dir; x: float) {.importcpp: "SetX", header: "gp_Dir.hxx".}
+proc setY*(this: var Dir; y: float) {.importcpp: "SetY", header: "gp_Dir.hxx".}
+proc setZ*(this: var Dir; z: float) {.importcpp: "SetZ", header: "gp_Dir.hxx".}
+proc setXYZ*(this: var Dir; coord: Xyz) {.importcpp: "SetXYZ", header: "gp_Dir.hxx".}
+proc coord*(this: Dir; index: int): float {.noSideEffect, importcpp: "Coord",
+                                      header: "gp_Dir.hxx".}
+proc coord*(this: Dir; xv: var float; yv: var float; zv: var float) {.noSideEffect,
     importcpp: "Coord", header: "gp_Dir.hxx".}
-proc Coord*(this: gp_Dir; Xv: var Standard_Real; Yv: var Standard_Real;
-           Zv: var Standard_Real) {.noSideEffect, importcpp: "Coord",
-                                 header: "gp_Dir.hxx".}
-proc X*(this: gp_Dir): Standard_Real {.noSideEffect, importcpp: "X",
+proc x*(this: Dir): float {.noSideEffect, importcpp: "X", header: "gp_Dir.hxx".}
+proc y*(this: Dir): float {.noSideEffect, importcpp: "Y", header: "gp_Dir.hxx".}
+proc z*(this: Dir): float {.noSideEffect, importcpp: "Z", header: "gp_Dir.hxx".}
+proc xyz*(this: Dir): Xyz {.noSideEffect, importcpp: "XYZ", header: "gp_Dir.hxx".}
+proc isEqual*(this: Dir; other: Dir; angularTolerance: float): bool {.noSideEffect,
+    importcpp: "IsEqual", header: "gp_Dir.hxx".}
+proc isNormal*(this: Dir; other: Dir; angularTolerance: float): bool {.noSideEffect,
+    importcpp: "IsNormal", header: "gp_Dir.hxx".}
+proc isOpposite*(this: Dir; other: Dir; angularTolerance: float): bool {.noSideEffect,
+    importcpp: "IsOpposite", header: "gp_Dir.hxx".}
+proc isParallel*(this: Dir; other: Dir; angularTolerance: float): bool {.noSideEffect,
+    importcpp: "IsParallel", header: "gp_Dir.hxx".}
+proc angle*(this: Dir; other: Dir): float {.noSideEffect, importcpp: "Angle",
+                                      header: "gp_Dir.hxx".}
+proc angleWithRef*(this: Dir; other: Dir; vRef: Dir): float {.noSideEffect,
+    importcpp: "AngleWithRef", header: "gp_Dir.hxx".}
+proc cross*(this: var Dir; right: Dir) {.importcpp: "Cross", header: "gp_Dir.hxx".}
+proc `^=`*(this: var Dir; right: Dir) {.importcpp: "(# ^= #)", header: "gp_Dir.hxx".}
+proc crossed*(this: Dir; right: Dir): Dir {.noSideEffect, importcpp: "Crossed",
+                                      header: "gp_Dir.hxx".}
+proc `^`*(this: Dir; right: Dir): Dir {.noSideEffect, importcpp: "(# ^ #)",
+                                  header: "gp_Dir.hxx".}
+proc crossCross*(this: var Dir; v1: Dir; v2: Dir) {.importcpp: "CrossCross",
+    header: "gp_Dir.hxx".}
+proc crossCrossed*(this: Dir; v1: Dir; v2: Dir): Dir {.noSideEffect,
+    importcpp: "CrossCrossed", header: "gp_Dir.hxx".}
+proc dot*(this: Dir; other: Dir): float {.noSideEffect, importcpp: "Dot",
+                                    header: "gp_Dir.hxx".}
+proc `*`*(this: Dir; other: Dir): float {.noSideEffect, importcpp: "(# * #)",
+                                    header: "gp_Dir.hxx".}
+proc dotCross*(this: Dir; v1: Dir; v2: Dir): float {.noSideEffect, importcpp: "DotCross",
+    header: "gp_Dir.hxx".}
+proc reverse*(this: var Dir) {.importcpp: "Reverse", header: "gp_Dir.hxx".}
+proc reversed*(this: Dir): Dir {.noSideEffect, importcpp: "Reversed",
+                             header: "gp_Dir.hxx".}
+proc `-`*(this: Dir): Dir {.noSideEffect, importcpp: "(- #)", header: "gp_Dir.hxx".}
+proc mirror*(this: var Dir; v: Dir) {.importcpp: "Mirror", header: "gp_Dir.hxx".}
+proc mirrored*(this: Dir; v: Dir): Dir {.noSideEffect, importcpp: "Mirrored",
                                    header: "gp_Dir.hxx".}
-proc Y*(this: gp_Dir): Standard_Real {.noSideEffect, importcpp: "Y",
-                                   header: "gp_Dir.hxx".}
-proc Z*(this: gp_Dir): Standard_Real {.noSideEffect, importcpp: "Z",
-                                   header: "gp_Dir.hxx".}
-proc XYZ*(this: gp_Dir): gp_XYZ {.noSideEffect, importcpp: "XYZ", header: "gp_Dir.hxx".}
-proc IsEqual*(this: gp_Dir; Other: gp_Dir; AngularTolerance: Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "IsEqual", header: "gp_Dir.hxx".}
-proc IsNormal*(this: gp_Dir; Other: gp_Dir; AngularTolerance: Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "IsNormal", header: "gp_Dir.hxx".}
-proc IsOpposite*(this: gp_Dir; Other: gp_Dir; AngularTolerance: Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "IsOpposite", header: "gp_Dir.hxx".}
-proc IsParallel*(this: gp_Dir; Other: gp_Dir; AngularTolerance: Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "IsParallel", header: "gp_Dir.hxx".}
-proc Angle*(this: gp_Dir; Other: gp_Dir): Standard_Real {.noSideEffect,
-    importcpp: "Angle", header: "gp_Dir.hxx".}
-proc AngleWithRef*(this: gp_Dir; Other: gp_Dir; VRef: gp_Dir): Standard_Real {.
-    noSideEffect, importcpp: "AngleWithRef", header: "gp_Dir.hxx".}
-proc Cross*(this: var gp_Dir; Right: gp_Dir) {.importcpp: "Cross", header: "gp_Dir.hxx".}
-proc `^=`*(this: var gp_Dir; Right: gp_Dir) {.importcpp: "(# ^= #)",
-                                        header: "gp_Dir.hxx".}
-## !!!Ignored construct:  Crossed ( const gp_Dir & Right ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-## !!!Ignored construct:  operator ^ ( const gp_Dir & Right ) const { return Crossed ( Right ) ; } void CrossCross ( const gp_Dir & V1 , const gp_Dir & V2 ) ;
-## Error: identifier expected, but got: ^!!!
-
-## !!!Ignored construct:  CrossCrossed ( const gp_Dir & V1 , const gp_Dir & V2 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Dot*(this: gp_Dir; Other: gp_Dir): Standard_Real {.noSideEffect, importcpp: "Dot",
+proc mirror*(this: var Dir; a1: Ax1) {.importcpp: "Mirror", header: "gp_Dir.hxx".}
+proc mirrored*(this: Dir; a1: Ax1): Dir {.noSideEffect, importcpp: "Mirrored",
+                                    header: "gp_Dir.hxx".}
+proc mirror*(this: var Dir; a2: Ax2) {.importcpp: "Mirror", header: "gp_Dir.hxx".}
+proc mirrored*(this: Dir; a2: Ax2): Dir {.noSideEffect, importcpp: "Mirrored",
+                                    header: "gp_Dir.hxx".}
+proc rotate*(this: var Dir; a1: Ax1; ang: float) {.importcpp: "Rotate",
     header: "gp_Dir.hxx".}
-proc `*`*(this: gp_Dir; Other: gp_Dir): Standard_Real {.noSideEffect,
-    importcpp: "(# * #)", header: "gp_Dir.hxx".}
-proc DotCross*(this: gp_Dir; V1: gp_Dir; V2: gp_Dir): Standard_Real {.noSideEffect,
-    importcpp: "DotCross", header: "gp_Dir.hxx".}
-proc Reverse*(this: var gp_Dir) {.importcpp: "Reverse", header: "gp_Dir.hxx".}
-## !!!Ignored construct:  Reversed ( ) const ;
-## Error: identifier expected, but got: )!!!
-
-## !!!Ignored construct:  operator - ( ) const { return Reversed ( ) ; } void Mirror ( const gp_Dir & V ) ;
-## Error: identifier expected, but got: -!!!
-
-## !!!Ignored construct:  Mirrored ( const gp_Dir & V ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Mirror*(this: var gp_Dir; A1: gp_Ax1) {.importcpp: "Mirror", header: "gp_Dir.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Ax1 & A1 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Mirror*(this: var gp_Dir; A2: gp_Ax2) {.importcpp: "Mirror", header: "gp_Dir.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Ax2 & A2 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Rotate*(this: var gp_Dir; A1: gp_Ax1; Ang: Standard_Real) {.importcpp: "Rotate",
+proc rotated*(this: Dir; a1: Ax1; ang: float): Dir {.noSideEffect, importcpp: "Rotated",
     header: "gp_Dir.hxx".}
-## !!!Ignored construct:  Rotated ( const gp_Ax1 & A1 , const Standard_Real Ang ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Transform*(this: var gp_Dir; T: gp_Trsf) {.importcpp: "Transform",
-    header: "gp_Dir.hxx".}
-## !!!Ignored construct:  Transformed ( const gp_Trsf & T ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc DumpJson*(this: gp_Dir; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "gp_Dir.hxx".}
-proc InitFromJson*(this: var gp_Dir; theSStream: Standard_SStream;
-                  theStreamPos: var Standard_Integer): Standard_Boolean {.
+proc transform*(this: var Dir; t: Trsf) {.importcpp: "Transform", header: "gp_Dir.hxx".}
+proc transformed*(this: Dir; t: Trsf): Dir {.noSideEffect, importcpp: "Transformed",
+                                       header: "gp_Dir.hxx".}
+proc dumpJson*(this: Dir; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "gp_Dir.hxx".}
+proc initFromJson*(this: var Dir; theSStream: StandardSStream; theStreamPos: var int): bool {.
     importcpp: "InitFromJson", header: "gp_Dir.hxx".}

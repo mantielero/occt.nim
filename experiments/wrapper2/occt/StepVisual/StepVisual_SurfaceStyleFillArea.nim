@@ -14,39 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepVisual_FillAreaStyle"
 discard "forward decl of StepVisual_SurfaceStyleFillArea"
 discard "forward decl of StepVisual_SurfaceStyleFillArea"
 type
-  Handle_StepVisual_SurfaceStyleFillArea* = handle[StepVisual_SurfaceStyleFillArea]
-  StepVisual_SurfaceStyleFillArea* {.importcpp: "StepVisual_SurfaceStyleFillArea", header: "StepVisual_SurfaceStyleFillArea.hxx",
-                                    bycopy.} = object of Standard_Transient ## ! Returns a
-                                                                       ## SurfaceStyleFillArea
+  HandleStepVisualSurfaceStyleFillArea* = Handle[StepVisualSurfaceStyleFillArea]
+  StepVisualSurfaceStyleFillArea* {.importcpp: "StepVisual_SurfaceStyleFillArea", header: "StepVisual_SurfaceStyleFillArea.hxx",
+                                   bycopy.} = object of StandardTransient ## ! Returns a
+                                                                     ## SurfaceStyleFillArea
 
 
-proc constructStepVisual_SurfaceStyleFillArea*(): StepVisual_SurfaceStyleFillArea {.
+proc constructStepVisualSurfaceStyleFillArea*(): StepVisualSurfaceStyleFillArea {.
     constructor, importcpp: "StepVisual_SurfaceStyleFillArea(@)",
     header: "StepVisual_SurfaceStyleFillArea.hxx".}
-proc Init*(this: var StepVisual_SurfaceStyleFillArea;
-          aFillArea: handle[StepVisual_FillAreaStyle]) {.importcpp: "Init",
+proc init*(this: var StepVisualSurfaceStyleFillArea;
+          aFillArea: Handle[StepVisualFillAreaStyle]) {.importcpp: "Init",
     header: "StepVisual_SurfaceStyleFillArea.hxx".}
-proc SetFillArea*(this: var StepVisual_SurfaceStyleFillArea;
-                 aFillArea: handle[StepVisual_FillAreaStyle]) {.
+proc setFillArea*(this: var StepVisualSurfaceStyleFillArea;
+                 aFillArea: Handle[StepVisualFillAreaStyle]) {.
     importcpp: "SetFillArea", header: "StepVisual_SurfaceStyleFillArea.hxx".}
-proc FillArea*(this: StepVisual_SurfaceStyleFillArea): handle[
-    StepVisual_FillAreaStyle] {.noSideEffect, importcpp: "FillArea",
-                               header: "StepVisual_SurfaceStyleFillArea.hxx".}
-type
-  StepVisual_SurfaceStyleFillAreabase_type* = Standard_Transient
-
-proc get_type_name*(): cstring {.importcpp: "StepVisual_SurfaceStyleFillArea::get_type_name(@)",
+proc fillArea*(this: StepVisualSurfaceStyleFillArea): Handle[
+    StepVisualFillAreaStyle] {.noSideEffect, importcpp: "FillArea",
                               header: "StepVisual_SurfaceStyleFillArea.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+type
+  StepVisualSurfaceStyleFillAreabaseType* = StandardTransient
+
+proc getTypeName*(): cstring {.importcpp: "StepVisual_SurfaceStyleFillArea::get_type_name(@)",
+                            header: "StepVisual_SurfaceStyleFillArea.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_SurfaceStyleFillArea::get_type_descriptor(@)",
     header: "StepVisual_SurfaceStyleFillArea.hxx".}
-proc DynamicType*(this: StepVisual_SurfaceStyleFillArea): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualSurfaceStyleFillArea): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_SurfaceStyleFillArea.hxx".}

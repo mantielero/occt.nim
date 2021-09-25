@@ -14,10 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, TopOpeBRepBuild_VertexInfo,
-  ../TopTools/TopTools_ShapeMapHasher, ../NCollection/NCollection_IndexedDataMap
-
 type
-  TopOpeBRepBuild_IndexedDataMapOfShapeVertexInfo* = NCollection_IndexedDataMap[
-      TopoDS_Shape, TopOpeBRepBuild_VertexInfo, TopTools_ShapeMapHasher]
+  TopOpeBRepBuildIndexedDataMapOfShapeVertexInfo* = NCollectionIndexedDataMap[
+      TopoDS_Shape, TopOpeBRepBuildVertexInfo, TopToolsShapeMapHasher]
+

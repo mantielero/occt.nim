@@ -14,34 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, BlendFunc_Corde, BlendFunc_GenChamfInv,
-  ../math/math_Vector, ../Standard/Standard_Real
-
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of math_Matrix"
 type
-  BlendFunc_ChamfInv* {.importcpp: "BlendFunc_ChamfInv",
-                       header: "BlendFunc_ChamfInv.hxx", bycopy.} = object of BlendFunc_GenChamfInv
+  BlendFuncChamfInv* {.importcpp: "BlendFunc_ChamfInv",
+                      header: "BlendFunc_ChamfInv.hxx", bycopy.} = object of BlendFuncGenChamfInv
 
 
-proc constructBlendFunc_ChamfInv*(S1: handle[Adaptor3d_HSurface];
-                                 S2: handle[Adaptor3d_HSurface];
-                                 C: handle[Adaptor3d_HCurve]): BlendFunc_ChamfInv {.
+proc constructBlendFuncChamfInv*(s1: Handle[Adaptor3dHSurface];
+                                s2: Handle[Adaptor3dHSurface];
+                                c: Handle[Adaptor3dHCurve]): BlendFuncChamfInv {.
     constructor, importcpp: "BlendFunc_ChamfInv(@)",
     header: "BlendFunc_ChamfInv.hxx".}
-proc IsSolution*(this: var BlendFunc_ChamfInv; Sol: math_Vector; Tol: Standard_Real): Standard_Boolean {.
+proc isSolution*(this: var BlendFuncChamfInv; sol: MathVector; tol: float): bool {.
     importcpp: "IsSolution", header: "BlendFunc_ChamfInv.hxx".}
-proc Value*(this: var BlendFunc_ChamfInv; X: math_Vector; F: var math_Vector): Standard_Boolean {.
+proc value*(this: var BlendFuncChamfInv; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "BlendFunc_ChamfInv.hxx".}
-proc Derivatives*(this: var BlendFunc_ChamfInv; X: math_Vector; D: var math_Matrix): Standard_Boolean {.
+proc derivatives*(this: var BlendFuncChamfInv; x: MathVector; d: var MathMatrix): bool {.
     importcpp: "Derivatives", header: "BlendFunc_ChamfInv.hxx".}
 ## using statement
 
-proc Set*(this: var BlendFunc_ChamfInv; Dist1: Standard_Real; Dist2: Standard_Real;
-         Choix: Standard_Integer) {.importcpp: "Set",
-                                  header: "BlendFunc_ChamfInv.hxx".}
+proc set*(this: var BlendFuncChamfInv; dist1: float; dist2: float; choix: int) {.
+    importcpp: "Set", header: "BlendFunc_ChamfInv.hxx".}

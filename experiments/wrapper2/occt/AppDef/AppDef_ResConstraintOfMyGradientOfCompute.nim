@@ -14,20 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, ../math/math_Matrix, ../math/math_Vector,
-  ../Standard/Standard_Integer, ../TColStd/TColStd_Array1OfInteger,
-  ../AppParCurves/AppParCurves_HArray1OfConstraintCouple
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of AppDef_MultiLine"
 discard "forward decl of AppDef_MyLineTool"
 discard "forward decl of AppParCurves_MultiCurve"
 discard "forward decl of math_Matrix"
 type
-  AppDef_ResConstraintOfMyGradientOfCompute* {.
+  AppDefResConstraintOfMyGradientOfCompute* {.
       importcpp: "AppDef_ResConstraintOfMyGradientOfCompute",
       header: "AppDef_ResConstraintOfMyGradientOfCompute.hxx", bycopy.} = object ## !
                                                                             ## Given a
@@ -81,31 +74,27 @@ type
                                                                             ## fields.
 
 
-proc constructAppDef_ResConstraintOfMyGradientOfCompute*(SSP: AppDef_MultiLine;
-    SCurv: var AppParCurves_MultiCurve; FirstPoint: Standard_Integer;
-    LastPoint: Standard_Integer;
-    Constraints: handle[AppParCurves_HArray1OfConstraintCouple];
-    Bern: math_Matrix; DerivativeBern: math_Matrix;
-    Tolerance: Standard_Real = 1.0e-10): AppDef_ResConstraintOfMyGradientOfCompute {.
+proc constructAppDefResConstraintOfMyGradientOfCompute*(ssp: AppDefMultiLine;
+    sCurv: var AppParCurvesMultiCurve; firstPoint: int; lastPoint: int;
+    constraints: Handle[AppParCurvesHArray1OfConstraintCouple]; bern: MathMatrix;
+    derivativeBern: MathMatrix; tolerance: float = 1.0e-10): AppDefResConstraintOfMyGradientOfCompute {.
     constructor, importcpp: "AppDef_ResConstraintOfMyGradientOfCompute(@)",
     header: "AppDef_ResConstraintOfMyGradientOfCompute.hxx".}
-proc IsDone*(this: AppDef_ResConstraintOfMyGradientOfCompute): Standard_Boolean {.
-    noSideEffect, importcpp: "IsDone",
-    header: "AppDef_ResConstraintOfMyGradientOfCompute.hxx".}
-proc Error*(this: AppDef_ResConstraintOfMyGradientOfCompute): Standard_Real {.
-    noSideEffect, importcpp: "Error",
-    header: "AppDef_ResConstraintOfMyGradientOfCompute.hxx".}
-proc ConstraintMatrix*(this: AppDef_ResConstraintOfMyGradientOfCompute): math_Matrix {.
+proc isDone*(this: AppDefResConstraintOfMyGradientOfCompute): bool {.noSideEffect,
+    importcpp: "IsDone", header: "AppDef_ResConstraintOfMyGradientOfCompute.hxx".}
+proc error*(this: AppDefResConstraintOfMyGradientOfCompute): float {.noSideEffect,
+    importcpp: "Error", header: "AppDef_ResConstraintOfMyGradientOfCompute.hxx".}
+proc constraintMatrix*(this: AppDefResConstraintOfMyGradientOfCompute): MathMatrix {.
     noSideEffect, importcpp: "ConstraintMatrix",
     header: "AppDef_ResConstraintOfMyGradientOfCompute.hxx".}
-proc Duale*(this: AppDef_ResConstraintOfMyGradientOfCompute): math_Vector {.
+proc duale*(this: AppDefResConstraintOfMyGradientOfCompute): MathVector {.
     noSideEffect, importcpp: "Duale",
     header: "AppDef_ResConstraintOfMyGradientOfCompute.hxx".}
-proc ConstraintDerivative*(this: var AppDef_ResConstraintOfMyGradientOfCompute;
-                          SSP: AppDef_MultiLine; Parameters: math_Vector;
-                          Deg: Standard_Integer; DA: math_Matrix): math_Matrix {.
+proc constraintDerivative*(this: var AppDefResConstraintOfMyGradientOfCompute;
+                          ssp: AppDefMultiLine; parameters: MathVector; deg: int;
+                          da: MathMatrix): MathMatrix {.
     importcpp: "ConstraintDerivative",
     header: "AppDef_ResConstraintOfMyGradientOfCompute.hxx".}
-proc InverseMatrix*(this: AppDef_ResConstraintOfMyGradientOfCompute): math_Matrix {.
+proc inverseMatrix*(this: AppDefResConstraintOfMyGradientOfCompute): MathMatrix {.
     noSideEffect, importcpp: "InverseMatrix",
     header: "AppDef_ResConstraintOfMyGradientOfCompute.hxx".}

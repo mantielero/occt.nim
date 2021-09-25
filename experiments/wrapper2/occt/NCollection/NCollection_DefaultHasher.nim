@@ -12,9 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 ## =======================================================================
 ## function : HashCode_Proxy
 ## purpose  : Function is required to call the global function HashCode.
@@ -25,8 +22,7 @@ import
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
-proc HashCode_Proxy*[TheKeyType](theKey: TheKeyType;
-                                theUpperBound: Standard_Integer): Standard_Integer =
+proc hashCodeProxy*[TheKeyType](theKey: TheKeyType; theUpperBound: int): int =
   discard
 
 ## =======================================================================
@@ -34,7 +30,7 @@ proc HashCode_Proxy*[TheKeyType](theKey: TheKeyType;
 ## purpose  : Default implementation of IsEqual via operator ==
 ## =======================================================================
 
-proc IsEqual*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): Standard_Boolean =
+proc isEqual*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): bool =
   discard
 
 ## =======================================================================
@@ -42,7 +38,7 @@ proc IsEqual*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): Standard_Bo
 ## purpose  : Function is required to call the global function IsEqual.
 ## =======================================================================
 
-proc IsEqual_Proxy*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): Standard_Boolean =
+proc isEqualProxy*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): bool =
   discard
 
 ## *
@@ -55,7 +51,7 @@ proc IsEqual_Proxy*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): Stand
 ##
 
 type
-  NCollection_DefaultHasher*[TheKeyType] {.
+  NCollectionDefaultHasher*[TheKeyType] {.
       importcpp: "NCollection_DefaultHasher<\'0>",
       header: "NCollection_DefaultHasher.hxx", bycopy.} = object ## ! Returns hash code for the given key, in the range [1, theUpperBound]
                                                             ## ! @param theKey the key which hash code is to be computed
@@ -63,9 +59,9 @@ type
                                                             ## ! @return a computed hash code, in the range [1, theUpperBound]
 
 
-proc HashCode*[TheKeyType](theKey: TheKeyType; theUpperBound: Standard_Integer): Standard_Integer {.
+proc hashCode*[TheKeyType](theKey: TheKeyType; theUpperBound: int): int {.
     importcpp: "NCollection_DefaultHasher::HashCode(@)",
     header: "NCollection_DefaultHasher.hxx".}
-proc IsEqual*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): Standard_Boolean {.
+proc isEqual*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): bool {.
     importcpp: "NCollection_DefaultHasher::IsEqual(@)",
     header: "NCollection_DefaultHasher.hxx".}

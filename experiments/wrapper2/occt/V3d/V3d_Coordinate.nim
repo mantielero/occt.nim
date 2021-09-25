@@ -14,11 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Real
-
 ## ! User-defined coordinate in the reference plane of
 ## ! view (Projection or Mapping).
 
 type
-  V3d_Coordinate* = Standard_Real
+  V3dCoordinate* = float
+

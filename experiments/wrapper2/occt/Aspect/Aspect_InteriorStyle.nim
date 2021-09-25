@@ -16,14 +16,14 @@
 ## ! Interior types for primitive faces.
 
 type
-  Aspect_InteriorStyle* {.size: sizeof(cint), importcpp: "Aspect_InteriorStyle",
-                         header: "Aspect_InteriorStyle.hxx".} = enum
-    Aspect_IS_EMPTY = -1,       ## !< no interior
-    Aspect_IS_SOLID = 0,        ## !< normally filled surface interior
-    Aspect_IS_HATCH,          ## !< hatched surface interior
-    Aspect_IS_HIDDENLINE,     ## !< interior is filled with viewer background color
-    Aspect_IS_POINT           ## !< display only vertices of surface (obsolete)
+  AspectInteriorStyle* {.size: sizeof(cint), importcpp: "Aspect_InteriorStyle",
+                        header: "Aspect_InteriorStyle.hxx".} = enum
+    AspectIS_EMPTY = -1,        ## !< no interior
+    AspectIS_SOLID = 0,         ## !< normally filled surface interior
+    AspectIS_HATCH,           ## !< hatched surface interior
+    AspectIS_HIDDENLINE,      ## !< interior is filled with viewer background color
+    AspectIS_POINT,           ## !< display only vertices of surface (obsolete)
                    ##  obsolete aliases
+    AspectIS_HOLLOW = aspectIS_EMPTY ## !< transparent surface interior
 
-const
-  Aspect_IS_HOLLOW* = Aspect_IS_EMPTY
+

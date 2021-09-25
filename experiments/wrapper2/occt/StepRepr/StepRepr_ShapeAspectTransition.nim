@@ -13,36 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepRepr_ShapeAspectRelationship
-
 discard "forward decl of StepRepr_ShapeAspectTransition"
 discard "forward decl of StepRepr_ShapeAspectTransition"
 type
-  Handle_StepRepr_ShapeAspectTransition* = handle[StepRepr_ShapeAspectTransition]
+  HandleStepReprShapeAspectTransition* = Handle[StepReprShapeAspectTransition]
 
 ## ! Representation of STEP entity ShapeAspectTransition
 
 type
-  StepRepr_ShapeAspectTransition* {.importcpp: "StepRepr_ShapeAspectTransition", header: "StepRepr_ShapeAspectTransition.hxx",
-                                   bycopy.} = object of StepRepr_ShapeAspectRelationship ##
-                                                                                    ## !
-                                                                                    ## Empty
-                                                                                    ## constructor
+  StepReprShapeAspectTransition* {.importcpp: "StepRepr_ShapeAspectTransition",
+                                  header: "StepRepr_ShapeAspectTransition.hxx",
+                                  bycopy.} = object of StepReprShapeAspectRelationship ##
+                                                                                  ## !
+                                                                                  ## Empty
+                                                                                  ## constructor
 
 
-proc constructStepRepr_ShapeAspectTransition*(): StepRepr_ShapeAspectTransition {.
+proc constructStepReprShapeAspectTransition*(): StepReprShapeAspectTransition {.
     constructor, importcpp: "StepRepr_ShapeAspectTransition(@)",
     header: "StepRepr_ShapeAspectTransition.hxx".}
 type
-  StepRepr_ShapeAspectTransitionbase_type* = StepRepr_ShapeAspectRelationship
+  StepReprShapeAspectTransitionbaseType* = StepReprShapeAspectRelationship
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_ShapeAspectTransition::get_type_name(@)",
-                              header: "StepRepr_ShapeAspectTransition.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_ShapeAspectTransition::get_type_name(@)",
+                            header: "StepRepr_ShapeAspectTransition.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_ShapeAspectTransition::get_type_descriptor(@)",
     header: "StepRepr_ShapeAspectTransition.hxx".}
-proc DynamicType*(this: StepRepr_ShapeAspectTransition): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprShapeAspectTransition): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_ShapeAspectTransition.hxx".}

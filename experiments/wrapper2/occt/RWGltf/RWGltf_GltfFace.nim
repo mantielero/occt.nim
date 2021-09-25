@@ -12,16 +12,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  RWGltf_GltfAccessor
-
 ## ! Low-level glTF data structure holding single Face (one primitive array) definition.
 
 type
-  RWGltf_GltfFace* {.importcpp: "RWGltf_GltfFace", header: "RWGltf_GltfFace.hxx",
-                    bycopy.} = object
-    NodePos* {.importc: "NodePos".}: RWGltf_GltfAccessor ## !< accessor for nodal positions
-    NodeNorm* {.importc: "NodeNorm".}: RWGltf_GltfAccessor ## !< accessor for nodal normals
-    NodeUV* {.importc: "NodeUV".}: RWGltf_GltfAccessor ## !< accessor for nodal UV texture coordinates
-    Indices* {.importc: "Indices".}: RWGltf_GltfAccessor ## !< accessor for indexes
+  RWGltfGltfFace* {.importcpp: "RWGltf_GltfFace", header: "RWGltf_GltfFace.hxx",
+                   bycopy.} = object
+    nodePos* {.importc: "NodePos".}: RWGltfGltfAccessor ## !< accessor for nodal positions
+    nodeNorm* {.importc: "NodeNorm".}: RWGltfGltfAccessor ## !< accessor for nodal normals
+    nodeUV* {.importc: "NodeUV".}: RWGltfGltfAccessor ## !< accessor for nodal UV texture coordinates
+    indices* {.importc: "Indices".}: RWGltfGltfAccessor ## !< accessor for indexes
+
 

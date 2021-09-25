@@ -14,53 +14,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepBasic/StepBasic_HArray1OfNamedUnit, StepRepr_RepresentationContext,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_NamedUnit"
 discard "forward decl of StepRepr_GlobalUnitAssignedContext"
 discard "forward decl of StepRepr_GlobalUnitAssignedContext"
 type
-  Handle_StepRepr_GlobalUnitAssignedContext* = handle[
-      StepRepr_GlobalUnitAssignedContext]
-  StepRepr_GlobalUnitAssignedContext* {.importcpp: "StepRepr_GlobalUnitAssignedContext", header: "StepRepr_GlobalUnitAssignedContext.hxx",
-                                       bycopy.} = object of StepRepr_RepresentationContext ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## a
-                                                                                      ## GlobalUnitAssignedContext
+  HandleStepReprGlobalUnitAssignedContext* = Handle[
+      StepReprGlobalUnitAssignedContext]
+  StepReprGlobalUnitAssignedContext* {.importcpp: "StepRepr_GlobalUnitAssignedContext", header: "StepRepr_GlobalUnitAssignedContext.hxx",
+                                      bycopy.} = object of StepReprRepresentationContext ##
+                                                                                    ## !
+                                                                                    ## Returns
+                                                                                    ## a
+                                                                                    ## GlobalUnitAssignedContext
 
 
-proc constructStepRepr_GlobalUnitAssignedContext*(): StepRepr_GlobalUnitAssignedContext {.
+proc constructStepReprGlobalUnitAssignedContext*(): StepReprGlobalUnitAssignedContext {.
     constructor, importcpp: "StepRepr_GlobalUnitAssignedContext(@)",
     header: "StepRepr_GlobalUnitAssignedContext.hxx".}
-proc Init*(this: var StepRepr_GlobalUnitAssignedContext;
-          aContextIdentifier: handle[TCollection_HAsciiString];
-          aContextType: handle[TCollection_HAsciiString];
-          aUnits: handle[StepBasic_HArray1OfNamedUnit]) {.importcpp: "Init",
+proc init*(this: var StepReprGlobalUnitAssignedContext;
+          aContextIdentifier: Handle[TCollectionHAsciiString];
+          aContextType: Handle[TCollectionHAsciiString];
+          aUnits: Handle[StepBasicHArray1OfNamedUnit]) {.importcpp: "Init",
     header: "StepRepr_GlobalUnitAssignedContext.hxx".}
-proc SetUnits*(this: var StepRepr_GlobalUnitAssignedContext;
-              aUnits: handle[StepBasic_HArray1OfNamedUnit]) {.
+proc setUnits*(this: var StepReprGlobalUnitAssignedContext;
+              aUnits: Handle[StepBasicHArray1OfNamedUnit]) {.
     importcpp: "SetUnits", header: "StepRepr_GlobalUnitAssignedContext.hxx".}
-proc Units*(this: StepRepr_GlobalUnitAssignedContext): handle[
-    StepBasic_HArray1OfNamedUnit] {.noSideEffect, importcpp: "Units", header: "StepRepr_GlobalUnitAssignedContext.hxx".}
-proc UnitsValue*(this: StepRepr_GlobalUnitAssignedContext; num: Standard_Integer): handle[
-    StepBasic_NamedUnit] {.noSideEffect, importcpp: "UnitsValue",
-                          header: "StepRepr_GlobalUnitAssignedContext.hxx".}
-proc NbUnits*(this: StepRepr_GlobalUnitAssignedContext): Standard_Integer {.
-    noSideEffect, importcpp: "NbUnits",
-    header: "StepRepr_GlobalUnitAssignedContext.hxx".}
+proc units*(this: StepReprGlobalUnitAssignedContext): Handle[
+    StepBasicHArray1OfNamedUnit] {.noSideEffect, importcpp: "Units", header: "StepRepr_GlobalUnitAssignedContext.hxx".}
+proc unitsValue*(this: StepReprGlobalUnitAssignedContext; num: int): Handle[
+    StepBasicNamedUnit] {.noSideEffect, importcpp: "UnitsValue",
+                         header: "StepRepr_GlobalUnitAssignedContext.hxx".}
+proc nbUnits*(this: StepReprGlobalUnitAssignedContext): int {.noSideEffect,
+    importcpp: "NbUnits", header: "StepRepr_GlobalUnitAssignedContext.hxx".}
 type
-  StepRepr_GlobalUnitAssignedContextbase_type* = StepRepr_RepresentationContext
+  StepReprGlobalUnitAssignedContextbaseType* = StepReprRepresentationContext
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_GlobalUnitAssignedContext::get_type_name(@)",
-                              header: "StepRepr_GlobalUnitAssignedContext.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_GlobalUnitAssignedContext::get_type_name(@)",
+                            header: "StepRepr_GlobalUnitAssignedContext.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_GlobalUnitAssignedContext::get_type_descriptor(@)",
     header: "StepRepr_GlobalUnitAssignedContext.hxx".}
-proc DynamicType*(this: StepRepr_GlobalUnitAssignedContext): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprGlobalUnitAssignedContext): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_GlobalUnitAssignedContext.hxx".}

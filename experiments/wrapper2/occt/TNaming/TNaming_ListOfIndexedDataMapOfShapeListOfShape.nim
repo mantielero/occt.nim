@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape,
-  ../NCollection/NCollection_List
-
 type
-  TNaming_ListOfIndexedDataMapOfShapeListOfShape* = NCollection_List[
-      TopTools_IndexedDataMapOfShapeListOfShape]
-  TNaming_ListIteratorOfListOfIndexedDataMapOfShapeListOfShape* = Iterator[
-      TopTools_IndexedDataMapOfShapeListOfShape]
+  TNamingListOfIndexedDataMapOfShapeListOfShape* = NCollectionList[
+      TopToolsIndexedDataMapOfShapeListOfShape]
+  TNamingListIteratorOfListOfIndexedDataMapOfShapeListOfShape* = Iterator[
+      TopToolsIndexedDataMapOfShapeListOfShape]
+

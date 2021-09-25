@@ -13,44 +13,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, XmlObjMgt_Element, ../Standard/Standard_Integer,
-  XmlObjMgt_DOMString
-
 ## ! root for XML-persistence
 
 type
-  XmlObjMgt_Persistent* {.importcpp: "XmlObjMgt_Persistent",
-                         header: "XmlObjMgt_Persistent.hxx", bycopy.} = object ## ! empty
-                                                                          ## constructor
+  XmlObjMgtPersistent* {.importcpp: "XmlObjMgt_Persistent",
+                        header: "XmlObjMgt_Persistent.hxx", bycopy.} = object ## ! empty
+                                                                         ## constructor
 
 
-proc constructXmlObjMgt_Persistent*(): XmlObjMgt_Persistent {.constructor,
+proc constructXmlObjMgtPersistent*(): XmlObjMgtPersistent {.constructor,
     importcpp: "XmlObjMgt_Persistent(@)", header: "XmlObjMgt_Persistent.hxx".}
-proc constructXmlObjMgt_Persistent*(theElement: XmlObjMgt_Element): XmlObjMgt_Persistent {.
+proc constructXmlObjMgtPersistent*(theElement: XmlObjMgtElement): XmlObjMgtPersistent {.
     constructor, importcpp: "XmlObjMgt_Persistent(@)",
     header: "XmlObjMgt_Persistent.hxx".}
-proc constructXmlObjMgt_Persistent*(theElement: XmlObjMgt_Element;
-                                   theRef: XmlObjMgt_DOMString): XmlObjMgt_Persistent {.
+proc constructXmlObjMgtPersistent*(theElement: XmlObjMgtElement;
+                                  theRef: XmlObjMgtDOMString): XmlObjMgtPersistent {.
     constructor, importcpp: "XmlObjMgt_Persistent(@)",
     header: "XmlObjMgt_Persistent.hxx".}
-proc CreateElement*(this: var XmlObjMgt_Persistent;
-                   theParent: var XmlObjMgt_Element; theType: XmlObjMgt_DOMString;
-                   theID: Standard_Integer) {.importcpp: "CreateElement",
+proc createElement*(this: var XmlObjMgtPersistent; theParent: var XmlObjMgtElement;
+                   theType: XmlObjMgtDOMString; theID: int) {.
+    importcpp: "CreateElement", header: "XmlObjMgt_Persistent.hxx".}
+proc setId*(this: var XmlObjMgtPersistent; theId: int) {.importcpp: "SetId",
     header: "XmlObjMgt_Persistent.hxx".}
-proc SetId*(this: var XmlObjMgt_Persistent; theId: Standard_Integer) {.
-    importcpp: "SetId", header: "XmlObjMgt_Persistent.hxx".}
-proc Element*(this: XmlObjMgt_Persistent): XmlObjMgt_Element {.noSideEffect,
+proc element*(this: XmlObjMgtPersistent): XmlObjMgtElement {.noSideEffect,
     importcpp: "Element", header: "XmlObjMgt_Persistent.hxx".}
-converter `constXmlObjMgt_Element&`*(this: XmlObjMgt_Persistent): XmlObjMgt_Element {.
+converter `constXmlObjMgtElement&`*(this: XmlObjMgtPersistent): XmlObjMgtElement {.
     noSideEffect,
     importcpp: "XmlObjMgt_Persistent::operator constXmlObjMgt_Element&",
     header: "XmlObjMgt_Persistent.hxx".}
-proc Element*(this: var XmlObjMgt_Persistent): var XmlObjMgt_Element {.
+proc element*(this: var XmlObjMgtPersistent): var XmlObjMgtElement {.
     importcpp: "Element", header: "XmlObjMgt_Persistent.hxx".}
-converter `XmlObjMgt_Element&`*(this: var XmlObjMgt_Persistent): var XmlObjMgt_Element {.
+converter `xmlObjMgtElement&`*(this: var XmlObjMgtPersistent): var XmlObjMgtElement {.
     importcpp: "XmlObjMgt_Persistent::operator XmlObjMgt_Element&",
     header: "XmlObjMgt_Persistent.hxx".}
-proc Id*(this: XmlObjMgt_Persistent): Standard_Integer {.noSideEffect,
-    importcpp: "Id", header: "XmlObjMgt_Persistent.hxx".}
+proc id*(this: XmlObjMgtPersistent): int {.noSideEffect, importcpp: "Id",
+                                       header: "XmlObjMgt_Persistent.hxx".}

@@ -11,9 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Macro
-
 discard "forward decl of StdObjMgt_MapOfInstantiators"
 type
   StdLPersistent* {.importcpp: "StdLPersistent", header: "StdLPersistent.hxx", bycopy.} = object ##
@@ -22,5 +19,5 @@ type
                                                                                          ## types.
 
 
-proc BindTypes*(theMap: var StdObjMgt_MapOfInstantiators) {.
+proc bindTypes*(theMap: var StdObjMgtMapOfInstantiators) {.
     importcpp: "StdLPersistent::BindTypes(@)", header: "StdLPersistent.hxx".}

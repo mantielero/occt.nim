@@ -14,34 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Dir, ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real, V3d_TypeOfOrientation
-
 discard "forward decl of Graphic3d_Group"
 discard "forward decl of V3d_View"
 type
   V3d* {.importcpp: "V3d", header: "V3d.hxx", bycopy.} = object ## ! Determines the orientation vector corresponding to the predefined orientation type.
 
 
-proc GetProjAxis*(theOrientation: V3d_TypeOfOrientation): gp_Dir {.
+proc getProjAxis*(theOrientation: V3dTypeOfOrientation): Dir {.
     importcpp: "V3d::GetProjAxis(@)", header: "V3d.hxx".}
-proc ArrowOfRadius*(garrow: handle[Graphic3d_Group]; X0: Standard_Real;
-                   Y0: Standard_Real; Z0: Standard_Real; DX: Standard_Real;
-                   DY: Standard_Real; DZ: Standard_Real; Alpha: Standard_Real;
-                   Lng: Standard_Real) {.importcpp: "V3d::ArrowOfRadius(@)",
-                                       header: "V3d.hxx".}
-proc CircleInPlane*(gcircle: handle[Graphic3d_Group]; X0: Standard_Real;
-                   Y0: Standard_Real; Z0: Standard_Real; VX: Standard_Real;
-                   VY: Standard_Real; VZ: Standard_Real; Radius: Standard_Real) {.
+proc arrowOfRadius*(garrow: Handle[Graphic3dGroup]; x0: float; y0: float; z0: float;
+                   dx: float; dy: float; dz: float; alpha: float; lng: float) {.
+    importcpp: "V3d::ArrowOfRadius(@)", header: "V3d.hxx".}
+proc circleInPlane*(gcircle: Handle[Graphic3dGroup]; x0: float; y0: float; z0: float;
+                   vx: float; vy: float; vz: float; radius: float) {.
     importcpp: "V3d::CircleInPlane(@)", header: "V3d.hxx".}
-proc SwitchViewsinWindow*(aPreviousView: handle[V3d_View];
-                         aNextView: handle[V3d_View]) {.
+proc switchViewsinWindow*(aPreviousView: Handle[V3dView];
+                         aNextView: Handle[V3dView]) {.
     importcpp: "V3d::SwitchViewsinWindow(@)", header: "V3d.hxx".}
-proc TypeOfOrientationToString*(theType: V3d_TypeOfOrientation): Standard_CString {.
+proc typeOfOrientationToString*(theType: V3dTypeOfOrientation): StandardCString {.
     importcpp: "V3d::TypeOfOrientationToString(@)", header: "V3d.hxx".}
-proc TypeOfOrientationFromString*(theTypeString: Standard_CString): V3d_TypeOfOrientation {.
+proc typeOfOrientationFromString*(theTypeString: StandardCString): V3dTypeOfOrientation {.
     importcpp: "V3d::TypeOfOrientationFromString(@)", header: "V3d.hxx".}
-proc TypeOfOrientationFromString*(theTypeString: Standard_CString;
-                                 theType: var V3d_TypeOfOrientation): Standard_Boolean {.
+proc typeOfOrientationFromString*(theTypeString: StandardCString;
+                                 theType: var V3dTypeOfOrientation): bool {.
     importcpp: "V3d::TypeOfOrientationFromString(@)", header: "V3d.hxx".}

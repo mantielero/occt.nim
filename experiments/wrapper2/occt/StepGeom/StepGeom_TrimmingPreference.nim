@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepGeom_TrimmingPreference* {.size: sizeof(cint),
-                                importcpp: "StepGeom_TrimmingPreference",
-                                header: "StepGeom_TrimmingPreference.hxx".} = enum
-    StepGeom_tpCartesian, StepGeom_tpParameter, StepGeom_tpUnspecified
+  StepGeomTrimmingPreference* {.size: sizeof(cint),
+                               importcpp: "StepGeom_TrimmingPreference",
+                               header: "StepGeom_TrimmingPreference.hxx".} = enum
+    StepGeomTpCartesian, StepGeomTpParameter, StepGeomTpUnspecified
+
 

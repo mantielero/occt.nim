@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TDF/TDF_Label,
-  ../Draw/Draw_Drawable3D, ../Standard/Standard_OStream, ../Draw/Draw_Interpretor
-
 discard "forward decl of TDF_Label"
 discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Drawable3D"
@@ -25,59 +21,59 @@ discard "forward decl of TDataStd_TreeNode"
 discard "forward decl of DDataStd_TreeBrowser"
 discard "forward decl of DDataStd_TreeBrowser"
 type
-  Handle_DDataStd_TreeBrowser* = handle[DDataStd_TreeBrowser]
+  HandleDDataStdTreeBrowser* = Handle[DDataStdTreeBrowser]
 
 ## ! Browses a TreeNode from TDataStd.
 ## ! =================================
 
 type
-  DDataStd_TreeBrowser* {.importcpp: "DDataStd_TreeBrowser",
-                         header: "DDataStd_TreeBrowser.hxx", bycopy.} = object of Draw_Drawable3D ##
-                                                                                           ## !
-                                                                                           ## Returns
-                                                                                           ## a
-                                                                                           ## string
-                                                                                           ## composed
-                                                                                           ## with
-                                                                                           ## the
-                                                                                           ## sub-TreeNodes
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## of
-                                                                                           ## <aTreeNode>.
-                                                                                           ## Used
-                                                                                           ## to
-                                                                                           ## implement
-                                                                                           ## other
-                                                                                           ## methods.
+  DDataStdTreeBrowser* {.importcpp: "DDataStd_TreeBrowser",
+                        header: "DDataStd_TreeBrowser.hxx", bycopy.} = object of DrawDrawable3D ##
+                                                                                         ## !
+                                                                                         ## Returns
+                                                                                         ## a
+                                                                                         ## string
+                                                                                         ## composed
+                                                                                         ## with
+                                                                                         ## the
+                                                                                         ## sub-TreeNodes
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## of
+                                                                                         ## <aTreeNode>.
+                                                                                         ## Used
+                                                                                         ## to
+                                                                                         ## implement
+                                                                                         ## other
+                                                                                         ## methods.
 
 
-proc constructDDataStd_TreeBrowser*(root: TDF_Label): DDataStd_TreeBrowser {.
+proc constructDDataStdTreeBrowser*(root: TDF_Label): DDataStdTreeBrowser {.
     constructor, importcpp: "DDataStd_TreeBrowser(@)",
     header: "DDataStd_TreeBrowser.hxx".}
-proc DrawOn*(this: DDataStd_TreeBrowser; dis: var Draw_Display) {.noSideEffect,
+proc drawOn*(this: DDataStdTreeBrowser; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "DDataStd_TreeBrowser.hxx".}
-proc Copy*(this: DDataStd_TreeBrowser): handle[Draw_Drawable3D] {.noSideEffect,
+proc copy*(this: DDataStdTreeBrowser): Handle[DrawDrawable3D] {.noSideEffect,
     importcpp: "Copy", header: "DDataStd_TreeBrowser.hxx".}
-proc Dump*(this: DDataStd_TreeBrowser; S: var Standard_OStream) {.noSideEffect,
+proc dump*(this: DDataStdTreeBrowser; s: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "DDataStd_TreeBrowser.hxx".}
-proc Whatis*(this: DDataStd_TreeBrowser; I: var Draw_Interpretor) {.noSideEffect,
+proc whatis*(this: DDataStdTreeBrowser; i: var DrawInterpretor) {.noSideEffect,
     importcpp: "Whatis", header: "DDataStd_TreeBrowser.hxx".}
-proc Label*(this: var DDataStd_TreeBrowser; root: TDF_Label) {.importcpp: "Label",
+proc label*(this: var DDataStdTreeBrowser; root: TDF_Label) {.importcpp: "Label",
     header: "DDataStd_TreeBrowser.hxx".}
-proc Label*(this: DDataStd_TreeBrowser): TDF_Label {.noSideEffect,
-    importcpp: "Label", header: "DDataStd_TreeBrowser.hxx".}
-proc OpenRoot*(this: DDataStd_TreeBrowser): TCollection_AsciiString {.noSideEffect,
+proc label*(this: DDataStdTreeBrowser): TDF_Label {.noSideEffect, importcpp: "Label",
+    header: "DDataStd_TreeBrowser.hxx".}
+proc openRoot*(this: DDataStdTreeBrowser): TCollectionAsciiString {.noSideEffect,
     importcpp: "OpenRoot", header: "DDataStd_TreeBrowser.hxx".}
-proc OpenNode*(this: DDataStd_TreeBrowser; L: TDF_Label): TCollection_AsciiString {.
+proc openNode*(this: DDataStdTreeBrowser; L: TDF_Label): TCollectionAsciiString {.
     noSideEffect, importcpp: "OpenNode", header: "DDataStd_TreeBrowser.hxx".}
 type
-  DDataStd_TreeBrowserbase_type* = Draw_Drawable3D
+  DDataStdTreeBrowserbaseType* = DrawDrawable3D
 
-proc get_type_name*(): cstring {.importcpp: "DDataStd_TreeBrowser::get_type_name(@)",
-                              header: "DDataStd_TreeBrowser.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "DDataStd_TreeBrowser::get_type_name(@)",
+                            header: "DDataStd_TreeBrowser.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "DDataStd_TreeBrowser::get_type_descriptor(@)",
     header: "DDataStd_TreeBrowser.hxx".}
-proc DynamicType*(this: DDataStd_TreeBrowser): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: DDataStdTreeBrowser): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DDataStd_TreeBrowser.hxx".}

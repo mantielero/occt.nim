@@ -14,42 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TPrsStd_Driver,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TDF_Label"
 discard "forward decl of AIS_InteractiveObject"
 discard "forward decl of TPrsStd_GeometryDriver"
 discard "forward decl of TPrsStd_GeometryDriver"
 type
-  Handle_TPrsStd_GeometryDriver* = handle[TPrsStd_GeometryDriver]
+  HandleTPrsStdGeometryDriver* = Handle[TPrsStdGeometryDriver]
 
 ## ! This method is an implementation of TPrsStd_Driver for geometries.
 
 type
-  TPrsStd_GeometryDriver* {.importcpp: "TPrsStd_GeometryDriver",
-                           header: "TPrsStd_GeometryDriver.hxx", bycopy.} = object of TPrsStd_Driver ##
-                                                                                              ## !
-                                                                                              ## Constructs
-                                                                                              ## an
-                                                                                              ## empty
-                                                                                              ## geometry
-                                                                                              ## driver.
+  TPrsStdGeometryDriver* {.importcpp: "TPrsStd_GeometryDriver",
+                          header: "TPrsStd_GeometryDriver.hxx", bycopy.} = object of TPrsStdDriver ##
+                                                                                            ## !
+                                                                                            ## Constructs
+                                                                                            ## an
+                                                                                            ## empty
+                                                                                            ## geometry
+                                                                                            ## driver.
 
 
-proc constructTPrsStd_GeometryDriver*(): TPrsStd_GeometryDriver {.constructor,
+proc constructTPrsStdGeometryDriver*(): TPrsStdGeometryDriver {.constructor,
     importcpp: "TPrsStd_GeometryDriver(@)", header: "TPrsStd_GeometryDriver.hxx".}
-proc Update*(this: var TPrsStd_GeometryDriver; aLabel: TDF_Label;
-            anAISObject: var handle[AIS_InteractiveObject]): Standard_Boolean {.
+proc update*(this: var TPrsStdGeometryDriver; aLabel: TDF_Label;
+            anAISObject: var Handle[AIS_InteractiveObject]): bool {.
     importcpp: "Update", header: "TPrsStd_GeometryDriver.hxx".}
 type
-  TPrsStd_GeometryDriverbase_type* = TPrsStd_Driver
+  TPrsStdGeometryDriverbaseType* = TPrsStdDriver
 
-proc get_type_name*(): cstring {.importcpp: "TPrsStd_GeometryDriver::get_type_name(@)",
-                              header: "TPrsStd_GeometryDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TPrsStd_GeometryDriver::get_type_name(@)",
+                            header: "TPrsStd_GeometryDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TPrsStd_GeometryDriver::get_type_descriptor(@)",
     header: "TPrsStd_GeometryDriver.hxx".}
-proc DynamicType*(this: TPrsStd_GeometryDriver): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "TPrsStd_GeometryDriver.hxx".}
+proc dynamicType*(this: TPrsStdGeometryDriver): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "TPrsStd_GeometryDriver.hxx".}

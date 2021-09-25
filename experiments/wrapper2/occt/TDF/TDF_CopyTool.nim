@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean, TDF_LabelDataMap,
-  TDF_AttributeDataMap, TDF_LabelMap, TDF_AttributeMap
-
 discard "forward decl of TDF_DataSet"
 discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDF_IDFilter"
@@ -55,15 +50,15 @@ type
                                                                                    ## method.
 
 
-proc Copy*(aSourceDataSet: handle[TDF_DataSet];
-          aRelocationTable: handle[TDF_RelocationTable]) {.
+proc copy*(aSourceDataSet: Handle[TDF_DataSet];
+          aRelocationTable: Handle[TDF_RelocationTable]) {.
     importcpp: "TDF_CopyTool::Copy(@)", header: "TDF_CopyTool.hxx".}
-proc Copy*(aSourceDataSet: handle[TDF_DataSet];
-          aRelocationTable: handle[TDF_RelocationTable];
+proc copy*(aSourceDataSet: Handle[TDF_DataSet];
+          aRelocationTable: Handle[TDF_RelocationTable];
           aPrivilegeFilter: TDF_IDFilter) {.importcpp: "TDF_CopyTool::Copy(@)",
     header: "TDF_CopyTool.hxx".}
-proc Copy*(aSourceDataSet: handle[TDF_DataSet];
-          aRelocationTable: handle[TDF_RelocationTable];
+proc copy*(aSourceDataSet: Handle[TDF_DataSet];
+          aRelocationTable: Handle[TDF_RelocationTable];
           aPrivilegeFilter: TDF_IDFilter; aRefFilter: TDF_IDFilter;
-          setSelfContained: Standard_Boolean) {.
-    importcpp: "TDF_CopyTool::Copy(@)", header: "TDF_CopyTool.hxx".}
+          setSelfContained: bool) {.importcpp: "TDF_CopyTool::Copy(@)",
+                                  header: "TDF_CopyTool.hxx".}

@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_ExtendedString, ../Standard/Standard_Real,
-  ../TCollection/TCollection_ExtendedString, ../NCollection/NCollection_DataMap
-
 type
-  TDataStd_DataMapOfStringReal* = NCollection_DataMap[TCollection_ExtendedString,
-      Standard_Real, TCollection_ExtendedString]
-  TDataStd_DataMapIteratorOfDataMapOfStringReal* = Iterator[
-      TCollection_ExtendedString, Standard_Real, TCollection_ExtendedString]
+  TDataStdDataMapOfStringReal* = NCollectionDataMap[TCollectionExtendedString,
+      float, TCollectionExtendedString]
+  TDataStdDataMapIteratorOfDataMapOfStringReal* = Iterator[
+      TCollectionExtendedString, float, TCollectionExtendedString]
+

@@ -13,59 +13,55 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepElement_MeasureOrUnspecifiedValue, ../Standard/Standard_Transient
-
 discard "forward decl of StepElement_MeasureOrUnspecifiedValue"
 discard "forward decl of StepElement_SurfaceSection"
 discard "forward decl of StepElement_SurfaceSection"
 type
-  Handle_StepElement_SurfaceSection* = handle[StepElement_SurfaceSection]
+  HandleStepElementSurfaceSection* = Handle[StepElementSurfaceSection]
 
 ## ! Representation of STEP entity SurfaceSection
 
 type
-  StepElement_SurfaceSection* {.importcpp: "StepElement_SurfaceSection",
-                               header: "StepElement_SurfaceSection.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                          ## !
-                                                                                                          ## Empty
-                                                                                                          ## constructor
+  StepElementSurfaceSection* {.importcpp: "StepElement_SurfaceSection",
+                              header: "StepElement_SurfaceSection.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                        ## !
+                                                                                                        ## Empty
+                                                                                                        ## constructor
 
 
-proc constructStepElement_SurfaceSection*(): StepElement_SurfaceSection {.
+proc constructStepElementSurfaceSection*(): StepElementSurfaceSection {.
     constructor, importcpp: "StepElement_SurfaceSection(@)",
     header: "StepElement_SurfaceSection.hxx".}
-proc Init*(this: var StepElement_SurfaceSection;
-          aOffset: StepElement_MeasureOrUnspecifiedValue;
-          aNonStructuralMass: StepElement_MeasureOrUnspecifiedValue;
-          aNonStructuralMassOffset: StepElement_MeasureOrUnspecifiedValue) {.
+proc init*(this: var StepElementSurfaceSection;
+          aOffset: StepElementMeasureOrUnspecifiedValue;
+          aNonStructuralMass: StepElementMeasureOrUnspecifiedValue;
+          aNonStructuralMassOffset: StepElementMeasureOrUnspecifiedValue) {.
     importcpp: "Init", header: "StepElement_SurfaceSection.hxx".}
-proc Offset*(this: StepElement_SurfaceSection): StepElement_MeasureOrUnspecifiedValue {.
+proc offset*(this: StepElementSurfaceSection): StepElementMeasureOrUnspecifiedValue {.
     noSideEffect, importcpp: "Offset", header: "StepElement_SurfaceSection.hxx".}
-proc SetOffset*(this: var StepElement_SurfaceSection;
-               Offset: StepElement_MeasureOrUnspecifiedValue) {.
+proc setOffset*(this: var StepElementSurfaceSection;
+               offset: StepElementMeasureOrUnspecifiedValue) {.
     importcpp: "SetOffset", header: "StepElement_SurfaceSection.hxx".}
-proc NonStructuralMass*(this: StepElement_SurfaceSection): StepElement_MeasureOrUnspecifiedValue {.
+proc nonStructuralMass*(this: StepElementSurfaceSection): StepElementMeasureOrUnspecifiedValue {.
     noSideEffect, importcpp: "NonStructuralMass",
     header: "StepElement_SurfaceSection.hxx".}
-proc SetNonStructuralMass*(this: var StepElement_SurfaceSection; NonStructuralMass: StepElement_MeasureOrUnspecifiedValue) {.
+proc setNonStructuralMass*(this: var StepElementSurfaceSection; nonStructuralMass: StepElementMeasureOrUnspecifiedValue) {.
     importcpp: "SetNonStructuralMass", header: "StepElement_SurfaceSection.hxx".}
-proc NonStructuralMassOffset*(this: StepElement_SurfaceSection): StepElement_MeasureOrUnspecifiedValue {.
+proc nonStructuralMassOffset*(this: StepElementSurfaceSection): StepElementMeasureOrUnspecifiedValue {.
     noSideEffect, importcpp: "NonStructuralMassOffset",
     header: "StepElement_SurfaceSection.hxx".}
-proc SetNonStructuralMassOffset*(this: var StepElement_SurfaceSection;
-    NonStructuralMassOffset: StepElement_MeasureOrUnspecifiedValue) {.
+proc setNonStructuralMassOffset*(this: var StepElementSurfaceSection;
+    nonStructuralMassOffset: StepElementMeasureOrUnspecifiedValue) {.
     importcpp: "SetNonStructuralMassOffset",
     header: "StepElement_SurfaceSection.hxx".}
 type
-  StepElement_SurfaceSectionbase_type* = Standard_Transient
+  StepElementSurfaceSectionbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepElement_SurfaceSection::get_type_name(@)",
-                              header: "StepElement_SurfaceSection.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepElement_SurfaceSection::get_type_name(@)",
+                            header: "StepElement_SurfaceSection.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepElement_SurfaceSection::get_type_descriptor(@)",
     header: "StepElement_SurfaceSection.hxx".}
-proc DynamicType*(this: StepElement_SurfaceSection): handle[Standard_Type] {.
+proc dynamicType*(this: StepElementSurfaceSection): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_SurfaceSection.hxx".}

@@ -14,17 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString, Expr_GeneralExpression,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_GeneralExpression"
 discard "forward decl of Expr_NamedExpression"
 discard "forward decl of Expr_NamedExpression"
 type
-  Handle_Expr_NamedExpression* = handle[Expr_NamedExpression]
+  HandleExprNamedExpression* = Handle[ExprNamedExpression]
 
 ## ! Describe an expression used  by its name (as constants
 ## ! or variables). A single reference is made to a
@@ -32,27 +27,27 @@ type
 ## ! NamedExpression is shared).
 
 type
-  Expr_NamedExpression* {.importcpp: "Expr_NamedExpression",
-                         header: "Expr_NamedExpression.hxx", bycopy.} = object of Expr_GeneralExpression
+  ExprNamedExpression* {.importcpp: "Expr_NamedExpression",
+                        header: "Expr_NamedExpression.hxx", bycopy.} = object of ExprGeneralExpression
 
 
-proc GetName*(this: Expr_NamedExpression): TCollection_AsciiString {.noSideEffect,
+proc getName*(this: ExprNamedExpression): TCollectionAsciiString {.noSideEffect,
     importcpp: "GetName", header: "Expr_NamedExpression.hxx".}
-proc SetName*(this: var Expr_NamedExpression; name: TCollection_AsciiString) {.
+proc setName*(this: var ExprNamedExpression; name: TCollectionAsciiString) {.
     importcpp: "SetName", header: "Expr_NamedExpression.hxx".}
-proc IsShareable*(this: Expr_NamedExpression): Standard_Boolean {.noSideEffect,
+proc isShareable*(this: ExprNamedExpression): bool {.noSideEffect,
     importcpp: "IsShareable", header: "Expr_NamedExpression.hxx".}
-proc IsIdentical*(this: Expr_NamedExpression; Other: handle[Expr_GeneralExpression]): Standard_Boolean {.
+proc isIdentical*(this: ExprNamedExpression; other: Handle[ExprGeneralExpression]): bool {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_NamedExpression.hxx".}
-proc String*(this: Expr_NamedExpression): TCollection_AsciiString {.noSideEffect,
+proc string*(this: ExprNamedExpression): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_NamedExpression.hxx".}
 type
-  Expr_NamedExpressionbase_type* = Expr_GeneralExpression
+  ExprNamedExpressionbaseType* = ExprGeneralExpression
 
-proc get_type_name*(): cstring {.importcpp: "Expr_NamedExpression::get_type_name(@)",
-                              header: "Expr_NamedExpression.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Expr_NamedExpression::get_type_name(@)",
+                            header: "Expr_NamedExpression.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Expr_NamedExpression::get_type_descriptor(@)",
     header: "Expr_NamedExpression.hxx".}
-proc DynamicType*(this: Expr_NamedExpression): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: ExprNamedExpression): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_NamedExpression.hxx".}

@@ -14,39 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepData/StepData_SelectReal, ../Standard/Standard_Boolean,
-  ../Standard/Standard_CString
-
 discard "forward decl of StepBasic_SizeMember"
 discard "forward decl of StepBasic_SizeMember"
 type
-  Handle_StepBasic_SizeMember* = handle[StepBasic_SizeMember]
+  HandleStepBasicSizeMember* = Handle[StepBasicSizeMember]
 
 ## ! For immediate members of SizeSelect, i.e. :
 ## ! ParameterValue (a Real)
 
 type
-  StepBasic_SizeMember* {.importcpp: "StepBasic_SizeMember",
-                         header: "StepBasic_SizeMember.hxx", bycopy.} = object of StepData_SelectReal
+  StepBasicSizeMember* {.importcpp: "StepBasic_SizeMember",
+                        header: "StepBasic_SizeMember.hxx", bycopy.} = object of StepDataSelectReal
 
 
-proc constructStepBasic_SizeMember*(): StepBasic_SizeMember {.constructor,
+proc constructStepBasicSizeMember*(): StepBasicSizeMember {.constructor,
     importcpp: "StepBasic_SizeMember(@)", header: "StepBasic_SizeMember.hxx".}
-proc HasName*(this: StepBasic_SizeMember): Standard_Boolean {.noSideEffect,
-    importcpp: "HasName", header: "StepBasic_SizeMember.hxx".}
-proc Name*(this: StepBasic_SizeMember): Standard_CString {.noSideEffect,
+proc hasName*(this: StepBasicSizeMember): bool {.noSideEffect, importcpp: "HasName",
+    header: "StepBasic_SizeMember.hxx".}
+proc name*(this: StepBasicSizeMember): StandardCString {.noSideEffect,
     importcpp: "Name", header: "StepBasic_SizeMember.hxx".}
-proc SetName*(this: var StepBasic_SizeMember; name: Standard_CString): Standard_Boolean {.
+proc setName*(this: var StepBasicSizeMember; name: StandardCString): bool {.
     importcpp: "SetName", header: "StepBasic_SizeMember.hxx".}
 type
-  StepBasic_SizeMemberbase_type* = StepData_SelectReal
+  StepBasicSizeMemberbaseType* = StepDataSelectReal
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_SizeMember::get_type_name(@)",
-                              header: "StepBasic_SizeMember.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_SizeMember::get_type_name(@)",
+                            header: "StepBasic_SizeMember.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_SizeMember::get_type_descriptor(@)",
     header: "StepBasic_SizeMember.hxx".}
-proc DynamicType*(this: StepBasic_SizeMember): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepBasicSizeMember): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_SizeMember.hxx".}

@@ -14,15 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColStd/TColStd_HSequenceOfHAsciiString,
-  ../Interface/Interface_LineBuffer, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../Interface/Interface_FloatWriter,
-  ../Interface/Interface_CheckIterator, ../TColStd/TColStd_HArray1OfInteger,
-  ../Standard/Standard_CString, ../Standard/Standard_Real, StepData_Logical,
-  ../TColStd/TColStd_HArray1OfReal, ../Standard/Standard_OStream
-
 discard "forward decl of StepData_StepModel"
 discard "forward decl of Interface_InterfaceMismatch"
 discard "forward decl of Interface_FloatWriter"
@@ -38,125 +29,118 @@ discard "forward decl of StepData_ESDescr"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_CheckIterator"
 type
-  StepData_StepWriter* {.importcpp: "StepData_StepWriter",
-                        header: "StepData_StepWriter.hxx", bycopy.} = object ## ! Creates an empty
-                                                                        ## StepWriter from a
-                                                                        ## StepModel. The
-                                                                        ## StepModel
-                                                                        ## ! provides the Number of
-                                                                        ## Entities, as
-                                                                        ## identifiers for File
-                                                                        ## ! adds a string to current line; first flushes it if full
-                                                                        ## ! (72 char); more allows to ask a reserve at end of line : flush
-                                                                        ## ! is done if
-                                                                        ## remaining length (to 72) is less than <more>
+  StepDataStepWriter* {.importcpp: "StepData_StepWriter",
+                       header: "StepData_StepWriter.hxx", bycopy.} = object ## ! Creates an empty
+                                                                       ## StepWriter from a
+                                                                       ## StepModel. The StepModel
+                                                                       ## ! provides the Number of Entities, as
+                                                                       ## identifiers for File
+                                                                       ## ! adds a string to current line; first flushes it if full
+                                                                       ## ! (72 char); more allows to ask a reserve at end of line : flush
+                                                                       ## ! is done if remaining length (to 72) is less than <more>
 
 
-proc constructStepData_StepWriter*(amodel: handle[StepData_StepModel]): StepData_StepWriter {.
+proc constructStepDataStepWriter*(amodel: Handle[StepDataStepModel]): StepDataStepWriter {.
     constructor, importcpp: "StepData_StepWriter(@)",
     header: "StepData_StepWriter.hxx".}
-proc LabelMode*(this: var StepData_StepWriter): var Standard_Integer {.
-    importcpp: "LabelMode", header: "StepData_StepWriter.hxx".}
-proc TypeMode*(this: var StepData_StepWriter): var Standard_Integer {.
-    importcpp: "TypeMode", header: "StepData_StepWriter.hxx".}
-proc FloatWriter*(this: var StepData_StepWriter): var Interface_FloatWriter {.
+proc labelMode*(this: var StepDataStepWriter): var int {.importcpp: "LabelMode",
+    header: "StepData_StepWriter.hxx".}
+proc typeMode*(this: var StepDataStepWriter): var int {.importcpp: "TypeMode",
+    header: "StepData_StepWriter.hxx".}
+proc floatWriter*(this: var StepDataStepWriter): var InterfaceFloatWriter {.
     importcpp: "FloatWriter", header: "StepData_StepWriter.hxx".}
-proc SetScope*(this: var StepData_StepWriter; numscope: Standard_Integer;
-              numin: Standard_Integer) {.importcpp: "SetScope",
+proc setScope*(this: var StepDataStepWriter; numscope: int; numin: int) {.
+    importcpp: "SetScope", header: "StepData_StepWriter.hxx".}
+proc isInScope*(this: StepDataStepWriter; num: int): bool {.noSideEffect,
+    importcpp: "IsInScope", header: "StepData_StepWriter.hxx".}
+proc sendModel*(this: var StepDataStepWriter; protocol: Handle[StepDataProtocol];
+               headeronly: bool = false) {.importcpp: "SendModel",
                                        header: "StepData_StepWriter.hxx".}
-proc IsInScope*(this: StepData_StepWriter; num: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsInScope", header: "StepData_StepWriter.hxx".}
-proc SendModel*(this: var StepData_StepWriter; protocol: handle[StepData_Protocol];
-               headeronly: Standard_Boolean = Standard_False) {.
-    importcpp: "SendModel", header: "StepData_StepWriter.hxx".}
-proc SendHeader*(this: var StepData_StepWriter) {.importcpp: "SendHeader",
+proc sendHeader*(this: var StepDataStepWriter) {.importcpp: "SendHeader",
     header: "StepData_StepWriter.hxx".}
-proc SendData*(this: var StepData_StepWriter) {.importcpp: "SendData",
+proc sendData*(this: var StepDataStepWriter) {.importcpp: "SendData",
     header: "StepData_StepWriter.hxx".}
-proc SendEntity*(this: var StepData_StepWriter; nument: Standard_Integer;
-                lib: StepData_WriterLib) {.importcpp: "SendEntity",
+proc sendEntity*(this: var StepDataStepWriter; nument: int; lib: StepDataWriterLib) {.
+    importcpp: "SendEntity", header: "StepData_StepWriter.hxx".}
+proc endSec*(this: var StepDataStepWriter) {.importcpp: "EndSec",
     header: "StepData_StepWriter.hxx".}
-proc EndSec*(this: var StepData_StepWriter) {.importcpp: "EndSec",
+proc endFile*(this: var StepDataStepWriter) {.importcpp: "EndFile",
     header: "StepData_StepWriter.hxx".}
-proc EndFile*(this: var StepData_StepWriter) {.importcpp: "EndFile",
+proc newLine*(this: var StepDataStepWriter; evenempty: bool) {.importcpp: "NewLine",
     header: "StepData_StepWriter.hxx".}
-proc NewLine*(this: var StepData_StepWriter; evenempty: Standard_Boolean) {.
-    importcpp: "NewLine", header: "StepData_StepWriter.hxx".}
-proc JoinLast*(this: var StepData_StepWriter; newline: Standard_Boolean) {.
-    importcpp: "JoinLast", header: "StepData_StepWriter.hxx".}
-proc Indent*(this: var StepData_StepWriter; onent: Standard_Boolean) {.
-    importcpp: "Indent", header: "StepData_StepWriter.hxx".}
-proc SendIdent*(this: var StepData_StepWriter; ident: Standard_Integer) {.
-    importcpp: "SendIdent", header: "StepData_StepWriter.hxx".}
-proc SendScope*(this: var StepData_StepWriter) {.importcpp: "SendScope",
+proc joinLast*(this: var StepDataStepWriter; newline: bool) {.importcpp: "JoinLast",
     header: "StepData_StepWriter.hxx".}
-proc SendEndscope*(this: var StepData_StepWriter) {.importcpp: "SendEndscope",
+proc indent*(this: var StepDataStepWriter; onent: bool) {.importcpp: "Indent",
     header: "StepData_StepWriter.hxx".}
-proc Comment*(this: var StepData_StepWriter; mode: Standard_Boolean) {.
-    importcpp: "Comment", header: "StepData_StepWriter.hxx".}
-proc SendComment*(this: var StepData_StepWriter;
-                 text: handle[TCollection_HAsciiString]) {.
+proc sendIdent*(this: var StepDataStepWriter; ident: int) {.importcpp: "SendIdent",
+    header: "StepData_StepWriter.hxx".}
+proc sendScope*(this: var StepDataStepWriter) {.importcpp: "SendScope",
+    header: "StepData_StepWriter.hxx".}
+proc sendEndscope*(this: var StepDataStepWriter) {.importcpp: "SendEndscope",
+    header: "StepData_StepWriter.hxx".}
+proc comment*(this: var StepDataStepWriter; mode: bool) {.importcpp: "Comment",
+    header: "StepData_StepWriter.hxx".}
+proc sendComment*(this: var StepDataStepWriter;
+                 text: Handle[TCollectionHAsciiString]) {.
     importcpp: "SendComment", header: "StepData_StepWriter.hxx".}
-proc SendComment*(this: var StepData_StepWriter; text: Standard_CString) {.
+proc sendComment*(this: var StepDataStepWriter; text: StandardCString) {.
     importcpp: "SendComment", header: "StepData_StepWriter.hxx".}
-proc StartEntity*(this: var StepData_StepWriter; atype: TCollection_AsciiString) {.
+proc startEntity*(this: var StepDataStepWriter; atype: TCollectionAsciiString) {.
     importcpp: "StartEntity", header: "StepData_StepWriter.hxx".}
-proc StartComplex*(this: var StepData_StepWriter) {.importcpp: "StartComplex",
+proc startComplex*(this: var StepDataStepWriter) {.importcpp: "StartComplex",
     header: "StepData_StepWriter.hxx".}
-proc EndComplex*(this: var StepData_StepWriter) {.importcpp: "EndComplex",
+proc endComplex*(this: var StepDataStepWriter) {.importcpp: "EndComplex",
     header: "StepData_StepWriter.hxx".}
-proc SendField*(this: var StepData_StepWriter; fild: StepData_Field;
-               descr: handle[StepData_PDescr]) {.importcpp: "SendField",
+proc sendField*(this: var StepDataStepWriter; fild: StepDataField;
+               descr: Handle[StepDataPDescr]) {.importcpp: "SendField",
     header: "StepData_StepWriter.hxx".}
-proc SendSelect*(this: var StepData_StepWriter; sm: handle[StepData_SelectMember];
-                descr: handle[StepData_PDescr]) {.importcpp: "SendSelect",
+proc sendSelect*(this: var StepDataStepWriter; sm: Handle[StepDataSelectMember];
+                descr: Handle[StepDataPDescr]) {.importcpp: "SendSelect",
     header: "StepData_StepWriter.hxx".}
-proc SendList*(this: var StepData_StepWriter; list: StepData_FieldList;
-              descr: handle[StepData_ESDescr]) {.importcpp: "SendList",
+proc sendList*(this: var StepDataStepWriter; list: StepDataFieldList;
+              descr: Handle[StepDataESDescr]) {.importcpp: "SendList",
     header: "StepData_StepWriter.hxx".}
-proc OpenSub*(this: var StepData_StepWriter) {.importcpp: "OpenSub",
+proc openSub*(this: var StepDataStepWriter) {.importcpp: "OpenSub",
     header: "StepData_StepWriter.hxx".}
-proc OpenTypedSub*(this: var StepData_StepWriter; subtype: Standard_CString) {.
+proc openTypedSub*(this: var StepDataStepWriter; subtype: StandardCString) {.
     importcpp: "OpenTypedSub", header: "StepData_StepWriter.hxx".}
-proc CloseSub*(this: var StepData_StepWriter) {.importcpp: "CloseSub",
+proc closeSub*(this: var StepDataStepWriter) {.importcpp: "CloseSub",
     header: "StepData_StepWriter.hxx".}
-proc AddParam*(this: var StepData_StepWriter) {.importcpp: "AddParam",
+proc addParam*(this: var StepDataStepWriter) {.importcpp: "AddParam",
     header: "StepData_StepWriter.hxx".}
-proc Send*(this: var StepData_StepWriter; val: Standard_Integer) {.importcpp: "Send",
+proc send*(this: var StepDataStepWriter; val: int) {.importcpp: "Send",
     header: "StepData_StepWriter.hxx".}
-proc Send*(this: var StepData_StepWriter; val: Standard_Real) {.importcpp: "Send",
+proc send*(this: var StepDataStepWriter; val: float) {.importcpp: "Send",
     header: "StepData_StepWriter.hxx".}
-proc Send*(this: var StepData_StepWriter; val: TCollection_AsciiString) {.
+proc send*(this: var StepDataStepWriter; val: TCollectionAsciiString) {.
     importcpp: "Send", header: "StepData_StepWriter.hxx".}
-proc Send*(this: var StepData_StepWriter; val: handle[Standard_Transient]) {.
+proc send*(this: var StepDataStepWriter; val: Handle[StandardTransient]) {.
     importcpp: "Send", header: "StepData_StepWriter.hxx".}
-proc SendBoolean*(this: var StepData_StepWriter; val: Standard_Boolean) {.
-    importcpp: "SendBoolean", header: "StepData_StepWriter.hxx".}
-proc SendLogical*(this: var StepData_StepWriter; val: StepData_Logical) {.
+proc sendBoolean*(this: var StepDataStepWriter; val: bool) {.importcpp: "SendBoolean",
+    header: "StepData_StepWriter.hxx".}
+proc sendLogical*(this: var StepDataStepWriter; val: StepDataLogical) {.
     importcpp: "SendLogical", header: "StepData_StepWriter.hxx".}
-proc SendString*(this: var StepData_StepWriter; val: TCollection_AsciiString) {.
+proc sendString*(this: var StepDataStepWriter; val: TCollectionAsciiString) {.
     importcpp: "SendString", header: "StepData_StepWriter.hxx".}
-proc SendString*(this: var StepData_StepWriter; val: Standard_CString) {.
+proc sendString*(this: var StepDataStepWriter; val: StandardCString) {.
     importcpp: "SendString", header: "StepData_StepWriter.hxx".}
-proc SendEnum*(this: var StepData_StepWriter; val: TCollection_AsciiString) {.
+proc sendEnum*(this: var StepDataStepWriter; val: TCollectionAsciiString) {.
     importcpp: "SendEnum", header: "StepData_StepWriter.hxx".}
-proc SendEnum*(this: var StepData_StepWriter; val: Standard_CString) {.
+proc sendEnum*(this: var StepDataStepWriter; val: StandardCString) {.
     importcpp: "SendEnum", header: "StepData_StepWriter.hxx".}
-proc SendArrReal*(this: var StepData_StepWriter;
-                 anArr: handle[TColStd_HArray1OfReal]) {.importcpp: "SendArrReal",
+proc sendArrReal*(this: var StepDataStepWriter; anArr: Handle[TColStdHArray1OfReal]) {.
+    importcpp: "SendArrReal", header: "StepData_StepWriter.hxx".}
+proc sendUndef*(this: var StepDataStepWriter) {.importcpp: "SendUndef",
     header: "StepData_StepWriter.hxx".}
-proc SendUndef*(this: var StepData_StepWriter) {.importcpp: "SendUndef",
+proc sendDerived*(this: var StepDataStepWriter) {.importcpp: "SendDerived",
     header: "StepData_StepWriter.hxx".}
-proc SendDerived*(this: var StepData_StepWriter) {.importcpp: "SendDerived",
+proc endEntity*(this: var StepDataStepWriter) {.importcpp: "EndEntity",
     header: "StepData_StepWriter.hxx".}
-proc EndEntity*(this: var StepData_StepWriter) {.importcpp: "EndEntity",
-    header: "StepData_StepWriter.hxx".}
-proc CheckList*(this: StepData_StepWriter): Interface_CheckIterator {.noSideEffect,
+proc checkList*(this: StepDataStepWriter): InterfaceCheckIterator {.noSideEffect,
     importcpp: "CheckList", header: "StepData_StepWriter.hxx".}
-proc NbLines*(this: StepData_StepWriter): Standard_Integer {.noSideEffect,
-    importcpp: "NbLines", header: "StepData_StepWriter.hxx".}
-proc Line*(this: StepData_StepWriter; num: Standard_Integer): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Line",
-                               header: "StepData_StepWriter.hxx".}
-proc Print*(this: var StepData_StepWriter; S: var Standard_OStream): Standard_Boolean {.
+proc nbLines*(this: StepDataStepWriter): int {.noSideEffect, importcpp: "NbLines",
+    header: "StepData_StepWriter.hxx".}
+proc line*(this: StepDataStepWriter; num: int): Handle[TCollectionHAsciiString] {.
+    noSideEffect, importcpp: "Line", header: "StepData_StepWriter.hxx".}
+proc print*(this: var StepDataStepWriter; s: var StandardOStream): bool {.
     importcpp: "Print", header: "StepData_StepWriter.hxx".}

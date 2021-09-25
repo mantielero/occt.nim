@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TDF/TDF_IDList, ../Standard/Standard_OStream,
-  TDataStd_RealEnum
-
 discard "forward decl of TDataStd_Current"
 discard "forward decl of TDataStd_Name"
 discard "forward decl of TDataStd_Comment"
@@ -67,7 +62,7 @@ type
                                                                        ## ! cleared before use.
 
 
-proc IDList*(anIDList: var TDF_IDList) {.importcpp: "TDataStd::IDList(@)",
+proc iDList*(anIDList: var TDF_IDList) {.importcpp: "TDataStd::IDList(@)",
                                      header: "TDataStd.hxx".}
-proc Print*(DIM: TDataStd_RealEnum; S: var Standard_OStream): var Standard_OStream {.
+proc print*(dim: TDataStdRealEnum; s: var StandardOStream): var StandardOStream {.
     importcpp: "TDataStd::Print(@)", header: "TDataStd.hxx".}

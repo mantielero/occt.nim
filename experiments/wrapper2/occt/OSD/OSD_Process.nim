@@ -14,15 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, OSD_Error, ../TCollection/TCollection_AsciiString
-
 discard "forward decl of OSD_OSDError"
 discard "forward decl of Quantity_Date"
 discard "forward decl of OSD_Path"
-when defined(SetCurrentDirectory):
-  discard
+# when defined(SetCurrentDirectory):
+#   discard
 ## ! A set of system process tools
 
 type
@@ -49,29 +45,29 @@ type
                                                                                 ## dump
 
 
-proc ExecutablePath*(): TCollection_AsciiString {.
+proc executablePath*(): TCollectionAsciiString {.
     importcpp: "OSD_Process::ExecutablePath(@)", header: "OSD_Process.hxx".}
-proc ExecutableFolder*(): TCollection_AsciiString {.
+proc executableFolder*(): TCollectionAsciiString {.
     importcpp: "OSD_Process::ExecutableFolder(@)", header: "OSD_Process.hxx".}
 proc constructOSD_Process*(): OSD_Process {.constructor,
     importcpp: "OSD_Process(@)", header: "OSD_Process.hxx".}
-proc TerminalType*(this: var OSD_Process; Name: var TCollection_AsciiString) {.
+proc terminalType*(this: var OSD_Process; name: var TCollectionAsciiString) {.
     importcpp: "TerminalType", header: "OSD_Process.hxx".}
-proc SystemDate*(this: var OSD_Process): Quantity_Date {.importcpp: "SystemDate",
+proc systemDate*(this: var OSD_Process): QuantityDate {.importcpp: "SystemDate",
     header: "OSD_Process.hxx".}
-proc UserName*(this: var OSD_Process): TCollection_AsciiString {.
+proc userName*(this: var OSD_Process): TCollectionAsciiString {.
     importcpp: "UserName", header: "OSD_Process.hxx".}
-proc IsSuperUser*(this: var OSD_Process): Standard_Boolean {.
-    importcpp: "IsSuperUser", header: "OSD_Process.hxx".}
-proc ProcessId*(this: var OSD_Process): Standard_Integer {.importcpp: "ProcessId",
+proc isSuperUser*(this: var OSD_Process): bool {.importcpp: "IsSuperUser",
     header: "OSD_Process.hxx".}
-proc CurrentDirectory*(this: var OSD_Process): OSD_Path {.
+proc processId*(this: var OSD_Process): int {.importcpp: "ProcessId",
+    header: "OSD_Process.hxx".}
+proc currentDirectory*(this: var OSD_Process): OSD_Path {.
     importcpp: "CurrentDirectory", header: "OSD_Process.hxx".}
-proc SetCurrentDirectory*(this: var OSD_Process; where: OSD_Path) {.
+proc setCurrentDirectory*(this: var OSD_Process; where: OSD_Path) {.
     importcpp: "SetCurrentDirectory", header: "OSD_Process.hxx".}
-proc Failed*(this: OSD_Process): Standard_Boolean {.noSideEffect,
-    importcpp: "Failed", header: "OSD_Process.hxx".}
-proc Reset*(this: var OSD_Process) {.importcpp: "Reset", header: "OSD_Process.hxx".}
-proc Perror*(this: var OSD_Process) {.importcpp: "Perror", header: "OSD_Process.hxx".}
-proc Error*(this: OSD_Process): Standard_Integer {.noSideEffect, importcpp: "Error",
-    header: "OSD_Process.hxx".}
+proc failed*(this: OSD_Process): bool {.noSideEffect, importcpp: "Failed",
+                                    header: "OSD_Process.hxx".}
+proc reset*(this: var OSD_Process) {.importcpp: "Reset", header: "OSD_Process.hxx".}
+proc perror*(this: var OSD_Process) {.importcpp: "Perror", header: "OSD_Process.hxx".}
+proc error*(this: OSD_Process): int {.noSideEffect, importcpp: "Error",
+                                  header: "OSD_Process.hxx".}

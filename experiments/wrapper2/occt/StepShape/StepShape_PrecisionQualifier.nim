@@ -13,42 +13,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Transient
-
 discard "forward decl of StepShape_PrecisionQualifier"
 discard "forward decl of StepShape_PrecisionQualifier"
 type
-  Handle_StepShape_PrecisionQualifier* = handle[StepShape_PrecisionQualifier]
+  HandleStepShapePrecisionQualifier* = Handle[StepShapePrecisionQualifier]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepShape_PrecisionQualifier* {.importcpp: "StepShape_PrecisionQualifier",
-                                 header: "StepShape_PrecisionQualifier.hxx",
-                                 bycopy.} = object of Standard_Transient
+  StepShapePrecisionQualifier* {.importcpp: "StepShape_PrecisionQualifier",
+                                header: "StepShape_PrecisionQualifier.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructStepShape_PrecisionQualifier*(): StepShape_PrecisionQualifier {.
+proc constructStepShapePrecisionQualifier*(): StepShapePrecisionQualifier {.
     constructor, importcpp: "StepShape_PrecisionQualifier(@)",
     header: "StepShape_PrecisionQualifier.hxx".}
-proc Init*(this: var StepShape_PrecisionQualifier; precision_value: Standard_Integer) {.
+proc init*(this: var StepShapePrecisionQualifier; precisionValue: int) {.
     importcpp: "Init", header: "StepShape_PrecisionQualifier.hxx".}
-proc PrecisionValue*(this: StepShape_PrecisionQualifier): Standard_Integer {.
-    noSideEffect, importcpp: "PrecisionValue",
-    header: "StepShape_PrecisionQualifier.hxx".}
-proc SetPrecisionValue*(this: var StepShape_PrecisionQualifier;
-                       precision_value: Standard_Integer) {.
+proc precisionValue*(this: StepShapePrecisionQualifier): int {.noSideEffect,
+    importcpp: "PrecisionValue", header: "StepShape_PrecisionQualifier.hxx".}
+proc setPrecisionValue*(this: var StepShapePrecisionQualifier; precisionValue: int) {.
     importcpp: "SetPrecisionValue", header: "StepShape_PrecisionQualifier.hxx".}
 type
-  StepShape_PrecisionQualifierbase_type* = Standard_Transient
+  StepShapePrecisionQualifierbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_PrecisionQualifier::get_type_name(@)",
-                              header: "StepShape_PrecisionQualifier.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_PrecisionQualifier::get_type_name(@)",
+                            header: "StepShape_PrecisionQualifier.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_PrecisionQualifier::get_type_descriptor(@)",
     header: "StepShape_PrecisionQualifier.hxx".}
-proc DynamicType*(this: StepShape_PrecisionQualifier): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapePrecisionQualifier): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_PrecisionQualifier.hxx".}

@@ -13,15 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TDataStd/TDataStd_GenericEmpty
-
 discard "forward decl of TDF_Label"
 discard "forward decl of gp_Lin"
 discard "forward decl of TDataXtd_Axis"
 discard "forward decl of TDataXtd_Axis"
 type
-  Handle_TDataXtd_Axis* = handle[TDataXtd_Axis]
+  HandleTDataXtdAxis* = Handle[TDataXtdAxis]
 
 ## ! The basis to define an axis attribute.
 ## !
@@ -29,34 +26,35 @@ type
 ## ! gp_Lin of the Axis attribute
 
 type
-  TDataXtd_Axis* {.importcpp: "TDataXtd_Axis", header: "TDataXtd_Axis.hxx", bycopy.} = object of TDataStd_GenericEmpty ##
-                                                                                                             ## !
-                                                                                                             ## class
-                                                                                                             ## methods
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## =============
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## Returns
-                                                                                                             ## the
-                                                                                                             ## GUID
-                                                                                                             ## for
-                                                                                                             ## an
-                                                                                                             ## axis.
+  TDataXtdAxis* {.importcpp: "TDataXtd_Axis", header: "TDataXtd_Axis.hxx", bycopy.} = object of TDataStdGenericEmpty ##
+                                                                                                           ## !
+                                                                                                           ## class
+                                                                                                           ## methods
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## =============
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## Returns
+                                                                                                           ## the
+                                                                                                           ## GUID
+                                                                                                           ## for
+                                                                                                           ## an
+                                                                                                           ## axis.
 
 
-proc GetID*(): Standard_GUID {.importcpp: "TDataXtd_Axis::GetID(@)",
-                            header: "TDataXtd_Axis.hxx".}
-proc Set*(label: TDF_Label): handle[TDataXtd_Axis] {.
+proc getID*(): StandardGUID {.importcpp: "TDataXtd_Axis::GetID(@)",
+                           header: "TDataXtd_Axis.hxx".}
+proc set*(label: TDF_Label): Handle[TDataXtdAxis] {.
     importcpp: "TDataXtd_Axis::Set(@)", header: "TDataXtd_Axis.hxx".}
-proc Set*(label: TDF_Label; L: gp_Lin): handle[TDataXtd_Axis] {.
+proc set*(label: TDF_Label; L: Lin): Handle[TDataXtdAxis] {.
     importcpp: "TDataXtd_Axis::Set(@)", header: "TDataXtd_Axis.hxx".}
-proc constructTDataXtd_Axis*(): TDataXtd_Axis {.constructor,
+proc constructTDataXtdAxis*(): TDataXtdAxis {.constructor,
     importcpp: "TDataXtd_Axis(@)", header: "TDataXtd_Axis.hxx".}
-proc ID*(this: TDataXtd_Axis): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TDataXtdAxis): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TDataXtd_Axis.hxx".}
-proc Dump*(this: TDataXtd_Axis; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDataXtdAxis; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataXtd_Axis.hxx".}
 ## !!!Ignored construct:  DEFINE_DERIVED_ATTRIBUTE ( TDataXtd_Axis , TDataStd_GenericEmpty ) protected : private : }
 ## Error: token expected: ) but got: ,!!!
+

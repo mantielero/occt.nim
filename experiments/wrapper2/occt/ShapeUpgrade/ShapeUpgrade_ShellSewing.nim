@@ -14,26 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopTools/TopTools_IndexedMapOfShape,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer
-
 discard "forward decl of ShapeBuild_ReShape"
 discard "forward decl of TopoDS_Shape"
 type
-  ShapeUpgrade_ShellSewing* {.importcpp: "ShapeUpgrade_ShellSewing",
-                             header: "ShapeUpgrade_ShellSewing.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Creates
-                                                                                  ## a
-                                                                                  ## ShellSewing,
-                                                                                  ## empty
+  ShapeUpgradeShellSewing* {.importcpp: "ShapeUpgrade_ShellSewing",
+                            header: "ShapeUpgrade_ShellSewing.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## Creates
+                                                                                 ## a
+                                                                                 ## ShellSewing,
+                                                                                 ## empty
 
 
-proc constructShapeUpgrade_ShellSewing*(): ShapeUpgrade_ShellSewing {.constructor,
+proc constructShapeUpgradeShellSewing*(): ShapeUpgradeShellSewing {.constructor,
     importcpp: "ShapeUpgrade_ShellSewing(@)",
     header: "ShapeUpgrade_ShellSewing.hxx".}
-proc ApplySewing*(this: var ShapeUpgrade_ShellSewing; shape: TopoDS_Shape;
-                 tol: Standard_Real = 0.0): TopoDS_Shape {.importcpp: "ApplySewing",
+proc applySewing*(this: var ShapeUpgradeShellSewing; shape: TopoDS_Shape;
+                 tol: float = 0.0): TopoDS_Shape {.importcpp: "ApplySewing",
     header: "ShapeUpgrade_ShellSewing.hxx".}

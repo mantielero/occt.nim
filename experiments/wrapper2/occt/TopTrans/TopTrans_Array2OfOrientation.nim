@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopAbs/TopAbs_Orientation, ../NCollection/NCollection_Array2
-
 type
-  TopTrans_Array2OfOrientation* = NCollection_Array2[TopAbs_Orientation]
+  TopTransArray2OfOrientation* = NCollectionArray2[TopAbsOrientation]
+

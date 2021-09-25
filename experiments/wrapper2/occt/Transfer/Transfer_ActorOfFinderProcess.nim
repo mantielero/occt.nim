@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  Transfer_ActorOfProcessForFinder
-
 discard "forward decl of Transfer_Binder"
 discard "forward decl of Transfer_Finder"
 discard "forward decl of Transfer_ProcessForFinder"
@@ -26,7 +22,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_ActorOfFinderProcess"
 discard "forward decl of Transfer_ActorOfFinderProcess"
 type
-  Handle_Transfer_ActorOfFinderProcess* = handle[Transfer_ActorOfFinderProcess]
+  HandleTransferActorOfFinderProcess* = Handle[TransferActorOfFinderProcess]
 
 ## ! The original class was renamed. Compatibility only
 ## !
@@ -34,40 +30,40 @@ type
 ## ! a user. To be interpreted for each norm
 
 type
-  Transfer_ActorOfFinderProcess* {.importcpp: "Transfer_ActorOfFinderProcess",
-                                  header: "Transfer_ActorOfFinderProcess.hxx",
-                                  bycopy.} = object of Transfer_ActorOfProcessForFinder
+  TransferActorOfFinderProcess* {.importcpp: "Transfer_ActorOfFinderProcess",
+                                 header: "Transfer_ActorOfFinderProcess.hxx",
+                                 bycopy.} = object of TransferActorOfProcessForFinder
 
 
-proc constructTransfer_ActorOfFinderProcess*(): Transfer_ActorOfFinderProcess {.
+proc constructTransferActorOfFinderProcess*(): TransferActorOfFinderProcess {.
     constructor, importcpp: "Transfer_ActorOfFinderProcess(@)",
     header: "Transfer_ActorOfFinderProcess.hxx".}
-proc ModeTrans*(this: var Transfer_ActorOfFinderProcess): var Standard_Integer {.
+proc modeTrans*(this: var TransferActorOfFinderProcess): var int {.
     importcpp: "ModeTrans", header: "Transfer_ActorOfFinderProcess.hxx".}
-proc Transferring*(this: var Transfer_ActorOfFinderProcess;
-                  start: handle[Transfer_Finder];
-                  TP: handle[Transfer_ProcessForFinder];
-                  theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
-    Transfer_Binder] {.importcpp: "Transferring",
-                      header: "Transfer_ActorOfFinderProcess.hxx".}
-proc Transfer*(this: var Transfer_ActorOfFinderProcess;
-              start: handle[Transfer_Finder]; TP: handle[Transfer_FinderProcess];
-              theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
-    Transfer_Binder] {.importcpp: "Transfer",
-                      header: "Transfer_ActorOfFinderProcess.hxx".}
-proc TransferTransient*(this: var Transfer_ActorOfFinderProcess;
-                       start: handle[Standard_Transient];
-                       TP: handle[Transfer_FinderProcess]; theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
-    Standard_Transient] {.importcpp: "TransferTransient",
-                         header: "Transfer_ActorOfFinderProcess.hxx".}
+proc transferring*(this: var TransferActorOfFinderProcess;
+                  start: Handle[TransferFinder];
+                  tp: Handle[TransferProcessForFinder];
+                  theProgress: MessageProgressRange = messageProgressRange()): Handle[
+    TransferBinder] {.importcpp: "Transferring",
+                     header: "Transfer_ActorOfFinderProcess.hxx".}
+proc transfer*(this: var TransferActorOfFinderProcess;
+              start: Handle[TransferFinder]; tp: Handle[TransferFinderProcess];
+              theProgress: MessageProgressRange = messageProgressRange()): Handle[
+    TransferBinder] {.importcpp: "Transfer",
+                     header: "Transfer_ActorOfFinderProcess.hxx".}
+proc transferTransient*(this: var TransferActorOfFinderProcess;
+                       start: Handle[StandardTransient];
+                       tp: Handle[TransferFinderProcess]; theProgress: MessageProgressRange = messageProgressRange()): Handle[
+    StandardTransient] {.importcpp: "TransferTransient",
+                        header: "Transfer_ActorOfFinderProcess.hxx".}
 type
-  Transfer_ActorOfFinderProcessbase_type* = Transfer_ActorOfProcessForFinder
+  TransferActorOfFinderProcessbaseType* = TransferActorOfProcessForFinder
 
-proc get_type_name*(): cstring {.importcpp: "Transfer_ActorOfFinderProcess::get_type_name(@)",
-                              header: "Transfer_ActorOfFinderProcess.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Transfer_ActorOfFinderProcess::get_type_name(@)",
+                            header: "Transfer_ActorOfFinderProcess.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_ActorOfFinderProcess::get_type_descriptor(@)",
     header: "Transfer_ActorOfFinderProcess.hxx".}
-proc DynamicType*(this: Transfer_ActorOfFinderProcess): handle[Standard_Type] {.
+proc dynamicType*(this: TransferActorOfFinderProcess): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Transfer_ActorOfFinderProcess.hxx".}

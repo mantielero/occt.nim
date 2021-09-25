@@ -13,5 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _MeshVS_ColorHasher_HeaderFile [NewLine] # _MeshVS_ColorHasher_HeaderFile [NewLine] # ../Quantity/Quantity_ColorHasher.hxx [NewLine] Standard_DEPRECATED ( This type name is deprecated - Quantity_ColorHasher should be used instead ) typedef Quantity_ColorHasher MeshVS_ColorHasher ;
+## !!!Ignored construct:  # _MeshVS_ColorHasher_HeaderFile [NewLine] # _MeshVS_ColorHasher_HeaderFile [NewLine] # < Quantity_ColorHasher . hxx > [NewLine] Standard_DEPRECATED ( This type name is deprecated - Quantity_ColorHasher should be used instead ) typedef Quantity_ColorHasher MeshVS_ColorHasher ;
 ## Error: expected ';'!!!
+

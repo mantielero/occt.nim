@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  IntRes2d_TypeTrans* {.size: sizeof(cint), importcpp: "IntRes2d_TypeTrans",
-                       header: "IntRes2d_TypeTrans.hxx".} = enum
-    IntRes2d_In, IntRes2d_Out, IntRes2d_Touch, IntRes2d_Undecided
+  IntRes2dTypeTrans* {.size: sizeof(cint), importcpp: "IntRes2d_TypeTrans",
+                      header: "IntRes2d_TypeTrans.hxx".} = enum
+    IntRes2dIn, IntRes2dOut, IntRes2dTouch, IntRes2dUndecided
+
 

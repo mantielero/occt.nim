@@ -14,36 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_TextStyleWithBoxCharacteristics"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisual_RWTextStyleWithBoxCharacteristics* {.
+  RWStepVisualRWTextStyleWithBoxCharacteristics* {.
       importcpp: "RWStepVisual_RWTextStyleWithBoxCharacteristics",
       header: "RWStepVisual_RWTextStyleWithBoxCharacteristics.hxx", bycopy.} = object
 
 
-proc constructRWStepVisual_RWTextStyleWithBoxCharacteristics*(): RWStepVisual_RWTextStyleWithBoxCharacteristics {.
+proc constructRWStepVisualRWTextStyleWithBoxCharacteristics*(): RWStepVisualRWTextStyleWithBoxCharacteristics {.
     constructor, importcpp: "RWStepVisual_RWTextStyleWithBoxCharacteristics(@)",
     header: "RWStepVisual_RWTextStyleWithBoxCharacteristics.hxx".}
-proc ReadStep*(this: RWStepVisual_RWTextStyleWithBoxCharacteristics;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepVisual_TextStyleWithBoxCharacteristics]) {.
+proc readStep*(this: RWStepVisualRWTextStyleWithBoxCharacteristics;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepVisualTextStyleWithBoxCharacteristics]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepVisual_RWTextStyleWithBoxCharacteristics.hxx".}
-proc WriteStep*(this: RWStepVisual_RWTextStyleWithBoxCharacteristics;
-               SW: var StepData_StepWriter;
-               ent: handle[StepVisual_TextStyleWithBoxCharacteristics]) {.
+proc writeStep*(this: RWStepVisualRWTextStyleWithBoxCharacteristics;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepVisualTextStyleWithBoxCharacteristics]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepVisual_RWTextStyleWithBoxCharacteristics.hxx".}
-proc Share*(this: RWStepVisual_RWTextStyleWithBoxCharacteristics;
-           ent: handle[StepVisual_TextStyleWithBoxCharacteristics];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepVisualRWTextStyleWithBoxCharacteristics;
+           ent: Handle[StepVisualTextStyleWithBoxCharacteristics];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWTextStyleWithBoxCharacteristics.hxx".}

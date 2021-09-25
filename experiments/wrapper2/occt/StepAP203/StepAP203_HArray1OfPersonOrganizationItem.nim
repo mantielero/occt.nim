@@ -14,40 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP203_PersonOrganizationItem, StepAP203_Array1OfPersonOrganizationItem,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepAP203_HArray1OfPersonOrganizationItem* {.
+  StepAP203HArray1OfPersonOrganizationItem* {.
       importcpp: "StepAP203_HArray1OfPersonOrganizationItem",
-      header: "StepAP203_HArray1OfPersonOrganizationItem.hxx", bycopy.} = object of StepAP203_Array1OfPersonOrganizationItem
+      header: "StepAP203_HArray1OfPersonOrganizationItem.hxx", bycopy.} = object of StepAP203Array1OfPersonOrganizationItem
 
 
-proc constructStepAP203_HArray1OfPersonOrganizationItem*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepAP203_HArray1OfPersonOrganizationItem {.
+proc constructStepAP203HArray1OfPersonOrganizationItem*(theLower: int;
+    theUpper: int): StepAP203HArray1OfPersonOrganizationItem {.constructor,
+    importcpp: "StepAP203_HArray1OfPersonOrganizationItem(@)",
+    header: "StepAP203_HArray1OfPersonOrganizationItem.hxx".}
+proc constructStepAP203HArray1OfPersonOrganizationItem*(theLower: int;
+    theUpper: int; theValue: ValueType): StepAP203HArray1OfPersonOrganizationItem {.
     constructor, importcpp: "StepAP203_HArray1OfPersonOrganizationItem(@)",
     header: "StepAP203_HArray1OfPersonOrganizationItem.hxx".}
-proc constructStepAP203_HArray1OfPersonOrganizationItem*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepAP203_HArray1OfPersonOrganizationItem {.
+proc constructStepAP203HArray1OfPersonOrganizationItem*(
+    theOther: StepAP203Array1OfPersonOrganizationItem): StepAP203HArray1OfPersonOrganizationItem {.
     constructor, importcpp: "StepAP203_HArray1OfPersonOrganizationItem(@)",
     header: "StepAP203_HArray1OfPersonOrganizationItem.hxx".}
-proc constructStepAP203_HArray1OfPersonOrganizationItem*(
-    theOther: StepAP203_Array1OfPersonOrganizationItem): StepAP203_HArray1OfPersonOrganizationItem {.
-    constructor, importcpp: "StepAP203_HArray1OfPersonOrganizationItem(@)",
-    header: "StepAP203_HArray1OfPersonOrganizationItem.hxx".}
-proc Array1*(this: StepAP203_HArray1OfPersonOrganizationItem): StepAP203_Array1OfPersonOrganizationItem {.
+proc array1*(this: StepAP203HArray1OfPersonOrganizationItem): StepAP203Array1OfPersonOrganizationItem {.
     noSideEffect, importcpp: "Array1",
     header: "StepAP203_HArray1OfPersonOrganizationItem.hxx".}
-proc ChangeArray1*(this: var StepAP203_HArray1OfPersonOrganizationItem): var StepAP203_Array1OfPersonOrganizationItem {.
+proc changeArray1*(this: var StepAP203HArray1OfPersonOrganizationItem): var StepAP203Array1OfPersonOrganizationItem {.
     importcpp: "ChangeArray1",
     header: "StepAP203_HArray1OfPersonOrganizationItem.hxx".}
 type
-  StepAP203_HArray1OfPersonOrganizationItembase_type* = MMgt_TShared
+  StepAP203HArray1OfPersonOrganizationItembaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepAP203_HArray1OfPersonOrganizationItem::get_type_name(@)", header: "StepAP203_HArray1OfPersonOrganizationItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP203_HArray1OfPersonOrganizationItem::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP203_HArray1OfPersonOrganizationItem::get_type_name(@)", header: "StepAP203_HArray1OfPersonOrganizationItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP203_HArray1OfPersonOrganizationItem::get_type_descriptor(@)",
     header: "StepAP203_HArray1OfPersonOrganizationItem.hxx".}
-proc DynamicType*(this: StepAP203_HArray1OfPersonOrganizationItem): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepAP203_HArray1OfPersonOrganizationItem.hxx".}
+proc dynamicType*(this: StepAP203HArray1OfPersonOrganizationItem): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepAP203_HArray1OfPersonOrganizationItem.hxx".}

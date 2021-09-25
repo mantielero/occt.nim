@@ -13,38 +13,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../BinDrivers/BinDrivers_DocumentStorageDriver
-
 discard "forward decl of BinMDF_ADriverTable"
 discard "forward decl of Message_Messenger"
 discard "forward decl of BinXCAFDrivers_DocumentStorageDriver"
 discard "forward decl of BinXCAFDrivers_DocumentStorageDriver"
 type
-  Handle_BinXCAFDrivers_DocumentStorageDriver* = handle[
-      BinXCAFDrivers_DocumentStorageDriver]
-  BinXCAFDrivers_DocumentStorageDriver* {.
-      importcpp: "BinXCAFDrivers_DocumentStorageDriver",
-      header: "BinXCAFDrivers_DocumentStorageDriver.hxx", bycopy.} = object of BinDrivers_DocumentStorageDriver ##
-                                                                                                         ## !
-                                                                                                         ## Constructor
+  HandleBinXCAFDriversDocumentStorageDriver* = Handle[
+      BinXCAFDriversDocumentStorageDriver]
+  BinXCAFDriversDocumentStorageDriver* {.importcpp: "BinXCAFDrivers_DocumentStorageDriver", header: "BinXCAFDrivers_DocumentStorageDriver.hxx",
+                                        bycopy.} = object of BinDriversDocumentStorageDriver ##
+                                                                                        ## !
+                                                                                        ## Constructor
 
 
-proc constructBinXCAFDrivers_DocumentStorageDriver*(): BinXCAFDrivers_DocumentStorageDriver {.
+proc constructBinXCAFDriversDocumentStorageDriver*(): BinXCAFDriversDocumentStorageDriver {.
     constructor, importcpp: "BinXCAFDrivers_DocumentStorageDriver(@)",
     header: "BinXCAFDrivers_DocumentStorageDriver.hxx".}
-proc AttributeDrivers*(this: var BinXCAFDrivers_DocumentStorageDriver;
-                      theMsgDriver: handle[Message_Messenger]): handle[
+proc attributeDrivers*(this: var BinXCAFDriversDocumentStorageDriver;
+                      theMsgDriver: Handle[MessageMessenger]): Handle[
     BinMDF_ADriverTable] {.importcpp: "AttributeDrivers",
                           header: "BinXCAFDrivers_DocumentStorageDriver.hxx".}
 type
-  BinXCAFDrivers_DocumentStorageDriverbase_type* = BinDrivers_DocumentStorageDriver
+  BinXCAFDriversDocumentStorageDriverbaseType* = BinDriversDocumentStorageDriver
 
-proc get_type_name*(): cstring {.importcpp: "BinXCAFDrivers_DocumentStorageDriver::get_type_name(@)", header: "BinXCAFDrivers_DocumentStorageDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BinXCAFDrivers_DocumentStorageDriver::get_type_name(@)",
+                            header: "BinXCAFDrivers_DocumentStorageDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BinXCAFDrivers_DocumentStorageDriver::get_type_descriptor(@)",
     header: "BinXCAFDrivers_DocumentStorageDriver.hxx".}
-proc DynamicType*(this: BinXCAFDrivers_DocumentStorageDriver): handle[Standard_Type] {.
+proc dynamicType*(this: BinXCAFDriversDocumentStorageDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinXCAFDrivers_DocumentStorageDriver.hxx".}

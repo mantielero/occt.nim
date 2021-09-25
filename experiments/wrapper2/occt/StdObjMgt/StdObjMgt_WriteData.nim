@@ -11,56 +11,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Storage/Storage_BaseDriver
-
 discard "forward decl of StdObjMgt_Persistent"
 discard "forward decl of Standard_GUID"
 type
-  StdObjMgt_WriteData* {.importcpp: "StdObjMgt_WriteData",
-                        header: "StdObjMgt_WriteData.hxx", bycopy.} = object ## !
-                                                                        ## Auxiliary class used to automate begin and end of
-                                                                        ## ! writing object (adding opening and closing
-                                                                        ## parenthesis)
-                                                                        ## ! at
-                                                                        ## constructor and
-                                                                        ## destructor
+  StdObjMgtWriteData* {.importcpp: "StdObjMgt_WriteData",
+                       header: "StdObjMgt_WriteData.hxx", bycopy.} = object ## ! Auxiliary class used to automate begin and end of
+                                                                       ## ! writing object (adding opening and closing
+                                                                       ## parenthesis)
+                                                                       ## ! at
+                                                                       ## constructor and
+                                                                       ## destructor
 
-  StdObjMgt_WriteDataObjectSentry* {.importcpp: "StdObjMgt_WriteData::ObjectSentry",
-                                    header: "StdObjMgt_WriteData.hxx", bycopy.} = object
+  StdObjMgtWriteDataObjectSentry* {.importcpp: "StdObjMgt_WriteData::ObjectSentry",
+                                   header: "StdObjMgt_WriteData.hxx", bycopy.} = object
 
 
-proc constructStdObjMgt_WriteDataObjectSentry*(theData: var StdObjMgt_WriteData): StdObjMgt_WriteDataObjectSentry {.
+proc constructStdObjMgtWriteDataObjectSentry*(theData: var StdObjMgtWriteData): StdObjMgtWriteDataObjectSentry {.
     constructor, importcpp: "StdObjMgt_WriteData::ObjectSentry(@)",
     header: "StdObjMgt_WriteData.hxx".}
-proc destroyStdObjMgt_WriteDataObjectSentry*(
-    this: var StdObjMgt_WriteDataObjectSentry) {.importcpp: "#.~ObjectSentry()",
+proc destroyStdObjMgtWriteDataObjectSentry*(
+    this: var StdObjMgtWriteDataObjectSentry) {.importcpp: "#.~ObjectSentry()",
     header: "StdObjMgt_WriteData.hxx".}
-proc constructStdObjMgt_WriteData*(theDriver: handle[Storage_BaseDriver]): StdObjMgt_WriteData {.
+proc constructStdObjMgtWriteData*(theDriver: Handle[StorageBaseDriver]): StdObjMgtWriteData {.
     constructor, importcpp: "StdObjMgt_WriteData(@)",
     header: "StdObjMgt_WriteData.hxx".}
-proc WritePersistentObject*(this: var StdObjMgt_WriteData;
-                           thePersistent: handle[StdObjMgt_Persistent]) {.
+proc writePersistentObject*(this: var StdObjMgtWriteData;
+                           thePersistent: Handle[StdObjMgtPersistent]) {.
     importcpp: "WritePersistentObject", header: "StdObjMgt_WriteData.hxx".}
-proc `<<`*[Persistent](this: var StdObjMgt_WriteData;
-                      thePersistent: handle[Persistent]): var StdObjMgt_WriteData {.
+proc `<<`*[Persistent](this: var StdObjMgtWriteData;
+                      thePersistent: Handle[Persistent]): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObjMgt_WriteData.hxx".}
-proc `<<`*(this: var StdObjMgt_WriteData;
-          thePersistent: handle[StdObjMgt_Persistent]): var StdObjMgt_WriteData {.
+proc `<<`*(this: var StdObjMgtWriteData; thePersistent: Handle[StdObjMgtPersistent]): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObjMgt_WriteData.hxx".}
-proc WriteValue*[Type](this: var StdObjMgt_WriteData; theValue: Type): var StdObjMgt_WriteData {.
+proc writeValue*[Type](this: var StdObjMgtWriteData; theValue: Type): var StdObjMgtWriteData {.
     importcpp: "WriteValue", header: "StdObjMgt_WriteData.hxx".}
-proc `<<`*(this: var StdObjMgt_WriteData; theValue: Standard_Character): var StdObjMgt_WriteData {.
+proc `<<`*(this: var StdObjMgtWriteData; theValue: StandardCharacter): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObjMgt_WriteData.hxx".}
-proc `<<`*(this: var StdObjMgt_WriteData; theValue: Standard_ExtCharacter): var StdObjMgt_WriteData {.
+proc `<<`*(this: var StdObjMgtWriteData; theValue: StandardExtCharacter): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObjMgt_WriteData.hxx".}
-proc `<<`*(this: var StdObjMgt_WriteData; theValue: Standard_Integer): var StdObjMgt_WriteData {.
+proc `<<`*(this: var StdObjMgtWriteData; theValue: int): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObjMgt_WriteData.hxx".}
-proc `<<`*(this: var StdObjMgt_WriteData; theValue: Standard_Boolean): var StdObjMgt_WriteData {.
+proc `<<`*(this: var StdObjMgtWriteData; theValue: bool): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObjMgt_WriteData.hxx".}
-proc `<<`*(this: var StdObjMgt_WriteData; theValue: Standard_Real): var StdObjMgt_WriteData {.
+proc `<<`*(this: var StdObjMgtWriteData; theValue: float): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObjMgt_WriteData.hxx".}
-proc `<<`*(this: var StdObjMgt_WriteData; theValue: Standard_ShortReal): var StdObjMgt_WriteData {.
+proc `<<`*(this: var StdObjMgtWriteData; theValue: StandardShortReal): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObjMgt_WriteData.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theGUID: Standard_GUID): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theGUID: StandardGUID): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObjMgt_WriteData.hxx".}

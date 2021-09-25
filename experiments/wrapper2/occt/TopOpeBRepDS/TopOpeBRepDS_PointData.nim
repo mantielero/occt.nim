@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRepDS_Point, ../Standard/Standard_Integer,
-  TopOpeBRepDS_GeometryData
-
 discard "forward decl of TopOpeBRepDS_DataStructure"
 discard "forward decl of TopOpeBRepDS_Point"
 type
@@ -28,16 +23,13 @@ type
 
 proc constructTopOpeBRepDS_PointData*(): TopOpeBRepDS_PointData {.constructor,
     importcpp: "TopOpeBRepDS_PointData(@)", header: "TopOpeBRepDS_PointData.hxx".}
-proc constructTopOpeBRepDS_PointData*(P: TopOpeBRepDS_Point): TopOpeBRepDS_PointData {.
+proc constructTopOpeBRepDS_PointData*(p: TopOpeBRepDS_Point): TopOpeBRepDS_PointData {.
     constructor, importcpp: "TopOpeBRepDS_PointData(@)",
     header: "TopOpeBRepDS_PointData.hxx".}
-proc constructTopOpeBRepDS_PointData*(P: TopOpeBRepDS_Point; I1: Standard_Integer;
-                                     I2: Standard_Integer): TopOpeBRepDS_PointData {.
+proc constructTopOpeBRepDS_PointData*(p: TopOpeBRepDS_Point; i1: int; i2: int): TopOpeBRepDS_PointData {.
     constructor, importcpp: "TopOpeBRepDS_PointData(@)",
     header: "TopOpeBRepDS_PointData.hxx".}
-proc SetShapes*(this: var TopOpeBRepDS_PointData; I1: Standard_Integer;
-               I2: Standard_Integer) {.importcpp: "SetShapes",
-                                     header: "TopOpeBRepDS_PointData.hxx".}
-proc GetShapes*(this: TopOpeBRepDS_PointData; I1: var Standard_Integer;
-               I2: var Standard_Integer) {.noSideEffect, importcpp: "GetShapes",
-                                        header: "TopOpeBRepDS_PointData.hxx".}
+proc setShapes*(this: var TopOpeBRepDS_PointData; i1: int; i2: int) {.
+    importcpp: "SetShapes", header: "TopOpeBRepDS_PointData.hxx".}
+proc getShapes*(this: TopOpeBRepDS_PointData; i1: var int; i2: var int) {.noSideEffect,
+    importcpp: "GetShapes", header: "TopOpeBRepDS_PointData.hxx".}

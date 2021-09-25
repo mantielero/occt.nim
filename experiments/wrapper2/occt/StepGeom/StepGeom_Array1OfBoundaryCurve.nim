@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepGeom_BoundaryCurve, ../NCollection/NCollection_Array1
-
 type
-  StepGeom_Array1OfBoundaryCurve* = NCollection_Array1[
-      handle[StepGeom_BoundaryCurve]]
+  StepGeomArray1OfBoundaryCurve* = NCollectionArray1[Handle[StepGeomBoundaryCurve]]
+

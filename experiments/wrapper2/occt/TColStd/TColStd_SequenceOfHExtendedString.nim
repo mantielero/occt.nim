@@ -12,9 +12,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_HExtendedString, ../NCollection/NCollection_Sequence
-
 type
-  TColStd_SequenceOfHExtendedString* = NCollection_Sequence[
-      handle[TCollection_HExtendedString]]
+  TColStdSequenceOfHExtendedString* = NCollectionSequence[
+      Handle[TCollectionHExtendedString]]
+

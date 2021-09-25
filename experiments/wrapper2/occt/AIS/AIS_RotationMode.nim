@@ -16,13 +16,14 @@
 type
   AIS_RotationMode* {.size: sizeof(cint), importcpp: "AIS_RotationMode",
                      header: "AIS_RotationMode.hxx".} = enum
-    AIS_RotationMode_BndBoxActive, ## !< default OCCT rotation
-    AIS_RotationMode_PickLast, ## !< rotate around last picked point
-    AIS_RotationMode_PickCenter, ## !< rotate around point at the center of window
-    AIS_RotationMode_CameraAt, ## !< rotate around camera center
-    AIS_RotationMode_BndBoxScene ## !< rotate around scene center
+    AIS_RotationModeBndBoxActive, ## !< default OCCT rotation
+    AIS_RotationModePickLast, ## !< rotate around last picked point
+    AIS_RotationModePickCenter, ## !< rotate around point at the center of window
+    AIS_RotationModeCameraAt, ## !< rotate around camera center
+    AIS_RotationModeBndBoxScene ## !< rotate around scene center
 
 
 const
-  AIS_RotationMode_LOWER* = 0
-  AIS_RotationMode_UPPER* = AIS_RotationMode_BndBoxScene
+  AIS_RotationModeLOWER* = 0
+  AIS_RotationModeUPPER* = aIS_RotationModeBndBoxScene
+

@@ -14,37 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_ConversionBasedUnitAndSolidAngleUnit"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasic_RWConversionBasedUnitAndSolidAngleUnit* {.
+  RWStepBasicRWConversionBasedUnitAndSolidAngleUnit* {.
       importcpp: "RWStepBasic_RWConversionBasedUnitAndSolidAngleUnit",
       header: "RWStepBasic_RWConversionBasedUnitAndSolidAngleUnit.hxx", bycopy.} = object
 
 
-proc constructRWStepBasic_RWConversionBasedUnitAndSolidAngleUnit*(): RWStepBasic_RWConversionBasedUnitAndSolidAngleUnit {.
+proc constructRWStepBasicRWConversionBasedUnitAndSolidAngleUnit*(): RWStepBasicRWConversionBasedUnitAndSolidAngleUnit {.
     constructor,
     importcpp: "RWStepBasic_RWConversionBasedUnitAndSolidAngleUnit(@)",
     header: "RWStepBasic_RWConversionBasedUnitAndSolidAngleUnit.hxx".}
-proc ReadStep*(this: RWStepBasic_RWConversionBasedUnitAndSolidAngleUnit;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepBasic_ConversionBasedUnitAndSolidAngleUnit]) {.
+proc readStep*(this: RWStepBasicRWConversionBasedUnitAndSolidAngleUnit;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepBasicConversionBasedUnitAndSolidAngleUnit]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepBasic_RWConversionBasedUnitAndSolidAngleUnit.hxx".}
-proc WriteStep*(this: RWStepBasic_RWConversionBasedUnitAndSolidAngleUnit;
-               SW: var StepData_StepWriter;
-               ent: handle[StepBasic_ConversionBasedUnitAndSolidAngleUnit]) {.
+proc writeStep*(this: RWStepBasicRWConversionBasedUnitAndSolidAngleUnit;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepBasicConversionBasedUnitAndSolidAngleUnit]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepBasic_RWConversionBasedUnitAndSolidAngleUnit.hxx".}
-proc Share*(this: RWStepBasic_RWConversionBasedUnitAndSolidAngleUnit;
-           ent: handle[StepBasic_ConversionBasedUnitAndSolidAngleUnit];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepBasicRWConversionBasedUnitAndSolidAngleUnit;
+           ent: Handle[StepBasicConversionBasedUnitAndSolidAngleUnit];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWConversionBasedUnitAndSolidAngleUnit.hxx".}

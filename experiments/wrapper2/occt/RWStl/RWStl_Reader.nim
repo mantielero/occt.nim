@@ -13,134 +13,129 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_XYZ, ../Standard/Standard_ReadLineBuffer, ../Standard/Standard_IStream
-
 discard "forward decl of Message_ProgressRange"
 type
-  RWStl_Reader* {.importcpp: "RWStl_Reader", header: "RWStl_Reader.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                       ## !
-                                                                                                       ## Reads
-                                                                                                       ## data
-                                                                                                       ## from
-                                                                                                       ## STL
-                                                                                                       ## file
-                                                                                                       ## (either
-                                                                                                       ## binary
-                                                                                                       ## or
-                                                                                                       ## Ascii).
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## This
-                                                                                                       ## function
-                                                                                                       ## supports
-                                                                                                       ## reading
-                                                                                                       ## multi-domain
-                                                                                                       ## STL
-                                                                                                       ## files
-                                                                                                       ## formed
-                                                                                                       ## by
-                                                                                                       ## concatenation
-                                                                                                       ## of
-                                                                                                       ## several
-                                                                                                       ## "plain"
-                                                                                                       ## files.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## The
-                                                                                                       ## mesh
-                                                                                                       ## nodes
-                                                                                                       ## are
-                                                                                                       ## not
-                                                                                                       ## merged
-                                                                                                       ## between
-                                                                                                       ## domains.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Unicode
-                                                                                                       ## paths
-                                                                                                       ## can
-                                                                                                       ## be
-                                                                                                       ## given
-                                                                                                       ## in
-                                                                                                       ## UTF-8
-                                                                                                       ## encoding.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Format
-                                                                                                       ## is
-                                                                                                       ## recognized
-                                                                                                       ## automatically
-                                                                                                       ## by
-                                                                                                       ## analysis
-                                                                                                       ## of
-                                                                                                       ## the
-                                                                                                       ## file
-                                                                                                       ## header.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Returns
-                                                                                                       ## true
-                                                                                                       ## if
-                                                                                                       ## success,
-                                                                                                       ## false
-                                                                                                       ## on
-                                                                                                       ## error
-                                                                                                       ## or
-                                                                                                       ## user
-                                                                                                       ## break.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Callback
-                                                                                                       ## function
-                                                                                                       ## to
-                                                                                                       ## be
-                                                                                                       ## implemented
-                                                                                                       ## in
-                                                                                                       ## descendant.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Should
-                                                                                                       ## create
-                                                                                                       ## new
-                                                                                                       ## node
-                                                                                                       ## with
-                                                                                                       ## specified
-                                                                                                       ## coordinates
-                                                                                                       ## in
-                                                                                                       ## the
-                                                                                                       ## target
-                                                                                                       ## model,
-                                                                                                       ## and
-                                                                                                       ## return
-                                                                                                       ## its
-                                                                                                       ## ID
-                                                                                                       ## as
-                                                                                                       ## integer.
+  RWStlReader* {.importcpp: "RWStl_Reader", header: "RWStl_Reader.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                     ## !
+                                                                                                     ## Reads
+                                                                                                     ## data
+                                                                                                     ## from
+                                                                                                     ## STL
+                                                                                                     ## file
+                                                                                                     ## (either
+                                                                                                     ## binary
+                                                                                                     ## or
+                                                                                                     ## Ascii).
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## This
+                                                                                                     ## function
+                                                                                                     ## supports
+                                                                                                     ## reading
+                                                                                                     ## multi-domain
+                                                                                                     ## STL
+                                                                                                     ## files
+                                                                                                     ## formed
+                                                                                                     ## by
+                                                                                                     ## concatenation
+                                                                                                     ## of
+                                                                                                     ## several
+                                                                                                     ## "plain"
+                                                                                                     ## files.
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## The
+                                                                                                     ## mesh
+                                                                                                     ## nodes
+                                                                                                     ## are
+                                                                                                     ## not
+                                                                                                     ## merged
+                                                                                                     ## between
+                                                                                                     ## domains.
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## Unicode
+                                                                                                     ## paths
+                                                                                                     ## can
+                                                                                                     ## be
+                                                                                                     ## given
+                                                                                                     ## in
+                                                                                                     ## UTF-8
+                                                                                                     ## encoding.
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## Format
+                                                                                                     ## is
+                                                                                                     ## recognized
+                                                                                                     ## automatically
+                                                                                                     ## by
+                                                                                                     ## analysis
+                                                                                                     ## of
+                                                                                                     ## the
+                                                                                                     ## file
+                                                                                                     ## header.
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## Returns
+                                                                                                     ## true
+                                                                                                     ## if
+                                                                                                     ## success,
+                                                                                                     ## false
+                                                                                                     ## on
+                                                                                                     ## error
+                                                                                                     ## or
+                                                                                                     ## user
+                                                                                                     ## break.
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## Callback
+                                                                                                     ## function
+                                                                                                     ## to
+                                                                                                     ## be
+                                                                                                     ## implemented
+                                                                                                     ## in
+                                                                                                     ## descendant.
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## Should
+                                                                                                     ## create
+                                                                                                     ## new
+                                                                                                     ## node
+                                                                                                     ## with
+                                                                                                     ## specified
+                                                                                                     ## coordinates
+                                                                                                     ## in
+                                                                                                     ## the
+                                                                                                     ## target
+                                                                                                     ## model,
+                                                                                                     ## and
+                                                                                                     ## return
+                                                                                                     ## its
+                                                                                                     ## ID
+                                                                                                     ## as
+                                                                                                     ## integer.
 
-  RWStl_Readerbase_type* = Standard_Transient
+  RWStlReaderbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "RWStl_Reader::get_type_name(@)",
-                              header: "RWStl_Reader.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "RWStl_Reader::get_type_name(@)",
+                            header: "RWStl_Reader.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "RWStl_Reader::get_type_descriptor(@)", header: "RWStl_Reader.hxx".}
-proc DynamicType*(this: RWStl_Reader): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: RWStlReader): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "RWStl_Reader.hxx".}
-proc Read*(this: var RWStl_Reader; theFile: cstring;
-          theProgress: Message_ProgressRange): Standard_Boolean {.
+proc read*(this: var RWStlReader; theFile: cstring; theProgress: MessageProgressRange): bool {.
     importcpp: "Read", header: "RWStl_Reader.hxx".}
-proc IsAscii*(this: var RWStl_Reader; theStream: var Standard_IStream;
-             isSeekgAvailable: bool): Standard_Boolean {.importcpp: "IsAscii",
+proc isAscii*(this: var RWStlReader; theStream: var StandardIStream;
+             isSeekgAvailable: bool): bool {.importcpp: "IsAscii",
     header: "RWStl_Reader.hxx".}
-proc ReadBinary*(this: var RWStl_Reader; theStream: var Standard_IStream;
-                theProgress: Message_ProgressRange): Standard_Boolean {.
-    importcpp: "ReadBinary", header: "RWStl_Reader.hxx".}
-proc ReadAscii*(this: var RWStl_Reader; theStream: var Standard_IStream;
-               theBuffer: var Standard_ReadLineBuffer; theUntilPos: streampos;
-               theProgress: Message_ProgressRange): Standard_Boolean {.
-    importcpp: "ReadAscii", header: "RWStl_Reader.hxx".}
-proc AddNode*(this: var RWStl_Reader; thePnt: gp_XYZ): Standard_Integer {.
-    importcpp: "AddNode", header: "RWStl_Reader.hxx".}
-proc AddTriangle*(this: var RWStl_Reader; theN1: Standard_Integer;
-                 theN2: Standard_Integer; theN3: Standard_Integer) {.
+proc readBinary*(this: var RWStlReader; theStream: var StandardIStream;
+                theProgress: MessageProgressRange): bool {.importcpp: "ReadBinary",
+    header: "RWStl_Reader.hxx".}
+proc readAscii*(this: var RWStlReader; theStream: var StandardIStream;
+               theBuffer: var StandardReadLineBuffer; theUntilPos: Streampos;
+               theProgress: MessageProgressRange): bool {.importcpp: "ReadAscii",
+    header: "RWStl_Reader.hxx".}
+proc addNode*(this: var RWStlReader; thePnt: Xyz): int {.importcpp: "AddNode",
+    header: "RWStl_Reader.hxx".}
+proc addTriangle*(this: var RWStlReader; theN1: int; theN2: int; theN3: int) {.
     importcpp: "AddTriangle", header: "RWStl_Reader.hxx".}

@@ -12,17 +12,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  AIS_InteractiveObject, ../Aspect/Aspect_TypeOfColorScaleData,
-  ../Aspect/Aspect_TypeOfColorScalePosition, ../Aspect/Aspect_SequenceOfColor,
-  ../Standard/Standard, ../Standard/Standard_DefineHandle,
-  ../TCollection/TCollection_ExtendedString,
-  ../TColStd/TColStd_SequenceOfExtendedString
-
 discard "forward decl of AIS_ColorScale"
 discard "forward decl of AIS_ColorScale"
 type
-  Handle_AIS_ColorScale* = handle[AIS_ColorScale]
+  HandleAIS_ColorScale* = Handle[AIS_ColorScale]
 
 ## ! Class for drawing a custom color scale.
 ## !
@@ -138,115 +131,109 @@ type
     ## !< extra spacing between element
     ## !< label font height
 
-  AIS_ColorScalebase_type* = AIS_InteractiveObject
+  AIS_ColorScalebaseType* = AIS_InteractiveObject
 
-proc get_type_name*(): cstring {.importcpp: "AIS_ColorScale::get_type_name(@)",
-                              header: "AIS_ColorScale.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "AIS_ColorScale::get_type_name(@)",
+                            header: "AIS_ColorScale.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "AIS_ColorScale::get_type_descriptor(@)",
     header: "AIS_ColorScale.hxx".}
-proc DynamicType*(this: AIS_ColorScale): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: AIS_ColorScale): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_ColorScale.hxx".}
-proc FindColor*(theValue: Standard_Real; theMin: Standard_Real;
-               theMax: Standard_Real; theColorsCount: Standard_Integer;
-               theColorHlsMin: Graphic3d_Vec3d; theColorHlsMax: Graphic3d_Vec3d;
-               theColor: var Quantity_Color): Standard_Boolean {.
+proc findColor*(theValue: float; theMin: float; theMax: float; theColorsCount: int;
+               theColorHlsMin: Graphic3dVec3d; theColorHlsMax: Graphic3dVec3d;
+               theColor: var QuantityColor): bool {.
     importcpp: "AIS_ColorScale::FindColor(@)", header: "AIS_ColorScale.hxx".}
-proc FindColor*(theValue: Standard_Real; theMin: Standard_Real;
-               theMax: Standard_Real; theColorsCount: Standard_Integer;
-               theColor: var Quantity_Color): Standard_Boolean {.
+proc findColor*(theValue: float; theMin: float; theMax: float; theColorsCount: int;
+               theColor: var QuantityColor): bool {.
     importcpp: "AIS_ColorScale::FindColor(@)", header: "AIS_ColorScale.hxx".}
-proc hueToValidRange*(theHue: Standard_Real): Standard_Real {.
+proc hueToValidRange*(theHue: float): float {.
     importcpp: "AIS_ColorScale::hueToValidRange(@)", header: "AIS_ColorScale.hxx".}
 proc constructAIS_ColorScale*(): AIS_ColorScale {.constructor,
     importcpp: "AIS_ColorScale(@)", header: "AIS_ColorScale.hxx".}
-proc FindColor*(this: AIS_ColorScale; theValue: Standard_Real;
-               theColor: var Quantity_Color): Standard_Boolean {.noSideEffect,
-    importcpp: "FindColor", header: "AIS_ColorScale.hxx".}
-proc GetMin*(this: AIS_ColorScale): Standard_Real {.noSideEffect,
-    importcpp: "GetMin", header: "AIS_ColorScale.hxx".}
-proc SetMin*(this: var AIS_ColorScale; theMin: Standard_Real) {.importcpp: "SetMin",
-    header: "AIS_ColorScale.hxx".}
-proc GetMax*(this: AIS_ColorScale): Standard_Real {.noSideEffect,
-    importcpp: "GetMax", header: "AIS_ColorScale.hxx".}
-proc SetMax*(this: var AIS_ColorScale; theMax: Standard_Real) {.importcpp: "SetMax",
-    header: "AIS_ColorScale.hxx".}
-proc GetRange*(this: AIS_ColorScale; theMin: var Standard_Real;
-              theMax: var Standard_Real) {.noSideEffect, importcpp: "GetRange",
+proc findColor*(this: AIS_ColorScale; theValue: float; theColor: var QuantityColor): bool {.
+    noSideEffect, importcpp: "FindColor", header: "AIS_ColorScale.hxx".}
+proc getMin*(this: AIS_ColorScale): float {.noSideEffect, importcpp: "GetMin",
                                         header: "AIS_ColorScale.hxx".}
-proc SetRange*(this: var AIS_ColorScale; theMin: Standard_Real; theMax: Standard_Real) {.
+proc setMin*(this: var AIS_ColorScale; theMin: float) {.importcpp: "SetMin",
+    header: "AIS_ColorScale.hxx".}
+proc getMax*(this: AIS_ColorScale): float {.noSideEffect, importcpp: "GetMax",
+                                        header: "AIS_ColorScale.hxx".}
+proc setMax*(this: var AIS_ColorScale; theMax: float) {.importcpp: "SetMax",
+    header: "AIS_ColorScale.hxx".}
+proc getRange*(this: AIS_ColorScale; theMin: var float; theMax: var float) {.
+    noSideEffect, importcpp: "GetRange", header: "AIS_ColorScale.hxx".}
+proc setRange*(this: var AIS_ColorScale; theMin: float; theMax: float) {.
     importcpp: "SetRange", header: "AIS_ColorScale.hxx".}
-proc HueMin*(this: AIS_ColorScale): Standard_Real {.noSideEffect,
-    importcpp: "HueMin", header: "AIS_ColorScale.hxx".}
-proc HueMax*(this: AIS_ColorScale): Standard_Real {.noSideEffect,
-    importcpp: "HueMax", header: "AIS_ColorScale.hxx".}
-proc HueRange*(this: AIS_ColorScale; theMinAngle: var Standard_Real;
-              theMaxAngle: var Standard_Real) {.noSideEffect, importcpp: "HueRange",
-    header: "AIS_ColorScale.hxx".}
-proc SetHueRange*(this: var AIS_ColorScale; theMinAngle: Standard_Real;
-                 theMaxAngle: Standard_Real) {.importcpp: "SetHueRange",
-    header: "AIS_ColorScale.hxx".}
-proc ColorRange*(this: AIS_ColorScale; theMinColor: var Quantity_Color;
-                theMaxColor: var Quantity_Color) {.noSideEffect,
+proc hueMin*(this: AIS_ColorScale): float {.noSideEffect, importcpp: "HueMin",
+                                        header: "AIS_ColorScale.hxx".}
+proc hueMax*(this: AIS_ColorScale): float {.noSideEffect, importcpp: "HueMax",
+                                        header: "AIS_ColorScale.hxx".}
+proc hueRange*(this: AIS_ColorScale; theMinAngle: var float; theMaxAngle: var float) {.
+    noSideEffect, importcpp: "HueRange", header: "AIS_ColorScale.hxx".}
+proc setHueRange*(this: var AIS_ColorScale; theMinAngle: float; theMaxAngle: float) {.
+    importcpp: "SetHueRange", header: "AIS_ColorScale.hxx".}
+proc colorRange*(this: AIS_ColorScale; theMinColor: var QuantityColor;
+                theMaxColor: var QuantityColor) {.noSideEffect,
     importcpp: "ColorRange", header: "AIS_ColorScale.hxx".}
-proc SetColorRange*(this: var AIS_ColorScale; theMinColor: Quantity_Color;
-                   theMaxColor: Quantity_Color) {.importcpp: "SetColorRange",
+proc setColorRange*(this: var AIS_ColorScale; theMinColor: QuantityColor;
+                   theMaxColor: QuantityColor) {.importcpp: "SetColorRange",
     header: "AIS_ColorScale.hxx".}
-proc GetLabelType*(this: AIS_ColorScale): Aspect_TypeOfColorScaleData {.
-    noSideEffect, importcpp: "GetLabelType", header: "AIS_ColorScale.hxx".}
-proc SetLabelType*(this: var AIS_ColorScale; theType: Aspect_TypeOfColorScaleData) {.
+proc getLabelType*(this: AIS_ColorScale): AspectTypeOfColorScaleData {.noSideEffect,
+    importcpp: "GetLabelType", header: "AIS_ColorScale.hxx".}
+proc setLabelType*(this: var AIS_ColorScale; theType: AspectTypeOfColorScaleData) {.
     importcpp: "SetLabelType", header: "AIS_ColorScale.hxx".}
-proc GetColorType*(this: AIS_ColorScale): Aspect_TypeOfColorScaleData {.
-    noSideEffect, importcpp: "GetColorType", header: "AIS_ColorScale.hxx".}
-proc SetColorType*(this: var AIS_ColorScale; theType: Aspect_TypeOfColorScaleData) {.
+proc getColorType*(this: AIS_ColorScale): AspectTypeOfColorScaleData {.noSideEffect,
+    importcpp: "GetColorType", header: "AIS_ColorScale.hxx".}
+proc setColorType*(this: var AIS_ColorScale; theType: AspectTypeOfColorScaleData) {.
     importcpp: "SetColorType", header: "AIS_ColorScale.hxx".}
-proc GetNumberOfIntervals*(this: AIS_ColorScale): Standard_Integer {.noSideEffect,
+proc getNumberOfIntervals*(this: AIS_ColorScale): int {.noSideEffect,
     importcpp: "GetNumberOfIntervals", header: "AIS_ColorScale.hxx".}
-proc SetNumberOfIntervals*(this: var AIS_ColorScale; theNum: Standard_Integer) {.
+proc setNumberOfIntervals*(this: var AIS_ColorScale; theNum: int) {.
     importcpp: "SetNumberOfIntervals", header: "AIS_ColorScale.hxx".}
-proc GetTitle*(this: AIS_ColorScale): TCollection_ExtendedString {.noSideEffect,
+proc getTitle*(this: AIS_ColorScale): TCollectionExtendedString {.noSideEffect,
     importcpp: "GetTitle", header: "AIS_ColorScale.hxx".}
-proc SetTitle*(this: var AIS_ColorScale; theTitle: TCollection_ExtendedString) {.
+proc setTitle*(this: var AIS_ColorScale; theTitle: TCollectionExtendedString) {.
     importcpp: "SetTitle", header: "AIS_ColorScale.hxx".}
-proc GetFormat*(this: AIS_ColorScale): TCollection_AsciiString {.noSideEffect,
+proc getFormat*(this: AIS_ColorScale): TCollectionAsciiString {.noSideEffect,
     importcpp: "GetFormat", header: "AIS_ColorScale.hxx".}
-proc Format*(this: AIS_ColorScale): TCollection_AsciiString {.noSideEffect,
+proc format*(this: AIS_ColorScale): TCollectionAsciiString {.noSideEffect,
     importcpp: "Format", header: "AIS_ColorScale.hxx".}
-proc SetFormat*(this: var AIS_ColorScale; theFormat: TCollection_AsciiString) {.
+proc setFormat*(this: var AIS_ColorScale; theFormat: TCollectionAsciiString) {.
     importcpp: "SetFormat", header: "AIS_ColorScale.hxx".}
-proc GetLabel*(this: AIS_ColorScale; theIndex: Standard_Integer): TCollection_ExtendedString {.
+proc getLabel*(this: AIS_ColorScale; theIndex: int): TCollectionExtendedString {.
     noSideEffect, importcpp: "GetLabel", header: "AIS_ColorScale.hxx".}
-proc GetIntervalColor*(this: AIS_ColorScale; theIndex: Standard_Integer): Quantity_Color {.
+proc getIntervalColor*(this: AIS_ColorScale; theIndex: int): QuantityColor {.
     noSideEffect, importcpp: "GetIntervalColor", header: "AIS_ColorScale.hxx".}
-proc SetIntervalColor*(this: var AIS_ColorScale; theColor: Quantity_Color;
-                      theIndex: Standard_Integer) {.importcpp: "SetIntervalColor",
-    header: "AIS_ColorScale.hxx".}
-proc GetLabels*(this: AIS_ColorScale;
-               theLabels: var TColStd_SequenceOfExtendedString) {.noSideEffect,
+proc setIntervalColor*(this: var AIS_ColorScale; theColor: QuantityColor;
+                      theIndex: int) {.importcpp: "SetIntervalColor",
+                                     header: "AIS_ColorScale.hxx".}
+proc getLabels*(this: AIS_ColorScale;
+               theLabels: var TColStdSequenceOfExtendedString) {.noSideEffect,
     importcpp: "GetLabels", header: "AIS_ColorScale.hxx".}
-proc Labels*(this: AIS_ColorScale): TColStd_SequenceOfExtendedString {.noSideEffect,
+proc labels*(this: AIS_ColorScale): TColStdSequenceOfExtendedString {.noSideEffect,
     importcpp: "Labels", header: "AIS_ColorScale.hxx".}
-proc SetLabels*(this: var AIS_ColorScale; theSeq: TColStd_SequenceOfExtendedString) {.
+proc setLabels*(this: var AIS_ColorScale; theSeq: TColStdSequenceOfExtendedString) {.
     importcpp: "SetLabels", header: "AIS_ColorScale.hxx".}
-proc GetColors*(this: AIS_ColorScale; theColors: var Aspect_SequenceOfColor) {.
+proc getColors*(this: AIS_ColorScale; theColors: var AspectSequenceOfColor) {.
     noSideEffect, importcpp: "GetColors", header: "AIS_ColorScale.hxx".}
-proc GetColors*(this: AIS_ColorScale): Aspect_SequenceOfColor {.noSideEffect,
+proc getColors*(this: AIS_ColorScale): AspectSequenceOfColor {.noSideEffect,
     importcpp: "GetColors", header: "AIS_ColorScale.hxx".}
-proc SetColors*(this: var AIS_ColorScale; theSeq: Aspect_SequenceOfColor) {.
+proc setColors*(this: var AIS_ColorScale; theSeq: AspectSequenceOfColor) {.
     importcpp: "SetColors", header: "AIS_ColorScale.hxx".}
-proc SetUniformColors*(this: var AIS_ColorScale; theLightness: Standard_Real;
-                      theHueFrom: Standard_Real; theHueTo: Standard_Real) {.
+proc setUniformColors*(this: var AIS_ColorScale; theLightness: float;
+                      theHueFrom: float; theHueTo: float) {.
     importcpp: "SetUniformColors", header: "AIS_ColorScale.hxx".}
-proc MakeUniformColors*(theNbColors: Standard_Integer; theLightness: Standard_Real;
-                       theHueFrom: Standard_Real; theHueTo: Standard_Real): Aspect_SequenceOfColor {.
+proc makeUniformColors*(theNbColors: int; theLightness: float; theHueFrom: float;
+                       theHueTo: float): AspectSequenceOfColor {.
     importcpp: "AIS_ColorScale::MakeUniformColors(@)",
     header: "AIS_ColorScale.hxx".}
-proc GetLabelPosition*(this: AIS_ColorScale): Aspect_TypeOfColorScalePosition {.
+proc getLabelPosition*(this: AIS_ColorScale): AspectTypeOfColorScalePosition {.
     noSideEffect, importcpp: "GetLabelPosition", header: "AIS_ColorScale.hxx".}
-proc SetLabelPosition*(this: var AIS_ColorScale;
-                      thePos: Aspect_TypeOfColorScalePosition) {.
+proc setLabelPosition*(this: var AIS_ColorScale;
+                      thePos: AspectTypeOfColorScalePosition) {.
     importcpp: "SetLabelPosition", header: "AIS_ColorScale.hxx".}
-proc GetTitlePosition*(this: AIS_ColorScale): Aspect_TypeOfColorScalePosition {.
+proc getTitlePosition*(this: AIS_ColorScale): AspectTypeOfColorScalePosition {.
     noSideEffect, importcpp: "GetTitlePosition", header: "AIS_ColorScale.hxx".}
 ## !!!Ignored construct:  ! Sets the color scale title position. Standard_DEPRECATED ( AIS_ColorScale::SetTitlePosition() has no effect! ) void SetTitlePosition ( const Aspect_TypeOfColorScalePosition thePos ) { myTitlePos = thePos ; } ! Returns TRUE if the labels and colors used in reversed order, FALSE by default.
 ## !  - Normal,   bottom-up order with Minimal value on the Bottom and Maximum value on Top.
@@ -262,54 +249,48 @@ proc GetTitlePosition*(this: AIS_ColorScale): Aspect_TypeOfColorScalePosition {.
 ## !                 label is appended to the end of list if negative index is specified void SetLabel ( const TCollection_ExtendedString & theLabel , const Standard_Integer theIndex ) ;
 ## Error: identifier expected, but got: AIS_ColorScale::SetTitlePosition() has no effect!!!!
 
-proc GetSize*(this: AIS_ColorScale; theBreadth: var Standard_Integer;
-             theHeight: var Standard_Integer) {.noSideEffect, importcpp: "GetSize",
+proc getSize*(this: AIS_ColorScale; theBreadth: var int; theHeight: var int) {.
+    noSideEffect, importcpp: "GetSize", header: "AIS_ColorScale.hxx".}
+proc setSize*(this: var AIS_ColorScale; theBreadth: int; theHeight: int) {.
+    importcpp: "SetSize", header: "AIS_ColorScale.hxx".}
+proc getBreadth*(this: AIS_ColorScale): int {.noSideEffect, importcpp: "GetBreadth",
     header: "AIS_ColorScale.hxx".}
-proc SetSize*(this: var AIS_ColorScale; theBreadth: Standard_Integer;
-             theHeight: Standard_Integer) {.importcpp: "SetSize",
+proc setBreadth*(this: var AIS_ColorScale; theBreadth: int) {.importcpp: "SetBreadth",
     header: "AIS_ColorScale.hxx".}
-proc GetBreadth*(this: AIS_ColorScale): Standard_Integer {.noSideEffect,
-    importcpp: "GetBreadth", header: "AIS_ColorScale.hxx".}
-proc SetBreadth*(this: var AIS_ColorScale; theBreadth: Standard_Integer) {.
-    importcpp: "SetBreadth", header: "AIS_ColorScale.hxx".}
-proc GetHeight*(this: AIS_ColorScale): Standard_Integer {.noSideEffect,
-    importcpp: "GetHeight", header: "AIS_ColorScale.hxx".}
-proc SetHeight*(this: var AIS_ColorScale; theHeight: Standard_Integer) {.
-    importcpp: "SetHeight", header: "AIS_ColorScale.hxx".}
-proc GetPosition*(this: AIS_ColorScale; theX: var Standard_Real;
-                 theY: var Standard_Real) {.noSideEffect, importcpp: "GetPosition",
+proc getHeight*(this: AIS_ColorScale): int {.noSideEffect, importcpp: "GetHeight",
     header: "AIS_ColorScale.hxx".}
-proc SetPosition*(this: var AIS_ColorScale; theX: Standard_Integer;
-                 theY: Standard_Integer) {.importcpp: "SetPosition",
+proc setHeight*(this: var AIS_ColorScale; theHeight: int) {.importcpp: "SetHeight",
     header: "AIS_ColorScale.hxx".}
-proc GetXPosition*(this: AIS_ColorScale): Standard_Integer {.noSideEffect,
+proc getPosition*(this: AIS_ColorScale; theX: var float; theY: var float) {.noSideEffect,
+    importcpp: "GetPosition", header: "AIS_ColorScale.hxx".}
+proc setPosition*(this: var AIS_ColorScale; theX: int; theY: int) {.
+    importcpp: "SetPosition", header: "AIS_ColorScale.hxx".}
+proc getXPosition*(this: AIS_ColorScale): int {.noSideEffect,
     importcpp: "GetXPosition", header: "AIS_ColorScale.hxx".}
-proc SetXPosition*(this: var AIS_ColorScale; theX: Standard_Integer) {.
-    importcpp: "SetXPosition", header: "AIS_ColorScale.hxx".}
-proc GetYPosition*(this: AIS_ColorScale): Standard_Integer {.noSideEffect,
-    importcpp: "GetYPosition", header: "AIS_ColorScale.hxx".}
-proc SetYPosition*(this: var AIS_ColorScale; theY: Standard_Integer) {.
-    importcpp: "SetYPosition", header: "AIS_ColorScale.hxx".}
-proc GetTextHeight*(this: AIS_ColorScale): Standard_Integer {.noSideEffect,
-    importcpp: "GetTextHeight", header: "AIS_ColorScale.hxx".}
-proc SetTextHeight*(this: var AIS_ColorScale; theHeight: Standard_Integer) {.
-    importcpp: "SetTextHeight", header: "AIS_ColorScale.hxx".}
-proc TextWidth*(this: AIS_ColorScale; theText: TCollection_ExtendedString): Standard_Integer {.
-    noSideEffect, importcpp: "TextWidth", header: "AIS_ColorScale.hxx".}
-proc TextHeight*(this: AIS_ColorScale; theText: TCollection_ExtendedString): Standard_Integer {.
-    noSideEffect, importcpp: "TextHeight", header: "AIS_ColorScale.hxx".}
-proc TextSize*(this: AIS_ColorScale; theText: TCollection_ExtendedString;
-              theHeight: Standard_Integer; theWidth: var Standard_Integer;
-              theAscent: var Standard_Integer; theDescent: var Standard_Integer) {.
-    noSideEffect, importcpp: "TextSize", header: "AIS_ColorScale.hxx".}
-proc AcceptDisplayMode*(this: AIS_ColorScale; theMode: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "AcceptDisplayMode", header: "AIS_ColorScale.hxx".}
-proc Compute*(this: var AIS_ColorScale;
-             thePresentationManager: handle[PrsMgr_PresentationManager3d];
-             thePresentation: handle[Prs3d_Presentation];
-             theMode: Standard_Integer) {.importcpp: "Compute",
-                                        header: "AIS_ColorScale.hxx".}
-proc ComputeSelection*(this: var AIS_ColorScale; a2: handle[SelectMgr_Selection]; ## aSelection
-                      a3: Standard_Integer) {.importcpp: "ComputeSelection",
+proc setXPosition*(this: var AIS_ColorScale; theX: int) {.importcpp: "SetXPosition",
     header: "AIS_ColorScale.hxx".}
+proc getYPosition*(this: AIS_ColorScale): int {.noSideEffect,
+    importcpp: "GetYPosition", header: "AIS_ColorScale.hxx".}
+proc setYPosition*(this: var AIS_ColorScale; theY: int) {.importcpp: "SetYPosition",
+    header: "AIS_ColorScale.hxx".}
+proc getTextHeight*(this: AIS_ColorScale): int {.noSideEffect,
+    importcpp: "GetTextHeight", header: "AIS_ColorScale.hxx".}
+proc setTextHeight*(this: var AIS_ColorScale; theHeight: int) {.
+    importcpp: "SetTextHeight", header: "AIS_ColorScale.hxx".}
+proc textWidth*(this: AIS_ColorScale; theText: TCollectionExtendedString): int {.
+    noSideEffect, importcpp: "TextWidth", header: "AIS_ColorScale.hxx".}
+proc textHeight*(this: AIS_ColorScale; theText: TCollectionExtendedString): int {.
+    noSideEffect, importcpp: "TextHeight", header: "AIS_ColorScale.hxx".}
+proc textSize*(this: AIS_ColorScale; theText: TCollectionExtendedString;
+              theHeight: int; theWidth: var int; theAscent: var int; theDescent: var int) {.
+    noSideEffect, importcpp: "TextSize", header: "AIS_ColorScale.hxx".}
+proc acceptDisplayMode*(this: AIS_ColorScale; theMode: int): bool {.noSideEffect,
+    importcpp: "AcceptDisplayMode", header: "AIS_ColorScale.hxx".}
+proc compute*(this: var AIS_ColorScale;
+             thePresentationManager: Handle[PrsMgrPresentationManager3d];
+             thePresentation: Handle[Prs3dPresentation]; theMode: int) {.
+    importcpp: "Compute", header: "AIS_ColorScale.hxx".}
+proc computeSelection*(this: var AIS_ColorScale; a2: Handle[SelectMgrSelection]; ## aSelection
+                      a3: int) {.importcpp: "ComputeSelection",
+                               header: "AIS_ColorScale.hxx".}
   ## aMode

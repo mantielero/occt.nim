@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_LayeredItem, ../NCollection/NCollection_Array1
-
 type
-  StepVisual_Array1OfLayeredItem* = NCollection_Array1[StepVisual_LayeredItem]
+  StepVisualArray1OfLayeredItem* = NCollectionArray1[StepVisualLayeredItem]
+

@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_MolarVolume_HeaderFile [NewLine] # _Quantity_MolarVolume_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the volume occupied by one mole of substance.
+## !!!Ignored construct:  # _Quantity_MolarVolume_HeaderFile [NewLine] # _Quantity_MolarVolume_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the volume occupied by one mole of substance.
 ## ! One mole of any substance contains Avogadro's
 ## ! Constant of molecules.
 ## ! It is measured in cubic metres per mole. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_MolarVolume ;
 ## Error: expected ';'!!!
+

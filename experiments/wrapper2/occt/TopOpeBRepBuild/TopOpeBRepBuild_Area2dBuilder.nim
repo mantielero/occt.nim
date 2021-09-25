@@ -14,29 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRepBuild_AreaBuilder,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TopOpeBRepBuild_LoopSet"
 discard "forward decl of TopOpeBRepBuild_LoopClassifier"
 type
-  TopOpeBRepBuild_Area2dBuilder* {.importcpp: "TopOpeBRepBuild_Area2dBuilder",
-                                  header: "TopOpeBRepBuild_Area2dBuilder.hxx",
-                                  bycopy.} = object of TopOpeBRepBuild_AreaBuilder
+  TopOpeBRepBuildArea2dBuilder* {.importcpp: "TopOpeBRepBuild_Area2dBuilder",
+                                 header: "TopOpeBRepBuild_Area2dBuilder.hxx",
+                                 bycopy.} = object of TopOpeBRepBuildAreaBuilder
 
 
-proc constructTopOpeBRepBuild_Area2dBuilder*(): TopOpeBRepBuild_Area2dBuilder {.
+proc constructTopOpeBRepBuildArea2dBuilder*(): TopOpeBRepBuildArea2dBuilder {.
     constructor, importcpp: "TopOpeBRepBuild_Area2dBuilder(@)",
     header: "TopOpeBRepBuild_Area2dBuilder.hxx".}
-proc constructTopOpeBRepBuild_Area2dBuilder*(LS: var TopOpeBRepBuild_LoopSet;
-    LC: var TopOpeBRepBuild_LoopClassifier;
-    ForceClass: Standard_Boolean = Standard_False): TopOpeBRepBuild_Area2dBuilder {.
+proc constructTopOpeBRepBuildArea2dBuilder*(ls: var TopOpeBRepBuildLoopSet;
+    lc: var TopOpeBRepBuildLoopClassifier; forceClass: bool = false): TopOpeBRepBuildArea2dBuilder {.
     constructor, importcpp: "TopOpeBRepBuild_Area2dBuilder(@)",
     header: "TopOpeBRepBuild_Area2dBuilder.hxx".}
-proc InitAreaBuilder*(this: var TopOpeBRepBuild_Area2dBuilder;
-                     LS: var TopOpeBRepBuild_LoopSet;
-                     LC: var TopOpeBRepBuild_LoopClassifier;
-                     ForceClass: Standard_Boolean = Standard_False) {.
-    importcpp: "InitAreaBuilder", header: "TopOpeBRepBuild_Area2dBuilder.hxx".}
+proc initAreaBuilder*(this: var TopOpeBRepBuildArea2dBuilder;
+                     ls: var TopOpeBRepBuildLoopSet;
+                     lc: var TopOpeBRepBuildLoopClassifier;
+                     forceClass: bool = false) {.importcpp: "InitAreaBuilder",
+    header: "TopOpeBRepBuild_Area2dBuilder.hxx".}

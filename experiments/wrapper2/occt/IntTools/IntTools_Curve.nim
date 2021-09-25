@@ -13,61 +13,53 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, ../GeomAbs/GeomAbs_CurveType
-
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of gp_Pnt"
 type
-  IntTools_Curve* {.importcpp: "IntTools_Curve", header: "IntTools_Curve.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Empty
-                                                                                         ## constructor
+  IntToolsCurve* {.importcpp: "IntTools_Curve", header: "IntTools_Curve.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Empty
+                                                                                        ## constructor
 
 
-proc constructIntTools_Curve*(): IntTools_Curve {.constructor,
+proc constructIntToolsCurve*(): IntToolsCurve {.constructor,
     importcpp: "IntTools_Curve(@)", header: "IntTools_Curve.hxx".}
-proc constructIntTools_Curve*(the3dCurve3d: handle[Geom_Curve];
-                             the2dCurve1: handle[Geom2d_Curve];
-                             the2dCurve2: handle[Geom2d_Curve];
-                             theTolerance: Standard_Real = 0.0;
-                             theTangentialTolerance: Standard_Real = 0.0): IntTools_Curve {.
+proc constructIntToolsCurve*(the3dCurve3d: Handle[GeomCurve];
+                            the2dCurve1: Handle[Geom2dCurve];
+                            the2dCurve2: Handle[Geom2dCurve];
+                            theTolerance: float = 0.0;
+                            theTangentialTolerance: float = 0.0): IntToolsCurve {.
     constructor, importcpp: "IntTools_Curve(@)", header: "IntTools_Curve.hxx".}
-proc SetCurves*(this: var IntTools_Curve; the3dCurve: handle[Geom_Curve];
-               the2dCurve1: handle[Geom2d_Curve];
-               the2dCurve2: handle[Geom2d_Curve]) {.importcpp: "SetCurves",
-    header: "IntTools_Curve.hxx".}
-proc SetCurve*(this: var IntTools_Curve; the3dCurve: handle[Geom_Curve]) {.
+proc setCurves*(this: var IntToolsCurve; the3dCurve: Handle[GeomCurve];
+               the2dCurve1: Handle[Geom2dCurve]; the2dCurve2: Handle[Geom2dCurve]) {.
+    importcpp: "SetCurves", header: "IntTools_Curve.hxx".}
+proc setCurve*(this: var IntToolsCurve; the3dCurve: Handle[GeomCurve]) {.
     importcpp: "SetCurve", header: "IntTools_Curve.hxx".}
-proc SetFirstCurve2d*(this: var IntTools_Curve; the2dCurve1: handle[Geom2d_Curve]) {.
+proc setFirstCurve2d*(this: var IntToolsCurve; the2dCurve1: Handle[Geom2dCurve]) {.
     importcpp: "SetFirstCurve2d", header: "IntTools_Curve.hxx".}
-proc SetSecondCurve2d*(this: var IntTools_Curve; the2dCurve2: handle[Geom2d_Curve]) {.
+proc setSecondCurve2d*(this: var IntToolsCurve; the2dCurve2: Handle[Geom2dCurve]) {.
     importcpp: "SetSecondCurve2d", header: "IntTools_Curve.hxx".}
-proc SetTolerance*(this: var IntTools_Curve; theTolerance: Standard_Real) {.
+proc setTolerance*(this: var IntToolsCurve; theTolerance: float) {.
     importcpp: "SetTolerance", header: "IntTools_Curve.hxx".}
-proc SetTangentialTolerance*(this: var IntTools_Curve;
-                            theTangentialTolerance: Standard_Real) {.
+proc setTangentialTolerance*(this: var IntToolsCurve; theTangentialTolerance: float) {.
     importcpp: "SetTangentialTolerance", header: "IntTools_Curve.hxx".}
-proc Curve*(this: IntTools_Curve): handle[Geom_Curve] {.noSideEffect,
+proc curve*(this: IntToolsCurve): Handle[GeomCurve] {.noSideEffect,
     importcpp: "Curve", header: "IntTools_Curve.hxx".}
-proc FirstCurve2d*(this: IntTools_Curve): handle[Geom2d_Curve] {.noSideEffect,
+proc firstCurve2d*(this: IntToolsCurve): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "FirstCurve2d", header: "IntTools_Curve.hxx".}
-proc SecondCurve2d*(this: IntTools_Curve): handle[Geom2d_Curve] {.noSideEffect,
+proc secondCurve2d*(this: IntToolsCurve): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "SecondCurve2d", header: "IntTools_Curve.hxx".}
-proc Tolerance*(this: IntTools_Curve): Standard_Real {.noSideEffect,
-    importcpp: "Tolerance", header: "IntTools_Curve.hxx".}
-proc TangentialTolerance*(this: IntTools_Curve): Standard_Real {.noSideEffect,
+proc tolerance*(this: IntToolsCurve): float {.noSideEffect, importcpp: "Tolerance",
+    header: "IntTools_Curve.hxx".}
+proc tangentialTolerance*(this: IntToolsCurve): float {.noSideEffect,
     importcpp: "TangentialTolerance", header: "IntTools_Curve.hxx".}
-proc HasBounds*(this: IntTools_Curve): Standard_Boolean {.noSideEffect,
-    importcpp: "HasBounds", header: "IntTools_Curve.hxx".}
-proc Bounds*(this: IntTools_Curve; theFirst: var Standard_Real;
-            theLast: var Standard_Real; theFirstPnt: var gp_Pnt;
-            theLastPnt: var gp_Pnt): Standard_Boolean {.noSideEffect,
+proc hasBounds*(this: IntToolsCurve): bool {.noSideEffect, importcpp: "HasBounds",
+    header: "IntTools_Curve.hxx".}
+proc bounds*(this: IntToolsCurve; theFirst: var float; theLast: var float;
+            theFirstPnt: var Pnt; theLastPnt: var Pnt): bool {.noSideEffect,
     importcpp: "Bounds", header: "IntTools_Curve.hxx".}
-proc D0*(this: IntTools_Curve; thePar: Standard_Real; thePnt: var gp_Pnt): Standard_Boolean {.
-    noSideEffect, importcpp: "D0", header: "IntTools_Curve.hxx".}
-proc Type*(this: IntTools_Curve): GeomAbs_CurveType {.noSideEffect,
+proc d0*(this: IntToolsCurve; thePar: float; thePnt: var Pnt): bool {.noSideEffect,
+    importcpp: "D0", header: "IntTools_Curve.hxx".}
+proc `type`*(this: IntToolsCurve): GeomAbsCurveType {.noSideEffect,
     importcpp: "Type", header: "IntTools_Curve.hxx".}

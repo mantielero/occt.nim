@@ -13,46 +13,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_AngleRelator,
-  StepShape_DimensionalSize
-
 discard "forward decl of StepRepr_ShapeAspect"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_AngularSize"
 discard "forward decl of StepShape_AngularSize"
 type
-  Handle_StepShape_AngularSize* = handle[StepShape_AngularSize]
+  HandleStepShapeAngularSize* = Handle[StepShapeAngularSize]
 
 ## ! Representation of STEP entity AngularSize
 
 type
-  StepShape_AngularSize* {.importcpp: "StepShape_AngularSize",
-                          header: "StepShape_AngularSize.hxx", bycopy.} = object of StepShape_DimensionalSize ##
-                                                                                                       ## !
-                                                                                                       ## Empty
-                                                                                                       ## constructor
+  StepShapeAngularSize* {.importcpp: "StepShape_AngularSize",
+                         header: "StepShape_AngularSize.hxx", bycopy.} = object of StepShapeDimensionalSize ##
+                                                                                                     ## !
+                                                                                                     ## Empty
+                                                                                                     ## constructor
 
 
-proc constructStepShape_AngularSize*(): StepShape_AngularSize {.constructor,
+proc constructStepShapeAngularSize*(): StepShapeAngularSize {.constructor,
     importcpp: "StepShape_AngularSize(@)", header: "StepShape_AngularSize.hxx".}
-proc Init*(this: var StepShape_AngularSize;
-          aDimensionalSize_AppliesTo: handle[StepRepr_ShapeAspect];
-          aDimensionalSize_Name: handle[TCollection_HAsciiString];
-          aAngleSelection: StepShape_AngleRelator) {.importcpp: "Init",
+proc init*(this: var StepShapeAngularSize;
+          aDimensionalSizeAppliesTo: Handle[StepReprShapeAspect];
+          aDimensionalSizeName: Handle[TCollectionHAsciiString];
+          aAngleSelection: StepShapeAngleRelator) {.importcpp: "Init",
     header: "StepShape_AngularSize.hxx".}
-proc AngleSelection*(this: StepShape_AngularSize): StepShape_AngleRelator {.
+proc angleSelection*(this: StepShapeAngularSize): StepShapeAngleRelator {.
     noSideEffect, importcpp: "AngleSelection", header: "StepShape_AngularSize.hxx".}
-proc SetAngleSelection*(this: var StepShape_AngularSize;
-                       AngleSelection: StepShape_AngleRelator) {.
+proc setAngleSelection*(this: var StepShapeAngularSize;
+                       angleSelection: StepShapeAngleRelator) {.
     importcpp: "SetAngleSelection", header: "StepShape_AngularSize.hxx".}
 type
-  StepShape_AngularSizebase_type* = StepShape_DimensionalSize
+  StepShapeAngularSizebaseType* = StepShapeDimensionalSize
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_AngularSize::get_type_name(@)",
-                              header: "StepShape_AngularSize.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_AngularSize::get_type_name(@)",
+                            header: "StepShape_AngularSize.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_AngularSize::get_type_descriptor(@)",
     header: "StepShape_AngularSize.hxx".}
-proc DynamicType*(this: StepShape_AngularSize): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepShape_AngularSize.hxx".}
+proc dynamicType*(this: StepShapeAngularSize): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepShape_AngularSize.hxx".}

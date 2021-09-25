@@ -14,30 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 ## ! taken from directory part of an entity (from file or model),
 ## ! gives "type" and "form" data, used to recognize entity's type
 
 type
-  IGESData_IGESType* {.importcpp: "IGESData_IGESType",
-                      header: "IGESData_IGESType.hxx", bycopy.} = object
+  IGESDataIGESType* {.importcpp: "IGESData_IGESType",
+                     header: "IGESData_IGESType.hxx", bycopy.} = object
 
 
-proc constructIGESData_IGESType*(): IGESData_IGESType {.constructor,
+proc constructIGESDataIGESType*(): IGESDataIGESType {.constructor,
     importcpp: "IGESData_IGESType(@)", header: "IGESData_IGESType.hxx".}
-proc constructIGESData_IGESType*(atype: Standard_Integer; aform: Standard_Integer): IGESData_IGESType {.
+proc constructIGESDataIGESType*(atype: int; aform: int): IGESDataIGESType {.
     constructor, importcpp: "IGESData_IGESType(@)", header: "IGESData_IGESType.hxx".}
-proc Type*(this: IGESData_IGESType): Standard_Integer {.noSideEffect,
-    importcpp: "Type", header: "IGESData_IGESType.hxx".}
-proc Form*(this: IGESData_IGESType): Standard_Integer {.noSideEffect,
-    importcpp: "Form", header: "IGESData_IGESType.hxx".}
-proc IsEqual*(this: IGESData_IGESType; another: IGESData_IGESType): Standard_Boolean {.
-    noSideEffect, importcpp: "IsEqual", header: "IGESData_IGESType.hxx".}
-proc `==`*(this: IGESData_IGESType; another: IGESData_IGESType): Standard_Boolean {.
-    noSideEffect, importcpp: "(# == #)", header: "IGESData_IGESType.hxx".}
-proc Nullify*(this: var IGESData_IGESType) {.importcpp: "Nullify",
-    header: "IGESData_IGESType.hxx".}
+proc `type`*(this: IGESDataIGESType): int {.noSideEffect, importcpp: "Type",
+                                        header: "IGESData_IGESType.hxx".}
+proc form*(this: IGESDataIGESType): int {.noSideEffect, importcpp: "Form",
+                                      header: "IGESData_IGESType.hxx".}
+proc isEqual*(this: IGESDataIGESType; another: IGESDataIGESType): bool {.noSideEffect,
+    importcpp: "IsEqual", header: "IGESData_IGESType.hxx".}
+proc `==`*(this: IGESDataIGESType; another: IGESDataIGESType): bool {.noSideEffect,
+    importcpp: "(# == #)", header: "IGESData_IGESType.hxx".}
+proc nullify*(this: var IGESDataIGESType) {.importcpp: "Nullify",
+                                        header: "IGESData_IGESType.hxx".}

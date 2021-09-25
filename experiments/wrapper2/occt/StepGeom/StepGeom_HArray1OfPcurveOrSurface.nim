@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepGeom_PcurveOrSurface, StepGeom_Array1OfPcurveOrSurface,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepGeom_HArray1OfPcurveOrSurface* {.importcpp: "StepGeom_HArray1OfPcurveOrSurface", header: "StepGeom_HArray1OfPcurveOrSurface.hxx",
-                                      bycopy.} = object of StepGeom_Array1OfPcurveOrSurface
+  StepGeomHArray1OfPcurveOrSurface* {.importcpp: "StepGeom_HArray1OfPcurveOrSurface", header: "StepGeom_HArray1OfPcurveOrSurface.hxx",
+                                     bycopy.} = object of StepGeomArray1OfPcurveOrSurface
 
 
-proc constructStepGeom_HArray1OfPcurveOrSurface*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepGeom_HArray1OfPcurveOrSurface {.constructor,
+proc constructStepGeomHArray1OfPcurveOrSurface*(theLower: int; theUpper: int): StepGeomHArray1OfPcurveOrSurface {.
+    constructor, importcpp: "StepGeom_HArray1OfPcurveOrSurface(@)",
+    header: "StepGeom_HArray1OfPcurveOrSurface.hxx".}
+proc constructStepGeomHArray1OfPcurveOrSurface*(theLower: int; theUpper: int;
+    theValue: ValueType): StepGeomHArray1OfPcurveOrSurface {.constructor,
     importcpp: "StepGeom_HArray1OfPcurveOrSurface(@)",
     header: "StepGeom_HArray1OfPcurveOrSurface.hxx".}
-proc constructStepGeom_HArray1OfPcurveOrSurface*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepGeom_HArray1OfPcurveOrSurface {.
+proc constructStepGeomHArray1OfPcurveOrSurface*(
+    theOther: StepGeomArray1OfPcurveOrSurface): StepGeomHArray1OfPcurveOrSurface {.
     constructor, importcpp: "StepGeom_HArray1OfPcurveOrSurface(@)",
     header: "StepGeom_HArray1OfPcurveOrSurface.hxx".}
-proc constructStepGeom_HArray1OfPcurveOrSurface*(
-    theOther: StepGeom_Array1OfPcurveOrSurface): StepGeom_HArray1OfPcurveOrSurface {.
-    constructor, importcpp: "StepGeom_HArray1OfPcurveOrSurface(@)",
-    header: "StepGeom_HArray1OfPcurveOrSurface.hxx".}
-proc Array1*(this: StepGeom_HArray1OfPcurveOrSurface): StepGeom_Array1OfPcurveOrSurface {.
+proc array1*(this: StepGeomHArray1OfPcurveOrSurface): StepGeomArray1OfPcurveOrSurface {.
     noSideEffect, importcpp: "Array1",
     header: "StepGeom_HArray1OfPcurveOrSurface.hxx".}
-proc ChangeArray1*(this: var StepGeom_HArray1OfPcurveOrSurface): var StepGeom_Array1OfPcurveOrSurface {.
+proc changeArray1*(this: var StepGeomHArray1OfPcurveOrSurface): var StepGeomArray1OfPcurveOrSurface {.
     importcpp: "ChangeArray1", header: "StepGeom_HArray1OfPcurveOrSurface.hxx".}
 type
-  StepGeom_HArray1OfPcurveOrSurfacebase_type* = MMgt_TShared
+  StepGeomHArray1OfPcurveOrSurfacebaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_HArray1OfPcurveOrSurface::get_type_name(@)",
-                              header: "StepGeom_HArray1OfPcurveOrSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_HArray1OfPcurveOrSurface::get_type_name(@)",
+                            header: "StepGeom_HArray1OfPcurveOrSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_HArray1OfPcurveOrSurface::get_type_descriptor(@)",
     header: "StepGeom_HArray1OfPcurveOrSurface.hxx".}
-proc DynamicType*(this: StepGeom_HArray1OfPcurveOrSurface): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomHArray1OfPcurveOrSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_HArray1OfPcurveOrSurface.hxx".}

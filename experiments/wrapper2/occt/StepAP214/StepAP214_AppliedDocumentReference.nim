@@ -14,51 +14,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP214_HArray1OfDocumentReferenceItem,
-  ../StepBasic/StepBasic_DocumentReference, ../Standard/Standard_Integer
-
 discard "forward decl of StepBasic_Document"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepAP214_DocumentReferenceItem"
 discard "forward decl of StepAP214_AppliedDocumentReference"
 discard "forward decl of StepAP214_AppliedDocumentReference"
 type
-  Handle_StepAP214_AppliedDocumentReference* = handle[
-      StepAP214_AppliedDocumentReference]
-  StepAP214_AppliedDocumentReference* {.importcpp: "StepAP214_AppliedDocumentReference", header: "StepAP214_AppliedDocumentReference.hxx",
-                                       bycopy.} = object of StepBasic_DocumentReference
+  HandleStepAP214AppliedDocumentReference* = Handle[
+      StepAP214AppliedDocumentReference]
+  StepAP214AppliedDocumentReference* {.importcpp: "StepAP214_AppliedDocumentReference", header: "StepAP214_AppliedDocumentReference.hxx",
+                                      bycopy.} = object of StepBasicDocumentReference
 
 
-proc constructStepAP214_AppliedDocumentReference*(): StepAP214_AppliedDocumentReference {.
+proc constructStepAP214AppliedDocumentReference*(): StepAP214AppliedDocumentReference {.
     constructor, importcpp: "StepAP214_AppliedDocumentReference(@)",
     header: "StepAP214_AppliedDocumentReference.hxx".}
-proc Init*(this: var StepAP214_AppliedDocumentReference;
-          aAssignedDocument: handle[StepBasic_Document];
-          aSource: handle[TCollection_HAsciiString];
-          aItems: handle[StepAP214_HArray1OfDocumentReferenceItem]) {.
+proc init*(this: var StepAP214AppliedDocumentReference;
+          aAssignedDocument: Handle[StepBasicDocument];
+          aSource: Handle[TCollectionHAsciiString];
+          aItems: Handle[StepAP214HArray1OfDocumentReferenceItem]) {.
     importcpp: "Init", header: "StepAP214_AppliedDocumentReference.hxx".}
-proc Items*(this: StepAP214_AppliedDocumentReference): handle[
-    StepAP214_HArray1OfDocumentReferenceItem] {.noSideEffect, importcpp: "Items",
+proc items*(this: StepAP214AppliedDocumentReference): Handle[
+    StepAP214HArray1OfDocumentReferenceItem] {.noSideEffect, importcpp: "Items",
     header: "StepAP214_AppliedDocumentReference.hxx".}
-proc SetItems*(this: var StepAP214_AppliedDocumentReference;
-              aItems: handle[StepAP214_HArray1OfDocumentReferenceItem]) {.
+proc setItems*(this: var StepAP214AppliedDocumentReference;
+              aItems: Handle[StepAP214HArray1OfDocumentReferenceItem]) {.
     importcpp: "SetItems", header: "StepAP214_AppliedDocumentReference.hxx".}
-proc ItemsValue*(this: StepAP214_AppliedDocumentReference; num: Standard_Integer): StepAP214_DocumentReferenceItem {.
+proc itemsValue*(this: StepAP214AppliedDocumentReference; num: int): StepAP214DocumentReferenceItem {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AppliedDocumentReference.hxx".}
-proc NbItems*(this: StepAP214_AppliedDocumentReference): Standard_Integer {.
-    noSideEffect, importcpp: "NbItems",
-    header: "StepAP214_AppliedDocumentReference.hxx".}
+proc nbItems*(this: StepAP214AppliedDocumentReference): int {.noSideEffect,
+    importcpp: "NbItems", header: "StepAP214_AppliedDocumentReference.hxx".}
 type
-  StepAP214_AppliedDocumentReferencebase_type* = StepBasic_DocumentReference
+  StepAP214AppliedDocumentReferencebaseType* = StepBasicDocumentReference
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_AppliedDocumentReference::get_type_name(@)",
-                              header: "StepAP214_AppliedDocumentReference.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP214_AppliedDocumentReference::get_type_name(@)",
+                            header: "StepAP214_AppliedDocumentReference.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP214_AppliedDocumentReference::get_type_descriptor(@)",
     header: "StepAP214_AppliedDocumentReference.hxx".}
-proc DynamicType*(this: StepAP214_AppliedDocumentReference): handle[Standard_Type] {.
+proc dynamicType*(this: StepAP214AppliedDocumentReference): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_AppliedDocumentReference.hxx".}

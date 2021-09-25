@@ -13,44 +13,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../IMeshTools/IMeshTools_ModelAlgo, ../IMeshTools/IMeshTools_Parameters,
-  ../IMeshData/IMeshData_Types
-
 ## ! Class implements functionality of model post-processing tool.
 ## ! Stores polygons on triangulations to TopoDS_Edge.
 
 type
-  BRepMesh_ModelPostProcessor* {.importcpp: "BRepMesh_ModelPostProcessor",
-                                header: "BRepMesh_ModelPostProcessor.hxx", bycopy.} = object of IMeshTools_ModelAlgo ##
-                                                                                                              ## !
-                                                                                                              ## Constructor.
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## Performs
-                                                                                                              ## processing
-                                                                                                              ## of
-                                                                                                              ## edges
-                                                                                                              ## of
-                                                                                                              ## the
-                                                                                                              ## given
-                                                                                                              ## model.
+  BRepMeshModelPostProcessor* {.importcpp: "BRepMesh_ModelPostProcessor",
+                               header: "BRepMesh_ModelPostProcessor.hxx", bycopy.} = object of IMeshToolsModelAlgo ##
+                                                                                                            ## !
+                                                                                                            ## Constructor.
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## Performs
+                                                                                                            ## processing
+                                                                                                            ## of
+                                                                                                            ## edges
+                                                                                                            ## of
+                                                                                                            ## the
+                                                                                                            ## given
+                                                                                                            ## model.
 
 
-proc constructBRepMesh_ModelPostProcessor*(): BRepMesh_ModelPostProcessor {.
+proc constructBRepMeshModelPostProcessor*(): BRepMeshModelPostProcessor {.
     constructor, importcpp: "BRepMesh_ModelPostProcessor(@)",
     header: "BRepMesh_ModelPostProcessor.hxx".}
-proc destroyBRepMesh_ModelPostProcessor*(this: var BRepMesh_ModelPostProcessor) {.
+proc destroyBRepMeshModelPostProcessor*(this: var BRepMeshModelPostProcessor) {.
     importcpp: "#.~BRepMesh_ModelPostProcessor()",
     header: "BRepMesh_ModelPostProcessor.hxx".}
 type
-  BRepMesh_ModelPostProcessorbase_type* = IMeshTools_ModelAlgo
+  BRepMeshModelPostProcessorbaseType* = IMeshToolsModelAlgo
 
-proc get_type_name*(): cstring {.importcpp: "BRepMesh_ModelPostProcessor::get_type_name(@)",
-                              header: "BRepMesh_ModelPostProcessor.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepMesh_ModelPostProcessor::get_type_name(@)",
+                            header: "BRepMesh_ModelPostProcessor.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepMesh_ModelPostProcessor::get_type_descriptor(@)",
     header: "BRepMesh_ModelPostProcessor.hxx".}
-proc DynamicType*(this: BRepMesh_ModelPostProcessor): handle[Standard_Type] {.
+proc dynamicType*(this: BRepMeshModelPostProcessor): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BRepMesh_ModelPostProcessor.hxx".}

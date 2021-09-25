@@ -14,40 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_BoxCharacteristicSelect, StepVisual_Array1OfBoxCharacteristicSelect,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepVisual_HArray1OfBoxCharacteristicSelect* {.
+  StepVisualHArray1OfBoxCharacteristicSelect* {.
       importcpp: "StepVisual_HArray1OfBoxCharacteristicSelect",
-      header: "StepVisual_HArray1OfBoxCharacteristicSelect.hxx", bycopy.} = object of StepVisual_Array1OfBoxCharacteristicSelect
+      header: "StepVisual_HArray1OfBoxCharacteristicSelect.hxx", bycopy.} = object of StepVisualArray1OfBoxCharacteristicSelect
 
 
-proc constructStepVisual_HArray1OfBoxCharacteristicSelect*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepVisual_HArray1OfBoxCharacteristicSelect {.
+proc constructStepVisualHArray1OfBoxCharacteristicSelect*(theLower: int;
+    theUpper: int): StepVisualHArray1OfBoxCharacteristicSelect {.constructor,
+    importcpp: "StepVisual_HArray1OfBoxCharacteristicSelect(@)",
+    header: "StepVisual_HArray1OfBoxCharacteristicSelect.hxx".}
+proc constructStepVisualHArray1OfBoxCharacteristicSelect*(theLower: int;
+    theUpper: int; theValue: ValueType): StepVisualHArray1OfBoxCharacteristicSelect {.
     constructor, importcpp: "StepVisual_HArray1OfBoxCharacteristicSelect(@)",
     header: "StepVisual_HArray1OfBoxCharacteristicSelect.hxx".}
-proc constructStepVisual_HArray1OfBoxCharacteristicSelect*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepVisual_HArray1OfBoxCharacteristicSelect {.
+proc constructStepVisualHArray1OfBoxCharacteristicSelect*(
+    theOther: StepVisualArray1OfBoxCharacteristicSelect): StepVisualHArray1OfBoxCharacteristicSelect {.
     constructor, importcpp: "StepVisual_HArray1OfBoxCharacteristicSelect(@)",
     header: "StepVisual_HArray1OfBoxCharacteristicSelect.hxx".}
-proc constructStepVisual_HArray1OfBoxCharacteristicSelect*(
-    theOther: StepVisual_Array1OfBoxCharacteristicSelect): StepVisual_HArray1OfBoxCharacteristicSelect {.
-    constructor, importcpp: "StepVisual_HArray1OfBoxCharacteristicSelect(@)",
-    header: "StepVisual_HArray1OfBoxCharacteristicSelect.hxx".}
-proc Array1*(this: StepVisual_HArray1OfBoxCharacteristicSelect): StepVisual_Array1OfBoxCharacteristicSelect {.
+proc array1*(this: StepVisualHArray1OfBoxCharacteristicSelect): StepVisualArray1OfBoxCharacteristicSelect {.
     noSideEffect, importcpp: "Array1",
     header: "StepVisual_HArray1OfBoxCharacteristicSelect.hxx".}
-proc ChangeArray1*(this: var StepVisual_HArray1OfBoxCharacteristicSelect): var StepVisual_Array1OfBoxCharacteristicSelect {.
+proc changeArray1*(this: var StepVisualHArray1OfBoxCharacteristicSelect): var StepVisualArray1OfBoxCharacteristicSelect {.
     importcpp: "ChangeArray1",
     header: "StepVisual_HArray1OfBoxCharacteristicSelect.hxx".}
 type
-  StepVisual_HArray1OfBoxCharacteristicSelectbase_type* = MMgt_TShared
+  StepVisualHArray1OfBoxCharacteristicSelectbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_HArray1OfBoxCharacteristicSelect::get_type_name(@)", header: "StepVisual_HArray1OfBoxCharacteristicSelect.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_HArray1OfBoxCharacteristicSelect::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepVisual_HArray1OfBoxCharacteristicSelect::get_type_name(@)", header: "StepVisual_HArray1OfBoxCharacteristicSelect.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_HArray1OfBoxCharacteristicSelect::get_type_descriptor(@)",
     header: "StepVisual_HArray1OfBoxCharacteristicSelect.hxx".}
-proc DynamicType*(this: StepVisual_HArray1OfBoxCharacteristicSelect): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepVisual_HArray1OfBoxCharacteristicSelect.hxx".}
+proc dynamicType*(this: StepVisualHArray1OfBoxCharacteristicSelect): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepVisual_HArray1OfBoxCharacteristicSelect.hxx".}

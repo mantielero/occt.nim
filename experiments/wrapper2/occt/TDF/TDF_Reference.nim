@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TDF_Label, TDF_Attribute,
-  ../Standard/Standard_OStream
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
 discard "forward decl of TDF_Attribute"
@@ -25,7 +21,7 @@ discard "forward decl of TDF_DataSet"
 discard "forward decl of TDF_Reference"
 discard "forward decl of TDF_Reference"
 type
-  Handle_TDF_Reference* = handle[TDF_Reference]
+  HandleTDF_Reference* = Handle[TDF_Reference]
 
 ## ! This  attribute is  used to  store in the  framework a
 ## ! reference to an other label.
@@ -34,39 +30,39 @@ type
   TDF_Reference* {.importcpp: "TDF_Reference", header: "TDF_Reference.hxx", bycopy.} = object of TDF_Attribute
 
 
-proc GetID*(): Standard_GUID {.importcpp: "TDF_Reference::GetID(@)",
-                            header: "TDF_Reference.hxx".}
-proc Set*(I: TDF_Label; Origin: TDF_Label): handle[TDF_Reference] {.
+proc getID*(): StandardGUID {.importcpp: "TDF_Reference::GetID(@)",
+                           header: "TDF_Reference.hxx".}
+proc set*(i: TDF_Label; origin: TDF_Label): Handle[TDF_Reference] {.
     importcpp: "TDF_Reference::Set(@)", header: "TDF_Reference.hxx".}
-proc Set*(this: var TDF_Reference; Origin: TDF_Label) {.importcpp: "Set",
+proc set*(this: var TDF_Reference; origin: TDF_Label) {.importcpp: "Set",
     header: "TDF_Reference.hxx".}
-proc Get*(this: TDF_Reference): TDF_Label {.noSideEffect, importcpp: "Get",
+proc get*(this: TDF_Reference): TDF_Label {.noSideEffect, importcpp: "Get",
                                         header: "TDF_Reference.hxx".}
-proc ID*(this: TDF_Reference): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TDF_Reference): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TDF_Reference.hxx".}
-proc Restore*(this: var TDF_Reference; With: handle[TDF_Attribute]) {.
+proc restore*(this: var TDF_Reference; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TDF_Reference.hxx".}
-proc NewEmpty*(this: TDF_Reference): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TDF_Reference): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TDF_Reference.hxx".}
-proc Paste*(this: TDF_Reference; Into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TDF_Reference; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TDF_Reference.hxx".}
-proc References*(this: TDF_Reference; DS: handle[TDF_DataSet]) {.noSideEffect,
+proc references*(this: TDF_Reference; ds: Handle[TDF_DataSet]) {.noSideEffect,
     importcpp: "References", header: "TDF_Reference.hxx".}
-proc Dump*(this: TDF_Reference; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDF_Reference; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDF_Reference.hxx".}
 proc constructTDF_Reference*(): TDF_Reference {.constructor,
     importcpp: "TDF_Reference(@)", header: "TDF_Reference.hxx".}
-proc DumpJson*(this: TDF_Reference; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TDF_Reference.hxx".}
+proc dumpJson*(this: TDF_Reference; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TDF_Reference.hxx".}
 type
-  TDF_Referencebase_type* = TDF_Attribute
+  TDF_ReferencebaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TDF_Reference::get_type_name(@)",
-                              header: "TDF_Reference.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDF_Reference::get_type_name(@)",
+                            header: "TDF_Reference.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDF_Reference::get_type_descriptor(@)",
     header: "TDF_Reference.hxx".}
-proc DynamicType*(this: TDF_Reference): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDF_Reference): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDF_Reference.hxx".}

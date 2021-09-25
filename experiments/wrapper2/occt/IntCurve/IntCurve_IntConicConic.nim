@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, IntCurve_IntImpConicParConic,
-  ../IntRes2d/IntRes2d_Intersection, ../Standard/Standard_Real
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of gp_Lin2d"
 discard "forward decl of IntRes2d_Domain"
@@ -27,147 +22,117 @@ discard "forward decl of gp_Elips2d"
 discard "forward decl of gp_Parab2d"
 discard "forward decl of gp_Hypr2d"
 type
-  IntCurve_IntConicConic* {.importcpp: "IntCurve_IntConicConic",
-                           header: "IntCurve_IntConicConic.hxx", bycopy.} = object of IntRes2d_Intersection ##
-                                                                                                     ## !
-                                                                                                     ## Empty
-                                                                                                     ## Constructor
+  IntCurveIntConicConic* {.importcpp: "IntCurve_IntConicConic",
+                          header: "IntCurve_IntConicConic.hxx", bycopy.} = object of IntRes2dIntersection ##
+                                                                                                   ## !
+                                                                                                   ## Empty
+                                                                                                   ## Constructor
 
 
-proc constructIntCurve_IntConicConic*(): IntCurve_IntConicConic {.constructor,
+proc constructIntCurveIntConicConic*(): IntCurveIntConicConic {.constructor,
     importcpp: "IntCurve_IntConicConic(@)", header: "IntCurve_IntConicConic.hxx".}
-proc constructIntCurve_IntConicConic*(L1: gp_Lin2d; D1: IntRes2d_Domain;
-                                     L2: gp_Lin2d; D2: IntRes2d_Domain;
-                                     TolConf: Standard_Real; Tol: Standard_Real): IntCurve_IntConicConic {.
+proc constructIntCurveIntConicConic*(l1: Lin2d; d1: IntRes2dDomain; l2: Lin2d;
+                                    d2: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
-proc Perform*(this: var IntCurve_IntConicConic; L1: gp_Lin2d; D1: IntRes2d_Domain;
-             L2: gp_Lin2d; D2: IntRes2d_Domain; TolConf: Standard_Real;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntCurve_IntConicConic.hxx".}
-proc constructIntCurve_IntConicConic*(L: gp_Lin2d; DL: IntRes2d_Domain; C: gp_Circ2d;
-                                     DC: IntRes2d_Domain; TolConf: Standard_Real;
-                                     Tol: Standard_Real): IntCurve_IntConicConic {.
+proc perform*(this: var IntCurveIntConicConic; l1: Lin2d; d1: IntRes2dDomain; l2: Lin2d;
+             d2: IntRes2dDomain; tolConf: float; tol: float) {.importcpp: "Perform",
+    header: "IntCurve_IntConicConic.hxx".}
+proc constructIntCurveIntConicConic*(L: Lin2d; dl: IntRes2dDomain; c: Circ2d;
+                                    dc: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
-proc Perform*(this: var IntCurve_IntConicConic; L: gp_Lin2d; DL: IntRes2d_Domain;
-             C: gp_Circ2d; DC: IntRes2d_Domain; TolConf: Standard_Real;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntCurve_IntConicConic.hxx".}
-proc constructIntCurve_IntConicConic*(L: gp_Lin2d; DL: IntRes2d_Domain;
-                                     E: gp_Elips2d; DE: IntRes2d_Domain;
-                                     TolConf: Standard_Real; Tol: Standard_Real): IntCurve_IntConicConic {.
+proc perform*(this: var IntCurveIntConicConic; L: Lin2d; dl: IntRes2dDomain; c: Circ2d;
+             dc: IntRes2dDomain; tolConf: float; tol: float) {.importcpp: "Perform",
+    header: "IntCurve_IntConicConic.hxx".}
+proc constructIntCurveIntConicConic*(L: Lin2d; dl: IntRes2dDomain; e: Elips2d;
+                                    de: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
-proc Perform*(this: var IntCurve_IntConicConic; L: gp_Lin2d; DL: IntRes2d_Domain;
-             E: gp_Elips2d; DE: IntRes2d_Domain; TolConf: Standard_Real;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntCurve_IntConicConic.hxx".}
-proc constructIntCurve_IntConicConic*(L: gp_Lin2d; DL: IntRes2d_Domain;
-                                     P: gp_Parab2d; DP: IntRes2d_Domain;
-                                     TolConf: Standard_Real; Tol: Standard_Real): IntCurve_IntConicConic {.
+proc perform*(this: var IntCurveIntConicConic; L: Lin2d; dl: IntRes2dDomain; e: Elips2d;
+             de: IntRes2dDomain; tolConf: float; tol: float) {.importcpp: "Perform",
+    header: "IntCurve_IntConicConic.hxx".}
+proc constructIntCurveIntConicConic*(L: Lin2d; dl: IntRes2dDomain; p: Parab2d;
+                                    dp: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
-proc Perform*(this: var IntCurve_IntConicConic; L: gp_Lin2d; DL: IntRes2d_Domain;
-             P: gp_Parab2d; DP: IntRes2d_Domain; TolConf: Standard_Real;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntCurve_IntConicConic.hxx".}
-proc constructIntCurve_IntConicConic*(L: gp_Lin2d; DL: IntRes2d_Domain; H: gp_Hypr2d;
-                                     DH: IntRes2d_Domain; TolConf: Standard_Real;
-                                     Tol: Standard_Real): IntCurve_IntConicConic {.
+proc perform*(this: var IntCurveIntConicConic; L: Lin2d; dl: IntRes2dDomain; p: Parab2d;
+             dp: IntRes2dDomain; tolConf: float; tol: float) {.importcpp: "Perform",
+    header: "IntCurve_IntConicConic.hxx".}
+proc constructIntCurveIntConicConic*(L: Lin2d; dl: IntRes2dDomain; h: Hypr2d;
+                                    dh: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
-proc Perform*(this: var IntCurve_IntConicConic; L: gp_Lin2d; DL: IntRes2d_Domain;
-             H: gp_Hypr2d; DH: IntRes2d_Domain; TolConf: Standard_Real;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntCurve_IntConicConic.hxx".}
-proc constructIntCurve_IntConicConic*(C1: gp_Circ2d; D1: IntRes2d_Domain;
-                                     C2: gp_Circ2d; D2: IntRes2d_Domain;
-                                     TolConf: Standard_Real; Tol: Standard_Real): IntCurve_IntConicConic {.
+proc perform*(this: var IntCurveIntConicConic; L: Lin2d; dl: IntRes2dDomain; h: Hypr2d;
+             dh: IntRes2dDomain; tolConf: float; tol: float) {.importcpp: "Perform",
+    header: "IntCurve_IntConicConic.hxx".}
+proc constructIntCurveIntConicConic*(c1: Circ2d; d1: IntRes2dDomain; c2: Circ2d;
+                                    d2: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
-proc Perform*(this: var IntCurve_IntConicConic; C1: gp_Circ2d; D1: IntRes2d_Domain;
-             C2: gp_Circ2d; D2: IntRes2d_Domain; TolConf: Standard_Real;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntCurve_IntConicConic.hxx".}
-proc constructIntCurve_IntConicConic*(C: gp_Circ2d; DC: IntRes2d_Domain;
-                                     E: gp_Elips2d; DE: IntRes2d_Domain;
-                                     TolConf: Standard_Real; Tol: Standard_Real): IntCurve_IntConicConic {.
+proc perform*(this: var IntCurveIntConicConic; c1: Circ2d; d1: IntRes2dDomain;
+             c2: Circ2d; d2: IntRes2dDomain; tolConf: float; tol: float) {.
+    importcpp: "Perform", header: "IntCurve_IntConicConic.hxx".}
+proc constructIntCurveIntConicConic*(c: Circ2d; dc: IntRes2dDomain; e: Elips2d;
+                                    de: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
-proc Perform*(this: var IntCurve_IntConicConic; C: gp_Circ2d; DC: IntRes2d_Domain;
-             E: gp_Elips2d; DE: IntRes2d_Domain; TolConf: Standard_Real;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntCurve_IntConicConic.hxx".}
-proc constructIntCurve_IntConicConic*(C: gp_Circ2d; DC: IntRes2d_Domain;
-                                     P: gp_Parab2d; DP: IntRes2d_Domain;
-                                     TolConf: Standard_Real; Tol: Standard_Real): IntCurve_IntConicConic {.
+proc perform*(this: var IntCurveIntConicConic; c: Circ2d; dc: IntRes2dDomain;
+             e: Elips2d; de: IntRes2dDomain; tolConf: float; tol: float) {.
+    importcpp: "Perform", header: "IntCurve_IntConicConic.hxx".}
+proc constructIntCurveIntConicConic*(c: Circ2d; dc: IntRes2dDomain; p: Parab2d;
+                                    dp: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
-proc Perform*(this: var IntCurve_IntConicConic; C: gp_Circ2d; DC: IntRes2d_Domain;
-             P: gp_Parab2d; DP: IntRes2d_Domain; TolConf: Standard_Real;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntCurve_IntConicConic.hxx".}
-proc constructIntCurve_IntConicConic*(C: gp_Circ2d; DC: IntRes2d_Domain;
-                                     H: gp_Hypr2d; DH: IntRes2d_Domain;
-                                     TolConf: Standard_Real; Tol: Standard_Real): IntCurve_IntConicConic {.
+proc perform*(this: var IntCurveIntConicConic; c: Circ2d; dc: IntRes2dDomain;
+             p: Parab2d; dp: IntRes2dDomain; tolConf: float; tol: float) {.
+    importcpp: "Perform", header: "IntCurve_IntConicConic.hxx".}
+proc constructIntCurveIntConicConic*(c: Circ2d; dc: IntRes2dDomain; h: Hypr2d;
+                                    dh: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
-proc Perform*(this: var IntCurve_IntConicConic; C: gp_Circ2d; DC: IntRes2d_Domain;
-             H: gp_Hypr2d; DH: IntRes2d_Domain; TolConf: Standard_Real;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntCurve_IntConicConic.hxx".}
-proc constructIntCurve_IntConicConic*(E1: gp_Elips2d; D1: IntRes2d_Domain;
-                                     E2: gp_Elips2d; D2: IntRes2d_Domain;
-                                     TolConf: Standard_Real; Tol: Standard_Real): IntCurve_IntConicConic {.
+proc perform*(this: var IntCurveIntConicConic; c: Circ2d; dc: IntRes2dDomain; h: Hypr2d;
+             dh: IntRes2dDomain; tolConf: float; tol: float) {.importcpp: "Perform",
+    header: "IntCurve_IntConicConic.hxx".}
+proc constructIntCurveIntConicConic*(e1: Elips2d; d1: IntRes2dDomain; e2: Elips2d;
+                                    d2: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
-proc Perform*(this: var IntCurve_IntConicConic; E1: gp_Elips2d; D1: IntRes2d_Domain;
-             E2: gp_Elips2d; D2: IntRes2d_Domain; TolConf: Standard_Real;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntCurve_IntConicConic.hxx".}
-proc constructIntCurve_IntConicConic*(E: gp_Elips2d; DE: IntRes2d_Domain;
-                                     P: gp_Parab2d; DP: IntRes2d_Domain;
-                                     TolConf: Standard_Real; Tol: Standard_Real): IntCurve_IntConicConic {.
+proc perform*(this: var IntCurveIntConicConic; e1: Elips2d; d1: IntRes2dDomain;
+             e2: Elips2d; d2: IntRes2dDomain; tolConf: float; tol: float) {.
+    importcpp: "Perform", header: "IntCurve_IntConicConic.hxx".}
+proc constructIntCurveIntConicConic*(e: Elips2d; de: IntRes2dDomain; p: Parab2d;
+                                    dp: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
-proc Perform*(this: var IntCurve_IntConicConic; E: gp_Elips2d; DE: IntRes2d_Domain;
-             P: gp_Parab2d; DP: IntRes2d_Domain; TolConf: Standard_Real;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntCurve_IntConicConic.hxx".}
-proc constructIntCurve_IntConicConic*(E: gp_Elips2d; DE: IntRes2d_Domain;
-                                     H: gp_Hypr2d; DH: IntRes2d_Domain;
-                                     TolConf: Standard_Real; Tol: Standard_Real): IntCurve_IntConicConic {.
+proc perform*(this: var IntCurveIntConicConic; e: Elips2d; de: IntRes2dDomain;
+             p: Parab2d; dp: IntRes2dDomain; tolConf: float; tol: float) {.
+    importcpp: "Perform", header: "IntCurve_IntConicConic.hxx".}
+proc constructIntCurveIntConicConic*(e: Elips2d; de: IntRes2dDomain; h: Hypr2d;
+                                    dh: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
-proc Perform*(this: var IntCurve_IntConicConic; E: gp_Elips2d; DE: IntRes2d_Domain;
-             H: gp_Hypr2d; DH: IntRes2d_Domain; TolConf: Standard_Real;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntCurve_IntConicConic.hxx".}
-proc constructIntCurve_IntConicConic*(P1: gp_Parab2d; D1: IntRes2d_Domain;
-                                     P2: gp_Parab2d; D2: IntRes2d_Domain;
-                                     TolConf: Standard_Real; Tol: Standard_Real): IntCurve_IntConicConic {.
+proc perform*(this: var IntCurveIntConicConic; e: Elips2d; de: IntRes2dDomain;
+             h: Hypr2d; dh: IntRes2dDomain; tolConf: float; tol: float) {.
+    importcpp: "Perform", header: "IntCurve_IntConicConic.hxx".}
+proc constructIntCurveIntConicConic*(p1: Parab2d; d1: IntRes2dDomain; p2: Parab2d;
+                                    d2: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
-proc Perform*(this: var IntCurve_IntConicConic; P1: gp_Parab2d; D1: IntRes2d_Domain;
-             P2: gp_Parab2d; D2: IntRes2d_Domain; TolConf: Standard_Real;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntCurve_IntConicConic.hxx".}
-proc constructIntCurve_IntConicConic*(P: gp_Parab2d; DP: IntRes2d_Domain;
-                                     H: gp_Hypr2d; DH: IntRes2d_Domain;
-                                     TolConf: Standard_Real; Tol: Standard_Real): IntCurve_IntConicConic {.
+proc perform*(this: var IntCurveIntConicConic; p1: Parab2d; d1: IntRes2dDomain;
+             p2: Parab2d; d2: IntRes2dDomain; tolConf: float; tol: float) {.
+    importcpp: "Perform", header: "IntCurve_IntConicConic.hxx".}
+proc constructIntCurveIntConicConic*(p: Parab2d; dp: IntRes2dDomain; h: Hypr2d;
+                                    dh: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
-proc Perform*(this: var IntCurve_IntConicConic; P: gp_Parab2d; DP: IntRes2d_Domain;
-             H: gp_Hypr2d; DH: IntRes2d_Domain; TolConf: Standard_Real;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntCurve_IntConicConic.hxx".}
-proc constructIntCurve_IntConicConic*(H1: gp_Hypr2d; D1: IntRes2d_Domain;
-                                     H2: gp_Hypr2d; D2: IntRes2d_Domain;
-                                     TolConf: Standard_Real; Tol: Standard_Real): IntCurve_IntConicConic {.
+proc perform*(this: var IntCurveIntConicConic; p: Parab2d; dp: IntRes2dDomain;
+             h: Hypr2d; dh: IntRes2dDomain; tolConf: float; tol: float) {.
+    importcpp: "Perform", header: "IntCurve_IntConicConic.hxx".}
+proc constructIntCurveIntConicConic*(h1: Hypr2d; d1: IntRes2dDomain; h2: Hypr2d;
+                                    d2: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
-proc Perform*(this: var IntCurve_IntConicConic; H1: gp_Hypr2d; D1: IntRes2d_Domain;
-             H2: gp_Hypr2d; D2: IntRes2d_Domain; TolConf: Standard_Real;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntCurve_IntConicConic.hxx".}
+proc perform*(this: var IntCurveIntConicConic; h1: Hypr2d; d1: IntRes2dDomain;
+             h2: Hypr2d; d2: IntRes2dDomain; tolConf: float; tol: float) {.
+    importcpp: "Perform", header: "IntCurve_IntConicConic.hxx".}

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESDraw_LabelDisplay"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,44 +26,41 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESDraw_ToolLabelDisplay* {.importcpp: "IGESDraw_ToolLabelDisplay",
-                              header: "IGESDraw_ToolLabelDisplay.hxx", bycopy.} = object ##
-                                                                                    ## !
-                                                                                    ## Returns
-                                                                                    ## a
-                                                                                    ## ToolLabelDisplay,
-                                                                                    ## ready
-                                                                                    ## to
-                                                                                    ## work
+  IGESDrawToolLabelDisplay* {.importcpp: "IGESDraw_ToolLabelDisplay",
+                             header: "IGESDraw_ToolLabelDisplay.hxx", bycopy.} = object ##
+                                                                                   ## !
+                                                                                   ## Returns
+                                                                                   ## a
+                                                                                   ## ToolLabelDisplay,
+                                                                                   ## ready
+                                                                                   ## to
+                                                                                   ## work
 
 
-proc constructIGESDraw_ToolLabelDisplay*(): IGESDraw_ToolLabelDisplay {.
-    constructor, importcpp: "IGESDraw_ToolLabelDisplay(@)",
+proc constructIGESDrawToolLabelDisplay*(): IGESDrawToolLabelDisplay {.constructor,
+    importcpp: "IGESDraw_ToolLabelDisplay(@)",
     header: "IGESDraw_ToolLabelDisplay.hxx".}
-proc ReadOwnParams*(this: IGESDraw_ToolLabelDisplay;
-                   ent: handle[IGESDraw_LabelDisplay];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESDraw_ToolLabelDisplay.hxx".}
-proc WriteOwnParams*(this: IGESDraw_ToolLabelDisplay;
-                    ent: handle[IGESDraw_LabelDisplay];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
-    importcpp: "WriteOwnParams", header: "IGESDraw_ToolLabelDisplay.hxx".}
-proc OwnShared*(this: IGESDraw_ToolLabelDisplay;
-               ent: handle[IGESDraw_LabelDisplay];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc readOwnParams*(this: IGESDrawToolLabelDisplay;
+                   ent: Handle[IGESDrawLabelDisplay];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESDraw_ToolLabelDisplay.hxx".}
+proc writeOwnParams*(this: IGESDrawToolLabelDisplay;
+                    ent: Handle[IGESDrawLabelDisplay]; iw: var IGESDataIGESWriter) {.
+    noSideEffect, importcpp: "WriteOwnParams",
+    header: "IGESDraw_ToolLabelDisplay.hxx".}
+proc ownShared*(this: IGESDrawToolLabelDisplay; ent: Handle[IGESDrawLabelDisplay];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESDraw_ToolLabelDisplay.hxx".}
-proc DirChecker*(this: IGESDraw_ToolLabelDisplay;
-                ent: handle[IGESDraw_LabelDisplay]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESDrawToolLabelDisplay; ent: Handle[IGESDrawLabelDisplay]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESDraw_ToolLabelDisplay.hxx".}
-proc OwnCheck*(this: IGESDraw_ToolLabelDisplay; ent: handle[IGESDraw_LabelDisplay];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESDrawToolLabelDisplay; ent: Handle[IGESDrawLabelDisplay];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESDraw_ToolLabelDisplay.hxx".}
-proc OwnCopy*(this: IGESDraw_ToolLabelDisplay;
-             entfrom: handle[IGESDraw_LabelDisplay];
-             entto: handle[IGESDraw_LabelDisplay]; TC: var Interface_CopyTool) {.
+proc ownCopy*(this: IGESDrawToolLabelDisplay;
+             entfrom: Handle[IGESDrawLabelDisplay];
+             entto: Handle[IGESDrawLabelDisplay]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESDraw_ToolLabelDisplay.hxx".}
-proc OwnDump*(this: IGESDraw_ToolLabelDisplay; ent: handle[IGESDraw_LabelDisplay];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
-                                    header: "IGESDraw_ToolLabelDisplay.hxx".}
+proc ownDump*(this: IGESDrawToolLabelDisplay; ent: Handle[IGESDrawLabelDisplay];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump", header: "IGESDraw_ToolLabelDisplay.hxx".}

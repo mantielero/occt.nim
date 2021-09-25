@@ -13,12 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Map, ../NCollection/NCollection_DataMap
-
 type
-  TNaming_MapOfShape* = NCollection_Map[TopoDS_Shape]
-  TNaming_MapIteratorOfMapOfShape* = Iterator
-  TNaming_DataMapOfShapeMapOfShape* = NCollection_DataMap[TopoDS_Shape,
-      TNaming_MapOfShape]
-  TNaming_DataMapIteratorOfDataMapOfShapeMapOfShape* = Iterator
+  TNamingMapOfShape* = NCollectionMap[TopoDS_Shape]
+  TNamingMapIteratorOfMapOfShape* = Iterator
+  TNamingDataMapOfShapeMapOfShape* = NCollectionDataMap[TopoDS_Shape,
+      TNamingMapOfShape]
+  TNamingDataMapIteratorOfDataMapOfShapeMapOfShape* = Iterator
+

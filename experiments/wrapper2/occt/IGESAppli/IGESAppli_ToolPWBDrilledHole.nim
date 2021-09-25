@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESAppli_PWBDrilledHole"
 discard "forward decl of IGESData_IGESReaderData"
@@ -31,44 +26,49 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESAppli_ToolPWBDrilledHole* {.importcpp: "IGESAppli_ToolPWBDrilledHole",
-                                 header: "IGESAppli_ToolPWBDrilledHole.hxx",
-                                 bycopy.} = object ## ! Returns a ToolPWBDrilledHole, ready to work
+  IGESAppliToolPWBDrilledHole* {.importcpp: "IGESAppli_ToolPWBDrilledHole",
+                                header: "IGESAppli_ToolPWBDrilledHole.hxx", bycopy.} = object ##
+                                                                                         ## !
+                                                                                         ## Returns
+                                                                                         ## a
+                                                                                         ## ToolPWBDrilledHole,
+                                                                                         ## ready
+                                                                                         ## to
+                                                                                         ## work
 
 
-proc constructIGESAppli_ToolPWBDrilledHole*(): IGESAppli_ToolPWBDrilledHole {.
+proc constructIGESAppliToolPWBDrilledHole*(): IGESAppliToolPWBDrilledHole {.
     constructor, importcpp: "IGESAppli_ToolPWBDrilledHole(@)",
     header: "IGESAppli_ToolPWBDrilledHole.hxx".}
-proc ReadOwnParams*(this: IGESAppli_ToolPWBDrilledHole;
-                   ent: handle[IGESAppli_PWBDrilledHole];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESAppli_ToolPWBDrilledHole.hxx".}
-proc WriteOwnParams*(this: IGESAppli_ToolPWBDrilledHole;
-                    ent: handle[IGESAppli_PWBDrilledHole];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
-    importcpp: "WriteOwnParams", header: "IGESAppli_ToolPWBDrilledHole.hxx".}
-proc OwnShared*(this: IGESAppli_ToolPWBDrilledHole;
-               ent: handle[IGESAppli_PWBDrilledHole];
-               iter: var Interface_EntityIterator) {.noSideEffect,
-    importcpp: "OwnShared", header: "IGESAppli_ToolPWBDrilledHole.hxx".}
-proc OwnCorrect*(this: IGESAppli_ToolPWBDrilledHole;
-                ent: handle[IGESAppli_PWBDrilledHole]): Standard_Boolean {.
-    noSideEffect, importcpp: "OwnCorrect",
+proc readOwnParams*(this: IGESAppliToolPWBDrilledHole;
+                   ent: Handle[IGESAppliPWBDrilledHole];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
     header: "IGESAppli_ToolPWBDrilledHole.hxx".}
-proc DirChecker*(this: IGESAppli_ToolPWBDrilledHole;
-                ent: handle[IGESAppli_PWBDrilledHole]): IGESData_DirChecker {.
+proc writeOwnParams*(this: IGESAppliToolPWBDrilledHole;
+                    ent: Handle[IGESAppliPWBDrilledHole];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
+    importcpp: "WriteOwnParams", header: "IGESAppli_ToolPWBDrilledHole.hxx".}
+proc ownShared*(this: IGESAppliToolPWBDrilledHole;
+               ent: Handle[IGESAppliPWBDrilledHole];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
+    importcpp: "OwnShared", header: "IGESAppli_ToolPWBDrilledHole.hxx".}
+proc ownCorrect*(this: IGESAppliToolPWBDrilledHole;
+                ent: Handle[IGESAppliPWBDrilledHole]): bool {.noSideEffect,
+    importcpp: "OwnCorrect", header: "IGESAppli_ToolPWBDrilledHole.hxx".}
+proc dirChecker*(this: IGESAppliToolPWBDrilledHole;
+                ent: Handle[IGESAppliPWBDrilledHole]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESAppli_ToolPWBDrilledHole.hxx".}
-proc OwnCheck*(this: IGESAppli_ToolPWBDrilledHole;
-              ent: handle[IGESAppli_PWBDrilledHole]; shares: Interface_ShareTool;
-              ach: var handle[Interface_Check]) {.noSideEffect,
+proc ownCheck*(this: IGESAppliToolPWBDrilledHole;
+              ent: Handle[IGESAppliPWBDrilledHole]; shares: InterfaceShareTool;
+              ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "OwnCheck", header: "IGESAppli_ToolPWBDrilledHole.hxx".}
-proc OwnCopy*(this: IGESAppli_ToolPWBDrilledHole;
-             entfrom: handle[IGESAppli_PWBDrilledHole];
-             entto: handle[IGESAppli_PWBDrilledHole]; TC: var Interface_CopyTool) {.
+proc ownCopy*(this: IGESAppliToolPWBDrilledHole;
+             entfrom: Handle[IGESAppliPWBDrilledHole];
+             entto: Handle[IGESAppliPWBDrilledHole]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESAppli_ToolPWBDrilledHole.hxx".}
-proc OwnDump*(this: IGESAppli_ToolPWBDrilledHole;
-             ent: handle[IGESAppli_PWBDrilledHole]; dumper: IGESData_IGESDumper;
-             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
-    importcpp: "OwnDump", header: "IGESAppli_ToolPWBDrilledHole.hxx".}
+proc ownDump*(this: IGESAppliToolPWBDrilledHole;
+             ent: Handle[IGESAppliPWBDrilledHole]; dumper: IGESDataIGESDumper;
+             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+    header: "IGESAppli_ToolPWBDrilledHole.hxx".}

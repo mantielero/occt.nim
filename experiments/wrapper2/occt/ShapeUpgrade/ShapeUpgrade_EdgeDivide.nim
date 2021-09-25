@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Face,
-  ../Standard/Standard_Boolean, ../TColStd/TColStd_HSequenceOfReal,
-  ShapeUpgrade_Tool
-
 discard "forward decl of ShapeUpgrade_SplitCurve3d"
 discard "forward decl of ShapeUpgrade_SplitCurve2d"
 discard "forward decl of TopoDS_Face"
@@ -25,49 +20,49 @@ discard "forward decl of TopoDS_Edge"
 discard "forward decl of ShapeUpgrade_EdgeDivide"
 discard "forward decl of ShapeUpgrade_EdgeDivide"
 type
-  Handle_ShapeUpgrade_EdgeDivide* = handle[ShapeUpgrade_EdgeDivide]
-  ShapeUpgrade_EdgeDivide* {.importcpp: "ShapeUpgrade_EdgeDivide",
-                            header: "ShapeUpgrade_EdgeDivide.hxx", bycopy.} = object of ShapeUpgrade_Tool ##
-                                                                                                   ## !
-                                                                                                   ## Empty
-                                                                                                   ## constructor
+  HandleShapeUpgradeEdgeDivide* = Handle[ShapeUpgradeEdgeDivide]
+  ShapeUpgradeEdgeDivide* {.importcpp: "ShapeUpgrade_EdgeDivide",
+                           header: "ShapeUpgrade_EdgeDivide.hxx", bycopy.} = object of ShapeUpgradeTool ##
+                                                                                                 ## !
+                                                                                                 ## Empty
+                                                                                                 ## constructor
 
 
-proc constructShapeUpgrade_EdgeDivide*(): ShapeUpgrade_EdgeDivide {.constructor,
+proc constructShapeUpgradeEdgeDivide*(): ShapeUpgradeEdgeDivide {.constructor,
     importcpp: "ShapeUpgrade_EdgeDivide(@)", header: "ShapeUpgrade_EdgeDivide.hxx".}
-proc Clear*(this: var ShapeUpgrade_EdgeDivide) {.importcpp: "Clear",
+proc clear*(this: var ShapeUpgradeEdgeDivide) {.importcpp: "Clear",
     header: "ShapeUpgrade_EdgeDivide.hxx".}
-proc SetFace*(this: var ShapeUpgrade_EdgeDivide; F: TopoDS_Face) {.
+proc setFace*(this: var ShapeUpgradeEdgeDivide; f: TopoDS_Face) {.
     importcpp: "SetFace", header: "ShapeUpgrade_EdgeDivide.hxx".}
-proc Compute*(this: var ShapeUpgrade_EdgeDivide; E: TopoDS_Edge): Standard_Boolean {.
+proc compute*(this: var ShapeUpgradeEdgeDivide; e: TopoDS_Edge): bool {.
     importcpp: "Compute", header: "ShapeUpgrade_EdgeDivide.hxx".}
-proc HasCurve2d*(this: ShapeUpgrade_EdgeDivide): Standard_Boolean {.noSideEffect,
+proc hasCurve2d*(this: ShapeUpgradeEdgeDivide): bool {.noSideEffect,
     importcpp: "HasCurve2d", header: "ShapeUpgrade_EdgeDivide.hxx".}
-proc HasCurve3d*(this: ShapeUpgrade_EdgeDivide): Standard_Boolean {.noSideEffect,
+proc hasCurve3d*(this: ShapeUpgradeEdgeDivide): bool {.noSideEffect,
     importcpp: "HasCurve3d", header: "ShapeUpgrade_EdgeDivide.hxx".}
-proc Knots2d*(this: ShapeUpgrade_EdgeDivide): handle[TColStd_HSequenceOfReal] {.
+proc knots2d*(this: ShapeUpgradeEdgeDivide): Handle[TColStdHSequenceOfReal] {.
     noSideEffect, importcpp: "Knots2d", header: "ShapeUpgrade_EdgeDivide.hxx".}
-proc Knots3d*(this: ShapeUpgrade_EdgeDivide): handle[TColStd_HSequenceOfReal] {.
+proc knots3d*(this: ShapeUpgradeEdgeDivide): Handle[TColStdHSequenceOfReal] {.
     noSideEffect, importcpp: "Knots3d", header: "ShapeUpgrade_EdgeDivide.hxx".}
-proc SetSplitCurve2dTool*(this: var ShapeUpgrade_EdgeDivide;
-                         splitCurve2dTool: handle[ShapeUpgrade_SplitCurve2d]) {.
+proc setSplitCurve2dTool*(this: var ShapeUpgradeEdgeDivide;
+                         splitCurve2dTool: Handle[ShapeUpgradeSplitCurve2d]) {.
     importcpp: "SetSplitCurve2dTool", header: "ShapeUpgrade_EdgeDivide.hxx".}
-proc SetSplitCurve3dTool*(this: var ShapeUpgrade_EdgeDivide;
-                         splitCurve3dTool: handle[ShapeUpgrade_SplitCurve3d]) {.
+proc setSplitCurve3dTool*(this: var ShapeUpgradeEdgeDivide;
+                         splitCurve3dTool: Handle[ShapeUpgradeSplitCurve3d]) {.
     importcpp: "SetSplitCurve3dTool", header: "ShapeUpgrade_EdgeDivide.hxx".}
-proc GetSplitCurve2dTool*(this: ShapeUpgrade_EdgeDivide): handle[
-    ShapeUpgrade_SplitCurve2d] {.noSideEffect, importcpp: "GetSplitCurve2dTool",
-                                header: "ShapeUpgrade_EdgeDivide.hxx".}
-proc GetSplitCurve3dTool*(this: ShapeUpgrade_EdgeDivide): handle[
-    ShapeUpgrade_SplitCurve3d] {.noSideEffect, importcpp: "GetSplitCurve3dTool",
-                                header: "ShapeUpgrade_EdgeDivide.hxx".}
+proc getSplitCurve2dTool*(this: ShapeUpgradeEdgeDivide): Handle[
+    ShapeUpgradeSplitCurve2d] {.noSideEffect, importcpp: "GetSplitCurve2dTool",
+                               header: "ShapeUpgrade_EdgeDivide.hxx".}
+proc getSplitCurve3dTool*(this: ShapeUpgradeEdgeDivide): Handle[
+    ShapeUpgradeSplitCurve3d] {.noSideEffect, importcpp: "GetSplitCurve3dTool",
+                               header: "ShapeUpgrade_EdgeDivide.hxx".}
 type
-  ShapeUpgrade_EdgeDividebase_type* = ShapeUpgrade_Tool
+  ShapeUpgradeEdgeDividebaseType* = ShapeUpgradeTool
 
-proc get_type_name*(): cstring {.importcpp: "ShapeUpgrade_EdgeDivide::get_type_name(@)",
-                              header: "ShapeUpgrade_EdgeDivide.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeUpgrade_EdgeDivide::get_type_name(@)",
+                            header: "ShapeUpgrade_EdgeDivide.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeUpgrade_EdgeDivide::get_type_descriptor(@)",
     header: "ShapeUpgrade_EdgeDivide.hxx".}
-proc DynamicType*(this: ShapeUpgrade_EdgeDivide): handle[Standard_Type] {.
+proc dynamicType*(this: ShapeUpgradeEdgeDivide): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "ShapeUpgrade_EdgeDivide.hxx".}

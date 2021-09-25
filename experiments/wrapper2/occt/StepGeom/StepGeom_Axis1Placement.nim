@@ -14,47 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  StepGeom_Placement
-
 discard "forward decl of StepGeom_Direction"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_CartesianPoint"
 discard "forward decl of StepGeom_Axis1Placement"
 discard "forward decl of StepGeom_Axis1Placement"
 type
-  Handle_StepGeom_Axis1Placement* = handle[StepGeom_Axis1Placement]
-  StepGeom_Axis1Placement* {.importcpp: "StepGeom_Axis1Placement",
-                            header: "StepGeom_Axis1Placement.hxx", bycopy.} = object of StepGeom_Placement ##
-                                                                                                    ## !
-                                                                                                    ## Returns
-                                                                                                    ## a
-                                                                                                    ## Axis1Placement
+  HandleStepGeomAxis1Placement* = Handle[StepGeomAxis1Placement]
+  StepGeomAxis1Placement* {.importcpp: "StepGeom_Axis1Placement",
+                           header: "StepGeom_Axis1Placement.hxx", bycopy.} = object of StepGeomPlacement ##
+                                                                                                  ## !
+                                                                                                  ## Returns
+                                                                                                  ## a
+                                                                                                  ## Axis1Placement
 
 
-proc constructStepGeom_Axis1Placement*(): StepGeom_Axis1Placement {.constructor,
+proc constructStepGeomAxis1Placement*(): StepGeomAxis1Placement {.constructor,
     importcpp: "StepGeom_Axis1Placement(@)", header: "StepGeom_Axis1Placement.hxx".}
-proc Init*(this: var StepGeom_Axis1Placement;
-          aName: handle[TCollection_HAsciiString];
-          aLocation: handle[StepGeom_CartesianPoint]; hasAaxis: Standard_Boolean;
-          aAxis: handle[StepGeom_Direction]) {.importcpp: "Init",
+proc init*(this: var StepGeomAxis1Placement; aName: Handle[TCollectionHAsciiString];
+          aLocation: Handle[StepGeomCartesianPoint]; hasAaxis: bool;
+          aAxis: Handle[StepGeomDirection]) {.importcpp: "Init",
     header: "StepGeom_Axis1Placement.hxx".}
-proc SetAxis*(this: var StepGeom_Axis1Placement; aAxis: handle[StepGeom_Direction]) {.
+proc setAxis*(this: var StepGeomAxis1Placement; aAxis: Handle[StepGeomDirection]) {.
     importcpp: "SetAxis", header: "StepGeom_Axis1Placement.hxx".}
-proc UnSetAxis*(this: var StepGeom_Axis1Placement) {.importcpp: "UnSetAxis",
+proc unSetAxis*(this: var StepGeomAxis1Placement) {.importcpp: "UnSetAxis",
     header: "StepGeom_Axis1Placement.hxx".}
-proc Axis*(this: StepGeom_Axis1Placement): handle[StepGeom_Direction] {.
-    noSideEffect, importcpp: "Axis", header: "StepGeom_Axis1Placement.hxx".}
-proc HasAxis*(this: StepGeom_Axis1Placement): Standard_Boolean {.noSideEffect,
+proc axis*(this: StepGeomAxis1Placement): Handle[StepGeomDirection] {.noSideEffect,
+    importcpp: "Axis", header: "StepGeom_Axis1Placement.hxx".}
+proc hasAxis*(this: StepGeomAxis1Placement): bool {.noSideEffect,
     importcpp: "HasAxis", header: "StepGeom_Axis1Placement.hxx".}
 type
-  StepGeom_Axis1Placementbase_type* = StepGeom_Placement
+  StepGeomAxis1PlacementbaseType* = StepGeomPlacement
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_Axis1Placement::get_type_name(@)",
-                              header: "StepGeom_Axis1Placement.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_Axis1Placement::get_type_name(@)",
+                            header: "StepGeom_Axis1Placement.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_Axis1Placement::get_type_descriptor(@)",
     header: "StepGeom_Axis1Placement.hxx".}
-proc DynamicType*(this: StepGeom_Axis1Placement): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomAxis1Placement): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_Axis1Placement.hxx".}

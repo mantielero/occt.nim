@@ -12,13 +12,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  PrsDim_Dimension, ../gp/gp_Pnt, ../gp/gp_Circ, ../Standard/Standard,
-  ../Standard/Standard_Macro
-
 discard "forward decl of PrsDim_RadiusDimension"
 type
-  Handle_PrsDim_RadiusDimension* = handle[PrsDim_RadiusDimension]
+  HandlePrsDimRadiusDimension* = Handle[PrsDimRadiusDimension]
 
 ## ! Radius dimension. Can be constructued:
 ## ! - On generic circle.
@@ -36,115 +32,113 @@ type
 ## ! circle geometry.
 
 type
-  PrsDim_RadiusDimension* {.importcpp: "PrsDim_RadiusDimension",
-                           header: "PrsDim_RadiusDimension.hxx", bycopy.} = object of PrsDim_Dimension ##
-                                                                                                ## !
-                                                                                                ## Create
-                                                                                                ## radius
-                                                                                                ## dimension
-                                                                                                ## for
-                                                                                                ## the
-                                                                                                ## circle
-                                                                                                ## geometry.
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## @param
-                                                                                                ## theCircle
-                                                                                                ## [in]
-                                                                                                ## the
-                                                                                                ## circle
-                                                                                                ## to
-                                                                                                ## measure.
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## @return
-                                                                                                ## measured
-                                                                                                ## geometry
-                                                                                                ## circle.
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Measure
-                                                                                                ## radius
-                                                                                                ## of
-                                                                                                ## the
-                                                                                                ## circle.
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## The
-                                                                                                ## dimension
-                                                                                                ## will
-                                                                                                ## become
-                                                                                                ## invalid
-                                                                                                ## if
-                                                                                                ## the
-                                                                                                ## radius
-                                                                                                ## of
-                                                                                                ## the
-                                                                                                ## circle
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## is
-                                                                                                ## less
-                                                                                                ## than
-                                                                                                ## Precision::Confusion().
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## @param
-                                                                                                ## theCircle
-                                                                                                ## [in]
-                                                                                                ## the
-                                                                                                ## circle
-                                                                                                ## to
-                                                                                                ## measure.
+  PrsDimRadiusDimension* {.importcpp: "PrsDim_RadiusDimension",
+                          header: "PrsDim_RadiusDimension.hxx", bycopy.} = object of PrsDimDimension ##
+                                                                                              ## !
+                                                                                              ## Create
+                                                                                              ## radius
+                                                                                              ## dimension
+                                                                                              ## for
+                                                                                              ## the
+                                                                                              ## circle
+                                                                                              ## geometry.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## @param
+                                                                                              ## theCircle
+                                                                                              ## [in]
+                                                                                              ## the
+                                                                                              ## circle
+                                                                                              ## to
+                                                                                              ## measure.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## @return
+                                                                                              ## measured
+                                                                                              ## geometry
+                                                                                              ## circle.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Measure
+                                                                                              ## radius
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ## circle.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## The
+                                                                                              ## dimension
+                                                                                              ## will
+                                                                                              ## become
+                                                                                              ## invalid
+                                                                                              ## if
+                                                                                              ## the
+                                                                                              ## radius
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ## circle
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## is
+                                                                                              ## less
+                                                                                              ## than
+                                                                                              ## Precision::Confusion().
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## @param
+                                                                                              ## theCircle
+                                                                                              ## [in]
+                                                                                              ## the
+                                                                                              ## circle
+                                                                                              ## to
+                                                                                              ## measure.
 
-  PrsDim_RadiusDimensionbase_type* = PrsDim_Dimension
+  PrsDimRadiusDimensionbaseType* = PrsDimDimension
 
-proc get_type_name*(): cstring {.importcpp: "PrsDim_RadiusDimension::get_type_name(@)",
-                              header: "PrsDim_RadiusDimension.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "PrsDim_RadiusDimension::get_type_name(@)",
+                            header: "PrsDim_RadiusDimension.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "PrsDim_RadiusDimension::get_type_descriptor(@)",
     header: "PrsDim_RadiusDimension.hxx".}
-proc DynamicType*(this: PrsDim_RadiusDimension): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "PrsDim_RadiusDimension.hxx".}
-proc constructPrsDim_RadiusDimension*(theCircle: gp_Circ): PrsDim_RadiusDimension {.
+proc dynamicType*(this: PrsDimRadiusDimension): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "PrsDim_RadiusDimension.hxx".}
+proc constructPrsDimRadiusDimension*(theCircle: Circ): PrsDimRadiusDimension {.
     constructor, importcpp: "PrsDim_RadiusDimension(@)",
     header: "PrsDim_RadiusDimension.hxx".}
-proc constructPrsDim_RadiusDimension*(theCircle: gp_Circ; theAnchorPoint: gp_Pnt): PrsDim_RadiusDimension {.
+proc constructPrsDimRadiusDimension*(theCircle: Circ; theAnchorPoint: Pnt): PrsDimRadiusDimension {.
     constructor, importcpp: "PrsDim_RadiusDimension(@)",
     header: "PrsDim_RadiusDimension.hxx".}
-proc constructPrsDim_RadiusDimension*(theShape: TopoDS_Shape): PrsDim_RadiusDimension {.
+proc constructPrsDimRadiusDimension*(theShape: TopoDS_Shape): PrsDimRadiusDimension {.
     constructor, importcpp: "PrsDim_RadiusDimension(@)",
     header: "PrsDim_RadiusDimension.hxx".}
-proc Circle*(this: PrsDim_RadiusDimension): gp_Circ {.noSideEffect,
-    importcpp: "Circle", header: "PrsDim_RadiusDimension.hxx".}
-proc AnchorPoint*(this: PrsDim_RadiusDimension): gp_Pnt {.noSideEffect,
+proc circle*(this: PrsDimRadiusDimension): Circ {.noSideEffect, importcpp: "Circle",
+    header: "PrsDim_RadiusDimension.hxx".}
+proc anchorPoint*(this: PrsDimRadiusDimension): Pnt {.noSideEffect,
     importcpp: "AnchorPoint", header: "PrsDim_RadiusDimension.hxx".}
-proc Shape*(this: PrsDim_RadiusDimension): TopoDS_Shape {.noSideEffect,
+proc shape*(this: PrsDimRadiusDimension): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "PrsDim_RadiusDimension.hxx".}
-proc SetMeasuredGeometry*(this: var PrsDim_RadiusDimension; theCircle: gp_Circ) {.
+proc setMeasuredGeometry*(this: var PrsDimRadiusDimension; theCircle: Circ) {.
     importcpp: "SetMeasuredGeometry", header: "PrsDim_RadiusDimension.hxx".}
-proc SetMeasuredGeometry*(this: var PrsDim_RadiusDimension; theCircle: gp_Circ;
-                         theAnchorPoint: gp_Pnt;
-                         theHasAnchor: Standard_Boolean = Standard_True) {.
+proc setMeasuredGeometry*(this: var PrsDimRadiusDimension; theCircle: Circ;
+                         theAnchorPoint: Pnt; theHasAnchor: bool = true) {.
     importcpp: "SetMeasuredGeometry", header: "PrsDim_RadiusDimension.hxx".}
-proc SetMeasuredGeometry*(this: var PrsDim_RadiusDimension; theShape: TopoDS_Shape) {.
+proc setMeasuredGeometry*(this: var PrsDimRadiusDimension; theShape: TopoDS_Shape) {.
     importcpp: "SetMeasuredGeometry", header: "PrsDim_RadiusDimension.hxx".}
-proc SetMeasuredGeometry*(this: var PrsDim_RadiusDimension; theShape: TopoDS_Shape;
-                         theAnchorPoint: gp_Pnt;
-                         theHasAnchor: Standard_Boolean = Standard_True) {.
+proc setMeasuredGeometry*(this: var PrsDimRadiusDimension; theShape: TopoDS_Shape;
+                         theAnchorPoint: Pnt; theHasAnchor: bool = true) {.
     importcpp: "SetMeasuredGeometry", header: "PrsDim_RadiusDimension.hxx".}
-proc GetDisplayUnits*(this: PrsDim_RadiusDimension): TCollection_AsciiString {.
+proc getDisplayUnits*(this: PrsDimRadiusDimension): TCollectionAsciiString {.
     noSideEffect, importcpp: "GetDisplayUnits",
     header: "PrsDim_RadiusDimension.hxx".}
-proc GetModelUnits*(this: PrsDim_RadiusDimension): TCollection_AsciiString {.
+proc getModelUnits*(this: PrsDimRadiusDimension): TCollectionAsciiString {.
     noSideEffect, importcpp: "GetModelUnits", header: "PrsDim_RadiusDimension.hxx".}
-proc SetDisplayUnits*(this: var PrsDim_RadiusDimension;
-                     theUnits: TCollection_AsciiString) {.
+proc setDisplayUnits*(this: var PrsDimRadiusDimension;
+                     theUnits: TCollectionAsciiString) {.
     importcpp: "SetDisplayUnits", header: "PrsDim_RadiusDimension.hxx".}
-proc SetModelUnits*(this: var PrsDim_RadiusDimension;
-                   theUnits: TCollection_AsciiString) {.
-    importcpp: "SetModelUnits", header: "PrsDim_RadiusDimension.hxx".}
-proc SetTextPosition*(this: var PrsDim_RadiusDimension; theTextPos: gp_Pnt) {.
+proc setModelUnits*(this: var PrsDimRadiusDimension;
+                   theUnits: TCollectionAsciiString) {.importcpp: "SetModelUnits",
+    header: "PrsDim_RadiusDimension.hxx".}
+proc setTextPosition*(this: var PrsDimRadiusDimension; theTextPos: Pnt) {.
     importcpp: "SetTextPosition", header: "PrsDim_RadiusDimension.hxx".}
-proc GetTextPosition*(this: PrsDim_RadiusDimension): gp_Pnt {.noSideEffect,
+proc getTextPosition*(this: PrsDimRadiusDimension): Pnt {.noSideEffect,
     importcpp: "GetTextPosition", header: "PrsDim_RadiusDimension.hxx".}

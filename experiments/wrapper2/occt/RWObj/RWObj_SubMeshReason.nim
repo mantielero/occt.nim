@@ -15,10 +15,11 @@
 ## ! Reason for creating a new group within OBJ reader.
 
 type
-  RWObj_SubMeshReason* {.size: sizeof(cint), importcpp: "RWObj_SubMeshReason",
-                        header: "RWObj_SubMeshReason.hxx".} = enum
-    RWObj_SubMeshReason_NewObject, ## !< new object, should occur only ones in valid OBJ file (at the very beginning)
-    RWObj_SubMeshReason_NewGroup, ## !< new group (g item)
-    RWObj_SubMeshReason_NewMaterial, ## !< new material (usemtl item)
-    RWObj_SubMeshReason_NewSmoothGroup ## !< new smoothing group (s item)
+  RWObjSubMeshReason* {.size: sizeof(cint), importcpp: "RWObj_SubMeshReason",
+                       header: "RWObj_SubMeshReason.hxx".} = enum
+    RWObjSubMeshReasonNewObject, ## !< new object, should occur only ones in valid OBJ file (at the very beginning)
+    RWObjSubMeshReasonNewGroup, ## !< new group (g item)
+    RWObjSubMeshReasonNewMaterial, ## !< new material (usemtl item)
+    RWObjSubMeshReasonNewSmoothGroup ## !< new smoothing group (s item)
+
 

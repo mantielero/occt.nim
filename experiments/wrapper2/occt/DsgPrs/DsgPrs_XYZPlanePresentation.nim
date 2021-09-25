@@ -14,56 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Prs3d/Prs3d_Drawer, ../Prs3d/Prs3d_Presentation
-
 discard "forward decl of gp_Pnt"
 type
-  DsgPrs_XYZPlanePresentation* {.importcpp: "DsgPrs_XYZPlanePresentation",
-                                header: "DsgPrs_XYZPlanePresentation.hxx", bycopy.} = object ##
-                                                                                        ## !
-                                                                                        ## Draws
-                                                                                        ## each
-                                                                                        ## plane
-                                                                                        ## of
-                                                                                        ## a
-                                                                                        ## trihedron
-                                                                                        ## displayed
-                                                                                        ## in
-                                                                                        ## the
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## presentation
-                                                                                        ## aPresentation
-                                                                                        ## and
-                                                                                        ## with
-                                                                                        ## attributes
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## defined
-                                                                                        ## by
-                                                                                        ## the
-                                                                                        ## attribute
-                                                                                        ## manager
-                                                                                        ## aDrawer.
-                                                                                        ## Each
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## triangular
-                                                                                        ## plane
-                                                                                        ## is
-                                                                                        ## defined
-                                                                                        ## by
-                                                                                        ## the
-                                                                                        ## points
-                                                                                        ## aPt1
-                                                                                        ## aPt2
-                                                                                        ## and
-                                                                                        ## aPt3.
+  DsgPrsXYZPlanePresentation* {.importcpp: "DsgPrs_XYZPlanePresentation",
+                               header: "DsgPrs_XYZPlanePresentation.hxx", bycopy.} = object ##
+                                                                                       ## !
+                                                                                       ## Draws
+                                                                                       ## each
+                                                                                       ## plane
+                                                                                       ## of
+                                                                                       ## a
+                                                                                       ## trihedron
+                                                                                       ## displayed
+                                                                                       ## in
+                                                                                       ## the
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## presentation
+                                                                                       ## aPresentation
+                                                                                       ## and
+                                                                                       ## with
+                                                                                       ## attributes
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## defined
+                                                                                       ## by
+                                                                                       ## the
+                                                                                       ## attribute
+                                                                                       ## manager
+                                                                                       ## aDrawer.
+                                                                                       ## Each
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## triangular
+                                                                                       ## plane
+                                                                                       ## is
+                                                                                       ## defined
+                                                                                       ## by
+                                                                                       ## the
+                                                                                       ## points
+                                                                                       ## aPt1
+                                                                                       ## aPt2
+                                                                                       ## and
+                                                                                       ## aPt3.
 
 
-proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
-         aPt1: gp_Pnt; aPt2: gp_Pnt; aPt3: gp_Pnt) {.
-    importcpp: "DsgPrs_XYZPlanePresentation::Add(@)",
-    header: "DsgPrs_XYZPlanePresentation.hxx".}
+proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
+         aPt1: Pnt; aPt2: Pnt; aPt3: Pnt) {.importcpp: "DsgPrs_XYZPlanePresentation::Add(@)",
+                                      header: "DsgPrs_XYZPlanePresentation.hxx".}

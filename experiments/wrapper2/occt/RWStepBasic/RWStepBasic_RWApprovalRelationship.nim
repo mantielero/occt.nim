@@ -14,33 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_ApprovalRelationship"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasic_RWApprovalRelationship* {.importcpp: "RWStepBasic_RWApprovalRelationship", header: "RWStepBasic_RWApprovalRelationship.hxx",
-                                       bycopy.} = object
+  RWStepBasicRWApprovalRelationship* {.importcpp: "RWStepBasic_RWApprovalRelationship", header: "RWStepBasic_RWApprovalRelationship.hxx",
+                                      bycopy.} = object
 
 
-proc constructRWStepBasic_RWApprovalRelationship*(): RWStepBasic_RWApprovalRelationship {.
+proc constructRWStepBasicRWApprovalRelationship*(): RWStepBasicRWApprovalRelationship {.
     constructor, importcpp: "RWStepBasic_RWApprovalRelationship(@)",
     header: "RWStepBasic_RWApprovalRelationship.hxx".}
-proc ReadStep*(this: RWStepBasic_RWApprovalRelationship;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepBasic_ApprovalRelationship]) {.noSideEffect,
+proc readStep*(this: RWStepBasicRWApprovalRelationship;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepBasicApprovalRelationship]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWApprovalRelationship.hxx".}
-proc WriteStep*(this: RWStepBasic_RWApprovalRelationship;
-               SW: var StepData_StepWriter;
-               ent: handle[StepBasic_ApprovalRelationship]) {.noSideEffect,
+proc writeStep*(this: RWStepBasicRWApprovalRelationship;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepBasicApprovalRelationship]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWApprovalRelationship.hxx".}
-proc Share*(this: RWStepBasic_RWApprovalRelationship;
-           ent: handle[StepBasic_ApprovalRelationship];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepBasicRWApprovalRelationship;
+           ent: Handle[StepBasicApprovalRelationship];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWApprovalRelationship.hxx".}

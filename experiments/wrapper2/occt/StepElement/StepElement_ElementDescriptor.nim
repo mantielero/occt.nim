@@ -13,51 +13,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepElement_ElementOrder,
-  ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepElement_ElementDescriptor"
 discard "forward decl of StepElement_ElementDescriptor"
 type
-  Handle_StepElement_ElementDescriptor* = handle[StepElement_ElementDescriptor]
+  HandleStepElementElementDescriptor* = Handle[StepElementElementDescriptor]
 
 ## ! Representation of STEP entity ElementDescriptor
 
 type
-  StepElement_ElementDescriptor* {.importcpp: "StepElement_ElementDescriptor",
-                                  header: "StepElement_ElementDescriptor.hxx",
-                                  bycopy.} = object of Standard_Transient ## ! Empty constructor
+  StepElementElementDescriptor* {.importcpp: "StepElement_ElementDescriptor",
+                                 header: "StepElement_ElementDescriptor.hxx",
+                                 bycopy.} = object of StandardTransient ## ! Empty constructor
 
 
-proc constructStepElement_ElementDescriptor*(): StepElement_ElementDescriptor {.
+proc constructStepElementElementDescriptor*(): StepElementElementDescriptor {.
     constructor, importcpp: "StepElement_ElementDescriptor(@)",
     header: "StepElement_ElementDescriptor.hxx".}
-proc Init*(this: var StepElement_ElementDescriptor;
-          aTopologyOrder: StepElement_ElementOrder;
-          aDescription: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepElementElementDescriptor;
+          aTopologyOrder: StepElementElementOrder;
+          aDescription: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepElement_ElementDescriptor.hxx".}
-proc TopologyOrder*(this: StepElement_ElementDescriptor): StepElement_ElementOrder {.
+proc topologyOrder*(this: StepElementElementDescriptor): StepElementElementOrder {.
     noSideEffect, importcpp: "TopologyOrder",
     header: "StepElement_ElementDescriptor.hxx".}
-proc SetTopologyOrder*(this: var StepElement_ElementDescriptor;
-                      TopologyOrder: StepElement_ElementOrder) {.
+proc setTopologyOrder*(this: var StepElementElementDescriptor;
+                      topologyOrder: StepElementElementOrder) {.
     importcpp: "SetTopologyOrder", header: "StepElement_ElementDescriptor.hxx".}
-proc Description*(this: StepElement_ElementDescriptor): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description",
-                               header: "StepElement_ElementDescriptor.hxx".}
-proc SetDescription*(this: var StepElement_ElementDescriptor;
-                    Description: handle[TCollection_HAsciiString]) {.
+proc description*(this: StepElementElementDescriptor): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Description",
+                              header: "StepElement_ElementDescriptor.hxx".}
+proc setDescription*(this: var StepElementElementDescriptor;
+                    description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepElement_ElementDescriptor.hxx".}
 type
-  StepElement_ElementDescriptorbase_type* = Standard_Transient
+  StepElementElementDescriptorbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepElement_ElementDescriptor::get_type_name(@)",
-                              header: "StepElement_ElementDescriptor.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepElement_ElementDescriptor::get_type_name(@)",
+                            header: "StepElement_ElementDescriptor.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepElement_ElementDescriptor::get_type_descriptor(@)",
     header: "StepElement_ElementDescriptor.hxx".}
-proc DynamicType*(this: StepElement_ElementDescriptor): handle[Standard_Type] {.
+proc dynamicType*(this: StepElementElementDescriptor): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_ElementDescriptor.hxx".}

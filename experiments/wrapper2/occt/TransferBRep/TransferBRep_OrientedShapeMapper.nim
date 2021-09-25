@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Shape,
-  ../Transfer/Transfer_Finder, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Type, ../Standard/Standard_CString
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopTools_OrientedShapeMapHasher"
 discard "forward decl of TransferBRep_ShapeInfo"
@@ -26,36 +21,35 @@ discard "forward decl of Transfer_Finder"
 discard "forward decl of TransferBRep_OrientedShapeMapper"
 discard "forward decl of TransferBRep_OrientedShapeMapper"
 type
-  Handle_TransferBRep_OrientedShapeMapper* = handle[
-      TransferBRep_OrientedShapeMapper]
-  TransferBRep_OrientedShapeMapper* {.importcpp: "TransferBRep_OrientedShapeMapper", header: "TransferBRep_OrientedShapeMapper.hxx",
-                                     bycopy.} = object of Transfer_Finder ## ! Creates a Mapper with a Value. This Value can then not be
-                                                                     ## ! changed. It is used by the Hasher to compute the HashCode,
-                                                                     ## ! which will then be stored for an immediate reading.
+  HandleTransferBRepOrientedShapeMapper* = Handle[TransferBRepOrientedShapeMapper]
+  TransferBRepOrientedShapeMapper* {.importcpp: "TransferBRep_OrientedShapeMapper", header: "TransferBRep_OrientedShapeMapper.hxx",
+                                    bycopy.} = object of TransferFinder ## ! Creates a Mapper with a Value. This Value can then not be
+                                                                   ## ! changed. It is used by the Hasher to compute the HashCode,
+                                                                   ## ! which will then be stored for an immediate reading.
 
 
-proc constructTransferBRep_OrientedShapeMapper*(akey: TopoDS_Shape): TransferBRep_OrientedShapeMapper {.
+proc constructTransferBRepOrientedShapeMapper*(akey: TopoDS_Shape): TransferBRepOrientedShapeMapper {.
     constructor, importcpp: "TransferBRep_OrientedShapeMapper(@)",
     header: "TransferBRep_OrientedShapeMapper.hxx".}
-proc Value*(this: TransferBRep_OrientedShapeMapper): TopoDS_Shape {.noSideEffect,
+proc value*(this: TransferBRepOrientedShapeMapper): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "TransferBRep_OrientedShapeMapper.hxx".}
-proc Equates*(this: TransferBRep_OrientedShapeMapper;
-             other: handle[Transfer_Finder]): Standard_Boolean {.noSideEffect,
-    importcpp: "Equates", header: "TransferBRep_OrientedShapeMapper.hxx".}
-proc ValueType*(this: TransferBRep_OrientedShapeMapper): handle[Standard_Type] {.
+proc equates*(this: TransferBRepOrientedShapeMapper; other: Handle[TransferFinder]): bool {.
+    noSideEffect, importcpp: "Equates",
+    header: "TransferBRep_OrientedShapeMapper.hxx".}
+proc valueType*(this: TransferBRepOrientedShapeMapper): Handle[StandardType] {.
     noSideEffect, importcpp: "ValueType",
     header: "TransferBRep_OrientedShapeMapper.hxx".}
-proc ValueTypeName*(this: TransferBRep_OrientedShapeMapper): Standard_CString {.
+proc valueTypeName*(this: TransferBRepOrientedShapeMapper): StandardCString {.
     noSideEffect, importcpp: "ValueTypeName",
     header: "TransferBRep_OrientedShapeMapper.hxx".}
 type
-  TransferBRep_OrientedShapeMapperbase_type* = Transfer_Finder
+  TransferBRepOrientedShapeMapperbaseType* = TransferFinder
 
-proc get_type_name*(): cstring {.importcpp: "TransferBRep_OrientedShapeMapper::get_type_name(@)",
-                              header: "TransferBRep_OrientedShapeMapper.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TransferBRep_OrientedShapeMapper::get_type_name(@)",
+                            header: "TransferBRep_OrientedShapeMapper.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TransferBRep_OrientedShapeMapper::get_type_descriptor(@)",
     header: "TransferBRep_OrientedShapeMapper.hxx".}
-proc DynamicType*(this: TransferBRep_OrientedShapeMapper): handle[Standard_Type] {.
+proc dynamicType*(this: TransferBRepOrientedShapeMapper): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TransferBRep_OrientedShapeMapper.hxx".}

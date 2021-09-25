@@ -11,10 +11,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../StdPrs/StdPrs_BRepTextBuilder
-
 ## ! Alias for porting from old name.
 
 type
-  Font_BRepTextBuilder* = StdPrs_BRepTextBuilder
+  FontBRepTextBuilder* = StdPrsBRepTextBuilder
+

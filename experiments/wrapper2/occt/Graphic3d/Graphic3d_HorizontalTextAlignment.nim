@@ -18,6 +18,7 @@
 ## ! relative to its anchor.
 
 type
-  Graphic3d_HorizontalTextAlignment* {.size: sizeof(cint), importcpp: "Graphic3d_HorizontalTextAlignment", header: "Graphic3d_HorizontalTextAlignment.hxx".} = enum
-    Graphic3d_HTA_LEFT, Graphic3d_HTA_CENTER, Graphic3d_HTA_RIGHT
+  Graphic3dHorizontalTextAlignment* {.size: sizeof(cint), importcpp: "Graphic3d_HorizontalTextAlignment", header: "Graphic3d_HorizontalTextAlignment.hxx".} = enum
+    Graphic3dHTA_LEFT, Graphic3dHTA_CENTER, Graphic3dHTA_RIGHT
+
 

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean
-
 discard "forward decl of ExprIntrp_Generator"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of ExprIntrp_Generator"
@@ -27,4 +23,5 @@ discard "forward decl of ExprIntrp_GenRel"
 discard "forward decl of ExprIntrp_Analysis"
 type
   ExprIntrp* {.importcpp: "ExprIntrp", header: "ExprIntrp.hxx", bycopy.} = object
+
 

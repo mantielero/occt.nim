@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TDF/TDF_Attribute,
-  ../Standard/Standard_OStream
-
 discard "forward decl of TDocStd_Document"
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Data"
@@ -26,7 +22,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDocStd_Owner"
 discard "forward decl of TDocStd_Owner"
 type
-  Handle_TDocStd_Owner* = handle[TDocStd_Owner]
+  HandleTDocStdOwner* = Handle[TDocStdOwner]
 
 ## ! This  attribute located  at  the  root label  of the
 ## ! framework contains  a   back reference to   the  owner
@@ -34,65 +30,65 @@ type
 ## ! any label.  private class Owner;
 
 type
-  TDocStd_Owner* {.importcpp: "TDocStd_Owner", header: "TDocStd_Owner.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                                     ## !
-                                                                                                     ## class
-                                                                                                     ## methods
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## =============
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## It
-                                                                                                     ## keeps
-                                                                                                     ## pointer
-                                                                                                     ## to
-                                                                                                     ## the
-                                                                                                     ## document
-                                                                                                     ## to
-                                                                                                     ## avoid
-                                                                                                     ## handles
-                                                                                                     ## cyclic
-                                                                                                     ## dependency
+  TDocStdOwner* {.importcpp: "TDocStd_Owner", header: "TDocStd_Owner.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                                    ## !
+                                                                                                    ## class
+                                                                                                    ## methods
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## =============
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## It
+                                                                                                    ## keeps
+                                                                                                    ## pointer
+                                                                                                    ## to
+                                                                                                    ## the
+                                                                                                    ## document
+                                                                                                    ## to
+                                                                                                    ## avoid
+                                                                                                    ## handles
+                                                                                                    ## cyclic
+                                                                                                    ## dependency
 
 
-proc GetID*(): Standard_GUID {.importcpp: "TDocStd_Owner::GetID(@)",
-                            header: "TDocStd_Owner.hxx".}
-proc SetDocument*(indata: handle[TDF_Data]; doc: handle[TDocStd_Document]) {.
+proc getID*(): StandardGUID {.importcpp: "TDocStd_Owner::GetID(@)",
+                           header: "TDocStd_Owner.hxx".}
+proc setDocument*(indata: Handle[TDF_Data]; doc: Handle[TDocStdDocument]) {.
     importcpp: "TDocStd_Owner::SetDocument(@)", header: "TDocStd_Owner.hxx".}
-proc SetDocument*(indata: handle[TDF_Data]; doc: ptr TDocStd_Document) {.
+proc setDocument*(indata: Handle[TDF_Data]; doc: ptr TDocStdDocument) {.
     importcpp: "TDocStd_Owner::SetDocument(@)", header: "TDocStd_Owner.hxx".}
-proc GetDocument*(ofdata: handle[TDF_Data]): handle[TDocStd_Document] {.
+proc getDocument*(ofdata: Handle[TDF_Data]): Handle[TDocStdDocument] {.
     importcpp: "TDocStd_Owner::GetDocument(@)", header: "TDocStd_Owner.hxx".}
-proc constructTDocStd_Owner*(): TDocStd_Owner {.constructor,
+proc constructTDocStdOwner*(): TDocStdOwner {.constructor,
     importcpp: "TDocStd_Owner(@)", header: "TDocStd_Owner.hxx".}
-proc SetDocument*(this: var TDocStd_Owner; document: handle[TDocStd_Document]) {.
+proc setDocument*(this: var TDocStdOwner; document: Handle[TDocStdDocument]) {.
     importcpp: "SetDocument", header: "TDocStd_Owner.hxx".}
-proc SetDocument*(this: var TDocStd_Owner; document: ptr TDocStd_Document) {.
+proc setDocument*(this: var TDocStdOwner; document: ptr TDocStdDocument) {.
     importcpp: "SetDocument", header: "TDocStd_Owner.hxx".}
-proc GetDocument*(this: TDocStd_Owner): handle[TDocStd_Document] {.noSideEffect,
+proc getDocument*(this: TDocStdOwner): Handle[TDocStdDocument] {.noSideEffect,
     importcpp: "GetDocument", header: "TDocStd_Owner.hxx".}
-proc ID*(this: TDocStd_Owner): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TDocStdOwner): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TDocStd_Owner.hxx".}
-proc Restore*(this: var TDocStd_Owner; With: handle[TDF_Attribute]) {.
+proc restore*(this: var TDocStdOwner; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TDocStd_Owner.hxx".}
-proc NewEmpty*(this: TDocStd_Owner): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TDocStdOwner): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TDocStd_Owner.hxx".}
-proc Paste*(this: TDocStd_Owner; Into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TDocStdOwner; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TDocStd_Owner.hxx".}
-proc Dump*(this: TDocStd_Owner; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDocStdOwner; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDocStd_Owner.hxx".}
-proc DumpJson*(this: TDocStd_Owner; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TDocStd_Owner.hxx".}
+proc dumpJson*(this: TDocStdOwner; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TDocStd_Owner.hxx".}
 type
-  TDocStd_Ownerbase_type* = TDF_Attribute
+  TDocStdOwnerbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TDocStd_Owner::get_type_name(@)",
-                              header: "TDocStd_Owner.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDocStd_Owner::get_type_name(@)",
+                            header: "TDocStd_Owner.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDocStd_Owner::get_type_descriptor(@)",
     header: "TDocStd_Owner.hxx".}
-proc DynamicType*(this: TDocStd_Owner): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDocStdOwner): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDocStd_Owner.hxx".}

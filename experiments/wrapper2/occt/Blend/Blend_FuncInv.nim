@@ -14,39 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../math/math_FunctionSetWithDerivatives,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean, ../math/math_Vector,
-  ../Standard/Standard_Real
-
 discard "forward decl of math_Matrix"
 discard "forward decl of Adaptor2d_HCurve2d"
 type
-  Blend_FuncInv* {.importcpp: "Blend_FuncInv", header: "Blend_FuncInv.hxx", bycopy.} = object of math_FunctionSetWithDerivatives ##
-                                                                                                                       ## !
-                                                                                                                       ## Returns
-                                                                                                                       ## 4.
+  BlendFuncInv* {.importcpp: "Blend_FuncInv", header: "Blend_FuncInv.hxx", bycopy.} = object of MathFunctionSetWithDerivatives ##
+                                                                                                                     ## !
+                                                                                                                     ## Returns
+                                                                                                                     ## 4.
 
 
-proc NbVariables*(this: Blend_FuncInv): Standard_Integer {.noSideEffect,
-    importcpp: "NbVariables", header: "Blend_FuncInv.hxx".}
-proc NbEquations*(this: Blend_FuncInv): Standard_Integer {.noSideEffect,
-    importcpp: "NbEquations", header: "Blend_FuncInv.hxx".}
-proc Value*(this: var Blend_FuncInv; X: math_Vector; F: var math_Vector): Standard_Boolean {.
+proc nbVariables*(this: BlendFuncInv): int {.noSideEffect, importcpp: "NbVariables",
+    header: "Blend_FuncInv.hxx".}
+proc nbEquations*(this: BlendFuncInv): int {.noSideEffect, importcpp: "NbEquations",
+    header: "Blend_FuncInv.hxx".}
+proc value*(this: var BlendFuncInv; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "Blend_FuncInv.hxx".}
-proc Derivatives*(this: var Blend_FuncInv; X: math_Vector; D: var math_Matrix): Standard_Boolean {.
+proc derivatives*(this: var BlendFuncInv; x: MathVector; d: var MathMatrix): bool {.
     importcpp: "Derivatives", header: "Blend_FuncInv.hxx".}
-proc Values*(this: var Blend_FuncInv; X: math_Vector; F: var math_Vector;
-            D: var math_Matrix): Standard_Boolean {.importcpp: "Values",
-    header: "Blend_FuncInv.hxx".}
-proc Set*(this: var Blend_FuncInv; OnFirst: Standard_Boolean;
-         COnSurf: handle[Adaptor2d_HCurve2d]) {.importcpp: "Set",
-    header: "Blend_FuncInv.hxx".}
-proc GetTolerance*(this: Blend_FuncInv; Tolerance: var math_Vector; Tol: Standard_Real) {.
+proc values*(this: var BlendFuncInv; x: MathVector; f: var MathVector; d: var MathMatrix): bool {.
+    importcpp: "Values", header: "Blend_FuncInv.hxx".}
+proc set*(this: var BlendFuncInv; onFirst: bool; cOnSurf: Handle[Adaptor2dHCurve2d]) {.
+    importcpp: "Set", header: "Blend_FuncInv.hxx".}
+proc getTolerance*(this: BlendFuncInv; tolerance: var MathVector; tol: float) {.
     noSideEffect, importcpp: "GetTolerance", header: "Blend_FuncInv.hxx".}
-proc GetBounds*(this: Blend_FuncInv; InfBound: var math_Vector;
-               SupBound: var math_Vector) {.noSideEffect, importcpp: "GetBounds",
-    header: "Blend_FuncInv.hxx".}
-proc IsSolution*(this: var Blend_FuncInv; Sol: math_Vector; Tol: Standard_Real): Standard_Boolean {.
+proc getBounds*(this: BlendFuncInv; infBound: var MathVector; supBound: var MathVector) {.
+    noSideEffect, importcpp: "GetBounds", header: "Blend_FuncInv.hxx".}
+proc isSolution*(this: var BlendFuncInv; sol: MathVector; tol: float): bool {.
     importcpp: "IsSolution", header: "Blend_FuncInv.hxx".}

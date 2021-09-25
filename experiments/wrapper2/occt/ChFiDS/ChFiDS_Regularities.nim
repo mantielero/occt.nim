@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ChFiDS_Regul, ../NCollection/NCollection_List
-
 type
-  ChFiDS_Regularities* = NCollection_List[ChFiDS_Regul]
+  ChFiDS_Regularities* = NCollectionList[ChFiDS_Regul]
   ChFiDS_ListIteratorOfRegularities* = Iterator[ChFiDS_Regul]
+

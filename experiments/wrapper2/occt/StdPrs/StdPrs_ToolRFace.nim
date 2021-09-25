@@ -14,36 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Face, ../TopExp/TopExp_Explorer,
-  ../Geom2dAdaptor/Geom2dAdaptor_Curve, ../TopAbs/TopAbs_Orientation
-
 discard "forward decl of BRepAdaptor_HSurface"
 discard "forward decl of TopoDS_Edge"
 type
-  StdPrs_ToolRFace* {.importcpp: "StdPrs_ToolRFace",
-                     header: "StdPrs_ToolRFace.hxx", bycopy.} = object ## ! Empty constructor.
-                                                                  ## ! Find nearest valid item for the iterator.
+  StdPrsToolRFace* {.importcpp: "StdPrs_ToolRFace", header: "StdPrs_ToolRFace.hxx",
+                    bycopy.} = object ## ! Empty constructor.
+                                   ## ! Find nearest valid item for the iterator.
 
 
-proc constructStdPrs_ToolRFace*(): StdPrs_ToolRFace {.constructor,
+proc constructStdPrsToolRFace*(): StdPrsToolRFace {.constructor,
     importcpp: "StdPrs_ToolRFace(@)", header: "StdPrs_ToolRFace.hxx".}
-proc constructStdPrs_ToolRFace*(aSurface: handle[BRepAdaptor_HSurface]): StdPrs_ToolRFace {.
+proc constructStdPrsToolRFace*(aSurface: Handle[BRepAdaptorHSurface]): StdPrsToolRFace {.
     constructor, importcpp: "StdPrs_ToolRFace(@)", header: "StdPrs_ToolRFace.hxx".}
-proc IsOriented*(this: StdPrs_ToolRFace): Standard_Boolean {.noSideEffect,
+proc isOriented*(this: StdPrsToolRFace): bool {.noSideEffect,
     importcpp: "IsOriented", header: "StdPrs_ToolRFace.hxx".}
-proc Init*(this: var StdPrs_ToolRFace) {.importcpp: "Init",
-                                     header: "StdPrs_ToolRFace.hxx".}
-proc More*(this: StdPrs_ToolRFace): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "StdPrs_ToolRFace.hxx".}
-proc Next*(this: var StdPrs_ToolRFace) {.importcpp: "Next",
-                                     header: "StdPrs_ToolRFace.hxx".}
-proc Value*(this: StdPrs_ToolRFace): Adaptor2d_Curve2d {.noSideEffect,
+proc init*(this: var StdPrsToolRFace) {.importcpp: "Init",
+                                    header: "StdPrs_ToolRFace.hxx".}
+proc more*(this: StdPrsToolRFace): bool {.noSideEffect, importcpp: "More",
+                                      header: "StdPrs_ToolRFace.hxx".}
+proc next*(this: var StdPrsToolRFace) {.importcpp: "Next",
+                                    header: "StdPrs_ToolRFace.hxx".}
+proc value*(this: StdPrsToolRFace): Adaptor2dCurve2d {.noSideEffect,
     importcpp: "Value", header: "StdPrs_ToolRFace.hxx".}
-proc Edge*(this: StdPrs_ToolRFace): TopoDS_Edge {.noSideEffect, importcpp: "Edge",
+proc edge*(this: StdPrsToolRFace): TopoDS_Edge {.noSideEffect, importcpp: "Edge",
     header: "StdPrs_ToolRFace.hxx".}
-proc Orientation*(this: StdPrs_ToolRFace): TopAbs_Orientation {.noSideEffect,
+proc orientation*(this: StdPrsToolRFace): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "StdPrs_ToolRFace.hxx".}
-proc IsInvalidGeometry*(this: StdPrs_ToolRFace): Standard_Boolean {.noSideEffect,
+proc isInvalidGeometry*(this: StdPrsToolRFace): bool {.noSideEffect,
     importcpp: "IsInvalidGeometry", header: "StdPrs_ToolRFace.hxx".}

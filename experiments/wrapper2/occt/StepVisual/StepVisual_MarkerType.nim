@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepVisual_MarkerType* {.size: sizeof(cint), importcpp: "StepVisual_MarkerType",
-                          header: "StepVisual_MarkerType.hxx".} = enum
-    StepVisual_mtDot, StepVisual_mtX, StepVisual_mtPlus, StepVisual_mtAsterisk,
-    StepVisual_mtRing, StepVisual_mtSquare, StepVisual_mtTriangle
+  StepVisualMarkerType* {.size: sizeof(cint), importcpp: "StepVisual_MarkerType",
+                         header: "StepVisual_MarkerType.hxx".} = enum
+    StepVisualMtDot, StepVisualMtX, StepVisualMtPlus, StepVisualMtAsterisk,
+    StepVisualMtRing, StepVisualMtSquare, StepVisualMtTriangle
+
 

@@ -13,14 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TDF_AttributeDelta
-
 discard "forward decl of TDF_Attribute"
 discard "forward decl of TDF_DeltaOnForget"
 discard "forward decl of TDF_DeltaOnForget"
 type
-  Handle_TDF_DeltaOnForget* = handle[TDF_DeltaOnForget]
+  HandleTDF_DeltaOnForget* = Handle[TDF_DeltaOnForget]
 
 ## ! This class provides default services for an
 ## ! AttributeDelta on an Forget action.
@@ -37,17 +34,17 @@ type
                                                                                         ## TDF_DeltaOnForget.
 
 
-proc constructTDF_DeltaOnForget*(anAtt: handle[TDF_Attribute]): TDF_DeltaOnForget {.
+proc constructTDF_DeltaOnForget*(anAtt: Handle[TDF_Attribute]): TDF_DeltaOnForget {.
     constructor, importcpp: "TDF_DeltaOnForget(@)", header: "TDF_DeltaOnForget.hxx".}
-proc Apply*(this: var TDF_DeltaOnForget) {.importcpp: "Apply",
+proc apply*(this: var TDF_DeltaOnForget) {.importcpp: "Apply",
                                        header: "TDF_DeltaOnForget.hxx".}
 type
-  TDF_DeltaOnForgetbase_type* = TDF_AttributeDelta
+  TDF_DeltaOnForgetbaseType* = TDF_AttributeDelta
 
-proc get_type_name*(): cstring {.importcpp: "TDF_DeltaOnForget::get_type_name(@)",
-                              header: "TDF_DeltaOnForget.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDF_DeltaOnForget::get_type_name(@)",
+                            header: "TDF_DeltaOnForget.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDF_DeltaOnForget::get_type_descriptor(@)",
     header: "TDF_DeltaOnForget.hxx".}
-proc DynamicType*(this: TDF_DeltaOnForget): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDF_DeltaOnForget): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDF_DeltaOnForget.hxx".}

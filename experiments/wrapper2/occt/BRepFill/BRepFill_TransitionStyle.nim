@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  BRepFill_TransitionStyle* {.size: sizeof(cint),
-                             importcpp: "BRepFill_TransitionStyle",
-                             header: "BRepFill_TransitionStyle.hxx".} = enum
-    BRepFill_Modified, BRepFill_Right, BRepFill_Round
+  BRepFillTransitionStyle* {.size: sizeof(cint),
+                            importcpp: "BRepFill_TransitionStyle",
+                            header: "BRepFill_TransitionStyle.hxx".} = enum
+    BRepFillModified, BRepFillRight, BRepFillRound
+
 

@@ -14,34 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_TextStyleForDefinedFont"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisual_RWTextStyleForDefinedFont* {.
+  RWStepVisualRWTextStyleForDefinedFont* {.
       importcpp: "RWStepVisual_RWTextStyleForDefinedFont",
       header: "RWStepVisual_RWTextStyleForDefinedFont.hxx", bycopy.} = object
 
 
-proc constructRWStepVisual_RWTextStyleForDefinedFont*(): RWStepVisual_RWTextStyleForDefinedFont {.
+proc constructRWStepVisualRWTextStyleForDefinedFont*(): RWStepVisualRWTextStyleForDefinedFont {.
     constructor, importcpp: "RWStepVisual_RWTextStyleForDefinedFont(@)",
     header: "RWStepVisual_RWTextStyleForDefinedFont.hxx".}
-proc ReadStep*(this: RWStepVisual_RWTextStyleForDefinedFont;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepVisual_TextStyleForDefinedFont]) {.noSideEffect,
+proc readStep*(this: RWStepVisualRWTextStyleForDefinedFont;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepVisualTextStyleForDefinedFont]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWTextStyleForDefinedFont.hxx".}
-proc WriteStep*(this: RWStepVisual_RWTextStyleForDefinedFont;
-               SW: var StepData_StepWriter;
-               ent: handle[StepVisual_TextStyleForDefinedFont]) {.noSideEffect,
+proc writeStep*(this: RWStepVisualRWTextStyleForDefinedFont;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepVisualTextStyleForDefinedFont]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWTextStyleForDefinedFont.hxx".}
-proc Share*(this: RWStepVisual_RWTextStyleForDefinedFont;
-           ent: handle[StepVisual_TextStyleForDefinedFont];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepVisualRWTextStyleForDefinedFont;
+           ent: Handle[StepVisualTextStyleForDefinedFont];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWTextStyleForDefinedFont.hxx".}

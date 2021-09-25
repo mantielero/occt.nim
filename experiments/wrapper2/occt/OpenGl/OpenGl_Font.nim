@@ -13,32 +13,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_Texture, OpenGl_Vec, ../Font/Font_Rect,
-  ../NCollection/NCollection_DataMap, ../NCollection/NCollection_Vector,
-  ../TCollection/TCollection_AsciiString
-
 discard "forward decl of Font_FTFont"
 type
-  OpenGl_Font* {.importcpp: "OpenGl_Font", header: "OpenGl_Font.hxx", bycopy.} = object of OpenGl_Resource ##
-                                                                                                 ## !
-                                                                                                 ## Simple
-                                                                                                 ## structure
-                                                                                                 ## stores
-                                                                                                 ## tile
-                                                                                                 ## rectangle.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Main
-                                                                                                 ## constructor.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Render
-                                                                                                 ## new
-                                                                                                 ## glyph
-                                                                                                 ## to
-                                                                                                 ## the
-                                                                                                 ## texture.
+  OpenGlFont* {.importcpp: "OpenGl_Font", header: "OpenGl_Font.hxx", bycopy.} = object of OpenGlResource ##
+                                                                                               ## !
+                                                                                               ## Simple
+                                                                                               ## structure
+                                                                                               ## stores
+                                                                                               ## tile
+                                                                                               ## rectangle.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Main
+                                                                                               ## constructor.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Render
+                                                                                               ## new
+                                                                                               ## glyph
+                                                                                               ## to
+                                                                                               ## the
+                                                                                               ## texture.
     ## !< key of shared resource
     ## !< FreeType font instance
     ## !< ascender     provided my FT font
@@ -49,55 +44,55 @@ type
     ## !< array of textures
     ## !< array of loaded tiles
 
-  OpenGl_FontTile* {.importcpp: "OpenGl_Font::Tile", header: "OpenGl_Font.hxx",
-                    bycopy.} = object
-    uv* {.importc: "uv".}: Font_Rect ## !< UV coordinates in texture
-    px* {.importc: "px".}: Font_Rect ## !< pixel displacement coordinates
+  OpenGlFontTile* {.importcpp: "OpenGl_Font::Tile", header: "OpenGl_Font.hxx", bycopy.} = object
+    uv* {.importc: "uv".}: FontRect ## !< UV coordinates in texture
+    px* {.importc: "px".}: FontRect ## !< pixel displacement coordinates
     texture* {.importc: "texture".}: GLuint ## !< GL texture ID
 
-  OpenGl_FontRectI* {.importcpp: "OpenGl_Font::RectI", header: "OpenGl_Font.hxx",
-                     bycopy.} = object
-    Left* {.importc: "Left".}: Standard_Integer
-    Right* {.importc: "Right".}: Standard_Integer
-    Top* {.importc: "Top".}: Standard_Integer
-    Bottom* {.importc: "Bottom".}: Standard_Integer
+  OpenGlFontRectI* {.importcpp: "OpenGl_Font::RectI", header: "OpenGl_Font.hxx",
+                    bycopy.} = object
+    left* {.importc: "Left".}: int
+    right* {.importc: "Right".}: int
+    top* {.importc: "Top".}: int
+    bottom* {.importc: "Bottom".}: int
 
 
-proc constructOpenGl_Font*(theFont: handle[Font_FTFont];
-                          theKey: TCollection_AsciiString = ""): OpenGl_Font {.
+proc constructOpenGlFont*(theFont: Handle[FontFTFont];
+                         theKey: TCollectionAsciiString = ""): OpenGlFont {.
     constructor, importcpp: "OpenGl_Font(@)", header: "OpenGl_Font.hxx".}
-proc destroyOpenGl_Font*(this: var OpenGl_Font) {.importcpp: "#.~OpenGl_Font()",
+proc destroyOpenGlFont*(this: var OpenGlFont) {.importcpp: "#.~OpenGl_Font()",
     header: "OpenGl_Font.hxx".}
-proc Release*(this: var OpenGl_Font; theCtx: ptr OpenGl_Context) {.
-    importcpp: "Release", header: "OpenGl_Font.hxx".}
-proc EstimatedDataSize*(this: OpenGl_Font): Standard_Size {.noSideEffect,
+proc release*(this: var OpenGlFont; theCtx: ptr OpenGlContext) {.importcpp: "Release",
+    header: "OpenGl_Font.hxx".}
+proc estimatedDataSize*(this: OpenGlFont): StandardSize {.noSideEffect,
     importcpp: "EstimatedDataSize", header: "OpenGl_Font.hxx".}
-proc ResourceKey*(this: OpenGl_Font): TCollection_AsciiString {.noSideEffect,
+proc resourceKey*(this: OpenGlFont): TCollectionAsciiString {.noSideEffect,
     importcpp: "ResourceKey", header: "OpenGl_Font.hxx".}
-proc FTFont*(this: OpenGl_Font): handle[Font_FTFont] {.noSideEffect,
+proc fTFont*(this: OpenGlFont): Handle[FontFTFont] {.noSideEffect,
     importcpp: "FTFont", header: "OpenGl_Font.hxx".}
-proc IsValid*(this: OpenGl_Font): bool {.noSideEffect, importcpp: "IsValid",
-                                     header: "OpenGl_Font.hxx".}
-proc WasInitialized*(this: OpenGl_Font): bool {.noSideEffect,
+proc isValid*(this: OpenGlFont): bool {.noSideEffect, importcpp: "IsValid",
+                                    header: "OpenGl_Font.hxx".}
+proc wasInitialized*(this: OpenGlFont): bool {.noSideEffect,
     importcpp: "WasInitialized", header: "OpenGl_Font.hxx".}
-proc Init*(this: var OpenGl_Font; theCtx: handle[OpenGl_Context]): bool {.
+proc init*(this: var OpenGlFont; theCtx: Handle[OpenGlContext]): bool {.
     importcpp: "Init", header: "OpenGl_Font.hxx".}
-proc Ascender*(this: OpenGl_Font): cfloat {.noSideEffect, importcpp: "Ascender",
+proc ascender*(this: OpenGlFont): cfloat {.noSideEffect, importcpp: "Ascender",
+                                       header: "OpenGl_Font.hxx".}
+proc descender*(this: OpenGlFont): cfloat {.noSideEffect, importcpp: "Descender",
                                         header: "OpenGl_Font.hxx".}
-proc Descender*(this: OpenGl_Font): cfloat {.noSideEffect, importcpp: "Descender",
-    header: "OpenGl_Font.hxx".}
-proc RenderGlyph*(this: var OpenGl_Font; theCtx: handle[OpenGl_Context];
-                 theUChar: Standard_Utf32Char; theGlyph: var OpenGl_FontTile): bool {.
+proc renderGlyph*(this: var OpenGlFont; theCtx: Handle[OpenGlContext];
+                 theUChar: StandardUtf32Char; theGlyph: var OpenGlFontTile): bool {.
     importcpp: "RenderGlyph", header: "OpenGl_Font.hxx".}
 type
-  OpenGl_Fontbase_type* = OpenGl_Resource
+  OpenGlFontbaseType* = OpenGlResource
 
-proc get_type_name*(): cstring {.importcpp: "OpenGl_Font::get_type_name(@)",
-                              header: "OpenGl_Font.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "OpenGl_Font::get_type_name(@)",
+                            header: "OpenGl_Font.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "OpenGl_Font::get_type_descriptor(@)", header: "OpenGl_Font.hxx".}
-proc DynamicType*(this: OpenGl_Font): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: OpenGlFont): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "OpenGl_Font.hxx".}
 discard "forward decl of OpenGl_Font"
 type
-  Handle_OpenGl_Font* = handle[OpenGl_Font]
+  HandleOpenGlFont* = Handle[OpenGlFont]
+

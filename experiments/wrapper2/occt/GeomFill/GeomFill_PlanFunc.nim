@@ -14,35 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_XYZ, ../gp/gp_Pnt,
-  ../math/math_FunctionWithDerivative, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real
-
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 type
-  GeomFill_PlanFunc* {.importcpp: "GeomFill_PlanFunc",
-                      header: "GeomFill_PlanFunc.hxx", bycopy.} = object of math_FunctionWithDerivative
+  GeomFillPlanFunc* {.importcpp: "GeomFill_PlanFunc",
+                     header: "GeomFill_PlanFunc.hxx", bycopy.} = object of MathFunctionWithDerivative
 
 
-proc constructGeomFill_PlanFunc*(P: gp_Pnt; V: gp_Vec; C: handle[Adaptor3d_HCurve]): GeomFill_PlanFunc {.
+proc constructGeomFillPlanFunc*(p: Pnt; v: Vec; c: Handle[Adaptor3dHCurve]): GeomFillPlanFunc {.
     constructor, importcpp: "GeomFill_PlanFunc(@)", header: "GeomFill_PlanFunc.hxx".}
-proc Value*(this: var GeomFill_PlanFunc; X: Standard_Real; F: var Standard_Real): Standard_Boolean {.
+proc value*(this: var GeomFillPlanFunc; x: float; f: var float): bool {.
     importcpp: "Value", header: "GeomFill_PlanFunc.hxx".}
-proc Derivative*(this: var GeomFill_PlanFunc; X: Standard_Real; D: var Standard_Real): Standard_Boolean {.
+proc derivative*(this: var GeomFillPlanFunc; x: float; d: var float): bool {.
     importcpp: "Derivative", header: "GeomFill_PlanFunc.hxx".}
-proc Values*(this: var GeomFill_PlanFunc; X: Standard_Real; F: var Standard_Real;
-            D: var Standard_Real): Standard_Boolean {.importcpp: "Values",
+proc values*(this: var GeomFillPlanFunc; x: float; f: var float; d: var float): bool {.
+    importcpp: "Values", header: "GeomFill_PlanFunc.hxx".}
+proc d2*(this: var GeomFillPlanFunc; x: float; f: var float; d1: var float; d2: var float) {.
+    importcpp: "D2", header: "GeomFill_PlanFunc.hxx".}
+proc dedt*(this: var GeomFillPlanFunc; x: float; dp: Vec; dv: Vec; df: var float) {.
+    importcpp: "DEDT", header: "GeomFill_PlanFunc.hxx".}
+proc d2e*(this: var GeomFillPlanFunc; x: float; dp: Vec; d2p: Vec; dv: Vec; d2v: Vec;
+         dfdt: var float; d2fdt2: var float; d2fdtdx: var float) {.importcpp: "D2E",
     header: "GeomFill_PlanFunc.hxx".}
-proc D2*(this: var GeomFill_PlanFunc; X: Standard_Real; F: var Standard_Real;
-        D1: var Standard_Real; D2: var Standard_Real) {.importcpp: "D2",
-    header: "GeomFill_PlanFunc.hxx".}
-proc DEDT*(this: var GeomFill_PlanFunc; X: Standard_Real; DP: gp_Vec; DV: gp_Vec;
-          DF: var Standard_Real) {.importcpp: "DEDT", header: "GeomFill_PlanFunc.hxx".}
-proc D2E*(this: var GeomFill_PlanFunc; X: Standard_Real; DP: gp_Vec; D2P: gp_Vec;
-         DV: gp_Vec; D2V: gp_Vec; DFDT: var Standard_Real; D2FDT2: var Standard_Real;
-         D2FDTDX: var Standard_Real) {.importcpp: "D2E",
-                                    header: "GeomFill_PlanFunc.hxx".}

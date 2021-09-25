@@ -11,26 +11,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Image_Format, Image_CompressedFormat, ../NCollection/NCollection_Array1,
-  ../NCollection/NCollection_Buffer, ../Standard/Standard_Type
-
 ## ! Compressed pixmap data definition.
 ## ! It is defined independently from Image_PixMap, which defines only uncompressed formats.
 
 type
-  Image_CompressedPixMap* {.importcpp: "Image_CompressedPixMap",
-                           header: "Image_CompressedPixMap.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                  ## !
-                                                                                                  ## Return
-                                                                                                  ## base
-                                                                                                  ## (uncompressed)
-                                                                                                  ## pixel
-                                                                                                  ## format.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Empty
-                                                                                                  ## constructor.
+  ImageCompressedPixMap* {.importcpp: "Image_CompressedPixMap",
+                          header: "Image_CompressedPixMap.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                ## !
+                                                                                                ## Return
+                                                                                                ## base
+                                                                                                ## (uncompressed)
+                                                                                                ## pixel
+                                                                                                ## format.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Empty
+                                                                                                ## constructor.
     ## !< Array of mipmap sizes, including base level
     ## !< raw compressed data
     ## !< surface length in bytes
@@ -41,57 +37,53 @@ type
     ## !< compressed format
     ## !< flag indicating complete mip map level set (up to 1x1 resolution)
 
-  Image_CompressedPixMapbase_type* = Standard_Transient
+  ImageCompressedPixMapbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Image_CompressedPixMap::get_type_name(@)",
-                              header: "Image_CompressedPixMap.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Image_CompressedPixMap::get_type_name(@)",
+                            header: "Image_CompressedPixMap.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Image_CompressedPixMap::get_type_descriptor(@)",
     header: "Image_CompressedPixMap.hxx".}
-proc DynamicType*(this: Image_CompressedPixMap): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Image_CompressedPixMap.hxx".}
-proc BaseFormat*(this: Image_CompressedPixMap): Image_Format {.noSideEffect,
+proc dynamicType*(this: ImageCompressedPixMap): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Image_CompressedPixMap.hxx".}
+proc baseFormat*(this: ImageCompressedPixMap): ImageFormat {.noSideEffect,
     importcpp: "BaseFormat", header: "Image_CompressedPixMap.hxx".}
-proc SetBaseFormat*(this: var Image_CompressedPixMap; theFormat: Image_Format) {.
+proc setBaseFormat*(this: var ImageCompressedPixMap; theFormat: ImageFormat) {.
     importcpp: "SetBaseFormat", header: "Image_CompressedPixMap.hxx".}
-proc CompressedFormat*(this: Image_CompressedPixMap): Image_CompressedFormat {.
+proc compressedFormat*(this: ImageCompressedPixMap): ImageCompressedFormat {.
     noSideEffect, importcpp: "CompressedFormat",
     header: "Image_CompressedPixMap.hxx".}
-proc SetCompressedFormat*(this: var Image_CompressedPixMap;
-                         theFormat: Image_CompressedFormat) {.
+proc setCompressedFormat*(this: var ImageCompressedPixMap;
+                         theFormat: ImageCompressedFormat) {.
     importcpp: "SetCompressedFormat", header: "Image_CompressedPixMap.hxx".}
-proc FaceData*(this: Image_CompressedPixMap): handle[NCollection_Buffer] {.
+proc faceData*(this: ImageCompressedPixMap): Handle[NCollectionBuffer] {.
     noSideEffect, importcpp: "FaceData", header: "Image_CompressedPixMap.hxx".}
-proc SetFaceData*(this: var Image_CompressedPixMap;
-                 theBuffer: handle[NCollection_Buffer]) {.
-    importcpp: "SetFaceData", header: "Image_CompressedPixMap.hxx".}
-proc MipMaps*(this: Image_CompressedPixMap): NCollection_Array1[Standard_Integer] {.
-    noSideEffect, importcpp: "MipMaps", header: "Image_CompressedPixMap.hxx".}
-proc ChangeMipMaps*(this: var Image_CompressedPixMap): var NCollection_Array1[
-    Standard_Integer] {.importcpp: "ChangeMipMaps",
-                       header: "Image_CompressedPixMap.hxx".}
-proc IsCompleteMipMapSet*(this: Image_CompressedPixMap): Standard_Boolean {.
-    noSideEffect, importcpp: "IsCompleteMipMapSet",
+proc setFaceData*(this: var ImageCompressedPixMap;
+                 theBuffer: Handle[NCollectionBuffer]) {.importcpp: "SetFaceData",
     header: "Image_CompressedPixMap.hxx".}
-proc SetCompleteMipMapSet*(this: var Image_CompressedPixMap;
-                          theIsComplete: Standard_Boolean) {.
+proc mipMaps*(this: ImageCompressedPixMap): NCollectionArray1[int] {.noSideEffect,
+    importcpp: "MipMaps", header: "Image_CompressedPixMap.hxx".}
+proc changeMipMaps*(this: var ImageCompressedPixMap): var NCollectionArray1[int] {.
+    importcpp: "ChangeMipMaps", header: "Image_CompressedPixMap.hxx".}
+proc isCompleteMipMapSet*(this: ImageCompressedPixMap): bool {.noSideEffect,
+    importcpp: "IsCompleteMipMapSet", header: "Image_CompressedPixMap.hxx".}
+proc setCompleteMipMapSet*(this: var ImageCompressedPixMap; theIsComplete: bool) {.
     importcpp: "SetCompleteMipMapSet", header: "Image_CompressedPixMap.hxx".}
-proc FaceBytes*(this: Image_CompressedPixMap): Standard_Size {.noSideEffect,
+proc faceBytes*(this: ImageCompressedPixMap): StandardSize {.noSideEffect,
     importcpp: "FaceBytes", header: "Image_CompressedPixMap.hxx".}
-proc SetFaceBytes*(this: var Image_CompressedPixMap; theSize: Standard_Size) {.
+proc setFaceBytes*(this: var ImageCompressedPixMap; theSize: StandardSize) {.
     importcpp: "SetFaceBytes", header: "Image_CompressedPixMap.hxx".}
-proc SizeX*(this: Image_CompressedPixMap): Standard_Integer {.noSideEffect,
-    importcpp: "SizeX", header: "Image_CompressedPixMap.hxx".}
-proc SizeY*(this: Image_CompressedPixMap): Standard_Integer {.noSideEffect,
-    importcpp: "SizeY", header: "Image_CompressedPixMap.hxx".}
-proc SetSize*(this: var Image_CompressedPixMap; theSizeX: Standard_Integer;
-             theSizeY: Standard_Integer) {.importcpp: "SetSize",
+proc sizeX*(this: ImageCompressedPixMap): int {.noSideEffect, importcpp: "SizeX",
     header: "Image_CompressedPixMap.hxx".}
-proc IsTopDown*(this: Image_CompressedPixMap): bool {.noSideEffect,
+proc sizeY*(this: ImageCompressedPixMap): int {.noSideEffect, importcpp: "SizeY",
+    header: "Image_CompressedPixMap.hxx".}
+proc setSize*(this: var ImageCompressedPixMap; theSizeX: int; theSizeY: int) {.
+    importcpp: "SetSize", header: "Image_CompressedPixMap.hxx".}
+proc isTopDown*(this: ImageCompressedPixMap): bool {.noSideEffect,
     importcpp: "IsTopDown", header: "Image_CompressedPixMap.hxx".}
-proc NbFaces*(this: Image_CompressedPixMap): Standard_Integer {.noSideEffect,
-    importcpp: "NbFaces", header: "Image_CompressedPixMap.hxx".}
-proc SetNbFaces*(this: var Image_CompressedPixMap; theSize: Standard_Integer) {.
+proc nbFaces*(this: ImageCompressedPixMap): int {.noSideEffect, importcpp: "NbFaces",
+    header: "Image_CompressedPixMap.hxx".}
+proc setNbFaces*(this: var ImageCompressedPixMap; theSize: int) {.
     importcpp: "SetNbFaces", header: "Image_CompressedPixMap.hxx".}
-proc constructImage_CompressedPixMap*(): Image_CompressedPixMap {.constructor,
+proc constructImageCompressedPixMap*(): ImageCompressedPixMap {.constructor,
     importcpp: "Image_CompressedPixMap(@)", header: "Image_CompressedPixMap.hxx".}

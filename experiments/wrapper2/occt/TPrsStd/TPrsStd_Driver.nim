@@ -14,16 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TDF_Label"
 discard "forward decl of AIS_InteractiveObject"
 discard "forward decl of TPrsStd_Driver"
 discard "forward decl of TPrsStd_Driver"
 type
-  Handle_TPrsStd_Driver* = handle[TPrsStd_Driver]
+  HandleTPrsStdDriver* = Handle[TPrsStdDriver]
 
 ## ! Driver for AIS
 ## ! ==============
@@ -42,38 +38,38 @@ type
 ## ! label.
 
 type
-  TPrsStd_Driver* {.importcpp: "TPrsStd_Driver", header: "TPrsStd_Driver.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                             ## !
-                                                                                                             ## Updates
-                                                                                                             ## the
-                                                                                                             ## interactive
-                                                                                                             ## object
-                                                                                                             ## ais
-                                                                                                             ## with
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## information
-                                                                                                             ## found
-                                                                                                             ## on
-                                                                                                             ## the
-                                                                                                             ## attributes
-                                                                                                             ## associated
-                                                                                                             ## with
-                                                                                                             ## the
-                                                                                                             ## label
-                                                                                                             ## L.
+  TPrsStdDriver* {.importcpp: "TPrsStd_Driver", header: "TPrsStd_Driver.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                           ## !
+                                                                                                           ## Updates
+                                                                                                           ## the
+                                                                                                           ## interactive
+                                                                                                           ## object
+                                                                                                           ## ais
+                                                                                                           ## with
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## information
+                                                                                                           ## found
+                                                                                                           ## on
+                                                                                                           ## the
+                                                                                                           ## attributes
+                                                                                                           ## associated
+                                                                                                           ## with
+                                                                                                           ## the
+                                                                                                           ## label
+                                                                                                           ## L.
 
 
-proc Update*(this: var TPrsStd_Driver; L: TDF_Label;
-            ais: var handle[AIS_InteractiveObject]): Standard_Boolean {.
-    importcpp: "Update", header: "TPrsStd_Driver.hxx".}
+proc update*(this: var TPrsStdDriver; L: TDF_Label;
+            ais: var Handle[AIS_InteractiveObject]): bool {.importcpp: "Update",
+    header: "TPrsStd_Driver.hxx".}
 type
-  TPrsStd_Driverbase_type* = Standard_Transient
+  TPrsStdDriverbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TPrsStd_Driver::get_type_name(@)",
-                              header: "TPrsStd_Driver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TPrsStd_Driver::get_type_name(@)",
+                            header: "TPrsStd_Driver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TPrsStd_Driver::get_type_descriptor(@)",
     header: "TPrsStd_Driver.hxx".}
-proc DynamicType*(this: TPrsStd_Driver): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TPrsStdDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TPrsStd_Driver.hxx".}

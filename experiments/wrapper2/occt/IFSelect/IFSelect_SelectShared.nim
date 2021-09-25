@@ -14,42 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_SelectDeduct
-
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectShared"
 discard "forward decl of IFSelect_SelectShared"
 type
-  Handle_IFSelect_SelectShared* = handle[IFSelect_SelectShared]
+  HandleIFSelectSelectShared* = Handle[IFSelectSelectShared]
 
 ## ! A SelectShared selects Entities which are directly Shared
 ## ! by the Entities of the Input list
 
 type
-  IFSelect_SelectShared* {.importcpp: "IFSelect_SelectShared",
-                          header: "IFSelect_SelectShared.hxx", bycopy.} = object of IFSelect_SelectDeduct ##
-                                                                                                   ## !
-                                                                                                   ## Creates
-                                                                                                   ## a
-                                                                                                   ## SelectShared;
+  IFSelectSelectShared* {.importcpp: "IFSelect_SelectShared",
+                         header: "IFSelect_SelectShared.hxx", bycopy.} = object of IFSelectSelectDeduct ##
+                                                                                                 ## !
+                                                                                                 ## Creates
+                                                                                                 ## a
+                                                                                                 ## SelectShared;
 
 
-proc constructIFSelect_SelectShared*(): IFSelect_SelectShared {.constructor,
+proc constructIFSelectSelectShared*(): IFSelectSelectShared {.constructor,
     importcpp: "IFSelect_SelectShared(@)", header: "IFSelect_SelectShared.hxx".}
-proc RootResult*(this: IFSelect_SelectShared; G: Interface_Graph): Interface_EntityIterator {.
+proc rootResult*(this: IFSelectSelectShared; g: InterfaceGraph): InterfaceEntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "IFSelect_SelectShared.hxx".}
-proc Label*(this: IFSelect_SelectShared): TCollection_AsciiString {.noSideEffect,
+proc label*(this: IFSelectSelectShared): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_SelectShared.hxx".}
 type
-  IFSelect_SelectSharedbase_type* = IFSelect_SelectDeduct
+  IFSelectSelectSharedbaseType* = IFSelectSelectDeduct
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectShared::get_type_name(@)",
-                              header: "IFSelect_SelectShared.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectShared::get_type_name(@)",
+                            header: "IFSelect_SelectShared.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_SelectShared::get_type_descriptor(@)",
     header: "IFSelect_SelectShared.hxx".}
-proc DynamicType*(this: IFSelect_SelectShared): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IFSelect_SelectShared.hxx".}
+proc dynamicType*(this: IFSelectSelectShared): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IFSelect_SelectShared.hxx".}

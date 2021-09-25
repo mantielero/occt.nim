@@ -11,9 +11,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepFEA_CurveElementInterval, ../NCollection/NCollection_Array1
-
 type
-  StepFEA_Array1OfCurveElementInterval* = NCollection_Array1[
-      handle[StepFEA_CurveElementInterval]]
+  StepFEA_Array1OfCurveElementInterval* = NCollectionArray1[
+      Handle[StepFEA_CurveElementInterval]]
+

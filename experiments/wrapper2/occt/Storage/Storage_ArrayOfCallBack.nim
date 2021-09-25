@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Storage_CallBack, ../NCollection/NCollection_Array1
-
 type
-  Storage_ArrayOfCallBack* = NCollection_Array1[handle[Storage_CallBack]]
+  StorageArrayOfCallBack* = NCollectionArray1[Handle[StorageCallBack]]
+

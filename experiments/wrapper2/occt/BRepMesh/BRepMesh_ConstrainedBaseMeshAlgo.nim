@@ -13,38 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  BRepMesh_BaseMeshAlgo, ../NCollection/NCollection_Shared,
-  ../IMeshTools/IMeshTools_Parameters
-
 discard "forward decl of BRepMesh_DataStructureOfDelaun"
 discard "forward decl of BRepMesh_Delaun"
 type
-  BRepMesh_ConstrainedBaseMeshAlgo* {.importcpp: "BRepMesh_ConstrainedBaseMeshAlgo", header: "BRepMesh_ConstrainedBaseMeshAlgo.hxx",
-                                     bycopy.} = object of BRepMesh_BaseMeshAlgo ## !
-                                                                           ## Constructor.
-                                                                           ## !
-                                                                           ## Returns size of cell to be used by
-                                                                           ## acceleration
-                                                                           ## circles grid
-                                                                           ## structure.
+  BRepMeshConstrainedBaseMeshAlgo* {.importcpp: "BRepMesh_ConstrainedBaseMeshAlgo", header: "BRepMesh_ConstrainedBaseMeshAlgo.hxx",
+                                    bycopy.} = object of BRepMeshBaseMeshAlgo ## !
+                                                                         ## Constructor.
+                                                                         ## ! Returns size of cell to be used by
+                                                                         ## acceleration circles grid
+                                                                         ## structure.
 
 
-proc constructBRepMesh_ConstrainedBaseMeshAlgo*(): BRepMesh_ConstrainedBaseMeshAlgo {.
+proc constructBRepMeshConstrainedBaseMeshAlgo*(): BRepMeshConstrainedBaseMeshAlgo {.
     constructor, importcpp: "BRepMesh_ConstrainedBaseMeshAlgo(@)",
     header: "BRepMesh_ConstrainedBaseMeshAlgo.hxx".}
-proc destroyBRepMesh_ConstrainedBaseMeshAlgo*(
-    this: var BRepMesh_ConstrainedBaseMeshAlgo) {.
+proc destroyBRepMeshConstrainedBaseMeshAlgo*(
+    this: var BRepMeshConstrainedBaseMeshAlgo) {.
     importcpp: "#.~BRepMesh_ConstrainedBaseMeshAlgo()",
     header: "BRepMesh_ConstrainedBaseMeshAlgo.hxx".}
 type
-  BRepMesh_ConstrainedBaseMeshAlgobase_type* = BRepMesh_BaseMeshAlgo
+  BRepMeshConstrainedBaseMeshAlgobaseType* = BRepMeshBaseMeshAlgo
 
-proc get_type_name*(): cstring {.importcpp: "BRepMesh_ConstrainedBaseMeshAlgo::get_type_name(@)",
-                              header: "BRepMesh_ConstrainedBaseMeshAlgo.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepMesh_ConstrainedBaseMeshAlgo::get_type_name(@)",
+                            header: "BRepMesh_ConstrainedBaseMeshAlgo.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepMesh_ConstrainedBaseMeshAlgo::get_type_descriptor(@)",
     header: "BRepMesh_ConstrainedBaseMeshAlgo.hxx".}
-proc DynamicType*(this: BRepMesh_ConstrainedBaseMeshAlgo): handle[Standard_Type] {.
+proc dynamicType*(this: BRepMeshConstrainedBaseMeshAlgo): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BRepMesh_ConstrainedBaseMeshAlgo.hxx".}

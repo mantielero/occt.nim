@@ -14,36 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, GeomInt_LineConstructor,
-  ../IntPatch/IntPatch_SequenceOfLine
-
 discard "forward decl of IntPatch_Line"
 discard "forward decl of IntPatch_Point"
 discard "forward decl of IntPatch_WLine"
 discard "forward decl of GeomAdaptor_HSurface"
 type
-  GeomInt_LineTool* {.importcpp: "GeomInt_LineTool",
-                     header: "GeomInt_LineTool.hxx", bycopy.} = object
+  GeomIntLineTool* {.importcpp: "GeomInt_LineTool", header: "GeomInt_LineTool.hxx",
+                    bycopy.} = object
 
 
-proc NbVertex*(L: handle[IntPatch_Line]): Standard_Integer {.
+proc nbVertex*(L: Handle[IntPatchLine]): int {.
     importcpp: "GeomInt_LineTool::NbVertex(@)", header: "GeomInt_LineTool.hxx".}
-proc Vertex*(L: handle[IntPatch_Line]; I: Standard_Integer): IntPatch_Point {.
+proc vertex*(L: Handle[IntPatchLine]; i: int): IntPatchPoint {.
     importcpp: "GeomInt_LineTool::Vertex(@)", header: "GeomInt_LineTool.hxx".}
-proc FirstParameter*(L: handle[IntPatch_Line]): Standard_Real {.
+proc firstParameter*(L: Handle[IntPatchLine]): float {.
     importcpp: "GeomInt_LineTool::FirstParameter(@)",
     header: "GeomInt_LineTool.hxx".}
-proc LastParameter*(L: handle[IntPatch_Line]): Standard_Real {.
+proc lastParameter*(L: Handle[IntPatchLine]): float {.
     importcpp: "GeomInt_LineTool::LastParameter(@)",
     header: "GeomInt_LineTool.hxx".}
-proc DecompositionOfWLine*(theWLine: handle[IntPatch_WLine];
-                          theSurface1: handle[GeomAdaptor_HSurface];
-                          theSurface2: handle[GeomAdaptor_HSurface];
-                          aTolSum: Standard_Real;
-                          theLConstructor: GeomInt_LineConstructor;
-                          theNewLines: var IntPatch_SequenceOfLine): Standard_Boolean {.
+proc decompositionOfWLine*(theWLine: Handle[IntPatchWLine];
+                          theSurface1: Handle[GeomAdaptorHSurface];
+                          theSurface2: Handle[GeomAdaptorHSurface];
+                          aTolSum: float; theLConstructor: GeomIntLineConstructor;
+                          theNewLines: var IntPatchSequenceOfLine): bool {.
     importcpp: "GeomInt_LineTool::DecompositionOfWLine(@)",
     header: "GeomInt_LineTool.hxx".}

@@ -14,42 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, Draw_Drawable3D
-
 discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Grid"
 discard "forward decl of Draw_Grid"
 type
-  Handle_Draw_Grid* = handle[Draw_Grid]
-  Draw_Grid* {.importcpp: "Draw_Grid", header: "Draw_Grid.hxx", bycopy.} = object of Draw_Drawable3D ##
-                                                                                           ## !
-                                                                                           ## Creates
-                                                                                           ## a
-                                                                                           ## grid.
+  HandleDrawGrid* = Handle[DrawGrid]
+  DrawGrid* {.importcpp: "Draw_Grid", header: "Draw_Grid.hxx", bycopy.} = object of DrawDrawable3D ##
+                                                                                         ## !
+                                                                                         ## Creates
+                                                                                         ## a
+                                                                                         ## grid.
 
 
-proc constructDraw_Grid*(): Draw_Grid {.constructor, importcpp: "Draw_Grid(@)",
-                                     header: "Draw_Grid.hxx".}
-proc Steps*(this: var Draw_Grid; StepX: Standard_Real; StepY: Standard_Real;
-           StepZ: Standard_Real) {.importcpp: "Steps", header: "Draw_Grid.hxx".}
-proc StepX*(this: Draw_Grid): Standard_Real {.noSideEffect, importcpp: "StepX",
-    header: "Draw_Grid.hxx".}
-proc StepY*(this: Draw_Grid): Standard_Real {.noSideEffect, importcpp: "StepY",
-    header: "Draw_Grid.hxx".}
-proc StepZ*(this: Draw_Grid): Standard_Real {.noSideEffect, importcpp: "StepZ",
-    header: "Draw_Grid.hxx".}
-proc IsActive*(this: Draw_Grid): Standard_Boolean {.noSideEffect,
-    importcpp: "IsActive", header: "Draw_Grid.hxx".}
-proc DrawOn*(this: Draw_Grid; Out: var Draw_Display) {.noSideEffect,
+proc constructDrawGrid*(): DrawGrid {.constructor, importcpp: "Draw_Grid(@)",
+                                   header: "Draw_Grid.hxx".}
+proc steps*(this: var DrawGrid; stepX: float; stepY: float; stepZ: float) {.
+    importcpp: "Steps", header: "Draw_Grid.hxx".}
+proc stepX*(this: DrawGrid): float {.noSideEffect, importcpp: "StepX",
+                                 header: "Draw_Grid.hxx".}
+proc stepY*(this: DrawGrid): float {.noSideEffect, importcpp: "StepY",
+                                 header: "Draw_Grid.hxx".}
+proc stepZ*(this: DrawGrid): float {.noSideEffect, importcpp: "StepZ",
+                                 header: "Draw_Grid.hxx".}
+proc isActive*(this: DrawGrid): bool {.noSideEffect, importcpp: "IsActive",
+                                   header: "Draw_Grid.hxx".}
+proc drawOn*(this: DrawGrid; `out`: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "Draw_Grid.hxx".}
 type
-  Draw_Gridbase_type* = Draw_Drawable3D
+  DrawGridbaseType* = DrawDrawable3D
 
-proc get_type_name*(): cstring {.importcpp: "Draw_Grid::get_type_name(@)",
-                              header: "Draw_Grid.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Draw_Grid::get_type_name(@)",
+                            header: "Draw_Grid.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Draw_Grid::get_type_descriptor(@)", header: "Draw_Grid.hxx".}
-proc DynamicType*(this: Draw_Grid): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: DrawGrid): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Grid.hxx".}

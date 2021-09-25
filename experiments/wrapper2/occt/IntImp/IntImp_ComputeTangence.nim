@@ -12,12 +12,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Vec, IntImp_ConstIsoparametric
-
-proc ChoixRef*(theIndex: Standard_Integer): IntImp_ConstIsoparametric {.
-    importcpp: "ChoixRef(@)", header: "IntImp_ComputeTangence.hxx".}
-proc IntImp_ComputeTangence*(DPuv: ptr gp_Vec; EpsUV: ptr Standard_Real;
-                            Tgduv: ptr Standard_Real;
-                            TabIso: ptr IntImp_ConstIsoparametric): Standard_Boolean {.
+proc choixRef*(theIndex: int): IntImpConstIsoparametric {.importcpp: "ChoixRef(@)",
+    header: "IntImp_ComputeTangence.hxx".}
+proc intImpComputeTangence*(dPuv: ptr Vec; epsUV: ptr float; tgduv: ptr float;
+                           tabIso: ptr IntImpConstIsoparametric): bool {.
     importcpp: "IntImp_ComputeTangence(@)", header: "IntImp_ComputeTangence.hxx".}

@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  IntTools_SequenceOfRoots, ../Standard/Standard_Integer
-
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of gp_Pnt"
 discard "forward decl of Geom_Curve"
@@ -53,20 +48,18 @@ type
   IntTools* {.importcpp: "IntTools", header: "IntTools.hxx", bycopy.} = object ## ! returns the length of the edge;
 
 
-proc Length*(E: TopoDS_Edge): Standard_Real {.importcpp: "IntTools::Length(@)",
-    header: "IntTools.hxx".}
-proc RemoveIdenticalRoots*(aSeq: var IntTools_SequenceOfRoots; anEpsT: Standard_Real) {.
+proc length*(e: TopoDS_Edge): float {.importcpp: "IntTools::Length(@)",
+                                  header: "IntTools.hxx".}
+proc removeIdenticalRoots*(aSeq: var IntToolsSequenceOfRoots; anEpsT: float) {.
     importcpp: "IntTools::RemoveIdenticalRoots(@)", header: "IntTools.hxx".}
-proc SortRoots*(aSeq: var IntTools_SequenceOfRoots; anEpsT: Standard_Real) {.
+proc sortRoots*(aSeq: var IntToolsSequenceOfRoots; anEpsT: float) {.
     importcpp: "IntTools::SortRoots(@)", header: "IntTools.hxx".}
-proc FindRootStates*(aSeq: var IntTools_SequenceOfRoots; anEpsNull: Standard_Real) {.
+proc findRootStates*(aSeq: var IntToolsSequenceOfRoots; anEpsNull: float) {.
     importcpp: "IntTools::FindRootStates(@)", header: "IntTools.hxx".}
-proc Parameter*(P: gp_Pnt; Curve: handle[Geom_Curve]; aParm: var Standard_Real): Standard_Integer {.
+proc parameter*(p: Pnt; curve: Handle[GeomCurve]; aParm: var float): int {.
     importcpp: "IntTools::Parameter(@)", header: "IntTools.hxx".}
-proc GetRadius*(C: BRepAdaptor_Curve; t1: Standard_Real; t3: Standard_Real;
-               R: var Standard_Real): Standard_Integer {.
+proc getRadius*(c: BRepAdaptorCurve; t1: float; t3: float; r: var float): int {.
     importcpp: "IntTools::GetRadius(@)", header: "IntTools.hxx".}
-proc PrepareArgs*(C: var BRepAdaptor_Curve; tMax: Standard_Real; tMin: Standard_Real;
-                 Discret: Standard_Integer; Deflect: Standard_Real;
-                 anArgs: var IntTools_CArray1OfReal): Standard_Integer {.
+proc prepareArgs*(c: var BRepAdaptorCurve; tMax: float; tMin: float; discret: int;
+                 deflect: float; anArgs: var IntToolsCArray1OfReal): int {.
     importcpp: "IntTools::PrepareArgs(@)", header: "IntTools.hxx".}

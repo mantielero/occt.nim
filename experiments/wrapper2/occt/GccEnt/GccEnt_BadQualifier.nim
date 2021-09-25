@@ -14,15 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _GccEnt_BadQualifier_HeaderFile [NewLine] # _GccEnt_BadQualifier_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_DomainError.hxx [NewLine] class GccEnt_BadQualifier ;
+## !!!Ignored construct:  # _GccEnt_BadQualifier_HeaderFile [NewLine] # _GccEnt_BadQualifier_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class GccEnt_BadQualifier ;
 ## Error: expected ';'!!!
 
 discard "forward decl of GccEnt_BadQualifier"
 type
-  Handle_GccEnt_BadQualifierGccEnt_BadQualifier* = handle[GccEnt_BadQualifier]
+  HandleGccEntBadQualifierGccEntBadQualifier* = Handle[GccEntBadQualifier]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_GccEnt_BadQualifier [NewLine] # if ( CONDITION ) throw GccEnt_BadQualifier ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( GccEnt_BadQualifier , Standard_DomainError ) #  _GccEnt_BadQualifier_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( GccEnt_BadQualifier , Standard_DomainError ) #  _GccEnt_BadQualifier_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

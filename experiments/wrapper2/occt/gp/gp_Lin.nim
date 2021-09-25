@@ -12,11 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, gp_Ax1, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Pnt"
@@ -25,88 +20,67 @@ discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Vec"
 type
-  gp_Lin* {.importcpp: "gp_Lin", header: "gp_Lin.hxx", bycopy.} = object ## ! Creates a Line corresponding to Z axis of the
-                                                                 ## ! reference coordinate system.
-    gp_Lin* {.importc: "gp_Lin".}: Standard_NODISCARD
-    gp_Lin* {.importc: "gp_Lin".}: Standard_NODISCARD
-    gp_Lin* {.importc: "gp_Lin".}: Standard_NODISCARD
-    gp_Lin* {.importc: "gp_Lin".}: Standard_NODISCARD
-    gp_Lin* {.importc: "gp_Lin".}: Standard_NODISCARD
-    gp_Lin* {.importc: "gp_Lin".}: Standard_NODISCARD
-    gp_Lin* {.importc: "gp_Lin".}: Standard_NODISCARD
-    gp_Lin* {.importc: "gp_Lin".}: Standard_NODISCARD
-    gp_Lin* {.importc: "gp_Lin".}: Standard_NODISCARD
+  Lin* {.importcpp: "gp_Lin", header: "gp_Lin.hxx", bycopy.} = object ## ! Creates a Line corresponding to Z axis of the
+                                                              ## ! reference coordinate system.
 
 
-proc constructgp_Lin*(): gp_Lin {.constructor, importcpp: "gp_Lin(@)",
+proc constructLin*(): Lin {.constructor, importcpp: "gp_Lin(@)", header: "gp_Lin.hxx".}
+proc constructLin*(a1: Ax1): Lin {.constructor, importcpp: "gp_Lin(@)",
                                header: "gp_Lin.hxx".}
-proc constructgp_Lin*(A1: gp_Ax1): gp_Lin {.constructor, importcpp: "gp_Lin(@)",
-                                        header: "gp_Lin.hxx".}
-proc constructgp_Lin*(P: gp_Pnt; V: gp_Dir): gp_Lin {.constructor,
-    importcpp: "gp_Lin(@)", header: "gp_Lin.hxx".}
-proc Reverse*(this: var gp_Lin) {.importcpp: "Reverse", header: "gp_Lin.hxx".}
-## !!!Ignored construct:  Reversed ( ) const ;
-## Error: identifier expected, but got: )!!!
-
-proc SetDirection*(this: var gp_Lin; V: gp_Dir) {.importcpp: "SetDirection",
-    header: "gp_Lin.hxx".}
-proc SetLocation*(this: var gp_Lin; P: gp_Pnt) {.importcpp: "SetLocation",
-    header: "gp_Lin.hxx".}
-proc SetPosition*(this: var gp_Lin; A1: gp_Ax1) {.importcpp: "SetPosition",
-    header: "gp_Lin.hxx".}
-proc Direction*(this: gp_Lin): gp_Dir {.noSideEffect, importcpp: "Direction",
+proc constructLin*(p: Pnt; v: Dir): Lin {.constructor, importcpp: "gp_Lin(@)",
                                     header: "gp_Lin.hxx".}
-proc Location*(this: gp_Lin): gp_Pnt {.noSideEffect, importcpp: "Location",
-                                   header: "gp_Lin.hxx".}
-proc Position*(this: gp_Lin): gp_Ax1 {.noSideEffect, importcpp: "Position",
-                                   header: "gp_Lin.hxx".}
-proc Angle*(this: gp_Lin; Other: gp_Lin): Standard_Real {.noSideEffect,
-    importcpp: "Angle", header: "gp_Lin.hxx".}
-proc Contains*(this: gp_Lin; P: gp_Pnt; LinearTolerance: Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "Contains", header: "gp_Lin.hxx".}
-proc Distance*(this: gp_Lin; P: gp_Pnt): Standard_Real {.noSideEffect,
-    importcpp: "Distance", header: "gp_Lin.hxx".}
-proc Distance*(this: gp_Lin; Other: gp_Lin): Standard_Real {.noSideEffect,
-    importcpp: "Distance", header: "gp_Lin.hxx".}
-proc SquareDistance*(this: gp_Lin; P: gp_Pnt): Standard_Real {.noSideEffect,
+proc reverse*(this: var Lin) {.importcpp: "Reverse", header: "gp_Lin.hxx".}
+proc reversed*(this: Lin): Lin {.noSideEffect, importcpp: "Reversed",
+                             header: "gp_Lin.hxx".}
+proc setDirection*(this: var Lin; v: Dir) {.importcpp: "SetDirection",
+                                      header: "gp_Lin.hxx".}
+proc setLocation*(this: var Lin; p: Pnt) {.importcpp: "SetLocation",
+                                     header: "gp_Lin.hxx".}
+proc setPosition*(this: var Lin; a1: Ax1) {.importcpp: "SetPosition",
+                                      header: "gp_Lin.hxx".}
+proc direction*(this: Lin): Dir {.noSideEffect, importcpp: "Direction",
+                              header: "gp_Lin.hxx".}
+proc location*(this: Lin): Pnt {.noSideEffect, importcpp: "Location",
+                             header: "gp_Lin.hxx".}
+proc position*(this: Lin): Ax1 {.noSideEffect, importcpp: "Position",
+                             header: "gp_Lin.hxx".}
+proc angle*(this: Lin; other: Lin): float {.noSideEffect, importcpp: "Angle",
+                                      header: "gp_Lin.hxx".}
+proc contains*(this: Lin; p: Pnt; linearTolerance: float): bool {.noSideEffect,
+    importcpp: "Contains", header: "gp_Lin.hxx".}
+proc distance*(this: Lin; p: Pnt): float {.noSideEffect, importcpp: "Distance",
+                                     header: "gp_Lin.hxx".}
+proc distance*(this: Lin; other: Lin): float {.noSideEffect, importcpp: "Distance",
+    header: "gp_Lin.hxx".}
+proc squareDistance*(this: Lin; p: Pnt): float {.noSideEffect,
     importcpp: "SquareDistance", header: "gp_Lin.hxx".}
-proc SquareDistance*(this: gp_Lin; Other: gp_Lin): Standard_Real {.noSideEffect,
+proc squareDistance*(this: Lin; other: Lin): float {.noSideEffect,
     importcpp: "SquareDistance", header: "gp_Lin.hxx".}
-proc Normal*(this: gp_Lin; P: gp_Pnt): gp_Lin {.noSideEffect, importcpp: "Normal",
+proc normal*(this: Lin; p: Pnt): Lin {.noSideEffect, importcpp: "Normal",
+                                 header: "gp_Lin.hxx".}
+proc mirror*(this: var Lin; p: Pnt) {.importcpp: "Mirror", header: "gp_Lin.hxx".}
+proc mirrored*(this: Lin; p: Pnt): Lin {.noSideEffect, importcpp: "Mirrored",
+                                   header: "gp_Lin.hxx".}
+proc mirror*(this: var Lin; a1: Ax1) {.importcpp: "Mirror", header: "gp_Lin.hxx".}
+proc mirrored*(this: Lin; a1: Ax1): Lin {.noSideEffect, importcpp: "Mirrored",
+                                    header: "gp_Lin.hxx".}
+proc mirror*(this: var Lin; a2: Ax2) {.importcpp: "Mirror", header: "gp_Lin.hxx".}
+proc mirrored*(this: Lin; a2: Ax2): Lin {.noSideEffect, importcpp: "Mirrored",
+                                    header: "gp_Lin.hxx".}
+proc rotate*(this: var Lin; a1: Ax1; ang: float) {.importcpp: "Rotate",
     header: "gp_Lin.hxx".}
-proc Mirror*(this: var gp_Lin; P: gp_Pnt) {.importcpp: "Mirror", header: "gp_Lin.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Pnt & P ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Mirror*(this: var gp_Lin; A1: gp_Ax1) {.importcpp: "Mirror", header: "gp_Lin.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Ax1 & A1 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Mirror*(this: var gp_Lin; A2: gp_Ax2) {.importcpp: "Mirror", header: "gp_Lin.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Ax2 & A2 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Rotate*(this: var gp_Lin; A1: gp_Ax1; Ang: Standard_Real) {.importcpp: "Rotate",
+proc rotated*(this: Lin; a1: Ax1; ang: float): Lin {.noSideEffect, importcpp: "Rotated",
     header: "gp_Lin.hxx".}
-## !!!Ignored construct:  Rotated ( const gp_Ax1 & A1 , const Standard_Real Ang ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Scale*(this: var gp_Lin; P: gp_Pnt; S: Standard_Real) {.importcpp: "Scale",
+proc scale*(this: var Lin; p: Pnt; s: float) {.importcpp: "Scale", header: "gp_Lin.hxx".}
+proc scaled*(this: Lin; p: Pnt; s: float): Lin {.noSideEffect, importcpp: "Scaled",
     header: "gp_Lin.hxx".}
-## !!!Ignored construct:  Scaled ( const gp_Pnt & P , const Standard_Real S ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Transform*(this: var gp_Lin; T: gp_Trsf) {.importcpp: "Transform",
+proc transform*(this: var Lin; t: Trsf) {.importcpp: "Transform", header: "gp_Lin.hxx".}
+proc transformed*(this: Lin; t: Trsf): Lin {.noSideEffect, importcpp: "Transformed",
+                                       header: "gp_Lin.hxx".}
+proc translate*(this: var Lin; v: Vec) {.importcpp: "Translate", header: "gp_Lin.hxx".}
+proc translated*(this: Lin; v: Vec): Lin {.noSideEffect, importcpp: "Translated",
+                                     header: "gp_Lin.hxx".}
+proc translate*(this: var Lin; p1: Pnt; p2: Pnt) {.importcpp: "Translate",
     header: "gp_Lin.hxx".}
-## !!!Ignored construct:  Transformed ( const gp_Trsf & T ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Translate*(this: var gp_Lin; V: gp_Vec) {.importcpp: "Translate",
-    header: "gp_Lin.hxx".}
-## !!!Ignored construct:  Translated ( const gp_Vec & V ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Translate*(this: var gp_Lin; P1: gp_Pnt; P2: gp_Pnt) {.importcpp: "Translate",
-    header: "gp_Lin.hxx".}
-## !!!Ignored construct:  Translated ( const gp_Pnt & P1 , const gp_Pnt & P2 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
+proc translated*(this: Lin; p1: Pnt; p2: Pnt): Lin {.noSideEffect,
+    importcpp: "Translated", header: "gp_Lin.hxx".}

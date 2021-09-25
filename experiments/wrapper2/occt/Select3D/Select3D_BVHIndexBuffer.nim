@@ -13,48 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Graphic3d/Graphic3d_Buffer, ../Graphic3d/Graphic3d_IndexBuffer,
-  Select3D_SensitiveSet, ../TColStd/TColStd_HArray1OfInteger
-
 ## ! Index buffer for BVH tree.
 
 type
   Select3D_BVHIndexBuffer* {.importcpp: "Select3D_BVHIndexBuffer",
-                            header: "Select3D_BVHIndexBuffer.hxx", bycopy.} = object of Graphic3d_Buffer ##
-                                                                                                  ## !
-                                                                                                  ## Empty
-                                                                                                  ## constructor.
+                            header: "Select3D_BVHIndexBuffer.hxx", bycopy.} = object of Graphic3dBuffer ##
+                                                                                                 ## !
+                                                                                                 ## Empty
+                                                                                                 ## constructor.
 
 
-proc constructSelect3D_BVHIndexBuffer*(theAlloc: handle[NCollection_BaseAllocator]): Select3D_BVHIndexBuffer {.
+proc constructSelect3D_BVHIndexBuffer*(theAlloc: Handle[NCollectionBaseAllocator]): Select3D_BVHIndexBuffer {.
     constructor, importcpp: "Select3D_BVHIndexBuffer(@)",
     header: "Select3D_BVHIndexBuffer.hxx".}
-proc HasPatches*(this: Select3D_BVHIndexBuffer): bool {.noSideEffect,
+proc hasPatches*(this: Select3D_BVHIndexBuffer): bool {.noSideEffect,
     importcpp: "HasPatches", header: "Select3D_BVHIndexBuffer.hxx".}
-proc Init*(this: var Select3D_BVHIndexBuffer; theNbElems: Standard_Integer;
-          theHasPatches: bool): bool {.importcpp: "Init",
-                                    header: "Select3D_BVHIndexBuffer.hxx".}
-proc Index*(this: Select3D_BVHIndexBuffer; theIndex: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "Index", header: "Select3D_BVHIndexBuffer.hxx".}
-proc PatchSize*(this: Select3D_BVHIndexBuffer; theIndex: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "PatchSize", header: "Select3D_BVHIndexBuffer.hxx".}
-proc SetIndex*(this: var Select3D_BVHIndexBuffer; theIndex: Standard_Integer;
-              theValue: Standard_Integer) {.importcpp: "SetIndex",
-    header: "Select3D_BVHIndexBuffer.hxx".}
-proc SetIndex*(this: var Select3D_BVHIndexBuffer; theIndex: Standard_Integer;
-              theValue: Standard_Integer; thePatchSize: Standard_Integer) {.
+proc init*(this: var Select3D_BVHIndexBuffer; theNbElems: int; theHasPatches: bool): bool {.
+    importcpp: "Init", header: "Select3D_BVHIndexBuffer.hxx".}
+proc index*(this: Select3D_BVHIndexBuffer; theIndex: int): int {.noSideEffect,
+    importcpp: "Index", header: "Select3D_BVHIndexBuffer.hxx".}
+proc patchSize*(this: Select3D_BVHIndexBuffer; theIndex: int): int {.noSideEffect,
+    importcpp: "PatchSize", header: "Select3D_BVHIndexBuffer.hxx".}
+proc setIndex*(this: var Select3D_BVHIndexBuffer; theIndex: int; theValue: int) {.
     importcpp: "SetIndex", header: "Select3D_BVHIndexBuffer.hxx".}
+proc setIndex*(this: var Select3D_BVHIndexBuffer; theIndex: int; theValue: int;
+              thePatchSize: int) {.importcpp: "SetIndex",
+                                 header: "Select3D_BVHIndexBuffer.hxx".}
 type
-  Select3D_BVHIndexBufferbase_type* = Graphic3d_Buffer
+  Select3D_BVHIndexBufferbaseType* = Graphic3dBuffer
 
-proc get_type_name*(): cstring {.importcpp: "Select3D_BVHIndexBuffer::get_type_name(@)",
-                              header: "Select3D_BVHIndexBuffer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Select3D_BVHIndexBuffer::get_type_name(@)",
+                            header: "Select3D_BVHIndexBuffer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Select3D_BVHIndexBuffer::get_type_descriptor(@)",
     header: "Select3D_BVHIndexBuffer.hxx".}
-proc DynamicType*(this: Select3D_BVHIndexBuffer): handle[Standard_Type] {.
+proc dynamicType*(this: Select3D_BVHIndexBuffer): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Select3D_BVHIndexBuffer.hxx".}
 discard "forward decl of Select3D_BVHIndexBuffer"
 type
-  Handle_Select3D_BVHIndexBuffer* = handle[Select3D_BVHIndexBuffer]
+  HandleSelect3D_BVHIndexBuffer* = Handle[Select3D_BVHIndexBuffer]
+

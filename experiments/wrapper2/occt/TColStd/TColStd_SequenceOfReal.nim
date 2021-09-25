@@ -12,8 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Real, ../NCollection/NCollection_Sequence
-
 type
-  TColStd_SequenceOfReal* = NCollection_Sequence[Standard_Real]
+  TColStdSequenceOfReal* = NCollectionSequence[float]
+

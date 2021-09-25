@@ -11,5 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _AIS_Chamf2dDimension_HeaderFile [NewLine] # _AIS_Chamf2dDimension_HeaderFile [NewLine] # ../PrsDim/PrsDim_Chamf2dDimension.hxx [NewLine] Standard_DEPRECATED ( Alias to moved class ) typedef PrsDim_Chamf2dDimension AIS_Chamf2dDimension ;
+## !!!Ignored construct:  # _AIS_Chamf2dDimension_HeaderFile [NewLine] # _AIS_Chamf2dDimension_HeaderFile [NewLine] # < PrsDim_Chamf2dDimension . hxx > [NewLine] Standard_DEPRECATED ( Alias to moved class ) typedef PrsDim_Chamf2dDimension AIS_Chamf2dDimension ;
 ## Error: expected ';'!!!
+

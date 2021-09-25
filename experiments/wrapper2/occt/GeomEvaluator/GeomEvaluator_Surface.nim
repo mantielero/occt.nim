@@ -12,46 +12,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Transient, ../Standard/Standard_Type
-
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 type
-  GeomEvaluator_Surface* {.importcpp: "GeomEvaluator_Surface",
-                          header: "GeomEvaluator_Surface.hxx", bycopy.} = object of Standard_Transient
+  GeomEvaluatorSurface* {.importcpp: "GeomEvaluator_Surface",
+                         header: "GeomEvaluator_Surface.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructGeomEvaluator_Surface*(): GeomEvaluator_Surface {.constructor,
+proc constructGeomEvaluatorSurface*(): GeomEvaluatorSurface {.constructor,
     importcpp: "GeomEvaluator_Surface(@)", header: "GeomEvaluator_Surface.hxx".}
-proc D0*(this: GeomEvaluator_Surface; theU: Standard_Real; theV: Standard_Real;
-        theValue: var gp_Pnt) {.noSideEffect, importcpp: "D0",
-                             header: "GeomEvaluator_Surface.hxx".}
-proc D1*(this: GeomEvaluator_Surface; theU: Standard_Real; theV: Standard_Real;
-        theValue: var gp_Pnt; theD1U: var gp_Vec; theD1V: var gp_Vec) {.noSideEffect,
-    importcpp: "D1", header: "GeomEvaluator_Surface.hxx".}
-proc D2*(this: GeomEvaluator_Surface; theU: Standard_Real; theV: Standard_Real;
-        theValue: var gp_Pnt; theD1U: var gp_Vec; theD1V: var gp_Vec; theD2U: var gp_Vec;
-        theD2V: var gp_Vec; theD2UV: var gp_Vec) {.noSideEffect, importcpp: "D2",
-    header: "GeomEvaluator_Surface.hxx".}
-proc D3*(this: GeomEvaluator_Surface; theU: Standard_Real; theV: Standard_Real;
-        theValue: var gp_Pnt; theD1U: var gp_Vec; theD1V: var gp_Vec; theD2U: var gp_Vec;
-        theD2V: var gp_Vec; theD2UV: var gp_Vec; theD3U: var gp_Vec; theD3V: var gp_Vec;
-        theD3UUV: var gp_Vec; theD3UVV: var gp_Vec) {.noSideEffect, importcpp: "D3",
-    header: "GeomEvaluator_Surface.hxx".}
-proc DN*(this: GeomEvaluator_Surface; theU: Standard_Real; theV: Standard_Real;
-        theDerU: Standard_Integer; theDerV: Standard_Integer): gp_Vec {.noSideEffect,
-    importcpp: "DN", header: "GeomEvaluator_Surface.hxx".}
+proc d0*(this: GeomEvaluatorSurface; theU: float; theV: float; theValue: var Pnt) {.
+    noSideEffect, importcpp: "D0", header: "GeomEvaluator_Surface.hxx".}
+proc d1*(this: GeomEvaluatorSurface; theU: float; theV: float; theValue: var Pnt;
+        theD1U: var Vec; theD1V: var Vec) {.noSideEffect, importcpp: "D1",
+                                      header: "GeomEvaluator_Surface.hxx".}
+proc d2*(this: GeomEvaluatorSurface; theU: float; theV: float; theValue: var Pnt;
+        theD1U: var Vec; theD1V: var Vec; theD2U: var Vec; theD2V: var Vec; theD2UV: var Vec) {.
+    noSideEffect, importcpp: "D2", header: "GeomEvaluator_Surface.hxx".}
+proc d3*(this: GeomEvaluatorSurface; theU: float; theV: float; theValue: var Pnt;
+        theD1U: var Vec; theD1V: var Vec; theD2U: var Vec; theD2V: var Vec;
+        theD2UV: var Vec; theD3U: var Vec; theD3V: var Vec; theD3UUV: var Vec;
+        theD3UVV: var Vec) {.noSideEffect, importcpp: "D3",
+                          header: "GeomEvaluator_Surface.hxx".}
+proc dn*(this: GeomEvaluatorSurface; theU: float; theV: float; theDerU: int; theDerV: int): Vec {.
+    noSideEffect, importcpp: "DN", header: "GeomEvaluator_Surface.hxx".}
 type
-  GeomEvaluator_Surfacebase_type* = Standard_Transient
+  GeomEvaluatorSurfacebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "GeomEvaluator_Surface::get_type_name(@)",
-                              header: "GeomEvaluator_Surface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "GeomEvaluator_Surface::get_type_name(@)",
+                            header: "GeomEvaluator_Surface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GeomEvaluator_Surface::get_type_descriptor(@)",
     header: "GeomEvaluator_Surface.hxx".}
-proc DynamicType*(this: GeomEvaluator_Surface): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "GeomEvaluator_Surface.hxx".}
+proc dynamicType*(this: GeomEvaluatorSurface): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "GeomEvaluator_Surface.hxx".}
 discard "forward decl of GeomEvaluator_Surface"
 type
-  Handle_GeomEvaluator_Surface* = handle[GeomEvaluator_Surface]
+  HandleGeomEvaluatorSurface* = Handle[GeomEvaluatorSurface]
+

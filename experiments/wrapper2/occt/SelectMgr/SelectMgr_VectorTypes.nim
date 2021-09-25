@@ -11,15 +11,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Trsf, ../NCollection/NCollection_Array1,
-  ../NCollection/NCollection_Mat4, ../NCollection/NCollection_Vec3,
-  ../NCollection/NCollection_Vec4
-
 type
-  SelectMgr_Vec3* = NCollection_Vec3[Standard_Real]
-  SelectMgr_Vec4* = NCollection_Vec4[Standard_Real]
-  SelectMgr_Mat4* = NCollection_Mat4[Standard_Real]
+  SelectMgrVec3* = NCollectionVec3[float]
+  SelectMgrVec4* = NCollectionVec4[float]
+  SelectMgrMat4* = NCollectionMat4[float]
 
-proc Transform*(theTrsf: gp_Trsf; theVec: SelectMgr_Vec3): SelectMgr_Vec3 =
+proc transform*(theTrsf: Trsf; theVec: SelectMgrVec3): SelectMgrVec3 =
   discard
+

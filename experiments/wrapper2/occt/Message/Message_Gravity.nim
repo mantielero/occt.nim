@@ -22,7 +22,8 @@
 ## ! - Fail: fatal error
 
 type
-  Message_Gravity* {.size: sizeof(cint), importcpp: "Message_Gravity",
-                    header: "Message_Gravity.hxx".} = enum
-    Message_Trace, Message_Info, Message_Warning, Message_Alarm, Message_Fail
+  MessageGravity* {.size: sizeof(cint), importcpp: "Message_Gravity",
+                   header: "Message_Gravity.hxx".} = enum
+    MessageTrace, MessageInfo, MessageWarning, MessageAlarm, MessageFail
+
 

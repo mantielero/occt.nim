@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  Expr_GeneralFunction, ../Standard/Standard_Real, Expr_Array1OfNamedUnknown,
-  ../TColStd/TColStd_Array1OfReal, ../Standard/Standard_Boolean
-
 discard "forward decl of Expr_GeneralFunction"
 discard "forward decl of Expr_GeneralExpression"
 discard "forward decl of Expr_NamedUnknown"
@@ -31,82 +26,79 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_FunctionDerivative"
 discard "forward decl of Expr_FunctionDerivative"
 type
-  Handle_Expr_FunctionDerivative* = handle[Expr_FunctionDerivative]
-  Expr_FunctionDerivative* {.importcpp: "Expr_FunctionDerivative",
-                            header: "Expr_FunctionDerivative.hxx", bycopy.} = object of Expr_GeneralFunction ##
-                                                                                                      ## !
-                                                                                                      ## Creates
-                                                                                                      ## a
-                                                                                                      ## FunctionDerivative
-                                                                                                      ## of
-                                                                                                      ## degree
-                                                                                                      ## <deg>
-                                                                                                      ## relative
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## to
-                                                                                                      ## the
-                                                                                                      ## <withX>
-                                                                                                      ## variable.
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## Raises
-                                                                                                      ## OutOfRange
-                                                                                                      ## if
-                                                                                                      ## <deg>
-                                                                                                      ## lower
-                                                                                                      ## or
-                                                                                                      ## equal
-                                                                                                      ## to
-                                                                                                      ## zero.
+  HandleExprFunctionDerivative* = Handle[ExprFunctionDerivative]
+  ExprFunctionDerivative* {.importcpp: "Expr_FunctionDerivative",
+                           header: "Expr_FunctionDerivative.hxx", bycopy.} = object of ExprGeneralFunction ##
+                                                                                                    ## !
+                                                                                                    ## Creates
+                                                                                                    ## a
+                                                                                                    ## FunctionDerivative
+                                                                                                    ## of
+                                                                                                    ## degree
+                                                                                                    ## <deg>
+                                                                                                    ## relative
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## to
+                                                                                                    ## the
+                                                                                                    ## <withX>
+                                                                                                    ## variable.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Raises
+                                                                                                    ## OutOfRange
+                                                                                                    ## if
+                                                                                                    ## <deg>
+                                                                                                    ## lower
+                                                                                                    ## or
+                                                                                                    ## equal
+                                                                                                    ## to
+                                                                                                    ## zero.
 
 
-proc constructExpr_FunctionDerivative*(`func`: handle[Expr_GeneralFunction];
-                                      withX: handle[Expr_NamedUnknown];
-                                      deg: Standard_Integer): Expr_FunctionDerivative {.
+proc constructExprFunctionDerivative*(`func`: Handle[ExprGeneralFunction];
+                                     withX: Handle[ExprNamedUnknown]; deg: int): ExprFunctionDerivative {.
     constructor, importcpp: "Expr_FunctionDerivative(@)",
     header: "Expr_FunctionDerivative.hxx".}
-proc NbOfVariables*(this: Expr_FunctionDerivative): Standard_Integer {.noSideEffect,
+proc nbOfVariables*(this: ExprFunctionDerivative): int {.noSideEffect,
     importcpp: "NbOfVariables", header: "Expr_FunctionDerivative.hxx".}
-proc Variable*(this: Expr_FunctionDerivative; index: Standard_Integer): handle[
-    Expr_NamedUnknown] {.noSideEffect, importcpp: "Variable",
-                        header: "Expr_FunctionDerivative.hxx".}
-proc Evaluate*(this: Expr_FunctionDerivative; vars: Expr_Array1OfNamedUnknown;
-              values: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
+proc variable*(this: ExprFunctionDerivative; index: int): Handle[ExprNamedUnknown] {.
+    noSideEffect, importcpp: "Variable", header: "Expr_FunctionDerivative.hxx".}
+proc evaluate*(this: ExprFunctionDerivative; vars: ExprArray1OfNamedUnknown;
+              values: TColStdArray1OfReal): float {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_FunctionDerivative.hxx".}
-proc Copy*(this: Expr_FunctionDerivative): handle[Expr_GeneralFunction] {.
+proc copy*(this: ExprFunctionDerivative): Handle[ExprGeneralFunction] {.
     noSideEffect, importcpp: "Copy", header: "Expr_FunctionDerivative.hxx".}
-proc Derivative*(this: Expr_FunctionDerivative; `var`: handle[Expr_NamedUnknown]): handle[
-    Expr_GeneralFunction] {.noSideEffect, importcpp: "Derivative",
-                           header: "Expr_FunctionDerivative.hxx".}
-proc Derivative*(this: Expr_FunctionDerivative; `var`: handle[Expr_NamedUnknown];
-                deg: Standard_Integer): handle[Expr_GeneralFunction] {.
-    noSideEffect, importcpp: "Derivative", header: "Expr_FunctionDerivative.hxx".}
-proc IsIdentical*(this: Expr_FunctionDerivative;
-                 `func`: handle[Expr_GeneralFunction]): Standard_Boolean {.
+proc derivative*(this: ExprFunctionDerivative; `var`: Handle[ExprNamedUnknown]): Handle[
+    ExprGeneralFunction] {.noSideEffect, importcpp: "Derivative",
+                          header: "Expr_FunctionDerivative.hxx".}
+proc derivative*(this: ExprFunctionDerivative; `var`: Handle[ExprNamedUnknown];
+                deg: int): Handle[ExprGeneralFunction] {.noSideEffect,
+    importcpp: "Derivative", header: "Expr_FunctionDerivative.hxx".}
+proc isIdentical*(this: ExprFunctionDerivative; `func`: Handle[ExprGeneralFunction]): bool {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_FunctionDerivative.hxx".}
-proc IsLinearOnVariable*(this: Expr_FunctionDerivative; index: Standard_Integer): Standard_Boolean {.
+proc isLinearOnVariable*(this: ExprFunctionDerivative; index: int): bool {.
     noSideEffect, importcpp: "IsLinearOnVariable",
     header: "Expr_FunctionDerivative.hxx".}
-proc Function*(this: Expr_FunctionDerivative): handle[Expr_GeneralFunction] {.
+proc function*(this: ExprFunctionDerivative): Handle[ExprGeneralFunction] {.
     noSideEffect, importcpp: "Function", header: "Expr_FunctionDerivative.hxx".}
-proc Degree*(this: Expr_FunctionDerivative): Standard_Integer {.noSideEffect,
-    importcpp: "Degree", header: "Expr_FunctionDerivative.hxx".}
-proc DerivVariable*(this: Expr_FunctionDerivative): handle[Expr_NamedUnknown] {.
+proc degree*(this: ExprFunctionDerivative): int {.noSideEffect, importcpp: "Degree",
+    header: "Expr_FunctionDerivative.hxx".}
+proc derivVariable*(this: ExprFunctionDerivative): Handle[ExprNamedUnknown] {.
     noSideEffect, importcpp: "DerivVariable", header: "Expr_FunctionDerivative.hxx".}
-proc GetStringName*(this: Expr_FunctionDerivative): TCollection_AsciiString {.
+proc getStringName*(this: ExprFunctionDerivative): TCollectionAsciiString {.
     noSideEffect, importcpp: "GetStringName", header: "Expr_FunctionDerivative.hxx".}
-proc Expression*(this: Expr_FunctionDerivative): handle[Expr_GeneralExpression] {.
+proc expression*(this: ExprFunctionDerivative): Handle[ExprGeneralExpression] {.
     noSideEffect, importcpp: "Expression", header: "Expr_FunctionDerivative.hxx".}
-proc UpdateExpression*(this: var Expr_FunctionDerivative) {.
+proc updateExpression*(this: var ExprFunctionDerivative) {.
     importcpp: "UpdateExpression", header: "Expr_FunctionDerivative.hxx".}
 type
-  Expr_FunctionDerivativebase_type* = Expr_GeneralFunction
+  ExprFunctionDerivativebaseType* = ExprGeneralFunction
 
-proc get_type_name*(): cstring {.importcpp: "Expr_FunctionDerivative::get_type_name(@)",
-                              header: "Expr_FunctionDerivative.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Expr_FunctionDerivative::get_type_name(@)",
+                            header: "Expr_FunctionDerivative.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Expr_FunctionDerivative::get_type_descriptor(@)",
     header: "Expr_FunctionDerivative.hxx".}
-proc DynamicType*(this: Expr_FunctionDerivative): handle[Standard_Type] {.
+proc dynamicType*(this: ExprFunctionDerivative): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Expr_FunctionDerivative.hxx".}

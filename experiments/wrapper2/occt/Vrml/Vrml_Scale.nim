@@ -14,22 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Vec, ../Standard/Standard_OStream
-
 discard "forward decl of gp_Vec"
 type
-  Vrml_Scale* {.importcpp: "Vrml_Scale", header: "Vrml_Scale.hxx", bycopy.} = object
+  VrmlScale* {.importcpp: "Vrml_Scale", header: "Vrml_Scale.hxx", bycopy.} = object
 
 
-proc constructVrml_Scale*(): Vrml_Scale {.constructor, importcpp: "Vrml_Scale(@)",
-                                       header: "Vrml_Scale.hxx".}
-proc constructVrml_Scale*(aScaleFactor: gp_Vec): Vrml_Scale {.constructor,
+proc constructVrmlScale*(): VrmlScale {.constructor, importcpp: "Vrml_Scale(@)",
+                                     header: "Vrml_Scale.hxx".}
+proc constructVrmlScale*(aScaleFactor: Vec): VrmlScale {.constructor,
     importcpp: "Vrml_Scale(@)", header: "Vrml_Scale.hxx".}
-proc SetScaleFactor*(this: var Vrml_Scale; aScaleFactor: gp_Vec) {.
+proc setScaleFactor*(this: var VrmlScale; aScaleFactor: Vec) {.
     importcpp: "SetScaleFactor", header: "Vrml_Scale.hxx".}
-proc ScaleFactor*(this: Vrml_Scale): gp_Vec {.noSideEffect, importcpp: "ScaleFactor",
-    header: "Vrml_Scale.hxx".}
-proc Print*(this: Vrml_Scale; anOStream: var Standard_OStream): var Standard_OStream {.
+proc scaleFactor*(this: VrmlScale): Vec {.noSideEffect, importcpp: "ScaleFactor",
+                                      header: "Vrml_Scale.hxx".}
+proc print*(this: VrmlScale; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Scale.hxx".}

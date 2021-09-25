@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  AIS_InteractiveObject, AIS_KindOfInteractive, ../TopoDS/TopoDS_Shape
-
 ## ! Creates an arbitrary located instance of another Interactive Object,
 ## ! which serves as a reference.
 ## ! This allows you to use the Connected Interactive
@@ -134,45 +131,44 @@ type
                                                                                                          ## one
                                                                                                          ## stored.
 
-  AIS_ConnectedInteractivebase_type* = AIS_InteractiveObject
+  AIS_ConnectedInteractivebaseType* = AIS_InteractiveObject
 
-proc get_type_name*(): cstring {.importcpp: "AIS_ConnectedInteractive::get_type_name(@)",
-                              header: "AIS_ConnectedInteractive.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "AIS_ConnectedInteractive::get_type_name(@)",
+                            header: "AIS_ConnectedInteractive.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "AIS_ConnectedInteractive::get_type_descriptor(@)",
     header: "AIS_ConnectedInteractive.hxx".}
-proc DynamicType*(this: AIS_ConnectedInteractive): handle[Standard_Type] {.
+proc dynamicType*(this: AIS_ConnectedInteractive): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "AIS_ConnectedInteractive.hxx".}
-proc constructAIS_ConnectedInteractive*(aTypeOfPresentation3d: PrsMgr_TypeOfPresentation3d = PrsMgr_TOP_AllView): AIS_ConnectedInteractive {.
+proc constructAIS_ConnectedInteractive*(aTypeOfPresentation3d: PrsMgrTypeOfPresentation3d = prsMgrTOP_AllView): AIS_ConnectedInteractive {.
     constructor, importcpp: "AIS_ConnectedInteractive(@)",
     header: "AIS_ConnectedInteractive.hxx".}
-proc Type*(this: AIS_ConnectedInteractive): AIS_KindOfInteractive {.noSideEffect,
+proc `type`*(this: AIS_ConnectedInteractive): AIS_KindOfInteractive {.noSideEffect,
     importcpp: "Type", header: "AIS_ConnectedInteractive.hxx".}
-proc Signature*(this: AIS_ConnectedInteractive): Standard_Integer {.noSideEffect,
+proc signature*(this: AIS_ConnectedInteractive): int {.noSideEffect,
     importcpp: "Signature", header: "AIS_ConnectedInteractive.hxx".}
-proc Connect*(this: var AIS_ConnectedInteractive;
-             theAnotherObj: handle[AIS_InteractiveObject]) {.importcpp: "Connect",
+proc connect*(this: var AIS_ConnectedInteractive;
+             theAnotherObj: Handle[AIS_InteractiveObject]) {.importcpp: "Connect",
     header: "AIS_ConnectedInteractive.hxx".}
-proc Connect*(this: var AIS_ConnectedInteractive;
-             theAnotherObj: handle[AIS_InteractiveObject]; theLocation: gp_Trsf) {.
+proc connect*(this: var AIS_ConnectedInteractive;
+             theAnotherObj: Handle[AIS_InteractiveObject]; theLocation: Trsf) {.
     importcpp: "Connect", header: "AIS_ConnectedInteractive.hxx".}
-proc Connect*(this: var AIS_ConnectedInteractive;
-             theAnotherObj: handle[AIS_InteractiveObject];
-             theLocation: handle[TopLoc_Datum3D]) {.importcpp: "Connect",
+proc connect*(this: var AIS_ConnectedInteractive;
+             theAnotherObj: Handle[AIS_InteractiveObject];
+             theLocation: Handle[TopLocDatum3D]) {.importcpp: "Connect",
     header: "AIS_ConnectedInteractive.hxx".}
-proc HasConnection*(this: AIS_ConnectedInteractive): Standard_Boolean {.
-    noSideEffect, importcpp: "HasConnection",
-    header: "AIS_ConnectedInteractive.hxx".}
-proc ConnectedTo*(this: AIS_ConnectedInteractive): handle[AIS_InteractiveObject] {.
+proc hasConnection*(this: AIS_ConnectedInteractive): bool {.noSideEffect,
+    importcpp: "HasConnection", header: "AIS_ConnectedInteractive.hxx".}
+proc connectedTo*(this: AIS_ConnectedInteractive): Handle[AIS_InteractiveObject] {.
     noSideEffect, importcpp: "ConnectedTo", header: "AIS_ConnectedInteractive.hxx".}
-proc Disconnect*(this: var AIS_ConnectedInteractive) {.importcpp: "Disconnect",
+proc disconnect*(this: var AIS_ConnectedInteractive) {.importcpp: "Disconnect",
     header: "AIS_ConnectedInteractive.hxx".}
-proc AcceptShapeDecomposition*(this: AIS_ConnectedInteractive): Standard_Boolean {.
-    noSideEffect, importcpp: "AcceptShapeDecomposition",
-    header: "AIS_ConnectedInteractive.hxx".}
-proc AcceptDisplayMode*(this: AIS_ConnectedInteractive; theMode: Standard_Integer): Standard_Boolean {.
+proc acceptShapeDecomposition*(this: AIS_ConnectedInteractive): bool {.noSideEffect,
+    importcpp: "AcceptShapeDecomposition", header: "AIS_ConnectedInteractive.hxx".}
+proc acceptDisplayMode*(this: AIS_ConnectedInteractive; theMode: int): bool {.
     noSideEffect, importcpp: "AcceptDisplayMode",
     header: "AIS_ConnectedInteractive.hxx".}
 discard "forward decl of AIS_ConnectedInteractive"
 type
-  Handle_AIS_ConnectedInteractive* = handle[AIS_ConnectedInteractive]
+  HandleAIS_ConnectedInteractive* = Handle[AIS_ConnectedInteractive]
+

@@ -12,9 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_VertexBuffer
-
 ## ! Compatibility layer for old OpenGL without VBO.
 ## ! Make sure to pass pointer from GetDataOffset() instead of NULL.
 ## ! Method GetDataOffset() returns pointer to real data in this class
@@ -31,79 +28,80 @@ import
 ## ! Method Create() creates dummy identifier for this object which should NOT be passed to OpenGL functions.
 
 type
-  OpenGl_VertexBufferCompat* {.importcpp: "OpenGl_VertexBufferCompat",
-                              header: "OpenGl_VertexBufferCompat.hxx", bycopy.} = object of OpenGl_VertexBuffer ##
-                                                                                                         ## !
-                                                                                                         ## Create
-                                                                                                         ## uninitialized
-                                                                                                         ## VBO.
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## @name
-                                                                                                         ## advanced
-                                                                                                         ## methods
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Initialize
-                                                                                                         ## buffer
-                                                                                                         ## with
-                                                                                                         ## existing
-                                                                                                         ## data.
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Data
-                                                                                                         ## will
-                                                                                                         ## NOT
-                                                                                                         ## be
-                                                                                                         ## copied
-                                                                                                         ## by
-                                                                                                         ## this
-                                                                                                         ## method!
+  OpenGlVertexBufferCompat* {.importcpp: "OpenGl_VertexBufferCompat",
+                             header: "OpenGl_VertexBufferCompat.hxx", bycopy.} = object of OpenGlVertexBuffer ##
+                                                                                                       ## !
+                                                                                                       ## Create
+                                                                                                       ## uninitialized
+                                                                                                       ## VBO.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## @name
+                                                                                                       ## advanced
+                                                                                                       ## methods
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## Initialize
+                                                                                                       ## buffer
+                                                                                                       ## with
+                                                                                                       ## existing
+                                                                                                       ## data.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## Data
+                                                                                                       ## will
+                                                                                                       ## NOT
+                                                                                                       ## be
+                                                                                                       ## copied
+                                                                                                       ## by
+                                                                                                       ## this
+                                                                                                       ## method!
     ## !< buffer data
 
 
-proc constructOpenGl_VertexBufferCompat*(): OpenGl_VertexBufferCompat {.
-    constructor, importcpp: "OpenGl_VertexBufferCompat(@)",
+proc constructOpenGlVertexBufferCompat*(): OpenGlVertexBufferCompat {.constructor,
+    importcpp: "OpenGl_VertexBufferCompat(@)",
     header: "OpenGl_VertexBufferCompat.hxx".}
-proc destroyOpenGl_VertexBufferCompat*(this: var OpenGl_VertexBufferCompat) {.
+proc destroyOpenGlVertexBufferCompat*(this: var OpenGlVertexBufferCompat) {.
     importcpp: "#.~OpenGl_VertexBufferCompat()",
     header: "OpenGl_VertexBufferCompat.hxx".}
-proc IsVirtual*(this: OpenGl_VertexBufferCompat): bool {.noSideEffect,
+proc isVirtual*(this: OpenGlVertexBufferCompat): bool {.noSideEffect,
     importcpp: "IsVirtual", header: "OpenGl_VertexBufferCompat.hxx".}
-proc Create*(this: var OpenGl_VertexBufferCompat; theGlCtx: handle[OpenGl_Context]): bool {.
+proc create*(this: var OpenGlVertexBufferCompat; theGlCtx: Handle[OpenGlContext]): bool {.
     importcpp: "Create", header: "OpenGl_VertexBufferCompat.hxx".}
-proc Release*(this: var OpenGl_VertexBufferCompat; theGlCtx: ptr OpenGl_Context) {.
+proc release*(this: var OpenGlVertexBufferCompat; theGlCtx: ptr OpenGlContext) {.
     importcpp: "Release", header: "OpenGl_VertexBufferCompat.hxx".}
-proc Bind*(this: OpenGl_VertexBufferCompat; theGlCtx: handle[OpenGl_Context]) {.
+proc `bind`*(this: OpenGlVertexBufferCompat; theGlCtx: Handle[OpenGlContext]) {.
     noSideEffect, importcpp: "Bind", header: "OpenGl_VertexBufferCompat.hxx".}
-proc Unbind*(this: OpenGl_VertexBufferCompat; theGlCtx: handle[OpenGl_Context]) {.
+proc unbind*(this: OpenGlVertexBufferCompat; theGlCtx: Handle[OpenGlContext]) {.
     noSideEffect, importcpp: "Unbind", header: "OpenGl_VertexBufferCompat.hxx".}
-proc initLink*(this: var OpenGl_VertexBufferCompat;
-              theData: handle[NCollection_Buffer]; theComponentsNb: GLuint;
+proc initLink*(this: var OpenGlVertexBufferCompat;
+              theData: Handle[NCollectionBuffer]; theComponentsNb: GLuint;
               theElemsNb: GLsizei; theDataType: GLenum): bool {.
     importcpp: "initLink", header: "OpenGl_VertexBufferCompat.hxx".}
-proc init*(this: var OpenGl_VertexBufferCompat; theGlCtx: handle[OpenGl_Context];
+proc init*(this: var OpenGlVertexBufferCompat; theGlCtx: Handle[OpenGlContext];
           theComponentsNb: GLuint; theElemsNb: GLsizei; theData: pointer;
           theDataType: GLenum; theStride: GLsizei): bool {.importcpp: "init",
     header: "OpenGl_VertexBufferCompat.hxx".}
-proc subData*(this: var OpenGl_VertexBufferCompat; theGlCtx: handle[OpenGl_Context];
+proc subData*(this: var OpenGlVertexBufferCompat; theGlCtx: Handle[OpenGlContext];
              theElemFrom: GLsizei; theElemsNb: GLsizei; theData: pointer;
              theDataType: GLenum): bool {.importcpp: "subData",
                                        header: "OpenGl_VertexBufferCompat.hxx".}
-proc getSubData*(this: var OpenGl_VertexBufferCompat;
-                theGlCtx: handle[OpenGl_Context]; theElemFrom: GLsizei;
+proc getSubData*(this: var OpenGlVertexBufferCompat;
+                theGlCtx: Handle[OpenGlContext]; theElemFrom: GLsizei;
                 theElemsNb: GLsizei; theData: pointer; theDataType: GLenum): bool {.
     importcpp: "getSubData", header: "OpenGl_VertexBufferCompat.hxx".}
 type
-  OpenGl_VertexBufferCompatbase_type* = OpenGl_VertexBuffer
+  OpenGlVertexBufferCompatbaseType* = OpenGlVertexBuffer
 
-proc get_type_name*(): cstring {.importcpp: "OpenGl_VertexBufferCompat::get_type_name(@)",
-                              header: "OpenGl_VertexBufferCompat.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "OpenGl_VertexBufferCompat::get_type_name(@)",
+                            header: "OpenGl_VertexBufferCompat.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "OpenGl_VertexBufferCompat::get_type_descriptor(@)",
     header: "OpenGl_VertexBufferCompat.hxx".}
-proc DynamicType*(this: OpenGl_VertexBufferCompat): handle[Standard_Type] {.
+proc dynamicType*(this: OpenGlVertexBufferCompat): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "OpenGl_VertexBufferCompat.hxx".}
 discard "forward decl of OpenGl_VertexBufferCompat"
 type
-  Handle_OpenGl_VertexBufferCompat* = handle[OpenGl_VertexBufferCompat]
+  HandleOpenGlVertexBufferCompat* = Handle[OpenGlVertexBufferCompat]
+

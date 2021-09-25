@@ -12,13 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Bnd/Bnd_Box,
-  ../NCollection/NCollection_BaseAllocator, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../TopAbs/TopAbs_ShapeEnum,
-  ../TColStd/TColStd_ListOfInteger, ../TopoDS/TopoDS_Shape
-
 ## ! The class BOPDS_ShapeInfo is to store
 ## ! handy information about shape
 
@@ -31,45 +24,45 @@ proc constructBOPDS_ShapeInfo*(): BOPDS_ShapeInfo {.constructor,
     importcpp: "BOPDS_ShapeInfo(@)", header: "BOPDS_ShapeInfo.hxx".}
 proc destroyBOPDS_ShapeInfo*(this: var BOPDS_ShapeInfo) {.
     importcpp: "#.~BOPDS_ShapeInfo()", header: "BOPDS_ShapeInfo.hxx".}
-proc constructBOPDS_ShapeInfo*(theAllocator: handle[NCollection_BaseAllocator]): BOPDS_ShapeInfo {.
+proc constructBOPDS_ShapeInfo*(theAllocator: Handle[NCollectionBaseAllocator]): BOPDS_ShapeInfo {.
     constructor, importcpp: "BOPDS_ShapeInfo(@)", header: "BOPDS_ShapeInfo.hxx".}
-proc SetShape*(this: var BOPDS_ShapeInfo; theS: TopoDS_Shape) {.importcpp: "SetShape",
+proc setShape*(this: var BOPDS_ShapeInfo; theS: TopoDS_Shape) {.importcpp: "SetShape",
     header: "BOPDS_ShapeInfo.hxx".}
-proc Shape*(this: BOPDS_ShapeInfo): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
+proc shape*(this: BOPDS_ShapeInfo): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "BOPDS_ShapeInfo.hxx".}
-proc SetShapeType*(this: var BOPDS_ShapeInfo; theType: TopAbs_ShapeEnum) {.
+proc setShapeType*(this: var BOPDS_ShapeInfo; theType: TopAbsShapeEnum) {.
     importcpp: "SetShapeType", header: "BOPDS_ShapeInfo.hxx".}
-proc ShapeType*(this: BOPDS_ShapeInfo): TopAbs_ShapeEnum {.noSideEffect,
+proc shapeType*(this: BOPDS_ShapeInfo): TopAbsShapeEnum {.noSideEffect,
     importcpp: "ShapeType", header: "BOPDS_ShapeInfo.hxx".}
-proc SetBox*(this: var BOPDS_ShapeInfo; theBox: Bnd_Box) {.importcpp: "SetBox",
+proc setBox*(this: var BOPDS_ShapeInfo; theBox: BndBox) {.importcpp: "SetBox",
     header: "BOPDS_ShapeInfo.hxx".}
-proc Box*(this: BOPDS_ShapeInfo): Bnd_Box {.noSideEffect, importcpp: "Box",
-                                        header: "BOPDS_ShapeInfo.hxx".}
-proc ChangeBox*(this: var BOPDS_ShapeInfo): var Bnd_Box {.importcpp: "ChangeBox",
+proc box*(this: BOPDS_ShapeInfo): BndBox {.noSideEffect, importcpp: "Box",
+                                       header: "BOPDS_ShapeInfo.hxx".}
+proc changeBox*(this: var BOPDS_ShapeInfo): var BndBox {.importcpp: "ChangeBox",
     header: "BOPDS_ShapeInfo.hxx".}
-proc SubShapes*(this: BOPDS_ShapeInfo): TColStd_ListOfInteger {.noSideEffect,
+proc subShapes*(this: BOPDS_ShapeInfo): TColStdListOfInteger {.noSideEffect,
     importcpp: "SubShapes", header: "BOPDS_ShapeInfo.hxx".}
-proc ChangeSubShapes*(this: var BOPDS_ShapeInfo): var TColStd_ListOfInteger {.
+proc changeSubShapes*(this: var BOPDS_ShapeInfo): var TColStdListOfInteger {.
     importcpp: "ChangeSubShapes", header: "BOPDS_ShapeInfo.hxx".}
-proc HasSubShape*(this: BOPDS_ShapeInfo; theI: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "HasSubShape", header: "BOPDS_ShapeInfo.hxx".}
-proc HasReference*(this: BOPDS_ShapeInfo): Standard_Boolean {.noSideEffect,
+proc hasSubShape*(this: BOPDS_ShapeInfo; theI: int): bool {.noSideEffect,
+    importcpp: "HasSubShape", header: "BOPDS_ShapeInfo.hxx".}
+proc hasReference*(this: BOPDS_ShapeInfo): bool {.noSideEffect,
     importcpp: "HasReference", header: "BOPDS_ShapeInfo.hxx".}
-proc SetReference*(this: var BOPDS_ShapeInfo; theI: Standard_Integer) {.
-    importcpp: "SetReference", header: "BOPDS_ShapeInfo.hxx".}
-proc Reference*(this: BOPDS_ShapeInfo): Standard_Integer {.noSideEffect,
-    importcpp: "Reference", header: "BOPDS_ShapeInfo.hxx".}
-proc HasBRep*(this: BOPDS_ShapeInfo): Standard_Boolean {.noSideEffect,
-    importcpp: "HasBRep", header: "BOPDS_ShapeInfo.hxx".}
-proc IsInterfering*(this: BOPDS_ShapeInfo): Standard_Boolean {.noSideEffect,
+proc setReference*(this: var BOPDS_ShapeInfo; theI: int) {.importcpp: "SetReference",
+    header: "BOPDS_ShapeInfo.hxx".}
+proc reference*(this: BOPDS_ShapeInfo): int {.noSideEffect, importcpp: "Reference",
+    header: "BOPDS_ShapeInfo.hxx".}
+proc hasBRep*(this: BOPDS_ShapeInfo): bool {.noSideEffect, importcpp: "HasBRep",
+    header: "BOPDS_ShapeInfo.hxx".}
+proc isInterfering*(this: BOPDS_ShapeInfo): bool {.noSideEffect,
     importcpp: "IsInterfering", header: "BOPDS_ShapeInfo.hxx".}
-proc HasFlag*(this: BOPDS_ShapeInfo): Standard_Boolean {.noSideEffect,
+proc hasFlag*(this: BOPDS_ShapeInfo): bool {.noSideEffect, importcpp: "HasFlag",
+    header: "BOPDS_ShapeInfo.hxx".}
+proc hasFlag*(this: BOPDS_ShapeInfo; theFlag: var int): bool {.noSideEffect,
     importcpp: "HasFlag", header: "BOPDS_ShapeInfo.hxx".}
-proc HasFlag*(this: BOPDS_ShapeInfo; theFlag: var Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "HasFlag", header: "BOPDS_ShapeInfo.hxx".}
-proc SetFlag*(this: var BOPDS_ShapeInfo; theI: Standard_Integer) {.
-    importcpp: "SetFlag", header: "BOPDS_ShapeInfo.hxx".}
-proc Flag*(this: BOPDS_ShapeInfo): Standard_Integer {.noSideEffect,
-    importcpp: "Flag", header: "BOPDS_ShapeInfo.hxx".}
-proc Dump*(this: BOPDS_ShapeInfo) {.noSideEffect, importcpp: "Dump",
+proc setFlag*(this: var BOPDS_ShapeInfo; theI: int) {.importcpp: "SetFlag",
+    header: "BOPDS_ShapeInfo.hxx".}
+proc flag*(this: BOPDS_ShapeInfo): int {.noSideEffect, importcpp: "Flag",
+                                     header: "BOPDS_ShapeInfo.hxx".}
+proc dump*(this: BOPDS_ShapeInfo) {.noSideEffect, importcpp: "Dump",
                                  header: "BOPDS_ShapeInfo.hxx".}

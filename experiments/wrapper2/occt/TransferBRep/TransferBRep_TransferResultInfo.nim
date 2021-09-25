@@ -14,14 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Transient
-
 discard "forward decl of TransferBRep_TransferResultInfo"
 discard "forward decl of TransferBRep_TransferResultInfo"
 type
-  Handle_TransferBRep_TransferResultInfo* = handle[TransferBRep_TransferResultInfo]
+  HandleTransferBRepTransferResultInfo* = Handle[TransferBRepTransferResultInfo]
 
 ## ! Data structure for storing information on transfer result.
 ## ! At the moment it dispatches information for the following types:
@@ -35,41 +31,40 @@ type
 ## ! - no result + warning(s) + fail(s),
 
 type
-  TransferBRep_TransferResultInfo* {.importcpp: "TransferBRep_TransferResultInfo", header: "TransferBRep_TransferResultInfo.hxx",
-                                    bycopy.} = object of Standard_Transient ## ! Creates object with all fields
-                                                                       ## nullified.
+  TransferBRepTransferResultInfo* {.importcpp: "TransferBRep_TransferResultInfo", header: "TransferBRep_TransferResultInfo.hxx",
+                                   bycopy.} = object of StandardTransient ## ! Creates object with all fields nullified.
 
 
-proc constructTransferBRep_TransferResultInfo*(): TransferBRep_TransferResultInfo {.
+proc constructTransferBRepTransferResultInfo*(): TransferBRepTransferResultInfo {.
     constructor, importcpp: "TransferBRep_TransferResultInfo(@)",
     header: "TransferBRep_TransferResultInfo.hxx".}
-proc Clear*(this: var TransferBRep_TransferResultInfo) {.importcpp: "Clear",
+proc clear*(this: var TransferBRepTransferResultInfo) {.importcpp: "Clear",
     header: "TransferBRep_TransferResultInfo.hxx".}
-proc Result*(this: var TransferBRep_TransferResultInfo): var Standard_Integer {.
-    importcpp: "Result", header: "TransferBRep_TransferResultInfo.hxx".}
-proc ResultWarning*(this: var TransferBRep_TransferResultInfo): var Standard_Integer {.
+proc result*(this: var TransferBRepTransferResultInfo): var int {.importcpp: "Result",
+    header: "TransferBRep_TransferResultInfo.hxx".}
+proc resultWarning*(this: var TransferBRepTransferResultInfo): var int {.
     importcpp: "ResultWarning", header: "TransferBRep_TransferResultInfo.hxx".}
-proc ResultFail*(this: var TransferBRep_TransferResultInfo): var Standard_Integer {.
+proc resultFail*(this: var TransferBRepTransferResultInfo): var int {.
     importcpp: "ResultFail", header: "TransferBRep_TransferResultInfo.hxx".}
-proc ResultWarningFail*(this: var TransferBRep_TransferResultInfo): var Standard_Integer {.
+proc resultWarningFail*(this: var TransferBRepTransferResultInfo): var int {.
     importcpp: "ResultWarningFail", header: "TransferBRep_TransferResultInfo.hxx".}
-proc NoResult*(this: var TransferBRep_TransferResultInfo): var Standard_Integer {.
+proc noResult*(this: var TransferBRepTransferResultInfo): var int {.
     importcpp: "NoResult", header: "TransferBRep_TransferResultInfo.hxx".}
-proc NoResultWarning*(this: var TransferBRep_TransferResultInfo): var Standard_Integer {.
+proc noResultWarning*(this: var TransferBRepTransferResultInfo): var int {.
     importcpp: "NoResultWarning", header: "TransferBRep_TransferResultInfo.hxx".}
-proc NoResultFail*(this: var TransferBRep_TransferResultInfo): var Standard_Integer {.
+proc noResultFail*(this: var TransferBRepTransferResultInfo): var int {.
     importcpp: "NoResultFail", header: "TransferBRep_TransferResultInfo.hxx".}
-proc NoResultWarningFail*(this: var TransferBRep_TransferResultInfo): var Standard_Integer {.
+proc noResultWarningFail*(this: var TransferBRepTransferResultInfo): var int {.
     importcpp: "NoResultWarningFail",
     header: "TransferBRep_TransferResultInfo.hxx".}
 type
-  TransferBRep_TransferResultInfobase_type* = Standard_Transient
+  TransferBRepTransferResultInfobaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TransferBRep_TransferResultInfo::get_type_name(@)",
-                              header: "TransferBRep_TransferResultInfo.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TransferBRep_TransferResultInfo::get_type_name(@)",
+                            header: "TransferBRep_TransferResultInfo.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TransferBRep_TransferResultInfo::get_type_descriptor(@)",
     header: "TransferBRep_TransferResultInfo.hxx".}
-proc DynamicType*(this: TransferBRep_TransferResultInfo): handle[Standard_Type] {.
+proc dynamicType*(this: TransferBRepTransferResultInfo): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TransferBRep_TransferResultInfo.hxx".}

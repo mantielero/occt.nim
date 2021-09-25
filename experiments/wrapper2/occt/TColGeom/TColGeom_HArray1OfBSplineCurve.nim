@@ -14,39 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Geom/Geom_BSplineCurve, TColGeom_Array1OfBSplineCurve,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  TColGeom_HArray1OfBSplineCurve* {.importcpp: "TColGeom_HArray1OfBSplineCurve", header: "TColGeom_HArray1OfBSplineCurve.hxx",
-                                   bycopy.} = object of TColGeom_Array1OfBSplineCurve
+  TColGeomHArray1OfBSplineCurve* {.importcpp: "TColGeom_HArray1OfBSplineCurve",
+                                  header: "TColGeom_HArray1OfBSplineCurve.hxx",
+                                  bycopy.} = object of TColGeomArray1OfBSplineCurve
 
 
-proc constructTColGeom_HArray1OfBSplineCurve*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): TColGeom_HArray1OfBSplineCurve {.constructor,
+proc constructTColGeomHArray1OfBSplineCurve*(theLower: int; theUpper: int): TColGeomHArray1OfBSplineCurve {.
+    constructor, importcpp: "TColGeom_HArray1OfBSplineCurve(@)",
+    header: "TColGeom_HArray1OfBSplineCurve.hxx".}
+proc constructTColGeomHArray1OfBSplineCurve*(theLower: int; theUpper: int;
+    theValue: ValueType): TColGeomHArray1OfBSplineCurve {.constructor,
     importcpp: "TColGeom_HArray1OfBSplineCurve(@)",
     header: "TColGeom_HArray1OfBSplineCurve.hxx".}
-proc constructTColGeom_HArray1OfBSplineCurve*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): TColGeom_HArray1OfBSplineCurve {.
+proc constructTColGeomHArray1OfBSplineCurve*(
+    theOther: TColGeomArray1OfBSplineCurve): TColGeomHArray1OfBSplineCurve {.
     constructor, importcpp: "TColGeom_HArray1OfBSplineCurve(@)",
     header: "TColGeom_HArray1OfBSplineCurve.hxx".}
-proc constructTColGeom_HArray1OfBSplineCurve*(
-    theOther: TColGeom_Array1OfBSplineCurve): TColGeom_HArray1OfBSplineCurve {.
-    constructor, importcpp: "TColGeom_HArray1OfBSplineCurve(@)",
-    header: "TColGeom_HArray1OfBSplineCurve.hxx".}
-proc Array1*(this: TColGeom_HArray1OfBSplineCurve): TColGeom_Array1OfBSplineCurve {.
+proc array1*(this: TColGeomHArray1OfBSplineCurve): TColGeomArray1OfBSplineCurve {.
     noSideEffect, importcpp: "Array1", header: "TColGeom_HArray1OfBSplineCurve.hxx".}
-proc ChangeArray1*(this: var TColGeom_HArray1OfBSplineCurve): var TColGeom_Array1OfBSplineCurve {.
+proc changeArray1*(this: var TColGeomHArray1OfBSplineCurve): var TColGeomArray1OfBSplineCurve {.
     importcpp: "ChangeArray1", header: "TColGeom_HArray1OfBSplineCurve.hxx".}
 type
-  TColGeom_HArray1OfBSplineCurvebase_type* = MMgt_TShared
+  TColGeomHArray1OfBSplineCurvebaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TColGeom_HArray1OfBSplineCurve::get_type_name(@)",
-                              header: "TColGeom_HArray1OfBSplineCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TColGeom_HArray1OfBSplineCurve::get_type_name(@)",
+                            header: "TColGeom_HArray1OfBSplineCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TColGeom_HArray1OfBSplineCurve::get_type_descriptor(@)",
     header: "TColGeom_HArray1OfBSplineCurve.hxx".}
-proc DynamicType*(this: TColGeom_HArray1OfBSplineCurve): handle[Standard_Type] {.
+proc dynamicType*(this: TColGeomHArray1OfBSplineCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TColGeom_HArray1OfBSplineCurve.hxx".}

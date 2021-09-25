@@ -12,38 +12,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Boolean, TColStd_Array1OfBoolean,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  TColStd_HArray1OfBoolean* {.importcpp: "TColStd_HArray1OfBoolean",
-                             header: "TColStd_HArray1OfBoolean.hxx", bycopy.} = object of TColStd_Array1OfBoolean
+  TColStdHArray1OfBoolean* {.importcpp: "TColStd_HArray1OfBoolean",
+                            header: "TColStd_HArray1OfBoolean.hxx", bycopy.} = object of TColStdArray1OfBoolean
 
 
-proc constructTColStd_HArray1OfBoolean*(theLower: Standard_Integer;
-                                       theUpper: Standard_Integer): TColStd_HArray1OfBoolean {.
+proc constructTColStdHArray1OfBoolean*(theLower: int; theUpper: int): TColStdHArray1OfBoolean {.
     constructor, importcpp: "TColStd_HArray1OfBoolean(@)",
     header: "TColStd_HArray1OfBoolean.hxx".}
-proc constructTColStd_HArray1OfBoolean*(theLower: Standard_Integer;
-                                       theUpper: Standard_Integer;
-                                       theValue: value_type): TColStd_HArray1OfBoolean {.
+proc constructTColStdHArray1OfBoolean*(theLower: int; theUpper: int;
+                                      theValue: ValueType): TColStdHArray1OfBoolean {.
     constructor, importcpp: "TColStd_HArray1OfBoolean(@)",
     header: "TColStd_HArray1OfBoolean.hxx".}
-proc constructTColStd_HArray1OfBoolean*(theOther: TColStd_Array1OfBoolean): TColStd_HArray1OfBoolean {.
+proc constructTColStdHArray1OfBoolean*(theOther: TColStdArray1OfBoolean): TColStdHArray1OfBoolean {.
     constructor, importcpp: "TColStd_HArray1OfBoolean(@)",
     header: "TColStd_HArray1OfBoolean.hxx".}
-proc Array1*(this: TColStd_HArray1OfBoolean): TColStd_Array1OfBoolean {.
-    noSideEffect, importcpp: "Array1", header: "TColStd_HArray1OfBoolean.hxx".}
-proc ChangeArray1*(this: var TColStd_HArray1OfBoolean): var TColStd_Array1OfBoolean {.
+proc array1*(this: TColStdHArray1OfBoolean): TColStdArray1OfBoolean {.noSideEffect,
+    importcpp: "Array1", header: "TColStd_HArray1OfBoolean.hxx".}
+proc changeArray1*(this: var TColStdHArray1OfBoolean): var TColStdArray1OfBoolean {.
     importcpp: "ChangeArray1", header: "TColStd_HArray1OfBoolean.hxx".}
 type
-  TColStd_HArray1OfBooleanbase_type* = MMgt_TShared
+  TColStdHArray1OfBooleanbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TColStd_HArray1OfBoolean::get_type_name(@)",
-                              header: "TColStd_HArray1OfBoolean.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TColStd_HArray1OfBoolean::get_type_name(@)",
+                            header: "TColStd_HArray1OfBoolean.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TColStd_HArray1OfBoolean::get_type_descriptor(@)",
     header: "TColStd_HArray1OfBoolean.hxx".}
-proc DynamicType*(this: TColStd_HArray1OfBoolean): handle[Standard_Type] {.
+proc dynamicType*(this: TColStdHArray1OfBoolean): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TColStd_HArray1OfBoolean.hxx".}

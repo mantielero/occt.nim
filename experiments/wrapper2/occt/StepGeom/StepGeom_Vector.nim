@@ -14,41 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  StepGeom_GeometricRepresentationItem
-
 discard "forward decl of StepGeom_Direction"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_Vector"
 discard "forward decl of StepGeom_Vector"
 type
-  Handle_StepGeom_Vector* = handle[StepGeom_Vector]
-  StepGeom_Vector* {.importcpp: "StepGeom_Vector", header: "StepGeom_Vector.hxx",
-                    bycopy.} = object of StepGeom_GeometricRepresentationItem ## ! Returns a Vector
+  HandleStepGeomVector* = Handle[StepGeomVector]
+  StepGeomVector* {.importcpp: "StepGeom_Vector", header: "StepGeom_Vector.hxx",
+                   bycopy.} = object of StepGeomGeometricRepresentationItem ## ! Returns a Vector
 
 
-proc constructStepGeom_Vector*(): StepGeom_Vector {.constructor,
+proc constructStepGeomVector*(): StepGeomVector {.constructor,
     importcpp: "StepGeom_Vector(@)", header: "StepGeom_Vector.hxx".}
-proc Init*(this: var StepGeom_Vector; aName: handle[TCollection_HAsciiString];
-          aOrientation: handle[StepGeom_Direction]; aMagnitude: Standard_Real) {.
+proc init*(this: var StepGeomVector; aName: Handle[TCollectionHAsciiString];
+          aOrientation: Handle[StepGeomDirection]; aMagnitude: float) {.
     importcpp: "Init", header: "StepGeom_Vector.hxx".}
-proc SetOrientation*(this: var StepGeom_Vector;
-                    aOrientation: handle[StepGeom_Direction]) {.
+proc setOrientation*(this: var StepGeomVector;
+                    aOrientation: Handle[StepGeomDirection]) {.
     importcpp: "SetOrientation", header: "StepGeom_Vector.hxx".}
-proc Orientation*(this: StepGeom_Vector): handle[StepGeom_Direction] {.noSideEffect,
+proc orientation*(this: StepGeomVector): Handle[StepGeomDirection] {.noSideEffect,
     importcpp: "Orientation", header: "StepGeom_Vector.hxx".}
-proc SetMagnitude*(this: var StepGeom_Vector; aMagnitude: Standard_Real) {.
+proc setMagnitude*(this: var StepGeomVector; aMagnitude: float) {.
     importcpp: "SetMagnitude", header: "StepGeom_Vector.hxx".}
-proc Magnitude*(this: StepGeom_Vector): Standard_Real {.noSideEffect,
-    importcpp: "Magnitude", header: "StepGeom_Vector.hxx".}
+proc magnitude*(this: StepGeomVector): float {.noSideEffect, importcpp: "Magnitude",
+    header: "StepGeom_Vector.hxx".}
 type
-  StepGeom_Vectorbase_type* = StepGeom_GeometricRepresentationItem
+  StepGeomVectorbaseType* = StepGeomGeometricRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_Vector::get_type_name(@)",
-                              header: "StepGeom_Vector.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_Vector::get_type_name(@)",
+                            header: "StepGeom_Vector.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_Vector::get_type_descriptor(@)",
     header: "StepGeom_Vector.hxx".}
-proc DynamicType*(this: StepGeom_Vector): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepGeomVector): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Vector.hxx".}

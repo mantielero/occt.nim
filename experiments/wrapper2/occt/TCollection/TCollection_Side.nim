@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  TCollection_Side* {.size: sizeof(cint), importcpp: "TCollection_Side",
-                     header: "TCollection_Side.hxx".} = enum
-    TCollection_Left, TCollection_Right
+  TCollectionSide* {.size: sizeof(cint), importcpp: "TCollection_Side",
+                    header: "TCollection_Side.hxx".} = enum
+    TCollectionLeft, TCollectionRight
+
 

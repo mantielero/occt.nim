@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, BRepAlgoAPI_BooleanOperation,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of BOPAlgo_PaveFiller"
 discard "forward decl of TopoDS_Shape"
 type
@@ -30,11 +25,10 @@ proc constructBRepAlgoAPI_Cut*(): BRepAlgoAPI_Cut {.constructor,
     importcpp: "BRepAlgoAPI_Cut(@)", header: "BRepAlgoAPI_Cut.hxx".}
 proc destroyBRepAlgoAPI_Cut*(this: var BRepAlgoAPI_Cut) {.
     importcpp: "#.~BRepAlgoAPI_Cut()", header: "BRepAlgoAPI_Cut.hxx".}
-proc constructBRepAlgoAPI_Cut*(PF: BOPAlgo_PaveFiller): BRepAlgoAPI_Cut {.
+proc constructBRepAlgoAPI_Cut*(pf: BOPAlgoPaveFiller): BRepAlgoAPI_Cut {.
     constructor, importcpp: "BRepAlgoAPI_Cut(@)", header: "BRepAlgoAPI_Cut.hxx".}
-proc constructBRepAlgoAPI_Cut*(S1: TopoDS_Shape; S2: TopoDS_Shape): BRepAlgoAPI_Cut {.
+proc constructBRepAlgoAPI_Cut*(s1: TopoDS_Shape; s2: TopoDS_Shape): BRepAlgoAPI_Cut {.
     constructor, importcpp: "BRepAlgoAPI_Cut(@)", header: "BRepAlgoAPI_Cut.hxx".}
-proc constructBRepAlgoAPI_Cut*(S1: TopoDS_Shape; S2: TopoDS_Shape;
-                              aDSF: BOPAlgo_PaveFiller;
-                              bFWD: Standard_Boolean = Standard_True): BRepAlgoAPI_Cut {.
+proc constructBRepAlgoAPI_Cut*(s1: TopoDS_Shape; s2: TopoDS_Shape;
+                              aDSF: BOPAlgoPaveFiller; bFWD: bool = true): BRepAlgoAPI_Cut {.
     constructor, importcpp: "BRepAlgoAPI_Cut(@)", header: "BRepAlgoAPI_Cut.hxx".}

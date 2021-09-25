@@ -14,8 +14,8 @@
 ## ! Graphics API enumeration.
 
 type
-  Aspect_GraphicsLibrary* {.size: sizeof(cint),
-                           importcpp: "Aspect_GraphicsLibrary",
-                           header: "Aspect_GraphicsLibrary.hxx".} = enum
-    Aspect_GraphicsLibrary_OpenGL, Aspect_GraphicsLibrary_OpenGLES
+  AspectGraphicsLibrary* {.size: sizeof(cint), importcpp: "Aspect_GraphicsLibrary",
+                          header: "Aspect_GraphicsLibrary.hxx".} = enum
+    AspectGraphicsLibraryOpenGL, AspectGraphicsLibraryOpenGLES
+
 

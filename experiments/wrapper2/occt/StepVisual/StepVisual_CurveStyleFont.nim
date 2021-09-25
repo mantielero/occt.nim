@@ -14,57 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepVisual_HArray1OfCurveStyleFontPattern, ../Standard/Standard_Transient,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepVisual_CurveStyleFontPattern"
 discard "forward decl of StepVisual_CurveStyleFont"
 discard "forward decl of StepVisual_CurveStyleFont"
 type
-  Handle_StepVisual_CurveStyleFont* = handle[StepVisual_CurveStyleFont]
-  StepVisual_CurveStyleFont* {.importcpp: "StepVisual_CurveStyleFont",
-                              header: "StepVisual_CurveStyleFont.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                        ## !
-                                                                                                        ## Returns
-                                                                                                        ## a
-                                                                                                        ## CurveStyleFont
+  HandleStepVisualCurveStyleFont* = Handle[StepVisualCurveStyleFont]
+  StepVisualCurveStyleFont* {.importcpp: "StepVisual_CurveStyleFont",
+                             header: "StepVisual_CurveStyleFont.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                      ## !
+                                                                                                      ## Returns
+                                                                                                      ## a
+                                                                                                      ## CurveStyleFont
 
 
-proc constructStepVisual_CurveStyleFont*(): StepVisual_CurveStyleFont {.
-    constructor, importcpp: "StepVisual_CurveStyleFont(@)",
+proc constructStepVisualCurveStyleFont*(): StepVisualCurveStyleFont {.constructor,
+    importcpp: "StepVisual_CurveStyleFont(@)",
     header: "StepVisual_CurveStyleFont.hxx".}
-proc Init*(this: var StepVisual_CurveStyleFont;
-          aName: handle[TCollection_HAsciiString];
-          aPatternList: handle[StepVisual_HArray1OfCurveStyleFontPattern]) {.
+proc init*(this: var StepVisualCurveStyleFont;
+          aName: Handle[TCollectionHAsciiString];
+          aPatternList: Handle[StepVisualHArray1OfCurveStyleFontPattern]) {.
     importcpp: "Init", header: "StepVisual_CurveStyleFont.hxx".}
-proc SetName*(this: var StepVisual_CurveStyleFont;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepVisualCurveStyleFont;
+             aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepVisual_CurveStyleFont.hxx".}
-proc Name*(this: StepVisual_CurveStyleFont): handle[TCollection_HAsciiString] {.
+proc name*(this: StepVisualCurveStyleFont): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepVisual_CurveStyleFont.hxx".}
-proc SetPatternList*(this: var StepVisual_CurveStyleFont; aPatternList: handle[
-    StepVisual_HArray1OfCurveStyleFontPattern]) {.importcpp: "SetPatternList",
+proc setPatternList*(this: var StepVisualCurveStyleFont; aPatternList: Handle[
+    StepVisualHArray1OfCurveStyleFontPattern]) {.importcpp: "SetPatternList",
     header: "StepVisual_CurveStyleFont.hxx".}
-proc PatternList*(this: StepVisual_CurveStyleFont): handle[
-    StepVisual_HArray1OfCurveStyleFontPattern] {.noSideEffect,
+proc patternList*(this: StepVisualCurveStyleFont): Handle[
+    StepVisualHArray1OfCurveStyleFontPattern] {.noSideEffect,
     importcpp: "PatternList", header: "StepVisual_CurveStyleFont.hxx".}
-proc PatternListValue*(this: StepVisual_CurveStyleFont; num: Standard_Integer): handle[
-    StepVisual_CurveStyleFontPattern] {.noSideEffect,
-                                       importcpp: "PatternListValue",
-                                       header: "StepVisual_CurveStyleFont.hxx".}
-proc NbPatternList*(this: StepVisual_CurveStyleFont): Standard_Integer {.
-    noSideEffect, importcpp: "NbPatternList",
-    header: "StepVisual_CurveStyleFont.hxx".}
+proc patternListValue*(this: StepVisualCurveStyleFont; num: int): Handle[
+    StepVisualCurveStyleFontPattern] {.noSideEffect,
+                                      importcpp: "PatternListValue",
+                                      header: "StepVisual_CurveStyleFont.hxx".}
+proc nbPatternList*(this: StepVisualCurveStyleFont): int {.noSideEffect,
+    importcpp: "NbPatternList", header: "StepVisual_CurveStyleFont.hxx".}
 type
-  StepVisual_CurveStyleFontbase_type* = Standard_Transient
+  StepVisualCurveStyleFontbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_CurveStyleFont::get_type_name(@)",
-                              header: "StepVisual_CurveStyleFont.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_CurveStyleFont::get_type_name(@)",
+                            header: "StepVisual_CurveStyleFont.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_CurveStyleFont::get_type_descriptor(@)",
     header: "StepVisual_CurveStyleFont.hxx".}
-proc DynamicType*(this: StepVisual_CurveStyleFont): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualCurveStyleFont): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepVisual_CurveStyleFont.hxx".}

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_EntityIterator"
@@ -28,7 +24,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of Interface_GeneralModule"
 discard "forward decl of Interface_GeneralModule"
 type
-  Handle_Interface_GeneralModule* = handle[Interface_GeneralModule]
+  HandleInterfaceGeneralModule* = Handle[InterfaceGeneralModule]
 
 ## ! This class defines general services, which must be provided
 ## ! for each type of Entity (i.e. of Transient Object processed
@@ -40,132 +36,127 @@ type
 ## ! GeneralModule belongs to.
 
 type
-  Interface_GeneralModule* {.importcpp: "Interface_GeneralModule",
-                            header: "Interface_GeneralModule.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                    ## !
-                                                                                                    ## Specific
-                                                                                                    ## filling
-                                                                                                    ## of
-                                                                                                    ## the
-                                                                                                    ## list
-                                                                                                    ## of
-                                                                                                    ## Entities
-                                                                                                    ## shared
-                                                                                                    ## by
-                                                                                                    ## an
-                                                                                                    ## Entity
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## <ent>,
-                                                                                                    ## according
-                                                                                                    ## a
-                                                                                                    ## Case
-                                                                                                    ## Number
-                                                                                                    ## <CN>
-                                                                                                    ## (formerly
-                                                                                                    ## computed
-                                                                                                    ## by
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## CaseNum),
-                                                                                                    ## considered
-                                                                                                    ## in
-                                                                                                    ## the
-                                                                                                    ## context
-                                                                                                    ## of
-                                                                                                    ## a
-                                                                                                    ## Model
-                                                                                                    ## <model>
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Default
-                                                                                                    ## calls
-                                                                                                    ## FillSharedCase
-                                                                                                    ## (i.e.,
-                                                                                                    ## ignores
-                                                                                                    ## the
-                                                                                                    ## model)
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Can
-                                                                                                    ## be
-                                                                                                    ## redefined
-                                                                                                    ## to
-                                                                                                    ## use
-                                                                                                    ## the
-                                                                                                    ## model
-                                                                                                    ## for
-                                                                                                    ## working
+  InterfaceGeneralModule* {.importcpp: "Interface_GeneralModule",
+                           header: "Interface_GeneralModule.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                  ## !
+                                                                                                  ## Specific
+                                                                                                  ## filling
+                                                                                                  ## of
+                                                                                                  ## the
+                                                                                                  ## list
+                                                                                                  ## of
+                                                                                                  ## Entities
+                                                                                                  ## shared
+                                                                                                  ## by
+                                                                                                  ## an
+                                                                                                  ## Entity
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## <ent>,
+                                                                                                  ## according
+                                                                                                  ## a
+                                                                                                  ## Case
+                                                                                                  ## Number
+                                                                                                  ## <CN>
+                                                                                                  ## (formerly
+                                                                                                  ## computed
+                                                                                                  ## by
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## CaseNum),
+                                                                                                  ## considered
+                                                                                                  ## in
+                                                                                                  ## the
+                                                                                                  ## context
+                                                                                                  ## of
+                                                                                                  ## a
+                                                                                                  ## Model
+                                                                                                  ## <model>
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Default
+                                                                                                  ## calls
+                                                                                                  ## FillSharedCase
+                                                                                                  ## (i.e.,
+                                                                                                  ## ignores
+                                                                                                  ## the
+                                                                                                  ## model)
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Can
+                                                                                                  ## be
+                                                                                                  ## redefined
+                                                                                                  ## to
+                                                                                                  ## use
+                                                                                                  ## the
+                                                                                                  ## model
+                                                                                                  ## for
+                                                                                                  ## working
 
 
-proc FillShared*(this: Interface_GeneralModule;
-                model: handle[Interface_InterfaceModel]; CN: Standard_Integer;
-                ent: handle[Standard_Transient];
-                iter: var Interface_EntityIterator) {.noSideEffect,
-    importcpp: "FillShared", header: "Interface_GeneralModule.hxx".}
-proc FillSharedCase*(this: Interface_GeneralModule; CN: Standard_Integer;
-                    ent: handle[Standard_Transient];
-                    iter: var Interface_EntityIterator) {.noSideEffect,
+proc fillShared*(this: InterfaceGeneralModule;
+                model: Handle[InterfaceInterfaceModel]; cn: int;
+                ent: Handle[StandardTransient]; iter: var InterfaceEntityIterator) {.
+    noSideEffect, importcpp: "FillShared", header: "Interface_GeneralModule.hxx".}
+proc fillSharedCase*(this: InterfaceGeneralModule; cn: int;
+                    ent: Handle[StandardTransient];
+                    iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "FillSharedCase", header: "Interface_GeneralModule.hxx".}
-proc Share*(this: Interface_GeneralModule; iter: var Interface_EntityIterator;
-           shared: handle[Standard_Transient]) {.noSideEffect, importcpp: "Share",
+proc share*(this: InterfaceGeneralModule; iter: var InterfaceEntityIterator;
+           shared: Handle[StandardTransient]) {.noSideEffect, importcpp: "Share",
     header: "Interface_GeneralModule.hxx".}
-proc ListImplied*(this: Interface_GeneralModule;
-                 model: handle[Interface_InterfaceModel]; CN: Standard_Integer;
-                 ent: handle[Standard_Transient];
-                 iter: var Interface_EntityIterator) {.noSideEffect,
-    importcpp: "ListImplied", header: "Interface_GeneralModule.hxx".}
-proc ListImpliedCase*(this: Interface_GeneralModule; CN: Standard_Integer;
-                     ent: handle[Standard_Transient];
-                     iter: var Interface_EntityIterator) {.noSideEffect,
+proc listImplied*(this: InterfaceGeneralModule;
+                 model: Handle[InterfaceInterfaceModel]; cn: int;
+                 ent: Handle[StandardTransient]; iter: var InterfaceEntityIterator) {.
+    noSideEffect, importcpp: "ListImplied", header: "Interface_GeneralModule.hxx".}
+proc listImpliedCase*(this: InterfaceGeneralModule; cn: int;
+                     ent: Handle[StandardTransient];
+                     iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "ListImpliedCase", header: "Interface_GeneralModule.hxx".}
-proc CheckCase*(this: Interface_GeneralModule; CN: Standard_Integer;
-               ent: handle[Standard_Transient]; shares: Interface_ShareTool;
-               ach: var handle[Interface_Check]) {.noSideEffect,
+proc checkCase*(this: InterfaceGeneralModule; cn: int;
+               ent: Handle[StandardTransient]; shares: InterfaceShareTool;
+               ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "CheckCase", header: "Interface_GeneralModule.hxx".}
-proc CanCopy*(this: Interface_GeneralModule; CN: Standard_Integer;
-             ent: handle[Standard_Transient]): Standard_Boolean {.noSideEffect,
-    importcpp: "CanCopy", header: "Interface_GeneralModule.hxx".}
-proc Dispatch*(this: Interface_GeneralModule; CN: Standard_Integer;
-              entfrom: handle[Standard_Transient];
-              entto: var handle[Standard_Transient]; TC: var Interface_CopyTool): Standard_Boolean {.
+proc canCopy*(this: InterfaceGeneralModule; cn: int; ent: Handle[StandardTransient]): bool {.
+    noSideEffect, importcpp: "CanCopy", header: "Interface_GeneralModule.hxx".}
+proc dispatch*(this: InterfaceGeneralModule; cn: int;
+              entfrom: Handle[StandardTransient];
+              entto: var Handle[StandardTransient]; tc: var InterfaceCopyTool): bool {.
     noSideEffect, importcpp: "Dispatch", header: "Interface_GeneralModule.hxx".}
-proc NewVoid*(this: Interface_GeneralModule; CN: Standard_Integer;
-             entto: var handle[Standard_Transient]): Standard_Boolean {.
-    noSideEffect, importcpp: "NewVoid", header: "Interface_GeneralModule.hxx".}
-proc CopyCase*(this: Interface_GeneralModule; CN: Standard_Integer;
-              entfrom: handle[Standard_Transient];
-              entto: handle[Standard_Transient]; TC: var Interface_CopyTool) {.
+proc newVoid*(this: InterfaceGeneralModule; cn: int;
+             entto: var Handle[StandardTransient]): bool {.noSideEffect,
+    importcpp: "NewVoid", header: "Interface_GeneralModule.hxx".}
+proc copyCase*(this: InterfaceGeneralModule; cn: int;
+              entfrom: Handle[StandardTransient];
+              entto: Handle[StandardTransient]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "CopyCase", header: "Interface_GeneralModule.hxx".}
-proc NewCopiedCase*(this: Interface_GeneralModule; CN: Standard_Integer;
-                   entfrom: handle[Standard_Transient];
-                   entto: var handle[Standard_Transient];
-                   TC: var Interface_CopyTool): Standard_Boolean {.noSideEffect,
-    importcpp: "NewCopiedCase", header: "Interface_GeneralModule.hxx".}
-proc RenewImpliedCase*(this: Interface_GeneralModule; CN: Standard_Integer;
-                      entfrom: handle[Standard_Transient];
-                      entto: handle[Standard_Transient]; TC: Interface_CopyTool) {.
+proc newCopiedCase*(this: InterfaceGeneralModule; cn: int;
+                   entfrom: Handle[StandardTransient];
+                   entto: var Handle[StandardTransient]; tc: var InterfaceCopyTool): bool {.
+    noSideEffect, importcpp: "NewCopiedCase", header: "Interface_GeneralModule.hxx".}
+proc renewImpliedCase*(this: InterfaceGeneralModule; cn: int;
+                      entfrom: Handle[StandardTransient];
+                      entto: Handle[StandardTransient]; tc: InterfaceCopyTool) {.
     noSideEffect, importcpp: "RenewImpliedCase",
     header: "Interface_GeneralModule.hxx".}
-proc WhenDeleteCase*(this: Interface_GeneralModule; CN: Standard_Integer;
-                    ent: handle[Standard_Transient]; dispatched: Standard_Boolean) {.
+proc whenDeleteCase*(this: InterfaceGeneralModule; cn: int;
+                    ent: Handle[StandardTransient]; dispatched: bool) {.
     noSideEffect, importcpp: "WhenDeleteCase",
     header: "Interface_GeneralModule.hxx".}
-proc CategoryNumber*(this: Interface_GeneralModule; CN: Standard_Integer;
-                    ent: handle[Standard_Transient]; shares: Interface_ShareTool): Standard_Integer {.
+proc categoryNumber*(this: InterfaceGeneralModule; cn: int;
+                    ent: Handle[StandardTransient]; shares: InterfaceShareTool): int {.
     noSideEffect, importcpp: "CategoryNumber",
     header: "Interface_GeneralModule.hxx".}
-proc Name*(this: Interface_GeneralModule; CN: Standard_Integer;
-          ent: handle[Standard_Transient]; shares: Interface_ShareTool): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Name",
-                               header: "Interface_GeneralModule.hxx".}
+proc name*(this: InterfaceGeneralModule; cn: int; ent: Handle[StandardTransient];
+          shares: InterfaceShareTool): Handle[TCollectionHAsciiString] {.
+    noSideEffect, importcpp: "Name", header: "Interface_GeneralModule.hxx".}
 type
-  Interface_GeneralModulebase_type* = Standard_Transient
+  InterfaceGeneralModulebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Interface_GeneralModule::get_type_name(@)",
-                              header: "Interface_GeneralModule.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Interface_GeneralModule::get_type_name(@)",
+                            header: "Interface_GeneralModule.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Interface_GeneralModule::get_type_descriptor(@)",
     header: "Interface_GeneralModule.hxx".}
-proc DynamicType*(this: Interface_GeneralModule): handle[Standard_Type] {.
+proc dynamicType*(this: InterfaceGeneralModule): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Interface_GeneralModule.hxx".}

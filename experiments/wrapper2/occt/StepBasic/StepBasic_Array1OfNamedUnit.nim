@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepBasic_NamedUnit, ../NCollection/NCollection_Array1
-
 type
-  StepBasic_Array1OfNamedUnit* = NCollection_Array1[handle[StepBasic_NamedUnit]]
+  StepBasicArray1OfNamedUnit* = NCollectionArray1[Handle[StepBasicNamedUnit]]
+

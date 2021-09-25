@@ -14,31 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepShape_TopologicalRepresentationItem
-
 discard "forward decl of StepShape_Vertex"
 discard "forward decl of StepShape_Vertex"
 type
-  Handle_StepShape_Vertex* = handle[StepShape_Vertex]
-  StepShape_Vertex* {.importcpp: "StepShape_Vertex",
-                     header: "StepShape_Vertex.hxx", bycopy.} = object of StepShape_TopologicalRepresentationItem ##
-                                                                                                           ## !
-                                                                                                           ## Returns
-                                                                                                           ## a
-                                                                                                           ## Vertex
+  HandleStepShapeVertex* = Handle[StepShapeVertex]
+  StepShapeVertex* {.importcpp: "StepShape_Vertex", header: "StepShape_Vertex.hxx",
+                    bycopy.} = object of StepShapeTopologicalRepresentationItem ## !
+                                                                           ## Returns a
+                                                                           ## Vertex
 
 
-proc constructStepShape_Vertex*(): StepShape_Vertex {.constructor,
+proc constructStepShapeVertex*(): StepShapeVertex {.constructor,
     importcpp: "StepShape_Vertex(@)", header: "StepShape_Vertex.hxx".}
 type
-  StepShape_Vertexbase_type* = StepShape_TopologicalRepresentationItem
+  StepShapeVertexbaseType* = StepShapeTopologicalRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_Vertex::get_type_name(@)",
-                              header: "StepShape_Vertex.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_Vertex::get_type_name(@)",
+                            header: "StepShape_Vertex.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_Vertex::get_type_descriptor(@)",
     header: "StepShape_Vertex.hxx".}
-proc DynamicType*(this: StepShape_Vertex): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepShapeVertex): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_Vertex.hxx".}

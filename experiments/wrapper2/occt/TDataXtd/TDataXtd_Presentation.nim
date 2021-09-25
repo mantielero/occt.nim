@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_GUID,
-  ../gp/gp_Pnt, ../TDF/TDF_Attribute, ../Quantity/Quantity_NameOfColor,
-  ../TColStd/TColStd_ListOfInteger
-
 discard "forward decl of TDF_Label"
 discard "forward decl of gp_Pnt"
 discard "forward decl of Standard_GUID"
@@ -26,124 +21,118 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataXtd_Presentation"
 discard "forward decl of TDataXtd_Presentation"
 type
-  Handle_TDataXtd_Presentation* = handle[TDataXtd_Presentation]
+  HandleTDataXtdPresentation* = Handle[TDataXtdPresentation]
 
 ## ! Attribute containing parameters of presentation of the shape,
 ## ! e.g. the shape attached to the same label and displayed using
 ## ! TPrsStd tools (see TPrsStd_AISPresentation).
 
 type
-  TDataXtd_Presentation* {.importcpp: "TDataXtd_Presentation",
-                          header: "TDataXtd_Presentation.hxx", bycopy.} = object of TDF_Attribute ## !@name Attribute mechanics
-                                                                                           ## ! Empty constructor
-                                                                                           ## !@name Access to data
-                                                                                           ## ! Returns the GUID of the driver managing display of associated AIS object
-                                                                                           ## ! Convert values of old Quantity_NameOfColor to new enumeration for reading old documents
-                                                                                           ## ! after #0030969 (Coding Rules - refactor Quantity_Color.cxx color table definition).
+  TDataXtdPresentation* {.importcpp: "TDataXtd_Presentation",
+                         header: "TDataXtd_Presentation.hxx", bycopy.} = object of TDF_Attribute ## !@name Attribute mechanics
+                                                                                          ## ! Empty constructor
+                                                                                          ## !@name Access to data
+                                                                                          ## ! Returns the GUID of the driver managing display of associated AIS object
+                                                                                          ## ! Convert values of old Quantity_NameOfColor to new enumeration for reading old documents
+                                                                                          ## ! after #0030969 (Coding Rules - refactor Quantity_Color.cxx color table definition).
     ## ! Checks a list of selection modes.
 
 
-proc constructTDataXtd_Presentation*(): TDataXtd_Presentation {.constructor,
+proc constructTDataXtdPresentation*(): TDataXtdPresentation {.constructor,
     importcpp: "TDataXtd_Presentation(@)", header: "TDataXtd_Presentation.hxx".}
-proc Set*(theLabel: TDF_Label; theDriverId: Standard_GUID): handle[
-    TDataXtd_Presentation] {.importcpp: "TDataXtd_Presentation::Set(@)",
-                            header: "TDataXtd_Presentation.hxx".}
-proc Unset*(theLabel: TDF_Label) {.importcpp: "TDataXtd_Presentation::Unset(@)",
+proc set*(theLabel: TDF_Label; theDriverId: StandardGUID): Handle[
+    TDataXtdPresentation] {.importcpp: "TDataXtd_Presentation::Set(@)",
+                           header: "TDataXtd_Presentation.hxx".}
+proc unset*(theLabel: TDF_Label) {.importcpp: "TDataXtd_Presentation::Unset(@)",
                                 header: "TDataXtd_Presentation.hxx".}
-proc ID*(this: TDataXtd_Presentation): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TDataXtdPresentation): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TDataXtd_Presentation.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "TDataXtd_Presentation::GetID(@)",
-                            header: "TDataXtd_Presentation.hxx".}
-proc Restore*(this: var TDataXtd_Presentation; anAttribute: handle[TDF_Attribute]) {.
+proc getID*(): StandardGUID {.importcpp: "TDataXtd_Presentation::GetID(@)",
+                           header: "TDataXtd_Presentation.hxx".}
+proc restore*(this: var TDataXtdPresentation; anAttribute: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TDataXtd_Presentation.hxx".}
-proc NewEmpty*(this: TDataXtd_Presentation): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TDataXtdPresentation): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TDataXtd_Presentation.hxx".}
-proc Paste*(this: TDataXtd_Presentation; intoAttribute: handle[TDF_Attribute];
-           aRelocTationable: handle[TDF_RelocationTable]) {.noSideEffect,
+proc paste*(this: TDataXtdPresentation; intoAttribute: Handle[TDF_Attribute];
+           aRelocTationable: Handle[TDF_RelocationTable]) {.noSideEffect,
     importcpp: "Paste", header: "TDataXtd_Presentation.hxx".}
-proc BackupCopy*(this: TDataXtd_Presentation): handle[TDF_Attribute] {.noSideEffect,
+proc backupCopy*(this: TDataXtdPresentation): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "BackupCopy", header: "TDataXtd_Presentation.hxx".}
 type
-  TDataXtd_Presentationbase_type* = TDF_Attribute
+  TDataXtdPresentationbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TDataXtd_Presentation::get_type_name(@)",
-                              header: "TDataXtd_Presentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDataXtd_Presentation::get_type_name(@)",
+                            header: "TDataXtd_Presentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDataXtd_Presentation::get_type_descriptor(@)",
     header: "TDataXtd_Presentation.hxx".}
-proc DynamicType*(this: TDataXtd_Presentation): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "TDataXtd_Presentation.hxx".}
-proc GetDriverGUID*(this: TDataXtd_Presentation): Standard_GUID {.noSideEffect,
+proc dynamicType*(this: TDataXtdPresentation): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "TDataXtd_Presentation.hxx".}
+proc getDriverGUID*(this: TDataXtdPresentation): StandardGUID {.noSideEffect,
     importcpp: "GetDriverGUID", header: "TDataXtd_Presentation.hxx".}
-proc SetDriverGUID*(this: var TDataXtd_Presentation; theGUID: Standard_GUID) {.
+proc setDriverGUID*(this: var TDataXtdPresentation; theGUID: StandardGUID) {.
     importcpp: "SetDriverGUID", header: "TDataXtd_Presentation.hxx".}
-proc IsDisplayed*(this: TDataXtd_Presentation): Standard_Boolean {.noSideEffect,
+proc isDisplayed*(this: TDataXtdPresentation): bool {.noSideEffect,
     importcpp: "IsDisplayed", header: "TDataXtd_Presentation.hxx".}
-proc HasOwnMaterial*(this: TDataXtd_Presentation): Standard_Boolean {.noSideEffect,
+proc hasOwnMaterial*(this: TDataXtdPresentation): bool {.noSideEffect,
     importcpp: "HasOwnMaterial", header: "TDataXtd_Presentation.hxx".}
-proc HasOwnTransparency*(this: TDataXtd_Presentation): Standard_Boolean {.
-    noSideEffect, importcpp: "HasOwnTransparency",
-    header: "TDataXtd_Presentation.hxx".}
-proc HasOwnColor*(this: TDataXtd_Presentation): Standard_Boolean {.noSideEffect,
+proc hasOwnTransparency*(this: TDataXtdPresentation): bool {.noSideEffect,
+    importcpp: "HasOwnTransparency", header: "TDataXtd_Presentation.hxx".}
+proc hasOwnColor*(this: TDataXtdPresentation): bool {.noSideEffect,
     importcpp: "HasOwnColor", header: "TDataXtd_Presentation.hxx".}
-proc HasOwnWidth*(this: TDataXtd_Presentation): Standard_Boolean {.noSideEffect,
+proc hasOwnWidth*(this: TDataXtdPresentation): bool {.noSideEffect,
     importcpp: "HasOwnWidth", header: "TDataXtd_Presentation.hxx".}
-proc HasOwnMode*(this: TDataXtd_Presentation): Standard_Boolean {.noSideEffect,
+proc hasOwnMode*(this: TDataXtdPresentation): bool {.noSideEffect,
     importcpp: "HasOwnMode", header: "TDataXtd_Presentation.hxx".}
-proc HasOwnSelectionMode*(this: TDataXtd_Presentation): Standard_Boolean {.
-    noSideEffect, importcpp: "HasOwnSelectionMode",
-    header: "TDataXtd_Presentation.hxx".}
-proc SetDisplayed*(this: var TDataXtd_Presentation; theIsDisplayed: Standard_Boolean) {.
+proc hasOwnSelectionMode*(this: TDataXtdPresentation): bool {.noSideEffect,
+    importcpp: "HasOwnSelectionMode", header: "TDataXtd_Presentation.hxx".}
+proc setDisplayed*(this: var TDataXtdPresentation; theIsDisplayed: bool) {.
     importcpp: "SetDisplayed", header: "TDataXtd_Presentation.hxx".}
-proc SetMaterialIndex*(this: var TDataXtd_Presentation;
-                      theMaterialIndex: Standard_Integer) {.
+proc setMaterialIndex*(this: var TDataXtdPresentation; theMaterialIndex: int) {.
     importcpp: "SetMaterialIndex", header: "TDataXtd_Presentation.hxx".}
-proc SetTransparency*(this: var TDataXtd_Presentation; theValue: Standard_Real) {.
+proc setTransparency*(this: var TDataXtdPresentation; theValue: float) {.
     importcpp: "SetTransparency", header: "TDataXtd_Presentation.hxx".}
-proc SetColor*(this: var TDataXtd_Presentation; theColor: Quantity_NameOfColor) {.
+proc setColor*(this: var TDataXtdPresentation; theColor: QuantityNameOfColor) {.
     importcpp: "SetColor", header: "TDataXtd_Presentation.hxx".}
-proc SetWidth*(this: var TDataXtd_Presentation; theWidth: Standard_Real) {.
+proc setWidth*(this: var TDataXtdPresentation; theWidth: float) {.
     importcpp: "SetWidth", header: "TDataXtd_Presentation.hxx".}
-proc SetMode*(this: var TDataXtd_Presentation; theMode: Standard_Integer) {.
-    importcpp: "SetMode", header: "TDataXtd_Presentation.hxx".}
-proc GetNbSelectionModes*(this: TDataXtd_Presentation): Standard_Integer {.
-    noSideEffect, importcpp: "GetNbSelectionModes",
+proc setMode*(this: var TDataXtdPresentation; theMode: int) {.importcpp: "SetMode",
     header: "TDataXtd_Presentation.hxx".}
-proc SetSelectionMode*(this: var TDataXtd_Presentation;
-                      theSelectionMode: Standard_Integer;
-                      theTransaction: Standard_Boolean = Standard_True) {.
-    importcpp: "SetSelectionMode", header: "TDataXtd_Presentation.hxx".}
-proc AddSelectionMode*(this: var TDataXtd_Presentation;
-                      theSelectionMode: Standard_Integer;
-                      theTransaction: Standard_Boolean = Standard_True) {.
-    importcpp: "AddSelectionMode", header: "TDataXtd_Presentation.hxx".}
-proc MaterialIndex*(this: TDataXtd_Presentation): Standard_Integer {.noSideEffect,
+proc getNbSelectionModes*(this: TDataXtdPresentation): int {.noSideEffect,
+    importcpp: "GetNbSelectionModes", header: "TDataXtd_Presentation.hxx".}
+proc setSelectionMode*(this: var TDataXtdPresentation; theSelectionMode: int;
+                      theTransaction: bool = true) {.importcpp: "SetSelectionMode",
+    header: "TDataXtd_Presentation.hxx".}
+proc addSelectionMode*(this: var TDataXtdPresentation; theSelectionMode: int;
+                      theTransaction: bool = true) {.importcpp: "AddSelectionMode",
+    header: "TDataXtd_Presentation.hxx".}
+proc materialIndex*(this: TDataXtdPresentation): int {.noSideEffect,
     importcpp: "MaterialIndex", header: "TDataXtd_Presentation.hxx".}
-proc Transparency*(this: TDataXtd_Presentation): Standard_Real {.noSideEffect,
+proc transparency*(this: TDataXtdPresentation): float {.noSideEffect,
     importcpp: "Transparency", header: "TDataXtd_Presentation.hxx".}
-proc Color*(this: TDataXtd_Presentation): Quantity_NameOfColor {.noSideEffect,
+proc color*(this: TDataXtdPresentation): QuantityNameOfColor {.noSideEffect,
     importcpp: "Color", header: "TDataXtd_Presentation.hxx".}
-proc Width*(this: TDataXtd_Presentation): Standard_Real {.noSideEffect,
-    importcpp: "Width", header: "TDataXtd_Presentation.hxx".}
-proc Mode*(this: TDataXtd_Presentation): Standard_Integer {.noSideEffect,
-    importcpp: "Mode", header: "TDataXtd_Presentation.hxx".}
-proc SelectionMode*(this: TDataXtd_Presentation; index: cint = 1): Standard_Integer {.
-    noSideEffect, importcpp: "SelectionMode", header: "TDataXtd_Presentation.hxx".}
-proc UnsetMaterial*(this: var TDataXtd_Presentation) {.importcpp: "UnsetMaterial",
+proc width*(this: TDataXtdPresentation): float {.noSideEffect, importcpp: "Width",
     header: "TDataXtd_Presentation.hxx".}
-proc UnsetTransparency*(this: var TDataXtd_Presentation) {.
+proc mode*(this: TDataXtdPresentation): int {.noSideEffect, importcpp: "Mode",
+    header: "TDataXtd_Presentation.hxx".}
+proc selectionMode*(this: TDataXtdPresentation; index: cint = 1): int {.noSideEffect,
+    importcpp: "SelectionMode", header: "TDataXtd_Presentation.hxx".}
+proc unsetMaterial*(this: var TDataXtdPresentation) {.importcpp: "UnsetMaterial",
+    header: "TDataXtd_Presentation.hxx".}
+proc unsetTransparency*(this: var TDataXtdPresentation) {.
     importcpp: "UnsetTransparency", header: "TDataXtd_Presentation.hxx".}
-proc UnsetColor*(this: var TDataXtd_Presentation) {.importcpp: "UnsetColor",
+proc unsetColor*(this: var TDataXtdPresentation) {.importcpp: "UnsetColor",
     header: "TDataXtd_Presentation.hxx".}
-proc UnsetWidth*(this: var TDataXtd_Presentation) {.importcpp: "UnsetWidth",
+proc unsetWidth*(this: var TDataXtdPresentation) {.importcpp: "UnsetWidth",
     header: "TDataXtd_Presentation.hxx".}
-proc UnsetMode*(this: var TDataXtd_Presentation) {.importcpp: "UnsetMode",
+proc unsetMode*(this: var TDataXtdPresentation) {.importcpp: "UnsetMode",
     header: "TDataXtd_Presentation.hxx".}
-proc UnsetSelectionMode*(this: var TDataXtd_Presentation) {.
+proc unsetSelectionMode*(this: var TDataXtdPresentation) {.
     importcpp: "UnsetSelectionMode", header: "TDataXtd_Presentation.hxx".}
-proc getColorNameFromOldEnum*(theOld: Standard_Integer): Quantity_NameOfColor {.
+proc getColorNameFromOldEnum*(theOld: int): QuantityNameOfColor {.
     importcpp: "TDataXtd_Presentation::getColorNameFromOldEnum(@)",
     header: "TDataXtd_Presentation.hxx".}
-proc getOldColorNameFromNewEnum*(theNew: Quantity_NameOfColor): Standard_Integer {.
+proc getOldColorNameFromNewEnum*(theNew: QuantityNameOfColor): int {.
     importcpp: "TDataXtd_Presentation::getOldColorNameFromNewEnum(@)",
     header: "TDataXtd_Presentation.hxx".}

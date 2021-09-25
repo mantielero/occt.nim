@@ -13,45 +13,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer, StepElement_EnumeratedSurfaceElementPurpose
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepData_SelectMember"
 discard "forward decl of TCollection_HAsciiString"
 type
-  StepElement_SurfaceElementPurpose* {.importcpp: "StepElement_SurfaceElementPurpose", header: "StepElement_SurfaceElementPurpose.hxx",
-                                      bycopy.} = object of StepData_SelectType ## ! Empty
-                                                                          ## constructor
+  StepElementSurfaceElementPurpose* {.importcpp: "StepElement_SurfaceElementPurpose", header: "StepElement_SurfaceElementPurpose.hxx",
+                                     bycopy.} = object of StepDataSelectType ## ! Empty
+                                                                        ## constructor
 
 
-proc constructStepElement_SurfaceElementPurpose*(): StepElement_SurfaceElementPurpose {.
+proc constructStepElementSurfaceElementPurpose*(): StepElementSurfaceElementPurpose {.
     constructor, importcpp: "StepElement_SurfaceElementPurpose(@)",
     header: "StepElement_SurfaceElementPurpose.hxx".}
-proc CaseNum*(this: StepElement_SurfaceElementPurpose;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepElementSurfaceElementPurpose;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepElement_SurfaceElementPurpose.hxx".}
-proc CaseMem*(this: StepElement_SurfaceElementPurpose;
-             ent: handle[StepData_SelectMember]): Standard_Integer {.noSideEffect,
+proc caseMem*(this: StepElementSurfaceElementPurpose;
+             ent: Handle[StepDataSelectMember]): int {.noSideEffect,
     importcpp: "CaseMem", header: "StepElement_SurfaceElementPurpose.hxx".}
-proc NewMember*(this: StepElement_SurfaceElementPurpose): handle[
-    StepData_SelectMember] {.noSideEffect, importcpp: "NewMember",
-                            header: "StepElement_SurfaceElementPurpose.hxx".}
-proc SetEnumeratedSurfaceElementPurpose*(this: var StepElement_SurfaceElementPurpose;
-    aVal: StepElement_EnumeratedSurfaceElementPurpose) {.
+proc newMember*(this: StepElementSurfaceElementPurpose): Handle[
+    StepDataSelectMember] {.noSideEffect, importcpp: "NewMember",
+                           header: "StepElement_SurfaceElementPurpose.hxx".}
+proc setEnumeratedSurfaceElementPurpose*(this: var StepElementSurfaceElementPurpose;
+    aVal: StepElementEnumeratedSurfaceElementPurpose) {.
     importcpp: "SetEnumeratedSurfaceElementPurpose",
     header: "StepElement_SurfaceElementPurpose.hxx".}
-proc EnumeratedSurfaceElementPurpose*(this: StepElement_SurfaceElementPurpose): StepElement_EnumeratedSurfaceElementPurpose {.
+proc enumeratedSurfaceElementPurpose*(this: StepElementSurfaceElementPurpose): StepElementEnumeratedSurfaceElementPurpose {.
     noSideEffect, importcpp: "EnumeratedSurfaceElementPurpose",
     header: "StepElement_SurfaceElementPurpose.hxx".}
-proc SetApplicationDefinedElementPurpose*(
-    this: var StepElement_SurfaceElementPurpose;
-    aVal: handle[TCollection_HAsciiString]) {.
+proc setApplicationDefinedElementPurpose*(
+    this: var StepElementSurfaceElementPurpose;
+    aVal: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetApplicationDefinedElementPurpose",
     header: "StepElement_SurfaceElementPurpose.hxx".}
-proc ApplicationDefinedElementPurpose*(this: StepElement_SurfaceElementPurpose): handle[
-    TCollection_HAsciiString] {.noSideEffect,
-                               importcpp: "ApplicationDefinedElementPurpose",
-                               header: "StepElement_SurfaceElementPurpose.hxx".}
+proc applicationDefinedElementPurpose*(this: StepElementSurfaceElementPurpose): Handle[
+    TCollectionHAsciiString] {.noSideEffect,
+                              importcpp: "ApplicationDefinedElementPurpose",
+                              header: "StepElement_SurfaceElementPurpose.hxx".}

@@ -13,29 +13,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TDF/TDF_LabelMap,
-  ../TopTools/TopTools_IndexedMapOfShape
-
 discard "forward decl of TNaming_NamedShape"
 discard "forward decl of TDF_Label"
 discard "forward decl of TopoDS_Shape"
 type
-  TNaming_NamingTool* {.importcpp: "TNaming_NamingTool",
-                       header: "TNaming_NamingTool.hxx", bycopy.} = object
+  TNamingNamingTool* {.importcpp: "TNaming_NamingTool",
+                      header: "TNaming_NamingTool.hxx", bycopy.} = object
 
 
-proc CurrentShape*(Valid: TDF_LabelMap; Forbiden: TDF_LabelMap;
-                  NS: handle[TNaming_NamedShape];
-                  MS: var TopTools_IndexedMapOfShape) {.
+proc currentShape*(valid: TDF_LabelMap; forbiden: TDF_LabelMap;
+                  ns: Handle[TNamingNamedShape]; ms: var TopToolsIndexedMapOfShape) {.
     importcpp: "TNaming_NamingTool::CurrentShape(@)",
     header: "TNaming_NamingTool.hxx".}
-proc CurrentShapeFromShape*(Valid: TDF_LabelMap; Forbiden: TDF_LabelMap;
-                           Acces: TDF_Label; S: TopoDS_Shape;
-                           MS: var TopTools_IndexedMapOfShape) {.
+proc currentShapeFromShape*(valid: TDF_LabelMap; forbiden: TDF_LabelMap;
+                           acces: TDF_Label; s: TopoDS_Shape;
+                           ms: var TopToolsIndexedMapOfShape) {.
     importcpp: "TNaming_NamingTool::CurrentShapeFromShape(@)",
     header: "TNaming_NamingTool.hxx".}
-proc BuildDescendants*(NS: handle[TNaming_NamedShape]; Labels: var TDF_LabelMap) {.
+proc buildDescendants*(ns: Handle[TNamingNamedShape]; labels: var TDF_LabelMap) {.
     importcpp: "TNaming_NamingTool::BuildDescendants(@)",
     header: "TNaming_NamingTool.hxx".}

@@ -14,30 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_MeasureWithUnit
-
 discard "forward decl of StepBasic_RatioMeasureWithUnit"
 discard "forward decl of StepBasic_RatioMeasureWithUnit"
 type
-  Handle_StepBasic_RatioMeasureWithUnit* = handle[StepBasic_RatioMeasureWithUnit]
-  StepBasic_RatioMeasureWithUnit* {.importcpp: "StepBasic_RatioMeasureWithUnit", header: "StepBasic_RatioMeasureWithUnit.hxx",
-                                   bycopy.} = object of StepBasic_MeasureWithUnit ## !
-                                                                             ## Returns a
-                                                                             ## RatioMeasureWithUnit
+  HandleStepBasicRatioMeasureWithUnit* = Handle[StepBasicRatioMeasureWithUnit]
+  StepBasicRatioMeasureWithUnit* {.importcpp: "StepBasic_RatioMeasureWithUnit",
+                                  header: "StepBasic_RatioMeasureWithUnit.hxx",
+                                  bycopy.} = object of StepBasicMeasureWithUnit ## !
+                                                                           ## Returns a
+                                                                           ## RatioMeasureWithUnit
 
 
-proc constructStepBasic_RatioMeasureWithUnit*(): StepBasic_RatioMeasureWithUnit {.
+proc constructStepBasicRatioMeasureWithUnit*(): StepBasicRatioMeasureWithUnit {.
     constructor, importcpp: "StepBasic_RatioMeasureWithUnit(@)",
     header: "StepBasic_RatioMeasureWithUnit.hxx".}
 type
-  StepBasic_RatioMeasureWithUnitbase_type* = StepBasic_MeasureWithUnit
+  StepBasicRatioMeasureWithUnitbaseType* = StepBasicMeasureWithUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_RatioMeasureWithUnit::get_type_name(@)",
-                              header: "StepBasic_RatioMeasureWithUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_RatioMeasureWithUnit::get_type_name(@)",
+                            header: "StepBasic_RatioMeasureWithUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_RatioMeasureWithUnit::get_type_descriptor(@)",
     header: "StepBasic_RatioMeasureWithUnit.hxx".}
-proc DynamicType*(this: StepBasic_RatioMeasureWithUnit): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicRatioMeasureWithUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_RatioMeasureWithUnit.hxx".}

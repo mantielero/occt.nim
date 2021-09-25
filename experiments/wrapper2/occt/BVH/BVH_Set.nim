@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  BVH_Box
-
 ## ! Set of abstract entities (bounded by BVH boxes). This is
 ## ! the minimal geometry interface needed to construct BVH.
 ## ! \tparam T Numeric data type
@@ -32,15 +29,13 @@ proc constructBVH_Set*[T; N: static[cint]](): BVH_Set[T, N] {.constructor,
     importcpp: "BVH_Set<\'*0,\'*1>(@)", header: "BVH_Set.hxx".}
 proc destroyBVH_Set*[T; N: static[cint]](this: var BVH_Set[T, N]) {.
     importcpp: "#.~BVH_Set()", header: "BVH_Set.hxx".}
-proc Box*[T; N: static[cint]](this: BVH_Set[T, N]): BVH_Box[T, N] {.noSideEffect,
+proc box*[T; N: static[cint]](this: BVH_Set[T, N]): BVH_Box[T, N] {.noSideEffect,
     importcpp: "Box", header: "BVH_Set.hxx".}
-proc Size*[T; N: static[cint]](this: BVH_Set[T, N]): Standard_Integer {.noSideEffect,
+proc size*[T; N: static[cint]](this: BVH_Set[T, N]): int {.noSideEffect,
     importcpp: "Size", header: "BVH_Set.hxx".}
-proc Box*[T; N: static[cint]](this: BVH_Set[T, N]; theIndex: Standard_Integer): BVH_Box[
-    T, N] {.noSideEffect, importcpp: "Box", header: "BVH_Set.hxx".}
-proc Center*[T; N: static[cint]](this: BVH_Set[T, N]; theIndex: Standard_Integer;
-                              theAxis: Standard_Integer): T {.noSideEffect,
-    importcpp: "Center", header: "BVH_Set.hxx".}
-proc Swap*[T; N: static[cint]](this: var BVH_Set[T, N]; theIndex1: Standard_Integer;
-                            theIndex2: Standard_Integer) {.importcpp: "Swap",
-    header: "BVH_Set.hxx".}
+proc box*[T; N: static[cint]](this: BVH_Set[T, N]; theIndex: int): BVH_Box[T, N] {.
+    noSideEffect, importcpp: "Box", header: "BVH_Set.hxx".}
+proc center*[T; N: static[cint]](this: BVH_Set[T, N]; theIndex: int; theAxis: int): T {.
+    noSideEffect, importcpp: "Center", header: "BVH_Set.hxx".}
+proc swap*[T; N: static[cint]](this: var BVH_Set[T, N]; theIndex1: int; theIndex2: int) {.
+    importcpp: "Swap", header: "BVH_Set.hxx".}

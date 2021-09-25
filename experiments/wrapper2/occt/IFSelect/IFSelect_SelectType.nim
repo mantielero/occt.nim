@@ -14,50 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Type,
-  IFSelect_SelectAnyType
-
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectType"
 discard "forward decl of IFSelect_SelectType"
 type
-  Handle_IFSelect_SelectType* = handle[IFSelect_SelectType]
+  HandleIFSelectSelectType* = Handle[IFSelectSelectType]
 
 ## ! A SelectType keeps or rejects Entities of which the Type
 ## ! is Kind of a given Cdl Type
 
 type
-  IFSelect_SelectType* {.importcpp: "IFSelect_SelectType",
-                        header: "IFSelect_SelectType.hxx", bycopy.} = object of IFSelect_SelectAnyType ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## a
-                                                                                                ## SelectType.
-                                                                                                ## Default
-                                                                                                ## is
-                                                                                                ## no
-                                                                                                ## filter
+  IFSelectSelectType* {.importcpp: "IFSelect_SelectType",
+                       header: "IFSelect_SelectType.hxx", bycopy.} = object of IFSelectSelectAnyType ##
+                                                                                              ## !
+                                                                                              ## Creates
+                                                                                              ## a
+                                                                                              ## SelectType.
+                                                                                              ## Default
+                                                                                              ## is
+                                                                                              ## no
+                                                                                              ## filter
 
 
-proc constructIFSelect_SelectType*(): IFSelect_SelectType {.constructor,
+proc constructIFSelectSelectType*(): IFSelectSelectType {.constructor,
     importcpp: "IFSelect_SelectType(@)", header: "IFSelect_SelectType.hxx".}
-proc constructIFSelect_SelectType*(atype: handle[Standard_Type]): IFSelect_SelectType {.
+proc constructIFSelectSelectType*(atype: Handle[StandardType]): IFSelectSelectType {.
     constructor, importcpp: "IFSelect_SelectType(@)",
     header: "IFSelect_SelectType.hxx".}
-proc SetType*(this: var IFSelect_SelectType; atype: handle[Standard_Type]) {.
+proc setType*(this: var IFSelectSelectType; atype: Handle[StandardType]) {.
     importcpp: "SetType", header: "IFSelect_SelectType.hxx".}
-proc TypeForMatch*(this: IFSelect_SelectType): handle[Standard_Type] {.noSideEffect,
+proc typeForMatch*(this: IFSelectSelectType): Handle[StandardType] {.noSideEffect,
     importcpp: "TypeForMatch", header: "IFSelect_SelectType.hxx".}
-proc ExtractLabel*(this: IFSelect_SelectType): TCollection_AsciiString {.
-    noSideEffect, importcpp: "ExtractLabel", header: "IFSelect_SelectType.hxx".}
+proc extractLabel*(this: IFSelectSelectType): TCollectionAsciiString {.noSideEffect,
+    importcpp: "ExtractLabel", header: "IFSelect_SelectType.hxx".}
 type
-  IFSelect_SelectTypebase_type* = IFSelect_SelectAnyType
+  IFSelectSelectTypebaseType* = IFSelectSelectAnyType
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectType::get_type_name(@)",
-                              header: "IFSelect_SelectType.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectType::get_type_name(@)",
+                            header: "IFSelect_SelectType.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_SelectType::get_type_descriptor(@)",
     header: "IFSelect_SelectType.hxx".}
-proc DynamicType*(this: IFSelect_SelectType): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IFSelectSelectType): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectType.hxx".}

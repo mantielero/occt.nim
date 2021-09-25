@@ -14,30 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_MeasureWithUnit
-
 discard "forward decl of StepBasic_LengthMeasureWithUnit"
 discard "forward decl of StepBasic_LengthMeasureWithUnit"
 type
-  Handle_StepBasic_LengthMeasureWithUnit* = handle[StepBasic_LengthMeasureWithUnit]
-  StepBasic_LengthMeasureWithUnit* {.importcpp: "StepBasic_LengthMeasureWithUnit", header: "StepBasic_LengthMeasureWithUnit.hxx",
-                                    bycopy.} = object of StepBasic_MeasureWithUnit ## !
-                                                                              ## Returns a
-                                                                              ## LengthMeasureWithUnit
+  HandleStepBasicLengthMeasureWithUnit* = Handle[StepBasicLengthMeasureWithUnit]
+  StepBasicLengthMeasureWithUnit* {.importcpp: "StepBasic_LengthMeasureWithUnit", header: "StepBasic_LengthMeasureWithUnit.hxx",
+                                   bycopy.} = object of StepBasicMeasureWithUnit ## !
+                                                                            ## Returns a
+                                                                            ## LengthMeasureWithUnit
 
 
-proc constructStepBasic_LengthMeasureWithUnit*(): StepBasic_LengthMeasureWithUnit {.
+proc constructStepBasicLengthMeasureWithUnit*(): StepBasicLengthMeasureWithUnit {.
     constructor, importcpp: "StepBasic_LengthMeasureWithUnit(@)",
     header: "StepBasic_LengthMeasureWithUnit.hxx".}
 type
-  StepBasic_LengthMeasureWithUnitbase_type* = StepBasic_MeasureWithUnit
+  StepBasicLengthMeasureWithUnitbaseType* = StepBasicMeasureWithUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_LengthMeasureWithUnit::get_type_name(@)",
-                              header: "StepBasic_LengthMeasureWithUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_LengthMeasureWithUnit::get_type_name(@)",
+                            header: "StepBasic_LengthMeasureWithUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_LengthMeasureWithUnit::get_type_descriptor(@)",
     header: "StepBasic_LengthMeasureWithUnit.hxx".}
-proc DynamicType*(this: StepBasic_LengthMeasureWithUnit): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicLengthMeasureWithUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_LengthMeasureWithUnit.hxx".}

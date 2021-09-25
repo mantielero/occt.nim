@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  V3d_PositionLight
-
 ## ! Creation and modification of an isolated (positional) light source.
 ## ! It is also defined by the color and two attenuation factors ConstAttentuation() and LinearAttentuation().
 ## ! The resulting attenuation factor determining the illumination of a surface depends on the following formula:
@@ -26,35 +23,35 @@ import
 ## ! Where Distance is the distance of the isolated source from the surface.
 
 type
-  V3d_PositionalLight* {.importcpp: "V3d_PositionalLight",
-                        header: "V3d_PositionalLight.hxx", bycopy.} = object of V3d_PositionLight ##
-                                                                                           ## !
-                                                                                           ## Creates
-                                                                                           ## an
-                                                                                           ## isolated
-                                                                                           ## light
-                                                                                           ## source
-                                                                                           ## in
-                                                                                           ## the
-                                                                                           ## viewer
-                                                                                           ## with
-                                                                                           ## default
-                                                                                           ## attenuation
-                                                                                           ## factors
-                                                                                           ## (1.0,
-                                                                                           ## 0.0).
+  V3dPositionalLight* {.importcpp: "V3d_PositionalLight",
+                       header: "V3d_PositionalLight.hxx", bycopy.} = object of V3dPositionLight ##
+                                                                                         ## !
+                                                                                         ## Creates
+                                                                                         ## an
+                                                                                         ## isolated
+                                                                                         ## light
+                                                                                         ## source
+                                                                                         ## in
+                                                                                         ## the
+                                                                                         ## viewer
+                                                                                         ## with
+                                                                                         ## default
+                                                                                         ## attenuation
+                                                                                         ## factors
+                                                                                         ## (1.0,
+                                                                                         ## 0.0).
 
-  V3d_PositionalLightbase_type* = V3d_PositionLight
+  V3dPositionalLightbaseType* = V3dPositionLight
 
-proc get_type_name*(): cstring {.importcpp: "V3d_PositionalLight::get_type_name(@)",
-                              header: "V3d_PositionalLight.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "V3d_PositionalLight::get_type_name(@)",
+                            header: "V3d_PositionalLight.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "V3d_PositionalLight::get_type_descriptor(@)",
     header: "V3d_PositionalLight.hxx".}
-proc DynamicType*(this: V3d_PositionalLight): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: V3dPositionalLight): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "V3d_PositionalLight.hxx".}
-proc constructV3d_PositionalLight*(thePos: gp_Pnt;
-                                  theColor: Quantity_Color = Quantity_NOC_WHITE): V3d_PositionalLight {.
+proc constructV3dPositionalLight*(thePos: Pnt;
+                                 theColor: QuantityColor = quantityNOC_WHITE): V3dPositionalLight {.
     constructor, importcpp: "V3d_PositionalLight(@)",
     header: "V3d_PositionalLight.hxx".}
 ## using statement
@@ -75,4 +72,5 @@ proc constructV3d_PositionalLight*(thePos: gp_Pnt;
 
 discard "forward decl of V3d_PositionalLight"
 type
-  Handle_V3d_PositionalLight* = handle[V3d_PositionalLight]
+  HandleV3dPositionalLight* = Handle[V3dPositionalLight]
+

@@ -14,20 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineHandle,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer,
-  ../TColgp/TColgp_Array1OfPnt, ../TColgp/TColgp_HArray1OfPnt2d,
-  Poly_Array1OfTriangle, ../TShort/TShort_HArray1OfShortReal,
-  ../Standard/Standard_Transient, ../Standard/Standard_Boolean,
-  ../TColgp/TColgp_Array1OfPnt2d, ../TShort/TShort_Array1OfShortReal
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_NullObject"
 discard "forward decl of Poly_Triangulation"
 discard "forward decl of Poly_Triangulation"
 type
-  Handle_Poly_Triangulation* = handle[Poly_Triangulation]
+  HandlePolyTriangulation* = Handle[PolyTriangulation]
 
 ## ! Provides a triangulation for a surface, a set of surfaces, or
 ## ! more generally a shape.
@@ -56,87 +48,84 @@ type
 ## ! This is a Transient class.
 
 type
-  Poly_Triangulation* {.importcpp: "Poly_Triangulation",
-                       header: "Poly_Triangulation.hxx", bycopy.} = object of Standard_Transient
+  PolyTriangulation* {.importcpp: "Poly_Triangulation",
+                      header: "Poly_Triangulation.hxx", bycopy.} = object of StandardTransient
 
-  Poly_Triangulationbase_type* = Standard_Transient
+  PolyTriangulationbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Poly_Triangulation::get_type_name(@)",
-                              header: "Poly_Triangulation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Poly_Triangulation::get_type_name(@)",
+                            header: "Poly_Triangulation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Poly_Triangulation::get_type_descriptor(@)",
     header: "Poly_Triangulation.hxx".}
-proc DynamicType*(this: Poly_Triangulation): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: PolyTriangulation): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Poly_Triangulation.hxx".}
-proc constructPoly_Triangulation*(nbNodes: Standard_Integer;
-                                 nbTriangles: Standard_Integer;
-                                 UVNodes: Standard_Boolean): Poly_Triangulation {.
+proc constructPolyTriangulation*(nbNodes: int; nbTriangles: int; uVNodes: bool): PolyTriangulation {.
     constructor, importcpp: "Poly_Triangulation(@)",
     header: "Poly_Triangulation.hxx".}
-proc constructPoly_Triangulation*(Nodes: TColgp_Array1OfPnt;
-                                 Triangles: Poly_Array1OfTriangle): Poly_Triangulation {.
+proc constructPolyTriangulation*(nodes: TColgpArray1OfPnt;
+                                triangles: PolyArray1OfTriangle): PolyTriangulation {.
     constructor, importcpp: "Poly_Triangulation(@)",
     header: "Poly_Triangulation.hxx".}
-proc constructPoly_Triangulation*(Nodes: TColgp_Array1OfPnt;
-                                 UVNodes: TColgp_Array1OfPnt2d;
-                                 Triangles: Poly_Array1OfTriangle): Poly_Triangulation {.
+proc constructPolyTriangulation*(nodes: TColgpArray1OfPnt;
+                                uVNodes: TColgpArray1OfPnt2d;
+                                triangles: PolyArray1OfTriangle): PolyTriangulation {.
     constructor, importcpp: "Poly_Triangulation(@)",
     header: "Poly_Triangulation.hxx".}
-proc Copy*(this: Poly_Triangulation): handle[Poly_Triangulation] {.noSideEffect,
+proc copy*(this: PolyTriangulation): Handle[PolyTriangulation] {.noSideEffect,
     importcpp: "Copy", header: "Poly_Triangulation.hxx".}
-proc constructPoly_Triangulation*(theTriangulation: handle[Poly_Triangulation]): Poly_Triangulation {.
+proc constructPolyTriangulation*(theTriangulation: Handle[PolyTriangulation]): PolyTriangulation {.
     constructor, importcpp: "Poly_Triangulation(@)",
     header: "Poly_Triangulation.hxx".}
-proc Deflection*(this: Poly_Triangulation): Standard_Real {.noSideEffect,
+proc deflection*(this: PolyTriangulation): float {.noSideEffect,
     importcpp: "Deflection", header: "Poly_Triangulation.hxx".}
-proc Deflection*(this: var Poly_Triangulation; theDeflection: Standard_Real) {.
+proc deflection*(this: var PolyTriangulation; theDeflection: float) {.
     importcpp: "Deflection", header: "Poly_Triangulation.hxx".}
-proc RemoveUVNodes*(this: var Poly_Triangulation) {.importcpp: "RemoveUVNodes",
+proc removeUVNodes*(this: var PolyTriangulation) {.importcpp: "RemoveUVNodes",
     header: "Poly_Triangulation.hxx".}
-proc NbNodes*(this: Poly_Triangulation): Standard_Integer {.noSideEffect,
-    importcpp: "NbNodes", header: "Poly_Triangulation.hxx".}
-proc NbTriangles*(this: Poly_Triangulation): Standard_Integer {.noSideEffect,
+proc nbNodes*(this: PolyTriangulation): int {.noSideEffect, importcpp: "NbNodes",
+    header: "Poly_Triangulation.hxx".}
+proc nbTriangles*(this: PolyTriangulation): int {.noSideEffect,
     importcpp: "NbTriangles", header: "Poly_Triangulation.hxx".}
-proc HasUVNodes*(this: Poly_Triangulation): Standard_Boolean {.noSideEffect,
+proc hasUVNodes*(this: PolyTriangulation): bool {.noSideEffect,
     importcpp: "HasUVNodes", header: "Poly_Triangulation.hxx".}
-proc Nodes*(this: Poly_Triangulation): TColgp_Array1OfPnt {.noSideEffect,
+proc nodes*(this: PolyTriangulation): TColgpArray1OfPnt {.noSideEffect,
     importcpp: "Nodes", header: "Poly_Triangulation.hxx".}
-proc ChangeNodes*(this: var Poly_Triangulation): var TColgp_Array1OfPnt {.
+proc changeNodes*(this: var PolyTriangulation): var TColgpArray1OfPnt {.
     importcpp: "ChangeNodes", header: "Poly_Triangulation.hxx".}
-proc Node*(this: Poly_Triangulation; theIndex: Standard_Integer): gp_Pnt {.
-    noSideEffect, importcpp: "Node", header: "Poly_Triangulation.hxx".}
-proc ChangeNode*(this: var Poly_Triangulation; theIndex: Standard_Integer): var gp_Pnt {.
+proc node*(this: PolyTriangulation; theIndex: int): Pnt {.noSideEffect,
+    importcpp: "Node", header: "Poly_Triangulation.hxx".}
+proc changeNode*(this: var PolyTriangulation; theIndex: int): var Pnt {.
     importcpp: "ChangeNode", header: "Poly_Triangulation.hxx".}
-proc UVNodes*(this: Poly_Triangulation): TColgp_Array1OfPnt2d {.noSideEffect,
+proc uVNodes*(this: PolyTriangulation): TColgpArray1OfPnt2d {.noSideEffect,
     importcpp: "UVNodes", header: "Poly_Triangulation.hxx".}
-proc ChangeUVNodes*(this: var Poly_Triangulation): var TColgp_Array1OfPnt2d {.
+proc changeUVNodes*(this: var PolyTriangulation): var TColgpArray1OfPnt2d {.
     importcpp: "ChangeUVNodes", header: "Poly_Triangulation.hxx".}
-proc UVNode*(this: Poly_Triangulation; theIndex: Standard_Integer): gp_Pnt2d {.
-    noSideEffect, importcpp: "UVNode", header: "Poly_Triangulation.hxx".}
-proc ChangeUVNode*(this: var Poly_Triangulation; theIndex: Standard_Integer): var gp_Pnt2d {.
+proc uVNode*(this: PolyTriangulation; theIndex: int): Pnt2d {.noSideEffect,
+    importcpp: "UVNode", header: "Poly_Triangulation.hxx".}
+proc changeUVNode*(this: var PolyTriangulation; theIndex: int): var Pnt2d {.
     importcpp: "ChangeUVNode", header: "Poly_Triangulation.hxx".}
-proc Triangles*(this: Poly_Triangulation): Poly_Array1OfTriangle {.noSideEffect,
+proc triangles*(this: PolyTriangulation): PolyArray1OfTriangle {.noSideEffect,
     importcpp: "Triangles", header: "Poly_Triangulation.hxx".}
-proc ChangeTriangles*(this: var Poly_Triangulation): var Poly_Array1OfTriangle {.
+proc changeTriangles*(this: var PolyTriangulation): var PolyArray1OfTriangle {.
     importcpp: "ChangeTriangles", header: "Poly_Triangulation.hxx".}
-proc Triangle*(this: Poly_Triangulation; theIndex: Standard_Integer): Poly_Triangle {.
-    noSideEffect, importcpp: "Triangle", header: "Poly_Triangulation.hxx".}
-proc ChangeTriangle*(this: var Poly_Triangulation; theIndex: Standard_Integer): var Poly_Triangle {.
+proc triangle*(this: PolyTriangulation; theIndex: int): PolyTriangle {.noSideEffect,
+    importcpp: "Triangle", header: "Poly_Triangulation.hxx".}
+proc changeTriangle*(this: var PolyTriangulation; theIndex: int): var PolyTriangle {.
     importcpp: "ChangeTriangle", header: "Poly_Triangulation.hxx".}
-proc SetNormals*(this: var Poly_Triangulation;
-                theNormals: handle[TShort_HArray1OfShortReal]) {.
+proc setNormals*(this: var PolyTriangulation;
+                theNormals: Handle[TShortHArray1OfShortReal]) {.
     importcpp: "SetNormals", header: "Poly_Triangulation.hxx".}
-proc Normals*(this: Poly_Triangulation): TShort_Array1OfShortReal {.noSideEffect,
+proc normals*(this: PolyTriangulation): TShortArray1OfShortReal {.noSideEffect,
     importcpp: "Normals", header: "Poly_Triangulation.hxx".}
-proc ChangeNormals*(this: var Poly_Triangulation): var TShort_Array1OfShortReal {.
+proc changeNormals*(this: var PolyTriangulation): var TShortArray1OfShortReal {.
     importcpp: "ChangeNormals", header: "Poly_Triangulation.hxx".}
-proc HasNormals*(this: Poly_Triangulation): Standard_Boolean {.noSideEffect,
+proc hasNormals*(this: PolyTriangulation): bool {.noSideEffect,
     importcpp: "HasNormals", header: "Poly_Triangulation.hxx".}
-proc Normal*(this: Poly_Triangulation; theIndex: Standard_Integer): gp_Dir {.
-    noSideEffect, importcpp: "Normal", header: "Poly_Triangulation.hxx".}
-proc SetNormal*(this: var Poly_Triangulation; theIndex: Standard_Integer;
-               theNormal: gp_Dir) {.importcpp: "SetNormal",
-                                  header: "Poly_Triangulation.hxx".}
-proc DumpJson*(this: Poly_Triangulation; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Poly_Triangulation.hxx".}
+proc normal*(this: PolyTriangulation; theIndex: int): Dir {.noSideEffect,
+    importcpp: "Normal", header: "Poly_Triangulation.hxx".}
+proc setNormal*(this: var PolyTriangulation; theIndex: int; theNormal: Dir) {.
+    importcpp: "SetNormal", header: "Poly_Triangulation.hxx".}
+proc dumpJson*(this: PolyTriangulation; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Poly_Triangulation.hxx".}

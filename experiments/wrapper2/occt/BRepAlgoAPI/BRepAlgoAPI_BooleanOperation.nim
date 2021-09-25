@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../BOPAlgo/BOPAlgo_Operation,
-  BRepAlgoAPI_BuilderAlgo
-
 discard "forward decl of BOPAlgo_PaveFiller"
 discard "forward decl of TopoDS_Shape"
 type
@@ -64,21 +59,21 @@ type
 proc constructBRepAlgoAPI_BooleanOperation*(): BRepAlgoAPI_BooleanOperation {.
     constructor, importcpp: "BRepAlgoAPI_BooleanOperation(@)",
     header: "BRepAlgoAPI_BooleanOperation.hxx".}
-proc constructBRepAlgoAPI_BooleanOperation*(thePF: BOPAlgo_PaveFiller): BRepAlgoAPI_BooleanOperation {.
+proc constructBRepAlgoAPI_BooleanOperation*(thePF: BOPAlgoPaveFiller): BRepAlgoAPI_BooleanOperation {.
     constructor, importcpp: "BRepAlgoAPI_BooleanOperation(@)",
     header: "BRepAlgoAPI_BooleanOperation.hxx".}
-proc Shape1*(this: BRepAlgoAPI_BooleanOperation): TopoDS_Shape {.noSideEffect,
+proc shape1*(this: BRepAlgoAPI_BooleanOperation): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape1", header: "BRepAlgoAPI_BooleanOperation.hxx".}
-proc Shape2*(this: BRepAlgoAPI_BooleanOperation): TopoDS_Shape {.noSideEffect,
+proc shape2*(this: BRepAlgoAPI_BooleanOperation): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape2", header: "BRepAlgoAPI_BooleanOperation.hxx".}
-proc SetTools*(this: var BRepAlgoAPI_BooleanOperation; theLS: TopTools_ListOfShape) {.
+proc setTools*(this: var BRepAlgoAPI_BooleanOperation; theLS: TopToolsListOfShape) {.
     importcpp: "SetTools", header: "BRepAlgoAPI_BooleanOperation.hxx".}
-proc Tools*(this: BRepAlgoAPI_BooleanOperation): TopTools_ListOfShape {.
-    noSideEffect, importcpp: "Tools", header: "BRepAlgoAPI_BooleanOperation.hxx".}
-proc SetOperation*(this: var BRepAlgoAPI_BooleanOperation; theBOP: BOPAlgo_Operation) {.
+proc tools*(this: BRepAlgoAPI_BooleanOperation): TopToolsListOfShape {.noSideEffect,
+    importcpp: "Tools", header: "BRepAlgoAPI_BooleanOperation.hxx".}
+proc setOperation*(this: var BRepAlgoAPI_BooleanOperation; theBOP: BOPAlgoOperation) {.
     importcpp: "SetOperation", header: "BRepAlgoAPI_BooleanOperation.hxx".}
-proc Operation*(this: BRepAlgoAPI_BooleanOperation): BOPAlgo_Operation {.
+proc operation*(this: BRepAlgoAPI_BooleanOperation): BOPAlgoOperation {.
     noSideEffect, importcpp: "Operation",
     header: "BRepAlgoAPI_BooleanOperation.hxx".}
-proc Build*(this: var BRepAlgoAPI_BooleanOperation) {.importcpp: "Build",
+proc build*(this: var BRepAlgoAPI_BooleanOperation) {.importcpp: "Build",
     header: "BRepAlgoAPI_BooleanOperation.hxx".}

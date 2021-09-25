@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../AppParCurves/AppParCurves_MultiCurve,
-  ../math/math_Vector, ../Standard/Standard_Real, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer,
-  ../AppParCurves/AppParCurves_HArray1OfConstraintCouple
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of BRepApprox_TheMultiLineOfApprox"
@@ -31,7 +24,7 @@ discard "forward decl of BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezie
 discard "forward decl of BRepApprox_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfApprox"
 discard "forward decl of AppParCurves_MultiCurve"
 type
-  BRepApprox_MyGradientOfTheComputeLineBezierOfApprox* {.
+  BRepApproxMyGradientOfTheComputeLineBezierOfApprox* {.
       importcpp: "BRepApprox_MyGradientOfTheComputeLineBezierOfApprox",
       header: "BRepApprox_MyGradientOfTheComputeLineBezierOfApprox.hxx", bycopy.} = object ##
                                                                                       ## !
@@ -99,31 +92,29 @@ type
                                                                                       ## Deg.
 
 
-proc constructBRepApprox_MyGradientOfTheComputeLineBezierOfApprox*(
-    SSP: BRepApprox_TheMultiLineOfApprox; FirstPoint: Standard_Integer;
-    LastPoint: Standard_Integer;
-    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
-    Parameters: var math_Vector; Deg: Standard_Integer; Tol3d: Standard_Real;
-    Tol2d: Standard_Real; NbIterations: Standard_Integer = 200): BRepApprox_MyGradientOfTheComputeLineBezierOfApprox {.
+proc constructBRepApproxMyGradientOfTheComputeLineBezierOfApprox*(
+    ssp: BRepApproxTheMultiLineOfApprox; firstPoint: int; lastPoint: int;
+    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
+    parameters: var MathVector; deg: int; tol3d: float; tol2d: float;
+    nbIterations: int = 200): BRepApproxMyGradientOfTheComputeLineBezierOfApprox {.
     constructor,
     importcpp: "BRepApprox_MyGradientOfTheComputeLineBezierOfApprox(@)",
     header: "BRepApprox_MyGradientOfTheComputeLineBezierOfApprox.hxx".}
-proc IsDone*(this: BRepApprox_MyGradientOfTheComputeLineBezierOfApprox): Standard_Boolean {.
+proc isDone*(this: BRepApproxMyGradientOfTheComputeLineBezierOfApprox): bool {.
     noSideEffect, importcpp: "IsDone",
     header: "BRepApprox_MyGradientOfTheComputeLineBezierOfApprox.hxx".}
-proc Value*(this: BRepApprox_MyGradientOfTheComputeLineBezierOfApprox): AppParCurves_MultiCurve {.
+proc value*(this: BRepApproxMyGradientOfTheComputeLineBezierOfApprox): AppParCurvesMultiCurve {.
     noSideEffect, importcpp: "Value",
     header: "BRepApprox_MyGradientOfTheComputeLineBezierOfApprox.hxx".}
-proc Error*(this: BRepApprox_MyGradientOfTheComputeLineBezierOfApprox;
-           Index: Standard_Integer): Standard_Real {.noSideEffect,
-    importcpp: "Error",
+proc error*(this: BRepApproxMyGradientOfTheComputeLineBezierOfApprox; index: int): float {.
+    noSideEffect, importcpp: "Error",
     header: "BRepApprox_MyGradientOfTheComputeLineBezierOfApprox.hxx".}
-proc MaxError3d*(this: BRepApprox_MyGradientOfTheComputeLineBezierOfApprox): Standard_Real {.
+proc maxError3d*(this: BRepApproxMyGradientOfTheComputeLineBezierOfApprox): float {.
     noSideEffect, importcpp: "MaxError3d",
     header: "BRepApprox_MyGradientOfTheComputeLineBezierOfApprox.hxx".}
-proc MaxError2d*(this: BRepApprox_MyGradientOfTheComputeLineBezierOfApprox): Standard_Real {.
+proc maxError2d*(this: BRepApproxMyGradientOfTheComputeLineBezierOfApprox): float {.
     noSideEffect, importcpp: "MaxError2d",
     header: "BRepApprox_MyGradientOfTheComputeLineBezierOfApprox.hxx".}
-proc AverageError*(this: BRepApprox_MyGradientOfTheComputeLineBezierOfApprox): Standard_Real {.
+proc averageError*(this: BRepApproxMyGradientOfTheComputeLineBezierOfApprox): float {.
     noSideEffect, importcpp: "AverageError",
     header: "BRepApprox_MyGradientOfTheComputeLineBezierOfApprox.hxx".}

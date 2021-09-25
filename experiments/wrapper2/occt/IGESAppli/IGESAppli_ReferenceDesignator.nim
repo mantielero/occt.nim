@@ -14,15 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESAppli_ReferenceDesignator"
 discard "forward decl of IGESAppli_ReferenceDesignator"
 type
-  Handle_IGESAppli_ReferenceDesignator* = handle[IGESAppli_ReferenceDesignator]
+  HandleIGESAppliReferenceDesignator* = Handle[IGESAppliReferenceDesignator]
 
 ## ! defines ReferenceDesignator, Type <406> Form <7>
 ## ! in package IGESAppli
@@ -31,31 +27,30 @@ type
 ## ! used to represent a component.
 
 type
-  IGESAppli_ReferenceDesignator* {.importcpp: "IGESAppli_ReferenceDesignator",
-                                  header: "IGESAppli_ReferenceDesignator.hxx",
-                                  bycopy.} = object of IGESData_IGESEntity
+  IGESAppliReferenceDesignator* {.importcpp: "IGESAppli_ReferenceDesignator",
+                                 header: "IGESAppli_ReferenceDesignator.hxx",
+                                 bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESAppli_ReferenceDesignator*(): IGESAppli_ReferenceDesignator {.
+proc constructIGESAppliReferenceDesignator*(): IGESAppliReferenceDesignator {.
     constructor, importcpp: "IGESAppli_ReferenceDesignator(@)",
     header: "IGESAppli_ReferenceDesignator.hxx".}
-proc Init*(this: var IGESAppli_ReferenceDesignator; nbPropVal: Standard_Integer;
-          aText: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var IGESAppliReferenceDesignator; nbPropVal: int;
+          aText: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "IGESAppli_ReferenceDesignator.hxx".}
-proc NbPropertyValues*(this: IGESAppli_ReferenceDesignator): Standard_Integer {.
-    noSideEffect, importcpp: "NbPropertyValues",
-    header: "IGESAppli_ReferenceDesignator.hxx".}
-proc RefDesignatorText*(this: IGESAppli_ReferenceDesignator): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "RefDesignatorText",
-                               header: "IGESAppli_ReferenceDesignator.hxx".}
-type
-  IGESAppli_ReferenceDesignatorbase_type* = IGESData_IGESEntity
-
-proc get_type_name*(): cstring {.importcpp: "IGESAppli_ReferenceDesignator::get_type_name(@)",
+proc nbPropertyValues*(this: IGESAppliReferenceDesignator): int {.noSideEffect,
+    importcpp: "NbPropertyValues", header: "IGESAppli_ReferenceDesignator.hxx".}
+proc refDesignatorText*(this: IGESAppliReferenceDesignator): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "RefDesignatorText",
                               header: "IGESAppli_ReferenceDesignator.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+type
+  IGESAppliReferenceDesignatorbaseType* = IGESDataIGESEntity
+
+proc getTypeName*(): cstring {.importcpp: "IGESAppli_ReferenceDesignator::get_type_name(@)",
+                            header: "IGESAppli_ReferenceDesignator.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESAppli_ReferenceDesignator::get_type_descriptor(@)",
     header: "IGESAppli_ReferenceDesignator.hxx".}
-proc DynamicType*(this: IGESAppli_ReferenceDesignator): handle[Standard_Type] {.
+proc dynamicType*(this: IGESAppliReferenceDesignator): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESAppli_ReferenceDesignator.hxx".}

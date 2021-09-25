@@ -16,11 +16,12 @@
 type
   AIS_NavigationMode* {.size: sizeof(cint), importcpp: "AIS_NavigationMode",
                        header: "AIS_NavigationMode.hxx".} = enum
-    AIS_NavigationMode_Orbit, ## !< orbit rotation
-    AIS_NavigationMode_FirstPersonFlight, ## !< flight rotation (first person)
-    AIS_NavigationMode_FirstPersonWalk ## !< walking mode (first person)
+    AIS_NavigationModeOrbit,  ## !< orbit rotation
+    AIS_NavigationModeFirstPersonFlight, ## !< flight rotation (first person)
+    AIS_NavigationModeFirstPersonWalk ## !< walking mode (first person)
 
 
 const
-  AIS_NavigationMode_LOWER* = 0
-  AIS_NavigationMode_UPPER* = AIS_NavigationMode_FirstPersonWalk
+  AIS_NavigationModeLOWER* = 0
+  AIS_NavigationModeUPPER* = aIS_NavigationModeFirstPersonWalk
+

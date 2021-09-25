@@ -14,20 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Transfer_StatusResult,
-  Transfer_StatusExec, ../Standard/Standard_Transient,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Type,
-  ../Standard/Standard_CString
-
 discard "forward decl of Interface_Check"
 discard "forward decl of Transfer_TransferFailure"
-when defined(Status):
-  discard
+# when defined(Status):
+#   discard
 discard "forward decl of Transfer_Binder"
 discard "forward decl of Transfer_Binder"
 type
-  Handle_Transfer_Binder* = handle[Transfer_Binder]
+  HandleTransferBinder* = Handle[TransferBinder]
 
 ## ! A Binder is an auxiliary object to Map the Result of the
 ## ! Transfer of a given Object : it records the Result of the
@@ -53,55 +47,55 @@ type
 ## ! Attributes, which are additional data, each of them has a name
 
 type
-  Transfer_Binder* {.importcpp: "Transfer_Binder", header: "Transfer_Binder.hxx",
-                    bycopy.} = object of Standard_Transient ## ! Merges basic data (Check, ExecStatus) from another Binder but
-                                                       ## ! keeps its result. Used when a binder is replaced by another
-                                                       ## ! one, this allows to keep messages
-                                                       ## ! Sets fields at initial values
-                                                       ## ! Called by AddResult, to keep unicity of each item in the list
+  TransferBinder* {.importcpp: "Transfer_Binder", header: "Transfer_Binder.hxx",
+                   bycopy.} = object of StandardTransient ## ! Merges basic data (Check, ExecStatus) from another Binder but
+                                                     ## ! keeps its result. Used when a binder is replaced by another
+                                                     ## ! one, this allows to keep messages
+                                                     ## ! Sets fields at initial values
+                                                     ## ! Called by AddResult, to keep unicity of each item in the list
 
 
-proc Merge*(this: var Transfer_Binder; other: handle[Transfer_Binder]) {.
+proc merge*(this: var TransferBinder; other: Handle[TransferBinder]) {.
     importcpp: "Merge", header: "Transfer_Binder.hxx".}
-proc IsMultiple*(this: Transfer_Binder): Standard_Boolean {.noSideEffect,
-    importcpp: "IsMultiple", header: "Transfer_Binder.hxx".}
-proc ResultType*(this: Transfer_Binder): handle[Standard_Type] {.noSideEffect,
+proc isMultiple*(this: TransferBinder): bool {.noSideEffect, importcpp: "IsMultiple",
+    header: "Transfer_Binder.hxx".}
+proc resultType*(this: TransferBinder): Handle[StandardType] {.noSideEffect,
     importcpp: "ResultType", header: "Transfer_Binder.hxx".}
-proc ResultTypeName*(this: Transfer_Binder): Standard_CString {.noSideEffect,
+proc resultTypeName*(this: TransferBinder): StandardCString {.noSideEffect,
     importcpp: "ResultTypeName", header: "Transfer_Binder.hxx".}
-proc AddResult*(this: var Transfer_Binder; next: handle[Transfer_Binder]) {.
+proc addResult*(this: var TransferBinder; next: Handle[TransferBinder]) {.
     importcpp: "AddResult", header: "Transfer_Binder.hxx".}
-proc NextResult*(this: Transfer_Binder): handle[Transfer_Binder] {.noSideEffect,
+proc nextResult*(this: TransferBinder): Handle[TransferBinder] {.noSideEffect,
     importcpp: "NextResult", header: "Transfer_Binder.hxx".}
-proc HasResult*(this: Transfer_Binder): Standard_Boolean {.noSideEffect,
-    importcpp: "HasResult", header: "Transfer_Binder.hxx".}
-proc SetAlreadyUsed*(this: var Transfer_Binder) {.importcpp: "SetAlreadyUsed",
+proc hasResult*(this: TransferBinder): bool {.noSideEffect, importcpp: "HasResult",
     header: "Transfer_Binder.hxx".}
-proc Status*(this: Transfer_Binder): Transfer_StatusResult {.noSideEffect,
+proc setAlreadyUsed*(this: var TransferBinder) {.importcpp: "SetAlreadyUsed",
+    header: "Transfer_Binder.hxx".}
+proc status*(this: TransferBinder): TransferStatusResult {.noSideEffect,
     importcpp: "Status", header: "Transfer_Binder.hxx".}
-proc StatusExec*(this: Transfer_Binder): Transfer_StatusExec {.noSideEffect,
+proc statusExec*(this: TransferBinder): TransferStatusExec {.noSideEffect,
     importcpp: "StatusExec", header: "Transfer_Binder.hxx".}
-proc SetStatusExec*(this: var Transfer_Binder; stat: Transfer_StatusExec) {.
+proc setStatusExec*(this: var TransferBinder; stat: TransferStatusExec) {.
     importcpp: "SetStatusExec", header: "Transfer_Binder.hxx".}
-proc AddFail*(this: var Transfer_Binder; mess: Standard_CString;
-             orig: Standard_CString = "") {.importcpp: "AddFail",
-                                        header: "Transfer_Binder.hxx".}
-proc AddWarning*(this: var Transfer_Binder; mess: Standard_CString;
-                orig: Standard_CString = "") {.importcpp: "AddWarning",
+proc addFail*(this: var TransferBinder; mess: StandardCString;
+             orig: StandardCString = "") {.importcpp: "AddFail",
+                                       header: "Transfer_Binder.hxx".}
+proc addWarning*(this: var TransferBinder; mess: StandardCString;
+                orig: StandardCString = "") {.importcpp: "AddWarning",
     header: "Transfer_Binder.hxx".}
-proc Check*(this: Transfer_Binder): handle[Interface_Check] {.noSideEffect,
+proc check*(this: TransferBinder): Handle[InterfaceCheck] {.noSideEffect,
     importcpp: "Check", header: "Transfer_Binder.hxx".}
-proc CCheck*(this: var Transfer_Binder): handle[Interface_Check] {.
-    importcpp: "CCheck", header: "Transfer_Binder.hxx".}
-proc destroyTransfer_Binder*(this: var Transfer_Binder) {.
+proc cCheck*(this: var TransferBinder): Handle[InterfaceCheck] {.importcpp: "CCheck",
+    header: "Transfer_Binder.hxx".}
+proc destroyTransferBinder*(this: var TransferBinder) {.
     importcpp: "#.~Transfer_Binder()", header: "Transfer_Binder.hxx".}
 type
-  Transfer_Binderbase_type* = Standard_Transient
+  TransferBinderbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Transfer_Binder::get_type_name(@)",
-                              header: "Transfer_Binder.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Transfer_Binder::get_type_name(@)",
+                            header: "Transfer_Binder.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_Binder::get_type_descriptor(@)",
     header: "Transfer_Binder.hxx".}
-proc DynamicType*(this: Transfer_Binder): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TransferBinder): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Transfer_Binder.hxx".}

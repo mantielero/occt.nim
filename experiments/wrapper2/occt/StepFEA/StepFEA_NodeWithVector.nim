@@ -13,13 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepFEA_Node
-
 discard "forward decl of StepFEA_NodeWithVector"
 discard "forward decl of StepFEA_NodeWithVector"
 type
-  Handle_StepFEA_NodeWithVector* = handle[StepFEA_NodeWithVector]
+  HandleStepFEA_NodeWithVector* = Handle[StepFEA_NodeWithVector]
 
 ## ! Representation of STEP entity NodeWithVector
 
@@ -34,12 +31,12 @@ type
 proc constructStepFEA_NodeWithVector*(): StepFEA_NodeWithVector {.constructor,
     importcpp: "StepFEA_NodeWithVector(@)", header: "StepFEA_NodeWithVector.hxx".}
 type
-  StepFEA_NodeWithVectorbase_type* = StepFEA_Node
+  StepFEA_NodeWithVectorbaseType* = StepFEA_Node
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_NodeWithVector::get_type_name(@)",
-                              header: "StepFEA_NodeWithVector.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_NodeWithVector::get_type_name(@)",
+                            header: "StepFEA_NodeWithVector.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_NodeWithVector::get_type_descriptor(@)",
     header: "StepFEA_NodeWithVector.hxx".}
-proc DynamicType*(this: StepFEA_NodeWithVector): handle[Standard_Type] {.
+proc dynamicType*(this: StepFEA_NodeWithVector): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepFEA_NodeWithVector.hxx".}

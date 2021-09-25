@@ -13,43 +13,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_SiUnit,
-  ../Standard/Standard_Boolean, StepBasic_SiPrefix, StepBasic_SiUnitName
-
 discard "forward decl of StepBasic_MassUnit"
 discard "forward decl of StepBasic_DimensionalExponents"
 discard "forward decl of StepBasic_SiUnitAndMassUnit"
 discard "forward decl of StepBasic_SiUnitAndMassUnit"
 type
-  Handle_StepBasic_SiUnitAndMassUnit* = handle[StepBasic_SiUnitAndMassUnit]
-  StepBasic_SiUnitAndMassUnit* {.importcpp: "StepBasic_SiUnitAndMassUnit",
-                                header: "StepBasic_SiUnitAndMassUnit.hxx", bycopy.} = object of StepBasic_SiUnit ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## a
-                                                                                                          ## SiUnitAndMassUnit
+  HandleStepBasicSiUnitAndMassUnit* = Handle[StepBasicSiUnitAndMassUnit]
+  StepBasicSiUnitAndMassUnit* {.importcpp: "StepBasic_SiUnitAndMassUnit",
+                               header: "StepBasic_SiUnitAndMassUnit.hxx", bycopy.} = object of StepBasicSiUnit ##
+                                                                                                        ## !
+                                                                                                        ## Returns
+                                                                                                        ## a
+                                                                                                        ## SiUnitAndMassUnit
 
 
-proc constructStepBasic_SiUnitAndMassUnit*(): StepBasic_SiUnitAndMassUnit {.
+proc constructStepBasicSiUnitAndMassUnit*(): StepBasicSiUnitAndMassUnit {.
     constructor, importcpp: "StepBasic_SiUnitAndMassUnit(@)",
     header: "StepBasic_SiUnitAndMassUnit.hxx".}
-proc Init*(this: var StepBasic_SiUnitAndMassUnit; hasAprefix: Standard_Boolean;
-          aPrefix: StepBasic_SiPrefix; aName: StepBasic_SiUnitName) {.
+proc init*(this: var StepBasicSiUnitAndMassUnit; hasAprefix: bool;
+          aPrefix: StepBasicSiPrefix; aName: StepBasicSiUnitName) {.
     importcpp: "Init", header: "StepBasic_SiUnitAndMassUnit.hxx".}
-proc SetMassUnit*(this: var StepBasic_SiUnitAndMassUnit;
-                 aMassUnit: handle[StepBasic_MassUnit]) {.
-    importcpp: "SetMassUnit", header: "StepBasic_SiUnitAndMassUnit.hxx".}
-proc MassUnit*(this: StepBasic_SiUnitAndMassUnit): handle[StepBasic_MassUnit] {.
+proc setMassUnit*(this: var StepBasicSiUnitAndMassUnit;
+                 aMassUnit: Handle[StepBasicMassUnit]) {.importcpp: "SetMassUnit",
+    header: "StepBasic_SiUnitAndMassUnit.hxx".}
+proc massUnit*(this: StepBasicSiUnitAndMassUnit): Handle[StepBasicMassUnit] {.
     noSideEffect, importcpp: "MassUnit", header: "StepBasic_SiUnitAndMassUnit.hxx".}
 type
-  StepBasic_SiUnitAndMassUnitbase_type* = StepBasic_SiUnit
+  StepBasicSiUnitAndMassUnitbaseType* = StepBasicSiUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_SiUnitAndMassUnit::get_type_name(@)",
-                              header: "StepBasic_SiUnitAndMassUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_SiUnitAndMassUnit::get_type_name(@)",
+                            header: "StepBasic_SiUnitAndMassUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_SiUnitAndMassUnit::get_type_descriptor(@)",
     header: "StepBasic_SiUnitAndMassUnit.hxx".}
-proc DynamicType*(this: StepBasic_SiUnitAndMassUnit): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicSiUnitAndMassUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_SiUnitAndMassUnit.hxx".}

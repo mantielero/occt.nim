@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../IFSelect/IFSelect_Modifier,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of StepData_StepModel"
 discard "forward decl of StepData_Protocol"
 discard "forward decl of IFSelect_ContextModif"
@@ -27,70 +23,69 @@ discard "forward decl of Interface_CopyTool"
 discard "forward decl of StepSelect_ModelModifier"
 discard "forward decl of StepSelect_ModelModifier"
 type
-  Handle_StepSelect_ModelModifier* = handle[StepSelect_ModelModifier]
-  StepSelect_ModelModifier* {.importcpp: "StepSelect_ModelModifier",
-                             header: "StepSelect_ModelModifier.hxx", bycopy.} = object of IFSelect_Modifier ##
-                                                                                                     ## !
-                                                                                                     ## The
-                                                                                                     ## inherited
-                                                                                                     ## Perform
-                                                                                                     ## does
-                                                                                                     ## the
-                                                                                                     ## required
-                                                                                                     ## cast
-                                                                                                     ## (and
-                                                                                                     ## refuses
-                                                                                                     ## to
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## go
-                                                                                                     ## further
-                                                                                                     ## if
-                                                                                                     ## cast
-                                                                                                     ## has
-                                                                                                     ## failed)
-                                                                                                     ## then
-                                                                                                     ## calls
-                                                                                                     ## the
-                                                                                                     ## instantiated
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Performing
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Calls
-                                                                                                     ## inherited
-                                                                                                     ## Initialize,
-                                                                                                     ## transmits
-                                                                                                     ## to
-                                                                                                     ## it
-                                                                                                     ## the
-                                                                                                     ## information
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## <maychangegraph>
+  HandleStepSelectModelModifier* = Handle[StepSelectModelModifier]
+  StepSelectModelModifier* {.importcpp: "StepSelect_ModelModifier",
+                            header: "StepSelect_ModelModifier.hxx", bycopy.} = object of IFSelectModifier ##
+                                                                                                   ## !
+                                                                                                   ## The
+                                                                                                   ## inherited
+                                                                                                   ## Perform
+                                                                                                   ## does
+                                                                                                   ## the
+                                                                                                   ## required
+                                                                                                   ## cast
+                                                                                                   ## (and
+                                                                                                   ## refuses
+                                                                                                   ## to
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## go
+                                                                                                   ## further
+                                                                                                   ## if
+                                                                                                   ## cast
+                                                                                                   ## has
+                                                                                                   ## failed)
+                                                                                                   ## then
+                                                                                                   ## calls
+                                                                                                   ## the
+                                                                                                   ## instantiated
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## Performing
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## Calls
+                                                                                                   ## inherited
+                                                                                                   ## Initialize,
+                                                                                                   ## transmits
+                                                                                                   ## to
+                                                                                                   ## it
+                                                                                                   ## the
+                                                                                                   ## information
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## <maychangegraph>
 
 
-proc Perform*(this: StepSelect_ModelModifier; ctx: var IFSelect_ContextModif;
-             target: handle[Interface_InterfaceModel];
-             protocol: handle[Interface_Protocol]; TC: var Interface_CopyTool) {.
+proc perform*(this: StepSelectModelModifier; ctx: var IFSelectContextModif;
+             target: Handle[InterfaceInterfaceModel];
+             protocol: Handle[InterfaceProtocol]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "Perform", header: "StepSelect_ModelModifier.hxx".}
-proc PerformProtocol*(this: StepSelect_ModelModifier;
-                     ctx: var IFSelect_ContextModif;
-                     target: handle[StepData_StepModel];
-                     proto: handle[StepData_Protocol]; TC: var Interface_CopyTool) {.
+proc performProtocol*(this: StepSelectModelModifier; ctx: var IFSelectContextModif;
+                     target: Handle[StepDataStepModel];
+                     proto: Handle[StepDataProtocol]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "PerformProtocol",
     header: "StepSelect_ModelModifier.hxx".}
-proc Performing*(this: StepSelect_ModelModifier; ctx: var IFSelect_ContextModif;
-                target: handle[StepData_StepModel]; TC: var Interface_CopyTool) {.
+proc performing*(this: StepSelectModelModifier; ctx: var IFSelectContextModif;
+                target: Handle[StepDataStepModel]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "Performing", header: "StepSelect_ModelModifier.hxx".}
 type
-  StepSelect_ModelModifierbase_type* = IFSelect_Modifier
+  StepSelectModelModifierbaseType* = IFSelectModifier
 
-proc get_type_name*(): cstring {.importcpp: "StepSelect_ModelModifier::get_type_name(@)",
-                              header: "StepSelect_ModelModifier.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepSelect_ModelModifier::get_type_name(@)",
+                            header: "StepSelect_ModelModifier.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepSelect_ModelModifier::get_type_descriptor(@)",
     header: "StepSelect_ModelModifier.hxx".}
-proc DynamicType*(this: StepSelect_ModelModifier): handle[Standard_Type] {.
+proc dynamicType*(this: StepSelectModelModifier): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepSelect_ModelModifier.hxx".}

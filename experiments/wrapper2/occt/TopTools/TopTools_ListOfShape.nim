@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, ../NCollection/NCollection_List
-
 type
-  TopTools_ListOfShape* = NCollection_List[TopoDS_Shape]
-  TopTools_ListIteratorOfListOfShape* = Iterator[TopoDS_Shape]
+  TopToolsListOfShape* = NCollectionList[TopoDS_Shape]
+  TopToolsListIteratorOfListOfShape* = Iterator[TopoDS_Shape]
+

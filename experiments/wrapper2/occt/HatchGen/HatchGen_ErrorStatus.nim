@@ -17,8 +17,9 @@
 ## ! Error status.
 
 type
-  HatchGen_ErrorStatus* {.size: sizeof(cint), importcpp: "HatchGen_ErrorStatus",
-                         header: "HatchGen_ErrorStatus.hxx".} = enum
-    HatchGen_NoProblem, HatchGen_TrimFailure, HatchGen_TransitionFailure,
-    HatchGen_IncoherentParity, HatchGen_IncompatibleStates
+  HatchGenErrorStatus* {.size: sizeof(cint), importcpp: "HatchGen_ErrorStatus",
+                        header: "HatchGen_ErrorStatus.hxx".} = enum
+    HatchGenNoProblem, HatchGenTrimFailure, HatchGenTransitionFailure,
+    HatchGenIncoherentParity, HatchGenIncompatibleStates
+
 

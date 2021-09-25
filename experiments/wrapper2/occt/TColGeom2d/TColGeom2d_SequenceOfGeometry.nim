@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Geom2d/Geom2d_Geometry, ../NCollection/NCollection_Sequence
-
 type
-  TColGeom2d_SequenceOfGeometry* = NCollection_Sequence[handle[Geom2d_Geometry]]
+  TColGeom2dSequenceOfGeometry* = NCollectionSequence[Handle[Geom2dGeometry]]
+

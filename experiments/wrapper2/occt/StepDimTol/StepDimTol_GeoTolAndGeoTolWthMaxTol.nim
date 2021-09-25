@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepDimTol_GeoTolAndGeoTolWthMod, StepDimTol_GeometricToleranceType
-
 discard "forward decl of StepDimTol_GeometricToleranceTarget"
 discard "forward decl of StepDimTol_GeometricToleranceWithModifiers"
 discard "forward decl of TCollection_HAsciiString"
@@ -26,47 +22,47 @@ discard "forward decl of StepRepr_ShapeAspect"
 discard "forward decl of StepDimTol_GeoTolAndGeoTolWthMaxTol"
 discard "forward decl of StepDimTol_GeoTolAndGeoTolWthMaxTol"
 type
-  Handle_StepDimTol_GeoTolAndGeoTolWthMaxTol* = handle[
-      StepDimTol_GeoTolAndGeoTolWthMaxTol]
-  StepDimTol_GeoTolAndGeoTolWthMaxTol* {.importcpp: "StepDimTol_GeoTolAndGeoTolWthMaxTol", header: "StepDimTol_GeoTolAndGeoTolWthMaxTol.hxx",
-                                        bycopy.} = object of StepDimTol_GeoTolAndGeoTolWthMod
+  HandleStepDimTolGeoTolAndGeoTolWthMaxTol* = Handle[
+      StepDimTolGeoTolAndGeoTolWthMaxTol]
+  StepDimTolGeoTolAndGeoTolWthMaxTol* {.importcpp: "StepDimTol_GeoTolAndGeoTolWthMaxTol", header: "StepDimTol_GeoTolAndGeoTolWthMaxTol.hxx",
+                                       bycopy.} = object of StepDimTolGeoTolAndGeoTolWthMod
 
 
-proc constructStepDimTol_GeoTolAndGeoTolWthMaxTol*(): StepDimTol_GeoTolAndGeoTolWthMaxTol {.
+proc constructStepDimTolGeoTolAndGeoTolWthMaxTol*(): StepDimTolGeoTolAndGeoTolWthMaxTol {.
     constructor, importcpp: "StepDimTol_GeoTolAndGeoTolWthMaxTol(@)",
     header: "StepDimTol_GeoTolAndGeoTolWthMaxTol.hxx".}
-proc Init*(this: var StepDimTol_GeoTolAndGeoTolWthMaxTol;
-          theName: handle[TCollection_HAsciiString];
-          theDescription: handle[TCollection_HAsciiString];
-          theMagnitude: handle[StepBasic_MeasureWithUnit];
-          theTolerancedShapeAspect: handle[StepRepr_ShapeAspect];
-          theGTWM: handle[StepDimTol_GeometricToleranceWithModifiers];
-          theMaxTol: handle[StepBasic_LengthMeasureWithUnit];
-          theType: StepDimTol_GeometricToleranceType) {.importcpp: "Init",
+proc init*(this: var StepDimTolGeoTolAndGeoTolWthMaxTol;
+          theName: Handle[TCollectionHAsciiString];
+          theDescription: Handle[TCollectionHAsciiString];
+          theMagnitude: Handle[StepBasicMeasureWithUnit];
+          theTolerancedShapeAspect: Handle[StepReprShapeAspect];
+          theGTWM: Handle[StepDimTolGeometricToleranceWithModifiers];
+          theMaxTol: Handle[StepBasicLengthMeasureWithUnit];
+          theType: StepDimTolGeometricToleranceType) {.importcpp: "Init",
     header: "StepDimTol_GeoTolAndGeoTolWthMaxTol.hxx".}
-proc Init*(this: var StepDimTol_GeoTolAndGeoTolWthMaxTol;
-          aName: handle[TCollection_HAsciiString];
-          aDescription: handle[TCollection_HAsciiString];
-          aMagnitude: handle[StepBasic_MeasureWithUnit];
-          aTolerancedShapeAspect: StepDimTol_GeometricToleranceTarget;
-          aGTWM: handle[StepDimTol_GeometricToleranceWithModifiers];
-          theMaxTol: handle[StepBasic_LengthMeasureWithUnit];
-          theType: StepDimTol_GeometricToleranceType) {.importcpp: "Init",
+proc init*(this: var StepDimTolGeoTolAndGeoTolWthMaxTol;
+          aName: Handle[TCollectionHAsciiString];
+          aDescription: Handle[TCollectionHAsciiString];
+          aMagnitude: Handle[StepBasicMeasureWithUnit];
+          aTolerancedShapeAspect: StepDimTolGeometricToleranceTarget;
+          aGTWM: Handle[StepDimTolGeometricToleranceWithModifiers];
+          theMaxTol: Handle[StepBasicLengthMeasureWithUnit];
+          theType: StepDimTolGeometricToleranceType) {.importcpp: "Init",
     header: "StepDimTol_GeoTolAndGeoTolWthMaxTol.hxx".}
-proc SetMaxTolerance*(this: var StepDimTol_GeoTolAndGeoTolWthMaxTol;
-                     theMaxTol: var handle[StepBasic_LengthMeasureWithUnit]) {.
+proc setMaxTolerance*(this: var StepDimTolGeoTolAndGeoTolWthMaxTol;
+                     theMaxTol: var Handle[StepBasicLengthMeasureWithUnit]) {.
     importcpp: "SetMaxTolerance",
     header: "StepDimTol_GeoTolAndGeoTolWthMaxTol.hxx".}
-proc GetMaxTolerance*(this: var StepDimTol_GeoTolAndGeoTolWthMaxTol): handle[
-    StepBasic_LengthMeasureWithUnit] {.importcpp: "GetMaxTolerance", header: "StepDimTol_GeoTolAndGeoTolWthMaxTol.hxx".}
+proc getMaxTolerance*(this: var StepDimTolGeoTolAndGeoTolWthMaxTol): Handle[
+    StepBasicLengthMeasureWithUnit] {.importcpp: "GetMaxTolerance", header: "StepDimTol_GeoTolAndGeoTolWthMaxTol.hxx".}
 type
-  StepDimTol_GeoTolAndGeoTolWthMaxTolbase_type* = StepDimTol_GeoTolAndGeoTolWthMod
+  StepDimTolGeoTolAndGeoTolWthMaxTolbaseType* = StepDimTolGeoTolAndGeoTolWthMod
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_GeoTolAndGeoTolWthMaxTol::get_type_name(@)",
-                              header: "StepDimTol_GeoTolAndGeoTolWthMaxTol.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_GeoTolAndGeoTolWthMaxTol::get_type_name(@)",
+                            header: "StepDimTol_GeoTolAndGeoTolWthMaxTol.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_GeoTolAndGeoTolWthMaxTol::get_type_descriptor(@)",
     header: "StepDimTol_GeoTolAndGeoTolWthMaxTol.hxx".}
-proc DynamicType*(this: StepDimTol_GeoTolAndGeoTolWthMaxTol): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolGeoTolAndGeoTolWthMaxTol): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_GeoTolAndGeoTolWthMaxTol.hxx".}

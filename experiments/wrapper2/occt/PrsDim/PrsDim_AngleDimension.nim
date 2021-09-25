@@ -12,17 +12,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  PrsDim_Dimension, PrsDim_TypeOfAngle, PrsDim_TypeOfAngleArrowVisibility,
-  ../Geom/Geom_Plane, ../Geom/Geom_Line, ../gp/gp, ../gp/gp_Ax1, ../gp/gp_Dir,
-  ../gp/gp_Pnt, ../Prs3d/Prs3d_DimensionAspect, ../Prs3d/Prs3d_Presentation,
-  ../Standard/Standard, ../Standard/Standard_Macro, ../Standard/Standard_Type,
-  ../TopoDS/TopoDS, ../TopoDS/TopoDS_Edge, ../TopoDS/TopoDS_Face,
-  ../TopoDS/TopoDS_Vertex
-
 discard "forward decl of PrsDim_AngleDimension"
 type
-  Handle_PrsDim_AngleDimension* = handle[PrsDim_AngleDimension]
+  HandlePrsDimAngleDimension* = Handle[PrsDimAngleDimension]
 
 ## ! Angle dimension. Can be constructed:
 ## ! - on two intersected edges.
@@ -48,232 +40,230 @@ type
 ## ! The attachment points are points of the first and the last parameter of the basis circle of the cone.
 
 type
-  PrsDim_AngleDimension* {.importcpp: "PrsDim_AngleDimension",
-                          header: "PrsDim_AngleDimension.hxx", bycopy.} = object of PrsDim_Dimension ##
-                                                                                              ## !
-                                                                                              ## Constructs
-                                                                                              ## minimum
-                                                                                              ## angle
-                                                                                              ## dimension
-                                                                                              ## between
-                                                                                              ## two
-                                                                                              ## linear
-                                                                                              ## edges
-                                                                                              ## (where
-                                                                                              ## possible).
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## These
-                                                                                              ## two
-                                                                                              ## edges
-                                                                                              ## should
-                                                                                              ## be
-                                                                                              ## intersected
-                                                                                              ## by
-                                                                                              ## each
-                                                                                              ## other.
-                                                                                              ## Otherwise
-                                                                                              ## the
-                                                                                              ## geometry
-                                                                                              ## is
-                                                                                              ## not
-                                                                                              ## valid.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @param
-                                                                                              ## theFirstEdge
-                                                                                              ## [in]
-                                                                                              ## the
-                                                                                              ## first
-                                                                                              ## edge.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @param
-                                                                                              ## theSecondEdge
-                                                                                              ## [in]
-                                                                                              ## the
-                                                                                              ## second
-                                                                                              ## edge.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @return
-                                                                                              ## first
-                                                                                              ## point
-                                                                                              ## forming
-                                                                                              ## the
-                                                                                              ## angle.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Measures
-                                                                                              ## minimum
-                                                                                              ## angle
-                                                                                              ## dimension
-                                                                                              ## between
-                                                                                              ## two
-                                                                                              ## linear
-                                                                                              ## edges.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## These
-                                                                                              ## two
-                                                                                              ## edges
-                                                                                              ## should
-                                                                                              ## be
-                                                                                              ## intersected
-                                                                                              ## by
-                                                                                              ## each
-                                                                                              ## other.
-                                                                                              ## Otherwise
-                                                                                              ## the
-                                                                                              ## geometry
-                                                                                              ## is
-                                                                                              ## not
-                                                                                              ## valid.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @param
-                                                                                              ## theFirstEdge
-                                                                                              ## [in]
-                                                                                              ## the
-                                                                                              ## first
-                                                                                              ## edge.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @param
-                                                                                              ## theSecondEdge
-                                                                                              ## [in]
-                                                                                              ## the
-                                                                                              ## second
-                                                                                              ## edge.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Initialization
-                                                                                              ## of
-                                                                                              ## fields
-                                                                                              ## that
-                                                                                              ## is
-                                                                                              ## common
-                                                                                              ## to
-                                                                                              ## all
-                                                                                              ## constructors.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Init
-                                                                                              ## angular
-                                                                                              ## dimension
-                                                                                              ## to
-                                                                                              ## measure
-                                                                                              ## angle
-                                                                                              ## between
-                                                                                              ## two
-                                                                                              ## linear
-                                                                                              ## edges.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @return
-                                                                                              ## TRUE
-                                                                                              ## if
-                                                                                              ## the
-                                                                                              ## angular
-                                                                                              ## dimension
-                                                                                              ## can
-                                                                                              ## be
-                                                                                              ## constructured
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## for
-                                                                                              ## the
-                                                                                              ## passed
-                                                                                              ## edges.
+  PrsDimAngleDimension* {.importcpp: "PrsDim_AngleDimension",
+                         header: "PrsDim_AngleDimension.hxx", bycopy.} = object of PrsDimDimension ##
+                                                                                            ## !
+                                                                                            ## Constructs
+                                                                                            ## minimum
+                                                                                            ## angle
+                                                                                            ## dimension
+                                                                                            ## between
+                                                                                            ## two
+                                                                                            ## linear
+                                                                                            ## edges
+                                                                                            ## (where
+                                                                                            ## possible).
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## These
+                                                                                            ## two
+                                                                                            ## edges
+                                                                                            ## should
+                                                                                            ## be
+                                                                                            ## intersected
+                                                                                            ## by
+                                                                                            ## each
+                                                                                            ## other.
+                                                                                            ## Otherwise
+                                                                                            ## the
+                                                                                            ## geometry
+                                                                                            ## is
+                                                                                            ## not
+                                                                                            ## valid.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## @param
+                                                                                            ## theFirstEdge
+                                                                                            ## [in]
+                                                                                            ## the
+                                                                                            ## first
+                                                                                            ## edge.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## @param
+                                                                                            ## theSecondEdge
+                                                                                            ## [in]
+                                                                                            ## the
+                                                                                            ## second
+                                                                                            ## edge.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## @return
+                                                                                            ## first
+                                                                                            ## point
+                                                                                            ## forming
+                                                                                            ## the
+                                                                                            ## angle.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Measures
+                                                                                            ## minimum
+                                                                                            ## angle
+                                                                                            ## dimension
+                                                                                            ## between
+                                                                                            ## two
+                                                                                            ## linear
+                                                                                            ## edges.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## These
+                                                                                            ## two
+                                                                                            ## edges
+                                                                                            ## should
+                                                                                            ## be
+                                                                                            ## intersected
+                                                                                            ## by
+                                                                                            ## each
+                                                                                            ## other.
+                                                                                            ## Otherwise
+                                                                                            ## the
+                                                                                            ## geometry
+                                                                                            ## is
+                                                                                            ## not
+                                                                                            ## valid.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## @param
+                                                                                            ## theFirstEdge
+                                                                                            ## [in]
+                                                                                            ## the
+                                                                                            ## first
+                                                                                            ## edge.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## @param
+                                                                                            ## theSecondEdge
+                                                                                            ## [in]
+                                                                                            ## the
+                                                                                            ## second
+                                                                                            ## edge.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Initialization
+                                                                                            ## of
+                                                                                            ## fields
+                                                                                            ## that
+                                                                                            ## is
+                                                                                            ## common
+                                                                                            ## to
+                                                                                            ## all
+                                                                                            ## constructors.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Init
+                                                                                            ## angular
+                                                                                            ## dimension
+                                                                                            ## to
+                                                                                            ## measure
+                                                                                            ## angle
+                                                                                            ## between
+                                                                                            ## two
+                                                                                            ## linear
+                                                                                            ## edges.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## @return
+                                                                                            ## TRUE
+                                                                                            ## if
+                                                                                            ## the
+                                                                                            ## angular
+                                                                                            ## dimension
+                                                                                            ## can
+                                                                                            ## be
+                                                                                            ## constructured
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## for
+                                                                                            ## the
+                                                                                            ## passed
+                                                                                            ## edges.
     ## !< type of angle
     ## !< type of arrows visibility
 
-  PrsDim_AngleDimensionbase_type* = PrsDim_Dimension
+  PrsDimAngleDimensionbaseType* = PrsDimDimension
 
-proc get_type_name*(): cstring {.importcpp: "PrsDim_AngleDimension::get_type_name(@)",
-                              header: "PrsDim_AngleDimension.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "PrsDim_AngleDimension::get_type_name(@)",
+                            header: "PrsDim_AngleDimension.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "PrsDim_AngleDimension::get_type_descriptor(@)",
     header: "PrsDim_AngleDimension.hxx".}
-proc DynamicType*(this: PrsDim_AngleDimension): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "PrsDim_AngleDimension.hxx".}
-proc constructPrsDim_AngleDimension*(theFirstEdge: TopoDS_Edge;
-                                    theSecondEdge: TopoDS_Edge): PrsDim_AngleDimension {.
+proc dynamicType*(this: PrsDimAngleDimension): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "PrsDim_AngleDimension.hxx".}
+proc constructPrsDimAngleDimension*(theFirstEdge: TopoDS_Edge;
+                                   theSecondEdge: TopoDS_Edge): PrsDimAngleDimension {.
     constructor, importcpp: "PrsDim_AngleDimension(@)",
     header: "PrsDim_AngleDimension.hxx".}
-proc constructPrsDim_AngleDimension*(theFirstPoint: gp_Pnt; theSecondPoint: gp_Pnt;
-                                    theThirdPoint: gp_Pnt): PrsDim_AngleDimension {.
+proc constructPrsDimAngleDimension*(theFirstPoint: Pnt; theSecondPoint: Pnt;
+                                   theThirdPoint: Pnt): PrsDimAngleDimension {.
     constructor, importcpp: "PrsDim_AngleDimension(@)",
     header: "PrsDim_AngleDimension.hxx".}
-proc constructPrsDim_AngleDimension*(theFirstVertex: TopoDS_Vertex;
-                                    theSecondVertex: TopoDS_Vertex;
-                                    theThirdVertex: TopoDS_Vertex): PrsDim_AngleDimension {.
+proc constructPrsDimAngleDimension*(theFirstVertex: TopoDS_Vertex;
+                                   theSecondVertex: TopoDS_Vertex;
+                                   theThirdVertex: TopoDS_Vertex): PrsDimAngleDimension {.
     constructor, importcpp: "PrsDim_AngleDimension(@)",
     header: "PrsDim_AngleDimension.hxx".}
-proc constructPrsDim_AngleDimension*(theCone: TopoDS_Face): PrsDim_AngleDimension {.
+proc constructPrsDimAngleDimension*(theCone: TopoDS_Face): PrsDimAngleDimension {.
     constructor, importcpp: "PrsDim_AngleDimension(@)",
     header: "PrsDim_AngleDimension.hxx".}
-proc constructPrsDim_AngleDimension*(theFirstFace: TopoDS_Face;
-                                    theSecondFace: TopoDS_Face): PrsDim_AngleDimension {.
+proc constructPrsDimAngleDimension*(theFirstFace: TopoDS_Face;
+                                   theSecondFace: TopoDS_Face): PrsDimAngleDimension {.
     constructor, importcpp: "PrsDim_AngleDimension(@)",
     header: "PrsDim_AngleDimension.hxx".}
-proc constructPrsDim_AngleDimension*(theFirstFace: TopoDS_Face;
-                                    theSecondFace: TopoDS_Face; thePoint: gp_Pnt): PrsDim_AngleDimension {.
+proc constructPrsDimAngleDimension*(theFirstFace: TopoDS_Face;
+                                   theSecondFace: TopoDS_Face; thePoint: Pnt): PrsDimAngleDimension {.
     constructor, importcpp: "PrsDim_AngleDimension(@)",
     header: "PrsDim_AngleDimension.hxx".}
-proc FirstPoint*(this: PrsDim_AngleDimension): gp_Pnt {.noSideEffect,
+proc firstPoint*(this: PrsDimAngleDimension): Pnt {.noSideEffect,
     importcpp: "FirstPoint", header: "PrsDim_AngleDimension.hxx".}
-proc SecondPoint*(this: PrsDim_AngleDimension): gp_Pnt {.noSideEffect,
+proc secondPoint*(this: PrsDimAngleDimension): Pnt {.noSideEffect,
     importcpp: "SecondPoint", header: "PrsDim_AngleDimension.hxx".}
-proc CenterPoint*(this: PrsDim_AngleDimension): gp_Pnt {.noSideEffect,
+proc centerPoint*(this: PrsDimAngleDimension): Pnt {.noSideEffect,
     importcpp: "CenterPoint", header: "PrsDim_AngleDimension.hxx".}
-proc FirstShape*(this: PrsDim_AngleDimension): TopoDS_Shape {.noSideEffect,
+proc firstShape*(this: PrsDimAngleDimension): TopoDS_Shape {.noSideEffect,
     importcpp: "FirstShape", header: "PrsDim_AngleDimension.hxx".}
-proc SecondShape*(this: PrsDim_AngleDimension): TopoDS_Shape {.noSideEffect,
+proc secondShape*(this: PrsDimAngleDimension): TopoDS_Shape {.noSideEffect,
     importcpp: "SecondShape", header: "PrsDim_AngleDimension.hxx".}
-proc ThirdShape*(this: PrsDim_AngleDimension): TopoDS_Shape {.noSideEffect,
+proc thirdShape*(this: PrsDimAngleDimension): TopoDS_Shape {.noSideEffect,
     importcpp: "ThirdShape", header: "PrsDim_AngleDimension.hxx".}
-proc SetMeasuredGeometry*(this: var PrsDim_AngleDimension;
-                         theFirstEdge: TopoDS_Edge; theSecondEdge: TopoDS_Edge) {.
+proc setMeasuredGeometry*(this: var PrsDimAngleDimension; theFirstEdge: TopoDS_Edge;
+                         theSecondEdge: TopoDS_Edge) {.
     importcpp: "SetMeasuredGeometry", header: "PrsDim_AngleDimension.hxx".}
-proc SetMeasuredGeometry*(this: var PrsDim_AngleDimension; theFirstPoint: gp_Pnt;
-                         theSecondPoint: gp_Pnt; theThridPoint: gp_Pnt) {.
+proc setMeasuredGeometry*(this: var PrsDimAngleDimension; theFirstPoint: Pnt;
+                         theSecondPoint: Pnt; theThridPoint: Pnt) {.
     importcpp: "SetMeasuredGeometry", header: "PrsDim_AngleDimension.hxx".}
-proc SetMeasuredGeometry*(this: var PrsDim_AngleDimension;
+proc setMeasuredGeometry*(this: var PrsDimAngleDimension;
                          theFirstVertex: TopoDS_Vertex;
                          theSecondVertex: TopoDS_Vertex;
                          theThirdVertex: TopoDS_Vertex) {.
     importcpp: "SetMeasuredGeometry", header: "PrsDim_AngleDimension.hxx".}
-proc SetMeasuredGeometry*(this: var PrsDim_AngleDimension; theCone: TopoDS_Face) {.
+proc setMeasuredGeometry*(this: var PrsDimAngleDimension; theCone: TopoDS_Face) {.
     importcpp: "SetMeasuredGeometry", header: "PrsDim_AngleDimension.hxx".}
-proc SetMeasuredGeometry*(this: var PrsDim_AngleDimension;
-                         theFirstFace: TopoDS_Face; theSecondFace: TopoDS_Face) {.
+proc setMeasuredGeometry*(this: var PrsDimAngleDimension; theFirstFace: TopoDS_Face;
+                         theSecondFace: TopoDS_Face) {.
     importcpp: "SetMeasuredGeometry", header: "PrsDim_AngleDimension.hxx".}
-proc SetMeasuredGeometry*(this: var PrsDim_AngleDimension;
-                         theFirstFace: TopoDS_Face; theSecondFace: TopoDS_Face;
-                         thePoint: gp_Pnt) {.importcpp: "SetMeasuredGeometry",
-    header: "PrsDim_AngleDimension.hxx".}
-proc GetDisplayUnits*(this: PrsDim_AngleDimension): TCollection_AsciiString {.
+proc setMeasuredGeometry*(this: var PrsDimAngleDimension; theFirstFace: TopoDS_Face;
+                         theSecondFace: TopoDS_Face; thePoint: Pnt) {.
+    importcpp: "SetMeasuredGeometry", header: "PrsDim_AngleDimension.hxx".}
+proc getDisplayUnits*(this: PrsDimAngleDimension): TCollectionAsciiString {.
     noSideEffect, importcpp: "GetDisplayUnits", header: "PrsDim_AngleDimension.hxx".}
-proc GetModelUnits*(this: PrsDim_AngleDimension): TCollection_AsciiString {.
+proc getModelUnits*(this: PrsDimAngleDimension): TCollectionAsciiString {.
     noSideEffect, importcpp: "GetModelUnits", header: "PrsDim_AngleDimension.hxx".}
-proc SetDisplayUnits*(this: var PrsDim_AngleDimension;
-                     theUnits: TCollection_AsciiString) {.
+proc setDisplayUnits*(this: var PrsDimAngleDimension;
+                     theUnits: TCollectionAsciiString) {.
     importcpp: "SetDisplayUnits", header: "PrsDim_AngleDimension.hxx".}
-proc SetModelUnits*(this: var PrsDim_AngleDimension;
-                   theUnits: TCollection_AsciiString) {.
+proc setModelUnits*(this: var PrsDimAngleDimension; theUnits: TCollectionAsciiString) {.
     importcpp: "SetModelUnits", header: "PrsDim_AngleDimension.hxx".}
-proc SetTextPosition*(this: var PrsDim_AngleDimension; theTextPos: gp_Pnt) {.
+proc setTextPosition*(this: var PrsDimAngleDimension; theTextPos: Pnt) {.
     importcpp: "SetTextPosition", header: "PrsDim_AngleDimension.hxx".}
-proc GetTextPosition*(this: PrsDim_AngleDimension): gp_Pnt {.noSideEffect,
+proc getTextPosition*(this: PrsDimAngleDimension): Pnt {.noSideEffect,
     importcpp: "GetTextPosition", header: "PrsDim_AngleDimension.hxx".}
-proc SetType*(this: var PrsDim_AngleDimension; theType: PrsDim_TypeOfAngle) {.
+proc setType*(this: var PrsDimAngleDimension; theType: PrsDimTypeOfAngle) {.
     importcpp: "SetType", header: "PrsDim_AngleDimension.hxx".}
-proc GetType*(this: PrsDim_AngleDimension): PrsDim_TypeOfAngle {.noSideEffect,
+proc getType*(this: PrsDimAngleDimension): PrsDimTypeOfAngle {.noSideEffect,
     importcpp: "GetType", header: "PrsDim_AngleDimension.hxx".}
-proc SetArrowsVisibility*(this: var PrsDim_AngleDimension;
-                         theType: PrsDim_TypeOfAngleArrowVisibility) {.
+proc setArrowsVisibility*(this: var PrsDimAngleDimension;
+                         theType: PrsDimTypeOfAngleArrowVisibility) {.
     importcpp: "SetArrowsVisibility", header: "PrsDim_AngleDimension.hxx".}
-proc GetArrowsVisibility*(this: PrsDim_AngleDimension): PrsDim_TypeOfAngleArrowVisibility {.
+proc getArrowsVisibility*(this: PrsDimAngleDimension): PrsDimTypeOfAngleArrowVisibility {.
     noSideEffect, importcpp: "GetArrowsVisibility",
     header: "PrsDim_AngleDimension.hxx".}

@@ -14,44 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../OSD/OSD_Timer,
-  Draw_Drawable3D, ../Standard/Standard_OStream, Draw_Interpretor
-
 discard "forward decl of OSD_Timer"
 discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Drawable3D"
 discard "forward decl of Draw_Chronometer"
 discard "forward decl of Draw_Chronometer"
 type
-  Handle_Draw_Chronometer* = handle[Draw_Chronometer]
+  HandleDrawChronometer* = Handle[DrawChronometer]
 
 ## ! Class to store chronometer variables.
 
 type
-  Draw_Chronometer* {.importcpp: "Draw_Chronometer",
-                     header: "Draw_Chronometer.hxx", bycopy.} = object of Draw_Drawable3D
+  DrawChronometer* {.importcpp: "Draw_Chronometer", header: "Draw_Chronometer.hxx",
+                    bycopy.} = object of DrawDrawable3D
 
 
-proc constructDraw_Chronometer*(): Draw_Chronometer {.constructor,
+proc constructDrawChronometer*(): DrawChronometer {.constructor,
     importcpp: "Draw_Chronometer(@)", header: "Draw_Chronometer.hxx".}
-proc Timer*(this: var Draw_Chronometer): var OSD_Timer {.importcpp: "Timer",
+proc timer*(this: var DrawChronometer): var OSD_Timer {.importcpp: "Timer",
     header: "Draw_Chronometer.hxx".}
-proc DrawOn*(this: Draw_Chronometer; dis: var Draw_Display) {.noSideEffect,
+proc drawOn*(this: DrawChronometer; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "Draw_Chronometer.hxx".}
-proc Copy*(this: Draw_Chronometer): handle[Draw_Drawable3D] {.noSideEffect,
+proc copy*(this: DrawChronometer): Handle[DrawDrawable3D] {.noSideEffect,
     importcpp: "Copy", header: "Draw_Chronometer.hxx".}
-proc Dump*(this: Draw_Chronometer; S: var Standard_OStream) {.noSideEffect,
+proc dump*(this: DrawChronometer; s: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "Draw_Chronometer.hxx".}
-proc Whatis*(this: Draw_Chronometer; I: var Draw_Interpretor) {.noSideEffect,
+proc whatis*(this: DrawChronometer; i: var DrawInterpretor) {.noSideEffect,
     importcpp: "Whatis", header: "Draw_Chronometer.hxx".}
 type
-  Draw_Chronometerbase_type* = Draw_Drawable3D
+  DrawChronometerbaseType* = DrawDrawable3D
 
-proc get_type_name*(): cstring {.importcpp: "Draw_Chronometer::get_type_name(@)",
-                              header: "Draw_Chronometer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Draw_Chronometer::get_type_name(@)",
+                            header: "Draw_Chronometer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Draw_Chronometer::get_type_descriptor(@)",
     header: "Draw_Chronometer.hxx".}
-proc DynamicType*(this: Draw_Chronometer): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: DrawChronometer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Chronometer.hxx".}

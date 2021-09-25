@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real,
-  Expr_Array1OfNamedUnknown, ../TColStd/TColStd_Array1OfReal,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_DimensionMismatch"
 discard "forward decl of Standard_NumericError"
@@ -29,53 +23,51 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_GeneralFunction"
 discard "forward decl of Expr_GeneralFunction"
 type
-  Handle_Expr_GeneralFunction* = handle[Expr_GeneralFunction]
+  HandleExprGeneralFunction* = Handle[ExprGeneralFunction]
 
 ## ! Defines the general purposes of any function.
 
 type
-  Expr_GeneralFunction* {.importcpp: "Expr_GeneralFunction",
-                         header: "Expr_GeneralFunction.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## the
-                                                                                              ## number
-                                                                                              ## of
-                                                                                              ## variables
-                                                                                              ## of
-                                                                                              ## <me>.
+  ExprGeneralFunction* {.importcpp: "Expr_GeneralFunction",
+                        header: "Expr_GeneralFunction.hxx", bycopy.} = object of StandardTransient ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## the
+                                                                                            ## number
+                                                                                            ## of
+                                                                                            ## variables
+                                                                                            ## of
+                                                                                            ## <me>.
 
 
-proc NbOfVariables*(this: Expr_GeneralFunction): Standard_Integer {.noSideEffect,
+proc nbOfVariables*(this: ExprGeneralFunction): int {.noSideEffect,
     importcpp: "NbOfVariables", header: "Expr_GeneralFunction.hxx".}
-proc Variable*(this: Expr_GeneralFunction; index: Standard_Integer): handle[
-    Expr_NamedUnknown] {.noSideEffect, importcpp: "Variable",
-                        header: "Expr_GeneralFunction.hxx".}
-proc Copy*(this: Expr_GeneralFunction): handle[Expr_GeneralFunction] {.noSideEffect,
+proc variable*(this: ExprGeneralFunction; index: int): Handle[ExprNamedUnknown] {.
+    noSideEffect, importcpp: "Variable", header: "Expr_GeneralFunction.hxx".}
+proc copy*(this: ExprGeneralFunction): Handle[ExprGeneralFunction] {.noSideEffect,
     importcpp: "Copy", header: "Expr_GeneralFunction.hxx".}
-proc Derivative*(this: Expr_GeneralFunction; `var`: handle[Expr_NamedUnknown]): handle[
-    Expr_GeneralFunction] {.noSideEffect, importcpp: "Derivative",
-                           header: "Expr_GeneralFunction.hxx".}
-proc Derivative*(this: Expr_GeneralFunction; `var`: handle[Expr_NamedUnknown];
-                deg: Standard_Integer): handle[Expr_GeneralFunction] {.
-    noSideEffect, importcpp: "Derivative", header: "Expr_GeneralFunction.hxx".}
-proc Evaluate*(this: Expr_GeneralFunction; vars: Expr_Array1OfNamedUnknown;
-              vals: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
+proc derivative*(this: ExprGeneralFunction; `var`: Handle[ExprNamedUnknown]): Handle[
+    ExprGeneralFunction] {.noSideEffect, importcpp: "Derivative",
+                          header: "Expr_GeneralFunction.hxx".}
+proc derivative*(this: ExprGeneralFunction; `var`: Handle[ExprNamedUnknown]; deg: int): Handle[
+    ExprGeneralFunction] {.noSideEffect, importcpp: "Derivative",
+                          header: "Expr_GeneralFunction.hxx".}
+proc evaluate*(this: ExprGeneralFunction; vars: ExprArray1OfNamedUnknown;
+              vals: TColStdArray1OfReal): float {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_GeneralFunction.hxx".}
-proc IsIdentical*(this: Expr_GeneralFunction; `func`: handle[Expr_GeneralFunction]): Standard_Boolean {.
+proc isIdentical*(this: ExprGeneralFunction; `func`: Handle[ExprGeneralFunction]): bool {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_GeneralFunction.hxx".}
-proc IsLinearOnVariable*(this: Expr_GeneralFunction; index: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsLinearOnVariable",
-    header: "Expr_GeneralFunction.hxx".}
-proc GetStringName*(this: Expr_GeneralFunction): TCollection_AsciiString {.
+proc isLinearOnVariable*(this: ExprGeneralFunction; index: int): bool {.noSideEffect,
+    importcpp: "IsLinearOnVariable", header: "Expr_GeneralFunction.hxx".}
+proc getStringName*(this: ExprGeneralFunction): TCollectionAsciiString {.
     noSideEffect, importcpp: "GetStringName", header: "Expr_GeneralFunction.hxx".}
 type
-  Expr_GeneralFunctionbase_type* = Standard_Transient
+  ExprGeneralFunctionbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Expr_GeneralFunction::get_type_name(@)",
-                              header: "Expr_GeneralFunction.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Expr_GeneralFunction::get_type_name(@)",
+                            header: "Expr_GeneralFunction.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Expr_GeneralFunction::get_type_descriptor(@)",
     header: "Expr_GeneralFunction.hxx".}
-proc DynamicType*(this: Expr_GeneralFunction): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: ExprGeneralFunction): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_GeneralFunction.hxx".}

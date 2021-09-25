@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepFEA_ElementGeometricRelationship"
@@ -32,16 +28,16 @@ type
 proc constructRWStepFEA_RWElementGeometricRelationship*(): RWStepFEA_RWElementGeometricRelationship {.
     constructor, importcpp: "RWStepFEA_RWElementGeometricRelationship(@)",
     header: "RWStepFEA_RWElementGeometricRelationship.hxx".}
-proc ReadStep*(this: RWStepFEA_RWElementGeometricRelationship;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepFEA_ElementGeometricRelationship]) {.noSideEffect,
+proc readStep*(this: RWStepFEA_RWElementGeometricRelationship;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepFEA_ElementGeometricRelationship]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWElementGeometricRelationship.hxx".}
-proc WriteStep*(this: RWStepFEA_RWElementGeometricRelationship;
-               SW: var StepData_StepWriter;
-               ent: handle[StepFEA_ElementGeometricRelationship]) {.noSideEffect,
+proc writeStep*(this: RWStepFEA_RWElementGeometricRelationship;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepFEA_ElementGeometricRelationship]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepFEA_RWElementGeometricRelationship.hxx".}
-proc Share*(this: RWStepFEA_RWElementGeometricRelationship;
-           ent: handle[StepFEA_ElementGeometricRelationship];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepFEA_RWElementGeometricRelationship;
+           ent: Handle[StepFEA_ElementGeometricRelationship];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWElementGeometricRelationship.hxx".}

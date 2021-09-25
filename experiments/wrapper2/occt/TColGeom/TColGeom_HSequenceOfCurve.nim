@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # TColGeom_HSequenceOfCurve_HeaderFile [NewLine] # TColGeom_HSequenceOfCurve_HeaderFile [NewLine] # ../Geom/Geom_Curve.hxx [NewLine] # TColGeom_SequenceOfCurve.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( TColGeom_HSequenceOfCurve , TColGeom_SequenceOfCurve ) # [NewLine]
+## !!!Ignored construct:  # TColGeom_HSequenceOfCurve_HeaderFile [NewLine] # TColGeom_HSequenceOfCurve_HeaderFile [NewLine] # < Geom_Curve . hxx > [NewLine] # < TColGeom_SequenceOfCurve . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( TColGeom_HSequenceOfCurve , TColGeom_SequenceOfCurve ) # [NewLine]
 ## Error: expected ';'!!!
+

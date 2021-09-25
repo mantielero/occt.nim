@@ -14,58 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  StepShape_Edge
-
 discard "forward decl of StepShape_Edge"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_Vertex"
 discard "forward decl of StepShape_OrientedEdge"
 discard "forward decl of StepShape_OrientedEdge"
 type
-  Handle_StepShape_OrientedEdge* = handle[StepShape_OrientedEdge]
-  StepShape_OrientedEdge* {.importcpp: "StepShape_OrientedEdge",
-                           header: "StepShape_OrientedEdge.hxx", bycopy.} = object of StepShape_Edge ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## a
-                                                                                              ## OrientedEdge
+  HandleStepShapeOrientedEdge* = Handle[StepShapeOrientedEdge]
+  StepShapeOrientedEdge* {.importcpp: "StepShape_OrientedEdge",
+                          header: "StepShape_OrientedEdge.hxx", bycopy.} = object of StepShapeEdge ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## a
+                                                                                            ## OrientedEdge
 
 
-proc constructStepShape_OrientedEdge*(): StepShape_OrientedEdge {.constructor,
+proc constructStepShapeOrientedEdge*(): StepShapeOrientedEdge {.constructor,
     importcpp: "StepShape_OrientedEdge(@)", header: "StepShape_OrientedEdge.hxx".}
-proc Init*(this: var StepShape_OrientedEdge;
-          aName: handle[TCollection_HAsciiString];
-          aEdgeElement: handle[StepShape_Edge]; aOrientation: Standard_Boolean) {.
+proc init*(this: var StepShapeOrientedEdge; aName: Handle[TCollectionHAsciiString];
+          aEdgeElement: Handle[StepShapeEdge]; aOrientation: bool) {.
     importcpp: "Init", header: "StepShape_OrientedEdge.hxx".}
-proc SetEdgeElement*(this: var StepShape_OrientedEdge;
-                    aEdgeElement: handle[StepShape_Edge]) {.
+proc setEdgeElement*(this: var StepShapeOrientedEdge;
+                    aEdgeElement: Handle[StepShapeEdge]) {.
     importcpp: "SetEdgeElement", header: "StepShape_OrientedEdge.hxx".}
-proc EdgeElement*(this: StepShape_OrientedEdge): handle[StepShape_Edge] {.
+proc edgeElement*(this: StepShapeOrientedEdge): Handle[StepShapeEdge] {.
     noSideEffect, importcpp: "EdgeElement", header: "StepShape_OrientedEdge.hxx".}
-proc SetOrientation*(this: var StepShape_OrientedEdge;
-                    aOrientation: Standard_Boolean) {.importcpp: "SetOrientation",
-    header: "StepShape_OrientedEdge.hxx".}
-proc Orientation*(this: StepShape_OrientedEdge): Standard_Boolean {.noSideEffect,
+proc setOrientation*(this: var StepShapeOrientedEdge; aOrientation: bool) {.
+    importcpp: "SetOrientation", header: "StepShape_OrientedEdge.hxx".}
+proc orientation*(this: StepShapeOrientedEdge): bool {.noSideEffect,
     importcpp: "Orientation", header: "StepShape_OrientedEdge.hxx".}
-proc SetEdgeStart*(this: var StepShape_OrientedEdge;
-                  aEdgeStart: handle[StepShape_Vertex]) {.
+proc setEdgeStart*(this: var StepShapeOrientedEdge;
+                  aEdgeStart: Handle[StepShapeVertex]) {.
     importcpp: "SetEdgeStart", header: "StepShape_OrientedEdge.hxx".}
-proc EdgeStart*(this: StepShape_OrientedEdge): handle[StepShape_Vertex] {.
+proc edgeStart*(this: StepShapeOrientedEdge): Handle[StepShapeVertex] {.
     noSideEffect, importcpp: "EdgeStart", header: "StepShape_OrientedEdge.hxx".}
-proc SetEdgeEnd*(this: var StepShape_OrientedEdge;
-                aEdgeEnd: handle[StepShape_Vertex]) {.importcpp: "SetEdgeEnd",
-    header: "StepShape_OrientedEdge.hxx".}
-proc EdgeEnd*(this: StepShape_OrientedEdge): handle[StepShape_Vertex] {.
-    noSideEffect, importcpp: "EdgeEnd", header: "StepShape_OrientedEdge.hxx".}
+proc setEdgeEnd*(this: var StepShapeOrientedEdge; aEdgeEnd: Handle[StepShapeVertex]) {.
+    importcpp: "SetEdgeEnd", header: "StepShape_OrientedEdge.hxx".}
+proc edgeEnd*(this: StepShapeOrientedEdge): Handle[StepShapeVertex] {.noSideEffect,
+    importcpp: "EdgeEnd", header: "StepShape_OrientedEdge.hxx".}
 type
-  StepShape_OrientedEdgebase_type* = StepShape_Edge
+  StepShapeOrientedEdgebaseType* = StepShapeEdge
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_OrientedEdge::get_type_name(@)",
-                              header: "StepShape_OrientedEdge.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_OrientedEdge::get_type_name(@)",
+                            header: "StepShape_OrientedEdge.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_OrientedEdge::get_type_descriptor(@)",
     header: "StepShape_OrientedEdge.hxx".}
-proc DynamicType*(this: StepShape_OrientedEdge): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepShape_OrientedEdge.hxx".}
+proc dynamicType*(this: StepShapeOrientedEdge): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepShape_OrientedEdge.hxx".}

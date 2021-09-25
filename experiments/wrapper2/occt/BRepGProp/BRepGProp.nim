@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../TColgp/TColgp_Array1OfXYZ
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of GProp_GProps"
 discard "forward decl of gp_Pln"
@@ -162,39 +157,29 @@ type
                                                                           ## triangulation are used first.
 
 
-proc LinearProperties*(S: TopoDS_Shape; LProps: var GProp_GProps;
-                      SkipShared: Standard_Boolean = Standard_False;
-                      UseTriangulation: Standard_Boolean = Standard_False) {.
+proc linearProperties*(s: TopoDS_Shape; lProps: var GPropGProps;
+                      skipShared: bool = false; useTriangulation: bool = false) {.
     importcpp: "BRepGProp::LinearProperties(@)", header: "BRepGProp.hxx".}
-proc SurfaceProperties*(S: TopoDS_Shape; SProps: var GProp_GProps;
-                       SkipShared: Standard_Boolean = Standard_False;
-                       UseTriangulation: Standard_Boolean = Standard_False) {.
+proc surfaceProperties*(s: TopoDS_Shape; sProps: var GPropGProps;
+                       skipShared: bool = false; useTriangulation: bool = false) {.
     importcpp: "BRepGProp::SurfaceProperties(@)", header: "BRepGProp.hxx".}
-proc SurfaceProperties*(S: TopoDS_Shape; SProps: var GProp_GProps; Eps: Standard_Real;
-                       SkipShared: Standard_Boolean = Standard_False): Standard_Real {.
+proc surfaceProperties*(s: TopoDS_Shape; sProps: var GPropGProps; eps: float;
+                       skipShared: bool = false): float {.
     importcpp: "BRepGProp::SurfaceProperties(@)", header: "BRepGProp.hxx".}
-proc VolumeProperties*(S: TopoDS_Shape; VProps: var GProp_GProps;
-                      OnlyClosed: Standard_Boolean = Standard_False;
-                      SkipShared: Standard_Boolean = Standard_False;
-                      UseTriangulation: Standard_Boolean = Standard_False) {.
+proc volumeProperties*(s: TopoDS_Shape; vProps: var GPropGProps;
+                      onlyClosed: bool = false; skipShared: bool = false;
+                      useTriangulation: bool = false) {.
     importcpp: "BRepGProp::VolumeProperties(@)", header: "BRepGProp.hxx".}
-proc VolumeProperties*(S: TopoDS_Shape; VProps: var GProp_GProps; Eps: Standard_Real;
-                      OnlyClosed: Standard_Boolean = Standard_False;
-                      SkipShared: Standard_Boolean = Standard_False): Standard_Real {.
+proc volumeProperties*(s: TopoDS_Shape; vProps: var GPropGProps; eps: float;
+                      onlyClosed: bool = false; skipShared: bool = false): float {.
     importcpp: "BRepGProp::VolumeProperties(@)", header: "BRepGProp.hxx".}
-proc VolumePropertiesGK*(S: TopoDS_Shape; VProps: var GProp_GProps;
-                        Eps: Standard_Real = 0.001;
-                        OnlyClosed: Standard_Boolean = Standard_False;
-                        IsUseSpan: Standard_Boolean = Standard_False;
-                        CGFlag: Standard_Boolean = Standard_False;
-                        IFlag: Standard_Boolean = Standard_False;
-                        SkipShared: Standard_Boolean = Standard_False): Standard_Real {.
+proc volumePropertiesGK*(s: TopoDS_Shape; vProps: var GPropGProps; eps: float = 0.001;
+                        onlyClosed: bool = false; isUseSpan: bool = false;
+                        cGFlag: bool = false; iFlag: bool = false;
+                        skipShared: bool = false): float {.
     importcpp: "BRepGProp::VolumePropertiesGK(@)", header: "BRepGProp.hxx".}
-proc VolumePropertiesGK*(S: TopoDS_Shape; VProps: var GProp_GProps; thePln: gp_Pln;
-                        Eps: Standard_Real = 0.001;
-                        OnlyClosed: Standard_Boolean = Standard_False;
-                        IsUseSpan: Standard_Boolean = Standard_False;
-                        CGFlag: Standard_Boolean = Standard_False;
-                        IFlag: Standard_Boolean = Standard_False;
-                        SkipShared: Standard_Boolean = Standard_False): Standard_Real {.
+proc volumePropertiesGK*(s: TopoDS_Shape; vProps: var GPropGProps; thePln: Pln;
+                        eps: float = 0.001; onlyClosed: bool = false;
+                        isUseSpan: bool = false; cGFlag: bool = false;
+                        iFlag: bool = false; skipShared: bool = false): float {.
     importcpp: "BRepGProp::VolumePropertiesGK(@)", header: "BRepGProp.hxx".}

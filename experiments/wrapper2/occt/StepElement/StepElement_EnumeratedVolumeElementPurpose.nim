@@ -12,8 +12,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepElement_EnumeratedVolumeElementPurpose* {.size: sizeof(cint),
+  StepElementEnumeratedVolumeElementPurpose* {.size: sizeof(cint),
       importcpp: "StepElement_EnumeratedVolumeElementPurpose",
       header: "StepElement_EnumeratedVolumeElementPurpose.hxx".} = enum
-    StepElement_StressDisplacement
+    StepElementStressDisplacement
+
 

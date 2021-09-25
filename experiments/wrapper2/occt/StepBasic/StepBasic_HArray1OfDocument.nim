@@ -14,38 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepBasic_Document, StepBasic_Array1OfDocument,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepBasic_HArray1OfDocument* {.importcpp: "StepBasic_HArray1OfDocument",
-                                header: "StepBasic_HArray1OfDocument.hxx", bycopy.} = object of StepBasic_Array1OfDocument
+  StepBasicHArray1OfDocument* {.importcpp: "StepBasic_HArray1OfDocument",
+                               header: "StepBasic_HArray1OfDocument.hxx", bycopy.} = object of StepBasicArray1OfDocument
 
 
-proc constructStepBasic_HArray1OfDocument*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepBasic_HArray1OfDocument {.constructor,
+proc constructStepBasicHArray1OfDocument*(theLower: int; theUpper: int): StepBasicHArray1OfDocument {.
+    constructor, importcpp: "StepBasic_HArray1OfDocument(@)",
+    header: "StepBasic_HArray1OfDocument.hxx".}
+proc constructStepBasicHArray1OfDocument*(theLower: int; theUpper: int;
+    theValue: ValueType): StepBasicHArray1OfDocument {.constructor,
     importcpp: "StepBasic_HArray1OfDocument(@)",
     header: "StepBasic_HArray1OfDocument.hxx".}
-proc constructStepBasic_HArray1OfDocument*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepBasic_HArray1OfDocument {.
+proc constructStepBasicHArray1OfDocument*(theOther: StepBasicArray1OfDocument): StepBasicHArray1OfDocument {.
     constructor, importcpp: "StepBasic_HArray1OfDocument(@)",
     header: "StepBasic_HArray1OfDocument.hxx".}
-proc constructStepBasic_HArray1OfDocument*(theOther: StepBasic_Array1OfDocument): StepBasic_HArray1OfDocument {.
-    constructor, importcpp: "StepBasic_HArray1OfDocument(@)",
-    header: "StepBasic_HArray1OfDocument.hxx".}
-proc Array1*(this: StepBasic_HArray1OfDocument): StepBasic_Array1OfDocument {.
+proc array1*(this: StepBasicHArray1OfDocument): StepBasicArray1OfDocument {.
     noSideEffect, importcpp: "Array1", header: "StepBasic_HArray1OfDocument.hxx".}
-proc ChangeArray1*(this: var StepBasic_HArray1OfDocument): var StepBasic_Array1OfDocument {.
+proc changeArray1*(this: var StepBasicHArray1OfDocument): var StepBasicArray1OfDocument {.
     importcpp: "ChangeArray1", header: "StepBasic_HArray1OfDocument.hxx".}
 type
-  StepBasic_HArray1OfDocumentbase_type* = MMgt_TShared
+  StepBasicHArray1OfDocumentbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_HArray1OfDocument::get_type_name(@)",
-                              header: "StepBasic_HArray1OfDocument.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_HArray1OfDocument::get_type_name(@)",
+                            header: "StepBasic_HArray1OfDocument.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_HArray1OfDocument::get_type_descriptor(@)",
     header: "StepBasic_HArray1OfDocument.hxx".}
-proc DynamicType*(this: StepBasic_HArray1OfDocument): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicHArray1OfDocument): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_HArray1OfDocument.hxx".}

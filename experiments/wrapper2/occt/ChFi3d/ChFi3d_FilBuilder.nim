@@ -14,15 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../BlendFunc/BlendFunc_SectionShape,
-  ChFi3d_Builder, ChFi3d_FilletShape, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
-  ../ChFiDS/ChFiDS_SecHArray1, ../math/math_Vector, ../TopAbs/TopAbs_Orientation,
-  ../TopAbs/TopAbs_State, ../ChFiDS/ChFiDS_SequenceOfSurfData,
-  ../ChFiDS/ChFiDS_ListOfStripe
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of Law_Function"
@@ -37,60 +28,54 @@ discard "forward decl of BRepAdaptor_HCurve2d"
 discard "forward decl of BRepBlend_Line"
 discard "forward decl of ChFiDS_Stripe"
 type
-  ChFi3d_FilBuilder* {.importcpp: "ChFi3d_FilBuilder",
-                      header: "ChFi3d_FilBuilder.hxx", bycopy.} = object of ChFi3d_Builder
+  ChFi3dFilBuilder* {.importcpp: "ChFi3d_FilBuilder",
+                     header: "ChFi3d_FilBuilder.hxx", bycopy.} = object of ChFi3dBuilder
 
 
-proc constructChFi3d_FilBuilder*(S: TopoDS_Shape;
-                                FShape: ChFi3d_FilletShape = ChFi3d_Rational;
-                                Ta: Standard_Real = 1.0e-2): ChFi3d_FilBuilder {.
-    constructor, importcpp: "ChFi3d_FilBuilder(@)", header: "ChFi3d_FilBuilder.hxx".}
-proc SetFilletShape*(this: var ChFi3d_FilBuilder; FShape: ChFi3d_FilletShape) {.
+proc constructChFi3dFilBuilder*(s: TopoDS_Shape;
+                               fShape: ChFi3dFilletShape = chFi3dRational;
+                               ta: float = 1.0e-2): ChFi3dFilBuilder {.constructor,
+    importcpp: "ChFi3d_FilBuilder(@)", header: "ChFi3d_FilBuilder.hxx".}
+proc setFilletShape*(this: var ChFi3dFilBuilder; fShape: ChFi3dFilletShape) {.
     importcpp: "SetFilletShape", header: "ChFi3d_FilBuilder.hxx".}
-proc GetFilletShape*(this: ChFi3d_FilBuilder): ChFi3d_FilletShape {.noSideEffect,
+proc getFilletShape*(this: ChFi3dFilBuilder): ChFi3dFilletShape {.noSideEffect,
     importcpp: "GetFilletShape", header: "ChFi3d_FilBuilder.hxx".}
-proc Add*(this: var ChFi3d_FilBuilder; E: TopoDS_Edge) {.importcpp: "Add",
+proc add*(this: var ChFi3dFilBuilder; e: TopoDS_Edge) {.importcpp: "Add",
     header: "ChFi3d_FilBuilder.hxx".}
-proc Add*(this: var ChFi3d_FilBuilder; Radius: Standard_Real; E: TopoDS_Edge) {.
-    importcpp: "Add", header: "ChFi3d_FilBuilder.hxx".}
-proc SetRadius*(this: var ChFi3d_FilBuilder; C: handle[Law_Function];
-               IC: Standard_Integer; IinC: Standard_Integer) {.
+proc add*(this: var ChFi3dFilBuilder; radius: float; e: TopoDS_Edge) {.importcpp: "Add",
+    header: "ChFi3d_FilBuilder.hxx".}
+proc setRadius*(this: var ChFi3dFilBuilder; c: Handle[LawFunction]; ic: int; iinC: int) {.
     importcpp: "SetRadius", header: "ChFi3d_FilBuilder.hxx".}
-proc IsConstant*(this: var ChFi3d_FilBuilder; IC: Standard_Integer): Standard_Boolean {.
-    importcpp: "IsConstant", header: "ChFi3d_FilBuilder.hxx".}
-proc Radius*(this: var ChFi3d_FilBuilder; IC: Standard_Integer): Standard_Real {.
-    importcpp: "Radius", header: "ChFi3d_FilBuilder.hxx".}
-proc ResetContour*(this: var ChFi3d_FilBuilder; IC: Standard_Integer) {.
-    importcpp: "ResetContour", header: "ChFi3d_FilBuilder.hxx".}
-proc SetRadius*(this: var ChFi3d_FilBuilder; Radius: Standard_Real;
-               IC: Standard_Integer; E: TopoDS_Edge) {.importcpp: "SetRadius",
+proc isConstant*(this: var ChFi3dFilBuilder; ic: int): bool {.importcpp: "IsConstant",
     header: "ChFi3d_FilBuilder.hxx".}
-proc UnSet*(this: var ChFi3d_FilBuilder; IC: Standard_Integer; E: TopoDS_Edge) {.
-    importcpp: "UnSet", header: "ChFi3d_FilBuilder.hxx".}
-proc SetRadius*(this: var ChFi3d_FilBuilder; Radius: Standard_Real;
-               IC: Standard_Integer; V: TopoDS_Vertex) {.importcpp: "SetRadius",
+proc radius*(this: var ChFi3dFilBuilder; ic: int): float {.importcpp: "Radius",
     header: "ChFi3d_FilBuilder.hxx".}
-proc UnSet*(this: var ChFi3d_FilBuilder; IC: Standard_Integer; V: TopoDS_Vertex) {.
-    importcpp: "UnSet", header: "ChFi3d_FilBuilder.hxx".}
-proc SetRadius*(this: var ChFi3d_FilBuilder; UandR: gp_XY; IC: Standard_Integer;
-               IinC: Standard_Integer) {.importcpp: "SetRadius",
-                                       header: "ChFi3d_FilBuilder.hxx".}
-proc IsConstant*(this: var ChFi3d_FilBuilder; IC: Standard_Integer; E: TopoDS_Edge): Standard_Boolean {.
+proc resetContour*(this: var ChFi3dFilBuilder; ic: int) {.importcpp: "ResetContour",
+    header: "ChFi3d_FilBuilder.hxx".}
+proc setRadius*(this: var ChFi3dFilBuilder; radius: float; ic: int; e: TopoDS_Edge) {.
+    importcpp: "SetRadius", header: "ChFi3d_FilBuilder.hxx".}
+proc unSet*(this: var ChFi3dFilBuilder; ic: int; e: TopoDS_Edge) {.importcpp: "UnSet",
+    header: "ChFi3d_FilBuilder.hxx".}
+proc setRadius*(this: var ChFi3dFilBuilder; radius: float; ic: int; v: TopoDS_Vertex) {.
+    importcpp: "SetRadius", header: "ChFi3d_FilBuilder.hxx".}
+proc unSet*(this: var ChFi3dFilBuilder; ic: int; v: TopoDS_Vertex) {.importcpp: "UnSet",
+    header: "ChFi3d_FilBuilder.hxx".}
+proc setRadius*(this: var ChFi3dFilBuilder; uandR: Xy; ic: int; iinC: int) {.
+    importcpp: "SetRadius", header: "ChFi3d_FilBuilder.hxx".}
+proc isConstant*(this: var ChFi3dFilBuilder; ic: int; e: TopoDS_Edge): bool {.
     importcpp: "IsConstant", header: "ChFi3d_FilBuilder.hxx".}
-proc Radius*(this: var ChFi3d_FilBuilder; IC: Standard_Integer; E: TopoDS_Edge): Standard_Real {.
+proc radius*(this: var ChFi3dFilBuilder; ic: int; e: TopoDS_Edge): float {.
     importcpp: "Radius", header: "ChFi3d_FilBuilder.hxx".}
-proc GetBounds*(this: var ChFi3d_FilBuilder; IC: Standard_Integer; E: TopoDS_Edge;
-               First: var Standard_Real; Last: var Standard_Real): Standard_Boolean {.
-    importcpp: "GetBounds", header: "ChFi3d_FilBuilder.hxx".}
-proc GetLaw*(this: var ChFi3d_FilBuilder; IC: Standard_Integer; E: TopoDS_Edge): handle[
-    Law_Function] {.importcpp: "GetLaw", header: "ChFi3d_FilBuilder.hxx".}
-proc SetLaw*(this: var ChFi3d_FilBuilder; IC: Standard_Integer; E: TopoDS_Edge;
-            L: handle[Law_Function]) {.importcpp: "SetLaw",
-                                     header: "ChFi3d_FilBuilder.hxx".}
-proc Simulate*(this: var ChFi3d_FilBuilder; IC: Standard_Integer) {.
-    importcpp: "Simulate", header: "ChFi3d_FilBuilder.hxx".}
-proc NbSurf*(this: ChFi3d_FilBuilder; IC: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "NbSurf", header: "ChFi3d_FilBuilder.hxx".}
-proc Sect*(this: ChFi3d_FilBuilder; IC: Standard_Integer; IS: Standard_Integer): handle[
-    ChFiDS_SecHArray1] {.noSideEffect, importcpp: "Sect",
-                        header: "ChFi3d_FilBuilder.hxx".}
+proc getBounds*(this: var ChFi3dFilBuilder; ic: int; e: TopoDS_Edge; first: var float;
+               last: var float): bool {.importcpp: "GetBounds",
+                                    header: "ChFi3d_FilBuilder.hxx".}
+proc getLaw*(this: var ChFi3dFilBuilder; ic: int; e: TopoDS_Edge): Handle[LawFunction] {.
+    importcpp: "GetLaw", header: "ChFi3d_FilBuilder.hxx".}
+proc setLaw*(this: var ChFi3dFilBuilder; ic: int; e: TopoDS_Edge; L: Handle[LawFunction]) {.
+    importcpp: "SetLaw", header: "ChFi3d_FilBuilder.hxx".}
+proc simulate*(this: var ChFi3dFilBuilder; ic: int) {.importcpp: "Simulate",
+    header: "ChFi3d_FilBuilder.hxx".}
+proc nbSurf*(this: ChFi3dFilBuilder; ic: int): int {.noSideEffect, importcpp: "NbSurf",
+    header: "ChFi3d_FilBuilder.hxx".}
+proc sect*(this: ChFi3dFilBuilder; ic: int; `is`: int): Handle[ChFiDS_SecHArray1] {.
+    noSideEffect, importcpp: "Sect", header: "ChFi3d_FilBuilder.hxx".}

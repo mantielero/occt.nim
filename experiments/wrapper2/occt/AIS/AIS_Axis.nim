@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  AIS_InteractiveObject, AIS_TypeOfAxis, ../gp/gp_Dir, ../gp/gp_Pnt,
-  ../SelectMgr/SelectMgr_Selection
-
 discard "forward decl of Geom_Line"
 discard "forward decl of Geom_Axis1Placement"
 discard "forward decl of Geom_Axis2Placement"
@@ -30,50 +26,51 @@ type
                                                                                               ## line
                                                                                               ## aComponent
 
-  AIS_Axisbase_type* = AIS_InteractiveObject
+  AIS_AxisbaseType* = AIS_InteractiveObject
 
-proc get_type_name*(): cstring {.importcpp: "AIS_Axis::get_type_name(@)",
-                              header: "AIS_Axis.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "AIS_Axis::get_type_name(@)",
+                            header: "AIS_Axis.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "AIS_Axis::get_type_descriptor(@)", header: "AIS_Axis.hxx".}
-proc DynamicType*(this: AIS_Axis): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: AIS_Axis): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_Axis.hxx".}
-proc constructAIS_Axis*(aComponent: handle[Geom_Line]): AIS_Axis {.constructor,
+proc constructAIS_Axis*(aComponent: Handle[GeomLine]): AIS_Axis {.constructor,
     importcpp: "AIS_Axis(@)", header: "AIS_Axis.hxx".}
-proc constructAIS_Axis*(aComponent: handle[Geom_Axis2Placement];
+proc constructAIS_Axis*(aComponent: Handle[GeomAxis2Placement];
                        anAxisType: AIS_TypeOfAxis): AIS_Axis {.constructor,
     importcpp: "AIS_Axis(@)", header: "AIS_Axis.hxx".}
-proc constructAIS_Axis*(anAxis: handle[Geom_Axis1Placement]): AIS_Axis {.
-    constructor, importcpp: "AIS_Axis(@)", header: "AIS_Axis.hxx".}
-proc Component*(this: AIS_Axis): handle[Geom_Line] {.noSideEffect,
+proc constructAIS_Axis*(anAxis: Handle[GeomAxis1Placement]): AIS_Axis {.constructor,
+    importcpp: "AIS_Axis(@)", header: "AIS_Axis.hxx".}
+proc component*(this: AIS_Axis): Handle[GeomLine] {.noSideEffect,
     importcpp: "Component", header: "AIS_Axis.hxx".}
-proc SetComponent*(this: var AIS_Axis; aComponent: handle[Geom_Line]) {.
+proc setComponent*(this: var AIS_Axis; aComponent: Handle[GeomLine]) {.
     importcpp: "SetComponent", header: "AIS_Axis.hxx".}
-proc Axis2Placement*(this: AIS_Axis): handle[Geom_Axis2Placement] {.noSideEffect,
+proc axis2Placement*(this: AIS_Axis): Handle[GeomAxis2Placement] {.noSideEffect,
     importcpp: "Axis2Placement", header: "AIS_Axis.hxx".}
-proc SetAxis2Placement*(this: var AIS_Axis; aComponent: handle[Geom_Axis2Placement];
+proc setAxis2Placement*(this: var AIS_Axis; aComponent: Handle[GeomAxis2Placement];
                        anAxisType: AIS_TypeOfAxis) {.
     importcpp: "SetAxis2Placement", header: "AIS_Axis.hxx".}
-proc SetAxis1Placement*(this: var AIS_Axis; anAxis: handle[Geom_Axis1Placement]) {.
+proc setAxis1Placement*(this: var AIS_Axis; anAxis: Handle[GeomAxis1Placement]) {.
     importcpp: "SetAxis1Placement", header: "AIS_Axis.hxx".}
-proc TypeOfAxis*(this: AIS_Axis): AIS_TypeOfAxis {.noSideEffect,
+proc typeOfAxis*(this: AIS_Axis): AIS_TypeOfAxis {.noSideEffect,
     importcpp: "TypeOfAxis", header: "AIS_Axis.hxx".}
-proc SetTypeOfAxis*(this: var AIS_Axis; theTypeAxis: AIS_TypeOfAxis) {.
+proc setTypeOfAxis*(this: var AIS_Axis; theTypeAxis: AIS_TypeOfAxis) {.
     importcpp: "SetTypeOfAxis", header: "AIS_Axis.hxx".}
-proc IsXYZAxis*(this: AIS_Axis): Standard_Boolean {.noSideEffect,
-    importcpp: "IsXYZAxis", header: "AIS_Axis.hxx".}
-proc AcceptDisplayMode*(this: AIS_Axis; aMode: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "AcceptDisplayMode", header: "AIS_Axis.hxx".}
-proc Signature*(this: AIS_Axis): Standard_Integer {.noSideEffect,
-    importcpp: "Signature", header: "AIS_Axis.hxx".}
-proc Type*(this: AIS_Axis): AIS_KindOfInteractive {.noSideEffect, importcpp: "Type",
+proc isXYZAxis*(this: AIS_Axis): bool {.noSideEffect, importcpp: "IsXYZAxis",
+                                    header: "AIS_Axis.hxx".}
+proc acceptDisplayMode*(this: AIS_Axis; aMode: int): bool {.noSideEffect,
+    importcpp: "AcceptDisplayMode", header: "AIS_Axis.hxx".}
+proc signature*(this: AIS_Axis): int {.noSideEffect, importcpp: "Signature",
+                                   header: "AIS_Axis.hxx".}
+proc `type`*(this: AIS_Axis): AIS_KindOfInteractive {.noSideEffect,
+    importcpp: "Type", header: "AIS_Axis.hxx".}
+proc setColor*(this: var AIS_Axis; aColor: QuantityColor) {.importcpp: "SetColor",
     header: "AIS_Axis.hxx".}
-proc SetColor*(this: var AIS_Axis; aColor: Quantity_Color) {.importcpp: "SetColor",
+proc setWidth*(this: var AIS_Axis; aValue: float) {.importcpp: "SetWidth",
     header: "AIS_Axis.hxx".}
-proc SetWidth*(this: var AIS_Axis; aValue: Standard_Real) {.importcpp: "SetWidth",
-    header: "AIS_Axis.hxx".}
-proc UnsetColor*(this: var AIS_Axis) {.importcpp: "UnsetColor", header: "AIS_Axis.hxx".}
-proc UnsetWidth*(this: var AIS_Axis) {.importcpp: "UnsetWidth", header: "AIS_Axis.hxx".}
+proc unsetColor*(this: var AIS_Axis) {.importcpp: "UnsetColor", header: "AIS_Axis.hxx".}
+proc unsetWidth*(this: var AIS_Axis) {.importcpp: "UnsetWidth", header: "AIS_Axis.hxx".}
 discard "forward decl of AIS_Axis"
 type
-  Handle_AIS_Axis* = handle[AIS_Axis]
+  HandleAIS_Axis* = Handle[AIS_Axis]
+

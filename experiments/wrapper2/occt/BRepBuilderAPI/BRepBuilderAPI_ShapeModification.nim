@@ -28,3 +28,4 @@ type
     BRepBuilderAPI_Preserved, BRepBuilderAPI_Deleted, BRepBuilderAPI_Trimmed,
     BRepBuilderAPI_Merged, BRepBuilderAPI_BoundaryModified
 
+

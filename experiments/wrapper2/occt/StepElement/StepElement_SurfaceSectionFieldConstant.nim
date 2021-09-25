@@ -13,45 +13,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepElement_SurfaceSectionField
-
 discard "forward decl of StepElement_SurfaceSection"
 discard "forward decl of StepElement_SurfaceSectionFieldConstant"
 discard "forward decl of StepElement_SurfaceSectionFieldConstant"
 type
-  Handle_StepElement_SurfaceSectionFieldConstant* = handle[
-      StepElement_SurfaceSectionFieldConstant]
+  HandleStepElementSurfaceSectionFieldConstant* = Handle[
+      StepElementSurfaceSectionFieldConstant]
 
 ## ! Representation of STEP entity SurfaceSectionFieldConstant
 
 type
-  StepElement_SurfaceSectionFieldConstant* {.
+  StepElementSurfaceSectionFieldConstant* {.
       importcpp: "StepElement_SurfaceSectionFieldConstant",
-      header: "StepElement_SurfaceSectionFieldConstant.hxx", bycopy.} = object of StepElement_SurfaceSectionField ##
-                                                                                                           ## !
-                                                                                                           ## Empty
-                                                                                                           ## constructor
+      header: "StepElement_SurfaceSectionFieldConstant.hxx", bycopy.} = object of StepElementSurfaceSectionField ##
+                                                                                                          ## !
+                                                                                                          ## Empty
+                                                                                                          ## constructor
 
 
-proc constructStepElement_SurfaceSectionFieldConstant*(): StepElement_SurfaceSectionFieldConstant {.
+proc constructStepElementSurfaceSectionFieldConstant*(): StepElementSurfaceSectionFieldConstant {.
     constructor, importcpp: "StepElement_SurfaceSectionFieldConstant(@)",
     header: "StepElement_SurfaceSectionFieldConstant.hxx".}
-proc Init*(this: var StepElement_SurfaceSectionFieldConstant;
-          aDefinition: handle[StepElement_SurfaceSection]) {.importcpp: "Init",
+proc init*(this: var StepElementSurfaceSectionFieldConstant;
+          aDefinition: Handle[StepElementSurfaceSection]) {.importcpp: "Init",
     header: "StepElement_SurfaceSectionFieldConstant.hxx".}
-proc Definition*(this: StepElement_SurfaceSectionFieldConstant): handle[
-    StepElement_SurfaceSection] {.noSideEffect, importcpp: "Definition", header: "StepElement_SurfaceSectionFieldConstant.hxx".}
-proc SetDefinition*(this: var StepElement_SurfaceSectionFieldConstant;
-                   Definition: handle[StepElement_SurfaceSection]) {.
+proc definition*(this: StepElementSurfaceSectionFieldConstant): Handle[
+    StepElementSurfaceSection] {.noSideEffect, importcpp: "Definition", header: "StepElement_SurfaceSectionFieldConstant.hxx".}
+proc setDefinition*(this: var StepElementSurfaceSectionFieldConstant;
+                   definition: Handle[StepElementSurfaceSection]) {.
     importcpp: "SetDefinition",
     header: "StepElement_SurfaceSectionFieldConstant.hxx".}
 type
-  StepElement_SurfaceSectionFieldConstantbase_type* = StepElement_SurfaceSectionField
+  StepElementSurfaceSectionFieldConstantbaseType* = StepElementSurfaceSectionField
 
-proc get_type_name*(): cstring {.importcpp: "StepElement_SurfaceSectionFieldConstant::get_type_name(@)", header: "StepElement_SurfaceSectionFieldConstant.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepElement_SurfaceSectionFieldConstant::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepElement_SurfaceSectionFieldConstant::get_type_name(@)", header: "StepElement_SurfaceSectionFieldConstant.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_SurfaceSectionFieldConstant::get_type_descriptor(@)",
     header: "StepElement_SurfaceSectionFieldConstant.hxx".}
-proc DynamicType*(this: StepElement_SurfaceSectionFieldConstant): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepElement_SurfaceSectionFieldConstant.hxx".}
+proc dynamicType*(this: StepElementSurfaceSectionFieldConstant): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepElement_SurfaceSectionFieldConstant.hxx".}

@@ -13,17 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepFEA_ElementOrElementGroup,
-  ../StepElement/StepElement_ElementAspect, ../Standard/Standard_Transient
-
 discard "forward decl of StepElement_AnalysisItemWithinRepresentation"
 discard "forward decl of StepFEA_ElementOrElementGroup"
 discard "forward decl of StepElement_ElementAspect"
 discard "forward decl of StepFEA_ElementGeometricRelationship"
 discard "forward decl of StepFEA_ElementGeometricRelationship"
 type
-  Handle_StepFEA_ElementGeometricRelationship* = handle[
+  HandleStepFEA_ElementGeometricRelationship* = Handle[
       StepFEA_ElementGeometricRelationship]
 
 ## ! Representation of STEP entity ElementGeometricRelationship
@@ -31,45 +27,46 @@ type
 type
   StepFEA_ElementGeometricRelationship* {.
       importcpp: "StepFEA_ElementGeometricRelationship",
-      header: "StepFEA_ElementGeometricRelationship.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                           ## !
-                                                                                           ## Empty
-                                                                                           ## constructor
+      header: "StepFEA_ElementGeometricRelationship.hxx", bycopy.} = object of StandardTransient ##
+                                                                                          ## !
+                                                                                          ## Empty
+                                                                                          ## constructor
 
 
 proc constructStepFEA_ElementGeometricRelationship*(): StepFEA_ElementGeometricRelationship {.
     constructor, importcpp: "StepFEA_ElementGeometricRelationship(@)",
     header: "StepFEA_ElementGeometricRelationship.hxx".}
-proc Init*(this: var StepFEA_ElementGeometricRelationship;
+proc init*(this: var StepFEA_ElementGeometricRelationship;
           aElementRef: StepFEA_ElementOrElementGroup;
-          aItem: handle[StepElement_AnalysisItemWithinRepresentation];
-          aAspect: StepElement_ElementAspect) {.importcpp: "Init",
+          aItem: Handle[StepElementAnalysisItemWithinRepresentation];
+          aAspect: StepElementElementAspect) {.importcpp: "Init",
     header: "StepFEA_ElementGeometricRelationship.hxx".}
-proc ElementRef*(this: StepFEA_ElementGeometricRelationship): StepFEA_ElementOrElementGroup {.
+proc elementRef*(this: StepFEA_ElementGeometricRelationship): StepFEA_ElementOrElementGroup {.
     noSideEffect, importcpp: "ElementRef",
     header: "StepFEA_ElementGeometricRelationship.hxx".}
-proc SetElementRef*(this: var StepFEA_ElementGeometricRelationship;
-                   ElementRef: StepFEA_ElementOrElementGroup) {.
+proc setElementRef*(this: var StepFEA_ElementGeometricRelationship;
+                   elementRef: StepFEA_ElementOrElementGroup) {.
     importcpp: "SetElementRef", header: "StepFEA_ElementGeometricRelationship.hxx".}
-proc Item*(this: StepFEA_ElementGeometricRelationship): handle[
-    StepElement_AnalysisItemWithinRepresentation] {.noSideEffect,
+proc item*(this: StepFEA_ElementGeometricRelationship): Handle[
+    StepElementAnalysisItemWithinRepresentation] {.noSideEffect,
     importcpp: "Item", header: "StepFEA_ElementGeometricRelationship.hxx".}
-proc SetItem*(this: var StepFEA_ElementGeometricRelationship;
-             Item: handle[StepElement_AnalysisItemWithinRepresentation]) {.
+proc setItem*(this: var StepFEA_ElementGeometricRelationship;
+             item: Handle[StepElementAnalysisItemWithinRepresentation]) {.
     importcpp: "SetItem", header: "StepFEA_ElementGeometricRelationship.hxx".}
-proc Aspect*(this: StepFEA_ElementGeometricRelationship): StepElement_ElementAspect {.
+proc aspect*(this: StepFEA_ElementGeometricRelationship): StepElementElementAspect {.
     noSideEffect, importcpp: "Aspect",
     header: "StepFEA_ElementGeometricRelationship.hxx".}
-proc SetAspect*(this: var StepFEA_ElementGeometricRelationship;
-               Aspect: StepElement_ElementAspect) {.importcpp: "SetAspect",
+proc setAspect*(this: var StepFEA_ElementGeometricRelationship;
+               aspect: StepElementElementAspect) {.importcpp: "SetAspect",
     header: "StepFEA_ElementGeometricRelationship.hxx".}
 type
-  StepFEA_ElementGeometricRelationshipbase_type* = Standard_Transient
+  StepFEA_ElementGeometricRelationshipbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_ElementGeometricRelationship::get_type_name(@)", header: "StepFEA_ElementGeometricRelationship.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_ElementGeometricRelationship::get_type_name(@)",
+                            header: "StepFEA_ElementGeometricRelationship.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_ElementGeometricRelationship::get_type_descriptor(@)",
     header: "StepFEA_ElementGeometricRelationship.hxx".}
-proc DynamicType*(this: StepFEA_ElementGeometricRelationship): handle[Standard_Type] {.
+proc dynamicType*(this: StepFEA_ElementGeometricRelationship): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_ElementGeometricRelationship.hxx".}

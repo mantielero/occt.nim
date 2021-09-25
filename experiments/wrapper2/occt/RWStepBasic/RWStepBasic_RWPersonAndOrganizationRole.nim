@@ -14,29 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_PersonAndOrganizationRole"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepBasic_RWPersonAndOrganizationRole* {.
+  RWStepBasicRWPersonAndOrganizationRole* {.
       importcpp: "RWStepBasic_RWPersonAndOrganizationRole",
       header: "RWStepBasic_RWPersonAndOrganizationRole.hxx", bycopy.} = object
 
 
-proc constructRWStepBasic_RWPersonAndOrganizationRole*(): RWStepBasic_RWPersonAndOrganizationRole {.
+proc constructRWStepBasicRWPersonAndOrganizationRole*(): RWStepBasicRWPersonAndOrganizationRole {.
     constructor, importcpp: "RWStepBasic_RWPersonAndOrganizationRole(@)",
     header: "RWStepBasic_RWPersonAndOrganizationRole.hxx".}
-proc ReadStep*(this: RWStepBasic_RWPersonAndOrganizationRole;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepBasic_PersonAndOrganizationRole]) {.noSideEffect,
+proc readStep*(this: RWStepBasicRWPersonAndOrganizationRole;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepBasicPersonAndOrganizationRole]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWPersonAndOrganizationRole.hxx".}
-proc WriteStep*(this: RWStepBasic_RWPersonAndOrganizationRole;
-               SW: var StepData_StepWriter;
-               ent: handle[StepBasic_PersonAndOrganizationRole]) {.noSideEffect,
+proc writeStep*(this: RWStepBasicRWPersonAndOrganizationRole;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepBasicPersonAndOrganizationRole]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWPersonAndOrganizationRole.hxx".}

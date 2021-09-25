@@ -13,46 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepVisual_AnnotationOccurrence
-
 discard "forward decl of StepVisual_AnnotationFillAreaOccurrence"
 discard "forward decl of StepVisual_AnnotationFillAreaOccurrence"
 type
-  Handle_StepVisual_AnnotationFillAreaOccurrence* = handle[
-      StepVisual_AnnotationFillAreaOccurrence]
-  StepVisual_AnnotationFillAreaOccurrence* {.
+  HandleStepVisualAnnotationFillAreaOccurrence* = Handle[
+      StepVisualAnnotationFillAreaOccurrence]
+  StepVisualAnnotationFillAreaOccurrence* {.
       importcpp: "StepVisual_AnnotationFillAreaOccurrence",
-      header: "StepVisual_AnnotationFillAreaOccurrence.hxx", bycopy.} = object of StepVisual_AnnotationOccurrence ##
-                                                                                                           ## !
-                                                                                                           ## Returns
-                                                                                                           ## a
-                                                                                                           ## AnnotationFillAreaOccurrence
+      header: "StepVisual_AnnotationFillAreaOccurrence.hxx", bycopy.} = object of StepVisualAnnotationOccurrence ##
+                                                                                                          ## !
+                                                                                                          ## Returns
+                                                                                                          ## a
+                                                                                                          ## AnnotationFillAreaOccurrence
 
 
-proc constructStepVisual_AnnotationFillAreaOccurrence*(): StepVisual_AnnotationFillAreaOccurrence {.
+proc constructStepVisualAnnotationFillAreaOccurrence*(): StepVisualAnnotationFillAreaOccurrence {.
     constructor, importcpp: "StepVisual_AnnotationFillAreaOccurrence(@)",
     header: "StepVisual_AnnotationFillAreaOccurrence.hxx".}
-proc Init*(this: var StepVisual_AnnotationFillAreaOccurrence;
-          theName: handle[TCollection_HAsciiString];
-          theStyles: handle[StepVisual_HArray1OfPresentationStyleAssignment];
-          theItem: handle[Standard_Transient];
-          theFillStyleTarget: handle[StepGeom_GeometricRepresentationItem]) {.
+proc init*(this: var StepVisualAnnotationFillAreaOccurrence;
+          theName: Handle[TCollectionHAsciiString];
+          theStyles: Handle[StepVisualHArray1OfPresentationStyleAssignment];
+          theItem: Handle[StandardTransient];
+          theFillStyleTarget: Handle[StepGeomGeometricRepresentationItem]) {.
     importcpp: "Init", header: "StepVisual_AnnotationFillAreaOccurrence.hxx".}
-proc FillStyleTarget*(this: StepVisual_AnnotationFillAreaOccurrence): handle[
-    StepGeom_GeometricRepresentationItem] {.noSideEffect,
+proc fillStyleTarget*(this: StepVisualAnnotationFillAreaOccurrence): Handle[
+    StepGeomGeometricRepresentationItem] {.noSideEffect,
     importcpp: "FillStyleTarget",
     header: "StepVisual_AnnotationFillAreaOccurrence.hxx".}
-proc SetFillStyleTarget*(this: var StepVisual_AnnotationFillAreaOccurrence;
-                        theTarget: handle[StepGeom_GeometricRepresentationItem]) {.
+proc setFillStyleTarget*(this: var StepVisualAnnotationFillAreaOccurrence;
+                        theTarget: Handle[StepGeomGeometricRepresentationItem]) {.
     importcpp: "SetFillStyleTarget",
     header: "StepVisual_AnnotationFillAreaOccurrence.hxx".}
 type
-  StepVisual_AnnotationFillAreaOccurrencebase_type* = StepVisual_AnnotationOccurrence
+  StepVisualAnnotationFillAreaOccurrencebaseType* = StepVisualAnnotationOccurrence
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_AnnotationFillAreaOccurrence::get_type_name(@)", header: "StepVisual_AnnotationFillAreaOccurrence.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_AnnotationFillAreaOccurrence::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepVisual_AnnotationFillAreaOccurrence::get_type_name(@)", header: "StepVisual_AnnotationFillAreaOccurrence.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_AnnotationFillAreaOccurrence::get_type_descriptor(@)",
     header: "StepVisual_AnnotationFillAreaOccurrence.hxx".}
-proc DynamicType*(this: StepVisual_AnnotationFillAreaOccurrence): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepVisual_AnnotationFillAreaOccurrence.hxx".}
+proc dynamicType*(this: StepVisualAnnotationFillAreaOccurrence): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepVisual_AnnotationFillAreaOccurrence.hxx".}

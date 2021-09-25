@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  LDOM_Node
-
 discard "forward decl of LDOM_BasicNode"
 discard "forward decl of LDOM_BasicNodeSequence"
 type
@@ -28,9 +25,9 @@ proc constructLDOM_NodeList*(theOther: LDOM_NodeList): LDOM_NodeList {.construct
     importcpp: "LDOM_NodeList(@)", header: "LDOM_NodeList.hxx".}
 proc destroyLDOM_NodeList*(this: var LDOM_NodeList) {.
     importcpp: "#.~LDOM_NodeList()", header: "LDOM_NodeList.hxx".}
-proc `==`*(this: LDOM_NodeList; a2: ptr LDOM_NullPtr): Standard_Boolean {.noSideEffect,
+proc `==`*(this: LDOM_NodeList; a2: ptr LDOM_NullPtr): bool {.noSideEffect,
     importcpp: "(# == #)", header: "LDOM_NodeList.hxx".}
-proc item*(this: LDOM_NodeList; a2: Standard_Integer): LDOM_Node {.noSideEffect,
-    importcpp: "item", header: "LDOM_NodeList.hxx".}
-proc getLength*(this: LDOM_NodeList): Standard_Integer {.noSideEffect,
-    importcpp: "getLength", header: "LDOM_NodeList.hxx".}
+proc item*(this: LDOM_NodeList; a2: int): LDOM_Node {.noSideEffect, importcpp: "item",
+    header: "LDOM_NodeList.hxx".}
+proc getLength*(this: LDOM_NodeList): int {.noSideEffect, importcpp: "getLength",
+                                        header: "LDOM_NodeList.hxx".}

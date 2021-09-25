@@ -13,13 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepFEA_NodeRepresentation
-
 discard "forward decl of StepFEA_Node"
 discard "forward decl of StepFEA_Node"
 type
-  Handle_StepFEA_Node* = handle[StepFEA_Node]
+  HandleStepFEA_Node* = Handle[StepFEA_Node]
 
 ## ! Representation of STEP entity Node
 
@@ -33,11 +30,11 @@ type
 proc constructStepFEA_Node*(): StepFEA_Node {.constructor,
     importcpp: "StepFEA_Node(@)", header: "StepFEA_Node.hxx".}
 type
-  StepFEA_Nodebase_type* = StepFEA_NodeRepresentation
+  StepFEA_NodebaseType* = StepFEA_NodeRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_Node::get_type_name(@)",
-                              header: "StepFEA_Node.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_Node::get_type_name(@)",
+                            header: "StepFEA_Node.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_Node::get_type_descriptor(@)", header: "StepFEA_Node.hxx".}
-proc DynamicType*(this: StepFEA_Node): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepFEA_Node): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepFEA_Node.hxx".}

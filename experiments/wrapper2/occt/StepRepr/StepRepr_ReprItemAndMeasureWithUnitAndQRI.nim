@@ -13,48 +13,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepRepr_ReprItemAndMeasureWithUnit
-
 discard "forward decl of StepShape_QualifiedRepresentationItem"
 discard "forward decl of StepRepr_ReprItemAndMeasureWithUnitAndQRI"
 discard "forward decl of StepRepr_ReprItemAndMeasureWithUnitAndQRI"
 type
-  Handle_StepRepr_ReprItemAndMeasureWithUnitAndQRI* = handle[
-      StepRepr_ReprItemAndMeasureWithUnitAndQRI]
+  HandleStepReprReprItemAndMeasureWithUnitAndQRI* = Handle[
+      StepReprReprItemAndMeasureWithUnitAndQRI]
 
 ## ! Base class for complex types (MEASURE_REPRESENTATION_ITEM, MEASURE_WITH_UNIT, QUALIFIED_REPRESENTATION_ITEM
 ## ! REPRESENTATION_ITEM, LENGTH_MEASURE_WITH_UNIT/PLANE_ANGLE_MEASURE_WITH_UNIT).
 
 type
-  StepRepr_ReprItemAndMeasureWithUnitAndQRI* {.
+  StepReprReprItemAndMeasureWithUnitAndQRI* {.
       importcpp: "StepRepr_ReprItemAndMeasureWithUnitAndQRI",
-      header: "StepRepr_ReprItemAndMeasureWithUnitAndQRI.hxx", bycopy.} = object of StepRepr_ReprItemAndMeasureWithUnit
+      header: "StepRepr_ReprItemAndMeasureWithUnitAndQRI.hxx", bycopy.} = object of StepReprReprItemAndMeasureWithUnit
 
 
-proc constructStepRepr_ReprItemAndMeasureWithUnitAndQRI*(): StepRepr_ReprItemAndMeasureWithUnitAndQRI {.
+proc constructStepReprReprItemAndMeasureWithUnitAndQRI*(): StepReprReprItemAndMeasureWithUnitAndQRI {.
     constructor, importcpp: "StepRepr_ReprItemAndMeasureWithUnitAndQRI(@)",
     header: "StepRepr_ReprItemAndMeasureWithUnitAndQRI.hxx".}
-proc Init*(this: var StepRepr_ReprItemAndMeasureWithUnitAndQRI;
-          aMWU: handle[StepBasic_MeasureWithUnit];
-          aRI: handle[StepRepr_RepresentationItem];
-          aQRI: handle[StepShape_QualifiedRepresentationItem]) {.
-    importcpp: "Init", header: "StepRepr_ReprItemAndMeasureWithUnitAndQRI.hxx".}
-proc SetQualifiedRepresentationItem*(this: var StepRepr_ReprItemAndMeasureWithUnitAndQRI;
-    aQRI: handle[StepShape_QualifiedRepresentationItem]) {.
+proc init*(this: var StepReprReprItemAndMeasureWithUnitAndQRI;
+          aMWU: Handle[StepBasicMeasureWithUnit];
+          aRI: Handle[StepReprRepresentationItem];
+          aQRI: Handle[StepShapeQualifiedRepresentationItem]) {.importcpp: "Init",
+    header: "StepRepr_ReprItemAndMeasureWithUnitAndQRI.hxx".}
+proc setQualifiedRepresentationItem*(this: var StepReprReprItemAndMeasureWithUnitAndQRI;
+    aQRI: Handle[StepShapeQualifiedRepresentationItem]) {.
     importcpp: "SetQualifiedRepresentationItem",
     header: "StepRepr_ReprItemAndMeasureWithUnitAndQRI.hxx".}
-proc GetQualifiedRepresentationItem*(this: StepRepr_ReprItemAndMeasureWithUnitAndQRI): handle[
-    StepShape_QualifiedRepresentationItem] {.noSideEffect,
+proc getQualifiedRepresentationItem*(this: StepReprReprItemAndMeasureWithUnitAndQRI): Handle[
+    StepShapeQualifiedRepresentationItem] {.noSideEffect,
     importcpp: "GetQualifiedRepresentationItem",
     header: "StepRepr_ReprItemAndMeasureWithUnitAndQRI.hxx".}
 type
-  StepRepr_ReprItemAndMeasureWithUnitAndQRIbase_type* = StepRepr_ReprItemAndMeasureWithUnit
+  StepReprReprItemAndMeasureWithUnitAndQRIbaseType* = StepReprReprItemAndMeasureWithUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_ReprItemAndMeasureWithUnitAndQRI::get_type_name(@)", header: "StepRepr_ReprItemAndMeasureWithUnitAndQRI.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepRepr_ReprItemAndMeasureWithUnitAndQRI::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepRepr_ReprItemAndMeasureWithUnitAndQRI::get_type_name(@)", header: "StepRepr_ReprItemAndMeasureWithUnitAndQRI.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_ReprItemAndMeasureWithUnitAndQRI::get_type_descriptor(@)",
     header: "StepRepr_ReprItemAndMeasureWithUnitAndQRI.hxx".}
-proc DynamicType*(this: StepRepr_ReprItemAndMeasureWithUnitAndQRI): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepRepr_ReprItemAndMeasureWithUnitAndQRI.hxx".}
+proc dynamicType*(this: StepReprReprItemAndMeasureWithUnitAndQRI): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepRepr_ReprItemAndMeasureWithUnitAndQRI.hxx".}

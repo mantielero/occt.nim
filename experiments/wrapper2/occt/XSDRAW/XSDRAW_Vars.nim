@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../XSControl/XSControl_Vars,
-  ../Standard/Standard_CString, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom2d_Curve"
@@ -29,45 +25,44 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of XSDRAW_Vars"
 discard "forward decl of XSDRAW_Vars"
 type
-  Handle_XSDRAW_Vars* = handle[XSDRAW_Vars]
+  HandleXSDRAW_Vars* = Handle[XSDRAW_Vars]
 
 ## ! Vars for DRAW session (i.e. DBRep and DrawTrSurf)
 
 type
-  XSDRAW_Vars* {.importcpp: "XSDRAW_Vars", header: "XSDRAW_Vars.hxx", bycopy.} = object of XSControl_Vars
+  XSDRAW_Vars* {.importcpp: "XSDRAW_Vars", header: "XSDRAW_Vars.hxx", bycopy.} = object of XSControlVars
 
 
 proc constructXSDRAW_Vars*(): XSDRAW_Vars {.constructor,
     importcpp: "XSDRAW_Vars(@)", header: "XSDRAW_Vars.hxx".}
-proc Set*(this: var XSDRAW_Vars; name: Standard_CString;
-         val: handle[Standard_Transient]) {.importcpp: "Set",
-    header: "XSDRAW_Vars.hxx".}
-proc GetGeom*(this: XSDRAW_Vars; name: var Standard_CString): handle[Geom_Geometry] {.
+proc set*(this: var XSDRAW_Vars; name: StandardCString; val: Handle[StandardTransient]) {.
+    importcpp: "Set", header: "XSDRAW_Vars.hxx".}
+proc getGeom*(this: XSDRAW_Vars; name: var StandardCString): Handle[GeomGeometry] {.
     noSideEffect, importcpp: "GetGeom", header: "XSDRAW_Vars.hxx".}
-proc GetCurve2d*(this: XSDRAW_Vars; name: var Standard_CString): handle[Geom2d_Curve] {.
+proc getCurve2d*(this: XSDRAW_Vars; name: var StandardCString): Handle[Geom2dCurve] {.
     noSideEffect, importcpp: "GetCurve2d", header: "XSDRAW_Vars.hxx".}
-proc GetCurve*(this: XSDRAW_Vars; name: var Standard_CString): handle[Geom_Curve] {.
+proc getCurve*(this: XSDRAW_Vars; name: var StandardCString): Handle[GeomCurve] {.
     noSideEffect, importcpp: "GetCurve", header: "XSDRAW_Vars.hxx".}
-proc GetSurface*(this: XSDRAW_Vars; name: var Standard_CString): handle[Geom_Surface] {.
+proc getSurface*(this: XSDRAW_Vars; name: var StandardCString): Handle[GeomSurface] {.
     noSideEffect, importcpp: "GetSurface", header: "XSDRAW_Vars.hxx".}
-proc SetPoint*(this: var XSDRAW_Vars; name: Standard_CString; val: gp_Pnt) {.
+proc setPoint*(this: var XSDRAW_Vars; name: StandardCString; val: Pnt) {.
     importcpp: "SetPoint", header: "XSDRAW_Vars.hxx".}
-proc SetPoint2d*(this: var XSDRAW_Vars; name: Standard_CString; val: gp_Pnt2d) {.
+proc setPoint2d*(this: var XSDRAW_Vars; name: StandardCString; val: Pnt2d) {.
     importcpp: "SetPoint2d", header: "XSDRAW_Vars.hxx".}
-proc GetPoint*(this: XSDRAW_Vars; name: var Standard_CString; pnt: var gp_Pnt): Standard_Boolean {.
+proc getPoint*(this: XSDRAW_Vars; name: var StandardCString; pnt: var Pnt): bool {.
     noSideEffect, importcpp: "GetPoint", header: "XSDRAW_Vars.hxx".}
-proc GetPoint2d*(this: XSDRAW_Vars; name: var Standard_CString; pnt: var gp_Pnt2d): Standard_Boolean {.
+proc getPoint2d*(this: XSDRAW_Vars; name: var StandardCString; pnt: var Pnt2d): bool {.
     noSideEffect, importcpp: "GetPoint2d", header: "XSDRAW_Vars.hxx".}
-proc SetShape*(this: var XSDRAW_Vars; name: Standard_CString; val: TopoDS_Shape) {.
+proc setShape*(this: var XSDRAW_Vars; name: StandardCString; val: TopoDS_Shape) {.
     importcpp: "SetShape", header: "XSDRAW_Vars.hxx".}
-proc GetShape*(this: XSDRAW_Vars; name: var Standard_CString): TopoDS_Shape {.
+proc getShape*(this: XSDRAW_Vars; name: var StandardCString): TopoDS_Shape {.
     noSideEffect, importcpp: "GetShape", header: "XSDRAW_Vars.hxx".}
 type
-  XSDRAW_Varsbase_type* = XSControl_Vars
+  XSDRAW_VarsbaseType* = XSControlVars
 
-proc get_type_name*(): cstring {.importcpp: "XSDRAW_Vars::get_type_name(@)",
-                              header: "XSDRAW_Vars.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XSDRAW_Vars::get_type_name(@)",
+                            header: "XSDRAW_Vars.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XSDRAW_Vars::get_type_descriptor(@)", header: "XSDRAW_Vars.hxx".}
-proc DynamicType*(this: XSDRAW_Vars): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: XSDRAW_Vars): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XSDRAW_Vars.hxx".}

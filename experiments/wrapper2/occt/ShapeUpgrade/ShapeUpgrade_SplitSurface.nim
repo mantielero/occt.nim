@@ -14,72 +14,63 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_HSequenceOfReal, ../Standard/Standard_Integer,
-  ../Standard/Standard_Transient, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../ShapeExtend/ShapeExtend_Status
-
 discard "forward decl of Geom_Surface"
 discard "forward decl of ShapeExtend_CompositeSurface"
-when defined(Status):
-  discard
+# when defined(Status):
+#   discard
 discard "forward decl of ShapeUpgrade_SplitSurface"
 discard "forward decl of ShapeUpgrade_SplitSurface"
 type
-  Handle_ShapeUpgrade_SplitSurface* = handle[ShapeUpgrade_SplitSurface]
+  HandleShapeUpgradeSplitSurface* = Handle[ShapeUpgradeSplitSurface]
 
 ## ! Splits a Surface with a criterion.
 
 type
-  ShapeUpgrade_SplitSurface* {.importcpp: "ShapeUpgrade_SplitSurface",
-                              header: "ShapeUpgrade_SplitSurface.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                        ## !
-                                                                                                        ## Empty
-                                                                                                        ## constructor.
+  ShapeUpgradeSplitSurface* {.importcpp: "ShapeUpgrade_SplitSurface",
+                             header: "ShapeUpgrade_SplitSurface.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                      ## !
+                                                                                                      ## Empty
+                                                                                                      ## constructor.
 
 
-proc constructShapeUpgrade_SplitSurface*(): ShapeUpgrade_SplitSurface {.
-    constructor, importcpp: "ShapeUpgrade_SplitSurface(@)",
+proc constructShapeUpgradeSplitSurface*(): ShapeUpgradeSplitSurface {.constructor,
+    importcpp: "ShapeUpgrade_SplitSurface(@)",
     header: "ShapeUpgrade_SplitSurface.hxx".}
-proc Init*(this: var ShapeUpgrade_SplitSurface; S: handle[Geom_Surface]) {.
+proc init*(this: var ShapeUpgradeSplitSurface; s: Handle[GeomSurface]) {.
     importcpp: "Init", header: "ShapeUpgrade_SplitSurface.hxx".}
-proc Init*(this: var ShapeUpgrade_SplitSurface; S: handle[Geom_Surface];
-          UFirst: Standard_Real; ULast: Standard_Real; VFirst: Standard_Real;
-          VLast: Standard_Real) {.importcpp: "Init",
-                                header: "ShapeUpgrade_SplitSurface.hxx".}
-proc SetUSplitValues*(this: var ShapeUpgrade_SplitSurface;
-                     UValues: handle[TColStd_HSequenceOfReal]) {.
+proc init*(this: var ShapeUpgradeSplitSurface; s: Handle[GeomSurface]; uFirst: float;
+          uLast: float; vFirst: float; vLast: float) {.importcpp: "Init",
+    header: "ShapeUpgrade_SplitSurface.hxx".}
+proc setUSplitValues*(this: var ShapeUpgradeSplitSurface;
+                     uValues: Handle[TColStdHSequenceOfReal]) {.
     importcpp: "SetUSplitValues", header: "ShapeUpgrade_SplitSurface.hxx".}
-proc SetVSplitValues*(this: var ShapeUpgrade_SplitSurface;
-                     VValues: handle[TColStd_HSequenceOfReal]) {.
+proc setVSplitValues*(this: var ShapeUpgradeSplitSurface;
+                     vValues: Handle[TColStdHSequenceOfReal]) {.
     importcpp: "SetVSplitValues", header: "ShapeUpgrade_SplitSurface.hxx".}
-proc Build*(this: var ShapeUpgrade_SplitSurface; Segment: Standard_Boolean) {.
-    importcpp: "Build", header: "ShapeUpgrade_SplitSurface.hxx".}
-proc Compute*(this: var ShapeUpgrade_SplitSurface;
-             Segment: Standard_Boolean = Standard_True) {.importcpp: "Compute",
+proc build*(this: var ShapeUpgradeSplitSurface; segment: bool) {.importcpp: "Build",
     header: "ShapeUpgrade_SplitSurface.hxx".}
-proc Perform*(this: var ShapeUpgrade_SplitSurface;
-             Segment: Standard_Boolean = Standard_True) {.importcpp: "Perform",
-    header: "ShapeUpgrade_SplitSurface.hxx".}
-proc USplitValues*(this: ShapeUpgrade_SplitSurface): handle[TColStd_HSequenceOfReal] {.
+proc compute*(this: var ShapeUpgradeSplitSurface; segment: bool = true) {.
+    importcpp: "Compute", header: "ShapeUpgrade_SplitSurface.hxx".}
+proc perform*(this: var ShapeUpgradeSplitSurface; segment: bool = true) {.
+    importcpp: "Perform", header: "ShapeUpgrade_SplitSurface.hxx".}
+proc uSplitValues*(this: ShapeUpgradeSplitSurface): Handle[TColStdHSequenceOfReal] {.
     noSideEffect, importcpp: "USplitValues",
     header: "ShapeUpgrade_SplitSurface.hxx".}
-proc VSplitValues*(this: ShapeUpgrade_SplitSurface): handle[TColStd_HSequenceOfReal] {.
+proc vSplitValues*(this: ShapeUpgradeSplitSurface): Handle[TColStdHSequenceOfReal] {.
     noSideEffect, importcpp: "VSplitValues",
     header: "ShapeUpgrade_SplitSurface.hxx".}
-proc Status*(this: ShapeUpgrade_SplitSurface; status: ShapeExtend_Status): Standard_Boolean {.
+proc status*(this: ShapeUpgradeSplitSurface; status: ShapeExtendStatus): bool {.
     noSideEffect, importcpp: "Status", header: "ShapeUpgrade_SplitSurface.hxx".}
-proc ResSurfaces*(this: ShapeUpgrade_SplitSurface): handle[
-    ShapeExtend_CompositeSurface] {.noSideEffect, importcpp: "ResSurfaces",
-                                   header: "ShapeUpgrade_SplitSurface.hxx".}
+proc resSurfaces*(this: ShapeUpgradeSplitSurface): Handle[
+    ShapeExtendCompositeSurface] {.noSideEffect, importcpp: "ResSurfaces",
+                                  header: "ShapeUpgrade_SplitSurface.hxx".}
 type
-  ShapeUpgrade_SplitSurfacebase_type* = Standard_Transient
+  ShapeUpgradeSplitSurfacebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "ShapeUpgrade_SplitSurface::get_type_name(@)",
-                              header: "ShapeUpgrade_SplitSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeUpgrade_SplitSurface::get_type_name(@)",
+                            header: "ShapeUpgrade_SplitSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeUpgrade_SplitSurface::get_type_descriptor(@)",
     header: "ShapeUpgrade_SplitSurface.hxx".}
-proc DynamicType*(this: ShapeUpgrade_SplitSurface): handle[Standard_Type] {.
+proc dynamicType*(this: ShapeUpgradeSplitSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "ShapeUpgrade_SplitSurface.hxx".}

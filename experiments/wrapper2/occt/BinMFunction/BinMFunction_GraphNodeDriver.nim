@@ -13,49 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../BinMDF/BinMDF_ADriver,
-  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
-  ../BinObjMgt/BinObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMFunction_GraphNodeDriver"
 discard "forward decl of BinMFunction_GraphNodeDriver"
 type
-  Handle_BinMFunction_GraphNodeDriver* = handle[BinMFunction_GraphNodeDriver]
+  HandleBinMFunctionGraphNodeDriver* = Handle[BinMFunctionGraphNodeDriver]
 
 ## ! GraphNode attribute Driver.
 
 type
-  BinMFunction_GraphNodeDriver* {.importcpp: "BinMFunction_GraphNodeDriver",
-                                 header: "BinMFunction_GraphNodeDriver.hxx",
-                                 bycopy.} = object of BinMDF_ADriver
+  BinMFunctionGraphNodeDriver* {.importcpp: "BinMFunction_GraphNodeDriver",
+                                header: "BinMFunction_GraphNodeDriver.hxx", bycopy.} = object of BinMDF_ADriver
 
 
-proc constructBinMFunction_GraphNodeDriver*(
-    theMessageDriver: handle[Message_Messenger]): BinMFunction_GraphNodeDriver {.
+proc constructBinMFunctionGraphNodeDriver*(
+    theMessageDriver: Handle[MessageMessenger]): BinMFunctionGraphNodeDriver {.
     constructor, importcpp: "BinMFunction_GraphNodeDriver(@)",
     header: "BinMFunction_GraphNodeDriver.hxx".}
-proc NewEmpty*(this: BinMFunction_GraphNodeDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: BinMFunctionGraphNodeDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty", header: "BinMFunction_GraphNodeDriver.hxx".}
-proc Paste*(this: BinMFunction_GraphNodeDriver; Source: BinObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "BinMFunction_GraphNodeDriver.hxx".}
-proc Paste*(this: BinMFunction_GraphNodeDriver; Source: handle[TDF_Attribute];
-           Target: var BinObjMgt_Persistent;
-           RelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: BinMFunctionGraphNodeDriver; source: BinObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var BinObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "BinMFunction_GraphNodeDriver.hxx".}
+proc paste*(this: BinMFunctionGraphNodeDriver; source: Handle[TDF_Attribute];
+           target: var BinObjMgtPersistent;
+           relocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMFunction_GraphNodeDriver.hxx".}
 type
-  BinMFunction_GraphNodeDriverbase_type* = BinMDF_ADriver
+  BinMFunctionGraphNodeDriverbaseType* = BinMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "BinMFunction_GraphNodeDriver::get_type_name(@)",
-                              header: "BinMFunction_GraphNodeDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BinMFunction_GraphNodeDriver::get_type_name(@)",
+                            header: "BinMFunction_GraphNodeDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BinMFunction_GraphNodeDriver::get_type_descriptor(@)",
     header: "BinMFunction_GraphNodeDriver.hxx".}
-proc DynamicType*(this: BinMFunction_GraphNodeDriver): handle[Standard_Type] {.
+proc dynamicType*(this: BinMFunctionGraphNodeDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMFunction_GraphNodeDriver.hxx".}

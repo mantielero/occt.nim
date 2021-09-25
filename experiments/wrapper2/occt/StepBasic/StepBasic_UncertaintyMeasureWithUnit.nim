@@ -14,52 +14,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_MeasureWithUnit
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_MeasureValueMember"
 discard "forward decl of StepBasic_Unit"
 discard "forward decl of StepBasic_UncertaintyMeasureWithUnit"
 discard "forward decl of StepBasic_UncertaintyMeasureWithUnit"
 type
-  Handle_StepBasic_UncertaintyMeasureWithUnit* = handle[
-      StepBasic_UncertaintyMeasureWithUnit]
-  StepBasic_UncertaintyMeasureWithUnit* {.
-      importcpp: "StepBasic_UncertaintyMeasureWithUnit",
-      header: "StepBasic_UncertaintyMeasureWithUnit.hxx", bycopy.} = object of StepBasic_MeasureWithUnit ##
-                                                                                                  ## !
-                                                                                                  ## Returns
-                                                                                                  ## a
-                                                                                                  ## UncertaintyMeasureWithUnit
+  HandleStepBasicUncertaintyMeasureWithUnit* = Handle[
+      StepBasicUncertaintyMeasureWithUnit]
+  StepBasicUncertaintyMeasureWithUnit* {.importcpp: "StepBasic_UncertaintyMeasureWithUnit", header: "StepBasic_UncertaintyMeasureWithUnit.hxx",
+                                        bycopy.} = object of StepBasicMeasureWithUnit ##
+                                                                                 ## !
+                                                                                 ## Returns
+                                                                                 ## a
+                                                                                 ## UncertaintyMeasureWithUnit
 
 
-proc constructStepBasic_UncertaintyMeasureWithUnit*(): StepBasic_UncertaintyMeasureWithUnit {.
+proc constructStepBasicUncertaintyMeasureWithUnit*(): StepBasicUncertaintyMeasureWithUnit {.
     constructor, importcpp: "StepBasic_UncertaintyMeasureWithUnit(@)",
     header: "StepBasic_UncertaintyMeasureWithUnit.hxx".}
-proc Init*(this: var StepBasic_UncertaintyMeasureWithUnit;
-          aValueComponent: handle[StepBasic_MeasureValueMember];
-          aUnitComponent: StepBasic_Unit; aName: handle[TCollection_HAsciiString];
-          aDescription: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepBasicUncertaintyMeasureWithUnit;
+          aValueComponent: Handle[StepBasicMeasureValueMember];
+          aUnitComponent: StepBasicUnit; aName: Handle[TCollectionHAsciiString];
+          aDescription: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepBasic_UncertaintyMeasureWithUnit.hxx".}
-proc SetName*(this: var StepBasic_UncertaintyMeasureWithUnit;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepBasicUncertaintyMeasureWithUnit;
+             aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepBasic_UncertaintyMeasureWithUnit.hxx".}
-proc Name*(this: StepBasic_UncertaintyMeasureWithUnit): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Name", header: "StepBasic_UncertaintyMeasureWithUnit.hxx".}
-proc SetDescription*(this: var StepBasic_UncertaintyMeasureWithUnit;
-                    aDescription: handle[TCollection_HAsciiString]) {.
+proc name*(this: StepBasicUncertaintyMeasureWithUnit): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Name", header: "StepBasic_UncertaintyMeasureWithUnit.hxx".}
+proc setDescription*(this: var StepBasicUncertaintyMeasureWithUnit;
+                    aDescription: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription",
     header: "StepBasic_UncertaintyMeasureWithUnit.hxx".}
-proc Description*(this: StepBasic_UncertaintyMeasureWithUnit): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description", header: "StepBasic_UncertaintyMeasureWithUnit.hxx".}
+proc description*(this: StepBasicUncertaintyMeasureWithUnit): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Description", header: "StepBasic_UncertaintyMeasureWithUnit.hxx".}
 type
-  StepBasic_UncertaintyMeasureWithUnitbase_type* = StepBasic_MeasureWithUnit
+  StepBasicUncertaintyMeasureWithUnitbaseType* = StepBasicMeasureWithUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_UncertaintyMeasureWithUnit::get_type_name(@)", header: "StepBasic_UncertaintyMeasureWithUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_UncertaintyMeasureWithUnit::get_type_name(@)",
+                            header: "StepBasic_UncertaintyMeasureWithUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_UncertaintyMeasureWithUnit::get_type_descriptor(@)",
     header: "StepBasic_UncertaintyMeasureWithUnit.hxx".}
-proc DynamicType*(this: StepBasic_UncertaintyMeasureWithUnit): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicUncertaintyMeasureWithUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_UncertaintyMeasureWithUnit.hxx".}

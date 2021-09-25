@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, IntAna_ResultType, ../gp/gp_Pnt, ../gp/gp_Dir,
-  ../Standard/Standard_Real
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_OutOfRange"
@@ -35,129 +29,107 @@ discard "forward decl of gp_Elips"
 discard "forward decl of gp_Parab"
 discard "forward decl of gp_Hypr"
 type
-  IntAna_QuadQuadGeo* {.importcpp: "IntAna_QuadQuadGeo",
-                       header: "IntAna_QuadQuadGeo.hxx", bycopy.} = object ## ! Empty
-                                                                      ## constructor.
-                                                                      ## ! Initialize the values of inner
-                                                                      ## tolerances.
+  IntAnaQuadQuadGeo* {.importcpp: "IntAna_QuadQuadGeo",
+                      header: "IntAna_QuadQuadGeo.hxx", bycopy.} = object ## ! Empty
+                                                                     ## constructor.
+                                                                     ## ! Initialize the values of inner tolerances.
 
 
-proc constructIntAna_QuadQuadGeo*(): IntAna_QuadQuadGeo {.constructor,
+proc constructIntAnaQuadQuadGeo*(): IntAnaQuadQuadGeo {.constructor,
     importcpp: "IntAna_QuadQuadGeo(@)", header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAna_QuadQuadGeo*(P1: gp_Pln; P2: gp_Pln; TolAng: Standard_Real;
-                                 Tol: Standard_Real): IntAna_QuadQuadGeo {.
+proc constructIntAnaQuadQuadGeo*(p1: Pln; p2: Pln; tolAng: float; tol: float): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc Perform*(this: var IntAna_QuadQuadGeo; P1: gp_Pln; P2: gp_Pln;
-             TolAng: Standard_Real; Tol: Standard_Real) {.importcpp: "Perform",
-    header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAna_QuadQuadGeo*(P: gp_Pln; C: gp_Cylinder; Tolang: Standard_Real;
-                                 Tol: Standard_Real; H: Standard_Real = 0): IntAna_QuadQuadGeo {.
-    constructor, importcpp: "IntAna_QuadQuadGeo(@)",
-    header: "IntAna_QuadQuadGeo.hxx".}
-proc Perform*(this: var IntAna_QuadQuadGeo; P: gp_Pln; C: gp_Cylinder;
-             Tolang: Standard_Real; Tol: Standard_Real; H: Standard_Real = 0) {.
+proc perform*(this: var IntAnaQuadQuadGeo; p1: Pln; p2: Pln; tolAng: float; tol: float) {.
     importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAna_QuadQuadGeo*(P: gp_Pln; S: gp_Sphere): IntAna_QuadQuadGeo {.
+proc constructIntAnaQuadQuadGeo*(p: Pln; c: Cylinder; tolang: float; tol: float;
+                                h: float = 0): IntAnaQuadQuadGeo {.constructor,
+    importcpp: "IntAna_QuadQuadGeo(@)", header: "IntAna_QuadQuadGeo.hxx".}
+proc perform*(this: var IntAnaQuadQuadGeo; p: Pln; c: Cylinder; tolang: float; tol: float;
+             h: float = 0) {.importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
+proc constructIntAnaQuadQuadGeo*(p: Pln; s: Sphere): IntAnaQuadQuadGeo {.constructor,
+    importcpp: "IntAna_QuadQuadGeo(@)", header: "IntAna_QuadQuadGeo.hxx".}
+proc perform*(this: var IntAnaQuadQuadGeo; p: Pln; s: Sphere) {.importcpp: "Perform",
+    header: "IntAna_QuadQuadGeo.hxx".}
+proc constructIntAnaQuadQuadGeo*(p: Pln; c: Cone; tolang: float; tol: float): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc Perform*(this: var IntAna_QuadQuadGeo; P: gp_Pln; S: gp_Sphere) {.
+proc perform*(this: var IntAnaQuadQuadGeo; p: Pln; c: Cone; tolang: float; tol: float) {.
     importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAna_QuadQuadGeo*(P: gp_Pln; C: gp_Cone; Tolang: Standard_Real;
-                                 Tol: Standard_Real): IntAna_QuadQuadGeo {.
+proc constructIntAnaQuadQuadGeo*(cyl1: Cylinder; cyl2: Cylinder; tol: float): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc Perform*(this: var IntAna_QuadQuadGeo; P: gp_Pln; C: gp_Cone;
-             Tolang: Standard_Real; Tol: Standard_Real) {.importcpp: "Perform",
-    header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAna_QuadQuadGeo*(Cyl1: gp_Cylinder; Cyl2: gp_Cylinder;
-                                 Tol: Standard_Real): IntAna_QuadQuadGeo {.
+proc perform*(this: var IntAnaQuadQuadGeo; cyl1: Cylinder; cyl2: Cylinder; tol: float) {.
+    importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
+proc constructIntAnaQuadQuadGeo*(cyl: Cylinder; sph: Sphere; tol: float): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc Perform*(this: var IntAna_QuadQuadGeo; Cyl1: gp_Cylinder; Cyl2: gp_Cylinder;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAna_QuadQuadGeo*(Cyl: gp_Cylinder; Sph: gp_Sphere;
-                                 Tol: Standard_Real): IntAna_QuadQuadGeo {.
+proc perform*(this: var IntAnaQuadQuadGeo; cyl: Cylinder; sph: Sphere; tol: float) {.
+    importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
+proc constructIntAnaQuadQuadGeo*(cyl: Cylinder; con: Cone; tol: float): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc Perform*(this: var IntAna_QuadQuadGeo; Cyl: gp_Cylinder; Sph: gp_Sphere;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAna_QuadQuadGeo*(Cyl: gp_Cylinder; Con: gp_Cone; Tol: Standard_Real): IntAna_QuadQuadGeo {.
+proc perform*(this: var IntAnaQuadQuadGeo; cyl: Cylinder; con: Cone; tol: float) {.
+    importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
+proc constructIntAnaQuadQuadGeo*(sph1: Sphere; sph2: Sphere; tol: float): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc Perform*(this: var IntAna_QuadQuadGeo; Cyl: gp_Cylinder; Con: gp_Cone;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAna_QuadQuadGeo*(Sph1: gp_Sphere; Sph2: gp_Sphere;
-                                 Tol: Standard_Real): IntAna_QuadQuadGeo {.
+proc perform*(this: var IntAnaQuadQuadGeo; sph1: Sphere; sph2: Sphere; tol: float) {.
+    importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
+proc constructIntAnaQuadQuadGeo*(sph: Sphere; con: Cone; tol: float): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc Perform*(this: var IntAna_QuadQuadGeo; Sph1: gp_Sphere; Sph2: gp_Sphere;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAna_QuadQuadGeo*(Sph: gp_Sphere; Con: gp_Cone; Tol: Standard_Real): IntAna_QuadQuadGeo {.
+proc perform*(this: var IntAnaQuadQuadGeo; sph: Sphere; con: Cone; tol: float) {.
+    importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
+proc constructIntAnaQuadQuadGeo*(con1: Cone; con2: Cone; tol: float): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc Perform*(this: var IntAna_QuadQuadGeo; Sph: gp_Sphere; Con: gp_Cone;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAna_QuadQuadGeo*(Con1: gp_Cone; Con2: gp_Cone; Tol: Standard_Real): IntAna_QuadQuadGeo {.
+proc perform*(this: var IntAnaQuadQuadGeo; con1: Cone; con2: Cone; tol: float) {.
+    importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
+proc constructIntAnaQuadQuadGeo*(pln: Pln; tor: Torus; tol: float): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc Perform*(this: var IntAna_QuadQuadGeo; Con1: gp_Cone; Con2: gp_Cone;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAna_QuadQuadGeo*(Pln: gp_Pln; Tor: gp_Torus; Tol: Standard_Real): IntAna_QuadQuadGeo {.
+proc perform*(this: var IntAnaQuadQuadGeo; pln: Pln; tor: Torus; tol: float) {.
+    importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
+proc constructIntAnaQuadQuadGeo*(cyl: Cylinder; tor: Torus; tol: float): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc Perform*(this: var IntAna_QuadQuadGeo; Pln: gp_Pln; Tor: gp_Torus;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAna_QuadQuadGeo*(Cyl: gp_Cylinder; Tor: gp_Torus; Tol: Standard_Real): IntAna_QuadQuadGeo {.
+proc perform*(this: var IntAnaQuadQuadGeo; cyl: Cylinder; tor: Torus; tol: float) {.
+    importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
+proc constructIntAnaQuadQuadGeo*(con: Cone; tor: Torus; tol: float): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc Perform*(this: var IntAna_QuadQuadGeo; Cyl: gp_Cylinder; Tor: gp_Torus;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAna_QuadQuadGeo*(Con: gp_Cone; Tor: gp_Torus; Tol: Standard_Real): IntAna_QuadQuadGeo {.
+proc perform*(this: var IntAnaQuadQuadGeo; con: Cone; tor: Torus; tol: float) {.
+    importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
+proc constructIntAnaQuadQuadGeo*(sph: Sphere; tor: Torus; tol: float): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc Perform*(this: var IntAna_QuadQuadGeo; Con: gp_Cone; Tor: gp_Torus;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAna_QuadQuadGeo*(Sph: gp_Sphere; Tor: gp_Torus; Tol: Standard_Real): IntAna_QuadQuadGeo {.
+proc perform*(this: var IntAnaQuadQuadGeo; sph: Sphere; tor: Torus; tol: float) {.
+    importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
+proc constructIntAnaQuadQuadGeo*(tor1: Torus; tor2: Torus; tol: float): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc Perform*(this: var IntAna_QuadQuadGeo; Sph: gp_Sphere; Tor: gp_Torus;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAna_QuadQuadGeo*(Tor1: gp_Torus; Tor2: gp_Torus; Tol: Standard_Real): IntAna_QuadQuadGeo {.
-    constructor, importcpp: "IntAna_QuadQuadGeo(@)",
+proc perform*(this: var IntAnaQuadQuadGeo; tor1: Torus; tor2: Torus; tol: float) {.
+    importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
+proc isDone*(this: IntAnaQuadQuadGeo): bool {.noSideEffect, importcpp: "IsDone",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc Perform*(this: var IntAna_QuadQuadGeo; Tor1: gp_Torus; Tor2: gp_Torus;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "IntAna_QuadQuadGeo.hxx".}
-proc IsDone*(this: IntAna_QuadQuadGeo): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "IntAna_QuadQuadGeo.hxx".}
-proc TypeInter*(this: IntAna_QuadQuadGeo): IntAna_ResultType {.noSideEffect,
+proc typeInter*(this: IntAnaQuadQuadGeo): IntAnaResultType {.noSideEffect,
     importcpp: "TypeInter", header: "IntAna_QuadQuadGeo.hxx".}
-proc NbSolutions*(this: IntAna_QuadQuadGeo): Standard_Integer {.noSideEffect,
+proc nbSolutions*(this: IntAnaQuadQuadGeo): int {.noSideEffect,
     importcpp: "NbSolutions", header: "IntAna_QuadQuadGeo.hxx".}
-proc Point*(this: IntAna_QuadQuadGeo; Num: Standard_Integer): gp_Pnt {.noSideEffect,
-    importcpp: "Point", header: "IntAna_QuadQuadGeo.hxx".}
-proc Line*(this: IntAna_QuadQuadGeo; Num: Standard_Integer): gp_Lin {.noSideEffect,
-    importcpp: "Line", header: "IntAna_QuadQuadGeo.hxx".}
-proc Circle*(this: IntAna_QuadQuadGeo; Num: Standard_Integer): gp_Circ {.noSideEffect,
-    importcpp: "Circle", header: "IntAna_QuadQuadGeo.hxx".}
-proc Ellipse*(this: IntAna_QuadQuadGeo; Num: Standard_Integer): gp_Elips {.
-    noSideEffect, importcpp: "Ellipse", header: "IntAna_QuadQuadGeo.hxx".}
-proc Parabola*(this: IntAna_QuadQuadGeo; Num: Standard_Integer): gp_Parab {.
-    noSideEffect, importcpp: "Parabola", header: "IntAna_QuadQuadGeo.hxx".}
-proc Hyperbola*(this: IntAna_QuadQuadGeo; Num: Standard_Integer): gp_Hypr {.
-    noSideEffect, importcpp: "Hyperbola", header: "IntAna_QuadQuadGeo.hxx".}
-proc HasCommonGen*(this: IntAna_QuadQuadGeo): Standard_Boolean {.noSideEffect,
-    importcpp: "HasCommonGen", header: "IntAna_QuadQuadGeo.hxx".}
-proc PChar*(this: IntAna_QuadQuadGeo): gp_Pnt {.noSideEffect, importcpp: "PChar",
+proc point*(this: IntAnaQuadQuadGeo; num: int): Pnt {.noSideEffect, importcpp: "Point",
     header: "IntAna_QuadQuadGeo.hxx".}
+proc line*(this: IntAnaQuadQuadGeo; num: int): Lin {.noSideEffect, importcpp: "Line",
+    header: "IntAna_QuadQuadGeo.hxx".}
+proc circle*(this: IntAnaQuadQuadGeo; num: int): Circ {.noSideEffect,
+    importcpp: "Circle", header: "IntAna_QuadQuadGeo.hxx".}
+proc ellipse*(this: IntAnaQuadQuadGeo; num: int): Elips {.noSideEffect,
+    importcpp: "Ellipse", header: "IntAna_QuadQuadGeo.hxx".}
+proc parabola*(this: IntAnaQuadQuadGeo; num: int): Parab {.noSideEffect,
+    importcpp: "Parabola", header: "IntAna_QuadQuadGeo.hxx".}
+proc hyperbola*(this: IntAnaQuadQuadGeo; num: int): Hypr {.noSideEffect,
+    importcpp: "Hyperbola", header: "IntAna_QuadQuadGeo.hxx".}
+proc hasCommonGen*(this: IntAnaQuadQuadGeo): bool {.noSideEffect,
+    importcpp: "HasCommonGen", header: "IntAna_QuadQuadGeo.hxx".}
+proc pChar*(this: IntAnaQuadQuadGeo): Pnt {.noSideEffect, importcpp: "PChar",
+                                        header: "IntAna_QuadQuadGeo.hxx".}

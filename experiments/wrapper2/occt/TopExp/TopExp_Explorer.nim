@@ -14,42 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopExp_Stack, ../Standard/Standard_Integer,
-  ../TopoDS/TopoDS_Shape, ../Standard/Standard_Boolean, ../TopAbs/TopAbs_ShapeEnum
-
 discard "forward decl of Standard_NoMoreObject"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopoDS_Shape"
 type
-  TopExp_Explorer* {.importcpp: "TopExp_Explorer", header: "TopExp_Explorer.hxx",
-                    bycopy.} = object ## ! Creates an empty explorer, becomes usefull after Init.
+  TopExpExplorer* {.importcpp: "TopExp_Explorer", header: "TopExp_Explorer.hxx",
+                   bycopy.} = object ## ! Creates an empty explorer, becomes usefull after Init.
 
 
-proc constructTopExp_Explorer*(): TopExp_Explorer {.constructor,
+proc constructTopExpExplorer*(): TopExpExplorer {.constructor,
     importcpp: "TopExp_Explorer(@)", header: "TopExp_Explorer.hxx".}
-proc constructTopExp_Explorer*(S: TopoDS_Shape; ToFind: TopAbs_ShapeEnum;
-                              ToAvoid: TopAbs_ShapeEnum = TopAbs_SHAPE): TopExp_Explorer {.
+proc constructTopExpExplorer*(s: TopoDS_Shape; toFind: TopAbsShapeEnum;
+                             toAvoid: TopAbsShapeEnum = topAbsSHAPE): TopExpExplorer {.
     constructor, importcpp: "TopExp_Explorer(@)", header: "TopExp_Explorer.hxx".}
-proc Init*(this: var TopExp_Explorer; S: TopoDS_Shape; ToFind: TopAbs_ShapeEnum;
-          ToAvoid: TopAbs_ShapeEnum = TopAbs_SHAPE) {.importcpp: "Init",
+proc init*(this: var TopExpExplorer; s: TopoDS_Shape; toFind: TopAbsShapeEnum;
+          toAvoid: TopAbsShapeEnum = topAbsSHAPE) {.importcpp: "Init",
     header: "TopExp_Explorer.hxx".}
-proc More*(this: TopExp_Explorer): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "TopExp_Explorer.hxx".}
-proc Next*(this: var TopExp_Explorer) {.importcpp: "Next",
-                                    header: "TopExp_Explorer.hxx".}
-proc Value*(this: TopExp_Explorer): TopoDS_Shape {.noSideEffect, importcpp: "Value",
-    header: "TopExp_Explorer.hxx".}
-proc Current*(this: TopExp_Explorer): TopoDS_Shape {.noSideEffect,
-    importcpp: "Current", header: "TopExp_Explorer.hxx".}
-proc ReInit*(this: var TopExp_Explorer) {.importcpp: "ReInit",
-                                      header: "TopExp_Explorer.hxx".}
-proc Depth*(this: TopExp_Explorer): Standard_Integer {.noSideEffect,
-    importcpp: "Depth", header: "TopExp_Explorer.hxx".}
-proc Clear*(this: var TopExp_Explorer) {.importcpp: "Clear",
+proc more*(this: TopExpExplorer): bool {.noSideEffect, importcpp: "More",
                                      header: "TopExp_Explorer.hxx".}
-proc Destroy*(this: var TopExp_Explorer) {.importcpp: "Destroy",
-                                       header: "TopExp_Explorer.hxx".}
-proc destroyTopExp_Explorer*(this: var TopExp_Explorer) {.
+proc next*(this: var TopExpExplorer) {.importcpp: "Next",
+                                   header: "TopExp_Explorer.hxx".}
+proc value*(this: TopExpExplorer): TopoDS_Shape {.noSideEffect, importcpp: "Value",
+    header: "TopExp_Explorer.hxx".}
+proc current*(this: TopExpExplorer): TopoDS_Shape {.noSideEffect,
+    importcpp: "Current", header: "TopExp_Explorer.hxx".}
+proc reInit*(this: var TopExpExplorer) {.importcpp: "ReInit",
+                                     header: "TopExp_Explorer.hxx".}
+proc depth*(this: TopExpExplorer): int {.noSideEffect, importcpp: "Depth",
+                                     header: "TopExp_Explorer.hxx".}
+proc clear*(this: var TopExpExplorer) {.importcpp: "Clear",
+                                    header: "TopExp_Explorer.hxx".}
+proc destroy*(this: var TopExpExplorer) {.importcpp: "Destroy",
+                                      header: "TopExp_Explorer.hxx".}
+proc destroyTopExpExplorer*(this: var TopExpExplorer) {.
     importcpp: "#.~TopExp_Explorer()", header: "TopExp_Explorer.hxx".}

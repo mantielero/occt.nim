@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepShape_Face, ../NCollection/NCollection_Array1
-
 type
-  StepShape_Array1OfFace* = NCollection_Array1[handle[StepShape_Face]]
+  StepShapeArray1OfFace* = NCollectionArray1[Handle[StepShapeFace]]
+

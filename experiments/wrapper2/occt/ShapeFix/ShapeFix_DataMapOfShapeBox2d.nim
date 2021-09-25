@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, ../Bnd/Bnd_Box2d, ../TopTools/TopTools_ShapeMapHasher,
-  ../NCollection/NCollection_DataMap
-
 type
-  ShapeFix_DataMapOfShapeBox2d* = NCollection_DataMap[TopoDS_Shape, Bnd_Box2d,
-      TopTools_ShapeMapHasher]
-  ShapeFix_DataMapIteratorOfDataMapOfShapeBox2d* = Iterator[TopoDS_Shape,
-      Bnd_Box2d, TopTools_ShapeMapHasher]
+  ShapeFixDataMapOfShapeBox2d* = NCollectionDataMap[TopoDS_Shape, BndBox2d,
+      TopToolsShapeMapHasher]
+  ShapeFixDataMapIteratorOfDataMapOfShapeBox2d* = Iterator[TopoDS_Shape, BndBox2d,
+      TopToolsShapeMapHasher]
+

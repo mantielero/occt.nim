@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString,
-  ../TColStd/TColStd_DataMapOfIntegerTransient,
-  ../TopTools/TopTools_HSequenceOfShape, ../Standard/Standard_Transient,
-  ../TColStd/TColStd_HSequenceOfTransient, ../Interface/Interface_CheckStatus,
-  ../Message/Message_ProgressRange
-
 discard "forward decl of XSControl_Controller"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_HGraph"
@@ -35,7 +27,7 @@ discard "forward decl of Interface_Graph"
 discard "forward decl of XSControl_TransferReader"
 discard "forward decl of XSControl_TransferReader"
 type
-  Handle_XSControl_TransferReader* = handle[XSControl_TransferReader]
+  HandleXSControlTransferReader* = Handle[XSControlTransferReader]
 
 ## ! A TransferReader performs, manages, handles results of,
 ## ! transfers done when reading a file (i.e. from entities of an
@@ -57,175 +49,162 @@ type
 ## ! Transient or Shapes
 
 type
-  XSControl_TransferReader* {.importcpp: "XSControl_TransferReader",
-                             header: "XSControl_TransferReader.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                      ## !
-                                                                                                      ## Creates
-                                                                                                      ## a
-                                                                                                      ## TransferReader,
-                                                                                                      ## empty
+  XSControlTransferReader* {.importcpp: "XSControl_TransferReader",
+                            header: "XSControl_TransferReader.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                    ## !
+                                                                                                    ## Creates
+                                                                                                    ## a
+                                                                                                    ## TransferReader,
+                                                                                                    ## empty
 
 
-proc constructXSControl_TransferReader*(): XSControl_TransferReader {.constructor,
+proc constructXSControlTransferReader*(): XSControlTransferReader {.constructor,
     importcpp: "XSControl_TransferReader(@)",
     header: "XSControl_TransferReader.hxx".}
-proc SetController*(this: var XSControl_TransferReader;
-                   theControl: handle[XSControl_Controller]) {.
+proc setController*(this: var XSControlTransferReader;
+                   theControl: Handle[XSControlController]) {.
     importcpp: "SetController", header: "XSControl_TransferReader.hxx".}
-proc SetActor*(this: var XSControl_TransferReader;
-              theActor: handle[Transfer_ActorOfTransientProcess]) {.
+proc setActor*(this: var XSControlTransferReader;
+              theActor: Handle[TransferActorOfTransientProcess]) {.
     importcpp: "SetActor", header: "XSControl_TransferReader.hxx".}
-proc Actor*(this: var XSControl_TransferReader): handle[
-    Transfer_ActorOfTransientProcess] {.importcpp: "Actor",
-                                       header: "XSControl_TransferReader.hxx".}
-proc SetModel*(this: var XSControl_TransferReader;
-              theModel: handle[Interface_InterfaceModel]) {.importcpp: "SetModel",
+proc actor*(this: var XSControlTransferReader): Handle[
+    TransferActorOfTransientProcess] {.importcpp: "Actor",
+                                      header: "XSControl_TransferReader.hxx".}
+proc setModel*(this: var XSControlTransferReader;
+              theModel: Handle[InterfaceInterfaceModel]) {.importcpp: "SetModel",
     header: "XSControl_TransferReader.hxx".}
-proc SetGraph*(this: var XSControl_TransferReader;
-              theGraph: handle[Interface_HGraph]) {.importcpp: "SetGraph",
-    header: "XSControl_TransferReader.hxx".}
-proc Model*(this: XSControl_TransferReader): handle[Interface_InterfaceModel] {.
+proc setGraph*(this: var XSControlTransferReader; theGraph: Handle[InterfaceHGraph]) {.
+    importcpp: "SetGraph", header: "XSControl_TransferReader.hxx".}
+proc model*(this: XSControlTransferReader): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "Model", header: "XSControl_TransferReader.hxx".}
-proc SetContext*(this: var XSControl_TransferReader; theName: Standard_CString;
-                theCtx: handle[Standard_Transient]) {.importcpp: "SetContext",
+proc setContext*(this: var XSControlTransferReader; theName: StandardCString;
+                theCtx: Handle[StandardTransient]) {.importcpp: "SetContext",
     header: "XSControl_TransferReader.hxx".}
-proc GetContext*(this: XSControl_TransferReader; theName: Standard_CString;
-                theType: handle[Standard_Type];
-                theCtx: var handle[Standard_Transient]): Standard_Boolean {.
-    noSideEffect, importcpp: "GetContext", header: "XSControl_TransferReader.hxx".}
-proc Context*(this: var XSControl_TransferReader): var NCollection_DataMap[
-    TCollection_AsciiString, handle[Standard_Transient]] {.importcpp: "Context",
+proc getContext*(this: XSControlTransferReader; theName: StandardCString;
+                theType: Handle[StandardType];
+                theCtx: var Handle[StandardTransient]): bool {.noSideEffect,
+    importcpp: "GetContext", header: "XSControl_TransferReader.hxx".}
+proc context*(this: var XSControlTransferReader): var NCollectionDataMap[
+    TCollectionAsciiString, Handle[StandardTransient]] {.importcpp: "Context",
     header: "XSControl_TransferReader.hxx".}
-proc SetFileName*(this: var XSControl_TransferReader; theName: Standard_CString) {.
+proc setFileName*(this: var XSControlTransferReader; theName: StandardCString) {.
     importcpp: "SetFileName", header: "XSControl_TransferReader.hxx".}
-proc FileName*(this: XSControl_TransferReader): Standard_CString {.noSideEffect,
+proc fileName*(this: XSControlTransferReader): StandardCString {.noSideEffect,
     importcpp: "FileName", header: "XSControl_TransferReader.hxx".}
-proc Clear*(this: var XSControl_TransferReader; theMode: Standard_Integer) {.
-    importcpp: "Clear", header: "XSControl_TransferReader.hxx".}
-proc TransientProcess*(this: XSControl_TransferReader): handle[
-    Transfer_TransientProcess] {.noSideEffect, importcpp: "TransientProcess",
-                                header: "XSControl_TransferReader.hxx".}
-proc SetTransientProcess*(this: var XSControl_TransferReader;
-                         theTP: handle[Transfer_TransientProcess]) {.
-    importcpp: "SetTransientProcess", header: "XSControl_TransferReader.hxx".}
-proc RecordResult*(this: var XSControl_TransferReader;
-                  theEnt: handle[Standard_Transient]): Standard_Boolean {.
-    importcpp: "RecordResult", header: "XSControl_TransferReader.hxx".}
-proc IsRecorded*(this: XSControl_TransferReader; theEnt: handle[Standard_Transient]): Standard_Boolean {.
-    noSideEffect, importcpp: "IsRecorded", header: "XSControl_TransferReader.hxx".}
-proc HasResult*(this: XSControl_TransferReader; theEnt: handle[Standard_Transient]): Standard_Boolean {.
-    noSideEffect, importcpp: "HasResult", header: "XSControl_TransferReader.hxx".}
-proc RecordedList*(this: XSControl_TransferReader): handle[
-    TColStd_HSequenceOfTransient] {.noSideEffect, importcpp: "RecordedList",
-                                   header: "XSControl_TransferReader.hxx".}
-proc Skip*(this: var XSControl_TransferReader; theEnt: handle[Standard_Transient]): Standard_Boolean {.
-    importcpp: "Skip", header: "XSControl_TransferReader.hxx".}
-proc IsSkipped*(this: XSControl_TransferReader; theEnt: handle[Standard_Transient]): Standard_Boolean {.
-    noSideEffect, importcpp: "IsSkipped", header: "XSControl_TransferReader.hxx".}
-proc IsMarked*(this: XSControl_TransferReader; theEnt: handle[Standard_Transient]): Standard_Boolean {.
-    noSideEffect, importcpp: "IsMarked", header: "XSControl_TransferReader.hxx".}
-proc FinalResult*(this: XSControl_TransferReader;
-                 theEnt: handle[Standard_Transient]): handle[
-    Transfer_ResultFromModel] {.noSideEffect, importcpp: "FinalResult",
+proc clear*(this: var XSControlTransferReader; theMode: int) {.importcpp: "Clear",
+    header: "XSControl_TransferReader.hxx".}
+proc transientProcess*(this: XSControlTransferReader): Handle[
+    TransferTransientProcess] {.noSideEffect, importcpp: "TransientProcess",
                                header: "XSControl_TransferReader.hxx".}
-proc FinalEntityLabel*(this: XSControl_TransferReader;
-                      theEnt: handle[Standard_Transient]): Standard_CString {.
+proc setTransientProcess*(this: var XSControlTransferReader;
+                         theTP: Handle[TransferTransientProcess]) {.
+    importcpp: "SetTransientProcess", header: "XSControl_TransferReader.hxx".}
+proc recordResult*(this: var XSControlTransferReader;
+                  theEnt: Handle[StandardTransient]): bool {.
+    importcpp: "RecordResult", header: "XSControl_TransferReader.hxx".}
+proc isRecorded*(this: XSControlTransferReader; theEnt: Handle[StandardTransient]): bool {.
+    noSideEffect, importcpp: "IsRecorded", header: "XSControl_TransferReader.hxx".}
+proc hasResult*(this: XSControlTransferReader; theEnt: Handle[StandardTransient]): bool {.
+    noSideEffect, importcpp: "HasResult", header: "XSControl_TransferReader.hxx".}
+proc recordedList*(this: XSControlTransferReader): Handle[
+    TColStdHSequenceOfTransient] {.noSideEffect, importcpp: "RecordedList",
+                                  header: "XSControl_TransferReader.hxx".}
+proc skip*(this: var XSControlTransferReader; theEnt: Handle[StandardTransient]): bool {.
+    importcpp: "Skip", header: "XSControl_TransferReader.hxx".}
+proc isSkipped*(this: XSControlTransferReader; theEnt: Handle[StandardTransient]): bool {.
+    noSideEffect, importcpp: "IsSkipped", header: "XSControl_TransferReader.hxx".}
+proc isMarked*(this: XSControlTransferReader; theEnt: Handle[StandardTransient]): bool {.
+    noSideEffect, importcpp: "IsMarked", header: "XSControl_TransferReader.hxx".}
+proc finalResult*(this: XSControlTransferReader; theEnt: Handle[StandardTransient]): Handle[
+    TransferResultFromModel] {.noSideEffect, importcpp: "FinalResult",
+                              header: "XSControl_TransferReader.hxx".}
+proc finalEntityLabel*(this: XSControlTransferReader;
+                      theEnt: Handle[StandardTransient]): StandardCString {.
     noSideEffect, importcpp: "FinalEntityLabel",
     header: "XSControl_TransferReader.hxx".}
-proc FinalEntityNumber*(this: XSControl_TransferReader;
-                       theEnt: handle[Standard_Transient]): Standard_Integer {.
-    noSideEffect, importcpp: "FinalEntityNumber",
+proc finalEntityNumber*(this: XSControlTransferReader;
+                       theEnt: Handle[StandardTransient]): int {.noSideEffect,
+    importcpp: "FinalEntityNumber", header: "XSControl_TransferReader.hxx".}
+proc resultFromNumber*(this: XSControlTransferReader; theNum: int): Handle[
+    TransferResultFromModel] {.noSideEffect, importcpp: "ResultFromNumber",
+                              header: "XSControl_TransferReader.hxx".}
+proc transientResult*(this: XSControlTransferReader;
+                     theEnt: Handle[StandardTransient]): Handle[StandardTransient] {.
+    noSideEffect, importcpp: "TransientResult",
     header: "XSControl_TransferReader.hxx".}
-proc ResultFromNumber*(this: XSControl_TransferReader; theNum: Standard_Integer): handle[
-    Transfer_ResultFromModel] {.noSideEffect, importcpp: "ResultFromNumber",
-                               header: "XSControl_TransferReader.hxx".}
-proc TransientResult*(this: XSControl_TransferReader;
-                     theEnt: handle[Standard_Transient]): handle[
-    Standard_Transient] {.noSideEffect, importcpp: "TransientResult",
-                         header: "XSControl_TransferReader.hxx".}
-proc ShapeResult*(this: XSControl_TransferReader;
-                 theEnt: handle[Standard_Transient]): TopoDS_Shape {.noSideEffect,
-    importcpp: "ShapeResult", header: "XSControl_TransferReader.hxx".}
-proc ClearResult*(this: var XSControl_TransferReader;
-                 theEnt: handle[Standard_Transient]; theMode: Standard_Integer): Standard_Boolean {.
+proc shapeResult*(this: XSControlTransferReader; theEnt: Handle[StandardTransient]): TopoDS_Shape {.
+    noSideEffect, importcpp: "ShapeResult", header: "XSControl_TransferReader.hxx".}
+proc clearResult*(this: var XSControlTransferReader;
+                 theEnt: Handle[StandardTransient]; theMode: int): bool {.
     importcpp: "ClearResult", header: "XSControl_TransferReader.hxx".}
-proc EntityFromResult*(this: XSControl_TransferReader;
-                      theRes: handle[Standard_Transient];
-                      theMode: Standard_Integer = 0): handle[Standard_Transient] {.
-    noSideEffect, importcpp: "EntityFromResult",
-    header: "XSControl_TransferReader.hxx".}
-proc EntityFromShapeResult*(this: XSControl_TransferReader; theRes: TopoDS_Shape;
-                           theMode: Standard_Integer = 0): handle[Standard_Transient] {.
+proc entityFromResult*(this: XSControlTransferReader;
+                      theRes: Handle[StandardTransient]; theMode: int = 0): Handle[
+    StandardTransient] {.noSideEffect, importcpp: "EntityFromResult",
+                        header: "XSControl_TransferReader.hxx".}
+proc entityFromShapeResult*(this: XSControlTransferReader; theRes: TopoDS_Shape;
+                           theMode: int = 0): Handle[StandardTransient] {.
     noSideEffect, importcpp: "EntityFromShapeResult",
     header: "XSControl_TransferReader.hxx".}
-proc EntitiesFromShapeList*(this: XSControl_TransferReader;
-                           theRes: handle[TopTools_HSequenceOfShape];
-                           theMode: Standard_Integer = 0): handle[
-    TColStd_HSequenceOfTransient] {.noSideEffect,
-                                   importcpp: "EntitiesFromShapeList",
-                                   header: "XSControl_TransferReader.hxx".}
-proc CheckList*(this: XSControl_TransferReader; theEnt: handle[Standard_Transient];
-               theLevel: Standard_Integer = 0): Interface_CheckIterator {.
-    noSideEffect, importcpp: "CheckList", header: "XSControl_TransferReader.hxx".}
-proc HasChecks*(this: XSControl_TransferReader; theEnt: handle[Standard_Transient];
-               FailsOnly: Standard_Boolean): Standard_Boolean {.noSideEffect,
-    importcpp: "HasChecks", header: "XSControl_TransferReader.hxx".}
-proc CheckedList*(this: XSControl_TransferReader;
-                 theEnt: handle[Standard_Transient];
-                 WithCheck: Interface_CheckStatus = Interface_CheckAny;
-                 theResult: Standard_Boolean = Standard_True): handle[
-    TColStd_HSequenceOfTransient] {.noSideEffect, importcpp: "CheckedList",
-                                   header: "XSControl_TransferReader.hxx".}
-proc BeginTransfer*(this: var XSControl_TransferReader): Standard_Boolean {.
-    importcpp: "BeginTransfer", header: "XSControl_TransferReader.hxx".}
-proc Recognize*(this: var XSControl_TransferReader;
-               theEnt: handle[Standard_Transient]): Standard_Boolean {.
-    importcpp: "Recognize", header: "XSControl_TransferReader.hxx".}
-proc TransferOne*(this: var XSControl_TransferReader;
-                 theEnt: handle[Standard_Transient];
-                 theRec: Standard_Boolean = Standard_True;
-                 theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Integer {.
-    importcpp: "TransferOne", header: "XSControl_TransferReader.hxx".}
-proc TransferList*(this: var XSControl_TransferReader;
-                  theList: handle[TColStd_HSequenceOfTransient];
-                  theRec: Standard_Boolean = Standard_True;
-                  theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Integer {.
-    importcpp: "TransferList", header: "XSControl_TransferReader.hxx".}
-proc TransferRoots*(this: var XSControl_TransferReader; theGraph: Interface_Graph;
-                   theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Integer {.
-    importcpp: "TransferRoots", header: "XSControl_TransferReader.hxx".}
-proc TransferClear*(this: var XSControl_TransferReader;
-                   theEnt: handle[Standard_Transient];
-                   theLevel: Standard_Integer = 0) {.importcpp: "TransferClear",
+proc entitiesFromShapeList*(this: XSControlTransferReader;
+                           theRes: Handle[TopToolsHSequenceOfShape];
+                           theMode: int = 0): Handle[TColStdHSequenceOfTransient] {.
+    noSideEffect, importcpp: "EntitiesFromShapeList",
     header: "XSControl_TransferReader.hxx".}
-proc PrintStats*(this: XSControl_TransferReader; theStream: var Standard_OStream;
-                theWhat: Standard_Integer; theMode: Standard_Integer = 0) {.
-    noSideEffect, importcpp: "PrintStats", header: "XSControl_TransferReader.hxx".}
-proc LastCheckList*(this: XSControl_TransferReader): Interface_CheckIterator {.
+proc checkList*(this: XSControlTransferReader; theEnt: Handle[StandardTransient];
+               theLevel: int = 0): InterfaceCheckIterator {.noSideEffect,
+    importcpp: "CheckList", header: "XSControl_TransferReader.hxx".}
+proc hasChecks*(this: XSControlTransferReader; theEnt: Handle[StandardTransient];
+               failsOnly: bool): bool {.noSideEffect, importcpp: "HasChecks",
+                                     header: "XSControl_TransferReader.hxx".}
+proc checkedList*(this: XSControlTransferReader; theEnt: Handle[StandardTransient];
+                 withCheck: InterfaceCheckStatus = interfaceCheckAny;
+                 theResult: bool = true): Handle[TColStdHSequenceOfTransient] {.
+    noSideEffect, importcpp: "CheckedList", header: "XSControl_TransferReader.hxx".}
+proc beginTransfer*(this: var XSControlTransferReader): bool {.
+    importcpp: "BeginTransfer", header: "XSControl_TransferReader.hxx".}
+proc recognize*(this: var XSControlTransferReader; theEnt: Handle[StandardTransient]): bool {.
+    importcpp: "Recognize", header: "XSControl_TransferReader.hxx".}
+proc transferOne*(this: var XSControlTransferReader;
+                 theEnt: Handle[StandardTransient]; theRec: bool = true;
+                 theProgress: MessageProgressRange = messageProgressRange()): int {.
+    importcpp: "TransferOne", header: "XSControl_TransferReader.hxx".}
+proc transferList*(this: var XSControlTransferReader;
+                  theList: Handle[TColStdHSequenceOfTransient];
+                  theRec: bool = true;
+                  theProgress: MessageProgressRange = messageProgressRange()): int {.
+    importcpp: "TransferList", header: "XSControl_TransferReader.hxx".}
+proc transferRoots*(this: var XSControlTransferReader; theGraph: InterfaceGraph;
+                   theProgress: MessageProgressRange = messageProgressRange()): int {.
+    importcpp: "TransferRoots", header: "XSControl_TransferReader.hxx".}
+proc transferClear*(this: var XSControlTransferReader;
+                   theEnt: Handle[StandardTransient]; theLevel: int = 0) {.
+    importcpp: "TransferClear", header: "XSControl_TransferReader.hxx".}
+proc printStats*(this: XSControlTransferReader; theStream: var StandardOStream;
+                theWhat: int; theMode: int = 0) {.noSideEffect,
+    importcpp: "PrintStats", header: "XSControl_TransferReader.hxx".}
+proc lastCheckList*(this: XSControlTransferReader): InterfaceCheckIterator {.
     noSideEffect, importcpp: "LastCheckList",
     header: "XSControl_TransferReader.hxx".}
-proc LastTransferList*(this: XSControl_TransferReader; theRoots: Standard_Boolean): handle[
-    TColStd_HSequenceOfTransient] {.noSideEffect, importcpp: "LastTransferList",
-                                   header: "XSControl_TransferReader.hxx".}
-proc ShapeResultList*(this: var XSControl_TransferReader; theRec: Standard_Boolean): handle[
-    TopTools_HSequenceOfShape] {.importcpp: "ShapeResultList",
-                                header: "XSControl_TransferReader.hxx".}
-proc PrintStatsProcess*(theTP: handle[Transfer_TransientProcess];
-                       theWhat: Standard_Integer; theMode: Standard_Integer = 0) {.
-    importcpp: "XSControl_TransferReader::PrintStatsProcess(@)",
-    header: "XSControl_TransferReader.hxx".}
-proc PrintStatsOnList*(theTP: handle[Transfer_TransientProcess];
-                      theList: handle[TColStd_HSequenceOfTransient];
-                      theWhat: Standard_Integer; theMode: Standard_Integer = 0) {.
-    importcpp: "XSControl_TransferReader::PrintStatsOnList(@)",
-    header: "XSControl_TransferReader.hxx".}
+proc lastTransferList*(this: XSControlTransferReader; theRoots: bool): Handle[
+    TColStdHSequenceOfTransient] {.noSideEffect, importcpp: "LastTransferList",
+                                  header: "XSControl_TransferReader.hxx".}
+proc shapeResultList*(this: var XSControlTransferReader; theRec: bool): Handle[
+    TopToolsHSequenceOfShape] {.importcpp: "ShapeResultList",
+                               header: "XSControl_TransferReader.hxx".}
+proc printStatsProcess*(theTP: Handle[TransferTransientProcess]; theWhat: int;
+                       theMode: int = 0) {.importcpp: "XSControl_TransferReader::PrintStatsProcess(@)",
+                                       header: "XSControl_TransferReader.hxx".}
+proc printStatsOnList*(theTP: Handle[TransferTransientProcess];
+                      theList: Handle[TColStdHSequenceOfTransient]; theWhat: int;
+                      theMode: int = 0) {.importcpp: "XSControl_TransferReader::PrintStatsOnList(@)",
+                                      header: "XSControl_TransferReader.hxx".}
 type
-  XSControl_TransferReaderbase_type* = Standard_Transient
+  XSControlTransferReaderbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "XSControl_TransferReader::get_type_name(@)",
-                              header: "XSControl_TransferReader.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XSControl_TransferReader::get_type_name(@)",
+                            header: "XSControl_TransferReader.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XSControl_TransferReader::get_type_descriptor(@)",
     header: "XSControl_TransferReader.hxx".}
-proc DynamicType*(this: XSControl_TransferReader): handle[Standard_Type] {.
+proc dynamicType*(this: XSControlTransferReader): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "XSControl_TransferReader.hxx".}

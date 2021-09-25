@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Expr_UnaryExpression,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
-  Expr_Array1OfNamedUnknown, ../TColStd/TColStd_Array1OfReal
-
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Expr_NotEvaluable"
 discard "forward decl of Expr_GeneralExpression"
@@ -27,40 +22,40 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_Cosine"
 discard "forward decl of Expr_Cosine"
 type
-  Handle_Expr_Cosine* = handle[Expr_Cosine]
-  Expr_Cosine* {.importcpp: "Expr_Cosine", header: "Expr_Cosine.hxx", bycopy.} = object of Expr_UnaryExpression ##
-                                                                                                      ## !
-                                                                                                      ## Creates
-                                                                                                      ## the
-                                                                                                      ## cosine
-                                                                                                      ## of
-                                                                                                      ## Exp
+  HandleExprCosine* = Handle[ExprCosine]
+  ExprCosine* {.importcpp: "Expr_Cosine", header: "Expr_Cosine.hxx", bycopy.} = object of ExprUnaryExpression ##
+                                                                                                    ## !
+                                                                                                    ## Creates
+                                                                                                    ## the
+                                                                                                    ## cosine
+                                                                                                    ## of
+                                                                                                    ## Exp
 
 
-proc constructExpr_Cosine*(Exp: handle[Expr_GeneralExpression]): Expr_Cosine {.
+proc constructExprCosine*(exp: Handle[ExprGeneralExpression]): ExprCosine {.
     constructor, importcpp: "Expr_Cosine(@)", header: "Expr_Cosine.hxx".}
-proc ShallowSimplified*(this: Expr_Cosine): handle[Expr_GeneralExpression] {.
+proc shallowSimplified*(this: ExprCosine): Handle[ExprGeneralExpression] {.
     noSideEffect, importcpp: "ShallowSimplified", header: "Expr_Cosine.hxx".}
-proc Copy*(this: Expr_Cosine): handle[Expr_GeneralExpression] {.noSideEffect,
+proc copy*(this: ExprCosine): Handle[ExprGeneralExpression] {.noSideEffect,
     importcpp: "Copy", header: "Expr_Cosine.hxx".}
-proc IsIdentical*(this: Expr_Cosine; Other: handle[Expr_GeneralExpression]): Standard_Boolean {.
+proc isIdentical*(this: ExprCosine; other: Handle[ExprGeneralExpression]): bool {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_Cosine.hxx".}
-proc IsLinear*(this: Expr_Cosine): Standard_Boolean {.noSideEffect,
-    importcpp: "IsLinear", header: "Expr_Cosine.hxx".}
-proc Derivative*(this: Expr_Cosine; X: handle[Expr_NamedUnknown]): handle[
-    Expr_GeneralExpression] {.noSideEffect, importcpp: "Derivative",
-                             header: "Expr_Cosine.hxx".}
-proc Evaluate*(this: Expr_Cosine; vars: Expr_Array1OfNamedUnknown;
-              vals: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
+proc isLinear*(this: ExprCosine): bool {.noSideEffect, importcpp: "IsLinear",
+                                     header: "Expr_Cosine.hxx".}
+proc derivative*(this: ExprCosine; x: Handle[ExprNamedUnknown]): Handle[
+    ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
+                            header: "Expr_Cosine.hxx".}
+proc evaluate*(this: ExprCosine; vars: ExprArray1OfNamedUnknown;
+              vals: TColStdArray1OfReal): float {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_Cosine.hxx".}
-proc String*(this: Expr_Cosine): TCollection_AsciiString {.noSideEffect,
+proc string*(this: ExprCosine): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_Cosine.hxx".}
 type
-  Expr_Cosinebase_type* = Expr_UnaryExpression
+  ExprCosinebaseType* = ExprUnaryExpression
 
-proc get_type_name*(): cstring {.importcpp: "Expr_Cosine::get_type_name(@)",
-                              header: "Expr_Cosine.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Expr_Cosine::get_type_name(@)",
+                            header: "Expr_Cosine.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Expr_Cosine::get_type_descriptor(@)", header: "Expr_Cosine.hxx".}
-proc DynamicType*(this: Expr_Cosine): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: ExprCosine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_Cosine.hxx".}

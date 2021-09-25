@@ -13,34 +13,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepRepr/StepRepr_HArray1OfRepresentationItem,
-  ../StepShape/StepShape_GeometricCurveSet, ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepVisual_AnnotationFillArea"
 discard "forward decl of StepVisual_AnnotationFillArea"
 type
-  Handle_StepVisual_AnnotationFillArea* = handle[StepVisual_AnnotationFillArea]
-  StepVisual_AnnotationFillArea* {.importcpp: "StepVisual_AnnotationFillArea",
-                                  header: "StepVisual_AnnotationFillArea.hxx",
-                                  bycopy.} = object of StepShape_GeometricCurveSet ## !
-                                                                              ## Returns a
-                                                                              ## AnnotationFillArea
+  HandleStepVisualAnnotationFillArea* = Handle[StepVisualAnnotationFillArea]
+  StepVisualAnnotationFillArea* {.importcpp: "StepVisual_AnnotationFillArea",
+                                 header: "StepVisual_AnnotationFillArea.hxx",
+                                 bycopy.} = object of StepShapeGeometricCurveSet ## !
+                                                                            ## Returns a
+                                                                            ## AnnotationFillArea
 
 
-proc constructStepVisual_AnnotationFillArea*(): StepVisual_AnnotationFillArea {.
+proc constructStepVisualAnnotationFillArea*(): StepVisualAnnotationFillArea {.
     constructor, importcpp: "StepVisual_AnnotationFillArea(@)",
     header: "StepVisual_AnnotationFillArea.hxx".}
 type
-  StepVisual_AnnotationFillAreabase_type* = StepShape_GeometricCurveSet
+  StepVisualAnnotationFillAreabaseType* = StepShapeGeometricCurveSet
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_AnnotationFillArea::get_type_name(@)",
-                              header: "StepVisual_AnnotationFillArea.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_AnnotationFillArea::get_type_name(@)",
+                            header: "StepVisual_AnnotationFillArea.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_AnnotationFillArea::get_type_descriptor(@)",
     header: "StepVisual_AnnotationFillArea.hxx".}
-proc DynamicType*(this: StepVisual_AnnotationFillArea): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualAnnotationFillArea): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_AnnotationFillArea.hxx".}

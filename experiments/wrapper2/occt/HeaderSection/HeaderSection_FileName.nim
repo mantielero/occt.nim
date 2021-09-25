@@ -14,90 +14,84 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../Interface/Interface_HArray1OfHAsciiString, ../Standard/Standard_Transient,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of HeaderSection_FileName"
 discard "forward decl of HeaderSection_FileName"
 type
-  Handle_HeaderSection_FileName* = handle[HeaderSection_FileName]
-  HeaderSection_FileName* {.importcpp: "HeaderSection_FileName",
-                           header: "HeaderSection_FileName.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                  ## !
-                                                                                                  ## Returns
-                                                                                                  ## a
-                                                                                                  ## FileName
+  HandleHeaderSectionFileName* = Handle[HeaderSectionFileName]
+  HeaderSectionFileName* {.importcpp: "HeaderSection_FileName",
+                          header: "HeaderSection_FileName.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                ## !
+                                                                                                ## Returns
+                                                                                                ## a
+                                                                                                ## FileName
 
 
-proc constructHeaderSection_FileName*(): HeaderSection_FileName {.constructor,
+proc constructHeaderSectionFileName*(): HeaderSectionFileName {.constructor,
     importcpp: "HeaderSection_FileName(@)", header: "HeaderSection_FileName.hxx".}
-proc Init*(this: var HeaderSection_FileName;
-          aName: handle[TCollection_HAsciiString];
-          aTimeStamp: handle[TCollection_HAsciiString];
-          aAuthor: handle[Interface_HArray1OfHAsciiString];
-          aOrganization: handle[Interface_HArray1OfHAsciiString];
-          aPreprocessorVersion: handle[TCollection_HAsciiString];
-          aOriginatingSystem: handle[TCollection_HAsciiString];
-          aAuthorisation: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var HeaderSectionFileName; aName: Handle[TCollectionHAsciiString];
+          aTimeStamp: Handle[TCollectionHAsciiString];
+          aAuthor: Handle[InterfaceHArray1OfHAsciiString];
+          aOrganization: Handle[InterfaceHArray1OfHAsciiString];
+          aPreprocessorVersion: Handle[TCollectionHAsciiString];
+          aOriginatingSystem: Handle[TCollectionHAsciiString];
+          aAuthorisation: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "HeaderSection_FileName.hxx".}
-proc SetName*(this: var HeaderSection_FileName;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var HeaderSectionFileName;
+             aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "HeaderSection_FileName.hxx".}
-proc Name*(this: HeaderSection_FileName): handle[TCollection_HAsciiString] {.
+proc name*(this: HeaderSectionFileName): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "HeaderSection_FileName.hxx".}
-proc SetTimeStamp*(this: var HeaderSection_FileName;
-                  aTimeStamp: handle[TCollection_HAsciiString]) {.
+proc setTimeStamp*(this: var HeaderSectionFileName;
+                  aTimeStamp: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetTimeStamp", header: "HeaderSection_FileName.hxx".}
-proc TimeStamp*(this: HeaderSection_FileName): handle[TCollection_HAsciiString] {.
+proc timeStamp*(this: HeaderSectionFileName): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "TimeStamp", header: "HeaderSection_FileName.hxx".}
-proc SetAuthor*(this: var HeaderSection_FileName;
-               aAuthor: handle[Interface_HArray1OfHAsciiString]) {.
+proc setAuthor*(this: var HeaderSectionFileName;
+               aAuthor: Handle[InterfaceHArray1OfHAsciiString]) {.
     importcpp: "SetAuthor", header: "HeaderSection_FileName.hxx".}
-proc Author*(this: HeaderSection_FileName): handle[Interface_HArray1OfHAsciiString] {.
+proc author*(this: HeaderSectionFileName): Handle[InterfaceHArray1OfHAsciiString] {.
     noSideEffect, importcpp: "Author", header: "HeaderSection_FileName.hxx".}
-proc AuthorValue*(this: HeaderSection_FileName; num: Standard_Integer): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "AuthorValue",
-                               header: "HeaderSection_FileName.hxx".}
-proc NbAuthor*(this: HeaderSection_FileName): Standard_Integer {.noSideEffect,
+proc authorValue*(this: HeaderSectionFileName; num: int): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "AuthorValue",
+                              header: "HeaderSection_FileName.hxx".}
+proc nbAuthor*(this: HeaderSectionFileName): int {.noSideEffect,
     importcpp: "NbAuthor", header: "HeaderSection_FileName.hxx".}
-proc SetOrganization*(this: var HeaderSection_FileName;
-                     aOrganization: handle[Interface_HArray1OfHAsciiString]) {.
+proc setOrganization*(this: var HeaderSectionFileName;
+                     aOrganization: Handle[InterfaceHArray1OfHAsciiString]) {.
     importcpp: "SetOrganization", header: "HeaderSection_FileName.hxx".}
-proc Organization*(this: HeaderSection_FileName): handle[
-    Interface_HArray1OfHAsciiString] {.noSideEffect, importcpp: "Organization",
-                                      header: "HeaderSection_FileName.hxx".}
-proc OrganizationValue*(this: HeaderSection_FileName; num: Standard_Integer): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "OrganizationValue",
-                               header: "HeaderSection_FileName.hxx".}
-proc NbOrganization*(this: HeaderSection_FileName): Standard_Integer {.noSideEffect,
+proc organization*(this: HeaderSectionFileName): Handle[
+    InterfaceHArray1OfHAsciiString] {.noSideEffect, importcpp: "Organization",
+                                     header: "HeaderSection_FileName.hxx".}
+proc organizationValue*(this: HeaderSectionFileName; num: int): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "OrganizationValue",
+                              header: "HeaderSection_FileName.hxx".}
+proc nbOrganization*(this: HeaderSectionFileName): int {.noSideEffect,
     importcpp: "NbOrganization", header: "HeaderSection_FileName.hxx".}
-proc SetPreprocessorVersion*(this: var HeaderSection_FileName; aPreprocessorVersion: handle[
-    TCollection_HAsciiString]) {.importcpp: "SetPreprocessorVersion",
-                                header: "HeaderSection_FileName.hxx".}
-proc PreprocessorVersion*(this: HeaderSection_FileName): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "PreprocessorVersion",
+proc setPreprocessorVersion*(this: var HeaderSectionFileName; aPreprocessorVersion: Handle[
+    TCollectionHAsciiString]) {.importcpp: "SetPreprocessorVersion",
                                header: "HeaderSection_FileName.hxx".}
-proc SetOriginatingSystem*(this: var HeaderSection_FileName;
-                          aOriginatingSystem: handle[TCollection_HAsciiString]) {.
+proc preprocessorVersion*(this: HeaderSectionFileName): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "PreprocessorVersion",
+                              header: "HeaderSection_FileName.hxx".}
+proc setOriginatingSystem*(this: var HeaderSectionFileName;
+                          aOriginatingSystem: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetOriginatingSystem", header: "HeaderSection_FileName.hxx".}
-proc OriginatingSystem*(this: HeaderSection_FileName): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "OriginatingSystem",
-                               header: "HeaderSection_FileName.hxx".}
-proc SetAuthorisation*(this: var HeaderSection_FileName;
-                      aAuthorisation: handle[TCollection_HAsciiString]) {.
+proc originatingSystem*(this: HeaderSectionFileName): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "OriginatingSystem",
+                              header: "HeaderSection_FileName.hxx".}
+proc setAuthorisation*(this: var HeaderSectionFileName;
+                      aAuthorisation: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetAuthorisation", header: "HeaderSection_FileName.hxx".}
-proc Authorisation*(this: HeaderSection_FileName): handle[TCollection_HAsciiString] {.
+proc authorisation*(this: HeaderSectionFileName): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Authorisation", header: "HeaderSection_FileName.hxx".}
 type
-  HeaderSection_FileNamebase_type* = Standard_Transient
+  HeaderSectionFileNamebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "HeaderSection_FileName::get_type_name(@)",
-                              header: "HeaderSection_FileName.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "HeaderSection_FileName::get_type_name(@)",
+                            header: "HeaderSection_FileName.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "HeaderSection_FileName::get_type_descriptor(@)",
     header: "HeaderSection_FileName.hxx".}
-proc DynamicType*(this: HeaderSection_FileName): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "HeaderSection_FileName.hxx".}
+proc dynamicType*(this: HeaderSectionFileName): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "HeaderSection_FileName.hxx".}

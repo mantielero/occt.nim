@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Trsf, ../TopLoc/TopLoc_Location,
-  ../Standard/Standard_Boolean, BRepBuilderAPI_ModifyShape,
-  ../TopTools/TopTools_ListOfShape
-
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of gp_Trsf"
 discard "forward decl of TopoDS_Shape"
@@ -55,18 +49,16 @@ type
                                                                                                               ## transform.
 
 
-proc constructBRepBuilderAPI_Transform*(T: gp_Trsf): BRepBuilderAPI_Transform {.
+proc constructBRepBuilderAPI_Transform*(t: Trsf): BRepBuilderAPI_Transform {.
     constructor, importcpp: "BRepBuilderAPI_Transform(@)",
     header: "BRepBuilderAPI_Transform.hxx".}
-proc constructBRepBuilderAPI_Transform*(S: TopoDS_Shape; T: gp_Trsf;
-                                       Copy: Standard_Boolean = Standard_False): BRepBuilderAPI_Transform {.
+proc constructBRepBuilderAPI_Transform*(s: TopoDS_Shape; t: Trsf; copy: bool = false): BRepBuilderAPI_Transform {.
     constructor, importcpp: "BRepBuilderAPI_Transform(@)",
     header: "BRepBuilderAPI_Transform.hxx".}
-proc Perform*(this: var BRepBuilderAPI_Transform; S: TopoDS_Shape;
-             Copy: Standard_Boolean = Standard_False) {.importcpp: "Perform",
-    header: "BRepBuilderAPI_Transform.hxx".}
-proc ModifiedShape*(this: BRepBuilderAPI_Transform; S: TopoDS_Shape): TopoDS_Shape {.
+proc perform*(this: var BRepBuilderAPI_Transform; s: TopoDS_Shape; copy: bool = false) {.
+    importcpp: "Perform", header: "BRepBuilderAPI_Transform.hxx".}
+proc modifiedShape*(this: BRepBuilderAPI_Transform; s: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "ModifiedShape",
     header: "BRepBuilderAPI_Transform.hxx".}
-proc Modified*(this: var BRepBuilderAPI_Transform; S: TopoDS_Shape): TopTools_ListOfShape {.
+proc modified*(this: var BRepBuilderAPI_Transform; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Modified", header: "BRepBuilderAPI_Transform.hxx".}

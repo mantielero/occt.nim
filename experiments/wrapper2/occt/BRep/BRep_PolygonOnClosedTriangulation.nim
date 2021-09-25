@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, BRep_PolygonOnTriangulation,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Poly_PolygonOnTriangulation"
 discard "forward decl of Poly_Triangulation"
 discard "forward decl of TopLoc_Location"
@@ -25,48 +21,47 @@ discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of BRep_PolygonOnClosedTriangulation"
 discard "forward decl of BRep_PolygonOnClosedTriangulation"
 type
-  Handle_BRep_PolygonOnClosedTriangulation* = handle[
-      BRep_PolygonOnClosedTriangulation]
+  HandleBRepPolygonOnClosedTriangulation* = Handle[
+      BRepPolygonOnClosedTriangulation]
 
 ## ! A representation by two arrays of nodes on a
 ## ! triangulation.
 
 type
-  BRep_PolygonOnClosedTriangulation* {.importcpp: "BRep_PolygonOnClosedTriangulation", header: "BRep_PolygonOnClosedTriangulation.hxx",
-                                      bycopy.} = object of BRep_PolygonOnTriangulation
+  BRepPolygonOnClosedTriangulation* {.importcpp: "BRep_PolygonOnClosedTriangulation", header: "BRep_PolygonOnClosedTriangulation.hxx",
+                                     bycopy.} = object of BRepPolygonOnTriangulation
 
 
-proc constructBRep_PolygonOnClosedTriangulation*(
-    P1: handle[Poly_PolygonOnTriangulation];
-    P2: handle[Poly_PolygonOnTriangulation]; Tr: handle[Poly_Triangulation];
-    L: TopLoc_Location): BRep_PolygonOnClosedTriangulation {.constructor,
+proc constructBRepPolygonOnClosedTriangulation*(
+    p1: Handle[PolyPolygonOnTriangulation];
+    p2: Handle[PolyPolygonOnTriangulation]; tr: Handle[PolyTriangulation];
+    L: TopLocLocation): BRepPolygonOnClosedTriangulation {.constructor,
     importcpp: "BRep_PolygonOnClosedTriangulation(@)",
     header: "BRep_PolygonOnClosedTriangulation.hxx".}
-proc IsPolygonOnClosedTriangulation*(this: BRep_PolygonOnClosedTriangulation): Standard_Boolean {.
+proc isPolygonOnClosedTriangulation*(this: BRepPolygonOnClosedTriangulation): bool {.
     noSideEffect, importcpp: "IsPolygonOnClosedTriangulation",
     header: "BRep_PolygonOnClosedTriangulation.hxx".}
-proc PolygonOnTriangulation2*(this: var BRep_PolygonOnClosedTriangulation;
-                             P2: handle[Poly_PolygonOnTriangulation]) {.
+proc polygonOnTriangulation2*(this: var BRepPolygonOnClosedTriangulation;
+                             p2: Handle[PolyPolygonOnTriangulation]) {.
     importcpp: "PolygonOnTriangulation2",
     header: "BRep_PolygonOnClosedTriangulation.hxx".}
-proc PolygonOnTriangulation2*(this: BRep_PolygonOnClosedTriangulation): handle[
-    Poly_PolygonOnTriangulation] {.noSideEffect,
-                                  importcpp: "PolygonOnTriangulation2", header: "BRep_PolygonOnClosedTriangulation.hxx".}
-proc Copy*(this: BRep_PolygonOnClosedTriangulation): handle[
-    BRep_CurveRepresentation] {.noSideEffect, importcpp: "Copy",
-                               header: "BRep_PolygonOnClosedTriangulation.hxx".}
-proc DumpJson*(this: BRep_PolygonOnClosedTriangulation;
-              theOStream: var Standard_OStream; theDepth: Standard_Integer = -1) {.
-    noSideEffect, importcpp: "DumpJson",
+proc polygonOnTriangulation2*(this: BRepPolygonOnClosedTriangulation): Handle[
+    PolyPolygonOnTriangulation] {.noSideEffect,
+                                 importcpp: "PolygonOnTriangulation2", header: "BRep_PolygonOnClosedTriangulation.hxx".}
+proc copy*(this: BRepPolygonOnClosedTriangulation): Handle[BRepCurveRepresentation] {.
+    noSideEffect, importcpp: "Copy",
     header: "BRep_PolygonOnClosedTriangulation.hxx".}
+proc dumpJson*(this: BRepPolygonOnClosedTriangulation;
+              theOStream: var StandardOStream; theDepth: int = -1) {.noSideEffect,
+    importcpp: "DumpJson", header: "BRep_PolygonOnClosedTriangulation.hxx".}
 type
-  BRep_PolygonOnClosedTriangulationbase_type* = BRep_PolygonOnTriangulation
+  BRepPolygonOnClosedTriangulationbaseType* = BRepPolygonOnTriangulation
 
-proc get_type_name*(): cstring {.importcpp: "BRep_PolygonOnClosedTriangulation::get_type_name(@)",
-                              header: "BRep_PolygonOnClosedTriangulation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRep_PolygonOnClosedTriangulation::get_type_name(@)",
+                            header: "BRep_PolygonOnClosedTriangulation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRep_PolygonOnClosedTriangulation::get_type_descriptor(@)",
     header: "BRep_PolygonOnClosedTriangulation.hxx".}
-proc DynamicType*(this: BRep_PolygonOnClosedTriangulation): handle[Standard_Type] {.
+proc dynamicType*(this: BRepPolygonOnClosedTriangulation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BRep_PolygonOnClosedTriangulation.hxx".}

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../IFSelect/IFSelect_Dispatch,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of IGESSelect_ViewSorter"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Interface_Graph"
@@ -26,7 +22,7 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of IGESSelect_DispPerSingleView"
 discard "forward decl of IGESSelect_DispPerSingleView"
 type
-  Handle_IGESSelect_DispPerSingleView* = handle[IGESSelect_DispPerSingleView]
+  HandleIGESSelectDispPerSingleView* = Handle[IGESSelectDispPerSingleView]
 
 ## ! This type of dispatch defines sets of entities attached to
 ## ! distinct single views. This information appears in the
@@ -36,34 +32,35 @@ type
 ## ! Remaining data concern entities not attached to a single view.
 
 type
-  IGESSelect_DispPerSingleView* {.importcpp: "IGESSelect_DispPerSingleView",
-                                 header: "IGESSelect_DispPerSingleView.hxx",
-                                 bycopy.} = object of IFSelect_Dispatch ## ! Creates a
-                                                                   ## DispPerSingleView
+  IGESSelectDispPerSingleView* {.importcpp: "IGESSelect_DispPerSingleView",
+                                header: "IGESSelect_DispPerSingleView.hxx", bycopy.} = object of IFSelectDispatch ##
+                                                                                                           ## !
+                                                                                                           ## Creates
+                                                                                                           ## a
+                                                                                                           ## DispPerSingleView
 
 
-proc constructIGESSelect_DispPerSingleView*(): IGESSelect_DispPerSingleView {.
+proc constructIGESSelectDispPerSingleView*(): IGESSelectDispPerSingleView {.
     constructor, importcpp: "IGESSelect_DispPerSingleView(@)",
     header: "IGESSelect_DispPerSingleView.hxx".}
-proc Label*(this: IGESSelect_DispPerSingleView): TCollection_AsciiString {.
+proc label*(this: IGESSelectDispPerSingleView): TCollectionAsciiString {.
     noSideEffect, importcpp: "Label", header: "IGESSelect_DispPerSingleView.hxx".}
-proc Packets*(this: IGESSelect_DispPerSingleView; G: Interface_Graph;
-             packs: var IFGraph_SubPartsIterator) {.noSideEffect,
+proc packets*(this: IGESSelectDispPerSingleView; g: InterfaceGraph;
+             packs: var IFGraphSubPartsIterator) {.noSideEffect,
     importcpp: "Packets", header: "IGESSelect_DispPerSingleView.hxx".}
-proc CanHaveRemainder*(this: IGESSelect_DispPerSingleView): Standard_Boolean {.
-    noSideEffect, importcpp: "CanHaveRemainder",
-    header: "IGESSelect_DispPerSingleView.hxx".}
-proc Remainder*(this: IGESSelect_DispPerSingleView; G: Interface_Graph): Interface_EntityIterator {.
+proc canHaveRemainder*(this: IGESSelectDispPerSingleView): bool {.noSideEffect,
+    importcpp: "CanHaveRemainder", header: "IGESSelect_DispPerSingleView.hxx".}
+proc remainder*(this: IGESSelectDispPerSingleView; g: InterfaceGraph): InterfaceEntityIterator {.
     noSideEffect, importcpp: "Remainder",
     header: "IGESSelect_DispPerSingleView.hxx".}
 type
-  IGESSelect_DispPerSingleViewbase_type* = IFSelect_Dispatch
+  IGESSelectDispPerSingleViewbaseType* = IFSelectDispatch
 
-proc get_type_name*(): cstring {.importcpp: "IGESSelect_DispPerSingleView::get_type_name(@)",
-                              header: "IGESSelect_DispPerSingleView.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_DispPerSingleView::get_type_name(@)",
+                            header: "IGESSelect_DispPerSingleView.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSelect_DispPerSingleView::get_type_descriptor(@)",
     header: "IGESSelect_DispPerSingleView.hxx".}
-proc DynamicType*(this: IGESSelect_DispPerSingleView): handle[Standard_Type] {.
+proc dynamicType*(this: IGESSelectDispPerSingleView): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_DispPerSingleView.hxx".}

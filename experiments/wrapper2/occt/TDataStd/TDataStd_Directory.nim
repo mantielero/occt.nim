@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TDataStd_GenericEmpty,
-  ../Standard/Standard_Boolean, ../Standard/Standard_OStream
-
 discard "forward decl of TDF_Label"
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Attribute"
@@ -26,7 +22,7 @@ discard "forward decl of TDF_DataSet"
 discard "forward decl of TDataStd_Directory"
 discard "forward decl of TDataStd_Directory"
 type
-  Handle_TDataStd_Directory* = handle[TDataStd_Directory]
+  HandleTDataStdDirectory* = Handle[TDataStdDirectory]
 
 ## ! Associates a directory in the data framework with
 ## ! a TDataStd_TagSource attribute.
@@ -34,76 +30,77 @@ type
 ## ! sub-directory or object labels to it,
 
 type
-  TDataStd_Directory* {.importcpp: "TDataStd_Directory",
-                       header: "TDataStd_Directory.hxx", bycopy.} = object of TDataStd_GenericEmpty ##
-                                                                                             ## !
-                                                                                             ## class
-                                                                                             ## methods
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## =============
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Searches
-                                                                                             ## for
-                                                                                             ## a
-                                                                                             ## directory
-                                                                                             ## attribute
-                                                                                             ## on
-                                                                                             ## the
-                                                                                             ## label
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## current,
-                                                                                             ## or
-                                                                                             ## on
-                                                                                             ## one
-                                                                                             ## of
-                                                                                             ## the
-                                                                                             ## father
-                                                                                             ## labels
-                                                                                             ## of
-                                                                                             ## current.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## If
-                                                                                             ## a
-                                                                                             ## directory
-                                                                                             ## attribute
-                                                                                             ## is
-                                                                                             ## found,
-                                                                                             ## true
-                                                                                             ## is
-                                                                                             ## returned,
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## and
-                                                                                             ## the
-                                                                                             ## attribute
-                                                                                             ## found
-                                                                                             ## is
-                                                                                             ## set
-                                                                                             ## as
-                                                                                             ## D.
+  TDataStdDirectory* {.importcpp: "TDataStd_Directory",
+                      header: "TDataStd_Directory.hxx", bycopy.} = object of TDataStdGenericEmpty ##
+                                                                                           ## !
+                                                                                           ## class
+                                                                                           ## methods
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## =============
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Searches
+                                                                                           ## for
+                                                                                           ## a
+                                                                                           ## directory
+                                                                                           ## attribute
+                                                                                           ## on
+                                                                                           ## the
+                                                                                           ## label
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## current,
+                                                                                           ## or
+                                                                                           ## on
+                                                                                           ## one
+                                                                                           ## of
+                                                                                           ## the
+                                                                                           ## father
+                                                                                           ## labels
+                                                                                           ## of
+                                                                                           ## current.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## If
+                                                                                           ## a
+                                                                                           ## directory
+                                                                                           ## attribute
+                                                                                           ## is
+                                                                                           ## found,
+                                                                                           ## true
+                                                                                           ## is
+                                                                                           ## returned,
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## and
+                                                                                           ## the
+                                                                                           ## attribute
+                                                                                           ## found
+                                                                                           ## is
+                                                                                           ## set
+                                                                                           ## as
+                                                                                           ## D.
 
 
-proc Find*(current: TDF_Label; D: var handle[TDataStd_Directory]): Standard_Boolean {.
+proc find*(current: TDF_Label; d: var Handle[TDataStdDirectory]): bool {.
     importcpp: "TDataStd_Directory::Find(@)", header: "TDataStd_Directory.hxx".}
-proc New*(label: TDF_Label): handle[TDataStd_Directory] {.
+proc new*(label: TDF_Label): Handle[TDataStdDirectory] {.
     importcpp: "TDataStd_Directory::New(@)", header: "TDataStd_Directory.hxx".}
-proc AddDirectory*(dir: handle[TDataStd_Directory]): handle[TDataStd_Directory] {.
+proc addDirectory*(dir: Handle[TDataStdDirectory]): Handle[TDataStdDirectory] {.
     importcpp: "TDataStd_Directory::AddDirectory(@)",
     header: "TDataStd_Directory.hxx".}
-proc MakeObjectLabel*(dir: handle[TDataStd_Directory]): TDF_Label {.
+proc makeObjectLabel*(dir: Handle[TDataStdDirectory]): TDF_Label {.
     importcpp: "TDataStd_Directory::MakeObjectLabel(@)",
     header: "TDataStd_Directory.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "TDataStd_Directory::GetID(@)",
-                            header: "TDataStd_Directory.hxx".}
-proc constructTDataStd_Directory*(): TDataStd_Directory {.constructor,
+proc getID*(): StandardGUID {.importcpp: "TDataStd_Directory::GetID(@)",
+                           header: "TDataStd_Directory.hxx".}
+proc constructTDataStdDirectory*(): TDataStdDirectory {.constructor,
     importcpp: "TDataStd_Directory(@)", header: "TDataStd_Directory.hxx".}
-proc ID*(this: TDataStd_Directory): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TDataStdDirectory): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TDataStd_Directory.hxx".}
-proc Dump*(this: TDataStd_Directory; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDataStdDirectory; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_Directory.hxx".}
 ## !!!Ignored construct:  DEFINE_DERIVED_ATTRIBUTE ( TDataStd_Directory , TDataStd_GenericEmpty ) protected : private : }
 ## Error: token expected: ) but got: ,!!!
+

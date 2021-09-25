@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  Contap_TFunction* {.size: sizeof(cint), importcpp: "Contap_TFunction",
-                     header: "Contap_TFunction.hxx".} = enum
-    Contap_ContourStd, Contap_ContourPrs, Contap_DraftStd, Contap_DraftPrs
+  ContapTFunction* {.size: sizeof(cint), importcpp: "Contap_TFunction",
+                    header: "Contap_TFunction.hxx".} = enum
+    ContapContourStd, ContapContourPrs, ContapDraftStd, ContapDraftPrs
+
 

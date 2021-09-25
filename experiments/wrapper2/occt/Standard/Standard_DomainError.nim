@@ -14,15 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_DomainError_HeaderFile [NewLine] # _Standard_DomainError_HeaderFile [NewLine] # Standard_Type.hxx [NewLine] # Standard_DefineException.hxx [NewLine] # Standard_SStream.hxx [NewLine] # Standard_Failure.hxx [NewLine] class Standard_DomainError ;
+## !!!Ignored construct:  # _Standard_DomainError_HeaderFile [NewLine] # _Standard_DomainError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class Standard_DomainError ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Standard_DomainError"
 type
-  Handle_Standard_DomainErrorStandard_DomainError* = handle[Standard_DomainError]
+  HandleStandardDomainErrorStandardDomainError* = Handle[StandardDomainError]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_DomainError [NewLine] # if ( CONDITION ) throw Standard_DomainError ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_DomainError , Standard_Failure ) #  _Standard_DomainError_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_DomainError , Standard_Failure ) #  _Standard_DomainError_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

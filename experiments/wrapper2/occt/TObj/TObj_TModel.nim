@@ -14,57 +14,54 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation Copyright: (C) RINA S.p.A
 
-import
-  ../TDF/TDF_Attribute
-
 discard "forward decl of TObj_Model"
 discard "forward decl of TObj_TModel"
 type
-  TObj_TModel* {.importcpp: "TObj_TModel", header: "TObj_TModel.hxx", bycopy.} = object of TDF_Attribute ## *
-                                                                                               ##  Standard methods of attribute
-                                                                                               ##
-                                                                                               ## ! Empty constructor
-                                                                                               ## ! Methods for setting and obtaining the Model object
-                                                                                               ## ! Sets the the Model object
-                                                                                               ## ! Redefined OCAF abstract methods
-                                                                                               ## ! Returns an new empty TObj_TModel attribute. It is used by the
-                                                                                               ## ! copy algorithm.
-                                                                                               ## ! Fields
-                                                                                               ## ! CASCADE RTTI
+  TObjTModel* {.importcpp: "TObj_TModel", header: "TObj_TModel.hxx", bycopy.} = object of TDF_Attribute ## *
+                                                                                              ##  Standard methods of attribute
+                                                                                              ##
+                                                                                              ## ! Empty constructor
+                                                                                              ## ! Methods for setting and obtaining the Model object
+                                                                                              ## ! Sets the the Model object
+                                                                                              ## ! Redefined OCAF abstract methods
+                                                                                              ## ! Returns an new empty TObj_TModel attribute. It is used by the
+                                                                                              ## ! copy algorithm.
+                                                                                              ## ! Fields
+                                                                                              ## ! CASCADE RTTI
     ## !< The Model object stored by the attribute
 
 
-proc constructTObj_TModel*(): TObj_TModel {.constructor,
-    importcpp: "TObj_TModel(@)", header: "TObj_TModel.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "TObj_TModel::GetID(@)",
-                            header: "TObj_TModel.hxx".}
-proc ID*(this: TObj_TModel): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc constructTObjTModel*(): TObjTModel {.constructor, importcpp: "TObj_TModel(@)",
+                                       header: "TObj_TModel.hxx".}
+proc getID*(): StandardGUID {.importcpp: "TObj_TModel::GetID(@)",
+                           header: "TObj_TModel.hxx".}
+proc id*(this: TObjTModel): StandardGUID {.noSideEffect, importcpp: "ID",
+                                       header: "TObj_TModel.hxx".}
+proc set*(this: var TObjTModel; theModel: Handle[TObjModel]) {.importcpp: "Set",
     header: "TObj_TModel.hxx".}
-proc Set*(this: var TObj_TModel; theModel: handle[TObj_Model]) {.importcpp: "Set",
+proc model*(this: TObjTModel): Handle[TObjModel] {.noSideEffect, importcpp: "Model",
     header: "TObj_TModel.hxx".}
-proc Model*(this: TObj_TModel): handle[TObj_Model] {.noSideEffect,
-    importcpp: "Model", header: "TObj_TModel.hxx".}
-proc NewEmpty*(this: TObj_TModel): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TObjTModel): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TObj_TModel.hxx".}
-proc Restore*(this: var TObj_TModel; theWith: handle[TDF_Attribute]) {.
+proc restore*(this: var TObjTModel; theWith: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TObj_TModel.hxx".}
-proc Paste*(this: TObj_TModel; theInto: handle[TDF_Attribute];
-           theRT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TObjTModel; theInto: Handle[TDF_Attribute];
+           theRT: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TObj_TModel.hxx".}
 type
-  TObj_TModelbase_type* = TDF_Attribute
+  TObjTModelbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TObj_TModel::get_type_name(@)",
-                              header: "TObj_TModel.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TObj_TModel::get_type_name(@)",
+                            header: "TObj_TModel.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TObj_TModel::get_type_descriptor(@)", header: "TObj_TModel.hxx".}
-proc DynamicType*(this: TObj_TModel): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TObjTModel): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TObj_TModel.hxx".}
 ## ! Define handle class for TObj_TModel
 
 discard "forward decl of TObj_TModel"
 type
-  Handle_TObj_TModel* = handle[TObj_TModel]
+  HandleTObjTModel* = Handle[TObjTModel]
 
-when defined(_MSC_VER):
-  discard
+# when defined(_MSC_VER):
+#   discard

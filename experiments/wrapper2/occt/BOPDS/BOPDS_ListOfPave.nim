@@ -12,9 +12,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_List, BOPDS_Pave
-
 type
-  BOPDS_ListOfPave* = NCollection_List[BOPDS_Pave]
+  BOPDS_ListOfPave* = NCollectionList[BOPDS_Pave]
   BOPDS_ListIteratorOfListOfPave* = Iterator
+

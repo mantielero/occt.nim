@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Handle
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Standard_GUID"
 discard "forward decl of TCollection_AsciiString"
@@ -29,14 +26,14 @@ type
   XmlLDrivers* {.importcpp: "XmlLDrivers", header: "XmlLDrivers.hxx", bycopy.} = object
 
 
-proc Factory*(theGUID: Standard_GUID): handle[Standard_Transient] {.
+proc factory*(theGUID: StandardGUID): Handle[StandardTransient] {.
     importcpp: "XmlLDrivers::Factory(@)", header: "XmlLDrivers.hxx".}
-proc CreationDate*(): TCollection_AsciiString {.
+proc creationDate*(): TCollectionAsciiString {.
     importcpp: "XmlLDrivers::CreationDate(@)", header: "XmlLDrivers.hxx".}
-proc DefineFormat*(theApp: handle[TDocStd_Application]) {.
+proc defineFormat*(theApp: Handle[TDocStdApplication]) {.
     importcpp: "XmlLDrivers::DefineFormat(@)", header: "XmlLDrivers.hxx".}
-proc AttributeDrivers*(theMsgDriver: handle[Message_Messenger]): handle[
+proc attributeDrivers*(theMsgDriver: Handle[MessageMessenger]): Handle[
     XmlMDF_ADriverTable] {.importcpp: "XmlLDrivers::AttributeDrivers(@)",
                           header: "XmlLDrivers.hxx".}
-proc StorageVersion*(): cint {.importcpp: "XmlLDrivers::StorageVersion(@)",
+proc storageVersion*(): cint {.importcpp: "XmlLDrivers::StorageVersion(@)",
                             header: "XmlLDrivers.hxx".}

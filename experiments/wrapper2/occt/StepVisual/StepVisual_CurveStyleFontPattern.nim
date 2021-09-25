@@ -14,49 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../Standard/Standard_Transient
-
 discard "forward decl of StepVisual_CurveStyleFontPattern"
 discard "forward decl of StepVisual_CurveStyleFontPattern"
 type
-  Handle_StepVisual_CurveStyleFontPattern* = handle[
-      StepVisual_CurveStyleFontPattern]
-  StepVisual_CurveStyleFontPattern* {.importcpp: "StepVisual_CurveStyleFontPattern", header: "StepVisual_CurveStyleFontPattern.hxx",
-                                     bycopy.} = object of Standard_Transient ## ! Returns a
-                                                                        ## CurveStyleFontPattern
+  HandleStepVisualCurveStyleFontPattern* = Handle[StepVisualCurveStyleFontPattern]
+  StepVisualCurveStyleFontPattern* {.importcpp: "StepVisual_CurveStyleFontPattern", header: "StepVisual_CurveStyleFontPattern.hxx",
+                                    bycopy.} = object of StandardTransient ## ! Returns a
+                                                                      ## CurveStyleFontPattern
 
 
-proc constructStepVisual_CurveStyleFontPattern*(): StepVisual_CurveStyleFontPattern {.
+proc constructStepVisualCurveStyleFontPattern*(): StepVisualCurveStyleFontPattern {.
     constructor, importcpp: "StepVisual_CurveStyleFontPattern(@)",
     header: "StepVisual_CurveStyleFontPattern.hxx".}
-proc Init*(this: var StepVisual_CurveStyleFontPattern;
-          aVisibleSegmentLength: Standard_Real;
-          aInvisibleSegmentLength: Standard_Real) {.importcpp: "Init",
+proc init*(this: var StepVisualCurveStyleFontPattern; aVisibleSegmentLength: float;
+          aInvisibleSegmentLength: float) {.importcpp: "Init",
     header: "StepVisual_CurveStyleFontPattern.hxx".}
-proc SetVisibleSegmentLength*(this: var StepVisual_CurveStyleFontPattern;
-                             aVisibleSegmentLength: Standard_Real) {.
+proc setVisibleSegmentLength*(this: var StepVisualCurveStyleFontPattern;
+                             aVisibleSegmentLength: float) {.
     importcpp: "SetVisibleSegmentLength",
     header: "StepVisual_CurveStyleFontPattern.hxx".}
-proc VisibleSegmentLength*(this: StepVisual_CurveStyleFontPattern): Standard_Real {.
+proc visibleSegmentLength*(this: StepVisualCurveStyleFontPattern): float {.
     noSideEffect, importcpp: "VisibleSegmentLength",
     header: "StepVisual_CurveStyleFontPattern.hxx".}
-proc SetInvisibleSegmentLength*(this: var StepVisual_CurveStyleFontPattern;
-                               aInvisibleSegmentLength: Standard_Real) {.
+proc setInvisibleSegmentLength*(this: var StepVisualCurveStyleFontPattern;
+                               aInvisibleSegmentLength: float) {.
     importcpp: "SetInvisibleSegmentLength",
     header: "StepVisual_CurveStyleFontPattern.hxx".}
-proc InvisibleSegmentLength*(this: StepVisual_CurveStyleFontPattern): Standard_Real {.
+proc invisibleSegmentLength*(this: StepVisualCurveStyleFontPattern): float {.
     noSideEffect, importcpp: "InvisibleSegmentLength",
     header: "StepVisual_CurveStyleFontPattern.hxx".}
 type
-  StepVisual_CurveStyleFontPatternbase_type* = Standard_Transient
+  StepVisualCurveStyleFontPatternbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_CurveStyleFontPattern::get_type_name(@)",
-                              header: "StepVisual_CurveStyleFontPattern.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_CurveStyleFontPattern::get_type_name(@)",
+                            header: "StepVisual_CurveStyleFontPattern.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_CurveStyleFontPattern::get_type_descriptor(@)",
     header: "StepVisual_CurveStyleFontPattern.hxx".}
-proc DynamicType*(this: StepVisual_CurveStyleFontPattern): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualCurveStyleFontPattern): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_CurveStyleFontPattern.hxx".}

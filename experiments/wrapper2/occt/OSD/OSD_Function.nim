@@ -17,3 +17,4 @@
 
 type
   OSD_Function* = proc (): cint {.varargs.}
+

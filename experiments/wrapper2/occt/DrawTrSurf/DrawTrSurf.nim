@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor, ../Geom/Geom_Geometry,
-  ../Geom/Geom_Surface, ../Geom2d/Geom2d_Curve
-
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of Poly_Triangulation"
@@ -58,12 +53,11 @@ type
                                                                              ## set.
 
 
-proc Set*(Name: Standard_CString; G: gp_Pnt) {.importcpp: "DrawTrSurf::Set(@)",
-    header: "DrawTrSurf.hxx".}
-proc Set*(Name: Standard_CString; G: gp_Pnt2d) {.importcpp: "DrawTrSurf::Set(@)",
-    header: "DrawTrSurf.hxx".}
-proc Set*(Name: Standard_CString; G: handle[Geom_Geometry];
-         isSenseMarker: Standard_Boolean = Standard_True) {.
+proc set*(name: StandardCString; g: Pnt) {.importcpp: "DrawTrSurf::Set(@)",
+                                      header: "DrawTrSurf.hxx".}
+proc set*(name: StandardCString; g: Pnt2d) {.importcpp: "DrawTrSurf::Set(@)",
+                                        header: "DrawTrSurf.hxx".}
+proc set*(name: StandardCString; g: Handle[GeomGeometry]; isSenseMarker: bool = true) {.
     importcpp: "DrawTrSurf::Set(@)", header: "DrawTrSurf.hxx".}
 ## !!!Ignored construct:  template < class T > [end of template] static void Set ( const Standard_CString Name , const opencascade :: handle < T > [end of template] & Arg , typename opencascade :: std :: enable_if < opencascade :: std :: is_base_of < Geom_Geometry , T > :: value > :: type * = 0 ) { Set ( Name , ( const opencascade :: handle < Geom_Geometry > [end of template] & ) Arg ) ; } ! Sets <C> in the variable <Name>.  Overwrite the
 ## ! variable if already set.
@@ -75,39 +69,39 @@ proc Set*(Name: Standard_CString; G: handle[Geom_Geometry];
 ## ! variable if already set. static void Set ( const Standard_CString Name , const opencascade :: handle < Poly_Triangulation > [end of template] & T ) ;
 ## Error: token expected: ) but got: ::!!!
 
-proc Set*(Name: Standard_CString; P: handle[Poly_Polygon3D]) {.
+proc set*(name: StandardCString; p: Handle[PolyPolygon3D]) {.
     importcpp: "DrawTrSurf::Set(@)", header: "DrawTrSurf.hxx".}
-proc Set*(Name: Standard_CString; P: handle[Poly_Polygon2D]) {.
+proc set*(name: StandardCString; p: Handle[PolyPolygon2D]) {.
     importcpp: "DrawTrSurf::Set(@)", header: "DrawTrSurf.hxx".}
-proc Get*(Name: var Standard_CString): handle[Geom_Geometry] {.
+proc get*(name: var StandardCString): Handle[GeomGeometry] {.
     importcpp: "DrawTrSurf::Get(@)", header: "DrawTrSurf.hxx".}
-proc GetPoint*(Name: var Standard_CString; P: var gp_Pnt): Standard_Boolean {.
+proc getPoint*(name: var StandardCString; p: var Pnt): bool {.
     importcpp: "DrawTrSurf::GetPoint(@)", header: "DrawTrSurf.hxx".}
-proc GetPoint2d*(Name: var Standard_CString; P: var gp_Pnt2d): Standard_Boolean {.
+proc getPoint2d*(name: var StandardCString; p: var Pnt2d): bool {.
     importcpp: "DrawTrSurf::GetPoint2d(@)", header: "DrawTrSurf.hxx".}
-proc GetCurve*(Name: var Standard_CString): handle[Geom_Curve] {.
+proc getCurve*(name: var StandardCString): Handle[GeomCurve] {.
     importcpp: "DrawTrSurf::GetCurve(@)", header: "DrawTrSurf.hxx".}
-proc GetBezierCurve*(Name: var Standard_CString): handle[Geom_BezierCurve] {.
+proc getBezierCurve*(name: var StandardCString): Handle[GeomBezierCurve] {.
     importcpp: "DrawTrSurf::GetBezierCurve(@)", header: "DrawTrSurf.hxx".}
-proc GetBSplineCurve*(Name: var Standard_CString): handle[Geom_BSplineCurve] {.
+proc getBSplineCurve*(name: var StandardCString): Handle[GeomBSplineCurve] {.
     importcpp: "DrawTrSurf::GetBSplineCurve(@)", header: "DrawTrSurf.hxx".}
-proc GetCurve2d*(Name: var Standard_CString): handle[Geom2d_Curve] {.
+proc getCurve2d*(name: var StandardCString): Handle[Geom2dCurve] {.
     importcpp: "DrawTrSurf::GetCurve2d(@)", header: "DrawTrSurf.hxx".}
-proc GetBezierCurve2d*(Name: var Standard_CString): handle[Geom2d_BezierCurve] {.
+proc getBezierCurve2d*(name: var StandardCString): Handle[Geom2dBezierCurve] {.
     importcpp: "DrawTrSurf::GetBezierCurve2d(@)", header: "DrawTrSurf.hxx".}
-proc GetBSplineCurve2d*(Name: var Standard_CString): handle[Geom2d_BSplineCurve] {.
+proc getBSplineCurve2d*(name: var StandardCString): Handle[Geom2dBSplineCurve] {.
     importcpp: "DrawTrSurf::GetBSplineCurve2d(@)", header: "DrawTrSurf.hxx".}
-proc GetSurface*(Name: var Standard_CString): handle[Geom_Surface] {.
+proc getSurface*(name: var StandardCString): Handle[GeomSurface] {.
     importcpp: "DrawTrSurf::GetSurface(@)", header: "DrawTrSurf.hxx".}
-proc GetBezierSurface*(Name: var Standard_CString): handle[Geom_BezierSurface] {.
+proc getBezierSurface*(name: var StandardCString): Handle[GeomBezierSurface] {.
     importcpp: "DrawTrSurf::GetBezierSurface(@)", header: "DrawTrSurf.hxx".}
-proc GetBSplineSurface*(Name: var Standard_CString): handle[Geom_BSplineSurface] {.
+proc getBSplineSurface*(name: var StandardCString): Handle[GeomBSplineSurface] {.
     importcpp: "DrawTrSurf::GetBSplineSurface(@)", header: "DrawTrSurf.hxx".}
-proc GetTriangulation*(Name: var Standard_CString): handle[Poly_Triangulation] {.
+proc getTriangulation*(name: var StandardCString): Handle[PolyTriangulation] {.
     importcpp: "DrawTrSurf::GetTriangulation(@)", header: "DrawTrSurf.hxx".}
-proc GetPolygon3D*(Name: var Standard_CString): handle[Poly_Polygon3D] {.
+proc getPolygon3D*(name: var StandardCString): Handle[PolyPolygon3D] {.
     importcpp: "DrawTrSurf::GetPolygon3D(@)", header: "DrawTrSurf.hxx".}
-proc GetPolygon2D*(Name: var Standard_CString): handle[Poly_Polygon2D] {.
+proc getPolygon2D*(name: var StandardCString): Handle[PolyPolygon2D] {.
     importcpp: "DrawTrSurf::GetPolygon2D(@)", header: "DrawTrSurf.hxx".}
-proc BasicCommands*(I: var Draw_Interpretor) {.
+proc basicCommands*(i: var DrawInterpretor) {.
     importcpp: "DrawTrSurf::BasicCommands(@)", header: "DrawTrSurf.hxx".}

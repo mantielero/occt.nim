@@ -14,16 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopoDSToStep_FacetedError
-
 discard "forward decl of TopoDS_Shape"
 type
-  TopoDSToStep_FacetedTool* {.importcpp: "TopoDSToStep_FacetedTool",
-                             header: "TopoDSToStep_FacetedTool.hxx", bycopy.} = object
+  TopoDSToStepFacetedTool* {.importcpp: "TopoDSToStep_FacetedTool",
+                            header: "TopoDSToStep_FacetedTool.hxx", bycopy.} = object
 
 
-proc CheckTopoDSShape*(SH: TopoDS_Shape): TopoDSToStep_FacetedError {.
+proc checkTopoDSShape*(sh: TopoDS_Shape): TopoDSToStepFacetedError {.
     importcpp: "TopoDSToStep_FacetedTool::CheckTopoDSShape(@)",
     header: "TopoDSToStep_FacetedTool.hxx".}

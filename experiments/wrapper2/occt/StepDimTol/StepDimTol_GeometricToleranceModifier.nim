@@ -13,19 +13,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_PrimitiveTypes
-
 type
-  StepDimTol_GeometricToleranceModifier* {.size: sizeof(cint),
+  StepDimTolGeometricToleranceModifier* {.size: sizeof(cint),
       importcpp: "StepDimTol_GeometricToleranceModifier",
       header: "StepDimTol_GeometricToleranceModifier.hxx".} = enum
-    StepDimTol_GTMAnyCrossSection, StepDimTol_GTMCommonZone,
-    StepDimTol_GTMEachRadialElement, StepDimTol_GTMFreeState,
-    StepDimTol_GTMLeastMaterialRequirement, StepDimTol_GTMLineElement,
-    StepDimTol_GTMMajorDiameter, StepDimTol_GTMMaximumMaterialRequirement,
-    StepDimTol_GTMMinorDiameter, StepDimTol_GTMNotConvex,
-    StepDimTol_GTMPitchDiameter, StepDimTol_GTMReciprocityRequirement,
-    StepDimTol_GTMSeparateRequirement, StepDimTol_GTMStatisticalTolerance,
-    StepDimTol_GTMTangentPlane
+    StepDimTolGTMAnyCrossSection, StepDimTolGTMCommonZone,
+    StepDimTolGTMEachRadialElement, StepDimTolGTMFreeState,
+    StepDimTolGTMLeastMaterialRequirement, StepDimTolGTMLineElement,
+    StepDimTolGTMMajorDiameter, StepDimTolGTMMaximumMaterialRequirement,
+    StepDimTolGTMMinorDiameter, StepDimTolGTMNotConvex,
+    StepDimTolGTMPitchDiameter, StepDimTolGTMReciprocityRequirement,
+    StepDimTolGTMSeparateRequirement, StepDimTolGTMStatisticalTolerance,
+    StepDimTolGTMTangentPlane
+
 

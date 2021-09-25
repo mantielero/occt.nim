@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../gp/gp_XYZ, ../Standard/Standard_Real,
-  ../IGESData/IGESData_HArray1OfIGESEntity, ../IGESData/IGESData_IGESEntity,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_XYZ"
@@ -27,7 +21,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESDimen_SectionedArea"
 discard "forward decl of IGESDimen_SectionedArea"
 type
-  Handle_IGESDimen_SectionedArea* = handle[IGESDimen_SectionedArea]
+  HandleIGESDimenSectionedArea* = Handle[IGESDimenSectionedArea]
 
 ## ! defines IGES Sectioned Area, Type <230> Form <0>,
 ## ! in package IGESDimen
@@ -43,47 +37,46 @@ type
 ## ! curves (commonly known as islands).
 
 type
-  IGESDimen_SectionedArea* {.importcpp: "IGESDimen_SectionedArea",
-                            header: "IGESDimen_SectionedArea.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESDimenSectionedArea* {.importcpp: "IGESDimen_SectionedArea",
+                           header: "IGESDimen_SectionedArea.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESDimen_SectionedArea*(): IGESDimen_SectionedArea {.constructor,
+proc constructIGESDimenSectionedArea*(): IGESDimenSectionedArea {.constructor,
     importcpp: "IGESDimen_SectionedArea(@)", header: "IGESDimen_SectionedArea.hxx".}
-proc Init*(this: var IGESDimen_SectionedArea; aCurve: handle[IGESData_IGESEntity];
-          aPattern: Standard_Integer; aPoint: gp_XYZ; aDistance: Standard_Real;
-          anAngle: Standard_Real;
-          someIslands: handle[IGESData_HArray1OfIGESEntity]) {.importcpp: "Init",
+proc init*(this: var IGESDimenSectionedArea; aCurve: Handle[IGESDataIGESEntity];
+          aPattern: int; aPoint: Xyz; aDistance: float; anAngle: float;
+          someIslands: Handle[IGESDataHArray1OfIGESEntity]) {.importcpp: "Init",
     header: "IGESDimen_SectionedArea.hxx".}
-proc SetInverted*(this: var IGESDimen_SectionedArea; mode: Standard_Boolean) {.
+proc setInverted*(this: var IGESDimenSectionedArea; mode: bool) {.
     importcpp: "SetInverted", header: "IGESDimen_SectionedArea.hxx".}
-proc IsInverted*(this: IGESDimen_SectionedArea): Standard_Boolean {.noSideEffect,
+proc isInverted*(this: IGESDimenSectionedArea): bool {.noSideEffect,
     importcpp: "IsInverted", header: "IGESDimen_SectionedArea.hxx".}
-proc ExteriorCurve*(this: IGESDimen_SectionedArea): handle[IGESData_IGESEntity] {.
+proc exteriorCurve*(this: IGESDimenSectionedArea): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "ExteriorCurve", header: "IGESDimen_SectionedArea.hxx".}
-proc Pattern*(this: IGESDimen_SectionedArea): Standard_Integer {.noSideEffect,
+proc pattern*(this: IGESDimenSectionedArea): int {.noSideEffect,
     importcpp: "Pattern", header: "IGESDimen_SectionedArea.hxx".}
-proc PassingPoint*(this: IGESDimen_SectionedArea): gp_Pnt {.noSideEffect,
+proc passingPoint*(this: IGESDimenSectionedArea): Pnt {.noSideEffect,
     importcpp: "PassingPoint", header: "IGESDimen_SectionedArea.hxx".}
-proc TransformedPassingPoint*(this: IGESDimen_SectionedArea): gp_Pnt {.noSideEffect,
+proc transformedPassingPoint*(this: IGESDimenSectionedArea): Pnt {.noSideEffect,
     importcpp: "TransformedPassingPoint", header: "IGESDimen_SectionedArea.hxx".}
-proc ZDepth*(this: IGESDimen_SectionedArea): Standard_Real {.noSideEffect,
+proc zDepth*(this: IGESDimenSectionedArea): float {.noSideEffect,
     importcpp: "ZDepth", header: "IGESDimen_SectionedArea.hxx".}
-proc Distance*(this: IGESDimen_SectionedArea): Standard_Real {.noSideEffect,
+proc distance*(this: IGESDimenSectionedArea): float {.noSideEffect,
     importcpp: "Distance", header: "IGESDimen_SectionedArea.hxx".}
-proc Angle*(this: IGESDimen_SectionedArea): Standard_Real {.noSideEffect,
-    importcpp: "Angle", header: "IGESDimen_SectionedArea.hxx".}
-proc NbIslands*(this: IGESDimen_SectionedArea): Standard_Integer {.noSideEffect,
+proc angle*(this: IGESDimenSectionedArea): float {.noSideEffect, importcpp: "Angle",
+    header: "IGESDimen_SectionedArea.hxx".}
+proc nbIslands*(this: IGESDimenSectionedArea): int {.noSideEffect,
     importcpp: "NbIslands", header: "IGESDimen_SectionedArea.hxx".}
-proc IslandCurve*(this: IGESDimen_SectionedArea; Index: Standard_Integer): handle[
-    IGESData_IGESEntity] {.noSideEffect, importcpp: "IslandCurve",
-                          header: "IGESDimen_SectionedArea.hxx".}
+proc islandCurve*(this: IGESDimenSectionedArea; index: int): Handle[
+    IGESDataIGESEntity] {.noSideEffect, importcpp: "IslandCurve",
+                         header: "IGESDimen_SectionedArea.hxx".}
 type
-  IGESDimen_SectionedAreabase_type* = IGESData_IGESEntity
+  IGESDimenSectionedAreabaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESDimen_SectionedArea::get_type_name(@)",
-                              header: "IGESDimen_SectionedArea.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESDimen_SectionedArea::get_type_name(@)",
+                            header: "IGESDimen_SectionedArea.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESDimen_SectionedArea::get_type_descriptor(@)",
     header: "IGESDimen_SectionedArea.hxx".}
-proc DynamicType*(this: IGESDimen_SectionedArea): handle[Standard_Type] {.
+proc dynamicType*(this: IGESDimenSectionedArea): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDimen_SectionedArea.hxx".}

@@ -14,30 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_ShapeRepresentation
-
 discard "forward decl of StepShape_GeometricallyBoundedSurfaceShapeRepresentation"
 discard "forward decl of StepShape_GeometricallyBoundedSurfaceShapeRepresentation"
 type
-  Handle_StepShape_GeometricallyBoundedSurfaceShapeRepresentation* = handle[
-      StepShape_GeometricallyBoundedSurfaceShapeRepresentation]
-  StepShape_GeometricallyBoundedSurfaceShapeRepresentation* {.
+  HandleStepShapeGeometricallyBoundedSurfaceShapeRepresentation* = Handle[
+      StepShapeGeometricallyBoundedSurfaceShapeRepresentation]
+  StepShapeGeometricallyBoundedSurfaceShapeRepresentation* {.
       importcpp: "StepShape_GeometricallyBoundedSurfaceShapeRepresentation",
       header: "StepShape_GeometricallyBoundedSurfaceShapeRepresentation.hxx",
-      bycopy.} = object of StepShape_ShapeRepresentation ## ! Returns a
-                                                    ## GeometricallyBoundedSurfaceShapeRepresentation
+      bycopy.} = object of StepShapeShapeRepresentation ## ! Returns a
+                                                   ## GeometricallyBoundedSurfaceShapeRepresentation
 
 
-proc constructStepShape_GeometricallyBoundedSurfaceShapeRepresentation*(): StepShape_GeometricallyBoundedSurfaceShapeRepresentation {.
+proc constructStepShapeGeometricallyBoundedSurfaceShapeRepresentation*(): StepShapeGeometricallyBoundedSurfaceShapeRepresentation {.
     constructor,
     importcpp: "StepShape_GeometricallyBoundedSurfaceShapeRepresentation(@)",
     header: "StepShape_GeometricallyBoundedSurfaceShapeRepresentation.hxx".}
 type
-  StepShape_GeometricallyBoundedSurfaceShapeRepresentationbase_type* = StepShape_ShapeRepresentation
+  StepShapeGeometricallyBoundedSurfaceShapeRepresentationbaseType* = StepShapeShapeRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_GeometricallyBoundedSurfaceShapeRepresentation::get_type_name(@)", header: "StepShape_GeometricallyBoundedSurfaceShapeRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepShape_GeometricallyBoundedSurfaceShapeRepresentation::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepShape_GeometricallyBoundedSurfaceShapeRepresentation::get_type_name(@)", header: "StepShape_GeometricallyBoundedSurfaceShapeRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_GeometricallyBoundedSurfaceShapeRepresentation::get_type_descriptor(@)",
     header: "StepShape_GeometricallyBoundedSurfaceShapeRepresentation.hxx".}
-proc DynamicType*(this: StepShape_GeometricallyBoundedSurfaceShapeRepresentation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_GeometricallyBoundedSurfaceShapeRepresentation.hxx".}
+proc dynamicType*(this: StepShapeGeometricallyBoundedSurfaceShapeRepresentation): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_GeometricallyBoundedSurfaceShapeRepresentation.hxx".}

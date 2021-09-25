@@ -13,36 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepRepr/StepRepr_ShapeAspect
-
 discard "forward decl of StepFEA_FeaModelDefinition"
 discard "forward decl of StepFEA_FeaModelDefinition"
 type
-  Handle_StepFEA_FeaModelDefinition* = handle[StepFEA_FeaModelDefinition]
+  HandleStepFEA_FeaModelDefinition* = Handle[StepFEA_FeaModelDefinition]
 
 ## ! Representation of STEP entity FeaModelDefinition
 
 type
   StepFEA_FeaModelDefinition* {.importcpp: "StepFEA_FeaModelDefinition",
-                               header: "StepFEA_FeaModelDefinition.hxx", bycopy.} = object of StepRepr_ShapeAspect ##
-                                                                                                            ## !
-                                                                                                            ## Empty
-                                                                                                            ## constructor
+                               header: "StepFEA_FeaModelDefinition.hxx", bycopy.} = object of StepReprShapeAspect ##
+                                                                                                           ## !
+                                                                                                           ## Empty
+                                                                                                           ## constructor
 
 
 proc constructStepFEA_FeaModelDefinition*(): StepFEA_FeaModelDefinition {.
     constructor, importcpp: "StepFEA_FeaModelDefinition(@)",
     header: "StepFEA_FeaModelDefinition.hxx".}
 type
-  StepFEA_FeaModelDefinitionbase_type* = StepRepr_ShapeAspect
+  StepFEA_FeaModelDefinitionbaseType* = StepReprShapeAspect
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_FeaModelDefinition::get_type_name(@)",
-                              header: "StepFEA_FeaModelDefinition.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_FeaModelDefinition::get_type_name(@)",
+                            header: "StepFEA_FeaModelDefinition.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_FeaModelDefinition::get_type_descriptor(@)",
     header: "StepFEA_FeaModelDefinition.hxx".}
-proc DynamicType*(this: StepFEA_FeaModelDefinition): handle[Standard_Type] {.
+proc dynamicType*(this: StepFEA_FeaModelDefinition): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_FeaModelDefinition.hxx".}

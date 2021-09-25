@@ -14,40 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_PresentationStyleSelect, StepVisual_Array1OfPresentationStyleSelect,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepVisual_HArray1OfPresentationStyleSelect* {.
+  StepVisualHArray1OfPresentationStyleSelect* {.
       importcpp: "StepVisual_HArray1OfPresentationStyleSelect",
-      header: "StepVisual_HArray1OfPresentationStyleSelect.hxx", bycopy.} = object of StepVisual_Array1OfPresentationStyleSelect
+      header: "StepVisual_HArray1OfPresentationStyleSelect.hxx", bycopy.} = object of StepVisualArray1OfPresentationStyleSelect
 
 
-proc constructStepVisual_HArray1OfPresentationStyleSelect*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepVisual_HArray1OfPresentationStyleSelect {.
+proc constructStepVisualHArray1OfPresentationStyleSelect*(theLower: int;
+    theUpper: int): StepVisualHArray1OfPresentationStyleSelect {.constructor,
+    importcpp: "StepVisual_HArray1OfPresentationStyleSelect(@)",
+    header: "StepVisual_HArray1OfPresentationStyleSelect.hxx".}
+proc constructStepVisualHArray1OfPresentationStyleSelect*(theLower: int;
+    theUpper: int; theValue: ValueType): StepVisualHArray1OfPresentationStyleSelect {.
     constructor, importcpp: "StepVisual_HArray1OfPresentationStyleSelect(@)",
     header: "StepVisual_HArray1OfPresentationStyleSelect.hxx".}
-proc constructStepVisual_HArray1OfPresentationStyleSelect*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepVisual_HArray1OfPresentationStyleSelect {.
+proc constructStepVisualHArray1OfPresentationStyleSelect*(
+    theOther: StepVisualArray1OfPresentationStyleSelect): StepVisualHArray1OfPresentationStyleSelect {.
     constructor, importcpp: "StepVisual_HArray1OfPresentationStyleSelect(@)",
     header: "StepVisual_HArray1OfPresentationStyleSelect.hxx".}
-proc constructStepVisual_HArray1OfPresentationStyleSelect*(
-    theOther: StepVisual_Array1OfPresentationStyleSelect): StepVisual_HArray1OfPresentationStyleSelect {.
-    constructor, importcpp: "StepVisual_HArray1OfPresentationStyleSelect(@)",
-    header: "StepVisual_HArray1OfPresentationStyleSelect.hxx".}
-proc Array1*(this: StepVisual_HArray1OfPresentationStyleSelect): StepVisual_Array1OfPresentationStyleSelect {.
+proc array1*(this: StepVisualHArray1OfPresentationStyleSelect): StepVisualArray1OfPresentationStyleSelect {.
     noSideEffect, importcpp: "Array1",
     header: "StepVisual_HArray1OfPresentationStyleSelect.hxx".}
-proc ChangeArray1*(this: var StepVisual_HArray1OfPresentationStyleSelect): var StepVisual_Array1OfPresentationStyleSelect {.
+proc changeArray1*(this: var StepVisualHArray1OfPresentationStyleSelect): var StepVisualArray1OfPresentationStyleSelect {.
     importcpp: "ChangeArray1",
     header: "StepVisual_HArray1OfPresentationStyleSelect.hxx".}
 type
-  StepVisual_HArray1OfPresentationStyleSelectbase_type* = MMgt_TShared
+  StepVisualHArray1OfPresentationStyleSelectbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_HArray1OfPresentationStyleSelect::get_type_name(@)", header: "StepVisual_HArray1OfPresentationStyleSelect.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_HArray1OfPresentationStyleSelect::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepVisual_HArray1OfPresentationStyleSelect::get_type_name(@)", header: "StepVisual_HArray1OfPresentationStyleSelect.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_HArray1OfPresentationStyleSelect::get_type_descriptor(@)",
     header: "StepVisual_HArray1OfPresentationStyleSelect.hxx".}
-proc DynamicType*(this: StepVisual_HArray1OfPresentationStyleSelect): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepVisual_HArray1OfPresentationStyleSelect.hxx".}
+proc dynamicType*(this: StepVisualHArray1OfPresentationStyleSelect): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepVisual_HArray1OfPresentationStyleSelect.hxx".}

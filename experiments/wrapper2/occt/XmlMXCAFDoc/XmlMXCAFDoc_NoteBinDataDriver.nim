@@ -13,45 +13,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  XmlMXCAFDoc_NoteDriver
-
 discard "forward decl of XmlMXCAFDoc_NoteBinDataDriver"
 discard "forward decl of XmlMXCAFDoc_NoteBinDataDriver"
 type
-  Handle_XmlMXCAFDoc_NoteBinDataDriver* = handle[XmlMXCAFDoc_NoteBinDataDriver]
+  HandleXmlMXCAFDocNoteBinDataDriver* = Handle[XmlMXCAFDocNoteBinDataDriver]
 
 ## ! Attribute Driver.
 
 type
-  XmlMXCAFDoc_NoteBinDataDriver* {.importcpp: "XmlMXCAFDoc_NoteBinDataDriver",
-                                  header: "XmlMXCAFDoc_NoteBinDataDriver.hxx",
-                                  bycopy.} = object of XmlMXCAFDoc_NoteDriver
+  XmlMXCAFDocNoteBinDataDriver* {.importcpp: "XmlMXCAFDoc_NoteBinDataDriver",
+                                 header: "XmlMXCAFDoc_NoteBinDataDriver.hxx",
+                                 bycopy.} = object of XmlMXCAFDocNoteDriver
 
 
-proc constructXmlMXCAFDoc_NoteBinDataDriver*(
-    theMessageDriver: handle[Message_Messenger]): XmlMXCAFDoc_NoteBinDataDriver {.
+proc constructXmlMXCAFDocNoteBinDataDriver*(
+    theMessageDriver: Handle[MessageMessenger]): XmlMXCAFDocNoteBinDataDriver {.
     constructor, importcpp: "XmlMXCAFDoc_NoteBinDataDriver(@)",
     header: "XmlMXCAFDoc_NoteBinDataDriver.hxx".}
-proc NewEmpty*(this: XmlMXCAFDoc_NoteBinDataDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: XmlMXCAFDocNoteBinDataDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty",
     header: "XmlMXCAFDoc_NoteBinDataDriver.hxx".}
-proc Paste*(this: XmlMXCAFDoc_NoteBinDataDriver; theSource: XmlObjMgt_Persistent;
-           theTarget: handle[TDF_Attribute];
-           theRelocTable: var XmlObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "XmlMXCAFDoc_NoteBinDataDriver.hxx".}
-proc Paste*(this: XmlMXCAFDoc_NoteBinDataDriver; theSource: handle[TDF_Attribute];
-           theTarget: var XmlObjMgt_Persistent;
-           theRelocTable: var XmlObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: XmlMXCAFDocNoteBinDataDriver; theSource: XmlObjMgtPersistent;
+           theTarget: Handle[TDF_Attribute];
+           theRelocTable: var XmlObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "XmlMXCAFDoc_NoteBinDataDriver.hxx".}
+proc paste*(this: XmlMXCAFDocNoteBinDataDriver; theSource: Handle[TDF_Attribute];
+           theTarget: var XmlObjMgtPersistent;
+           theRelocTable: var XmlObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "XmlMXCAFDoc_NoteBinDataDriver.hxx".}
 type
-  XmlMXCAFDoc_NoteBinDataDriverbase_type* = XmlMXCAFDoc_NoteDriver
+  XmlMXCAFDocNoteBinDataDriverbaseType* = XmlMXCAFDocNoteDriver
 
-proc get_type_name*(): cstring {.importcpp: "XmlMXCAFDoc_NoteBinDataDriver::get_type_name(@)",
-                              header: "XmlMXCAFDoc_NoteBinDataDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XmlMXCAFDoc_NoteBinDataDriver::get_type_name(@)",
+                            header: "XmlMXCAFDoc_NoteBinDataDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XmlMXCAFDoc_NoteBinDataDriver::get_type_descriptor(@)",
     header: "XmlMXCAFDoc_NoteBinDataDriver.hxx".}
-proc DynamicType*(this: XmlMXCAFDoc_NoteBinDataDriver): handle[Standard_Type] {.
+proc dynamicType*(this: XmlMXCAFDocNoteBinDataDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMXCAFDoc_NoteBinDataDriver.hxx".}

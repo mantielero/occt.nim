@@ -12,10 +12,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_List
-
 discard "forward decl of BOPDS_PaveBlock"
 type
-  BOPDS_ListOfPaveBlock* = NCollection_List[handle[BOPDS_PaveBlock]]
+  BOPDS_ListOfPaveBlock* = NCollectionList[Handle[BOPDS_PaveBlock]]
   BOPDS_ListIteratorOfListOfPaveBlock* = Iterator
+

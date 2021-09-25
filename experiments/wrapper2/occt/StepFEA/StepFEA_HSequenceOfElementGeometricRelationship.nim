@@ -11,5 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # StepFEA_HSequenceOfElementGeometricRelationship_HeaderFile [NewLine] # StepFEA_HSequenceOfElementGeometricRelationship_HeaderFile [NewLine] # StepFEA_ElementGeometricRelationship.hxx [NewLine] # StepFEA_SequenceOfElementGeometricRelationship.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( StepFEA_HSequenceOfElementGeometricRelationship , StepFEA_SequenceOfElementGeometricRelationship ) # [NewLine]
+## !!!Ignored construct:  # StepFEA_HSequenceOfElementGeometricRelationship_HeaderFile [NewLine] # StepFEA_HSequenceOfElementGeometricRelationship_HeaderFile [NewLine] # < StepFEA_ElementGeometricRelationship . hxx > [NewLine] # < StepFEA_SequenceOfElementGeometricRelationship . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( StepFEA_HSequenceOfElementGeometricRelationship , StepFEA_SequenceOfElementGeometricRelationship ) # [NewLine]
 ## Error: expected ';'!!!
+

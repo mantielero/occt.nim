@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, ../TColgp/TColgp_SequenceOfPnt2d,
-  ../TopTools/TopTools_ShapeMapHasher, ../NCollection/NCollection_DataMap
-
 type
-  BRepTools_MapOfVertexPnt2d* = NCollection_DataMap[TopoDS_Shape,
-      TColgp_SequenceOfPnt2d, TopTools_ShapeMapHasher]
-  BRepTools_DataMapIteratorOfMapOfVertexPnt2d* = Iterator[TopoDS_Shape,
-      TColgp_SequenceOfPnt2d, TopTools_ShapeMapHasher]
+  BRepToolsMapOfVertexPnt2d* = NCollectionDataMap[TopoDS_Shape,
+      TColgpSequenceOfPnt2d, TopToolsShapeMapHasher]
+  BRepToolsDataMapIteratorOfMapOfVertexPnt2d* = Iterator[TopoDS_Shape,
+      TColgpSequenceOfPnt2d, TopToolsShapeMapHasher]
+

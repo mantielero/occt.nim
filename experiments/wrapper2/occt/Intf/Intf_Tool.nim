@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Lin2d"
 discard "forward decl of Bnd_Box2d"
@@ -29,28 +24,28 @@ discard "forward decl of Bnd_Box"
 discard "forward decl of gp_Hypr"
 discard "forward decl of gp_Parab"
 type
-  Intf_Tool* {.importcpp: "Intf_Tool", header: "Intf_Tool.hxx", bycopy.} = object
+  IntfTool* {.importcpp: "Intf_Tool", header: "Intf_Tool.hxx", bycopy.} = object
 
 
-proc constructIntf_Tool*(): Intf_Tool {.constructor, importcpp: "Intf_Tool(@)",
+proc constructIntfTool*(): IntfTool {.constructor, importcpp: "Intf_Tool(@)",
+                                   header: "Intf_Tool.hxx".}
+proc lin2dBox*(this: var IntfTool; theLin2d: Lin2d; bounding: BndBox2d;
+              boxLin: var BndBox2d) {.importcpp: "Lin2dBox", header: "Intf_Tool.hxx".}
+proc hypr2dBox*(this: var IntfTool; theHypr2d: Hypr2d; bounding: BndBox2d;
+               boxHypr: var BndBox2d) {.importcpp: "Hypr2dBox",
                                      header: "Intf_Tool.hxx".}
-proc Lin2dBox*(this: var Intf_Tool; theLin2d: gp_Lin2d; bounding: Bnd_Box2d;
-              boxLin: var Bnd_Box2d) {.importcpp: "Lin2dBox", header: "Intf_Tool.hxx".}
-proc Hypr2dBox*(this: var Intf_Tool; theHypr2d: gp_Hypr2d; bounding: Bnd_Box2d;
-               boxHypr: var Bnd_Box2d) {.importcpp: "Hypr2dBox",
+proc parab2dBox*(this: var IntfTool; theParab2d: Parab2d; bounding: BndBox2d;
+                boxHypr: var BndBox2d) {.importcpp: "Parab2dBox",
                                       header: "Intf_Tool.hxx".}
-proc Parab2dBox*(this: var Intf_Tool; theParab2d: gp_Parab2d; bounding: Bnd_Box2d;
-                boxHypr: var Bnd_Box2d) {.importcpp: "Parab2dBox",
-                                       header: "Intf_Tool.hxx".}
-proc LinBox*(this: var Intf_Tool; theLin: gp_Lin; bounding: Bnd_Box; boxLin: var Bnd_Box) {.
+proc linBox*(this: var IntfTool; theLin: Lin; bounding: BndBox; boxLin: var BndBox) {.
     importcpp: "LinBox", header: "Intf_Tool.hxx".}
-proc HyprBox*(this: var Intf_Tool; theHypr: gp_Hypr; bounding: Bnd_Box;
-             boxHypr: var Bnd_Box) {.importcpp: "HyprBox", header: "Intf_Tool.hxx".}
-proc ParabBox*(this: var Intf_Tool; theParab: gp_Parab; bounding: Bnd_Box;
-              boxHypr: var Bnd_Box) {.importcpp: "ParabBox", header: "Intf_Tool.hxx".}
-proc NbSegments*(this: Intf_Tool): Standard_Integer {.noSideEffect,
-    importcpp: "NbSegments", header: "Intf_Tool.hxx".}
-proc BeginParam*(this: Intf_Tool; SegmentNum: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "BeginParam", header: "Intf_Tool.hxx".}
-proc EndParam*(this: Intf_Tool; SegmentNum: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "EndParam", header: "Intf_Tool.hxx".}
+proc hyprBox*(this: var IntfTool; theHypr: Hypr; bounding: BndBox; boxHypr: var BndBox) {.
+    importcpp: "HyprBox", header: "Intf_Tool.hxx".}
+proc parabBox*(this: var IntfTool; theParab: Parab; bounding: BndBox;
+              boxHypr: var BndBox) {.importcpp: "ParabBox", header: "Intf_Tool.hxx".}
+proc nbSegments*(this: IntfTool): int {.noSideEffect, importcpp: "NbSegments",
+                                    header: "Intf_Tool.hxx".}
+proc beginParam*(this: IntfTool; segmentNum: int): float {.noSideEffect,
+    importcpp: "BeginParam", header: "Intf_Tool.hxx".}
+proc endParam*(this: IntfTool; segmentNum: int): float {.noSideEffect,
+    importcpp: "EndParam", header: "Intf_Tool.hxx".}

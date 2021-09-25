@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  TopoDSToStep_BuilderError* {.size: sizeof(cint),
-                              importcpp: "TopoDSToStep_BuilderError",
-                              header: "TopoDSToStep_BuilderError.hxx".} = enum
-    TopoDSToStep_BuilderDone, TopoDSToStep_NoFaceMapped, TopoDSToStep_BuilderOther
+  TopoDSToStepBuilderError* {.size: sizeof(cint),
+                             importcpp: "TopoDSToStep_BuilderError",
+                             header: "TopoDSToStep_BuilderError.hxx".} = enum
+    TopoDSToStepBuilderDone, TopoDSToStepNoFaceMapped, TopoDSToStepBuilderOther
+
 

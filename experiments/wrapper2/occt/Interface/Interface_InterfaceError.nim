@@ -14,16 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Interface_InterfaceError_HeaderFile [NewLine] # _Interface_InterfaceError_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_Failure.hxx [NewLine] class Interface_InterfaceError ;
+## !!!Ignored construct:  # _Interface_InterfaceError_HeaderFile [NewLine] # _Interface_InterfaceError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class Interface_InterfaceError ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Interface_InterfaceError"
 type
-  Handle_Interface_InterfaceErrorInterface_InterfaceError* = handle[
-      Interface_InterfaceError]
+  HandleInterfaceInterfaceErrorInterfaceInterfaceError* = Handle[
+      InterfaceInterfaceError]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Interface_InterfaceError [NewLine] # if ( CONDITION ) throw Interface_InterfaceError ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Interface_InterfaceError , Standard_Failure ) #  _Interface_InterfaceError_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Interface_InterfaceError , Standard_Failure ) #  _Interface_InterfaceError_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

@@ -25,7 +25,8 @@
 ## ! color of curves
 
 type
-  XCAFDoc_ColorType* {.size: sizeof(cint), importcpp: "XCAFDoc_ColorType",
-                      header: "XCAFDoc_ColorType.hxx".} = enum
-    XCAFDoc_ColorGen, XCAFDoc_ColorSurf, XCAFDoc_ColorCurv
+  XCAFDocColorType* {.size: sizeof(cint), importcpp: "XCAFDoc_ColorType",
+                     header: "XCAFDoc_ColorType.hxx".} = enum
+    XCAFDocColorGen, XCAFDocColorSurf, XCAFDocColorCurv
+
 

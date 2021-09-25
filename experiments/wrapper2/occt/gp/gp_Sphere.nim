@@ -12,11 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, gp_Ax3, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, gp_Ax1
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of gp_Ax3"
 discard "forward decl of gp_Pnt"
@@ -25,89 +20,68 @@ discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Vec"
 type
-  gp_Sphere* {.importcpp: "gp_Sphere", header: "gp_Sphere.hxx", bycopy.} = object ## !
-                                                                          ## Creates an
-                                                                          ## indefinite
-                                                                          ## sphere.
-    gp_Sphere* {.importc: "gp_Sphere".}: Standard_NODISCARD
-    gp_Sphere* {.importc: "gp_Sphere".}: Standard_NODISCARD
-    gp_Sphere* {.importc: "gp_Sphere".}: Standard_NODISCARD
-    gp_Sphere* {.importc: "gp_Sphere".}: Standard_NODISCARD
-    gp_Sphere* {.importc: "gp_Sphere".}: Standard_NODISCARD
-    gp_Sphere* {.importc: "gp_Sphere".}: Standard_NODISCARD
-    gp_Sphere* {.importc: "gp_Sphere".}: Standard_NODISCARD
-    gp_Sphere* {.importc: "gp_Sphere".}: Standard_NODISCARD
+  Sphere* {.importcpp: "gp_Sphere", header: "gp_Sphere.hxx", bycopy.} = object ## ! Creates an
+                                                                       ## indefinite sphere.
 
 
-proc constructgp_Sphere*(): gp_Sphere {.constructor, importcpp: "gp_Sphere(@)",
-                                     header: "gp_Sphere.hxx".}
-proc constructgp_Sphere*(A3: gp_Ax3; Radius: Standard_Real): gp_Sphere {.constructor,
+proc constructSphere*(): Sphere {.constructor, importcpp: "gp_Sphere(@)",
+                               header: "gp_Sphere.hxx".}
+proc constructSphere*(a3: Ax3; radius: float): Sphere {.constructor,
     importcpp: "gp_Sphere(@)", header: "gp_Sphere.hxx".}
-proc SetLocation*(this: var gp_Sphere; Loc: gp_Pnt) {.importcpp: "SetLocation",
+proc setLocation*(this: var Sphere; loc: Pnt) {.importcpp: "SetLocation",
     header: "gp_Sphere.hxx".}
-proc SetPosition*(this: var gp_Sphere; A3: gp_Ax3) {.importcpp: "SetPosition",
+proc setPosition*(this: var Sphere; a3: Ax3) {.importcpp: "SetPosition",
     header: "gp_Sphere.hxx".}
-proc SetRadius*(this: var gp_Sphere; R: Standard_Real) {.importcpp: "SetRadius",
+proc setRadius*(this: var Sphere; r: float) {.importcpp: "SetRadius",
+                                        header: "gp_Sphere.hxx".}
+proc area*(this: Sphere): float {.noSideEffect, importcpp: "Area",
+                              header: "gp_Sphere.hxx".}
+proc coefficients*(this: Sphere; a1: var float; a2: var float; a3: var float; b1: var float;
+                  b2: var float; b3: var float; c1: var float; c2: var float; c3: var float;
+                  d: var float) {.noSideEffect, importcpp: "Coefficients",
+                               header: "gp_Sphere.hxx".}
+proc uReverse*(this: var Sphere) {.importcpp: "UReverse", header: "gp_Sphere.hxx".}
+proc vReverse*(this: var Sphere) {.importcpp: "VReverse", header: "gp_Sphere.hxx".}
+proc direct*(this: Sphere): bool {.noSideEffect, importcpp: "Direct",
+                               header: "gp_Sphere.hxx".}
+proc location*(this: Sphere): Pnt {.noSideEffect, importcpp: "Location",
+                                header: "gp_Sphere.hxx".}
+proc position*(this: Sphere): Ax3 {.noSideEffect, importcpp: "Position",
+                                header: "gp_Sphere.hxx".}
+proc radius*(this: Sphere): float {.noSideEffect, importcpp: "Radius",
+                                header: "gp_Sphere.hxx".}
+proc volume*(this: Sphere): float {.noSideEffect, importcpp: "Volume",
+                                header: "gp_Sphere.hxx".}
+proc xAxis*(this: Sphere): Ax1 {.noSideEffect, importcpp: "XAxis",
+                             header: "gp_Sphere.hxx".}
+proc yAxis*(this: Sphere): Ax1 {.noSideEffect, importcpp: "YAxis",
+                             header: "gp_Sphere.hxx".}
+proc mirror*(this: var Sphere; p: Pnt) {.importcpp: "Mirror", header: "gp_Sphere.hxx".}
+proc mirrored*(this: Sphere; p: Pnt): Sphere {.noSideEffect, importcpp: "Mirrored",
     header: "gp_Sphere.hxx".}
-proc Area*(this: gp_Sphere): Standard_Real {.noSideEffect, importcpp: "Area",
+proc mirror*(this: var Sphere; a1: Ax1) {.importcpp: "Mirror", header: "gp_Sphere.hxx".}
+proc mirrored*(this: Sphere; a1: Ax1): Sphere {.noSideEffect, importcpp: "Mirrored",
     header: "gp_Sphere.hxx".}
-proc Coefficients*(this: gp_Sphere; A1: var Standard_Real; A2: var Standard_Real;
-                  A3: var Standard_Real; B1: var Standard_Real; B2: var Standard_Real;
-                  B3: var Standard_Real; C1: var Standard_Real; C2: var Standard_Real;
-                  C3: var Standard_Real; D: var Standard_Real) {.noSideEffect,
-    importcpp: "Coefficients", header: "gp_Sphere.hxx".}
-proc UReverse*(this: var gp_Sphere) {.importcpp: "UReverse", header: "gp_Sphere.hxx".}
-proc VReverse*(this: var gp_Sphere) {.importcpp: "VReverse", header: "gp_Sphere.hxx".}
-proc Direct*(this: gp_Sphere): Standard_Boolean {.noSideEffect, importcpp: "Direct",
+proc mirror*(this: var Sphere; a2: Ax2) {.importcpp: "Mirror", header: "gp_Sphere.hxx".}
+proc mirrored*(this: Sphere; a2: Ax2): Sphere {.noSideEffect, importcpp: "Mirrored",
     header: "gp_Sphere.hxx".}
-proc Location*(this: gp_Sphere): gp_Pnt {.noSideEffect, importcpp: "Location",
+proc rotate*(this: var Sphere; a1: Ax1; ang: float) {.importcpp: "Rotate",
+    header: "gp_Sphere.hxx".}
+proc rotated*(this: Sphere; a1: Ax1; ang: float): Sphere {.noSideEffect,
+    importcpp: "Rotated", header: "gp_Sphere.hxx".}
+proc scale*(this: var Sphere; p: Pnt; s: float) {.importcpp: "Scale",
+    header: "gp_Sphere.hxx".}
+proc scaled*(this: Sphere; p: Pnt; s: float): Sphere {.noSideEffect, importcpp: "Scaled",
+    header: "gp_Sphere.hxx".}
+proc transform*(this: var Sphere; t: Trsf) {.importcpp: "Transform",
+                                       header: "gp_Sphere.hxx".}
+proc transformed*(this: Sphere; t: Trsf): Sphere {.noSideEffect,
+    importcpp: "Transformed", header: "gp_Sphere.hxx".}
+proc translate*(this: var Sphere; v: Vec) {.importcpp: "Translate",
                                       header: "gp_Sphere.hxx".}
-proc Position*(this: gp_Sphere): gp_Ax3 {.noSideEffect, importcpp: "Position",
-                                      header: "gp_Sphere.hxx".}
-proc Radius*(this: gp_Sphere): Standard_Real {.noSideEffect, importcpp: "Radius",
+proc translated*(this: Sphere; v: Vec): Sphere {.noSideEffect, importcpp: "Translated",
     header: "gp_Sphere.hxx".}
-proc Volume*(this: gp_Sphere): Standard_Real {.noSideEffect, importcpp: "Volume",
+proc translate*(this: var Sphere; p1: Pnt; p2: Pnt) {.importcpp: "Translate",
     header: "gp_Sphere.hxx".}
-proc XAxis*(this: gp_Sphere): gp_Ax1 {.noSideEffect, importcpp: "XAxis",
-                                   header: "gp_Sphere.hxx".}
-proc YAxis*(this: gp_Sphere): gp_Ax1 {.noSideEffect, importcpp: "YAxis",
-                                   header: "gp_Sphere.hxx".}
-proc Mirror*(this: var gp_Sphere; P: gp_Pnt) {.importcpp: "Mirror",
-    header: "gp_Sphere.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Pnt & P ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Mirror*(this: var gp_Sphere; A1: gp_Ax1) {.importcpp: "Mirror",
-    header: "gp_Sphere.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Ax1 & A1 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Mirror*(this: var gp_Sphere; A2: gp_Ax2) {.importcpp: "Mirror",
-    header: "gp_Sphere.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Ax2 & A2 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Rotate*(this: var gp_Sphere; A1: gp_Ax1; Ang: Standard_Real) {.importcpp: "Rotate",
-    header: "gp_Sphere.hxx".}
-## !!!Ignored construct:  Rotated ( const gp_Ax1 & A1 , const Standard_Real Ang ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Scale*(this: var gp_Sphere; P: gp_Pnt; S: Standard_Real) {.importcpp: "Scale",
-    header: "gp_Sphere.hxx".}
-## !!!Ignored construct:  Scaled ( const gp_Pnt & P , const Standard_Real S ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Transform*(this: var gp_Sphere; T: gp_Trsf) {.importcpp: "Transform",
-    header: "gp_Sphere.hxx".}
-## !!!Ignored construct:  Transformed ( const gp_Trsf & T ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Translate*(this: var gp_Sphere; V: gp_Vec) {.importcpp: "Translate",
-    header: "gp_Sphere.hxx".}
-## !!!Ignored construct:  Translated ( const gp_Vec & V ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Translate*(this: var gp_Sphere; P1: gp_Pnt; P2: gp_Pnt) {.importcpp: "Translate",
-    header: "gp_Sphere.hxx".}
-## !!!Ignored construct:  Translated ( const gp_Pnt & P1 , const gp_Pnt & P2 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
+proc translated*(this: Sphere; p1: Pnt; p2: Pnt): Sphere {.noSideEffect,
+    importcpp: "Translated", header: "gp_Sphere.hxx".}

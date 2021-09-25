@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP203_DateTimeItem, StepAP203_Array1OfDateTimeItem,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepAP203_HArray1OfDateTimeItem* {.importcpp: "StepAP203_HArray1OfDateTimeItem", header: "StepAP203_HArray1OfDateTimeItem.hxx",
-                                    bycopy.} = object of StepAP203_Array1OfDateTimeItem
+  StepAP203HArray1OfDateTimeItem* {.importcpp: "StepAP203_HArray1OfDateTimeItem", header: "StepAP203_HArray1OfDateTimeItem.hxx",
+                                   bycopy.} = object of StepAP203Array1OfDateTimeItem
 
 
-proc constructStepAP203_HArray1OfDateTimeItem*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepAP203_HArray1OfDateTimeItem {.constructor,
+proc constructStepAP203HArray1OfDateTimeItem*(theLower: int; theUpper: int): StepAP203HArray1OfDateTimeItem {.
+    constructor, importcpp: "StepAP203_HArray1OfDateTimeItem(@)",
+    header: "StepAP203_HArray1OfDateTimeItem.hxx".}
+proc constructStepAP203HArray1OfDateTimeItem*(theLower: int; theUpper: int;
+    theValue: ValueType): StepAP203HArray1OfDateTimeItem {.constructor,
     importcpp: "StepAP203_HArray1OfDateTimeItem(@)",
     header: "StepAP203_HArray1OfDateTimeItem.hxx".}
-proc constructStepAP203_HArray1OfDateTimeItem*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepAP203_HArray1OfDateTimeItem {.
+proc constructStepAP203HArray1OfDateTimeItem*(
+    theOther: StepAP203Array1OfDateTimeItem): StepAP203HArray1OfDateTimeItem {.
     constructor, importcpp: "StepAP203_HArray1OfDateTimeItem(@)",
     header: "StepAP203_HArray1OfDateTimeItem.hxx".}
-proc constructStepAP203_HArray1OfDateTimeItem*(
-    theOther: StepAP203_Array1OfDateTimeItem): StepAP203_HArray1OfDateTimeItem {.
-    constructor, importcpp: "StepAP203_HArray1OfDateTimeItem(@)",
-    header: "StepAP203_HArray1OfDateTimeItem.hxx".}
-proc Array1*(this: StepAP203_HArray1OfDateTimeItem): StepAP203_Array1OfDateTimeItem {.
+proc array1*(this: StepAP203HArray1OfDateTimeItem): StepAP203Array1OfDateTimeItem {.
     noSideEffect, importcpp: "Array1",
     header: "StepAP203_HArray1OfDateTimeItem.hxx".}
-proc ChangeArray1*(this: var StepAP203_HArray1OfDateTimeItem): var StepAP203_Array1OfDateTimeItem {.
+proc changeArray1*(this: var StepAP203HArray1OfDateTimeItem): var StepAP203Array1OfDateTimeItem {.
     importcpp: "ChangeArray1", header: "StepAP203_HArray1OfDateTimeItem.hxx".}
 type
-  StepAP203_HArray1OfDateTimeItembase_type* = MMgt_TShared
+  StepAP203HArray1OfDateTimeItembaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepAP203_HArray1OfDateTimeItem::get_type_name(@)",
-                              header: "StepAP203_HArray1OfDateTimeItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP203_HArray1OfDateTimeItem::get_type_name(@)",
+                            header: "StepAP203_HArray1OfDateTimeItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP203_HArray1OfDateTimeItem::get_type_descriptor(@)",
     header: "StepAP203_HArray1OfDateTimeItem.hxx".}
-proc DynamicType*(this: StepAP203_HArray1OfDateTimeItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepAP203HArray1OfDateTimeItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP203_HArray1OfDateTimeItem.hxx".}

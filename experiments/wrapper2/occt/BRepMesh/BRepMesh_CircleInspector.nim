@@ -13,36 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../IMeshData/IMeshData_Types, BRepMesh_Circle, ../Precision/Precision,
-  ../gp/gp_XY, ../gp/gp_XYZ, ../NCollection/NCollection_CellFilter
-
 ## ! Auxilary class to find circles shot by the given point.
 
 type
-  BRepMesh_CircleInspector* {.importcpp: "BRepMesh_CircleInspector",
-                             header: "BRepMesh_CircleInspector.hxx", bycopy.} = object of NCollection_CellFilter_InspectorXY
+  BRepMeshCircleInspector* {.importcpp: "BRepMesh_CircleInspector",
+                            header: "BRepMesh_CircleInspector.hxx", bycopy.} = object of NCollectionCellFilterInspectorXY
 
-  BRepMesh_CircleInspectorTarget* = Standard_Integer
+  BRepMeshCircleInspectorTarget* = int
 
-proc constructBRepMesh_CircleInspector*(theTolerance: Standard_Real;
-                                       theReservedSize: Standard_Integer;
-    theAllocator: handle[NCollection_IncAllocator]): BRepMesh_CircleInspector {.
+proc constructBRepMeshCircleInspector*(theTolerance: float; theReservedSize: int;
+    theAllocator: Handle[NCollectionIncAllocator]): BRepMeshCircleInspector {.
     constructor, importcpp: "BRepMesh_CircleInspector(@)",
     header: "BRepMesh_CircleInspector.hxx".}
-proc Bind*(this: var BRepMesh_CircleInspector; theIndex: Standard_Integer;
-          theCircle: BRepMesh_Circle) {.importcpp: "Bind",
-                                      header: "BRepMesh_CircleInspector.hxx".}
-proc Circles*(this: BRepMesh_CircleInspector): VectorOfCircle {.noSideEffect,
+proc `bind`*(this: var BRepMeshCircleInspector; theIndex: int;
+            theCircle: BRepMeshCircle) {.importcpp: "Bind",
+                                       header: "BRepMesh_CircleInspector.hxx".}
+proc circles*(this: BRepMeshCircleInspector): VectorOfCircle {.noSideEffect,
     importcpp: "Circles", header: "BRepMesh_CircleInspector.hxx".}
-proc Circle*(this: var BRepMesh_CircleInspector; theIndex: Standard_Integer): var BRepMesh_Circle {.
+proc circle*(this: var BRepMeshCircleInspector; theIndex: int): var BRepMeshCircle {.
     importcpp: "Circle", header: "BRepMesh_CircleInspector.hxx".}
-proc SetPoint*(this: var BRepMesh_CircleInspector; thePoint: gp_XY) {.
+proc setPoint*(this: var BRepMeshCircleInspector; thePoint: Xy) {.
     importcpp: "SetPoint", header: "BRepMesh_CircleInspector.hxx".}
-proc GetShotCircles*(this: var BRepMesh_CircleInspector): var ListOfInteger {.
+proc getShotCircles*(this: var BRepMeshCircleInspector): var ListOfInteger {.
     importcpp: "GetShotCircles", header: "BRepMesh_CircleInspector.hxx".}
-proc Inspect*(this: var BRepMesh_CircleInspector; theTargetIndex: Standard_Integer): NCollection_CellFilter_Action {.
+proc inspect*(this: var BRepMeshCircleInspector; theTargetIndex: int): NCollectionCellFilterAction {.
     importcpp: "Inspect", header: "BRepMesh_CircleInspector.hxx".}
-proc IsEqual*(theIndex: Standard_Integer; theTargetIndex: Standard_Integer): Standard_Boolean {.
+proc isEqual*(theIndex: int; theTargetIndex: int): bool {.
     importcpp: "BRepMesh_CircleInspector::IsEqual(@)",
     header: "BRepMesh_CircleInspector.hxx".}

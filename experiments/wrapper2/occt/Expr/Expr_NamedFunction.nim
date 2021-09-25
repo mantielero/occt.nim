@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString, Expr_Array1OfNamedUnknown,
-  Expr_GeneralFunction, ../Standard/Standard_Integer, ../Standard/Standard_Real,
-  ../TColStd/TColStd_Array1OfReal, ../Standard/Standard_Boolean
-
 discard "forward decl of Expr_GeneralExpression"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_DimensionMismatch"
@@ -31,72 +25,70 @@ discard "forward decl of Expr_GeneralFunction"
 discard "forward decl of Expr_NamedFunction"
 discard "forward decl of Expr_NamedFunction"
 type
-  Handle_Expr_NamedFunction* = handle[Expr_NamedFunction]
-  Expr_NamedFunction* {.importcpp: "Expr_NamedFunction",
-                       header: "Expr_NamedFunction.hxx", bycopy.} = object of Expr_GeneralFunction ##
-                                                                                            ## !
-                                                                                            ## Creates
-                                                                                            ## a
-                                                                                            ## function
-                                                                                            ## of
-                                                                                            ## given
-                                                                                            ## variables
-                                                                                            ## <vars>
-                                                                                            ## with
-                                                                                            ## name
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## <name>
-                                                                                            ## defined
-                                                                                            ## by
-                                                                                            ## the
-                                                                                            ## expression
-                                                                                            ## <exp>.
+  HandleExprNamedFunction* = Handle[ExprNamedFunction]
+  ExprNamedFunction* {.importcpp: "Expr_NamedFunction",
+                      header: "Expr_NamedFunction.hxx", bycopy.} = object of ExprGeneralFunction ##
+                                                                                          ## !
+                                                                                          ## Creates
+                                                                                          ## a
+                                                                                          ## function
+                                                                                          ## of
+                                                                                          ## given
+                                                                                          ## variables
+                                                                                          ## <vars>
+                                                                                          ## with
+                                                                                          ## name
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## <name>
+                                                                                          ## defined
+                                                                                          ## by
+                                                                                          ## the
+                                                                                          ## expression
+                                                                                          ## <exp>.
 
 
-proc constructExpr_NamedFunction*(name: TCollection_AsciiString;
-                                 exp: handle[Expr_GeneralExpression];
-                                 vars: Expr_Array1OfNamedUnknown): Expr_NamedFunction {.
+proc constructExprNamedFunction*(name: TCollectionAsciiString;
+                                exp: Handle[ExprGeneralExpression];
+                                vars: ExprArray1OfNamedUnknown): ExprNamedFunction {.
     constructor, importcpp: "Expr_NamedFunction(@)",
     header: "Expr_NamedFunction.hxx".}
-proc SetName*(this: var Expr_NamedFunction; newname: TCollection_AsciiString) {.
+proc setName*(this: var ExprNamedFunction; newname: TCollectionAsciiString) {.
     importcpp: "SetName", header: "Expr_NamedFunction.hxx".}
-proc GetName*(this: Expr_NamedFunction): TCollection_AsciiString {.noSideEffect,
+proc getName*(this: ExprNamedFunction): TCollectionAsciiString {.noSideEffect,
     importcpp: "GetName", header: "Expr_NamedFunction.hxx".}
-proc NbOfVariables*(this: Expr_NamedFunction): Standard_Integer {.noSideEffect,
+proc nbOfVariables*(this: ExprNamedFunction): int {.noSideEffect,
     importcpp: "NbOfVariables", header: "Expr_NamedFunction.hxx".}
-proc Variable*(this: Expr_NamedFunction; index: Standard_Integer): handle[
-    Expr_NamedUnknown] {.noSideEffect, importcpp: "Variable",
-                        header: "Expr_NamedFunction.hxx".}
-proc Evaluate*(this: Expr_NamedFunction; vars: Expr_Array1OfNamedUnknown;
-              values: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
+proc variable*(this: ExprNamedFunction; index: int): Handle[ExprNamedUnknown] {.
+    noSideEffect, importcpp: "Variable", header: "Expr_NamedFunction.hxx".}
+proc evaluate*(this: ExprNamedFunction; vars: ExprArray1OfNamedUnknown;
+              values: TColStdArray1OfReal): float {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_NamedFunction.hxx".}
-proc Copy*(this: Expr_NamedFunction): handle[Expr_GeneralFunction] {.noSideEffect,
+proc copy*(this: ExprNamedFunction): Handle[ExprGeneralFunction] {.noSideEffect,
     importcpp: "Copy", header: "Expr_NamedFunction.hxx".}
-proc Derivative*(this: Expr_NamedFunction; `var`: handle[Expr_NamedUnknown]): handle[
-    Expr_GeneralFunction] {.noSideEffect, importcpp: "Derivative",
-                           header: "Expr_NamedFunction.hxx".}
-proc Derivative*(this: Expr_NamedFunction; `var`: handle[Expr_NamedUnknown];
-                deg: Standard_Integer): handle[Expr_GeneralFunction] {.
-    noSideEffect, importcpp: "Derivative", header: "Expr_NamedFunction.hxx".}
-proc IsIdentical*(this: Expr_NamedFunction; `func`: handle[Expr_GeneralFunction]): Standard_Boolean {.
+proc derivative*(this: ExprNamedFunction; `var`: Handle[ExprNamedUnknown]): Handle[
+    ExprGeneralFunction] {.noSideEffect, importcpp: "Derivative",
+                          header: "Expr_NamedFunction.hxx".}
+proc derivative*(this: ExprNamedFunction; `var`: Handle[ExprNamedUnknown]; deg: int): Handle[
+    ExprGeneralFunction] {.noSideEffect, importcpp: "Derivative",
+                          header: "Expr_NamedFunction.hxx".}
+proc isIdentical*(this: ExprNamedFunction; `func`: Handle[ExprGeneralFunction]): bool {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_NamedFunction.hxx".}
-proc IsLinearOnVariable*(this: Expr_NamedFunction; index: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsLinearOnVariable", header: "Expr_NamedFunction.hxx".}
-proc GetStringName*(this: Expr_NamedFunction): TCollection_AsciiString {.
-    noSideEffect, importcpp: "GetStringName", header: "Expr_NamedFunction.hxx".}
-proc Expression*(this: Expr_NamedFunction): handle[Expr_GeneralExpression] {.
+proc isLinearOnVariable*(this: ExprNamedFunction; index: int): bool {.noSideEffect,
+    importcpp: "IsLinearOnVariable", header: "Expr_NamedFunction.hxx".}
+proc getStringName*(this: ExprNamedFunction): TCollectionAsciiString {.noSideEffect,
+    importcpp: "GetStringName", header: "Expr_NamedFunction.hxx".}
+proc expression*(this: ExprNamedFunction): Handle[ExprGeneralExpression] {.
     noSideEffect, importcpp: "Expression", header: "Expr_NamedFunction.hxx".}
-proc SetExpression*(this: var Expr_NamedFunction;
-                   exp: handle[Expr_GeneralExpression]) {.
+proc setExpression*(this: var ExprNamedFunction; exp: Handle[ExprGeneralExpression]) {.
     importcpp: "SetExpression", header: "Expr_NamedFunction.hxx".}
 type
-  Expr_NamedFunctionbase_type* = Expr_GeneralFunction
+  ExprNamedFunctionbaseType* = ExprGeneralFunction
 
-proc get_type_name*(): cstring {.importcpp: "Expr_NamedFunction::get_type_name(@)",
-                              header: "Expr_NamedFunction.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Expr_NamedFunction::get_type_name(@)",
+                            header: "Expr_NamedFunction.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Expr_NamedFunction::get_type_descriptor(@)",
     header: "Expr_NamedFunction.hxx".}
-proc DynamicType*(this: Expr_NamedFunction): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: ExprNamedFunction): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_NamedFunction.hxx".}

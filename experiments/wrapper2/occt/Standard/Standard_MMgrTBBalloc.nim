@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Standard_MMgrRoot
-
 ## !
 ## ! Implementation of OCC memory manager which uses Intel TBB
 ## ! scalable allocator.
@@ -24,33 +21,33 @@ import
 ## ! malloc() / free() are used.
 
 type
-  Standard_MMgrTBBalloc* {.importcpp: "Standard_MMgrTBBalloc",
-                          header: "Standard_MMgrTBBalloc.hxx", bycopy.} = object of Standard_MMgrRoot ##
-                                                                                               ## !
-                                                                                               ## Constructor;
-                                                                                               ## if
-                                                                                               ## aClear
-                                                                                               ## is
-                                                                                               ## True,
-                                                                                               ## the
-                                                                                               ## memory
-                                                                                               ## will
-                                                                                               ## be
-                                                                                               ## nullified
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## upon
-                                                                                               ## allocation.
+  StandardMMgrTBBalloc* {.importcpp: "Standard_MMgrTBBalloc",
+                         header: "Standard_MMgrTBBalloc.hxx", bycopy.} = object of StandardMMgrRoot ##
+                                                                                             ## !
+                                                                                             ## Constructor;
+                                                                                             ## if
+                                                                                             ## aClear
+                                                                                             ## is
+                                                                                             ## True,
+                                                                                             ## the
+                                                                                             ## memory
+                                                                                             ## will
+                                                                                             ## be
+                                                                                             ## nullified
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## upon
+                                                                                             ## allocation.
     ## ! Option to nullify allocated memory
 
 
-proc constructStandard_MMgrTBBalloc*(aClear: Standard_Boolean = Standard_False): Standard_MMgrTBBalloc {.
+proc constructStandardMMgrTBBalloc*(aClear: bool = false): StandardMMgrTBBalloc {.
     constructor, importcpp: "Standard_MMgrTBBalloc(@)",
     header: "Standard_MMgrTBBalloc.hxx".}
-proc Allocate*(this: var Standard_MMgrTBBalloc; aSize: Standard_Size): Standard_Address {.
+proc allocate*(this: var StandardMMgrTBBalloc; aSize: StandardSize): StandardAddress {.
     importcpp: "Allocate", header: "Standard_MMgrTBBalloc.hxx".}
-proc Reallocate*(this: var Standard_MMgrTBBalloc; thePtr: Standard_Address;
-                theSize: Standard_Size): Standard_Address {.
-    importcpp: "Reallocate", header: "Standard_MMgrTBBalloc.hxx".}
-proc Free*(this: var Standard_MMgrTBBalloc; thePtr: Standard_Address) {.
+proc reallocate*(this: var StandardMMgrTBBalloc; thePtr: StandardAddress;
+                theSize: StandardSize): StandardAddress {.importcpp: "Reallocate",
+    header: "Standard_MMgrTBBalloc.hxx".}
+proc free*(this: var StandardMMgrTBBalloc; thePtr: StandardAddress) {.
     importcpp: "Free", header: "Standard_MMgrTBBalloc.hxx".}

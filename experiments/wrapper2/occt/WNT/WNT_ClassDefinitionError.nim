@@ -14,16 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _WNT_ClassDefinitionError_HeaderFile [NewLine] # _WNT_ClassDefinitionError_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_ConstructionError.hxx [NewLine] class WNT_ClassDefinitionError ;
+## !!!Ignored construct:  # _WNT_ClassDefinitionError_HeaderFile [NewLine] # _WNT_ClassDefinitionError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_ConstructionError . hxx > [NewLine] class WNT_ClassDefinitionError ;
 ## Error: expected ';'!!!
 
 discard "forward decl of WNT_ClassDefinitionError"
 type
-  Handle_WNT_ClassDefinitionErrorWNT_ClassDefinitionError* = handle[
+  HandleWNT_ClassDefinitionErrorWNT_ClassDefinitionError* = Handle[
       WNT_ClassDefinitionError]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_WNT_ClassDefinitionError [NewLine] # if ( CONDITION ) throw WNT_ClassDefinitionError ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( WNT_ClassDefinitionError , Standard_ConstructionError ) #  _WNT_ClassDefinitionError_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( WNT_ClassDefinitionError , Standard_ConstructionError ) #  _WNT_ClassDefinitionError_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

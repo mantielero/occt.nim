@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Geom2d/Geom2d_BezierCurve, TColGeom2d_Array1OfBezierCurve,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  TColGeom2d_HArray1OfBezierCurve* {.importcpp: "TColGeom2d_HArray1OfBezierCurve", header: "TColGeom2d_HArray1OfBezierCurve.hxx",
-                                    bycopy.} = object of TColGeom2d_Array1OfBezierCurve
+  TColGeom2dHArray1OfBezierCurve* {.importcpp: "TColGeom2d_HArray1OfBezierCurve", header: "TColGeom2d_HArray1OfBezierCurve.hxx",
+                                   bycopy.} = object of TColGeom2dArray1OfBezierCurve
 
 
-proc constructTColGeom2d_HArray1OfBezierCurve*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): TColGeom2d_HArray1OfBezierCurve {.constructor,
+proc constructTColGeom2dHArray1OfBezierCurve*(theLower: int; theUpper: int): TColGeom2dHArray1OfBezierCurve {.
+    constructor, importcpp: "TColGeom2d_HArray1OfBezierCurve(@)",
+    header: "TColGeom2d_HArray1OfBezierCurve.hxx".}
+proc constructTColGeom2dHArray1OfBezierCurve*(theLower: int; theUpper: int;
+    theValue: ValueType): TColGeom2dHArray1OfBezierCurve {.constructor,
     importcpp: "TColGeom2d_HArray1OfBezierCurve(@)",
     header: "TColGeom2d_HArray1OfBezierCurve.hxx".}
-proc constructTColGeom2d_HArray1OfBezierCurve*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): TColGeom2d_HArray1OfBezierCurve {.
+proc constructTColGeom2dHArray1OfBezierCurve*(
+    theOther: TColGeom2dArray1OfBezierCurve): TColGeom2dHArray1OfBezierCurve {.
     constructor, importcpp: "TColGeom2d_HArray1OfBezierCurve(@)",
     header: "TColGeom2d_HArray1OfBezierCurve.hxx".}
-proc constructTColGeom2d_HArray1OfBezierCurve*(
-    theOther: TColGeom2d_Array1OfBezierCurve): TColGeom2d_HArray1OfBezierCurve {.
-    constructor, importcpp: "TColGeom2d_HArray1OfBezierCurve(@)",
-    header: "TColGeom2d_HArray1OfBezierCurve.hxx".}
-proc Array1*(this: TColGeom2d_HArray1OfBezierCurve): TColGeom2d_Array1OfBezierCurve {.
+proc array1*(this: TColGeom2dHArray1OfBezierCurve): TColGeom2dArray1OfBezierCurve {.
     noSideEffect, importcpp: "Array1",
     header: "TColGeom2d_HArray1OfBezierCurve.hxx".}
-proc ChangeArray1*(this: var TColGeom2d_HArray1OfBezierCurve): var TColGeom2d_Array1OfBezierCurve {.
+proc changeArray1*(this: var TColGeom2dHArray1OfBezierCurve): var TColGeom2dArray1OfBezierCurve {.
     importcpp: "ChangeArray1", header: "TColGeom2d_HArray1OfBezierCurve.hxx".}
 type
-  TColGeom2d_HArray1OfBezierCurvebase_type* = MMgt_TShared
+  TColGeom2dHArray1OfBezierCurvebaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TColGeom2d_HArray1OfBezierCurve::get_type_name(@)",
-                              header: "TColGeom2d_HArray1OfBezierCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TColGeom2d_HArray1OfBezierCurve::get_type_name(@)",
+                            header: "TColGeom2d_HArray1OfBezierCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TColGeom2d_HArray1OfBezierCurve::get_type_descriptor(@)",
     header: "TColGeom2d_HArray1OfBezierCurve.hxx".}
-proc DynamicType*(this: TColGeom2d_HArray1OfBezierCurve): handle[Standard_Type] {.
+proc dynamicType*(this: TColGeom2dHArray1OfBezierCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TColGeom2d_HArray1OfBezierCurve.hxx".}

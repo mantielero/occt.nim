@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, ../MAT/MAT_SequenceOfBasicElt,
-  ../TopTools/TopTools_ShapeMapHasher, ../NCollection/NCollection_DataMap
-
 type
-  BRepMAT2d_DataMapOfShapeSequenceOfBasicElt* = NCollection_DataMap[TopoDS_Shape,
-      MAT_SequenceOfBasicElt, TopTools_ShapeMapHasher]
-  BRepMAT2d_DataMapIteratorOfDataMapOfShapeSequenceOfBasicElt* = Iterator[
-      TopoDS_Shape, MAT_SequenceOfBasicElt, TopTools_ShapeMapHasher]
+  BRepMAT2dDataMapOfShapeSequenceOfBasicElt* = NCollectionDataMap[TopoDS_Shape,
+      MAT_SequenceOfBasicElt, TopToolsShapeMapHasher]
+  BRepMAT2dDataMapIteratorOfDataMapOfShapeSequenceOfBasicElt* = Iterator[
+      TopoDS_Shape, MAT_SequenceOfBasicElt, TopToolsShapeMapHasher]
+

@@ -14,17 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_XYZ,
-  ../Standard/Standard_Real, ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of gp_XYZ"
 discard "forward decl of gp_Vec"
 discard "forward decl of IGESGeom_OffsetSurface"
 discard "forward decl of IGESGeom_OffsetSurface"
 type
-  Handle_IGESGeom_OffsetSurface* = handle[IGESGeom_OffsetSurface]
+  HandleIGESGeomOffsetSurface* = Handle[IGESGeomOffsetSurface]
 
 ## ! defines IGESOffsetSurface, Type <140> Form <0>
 ## ! in package IGESGeom
@@ -38,31 +34,30 @@ type
 ## ! u1 <= u <= u2; v1 <= v <= v2;
 
 type
-  IGESGeom_OffsetSurface* {.importcpp: "IGESGeom_OffsetSurface",
-                           header: "IGESGeom_OffsetSurface.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESGeomOffsetSurface* {.importcpp: "IGESGeom_OffsetSurface",
+                          header: "IGESGeom_OffsetSurface.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESGeom_OffsetSurface*(): IGESGeom_OffsetSurface {.constructor,
+proc constructIGESGeomOffsetSurface*(): IGESGeomOffsetSurface {.constructor,
     importcpp: "IGESGeom_OffsetSurface(@)", header: "IGESGeom_OffsetSurface.hxx".}
-proc Init*(this: var IGESGeom_OffsetSurface; anIndicatoR: gp_XYZ;
-          aDistance: Standard_Real; aSurface: handle[IGESData_IGESEntity]) {.
-    importcpp: "Init", header: "IGESGeom_OffsetSurface.hxx".}
-proc OffsetIndicator*(this: IGESGeom_OffsetSurface): gp_Vec {.noSideEffect,
-    importcpp: "OffsetIndicator", header: "IGESGeom_OffsetSurface.hxx".}
-proc TransformedOffsetIndicator*(this: IGESGeom_OffsetSurface): gp_Vec {.
-    noSideEffect, importcpp: "TransformedOffsetIndicator",
+proc init*(this: var IGESGeomOffsetSurface; anIndicatoR: Xyz; aDistance: float;
+          aSurface: Handle[IGESDataIGESEntity]) {.importcpp: "Init",
     header: "IGESGeom_OffsetSurface.hxx".}
-proc Distance*(this: IGESGeom_OffsetSurface): Standard_Real {.noSideEffect,
+proc offsetIndicator*(this: IGESGeomOffsetSurface): Vec {.noSideEffect,
+    importcpp: "OffsetIndicator", header: "IGESGeom_OffsetSurface.hxx".}
+proc transformedOffsetIndicator*(this: IGESGeomOffsetSurface): Vec {.noSideEffect,
+    importcpp: "TransformedOffsetIndicator", header: "IGESGeom_OffsetSurface.hxx".}
+proc distance*(this: IGESGeomOffsetSurface): float {.noSideEffect,
     importcpp: "Distance", header: "IGESGeom_OffsetSurface.hxx".}
-proc Surface*(this: IGESGeom_OffsetSurface): handle[IGESData_IGESEntity] {.
+proc surface*(this: IGESGeomOffsetSurface): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Surface", header: "IGESGeom_OffsetSurface.hxx".}
 type
-  IGESGeom_OffsetSurfacebase_type* = IGESData_IGESEntity
+  IGESGeomOffsetSurfacebaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESGeom_OffsetSurface::get_type_name(@)",
-                              header: "IGESGeom_OffsetSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESGeom_OffsetSurface::get_type_name(@)",
+                            header: "IGESGeom_OffsetSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESGeom_OffsetSurface::get_type_descriptor(@)",
     header: "IGESGeom_OffsetSurface.hxx".}
-proc DynamicType*(this: IGESGeom_OffsetSurface): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IGESGeom_OffsetSurface.hxx".}
+proc dynamicType*(this: IGESGeomOffsetSurface): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IGESGeom_OffsetSurface.hxx".}

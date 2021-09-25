@@ -14,29 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../GccEnt/GccEnt_Position,
-  ../Geom2dAdaptor/Geom2dAdaptor_Curve, ../Standard/Standard_Boolean
-
 discard "forward decl of Geom2dAdaptor_Curve"
 type
-  Geom2dGcc_QCurve* {.importcpp: "Geom2dGcc_QCurve",
-                     header: "Geom2dGcc_QCurve.hxx", bycopy.} = object
+  Geom2dGccQCurve* {.importcpp: "Geom2dGcc_QCurve", header: "Geom2dGcc_QCurve.hxx",
+                    bycopy.} = object
 
 
-proc constructGeom2dGcc_QCurve*(Curve: Geom2dAdaptor_Curve;
-                               Qualifier: GccEnt_Position): Geom2dGcc_QCurve {.
+proc constructGeom2dGccQCurve*(curve: Geom2dAdaptorCurve; qualifier: GccEntPosition): Geom2dGccQCurve {.
     constructor, importcpp: "Geom2dGcc_QCurve(@)", header: "Geom2dGcc_QCurve.hxx".}
-proc Qualified*(this: Geom2dGcc_QCurve): Geom2dAdaptor_Curve {.noSideEffect,
+proc qualified*(this: Geom2dGccQCurve): Geom2dAdaptorCurve {.noSideEffect,
     importcpp: "Qualified", header: "Geom2dGcc_QCurve.hxx".}
-proc Qualifier*(this: Geom2dGcc_QCurve): GccEnt_Position {.noSideEffect,
+proc qualifier*(this: Geom2dGccQCurve): GccEntPosition {.noSideEffect,
     importcpp: "Qualifier", header: "Geom2dGcc_QCurve.hxx".}
-proc IsUnqualified*(this: Geom2dGcc_QCurve): Standard_Boolean {.noSideEffect,
+proc isUnqualified*(this: Geom2dGccQCurve): bool {.noSideEffect,
     importcpp: "IsUnqualified", header: "Geom2dGcc_QCurve.hxx".}
-proc IsEnclosing*(this: Geom2dGcc_QCurve): Standard_Boolean {.noSideEffect,
+proc isEnclosing*(this: Geom2dGccQCurve): bool {.noSideEffect,
     importcpp: "IsEnclosing", header: "Geom2dGcc_QCurve.hxx".}
-proc IsEnclosed*(this: Geom2dGcc_QCurve): Standard_Boolean {.noSideEffect,
+proc isEnclosed*(this: Geom2dGccQCurve): bool {.noSideEffect,
     importcpp: "IsEnclosed", header: "Geom2dGcc_QCurve.hxx".}
-proc IsOutside*(this: Geom2dGcc_QCurve): Standard_Boolean {.noSideEffect,
-    importcpp: "IsOutside", header: "Geom2dGcc_QCurve.hxx".}
+proc isOutside*(this: Geom2dGccQCurve): bool {.noSideEffect, importcpp: "IsOutside",
+    header: "Geom2dGcc_QCurve.hxx".}

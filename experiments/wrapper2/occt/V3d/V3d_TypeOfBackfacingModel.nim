@@ -21,8 +21,9 @@
 ## ! TOBM_NEVER_DISPLAYED      disable display of back faces
 
 type
-  V3d_TypeOfBackfacingModel* {.size: sizeof(cint),
-                              importcpp: "V3d_TypeOfBackfacingModel",
-                              header: "V3d_TypeOfBackfacingModel.hxx".} = enum
-    V3d_TOBM_AUTOMATIC, V3d_TOBM_ALWAYS_DISPLAYED, V3d_TOBM_NEVER_DISPLAYED
+  V3dTypeOfBackfacingModel* {.size: sizeof(cint),
+                             importcpp: "V3d_TypeOfBackfacingModel",
+                             header: "V3d_TypeOfBackfacingModel.hxx".} = enum
+    V3dTOBM_AUTOMATIC, V3dTOBM_ALWAYS_DISPLAYED, V3dTOBM_NEVER_DISPLAYED
+
 

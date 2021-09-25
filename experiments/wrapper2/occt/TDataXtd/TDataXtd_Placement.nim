@@ -13,33 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TDataStd/TDataStd_GenericEmpty
-
 discard "forward decl of TDF_Label"
 discard "forward decl of TDataXtd_Placement"
 discard "forward decl of TDataXtd_Placement"
 type
-  Handle_TDataXtd_Placement* = handle[TDataXtd_Placement]
-  TDataXtd_Placement* {.importcpp: "TDataXtd_Placement",
-                       header: "TDataXtd_Placement.hxx", bycopy.} = object of TDataStd_GenericEmpty ##
-                                                                                             ## !
-                                                                                             ## class
-                                                                                             ## methods
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## =============
+  HandleTDataXtdPlacement* = Handle[TDataXtdPlacement]
+  TDataXtdPlacement* {.importcpp: "TDataXtd_Placement",
+                      header: "TDataXtd_Placement.hxx", bycopy.} = object of TDataStdGenericEmpty ##
+                                                                                           ## !
+                                                                                           ## class
+                                                                                           ## methods
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## =============
 
 
-proc GetID*(): Standard_GUID {.importcpp: "TDataXtd_Placement::GetID(@)",
-                            header: "TDataXtd_Placement.hxx".}
-proc Set*(label: TDF_Label): handle[TDataXtd_Placement] {.
+proc getID*(): StandardGUID {.importcpp: "TDataXtd_Placement::GetID(@)",
+                           header: "TDataXtd_Placement.hxx".}
+proc set*(label: TDF_Label): Handle[TDataXtdPlacement] {.
     importcpp: "TDataXtd_Placement::Set(@)", header: "TDataXtd_Placement.hxx".}
-proc constructTDataXtd_Placement*(): TDataXtd_Placement {.constructor,
+proc constructTDataXtdPlacement*(): TDataXtdPlacement {.constructor,
     importcpp: "TDataXtd_Placement(@)", header: "TDataXtd_Placement.hxx".}
-proc ID*(this: TDataXtd_Placement): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TDataXtdPlacement): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TDataXtd_Placement.hxx".}
-proc Dump*(this: TDataXtd_Placement; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDataXtdPlacement; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataXtd_Placement.hxx".}
 ## !!!Ignored construct:  DEFINE_DERIVED_ATTRIBUTE ( TDataXtd_Placement , TDataStd_GenericEmpty ) protected : private : }
 ## Error: token expected: ) but got: ,!!!
+

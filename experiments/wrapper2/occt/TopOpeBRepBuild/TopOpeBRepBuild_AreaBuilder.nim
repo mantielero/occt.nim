@@ -14,67 +14,58 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRepBuild_ListOfListOfLoop,
-  TopOpeBRepBuild_ListIteratorOfListOfListOfLoop,
-  TopOpeBRepBuild_ListIteratorOfListOfLoop, ../Standard/Standard_Boolean,
-  ../TopAbs/TopAbs_State, TopOpeBRepBuild_ListOfLoop, TopOpeBRepBuild_LoopEnum,
-  ../Standard/Standard_Integer, ../Standard/Standard_Address
-
 discard "forward decl of TopOpeBRepBuild_LoopSet"
 discard "forward decl of TopOpeBRepBuild_LoopClassifier"
 discard "forward decl of TopOpeBRepBuild_Loop"
 type
-  TopOpeBRepBuild_AreaBuilder* {.importcpp: "TopOpeBRepBuild_AreaBuilder",
-                                header: "TopOpeBRepBuild_AreaBuilder.hxx", bycopy.} = object
+  TopOpeBRepBuildAreaBuilder* {.importcpp: "TopOpeBRepBuild_AreaBuilder",
+                               header: "TopOpeBRepBuild_AreaBuilder.hxx", bycopy.} = object
 
 
-proc constructTopOpeBRepBuild_AreaBuilder*(): TopOpeBRepBuild_AreaBuilder {.
+proc constructTopOpeBRepBuildAreaBuilder*(): TopOpeBRepBuildAreaBuilder {.
     constructor, importcpp: "TopOpeBRepBuild_AreaBuilder(@)",
     header: "TopOpeBRepBuild_AreaBuilder.hxx".}
-proc constructTopOpeBRepBuild_AreaBuilder*(LS: var TopOpeBRepBuild_LoopSet;
-    LC: var TopOpeBRepBuild_LoopClassifier;
-    ForceClass: Standard_Boolean = Standard_False): TopOpeBRepBuild_AreaBuilder {.
+proc constructTopOpeBRepBuildAreaBuilder*(ls: var TopOpeBRepBuildLoopSet;
+    lc: var TopOpeBRepBuildLoopClassifier; forceClass: bool = false): TopOpeBRepBuildAreaBuilder {.
     constructor, importcpp: "TopOpeBRepBuild_AreaBuilder(@)",
     header: "TopOpeBRepBuild_AreaBuilder.hxx".}
-proc destroyTopOpeBRepBuild_AreaBuilder*(this: var TopOpeBRepBuild_AreaBuilder) {.
+proc destroyTopOpeBRepBuildAreaBuilder*(this: var TopOpeBRepBuildAreaBuilder) {.
     importcpp: "#.~TopOpeBRepBuild_AreaBuilder()",
     header: "TopOpeBRepBuild_AreaBuilder.hxx".}
-proc InitAreaBuilder*(this: var TopOpeBRepBuild_AreaBuilder;
-                     LS: var TopOpeBRepBuild_LoopSet;
-                     LC: var TopOpeBRepBuild_LoopClassifier;
-                     ForceClass: Standard_Boolean = Standard_False) {.
-    importcpp: "InitAreaBuilder", header: "TopOpeBRepBuild_AreaBuilder.hxx".}
-proc InitArea*(this: var TopOpeBRepBuild_AreaBuilder): Standard_Integer {.
-    importcpp: "InitArea", header: "TopOpeBRepBuild_AreaBuilder.hxx".}
-proc MoreArea*(this: TopOpeBRepBuild_AreaBuilder): Standard_Boolean {.noSideEffect,
+proc initAreaBuilder*(this: var TopOpeBRepBuildAreaBuilder;
+                     ls: var TopOpeBRepBuildLoopSet;
+                     lc: var TopOpeBRepBuildLoopClassifier;
+                     forceClass: bool = false) {.importcpp: "InitAreaBuilder",
+    header: "TopOpeBRepBuild_AreaBuilder.hxx".}
+proc initArea*(this: var TopOpeBRepBuildAreaBuilder): int {.importcpp: "InitArea",
+    header: "TopOpeBRepBuild_AreaBuilder.hxx".}
+proc moreArea*(this: TopOpeBRepBuildAreaBuilder): bool {.noSideEffect,
     importcpp: "MoreArea", header: "TopOpeBRepBuild_AreaBuilder.hxx".}
-proc NextArea*(this: var TopOpeBRepBuild_AreaBuilder) {.importcpp: "NextArea",
+proc nextArea*(this: var TopOpeBRepBuildAreaBuilder) {.importcpp: "NextArea",
     header: "TopOpeBRepBuild_AreaBuilder.hxx".}
-proc InitLoop*(this: var TopOpeBRepBuild_AreaBuilder): Standard_Integer {.
-    importcpp: "InitLoop", header: "TopOpeBRepBuild_AreaBuilder.hxx".}
-proc MoreLoop*(this: TopOpeBRepBuild_AreaBuilder): Standard_Boolean {.noSideEffect,
+proc initLoop*(this: var TopOpeBRepBuildAreaBuilder): int {.importcpp: "InitLoop",
+    header: "TopOpeBRepBuild_AreaBuilder.hxx".}
+proc moreLoop*(this: TopOpeBRepBuildAreaBuilder): bool {.noSideEffect,
     importcpp: "MoreLoop", header: "TopOpeBRepBuild_AreaBuilder.hxx".}
-proc NextLoop*(this: var TopOpeBRepBuild_AreaBuilder) {.importcpp: "NextLoop",
+proc nextLoop*(this: var TopOpeBRepBuildAreaBuilder) {.importcpp: "NextLoop",
     header: "TopOpeBRepBuild_AreaBuilder.hxx".}
-proc Loop*(this: TopOpeBRepBuild_AreaBuilder): handle[TopOpeBRepBuild_Loop] {.
+proc loop*(this: TopOpeBRepBuildAreaBuilder): Handle[TopOpeBRepBuildLoop] {.
     noSideEffect, importcpp: "Loop", header: "TopOpeBRepBuild_AreaBuilder.hxx".}
-proc ADD_Loop_TO_LISTOFLoop*(this: TopOpeBRepBuild_AreaBuilder;
-                            L: handle[TopOpeBRepBuild_Loop];
-                            LOL: var TopOpeBRepBuild_ListOfLoop;
-                            s: Standard_Address = nil) {.noSideEffect,
+proc aDD_LoopTO_LISTOFLoop*(this: TopOpeBRepBuildAreaBuilder;
+                           L: Handle[TopOpeBRepBuildLoop];
+                           lol: var TopOpeBRepBuildListOfLoop;
+                           s: StandardAddress = nil) {.noSideEffect,
     importcpp: "ADD_Loop_TO_LISTOFLoop", header: "TopOpeBRepBuild_AreaBuilder.hxx".}
-proc REM_Loop_FROM_LISTOFLoop*(this: TopOpeBRepBuild_AreaBuilder; ITLOL: var TopOpeBRepBuild_ListIteratorOfListOfLoop;
-                              LOL: var TopOpeBRepBuild_ListOfLoop;
-                              s: Standard_Address = nil) {.noSideEffect,
+proc rEM_LoopFROM_LISTOFLoop*(this: TopOpeBRepBuildAreaBuilder; itlol: var TopOpeBRepBuildListIteratorOfListOfLoop;
+                             lol: var TopOpeBRepBuildListOfLoop;
+                             s: StandardAddress = nil) {.noSideEffect,
     importcpp: "REM_Loop_FROM_LISTOFLoop",
     header: "TopOpeBRepBuild_AreaBuilder.hxx".}
-proc ADD_LISTOFLoop_TO_LISTOFLoop*(this: TopOpeBRepBuild_AreaBuilder;
-                                  LOL1: var TopOpeBRepBuild_ListOfLoop;
-                                  LOL2: var TopOpeBRepBuild_ListOfLoop;
-                                  s: Standard_Address = nil;
-                                  s1: Standard_Address = nil;
-                                  s2: Standard_Address = nil) {.noSideEffect,
+proc aDD_LISTOFLoopTO_LISTOFLoop*(this: TopOpeBRepBuildAreaBuilder;
+                                 lol1: var TopOpeBRepBuildListOfLoop;
+                                 lol2: var TopOpeBRepBuildListOfLoop;
+                                 s: StandardAddress = nil;
+                                 s1: StandardAddress = nil;
+                                 s2: StandardAddress = nil) {.noSideEffect,
     importcpp: "ADD_LISTOFLoop_TO_LISTOFLoop",
     header: "TopOpeBRepBuild_AreaBuilder.hxx".}

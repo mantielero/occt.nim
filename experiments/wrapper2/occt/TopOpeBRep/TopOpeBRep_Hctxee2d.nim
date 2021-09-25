@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Edge,
-  ../Geom2dAdaptor/Geom2dAdaptor_Curve, ../IntRes2d/IntRes2d_Domain,
-  ../Standard/Standard_Transient, ../Standard/Standard_Integer
-
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of BRepAdaptor_Surface"
 discard "forward decl of TopoDS_Shape"
@@ -27,29 +22,29 @@ discard "forward decl of IntRes2d_Domain"
 discard "forward decl of TopOpeBRep_Hctxee2d"
 discard "forward decl of TopOpeBRep_Hctxee2d"
 type
-  Handle_TopOpeBRep_Hctxee2d* = handle[TopOpeBRep_Hctxee2d]
-  TopOpeBRep_Hctxee2d* {.importcpp: "TopOpeBRep_Hctxee2d",
-                        header: "TopOpeBRep_Hctxee2d.hxx", bycopy.} = object of Standard_Transient
+  HandleTopOpeBRepHctxee2d* = Handle[TopOpeBRepHctxee2d]
+  TopOpeBRepHctxee2d* {.importcpp: "TopOpeBRep_Hctxee2d",
+                       header: "TopOpeBRep_Hctxee2d.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructTopOpeBRep_Hctxee2d*(): TopOpeBRep_Hctxee2d {.constructor,
+proc constructTopOpeBRepHctxee2d*(): TopOpeBRepHctxee2d {.constructor,
     importcpp: "TopOpeBRep_Hctxee2d(@)", header: "TopOpeBRep_Hctxee2d.hxx".}
-proc SetEdges*(this: var TopOpeBRep_Hctxee2d; E1: TopoDS_Edge; E2: TopoDS_Edge;
-              BAS1: BRepAdaptor_Surface; BAS2: BRepAdaptor_Surface) {.
+proc setEdges*(this: var TopOpeBRepHctxee2d; e1: TopoDS_Edge; e2: TopoDS_Edge;
+              bas1: BRepAdaptorSurface; bas2: BRepAdaptorSurface) {.
     importcpp: "SetEdges", header: "TopOpeBRep_Hctxee2d.hxx".}
-proc Edge*(this: TopOpeBRep_Hctxee2d; I: Standard_Integer): TopoDS_Shape {.
-    noSideEffect, importcpp: "Edge", header: "TopOpeBRep_Hctxee2d.hxx".}
-proc Curve*(this: TopOpeBRep_Hctxee2d; I: Standard_Integer): Geom2dAdaptor_Curve {.
-    noSideEffect, importcpp: "Curve", header: "TopOpeBRep_Hctxee2d.hxx".}
-proc Domain*(this: TopOpeBRep_Hctxee2d; I: Standard_Integer): IntRes2d_Domain {.
-    noSideEffect, importcpp: "Domain", header: "TopOpeBRep_Hctxee2d.hxx".}
+proc edge*(this: TopOpeBRepHctxee2d; i: int): TopoDS_Shape {.noSideEffect,
+    importcpp: "Edge", header: "TopOpeBRep_Hctxee2d.hxx".}
+proc curve*(this: TopOpeBRepHctxee2d; i: int): Geom2dAdaptorCurve {.noSideEffect,
+    importcpp: "Curve", header: "TopOpeBRep_Hctxee2d.hxx".}
+proc domain*(this: TopOpeBRepHctxee2d; i: int): IntRes2dDomain {.noSideEffect,
+    importcpp: "Domain", header: "TopOpeBRep_Hctxee2d.hxx".}
 type
-  TopOpeBRep_Hctxee2dbase_type* = Standard_Transient
+  TopOpeBRepHctxee2dbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TopOpeBRep_Hctxee2d::get_type_name(@)",
-                              header: "TopOpeBRep_Hctxee2d.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TopOpeBRep_Hctxee2d::get_type_name(@)",
+                            header: "TopOpeBRep_Hctxee2d.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopOpeBRep_Hctxee2d::get_type_descriptor(@)",
     header: "TopOpeBRep_Hctxee2d.hxx".}
-proc DynamicType*(this: TopOpeBRep_Hctxee2d): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TopOpeBRepHctxee2d): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopOpeBRep_Hctxee2d.hxx".}

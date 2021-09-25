@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Transient, Transfer_HSequenceOfFinder,
-  Transfer_TransferMapOfProcessForFinder, ../Message/Message_ProgressRange
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Transfer_Finder"
 discard "forward decl of Transfer_FindHasher"
@@ -30,50 +25,46 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_ActorOfProcessForFinder"
 discard "forward decl of Transfer_ActorOfProcessForFinder"
 type
-  Handle_Transfer_ActorOfProcessForFinder* = handle[
-      Transfer_ActorOfProcessForFinder]
-  Transfer_ActorOfProcessForFinder* {.importcpp: "Transfer_ActorOfProcessForFinder", header: "Transfer_ActorOfProcessForFinder.hxx",
-                                     bycopy.} = object of Standard_Transient
+  HandleTransferActorOfProcessForFinder* = Handle[TransferActorOfProcessForFinder]
+  TransferActorOfProcessForFinder* {.importcpp: "Transfer_ActorOfProcessForFinder", header: "Transfer_ActorOfProcessForFinder.hxx",
+                                    bycopy.} = object of StandardTransient
 
 
-proc constructTransfer_ActorOfProcessForFinder*(): Transfer_ActorOfProcessForFinder {.
+proc constructTransferActorOfProcessForFinder*(): TransferActorOfProcessForFinder {.
     constructor, importcpp: "Transfer_ActorOfProcessForFinder(@)",
     header: "Transfer_ActorOfProcessForFinder.hxx".}
-proc Recognize*(this: var Transfer_ActorOfProcessForFinder;
-               start: handle[Transfer_Finder]): Standard_Boolean {.
-    importcpp: "Recognize", header: "Transfer_ActorOfProcessForFinder.hxx".}
-proc Transferring*(this: var Transfer_ActorOfProcessForFinder;
-                  start: handle[Transfer_Finder];
-                  TP: handle[Transfer_ProcessForFinder];
-                  theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
-    Transfer_Binder] {.importcpp: "Transferring",
-                      header: "Transfer_ActorOfProcessForFinder.hxx".}
-proc TransientResult*(this: Transfer_ActorOfProcessForFinder;
-                     res: handle[Standard_Transient]): handle[
-    Transfer_SimpleBinderOfTransient] {.noSideEffect,
-                                       importcpp: "TransientResult", header: "Transfer_ActorOfProcessForFinder.hxx".}
-proc NullResult*(this: Transfer_ActorOfProcessForFinder): handle[Transfer_Binder] {.
+proc recognize*(this: var TransferActorOfProcessForFinder;
+               start: Handle[TransferFinder]): bool {.importcpp: "Recognize",
+    header: "Transfer_ActorOfProcessForFinder.hxx".}
+proc transferring*(this: var TransferActorOfProcessForFinder;
+                  start: Handle[TransferFinder];
+                  tp: Handle[TransferProcessForFinder];
+                  theProgress: MessageProgressRange = messageProgressRange()): Handle[
+    TransferBinder] {.importcpp: "Transferring",
+                     header: "Transfer_ActorOfProcessForFinder.hxx".}
+proc transientResult*(this: TransferActorOfProcessForFinder;
+                     res: Handle[StandardTransient]): Handle[
+    TransferSimpleBinderOfTransient] {.noSideEffect, importcpp: "TransientResult", header: "Transfer_ActorOfProcessForFinder.hxx".}
+proc nullResult*(this: TransferActorOfProcessForFinder): Handle[TransferBinder] {.
     noSideEffect, importcpp: "NullResult",
     header: "Transfer_ActorOfProcessForFinder.hxx".}
-proc SetLast*(this: var Transfer_ActorOfProcessForFinder;
-             mode: Standard_Boolean = Standard_True) {.importcpp: "SetLast",
-    header: "Transfer_ActorOfProcessForFinder.hxx".}
-proc IsLast*(this: Transfer_ActorOfProcessForFinder): Standard_Boolean {.
-    noSideEffect, importcpp: "IsLast",
-    header: "Transfer_ActorOfProcessForFinder.hxx".}
-proc SetNext*(this: var Transfer_ActorOfProcessForFinder;
-             next: handle[Transfer_ActorOfProcessForFinder]) {.
+proc setLast*(this: var TransferActorOfProcessForFinder; mode: bool = true) {.
+    importcpp: "SetLast", header: "Transfer_ActorOfProcessForFinder.hxx".}
+proc isLast*(this: TransferActorOfProcessForFinder): bool {.noSideEffect,
+    importcpp: "IsLast", header: "Transfer_ActorOfProcessForFinder.hxx".}
+proc setNext*(this: var TransferActorOfProcessForFinder;
+             next: Handle[TransferActorOfProcessForFinder]) {.
     importcpp: "SetNext", header: "Transfer_ActorOfProcessForFinder.hxx".}
-proc Next*(this: Transfer_ActorOfProcessForFinder): handle[
-    Transfer_ActorOfProcessForFinder] {.noSideEffect, importcpp: "Next", header: "Transfer_ActorOfProcessForFinder.hxx".}
+proc next*(this: TransferActorOfProcessForFinder): Handle[
+    TransferActorOfProcessForFinder] {.noSideEffect, importcpp: "Next", header: "Transfer_ActorOfProcessForFinder.hxx".}
 type
-  Transfer_ActorOfProcessForFinderbase_type* = Standard_Transient
+  TransferActorOfProcessForFinderbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Transfer_ActorOfProcessForFinder::get_type_name(@)",
-                              header: "Transfer_ActorOfProcessForFinder.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Transfer_ActorOfProcessForFinder::get_type_name(@)",
+                            header: "Transfer_ActorOfProcessForFinder.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_ActorOfProcessForFinder::get_type_descriptor(@)",
     header: "Transfer_ActorOfProcessForFinder.hxx".}
-proc DynamicType*(this: Transfer_ActorOfProcessForFinder): handle[Standard_Type] {.
+proc dynamicType*(this: TransferActorOfProcessForFinder): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Transfer_ActorOfProcessForFinder.hxx".}

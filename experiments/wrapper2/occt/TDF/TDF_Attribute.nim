@@ -13,12 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TDF_LabelNodePtr,
-  ../Standard/Standard_Integer, ../Standard/Standard_Transient,
-  ../Standard/Standard_Boolean, ../Standard/Standard_OStream,
-  TDF_AttributeIndexedMap
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of TDF_Data"
 discard "forward decl of TDF_Label"
@@ -37,7 +31,7 @@ discard "forward decl of TDF_IDFilter"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of TDF_Attribute"
 type
-  Handle_TDF_Attribute* = handle[TDF_Attribute]
+  HandleTDF_Attribute* = Handle[TDF_Attribute]
 
 ## ! A class each application has to implement. It is
 ## ! used to contain the application data.
@@ -128,129 +122,127 @@ type
 ## ! profit from the delta services.
 
 type
-  TDF_Attribute* {.importcpp: "TDF_Attribute", header: "TDF_Attribute.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## the
-                                                                                                          ## ID
-                                                                                                          ## of
-                                                                                                          ## the
-                                                                                                          ## attribute.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Initializes
-                                                                                                          ## fields.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Set
-                                                                                                          ## the
-                                                                                                          ## "Valid"
-                                                                                                          ## status
-                                                                                                          ## with
-                                                                                                          ## <aStatus>.
+  TDF_Attribute* {.importcpp: "TDF_Attribute", header: "TDF_Attribute.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                         ## !
+                                                                                                         ## Returns
+                                                                                                         ## the
+                                                                                                         ## ID
+                                                                                                         ## of
+                                                                                                         ## the
+                                                                                                         ## attribute.
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Initializes
+                                                                                                         ## fields.
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Set
+                                                                                                         ## the
+                                                                                                         ## "Valid"
+                                                                                                         ## status
+                                                                                                         ## with
+                                                                                                         ## <aStatus>.
 
 
-proc ID*(this: TDF_Attribute): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TDF_Attribute): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TDF_Attribute.hxx".}
-proc SetID*(this: var TDF_Attribute; a2: Standard_GUID) {.importcpp: "SetID",
+proc setID*(this: var TDF_Attribute; a2: StandardGUID) {.importcpp: "SetID",
     header: "TDF_Attribute.hxx".}
   ## theGuid
-proc SetID*(this: var TDF_Attribute) {.importcpp: "SetID", header: "TDF_Attribute.hxx".}
-proc Label*(this: TDF_Attribute): TDF_Label {.noSideEffect, importcpp: "Label",
+proc setID*(this: var TDF_Attribute) {.importcpp: "SetID", header: "TDF_Attribute.hxx".}
+proc label*(this: TDF_Attribute): TDF_Label {.noSideEffect, importcpp: "Label",
     header: "TDF_Attribute.hxx".}
-proc Transaction*(this: TDF_Attribute): Standard_Integer {.noSideEffect,
-    importcpp: "Transaction", header: "TDF_Attribute.hxx".}
-proc UntilTransaction*(this: TDF_Attribute): Standard_Integer {.noSideEffect,
+proc transaction*(this: TDF_Attribute): int {.noSideEffect, importcpp: "Transaction",
+    header: "TDF_Attribute.hxx".}
+proc untilTransaction*(this: TDF_Attribute): int {.noSideEffect,
     importcpp: "UntilTransaction", header: "TDF_Attribute.hxx".}
-proc IsValid*(this: TDF_Attribute): Standard_Boolean {.noSideEffect,
-    importcpp: "IsValid", header: "TDF_Attribute.hxx".}
-proc IsNew*(this: TDF_Attribute): Standard_Boolean {.noSideEffect,
-    importcpp: "IsNew", header: "TDF_Attribute.hxx".}
-proc IsForgotten*(this: TDF_Attribute): Standard_Boolean {.noSideEffect,
+proc isValid*(this: TDF_Attribute): bool {.noSideEffect, importcpp: "IsValid",
+                                       header: "TDF_Attribute.hxx".}
+proc isNew*(this: TDF_Attribute): bool {.noSideEffect, importcpp: "IsNew",
+                                     header: "TDF_Attribute.hxx".}
+proc isForgotten*(this: TDF_Attribute): bool {.noSideEffect,
     importcpp: "IsForgotten", header: "TDF_Attribute.hxx".}
-proc IsAttribute*(this: TDF_Attribute; anID: Standard_GUID): Standard_Boolean {.
-    noSideEffect, importcpp: "IsAttribute", header: "TDF_Attribute.hxx".}
-proc FindAttribute*(this: TDF_Attribute; anID: Standard_GUID;
-                   anAttribute: var handle[TDF_Attribute]): Standard_Boolean {.
-    noSideEffect, importcpp: "FindAttribute", header: "TDF_Attribute.hxx".}
-proc FindAttribute*[T](this: TDF_Attribute; theID: Standard_GUID;
-                      theAttr: var handle[T]): Standard_Boolean {.noSideEffect,
+proc isAttribute*(this: TDF_Attribute; anID: StandardGUID): bool {.noSideEffect,
+    importcpp: "IsAttribute", header: "TDF_Attribute.hxx".}
+proc findAttribute*(this: TDF_Attribute; anID: StandardGUID;
+                   anAttribute: var Handle[TDF_Attribute]): bool {.noSideEffect,
     importcpp: "FindAttribute", header: "TDF_Attribute.hxx".}
-proc AddAttribute*(this: TDF_Attribute; other: handle[TDF_Attribute]) {.noSideEffect,
+proc findAttribute*[T](this: TDF_Attribute; theID: StandardGUID;
+                      theAttr: var Handle[T]): bool {.noSideEffect,
+    importcpp: "FindAttribute", header: "TDF_Attribute.hxx".}
+proc addAttribute*(this: TDF_Attribute; other: Handle[TDF_Attribute]) {.noSideEffect,
     importcpp: "AddAttribute", header: "TDF_Attribute.hxx".}
-proc ForgetAttribute*(this: TDF_Attribute; aguid: Standard_GUID): Standard_Boolean {.
-    noSideEffect, importcpp: "ForgetAttribute", header: "TDF_Attribute.hxx".}
-proc ForgetAllAttributes*(this: TDF_Attribute;
-                         clearChildren: Standard_Boolean = Standard_True) {.
+proc forgetAttribute*(this: TDF_Attribute; aguid: StandardGUID): bool {.noSideEffect,
+    importcpp: "ForgetAttribute", header: "TDF_Attribute.hxx".}
+proc forgetAllAttributes*(this: TDF_Attribute; clearChildren: bool = true) {.
     noSideEffect, importcpp: "ForgetAllAttributes", header: "TDF_Attribute.hxx".}
-proc AfterAddition*(this: var TDF_Attribute) {.importcpp: "AfterAddition",
+proc afterAddition*(this: var TDF_Attribute) {.importcpp: "AfterAddition",
     header: "TDF_Attribute.hxx".}
-proc BeforeRemoval*(this: var TDF_Attribute) {.importcpp: "BeforeRemoval",
+proc beforeRemoval*(this: var TDF_Attribute) {.importcpp: "BeforeRemoval",
     header: "TDF_Attribute.hxx".}
-proc BeforeForget*(this: var TDF_Attribute) {.importcpp: "BeforeForget",
+proc beforeForget*(this: var TDF_Attribute) {.importcpp: "BeforeForget",
     header: "TDF_Attribute.hxx".}
-proc AfterResume*(this: var TDF_Attribute) {.importcpp: "AfterResume",
+proc afterResume*(this: var TDF_Attribute) {.importcpp: "AfterResume",
     header: "TDF_Attribute.hxx".}
-proc AfterRetrieval*(this: var TDF_Attribute;
-                    forceIt: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc afterRetrieval*(this: var TDF_Attribute; forceIt: bool = false): bool {.
     importcpp: "AfterRetrieval", header: "TDF_Attribute.hxx".}
-proc BeforeUndo*(this: var TDF_Attribute; anAttDelta: handle[TDF_AttributeDelta];
-                forceIt: Standard_Boolean = Standard_False): Standard_Boolean {.
-    importcpp: "BeforeUndo", header: "TDF_Attribute.hxx".}
-proc AfterUndo*(this: var TDF_Attribute; anAttDelta: handle[TDF_AttributeDelta];
-               forceIt: Standard_Boolean = Standard_False): Standard_Boolean {.
-    importcpp: "AfterUndo", header: "TDF_Attribute.hxx".}
-proc BeforeCommitTransaction*(this: var TDF_Attribute) {.
+proc beforeUndo*(this: var TDF_Attribute; anAttDelta: Handle[TDF_AttributeDelta];
+                forceIt: bool = false): bool {.importcpp: "BeforeUndo",
+    header: "TDF_Attribute.hxx".}
+proc afterUndo*(this: var TDF_Attribute; anAttDelta: Handle[TDF_AttributeDelta];
+               forceIt: bool = false): bool {.importcpp: "AfterUndo",
+    header: "TDF_Attribute.hxx".}
+proc beforeCommitTransaction*(this: var TDF_Attribute) {.
     importcpp: "BeforeCommitTransaction", header: "TDF_Attribute.hxx".}
-proc Backup*(this: var TDF_Attribute) {.importcpp: "Backup",
+proc backup*(this: var TDF_Attribute) {.importcpp: "Backup",
                                     header: "TDF_Attribute.hxx".}
-proc IsBackuped*(this: TDF_Attribute): Standard_Boolean {.noSideEffect,
-    importcpp: "IsBackuped", header: "TDF_Attribute.hxx".}
-proc BackupCopy*(this: TDF_Attribute): handle[TDF_Attribute] {.noSideEffect,
+proc isBackuped*(this: TDF_Attribute): bool {.noSideEffect, importcpp: "IsBackuped",
+    header: "TDF_Attribute.hxx".}
+proc backupCopy*(this: TDF_Attribute): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "BackupCopy", header: "TDF_Attribute.hxx".}
-proc Restore*(this: var TDF_Attribute; anAttribute: handle[TDF_Attribute]) {.
+proc restore*(this: var TDF_Attribute; anAttribute: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TDF_Attribute.hxx".}
-proc DeltaOnAddition*(this: TDF_Attribute): handle[TDF_DeltaOnAddition] {.
+proc deltaOnAddition*(this: TDF_Attribute): Handle[TDF_DeltaOnAddition] {.
     noSideEffect, importcpp: "DeltaOnAddition", header: "TDF_Attribute.hxx".}
-proc DeltaOnForget*(this: TDF_Attribute): handle[TDF_DeltaOnForget] {.noSideEffect,
+proc deltaOnForget*(this: TDF_Attribute): Handle[TDF_DeltaOnForget] {.noSideEffect,
     importcpp: "DeltaOnForget", header: "TDF_Attribute.hxx".}
-proc DeltaOnResume*(this: TDF_Attribute): handle[TDF_DeltaOnResume] {.noSideEffect,
+proc deltaOnResume*(this: TDF_Attribute): Handle[TDF_DeltaOnResume] {.noSideEffect,
     importcpp: "DeltaOnResume", header: "TDF_Attribute.hxx".}
-proc DeltaOnModification*(this: TDF_Attribute;
-                         anOldAttribute: handle[TDF_Attribute]): handle[
+proc deltaOnModification*(this: TDF_Attribute;
+                         anOldAttribute: Handle[TDF_Attribute]): Handle[
     TDF_DeltaOnModification] {.noSideEffect, importcpp: "DeltaOnModification",
                               header: "TDF_Attribute.hxx".}
-proc DeltaOnModification*(this: var TDF_Attribute;
-                         aDelta: handle[TDF_DeltaOnModification]) {.
+proc deltaOnModification*(this: var TDF_Attribute;
+                         aDelta: Handle[TDF_DeltaOnModification]) {.
     importcpp: "DeltaOnModification", header: "TDF_Attribute.hxx".}
-proc DeltaOnRemoval*(this: TDF_Attribute): handle[TDF_DeltaOnRemoval] {.
+proc deltaOnRemoval*(this: TDF_Attribute): Handle[TDF_DeltaOnRemoval] {.
     noSideEffect, importcpp: "DeltaOnRemoval", header: "TDF_Attribute.hxx".}
-proc NewEmpty*(this: TDF_Attribute): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TDF_Attribute): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TDF_Attribute.hxx".}
-proc Paste*(this: TDF_Attribute; intoAttribute: handle[TDF_Attribute];
-           aRelocationTable: handle[TDF_RelocationTable]) {.noSideEffect,
+proc paste*(this: TDF_Attribute; intoAttribute: Handle[TDF_Attribute];
+           aRelocationTable: Handle[TDF_RelocationTable]) {.noSideEffect,
     importcpp: "Paste", header: "TDF_Attribute.hxx".}
-proc References*(this: TDF_Attribute; aDataSet: handle[TDF_DataSet]) {.noSideEffect,
+proc references*(this: TDF_Attribute; aDataSet: Handle[TDF_DataSet]) {.noSideEffect,
     importcpp: "References", header: "TDF_Attribute.hxx".}
-proc Dump*(this: TDF_Attribute; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDF_Attribute; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDF_Attribute.hxx".}
-proc `<<`*(this: TDF_Attribute; anOS: var Standard_OStream): var Standard_OStream {.
+proc `<<`*(this: TDF_Attribute; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "(# << #)", header: "TDF_Attribute.hxx".}
-proc ExtendedDump*(this: TDF_Attribute; anOS: var Standard_OStream;
+proc extendedDump*(this: TDF_Attribute; anOS: var StandardOStream;
                   aFilter: TDF_IDFilter; aMap: var TDF_AttributeIndexedMap) {.
     noSideEffect, importcpp: "ExtendedDump", header: "TDF_Attribute.hxx".}
-proc Forget*(this: var TDF_Attribute; aTransaction: Standard_Integer) {.
-    importcpp: "Forget", header: "TDF_Attribute.hxx".}
-proc DumpJson*(this: TDF_Attribute; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
+proc forget*(this: var TDF_Attribute; aTransaction: int) {.importcpp: "Forget",
     header: "TDF_Attribute.hxx".}
+proc dumpJson*(this: TDF_Attribute; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TDF_Attribute.hxx".}
 type
-  TDF_Attributebase_type* = Standard_Transient
+  TDF_AttributebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TDF_Attribute::get_type_name(@)",
-                              header: "TDF_Attribute.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDF_Attribute::get_type_name(@)",
+                            header: "TDF_Attribute.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDF_Attribute::get_type_descriptor(@)",
     header: "TDF_Attribute.hxx".}
-proc DynamicType*(this: TDF_Attribute): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDF_Attribute): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDF_Attribute.hxx".}

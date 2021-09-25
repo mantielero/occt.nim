@@ -13,26 +13,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer, ../TColStd/TColStd_HArray1OfReal
-
 discard "forward decl of Standard_Transient"
 type
   StepFEA_SymmetricTensor42d* {.importcpp: "StepFEA_SymmetricTensor42d",
-                               header: "StepFEA_SymmetricTensor42d.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                           ## !
-                                                                                                           ## Empty
-                                                                                                           ## constructor
+                               header: "StepFEA_SymmetricTensor42d.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                          ## !
+                                                                                                          ## Empty
+                                                                                                          ## constructor
 
 
 proc constructStepFEA_SymmetricTensor42d*(): StepFEA_SymmetricTensor42d {.
     constructor, importcpp: "StepFEA_SymmetricTensor42d(@)",
     header: "StepFEA_SymmetricTensor42d.hxx".}
-proc CaseNum*(this: StepFEA_SymmetricTensor42d; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepFEA_SymmetricTensor42d; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepFEA_SymmetricTensor42d.hxx".}
-proc AnisotropicSymmetricTensor42d*(this: StepFEA_SymmetricTensor42d): handle[
-    TColStd_HArray1OfReal] {.noSideEffect,
-                            importcpp: "AnisotropicSymmetricTensor42d",
-                            header: "StepFEA_SymmetricTensor42d.hxx".}
+proc anisotropicSymmetricTensor42d*(this: StepFEA_SymmetricTensor42d): Handle[
+    TColStdHArray1OfReal] {.noSideEffect,
+                           importcpp: "AnisotropicSymmetricTensor42d",
+                           header: "StepFEA_SymmetricTensor42d.hxx".}

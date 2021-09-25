@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean, TDF_IDMap, TDF_IDList,
-  ../Standard/Standard_OStream
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Attribute"
 type
@@ -147,33 +142,33 @@ type
                                                                                    ## constructor.
 
 
-proc constructTDF_IDFilter*(ignoreMode: Standard_Boolean = Standard_True): TDF_IDFilter {.
-    constructor, importcpp: "TDF_IDFilter(@)", header: "TDF_IDFilter.hxx".}
-proc IgnoreAll*(this: var TDF_IDFilter; ignore: Standard_Boolean) {.
-    importcpp: "IgnoreAll", header: "TDF_IDFilter.hxx".}
-proc IgnoreAll*(this: TDF_IDFilter): Standard_Boolean {.noSideEffect,
-    importcpp: "IgnoreAll", header: "TDF_IDFilter.hxx".}
-proc Keep*(this: var TDF_IDFilter; anID: Standard_GUID) {.importcpp: "Keep",
+proc constructTDF_IDFilter*(ignoreMode: bool = true): TDF_IDFilter {.constructor,
+    importcpp: "TDF_IDFilter(@)", header: "TDF_IDFilter.hxx".}
+proc ignoreAll*(this: var TDF_IDFilter; ignore: bool) {.importcpp: "IgnoreAll",
     header: "TDF_IDFilter.hxx".}
-proc Keep*(this: var TDF_IDFilter; anIDList: TDF_IDList) {.importcpp: "Keep",
+proc ignoreAll*(this: TDF_IDFilter): bool {.noSideEffect, importcpp: "IgnoreAll",
+                                        header: "TDF_IDFilter.hxx".}
+proc keep*(this: var TDF_IDFilter; anID: StandardGUID) {.importcpp: "Keep",
     header: "TDF_IDFilter.hxx".}
-proc Ignore*(this: var TDF_IDFilter; anID: Standard_GUID) {.importcpp: "Ignore",
+proc keep*(this: var TDF_IDFilter; anIDList: TDF_IDList) {.importcpp: "Keep",
     header: "TDF_IDFilter.hxx".}
-proc Ignore*(this: var TDF_IDFilter; anIDList: TDF_IDList) {.importcpp: "Ignore",
+proc ignore*(this: var TDF_IDFilter; anID: StandardGUID) {.importcpp: "Ignore",
     header: "TDF_IDFilter.hxx".}
-proc IsKept*(this: TDF_IDFilter; anID: Standard_GUID): Standard_Boolean {.
-    noSideEffect, importcpp: "IsKept", header: "TDF_IDFilter.hxx".}
-proc IsKept*(this: TDF_IDFilter; anAtt: handle[TDF_Attribute]): Standard_Boolean {.
-    noSideEffect, importcpp: "IsKept", header: "TDF_IDFilter.hxx".}
-proc IsIgnored*(this: TDF_IDFilter; anID: Standard_GUID): Standard_Boolean {.
+proc ignore*(this: var TDF_IDFilter; anIDList: TDF_IDList) {.importcpp: "Ignore",
+    header: "TDF_IDFilter.hxx".}
+proc isKept*(this: TDF_IDFilter; anID: StandardGUID): bool {.noSideEffect,
+    importcpp: "IsKept", header: "TDF_IDFilter.hxx".}
+proc isKept*(this: TDF_IDFilter; anAtt: Handle[TDF_Attribute]): bool {.noSideEffect,
+    importcpp: "IsKept", header: "TDF_IDFilter.hxx".}
+proc isIgnored*(this: TDF_IDFilter; anID: StandardGUID): bool {.noSideEffect,
+    importcpp: "IsIgnored", header: "TDF_IDFilter.hxx".}
+proc isIgnored*(this: TDF_IDFilter; anAtt: Handle[TDF_Attribute]): bool {.
     noSideEffect, importcpp: "IsIgnored", header: "TDF_IDFilter.hxx".}
-proc IsIgnored*(this: TDF_IDFilter; anAtt: handle[TDF_Attribute]): Standard_Boolean {.
-    noSideEffect, importcpp: "IsIgnored", header: "TDF_IDFilter.hxx".}
-proc IDList*(this: TDF_IDFilter; anIDList: var TDF_IDList) {.noSideEffect,
+proc iDList*(this: TDF_IDFilter; anIDList: var TDF_IDList) {.noSideEffect,
     importcpp: "IDList", header: "TDF_IDFilter.hxx".}
-proc Copy*(this: var TDF_IDFilter; fromFilter: TDF_IDFilter) {.importcpp: "Copy",
+proc copy*(this: var TDF_IDFilter; fromFilter: TDF_IDFilter) {.importcpp: "Copy",
     header: "TDF_IDFilter.hxx".}
-proc Dump*(this: TDF_IDFilter; anOS: var Standard_OStream) {.noSideEffect,
+proc dump*(this: TDF_IDFilter; anOS: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "TDF_IDFilter.hxx".}
-proc Assign*(this: var TDF_IDFilter; theFilter: TDF_IDFilter) {.importcpp: "Assign",
+proc assign*(this: var TDF_IDFilter; theFilter: TDF_IDFilter) {.importcpp: "Assign",
     header: "TDF_IDFilter.hxx".}

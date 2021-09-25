@@ -19,6 +19,7 @@
 ##  To manage Display
 
 type
-  Aspect_Display* = pointer
+  AspectDisplay* = pointer
 
 ##  Display* under UNIX
+

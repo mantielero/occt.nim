@@ -14,32 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_ManifoldSolidBrep"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShape_RWManifoldSolidBrep* {.importcpp: "RWStepShape_RWManifoldSolidBrep", header: "RWStepShape_RWManifoldSolidBrep.hxx",
-                                    bycopy.} = object
+  RWStepShapeRWManifoldSolidBrep* {.importcpp: "RWStepShape_RWManifoldSolidBrep", header: "RWStepShape_RWManifoldSolidBrep.hxx",
+                                   bycopy.} = object
 
 
-proc constructRWStepShape_RWManifoldSolidBrep*(): RWStepShape_RWManifoldSolidBrep {.
+proc constructRWStepShapeRWManifoldSolidBrep*(): RWStepShapeRWManifoldSolidBrep {.
     constructor, importcpp: "RWStepShape_RWManifoldSolidBrep(@)",
     header: "RWStepShape_RWManifoldSolidBrep.hxx".}
-proc ReadStep*(this: RWStepShape_RWManifoldSolidBrep;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepShape_ManifoldSolidBrep]) {.noSideEffect,
+proc readStep*(this: RWStepShapeRWManifoldSolidBrep;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepShapeManifoldSolidBrep]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWManifoldSolidBrep.hxx".}
-proc WriteStep*(this: RWStepShape_RWManifoldSolidBrep; SW: var StepData_StepWriter;
-               ent: handle[StepShape_ManifoldSolidBrep]) {.noSideEffect,
+proc writeStep*(this: RWStepShapeRWManifoldSolidBrep; sw: var StepDataStepWriter;
+               ent: Handle[StepShapeManifoldSolidBrep]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWManifoldSolidBrep.hxx".}
-proc Share*(this: RWStepShape_RWManifoldSolidBrep;
-           ent: handle[StepShape_ManifoldSolidBrep];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepShapeRWManifoldSolidBrep;
+           ent: Handle[StepShapeManifoldSolidBrep];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWManifoldSolidBrep.hxx".}

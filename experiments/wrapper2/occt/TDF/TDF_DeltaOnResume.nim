@@ -13,14 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TDF_AttributeDelta
-
 discard "forward decl of TDF_Attribute"
 discard "forward decl of TDF_DeltaOnResume"
 discard "forward decl of TDF_DeltaOnResume"
 type
-  Handle_TDF_DeltaOnResume* = handle[TDF_DeltaOnResume]
+  HandleTDF_DeltaOnResume* = Handle[TDF_DeltaOnResume]
 
 ## ! This class provides default services for an
 ## ! AttributeDelta on an Resume action.
@@ -37,20 +34,20 @@ type
                                                                                         ## TDF_DeltaOnResume.
 
 
-proc constructTDF_DeltaOnResume*(anAtt: handle[TDF_Attribute]): TDF_DeltaOnResume {.
+proc constructTDF_DeltaOnResume*(anAtt: Handle[TDF_Attribute]): TDF_DeltaOnResume {.
     constructor, importcpp: "TDF_DeltaOnResume(@)", header: "TDF_DeltaOnResume.hxx".}
-proc Apply*(this: var TDF_DeltaOnResume) {.importcpp: "Apply",
+proc apply*(this: var TDF_DeltaOnResume) {.importcpp: "Apply",
                                        header: "TDF_DeltaOnResume.hxx".}
-proc DumpJson*(this: TDF_DeltaOnResume; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TDF_DeltaOnResume.hxx".}
+proc dumpJson*(this: TDF_DeltaOnResume; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TDF_DeltaOnResume.hxx".}
 type
-  TDF_DeltaOnResumebase_type* = TDF_AttributeDelta
+  TDF_DeltaOnResumebaseType* = TDF_AttributeDelta
 
-proc get_type_name*(): cstring {.importcpp: "TDF_DeltaOnResume::get_type_name(@)",
-                              header: "TDF_DeltaOnResume.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDF_DeltaOnResume::get_type_name(@)",
+                            header: "TDF_DeltaOnResume.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDF_DeltaOnResume::get_type_descriptor(@)",
     header: "TDF_DeltaOnResume.hxx".}
-proc DynamicType*(this: TDF_DeltaOnResume): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDF_DeltaOnResume): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDF_DeltaOnResume.hxx".}

@@ -14,15 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Plugin_Failure_HeaderFile [NewLine] # _Plugin_Failure_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_Failure.hxx [NewLine] class Plugin_Failure ;
+## !!!Ignored construct:  # _Plugin_Failure_HeaderFile [NewLine] # _Plugin_Failure_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class Plugin_Failure ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Plugin_Failure"
 type
-  Handle_Plugin_FailurePlugin_Failure* = handle[Plugin_Failure]
+  HandlePluginFailurePluginFailure* = Handle[PluginFailure]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Plugin_Failure [NewLine] # if ( CONDITION ) throw Plugin_Failure ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Plugin_Failure , Standard_Failure ) #  _Plugin_Failure_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Plugin_Failure , Standard_Failure ) #  _Plugin_Failure_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

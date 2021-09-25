@@ -14,52 +14,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../Standard/Standard_Transient
-
 discard "forward decl of StepGeom_CartesianPoint"
 discard "forward decl of StepShape_BoxDomain"
 discard "forward decl of StepShape_BoxDomain"
 type
-  Handle_StepShape_BoxDomain* = handle[StepShape_BoxDomain]
-  StepShape_BoxDomain* {.importcpp: "StepShape_BoxDomain",
-                        header: "StepShape_BoxDomain.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## a
-                                                                                            ## BoxDomain
+  HandleStepShapeBoxDomain* = Handle[StepShapeBoxDomain]
+  StepShapeBoxDomain* {.importcpp: "StepShape_BoxDomain",
+                       header: "StepShape_BoxDomain.hxx", bycopy.} = object of StandardTransient ##
+                                                                                          ## !
+                                                                                          ## Returns
+                                                                                          ## a
+                                                                                          ## BoxDomain
 
 
-proc constructStepShape_BoxDomain*(): StepShape_BoxDomain {.constructor,
+proc constructStepShapeBoxDomain*(): StepShapeBoxDomain {.constructor,
     importcpp: "StepShape_BoxDomain(@)", header: "StepShape_BoxDomain.hxx".}
-proc Init*(this: var StepShape_BoxDomain; aCorner: handle[StepGeom_CartesianPoint];
-          aXlength: Standard_Real; aYlength: Standard_Real; aZlength: Standard_Real) {.
-    importcpp: "Init", header: "StepShape_BoxDomain.hxx".}
-proc SetCorner*(this: var StepShape_BoxDomain;
-               aCorner: handle[StepGeom_CartesianPoint]) {.importcpp: "SetCorner",
+proc init*(this: var StepShapeBoxDomain; aCorner: Handle[StepGeomCartesianPoint];
+          aXlength: float; aYlength: float; aZlength: float) {.importcpp: "Init",
     header: "StepShape_BoxDomain.hxx".}
-proc Corner*(this: StepShape_BoxDomain): handle[StepGeom_CartesianPoint] {.
+proc setCorner*(this: var StepShapeBoxDomain;
+               aCorner: Handle[StepGeomCartesianPoint]) {.importcpp: "SetCorner",
+    header: "StepShape_BoxDomain.hxx".}
+proc corner*(this: StepShapeBoxDomain): Handle[StepGeomCartesianPoint] {.
     noSideEffect, importcpp: "Corner", header: "StepShape_BoxDomain.hxx".}
-proc SetXlength*(this: var StepShape_BoxDomain; aXlength: Standard_Real) {.
+proc setXlength*(this: var StepShapeBoxDomain; aXlength: float) {.
     importcpp: "SetXlength", header: "StepShape_BoxDomain.hxx".}
-proc Xlength*(this: StepShape_BoxDomain): Standard_Real {.noSideEffect,
-    importcpp: "Xlength", header: "StepShape_BoxDomain.hxx".}
-proc SetYlength*(this: var StepShape_BoxDomain; aYlength: Standard_Real) {.
+proc xlength*(this: StepShapeBoxDomain): float {.noSideEffect, importcpp: "Xlength",
+    header: "StepShape_BoxDomain.hxx".}
+proc setYlength*(this: var StepShapeBoxDomain; aYlength: float) {.
     importcpp: "SetYlength", header: "StepShape_BoxDomain.hxx".}
-proc Ylength*(this: StepShape_BoxDomain): Standard_Real {.noSideEffect,
-    importcpp: "Ylength", header: "StepShape_BoxDomain.hxx".}
-proc SetZlength*(this: var StepShape_BoxDomain; aZlength: Standard_Real) {.
+proc ylength*(this: StepShapeBoxDomain): float {.noSideEffect, importcpp: "Ylength",
+    header: "StepShape_BoxDomain.hxx".}
+proc setZlength*(this: var StepShapeBoxDomain; aZlength: float) {.
     importcpp: "SetZlength", header: "StepShape_BoxDomain.hxx".}
-proc Zlength*(this: StepShape_BoxDomain): Standard_Real {.noSideEffect,
-    importcpp: "Zlength", header: "StepShape_BoxDomain.hxx".}
+proc zlength*(this: StepShapeBoxDomain): float {.noSideEffect, importcpp: "Zlength",
+    header: "StepShape_BoxDomain.hxx".}
 type
-  StepShape_BoxDomainbase_type* = Standard_Transient
+  StepShapeBoxDomainbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_BoxDomain::get_type_name(@)",
-                              header: "StepShape_BoxDomain.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_BoxDomain::get_type_name(@)",
+                            header: "StepShape_BoxDomain.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_BoxDomain::get_type_descriptor(@)",
     header: "StepShape_BoxDomain.hxx".}
-proc DynamicType*(this: StepShape_BoxDomain): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepShapeBoxDomain): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_BoxDomain.hxx".}

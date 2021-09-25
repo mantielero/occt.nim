@@ -13,53 +13,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, StepVisual_TessellatedItem,
-  ../NCollection/NCollection_Array1
-
 ## #include <NCollection_DefineHArray1.hxx>
-
-import
-  ../NCollection/NCollection_Handle
 
 discard "forward decl of Standard_Transient"
 type
-  StepVisual_Array1OfTessellatedItem* = NCollection_Array1[
-      handle[StepVisual_TessellatedItem]]
+  StepVisualArray1OfTessellatedItem* = NCollectionArray1[
+      Handle[StepVisualTessellatedItem]]
 
 discard "forward decl of StepVisual_TessellatedGeometricSet"
 type
-  Handle_StepVisual_TessellatedGeometricSet* = handle[
-      StepVisual_TessellatedGeometricSet]
-  StepVisual_TessellatedGeometricSet* {.importcpp: "StepVisual_TessellatedGeometricSet", header: "StepVisual_TessellatedGeometricSet.hxx",
-                                       bycopy.} = object of StepVisual_TessellatedItem ##
-                                                                                  ## !
-                                                                                  ## Returns
-                                                                                  ## a
-                                                                                  ## DraughtingCalloutElement
-                                                                                  ## select
-                                                                                  ## type
+  HandleStepVisualTessellatedGeometricSet* = Handle[
+      StepVisualTessellatedGeometricSet]
+  StepVisualTessellatedGeometricSet* {.importcpp: "StepVisual_TessellatedGeometricSet", header: "StepVisual_TessellatedGeometricSet.hxx",
+                                      bycopy.} = object of StepVisualTessellatedItem ##
+                                                                                ## !
+                                                                                ## Returns
+                                                                                ## a
+                                                                                ## DraughtingCalloutElement
+                                                                                ## select
+                                                                                ## type
 
 
-proc constructStepVisual_TessellatedGeometricSet*(): StepVisual_TessellatedGeometricSet {.
+proc constructStepVisualTessellatedGeometricSet*(): StepVisualTessellatedGeometricSet {.
     constructor, importcpp: "StepVisual_TessellatedGeometricSet(@)",
     header: "StepVisual_TessellatedGeometricSet.hxx".}
-proc Init*(this: var StepVisual_TessellatedGeometricSet;
-          theName: handle[TCollection_HAsciiString];
-          theItems: NCollection_Handle[StepVisual_Array1OfTessellatedItem]) {.
+proc init*(this: var StepVisualTessellatedGeometricSet;
+          theName: Handle[TCollectionHAsciiString];
+          theItems: NCollectionHandle[StepVisualArray1OfTessellatedItem]) {.
     importcpp: "Init", header: "StepVisual_TessellatedGeometricSet.hxx".}
-proc Items*(this: StepVisual_TessellatedGeometricSet): NCollection_Handle[
-    StepVisual_Array1OfTessellatedItem] {.noSideEffect, importcpp: "Items",
-    header: "StepVisual_TessellatedGeometricSet.hxx".}
+proc items*(this: StepVisualTessellatedGeometricSet): NCollectionHandle[
+    StepVisualArray1OfTessellatedItem] {.noSideEffect, importcpp: "Items", header: "StepVisual_TessellatedGeometricSet.hxx".}
 type
-  StepVisual_TessellatedGeometricSetbase_type* = StepVisual_TessellatedItem
+  StepVisualTessellatedGeometricSetbaseType* = StepVisualTessellatedItem
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_TessellatedGeometricSet::get_type_name(@)",
-                              header: "StepVisual_TessellatedGeometricSet.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_TessellatedGeometricSet::get_type_name(@)",
+                            header: "StepVisual_TessellatedGeometricSet.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_TessellatedGeometricSet::get_type_descriptor(@)",
     header: "StepVisual_TessellatedGeometricSet.hxx".}
-proc DynamicType*(this: StepVisual_TessellatedGeometricSet): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualTessellatedGeometricSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_TessellatedGeometricSet.hxx".}

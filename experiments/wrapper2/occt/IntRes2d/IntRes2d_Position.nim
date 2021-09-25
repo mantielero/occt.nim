@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  IntRes2d_Position* {.size: sizeof(cint), importcpp: "IntRes2d_Position",
-                      header: "IntRes2d_Position.hxx".} = enum
-    IntRes2d_Head, IntRes2d_Middle, IntRes2d_End
+  IntRes2dPosition* {.size: sizeof(cint), importcpp: "IntRes2d_Position",
+                     header: "IntRes2d_Position.hxx".} = enum
+    IntRes2dHead, IntRes2dMiddle, IntRes2dEnd
+
 

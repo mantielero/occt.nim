@@ -14,66 +14,57 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape, TopOpeBRepTool_Plos,
-  ../TopTools/TopTools_IndexedMapOfShape, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../TopAbs/TopAbs_State, ../TopoDS/TopoDS_Edge,
-  ../TopoDS/TopoDS_Face, ../gp/gp_Pnt, ../gp/gp_Pnt2d,
-  TopOpeBRepTool_SolidClassifier, ../TopTools/TopTools_ListOfShape
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRepTool_SolidClassifier"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Pnt"
 type
-  TopOpeBRepTool_ShapeClassifier* {.importcpp: "TopOpeBRepTool_ShapeClassifier", header: "TopOpeBRepTool_ShapeClassifier.hxx",
-                                   bycopy.} = object
+  TopOpeBRepToolShapeClassifier* {.importcpp: "TopOpeBRepTool_ShapeClassifier",
+                                  header: "TopOpeBRepTool_ShapeClassifier.hxx",
+                                  bycopy.} = object
 
 
-proc constructTopOpeBRepTool_ShapeClassifier*(): TopOpeBRepTool_ShapeClassifier {.
+proc constructTopOpeBRepToolShapeClassifier*(): TopOpeBRepToolShapeClassifier {.
     constructor, importcpp: "TopOpeBRepTool_ShapeClassifier(@)",
     header: "TopOpeBRepTool_ShapeClassifier.hxx".}
-proc constructTopOpeBRepTool_ShapeClassifier*(SRef: TopoDS_Shape): TopOpeBRepTool_ShapeClassifier {.
+proc constructTopOpeBRepToolShapeClassifier*(sRef: TopoDS_Shape): TopOpeBRepToolShapeClassifier {.
     constructor, importcpp: "TopOpeBRepTool_ShapeClassifier(@)",
     header: "TopOpeBRepTool_ShapeClassifier.hxx".}
-proc ClearAll*(this: var TopOpeBRepTool_ShapeClassifier) {.importcpp: "ClearAll",
+proc clearAll*(this: var TopOpeBRepToolShapeClassifier) {.importcpp: "ClearAll",
     header: "TopOpeBRepTool_ShapeClassifier.hxx".}
-proc ClearCurrent*(this: var TopOpeBRepTool_ShapeClassifier) {.
+proc clearCurrent*(this: var TopOpeBRepToolShapeClassifier) {.
     importcpp: "ClearCurrent", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
-proc SetReference*(this: var TopOpeBRepTool_ShapeClassifier; SRef: TopoDS_Shape) {.
+proc setReference*(this: var TopOpeBRepToolShapeClassifier; sRef: TopoDS_Shape) {.
     importcpp: "SetReference", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
-proc StateShapeShape*(this: var TopOpeBRepTool_ShapeClassifier; S: TopoDS_Shape;
-                     SRef: TopoDS_Shape; samedomain: Standard_Integer = 0): TopAbs_State {.
+proc stateShapeShape*(this: var TopOpeBRepToolShapeClassifier; s: TopoDS_Shape;
+                     sRef: TopoDS_Shape; samedomain: int = 0): TopAbsState {.
     importcpp: "StateShapeShape", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
-proc SameDomain*(this: TopOpeBRepTool_ShapeClassifier): Standard_Integer {.
-    noSideEffect, importcpp: "SameDomain",
-    header: "TopOpeBRepTool_ShapeClassifier.hxx".}
-proc SameDomain*(this: var TopOpeBRepTool_ShapeClassifier;
-                samedomain: Standard_Integer) {.importcpp: "SameDomain",
-    header: "TopOpeBRepTool_ShapeClassifier.hxx".}
-proc StateShapeShape*(this: var TopOpeBRepTool_ShapeClassifier; S: TopoDS_Shape;
-                     AvoidS: TopoDS_Shape; SRef: TopoDS_Shape): TopAbs_State {.
+proc sameDomain*(this: TopOpeBRepToolShapeClassifier): int {.noSideEffect,
+    importcpp: "SameDomain", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
+proc sameDomain*(this: var TopOpeBRepToolShapeClassifier; samedomain: int) {.
+    importcpp: "SameDomain", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
+proc stateShapeShape*(this: var TopOpeBRepToolShapeClassifier; s: TopoDS_Shape;
+                     avoidS: TopoDS_Shape; sRef: TopoDS_Shape): TopAbsState {.
     importcpp: "StateShapeShape", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
-proc StateShapeShape*(this: var TopOpeBRepTool_ShapeClassifier; S: TopoDS_Shape;
-                     LAvoidS: TopTools_ListOfShape; SRef: TopoDS_Shape): TopAbs_State {.
+proc stateShapeShape*(this: var TopOpeBRepToolShapeClassifier; s: TopoDS_Shape;
+                     lAvoidS: TopToolsListOfShape; sRef: TopoDS_Shape): TopAbsState {.
     importcpp: "StateShapeShape", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
-proc StateShapeReference*(this: var TopOpeBRepTool_ShapeClassifier; S: TopoDS_Shape;
-                         AvoidS: TopoDS_Shape): TopAbs_State {.
+proc stateShapeReference*(this: var TopOpeBRepToolShapeClassifier; s: TopoDS_Shape;
+                         avoidS: TopoDS_Shape): TopAbsState {.
     importcpp: "StateShapeReference", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
-proc StateShapeReference*(this: var TopOpeBRepTool_ShapeClassifier; S: TopoDS_Shape;
-                         LAvoidS: TopTools_ListOfShape): TopAbs_State {.
+proc stateShapeReference*(this: var TopOpeBRepToolShapeClassifier; s: TopoDS_Shape;
+                         lAvoidS: TopToolsListOfShape): TopAbsState {.
     importcpp: "StateShapeReference", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
-proc ChangeSolidClassifier*(this: var TopOpeBRepTool_ShapeClassifier): var TopOpeBRepTool_SolidClassifier {.
+proc changeSolidClassifier*(this: var TopOpeBRepToolShapeClassifier): var TopOpeBRepToolSolidClassifier {.
     importcpp: "ChangeSolidClassifier",
     header: "TopOpeBRepTool_ShapeClassifier.hxx".}
-proc StateP2DReference*(this: var TopOpeBRepTool_ShapeClassifier; P2D: gp_Pnt2d) {.
+proc stateP2DReference*(this: var TopOpeBRepToolShapeClassifier; p2d: Pnt2d) {.
     importcpp: "StateP2DReference", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
-proc StateP3DReference*(this: var TopOpeBRepTool_ShapeClassifier; P3D: gp_Pnt) {.
+proc stateP3DReference*(this: var TopOpeBRepToolShapeClassifier; p3d: Pnt) {.
     importcpp: "StateP3DReference", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
-proc State*(this: TopOpeBRepTool_ShapeClassifier): TopAbs_State {.noSideEffect,
+proc state*(this: TopOpeBRepToolShapeClassifier): TopAbsState {.noSideEffect,
     importcpp: "State", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
-proc P2D*(this: TopOpeBRepTool_ShapeClassifier): gp_Pnt2d {.noSideEffect,
+proc p2d*(this: TopOpeBRepToolShapeClassifier): Pnt2d {.noSideEffect,
     importcpp: "P2D", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
-proc P3D*(this: TopOpeBRepTool_ShapeClassifier): gp_Pnt {.noSideEffect,
-    importcpp: "P3D", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
+proc p3d*(this: TopOpeBRepToolShapeClassifier): Pnt {.noSideEffect, importcpp: "P3D",
+    header: "TopOpeBRepTool_ShapeClassifier.hxx".}

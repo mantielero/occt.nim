@@ -14,51 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, StepBasic_Date
-
 discard "forward decl of StepBasic_WeekOfYearAndDayDate"
 discard "forward decl of StepBasic_WeekOfYearAndDayDate"
 type
-  Handle_StepBasic_WeekOfYearAndDayDate* = handle[StepBasic_WeekOfYearAndDayDate]
-  StepBasic_WeekOfYearAndDayDate* {.importcpp: "StepBasic_WeekOfYearAndDayDate", header: "StepBasic_WeekOfYearAndDayDate.hxx",
-                                   bycopy.} = object of StepBasic_Date ## ! Returns a
-                                                                  ## WeekOfYearAndDayDate
+  HandleStepBasicWeekOfYearAndDayDate* = Handle[StepBasicWeekOfYearAndDayDate]
+  StepBasicWeekOfYearAndDayDate* {.importcpp: "StepBasic_WeekOfYearAndDayDate",
+                                  header: "StepBasic_WeekOfYearAndDayDate.hxx",
+                                  bycopy.} = object of StepBasicDate ## ! Returns a
+                                                                ## WeekOfYearAndDayDate
 
 
-proc constructStepBasic_WeekOfYearAndDayDate*(): StepBasic_WeekOfYearAndDayDate {.
+proc constructStepBasicWeekOfYearAndDayDate*(): StepBasicWeekOfYearAndDayDate {.
     constructor, importcpp: "StepBasic_WeekOfYearAndDayDate(@)",
     header: "StepBasic_WeekOfYearAndDayDate.hxx".}
-proc Init*(this: var StepBasic_WeekOfYearAndDayDate;
-          aYearComponent: Standard_Integer; aWeekComponent: Standard_Integer;
-          hasAdayComponent: Standard_Boolean; aDayComponent: Standard_Integer) {.
+proc init*(this: var StepBasicWeekOfYearAndDayDate; aYearComponent: int;
+          aWeekComponent: int; hasAdayComponent: bool; aDayComponent: int) {.
     importcpp: "Init", header: "StepBasic_WeekOfYearAndDayDate.hxx".}
-proc SetWeekComponent*(this: var StepBasic_WeekOfYearAndDayDate;
-                      aWeekComponent: Standard_Integer) {.
+proc setWeekComponent*(this: var StepBasicWeekOfYearAndDayDate; aWeekComponent: int) {.
     importcpp: "SetWeekComponent", header: "StepBasic_WeekOfYearAndDayDate.hxx".}
-proc WeekComponent*(this: StepBasic_WeekOfYearAndDayDate): Standard_Integer {.
-    noSideEffect, importcpp: "WeekComponent",
-    header: "StepBasic_WeekOfYearAndDayDate.hxx".}
-proc SetDayComponent*(this: var StepBasic_WeekOfYearAndDayDate;
-                     aDayComponent: Standard_Integer) {.
+proc weekComponent*(this: StepBasicWeekOfYearAndDayDate): int {.noSideEffect,
+    importcpp: "WeekComponent", header: "StepBasic_WeekOfYearAndDayDate.hxx".}
+proc setDayComponent*(this: var StepBasicWeekOfYearAndDayDate; aDayComponent: int) {.
     importcpp: "SetDayComponent", header: "StepBasic_WeekOfYearAndDayDate.hxx".}
-proc UnSetDayComponent*(this: var StepBasic_WeekOfYearAndDayDate) {.
+proc unSetDayComponent*(this: var StepBasicWeekOfYearAndDayDate) {.
     importcpp: "UnSetDayComponent", header: "StepBasic_WeekOfYearAndDayDate.hxx".}
-proc DayComponent*(this: StepBasic_WeekOfYearAndDayDate): Standard_Integer {.
-    noSideEffect, importcpp: "DayComponent",
-    header: "StepBasic_WeekOfYearAndDayDate.hxx".}
-proc HasDayComponent*(this: StepBasic_WeekOfYearAndDayDate): Standard_Boolean {.
-    noSideEffect, importcpp: "HasDayComponent",
-    header: "StepBasic_WeekOfYearAndDayDate.hxx".}
+proc dayComponent*(this: StepBasicWeekOfYearAndDayDate): int {.noSideEffect,
+    importcpp: "DayComponent", header: "StepBasic_WeekOfYearAndDayDate.hxx".}
+proc hasDayComponent*(this: StepBasicWeekOfYearAndDayDate): bool {.noSideEffect,
+    importcpp: "HasDayComponent", header: "StepBasic_WeekOfYearAndDayDate.hxx".}
 type
-  StepBasic_WeekOfYearAndDayDatebase_type* = StepBasic_Date
+  StepBasicWeekOfYearAndDayDatebaseType* = StepBasicDate
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_WeekOfYearAndDayDate::get_type_name(@)",
-                              header: "StepBasic_WeekOfYearAndDayDate.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_WeekOfYearAndDayDate::get_type_name(@)",
+                            header: "StepBasic_WeekOfYearAndDayDate.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_WeekOfYearAndDayDate::get_type_descriptor(@)",
     header: "StepBasic_WeekOfYearAndDayDate.hxx".}
-proc DynamicType*(this: StepBasic_WeekOfYearAndDayDate): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicWeekOfYearAndDayDate): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_WeekOfYearAndDayDate.hxx".}

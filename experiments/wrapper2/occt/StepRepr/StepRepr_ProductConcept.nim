@@ -14,65 +14,59 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_ProductConceptContext"
 discard "forward decl of StepRepr_ProductConcept"
 discard "forward decl of StepRepr_ProductConcept"
 type
-  Handle_StepRepr_ProductConcept* = handle[StepRepr_ProductConcept]
+  HandleStepReprProductConcept* = Handle[StepReprProductConcept]
 
 ## ! Representation of STEP entity ProductConcept
 
 type
-  StepRepr_ProductConcept* {.importcpp: "StepRepr_ProductConcept",
-                            header: "StepRepr_ProductConcept.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                    ## !
-                                                                                                    ## Empty
-                                                                                                    ## constructor
+  StepReprProductConcept* {.importcpp: "StepRepr_ProductConcept",
+                           header: "StepRepr_ProductConcept.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                  ## !
+                                                                                                  ## Empty
+                                                                                                  ## constructor
 
 
-proc constructStepRepr_ProductConcept*(): StepRepr_ProductConcept {.constructor,
+proc constructStepReprProductConcept*(): StepReprProductConcept {.constructor,
     importcpp: "StepRepr_ProductConcept(@)", header: "StepRepr_ProductConcept.hxx".}
-proc Init*(this: var StepRepr_ProductConcept; aId: handle[TCollection_HAsciiString];
-          aName: handle[TCollection_HAsciiString];
-          hasDescription: Standard_Boolean;
-          aDescription: handle[TCollection_HAsciiString];
-          aMarketContext: handle[StepBasic_ProductConceptContext]) {.
+proc init*(this: var StepReprProductConcept; aId: Handle[TCollectionHAsciiString];
+          aName: Handle[TCollectionHAsciiString]; hasDescription: bool;
+          aDescription: Handle[TCollectionHAsciiString];
+          aMarketContext: Handle[StepBasicProductConceptContext]) {.
     importcpp: "Init", header: "StepRepr_ProductConcept.hxx".}
-proc Id*(this: StepRepr_ProductConcept): handle[TCollection_HAsciiString] {.
+proc id*(this: StepReprProductConcept): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Id", header: "StepRepr_ProductConcept.hxx".}
-proc SetId*(this: var StepRepr_ProductConcept; Id: handle[TCollection_HAsciiString]) {.
+proc setId*(this: var StepReprProductConcept; id: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetId", header: "StepRepr_ProductConcept.hxx".}
-proc Name*(this: StepRepr_ProductConcept): handle[TCollection_HAsciiString] {.
+proc name*(this: StepReprProductConcept): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepRepr_ProductConcept.hxx".}
-proc SetName*(this: var StepRepr_ProductConcept;
-             Name: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepReprProductConcept;
+             name: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepRepr_ProductConcept.hxx".}
-proc Description*(this: StepRepr_ProductConcept): handle[TCollection_HAsciiString] {.
+proc description*(this: StepReprProductConcept): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Description", header: "StepRepr_ProductConcept.hxx".}
-proc SetDescription*(this: var StepRepr_ProductConcept;
-                    Description: handle[TCollection_HAsciiString]) {.
+proc setDescription*(this: var StepReprProductConcept;
+                    description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepRepr_ProductConcept.hxx".}
-proc HasDescription*(this: StepRepr_ProductConcept): Standard_Boolean {.
-    noSideEffect, importcpp: "HasDescription",
-    header: "StepRepr_ProductConcept.hxx".}
-proc MarketContext*(this: StepRepr_ProductConcept): handle[
-    StepBasic_ProductConceptContext] {.noSideEffect, importcpp: "MarketContext",
-                                      header: "StepRepr_ProductConcept.hxx".}
-proc SetMarketContext*(this: var StepRepr_ProductConcept;
-                      MarketContext: handle[StepBasic_ProductConceptContext]) {.
+proc hasDescription*(this: StepReprProductConcept): bool {.noSideEffect,
+    importcpp: "HasDescription", header: "StepRepr_ProductConcept.hxx".}
+proc marketContext*(this: StepReprProductConcept): Handle[
+    StepBasicProductConceptContext] {.noSideEffect, importcpp: "MarketContext",
+                                     header: "StepRepr_ProductConcept.hxx".}
+proc setMarketContext*(this: var StepReprProductConcept;
+                      marketContext: Handle[StepBasicProductConceptContext]) {.
     importcpp: "SetMarketContext", header: "StepRepr_ProductConcept.hxx".}
 type
-  StepRepr_ProductConceptbase_type* = Standard_Transient
+  StepReprProductConceptbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_ProductConcept::get_type_name(@)",
-                              header: "StepRepr_ProductConcept.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_ProductConcept::get_type_name(@)",
+                            header: "StepRepr_ProductConcept.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_ProductConcept::get_type_descriptor(@)",
     header: "StepRepr_ProductConcept.hxx".}
-proc DynamicType*(this: StepRepr_ProductConcept): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprProductConcept): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepRepr_ProductConcept.hxx".}

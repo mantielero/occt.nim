@@ -12,5 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # TColStd_HArray2OfReal_HeaderFile [NewLine] # TColStd_HArray2OfReal_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # TColStd_Array2OfReal.hxx [NewLine] # ../NCollection/NCollection_DefineHArray2.hxx [NewLine] DEFINE_HARRAY2 ( TColStd_HArray2OfReal , TColStd_Array2OfReal ) # [NewLine]
+## !!!Ignored construct:  # TColStd_HArray2OfReal_HeaderFile [NewLine] # TColStd_HArray2OfReal_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] # < TColStd_Array2OfReal . hxx > [NewLine] # < NCollection_DefineHArray2 . hxx > [NewLine] DEFINE_HARRAY2 ( TColStd_HArray2OfReal , TColStd_Array2OfReal ) # [NewLine]
 ## Error: expected ';'!!!
+

@@ -14,9 +14,10 @@
 
 ##  Purpose: Defines a Windows NT DWORD type.
 
-when defined(DrawText):
-  discard
-when defined(THIS):
-  discard
+# when defined(DrawText):
+#   discard
+# when defined(THIS):
+#   discard
 type
-  WNT_Dword* = DWORD
+  WNT_Dword* = Dword
+

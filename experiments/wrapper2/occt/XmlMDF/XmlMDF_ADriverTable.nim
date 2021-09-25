@@ -13,16 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, XmlMDF_TypeADriverMap,
-  ../Standard/Standard_Transient, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Type, XmlMDF_MapOfDriver
-
 discard "forward decl of XmlMDF_ADriver"
 discard "forward decl of XmlMDF_ADriverTable"
 discard "forward decl of XmlMDF_ADriverTable"
 type
-  Handle_XmlMDF_ADriverTable* = handle[XmlMDF_ADriverTable]
+  HandleXmlMDF_ADriverTable* = Handle[XmlMDF_ADriverTable]
 
 ## ! A driver table is an object building links between
 ## ! object types and object drivers. In the
@@ -32,39 +27,39 @@ type
 
 type
   XmlMDF_ADriverTable* {.importcpp: "XmlMDF_ADriverTable",
-                        header: "XmlMDF_ADriverTable.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                            ## !
-                                                                                            ## Creates
-                                                                                            ## a
-                                                                                            ## mutable
-                                                                                            ## ADriverTable
-                                                                                            ## from
-                                                                                            ## XmlMDF.
+                        header: "XmlMDF_ADriverTable.hxx", bycopy.} = object of StandardTransient ##
+                                                                                           ## !
+                                                                                           ## Creates
+                                                                                           ## a
+                                                                                           ## mutable
+                                                                                           ## ADriverTable
+                                                                                           ## from
+                                                                                           ## XmlMDF.
 
 
 proc constructXmlMDF_ADriverTable*(): XmlMDF_ADriverTable {.constructor,
     importcpp: "XmlMDF_ADriverTable(@)", header: "XmlMDF_ADriverTable.hxx".}
-proc AddDriver*(this: var XmlMDF_ADriverTable; anHDriver: handle[XmlMDF_ADriver]) {.
+proc addDriver*(this: var XmlMDF_ADriverTable; anHDriver: Handle[XmlMDF_ADriver]) {.
     importcpp: "AddDriver", header: "XmlMDF_ADriverTable.hxx".}
-proc AddDerivedDriver*(this: var XmlMDF_ADriverTable;
-                      theInstance: handle[TDF_Attribute]) {.
+proc addDerivedDriver*(this: var XmlMDF_ADriverTable;
+                      theInstance: Handle[TDF_Attribute]) {.
     importcpp: "AddDerivedDriver", header: "XmlMDF_ADriverTable.hxx".}
-proc AddDerivedDriver*(this: var XmlMDF_ADriverTable;
-                      theDerivedType: Standard_CString): handle[Standard_Type] {.
+proc addDerivedDriver*(this: var XmlMDF_ADriverTable;
+                      theDerivedType: StandardCString): Handle[StandardType] {.
     importcpp: "AddDerivedDriver", header: "XmlMDF_ADriverTable.hxx".}
-proc CreateDrvMap*(this: var XmlMDF_ADriverTable;
+proc createDrvMap*(this: var XmlMDF_ADriverTable;
                   theDriverMap: var XmlMDF_MapOfDriver) {.
     importcpp: "CreateDrvMap", header: "XmlMDF_ADriverTable.hxx".}
-proc GetDriver*(this: var XmlMDF_ADriverTable; theType: handle[Standard_Type];
-               theDriver: var handle[XmlMDF_ADriver]): Standard_Boolean {.
+proc getDriver*(this: var XmlMDF_ADriverTable; theType: Handle[StandardType];
+               theDriver: var Handle[XmlMDF_ADriver]): bool {.
     importcpp: "GetDriver", header: "XmlMDF_ADriverTable.hxx".}
 type
-  XmlMDF_ADriverTablebase_type* = Standard_Transient
+  XmlMDF_ADriverTablebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "XmlMDF_ADriverTable::get_type_name(@)",
-                              header: "XmlMDF_ADriverTable.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XmlMDF_ADriverTable::get_type_name(@)",
+                            header: "XmlMDF_ADriverTable.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XmlMDF_ADriverTable::get_type_descriptor(@)",
     header: "XmlMDF_ADriverTable.hxx".}
-proc DynamicType*(this: XmlMDF_ADriverTable): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: XmlMDF_ADriverTable): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XmlMDF_ADriverTable.hxx".}

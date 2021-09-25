@@ -14,31 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_GeometricRepresentationContextAndParametricRepresentationContext"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeom_RWGeometricRepresentationContextAndParametricRepresentationContext* {.importcpp: "RWStepGeom_RWGeometricRepresentationContextAndParametricRepresentationContext", header: "RWStepGeom_RWGeometricRepresentationContextAndParametricRepresentationContext.hxx",
+  RWStepGeomRWGeometricRepresentationContextAndParametricRepresentationContext* {.importcpp: "RWStepGeom_RWGeometricRepresentationContextAndParametricRepresentationContext", header: "RWStepGeom_RWGeometricRepresentationContextAndParametricRepresentationContext.hxx",
       bycopy.} = object
 
 
-proc constructRWStepGeom_RWGeometricRepresentationContextAndParametricRepresentationContext*(): RWStepGeom_RWGeometricRepresentationContextAndParametricRepresentationContext {.
+proc constructRWStepGeomRWGeometricRepresentationContextAndParametricRepresentationContext*(): RWStepGeomRWGeometricRepresentationContextAndParametricRepresentationContext {.
     constructor, importcpp: "RWStepGeom_RWGeometricRepresentationContextAndParametricRepresentationContext(@)", header: "RWStepGeom_RWGeometricRepresentationContextAndParametricRepresentationContext.hxx".}
-proc ReadStep*(this: RWStepGeom_RWGeometricRepresentationContextAndParametricRepresentationContext;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check]; ent: handle[
-    StepGeom_GeometricRepresentationContextAndParametricRepresentationContext]) {.
+proc readStep*(this: RWStepGeomRWGeometricRepresentationContextAndParametricRepresentationContext;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck]; ent: Handle[
+    StepGeomGeometricRepresentationContextAndParametricRepresentationContext]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWGeometricRepresentationContextAndParametricRepresentationContext.hxx".}
-proc WriteStep*(this: RWStepGeom_RWGeometricRepresentationContextAndParametricRepresentationContext;
-               SW: var StepData_StepWriter; ent: handle[
-    StepGeom_GeometricRepresentationContextAndParametricRepresentationContext]) {.
+proc writeStep*(this: RWStepGeomRWGeometricRepresentationContextAndParametricRepresentationContext;
+               sw: var StepDataStepWriter; ent: Handle[
+    StepGeomGeometricRepresentationContextAndParametricRepresentationContext]) {.
     noSideEffect, importcpp: "WriteStep", header: "RWStepGeom_RWGeometricRepresentationContextAndParametricRepresentationContext.hxx".}
-proc Share*(this: RWStepGeom_RWGeometricRepresentationContextAndParametricRepresentationContext;
-    ent: handle[StepGeom_GeometricRepresentationContextAndParametricRepresentationContext];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share", header: "RWStepGeom_RWGeometricRepresentationContextAndParametricRepresentationContext.hxx".}
+proc share*(this: RWStepGeomRWGeometricRepresentationContextAndParametricRepresentationContext;
+    ent: Handle[StepGeomGeometricRepresentationContextAndParametricRepresentationContext];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share", header: "RWStepGeom_RWGeometricRepresentationContextAndParametricRepresentationContext.hxx".}

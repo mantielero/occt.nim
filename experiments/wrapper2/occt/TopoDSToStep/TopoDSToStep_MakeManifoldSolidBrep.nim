@@ -14,29 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopoDSToStep_Root, ../Message/Message_ProgressRange
-
 discard "forward decl of StepShape_ManifoldSolidBrep"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Shell"
 discard "forward decl of Transfer_FinderProcess"
 discard "forward decl of TopoDS_Solid"
 type
-  TopoDSToStep_MakeManifoldSolidBrep* {.importcpp: "TopoDSToStep_MakeManifoldSolidBrep", header: "TopoDSToStep_MakeManifoldSolidBrep.hxx",
-                                       bycopy.} = object of TopoDSToStep_Root
+  TopoDSToStepMakeManifoldSolidBrep* {.importcpp: "TopoDSToStep_MakeManifoldSolidBrep", header: "TopoDSToStep_MakeManifoldSolidBrep.hxx",
+                                      bycopy.} = object of TopoDSToStepRoot
 
 
-proc constructTopoDSToStep_MakeManifoldSolidBrep*(S: TopoDS_Shell;
-    FP: handle[Transfer_FinderProcess];
-    theProgress: Message_ProgressRange = Message_ProgressRange()): TopoDSToStep_MakeManifoldSolidBrep {.
+proc constructTopoDSToStepMakeManifoldSolidBrep*(s: TopoDS_Shell;
+    fp: Handle[TransferFinderProcess];
+    theProgress: MessageProgressRange = messageProgressRange()): TopoDSToStepMakeManifoldSolidBrep {.
     constructor, importcpp: "TopoDSToStep_MakeManifoldSolidBrep(@)",
     header: "TopoDSToStep_MakeManifoldSolidBrep.hxx".}
-proc constructTopoDSToStep_MakeManifoldSolidBrep*(S: TopoDS_Solid;
-    FP: handle[Transfer_FinderProcess];
-    theProgress: Message_ProgressRange = Message_ProgressRange()): TopoDSToStep_MakeManifoldSolidBrep {.
+proc constructTopoDSToStepMakeManifoldSolidBrep*(s: TopoDS_Solid;
+    fp: Handle[TransferFinderProcess];
+    theProgress: MessageProgressRange = messageProgressRange()): TopoDSToStepMakeManifoldSolidBrep {.
     constructor, importcpp: "TopoDSToStep_MakeManifoldSolidBrep(@)",
     header: "TopoDSToStep_MakeManifoldSolidBrep.hxx".}
-proc Value*(this: TopoDSToStep_MakeManifoldSolidBrep): handle[
-    StepShape_ManifoldSolidBrep] {.noSideEffect, importcpp: "Value", header: "TopoDSToStep_MakeManifoldSolidBrep.hxx".}
+proc value*(this: TopoDSToStepMakeManifoldSolidBrep): Handle[
+    StepShapeManifoldSolidBrep] {.noSideEffect, importcpp: "Value", header: "TopoDSToStep_MakeManifoldSolidBrep.hxx".}

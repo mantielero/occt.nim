@@ -14,76 +14,69 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepGeom_HArray1OfTrimmingSelect, ../Standard/Standard_Boolean,
-  StepGeom_TrimmingPreference, StepGeom_BoundedCurve, ../Standard/Standard_Integer
-
 discard "forward decl of StepGeom_Curve"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_TrimmingSelect"
 discard "forward decl of StepGeom_TrimmedCurve"
 discard "forward decl of StepGeom_TrimmedCurve"
 type
-  Handle_StepGeom_TrimmedCurve* = handle[StepGeom_TrimmedCurve]
-  StepGeom_TrimmedCurve* {.importcpp: "StepGeom_TrimmedCurve",
-                          header: "StepGeom_TrimmedCurve.hxx", bycopy.} = object of StepGeom_BoundedCurve ##
-                                                                                                   ## !
-                                                                                                   ## Returns
-                                                                                                   ## a
-                                                                                                   ## TrimmedCurve
+  HandleStepGeomTrimmedCurve* = Handle[StepGeomTrimmedCurve]
+  StepGeomTrimmedCurve* {.importcpp: "StepGeom_TrimmedCurve",
+                         header: "StepGeom_TrimmedCurve.hxx", bycopy.} = object of StepGeomBoundedCurve ##
+                                                                                                 ## !
+                                                                                                 ## Returns
+                                                                                                 ## a
+                                                                                                 ## TrimmedCurve
 
 
-proc constructStepGeom_TrimmedCurve*(): StepGeom_TrimmedCurve {.constructor,
+proc constructStepGeomTrimmedCurve*(): StepGeomTrimmedCurve {.constructor,
     importcpp: "StepGeom_TrimmedCurve(@)", header: "StepGeom_TrimmedCurve.hxx".}
-proc Init*(this: var StepGeom_TrimmedCurve; aName: handle[TCollection_HAsciiString];
-          aBasisCurve: handle[StepGeom_Curve];
-          aTrim1: handle[StepGeom_HArray1OfTrimmingSelect];
-          aTrim2: handle[StepGeom_HArray1OfTrimmingSelect];
-          aSenseAgreement: Standard_Boolean;
-          aMasterRepresentation: StepGeom_TrimmingPreference) {.importcpp: "Init",
+proc init*(this: var StepGeomTrimmedCurve; aName: Handle[TCollectionHAsciiString];
+          aBasisCurve: Handle[StepGeomCurve];
+          aTrim1: Handle[StepGeomHArray1OfTrimmingSelect];
+          aTrim2: Handle[StepGeomHArray1OfTrimmingSelect]; aSenseAgreement: bool;
+          aMasterRepresentation: StepGeomTrimmingPreference) {.importcpp: "Init",
     header: "StepGeom_TrimmedCurve.hxx".}
-proc SetBasisCurve*(this: var StepGeom_TrimmedCurve;
-                   aBasisCurve: handle[StepGeom_Curve]) {.
+proc setBasisCurve*(this: var StepGeomTrimmedCurve;
+                   aBasisCurve: Handle[StepGeomCurve]) {.
     importcpp: "SetBasisCurve", header: "StepGeom_TrimmedCurve.hxx".}
-proc BasisCurve*(this: StepGeom_TrimmedCurve): handle[StepGeom_Curve] {.
-    noSideEffect, importcpp: "BasisCurve", header: "StepGeom_TrimmedCurve.hxx".}
-proc SetTrim1*(this: var StepGeom_TrimmedCurve;
-              aTrim1: handle[StepGeom_HArray1OfTrimmingSelect]) {.
+proc basisCurve*(this: StepGeomTrimmedCurve): Handle[StepGeomCurve] {.noSideEffect,
+    importcpp: "BasisCurve", header: "StepGeom_TrimmedCurve.hxx".}
+proc setTrim1*(this: var StepGeomTrimmedCurve;
+              aTrim1: Handle[StepGeomHArray1OfTrimmingSelect]) {.
     importcpp: "SetTrim1", header: "StepGeom_TrimmedCurve.hxx".}
-proc Trim1*(this: StepGeom_TrimmedCurve): handle[StepGeom_HArray1OfTrimmingSelect] {.
+proc trim1*(this: StepGeomTrimmedCurve): Handle[StepGeomHArray1OfTrimmingSelect] {.
     noSideEffect, importcpp: "Trim1", header: "StepGeom_TrimmedCurve.hxx".}
-proc Trim1Value*(this: StepGeom_TrimmedCurve; num: Standard_Integer): StepGeom_TrimmingSelect {.
+proc trim1Value*(this: StepGeomTrimmedCurve; num: int): StepGeomTrimmingSelect {.
     noSideEffect, importcpp: "Trim1Value", header: "StepGeom_TrimmedCurve.hxx".}
-proc NbTrim1*(this: StepGeom_TrimmedCurve): Standard_Integer {.noSideEffect,
-    importcpp: "NbTrim1", header: "StepGeom_TrimmedCurve.hxx".}
-proc SetTrim2*(this: var StepGeom_TrimmedCurve;
-              aTrim2: handle[StepGeom_HArray1OfTrimmingSelect]) {.
+proc nbTrim1*(this: StepGeomTrimmedCurve): int {.noSideEffect, importcpp: "NbTrim1",
+    header: "StepGeom_TrimmedCurve.hxx".}
+proc setTrim2*(this: var StepGeomTrimmedCurve;
+              aTrim2: Handle[StepGeomHArray1OfTrimmingSelect]) {.
     importcpp: "SetTrim2", header: "StepGeom_TrimmedCurve.hxx".}
-proc Trim2*(this: StepGeom_TrimmedCurve): handle[StepGeom_HArray1OfTrimmingSelect] {.
+proc trim2*(this: StepGeomTrimmedCurve): Handle[StepGeomHArray1OfTrimmingSelect] {.
     noSideEffect, importcpp: "Trim2", header: "StepGeom_TrimmedCurve.hxx".}
-proc Trim2Value*(this: StepGeom_TrimmedCurve; num: Standard_Integer): StepGeom_TrimmingSelect {.
+proc trim2Value*(this: StepGeomTrimmedCurve; num: int): StepGeomTrimmingSelect {.
     noSideEffect, importcpp: "Trim2Value", header: "StepGeom_TrimmedCurve.hxx".}
-proc NbTrim2*(this: StepGeom_TrimmedCurve): Standard_Integer {.noSideEffect,
-    importcpp: "NbTrim2", header: "StepGeom_TrimmedCurve.hxx".}
-proc SetSenseAgreement*(this: var StepGeom_TrimmedCurve;
-                       aSenseAgreement: Standard_Boolean) {.
+proc nbTrim2*(this: StepGeomTrimmedCurve): int {.noSideEffect, importcpp: "NbTrim2",
+    header: "StepGeom_TrimmedCurve.hxx".}
+proc setSenseAgreement*(this: var StepGeomTrimmedCurve; aSenseAgreement: bool) {.
     importcpp: "SetSenseAgreement", header: "StepGeom_TrimmedCurve.hxx".}
-proc SenseAgreement*(this: StepGeom_TrimmedCurve): Standard_Boolean {.noSideEffect,
+proc senseAgreement*(this: StepGeomTrimmedCurve): bool {.noSideEffect,
     importcpp: "SenseAgreement", header: "StepGeom_TrimmedCurve.hxx".}
-proc SetMasterRepresentation*(this: var StepGeom_TrimmedCurve;
-                             aMasterRepresentation: StepGeom_TrimmingPreference) {.
+proc setMasterRepresentation*(this: var StepGeomTrimmedCurve;
+                             aMasterRepresentation: StepGeomTrimmingPreference) {.
     importcpp: "SetMasterRepresentation", header: "StepGeom_TrimmedCurve.hxx".}
-proc MasterRepresentation*(this: StepGeom_TrimmedCurve): StepGeom_TrimmingPreference {.
+proc masterRepresentation*(this: StepGeomTrimmedCurve): StepGeomTrimmingPreference {.
     noSideEffect, importcpp: "MasterRepresentation",
     header: "StepGeom_TrimmedCurve.hxx".}
 type
-  StepGeom_TrimmedCurvebase_type* = StepGeom_BoundedCurve
+  StepGeomTrimmedCurvebaseType* = StepGeomBoundedCurve
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_TrimmedCurve::get_type_name(@)",
-                              header: "StepGeom_TrimmedCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_TrimmedCurve::get_type_name(@)",
+                            header: "StepGeom_TrimmedCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_TrimmedCurve::get_type_descriptor(@)",
     header: "StepGeom_TrimmedCurve.hxx".}
-proc DynamicType*(this: StepGeom_TrimmedCurve): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepGeom_TrimmedCurve.hxx".}
+proc dynamicType*(this: StepGeomTrimmedCurve): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepGeom_TrimmedCurve.hxx".}

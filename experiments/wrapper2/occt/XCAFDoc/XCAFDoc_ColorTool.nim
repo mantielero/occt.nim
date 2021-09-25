@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TDataStd/TDataStd_GenericEmpty, ../Standard/Standard_Boolean,
-  ../TDF/TDF_LabelSequence, XCAFDoc_ColorType
-
 discard "forward decl of XCAFDoc_ShapeTool"
 discard "forward decl of TDF_Label"
 discard "forward decl of Standard_GUID"
@@ -29,7 +24,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of XCAFDoc_ColorTool"
 discard "forward decl of XCAFDoc_ColorTool"
 type
-  Handle_XCAFDoc_ColorTool* = handle[XCAFDoc_ColorTool]
+  HandleXCAFDocColorTool* = Handle[XCAFDocColorTool]
 
 ## ! Provides tools to store and retrieve attributes (colors)
 ## ! of TopoDS_Shape in and from TDocStd_Document
@@ -38,152 +33,152 @@ type
 ## ! Provide tools for management of Colors section of document.
 
 type
-  XCAFDoc_ColorTool* {.importcpp: "XCAFDoc_ColorTool",
-                      header: "XCAFDoc_ColorTool.hxx", bycopy.} = object of TDataStd_GenericEmpty ##
-                                                                                           ## !
-                                                                                           ## Returns
-                                                                                           ## current
-                                                                                           ## auto-naming
-                                                                                           ## mode;
-                                                                                           ## TRUE
-                                                                                           ## by
-                                                                                           ## default.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## If
-                                                                                           ## TRUE
-                                                                                           ## then
-                                                                                           ## for
-                                                                                           ## added
-                                                                                           ## colors
-                                                                                           ## the
-                                                                                           ## TDataStd_Name
-                                                                                           ## attribute
-                                                                                           ## will
-                                                                                           ## be
-                                                                                           ## automatically
-                                                                                           ## added.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## This
-                                                                                           ## setting
-                                                                                           ## is
-                                                                                           ## global.
+  XCAFDocColorTool* {.importcpp: "XCAFDoc_ColorTool",
+                     header: "XCAFDoc_ColorTool.hxx", bycopy.} = object of TDataStdGenericEmpty ##
+                                                                                         ## !
+                                                                                         ## Returns
+                                                                                         ## current
+                                                                                         ## auto-naming
+                                                                                         ## mode;
+                                                                                         ## TRUE
+                                                                                         ## by
+                                                                                         ## default.
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## If
+                                                                                         ## TRUE
+                                                                                         ## then
+                                                                                         ## for
+                                                                                         ## added
+                                                                                         ## colors
+                                                                                         ## the
+                                                                                         ## TDataStd_Name
+                                                                                         ## attribute
+                                                                                         ## will
+                                                                                         ## be
+                                                                                         ## automatically
+                                                                                         ## added.
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## This
+                                                                                         ## setting
+                                                                                         ## is
+                                                                                         ## global.
 
 
-proc AutoNaming*(): Standard_Boolean {.importcpp: "XCAFDoc_ColorTool::AutoNaming(@)",
-                                    header: "XCAFDoc_ColorTool.hxx".}
-proc SetAutoNaming*(theIsAutoNaming: Standard_Boolean) {.
+proc autoNaming*(): bool {.importcpp: "XCAFDoc_ColorTool::AutoNaming(@)",
+                        header: "XCAFDoc_ColorTool.hxx".}
+proc setAutoNaming*(theIsAutoNaming: bool) {.
     importcpp: "XCAFDoc_ColorTool::SetAutoNaming(@)",
     header: "XCAFDoc_ColorTool.hxx".}
-proc constructXCAFDoc_ColorTool*(): XCAFDoc_ColorTool {.constructor,
+proc constructXCAFDocColorTool*(): XCAFDocColorTool {.constructor,
     importcpp: "XCAFDoc_ColorTool(@)", header: "XCAFDoc_ColorTool.hxx".}
-proc Set*(L: TDF_Label): handle[XCAFDoc_ColorTool] {.
+proc set*(L: TDF_Label): Handle[XCAFDocColorTool] {.
     importcpp: "XCAFDoc_ColorTool::Set(@)", header: "XCAFDoc_ColorTool.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "XCAFDoc_ColorTool::GetID(@)",
-                            header: "XCAFDoc_ColorTool.hxx".}
-proc BaseLabel*(this: XCAFDoc_ColorTool): TDF_Label {.noSideEffect,
+proc getID*(): StandardGUID {.importcpp: "XCAFDoc_ColorTool::GetID(@)",
+                           header: "XCAFDoc_ColorTool.hxx".}
+proc baseLabel*(this: XCAFDocColorTool): TDF_Label {.noSideEffect,
     importcpp: "BaseLabel", header: "XCAFDoc_ColorTool.hxx".}
-proc ShapeTool*(this: var XCAFDoc_ColorTool): handle[XCAFDoc_ShapeTool] {.
+proc shapeTool*(this: var XCAFDocColorTool): Handle[XCAFDocShapeTool] {.
     importcpp: "ShapeTool", header: "XCAFDoc_ColorTool.hxx".}
-proc IsColor*(this: XCAFDoc_ColorTool; lab: TDF_Label): Standard_Boolean {.
-    noSideEffect, importcpp: "IsColor", header: "XCAFDoc_ColorTool.hxx".}
-proc GetColor*(this: XCAFDoc_ColorTool; lab: TDF_Label; col: var Quantity_Color): Standard_Boolean {.
+proc isColor*(this: XCAFDocColorTool; lab: TDF_Label): bool {.noSideEffect,
+    importcpp: "IsColor", header: "XCAFDoc_ColorTool.hxx".}
+proc getColor*(this: XCAFDocColorTool; lab: TDF_Label; col: var QuantityColor): bool {.
     noSideEffect, importcpp: "GetColor", header: "XCAFDoc_ColorTool.hxx".}
-proc GetColor*(this: XCAFDoc_ColorTool; lab: TDF_Label; col: var Quantity_ColorRGBA): Standard_Boolean {.
+proc getColor*(this: XCAFDocColorTool; lab: TDF_Label; col: var QuantityColorRGBA): bool {.
     noSideEffect, importcpp: "GetColor", header: "XCAFDoc_ColorTool.hxx".}
-proc FindColor*(this: XCAFDoc_ColorTool; col: Quantity_Color; lab: var TDF_Label): Standard_Boolean {.
+proc findColor*(this: XCAFDocColorTool; col: QuantityColor; lab: var TDF_Label): bool {.
     noSideEffect, importcpp: "FindColor", header: "XCAFDoc_ColorTool.hxx".}
-proc FindColor*(this: XCAFDoc_ColorTool; col: Quantity_ColorRGBA; lab: var TDF_Label): Standard_Boolean {.
+proc findColor*(this: XCAFDocColorTool; col: QuantityColorRGBA; lab: var TDF_Label): bool {.
     noSideEffect, importcpp: "FindColor", header: "XCAFDoc_ColorTool.hxx".}
-proc FindColor*(this: XCAFDoc_ColorTool; col: Quantity_Color): TDF_Label {.
+proc findColor*(this: XCAFDocColorTool; col: QuantityColor): TDF_Label {.noSideEffect,
+    importcpp: "FindColor", header: "XCAFDoc_ColorTool.hxx".}
+proc findColor*(this: XCAFDocColorTool; col: QuantityColorRGBA): TDF_Label {.
     noSideEffect, importcpp: "FindColor", header: "XCAFDoc_ColorTool.hxx".}
-proc FindColor*(this: XCAFDoc_ColorTool; col: Quantity_ColorRGBA): TDF_Label {.
-    noSideEffect, importcpp: "FindColor", header: "XCAFDoc_ColorTool.hxx".}
-proc AddColor*(this: XCAFDoc_ColorTool; col: Quantity_Color): TDF_Label {.
+proc addColor*(this: XCAFDocColorTool; col: QuantityColor): TDF_Label {.noSideEffect,
+    importcpp: "AddColor", header: "XCAFDoc_ColorTool.hxx".}
+proc addColor*(this: XCAFDocColorTool; col: QuantityColorRGBA): TDF_Label {.
     noSideEffect, importcpp: "AddColor", header: "XCAFDoc_ColorTool.hxx".}
-proc AddColor*(this: XCAFDoc_ColorTool; col: Quantity_ColorRGBA): TDF_Label {.
-    noSideEffect, importcpp: "AddColor", header: "XCAFDoc_ColorTool.hxx".}
-proc RemoveColor*(this: XCAFDoc_ColorTool; lab: TDF_Label) {.noSideEffect,
+proc removeColor*(this: XCAFDocColorTool; lab: TDF_Label) {.noSideEffect,
     importcpp: "RemoveColor", header: "XCAFDoc_ColorTool.hxx".}
-proc GetColors*(this: XCAFDoc_ColorTool; Labels: var TDF_LabelSequence) {.
-    noSideEffect, importcpp: "GetColors", header: "XCAFDoc_ColorTool.hxx".}
-proc SetColor*(this: XCAFDoc_ColorTool; L: TDF_Label; colorL: TDF_Label;
-              `type`: XCAFDoc_ColorType) {.noSideEffect, importcpp: "SetColor",
-    header: "XCAFDoc_ColorTool.hxx".}
-proc SetColor*(this: XCAFDoc_ColorTool; L: TDF_Label; Color: Quantity_Color;
-              `type`: XCAFDoc_ColorType) {.noSideEffect, importcpp: "SetColor",
-    header: "XCAFDoc_ColorTool.hxx".}
-proc SetColor*(this: XCAFDoc_ColorTool; L: TDF_Label; Color: Quantity_ColorRGBA;
-              `type`: XCAFDoc_ColorType) {.noSideEffect, importcpp: "SetColor",
-    header: "XCAFDoc_ColorTool.hxx".}
-proc UnSetColor*(this: XCAFDoc_ColorTool; L: TDF_Label; `type`: XCAFDoc_ColorType) {.
+proc getColors*(this: XCAFDocColorTool; labels: var TDF_LabelSequence) {.noSideEffect,
+    importcpp: "GetColors", header: "XCAFDoc_ColorTool.hxx".}
+proc setColor*(this: XCAFDocColorTool; L: TDF_Label; colorL: TDF_Label;
+              `type`: XCAFDocColorType) {.noSideEffect, importcpp: "SetColor",
+                                        header: "XCAFDoc_ColorTool.hxx".}
+proc setColor*(this: XCAFDocColorTool; L: TDF_Label; color: QuantityColor;
+              `type`: XCAFDocColorType) {.noSideEffect, importcpp: "SetColor",
+                                        header: "XCAFDoc_ColorTool.hxx".}
+proc setColor*(this: XCAFDocColorTool; L: TDF_Label; color: QuantityColorRGBA;
+              `type`: XCAFDocColorType) {.noSideEffect, importcpp: "SetColor",
+                                        header: "XCAFDoc_ColorTool.hxx".}
+proc unSetColor*(this: XCAFDocColorTool; L: TDF_Label; `type`: XCAFDocColorType) {.
     noSideEffect, importcpp: "UnSetColor", header: "XCAFDoc_ColorTool.hxx".}
-proc IsSet*(this: XCAFDoc_ColorTool; L: TDF_Label; `type`: XCAFDoc_ColorType): Standard_Boolean {.
+proc isSet*(this: XCAFDocColorTool; L: TDF_Label; `type`: XCAFDocColorType): bool {.
     noSideEffect, importcpp: "IsSet", header: "XCAFDoc_ColorTool.hxx".}
-proc GetColor*(L: TDF_Label; `type`: XCAFDoc_ColorType; colorL: var TDF_Label): Standard_Boolean {.
+proc getColor*(L: TDF_Label; `type`: XCAFDocColorType; colorL: var TDF_Label): bool {.
     importcpp: "XCAFDoc_ColorTool::GetColor(@)", header: "XCAFDoc_ColorTool.hxx".}
-proc GetColor*(this: var XCAFDoc_ColorTool; L: TDF_Label; `type`: XCAFDoc_ColorType;
-              color: var Quantity_Color): Standard_Boolean {.importcpp: "GetColor",
+proc getColor*(this: var XCAFDocColorTool; L: TDF_Label; `type`: XCAFDocColorType;
+              color: var QuantityColor): bool {.importcpp: "GetColor",
     header: "XCAFDoc_ColorTool.hxx".}
-proc GetColor*(this: var XCAFDoc_ColorTool; L: TDF_Label; `type`: XCAFDoc_ColorType;
-              color: var Quantity_ColorRGBA): Standard_Boolean {.
-    importcpp: "GetColor", header: "XCAFDoc_ColorTool.hxx".}
-proc SetColor*(this: var XCAFDoc_ColorTool; S: TopoDS_Shape; colorL: TDF_Label;
-              `type`: XCAFDoc_ColorType): Standard_Boolean {.importcpp: "SetColor",
+proc getColor*(this: var XCAFDocColorTool; L: TDF_Label; `type`: XCAFDocColorType;
+              color: var QuantityColorRGBA): bool {.importcpp: "GetColor",
     header: "XCAFDoc_ColorTool.hxx".}
-proc SetColor*(this: var XCAFDoc_ColorTool; S: TopoDS_Shape; Color: Quantity_Color;
-              `type`: XCAFDoc_ColorType): Standard_Boolean {.importcpp: "SetColor",
+proc setColor*(this: var XCAFDocColorTool; s: TopoDS_Shape; colorL: TDF_Label;
+              `type`: XCAFDocColorType): bool {.importcpp: "SetColor",
     header: "XCAFDoc_ColorTool.hxx".}
-proc SetColor*(this: var XCAFDoc_ColorTool; S: TopoDS_Shape;
-              Color: Quantity_ColorRGBA; `type`: XCAFDoc_ColorType): Standard_Boolean {.
-    importcpp: "SetColor", header: "XCAFDoc_ColorTool.hxx".}
-proc UnSetColor*(this: var XCAFDoc_ColorTool; S: TopoDS_Shape;
-                `type`: XCAFDoc_ColorType): Standard_Boolean {.
+proc setColor*(this: var XCAFDocColorTool; s: TopoDS_Shape; color: QuantityColor;
+              `type`: XCAFDocColorType): bool {.importcpp: "SetColor",
+    header: "XCAFDoc_ColorTool.hxx".}
+proc setColor*(this: var XCAFDocColorTool; s: TopoDS_Shape; color: QuantityColorRGBA;
+              `type`: XCAFDocColorType): bool {.importcpp: "SetColor",
+    header: "XCAFDoc_ColorTool.hxx".}
+proc unSetColor*(this: var XCAFDocColorTool; s: TopoDS_Shape; `type`: XCAFDocColorType): bool {.
     importcpp: "UnSetColor", header: "XCAFDoc_ColorTool.hxx".}
-proc IsSet*(this: var XCAFDoc_ColorTool; S: TopoDS_Shape; `type`: XCAFDoc_ColorType): Standard_Boolean {.
+proc isSet*(this: var XCAFDocColorTool; s: TopoDS_Shape; `type`: XCAFDocColorType): bool {.
     importcpp: "IsSet", header: "XCAFDoc_ColorTool.hxx".}
-proc GetColor*(this: var XCAFDoc_ColorTool; S: TopoDS_Shape;
-              `type`: XCAFDoc_ColorType; colorL: var TDF_Label): Standard_Boolean {.
-    importcpp: "GetColor", header: "XCAFDoc_ColorTool.hxx".}
-proc GetColor*(this: var XCAFDoc_ColorTool; S: TopoDS_Shape;
-              `type`: XCAFDoc_ColorType; color: var Quantity_Color): Standard_Boolean {.
-    importcpp: "GetColor", header: "XCAFDoc_ColorTool.hxx".}
-proc GetColor*(this: var XCAFDoc_ColorTool; S: TopoDS_Shape;
-              `type`: XCAFDoc_ColorType; color: var Quantity_ColorRGBA): Standard_Boolean {.
-    importcpp: "GetColor", header: "XCAFDoc_ColorTool.hxx".}
-proc IsVisible*(this: XCAFDoc_ColorTool; L: TDF_Label): Standard_Boolean {.
-    noSideEffect, importcpp: "IsVisible", header: "XCAFDoc_ColorTool.hxx".}
-proc SetVisibility*(this: var XCAFDoc_ColorTool; shapeLabel: TDF_Label;
-                   isvisible: Standard_Boolean = Standard_True) {.
-    importcpp: "SetVisibility", header: "XCAFDoc_ColorTool.hxx".}
-proc IsColorByLayer*(this: XCAFDoc_ColorTool; L: TDF_Label): Standard_Boolean {.
-    noSideEffect, importcpp: "IsColorByLayer", header: "XCAFDoc_ColorTool.hxx".}
-proc SetColorByLayer*(this: var XCAFDoc_ColorTool; shapeLabel: TDF_Label;
-                     isColorByLayer: Standard_Boolean = Standard_False) {.
-    importcpp: "SetColorByLayer", header: "XCAFDoc_ColorTool.hxx".}
-proc SetInstanceColor*(this: var XCAFDoc_ColorTool; theShape: TopoDS_Shape;
-                      `type`: XCAFDoc_ColorType; color: Quantity_Color;
-                      isCreateSHUO: Standard_Boolean = Standard_True): Standard_Boolean {.
+proc getColor*(this: var XCAFDocColorTool; s: TopoDS_Shape; `type`: XCAFDocColorType;
+              colorL: var TDF_Label): bool {.importcpp: "GetColor",
+    header: "XCAFDoc_ColorTool.hxx".}
+proc getColor*(this: var XCAFDocColorTool; s: TopoDS_Shape; `type`: XCAFDocColorType;
+              color: var QuantityColor): bool {.importcpp: "GetColor",
+    header: "XCAFDoc_ColorTool.hxx".}
+proc getColor*(this: var XCAFDocColorTool; s: TopoDS_Shape; `type`: XCAFDocColorType;
+              color: var QuantityColorRGBA): bool {.importcpp: "GetColor",
+    header: "XCAFDoc_ColorTool.hxx".}
+proc isVisible*(this: XCAFDocColorTool; L: TDF_Label): bool {.noSideEffect,
+    importcpp: "IsVisible", header: "XCAFDoc_ColorTool.hxx".}
+proc setVisibility*(this: var XCAFDocColorTool; shapeLabel: TDF_Label;
+                   isvisible: bool = true) {.importcpp: "SetVisibility",
+    header: "XCAFDoc_ColorTool.hxx".}
+proc isColorByLayer*(this: XCAFDocColorTool; L: TDF_Label): bool {.noSideEffect,
+    importcpp: "IsColorByLayer", header: "XCAFDoc_ColorTool.hxx".}
+proc setColorByLayer*(this: var XCAFDocColorTool; shapeLabel: TDF_Label;
+                     isColorByLayer: bool = false) {.importcpp: "SetColorByLayer",
+    header: "XCAFDoc_ColorTool.hxx".}
+proc setInstanceColor*(this: var XCAFDocColorTool; theShape: TopoDS_Shape;
+                      `type`: XCAFDocColorType; color: QuantityColor;
+                      isCreateSHUO: bool = true): bool {.
     importcpp: "SetInstanceColor", header: "XCAFDoc_ColorTool.hxx".}
-proc SetInstanceColor*(this: var XCAFDoc_ColorTool; theShape: TopoDS_Shape;
-                      `type`: XCAFDoc_ColorType; color: Quantity_ColorRGBA;
-                      isCreateSHUO: Standard_Boolean = Standard_True): Standard_Boolean {.
+proc setInstanceColor*(this: var XCAFDocColorTool; theShape: TopoDS_Shape;
+                      `type`: XCAFDocColorType; color: QuantityColorRGBA;
+                      isCreateSHUO: bool = true): bool {.
     importcpp: "SetInstanceColor", header: "XCAFDoc_ColorTool.hxx".}
-proc GetInstanceColor*(this: var XCAFDoc_ColorTool; theShape: TopoDS_Shape;
-                      `type`: XCAFDoc_ColorType; color: var Quantity_Color): Standard_Boolean {.
+proc getInstanceColor*(this: var XCAFDocColorTool; theShape: TopoDS_Shape;
+                      `type`: XCAFDocColorType; color: var QuantityColor): bool {.
     importcpp: "GetInstanceColor", header: "XCAFDoc_ColorTool.hxx".}
-proc GetInstanceColor*(this: var XCAFDoc_ColorTool; theShape: TopoDS_Shape;
-                      `type`: XCAFDoc_ColorType; color: var Quantity_ColorRGBA): Standard_Boolean {.
+proc getInstanceColor*(this: var XCAFDocColorTool; theShape: TopoDS_Shape;
+                      `type`: XCAFDocColorType; color: var QuantityColorRGBA): bool {.
     importcpp: "GetInstanceColor", header: "XCAFDoc_ColorTool.hxx".}
-proc IsInstanceVisible*(this: var XCAFDoc_ColorTool; theShape: TopoDS_Shape): Standard_Boolean {.
+proc isInstanceVisible*(this: var XCAFDocColorTool; theShape: TopoDS_Shape): bool {.
     importcpp: "IsInstanceVisible", header: "XCAFDoc_ColorTool.hxx".}
-proc ReverseChainsOfTreeNodes*(this: var XCAFDoc_ColorTool): Standard_Boolean {.
+proc reverseChainsOfTreeNodes*(this: var XCAFDocColorTool): bool {.
     importcpp: "ReverseChainsOfTreeNodes", header: "XCAFDoc_ColorTool.hxx".}
-proc ID*(this: XCAFDoc_ColorTool): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: XCAFDocColorTool): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "XCAFDoc_ColorTool.hxx".}
-proc DumpJson*(this: XCAFDoc_ColorTool; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "XCAFDoc_ColorTool.hxx".}
+proc dumpJson*(this: XCAFDocColorTool; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "XCAFDoc_ColorTool.hxx".}
 ## !!!Ignored construct:  DEFINE_DERIVED_ATTRIBUTE ( XCAFDoc_ColorTool , TDataStd_GenericEmpty ) private : opencascade :: handle < XCAFDoc_ShapeTool > [end of template] myShapeTool ;
 ## Error: token expected: ) but got: ,!!!
+

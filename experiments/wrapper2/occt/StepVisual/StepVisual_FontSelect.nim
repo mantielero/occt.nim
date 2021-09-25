@@ -14,32 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepVisual_PreDefinedTextFont"
 discard "forward decl of StepVisual_ExternallyDefinedTextFont"
 type
-  StepVisual_FontSelect* {.importcpp: "StepVisual_FontSelect",
-                          header: "StepVisual_FontSelect.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                 ## !
-                                                                                                 ## Returns
-                                                                                                 ## a
-                                                                                                 ## FontSelect
-                                                                                                 ## SelectType
+  StepVisualFontSelect* {.importcpp: "StepVisual_FontSelect",
+                         header: "StepVisual_FontSelect.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                               ## !
+                                                                                               ## Returns
+                                                                                               ## a
+                                                                                               ## FontSelect
+                                                                                               ## SelectType
 
 
-proc constructStepVisual_FontSelect*(): StepVisual_FontSelect {.constructor,
+proc constructStepVisualFontSelect*(): StepVisualFontSelect {.constructor,
     importcpp: "StepVisual_FontSelect(@)", header: "StepVisual_FontSelect.hxx".}
-proc CaseNum*(this: StepVisual_FontSelect; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepVisualFontSelect; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_FontSelect.hxx".}
-proc PreDefinedTextFont*(this: StepVisual_FontSelect): handle[
-    StepVisual_PreDefinedTextFont] {.noSideEffect,
-                                    importcpp: "PreDefinedTextFont",
-                                    header: "StepVisual_FontSelect.hxx".}
-proc ExternallyDefinedTextFont*(this: StepVisual_FontSelect): handle[
-    StepVisual_ExternallyDefinedTextFont] {.noSideEffect,
+proc preDefinedTextFont*(this: StepVisualFontSelect): Handle[
+    StepVisualPreDefinedTextFont] {.noSideEffect, importcpp: "PreDefinedTextFont",
+                                   header: "StepVisual_FontSelect.hxx".}
+proc externallyDefinedTextFont*(this: StepVisualFontSelect): Handle[
+    StepVisualExternallyDefinedTextFont] {.noSideEffect,
     importcpp: "ExternallyDefinedTextFont", header: "StepVisual_FontSelect.hxx".}

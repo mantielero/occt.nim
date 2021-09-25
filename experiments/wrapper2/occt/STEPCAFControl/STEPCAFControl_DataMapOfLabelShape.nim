@@ -13,12 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TDF/TDF_Label, ../TopoDS/TopoDS_Shape, ../TDF/TDF_LabelMapHasher,
-  ../NCollection/NCollection_DataMap
-
 type
-  STEPCAFControl_DataMapOfLabelShape* = NCollection_DataMap[TDF_Label,
+  STEPCAFControlDataMapOfLabelShape* = NCollectionDataMap[TDF_Label, TopoDS_Shape,
+      TDF_LabelMapHasher]
+  STEPCAFControlDataMapIteratorOfDataMapOfLabelShape* = Iterator[TDF_Label,
       TopoDS_Shape, TDF_LabelMapHasher]
-  STEPCAFControl_DataMapIteratorOfDataMapOfLabelShape* = Iterator[TDF_Label,
-      TopoDS_Shape, TDF_LabelMapHasher]
+

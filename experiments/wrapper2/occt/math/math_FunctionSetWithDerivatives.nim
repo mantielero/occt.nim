@@ -14,29 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, math_FunctionSet, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, math_Vector
-
 discard "forward decl of math_Matrix"
 type
-  math_FunctionSetWithDerivatives* {.importcpp: "math_FunctionSetWithDerivatives", header: "math_FunctionSetWithDerivatives.hxx",
-                                    bycopy.} = object of math_FunctionSet ## ! Returns the number of variables of the function.
+  MathFunctionSetWithDerivatives* {.importcpp: "math_FunctionSetWithDerivatives", header: "math_FunctionSetWithDerivatives.hxx",
+                                   bycopy.} = object of MathFunctionSet ## ! Returns the number of variables of the function.
 
 
-proc NbVariables*(this: math_FunctionSetWithDerivatives): Standard_Integer {.
-    noSideEffect, importcpp: "NbVariables",
+proc nbVariables*(this: MathFunctionSetWithDerivatives): int {.noSideEffect,
+    importcpp: "NbVariables", header: "math_FunctionSetWithDerivatives.hxx".}
+proc nbEquations*(this: MathFunctionSetWithDerivatives): int {.noSideEffect,
+    importcpp: "NbEquations", header: "math_FunctionSetWithDerivatives.hxx".}
+proc value*(this: var MathFunctionSetWithDerivatives; x: MathVector; f: var MathVector): bool {.
+    importcpp: "Value", header: "math_FunctionSetWithDerivatives.hxx".}
+proc derivatives*(this: var MathFunctionSetWithDerivatives; x: MathVector;
+                 d: var MathMatrix): bool {.importcpp: "Derivatives", header: "math_FunctionSetWithDerivatives.hxx".}
+proc values*(this: var MathFunctionSetWithDerivatives; x: MathVector;
+            f: var MathVector; d: var MathMatrix): bool {.importcpp: "Values",
     header: "math_FunctionSetWithDerivatives.hxx".}
-proc NbEquations*(this: math_FunctionSetWithDerivatives): Standard_Integer {.
-    noSideEffect, importcpp: "NbEquations",
-    header: "math_FunctionSetWithDerivatives.hxx".}
-proc Value*(this: var math_FunctionSetWithDerivatives; X: math_Vector;
-           F: var math_Vector): Standard_Boolean {.importcpp: "Value",
-    header: "math_FunctionSetWithDerivatives.hxx".}
-proc Derivatives*(this: var math_FunctionSetWithDerivatives; X: math_Vector;
-                 D: var math_Matrix): Standard_Boolean {.importcpp: "Derivatives",
-    header: "math_FunctionSetWithDerivatives.hxx".}
-proc Values*(this: var math_FunctionSetWithDerivatives; X: math_Vector;
-            F: var math_Vector; D: var math_Matrix): Standard_Boolean {.
-    importcpp: "Values", header: "math_FunctionSetWithDerivatives.hxx".}

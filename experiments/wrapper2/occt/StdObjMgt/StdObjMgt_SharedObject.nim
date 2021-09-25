@@ -11,20 +11,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_NoSuchObject, StdObjMgt_Persistent
-
 type
-  StdObjMgt_SharedObject* {.importcpp: "StdObjMgt_SharedObject",
-                           header: "StdObjMgt_SharedObject.hxx", bycopy.} = object
+  StdObjMgtSharedObject* {.importcpp: "StdObjMgt_SharedObject",
+                          header: "StdObjMgt_SharedObject.hxx", bycopy.} = object
 
-  StdObjMgt_SharedObjectAbstractPersistentBase*[Transient] {.
+  StdObjMgtSharedObjectAbstractPersistentBase*[Transient] {.
       importcpp: "StdObjMgt_SharedObject::AbstractPersistentBase<\'0>",
-      header: "StdObjMgt_SharedObject.hxx", bycopy.} = object of Standard_Transient
+      header: "StdObjMgt_SharedObject.hxx", bycopy.} = object of StandardTransient
 
 
-proc Import*[Transient](this: StdObjMgt_SharedObjectAbstractPersistentBase[
-    Transient]): handle[Transient] {.noSideEffect, importcpp: "Import",
+proc `import`*[Transient](this: StdObjMgtSharedObjectAbstractPersistentBase[
+    Transient]): Handle[Transient] {.noSideEffect, importcpp: "Import",
                                    header: "StdObjMgt_SharedObject.hxx".}
 ## !!!Ignored construct:  template < class TransientT , class Base = StdObjMgt_Persistent > [end of template] class SharedBase : public Base { public : ! Changes transient object inline void Transient ( const opencascade :: handle < TransientT > [end of template] & theTransient ) { myTransient = theTransient ; } ! Import transient object from the persistent data. inline const opencascade :: handle < TransientT > [end of template] & Import ( ) { return myTransient ; } protected : opencascade :: handle < TransientT > [end of template] myTransient ; } ;
 ## Error: token expected: > [end of template] but got: =!!!
@@ -37,3 +34,4 @@ proc Import*[Transient](this: StdObjMgt_SharedObjectAbstractPersistentBase[
 
 ## !!!Ignored construct:  public : template < class Base , class Persistent = typename Base :: PersistentBase > [end of template] class Delayed : public delayedSubBase < Base > { private : template < class T1 , class T2 > struct DownCast { static opencascade :: handle < T1 > [end of template] make ( const opencascade :: handle < T2 > [end of template] & theT2 ) { return opencascade :: handle < T1 > [end of template] :: DownCast ( theT2 ) ; } } ; template < class T > struct DownCast < T , T > { static opencascade :: handle < T > [end of template] make ( const opencascade :: handle < T > [end of template] & theT ) { return theT ; } } ; public : ! Read persistent data from a file. virtual void Read ( StdObjMgt_ReadData & theReadData ) { opencascade :: handle < Persistent > [end of template] aPersistent = new Persistent ; aPersistent -> Read ( theReadData ) ; this -> myPersistent = aPersistent ; } ! Write persistent data to a file. virtual void Write ( StdObjMgt_WriteData & theWriteData ) const { opencascade :: handle < Persistent > [end of template] aPersistent = DownCast < Persistent , typename Base :: PersistentBase > :: make ( this -> myPersistent ) ; Standard_NoSuchObject_Raise_if ( aPersistent . IsNull ( ) , StdObjMgt_SharedObject::Delayed::Write - persistent object wasn't set for writing! ) ; aPersistent -> Write ( theWriteData ) ; } ! Gets persistent child objects virtual void PChildren ( StdObjMgt_Persistent :: SequenceOfPersistent & theChildren ) const { opencascade :: handle < Persistent > [end of template] aPersistent = DownCast < Persistent , typename Base :: PersistentBase > :: make ( this -> myPersistent ) ; Standard_NoSuchObject_Raise_if ( aPersistent . IsNull ( ) , StdObjMgt_SharedObject::Delayed::PChildren - persistent object wasn't set for writing! ) ; aPersistent -> PChildren ( theChildren ) ; } ! Returns persistent type name virtual Standard_CString PName ( ) const { opencascade :: handle < Persistent > [end of template] aPersistent = DownCast < Persistent , typename Base :: PersistentBase > :: make ( this -> myPersistent ) ; Standard_NoSuchObject_Raise_if ( aPersistent . IsNull ( ) , StdObjMgt_SharedObject::Delayed::PName - persistent object wasn't set for writing! ) ; return aPersistent -> PName ( ) ; } } ;
 ## Error: token expected: > [end of template] but got: =!!!
+

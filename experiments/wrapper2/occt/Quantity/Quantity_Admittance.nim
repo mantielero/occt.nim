@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Admittance_HeaderFile [NewLine] # _Quantity_Admittance_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the reciprocal of impedance.
+## !!!Ignored construct:  # _Quantity_Admittance_HeaderFile [NewLine] # _Quantity_Admittance_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the reciprocal of impedance.
 ## ! It is measured in Siemens (reciprocal Ohms).
 ## ! The square of the admittance is equal to the sum of the
 ## ! squares of the conductance and the susceptance. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Admittance ;
 ## Error: expected ';'!!!
+

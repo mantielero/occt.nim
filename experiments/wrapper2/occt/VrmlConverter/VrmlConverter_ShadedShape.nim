@@ -14,25 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_OStream,
-  ../TColgp/TColgp_Array1OfDir
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of VrmlConverter_Drawer"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of Poly_Connect"
 type
-  VrmlConverter_ShadedShape* {.importcpp: "VrmlConverter_ShadedShape",
-                              header: "VrmlConverter_ShadedShape.hxx", bycopy.} = object
+  VrmlConverterShadedShape* {.importcpp: "VrmlConverter_ShadedShape",
+                             header: "VrmlConverter_ShadedShape.hxx", bycopy.} = object
 
 
-proc Add*(anOStream: var Standard_OStream; aShape: TopoDS_Shape;
-         aDrawer: handle[VrmlConverter_Drawer]) {.
+proc add*(anOStream: var StandardOStream; aShape: TopoDS_Shape;
+         aDrawer: Handle[VrmlConverterDrawer]) {.
     importcpp: "VrmlConverter_ShadedShape::Add(@)",
     header: "VrmlConverter_ShadedShape.hxx".}
-proc ComputeNormal*(aFace: TopoDS_Face; pc: var Poly_Connect;
-                   Nor: var TColgp_Array1OfDir) {.
+proc computeNormal*(aFace: TopoDS_Face; pc: var PolyConnect;
+                   nor: var TColgpArray1OfDir) {.
     importcpp: "VrmlConverter_ShadedShape::ComputeNormal(@)",
     header: "VrmlConverter_ShadedShape.hxx".}

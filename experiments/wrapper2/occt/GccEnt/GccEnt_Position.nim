@@ -30,8 +30,9 @@
 ## ! relation to its orientation.
 
 type
-  GccEnt_Position* {.size: sizeof(cint), importcpp: "GccEnt_Position",
-                    header: "GccEnt_Position.hxx".} = enum
-    GccEnt_unqualified, GccEnt_enclosing, GccEnt_enclosed, GccEnt_outside,
-    GccEnt_noqualifier
+  GccEntPosition* {.size: sizeof(cint), importcpp: "GccEnt_Position",
+                   header: "GccEnt_Position.hxx".} = enum
+    GccEntUnqualified, GccEntEnclosing, GccEntEnclosed, GccEntOutside,
+    GccEntNoqualifier
+
 

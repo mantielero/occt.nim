@@ -13,34 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_ShapeRepresentation
-
 discard "forward decl of StepShape_EdgeBasedWireframeShapeRepresentation"
 discard "forward decl of StepShape_EdgeBasedWireframeShapeRepresentation"
 type
-  Handle_StepShape_EdgeBasedWireframeShapeRepresentation* = handle[
-      StepShape_EdgeBasedWireframeShapeRepresentation]
+  HandleStepShapeEdgeBasedWireframeShapeRepresentation* = Handle[
+      StepShapeEdgeBasedWireframeShapeRepresentation]
 
 ## ! Representation of STEP entity EdgeBasedWireframeShapeRepresentation
 
 type
-  StepShape_EdgeBasedWireframeShapeRepresentation* {.
+  StepShapeEdgeBasedWireframeShapeRepresentation* {.
       importcpp: "StepShape_EdgeBasedWireframeShapeRepresentation",
-      header: "StepShape_EdgeBasedWireframeShapeRepresentation.hxx", bycopy.} = object of StepShape_ShapeRepresentation ##
-                                                                                                                 ## !
-                                                                                                                 ## Empty
-                                                                                                                 ## constructor
+      header: "StepShape_EdgeBasedWireframeShapeRepresentation.hxx", bycopy.} = object of StepShapeShapeRepresentation ##
+                                                                                                                ## !
+                                                                                                                ## Empty
+                                                                                                                ## constructor
 
 
-proc constructStepShape_EdgeBasedWireframeShapeRepresentation*(): StepShape_EdgeBasedWireframeShapeRepresentation {.
+proc constructStepShapeEdgeBasedWireframeShapeRepresentation*(): StepShapeEdgeBasedWireframeShapeRepresentation {.
     constructor, importcpp: "StepShape_EdgeBasedWireframeShapeRepresentation(@)",
     header: "StepShape_EdgeBasedWireframeShapeRepresentation.hxx".}
 type
-  StepShape_EdgeBasedWireframeShapeRepresentationbase_type* = StepShape_ShapeRepresentation
+  StepShapeEdgeBasedWireframeShapeRepresentationbaseType* = StepShapeShapeRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_EdgeBasedWireframeShapeRepresentation::get_type_name(@)", header: "StepShape_EdgeBasedWireframeShapeRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepShape_EdgeBasedWireframeShapeRepresentation::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepShape_EdgeBasedWireframeShapeRepresentation::get_type_name(@)", header: "StepShape_EdgeBasedWireframeShapeRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_EdgeBasedWireframeShapeRepresentation::get_type_descriptor(@)",
     header: "StepShape_EdgeBasedWireframeShapeRepresentation.hxx".}
-proc DynamicType*(this: StepShape_EdgeBasedWireframeShapeRepresentation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_EdgeBasedWireframeShapeRepresentation.hxx".}
+proc dynamicType*(this: StepShapeEdgeBasedWireframeShapeRepresentation): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_EdgeBasedWireframeShapeRepresentation.hxx".}

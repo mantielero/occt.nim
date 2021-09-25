@@ -13,62 +13,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-when not defined(_WIN32) and (not defined(__APPLE__) or defined(MACOSX_USE_GLX)) and
-    not defined(__ANDROID__) and not defined(__QNX__) and
-    not defined(__EMSCRIPTEN__):
-  import
-    ../Aspect/Aspect_Window, ../Aspect/Aspect_VKey,
-    ../Aspect/Aspect_DisplayConnection, ../Aspect/Aspect_FillMethod,
-    ../Aspect/Aspect_GradientFillMethod, ../Aspect/Aspect_Handle,
-    ../Aspect/Aspect_TypeOfResize, ../Standard/Standard,
-    ../Standard/Standard_Type, ../Quantity/Quantity_NameOfColor
-
+when not defined(win32) and (not defined(apple) or defined(macosx_Use_Glx)) and
+    not defined(android) and not defined(qnx) and not defined(emscripten):
   discard "forward decl of Aspect_WindowDefinitionError"
   discard "forward decl of Aspect_WindowError"
   discard "forward decl of Aspect_Background"
   discard "forward decl of Quantity_Color"
   discard "forward decl of Aspect_GradientBackground"
   type
-    Xw_Window* {.importcpp: "Xw_Window", header: "Xw_Window.hxx", bycopy.} = object of Aspect_Window ##
-                                                                                           ## !
-                                                                                           ## Convert
-                                                                                           ## X11
-                                                                                           ## virtual
-                                                                                           ## key
-                                                                                           ## (KeySym)
-                                                                                           ## into
-                                                                                           ## Aspect_VKey.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Creates
-                                                                                           ## a
-                                                                                           ## XLib
-                                                                                           ## window
-                                                                                           ## defined
-                                                                                           ## by
-                                                                                           ## his
-                                                                                           ## position
-                                                                                           ## and
-                                                                                           ## size
-                                                                                           ## in
-                                                                                           ## pixels.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Throws
-                                                                                           ## exception
-                                                                                           ## if
-                                                                                           ## window
-                                                                                           ## can
-                                                                                           ## not
-                                                                                           ## be
-                                                                                           ## created
-                                                                                           ## or
-                                                                                           ## Display
-                                                                                           ## do
-                                                                                           ## not
-                                                                                           ## support
-                                                                                           ## GLX
-                                                                                           ## extension.
+    XwWindow* {.importcpp: "Xw_Window", header: "Xw_Window.hxx", bycopy.} = object of AspectWindow ##
+                                                                                         ## !
+                                                                                         ## Convert
+                                                                                         ## X11
+                                                                                         ## virtual
+                                                                                         ## key
+                                                                                         ## (KeySym)
+                                                                                         ## into
+                                                                                         ## Aspect_VKey.
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## Creates
+                                                                                         ## a
+                                                                                         ## XLib
+                                                                                         ## window
+                                                                                         ## defined
+                                                                                         ## by
+                                                                                         ## his
+                                                                                         ## position
+                                                                                         ## and
+                                                                                         ## size
+                                                                                         ## in
+                                                                                         ## pixels.
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## Throws
+                                                                                         ## exception
+                                                                                         ## if
+                                                                                         ## window
+                                                                                         ## can
+                                                                                         ## not
+                                                                                         ## be
+                                                                                         ## created
+                                                                                         ## or
+                                                                                         ## Display
+                                                                                         ## do
+                                                                                         ## not
+                                                                                         ## support
+                                                                                         ## GLX
+                                                                                         ## extension.
       ## !< X Display connection
       ## !< XLib window handle
       ## !< GLXFBConfig
@@ -78,60 +70,56 @@ when not defined(_WIN32) and (not defined(__APPLE__) or defined(MACOSX_USE_GLX))
       ## !< bottom position in pixels
       ## !< flag to indicate own window handle (to be deallocated on destruction)
 
-  proc VirtualKeyFromNative*(theKey: culong): Aspect_VKey {.
+  proc virtualKeyFromNative*(theKey: culong): AspectVKey {.
       importcpp: "Xw_Window::VirtualKeyFromNative(@)", header: "Xw_Window.hxx".}
-  proc constructXw_Window*(theXDisplay: handle[Aspect_DisplayConnection];
-                          theTitle: Standard_CString; thePxLeft: Standard_Integer;
-                          thePxTop: Standard_Integer;
-                          thePxWidth: Standard_Integer;
-                          thePxHeight: Standard_Integer;
-                          theFBConfig: Aspect_FBConfig = nil): Xw_Window {.
+  proc constructXwWindow*(theXDisplay: Handle[AspectDisplayConnection];
+                         theTitle: StandardCString; thePxLeft: int; thePxTop: int;
+                         thePxWidth: int; thePxHeight: int;
+                         theFBConfig: AspectFBConfig = nil): XwWindow {.constructor,
+      importcpp: "Xw_Window(@)", header: "Xw_Window.hxx".}
+  proc constructXwWindow*(theXDisplay: Handle[AspectDisplayConnection];
+                         theXWin: Window; theFBConfig: AspectFBConfig = nil): XwWindow {.
       constructor, importcpp: "Xw_Window(@)", header: "Xw_Window.hxx".}
-  proc constructXw_Window*(theXDisplay: handle[Aspect_DisplayConnection];
-                          theXWin: Window; theFBConfig: Aspect_FBConfig = nil): Xw_Window {.
-      constructor, importcpp: "Xw_Window(@)", header: "Xw_Window.hxx".}
-  proc destroyXw_Window*(this: var Xw_Window) {.importcpp: "#.~Xw_Window()",
+  proc destroyXwWindow*(this: var XwWindow) {.importcpp: "#.~Xw_Window()",
       header: "Xw_Window.hxx".}
-  proc Map*(this: Xw_Window) {.noSideEffect, importcpp: "Map", header: "Xw_Window.hxx".}
-  proc Unmap*(this: Xw_Window) {.noSideEffect, importcpp: "Unmap",
-                              header: "Xw_Window.hxx".}
-  proc DoResize*(this: var Xw_Window): Aspect_TypeOfResize {.importcpp: "DoResize",
+  proc map*(this: XwWindow) {.noSideEffect, importcpp: "Map", header: "Xw_Window.hxx".}
+  proc unmap*(this: XwWindow) {.noSideEffect, importcpp: "Unmap",
+                             header: "Xw_Window.hxx".}
+  proc doResize*(this: var XwWindow): AspectTypeOfResize {.importcpp: "DoResize",
       header: "Xw_Window.hxx".}
-  proc DoMapping*(this: Xw_Window): Standard_Boolean {.noSideEffect,
-      importcpp: "DoMapping", header: "Xw_Window.hxx".}
-  proc IsMapped*(this: Xw_Window): Standard_Boolean {.noSideEffect,
-      importcpp: "IsMapped", header: "Xw_Window.hxx".}
-  proc Ratio*(this: Xw_Window): Standard_Real {.noSideEffect, importcpp: "Ratio",
-      header: "Xw_Window.hxx".}
-  proc Position*(this: Xw_Window; X1: var Standard_Integer; Y1: var Standard_Integer;
-                X2: var Standard_Integer; Y2: var Standard_Integer) {.noSideEffect,
-      importcpp: "Position", header: "Xw_Window.hxx".}
-  proc Size*(this: Xw_Window; theWidth: var Standard_Integer;
-            theHeight: var Standard_Integer) {.noSideEffect, importcpp: "Size",
-      header: "Xw_Window.hxx".}
-  proc XWindow*(this: Xw_Window): Window {.noSideEffect, importcpp: "XWindow",
-                                       header: "Xw_Window.hxx".}
-  proc DisplayConnection*(this: Xw_Window): handle[Aspect_DisplayConnection] {.
+  proc doMapping*(this: XwWindow): bool {.noSideEffect, importcpp: "DoMapping",
+                                      header: "Xw_Window.hxx".}
+  proc isMapped*(this: XwWindow): bool {.noSideEffect, importcpp: "IsMapped",
+                                     header: "Xw_Window.hxx".}
+  proc ratio*(this: XwWindow): float {.noSideEffect, importcpp: "Ratio",
+                                   header: "Xw_Window.hxx".}
+  proc position*(this: XwWindow; x1: var int; y1: var int; x2: var int; y2: var int) {.
+      noSideEffect, importcpp: "Position", header: "Xw_Window.hxx".}
+  proc size*(this: XwWindow; theWidth: var int; theHeight: var int) {.noSideEffect,
+      importcpp: "Size", header: "Xw_Window.hxx".}
+  proc xWindow*(this: XwWindow): Window {.noSideEffect, importcpp: "XWindow",
+                                      header: "Xw_Window.hxx".}
+  proc displayConnection*(this: XwWindow): Handle[AspectDisplayConnection] {.
       noSideEffect, importcpp: "DisplayConnection", header: "Xw_Window.hxx".}
-  proc NativeHandle*(this: Xw_Window): Aspect_Drawable {.noSideEffect,
+  proc nativeHandle*(this: XwWindow): AspectDrawable {.noSideEffect,
       importcpp: "NativeHandle", header: "Xw_Window.hxx".}
-  proc NativeParentHandle*(this: Xw_Window): Aspect_Drawable {.noSideEffect,
+  proc nativeParentHandle*(this: XwWindow): AspectDrawable {.noSideEffect,
       importcpp: "NativeParentHandle", header: "Xw_Window.hxx".}
-  proc NativeFBConfig*(this: Xw_Window): Aspect_FBConfig {.noSideEffect,
+  proc nativeFBConfig*(this: XwWindow): AspectFBConfig {.noSideEffect,
       importcpp: "NativeFBConfig", header: "Xw_Window.hxx".}
-  proc SetTitle*(this: var Xw_Window; theTitle: TCollection_AsciiString) {.
+  proc setTitle*(this: var XwWindow; theTitle: TCollectionAsciiString) {.
       importcpp: "SetTitle", header: "Xw_Window.hxx".}
-  proc InvalidateContent*(this: var Xw_Window;
-                         theDisp: handle[Aspect_DisplayConnection]) {.
+  proc invalidateContent*(this: var XwWindow;
+                         theDisp: Handle[AspectDisplayConnection]) {.
       importcpp: "InvalidateContent", header: "Xw_Window.hxx".}
   type
-    Xw_Windowbase_type* = Aspect_Window
-  proc get_type_name*(): cstring {.importcpp: "Xw_Window::get_type_name(@)",
-                                header: "Xw_Window.hxx".}
-  proc get_type_descriptor*(): handle[Standard_Type] {.
+    XwWindowbaseType* = AspectWindow
+  proc getTypeName*(): cstring {.importcpp: "Xw_Window::get_type_name(@)",
+                              header: "Xw_Window.hxx".}
+  proc getTypeDescriptor*(): Handle[StandardType] {.
       importcpp: "Xw_Window::get_type_descriptor(@)", header: "Xw_Window.hxx".}
-  proc DynamicType*(this: Xw_Window): handle[Standard_Type] {.noSideEffect,
+  proc dynamicType*(this: XwWindow): Handle[StandardType] {.noSideEffect,
       importcpp: "DynamicType", header: "Xw_Window.hxx".}
   discard "forward decl of Xw_Window"
   type
-    Handle_Xw_Window* = handle[Xw_Window]
+    HandleXwWindow* = Handle[XwWindow]

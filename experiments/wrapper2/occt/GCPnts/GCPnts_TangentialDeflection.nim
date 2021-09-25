@@ -14,85 +14,69 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TColgp/TColgp_SequenceOfPnt, ../TColStd/TColStd_SequenceOfReal, ../gp/gp_Pnt,
-  ../gp/gp_Lin, ../math/math_Function, ../math/math_MultipleVarFunction,
-  ../Adaptor3d/Adaptor3d_Curve, ../Adaptor2d/Adaptor2d_Curve2d
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_OutOfRange"
 type
-  GCPnts_TangentialDeflection* {.importcpp: "GCPnts_TangentialDeflection",
-                                header: "GCPnts_TangentialDeflection.hxx", bycopy.} = object
+  GCPntsTangentialDeflection* {.importcpp: "GCPnts_TangentialDeflection",
+                               header: "GCPnts_TangentialDeflection.hxx", bycopy.} = object
 
 
-proc constructGCPnts_TangentialDeflection*(): GCPnts_TangentialDeflection {.
+proc constructGCPntsTangentialDeflection*(): GCPntsTangentialDeflection {.
     constructor, importcpp: "GCPnts_TangentialDeflection(@)",
     header: "GCPnts_TangentialDeflection.hxx".}
-proc constructGCPnts_TangentialDeflection*(C: Adaptor3d_Curve;
-    AngularDeflection: Standard_Real; CurvatureDeflection: Standard_Real;
-    MinimumOfPoints: Standard_Integer = 2; UTol: Standard_Real = 1.0e-9;
-    theMinLen: Standard_Real = 1.0e-7): GCPnts_TangentialDeflection {.constructor,
+proc constructGCPntsTangentialDeflection*(c: Adaptor3dCurve;
+    angularDeflection: float; curvatureDeflection: float; minimumOfPoints: int = 2;
+    uTol: float = 1.0e-9; theMinLen: float = 1.0e-7): GCPntsTangentialDeflection {.
+    constructor, importcpp: "GCPnts_TangentialDeflection(@)",
+    header: "GCPnts_TangentialDeflection.hxx".}
+proc constructGCPntsTangentialDeflection*(c: Adaptor3dCurve; firstParameter: float;
+    lastParameter: float; angularDeflection: float; curvatureDeflection: float;
+    minimumOfPoints: int = 2; uTol: float = 1.0e-9; theMinLen: float = 1.0e-7): GCPntsTangentialDeflection {.
+    constructor, importcpp: "GCPnts_TangentialDeflection(@)",
+    header: "GCPnts_TangentialDeflection.hxx".}
+proc constructGCPntsTangentialDeflection*(c: Adaptor2dCurve2d;
+    angularDeflection: float; curvatureDeflection: float; minimumOfPoints: int = 2;
+    uTol: float = 1.0e-9; theMinLen: float = 1.0e-7): GCPntsTangentialDeflection {.
+    constructor, importcpp: "GCPnts_TangentialDeflection(@)",
+    header: "GCPnts_TangentialDeflection.hxx".}
+proc constructGCPntsTangentialDeflection*(c: Adaptor2dCurve2d;
+    firstParameter: float; lastParameter: float; angularDeflection: float;
+    curvatureDeflection: float; minimumOfPoints: int = 2; uTol: float = 1.0e-9;
+    theMinLen: float = 1.0e-7): GCPntsTangentialDeflection {.constructor,
     importcpp: "GCPnts_TangentialDeflection(@)",
     header: "GCPnts_TangentialDeflection.hxx".}
-proc constructGCPnts_TangentialDeflection*(C: Adaptor3d_Curve;
-    FirstParameter: Standard_Real; LastParameter: Standard_Real;
-    AngularDeflection: Standard_Real; CurvatureDeflection: Standard_Real;
-    MinimumOfPoints: Standard_Integer = 2; UTol: Standard_Real = 1.0e-9;
-    theMinLen: Standard_Real = 1.0e-7): GCPnts_TangentialDeflection {.constructor,
-    importcpp: "GCPnts_TangentialDeflection(@)",
+proc initialize*(this: var GCPntsTangentialDeflection; c: Adaptor3dCurve;
+                angularDeflection: float; curvatureDeflection: float;
+                minimumOfPoints: int = 2; uTol: float = 1.0e-9;
+                theMinLen: float = 1.0e-7) {.importcpp: "Initialize",
     header: "GCPnts_TangentialDeflection.hxx".}
-proc constructGCPnts_TangentialDeflection*(C: Adaptor2d_Curve2d;
-    AngularDeflection: Standard_Real; CurvatureDeflection: Standard_Real;
-    MinimumOfPoints: Standard_Integer = 2; UTol: Standard_Real = 1.0e-9;
-    theMinLen: Standard_Real = 1.0e-7): GCPnts_TangentialDeflection {.constructor,
-    importcpp: "GCPnts_TangentialDeflection(@)",
+proc initialize*(this: var GCPntsTangentialDeflection; c: Adaptor3dCurve;
+                firstParameter: float; lastParameter: float;
+                angularDeflection: float; curvatureDeflection: float;
+                minimumOfPoints: int = 2; uTol: float = 1.0e-9;
+                theMinLen: float = 1.0e-7) {.importcpp: "Initialize",
     header: "GCPnts_TangentialDeflection.hxx".}
-proc constructGCPnts_TangentialDeflection*(C: Adaptor2d_Curve2d;
-    FirstParameter: Standard_Real; LastParameter: Standard_Real;
-    AngularDeflection: Standard_Real; CurvatureDeflection: Standard_Real;
-    MinimumOfPoints: Standard_Integer = 2; UTol: Standard_Real = 1.0e-9;
-    theMinLen: Standard_Real = 1.0e-7): GCPnts_TangentialDeflection {.constructor,
-    importcpp: "GCPnts_TangentialDeflection(@)",
+proc initialize*(this: var GCPntsTangentialDeflection; c: Adaptor2dCurve2d;
+                angularDeflection: float; curvatureDeflection: float;
+                minimumOfPoints: int = 2; uTol: float = 1.0e-9;
+                theMinLen: float = 1.0e-7) {.importcpp: "Initialize",
     header: "GCPnts_TangentialDeflection.hxx".}
-proc Initialize*(this: var GCPnts_TangentialDeflection; C: Adaptor3d_Curve;
-                AngularDeflection: Standard_Real;
-                CurvatureDeflection: Standard_Real;
-                MinimumOfPoints: Standard_Integer = 2; UTol: Standard_Real = 1.0e-9;
-                theMinLen: Standard_Real = 1.0e-7) {.importcpp: "Initialize",
+proc initialize*(this: var GCPntsTangentialDeflection; c: Adaptor2dCurve2d;
+                firstParameter: float; lastParameter: float;
+                angularDeflection: float; curvatureDeflection: float;
+                minimumOfPoints: int = 2; uTol: float = 1.0e-9;
+                theMinLen: float = 1.0e-7) {.importcpp: "Initialize",
     header: "GCPnts_TangentialDeflection.hxx".}
-proc Initialize*(this: var GCPnts_TangentialDeflection; C: Adaptor3d_Curve;
-                FirstParameter: Standard_Real; LastParameter: Standard_Real;
-                AngularDeflection: Standard_Real;
-                CurvatureDeflection: Standard_Real;
-                MinimumOfPoints: Standard_Integer = 2; UTol: Standard_Real = 1.0e-9;
-                theMinLen: Standard_Real = 1.0e-7) {.importcpp: "Initialize",
+proc addPoint*(this: var GCPntsTangentialDeflection; thePnt: Pnt; theParam: float;
+              theIsReplace: bool = true): int {.importcpp: "AddPoint",
     header: "GCPnts_TangentialDeflection.hxx".}
-proc Initialize*(this: var GCPnts_TangentialDeflection; C: Adaptor2d_Curve2d;
-                AngularDeflection: Standard_Real;
-                CurvatureDeflection: Standard_Real;
-                MinimumOfPoints: Standard_Integer = 2; UTol: Standard_Real = 1.0e-9;
-                theMinLen: Standard_Real = 1.0e-7) {.importcpp: "Initialize",
-    header: "GCPnts_TangentialDeflection.hxx".}
-proc Initialize*(this: var GCPnts_TangentialDeflection; C: Adaptor2d_Curve2d;
-                FirstParameter: Standard_Real; LastParameter: Standard_Real;
-                AngularDeflection: Standard_Real;
-                CurvatureDeflection: Standard_Real;
-                MinimumOfPoints: Standard_Integer = 2; UTol: Standard_Real = 1.0e-9;
-                theMinLen: Standard_Real = 1.0e-7) {.importcpp: "Initialize",
-    header: "GCPnts_TangentialDeflection.hxx".}
-proc AddPoint*(this: var GCPnts_TangentialDeflection; thePnt: gp_Pnt;
-              theParam: Standard_Real;
-              theIsReplace: Standard_Boolean = Standard_True): Standard_Integer {.
-    importcpp: "AddPoint", header: "GCPnts_TangentialDeflection.hxx".}
-proc NbPoints*(this: GCPnts_TangentialDeflection): Standard_Integer {.noSideEffect,
+proc nbPoints*(this: GCPntsTangentialDeflection): int {.noSideEffect,
     importcpp: "NbPoints", header: "GCPnts_TangentialDeflection.hxx".}
-proc Parameter*(this: GCPnts_TangentialDeflection; I: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "Parameter", header: "GCPnts_TangentialDeflection.hxx".}
-proc Value*(this: GCPnts_TangentialDeflection; I: Standard_Integer): gp_Pnt {.
-    noSideEffect, importcpp: "Value", header: "GCPnts_TangentialDeflection.hxx".}
-proc ArcAngularStep*(theRadius: Standard_Real; theLinearDeflection: Standard_Real;
-                    theAngularDeflection: Standard_Real;
-                    theMinLength: Standard_Real): Standard_Real {.
+proc parameter*(this: GCPntsTangentialDeflection; i: int): float {.noSideEffect,
+    importcpp: "Parameter", header: "GCPnts_TangentialDeflection.hxx".}
+proc value*(this: GCPntsTangentialDeflection; i: int): Pnt {.noSideEffect,
+    importcpp: "Value", header: "GCPnts_TangentialDeflection.hxx".}
+proc arcAngularStep*(theRadius: float; theLinearDeflection: float;
+                    theAngularDeflection: float; theMinLength: float): float {.
     importcpp: "GCPnts_TangentialDeflection::ArcAngularStep(@)",
     header: "GCPnts_TangentialDeflection.hxx".}

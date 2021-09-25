@@ -13,45 +13,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_Face,
-  StepShape_HArray1OfFaceBound
-
 discard "forward decl of StepShape_Face"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_Subface"
 discard "forward decl of StepShape_Subface"
 type
-  Handle_StepShape_Subface* = handle[StepShape_Subface]
+  HandleStepShapeSubface* = Handle[StepShapeSubface]
 
 ## ! Representation of STEP entity Subface
 
 type
-  StepShape_Subface* {.importcpp: "StepShape_Subface",
-                      header: "StepShape_Subface.hxx", bycopy.} = object of StepShape_Face ##
-                                                                                    ## !
-                                                                                    ## Empty
-                                                                                    ## constructor
+  StepShapeSubface* {.importcpp: "StepShape_Subface",
+                     header: "StepShape_Subface.hxx", bycopy.} = object of StepShapeFace ##
+                                                                                  ## !
+                                                                                  ## Empty
+                                                                                  ## constructor
 
 
-proc constructStepShape_Subface*(): StepShape_Subface {.constructor,
+proc constructStepShapeSubface*(): StepShapeSubface {.constructor,
     importcpp: "StepShape_Subface(@)", header: "StepShape_Subface.hxx".}
-proc Init*(this: var StepShape_Subface;
-          aRepresentationItem_Name: handle[TCollection_HAsciiString];
-          aFace_Bounds: handle[StepShape_HArray1OfFaceBound];
-          aParentFace: handle[StepShape_Face]) {.importcpp: "Init",
+proc init*(this: var StepShapeSubface;
+          aRepresentationItemName: Handle[TCollectionHAsciiString];
+          aFaceBounds: Handle[StepShapeHArray1OfFaceBound];
+          aParentFace: Handle[StepShapeFace]) {.importcpp: "Init",
     header: "StepShape_Subface.hxx".}
-proc ParentFace*(this: StepShape_Subface): handle[StepShape_Face] {.noSideEffect,
+proc parentFace*(this: StepShapeSubface): Handle[StepShapeFace] {.noSideEffect,
     importcpp: "ParentFace", header: "StepShape_Subface.hxx".}
-proc SetParentFace*(this: var StepShape_Subface; ParentFace: handle[StepShape_Face]) {.
+proc setParentFace*(this: var StepShapeSubface; parentFace: Handle[StepShapeFace]) {.
     importcpp: "SetParentFace", header: "StepShape_Subface.hxx".}
 type
-  StepShape_Subfacebase_type* = StepShape_Face
+  StepShapeSubfacebaseType* = StepShapeFace
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_Subface::get_type_name(@)",
-                              header: "StepShape_Subface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_Subface::get_type_name(@)",
+                            header: "StepShape_Subface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_Subface::get_type_descriptor(@)",
     header: "StepShape_Subface.hxx".}
-proc DynamicType*(this: StepShape_Subface): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepShapeSubface): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_Subface.hxx".}

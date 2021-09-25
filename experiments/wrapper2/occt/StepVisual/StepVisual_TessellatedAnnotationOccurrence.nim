@@ -13,32 +13,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepVisual_StyledItem
-
 discard "forward decl of StepVisual_TessellatedAnnotationOccurrence"
 discard "forward decl of StepVisual_TessellatedAnnotationOccurrence"
 type
-  Handle_StepVisual_TessellatedAnnotationOccurrence* = handle[
-      StepVisual_TessellatedAnnotationOccurrence]
-  StepVisual_TessellatedAnnotationOccurrence* {.
+  HandleStepVisualTessellatedAnnotationOccurrence* = Handle[
+      StepVisualTessellatedAnnotationOccurrence]
+  StepVisualTessellatedAnnotationOccurrence* {.
       importcpp: "StepVisual_TessellatedAnnotationOccurrence",
-      header: "StepVisual_TessellatedAnnotationOccurrence.hxx", bycopy.} = object of StepVisual_StyledItem ##
-                                                                                                    ## !
-                                                                                                    ## Returns
-                                                                                                    ## a
-                                                                                                    ## TesselatedAnnotationOccurence
+      header: "StepVisual_TessellatedAnnotationOccurrence.hxx", bycopy.} = object of StepVisualStyledItem ##
+                                                                                                   ## !
+                                                                                                   ## Returns
+                                                                                                   ## a
+                                                                                                   ## TesselatedAnnotationOccurence
 
 
-proc constructStepVisual_TessellatedAnnotationOccurrence*(): StepVisual_TessellatedAnnotationOccurrence {.
+proc constructStepVisualTessellatedAnnotationOccurrence*(): StepVisualTessellatedAnnotationOccurrence {.
     constructor, importcpp: "StepVisual_TessellatedAnnotationOccurrence(@)",
     header: "StepVisual_TessellatedAnnotationOccurrence.hxx".}
 type
-  StepVisual_TessellatedAnnotationOccurrencebase_type* = StepVisual_StyledItem
+  StepVisualTessellatedAnnotationOccurrencebaseType* = StepVisualStyledItem
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_TessellatedAnnotationOccurrence::get_type_name(@)", header: "StepVisual_TessellatedAnnotationOccurrence.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_TessellatedAnnotationOccurrence::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepVisual_TessellatedAnnotationOccurrence::get_type_name(@)", header: "StepVisual_TessellatedAnnotationOccurrence.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_TessellatedAnnotationOccurrence::get_type_descriptor(@)",
     header: "StepVisual_TessellatedAnnotationOccurrence.hxx".}
-proc DynamicType*(this: StepVisual_TessellatedAnnotationOccurrence): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepVisual_TessellatedAnnotationOccurrence.hxx".}
+proc dynamicType*(this: StepVisualTessellatedAnnotationOccurrence): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepVisual_TessellatedAnnotationOccurrence.hxx".}

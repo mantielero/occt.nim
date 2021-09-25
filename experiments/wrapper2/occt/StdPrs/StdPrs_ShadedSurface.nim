@@ -14,62 +14,59 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Prs3d/Prs3d_Root, ../Prs3d/Prs3d_Drawer
-
 discard "forward decl of Adaptor3d_Surface"
 type
-  StdPrs_ShadedSurface* {.importcpp: "StdPrs_ShadedSurface",
-                         header: "StdPrs_ShadedSurface.hxx", bycopy.} = object of Prs3d_Root ##
-                                                                                      ## !
-                                                                                      ## Adds
-                                                                                      ## the
-                                                                                      ## surface
-                                                                                      ## aSurface
-                                                                                      ## to
-                                                                                      ## the
-                                                                                      ## presentation
-                                                                                      ## object
-                                                                                      ## aPresentation.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## The
-                                                                                      ## surface's
-                                                                                      ## display
-                                                                                      ## attributes
-                                                                                      ## are
-                                                                                      ## set
-                                                                                      ## in
-                                                                                      ## the
-                                                                                      ## attribute
-                                                                                      ## manager
-                                                                                      ## aDrawer.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## The
-                                                                                      ## surface
-                                                                                      ## object
-                                                                                      ## from
-                                                                                      ## Adaptor3d
-                                                                                      ## provides
-                                                                                      ## data
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## from
-                                                                                      ## a
-                                                                                      ## Geom
-                                                                                      ## surface
-                                                                                      ## in
-                                                                                      ## order
-                                                                                      ## to
-                                                                                      ## use
-                                                                                      ## the
-                                                                                      ## surface
-                                                                                      ## in
-                                                                                      ## an
-                                                                                      ## algorithm.
+  StdPrsShadedSurface* {.importcpp: "StdPrs_ShadedSurface",
+                        header: "StdPrs_ShadedSurface.hxx", bycopy.} = object of Prs3dRoot ##
+                                                                                    ## !
+                                                                                    ## Adds
+                                                                                    ## the
+                                                                                    ## surface
+                                                                                    ## aSurface
+                                                                                    ## to
+                                                                                    ## the
+                                                                                    ## presentation
+                                                                                    ## object
+                                                                                    ## aPresentation.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## The
+                                                                                    ## surface's
+                                                                                    ## display
+                                                                                    ## attributes
+                                                                                    ## are
+                                                                                    ## set
+                                                                                    ## in
+                                                                                    ## the
+                                                                                    ## attribute
+                                                                                    ## manager
+                                                                                    ## aDrawer.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## The
+                                                                                    ## surface
+                                                                                    ## object
+                                                                                    ## from
+                                                                                    ## Adaptor3d
+                                                                                    ## provides
+                                                                                    ## data
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## from
+                                                                                    ## a
+                                                                                    ## Geom
+                                                                                    ## surface
+                                                                                    ## in
+                                                                                    ## order
+                                                                                    ## to
+                                                                                    ## use
+                                                                                    ## the
+                                                                                    ## surface
+                                                                                    ## in
+                                                                                    ## an
+                                                                                    ## algorithm.
 
 
-proc Add*(aPresentation: handle[Prs3d_Presentation]; aSurface: Adaptor3d_Surface;
-         aDrawer: handle[Prs3d_Drawer]) {.importcpp: "StdPrs_ShadedSurface::Add(@)",
-                                        header: "StdPrs_ShadedSurface.hxx".}
+proc add*(aPresentation: Handle[Prs3dPresentation]; aSurface: Adaptor3dSurface;
+         aDrawer: Handle[Prs3dDrawer]) {.importcpp: "StdPrs_ShadedSurface::Add(@)",
+                                       header: "StdPrs_ShadedSurface.hxx".}

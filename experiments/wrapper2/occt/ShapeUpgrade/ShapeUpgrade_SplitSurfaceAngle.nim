@@ -14,43 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ShapeUpgrade_SplitSurface, ../Standard/Standard_Boolean
-
 discard "forward decl of ShapeUpgrade_SplitSurfaceAngle"
 discard "forward decl of ShapeUpgrade_SplitSurfaceAngle"
 type
-  Handle_ShapeUpgrade_SplitSurfaceAngle* = handle[ShapeUpgrade_SplitSurfaceAngle]
+  HandleShapeUpgradeSplitSurfaceAngle* = Handle[ShapeUpgradeSplitSurfaceAngle]
 
 ## ! Splits a surfaces of revolution, cylindrical, toroidal,
 ## ! conical, spherical so that each resulting segment covers
 ## ! not more than defined number of degrees.
 
 type
-  ShapeUpgrade_SplitSurfaceAngle* {.importcpp: "ShapeUpgrade_SplitSurfaceAngle", header: "ShapeUpgrade_SplitSurfaceAngle.hxx",
-                                   bycopy.} = object of ShapeUpgrade_SplitSurface ## !
-                                                                             ## Empty
-                                                                             ## constructor.
+  ShapeUpgradeSplitSurfaceAngle* {.importcpp: "ShapeUpgrade_SplitSurfaceAngle",
+                                  header: "ShapeUpgrade_SplitSurfaceAngle.hxx",
+                                  bycopy.} = object of ShapeUpgradeSplitSurface ## ! Empty
+                                                                           ## constructor.
 
 
-proc constructShapeUpgrade_SplitSurfaceAngle*(MaxAngle: Standard_Real): ShapeUpgrade_SplitSurfaceAngle {.
+proc constructShapeUpgradeSplitSurfaceAngle*(maxAngle: float): ShapeUpgradeSplitSurfaceAngle {.
     constructor, importcpp: "ShapeUpgrade_SplitSurfaceAngle(@)",
     header: "ShapeUpgrade_SplitSurfaceAngle.hxx".}
-proc SetMaxAngle*(this: var ShapeUpgrade_SplitSurfaceAngle; MaxAngle: Standard_Real) {.
+proc setMaxAngle*(this: var ShapeUpgradeSplitSurfaceAngle; maxAngle: float) {.
     importcpp: "SetMaxAngle", header: "ShapeUpgrade_SplitSurfaceAngle.hxx".}
-proc MaxAngle*(this: ShapeUpgrade_SplitSurfaceAngle): Standard_Real {.noSideEffect,
+proc maxAngle*(this: ShapeUpgradeSplitSurfaceAngle): float {.noSideEffect,
     importcpp: "MaxAngle", header: "ShapeUpgrade_SplitSurfaceAngle.hxx".}
-proc Compute*(this: var ShapeUpgrade_SplitSurfaceAngle; Segment: Standard_Boolean) {.
+proc compute*(this: var ShapeUpgradeSplitSurfaceAngle; segment: bool) {.
     importcpp: "Compute", header: "ShapeUpgrade_SplitSurfaceAngle.hxx".}
 type
-  ShapeUpgrade_SplitSurfaceAnglebase_type* = ShapeUpgrade_SplitSurface
+  ShapeUpgradeSplitSurfaceAnglebaseType* = ShapeUpgradeSplitSurface
 
-proc get_type_name*(): cstring {.importcpp: "ShapeUpgrade_SplitSurfaceAngle::get_type_name(@)",
-                              header: "ShapeUpgrade_SplitSurfaceAngle.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeUpgrade_SplitSurfaceAngle::get_type_name(@)",
+                            header: "ShapeUpgrade_SplitSurfaceAngle.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeUpgrade_SplitSurfaceAngle::get_type_descriptor(@)",
     header: "ShapeUpgrade_SplitSurfaceAngle.hxx".}
-proc DynamicType*(this: ShapeUpgrade_SplitSurfaceAngle): handle[Standard_Type] {.
+proc dynamicType*(this: ShapeUpgradeSplitSurfaceAngle): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_SplitSurfaceAngle.hxx".}

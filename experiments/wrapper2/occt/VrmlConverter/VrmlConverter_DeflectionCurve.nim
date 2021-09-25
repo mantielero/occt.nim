@@ -14,45 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_OStream,
-  ../Standard/Standard_Real, ../TColStd/TColStd_HArray1OfReal,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of VrmlConverter_Drawer"
 type
-  VrmlConverter_DeflectionCurve* {.importcpp: "VrmlConverter_DeflectionCurve",
-                                  header: "VrmlConverter_DeflectionCurve.hxx",
-                                  bycopy.} = object ## ! adds to the OStream the drawing of the curve aCurve with
-                                                 ## ! respect to the maximal chordial deviation defined
-                                                 ## ! by the drawer aDrawer.
-                                                 ## ! The aspect is defined by LineAspect in aDrawer.
+  VrmlConverterDeflectionCurve* {.importcpp: "VrmlConverter_DeflectionCurve",
+                                 header: "VrmlConverter_DeflectionCurve.hxx",
+                                 bycopy.} = object ## ! adds to the OStream the drawing of the curve aCurve with
+                                                ## ! respect to the maximal chordial deviation defined
+                                                ## ! by the drawer aDrawer.
+                                                ## ! The aspect is defined by LineAspect in aDrawer.
 
 
-proc Add*(anOStream: var Standard_OStream; aCurve: var Adaptor3d_Curve;
-         aDrawer: handle[VrmlConverter_Drawer]) {.
+proc add*(anOStream: var StandardOStream; aCurve: var Adaptor3dCurve;
+         aDrawer: Handle[VrmlConverterDrawer]) {.
     importcpp: "VrmlConverter_DeflectionCurve::Add(@)",
     header: "VrmlConverter_DeflectionCurve.hxx".}
-proc Add*(anOStream: var Standard_OStream; aCurve: var Adaptor3d_Curve;
-         U1: Standard_Real; U2: Standard_Real; aDrawer: handle[VrmlConverter_Drawer]) {.
+proc add*(anOStream: var StandardOStream; aCurve: var Adaptor3dCurve; u1: float;
+         u2: float; aDrawer: Handle[VrmlConverterDrawer]) {.
     importcpp: "VrmlConverter_DeflectionCurve::Add(@)",
     header: "VrmlConverter_DeflectionCurve.hxx".}
-proc Add*(anOStream: var Standard_OStream; aCurve: var Adaptor3d_Curve;
-         aDeflection: Standard_Real; aLimit: Standard_Real) {.
+proc add*(anOStream: var StandardOStream; aCurve: var Adaptor3dCurve;
+         aDeflection: float; aLimit: float) {.
     importcpp: "VrmlConverter_DeflectionCurve::Add(@)",
     header: "VrmlConverter_DeflectionCurve.hxx".}
-proc Add*(anOStream: var Standard_OStream; aCurve: var Adaptor3d_Curve;
-         aDeflection: Standard_Real; aDrawer: handle[VrmlConverter_Drawer]) {.
+proc add*(anOStream: var StandardOStream; aCurve: var Adaptor3dCurve;
+         aDeflection: float; aDrawer: Handle[VrmlConverterDrawer]) {.
     importcpp: "VrmlConverter_DeflectionCurve::Add(@)",
     header: "VrmlConverter_DeflectionCurve.hxx".}
-proc Add*(anOStream: var Standard_OStream; aCurve: var Adaptor3d_Curve;
-         U1: Standard_Real; U2: Standard_Real; aDeflection: Standard_Real) {.
-    importcpp: "VrmlConverter_DeflectionCurve::Add(@)",
-    header: "VrmlConverter_DeflectionCurve.hxx".}
-proc Add*(anOStream: var Standard_OStream; aCurve: Adaptor3d_Curve;
-         aParams: handle[TColStd_HArray1OfReal]; aNbNodes: Standard_Integer;
-         aDrawer: handle[VrmlConverter_Drawer]) {.
+proc add*(anOStream: var StandardOStream; aCurve: var Adaptor3dCurve; u1: float;
+         u2: float; aDeflection: float) {.importcpp: "VrmlConverter_DeflectionCurve::Add(@)", header: "VrmlConverter_DeflectionCurve.hxx".}
+proc add*(anOStream: var StandardOStream; aCurve: Adaptor3dCurve;
+         aParams: Handle[TColStdHArray1OfReal]; aNbNodes: int;
+         aDrawer: Handle[VrmlConverterDrawer]) {.
     importcpp: "VrmlConverter_DeflectionCurve::Add(@)",
     header: "VrmlConverter_DeflectionCurve.hxx".}

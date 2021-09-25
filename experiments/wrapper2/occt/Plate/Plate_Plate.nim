@@ -14,15 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Address, ../Standard/Standard_Boolean,
-  Plate_SequenceOfPinpointConstraint, Plate_SequenceOfLinearXYZConstraint,
-  Plate_SequenceOfLinearScalarConstraint, ../Standard/Standard_Real,
-  ../TColgp/TColgp_HArray2OfXYZ, ../TColgp/TColgp_SequenceOfXY,
-  ../Message/Message_ProgressScope
-
 discard "forward decl of Plate_PinpointConstraint"
 discard "forward decl of Plate_LinearXYZConstraint"
 discard "forward decl of Plate_LinearScalarConstraint"
@@ -36,57 +27,54 @@ discard "forward decl of gp_XYZ"
 discard "forward decl of gp_XY"
 discard "forward decl of math_Matrix"
 type
-  Plate_Plate* {.importcpp: "Plate_Plate", header: "Plate_Plate.hxx", bycopy.} = object
+  PlatePlate* {.importcpp: "Plate_Plate", header: "Plate_Plate.hxx", bycopy.} = object
 
 
-proc constructPlate_Plate*(): Plate_Plate {.constructor,
+proc constructPlatePlate*(): PlatePlate {.constructor, importcpp: "Plate_Plate(@)",
+                                       header: "Plate_Plate.hxx".}
+proc constructPlatePlate*(`ref`: PlatePlate): PlatePlate {.constructor,
     importcpp: "Plate_Plate(@)", header: "Plate_Plate.hxx".}
-proc constructPlate_Plate*(Ref: Plate_Plate): Plate_Plate {.constructor,
-    importcpp: "Plate_Plate(@)", header: "Plate_Plate.hxx".}
-proc Copy*(this: var Plate_Plate; Ref: Plate_Plate): var Plate_Plate {.
-    importcpp: "Copy", header: "Plate_Plate.hxx".}
-proc Load*(this: var Plate_Plate; PConst: Plate_PinpointConstraint) {.
-    importcpp: "Load", header: "Plate_Plate.hxx".}
-proc Load*(this: var Plate_Plate; LXYZConst: Plate_LinearXYZConstraint) {.
-    importcpp: "Load", header: "Plate_Plate.hxx".}
-proc Load*(this: var Plate_Plate; LScalarConst: Plate_LinearScalarConstraint) {.
-    importcpp: "Load", header: "Plate_Plate.hxx".}
-proc Load*(this: var Plate_Plate; GTConst: Plate_GlobalTranslationConstraint) {.
-    importcpp: "Load", header: "Plate_Plate.hxx".}
-proc Load*(this: var Plate_Plate; LConst: Plate_LineConstraint) {.importcpp: "Load",
+proc copy*(this: var PlatePlate; `ref`: PlatePlate): var PlatePlate {.importcpp: "Copy",
     header: "Plate_Plate.hxx".}
-proc Load*(this: var Plate_Plate; PConst: Plate_PlaneConstraint) {.importcpp: "Load",
+proc load*(this: var PlatePlate; pConst: PlatePinpointConstraint) {.importcpp: "Load",
     header: "Plate_Plate.hxx".}
-proc Load*(this: var Plate_Plate; SCConst: Plate_SampledCurveConstraint) {.
+proc load*(this: var PlatePlate; lXYZConst: PlateLinearXYZConstraint) {.
     importcpp: "Load", header: "Plate_Plate.hxx".}
-proc Load*(this: var Plate_Plate; GtoCConst: Plate_GtoCConstraint) {.
+proc load*(this: var PlatePlate; lScalarConst: PlateLinearScalarConstraint) {.
     importcpp: "Load", header: "Plate_Plate.hxx".}
-proc Load*(this: var Plate_Plate; FGtoCConst: Plate_FreeGtoCConstraint) {.
+proc load*(this: var PlatePlate; gTConst: PlateGlobalTranslationConstraint) {.
     importcpp: "Load", header: "Plate_Plate.hxx".}
-proc SolveTI*(this: var Plate_Plate; ord: Standard_Integer = 4;
-             anisotropie: Standard_Real = 1.0;
-             theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc load*(this: var PlatePlate; lConst: PlateLineConstraint) {.importcpp: "Load",
+    header: "Plate_Plate.hxx".}
+proc load*(this: var PlatePlate; pConst: PlatePlaneConstraint) {.importcpp: "Load",
+    header: "Plate_Plate.hxx".}
+proc load*(this: var PlatePlate; sCConst: PlateSampledCurveConstraint) {.
+    importcpp: "Load", header: "Plate_Plate.hxx".}
+proc load*(this: var PlatePlate; gtoCConst: PlateGtoCConstraint) {.importcpp: "Load",
+    header: "Plate_Plate.hxx".}
+proc load*(this: var PlatePlate; fGtoCConst: PlateFreeGtoCConstraint) {.
+    importcpp: "Load", header: "Plate_Plate.hxx".}
+proc solveTI*(this: var PlatePlate; ord: int = 4; anisotropie: float = 1.0;
+             theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "SolveTI", header: "Plate_Plate.hxx".}
-proc IsDone*(this: Plate_Plate): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "Plate_Plate.hxx".}
-proc destroy*(this: var Plate_Plate) {.importcpp: "destroy", header: "Plate_Plate.hxx".}
-proc destroyPlate_Plate*(this: var Plate_Plate) {.importcpp: "#.~Plate_Plate()",
+proc isDone*(this: PlatePlate): bool {.noSideEffect, importcpp: "IsDone",
+                                   header: "Plate_Plate.hxx".}
+proc destroy*(this: var PlatePlate) {.importcpp: "destroy", header: "Plate_Plate.hxx".}
+proc destroyPlatePlate*(this: var PlatePlate) {.importcpp: "#.~Plate_Plate()",
     header: "Plate_Plate.hxx".}
-proc Init*(this: var Plate_Plate) {.importcpp: "Init", header: "Plate_Plate.hxx".}
-proc Evaluate*(this: Plate_Plate; point2d: gp_XY): gp_XYZ {.noSideEffect,
+proc init*(this: var PlatePlate) {.importcpp: "Init", header: "Plate_Plate.hxx".}
+proc evaluate*(this: PlatePlate; point2d: Xy): Xyz {.noSideEffect,
     importcpp: "Evaluate", header: "Plate_Plate.hxx".}
-proc EvaluateDerivative*(this: Plate_Plate; point2d: gp_XY; iu: Standard_Integer;
-                        iv: Standard_Integer): gp_XYZ {.noSideEffect,
-    importcpp: "EvaluateDerivative", header: "Plate_Plate.hxx".}
-proc CoefPol*(this: Plate_Plate; Coefs: var handle[TColgp_HArray2OfXYZ]) {.
-    noSideEffect, importcpp: "CoefPol", header: "Plate_Plate.hxx".}
-proc SetPolynomialPartOnly*(this: var Plate_Plate;
-                           PPOnly: Standard_Boolean = Standard_True) {.
+proc evaluateDerivative*(this: PlatePlate; point2d: Xy; iu: int; iv: int): Xyz {.
+    noSideEffect, importcpp: "EvaluateDerivative", header: "Plate_Plate.hxx".}
+proc coefPol*(this: PlatePlate; coefs: var Handle[TColgpHArray2OfXYZ]) {.noSideEffect,
+    importcpp: "CoefPol", header: "Plate_Plate.hxx".}
+proc setPolynomialPartOnly*(this: var PlatePlate; pPOnly: bool = true) {.
     importcpp: "SetPolynomialPartOnly", header: "Plate_Plate.hxx".}
-proc Continuity*(this: Plate_Plate): Standard_Integer {.noSideEffect,
-    importcpp: "Continuity", header: "Plate_Plate.hxx".}
-proc UVBox*(this: Plate_Plate; UMin: var Standard_Real; UMax: var Standard_Real;
-           VMin: var Standard_Real; VMax: var Standard_Real) {.noSideEffect,
-    importcpp: "UVBox", header: "Plate_Plate.hxx".}
-proc UVConstraints*(this: Plate_Plate; Seq: var TColgp_SequenceOfXY) {.noSideEffect,
+proc continuity*(this: PlatePlate): int {.noSideEffect, importcpp: "Continuity",
+                                      header: "Plate_Plate.hxx".}
+proc uVBox*(this: PlatePlate; uMin: var float; uMax: var float; vMin: var float;
+           vMax: var float) {.noSideEffect, importcpp: "UVBox",
+                           header: "Plate_Plate.hxx".}
+proc uVConstraints*(this: PlatePlate; seq: var TColgpSequenceOfXY) {.noSideEffect,
     importcpp: "UVConstraints", header: "Plate_Plate.hxx".}

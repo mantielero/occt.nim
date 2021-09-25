@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_Boolean, ../Standard/Standard_CString
-
 discard "forward decl of StepData_EDescr"
 discard "forward decl of Interface_InterfaceMismatch"
 discard "forward decl of StepData_Simple"
@@ -27,69 +23,68 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of StepData_Described"
 discard "forward decl of StepData_Described"
 type
-  Handle_StepData_Described* = handle[StepData_Described]
+  HandleStepDataDescribed* = Handle[StepDataDescribed]
 
 ## ! General frame to describe entities with Description (Simple or
 ## ! Complex)
 
 type
-  StepData_Described* {.importcpp: "StepData_Described",
-                       header: "StepData_Described.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                          ## !
-                                                                                          ## Returns
-                                                                                          ## the
-                                                                                          ## Description
-                                                                                          ## used
-                                                                                          ## to
-                                                                                          ## define
-                                                                                          ## this
-                                                                                          ## entity
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Initializes
-                                                                                          ## a
-                                                                                          ## Described
-                                                                                          ## Entity
-                                                                                          ## from
-                                                                                          ## a
-                                                                                          ## Description
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## (i.e.
-                                                                                          ## puts
-                                                                                          ## it
-                                                                                          ## in
-                                                                                          ## a
-                                                                                          ## field
-                                                                                          ## ...)
+  StepDataDescribed* {.importcpp: "StepData_Described",
+                      header: "StepData_Described.hxx", bycopy.} = object of StandardTransient ##
+                                                                                        ## !
+                                                                                        ## Returns
+                                                                                        ## the
+                                                                                        ## Description
+                                                                                        ## used
+                                                                                        ## to
+                                                                                        ## define
+                                                                                        ## this
+                                                                                        ## entity
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Initializes
+                                                                                        ## a
+                                                                                        ## Described
+                                                                                        ## Entity
+                                                                                        ## from
+                                                                                        ## a
+                                                                                        ## Description
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## (i.e.
+                                                                                        ## puts
+                                                                                        ## it
+                                                                                        ## in
+                                                                                        ## a
+                                                                                        ## field
+                                                                                        ## ...)
 
 
-proc Description*(this: StepData_Described): handle[StepData_EDescr] {.noSideEffect,
+proc description*(this: StepDataDescribed): Handle[StepDataEDescr] {.noSideEffect,
     importcpp: "Description", header: "StepData_Described.hxx".}
-proc IsComplex*(this: StepData_Described): Standard_Boolean {.noSideEffect,
+proc isComplex*(this: StepDataDescribed): bool {.noSideEffect,
     importcpp: "IsComplex", header: "StepData_Described.hxx".}
-proc Matches*(this: StepData_Described; steptype: Standard_CString): Standard_Boolean {.
+proc matches*(this: StepDataDescribed; steptype: StandardCString): bool {.
     noSideEffect, importcpp: "Matches", header: "StepData_Described.hxx".}
-proc As*(this: StepData_Described; steptype: Standard_CString): handle[
-    StepData_Simple] {.noSideEffect, importcpp: "As",
-                      header: "StepData_Described.hxx".}
-proc HasField*(this: StepData_Described; name: Standard_CString): Standard_Boolean {.
-    noSideEffect, importcpp: "HasField", header: "StepData_Described.hxx".}
-proc Field*(this: StepData_Described; name: Standard_CString): StepData_Field {.
+proc `as`*(this: StepDataDescribed; steptype: StandardCString): Handle[StepDataSimple] {.
+    noSideEffect, importcpp: "As", header: "StepData_Described.hxx".}
+proc hasField*(this: StepDataDescribed; name: StandardCString): bool {.noSideEffect,
+    importcpp: "HasField", header: "StepData_Described.hxx".}
+proc field*(this: StepDataDescribed; name: StandardCString): StepDataField {.
     noSideEffect, importcpp: "Field", header: "StepData_Described.hxx".}
-proc CField*(this: var StepData_Described; name: Standard_CString): var StepData_Field {.
+proc cField*(this: var StepDataDescribed; name: StandardCString): var StepDataField {.
     importcpp: "CField", header: "StepData_Described.hxx".}
-proc Check*(this: StepData_Described; ach: var handle[Interface_Check]) {.
-    noSideEffect, importcpp: "Check", header: "StepData_Described.hxx".}
-proc Shared*(this: StepData_Described; list: var Interface_EntityIterator) {.
+proc check*(this: StepDataDescribed; ach: var Handle[InterfaceCheck]) {.noSideEffect,
+    importcpp: "Check", header: "StepData_Described.hxx".}
+proc shared*(this: StepDataDescribed; list: var InterfaceEntityIterator) {.
     noSideEffect, importcpp: "Shared", header: "StepData_Described.hxx".}
 type
-  StepData_Describedbase_type* = Standard_Transient
+  StepDataDescribedbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepData_Described::get_type_name(@)",
-                              header: "StepData_Described.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepData_Described::get_type_name(@)",
+                            header: "StepData_Described.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepData_Described::get_type_descriptor(@)",
     header: "StepData_Described.hxx".}
-proc DynamicType*(this: StepData_Described): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepDataDescribed): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_Described.hxx".}

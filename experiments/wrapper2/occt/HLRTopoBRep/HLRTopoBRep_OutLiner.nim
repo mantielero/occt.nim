@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Shape,
-  HLRTopoBRep_Data, ../Standard/Standard_Transient,
-  ../BRepTopAdaptor/BRepTopAdaptor_MapOfShapeTool, ../Standard/Standard_Integer
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of HLRTopoBRep_Data"
 discard "forward decl of HLRAlgo_Projector"
@@ -26,49 +21,49 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of HLRTopoBRep_OutLiner"
 discard "forward decl of HLRTopoBRep_OutLiner"
 type
-  Handle_HLRTopoBRep_OutLiner* = handle[HLRTopoBRep_OutLiner]
-  HLRTopoBRep_OutLiner* {.importcpp: "HLRTopoBRep_OutLiner",
-                         header: "HLRTopoBRep_OutLiner.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                              ## !
-                                                                                              ## Builds
-                                                                                              ## faces
-                                                                                              ## from
-                                                                                              ## F
-                                                                                              ## and
-                                                                                              ## add
-                                                                                              ## them
-                                                                                              ## to
-                                                                                              ## S.
+  HandleHLRTopoBRepOutLiner* = Handle[HLRTopoBRepOutLiner]
+  HLRTopoBRepOutLiner* {.importcpp: "HLRTopoBRep_OutLiner",
+                        header: "HLRTopoBRep_OutLiner.hxx", bycopy.} = object of StandardTransient ##
+                                                                                            ## !
+                                                                                            ## Builds
+                                                                                            ## faces
+                                                                                            ## from
+                                                                                            ## F
+                                                                                            ## and
+                                                                                            ## add
+                                                                                            ## them
+                                                                                            ## to
+                                                                                            ## S.
 
 
-proc constructHLRTopoBRep_OutLiner*(): HLRTopoBRep_OutLiner {.constructor,
+proc constructHLRTopoBRepOutLiner*(): HLRTopoBRepOutLiner {.constructor,
     importcpp: "HLRTopoBRep_OutLiner(@)", header: "HLRTopoBRep_OutLiner.hxx".}
-proc constructHLRTopoBRep_OutLiner*(OriSh: TopoDS_Shape): HLRTopoBRep_OutLiner {.
+proc constructHLRTopoBRepOutLiner*(oriSh: TopoDS_Shape): HLRTopoBRepOutLiner {.
     constructor, importcpp: "HLRTopoBRep_OutLiner(@)",
     header: "HLRTopoBRep_OutLiner.hxx".}
-proc constructHLRTopoBRep_OutLiner*(OriS: TopoDS_Shape; OutS: TopoDS_Shape): HLRTopoBRep_OutLiner {.
+proc constructHLRTopoBRepOutLiner*(oriS: TopoDS_Shape; outS: TopoDS_Shape): HLRTopoBRepOutLiner {.
     constructor, importcpp: "HLRTopoBRep_OutLiner(@)",
     header: "HLRTopoBRep_OutLiner.hxx".}
-proc OriginalShape*(this: var HLRTopoBRep_OutLiner; OriS: TopoDS_Shape) {.
+proc originalShape*(this: var HLRTopoBRepOutLiner; oriS: TopoDS_Shape) {.
     importcpp: "OriginalShape", header: "HLRTopoBRep_OutLiner.hxx".}
-proc OriginalShape*(this: var HLRTopoBRep_OutLiner): var TopoDS_Shape {.
+proc originalShape*(this: var HLRTopoBRepOutLiner): var TopoDS_Shape {.
     importcpp: "OriginalShape", header: "HLRTopoBRep_OutLiner.hxx".}
-proc OutLinedShape*(this: var HLRTopoBRep_OutLiner; OutS: TopoDS_Shape) {.
+proc outLinedShape*(this: var HLRTopoBRepOutLiner; outS: TopoDS_Shape) {.
     importcpp: "OutLinedShape", header: "HLRTopoBRep_OutLiner.hxx".}
-proc OutLinedShape*(this: var HLRTopoBRep_OutLiner): var TopoDS_Shape {.
+proc outLinedShape*(this: var HLRTopoBRepOutLiner): var TopoDS_Shape {.
     importcpp: "OutLinedShape", header: "HLRTopoBRep_OutLiner.hxx".}
-proc DataStructure*(this: var HLRTopoBRep_OutLiner): var HLRTopoBRep_Data {.
+proc dataStructure*(this: var HLRTopoBRepOutLiner): var HLRTopoBRepData {.
     importcpp: "DataStructure", header: "HLRTopoBRep_OutLiner.hxx".}
-proc Fill*(this: var HLRTopoBRep_OutLiner; P: HLRAlgo_Projector;
-          MST: var BRepTopAdaptor_MapOfShapeTool; nbIso: Standard_Integer) {.
-    importcpp: "Fill", header: "HLRTopoBRep_OutLiner.hxx".}
+proc fill*(this: var HLRTopoBRepOutLiner; p: HLRAlgoProjector;
+          mst: var BRepTopAdaptorMapOfShapeTool; nbIso: int) {.importcpp: "Fill",
+    header: "HLRTopoBRep_OutLiner.hxx".}
 type
-  HLRTopoBRep_OutLinerbase_type* = Standard_Transient
+  HLRTopoBRepOutLinerbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "HLRTopoBRep_OutLiner::get_type_name(@)",
-                              header: "HLRTopoBRep_OutLiner.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "HLRTopoBRep_OutLiner::get_type_name(@)",
+                            header: "HLRTopoBRep_OutLiner.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "HLRTopoBRep_OutLiner::get_type_descriptor(@)",
     header: "HLRTopoBRep_OutLiner.hxx".}
-proc DynamicType*(this: HLRTopoBRep_OutLiner): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: HLRTopoBRepOutLiner): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRTopoBRep_OutLiner.hxx".}

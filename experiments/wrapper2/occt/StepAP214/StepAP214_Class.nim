@@ -13,30 +13,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../StepBasic/StepBasic_Group
-
 discard "forward decl of StepAP214_Class"
 discard "forward decl of StepAP214_Class"
 type
-  Handle_StepAP214_Class* = handle[StepAP214_Class]
+  HandleStepAP214Class* = Handle[StepAP214Class]
 
 ## ! Representation of STEP entity Class
 
 type
-  StepAP214_Class* {.importcpp: "StepAP214_Class", header: "StepAP214_Class.hxx",
-                    bycopy.} = object of StepBasic_Group ## ! Empty constructor
+  StepAP214Class* {.importcpp: "StepAP214_Class", header: "StepAP214_Class.hxx",
+                   bycopy.} = object of StepBasicGroup ## ! Empty constructor
 
 
-proc constructStepAP214_Class*(): StepAP214_Class {.constructor,
+proc constructStepAP214Class*(): StepAP214Class {.constructor,
     importcpp: "StepAP214_Class(@)", header: "StepAP214_Class.hxx".}
 type
-  StepAP214_Classbase_type* = StepBasic_Group
+  StepAP214ClassbaseType* = StepBasicGroup
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_Class::get_type_name(@)",
-                              header: "StepAP214_Class.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP214_Class::get_type_name(@)",
+                            header: "StepAP214_Class.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP214_Class::get_type_descriptor(@)",
     header: "StepAP214_Class.hxx".}
-proc DynamicType*(this: StepAP214_Class): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepAP214Class): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepAP214_Class.hxx".}

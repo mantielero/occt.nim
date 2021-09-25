@@ -14,49 +14,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_HArray1OfFace,
-  StepShape_TopologicalRepresentationItem, ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_Face"
 discard "forward decl of StepShape_ConnectedFaceSet"
 discard "forward decl of StepShape_ConnectedFaceSet"
 type
-  Handle_StepShape_ConnectedFaceSet* = handle[StepShape_ConnectedFaceSet]
-  StepShape_ConnectedFaceSet* {.importcpp: "StepShape_ConnectedFaceSet",
-                               header: "StepShape_ConnectedFaceSet.hxx", bycopy.} = object of StepShape_TopologicalRepresentationItem ##
-                                                                                                                               ## !
-                                                                                                                               ## Returns
-                                                                                                                               ## a
-                                                                                                                               ## ConnectedFaceSet
+  HandleStepShapeConnectedFaceSet* = Handle[StepShapeConnectedFaceSet]
+  StepShapeConnectedFaceSet* {.importcpp: "StepShape_ConnectedFaceSet",
+                              header: "StepShape_ConnectedFaceSet.hxx", bycopy.} = object of StepShapeTopologicalRepresentationItem ##
+                                                                                                                             ## !
+                                                                                                                             ## Returns
+                                                                                                                             ## a
+                                                                                                                             ## ConnectedFaceSet
 
 
-proc constructStepShape_ConnectedFaceSet*(): StepShape_ConnectedFaceSet {.
+proc constructStepShapeConnectedFaceSet*(): StepShapeConnectedFaceSet {.
     constructor, importcpp: "StepShape_ConnectedFaceSet(@)",
     header: "StepShape_ConnectedFaceSet.hxx".}
-proc Init*(this: var StepShape_ConnectedFaceSet;
-          aName: handle[TCollection_HAsciiString];
-          aCfsFaces: handle[StepShape_HArray1OfFace]) {.importcpp: "Init",
+proc init*(this: var StepShapeConnectedFaceSet;
+          aName: Handle[TCollectionHAsciiString];
+          aCfsFaces: Handle[StepShapeHArray1OfFace]) {.importcpp: "Init",
     header: "StepShape_ConnectedFaceSet.hxx".}
-proc SetCfsFaces*(this: var StepShape_ConnectedFaceSet;
-                 aCfsFaces: handle[StepShape_HArray1OfFace]) {.
+proc setCfsFaces*(this: var StepShapeConnectedFaceSet;
+                 aCfsFaces: Handle[StepShapeHArray1OfFace]) {.
     importcpp: "SetCfsFaces", header: "StepShape_ConnectedFaceSet.hxx".}
-proc CfsFaces*(this: StepShape_ConnectedFaceSet): handle[StepShape_HArray1OfFace] {.
+proc cfsFaces*(this: StepShapeConnectedFaceSet): Handle[StepShapeHArray1OfFace] {.
     noSideEffect, importcpp: "CfsFaces", header: "StepShape_ConnectedFaceSet.hxx".}
-proc CfsFacesValue*(this: StepShape_ConnectedFaceSet; num: Standard_Integer): handle[
-    StepShape_Face] {.noSideEffect, importcpp: "CfsFacesValue",
-                     header: "StepShape_ConnectedFaceSet.hxx".}
-proc NbCfsFaces*(this: StepShape_ConnectedFaceSet): Standard_Integer {.noSideEffect,
+proc cfsFacesValue*(this: StepShapeConnectedFaceSet; num: int): Handle[StepShapeFace] {.
+    noSideEffect, importcpp: "CfsFacesValue",
+    header: "StepShape_ConnectedFaceSet.hxx".}
+proc nbCfsFaces*(this: StepShapeConnectedFaceSet): int {.noSideEffect,
     importcpp: "NbCfsFaces", header: "StepShape_ConnectedFaceSet.hxx".}
 type
-  StepShape_ConnectedFaceSetbase_type* = StepShape_TopologicalRepresentationItem
+  StepShapeConnectedFaceSetbaseType* = StepShapeTopologicalRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_ConnectedFaceSet::get_type_name(@)",
-                              header: "StepShape_ConnectedFaceSet.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_ConnectedFaceSet::get_type_name(@)",
+                            header: "StepShape_ConnectedFaceSet.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_ConnectedFaceSet::get_type_descriptor(@)",
     header: "StepShape_ConnectedFaceSet.hxx".}
-proc DynamicType*(this: StepShape_ConnectedFaceSet): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeConnectedFaceSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_ConnectedFaceSet.hxx".}

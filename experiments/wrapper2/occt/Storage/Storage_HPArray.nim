@@ -14,34 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Persistent, Storage_PArray,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  Storage_HPArray* {.importcpp: "Storage_HPArray", header: "Storage_HPArray.hxx",
-                    bycopy.} = object of Storage_PArray
+  StorageHPArray* {.importcpp: "Storage_HPArray", header: "Storage_HPArray.hxx",
+                   bycopy.} = object of StoragePArray
 
 
-proc constructStorage_HPArray*(theLower: Standard_Integer;
-                              theUpper: Standard_Integer): Storage_HPArray {.
+proc constructStorageHPArray*(theLower: int; theUpper: int): StorageHPArray {.
     constructor, importcpp: "Storage_HPArray(@)", header: "Storage_HPArray.hxx".}
-proc constructStorage_HPArray*(theLower: Standard_Integer;
-                              theUpper: Standard_Integer; theValue: value_type): Storage_HPArray {.
+proc constructStorageHPArray*(theLower: int; theUpper: int; theValue: ValueType): StorageHPArray {.
     constructor, importcpp: "Storage_HPArray(@)", header: "Storage_HPArray.hxx".}
-proc constructStorage_HPArray*(theOther: Storage_PArray): Storage_HPArray {.
+proc constructStorageHPArray*(theOther: StoragePArray): StorageHPArray {.
     constructor, importcpp: "Storage_HPArray(@)", header: "Storage_HPArray.hxx".}
-proc Array1*(this: Storage_HPArray): Storage_PArray {.noSideEffect,
+proc array1*(this: StorageHPArray): StoragePArray {.noSideEffect,
     importcpp: "Array1", header: "Storage_HPArray.hxx".}
-proc ChangeArray1*(this: var Storage_HPArray): var Storage_PArray {.
+proc changeArray1*(this: var StorageHPArray): var StoragePArray {.
     importcpp: "ChangeArray1", header: "Storage_HPArray.hxx".}
 type
-  Storage_HPArraybase_type* = MMgt_TShared
+  StorageHPArraybaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "Storage_HPArray::get_type_name(@)",
-                              header: "Storage_HPArray.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Storage_HPArray::get_type_name(@)",
+                            header: "Storage_HPArray.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Storage_HPArray::get_type_descriptor(@)",
     header: "Storage_HPArray.hxx".}
-proc DynamicType*(this: Storage_HPArray): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StorageHPArray): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Storage_HPArray.hxx".}

@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepFEA_Volume3dElementRepresentation"
@@ -33,17 +29,17 @@ type
 proc constructRWStepFEA_RWVolume3dElementRepresentation*(): RWStepFEA_RWVolume3dElementRepresentation {.
     constructor, importcpp: "RWStepFEA_RWVolume3dElementRepresentation(@)",
     header: "RWStepFEA_RWVolume3dElementRepresentation.hxx".}
-proc ReadStep*(this: RWStepFEA_RWVolume3dElementRepresentation;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepFEA_Volume3dElementRepresentation]) {.noSideEffect,
+proc readStep*(this: RWStepFEA_RWVolume3dElementRepresentation;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepFEA_Volume3dElementRepresentation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWVolume3dElementRepresentation.hxx".}
-proc WriteStep*(this: RWStepFEA_RWVolume3dElementRepresentation;
-               SW: var StepData_StepWriter;
-               ent: handle[StepFEA_Volume3dElementRepresentation]) {.noSideEffect,
+proc writeStep*(this: RWStepFEA_RWVolume3dElementRepresentation;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepFEA_Volume3dElementRepresentation]) {.noSideEffect,
     importcpp: "WriteStep",
     header: "RWStepFEA_RWVolume3dElementRepresentation.hxx".}
-proc Share*(this: RWStepFEA_RWVolume3dElementRepresentation;
-           ent: handle[StepFEA_Volume3dElementRepresentation];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepFEA_RWVolume3dElementRepresentation;
+           ent: Handle[StepFEA_Volume3dElementRepresentation];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWVolume3dElementRepresentation.hxx".}

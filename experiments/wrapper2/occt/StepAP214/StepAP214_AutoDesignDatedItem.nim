@@ -14,36 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_ApprovalPersonOrganization"
 discard "forward decl of StepAP214_AutoDesignDateAndPersonAssignment"
 discard "forward decl of StepBasic_ProductDefinitionEffectivity"
 type
-  StepAP214_AutoDesignDatedItem* {.importcpp: "StepAP214_AutoDesignDatedItem",
-                                  header: "StepAP214_AutoDesignDatedItem.hxx",
-                                  bycopy.} = object of StepData_SelectType ## ! Returns a
-                                                                      ## AutoDesignDatedItem SelectType
+  StepAP214AutoDesignDatedItem* {.importcpp: "StepAP214_AutoDesignDatedItem",
+                                 header: "StepAP214_AutoDesignDatedItem.hxx",
+                                 bycopy.} = object of StepDataSelectType ## ! Returns a
+                                                                    ## AutoDesignDatedItem SelectType
 
 
-proc constructStepAP214_AutoDesignDatedItem*(): StepAP214_AutoDesignDatedItem {.
+proc constructStepAP214AutoDesignDatedItem*(): StepAP214AutoDesignDatedItem {.
     constructor, importcpp: "StepAP214_AutoDesignDatedItem(@)",
     header: "StepAP214_AutoDesignDatedItem.hxx".}
-proc CaseNum*(this: StepAP214_AutoDesignDatedItem; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepAP214AutoDesignDatedItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP214_AutoDesignDatedItem.hxx".}
-proc ApprovalPersonOrganization*(this: StepAP214_AutoDesignDatedItem): handle[
-    StepBasic_ApprovalPersonOrganization] {.noSideEffect,
+proc approvalPersonOrganization*(this: StepAP214AutoDesignDatedItem): Handle[
+    StepBasicApprovalPersonOrganization] {.noSideEffect,
     importcpp: "ApprovalPersonOrganization",
     header: "StepAP214_AutoDesignDatedItem.hxx".}
-proc AutoDesignDateAndPersonAssignment*(this: StepAP214_AutoDesignDatedItem): handle[
-    StepAP214_AutoDesignDateAndPersonAssignment] {.noSideEffect,
+proc autoDesignDateAndPersonAssignment*(this: StepAP214AutoDesignDatedItem): Handle[
+    StepAP214AutoDesignDateAndPersonAssignment] {.noSideEffect,
     importcpp: "AutoDesignDateAndPersonAssignment",
     header: "StepAP214_AutoDesignDatedItem.hxx".}
-proc ProductDefinitionEffectivity*(this: StepAP214_AutoDesignDatedItem): handle[
-    StepBasic_ProductDefinitionEffectivity] {.noSideEffect,
+proc productDefinitionEffectivity*(this: StepAP214AutoDesignDatedItem): Handle[
+    StepBasicProductDefinitionEffectivity] {.noSideEffect,
     importcpp: "ProductDefinitionEffectivity",
     header: "StepAP214_AutoDesignDatedItem.hxx".}

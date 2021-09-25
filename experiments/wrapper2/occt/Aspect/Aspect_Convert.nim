@@ -11,37 +11,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Real
-
 ## ! Auxiliary functions for DCU <-> Pixels conversions.
 
-proc Round*(theValue: Standard_Real): Standard_Integer =
+proc round*(theValue: float): int =
   discard
 
-proc ConvertCoordinates*(theParentPxSizeX: Standard_Integer;
-                        theParentPxSizeY: Standard_Integer;
-                        theQCenterX: Standard_Real; theQCenterY: Standard_Real;
-                        theQSizeX: Standard_Real; theQSizeY: Standard_Real;
-                        thePxLeft: var Standard_Integer;
-                        thePxTop: var Standard_Integer;
-                        thePxSizeX: var Standard_Integer;
-                        thePxSizeY: var Standard_Integer) =
+proc convertCoordinates*(theParentPxSizeX: int; theParentPxSizeY: int;
+                        theQCenterX: float; theQCenterY: float; theQSizeX: float;
+                        theQSizeY: float; thePxLeft: var int; thePxTop: var int;
+                        thePxSizeX: var int; thePxSizeY: var int) =
   discard
 
-proc ConvertCoordinates*(theParentPxSizeX: Standard_Integer;
-                        theParentPxSizeY: Standard_Integer;
-                        thePxLeft: Standard_Integer; thePxTop: Standard_Integer;
-                        thePxSizeX: Standard_Integer;
-                        thePxSizeY: Standard_Integer;
-                        theQCenterX: var Standard_Real;
-                        theQCenterY: var Standard_Real;
-                        theQSizeX: var Standard_Real; theQSizeY: var Standard_Real) =
+proc convertCoordinates*(theParentPxSizeX: int; theParentPxSizeY: int;
+                        thePxLeft: int; thePxTop: int; thePxSizeX: int;
+                        thePxSizeY: int; theQCenterX: var float;
+                        theQCenterY: var float; theQSizeX: var float;
+                        theQSizeY: var float) =
   discard
 
-proc FitIn*(theParentPxSizeX: Standard_Integer; theParentPxSizeY: Standard_Integer;
-           thePxLeft: var Standard_Integer; thePxTop: var Standard_Integer;
-           thePxSizeX: var Standard_Integer; thePxSizeY: var Standard_Integer) =
+proc fitIn*(theParentPxSizeX: int; theParentPxSizeY: int; thePxLeft: var int;
+           thePxTop: var int; thePxSizeX: var int; thePxSizeY: var int) =
   discard
 
 ##  namespace Aspect_Convert
+

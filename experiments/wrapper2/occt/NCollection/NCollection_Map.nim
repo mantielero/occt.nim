@@ -13,7 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # NCollection_Map_HeaderFile [NewLine] # NCollection_Map_HeaderFile [NewLine] # NCollection_BaseMap.hxx [NewLine] # NCollection_DataMap.hxx [NewLine] # NCollection_TListNode.hxx [NewLine] # NCollection_StlIterator.hxx [NewLine] # NCollection_DefaultHasher.hxx [NewLine] # ../Standard/Standard_NoSuchObject.hxx [NewLine] *
+## !!!Ignored construct:  # NCollection_Map_HeaderFile [NewLine] # NCollection_Map_HeaderFile [NewLine] # < NCollection_BaseMap . hxx > [NewLine] # < NCollection_DataMap . hxx > [NewLine] # < NCollection_TListNode . hxx > [NewLine] # < NCollection_StlIterator . hxx > [NewLine] # < NCollection_DefaultHasher . hxx > [NewLine] # < Standard_NoSuchObject . hxx > [NewLine] *
 ##  Purpose:     Single hashed Map. This  Map is used  to store and
 ##               retrieve keys in linear time.
 ##
@@ -70,3 +70,4 @@
 ## ! This algorithm is similar to method Difference().
 ## ! Returns True if contents of this map is changed. Standard_Boolean Differ ( const NCollection_Map & theOther ) { if ( this == & theOther ) { if ( IsEmpty ( ) ) { return Standard_False ; } Clear ( ) ; return Standard_True ; } const Standard_Integer anOldExtent = Extent ( ) ; Difference ( * this , theOther ) ; return anOldExtent != Extent ( ) ; } !@} } ;
 ## Error: token expected: > [end of template] but got: =!!!
+

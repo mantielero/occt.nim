@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Integer, Geom2dHatch_Hatching,
-  ../TColStd/TColStd_MapIntegerHasher, ../NCollection/NCollection_DataMap
-
 type
-  Geom2dHatch_Hatchings* = NCollection_DataMap[Standard_Integer,
-      Geom2dHatch_Hatching, TColStd_MapIntegerHasher]
-  Geom2dHatch_DataMapIteratorOfHatchings* = Iterator[Standard_Integer,
-      Geom2dHatch_Hatching, TColStd_MapIntegerHasher]
+  Geom2dHatchHatchings* = NCollectionDataMap[int, Geom2dHatchHatching,
+      TColStdMapIntegerHasher]
+  Geom2dHatchDataMapIteratorOfHatchings* = Iterator[int, Geom2dHatchHatching,
+      TColStdMapIntegerHasher]
+

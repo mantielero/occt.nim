@@ -14,100 +14,88 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Interface_HSequenceOfCheck,
-  ../TColStd/TColStd_HSequenceOfInteger, ../TCollection/TCollection_AsciiString,
-  ../Standard/Standard_CString, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, Interface_CheckStatus,
-  ../TColStd/TColStd_HSequenceOfTransient
-
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_IntVal"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Interface_Check"
 discard "forward decl of Standard_Transient"
-when defined(Status):
-  discard
+# when defined(Status):
+#   discard
 ## ! Result of a Check operation (especially from InterfaceModel)
 
 type
-  Interface_CheckIterator* {.importcpp: "Interface_CheckIterator",
-                            header: "Interface_CheckIterator.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Creates
-                                                                                ## an
-                                                                                ## empty
-                                                                                ## CheckIterator
+  InterfaceCheckIterator* {.importcpp: "Interface_CheckIterator",
+                           header: "Interface_CheckIterator.hxx", bycopy.} = object ## !
+                                                                               ## Creates
+                                                                               ## an
+                                                                               ## empty
+                                                                               ## CheckIterator
 
 
-proc constructInterface_CheckIterator*(): Interface_CheckIterator {.constructor,
+proc constructInterfaceCheckIterator*(): InterfaceCheckIterator {.constructor,
     importcpp: "Interface_CheckIterator(@)", header: "Interface_CheckIterator.hxx".}
-proc constructInterface_CheckIterator*(name: Standard_CString): Interface_CheckIterator {.
+proc constructInterfaceCheckIterator*(name: StandardCString): InterfaceCheckIterator {.
     constructor, importcpp: "Interface_CheckIterator(@)",
     header: "Interface_CheckIterator.hxx".}
-proc SetName*(this: var Interface_CheckIterator; name: Standard_CString) {.
+proc setName*(this: var InterfaceCheckIterator; name: StandardCString) {.
     importcpp: "SetName", header: "Interface_CheckIterator.hxx".}
-proc Name*(this: Interface_CheckIterator): Standard_CString {.noSideEffect,
+proc name*(this: InterfaceCheckIterator): StandardCString {.noSideEffect,
     importcpp: "Name", header: "Interface_CheckIterator.hxx".}
-proc SetModel*(this: var Interface_CheckIterator;
-              model: handle[Interface_InterfaceModel]) {.importcpp: "SetModel",
+proc setModel*(this: var InterfaceCheckIterator;
+              model: Handle[InterfaceInterfaceModel]) {.importcpp: "SetModel",
     header: "Interface_CheckIterator.hxx".}
-proc Model*(this: Interface_CheckIterator): handle[Interface_InterfaceModel] {.
+proc model*(this: InterfaceCheckIterator): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "Model", header: "Interface_CheckIterator.hxx".}
-proc Clear*(this: var Interface_CheckIterator) {.importcpp: "Clear",
+proc clear*(this: var InterfaceCheckIterator) {.importcpp: "Clear",
     header: "Interface_CheckIterator.hxx".}
-proc Merge*(this: var Interface_CheckIterator; other: var Interface_CheckIterator) {.
+proc merge*(this: var InterfaceCheckIterator; other: var InterfaceCheckIterator) {.
     importcpp: "Merge", header: "Interface_CheckIterator.hxx".}
-proc Add*(this: var Interface_CheckIterator; ach: handle[Interface_Check];
-         num: Standard_Integer = 0) {.importcpp: "Add",
-                                  header: "Interface_CheckIterator.hxx".}
-proc Check*(this: Interface_CheckIterator; num: Standard_Integer): handle[
-    Interface_Check] {.noSideEffect, importcpp: "Check",
-                      header: "Interface_CheckIterator.hxx".}
-proc Check*(this: Interface_CheckIterator; ent: handle[Standard_Transient]): handle[
-    Interface_Check] {.noSideEffect, importcpp: "Check",
-                      header: "Interface_CheckIterator.hxx".}
-proc CCheck*(this: var Interface_CheckIterator; num: Standard_Integer): var handle[
-    Interface_Check] {.importcpp: "CCheck", header: "Interface_CheckIterator.hxx".}
-proc CCheck*(this: var Interface_CheckIterator; ent: handle[Standard_Transient]): var handle[
-    Interface_Check] {.importcpp: "CCheck", header: "Interface_CheckIterator.hxx".}
-proc IsEmpty*(this: Interface_CheckIterator; failsonly: Standard_Boolean): Standard_Boolean {.
-    noSideEffect, importcpp: "IsEmpty", header: "Interface_CheckIterator.hxx".}
-proc Status*(this: Interface_CheckIterator): Interface_CheckStatus {.noSideEffect,
+proc add*(this: var InterfaceCheckIterator; ach: Handle[InterfaceCheck]; num: int = 0) {.
+    importcpp: "Add", header: "Interface_CheckIterator.hxx".}
+proc check*(this: InterfaceCheckIterator; num: int): Handle[InterfaceCheck] {.
+    noSideEffect, importcpp: "Check", header: "Interface_CheckIterator.hxx".}
+proc check*(this: InterfaceCheckIterator; ent: Handle[StandardTransient]): Handle[
+    InterfaceCheck] {.noSideEffect, importcpp: "Check",
+                     header: "Interface_CheckIterator.hxx".}
+proc cCheck*(this: var InterfaceCheckIterator; num: int): var Handle[InterfaceCheck] {.
+    importcpp: "CCheck", header: "Interface_CheckIterator.hxx".}
+proc cCheck*(this: var InterfaceCheckIterator; ent: Handle[StandardTransient]): var Handle[
+    InterfaceCheck] {.importcpp: "CCheck", header: "Interface_CheckIterator.hxx".}
+proc isEmpty*(this: InterfaceCheckIterator; failsonly: bool): bool {.noSideEffect,
+    importcpp: "IsEmpty", header: "Interface_CheckIterator.hxx".}
+proc status*(this: InterfaceCheckIterator): InterfaceCheckStatus {.noSideEffect,
     importcpp: "Status", header: "Interface_CheckIterator.hxx".}
-proc Complies*(this: Interface_CheckIterator; status: Interface_CheckStatus): Standard_Boolean {.
+proc complies*(this: InterfaceCheckIterator; status: InterfaceCheckStatus): bool {.
     noSideEffect, importcpp: "Complies", header: "Interface_CheckIterator.hxx".}
-proc Extract*(this: Interface_CheckIterator; status: Interface_CheckStatus): Interface_CheckIterator {.
+proc extract*(this: InterfaceCheckIterator; status: InterfaceCheckStatus): InterfaceCheckIterator {.
     noSideEffect, importcpp: "Extract", header: "Interface_CheckIterator.hxx".}
-proc Extract*(this: Interface_CheckIterator; mess: Standard_CString;
-             incl: Standard_Integer; status: Interface_CheckStatus): Interface_CheckIterator {.
-    noSideEffect, importcpp: "Extract", header: "Interface_CheckIterator.hxx".}
-proc Remove*(this: var Interface_CheckIterator; mess: Standard_CString;
-            incl: Standard_Integer; status: Interface_CheckStatus): Standard_Boolean {.
-    importcpp: "Remove", header: "Interface_CheckIterator.hxx".}
-proc Checkeds*(this: Interface_CheckIterator; failsonly: Standard_Boolean;
-              global: Standard_Boolean): handle[TColStd_HSequenceOfTransient] {.
-    noSideEffect, importcpp: "Checkeds", header: "Interface_CheckIterator.hxx".}
-proc Start*(this: Interface_CheckIterator) {.noSideEffect, importcpp: "Start",
+proc extract*(this: InterfaceCheckIterator; mess: StandardCString; incl: int;
+             status: InterfaceCheckStatus): InterfaceCheckIterator {.noSideEffect,
+    importcpp: "Extract", header: "Interface_CheckIterator.hxx".}
+proc remove*(this: var InterfaceCheckIterator; mess: StandardCString; incl: int;
+            status: InterfaceCheckStatus): bool {.importcpp: "Remove",
     header: "Interface_CheckIterator.hxx".}
-proc More*(this: Interface_CheckIterator): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "Interface_CheckIterator.hxx".}
-proc Next*(this: Interface_CheckIterator) {.noSideEffect, importcpp: "Next",
+proc checkeds*(this: InterfaceCheckIterator; failsonly: bool; global: bool): Handle[
+    TColStdHSequenceOfTransient] {.noSideEffect, importcpp: "Checkeds",
+                                  header: "Interface_CheckIterator.hxx".}
+proc start*(this: InterfaceCheckIterator) {.noSideEffect, importcpp: "Start",
     header: "Interface_CheckIterator.hxx".}
-proc Value*(this: Interface_CheckIterator): handle[Interface_Check] {.noSideEffect,
+proc more*(this: InterfaceCheckIterator): bool {.noSideEffect, importcpp: "More",
+    header: "Interface_CheckIterator.hxx".}
+proc next*(this: InterfaceCheckIterator) {.noSideEffect, importcpp: "Next",
+                                        header: "Interface_CheckIterator.hxx".}
+proc value*(this: InterfaceCheckIterator): Handle[InterfaceCheck] {.noSideEffect,
     importcpp: "Value", header: "Interface_CheckIterator.hxx".}
-proc Number*(this: Interface_CheckIterator): Standard_Integer {.noSideEffect,
-    importcpp: "Number", header: "Interface_CheckIterator.hxx".}
-proc Print*(this: Interface_CheckIterator; S: var Standard_OStream;
-           failsonly: Standard_Boolean; final: Standard_Integer = 0) {.noSideEffect,
-    importcpp: "Print", header: "Interface_CheckIterator.hxx".}
-proc Print*(this: Interface_CheckIterator; S: var Standard_OStream;
-           model: handle[Interface_InterfaceModel]; failsonly: Standard_Boolean;
-           final: Standard_Integer = 0) {.noSideEffect, importcpp: "Print",
-                                      header: "Interface_CheckIterator.hxx".}
-proc Destroy*(this: var Interface_CheckIterator) {.importcpp: "Destroy",
+proc number*(this: InterfaceCheckIterator): int {.noSideEffect, importcpp: "Number",
     header: "Interface_CheckIterator.hxx".}
-proc destroyInterface_CheckIterator*(this: var Interface_CheckIterator) {.
+proc print*(this: InterfaceCheckIterator; s: var StandardOStream; failsonly: bool;
+           final: int = 0) {.noSideEffect, importcpp: "Print",
+                         header: "Interface_CheckIterator.hxx".}
+proc print*(this: InterfaceCheckIterator; s: var StandardOStream;
+           model: Handle[InterfaceInterfaceModel]; failsonly: bool; final: int = 0) {.
+    noSideEffect, importcpp: "Print", header: "Interface_CheckIterator.hxx".}
+proc destroy*(this: var InterfaceCheckIterator) {.importcpp: "Destroy",
+    header: "Interface_CheckIterator.hxx".}
+proc destroyInterfaceCheckIterator*(this: var InterfaceCheckIterator) {.
     importcpp: "#.~Interface_CheckIterator()",
     header: "Interface_CheckIterator.hxx".}

@@ -14,93 +14,87 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../AIS/AIS_ViewController, ../TColgp/TColgp_Array1OfPnt2d,
-  ../TCollection/TCollection_AsciiString
-
 discard "forward decl of AIS_InteractiveContext"
 discard "forward decl of V3d_View"
 discard "forward decl of ViewerTest_EventManager"
 type
-  Handle_ViewerTest_EventManager* = handle[ViewerTest_EventManager]
+  HandleViewerTestEventManager* = Handle[ViewerTestEventManager]
 
 ## ! used to manage mouse event (move,select,shiftselect)
 ## ! By default the events are transmitted to interactive context.
 
 type
-  ViewerTest_EventManager* {.importcpp: "ViewerTest_EventManager",
-                            header: "ViewerTest_EventManager.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                    ## !
-                                                                                                    ## Return
-                                                                                                    ## TRUE
-                                                                                                    ## if
-                                                                                                    ## View
-                                                                                                    ## should
-                                                                                                    ## be
-                                                                                                    ## closed
-                                                                                                    ## on
-                                                                                                    ## escape.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Main
-                                                                                                    ## constructor.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Register
-                                                                                                    ## hot-keys
-                                                                                                    ## for
-                                                                                                    ## specified
-                                                                                                    ## Action.
+  ViewerTestEventManager* {.importcpp: "ViewerTest_EventManager",
+                           header: "ViewerTest_EventManager.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                  ## !
+                                                                                                  ## Return
+                                                                                                  ## TRUE
+                                                                                                  ## if
+                                                                                                  ## View
+                                                                                                  ## should
+                                                                                                  ## be
+                                                                                                  ## closed
+                                                                                                  ## on
+                                                                                                  ## escape.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Main
+                                                                                                  ## constructor.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Register
+                                                                                                  ## hot-keys
+                                                                                                  ## for
+                                                                                                  ## specified
+                                                                                                  ## Action.
     ## !< map of Hot-Key (key+modifiers) to Action
 
-  ViewerTest_EventManagerbase_type* = Standard_Transient
+  ViewerTestEventManagerbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "ViewerTest_EventManager::get_type_name(@)",
-                              header: "ViewerTest_EventManager.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ViewerTest_EventManager::get_type_name(@)",
+                            header: "ViewerTest_EventManager.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ViewerTest_EventManager::get_type_descriptor(@)",
     header: "ViewerTest_EventManager.hxx".}
-proc DynamicType*(this: ViewerTest_EventManager): handle[Standard_Type] {.
+proc dynamicType*(this: ViewerTestEventManager): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "ViewerTest_EventManager.hxx".}
-proc ToCloseViewOnEscape*(): var Standard_Boolean {.
-    importcpp: "ViewerTest_EventManager::ToCloseViewOnEscape(@)",
-    header: "ViewerTest_EventManager.hxx".}
-proc ToExitOnCloseView*(): var Standard_Boolean {.
-    importcpp: "ViewerTest_EventManager::ToExitOnCloseView(@)",
-    header: "ViewerTest_EventManager.hxx".}
-proc GlobalViewAnimation*(): handle[AIS_AnimationCamera] {.
+proc toCloseViewOnEscape*(): var bool {.importcpp: "ViewerTest_EventManager::ToCloseViewOnEscape(@)",
+                                    header: "ViewerTest_EventManager.hxx".}
+proc toExitOnCloseView*(): var bool {.importcpp: "ViewerTest_EventManager::ToExitOnCloseView(@)",
+                                  header: "ViewerTest_EventManager.hxx".}
+proc globalViewAnimation*(): Handle[AIS_AnimationCamera] {.
     importcpp: "ViewerTest_EventManager::GlobalViewAnimation(@)",
     header: "ViewerTest_EventManager.hxx".}
-proc constructViewerTest_EventManager*(aView: handle[V3d_View];
-                                      aCtx: handle[AIS_InteractiveContext]): ViewerTest_EventManager {.
+proc constructViewerTestEventManager*(aView: Handle[V3dView];
+                                     aCtx: Handle[AIS_InteractiveContext]): ViewerTestEventManager {.
     constructor, importcpp: "ViewerTest_EventManager(@)",
     header: "ViewerTest_EventManager.hxx".}
-proc destroyViewerTest_EventManager*(this: var ViewerTest_EventManager) {.
+proc destroyViewerTestEventManager*(this: var ViewerTestEventManager) {.
     importcpp: "#.~ViewerTest_EventManager()",
     header: "ViewerTest_EventManager.hxx".}
-proc Context*(this: ViewerTest_EventManager): handle[AIS_InteractiveContext] {.
+proc context*(this: ViewerTestEventManager): Handle[AIS_InteractiveContext] {.
     noSideEffect, importcpp: "Context", header: "ViewerTest_EventManager.hxx".}
-proc ToPickPoint*(this: ViewerTest_EventManager): Standard_Boolean {.noSideEffect,
+proc toPickPoint*(this: ViewerTestEventManager): bool {.noSideEffect,
     importcpp: "ToPickPoint", header: "ViewerTest_EventManager.hxx".}
-proc StartPickPoint*(this: var ViewerTest_EventManager; theArgX: cstring;
+proc startPickPoint*(this: var ViewerTestEventManager; theArgX: cstring;
                     theArgY: cstring; theArgZ: cstring) {.
     importcpp: "StartPickPoint", header: "ViewerTest_EventManager.hxx".}
-proc UpdateMouseButtons*(this: var ViewerTest_EventManager;
-                        thePoint: Graphic3d_Vec2i; theButtons: Aspect_VKeyMouse;
-                        theModifiers: Aspect_VKeyFlags; theIsEmulated: bool): bool {.
+proc updateMouseButtons*(this: var ViewerTestEventManager; thePoint: Graphic3dVec2i;
+                        theButtons: AspectVKeyMouse;
+                        theModifiers: AspectVKeyFlags; theIsEmulated: bool): bool {.
     importcpp: "UpdateMouseButtons", header: "ViewerTest_EventManager.hxx".}
-proc KeyDown*(this: var ViewerTest_EventManager; theKey: Aspect_VKey;
-             theTime: cdouble; thePressure: cdouble = 1.0) {.importcpp: "KeyDown",
-    header: "ViewerTest_EventManager.hxx".}
-proc KeyUp*(this: var ViewerTest_EventManager; theKey: Aspect_VKey; theTime: cdouble) {.
+proc keyDown*(this: var ViewerTestEventManager; theKey: AspectVKey; theTime: cdouble;
+             thePressure: cdouble = 1.0) {.importcpp: "KeyDown",
+                                       header: "ViewerTest_EventManager.hxx".}
+proc keyUp*(this: var ViewerTestEventManager; theKey: AspectVKey; theTime: cdouble) {.
     importcpp: "KeyUp", header: "ViewerTest_EventManager.hxx".}
-proc ProcessExpose*(this: var ViewerTest_EventManager) {.importcpp: "ProcessExpose",
+proc processExpose*(this: var ViewerTestEventManager) {.importcpp: "ProcessExpose",
     header: "ViewerTest_EventManager.hxx".}
-proc handleViewRedraw*(this: var ViewerTest_EventManager;
-                      theCtx: handle[AIS_InteractiveContext];
-                      theView: handle[V3d_View]) {.importcpp: "handleViewRedraw",
+proc handleViewRedraw*(this: var ViewerTestEventManager;
+                      theCtx: Handle[AIS_InteractiveContext];
+                      theView: Handle[V3dView]) {.importcpp: "handleViewRedraw",
     header: "ViewerTest_EventManager.hxx".}
-proc ProcessConfigure*(this: var ViewerTest_EventManager) {.
+proc processConfigure*(this: var ViewerTestEventManager) {.
     importcpp: "ProcessConfigure", header: "ViewerTest_EventManager.hxx".}
-proc ProcessKeyPress*(this: var ViewerTest_EventManager; theKey: Aspect_VKey) {.
+proc processKeyPress*(this: var ViewerTestEventManager; theKey: AspectVKey) {.
     importcpp: "ProcessKeyPress", header: "ViewerTest_EventManager.hxx".}

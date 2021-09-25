@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Interface/Interface_EntityList, ../TColStd/TColStd_HArray1OfInteger,
-  ../Interface/Interface_InterfaceModel, ../Resource/Resource_FormatType
-
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
@@ -27,77 +23,75 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepData_StepModel"
 discard "forward decl of StepData_StepModel"
 type
-  Handle_StepData_StepModel* = handle[StepData_StepModel]
+  HandleStepDataStepModel* = Handle[StepDataStepModel]
 
 ## ! Gives access to
 ## ! - entities in a STEP file,
 ## ! - the STEP file header.
 
 type
-  StepData_StepModel* {.importcpp: "StepData_StepModel",
-                       header: "StepData_StepModel.hxx", bycopy.} = object of Interface_InterfaceModel ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## an
-                                                                                                ## empty
-                                                                                                ## STEP
-                                                                                                ## model
-                                                                                                ## with
-                                                                                                ## an
-                                                                                                ## empty
-                                                                                                ## header.
+  StepDataStepModel* {.importcpp: "StepData_StepModel",
+                      header: "StepData_StepModel.hxx", bycopy.} = object of InterfaceInterfaceModel ##
+                                                                                              ## !
+                                                                                              ## Creates
+                                                                                              ## an
+                                                                                              ## empty
+                                                                                              ## STEP
+                                                                                              ## model
+                                                                                              ## with
+                                                                                              ## an
+                                                                                              ## empty
+                                                                                              ## header.
 
 
-proc constructStepData_StepModel*(): StepData_StepModel {.constructor,
+proc constructStepDataStepModel*(): StepDataStepModel {.constructor,
     importcpp: "StepData_StepModel(@)", header: "StepData_StepModel.hxx".}
-proc Entity*(this: StepData_StepModel; num: Standard_Integer): handle[
-    Standard_Transient] {.noSideEffect, importcpp: "Entity",
-                         header: "StepData_StepModel.hxx".}
-proc GetFromAnother*(this: var StepData_StepModel;
-                    other: handle[Interface_InterfaceModel]) {.
+proc entity*(this: StepDataStepModel; num: int): Handle[StandardTransient] {.
+    noSideEffect, importcpp: "Entity", header: "StepData_StepModel.hxx".}
+proc getFromAnother*(this: var StepDataStepModel;
+                    other: Handle[InterfaceInterfaceModel]) {.
     importcpp: "GetFromAnother", header: "StepData_StepModel.hxx".}
-proc NewEmptyModel*(this: StepData_StepModel): handle[Interface_InterfaceModel] {.
+proc newEmptyModel*(this: StepDataStepModel): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "NewEmptyModel", header: "StepData_StepModel.hxx".}
-proc Header*(this: StepData_StepModel): Interface_EntityIterator {.noSideEffect,
+proc header*(this: StepDataStepModel): InterfaceEntityIterator {.noSideEffect,
     importcpp: "Header", header: "StepData_StepModel.hxx".}
-proc HasHeaderEntity*(this: StepData_StepModel; atype: handle[Standard_Type]): Standard_Boolean {.
+proc hasHeaderEntity*(this: StepDataStepModel; atype: Handle[StandardType]): bool {.
     noSideEffect, importcpp: "HasHeaderEntity", header: "StepData_StepModel.hxx".}
-proc HeaderEntity*(this: StepData_StepModel; atype: handle[Standard_Type]): handle[
-    Standard_Transient] {.noSideEffect, importcpp: "HeaderEntity",
-                         header: "StepData_StepModel.hxx".}
-proc ClearHeader*(this: var StepData_StepModel) {.importcpp: "ClearHeader",
+proc headerEntity*(this: StepDataStepModel; atype: Handle[StandardType]): Handle[
+    StandardTransient] {.noSideEffect, importcpp: "HeaderEntity",
+                        header: "StepData_StepModel.hxx".}
+proc clearHeader*(this: var StepDataStepModel) {.importcpp: "ClearHeader",
     header: "StepData_StepModel.hxx".}
-proc AddHeaderEntity*(this: var StepData_StepModel; ent: handle[Standard_Transient]) {.
+proc addHeaderEntity*(this: var StepDataStepModel; ent: Handle[StandardTransient]) {.
     importcpp: "AddHeaderEntity", header: "StepData_StepModel.hxx".}
-proc VerifyCheck*(this: StepData_StepModel; ach: var handle[Interface_Check]) {.
+proc verifyCheck*(this: StepDataStepModel; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "VerifyCheck", header: "StepData_StepModel.hxx".}
-proc DumpHeader*(this: StepData_StepModel; S: var Standard_OStream;
-                level: Standard_Integer = 0) {.noSideEffect, importcpp: "DumpHeader",
+proc dumpHeader*(this: StepDataStepModel; s: var StandardOStream; level: int = 0) {.
+    noSideEffect, importcpp: "DumpHeader", header: "StepData_StepModel.hxx".}
+proc clearLabels*(this: var StepDataStepModel) {.importcpp: "ClearLabels",
     header: "StepData_StepModel.hxx".}
-proc ClearLabels*(this: var StepData_StepModel) {.importcpp: "ClearLabels",
-    header: "StepData_StepModel.hxx".}
-proc SetIdentLabel*(this: var StepData_StepModel; ent: handle[Standard_Transient];
-                   ident: Standard_Integer) {.importcpp: "SetIdentLabel",
-    header: "StepData_StepModel.hxx".}
-proc IdentLabel*(this: StepData_StepModel; ent: handle[Standard_Transient]): Standard_Integer {.
-    noSideEffect, importcpp: "IdentLabel", header: "StepData_StepModel.hxx".}
-proc PrintLabel*(this: StepData_StepModel; ent: handle[Standard_Transient];
-                S: var Standard_OStream) {.noSideEffect, importcpp: "PrintLabel",
-                                        header: "StepData_StepModel.hxx".}
-proc StringLabel*(this: StepData_StepModel; ent: handle[Standard_Transient]): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "StringLabel",
+proc setIdentLabel*(this: var StepDataStepModel; ent: Handle[StandardTransient];
+                   ident: int) {.importcpp: "SetIdentLabel",
                                header: "StepData_StepModel.hxx".}
-proc SourceCodePage*(this: StepData_StepModel): Resource_FormatType {.noSideEffect,
+proc identLabel*(this: StepDataStepModel; ent: Handle[StandardTransient]): int {.
+    noSideEffect, importcpp: "IdentLabel", header: "StepData_StepModel.hxx".}
+proc printLabel*(this: StepDataStepModel; ent: Handle[StandardTransient];
+                s: var StandardOStream) {.noSideEffect, importcpp: "PrintLabel",
+                                       header: "StepData_StepModel.hxx".}
+proc stringLabel*(this: StepDataStepModel; ent: Handle[StandardTransient]): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "StringLabel",
+                              header: "StepData_StepModel.hxx".}
+proc sourceCodePage*(this: StepDataStepModel): ResourceFormatType {.noSideEffect,
     importcpp: "SourceCodePage", header: "StepData_StepModel.hxx".}
-proc SetSourceCodePage*(this: var StepData_StepModel; theCode: Resource_FormatType) {.
+proc setSourceCodePage*(this: var StepDataStepModel; theCode: ResourceFormatType) {.
     importcpp: "SetSourceCodePage", header: "StepData_StepModel.hxx".}
 type
-  StepData_StepModelbase_type* = Interface_InterfaceModel
+  StepDataStepModelbaseType* = InterfaceInterfaceModel
 
-proc get_type_name*(): cstring {.importcpp: "StepData_StepModel::get_type_name(@)",
-                              header: "StepData_StepModel.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepData_StepModel::get_type_name(@)",
+                            header: "StepData_StepModel.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepData_StepModel::get_type_descriptor(@)",
     header: "StepData_StepModel.hxx".}
-proc DynamicType*(this: StepData_StepModel): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepDataStepModel): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_StepModel.hxx".}

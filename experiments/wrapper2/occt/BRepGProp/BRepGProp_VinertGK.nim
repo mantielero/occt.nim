@@ -13,124 +13,101 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real, ../GProp/GProp_GProps,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Address
-
 discard "forward decl of BRepGProp_Face"
 discard "forward decl of gp_Pnt"
 discard "forward decl of BRepGProp_Domain"
 discard "forward decl of gp_Pln"
 type
-  BRepGProp_VinertGK* {.importcpp: "BRepGProp_VinertGK",
-                       header: "BRepGProp_VinertGK.hxx", bycopy.} = object of GProp_GProps ##
-                                                                                    ## !
-                                                                                    ## Empty
-                                                                                    ## constructor.
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## Main
-                                                                                    ## method
-                                                                                    ## for
-                                                                                    ## computation
-                                                                                    ## of
-                                                                                    ## the
-                                                                                    ## global
-                                                                                    ## properties
-                                                                                    ## that
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## is
-                                                                                    ## invoked
-                                                                                    ## by
-                                                                                    ## each
-                                                                                    ## Perform
-                                                                                    ## method.
+  BRepGPropVinertGK* {.importcpp: "BRepGProp_VinertGK",
+                      header: "BRepGProp_VinertGK.hxx", bycopy.} = object of GPropGProps ##
+                                                                                  ## !
+                                                                                  ## Empty
+                                                                                  ## constructor.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## Main
+                                                                                  ## method
+                                                                                  ## for
+                                                                                  ## computation
+                                                                                  ## of
+                                                                                  ## the
+                                                                                  ## global
+                                                                                  ## properties
+                                                                                  ## that
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## is
+                                                                                  ## invoked
+                                                                                  ## by
+                                                                                  ## each
+                                                                                  ## Perform
+                                                                                  ## method.
 
 
-proc constructBRepGProp_VinertGK*(): BRepGProp_VinertGK {.constructor,
+proc constructBRepGPropVinertGK*(): BRepGPropVinertGK {.constructor,
     importcpp: "BRepGProp_VinertGK(@)", header: "BRepGProp_VinertGK.hxx".}
-proc constructBRepGProp_VinertGK*(theSurface: var BRepGProp_Face;
-                                 theLocation: gp_Pnt;
-                                 theTolerance: Standard_Real = 0.001;
-                                 theCGFlag: Standard_Boolean = Standard_False;
-                                 theIFlag: Standard_Boolean = Standard_False): BRepGProp_VinertGK {.
+proc constructBRepGPropVinertGK*(theSurface: var BRepGPropFace; theLocation: Pnt;
+                                theTolerance: float = 0.001;
+                                theCGFlag: bool = false; theIFlag: bool = false): BRepGPropVinertGK {.
     constructor, importcpp: "BRepGProp_VinertGK(@)",
     header: "BRepGProp_VinertGK.hxx".}
-proc constructBRepGProp_VinertGK*(theSurface: var BRepGProp_Face; thePoint: gp_Pnt;
-                                 theLocation: gp_Pnt;
-                                 theTolerance: Standard_Real = 0.001;
-                                 theCGFlag: Standard_Boolean = Standard_False;
-                                 theIFlag: Standard_Boolean = Standard_False): BRepGProp_VinertGK {.
+proc constructBRepGPropVinertGK*(theSurface: var BRepGPropFace; thePoint: Pnt;
+                                theLocation: Pnt; theTolerance: float = 0.001;
+                                theCGFlag: bool = false; theIFlag: bool = false): BRepGPropVinertGK {.
     constructor, importcpp: "BRepGProp_VinertGK(@)",
     header: "BRepGProp_VinertGK.hxx".}
-proc constructBRepGProp_VinertGK*(theSurface: var BRepGProp_Face;
-                                 theDomain: var BRepGProp_Domain;
-                                 theLocation: gp_Pnt;
-                                 theTolerance: Standard_Real = 0.001;
-                                 theCGFlag: Standard_Boolean = Standard_False;
-                                 theIFlag: Standard_Boolean = Standard_False): BRepGProp_VinertGK {.
+proc constructBRepGPropVinertGK*(theSurface: var BRepGPropFace;
+                                theDomain: var BRepGPropDomain; theLocation: Pnt;
+                                theTolerance: float = 0.001;
+                                theCGFlag: bool = false; theIFlag: bool = false): BRepGPropVinertGK {.
     constructor, importcpp: "BRepGProp_VinertGK(@)",
     header: "BRepGProp_VinertGK.hxx".}
-proc constructBRepGProp_VinertGK*(theSurface: var BRepGProp_Face;
-                                 theDomain: var BRepGProp_Domain; thePoint: gp_Pnt;
-                                 theLocation: gp_Pnt;
-                                 theTolerance: Standard_Real = 0.001;
-                                 theCGFlag: Standard_Boolean = Standard_False;
-                                 theIFlag: Standard_Boolean = Standard_False): BRepGProp_VinertGK {.
+proc constructBRepGPropVinertGK*(theSurface: var BRepGPropFace;
+                                theDomain: var BRepGPropDomain; thePoint: Pnt;
+                                theLocation: Pnt; theTolerance: float = 0.001;
+                                theCGFlag: bool = false; theIFlag: bool = false): BRepGPropVinertGK {.
     constructor, importcpp: "BRepGProp_VinertGK(@)",
     header: "BRepGProp_VinertGK.hxx".}
-proc constructBRepGProp_VinertGK*(theSurface: var BRepGProp_Face; thePlane: gp_Pln;
-                                 theLocation: gp_Pnt;
-                                 theTolerance: Standard_Real = 0.001;
-                                 theCGFlag: Standard_Boolean = Standard_False;
-                                 theIFlag: Standard_Boolean = Standard_False): BRepGProp_VinertGK {.
+proc constructBRepGPropVinertGK*(theSurface: var BRepGPropFace; thePlane: Pln;
+                                theLocation: Pnt; theTolerance: float = 0.001;
+                                theCGFlag: bool = false; theIFlag: bool = false): BRepGPropVinertGK {.
     constructor, importcpp: "BRepGProp_VinertGK(@)",
     header: "BRepGProp_VinertGK.hxx".}
-proc constructBRepGProp_VinertGK*(theSurface: var BRepGProp_Face;
-                                 theDomain: var BRepGProp_Domain; thePlane: gp_Pln;
-                                 theLocation: gp_Pnt;
-                                 theTolerance: Standard_Real = 0.001;
-                                 theCGFlag: Standard_Boolean = Standard_False;
-                                 theIFlag: Standard_Boolean = Standard_False): BRepGProp_VinertGK {.
+proc constructBRepGPropVinertGK*(theSurface: var BRepGPropFace;
+                                theDomain: var BRepGPropDomain; thePlane: Pln;
+                                theLocation: Pnt; theTolerance: float = 0.001;
+                                theCGFlag: bool = false; theIFlag: bool = false): BRepGPropVinertGK {.
     constructor, importcpp: "BRepGProp_VinertGK(@)",
     header: "BRepGProp_VinertGK.hxx".}
-proc SetLocation*(this: var BRepGProp_VinertGK; theLocation: gp_Pnt) {.
+proc setLocation*(this: var BRepGPropVinertGK; theLocation: Pnt) {.
     importcpp: "SetLocation", header: "BRepGProp_VinertGK.hxx".}
-proc Perform*(this: var BRepGProp_VinertGK; theSurface: var BRepGProp_Face;
-             theTolerance: Standard_Real = 0.001;
-             theCGFlag: Standard_Boolean = Standard_False;
-             theIFlag: Standard_Boolean = Standard_False): Standard_Real {.
+proc perform*(this: var BRepGPropVinertGK; theSurface: var BRepGPropFace;
+             theTolerance: float = 0.001; theCGFlag: bool = false;
+             theIFlag: bool = false): float {.importcpp: "Perform",
+    header: "BRepGProp_VinertGK.hxx".}
+proc perform*(this: var BRepGPropVinertGK; theSurface: var BRepGPropFace;
+             thePoint: Pnt; theTolerance: float = 0.001; theCGFlag: bool = false;
+             theIFlag: bool = false): float {.importcpp: "Perform",
+    header: "BRepGProp_VinertGK.hxx".}
+proc perform*(this: var BRepGPropVinertGK; theSurface: var BRepGPropFace;
+             theDomain: var BRepGPropDomain; theTolerance: float = 0.001;
+             theCGFlag: bool = false; theIFlag: bool = false): float {.
     importcpp: "Perform", header: "BRepGProp_VinertGK.hxx".}
-proc Perform*(this: var BRepGProp_VinertGK; theSurface: var BRepGProp_Face;
-             thePoint: gp_Pnt; theTolerance: Standard_Real = 0.001;
-             theCGFlag: Standard_Boolean = Standard_False;
-             theIFlag: Standard_Boolean = Standard_False): Standard_Real {.
-    importcpp: "Perform", header: "BRepGProp_VinertGK.hxx".}
-proc Perform*(this: var BRepGProp_VinertGK; theSurface: var BRepGProp_Face;
-             theDomain: var BRepGProp_Domain; theTolerance: Standard_Real = 0.001;
-             theCGFlag: Standard_Boolean = Standard_False;
-             theIFlag: Standard_Boolean = Standard_False): Standard_Real {.
-    importcpp: "Perform", header: "BRepGProp_VinertGK.hxx".}
-proc Perform*(this: var BRepGProp_VinertGK; theSurface: var BRepGProp_Face;
-             theDomain: var BRepGProp_Domain; thePoint: gp_Pnt;
-             theTolerance: Standard_Real = 0.001;
-             theCGFlag: Standard_Boolean = Standard_False;
-             theIFlag: Standard_Boolean = Standard_False): Standard_Real {.
-    importcpp: "Perform", header: "BRepGProp_VinertGK.hxx".}
-proc Perform*(this: var BRepGProp_VinertGK; theSurface: var BRepGProp_Face;
-             thePlane: gp_Pln; theTolerance: Standard_Real = 0.001;
-             theCGFlag: Standard_Boolean = Standard_False;
-             theIFlag: Standard_Boolean = Standard_False): Standard_Real {.
-    importcpp: "Perform", header: "BRepGProp_VinertGK.hxx".}
-proc Perform*(this: var BRepGProp_VinertGK; theSurface: var BRepGProp_Face;
-             theDomain: var BRepGProp_Domain; thePlane: gp_Pln;
-             theTolerance: Standard_Real = 0.001;
-             theCGFlag: Standard_Boolean = Standard_False;
-             theIFlag: Standard_Boolean = Standard_False): Standard_Real {.
-    importcpp: "Perform", header: "BRepGProp_VinertGK.hxx".}
-proc GetErrorReached*(this: BRepGProp_VinertGK): Standard_Real {.noSideEffect,
+proc perform*(this: var BRepGPropVinertGK; theSurface: var BRepGPropFace;
+             theDomain: var BRepGPropDomain; thePoint: Pnt;
+             theTolerance: float = 0.001; theCGFlag: bool = false;
+             theIFlag: bool = false): float {.importcpp: "Perform",
+    header: "BRepGProp_VinertGK.hxx".}
+proc perform*(this: var BRepGPropVinertGK; theSurface: var BRepGPropFace;
+             thePlane: Pln; theTolerance: float = 0.001; theCGFlag: bool = false;
+             theIFlag: bool = false): float {.importcpp: "Perform",
+    header: "BRepGProp_VinertGK.hxx".}
+proc perform*(this: var BRepGPropVinertGK; theSurface: var BRepGPropFace;
+             theDomain: var BRepGPropDomain; thePlane: Pln;
+             theTolerance: float = 0.001; theCGFlag: bool = false;
+             theIFlag: bool = false): float {.importcpp: "Perform",
+    header: "BRepGProp_VinertGK.hxx".}
+proc getErrorReached*(this: BRepGPropVinertGK): float {.noSideEffect,
     importcpp: "GetErrorReached", header: "BRepGProp_VinertGK.hxx".}
-proc GetAbsolutError*(this: BRepGProp_VinertGK): Standard_Real {.noSideEffect,
+proc getAbsolutError*(this: BRepGPropVinertGK): float {.noSideEffect,
     importcpp: "GetAbsolutError", header: "BRepGProp_VinertGK.hxx".}

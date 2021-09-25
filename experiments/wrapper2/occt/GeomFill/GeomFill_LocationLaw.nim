@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
-  ../TColgp/TColgp_Array1OfPnt2d, ../TColgp/TColgp_Array1OfVec2d,
-  ../Standard/Standard_Integer, GeomFill_PipeError, ../GeomAbs/GeomAbs_Shape,
-  ../TColStd/TColStd_Array1OfReal
-
 discard "forward decl of Standard_NotImplemented"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Adaptor3d_HCurve"
@@ -30,89 +23,80 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of GeomFill_LocationLaw"
 discard "forward decl of GeomFill_LocationLaw"
 type
-  Handle_GeomFill_LocationLaw* = handle[GeomFill_LocationLaw]
+  HandleGeomFillLocationLaw* = Handle[GeomFillLocationLaw]
 
 ## ! To define location  law in Sweeping location is --
 ## ! defined   by an  Matrix  M and  an Vector  V,  and
 ## ! transform an point P in MP+V.
 
 type
-  GeomFill_LocationLaw* {.importcpp: "GeomFill_LocationLaw",
-                         header: "GeomFill_LocationLaw.hxx", bycopy.} = object of Standard_Transient
+  GeomFillLocationLaw* {.importcpp: "GeomFill_LocationLaw",
+                        header: "GeomFill_LocationLaw.hxx", bycopy.} = object of StandardTransient
 
 
-proc SetCurve*(this: var GeomFill_LocationLaw; C: handle[Adaptor3d_HCurve]) {.
+proc setCurve*(this: var GeomFillLocationLaw; c: Handle[Adaptor3dHCurve]) {.
     importcpp: "SetCurve", header: "GeomFill_LocationLaw.hxx".}
-proc GetCurve*(this: GeomFill_LocationLaw): handle[Adaptor3d_HCurve] {.noSideEffect,
+proc getCurve*(this: GeomFillLocationLaw): Handle[Adaptor3dHCurve] {.noSideEffect,
     importcpp: "GetCurve", header: "GeomFill_LocationLaw.hxx".}
-proc SetTrsf*(this: var GeomFill_LocationLaw; Transfo: gp_Mat) {.importcpp: "SetTrsf",
+proc setTrsf*(this: var GeomFillLocationLaw; transfo: Mat) {.importcpp: "SetTrsf",
     header: "GeomFill_LocationLaw.hxx".}
-proc Copy*(this: GeomFill_LocationLaw): handle[GeomFill_LocationLaw] {.noSideEffect,
+proc copy*(this: GeomFillLocationLaw): Handle[GeomFillLocationLaw] {.noSideEffect,
     importcpp: "Copy", header: "GeomFill_LocationLaw.hxx".}
-proc D0*(this: var GeomFill_LocationLaw; Param: Standard_Real; M: var gp_Mat;
-        V: var gp_Vec): Standard_Boolean {.importcpp: "D0",
-                                       header: "GeomFill_LocationLaw.hxx".}
-proc D0*(this: var GeomFill_LocationLaw; Param: Standard_Real; M: var gp_Mat;
-        V: var gp_Vec; Poles2d: var TColgp_Array1OfPnt2d): Standard_Boolean {.
+proc d0*(this: var GeomFillLocationLaw; param: float; m: var Mat; v: var Vec): bool {.
     importcpp: "D0", header: "GeomFill_LocationLaw.hxx".}
-proc D1*(this: var GeomFill_LocationLaw; Param: Standard_Real; M: var gp_Mat;
-        V: var gp_Vec; DM: var gp_Mat; DV: var gp_Vec; Poles2d: var TColgp_Array1OfPnt2d;
-        DPoles2d: var TColgp_Array1OfVec2d): Standard_Boolean {.importcpp: "D1",
+proc d0*(this: var GeomFillLocationLaw; param: float; m: var Mat; v: var Vec;
+        poles2d: var TColgpArray1OfPnt2d): bool {.importcpp: "D0",
     header: "GeomFill_LocationLaw.hxx".}
-proc D2*(this: var GeomFill_LocationLaw; Param: Standard_Real; M: var gp_Mat;
-        V: var gp_Vec; DM: var gp_Mat; DV: var gp_Vec; D2M: var gp_Mat; D2V: var gp_Vec;
-        Poles2d: var TColgp_Array1OfPnt2d; DPoles2d: var TColgp_Array1OfVec2d;
-        D2Poles2d: var TColgp_Array1OfVec2d): Standard_Boolean {.importcpp: "D2",
+proc d1*(this: var GeomFillLocationLaw; param: float; m: var Mat; v: var Vec; dm: var Mat;
+        dv: var Vec; poles2d: var TColgpArray1OfPnt2d;
+        dPoles2d: var TColgpArray1OfVec2d): bool {.importcpp: "D1",
     header: "GeomFill_LocationLaw.hxx".}
-proc Nb2dCurves*(this: GeomFill_LocationLaw): Standard_Integer {.noSideEffect,
+proc d2*(this: var GeomFillLocationLaw; param: float; m: var Mat; v: var Vec; dm: var Mat;
+        dv: var Vec; d2m: var Mat; d2v: var Vec; poles2d: var TColgpArray1OfPnt2d;
+        dPoles2d: var TColgpArray1OfVec2d; d2Poles2d: var TColgpArray1OfVec2d): bool {.
+    importcpp: "D2", header: "GeomFill_LocationLaw.hxx".}
+proc nb2dCurves*(this: GeomFillLocationLaw): int {.noSideEffect,
     importcpp: "Nb2dCurves", header: "GeomFill_LocationLaw.hxx".}
-proc HasFirstRestriction*(this: GeomFill_LocationLaw): Standard_Boolean {.
-    noSideEffect, importcpp: "HasFirstRestriction",
-    header: "GeomFill_LocationLaw.hxx".}
-proc HasLastRestriction*(this: GeomFill_LocationLaw): Standard_Boolean {.
-    noSideEffect, importcpp: "HasLastRestriction",
-    header: "GeomFill_LocationLaw.hxx".}
-proc TraceNumber*(this: GeomFill_LocationLaw): Standard_Integer {.noSideEffect,
+proc hasFirstRestriction*(this: GeomFillLocationLaw): bool {.noSideEffect,
+    importcpp: "HasFirstRestriction", header: "GeomFill_LocationLaw.hxx".}
+proc hasLastRestriction*(this: GeomFillLocationLaw): bool {.noSideEffect,
+    importcpp: "HasLastRestriction", header: "GeomFill_LocationLaw.hxx".}
+proc traceNumber*(this: GeomFillLocationLaw): int {.noSideEffect,
     importcpp: "TraceNumber", header: "GeomFill_LocationLaw.hxx".}
-proc ErrorStatus*(this: GeomFill_LocationLaw): GeomFill_PipeError {.noSideEffect,
+proc errorStatus*(this: GeomFillLocationLaw): GeomFillPipeError {.noSideEffect,
     importcpp: "ErrorStatus", header: "GeomFill_LocationLaw.hxx".}
-proc NbIntervals*(this: GeomFill_LocationLaw; S: GeomAbs_Shape): Standard_Integer {.
-    noSideEffect, importcpp: "NbIntervals", header: "GeomFill_LocationLaw.hxx".}
-proc Intervals*(this: GeomFill_LocationLaw; T: var TColStd_Array1OfReal;
-               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
-                                 header: "GeomFill_LocationLaw.hxx".}
-proc SetInterval*(this: var GeomFill_LocationLaw; First: Standard_Real;
-                 Last: Standard_Real) {.importcpp: "SetInterval",
-                                      header: "GeomFill_LocationLaw.hxx".}
-proc GetInterval*(this: GeomFill_LocationLaw; First: var Standard_Real;
-                 Last: var Standard_Real) {.noSideEffect, importcpp: "GetInterval",
-    header: "GeomFill_LocationLaw.hxx".}
-proc GetDomain*(this: GeomFill_LocationLaw; First: var Standard_Real;
-               Last: var Standard_Real) {.noSideEffect, importcpp: "GetDomain",
-                                       header: "GeomFill_LocationLaw.hxx".}
-proc Resolution*(this: GeomFill_LocationLaw; Index: Standard_Integer;
-                Tol: Standard_Real; TolU: var Standard_Real; TolV: var Standard_Real) {.
-    noSideEffect, importcpp: "Resolution", header: "GeomFill_LocationLaw.hxx".}
-proc SetTolerance*(this: var GeomFill_LocationLaw; Tol3d: Standard_Real;
-                  Tol2d: Standard_Real) {.importcpp: "SetTolerance",
-                                        header: "GeomFill_LocationLaw.hxx".}
-proc GetMaximalNorm*(this: var GeomFill_LocationLaw): Standard_Real {.
+proc nbIntervals*(this: GeomFillLocationLaw; s: GeomAbsShape): int {.noSideEffect,
+    importcpp: "NbIntervals", header: "GeomFill_LocationLaw.hxx".}
+proc intervals*(this: GeomFillLocationLaw; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+    noSideEffect, importcpp: "Intervals", header: "GeomFill_LocationLaw.hxx".}
+proc setInterval*(this: var GeomFillLocationLaw; first: float; last: float) {.
+    importcpp: "SetInterval", header: "GeomFill_LocationLaw.hxx".}
+proc getInterval*(this: GeomFillLocationLaw; first: var float; last: var float) {.
+    noSideEffect, importcpp: "GetInterval", header: "GeomFill_LocationLaw.hxx".}
+proc getDomain*(this: GeomFillLocationLaw; first: var float; last: var float) {.
+    noSideEffect, importcpp: "GetDomain", header: "GeomFill_LocationLaw.hxx".}
+proc resolution*(this: GeomFillLocationLaw; index: int; tol: float; tolU: var float;
+                tolV: var float) {.noSideEffect, importcpp: "Resolution",
+                                header: "GeomFill_LocationLaw.hxx".}
+proc setTolerance*(this: var GeomFillLocationLaw; tol3d: float; tol2d: float) {.
+    importcpp: "SetTolerance", header: "GeomFill_LocationLaw.hxx".}
+proc getMaximalNorm*(this: var GeomFillLocationLaw): float {.
     importcpp: "GetMaximalNorm", header: "GeomFill_LocationLaw.hxx".}
-proc GetAverageLaw*(this: var GeomFill_LocationLaw; AM: var gp_Mat; AV: var gp_Vec) {.
+proc getAverageLaw*(this: var GeomFillLocationLaw; am: var Mat; av: var Vec) {.
     importcpp: "GetAverageLaw", header: "GeomFill_LocationLaw.hxx".}
-proc IsTranslation*(this: GeomFill_LocationLaw; Error: var Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "IsTranslation", header: "GeomFill_LocationLaw.hxx".}
-proc IsRotation*(this: GeomFill_LocationLaw; Error: var Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "IsRotation", header: "GeomFill_LocationLaw.hxx".}
-proc Rotation*(this: GeomFill_LocationLaw; Center: var gp_Pnt) {.noSideEffect,
+proc isTranslation*(this: GeomFillLocationLaw; error: var float): bool {.noSideEffect,
+    importcpp: "IsTranslation", header: "GeomFill_LocationLaw.hxx".}
+proc isRotation*(this: GeomFillLocationLaw; error: var float): bool {.noSideEffect,
+    importcpp: "IsRotation", header: "GeomFill_LocationLaw.hxx".}
+proc rotation*(this: GeomFillLocationLaw; center: var Pnt) {.noSideEffect,
     importcpp: "Rotation", header: "GeomFill_LocationLaw.hxx".}
 type
-  GeomFill_LocationLawbase_type* = Standard_Transient
+  GeomFillLocationLawbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "GeomFill_LocationLaw::get_type_name(@)",
-                              header: "GeomFill_LocationLaw.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "GeomFill_LocationLaw::get_type_name(@)",
+                            header: "GeomFill_LocationLaw.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GeomFill_LocationLaw::get_type_descriptor(@)",
     header: "GeomFill_LocationLaw.hxx".}
-proc DynamicType*(this: GeomFill_LocationLaw): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: GeomFillLocationLaw): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "GeomFill_LocationLaw.hxx".}

@@ -14,28 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  AdvApp2Var_CriterionType, AdvApp2Var_CriterionRepartition,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of AdvApp2Var_Patch"
 discard "forward decl of AdvApp2Var_Context"
 type
-  AdvApp2Var_Criterion* {.importcpp: "AdvApp2Var_Criterion",
-                         header: "AdvApp2Var_Criterion.hxx", bycopy.} = object
+  AdvApp2VarCriterion* {.importcpp: "AdvApp2Var_Criterion",
+                        header: "AdvApp2Var_Criterion.hxx", bycopy.} = object
+# 
 
-
-proc destroyAdvApp2Var_Criterion*(this: var AdvApp2Var_Criterion) {.
+proc destroyAdvApp2VarCriterion*(this: var AdvApp2VarCriterion) {.
     importcpp: "#.~AdvApp2Var_Criterion()", header: "AdvApp2Var_Criterion.hxx".}
-proc Value*(this: AdvApp2Var_Criterion; P: var AdvApp2Var_Patch; C: AdvApp2Var_Context) {.
+proc value*(this: AdvApp2VarCriterion; p: var AdvApp2VarPatch; c: AdvApp2VarContext) {.
     noSideEffect, importcpp: "Value", header: "AdvApp2Var_Criterion.hxx".}
-proc IsSatisfied*(this: AdvApp2Var_Criterion; P: AdvApp2Var_Patch): Standard_Boolean {.
-    noSideEffect, importcpp: "IsSatisfied", header: "AdvApp2Var_Criterion.hxx".}
-proc MaxValue*(this: AdvApp2Var_Criterion): Standard_Real {.noSideEffect,
+proc isSatisfied*(this: AdvApp2VarCriterion; p: AdvApp2VarPatch): bool {.noSideEffect,
+    importcpp: "IsSatisfied", header: "AdvApp2Var_Criterion.hxx".}
+proc maxValue*(this: AdvApp2VarCriterion): float {.noSideEffect,
     importcpp: "MaxValue", header: "AdvApp2Var_Criterion.hxx".}
-proc Type*(this: AdvApp2Var_Criterion): AdvApp2Var_CriterionType {.noSideEffect,
+proc `type`*(this: AdvApp2VarCriterion): AdvApp2VarCriterionType {.noSideEffect,
     importcpp: "Type", header: "AdvApp2Var_Criterion.hxx".}
-proc Repartition*(this: AdvApp2Var_Criterion): AdvApp2Var_CriterionRepartition {.
+proc repartition*(this: AdvApp2VarCriterion): AdvApp2VarCriterionRepartition {.
     noSideEffect, importcpp: "Repartition", header: "AdvApp2Var_Criterion.hxx".}
+

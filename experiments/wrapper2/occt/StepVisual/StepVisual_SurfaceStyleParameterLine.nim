@@ -14,63 +14,55 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepVisual_HArray1OfDirectionCountSelect, ../Standard/Standard_Transient,
-  ../Standard/Standard_Integer
-
 discard "forward decl of StepVisual_CurveStyle"
 discard "forward decl of StepVisual_DirectionCountSelect"
 discard "forward decl of StepVisual_SurfaceStyleParameterLine"
 discard "forward decl of StepVisual_SurfaceStyleParameterLine"
 type
-  Handle_StepVisual_SurfaceStyleParameterLine* = handle[
-      StepVisual_SurfaceStyleParameterLine]
-  StepVisual_SurfaceStyleParameterLine* {.
-      importcpp: "StepVisual_SurfaceStyleParameterLine",
-      header: "StepVisual_SurfaceStyleParameterLine.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                           ## !
-                                                                                           ## Returns
-                                                                                           ## a
-                                                                                           ## SurfaceStyleParameterLine
+  HandleStepVisualSurfaceStyleParameterLine* = Handle[
+      StepVisualSurfaceStyleParameterLine]
+  StepVisualSurfaceStyleParameterLine* {.importcpp: "StepVisual_SurfaceStyleParameterLine", header: "StepVisual_SurfaceStyleParameterLine.hxx",
+                                        bycopy.} = object of StandardTransient ## !
+                                                                          ## Returns a
+                                                                          ## SurfaceStyleParameterLine
 
 
-proc constructStepVisual_SurfaceStyleParameterLine*(): StepVisual_SurfaceStyleParameterLine {.
+proc constructStepVisualSurfaceStyleParameterLine*(): StepVisualSurfaceStyleParameterLine {.
     constructor, importcpp: "StepVisual_SurfaceStyleParameterLine(@)",
     header: "StepVisual_SurfaceStyleParameterLine.hxx".}
-proc Init*(this: var StepVisual_SurfaceStyleParameterLine;
-          aStyleOfParameterLines: handle[StepVisual_CurveStyle];
-          aDirectionCounts: handle[StepVisual_HArray1OfDirectionCountSelect]) {.
+proc init*(this: var StepVisualSurfaceStyleParameterLine;
+          aStyleOfParameterLines: Handle[StepVisualCurveStyle];
+          aDirectionCounts: Handle[StepVisualHArray1OfDirectionCountSelect]) {.
     importcpp: "Init", header: "StepVisual_SurfaceStyleParameterLine.hxx".}
-proc SetStyleOfParameterLines*(this: var StepVisual_SurfaceStyleParameterLine;
-    aStyleOfParameterLines: handle[StepVisual_CurveStyle]) {.
+proc setStyleOfParameterLines*(this: var StepVisualSurfaceStyleParameterLine;
+    aStyleOfParameterLines: Handle[StepVisualCurveStyle]) {.
     importcpp: "SetStyleOfParameterLines",
     header: "StepVisual_SurfaceStyleParameterLine.hxx".}
-proc StyleOfParameterLines*(this: StepVisual_SurfaceStyleParameterLine): handle[
-    StepVisual_CurveStyle] {.noSideEffect, importcpp: "StyleOfParameterLines",
-                            header: "StepVisual_SurfaceStyleParameterLine.hxx".}
-proc SetDirectionCounts*(this: var StepVisual_SurfaceStyleParameterLine;
-    aDirectionCounts: handle[StepVisual_HArray1OfDirectionCountSelect]) {.
+proc styleOfParameterLines*(this: StepVisualSurfaceStyleParameterLine): Handle[
+    StepVisualCurveStyle] {.noSideEffect, importcpp: "StyleOfParameterLines",
+                           header: "StepVisual_SurfaceStyleParameterLine.hxx".}
+proc setDirectionCounts*(this: var StepVisualSurfaceStyleParameterLine;
+    aDirectionCounts: Handle[StepVisualHArray1OfDirectionCountSelect]) {.
     importcpp: "SetDirectionCounts",
     header: "StepVisual_SurfaceStyleParameterLine.hxx".}
-proc DirectionCounts*(this: StepVisual_SurfaceStyleParameterLine): handle[
-    StepVisual_HArray1OfDirectionCountSelect] {.noSideEffect,
+proc directionCounts*(this: StepVisualSurfaceStyleParameterLine): Handle[
+    StepVisualHArray1OfDirectionCountSelect] {.noSideEffect,
     importcpp: "DirectionCounts",
     header: "StepVisual_SurfaceStyleParameterLine.hxx".}
-proc DirectionCountsValue*(this: StepVisual_SurfaceStyleParameterLine;
-                          num: Standard_Integer): StepVisual_DirectionCountSelect {.
+proc directionCountsValue*(this: StepVisualSurfaceStyleParameterLine; num: int): StepVisualDirectionCountSelect {.
     noSideEffect, importcpp: "DirectionCountsValue",
     header: "StepVisual_SurfaceStyleParameterLine.hxx".}
-proc NbDirectionCounts*(this: StepVisual_SurfaceStyleParameterLine): Standard_Integer {.
+proc nbDirectionCounts*(this: StepVisualSurfaceStyleParameterLine): int {.
     noSideEffect, importcpp: "NbDirectionCounts",
     header: "StepVisual_SurfaceStyleParameterLine.hxx".}
 type
-  StepVisual_SurfaceStyleParameterLinebase_type* = Standard_Transient
+  StepVisualSurfaceStyleParameterLinebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_SurfaceStyleParameterLine::get_type_name(@)", header: "StepVisual_SurfaceStyleParameterLine.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_SurfaceStyleParameterLine::get_type_name(@)",
+                            header: "StepVisual_SurfaceStyleParameterLine.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_SurfaceStyleParameterLine::get_type_descriptor(@)",
     header: "StepVisual_SurfaceStyleParameterLine.hxx".}
-proc DynamicType*(this: StepVisual_SurfaceStyleParameterLine): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualSurfaceStyleParameterLine): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_SurfaceStyleParameterLine.hxx".}

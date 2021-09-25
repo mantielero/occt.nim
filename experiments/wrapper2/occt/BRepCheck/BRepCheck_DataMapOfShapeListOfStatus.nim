@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, BRepCheck_ListOfStatus,
-  ../TopTools/TopTools_ShapeMapHasher, ../NCollection/NCollection_DataMap
-
 type
-  BRepCheck_DataMapOfShapeListOfStatus* = NCollection_DataMap[TopoDS_Shape,
-      BRepCheck_ListOfStatus, TopTools_ShapeMapHasher]
-  BRepCheck_DataMapIteratorOfDataMapOfShapeListOfStatus* = Iterator[TopoDS_Shape,
-      BRepCheck_ListOfStatus, TopTools_ShapeMapHasher]
+  BRepCheckDataMapOfShapeListOfStatus* = NCollectionDataMap[TopoDS_Shape,
+      BRepCheckListOfStatus, TopToolsShapeMapHasher]
+  BRepCheckDataMapIteratorOfDataMapOfShapeListOfStatus* = Iterator[TopoDS_Shape,
+      BRepCheckListOfStatus, TopToolsShapeMapHasher]
+

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GC_Root, ../Geom/Geom_TrimmedCurve
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Parab"
 discard "forward decl of gp_Pnt"
@@ -51,20 +47,18 @@ type
                                                                                    ## radians).
 
 
-proc constructGC_MakeArcOfParabola*(Parab: gp_Parab; Alpha1: Standard_Real;
-                                   Alpha2: Standard_Real; Sense: Standard_Boolean): GC_MakeArcOfParabola {.
+proc constructGC_MakeArcOfParabola*(parab: Parab; alpha1: float; alpha2: float;
+                                   sense: bool): GC_MakeArcOfParabola {.
     constructor, importcpp: "GC_MakeArcOfParabola(@)",
     header: "GC_MakeArcOfParabola.hxx".}
-proc constructGC_MakeArcOfParabola*(Parab: gp_Parab; P: gp_Pnt; Alpha: Standard_Real;
-                                   Sense: Standard_Boolean): GC_MakeArcOfParabola {.
+proc constructGC_MakeArcOfParabola*(parab: Parab; p: Pnt; alpha: float; sense: bool): GC_MakeArcOfParabola {.
     constructor, importcpp: "GC_MakeArcOfParabola(@)",
     header: "GC_MakeArcOfParabola.hxx".}
-proc constructGC_MakeArcOfParabola*(Parab: gp_Parab; P1: gp_Pnt; P2: gp_Pnt;
-                                   Sense: Standard_Boolean): GC_MakeArcOfParabola {.
+proc constructGC_MakeArcOfParabola*(parab: Parab; p1: Pnt; p2: Pnt; sense: bool): GC_MakeArcOfParabola {.
     constructor, importcpp: "GC_MakeArcOfParabola(@)",
     header: "GC_MakeArcOfParabola.hxx".}
-proc Value*(this: GC_MakeArcOfParabola): handle[Geom_TrimmedCurve] {.noSideEffect,
+proc value*(this: GC_MakeArcOfParabola): Handle[GeomTrimmedCurve] {.noSideEffect,
     importcpp: "Value", header: "GC_MakeArcOfParabola.hxx".}
-converter `constopencascade`*(this: GC_MakeArcOfParabola): handle[Geom_TrimmedCurve] {.
+converter `constopencascade`*(this: GC_MakeArcOfParabola): Handle[GeomTrimmedCurve] {.
     noSideEffect, importcpp: "GC_MakeArcOfParabola::operator constopencascade",
     header: "GC_MakeArcOfParabola.hxx".}

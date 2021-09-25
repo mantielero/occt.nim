@@ -13,45 +13,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer, StepElement_EnumeratedVolumeElementPurpose
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepData_SelectMember"
 discard "forward decl of TCollection_HAsciiString"
 type
-  StepElement_VolumeElementPurpose* {.importcpp: "StepElement_VolumeElementPurpose", header: "StepElement_VolumeElementPurpose.hxx",
-                                     bycopy.} = object of StepData_SelectType ## ! Empty
-                                                                         ## constructor
+  StepElementVolumeElementPurpose* {.importcpp: "StepElement_VolumeElementPurpose", header: "StepElement_VolumeElementPurpose.hxx",
+                                    bycopy.} = object of StepDataSelectType ## ! Empty
+                                                                       ## constructor
 
 
-proc constructStepElement_VolumeElementPurpose*(): StepElement_VolumeElementPurpose {.
+proc constructStepElementVolumeElementPurpose*(): StepElementVolumeElementPurpose {.
     constructor, importcpp: "StepElement_VolumeElementPurpose(@)",
     header: "StepElement_VolumeElementPurpose.hxx".}
-proc CaseNum*(this: StepElement_VolumeElementPurpose;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
-    importcpp: "CaseNum", header: "StepElement_VolumeElementPurpose.hxx".}
-proc CaseMem*(this: StepElement_VolumeElementPurpose;
-             ent: handle[StepData_SelectMember]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepElementVolumeElementPurpose; ent: Handle[StandardTransient]): int {.
+    noSideEffect, importcpp: "CaseNum",
+    header: "StepElement_VolumeElementPurpose.hxx".}
+proc caseMem*(this: StepElementVolumeElementPurpose;
+             ent: Handle[StepDataSelectMember]): int {.noSideEffect,
     importcpp: "CaseMem", header: "StepElement_VolumeElementPurpose.hxx".}
-proc NewMember*(this: StepElement_VolumeElementPurpose): handle[
-    StepData_SelectMember] {.noSideEffect, importcpp: "NewMember",
-                            header: "StepElement_VolumeElementPurpose.hxx".}
-proc SetEnumeratedVolumeElementPurpose*(this: var StepElement_VolumeElementPurpose;
-    aVal: StepElement_EnumeratedVolumeElementPurpose) {.
+proc newMember*(this: StepElementVolumeElementPurpose): Handle[StepDataSelectMember] {.
+    noSideEffect, importcpp: "NewMember",
+    header: "StepElement_VolumeElementPurpose.hxx".}
+proc setEnumeratedVolumeElementPurpose*(this: var StepElementVolumeElementPurpose;
+    aVal: StepElementEnumeratedVolumeElementPurpose) {.
     importcpp: "SetEnumeratedVolumeElementPurpose",
     header: "StepElement_VolumeElementPurpose.hxx".}
-proc EnumeratedVolumeElementPurpose*(this: StepElement_VolumeElementPurpose): StepElement_EnumeratedVolumeElementPurpose {.
+proc enumeratedVolumeElementPurpose*(this: StepElementVolumeElementPurpose): StepElementEnumeratedVolumeElementPurpose {.
     noSideEffect, importcpp: "EnumeratedVolumeElementPurpose",
     header: "StepElement_VolumeElementPurpose.hxx".}
-proc SetApplicationDefinedElementPurpose*(
-    this: var StepElement_VolumeElementPurpose;
-    aVal: handle[TCollection_HAsciiString]) {.
+proc setApplicationDefinedElementPurpose*(
+    this: var StepElementVolumeElementPurpose;
+    aVal: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetApplicationDefinedElementPurpose",
     header: "StepElement_VolumeElementPurpose.hxx".}
-proc ApplicationDefinedElementPurpose*(this: StepElement_VolumeElementPurpose): handle[
-    TCollection_HAsciiString] {.noSideEffect,
-                               importcpp: "ApplicationDefinedElementPurpose",
-                               header: "StepElement_VolumeElementPurpose.hxx".}
+proc applicationDefinedElementPurpose*(this: StepElementVolumeElementPurpose): Handle[
+    TCollectionHAsciiString] {.noSideEffect,
+                              importcpp: "ApplicationDefinedElementPurpose",
+                              header: "StepElement_VolumeElementPurpose.hxx".}

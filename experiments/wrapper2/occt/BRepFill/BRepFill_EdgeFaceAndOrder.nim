@@ -14,23 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Edge, ../TopoDS/TopoDS_Face,
-  ../GeomAbs/GeomAbs_Shape
-
 discard "forward decl of BRepFill_Filling"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
 type
-  BRepFill_EdgeFaceAndOrder* {.importcpp: "BRepFill_EdgeFaceAndOrder",
-                              header: "BRepFill_EdgeFaceAndOrder.hxx", bycopy.} = object
+  BRepFillEdgeFaceAndOrder* {.importcpp: "BRepFill_EdgeFaceAndOrder",
+                             header: "BRepFill_EdgeFaceAndOrder.hxx", bycopy.} = object
 
 
-proc constructBRepFill_EdgeFaceAndOrder*(): BRepFill_EdgeFaceAndOrder {.
-    constructor, importcpp: "BRepFill_EdgeFaceAndOrder(@)",
+proc constructBRepFillEdgeFaceAndOrder*(): BRepFillEdgeFaceAndOrder {.constructor,
+    importcpp: "BRepFill_EdgeFaceAndOrder(@)",
     header: "BRepFill_EdgeFaceAndOrder.hxx".}
-proc constructBRepFill_EdgeFaceAndOrder*(anEdge: TopoDS_Edge; aFace: TopoDS_Face;
-                                        anOrder: GeomAbs_Shape): BRepFill_EdgeFaceAndOrder {.
+proc constructBRepFillEdgeFaceAndOrder*(anEdge: TopoDS_Edge; aFace: TopoDS_Face;
+                                       anOrder: GeomAbsShape): BRepFillEdgeFaceAndOrder {.
     constructor, importcpp: "BRepFill_EdgeFaceAndOrder(@)",
     header: "BRepFill_EdgeFaceAndOrder.hxx".}

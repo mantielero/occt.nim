@@ -14,16 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _BRepExtrema_UnCompatibleShape_HeaderFile [NewLine] # _BRepExtrema_UnCompatibleShape_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_DomainError.hxx [NewLine] class BRepExtrema_UnCompatibleShape ;
+## !!!Ignored construct:  # _BRepExtrema_UnCompatibleShape_HeaderFile [NewLine] # _BRepExtrema_UnCompatibleShape_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class BRepExtrema_UnCompatibleShape ;
 ## Error: expected ';'!!!
 
 discard "forward decl of BRepExtrema_UnCompatibleShape"
 type
-  Handle_BRepExtrema_UnCompatibleShapeBRepExtrema_UnCompatibleShape* = handle[
-      BRepExtrema_UnCompatibleShape]
+  HandleBRepExtremaUnCompatibleShapeBRepExtremaUnCompatibleShape* = Handle[
+      BRepExtremaUnCompatibleShape]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_BRepExtrema_UnCompatibleShape [NewLine] # if ( CONDITION ) throw BRepExtrema_UnCompatibleShape ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( BRepExtrema_UnCompatibleShape , Standard_DomainError ) #  _BRepExtrema_UnCompatibleShape_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( BRepExtrema_UnCompatibleShape , Standard_DomainError ) #  _BRepExtrema_UnCompatibleShape_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

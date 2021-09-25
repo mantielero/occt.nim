@@ -17,13 +17,14 @@
 ## ! Identifies the type of resulting edge of HLRBRep_Algo
 
 type
-  HLRBRep_TypeOfResultingEdge* {.size: sizeof(cint),
-                                importcpp: "HLRBRep_TypeOfResultingEdge",
-                                header: "HLRBRep_TypeOfResultingEdge.hxx".} = enum
-    HLRBRep_Undefined,        ## ! isoparametric line
-    HLRBRep_IsoLine,          ## ! outline ("silhouette")
-    HLRBRep_OutLine,          ## ! smooth edge of G1-continuity between two surfaces
-    HLRBRep_Rg1Line,          ## ! sewn edge of CN-continuity on one surface
-    HLRBRep_RgNLine,          ## ! sharp edge (of C0-continuity)
-    HLRBRep_Sharp
+  HLRBRepTypeOfResultingEdge* {.size: sizeof(cint),
+                               importcpp: "HLRBRep_TypeOfResultingEdge",
+                               header: "HLRBRep_TypeOfResultingEdge.hxx".} = enum
+    HLRBRepUndefined,         ## ! isoparametric line
+    HLRBRepIsoLine,           ## ! outline ("silhouette")
+    HLRBRepOutLine,           ## ! smooth edge of G1-continuity between two surfaces
+    HLRBRepRg1Line,           ## ! sewn edge of CN-continuity on one surface
+    HLRBRepRgNLine,           ## ! sharp edge (of C0-continuity)
+    HLRBRepSharp
+
 

@@ -14,54 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  BRepCheck_Status, ../TopTools/TopTools_DataMapOfShapeListOfShape,
-  BRepCheck_Result
-
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepCheck_Face"
 discard "forward decl of BRepCheck_Face"
 type
-  Handle_BRepCheck_Face* = handle[BRepCheck_Face]
-  BRepCheck_Face* {.importcpp: "BRepCheck_Face", header: "BRepCheck_Face.hxx", bycopy.} = object of BRepCheck_Result
+  HandleBRepCheckFace* = Handle[BRepCheckFace]
+  BRepCheckFace* {.importcpp: "BRepCheck_Face", header: "BRepCheck_Face.hxx", bycopy.} = object of BRepCheckResult
 
 
-proc constructBRepCheck_Face*(F: TopoDS_Face): BRepCheck_Face {.constructor,
+proc constructBRepCheckFace*(f: TopoDS_Face): BRepCheckFace {.constructor,
     importcpp: "BRepCheck_Face(@)", header: "BRepCheck_Face.hxx".}
-proc InContext*(this: var BRepCheck_Face; ContextShape: TopoDS_Shape) {.
+proc inContext*(this: var BRepCheckFace; contextShape: TopoDS_Shape) {.
     importcpp: "InContext", header: "BRepCheck_Face.hxx".}
-proc Minimum*(this: var BRepCheck_Face) {.importcpp: "Minimum",
-                                      header: "BRepCheck_Face.hxx".}
-proc Blind*(this: var BRepCheck_Face) {.importcpp: "Blind",
-                                    header: "BRepCheck_Face.hxx".}
-proc IntersectWires*(this: var BRepCheck_Face;
-                    Update: Standard_Boolean = Standard_False): BRepCheck_Status {.
+proc minimum*(this: var BRepCheckFace) {.importcpp: "Minimum",
+                                     header: "BRepCheck_Face.hxx".}
+proc blind*(this: var BRepCheckFace) {.importcpp: "Blind",
+                                   header: "BRepCheck_Face.hxx".}
+proc intersectWires*(this: var BRepCheckFace; update: bool = false): BRepCheckStatus {.
     importcpp: "IntersectWires", header: "BRepCheck_Face.hxx".}
-proc ClassifyWires*(this: var BRepCheck_Face;
-                   Update: Standard_Boolean = Standard_False): BRepCheck_Status {.
+proc classifyWires*(this: var BRepCheckFace; update: bool = false): BRepCheckStatus {.
     importcpp: "ClassifyWires", header: "BRepCheck_Face.hxx".}
-proc OrientationOfWires*(this: var BRepCheck_Face;
-                        Update: Standard_Boolean = Standard_False): BRepCheck_Status {.
+proc orientationOfWires*(this: var BRepCheckFace; update: bool = false): BRepCheckStatus {.
     importcpp: "OrientationOfWires", header: "BRepCheck_Face.hxx".}
-proc SetUnorientable*(this: var BRepCheck_Face) {.importcpp: "SetUnorientable",
+proc setUnorientable*(this: var BRepCheckFace) {.importcpp: "SetUnorientable",
     header: "BRepCheck_Face.hxx".}
-proc SetStatus*(this: var BRepCheck_Face; theStatus: BRepCheck_Status) {.
+proc setStatus*(this: var BRepCheckFace; theStatus: BRepCheckStatus) {.
     importcpp: "SetStatus", header: "BRepCheck_Face.hxx".}
-proc IsUnorientable*(this: BRepCheck_Face): Standard_Boolean {.noSideEffect,
+proc isUnorientable*(this: BRepCheckFace): bool {.noSideEffect,
     importcpp: "IsUnorientable", header: "BRepCheck_Face.hxx".}
-proc GeometricControls*(this: BRepCheck_Face): Standard_Boolean {.noSideEffect,
+proc geometricControls*(this: BRepCheckFace): bool {.noSideEffect,
     importcpp: "GeometricControls", header: "BRepCheck_Face.hxx".}
-proc GeometricControls*(this: var BRepCheck_Face; B: Standard_Boolean) {.
+proc geometricControls*(this: var BRepCheckFace; b: bool) {.
     importcpp: "GeometricControls", header: "BRepCheck_Face.hxx".}
 type
-  BRepCheck_Facebase_type* = BRepCheck_Result
+  BRepCheckFacebaseType* = BRepCheckResult
 
-proc get_type_name*(): cstring {.importcpp: "BRepCheck_Face::get_type_name(@)",
-                              header: "BRepCheck_Face.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepCheck_Face::get_type_name(@)",
+                            header: "BRepCheck_Face.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepCheck_Face::get_type_descriptor(@)",
     header: "BRepCheck_Face.hxx".}
-proc DynamicType*(this: BRepCheck_Face): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: BRepCheckFace): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepCheck_Face.hxx".}

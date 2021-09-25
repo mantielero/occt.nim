@@ -13,7 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _BVH_Box_Header [NewLine] # _BVH_Box_Header [NewLine] # BVH_Constants.hxx [NewLine] # BVH_Types.hxx [NewLine] # ../Standard/Standard_Macro.hxx [NewLine] # ../Standard/Standard_Dump.hxx [NewLine] # ../Standard/Standard_ShortReal.hxx [NewLine] # < limits > [NewLine] ! Base class for BVH_Box (CRTP idiom is used).
+## !!!Ignored construct:  # _BVH_Box_Header [NewLine] # _BVH_Box_Header [NewLine] # < BVH_Constants . hxx > [NewLine] # < BVH_Types . hxx > [NewLine] # < Standard_Macro . hxx > [NewLine] # < Standard_Dump . hxx > [NewLine] # < Standard_ShortReal . hxx > [NewLine] # < limits > [NewLine] ! Base class for BVH_Box (CRTP idiom is used).
 ## ! @tparam T             Numeric data type
 ## ! @tparam N             Vector dimension
 ## ! @tparam TheDerivedBox Template of derived class that defined axis aligned bounding box. template < class T , int N , template < class T , int N > class TheDerivedBox > [end of template] class BVH_BaseBox { } ;
@@ -53,59 +53,58 @@ proc constructBVH_BaseBoxBVH_Box*[T; N: static[cint]](
     theMaxPoint: BVH_BaseBoxBVH_BoxBVH_VecNt): BVH_BaseBoxBVH_Box[T, N] {.
     constructor, importcpp: "BVH_BaseBox<\'*0>::BVH_Box<\'*1,\'*2>(@)",
     header: "BVH_Box.hxx".}
-proc Clear*[T; N: static[cint]](this: var BVH_BaseBoxBVH_Box[T, N]) {.
+proc clear*[T; N: static[cint]](this: var BVH_BaseBoxBVH_Box[T, N]) {.
     importcpp: "Clear", header: "BVH_Box.hxx".}
-proc IsValid*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N]): Standard_Boolean {.
-    noSideEffect, importcpp: "IsValid", header: "BVH_Box.hxx".}
-proc Add*[T; N: static[cint]](this: var BVH_BaseBoxBVH_Box[T, N];
+proc isValid*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N]): bool {.noSideEffect,
+    importcpp: "IsValid", header: "BVH_Box.hxx".}
+proc add*[T; N: static[cint]](this: var BVH_BaseBoxBVH_Box[T, N];
                            thePoint: BVH_BaseBoxBVH_BoxBVH_VecNt) {.
     importcpp: "Add", header: "BVH_Box.hxx".}
-proc Combine*[T; N: static[cint]](this: var BVH_BaseBoxBVH_Box[T, N];
+proc combine*[T; N: static[cint]](this: var BVH_BaseBoxBVH_Box[T, N];
                                theBox: BVH_BaseBoxBVH_Box) {.importcpp: "Combine",
     header: "BVH_Box.hxx".}
-proc CornerMin*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N]): BVH_BaseBoxBVH_BoxBVH_VecNt {.
+proc cornerMin*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N]): BVH_BaseBoxBVH_BoxBVH_VecNt {.
     noSideEffect, importcpp: "CornerMin", header: "BVH_Box.hxx".}
-proc CornerMax*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N]): BVH_BaseBoxBVH_BoxBVH_VecNt {.
+proc cornerMax*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N]): BVH_BaseBoxBVH_BoxBVH_VecNt {.
     noSideEffect, importcpp: "CornerMax", header: "BVH_Box.hxx".}
-proc CornerMin*[T; N: static[cint]](this: var BVH_BaseBoxBVH_Box[T, N]): var BVH_BaseBoxBVH_BoxBVH_VecNt {.
+proc cornerMin*[T; N: static[cint]](this: var BVH_BaseBoxBVH_Box[T, N]): var BVH_BaseBoxBVH_BoxBVH_VecNt {.
     importcpp: "CornerMin", header: "BVH_Box.hxx".}
-proc CornerMax*[T; N: static[cint]](this: var BVH_BaseBoxBVH_Box[T, N]): var BVH_BaseBoxBVH_BoxBVH_VecNt {.
+proc cornerMax*[T; N: static[cint]](this: var BVH_BaseBoxBVH_Box[T, N]): var BVH_BaseBoxBVH_BoxBVH_VecNt {.
     importcpp: "CornerMax", header: "BVH_Box.hxx".}
-proc Area*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N]): T {.noSideEffect,
+proc area*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N]): T {.noSideEffect,
     importcpp: "Area", header: "BVH_Box.hxx".}
-proc Size*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N]): BVH_BaseBoxBVH_BoxBVH_VecNt {.
+proc size*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N]): BVH_BaseBoxBVH_BoxBVH_VecNt {.
     noSideEffect, importcpp: "Size", header: "BVH_Box.hxx".}
-proc Center*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N]): BVH_BaseBoxBVH_BoxBVH_VecNt {.
+proc center*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N]): BVH_BaseBoxBVH_BoxBVH_VecNt {.
     noSideEffect, importcpp: "Center", header: "BVH_Box.hxx".}
-proc Center*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N];
-                              theAxis: Standard_Integer): T {.noSideEffect,
-    importcpp: "Center", header: "BVH_Box.hxx".}
-proc DumpJson*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N];
-                                theOStream: var Standard_OStream;
-                                theDepth: Standard_Integer = -1) {.noSideEffect,
+proc center*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N]; theAxis: int): T {.
+    noSideEffect, importcpp: "Center", header: "BVH_Box.hxx".}
+proc dumpJson*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N];
+                                theOStream: var StandardOStream;
+                                theDepth: int = -1) {.noSideEffect,
     importcpp: "DumpJson", header: "BVH_Box.hxx".}
-proc InitFromJson*[T; N: static[cint]](this: var BVH_BaseBoxBVH_Box[T, N];
-                                    theSStream: Standard_SStream;
-                                    theStreamPos: var Standard_Integer): Standard_Boolean {.
+proc initFromJson*[T; N: static[cint]](this: var BVH_BaseBoxBVH_Box[T, N];
+                                    theSStream: StandardSStream;
+                                    theStreamPos: var int): bool {.
     importcpp: "InitFromJson", header: "BVH_Box.hxx".}
-proc IsOut*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N];
-                             theOther: BVH_BaseBoxBVH_Box[T, N]): Standard_Boolean {.
+proc isOut*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N];
+                             theOther: BVH_BaseBoxBVH_Box[T, N]): bool {.
     noSideEffect, importcpp: "IsOut", header: "BVH_Box.hxx".}
-proc IsOut*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N];
+proc isOut*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N];
                              theMinPoint: BVH_BaseBoxBVH_BoxBVH_VecNt;
-                             theMaxPoint: BVH_BaseBoxBVH_BoxBVH_VecNt): Standard_Boolean {.
+                             theMaxPoint: BVH_BaseBoxBVH_BoxBVH_VecNt): bool {.
     noSideEffect, importcpp: "IsOut", header: "BVH_Box.hxx".}
-proc Contains*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N];
+proc contains*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N];
                                 theOther: BVH_BaseBoxBVH_Box[T, N];
-                                hasOverlap: var Standard_Boolean): Standard_Boolean {.
-    noSideEffect, importcpp: "Contains", header: "BVH_Box.hxx".}
-proc Contains*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N];
+                                hasOverlap: var bool): bool {.noSideEffect,
+    importcpp: "Contains", header: "BVH_Box.hxx".}
+proc contains*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N];
                                 theMinPoint: BVH_BaseBoxBVH_BoxBVH_VecNt;
                                 theMaxPoint: BVH_BaseBoxBVH_BoxBVH_VecNt;
-                                hasOverlap: var Standard_Boolean): Standard_Boolean {.
-    noSideEffect, importcpp: "Contains", header: "BVH_Box.hxx".}
-proc IsOut*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N];
-                             thePoint: BVH_BaseBoxBVH_BoxBVH_VecNt): Standard_Boolean {.
+                                hasOverlap: var bool): bool {.noSideEffect,
+    importcpp: "Contains", header: "BVH_Box.hxx".}
+proc isOut*[T; N: static[cint]](this: BVH_BaseBoxBVH_Box[T, N];
+                             thePoint: BVH_BaseBoxBVH_BoxBVH_VecNt): bool {.
     noSideEffect, importcpp: "IsOut", header: "BVH_Box.hxx".}
 ## ! Tool class for calculating box center along the given axis.
 ## ! \tparam T Numeric data type
@@ -157,10 +156,10 @@ type
   BVH_BaseBoxCenterAxisCenterAxisCenterAxisSurfaceCalculatorSurfaceCalculatorSurfaceCalculatorBoxMinMaxBVH_VecNt*[
       T; N] = Type[T, N]
 
-proc CwiseMin*[T; N: static[cint]](theVec1: var BVH_BaseBoxCenterAxisCenterAxisCenterAxisSurfaceCalculatorSurfaceCalculatorSurfaceCalculatorBoxMinMaxBVH_VecNt;
+proc cwiseMin*[T; N: static[cint]](theVec1: var BVH_BaseBoxCenterAxisCenterAxisCenterAxisSurfaceCalculatorSurfaceCalculatorSurfaceCalculatorBoxMinMaxBVH_VecNt;
     theVec2: BVH_BaseBoxCenterAxisCenterAxisCenterAxisSurfaceCalculatorSurfaceCalculatorSurfaceCalculatorBoxMinMaxBVH_VecNt) {.
     importcpp: "BVH::BoxMinMax::CwiseMin(@)", header: "BVH_Box.hxx".}
-proc CwiseMax*[T; N: static[cint]](theVec1: var BVH_BaseBoxCenterAxisCenterAxisCenterAxisSurfaceCalculatorSurfaceCalculatorSurfaceCalculatorBoxMinMaxBVH_VecNt;
+proc cwiseMax*[T; N: static[cint]](theVec1: var BVH_BaseBoxCenterAxisCenterAxisCenterAxisSurfaceCalculatorSurfaceCalculatorSurfaceCalculatorBoxMinMaxBVH_VecNt;
     theVec2: BVH_BaseBoxCenterAxisCenterAxisCenterAxisSurfaceCalculatorSurfaceCalculatorSurfaceCalculatorBoxMinMaxBVH_VecNt) {.
     importcpp: "BVH::BoxMinMax::CwiseMax(@)", header: "BVH_Box.hxx".}
 ## !!!Ignored construct:  template < class T > [end of template] struct BoxMinMax < T , 2 > { typedef typename BVH :: VectorType < T , 2 > :: Type BVH_VecNt ; static void CwiseMin ( BVH_VecNt & theVec1 , const BVH_VecNt & theVec2 ) { theVec1 . x ( ) = Min ( theVec1 . x ( ) , theVec2 . x ( ) ) ; theVec1 . y ( ) = Min ( theVec1 . y ( ) , theVec2 . y ( ) ) ; } static void CwiseMax ( BVH_VecNt & theVec1 , const BVH_VecNt & theVec2 ) { theVec1 . x ( ) = Max ( theVec1 . x ( ) , theVec2 . x ( ) ) ; theVec1 . y ( ) = Max ( theVec1 . y ( ) , theVec2 . y ( ) ) ; } } ;
@@ -177,5 +176,6 @@ proc CwiseMax*[T; N: static[cint]](theVec1: var BVH_BaseBoxCenterAxisCenterAxisC
 ##  ======================================================================= template < class T , int N > T BVH_Box < T , N > :: Area ( ) const { return ! myIsInited ? static_cast < T > ( 0.0 ) : BVH :: SurfaceCalculator < T , N > :: Area ( myMaxPoint - myMinPoint ) ; }  =======================================================================
 ##  function : Center
 ##  purpose  :
-##  ======================================================================= template < class T , int N > T BVH_Box < T , N > :: Center ( const Standard_Integer theAxis ) const { return BVH :: CenterAxis < T , N > :: Center ( * this , theAxis ) ; } #  _BVH_Box_Header [NewLine]
+##  ======================================================================= template < class T , int N > T BVH_Box < T , N > :: Center ( const Standard_Integer theAxis ) const { return BVH :: CenterAxis < T , N > :: Center ( * this , theAxis ) ; } #  _BVH_Box_Header
 ## Error: token expected: ; but got: <!!!
+

@@ -11,42 +11,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  gp_Quaternion
-
 ## ! Class perform linear interpolation (approximate rotation interpolation),
 ## ! result quaternion nonunit, its length lay between. sqrt(2)/2  and 1.0
 
 type
-  gp_QuaternionNLerp* {.importcpp: "gp_QuaternionNLerp",
-                       header: "gp_QuaternionNLerp.hxx", bycopy.} = object ## ! Compute
-                                                                      ## interpolated quaternion between two
-                                                                      ## quaternions.
-                                                                      ## ! @param theStart first  quaternion
-                                                                      ## ! @param theEnd   second quaternion
-                                                                      ## ! @param theT normalized
-                                                                      ## interpolation
-                                                                      ## coefficient within 0..1 range,
-                                                                      ## !             with 0 pointing to theStart and 1 to theEnd.
-                                                                      ## ! Empty
-                                                                      ## constructor,
+  QuaternionNLerp* {.importcpp: "gp_QuaternionNLerp",
+                    header: "gp_QuaternionNLerp.hxx", bycopy.} = object ## ! Compute interpolated quaternion between two quaternions.
+                                                                   ## ! @param theStart first  quaternion
+                                                                   ## ! @param theEnd   second quaternion
+                                                                   ## ! @param theT normalized interpolation coefficient within 0..1 range,
+                                                                   ## !             with 0 pointing to theStart and 1 to theEnd.
+                                                                   ## ! Empty constructor,
 
 
-proc Interpolate*(theQStart: gp_Quaternion; theQEnd: gp_Quaternion;
-                 theT: Standard_Real): gp_Quaternion {.
+proc interpolate*(theQStart: Quaternion; theQEnd: Quaternion; theT: float): Quaternion {.
     importcpp: "gp_QuaternionNLerp::Interpolate(@)",
     header: "gp_QuaternionNLerp.hxx".}
-proc constructgp_QuaternionNLerp*(): gp_QuaternionNLerp {.constructor,
+proc constructQuaternionNLerp*(): QuaternionNLerp {.constructor,
     importcpp: "gp_QuaternionNLerp(@)", header: "gp_QuaternionNLerp.hxx".}
-proc constructgp_QuaternionNLerp*(theQStart: gp_Quaternion; theQEnd: gp_Quaternion): gp_QuaternionNLerp {.
+proc constructQuaternionNLerp*(theQStart: Quaternion; theQEnd: Quaternion): QuaternionNLerp {.
     constructor, importcpp: "gp_QuaternionNLerp(@)",
     header: "gp_QuaternionNLerp.hxx".}
-proc Init*(this: var gp_QuaternionNLerp; theQStart: gp_Quaternion;
-          theQEnd: gp_Quaternion) {.importcpp: "Init",
-                                  header: "gp_QuaternionNLerp.hxx".}
-proc InitFromUnit*(this: var gp_QuaternionNLerp; theQStart: gp_Quaternion;
-                  theQEnd: gp_Quaternion) {.importcpp: "InitFromUnit",
-    header: "gp_QuaternionNLerp.hxx".}
-proc Interpolate*(this: gp_QuaternionNLerp; theT: Standard_Real;
-                 theResultQ: var gp_Quaternion) {.noSideEffect,
-    importcpp: "Interpolate", header: "gp_QuaternionNLerp.hxx".}
+proc init*(this: var QuaternionNLerp; theQStart: Quaternion; theQEnd: Quaternion) {.
+    importcpp: "Init", header: "gp_QuaternionNLerp.hxx".}
+proc initFromUnit*(this: var QuaternionNLerp; theQStart: Quaternion;
+                  theQEnd: Quaternion) {.importcpp: "InitFromUnit",
+                                       header: "gp_QuaternionNLerp.hxx".}
+proc interpolate*(this: QuaternionNLerp; theT: float; theResultQ: var Quaternion) {.
+    noSideEffect, importcpp: "Interpolate", header: "gp_QuaternionNLerp.hxx".}

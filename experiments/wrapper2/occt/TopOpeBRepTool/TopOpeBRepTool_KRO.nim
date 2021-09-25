@@ -15,17 +15,13 @@
 ##  commercial license or contractual agreement.
 
 when defined(OCCT_DEBUG):
-  import
-    ../OSD/OSD_Chronometer, ../TCollection/TCollection_AsciiString,
-    ../Standard/Standard_OStream
-
   ##  POP pour NT
   type
-    TOPKRO* {.importcpp: "TOPKRO", header: "TopOpeBRepTool_KRO.hxx", bycopy.} = object of OSD_Chronometer
+    Topkro* {.importcpp: "TOPKRO", header: "TopOpeBRepTool_KRO.hxx", bycopy.} = object of OSD_Chronometer
 
-  proc constructTOPKRO*(n: TCollection_AsciiString): TOPKRO {.constructor,
+  proc constructTopkro*(n: TCollectionAsciiString): Topkro {.constructor,
       importcpp: "TOPKRO(@)", header: "TopOpeBRepTool_KRO.hxx".}
-  proc Start*(this: var TOPKRO) {.importcpp: "Start", header: "TopOpeBRepTool_KRO.hxx".}
-  proc Stop*(this: var TOPKRO) {.importcpp: "Stop", header: "TopOpeBRepTool_KRO.hxx".}
-  proc Print*(this: var TOPKRO; OS: var Standard_OStream) {.importcpp: "Print",
+  proc start*(this: var Topkro) {.importcpp: "Start", header: "TopOpeBRepTool_KRO.hxx".}
+  proc stop*(this: var Topkro) {.importcpp: "Stop", header: "TopOpeBRepTool_KRO.hxx".}
+  proc print*(this: var Topkro; os: var StandardOStream) {.importcpp: "Print",
       header: "TopOpeBRepTool_KRO.hxx".}

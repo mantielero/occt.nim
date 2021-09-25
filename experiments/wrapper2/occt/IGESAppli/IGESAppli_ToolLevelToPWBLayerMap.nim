@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESAppli_LevelToPWBLayerMap"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,40 +26,41 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESAppli_ToolLevelToPWBLayerMap* {.importcpp: "IGESAppli_ToolLevelToPWBLayerMap", header: "IGESAppli_ToolLevelToPWBLayerMap.hxx",
-                                     bycopy.} = object ## ! Returns a ToolLevelToPWBLayerMap, ready to work
+  IGESAppliToolLevelToPWBLayerMap* {.importcpp: "IGESAppli_ToolLevelToPWBLayerMap", header: "IGESAppli_ToolLevelToPWBLayerMap.hxx",
+                                    bycopy.} = object ## ! Returns a ToolLevelToPWBLayerMap, ready to work
 
 
-proc constructIGESAppli_ToolLevelToPWBLayerMap*(): IGESAppli_ToolLevelToPWBLayerMap {.
+proc constructIGESAppliToolLevelToPWBLayerMap*(): IGESAppliToolLevelToPWBLayerMap {.
     constructor, importcpp: "IGESAppli_ToolLevelToPWBLayerMap(@)",
     header: "IGESAppli_ToolLevelToPWBLayerMap.hxx".}
-proc ReadOwnParams*(this: IGESAppli_ToolLevelToPWBLayerMap;
-                   ent: handle[IGESAppli_LevelToPWBLayerMap];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESAppli_ToolLevelToPWBLayerMap.hxx".}
-proc WriteOwnParams*(this: IGESAppli_ToolLevelToPWBLayerMap;
-                    ent: handle[IGESAppli_LevelToPWBLayerMap];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESAppliToolLevelToPWBLayerMap;
+                   ent: Handle[IGESAppliLevelToPWBLayerMap];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESAppli_ToolLevelToPWBLayerMap.hxx".}
+proc writeOwnParams*(this: IGESAppliToolLevelToPWBLayerMap;
+                    ent: Handle[IGESAppliLevelToPWBLayerMap];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESAppli_ToolLevelToPWBLayerMap.hxx".}
-proc OwnShared*(this: IGESAppli_ToolLevelToPWBLayerMap;
-               ent: handle[IGESAppli_LevelToPWBLayerMap];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESAppliToolLevelToPWBLayerMap;
+               ent: Handle[IGESAppliLevelToPWBLayerMap];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESAppli_ToolLevelToPWBLayerMap.hxx".}
-proc DirChecker*(this: IGESAppli_ToolLevelToPWBLayerMap;
-                ent: handle[IGESAppli_LevelToPWBLayerMap]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESAppliToolLevelToPWBLayerMap;
+                ent: Handle[IGESAppliLevelToPWBLayerMap]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESAppli_ToolLevelToPWBLayerMap.hxx".}
-proc OwnCheck*(this: IGESAppli_ToolLevelToPWBLayerMap;
-              ent: handle[IGESAppli_LevelToPWBLayerMap];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESAppliToolLevelToPWBLayerMap;
+              ent: Handle[IGESAppliLevelToPWBLayerMap];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck",
     header: "IGESAppli_ToolLevelToPWBLayerMap.hxx".}
-proc OwnCopy*(this: IGESAppli_ToolLevelToPWBLayerMap;
-             entfrom: handle[IGESAppli_LevelToPWBLayerMap];
-             entto: handle[IGESAppli_LevelToPWBLayerMap];
-             TC: var Interface_CopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESAppli_ToolLevelToPWBLayerMap.hxx".}
-proc OwnDump*(this: IGESAppli_ToolLevelToPWBLayerMap;
-             ent: handle[IGESAppli_LevelToPWBLayerMap];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump", header: "IGESAppli_ToolLevelToPWBLayerMap.hxx".}
+proc ownCopy*(this: IGESAppliToolLevelToPWBLayerMap;
+             entfrom: Handle[IGESAppliLevelToPWBLayerMap];
+             entto: Handle[IGESAppliLevelToPWBLayerMap]; tc: var InterfaceCopyTool) {.
+    noSideEffect, importcpp: "OwnCopy",
+    header: "IGESAppli_ToolLevelToPWBLayerMap.hxx".}
+proc ownDump*(this: IGESAppliToolLevelToPWBLayerMap;
+             ent: Handle[IGESAppliLevelToPWBLayerMap]; dumper: IGESDataIGESDumper;
+             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+    header: "IGESAppli_ToolLevelToPWBLayerMap.hxx".}

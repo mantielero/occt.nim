@@ -13,31 +13,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_DerivedShapeAspect
-
 discard "forward decl of StepRepr_CentreOfSymmetry"
 discard "forward decl of StepRepr_CentreOfSymmetry"
 type
-  Handle_StepRepr_CentreOfSymmetry* = handle[StepRepr_CentreOfSymmetry]
+  HandleStepReprCentreOfSymmetry* = Handle[StepReprCentreOfSymmetry]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepRepr_CentreOfSymmetry* {.importcpp: "StepRepr_CentreOfSymmetry",
-                              header: "StepRepr_CentreOfSymmetry.hxx", bycopy.} = object of StepRepr_DerivedShapeAspect
+  StepReprCentreOfSymmetry* {.importcpp: "StepRepr_CentreOfSymmetry",
+                             header: "StepRepr_CentreOfSymmetry.hxx", bycopy.} = object of StepReprDerivedShapeAspect
 
 
-proc constructStepRepr_CentreOfSymmetry*(): StepRepr_CentreOfSymmetry {.
-    constructor, importcpp: "StepRepr_CentreOfSymmetry(@)",
+proc constructStepReprCentreOfSymmetry*(): StepReprCentreOfSymmetry {.constructor,
+    importcpp: "StepRepr_CentreOfSymmetry(@)",
     header: "StepRepr_CentreOfSymmetry.hxx".}
 type
-  StepRepr_CentreOfSymmetrybase_type* = StepRepr_DerivedShapeAspect
+  StepReprCentreOfSymmetrybaseType* = StepReprDerivedShapeAspect
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_CentreOfSymmetry::get_type_name(@)",
-                              header: "StepRepr_CentreOfSymmetry.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_CentreOfSymmetry::get_type_name(@)",
+                            header: "StepRepr_CentreOfSymmetry.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_CentreOfSymmetry::get_type_descriptor(@)",
     header: "StepRepr_CentreOfSymmetry.hxx".}
-proc DynamicType*(this: StepRepr_CentreOfSymmetry): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprCentreOfSymmetry): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepRepr_CentreOfSymmetry.hxx".}

@@ -11,11 +11,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Geom/Geom_Point, ../Prs3d/Prs3d_Point, ../Prs3d/Prs3d_Drawer,
-  ../Prs3d/Prs3d_Presentation, StdPrs_ToolPoint
-
 ## computes the presentation of objects to be seen as points.
 
 type
-  StdPrs_Point* = Prs3d_Point[handle[Geom_Point], StdPrs_ToolPoint]
+  StdPrsPoint* = Prs3dPoint[Handle[GeomPoint], StdPrsToolPoint]
+

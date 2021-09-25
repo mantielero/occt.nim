@@ -13,13 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../XmlObjMgt/XmlObjMgt_RRelocationTable,
-  ../TCollection/TCollection_ExtendedString, ../PCDM/PCDM_RetrievalDriver,
-  ../XmlObjMgt/XmlObjMgt_Element, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../Storage/Storage_Data
-
 discard "forward decl of XmlMDF_ADriverTable"
 discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of PCDM_Document"
@@ -30,41 +23,41 @@ discard "forward decl of XmlMDF_ADriver"
 discard "forward decl of XmlLDrivers_DocumentRetrievalDriver"
 discard "forward decl of XmlLDrivers_DocumentRetrievalDriver"
 type
-  Handle_XmlLDrivers_DocumentRetrievalDriver* = handle[
-      XmlLDrivers_DocumentRetrievalDriver]
-  XmlLDrivers_DocumentRetrievalDriver* {.importcpp: "XmlLDrivers_DocumentRetrievalDriver", header: "XmlLDrivers_DocumentRetrievalDriver.hxx",
-                                        bycopy.} = object of PCDM_RetrievalDriver
+  HandleXmlLDriversDocumentRetrievalDriver* = Handle[
+      XmlLDriversDocumentRetrievalDriver]
+  XmlLDriversDocumentRetrievalDriver* {.importcpp: "XmlLDrivers_DocumentRetrievalDriver", header: "XmlLDrivers_DocumentRetrievalDriver.hxx",
+                                       bycopy.} = object of PCDM_RetrievalDriver
 
 
-proc constructXmlLDrivers_DocumentRetrievalDriver*(): XmlLDrivers_DocumentRetrievalDriver {.
+proc constructXmlLDriversDocumentRetrievalDriver*(): XmlLDriversDocumentRetrievalDriver {.
     constructor, importcpp: "XmlLDrivers_DocumentRetrievalDriver(@)",
     header: "XmlLDrivers_DocumentRetrievalDriver.hxx".}
-proc CreateDocument*(this: var XmlLDrivers_DocumentRetrievalDriver): handle[
+proc createDocument*(this: var XmlLDriversDocumentRetrievalDriver): Handle[
     CDM_Document] {.importcpp: "CreateDocument",
                    header: "XmlLDrivers_DocumentRetrievalDriver.hxx".}
-proc Read*(this: var XmlLDrivers_DocumentRetrievalDriver;
-          theFileName: TCollection_ExtendedString;
-          theNewDocument: handle[CDM_Document];
-          theApplication: handle[CDM_Application];
-          theRange: Message_ProgressRange = Message_ProgressRange()) {.
+proc read*(this: var XmlLDriversDocumentRetrievalDriver;
+          theFileName: TCollectionExtendedString;
+          theNewDocument: Handle[CDM_Document];
+          theApplication: Handle[CDM_Application];
+          theRange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Read", header: "XmlLDrivers_DocumentRetrievalDriver.hxx".}
-proc Read*(this: var XmlLDrivers_DocumentRetrievalDriver;
-          theIStream: var Standard_IStream; theStorageData: handle[Storage_Data];
-          theDoc: handle[CDM_Document]; theApplication: handle[CDM_Application];
-          theRange: Message_ProgressRange = Message_ProgressRange()) {.
+proc read*(this: var XmlLDriversDocumentRetrievalDriver;
+          theIStream: var StandardIStream; theStorageData: Handle[StorageData];
+          theDoc: Handle[CDM_Document]; theApplication: Handle[CDM_Application];
+          theRange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Read", header: "XmlLDrivers_DocumentRetrievalDriver.hxx".}
-proc AttributeDrivers*(this: var XmlLDrivers_DocumentRetrievalDriver;
-                      theMsgDriver: handle[Message_Messenger]): handle[
+proc attributeDrivers*(this: var XmlLDriversDocumentRetrievalDriver;
+                      theMsgDriver: Handle[MessageMessenger]): Handle[
     XmlMDF_ADriverTable] {.importcpp: "AttributeDrivers",
                           header: "XmlLDrivers_DocumentRetrievalDriver.hxx".}
 type
-  XmlLDrivers_DocumentRetrievalDriverbase_type* = PCDM_RetrievalDriver
+  XmlLDriversDocumentRetrievalDriverbaseType* = PCDM_RetrievalDriver
 
-proc get_type_name*(): cstring {.importcpp: "XmlLDrivers_DocumentRetrievalDriver::get_type_name(@)",
-                              header: "XmlLDrivers_DocumentRetrievalDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XmlLDrivers_DocumentRetrievalDriver::get_type_name(@)",
+                            header: "XmlLDrivers_DocumentRetrievalDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XmlLDrivers_DocumentRetrievalDriver::get_type_descriptor(@)",
     header: "XmlLDrivers_DocumentRetrievalDriver.hxx".}
-proc DynamicType*(this: XmlLDrivers_DocumentRetrievalDriver): handle[Standard_Type] {.
+proc dynamicType*(this: XmlLDriversDocumentRetrievalDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlLDrivers_DocumentRetrievalDriver.hxx".}

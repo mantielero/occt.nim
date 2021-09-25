@@ -13,32 +13,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Graphic3d/Graphic3d_SequenceOfHClipPlane, ../NCollection/NCollection_Vector,
-  ../Standard/Standard_TypeDef
-
 discard "forward decl of OpenGl_ClippingIterator"
 type
-  OpenGl_Clipping* {.importcpp: "OpenGl_Clipping", header: "OpenGl_Clipping.hxx",
-                    bycopy.} = object ## ! @name general methods
-                                   ## ! Default constructor.
-                                   ## ! @name advanced method for disabling defined planes
-                                   ## ! Return true if some clipping planes have been temporarily disabled.
-                                   ## ! Chain which is either temporary disabled or the only one enabled for Capping algorithm.
-                                   ## ! @name clipping state modification commands
-                                   ## ! Add planes to the context clipping at the specified system of coordinates.
-                                   ## ! This methods loads appropriate transformation matrix from workspace to
-                                   ## ! to transform equation coordinates. The planes become enabled in the context.
-                                   ## ! If the number of the passed planes exceeds capabilities of OpenGl, the last planes
-                                   ## ! are simply ignored.
-                                   ## !
-                                   ## ! Within FFP, method also temporarily resets ModelView matrix before calling glClipPlane().
-                                   ## ! Otherwise the method just redirects to addLazy().
-                                   ## !
-                                   ## ! @param thePlanes [in/out] the list of planes to be added
-                                   ## ! The list then provides information on which planes were really added to clipping state.
-                                   ## ! This list then can be used to fall back to previous state.
-                                   ## ! Copying allowed only within Handles
+  OpenGlClipping* {.importcpp: "OpenGl_Clipping", header: "OpenGl_Clipping.hxx",
+                   bycopy.} = object ## ! @name general methods
+                                  ## ! Default constructor.
+                                  ## ! @name advanced method for disabling defined planes
+                                  ## ! Return true if some clipping planes have been temporarily disabled.
+                                  ## ! Chain which is either temporary disabled or the only one enabled for Capping algorithm.
+                                  ## ! @name clipping state modification commands
+                                  ## ! Add planes to the context clipping at the specified system of coordinates.
+                                  ## ! This methods loads appropriate transformation matrix from workspace to
+                                  ## ! to transform equation coordinates. The planes become enabled in the context.
+                                  ## ! If the number of the passed planes exceeds capabilities of OpenGl, the last planes
+                                  ## ! are simply ignored.
+                                  ## !
+                                  ## ! Within FFP, method also temporarily resets ModelView matrix before calling glClipPlane().
+                                  ## ! Otherwise the method just redirects to addLazy().
+                                  ## !
+                                  ## ! @param thePlanes [in/out] the list of planes to be added
+                                  ## ! The list then provides information on which planes were really added to clipping state.
+                                  ## ! This list then can be used to fall back to previous state.
+                                  ## ! Copying allowed only within Handles
     ## !< global clipping planes
     ## !< object clipping planes
     ## !< ids of disabled planes
@@ -50,50 +46,48 @@ type
     ## !< number of defined but disabled planes
 
 
-proc constructOpenGl_Clipping*(): OpenGl_Clipping {.constructor,
+proc constructOpenGlClipping*(): OpenGlClipping {.constructor,
     importcpp: "OpenGl_Clipping(@)", header: "OpenGl_Clipping.hxx".}
-proc Init*(this: var OpenGl_Clipping) {.importcpp: "Init",
-                                    header: "OpenGl_Clipping.hxx".}
-proc Reset*(this: var OpenGl_Clipping;
-           thePlanes: handle[Graphic3d_SequenceOfHClipPlane]) {.
-    importcpp: "Reset", header: "OpenGl_Clipping.hxx".}
-proc SetLocalPlanes*(this: var OpenGl_Clipping;
-                    thePlanes: handle[Graphic3d_SequenceOfHClipPlane]) {.
+proc init*(this: var OpenGlClipping) {.importcpp: "Init",
+                                   header: "OpenGl_Clipping.hxx".}
+proc reset*(this: var OpenGlClipping;
+           thePlanes: Handle[Graphic3dSequenceOfHClipPlane]) {.importcpp: "Reset",
+    header: "OpenGl_Clipping.hxx".}
+proc setLocalPlanes*(this: var OpenGlClipping;
+                    thePlanes: Handle[Graphic3dSequenceOfHClipPlane]) {.
     importcpp: "SetLocalPlanes", header: "OpenGl_Clipping.hxx".}
-proc IsCappingOn*(this: OpenGl_Clipping): Standard_Boolean {.noSideEffect,
+proc isCappingOn*(this: OpenGlClipping): bool {.noSideEffect,
     importcpp: "IsCappingOn", header: "OpenGl_Clipping.hxx".}
-proc IsClippingOrCappingOn*(this: OpenGl_Clipping): Standard_Boolean {.noSideEffect,
+proc isClippingOrCappingOn*(this: OpenGlClipping): bool {.noSideEffect,
     importcpp: "IsClippingOrCappingOn", header: "OpenGl_Clipping.hxx".}
-proc NbClippingOrCappingOn*(this: OpenGl_Clipping): Standard_Integer {.noSideEffect,
+proc nbClippingOrCappingOn*(this: OpenGlClipping): int {.noSideEffect,
     importcpp: "NbClippingOrCappingOn", header: "OpenGl_Clipping.hxx".}
-proc HasClippingChains*(this: OpenGl_Clipping): Standard_Boolean {.noSideEffect,
+proc hasClippingChains*(this: OpenGlClipping): bool {.noSideEffect,
     importcpp: "HasClippingChains", header: "OpenGl_Clipping.hxx".}
-proc HasDisabled*(this: OpenGl_Clipping): Standard_Boolean {.noSideEffect,
+proc hasDisabled*(this: OpenGlClipping): bool {.noSideEffect,
     importcpp: "HasDisabled", header: "OpenGl_Clipping.hxx".}
-proc SetEnabled*(this: var OpenGl_Clipping; thePlane: OpenGl_ClippingIterator;
-                theIsEnabled: Standard_Boolean): Standard_Boolean {.
-    importcpp: "SetEnabled", header: "OpenGl_Clipping.hxx".}
-proc DisableGlobal*(this: var OpenGl_Clipping) {.importcpp: "DisableGlobal",
+proc setEnabled*(this: var OpenGlClipping; thePlane: OpenGlClippingIterator;
+                theIsEnabled: bool): bool {.importcpp: "SetEnabled",
     header: "OpenGl_Clipping.hxx".}
-proc RestoreDisabled*(this: var OpenGl_Clipping) {.importcpp: "RestoreDisabled",
+proc disableGlobal*(this: var OpenGlClipping) {.importcpp: "DisableGlobal",
     header: "OpenGl_Clipping.hxx".}
-proc CappedChain*(this: OpenGl_Clipping): handle[Graphic3d_ClipPlane] {.
-    noSideEffect, importcpp: "CappedChain", header: "OpenGl_Clipping.hxx".}
-proc CappedSubPlane*(this: OpenGl_Clipping): Standard_Integer {.noSideEffect,
+proc restoreDisabled*(this: var OpenGlClipping) {.importcpp: "RestoreDisabled",
+    header: "OpenGl_Clipping.hxx".}
+proc cappedChain*(this: OpenGlClipping): Handle[Graphic3dClipPlane] {.noSideEffect,
+    importcpp: "CappedChain", header: "OpenGl_Clipping.hxx".}
+proc cappedSubPlane*(this: OpenGlClipping): int {.noSideEffect,
     importcpp: "CappedSubPlane", header: "OpenGl_Clipping.hxx".}
-proc IsCappingFilterOn*(this: OpenGl_Clipping): bool {.noSideEffect,
+proc isCappingFilterOn*(this: OpenGlClipping): bool {.noSideEffect,
     importcpp: "IsCappingFilterOn", header: "OpenGl_Clipping.hxx".}
-proc IsCappingDisableAllExcept*(this: OpenGl_Clipping): bool {.noSideEffect,
+proc isCappingDisableAllExcept*(this: OpenGlClipping): bool {.noSideEffect,
     importcpp: "IsCappingDisableAllExcept", header: "OpenGl_Clipping.hxx".}
-proc IsCappingEnableAllExcept*(this: OpenGl_Clipping): bool {.noSideEffect,
+proc isCappingEnableAllExcept*(this: OpenGlClipping): bool {.noSideEffect,
     importcpp: "IsCappingEnableAllExcept", header: "OpenGl_Clipping.hxx".}
-proc DisableAllExcept*(this: var OpenGl_Clipping;
-                      theChain: handle[Graphic3d_ClipPlane];
-                      theSubPlaneIndex: Standard_Integer) {.
+proc disableAllExcept*(this: var OpenGlClipping;
+                      theChain: Handle[Graphic3dClipPlane]; theSubPlaneIndex: int) {.
     importcpp: "DisableAllExcept", header: "OpenGl_Clipping.hxx".}
-proc EnableAllExcept*(this: var OpenGl_Clipping;
-                     theChain: handle[Graphic3d_ClipPlane];
-                     theSubPlaneIndex: Standard_Integer) {.
+proc enableAllExcept*(this: var OpenGlClipping;
+                     theChain: Handle[Graphic3dClipPlane]; theSubPlaneIndex: int) {.
     importcpp: "EnableAllExcept", header: "OpenGl_Clipping.hxx".}
-proc ResetCappingFilter*(this: var OpenGl_Clipping) {.
+proc resetCappingFilter*(this: var OpenGlClipping) {.
     importcpp: "ResetCappingFilter", header: "OpenGl_Clipping.hxx".}

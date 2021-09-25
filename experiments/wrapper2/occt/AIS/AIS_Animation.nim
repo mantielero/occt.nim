@@ -12,25 +12,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  AIS_AnimationTimer, ../NCollection/NCollection_Sequence,
-  ../TCollection/TCollection_AsciiString
-
 ## ! Structure defining current animation progress.
 
 type
   AIS_AnimationProgress* {.importcpp: "AIS_AnimationProgress",
                           header: "AIS_Animation.hxx", bycopy.} = object
-    Pts* {.importc: "Pts".}: Standard_Real ## !< global presentation timestamp
-    LocalPts* {.importc: "LocalPts".}: Standard_Real ## !< presentation within current animation
-    LocalNormalized* {.importc: "LocalNormalized".}: Standard_Real ## !< normalized position within current animation within 0..1 range
+    pts* {.importc: "Pts".}: float ## !< global presentation timestamp
+    localPts* {.importc: "LocalPts".}: float ## !< presentation within current animation
+    localNormalized* {.importc: "LocalNormalized".}: float ## !< normalized position within current animation within 0..1 range
 
 
 proc constructAIS_AnimationProgress*(): AIS_AnimationProgress {.constructor,
     importcpp: "AIS_AnimationProgress(@)", header: "AIS_Animation.hxx".}
 discard "forward decl of AIS_Animation"
 type
-  Handle_AIS_Animation* = handle[AIS_Animation]
+  HandleAIS_Animation* = Handle[AIS_Animation]
 
 ## ! Class represents a basic animation class.
 ## ! AIS_Animation can be used as:
@@ -64,204 +60,204 @@ type
 ## ! (by defining a multimedia timer provided by used GUI framework executing updates at desired framerate, or as continuous redraws in loop).
 
 type
-  AIS_Animation* {.importcpp: "AIS_Animation", header: "AIS_Animation.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                          ## !
-                                                                                                          ## Creates
-                                                                                                          ## empty
-                                                                                                          ## animation.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## @return
-                                                                                                          ## start
-                                                                                                          ## time
-                                                                                                          ## of
-                                                                                                          ## the
-                                                                                                          ## animation
-                                                                                                          ## in
-                                                                                                          ## the
-                                                                                                          ## timeline
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Start
-                                                                                                          ## animation
-                                                                                                          ## with
-                                                                                                          ## internally
-                                                                                                          ## defined
-                                                                                                          ## timer
-                                                                                                          ## instance.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Calls
-                                                                                                          ## ::Start()
-                                                                                                          ## internally.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Note,
-                                                                                                          ## that
-                                                                                                          ## this
-                                                                                                          ## method
-                                                                                                          ## initializes
-                                                                                                          ## a
-                                                                                                          ## timer
-                                                                                                          ## calculating
-                                                                                                          ## an
-                                                                                                          ## elapsed
-                                                                                                          ## time
-                                                                                                          ## (presentation
-                                                                                                          ## timestamps
-                                                                                                          ## within
-                                                                                                          ## AIS_Animation::UpdateTimer()),
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## not
-                                                                                                          ## a
-                                                                                                          ## multimedia
-                                                                                                          ## timer
-                                                                                                          ## executing
-                                                                                                          ## Viewer
-                                                                                                          ## updates
-                                                                                                          ## at
-                                                                                                          ## specific
-                                                                                                          ## intervals!
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Viewer
-                                                                                                          ## redrawing
-                                                                                                          ## should
-                                                                                                          ## be
-                                                                                                          ## managed
-                                                                                                          ## at
-                                                                                                          ## application
-                                                                                                          ## level,
-                                                                                                          ## so
-                                                                                                          ## that
-                                                                                                          ## AIS_Animation::UpdateTimer()
-                                                                                                          ## is
-                                                                                                          ## called
-                                                                                                          ## once
-                                                                                                          ## right
-                                                                                                          ## before
-                                                                                                          ## each
-                                                                                                          ## redrawing
-                                                                                                          ## of
-                                                                                                          ## a
-                                                                                                          ## Viewer
-                                                                                                          ## content.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## @param
-                                                                                                          ## theStartPts
-                                                                                                          ## starting
-                                                                                                          ## timer
-                                                                                                          ## position
-                                                                                                          ## (presentation
-                                                                                                          ## timestamp)
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## @param
-                                                                                                          ## thePlaySpeed
-                                                                                                          ## playback
-                                                                                                          ## speed
-                                                                                                          ## (1.0
-                                                                                                          ## means
-                                                                                                          ## normal
-                                                                                                          ## speed)
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## @param
-                                                                                                          ## theToUpdate
-                                                                                                          ## flag
-                                                                                                          ## to
-                                                                                                          ## update
-                                                                                                          ## defined
-                                                                                                          ## animations
-                                                                                                          ## to
-                                                                                                          ## specified
-                                                                                                          ## start
-                                                                                                          ## position
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## @param
-                                                                                                          ## theToStopTimer
-                                                                                                          ## flag
-                                                                                                          ## to
-                                                                                                          ## pause
-                                                                                                          ## timer
-                                                                                                          ## at
-                                                                                                          ## the
-                                                                                                          ## starting
-                                                                                                          ## position
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Start
-                                                                                                          ## animation.
-                                                                                                          ## This
-                                                                                                          ## method
-                                                                                                          ## changes
-                                                                                                          ## status
-                                                                                                          ## of
-                                                                                                          ## the
-                                                                                                          ## animation
-                                                                                                          ## to
-                                                                                                          ## Started.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## This
-                                                                                                          ## status
-                                                                                                          ## defines
-                                                                                                          ## whether
-                                                                                                          ## animation
-                                                                                                          ## is
-                                                                                                          ## to
-                                                                                                          ## be
-                                                                                                          ## performed
-                                                                                                          ## in
-                                                                                                          ## the
-                                                                                                          ## timeline
-                                                                                                          ## or
-                                                                                                          ## not.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## @param
-                                                                                                          ## theToUpdate
-                                                                                                          ## call
-                                                                                                          ## Update()
-                                                                                                          ## method
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Process
-                                                                                                          ## one
-                                                                                                          ## step
-                                                                                                          ## of
-                                                                                                          ## the
-                                                                                                          ## animation
-                                                                                                          ## according
-                                                                                                          ## to
-                                                                                                          ## the
-                                                                                                          ## input
-                                                                                                          ## time
-                                                                                                          ## progress,
-                                                                                                          ## including
-                                                                                                          ## all
-                                                                                                          ## children.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Calls
-                                                                                                          ## also
-                                                                                                          ## ::update()
-                                                                                                          ## to
-                                                                                                          ## update
-                                                                                                          ## own
-                                                                                                          ## animation.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Defines
-                                                                                                          ## animation
-                                                                                                          ## state.
+  AIS_Animation* {.importcpp: "AIS_Animation", header: "AIS_Animation.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                         ## !
+                                                                                                         ## Creates
+                                                                                                         ## empty
+                                                                                                         ## animation.
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## @return
+                                                                                                         ## start
+                                                                                                         ## time
+                                                                                                         ## of
+                                                                                                         ## the
+                                                                                                         ## animation
+                                                                                                         ## in
+                                                                                                         ## the
+                                                                                                         ## timeline
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Start
+                                                                                                         ## animation
+                                                                                                         ## with
+                                                                                                         ## internally
+                                                                                                         ## defined
+                                                                                                         ## timer
+                                                                                                         ## instance.
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Calls
+                                                                                                         ## ::Start()
+                                                                                                         ## internally.
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Note,
+                                                                                                         ## that
+                                                                                                         ## this
+                                                                                                         ## method
+                                                                                                         ## initializes
+                                                                                                         ## a
+                                                                                                         ## timer
+                                                                                                         ## calculating
+                                                                                                         ## an
+                                                                                                         ## elapsed
+                                                                                                         ## time
+                                                                                                         ## (presentation
+                                                                                                         ## timestamps
+                                                                                                         ## within
+                                                                                                         ## AIS_Animation::UpdateTimer()),
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## not
+                                                                                                         ## a
+                                                                                                         ## multimedia
+                                                                                                         ## timer
+                                                                                                         ## executing
+                                                                                                         ## Viewer
+                                                                                                         ## updates
+                                                                                                         ## at
+                                                                                                         ## specific
+                                                                                                         ## intervals!
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Viewer
+                                                                                                         ## redrawing
+                                                                                                         ## should
+                                                                                                         ## be
+                                                                                                         ## managed
+                                                                                                         ## at
+                                                                                                         ## application
+                                                                                                         ## level,
+                                                                                                         ## so
+                                                                                                         ## that
+                                                                                                         ## AIS_Animation::UpdateTimer()
+                                                                                                         ## is
+                                                                                                         ## called
+                                                                                                         ## once
+                                                                                                         ## right
+                                                                                                         ## before
+                                                                                                         ## each
+                                                                                                         ## redrawing
+                                                                                                         ## of
+                                                                                                         ## a
+                                                                                                         ## Viewer
+                                                                                                         ## content.
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## @param
+                                                                                                         ## theStartPts
+                                                                                                         ## starting
+                                                                                                         ## timer
+                                                                                                         ## position
+                                                                                                         ## (presentation
+                                                                                                         ## timestamp)
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## @param
+                                                                                                         ## thePlaySpeed
+                                                                                                         ## playback
+                                                                                                         ## speed
+                                                                                                         ## (1.0
+                                                                                                         ## means
+                                                                                                         ## normal
+                                                                                                         ## speed)
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## @param
+                                                                                                         ## theToUpdate
+                                                                                                         ## flag
+                                                                                                         ## to
+                                                                                                         ## update
+                                                                                                         ## defined
+                                                                                                         ## animations
+                                                                                                         ## to
+                                                                                                         ## specified
+                                                                                                         ## start
+                                                                                                         ## position
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## @param
+                                                                                                         ## theToStopTimer
+                                                                                                         ## flag
+                                                                                                         ## to
+                                                                                                         ## pause
+                                                                                                         ## timer
+                                                                                                         ## at
+                                                                                                         ## the
+                                                                                                         ## starting
+                                                                                                         ## position
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Start
+                                                                                                         ## animation.
+                                                                                                         ## This
+                                                                                                         ## method
+                                                                                                         ## changes
+                                                                                                         ## status
+                                                                                                         ## of
+                                                                                                         ## the
+                                                                                                         ## animation
+                                                                                                         ## to
+                                                                                                         ## Started.
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## This
+                                                                                                         ## status
+                                                                                                         ## defines
+                                                                                                         ## whether
+                                                                                                         ## animation
+                                                                                                         ## is
+                                                                                                         ## to
+                                                                                                         ## be
+                                                                                                         ## performed
+                                                                                                         ## in
+                                                                                                         ## the
+                                                                                                         ## timeline
+                                                                                                         ## or
+                                                                                                         ## not.
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## @param
+                                                                                                         ## theToUpdate
+                                                                                                         ## call
+                                                                                                         ## Update()
+                                                                                                         ## method
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Process
+                                                                                                         ## one
+                                                                                                         ## step
+                                                                                                         ## of
+                                                                                                         ## the
+                                                                                                         ## animation
+                                                                                                         ## according
+                                                                                                         ## to
+                                                                                                         ## the
+                                                                                                         ## input
+                                                                                                         ## time
+                                                                                                         ## progress,
+                                                                                                         ## including
+                                                                                                         ## all
+                                                                                                         ## children.
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Calls
+                                                                                                         ## also
+                                                                                                         ## ::update()
+                                                                                                         ## to
+                                                                                                         ## update
+                                                                                                         ## own
+                                                                                                         ## animation.
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Defines
+                                                                                                         ## animation
+                                                                                                         ## state.
     ## !< animation name
     ## !< sequence of child animations
     ## !< animation state - started, stopped of paused
@@ -269,62 +265,61 @@ type
     ## !< duration of animation excluding children
     ## !< duration of animation including children
 
-  AIS_Animationbase_type* = Standard_Transient
+  AIS_AnimationbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "AIS_Animation::get_type_name(@)",
-                              header: "AIS_Animation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "AIS_Animation::get_type_name(@)",
+                            header: "AIS_Animation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "AIS_Animation::get_type_descriptor(@)",
     header: "AIS_Animation.hxx".}
-proc DynamicType*(this: AIS_Animation): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: AIS_Animation): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_Animation.hxx".}
-proc constructAIS_Animation*(theAnimationName: TCollection_AsciiString): AIS_Animation {.
+proc constructAIS_Animation*(theAnimationName: TCollectionAsciiString): AIS_Animation {.
     constructor, importcpp: "AIS_Animation(@)", header: "AIS_Animation.hxx".}
 proc destroyAIS_Animation*(this: var AIS_Animation) {.
     importcpp: "#.~AIS_Animation()", header: "AIS_Animation.hxx".}
-proc Name*(this: AIS_Animation): TCollection_AsciiString {.noSideEffect,
+proc name*(this: AIS_Animation): TCollectionAsciiString {.noSideEffect,
     importcpp: "Name", header: "AIS_Animation.hxx".}
-proc StartPts*(this: AIS_Animation): Standard_Real {.noSideEffect,
-    importcpp: "StartPts", header: "AIS_Animation.hxx".}
-proc SetStartPts*(this: var AIS_Animation; thePtsStart: Standard_Real) {.
+proc startPts*(this: AIS_Animation): float {.noSideEffect, importcpp: "StartPts",
+    header: "AIS_Animation.hxx".}
+proc setStartPts*(this: var AIS_Animation; thePtsStart: float) {.
     importcpp: "SetStartPts", header: "AIS_Animation.hxx".}
-proc Duration*(this: AIS_Animation): Standard_Real {.noSideEffect,
-    importcpp: "Duration", header: "AIS_Animation.hxx".}
-proc UpdateTotalDuration*(this: var AIS_Animation) {.
+proc duration*(this: AIS_Animation): float {.noSideEffect, importcpp: "Duration",
+    header: "AIS_Animation.hxx".}
+proc updateTotalDuration*(this: var AIS_Animation) {.
     importcpp: "UpdateTotalDuration", header: "AIS_Animation.hxx".}
-proc HasOwnDuration*(this: AIS_Animation): Standard_Boolean {.noSideEffect,
+proc hasOwnDuration*(this: AIS_Animation): bool {.noSideEffect,
     importcpp: "HasOwnDuration", header: "AIS_Animation.hxx".}
-proc OwnDuration*(this: AIS_Animation): Standard_Real {.noSideEffect,
+proc ownDuration*(this: AIS_Animation): float {.noSideEffect,
     importcpp: "OwnDuration", header: "AIS_Animation.hxx".}
-proc SetOwnDuration*(this: var AIS_Animation; theDuration: Standard_Real) {.
+proc setOwnDuration*(this: var AIS_Animation; theDuration: float) {.
     importcpp: "SetOwnDuration", header: "AIS_Animation.hxx".}
-proc Add*(this: var AIS_Animation; theAnimation: handle[AIS_Animation]) {.
+proc add*(this: var AIS_Animation; theAnimation: Handle[AIS_Animation]) {.
     importcpp: "Add", header: "AIS_Animation.hxx".}
-proc Clear*(this: var AIS_Animation) {.importcpp: "Clear", header: "AIS_Animation.hxx".}
-proc Find*(this: AIS_Animation; theAnimationName: TCollection_AsciiString): handle[
+proc clear*(this: var AIS_Animation) {.importcpp: "Clear", header: "AIS_Animation.hxx".}
+proc find*(this: AIS_Animation; theAnimationName: TCollectionAsciiString): Handle[
     AIS_Animation] {.noSideEffect, importcpp: "Find", header: "AIS_Animation.hxx".}
-proc Remove*(this: var AIS_Animation; theAnimation: handle[AIS_Animation]): Standard_Boolean {.
+proc remove*(this: var AIS_Animation; theAnimation: Handle[AIS_Animation]): bool {.
     importcpp: "Remove", header: "AIS_Animation.hxx".}
-proc Replace*(this: var AIS_Animation; theAnimationOld: handle[AIS_Animation];
-             theAnimationNew: handle[AIS_Animation]): Standard_Boolean {.
-    importcpp: "Replace", header: "AIS_Animation.hxx".}
-proc CopyFrom*(this: var AIS_Animation; theOther: handle[AIS_Animation]) {.
+proc replace*(this: var AIS_Animation; theAnimationOld: Handle[AIS_Animation];
+             theAnimationNew: Handle[AIS_Animation]): bool {.importcpp: "Replace",
+    header: "AIS_Animation.hxx".}
+proc copyFrom*(this: var AIS_Animation; theOther: Handle[AIS_Animation]) {.
     importcpp: "CopyFrom", header: "AIS_Animation.hxx".}
-proc Children*(this: AIS_Animation): NCollection_Sequence[handle[AIS_Animation]] {.
+proc children*(this: AIS_Animation): NCollectionSequence[Handle[AIS_Animation]] {.
     noSideEffect, importcpp: "Children", header: "AIS_Animation.hxx".}
-proc StartTimer*(this: var AIS_Animation; theStartPts: Standard_Real;
-                thePlaySpeed: Standard_Real; theToUpdate: Standard_Boolean;
-                theToStopTimer: Standard_Boolean = Standard_False) {.
+proc startTimer*(this: var AIS_Animation; theStartPts: float; thePlaySpeed: float;
+                theToUpdate: bool; theToStopTimer: bool = false) {.
     importcpp: "StartTimer", header: "AIS_Animation.hxx".}
-proc UpdateTimer*(this: var AIS_Animation): Standard_Real {.importcpp: "UpdateTimer",
+proc updateTimer*(this: var AIS_Animation): float {.importcpp: "UpdateTimer",
     header: "AIS_Animation.hxx".}
-proc ElapsedTime*(this: AIS_Animation): Standard_Real {.noSideEffect,
+proc elapsedTime*(this: AIS_Animation): float {.noSideEffect,
     importcpp: "ElapsedTime", header: "AIS_Animation.hxx".}
-proc Start*(this: var AIS_Animation; theToUpdate: Standard_Boolean) {.
-    importcpp: "Start", header: "AIS_Animation.hxx".}
-proc Pause*(this: var AIS_Animation) {.importcpp: "Pause", header: "AIS_Animation.hxx".}
-proc Stop*(this: var AIS_Animation) {.importcpp: "Stop", header: "AIS_Animation.hxx".}
-proc IsStopped*(this: var AIS_Animation): bool {.importcpp: "IsStopped",
+proc start*(this: var AIS_Animation; theToUpdate: bool) {.importcpp: "Start",
     header: "AIS_Animation.hxx".}
-proc Update*(this: var AIS_Animation; thePts: Standard_Real): Standard_Boolean {.
-    importcpp: "Update", header: "AIS_Animation.hxx".}
+proc pause*(this: var AIS_Animation) {.importcpp: "Pause", header: "AIS_Animation.hxx".}
+proc stop*(this: var AIS_Animation) {.importcpp: "Stop", header: "AIS_Animation.hxx".}
+proc isStopped*(this: var AIS_Animation): bool {.importcpp: "IsStopped",
+    header: "AIS_Animation.hxx".}
+proc update*(this: var AIS_Animation; thePts: float): bool {.importcpp: "Update",
+    header: "AIS_Animation.hxx".}

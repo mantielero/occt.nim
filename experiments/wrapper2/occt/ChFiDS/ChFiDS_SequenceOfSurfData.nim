@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ChFiDS_SurfData, ../NCollection/NCollection_Sequence
-
 type
-  ChFiDS_SequenceOfSurfData* = NCollection_Sequence[handle[ChFiDS_SurfData]]
+  ChFiDS_SequenceOfSurfData* = NCollectionSequence[Handle[ChFiDS_SurfData]]
+

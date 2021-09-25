@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../BRepLib/BRepLib_MakeShell,
-  BRepBuilderAPI_MakeShape, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, BRepBuilderAPI_ShellError
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom_Surface"
 discard "forward decl of TopoDS_Shell"
@@ -70,25 +64,24 @@ type
 proc constructBRepBuilderAPI_MakeShell*(): BRepBuilderAPI_MakeShell {.constructor,
     importcpp: "BRepBuilderAPI_MakeShell(@)",
     header: "BRepBuilderAPI_MakeShell.hxx".}
-proc constructBRepBuilderAPI_MakeShell*(S: handle[Geom_Surface]; Segment: Standard_Boolean = Standard_False): BRepBuilderAPI_MakeShell {.
+proc constructBRepBuilderAPI_MakeShell*(s: Handle[GeomSurface];
+                                       segment: bool = false): BRepBuilderAPI_MakeShell {.
     constructor, importcpp: "BRepBuilderAPI_MakeShell(@)",
     header: "BRepBuilderAPI_MakeShell.hxx".}
-proc constructBRepBuilderAPI_MakeShell*(S: handle[Geom_Surface];
-                                       UMin: Standard_Real; UMax: Standard_Real;
-                                       VMin: Standard_Real; VMax: Standard_Real;
-    Segment: Standard_Boolean = Standard_False): BRepBuilderAPI_MakeShell {.
+proc constructBRepBuilderAPI_MakeShell*(s: Handle[GeomSurface]; uMin: float;
+                                       uMax: float; vMin: float; vMax: float;
+                                       segment: bool = false): BRepBuilderAPI_MakeShell {.
     constructor, importcpp: "BRepBuilderAPI_MakeShell(@)",
     header: "BRepBuilderAPI_MakeShell.hxx".}
-proc Init*(this: var BRepBuilderAPI_MakeShell; S: handle[Geom_Surface];
-          UMin: Standard_Real; UMax: Standard_Real; VMin: Standard_Real;
-          VMax: Standard_Real; Segment: Standard_Boolean = Standard_False) {.
+proc init*(this: var BRepBuilderAPI_MakeShell; s: Handle[GeomSurface]; uMin: float;
+          uMax: float; vMin: float; vMax: float; segment: bool = false) {.
     importcpp: "Init", header: "BRepBuilderAPI_MakeShell.hxx".}
-proc IsDone*(this: BRepBuilderAPI_MakeShell): Standard_Boolean {.noSideEffect,
+proc isDone*(this: BRepBuilderAPI_MakeShell): bool {.noSideEffect,
     importcpp: "IsDone", header: "BRepBuilderAPI_MakeShell.hxx".}
-proc Error*(this: BRepBuilderAPI_MakeShell): BRepBuilderAPI_ShellError {.
+proc error*(this: BRepBuilderAPI_MakeShell): BRepBuilderAPI_ShellError {.
     noSideEffect, importcpp: "Error", header: "BRepBuilderAPI_MakeShell.hxx".}
-proc Shell*(this: BRepBuilderAPI_MakeShell): TopoDS_Shell {.noSideEffect,
+proc shell*(this: BRepBuilderAPI_MakeShell): TopoDS_Shell {.noSideEffect,
     importcpp: "Shell", header: "BRepBuilderAPI_MakeShell.hxx".}
-converter `TopoDS_Shell`*(this: BRepBuilderAPI_MakeShell): TopoDS_Shell {.
+converter `topoDS_Shell`*(this: BRepBuilderAPI_MakeShell): TopoDS_Shell {.
     noSideEffect, importcpp: "BRepBuilderAPI_MakeShell::operator TopoDS_Shell",
     header: "BRepBuilderAPI_MakeShell.hxx".}

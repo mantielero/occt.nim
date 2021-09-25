@@ -36,7 +36,8 @@
 ## ! orientation to the shape as a whole.
 
 type
-  TopAbs_Orientation* {.size: sizeof(cint), importcpp: "TopAbs_Orientation",
-                       header: "TopAbs_Orientation.hxx".} = enum
-    TopAbs_FORWARD, TopAbs_REVERSED, TopAbs_INTERNAL, TopAbs_EXTERNAL
+  TopAbsOrientation* {.size: sizeof(cint), importcpp: "TopAbs_Orientation",
+                      header: "TopAbs_Orientation.hxx".} = enum
+    TopAbsFORWARD, TopAbsREVERSED, TopAbsINTERNAL, TopAbsEXTERNAL
+
 

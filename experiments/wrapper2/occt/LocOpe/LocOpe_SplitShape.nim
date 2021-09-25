@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../TopoDS/TopoDS_Shape, ../TopTools/TopTools_DataMapOfShapeListOfShape,
-  ../TopTools/TopTools_MapOfShape, ../TopTools/TopTools_ListOfShape,
-  ../Standard/Standard_Real
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_NoSuchObject"
@@ -30,27 +23,27 @@ discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Face"
 type
-  LocOpe_SplitShape* {.importcpp: "LocOpe_SplitShape",
-                      header: "LocOpe_SplitShape.hxx", bycopy.} = object ## ! Empty constructor.
+  LocOpeSplitShape* {.importcpp: "LocOpe_SplitShape",
+                     header: "LocOpe_SplitShape.hxx", bycopy.} = object ## ! Empty constructor.
 
 
-proc constructLocOpe_SplitShape*(): LocOpe_SplitShape {.constructor,
+proc constructLocOpeSplitShape*(): LocOpeSplitShape {.constructor,
     importcpp: "LocOpe_SplitShape(@)", header: "LocOpe_SplitShape.hxx".}
-proc constructLocOpe_SplitShape*(S: TopoDS_Shape): LocOpe_SplitShape {.constructor,
+proc constructLocOpeSplitShape*(s: TopoDS_Shape): LocOpeSplitShape {.constructor,
     importcpp: "LocOpe_SplitShape(@)", header: "LocOpe_SplitShape.hxx".}
-proc Init*(this: var LocOpe_SplitShape; S: TopoDS_Shape) {.importcpp: "Init",
+proc init*(this: var LocOpeSplitShape; s: TopoDS_Shape) {.importcpp: "Init",
     header: "LocOpe_SplitShape.hxx".}
-proc CanSplit*(this: LocOpe_SplitShape; E: TopoDS_Edge): Standard_Boolean {.
-    noSideEffect, importcpp: "CanSplit", header: "LocOpe_SplitShape.hxx".}
-proc Add*(this: var LocOpe_SplitShape; V: TopoDS_Vertex; P: Standard_Real;
-         E: TopoDS_Edge) {.importcpp: "Add", header: "LocOpe_SplitShape.hxx".}
-proc Add*(this: var LocOpe_SplitShape; W: TopoDS_Wire; F: TopoDS_Face): Standard_Boolean {.
+proc canSplit*(this: LocOpeSplitShape; e: TopoDS_Edge): bool {.noSideEffect,
+    importcpp: "CanSplit", header: "LocOpe_SplitShape.hxx".}
+proc add*(this: var LocOpeSplitShape; v: TopoDS_Vertex; p: float; e: TopoDS_Edge) {.
     importcpp: "Add", header: "LocOpe_SplitShape.hxx".}
-proc Add*(this: var LocOpe_SplitShape; Lwires: TopTools_ListOfShape; F: TopoDS_Face): Standard_Boolean {.
+proc add*(this: var LocOpeSplitShape; w: TopoDS_Wire; f: TopoDS_Face): bool {.
     importcpp: "Add", header: "LocOpe_SplitShape.hxx".}
-proc Shape*(this: LocOpe_SplitShape): TopoDS_Shape {.noSideEffect,
-    importcpp: "Shape", header: "LocOpe_SplitShape.hxx".}
-proc DescendantShapes*(this: var LocOpe_SplitShape; S: TopoDS_Shape): TopTools_ListOfShape {.
+proc add*(this: var LocOpeSplitShape; lwires: TopToolsListOfShape; f: TopoDS_Face): bool {.
+    importcpp: "Add", header: "LocOpe_SplitShape.hxx".}
+proc shape*(this: LocOpeSplitShape): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
+    header: "LocOpe_SplitShape.hxx".}
+proc descendantShapes*(this: var LocOpeSplitShape; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "DescendantShapes", header: "LocOpe_SplitShape.hxx".}
-proc LeftOf*(this: var LocOpe_SplitShape; W: TopoDS_Wire; F: TopoDS_Face): TopTools_ListOfShape {.
+proc leftOf*(this: var LocOpeSplitShape; w: TopoDS_Wire; f: TopoDS_Face): TopToolsListOfShape {.
     importcpp: "LeftOf", header: "LocOpe_SplitShape.hxx".}

@@ -14,190 +14,172 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Character,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of Interface_ParamSet"
 discard "forward decl of Interface_Check"
 discard "forward decl of gp_XYZ"
 type
-  IGESData_GlobalSection* {.importcpp: "IGESData_GlobalSection",
-                           header: "IGESData_GlobalSection.hxx", bycopy.} = object ## !
-                                                                              ## Creates an
-                                                                              ## empty
-                                                                              ## GlobalSection,
-                                                                              ## ready to be
-                                                                              ## filled,
-                                                                              ## !
-                                                                              ## Warning : No
-                                                                              ## default
-                                                                              ## value is
-                                                                              ## provided
+  IGESDataGlobalSection* {.importcpp: "IGESData_GlobalSection",
+                          header: "IGESData_GlobalSection.hxx", bycopy.} = object ## !
+                                                                             ## Creates an
+                                                                             ## empty
+                                                                             ## GlobalSection,
+                                                                             ## ready to be
+                                                                             ## filled,
+                                                                             ## !
+                                                                             ## Warning : No
+                                                                             ## default
+                                                                             ## value is
+                                                                             ## provided
 
 
-proc constructIGESData_GlobalSection*(): IGESData_GlobalSection {.constructor,
+proc constructIGESDataGlobalSection*(): IGESDataGlobalSection {.constructor,
     importcpp: "IGESData_GlobalSection(@)", header: "IGESData_GlobalSection.hxx".}
-proc Init*(this: var IGESData_GlobalSection; params: handle[Interface_ParamSet];
-          ach: var handle[Interface_Check]) {.importcpp: "Init",
+proc init*(this: var IGESDataGlobalSection; params: Handle[InterfaceParamSet];
+          ach: var Handle[InterfaceCheck]) {.importcpp: "Init",
     header: "IGESData_GlobalSection.hxx".}
-proc CopyRefs*(this: var IGESData_GlobalSection) {.importcpp: "CopyRefs",
+proc copyRefs*(this: var IGESDataGlobalSection) {.importcpp: "CopyRefs",
     header: "IGESData_GlobalSection.hxx".}
-proc Params*(this: IGESData_GlobalSection): handle[Interface_ParamSet] {.
-    noSideEffect, importcpp: "Params", header: "IGESData_GlobalSection.hxx".}
-proc TranslatedFromHollerith*(this: IGESData_GlobalSection;
-                             astr: handle[TCollection_HAsciiString]): handle[
-    TCollection_HAsciiString] {.noSideEffect,
-                               importcpp: "TranslatedFromHollerith",
-                               header: "IGESData_GlobalSection.hxx".}
-proc Separator*(this: IGESData_GlobalSection): Standard_Character {.noSideEffect,
+proc params*(this: IGESDataGlobalSection): Handle[InterfaceParamSet] {.noSideEffect,
+    importcpp: "Params", header: "IGESData_GlobalSection.hxx".}
+proc translatedFromHollerith*(this: IGESDataGlobalSection;
+                             astr: Handle[TCollectionHAsciiString]): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "TranslatedFromHollerith",
+                              header: "IGESData_GlobalSection.hxx".}
+proc separator*(this: IGESDataGlobalSection): StandardCharacter {.noSideEffect,
     importcpp: "Separator", header: "IGESData_GlobalSection.hxx".}
-proc EndMark*(this: IGESData_GlobalSection): Standard_Character {.noSideEffect,
+proc endMark*(this: IGESDataGlobalSection): StandardCharacter {.noSideEffect,
     importcpp: "EndMark", header: "IGESData_GlobalSection.hxx".}
-proc SendName*(this: IGESData_GlobalSection): handle[TCollection_HAsciiString] {.
+proc sendName*(this: IGESDataGlobalSection): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "SendName", header: "IGESData_GlobalSection.hxx".}
-proc FileName*(this: IGESData_GlobalSection): handle[TCollection_HAsciiString] {.
+proc fileName*(this: IGESDataGlobalSection): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "FileName", header: "IGESData_GlobalSection.hxx".}
-proc SystemId*(this: IGESData_GlobalSection): handle[TCollection_HAsciiString] {.
+proc systemId*(this: IGESDataGlobalSection): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "SystemId", header: "IGESData_GlobalSection.hxx".}
-proc InterfaceVersion*(this: IGESData_GlobalSection): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "InterfaceVersion",
-                               header: "IGESData_GlobalSection.hxx".}
-proc IntegerBits*(this: IGESData_GlobalSection): Standard_Integer {.noSideEffect,
+proc interfaceVersion*(this: IGESDataGlobalSection): Handle[TCollectionHAsciiString] {.
+    noSideEffect, importcpp: "InterfaceVersion",
+    header: "IGESData_GlobalSection.hxx".}
+proc integerBits*(this: IGESDataGlobalSection): int {.noSideEffect,
     importcpp: "IntegerBits", header: "IGESData_GlobalSection.hxx".}
-proc MaxPower10Single*(this: IGESData_GlobalSection): Standard_Integer {.
-    noSideEffect, importcpp: "MaxPower10Single",
-    header: "IGESData_GlobalSection.hxx".}
-proc MaxDigitsSingle*(this: IGESData_GlobalSection): Standard_Integer {.
-    noSideEffect, importcpp: "MaxDigitsSingle",
-    header: "IGESData_GlobalSection.hxx".}
-proc MaxPower10Double*(this: IGESData_GlobalSection): Standard_Integer {.
-    noSideEffect, importcpp: "MaxPower10Double",
-    header: "IGESData_GlobalSection.hxx".}
-proc MaxDigitsDouble*(this: IGESData_GlobalSection): Standard_Integer {.
-    noSideEffect, importcpp: "MaxDigitsDouble",
-    header: "IGESData_GlobalSection.hxx".}
-proc ReceiveName*(this: IGESData_GlobalSection): handle[TCollection_HAsciiString] {.
+proc maxPower10Single*(this: IGESDataGlobalSection): int {.noSideEffect,
+    importcpp: "MaxPower10Single", header: "IGESData_GlobalSection.hxx".}
+proc maxDigitsSingle*(this: IGESDataGlobalSection): int {.noSideEffect,
+    importcpp: "MaxDigitsSingle", header: "IGESData_GlobalSection.hxx".}
+proc maxPower10Double*(this: IGESDataGlobalSection): int {.noSideEffect,
+    importcpp: "MaxPower10Double", header: "IGESData_GlobalSection.hxx".}
+proc maxDigitsDouble*(this: IGESDataGlobalSection): int {.noSideEffect,
+    importcpp: "MaxDigitsDouble", header: "IGESData_GlobalSection.hxx".}
+proc receiveName*(this: IGESDataGlobalSection): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "ReceiveName", header: "IGESData_GlobalSection.hxx".}
-proc Scale*(this: IGESData_GlobalSection): Standard_Real {.noSideEffect,
-    importcpp: "Scale", header: "IGESData_GlobalSection.hxx".}
-proc UnitFlag*(this: IGESData_GlobalSection): Standard_Integer {.noSideEffect,
+proc scale*(this: IGESDataGlobalSection): float {.noSideEffect, importcpp: "Scale",
+    header: "IGESData_GlobalSection.hxx".}
+proc unitFlag*(this: IGESDataGlobalSection): int {.noSideEffect,
     importcpp: "UnitFlag", header: "IGESData_GlobalSection.hxx".}
-proc UnitName*(this: IGESData_GlobalSection): handle[TCollection_HAsciiString] {.
+proc unitName*(this: IGESDataGlobalSection): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "UnitName", header: "IGESData_GlobalSection.hxx".}
-proc LineWeightGrad*(this: IGESData_GlobalSection): Standard_Integer {.noSideEffect,
+proc lineWeightGrad*(this: IGESDataGlobalSection): int {.noSideEffect,
     importcpp: "LineWeightGrad", header: "IGESData_GlobalSection.hxx".}
-proc MaxLineWeight*(this: IGESData_GlobalSection): Standard_Real {.noSideEffect,
+proc maxLineWeight*(this: IGESDataGlobalSection): float {.noSideEffect,
     importcpp: "MaxLineWeight", header: "IGESData_GlobalSection.hxx".}
-proc Date*(this: IGESData_GlobalSection): handle[TCollection_HAsciiString] {.
+proc date*(this: IGESDataGlobalSection): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Date", header: "IGESData_GlobalSection.hxx".}
-proc Resolution*(this: IGESData_GlobalSection): Standard_Real {.noSideEffect,
+proc resolution*(this: IGESDataGlobalSection): float {.noSideEffect,
     importcpp: "Resolution", header: "IGESData_GlobalSection.hxx".}
-proc MaxCoord*(this: IGESData_GlobalSection): Standard_Real {.noSideEffect,
+proc maxCoord*(this: IGESDataGlobalSection): float {.noSideEffect,
     importcpp: "MaxCoord", header: "IGESData_GlobalSection.hxx".}
-proc HasMaxCoord*(this: IGESData_GlobalSection): Standard_Boolean {.noSideEffect,
+proc hasMaxCoord*(this: IGESDataGlobalSection): bool {.noSideEffect,
     importcpp: "HasMaxCoord", header: "IGESData_GlobalSection.hxx".}
-proc AuthorName*(this: IGESData_GlobalSection): handle[TCollection_HAsciiString] {.
+proc authorName*(this: IGESDataGlobalSection): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "AuthorName", header: "IGESData_GlobalSection.hxx".}
-proc CompanyName*(this: IGESData_GlobalSection): handle[TCollection_HAsciiString] {.
+proc companyName*(this: IGESDataGlobalSection): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "CompanyName", header: "IGESData_GlobalSection.hxx".}
-proc IGESVersion*(this: IGESData_GlobalSection): Standard_Integer {.noSideEffect,
+proc iGESVersion*(this: IGESDataGlobalSection): int {.noSideEffect,
     importcpp: "IGESVersion", header: "IGESData_GlobalSection.hxx".}
-proc DraftingStandard*(this: IGESData_GlobalSection): Standard_Integer {.
-    noSideEffect, importcpp: "DraftingStandard",
-    header: "IGESData_GlobalSection.hxx".}
-proc LastChangeDate*(this: IGESData_GlobalSection): handle[TCollection_HAsciiString] {.
+proc draftingStandard*(this: IGESDataGlobalSection): int {.noSideEffect,
+    importcpp: "DraftingStandard", header: "IGESData_GlobalSection.hxx".}
+proc lastChangeDate*(this: IGESDataGlobalSection): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "LastChangeDate", header: "IGESData_GlobalSection.hxx".}
-proc HasLastChangeDate*(this: IGESData_GlobalSection): Standard_Boolean {.
-    noSideEffect, importcpp: "HasLastChangeDate",
-    header: "IGESData_GlobalSection.hxx".}
-proc SetLastChangeDate*(this: var IGESData_GlobalSection) {.
+proc hasLastChangeDate*(this: IGESDataGlobalSection): bool {.noSideEffect,
+    importcpp: "HasLastChangeDate", header: "IGESData_GlobalSection.hxx".}
+proc setLastChangeDate*(this: var IGESDataGlobalSection) {.
     importcpp: "SetLastChangeDate", header: "IGESData_GlobalSection.hxx".}
-proc ApplicationProtocol*(this: IGESData_GlobalSection): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "ApplicationProtocol",
-                               header: "IGESData_GlobalSection.hxx".}
-proc HasApplicationProtocol*(this: IGESData_GlobalSection): Standard_Boolean {.
-    noSideEffect, importcpp: "HasApplicationProtocol",
-    header: "IGESData_GlobalSection.hxx".}
-proc NewDateString*(year: Standard_Integer; month: Standard_Integer;
-                   day: Standard_Integer; hour: Standard_Integer;
-                   minut: Standard_Integer; second: Standard_Integer;
-                   mode: Standard_Integer = -1): handle[TCollection_HAsciiString] {.
+proc applicationProtocol*(this: IGESDataGlobalSection): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "ApplicationProtocol",
+                              header: "IGESData_GlobalSection.hxx".}
+proc hasApplicationProtocol*(this: IGESDataGlobalSection): bool {.noSideEffect,
+    importcpp: "HasApplicationProtocol", header: "IGESData_GlobalSection.hxx".}
+proc newDateString*(year: int; month: int; day: int; hour: int; minut: int; second: int;
+                   mode: int = -1): Handle[TCollectionHAsciiString] {.
     importcpp: "IGESData_GlobalSection::NewDateString(@)",
     header: "IGESData_GlobalSection.hxx".}
-proc NewDateString*(date: handle[TCollection_HAsciiString];
-                   mode: Standard_Integer = 1): handle[TCollection_HAsciiString] {.
-    importcpp: "IGESData_GlobalSection::NewDateString(@)",
-    header: "IGESData_GlobalSection.hxx".}
-proc UnitValue*(this: IGESData_GlobalSection): Standard_Real {.noSideEffect,
+proc newDateString*(date: Handle[TCollectionHAsciiString]; mode: int = 1): Handle[
+    TCollectionHAsciiString] {.importcpp: "IGESData_GlobalSection::NewDateString(@)",
+                              header: "IGESData_GlobalSection.hxx".}
+proc unitValue*(this: IGESDataGlobalSection): float {.noSideEffect,
     importcpp: "UnitValue", header: "IGESData_GlobalSection.hxx".}
-proc SetSeparator*(this: var IGESData_GlobalSection; val: Standard_Character) {.
+proc setSeparator*(this: var IGESDataGlobalSection; val: StandardCharacter) {.
     importcpp: "SetSeparator", header: "IGESData_GlobalSection.hxx".}
-proc SetEndMark*(this: var IGESData_GlobalSection; val: Standard_Character) {.
+proc setEndMark*(this: var IGESDataGlobalSection; val: StandardCharacter) {.
     importcpp: "SetEndMark", header: "IGESData_GlobalSection.hxx".}
-proc SetSendName*(this: var IGESData_GlobalSection;
-                 val: handle[TCollection_HAsciiString]) {.
-    importcpp: "SetSendName", header: "IGESData_GlobalSection.hxx".}
-proc SetFileName*(this: var IGESData_GlobalSection;
-                 val: handle[TCollection_HAsciiString]) {.
-    importcpp: "SetFileName", header: "IGESData_GlobalSection.hxx".}
-proc SetSystemId*(this: var IGESData_GlobalSection;
-                 val: handle[TCollection_HAsciiString]) {.
-    importcpp: "SetSystemId", header: "IGESData_GlobalSection.hxx".}
-proc SetInterfaceVersion*(this: var IGESData_GlobalSection;
-                         val: handle[TCollection_HAsciiString]) {.
-    importcpp: "SetInterfaceVersion", header: "IGESData_GlobalSection.hxx".}
-proc SetIntegerBits*(this: var IGESData_GlobalSection; val: Standard_Integer) {.
-    importcpp: "SetIntegerBits", header: "IGESData_GlobalSection.hxx".}
-proc SetMaxPower10Single*(this: var IGESData_GlobalSection; val: Standard_Integer) {.
-    importcpp: "SetMaxPower10Single", header: "IGESData_GlobalSection.hxx".}
-proc SetMaxDigitsSingle*(this: var IGESData_GlobalSection; val: Standard_Integer) {.
-    importcpp: "SetMaxDigitsSingle", header: "IGESData_GlobalSection.hxx".}
-proc SetMaxPower10Double*(this: var IGESData_GlobalSection; val: Standard_Integer) {.
-    importcpp: "SetMaxPower10Double", header: "IGESData_GlobalSection.hxx".}
-proc SetMaxDigitsDouble*(this: var IGESData_GlobalSection; val: Standard_Integer) {.
-    importcpp: "SetMaxDigitsDouble", header: "IGESData_GlobalSection.hxx".}
-proc SetReceiveName*(this: var IGESData_GlobalSection;
-                    val: handle[TCollection_HAsciiString]) {.
-    importcpp: "SetReceiveName", header: "IGESData_GlobalSection.hxx".}
-proc SetScale*(this: var IGESData_GlobalSection; val: Standard_Real) {.
-    importcpp: "SetScale", header: "IGESData_GlobalSection.hxx".}
-proc SetUnitFlag*(this: var IGESData_GlobalSection; val: Standard_Integer) {.
-    importcpp: "SetUnitFlag", header: "IGESData_GlobalSection.hxx".}
-proc SetUnitName*(this: var IGESData_GlobalSection;
-                 val: handle[TCollection_HAsciiString]) {.
-    importcpp: "SetUnitName", header: "IGESData_GlobalSection.hxx".}
-proc SetLineWeightGrad*(this: var IGESData_GlobalSection; val: Standard_Integer) {.
-    importcpp: "SetLineWeightGrad", header: "IGESData_GlobalSection.hxx".}
-proc SetMaxLineWeight*(this: var IGESData_GlobalSection; val: Standard_Real) {.
-    importcpp: "SetMaxLineWeight", header: "IGESData_GlobalSection.hxx".}
-proc SetDate*(this: var IGESData_GlobalSection;
-             val: handle[TCollection_HAsciiString]) {.importcpp: "SetDate",
+proc setSendName*(this: var IGESDataGlobalSection;
+                 val: Handle[TCollectionHAsciiString]) {.importcpp: "SetSendName",
     header: "IGESData_GlobalSection.hxx".}
-proc SetResolution*(this: var IGESData_GlobalSection; val: Standard_Real) {.
+proc setFileName*(this: var IGESDataGlobalSection;
+                 val: Handle[TCollectionHAsciiString]) {.importcpp: "SetFileName",
+    header: "IGESData_GlobalSection.hxx".}
+proc setSystemId*(this: var IGESDataGlobalSection;
+                 val: Handle[TCollectionHAsciiString]) {.importcpp: "SetSystemId",
+    header: "IGESData_GlobalSection.hxx".}
+proc setInterfaceVersion*(this: var IGESDataGlobalSection;
+                         val: Handle[TCollectionHAsciiString]) {.
+    importcpp: "SetInterfaceVersion", header: "IGESData_GlobalSection.hxx".}
+proc setIntegerBits*(this: var IGESDataGlobalSection; val: int) {.
+    importcpp: "SetIntegerBits", header: "IGESData_GlobalSection.hxx".}
+proc setMaxPower10Single*(this: var IGESDataGlobalSection; val: int) {.
+    importcpp: "SetMaxPower10Single", header: "IGESData_GlobalSection.hxx".}
+proc setMaxDigitsSingle*(this: var IGESDataGlobalSection; val: int) {.
+    importcpp: "SetMaxDigitsSingle", header: "IGESData_GlobalSection.hxx".}
+proc setMaxPower10Double*(this: var IGESDataGlobalSection; val: int) {.
+    importcpp: "SetMaxPower10Double", header: "IGESData_GlobalSection.hxx".}
+proc setMaxDigitsDouble*(this: var IGESDataGlobalSection; val: int) {.
+    importcpp: "SetMaxDigitsDouble", header: "IGESData_GlobalSection.hxx".}
+proc setReceiveName*(this: var IGESDataGlobalSection;
+                    val: Handle[TCollectionHAsciiString]) {.
+    importcpp: "SetReceiveName", header: "IGESData_GlobalSection.hxx".}
+proc setScale*(this: var IGESDataGlobalSection; val: float) {.importcpp: "SetScale",
+    header: "IGESData_GlobalSection.hxx".}
+proc setUnitFlag*(this: var IGESDataGlobalSection; val: int) {.
+    importcpp: "SetUnitFlag", header: "IGESData_GlobalSection.hxx".}
+proc setUnitName*(this: var IGESDataGlobalSection;
+                 val: Handle[TCollectionHAsciiString]) {.importcpp: "SetUnitName",
+    header: "IGESData_GlobalSection.hxx".}
+proc setLineWeightGrad*(this: var IGESDataGlobalSection; val: int) {.
+    importcpp: "SetLineWeightGrad", header: "IGESData_GlobalSection.hxx".}
+proc setMaxLineWeight*(this: var IGESDataGlobalSection; val: float) {.
+    importcpp: "SetMaxLineWeight", header: "IGESData_GlobalSection.hxx".}
+proc setDate*(this: var IGESDataGlobalSection; val: Handle[TCollectionHAsciiString]) {.
+    importcpp: "SetDate", header: "IGESData_GlobalSection.hxx".}
+proc setResolution*(this: var IGESDataGlobalSection; val: float) {.
     importcpp: "SetResolution", header: "IGESData_GlobalSection.hxx".}
-proc SetMaxCoord*(this: var IGESData_GlobalSection; val: Standard_Real = 0.0) {.
+proc setMaxCoord*(this: var IGESDataGlobalSection; val: float = 0.0) {.
     importcpp: "SetMaxCoord", header: "IGESData_GlobalSection.hxx".}
-proc MaxMaxCoord*(this: var IGESData_GlobalSection; val: Standard_Real = 0.0) {.
+proc maxMaxCoord*(this: var IGESDataGlobalSection; val: float = 0.0) {.
     importcpp: "MaxMaxCoord", header: "IGESData_GlobalSection.hxx".}
-proc MaxMaxCoords*(this: var IGESData_GlobalSection; xyz: gp_XYZ) {.
+proc maxMaxCoords*(this: var IGESDataGlobalSection; xyz: Xyz) {.
     importcpp: "MaxMaxCoords", header: "IGESData_GlobalSection.hxx".}
-proc SetAuthorName*(this: var IGESData_GlobalSection;
-                   val: handle[TCollection_HAsciiString]) {.
+proc setAuthorName*(this: var IGESDataGlobalSection;
+                   val: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetAuthorName", header: "IGESData_GlobalSection.hxx".}
-proc SetCompanyName*(this: var IGESData_GlobalSection;
-                    val: handle[TCollection_HAsciiString]) {.
+proc setCompanyName*(this: var IGESDataGlobalSection;
+                    val: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetCompanyName", header: "IGESData_GlobalSection.hxx".}
-proc SetIGESVersion*(this: var IGESData_GlobalSection; val: Standard_Integer) {.
+proc setIGESVersion*(this: var IGESDataGlobalSection; val: int) {.
     importcpp: "SetIGESVersion", header: "IGESData_GlobalSection.hxx".}
-proc SetDraftingStandard*(this: var IGESData_GlobalSection; val: Standard_Integer) {.
+proc setDraftingStandard*(this: var IGESDataGlobalSection; val: int) {.
     importcpp: "SetDraftingStandard", header: "IGESData_GlobalSection.hxx".}
-proc SetLastChangeDate*(this: var IGESData_GlobalSection;
-                       val: handle[TCollection_HAsciiString]) {.
+proc setLastChangeDate*(this: var IGESDataGlobalSection;
+                       val: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetLastChangeDate", header: "IGESData_GlobalSection.hxx".}
-proc SetApplicationProtocol*(this: var IGESData_GlobalSection;
-                            val: handle[TCollection_HAsciiString]) {.
+proc setApplicationProtocol*(this: var IGESDataGlobalSection;
+                            val: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetApplicationProtocol", header: "IGESData_GlobalSection.hxx".}

@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  IntPatch_IType* {.size: sizeof(cint), importcpp: "IntPatch_IType",
-                   header: "IntPatch_IType.hxx".} = enum
-    IntPatch_Lin, IntPatch_Circle, IntPatch_Ellipse, IntPatch_Parabola,
-    IntPatch_Hyperbola, IntPatch_Analytic, IntPatch_Walking, IntPatch_Restriction
+  IntPatchIType* {.size: sizeof(cint), importcpp: "IntPatch_IType",
+                  header: "IntPatch_IType.hxx".} = enum
+    IntPatchLin, IntPatchCircle, IntPatchEllipse, IntPatchParabola,
+    IntPatchHyperbola, IntPatchAnalytic, IntPatchWalking, IntPatchRestriction
+
 

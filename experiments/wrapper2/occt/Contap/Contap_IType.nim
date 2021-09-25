@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  Contap_IType* {.size: sizeof(cint), importcpp: "Contap_IType",
-                 header: "Contap_IType.hxx".} = enum
-    Contap_Lin, Contap_Circle, Contap_Walking, Contap_Restriction
+  ContapIType* {.size: sizeof(cint), importcpp: "Contap_IType",
+                header: "Contap_IType.hxx".} = enum
+    ContapLin, ContapCircle, ContapWalking, ContapRestriction
+
 

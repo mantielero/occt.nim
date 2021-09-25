@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESDimen_CenterLine"
 discard "forward decl of IGESData_IGESReaderData"
@@ -31,44 +26,42 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESDimen_ToolCenterLine* {.importcpp: "IGESDimen_ToolCenterLine",
-                             header: "IGESDimen_ToolCenterLine.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Returns
-                                                                                  ## a
-                                                                                  ## ToolCenterLine,
-                                                                                  ## ready
-                                                                                  ## to
-                                                                                  ## work
+  IGESDimenToolCenterLine* {.importcpp: "IGESDimen_ToolCenterLine",
+                            header: "IGESDimen_ToolCenterLine.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## Returns
+                                                                                 ## a
+                                                                                 ## ToolCenterLine,
+                                                                                 ## ready
+                                                                                 ## to
+                                                                                 ## work
 
 
-proc constructIGESDimen_ToolCenterLine*(): IGESDimen_ToolCenterLine {.constructor,
+proc constructIGESDimenToolCenterLine*(): IGESDimenToolCenterLine {.constructor,
     importcpp: "IGESDimen_ToolCenterLine(@)",
     header: "IGESDimen_ToolCenterLine.hxx".}
-proc ReadOwnParams*(this: IGESDimen_ToolCenterLine;
-                   ent: handle[IGESDimen_CenterLine];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESDimen_ToolCenterLine.hxx".}
-proc WriteOwnParams*(this: IGESDimen_ToolCenterLine;
-                    ent: handle[IGESDimen_CenterLine]; IW: var IGESData_IGESWriter) {.
+proc readOwnParams*(this: IGESDimenToolCenterLine;
+                   ent: Handle[IGESDimenCenterLine];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESDimen_ToolCenterLine.hxx".}
+proc writeOwnParams*(this: IGESDimenToolCenterLine;
+                    ent: Handle[IGESDimenCenterLine]; iw: var IGESDataIGESWriter) {.
     noSideEffect, importcpp: "WriteOwnParams",
     header: "IGESDimen_ToolCenterLine.hxx".}
-proc OwnShared*(this: IGESDimen_ToolCenterLine; ent: handle[IGESDimen_CenterLine];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESDimenToolCenterLine; ent: Handle[IGESDimenCenterLine];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESDimen_ToolCenterLine.hxx".}
-proc OwnCorrect*(this: IGESDimen_ToolCenterLine; ent: handle[IGESDimen_CenterLine]): Standard_Boolean {.
+proc ownCorrect*(this: IGESDimenToolCenterLine; ent: Handle[IGESDimenCenterLine]): bool {.
     noSideEffect, importcpp: "OwnCorrect", header: "IGESDimen_ToolCenterLine.hxx".}
-proc DirChecker*(this: IGESDimen_ToolCenterLine; ent: handle[IGESDimen_CenterLine]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESDimenToolCenterLine; ent: Handle[IGESDimenCenterLine]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESDimen_ToolCenterLine.hxx".}
-proc OwnCheck*(this: IGESDimen_ToolCenterLine; ent: handle[IGESDimen_CenterLine];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESDimenToolCenterLine; ent: Handle[IGESDimenCenterLine];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESDimen_ToolCenterLine.hxx".}
-proc OwnCopy*(this: IGESDimen_ToolCenterLine;
-             entfrom: handle[IGESDimen_CenterLine];
-             entto: handle[IGESDimen_CenterLine]; TC: var Interface_CopyTool) {.
+proc ownCopy*(this: IGESDimenToolCenterLine; entfrom: Handle[IGESDimenCenterLine];
+             entto: Handle[IGESDimenCenterLine]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESDimen_ToolCenterLine.hxx".}
-proc OwnDump*(this: IGESDimen_ToolCenterLine; ent: handle[IGESDimen_CenterLine];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
-                                    header: "IGESDimen_ToolCenterLine.hxx".}
+proc ownDump*(this: IGESDimenToolCenterLine; ent: Handle[IGESDimenCenterLine];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump", header: "IGESDimen_ToolCenterLine.hxx".}

@@ -13,17 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepElement_CurveElementSectionDefinition"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepElement_RWCurveElementSectionDefinition* {.
+  RWStepElementRWCurveElementSectionDefinition* {.
       importcpp: "RWStepElement_RWCurveElementSectionDefinition",
       header: "RWStepElement_RWCurveElementSectionDefinition.hxx", bycopy.} = object ##
                                                                                 ## !
@@ -31,21 +27,21 @@ type
                                                                                 ## constructor
 
 
-proc constructRWStepElement_RWCurveElementSectionDefinition*(): RWStepElement_RWCurveElementSectionDefinition {.
+proc constructRWStepElementRWCurveElementSectionDefinition*(): RWStepElementRWCurveElementSectionDefinition {.
     constructor, importcpp: "RWStepElement_RWCurveElementSectionDefinition(@)",
     header: "RWStepElement_RWCurveElementSectionDefinition.hxx".}
-proc ReadStep*(this: RWStepElement_RWCurveElementSectionDefinition;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepElement_CurveElementSectionDefinition]) {.
+proc readStep*(this: RWStepElementRWCurveElementSectionDefinition;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepElementCurveElementSectionDefinition]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepElement_RWCurveElementSectionDefinition.hxx".}
-proc WriteStep*(this: RWStepElement_RWCurveElementSectionDefinition;
-               SW: var StepData_StepWriter;
-               ent: handle[StepElement_CurveElementSectionDefinition]) {.
+proc writeStep*(this: RWStepElementRWCurveElementSectionDefinition;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepElementCurveElementSectionDefinition]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepElement_RWCurveElementSectionDefinition.hxx".}
-proc Share*(this: RWStepElement_RWCurveElementSectionDefinition;
-           ent: handle[StepElement_CurveElementSectionDefinition];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepElementRWCurveElementSectionDefinition;
+           ent: Handle[StepElementCurveElementSectionDefinition];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepElement_RWCurveElementSectionDefinition.hxx".}

@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter_HeaderFile [NewLine] # _HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # ../Standard/Standard_Integer.hxx [NewLine] # ../TColgp/TColgp_Array1OfPnt2d.hxx [NewLine] # ../TColStd/TColStd_Array1OfReal.hxx [NewLine] # ../TColStd/TColStd_Array1OfInteger.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # ../Intf/Intf_Polygon2d.hxx [NewLine] # ../Standard/Standard_Address.hxx [NewLine] class Standard_OutOfRange ;
+## !!!Ignored construct:  # _HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter_HeaderFile [NewLine] # _HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] # < TColgp_Array1OfPnt2d . hxx > [NewLine] # < TColStd_Array1OfReal . hxx > [NewLine] # < TColStd_Array1OfInteger . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < Intf_Polygon2d . hxx > [NewLine] # < Standard_Address . hxx > [NewLine] class Standard_OutOfRange ;
 ## Error: did not expect <!!!
 
 discard "forward decl of HLRBRep_CurveTool"
@@ -22,70 +22,70 @@ discard "forward decl of IntRes2d_Domain"
 discard "forward decl of Bnd_Box2d"
 discard "forward decl of gp_Pnt2d"
 type
-  HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter* {.
+  HLRBRepThePolygon2dOfTheIntPCurvePCurveOfCInter* {.
       importcpp: "HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter",
-      header: "HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter.hxx", bycopy.} = object of Intf_Polygon2d ##
-                                                                                                   ## !
-                                                                                                   ## Compute
-                                                                                                   ## a
-                                                                                                   ## polygon
-                                                                                                   ## on
-                                                                                                   ## the
-                                                                                                   ## domain
-                                                                                                   ## of
-                                                                                                   ## the
-                                                                                                   ## curve.
+      header: "HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter.hxx", bycopy.} = object of IntfPolygon2d ##
+                                                                                                  ## !
+                                                                                                  ## Compute
+                                                                                                  ## a
+                                                                                                  ## polygon
+                                                                                                  ## on
+                                                                                                  ## the
+                                                                                                  ## domain
+                                                                                                  ## of
+                                                                                                  ## the
+                                                                                                  ## curve.
 
 
-proc constructHLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter*(
-    Curve: Standard_Address; NbPnt: Standard_Integer; Domain: IntRes2d_Domain;
-    Tol: Standard_Real): HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter {.
+proc constructHLRBRepThePolygon2dOfTheIntPCurvePCurveOfCInter*(
+    curve: StandardAddress; nbPnt: int; domain: IntRes2dDomain; tol: float): HLRBRepThePolygon2dOfTheIntPCurvePCurveOfCInter {.
     constructor,
     importcpp: "HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter(@)",
     header: "HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter.hxx".}
-proc ComputeWithBox*(this: var HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter;
-                    Curve: Standard_Address; OtherBox: Bnd_Box2d) {.
+proc computeWithBox*(this: var HLRBRepThePolygon2dOfTheIntPCurvePCurveOfCInter;
+                    curve: StandardAddress; otherBox: BndBox2d) {.
     importcpp: "ComputeWithBox",
     header: "HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter.hxx".}
-proc DeflectionOverEstimation*(this: HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter): Standard_Real {.
+proc deflectionOverEstimation*(this: HLRBRepThePolygon2dOfTheIntPCurvePCurveOfCInter): float {.
     noSideEffect, importcpp: "DeflectionOverEstimation",
     header: "HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter.hxx".}
-proc SetDeflectionOverEstimation*(this: var HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter;
-                                 x: Standard_Real) {.
+proc setDeflectionOverEstimation*(this: var HLRBRepThePolygon2dOfTheIntPCurvePCurveOfCInter;
+                                 x: float) {.
     importcpp: "SetDeflectionOverEstimation",
     header: "HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter.hxx".}
-proc Closed*(this: var HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter;
-            clos: Standard_Boolean) {.importcpp: "Closed", header: "HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter.hxx".}
-proc Closed*(this: HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter): Standard_Boolean {.
+proc closed*(this: var HLRBRepThePolygon2dOfTheIntPCurvePCurveOfCInter; clos: bool) {.
+    importcpp: "Closed",
+    header: "HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter.hxx".}
+proc closed*(this: HLRBRepThePolygon2dOfTheIntPCurvePCurveOfCInter): bool {.
     noSideEffect, importcpp: "Closed",
     header: "HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter.hxx".}
-proc NbSegments*(this: HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter): Standard_Integer {.
+proc nbSegments*(this: HLRBRepThePolygon2dOfTheIntPCurvePCurveOfCInter): int {.
     noSideEffect, importcpp: "NbSegments",
     header: "HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter.hxx".}
-proc Segment*(this: HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter;
-             theIndex: Standard_Integer; theBegin: var gp_Pnt2d; theEnd: var gp_Pnt2d) {.
-    noSideEffect, importcpp: "Segment",
+proc segment*(this: HLRBRepThePolygon2dOfTheIntPCurvePCurveOfCInter; theIndex: int;
+             theBegin: var Pnt2d; theEnd: var Pnt2d) {.noSideEffect,
+    importcpp: "Segment",
     header: "HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter.hxx".}
-proc InfParameter*(this: HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter): Standard_Real {.
+proc infParameter*(this: HLRBRepThePolygon2dOfTheIntPCurvePCurveOfCInter): float {.
     noSideEffect, importcpp: "InfParameter",
     header: "HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter.hxx".}
-proc SupParameter*(this: HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter): Standard_Real {.
+proc supParameter*(this: HLRBRepThePolygon2dOfTheIntPCurvePCurveOfCInter): float {.
     noSideEffect, importcpp: "SupParameter",
     header: "HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter.hxx".}
-proc AutoIntersectionIsPossible*(this: HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter): Standard_Boolean {.
+proc autoIntersectionIsPossible*(this: HLRBRepThePolygon2dOfTheIntPCurvePCurveOfCInter): bool {.
     noSideEffect, importcpp: "AutoIntersectionIsPossible",
     header: "HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter.hxx".}
-proc ApproxParamOnCurve*(this: HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter;
-                        Index: Standard_Integer; ParamOnLine: Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "ApproxParamOnCurve",
+proc approxParamOnCurve*(this: HLRBRepThePolygon2dOfTheIntPCurvePCurveOfCInter;
+                        index: int; paramOnLine: float): float {.noSideEffect,
+    importcpp: "ApproxParamOnCurve",
     header: "HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter.hxx".}
-proc CalculRegion*(this: HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter;
-                  x: Standard_Real; y: Standard_Real; x1: Standard_Real;
-                  x2: Standard_Real; y1: Standard_Real; y2: Standard_Real): Standard_Integer {.
+proc calculRegion*(this: HLRBRepThePolygon2dOfTheIntPCurvePCurveOfCInter; x: float;
+                  y: float; x1: float; x2: float; y1: float; y2: float): int {.
     noSideEffect, importcpp: "CalculRegion",
     header: "HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter.hxx".}
-proc Dump*(this: HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter) {.noSideEffect,
+proc dump*(this: HLRBRepThePolygon2dOfTheIntPCurvePCurveOfCInter) {.noSideEffect,
     importcpp: "Dump",
     header: "HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter.hxx".}
-## !!!Ignored construct:  # TheCurve Standard_Address [NewLine] # TheCurve_hxx < Standard_Address . hxx > [NewLine] # TheCurveTool HLRBRep_CurveTool [NewLine] # TheCurveTool_hxx < HLRBRep_CurveTool . hxx > [NewLine] # IntCurve_Polygon2dGen HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter [NewLine] # IntCurve_Polygon2dGen_hxx < HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter . hxx > [NewLine] # < IntCurve_Polygon2dGen . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # TheCurveTool [NewLine] # TheCurveTool_hxx [NewLine] # IntCurve_Polygon2dGen [NewLine] # IntCurve_Polygon2dGen_hxx [NewLine] #  _HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter_HeaderFile [NewLine]
+## !!!Ignored construct:  # TheCurve Standard_Address [NewLine] # TheCurve_hxx < Standard_Address . hxx > [NewLine] # TheCurveTool HLRBRep_CurveTool [NewLine] # TheCurveTool_hxx < HLRBRep_CurveTool . hxx > [NewLine] # IntCurve_Polygon2dGen HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter [NewLine] # IntCurve_Polygon2dGen_hxx < HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter . hxx > [NewLine] # < IntCurve_Polygon2dGen . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # TheCurveTool [NewLine] # TheCurveTool_hxx [NewLine] # IntCurve_Polygon2dGen [NewLine] # IntCurve_Polygon2dGen_hxx [NewLine] #  _HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter_HeaderFile
 ## Error: did not expect <!!!
+

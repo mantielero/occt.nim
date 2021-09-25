@@ -14,24 +14,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_OStream, ../gp/gp_Trsf
-
 discard "forward decl of TopLoc_Datum3D"
 discard "forward decl of TopLoc_Location"
 discard "forward decl of TopLoc_SListOfItemLocation"
 type
-  TopLoc_ItemLocation* {.importcpp: "TopLoc_ItemLocation",
-                        header: "TopLoc_ItemLocation.hxx", bycopy.} = object ## ! Sets the
-                                                                        ## elementary Datum to <D>
-                                                                        ## ! Sets the exponent to <P>
+  TopLocItemLocation* {.importcpp: "TopLoc_ItemLocation",
+                       header: "TopLoc_ItemLocation.hxx", bycopy.} = object ## ! Sets the
+                                                                       ## elementary Datum to <D>
+                                                                       ## ! Sets the exponent to <P>
 
 
-proc constructTopLoc_ItemLocation*(D: handle[TopLoc_Datum3D]; P: Standard_Integer): TopLoc_ItemLocation {.
+proc constructTopLocItemLocation*(d: Handle[TopLocDatum3D]; p: int): TopLocItemLocation {.
     constructor, importcpp: "TopLoc_ItemLocation(@)",
     header: "TopLoc_ItemLocation.hxx".}
-proc DumpJson*(this: TopLoc_ItemLocation; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TopLoc_ItemLocation.hxx".}
+proc dumpJson*(this: TopLocItemLocation; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TopLoc_ItemLocation.hxx".}

@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepToTopoDS_PointPair, ../TopoDS/TopoDS_Edge, StepToTopoDS_PointPairHasher,
-  ../NCollection/NCollection_DataMap
-
 type
-  StepToTopoDS_PointEdgeMap* = NCollection_DataMap[StepToTopoDS_PointPair,
+  StepToTopoDS_PointEdgeMap* = NCollectionDataMap[StepToTopoDS_PointPair,
       TopoDS_Edge, StepToTopoDS_PointPairHasher]
   StepToTopoDS_DataMapIteratorOfPointEdgeMap* = Iterator[StepToTopoDS_PointPair,
       TopoDS_Edge, StepToTopoDS_PointPairHasher]
+

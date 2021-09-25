@@ -14,59 +14,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_PExtCharacter,
-  ../Standard/Standard_Integer, ../Standard/Standard_CString,
-  ../Standard/Standard_Boolean, ../Standard/Standard_ExtString,
-  ../Standard/Standard_Character, ../Standard/Standard_ExtCharacter,
-  ../Standard/Standard_Real, ../Standard/Standard_OStream,
-  ../Standard/Standard_PCharacter
-
 discard "forward decl of Standard_NullObject"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Standard_NegativeValue"
 discard "forward decl of TCollection_AsciiString"
 type
-  TCollection_ExtendedString* {.importcpp: "TCollection_ExtendedString",
-                               header: "TCollection_ExtendedString.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Initializes
-                                                                                      ## a
-                                                                                      ## ExtendedString
-                                                                                      ## to
-                                                                                      ## an
-                                                                                      ## empty
-                                                                                      ## ExtendedString.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## true
-                                                                                      ## if
-                                                                                      ## the
-                                                                                      ## input
-                                                                                      ## CString
-                                                                                      ## was
-                                                                                      ## successfuly
-                                                                                      ## converted
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## to
-                                                                                      ## UTF8
-                                                                                      ## coding
+  TCollectionExtendedString* {.importcpp: "TCollection_ExtendedString",
+                              header: "TCollection_ExtendedString.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Initializes
+                                                                                     ## a
+                                                                                     ## ExtendedString
+                                                                                     ## to
+                                                                                     ## an
+                                                                                     ## empty
+                                                                                     ## ExtendedString.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Returns
+                                                                                     ## true
+                                                                                     ## if
+                                                                                     ## the
+                                                                                     ## input
+                                                                                     ## CString
+                                                                                     ## was
+                                                                                     ## successfuly
+                                                                                     ## converted
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## to
+                                                                                     ## UTF8
+                                                                                     ## coding
     ## !< NULL-terminated string
     ## !< length in 16-bit code units (excluding terminating NULL symbol)
 
 
-proc constructTCollection_ExtendedString*(): TCollection_ExtendedString {.
+proc constructTCollectionExtendedString*(): TCollectionExtendedString {.
     constructor, importcpp: "TCollection_ExtendedString(@)",
     header: "TCollection_ExtendedString.hxx".}
-proc constructTCollection_ExtendedString*(astring: Standard_CString;
-    isMultiByte: Standard_Boolean = Standard_False): TCollection_ExtendedString {.
+proc constructTCollectionExtendedString*(astring: StandardCString;
+                                        isMultiByte: bool = false): TCollectionExtendedString {.
     constructor, importcpp: "TCollection_ExtendedString(@)",
     header: "TCollection_ExtendedString.hxx".}
-proc constructTCollection_ExtendedString*(astring: Standard_ExtString): TCollection_ExtendedString {.
+proc constructTCollectionExtendedString*(astring: StandardExtString): TCollectionExtendedString {.
     constructor, importcpp: "TCollection_ExtendedString(@)",
     header: "TCollection_ExtendedString.hxx".}
 ## !!!Ignored construct:  # ! defined ( _MSC_VER ) || defined ( _NATIVE_WCHAR_T_DEFINED ) [NewLine] ! Initialize from wide-char string considering it as Unicode string
@@ -80,23 +71,22 @@ proc constructTCollection_ExtendedString*(astring: Standard_ExtString): TCollect
 ## ! This constructor is unavailable if application is built with deprecated msvc option "-Zc:wchar_t-",
 ## ! since OCCT itself is never built with this option.!!!
 
-proc constructTCollection_ExtendedString*(aChar: Standard_Character): TCollection_ExtendedString {.
+proc constructTCollectionExtendedString*(aChar: StandardCharacter): TCollectionExtendedString {.
     constructor, importcpp: "TCollection_ExtendedString(@)",
     header: "TCollection_ExtendedString.hxx".}
-proc constructTCollection_ExtendedString*(aChar: Standard_ExtCharacter): TCollection_ExtendedString {.
+proc constructTCollectionExtendedString*(aChar: StandardExtCharacter): TCollectionExtendedString {.
     constructor, importcpp: "TCollection_ExtendedString(@)",
     header: "TCollection_ExtendedString.hxx".}
-proc constructTCollection_ExtendedString*(length: Standard_Integer;
-    filler: Standard_ExtCharacter): TCollection_ExtendedString {.constructor,
-    importcpp: "TCollection_ExtendedString(@)",
-    header: "TCollection_ExtendedString.hxx".}
-proc constructTCollection_ExtendedString*(value: Standard_Integer): TCollection_ExtendedString {.
+proc constructTCollectionExtendedString*(length: int; filler: StandardExtCharacter): TCollectionExtendedString {.
     constructor, importcpp: "TCollection_ExtendedString(@)",
     header: "TCollection_ExtendedString.hxx".}
-proc constructTCollection_ExtendedString*(value: Standard_Real): TCollection_ExtendedString {.
+proc constructTCollectionExtendedString*(value: int): TCollectionExtendedString {.
     constructor, importcpp: "TCollection_ExtendedString(@)",
     header: "TCollection_ExtendedString.hxx".}
-proc constructTCollection_ExtendedString*(astring: TCollection_ExtendedString): TCollection_ExtendedString {.
+proc constructTCollectionExtendedString*(value: float): TCollectionExtendedString {.
+    constructor, importcpp: "TCollection_ExtendedString(@)",
+    header: "TCollection_ExtendedString.hxx".}
+proc constructTCollectionExtendedString*(astring: TCollectionExtendedString): TCollectionExtendedString {.
     constructor, importcpp: "TCollection_ExtendedString(@)",
     header: "TCollection_ExtendedString.hxx".}
 ## !!!Ignored construct:  # OCCT_NO_RVALUE_REFERENCE [NewLine] ! Move constructor TCollection_ExtendedString ( TCollection_ExtendedString && theOther ) : mystring ( theOther . mystring ) , mylength ( theOther . mylength ) { theOther . mystring = NULL ; theOther . mylength = 0 ; } # [NewLine] ! Creation by converting an Ascii string to an extended
@@ -105,101 +95,96 @@ proc constructTCollection_ExtendedString*(astring: TCollection_ExtendedString): 
 ## ! each character is copied to ExtCharacter. TCollection_ExtendedString ( const TCollection_AsciiString & astring , const Standard_Boolean isMultiByte = Standard_True ) ;
 ## Error: identifier expected, but got: ! Move constructor!!!
 
-proc AssignCat*(this: var TCollection_ExtendedString;
-               other: TCollection_ExtendedString) {.importcpp: "AssignCat",
+proc assignCat*(this: var TCollectionExtendedString;
+               other: TCollectionExtendedString) {.importcpp: "AssignCat",
     header: "TCollection_ExtendedString.hxx".}
-proc `+=`*(this: var TCollection_ExtendedString; other: TCollection_ExtendedString) {.
+proc `+=`*(this: var TCollectionExtendedString; other: TCollectionExtendedString) {.
     importcpp: "(# += #)", header: "TCollection_ExtendedString.hxx".}
-proc AssignCat*(this: var TCollection_ExtendedString; theChar: Standard_Utf16Char) {.
+proc assignCat*(this: var TCollectionExtendedString; theChar: StandardUtf16Char) {.
     importcpp: "AssignCat", header: "TCollection_ExtendedString.hxx".}
-proc Cat*(this: TCollection_ExtendedString; other: TCollection_ExtendedString): TCollection_ExtendedString {.
+proc cat*(this: TCollectionExtendedString; other: TCollectionExtendedString): TCollectionExtendedString {.
     noSideEffect, importcpp: "Cat", header: "TCollection_ExtendedString.hxx".}
-proc `+`*(this: TCollection_ExtendedString; other: TCollection_ExtendedString): TCollection_ExtendedString {.
+proc `+`*(this: TCollectionExtendedString; other: TCollectionExtendedString): TCollectionExtendedString {.
     noSideEffect, importcpp: "(# + #)", header: "TCollection_ExtendedString.hxx".}
-proc ChangeAll*(this: var TCollection_ExtendedString; aChar: Standard_ExtCharacter;
-               NewChar: Standard_ExtCharacter) {.importcpp: "ChangeAll",
+proc changeAll*(this: var TCollectionExtendedString; aChar: StandardExtCharacter;
+               newChar: StandardExtCharacter) {.importcpp: "ChangeAll",
     header: "TCollection_ExtendedString.hxx".}
-proc Clear*(this: var TCollection_ExtendedString) {.importcpp: "Clear",
+proc clear*(this: var TCollectionExtendedString) {.importcpp: "Clear",
     header: "TCollection_ExtendedString.hxx".}
-proc Copy*(this: var TCollection_ExtendedString;
-          fromwhere: TCollection_ExtendedString) {.importcpp: "Copy",
-    header: "TCollection_ExtendedString.hxx".}
-proc Swap*(this: var TCollection_ExtendedString;
-          theOther: var TCollection_ExtendedString) {.importcpp: "Swap",
+proc copy*(this: var TCollectionExtendedString; fromwhere: TCollectionExtendedString) {.
+    importcpp: "Copy", header: "TCollection_ExtendedString.hxx".}
+proc swap*(this: var TCollectionExtendedString;
+          theOther: var TCollectionExtendedString) {.importcpp: "Swap",
     header: "TCollection_ExtendedString.hxx".}
 ## !!!Ignored construct:  # OCCT_NO_RVALUE_REFERENCE [NewLine] ! Move assignment operator TCollection_ExtendedString & operator = ( TCollection_ExtendedString && theOther ) { Swap ( theOther ) ; return * this ; } # [NewLine] ! Frees memory allocated by ExtendedString. ~ TCollection_ExtendedString ( ) ;
 ## Error: identifier expected, but got: ! Move assignment operator!!!
 
-proc Insert*(this: var TCollection_ExtendedString; where: Standard_Integer;
-            what: Standard_ExtCharacter) {.importcpp: "Insert",
+proc insert*(this: var TCollectionExtendedString; where: int;
+            what: StandardExtCharacter) {.importcpp: "Insert", header: "TCollection_ExtendedString.hxx".}
+proc insert*(this: var TCollectionExtendedString; where: int;
+            what: TCollectionExtendedString) {.importcpp: "Insert",
     header: "TCollection_ExtendedString.hxx".}
-proc Insert*(this: var TCollection_ExtendedString; where: Standard_Integer;
-            what: TCollection_ExtendedString) {.importcpp: "Insert",
-    header: "TCollection_ExtendedString.hxx".}
-proc IsEmpty*(this: TCollection_ExtendedString): Standard_Boolean {.noSideEffect,
+proc isEmpty*(this: TCollectionExtendedString): bool {.noSideEffect,
     importcpp: "IsEmpty", header: "TCollection_ExtendedString.hxx".}
-proc IsEqual*(this: TCollection_ExtendedString; other: Standard_ExtString): Standard_Boolean {.
+proc isEqual*(this: TCollectionExtendedString; other: StandardExtString): bool {.
     noSideEffect, importcpp: "IsEqual", header: "TCollection_ExtendedString.hxx".}
-proc `==`*(this: TCollection_ExtendedString; other: Standard_ExtString): Standard_Boolean {.
+proc `==`*(this: TCollectionExtendedString; other: StandardExtString): bool {.
     noSideEffect, importcpp: "(# == #)", header: "TCollection_ExtendedString.hxx".}
-proc IsEqual*(this: TCollection_ExtendedString; other: TCollection_ExtendedString): Standard_Boolean {.
+proc isEqual*(this: TCollectionExtendedString; other: TCollectionExtendedString): bool {.
     noSideEffect, importcpp: "IsEqual", header: "TCollection_ExtendedString.hxx".}
-proc `==`*(this: TCollection_ExtendedString; other: TCollection_ExtendedString): Standard_Boolean {.
+proc `==`*(this: TCollectionExtendedString; other: TCollectionExtendedString): bool {.
     noSideEffect, importcpp: "(# == #)", header: "TCollection_ExtendedString.hxx".}
-proc IsDifferent*(this: TCollection_ExtendedString; other: Standard_ExtString): Standard_Boolean {.
+proc isDifferent*(this: TCollectionExtendedString; other: StandardExtString): bool {.
     noSideEffect, importcpp: "IsDifferent",
     header: "TCollection_ExtendedString.hxx".}
-proc IsDifferent*(this: TCollection_ExtendedString;
-                 other: TCollection_ExtendedString): Standard_Boolean {.
+proc isDifferent*(this: TCollectionExtendedString; other: TCollectionExtendedString): bool {.
     noSideEffect, importcpp: "IsDifferent",
     header: "TCollection_ExtendedString.hxx".}
-proc IsLess*(this: TCollection_ExtendedString; other: Standard_ExtString): Standard_Boolean {.
+proc isLess*(this: TCollectionExtendedString; other: StandardExtString): bool {.
     noSideEffect, importcpp: "IsLess", header: "TCollection_ExtendedString.hxx".}
-proc `<`*(this: TCollection_ExtendedString; other: Standard_ExtString): Standard_Boolean {.
+proc `<`*(this: TCollectionExtendedString; other: StandardExtString): bool {.
     noSideEffect, importcpp: "(# < #)", header: "TCollection_ExtendedString.hxx".}
-proc IsLess*(this: TCollection_ExtendedString; other: TCollection_ExtendedString): Standard_Boolean {.
+proc isLess*(this: TCollectionExtendedString; other: TCollectionExtendedString): bool {.
     noSideEffect, importcpp: "IsLess", header: "TCollection_ExtendedString.hxx".}
-proc `<`*(this: TCollection_ExtendedString; other: TCollection_ExtendedString): Standard_Boolean {.
+proc `<`*(this: TCollectionExtendedString; other: TCollectionExtendedString): bool {.
     noSideEffect, importcpp: "(# < #)", header: "TCollection_ExtendedString.hxx".}
-proc IsGreater*(this: TCollection_ExtendedString; other: Standard_ExtString): Standard_Boolean {.
+proc isGreater*(this: TCollectionExtendedString; other: StandardExtString): bool {.
     noSideEffect, importcpp: "IsGreater", header: "TCollection_ExtendedString.hxx".}
-proc IsGreater*(this: TCollection_ExtendedString; other: TCollection_ExtendedString): Standard_Boolean {.
+proc isGreater*(this: TCollectionExtendedString; other: TCollectionExtendedString): bool {.
     noSideEffect, importcpp: "IsGreater", header: "TCollection_ExtendedString.hxx".}
-proc StartsWith*(this: TCollection_ExtendedString;
-                theStartString: TCollection_ExtendedString): Standard_Boolean {.
-    noSideEffect, importcpp: "StartsWith", header: "TCollection_ExtendedString.hxx".}
-proc EndsWith*(this: TCollection_ExtendedString;
-              theEndString: TCollection_ExtendedString): Standard_Boolean {.
-    noSideEffect, importcpp: "EndsWith", header: "TCollection_ExtendedString.hxx".}
-proc IsAscii*(this: TCollection_ExtendedString): Standard_Boolean {.noSideEffect,
+proc startsWith*(this: TCollectionExtendedString;
+                theStartString: TCollectionExtendedString): bool {.noSideEffect,
+    importcpp: "StartsWith", header: "TCollection_ExtendedString.hxx".}
+proc endsWith*(this: TCollectionExtendedString;
+              theEndString: TCollectionExtendedString): bool {.noSideEffect,
+    importcpp: "EndsWith", header: "TCollection_ExtendedString.hxx".}
+proc isAscii*(this: TCollectionExtendedString): bool {.noSideEffect,
     importcpp: "IsAscii", header: "TCollection_ExtendedString.hxx".}
-proc Length*(this: TCollection_ExtendedString): Standard_Integer {.noSideEffect,
+proc length*(this: TCollectionExtendedString): int {.noSideEffect,
     importcpp: "Length", header: "TCollection_ExtendedString.hxx".}
-proc Print*(this: TCollection_ExtendedString; astream: var Standard_OStream) {.
+proc print*(this: TCollectionExtendedString; astream: var StandardOStream) {.
     noSideEffect, importcpp: "Print", header: "TCollection_ExtendedString.hxx".}
-proc RemoveAll*(this: var TCollection_ExtendedString; what: Standard_ExtCharacter) {.
+proc removeAll*(this: var TCollectionExtendedString; what: StandardExtCharacter) {.
     importcpp: "RemoveAll", header: "TCollection_ExtendedString.hxx".}
-proc Remove*(this: var TCollection_ExtendedString; where: Standard_Integer;
-            ahowmany: Standard_Integer = 1) {.importcpp: "Remove",
-    header: "TCollection_ExtendedString.hxx".}
-proc Search*(this: TCollection_ExtendedString; what: TCollection_ExtendedString): Standard_Integer {.
+proc remove*(this: var TCollectionExtendedString; where: int; ahowmany: int = 1) {.
+    importcpp: "Remove", header: "TCollection_ExtendedString.hxx".}
+proc search*(this: TCollectionExtendedString; what: TCollectionExtendedString): int {.
     noSideEffect, importcpp: "Search", header: "TCollection_ExtendedString.hxx".}
-proc SearchFromEnd*(this: TCollection_ExtendedString;
-                   what: TCollection_ExtendedString): Standard_Integer {.
-    noSideEffect, importcpp: "SearchFromEnd",
+proc searchFromEnd*(this: TCollectionExtendedString;
+                   what: TCollectionExtendedString): int {.noSideEffect,
+    importcpp: "SearchFromEnd", header: "TCollection_ExtendedString.hxx".}
+proc setValue*(this: var TCollectionExtendedString; where: int;
+              what: StandardExtCharacter) {.importcpp: "SetValue",
     header: "TCollection_ExtendedString.hxx".}
-proc SetValue*(this: var TCollection_ExtendedString; where: Standard_Integer;
-              what: Standard_ExtCharacter) {.importcpp: "SetValue",
+proc setValue*(this: var TCollectionExtendedString; where: int;
+              what: TCollectionExtendedString) {.importcpp: "SetValue",
     header: "TCollection_ExtendedString.hxx".}
-proc SetValue*(this: var TCollection_ExtendedString; where: Standard_Integer;
-              what: TCollection_ExtendedString) {.importcpp: "SetValue",
-    header: "TCollection_ExtendedString.hxx".}
-proc Split*(this: var TCollection_ExtendedString; where: Standard_Integer): TCollection_ExtendedString {.
+proc split*(this: var TCollectionExtendedString; where: int): TCollectionExtendedString {.
     importcpp: "Split", header: "TCollection_ExtendedString.hxx".}
-proc Token*(this: TCollection_ExtendedString; separators: Standard_ExtString;
-           whichone: Standard_Integer = 1): TCollection_ExtendedString {.
-    noSideEffect, importcpp: "Token", header: "TCollection_ExtendedString.hxx".}
-proc ToExtString*(this: TCollection_ExtendedString): Standard_ExtString {.
+proc token*(this: TCollectionExtendedString; separators: StandardExtString;
+           whichone: int = 1): TCollectionExtendedString {.noSideEffect,
+    importcpp: "Token", header: "TCollection_ExtendedString.hxx".}
+proc toExtString*(this: TCollectionExtendedString): StandardExtString {.
     noSideEffect, importcpp: "ToExtString",
     header: "TCollection_ExtendedString.hxx".}
 ## !!!Ignored construct:  # _WIN32 [NewLine] ! Returns pointer to string as wchar_t* on Windows platform where wchar_t* is considered as UTF-16 string.
@@ -213,28 +198,25 @@ proc ToExtString*(this: TCollection_ExtendedString): Standard_ExtString {.
 ## ! This method is useful to pass string into wide-char system APIs,
 ## ! and makes sense only on Windows (other systems use UTF-8 and can miss wide-char functions at all).!!!
 
-proc Value*(this: TCollection_ExtendedString; where: Standard_Integer): Standard_ExtCharacter {.
+proc value*(this: TCollectionExtendedString; where: int): StandardExtCharacter {.
     noSideEffect, importcpp: "Value", header: "TCollection_ExtendedString.hxx".}
-proc HashCode*(theString: TCollection_ExtendedString;
-              theUpperBound: Standard_Integer): Standard_Integer {.
+proc hashCode*(theString: TCollectionExtendedString; theUpperBound: int): int {.
     importcpp: "TCollection_ExtendedString::HashCode(@)",
     header: "TCollection_ExtendedString.hxx".}
-proc IsEqual*(theString1: TCollection_ExtendedString;
-             theString2: TCollection_ExtendedString): Standard_Boolean {.
+proc isEqual*(theString1: TCollectionExtendedString;
+             theString2: TCollectionExtendedString): bool {.
     importcpp: "TCollection_ExtendedString::IsEqual(@)",
     header: "TCollection_ExtendedString.hxx".}
-proc ToUTF8CString*(this: TCollection_ExtendedString;
-                   theCString: var Standard_PCharacter): Standard_Integer {.
-    noSideEffect, importcpp: "ToUTF8CString",
-    header: "TCollection_ExtendedString.hxx".}
-proc LengthOfCString*(this: TCollection_ExtendedString): Standard_Integer {.
-    noSideEffect, importcpp: "LengthOfCString",
-    header: "TCollection_ExtendedString.hxx".}
+proc toUTF8CString*(this: TCollectionExtendedString;
+                   theCString: var StandardPCharacter): int {.noSideEffect,
+    importcpp: "ToUTF8CString", header: "TCollection_ExtendedString.hxx".}
+proc lengthOfCString*(this: TCollectionExtendedString): int {.noSideEffect,
+    importcpp: "LengthOfCString", header: "TCollection_ExtendedString.hxx".}
 ## ! Computes a hash code for the given extended string, in the range [1, theUpperBound]
 ## ! @param theExtendedString the extended string which hash code is to be computed
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
-proc HashCode*(theExtendedString: TCollection_ExtendedString;
-              theUpperBound: Standard_Integer): Standard_Integer =
+proc hashCode*(theExtendedString: TCollectionExtendedString; theUpperBound: int): int =
   discard
+

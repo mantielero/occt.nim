@@ -13,42 +13,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_SourceItem,
-  ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_SourceItem"
 discard "forward decl of StepBasic_ExternalSource"
 discard "forward decl of StepBasic_ExternalSource"
 type
-  Handle_StepBasic_ExternalSource* = handle[StepBasic_ExternalSource]
+  HandleStepBasicExternalSource* = Handle[StepBasicExternalSource]
 
 ## ! Representation of STEP entity ExternalSource
 
 type
-  StepBasic_ExternalSource* {.importcpp: "StepBasic_ExternalSource",
-                             header: "StepBasic_ExternalSource.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                      ## !
-                                                                                                      ## Empty
-                                                                                                      ## constructor
+  StepBasicExternalSource* {.importcpp: "StepBasic_ExternalSource",
+                            header: "StepBasic_ExternalSource.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                    ## !
+                                                                                                    ## Empty
+                                                                                                    ## constructor
 
 
-proc constructStepBasic_ExternalSource*(): StepBasic_ExternalSource {.constructor,
+proc constructStepBasicExternalSource*(): StepBasicExternalSource {.constructor,
     importcpp: "StepBasic_ExternalSource(@)",
     header: "StepBasic_ExternalSource.hxx".}
-proc Init*(this: var StepBasic_ExternalSource; aSourceId: StepBasic_SourceItem) {.
+proc init*(this: var StepBasicExternalSource; aSourceId: StepBasicSourceItem) {.
     importcpp: "Init", header: "StepBasic_ExternalSource.hxx".}
-proc SourceId*(this: StepBasic_ExternalSource): StepBasic_SourceItem {.noSideEffect,
+proc sourceId*(this: StepBasicExternalSource): StepBasicSourceItem {.noSideEffect,
     importcpp: "SourceId", header: "StepBasic_ExternalSource.hxx".}
-proc SetSourceId*(this: var StepBasic_ExternalSource; SourceId: StepBasic_SourceItem) {.
+proc setSourceId*(this: var StepBasicExternalSource; sourceId: StepBasicSourceItem) {.
     importcpp: "SetSourceId", header: "StepBasic_ExternalSource.hxx".}
 type
-  StepBasic_ExternalSourcebase_type* = Standard_Transient
+  StepBasicExternalSourcebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ExternalSource::get_type_name(@)",
-                              header: "StepBasic_ExternalSource.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ExternalSource::get_type_name(@)",
+                            header: "StepBasic_ExternalSource.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_ExternalSource::get_type_descriptor(@)",
     header: "StepBasic_ExternalSource.hxx".}
-proc DynamicType*(this: StepBasic_ExternalSource): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicExternalSource): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_ExternalSource.hxx".}

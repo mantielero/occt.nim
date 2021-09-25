@@ -14,11 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_IndexedDataMap,
-  ../TColStd/TColStd_MapTransientHasher, Transfer_Binder
-
 type
-  Transfer_TransferMapOfProcessForTransient* = NCollection_IndexedDataMap[
-      handle[Standard_Transient], handle[Transfer_Binder],
-      TColStd_MapTransientHasher]
+  TransferTransferMapOfProcessForTransient* = NCollectionIndexedDataMap[
+      Handle[StandardTransient], Handle[TransferBinder], TColStdMapTransientHasher]
+

@@ -12,8 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Vector, BOPDS_Interf
-
 type
-  BOPDS_VectorOfInterfEF* = NCollection_Vector[BOPDS_InterfEF]
+  BOPDS_VectorOfInterfEF* = NCollectionVector[BOPDS_InterfEF]
+

@@ -14,43 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../StepData/StepData_Protocol,
-  ../Standard/Standard_Integer, ../Standard/Standard_Type,
-  ../Standard/Standard_CString
-
 discard "forward decl of Interface_Protocol"
 discard "forward decl of StepAP214_Protocol"
 discard "forward decl of StepAP214_Protocol"
 type
-  Handle_StepAP214_Protocol* = handle[StepAP214_Protocol]
+  HandleStepAP214Protocol* = Handle[StepAP214Protocol]
 
 ## ! Protocol for StepAP214 Entities
 ## ! It requires StepAP214 as a Resource
 
 type
-  StepAP214_Protocol* {.importcpp: "StepAP214_Protocol",
-                       header: "StepAP214_Protocol.hxx", bycopy.} = object of StepData_Protocol
+  StepAP214Protocol* {.importcpp: "StepAP214_Protocol",
+                      header: "StepAP214_Protocol.hxx", bycopy.} = object of StepDataProtocol
 
 
-proc constructStepAP214_Protocol*(): StepAP214_Protocol {.constructor,
+proc constructStepAP214Protocol*(): StepAP214Protocol {.constructor,
     importcpp: "StepAP214_Protocol(@)", header: "StepAP214_Protocol.hxx".}
-proc TypeNumber*(this: StepAP214_Protocol; atype: handle[Standard_Type]): Standard_Integer {.
+proc typeNumber*(this: StepAP214Protocol; atype: Handle[StandardType]): int {.
     noSideEffect, importcpp: "TypeNumber", header: "StepAP214_Protocol.hxx".}
-proc SchemaName*(this: StepAP214_Protocol): Standard_CString {.noSideEffect,
+proc schemaName*(this: StepAP214Protocol): StandardCString {.noSideEffect,
     importcpp: "SchemaName", header: "StepAP214_Protocol.hxx".}
-proc NbResources*(this: StepAP214_Protocol): Standard_Integer {.noSideEffect,
+proc nbResources*(this: StepAP214Protocol): int {.noSideEffect,
     importcpp: "NbResources", header: "StepAP214_Protocol.hxx".}
-proc Resource*(this: StepAP214_Protocol; num: Standard_Integer): handle[
-    Interface_Protocol] {.noSideEffect, importcpp: "Resource",
-                         header: "StepAP214_Protocol.hxx".}
+proc resource*(this: StepAP214Protocol; num: int): Handle[InterfaceProtocol] {.
+    noSideEffect, importcpp: "Resource", header: "StepAP214_Protocol.hxx".}
 type
-  StepAP214_Protocolbase_type* = StepData_Protocol
+  StepAP214ProtocolbaseType* = StepDataProtocol
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_Protocol::get_type_name(@)",
-                              header: "StepAP214_Protocol.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP214_Protocol::get_type_name(@)",
+                            header: "StepAP214_Protocol.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP214_Protocol::get_type_descriptor(@)",
     header: "StepAP214_Protocol.hxx".}
-proc DynamicType*(this: StepAP214_Protocol): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepAP214Protocol): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepAP214_Protocol.hxx".}

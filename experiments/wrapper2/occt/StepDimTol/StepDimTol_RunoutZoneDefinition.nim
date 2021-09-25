@@ -13,48 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepDimTol_RunoutZoneOrientation, StepDimTol_ToleranceZoneDefinition,
-  ../Standard/Standard_Integer
-
 discard "forward decl of StepRepr_HArray1OfShapeAspect"
 discard "forward decl of StepDimTol_RunoutZoneDefinition"
 discard "forward decl of StepDimTol_RunoutZoneDefinition"
 type
-  Handle_StepDimTol_RunoutZoneDefinition* = handle[StepDimTol_RunoutZoneDefinition]
+  HandleStepDimTolRunoutZoneDefinition* = Handle[StepDimTolRunoutZoneDefinition]
 
 ## ! Representation of STEP entity ToleranceZoneDefinition
 
 type
-  StepDimTol_RunoutZoneDefinition* {.importcpp: "StepDimTol_RunoutZoneDefinition", header: "StepDimTol_RunoutZoneDefinition.hxx",
-                                    bycopy.} = object of StepDimTol_ToleranceZoneDefinition ##
-                                                                                       ## !
-                                                                                       ## Empty
-                                                                                       ## constructor
+  StepDimTolRunoutZoneDefinition* {.importcpp: "StepDimTol_RunoutZoneDefinition", header: "StepDimTol_RunoutZoneDefinition.hxx",
+                                   bycopy.} = object of StepDimTolToleranceZoneDefinition ##
+                                                                                     ## !
+                                                                                     ## Empty
+                                                                                     ## constructor
 
 
-proc constructStepDimTol_RunoutZoneDefinition*(): StepDimTol_RunoutZoneDefinition {.
+proc constructStepDimTolRunoutZoneDefinition*(): StepDimTolRunoutZoneDefinition {.
     constructor, importcpp: "StepDimTol_RunoutZoneDefinition(@)",
     header: "StepDimTol_RunoutZoneDefinition.hxx".}
-proc Init*(this: var StepDimTol_RunoutZoneDefinition;
-          theZone: handle[StepDimTol_ToleranceZone];
-          theBoundaries: handle[StepRepr_HArray1OfShapeAspect];
-          theOrientation: handle[StepDimTol_RunoutZoneOrientation]) {.
+proc init*(this: var StepDimTolRunoutZoneDefinition;
+          theZone: Handle[StepDimTolToleranceZone];
+          theBoundaries: Handle[StepReprHArray1OfShapeAspect];
+          theOrientation: Handle[StepDimTolRunoutZoneOrientation]) {.
     importcpp: "Init", header: "StepDimTol_RunoutZoneDefinition.hxx".}
-proc Orientation*(this: StepDimTol_RunoutZoneDefinition): handle[
-    StepDimTol_RunoutZoneOrientation] {.noSideEffect, importcpp: "Orientation", header: "StepDimTol_RunoutZoneDefinition.hxx".}
-proc SetOrientation*(this: var StepDimTol_RunoutZoneDefinition;
-                    theOrientation: handle[StepDimTol_RunoutZoneOrientation]) {.
+proc orientation*(this: StepDimTolRunoutZoneDefinition): Handle[
+    StepDimTolRunoutZoneOrientation] {.noSideEffect, importcpp: "Orientation", header: "StepDimTol_RunoutZoneDefinition.hxx".}
+proc setOrientation*(this: var StepDimTolRunoutZoneDefinition;
+                    theOrientation: Handle[StepDimTolRunoutZoneOrientation]) {.
     importcpp: "SetOrientation", header: "StepDimTol_RunoutZoneDefinition.hxx".}
 type
-  StepDimTol_RunoutZoneDefinitionbase_type* = StepDimTol_ToleranceZoneDefinition
+  StepDimTolRunoutZoneDefinitionbaseType* = StepDimTolToleranceZoneDefinition
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_RunoutZoneDefinition::get_type_name(@)",
-                              header: "StepDimTol_RunoutZoneDefinition.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_RunoutZoneDefinition::get_type_name(@)",
+                            header: "StepDimTol_RunoutZoneDefinition.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_RunoutZoneDefinition::get_type_descriptor(@)",
     header: "StepDimTol_RunoutZoneDefinition.hxx".}
-proc DynamicType*(this: StepDimTol_RunoutZoneDefinition): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolRunoutZoneDefinition): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_RunoutZoneDefinition.hxx".}

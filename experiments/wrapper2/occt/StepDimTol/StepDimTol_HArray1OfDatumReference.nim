@@ -13,40 +13,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepDimTol_DatumReference, StepDimTol_Array1OfDatumReference,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepDimTol_HArray1OfDatumReference* {.importcpp: "StepDimTol_HArray1OfDatumReference", header: "StepDimTol_HArray1OfDatumReference.hxx",
-                                       bycopy.} = object of StepDimTol_Array1OfDatumReference
+  StepDimTolHArray1OfDatumReference* {.importcpp: "StepDimTol_HArray1OfDatumReference", header: "StepDimTol_HArray1OfDatumReference.hxx",
+                                      bycopy.} = object of StepDimTolArray1OfDatumReference
 
 
-proc constructStepDimTol_HArray1OfDatumReference*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepDimTol_HArray1OfDatumReference {.constructor,
+proc constructStepDimTolHArray1OfDatumReference*(theLower: int; theUpper: int): StepDimTolHArray1OfDatumReference {.
+    constructor, importcpp: "StepDimTol_HArray1OfDatumReference(@)",
+    header: "StepDimTol_HArray1OfDatumReference.hxx".}
+proc constructStepDimTolHArray1OfDatumReference*(theLower: int; theUpper: int;
+    theValue: ValueType): StepDimTolHArray1OfDatumReference {.constructor,
     importcpp: "StepDimTol_HArray1OfDatumReference(@)",
     header: "StepDimTol_HArray1OfDatumReference.hxx".}
-proc constructStepDimTol_HArray1OfDatumReference*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepDimTol_HArray1OfDatumReference {.
+proc constructStepDimTolHArray1OfDatumReference*(
+    theOther: StepDimTolArray1OfDatumReference): StepDimTolHArray1OfDatumReference {.
     constructor, importcpp: "StepDimTol_HArray1OfDatumReference(@)",
     header: "StepDimTol_HArray1OfDatumReference.hxx".}
-proc constructStepDimTol_HArray1OfDatumReference*(
-    theOther: StepDimTol_Array1OfDatumReference): StepDimTol_HArray1OfDatumReference {.
-    constructor, importcpp: "StepDimTol_HArray1OfDatumReference(@)",
-    header: "StepDimTol_HArray1OfDatumReference.hxx".}
-proc Array1*(this: StepDimTol_HArray1OfDatumReference): StepDimTol_Array1OfDatumReference {.
+proc array1*(this: StepDimTolHArray1OfDatumReference): StepDimTolArray1OfDatumReference {.
     noSideEffect, importcpp: "Array1",
     header: "StepDimTol_HArray1OfDatumReference.hxx".}
-proc ChangeArray1*(this: var StepDimTol_HArray1OfDatumReference): var StepDimTol_Array1OfDatumReference {.
+proc changeArray1*(this: var StepDimTolHArray1OfDatumReference): var StepDimTolArray1OfDatumReference {.
     importcpp: "ChangeArray1", header: "StepDimTol_HArray1OfDatumReference.hxx".}
 type
-  StepDimTol_HArray1OfDatumReferencebase_type* = MMgt_TShared
+  StepDimTolHArray1OfDatumReferencebaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_HArray1OfDatumReference::get_type_name(@)",
-                              header: "StepDimTol_HArray1OfDatumReference.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_HArray1OfDatumReference::get_type_name(@)",
+                            header: "StepDimTol_HArray1OfDatumReference.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_HArray1OfDatumReference::get_type_descriptor(@)",
     header: "StepDimTol_HArray1OfDatumReference.hxx".}
-proc DynamicType*(this: StepDimTol_HArray1OfDatumReference): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolHArray1OfDatumReference): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_HArray1OfDatumReference.hxx".}

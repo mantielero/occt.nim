@@ -11,9 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Aspect_Window
-
 ## ! Defines a platform-neutral window.
 ## ! This class is intended to be used in context when window management (including OpenGL context creation)
 ## ! is performed on application side (e.g. using external framework).
@@ -21,75 +18,69 @@ import
 ## ! Window properties should be managed by application and assigned to this class as properties.
 
 type
-  Aspect_NeutralWindow* {.importcpp: "Aspect_NeutralWindow",
-                         header: "Aspect_NeutralWindow.hxx", bycopy.} = object of Aspect_Window ##
-                                                                                         ## !
-                                                                                         ## Empty
-                                                                                         ## constructor.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Note
-                                                                                         ## that
-                                                                                         ## window
-                                                                                         ## is
-                                                                                         ## considered
-                                                                                         ## "mapped"
-                                                                                         ## by
-                                                                                         ## default.
+  AspectNeutralWindow* {.importcpp: "Aspect_NeutralWindow",
+                        header: "Aspect_NeutralWindow.hxx", bycopy.} = object of AspectWindow ##
+                                                                                       ## !
+                                                                                       ## Empty
+                                                                                       ## constructor.
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## Note
+                                                                                       ## that
+                                                                                       ## window
+                                                                                       ## is
+                                                                                       ## considered
+                                                                                       ## "mapped"
+                                                                                       ## by
+                                                                                       ## default.
 
-  Aspect_NeutralWindowbase_type* = Aspect_Window
+  AspectNeutralWindowbaseType* = AspectWindow
 
-proc get_type_name*(): cstring {.importcpp: "Aspect_NeutralWindow::get_type_name(@)",
-                              header: "Aspect_NeutralWindow.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Aspect_NeutralWindow::get_type_name(@)",
+                            header: "Aspect_NeutralWindow.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Aspect_NeutralWindow::get_type_descriptor(@)",
     header: "Aspect_NeutralWindow.hxx".}
-proc DynamicType*(this: Aspect_NeutralWindow): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: AspectNeutralWindow): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Aspect_NeutralWindow.hxx".}
-proc constructAspect_NeutralWindow*(): Aspect_NeutralWindow {.constructor,
+proc constructAspectNeutralWindow*(): AspectNeutralWindow {.constructor,
     importcpp: "Aspect_NeutralWindow(@)", header: "Aspect_NeutralWindow.hxx".}
-proc NativeHandle*(this: Aspect_NeutralWindow): Aspect_Drawable {.noSideEffect,
+proc nativeHandle*(this: AspectNeutralWindow): AspectDrawable {.noSideEffect,
     importcpp: "NativeHandle", header: "Aspect_NeutralWindow.hxx".}
-proc NativeParentHandle*(this: Aspect_NeutralWindow): Aspect_Drawable {.
-    noSideEffect, importcpp: "NativeParentHandle",
-    header: "Aspect_NeutralWindow.hxx".}
-proc NativeFBConfig*(this: Aspect_NeutralWindow): Aspect_FBConfig {.noSideEffect,
+proc nativeParentHandle*(this: AspectNeutralWindow): AspectDrawable {.noSideEffect,
+    importcpp: "NativeParentHandle", header: "Aspect_NeutralWindow.hxx".}
+proc nativeFBConfig*(this: AspectNeutralWindow): AspectFBConfig {.noSideEffect,
     importcpp: "NativeFBConfig", header: "Aspect_NeutralWindow.hxx".}
-proc SetNativeHandle*(this: var Aspect_NeutralWindow; theWindow: Aspect_Drawable): Standard_Boolean {.
+proc setNativeHandle*(this: var AspectNeutralWindow; theWindow: AspectDrawable): bool {.
     importcpp: "SetNativeHandle", header: "Aspect_NeutralWindow.hxx".}
-proc SetNativeHandles*(this: var Aspect_NeutralWindow; theWindow: Aspect_Drawable;
-                      theParentWindow: Aspect_Drawable;
-                      theFbConfig: Aspect_FBConfig): Standard_Boolean {.
+proc setNativeHandles*(this: var AspectNeutralWindow; theWindow: AspectDrawable;
+                      theParentWindow: AspectDrawable; theFbConfig: AspectFBConfig): bool {.
     importcpp: "SetNativeHandles", header: "Aspect_NeutralWindow.hxx".}
-proc IsMapped*(this: Aspect_NeutralWindow): Standard_Boolean {.noSideEffect,
+proc isMapped*(this: AspectNeutralWindow): bool {.noSideEffect,
     importcpp: "IsMapped", header: "Aspect_NeutralWindow.hxx".}
-proc Map*(this: Aspect_NeutralWindow) {.noSideEffect, importcpp: "Map",
-                                     header: "Aspect_NeutralWindow.hxx".}
-proc Unmap*(this: Aspect_NeutralWindow) {.noSideEffect, importcpp: "Unmap",
-                                       header: "Aspect_NeutralWindow.hxx".}
-proc DoResize*(this: var Aspect_NeutralWindow): Aspect_TypeOfResize {.
+proc map*(this: AspectNeutralWindow) {.noSideEffect, importcpp: "Map",
+                                    header: "Aspect_NeutralWindow.hxx".}
+proc unmap*(this: AspectNeutralWindow) {.noSideEffect, importcpp: "Unmap",
+                                      header: "Aspect_NeutralWindow.hxx".}
+proc doResize*(this: var AspectNeutralWindow): AspectTypeOfResize {.
     importcpp: "DoResize", header: "Aspect_NeutralWindow.hxx".}
-proc DoMapping*(this: Aspect_NeutralWindow): Standard_Boolean {.noSideEffect,
+proc doMapping*(this: AspectNeutralWindow): bool {.noSideEffect,
     importcpp: "DoMapping", header: "Aspect_NeutralWindow.hxx".}
-proc Ratio*(this: Aspect_NeutralWindow): Standard_Real {.noSideEffect,
-    importcpp: "Ratio", header: "Aspect_NeutralWindow.hxx".}
-proc Position*(this: Aspect_NeutralWindow; theX1: var Standard_Integer;
-              theY1: var Standard_Integer; theX2: var Standard_Integer;
-              theY2: var Standard_Integer) {.noSideEffect, importcpp: "Position",
+proc ratio*(this: AspectNeutralWindow): float {.noSideEffect, importcpp: "Ratio",
     header: "Aspect_NeutralWindow.hxx".}
-proc SetPosition*(this: var Aspect_NeutralWindow; theX1: Standard_Integer;
-                 theY1: Standard_Integer): Standard_Boolean {.
+proc position*(this: AspectNeutralWindow; theX1: var int; theY1: var int; theX2: var int;
+              theY2: var int) {.noSideEffect, importcpp: "Position",
+                             header: "Aspect_NeutralWindow.hxx".}
+proc setPosition*(this: var AspectNeutralWindow; theX1: int; theY1: int): bool {.
     importcpp: "SetPosition", header: "Aspect_NeutralWindow.hxx".}
-proc SetPosition*(this: var Aspect_NeutralWindow; theX1: Standard_Integer;
-                 theY1: Standard_Integer; theX2: Standard_Integer;
-                 theY2: Standard_Integer): Standard_Boolean {.
-    importcpp: "SetPosition", header: "Aspect_NeutralWindow.hxx".}
-proc Size*(this: Aspect_NeutralWindow; theWidth: var Standard_Integer;
-          theHeight: var Standard_Integer) {.noSideEffect, importcpp: "Size",
-    header: "Aspect_NeutralWindow.hxx".}
-proc SetSize*(this: var Aspect_NeutralWindow; theWidth: Standard_Integer;
-             theHeight: Standard_Integer): Standard_Boolean {.importcpp: "SetSize",
-    header: "Aspect_NeutralWindow.hxx".}
+proc setPosition*(this: var AspectNeutralWindow; theX1: int; theY1: int; theX2: int;
+                 theY2: int): bool {.importcpp: "SetPosition",
+                                  header: "Aspect_NeutralWindow.hxx".}
+proc size*(this: AspectNeutralWindow; theWidth: var int; theHeight: var int) {.
+    noSideEffect, importcpp: "Size", header: "Aspect_NeutralWindow.hxx".}
+proc setSize*(this: var AspectNeutralWindow; theWidth: int; theHeight: int): bool {.
+    importcpp: "SetSize", header: "Aspect_NeutralWindow.hxx".}
 discard "forward decl of Aspect_NeutralWindow"
 type
-  Handle_Aspect_NeutralWindow* = handle[Aspect_NeutralWindow]
+  HandleAspectNeutralWindow* = Handle[AspectNeutralWindow]
+

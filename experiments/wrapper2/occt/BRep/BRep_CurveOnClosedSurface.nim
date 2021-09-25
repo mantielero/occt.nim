@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../GeomAbs/GeomAbs_Shape,
-  ../gp/gp_Pnt2d, BRep_CurveOnSurface, ../Standard/Standard_Boolean
-
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Geom_Surface"
 discard "forward decl of TopLoc_Location"
@@ -26,62 +22,60 @@ discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of BRep_CurveOnClosedSurface"
 discard "forward decl of BRep_CurveOnClosedSurface"
 type
-  Handle_BRep_CurveOnClosedSurface* = handle[BRep_CurveOnClosedSurface]
+  HandleBRepCurveOnClosedSurface* = Handle[BRepCurveOnClosedSurface]
 
 ## ! Representation  of a    curve by two  pcurves   on
 ## ! a closed surface.
 
 type
-  BRep_CurveOnClosedSurface* {.importcpp: "BRep_CurveOnClosedSurface",
-                              header: "BRep_CurveOnClosedSurface.hxx", bycopy.} = object of BRep_CurveOnSurface
+  BRepCurveOnClosedSurface* {.importcpp: "BRep_CurveOnClosedSurface",
+                             header: "BRep_CurveOnClosedSurface.hxx", bycopy.} = object of BRepCurveOnSurface
 
 
-proc constructBRep_CurveOnClosedSurface*(PC1: handle[Geom2d_Curve];
-                                        PC2: handle[Geom2d_Curve];
-                                        S: handle[Geom_Surface];
-                                        L: TopLoc_Location; C: GeomAbs_Shape): BRep_CurveOnClosedSurface {.
+proc constructBRepCurveOnClosedSurface*(pc1: Handle[Geom2dCurve];
+                                       pc2: Handle[Geom2dCurve];
+                                       s: Handle[GeomSurface]; L: TopLocLocation;
+                                       c: GeomAbsShape): BRepCurveOnClosedSurface {.
     constructor, importcpp: "BRep_CurveOnClosedSurface(@)",
     header: "BRep_CurveOnClosedSurface.hxx".}
-proc SetUVPoints2*(this: var BRep_CurveOnClosedSurface; P1: gp_Pnt2d; P2: gp_Pnt2d) {.
+proc setUVPoints2*(this: var BRepCurveOnClosedSurface; p1: Pnt2d; p2: Pnt2d) {.
     importcpp: "SetUVPoints2", header: "BRep_CurveOnClosedSurface.hxx".}
-proc UVPoints2*(this: BRep_CurveOnClosedSurface; P1: var gp_Pnt2d; P2: var gp_Pnt2d) {.
+proc uVPoints2*(this: BRepCurveOnClosedSurface; p1: var Pnt2d; p2: var Pnt2d) {.
     noSideEffect, importcpp: "UVPoints2", header: "BRep_CurveOnClosedSurface.hxx".}
-proc IsCurveOnClosedSurface*(this: BRep_CurveOnClosedSurface): Standard_Boolean {.
-    noSideEffect, importcpp: "IsCurveOnClosedSurface",
-    header: "BRep_CurveOnClosedSurface.hxx".}
-proc IsRegularity*(this: BRep_CurveOnClosedSurface): Standard_Boolean {.
+proc isCurveOnClosedSurface*(this: BRepCurveOnClosedSurface): bool {.noSideEffect,
+    importcpp: "IsCurveOnClosedSurface", header: "BRep_CurveOnClosedSurface.hxx".}
+proc isRegularity*(this: BRepCurveOnClosedSurface): bool {.noSideEffect,
+    importcpp: "IsRegularity", header: "BRep_CurveOnClosedSurface.hxx".}
+proc isRegularity*(this: BRepCurveOnClosedSurface; s1: Handle[GeomSurface];
+                  s2: Handle[GeomSurface]; l1: TopLocLocation; l2: TopLocLocation): bool {.
     noSideEffect, importcpp: "IsRegularity",
     header: "BRep_CurveOnClosedSurface.hxx".}
-proc IsRegularity*(this: BRep_CurveOnClosedSurface; S1: handle[Geom_Surface];
-                  S2: handle[Geom_Surface]; L1: TopLoc_Location; L2: TopLoc_Location): Standard_Boolean {.
-    noSideEffect, importcpp: "IsRegularity",
-    header: "BRep_CurveOnClosedSurface.hxx".}
-proc PCurve2*(this: BRep_CurveOnClosedSurface): handle[Geom2d_Curve] {.noSideEffect,
+proc pCurve2*(this: BRepCurveOnClosedSurface): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "PCurve2", header: "BRep_CurveOnClosedSurface.hxx".}
-proc Surface2*(this: BRep_CurveOnClosedSurface): handle[Geom_Surface] {.
-    noSideEffect, importcpp: "Surface2", header: "BRep_CurveOnClosedSurface.hxx".}
-proc Location2*(this: BRep_CurveOnClosedSurface): TopLoc_Location {.noSideEffect,
+proc surface2*(this: BRepCurveOnClosedSurface): Handle[GeomSurface] {.noSideEffect,
+    importcpp: "Surface2", header: "BRep_CurveOnClosedSurface.hxx".}
+proc location2*(this: BRepCurveOnClosedSurface): TopLocLocation {.noSideEffect,
     importcpp: "Location2", header: "BRep_CurveOnClosedSurface.hxx".}
-proc Continuity*(this: BRep_CurveOnClosedSurface): GeomAbs_Shape {.noSideEffect,
+proc continuity*(this: BRepCurveOnClosedSurface): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "BRep_CurveOnClosedSurface.hxx".}
-proc Continuity*(this: var BRep_CurveOnClosedSurface; C: GeomAbs_Shape) {.
+proc continuity*(this: var BRepCurveOnClosedSurface; c: GeomAbsShape) {.
     importcpp: "Continuity", header: "BRep_CurveOnClosedSurface.hxx".}
-proc PCurve2*(this: var BRep_CurveOnClosedSurface; C: handle[Geom2d_Curve]) {.
+proc pCurve2*(this: var BRepCurveOnClosedSurface; c: Handle[Geom2dCurve]) {.
     importcpp: "PCurve2", header: "BRep_CurveOnClosedSurface.hxx".}
-proc Copy*(this: BRep_CurveOnClosedSurface): handle[BRep_CurveRepresentation] {.
+proc copy*(this: BRepCurveOnClosedSurface): Handle[BRepCurveRepresentation] {.
     noSideEffect, importcpp: "Copy", header: "BRep_CurveOnClosedSurface.hxx".}
-proc Update*(this: var BRep_CurveOnClosedSurface) {.importcpp: "Update",
+proc update*(this: var BRepCurveOnClosedSurface) {.importcpp: "Update",
     header: "BRep_CurveOnClosedSurface.hxx".}
-proc DumpJson*(this: BRep_CurveOnClosedSurface; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "BRep_CurveOnClosedSurface.hxx".}
+proc dumpJson*(this: BRepCurveOnClosedSurface; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "BRep_CurveOnClosedSurface.hxx".}
 type
-  BRep_CurveOnClosedSurfacebase_type* = BRep_CurveOnSurface
+  BRepCurveOnClosedSurfacebaseType* = BRepCurveOnSurface
 
-proc get_type_name*(): cstring {.importcpp: "BRep_CurveOnClosedSurface::get_type_name(@)",
-                              header: "BRep_CurveOnClosedSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRep_CurveOnClosedSurface::get_type_name(@)",
+                            header: "BRep_CurveOnClosedSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRep_CurveOnClosedSurface::get_type_descriptor(@)",
     header: "BRep_CurveOnClosedSurface.hxx".}
-proc DynamicType*(this: BRep_CurveOnClosedSurface): handle[Standard_Type] {.
+proc dynamicType*(this: BRepCurveOnClosedSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BRep_CurveOnClosedSurface.hxx".}

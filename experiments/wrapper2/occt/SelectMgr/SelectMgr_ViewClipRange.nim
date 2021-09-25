@@ -13,45 +13,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Bnd/Bnd_Range, ../Standard/Standard_TypeDef, ../Standard/Standard_OStream,
-  ../Standard/Standard_Dump
-
 discard "forward decl of gp_Ax1"
 discard "forward decl of Graphic3d_SequenceOfHClipPlane"
 type
-  SelectMgr_ViewClipRange* {.importcpp: "SelectMgr_ViewClipRange",
-                            header: "SelectMgr_ViewClipRange.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Creates
-                                                                                ## an
-                                                                                ## empty
-                                                                                ## clip
-                                                                                ## range.
-                                                                                ##
-                                                                                ## !
-                                                                                ## Clears
-                                                                                ## clipping
-                                                                                ## range.
+  SelectMgrViewClipRange* {.importcpp: "SelectMgr_ViewClipRange",
+                           header: "SelectMgr_ViewClipRange.hxx", bycopy.} = object ## !
+                                                                               ## Creates
+                                                                               ## an
+                                                                               ## empty
+                                                                               ## clip
+                                                                               ## range.
+                                                                               ## !
+                                                                               ## Clears
+                                                                               ## clipping
+                                                                               ## range.
 
 
-proc constructSelectMgr_ViewClipRange*(): SelectMgr_ViewClipRange {.constructor,
+proc constructSelectMgrViewClipRange*(): SelectMgrViewClipRange {.constructor,
     importcpp: "SelectMgr_ViewClipRange(@)", header: "SelectMgr_ViewClipRange.hxx".}
-proc IsClipped*(this: SelectMgr_ViewClipRange; theDepth: Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "IsClipped", header: "SelectMgr_ViewClipRange.hxx".}
-proc GetNearestDepth*(this: SelectMgr_ViewClipRange; theRange: Bnd_Range;
-                     theDepth: var Standard_Real): Standard_Boolean {.noSideEffect,
+proc isClipped*(this: SelectMgrViewClipRange; theDepth: float): bool {.noSideEffect,
+    importcpp: "IsClipped", header: "SelectMgr_ViewClipRange.hxx".}
+proc getNearestDepth*(this: SelectMgrViewClipRange; theRange: BndRange;
+                     theDepth: var float): bool {.noSideEffect,
     importcpp: "GetNearestDepth", header: "SelectMgr_ViewClipRange.hxx".}
-proc SetVoid*(this: var SelectMgr_ViewClipRange) {.importcpp: "SetVoid",
+proc setVoid*(this: var SelectMgrViewClipRange) {.importcpp: "SetVoid",
     header: "SelectMgr_ViewClipRange.hxx".}
-proc AddClippingPlanes*(this: var SelectMgr_ViewClipRange;
-                       thePlanes: Graphic3d_SequenceOfHClipPlane;
-                       thePickRay: gp_Ax1) {.importcpp: "AddClippingPlanes",
-    header: "SelectMgr_ViewClipRange.hxx".}
-proc ChangeUnclipRange*(this: var SelectMgr_ViewClipRange): var Bnd_Range {.
+proc addClippingPlanes*(this: var SelectMgrViewClipRange;
+                       thePlanes: Graphic3dSequenceOfHClipPlane; thePickRay: Ax1) {.
+    importcpp: "AddClippingPlanes", header: "SelectMgr_ViewClipRange.hxx".}
+proc changeUnclipRange*(this: var SelectMgrViewClipRange): var BndRange {.
     importcpp: "ChangeUnclipRange", header: "SelectMgr_ViewClipRange.hxx".}
-proc AddClipSubRange*(this: var SelectMgr_ViewClipRange; theRange: Bnd_Range) {.
+proc addClipSubRange*(this: var SelectMgrViewClipRange; theRange: BndRange) {.
     importcpp: "AddClipSubRange", header: "SelectMgr_ViewClipRange.hxx".}
-proc DumpJson*(this: SelectMgr_ViewClipRange; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "SelectMgr_ViewClipRange.hxx".}
+proc dumpJson*(this: SelectMgrViewClipRange; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "SelectMgr_ViewClipRange.hxx".}

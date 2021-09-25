@@ -14,34 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../TopAbs/TopAbs_State, ../Standard/Standard_Real
-
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of IntStart_SITopolTool"
 discard "forward decl of IntStart_SITopolTool"
 type
-  Handle_IntStart_SITopolTool* = handle[IntStart_SITopolTool]
+  HandleIntStartSITopolTool* = Handle[IntStartSITopolTool]
 
 ## ! template class for a topological tool.
 ## ! This tool is linked with the surface on which
 ## ! the classification has to be made.
 
 type
-  IntStart_SITopolTool* {.importcpp: "IntStart_SITopolTool",
-                         header: "IntStart_SITopolTool.hxx", bycopy.} = object of Standard_Transient
+  IntStartSITopolTool* {.importcpp: "IntStart_SITopolTool",
+                        header: "IntStart_SITopolTool.hxx", bycopy.} = object of StandardTransient
 
 
-proc Classify*(this: var IntStart_SITopolTool; P: gp_Pnt2d; Tol: Standard_Real): TopAbs_State {.
+proc classify*(this: var IntStartSITopolTool; p: Pnt2d; tol: float): TopAbsState {.
     importcpp: "Classify", header: "IntStart_SITopolTool.hxx".}
 type
-  IntStart_SITopolToolbase_type* = Standard_Transient
+  IntStartSITopolToolbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "IntStart_SITopolTool::get_type_name(@)",
-                              header: "IntStart_SITopolTool.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IntStart_SITopolTool::get_type_name(@)",
+                            header: "IntStart_SITopolTool.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IntStart_SITopolTool::get_type_descriptor(@)",
     header: "IntStart_SITopolTool.hxx".}
-proc DynamicType*(this: IntStart_SITopolTool): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IntStartSITopolTool): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IntStart_SITopolTool.hxx".}

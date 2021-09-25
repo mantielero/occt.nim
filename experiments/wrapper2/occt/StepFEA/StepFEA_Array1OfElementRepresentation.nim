@@ -11,9 +11,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepFEA_ElementRepresentation, ../NCollection/NCollection_Array1
-
 type
-  StepFEA_Array1OfElementRepresentation* = NCollection_Array1[
-      handle[StepFEA_ElementRepresentation]]
+  StepFEA_Array1OfElementRepresentation* = NCollectionArray1[
+      Handle[StepFEA_ElementRepresentation]]
+

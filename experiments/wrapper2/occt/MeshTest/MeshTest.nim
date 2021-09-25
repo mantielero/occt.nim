@@ -14,17 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor
-
 ## ! Provides methods for testing the mesh algorithms.
 
 type
   MeshTest* {.importcpp: "MeshTest", header: "MeshTest.hxx", bycopy.} = object ## ! Defines meshing commands
 
 
-proc Commands*(DI: var Draw_Interpretor) {.importcpp: "MeshTest::Commands(@)",
-                                       header: "MeshTest.hxx".}
-proc PluginCommands*(DI: var Draw_Interpretor) {.
+proc commands*(di: var DrawInterpretor) {.importcpp: "MeshTest::Commands(@)",
+                                      header: "MeshTest.hxx".}
+proc pluginCommands*(di: var DrawInterpretor) {.
     importcpp: "MeshTest::PluginCommands(@)", header: "MeshTest.hxx".}

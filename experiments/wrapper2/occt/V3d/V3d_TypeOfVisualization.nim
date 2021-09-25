@@ -18,8 +18,9 @@
 ## ! WIREFRAME or ZBUFFER (shading).
 
 type
-  V3d_TypeOfVisualization* {.size: sizeof(cint),
-                            importcpp: "V3d_TypeOfVisualization",
-                            header: "V3d_TypeOfVisualization.hxx".} = enum
-    V3d_WIREFRAME, V3d_ZBUFFER
+  V3dTypeOfVisualization* {.size: sizeof(cint),
+                           importcpp: "V3d_TypeOfVisualization",
+                           header: "V3d_TypeOfVisualization.hxx".} = enum
+    V3dWIREFRAME, V3dZBUFFER
+
 

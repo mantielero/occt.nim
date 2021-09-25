@@ -13,82 +13,76 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  VrmlData_Geometry, VrmlData_Coordinate, VrmlData_Color
-
 ## #include <Quantity_Color.hxx>
 ## *
 ##  Data type to store a set of polygons.
 ##
 
 type
-  VrmlData_IndexedLineSet* {.importcpp: "VrmlData_IndexedLineSet",
-                            header: "VrmlData_IndexedLineSet.hxx", bycopy.} = object of VrmlData_Geometry ##  ---------- PUBLIC METHODS ----------
-                                                                                                   ## *
-                                                                                                   ##  Empty constructor.
-                                                                                                   ##
-                                                                                                   ##  ---------- PRIVATE FIELDS ----------
-                                                                                                   ##  Declaration of CASCADE RTTI
+  VrmlDataIndexedLineSet* {.importcpp: "VrmlData_IndexedLineSet",
+                           header: "VrmlData_IndexedLineSet.hxx", bycopy.} = object of VrmlDataGeometry ##  ---------- PUBLIC METHODS ----------
+                                                                                                 ## *
+                                                                                                 ##  Empty constructor.
+                                                                                                 ##
+                                                                                                 ##  ---------- PRIVATE FIELDS ----------
+                                                                                                 ##  Declaration of CASCADE RTTI
 
 
-proc constructVrmlData_IndexedLineSet*(): VrmlData_IndexedLineSet {.constructor,
+proc constructVrmlDataIndexedLineSet*(): VrmlDataIndexedLineSet {.constructor,
     importcpp: "VrmlData_IndexedLineSet(@)", header: "VrmlData_IndexedLineSet.hxx".}
-proc constructVrmlData_IndexedLineSet*(theScene: VrmlData_Scene; theName: cstring;
-    isColorPerVertex: Standard_Boolean = Standard_True): VrmlData_IndexedLineSet {.
+proc constructVrmlDataIndexedLineSet*(theScene: VrmlDataScene; theName: cstring;
+                                     isColorPerVertex: bool = true): VrmlDataIndexedLineSet {.
     constructor, importcpp: "VrmlData_IndexedLineSet(@)",
     header: "VrmlData_IndexedLineSet.hxx".}
-proc Coordinates*(this: VrmlData_IndexedLineSet): handle[VrmlData_Coordinate] {.
+proc coordinates*(this: VrmlDataIndexedLineSet): Handle[VrmlDataCoordinate] {.
     noSideEffect, importcpp: "Coordinates", header: "VrmlData_IndexedLineSet.hxx".}
-proc SetCoordinates*(this: var VrmlData_IndexedLineSet;
-                    theCoord: handle[VrmlData_Coordinate]) {.
+proc setCoordinates*(this: var VrmlDataIndexedLineSet;
+                    theCoord: Handle[VrmlDataCoordinate]) {.
     importcpp: "SetCoordinates", header: "VrmlData_IndexedLineSet.hxx".}
-proc Colors*(this: VrmlData_IndexedLineSet): handle[VrmlData_Color] {.noSideEffect,
+proc colors*(this: VrmlDataIndexedLineSet): Handle[VrmlDataColor] {.noSideEffect,
     importcpp: "Colors", header: "VrmlData_IndexedLineSet.hxx".}
-proc SetColors*(this: var VrmlData_IndexedLineSet; theColors: handle[VrmlData_Color]) {.
+proc setColors*(this: var VrmlDataIndexedLineSet; theColors: Handle[VrmlDataColor]) {.
     importcpp: "SetColors", header: "VrmlData_IndexedLineSet.hxx".}
-proc Polygons*(this: VrmlData_IndexedLineSet; arrPolygons: ptr ptr Standard_Integer): csize_t {.
+proc polygons*(this: VrmlDataIndexedLineSet; arrPolygons: ptr ptr int): csize_t {.
     noSideEffect, importcpp: "Polygons", header: "VrmlData_IndexedLineSet.hxx".}
-proc Polygon*(this: var VrmlData_IndexedLineSet; iPolygon: Standard_Integer;
-             outIndice: ptr Standard_Integer): Standard_Integer {.
+proc polygon*(this: var VrmlDataIndexedLineSet; iPolygon: int; outIndice: ptr int): int {.
     importcpp: "Polygon", header: "VrmlData_IndexedLineSet.hxx".}
-proc SetPolygons*(this: var VrmlData_IndexedLineSet; nPolygons: Standard_Size;
-                 thePolygons: ptr ptr Standard_Integer) {.importcpp: "SetPolygons",
+proc setPolygons*(this: var VrmlDataIndexedLineSet; nPolygons: StandardSize;
+                 thePolygons: ptr ptr int) {.importcpp: "SetPolygons",
     header: "VrmlData_IndexedLineSet.hxx".}
-proc ArrayColorInd*(this: VrmlData_IndexedLineSet;
-                   arrColorInd: ptr ptr Standard_Integer): csize_t {.noSideEffect,
-    importcpp: "ArrayColorInd", header: "VrmlData_IndexedLineSet.hxx".}
-proc GetColor*(this: var VrmlData_IndexedLineSet; iFace: Standard_Integer;
-              iVertex: Standard_Integer): Quantity_Color {.importcpp: "GetColor",
-    header: "VrmlData_IndexedLineSet.hxx".}
-proc SetColorInd*(this: var VrmlData_IndexedLineSet; nIndice: Standard_Size;
-                 theIndice: ptr ptr Standard_Integer) {.importcpp: "SetColorInd",
-    header: "VrmlData_IndexedLineSet.hxx".}
-proc SetColorPerVertex*(this: var VrmlData_IndexedLineSet;
-                       isColorPerVertex: Standard_Boolean) {.
+proc arrayColorInd*(this: VrmlDataIndexedLineSet; arrColorInd: ptr ptr int): csize_t {.
+    noSideEffect, importcpp: "ArrayColorInd", header: "VrmlData_IndexedLineSet.hxx".}
+proc getColor*(this: var VrmlDataIndexedLineSet; iFace: int; iVertex: int): QuantityColor {.
+    importcpp: "GetColor", header: "VrmlData_IndexedLineSet.hxx".}
+proc setColorInd*(this: var VrmlDataIndexedLineSet; nIndice: StandardSize;
+                 theIndice: ptr ptr int) {.importcpp: "SetColorInd",
+                                       header: "VrmlData_IndexedLineSet.hxx".}
+proc setColorPerVertex*(this: var VrmlDataIndexedLineSet; isColorPerVertex: bool) {.
     importcpp: "SetColorPerVertex", header: "VrmlData_IndexedLineSet.hxx".}
-proc TShape*(this: var VrmlData_IndexedLineSet): handle[TopoDS_TShape] {.
+proc tShape*(this: var VrmlDataIndexedLineSet): Handle[TopoDS_TShape] {.
     importcpp: "TShape", header: "VrmlData_IndexedLineSet.hxx".}
-proc Clone*(this: VrmlData_IndexedLineSet; theOther: handle[VrmlData_Node]): handle[
-    VrmlData_Node] {.noSideEffect, importcpp: "Clone",
-                    header: "VrmlData_IndexedLineSet.hxx".}
-proc Read*(this: var VrmlData_IndexedLineSet; theBuffer: var VrmlData_InBuffer): VrmlData_ErrorStatus {.
+proc clone*(this: VrmlDataIndexedLineSet; theOther: Handle[VrmlDataNode]): Handle[
+    VrmlDataNode] {.noSideEffect, importcpp: "Clone",
+                   header: "VrmlData_IndexedLineSet.hxx".}
+proc read*(this: var VrmlDataIndexedLineSet; theBuffer: var VrmlDataInBuffer): VrmlDataErrorStatus {.
     importcpp: "Read", header: "VrmlData_IndexedLineSet.hxx".}
-proc Write*(this: VrmlData_IndexedLineSet; thePrefix: cstring): VrmlData_ErrorStatus {.
+proc write*(this: VrmlDataIndexedLineSet; thePrefix: cstring): VrmlDataErrorStatus {.
     noSideEffect, importcpp: "Write", header: "VrmlData_IndexedLineSet.hxx".}
-proc IsDefault*(this: VrmlData_IndexedLineSet): Standard_Boolean {.noSideEffect,
+proc isDefault*(this: VrmlDataIndexedLineSet): bool {.noSideEffect,
     importcpp: "IsDefault", header: "VrmlData_IndexedLineSet.hxx".}
 type
-  VrmlData_IndexedLineSetbase_type* = VrmlData_Geometry
+  VrmlDataIndexedLineSetbaseType* = VrmlDataGeometry
 
-proc get_type_name*(): cstring {.importcpp: "VrmlData_IndexedLineSet::get_type_name(@)",
-                              header: "VrmlData_IndexedLineSet.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "VrmlData_IndexedLineSet::get_type_name(@)",
+                            header: "VrmlData_IndexedLineSet.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "VrmlData_IndexedLineSet::get_type_descriptor(@)",
     header: "VrmlData_IndexedLineSet.hxx".}
-proc DynamicType*(this: VrmlData_IndexedLineSet): handle[Standard_Type] {.
+proc dynamicType*(this: VrmlDataIndexedLineSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "VrmlData_IndexedLineSet.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of VrmlData_IndexedLineSet"
 type
-  Handle_VrmlData_IndexedLineSet* = handle[VrmlData_IndexedLineSet]
+  HandleVrmlDataIndexedLineSet* = Handle[VrmlDataIndexedLineSet]
+

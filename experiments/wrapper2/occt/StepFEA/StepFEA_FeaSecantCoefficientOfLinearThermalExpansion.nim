@@ -13,16 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepFEA_SymmetricTensor23d,
-  ../Standard/Standard_Real, StepFEA_FeaMaterialPropertyRepresentationItem
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepFEA_SymmetricTensor23d"
 discard "forward decl of StepFEA_FeaSecantCoefficientOfLinearThermalExpansion"
 discard "forward decl of StepFEA_FeaSecantCoefficientOfLinearThermalExpansion"
 type
-  Handle_StepFEA_FeaSecantCoefficientOfLinearThermalExpansion* = handle[
+  HandleStepFEA_FeaSecantCoefficientOfLinearThermalExpansion* = Handle[
       StepFEA_FeaSecantCoefficientOfLinearThermalExpansion]
 
 ## ! Representation of STEP entity FeaSecantCoefficientOfLinearThermalExpansion
@@ -40,30 +36,30 @@ proc constructStepFEA_FeaSecantCoefficientOfLinearThermalExpansion*(): StepFEA_F
     constructor,
     importcpp: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion(@)",
     header: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion.hxx".}
-proc Init*(this: var StepFEA_FeaSecantCoefficientOfLinearThermalExpansion;
-          aRepresentationItem_Name: handle[TCollection_HAsciiString];
-          aFeaConstants: StepFEA_SymmetricTensor23d;
-          aReferenceTemperature: Standard_Real) {.importcpp: "Init",
+proc init*(this: var StepFEA_FeaSecantCoefficientOfLinearThermalExpansion;
+          aRepresentationItemName: Handle[TCollectionHAsciiString];
+          aFeaConstants: StepFEA_SymmetricTensor23d; aReferenceTemperature: float) {.
+    importcpp: "Init",
     header: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion.hxx".}
-proc FeaConstants*(this: StepFEA_FeaSecantCoefficientOfLinearThermalExpansion): StepFEA_SymmetricTensor23d {.
+proc feaConstants*(this: StepFEA_FeaSecantCoefficientOfLinearThermalExpansion): StepFEA_SymmetricTensor23d {.
     noSideEffect, importcpp: "FeaConstants",
     header: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion.hxx".}
-proc SetFeaConstants*(this: var StepFEA_FeaSecantCoefficientOfLinearThermalExpansion;
-                     FeaConstants: StepFEA_SymmetricTensor23d) {.
+proc setFeaConstants*(this: var StepFEA_FeaSecantCoefficientOfLinearThermalExpansion;
+                     feaConstants: StepFEA_SymmetricTensor23d) {.
     importcpp: "SetFeaConstants",
     header: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion.hxx".}
-proc ReferenceTemperature*(this: StepFEA_FeaSecantCoefficientOfLinearThermalExpansion): Standard_Real {.
+proc referenceTemperature*(this: StepFEA_FeaSecantCoefficientOfLinearThermalExpansion): float {.
     noSideEffect, importcpp: "ReferenceTemperature",
     header: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion.hxx".}
-proc SetReferenceTemperature*(this: var StepFEA_FeaSecantCoefficientOfLinearThermalExpansion;
-                             ReferenceTemperature: Standard_Real) {.
+proc setReferenceTemperature*(this: var StepFEA_FeaSecantCoefficientOfLinearThermalExpansion;
+                             referenceTemperature: float) {.
     importcpp: "SetReferenceTemperature",
     header: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion.hxx".}
 type
-  StepFEA_FeaSecantCoefficientOfLinearThermalExpansionbase_type* = StepFEA_FeaMaterialPropertyRepresentationItem
+  StepFEA_FeaSecantCoefficientOfLinearThermalExpansionbaseType* = StepFEA_FeaMaterialPropertyRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion::get_type_name(@)", header: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion::get_type_name(@)", header: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion::get_type_descriptor(@)",
     header: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion.hxx".}
-proc DynamicType*(this: StepFEA_FeaSecantCoefficientOfLinearThermalExpansion): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion.hxx".}
+proc dynamicType*(this: StepFEA_FeaSecantCoefficientOfLinearThermalExpansion): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion.hxx".}

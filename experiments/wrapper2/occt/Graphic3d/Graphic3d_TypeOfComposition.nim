@@ -17,8 +17,9 @@
 ## ! To manage the transformation matrices of structures.
 
 type
-  Graphic3d_TypeOfComposition* {.size: sizeof(cint),
-                                importcpp: "Graphic3d_TypeOfComposition",
-                                header: "Graphic3d_TypeOfComposition.hxx".} = enum
-    Graphic3d_TOC_REPLACE, Graphic3d_TOC_POSTCONCATENATE
+  Graphic3dTypeOfComposition* {.size: sizeof(cint),
+                               importcpp: "Graphic3d_TypeOfComposition",
+                               header: "Graphic3d_TypeOfComposition.hxx".} = enum
+    Graphic3dTOC_REPLACE, Graphic3dTOC_POSTCONCATENATE
+
 

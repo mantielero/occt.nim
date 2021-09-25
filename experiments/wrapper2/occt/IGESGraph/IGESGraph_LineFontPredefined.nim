@@ -14,14 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of IGESGraph_LineFontPredefined"
 discard "forward decl of IGESGraph_LineFontPredefined"
 type
-  Handle_IGESGraph_LineFontPredefined* = handle[IGESGraph_LineFontPredefined]
+  HandleIGESGraphLineFontPredefined* = Handle[IGESGraphLineFontPredefined]
 
 ## ! defines IGESLineFontPredefined, Type <406> Form <19>
 ## ! in package IGESGraph
@@ -31,31 +27,28 @@ type
 ## ! Directory Entry Field 4
 
 type
-  IGESGraph_LineFontPredefined* {.importcpp: "IGESGraph_LineFontPredefined",
-                                 header: "IGESGraph_LineFontPredefined.hxx",
-                                 bycopy.} = object of IGESData_IGESEntity
+  IGESGraphLineFontPredefined* {.importcpp: "IGESGraph_LineFontPredefined",
+                                header: "IGESGraph_LineFontPredefined.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESGraph_LineFontPredefined*(): IGESGraph_LineFontPredefined {.
+proc constructIGESGraphLineFontPredefined*(): IGESGraphLineFontPredefined {.
     constructor, importcpp: "IGESGraph_LineFontPredefined(@)",
     header: "IGESGraph_LineFontPredefined.hxx".}
-proc Init*(this: var IGESGraph_LineFontPredefined; nbProps: Standard_Integer;
-          aLineFontPatternCode: Standard_Integer) {.importcpp: "Init",
-    header: "IGESGraph_LineFontPredefined.hxx".}
-proc NbPropertyValues*(this: IGESGraph_LineFontPredefined): Standard_Integer {.
-    noSideEffect, importcpp: "NbPropertyValues",
-    header: "IGESGraph_LineFontPredefined.hxx".}
-proc LineFontPatternCode*(this: IGESGraph_LineFontPredefined): Standard_Integer {.
-    noSideEffect, importcpp: "LineFontPatternCode",
-    header: "IGESGraph_LineFontPredefined.hxx".}
+proc init*(this: var IGESGraphLineFontPredefined; nbProps: int;
+          aLineFontPatternCode: int) {.importcpp: "Init",
+                                     header: "IGESGraph_LineFontPredefined.hxx".}
+proc nbPropertyValues*(this: IGESGraphLineFontPredefined): int {.noSideEffect,
+    importcpp: "NbPropertyValues", header: "IGESGraph_LineFontPredefined.hxx".}
+proc lineFontPatternCode*(this: IGESGraphLineFontPredefined): int {.noSideEffect,
+    importcpp: "LineFontPatternCode", header: "IGESGraph_LineFontPredefined.hxx".}
 type
-  IGESGraph_LineFontPredefinedbase_type* = IGESData_IGESEntity
+  IGESGraphLineFontPredefinedbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESGraph_LineFontPredefined::get_type_name(@)",
-                              header: "IGESGraph_LineFontPredefined.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESGraph_LineFontPredefined::get_type_name(@)",
+                            header: "IGESGraph_LineFontPredefined.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESGraph_LineFontPredefined::get_type_descriptor(@)",
     header: "IGESGraph_LineFontPredefined.hxx".}
-proc DynamicType*(this: IGESGraph_LineFontPredefined): handle[Standard_Type] {.
+proc dynamicType*(this: IGESGraphLineFontPredefined): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESGraph_LineFontPredefined.hxx".}

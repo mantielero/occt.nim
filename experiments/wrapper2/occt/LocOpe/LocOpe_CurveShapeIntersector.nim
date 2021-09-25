@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  LocOpe_SequenceOfPntFace, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../TopAbs/TopAbs_Orientation
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Ax1"
@@ -27,43 +21,45 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of gp_Circ"
 discard "forward decl of LocOpe_PntFace"
 type
-  LocOpe_CurveShapeIntersector* {.importcpp: "LocOpe_CurveShapeIntersector",
-                                 header: "LocOpe_CurveShapeIntersector.hxx",
-                                 bycopy.} = object ## ! Empty constructor.
+  LocOpeCurveShapeIntersector* {.importcpp: "LocOpe_CurveShapeIntersector",
+                                header: "LocOpe_CurveShapeIntersector.hxx", bycopy.} = object ##
+                                                                                         ## !
+                                                                                         ## Empty
+                                                                                         ## constructor.
 
 
-proc constructLocOpe_CurveShapeIntersector*(): LocOpe_CurveShapeIntersector {.
+proc constructLocOpeCurveShapeIntersector*(): LocOpeCurveShapeIntersector {.
     constructor, importcpp: "LocOpe_CurveShapeIntersector(@)",
     header: "LocOpe_CurveShapeIntersector.hxx".}
-proc constructLocOpe_CurveShapeIntersector*(Axis: gp_Ax1; S: TopoDS_Shape): LocOpe_CurveShapeIntersector {.
+proc constructLocOpeCurveShapeIntersector*(axis: Ax1; s: TopoDS_Shape): LocOpeCurveShapeIntersector {.
     constructor, importcpp: "LocOpe_CurveShapeIntersector(@)",
     header: "LocOpe_CurveShapeIntersector.hxx".}
-proc constructLocOpe_CurveShapeIntersector*(C: gp_Circ; S: TopoDS_Shape): LocOpe_CurveShapeIntersector {.
+proc constructLocOpeCurveShapeIntersector*(c: Circ; s: TopoDS_Shape): LocOpeCurveShapeIntersector {.
     constructor, importcpp: "LocOpe_CurveShapeIntersector(@)",
     header: "LocOpe_CurveShapeIntersector.hxx".}
-proc Init*(this: var LocOpe_CurveShapeIntersector; Axis: gp_Ax1; S: TopoDS_Shape) {.
+proc init*(this: var LocOpeCurveShapeIntersector; axis: Ax1; s: TopoDS_Shape) {.
     importcpp: "Init", header: "LocOpe_CurveShapeIntersector.hxx".}
-proc Init*(this: var LocOpe_CurveShapeIntersector; C: gp_Circ; S: TopoDS_Shape) {.
+proc init*(this: var LocOpeCurveShapeIntersector; c: Circ; s: TopoDS_Shape) {.
     importcpp: "Init", header: "LocOpe_CurveShapeIntersector.hxx".}
-proc IsDone*(this: LocOpe_CurveShapeIntersector): Standard_Boolean {.noSideEffect,
+proc isDone*(this: LocOpeCurveShapeIntersector): bool {.noSideEffect,
     importcpp: "IsDone", header: "LocOpe_CurveShapeIntersector.hxx".}
-proc NbPoints*(this: LocOpe_CurveShapeIntersector): Standard_Integer {.noSideEffect,
+proc nbPoints*(this: LocOpeCurveShapeIntersector): int {.noSideEffect,
     importcpp: "NbPoints", header: "LocOpe_CurveShapeIntersector.hxx".}
-proc Point*(this: LocOpe_CurveShapeIntersector; Index: Standard_Integer): LocOpe_PntFace {.
+proc point*(this: LocOpeCurveShapeIntersector; index: int): LocOpePntFace {.
     noSideEffect, importcpp: "Point", header: "LocOpe_CurveShapeIntersector.hxx".}
-proc LocalizeAfter*(this: LocOpe_CurveShapeIntersector; From: Standard_Real;
-                   Or: var TopAbs_Orientation; IndFrom: var Standard_Integer;
-                   IndTo: var Standard_Integer): Standard_Boolean {.noSideEffect,
-    importcpp: "LocalizeAfter", header: "LocOpe_CurveShapeIntersector.hxx".}
-proc LocalizeBefore*(this: LocOpe_CurveShapeIntersector; From: Standard_Real;
-                    Or: var TopAbs_Orientation; IndFrom: var Standard_Integer;
-                    IndTo: var Standard_Integer): Standard_Boolean {.noSideEffect,
-    importcpp: "LocalizeBefore", header: "LocOpe_CurveShapeIntersector.hxx".}
-proc LocalizeAfter*(this: LocOpe_CurveShapeIntersector; FromInd: Standard_Integer;
-                   Or: var TopAbs_Orientation; IndFrom: var Standard_Integer;
-                   IndTo: var Standard_Integer): Standard_Boolean {.noSideEffect,
-    importcpp: "LocalizeAfter", header: "LocOpe_CurveShapeIntersector.hxx".}
-proc LocalizeBefore*(this: LocOpe_CurveShapeIntersector; FromInd: Standard_Integer;
-                    Or: var TopAbs_Orientation; IndFrom: var Standard_Integer;
-                    IndTo: var Standard_Integer): Standard_Boolean {.noSideEffect,
-    importcpp: "LocalizeBefore", header: "LocOpe_CurveShapeIntersector.hxx".}
+proc localizeAfter*(this: LocOpeCurveShapeIntersector; `from`: float;
+                   `or`: var TopAbsOrientation; indFrom: var int; indTo: var int): bool {.
+    noSideEffect, importcpp: "LocalizeAfter",
+    header: "LocOpe_CurveShapeIntersector.hxx".}
+proc localizeBefore*(this: LocOpeCurveShapeIntersector; `from`: float;
+                    `or`: var TopAbsOrientation; indFrom: var int; indTo: var int): bool {.
+    noSideEffect, importcpp: "LocalizeBefore",
+    header: "LocOpe_CurveShapeIntersector.hxx".}
+proc localizeAfter*(this: LocOpeCurveShapeIntersector; fromInd: int;
+                   `or`: var TopAbsOrientation; indFrom: var int; indTo: var int): bool {.
+    noSideEffect, importcpp: "LocalizeAfter",
+    header: "LocOpe_CurveShapeIntersector.hxx".}
+proc localizeBefore*(this: LocOpeCurveShapeIntersector; fromInd: int;
+                    `or`: var TopAbsOrientation; indFrom: var int; indTo: var int): bool {.
+    noSideEffect, importcpp: "LocalizeBefore",
+    header: "LocOpe_CurveShapeIntersector.hxx".}

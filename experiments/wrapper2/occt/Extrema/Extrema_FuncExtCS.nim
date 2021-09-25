@@ -14,15 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Adaptor3d/Adaptor3d_CurvePtr,
-  ../Adaptor3d/Adaptor3d_SurfacePtr, ../gp/gp_Pnt, ../Standard/Standard_Real,
-  ../TColStd/TColStd_SequenceOfReal, Extrema_SequenceOfPOnCurv,
-  Extrema_SequenceOfPOnSurf, ../Standard/Standard_Boolean,
-  ../math/math_FunctionSetWithDerivatives, ../Standard/Standard_Integer,
-  ../math/math_Vector
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Adaptor3d_Surface"
@@ -30,40 +21,40 @@ discard "forward decl of math_Matrix"
 discard "forward decl of Extrema_POnCurv"
 discard "forward decl of Extrema_POnSurf"
 type
-  Extrema_FuncExtCS* {.importcpp: "Extrema_FuncExtCS",
-                      header: "Extrema_FuncExtCS.hxx", bycopy.} = object of math_FunctionSetWithDerivatives
+  ExtremaFuncExtCS* {.importcpp: "Extrema_FuncExtCS",
+                     header: "Extrema_FuncExtCS.hxx", bycopy.} = object of MathFunctionSetWithDerivatives
 
 
-proc constructExtrema_FuncExtCS*(): Extrema_FuncExtCS {.constructor,
+proc constructExtremaFuncExtCS*(): ExtremaFuncExtCS {.constructor,
     importcpp: "Extrema_FuncExtCS(@)", header: "Extrema_FuncExtCS.hxx".}
-proc constructExtrema_FuncExtCS*(C: Adaptor3d_Curve; S: Adaptor3d_Surface): Extrema_FuncExtCS {.
+proc constructExtremaFuncExtCS*(c: Adaptor3dCurve; s: Adaptor3dSurface): ExtremaFuncExtCS {.
     constructor, importcpp: "Extrema_FuncExtCS(@)", header: "Extrema_FuncExtCS.hxx".}
-proc Initialize*(this: var Extrema_FuncExtCS; C: Adaptor3d_Curve; S: Adaptor3d_Surface) {.
+proc initialize*(this: var ExtremaFuncExtCS; c: Adaptor3dCurve; s: Adaptor3dSurface) {.
     importcpp: "Initialize", header: "Extrema_FuncExtCS.hxx".}
-proc NbVariables*(this: Extrema_FuncExtCS): Standard_Integer {.noSideEffect,
+proc nbVariables*(this: ExtremaFuncExtCS): int {.noSideEffect,
     importcpp: "NbVariables", header: "Extrema_FuncExtCS.hxx".}
-proc NbEquations*(this: Extrema_FuncExtCS): Standard_Integer {.noSideEffect,
+proc nbEquations*(this: ExtremaFuncExtCS): int {.noSideEffect,
     importcpp: "NbEquations", header: "Extrema_FuncExtCS.hxx".}
-proc Value*(this: var Extrema_FuncExtCS; UV: math_Vector; F: var math_Vector): Standard_Boolean {.
+proc value*(this: var ExtremaFuncExtCS; uv: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "Extrema_FuncExtCS.hxx".}
-proc Derivatives*(this: var Extrema_FuncExtCS; UV: math_Vector; DF: var math_Matrix): Standard_Boolean {.
+proc derivatives*(this: var ExtremaFuncExtCS; uv: MathVector; df: var MathMatrix): bool {.
     importcpp: "Derivatives", header: "Extrema_FuncExtCS.hxx".}
-proc Values*(this: var Extrema_FuncExtCS; UV: math_Vector; F: var math_Vector;
-            DF: var math_Matrix): Standard_Boolean {.importcpp: "Values",
+proc values*(this: var ExtremaFuncExtCS; uv: MathVector; f: var MathVector;
+            df: var MathMatrix): bool {.importcpp: "Values",
+                                    header: "Extrema_FuncExtCS.hxx".}
+proc getStateNumber*(this: var ExtremaFuncExtCS): int {.importcpp: "GetStateNumber",
     header: "Extrema_FuncExtCS.hxx".}
-proc GetStateNumber*(this: var Extrema_FuncExtCS): Standard_Integer {.
-    importcpp: "GetStateNumber", header: "Extrema_FuncExtCS.hxx".}
-proc NbExt*(this: Extrema_FuncExtCS): Standard_Integer {.noSideEffect,
-    importcpp: "NbExt", header: "Extrema_FuncExtCS.hxx".}
-proc SquareDistance*(this: Extrema_FuncExtCS; N: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "SquareDistance", header: "Extrema_FuncExtCS.hxx".}
-proc PointOnCurve*(this: Extrema_FuncExtCS; N: Standard_Integer): Extrema_POnCurv {.
-    noSideEffect, importcpp: "PointOnCurve", header: "Extrema_FuncExtCS.hxx".}
-proc PointOnSurface*(this: Extrema_FuncExtCS; N: Standard_Integer): Extrema_POnSurf {.
-    noSideEffect, importcpp: "PointOnSurface", header: "Extrema_FuncExtCS.hxx".}
-proc SquareDistances*(this: var Extrema_FuncExtCS): var TColStd_SequenceOfReal {.
+proc nbExt*(this: ExtremaFuncExtCS): int {.noSideEffect, importcpp: "NbExt",
+                                       header: "Extrema_FuncExtCS.hxx".}
+proc squareDistance*(this: ExtremaFuncExtCS; n: int): float {.noSideEffect,
+    importcpp: "SquareDistance", header: "Extrema_FuncExtCS.hxx".}
+proc pointOnCurve*(this: ExtremaFuncExtCS; n: int): ExtremaPOnCurv {.noSideEffect,
+    importcpp: "PointOnCurve", header: "Extrema_FuncExtCS.hxx".}
+proc pointOnSurface*(this: ExtremaFuncExtCS; n: int): ExtremaPOnSurf {.noSideEffect,
+    importcpp: "PointOnSurface", header: "Extrema_FuncExtCS.hxx".}
+proc squareDistances*(this: var ExtremaFuncExtCS): var TColStdSequenceOfReal {.
     importcpp: "SquareDistances", header: "Extrema_FuncExtCS.hxx".}
-proc PointsOnCurve*(this: var Extrema_FuncExtCS): var Extrema_SequenceOfPOnCurv {.
+proc pointsOnCurve*(this: var ExtremaFuncExtCS): var ExtremaSequenceOfPOnCurv {.
     importcpp: "PointsOnCurve", header: "Extrema_FuncExtCS.hxx".}
-proc PointsOnSurf*(this: var Extrema_FuncExtCS): var Extrema_SequenceOfPOnSurf {.
+proc pointsOnSurf*(this: var ExtremaFuncExtCS): var ExtremaSequenceOfPOnSurf {.
     importcpp: "PointsOnSurf", header: "Extrema_FuncExtCS.hxx".}

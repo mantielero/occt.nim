@@ -14,87 +14,60 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColStd/TColStd_SequenceOfAsciiString,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
-  ../Standard/Standard_CString
-
 discard "forward decl of TCollection_AsciiString"
 type
-  StepData_EnumTool* {.importcpp: "StepData_EnumTool",
-                      header: "StepData_EnumTool.hxx", bycopy.} = object ## ! Creates an EnumTool with definitions given by e0 .. e<max>
-                                                                    ## ! Each definition string can bring one term, or several
-                                                                    ## ! separated by blanks. Each term corresponds to one value of the
-                                                                    ## ! enumeration, if dots are not presents they are added
-                                                                    ## !
-                                                                    ## ! Such a static constructor allows to build a static description
-                                                                    ## ! as : static
-                                                                    ## StepData_EnumTool
-                                                                    ## myenumtool("e0","e1"...);
-                                                                    ## ! then use it without having to initialise it
-                                                                    ## !
-                                                                    ## ! A null definition can be input by given "$" :the
-                                                                    ## corresponding
-                                                                    ## ! position is attached to
-                                                                    ## "null/undefined" value (as one
-                                                                    ## ! particular item of the enumeration list)
+  StepDataEnumTool* {.importcpp: "StepData_EnumTool",
+                     header: "StepData_EnumTool.hxx", bycopy.} = object ## ! Creates an EnumTool with definitions given by e0 .. e<max>
+                                                                   ## ! Each definition string can bring one term, or several
+                                                                   ## ! separated by blanks. Each term corresponds to one value of the
+                                                                   ## ! enumeration, if dots are not presents they are added
+                                                                   ## !
+                                                                   ## ! Such a static constructor allows to build a static description
+                                                                   ## ! as : static
+                                                                   ## StepData_EnumTool
+                                                                   ## myenumtool("e0","e1"...);
+                                                                   ## ! then use it without having to initialise it
+                                                                   ## !
+                                                                   ## ! A null definition can be input by given "$" :the corresponding
+                                                                   ## ! position is attached to
+                                                                   ## "null/undefined" value (as one
+                                                                   ## ! particular item of the enumeration list)
 
 
-proc constructStepData_EnumTool*(e0: Standard_CString = "";
-                                e1: Standard_CString = "";
-                                e2: Standard_CString = "";
-                                e3: Standard_CString = "";
-                                e4: Standard_CString = "";
-                                e5: Standard_CString = "";
-                                e6: Standard_CString = "";
-                                e7: Standard_CString = "";
-                                e8: Standard_CString = "";
-                                e9: Standard_CString = "";
-                                e10: Standard_CString = "";
-                                e11: Standard_CString = "";
-                                e12: Standard_CString = "";
-                                e13: Standard_CString = "";
-                                e14: Standard_CString = "";
-                                e15: Standard_CString = "";
-                                e16: Standard_CString = "";
-                                e17: Standard_CString = "";
-                                e18: Standard_CString = "";
-                                e19: Standard_CString = "";
-                                e20: Standard_CString = "";
-                                e21: Standard_CString = "";
-                                e22: Standard_CString = "";
-                                e23: Standard_CString = "";
-                                e24: Standard_CString = "";
-                                e25: Standard_CString = "";
-                                e26: Standard_CString = "";
-                                e27: Standard_CString = "";
-                                e28: Standard_CString = "";
-                                e29: Standard_CString = "";
-                                e30: Standard_CString = "";
-                                e31: Standard_CString = "";
-                                e32: Standard_CString = "";
-                                e33: Standard_CString = "";
-                                e34: Standard_CString = "";
-                                e35: Standard_CString = "";
-                                e36: Standard_CString = "";
-                                e37: Standard_CString = "";
-                                e38: Standard_CString = "";
-                                e39: Standard_CString = ""): StepData_EnumTool {.
+proc constructStepDataEnumTool*(e0: StandardCString = ""; e1: StandardCString = "";
+                               e2: StandardCString = ""; e3: StandardCString = "";
+                               e4: StandardCString = ""; e5: StandardCString = "";
+                               e6: StandardCString = ""; e7: StandardCString = "";
+                               e8: StandardCString = ""; e9: StandardCString = "";
+                               e10: StandardCString = ""; e11: StandardCString = "";
+                               e12: StandardCString = ""; e13: StandardCString = "";
+                               e14: StandardCString = ""; e15: StandardCString = "";
+                               e16: StandardCString = ""; e17: StandardCString = "";
+                               e18: StandardCString = ""; e19: StandardCString = "";
+                               e20: StandardCString = ""; e21: StandardCString = "";
+                               e22: StandardCString = ""; e23: StandardCString = "";
+                               e24: StandardCString = ""; e25: StandardCString = "";
+                               e26: StandardCString = ""; e27: StandardCString = "";
+                               e28: StandardCString = ""; e29: StandardCString = "";
+                               e30: StandardCString = ""; e31: StandardCString = "";
+                               e32: StandardCString = ""; e33: StandardCString = "";
+                               e34: StandardCString = ""; e35: StandardCString = "";
+                               e36: StandardCString = ""; e37: StandardCString = "";
+                               e38: StandardCString = ""; e39: StandardCString = ""): StepDataEnumTool {.
     constructor, importcpp: "StepData_EnumTool(@)", header: "StepData_EnumTool.hxx".}
-proc AddDefinition*(this: var StepData_EnumTool; term: Standard_CString) {.
+proc addDefinition*(this: var StepDataEnumTool; term: StandardCString) {.
     importcpp: "AddDefinition", header: "StepData_EnumTool.hxx".}
-proc IsSet*(this: StepData_EnumTool): Standard_Boolean {.noSideEffect,
-    importcpp: "IsSet", header: "StepData_EnumTool.hxx".}
-proc MaxValue*(this: StepData_EnumTool): Standard_Integer {.noSideEffect,
-    importcpp: "MaxValue", header: "StepData_EnumTool.hxx".}
-proc Optional*(this: var StepData_EnumTool; mode: Standard_Boolean) {.
-    importcpp: "Optional", header: "StepData_EnumTool.hxx".}
-proc NullValue*(this: StepData_EnumTool): Standard_Integer {.noSideEffect,
-    importcpp: "NullValue", header: "StepData_EnumTool.hxx".}
-proc Text*(this: StepData_EnumTool; num: Standard_Integer): TCollection_AsciiString {.
-    noSideEffect, importcpp: "Text", header: "StepData_EnumTool.hxx".}
-proc Value*(this: StepData_EnumTool; txt: Standard_CString): Standard_Integer {.
-    noSideEffect, importcpp: "Value", header: "StepData_EnumTool.hxx".}
-proc Value*(this: StepData_EnumTool; txt: TCollection_AsciiString): Standard_Integer {.
-    noSideEffect, importcpp: "Value", header: "StepData_EnumTool.hxx".}
+proc isSet*(this: StepDataEnumTool): bool {.noSideEffect, importcpp: "IsSet",
+                                        header: "StepData_EnumTool.hxx".}
+proc maxValue*(this: StepDataEnumTool): int {.noSideEffect, importcpp: "MaxValue",
+    header: "StepData_EnumTool.hxx".}
+proc optional*(this: var StepDataEnumTool; mode: bool) {.importcpp: "Optional",
+    header: "StepData_EnumTool.hxx".}
+proc nullValue*(this: StepDataEnumTool): int {.noSideEffect, importcpp: "NullValue",
+    header: "StepData_EnumTool.hxx".}
+proc text*(this: StepDataEnumTool; num: int): TCollectionAsciiString {.noSideEffect,
+    importcpp: "Text", header: "StepData_EnumTool.hxx".}
+proc value*(this: StepDataEnumTool; txt: StandardCString): int {.noSideEffect,
+    importcpp: "Value", header: "StepData_EnumTool.hxx".}
+proc value*(this: StepDataEnumTool; txt: TCollectionAsciiString): int {.noSideEffect,
+    importcpp: "Value", header: "StepData_EnumTool.hxx".}

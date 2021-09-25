@@ -13,108 +13,102 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Graphic3d/Graphic3d_GraduatedTrihedron, ../gp/gp_Ax1, ../gp/gp_Pnt,
-  ../gp/gp_Dir, ../NCollection/NCollection_Array1, OpenGl_Aspects, OpenGl_Element,
-  OpenGl_PrimitiveArray, OpenGl_Text
-
 discard "forward decl of OpenGl_View"
 type
-  OpenGl_GraduatedTrihedron* {.importcpp: "OpenGl_GraduatedTrihedron",
-                              header: "OpenGl_GraduatedTrihedron.hxx", bycopy.} = object of OpenGl_Element ##
-                                                                                                    ## !
-                                                                                                    ## Default
-                                                                                                    ## constructor.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Axis
-                                                                                                    ## of
-                                                                                                    ## trihedron.
-                                                                                                    ## It
-                                                                                                    ## incapsulates
-                                                                                                    ## geometry
-                                                                                                    ## and
-                                                                                                    ## style.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Struct
-                                                                                                    ## for
-                                                                                                    ## triple
-                                                                                                    ## of
-                                                                                                    ## orthonormal
-                                                                                                    ## vectors
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## and
-                                                                                                    ## origin
-                                                                                                    ## point,
-                                                                                                    ## and
-                                                                                                    ## axes
-                                                                                                    ## for
-                                                                                                    ## tickmarks.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## It
-                                                                                                    ## may
-                                                                                                    ## be
-                                                                                                    ## not
-                                                                                                    ## a
-                                                                                                    ## right
-                                                                                                    ## or
-                                                                                                    ## left
-                                                                                                    ## coordinate
-                                                                                                    ## system.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Initialize
-                                                                                                    ## or
-                                                                                                    ## update
-                                                                                                    ## GL
-                                                                                                    ## resources
-                                                                                                    ## for
-                                                                                                    ## rendering
-                                                                                                    ## trihedron.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## @param
-                                                                                                    ## theContext
-                                                                                                    ## [in]
-                                                                                                    ## the
-                                                                                                    ## GL
-                                                                                                    ## context.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## @name
-                                                                                                    ## Scene
-                                                                                                    ## bounding
-                                                                                                    ## box
-                                                                                                    ## values
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## @name
-                                                                                                    ## Labels
-                                                                                                    ## properties
+  OpenGlGraduatedTrihedron* {.importcpp: "OpenGl_GraduatedTrihedron",
+                             header: "OpenGl_GraduatedTrihedron.hxx", bycopy.} = object of OpenGlElement ##
+                                                                                                  ## !
+                                                                                                  ## Default
+                                                                                                  ## constructor.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Axis
+                                                                                                  ## of
+                                                                                                  ## trihedron.
+                                                                                                  ## It
+                                                                                                  ## incapsulates
+                                                                                                  ## geometry
+                                                                                                  ## and
+                                                                                                  ## style.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Struct
+                                                                                                  ## for
+                                                                                                  ## triple
+                                                                                                  ## of
+                                                                                                  ## orthonormal
+                                                                                                  ## vectors
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## and
+                                                                                                  ## origin
+                                                                                                  ## point,
+                                                                                                  ## and
+                                                                                                  ## axes
+                                                                                                  ## for
+                                                                                                  ## tickmarks.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## It
+                                                                                                  ## may
+                                                                                                  ## be
+                                                                                                  ## not
+                                                                                                  ## a
+                                                                                                  ## right
+                                                                                                  ## or
+                                                                                                  ## left
+                                                                                                  ## coordinate
+                                                                                                  ## system.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Initialize
+                                                                                                  ## or
+                                                                                                  ## update
+                                                                                                  ## GL
+                                                                                                  ## resources
+                                                                                                  ## for
+                                                                                                  ## rendering
+                                                                                                  ## trihedron.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## @param
+                                                                                                  ## theContext
+                                                                                                  ## [in]
+                                                                                                  ## the
+                                                                                                  ## GL
+                                                                                                  ## context.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## @name
+                                                                                                  ## Scene
+                                                                                                  ## bounding
+                                                                                                  ## box
+                                                                                                  ## values
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## @name
+                                                                                                  ## Labels
+                                                                                                  ## properties
     ## !< Axes for trihedron
     ## !< Color grid properties
 
 
-proc constructOpenGl_GraduatedTrihedron*(): OpenGl_GraduatedTrihedron {.
-    constructor, importcpp: "OpenGl_GraduatedTrihedron(@)",
+proc constructOpenGlGraduatedTrihedron*(): OpenGlGraduatedTrihedron {.constructor,
+    importcpp: "OpenGl_GraduatedTrihedron(@)",
     header: "OpenGl_GraduatedTrihedron.hxx".}
-proc destroyOpenGl_GraduatedTrihedron*(this: var OpenGl_GraduatedTrihedron) {.
+proc destroyOpenGlGraduatedTrihedron*(this: var OpenGlGraduatedTrihedron) {.
     importcpp: "#.~OpenGl_GraduatedTrihedron()",
     header: "OpenGl_GraduatedTrihedron.hxx".}
-proc Render*(this: OpenGl_GraduatedTrihedron;
-            theWorkspace: handle[OpenGl_Workspace]) {.noSideEffect,
-    importcpp: "Render", header: "OpenGl_GraduatedTrihedron.hxx".}
-proc Release*(this: var OpenGl_GraduatedTrihedron; theCtx: ptr OpenGl_Context) {.
+proc render*(this: OpenGlGraduatedTrihedron; theWorkspace: Handle[OpenGlWorkspace]) {.
+    noSideEffect, importcpp: "Render", header: "OpenGl_GraduatedTrihedron.hxx".}
+proc release*(this: var OpenGlGraduatedTrihedron; theCtx: ptr OpenGlContext) {.
     importcpp: "Release", header: "OpenGl_GraduatedTrihedron.hxx".}
-proc SetValues*(this: var OpenGl_GraduatedTrihedron;
-               theData: Graphic3d_GraduatedTrihedron) {.importcpp: "SetValues",
+proc setValues*(this: var OpenGlGraduatedTrihedron;
+               theData: Graphic3dGraduatedTrihedron) {.importcpp: "SetValues",
     header: "OpenGl_GraduatedTrihedron.hxx".}
-proc SetMinMax*(this: var OpenGl_GraduatedTrihedron; theMin: OpenGl_Vec3;
-               theMax: OpenGl_Vec3) {.importcpp: "SetMinMax",
-                                    header: "OpenGl_GraduatedTrihedron.hxx".}
-proc DumpJson*(this: OpenGl_GraduatedTrihedron; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "OpenGl_GraduatedTrihedron.hxx".}
+proc setMinMax*(this: var OpenGlGraduatedTrihedron; theMin: OpenGlVec3;
+               theMax: OpenGlVec3) {.importcpp: "SetMinMax",
+                                   header: "OpenGl_GraduatedTrihedron.hxx".}
+proc dumpJson*(this: OpenGlGraduatedTrihedron; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "OpenGl_GraduatedTrihedron.hxx".}

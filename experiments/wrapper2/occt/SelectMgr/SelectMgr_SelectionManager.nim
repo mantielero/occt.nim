@@ -14,148 +14,141 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  SelectMgr_ViewerSelector, SelectMgr_TypeOfUpdate
-
 discard "forward decl of SelectMgr_SelectableObject"
 type
-  SelectMgr_SelectionManager* {.importcpp: "SelectMgr_SelectionManager",
-                               header: "SelectMgr_SelectionManager.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                          ## !
-                                                                                                          ## Constructs
-                                                                                                          ## an
-                                                                                                          ## empty
-                                                                                                          ## selection
-                                                                                                          ## manager
-                                                                                                          ## object.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Recomputes
-                                                                                                          ## given
-                                                                                                          ## selection
-                                                                                                          ## mode
-                                                                                                          ## and
-                                                                                                          ## updates
-                                                                                                          ## BVHs
-                                                                                                          ## in
-                                                                                                          ## all
-                                                                                                          ## viewer
-                                                                                                          ## selectors
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Loads
-                                                                                                          ## and
-                                                                                                          ## creates
-                                                                                                          ## selection
-                                                                                                          ## structures
-                                                                                                          ## for
-                                                                                                          ## object
-                                                                                                          ## theObject
-                                                                                                          ## with
-                                                                                                          ## mode
-                                                                                                          ## theMode
-                                                                                                          ## in
-                                                                                                          ## specified
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## viewer
-                                                                                                          ## selector
-                                                                                                          ## theSelector.
-                                                                                                          ## If
-                                                                                                          ## theSelector
-                                                                                                          ## is
-                                                                                                          ## set
-                                                                                                          ## to
-                                                                                                          ## default
-                                                                                                          ## value
-                                                                                                          ## (NULL),
-                                                                                                          ## the
-                                                                                                          ## selection
-                                                                                                          ## mode
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## created
-                                                                                                          ## will
-                                                                                                          ## be
-                                                                                                          ## added
-                                                                                                          ## to
-                                                                                                          ## all
-                                                                                                          ## known
-                                                                                                          ## viewer
-                                                                                                          ## selectors.
+  SelectMgrSelectionManager* {.importcpp: "SelectMgr_SelectionManager",
+                              header: "SelectMgr_SelectionManager.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                        ## !
+                                                                                                        ## Constructs
+                                                                                                        ## an
+                                                                                                        ## empty
+                                                                                                        ## selection
+                                                                                                        ## manager
+                                                                                                        ## object.
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## Recomputes
+                                                                                                        ## given
+                                                                                                        ## selection
+                                                                                                        ## mode
+                                                                                                        ## and
+                                                                                                        ## updates
+                                                                                                        ## BVHs
+                                                                                                        ## in
+                                                                                                        ## all
+                                                                                                        ## viewer
+                                                                                                        ## selectors
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## Loads
+                                                                                                        ## and
+                                                                                                        ## creates
+                                                                                                        ## selection
+                                                                                                        ## structures
+                                                                                                        ## for
+                                                                                                        ## object
+                                                                                                        ## theObject
+                                                                                                        ## with
+                                                                                                        ## mode
+                                                                                                        ## theMode
+                                                                                                        ## in
+                                                                                                        ## specified
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## viewer
+                                                                                                        ## selector
+                                                                                                        ## theSelector.
+                                                                                                        ## If
+                                                                                                        ## theSelector
+                                                                                                        ## is
+                                                                                                        ## set
+                                                                                                        ## to
+                                                                                                        ## default
+                                                                                                        ## value
+                                                                                                        ## (NULL),
+                                                                                                        ## the
+                                                                                                        ## selection
+                                                                                                        ## mode
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## created
+                                                                                                        ## will
+                                                                                                        ## be
+                                                                                                        ## added
+                                                                                                        ## to
+                                                                                                        ## all
+                                                                                                        ## known
+                                                                                                        ## viewer
+                                                                                                        ## selectors.
 
-  SelectMgr_SelectionManagerbase_type* = Standard_Transient
+  SelectMgrSelectionManagerbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "SelectMgr_SelectionManager::get_type_name(@)",
-                              header: "SelectMgr_SelectionManager.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "SelectMgr_SelectionManager::get_type_name(@)",
+                            header: "SelectMgr_SelectionManager.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "SelectMgr_SelectionManager::get_type_descriptor(@)",
     header: "SelectMgr_SelectionManager.hxx".}
-proc DynamicType*(this: SelectMgr_SelectionManager): handle[Standard_Type] {.
+proc dynamicType*(this: SelectMgrSelectionManager): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "SelectMgr_SelectionManager.hxx".}
-proc constructSelectMgr_SelectionManager*(
-    theSelector: handle[SelectMgr_ViewerSelector]): SelectMgr_SelectionManager {.
-    constructor, importcpp: "SelectMgr_SelectionManager(@)",
+proc constructSelectMgrSelectionManager*(theSelector: Handle[
+    SelectMgrViewerSelector]): SelectMgrSelectionManager {.constructor,
+    importcpp: "SelectMgr_SelectionManager(@)",
     header: "SelectMgr_SelectionManager.hxx".}
-proc Selector*(this: SelectMgr_SelectionManager): handle[SelectMgr_ViewerSelector] {.
+proc selector*(this: SelectMgrSelectionManager): Handle[SelectMgrViewerSelector] {.
     noSideEffect, importcpp: "Selector", header: "SelectMgr_SelectionManager.hxx".}
-proc Contains*(this: SelectMgr_SelectionManager;
-              theObject: handle[SelectMgr_SelectableObject]): Standard_Boolean {.
-    noSideEffect, importcpp: "Contains", header: "SelectMgr_SelectionManager.hxx".}
-proc Load*(this: var SelectMgr_SelectionManager;
-          theObject: handle[SelectMgr_SelectableObject];
-          theMode: Standard_Integer = -1) {.importcpp: "Load", header: "SelectMgr_SelectionManager.hxx".}
-proc Remove*(this: var SelectMgr_SelectionManager;
-            theObject: handle[SelectMgr_SelectableObject]) {.importcpp: "Remove",
+proc contains*(this: SelectMgrSelectionManager;
+              theObject: Handle[SelectMgrSelectableObject]): bool {.noSideEffect,
+    importcpp: "Contains", header: "SelectMgr_SelectionManager.hxx".}
+proc load*(this: var SelectMgrSelectionManager;
+          theObject: Handle[SelectMgrSelectableObject]; theMode: int = -1) {.
+    importcpp: "Load", header: "SelectMgr_SelectionManager.hxx".}
+proc remove*(this: var SelectMgrSelectionManager;
+            theObject: Handle[SelectMgrSelectableObject]) {.importcpp: "Remove",
     header: "SelectMgr_SelectionManager.hxx".}
-proc Activate*(this: var SelectMgr_SelectionManager;
-              theObject: handle[SelectMgr_SelectableObject];
-              theMode: Standard_Integer = 0) {.importcpp: "Activate",
+proc activate*(this: var SelectMgrSelectionManager;
+              theObject: Handle[SelectMgrSelectableObject]; theMode: int = 0) {.
+    importcpp: "Activate", header: "SelectMgr_SelectionManager.hxx".}
+proc deactivate*(this: var SelectMgrSelectionManager;
+                theObject: Handle[SelectMgrSelectableObject]; theMode: int = -1) {.
+    importcpp: "Deactivate", header: "SelectMgr_SelectionManager.hxx".}
+proc isActivated*(this: SelectMgrSelectionManager;
+                 theObject: Handle[SelectMgrSelectableObject]; theMode: int = -1): bool {.
+    noSideEffect, importcpp: "IsActivated",
     header: "SelectMgr_SelectionManager.hxx".}
-proc Deactivate*(this: var SelectMgr_SelectionManager;
-                theObject: handle[SelectMgr_SelectableObject];
-                theMode: Standard_Integer = -1) {.importcpp: "Deactivate",
-    header: "SelectMgr_SelectionManager.hxx".}
-proc IsActivated*(this: SelectMgr_SelectionManager;
-                 theObject: handle[SelectMgr_SelectableObject];
-                 theMode: Standard_Integer = -1): Standard_Boolean {.noSideEffect,
-    importcpp: "IsActivated", header: "SelectMgr_SelectionManager.hxx".}
-proc ClearSelectionStructures*(this: var SelectMgr_SelectionManager;
-                              theObj: handle[SelectMgr_SelectableObject];
-                              theMode: Standard_Integer = -1) {.
+proc clearSelectionStructures*(this: var SelectMgrSelectionManager;
+                              theObj: Handle[SelectMgrSelectableObject];
+                              theMode: int = -1) {.
     importcpp: "ClearSelectionStructures",
     header: "SelectMgr_SelectionManager.hxx".}
-proc RestoreSelectionStructures*(this: var SelectMgr_SelectionManager;
-                                theObj: handle[SelectMgr_SelectableObject];
-                                theMode: Standard_Integer = -1) {.
+proc restoreSelectionStructures*(this: var SelectMgrSelectionManager;
+                                theObj: Handle[SelectMgrSelectableObject];
+                                theMode: int = -1) {.
     importcpp: "RestoreSelectionStructures",
     header: "SelectMgr_SelectionManager.hxx".}
-proc RecomputeSelection*(this: var SelectMgr_SelectionManager;
-                        theObject: handle[SelectMgr_SelectableObject];
-                        theIsForce: Standard_Boolean = Standard_False;
-                        theMode: Standard_Integer = -1) {.
+proc recomputeSelection*(this: var SelectMgrSelectionManager;
+                        theObject: Handle[SelectMgrSelectableObject];
+                        theIsForce: bool = false; theMode: int = -1) {.
     importcpp: "RecomputeSelection", header: "SelectMgr_SelectionManager.hxx".}
-proc Update*(this: var SelectMgr_SelectionManager;
-            theObject: handle[SelectMgr_SelectableObject];
-            theIsForce: Standard_Boolean = Standard_True) {.importcpp: "Update",
+proc update*(this: var SelectMgrSelectionManager;
+            theObject: Handle[SelectMgrSelectableObject]; theIsForce: bool = true) {.
+    importcpp: "Update", header: "SelectMgr_SelectionManager.hxx".}
+proc setUpdateMode*(this: var SelectMgrSelectionManager;
+                   theObject: Handle[SelectMgrSelectableObject];
+                   theType: SelectMgrTypeOfUpdate) {.importcpp: "SetUpdateMode",
     header: "SelectMgr_SelectionManager.hxx".}
-proc SetUpdateMode*(this: var SelectMgr_SelectionManager;
-                   theObject: handle[SelectMgr_SelectableObject];
-                   theType: SelectMgr_TypeOfUpdate) {.importcpp: "SetUpdateMode",
+proc setUpdateMode*(this: var SelectMgrSelectionManager;
+                   theObject: Handle[SelectMgrSelectableObject]; theMode: int;
+                   theType: SelectMgrTypeOfUpdate) {.importcpp: "SetUpdateMode",
     header: "SelectMgr_SelectionManager.hxx".}
-proc SetUpdateMode*(this: var SelectMgr_SelectionManager;
-                   theObject: handle[SelectMgr_SelectableObject];
-                   theMode: Standard_Integer; theType: SelectMgr_TypeOfUpdate) {.
-    importcpp: "SetUpdateMode", header: "SelectMgr_SelectionManager.hxx".}
-proc SetSelectionSensitivity*(this: var SelectMgr_SelectionManager;
-                             theObject: handle[SelectMgr_SelectableObject];
-                             theMode: Standard_Integer;
-                             theNewSens: Standard_Integer) {.
+proc setSelectionSensitivity*(this: var SelectMgrSelectionManager;
+                             theObject: Handle[SelectMgrSelectableObject];
+                             theMode: int; theNewSens: int) {.
     importcpp: "SetSelectionSensitivity", header: "SelectMgr_SelectionManager.hxx".}
-proc UpdateSelection*(this: var SelectMgr_SelectionManager;
-                     theObj: handle[SelectMgr_SelectableObject]) {.
+proc updateSelection*(this: var SelectMgrSelectionManager;
+                     theObj: Handle[SelectMgrSelectableObject]) {.
     importcpp: "UpdateSelection", header: "SelectMgr_SelectionManager.hxx".}
 discard "forward decl of SelectMgr_SelectionManager"
 type
-  Handle_SelectMgr_SelectionManager* = handle[SelectMgr_SelectionManager]
+  HandleSelectMgrSelectionManager* = Handle[SelectMgrSelectionManager]
+

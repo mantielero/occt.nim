@@ -12,8 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Vector, BOPDS_Curve
-
 type
-  BOPDS_VectorOfCurve* = NCollection_Vector[BOPDS_Curve]
+  BOPDS_VectorOfCurve* = NCollectionVector[BOPDS_Curve]
+

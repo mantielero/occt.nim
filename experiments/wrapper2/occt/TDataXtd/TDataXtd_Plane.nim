@@ -13,51 +13,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TDataStd/TDataStd_GenericEmpty
-
 discard "forward decl of TDF_Label"
 discard "forward decl of gp_Pln"
 discard "forward decl of TDataXtd_Plane"
 discard "forward decl of TDataXtd_Plane"
 type
-  Handle_TDataXtd_Plane* = handle[TDataXtd_Plane]
+  HandleTDataXtdPlane* = Handle[TDataXtdPlane]
 
 ## ! The basis to define a plane attribute.
 ## ! Warning:  Use TDataXtd_Geometry  attribute  to retrieve  the
 ## ! gp_Pln of the Plane attribute
 
 type
-  TDataXtd_Plane* {.importcpp: "TDataXtd_Plane", header: "TDataXtd_Plane.hxx", bycopy.} = object of TDataStd_GenericEmpty ##
-                                                                                                                ## !
-                                                                                                                ## class
-                                                                                                                ## methods
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## =============
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## Returns
-                                                                                                                ## the
-                                                                                                                ## GUID
-                                                                                                                ## for
-                                                                                                                ## plane
-                                                                                                                ## attributes.
+  TDataXtdPlane* {.importcpp: "TDataXtd_Plane", header: "TDataXtd_Plane.hxx", bycopy.} = object of TDataStdGenericEmpty ##
+                                                                                                              ## !
+                                                                                                              ## class
+                                                                                                              ## methods
+                                                                                                              ##
+                                                                                                              ## !
+                                                                                                              ## =============
+                                                                                                              ##
+                                                                                                              ## !
+                                                                                                              ##
+                                                                                                              ## !
+                                                                                                              ## Returns
+                                                                                                              ## the
+                                                                                                              ## GUID
+                                                                                                              ## for
+                                                                                                              ## plane
+                                                                                                              ## attributes.
 
 
-proc GetID*(): Standard_GUID {.importcpp: "TDataXtd_Plane::GetID(@)",
-                            header: "TDataXtd_Plane.hxx".}
-proc Set*(label: TDF_Label): handle[TDataXtd_Plane] {.
+proc getID*(): StandardGUID {.importcpp: "TDataXtd_Plane::GetID(@)",
+                           header: "TDataXtd_Plane.hxx".}
+proc set*(label: TDF_Label): Handle[TDataXtdPlane] {.
     importcpp: "TDataXtd_Plane::Set(@)", header: "TDataXtd_Plane.hxx".}
-proc Set*(label: TDF_Label; P: gp_Pln): handle[TDataXtd_Plane] {.
+proc set*(label: TDF_Label; p: Pln): Handle[TDataXtdPlane] {.
     importcpp: "TDataXtd_Plane::Set(@)", header: "TDataXtd_Plane.hxx".}
-proc constructTDataXtd_Plane*(): TDataXtd_Plane {.constructor,
+proc constructTDataXtdPlane*(): TDataXtdPlane {.constructor,
     importcpp: "TDataXtd_Plane(@)", header: "TDataXtd_Plane.hxx".}
-proc ID*(this: TDataXtd_Plane): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TDataXtdPlane): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TDataXtd_Plane.hxx".}
-proc Dump*(this: TDataXtd_Plane; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDataXtdPlane; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataXtd_Plane.hxx".}
 ## !!!Ignored construct:  DEFINE_DERIVED_ATTRIBUTE ( TDataXtd_Plane , TDataStd_GenericEmpty ) protected : private : }
 ## Error: token expected: ) but got: ,!!!
+

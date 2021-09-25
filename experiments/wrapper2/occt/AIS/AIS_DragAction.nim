@@ -16,8 +16,9 @@
 type
   AIS_DragAction* {.size: sizeof(cint), importcpp: "AIS_DragAction",
                    header: "AIS_DragAction.hxx".} = enum
-    AIS_DragAction_Start,     ## !< (try) start dragging object
-    AIS_DragAction_Update,    ## !< perform dragging (update position)
-    AIS_DragAction_Stop,      ## !< stop dragging (save position)
-    AIS_DragAction_Abort      ## !< abort dragging (restore initial position)
+    AIS_DragActionStart,      ## !< (try) start dragging object
+    AIS_DragActionUpdate,     ## !< perform dragging (update position)
+    AIS_DragActionStop,       ## !< stop dragging (save position)
+    AIS_DragActionAbort       ## !< abort dragging (restore initial position)
+
 

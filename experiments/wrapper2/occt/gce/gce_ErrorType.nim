@@ -34,10 +34,10 @@
 ## ! incorrect (applies to the equation of a geometric object).
 
 type
-  gce_ErrorType* {.size: sizeof(cint), importcpp: "gce_ErrorType",
-                  header: "gce_ErrorType.hxx".} = enum
-    gce_Done, gce_ConfusedPoints, gce_NegativeRadius, gce_ColinearPoints,
-    gce_IntersectionError, gce_NullAxis, gce_NullAngle, gce_NullRadius,
-    gce_InvertAxis, gce_BadAngle, gce_InvertRadius, gce_NullFocusLength,
-    gce_NullVector, gce_BadEquation
+  GceErrorType* {.size: sizeof(cint), importcpp: "gce_ErrorType",
+                 header: "gce_ErrorType.hxx".} = enum
+    gceDone, gceConfusedPoints, gceNegativeRadius, gceColinearPoints,
+    gceIntersectionError, gceNullAxis, gceNullAngle, gceNullRadius, gceInvertAxis,
+    gceBadAngle, gceInvertRadius, gceNullFocusLength, gceNullVector, gceBadEquation
+
 

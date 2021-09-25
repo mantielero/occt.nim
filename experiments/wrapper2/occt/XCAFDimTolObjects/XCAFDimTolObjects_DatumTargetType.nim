@@ -16,10 +16,9 @@
 ## ! Defines types of dimension
 
 type
-  XCAFDimTolObjects_DatumTargetType* {.size: sizeof(cint), importcpp: "XCAFDimTolObjects_DatumTargetType", header: "XCAFDimTolObjects_DatumTargetType.hxx".} = enum
-    XCAFDimTolObjects_DatumTargetType_Point,
-    XCAFDimTolObjects_DatumTargetType_Line,
-    XCAFDimTolObjects_DatumTargetType_Rectangle,
-    XCAFDimTolObjects_DatumTargetType_Circle,
-    XCAFDimTolObjects_DatumTargetType_Area
+  XCAFDimTolObjectsDatumTargetType* {.size: sizeof(cint), importcpp: "XCAFDimTolObjects_DatumTargetType", header: "XCAFDimTolObjects_DatumTargetType.hxx".} = enum
+    XCAFDimTolObjectsDatumTargetTypePoint, XCAFDimTolObjectsDatumTargetTypeLine,
+    XCAFDimTolObjectsDatumTargetTypeRectangle,
+    XCAFDimTolObjectsDatumTargetTypeCircle, XCAFDimTolObjectsDatumTargetTypeArea
+
 

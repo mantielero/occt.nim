@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Interface/Interface_Graph,
-  ../TColStd/TColStd_HSequenceOfInteger, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Interface_InterfaceError"
@@ -29,119 +23,117 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_GraphContent"
 type
-  IFGraph_SubPartsIterator* {.importcpp: "IFGraph_SubPartsIterator",
-                             header: "IFGraph_SubPartsIterator.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Creates
-                                                                                  ## with
-                                                                                  ## a
-                                                                                  ## Graph,
-                                                                                  ## whole
-                                                                                  ## or
-                                                                                  ## parts
-                                                                                  ## of
-                                                                                  ## it
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## whole
-                                                                                  ## True
-                                                                                  ## :
-                                                                                  ## works
-                                                                                  ## on
-                                                                                  ## the
-                                                                                  ## entire
-                                                                                  ## Model
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## whole
-                                                                                  ## False
-                                                                                  ## :
-                                                                                  ## empty,
-                                                                                  ## ready
-                                                                                  ## to
-                                                                                  ## be
-                                                                                  ## filled
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## SubPartIterator
-                                                                                  ## is
-                                                                                  ## set
-                                                                                  ## to
-                                                                                  ## load
-                                                                                  ## entities
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Returns
-                                                                                  ## the
-                                                                                  ## Graph
-                                                                                  ## used
-                                                                                  ## by
-                                                                                  ## <me>.
-                                                                                  ## Used
-                                                                                  ## to
-                                                                                  ## create
-                                                                                  ## another
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## SubPartsIterator
-                                                                                  ## from
-                                                                                  ## <me>
+  IFGraphSubPartsIterator* {.importcpp: "IFGraph_SubPartsIterator",
+                            header: "IFGraph_SubPartsIterator.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## Creates
+                                                                                 ## with
+                                                                                 ## a
+                                                                                 ## Graph,
+                                                                                 ## whole
+                                                                                 ## or
+                                                                                 ## parts
+                                                                                 ## of
+                                                                                 ## it
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## whole
+                                                                                 ## True
+                                                                                 ## :
+                                                                                 ## works
+                                                                                 ## on
+                                                                                 ## the
+                                                                                 ## entire
+                                                                                 ## Model
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## whole
+                                                                                 ## False
+                                                                                 ## :
+                                                                                 ## empty,
+                                                                                 ## ready
+                                                                                 ## to
+                                                                                 ## be
+                                                                                 ## filled
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## SubPartIterator
+                                                                                 ## is
+                                                                                 ## set
+                                                                                 ## to
+                                                                                 ## load
+                                                                                 ## entities
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## Returns
+                                                                                 ## the
+                                                                                 ## Graph
+                                                                                 ## used
+                                                                                 ## by
+                                                                                 ## <me>.
+                                                                                 ## Used
+                                                                                 ## to
+                                                                                 ## create
+                                                                                 ## another
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## SubPartsIterator
+                                                                                 ## from
+                                                                                 ## <me>
 
 
-proc constructIFGraph_SubPartsIterator*(agraph: Interface_Graph;
-                                       whole: Standard_Boolean): IFGraph_SubPartsIterator {.
+proc constructIFGraphSubPartsIterator*(agraph: InterfaceGraph; whole: bool): IFGraphSubPartsIterator {.
     constructor, importcpp: "IFGraph_SubPartsIterator(@)",
     header: "IFGraph_SubPartsIterator.hxx".}
-proc constructIFGraph_SubPartsIterator*(other: var IFGraph_SubPartsIterator): IFGraph_SubPartsIterator {.
+proc constructIFGraphSubPartsIterator*(other: var IFGraphSubPartsIterator): IFGraphSubPartsIterator {.
     constructor, importcpp: "IFGraph_SubPartsIterator(@)",
     header: "IFGraph_SubPartsIterator.hxx".}
-proc GetParts*(this: var IFGraph_SubPartsIterator;
-              other: var IFGraph_SubPartsIterator) {.importcpp: "GetParts",
-    header: "IFGraph_SubPartsIterator.hxx".}
-proc Model*(this: IFGraph_SubPartsIterator): handle[Interface_InterfaceModel] {.
+proc getParts*(this: var IFGraphSubPartsIterator; other: var IFGraphSubPartsIterator) {.
+    importcpp: "GetParts", header: "IFGraph_SubPartsIterator.hxx".}
+proc model*(this: IFGraphSubPartsIterator): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "Model", header: "IFGraph_SubPartsIterator.hxx".}
-proc AddPart*(this: var IFGraph_SubPartsIterator) {.importcpp: "AddPart",
+proc addPart*(this: var IFGraphSubPartsIterator) {.importcpp: "AddPart",
     header: "IFGraph_SubPartsIterator.hxx".}
-proc NbParts*(this: IFGraph_SubPartsIterator): Standard_Integer {.noSideEffect,
+proc nbParts*(this: IFGraphSubPartsIterator): int {.noSideEffect,
     importcpp: "NbParts", header: "IFGraph_SubPartsIterator.hxx".}
-proc PartNum*(this: IFGraph_SubPartsIterator): Standard_Integer {.noSideEffect,
+proc partNum*(this: IFGraphSubPartsIterator): int {.noSideEffect,
     importcpp: "PartNum", header: "IFGraph_SubPartsIterator.hxx".}
-proc SetLoad*(this: var IFGraph_SubPartsIterator) {.importcpp: "SetLoad",
+proc setLoad*(this: var IFGraphSubPartsIterator) {.importcpp: "SetLoad",
     header: "IFGraph_SubPartsIterator.hxx".}
-proc SetPartNum*(this: var IFGraph_SubPartsIterator; num: Standard_Integer) {.
+proc setPartNum*(this: var IFGraphSubPartsIterator; num: int) {.
     importcpp: "SetPartNum", header: "IFGraph_SubPartsIterator.hxx".}
-proc GetFromEntity*(this: var IFGraph_SubPartsIterator;
-                   ent: handle[Standard_Transient]; shared: Standard_Boolean) {.
+proc getFromEntity*(this: var IFGraphSubPartsIterator;
+                   ent: Handle[StandardTransient]; shared: bool) {.
     importcpp: "GetFromEntity", header: "IFGraph_SubPartsIterator.hxx".}
-proc GetFromIter*(this: var IFGraph_SubPartsIterator; iter: Interface_EntityIterator) {.
+proc getFromIter*(this: var IFGraphSubPartsIterator; iter: InterfaceEntityIterator) {.
     importcpp: "GetFromIter", header: "IFGraph_SubPartsIterator.hxx".}
-proc Reset*(this: var IFGraph_SubPartsIterator) {.importcpp: "Reset",
+proc reset*(this: var IFGraphSubPartsIterator) {.importcpp: "Reset",
     header: "IFGraph_SubPartsIterator.hxx".}
-proc Evaluate*(this: var IFGraph_SubPartsIterator) {.importcpp: "Evaluate",
+proc evaluate*(this: var IFGraphSubPartsIterator) {.importcpp: "Evaluate",
     header: "IFGraph_SubPartsIterator.hxx".}
-proc Loaded*(this: IFGraph_SubPartsIterator): Interface_GraphContent {.noSideEffect,
+proc loaded*(this: IFGraphSubPartsIterator): InterfaceGraphContent {.noSideEffect,
     importcpp: "Loaded", header: "IFGraph_SubPartsIterator.hxx".}
-proc LoadedGraph*(this: IFGraph_SubPartsIterator): Interface_Graph {.noSideEffect,
+proc loadedGraph*(this: IFGraphSubPartsIterator): InterfaceGraph {.noSideEffect,
     importcpp: "LoadedGraph", header: "IFGraph_SubPartsIterator.hxx".}
-proc IsLoaded*(this: IFGraph_SubPartsIterator; ent: handle[Standard_Transient]): Standard_Boolean {.
+proc isLoaded*(this: IFGraphSubPartsIterator; ent: Handle[StandardTransient]): bool {.
     noSideEffect, importcpp: "IsLoaded", header: "IFGraph_SubPartsIterator.hxx".}
-proc IsInPart*(this: IFGraph_SubPartsIterator; ent: handle[Standard_Transient]): Standard_Boolean {.
+proc isInPart*(this: IFGraphSubPartsIterator; ent: Handle[StandardTransient]): bool {.
     noSideEffect, importcpp: "IsInPart", header: "IFGraph_SubPartsIterator.hxx".}
-proc EntityPartNum*(this: IFGraph_SubPartsIterator; ent: handle[Standard_Transient]): Standard_Integer {.
+proc entityPartNum*(this: IFGraphSubPartsIterator; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "EntityPartNum",
     header: "IFGraph_SubPartsIterator.hxx".}
-proc Start*(this: var IFGraph_SubPartsIterator) {.importcpp: "Start",
+proc start*(this: var IFGraphSubPartsIterator) {.importcpp: "Start",
     header: "IFGraph_SubPartsIterator.hxx".}
-proc More*(this: var IFGraph_SubPartsIterator): Standard_Boolean {.importcpp: "More",
+proc more*(this: var IFGraphSubPartsIterator): bool {.importcpp: "More",
     header: "IFGraph_SubPartsIterator.hxx".}
-proc Next*(this: var IFGraph_SubPartsIterator) {.importcpp: "Next",
+proc next*(this: var IFGraphSubPartsIterator) {.importcpp: "Next",
     header: "IFGraph_SubPartsIterator.hxx".}
-proc IsSingle*(this: IFGraph_SubPartsIterator): Standard_Boolean {.noSideEffect,
+proc isSingle*(this: IFGraphSubPartsIterator): bool {.noSideEffect,
     importcpp: "IsSingle", header: "IFGraph_SubPartsIterator.hxx".}
-proc FirstEntity*(this: IFGraph_SubPartsIterator): handle[Standard_Transient] {.
+proc firstEntity*(this: IFGraphSubPartsIterator): Handle[StandardTransient] {.
     noSideEffect, importcpp: "FirstEntity", header: "IFGraph_SubPartsIterator.hxx".}
-proc Entities*(this: IFGraph_SubPartsIterator): Interface_EntityIterator {.
+proc entities*(this: IFGraphSubPartsIterator): InterfaceEntityIterator {.
     noSideEffect, importcpp: "Entities", header: "IFGraph_SubPartsIterator.hxx".}
-proc destroyIFGraph_SubPartsIterator*(this: var IFGraph_SubPartsIterator) {.
+proc destroyIFGraphSubPartsIterator*(this: var IFGraphSubPartsIterator) {.
     importcpp: "#.~IFGraph_SubPartsIterator()",
     header: "IFGraph_SubPartsIterator.hxx".}

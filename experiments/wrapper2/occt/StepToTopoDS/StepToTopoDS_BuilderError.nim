@@ -20,3 +20,4 @@ type
                               header: "StepToTopoDS_BuilderError.hxx".} = enum
     StepToTopoDS_BuilderDone, StepToTopoDS_BuilderOther
 
+

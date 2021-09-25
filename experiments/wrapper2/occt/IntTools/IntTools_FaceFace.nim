@@ -13,57 +13,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../IntPatch/IntPatch_Intersection, ../GeomInt/GeomInt_LineConstructor,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real,
-  IntTools_SequenceOfCurves, ../TopoDS/TopoDS_Face,
-  IntTools_SequenceOfPntOn2Faces, ../IntSurf/IntSurf_ListOfPntOn2S
-
 discard "forward decl of GeomAdaptor_HSurface"
 discard "forward decl of IntTools_Context"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of Adaptor3d_TopolTool"
 type
-  IntTools_FaceFace* {.importcpp: "IntTools_FaceFace",
-                      header: "IntTools_FaceFace.hxx", bycopy.} = object ## ! Empty constructor.
-                                                                    ## ! Creates curves from the
-                                                                    ## IntPatch_Line.
+  IntToolsFaceFace* {.importcpp: "IntTools_FaceFace",
+                     header: "IntTools_FaceFace.hxx", bycopy.} = object ## ! Empty constructor.
+                                                                   ## ! Creates curves from the
+                                                                   ## IntPatch_Line.
 
 
-proc constructIntTools_FaceFace*(): IntTools_FaceFace {.constructor,
+proc constructIntToolsFaceFace*(): IntToolsFaceFace {.constructor,
     importcpp: "IntTools_FaceFace(@)", header: "IntTools_FaceFace.hxx".}
-proc SetParameters*(this: var IntTools_FaceFace; ApproxCurves: Standard_Boolean;
-                   ComputeCurveOnS1: Standard_Boolean;
-                   ComputeCurveOnS2: Standard_Boolean;
-                   ApproximationTolerance: Standard_Real) {.
-    importcpp: "SetParameters", header: "IntTools_FaceFace.hxx".}
-proc Perform*(this: var IntTools_FaceFace; F1: TopoDS_Face; F2: TopoDS_Face) {.
+proc setParameters*(this: var IntToolsFaceFace; approxCurves: bool;
+                   computeCurveOnS1: bool; computeCurveOnS2: bool;
+                   approximationTolerance: float) {.importcpp: "SetParameters",
+    header: "IntTools_FaceFace.hxx".}
+proc perform*(this: var IntToolsFaceFace; f1: TopoDS_Face; f2: TopoDS_Face) {.
     importcpp: "Perform", header: "IntTools_FaceFace.hxx".}
-proc IsDone*(this: IntTools_FaceFace): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "IntTools_FaceFace.hxx".}
-proc Lines*(this: IntTools_FaceFace): IntTools_SequenceOfCurves {.noSideEffect,
+proc isDone*(this: IntToolsFaceFace): bool {.noSideEffect, importcpp: "IsDone",
+    header: "IntTools_FaceFace.hxx".}
+proc lines*(this: IntToolsFaceFace): IntToolsSequenceOfCurves {.noSideEffect,
     importcpp: "Lines", header: "IntTools_FaceFace.hxx".}
-proc Points*(this: IntTools_FaceFace): IntTools_SequenceOfPntOn2Faces {.
-    noSideEffect, importcpp: "Points", header: "IntTools_FaceFace.hxx".}
-proc Face1*(this: IntTools_FaceFace): TopoDS_Face {.noSideEffect, importcpp: "Face1",
+proc points*(this: IntToolsFaceFace): IntToolsSequenceOfPntOn2Faces {.noSideEffect,
+    importcpp: "Points", header: "IntTools_FaceFace.hxx".}
+proc face1*(this: IntToolsFaceFace): TopoDS_Face {.noSideEffect, importcpp: "Face1",
     header: "IntTools_FaceFace.hxx".}
-proc Face2*(this: IntTools_FaceFace): TopoDS_Face {.noSideEffect, importcpp: "Face2",
+proc face2*(this: IntToolsFaceFace): TopoDS_Face {.noSideEffect, importcpp: "Face2",
     header: "IntTools_FaceFace.hxx".}
-proc TangentFaces*(this: IntTools_FaceFace): Standard_Boolean {.noSideEffect,
+proc tangentFaces*(this: IntToolsFaceFace): bool {.noSideEffect,
     importcpp: "TangentFaces", header: "IntTools_FaceFace.hxx".}
-proc PrepareLines3D*(this: var IntTools_FaceFace;
-                    bToSplit: Standard_Boolean = Standard_True) {.
+proc prepareLines3D*(this: var IntToolsFaceFace; bToSplit: bool = true) {.
     importcpp: "PrepareLines3D", header: "IntTools_FaceFace.hxx".}
-proc SetList*(this: var IntTools_FaceFace; ListOfPnts: var IntSurf_ListOfPntOn2S) {.
+proc setList*(this: var IntToolsFaceFace; listOfPnts: var IntSurfListOfPntOn2S) {.
     importcpp: "SetList", header: "IntTools_FaceFace.hxx".}
-proc SetContext*(this: var IntTools_FaceFace; aContext: handle[IntTools_Context]) {.
+proc setContext*(this: var IntToolsFaceFace; aContext: Handle[IntToolsContext]) {.
     importcpp: "SetContext", header: "IntTools_FaceFace.hxx".}
-proc SetFuzzyValue*(this: var IntTools_FaceFace; theFuzz: Standard_Real) {.
+proc setFuzzyValue*(this: var IntToolsFaceFace; theFuzz: float) {.
     importcpp: "SetFuzzyValue", header: "IntTools_FaceFace.hxx".}
-proc FuzzyValue*(this: IntTools_FaceFace): Standard_Real {.noSideEffect,
+proc fuzzyValue*(this: IntToolsFaceFace): float {.noSideEffect,
     importcpp: "FuzzyValue", header: "IntTools_FaceFace.hxx".}
-proc Context*(this: IntTools_FaceFace): handle[IntTools_Context] {.noSideEffect,
+proc context*(this: IntToolsFaceFace): Handle[IntToolsContext] {.noSideEffect,
     importcpp: "Context", header: "IntTools_FaceFace.hxx".}

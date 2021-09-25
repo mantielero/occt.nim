@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepVisual_CameraModelD3
-
 discard "forward decl of StepGeom_Axis2Placement3d"
 discard "forward decl of StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect"
 discard "forward decl of StepVisual_ViewVolume"
@@ -23,41 +20,42 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepVisual_CameraModelD3"
 discard "forward decl of StepVisual_CameraModelD3MultiClipping"
 type
-  Handle_StepVisual_CameraModelD3MultiClipping* = handle[
-      StepVisual_CameraModelD3MultiClipping]
-  StepVisual_CameraModelD3MultiClipping* {.
+  HandleStepVisualCameraModelD3MultiClipping* = Handle[
+      StepVisualCameraModelD3MultiClipping]
+  StepVisualCameraModelD3MultiClipping* {.
       importcpp: "StepVisual_CameraModelD3MultiClipping",
-      header: "StepVisual_CameraModelD3MultiClipping.hxx", bycopy.} = object of StepVisual_CameraModelD3 ##
-                                                                                                  ## !
-                                                                                                  ## Returns
-                                                                                                  ## a
-                                                                                                  ## CameraModelD3MultiClipping
+      header: "StepVisual_CameraModelD3MultiClipping.hxx", bycopy.} = object of StepVisualCameraModelD3 ##
+                                                                                                 ## !
+                                                                                                 ## Returns
+                                                                                                 ## a
+                                                                                                 ## CameraModelD3MultiClipping
 
 
-proc constructStepVisual_CameraModelD3MultiClipping*(): StepVisual_CameraModelD3MultiClipping {.
+proc constructStepVisualCameraModelD3MultiClipping*(): StepVisualCameraModelD3MultiClipping {.
     constructor, importcpp: "StepVisual_CameraModelD3MultiClipping(@)",
     header: "StepVisual_CameraModelD3MultiClipping.hxx".}
-proc Init*(this: var StepVisual_CameraModelD3MultiClipping;
-          theName: handle[TCollection_HAsciiString];
-          theViewReferenceSystem: handle[StepGeom_Axis2Placement3d];
-          thePerspectiveOfVolume: handle[StepVisual_ViewVolume]; theShapeClipping: handle[
-    StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect]) {.
+proc init*(this: var StepVisualCameraModelD3MultiClipping;
+          theName: Handle[TCollectionHAsciiString];
+          theViewReferenceSystem: Handle[StepGeomAxis2Placement3d];
+          thePerspectiveOfVolume: Handle[StepVisualViewVolume]; theShapeClipping: Handle[
+    StepVisualHArray1OfCameraModelD3MultiClippingInterectionSelect]) {.
     importcpp: "Init", header: "StepVisual_CameraModelD3MultiClipping.hxx".}
-proc SetShapeClipping*(this: var StepVisual_CameraModelD3MultiClipping;
-    theShapeClipping: handle[StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect]) {.
+proc setShapeClipping*(this: var StepVisualCameraModelD3MultiClipping;
+    theShapeClipping: Handle[StepVisualHArray1OfCameraModelD3MultiClippingInterectionSelect]) {.
     importcpp: "SetShapeClipping",
     header: "StepVisual_CameraModelD3MultiClipping.hxx".}
-proc ShapeClipping*(this: var StepVisual_CameraModelD3MultiClipping): handle[
-    StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect] {.
+proc shapeClipping*(this: var StepVisualCameraModelD3MultiClipping): Handle[
+    StepVisualHArray1OfCameraModelD3MultiClippingInterectionSelect] {.
     importcpp: "ShapeClipping",
     header: "StepVisual_CameraModelD3MultiClipping.hxx".}
 type
-  StepVisual_CameraModelD3MultiClippingbase_type* = StepVisual_CameraModelD3
+  StepVisualCameraModelD3MultiClippingbaseType* = StepVisualCameraModelD3
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_CameraModelD3MultiClipping::get_type_name(@)", header: "StepVisual_CameraModelD3MultiClipping.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_CameraModelD3MultiClipping::get_type_name(@)",
+                            header: "StepVisual_CameraModelD3MultiClipping.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_CameraModelD3MultiClipping::get_type_descriptor(@)",
     header: "StepVisual_CameraModelD3MultiClipping.hxx".}
-proc DynamicType*(this: StepVisual_CameraModelD3MultiClipping): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepVisual_CameraModelD3MultiClipping.hxx".}
+proc dynamicType*(this: StepVisualCameraModelD3MultiClipping): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepVisual_CameraModelD3MultiClipping.hxx".}

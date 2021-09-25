@@ -14,30 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepVisual_PreDefinedItem
-
 discard "forward decl of StepVisual_PreDefinedCurveFont"
 discard "forward decl of StepVisual_PreDefinedCurveFont"
 type
-  Handle_StepVisual_PreDefinedCurveFont* = handle[StepVisual_PreDefinedCurveFont]
-  StepVisual_PreDefinedCurveFont* {.importcpp: "StepVisual_PreDefinedCurveFont", header: "StepVisual_PreDefinedCurveFont.hxx",
-                                   bycopy.} = object of StepVisual_PreDefinedItem ## !
-                                                                             ## Returns a
-                                                                             ## PreDefinedCurveFont
+  HandleStepVisualPreDefinedCurveFont* = Handle[StepVisualPreDefinedCurveFont]
+  StepVisualPreDefinedCurveFont* {.importcpp: "StepVisual_PreDefinedCurveFont",
+                                  header: "StepVisual_PreDefinedCurveFont.hxx",
+                                  bycopy.} = object of StepVisualPreDefinedItem ## !
+                                                                           ## Returns a
+                                                                           ## PreDefinedCurveFont
 
 
-proc constructStepVisual_PreDefinedCurveFont*(): StepVisual_PreDefinedCurveFont {.
+proc constructStepVisualPreDefinedCurveFont*(): StepVisualPreDefinedCurveFont {.
     constructor, importcpp: "StepVisual_PreDefinedCurveFont(@)",
     header: "StepVisual_PreDefinedCurveFont.hxx".}
 type
-  StepVisual_PreDefinedCurveFontbase_type* = StepVisual_PreDefinedItem
+  StepVisualPreDefinedCurveFontbaseType* = StepVisualPreDefinedItem
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_PreDefinedCurveFont::get_type_name(@)",
-                              header: "StepVisual_PreDefinedCurveFont.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_PreDefinedCurveFont::get_type_name(@)",
+                            header: "StepVisual_PreDefinedCurveFont.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_PreDefinedCurveFont::get_type_descriptor(@)",
     header: "StepVisual_PreDefinedCurveFont.hxx".}
-proc DynamicType*(this: StepVisual_PreDefinedCurveFont): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualPreDefinedCurveFont): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_PreDefinedCurveFont.hxx".}

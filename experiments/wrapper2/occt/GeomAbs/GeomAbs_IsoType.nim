@@ -18,7 +18,8 @@
 ## ! or V isoparametric
 
 type
-  GeomAbs_IsoType* {.size: sizeof(cint), importcpp: "GeomAbs_IsoType",
-                    header: "GeomAbs_IsoType.hxx".} = enum
-    GeomAbs_IsoU, GeomAbs_IsoV, GeomAbs_NoneIso
+  GeomAbsIsoType* {.size: sizeof(cint), importcpp: "GeomAbs_IsoType",
+                   header: "GeomAbs_IsoType.hxx".} = enum
+    GeomAbsIsoU, GeomAbsIsoV, GeomAbsNoneIso
+
 

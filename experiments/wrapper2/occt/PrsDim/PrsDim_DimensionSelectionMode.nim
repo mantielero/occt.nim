@@ -17,9 +17,10 @@
 ## ! Specifies dimension selection modes.
 
 type
-  PrsDim_DimensionSelectionMode* {.size: sizeof(cint),
-                                  importcpp: "PrsDim_DimensionSelectionMode",
-                                  header: "PrsDim_DimensionSelectionMode.hxx".} = enum
-    PrsDim_DimensionSelectionMode_All, PrsDim_DimensionSelectionMode_Line,
-    PrsDim_DimensionSelectionMode_Text
+  PrsDimDimensionSelectionMode* {.size: sizeof(cint),
+                                 importcpp: "PrsDim_DimensionSelectionMode",
+                                 header: "PrsDim_DimensionSelectionMode.hxx".} = enum
+    PrsDimDimensionSelectionModeAll, PrsDimDimensionSelectionModeLine,
+    PrsDimDimensionSelectionModeText
+
 

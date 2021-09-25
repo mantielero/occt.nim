@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  Storage_SolveMode* {.size: sizeof(cint), importcpp: "Storage_SolveMode",
-                      header: "Storage_SolveMode.hxx".} = enum
-    Storage_AddSolve, Storage_WriteSolve, Storage_ReadSolve
+  StorageSolveMode* {.size: sizeof(cint), importcpp: "Storage_SolveMode",
+                     header: "Storage_SolveMode.hxx".} = enum
+    StorageAddSolve, StorageWriteSolve, StorageReadSolve
+
 

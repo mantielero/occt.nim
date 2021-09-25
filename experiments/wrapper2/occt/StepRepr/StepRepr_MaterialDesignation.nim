@@ -14,47 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepRepr_CharacterizedDefinition, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_CharacterizedDefinition"
 discard "forward decl of StepRepr_MaterialDesignation"
 discard "forward decl of StepRepr_MaterialDesignation"
 type
-  Handle_StepRepr_MaterialDesignation* = handle[StepRepr_MaterialDesignation]
-  StepRepr_MaterialDesignation* {.importcpp: "StepRepr_MaterialDesignation",
-                                 header: "StepRepr_MaterialDesignation.hxx",
-                                 bycopy.} = object of Standard_Transient
+  HandleStepReprMaterialDesignation* = Handle[StepReprMaterialDesignation]
+  StepReprMaterialDesignation* {.importcpp: "StepRepr_MaterialDesignation",
+                                header: "StepRepr_MaterialDesignation.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructStepRepr_MaterialDesignation*(): StepRepr_MaterialDesignation {.
+proc constructStepReprMaterialDesignation*(): StepReprMaterialDesignation {.
     constructor, importcpp: "StepRepr_MaterialDesignation(@)",
     header: "StepRepr_MaterialDesignation.hxx".}
-proc Init*(this: var StepRepr_MaterialDesignation;
-          aName: handle[TCollection_HAsciiString];
-          aOfDefinition: StepRepr_CharacterizedDefinition) {.importcpp: "Init",
+proc init*(this: var StepReprMaterialDesignation;
+          aName: Handle[TCollectionHAsciiString];
+          aOfDefinition: StepReprCharacterizedDefinition) {.importcpp: "Init",
     header: "StepRepr_MaterialDesignation.hxx".}
-proc SetName*(this: var StepRepr_MaterialDesignation;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepReprMaterialDesignation;
+             aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepRepr_MaterialDesignation.hxx".}
-proc Name*(this: StepRepr_MaterialDesignation): handle[TCollection_HAsciiString] {.
+proc name*(this: StepReprMaterialDesignation): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepRepr_MaterialDesignation.hxx".}
-proc SetOfDefinition*(this: var StepRepr_MaterialDesignation;
-                     aOfDefinition: StepRepr_CharacterizedDefinition) {.
+proc setOfDefinition*(this: var StepReprMaterialDesignation;
+                     aOfDefinition: StepReprCharacterizedDefinition) {.
     importcpp: "SetOfDefinition", header: "StepRepr_MaterialDesignation.hxx".}
-proc OfDefinition*(this: StepRepr_MaterialDesignation): StepRepr_CharacterizedDefinition {.
+proc ofDefinition*(this: StepReprMaterialDesignation): StepReprCharacterizedDefinition {.
     noSideEffect, importcpp: "OfDefinition",
     header: "StepRepr_MaterialDesignation.hxx".}
 type
-  StepRepr_MaterialDesignationbase_type* = Standard_Transient
+  StepReprMaterialDesignationbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_MaterialDesignation::get_type_name(@)",
-                              header: "StepRepr_MaterialDesignation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_MaterialDesignation::get_type_name(@)",
+                            header: "StepRepr_MaterialDesignation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_MaterialDesignation::get_type_descriptor(@)",
     header: "StepRepr_MaterialDesignation.hxx".}
-proc DynamicType*(this: StepRepr_MaterialDesignation): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprMaterialDesignation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_MaterialDesignation.hxx".}

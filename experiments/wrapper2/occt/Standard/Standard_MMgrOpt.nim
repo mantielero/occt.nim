@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Standard_MMgrRoot, Standard_Mutex
-
 ## *
 ##  @brief Open CASCADE memory manager optimized for speed.
 ##
@@ -58,42 +55,11 @@ import
 ##
 
 type
-  Standard_MMgrOpt* {.importcpp: "Standard_MMgrOpt",
-                     header: "Standard_MMgrOpt.hxx", bycopy.} = object of Standard_MMgrRoot ##
-                                                                                     ## !
-                                                                                     ## Constructor.
-                                                                                     ## If
-                                                                                     ## aClear
-                                                                                     ## is
-                                                                                     ## True,
-                                                                                     ## the
-                                                                                     ## allocated
-                                                                                     ## emmory
-                                                                                     ## will
-                                                                                     ## be
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## nullified.
-                                                                                     ## For
-                                                                                     ## description
-                                                                                     ## of
-                                                                                     ## other
-                                                                                     ## parameters,
-                                                                                     ## see
-                                                                                     ## description
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## of
-                                                                                     ## the
-                                                                                     ## class
-                                                                                     ## above.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Internal
-                                                                                     ## -
-                                                                                     ## initialization
-                                                                                     ## of
-                                                                                     ## buffers
+  StandardMMgrOpt* {.importcpp: "Standard_MMgrOpt", header: "Standard_MMgrOpt.hxx",
+                    bycopy.} = object of StandardMMgrRoot ## ! Constructor. If aClear is True, the allocated emmory will be
+                                                     ## ! nullified. For description of other parameters, see description
+                                                     ## ! of the class above.
+                                                     ## ! Internal - initialization of buffers
     ## !< option to clear allocated memory
     ## !< last allocated index in the free blocks list
     ## !< free blocks list
@@ -109,29 +75,27 @@ type
     ## !< Mutex to protect small block pools data
 
 
-proc constructStandard_MMgrOpt*(aClear: Standard_Boolean = Standard_True;
-                               aMMap: Standard_Boolean = Standard_True;
-                               aCellSize: Standard_Size = 200;
-                               aNbPages: Standard_Integer = 10000;
-                               aThreshold: Standard_Size = 40000): Standard_MMgrOpt {.
+proc constructStandardMMgrOpt*(aClear: bool = true; aMMap: bool = true;
+                              aCellSize: StandardSize = 200; aNbPages: int = 10000;
+                              aThreshold: StandardSize = 40000): StandardMMgrOpt {.
     constructor, importcpp: "Standard_MMgrOpt(@)", header: "Standard_MMgrOpt.hxx".}
-proc destroyStandard_MMgrOpt*(this: var Standard_MMgrOpt) {.
+proc destroyStandardMMgrOpt*(this: var StandardMMgrOpt) {.
     importcpp: "#.~Standard_MMgrOpt()", header: "Standard_MMgrOpt.hxx".}
-proc Allocate*(this: var Standard_MMgrOpt; aSize: Standard_Size): Standard_Address {.
+proc allocate*(this: var StandardMMgrOpt; aSize: StandardSize): StandardAddress {.
     importcpp: "Allocate", header: "Standard_MMgrOpt.hxx".}
-proc Reallocate*(this: var Standard_MMgrOpt; thePtr: Standard_Address;
-                theSize: Standard_Size): Standard_Address {.
-    importcpp: "Reallocate", header: "Standard_MMgrOpt.hxx".}
-proc Free*(this: var Standard_MMgrOpt; thePtr: Standard_Address) {.importcpp: "Free",
+proc reallocate*(this: var StandardMMgrOpt; thePtr: StandardAddress;
+                theSize: StandardSize): StandardAddress {.importcpp: "Reallocate",
     header: "Standard_MMgrOpt.hxx".}
-proc Purge*(this: var Standard_MMgrOpt; isDestroyed: Standard_Boolean): Standard_Integer {.
-    importcpp: "Purge", header: "Standard_MMgrOpt.hxx".}
+proc free*(this: var StandardMMgrOpt; thePtr: StandardAddress) {.importcpp: "Free",
+    header: "Standard_MMgrOpt.hxx".}
+proc purge*(this: var StandardMMgrOpt; isDestroyed: bool): int {.importcpp: "Purge",
+    header: "Standard_MMgrOpt.hxx".}
 type
-  Standard_MMgrOptTPCallBackFunc* = proc (theIsAlloc: Standard_Boolean;
-                                       theStorage: Standard_Address;
-                                       theRoundSize: Standard_Size;
-                                       theSize: Standard_Size)
+  StandardMMgrOptTPCallBackFunc* = proc (theIsAlloc: bool;
+                                      theStorage: StandardAddress;
+                                      theRoundSize: StandardSize;
+                                      theSize: StandardSize)
 
-proc SetCallBackFunction*(pFunc: Standard_MMgrOptTPCallBackFunc) {.
+proc setCallBackFunction*(pFunc: StandardMMgrOptTPCallBackFunc) {.
     importcpp: "Standard_MMgrOpt::SetCallBackFunction(@)",
     header: "Standard_MMgrOpt.hxx".}

@@ -13,8 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Trsf, ../NCollection/NCollection_Array1
-
 type
-  TDataXtd_Array1OfTrsf* = NCollection_Array1[gp_Trsf]
+  TDataXtdArray1OfTrsf* = NCollectionArray1[Trsf]
+

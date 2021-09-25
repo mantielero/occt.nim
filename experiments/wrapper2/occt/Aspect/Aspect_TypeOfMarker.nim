@@ -16,21 +16,22 @@
 ## ! Definition of types of markers
 
 type
-  Aspect_TypeOfMarker* {.size: sizeof(cint), importcpp: "Aspect_TypeOfMarker",
-                        header: "Aspect_TypeOfMarker.hxx".} = enum
-    Aspect_TOM_EMPTY = -1,      ## !< hidden
-    Aspect_TOM_POINT = 0,       ## !< point   .
-    Aspect_TOM_PLUS,          ## !< plus    +
-    Aspect_TOM_STAR,          ## !< star    *
-    Aspect_TOM_X,             ## !< cross   x
-    Aspect_TOM_O,             ## !< circle  O
-    Aspect_TOM_O_POINT,       ## !< a point in a circle
-    Aspect_TOM_O_PLUS,        ## !< a plus  in a circle
-    Aspect_TOM_O_STAR,        ## !< a star  in a circle
-    Aspect_TOM_O_X,           ## !< a cross in a circle
-    Aspect_TOM_RING1,         ## !< a large  ring
-    Aspect_TOM_RING2,         ## !< a medium ring
-    Aspect_TOM_RING3,         ## !< a small  ring
-    Aspect_TOM_BALL,          ## !< a ball with 1 color and different saturations
-    Aspect_TOM_USERDEFINED    ## !< defined by Users (custom image)
+  AspectTypeOfMarker* {.size: sizeof(cint), importcpp: "Aspect_TypeOfMarker",
+                       header: "Aspect_TypeOfMarker.hxx".} = enum
+    AspectTOM_EMPTY = -1,       ## !< hidden
+    AspectTOM_POINT = 0,        ## !< point   .
+    AspectTOM_PLUS,           ## !< plus    +
+    AspectTOM_STAR,           ## !< star    *
+    AspectTOM_X,              ## !< cross   x
+    AspectTOM_O,              ## !< circle  O
+    AspectTOM_O_POINT,        ## !< a point in a circle
+    AspectTOM_O_PLUS,         ## !< a plus  in a circle
+    AspectTOM_O_STAR,         ## !< a star  in a circle
+    AspectTOM_O_X,            ## !< a cross in a circle
+    AspectTOM_RING1,          ## !< a large  ring
+    AspectTOM_RING2,          ## !< a medium ring
+    AspectTOM_RING3,          ## !< a small  ring
+    AspectTOM_BALL,           ## !< a ball with 1 color and different saturations
+    AspectTOM_USERDEFINED     ## !< defined by Users (custom image)
+
 

@@ -14,55 +14,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepVisual_HArray1OfFillStyleSelect, ../Standard/Standard_Transient,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepVisual_FillStyleSelect"
 discard "forward decl of StepVisual_FillAreaStyle"
 discard "forward decl of StepVisual_FillAreaStyle"
 type
-  Handle_StepVisual_FillAreaStyle* = handle[StepVisual_FillAreaStyle]
-  StepVisual_FillAreaStyle* {.importcpp: "StepVisual_FillAreaStyle",
-                             header: "StepVisual_FillAreaStyle.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                      ## !
-                                                                                                      ## Returns
-                                                                                                      ## a
-                                                                                                      ## FillAreaStyle
+  HandleStepVisualFillAreaStyle* = Handle[StepVisualFillAreaStyle]
+  StepVisualFillAreaStyle* {.importcpp: "StepVisual_FillAreaStyle",
+                            header: "StepVisual_FillAreaStyle.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                    ## !
+                                                                                                    ## Returns
+                                                                                                    ## a
+                                                                                                    ## FillAreaStyle
 
 
-proc constructStepVisual_FillAreaStyle*(): StepVisual_FillAreaStyle {.constructor,
+proc constructStepVisualFillAreaStyle*(): StepVisualFillAreaStyle {.constructor,
     importcpp: "StepVisual_FillAreaStyle(@)",
     header: "StepVisual_FillAreaStyle.hxx".}
-proc Init*(this: var StepVisual_FillAreaStyle;
-          aName: handle[TCollection_HAsciiString];
-          aFillStyles: handle[StepVisual_HArray1OfFillStyleSelect]) {.
+proc init*(this: var StepVisualFillAreaStyle;
+          aName: Handle[TCollectionHAsciiString];
+          aFillStyles: Handle[StepVisualHArray1OfFillStyleSelect]) {.
     importcpp: "Init", header: "StepVisual_FillAreaStyle.hxx".}
-proc SetName*(this: var StepVisual_FillAreaStyle;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepVisualFillAreaStyle;
+             aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepVisual_FillAreaStyle.hxx".}
-proc Name*(this: StepVisual_FillAreaStyle): handle[TCollection_HAsciiString] {.
+proc name*(this: StepVisualFillAreaStyle): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepVisual_FillAreaStyle.hxx".}
-proc SetFillStyles*(this: var StepVisual_FillAreaStyle;
-                   aFillStyles: handle[StepVisual_HArray1OfFillStyleSelect]) {.
+proc setFillStyles*(this: var StepVisualFillAreaStyle;
+                   aFillStyles: Handle[StepVisualHArray1OfFillStyleSelect]) {.
     importcpp: "SetFillStyles", header: "StepVisual_FillAreaStyle.hxx".}
-proc FillStyles*(this: StepVisual_FillAreaStyle): handle[
-    StepVisual_HArray1OfFillStyleSelect] {.noSideEffect, importcpp: "FillStyles",
+proc fillStyles*(this: StepVisualFillAreaStyle): Handle[
+    StepVisualHArray1OfFillStyleSelect] {.noSideEffect, importcpp: "FillStyles",
     header: "StepVisual_FillAreaStyle.hxx".}
-proc FillStylesValue*(this: StepVisual_FillAreaStyle; num: Standard_Integer): StepVisual_FillStyleSelect {.
+proc fillStylesValue*(this: StepVisualFillAreaStyle; num: int): StepVisualFillStyleSelect {.
     noSideEffect, importcpp: "FillStylesValue",
     header: "StepVisual_FillAreaStyle.hxx".}
-proc NbFillStyles*(this: StepVisual_FillAreaStyle): Standard_Integer {.noSideEffect,
+proc nbFillStyles*(this: StepVisualFillAreaStyle): int {.noSideEffect,
     importcpp: "NbFillStyles", header: "StepVisual_FillAreaStyle.hxx".}
 type
-  StepVisual_FillAreaStylebase_type* = Standard_Transient
+  StepVisualFillAreaStylebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_FillAreaStyle::get_type_name(@)",
-                              header: "StepVisual_FillAreaStyle.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_FillAreaStyle::get_type_name(@)",
+                            header: "StepVisual_FillAreaStyle.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_FillAreaStyle::get_type_descriptor(@)",
     header: "StepVisual_FillAreaStyle.hxx".}
-proc DynamicType*(this: StepVisual_FillAreaStyle): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualFillAreaStyle): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepVisual_FillAreaStyle.hxx".}

@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Circ, ../NCollection/NCollection_Sequence
-
 type
-  LocOpe_SequenceOfCirc* = NCollection_Sequence[gp_Circ]
+  LocOpeSequenceOfCirc* = NCollectionSequence[Circ]
+

@@ -14,15 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Graphic3d/Graphic3d_Group, Prs3d_Presentation, ../Standard/Standard,
-  ../Standard/Standard_DefineAlloc, ../Standard/Standard_Handle
-
 ## ! A root class for the standard presentation algorithms of the StdPrs package.
 
 type
-  Prs3d_Root* {.importcpp: "Prs3d_Root", header: "Prs3d_Root.hxx", bycopy.} = object
+  Prs3dRoot* {.importcpp: "Prs3d_Root", header: "Prs3d_Root.hxx", bycopy.} = object
 
 
 ## !!!Ignored construct:  public : Standard_DEPRECATED ( This method is deprecated - Prs3d_Presentation::CurrentGroup() should be called instead ) static opencascade :: handle < Graphic3d_Group > CurrentGroup ( const opencascade :: handle < Prs3d_Presentation > & thePrs3d ) { return thePrs3d -> CurrentGroup ( ) ; } Standard_DEPRECATED ( This method is deprecated - Prs3d_Presentation::NewGroup() should be called instead ) static opencascade :: handle < Graphic3d_Group > NewGroup ( const opencascade :: handle < Prs3d_Presentation > & thePrs3d ) { return thePrs3d -> NewGroup ( ) ; } }
 ## Error: identifier expected, but got: This method is deprecated - Prs3d_Presentation::CurrentGroup() should be called instead!!!
+

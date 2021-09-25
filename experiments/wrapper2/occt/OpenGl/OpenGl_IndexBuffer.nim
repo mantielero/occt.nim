@@ -12,33 +12,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_VertexBuffer
-
 ## ! Index buffer is just a VBO with special target (GL_ELEMENT_ARRAY_BUFFER).
 
 type
-  OpenGl_IndexBuffer* {.importcpp: "OpenGl_IndexBuffer",
-                       header: "OpenGl_IndexBuffer.hxx", bycopy.} = object of OpenGl_VertexBuffer
+  OpenGlIndexBuffer* {.importcpp: "OpenGl_IndexBuffer",
+                      header: "OpenGl_IndexBuffer.hxx", bycopy.} = object of OpenGlVertexBuffer
 
 
-proc constructOpenGl_IndexBuffer*(): OpenGl_IndexBuffer {.constructor,
+proc constructOpenGlIndexBuffer*(): OpenGlIndexBuffer {.constructor,
     importcpp: "OpenGl_IndexBuffer(@)", header: "OpenGl_IndexBuffer.hxx".}
-proc GetTarget*(this: OpenGl_IndexBuffer): GLenum {.noSideEffect,
+proc getTarget*(this: OpenGlIndexBuffer): GLenum {.noSideEffect,
     importcpp: "GetTarget", header: "OpenGl_IndexBuffer.hxx".}
-proc DumpJson*(this: OpenGl_IndexBuffer; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "OpenGl_IndexBuffer.hxx".}
+proc dumpJson*(this: OpenGlIndexBuffer; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "OpenGl_IndexBuffer.hxx".}
 type
-  OpenGl_IndexBufferbase_type* = OpenGl_VertexBuffer
+  OpenGlIndexBufferbaseType* = OpenGlVertexBuffer
 
-proc get_type_name*(): cstring {.importcpp: "OpenGl_IndexBuffer::get_type_name(@)",
-                              header: "OpenGl_IndexBuffer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "OpenGl_IndexBuffer::get_type_name(@)",
+                            header: "OpenGl_IndexBuffer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "OpenGl_IndexBuffer::get_type_descriptor(@)",
     header: "OpenGl_IndexBuffer.hxx".}
-proc DynamicType*(this: OpenGl_IndexBuffer): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: OpenGlIndexBuffer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "OpenGl_IndexBuffer.hxx".}
 discard "forward decl of OpenGl_IndexBuffer"
 type
-  Handle_OpenGl_IndexBuffer* = handle[OpenGl_IndexBuffer]
+  HandleOpenGlIndexBuffer* = Handle[OpenGlIndexBuffer]
+

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of IGESData_NodeOfWriterLib"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of IGESData_IGESEntity"
@@ -27,38 +22,37 @@ discard "forward decl of IGESData_Protocol"
 discard "forward decl of IGESData_GlobalNodeOfWriterLib"
 discard "forward decl of Standard_Transient"
 type
-  IGESData_WriterLib* {.importcpp: "IGESData_WriterLib",
-                       header: "IGESData_WriterLib.hxx", bycopy.} = object ## ! Adds a couple
-                                                                      ## (Module-Protocol) into the global definition set
-                                                                      ## ! for this class of Library.
+  IGESDataWriterLib* {.importcpp: "IGESData_WriterLib",
+                      header: "IGESData_WriterLib.hxx", bycopy.} = object ## ! Adds a couple
+                                                                     ## (Module-Protocol) into the global definition set
+                                                                     ## ! for this class of Library.
 
 
-proc SetGlobal*(amodule: handle[IGESData_ReadWriteModule];
-               aprotocol: handle[IGESData_Protocol]) {.
+proc setGlobal*(amodule: Handle[IGESDataReadWriteModule];
+               aprotocol: Handle[IGESDataProtocol]) {.
     importcpp: "IGESData_WriterLib::SetGlobal(@)",
     header: "IGESData_WriterLib.hxx".}
-proc constructIGESData_WriterLib*(aprotocol: handle[IGESData_Protocol]): IGESData_WriterLib {.
+proc constructIGESDataWriterLib*(aprotocol: Handle[IGESDataProtocol]): IGESDataWriterLib {.
     constructor, importcpp: "IGESData_WriterLib(@)",
     header: "IGESData_WriterLib.hxx".}
-proc constructIGESData_WriterLib*(): IGESData_WriterLib {.constructor,
+proc constructIGESDataWriterLib*(): IGESDataWriterLib {.constructor,
     importcpp: "IGESData_WriterLib(@)", header: "IGESData_WriterLib.hxx".}
-proc AddProtocol*(this: var IGESData_WriterLib;
-                 aprotocol: handle[Standard_Transient]) {.
+proc addProtocol*(this: var IGESDataWriterLib; aprotocol: Handle[StandardTransient]) {.
     importcpp: "AddProtocol", header: "IGESData_WriterLib.hxx".}
-proc Clear*(this: var IGESData_WriterLib) {.importcpp: "Clear",
-                                        header: "IGESData_WriterLib.hxx".}
-proc SetComplete*(this: var IGESData_WriterLib) {.importcpp: "SetComplete",
-    header: "IGESData_WriterLib.hxx".}
-proc Select*(this: IGESData_WriterLib; obj: handle[IGESData_IGESEntity];
-            module: var handle[IGESData_ReadWriteModule]; CN: var Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "Select", header: "IGESData_WriterLib.hxx".}
-proc Start*(this: var IGESData_WriterLib) {.importcpp: "Start",
-                                        header: "IGESData_WriterLib.hxx".}
-proc More*(this: IGESData_WriterLib): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "IGESData_WriterLib.hxx".}
-proc Next*(this: var IGESData_WriterLib) {.importcpp: "Next",
+proc clear*(this: var IGESDataWriterLib) {.importcpp: "Clear",
                                        header: "IGESData_WriterLib.hxx".}
-proc Module*(this: IGESData_WriterLib): handle[IGESData_ReadWriteModule] {.
+proc setComplete*(this: var IGESDataWriterLib) {.importcpp: "SetComplete",
+    header: "IGESData_WriterLib.hxx".}
+proc select*(this: IGESDataWriterLib; obj: Handle[IGESDataIGESEntity];
+            module: var Handle[IGESDataReadWriteModule]; cn: var int): bool {.
+    noSideEffect, importcpp: "Select", header: "IGESData_WriterLib.hxx".}
+proc start*(this: var IGESDataWriterLib) {.importcpp: "Start",
+                                       header: "IGESData_WriterLib.hxx".}
+proc more*(this: IGESDataWriterLib): bool {.noSideEffect, importcpp: "More",
+                                        header: "IGESData_WriterLib.hxx".}
+proc next*(this: var IGESDataWriterLib) {.importcpp: "Next",
+                                      header: "IGESData_WriterLib.hxx".}
+proc module*(this: IGESDataWriterLib): Handle[IGESDataReadWriteModule] {.
     noSideEffect, importcpp: "Module", header: "IGESData_WriterLib.hxx".}
-proc Protocol*(this: IGESData_WriterLib): handle[IGESData_Protocol] {.noSideEffect,
+proc protocol*(this: IGESDataWriterLib): Handle[IGESDataProtocol] {.noSideEffect,
     importcpp: "Protocol", header: "IGESData_WriterLib.hxx".}

@@ -14,15 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../TColGeom/TColGeom_SequenceOfCurve, GeomFill_SequenceOfTrsf,
-  ../TColStd/TColStd_SequenceOfReal, GeomFill_SectionLaw,
-  ../Standard/Standard_Boolean, ../TColgp/TColgp_Array1OfPnt,
-  ../TColStd/TColStd_Array1OfReal, ../TColgp/TColgp_Array1OfVec,
-  ../Standard/Standard_Integer, ../TColStd/TColStd_Array1OfInteger,
-  ../GeomAbs/GeomAbs_Shape
-
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt"
@@ -30,118 +21,110 @@ discard "forward decl of Geom_Curve"
 discard "forward decl of GeomFill_NSections"
 discard "forward decl of GeomFill_NSections"
 type
-  Handle_GeomFill_NSections* = handle[GeomFill_NSections]
+  HandleGeomFillNSections* = Handle[GeomFillNSections]
 
 ## ! Define a Section Law by N Sections
 
 type
-  GeomFill_NSections* {.importcpp: "GeomFill_NSections",
-                       header: "GeomFill_NSections.hxx", bycopy.} = object of GeomFill_SectionLaw ##
-                                                                                           ## !
-                                                                                           ## Make
-                                                                                           ## a
-                                                                                           ## SectionLaw
-                                                                                           ## with
-                                                                                           ## N
-                                                                                           ## Curves.
+  GeomFillNSections* {.importcpp: "GeomFill_NSections",
+                      header: "GeomFill_NSections.hxx", bycopy.} = object of GeomFillSectionLaw ##
+                                                                                         ## !
+                                                                                         ## Make
+                                                                                         ## a
+                                                                                         ## SectionLaw
+                                                                                         ## with
+                                                                                         ## N
+                                                                                         ## Curves.
 
 
-proc constructGeomFill_NSections*(NC: TColGeom_SequenceOfCurve): GeomFill_NSections {.
+proc constructGeomFillNSections*(nc: TColGeomSequenceOfCurve): GeomFillNSections {.
     constructor, importcpp: "GeomFill_NSections(@)",
     header: "GeomFill_NSections.hxx".}
-proc constructGeomFill_NSections*(NC: TColGeom_SequenceOfCurve;
-                                 NP: TColStd_SequenceOfReal): GeomFill_NSections {.
+proc constructGeomFillNSections*(nc: TColGeomSequenceOfCurve;
+                                np: TColStdSequenceOfReal): GeomFillNSections {.
     constructor, importcpp: "GeomFill_NSections(@)",
     header: "GeomFill_NSections.hxx".}
-proc constructGeomFill_NSections*(NC: TColGeom_SequenceOfCurve;
-                                 NP: TColStd_SequenceOfReal; UF: Standard_Real;
-                                 UL: Standard_Real): GeomFill_NSections {.
+proc constructGeomFillNSections*(nc: TColGeomSequenceOfCurve;
+                                np: TColStdSequenceOfReal; uf: float; ul: float): GeomFillNSections {.
     constructor, importcpp: "GeomFill_NSections(@)",
     header: "GeomFill_NSections.hxx".}
-proc constructGeomFill_NSections*(NC: TColGeom_SequenceOfCurve;
-                                 NP: TColStd_SequenceOfReal; UF: Standard_Real;
-                                 UL: Standard_Real; VF: Standard_Real;
-                                 VL: Standard_Real): GeomFill_NSections {.
+proc constructGeomFillNSections*(nc: TColGeomSequenceOfCurve;
+                                np: TColStdSequenceOfReal; uf: float; ul: float;
+                                vf: float; vl: float): GeomFillNSections {.
     constructor, importcpp: "GeomFill_NSections(@)",
     header: "GeomFill_NSections.hxx".}
-proc constructGeomFill_NSections*(NC: TColGeom_SequenceOfCurve;
-                                 Trsfs: GeomFill_SequenceOfTrsf;
-                                 NP: TColStd_SequenceOfReal; UF: Standard_Real;
-                                 UL: Standard_Real; VF: Standard_Real;
-                                 VL: Standard_Real;
-                                 Surf: handle[Geom_BSplineSurface]): GeomFill_NSections {.
+proc constructGeomFillNSections*(nc: TColGeomSequenceOfCurve;
+                                trsfs: GeomFillSequenceOfTrsf;
+                                np: TColStdSequenceOfReal; uf: float; ul: float;
+                                vf: float; vl: float;
+                                surf: Handle[GeomBSplineSurface]): GeomFillNSections {.
     constructor, importcpp: "GeomFill_NSections(@)",
     header: "GeomFill_NSections.hxx".}
-proc D0*(this: var GeomFill_NSections; Param: Standard_Real;
-        Poles: var TColgp_Array1OfPnt; Weigths: var TColStd_Array1OfReal): Standard_Boolean {.
-    importcpp: "D0", header: "GeomFill_NSections.hxx".}
-proc D1*(this: var GeomFill_NSections; Param: Standard_Real;
-        Poles: var TColgp_Array1OfPnt; DPoles: var TColgp_Array1OfVec;
-        Weigths: var TColStd_Array1OfReal; DWeigths: var TColStd_Array1OfReal): Standard_Boolean {.
-    importcpp: "D1", header: "GeomFill_NSections.hxx".}
-proc D2*(this: var GeomFill_NSections; Param: Standard_Real;
-        Poles: var TColgp_Array1OfPnt; DPoles: var TColgp_Array1OfVec;
-        D2Poles: var TColgp_Array1OfVec; Weigths: var TColStd_Array1OfReal;
-        DWeigths: var TColStd_Array1OfReal; D2Weigths: var TColStd_Array1OfReal): Standard_Boolean {.
-    importcpp: "D2", header: "GeomFill_NSections.hxx".}
-proc SetSurface*(this: var GeomFill_NSections; RefSurf: handle[Geom_BSplineSurface]) {.
+proc d0*(this: var GeomFillNSections; param: float; poles: var TColgpArray1OfPnt;
+        weigths: var TColStdArray1OfReal): bool {.importcpp: "D0",
+    header: "GeomFill_NSections.hxx".}
+proc d1*(this: var GeomFillNSections; param: float; poles: var TColgpArray1OfPnt;
+        dPoles: var TColgpArray1OfVec; weigths: var TColStdArray1OfReal;
+        dWeigths: var TColStdArray1OfReal): bool {.importcpp: "D1",
+    header: "GeomFill_NSections.hxx".}
+proc d2*(this: var GeomFillNSections; param: float; poles: var TColgpArray1OfPnt;
+        dPoles: var TColgpArray1OfVec; d2Poles: var TColgpArray1OfVec;
+        weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal;
+        d2Weigths: var TColStdArray1OfReal): bool {.importcpp: "D2",
+    header: "GeomFill_NSections.hxx".}
+proc setSurface*(this: var GeomFillNSections; refSurf: Handle[GeomBSplineSurface]) {.
     importcpp: "SetSurface", header: "GeomFill_NSections.hxx".}
-proc ComputeSurface*(this: var GeomFill_NSections) {.importcpp: "ComputeSurface",
+proc computeSurface*(this: var GeomFillNSections) {.importcpp: "ComputeSurface",
     header: "GeomFill_NSections.hxx".}
-proc BSplineSurface*(this: GeomFill_NSections): handle[Geom_BSplineSurface] {.
+proc bSplineSurface*(this: GeomFillNSections): Handle[GeomBSplineSurface] {.
     noSideEffect, importcpp: "BSplineSurface", header: "GeomFill_NSections.hxx".}
-proc SectionShape*(this: GeomFill_NSections; NbPoles: var Standard_Integer;
-                  NbKnots: var Standard_Integer; Degree: var Standard_Integer) {.
-    noSideEffect, importcpp: "SectionShape", header: "GeomFill_NSections.hxx".}
-proc Knots*(this: GeomFill_NSections; TKnots: var TColStd_Array1OfReal) {.
-    noSideEffect, importcpp: "Knots", header: "GeomFill_NSections.hxx".}
-proc Mults*(this: GeomFill_NSections; TMults: var TColStd_Array1OfInteger) {.
+proc sectionShape*(this: GeomFillNSections; nbPoles: var int; nbKnots: var int;
+                  degree: var int) {.noSideEffect, importcpp: "SectionShape",
+                                  header: "GeomFill_NSections.hxx".}
+proc knots*(this: GeomFillNSections; tKnots: var TColStdArray1OfReal) {.noSideEffect,
+    importcpp: "Knots", header: "GeomFill_NSections.hxx".}
+proc mults*(this: GeomFillNSections; tMults: var TColStdArray1OfInteger) {.
     noSideEffect, importcpp: "Mults", header: "GeomFill_NSections.hxx".}
-proc IsRational*(this: GeomFill_NSections): Standard_Boolean {.noSideEffect,
+proc isRational*(this: GeomFillNSections): bool {.noSideEffect,
     importcpp: "IsRational", header: "GeomFill_NSections.hxx".}
-proc IsUPeriodic*(this: GeomFill_NSections): Standard_Boolean {.noSideEffect,
+proc isUPeriodic*(this: GeomFillNSections): bool {.noSideEffect,
     importcpp: "IsUPeriodic", header: "GeomFill_NSections.hxx".}
-proc IsVPeriodic*(this: GeomFill_NSections): Standard_Boolean {.noSideEffect,
+proc isVPeriodic*(this: GeomFillNSections): bool {.noSideEffect,
     importcpp: "IsVPeriodic", header: "GeomFill_NSections.hxx".}
-proc NbIntervals*(this: GeomFill_NSections; S: GeomAbs_Shape): Standard_Integer {.
-    noSideEffect, importcpp: "NbIntervals", header: "GeomFill_NSections.hxx".}
-proc Intervals*(this: GeomFill_NSections; T: var TColStd_Array1OfReal;
-               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
-                                 header: "GeomFill_NSections.hxx".}
-proc SetInterval*(this: var GeomFill_NSections; First: Standard_Real;
-                 Last: Standard_Real) {.importcpp: "SetInterval",
-                                      header: "GeomFill_NSections.hxx".}
-proc GetInterval*(this: GeomFill_NSections; First: var Standard_Real;
-                 Last: var Standard_Real) {.noSideEffect, importcpp: "GetInterval",
-    header: "GeomFill_NSections.hxx".}
-proc GetDomain*(this: GeomFill_NSections; First: var Standard_Real;
-               Last: var Standard_Real) {.noSideEffect, importcpp: "GetDomain",
-                                       header: "GeomFill_NSections.hxx".}
-proc GetTolerance*(this: GeomFill_NSections; BoundTol: Standard_Real;
-                  SurfTol: Standard_Real; AngleTol: Standard_Real;
-                  Tol3d: var TColStd_Array1OfReal) {.noSideEffect,
+proc nbIntervals*(this: GeomFillNSections; s: GeomAbsShape): int {.noSideEffect,
+    importcpp: "NbIntervals", header: "GeomFill_NSections.hxx".}
+proc intervals*(this: GeomFillNSections; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+    noSideEffect, importcpp: "Intervals", header: "GeomFill_NSections.hxx".}
+proc setInterval*(this: var GeomFillNSections; first: float; last: float) {.
+    importcpp: "SetInterval", header: "GeomFill_NSections.hxx".}
+proc getInterval*(this: GeomFillNSections; first: var float; last: var float) {.
+    noSideEffect, importcpp: "GetInterval", header: "GeomFill_NSections.hxx".}
+proc getDomain*(this: GeomFillNSections; first: var float; last: var float) {.
+    noSideEffect, importcpp: "GetDomain", header: "GeomFill_NSections.hxx".}
+proc getTolerance*(this: GeomFillNSections; boundTol: float; surfTol: float;
+                  angleTol: float; tol3d: var TColStdArray1OfReal) {.noSideEffect,
     importcpp: "GetTolerance", header: "GeomFill_NSections.hxx".}
-proc BarycentreOfSurf*(this: GeomFill_NSections): gp_Pnt {.noSideEffect,
+proc barycentreOfSurf*(this: GeomFillNSections): Pnt {.noSideEffect,
     importcpp: "BarycentreOfSurf", header: "GeomFill_NSections.hxx".}
-proc MaximalSection*(this: GeomFill_NSections): Standard_Real {.noSideEffect,
+proc maximalSection*(this: GeomFillNSections): float {.noSideEffect,
     importcpp: "MaximalSection", header: "GeomFill_NSections.hxx".}
-proc GetMinimalWeight*(this: GeomFill_NSections; Weigths: var TColStd_Array1OfReal) {.
+proc getMinimalWeight*(this: GeomFillNSections; weigths: var TColStdArray1OfReal) {.
     noSideEffect, importcpp: "GetMinimalWeight", header: "GeomFill_NSections.hxx".}
-proc IsConstant*(this: GeomFill_NSections; Error: var Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "IsConstant", header: "GeomFill_NSections.hxx".}
-proc ConstantSection*(this: GeomFill_NSections): handle[Geom_Curve] {.noSideEffect,
+proc isConstant*(this: GeomFillNSections; error: var float): bool {.noSideEffect,
+    importcpp: "IsConstant", header: "GeomFill_NSections.hxx".}
+proc constantSection*(this: GeomFillNSections): Handle[GeomCurve] {.noSideEffect,
     importcpp: "ConstantSection", header: "GeomFill_NSections.hxx".}
-proc IsConicalLaw*(this: GeomFill_NSections; Error: var Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "IsConicalLaw", header: "GeomFill_NSections.hxx".}
-proc CirclSection*(this: GeomFill_NSections; Param: Standard_Real): handle[Geom_Curve] {.
+proc isConicalLaw*(this: GeomFillNSections; error: var float): bool {.noSideEffect,
+    importcpp: "IsConicalLaw", header: "GeomFill_NSections.hxx".}
+proc circlSection*(this: GeomFillNSections; param: float): Handle[GeomCurve] {.
     noSideEffect, importcpp: "CirclSection", header: "GeomFill_NSections.hxx".}
 type
-  GeomFill_NSectionsbase_type* = GeomFill_SectionLaw
+  GeomFillNSectionsbaseType* = GeomFillSectionLaw
 
-proc get_type_name*(): cstring {.importcpp: "GeomFill_NSections::get_type_name(@)",
-                              header: "GeomFill_NSections.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "GeomFill_NSections::get_type_name(@)",
+                            header: "GeomFill_NSections.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GeomFill_NSections::get_type_descriptor(@)",
     header: "GeomFill_NSections.hxx".}
-proc DynamicType*(this: GeomFill_NSections): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: GeomFillNSections): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "GeomFill_NSections.hxx".}

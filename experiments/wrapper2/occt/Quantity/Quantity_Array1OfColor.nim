@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Quantity_Color, ../NCollection/NCollection_Array1
-
 type
-  Quantity_Array1OfColor* = NCollection_Array1[Quantity_Color]
+  QuantityArray1OfColor* = NCollectionArray1[QuantityColor]
+

@@ -14,18 +14,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _CDF_MetaDataDriverError_HeaderFile [NewLine] # _CDF_MetaDataDriverError_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_Failure.hxx [NewLine] ! This exception is used in the deferred methods.
+## !!!Ignored construct:  # _CDF_MetaDataDriverError_HeaderFile [NewLine] # _CDF_MetaDataDriverError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] ! This exception is used in the deferred methods.
 ## ! Programmer implementing such methods may use this
 ## ! exception or any exception inheriting MetaDataDriverError. class CDF_MetaDataDriverError ;
 ## Error: expected ';'!!!
 
 discard "forward decl of CDF_MetaDataDriverError"
 type
-  Handle_CDF_MetaDataDriverErrorCDF_MetaDataDriverError* = handle[
+  HandleCDF_MetaDataDriverErrorCDF_MetaDataDriverError* = Handle[
       CDF_MetaDataDriverError]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_CDF_MetaDataDriverError [NewLine] # if ( CONDITION ) throw CDF_MetaDataDriverError ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( CDF_MetaDataDriverError , Standard_Failure ) #  _CDF_MetaDataDriverError_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( CDF_MetaDataDriverError , Standard_Failure ) #  _CDF_MetaDataDriverError_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

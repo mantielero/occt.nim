@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real
-
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
 discard "forward decl of gp_Ax1"
@@ -61,7 +57,7 @@ discard "forward decl of gp_Elips2d"
 discard "forward decl of gp_Hypr2d"
 discard "forward decl of gp_Parab2d"
 type
-  gp* {.importcpp: "gp", header: "gp.hxx", bycopy.} = object ## ! Method of package gp
+  Gp* {.importcpp: "gp", header: "gp.hxx", bycopy.} = object ## ! Method of package gp
                                                      ## !
                                                      ## ! In geometric computations, defines the tolerance criterion
                                                      ## ! used to determine when two numbers can be considered equal.
@@ -71,19 +67,19 @@ type
                                                      ## ! always referred to as gp::Resolution().
 
 
-proc Resolution*(): Standard_Real {.importcpp: "gp::Resolution(@)", header: "gp.hxx".}
-proc Origin*(): gp_Pnt {.importcpp: "gp::Origin(@)", header: "gp.hxx".}
-proc DX*(): gp_Dir {.importcpp: "gp::DX(@)", header: "gp.hxx".}
-proc DY*(): gp_Dir {.importcpp: "gp::DY(@)", header: "gp.hxx".}
-proc DZ*(): gp_Dir {.importcpp: "gp::DZ(@)", header: "gp.hxx".}
-proc OX*(): gp_Ax1 {.importcpp: "gp::OX(@)", header: "gp.hxx".}
-proc OY*(): gp_Ax1 {.importcpp: "gp::OY(@)", header: "gp.hxx".}
-proc OZ*(): gp_Ax1 {.importcpp: "gp::OZ(@)", header: "gp.hxx".}
-proc XOY*(): gp_Ax2 {.importcpp: "gp::XOY(@)", header: "gp.hxx".}
-proc ZOX*(): gp_Ax2 {.importcpp: "gp::ZOX(@)", header: "gp.hxx".}
-proc YOZ*(): gp_Ax2 {.importcpp: "gp::YOZ(@)", header: "gp.hxx".}
-proc Origin2d*(): gp_Pnt2d {.importcpp: "gp::Origin2d(@)", header: "gp.hxx".}
-proc DX2d*(): gp_Dir2d {.importcpp: "gp::DX2d(@)", header: "gp.hxx".}
-proc DY2d*(): gp_Dir2d {.importcpp: "gp::DY2d(@)", header: "gp.hxx".}
-proc OX2d*(): gp_Ax2d {.importcpp: "gp::OX2d(@)", header: "gp.hxx".}
-proc OY2d*(): gp_Ax2d {.importcpp: "gp::OY2d(@)", header: "gp.hxx".}
+proc resolution*(): float {.importcpp: "gp::Resolution(@)", header: "gp.hxx".}
+proc origin*(): Pnt {.importcpp: "gp::Origin(@)", header: "gp.hxx".}
+proc dx*(): Dir {.importcpp: "gp::DX(@)", header: "gp.hxx".}
+proc dy*(): Dir {.importcpp: "gp::DY(@)", header: "gp.hxx".}
+proc dz*(): Dir {.importcpp: "gp::DZ(@)", header: "gp.hxx".}
+proc ox*(): Ax1 {.importcpp: "gp::OX(@)", header: "gp.hxx".}
+proc oy*(): Ax1 {.importcpp: "gp::OY(@)", header: "gp.hxx".}
+proc oz*(): Ax1 {.importcpp: "gp::OZ(@)", header: "gp.hxx".}
+proc xoy*(): Ax2 {.importcpp: "gp::XOY(@)", header: "gp.hxx".}
+proc zox*(): Ax2 {.importcpp: "gp::ZOX(@)", header: "gp.hxx".}
+proc yoz*(): Ax2 {.importcpp: "gp::YOZ(@)", header: "gp.hxx".}
+proc origin2d*(): Pnt2d {.importcpp: "gp::Origin2d(@)", header: "gp.hxx".}
+proc dX2d*(): Dir2d {.importcpp: "gp::DX2d(@)", header: "gp.hxx".}
+proc dY2d*(): Dir2d {.importcpp: "gp::DY2d(@)", header: "gp.hxx".}
+proc oX2d*(): Ax2d {.importcpp: "gp::OX2d(@)", header: "gp.hxx".}
+proc oY2d*(): Ax2d {.importcpp: "gp::OY2d(@)", header: "gp.hxx".}

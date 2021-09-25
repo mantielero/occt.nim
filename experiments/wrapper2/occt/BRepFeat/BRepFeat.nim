@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColgp/TColgp_SequenceOfPnt,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean,
-  ../TopAbs/TopAbs_Orientation, ../Standard/Standard_OStream, BRepFeat_StatusError
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of gp_Pnt"
 discard "forward decl of Geom_Curve"
@@ -43,25 +37,23 @@ type
   BRepFeat* {.importcpp: "BRepFeat", header: "BRepFeat.hxx", bycopy.} = object
 
 
-proc SampleEdges*(S: TopoDS_Shape; Pt: var TColgp_SequenceOfPnt) {.
+proc sampleEdges*(s: TopoDS_Shape; pt: var TColgpSequenceOfPnt) {.
     importcpp: "BRepFeat::SampleEdges(@)", header: "BRepFeat.hxx".}
-proc Barycenter*(S: TopoDS_Shape; Pt: var gp_Pnt) {.
-    importcpp: "BRepFeat::Barycenter(@)", header: "BRepFeat.hxx".}
-proc ParametricBarycenter*(S: TopoDS_Shape; C: handle[Geom_Curve]): Standard_Real {.
+proc barycenter*(s: TopoDS_Shape; pt: var Pnt) {.importcpp: "BRepFeat::Barycenter(@)",
+    header: "BRepFeat.hxx".}
+proc parametricBarycenter*(s: TopoDS_Shape; c: Handle[GeomCurve]): float {.
     importcpp: "BRepFeat::ParametricBarycenter(@)", header: "BRepFeat.hxx".}
-proc ParametricMinMax*(S: TopoDS_Shape; C: handle[Geom_Curve];
-                      prmin: var Standard_Real; prmax: var Standard_Real;
-                      prbmin: var Standard_Real; prbmax: var Standard_Real;
-                      flag: var Standard_Boolean;
-                      Ori: Standard_Boolean = Standard_False) {.
+proc parametricMinMax*(s: TopoDS_Shape; c: Handle[GeomCurve]; prmin: var float;
+                      prmax: var float; prbmin: var float; prbmax: var float;
+                      flag: var bool; ori: bool = false) {.
     importcpp: "BRepFeat::ParametricMinMax(@)", header: "BRepFeat.hxx".}
-proc IsInside*(F1: TopoDS_Face; F2: TopoDS_Face): Standard_Boolean {.
+proc isInside*(f1: TopoDS_Face; f2: TopoDS_Face): bool {.
     importcpp: "BRepFeat::IsInside(@)", header: "BRepFeat.hxx".}
-proc IsInOut*(FC: BRepTopAdaptor_FClass2d; AC: Geom2dAdaptor_Curve): Standard_Boolean {.
+proc isInOut*(fc: BRepTopAdaptorFClass2d; ac: Geom2dAdaptorCurve): bool {.
     importcpp: "BRepFeat::IsInOut(@)", header: "BRepFeat.hxx".}
-proc FaceUntil*(S: TopoDS_Shape; F: var TopoDS_Face) {.
+proc faceUntil*(s: TopoDS_Shape; f: var TopoDS_Face) {.
     importcpp: "BRepFeat::FaceUntil(@)", header: "BRepFeat.hxx".}
-proc Tool*(SRef: TopoDS_Shape; Fac: TopoDS_Face; Orf: TopAbs_Orientation): TopoDS_Solid {.
+proc tool*(sRef: TopoDS_Shape; fac: TopoDS_Face; orf: TopAbsOrientation): TopoDS_Solid {.
     importcpp: "BRepFeat::Tool(@)", header: "BRepFeat.hxx".}
-proc Print*(SE: BRepFeat_StatusError; S: var Standard_OStream): var Standard_OStream {.
+proc print*(se: BRepFeatStatusError; s: var StandardOStream): var StandardOStream {.
     importcpp: "BRepFeat::Print(@)", header: "BRepFeat.hxx".}

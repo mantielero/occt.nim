@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../BlendFunc/BlendFunc_CSConstRad
-
 type
-  BRepBlend_CSConstRad* = BlendFunc_CSConstRad
+  BRepBlendCSConstRad* = BlendFuncCSConstRad
+

@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  HLRBRep_ShapeBounds, ../NCollection/NCollection_Sequence
-
 type
-  HLRBRep_SeqOfShapeBounds* = NCollection_Sequence[HLRBRep_ShapeBounds]
+  HLRBRepSeqOfShapeBounds* = NCollectionSequence[HLRBRepShapeBounds]
+

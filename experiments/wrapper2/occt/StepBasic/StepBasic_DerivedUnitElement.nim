@@ -14,47 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_NamedUnit"
 discard "forward decl of StepBasic_DerivedUnitElement"
 discard "forward decl of StepBasic_DerivedUnitElement"
 type
-  Handle_StepBasic_DerivedUnitElement* = handle[StepBasic_DerivedUnitElement]
+  HandleStepBasicDerivedUnitElement* = Handle[StepBasicDerivedUnitElement]
 
 ## ! Added from StepBasic Rev2 to Rev4
 
 type
-  StepBasic_DerivedUnitElement* {.importcpp: "StepBasic_DerivedUnitElement",
-                                 header: "StepBasic_DerivedUnitElement.hxx",
-                                 bycopy.} = object of Standard_Transient
+  StepBasicDerivedUnitElement* {.importcpp: "StepBasic_DerivedUnitElement",
+                                header: "StepBasic_DerivedUnitElement.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructStepBasic_DerivedUnitElement*(): StepBasic_DerivedUnitElement {.
+proc constructStepBasicDerivedUnitElement*(): StepBasicDerivedUnitElement {.
     constructor, importcpp: "StepBasic_DerivedUnitElement(@)",
     header: "StepBasic_DerivedUnitElement.hxx".}
-proc Init*(this: var StepBasic_DerivedUnitElement;
-          aUnit: handle[StepBasic_NamedUnit]; aExponent: Standard_Real) {.
-    importcpp: "Init", header: "StepBasic_DerivedUnitElement.hxx".}
-proc SetUnit*(this: var StepBasic_DerivedUnitElement;
-             aUnit: handle[StepBasic_NamedUnit]) {.importcpp: "SetUnit",
+proc init*(this: var StepBasicDerivedUnitElement; aUnit: Handle[StepBasicNamedUnit];
+          aExponent: float) {.importcpp: "Init",
+                            header: "StepBasic_DerivedUnitElement.hxx".}
+proc setUnit*(this: var StepBasicDerivedUnitElement;
+             aUnit: Handle[StepBasicNamedUnit]) {.importcpp: "SetUnit",
     header: "StepBasic_DerivedUnitElement.hxx".}
-proc Unit*(this: StepBasic_DerivedUnitElement): handle[StepBasic_NamedUnit] {.
+proc unit*(this: StepBasicDerivedUnitElement): Handle[StepBasicNamedUnit] {.
     noSideEffect, importcpp: "Unit", header: "StepBasic_DerivedUnitElement.hxx".}
-proc SetExponent*(this: var StepBasic_DerivedUnitElement; aExponent: Standard_Real) {.
+proc setExponent*(this: var StepBasicDerivedUnitElement; aExponent: float) {.
     importcpp: "SetExponent", header: "StepBasic_DerivedUnitElement.hxx".}
-proc Exponent*(this: StepBasic_DerivedUnitElement): Standard_Real {.noSideEffect,
+proc exponent*(this: StepBasicDerivedUnitElement): float {.noSideEffect,
     importcpp: "Exponent", header: "StepBasic_DerivedUnitElement.hxx".}
 type
-  StepBasic_DerivedUnitElementbase_type* = Standard_Transient
+  StepBasicDerivedUnitElementbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_DerivedUnitElement::get_type_name(@)",
-                              header: "StepBasic_DerivedUnitElement.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_DerivedUnitElement::get_type_name(@)",
+                            header: "StepBasic_DerivedUnitElement.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_DerivedUnitElement::get_type_descriptor(@)",
     header: "StepBasic_DerivedUnitElement.hxx".}
-proc DynamicType*(this: StepBasic_DerivedUnitElement): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicDerivedUnitElement): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_DerivedUnitElement.hxx".}

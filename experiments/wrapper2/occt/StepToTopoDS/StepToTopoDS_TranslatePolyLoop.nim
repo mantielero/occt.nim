@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, StepToTopoDS_TranslatePolyLoopError,
-  ../TopoDS/TopoDS_Shape, StepToTopoDS_Root
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of StepShape_PolyLoop"
 discard "forward decl of StepToTopoDS_Tool"
@@ -33,14 +28,14 @@ type
 proc constructStepToTopoDS_TranslatePolyLoop*(): StepToTopoDS_TranslatePolyLoop {.
     constructor, importcpp: "StepToTopoDS_TranslatePolyLoop(@)",
     header: "StepToTopoDS_TranslatePolyLoop.hxx".}
-proc constructStepToTopoDS_TranslatePolyLoop*(PL: handle[StepShape_PolyLoop];
-    T: var StepToTopoDS_Tool; S: handle[Geom_Surface]; F: TopoDS_Face): StepToTopoDS_TranslatePolyLoop {.
+proc constructStepToTopoDS_TranslatePolyLoop*(pl: Handle[StepShapePolyLoop];
+    t: var StepToTopoDS_Tool; s: Handle[GeomSurface]; f: TopoDS_Face): StepToTopoDS_TranslatePolyLoop {.
     constructor, importcpp: "StepToTopoDS_TranslatePolyLoop(@)",
     header: "StepToTopoDS_TranslatePolyLoop.hxx".}
-proc Init*(this: var StepToTopoDS_TranslatePolyLoop; PL: handle[StepShape_PolyLoop];
-          T: var StepToTopoDS_Tool; S: handle[Geom_Surface]; F: TopoDS_Face) {.
+proc init*(this: var StepToTopoDS_TranslatePolyLoop; pl: Handle[StepShapePolyLoop];
+          t: var StepToTopoDS_Tool; s: Handle[GeomSurface]; f: TopoDS_Face) {.
     importcpp: "Init", header: "StepToTopoDS_TranslatePolyLoop.hxx".}
-proc Value*(this: StepToTopoDS_TranslatePolyLoop): TopoDS_Shape {.noSideEffect,
+proc value*(this: StepToTopoDS_TranslatePolyLoop): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "StepToTopoDS_TranslatePolyLoop.hxx".}
-proc Error*(this: StepToTopoDS_TranslatePolyLoop): StepToTopoDS_TranslatePolyLoopError {.
+proc error*(this: StepToTopoDS_TranslatePolyLoop): StepToTopoDS_TranslatePolyLoopError {.
     noSideEffect, importcpp: "Error", header: "StepToTopoDS_TranslatePolyLoop.hxx".}

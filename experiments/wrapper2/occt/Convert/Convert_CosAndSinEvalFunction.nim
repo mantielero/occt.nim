@@ -14,13 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TColgp/TColgp_Array1OfPnt2d, ../TColStd/TColStd_Array1OfReal,
-  ../TColStd/TColStd_Array1OfInteger
-
 type
-  Convert_CosAndSinEvalFunction* = proc (a1: Standard_Real; a2: Standard_Integer;
-                                      a3: TColgp_Array1OfPnt2d;
-                                      a4: TColStd_Array1OfReal;
-                                      a5: ptr TColStd_Array1OfInteger;
-                                      Result: array[2, Standard_Real]): void
+  ConvertCosAndSinEvalFunction* = proc (a1: float; a2: int; a3: TColgpArray1OfPnt2d;
+                                     a4: TColStdArray1OfReal;
+                                     a5: ptr TColStdArray1OfInteger;
+                                     result: array[2, float]): void
+

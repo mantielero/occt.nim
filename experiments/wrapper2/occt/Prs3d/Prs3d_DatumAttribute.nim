@@ -14,10 +14,11 @@
 ## ! Enumeration defining a part of datum aspect, see Prs3d_Datum.
 
 type
-  Prs3d_DatumAttribute* {.size: sizeof(cint), importcpp: "Prs3d_DatumAttribute",
-                         header: "Prs3d_DatumAttribute.hxx".} = enum
-    Prs3d_DA_XAxisLength = 0, Prs3d_DA_YAxisLength, Prs3d_DA_ZAxisLength,
-    Prs3d_DP_ShadingTubeRadiusPercent, Prs3d_DP_ShadingConeRadiusPercent,
-    Prs3d_DP_ShadingConeLengthPercent, Prs3d_DP_ShadingOriginRadiusPercent,
-    Prs3d_DP_ShadingNumberOfFacettes
+  Prs3dDatumAttribute* {.size: sizeof(cint), importcpp: "Prs3d_DatumAttribute",
+                        header: "Prs3d_DatumAttribute.hxx".} = enum
+    Prs3dDA_XAxisLength = 0, Prs3dDA_YAxisLength, Prs3dDA_ZAxisLength,
+    Prs3dDP_ShadingTubeRadiusPercent, Prs3dDP_ShadingConeRadiusPercent,
+    Prs3dDP_ShadingConeLengthPercent, Prs3dDP_ShadingOriginRadiusPercent,
+    Prs3dDP_ShadingNumberOfFacettes
+
 

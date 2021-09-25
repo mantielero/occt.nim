@@ -12,9 +12,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Map, BOPDS_PaveMapHasher, BOPDS_Pave
-
 type
-  BOPDS_MapOfPave* = NCollection_Map[BOPDS_Pave, BOPDS_PaveMapHasher]
+  BOPDS_MapOfPave* = NCollectionMap[BOPDS_Pave, BOPDS_PaveMapHasher]
   BOPDS_MapIteratorOfMapOfPave* = Iterator
+

@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepGeom_SurfaceBoundary, ../NCollection/NCollection_Array1
-
 type
-  StepGeom_Array1OfSurfaceBoundary* = NCollection_Array1[StepGeom_SurfaceBoundary]
+  StepGeomArray1OfSurfaceBoundary* = NCollectionArray1[StepGeomSurfaceBoundary]
+

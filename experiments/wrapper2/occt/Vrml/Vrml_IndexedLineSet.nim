@@ -14,15 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_HArray1OfInteger, ../Standard/Standard_Transient,
-  ../Standard/Standard_OStream
-
 discard "forward decl of Vrml_IndexedLineSet"
 discard "forward decl of Vrml_IndexedLineSet"
 type
-  Handle_Vrml_IndexedLineSet* = handle[Vrml_IndexedLineSet]
+  HandleVrmlIndexedLineSet* = Handle[VrmlIndexedLineSet]
 
 ## ! defines a IndexedLineSet node of VRML specifying geometry shapes.
 ## ! This node represents a 3D shape formed by constructing polylines from vertices
@@ -39,46 +34,47 @@ type
 ## ! rules for texture coordinate generation as IndexedFaceSet are used.
 
 type
-  Vrml_IndexedLineSet* {.importcpp: "Vrml_IndexedLineSet",
-                        header: "Vrml_IndexedLineSet.hxx", bycopy.} = object of Standard_Transient
+  VrmlIndexedLineSet* {.importcpp: "Vrml_IndexedLineSet",
+                       header: "Vrml_IndexedLineSet.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructVrml_IndexedLineSet*(aCoordIndex: handle[TColStd_HArray1OfInteger];
-    aMaterialIndex: handle[TColStd_HArray1OfInteger]; aNormalIndex: handle[
-    TColStd_HArray1OfInteger]; aTextureCoordIndex: handle[TColStd_HArray1OfInteger]): Vrml_IndexedLineSet {.
+proc constructVrmlIndexedLineSet*(aCoordIndex: Handle[TColStdHArray1OfInteger];
+    aMaterialIndex: Handle[TColStdHArray1OfInteger];
+                                 aNormalIndex: Handle[TColStdHArray1OfInteger];
+    aTextureCoordIndex: Handle[TColStdHArray1OfInteger]): VrmlIndexedLineSet {.
     constructor, importcpp: "Vrml_IndexedLineSet(@)",
     header: "Vrml_IndexedLineSet.hxx".}
-proc constructVrml_IndexedLineSet*(): Vrml_IndexedLineSet {.constructor,
+proc constructVrmlIndexedLineSet*(): VrmlIndexedLineSet {.constructor,
     importcpp: "Vrml_IndexedLineSet(@)", header: "Vrml_IndexedLineSet.hxx".}
-proc SetCoordIndex*(this: var Vrml_IndexedLineSet;
-                   aCoordIndex: handle[TColStd_HArray1OfInteger]) {.
+proc setCoordIndex*(this: var VrmlIndexedLineSet;
+                   aCoordIndex: Handle[TColStdHArray1OfInteger]) {.
     importcpp: "SetCoordIndex", header: "Vrml_IndexedLineSet.hxx".}
-proc CoordIndex*(this: Vrml_IndexedLineSet): handle[TColStd_HArray1OfInteger] {.
+proc coordIndex*(this: VrmlIndexedLineSet): Handle[TColStdHArray1OfInteger] {.
     noSideEffect, importcpp: "CoordIndex", header: "Vrml_IndexedLineSet.hxx".}
-proc SetMaterialIndex*(this: var Vrml_IndexedLineSet;
-                      aMaterialIndex: handle[TColStd_HArray1OfInteger]) {.
+proc setMaterialIndex*(this: var VrmlIndexedLineSet;
+                      aMaterialIndex: Handle[TColStdHArray1OfInteger]) {.
     importcpp: "SetMaterialIndex", header: "Vrml_IndexedLineSet.hxx".}
-proc MaterialIndex*(this: Vrml_IndexedLineSet): handle[TColStd_HArray1OfInteger] {.
+proc materialIndex*(this: VrmlIndexedLineSet): Handle[TColStdHArray1OfInteger] {.
     noSideEffect, importcpp: "MaterialIndex", header: "Vrml_IndexedLineSet.hxx".}
-proc SetNormalIndex*(this: var Vrml_IndexedLineSet;
-                    aNormalIndex: handle[TColStd_HArray1OfInteger]) {.
+proc setNormalIndex*(this: var VrmlIndexedLineSet;
+                    aNormalIndex: Handle[TColStdHArray1OfInteger]) {.
     importcpp: "SetNormalIndex", header: "Vrml_IndexedLineSet.hxx".}
-proc NormalIndex*(this: Vrml_IndexedLineSet): handle[TColStd_HArray1OfInteger] {.
+proc normalIndex*(this: VrmlIndexedLineSet): Handle[TColStdHArray1OfInteger] {.
     noSideEffect, importcpp: "NormalIndex", header: "Vrml_IndexedLineSet.hxx".}
-proc SetTextureCoordIndex*(this: var Vrml_IndexedLineSet;
-                          aTextureCoordIndex: handle[TColStd_HArray1OfInteger]) {.
+proc setTextureCoordIndex*(this: var VrmlIndexedLineSet;
+                          aTextureCoordIndex: Handle[TColStdHArray1OfInteger]) {.
     importcpp: "SetTextureCoordIndex", header: "Vrml_IndexedLineSet.hxx".}
-proc TextureCoordIndex*(this: Vrml_IndexedLineSet): handle[TColStd_HArray1OfInteger] {.
+proc textureCoordIndex*(this: VrmlIndexedLineSet): Handle[TColStdHArray1OfInteger] {.
     noSideEffect, importcpp: "TextureCoordIndex", header: "Vrml_IndexedLineSet.hxx".}
-proc Print*(this: Vrml_IndexedLineSet; anOStream: var Standard_OStream): var Standard_OStream {.
+proc print*(this: VrmlIndexedLineSet; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_IndexedLineSet.hxx".}
 type
-  Vrml_IndexedLineSetbase_type* = Standard_Transient
+  VrmlIndexedLineSetbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Vrml_IndexedLineSet::get_type_name(@)",
-                              header: "Vrml_IndexedLineSet.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Vrml_IndexedLineSet::get_type_name(@)",
+                            header: "Vrml_IndexedLineSet.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Vrml_IndexedLineSet::get_type_descriptor(@)",
     header: "Vrml_IndexedLineSet.hxx".}
-proc DynamicType*(this: Vrml_IndexedLineSet): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: VrmlIndexedLineSet): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Vrml_IndexedLineSet.hxx".}

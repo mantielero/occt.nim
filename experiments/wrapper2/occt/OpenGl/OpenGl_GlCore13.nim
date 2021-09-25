@@ -13,33 +13,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_GlCore12
-
 ## ! OpenGL 1.3 without deprecated entry points.
 
 type
-  OpenGl_GlCore13Fwd* {.importcpp: "OpenGl_GlCore13Fwd",
-                       header: "OpenGl_GlCore13.hxx", bycopy.} = object of OpenGl_GlCore12Fwd ##
-                                                                                       ## !
-                                                                                       ## @name
-                                                                                       ## OpenGL
-                                                                                       ## 1.3
-                                                                                       ## additives
-                                                                                       ## to
-                                                                                       ## 1.2
+  OpenGlGlCore13Fwd* {.importcpp: "OpenGl_GlCore13Fwd",
+                      header: "OpenGl_GlCore13.hxx", bycopy.} = object of OpenGlGlCore12Fwd ##
+                                                                                     ## !
+                                                                                     ## @name
+                                                                                     ## OpenGL
+                                                                                     ## 1.3
+                                                                                     ## additives
+                                                                                     ## to
+                                                                                     ## 1.2
 
 
-when not defined(GL_ES_VERSION_2_0):
-  discard
-when not defined(GL_ES_VERSION_2_0):
-  discard
-when not defined(GL_ES_VERSION_2_0):
-  discard
-when not defined(GL_ES_VERSION_2_0):
-  discard
-when not defined(GL_ES_VERSION_2_0):
-  discard
+# when not defined(gl_Es_Version_20):
+#   discard
+# when not defined(gl_Es_Version_20):
+#   discard
+# when not defined(gl_Es_Version_20):
+#   discard
+# when not defined(gl_Es_Version_20):
+#   discard
+# when not defined(gl_Es_Version_20):
+#   discard
 ## using statement
 
 ## using statement
@@ -51,21 +48,21 @@ when not defined(GL_ES_VERSION_2_0):
 ## ! OpenGL 1.3 core based on 1.2 version.
 
 type
-  OpenGl_GlCore13* {.importcpp: "OpenGl_GlCore13", header: "OpenGl_GlCore13.hxx",
-                    bycopy.} = object of OpenGl_GlCore12 ## ! @name OpenGL 1.3 additives to 1.2
-                                                    ## ! @name Matrix operations (removed since 3.1)
+  OpenGlGlCore13* {.importcpp: "OpenGl_GlCore13", header: "OpenGl_GlCore13.hxx",
+                   bycopy.} = object of OpenGlGlCore12 ## ! @name OpenGL 1.3 additives to 1.2
+                                                  ## ! @name Matrix operations (removed since 3.1)
 
 
-when not defined(GL_ES_VERSION_2_0):
-  discard
-when not defined(GL_ES_VERSION_2_0):
-  discard
-when not defined(GL_ES_VERSION_2_0):
-  discard
-when not defined(GL_ES_VERSION_2_0):
-  discard
-when not defined(GL_ES_VERSION_2_0):
-  discard
+# when not defined(gl_Es_Version_20):
+#   discard
+# when not defined(gl_Es_Version_20):
+#   discard
+# when not defined(gl_Es_Version_20):
+#   discard
+# when not defined(gl_Es_Version_20):
+#   discard
+# when not defined(gl_Es_Version_20):
+#   discard
 ## using statement
 
 ## using statement
@@ -148,3 +145,4 @@ when not defined(GL_ES_VERSION_2_0):
 ## using statement
 
 ## using statement
+

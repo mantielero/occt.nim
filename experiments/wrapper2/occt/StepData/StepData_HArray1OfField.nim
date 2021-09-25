@@ -14,37 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepData_Field, StepData_Array1OfField, ../NCollection/NCollection_DefineHArray1
-
 type
-  StepData_HArray1OfField* {.importcpp: "StepData_HArray1OfField",
-                            header: "StepData_HArray1OfField.hxx", bycopy.} = object of StepData_Array1OfField
+  StepDataHArray1OfField* {.importcpp: "StepData_HArray1OfField",
+                           header: "StepData_HArray1OfField.hxx", bycopy.} = object of StepDataArray1OfField
 
 
-proc constructStepData_HArray1OfField*(theLower: Standard_Integer;
-                                      theUpper: Standard_Integer): StepData_HArray1OfField {.
+proc constructStepDataHArray1OfField*(theLower: int; theUpper: int): StepDataHArray1OfField {.
     constructor, importcpp: "StepData_HArray1OfField(@)",
     header: "StepData_HArray1OfField.hxx".}
-proc constructStepData_HArray1OfField*(theLower: Standard_Integer;
-                                      theUpper: Standard_Integer;
-                                      theValue: value_type): StepData_HArray1OfField {.
+proc constructStepDataHArray1OfField*(theLower: int; theUpper: int;
+                                     theValue: ValueType): StepDataHArray1OfField {.
     constructor, importcpp: "StepData_HArray1OfField(@)",
     header: "StepData_HArray1OfField.hxx".}
-proc constructStepData_HArray1OfField*(theOther: StepData_Array1OfField): StepData_HArray1OfField {.
+proc constructStepDataHArray1OfField*(theOther: StepDataArray1OfField): StepDataHArray1OfField {.
     constructor, importcpp: "StepData_HArray1OfField(@)",
     header: "StepData_HArray1OfField.hxx".}
-proc Array1*(this: StepData_HArray1OfField): StepData_Array1OfField {.noSideEffect,
+proc array1*(this: StepDataHArray1OfField): StepDataArray1OfField {.noSideEffect,
     importcpp: "Array1", header: "StepData_HArray1OfField.hxx".}
-proc ChangeArray1*(this: var StepData_HArray1OfField): var StepData_Array1OfField {.
+proc changeArray1*(this: var StepDataHArray1OfField): var StepDataArray1OfField {.
     importcpp: "ChangeArray1", header: "StepData_HArray1OfField.hxx".}
 type
-  StepData_HArray1OfFieldbase_type* = MMgt_TShared
+  StepDataHArray1OfFieldbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepData_HArray1OfField::get_type_name(@)",
-                              header: "StepData_HArray1OfField.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepData_HArray1OfField::get_type_name(@)",
+                            header: "StepData_HArray1OfField.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepData_HArray1OfField::get_type_descriptor(@)",
     header: "StepData_HArray1OfField.hxx".}
-proc DynamicType*(this: StepData_HArray1OfField): handle[Standard_Type] {.
+proc dynamicType*(this: StepDataHArray1OfField): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepData_HArray1OfField.hxx".}

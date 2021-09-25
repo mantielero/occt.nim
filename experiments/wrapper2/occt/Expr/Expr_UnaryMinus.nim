@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Expr_UnaryExpression,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, Expr_Array1OfNamedUnknown,
-  ../TColStd/TColStd_Array1OfReal
-
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Expr_NotEvaluable"
@@ -29,39 +23,39 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_UnaryMinus"
 discard "forward decl of Expr_UnaryMinus"
 type
-  Handle_Expr_UnaryMinus* = handle[Expr_UnaryMinus]
-  Expr_UnaryMinus* {.importcpp: "Expr_UnaryMinus", header: "Expr_UnaryMinus.hxx",
-                    bycopy.} = object of Expr_UnaryExpression ## ! Create the unary minus of <exp>.
+  HandleExprUnaryMinus* = Handle[ExprUnaryMinus]
+  ExprUnaryMinus* {.importcpp: "Expr_UnaryMinus", header: "Expr_UnaryMinus.hxx",
+                   bycopy.} = object of ExprUnaryExpression ## ! Create the unary minus of <exp>.
 
 
-proc constructExpr_UnaryMinus*(exp: handle[Expr_GeneralExpression]): Expr_UnaryMinus {.
+proc constructExprUnaryMinus*(exp: Handle[ExprGeneralExpression]): ExprUnaryMinus {.
     constructor, importcpp: "Expr_UnaryMinus(@)", header: "Expr_UnaryMinus.hxx".}
-proc ShallowSimplified*(this: Expr_UnaryMinus): handle[Expr_GeneralExpression] {.
+proc shallowSimplified*(this: ExprUnaryMinus): Handle[ExprGeneralExpression] {.
     noSideEffect, importcpp: "ShallowSimplified", header: "Expr_UnaryMinus.hxx".}
-proc Copy*(this: Expr_UnaryMinus): handle[Expr_GeneralExpression] {.noSideEffect,
+proc copy*(this: ExprUnaryMinus): Handle[ExprGeneralExpression] {.noSideEffect,
     importcpp: "Copy", header: "Expr_UnaryMinus.hxx".}
-proc IsIdentical*(this: Expr_UnaryMinus; Other: handle[Expr_GeneralExpression]): Standard_Boolean {.
+proc isIdentical*(this: ExprUnaryMinus; other: Handle[ExprGeneralExpression]): bool {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_UnaryMinus.hxx".}
-proc IsLinear*(this: Expr_UnaryMinus): Standard_Boolean {.noSideEffect,
-    importcpp: "IsLinear", header: "Expr_UnaryMinus.hxx".}
-proc Derivative*(this: Expr_UnaryMinus; X: handle[Expr_NamedUnknown]): handle[
-    Expr_GeneralExpression] {.noSideEffect, importcpp: "Derivative",
-                             header: "Expr_UnaryMinus.hxx".}
-proc NDerivative*(this: Expr_UnaryMinus; X: handle[Expr_NamedUnknown];
-                 N: Standard_Integer): handle[Expr_GeneralExpression] {.
-    noSideEffect, importcpp: "NDerivative", header: "Expr_UnaryMinus.hxx".}
-proc Evaluate*(this: Expr_UnaryMinus; vars: Expr_Array1OfNamedUnknown;
-              vals: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
+proc isLinear*(this: ExprUnaryMinus): bool {.noSideEffect, importcpp: "IsLinear",
+    header: "Expr_UnaryMinus.hxx".}
+proc derivative*(this: ExprUnaryMinus; x: Handle[ExprNamedUnknown]): Handle[
+    ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
+                            header: "Expr_UnaryMinus.hxx".}
+proc nDerivative*(this: ExprUnaryMinus; x: Handle[ExprNamedUnknown]; n: int): Handle[
+    ExprGeneralExpression] {.noSideEffect, importcpp: "NDerivative",
+                            header: "Expr_UnaryMinus.hxx".}
+proc evaluate*(this: ExprUnaryMinus; vars: ExprArray1OfNamedUnknown;
+              vals: TColStdArray1OfReal): float {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_UnaryMinus.hxx".}
-proc String*(this: Expr_UnaryMinus): TCollection_AsciiString {.noSideEffect,
+proc string*(this: ExprUnaryMinus): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_UnaryMinus.hxx".}
 type
-  Expr_UnaryMinusbase_type* = Expr_UnaryExpression
+  ExprUnaryMinusbaseType* = ExprUnaryExpression
 
-proc get_type_name*(): cstring {.importcpp: "Expr_UnaryMinus::get_type_name(@)",
-                              header: "Expr_UnaryMinus.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Expr_UnaryMinus::get_type_name(@)",
+                            header: "Expr_UnaryMinus.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Expr_UnaryMinus::get_type_descriptor(@)",
     header: "Expr_UnaryMinus.hxx".}
-proc DynamicType*(this: Expr_UnaryMinus): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: ExprUnaryMinus): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_UnaryMinus.hxx".}

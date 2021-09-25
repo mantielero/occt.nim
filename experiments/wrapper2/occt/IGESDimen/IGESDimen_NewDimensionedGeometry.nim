@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../IGESData/IGESData_HArray1OfIGESEntity,
-  ../TColStd/TColStd_HArray1OfInteger, ../TColgp/TColgp_HArray1OfXYZ,
-  ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of Standard_DimensionMismatch"
 discard "forward decl of Standard_OutOfRange"
@@ -27,8 +21,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESDimen_NewDimensionedGeometry"
 discard "forward decl of IGESDimen_NewDimensionedGeometry"
 type
-  Handle_IGESDimen_NewDimensionedGeometry* = handle[
-      IGESDimen_NewDimensionedGeometry]
+  HandleIGESDimenNewDimensionedGeometry* = Handle[IGESDimenNewDimensionedGeometry]
 
 ## ! defines New Dimensioned Geometry, Type <402>, Form <21>
 ## ! in package IGESDimen
@@ -38,57 +31,50 @@ type
 ## ! and redrawn should the geometry be changed.
 
 type
-  IGESDimen_NewDimensionedGeometry* {.importcpp: "IGESDimen_NewDimensionedGeometry", header: "IGESDimen_NewDimensionedGeometry.hxx",
-                                     bycopy.} = object of IGESData_IGESEntity
+  IGESDimenNewDimensionedGeometry* {.importcpp: "IGESDimen_NewDimensionedGeometry", header: "IGESDimen_NewDimensionedGeometry.hxx",
+                                    bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESDimen_NewDimensionedGeometry*(): IGESDimen_NewDimensionedGeometry {.
+proc constructIGESDimenNewDimensionedGeometry*(): IGESDimenNewDimensionedGeometry {.
     constructor, importcpp: "IGESDimen_NewDimensionedGeometry(@)",
     header: "IGESDimen_NewDimensionedGeometry.hxx".}
-proc Init*(this: var IGESDimen_NewDimensionedGeometry; nbDimens: Standard_Integer;
-          aDimen: handle[IGESData_IGESEntity]; anOrientation: Standard_Integer;
-          anAngle: Standard_Real;
-          allEntities: handle[IGESData_HArray1OfIGESEntity];
-          allLocations: handle[TColStd_HArray1OfInteger];
-          allPoints: handle[TColgp_HArray1OfXYZ]) {.importcpp: "Init",
+proc init*(this: var IGESDimenNewDimensionedGeometry; nbDimens: int;
+          aDimen: Handle[IGESDataIGESEntity]; anOrientation: int; anAngle: float;
+          allEntities: Handle[IGESDataHArray1OfIGESEntity];
+          allLocations: Handle[TColStdHArray1OfInteger];
+          allPoints: Handle[TColgpHArray1OfXYZ]) {.importcpp: "Init",
     header: "IGESDimen_NewDimensionedGeometry.hxx".}
-proc NbDimensions*(this: IGESDimen_NewDimensionedGeometry): Standard_Integer {.
-    noSideEffect, importcpp: "NbDimensions",
-    header: "IGESDimen_NewDimensionedGeometry.hxx".}
-proc NbGeometries*(this: IGESDimen_NewDimensionedGeometry): Standard_Integer {.
-    noSideEffect, importcpp: "NbGeometries",
-    header: "IGESDimen_NewDimensionedGeometry.hxx".}
-proc DimensionEntity*(this: IGESDimen_NewDimensionedGeometry): handle[
-    IGESData_IGESEntity] {.noSideEffect, importcpp: "DimensionEntity",
-                          header: "IGESDimen_NewDimensionedGeometry.hxx".}
-proc DimensionOrientationFlag*(this: IGESDimen_NewDimensionedGeometry): Standard_Integer {.
+proc nbDimensions*(this: IGESDimenNewDimensionedGeometry): int {.noSideEffect,
+    importcpp: "NbDimensions", header: "IGESDimen_NewDimensionedGeometry.hxx".}
+proc nbGeometries*(this: IGESDimenNewDimensionedGeometry): int {.noSideEffect,
+    importcpp: "NbGeometries", header: "IGESDimen_NewDimensionedGeometry.hxx".}
+proc dimensionEntity*(this: IGESDimenNewDimensionedGeometry): Handle[
+    IGESDataIGESEntity] {.noSideEffect, importcpp: "DimensionEntity",
+                         header: "IGESDimen_NewDimensionedGeometry.hxx".}
+proc dimensionOrientationFlag*(this: IGESDimenNewDimensionedGeometry): int {.
     noSideEffect, importcpp: "DimensionOrientationFlag",
     header: "IGESDimen_NewDimensionedGeometry.hxx".}
-proc AngleValue*(this: IGESDimen_NewDimensionedGeometry): Standard_Real {.
-    noSideEffect, importcpp: "AngleValue",
-    header: "IGESDimen_NewDimensionedGeometry.hxx".}
-proc GeometryEntity*(this: IGESDimen_NewDimensionedGeometry;
-                    Index: Standard_Integer): handle[IGESData_IGESEntity] {.
-    noSideEffect, importcpp: "GeometryEntity",
-    header: "IGESDimen_NewDimensionedGeometry.hxx".}
-proc DimensionLocationFlag*(this: IGESDimen_NewDimensionedGeometry;
-                           Index: Standard_Integer): Standard_Integer {.
+proc angleValue*(this: IGESDimenNewDimensionedGeometry): float {.noSideEffect,
+    importcpp: "AngleValue", header: "IGESDimen_NewDimensionedGeometry.hxx".}
+proc geometryEntity*(this: IGESDimenNewDimensionedGeometry; index: int): Handle[
+    IGESDataIGESEntity] {.noSideEffect, importcpp: "GeometryEntity",
+                         header: "IGESDimen_NewDimensionedGeometry.hxx".}
+proc dimensionLocationFlag*(this: IGESDimenNewDimensionedGeometry; index: int): int {.
     noSideEffect, importcpp: "DimensionLocationFlag",
     header: "IGESDimen_NewDimensionedGeometry.hxx".}
-proc Point*(this: IGESDimen_NewDimensionedGeometry; Index: Standard_Integer): gp_Pnt {.
-    noSideEffect, importcpp: "Point",
+proc point*(this: IGESDimenNewDimensionedGeometry; index: int): Pnt {.noSideEffect,
+    importcpp: "Point", header: "IGESDimen_NewDimensionedGeometry.hxx".}
+proc transformedPoint*(this: IGESDimenNewDimensionedGeometry; index: int): Pnt {.
+    noSideEffect, importcpp: "TransformedPoint",
     header: "IGESDimen_NewDimensionedGeometry.hxx".}
-proc TransformedPoint*(this: IGESDimen_NewDimensionedGeometry;
-                      Index: Standard_Integer): gp_Pnt {.noSideEffect,
-    importcpp: "TransformedPoint", header: "IGESDimen_NewDimensionedGeometry.hxx".}
 type
-  IGESDimen_NewDimensionedGeometrybase_type* = IGESData_IGESEntity
+  IGESDimenNewDimensionedGeometrybaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESDimen_NewDimensionedGeometry::get_type_name(@)",
-                              header: "IGESDimen_NewDimensionedGeometry.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESDimen_NewDimensionedGeometry::get_type_name(@)",
+                            header: "IGESDimen_NewDimensionedGeometry.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESDimen_NewDimensionedGeometry::get_type_descriptor(@)",
     header: "IGESDimen_NewDimensionedGeometry.hxx".}
-proc DynamicType*(this: IGESDimen_NewDimensionedGeometry): handle[Standard_Type] {.
+proc dynamicType*(this: IGESDimenNewDimensionedGeometry): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESDimen_NewDimensionedGeometry.hxx".}

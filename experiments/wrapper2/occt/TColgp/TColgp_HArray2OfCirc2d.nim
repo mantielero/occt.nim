@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # TColgp_HArray2OfCirc2d_HeaderFile [NewLine] # TColgp_HArray2OfCirc2d_HeaderFile [NewLine] # ../gp/gp_Circ2d.hxx [NewLine] # TColgp_Array2OfCirc2d.hxx [NewLine] # ../NCollection/NCollection_DefineHArray2.hxx [NewLine] DEFINE_HARRAY2 ( TColgp_HArray2OfCirc2d , TColgp_Array2OfCirc2d ) # [NewLine]
+## !!!Ignored construct:  # TColgp_HArray2OfCirc2d_HeaderFile [NewLine] # TColgp_HArray2OfCirc2d_HeaderFile [NewLine] # < gp_Circ2d . hxx > [NewLine] # < TColgp_Array2OfCirc2d . hxx > [NewLine] # < NCollection_DefineHArray2 . hxx > [NewLine] DEFINE_HARRAY2 ( TColgp_HArray2OfCirc2d , TColgp_Array2OfCirc2d ) # [NewLine]
 ## Error: expected ';'!!!
+

@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../GeomLProp/GeomLProp_SLProps,
-  ../gp/gp_Pnt, ../gp/gp_Pnt2d, ../gp/gp_Vec, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Transient
-
 discard "forward decl of Geom_Surface"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of gp_Pnt"
@@ -29,201 +23,197 @@ discard "forward decl of GeomLProp_SLProps"
 discard "forward decl of GeomPlate_PointConstraint"
 discard "forward decl of GeomPlate_PointConstraint"
 type
-  Handle_GeomPlate_PointConstraint* = handle[GeomPlate_PointConstraint]
+  HandleGeomPlatePointConstraint* = Handle[GeomPlatePointConstraint]
 
 ## ! Defines points as constraints to be used to deform a surface.
 
 type
-  GeomPlate_PointConstraint* {.importcpp: "GeomPlate_PointConstraint",
-                              header: "GeomPlate_PointConstraint.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                        ## !
-                                                                                                        ## Constructs
-                                                                                                        ## a
-                                                                                                        ## point
-                                                                                                        ## constraint
-                                                                                                        ## object
-                                                                                                        ## defined
-                                                                                                        ## by
-                                                                                                        ## Pt,
-                                                                                                        ## a
-                                                                                                        ## 3D
-                                                                                                        ## point
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Order
-                                                                                                        ## gives
-                                                                                                        ## the
-                                                                                                        ## order
-                                                                                                        ## of
-                                                                                                        ## constraint,
-                                                                                                        ## one
-                                                                                                        ## of:
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## -
-                                                                                                        ## -1
-                                                                                                        ## i.e.
-                                                                                                        ## none,
-                                                                                                        ## or
-                                                                                                        ## 0
-                                                                                                        ## i.e.G0
-                                                                                                        ## when
-                                                                                                        ## assigned
-                                                                                                        ## to
-                                                                                                        ## Pt
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## -
-                                                                                                        ## -1
-                                                                                                        ## i.e.
-                                                                                                        ## none,
-                                                                                                        ## 0
-                                                                                                        ## i.e.
-                                                                                                        ## G0,
-                                                                                                        ## 1
-                                                                                                        ## i.e.
-                                                                                                        ## G1,
-                                                                                                        ## 2
-                                                                                                        ## i.e.
-                                                                                                        ## G2
-                                                                                                        ## when
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## assigned
-                                                                                                        ## to
-                                                                                                        ## U,
-                                                                                                        ## V
-                                                                                                        ## and
-                                                                                                        ## Surf.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## In
-                                                                                                        ## this
-                                                                                                        ## constructor,
-                                                                                                        ## only
-                                                                                                        ## TolDist
-                                                                                                        ## is
-                                                                                                        ## given.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Distance
-                                                                                                        ## tolerance
-                                                                                                        ## represents
-                                                                                                        ## the
-                                                                                                        ## greatest
-                                                                                                        ## distance
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## allowed
-                                                                                                        ## between
-                                                                                                        ## the
-                                                                                                        ## constraint
-                                                                                                        ## and
-                                                                                                        ## the
-                                                                                                        ## target
-                                                                                                        ## surface.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Angular
-                                                                                                        ## tolerance
-                                                                                                        ## represents
-                                                                                                        ## the
-                                                                                                        ## largest
-                                                                                                        ## angle
-                                                                                                        ## allowed
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## between
-                                                                                                        ## the
-                                                                                                        ## constraint
-                                                                                                        ## and
-                                                                                                        ## the
-                                                                                                        ## target
-                                                                                                        ## surface.
-                                                                                                        ## Curvature
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## tolerance
-                                                                                                        ## represents
-                                                                                                        ## the
-                                                                                                        ## greatest
-                                                                                                        ## difference
-                                                                                                        ## in
-                                                                                                        ## curvature
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## allowed
-                                                                                                        ## between
-                                                                                                        ## the
-                                                                                                        ## constraint
-                                                                                                        ## and
-                                                                                                        ## the
-                                                                                                        ## target
-                                                                                                        ## surface.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Raises
-                                                                                                        ## ConstructionError
-                                                                                                        ## if
-                                                                                                        ## Order
-                                                                                                        ## is
-                                                                                                        ## not
-                                                                                                        ## 0
-                                                                                                        ## or
-                                                                                                        ## -1
+  GeomPlatePointConstraint* {.importcpp: "GeomPlate_PointConstraint",
+                             header: "GeomPlate_PointConstraint.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                      ## !
+                                                                                                      ## Constructs
+                                                                                                      ## a
+                                                                                                      ## point
+                                                                                                      ## constraint
+                                                                                                      ## object
+                                                                                                      ## defined
+                                                                                                      ## by
+                                                                                                      ## Pt,
+                                                                                                      ## a
+                                                                                                      ## 3D
+                                                                                                      ## point
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Order
+                                                                                                      ## gives
+                                                                                                      ## the
+                                                                                                      ## order
+                                                                                                      ## of
+                                                                                                      ## constraint,
+                                                                                                      ## one
+                                                                                                      ## of:
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## -
+                                                                                                      ## -1
+                                                                                                      ## i.e.
+                                                                                                      ## none,
+                                                                                                      ## or
+                                                                                                      ## 0
+                                                                                                      ## i.e.G0
+                                                                                                      ## when
+                                                                                                      ## assigned
+                                                                                                      ## to
+                                                                                                      ## Pt
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## -
+                                                                                                      ## -1
+                                                                                                      ## i.e.
+                                                                                                      ## none,
+                                                                                                      ## 0
+                                                                                                      ## i.e.
+                                                                                                      ## G0,
+                                                                                                      ## 1
+                                                                                                      ## i.e.
+                                                                                                      ## G1,
+                                                                                                      ## 2
+                                                                                                      ## i.e.
+                                                                                                      ## G2
+                                                                                                      ## when
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## assigned
+                                                                                                      ## to
+                                                                                                      ## U,
+                                                                                                      ## V
+                                                                                                      ## and
+                                                                                                      ## Surf.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## In
+                                                                                                      ## this
+                                                                                                      ## constructor,
+                                                                                                      ## only
+                                                                                                      ## TolDist
+                                                                                                      ## is
+                                                                                                      ## given.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Distance
+                                                                                                      ## tolerance
+                                                                                                      ## represents
+                                                                                                      ## the
+                                                                                                      ## greatest
+                                                                                                      ## distance
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## allowed
+                                                                                                      ## between
+                                                                                                      ## the
+                                                                                                      ## constraint
+                                                                                                      ## and
+                                                                                                      ## the
+                                                                                                      ## target
+                                                                                                      ## surface.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Angular
+                                                                                                      ## tolerance
+                                                                                                      ## represents
+                                                                                                      ## the
+                                                                                                      ## largest
+                                                                                                      ## angle
+                                                                                                      ## allowed
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## between
+                                                                                                      ## the
+                                                                                                      ## constraint
+                                                                                                      ## and
+                                                                                                      ## the
+                                                                                                      ## target
+                                                                                                      ## surface.
+                                                                                                      ## Curvature
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## tolerance
+                                                                                                      ## represents
+                                                                                                      ## the
+                                                                                                      ## greatest
+                                                                                                      ## difference
+                                                                                                      ## in
+                                                                                                      ## curvature
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## allowed
+                                                                                                      ## between
+                                                                                                      ## the
+                                                                                                      ## constraint
+                                                                                                      ## and
+                                                                                                      ## the
+                                                                                                      ## target
+                                                                                                      ## surface.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Raises
+                                                                                                      ## ConstructionError
+                                                                                                      ## if
+                                                                                                      ## Order
+                                                                                                      ## is
+                                                                                                      ## not
+                                                                                                      ## 0
+                                                                                                      ## or
+                                                                                                      ## -1
 
 
-proc constructGeomPlate_PointConstraint*(Pt: gp_Pnt; Order: Standard_Integer;
-                                        TolDist: Standard_Real = 0.0001): GeomPlate_PointConstraint {.
+proc constructGeomPlatePointConstraint*(pt: Pnt; order: int; tolDist: float = 0.0001): GeomPlatePointConstraint {.
     constructor, importcpp: "GeomPlate_PointConstraint(@)",
     header: "GeomPlate_PointConstraint.hxx".}
-proc constructGeomPlate_PointConstraint*(U: Standard_Real; V: Standard_Real;
-                                        Surf: handle[Geom_Surface];
-                                        Order: Standard_Integer;
-                                        TolDist: Standard_Real = 0.0001;
-                                        TolAng: Standard_Real = 0.01;
-                                        TolCurv: Standard_Real = 0.1): GeomPlate_PointConstraint {.
+proc constructGeomPlatePointConstraint*(u: float; v: float;
+                                       surf: Handle[GeomSurface]; order: int;
+                                       tolDist: float = 0.0001;
+                                       tolAng: float = 0.01; tolCurv: float = 0.1): GeomPlatePointConstraint {.
     constructor, importcpp: "GeomPlate_PointConstraint(@)",
     header: "GeomPlate_PointConstraint.hxx".}
-proc SetOrder*(this: var GeomPlate_PointConstraint; Order: Standard_Integer) {.
+proc setOrder*(this: var GeomPlatePointConstraint; order: int) {.
     importcpp: "SetOrder", header: "GeomPlate_PointConstraint.hxx".}
-proc Order*(this: GeomPlate_PointConstraint): Standard_Integer {.noSideEffect,
-    importcpp: "Order", header: "GeomPlate_PointConstraint.hxx".}
-proc SetG0Criterion*(this: var GeomPlate_PointConstraint; TolDist: Standard_Real) {.
+proc order*(this: GeomPlatePointConstraint): int {.noSideEffect, importcpp: "Order",
+    header: "GeomPlate_PointConstraint.hxx".}
+proc setG0Criterion*(this: var GeomPlatePointConstraint; tolDist: float) {.
     importcpp: "SetG0Criterion", header: "GeomPlate_PointConstraint.hxx".}
-proc SetG1Criterion*(this: var GeomPlate_PointConstraint; TolAng: Standard_Real) {.
+proc setG1Criterion*(this: var GeomPlatePointConstraint; tolAng: float) {.
     importcpp: "SetG1Criterion", header: "GeomPlate_PointConstraint.hxx".}
-proc SetG2Criterion*(this: var GeomPlate_PointConstraint; TolCurv: Standard_Real) {.
+proc setG2Criterion*(this: var GeomPlatePointConstraint; tolCurv: float) {.
     importcpp: "SetG2Criterion", header: "GeomPlate_PointConstraint.hxx".}
-proc G0Criterion*(this: GeomPlate_PointConstraint): Standard_Real {.noSideEffect,
+proc g0Criterion*(this: GeomPlatePointConstraint): float {.noSideEffect,
     importcpp: "G0Criterion", header: "GeomPlate_PointConstraint.hxx".}
-proc G1Criterion*(this: GeomPlate_PointConstraint): Standard_Real {.noSideEffect,
+proc g1Criterion*(this: GeomPlatePointConstraint): float {.noSideEffect,
     importcpp: "G1Criterion", header: "GeomPlate_PointConstraint.hxx".}
-proc G2Criterion*(this: GeomPlate_PointConstraint): Standard_Real {.noSideEffect,
+proc g2Criterion*(this: GeomPlatePointConstraint): float {.noSideEffect,
     importcpp: "G2Criterion", header: "GeomPlate_PointConstraint.hxx".}
-proc D0*(this: GeomPlate_PointConstraint; P: var gp_Pnt) {.noSideEffect,
-    importcpp: "D0", header: "GeomPlate_PointConstraint.hxx".}
-proc D1*(this: GeomPlate_PointConstraint; P: var gp_Pnt; V1: var gp_Vec; V2: var gp_Vec) {.
+proc d0*(this: GeomPlatePointConstraint; p: var Pnt) {.noSideEffect, importcpp: "D0",
+    header: "GeomPlate_PointConstraint.hxx".}
+proc d1*(this: GeomPlatePointConstraint; p: var Pnt; v1: var Vec; v2: var Vec) {.
     noSideEffect, importcpp: "D1", header: "GeomPlate_PointConstraint.hxx".}
-proc D2*(this: GeomPlate_PointConstraint; P: var gp_Pnt; V1: var gp_Vec; V2: var gp_Vec;
-        V3: var gp_Vec; V4: var gp_Vec; V5: var gp_Vec) {.noSideEffect, importcpp: "D2",
-    header: "GeomPlate_PointConstraint.hxx".}
-proc HasPnt2dOnSurf*(this: GeomPlate_PointConstraint): Standard_Boolean {.
-    noSideEffect, importcpp: "HasPnt2dOnSurf",
-    header: "GeomPlate_PointConstraint.hxx".}
-proc SetPnt2dOnSurf*(this: var GeomPlate_PointConstraint; Pnt: gp_Pnt2d) {.
+proc d2*(this: GeomPlatePointConstraint; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec;
+        v4: var Vec; v5: var Vec) {.noSideEffect, importcpp: "D2",
+                              header: "GeomPlate_PointConstraint.hxx".}
+proc hasPnt2dOnSurf*(this: GeomPlatePointConstraint): bool {.noSideEffect,
+    importcpp: "HasPnt2dOnSurf", header: "GeomPlate_PointConstraint.hxx".}
+proc setPnt2dOnSurf*(this: var GeomPlatePointConstraint; pnt: Pnt2d) {.
     importcpp: "SetPnt2dOnSurf", header: "GeomPlate_PointConstraint.hxx".}
-proc Pnt2dOnSurf*(this: GeomPlate_PointConstraint): gp_Pnt2d {.noSideEffect,
+proc pnt2dOnSurf*(this: GeomPlatePointConstraint): Pnt2d {.noSideEffect,
     importcpp: "Pnt2dOnSurf", header: "GeomPlate_PointConstraint.hxx".}
-proc LPropSurf*(this: var GeomPlate_PointConstraint): var GeomLProp_SLProps {.
+proc lPropSurf*(this: var GeomPlatePointConstraint): var GeomLPropSLProps {.
     importcpp: "LPropSurf", header: "GeomPlate_PointConstraint.hxx".}
 type
-  GeomPlate_PointConstraintbase_type* = Standard_Transient
+  GeomPlatePointConstraintbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "GeomPlate_PointConstraint::get_type_name(@)",
-                              header: "GeomPlate_PointConstraint.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "GeomPlate_PointConstraint::get_type_name(@)",
+                            header: "GeomPlate_PointConstraint.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GeomPlate_PointConstraint::get_type_descriptor(@)",
     header: "GeomPlate_PointConstraint.hxx".}
-proc DynamicType*(this: GeomPlate_PointConstraint): handle[Standard_Type] {.
+proc dynamicType*(this: GeomPlatePointConstraint): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "GeomPlate_PointConstraint.hxx".}

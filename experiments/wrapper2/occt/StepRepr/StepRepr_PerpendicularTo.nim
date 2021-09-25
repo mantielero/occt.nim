@@ -13,31 +13,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_DerivedShapeAspect
-
 discard "forward decl of StepRepr_PerpendicularTo"
 discard "forward decl of StepRepr_PerpendicularTo"
 type
-  Handle_StepRepr_PerpendicularTo* = handle[StepRepr_PerpendicularTo]
+  HandleStepReprPerpendicularTo* = Handle[StepReprPerpendicularTo]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepRepr_PerpendicularTo* {.importcpp: "StepRepr_PerpendicularTo",
-                             header: "StepRepr_PerpendicularTo.hxx", bycopy.} = object of StepRepr_DerivedShapeAspect
+  StepReprPerpendicularTo* {.importcpp: "StepRepr_PerpendicularTo",
+                            header: "StepRepr_PerpendicularTo.hxx", bycopy.} = object of StepReprDerivedShapeAspect
 
 
-proc constructStepRepr_PerpendicularTo*(): StepRepr_PerpendicularTo {.constructor,
+proc constructStepReprPerpendicularTo*(): StepReprPerpendicularTo {.constructor,
     importcpp: "StepRepr_PerpendicularTo(@)",
     header: "StepRepr_PerpendicularTo.hxx".}
 type
-  StepRepr_PerpendicularTobase_type* = StepRepr_DerivedShapeAspect
+  StepReprPerpendicularTobaseType* = StepReprDerivedShapeAspect
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_PerpendicularTo::get_type_name(@)",
-                              header: "StepRepr_PerpendicularTo.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_PerpendicularTo::get_type_name(@)",
+                            header: "StepRepr_PerpendicularTo.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_PerpendicularTo::get_type_descriptor(@)",
     header: "StepRepr_PerpendicularTo.hxx".}
-proc DynamicType*(this: StepRepr_PerpendicularTo): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprPerpendicularTo): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepRepr_PerpendicularTo.hxx".}

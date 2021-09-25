@@ -14,36 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Pnt2d, Draw_Color,
-  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Integer,
-  Draw_Drawable2D, ../Standard/Standard_CString
-
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of Draw_Color"
 discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Text2D"
 discard "forward decl of Draw_Text2D"
 type
-  Handle_Draw_Text2D* = handle[Draw_Text2D]
-  Draw_Text2D* {.importcpp: "Draw_Text2D", header: "Draw_Text2D.hxx", bycopy.} = object of Draw_Drawable2D
+  HandleDrawText2D* = Handle[DrawText2D]
+  DrawText2D* {.importcpp: "Draw_Text2D", header: "Draw_Text2D.hxx", bycopy.} = object of DrawDrawable2D
 
 
-proc constructDraw_Text2D*(p: gp_Pnt2d; T: Standard_CString; col: Draw_Color): Draw_Text2D {.
+proc constructDrawText2D*(p: Pnt2d; t: StandardCString; col: DrawColor): DrawText2D {.
     constructor, importcpp: "Draw_Text2D(@)", header: "Draw_Text2D.hxx".}
-proc constructDraw_Text2D*(p: gp_Pnt2d; T: Standard_CString; col: Draw_Color;
-                          moveX: Standard_Integer; moveY: Standard_Integer): Draw_Text2D {.
-    constructor, importcpp: "Draw_Text2D(@)", header: "Draw_Text2D.hxx".}
-proc SetPnt2d*(this: var Draw_Text2D; p: gp_Pnt2d) {.importcpp: "SetPnt2d",
+proc constructDrawText2D*(p: Pnt2d; t: StandardCString; col: DrawColor; moveX: int;
+                         moveY: int): DrawText2D {.constructor,
+    importcpp: "Draw_Text2D(@)", header: "Draw_Text2D.hxx".}
+proc setPnt2d*(this: var DrawText2D; p: Pnt2d) {.importcpp: "SetPnt2d",
     header: "Draw_Text2D.hxx".}
-proc DrawOn*(this: Draw_Text2D; dis: var Draw_Display) {.noSideEffect,
+proc drawOn*(this: DrawText2D; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "Draw_Text2D.hxx".}
 type
-  Draw_Text2Dbase_type* = Draw_Drawable2D
+  DrawText2DbaseType* = DrawDrawable2D
 
-proc get_type_name*(): cstring {.importcpp: "Draw_Text2D::get_type_name(@)",
-                              header: "Draw_Text2D.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Draw_Text2D::get_type_name(@)",
+                            header: "Draw_Text2D.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Draw_Text2D::get_type_descriptor(@)", header: "Draw_Text2D.hxx".}
-proc DynamicType*(this: Draw_Text2D): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: DrawText2D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Text2D.hxx".}

@@ -14,47 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP203_HArray1OfChangeRequestItem,
-  ../StepBasic/StepBasic_ActionRequestAssignment
-
 discard "forward decl of StepBasic_VersionedActionRequest"
 discard "forward decl of StepAP203_ChangeRequest"
 discard "forward decl of StepAP203_ChangeRequest"
 type
-  Handle_StepAP203_ChangeRequest* = handle[StepAP203_ChangeRequest]
+  HandleStepAP203ChangeRequest* = Handle[StepAP203ChangeRequest]
 
 ## ! Representation of STEP entity ChangeRequest
 
 type
-  StepAP203_ChangeRequest* {.importcpp: "StepAP203_ChangeRequest",
-                            header: "StepAP203_ChangeRequest.hxx", bycopy.} = object of StepBasic_ActionRequestAssignment ##
-                                                                                                                   ## !
-                                                                                                                   ## Empty
-                                                                                                                   ## constructor
+  StepAP203ChangeRequest* {.importcpp: "StepAP203_ChangeRequest",
+                           header: "StepAP203_ChangeRequest.hxx", bycopy.} = object of StepBasicActionRequestAssignment ##
+                                                                                                                 ## !
+                                                                                                                 ## Empty
+                                                                                                                 ## constructor
 
 
-proc constructStepAP203_ChangeRequest*(): StepAP203_ChangeRequest {.constructor,
+proc constructStepAP203ChangeRequest*(): StepAP203ChangeRequest {.constructor,
     importcpp: "StepAP203_ChangeRequest(@)", header: "StepAP203_ChangeRequest.hxx".}
-proc Init*(this: var StepAP203_ChangeRequest;
-    aActionRequestAssignment_AssignedActionRequest: handle[
-    StepBasic_VersionedActionRequest];
-          aItems: handle[StepAP203_HArray1OfChangeRequestItem]) {.
+proc init*(this: var StepAP203ChangeRequest;
+    aActionRequestAssignmentAssignedActionRequest: Handle[
+    StepBasicVersionedActionRequest];
+          aItems: Handle[StepAP203HArray1OfChangeRequestItem]) {.
     importcpp: "Init", header: "StepAP203_ChangeRequest.hxx".}
-proc Items*(this: StepAP203_ChangeRequest): handle[
-    StepAP203_HArray1OfChangeRequestItem] {.noSideEffect, importcpp: "Items",
+proc items*(this: StepAP203ChangeRequest): Handle[
+    StepAP203HArray1OfChangeRequestItem] {.noSideEffect, importcpp: "Items",
     header: "StepAP203_ChangeRequest.hxx".}
-proc SetItems*(this: var StepAP203_ChangeRequest;
-              Items: handle[StepAP203_HArray1OfChangeRequestItem]) {.
+proc setItems*(this: var StepAP203ChangeRequest;
+              items: Handle[StepAP203HArray1OfChangeRequestItem]) {.
     importcpp: "SetItems", header: "StepAP203_ChangeRequest.hxx".}
 type
-  StepAP203_ChangeRequestbase_type* = StepBasic_ActionRequestAssignment
+  StepAP203ChangeRequestbaseType* = StepBasicActionRequestAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP203_ChangeRequest::get_type_name(@)",
-                              header: "StepAP203_ChangeRequest.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP203_ChangeRequest::get_type_name(@)",
+                            header: "StepAP203_ChangeRequest.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP203_ChangeRequest::get_type_descriptor(@)",
     header: "StepAP203_ChangeRequest.hxx".}
-proc DynamicType*(this: StepAP203_ChangeRequest): handle[Standard_Type] {.
+proc dynamicType*(this: StepAP203ChangeRequest): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepAP203_ChangeRequest.hxx".}

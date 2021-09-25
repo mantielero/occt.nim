@@ -14,89 +14,80 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Units_QuantitiesSequence,
-  ../TColStd/TColStd_HSequenceOfInteger, ../Standard/Standard_Transient,
-  ../Standard/Standard_CString, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real
-
 discard "forward decl of Units_NoSuchUnit"
 discard "forward decl of Units_NoSuchType"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Units_UnitsSystem"
 discard "forward decl of Units_UnitsSystem"
 type
-  Handle_Units_UnitsSystem* = handle[Units_UnitsSystem]
+  HandleUnitsUnitsSystem* = Handle[UnitsUnitsSystem]
 
 ## ! This class  allows  the  user  to  define his  own
 ## ! system of units.
 
 type
-  Units_UnitsSystem* {.importcpp: "Units_UnitsSystem",
-                      header: "Units_UnitsSystem.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                        ## !
-                                                                                        ## Returns
-                                                                                        ## an
-                                                                                        ## instance
-                                                                                        ## of
-                                                                                        ## UnitsSystem
-                                                                                        ## initialized
-                                                                                        ## to
-                                                                                        ## the
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## S.I.
-                                                                                        ## units
-                                                                                        ## system.
+  UnitsUnitsSystem* {.importcpp: "Units_UnitsSystem",
+                     header: "Units_UnitsSystem.hxx", bycopy.} = object of StandardTransient ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## an
+                                                                                      ## instance
+                                                                                      ## of
+                                                                                      ## UnitsSystem
+                                                                                      ## initialized
+                                                                                      ## to
+                                                                                      ## the
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## S.I.
+                                                                                      ## units
+                                                                                      ## system.
 
 
-proc constructUnits_UnitsSystem*(): Units_UnitsSystem {.constructor,
+proc constructUnitsUnitsSystem*(): UnitsUnitsSystem {.constructor,
     importcpp: "Units_UnitsSystem(@)", header: "Units_UnitsSystem.hxx".}
-proc constructUnits_UnitsSystem*(aName: Standard_CString;
-                                Verbose: Standard_Boolean = Standard_False): Units_UnitsSystem {.
+proc constructUnitsUnitsSystem*(aName: StandardCString; verbose: bool = false): UnitsUnitsSystem {.
     constructor, importcpp: "Units_UnitsSystem(@)", header: "Units_UnitsSystem.hxx".}
-proc QuantitiesSequence*(this: Units_UnitsSystem): handle[Units_QuantitiesSequence] {.
+proc quantitiesSequence*(this: UnitsUnitsSystem): Handle[UnitsQuantitiesSequence] {.
     noSideEffect, importcpp: "QuantitiesSequence", header: "Units_UnitsSystem.hxx".}
-proc ActiveUnitsSequence*(this: Units_UnitsSystem): handle[
-    TColStd_HSequenceOfInteger] {.noSideEffect, importcpp: "ActiveUnitsSequence",
-                                 header: "Units_UnitsSystem.hxx".}
-proc Specify*(this: var Units_UnitsSystem; aquantity: Standard_CString;
-             aunit: Standard_CString) {.importcpp: "Specify",
-                                      header: "Units_UnitsSystem.hxx".}
-proc Remove*(this: var Units_UnitsSystem; aquantity: Standard_CString;
-            aunit: Standard_CString) {.importcpp: "Remove",
+proc activeUnitsSequence*(this: UnitsUnitsSystem): Handle[TColStdHSequenceOfInteger] {.
+    noSideEffect, importcpp: "ActiveUnitsSequence", header: "Units_UnitsSystem.hxx".}
+proc specify*(this: var UnitsUnitsSystem; aquantity: StandardCString;
+             aunit: StandardCString) {.importcpp: "Specify",
                                      header: "Units_UnitsSystem.hxx".}
-proc Activate*(this: var Units_UnitsSystem; aquantity: Standard_CString;
-              aunit: Standard_CString) {.importcpp: "Activate",
-                                       header: "Units_UnitsSystem.hxx".}
-proc Activates*(this: var Units_UnitsSystem) {.importcpp: "Activates",
+proc remove*(this: var UnitsUnitsSystem; aquantity: StandardCString;
+            aunit: StandardCString) {.importcpp: "Remove",
+                                    header: "Units_UnitsSystem.hxx".}
+proc activate*(this: var UnitsUnitsSystem; aquantity: StandardCString;
+              aunit: StandardCString) {.importcpp: "Activate",
+                                      header: "Units_UnitsSystem.hxx".}
+proc activates*(this: var UnitsUnitsSystem) {.importcpp: "Activates",
     header: "Units_UnitsSystem.hxx".}
-proc ActiveUnit*(this: Units_UnitsSystem; aquantity: Standard_CString): TCollection_AsciiString {.
+proc activeUnit*(this: UnitsUnitsSystem; aquantity: StandardCString): TCollectionAsciiString {.
     noSideEffect, importcpp: "ActiveUnit", header: "Units_UnitsSystem.hxx".}
-proc ConvertValueToUserSystem*(this: Units_UnitsSystem;
-                              aquantity: Standard_CString; avalue: Standard_Real;
-                              aunit: Standard_CString): Standard_Real {.
+proc convertValueToUserSystem*(this: UnitsUnitsSystem; aquantity: StandardCString;
+                              avalue: float; aunit: StandardCString): float {.
     noSideEffect, importcpp: "ConvertValueToUserSystem",
     header: "Units_UnitsSystem.hxx".}
-proc ConvertSIValueToUserSystem*(this: Units_UnitsSystem;
-                                aquantity: Standard_CString; avalue: Standard_Real): Standard_Real {.
+proc convertSIValueToUserSystem*(this: UnitsUnitsSystem;
+                                aquantity: StandardCString; avalue: float): float {.
     noSideEffect, importcpp: "ConvertSIValueToUserSystem",
     header: "Units_UnitsSystem.hxx".}
-proc ConvertUserSystemValueToSI*(this: Units_UnitsSystem;
-                                aquantity: Standard_CString; avalue: Standard_Real): Standard_Real {.
+proc convertUserSystemValueToSI*(this: UnitsUnitsSystem;
+                                aquantity: StandardCString; avalue: float): float {.
     noSideEffect, importcpp: "ConvertUserSystemValueToSI",
     header: "Units_UnitsSystem.hxx".}
-proc Dump*(this: Units_UnitsSystem) {.noSideEffect, importcpp: "Dump",
-                                   header: "Units_UnitsSystem.hxx".}
-proc IsEmpty*(this: Units_UnitsSystem): Standard_Boolean {.noSideEffect,
-    importcpp: "IsEmpty", header: "Units_UnitsSystem.hxx".}
+proc dump*(this: UnitsUnitsSystem) {.noSideEffect, importcpp: "Dump",
+                                  header: "Units_UnitsSystem.hxx".}
+proc isEmpty*(this: UnitsUnitsSystem): bool {.noSideEffect, importcpp: "IsEmpty",
+    header: "Units_UnitsSystem.hxx".}
 type
-  Units_UnitsSystembase_type* = Standard_Transient
+  UnitsUnitsSystembaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Units_UnitsSystem::get_type_name(@)",
-                              header: "Units_UnitsSystem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Units_UnitsSystem::get_type_name(@)",
+                            header: "Units_UnitsSystem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Units_UnitsSystem::get_type_descriptor(@)",
     header: "Units_UnitsSystem.hxx".}
-proc DynamicType*(this: Units_UnitsSystem): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: UnitsUnitsSystem): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Units_UnitsSystem.hxx".}

@@ -14,15 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESAppli_PinNumber"
 discard "forward decl of IGESAppli_PinNumber"
 type
-  Handle_IGESAppli_PinNumber* = handle[IGESAppli_PinNumber]
+  HandleIGESAppliPinNumber* = Handle[IGESAppliPinNumber]
 
 ## ! defines PinNumber, Type <406> Form <8>
 ## ! in package IGESAppli
@@ -31,26 +27,26 @@ type
 ## ! electrical component's pin
 
 type
-  IGESAppli_PinNumber* {.importcpp: "IGESAppli_PinNumber",
-                        header: "IGESAppli_PinNumber.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESAppliPinNumber* {.importcpp: "IGESAppli_PinNumber",
+                       header: "IGESAppli_PinNumber.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESAppli_PinNumber*(): IGESAppli_PinNumber {.constructor,
+proc constructIGESAppliPinNumber*(): IGESAppliPinNumber {.constructor,
     importcpp: "IGESAppli_PinNumber(@)", header: "IGESAppli_PinNumber.hxx".}
-proc Init*(this: var IGESAppli_PinNumber; nbPropVal: Standard_Integer;
-          aValue: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var IGESAppliPinNumber; nbPropVal: int;
+          aValue: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "IGESAppli_PinNumber.hxx".}
-proc NbPropertyValues*(this: IGESAppli_PinNumber): Standard_Integer {.noSideEffect,
+proc nbPropertyValues*(this: IGESAppliPinNumber): int {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESAppli_PinNumber.hxx".}
-proc PinNumberVal*(this: IGESAppli_PinNumber): handle[TCollection_HAsciiString] {.
+proc pinNumberVal*(this: IGESAppliPinNumber): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "PinNumberVal", header: "IGESAppli_PinNumber.hxx".}
 type
-  IGESAppli_PinNumberbase_type* = IGESData_IGESEntity
+  IGESAppliPinNumberbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESAppli_PinNumber::get_type_name(@)",
-                              header: "IGESAppli_PinNumber.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESAppli_PinNumber::get_type_name(@)",
+                            header: "IGESAppli_PinNumber.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESAppli_PinNumber::get_type_descriptor(@)",
     header: "IGESAppli_PinNumber.hxx".}
-proc DynamicType*(this: IGESAppli_PinNumber): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IGESAppliPinNumber): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESAppli_PinNumber.hxx".}

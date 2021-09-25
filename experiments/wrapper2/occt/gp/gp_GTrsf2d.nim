@@ -12,12 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, gp_Mat2d, gp_XY, gp_TrsfForm,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Trsf2d"
@@ -25,73 +19,64 @@ discard "forward decl of gp_Mat2d"
 discard "forward decl of gp_XY"
 discard "forward decl of gp_Ax2d"
 type
-  gp_GTrsf2d* {.importcpp: "gp_GTrsf2d", header: "gp_GTrsf2d.hxx", bycopy.} = object ## !
-                                                                             ## returns
-                                                                             ## identity
-                                                                             ## transformation.
-    gp_GTrsf2d* {.importc: "gp_GTrsf2d".}: Standard_NODISCARD
-    gp_GTrsf2d* {.importc: "gp_GTrsf2d".}: Standard_NODISCARD
-    gp_GTrsf2d* {.importc: "gp_GTrsf2d".}: Standard_NODISCARD
-    gp_GTrsf2d* {.importc: "gp_GTrsf2d".}: Standard_NODISCARD
-    gp_XY* {.importc: "gp_XY".}: Standard_NODISCARD
+  GTrsf2d* {.importcpp: "gp_GTrsf2d", header: "gp_GTrsf2d.hxx", bycopy.} = object ## !
+                                                                          ## returns
+                                                                          ## identity
+                                                                          ## transformation.
 
 
-proc constructgp_GTrsf2d*(): gp_GTrsf2d {.constructor, importcpp: "gp_GTrsf2d(@)",
-                                       header: "gp_GTrsf2d.hxx".}
-proc constructgp_GTrsf2d*(T: gp_Trsf2d): gp_GTrsf2d {.constructor,
+proc constructGTrsf2d*(): GTrsf2d {.constructor, importcpp: "gp_GTrsf2d(@)",
+                                 header: "gp_GTrsf2d.hxx".}
+proc constructGTrsf2d*(t: Trsf2d): GTrsf2d {.constructor, importcpp: "gp_GTrsf2d(@)",
+    header: "gp_GTrsf2d.hxx".}
+proc constructGTrsf2d*(m: Mat2d; v: Xy): GTrsf2d {.constructor,
     importcpp: "gp_GTrsf2d(@)", header: "gp_GTrsf2d.hxx".}
-proc constructgp_GTrsf2d*(M: gp_Mat2d; V: gp_XY): gp_GTrsf2d {.constructor,
-    importcpp: "gp_GTrsf2d(@)", header: "gp_GTrsf2d.hxx".}
-proc SetAffinity*(this: var gp_GTrsf2d; A: gp_Ax2d; Ratio: Standard_Real) {.
-    importcpp: "SetAffinity", header: "gp_GTrsf2d.hxx".}
-proc SetValue*(this: var gp_GTrsf2d; Row: Standard_Integer; Col: Standard_Integer;
-              Value: Standard_Real) {.importcpp: "SetValue",
-                                    header: "gp_GTrsf2d.hxx".}
-proc SetTranslationPart*(this: var gp_GTrsf2d; Coord: gp_XY) {.
+proc setAffinity*(this: var GTrsf2d; a: Ax2d; ratio: float) {.importcpp: "SetAffinity",
+    header: "gp_GTrsf2d.hxx".}
+proc setValue*(this: var GTrsf2d; row: int; col: int; value: float) {.
+    importcpp: "SetValue", header: "gp_GTrsf2d.hxx".}
+proc setTranslationPart*(this: var GTrsf2d; coord: Xy) {.
     importcpp: "SetTranslationPart", header: "gp_GTrsf2d.hxx".}
-proc SetTrsf2d*(this: var gp_GTrsf2d; T: gp_Trsf2d) {.importcpp: "SetTrsf2d",
+proc setTrsf2d*(this: var GTrsf2d; t: Trsf2d) {.importcpp: "SetTrsf2d",
     header: "gp_GTrsf2d.hxx".}
-proc SetVectorialPart*(this: var gp_GTrsf2d; Matrix: gp_Mat2d) {.
+proc setVectorialPart*(this: var GTrsf2d; matrix: Mat2d) {.
     importcpp: "SetVectorialPart", header: "gp_GTrsf2d.hxx".}
-proc IsNegative*(this: gp_GTrsf2d): Standard_Boolean {.noSideEffect,
-    importcpp: "IsNegative", header: "gp_GTrsf2d.hxx".}
-proc IsSingular*(this: gp_GTrsf2d): Standard_Boolean {.noSideEffect,
-    importcpp: "IsSingular", header: "gp_GTrsf2d.hxx".}
-proc Form*(this: gp_GTrsf2d): gp_TrsfForm {.noSideEffect, importcpp: "Form",
+proc isNegative*(this: GTrsf2d): bool {.noSideEffect, importcpp: "IsNegative",
+                                    header: "gp_GTrsf2d.hxx".}
+proc isSingular*(this: GTrsf2d): bool {.noSideEffect, importcpp: "IsSingular",
+                                    header: "gp_GTrsf2d.hxx".}
+proc form*(this: GTrsf2d): TrsfForm {.noSideEffect, importcpp: "Form",
+                                  header: "gp_GTrsf2d.hxx".}
+proc translationPart*(this: GTrsf2d): Xy {.noSideEffect,
+                                       importcpp: "TranslationPart",
+                                       header: "gp_GTrsf2d.hxx".}
+proc vectorialPart*(this: GTrsf2d): Mat2d {.noSideEffect, importcpp: "VectorialPart",
                                         header: "gp_GTrsf2d.hxx".}
-proc TranslationPart*(this: gp_GTrsf2d): gp_XY {.noSideEffect,
-    importcpp: "TranslationPart", header: "gp_GTrsf2d.hxx".}
-proc VectorialPart*(this: gp_GTrsf2d): gp_Mat2d {.noSideEffect,
-    importcpp: "VectorialPart", header: "gp_GTrsf2d.hxx".}
-proc Value*(this: gp_GTrsf2d; Row: Standard_Integer; Col: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "Value", header: "gp_GTrsf2d.hxx".}
-proc `()`*(this: gp_GTrsf2d; Row: Standard_Integer; Col: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "#(@)", header: "gp_GTrsf2d.hxx".}
-proc Invert*(this: var gp_GTrsf2d) {.importcpp: "Invert", header: "gp_GTrsf2d.hxx".}
-## !!!Ignored construct:  Inverted ( ) const ;
-## Error: identifier expected, but got: )!!!
-
-## !!!Ignored construct:  Multiplied ( const gp_GTrsf2d & T ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-## !!!Ignored construct:  operator * ( const gp_GTrsf2d & T ) const { return Multiplied ( T ) ; } void Multiply ( const gp_GTrsf2d & T ) ;
-## Error: identifier expected, but got: *!!!
-
-proc `*=`*(this: var gp_GTrsf2d; T: gp_GTrsf2d) {.importcpp: "(# *= #)",
+proc value*(this: GTrsf2d; row: int; col: int): float {.noSideEffect, importcpp: "Value",
     header: "gp_GTrsf2d.hxx".}
-proc PreMultiply*(this: var gp_GTrsf2d; T: gp_GTrsf2d) {.importcpp: "PreMultiply",
+proc `()`*(this: GTrsf2d; row: int; col: int): float {.noSideEffect, importcpp: "#(@)",
     header: "gp_GTrsf2d.hxx".}
-proc Power*(this: var gp_GTrsf2d; N: Standard_Integer) {.importcpp: "Power",
+proc invert*(this: var GTrsf2d) {.importcpp: "Invert", header: "gp_GTrsf2d.hxx".}
+proc inverted*(this: GTrsf2d): GTrsf2d {.noSideEffect, importcpp: "Inverted",
+                                     header: "gp_GTrsf2d.hxx".}
+proc multiplied*(this: GTrsf2d; t: GTrsf2d): GTrsf2d {.noSideEffect,
+    importcpp: "Multiplied", header: "gp_GTrsf2d.hxx".}
+proc `*`*(this: GTrsf2d; t: GTrsf2d): GTrsf2d {.noSideEffect, importcpp: "(# * #)",
     header: "gp_GTrsf2d.hxx".}
-## !!!Ignored construct:  Powered ( const Standard_Integer N ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Transforms*(this: gp_GTrsf2d; Coord: var gp_XY) {.noSideEffect,
+proc multiply*(this: var GTrsf2d; t: GTrsf2d) {.importcpp: "Multiply",
+    header: "gp_GTrsf2d.hxx".}
+proc `*=`*(this: var GTrsf2d; t: GTrsf2d) {.importcpp: "(# *= #)",
+                                      header: "gp_GTrsf2d.hxx".}
+proc preMultiply*(this: var GTrsf2d; t: GTrsf2d) {.importcpp: "PreMultiply",
+    header: "gp_GTrsf2d.hxx".}
+proc power*(this: var GTrsf2d; n: int) {.importcpp: "Power", header: "gp_GTrsf2d.hxx".}
+proc powered*(this: GTrsf2d; n: int): GTrsf2d {.noSideEffect, importcpp: "Powered",
+    header: "gp_GTrsf2d.hxx".}
+proc transforms*(this: GTrsf2d; coord: var Xy) {.noSideEffect, importcpp: "Transforms",
+    header: "gp_GTrsf2d.hxx".}
+proc transformed*(this: GTrsf2d; coord: Xy): Xy {.noSideEffect,
+    importcpp: "Transformed", header: "gp_GTrsf2d.hxx".}
+proc transforms*(this: GTrsf2d; x: var float; y: var float) {.noSideEffect,
     importcpp: "Transforms", header: "gp_GTrsf2d.hxx".}
-## !!!Ignored construct:  Transformed ( const gp_XY & Coord ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Transforms*(this: gp_GTrsf2d; X: var Standard_Real; Y: var Standard_Real) {.
-    noSideEffect, importcpp: "Transforms", header: "gp_GTrsf2d.hxx".}
-proc Trsf2d*(this: gp_GTrsf2d): gp_Trsf2d {.noSideEffect, importcpp: "Trsf2d",
-                                        header: "gp_GTrsf2d.hxx".}
+proc trsf2d*(this: GTrsf2d): Trsf2d {.noSideEffect, importcpp: "Trsf2d",
+                                  header: "gp_GTrsf2d.hxx".}

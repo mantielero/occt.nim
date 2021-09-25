@@ -14,15 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, TopOpeBRep_TypeLineCurve, TopOpeBRep_WPointInter,
-  TopOpeBRep_HArray1OfVPointInter, ../TopoDS/TopoDS_Face,
-  ../TopOpeBRepDS/TopOpeBRepDS_Transition, ../TopoDS/TopoDS_Shape,
-  ../Standard/Standard_Real, ../IntSurf/IntSurf_TypeTrans,
-  ../IntSurf/IntSurf_Situation, ../Standard/Standard_OStream
-
 discard "forward decl of IntPatch_Line"
 discard "forward decl of IntPatch_ALine"
 discard "forward decl of IntPatch_RLine"
@@ -38,108 +29,104 @@ discard "forward decl of TopOpeBRepDS_Transition"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of TopOpeBRep_Bipoint"
 type
-  TopOpeBRep_LineInter* {.importcpp: "TopOpeBRep_LineInter",
-                         header: "TopOpeBRep_LineInter.hxx", bycopy.} = object
+  TopOpeBRepLineInter* {.importcpp: "TopOpeBRep_LineInter",
+                        header: "TopOpeBRep_LineInter.hxx", bycopy.} = object
 
 
-proc constructTopOpeBRep_LineInter*(): TopOpeBRep_LineInter {.constructor,
+proc constructTopOpeBRepLineInter*(): TopOpeBRepLineInter {.constructor,
     importcpp: "TopOpeBRep_LineInter(@)", header: "TopOpeBRep_LineInter.hxx".}
-proc SetLine*(this: var TopOpeBRep_LineInter; L: handle[IntPatch_Line];
-             S1: BRepAdaptor_Surface; S2: BRepAdaptor_Surface) {.
-    importcpp: "SetLine", header: "TopOpeBRep_LineInter.hxx".}
-proc SetFaces*(this: var TopOpeBRep_LineInter; F1: TopoDS_Face; F2: TopoDS_Face) {.
+proc setLine*(this: var TopOpeBRepLineInter; L: Handle[IntPatchLine];
+             s1: BRepAdaptorSurface; s2: BRepAdaptorSurface) {.importcpp: "SetLine",
+    header: "TopOpeBRep_LineInter.hxx".}
+proc setFaces*(this: var TopOpeBRepLineInter; f1: TopoDS_Face; f2: TopoDS_Face) {.
     importcpp: "SetFaces", header: "TopOpeBRep_LineInter.hxx".}
-proc TypeLineCurve*(this: TopOpeBRep_LineInter): TopOpeBRep_TypeLineCurve {.
+proc typeLineCurve*(this: TopOpeBRepLineInter): TopOpeBRepTypeLineCurve {.
     noSideEffect, importcpp: "TypeLineCurve", header: "TopOpeBRep_LineInter.hxx".}
-proc NbVPoint*(this: TopOpeBRep_LineInter): Standard_Integer {.noSideEffect,
-    importcpp: "NbVPoint", header: "TopOpeBRep_LineInter.hxx".}
-proc VPoint*(this: TopOpeBRep_LineInter; I: Standard_Integer): TopOpeBRep_VPointInter {.
-    noSideEffect, importcpp: "VPoint", header: "TopOpeBRep_LineInter.hxx".}
-proc ChangeVPoint*(this: var TopOpeBRep_LineInter; I: Standard_Integer): var TopOpeBRep_VPointInter {.
+proc nbVPoint*(this: TopOpeBRepLineInter): int {.noSideEffect, importcpp: "NbVPoint",
+    header: "TopOpeBRep_LineInter.hxx".}
+proc vPoint*(this: TopOpeBRepLineInter; i: int): TopOpeBRepVPointInter {.noSideEffect,
+    importcpp: "VPoint", header: "TopOpeBRep_LineInter.hxx".}
+proc changeVPoint*(this: var TopOpeBRepLineInter; i: int): var TopOpeBRepVPointInter {.
     importcpp: "ChangeVPoint", header: "TopOpeBRep_LineInter.hxx".}
-proc SetINL*(this: var TopOpeBRep_LineInter) {.importcpp: "SetINL",
+proc setINL*(this: var TopOpeBRepLineInter) {.importcpp: "SetINL",
     header: "TopOpeBRep_LineInter.hxx".}
-proc INL*(this: TopOpeBRep_LineInter): Standard_Boolean {.noSideEffect,
-    importcpp: "INL", header: "TopOpeBRep_LineInter.hxx".}
-proc SetIsVClosed*(this: var TopOpeBRep_LineInter) {.importcpp: "SetIsVClosed",
+proc inl*(this: TopOpeBRepLineInter): bool {.noSideEffect, importcpp: "INL",
     header: "TopOpeBRep_LineInter.hxx".}
-proc IsVClosed*(this: TopOpeBRep_LineInter): Standard_Boolean {.noSideEffect,
+proc setIsVClosed*(this: var TopOpeBRepLineInter) {.importcpp: "SetIsVClosed",
+    header: "TopOpeBRep_LineInter.hxx".}
+proc isVClosed*(this: TopOpeBRepLineInter): bool {.noSideEffect,
     importcpp: "IsVClosed", header: "TopOpeBRep_LineInter.hxx".}
-proc SetOK*(this: var TopOpeBRep_LineInter; B: Standard_Boolean) {.importcpp: "SetOK",
+proc setOK*(this: var TopOpeBRepLineInter; b: bool) {.importcpp: "SetOK",
     header: "TopOpeBRep_LineInter.hxx".}
-proc OK*(this: TopOpeBRep_LineInter): Standard_Boolean {.noSideEffect,
-    importcpp: "OK", header: "TopOpeBRep_LineInter.hxx".}
-proc SetHasVPonR*(this: var TopOpeBRep_LineInter) {.importcpp: "SetHasVPonR",
+proc ok*(this: TopOpeBRepLineInter): bool {.noSideEffect, importcpp: "OK",
+                                        header: "TopOpeBRep_LineInter.hxx".}
+proc setHasVPonR*(this: var TopOpeBRepLineInter) {.importcpp: "SetHasVPonR",
     header: "TopOpeBRep_LineInter.hxx".}
-proc HasVPonR*(this: TopOpeBRep_LineInter): Standard_Boolean {.noSideEffect,
+proc hasVPonR*(this: TopOpeBRepLineInter): bool {.noSideEffect,
     importcpp: "HasVPonR", header: "TopOpeBRep_LineInter.hxx".}
-proc SetVPBounds*(this: var TopOpeBRep_LineInter) {.importcpp: "SetVPBounds",
+proc setVPBounds*(this: var TopOpeBRepLineInter) {.importcpp: "SetVPBounds",
     header: "TopOpeBRep_LineInter.hxx".}
-proc VPBounds*(this: TopOpeBRep_LineInter; f: var Standard_Integer;
-              l: var Standard_Integer; n: var Standard_Integer) {.noSideEffect,
-    importcpp: "VPBounds", header: "TopOpeBRep_LineInter.hxx".}
-proc IsPeriodic*(this: TopOpeBRep_LineInter): Standard_Boolean {.noSideEffect,
+proc vPBounds*(this: TopOpeBRepLineInter; f: var int; l: var int; n: var int) {.
+    noSideEffect, importcpp: "VPBounds", header: "TopOpeBRep_LineInter.hxx".}
+proc isPeriodic*(this: TopOpeBRepLineInter): bool {.noSideEffect,
     importcpp: "IsPeriodic", header: "TopOpeBRep_LineInter.hxx".}
-proc Period*(this: TopOpeBRep_LineInter): Standard_Real {.noSideEffect,
-    importcpp: "Period", header: "TopOpeBRep_LineInter.hxx".}
-proc Bounds*(this: TopOpeBRep_LineInter; f: var Standard_Real; l: var Standard_Real) {.
-    noSideEffect, importcpp: "Bounds", header: "TopOpeBRep_LineInter.hxx".}
-proc HasVInternal*(this: var TopOpeBRep_LineInter): Standard_Boolean {.
-    importcpp: "HasVInternal", header: "TopOpeBRep_LineInter.hxx".}
-proc NbWPoint*(this: TopOpeBRep_LineInter): Standard_Integer {.noSideEffect,
-    importcpp: "NbWPoint", header: "TopOpeBRep_LineInter.hxx".}
-proc WPoint*(this: var TopOpeBRep_LineInter; I: Standard_Integer): TopOpeBRep_WPointInter {.
-    importcpp: "WPoint", header: "TopOpeBRep_LineInter.hxx".}
-proc TransitionOnS1*(this: TopOpeBRep_LineInter): IntSurf_TypeTrans {.noSideEffect,
-    importcpp: "TransitionOnS1", header: "TopOpeBRep_LineInter.hxx".}
-proc TransitionOnS2*(this: TopOpeBRep_LineInter): IntSurf_TypeTrans {.noSideEffect,
-    importcpp: "TransitionOnS2", header: "TopOpeBRep_LineInter.hxx".}
-proc SituationS1*(this: TopOpeBRep_LineInter): IntSurf_Situation {.noSideEffect,
-    importcpp: "SituationS1", header: "TopOpeBRep_LineInter.hxx".}
-proc SituationS2*(this: TopOpeBRep_LineInter): IntSurf_Situation {.noSideEffect,
-    importcpp: "SituationS2", header: "TopOpeBRep_LineInter.hxx".}
-proc Curve*(this: TopOpeBRep_LineInter): handle[Geom_Curve] {.noSideEffect,
-    importcpp: "Curve", header: "TopOpeBRep_LineInter.hxx".}
-proc Curve*(this: TopOpeBRep_LineInter; parmin: Standard_Real; parmax: Standard_Real): handle[
-    Geom_Curve] {.noSideEffect, importcpp: "Curve",
-                 header: "TopOpeBRep_LineInter.hxx".}
-proc Arc*(this: TopOpeBRep_LineInter): TopoDS_Shape {.noSideEffect, importcpp: "Arc",
+proc period*(this: TopOpeBRepLineInter): float {.noSideEffect, importcpp: "Period",
     header: "TopOpeBRep_LineInter.hxx".}
-proc ArcIsEdge*(this: TopOpeBRep_LineInter; I: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "ArcIsEdge", header: "TopOpeBRep_LineInter.hxx".}
-proc LineW*(this: TopOpeBRep_LineInter): handle[IntPatch_WLine] {.noSideEffect,
+proc bounds*(this: TopOpeBRepLineInter; f: var float; l: var float) {.noSideEffect,
+    importcpp: "Bounds", header: "TopOpeBRep_LineInter.hxx".}
+proc hasVInternal*(this: var TopOpeBRepLineInter): bool {.importcpp: "HasVInternal",
+    header: "TopOpeBRep_LineInter.hxx".}
+proc nbWPoint*(this: TopOpeBRepLineInter): int {.noSideEffect, importcpp: "NbWPoint",
+    header: "TopOpeBRep_LineInter.hxx".}
+proc wPoint*(this: var TopOpeBRepLineInter; i: int): TopOpeBRepWPointInter {.
+    importcpp: "WPoint", header: "TopOpeBRep_LineInter.hxx".}
+proc transitionOnS1*(this: TopOpeBRepLineInter): IntSurfTypeTrans {.noSideEffect,
+    importcpp: "TransitionOnS1", header: "TopOpeBRep_LineInter.hxx".}
+proc transitionOnS2*(this: TopOpeBRepLineInter): IntSurfTypeTrans {.noSideEffect,
+    importcpp: "TransitionOnS2", header: "TopOpeBRep_LineInter.hxx".}
+proc situationS1*(this: TopOpeBRepLineInter): IntSurfSituation {.noSideEffect,
+    importcpp: "SituationS1", header: "TopOpeBRep_LineInter.hxx".}
+proc situationS2*(this: TopOpeBRepLineInter): IntSurfSituation {.noSideEffect,
+    importcpp: "SituationS2", header: "TopOpeBRep_LineInter.hxx".}
+proc curve*(this: TopOpeBRepLineInter): Handle[GeomCurve] {.noSideEffect,
+    importcpp: "Curve", header: "TopOpeBRep_LineInter.hxx".}
+proc curve*(this: TopOpeBRepLineInter; parmin: float; parmax: float): Handle[GeomCurve] {.
+    noSideEffect, importcpp: "Curve", header: "TopOpeBRep_LineInter.hxx".}
+proc arc*(this: TopOpeBRepLineInter): TopoDS_Shape {.noSideEffect, importcpp: "Arc",
+    header: "TopOpeBRep_LineInter.hxx".}
+proc arcIsEdge*(this: TopOpeBRepLineInter; i: int): bool {.noSideEffect,
+    importcpp: "ArcIsEdge", header: "TopOpeBRep_LineInter.hxx".}
+proc lineW*(this: TopOpeBRepLineInter): Handle[IntPatchWLine] {.noSideEffect,
     importcpp: "LineW", header: "TopOpeBRep_LineInter.hxx".}
-proc LineG*(this: TopOpeBRep_LineInter): handle[IntPatch_GLine] {.noSideEffect,
+proc lineG*(this: TopOpeBRepLineInter): Handle[IntPatchGLine] {.noSideEffect,
     importcpp: "LineG", header: "TopOpeBRep_LineInter.hxx".}
-proc LineR*(this: TopOpeBRep_LineInter): handle[IntPatch_RLine] {.noSideEffect,
+proc lineR*(this: TopOpeBRepLineInter): Handle[IntPatchRLine] {.noSideEffect,
     importcpp: "LineR", header: "TopOpeBRep_LineInter.hxx".}
-proc HasFirstPoint*(this: TopOpeBRep_LineInter): Standard_Boolean {.noSideEffect,
+proc hasFirstPoint*(this: TopOpeBRepLineInter): bool {.noSideEffect,
     importcpp: "HasFirstPoint", header: "TopOpeBRep_LineInter.hxx".}
-proc HasLastPoint*(this: TopOpeBRep_LineInter): Standard_Boolean {.noSideEffect,
+proc hasLastPoint*(this: TopOpeBRepLineInter): bool {.noSideEffect,
     importcpp: "HasLastPoint", header: "TopOpeBRep_LineInter.hxx".}
-proc ComputeFaceFaceTransition*(this: var TopOpeBRep_LineInter) {.
+proc computeFaceFaceTransition*(this: var TopOpeBRepLineInter) {.
     importcpp: "ComputeFaceFaceTransition", header: "TopOpeBRep_LineInter.hxx".}
-proc FaceFaceTransition*(this: TopOpeBRep_LineInter; I: Standard_Integer): TopOpeBRepDS_Transition {.
+proc faceFaceTransition*(this: TopOpeBRepLineInter; i: int): TopOpeBRepDS_Transition {.
     noSideEffect, importcpp: "FaceFaceTransition",
     header: "TopOpeBRep_LineInter.hxx".}
-proc Index*(this: var TopOpeBRep_LineInter; I: Standard_Integer) {.importcpp: "Index",
+proc index*(this: var TopOpeBRepLineInter; i: int) {.importcpp: "Index",
     header: "TopOpeBRep_LineInter.hxx".}
-proc Index*(this: TopOpeBRep_LineInter): Standard_Integer {.noSideEffect,
-    importcpp: "Index", header: "TopOpeBRep_LineInter.hxx".}
-proc DumpType*(this: TopOpeBRep_LineInter) {.noSideEffect, importcpp: "DumpType",
+proc index*(this: TopOpeBRepLineInter): int {.noSideEffect, importcpp: "Index",
     header: "TopOpeBRep_LineInter.hxx".}
-proc DumpVPoint*(this: TopOpeBRep_LineInter; I: Standard_Integer;
-                s1: TCollection_AsciiString; s2: TCollection_AsciiString) {.
-    noSideEffect, importcpp: "DumpVPoint", header: "TopOpeBRep_LineInter.hxx".}
-proc DumpBipoint*(this: TopOpeBRep_LineInter; B: TopOpeBRep_Bipoint;
-                 s1: TCollection_AsciiString; s2: TCollection_AsciiString) {.
+proc dumpType*(this: TopOpeBRepLineInter) {.noSideEffect, importcpp: "DumpType",
+    header: "TopOpeBRep_LineInter.hxx".}
+proc dumpVPoint*(this: TopOpeBRepLineInter; i: int; s1: TCollectionAsciiString;
+                s2: TCollectionAsciiString) {.noSideEffect,
+    importcpp: "DumpVPoint", header: "TopOpeBRep_LineInter.hxx".}
+proc dumpBipoint*(this: TopOpeBRepLineInter; b: TopOpeBRepBipoint;
+                 s1: TCollectionAsciiString; s2: TCollectionAsciiString) {.
     noSideEffect, importcpp: "DumpBipoint", header: "TopOpeBRep_LineInter.hxx".}
-proc SetTraceIndex*(this: var TopOpeBRep_LineInter; exF1: Standard_Integer;
-                   exF2: Standard_Integer) {.importcpp: "SetTraceIndex",
-    header: "TopOpeBRep_LineInter.hxx".}
-proc GetTraceIndex*(this: TopOpeBRep_LineInter; exF1: var Standard_Integer;
-                   exF2: var Standard_Integer) {.noSideEffect,
-    importcpp: "GetTraceIndex", header: "TopOpeBRep_LineInter.hxx".}
-proc DumpLineTransitions*(this: TopOpeBRep_LineInter; OS: var Standard_OStream): var Standard_OStream {.
+proc setTraceIndex*(this: var TopOpeBRepLineInter; exF1: int; exF2: int) {.
+    importcpp: "SetTraceIndex", header: "TopOpeBRep_LineInter.hxx".}
+proc getTraceIndex*(this: TopOpeBRepLineInter; exF1: var int; exF2: var int) {.
+    noSideEffect, importcpp: "GetTraceIndex", header: "TopOpeBRep_LineInter.hxx".}
+proc dumpLineTransitions*(this: TopOpeBRepLineInter; os: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "DumpLineTransitions",
     header: "TopOpeBRep_LineInter.hxx".}

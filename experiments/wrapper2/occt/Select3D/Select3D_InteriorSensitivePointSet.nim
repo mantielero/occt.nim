@@ -13,15 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Vector, ../TColgp/TColgp_HArray1OfPnt,
-  ../TColStd/TColStd_HArray1OfInteger, Select3D_SensitivePoly,
-  Select3D_SensitiveSet
-
 discard "forward decl of gp_Pnt"
 discard "forward decl of SelectMgr_EntityOwner"
 type
-  Select3D_VectorOfHPoly* = NCollection_Vector[handle[Select3D_SensitivePoly]]
+  Select3D_VectorOfHPoly* = NCollectionVector[Handle[Select3D_SensitivePoly]]
 
 ## ! This class handles the selection of arbitrary point set with internal type of sensitivity.
 ## ! The main principle is to split the point set given onto planar convex polygons and search
@@ -60,47 +55,45 @@ type
 
 
 proc constructSelect3D_InteriorSensitivePointSet*(
-    theOwnerId: handle[SelectMgr_EntityOwner]; thePoints: TColgp_Array1OfPnt): Select3D_InteriorSensitivePointSet {.
+    theOwnerId: Handle[SelectMgrEntityOwner]; thePoints: TColgpArray1OfPnt): Select3D_InteriorSensitivePointSet {.
     constructor, importcpp: "Select3D_InteriorSensitivePointSet(@)",
     header: "Select3D_InteriorSensitivePointSet.hxx".}
-proc GetPoints*(this: var Select3D_InteriorSensitivePointSet;
-               theHArrayOfPnt: var handle[TColgp_HArray1OfPnt]) {.
+proc getPoints*(this: var Select3D_InteriorSensitivePointSet;
+               theHArrayOfPnt: var Handle[TColgpHArray1OfPnt]) {.
     importcpp: "GetPoints", header: "Select3D_InteriorSensitivePointSet.hxx".}
-proc Size*(this: Select3D_InteriorSensitivePointSet): Standard_Integer {.
-    noSideEffect, importcpp: "Size",
-    header: "Select3D_InteriorSensitivePointSet.hxx".}
-proc Box*(this: Select3D_InteriorSensitivePointSet; theIdx: Standard_Integer): Select3D_BndBox3d {.
+proc size*(this: Select3D_InteriorSensitivePointSet): int {.noSideEffect,
+    importcpp: "Size", header: "Select3D_InteriorSensitivePointSet.hxx".}
+proc box*(this: Select3D_InteriorSensitivePointSet; theIdx: int): Select3D_BndBox3d {.
     noSideEffect, importcpp: "Box",
     header: "Select3D_InteriorSensitivePointSet.hxx".}
-proc Center*(this: Select3D_InteriorSensitivePointSet; theIdx: Standard_Integer;
-            theAxis: Standard_Integer): Standard_Real {.noSideEffect,
-    importcpp: "Center", header: "Select3D_InteriorSensitivePointSet.hxx".}
-proc Swap*(this: var Select3D_InteriorSensitivePointSet; theIdx1: Standard_Integer;
-          theIdx2: Standard_Integer) {.importcpp: "Swap", header: "Select3D_InteriorSensitivePointSet.hxx".}
-proc BoundingBox*(this: var Select3D_InteriorSensitivePointSet): Select3D_BndBox3d {.
+proc center*(this: Select3D_InteriorSensitivePointSet; theIdx: int; theAxis: int): float {.
+    noSideEffect, importcpp: "Center",
+    header: "Select3D_InteriorSensitivePointSet.hxx".}
+proc swap*(this: var Select3D_InteriorSensitivePointSet; theIdx1: int; theIdx2: int) {.
+    importcpp: "Swap", header: "Select3D_InteriorSensitivePointSet.hxx".}
+proc boundingBox*(this: var Select3D_InteriorSensitivePointSet): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "Select3D_InteriorSensitivePointSet.hxx".}
-proc CenterOfGeometry*(this: Select3D_InteriorSensitivePointSet): gp_Pnt {.
+proc centerOfGeometry*(this: Select3D_InteriorSensitivePointSet): Pnt {.
     noSideEffect, importcpp: "CenterOfGeometry",
     header: "Select3D_InteriorSensitivePointSet.hxx".}
-proc NbSubElements*(this: Select3D_InteriorSensitivePointSet): Standard_Integer {.
-    noSideEffect, importcpp: "NbSubElements",
-    header: "Select3D_InteriorSensitivePointSet.hxx".}
-proc DumpJson*(this: Select3D_InteriorSensitivePointSet;
-              theOStream: var Standard_OStream; theDepth: Standard_Integer = -1) {.
-    noSideEffect, importcpp: "DumpJson",
-    header: "Select3D_InteriorSensitivePointSet.hxx".}
+proc nbSubElements*(this: Select3D_InteriorSensitivePointSet): int {.noSideEffect,
+    importcpp: "NbSubElements", header: "Select3D_InteriorSensitivePointSet.hxx".}
+proc dumpJson*(this: Select3D_InteriorSensitivePointSet;
+              theOStream: var StandardOStream; theDepth: int = -1) {.noSideEffect,
+    importcpp: "DumpJson", header: "Select3D_InteriorSensitivePointSet.hxx".}
 type
-  Select3D_InteriorSensitivePointSetbase_type* = Select3D_SensitiveSet
+  Select3D_InteriorSensitivePointSetbaseType* = Select3D_SensitiveSet
 
-proc get_type_name*(): cstring {.importcpp: "Select3D_InteriorSensitivePointSet::get_type_name(@)",
-                              header: "Select3D_InteriorSensitivePointSet.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Select3D_InteriorSensitivePointSet::get_type_name(@)",
+                            header: "Select3D_InteriorSensitivePointSet.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Select3D_InteriorSensitivePointSet::get_type_descriptor(@)",
     header: "Select3D_InteriorSensitivePointSet.hxx".}
-proc DynamicType*(this: Select3D_InteriorSensitivePointSet): handle[Standard_Type] {.
+proc dynamicType*(this: Select3D_InteriorSensitivePointSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Select3D_InteriorSensitivePointSet.hxx".}
 discard "forward decl of Select3D_InteriorSensitivePointSet"
 type
-  Handle_Select3D_InteriorSensitivePointSet* = handle[
+  HandleSelect3D_InteriorSensitivePointSet* = Handle[
       Select3D_InteriorSensitivePointSet]
+

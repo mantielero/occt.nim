@@ -13,17 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_ConnectedFaceShapeRepresentation"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShape_RWConnectedFaceShapeRepresentation* {.
+  RWStepShapeRWConnectedFaceShapeRepresentation* {.
       importcpp: "RWStepShape_RWConnectedFaceShapeRepresentation",
       header: "RWStepShape_RWConnectedFaceShapeRepresentation.hxx", bycopy.} = object ##
                                                                                  ## !
@@ -31,21 +27,21 @@ type
                                                                                  ## constructor
 
 
-proc constructRWStepShape_RWConnectedFaceShapeRepresentation*(): RWStepShape_RWConnectedFaceShapeRepresentation {.
+proc constructRWStepShapeRWConnectedFaceShapeRepresentation*(): RWStepShapeRWConnectedFaceShapeRepresentation {.
     constructor, importcpp: "RWStepShape_RWConnectedFaceShapeRepresentation(@)",
     header: "RWStepShape_RWConnectedFaceShapeRepresentation.hxx".}
-proc ReadStep*(this: RWStepShape_RWConnectedFaceShapeRepresentation;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepShape_ConnectedFaceShapeRepresentation]) {.
+proc readStep*(this: RWStepShapeRWConnectedFaceShapeRepresentation;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepShapeConnectedFaceShapeRepresentation]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepShape_RWConnectedFaceShapeRepresentation.hxx".}
-proc WriteStep*(this: RWStepShape_RWConnectedFaceShapeRepresentation;
-               SW: var StepData_StepWriter;
-               ent: handle[StepShape_ConnectedFaceShapeRepresentation]) {.
+proc writeStep*(this: RWStepShapeRWConnectedFaceShapeRepresentation;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepShapeConnectedFaceShapeRepresentation]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepShape_RWConnectedFaceShapeRepresentation.hxx".}
-proc Share*(this: RWStepShape_RWConnectedFaceShapeRepresentation;
-           ent: handle[StepShape_ConnectedFaceShapeRepresentation];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepShapeRWConnectedFaceShapeRepresentation;
+           ent: Handle[StepShapeConnectedFaceShapeRepresentation];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWConnectedFaceShapeRepresentation.hxx".}

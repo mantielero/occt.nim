@@ -14,33 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, ../gp/gp_Pnt
-
 discard "forward decl of Geom_BSplineCurve"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 type
-  GeomLib_CheckBSplineCurve* {.importcpp: "GeomLib_CheckBSplineCurve",
-                              header: "GeomLib_CheckBSplineCurve.hxx", bycopy.} = object
+  GeomLibCheckBSplineCurve* {.importcpp: "GeomLib_CheckBSplineCurve",
+                             header: "GeomLib_CheckBSplineCurve.hxx", bycopy.} = object
 
 
-proc constructGeomLib_CheckBSplineCurve*(Curve: handle[Geom_BSplineCurve];
-                                        Tolerance: Standard_Real;
-                                        AngularTolerance: Standard_Real): GeomLib_CheckBSplineCurve {.
+proc constructGeomLibCheckBSplineCurve*(curve: Handle[GeomBSplineCurve];
+                                       tolerance: float; angularTolerance: float): GeomLibCheckBSplineCurve {.
     constructor, importcpp: "GeomLib_CheckBSplineCurve(@)",
     header: "GeomLib_CheckBSplineCurve.hxx".}
-proc IsDone*(this: GeomLib_CheckBSplineCurve): Standard_Boolean {.noSideEffect,
+proc isDone*(this: GeomLibCheckBSplineCurve): bool {.noSideEffect,
     importcpp: "IsDone", header: "GeomLib_CheckBSplineCurve.hxx".}
-proc NeedTangentFix*(this: GeomLib_CheckBSplineCurve;
-                    FirstFlag: var Standard_Boolean;
-                    SecondFlag: var Standard_Boolean) {.noSideEffect,
+proc needTangentFix*(this: GeomLibCheckBSplineCurve; firstFlag: var bool;
+                    secondFlag: var bool) {.noSideEffect,
     importcpp: "NeedTangentFix", header: "GeomLib_CheckBSplineCurve.hxx".}
-proc FixTangent*(this: var GeomLib_CheckBSplineCurve; FirstFlag: Standard_Boolean;
-                LastFlag: Standard_Boolean) {.importcpp: "FixTangent",
-    header: "GeomLib_CheckBSplineCurve.hxx".}
-proc FixedTangent*(this: var GeomLib_CheckBSplineCurve; FirstFlag: Standard_Boolean;
-                  LastFlag: Standard_Boolean): handle[Geom_BSplineCurve] {.
-    importcpp: "FixedTangent", header: "GeomLib_CheckBSplineCurve.hxx".}
+proc fixTangent*(this: var GeomLibCheckBSplineCurve; firstFlag: bool; lastFlag: bool) {.
+    importcpp: "FixTangent", header: "GeomLib_CheckBSplineCurve.hxx".}
+proc fixedTangent*(this: var GeomLibCheckBSplineCurve; firstFlag: bool; lastFlag: bool): Handle[
+    GeomBSplineCurve] {.importcpp: "FixedTangent",
+                       header: "GeomLib_CheckBSplineCurve.hxx".}

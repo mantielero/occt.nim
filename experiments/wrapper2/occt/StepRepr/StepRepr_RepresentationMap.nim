@@ -14,50 +14,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepRepr_RepresentationItem"
 discard "forward decl of StepRepr_Representation"
 discard "forward decl of StepRepr_RepresentationMap"
 discard "forward decl of StepRepr_RepresentationMap"
 type
-  Handle_StepRepr_RepresentationMap* = handle[StepRepr_RepresentationMap]
-  StepRepr_RepresentationMap* {.importcpp: "StepRepr_RepresentationMap",
-                               header: "StepRepr_RepresentationMap.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## a
-                                                                                                          ## RepresentationMap
+  HandleStepReprRepresentationMap* = Handle[StepReprRepresentationMap]
+  StepReprRepresentationMap* {.importcpp: "StepRepr_RepresentationMap",
+                              header: "StepRepr_RepresentationMap.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                        ## !
+                                                                                                        ## Returns
+                                                                                                        ## a
+                                                                                                        ## RepresentationMap
 
 
-proc constructStepRepr_RepresentationMap*(): StepRepr_RepresentationMap {.
+proc constructStepReprRepresentationMap*(): StepReprRepresentationMap {.
     constructor, importcpp: "StepRepr_RepresentationMap(@)",
     header: "StepRepr_RepresentationMap.hxx".}
-proc Init*(this: var StepRepr_RepresentationMap;
-          aMappingOrigin: handle[StepRepr_RepresentationItem];
-          aMappedRepresentation: handle[StepRepr_Representation]) {.
+proc init*(this: var StepReprRepresentationMap;
+          aMappingOrigin: Handle[StepReprRepresentationItem];
+          aMappedRepresentation: Handle[StepReprRepresentation]) {.
     importcpp: "Init", header: "StepRepr_RepresentationMap.hxx".}
-proc SetMappingOrigin*(this: var StepRepr_RepresentationMap;
-                      aMappingOrigin: handle[StepRepr_RepresentationItem]) {.
+proc setMappingOrigin*(this: var StepReprRepresentationMap;
+                      aMappingOrigin: Handle[StepReprRepresentationItem]) {.
     importcpp: "SetMappingOrigin", header: "StepRepr_RepresentationMap.hxx".}
-proc MappingOrigin*(this: StepRepr_RepresentationMap): handle[
-    StepRepr_RepresentationItem] {.noSideEffect, importcpp: "MappingOrigin",
-                                  header: "StepRepr_RepresentationMap.hxx".}
-proc SetMappedRepresentation*(this: var StepRepr_RepresentationMap;
-    aMappedRepresentation: handle[StepRepr_Representation]) {.
+proc mappingOrigin*(this: StepReprRepresentationMap): Handle[
+    StepReprRepresentationItem] {.noSideEffect, importcpp: "MappingOrigin",
+                                 header: "StepRepr_RepresentationMap.hxx".}
+proc setMappedRepresentation*(this: var StepReprRepresentationMap;
+    aMappedRepresentation: Handle[StepReprRepresentation]) {.
     importcpp: "SetMappedRepresentation", header: "StepRepr_RepresentationMap.hxx".}
-proc MappedRepresentation*(this: StepRepr_RepresentationMap): handle[
-    StepRepr_Representation] {.noSideEffect, importcpp: "MappedRepresentation",
-                              header: "StepRepr_RepresentationMap.hxx".}
+proc mappedRepresentation*(this: StepReprRepresentationMap): Handle[
+    StepReprRepresentation] {.noSideEffect, importcpp: "MappedRepresentation",
+                             header: "StepRepr_RepresentationMap.hxx".}
 type
-  StepRepr_RepresentationMapbase_type* = Standard_Transient
+  StepReprRepresentationMapbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_RepresentationMap::get_type_name(@)",
-                              header: "StepRepr_RepresentationMap.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_RepresentationMap::get_type_name(@)",
+                            header: "StepRepr_RepresentationMap.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_RepresentationMap::get_type_descriptor(@)",
     header: "StepRepr_RepresentationMap.hxx".}
-proc DynamicType*(this: StepRepr_RepresentationMap): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprRepresentationMap): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_RepresentationMap.hxx".}

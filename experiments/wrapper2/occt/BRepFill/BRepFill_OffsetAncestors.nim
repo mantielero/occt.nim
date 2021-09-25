@@ -14,31 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../TopTools/TopTools_DataMapOfShapeShape
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of BRepFill_OffsetWire"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Shape"
 type
-  BRepFill_OffsetAncestors* {.importcpp: "BRepFill_OffsetAncestors",
-                             header: "BRepFill_OffsetAncestors.hxx", bycopy.} = object
+  BRepFillOffsetAncestors* {.importcpp: "BRepFill_OffsetAncestors",
+                            header: "BRepFill_OffsetAncestors.hxx", bycopy.} = object
 
 
-proc constructBRepFill_OffsetAncestors*(): BRepFill_OffsetAncestors {.constructor,
+proc constructBRepFillOffsetAncestors*(): BRepFillOffsetAncestors {.constructor,
     importcpp: "BRepFill_OffsetAncestors(@)",
     header: "BRepFill_OffsetAncestors.hxx".}
-proc constructBRepFill_OffsetAncestors*(Paral: var BRepFill_OffsetWire): BRepFill_OffsetAncestors {.
+proc constructBRepFillOffsetAncestors*(paral: var BRepFillOffsetWire): BRepFillOffsetAncestors {.
     constructor, importcpp: "BRepFill_OffsetAncestors(@)",
     header: "BRepFill_OffsetAncestors.hxx".}
-proc Perform*(this: var BRepFill_OffsetAncestors; Paral: var BRepFill_OffsetWire) {.
+proc perform*(this: var BRepFillOffsetAncestors; paral: var BRepFillOffsetWire) {.
     importcpp: "Perform", header: "BRepFill_OffsetAncestors.hxx".}
-proc IsDone*(this: BRepFill_OffsetAncestors): Standard_Boolean {.noSideEffect,
+proc isDone*(this: BRepFillOffsetAncestors): bool {.noSideEffect,
     importcpp: "IsDone", header: "BRepFill_OffsetAncestors.hxx".}
-proc HasAncestor*(this: BRepFill_OffsetAncestors; S1: TopoDS_Edge): Standard_Boolean {.
+proc hasAncestor*(this: BRepFillOffsetAncestors; s1: TopoDS_Edge): bool {.
     noSideEffect, importcpp: "HasAncestor", header: "BRepFill_OffsetAncestors.hxx".}
-proc Ancestor*(this: BRepFill_OffsetAncestors; S1: TopoDS_Edge): TopoDS_Shape {.
+proc ancestor*(this: BRepFillOffsetAncestors; s1: TopoDS_Edge): TopoDS_Shape {.
     noSideEffect, importcpp: "Ancestor", header: "BRepFill_OffsetAncestors.hxx".}

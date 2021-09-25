@@ -14,29 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../TColStd/TColStd_IndexedDataMapOfTransientTransient,
-  ../TopTools/TopTools_DataMapOfShapeShape
-
 discard "forward decl of TopoDS_Shape"
 type
-  TNaming_Translator* {.importcpp: "TNaming_Translator",
-                       header: "TNaming_Translator.hxx", bycopy.} = object
+  TNamingTranslator* {.importcpp: "TNaming_Translator",
+                      header: "TNaming_Translator.hxx", bycopy.} = object
 
 
-proc constructTNaming_Translator*(): TNaming_Translator {.constructor,
+proc constructTNamingTranslator*(): TNamingTranslator {.constructor,
     importcpp: "TNaming_Translator(@)", header: "TNaming_Translator.hxx".}
-proc Add*(this: var TNaming_Translator; aShape: TopoDS_Shape) {.importcpp: "Add",
+proc add*(this: var TNamingTranslator; aShape: TopoDS_Shape) {.importcpp: "Add",
     header: "TNaming_Translator.hxx".}
-proc Perform*(this: var TNaming_Translator) {.importcpp: "Perform",
+proc perform*(this: var TNamingTranslator) {.importcpp: "Perform",
     header: "TNaming_Translator.hxx".}
-proc IsDone*(this: TNaming_Translator): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "TNaming_Translator.hxx".}
-proc Copied*(this: TNaming_Translator; aShape: TopoDS_Shape): TopoDS_Shape {.
+proc isDone*(this: TNamingTranslator): bool {.noSideEffect, importcpp: "IsDone",
+    header: "TNaming_Translator.hxx".}
+proc copied*(this: TNamingTranslator; aShape: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "Copied", header: "TNaming_Translator.hxx".}
-proc Copied*(this: TNaming_Translator): TopTools_DataMapOfShapeShape {.noSideEffect,
+proc copied*(this: TNamingTranslator): TopToolsDataMapOfShapeShape {.noSideEffect,
     importcpp: "Copied", header: "TNaming_Translator.hxx".}
-proc DumpMap*(this: TNaming_Translator; isWrite: Standard_Boolean = Standard_False) {.
-    noSideEffect, importcpp: "DumpMap", header: "TNaming_Translator.hxx".}
+proc dumpMap*(this: TNamingTranslator; isWrite: bool = false) {.noSideEffect,
+    importcpp: "DumpMap", header: "TNaming_Translator.hxx".}

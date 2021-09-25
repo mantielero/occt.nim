@@ -14,61 +14,58 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation Copyright: (C) RINA S.p.A
 
-import
-  TObj_Container, TObj_ObjectIterator
-
 ## *
 ##  This class is an iterator on sequence
 ##
 
 type
-  TObj_SequenceIterator* {.importcpp: "TObj_SequenceIterator",
-                          header: "TObj_SequenceIterator.hxx", bycopy.} = object of TObj_ObjectIterator ## *
-                                                                                                 ##  Constructor
-                                                                                                 ##
-                                                                                                 ## ! Creates an Empty Iterator
-                                                                                                 ## *
-                                                                                                 ##  Constructor
-                                                                                                 ##
-                                                                                                 ## ! Creates an iterator an initialize it by sequence of objects.
-                                                                                                 ## *
-                                                                                                 ##  Redefined methods
-                                                                                                 ##
-                                                                                                 ## ! Returns True if there is a current Item in the iteration.
-                                                                                                 ## *
-                                                                                                 ##  Fields
-                                                                                                 ##
-                                                                                                 ## ! CASCADE RTTI
+  TObjSequenceIterator* {.importcpp: "TObj_SequenceIterator",
+                         header: "TObj_SequenceIterator.hxx", bycopy.} = object of TObjObjectIterator ## *
+                                                                                               ##  Constructor
+                                                                                               ##
+                                                                                               ## ! Creates an Empty Iterator
+                                                                                               ## *
+                                                                                               ##  Constructor
+                                                                                               ##
+                                                                                               ## ! Creates an iterator an initialize it by sequence of objects.
+                                                                                               ## *
+                                                                                               ##  Redefined methods
+                                                                                               ##
+                                                                                               ## ! Returns True if there is a current Item in the iteration.
+                                                                                               ## *
+                                                                                               ##  Fields
+                                                                                               ##
+                                                                                               ## ! CASCADE RTTI
     ## !< current index of object in sequence
     ## !< type of object
     ## !< seqence of objects
 
 
-proc constructTObj_SequenceIterator*(theObjects: handle[TObj_HSequenceOfObject];
-                                    theType: handle[Standard_Type] = nil): TObj_SequenceIterator {.
+proc constructTObjSequenceIterator*(theObjects: Handle[TObjHSequenceOfObject];
+                                   theType: Handle[StandardType] = nil): TObjSequenceIterator {.
     constructor, importcpp: "TObj_SequenceIterator(@)",
     header: "TObj_SequenceIterator.hxx".}
-proc More*(this: TObj_SequenceIterator): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "TObj_SequenceIterator.hxx".}
-proc Next*(this: var TObj_SequenceIterator) {.importcpp: "Next",
+proc more*(this: TObjSequenceIterator): bool {.noSideEffect, importcpp: "More",
     header: "TObj_SequenceIterator.hxx".}
-proc Value*(this: TObj_SequenceIterator): handle[TObj_Object] {.noSideEffect,
+proc next*(this: var TObjSequenceIterator) {.importcpp: "Next",
+    header: "TObj_SequenceIterator.hxx".}
+proc value*(this: TObjSequenceIterator): Handle[TObjObject] {.noSideEffect,
     importcpp: "Value", header: "TObj_SequenceIterator.hxx".}
 type
-  TObj_SequenceIteratorbase_type* = TObj_ObjectIterator
+  TObjSequenceIteratorbaseType* = TObjObjectIterator
 
-proc get_type_name*(): cstring {.importcpp: "TObj_SequenceIterator::get_type_name(@)",
-                              header: "TObj_SequenceIterator.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TObj_SequenceIterator::get_type_name(@)",
+                            header: "TObj_SequenceIterator.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TObj_SequenceIterator::get_type_descriptor(@)",
     header: "TObj_SequenceIterator.hxx".}
-proc DynamicType*(this: TObj_SequenceIterator): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "TObj_SequenceIterator.hxx".}
+proc dynamicType*(this: TObjSequenceIterator): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "TObj_SequenceIterator.hxx".}
 ## ! Define handle class for TObj_SequenceIterator
 
 discard "forward decl of TObj_SequenceIterator"
 type
-  Handle_TObj_SequenceIterator* = handle[TObj_SequenceIterator]
+  HandleTObjSequenceIterator* = Handle[TObjSequenceIterator]
 
-when defined(_MSC_VER):
-  discard
+# when defined(_MSC_VER):
+#   discard

@@ -14,49 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepVisual_HArray1OfInvisibleItem, ../Standard/Standard_Transient,
-  ../Standard/Standard_Integer
-
 discard "forward decl of StepVisual_InvisibleItem"
 discard "forward decl of StepVisual_Invisibility"
 discard "forward decl of StepVisual_Invisibility"
 type
-  Handle_StepVisual_Invisibility* = handle[StepVisual_Invisibility]
-  StepVisual_Invisibility* {.importcpp: "StepVisual_Invisibility",
-                            header: "StepVisual_Invisibility.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                    ## !
-                                                                                                    ## Returns
-                                                                                                    ## a
-                                                                                                    ## Invisibility
+  HandleStepVisualInvisibility* = Handle[StepVisualInvisibility]
+  StepVisualInvisibility* {.importcpp: "StepVisual_Invisibility",
+                           header: "StepVisual_Invisibility.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                  ## !
+                                                                                                  ## Returns
+                                                                                                  ## a
+                                                                                                  ## Invisibility
 
 
-proc constructStepVisual_Invisibility*(): StepVisual_Invisibility {.constructor,
+proc constructStepVisualInvisibility*(): StepVisualInvisibility {.constructor,
     importcpp: "StepVisual_Invisibility(@)", header: "StepVisual_Invisibility.hxx".}
-proc Init*(this: var StepVisual_Invisibility;
-          aInvisibleItems: handle[StepVisual_HArray1OfInvisibleItem]) {.
+proc init*(this: var StepVisualInvisibility;
+          aInvisibleItems: Handle[StepVisualHArray1OfInvisibleItem]) {.
     importcpp: "Init", header: "StepVisual_Invisibility.hxx".}
-proc SetInvisibleItems*(this: var StepVisual_Invisibility; aInvisibleItems: handle[
-    StepVisual_HArray1OfInvisibleItem]) {.importcpp: "SetInvisibleItems",
-    header: "StepVisual_Invisibility.hxx".}
-proc InvisibleItems*(this: StepVisual_Invisibility): handle[
-    StepVisual_HArray1OfInvisibleItem] {.noSideEffect,
-                                        importcpp: "InvisibleItems",
+proc setInvisibleItems*(this: var StepVisualInvisibility; aInvisibleItems: Handle[
+    StepVisualHArray1OfInvisibleItem]) {.importcpp: "SetInvisibleItems",
                                         header: "StepVisual_Invisibility.hxx".}
-proc InvisibleItemsValue*(this: StepVisual_Invisibility; num: Standard_Integer): StepVisual_InvisibleItem {.
+proc invisibleItems*(this: StepVisualInvisibility): Handle[
+    StepVisualHArray1OfInvisibleItem] {.noSideEffect, importcpp: "InvisibleItems",
+                                       header: "StepVisual_Invisibility.hxx".}
+proc invisibleItemsValue*(this: StepVisualInvisibility; num: int): StepVisualInvisibleItem {.
     noSideEffect, importcpp: "InvisibleItemsValue",
     header: "StepVisual_Invisibility.hxx".}
-proc NbInvisibleItems*(this: StepVisual_Invisibility): Standard_Integer {.
-    noSideEffect, importcpp: "NbInvisibleItems",
-    header: "StepVisual_Invisibility.hxx".}
+proc nbInvisibleItems*(this: StepVisualInvisibility): int {.noSideEffect,
+    importcpp: "NbInvisibleItems", header: "StepVisual_Invisibility.hxx".}
 type
-  StepVisual_Invisibilitybase_type* = Standard_Transient
+  StepVisualInvisibilitybaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_Invisibility::get_type_name(@)",
-                              header: "StepVisual_Invisibility.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_Invisibility::get_type_name(@)",
+                            header: "StepVisual_Invisibility.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_Invisibility::get_type_descriptor(@)",
     header: "StepVisual_Invisibility.hxx".}
-proc DynamicType*(this: StepVisual_Invisibility): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualInvisibility): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepVisual_Invisibility.hxx".}

@@ -13,68 +13,65 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_PropertyDefinition"
 discard "forward decl of StepRepr_PropertyDefinitionRelationship"
 discard "forward decl of StepRepr_PropertyDefinitionRelationship"
 type
-  Handle_StepRepr_PropertyDefinitionRelationship* = handle[
-      StepRepr_PropertyDefinitionRelationship]
+  HandleStepReprPropertyDefinitionRelationship* = Handle[
+      StepReprPropertyDefinitionRelationship]
 
 ## ! Representation of STEP entity PropertyDefinitionRelationship
 
 type
-  StepRepr_PropertyDefinitionRelationship* {.
+  StepReprPropertyDefinitionRelationship* {.
       importcpp: "StepRepr_PropertyDefinitionRelationship",
-      header: "StepRepr_PropertyDefinitionRelationship.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                              ## !
-                                                                                              ## Empty
-                                                                                              ## constructor
+      header: "StepRepr_PropertyDefinitionRelationship.hxx", bycopy.} = object of StandardTransient ##
+                                                                                             ## !
+                                                                                             ## Empty
+                                                                                             ## constructor
 
 
-proc constructStepRepr_PropertyDefinitionRelationship*(): StepRepr_PropertyDefinitionRelationship {.
+proc constructStepReprPropertyDefinitionRelationship*(): StepReprPropertyDefinitionRelationship {.
     constructor, importcpp: "StepRepr_PropertyDefinitionRelationship(@)",
     header: "StepRepr_PropertyDefinitionRelationship.hxx".}
-proc Init*(this: var StepRepr_PropertyDefinitionRelationship;
-          aName: handle[TCollection_HAsciiString];
-          aDescription: handle[TCollection_HAsciiString];
-          aRelatingPropertyDefinition: handle[StepRepr_PropertyDefinition];
-          aRelatedPropertyDefinition: handle[StepRepr_PropertyDefinition]) {.
+proc init*(this: var StepReprPropertyDefinitionRelationship;
+          aName: Handle[TCollectionHAsciiString];
+          aDescription: Handle[TCollectionHAsciiString];
+          aRelatingPropertyDefinition: Handle[StepReprPropertyDefinition];
+          aRelatedPropertyDefinition: Handle[StepReprPropertyDefinition]) {.
     importcpp: "Init", header: "StepRepr_PropertyDefinitionRelationship.hxx".}
-proc Name*(this: StepRepr_PropertyDefinitionRelationship): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Name", header: "StepRepr_PropertyDefinitionRelationship.hxx".}
-proc SetName*(this: var StepRepr_PropertyDefinitionRelationship;
-             Name: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc name*(this: StepReprPropertyDefinitionRelationship): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Name", header: "StepRepr_PropertyDefinitionRelationship.hxx".}
+proc setName*(this: var StepReprPropertyDefinitionRelationship;
+             name: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepRepr_PropertyDefinitionRelationship.hxx".}
-proc Description*(this: StepRepr_PropertyDefinitionRelationship): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description", header: "StepRepr_PropertyDefinitionRelationship.hxx".}
-proc SetDescription*(this: var StepRepr_PropertyDefinitionRelationship;
-                    Description: handle[TCollection_HAsciiString]) {.
+proc description*(this: StepReprPropertyDefinitionRelationship): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Description", header: "StepRepr_PropertyDefinitionRelationship.hxx".}
+proc setDescription*(this: var StepReprPropertyDefinitionRelationship;
+                    description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription",
     header: "StepRepr_PropertyDefinitionRelationship.hxx".}
-proc RelatingPropertyDefinition*(this: StepRepr_PropertyDefinitionRelationship): handle[
-    StepRepr_PropertyDefinition] {.noSideEffect,
-                                  importcpp: "RelatingPropertyDefinition", header: "StepRepr_PropertyDefinitionRelationship.hxx".}
-proc SetRelatingPropertyDefinition*(this: var StepRepr_PropertyDefinitionRelationship;
-    RelatingPropertyDefinition: handle[StepRepr_PropertyDefinition]) {.
+proc relatingPropertyDefinition*(this: StepReprPropertyDefinitionRelationship): Handle[
+    StepReprPropertyDefinition] {.noSideEffect,
+                                 importcpp: "RelatingPropertyDefinition", header: "StepRepr_PropertyDefinitionRelationship.hxx".}
+proc setRelatingPropertyDefinition*(this: var StepReprPropertyDefinitionRelationship;
+    relatingPropertyDefinition: Handle[StepReprPropertyDefinition]) {.
     importcpp: "SetRelatingPropertyDefinition",
     header: "StepRepr_PropertyDefinitionRelationship.hxx".}
-proc RelatedPropertyDefinition*(this: StepRepr_PropertyDefinitionRelationship): handle[
-    StepRepr_PropertyDefinition] {.noSideEffect,
-                                  importcpp: "RelatedPropertyDefinition", header: "StepRepr_PropertyDefinitionRelationship.hxx".}
-proc SetRelatedPropertyDefinition*(this: var StepRepr_PropertyDefinitionRelationship;
-    RelatedPropertyDefinition: handle[StepRepr_PropertyDefinition]) {.
+proc relatedPropertyDefinition*(this: StepReprPropertyDefinitionRelationship): Handle[
+    StepReprPropertyDefinition] {.noSideEffect,
+                                 importcpp: "RelatedPropertyDefinition", header: "StepRepr_PropertyDefinitionRelationship.hxx".}
+proc setRelatedPropertyDefinition*(this: var StepReprPropertyDefinitionRelationship;
+    relatedPropertyDefinition: Handle[StepReprPropertyDefinition]) {.
     importcpp: "SetRelatedPropertyDefinition",
     header: "StepRepr_PropertyDefinitionRelationship.hxx".}
 type
-  StepRepr_PropertyDefinitionRelationshipbase_type* = Standard_Transient
+  StepReprPropertyDefinitionRelationshipbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_PropertyDefinitionRelationship::get_type_name(@)", header: "StepRepr_PropertyDefinitionRelationship.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepRepr_PropertyDefinitionRelationship::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepRepr_PropertyDefinitionRelationship::get_type_name(@)", header: "StepRepr_PropertyDefinitionRelationship.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_PropertyDefinitionRelationship::get_type_descriptor(@)",
     header: "StepRepr_PropertyDefinitionRelationship.hxx".}
-proc DynamicType*(this: StepRepr_PropertyDefinitionRelationship): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepRepr_PropertyDefinitionRelationship.hxx".}
+proc dynamicType*(this: StepReprPropertyDefinitionRelationship): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepRepr_PropertyDefinitionRelationship.hxx".}

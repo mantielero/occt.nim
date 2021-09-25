@@ -14,53 +14,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP214_HArray1OfAutoDesignGroupedItem,
-  ../StepBasic/StepBasic_GroupAssignment, ../Standard/Standard_Integer
-
 discard "forward decl of StepBasic_Group"
 discard "forward decl of StepAP214_AutoDesignGroupedItem"
 discard "forward decl of StepAP214_AutoDesignGroupAssignment"
 discard "forward decl of StepAP214_AutoDesignGroupAssignment"
 type
-  Handle_StepAP214_AutoDesignGroupAssignment* = handle[
-      StepAP214_AutoDesignGroupAssignment]
-  StepAP214_AutoDesignGroupAssignment* {.importcpp: "StepAP214_AutoDesignGroupAssignment", header: "StepAP214_AutoDesignGroupAssignment.hxx",
-                                        bycopy.} = object of StepBasic_GroupAssignment ##
-                                                                                  ## !
-                                                                                  ## Returns
-                                                                                  ## a
-                                                                                  ## AutoDesignGroupAssignment
+  HandleStepAP214AutoDesignGroupAssignment* = Handle[
+      StepAP214AutoDesignGroupAssignment]
+  StepAP214AutoDesignGroupAssignment* {.importcpp: "StepAP214_AutoDesignGroupAssignment", header: "StepAP214_AutoDesignGroupAssignment.hxx",
+                                       bycopy.} = object of StepBasicGroupAssignment ##
+                                                                                ## !
+                                                                                ## Returns
+                                                                                ## a
+                                                                                ## AutoDesignGroupAssignment
 
 
-proc constructStepAP214_AutoDesignGroupAssignment*(): StepAP214_AutoDesignGroupAssignment {.
+proc constructStepAP214AutoDesignGroupAssignment*(): StepAP214AutoDesignGroupAssignment {.
     constructor, importcpp: "StepAP214_AutoDesignGroupAssignment(@)",
     header: "StepAP214_AutoDesignGroupAssignment.hxx".}
-proc Init*(this: var StepAP214_AutoDesignGroupAssignment;
-          aAssignedGroup: handle[StepBasic_Group];
-          aItems: handle[StepAP214_HArray1OfAutoDesignGroupedItem]) {.
+proc init*(this: var StepAP214AutoDesignGroupAssignment;
+          aAssignedGroup: Handle[StepBasicGroup];
+          aItems: Handle[StepAP214HArray1OfAutoDesignGroupedItem]) {.
     importcpp: "Init", header: "StepAP214_AutoDesignGroupAssignment.hxx".}
-proc SetItems*(this: var StepAP214_AutoDesignGroupAssignment;
-              aItems: handle[StepAP214_HArray1OfAutoDesignGroupedItem]) {.
+proc setItems*(this: var StepAP214AutoDesignGroupAssignment;
+              aItems: Handle[StepAP214HArray1OfAutoDesignGroupedItem]) {.
     importcpp: "SetItems", header: "StepAP214_AutoDesignGroupAssignment.hxx".}
-proc Items*(this: StepAP214_AutoDesignGroupAssignment): handle[
-    StepAP214_HArray1OfAutoDesignGroupedItem] {.noSideEffect, importcpp: "Items",
+proc items*(this: StepAP214AutoDesignGroupAssignment): Handle[
+    StepAP214HArray1OfAutoDesignGroupedItem] {.noSideEffect, importcpp: "Items",
     header: "StepAP214_AutoDesignGroupAssignment.hxx".}
-proc ItemsValue*(this: StepAP214_AutoDesignGroupAssignment; num: Standard_Integer): StepAP214_AutoDesignGroupedItem {.
+proc itemsValue*(this: StepAP214AutoDesignGroupAssignment; num: int): StepAP214AutoDesignGroupedItem {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AutoDesignGroupAssignment.hxx".}
-proc NbItems*(this: StepAP214_AutoDesignGroupAssignment): Standard_Integer {.
-    noSideEffect, importcpp: "NbItems",
-    header: "StepAP214_AutoDesignGroupAssignment.hxx".}
+proc nbItems*(this: StepAP214AutoDesignGroupAssignment): int {.noSideEffect,
+    importcpp: "NbItems", header: "StepAP214_AutoDesignGroupAssignment.hxx".}
 type
-  StepAP214_AutoDesignGroupAssignmentbase_type* = StepBasic_GroupAssignment
+  StepAP214AutoDesignGroupAssignmentbaseType* = StepBasicGroupAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_AutoDesignGroupAssignment::get_type_name(@)",
-                              header: "StepAP214_AutoDesignGroupAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP214_AutoDesignGroupAssignment::get_type_name(@)",
+                            header: "StepAP214_AutoDesignGroupAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP214_AutoDesignGroupAssignment::get_type_descriptor(@)",
     header: "StepAP214_AutoDesignGroupAssignment.hxx".}
-proc DynamicType*(this: StepAP214_AutoDesignGroupAssignment): handle[Standard_Type] {.
+proc dynamicType*(this: StepAP214AutoDesignGroupAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_AutoDesignGroupAssignment.hxx".}

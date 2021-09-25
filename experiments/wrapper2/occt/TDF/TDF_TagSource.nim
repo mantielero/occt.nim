@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  TDF_Attribute
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
 discard "forward decl of TDF_Attribute"
@@ -25,7 +21,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDF_TagSource"
 discard "forward decl of TDF_TagSource"
 type
-  Handle_TDF_TagSource* = handle[TDF_TagSource]
+  HandleTDF_TagSource* = Handle[TDF_TagSource]
 
 ## ! This attribute manage   a tag provider   to create
 ## ! child labels of a given one.
@@ -40,41 +36,41 @@ type
                                                                                                      ## =============
 
 
-proc GetID*(): Standard_GUID {.importcpp: "TDF_TagSource::GetID(@)",
-                            header: "TDF_TagSource.hxx".}
-proc Set*(label: TDF_Label): handle[TDF_TagSource] {.
+proc getID*(): StandardGUID {.importcpp: "TDF_TagSource::GetID(@)",
+                           header: "TDF_TagSource.hxx".}
+proc set*(label: TDF_Label): Handle[TDF_TagSource] {.
     importcpp: "TDF_TagSource::Set(@)", header: "TDF_TagSource.hxx".}
-proc NewChild*(L: TDF_Label): TDF_Label {.importcpp: "TDF_TagSource::NewChild(@)",
+proc newChild*(L: TDF_Label): TDF_Label {.importcpp: "TDF_TagSource::NewChild(@)",
                                       header: "TDF_TagSource.hxx".}
 proc constructTDF_TagSource*(): TDF_TagSource {.constructor,
     importcpp: "TDF_TagSource(@)", header: "TDF_TagSource.hxx".}
-proc NewTag*(this: var TDF_TagSource): Standard_Integer {.importcpp: "NewTag",
+proc newTag*(this: var TDF_TagSource): int {.importcpp: "NewTag",
+                                        header: "TDF_TagSource.hxx".}
+proc newChild*(this: var TDF_TagSource): TDF_Label {.importcpp: "NewChild",
     header: "TDF_TagSource.hxx".}
-proc NewChild*(this: var TDF_TagSource): TDF_Label {.importcpp: "NewChild",
+proc get*(this: TDF_TagSource): int {.noSideEffect, importcpp: "Get",
+                                  header: "TDF_TagSource.hxx".}
+proc set*(this: var TDF_TagSource; t: int) {.importcpp: "Set",
+                                       header: "TDF_TagSource.hxx".}
+proc id*(this: TDF_TagSource): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TDF_TagSource.hxx".}
-proc Get*(this: TDF_TagSource): Standard_Integer {.noSideEffect, importcpp: "Get",
-    header: "TDF_TagSource.hxx".}
-proc Set*(this: var TDF_TagSource; T: Standard_Integer) {.importcpp: "Set",
-    header: "TDF_TagSource.hxx".}
-proc ID*(this: TDF_TagSource): Standard_GUID {.noSideEffect, importcpp: "ID",
-    header: "TDF_TagSource.hxx".}
-proc Restore*(this: var TDF_TagSource; with: handle[TDF_Attribute]) {.
+proc restore*(this: var TDF_TagSource; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TDF_TagSource.hxx".}
-proc NewEmpty*(this: TDF_TagSource): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TDF_TagSource): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TDF_TagSource.hxx".}
-proc Paste*(this: TDF_TagSource; Into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TDF_TagSource; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TDF_TagSource.hxx".}
-proc DumpJson*(this: TDF_TagSource; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TDF_TagSource.hxx".}
+proc dumpJson*(this: TDF_TagSource; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TDF_TagSource.hxx".}
 type
-  TDF_TagSourcebase_type* = TDF_Attribute
+  TDF_TagSourcebaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TDF_TagSource::get_type_name(@)",
-                              header: "TDF_TagSource.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDF_TagSource::get_type_name(@)",
+                            header: "TDF_TagSource.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDF_TagSource::get_type_descriptor(@)",
     header: "TDF_TagSource.hxx".}
-proc DynamicType*(this: TDF_TagSource): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDF_TagSource): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDF_TagSource.hxx".}

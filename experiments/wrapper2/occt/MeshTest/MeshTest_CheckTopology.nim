@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, ../NCollection/NCollection_IndexedDataMap,
-  ../TColStd/TColStd_HSequenceOfInteger, ../TColStd/TColStd_SequenceOfReal,
-  ../Draw/Draw_Interpretor
-
 ## ! This class checks topology of the mesh presented by
 ## ! triangulations of faces.
 ## !
@@ -34,52 +29,44 @@ import
 ## ! - free nodes -- nodes not shared by any triangle.
 
 type
-  MeshTest_CheckTopology* {.importcpp: "MeshTest_CheckTopology",
-                           header: "MeshTest_CheckTopology.hxx", bycopy.} = object ## !
-                                                                              ## constructor
+  MeshTestCheckTopology* {.importcpp: "MeshTest_CheckTopology",
+                          header: "MeshTest_CheckTopology.hxx", bycopy.} = object ## !
+                                                                             ## constructor
 
 
-proc constructMeshTest_CheckTopology*(theShape: TopoDS_Shape): MeshTest_CheckTopology {.
+proc constructMeshTestCheckTopology*(theShape: TopoDS_Shape): MeshTestCheckTopology {.
     constructor, importcpp: "MeshTest_CheckTopology(@)",
     header: "MeshTest_CheckTopology.hxx".}
-proc Perform*(this: var MeshTest_CheckTopology; di: var Draw_Interpretor) {.
+proc perform*(this: var MeshTestCheckTopology; di: var DrawInterpretor) {.
     importcpp: "Perform", header: "MeshTest_CheckTopology.hxx".}
-proc NbFacesWithFL*(this: MeshTest_CheckTopology): Standard_Integer {.noSideEffect,
+proc nbFacesWithFL*(this: MeshTestCheckTopology): int {.noSideEffect,
     importcpp: "NbFacesWithFL", header: "MeshTest_CheckTopology.hxx".}
-proc GetFaceNumWithFL*(this: MeshTest_CheckTopology; theIndex: Standard_Integer): Standard_Integer {.
+proc getFaceNumWithFL*(this: MeshTestCheckTopology; theIndex: int): int {.
     noSideEffect, importcpp: "GetFaceNumWithFL",
     header: "MeshTest_CheckTopology.hxx".}
-proc NbFreeLinks*(this: MeshTest_CheckTopology; theIndex: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "NbFreeLinks", header: "MeshTest_CheckTopology.hxx".}
-proc GetFreeLink*(this: MeshTest_CheckTopology; theFaceIndex: Standard_Integer;
-                 theLinkIndex: Standard_Integer; theNode1: var Standard_Integer;
-                 theNode2: var Standard_Integer) {.noSideEffect,
+proc nbFreeLinks*(this: MeshTestCheckTopology; theIndex: int): int {.noSideEffect,
+    importcpp: "NbFreeLinks", header: "MeshTest_CheckTopology.hxx".}
+proc getFreeLink*(this: MeshTestCheckTopology; theFaceIndex: int; theLinkIndex: int;
+                 theNode1: var int; theNode2: var int) {.noSideEffect,
     importcpp: "GetFreeLink", header: "MeshTest_CheckTopology.hxx".}
-proc NbCrossFaceErrors*(this: MeshTest_CheckTopology): Standard_Integer {.
-    noSideEffect, importcpp: "NbCrossFaceErrors",
-    header: "MeshTest_CheckTopology.hxx".}
-proc GetCrossFaceError*(this: MeshTest_CheckTopology; theIndex: Standard_Integer;
-                       theFace1: var Standard_Integer;
-                       theNode1: var Standard_Integer;
-                       theFace2: var Standard_Integer;
-                       theNode2: var Standard_Integer; theValue: var Standard_Real) {.
-    noSideEffect, importcpp: "GetCrossFaceError",
-    header: "MeshTest_CheckTopology.hxx".}
-proc NbAsyncEdges*(this: MeshTest_CheckTopology): Standard_Integer {.noSideEffect,
+proc nbCrossFaceErrors*(this: MeshTestCheckTopology): int {.noSideEffect,
+    importcpp: "NbCrossFaceErrors", header: "MeshTest_CheckTopology.hxx".}
+proc getCrossFaceError*(this: MeshTestCheckTopology; theIndex: int;
+                       theFace1: var int; theNode1: var int; theFace2: var int;
+                       theNode2: var int; theValue: var float) {.noSideEffect,
+    importcpp: "GetCrossFaceError", header: "MeshTest_CheckTopology.hxx".}
+proc nbAsyncEdges*(this: MeshTestCheckTopology): int {.noSideEffect,
     importcpp: "NbAsyncEdges", header: "MeshTest_CheckTopology.hxx".}
-proc GetAsyncEdgeNum*(this: MeshTest_CheckTopology; theIndex: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "GetAsyncEdgeNum",
-    header: "MeshTest_CheckTopology.hxx".}
-proc NbFreeNodes*(this: MeshTest_CheckTopology): Standard_Integer {.noSideEffect,
+proc getAsyncEdgeNum*(this: MeshTestCheckTopology; theIndex: int): int {.noSideEffect,
+    importcpp: "GetAsyncEdgeNum", header: "MeshTest_CheckTopology.hxx".}
+proc nbFreeNodes*(this: MeshTestCheckTopology): int {.noSideEffect,
     importcpp: "NbFreeNodes", header: "MeshTest_CheckTopology.hxx".}
-proc GetFreeNodeNum*(this: MeshTest_CheckTopology; theIndex: Standard_Integer;
-                    theFaceNum: var Standard_Integer;
-                    theNodeNum: var Standard_Integer) {.noSideEffect,
-    importcpp: "GetFreeNodeNum", header: "MeshTest_CheckTopology.hxx".}
-proc NbSmallTriangles*(this: MeshTest_CheckTopology): Standard_Integer {.
-    noSideEffect, importcpp: "NbSmallTriangles",
-    header: "MeshTest_CheckTopology.hxx".}
-proc GetSmallTriangle*(this: MeshTest_CheckTopology; theIndex: Standard_Integer;
-                      theFaceNum: var Standard_Integer;
-                      theNodeNum: var Standard_Integer) {.noSideEffect,
+proc getFreeNodeNum*(this: MeshTestCheckTopology; theIndex: int; theFaceNum: var int;
+                    theNodeNum: var int) {.noSideEffect,
+                                        importcpp: "GetFreeNodeNum",
+                                        header: "MeshTest_CheckTopology.hxx".}
+proc nbSmallTriangles*(this: MeshTestCheckTopology): int {.noSideEffect,
+    importcpp: "NbSmallTriangles", header: "MeshTest_CheckTopology.hxx".}
+proc getSmallTriangle*(this: MeshTestCheckTopology; theIndex: int;
+                      theFaceNum: var int; theNodeNum: var int) {.noSideEffect,
     importcpp: "GetSmallTriangle", header: "MeshTest_CheckTopology.hxx".}

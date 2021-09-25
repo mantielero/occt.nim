@@ -13,35 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_DocumentProductAssociation"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasic_RWDocumentProductAssociation* {.
+  RWStepBasicRWDocumentProductAssociation* {.
       importcpp: "RWStepBasic_RWDocumentProductAssociation",
       header: "RWStepBasic_RWDocumentProductAssociation.hxx", bycopy.} = object ## ! Empty
                                                                            ## constructor
 
 
-proc constructRWStepBasic_RWDocumentProductAssociation*(): RWStepBasic_RWDocumentProductAssociation {.
+proc constructRWStepBasicRWDocumentProductAssociation*(): RWStepBasicRWDocumentProductAssociation {.
     constructor, importcpp: "RWStepBasic_RWDocumentProductAssociation(@)",
     header: "RWStepBasic_RWDocumentProductAssociation.hxx".}
-proc ReadStep*(this: RWStepBasic_RWDocumentProductAssociation;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepBasic_DocumentProductAssociation]) {.noSideEffect,
+proc readStep*(this: RWStepBasicRWDocumentProductAssociation;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepBasicDocumentProductAssociation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWDocumentProductAssociation.hxx".}
-proc WriteStep*(this: RWStepBasic_RWDocumentProductAssociation;
-               SW: var StepData_StepWriter;
-               ent: handle[StepBasic_DocumentProductAssociation]) {.noSideEffect,
+proc writeStep*(this: RWStepBasicRWDocumentProductAssociation;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepBasicDocumentProductAssociation]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWDocumentProductAssociation.hxx".}
-proc Share*(this: RWStepBasic_RWDocumentProductAssociation;
-           ent: handle[StepBasic_DocumentProductAssociation];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepBasicRWDocumentProductAssociation;
+           ent: Handle[StepBasicDocumentProductAssociation];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWDocumentProductAssociation.hxx".}

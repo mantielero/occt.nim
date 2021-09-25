@@ -13,105 +13,101 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Graphic3d_Aspects
-
 ## ! Creates and updates a group of attributes for text primitives.
 
 type
-  Graphic3d_AspectText3d* {.importcpp: "Graphic3d_AspectText3d",
-                           header: "Graphic3d_AspectText3d.hxx", bycopy.} = object of Graphic3d_Aspects ##
-                                                                                                 ## !
-                                                                                                 ## Creates
-                                                                                                 ## a
-                                                                                                 ## context
-                                                                                                 ## table
-                                                                                                 ## for
-                                                                                                 ## text
-                                                                                                 ## primitives
-                                                                                                 ## defined
-                                                                                                 ## with
-                                                                                                 ## the
-                                                                                                 ## following
-                                                                                                 ## default
-                                                                                                 ## values:
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Color
-                                                                                                 ## :
-                                                                                                 ## Quantity_NOC_YELLOW
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Font
-                                                                                                 ## :
-                                                                                                 ## Font_NOF_ASCII_MONO
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## The
-                                                                                                 ## style
-                                                                                                 ## :
-                                                                                                 ## Aspect_TOST_NORMAL
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## The
-                                                                                                 ## display
-                                                                                                 ## type
-                                                                                                 ## :
-                                                                                                 ## Aspect_TODT_NORMAL
+  Graphic3dAspectText3d* {.importcpp: "Graphic3d_AspectText3d",
+                          header: "Graphic3d_AspectText3d.hxx", bycopy.} = object of Graphic3dAspects ##
+                                                                                               ## !
+                                                                                               ## Creates
+                                                                                               ## a
+                                                                                               ## context
+                                                                                               ## table
+                                                                                               ## for
+                                                                                               ## text
+                                                                                               ## primitives
+                                                                                               ## defined
+                                                                                               ## with
+                                                                                               ## the
+                                                                                               ## following
+                                                                                               ## default
+                                                                                               ## values:
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Color
+                                                                                               ## :
+                                                                                               ## Quantity_NOC_YELLOW
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Font
+                                                                                               ## :
+                                                                                               ## Font_NOF_ASCII_MONO
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## The
+                                                                                               ## style
+                                                                                               ## :
+                                                                                               ## Aspect_TOST_NORMAL
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## The
+                                                                                               ## display
+                                                                                               ## type
+                                                                                               ## :
+                                                                                               ## Aspect_TODT_NORMAL
 
-  Graphic3d_AspectText3dbase_type* = Graphic3d_Aspects
+  Graphic3dAspectText3dbaseType* = Graphic3dAspects
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_AspectText3d::get_type_name(@)",
-                              header: "Graphic3d_AspectText3d.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_AspectText3d::get_type_name(@)",
+                            header: "Graphic3d_AspectText3d.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_AspectText3d::get_type_descriptor(@)",
     header: "Graphic3d_AspectText3d.hxx".}
-proc DynamicType*(this: Graphic3d_AspectText3d): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Graphic3d_AspectText3d.hxx".}
-proc constructGraphic3d_AspectText3d*(): Graphic3d_AspectText3d {.constructor,
+proc dynamicType*(this: Graphic3dAspectText3d): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Graphic3d_AspectText3d.hxx".}
+proc constructGraphic3dAspectText3d*(): Graphic3dAspectText3d {.constructor,
     importcpp: "Graphic3d_AspectText3d(@)", header: "Graphic3d_AspectText3d.hxx".}
-proc constructGraphic3d_AspectText3d*(theColor: Quantity_Color;
-                                     theFont: Standard_CString;
-                                     theExpansionFactor: Standard_Real;
-                                     theSpace: Standard_Real; theStyle: Aspect_TypeOfStyleText = Aspect_TOST_NORMAL;
-    theDisplayType: Aspect_TypeOfDisplayText = Aspect_TODT_NORMAL): Graphic3d_AspectText3d {.
+proc constructGraphic3dAspectText3d*(theColor: QuantityColor;
+                                    theFont: StandardCString;
+                                    theExpansionFactor: float; theSpace: float;
+    theStyle: AspectTypeOfStyleText = aspectTOST_NORMAL; theDisplayType: AspectTypeOfDisplayText = aspectTODT_NORMAL): Graphic3dAspectText3d {.
     constructor, importcpp: "Graphic3d_AspectText3d(@)",
     header: "Graphic3d_AspectText3d.hxx".}
-proc Color*(this: Graphic3d_AspectText3d): Quantity_Color {.noSideEffect,
+proc color*(this: Graphic3dAspectText3d): QuantityColor {.noSideEffect,
     importcpp: "Color", header: "Graphic3d_AspectText3d.hxx".}
-proc ColorRGBA*(this: Graphic3d_AspectText3d): Quantity_ColorRGBA {.noSideEffect,
+proc colorRGBA*(this: Graphic3dAspectText3d): QuantityColorRGBA {.noSideEffect,
     importcpp: "ColorRGBA", header: "Graphic3d_AspectText3d.hxx".}
-proc SetColor*(this: var Graphic3d_AspectText3d; theColor: Quantity_Color) {.
+proc setColor*(this: var Graphic3dAspectText3d; theColor: QuantityColor) {.
     importcpp: "SetColor", header: "Graphic3d_AspectText3d.hxx".}
-proc SetColor*(this: var Graphic3d_AspectText3d; theColor: Quantity_ColorRGBA) {.
+proc setColor*(this: var Graphic3dAspectText3d; theColor: QuantityColorRGBA) {.
     importcpp: "SetColor", header: "Graphic3d_AspectText3d.hxx".}
-proc Font*(this: Graphic3d_AspectText3d): TCollection_AsciiString {.noSideEffect,
+proc font*(this: Graphic3dAspectText3d): TCollectionAsciiString {.noSideEffect,
     importcpp: "Font", header: "Graphic3d_AspectText3d.hxx".}
-proc SetFont*(this: var Graphic3d_AspectText3d; theFont: TCollection_AsciiString) {.
+proc setFont*(this: var Graphic3dAspectText3d; theFont: TCollectionAsciiString) {.
     importcpp: "SetFont", header: "Graphic3d_AspectText3d.hxx".}
-proc SetFont*(this: var Graphic3d_AspectText3d; theFont: Standard_CString) {.
+proc setFont*(this: var Graphic3dAspectText3d; theFont: StandardCString) {.
     importcpp: "SetFont", header: "Graphic3d_AspectText3d.hxx".}
-proc Style*(this: Graphic3d_AspectText3d): Aspect_TypeOfStyleText {.noSideEffect,
+proc style*(this: Graphic3dAspectText3d): AspectTypeOfStyleText {.noSideEffect,
     importcpp: "Style", header: "Graphic3d_AspectText3d.hxx".}
-proc SetStyle*(this: var Graphic3d_AspectText3d; theStyle: Aspect_TypeOfStyleText) {.
+proc setStyle*(this: var Graphic3dAspectText3d; theStyle: AspectTypeOfStyleText) {.
     importcpp: "SetStyle", header: "Graphic3d_AspectText3d.hxx".}
-proc DisplayType*(this: Graphic3d_AspectText3d): Aspect_TypeOfDisplayText {.
+proc displayType*(this: Graphic3dAspectText3d): AspectTypeOfDisplayText {.
     noSideEffect, importcpp: "DisplayType", header: "Graphic3d_AspectText3d.hxx".}
-proc SetDisplayType*(this: var Graphic3d_AspectText3d;
-                    theDisplayType: Aspect_TypeOfDisplayText) {.
+proc setDisplayType*(this: var Graphic3dAspectText3d;
+                    theDisplayType: AspectTypeOfDisplayText) {.
     importcpp: "SetDisplayType", header: "Graphic3d_AspectText3d.hxx".}
-proc GetTextZoomable*(this: Graphic3d_AspectText3d): bool {.noSideEffect,
+proc getTextZoomable*(this: Graphic3dAspectText3d): bool {.noSideEffect,
     importcpp: "GetTextZoomable", header: "Graphic3d_AspectText3d.hxx".}
-proc GetTextAngle*(this: Graphic3d_AspectText3d): Standard_ShortReal {.noSideEffect,
+proc getTextAngle*(this: Graphic3dAspectText3d): StandardShortReal {.noSideEffect,
     importcpp: "GetTextAngle", header: "Graphic3d_AspectText3d.hxx".}
-proc SetTextAngle*(this: var Graphic3d_AspectText3d; theAngle: Standard_Real) {.
+proc setTextAngle*(this: var Graphic3dAspectText3d; theAngle: float) {.
     importcpp: "SetTextAngle", header: "Graphic3d_AspectText3d.hxx".}
-proc GetTextFontAspect*(this: Graphic3d_AspectText3d): Font_FontAspect {.
-    noSideEffect, importcpp: "GetTextFontAspect",
-    header: "Graphic3d_AspectText3d.hxx".}
-proc DumpJson*(this: Graphic3d_AspectText3d; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Graphic3d_AspectText3d.hxx".}
+proc getTextFontAspect*(this: Graphic3dAspectText3d): FontFontAspect {.noSideEffect,
+    importcpp: "GetTextFontAspect", header: "Graphic3d_AspectText3d.hxx".}
+proc dumpJson*(this: Graphic3dAspectText3d; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Graphic3d_AspectText3d.hxx".}
 discard "forward decl of Graphic3d_AspectText3d"
 type
-  Handle_Graphic3d_AspectText3d* = handle[Graphic3d_AspectText3d]
+  HandleGraphic3dAspectText3d* = Handle[Graphic3dAspectText3d]
+

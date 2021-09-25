@@ -14,15 +14,16 @@
 ## ! Color definition for console/terminal output (limited palette).
 
 type
-  Message_ConsoleColor* {.size: sizeof(cint), importcpp: "Message_ConsoleColor",
-                         header: "Message_ConsoleColor.hxx".} = enum
-    Message_ConsoleColor_Default, ## !< default (white) color
-    Message_ConsoleColor_Black, ## !< black   color
-    Message_ConsoleColor_White, ## !< white   color
-    Message_ConsoleColor_Red, ## !< red     color
-    Message_ConsoleColor_Blue, ## !< blue    color
-    Message_ConsoleColor_Green, ## !< green   color
-    Message_ConsoleColor_Yellow, ## !< yellow  color
-    Message_ConsoleColor_Cyan, ## !< cyan    color
-    Message_ConsoleColor_Magenta ## !< magenta color
+  MessageConsoleColor* {.size: sizeof(cint), importcpp: "Message_ConsoleColor",
+                        header: "Message_ConsoleColor.hxx".} = enum
+    MessageConsoleColorDefault, ## !< default (white) color
+    MessageConsoleColorBlack, ## !< black   color
+    MessageConsoleColorWhite, ## !< white   color
+    MessageConsoleColorRed,   ## !< red     color
+    MessageConsoleColorBlue,  ## !< blue    color
+    MessageConsoleColorGreen, ## !< green   color
+    MessageConsoleColorYellow, ## !< yellow  color
+    MessageConsoleColorCyan,  ## !< cyan    color
+    MessageConsoleColorMagenta ## !< magenta color
+
 

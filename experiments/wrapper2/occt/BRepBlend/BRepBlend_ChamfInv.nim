@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../BlendFunc/BlendFunc_ChamfInv
-
 type
-  BRepBlend_ChamfInv* = BlendFunc_ChamfInv
+  BRepBlendChamfInv* = BlendFuncChamfInv
+

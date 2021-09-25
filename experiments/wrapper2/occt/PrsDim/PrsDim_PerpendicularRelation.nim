@@ -14,44 +14,98 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  PrsDim_Relation
-
 discard "forward decl of PrsDim_PerpendicularRelation"
 type
-  Handle_PrsDim_PerpendicularRelation* = handle[PrsDim_PerpendicularRelation]
+  HandlePrsDimPerpendicularRelation* = Handle[PrsDimPerpendicularRelation]
 
 ## ! A framework to display constraints of perpendicularity
 ## ! between two or more interactive datums. These
 ## ! datums can be edges or faces.
 
 type
-  PrsDim_PerpendicularRelation* {.importcpp: "PrsDim_PerpendicularRelation",
-                                 header: "PrsDim_PerpendicularRelation.hxx",
-                                 bycopy.} = object of PrsDim_Relation ## ! Constructs an object to display constraints of
-                                                                 ## !
-                                                                 ## perpendicularity on shapes.
-                                                                 ## ! This object is defined by a first shape aFShape, a
-                                                                 ## ! second shape aSShape, and a plane aPlane.
-                                                                 ## ! aPlane is the plane of reference to show and test the
-                                                                 ## ! perpendicular relation between two shapes, at least
-                                                                 ## ! one of which has a revolved surface.
+  PrsDimPerpendicularRelation* {.importcpp: "PrsDim_PerpendicularRelation",
+                                header: "PrsDim_PerpendicularRelation.hxx", bycopy.} = object of PrsDimRelation ##
+                                                                                                         ## !
+                                                                                                         ## Constructs
+                                                                                                         ## an
+                                                                                                         ## object
+                                                                                                         ## to
+                                                                                                         ## display
+                                                                                                         ## constraints
+                                                                                                         ## of
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## perpendicularity
+                                                                                                         ## on
+                                                                                                         ## shapes.
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## This
+                                                                                                         ## object
+                                                                                                         ## is
+                                                                                                         ## defined
+                                                                                                         ## by
+                                                                                                         ## a
+                                                                                                         ## first
+                                                                                                         ## shape
+                                                                                                         ## aFShape,
+                                                                                                         ## a
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## second
+                                                                                                         ## shape
+                                                                                                         ## aSShape,
+                                                                                                         ## and
+                                                                                                         ## a
+                                                                                                         ## plane
+                                                                                                         ## aPlane.
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## aPlane
+                                                                                                         ## is
+                                                                                                         ## the
+                                                                                                         ## plane
+                                                                                                         ## of
+                                                                                                         ## reference
+                                                                                                         ## to
+                                                                                                         ## show
+                                                                                                         ## and
+                                                                                                         ## test
+                                                                                                         ## the
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## perpendicular
+                                                                                                         ## relation
+                                                                                                         ## between
+                                                                                                         ## two
+                                                                                                         ## shapes,
+                                                                                                         ## at
+                                                                                                         ## least
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## one
+                                                                                                         ## of
+                                                                                                         ## which
+                                                                                                         ## has
+                                                                                                         ## a
+                                                                                                         ## revolved
+                                                                                                         ## surface.
 
-  PrsDim_PerpendicularRelationbase_type* = PrsDim_Relation
+  PrsDimPerpendicularRelationbaseType* = PrsDimRelation
 
-proc get_type_name*(): cstring {.importcpp: "PrsDim_PerpendicularRelation::get_type_name(@)",
-                              header: "PrsDim_PerpendicularRelation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "PrsDim_PerpendicularRelation::get_type_name(@)",
+                            header: "PrsDim_PerpendicularRelation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "PrsDim_PerpendicularRelation::get_type_descriptor(@)",
     header: "PrsDim_PerpendicularRelation.hxx".}
-proc DynamicType*(this: PrsDim_PerpendicularRelation): handle[Standard_Type] {.
+proc dynamicType*(this: PrsDimPerpendicularRelation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "PrsDim_PerpendicularRelation.hxx".}
-proc constructPrsDim_PerpendicularRelation*(aFShape: TopoDS_Shape;
-    aSShape: TopoDS_Shape; aPlane: handle[Geom_Plane]): PrsDim_PerpendicularRelation {.
+proc constructPrsDimPerpendicularRelation*(aFShape: TopoDS_Shape;
+    aSShape: TopoDS_Shape; aPlane: Handle[GeomPlane]): PrsDimPerpendicularRelation {.
     constructor, importcpp: "PrsDim_PerpendicularRelation(@)",
     header: "PrsDim_PerpendicularRelation.hxx".}
-proc constructPrsDim_PerpendicularRelation*(aFShape: TopoDS_Shape;
-    aSShape: TopoDS_Shape): PrsDim_PerpendicularRelation {.constructor,
+proc constructPrsDimPerpendicularRelation*(aFShape: TopoDS_Shape;
+    aSShape: TopoDS_Shape): PrsDimPerpendicularRelation {.constructor,
     importcpp: "PrsDim_PerpendicularRelation(@)",
     header: "PrsDim_PerpendicularRelation.hxx".}

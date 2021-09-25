@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../TopTools/TopTools_HSequenceOfShape,
-  ../TopAbs/TopAbs_Orientation
-
 discard "forward decl of Geom_BSplineCurve"
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom2d_BSplineCurve"
@@ -43,43 +36,33 @@ type
                                                                                          ## triangulation
 
 
-proc ConvertCurveToBSpline*(C3D: handle[Geom_Curve]; First: Standard_Real;
-                           Last: Standard_Real; Tol3d: Standard_Real;
-                           Continuity: GeomAbs_Shape;
-                           MaxSegments: Standard_Integer;
-                           MaxDegree: Standard_Integer): handle[Geom_BSplineCurve] {.
+proc convertCurveToBSpline*(c3d: Handle[GeomCurve]; first: float; last: float;
+                           tol3d: float; continuity: GeomAbsShape; maxSegments: int;
+                           maxDegree: int): Handle[GeomBSplineCurve] {.
     importcpp: "ShapeConstruct::ConvertCurveToBSpline(@)",
     header: "ShapeConstruct.hxx".}
-proc ConvertCurveToBSpline*(C2D: handle[Geom2d_Curve]; First: Standard_Real;
-                           Last: Standard_Real; Tol2d: Standard_Real;
-                           Continuity: GeomAbs_Shape;
-                           MaxSegments: Standard_Integer;
-                           MaxDegree: Standard_Integer): handle[
-    Geom2d_BSplineCurve] {.importcpp: "ShapeConstruct::ConvertCurveToBSpline(@)",
-                          header: "ShapeConstruct.hxx".}
-proc ConvertSurfaceToBSpline*(surf: handle[Geom_Surface]; UF: Standard_Real;
-                             UL: Standard_Real; VF: Standard_Real;
-                             VL: Standard_Real; Tol3d: Standard_Real;
-                             Continuity: GeomAbs_Shape;
-                             MaxSegments: Standard_Integer;
-                             MaxDegree: Standard_Integer): handle[
-    Geom_BSplineSurface] {.importcpp: "ShapeConstruct::ConvertSurfaceToBSpline(@)",
-                          header: "ShapeConstruct.hxx".}
-proc JoinPCurves*(theEdges: handle[TopTools_HSequenceOfShape];
-                 theFace: TopoDS_Face; theEdge: var TopoDS_Edge): Standard_Boolean {.
+proc convertCurveToBSpline*(c2d: Handle[Geom2dCurve]; first: float; last: float;
+                           tol2d: float; continuity: GeomAbsShape; maxSegments: int;
+                           maxDegree: int): Handle[Geom2dBSplineCurve] {.
+    importcpp: "ShapeConstruct::ConvertCurveToBSpline(@)",
+    header: "ShapeConstruct.hxx".}
+proc convertSurfaceToBSpline*(surf: Handle[GeomSurface]; uf: float; ul: float;
+                             vf: float; vl: float; tol3d: float;
+                             continuity: GeomAbsShape; maxSegments: int;
+                             maxDegree: int): Handle[GeomBSplineSurface] {.
+    importcpp: "ShapeConstruct::ConvertSurfaceToBSpline(@)",
+    header: "ShapeConstruct.hxx".}
+proc joinPCurves*(theEdges: Handle[TopToolsHSequenceOfShape]; theFace: TopoDS_Face;
+                 theEdge: var TopoDS_Edge): bool {.
     importcpp: "ShapeConstruct::JoinPCurves(@)", header: "ShapeConstruct.hxx".}
-proc JoinCurves*(c3d1: handle[Geom_Curve]; ac3d2: handle[Geom_Curve];
-                Orient1: TopAbs_Orientation; Orient2: TopAbs_Orientation;
-                first1: var Standard_Real; last1: var Standard_Real;
-                first2: var Standard_Real; last2: var Standard_Real;
-                c3dOut: var handle[Geom_Curve]; isRev1: var Standard_Boolean;
-                isRev2: var Standard_Boolean): Standard_Boolean {.
+proc joinCurves*(c3d1: Handle[GeomCurve]; ac3d2: Handle[GeomCurve];
+                orient1: TopAbsOrientation; orient2: TopAbsOrientation;
+                first1: var float; last1: var float; first2: var float; last2: var float;
+                c3dOut: var Handle[GeomCurve]; isRev1: var bool; isRev2: var bool): bool {.
     importcpp: "ShapeConstruct::JoinCurves(@)", header: "ShapeConstruct.hxx".}
-proc JoinCurves*(c2d1: handle[Geom2d_Curve]; ac2d2: handle[Geom2d_Curve];
-                Orient1: TopAbs_Orientation; Orient2: TopAbs_Orientation;
-                first1: var Standard_Real; last1: var Standard_Real;
-                first2: var Standard_Real; last2: var Standard_Real;
-                c2dOut: var handle[Geom2d_Curve]; isRev1: var Standard_Boolean;
-                isRev2: var Standard_Boolean;
-                isError: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc joinCurves*(c2d1: Handle[Geom2dCurve]; ac2d2: Handle[Geom2dCurve];
+                orient1: TopAbsOrientation; orient2: TopAbsOrientation;
+                first1: var float; last1: var float; first2: var float; last2: var float;
+                c2dOut: var Handle[Geom2dCurve]; isRev1: var bool; isRev2: var bool;
+                isError: bool = false): bool {.
     importcpp: "ShapeConstruct::JoinCurves(@)", header: "ShapeConstruct.hxx".}

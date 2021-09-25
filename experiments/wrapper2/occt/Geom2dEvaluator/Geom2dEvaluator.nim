@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer
-
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 type
@@ -25,21 +21,17 @@ type
                     bycopy.} = object ## ! Recalculate D1 values of base curve into D0 value of offset curve
 
 
-proc CalculateD0*(theValue: var gp_Pnt2d; theD1: gp_Vec2d; theOffset: Standard_Real) {.
+proc calculateD0*(theValue: var Pnt2d; theD1: Vec2d; theOffset: float) {.
     importcpp: "Geom2dEvaluator::CalculateD0(@)", header: "Geom2dEvaluator.hxx".}
-proc CalculateD1*(theValue: var gp_Pnt2d; theD1: var gp_Vec2d; theD2: gp_Vec2d;
-                 theOffset: Standard_Real) {.
+proc calculateD1*(theValue: var Pnt2d; theD1: var Vec2d; theD2: Vec2d; theOffset: float) {.
     importcpp: "Geom2dEvaluator::CalculateD1(@)", header: "Geom2dEvaluator.hxx".}
-proc CalculateD2*(theValue: var gp_Pnt2d; theD1: var gp_Vec2d; theD2: var gp_Vec2d;
-                 theD3: gp_Vec2d; theIsDirChange: Standard_Boolean;
-                 theOffset: Standard_Real) {.
+proc calculateD2*(theValue: var Pnt2d; theD1: var Vec2d; theD2: var Vec2d; theD3: Vec2d;
+                 theIsDirChange: bool; theOffset: float) {.
     importcpp: "Geom2dEvaluator::CalculateD2(@)", header: "Geom2dEvaluator.hxx".}
-proc CalculateD3*(theValue: var gp_Pnt2d; theD1: var gp_Vec2d; theD2: var gp_Vec2d;
-                 theD3: var gp_Vec2d; theD4: gp_Vec2d;
-                 theIsDirChange: Standard_Boolean; theOffset: Standard_Real) {.
+proc calculateD3*(theValue: var Pnt2d; theD1: var Vec2d; theD2: var Vec2d;
+                 theD3: var Vec2d; theD4: Vec2d; theIsDirChange: bool; theOffset: float) {.
     importcpp: "Geom2dEvaluator::CalculateD3(@)", header: "Geom2dEvaluator.hxx".}
-proc AdjustDerivative*(theMaxDerivative: Standard_Integer; theU: Standard_Real;
-                      theD1: var gp_Vec2d; theD2: var gp_Vec2d; theD3: var gp_Vec2d;
-                      theD4: var gp_Vec2d): Standard_Boolean {.
+proc adjustDerivative*(theMaxDerivative: int; theU: float; theD1: var Vec2d;
+                      theD2: var Vec2d; theD3: var Vec2d; theD4: var Vec2d): bool {.
     importcpp: "Geom2dEvaluator::AdjustDerivative(@)",
     header: "Geom2dEvaluator.hxx".}

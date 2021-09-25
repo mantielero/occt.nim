@@ -13,14 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Edge, ../TopoDS/TopoDS_Face,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer,
-  ../BRepAdaptor/BRepAdaptor_Curve, ../BRepAdaptor/BRepAdaptor_Surface,
-  ../Standard/Standard_Boolean, IntTools_SequenceOfRanges,
-  IntTools_SequenceOfCommonPrts, IntTools_Range
-
 discard "forward decl of IntTools_Context"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
@@ -29,60 +21,58 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of BRepAdaptor_Surface"
 discard "forward decl of IntTools_CommonPrt"
 type
-  IntTools_EdgeFace* {.importcpp: "IntTools_EdgeFace",
-                      header: "IntTools_EdgeFace.hxx", bycopy.} = object ## ! @name Constructors
-                                                                    ## ! Empty Constructor
-                                                                    ## ! @name
-                                                                    ## Setters/Getters
-                                                                    ## ! Sets the edge for intersection
-                                                                    ## ! @name Performing the operation
-                                                                    ## ! Launches the process
-                                                                    ## ! @name Checking validity of the intersection
-                                                                    ## ! Returns TRUE if computation was successful.
-                                                                    ## ! Otherwise returns FALSE.
-                                                                    ## ! @name Obtaining results
-                                                                    ## ! Returns resulting common parts
-                                                                    ## ! @name Protected methods performing the intersection
+  IntToolsEdgeFace* {.importcpp: "IntTools_EdgeFace",
+                     header: "IntTools_EdgeFace.hxx", bycopy.} = object ## ! @name Constructors
+                                                                   ## ! Empty Constructor
+                                                                   ## ! @name
+                                                                   ## Setters/Getters
+                                                                   ## ! Sets the edge for intersection
+                                                                   ## ! @name Performing the operation
+                                                                   ## ! Launches the process
+                                                                   ## ! @name Checking validity of the intersection
+                                                                   ## ! Returns TRUE if computation was successful.
+                                                                   ## ! Otherwise returns FALSE.
+                                                                   ## ! @name Obtaining results
+                                                                   ## ! Returns resulting common parts
+                                                                   ## ! @name Protected methods performing the intersection
     ## !< Minimal distance found
 
 
-proc constructIntTools_EdgeFace*(): IntTools_EdgeFace {.constructor,
+proc constructIntToolsEdgeFace*(): IntToolsEdgeFace {.constructor,
     importcpp: "IntTools_EdgeFace(@)", header: "IntTools_EdgeFace.hxx".}
-proc SetEdge*(this: var IntTools_EdgeFace; theEdge: TopoDS_Edge) {.
+proc setEdge*(this: var IntToolsEdgeFace; theEdge: TopoDS_Edge) {.
     importcpp: "SetEdge", header: "IntTools_EdgeFace.hxx".}
-proc Edge*(this: IntTools_EdgeFace): TopoDS_Edge {.noSideEffect, importcpp: "Edge",
+proc edge*(this: IntToolsEdgeFace): TopoDS_Edge {.noSideEffect, importcpp: "Edge",
     header: "IntTools_EdgeFace.hxx".}
-proc SetFace*(this: var IntTools_EdgeFace; theFace: TopoDS_Face) {.
+proc setFace*(this: var IntToolsEdgeFace; theFace: TopoDS_Face) {.
     importcpp: "SetFace", header: "IntTools_EdgeFace.hxx".}
-proc Face*(this: IntTools_EdgeFace): TopoDS_Face {.noSideEffect, importcpp: "Face",
+proc face*(this: IntToolsEdgeFace): TopoDS_Face {.noSideEffect, importcpp: "Face",
     header: "IntTools_EdgeFace.hxx".}
-proc SetRange*(this: var IntTools_EdgeFace; theRange: IntTools_Range) {.
+proc setRange*(this: var IntToolsEdgeFace; theRange: IntToolsRange) {.
     importcpp: "SetRange", header: "IntTools_EdgeFace.hxx".}
-proc SetRange*(this: var IntTools_EdgeFace; theFirst: Standard_Real;
-              theLast: Standard_Real) {.importcpp: "SetRange",
-                                      header: "IntTools_EdgeFace.hxx".}
-proc Range*(this: IntTools_EdgeFace): IntTools_Range {.noSideEffect,
+proc setRange*(this: var IntToolsEdgeFace; theFirst: float; theLast: float) {.
+    importcpp: "SetRange", header: "IntTools_EdgeFace.hxx".}
+proc range*(this: IntToolsEdgeFace): IntToolsRange {.noSideEffect,
     importcpp: "Range", header: "IntTools_EdgeFace.hxx".}
-proc SetContext*(this: var IntTools_EdgeFace; theContext: handle[IntTools_Context]) {.
+proc setContext*(this: var IntToolsEdgeFace; theContext: Handle[IntToolsContext]) {.
     importcpp: "SetContext", header: "IntTools_EdgeFace.hxx".}
-proc Context*(this: IntTools_EdgeFace): handle[IntTools_Context] {.noSideEffect,
+proc context*(this: IntToolsEdgeFace): Handle[IntToolsContext] {.noSideEffect,
     importcpp: "Context", header: "IntTools_EdgeFace.hxx".}
-proc SetFuzzyValue*(this: var IntTools_EdgeFace; theFuzz: Standard_Real) {.
+proc setFuzzyValue*(this: var IntToolsEdgeFace; theFuzz: float) {.
     importcpp: "SetFuzzyValue", header: "IntTools_EdgeFace.hxx".}
-proc FuzzyValue*(this: IntTools_EdgeFace): Standard_Real {.noSideEffect,
+proc fuzzyValue*(this: IntToolsEdgeFace): float {.noSideEffect,
     importcpp: "FuzzyValue", header: "IntTools_EdgeFace.hxx".}
-proc UseQuickCoincidenceCheck*(this: var IntTools_EdgeFace;
-                              theFlag: Standard_Boolean) {.
+proc useQuickCoincidenceCheck*(this: var IntToolsEdgeFace; theFlag: bool) {.
     importcpp: "UseQuickCoincidenceCheck", header: "IntTools_EdgeFace.hxx".}
-proc IsCoincidenceCheckedQuickly*(this: var IntTools_EdgeFace): Standard_Boolean {.
+proc isCoincidenceCheckedQuickly*(this: var IntToolsEdgeFace): bool {.
     importcpp: "IsCoincidenceCheckedQuickly", header: "IntTools_EdgeFace.hxx".}
-proc Perform*(this: var IntTools_EdgeFace) {.importcpp: "Perform",
+proc perform*(this: var IntToolsEdgeFace) {.importcpp: "Perform",
+                                        header: "IntTools_EdgeFace.hxx".}
+proc isDone*(this: IntToolsEdgeFace): bool {.noSideEffect, importcpp: "IsDone",
     header: "IntTools_EdgeFace.hxx".}
-proc IsDone*(this: IntTools_EdgeFace): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "IntTools_EdgeFace.hxx".}
-proc ErrorStatus*(this: IntTools_EdgeFace): Standard_Integer {.noSideEffect,
+proc errorStatus*(this: IntToolsEdgeFace): int {.noSideEffect,
     importcpp: "ErrorStatus", header: "IntTools_EdgeFace.hxx".}
-proc CommonParts*(this: IntTools_EdgeFace): IntTools_SequenceOfCommonPrts {.
+proc commonParts*(this: IntToolsEdgeFace): IntToolsSequenceOfCommonPrts {.
     noSideEffect, importcpp: "CommonParts", header: "IntTools_EdgeFace.hxx".}
-proc MinimalDistance*(this: IntTools_EdgeFace): Standard_Real {.noSideEffect,
+proc minimalDistance*(this: IntToolsEdgeFace): float {.noSideEffect,
     importcpp: "MinimalDistance", header: "IntTools_EdgeFace.hxx".}

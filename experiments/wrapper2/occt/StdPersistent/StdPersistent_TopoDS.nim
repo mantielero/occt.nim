@@ -11,13 +11,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../StdObjMgt/StdObjMgt_SharedObject, ../StdObjMgt/StdObjMgt_ReadData,
-  ../StdObjMgt/StdObjMgt_WriteData, ../TopoDS/TopoDS_TShape
-
 type
-  StdPersistent_TopoDS* {.importcpp: "StdPersistent_TopoDS",
-                         header: "StdPersistent_TopoDS.hxx", bycopy.} = object of StdObjMgt_SharedObject
+  StdPersistentTopoDS* {.importcpp: "StdPersistent_TopoDS",
+                        header: "StdPersistent_TopoDS.hxx", bycopy.} = object of StdObjMgtSharedObject
 
-  StdPersistent_TopoDSTShape* = IgnoreData[StdObjMgt_Persistent,
-      StdPersistent_TopoDSpTShape, TopoDS_TShape]
+  StdPersistentTopoDSTShape* = IgnoreData[StdObjMgtPersistent,
+                                        StdPersistentTopoDSpTShape, TopoDS_TShape]
+

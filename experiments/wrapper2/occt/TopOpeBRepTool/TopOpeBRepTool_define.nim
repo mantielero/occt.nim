@@ -14,21 +14,3 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopAbs/TopAbs_ShapeEnum, ../TopAbs/TopAbs_Orientation,
-  ../TopAbs/TopAbs_State, ../TopTools/TopTools_MapIteratorOfMapOfShape,
-  ../TopTools/TopTools_MapOfShape,
-  ../TopTools/TopTools_ListIteratorOfListOfShape,
-  ../TopTools/TopTools_ListOfShape, ../TopTools/TopTools_IndexedMapOfShape,
-  ../TopTools/TopTools_IndexedMapOfOrientedShape,
-  ../TopTools/TopTools_DataMapOfShapeShape,
-  ../TopTools/TopTools_DataMapOfShapeInteger,
-  ../TopTools/TopTools_DataMapIteratorOfDataMapOfShapeShape,
-  ../TopTools/TopTools_DataMapIteratorOfDataMapOfShapeInteger,
-  ../TopTools/TopTools_DataMapOfShapeListOfShape,
-  ../TopTools/TopTools_DataMapIteratorOfDataMapOfShapeListOfShape,
-  ../TopTools/TopTools_DataMapIteratorOfDataMapOfOrientedShapeInteger,
-  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape,
-  ../TopTools/TopTools_DataMapOfOrientedShapeInteger, ../TopoDS/TopoDS_Shape,
-  ../TopoDS/TopoDS_Face, ../TopoDS/TopoDS_Edge, ../TopoDS/TopoDS_Vertex,
-  ../TCollection/TCollection_AsciiString

@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IGESSolid_Shell, ../NCollection/NCollection_Array1
-
 type
-  IGESSolid_Array1OfShell* = NCollection_Array1[handle[IGESSolid_Shell]]
+  IGESSolidArray1OfShell* = NCollectionArray1[Handle[IGESSolidShell]]
+

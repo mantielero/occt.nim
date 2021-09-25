@@ -14,16 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_SelectDeduct
-
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectSharing"
 discard "forward decl of IFSelect_SelectSharing"
 type
-  Handle_IFSelect_SelectSharing* = handle[IFSelect_SelectSharing]
+  HandleIFSelectSelectSharing* = Handle[IFSelectSelectSharing]
 
 ## ! A SelectSharing selects Entities which directly Share (Level
 ## ! One) the Entities of the Input list
@@ -31,27 +28,27 @@ type
 ## ! another one, it is of course present in the Result List
 
 type
-  IFSelect_SelectSharing* {.importcpp: "IFSelect_SelectSharing",
-                           header: "IFSelect_SelectSharing.hxx", bycopy.} = object of IFSelect_SelectDeduct ##
-                                                                                                     ## !
-                                                                                                     ## Creates
-                                                                                                     ## a
-                                                                                                     ## SelectSharing;
+  IFSelectSelectSharing* {.importcpp: "IFSelect_SelectSharing",
+                          header: "IFSelect_SelectSharing.hxx", bycopy.} = object of IFSelectSelectDeduct ##
+                                                                                                   ## !
+                                                                                                   ## Creates
+                                                                                                   ## a
+                                                                                                   ## SelectSharing;
 
 
-proc constructIFSelect_SelectSharing*(): IFSelect_SelectSharing {.constructor,
+proc constructIFSelectSelectSharing*(): IFSelectSelectSharing {.constructor,
     importcpp: "IFSelect_SelectSharing(@)", header: "IFSelect_SelectSharing.hxx".}
-proc RootResult*(this: IFSelect_SelectSharing; G: Interface_Graph): Interface_EntityIterator {.
+proc rootResult*(this: IFSelectSelectSharing; g: InterfaceGraph): InterfaceEntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "IFSelect_SelectSharing.hxx".}
-proc Label*(this: IFSelect_SelectSharing): TCollection_AsciiString {.noSideEffect,
+proc label*(this: IFSelectSelectSharing): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_SelectSharing.hxx".}
 type
-  IFSelect_SelectSharingbase_type* = IFSelect_SelectDeduct
+  IFSelectSelectSharingbaseType* = IFSelectSelectDeduct
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectSharing::get_type_name(@)",
-                              header: "IFSelect_SelectSharing.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectSharing::get_type_name(@)",
+                            header: "IFSelect_SelectSharing.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_SelectSharing::get_type_descriptor(@)",
     header: "IFSelect_SelectSharing.hxx".}
-proc DynamicType*(this: IFSelect_SelectSharing): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IFSelect_SelectSharing.hxx".}
+proc dynamicType*(this: IFSelectSelectSharing): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IFSelect_SelectSharing.hxx".}

@@ -11,9 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Macro, ../Storage/Storage_Error
-
 discard "forward decl of StdStorage_Data"
 discard "forward decl of Storage_BaseDriver"
 discard "forward decl of TCollection_AsciiString"
@@ -26,13 +23,12 @@ type
                                                                              ## routines
 
 
-proc Version*(): TCollection_AsciiString {.importcpp: "StdStorage::Version(@)",
-                                        header: "StdStorage.hxx".}
-proc Read*(theFileName: TCollection_AsciiString;
-          theData: var handle[StdStorage_Data]): Storage_Error {.
+proc version*(): TCollectionAsciiString {.importcpp: "StdStorage::Version(@)",
+                                       header: "StdStorage.hxx".}
+proc read*(theFileName: TCollectionAsciiString; theData: var Handle[StdStorageData]): StorageError {.
     importcpp: "StdStorage::Read(@)", header: "StdStorage.hxx".}
-proc Read*(theDriver: handle[Storage_BaseDriver];
-          theData: var handle[StdStorage_Data]): Storage_Error {.
+proc read*(theDriver: Handle[StorageBaseDriver];
+          theData: var Handle[StdStorageData]): StorageError {.
     importcpp: "StdStorage::Read(@)", header: "StdStorage.hxx".}
-proc Write*(theDriver: handle[Storage_BaseDriver]; theData: handle[StdStorage_Data]): Storage_Error {.
+proc write*(theDriver: Handle[StorageBaseDriver]; theData: Handle[StdStorageData]): StorageError {.
     importcpp: "StdStorage::Write(@)", header: "StdStorage.hxx".}

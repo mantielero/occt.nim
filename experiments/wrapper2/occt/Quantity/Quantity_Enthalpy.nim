@@ -14,9 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Enthalpy_HeaderFile [NewLine] # _Quantity_Enthalpy_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the sum of the internal energy of a system plus
+## !!!Ignored construct:  # _Quantity_Enthalpy_HeaderFile [NewLine] # _Quantity_Enthalpy_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the sum of the internal energy of a system plus
 ## ! the product of its pressure and volume. For a reversible
 ## ! process at constant pressure the change in enthalpy is
 ## ! equal to the quantity of heat absorbed (or lost).
 ## ! It is measured in joules. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Enthalpy ;
 ## Error: expected ';'!!!
+

@@ -14,46 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../StepRepr/StepRepr_RepresentationContext
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_GeometricRepresentationContext"
 discard "forward decl of StepGeom_GeometricRepresentationContext"
 type
-  Handle_StepGeom_GeometricRepresentationContext* = handle[
-      StepGeom_GeometricRepresentationContext]
-  StepGeom_GeometricRepresentationContext* {.
+  HandleStepGeomGeometricRepresentationContext* = Handle[
+      StepGeomGeometricRepresentationContext]
+  StepGeomGeometricRepresentationContext* {.
       importcpp: "StepGeom_GeometricRepresentationContext",
-      header: "StepGeom_GeometricRepresentationContext.hxx", bycopy.} = object of StepRepr_RepresentationContext ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## a
-                                                                                                          ## GeometricRepresentationContext
+      header: "StepGeom_GeometricRepresentationContext.hxx", bycopy.} = object of StepReprRepresentationContext ##
+                                                                                                         ## !
+                                                                                                         ## Returns
+                                                                                                         ## a
+                                                                                                         ## GeometricRepresentationContext
 
 
-proc constructStepGeom_GeometricRepresentationContext*(): StepGeom_GeometricRepresentationContext {.
+proc constructStepGeomGeometricRepresentationContext*(): StepGeomGeometricRepresentationContext {.
     constructor, importcpp: "StepGeom_GeometricRepresentationContext(@)",
     header: "StepGeom_GeometricRepresentationContext.hxx".}
-proc Init*(this: var StepGeom_GeometricRepresentationContext;
-          aContextIdentifier: handle[TCollection_HAsciiString];
-          aContextType: handle[TCollection_HAsciiString];
-          aCoordinateSpaceDimension: Standard_Integer) {.importcpp: "Init",
+proc init*(this: var StepGeomGeometricRepresentationContext;
+          aContextIdentifier: Handle[TCollectionHAsciiString];
+          aContextType: Handle[TCollectionHAsciiString];
+          aCoordinateSpaceDimension: int) {.importcpp: "Init",
     header: "StepGeom_GeometricRepresentationContext.hxx".}
-proc SetCoordinateSpaceDimension*(this: var StepGeom_GeometricRepresentationContext;
-                                 aCoordinateSpaceDimension: Standard_Integer) {.
+proc setCoordinateSpaceDimension*(this: var StepGeomGeometricRepresentationContext;
+                                 aCoordinateSpaceDimension: int) {.
     importcpp: "SetCoordinateSpaceDimension",
     header: "StepGeom_GeometricRepresentationContext.hxx".}
-proc CoordinateSpaceDimension*(this: StepGeom_GeometricRepresentationContext): Standard_Integer {.
+proc coordinateSpaceDimension*(this: StepGeomGeometricRepresentationContext): int {.
     noSideEffect, importcpp: "CoordinateSpaceDimension",
     header: "StepGeom_GeometricRepresentationContext.hxx".}
 type
-  StepGeom_GeometricRepresentationContextbase_type* = StepRepr_RepresentationContext
+  StepGeomGeometricRepresentationContextbaseType* = StepReprRepresentationContext
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_GeometricRepresentationContext::get_type_name(@)", header: "StepGeom_GeometricRepresentationContext.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepGeom_GeometricRepresentationContext::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepGeom_GeometricRepresentationContext::get_type_name(@)", header: "StepGeom_GeometricRepresentationContext.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_GeometricRepresentationContext::get_type_descriptor(@)",
     header: "StepGeom_GeometricRepresentationContext.hxx".}
-proc DynamicType*(this: StepGeom_GeometricRepresentationContext): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepGeom_GeometricRepresentationContext.hxx".}
+proc dynamicType*(this: StepGeomGeometricRepresentationContext): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepGeom_GeometricRepresentationContext.hxx".}

@@ -14,44 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean, ../math/math_Matrix,
-  ../math/math_Vector, ../Standard/Standard_Real, ../TColgp/TColgp_Array1OfPnt,
-  ../TColStd/TColStd_Array1OfReal, ../TColgp/TColgp_Array1OfVec
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 type
-  GeomFill_QuasiAngularConvertor* {.importcpp: "GeomFill_QuasiAngularConvertor", header: "GeomFill_QuasiAngularConvertor.hxx",
-                                   bycopy.} = object
+  GeomFillQuasiAngularConvertor* {.importcpp: "GeomFill_QuasiAngularConvertor",
+                                  header: "GeomFill_QuasiAngularConvertor.hxx",
+                                  bycopy.} = object
 
 
-proc constructGeomFill_QuasiAngularConvertor*(): GeomFill_QuasiAngularConvertor {.
+proc constructGeomFillQuasiAngularConvertor*(): GeomFillQuasiAngularConvertor {.
     constructor, importcpp: "GeomFill_QuasiAngularConvertor(@)",
     header: "GeomFill_QuasiAngularConvertor.hxx".}
-proc Initialized*(this: GeomFill_QuasiAngularConvertor): Standard_Boolean {.
-    noSideEffect, importcpp: "Initialized",
+proc initialized*(this: GeomFillQuasiAngularConvertor): bool {.noSideEffect,
+    importcpp: "Initialized", header: "GeomFill_QuasiAngularConvertor.hxx".}
+proc init*(this: var GeomFillQuasiAngularConvertor) {.importcpp: "Init",
     header: "GeomFill_QuasiAngularConvertor.hxx".}
-proc Init*(this: var GeomFill_QuasiAngularConvertor) {.importcpp: "Init",
+proc section*(this: var GeomFillQuasiAngularConvertor; firstPnt: Pnt; center: Pnt;
+             dir: Vec; angle: float; poles: var TColgpArray1OfPnt;
+             weights: var TColStdArray1OfReal) {.importcpp: "Section",
     header: "GeomFill_QuasiAngularConvertor.hxx".}
-proc Section*(this: var GeomFill_QuasiAngularConvertor; FirstPnt: gp_Pnt;
-             Center: gp_Pnt; Dir: gp_Vec; Angle: Standard_Real;
-             Poles: var TColgp_Array1OfPnt; Weights: var TColStd_Array1OfReal) {.
+proc section*(this: var GeomFillQuasiAngularConvertor; firstPnt: Pnt; dFirstPnt: Vec;
+             center: Pnt; dCenter: Vec; dir: Vec; dDir: Vec; angle: float; dAngle: float;
+             poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
+             weights: var TColStdArray1OfReal; dWeights: var TColStdArray1OfReal) {.
     importcpp: "Section", header: "GeomFill_QuasiAngularConvertor.hxx".}
-proc Section*(this: var GeomFill_QuasiAngularConvertor; FirstPnt: gp_Pnt;
-             DFirstPnt: gp_Vec; Center: gp_Pnt; DCenter: gp_Vec; Dir: gp_Vec;
-             DDir: gp_Vec; Angle: Standard_Real; DAngle: Standard_Real;
-             Poles: var TColgp_Array1OfPnt; DPoles: var TColgp_Array1OfVec;
-             Weights: var TColStd_Array1OfReal; DWeights: var TColStd_Array1OfReal) {.
+proc section*(this: var GeomFillQuasiAngularConvertor; firstPnt: Pnt; dFirstPnt: Vec;
+             d2FirstPnt: Vec; center: Pnt; dCenter: Vec; d2Center: Vec; dir: Vec;
+             dDir: Vec; d2Dir: Vec; angle: float; dAngle: float; d2Angle: float;
+             poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
+             d2Poles: var TColgpArray1OfVec; weights: var TColStdArray1OfReal;
+             dWeights: var TColStdArray1OfReal; d2Weights: var TColStdArray1OfReal) {.
     importcpp: "Section", header: "GeomFill_QuasiAngularConvertor.hxx".}
-proc Section*(this: var GeomFill_QuasiAngularConvertor; FirstPnt: gp_Pnt;
-             DFirstPnt: gp_Vec; D2FirstPnt: gp_Vec; Center: gp_Pnt; DCenter: gp_Vec;
-             D2Center: gp_Vec; Dir: gp_Vec; DDir: gp_Vec; D2Dir: gp_Vec;
-             Angle: Standard_Real; DAngle: Standard_Real; D2Angle: Standard_Real;
-             Poles: var TColgp_Array1OfPnt; DPoles: var TColgp_Array1OfVec;
-             D2Poles: var TColgp_Array1OfVec; Weights: var TColStd_Array1OfReal;
-             DWeights: var TColStd_Array1OfReal;
-             D2Weights: var TColStd_Array1OfReal) {.importcpp: "Section",
-    header: "GeomFill_QuasiAngularConvertor.hxx".}

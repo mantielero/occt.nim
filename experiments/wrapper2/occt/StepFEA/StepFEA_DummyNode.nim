@@ -13,13 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepFEA_NodeRepresentation
-
 discard "forward decl of StepFEA_DummyNode"
 discard "forward decl of StepFEA_DummyNode"
 type
-  Handle_StepFEA_DummyNode* = handle[StepFEA_DummyNode]
+  HandleStepFEA_DummyNode* = Handle[StepFEA_DummyNode]
 
 ## ! Representation of STEP entity DummyNode
 
@@ -34,12 +31,12 @@ type
 proc constructStepFEA_DummyNode*(): StepFEA_DummyNode {.constructor,
     importcpp: "StepFEA_DummyNode(@)", header: "StepFEA_DummyNode.hxx".}
 type
-  StepFEA_DummyNodebase_type* = StepFEA_NodeRepresentation
+  StepFEA_DummyNodebaseType* = StepFEA_NodeRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_DummyNode::get_type_name(@)",
-                              header: "StepFEA_DummyNode.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_DummyNode::get_type_name(@)",
+                            header: "StepFEA_DummyNode.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_DummyNode::get_type_descriptor(@)",
     header: "StepFEA_DummyNode.hxx".}
-proc DynamicType*(this: StepFEA_DummyNode): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepFEA_DummyNode): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepFEA_DummyNode.hxx".}

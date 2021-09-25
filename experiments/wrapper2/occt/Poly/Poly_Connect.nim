@@ -14,177 +14,170 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColStd/TColStd_Array1OfInteger,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of Poly_Triangulation"
 type
-  Poly_Connect* {.importcpp: "Poly_Connect", header: "Poly_Connect.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Constructs
-                                                                                   ## an
-                                                                                   ## uninitialized
-                                                                                   ## algorithm.
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Initializes
-                                                                                   ## an
-                                                                                   ## iterator
-                                                                                   ## to
-                                                                                   ## search
-                                                                                   ## for
-                                                                                   ## all
-                                                                                   ## the
-                                                                                   ## triangles
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## containing
-                                                                                   ## the
-                                                                                   ## node
-                                                                                   ## referenced
-                                                                                   ## at
-                                                                                   ## index
-                                                                                   ## N
-                                                                                   ## in
-                                                                                   ## the
-                                                                                   ## nodes
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## table,
-                                                                                   ## for
-                                                                                   ## the
-                                                                                   ## triangulation
-                                                                                   ## analyzed
-                                                                                   ## by
-                                                                                   ## this
-                                                                                   ## tool.
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## The
-                                                                                   ## iterator
-                                                                                   ## is
-                                                                                   ## managed
-                                                                                   ## by
-                                                                                   ## the
-                                                                                   ## following
-                                                                                   ## functions:
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## -
-                                                                                   ## More,
-                                                                                   ## which
-                                                                                   ## checks
-                                                                                   ## if
-                                                                                   ## there
-                                                                                   ## are
-                                                                                   ## still
-                                                                                   ## elements
-                                                                                   ## in
-                                                                                   ## the
-                                                                                   ## iterator
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## -
-                                                                                   ## Next,
-                                                                                   ## which
-                                                                                   ## positions
-                                                                                   ## the
-                                                                                   ## iterator
-                                                                                   ## on
-                                                                                   ## the
-                                                                                   ## next
-                                                                                   ## element
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## -
-                                                                                   ## Value,
-                                                                                   ## which
-                                                                                   ## returns
-                                                                                   ## the
-                                                                                   ## current
-                                                                                   ## element.
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## The
-                                                                                   ## use
-                                                                                   ## of
-                                                                                   ## such
-                                                                                   ## an
-                                                                                   ## iterator
-                                                                                   ## provides
-                                                                                   ## direct
-                                                                                   ## access
-                                                                                   ## to
-                                                                                   ## the
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## triangles
-                                                                                   ## around
-                                                                                   ## a
-                                                                                   ## particular
-                                                                                   ## node,
-                                                                                   ## i.e.
-                                                                                   ## it
-                                                                                   ## avoids
-                                                                                   ## iterating
-                                                                                   ## on
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## all
-                                                                                   ## the
-                                                                                   ## component
-                                                                                   ## triangles
-                                                                                   ## of
-                                                                                   ## a
-                                                                                   ## triangulation.
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Example
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Poly_Connect
-                                                                                   ## C(Tr);
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## for
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## (C.Initialize(n1);C.More();C.Next())
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## {
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## t
-                                                                                   ## =
-                                                                                   ## C.Value();
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## }
+  PolyConnect* {.importcpp: "Poly_Connect", header: "Poly_Connect.hxx", bycopy.} = object ##
+                                                                                  ## !
+                                                                                  ## Constructs
+                                                                                  ## an
+                                                                                  ## uninitialized
+                                                                                  ## algorithm.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## Initializes
+                                                                                  ## an
+                                                                                  ## iterator
+                                                                                  ## to
+                                                                                  ## search
+                                                                                  ## for
+                                                                                  ## all
+                                                                                  ## the
+                                                                                  ## triangles
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## containing
+                                                                                  ## the
+                                                                                  ## node
+                                                                                  ## referenced
+                                                                                  ## at
+                                                                                  ## index
+                                                                                  ## N
+                                                                                  ## in
+                                                                                  ## the
+                                                                                  ## nodes
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## table,
+                                                                                  ## for
+                                                                                  ## the
+                                                                                  ## triangulation
+                                                                                  ## analyzed
+                                                                                  ## by
+                                                                                  ## this
+                                                                                  ## tool.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## The
+                                                                                  ## iterator
+                                                                                  ## is
+                                                                                  ## managed
+                                                                                  ## by
+                                                                                  ## the
+                                                                                  ## following
+                                                                                  ## functions:
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## -
+                                                                                  ## More,
+                                                                                  ## which
+                                                                                  ## checks
+                                                                                  ## if
+                                                                                  ## there
+                                                                                  ## are
+                                                                                  ## still
+                                                                                  ## elements
+                                                                                  ## in
+                                                                                  ## the
+                                                                                  ## iterator
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## -
+                                                                                  ## Next,
+                                                                                  ## which
+                                                                                  ## positions
+                                                                                  ## the
+                                                                                  ## iterator
+                                                                                  ## on
+                                                                                  ## the
+                                                                                  ## next
+                                                                                  ## element
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## -
+                                                                                  ## Value,
+                                                                                  ## which
+                                                                                  ## returns
+                                                                                  ## the
+                                                                                  ## current
+                                                                                  ## element.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## The
+                                                                                  ## use
+                                                                                  ## of
+                                                                                  ## such
+                                                                                  ## an
+                                                                                  ## iterator
+                                                                                  ## provides
+                                                                                  ## direct
+                                                                                  ## access
+                                                                                  ## to
+                                                                                  ## the
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## triangles
+                                                                                  ## around
+                                                                                  ## a
+                                                                                  ## particular
+                                                                                  ## node,
+                                                                                  ## i.e.
+                                                                                  ## it
+                                                                                  ## avoids
+                                                                                  ## iterating
+                                                                                  ## on
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## all
+                                                                                  ## the
+                                                                                  ## component
+                                                                                  ## triangles
+                                                                                  ## of
+                                                                                  ## a
+                                                                                  ## triangulation.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## Example
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## Poly_Connect
+                                                                                  ## C(Tr);
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## for
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## (C.Initialize(n1);C.More();C.Next())
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## {
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## t
+                                                                                  ## =
+                                                                                  ## C.Value();
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## }
 
 
-proc constructPoly_Connect*(): Poly_Connect {.constructor,
+proc constructPolyConnect*(): PolyConnect {.constructor,
     importcpp: "Poly_Connect(@)", header: "Poly_Connect.hxx".}
-proc constructPoly_Connect*(theTriangulation: handle[Poly_Triangulation]): Poly_Connect {.
+proc constructPolyConnect*(theTriangulation: Handle[PolyTriangulation]): PolyConnect {.
     constructor, importcpp: "Poly_Connect(@)", header: "Poly_Connect.hxx".}
-proc Load*(this: var Poly_Connect; theTriangulation: handle[Poly_Triangulation]) {.
+proc load*(this: var PolyConnect; theTriangulation: Handle[PolyTriangulation]) {.
     importcpp: "Load", header: "Poly_Connect.hxx".}
-proc Triangulation*(this: Poly_Connect): handle[Poly_Triangulation] {.noSideEffect,
+proc triangulation*(this: PolyConnect): Handle[PolyTriangulation] {.noSideEffect,
     importcpp: "Triangulation", header: "Poly_Connect.hxx".}
-proc Triangle*(this: Poly_Connect; N: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "Triangle", header: "Poly_Connect.hxx".}
-proc Triangles*(this: Poly_Connect; T: Standard_Integer; t1: var Standard_Integer;
-               t2: var Standard_Integer; t3: var Standard_Integer) {.noSideEffect,
-    importcpp: "Triangles", header: "Poly_Connect.hxx".}
-proc Nodes*(this: Poly_Connect; T: Standard_Integer; n1: var Standard_Integer;
-           n2: var Standard_Integer; n3: var Standard_Integer) {.noSideEffect,
+proc triangle*(this: PolyConnect; n: int): int {.noSideEffect, importcpp: "Triangle",
+    header: "Poly_Connect.hxx".}
+proc triangles*(this: PolyConnect; t: int; t1: var int; t2: var int; t3: var int) {.
+    noSideEffect, importcpp: "Triangles", header: "Poly_Connect.hxx".}
+proc nodes*(this: PolyConnect; t: int; n1: var int; n2: var int; n3: var int) {.noSideEffect,
     importcpp: "Nodes", header: "Poly_Connect.hxx".}
-proc Initialize*(this: var Poly_Connect; N: Standard_Integer) {.
-    importcpp: "Initialize", header: "Poly_Connect.hxx".}
-proc More*(this: Poly_Connect): Standard_Boolean {.noSideEffect, importcpp: "More",
+proc initialize*(this: var PolyConnect; n: int) {.importcpp: "Initialize",
     header: "Poly_Connect.hxx".}
-proc Next*(this: var Poly_Connect) {.importcpp: "Next", header: "Poly_Connect.hxx".}
-proc Value*(this: Poly_Connect): Standard_Integer {.noSideEffect, importcpp: "Value",
-    header: "Poly_Connect.hxx".}
+proc more*(this: PolyConnect): bool {.noSideEffect, importcpp: "More",
+                                  header: "Poly_Connect.hxx".}
+proc next*(this: var PolyConnect) {.importcpp: "Next", header: "Poly_Connect.hxx".}
+proc value*(this: PolyConnect): int {.noSideEffect, importcpp: "Value",
+                                  header: "Poly_Connect.hxx".}

@@ -17,10 +17,10 @@
 ## ==== Implementation:  This is a primitive type implemented with typedef
 ## ============================================================================
 
-when defined(_WIN32):
+when defined windows:
   type
-    HANDLE* = pointer
-    Aspect_Handle* = HANDLE
+    Handle* = pointer
+    AspectHandle* = Handle
 else:
   type
-    Aspect_Handle* = culong
+    AspectHandle* = culong

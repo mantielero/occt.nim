@@ -14,31 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_ShapeRepresentationRelationshipWithTransformation"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepRepr_RWShapeRepresentationRelationshipWithTransformation* {.importcpp: "RWStepRepr_RWShapeRepresentationRelationshipWithTransformation", header: "RWStepRepr_RWShapeRepresentationRelationshipWithTransformation.hxx",
+  RWStepReprRWShapeRepresentationRelationshipWithTransformation* {.importcpp: "RWStepRepr_RWShapeRepresentationRelationshipWithTransformation", header: "RWStepRepr_RWShapeRepresentationRelationshipWithTransformation.hxx",
       bycopy.} = object
 
 
-proc constructRWStepRepr_RWShapeRepresentationRelationshipWithTransformation*(): RWStepRepr_RWShapeRepresentationRelationshipWithTransformation {.
+proc constructRWStepReprRWShapeRepresentationRelationshipWithTransformation*(): RWStepReprRWShapeRepresentationRelationshipWithTransformation {.
     constructor, importcpp: "RWStepRepr_RWShapeRepresentationRelationshipWithTransformation(@)", header: "RWStepRepr_RWShapeRepresentationRelationshipWithTransformation.hxx".}
-proc ReadStep*(this: RWStepRepr_RWShapeRepresentationRelationshipWithTransformation;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check]; ent: handle[
-    StepRepr_ShapeRepresentationRelationshipWithTransformation]) {.noSideEffect,
+proc readStep*(this: RWStepReprRWShapeRepresentationRelationshipWithTransformation;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck]; ent: Handle[
+    StepReprShapeRepresentationRelationshipWithTransformation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWShapeRepresentationRelationshipWithTransformation.hxx".}
-proc WriteStep*(this: RWStepRepr_RWShapeRepresentationRelationshipWithTransformation;
-               SW: var StepData_StepWriter; ent: handle[
-    StepRepr_ShapeRepresentationRelationshipWithTransformation]) {.noSideEffect,
+proc writeStep*(this: RWStepReprRWShapeRepresentationRelationshipWithTransformation;
+               sw: var StepDataStepWriter; ent: Handle[
+    StepReprShapeRepresentationRelationshipWithTransformation]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepRepr_RWShapeRepresentationRelationshipWithTransformation.hxx".}
-proc Share*(this: RWStepRepr_RWShapeRepresentationRelationshipWithTransformation;
-    ent: handle[StepRepr_ShapeRepresentationRelationshipWithTransformation];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share", header: "RWStepRepr_RWShapeRepresentationRelationshipWithTransformation.hxx".}
+proc share*(this: RWStepReprRWShapeRepresentationRelationshipWithTransformation;
+    ent: Handle[StepReprShapeRepresentationRelationshipWithTransformation];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share", header: "RWStepRepr_RWShapeRepresentationRelationshipWithTransformation.hxx".}

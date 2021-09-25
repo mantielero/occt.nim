@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../BRepSweep/BRepSweep_Revol,
-  ../TopTools/TopTools_ListOfShape, BRepPrimAPI_MakeSweep,
-  ../BRepTools/BRepTools_History, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of gp_Ax1"
 discard "forward decl of BRepSweep_Revol"
@@ -67,31 +60,30 @@ type
                                                                                                    ## valid
 
 
-proc constructBRepPrimAPI_MakeRevol*(S: TopoDS_Shape; A: gp_Ax1; D: Standard_Real;
-                                    Copy: Standard_Boolean = Standard_False): BRepPrimAPI_MakeRevol {.
+proc constructBRepPrimAPI_MakeRevol*(s: TopoDS_Shape; a: Ax1; d: float;
+                                    copy: bool = false): BRepPrimAPI_MakeRevol {.
     constructor, importcpp: "BRepPrimAPI_MakeRevol(@)",
     header: "BRepPrimAPI_MakeRevol.hxx".}
-proc constructBRepPrimAPI_MakeRevol*(S: TopoDS_Shape; A: gp_Ax1;
-                                    Copy: Standard_Boolean = Standard_False): BRepPrimAPI_MakeRevol {.
+proc constructBRepPrimAPI_MakeRevol*(s: TopoDS_Shape; a: Ax1; copy: bool = false): BRepPrimAPI_MakeRevol {.
     constructor, importcpp: "BRepPrimAPI_MakeRevol(@)",
     header: "BRepPrimAPI_MakeRevol.hxx".}
-proc Revol*(this: BRepPrimAPI_MakeRevol): BRepSweep_Revol {.noSideEffect,
+proc revol*(this: BRepPrimAPI_MakeRevol): BRepSweepRevol {.noSideEffect,
     importcpp: "Revol", header: "BRepPrimAPI_MakeRevol.hxx".}
-proc Build*(this: var BRepPrimAPI_MakeRevol) {.importcpp: "Build",
+proc build*(this: var BRepPrimAPI_MakeRevol) {.importcpp: "Build",
     header: "BRepPrimAPI_MakeRevol.hxx".}
-proc FirstShape*(this: var BRepPrimAPI_MakeRevol): TopoDS_Shape {.
+proc firstShape*(this: var BRepPrimAPI_MakeRevol): TopoDS_Shape {.
     importcpp: "FirstShape", header: "BRepPrimAPI_MakeRevol.hxx".}
-proc LastShape*(this: var BRepPrimAPI_MakeRevol): TopoDS_Shape {.
+proc lastShape*(this: var BRepPrimAPI_MakeRevol): TopoDS_Shape {.
     importcpp: "LastShape", header: "BRepPrimAPI_MakeRevol.hxx".}
-proc Generated*(this: var BRepPrimAPI_MakeRevol; S: TopoDS_Shape): TopTools_ListOfShape {.
+proc generated*(this: var BRepPrimAPI_MakeRevol; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Generated", header: "BRepPrimAPI_MakeRevol.hxx".}
-proc IsDeleted*(this: var BRepPrimAPI_MakeRevol; S: TopoDS_Shape): Standard_Boolean {.
+proc isDeleted*(this: var BRepPrimAPI_MakeRevol; s: TopoDS_Shape): bool {.
     importcpp: "IsDeleted", header: "BRepPrimAPI_MakeRevol.hxx".}
-proc FirstShape*(this: var BRepPrimAPI_MakeRevol; theShape: TopoDS_Shape): TopoDS_Shape {.
+proc firstShape*(this: var BRepPrimAPI_MakeRevol; theShape: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "FirstShape", header: "BRepPrimAPI_MakeRevol.hxx".}
-proc LastShape*(this: var BRepPrimAPI_MakeRevol; theShape: TopoDS_Shape): TopoDS_Shape {.
+proc lastShape*(this: var BRepPrimAPI_MakeRevol; theShape: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "LastShape", header: "BRepPrimAPI_MakeRevol.hxx".}
-proc HasDegenerated*(this: BRepPrimAPI_MakeRevol): Standard_Boolean {.noSideEffect,
+proc hasDegenerated*(this: BRepPrimAPI_MakeRevol): bool {.noSideEffect,
     importcpp: "HasDegenerated", header: "BRepPrimAPI_MakeRevol.hxx".}
-proc Degenerated*(this: BRepPrimAPI_MakeRevol): TopTools_ListOfShape {.noSideEffect,
+proc degenerated*(this: BRepPrimAPI_MakeRevol): TopToolsListOfShape {.noSideEffect,
     importcpp: "Degenerated", header: "BRepPrimAPI_MakeRevol.hxx".}

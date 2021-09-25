@@ -14,62 +14,53 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../TopAbs/TopAbs_Orientation, ../TopAbs/TopAbs_State,
-  ../Standard/Standard_Boolean
-
 type
-  HatchGen_IntersectionPoint* {.importcpp: "HatchGen_IntersectionPoint",
-                               header: "HatchGen_IntersectionPoint.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Sets
-                                                                                      ## the
-                                                                                      ## index
-                                                                                      ## of
-                                                                                      ## the
-                                                                                      ## supporting
-                                                                                      ## curve.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Creates
-                                                                                      ## an
-                                                                                      ## empty
-                                                                                      ## intersection
-                                                                                      ## point.
+  HatchGenIntersectionPoint* {.importcpp: "HatchGen_IntersectionPoint",
+                              header: "HatchGen_IntersectionPoint.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Sets
+                                                                                     ## the
+                                                                                     ## index
+                                                                                     ## of
+                                                                                     ## the
+                                                                                     ## supporting
+                                                                                     ## curve.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Creates
+                                                                                     ## an
+                                                                                     ## empty
+                                                                                     ## intersection
+                                                                                     ## point.
 
 
-proc SetIndex*(this: var HatchGen_IntersectionPoint; Index: Standard_Integer) {.
+proc setIndex*(this: var HatchGenIntersectionPoint; index: int) {.
     importcpp: "SetIndex", header: "HatchGen_IntersectionPoint.hxx".}
-proc Index*(this: HatchGen_IntersectionPoint): Standard_Integer {.noSideEffect,
-    importcpp: "Index", header: "HatchGen_IntersectionPoint.hxx".}
-proc SetParameter*(this: var HatchGen_IntersectionPoint; Parameter: Standard_Real) {.
-    importcpp: "SetParameter", header: "HatchGen_IntersectionPoint.hxx".}
-proc Parameter*(this: HatchGen_IntersectionPoint): Standard_Real {.noSideEffect,
-    importcpp: "Parameter", header: "HatchGen_IntersectionPoint.hxx".}
-proc SetPosition*(this: var HatchGen_IntersectionPoint; Position: TopAbs_Orientation) {.
-    importcpp: "SetPosition", header: "HatchGen_IntersectionPoint.hxx".}
-proc Position*(this: HatchGen_IntersectionPoint): TopAbs_Orientation {.noSideEffect,
-    importcpp: "Position", header: "HatchGen_IntersectionPoint.hxx".}
-proc SetStateBefore*(this: var HatchGen_IntersectionPoint; State: TopAbs_State) {.
-    importcpp: "SetStateBefore", header: "HatchGen_IntersectionPoint.hxx".}
-proc StateBefore*(this: HatchGen_IntersectionPoint): TopAbs_State {.noSideEffect,
-    importcpp: "StateBefore", header: "HatchGen_IntersectionPoint.hxx".}
-proc SetStateAfter*(this: var HatchGen_IntersectionPoint; State: TopAbs_State) {.
-    importcpp: "SetStateAfter", header: "HatchGen_IntersectionPoint.hxx".}
-proc StateAfter*(this: HatchGen_IntersectionPoint): TopAbs_State {.noSideEffect,
-    importcpp: "StateAfter", header: "HatchGen_IntersectionPoint.hxx".}
-proc SetSegmentBeginning*(this: var HatchGen_IntersectionPoint;
-                         State: Standard_Boolean = Standard_True) {.
-    importcpp: "SetSegmentBeginning", header: "HatchGen_IntersectionPoint.hxx".}
-proc SegmentBeginning*(this: HatchGen_IntersectionPoint): Standard_Boolean {.
-    noSideEffect, importcpp: "SegmentBeginning",
+proc index*(this: HatchGenIntersectionPoint): int {.noSideEffect, importcpp: "Index",
     header: "HatchGen_IntersectionPoint.hxx".}
-proc SetSegmentEnd*(this: var HatchGen_IntersectionPoint;
-                   State: Standard_Boolean = Standard_True) {.
+proc setParameter*(this: var HatchGenIntersectionPoint; parameter: float) {.
+    importcpp: "SetParameter", header: "HatchGen_IntersectionPoint.hxx".}
+proc parameter*(this: HatchGenIntersectionPoint): float {.noSideEffect,
+    importcpp: "Parameter", header: "HatchGen_IntersectionPoint.hxx".}
+proc setPosition*(this: var HatchGenIntersectionPoint; position: TopAbsOrientation) {.
+    importcpp: "SetPosition", header: "HatchGen_IntersectionPoint.hxx".}
+proc position*(this: HatchGenIntersectionPoint): TopAbsOrientation {.noSideEffect,
+    importcpp: "Position", header: "HatchGen_IntersectionPoint.hxx".}
+proc setStateBefore*(this: var HatchGenIntersectionPoint; state: TopAbsState) {.
+    importcpp: "SetStateBefore", header: "HatchGen_IntersectionPoint.hxx".}
+proc stateBefore*(this: HatchGenIntersectionPoint): TopAbsState {.noSideEffect,
+    importcpp: "StateBefore", header: "HatchGen_IntersectionPoint.hxx".}
+proc setStateAfter*(this: var HatchGenIntersectionPoint; state: TopAbsState) {.
+    importcpp: "SetStateAfter", header: "HatchGen_IntersectionPoint.hxx".}
+proc stateAfter*(this: HatchGenIntersectionPoint): TopAbsState {.noSideEffect,
+    importcpp: "StateAfter", header: "HatchGen_IntersectionPoint.hxx".}
+proc setSegmentBeginning*(this: var HatchGenIntersectionPoint; state: bool = true) {.
+    importcpp: "SetSegmentBeginning", header: "HatchGen_IntersectionPoint.hxx".}
+proc segmentBeginning*(this: HatchGenIntersectionPoint): bool {.noSideEffect,
+    importcpp: "SegmentBeginning", header: "HatchGen_IntersectionPoint.hxx".}
+proc setSegmentEnd*(this: var HatchGenIntersectionPoint; state: bool = true) {.
     importcpp: "SetSegmentEnd", header: "HatchGen_IntersectionPoint.hxx".}
-proc SegmentEnd*(this: HatchGen_IntersectionPoint): Standard_Boolean {.noSideEffect,
+proc segmentEnd*(this: HatchGenIntersectionPoint): bool {.noSideEffect,
     importcpp: "SegmentEnd", header: "HatchGen_IntersectionPoint.hxx".}
-proc Dump*(this: HatchGen_IntersectionPoint; Index: Standard_Integer = 0) {.
-    noSideEffect, importcpp: "Dump", header: "HatchGen_IntersectionPoint.hxx".}
+proc dump*(this: HatchGenIntersectionPoint; index: int = 0) {.noSideEffect,
+    importcpp: "Dump", header: "HatchGen_IntersectionPoint.hxx".}

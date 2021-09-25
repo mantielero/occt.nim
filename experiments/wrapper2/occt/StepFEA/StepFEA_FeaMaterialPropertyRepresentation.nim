@@ -13,14 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepRepr/StepRepr_MaterialPropertyRepresentation
-
 discard "forward decl of StepFEA_FeaMaterialPropertyRepresentation"
 discard "forward decl of StepFEA_FeaMaterialPropertyRepresentation"
 type
-  Handle_StepFEA_FeaMaterialPropertyRepresentation* = handle[
+  HandleStepFEA_FeaMaterialPropertyRepresentation* = Handle[
       StepFEA_FeaMaterialPropertyRepresentation]
 
 ## ! Representation of STEP entity FeaMaterialPropertyRepresentation
@@ -28,21 +24,21 @@ type
 type
   StepFEA_FeaMaterialPropertyRepresentation* {.
       importcpp: "StepFEA_FeaMaterialPropertyRepresentation",
-      header: "StepFEA_FeaMaterialPropertyRepresentation.hxx", bycopy.} = object of StepRepr_MaterialPropertyRepresentation ##
-                                                                                                                     ## !
-                                                                                                                     ## Empty
-                                                                                                                     ## constructor
+      header: "StepFEA_FeaMaterialPropertyRepresentation.hxx", bycopy.} = object of StepReprMaterialPropertyRepresentation ##
+                                                                                                                    ## !
+                                                                                                                    ## Empty
+                                                                                                                    ## constructor
 
 
 proc constructStepFEA_FeaMaterialPropertyRepresentation*(): StepFEA_FeaMaterialPropertyRepresentation {.
     constructor, importcpp: "StepFEA_FeaMaterialPropertyRepresentation(@)",
     header: "StepFEA_FeaMaterialPropertyRepresentation.hxx".}
 type
-  StepFEA_FeaMaterialPropertyRepresentationbase_type* = StepRepr_MaterialPropertyRepresentation
+  StepFEA_FeaMaterialPropertyRepresentationbaseType* = StepReprMaterialPropertyRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_FeaMaterialPropertyRepresentation::get_type_name(@)", header: "StepFEA_FeaMaterialPropertyRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepFEA_FeaMaterialPropertyRepresentation::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepFEA_FeaMaterialPropertyRepresentation::get_type_name(@)", header: "StepFEA_FeaMaterialPropertyRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_FeaMaterialPropertyRepresentation::get_type_descriptor(@)",
     header: "StepFEA_FeaMaterialPropertyRepresentation.hxx".}
-proc DynamicType*(this: StepFEA_FeaMaterialPropertyRepresentation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepFEA_FeaMaterialPropertyRepresentation.hxx".}
+proc dynamicType*(this: StepFEA_FeaMaterialPropertyRepresentation): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepFEA_FeaMaterialPropertyRepresentation.hxx".}

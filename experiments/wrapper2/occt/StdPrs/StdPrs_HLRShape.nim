@@ -11,26 +11,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StdPrs_HLRShapeI
-
 ## ! Computes the presentation of objects with removal of their hidden lines for a specific projector.
 ## ! The exact algorithm is used.
 
 type
-  StdPrs_HLRShape* {.importcpp: "StdPrs_HLRShape", header: "StdPrs_HLRShape.hxx",
-                    bycopy.} = object of StdPrs_HLRShapeI ## ! Compute presentation for specified shape.
+  StdPrsHLRShape* {.importcpp: "StdPrs_HLRShape", header: "StdPrs_HLRShape.hxx",
+                   bycopy.} = object of StdPrsHLRShapeI ## ! Compute presentation for specified shape.
 
-  StdPrs_HLRShapebase_type* = StdPrs_HLRShapeI
+  StdPrsHLRShapebaseType* = StdPrsHLRShapeI
 
-proc get_type_name*(): cstring {.importcpp: "StdPrs_HLRShape::get_type_name(@)",
-                              header: "StdPrs_HLRShape.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StdPrs_HLRShape::get_type_name(@)",
+                            header: "StdPrs_HLRShape.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StdPrs_HLRShape::get_type_descriptor(@)",
     header: "StdPrs_HLRShape.hxx".}
-proc DynamicType*(this: StdPrs_HLRShape): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StdPrsHLRShape): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StdPrs_HLRShape.hxx".}
-proc ComputeHLR*(this: StdPrs_HLRShape; thePrs: handle[Prs3d_Presentation];
-                theShape: TopoDS_Shape; theDrawer: handle[Prs3d_Drawer];
-                theProjector: handle[Graphic3d_Camera]) {.noSideEffect,
+proc computeHLR*(this: StdPrsHLRShape; thePrs: Handle[Prs3dPresentation];
+                theShape: TopoDS_Shape; theDrawer: Handle[Prs3dDrawer];
+                theProjector: Handle[Graphic3dCamera]) {.noSideEffect,
     importcpp: "ComputeHLR", header: "StdPrs_HLRShape.hxx".}

@@ -15,21 +15,20 @@
 ## ! Specifies aspect of system font.
 
 type
-  Font_FontAspect* {.size: sizeof(cint), importcpp: "Font_FontAspect",
-                    header: "Font_FontAspect.hxx".} = enum
-    Font_FontAspect_UNDEFINED = -1, ## !< special value reserved for undefined aspect
-    Font_FontAspect_Regular = 0, ## !< normal (regular) aspect
-    Font_FontAspect_Bold,     ## !< bold aspect
-    Font_FontAspect_Italic,   ## !< italic aspect
-    Font_FontAspect_BoldItalic ## !< bold+italic aspect
-                              ##  old aliases
+  FontFontAspect* {.size: sizeof(cint), importcpp: "Font_FontAspect",
+                   header: "Font_FontAspect.hxx".} = enum
+    FontFontAspectUNDEFINED = -1, ## !< special value reserved for undefined aspect
+    FontFontAspectRegular = 0,  ## !< normal (regular) aspect
+    FontFontAspectBold,       ## !< bold aspect
+    FontFontAspectItalic,     ## !< italic aspect
+    FontFontAspectBoldItalic, ## !< bold+italic aspect
+                             ##  old aliases
+    FontFA_Undefined = fontFontAspectUNDEFINED,
+    FontFA_Regular = fontFontAspectRegular, FontFA_Bold = fontFontAspectBold,
+    FontFA_Italic = fontFontAspectItalic,
+    FontFA_BoldItalic = fontFontAspectBoldItalic
+
 
 const
-  Font_FA_Undefined* = Font_FontAspect_UNDEFINED
-  Font_FA_Regular* = Font_FontAspect_Regular
-  Font_FA_Bold* = Font_FontAspect_Bold
-  Font_FA_Italic* = Font_FontAspect_Italic
-  Font_FA_BoldItalic* = Font_FontAspect_BoldItalic
+  FontFontAspectNB* = fontFontAspectBoldItalic + 1
 
-const
-  Font_FontAspect_NB* = Font_FontAspect_BoldItalic + 1

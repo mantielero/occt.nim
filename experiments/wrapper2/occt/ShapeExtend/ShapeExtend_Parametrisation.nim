@@ -20,8 +20,9 @@
 ## ! uniform parametrisation with global range [0,1]
 
 type
-  ShapeExtend_Parametrisation* {.size: sizeof(cint),
-                                importcpp: "ShapeExtend_Parametrisation",
-                                header: "ShapeExtend_Parametrisation.hxx".} = enum
-    ShapeExtend_Natural, ShapeExtend_Uniform, ShapeExtend_Unitary
+  ShapeExtendParametrisation* {.size: sizeof(cint),
+                               importcpp: "ShapeExtend_Parametrisation",
+                               header: "ShapeExtend_Parametrisation.hxx".} = enum
+    ShapeExtendNatural, ShapeExtendUniform, ShapeExtendUnitary
+
 

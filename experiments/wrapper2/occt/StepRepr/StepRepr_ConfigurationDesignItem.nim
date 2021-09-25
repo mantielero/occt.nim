@@ -14,29 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_ProductDefinition"
 discard "forward decl of StepBasic_ProductDefinitionFormation"
 type
-  StepRepr_ConfigurationDesignItem* {.importcpp: "StepRepr_ConfigurationDesignItem", header: "StepRepr_ConfigurationDesignItem.hxx",
-                                     bycopy.} = object of StepData_SelectType ## ! Empty
-                                                                         ## constructor
+  StepReprConfigurationDesignItem* {.importcpp: "StepRepr_ConfigurationDesignItem", header: "StepRepr_ConfigurationDesignItem.hxx",
+                                    bycopy.} = object of StepDataSelectType ## ! Empty
+                                                                       ## constructor
 
 
-proc constructStepRepr_ConfigurationDesignItem*(): StepRepr_ConfigurationDesignItem {.
+proc constructStepReprConfigurationDesignItem*(): StepReprConfigurationDesignItem {.
     constructor, importcpp: "StepRepr_ConfigurationDesignItem(@)",
     header: "StepRepr_ConfigurationDesignItem.hxx".}
-proc CaseNum*(this: StepRepr_ConfigurationDesignItem;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
-    importcpp: "CaseNum", header: "StepRepr_ConfigurationDesignItem.hxx".}
-proc ProductDefinition*(this: StepRepr_ConfigurationDesignItem): handle[
-    StepBasic_ProductDefinition] {.noSideEffect, importcpp: "ProductDefinition", header: "StepRepr_ConfigurationDesignItem.hxx".}
-proc ProductDefinitionFormation*(this: StepRepr_ConfigurationDesignItem): handle[
-    StepBasic_ProductDefinitionFormation] {.noSideEffect,
+proc caseNum*(this: StepReprConfigurationDesignItem; ent: Handle[StandardTransient]): int {.
+    noSideEffect, importcpp: "CaseNum",
+    header: "StepRepr_ConfigurationDesignItem.hxx".}
+proc productDefinition*(this: StepReprConfigurationDesignItem): Handle[
+    StepBasicProductDefinition] {.noSideEffect, importcpp: "ProductDefinition",
+                                 header: "StepRepr_ConfigurationDesignItem.hxx".}
+proc productDefinitionFormation*(this: StepReprConfigurationDesignItem): Handle[
+    StepBasicProductDefinitionFormation] {.noSideEffect,
     importcpp: "ProductDefinitionFormation",
     header: "StepRepr_ConfigurationDesignItem.hxx".}

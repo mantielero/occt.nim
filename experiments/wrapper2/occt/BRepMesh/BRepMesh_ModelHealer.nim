@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../IMeshTools/IMeshTools_ModelAlgo, ../IMeshTools/IMeshTools_Parameters,
-  ../IMeshData/IMeshData_Types, ../IMeshData/IMeshData_Model,
-  ../TopoDS/TopoDS_Vertex
-
 ## ! Class implements functionality of model healer tool.
 ## ! Iterates over model's faces and checks consistency of their wires,
 ## ! i.e.whether wires are closed and do not contain self - intersections.
@@ -32,49 +27,49 @@ import
 ## ! Checks can be performed in parallel mode.
 
 type
-  BRepMesh_ModelHealer* {.importcpp: "BRepMesh_ModelHealer",
-                         header: "BRepMesh_ModelHealer.hxx", bycopy.} = object of IMeshTools_ModelAlgo ##
-                                                                                                ## !
-                                                                                                ## Constructor.
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Performs
-                                                                                                ## processing
-                                                                                                ## of
-                                                                                                ## edges
-                                                                                                ## of
-                                                                                                ## the
-                                                                                                ## given
-                                                                                                ## model.
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Checks
-                                                                                                ## existing
-                                                                                                ## discretization
-                                                                                                ## of
-                                                                                                ## the
-                                                                                                ## face
-                                                                                                ## and
-                                                                                                ## updates
-                                                                                                ## data
-                                                                                                ## model.
+  BRepMeshModelHealer* {.importcpp: "BRepMesh_ModelHealer",
+                        header: "BRepMesh_ModelHealer.hxx", bycopy.} = object of IMeshToolsModelAlgo ##
+                                                                                              ## !
+                                                                                              ## Constructor.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Performs
+                                                                                              ## processing
+                                                                                              ## of
+                                                                                              ## edges
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ## given
+                                                                                              ## model.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Checks
+                                                                                              ## existing
+                                                                                              ## discretization
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ## face
+                                                                                              ## and
+                                                                                              ## updates
+                                                                                              ## data
+                                                                                              ## model.
 
 
-proc constructBRepMesh_ModelHealer*(): BRepMesh_ModelHealer {.constructor,
+proc constructBRepMeshModelHealer*(): BRepMeshModelHealer {.constructor,
     importcpp: "BRepMesh_ModelHealer(@)", header: "BRepMesh_ModelHealer.hxx".}
-proc destroyBRepMesh_ModelHealer*(this: var BRepMesh_ModelHealer) {.
+proc destroyBRepMeshModelHealer*(this: var BRepMeshModelHealer) {.
     importcpp: "#.~BRepMesh_ModelHealer()", header: "BRepMesh_ModelHealer.hxx".}
-proc `()`*(this: BRepMesh_ModelHealer; theEdgeIndex: Standard_Integer) {.
-    noSideEffect, importcpp: "#(@)", header: "BRepMesh_ModelHealer.hxx".}
-proc `()`*(this: BRepMesh_ModelHealer; theDFace: IFaceHandle) {.noSideEffect,
+proc `()`*(this: BRepMeshModelHealer; theEdgeIndex: int) {.noSideEffect,
+    importcpp: "#(@)", header: "BRepMesh_ModelHealer.hxx".}
+proc `()`*(this: BRepMeshModelHealer; theDFace: IFaceHandle) {.noSideEffect,
     importcpp: "#(@)", header: "BRepMesh_ModelHealer.hxx".}
 type
-  BRepMesh_ModelHealerbase_type* = IMeshTools_ModelAlgo
+  BRepMeshModelHealerbaseType* = IMeshToolsModelAlgo
 
-proc get_type_name*(): cstring {.importcpp: "BRepMesh_ModelHealer::get_type_name(@)",
-                              header: "BRepMesh_ModelHealer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepMesh_ModelHealer::get_type_name(@)",
+                            header: "BRepMesh_ModelHealer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepMesh_ModelHealer::get_type_descriptor(@)",
     header: "BRepMesh_ModelHealer.hxx".}
-proc DynamicType*(this: BRepMesh_ModelHealer): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: BRepMeshModelHealer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMesh_ModelHealer.hxx".}

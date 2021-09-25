@@ -14,37 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TDF/TDF_Label, TDataStd_LabelArray1, ../NCollection/NCollection_DefineHArray1
-
 type
-  TDataStd_HLabelArray1* {.importcpp: "TDataStd_HLabelArray1",
-                          header: "TDataStd_HLabelArray1.hxx", bycopy.} = object of TDataStd_LabelArray1
+  TDataStdHLabelArray1* {.importcpp: "TDataStd_HLabelArray1",
+                         header: "TDataStd_HLabelArray1.hxx", bycopy.} = object of TDataStdLabelArray1
 
 
-proc constructTDataStd_HLabelArray1*(theLower: Standard_Integer;
-                                    theUpper: Standard_Integer): TDataStd_HLabelArray1 {.
+proc constructTDataStdHLabelArray1*(theLower: int; theUpper: int): TDataStdHLabelArray1 {.
     constructor, importcpp: "TDataStd_HLabelArray1(@)",
     header: "TDataStd_HLabelArray1.hxx".}
-proc constructTDataStd_HLabelArray1*(theLower: Standard_Integer;
-                                    theUpper: Standard_Integer;
-                                    theValue: value_type): TDataStd_HLabelArray1 {.
+proc constructTDataStdHLabelArray1*(theLower: int; theUpper: int; theValue: ValueType): TDataStdHLabelArray1 {.
     constructor, importcpp: "TDataStd_HLabelArray1(@)",
     header: "TDataStd_HLabelArray1.hxx".}
-proc constructTDataStd_HLabelArray1*(theOther: TDataStd_LabelArray1): TDataStd_HLabelArray1 {.
+proc constructTDataStdHLabelArray1*(theOther: TDataStdLabelArray1): TDataStdHLabelArray1 {.
     constructor, importcpp: "TDataStd_HLabelArray1(@)",
     header: "TDataStd_HLabelArray1.hxx".}
-proc Array1*(this: TDataStd_HLabelArray1): TDataStd_LabelArray1 {.noSideEffect,
+proc array1*(this: TDataStdHLabelArray1): TDataStdLabelArray1 {.noSideEffect,
     importcpp: "Array1", header: "TDataStd_HLabelArray1.hxx".}
-proc ChangeArray1*(this: var TDataStd_HLabelArray1): var TDataStd_LabelArray1 {.
+proc changeArray1*(this: var TDataStdHLabelArray1): var TDataStdLabelArray1 {.
     importcpp: "ChangeArray1", header: "TDataStd_HLabelArray1.hxx".}
 type
-  TDataStd_HLabelArray1base_type* = MMgt_TShared
+  TDataStdHLabelArray1baseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TDataStd_HLabelArray1::get_type_name(@)",
-                              header: "TDataStd_HLabelArray1.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDataStd_HLabelArray1::get_type_name(@)",
+                            header: "TDataStd_HLabelArray1.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDataStd_HLabelArray1::get_type_descriptor(@)",
     header: "TDataStd_HLabelArray1.hxx".}
-proc DynamicType*(this: TDataStd_HLabelArray1): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "TDataStd_HLabelArray1.hxx".}
+proc dynamicType*(this: TDataStdHLabelArray1): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "TDataStd_HLabelArray1.hxx".}

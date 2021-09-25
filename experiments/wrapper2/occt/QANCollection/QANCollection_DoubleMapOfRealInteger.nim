@@ -13,14 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Real, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_MapRealHasher, ../TColStd/TColStd_MapIntegerHasher,
-  ../NCollection/NCollection_DoubleMap
-
 type
-  QANCollection_DoubleMapOfRealInteger* = NCollection_DoubleMap[Standard_Real,
-      Standard_Integer, TColStd_MapRealHasher, TColStd_MapIntegerHasher]
-  QANCollection_DoubleMapIteratorOfDoubleMapOfRealInteger* = Iterator[
-      Standard_Real, Standard_Integer, TColStd_MapRealHasher,
-      TColStd_MapIntegerHasher]
+  QANCollectionDoubleMapOfRealInteger* = NCollectionDoubleMap[float, int,
+      TColStdMapRealHasher, TColStdMapIntegerHasher]
+  QANCollectionDoubleMapIteratorOfDoubleMapOfRealInteger* = Iterator[float, int,
+      TColStdMapRealHasher, TColStdMapIntegerHasher]
+

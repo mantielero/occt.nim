@@ -14,30 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_ManifoldSolidBrep
-
 discard "forward decl of StepShape_FacetedBrep"
 discard "forward decl of StepShape_FacetedBrep"
 type
-  Handle_StepShape_FacetedBrep* = handle[StepShape_FacetedBrep]
-  StepShape_FacetedBrep* {.importcpp: "StepShape_FacetedBrep",
-                          header: "StepShape_FacetedBrep.hxx", bycopy.} = object of StepShape_ManifoldSolidBrep ##
-                                                                                                         ## !
-                                                                                                         ## Returns
-                                                                                                         ## a
-                                                                                                         ## FacetedBrep
+  HandleStepShapeFacetedBrep* = Handle[StepShapeFacetedBrep]
+  StepShapeFacetedBrep* {.importcpp: "StepShape_FacetedBrep",
+                         header: "StepShape_FacetedBrep.hxx", bycopy.} = object of StepShapeManifoldSolidBrep ##
+                                                                                                       ## !
+                                                                                                       ## Returns
+                                                                                                       ## a
+                                                                                                       ## FacetedBrep
 
 
-proc constructStepShape_FacetedBrep*(): StepShape_FacetedBrep {.constructor,
+proc constructStepShapeFacetedBrep*(): StepShapeFacetedBrep {.constructor,
     importcpp: "StepShape_FacetedBrep(@)", header: "StepShape_FacetedBrep.hxx".}
 type
-  StepShape_FacetedBrepbase_type* = StepShape_ManifoldSolidBrep
+  StepShapeFacetedBrepbaseType* = StepShapeManifoldSolidBrep
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_FacetedBrep::get_type_name(@)",
-                              header: "StepShape_FacetedBrep.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_FacetedBrep::get_type_name(@)",
+                            header: "StepShape_FacetedBrep.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_FacetedBrep::get_type_descriptor(@)",
     header: "StepShape_FacetedBrep.hxx".}
-proc DynamicType*(this: StepShape_FacetedBrep): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepShape_FacetedBrep.hxx".}
+proc dynamicType*(this: StepShapeFacetedBrep): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepShape_FacetedBrep.hxx".}

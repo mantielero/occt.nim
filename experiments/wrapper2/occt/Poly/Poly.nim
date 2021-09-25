@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Poly_ListOfTriangulation,
-  ../Standard/Standard_OStream, ../Standard/Standard_Boolean,
-  ../Standard/Standard_IStream, ../Standard/Standard_Real,
-  ../TColgp/TColgp_SequenceOfPnt2d
-
 discard "forward decl of Poly_Triangulation"
 discard "forward decl of Poly_Polygon3D"
 discard "forward decl of Poly_Polygon2D"
@@ -44,33 +37,30 @@ type
                                                            ## ! dropped in the result.
 
 
-proc Catenate*(lstTri: Poly_ListOfTriangulation): handle[Poly_Triangulation] {.
+proc catenate*(lstTri: PolyListOfTriangulation): Handle[PolyTriangulation] {.
     importcpp: "Poly::Catenate(@)", header: "Poly.hxx".}
-proc Write*(T: handle[Poly_Triangulation]; OS: var Standard_OStream;
-           Compact: Standard_Boolean = Standard_True) {.importcpp: "Poly::Write(@)",
-    header: "Poly.hxx".}
-proc Write*(P: handle[Poly_Polygon3D]; OS: var Standard_OStream;
-           Compact: Standard_Boolean = Standard_True) {.importcpp: "Poly::Write(@)",
-    header: "Poly.hxx".}
-proc Write*(P: handle[Poly_Polygon2D]; OS: var Standard_OStream;
-           Compact: Standard_Boolean = Standard_True) {.importcpp: "Poly::Write(@)",
-    header: "Poly.hxx".}
-proc Dump*(T: handle[Poly_Triangulation]; OS: var Standard_OStream) {.
+proc write*(t: Handle[PolyTriangulation]; os: var StandardOStream;
+           compact: bool = true) {.importcpp: "Poly::Write(@)", header: "Poly.hxx".}
+proc write*(p: Handle[PolyPolygon3D]; os: var StandardOStream; compact: bool = true) {.
+    importcpp: "Poly::Write(@)", header: "Poly.hxx".}
+proc write*(p: Handle[PolyPolygon2D]; os: var StandardOStream; compact: bool = true) {.
+    importcpp: "Poly::Write(@)", header: "Poly.hxx".}
+proc dump*(t: Handle[PolyTriangulation]; os: var StandardOStream) {.
     importcpp: "Poly::Dump(@)", header: "Poly.hxx".}
-proc Dump*(P: handle[Poly_Polygon3D]; OS: var Standard_OStream) {.
+proc dump*(p: Handle[PolyPolygon3D]; os: var StandardOStream) {.
     importcpp: "Poly::Dump(@)", header: "Poly.hxx".}
-proc Dump*(P: handle[Poly_Polygon2D]; OS: var Standard_OStream) {.
+proc dump*(p: Handle[PolyPolygon2D]; os: var StandardOStream) {.
     importcpp: "Poly::Dump(@)", header: "Poly.hxx".}
-proc ReadTriangulation*(IS: var Standard_IStream): handle[Poly_Triangulation] {.
+proc readTriangulation*(`is`: var StandardIStream): Handle[PolyTriangulation] {.
     importcpp: "Poly::ReadTriangulation(@)", header: "Poly.hxx".}
-proc ReadPolygon3D*(IS: var Standard_IStream): handle[Poly_Polygon3D] {.
+proc readPolygon3D*(`is`: var StandardIStream): Handle[PolyPolygon3D] {.
     importcpp: "Poly::ReadPolygon3D(@)", header: "Poly.hxx".}
-proc ReadPolygon2D*(IS: var Standard_IStream): handle[Poly_Polygon2D] {.
+proc readPolygon2D*(`is`: var StandardIStream): Handle[PolyPolygon2D] {.
     importcpp: "Poly::ReadPolygon2D(@)", header: "Poly.hxx".}
-proc ComputeNormals*(Tri: handle[Poly_Triangulation]) {.
+proc computeNormals*(tri: Handle[PolyTriangulation]) {.
     importcpp: "Poly::ComputeNormals(@)", header: "Poly.hxx".}
-proc PointOnTriangle*(P1: gp_XY; P2: gp_XY; P3: gp_XY; P: gp_XY; UV: var gp_XY): Standard_Real {.
+proc pointOnTriangle*(p1: Xy; p2: Xy; p3: Xy; p: Xy; uv: var Xy): float {.
     importcpp: "Poly::PointOnTriangle(@)", header: "Poly.hxx".}
-proc PolygonProperties*[TypeSequencePnts](theSeqPnts: TypeSequencePnts;
-    theArea: var Standard_Real; thePerimeter: var Standard_Real): Standard_Boolean {.
+proc polygonProperties*[TypeSequencePnts](theSeqPnts: TypeSequencePnts;
+    theArea: var float; thePerimeter: var float): bool {.
     importcpp: "Poly::PolygonProperties(@)", header: "Poly.hxx".}

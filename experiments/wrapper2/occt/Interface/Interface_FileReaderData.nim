@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_Array1OfInteger, ../TColStd/TColStd_Array1OfTransient,
-  ../Standard/Standard_Transient, ../Standard/Standard_CString,
-  Interface_ParamType, ../Standard/Standard_Boolean, ../Standard/Standard_Real
-
 discard "forward decl of Interface_ParamSet"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TCollection_AsciiString"
@@ -29,7 +23,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_FileReaderData"
 discard "forward decl of Interface_FileReaderData"
 type
-  Handle_Interface_FileReaderData* = handle[Interface_FileReaderData]
+  HandleInterfaceFileReaderData* = Handle[InterfaceFileReaderData]
 
 ## ! This class defines services which permit to access Data issued
 ## ! from a File, in a form which does not depend of physical
@@ -48,223 +42,211 @@ type
 ## ! methods, and improves memory management.
 
 type
-  Interface_FileReaderData* {.importcpp: "Interface_FileReaderData",
-                             header: "Interface_FileReaderData.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                      ## !
-                                                                                                      ## Returns
-                                                                                                      ## the
-                                                                                                      ## count
-                                                                                                      ## of
-                                                                                                      ## registered
-                                                                                                      ## records
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## That
-                                                                                                      ## is,
-                                                                                                      ## value
-                                                                                                      ## given
-                                                                                                      ## for
-                                                                                                      ## Initialization
-                                                                                                      ## (can
-                                                                                                      ## be
-                                                                                                      ## redefined)
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## Initializes
-                                                                                                      ## arrays
-                                                                                                      ## of
-                                                                                                      ## Entities
-                                                                                                      ## and
-                                                                                                      ## of
-                                                                                                      ## ParamLists
-                                                                                                      ## attached
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## to
-                                                                                                      ## registered
-                                                                                                      ## records
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## <nbr>
-                                                                                                      ## must
-                                                                                                      ## be
-                                                                                                      ## the
-                                                                                                      ## maximum
-                                                                                                      ## number
-                                                                                                      ## of
-                                                                                                      ## records
-                                                                                                      ## to
-                                                                                                      ## get
-                                                                                                      ## (no
-                                                                                                      ## way
-                                                                                                      ## to
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## extend
-                                                                                                      ## it
-                                                                                                      ## at
-                                                                                                      ## run-time)
-                                                                                                      ## :
-                                                                                                      ## count
-                                                                                                      ## entities
-                                                                                                      ## and
-                                                                                                      ## sub-entities
-                                                                                                      ## ...
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## <npar>
-                                                                                                      ## is
-                                                                                                      ## the
-                                                                                                      ## total
-                                                                                                      ## count
-                                                                                                      ## of
-                                                                                                      ## parameters
-                                                                                                      ## (if
-                                                                                                      ## it
-                                                                                                      ## is
-                                                                                                      ## not
-                                                                                                      ## exact,
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## it
-                                                                                                      ## will
-                                                                                                      ## be
-                                                                                                      ## extented
-                                                                                                      ## as
-                                                                                                      ## necessary)
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## Hence,
-                                                                                                      ## to
-                                                                                                      ## each
-                                                                                                      ## record
-                                                                                                      ## can
-                                                                                                      ## be
-                                                                                                      ## bound
-                                                                                                      ## an
-                                                                                                      ## Entity
-                                                                                                      ## and
-                                                                                                      ## a
-                                                                                                      ## list
-                                                                                                      ## of
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## Parameters.
-                                                                                                      ## Each
-                                                                                                      ## kind
-                                                                                                      ## of
-                                                                                                      ## FileReaderData
-                                                                                                      ## can
-                                                                                                      ## add
-                                                                                                      ## other
-                                                                                                      ## data,
-                                                                                                      ## by
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## having
-                                                                                                      ## them
-                                                                                                      ## in
-                                                                                                      ## parallel
-                                                                                                      ## (other
-                                                                                                      ## arrays
-                                                                                                      ## with
-                                                                                                      ## same
-                                                                                                      ## sizes)
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## Else,
-                                                                                                      ## it
-                                                                                                      ## must
-                                                                                                      ## manage
-                                                                                                      ## binding
-                                                                                                      ## between
-                                                                                                      ## items
-                                                                                                      ## and
-                                                                                                      ## their
-                                                                                                      ## data
+  InterfaceFileReaderData* {.importcpp: "Interface_FileReaderData",
+                            header: "Interface_FileReaderData.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                    ## !
+                                                                                                    ## Returns
+                                                                                                    ## the
+                                                                                                    ## count
+                                                                                                    ## of
+                                                                                                    ## registered
+                                                                                                    ## records
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## That
+                                                                                                    ## is,
+                                                                                                    ## value
+                                                                                                    ## given
+                                                                                                    ## for
+                                                                                                    ## Initialization
+                                                                                                    ## (can
+                                                                                                    ## be
+                                                                                                    ## redefined)
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Initializes
+                                                                                                    ## arrays
+                                                                                                    ## of
+                                                                                                    ## Entities
+                                                                                                    ## and
+                                                                                                    ## of
+                                                                                                    ## ParamLists
+                                                                                                    ## attached
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## to
+                                                                                                    ## registered
+                                                                                                    ## records
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## <nbr>
+                                                                                                    ## must
+                                                                                                    ## be
+                                                                                                    ## the
+                                                                                                    ## maximum
+                                                                                                    ## number
+                                                                                                    ## of
+                                                                                                    ## records
+                                                                                                    ## to
+                                                                                                    ## get
+                                                                                                    ## (no
+                                                                                                    ## way
+                                                                                                    ## to
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## extend
+                                                                                                    ## it
+                                                                                                    ## at
+                                                                                                    ## run-time)
+                                                                                                    ## :
+                                                                                                    ## count
+                                                                                                    ## entities
+                                                                                                    ## and
+                                                                                                    ## sub-entities
+                                                                                                    ## ...
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## <npar>
+                                                                                                    ## is
+                                                                                                    ## the
+                                                                                                    ## total
+                                                                                                    ## count
+                                                                                                    ## of
+                                                                                                    ## parameters
+                                                                                                    ## (if
+                                                                                                    ## it
+                                                                                                    ## is
+                                                                                                    ## not
+                                                                                                    ## exact,
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## it
+                                                                                                    ## will
+                                                                                                    ## be
+                                                                                                    ## extented
+                                                                                                    ## as
+                                                                                                    ## necessary)
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Hence,
+                                                                                                    ## to
+                                                                                                    ## each
+                                                                                                    ## record
+                                                                                                    ## can
+                                                                                                    ## be
+                                                                                                    ## bound
+                                                                                                    ## an
+                                                                                                    ## Entity
+                                                                                                    ## and
+                                                                                                    ## a
+                                                                                                    ## list
+                                                                                                    ## of
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Parameters.
+                                                                                                    ## Each
+                                                                                                    ## kind
+                                                                                                    ## of
+                                                                                                    ## FileReaderData
+                                                                                                    ## can
+                                                                                                    ## add
+                                                                                                    ## other
+                                                                                                    ## data,
+                                                                                                    ## by
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## having
+                                                                                                    ## them
+                                                                                                    ## in
+                                                                                                    ## parallel
+                                                                                                    ## (other
+                                                                                                    ## arrays
+                                                                                                    ## with
+                                                                                                    ## same
+                                                                                                    ## sizes)
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Else,
+                                                                                                    ## it
+                                                                                                    ## must
+                                                                                                    ## manage
+                                                                                                    ## binding
+                                                                                                    ## between
+                                                                                                    ## items
+                                                                                                    ## and
+                                                                                                    ## their
+                                                                                                    ## data
 
 
-proc NbRecords*(this: Interface_FileReaderData): Standard_Integer {.noSideEffect,
+proc nbRecords*(this: InterfaceFileReaderData): int {.noSideEffect,
     importcpp: "NbRecords", header: "Interface_FileReaderData.hxx".}
-proc NbEntities*(this: Interface_FileReaderData): Standard_Integer {.noSideEffect,
+proc nbEntities*(this: InterfaceFileReaderData): int {.noSideEffect,
     importcpp: "NbEntities", header: "Interface_FileReaderData.hxx".}
-proc FindNextRecord*(this: Interface_FileReaderData; num: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "FindNextRecord",
-    header: "Interface_FileReaderData.hxx".}
-proc InitParams*(this: var Interface_FileReaderData; num: Standard_Integer) {.
+proc findNextRecord*(this: InterfaceFileReaderData; num: int): int {.noSideEffect,
+    importcpp: "FindNextRecord", header: "Interface_FileReaderData.hxx".}
+proc initParams*(this: var InterfaceFileReaderData; num: int) {.
     importcpp: "InitParams", header: "Interface_FileReaderData.hxx".}
-proc AddParam*(this: var Interface_FileReaderData; num: Standard_Integer;
-              aval: Standard_CString; atype: Interface_ParamType;
-              nument: Standard_Integer = 0) {.importcpp: "AddParam",
+proc addParam*(this: var InterfaceFileReaderData; num: int; aval: StandardCString;
+              atype: InterfaceParamType; nument: int = 0) {.importcpp: "AddParam",
     header: "Interface_FileReaderData.hxx".}
-proc AddParam*(this: var Interface_FileReaderData; num: Standard_Integer;
-              aval: TCollection_AsciiString; atype: Interface_ParamType;
-              nument: Standard_Integer = 0) {.importcpp: "AddParam",
+proc addParam*(this: var InterfaceFileReaderData; num: int;
+              aval: TCollectionAsciiString; atype: InterfaceParamType;
+              nument: int = 0) {.importcpp: "AddParam",
+                             header: "Interface_FileReaderData.hxx".}
+proc addParam*(this: var InterfaceFileReaderData; num: int; fp: InterfaceFileParameter) {.
+    importcpp: "AddParam", header: "Interface_FileReaderData.hxx".}
+proc setParam*(this: var InterfaceFileReaderData; num: int; nump: int;
+              fp: InterfaceFileParameter) {.importcpp: "SetParam",
     header: "Interface_FileReaderData.hxx".}
-proc AddParam*(this: var Interface_FileReaderData; num: Standard_Integer;
-              FP: Interface_FileParameter) {.importcpp: "AddParam",
-    header: "Interface_FileReaderData.hxx".}
-proc SetParam*(this: var Interface_FileReaderData; num: Standard_Integer;
-              nump: Standard_Integer; FP: Interface_FileParameter) {.
-    importcpp: "SetParam", header: "Interface_FileReaderData.hxx".}
-proc NbParams*(this: Interface_FileReaderData; num: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "NbParams", header: "Interface_FileReaderData.hxx".}
-proc Params*(this: Interface_FileReaderData; num: Standard_Integer): handle[
-    Interface_ParamList] {.noSideEffect, importcpp: "Params",
-                          header: "Interface_FileReaderData.hxx".}
-proc Param*(this: Interface_FileReaderData; num: Standard_Integer;
-           nump: Standard_Integer): Interface_FileParameter {.noSideEffect,
-    importcpp: "Param", header: "Interface_FileReaderData.hxx".}
-proc ChangeParam*(this: var Interface_FileReaderData; num: Standard_Integer;
-                 nump: Standard_Integer): var Interface_FileParameter {.
+proc nbParams*(this: InterfaceFileReaderData; num: int): int {.noSideEffect,
+    importcpp: "NbParams", header: "Interface_FileReaderData.hxx".}
+proc params*(this: InterfaceFileReaderData; num: int): Handle[InterfaceParamList] {.
+    noSideEffect, importcpp: "Params", header: "Interface_FileReaderData.hxx".}
+proc param*(this: InterfaceFileReaderData; num: int; nump: int): InterfaceFileParameter {.
+    noSideEffect, importcpp: "Param", header: "Interface_FileReaderData.hxx".}
+proc changeParam*(this: var InterfaceFileReaderData; num: int; nump: int): var InterfaceFileParameter {.
     importcpp: "ChangeParam", header: "Interface_FileReaderData.hxx".}
-proc ParamType*(this: Interface_FileReaderData; num: Standard_Integer;
-               nump: Standard_Integer): Interface_ParamType {.noSideEffect,
-    importcpp: "ParamType", header: "Interface_FileReaderData.hxx".}
-proc ParamCValue*(this: Interface_FileReaderData; num: Standard_Integer;
-                 nump: Standard_Integer): Standard_CString {.noSideEffect,
-    importcpp: "ParamCValue", header: "Interface_FileReaderData.hxx".}
-proc IsParamDefined*(this: Interface_FileReaderData; num: Standard_Integer;
-                    nump: Standard_Integer): Standard_Boolean {.noSideEffect,
-    importcpp: "IsParamDefined", header: "Interface_FileReaderData.hxx".}
-proc ParamNumber*(this: Interface_FileReaderData; num: Standard_Integer;
-                 nump: Standard_Integer): Standard_Integer {.noSideEffect,
-    importcpp: "ParamNumber", header: "Interface_FileReaderData.hxx".}
-proc ParamEntity*(this: Interface_FileReaderData; num: Standard_Integer;
-                 nump: Standard_Integer): handle[Standard_Transient] {.
-    noSideEffect, importcpp: "ParamEntity", header: "Interface_FileReaderData.hxx".}
-proc ParamFirstRank*(this: Interface_FileReaderData; num: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "ParamFirstRank",
+proc paramType*(this: InterfaceFileReaderData; num: int; nump: int): InterfaceParamType {.
+    noSideEffect, importcpp: "ParamType", header: "Interface_FileReaderData.hxx".}
+proc paramCValue*(this: InterfaceFileReaderData; num: int; nump: int): StandardCString {.
+    noSideEffect, importcpp: "ParamCValue", header: "Interface_FileReaderData.hxx".}
+proc isParamDefined*(this: InterfaceFileReaderData; num: int; nump: int): bool {.
+    noSideEffect, importcpp: "IsParamDefined",
     header: "Interface_FileReaderData.hxx".}
-proc BoundEntity*(this: Interface_FileReaderData; num: Standard_Integer): handle[
-    Standard_Transient] {.noSideEffect, importcpp: "BoundEntity",
-                         header: "Interface_FileReaderData.hxx".}
-proc BindEntity*(this: var Interface_FileReaderData; num: Standard_Integer;
-                ent: handle[Standard_Transient]) {.importcpp: "BindEntity",
+proc paramNumber*(this: InterfaceFileReaderData; num: int; nump: int): int {.
+    noSideEffect, importcpp: "ParamNumber", header: "Interface_FileReaderData.hxx".}
+proc paramEntity*(this: InterfaceFileReaderData; num: int; nump: int): Handle[
+    StandardTransient] {.noSideEffect, importcpp: "ParamEntity",
+                        header: "Interface_FileReaderData.hxx".}
+proc paramFirstRank*(this: InterfaceFileReaderData; num: int): int {.noSideEffect,
+    importcpp: "ParamFirstRank", header: "Interface_FileReaderData.hxx".}
+proc boundEntity*(this: InterfaceFileReaderData; num: int): Handle[StandardTransient] {.
+    noSideEffect, importcpp: "BoundEntity", header: "Interface_FileReaderData.hxx".}
+proc bindEntity*(this: var InterfaceFileReaderData; num: int;
+                ent: Handle[StandardTransient]) {.importcpp: "BindEntity",
     header: "Interface_FileReaderData.hxx".}
-proc SetErrorLoad*(this: var Interface_FileReaderData; val: Standard_Boolean) {.
+proc setErrorLoad*(this: var InterfaceFileReaderData; val: bool) {.
     importcpp: "SetErrorLoad", header: "Interface_FileReaderData.hxx".}
-proc IsErrorLoad*(this: Interface_FileReaderData): Standard_Boolean {.noSideEffect,
+proc isErrorLoad*(this: InterfaceFileReaderData): bool {.noSideEffect,
     importcpp: "IsErrorLoad", header: "Interface_FileReaderData.hxx".}
-proc ResetErrorLoad*(this: var Interface_FileReaderData): Standard_Boolean {.
+proc resetErrorLoad*(this: var InterfaceFileReaderData): bool {.
     importcpp: "ResetErrorLoad", header: "Interface_FileReaderData.hxx".}
-proc Destroy*(this: var Interface_FileReaderData) {.importcpp: "Destroy",
+proc destroy*(this: var InterfaceFileReaderData) {.importcpp: "Destroy",
     header: "Interface_FileReaderData.hxx".}
-proc destroyInterface_FileReaderData*(this: var Interface_FileReaderData) {.
+proc destroyInterfaceFileReaderData*(this: var InterfaceFileReaderData) {.
     importcpp: "#.~Interface_FileReaderData()",
     header: "Interface_FileReaderData.hxx".}
-proc Fastof*(str: Standard_CString): Standard_Real {.
-    importcpp: "Interface_FileReaderData::Fastof(@)",
-    header: "Interface_FileReaderData.hxx".}
+proc fastof*(str: StandardCString): float {.importcpp: "Interface_FileReaderData::Fastof(@)",
+                                        header: "Interface_FileReaderData.hxx".}
 type
-  Interface_FileReaderDatabase_type* = Standard_Transient
+  InterfaceFileReaderDatabaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Interface_FileReaderData::get_type_name(@)",
-                              header: "Interface_FileReaderData.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Interface_FileReaderData::get_type_name(@)",
+                            header: "Interface_FileReaderData.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Interface_FileReaderData::get_type_descriptor(@)",
     header: "Interface_FileReaderData.hxx".}
-proc DynamicType*(this: Interface_FileReaderData): handle[Standard_Type] {.
+proc dynamicType*(this: InterfaceFileReaderData): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Interface_FileReaderData.hxx".}

@@ -14,53 +14,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../CDM/CDM_ListOfDocument,
-  ../Standard/Standard_Transient, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of CDF_DirectoryIterator"
 discard "forward decl of CDM_Document"
 discard "forward decl of CDF_Directory"
 discard "forward decl of CDF_Directory"
 type
-  Handle_CDF_Directory* = handle[CDF_Directory]
+  HandleCDF_Directory* = Handle[CDF_Directory]
 
 ## ! A directory is a collection of documents. There is only one instance
 ## ! of a given document in a directory.
 ## ! put.
 
 type
-  CDF_Directory* {.importcpp: "CDF_Directory", header: "CDF_Directory.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                          ## !
-                                                                                                          ## Creates
-                                                                                                          ## an
-                                                                                                          ## empty
-                                                                                                          ## directory.
+  CDF_Directory* {.importcpp: "CDF_Directory", header: "CDF_Directory.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                         ## !
+                                                                                                         ## Creates
+                                                                                                         ## an
+                                                                                                         ## empty
+                                                                                                         ## directory.
 
 
 proc constructCDF_Directory*(): CDF_Directory {.constructor,
     importcpp: "CDF_Directory(@)", header: "CDF_Directory.hxx".}
-proc Add*(this: var CDF_Directory; aDocument: handle[CDM_Document]) {.
+proc add*(this: var CDF_Directory; aDocument: Handle[CDM_Document]) {.
     importcpp: "Add", header: "CDF_Directory.hxx".}
-proc Remove*(this: var CDF_Directory; aDocument: handle[CDM_Document]) {.
+proc remove*(this: var CDF_Directory; aDocument: Handle[CDM_Document]) {.
     importcpp: "Remove", header: "CDF_Directory.hxx".}
-proc Contains*(this: CDF_Directory; aDocument: handle[CDM_Document]): Standard_Boolean {.
+proc contains*(this: CDF_Directory; aDocument: Handle[CDM_Document]): bool {.
     noSideEffect, importcpp: "Contains", header: "CDF_Directory.hxx".}
-proc Last*(this: var CDF_Directory): handle[CDM_Document] {.importcpp: "Last",
+proc last*(this: var CDF_Directory): Handle[CDM_Document] {.importcpp: "Last",
     header: "CDF_Directory.hxx".}
-proc Length*(this: CDF_Directory): Standard_Integer {.noSideEffect,
-    importcpp: "Length", header: "CDF_Directory.hxx".}
-proc IsEmpty*(this: CDF_Directory): Standard_Boolean {.noSideEffect,
-    importcpp: "IsEmpty", header: "CDF_Directory.hxx".}
+proc length*(this: CDF_Directory): int {.noSideEffect, importcpp: "Length",
+                                     header: "CDF_Directory.hxx".}
+proc isEmpty*(this: CDF_Directory): bool {.noSideEffect, importcpp: "IsEmpty",
+                                       header: "CDF_Directory.hxx".}
 type
-  CDF_Directorybase_type* = Standard_Transient
+  CDF_DirectorybaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "CDF_Directory::get_type_name(@)",
-                              header: "CDF_Directory.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "CDF_Directory::get_type_name(@)",
+                            header: "CDF_Directory.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "CDF_Directory::get_type_descriptor(@)",
     header: "CDF_Directory.hxx".}
-proc DynamicType*(this: CDF_Directory): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: CDF_Directory): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "CDF_Directory.hxx".}

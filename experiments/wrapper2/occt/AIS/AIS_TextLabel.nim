@@ -12,12 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  AIS_InteractiveObject, ../gp/gp_Pnt, ../gp/gp_Ax2,
-  ../Graphic3d/Graphic3d_VerticalTextAlignment,
-  ../Graphic3d/Graphic3d_HorizontalTextAlignment, ../Font/Font_FontAspect,
-  ../TCollection/TCollection_ExtendedString
-
 discard "forward decl of Font_TextFormatter"
 type
   AIS_TextLabel* {.importcpp: "AIS_TextLabel", header: "AIS_TextLabel.hxx", bycopy.} = object of AIS_InteractiveObject ##
@@ -35,80 +29,81 @@ type
 
 proc constructAIS_TextLabel*(): AIS_TextLabel {.constructor,
     importcpp: "AIS_TextLabel(@)", header: "AIS_TextLabel.hxx".}
-proc AcceptDisplayMode*(this: AIS_TextLabel; theMode: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "AcceptDisplayMode", header: "AIS_TextLabel.hxx".}
-proc SetColor*(this: var AIS_TextLabel; theColor: Quantity_Color) {.
+proc acceptDisplayMode*(this: AIS_TextLabel; theMode: int): bool {.noSideEffect,
+    importcpp: "AcceptDisplayMode", header: "AIS_TextLabel.hxx".}
+proc setColor*(this: var AIS_TextLabel; theColor: QuantityColor) {.
     importcpp: "SetColor", header: "AIS_TextLabel.hxx".}
-proc SetTransparency*(this: var AIS_TextLabel; theValue: Standard_Real) {.
+proc setTransparency*(this: var AIS_TextLabel; theValue: float) {.
     importcpp: "SetTransparency", header: "AIS_TextLabel.hxx".}
-proc UnsetTransparency*(this: var AIS_TextLabel) {.importcpp: "UnsetTransparency",
+proc unsetTransparency*(this: var AIS_TextLabel) {.importcpp: "UnsetTransparency",
     header: "AIS_TextLabel.hxx".}
-proc SetMaterial*(this: var AIS_TextLabel; a2: Graphic3d_MaterialAspect) {.
+proc setMaterial*(this: var AIS_TextLabel; a2: Graphic3dMaterialAspect) {.
     importcpp: "SetMaterial", header: "AIS_TextLabel.hxx".}
-proc SetText*(this: var AIS_TextLabel; theText: TCollection_ExtendedString) {.
+proc setText*(this: var AIS_TextLabel; theText: TCollectionExtendedString) {.
     importcpp: "SetText", header: "AIS_TextLabel.hxx".}
-proc SetPosition*(this: var AIS_TextLabel; thePosition: gp_Pnt) {.
+proc setPosition*(this: var AIS_TextLabel; thePosition: Pnt) {.
     importcpp: "SetPosition", header: "AIS_TextLabel.hxx".}
-proc SetHJustification*(this: var AIS_TextLabel;
-                       theHJust: Graphic3d_HorizontalTextAlignment) {.
+proc setHJustification*(this: var AIS_TextLabel;
+                       theHJust: Graphic3dHorizontalTextAlignment) {.
     importcpp: "SetHJustification", header: "AIS_TextLabel.hxx".}
-proc SetVJustification*(this: var AIS_TextLabel;
-                       theVJust: Graphic3d_VerticalTextAlignment) {.
+proc setVJustification*(this: var AIS_TextLabel;
+                       theVJust: Graphic3dVerticalTextAlignment) {.
     importcpp: "SetVJustification", header: "AIS_TextLabel.hxx".}
-proc SetAngle*(this: var AIS_TextLabel; theAngle: Standard_Real) {.
-    importcpp: "SetAngle", header: "AIS_TextLabel.hxx".}
-proc SetZoomable*(this: var AIS_TextLabel; theIsZoomable: Standard_Boolean) {.
+proc setAngle*(this: var AIS_TextLabel; theAngle: float) {.importcpp: "SetAngle",
+    header: "AIS_TextLabel.hxx".}
+proc setZoomable*(this: var AIS_TextLabel; theIsZoomable: bool) {.
     importcpp: "SetZoomable", header: "AIS_TextLabel.hxx".}
-proc SetHeight*(this: var AIS_TextLabel; theHeight: Standard_Real) {.
-    importcpp: "SetHeight", header: "AIS_TextLabel.hxx".}
-proc SetFontAspect*(this: var AIS_TextLabel; theFontAspect: Font_FontAspect) {.
+proc setHeight*(this: var AIS_TextLabel; theHeight: float) {.importcpp: "SetHeight",
+    header: "AIS_TextLabel.hxx".}
+proc setFontAspect*(this: var AIS_TextLabel; theFontAspect: FontFontAspect) {.
     importcpp: "SetFontAspect", header: "AIS_TextLabel.hxx".}
-proc SetFont*(this: var AIS_TextLabel; theFont: Standard_CString) {.
+proc setFont*(this: var AIS_TextLabel; theFont: StandardCString) {.
     importcpp: "SetFont", header: "AIS_TextLabel.hxx".}
-proc SetOrientation3D*(this: var AIS_TextLabel; theOrientation: gp_Ax2) {.
+proc setOrientation3D*(this: var AIS_TextLabel; theOrientation: Ax2) {.
     importcpp: "SetOrientation3D", header: "AIS_TextLabel.hxx".}
-proc UnsetOrientation3D*(this: var AIS_TextLabel) {.importcpp: "UnsetOrientation3D",
+proc unsetOrientation3D*(this: var AIS_TextLabel) {.importcpp: "UnsetOrientation3D",
     header: "AIS_TextLabel.hxx".}
-proc Position*(this: AIS_TextLabel): gp_Pnt {.noSideEffect, importcpp: "Position",
-    header: "AIS_TextLabel.hxx".}
-proc Text*(this: AIS_TextLabel): TCollection_ExtendedString {.noSideEffect,
+proc position*(this: AIS_TextLabel): Pnt {.noSideEffect, importcpp: "Position",
+                                       header: "AIS_TextLabel.hxx".}
+proc text*(this: AIS_TextLabel): TCollectionExtendedString {.noSideEffect,
     importcpp: "Text", header: "AIS_TextLabel.hxx".}
-proc FontName*(this: AIS_TextLabel): TCollection_AsciiString {.noSideEffect,
+proc fontName*(this: AIS_TextLabel): TCollectionAsciiString {.noSideEffect,
     importcpp: "FontName", header: "AIS_TextLabel.hxx".}
-proc FontAspect*(this: AIS_TextLabel): Font_FontAspect {.noSideEffect,
+proc fontAspect*(this: AIS_TextLabel): FontFontAspect {.noSideEffect,
     importcpp: "FontAspect", header: "AIS_TextLabel.hxx".}
-proc Orientation3D*(this: AIS_TextLabel): gp_Ax2 {.noSideEffect,
+proc orientation3D*(this: AIS_TextLabel): Ax2 {.noSideEffect,
     importcpp: "Orientation3D", header: "AIS_TextLabel.hxx".}
-proc HasOrientation3D*(this: AIS_TextLabel): Standard_Boolean {.noSideEffect,
+proc hasOrientation3D*(this: AIS_TextLabel): bool {.noSideEffect,
     importcpp: "HasOrientation3D", header: "AIS_TextLabel.hxx".}
-proc SetFlipping*(this: var AIS_TextLabel; theIsFlipping: Standard_Boolean) {.
+proc setFlipping*(this: var AIS_TextLabel; theIsFlipping: bool) {.
     importcpp: "SetFlipping", header: "AIS_TextLabel.hxx".}
-proc HasFlipping*(this: AIS_TextLabel): Standard_Boolean {.noSideEffect,
+proc hasFlipping*(this: AIS_TextLabel): bool {.noSideEffect,
     importcpp: "HasFlipping", header: "AIS_TextLabel.hxx".}
-proc HasOwnAnchorPoint*(this: AIS_TextLabel): Standard_Boolean {.noSideEffect,
+proc hasOwnAnchorPoint*(this: AIS_TextLabel): bool {.noSideEffect,
     importcpp: "HasOwnAnchorPoint", header: "AIS_TextLabel.hxx".}
-proc SetOwnAnchorPoint*(this: var AIS_TextLabel; theOwnAnchorPoint: Standard_Boolean) {.
+proc setOwnAnchorPoint*(this: var AIS_TextLabel; theOwnAnchorPoint: bool) {.
     importcpp: "SetOwnAnchorPoint", header: "AIS_TextLabel.hxx".}
-proc SetDisplayType*(this: var AIS_TextLabel;
-                    theDisplayType: Aspect_TypeOfDisplayText) {.
+proc setDisplayType*(this: var AIS_TextLabel;
+                    theDisplayType: AspectTypeOfDisplayText) {.
     importcpp: "SetDisplayType", header: "AIS_TextLabel.hxx".}
-proc SetColorSubTitle*(this: var AIS_TextLabel; theColor: Quantity_Color) {.
+proc setColorSubTitle*(this: var AIS_TextLabel; theColor: QuantityColor) {.
     importcpp: "SetColorSubTitle", header: "AIS_TextLabel.hxx".}
-proc TextFormatter*(this: AIS_TextLabel): handle[Font_TextFormatter] {.noSideEffect,
+proc textFormatter*(this: AIS_TextLabel): Handle[FontTextFormatter] {.noSideEffect,
     importcpp: "TextFormatter", header: "AIS_TextLabel.hxx".}
-proc SetTextFormatter*(this: var AIS_TextLabel;
-                      theFormatter: handle[Font_TextFormatter]) {.
+proc setTextFormatter*(this: var AIS_TextLabel;
+                      theFormatter: Handle[FontTextFormatter]) {.
     importcpp: "SetTextFormatter", header: "AIS_TextLabel.hxx".}
 type
-  AIS_TextLabelbase_type* = AIS_InteractiveObject
+  AIS_TextLabelbaseType* = AIS_InteractiveObject
 
-proc get_type_name*(): cstring {.importcpp: "AIS_TextLabel::get_type_name(@)",
-                              header: "AIS_TextLabel.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "AIS_TextLabel::get_type_name(@)",
+                            header: "AIS_TextLabel.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "AIS_TextLabel::get_type_descriptor(@)",
     header: "AIS_TextLabel.hxx".}
-proc DynamicType*(this: AIS_TextLabel): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: AIS_TextLabel): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_TextLabel.hxx".}
 discard "forward decl of AIS_TextLabel"
 type
-  Handle_AIS_TextLabel* = handle[AIS_TextLabel]
+  HandleAIS_TextLabel* = Handle[AIS_TextLabel]
+

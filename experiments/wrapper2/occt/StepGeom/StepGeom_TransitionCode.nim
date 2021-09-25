@@ -15,9 +15,10 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepGeom_TransitionCode* {.size: sizeof(cint),
-                            importcpp: "StepGeom_TransitionCode",
-                            header: "StepGeom_TransitionCode.hxx".} = enum
-    StepGeom_tcDiscontinuous, StepGeom_tcContinuous, StepGeom_tcContSameGradient,
-    StepGeom_tcContSameGradientSameCurvature
+  StepGeomTransitionCode* {.size: sizeof(cint),
+                           importcpp: "StepGeom_TransitionCode",
+                           header: "StepGeom_TransitionCode.hxx".} = enum
+    StepGeomTcDiscontinuous, StepGeomTcContinuous, StepGeomTcContSameGradient,
+    StepGeomTcContSameGradientSameCurvature
+
 

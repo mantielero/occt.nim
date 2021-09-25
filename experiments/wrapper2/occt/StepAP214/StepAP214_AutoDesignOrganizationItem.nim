@@ -14,30 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, StepAP214_AutoDesignGeneralOrgItem,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_Document"
 discard "forward decl of StepBasic_PhysicallyModeledProductDefinition"
 type
-  StepAP214_AutoDesignOrganizationItem* {.
-      importcpp: "StepAP214_AutoDesignOrganizationItem",
-      header: "StepAP214_AutoDesignOrganizationItem.hxx", bycopy.} = object of StepAP214_AutoDesignGeneralOrgItem
+  StepAP214AutoDesignOrganizationItem* {.importcpp: "StepAP214_AutoDesignOrganizationItem", header: "StepAP214_AutoDesignOrganizationItem.hxx",
+                                        bycopy.} = object of StepAP214AutoDesignGeneralOrgItem
 
 
-proc constructStepAP214_AutoDesignOrganizationItem*(): StepAP214_AutoDesignOrganizationItem {.
+proc constructStepAP214AutoDesignOrganizationItem*(): StepAP214AutoDesignOrganizationItem {.
     constructor, importcpp: "StepAP214_AutoDesignOrganizationItem(@)",
     header: "StepAP214_AutoDesignOrganizationItem.hxx".}
-proc CaseNum*(this: StepAP214_AutoDesignOrganizationItem;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepAP214AutoDesignOrganizationItem;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_AutoDesignOrganizationItem.hxx".}
-proc Document*(this: StepAP214_AutoDesignOrganizationItem): handle[
-    StepBasic_Document] {.noSideEffect, importcpp: "Document",
-                         header: "StepAP214_AutoDesignOrganizationItem.hxx".}
-proc PhysicallyModeledProductDefinition*(this: StepAP214_AutoDesignOrganizationItem): handle[
-    StepBasic_PhysicallyModeledProductDefinition] {.noSideEffect,
+proc document*(this: StepAP214AutoDesignOrganizationItem): Handle[StepBasicDocument] {.
+    noSideEffect, importcpp: "Document",
+    header: "StepAP214_AutoDesignOrganizationItem.hxx".}
+proc physicallyModeledProductDefinition*(this: StepAP214AutoDesignOrganizationItem): Handle[
+    StepBasicPhysicallyModeledProductDefinition] {.noSideEffect,
     importcpp: "PhysicallyModeledProductDefinition",
     header: "StepAP214_AutoDesignOrganizationItem.hxx".}

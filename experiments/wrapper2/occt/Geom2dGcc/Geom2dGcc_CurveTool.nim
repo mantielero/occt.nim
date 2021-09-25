@@ -14,37 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Geom2dAdaptor_Curve"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 type
-  Geom2dGcc_CurveTool* {.importcpp: "Geom2dGcc_CurveTool",
-                        header: "Geom2dGcc_CurveTool.hxx", bycopy.} = object
+  Geom2dGccCurveTool* {.importcpp: "Geom2dGcc_CurveTool",
+                       header: "Geom2dGcc_CurveTool.hxx", bycopy.} = object
 
 
-proc FirstParameter*(C: Geom2dAdaptor_Curve): Standard_Real {.
+proc firstParameter*(c: Geom2dAdaptorCurve): float {.
     importcpp: "Geom2dGcc_CurveTool::FirstParameter(@)",
     header: "Geom2dGcc_CurveTool.hxx".}
-proc LastParameter*(C: Geom2dAdaptor_Curve): Standard_Real {.
+proc lastParameter*(c: Geom2dAdaptorCurve): float {.
     importcpp: "Geom2dGcc_CurveTool::LastParameter(@)",
     header: "Geom2dGcc_CurveTool.hxx".}
-proc EpsX*(C: Geom2dAdaptor_Curve; Tol: Standard_Real): Standard_Real {.
+proc epsX*(c: Geom2dAdaptorCurve; tol: float): float {.
     importcpp: "Geom2dGcc_CurveTool::EpsX(@)", header: "Geom2dGcc_CurveTool.hxx".}
-proc NbSamples*(C: Geom2dAdaptor_Curve): Standard_Integer {.
+proc nbSamples*(c: Geom2dAdaptorCurve): int {.
     importcpp: "Geom2dGcc_CurveTool::NbSamples(@)",
     header: "Geom2dGcc_CurveTool.hxx".}
-proc Value*(C: Geom2dAdaptor_Curve; X: Standard_Real): gp_Pnt2d {.
+proc value*(c: Geom2dAdaptorCurve; x: float): Pnt2d {.
     importcpp: "Geom2dGcc_CurveTool::Value(@)", header: "Geom2dGcc_CurveTool.hxx".}
-proc D1*(C: Geom2dAdaptor_Curve; U: Standard_Real; P: var gp_Pnt2d; T: var gp_Vec2d) {.
+proc d1*(c: Geom2dAdaptorCurve; u: float; p: var Pnt2d; t: var Vec2d) {.
     importcpp: "Geom2dGcc_CurveTool::D1(@)", header: "Geom2dGcc_CurveTool.hxx".}
-proc D2*(C: Geom2dAdaptor_Curve; U: Standard_Real; P: var gp_Pnt2d; T: var gp_Vec2d;
-        N: var gp_Vec2d) {.importcpp: "Geom2dGcc_CurveTool::D2(@)",
-                        header: "Geom2dGcc_CurveTool.hxx".}
-proc D3*(C: Geom2dAdaptor_Curve; U: Standard_Real; P: var gp_Pnt2d; T: var gp_Vec2d;
-        N: var gp_Vec2d; dN: var gp_Vec2d) {.importcpp: "Geom2dGcc_CurveTool::D3(@)",
-                                       header: "Geom2dGcc_CurveTool.hxx".}
+proc d2*(c: Geom2dAdaptorCurve; u: float; p: var Pnt2d; t: var Vec2d; n: var Vec2d) {.
+    importcpp: "Geom2dGcc_CurveTool::D2(@)", header: "Geom2dGcc_CurveTool.hxx".}
+proc d3*(c: Geom2dAdaptorCurve; u: float; p: var Pnt2d; t: var Vec2d; n: var Vec2d;
+        dN: var Vec2d) {.importcpp: "Geom2dGcc_CurveTool::D3(@)",
+                      header: "Geom2dGcc_CurveTool.hxx".}

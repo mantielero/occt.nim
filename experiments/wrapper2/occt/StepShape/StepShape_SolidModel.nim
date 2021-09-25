@@ -14,31 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepGeom/StepGeom_GeometricRepresentationItem
-
 discard "forward decl of StepShape_SolidModel"
 discard "forward decl of StepShape_SolidModel"
 type
-  Handle_StepShape_SolidModel* = handle[StepShape_SolidModel]
-  StepShape_SolidModel* {.importcpp: "StepShape_SolidModel",
-                         header: "StepShape_SolidModel.hxx", bycopy.} = object of StepGeom_GeometricRepresentationItem ##
-                                                                                                                ## !
-                                                                                                                ## Returns
-                                                                                                                ## a
-                                                                                                                ## SolidModel
+  HandleStepShapeSolidModel* = Handle[StepShapeSolidModel]
+  StepShapeSolidModel* {.importcpp: "StepShape_SolidModel",
+                        header: "StepShape_SolidModel.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
+                                                                                                              ## !
+                                                                                                              ## Returns
+                                                                                                              ## a
+                                                                                                              ## SolidModel
 
 
-proc constructStepShape_SolidModel*(): StepShape_SolidModel {.constructor,
+proc constructStepShapeSolidModel*(): StepShapeSolidModel {.constructor,
     importcpp: "StepShape_SolidModel(@)", header: "StepShape_SolidModel.hxx".}
 type
-  StepShape_SolidModelbase_type* = StepGeom_GeometricRepresentationItem
+  StepShapeSolidModelbaseType* = StepGeomGeometricRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_SolidModel::get_type_name(@)",
-                              header: "StepShape_SolidModel.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_SolidModel::get_type_name(@)",
+                            header: "StepShape_SolidModel.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_SolidModel::get_type_descriptor(@)",
     header: "StepShape_SolidModel.hxx".}
-proc DynamicType*(this: StepShape_SolidModel): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepShapeSolidModel): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_SolidModel.hxx".}

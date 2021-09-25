@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP214_OrganizationItem, StepAP214_Array1OfOrganizationItem,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepAP214_HArray1OfOrganizationItem* {.importcpp: "StepAP214_HArray1OfOrganizationItem", header: "StepAP214_HArray1OfOrganizationItem.hxx",
-                                        bycopy.} = object of StepAP214_Array1OfOrganizationItem
+  StepAP214HArray1OfOrganizationItem* {.importcpp: "StepAP214_HArray1OfOrganizationItem", header: "StepAP214_HArray1OfOrganizationItem.hxx",
+                                       bycopy.} = object of StepAP214Array1OfOrganizationItem
 
 
-proc constructStepAP214_HArray1OfOrganizationItem*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepAP214_HArray1OfOrganizationItem {.constructor,
+proc constructStepAP214HArray1OfOrganizationItem*(theLower: int; theUpper: int): StepAP214HArray1OfOrganizationItem {.
+    constructor, importcpp: "StepAP214_HArray1OfOrganizationItem(@)",
+    header: "StepAP214_HArray1OfOrganizationItem.hxx".}
+proc constructStepAP214HArray1OfOrganizationItem*(theLower: int; theUpper: int;
+    theValue: ValueType): StepAP214HArray1OfOrganizationItem {.constructor,
     importcpp: "StepAP214_HArray1OfOrganizationItem(@)",
     header: "StepAP214_HArray1OfOrganizationItem.hxx".}
-proc constructStepAP214_HArray1OfOrganizationItem*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepAP214_HArray1OfOrganizationItem {.
+proc constructStepAP214HArray1OfOrganizationItem*(
+    theOther: StepAP214Array1OfOrganizationItem): StepAP214HArray1OfOrganizationItem {.
     constructor, importcpp: "StepAP214_HArray1OfOrganizationItem(@)",
     header: "StepAP214_HArray1OfOrganizationItem.hxx".}
-proc constructStepAP214_HArray1OfOrganizationItem*(
-    theOther: StepAP214_Array1OfOrganizationItem): StepAP214_HArray1OfOrganizationItem {.
-    constructor, importcpp: "StepAP214_HArray1OfOrganizationItem(@)",
-    header: "StepAP214_HArray1OfOrganizationItem.hxx".}
-proc Array1*(this: StepAP214_HArray1OfOrganizationItem): StepAP214_Array1OfOrganizationItem {.
+proc array1*(this: StepAP214HArray1OfOrganizationItem): StepAP214Array1OfOrganizationItem {.
     noSideEffect, importcpp: "Array1",
     header: "StepAP214_HArray1OfOrganizationItem.hxx".}
-proc ChangeArray1*(this: var StepAP214_HArray1OfOrganizationItem): var StepAP214_Array1OfOrganizationItem {.
+proc changeArray1*(this: var StepAP214HArray1OfOrganizationItem): var StepAP214Array1OfOrganizationItem {.
     importcpp: "ChangeArray1", header: "StepAP214_HArray1OfOrganizationItem.hxx".}
 type
-  StepAP214_HArray1OfOrganizationItembase_type* = MMgt_TShared
+  StepAP214HArray1OfOrganizationItembaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_HArray1OfOrganizationItem::get_type_name(@)",
-                              header: "StepAP214_HArray1OfOrganizationItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP214_HArray1OfOrganizationItem::get_type_name(@)",
+                            header: "StepAP214_HArray1OfOrganizationItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP214_HArray1OfOrganizationItem::get_type_descriptor(@)",
     header: "StepAP214_HArray1OfOrganizationItem.hxx".}
-proc DynamicType*(this: StepAP214_HArray1OfOrganizationItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepAP214HArray1OfOrganizationItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_HArray1OfOrganizationItem.hxx".}

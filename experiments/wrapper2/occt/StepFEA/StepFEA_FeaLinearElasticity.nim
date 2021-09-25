@@ -13,16 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepFEA_SymmetricTensor43d,
-  StepFEA_FeaMaterialPropertyRepresentationItem
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepFEA_SymmetricTensor43d"
 discard "forward decl of StepFEA_FeaLinearElasticity"
 discard "forward decl of StepFEA_FeaLinearElasticity"
 type
-  Handle_StepFEA_FeaLinearElasticity* = handle[StepFEA_FeaLinearElasticity]
+  HandleStepFEA_FeaLinearElasticity* = Handle[StepFEA_FeaLinearElasticity]
 
 ## ! Representation of STEP entity FeaLinearElasticity
 
@@ -37,24 +33,24 @@ type
 proc constructStepFEA_FeaLinearElasticity*(): StepFEA_FeaLinearElasticity {.
     constructor, importcpp: "StepFEA_FeaLinearElasticity(@)",
     header: "StepFEA_FeaLinearElasticity.hxx".}
-proc Init*(this: var StepFEA_FeaLinearElasticity;
-          aRepresentationItem_Name: handle[TCollection_HAsciiString];
+proc init*(this: var StepFEA_FeaLinearElasticity;
+          aRepresentationItemName: Handle[TCollectionHAsciiString];
           aFeaConstants: StepFEA_SymmetricTensor43d) {.importcpp: "Init",
     header: "StepFEA_FeaLinearElasticity.hxx".}
-proc FeaConstants*(this: StepFEA_FeaLinearElasticity): StepFEA_SymmetricTensor43d {.
+proc feaConstants*(this: StepFEA_FeaLinearElasticity): StepFEA_SymmetricTensor43d {.
     noSideEffect, importcpp: "FeaConstants",
     header: "StepFEA_FeaLinearElasticity.hxx".}
-proc SetFeaConstants*(this: var StepFEA_FeaLinearElasticity;
-                     FeaConstants: StepFEA_SymmetricTensor43d) {.
+proc setFeaConstants*(this: var StepFEA_FeaLinearElasticity;
+                     feaConstants: StepFEA_SymmetricTensor43d) {.
     importcpp: "SetFeaConstants", header: "StepFEA_FeaLinearElasticity.hxx".}
 type
-  StepFEA_FeaLinearElasticitybase_type* = StepFEA_FeaMaterialPropertyRepresentationItem
+  StepFEA_FeaLinearElasticitybaseType* = StepFEA_FeaMaterialPropertyRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_FeaLinearElasticity::get_type_name(@)",
-                              header: "StepFEA_FeaLinearElasticity.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_FeaLinearElasticity::get_type_name(@)",
+                            header: "StepFEA_FeaLinearElasticity.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_FeaLinearElasticity::get_type_descriptor(@)",
     header: "StepFEA_FeaLinearElasticity.hxx".}
-proc DynamicType*(this: StepFEA_FeaLinearElasticity): handle[Standard_Type] {.
+proc dynamicType*(this: StepFEA_FeaLinearElasticity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_FeaLinearElasticity.hxx".}

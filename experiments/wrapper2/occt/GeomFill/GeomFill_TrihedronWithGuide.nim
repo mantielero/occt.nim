@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Pnt,
-  GeomFill_TrihedronLaw, ../Standard/Standard_Real
-
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NotImplemented"
@@ -25,30 +21,29 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of GeomFill_TrihedronWithGuide"
 discard "forward decl of GeomFill_TrihedronWithGuide"
 type
-  Handle_GeomFill_TrihedronWithGuide* = handle[GeomFill_TrihedronWithGuide]
+  HandleGeomFillTrihedronWithGuide* = Handle[GeomFillTrihedronWithGuide]
 
 ## ! To define Trihedron along one Curve with a guide
 
 type
-  GeomFill_TrihedronWithGuide* {.importcpp: "GeomFill_TrihedronWithGuide",
-                                header: "GeomFill_TrihedronWithGuide.hxx", bycopy.} = object of GeomFill_TrihedronLaw
+  GeomFillTrihedronWithGuide* {.importcpp: "GeomFill_TrihedronWithGuide",
+                               header: "GeomFill_TrihedronWithGuide.hxx", bycopy.} = object of GeomFillTrihedronLaw
 
 
-proc Guide*(this: GeomFill_TrihedronWithGuide): handle[Adaptor3d_HCurve] {.
+proc guide*(this: GeomFillTrihedronWithGuide): Handle[Adaptor3dHCurve] {.
     noSideEffect, importcpp: "Guide", header: "GeomFill_TrihedronWithGuide.hxx".}
-proc Origine*(this: var GeomFill_TrihedronWithGuide; Param1: Standard_Real;
-             Param2: Standard_Real) {.importcpp: "Origine",
-                                    header: "GeomFill_TrihedronWithGuide.hxx".}
-proc CurrentPointOnGuide*(this: GeomFill_TrihedronWithGuide): gp_Pnt {.noSideEffect,
+proc origine*(this: var GeomFillTrihedronWithGuide; param1: float; param2: float) {.
+    importcpp: "Origine", header: "GeomFill_TrihedronWithGuide.hxx".}
+proc currentPointOnGuide*(this: GeomFillTrihedronWithGuide): Pnt {.noSideEffect,
     importcpp: "CurrentPointOnGuide", header: "GeomFill_TrihedronWithGuide.hxx".}
 type
-  GeomFill_TrihedronWithGuidebase_type* = GeomFill_TrihedronLaw
+  GeomFillTrihedronWithGuidebaseType* = GeomFillTrihedronLaw
 
-proc get_type_name*(): cstring {.importcpp: "GeomFill_TrihedronWithGuide::get_type_name(@)",
-                              header: "GeomFill_TrihedronWithGuide.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "GeomFill_TrihedronWithGuide::get_type_name(@)",
+                            header: "GeomFill_TrihedronWithGuide.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GeomFill_TrihedronWithGuide::get_type_descriptor(@)",
     header: "GeomFill_TrihedronWithGuide.hxx".}
-proc DynamicType*(this: GeomFill_TrihedronWithGuide): handle[Standard_Type] {.
+proc dynamicType*(this: GeomFillTrihedronWithGuide): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "GeomFill_TrihedronWithGuide.hxx".}

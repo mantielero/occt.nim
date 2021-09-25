@@ -13,28 +13,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepDimTol_ToleranceZoneForm"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepDimTol_RWToleranceZoneForm* {.importcpp: "RWStepDimTol_RWToleranceZoneForm", header: "RWStepDimTol_RWToleranceZoneForm.hxx",
-                                     bycopy.} = object ## ! Empty constructor
+  RWStepDimTolRWToleranceZoneForm* {.importcpp: "RWStepDimTol_RWToleranceZoneForm", header: "RWStepDimTol_RWToleranceZoneForm.hxx",
+                                    bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepDimTol_RWToleranceZoneForm*(): RWStepDimTol_RWToleranceZoneForm {.
+proc constructRWStepDimTolRWToleranceZoneForm*(): RWStepDimTolRWToleranceZoneForm {.
     constructor, importcpp: "RWStepDimTol_RWToleranceZoneForm(@)",
     header: "RWStepDimTol_RWToleranceZoneForm.hxx".}
-proc ReadStep*(this: RWStepDimTol_RWToleranceZoneForm;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepDimTol_ToleranceZoneForm]) {.noSideEffect,
+proc readStep*(this: RWStepDimTolRWToleranceZoneForm;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepDimTolToleranceZoneForm]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepDimTol_RWToleranceZoneForm.hxx".}
-proc WriteStep*(this: RWStepDimTol_RWToleranceZoneForm;
-               SW: var StepData_StepWriter;
-               ent: handle[StepDimTol_ToleranceZoneForm]) {.noSideEffect,
+proc writeStep*(this: RWStepDimTolRWToleranceZoneForm; sw: var StepDataStepWriter;
+               ent: Handle[StepDimTolToleranceZoneForm]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepDimTol_RWToleranceZoneForm.hxx".}

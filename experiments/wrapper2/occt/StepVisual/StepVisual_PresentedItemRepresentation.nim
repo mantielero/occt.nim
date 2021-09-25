@@ -14,51 +14,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepVisual_PresentationRepresentationSelect, ../Standard/Standard_Transient
-
 discard "forward decl of StepVisual_PresentedItem"
 discard "forward decl of StepVisual_PresentationRepresentationSelect"
 discard "forward decl of StepVisual_PresentedItemRepresentation"
 discard "forward decl of StepVisual_PresentedItemRepresentation"
 type
-  Handle_StepVisual_PresentedItemRepresentation* = handle[
-      StepVisual_PresentedItemRepresentation]
+  HandleStepVisualPresentedItemRepresentation* = Handle[
+      StepVisualPresentedItemRepresentation]
 
 ## ! Added from StepVisual Rev2 to Rev4
 
 type
-  StepVisual_PresentedItemRepresentation* {.
+  StepVisualPresentedItemRepresentation* {.
       importcpp: "StepVisual_PresentedItemRepresentation",
-      header: "StepVisual_PresentedItemRepresentation.hxx", bycopy.} = object of Standard_Transient
+      header: "StepVisual_PresentedItemRepresentation.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructStepVisual_PresentedItemRepresentation*(): StepVisual_PresentedItemRepresentation {.
+proc constructStepVisualPresentedItemRepresentation*(): StepVisualPresentedItemRepresentation {.
     constructor, importcpp: "StepVisual_PresentedItemRepresentation(@)",
     header: "StepVisual_PresentedItemRepresentation.hxx".}
-proc Init*(this: var StepVisual_PresentedItemRepresentation;
-          aPresentation: StepVisual_PresentationRepresentationSelect;
-          aItem: handle[StepVisual_PresentedItem]) {.importcpp: "Init",
+proc init*(this: var StepVisualPresentedItemRepresentation;
+          aPresentation: StepVisualPresentationRepresentationSelect;
+          aItem: Handle[StepVisualPresentedItem]) {.importcpp: "Init",
     header: "StepVisual_PresentedItemRepresentation.hxx".}
-proc SetPresentation*(this: var StepVisual_PresentedItemRepresentation;
-                     aPresentation: StepVisual_PresentationRepresentationSelect) {.
+proc setPresentation*(this: var StepVisualPresentedItemRepresentation;
+                     aPresentation: StepVisualPresentationRepresentationSelect) {.
     importcpp: "SetPresentation",
     header: "StepVisual_PresentedItemRepresentation.hxx".}
-proc Presentation*(this: StepVisual_PresentedItemRepresentation): StepVisual_PresentationRepresentationSelect {.
+proc presentation*(this: StepVisualPresentedItemRepresentation): StepVisualPresentationRepresentationSelect {.
     noSideEffect, importcpp: "Presentation",
     header: "StepVisual_PresentedItemRepresentation.hxx".}
-proc SetItem*(this: var StepVisual_PresentedItemRepresentation;
-             aItem: handle[StepVisual_PresentedItem]) {.importcpp: "SetItem",
+proc setItem*(this: var StepVisualPresentedItemRepresentation;
+             aItem: Handle[StepVisualPresentedItem]) {.importcpp: "SetItem",
     header: "StepVisual_PresentedItemRepresentation.hxx".}
-proc Item*(this: StepVisual_PresentedItemRepresentation): handle[
-    StepVisual_PresentedItem] {.noSideEffect, importcpp: "Item", header: "StepVisual_PresentedItemRepresentation.hxx".}
+proc item*(this: StepVisualPresentedItemRepresentation): Handle[
+    StepVisualPresentedItem] {.noSideEffect, importcpp: "Item", header: "StepVisual_PresentedItemRepresentation.hxx".}
 type
-  StepVisual_PresentedItemRepresentationbase_type* = Standard_Transient
+  StepVisualPresentedItemRepresentationbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_PresentedItemRepresentation::get_type_name(@)", header: "StepVisual_PresentedItemRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_PresentedItemRepresentation::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepVisual_PresentedItemRepresentation::get_type_name(@)", header: "StepVisual_PresentedItemRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_PresentedItemRepresentation::get_type_descriptor(@)",
     header: "StepVisual_PresentedItemRepresentation.hxx".}
-proc DynamicType*(this: StepVisual_PresentedItemRepresentation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepVisual_PresentedItemRepresentation.hxx".}
+proc dynamicType*(this: StepVisualPresentedItemRepresentation): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepVisual_PresentedItemRepresentation.hxx".}

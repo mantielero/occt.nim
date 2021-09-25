@@ -14,40 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_Loop
-
 discard "forward decl of StepShape_Vertex"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_VertexLoop"
 discard "forward decl of StepShape_VertexLoop"
 type
-  Handle_StepShape_VertexLoop* = handle[StepShape_VertexLoop]
-  StepShape_VertexLoop* {.importcpp: "StepShape_VertexLoop",
-                         header: "StepShape_VertexLoop.hxx", bycopy.} = object of StepShape_Loop ##
-                                                                                          ## !
-                                                                                          ## Returns
-                                                                                          ## a
-                                                                                          ## VertexLoop
+  HandleStepShapeVertexLoop* = Handle[StepShapeVertexLoop]
+  StepShapeVertexLoop* {.importcpp: "StepShape_VertexLoop",
+                        header: "StepShape_VertexLoop.hxx", bycopy.} = object of StepShapeLoop ##
+                                                                                        ## !
+                                                                                        ## Returns
+                                                                                        ## a
+                                                                                        ## VertexLoop
 
 
-proc constructStepShape_VertexLoop*(): StepShape_VertexLoop {.constructor,
+proc constructStepShapeVertexLoop*(): StepShapeVertexLoop {.constructor,
     importcpp: "StepShape_VertexLoop(@)", header: "StepShape_VertexLoop.hxx".}
-proc Init*(this: var StepShape_VertexLoop; aName: handle[TCollection_HAsciiString];
-          aLoopVertex: handle[StepShape_Vertex]) {.importcpp: "Init",
+proc init*(this: var StepShapeVertexLoop; aName: Handle[TCollectionHAsciiString];
+          aLoopVertex: Handle[StepShapeVertex]) {.importcpp: "Init",
     header: "StepShape_VertexLoop.hxx".}
-proc SetLoopVertex*(this: var StepShape_VertexLoop;
-                   aLoopVertex: handle[StepShape_Vertex]) {.
+proc setLoopVertex*(this: var StepShapeVertexLoop;
+                   aLoopVertex: Handle[StepShapeVertex]) {.
     importcpp: "SetLoopVertex", header: "StepShape_VertexLoop.hxx".}
-proc LoopVertex*(this: StepShape_VertexLoop): handle[StepShape_Vertex] {.
-    noSideEffect, importcpp: "LoopVertex", header: "StepShape_VertexLoop.hxx".}
+proc loopVertex*(this: StepShapeVertexLoop): Handle[StepShapeVertex] {.noSideEffect,
+    importcpp: "LoopVertex", header: "StepShape_VertexLoop.hxx".}
 type
-  StepShape_VertexLoopbase_type* = StepShape_Loop
+  StepShapeVertexLoopbaseType* = StepShapeLoop
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_VertexLoop::get_type_name(@)",
-                              header: "StepShape_VertexLoop.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_VertexLoop::get_type_name(@)",
+                            header: "StepShape_VertexLoop.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_VertexLoop::get_type_descriptor(@)",
     header: "StepShape_VertexLoop.hxx".}
-proc DynamicType*(this: StepShape_VertexLoop): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepShapeVertexLoop): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_VertexLoop.hxx".}

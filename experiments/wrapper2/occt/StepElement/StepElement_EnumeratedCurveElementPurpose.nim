@@ -12,10 +12,10 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepElement_EnumeratedCurveElementPurpose* {.size: sizeof(cint),
+  StepElementEnumeratedCurveElementPurpose* {.size: sizeof(cint),
       importcpp: "StepElement_EnumeratedCurveElementPurpose",
       header: "StepElement_EnumeratedCurveElementPurpose.hxx".} = enum
-    StepElement_Axial, StepElement_YYBending, StepElement_ZZBending,
-    StepElement_Torsion, StepElement_XYShear, StepElement_XZShear,
-    StepElement_Warping
+    StepElementAxial, StepElementYYBending, StepElementZZBending,
+    StepElementTorsion, StepElementXYShear, StepElementXZShear, StepElementWarping
+
 

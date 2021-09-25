@@ -14,32 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_RightAngularWedge"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShape_RWRightAngularWedge* {.importcpp: "RWStepShape_RWRightAngularWedge", header: "RWStepShape_RWRightAngularWedge.hxx",
-                                    bycopy.} = object
+  RWStepShapeRWRightAngularWedge* {.importcpp: "RWStepShape_RWRightAngularWedge", header: "RWStepShape_RWRightAngularWedge.hxx",
+                                   bycopy.} = object
 
 
-proc constructRWStepShape_RWRightAngularWedge*(): RWStepShape_RWRightAngularWedge {.
+proc constructRWStepShapeRWRightAngularWedge*(): RWStepShapeRWRightAngularWedge {.
     constructor, importcpp: "RWStepShape_RWRightAngularWedge(@)",
     header: "RWStepShape_RWRightAngularWedge.hxx".}
-proc ReadStep*(this: RWStepShape_RWRightAngularWedge;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepShape_RightAngularWedge]) {.noSideEffect,
+proc readStep*(this: RWStepShapeRWRightAngularWedge;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepShapeRightAngularWedge]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWRightAngularWedge.hxx".}
-proc WriteStep*(this: RWStepShape_RWRightAngularWedge; SW: var StepData_StepWriter;
-               ent: handle[StepShape_RightAngularWedge]) {.noSideEffect,
+proc writeStep*(this: RWStepShapeRWRightAngularWedge; sw: var StepDataStepWriter;
+               ent: Handle[StepShapeRightAngularWedge]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWRightAngularWedge.hxx".}
-proc Share*(this: RWStepShape_RWRightAngularWedge;
-           ent: handle[StepShape_RightAngularWedge];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepShapeRWRightAngularWedge;
+           ent: Handle[StepShapeRightAngularWedge];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWRightAngularWedge.hxx".}

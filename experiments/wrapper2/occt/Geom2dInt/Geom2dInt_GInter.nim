@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Geom2dInt_GInter_HeaderFile [NewLine] # _Geom2dInt_GInter_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # ../IntCurve/IntCurve_IntConicConic.hxx [NewLine] # Geom2dInt_TheIntConicCurveOfGInter.hxx [NewLine] # Geom2dInt_TheIntPCurvePCurveOfGInter.hxx [NewLine] # ../IntRes2d/IntRes2d_Intersection.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # ../Standard/Standard_Integer.hxx [NewLine] # ../TColStd/TColStd_Array1OfReal.hxx [NewLine] class Standard_ConstructionError ;
+## !!!Ignored construct:  # _Geom2dInt_GInter_HeaderFile [NewLine] # _Geom2dInt_GInter_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] # < IntCurve_IntConicConic . hxx > [NewLine] # < Geom2dInt_TheIntConicCurveOfGInter . hxx > [NewLine] # < Geom2dInt_TheIntPCurvePCurveOfGInter . hxx > [NewLine] # < IntRes2d_Intersection . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] # < TColStd_Array1OfReal . hxx > [NewLine] class Standard_ConstructionError ;
 ## Error: did not expect <!!!
 
 discard "forward decl of Adaptor2d_Curve2d"
@@ -31,68 +31,54 @@ discard "forward decl of Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGI
 discard "forward decl of Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter"
 discard "forward decl of IntRes2d_Domain"
 type
-  Geom2dInt_GInter* {.importcpp: "Geom2dInt_GInter",
-                     header: "Geom2dInt_GInter.hxx", bycopy.} = object of IntRes2d_Intersection ##
-                                                                                         ## !
-                                                                                         ## Empty
-                                                                                         ## constructor.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Intersection
-                                                                                         ## between
-                                                                                         ## 2
-                                                                                         ## curves.
+  Geom2dIntGInter* {.importcpp: "Geom2dInt_GInter", header: "Geom2dInt_GInter.hxx",
+                    bycopy.} = object of IntRes2dIntersection ## ! Empty constructor.
+                                                         ## ! Intersection between 2 curves.
 
 
-proc constructGeom2dInt_GInter*(): Geom2dInt_GInter {.constructor,
+proc constructGeom2dIntGInter*(): Geom2dIntGInter {.constructor,
     importcpp: "Geom2dInt_GInter(@)", header: "Geom2dInt_GInter.hxx".}
-proc constructGeom2dInt_GInter*(C: Adaptor2d_Curve2d; TolConf: Standard_Real;
-                               Tol: Standard_Real): Geom2dInt_GInter {.constructor,
-    importcpp: "Geom2dInt_GInter(@)", header: "Geom2dInt_GInter.hxx".}
-proc constructGeom2dInt_GInter*(C: Adaptor2d_Curve2d; D: IntRes2d_Domain;
-                               TolConf: Standard_Real; Tol: Standard_Real): Geom2dInt_GInter {.
+proc constructGeom2dIntGInter*(c: Adaptor2dCurve2d; tolConf: float; tol: float): Geom2dIntGInter {.
     constructor, importcpp: "Geom2dInt_GInter(@)", header: "Geom2dInt_GInter.hxx".}
-proc constructGeom2dInt_GInter*(C1: Adaptor2d_Curve2d; C2: Adaptor2d_Curve2d;
-                               TolConf: Standard_Real; Tol: Standard_Real): Geom2dInt_GInter {.
+proc constructGeom2dIntGInter*(c: Adaptor2dCurve2d; d: IntRes2dDomain;
+                              tolConf: float; tol: float): Geom2dIntGInter {.
     constructor, importcpp: "Geom2dInt_GInter(@)", header: "Geom2dInt_GInter.hxx".}
-proc constructGeom2dInt_GInter*(C1: Adaptor2d_Curve2d; D1: IntRes2d_Domain;
-                               C2: Adaptor2d_Curve2d; TolConf: Standard_Real;
-                               Tol: Standard_Real): Geom2dInt_GInter {.constructor,
-    importcpp: "Geom2dInt_GInter(@)", header: "Geom2dInt_GInter.hxx".}
-proc constructGeom2dInt_GInter*(C1: Adaptor2d_Curve2d; C2: Adaptor2d_Curve2d;
-                               D2: IntRes2d_Domain; TolConf: Standard_Real;
-                               Tol: Standard_Real): Geom2dInt_GInter {.constructor,
-    importcpp: "Geom2dInt_GInter(@)", header: "Geom2dInt_GInter.hxx".}
-proc constructGeom2dInt_GInter*(C1: Adaptor2d_Curve2d; D1: IntRes2d_Domain;
-                               C2: Adaptor2d_Curve2d; D2: IntRes2d_Domain;
-                               TolConf: Standard_Real; Tol: Standard_Real): Geom2dInt_GInter {.
+proc constructGeom2dIntGInter*(c1: Adaptor2dCurve2d; c2: Adaptor2dCurve2d;
+                              tolConf: float; tol: float): Geom2dIntGInter {.
     constructor, importcpp: "Geom2dInt_GInter(@)", header: "Geom2dInt_GInter.hxx".}
-proc Perform*(this: var Geom2dInt_GInter; C1: Adaptor2d_Curve2d; D1: IntRes2d_Domain;
-             C2: Adaptor2d_Curve2d; D2: IntRes2d_Domain; TolConf: Standard_Real;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "Geom2dInt_GInter.hxx".}
-proc Perform*(this: var Geom2dInt_GInter; C1: Adaptor2d_Curve2d;
-             C2: Adaptor2d_Curve2d; TolConf: Standard_Real; Tol: Standard_Real) {.
+proc constructGeom2dIntGInter*(c1: Adaptor2dCurve2d; d1: IntRes2dDomain;
+                              c2: Adaptor2dCurve2d; tolConf: float; tol: float): Geom2dIntGInter {.
+    constructor, importcpp: "Geom2dInt_GInter(@)", header: "Geom2dInt_GInter.hxx".}
+proc constructGeom2dIntGInter*(c1: Adaptor2dCurve2d; c2: Adaptor2dCurve2d;
+                              d2: IntRes2dDomain; tolConf: float; tol: float): Geom2dIntGInter {.
+    constructor, importcpp: "Geom2dInt_GInter(@)", header: "Geom2dInt_GInter.hxx".}
+proc constructGeom2dIntGInter*(c1: Adaptor2dCurve2d; d1: IntRes2dDomain;
+                              c2: Adaptor2dCurve2d; d2: IntRes2dDomain;
+                              tolConf: float; tol: float): Geom2dIntGInter {.
+    constructor, importcpp: "Geom2dInt_GInter(@)", header: "Geom2dInt_GInter.hxx".}
+proc perform*(this: var Geom2dIntGInter; c1: Adaptor2dCurve2d; d1: IntRes2dDomain;
+             c2: Adaptor2dCurve2d; d2: IntRes2dDomain; tolConf: float; tol: float) {.
     importcpp: "Perform", header: "Geom2dInt_GInter.hxx".}
-proc Perform*(this: var Geom2dInt_GInter; C1: Adaptor2d_Curve2d; D1: IntRes2d_Domain;
-             TolConf: Standard_Real; Tol: Standard_Real) {.importcpp: "Perform",
+proc perform*(this: var Geom2dIntGInter; c1: Adaptor2dCurve2d; c2: Adaptor2dCurve2d;
+             tolConf: float; tol: float) {.importcpp: "Perform",
+                                       header: "Geom2dInt_GInter.hxx".}
+proc perform*(this: var Geom2dIntGInter; c1: Adaptor2dCurve2d; d1: IntRes2dDomain;
+             tolConf: float; tol: float) {.importcpp: "Perform",
+                                       header: "Geom2dInt_GInter.hxx".}
+proc perform*(this: var Geom2dIntGInter; c1: Adaptor2dCurve2d; tolConf: float;
+             tol: float) {.importcpp: "Perform", header: "Geom2dInt_GInter.hxx".}
+proc perform*(this: var Geom2dIntGInter; c1: Adaptor2dCurve2d; d1: IntRes2dDomain;
+             c2: Adaptor2dCurve2d; tolConf: float; tol: float) {.importcpp: "Perform",
     header: "Geom2dInt_GInter.hxx".}
-proc Perform*(this: var Geom2dInt_GInter; C1: Adaptor2d_Curve2d;
-             TolConf: Standard_Real; Tol: Standard_Real) {.importcpp: "Perform",
+proc perform*(this: var Geom2dIntGInter; c1: Adaptor2dCurve2d; c2: Adaptor2dCurve2d;
+             d2: IntRes2dDomain; tolConf: float; tol: float) {.importcpp: "Perform",
     header: "Geom2dInt_GInter.hxx".}
-proc Perform*(this: var Geom2dInt_GInter; C1: Adaptor2d_Curve2d; D1: IntRes2d_Domain;
-             C2: Adaptor2d_Curve2d; TolConf: Standard_Real; Tol: Standard_Real) {.
-    importcpp: "Perform", header: "Geom2dInt_GInter.hxx".}
-proc Perform*(this: var Geom2dInt_GInter; C1: Adaptor2d_Curve2d;
-             C2: Adaptor2d_Curve2d; D2: IntRes2d_Domain; TolConf: Standard_Real;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "Geom2dInt_GInter.hxx".}
-proc ComputeDomain*(this: Geom2dInt_GInter; C1: Adaptor2d_Curve2d;
-                   TolDomain: Standard_Real): IntRes2d_Domain {.noSideEffect,
-    importcpp: "ComputeDomain", header: "Geom2dInt_GInter.hxx".}
-proc SetMinNbSamples*(this: var Geom2dInt_GInter; theMinNbSamples: Standard_Integer) {.
+proc computeDomain*(this: Geom2dIntGInter; c1: Adaptor2dCurve2d; tolDomain: float): IntRes2dDomain {.
+    noSideEffect, importcpp: "ComputeDomain", header: "Geom2dInt_GInter.hxx".}
+proc setMinNbSamples*(this: var Geom2dIntGInter; theMinNbSamples: int) {.
     importcpp: "SetMinNbSamples", header: "Geom2dInt_GInter.hxx".}
-proc GetMinNbSamples*(this: Geom2dInt_GInter): Standard_Integer {.noSideEffect,
+proc getMinNbSamples*(this: Geom2dIntGInter): int {.noSideEffect,
     importcpp: "GetMinNbSamples", header: "Geom2dInt_GInter.hxx".}
-## !!!Ignored construct:  # TheCurve Adaptor2d_Curve2d [NewLine] # TheCurve_hxx < Adaptor2d_Curve2d . hxx > [NewLine] # TheCurveTool Geom2dInt_Geom2dCurveTool [NewLine] # TheCurveTool_hxx < Geom2dInt_Geom2dCurveTool . hxx > [NewLine] # IntCurve_TheProjPCur Geom2dInt_TheProjPCurOfGInter [NewLine] # IntCurve_TheProjPCur_hxx < Geom2dInt_TheProjPCurOfGInter . hxx > [NewLine] # IntCurve_TheCurveLocatorOfTheProjPCur Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter [NewLine] # IntCurve_TheCurveLocatorOfTheProjPCur_hxx < Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter . hxx > [NewLine] # IntCurve_TheLocateExtPCOfTheProjPCur Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter [NewLine] # IntCurve_TheLocateExtPCOfTheProjPCur_hxx < Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter . hxx > [NewLine] # IntCurve_TheCurveLocatorOfTheProjPCur Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter [NewLine] # IntCurve_TheCurveLocatorOfTheProjPCur_hxx < Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter . hxx > [NewLine] # IntCurve_TheLocateExtPCOfTheProjPCur Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter [NewLine] # IntCurve_TheLocateExtPCOfTheProjPCur_hxx < Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter . hxx > [NewLine] # IntCurve_TheIntConicCurve Geom2dInt_TheIntConicCurveOfGInter [NewLine] # IntCurve_TheIntConicCurve_hxx < Geom2dInt_TheIntConicCurveOfGInter . hxx > [NewLine] # IntCurve_TheIntersectorOfTheIntConicCurve Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter [NewLine] # IntCurve_TheIntersectorOfTheIntConicCurve_hxx < Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter . hxx > [NewLine] # IntCurve_TheIntersectorOfTheIntConicCurve Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter [NewLine] # IntCurve_TheIntersectorOfTheIntConicCurve_hxx < Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter . hxx > [NewLine] # IntCurve_IntConicCurve Geom2dInt_IntConicCurveOfGInter [NewLine] # IntCurve_IntConicCurve_hxx < Geom2dInt_IntConicCurveOfGInter . hxx > [NewLine] # IntCurve_TheIntPCurvePCurve Geom2dInt_TheIntPCurvePCurveOfGInter [NewLine] # IntCurve_TheIntPCurvePCurve_hxx < Geom2dInt_TheIntPCurvePCurveOfGInter . hxx > [NewLine] # IntCurve_ThePolygon2dOfTheIntPCurvePCurve Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter [NewLine] # IntCurve_ThePolygon2dOfTheIntPCurvePCurve_hxx < Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter . hxx > [NewLine] # IntCurve_TheDistBetweenPCurvesOfTheIntPCurvePCurve Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter [NewLine] # IntCurve_TheDistBetweenPCurvesOfTheIntPCurvePCurve_hxx < Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter . hxx > [NewLine] # IntCurve_ExactIntersectionPointOfTheIntPCurvePCurve Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter [NewLine] # IntCurve_ExactIntersectionPointOfTheIntPCurvePCurve_hxx < Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter . hxx > [NewLine] # IntCurve_ThePolygon2dOfTheIntPCurvePCurve Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter [NewLine] # IntCurve_ThePolygon2dOfTheIntPCurvePCurve_hxx < Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter . hxx > [NewLine] # IntCurve_TheDistBetweenPCurvesOfTheIntPCurvePCurve Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter [NewLine] # IntCurve_TheDistBetweenPCurvesOfTheIntPCurvePCurve_hxx < Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter . hxx > [NewLine] # IntCurve_ExactIntersectionPointOfTheIntPCurvePCurve Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter [NewLine] # IntCurve_ExactIntersectionPointOfTheIntPCurvePCurve_hxx < Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter . hxx > [NewLine] # IntCurve_IntCurveCurveGen Geom2dInt_GInter [NewLine] # IntCurve_IntCurveCurveGen_hxx < Geom2dInt_GInter . hxx > [NewLine] # < IntCurve_IntCurveCurveGen . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # TheCurveTool [NewLine] # TheCurveTool_hxx [NewLine] # IntCurve_TheProjPCur [NewLine] # IntCurve_TheProjPCur_hxx [NewLine] # IntCurve_TheCurveLocatorOfTheProjPCur [NewLine] # IntCurve_TheCurveLocatorOfTheProjPCur_hxx [NewLine] # IntCurve_TheLocateExtPCOfTheProjPCur [NewLine] # IntCurve_TheLocateExtPCOfTheProjPCur_hxx [NewLine] # IntCurve_TheCurveLocatorOfTheProjPCur [NewLine] # IntCurve_TheCurveLocatorOfTheProjPCur_hxx [NewLine] # IntCurve_TheLocateExtPCOfTheProjPCur [NewLine] # IntCurve_TheLocateExtPCOfTheProjPCur_hxx [NewLine] # IntCurve_TheIntConicCurve [NewLine] # IntCurve_TheIntConicCurve_hxx [NewLine] # IntCurve_TheIntersectorOfTheIntConicCurve [NewLine] # IntCurve_TheIntersectorOfTheIntConicCurve_hxx [NewLine] # IntCurve_TheIntersectorOfTheIntConicCurve [NewLine] # IntCurve_TheIntersectorOfTheIntConicCurve_hxx [NewLine] # IntCurve_IntConicCurve [NewLine] # IntCurve_IntConicCurve_hxx [NewLine] # IntCurve_TheIntPCurvePCurve [NewLine] # IntCurve_TheIntPCurvePCurve_hxx [NewLine] # IntCurve_ThePolygon2dOfTheIntPCurvePCurve [NewLine] # IntCurve_ThePolygon2dOfTheIntPCurvePCurve_hxx [NewLine] # IntCurve_TheDistBetweenPCurvesOfTheIntPCurvePCurve [NewLine] # IntCurve_TheDistBetweenPCurvesOfTheIntPCurvePCurve_hxx [NewLine] # IntCurve_ExactIntersectionPointOfTheIntPCurvePCurve [NewLine] # IntCurve_ExactIntersectionPointOfTheIntPCurvePCurve_hxx [NewLine] # IntCurve_ThePolygon2dOfTheIntPCurvePCurve [NewLine] # IntCurve_ThePolygon2dOfTheIntPCurvePCurve_hxx [NewLine] # IntCurve_TheDistBetweenPCurvesOfTheIntPCurvePCurve [NewLine] # IntCurve_TheDistBetweenPCurvesOfTheIntPCurvePCurve_hxx [NewLine] # IntCurve_ExactIntersectionPointOfTheIntPCurvePCurve [NewLine] # IntCurve_ExactIntersectionPointOfTheIntPCurvePCurve_hxx [NewLine] # IntCurve_IntCurveCurveGen [NewLine] # IntCurve_IntCurveCurveGen_hxx [NewLine] #  _Geom2dInt_GInter_HeaderFile [NewLine]
+## !!!Ignored construct:  # TheCurve Adaptor2d_Curve2d [NewLine] # TheCurve_hxx < Adaptor2d_Curve2d . hxx > [NewLine] # TheCurveTool Geom2dInt_Geom2dCurveTool [NewLine] # TheCurveTool_hxx < Geom2dInt_Geom2dCurveTool . hxx > [NewLine] # IntCurve_TheProjPCur Geom2dInt_TheProjPCurOfGInter [NewLine] # IntCurve_TheProjPCur_hxx < Geom2dInt_TheProjPCurOfGInter . hxx > [NewLine] # IntCurve_TheCurveLocatorOfTheProjPCur Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter [NewLine] # IntCurve_TheCurveLocatorOfTheProjPCur_hxx < Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter . hxx > [NewLine] # IntCurve_TheLocateExtPCOfTheProjPCur Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter [NewLine] # IntCurve_TheLocateExtPCOfTheProjPCur_hxx < Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter . hxx > [NewLine] # IntCurve_TheCurveLocatorOfTheProjPCur Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter [NewLine] # IntCurve_TheCurveLocatorOfTheProjPCur_hxx < Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter . hxx > [NewLine] # IntCurve_TheLocateExtPCOfTheProjPCur Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter [NewLine] # IntCurve_TheLocateExtPCOfTheProjPCur_hxx < Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter . hxx > [NewLine] # IntCurve_TheIntConicCurve Geom2dInt_TheIntConicCurveOfGInter [NewLine] # IntCurve_TheIntConicCurve_hxx < Geom2dInt_TheIntConicCurveOfGInter . hxx > [NewLine] # IntCurve_TheIntersectorOfTheIntConicCurve Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter [NewLine] # IntCurve_TheIntersectorOfTheIntConicCurve_hxx < Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter . hxx > [NewLine] # IntCurve_TheIntersectorOfTheIntConicCurve Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter [NewLine] # IntCurve_TheIntersectorOfTheIntConicCurve_hxx < Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter . hxx > [NewLine] # IntCurve_IntConicCurve Geom2dInt_IntConicCurveOfGInter [NewLine] # IntCurve_IntConicCurve_hxx < Geom2dInt_IntConicCurveOfGInter . hxx > [NewLine] # IntCurve_TheIntPCurvePCurve Geom2dInt_TheIntPCurvePCurveOfGInter [NewLine] # IntCurve_TheIntPCurvePCurve_hxx < Geom2dInt_TheIntPCurvePCurveOfGInter . hxx > [NewLine] # IntCurve_ThePolygon2dOfTheIntPCurvePCurve Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter [NewLine] # IntCurve_ThePolygon2dOfTheIntPCurvePCurve_hxx < Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter . hxx > [NewLine] # IntCurve_TheDistBetweenPCurvesOfTheIntPCurvePCurve Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter [NewLine] # IntCurve_TheDistBetweenPCurvesOfTheIntPCurvePCurve_hxx < Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter . hxx > [NewLine] # IntCurve_ExactIntersectionPointOfTheIntPCurvePCurve Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter [NewLine] # IntCurve_ExactIntersectionPointOfTheIntPCurvePCurve_hxx < Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter . hxx > [NewLine] # IntCurve_ThePolygon2dOfTheIntPCurvePCurve Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter [NewLine] # IntCurve_ThePolygon2dOfTheIntPCurvePCurve_hxx < Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter . hxx > [NewLine] # IntCurve_TheDistBetweenPCurvesOfTheIntPCurvePCurve Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter [NewLine] # IntCurve_TheDistBetweenPCurvesOfTheIntPCurvePCurve_hxx < Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter . hxx > [NewLine] # IntCurve_ExactIntersectionPointOfTheIntPCurvePCurve Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter [NewLine] # IntCurve_ExactIntersectionPointOfTheIntPCurvePCurve_hxx < Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter . hxx > [NewLine] # IntCurve_IntCurveCurveGen Geom2dInt_GInter [NewLine] # IntCurve_IntCurveCurveGen_hxx < Geom2dInt_GInter . hxx > [NewLine] # < IntCurve_IntCurveCurveGen . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # TheCurveTool [NewLine] # TheCurveTool_hxx [NewLine] # IntCurve_TheProjPCur [NewLine] # IntCurve_TheProjPCur_hxx [NewLine] # IntCurve_TheCurveLocatorOfTheProjPCur [NewLine] # IntCurve_TheCurveLocatorOfTheProjPCur_hxx [NewLine] # IntCurve_TheLocateExtPCOfTheProjPCur [NewLine] # IntCurve_TheLocateExtPCOfTheProjPCur_hxx [NewLine] # IntCurve_TheCurveLocatorOfTheProjPCur [NewLine] # IntCurve_TheCurveLocatorOfTheProjPCur_hxx [NewLine] # IntCurve_TheLocateExtPCOfTheProjPCur [NewLine] # IntCurve_TheLocateExtPCOfTheProjPCur_hxx [NewLine] # IntCurve_TheIntConicCurve [NewLine] # IntCurve_TheIntConicCurve_hxx [NewLine] # IntCurve_TheIntersectorOfTheIntConicCurve [NewLine] # IntCurve_TheIntersectorOfTheIntConicCurve_hxx [NewLine] # IntCurve_TheIntersectorOfTheIntConicCurve [NewLine] # IntCurve_TheIntersectorOfTheIntConicCurve_hxx [NewLine] # IntCurve_IntConicCurve [NewLine] # IntCurve_IntConicCurve_hxx [NewLine] # IntCurve_TheIntPCurvePCurve [NewLine] # IntCurve_TheIntPCurvePCurve_hxx [NewLine] # IntCurve_ThePolygon2dOfTheIntPCurvePCurve [NewLine] # IntCurve_ThePolygon2dOfTheIntPCurvePCurve_hxx [NewLine] # IntCurve_TheDistBetweenPCurvesOfTheIntPCurvePCurve [NewLine] # IntCurve_TheDistBetweenPCurvesOfTheIntPCurvePCurve_hxx [NewLine] # IntCurve_ExactIntersectionPointOfTheIntPCurvePCurve [NewLine] # IntCurve_ExactIntersectionPointOfTheIntPCurvePCurve_hxx [NewLine] # IntCurve_ThePolygon2dOfTheIntPCurvePCurve [NewLine] # IntCurve_ThePolygon2dOfTheIntPCurvePCurve_hxx [NewLine] # IntCurve_TheDistBetweenPCurvesOfTheIntPCurvePCurve [NewLine] # IntCurve_TheDistBetweenPCurvesOfTheIntPCurvePCurve_hxx [NewLine] # IntCurve_ExactIntersectionPointOfTheIntPCurvePCurve [NewLine] # IntCurve_ExactIntersectionPointOfTheIntPCurvePCurve_hxx [NewLine] # IntCurve_IntCurveCurveGen [NewLine] # IntCurve_IntCurveCurveGen_hxx [NewLine] #  _Geom2dInt_GInter_HeaderFile
 ## Error: did not expect <!!!
+

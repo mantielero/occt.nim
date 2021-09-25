@@ -14,44 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepAP203_HArray1OfWorkItem,
-  ../StepBasic/StepBasic_ActionAssignment
-
 discard "forward decl of StepBasic_Action"
 discard "forward decl of StepAP203_StartWork"
 discard "forward decl of StepAP203_StartWork"
 type
-  Handle_StepAP203_StartWork* = handle[StepAP203_StartWork]
+  HandleStepAP203StartWork* = Handle[StepAP203StartWork]
 
 ## ! Representation of STEP entity StartWork
 
 type
-  StepAP203_StartWork* {.importcpp: "StepAP203_StartWork",
-                        header: "StepAP203_StartWork.hxx", bycopy.} = object of StepBasic_ActionAssignment ##
-                                                                                                    ## !
-                                                                                                    ## Empty
-                                                                                                    ## constructor
+  StepAP203StartWork* {.importcpp: "StepAP203_StartWork",
+                       header: "StepAP203_StartWork.hxx", bycopy.} = object of StepBasicActionAssignment ##
+                                                                                                  ## !
+                                                                                                  ## Empty
+                                                                                                  ## constructor
 
 
-proc constructStepAP203_StartWork*(): StepAP203_StartWork {.constructor,
+proc constructStepAP203StartWork*(): StepAP203StartWork {.constructor,
     importcpp: "StepAP203_StartWork(@)", header: "StepAP203_StartWork.hxx".}
-proc Init*(this: var StepAP203_StartWork;
-          aActionAssignment_AssignedAction: handle[StepBasic_Action];
-          aItems: handle[StepAP203_HArray1OfWorkItem]) {.importcpp: "Init",
+proc init*(this: var StepAP203StartWork;
+          aActionAssignmentAssignedAction: Handle[StepBasicAction];
+          aItems: Handle[StepAP203HArray1OfWorkItem]) {.importcpp: "Init",
     header: "StepAP203_StartWork.hxx".}
-proc Items*(this: StepAP203_StartWork): handle[StepAP203_HArray1OfWorkItem] {.
+proc items*(this: StepAP203StartWork): Handle[StepAP203HArray1OfWorkItem] {.
     noSideEffect, importcpp: "Items", header: "StepAP203_StartWork.hxx".}
-proc SetItems*(this: var StepAP203_StartWork;
-              Items: handle[StepAP203_HArray1OfWorkItem]) {.importcpp: "SetItems",
+proc setItems*(this: var StepAP203StartWork;
+              items: Handle[StepAP203HArray1OfWorkItem]) {.importcpp: "SetItems",
     header: "StepAP203_StartWork.hxx".}
 type
-  StepAP203_StartWorkbase_type* = StepBasic_ActionAssignment
+  StepAP203StartWorkbaseType* = StepBasicActionAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP203_StartWork::get_type_name(@)",
-                              header: "StepAP203_StartWork.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP203_StartWork::get_type_name(@)",
+                            header: "StepAP203_StartWork.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP203_StartWork::get_type_descriptor(@)",
     header: "StepAP203_StartWork.hxx".}
-proc DynamicType*(this: StepAP203_StartWork): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepAP203StartWork): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepAP203_StartWork.hxx".}

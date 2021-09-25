@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of BinMDF_ADriverTable"
 discard "forward decl of Message_Messenger"
 discard "forward decl of BinMDF_ADriver"
@@ -27,6 +23,6 @@ type
   BinMDF* {.importcpp: "BinMDF", header: "BinMDF.hxx", bycopy.} = object ## ! Adds the attribute storage drivers to <aDriverTable>.
 
 
-proc AddDrivers*(aDriverTable: handle[BinMDF_ADriverTable];
-                aMsgDrv: handle[Message_Messenger]) {.
+proc addDrivers*(aDriverTable: Handle[BinMDF_ADriverTable];
+                aMsgDrv: Handle[MessageMessenger]) {.
     importcpp: "BinMDF::AddDrivers(@)", header: "BinMDF.hxx".}

@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Reluctance_HeaderFile [NewLine] # _Quantity_Reluctance_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the ratio of the magnetomotive force applied
+## !!!Ignored construct:  # _Quantity_Reluctance_HeaderFile [NewLine] # _Quantity_Reluctance_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the ratio of the magnetomotive force applied
 ## ! to a magnetic circuit to the magnetic flux in the circuit.
 ## ! It is measured in reciprocal henrys.
 ## ! Its reciprocal is permanence. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Reluctance ;
 ## Error: expected ';'!!!
+

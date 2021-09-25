@@ -14,33 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of MoniTool_Element"
 type
-  MoniTool_ElemHasher* {.importcpp: "MoniTool_ElemHasher",
-                        header: "MoniTool_ElemHasher.hxx", bycopy.} = object ## ! Returns hash code for the given element, in the range [1,
-                                                                        ## theUpperBound].
-                                                                        ## ! Asks
-                                                                        ## theElement its
-                                                                        ## HashCode, then
-                                                                        ## transforms it to be in the required range.
-                                                                        ## ! @param
-                                                                        ## theElement the element which hash code is to be computed
-                                                                        ## ! @param
-                                                                        ## theUpperBound the upper bound of the range a
-                                                                        ## computing hash code must be within
-                                                                        ## ! @return a computed hash code, in the range [1,
-                                                                        ## theUpperBound]
+  MoniToolElemHasher* {.importcpp: "MoniTool_ElemHasher",
+                       header: "MoniTool_ElemHasher.hxx", bycopy.} = object ## ! Returns hash code for the given element, in the range [1,
+                                                                       ## theUpperBound].
+                                                                       ## ! Asks
+                                                                       ## theElement its HashCode, then
+                                                                       ## transforms it to be in the required range.
+                                                                       ## ! @param
+                                                                       ## theElement the element which hash code is to be computed
+                                                                       ## ! @param
+                                                                       ## theUpperBound the upper bound of the range a computing hash code must be within
+                                                                       ## ! @return a computed hash code, in the range [1,
+                                                                       ## theUpperBound]
 
 
-proc HashCode*(theElement: handle[MoniTool_Element];
-              theUpperBound: Standard_Integer): Standard_Integer {.
+proc hashCode*(theElement: Handle[MoniToolElement]; theUpperBound: int): int {.
     importcpp: "MoniTool_ElemHasher::HashCode(@)",
     header: "MoniTool_ElemHasher.hxx".}
-proc IsEqual*(K1: handle[MoniTool_Element]; K2: handle[MoniTool_Element]): Standard_Boolean {.
+proc isEqual*(k1: Handle[MoniToolElement]; k2: Handle[MoniToolElement]): bool {.
     importcpp: "MoniTool_ElemHasher::IsEqual(@)",
     header: "MoniTool_ElemHasher.hxx".}

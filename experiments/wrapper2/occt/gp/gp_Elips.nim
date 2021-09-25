@@ -12,10 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, gp_Ax2, ../Standard/Standard_Real, gp_Ax1, gp_Pnt
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Ax1"
@@ -23,99 +19,77 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Vec"
 type
-  gp_Elips* {.importcpp: "gp_Elips", header: "gp_Elips.hxx", bycopy.} = object ## ! Creates an
-                                                                       ## indefinite ellipse.
-    gp_Elips* {.importc: "gp_Elips".}: Standard_NODISCARD
-    gp_Elips* {.importc: "gp_Elips".}: Standard_NODISCARD
-    gp_Elips* {.importc: "gp_Elips".}: Standard_NODISCARD
-    gp_Elips* {.importc: "gp_Elips".}: Standard_NODISCARD
-    gp_Elips* {.importc: "gp_Elips".}: Standard_NODISCARD
-    gp_Elips* {.importc: "gp_Elips".}: Standard_NODISCARD
-    gp_Elips* {.importc: "gp_Elips".}: Standard_NODISCARD
-    gp_Elips* {.importc: "gp_Elips".}: Standard_NODISCARD
+  Elips* {.importcpp: "gp_Elips", header: "gp_Elips.hxx", bycopy.} = object ## ! Creates an indefinite ellipse.
 
 
-proc constructgp_Elips*(): gp_Elips {.constructor, importcpp: "gp_Elips(@)",
-                                   header: "gp_Elips.hxx".}
-proc constructgp_Elips*(A2: gp_Ax2; MajorRadius: Standard_Real;
-                       MinorRadius: Standard_Real): gp_Elips {.constructor,
-    importcpp: "gp_Elips(@)", header: "gp_Elips.hxx".}
-proc SetAxis*(this: var gp_Elips; A1: gp_Ax1) {.importcpp: "SetAxis",
-    header: "gp_Elips.hxx".}
-proc SetLocation*(this: var gp_Elips; P: gp_Pnt) {.importcpp: "SetLocation",
-    header: "gp_Elips.hxx".}
-proc SetMajorRadius*(this: var gp_Elips; MajorRadius: Standard_Real) {.
+proc constructElips*(): Elips {.constructor, importcpp: "gp_Elips(@)",
+                             header: "gp_Elips.hxx".}
+proc constructElips*(a2: Ax2; majorRadius: float; minorRadius: float): Elips {.
+    constructor, importcpp: "gp_Elips(@)", header: "gp_Elips.hxx".}
+proc setAxis*(this: var Elips; a1: Ax1) {.importcpp: "SetAxis", header: "gp_Elips.hxx".}
+proc setLocation*(this: var Elips; p: Pnt) {.importcpp: "SetLocation",
+                                       header: "gp_Elips.hxx".}
+proc setMajorRadius*(this: var Elips; majorRadius: float) {.
     importcpp: "SetMajorRadius", header: "gp_Elips.hxx".}
-proc SetMinorRadius*(this: var gp_Elips; MinorRadius: Standard_Real) {.
+proc setMinorRadius*(this: var Elips; minorRadius: float) {.
     importcpp: "SetMinorRadius", header: "gp_Elips.hxx".}
-proc SetPosition*(this: var gp_Elips; A2: gp_Ax2) {.importcpp: "SetPosition",
-    header: "gp_Elips.hxx".}
-proc Area*(this: gp_Elips): Standard_Real {.noSideEffect, importcpp: "Area",
+proc setPosition*(this: var Elips; a2: Ax2) {.importcpp: "SetPosition",
                                         header: "gp_Elips.hxx".}
-proc Axis*(this: gp_Elips): gp_Ax1 {.noSideEffect, importcpp: "Axis",
+proc area*(this: Elips): float {.noSideEffect, importcpp: "Area",
+                             header: "gp_Elips.hxx".}
+proc axis*(this: Elips): Ax1 {.noSideEffect, importcpp: "Axis", header: "gp_Elips.hxx".}
+proc directrix1*(this: Elips): Ax1 {.noSideEffect, importcpp: "Directrix1",
                                  header: "gp_Elips.hxx".}
-proc Directrix1*(this: gp_Elips): gp_Ax1 {.noSideEffect, importcpp: "Directrix1",
-                                       header: "gp_Elips.hxx".}
-proc Directrix2*(this: gp_Elips): gp_Ax1 {.noSideEffect, importcpp: "Directrix2",
-                                       header: "gp_Elips.hxx".}
-proc Eccentricity*(this: gp_Elips): Standard_Real {.noSideEffect,
-    importcpp: "Eccentricity", header: "gp_Elips.hxx".}
-proc Focal*(this: gp_Elips): Standard_Real {.noSideEffect, importcpp: "Focal",
-    header: "gp_Elips.hxx".}
-proc Focus1*(this: gp_Elips): gp_Pnt {.noSideEffect, importcpp: "Focus1",
-                                   header: "gp_Elips.hxx".}
-proc Focus2*(this: gp_Elips): gp_Pnt {.noSideEffect, importcpp: "Focus2",
-                                   header: "gp_Elips.hxx".}
-proc Location*(this: gp_Elips): gp_Pnt {.noSideEffect, importcpp: "Location",
+proc directrix2*(this: Elips): Ax1 {.noSideEffect, importcpp: "Directrix2",
+                                 header: "gp_Elips.hxx".}
+proc eccentricity*(this: Elips): float {.noSideEffect, importcpp: "Eccentricity",
                                      header: "gp_Elips.hxx".}
-proc MajorRadius*(this: gp_Elips): Standard_Real {.noSideEffect,
-    importcpp: "MajorRadius", header: "gp_Elips.hxx".}
-proc MinorRadius*(this: gp_Elips): Standard_Real {.noSideEffect,
-    importcpp: "MinorRadius", header: "gp_Elips.hxx".}
-proc Parameter*(this: gp_Elips): Standard_Real {.noSideEffect,
-    importcpp: "Parameter", header: "gp_Elips.hxx".}
-proc Position*(this: gp_Elips): gp_Ax2 {.noSideEffect, importcpp: "Position",
-                                     header: "gp_Elips.hxx".}
-proc XAxis*(this: gp_Elips): gp_Ax1 {.noSideEffect, importcpp: "XAxis",
+proc focal*(this: Elips): float {.noSideEffect, importcpp: "Focal",
+                              header: "gp_Elips.hxx".}
+proc focus1*(this: Elips): Pnt {.noSideEffect, importcpp: "Focus1",
+                             header: "gp_Elips.hxx".}
+proc focus2*(this: Elips): Pnt {.noSideEffect, importcpp: "Focus2",
+                             header: "gp_Elips.hxx".}
+proc location*(this: Elips): Pnt {.noSideEffect, importcpp: "Location",
+                               header: "gp_Elips.hxx".}
+proc majorRadius*(this: Elips): float {.noSideEffect, importcpp: "MajorRadius",
+                                    header: "gp_Elips.hxx".}
+proc minorRadius*(this: Elips): float {.noSideEffect, importcpp: "MinorRadius",
+                                    header: "gp_Elips.hxx".}
+proc parameter*(this: Elips): float {.noSideEffect, importcpp: "Parameter",
                                   header: "gp_Elips.hxx".}
-proc YAxis*(this: gp_Elips): gp_Ax1 {.noSideEffect, importcpp: "YAxis",
-                                  header: "gp_Elips.hxx".}
-proc Mirror*(this: var gp_Elips; P: gp_Pnt) {.importcpp: "Mirror",
+proc position*(this: Elips): Ax2 {.noSideEffect, importcpp: "Position",
+                               header: "gp_Elips.hxx".}
+proc xAxis*(this: Elips): Ax1 {.noSideEffect, importcpp: "XAxis",
+                            header: "gp_Elips.hxx".}
+proc yAxis*(this: Elips): Ax1 {.noSideEffect, importcpp: "YAxis",
+                            header: "gp_Elips.hxx".}
+proc mirror*(this: var Elips; p: Pnt) {.importcpp: "Mirror", header: "gp_Elips.hxx".}
+proc mirrored*(this: Elips; p: Pnt): Elips {.noSideEffect, importcpp: "Mirrored",
+                                       header: "gp_Elips.hxx".}
+proc mirror*(this: var Elips; a1: Ax1) {.importcpp: "Mirror", header: "gp_Elips.hxx".}
+proc mirrored*(this: Elips; a1: Ax1): Elips {.noSideEffect, importcpp: "Mirrored",
                                         header: "gp_Elips.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Pnt & P ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Mirror*(this: var gp_Elips; A1: gp_Ax1) {.importcpp: "Mirror",
+proc mirror*(this: var Elips; a2: Ax2) {.importcpp: "Mirror", header: "gp_Elips.hxx".}
+proc mirrored*(this: Elips; a2: Ax2): Elips {.noSideEffect, importcpp: "Mirrored",
+                                        header: "gp_Elips.hxx".}
+proc rotate*(this: var Elips; a1: Ax1; ang: float) {.importcpp: "Rotate",
     header: "gp_Elips.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Ax1 & A1 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Mirror*(this: var gp_Elips; A2: gp_Ax2) {.importcpp: "Mirror",
+proc rotated*(this: Elips; a1: Ax1; ang: float): Elips {.noSideEffect,
+    importcpp: "Rotated", header: "gp_Elips.hxx".}
+proc scale*(this: var Elips; p: Pnt; s: float) {.importcpp: "Scale",
     header: "gp_Elips.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Ax2 & A2 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Rotate*(this: var gp_Elips; A1: gp_Ax1; Ang: Standard_Real) {.importcpp: "Rotate",
+proc scaled*(this: Elips; p: Pnt; s: float): Elips {.noSideEffect, importcpp: "Scaled",
     header: "gp_Elips.hxx".}
-## !!!Ignored construct:  Rotated ( const gp_Ax1 & A1 , const Standard_Real Ang ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Scale*(this: var gp_Elips; P: gp_Pnt; S: Standard_Real) {.importcpp: "Scale",
+proc transform*(this: var Elips; t: Trsf) {.importcpp: "Transform",
+                                      header: "gp_Elips.hxx".}
+proc transformed*(this: Elips; t: Trsf): Elips {.noSideEffect,
+    importcpp: "Transformed", header: "gp_Elips.hxx".}
+proc translate*(this: var Elips; v: Vec) {.importcpp: "Translate",
+                                     header: "gp_Elips.hxx".}
+proc translated*(this: Elips; v: Vec): Elips {.noSideEffect, importcpp: "Translated",
     header: "gp_Elips.hxx".}
-## !!!Ignored construct:  Scaled ( const gp_Pnt & P , const Standard_Real S ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Transform*(this: var gp_Elips; T: gp_Trsf) {.importcpp: "Transform",
+proc translate*(this: var Elips; p1: Pnt; p2: Pnt) {.importcpp: "Translate",
     header: "gp_Elips.hxx".}
-## !!!Ignored construct:  Transformed ( const gp_Trsf & T ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Translate*(this: var gp_Elips; V: gp_Vec) {.importcpp: "Translate",
-    header: "gp_Elips.hxx".}
-## !!!Ignored construct:  Translated ( const gp_Vec & V ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Translate*(this: var gp_Elips; P1: gp_Pnt; P2: gp_Pnt) {.importcpp: "Translate",
-    header: "gp_Elips.hxx".}
-## !!!Ignored construct:  Translated ( const gp_Pnt & P1 , const gp_Pnt & P2 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
+proc translated*(this: Elips; p1: Pnt; p2: Pnt): Elips {.noSideEffect,
+    importcpp: "Translated", header: "gp_Elips.hxx".}

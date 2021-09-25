@@ -12,40 +12,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  XCAFPrs_Style, ../TDF/TDF_ChildIterator, ../TDF/TDF_Label,
-  ../TopLoc/TopLoc_Location
-
 ## ! Auxiliary tool for iterating through Path identification string.
 
 type
-  XCAFPrs_DocumentIdIterator* {.importcpp: "XCAFPrs_DocumentIdIterator",
-                               header: "XCAFPrs_DocumentIdIterator.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Main
-                                                                                      ## constructor.
-                                                                                      ##
-                                                                                      ## Disable
-                                                                                      ## assignment
-                                                                                      ## operator.
+  XCAFPrsDocumentIdIterator* {.importcpp: "XCAFPrs_DocumentIdIterator",
+                              header: "XCAFPrs_DocumentIdIterator.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Main
+                                                                                     ## constructor.
+                                                                                     ##
+                                                                                     ## Disable
+                                                                                     ## assignment
+                                                                                     ## operator.
     ## !< full path
     ## !< current value
     ## !< last processed new-line symbol
 
 
-proc constructXCAFPrs_DocumentIdIterator*(thePath: TCollection_AsciiString): XCAFPrs_DocumentIdIterator {.
+proc constructXCAFPrsDocumentIdIterator*(thePath: TCollectionAsciiString): XCAFPrsDocumentIdIterator {.
     constructor, importcpp: "XCAFPrs_DocumentIdIterator(@)",
     header: "XCAFPrs_DocumentIdIterator.hxx".}
-proc More*(this: XCAFPrs_DocumentIdIterator): bool {.noSideEffect, importcpp: "More",
+proc more*(this: XCAFPrsDocumentIdIterator): bool {.noSideEffect, importcpp: "More",
     header: "XCAFPrs_DocumentIdIterator.hxx".}
-proc Value*(this: XCAFPrs_DocumentIdIterator): TCollection_AsciiString {.
-    noSideEffect, importcpp: "Value", header: "XCAFPrs_DocumentIdIterator.hxx".}
-proc Next*(this: var XCAFPrs_DocumentIdIterator) {.importcpp: "Next",
+proc value*(this: XCAFPrsDocumentIdIterator): TCollectionAsciiString {.noSideEffect,
+    importcpp: "Value", header: "XCAFPrs_DocumentIdIterator.hxx".}
+proc next*(this: var XCAFPrsDocumentIdIterator) {.importcpp: "Next",
     header: "XCAFPrs_DocumentIdIterator.hxx".}
 ##  =======================================================================
 ##  function : Next
 ##  purpose  :
 ##  =======================================================================
 
-proc Next*(this: var XCAFPrs_DocumentIdIterator) {.importcpp: "Next",
+proc next*(this: var XCAFPrsDocumentIdIterator) {.importcpp: "Next",
     header: "XCAFPrs_DocumentIdIterator.hxx".}

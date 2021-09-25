@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  Vrml_CylinderParts* {.size: sizeof(cint), importcpp: "Vrml_CylinderParts",
-                       header: "Vrml_CylinderParts.hxx".} = enum
-    Vrml_CylinderSIDES, Vrml_CylinderTOP, Vrml_CylinderBOTTOM, Vrml_CylinderALL
+  VrmlCylinderParts* {.size: sizeof(cint), importcpp: "Vrml_CylinderParts",
+                      header: "Vrml_CylinderParts.hxx".} = enum
+    VrmlCylinderSIDES, VrmlCylinderTOP, VrmlCylinderBOTTOM, VrmlCylinderALL
+
 

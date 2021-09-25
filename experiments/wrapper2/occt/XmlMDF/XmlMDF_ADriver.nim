@@ -13,14 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Transient,
-  ../Standard/Standard_CString, ../Standard/Standard_Integer,
-  ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../XmlObjMgt/XmlObjMgt_RRelocationTable,
-  ../XmlObjMgt/XmlObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of TCollection_AsciiString"
@@ -29,54 +21,54 @@ discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of XmlMDF_ADriver"
 discard "forward decl of XmlMDF_ADriver"
 type
-  Handle_XmlMDF_ADriver* = handle[XmlMDF_ADriver]
+  HandleXmlMDF_ADriver* = Handle[XmlMDF_ADriver]
 
 ## ! Attribute Storage/Retrieval Driver.
 
 type
-  XmlMDF_ADriver* {.importcpp: "XmlMDF_ADriver", header: "XmlMDF_ADriver.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                             ## !
-                                                                                                             ## Returns
-                                                                                                             ## the
-                                                                                                             ## version
-                                                                                                             ## number
-                                                                                                             ## from
-                                                                                                             ## which
-                                                                                                             ## the
-                                                                                                             ## driver
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## is
-                                                                                                             ## available.
+  XmlMDF_ADriver* {.importcpp: "XmlMDF_ADriver", header: "XmlMDF_ADriver.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                            ## !
+                                                                                                            ## Returns
+                                                                                                            ## the
+                                                                                                            ## version
+                                                                                                            ## number
+                                                                                                            ## from
+                                                                                                            ## which
+                                                                                                            ## the
+                                                                                                            ## driver
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## is
+                                                                                                            ## available.
 
 
-proc VersionNumber*(this: XmlMDF_ADriver): Standard_Integer {.noSideEffect,
+proc versionNumber*(this: XmlMDF_ADriver): int {.noSideEffect,
     importcpp: "VersionNumber", header: "XmlMDF_ADriver.hxx".}
-proc NewEmpty*(this: XmlMDF_ADriver): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: XmlMDF_ADriver): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "XmlMDF_ADriver.hxx".}
-proc SourceType*(this: XmlMDF_ADriver): handle[Standard_Type] {.noSideEffect,
+proc sourceType*(this: XmlMDF_ADriver): Handle[StandardType] {.noSideEffect,
     importcpp: "SourceType", header: "XmlMDF_ADriver.hxx".}
-proc TypeName*(this: XmlMDF_ADriver): TCollection_AsciiString {.noSideEffect,
+proc typeName*(this: XmlMDF_ADriver): TCollectionAsciiString {.noSideEffect,
     importcpp: "TypeName", header: "XmlMDF_ADriver.hxx".}
-proc Namespace*(this: XmlMDF_ADriver): TCollection_AsciiString {.noSideEffect,
+proc namespace*(this: XmlMDF_ADriver): TCollectionAsciiString {.noSideEffect,
     importcpp: "Namespace", header: "XmlMDF_ADriver.hxx".}
-proc Paste*(this: XmlMDF_ADriver; aSource: XmlObjMgt_Persistent;
-           aTarget: handle[TDF_Attribute];
-           aRelocTable: var XmlObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "XmlMDF_ADriver.hxx".}
-proc Paste*(this: XmlMDF_ADriver; aSource: handle[TDF_Attribute];
-           aTarget: var XmlObjMgt_Persistent;
-           aRelocTable: var XmlObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: XmlMDF_ADriver; aSource: XmlObjMgtPersistent;
+           aTarget: Handle[TDF_Attribute];
+           aRelocTable: var XmlObjMgtRRelocationTable): bool {.noSideEffect,
     importcpp: "Paste", header: "XmlMDF_ADriver.hxx".}
-proc MessageDriver*(this: XmlMDF_ADriver): handle[Message_Messenger] {.noSideEffect,
+proc paste*(this: XmlMDF_ADriver; aSource: Handle[TDF_Attribute];
+           aTarget: var XmlObjMgtPersistent;
+           aRelocTable: var XmlObjMgtSRelocationTable) {.noSideEffect,
+    importcpp: "Paste", header: "XmlMDF_ADriver.hxx".}
+proc messageDriver*(this: XmlMDF_ADriver): Handle[MessageMessenger] {.noSideEffect,
     importcpp: "MessageDriver", header: "XmlMDF_ADriver.hxx".}
 type
-  XmlMDF_ADriverbase_type* = Standard_Transient
+  XmlMDF_ADriverbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "XmlMDF_ADriver::get_type_name(@)",
-                              header: "XmlMDF_ADriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XmlMDF_ADriver::get_type_name(@)",
+                            header: "XmlMDF_ADriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XmlMDF_ADriver::get_type_descriptor(@)",
     header: "XmlMDF_ADriver.hxx".}
-proc DynamicType*(this: XmlMDF_ADriver): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: XmlMDF_ADriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XmlMDF_ADriver.hxx".}

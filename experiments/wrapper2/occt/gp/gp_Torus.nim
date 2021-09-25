@@ -12,11 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, gp_Ax3, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../TColStd/TColStd_Array1OfReal, gp_Ax1
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of gp_Ax3"
@@ -26,93 +21,71 @@ discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Vec"
 type
-  gp_Torus* {.importcpp: "gp_Torus", header: "gp_Torus.hxx", bycopy.} = object ## ! creates an
-                                                                       ## indefinite Torus.
-    gp_Torus* {.importc: "gp_Torus".}: Standard_NODISCARD
-    gp_Torus* {.importc: "gp_Torus".}: Standard_NODISCARD
-    gp_Torus* {.importc: "gp_Torus".}: Standard_NODISCARD
-    gp_Torus* {.importc: "gp_Torus".}: Standard_NODISCARD
-    gp_Torus* {.importc: "gp_Torus".}: Standard_NODISCARD
-    gp_Torus* {.importc: "gp_Torus".}: Standard_NODISCARD
-    gp_Torus* {.importc: "gp_Torus".}: Standard_NODISCARD
-    gp_Torus* {.importc: "gp_Torus".}: Standard_NODISCARD
+  Torus* {.importcpp: "gp_Torus", header: "gp_Torus.hxx", bycopy.} = object ## ! creates an indefinite Torus.
 
 
-proc constructgp_Torus*(): gp_Torus {.constructor, importcpp: "gp_Torus(@)",
-                                   header: "gp_Torus.hxx".}
-proc constructgp_Torus*(A3: gp_Ax3; MajorRadius: Standard_Real;
-                       MinorRadius: Standard_Real): gp_Torus {.constructor,
-    importcpp: "gp_Torus(@)", header: "gp_Torus.hxx".}
-proc SetAxis*(this: var gp_Torus; A1: gp_Ax1) {.importcpp: "SetAxis",
+proc constructTorus*(): Torus {.constructor, importcpp: "gp_Torus(@)",
+                             header: "gp_Torus.hxx".}
+proc constructTorus*(a3: Ax3; majorRadius: float; minorRadius: float): Torus {.
+    constructor, importcpp: "gp_Torus(@)", header: "gp_Torus.hxx".}
+proc setAxis*(this: var Torus; a1: Ax1) {.importcpp: "SetAxis", header: "gp_Torus.hxx".}
+proc setLocation*(this: var Torus; loc: Pnt) {.importcpp: "SetLocation",
     header: "gp_Torus.hxx".}
-proc SetLocation*(this: var gp_Torus; Loc: gp_Pnt) {.importcpp: "SetLocation",
-    header: "gp_Torus.hxx".}
-proc SetMajorRadius*(this: var gp_Torus; MajorRadius: Standard_Real) {.
+proc setMajorRadius*(this: var Torus; majorRadius: float) {.
     importcpp: "SetMajorRadius", header: "gp_Torus.hxx".}
-proc SetMinorRadius*(this: var gp_Torus; MinorRadius: Standard_Real) {.
+proc setMinorRadius*(this: var Torus; minorRadius: float) {.
     importcpp: "SetMinorRadius", header: "gp_Torus.hxx".}
-proc SetPosition*(this: var gp_Torus; A3: gp_Ax3) {.importcpp: "SetPosition",
-    header: "gp_Torus.hxx".}
-proc Area*(this: gp_Torus): Standard_Real {.noSideEffect, importcpp: "Area",
+proc setPosition*(this: var Torus; a3: Ax3) {.importcpp: "SetPosition",
                                         header: "gp_Torus.hxx".}
-proc UReverse*(this: var gp_Torus) {.importcpp: "UReverse", header: "gp_Torus.hxx".}
-proc VReverse*(this: var gp_Torus) {.importcpp: "VReverse", header: "gp_Torus.hxx".}
-proc Direct*(this: gp_Torus): Standard_Boolean {.noSideEffect, importcpp: "Direct",
-    header: "gp_Torus.hxx".}
-proc Axis*(this: gp_Torus): gp_Ax1 {.noSideEffect, importcpp: "Axis",
-                                 header: "gp_Torus.hxx".}
-proc Coefficients*(this: gp_Torus; Coef: var TColStd_Array1OfReal) {.noSideEffect,
+proc area*(this: Torus): float {.noSideEffect, importcpp: "Area",
+                             header: "gp_Torus.hxx".}
+proc uReverse*(this: var Torus) {.importcpp: "UReverse", header: "gp_Torus.hxx".}
+proc vReverse*(this: var Torus) {.importcpp: "VReverse", header: "gp_Torus.hxx".}
+proc direct*(this: Torus): bool {.noSideEffect, importcpp: "Direct",
+                              header: "gp_Torus.hxx".}
+proc axis*(this: Torus): Ax1 {.noSideEffect, importcpp: "Axis", header: "gp_Torus.hxx".}
+proc coefficients*(this: Torus; coef: var TColStdArray1OfReal) {.noSideEffect,
     importcpp: "Coefficients", header: "gp_Torus.hxx".}
-proc Location*(this: gp_Torus): gp_Pnt {.noSideEffect, importcpp: "Location",
-                                     header: "gp_Torus.hxx".}
-proc Position*(this: gp_Torus): gp_Ax3 {.noSideEffect, importcpp: "Position",
-                                     header: "gp_Torus.hxx".}
-proc MajorRadius*(this: gp_Torus): Standard_Real {.noSideEffect,
-    importcpp: "MajorRadius", header: "gp_Torus.hxx".}
-proc MinorRadius*(this: gp_Torus): Standard_Real {.noSideEffect,
-    importcpp: "MinorRadius", header: "gp_Torus.hxx".}
-proc Volume*(this: gp_Torus): Standard_Real {.noSideEffect, importcpp: "Volume",
-    header: "gp_Torus.hxx".}
-proc XAxis*(this: gp_Torus): gp_Ax1 {.noSideEffect, importcpp: "XAxis",
-                                  header: "gp_Torus.hxx".}
-proc YAxis*(this: gp_Torus): gp_Ax1 {.noSideEffect, importcpp: "YAxis",
-                                  header: "gp_Torus.hxx".}
-proc Mirror*(this: var gp_Torus; P: gp_Pnt) {.importcpp: "Mirror",
+proc location*(this: Torus): Pnt {.noSideEffect, importcpp: "Location",
+                               header: "gp_Torus.hxx".}
+proc position*(this: Torus): Ax3 {.noSideEffect, importcpp: "Position",
+                               header: "gp_Torus.hxx".}
+proc majorRadius*(this: Torus): float {.noSideEffect, importcpp: "MajorRadius",
+                                    header: "gp_Torus.hxx".}
+proc minorRadius*(this: Torus): float {.noSideEffect, importcpp: "MinorRadius",
+                                    header: "gp_Torus.hxx".}
+proc volume*(this: Torus): float {.noSideEffect, importcpp: "Volume",
+                               header: "gp_Torus.hxx".}
+proc xAxis*(this: Torus): Ax1 {.noSideEffect, importcpp: "XAxis",
+                            header: "gp_Torus.hxx".}
+proc yAxis*(this: Torus): Ax1 {.noSideEffect, importcpp: "YAxis",
+                            header: "gp_Torus.hxx".}
+proc mirror*(this: var Torus; p: Pnt) {.importcpp: "Mirror", header: "gp_Torus.hxx".}
+proc mirrored*(this: Torus; p: Pnt): Torus {.noSideEffect, importcpp: "Mirrored",
+                                       header: "gp_Torus.hxx".}
+proc mirror*(this: var Torus; a1: Ax1) {.importcpp: "Mirror", header: "gp_Torus.hxx".}
+proc mirrored*(this: Torus; a1: Ax1): Torus {.noSideEffect, importcpp: "Mirrored",
                                         header: "gp_Torus.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Pnt & P ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Mirror*(this: var gp_Torus; A1: gp_Ax1) {.importcpp: "Mirror",
+proc mirror*(this: var Torus; a2: Ax2) {.importcpp: "Mirror", header: "gp_Torus.hxx".}
+proc mirrored*(this: Torus; a2: Ax2): Torus {.noSideEffect, importcpp: "Mirrored",
+                                        header: "gp_Torus.hxx".}
+proc rotate*(this: var Torus; a1: Ax1; ang: float) {.importcpp: "Rotate",
     header: "gp_Torus.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Ax1 & A1 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Mirror*(this: var gp_Torus; A2: gp_Ax2) {.importcpp: "Mirror",
+proc rotated*(this: Torus; a1: Ax1; ang: float): Torus {.noSideEffect,
+    importcpp: "Rotated", header: "gp_Torus.hxx".}
+proc scale*(this: var Torus; p: Pnt; s: float) {.importcpp: "Scale",
     header: "gp_Torus.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Ax2 & A2 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Rotate*(this: var gp_Torus; A1: gp_Ax1; Ang: Standard_Real) {.importcpp: "Rotate",
+proc scaled*(this: Torus; p: Pnt; s: float): Torus {.noSideEffect, importcpp: "Scaled",
     header: "gp_Torus.hxx".}
-## !!!Ignored construct:  Rotated ( const gp_Ax1 & A1 , const Standard_Real Ang ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Scale*(this: var gp_Torus; P: gp_Pnt; S: Standard_Real) {.importcpp: "Scale",
+proc transform*(this: var Torus; t: Trsf) {.importcpp: "Transform",
+                                      header: "gp_Torus.hxx".}
+proc transformed*(this: Torus; t: Trsf): Torus {.noSideEffect,
+    importcpp: "Transformed", header: "gp_Torus.hxx".}
+proc translate*(this: var Torus; v: Vec) {.importcpp: "Translate",
+                                     header: "gp_Torus.hxx".}
+proc translated*(this: Torus; v: Vec): Torus {.noSideEffect, importcpp: "Translated",
     header: "gp_Torus.hxx".}
-## !!!Ignored construct:  Scaled ( const gp_Pnt & P , const Standard_Real S ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Transform*(this: var gp_Torus; T: gp_Trsf) {.importcpp: "Transform",
+proc translate*(this: var Torus; p1: Pnt; p2: Pnt) {.importcpp: "Translate",
     header: "gp_Torus.hxx".}
-## !!!Ignored construct:  Transformed ( const gp_Trsf & T ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Translate*(this: var gp_Torus; V: gp_Vec) {.importcpp: "Translate",
-    header: "gp_Torus.hxx".}
-## !!!Ignored construct:  Translated ( const gp_Vec & V ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Translate*(this: var gp_Torus; P1: gp_Pnt; P2: gp_Pnt) {.importcpp: "Translate",
-    header: "gp_Torus.hxx".}
-## !!!Ignored construct:  Translated ( const gp_Pnt & P1 , const gp_Pnt & P2 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
+proc translated*(this: Torus; p1: Pnt; p2: Pnt): Torus {.noSideEffect,
+    importcpp: "Translated", header: "gp_Torus.hxx".}

@@ -14,78 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Prs3d/Prs3d_Root, ../Prs3d/Prs3d_Drawer
-
 discard "forward decl of Adaptor3d_Curve"
 type
-  StdPrs_PoleCurve* {.importcpp: "StdPrs_PoleCurve",
-                     header: "StdPrs_PoleCurve.hxx", bycopy.} = object of Prs3d_Root ## !
-                                                                              ## Defines
-                                                                              ## display of
-                                                                              ## BSpline
-                                                                              ## and
-                                                                              ## Bezier
-                                                                              ## curves.
-                                                                              ## !
-                                                                              ## Adds
-                                                                              ## the 3D
-                                                                              ## curve
-                                                                              ## aCurve to
-                                                                              ## the
-                                                                              ## !
-                                                                              ## StdPrs_PoleCurve
-                                                                              ## algorithm.
-                                                                              ## This
-                                                                              ## shape is
-                                                                              ## found in
-                                                                              ## !
-                                                                              ## the
-                                                                              ## presentation
-                                                                              ## object
-                                                                              ## aPresentation,
-                                                                              ## and
-                                                                              ## its
-                                                                              ## display
-                                                                              ## !
-                                                                              ## attributes
-                                                                              ## are
-                                                                              ## set in
-                                                                              ## the
-                                                                              ## attribute
-                                                                              ## manager
-                                                                              ## aDrawer.
-                                                                              ## !
-                                                                              ## The
-                                                                              ## curve
-                                                                              ## object
-                                                                              ## from
-                                                                              ## Adaptor3d
-                                                                              ## provides
-                                                                              ## data
-                                                                              ## from
-                                                                              ## ! a
-                                                                              ## Geom
-                                                                              ## curve.
-                                                                              ## This
-                                                                              ## makes it
-                                                                              ## possible to
-                                                                              ## use
-                                                                              ## the
-                                                                              ## !
-                                                                              ## surface in a
-                                                                              ## geometric
-                                                                              ## algorithm.
+  StdPrsPoleCurve* {.importcpp: "StdPrs_PoleCurve", header: "StdPrs_PoleCurve.hxx",
+                    bycopy.} = object of Prs3dRoot ## ! Defines display of BSpline and Bezier curves.
+                                              ## ! Adds the 3D curve aCurve to the
+                                              ## ! StdPrs_PoleCurve algorithm. This shape is found in
+                                              ## ! the presentation object aPresentation, and its display
+                                              ## ! attributes are set in the attribute manager aDrawer.
+                                              ## ! The curve object from Adaptor3d provides data from
+                                              ## ! a Geom curve. This makes it possible to use the
+                                              ## ! surface in a geometric algorithm.
 
 
-proc Add*(aPresentation: handle[Prs3d_Presentation]; aCurve: Adaptor3d_Curve;
-         aDrawer: handle[Prs3d_Drawer]) {.importcpp: "StdPrs_PoleCurve::Add(@)",
-                                        header: "StdPrs_PoleCurve.hxx".}
-proc Match*(X: Standard_Real; Y: Standard_Real; Z: Standard_Real;
-           aDistance: Standard_Real; aCurve: Adaptor3d_Curve;
-           aDrawer: handle[Prs3d_Drawer]): Standard_Boolean {.
+proc add*(aPresentation: Handle[Prs3dPresentation]; aCurve: Adaptor3dCurve;
+         aDrawer: Handle[Prs3dDrawer]) {.importcpp: "StdPrs_PoleCurve::Add(@)",
+                                       header: "StdPrs_PoleCurve.hxx".}
+proc match*(x: float; y: float; z: float; aDistance: float; aCurve: Adaptor3dCurve;
+           aDrawer: Handle[Prs3dDrawer]): bool {.
     importcpp: "StdPrs_PoleCurve::Match(@)", header: "StdPrs_PoleCurve.hxx".}
-proc Pick*(X: Standard_Real; Y: Standard_Real; Z: Standard_Real;
-          aDistance: Standard_Real; aCurve: Adaptor3d_Curve;
-          aDrawer: handle[Prs3d_Drawer]): Standard_Integer {.
+proc pick*(x: float; y: float; z: float; aDistance: float; aCurve: Adaptor3dCurve;
+          aDrawer: Handle[Prs3dDrawer]): int {.
     importcpp: "StdPrs_PoleCurve::Pick(@)", header: "StdPrs_PoleCurve.hxx".}

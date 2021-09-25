@@ -11,28 +11,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_IndexedDataMap, Graphic3d_CLight
-
 ## ! Class defining the set of light sources.
 
 type
-  Graphic3d_LightSet* {.importcpp: "Graphic3d_LightSet",
-                       header: "Graphic3d_LightSet.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                          ## !
-                                                                                          ## Iteration
-                                                                                          ## filter
-                                                                                          ## flags.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Empty
-                                                                                          ## constructor.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Update
-                                                                                          ## light
-                                                                                          ## sources
-                                                                                          ## revision.
+  Graphic3dLightSet* {.importcpp: "Graphic3d_LightSet",
+                      header: "Graphic3d_LightSet.hxx", bycopy.} = object of StandardTransient ##
+                                                                                        ## !
+                                                                                        ## Iteration
+                                                                                        ## filter
+                                                                                        ## flags.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Empty
+                                                                                        ## constructor.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Update
+                                                                                        ## light
+                                                                                        ## sources
+                                                                                        ## revision.
     ## !< list of light sources with their cached state (revision)
     ## !< cached value of cumulative ambient color
     ## !< key identifying the list of enabled light sources by their type
@@ -43,90 +40,89 @@ type
     ## !< current revision of light source set
     ## !< revision of cached state
 
-  Graphic3d_LightSetbase_type* = Standard_Transient
+  Graphic3dLightSetbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_LightSet::get_type_name(@)",
-                              header: "Graphic3d_LightSet.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_LightSet::get_type_name(@)",
+                            header: "Graphic3d_LightSet.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_LightSet::get_type_descriptor(@)",
     header: "Graphic3d_LightSet.hxx".}
-proc DynamicType*(this: Graphic3d_LightSet): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: Graphic3dLightSet): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Graphic3d_LightSet.hxx".}
 type
-  Graphic3d_LightSetIterationFilter* {.size: sizeof(cint), importcpp: "Graphic3d_LightSet::IterationFilter",
-                                      header: "Graphic3d_LightSet.hxx".} = enum
-    IterationFilter_None = 0x0000, ## !< no filter
-    IterationFilter_ExcludeAmbient = 0x0002, ## !< exclude ambient  light sources
-    IterationFilter_ExcludeDisabled = 0x0004, ## !< exclude disabled light sources
-    IterationFilter_ExcludeDisabledAndAmbient = IterationFilter_ExcludeAmbient or
-        IterationFilter_ExcludeDisabled
+  Graphic3dLightSetIterationFilter* {.size: sizeof(cint), importcpp: "Graphic3d_LightSet::IterationFilter",
+                                     header: "Graphic3d_LightSet.hxx".} = enum
+    IterationFilterNone = 0x0000, ## !< no filter
+    IterationFilterExcludeAmbient = 0x0002, ## !< exclude ambient  light sources
+    IterationFilterExcludeDisabled = 0x0004, ## !< exclude disabled light sources
+    IterationFilterExcludeDisabledAndAmbient = iterationFilterExcludeAmbient or
+        iterationFilterExcludeDisabled
 
 
 type
-  Graphic3d_LightSetIterator* {.importcpp: "Graphic3d_LightSet::Iterator",
-                               header: "Graphic3d_LightSet.hxx", bycopy.} = object ## !
-                                                                              ## Empty
-                                                                              ## constructor.
-                                                                              ## !
-                                                                              ## Skip
-                                                                              ## filtered
-                                                                              ## items.
+  Graphic3dLightSetIterator* {.importcpp: "Graphic3d_LightSet::Iterator",
+                              header: "Graphic3d_LightSet.hxx", bycopy.} = object ## !
+                                                                             ## Empty
+                                                                             ## constructor.
+                                                                             ## !
+                                                                             ## Skip
+                                                                             ## filtered
+                                                                             ## items.
 
 
-proc constructGraphic3d_LightSetIterator*(): Graphic3d_LightSetIterator {.
+proc constructGraphic3dLightSetIterator*(): Graphic3dLightSetIterator {.
     constructor, importcpp: "Graphic3d_LightSet::Iterator(@)",
     header: "Graphic3d_LightSet.hxx".}
-proc constructGraphic3d_LightSetIterator*(theSet: Graphic3d_LightSet;
-    theFilter: Graphic3d_LightSetIterationFilter = IterationFilter_None): Graphic3d_LightSetIterator {.
+proc constructGraphic3dLightSetIterator*(theSet: Graphic3dLightSet; theFilter: Graphic3dLightSetIterationFilter = iterationFilterNone): Graphic3dLightSetIterator {.
     constructor, importcpp: "Graphic3d_LightSet::Iterator(@)",
     header: "Graphic3d_LightSet.hxx".}
-proc constructGraphic3d_LightSetIterator*(theSet: handle[Graphic3d_LightSet];
-    theFilter: Graphic3d_LightSetIterationFilter = IterationFilter_None): Graphic3d_LightSetIterator {.
+proc constructGraphic3dLightSetIterator*(theSet: Handle[Graphic3dLightSet];
+    theFilter: Graphic3dLightSetIterationFilter = iterationFilterNone): Graphic3dLightSetIterator {.
     constructor, importcpp: "Graphic3d_LightSet::Iterator(@)",
     header: "Graphic3d_LightSet.hxx".}
-proc More*(this: Graphic3d_LightSetIterator): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "Graphic3d_LightSet.hxx".}
-proc Value*(this: Graphic3d_LightSetIterator): handle[Graphic3d_CLight] {.
+proc more*(this: Graphic3dLightSetIterator): bool {.noSideEffect, importcpp: "More",
+    header: "Graphic3d_LightSet.hxx".}
+proc value*(this: Graphic3dLightSetIterator): Handle[Graphic3dCLight] {.
     noSideEffect, importcpp: "Value", header: "Graphic3d_LightSet.hxx".}
-proc Next*(this: var Graphic3d_LightSetIterator) {.importcpp: "Next",
+proc next*(this: var Graphic3dLightSetIterator) {.importcpp: "Next",
     header: "Graphic3d_LightSet.hxx".}
-proc constructGraphic3d_LightSet*(): Graphic3d_LightSet {.constructor,
+proc constructGraphic3dLightSet*(): Graphic3dLightSet {.constructor,
     importcpp: "Graphic3d_LightSet(@)", header: "Graphic3d_LightSet.hxx".}
-proc Lower*(this: Graphic3d_LightSet): Standard_Integer {.noSideEffect,
-    importcpp: "Lower", header: "Graphic3d_LightSet.hxx".}
-proc Upper*(this: Graphic3d_LightSet): Standard_Integer {.noSideEffect,
-    importcpp: "Upper", header: "Graphic3d_LightSet.hxx".}
-proc IsEmpty*(this: Graphic3d_LightSet): Standard_Boolean {.noSideEffect,
-    importcpp: "IsEmpty", header: "Graphic3d_LightSet.hxx".}
-proc Extent*(this: Graphic3d_LightSet): Standard_Integer {.noSideEffect,
-    importcpp: "Extent", header: "Graphic3d_LightSet.hxx".}
-proc Value*(this: Graphic3d_LightSet; theIndex: Standard_Integer): handle[
-    Graphic3d_CLight] {.noSideEffect, importcpp: "Value",
-                       header: "Graphic3d_LightSet.hxx".}
-proc Contains*(this: Graphic3d_LightSet; theLight: handle[Graphic3d_CLight]): Standard_Boolean {.
+proc lower*(this: Graphic3dLightSet): int {.noSideEffect, importcpp: "Lower",
+                                        header: "Graphic3d_LightSet.hxx".}
+proc upper*(this: Graphic3dLightSet): int {.noSideEffect, importcpp: "Upper",
+                                        header: "Graphic3d_LightSet.hxx".}
+proc isEmpty*(this: Graphic3dLightSet): bool {.noSideEffect, importcpp: "IsEmpty",
+    header: "Graphic3d_LightSet.hxx".}
+proc extent*(this: Graphic3dLightSet): int {.noSideEffect, importcpp: "Extent",
+    header: "Graphic3d_LightSet.hxx".}
+proc value*(this: Graphic3dLightSet; theIndex: int): Handle[Graphic3dCLight] {.
+    noSideEffect, importcpp: "Value", header: "Graphic3d_LightSet.hxx".}
+proc contains*(this: Graphic3dLightSet; theLight: Handle[Graphic3dCLight]): bool {.
     noSideEffect, importcpp: "Contains", header: "Graphic3d_LightSet.hxx".}
-proc Add*(this: var Graphic3d_LightSet; theLight: handle[Graphic3d_CLight]): Standard_Boolean {.
+proc add*(this: var Graphic3dLightSet; theLight: Handle[Graphic3dCLight]): bool {.
     importcpp: "Add", header: "Graphic3d_LightSet.hxx".}
-proc Remove*(this: var Graphic3d_LightSet; theLight: handle[Graphic3d_CLight]): Standard_Boolean {.
+proc remove*(this: var Graphic3dLightSet; theLight: Handle[Graphic3dCLight]): bool {.
     importcpp: "Remove", header: "Graphic3d_LightSet.hxx".}
-proc NbLightsOfType*(this: Graphic3d_LightSet; theType: Graphic3d_TypeOfLightSource): Standard_Integer {.
+proc nbLightsOfType*(this: Graphic3dLightSet; theType: Graphic3dTypeOfLightSource): int {.
     noSideEffect, importcpp: "NbLightsOfType", header: "Graphic3d_LightSet.hxx".}
-proc UpdateRevision*(this: var Graphic3d_LightSet): Standard_Size {.
+proc updateRevision*(this: var Graphic3dLightSet): StandardSize {.
     importcpp: "UpdateRevision", header: "Graphic3d_LightSet.hxx".}
-proc Revision*(this: Graphic3d_LightSet): Standard_Size {.noSideEffect,
+proc revision*(this: Graphic3dLightSet): StandardSize {.noSideEffect,
     importcpp: "Revision", header: "Graphic3d_LightSet.hxx".}
-proc NbEnabled*(this: Graphic3d_LightSet): Standard_Integer {.noSideEffect,
-    importcpp: "NbEnabled", header: "Graphic3d_LightSet.hxx".}
-proc NbEnabledLightsOfType*(this: Graphic3d_LightSet;
-                           theType: Graphic3d_TypeOfLightSource): Standard_Integer {.
+proc nbEnabled*(this: Graphic3dLightSet): int {.noSideEffect, importcpp: "NbEnabled",
+    header: "Graphic3d_LightSet.hxx".}
+proc nbEnabledLightsOfType*(this: Graphic3dLightSet;
+                           theType: Graphic3dTypeOfLightSource): int {.
     noSideEffect, importcpp: "NbEnabledLightsOfType",
     header: "Graphic3d_LightSet.hxx".}
-proc AmbientColor*(this: Graphic3d_LightSet): Graphic3d_Vec4 {.noSideEffect,
+proc ambientColor*(this: Graphic3dLightSet): Graphic3dVec4 {.noSideEffect,
     importcpp: "AmbientColor", header: "Graphic3d_LightSet.hxx".}
-proc KeyEnabledLong*(this: Graphic3d_LightSet): TCollection_AsciiString {.
+proc keyEnabledLong*(this: Graphic3dLightSet): TCollectionAsciiString {.
     noSideEffect, importcpp: "KeyEnabledLong", header: "Graphic3d_LightSet.hxx".}
-proc KeyEnabledShort*(this: Graphic3d_LightSet): TCollection_AsciiString {.
+proc keyEnabledShort*(this: Graphic3dLightSet): TCollectionAsciiString {.
     noSideEffect, importcpp: "KeyEnabledShort", header: "Graphic3d_LightSet.hxx".}
 discard "forward decl of Graphic3d_LightSet"
 type
-  Handle_Graphic3d_LightSet* = handle[Graphic3d_LightSet]
+  HandleGraphic3dLightSet* = Handle[Graphic3dLightSet]
+

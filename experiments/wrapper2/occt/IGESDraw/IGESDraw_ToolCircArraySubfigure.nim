@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESDraw_CircArraySubfigure"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,40 +26,40 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESDraw_ToolCircArraySubfigure* {.importcpp: "IGESDraw_ToolCircArraySubfigure", header: "IGESDraw_ToolCircArraySubfigure.hxx",
-                                    bycopy.} = object ## ! Returns a ToolCircArraySubfigure, ready to work
+  IGESDrawToolCircArraySubfigure* {.importcpp: "IGESDraw_ToolCircArraySubfigure", header: "IGESDraw_ToolCircArraySubfigure.hxx",
+                                   bycopy.} = object ## ! Returns a ToolCircArraySubfigure, ready to work
 
 
-proc constructIGESDraw_ToolCircArraySubfigure*(): IGESDraw_ToolCircArraySubfigure {.
+proc constructIGESDrawToolCircArraySubfigure*(): IGESDrawToolCircArraySubfigure {.
     constructor, importcpp: "IGESDraw_ToolCircArraySubfigure(@)",
     header: "IGESDraw_ToolCircArraySubfigure.hxx".}
-proc ReadOwnParams*(this: IGESDraw_ToolCircArraySubfigure;
-                   ent: handle[IGESDraw_CircArraySubfigure];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESDraw_ToolCircArraySubfigure.hxx".}
-proc WriteOwnParams*(this: IGESDraw_ToolCircArraySubfigure;
-                    ent: handle[IGESDraw_CircArraySubfigure];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESDrawToolCircArraySubfigure;
+                   ent: Handle[IGESDrawCircArraySubfigure];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESDraw_ToolCircArraySubfigure.hxx".}
+proc writeOwnParams*(this: IGESDrawToolCircArraySubfigure;
+                    ent: Handle[IGESDrawCircArraySubfigure];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESDraw_ToolCircArraySubfigure.hxx".}
-proc OwnShared*(this: IGESDraw_ToolCircArraySubfigure;
-               ent: handle[IGESDraw_CircArraySubfigure];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESDrawToolCircArraySubfigure;
+               ent: Handle[IGESDrawCircArraySubfigure];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESDraw_ToolCircArraySubfigure.hxx".}
-proc DirChecker*(this: IGESDraw_ToolCircArraySubfigure;
-                ent: handle[IGESDraw_CircArraySubfigure]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESDrawToolCircArraySubfigure;
+                ent: Handle[IGESDrawCircArraySubfigure]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESDraw_ToolCircArraySubfigure.hxx".}
-proc OwnCheck*(this: IGESDraw_ToolCircArraySubfigure;
-              ent: handle[IGESDraw_CircArraySubfigure];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
-    noSideEffect, importcpp: "OwnCheck",
+proc ownCheck*(this: IGESDrawToolCircArraySubfigure;
+              ent: Handle[IGESDrawCircArraySubfigure]; shares: InterfaceShareTool;
+              ach: var Handle[InterfaceCheck]) {.noSideEffect,
+    importcpp: "OwnCheck", header: "IGESDraw_ToolCircArraySubfigure.hxx".}
+proc ownCopy*(this: IGESDrawToolCircArraySubfigure;
+             entfrom: Handle[IGESDrawCircArraySubfigure];
+             entto: Handle[IGESDrawCircArraySubfigure]; tc: var InterfaceCopyTool) {.
+    noSideEffect, importcpp: "OwnCopy",
     header: "IGESDraw_ToolCircArraySubfigure.hxx".}
-proc OwnCopy*(this: IGESDraw_ToolCircArraySubfigure;
-             entfrom: handle[IGESDraw_CircArraySubfigure];
-             entto: handle[IGESDraw_CircArraySubfigure];
-             TC: var Interface_CopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESDraw_ToolCircArraySubfigure.hxx".}
-proc OwnDump*(this: IGESDraw_ToolCircArraySubfigure;
-             ent: handle[IGESDraw_CircArraySubfigure];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump", header: "IGESDraw_ToolCircArraySubfigure.hxx".}
+proc ownDump*(this: IGESDrawToolCircArraySubfigure;
+             ent: Handle[IGESDrawCircArraySubfigure]; dumper: IGESDataIGESDumper;
+             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+    header: "IGESDraw_ToolCircArraySubfigure.hxx".}

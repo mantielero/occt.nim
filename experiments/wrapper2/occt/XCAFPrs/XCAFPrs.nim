@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, XCAFPrs_IndexedDataMapOfShapeStyle,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TDF_Label"
 discard "forward decl of TopLoc_Location"
 discard "forward decl of XCAFPrs_Driver"
@@ -31,11 +26,11 @@ type
                                                                     ## ! should be Null location for external call
 
 
-proc CollectStyleSettings*(L: TDF_Label; loc: TopLoc_Location;
-                          settings: var XCAFPrs_IndexedDataMapOfShapeStyle;
-    theLayerColor: Quantity_ColorRGBA = Quantity_ColorRGBA(Quantity_NOC_WHITE)) {.
+proc collectStyleSettings*(L: TDF_Label; loc: TopLocLocation;
+                          settings: var XCAFPrsIndexedDataMapOfShapeStyle;
+    theLayerColor: QuantityColorRGBA = quantityColorRGBA(quantityNOC_WHITE)) {.
     importcpp: "XCAFPrs::CollectStyleSettings(@)", header: "XCAFPrs.hxx".}
-proc SetViewNameMode*(viewNameMode: Standard_Boolean) {.
+proc setViewNameMode*(viewNameMode: bool) {.
     importcpp: "XCAFPrs::SetViewNameMode(@)", header: "XCAFPrs.hxx".}
-proc GetViewNameMode*(): Standard_Boolean {.
-    importcpp: "XCAFPrs::GetViewNameMode(@)", header: "XCAFPrs.hxx".}
+proc getViewNameMode*(): bool {.importcpp: "XCAFPrs::GetViewNameMode(@)",
+                             header: "XCAFPrs.hxx".}

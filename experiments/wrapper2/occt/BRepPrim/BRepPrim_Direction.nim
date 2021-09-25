@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  BRepPrim_Direction* {.size: sizeof(cint), importcpp: "BRepPrim_Direction",
-                       header: "BRepPrim_Direction.hxx".} = enum
-    BRepPrim_XMin, BRepPrim_XMax, BRepPrim_YMin, BRepPrim_YMax, BRepPrim_ZMin,
-    BRepPrim_ZMax
+  BRepPrimDirection* {.size: sizeof(cint), importcpp: "BRepPrim_Direction",
+                      header: "BRepPrim_Direction.hxx".} = enum
+    BRepPrimXMin, BRepPrimXMax, BRepPrimYMin, BRepPrimYMax, BRepPrimZMin,
+    BRepPrimZMax
+
 

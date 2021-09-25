@@ -13,46 +13,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TFunction/TFunction_Driver,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of TFunction_Logbook"
 discard "forward decl of DNaming_PointDriver"
 discard "forward decl of DNaming_PointDriver"
 type
-  Handle_DNaming_PointDriver* = handle[DNaming_PointDriver]
+  HandleDNamingPointDriver* = Handle[DNamingPointDriver]
 
 ## ! Driver for PointXYZ  and  RelativePoint
 
 type
-  DNaming_PointDriver* {.importcpp: "DNaming_PointDriver",
-                        header: "DNaming_PointDriver.hxx", bycopy.} = object of TFunction_Driver ##
-                                                                                          ## !
-                                                                                          ## Constructor
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## validation
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## ==========
+  DNamingPointDriver* {.importcpp: "DNaming_PointDriver",
+                       header: "DNaming_PointDriver.hxx", bycopy.} = object of TFunctionDriver ##
+                                                                                        ## !
+                                                                                        ## Constructor
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## validation
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## ==========
 
 
-proc constructDNaming_PointDriver*(): DNaming_PointDriver {.constructor,
+proc constructDNamingPointDriver*(): DNamingPointDriver {.constructor,
     importcpp: "DNaming_PointDriver(@)", header: "DNaming_PointDriver.hxx".}
-proc Validate*(this: DNaming_PointDriver; theLog: var handle[TFunction_Logbook]) {.
+proc validate*(this: DNamingPointDriver; theLog: var Handle[TFunctionLogbook]) {.
     noSideEffect, importcpp: "Validate", header: "DNaming_PointDriver.hxx".}
-proc MustExecute*(this: DNaming_PointDriver; theLog: handle[TFunction_Logbook]): Standard_Boolean {.
+proc mustExecute*(this: DNamingPointDriver; theLog: Handle[TFunctionLogbook]): bool {.
     noSideEffect, importcpp: "MustExecute", header: "DNaming_PointDriver.hxx".}
-proc Execute*(this: DNaming_PointDriver; theLog: var handle[TFunction_Logbook]): Standard_Integer {.
+proc execute*(this: DNamingPointDriver; theLog: var Handle[TFunctionLogbook]): int {.
     noSideEffect, importcpp: "Execute", header: "DNaming_PointDriver.hxx".}
 type
-  DNaming_PointDriverbase_type* = TFunction_Driver
+  DNamingPointDriverbaseType* = TFunctionDriver
 
-proc get_type_name*(): cstring {.importcpp: "DNaming_PointDriver::get_type_name(@)",
-                              header: "DNaming_PointDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "DNaming_PointDriver::get_type_name(@)",
+                            header: "DNaming_PointDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "DNaming_PointDriver::get_type_descriptor(@)",
     header: "DNaming_PointDriver.hxx".}
-proc DynamicType*(this: DNaming_PointDriver): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: DNamingPointDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DNaming_PointDriver.hxx".}

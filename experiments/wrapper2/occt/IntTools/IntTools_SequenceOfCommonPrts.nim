@@ -13,8 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IntTools_CommonPrt, ../NCollection/NCollection_Sequence
-
 type
-  IntTools_SequenceOfCommonPrts* = NCollection_Sequence[IntTools_CommonPrt]
+  IntToolsSequenceOfCommonPrts* = NCollectionSequence[IntToolsCommonPrt]
+

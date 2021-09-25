@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopTools/TopTools_DataMapOfShapeShape,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer,
-  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Boolean,
-  ../Message/Message_ProgressRange
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepTools_Modification"
 discard "forward decl of BRepTools_Modifier"
@@ -53,27 +46,25 @@ type
                                                                                 ## assemblies.
 
 
-proc ApplyModifier*(S: TopoDS_Shape; M: handle[BRepTools_Modification];
-                   context: var TopTools_DataMapOfShapeShape;
-                   MD: var BRepTools_Modifier; theProgress: Message_ProgressRange = Message_ProgressRange();
-                   aReShape: handle[ShapeBuild_ReShape] = nil): TopoDS_Shape {.
+proc applyModifier*(s: TopoDS_Shape; m: Handle[BRepToolsModification];
+                   context: var TopToolsDataMapOfShapeShape;
+                   md: var BRepToolsModifier;
+                   theProgress: MessageProgressRange = messageProgressRange();
+                   aReShape: Handle[ShapeBuildReShape] = nil): TopoDS_Shape {.
     importcpp: "ShapeCustom::ApplyModifier(@)", header: "ShapeCustom.hxx".}
-proc DirectFaces*(S: TopoDS_Shape): TopoDS_Shape {.
+proc directFaces*(s: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "ShapeCustom::DirectFaces(@)", header: "ShapeCustom.hxx".}
-proc ScaleShape*(S: TopoDS_Shape; scale: Standard_Real): TopoDS_Shape {.
+proc scaleShape*(s: TopoDS_Shape; scale: float): TopoDS_Shape {.
     importcpp: "ShapeCustom::ScaleShape(@)", header: "ShapeCustom.hxx".}
-proc BSplineRestriction*(S: TopoDS_Shape; Tol3d: Standard_Real; Tol2d: Standard_Real;
-                        MaxDegree: Standard_Integer;
-                        MaxNbSegment: Standard_Integer;
-                        Continuity3d: GeomAbs_Shape; Continuity2d: GeomAbs_Shape;
-                        Degree: Standard_Boolean; Rational: Standard_Boolean;
-                        aParameters: handle[ShapeCustom_RestrictionParameters]): TopoDS_Shape {.
+proc bSplineRestriction*(s: TopoDS_Shape; tol3d: float; tol2d: float; maxDegree: int;
+                        maxNbSegment: int; continuity3d: GeomAbsShape;
+                        continuity2d: GeomAbsShape; degree: bool; rational: bool;
+                        aParameters: Handle[ShapeCustomRestrictionParameters]): TopoDS_Shape {.
     importcpp: "ShapeCustom::BSplineRestriction(@)", header: "ShapeCustom.hxx".}
-proc ConvertToRevolution*(S: TopoDS_Shape): TopoDS_Shape {.
+proc convertToRevolution*(s: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "ShapeCustom::ConvertToRevolution(@)", header: "ShapeCustom.hxx".}
-proc SweptToElementary*(S: TopoDS_Shape): TopoDS_Shape {.
+proc sweptToElementary*(s: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "ShapeCustom::SweptToElementary(@)", header: "ShapeCustom.hxx".}
-proc ConvertToBSpline*(S: TopoDS_Shape; extrMode: Standard_Boolean;
-                      revolMode: Standard_Boolean; offsetMode: Standard_Boolean;
-                      planeMode: Standard_Boolean = Standard_False): TopoDS_Shape {.
+proc convertToBSpline*(s: TopoDS_Shape; extrMode: bool; revolMode: bool;
+                      offsetMode: bool; planeMode: bool = false): TopoDS_Shape {.
     importcpp: "ShapeCustom::ConvertToBSpline(@)", header: "ShapeCustom.hxx".}

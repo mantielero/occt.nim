@@ -11,31 +11,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_TextureSet
-
 ## ! Class for iterating pair of texture sets through each defined texture slot.
 ## ! Note that iterator considers texture slots being in ascending order within OpenGl_TextureSet.
 
 type
-  OpenGl_TextureSetPairIterator* {.importcpp: "OpenGl_TextureSetPairIterator",
-                                  header: "OpenGl_TextureSetPairIterator.hxx",
-                                  bycopy.} = object ## ! Constructor.
+  OpenGlTextureSetPairIterator* {.importcpp: "OpenGl_TextureSetPairIterator",
+                                 header: "OpenGl_TextureSetPairIterator.hxx",
+                                 bycopy.} = object ## ! Constructor.
 
 
-proc constructOpenGl_TextureSetPairIterator*(theSet1: handle[OpenGl_TextureSet];
-    theSet2: handle[OpenGl_TextureSet]): OpenGl_TextureSetPairIterator {.
-    constructor, importcpp: "OpenGl_TextureSetPairIterator(@)",
+proc constructOpenGlTextureSetPairIterator*(theSet1: Handle[OpenGlTextureSet];
+    theSet2: Handle[OpenGlTextureSet]): OpenGlTextureSetPairIterator {.constructor,
+    importcpp: "OpenGl_TextureSetPairIterator(@)",
     header: "OpenGl_TextureSetPairIterator.hxx".}
-proc More*(this: OpenGl_TextureSetPairIterator): bool {.noSideEffect,
+proc more*(this: OpenGlTextureSetPairIterator): bool {.noSideEffect,
     importcpp: "More", header: "OpenGl_TextureSetPairIterator.hxx".}
-proc Unit*(this: OpenGl_TextureSetPairIterator): Graphic3d_TextureUnit {.
-    noSideEffect, importcpp: "Unit", header: "OpenGl_TextureSetPairIterator.hxx".}
-proc Texture1*(this: OpenGl_TextureSetPairIterator): ptr OpenGl_Texture {.
-    noSideEffect, importcpp: "Texture1",
-    header: "OpenGl_TextureSetPairIterator.hxx".}
-proc Texture2*(this: OpenGl_TextureSetPairIterator): ptr OpenGl_Texture {.
-    noSideEffect, importcpp: "Texture2",
-    header: "OpenGl_TextureSetPairIterator.hxx".}
-proc Next*(this: var OpenGl_TextureSetPairIterator) {.importcpp: "Next",
+proc unit*(this: OpenGlTextureSetPairIterator): Graphic3dTextureUnit {.noSideEffect,
+    importcpp: "Unit", header: "OpenGl_TextureSetPairIterator.hxx".}
+proc texture1*(this: OpenGlTextureSetPairIterator): ptr OpenGlTexture {.noSideEffect,
+    importcpp: "Texture1", header: "OpenGl_TextureSetPairIterator.hxx".}
+proc texture2*(this: OpenGlTextureSetPairIterator): ptr OpenGlTexture {.noSideEffect,
+    importcpp: "Texture2", header: "OpenGl_TextureSetPairIterator.hxx".}
+proc next*(this: var OpenGlTextureSetPairIterator) {.importcpp: "Next",
     header: "OpenGl_TextureSetPairIterator.hxx".}

@@ -14,37 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Interface/Interface_Graph,
-  ../Interface/Interface_GraphContent, ../Standard/Standard_Boolean
-
 discard "forward decl of Interface_Graph"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_EntityIterator"
 type
-  IFGraph_ExternalSources* {.importcpp: "IFGraph_ExternalSources",
-                            header: "IFGraph_ExternalSources.hxx", bycopy.} = object of Interface_GraphContent ##
-                                                                                                        ## !
-                                                                                                        ## creates
-                                                                                                        ## empty
-                                                                                                        ## ExternalSources,
-                                                                                                        ## ready
-                                                                                                        ## to
-                                                                                                        ## work
+  IFGraphExternalSources* {.importcpp: "IFGraph_ExternalSources",
+                           header: "IFGraph_ExternalSources.hxx", bycopy.} = object of InterfaceGraphContent ##
+                                                                                                      ## !
+                                                                                                      ## creates
+                                                                                                      ## empty
+                                                                                                      ## ExternalSources,
+                                                                                                      ## ready
+                                                                                                      ## to
+                                                                                                      ## work
 
 
-proc constructIFGraph_ExternalSources*(agraph: Interface_Graph): IFGraph_ExternalSources {.
+proc constructIFGraphExternalSources*(agraph: InterfaceGraph): IFGraphExternalSources {.
     constructor, importcpp: "IFGraph_ExternalSources(@)",
     header: "IFGraph_ExternalSources.hxx".}
-proc GetFromEntity*(this: var IFGraph_ExternalSources;
-                   ent: handle[Standard_Transient]) {.importcpp: "GetFromEntity",
-    header: "IFGraph_ExternalSources.hxx".}
-proc GetFromIter*(this: var IFGraph_ExternalSources; iter: Interface_EntityIterator) {.
+proc getFromEntity*(this: var IFGraphExternalSources; ent: Handle[StandardTransient]) {.
+    importcpp: "GetFromEntity", header: "IFGraph_ExternalSources.hxx".}
+proc getFromIter*(this: var IFGraphExternalSources; iter: InterfaceEntityIterator) {.
     importcpp: "GetFromIter", header: "IFGraph_ExternalSources.hxx".}
-proc ResetData*(this: var IFGraph_ExternalSources) {.importcpp: "ResetData",
+proc resetData*(this: var IFGraphExternalSources) {.importcpp: "ResetData",
     header: "IFGraph_ExternalSources.hxx".}
-proc Evaluate*(this: var IFGraph_ExternalSources) {.importcpp: "Evaluate",
+proc evaluate*(this: var IFGraphExternalSources) {.importcpp: "Evaluate",
     header: "IFGraph_ExternalSources.hxx".}
-proc IsEmpty*(this: var IFGraph_ExternalSources): Standard_Boolean {.
-    importcpp: "IsEmpty", header: "IFGraph_ExternalSources.hxx".}
+proc isEmpty*(this: var IFGraphExternalSources): bool {.importcpp: "IsEmpty",
+    header: "IFGraph_ExternalSources.hxx".}

@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of XmlMDF_ADriverTable"
 discard "forward decl of Message_Messenger"
 discard "forward decl of XmlMDocStd_XLinkDriver"
@@ -28,6 +24,6 @@ type
                                                                              ## <aDriverTable>.
 
 
-proc AddDrivers*(aDriverTable: handle[XmlMDF_ADriverTable];
-                theMessageDriver: handle[Message_Messenger]) {.
+proc addDrivers*(aDriverTable: Handle[XmlMDF_ADriverTable];
+                theMessageDriver: Handle[MessageMessenger]) {.
     importcpp: "XmlMDocStd::AddDrivers(@)", header: "XmlMDocStd.hxx".}

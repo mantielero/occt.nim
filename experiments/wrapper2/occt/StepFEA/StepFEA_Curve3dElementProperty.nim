@@ -13,74 +13,68 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepFEA_HArray1OfCurveElementInterval, StepFEA_HArray1OfCurveElementEndOffset,
-  StepFEA_HArray1OfCurveElementEndRelease, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepFEA_Curve3dElementProperty"
 discard "forward decl of StepFEA_Curve3dElementProperty"
 type
-  Handle_StepFEA_Curve3dElementProperty* = handle[StepFEA_Curve3dElementProperty]
+  HandleStepFEA_Curve3dElementProperty* = Handle[StepFEA_Curve3dElementProperty]
 
 ## ! Representation of STEP entity Curve3dElementProperty
 
 type
   StepFEA_Curve3dElementProperty* {.importcpp: "StepFEA_Curve3dElementProperty", header: "StepFEA_Curve3dElementProperty.hxx",
-                                   bycopy.} = object of Standard_Transient ## ! Empty
-                                                                      ## constructor
+                                   bycopy.} = object of StandardTransient ## ! Empty constructor
 
 
 proc constructStepFEA_Curve3dElementProperty*(): StepFEA_Curve3dElementProperty {.
     constructor, importcpp: "StepFEA_Curve3dElementProperty(@)",
     header: "StepFEA_Curve3dElementProperty.hxx".}
-proc Init*(this: var StepFEA_Curve3dElementProperty;
-          aPropertyId: handle[TCollection_HAsciiString];
-          aDescription: handle[TCollection_HAsciiString];
-          aIntervalDefinitions: handle[StepFEA_HArray1OfCurveElementInterval];
-          aEndOffsets: handle[StepFEA_HArray1OfCurveElementEndOffset];
-          aEndReleases: handle[StepFEA_HArray1OfCurveElementEndRelease]) {.
+proc init*(this: var StepFEA_Curve3dElementProperty;
+          aPropertyId: Handle[TCollectionHAsciiString];
+          aDescription: Handle[TCollectionHAsciiString];
+          aIntervalDefinitions: Handle[StepFEA_HArray1OfCurveElementInterval];
+          aEndOffsets: Handle[StepFEA_HArray1OfCurveElementEndOffset];
+          aEndReleases: Handle[StepFEA_HArray1OfCurveElementEndRelease]) {.
     importcpp: "Init", header: "StepFEA_Curve3dElementProperty.hxx".}
-proc PropertyId*(this: StepFEA_Curve3dElementProperty): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "PropertyId",
-                               header: "StepFEA_Curve3dElementProperty.hxx".}
-proc SetPropertyId*(this: var StepFEA_Curve3dElementProperty;
-                   PropertyId: handle[TCollection_HAsciiString]) {.
+proc propertyId*(this: StepFEA_Curve3dElementProperty): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "PropertyId",
+                              header: "StepFEA_Curve3dElementProperty.hxx".}
+proc setPropertyId*(this: var StepFEA_Curve3dElementProperty;
+                   propertyId: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetPropertyId", header: "StepFEA_Curve3dElementProperty.hxx".}
-proc Description*(this: StepFEA_Curve3dElementProperty): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description",
-                               header: "StepFEA_Curve3dElementProperty.hxx".}
-proc SetDescription*(this: var StepFEA_Curve3dElementProperty;
-                    Description: handle[TCollection_HAsciiString]) {.
+proc description*(this: StepFEA_Curve3dElementProperty): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Description",
+                              header: "StepFEA_Curve3dElementProperty.hxx".}
+proc setDescription*(this: var StepFEA_Curve3dElementProperty;
+                    description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepFEA_Curve3dElementProperty.hxx".}
-proc IntervalDefinitions*(this: StepFEA_Curve3dElementProperty): handle[
+proc intervalDefinitions*(this: StepFEA_Curve3dElementProperty): Handle[
     StepFEA_HArray1OfCurveElementInterval] {.noSideEffect,
     importcpp: "IntervalDefinitions", header: "StepFEA_Curve3dElementProperty.hxx".}
-proc SetIntervalDefinitions*(this: var StepFEA_Curve3dElementProperty;
-    IntervalDefinitions: handle[StepFEA_HArray1OfCurveElementInterval]) {.
+proc setIntervalDefinitions*(this: var StepFEA_Curve3dElementProperty;
+    intervalDefinitions: Handle[StepFEA_HArray1OfCurveElementInterval]) {.
     importcpp: "SetIntervalDefinitions",
     header: "StepFEA_Curve3dElementProperty.hxx".}
-proc EndOffsets*(this: StepFEA_Curve3dElementProperty): handle[
+proc endOffsets*(this: StepFEA_Curve3dElementProperty): Handle[
     StepFEA_HArray1OfCurveElementEndOffset] {.noSideEffect,
     importcpp: "EndOffsets", header: "StepFEA_Curve3dElementProperty.hxx".}
-proc SetEndOffsets*(this: var StepFEA_Curve3dElementProperty;
-                   EndOffsets: handle[StepFEA_HArray1OfCurveElementEndOffset]) {.
+proc setEndOffsets*(this: var StepFEA_Curve3dElementProperty;
+                   endOffsets: Handle[StepFEA_HArray1OfCurveElementEndOffset]) {.
     importcpp: "SetEndOffsets", header: "StepFEA_Curve3dElementProperty.hxx".}
-proc EndReleases*(this: StepFEA_Curve3dElementProperty): handle[
+proc endReleases*(this: StepFEA_Curve3dElementProperty): Handle[
     StepFEA_HArray1OfCurveElementEndRelease] {.noSideEffect,
     importcpp: "EndReleases", header: "StepFEA_Curve3dElementProperty.hxx".}
-proc SetEndReleases*(this: var StepFEA_Curve3dElementProperty; EndReleases: handle[
+proc setEndReleases*(this: var StepFEA_Curve3dElementProperty; endReleases: Handle[
     StepFEA_HArray1OfCurveElementEndRelease]) {.importcpp: "SetEndReleases",
     header: "StepFEA_Curve3dElementProperty.hxx".}
 type
-  StepFEA_Curve3dElementPropertybase_type* = Standard_Transient
+  StepFEA_Curve3dElementPropertybaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_Curve3dElementProperty::get_type_name(@)",
-                              header: "StepFEA_Curve3dElementProperty.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_Curve3dElementProperty::get_type_name(@)",
+                            header: "StepFEA_Curve3dElementProperty.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_Curve3dElementProperty::get_type_descriptor(@)",
     header: "StepFEA_Curve3dElementProperty.hxx".}
-proc DynamicType*(this: StepFEA_Curve3dElementProperty): handle[Standard_Type] {.
+proc dynamicType*(this: StepFEA_Curve3dElementProperty): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_Curve3dElementProperty.hxx".}

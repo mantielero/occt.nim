@@ -14,53 +14,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopTools/TopTools_IndexedMapOfShape,
-  ../Standard/Standard_Integer, ../TopAbs/TopAbs_ShapeEnum,
-  ../TopAbs/TopAbs_Orientation
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of TopoDS_Shape"
 type
-  BRepSweep_Tool* {.importcpp: "BRepSweep_Tool", header: "BRepSweep_Tool.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Initialize
-                                                                                         ## the
-                                                                                         ## tool
-                                                                                         ## with
-                                                                                         ## <aShape>.
-                                                                                         ## The
-                                                                                         ## IndexTool
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## must
-                                                                                         ## prepare
-                                                                                         ## an
-                                                                                         ## indexation
-                                                                                         ## for
-                                                                                         ## all
-                                                                                         ## the
-                                                                                         ## subshapes
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## of
-                                                                                         ## this
-                                                                                         ## shape.
+  BRepSweepTool* {.importcpp: "BRepSweep_Tool", header: "BRepSweep_Tool.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Initialize
+                                                                                        ## the
+                                                                                        ## tool
+                                                                                        ## with
+                                                                                        ## <aShape>.
+                                                                                        ## The
+                                                                                        ## IndexTool
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## must
+                                                                                        ## prepare
+                                                                                        ## an
+                                                                                        ## indexation
+                                                                                        ## for
+                                                                                        ## all
+                                                                                        ## the
+                                                                                        ## subshapes
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## of
+                                                                                        ## this
+                                                                                        ## shape.
 
 
-proc constructBRepSweep_Tool*(aShape: TopoDS_Shape): BRepSweep_Tool {.constructor,
+proc constructBRepSweepTool*(aShape: TopoDS_Shape): BRepSweepTool {.constructor,
     importcpp: "BRepSweep_Tool(@)", header: "BRepSweep_Tool.hxx".}
-proc NbShapes*(this: BRepSweep_Tool): Standard_Integer {.noSideEffect,
-    importcpp: "NbShapes", header: "BRepSweep_Tool.hxx".}
-proc Index*(this: BRepSweep_Tool; aShape: TopoDS_Shape): Standard_Integer {.
-    noSideEffect, importcpp: "Index", header: "BRepSweep_Tool.hxx".}
-proc Shape*(this: BRepSweep_Tool; anIndex: Standard_Integer): TopoDS_Shape {.
-    noSideEffect, importcpp: "Shape", header: "BRepSweep_Tool.hxx".}
-proc Type*(this: BRepSweep_Tool; aShape: TopoDS_Shape): TopAbs_ShapeEnum {.
+proc nbShapes*(this: BRepSweepTool): int {.noSideEffect, importcpp: "NbShapes",
+                                       header: "BRepSweep_Tool.hxx".}
+proc index*(this: BRepSweepTool; aShape: TopoDS_Shape): int {.noSideEffect,
+    importcpp: "Index", header: "BRepSweep_Tool.hxx".}
+proc shape*(this: BRepSweepTool; anIndex: int): TopoDS_Shape {.noSideEffect,
+    importcpp: "Shape", header: "BRepSweep_Tool.hxx".}
+proc `type`*(this: BRepSweepTool; aShape: TopoDS_Shape): TopAbsShapeEnum {.
     noSideEffect, importcpp: "Type", header: "BRepSweep_Tool.hxx".}
-proc Orientation*(this: BRepSweep_Tool; aShape: TopoDS_Shape): TopAbs_Orientation {.
+proc orientation*(this: BRepSweepTool; aShape: TopoDS_Shape): TopAbsOrientation {.
     noSideEffect, importcpp: "Orientation", header: "BRepSweep_Tool.hxx".}
-proc SetOrientation*(this: BRepSweep_Tool; aShape: var TopoDS_Shape;
-                    Or: TopAbs_Orientation) {.noSideEffect,
+proc setOrientation*(this: BRepSweepTool; aShape: var TopoDS_Shape;
+                    `or`: TopAbsOrientation) {.noSideEffect,
     importcpp: "SetOrientation", header: "BRepSweep_Tool.hxx".}

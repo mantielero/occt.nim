@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepVisual_TextPath* {.size: sizeof(cint), importcpp: "StepVisual_TextPath",
-                        header: "StepVisual_TextPath.hxx".} = enum
-    StepVisual_tpUp, StepVisual_tpRight, StepVisual_tpDown, StepVisual_tpLeft
+  StepVisualTextPath* {.size: sizeof(cint), importcpp: "StepVisual_TextPath",
+                       header: "StepVisual_TextPath.hxx".} = enum
+    StepVisualTpUp, StepVisualTpRight, StepVisualTpDown, StepVisualTpLeft
+
 

@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  HLRBRep_Curve, ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../BRepAdaptor/BRepAdaptor_Surface,
-  ../GeomAbs/GeomAbs_SurfaceType, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer,
-  ../TColgp/TColgp_Array2OfPnt, ../GeomAbs/GeomAbs_Shape, ../gp/gp_Vec,
-  ../gp/gp_Cylinder, ../gp/gp_Cone, ../gp/gp_Sphere, ../gp/gp_Torus, ../gp/gp_Ax1
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_DomainError"
@@ -31,97 +23,92 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Pln"
 type
-  HLRBRep_Surface* {.importcpp: "HLRBRep_Surface", header: "HLRBRep_Surface.hxx",
-                    bycopy.} = object ## ! Creates an undefined surface with no face loaded.
-                                   ## ! returns true if it is a side face
+  HLRBRepSurface* {.importcpp: "HLRBRep_Surface", header: "HLRBRep_Surface.hxx",
+                   bycopy.} = object ## ! Creates an undefined surface with no face loaded.
+                                  ## ! returns true if it is a side face
 
 
-proc constructHLRBRep_Surface*(): HLRBRep_Surface {.constructor,
+proc constructHLRBRepSurface*(): HLRBRepSurface {.constructor,
     importcpp: "HLRBRep_Surface(@)", header: "HLRBRep_Surface.hxx".}
-proc Projector*(this: var HLRBRep_Surface; Proj: ptr HLRAlgo_Projector) {.
+proc projector*(this: var HLRBRepSurface; proj: ptr HLRAlgoProjector) {.
     importcpp: "Projector", header: "HLRBRep_Surface.hxx".}
-proc Surface*(this: var HLRBRep_Surface): var BRepAdaptor_Surface {.
+proc surface*(this: var HLRBRepSurface): var BRepAdaptorSurface {.
     importcpp: "Surface", header: "HLRBRep_Surface.hxx".}
-proc Surface*(this: var HLRBRep_Surface; F: TopoDS_Face) {.importcpp: "Surface",
+proc surface*(this: var HLRBRepSurface; f: TopoDS_Face) {.importcpp: "Surface",
     header: "HLRBRep_Surface.hxx".}
-proc IsSide*(this: HLRBRep_Surface; tolf: Standard_Real; toler: Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "IsSide", header: "HLRBRep_Surface.hxx".}
-proc IsAbove*(this: HLRBRep_Surface; back: Standard_Boolean; A: ptr HLRBRep_Curve;
-             tolC: Standard_Real): Standard_Boolean {.noSideEffect,
-    importcpp: "IsAbove", header: "HLRBRep_Surface.hxx".}
-proc FirstUParameter*(this: HLRBRep_Surface): Standard_Real {.noSideEffect,
+proc isSide*(this: HLRBRepSurface; tolf: float; toler: float): bool {.noSideEffect,
+    importcpp: "IsSide", header: "HLRBRep_Surface.hxx".}
+proc isAbove*(this: HLRBRepSurface; back: bool; a: ptr HLRBRepCurve; tolC: float): bool {.
+    noSideEffect, importcpp: "IsAbove", header: "HLRBRep_Surface.hxx".}
+proc firstUParameter*(this: HLRBRepSurface): float {.noSideEffect,
     importcpp: "FirstUParameter", header: "HLRBRep_Surface.hxx".}
-proc LastUParameter*(this: HLRBRep_Surface): Standard_Real {.noSideEffect,
+proc lastUParameter*(this: HLRBRepSurface): float {.noSideEffect,
     importcpp: "LastUParameter", header: "HLRBRep_Surface.hxx".}
-proc FirstVParameter*(this: HLRBRep_Surface): Standard_Real {.noSideEffect,
+proc firstVParameter*(this: HLRBRepSurface): float {.noSideEffect,
     importcpp: "FirstVParameter", header: "HLRBRep_Surface.hxx".}
-proc LastVParameter*(this: HLRBRep_Surface): Standard_Real {.noSideEffect,
+proc lastVParameter*(this: HLRBRepSurface): float {.noSideEffect,
     importcpp: "LastVParameter", header: "HLRBRep_Surface.hxx".}
-proc UContinuity*(this: HLRBRep_Surface): GeomAbs_Shape {.noSideEffect,
+proc uContinuity*(this: HLRBRepSurface): GeomAbsShape {.noSideEffect,
     importcpp: "UContinuity", header: "HLRBRep_Surface.hxx".}
-proc VContinuity*(this: HLRBRep_Surface): GeomAbs_Shape {.noSideEffect,
+proc vContinuity*(this: HLRBRepSurface): GeomAbsShape {.noSideEffect,
     importcpp: "VContinuity", header: "HLRBRep_Surface.hxx".}
-proc NbUIntervals*(this: var HLRBRep_Surface; S: GeomAbs_Shape): Standard_Integer {.
+proc nbUIntervals*(this: var HLRBRepSurface; s: GeomAbsShape): int {.
     importcpp: "NbUIntervals", header: "HLRBRep_Surface.hxx".}
-proc NbVIntervals*(this: var HLRBRep_Surface; S: GeomAbs_Shape): Standard_Integer {.
+proc nbVIntervals*(this: var HLRBRepSurface; s: GeomAbsShape): int {.
     importcpp: "NbVIntervals", header: "HLRBRep_Surface.hxx".}
-proc UIntervalContinuity*(this: HLRBRep_Surface): GeomAbs_Shape {.noSideEffect,
+proc uIntervalContinuity*(this: HLRBRepSurface): GeomAbsShape {.noSideEffect,
     importcpp: "UIntervalContinuity", header: "HLRBRep_Surface.hxx".}
-proc VIntervalContinuity*(this: HLRBRep_Surface): GeomAbs_Shape {.noSideEffect,
+proc vIntervalContinuity*(this: HLRBRepSurface): GeomAbsShape {.noSideEffect,
     importcpp: "VIntervalContinuity", header: "HLRBRep_Surface.hxx".}
-proc IsUClosed*(this: HLRBRep_Surface): Standard_Boolean {.noSideEffect,
-    importcpp: "IsUClosed", header: "HLRBRep_Surface.hxx".}
-proc IsVClosed*(this: HLRBRep_Surface): Standard_Boolean {.noSideEffect,
-    importcpp: "IsVClosed", header: "HLRBRep_Surface.hxx".}
-proc IsUPeriodic*(this: HLRBRep_Surface): Standard_Boolean {.noSideEffect,
+proc isUClosed*(this: HLRBRepSurface): bool {.noSideEffect, importcpp: "IsUClosed",
+    header: "HLRBRep_Surface.hxx".}
+proc isVClosed*(this: HLRBRepSurface): bool {.noSideEffect, importcpp: "IsVClosed",
+    header: "HLRBRep_Surface.hxx".}
+proc isUPeriodic*(this: HLRBRepSurface): bool {.noSideEffect,
     importcpp: "IsUPeriodic", header: "HLRBRep_Surface.hxx".}
-proc UPeriod*(this: HLRBRep_Surface): Standard_Real {.noSideEffect,
-    importcpp: "UPeriod", header: "HLRBRep_Surface.hxx".}
-proc IsVPeriodic*(this: HLRBRep_Surface): Standard_Boolean {.noSideEffect,
+proc uPeriod*(this: HLRBRepSurface): float {.noSideEffect, importcpp: "UPeriod",
+    header: "HLRBRep_Surface.hxx".}
+proc isVPeriodic*(this: HLRBRepSurface): bool {.noSideEffect,
     importcpp: "IsVPeriodic", header: "HLRBRep_Surface.hxx".}
-proc VPeriod*(this: HLRBRep_Surface): Standard_Real {.noSideEffect,
-    importcpp: "VPeriod", header: "HLRBRep_Surface.hxx".}
-proc Value*(this: HLRBRep_Surface; U: Standard_Real; V: Standard_Real): gp_Pnt {.
-    noSideEffect, importcpp: "Value", header: "HLRBRep_Surface.hxx".}
-proc D0*(this: HLRBRep_Surface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt) {.
-    noSideEffect, importcpp: "D0", header: "HLRBRep_Surface.hxx".}
-proc D1*(this: HLRBRep_Surface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
-        D1U: var gp_Vec; D1V: var gp_Vec) {.noSideEffect, importcpp: "D1",
-                                      header: "HLRBRep_Surface.hxx".}
-proc D2*(this: HLRBRep_Surface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
-        D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec; D2UV: var gp_Vec) {.
-    noSideEffect, importcpp: "D2", header: "HLRBRep_Surface.hxx".}
-proc D3*(this: HLRBRep_Surface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
-        D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec;
-        D2UV: var gp_Vec; D3U: var gp_Vec; D3V: var gp_Vec; D3UUV: var gp_Vec;
-        D3UVV: var gp_Vec) {.noSideEffect, importcpp: "D3",
-                          header: "HLRBRep_Surface.hxx".}
-proc DN*(this: HLRBRep_Surface; U: Standard_Real; V: Standard_Real;
-        Nu: Standard_Integer; Nv: Standard_Integer): gp_Vec {.noSideEffect,
+proc vPeriod*(this: HLRBRepSurface): float {.noSideEffect, importcpp: "VPeriod",
+    header: "HLRBRep_Surface.hxx".}
+proc value*(this: HLRBRepSurface; u: float; v: float): Pnt {.noSideEffect,
+    importcpp: "Value", header: "HLRBRep_Surface.hxx".}
+proc d0*(this: HLRBRepSurface; u: float; v: float; p: var Pnt) {.noSideEffect,
+    importcpp: "D0", header: "HLRBRep_Surface.hxx".}
+proc d1*(this: HLRBRepSurface; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec) {.
+    noSideEffect, importcpp: "D1", header: "HLRBRep_Surface.hxx".}
+proc d2*(this: HLRBRepSurface; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec;
+        d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect, importcpp: "D2",
+    header: "HLRBRep_Surface.hxx".}
+proc d3*(this: HLRBRepSurface; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec;
+        d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec; d3uuv: var Vec;
+        d3uvv: var Vec) {.noSideEffect, importcpp: "D3", header: "HLRBRep_Surface.hxx".}
+proc dn*(this: HLRBRepSurface; u: float; v: float; nu: int; nv: int): Vec {.noSideEffect,
     importcpp: "DN", header: "HLRBRep_Surface.hxx".}
-proc GetType*(this: HLRBRep_Surface): GeomAbs_SurfaceType {.noSideEffect,
+proc getType*(this: HLRBRepSurface): GeomAbsSurfaceType {.noSideEffect,
     importcpp: "GetType", header: "HLRBRep_Surface.hxx".}
-proc Plane*(this: HLRBRep_Surface): gp_Pln {.noSideEffect, importcpp: "Plane",
+proc plane*(this: HLRBRepSurface): Pln {.noSideEffect, importcpp: "Plane",
+                                     header: "HLRBRep_Surface.hxx".}
+proc cylinder*(this: HLRBRepSurface): Cylinder {.noSideEffect, importcpp: "Cylinder",
     header: "HLRBRep_Surface.hxx".}
-proc Cylinder*(this: HLRBRep_Surface): gp_Cylinder {.noSideEffect,
-    importcpp: "Cylinder", header: "HLRBRep_Surface.hxx".}
-proc Cone*(this: HLRBRep_Surface): gp_Cone {.noSideEffect, importcpp: "Cone",
+proc cone*(this: HLRBRepSurface): Cone {.noSideEffect, importcpp: "Cone",
+                                     header: "HLRBRep_Surface.hxx".}
+proc sphere*(this: HLRBRepSurface): Sphere {.noSideEffect, importcpp: "Sphere",
     header: "HLRBRep_Surface.hxx".}
-proc Sphere*(this: HLRBRep_Surface): gp_Sphere {.noSideEffect, importcpp: "Sphere",
-    header: "HLRBRep_Surface.hxx".}
-proc Torus*(this: HLRBRep_Surface): gp_Torus {.noSideEffect, importcpp: "Torus",
-    header: "HLRBRep_Surface.hxx".}
-proc UDegree*(this: HLRBRep_Surface): Standard_Integer {.noSideEffect,
-    importcpp: "UDegree", header: "HLRBRep_Surface.hxx".}
-proc NbUPoles*(this: HLRBRep_Surface): Standard_Integer {.noSideEffect,
-    importcpp: "NbUPoles", header: "HLRBRep_Surface.hxx".}
-proc VDegree*(this: HLRBRep_Surface): Standard_Integer {.noSideEffect,
-    importcpp: "VDegree", header: "HLRBRep_Surface.hxx".}
-proc NbVPoles*(this: HLRBRep_Surface): Standard_Integer {.noSideEffect,
-    importcpp: "NbVPoles", header: "HLRBRep_Surface.hxx".}
-proc NbUKnots*(this: HLRBRep_Surface): Standard_Integer {.noSideEffect,
-    importcpp: "NbUKnots", header: "HLRBRep_Surface.hxx".}
-proc NbVKnots*(this: HLRBRep_Surface): Standard_Integer {.noSideEffect,
-    importcpp: "NbVKnots", header: "HLRBRep_Surface.hxx".}
-proc Axis*(this: HLRBRep_Surface): gp_Ax1 {.noSideEffect, importcpp: "Axis",
+proc torus*(this: HLRBRepSurface): Torus {.noSideEffect, importcpp: "Torus",
+                                       header: "HLRBRep_Surface.hxx".}
+proc uDegree*(this: HLRBRepSurface): int {.noSideEffect, importcpp: "UDegree",
+                                       header: "HLRBRep_Surface.hxx".}
+proc nbUPoles*(this: HLRBRepSurface): int {.noSideEffect, importcpp: "NbUPoles",
                                         header: "HLRBRep_Surface.hxx".}
+proc vDegree*(this: HLRBRepSurface): int {.noSideEffect, importcpp: "VDegree",
+                                       header: "HLRBRep_Surface.hxx".}
+proc nbVPoles*(this: HLRBRepSurface): int {.noSideEffect, importcpp: "NbVPoles",
+                                        header: "HLRBRep_Surface.hxx".}
+proc nbUKnots*(this: HLRBRepSurface): int {.noSideEffect, importcpp: "NbUKnots",
+                                        header: "HLRBRep_Surface.hxx".}
+proc nbVKnots*(this: HLRBRepSurface): int {.noSideEffect, importcpp: "NbVKnots",
+                                        header: "HLRBRep_Surface.hxx".}
+proc axis*(this: HLRBRepSurface): Ax1 {.noSideEffect, importcpp: "Axis",
+                                    header: "HLRBRep_Surface.hxx".}

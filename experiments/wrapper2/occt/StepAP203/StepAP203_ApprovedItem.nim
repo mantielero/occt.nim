@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_ProductDefinitionFormation"
 discard "forward decl of StepBasic_ProductDefinition"
@@ -32,43 +27,43 @@ discard "forward decl of StepAP203_StartWork"
 discard "forward decl of StepBasic_Certification"
 discard "forward decl of StepBasic_Contract"
 type
-  StepAP203_ApprovedItem* {.importcpp: "StepAP203_ApprovedItem",
-                           header: "StepAP203_ApprovedItem.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                   ## !
-                                                                                                   ## Empty
-                                                                                                   ## constructor
+  StepAP203ApprovedItem* {.importcpp: "StepAP203_ApprovedItem",
+                          header: "StepAP203_ApprovedItem.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                 ## !
+                                                                                                 ## Empty
+                                                                                                 ## constructor
 
 
-proc constructStepAP203_ApprovedItem*(): StepAP203_ApprovedItem {.constructor,
+proc constructStepAP203ApprovedItem*(): StepAP203ApprovedItem {.constructor,
     importcpp: "StepAP203_ApprovedItem(@)", header: "StepAP203_ApprovedItem.hxx".}
-proc CaseNum*(this: StepAP203_ApprovedItem; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepAP203ApprovedItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP203_ApprovedItem.hxx".}
-proc ProductDefinitionFormation*(this: StepAP203_ApprovedItem): handle[
-    StepBasic_ProductDefinitionFormation] {.noSideEffect,
+proc productDefinitionFormation*(this: StepAP203ApprovedItem): Handle[
+    StepBasicProductDefinitionFormation] {.noSideEffect,
     importcpp: "ProductDefinitionFormation", header: "StepAP203_ApprovedItem.hxx".}
-proc ProductDefinition*(this: StepAP203_ApprovedItem): handle[
-    StepBasic_ProductDefinition] {.noSideEffect, importcpp: "ProductDefinition",
-                                  header: "StepAP203_ApprovedItem.hxx".}
-proc ConfigurationEffectivity*(this: StepAP203_ApprovedItem): handle[
-    StepRepr_ConfigurationEffectivity] {.noSideEffect,
-                                        importcpp: "ConfigurationEffectivity",
-                                        header: "StepAP203_ApprovedItem.hxx".}
-proc ConfigurationItem*(this: StepAP203_ApprovedItem): handle[
-    StepRepr_ConfigurationItem] {.noSideEffect, importcpp: "ConfigurationItem",
+proc productDefinition*(this: StepAP203ApprovedItem): Handle[
+    StepBasicProductDefinition] {.noSideEffect, importcpp: "ProductDefinition",
                                  header: "StepAP203_ApprovedItem.hxx".}
-proc SecurityClassification*(this: StepAP203_ApprovedItem): handle[
-    StepBasic_SecurityClassification] {.noSideEffect,
-                                       importcpp: "SecurityClassification",
+proc configurationEffectivity*(this: StepAP203ApprovedItem): Handle[
+    StepReprConfigurationEffectivity] {.noSideEffect,
+                                       importcpp: "ConfigurationEffectivity",
                                        header: "StepAP203_ApprovedItem.hxx".}
-proc ChangeRequest*(this: StepAP203_ApprovedItem): handle[StepAP203_ChangeRequest] {.
+proc configurationItem*(this: StepAP203ApprovedItem): Handle[
+    StepReprConfigurationItem] {.noSideEffect, importcpp: "ConfigurationItem",
+                                header: "StepAP203_ApprovedItem.hxx".}
+proc securityClassification*(this: StepAP203ApprovedItem): Handle[
+    StepBasicSecurityClassification] {.noSideEffect,
+                                      importcpp: "SecurityClassification",
+                                      header: "StepAP203_ApprovedItem.hxx".}
+proc changeRequest*(this: StepAP203ApprovedItem): Handle[StepAP203ChangeRequest] {.
     noSideEffect, importcpp: "ChangeRequest", header: "StepAP203_ApprovedItem.hxx".}
-proc Change*(this: StepAP203_ApprovedItem): handle[StepAP203_Change] {.noSideEffect,
+proc change*(this: StepAP203ApprovedItem): Handle[StepAP203Change] {.noSideEffect,
     importcpp: "Change", header: "StepAP203_ApprovedItem.hxx".}
-proc StartRequest*(this: StepAP203_ApprovedItem): handle[StepAP203_StartRequest] {.
+proc startRequest*(this: StepAP203ApprovedItem): Handle[StepAP203StartRequest] {.
     noSideEffect, importcpp: "StartRequest", header: "StepAP203_ApprovedItem.hxx".}
-proc StartWork*(this: StepAP203_ApprovedItem): handle[StepAP203_StartWork] {.
+proc startWork*(this: StepAP203ApprovedItem): Handle[StepAP203StartWork] {.
     noSideEffect, importcpp: "StartWork", header: "StepAP203_ApprovedItem.hxx".}
-proc Certification*(this: StepAP203_ApprovedItem): handle[StepBasic_Certification] {.
+proc certification*(this: StepAP203ApprovedItem): Handle[StepBasicCertification] {.
     noSideEffect, importcpp: "Certification", header: "StepAP203_ApprovedItem.hxx".}
-proc Contract*(this: StepAP203_ApprovedItem): handle[StepBasic_Contract] {.
+proc contract*(this: StepAP203ApprovedItem): Handle[StepBasicContract] {.
     noSideEffect, importcpp: "Contract", header: "StepAP203_ApprovedItem.hxx".}

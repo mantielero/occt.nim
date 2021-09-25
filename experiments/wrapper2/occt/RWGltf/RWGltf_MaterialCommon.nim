@@ -12,26 +12,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Image/Image_Texture, ../Quantity/Quantity_ColorRGBA
-
 ## ! glTF 1.0 format common (obsolete) material definition.
 
 type
-  RWGltf_MaterialCommon* {.importcpp: "RWGltf_MaterialCommon",
-                          header: "RWGltf_MaterialCommon.hxx", bycopy.} = object of Standard_Transient
-    AmbientTexture* {.importc: "AmbientTexture".}: handle[Image_Texture] ## !< image defining ambient color
-    DiffuseTexture* {.importc: "DiffuseTexture".}: handle[Image_Texture] ## !< image defining diffuse color
-    SpecularTexture* {.importc: "SpecularTexture".}: handle[Image_Texture] ## !< image defining specular color
-    Id* {.importc: "Id".}: TCollection_AsciiString ## !< material identifier
-    Name* {.importc: "Name".}: TCollection_AsciiString ## !< material name
-    AmbientColor* {.importc: "AmbientColor".}: Quantity_Color
-    DiffuseColor* {.importc: "DiffuseColor".}: Quantity_Color
-    SpecularColor* {.importc: "SpecularColor".}: Quantity_Color
-    EmissiveColor* {.importc: "EmissiveColor".}: Quantity_Color
-    Shininess* {.importc: "Shininess".}: Standard_ShortReal
-    Transparency* {.importc: "Transparency".}: Standard_ShortReal
+  RWGltfMaterialCommon* {.importcpp: "RWGltf_MaterialCommon",
+                         header: "RWGltf_MaterialCommon.hxx", bycopy.} = object of StandardTransient
+    ambientTexture* {.importc: "AmbientTexture".}: Handle[ImageTexture] ## !< image defining ambient color
+    diffuseTexture* {.importc: "DiffuseTexture".}: Handle[ImageTexture] ## !< image defining diffuse color
+    specularTexture* {.importc: "SpecularTexture".}: Handle[ImageTexture] ## !< image defining specular color
+    id* {.importc: "Id".}: TCollectionAsciiString ## !< material identifier
+    name* {.importc: "Name".}: TCollectionAsciiString ## !< material name
+    ambientColor* {.importc: "AmbientColor".}: QuantityColor
+    diffuseColor* {.importc: "DiffuseColor".}: QuantityColor
+    specularColor* {.importc: "SpecularColor".}: QuantityColor
+    emissiveColor* {.importc: "EmissiveColor".}: QuantityColor
+    shininess* {.importc: "Shininess".}: StandardShortReal
+    transparency* {.importc: "Transparency".}: StandardShortReal
 
 
-proc constructRWGltf_MaterialCommon*(): RWGltf_MaterialCommon {.constructor,
+proc constructRWGltfMaterialCommon*(): RWGltfMaterialCommon {.constructor,
     importcpp: "RWGltf_MaterialCommon(@)", header: "RWGltf_MaterialCommon.hxx".}

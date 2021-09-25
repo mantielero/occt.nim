@@ -13,71 +13,69 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Image_PixMap
-
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of FIBITMAP"
 type
-  Image_AlienPixMap* {.importcpp: "Image_AlienPixMap",
-                      header: "Image_AlienPixMap.hxx", bycopy.} = object of Image_PixMap ##
-                                                                                  ## !
-                                                                                  ## Return
-                                                                                  ## default
-                                                                                  ## rows
-                                                                                  ## order
-                                                                                  ## used
-                                                                                  ## by
-                                                                                  ## underlying
-                                                                                  ## image
-                                                                                  ## library.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Empty
-                                                                                  ## constructor.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Copying
-                                                                                  ## allowed
-                                                                                  ## only
-                                                                                  ## within
-                                                                                  ## Handles
+  ImageAlienPixMap* {.importcpp: "Image_AlienPixMap",
+                     header: "Image_AlienPixMap.hxx", bycopy.} = object of ImagePixMap ##
+                                                                                ## !
+                                                                                ## Return
+                                                                                ## default
+                                                                                ## rows
+                                                                                ## order
+                                                                                ## used
+                                                                                ## by
+                                                                                ## underlying
+                                                                                ## image
+                                                                                ## library.
+                                                                                ##
+                                                                                ## !
+                                                                                ## Empty
+                                                                                ## constructor.
+                                                                                ##
+                                                                                ## !
+                                                                                ## Copying
+                                                                                ## allowed
+                                                                                ## only
+                                                                                ## within
+                                                                                ## Handles
 
-  Image_AlienPixMapbase_type* = Image_PixMap
+  ImageAlienPixMapbaseType* = ImagePixMap
 
-proc get_type_name*(): cstring {.importcpp: "Image_AlienPixMap::get_type_name(@)",
-                              header: "Image_AlienPixMap.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Image_AlienPixMap::get_type_name(@)",
+                            header: "Image_AlienPixMap.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Image_AlienPixMap::get_type_descriptor(@)",
     header: "Image_AlienPixMap.hxx".}
-proc DynamicType*(this: Image_AlienPixMap): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: ImageAlienPixMap): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Image_AlienPixMap.hxx".}
-proc IsTopDownDefault*(): bool {.importcpp: "Image_AlienPixMap::IsTopDownDefault(@)",
+proc isTopDownDefault*(): bool {.importcpp: "Image_AlienPixMap::IsTopDownDefault(@)",
                               header: "Image_AlienPixMap.hxx".}
-proc constructImage_AlienPixMap*(): Image_AlienPixMap {.constructor,
+proc constructImageAlienPixMap*(): ImageAlienPixMap {.constructor,
     importcpp: "Image_AlienPixMap(@)", header: "Image_AlienPixMap.hxx".}
-proc destroyImage_AlienPixMap*(this: var Image_AlienPixMap) {.
+proc destroyImageAlienPixMap*(this: var ImageAlienPixMap) {.
     importcpp: "#.~Image_AlienPixMap()", header: "Image_AlienPixMap.hxx".}
-proc Load*(this: var Image_AlienPixMap; theFileName: TCollection_AsciiString): bool {.
+proc load*(this: var ImageAlienPixMap; theFileName: TCollectionAsciiString): bool {.
     importcpp: "Load", header: "Image_AlienPixMap.hxx".}
-proc Load*(this: var Image_AlienPixMap; theStream: var istream;
-          theFileName: TCollection_AsciiString): bool {.importcpp: "Load",
+proc load*(this: var ImageAlienPixMap; theStream: var Istream;
+          theFileName: TCollectionAsciiString): bool {.importcpp: "Load",
     header: "Image_AlienPixMap.hxx".}
-proc Load*(this: var Image_AlienPixMap; theData: ptr Standard_Byte;
-          theLength: Standard_Size; theFileName: TCollection_AsciiString): bool {.
+proc load*(this: var ImageAlienPixMap; theData: ptr StandardByte;
+          theLength: StandardSize; theFileName: TCollectionAsciiString): bool {.
     importcpp: "Load", header: "Image_AlienPixMap.hxx".}
-proc Save*(this: var Image_AlienPixMap; theFileName: TCollection_AsciiString): bool {.
+proc save*(this: var ImageAlienPixMap; theFileName: TCollectionAsciiString): bool {.
     importcpp: "Save", header: "Image_AlienPixMap.hxx".}
-proc InitTrash*(this: var Image_AlienPixMap; thePixelFormat: Image_Format;
-               theSizeX: Standard_Size; theSizeY: Standard_Size;
-               theSizeRowBytes: Standard_Size = 0): bool {.importcpp: "InitTrash",
+proc initTrash*(this: var ImageAlienPixMap; thePixelFormat: ImageFormat;
+               theSizeX: StandardSize; theSizeY: StandardSize;
+               theSizeRowBytes: StandardSize = 0): bool {.importcpp: "InitTrash",
     header: "Image_AlienPixMap.hxx".}
-proc InitCopy*(this: var Image_AlienPixMap; theCopy: Image_PixMap): bool {.
+proc initCopy*(this: var ImageAlienPixMap; theCopy: ImagePixMap): bool {.
     importcpp: "InitCopy", header: "Image_AlienPixMap.hxx".}
-proc Clear*(this: var Image_AlienPixMap) {.importcpp: "Clear",
-                                       header: "Image_AlienPixMap.hxx".}
-proc AdjustGamma*(this: var Image_AlienPixMap; theGammaCorr: Standard_Real): bool {.
+proc clear*(this: var ImageAlienPixMap) {.importcpp: "Clear",
+                                      header: "Image_AlienPixMap.hxx".}
+proc adjustGamma*(this: var ImageAlienPixMap; theGammaCorr: float): bool {.
     importcpp: "AdjustGamma", header: "Image_AlienPixMap.hxx".}
 discard "forward decl of Image_AlienPixMap"
 type
-  Handle_Image_AlienPixMap* = handle[Image_AlienPixMap]
+  HandleImageAlienPixMap* = Handle[ImageAlienPixMap]
+

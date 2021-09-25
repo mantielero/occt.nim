@@ -14,55 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_Organization"
 discard "forward decl of StepBasic_Organization"
 type
-  Handle_StepBasic_Organization* = handle[StepBasic_Organization]
-  StepBasic_Organization* {.importcpp: "StepBasic_Organization",
-                           header: "StepBasic_Organization.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                  ## !
-                                                                                                  ## Returns
-                                                                                                  ## a
-                                                                                                  ## Organization
+  HandleStepBasicOrganization* = Handle[StepBasicOrganization]
+  StepBasicOrganization* {.importcpp: "StepBasic_Organization",
+                          header: "StepBasic_Organization.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                ## !
+                                                                                                ## Returns
+                                                                                                ## a
+                                                                                                ## Organization
 
 
-proc constructStepBasic_Organization*(): StepBasic_Organization {.constructor,
+proc constructStepBasicOrganization*(): StepBasicOrganization {.constructor,
     importcpp: "StepBasic_Organization(@)", header: "StepBasic_Organization.hxx".}
-proc Init*(this: var StepBasic_Organization; hasAid: Standard_Boolean;
-          aId: handle[TCollection_HAsciiString];
-          aName: handle[TCollection_HAsciiString];
-          aDescription: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepBasicOrganization; hasAid: bool;
+          aId: Handle[TCollectionHAsciiString];
+          aName: Handle[TCollectionHAsciiString];
+          aDescription: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepBasic_Organization.hxx".}
-proc SetId*(this: var StepBasic_Organization; aId: handle[TCollection_HAsciiString]) {.
+proc setId*(this: var StepBasicOrganization; aId: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetId", header: "StepBasic_Organization.hxx".}
-proc UnSetId*(this: var StepBasic_Organization) {.importcpp: "UnSetId",
+proc unSetId*(this: var StepBasicOrganization) {.importcpp: "UnSetId",
     header: "StepBasic_Organization.hxx".}
-proc Id*(this: StepBasic_Organization): handle[TCollection_HAsciiString] {.
+proc id*(this: StepBasicOrganization): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Id", header: "StepBasic_Organization.hxx".}
-proc HasId*(this: StepBasic_Organization): Standard_Boolean {.noSideEffect,
-    importcpp: "HasId", header: "StepBasic_Organization.hxx".}
-proc SetName*(this: var StepBasic_Organization;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc hasId*(this: StepBasicOrganization): bool {.noSideEffect, importcpp: "HasId",
     header: "StepBasic_Organization.hxx".}
-proc Name*(this: StepBasic_Organization): handle[TCollection_HAsciiString] {.
+proc setName*(this: var StepBasicOrganization;
+             aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
+    header: "StepBasic_Organization.hxx".}
+proc name*(this: StepBasicOrganization): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepBasic_Organization.hxx".}
-proc SetDescription*(this: var StepBasic_Organization;
-                    aDescription: handle[TCollection_HAsciiString]) {.
+proc setDescription*(this: var StepBasicOrganization;
+                    aDescription: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepBasic_Organization.hxx".}
-proc Description*(this: StepBasic_Organization): handle[TCollection_HAsciiString] {.
+proc description*(this: StepBasicOrganization): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Description", header: "StepBasic_Organization.hxx".}
 type
-  StepBasic_Organizationbase_type* = Standard_Transient
+  StepBasicOrganizationbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_Organization::get_type_name(@)",
-                              header: "StepBasic_Organization.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_Organization::get_type_name(@)",
+                            header: "StepBasic_Organization.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_Organization::get_type_descriptor(@)",
     header: "StepBasic_Organization.hxx".}
-proc DynamicType*(this: StepBasic_Organization): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepBasic_Organization.hxx".}
+proc dynamicType*(this: StepBasicOrganization): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepBasic_Organization.hxx".}

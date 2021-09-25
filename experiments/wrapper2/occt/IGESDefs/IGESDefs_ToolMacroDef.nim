@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESDefs_MacroDef"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,34 +26,31 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESDefs_ToolMacroDef* {.importcpp: "IGESDefs_ToolMacroDef",
-                          header: "IGESDefs_ToolMacroDef.hxx", bycopy.} = object ## !
-                                                                            ## Returns a
-                                                                            ## ToolMacroDef,
-                                                                            ## ready to work
+  IGESDefsToolMacroDef* {.importcpp: "IGESDefs_ToolMacroDef",
+                         header: "IGESDefs_ToolMacroDef.hxx", bycopy.} = object ## !
+                                                                           ## Returns a
+                                                                           ## ToolMacroDef, ready to work
 
 
-proc constructIGESDefs_ToolMacroDef*(): IGESDefs_ToolMacroDef {.constructor,
+proc constructIGESDefsToolMacroDef*(): IGESDefsToolMacroDef {.constructor,
     importcpp: "IGESDefs_ToolMacroDef(@)", header: "IGESDefs_ToolMacroDef.hxx".}
-proc ReadOwnParams*(this: IGESDefs_ToolMacroDef; ent: handle[IGESDefs_MacroDef];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESDefs_ToolMacroDef.hxx".}
-proc WriteOwnParams*(this: IGESDefs_ToolMacroDef; ent: handle[IGESDefs_MacroDef];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESDefsToolMacroDef; ent: Handle[IGESDefsMacroDef];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams", header: "IGESDefs_ToolMacroDef.hxx".}
+proc writeOwnParams*(this: IGESDefsToolMacroDef; ent: Handle[IGESDefsMacroDef];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESDefs_ToolMacroDef.hxx".}
-proc OwnShared*(this: IGESDefs_ToolMacroDef; ent: handle[IGESDefs_MacroDef];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESDefsToolMacroDef; ent: Handle[IGESDefsMacroDef];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESDefs_ToolMacroDef.hxx".}
-proc DirChecker*(this: IGESDefs_ToolMacroDef; ent: handle[IGESDefs_MacroDef]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESDefsToolMacroDef; ent: Handle[IGESDefsMacroDef]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESDefs_ToolMacroDef.hxx".}
-proc OwnCheck*(this: IGESDefs_ToolMacroDef; ent: handle[IGESDefs_MacroDef];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESDefsToolMacroDef; ent: Handle[IGESDefsMacroDef];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESDefs_ToolMacroDef.hxx".}
-proc OwnCopy*(this: IGESDefs_ToolMacroDef; entfrom: handle[IGESDefs_MacroDef];
-             entto: handle[IGESDefs_MacroDef]; TC: var Interface_CopyTool) {.
+proc ownCopy*(this: IGESDefsToolMacroDef; entfrom: Handle[IGESDefsMacroDef];
+             entto: Handle[IGESDefsMacroDef]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESDefs_ToolMacroDef.hxx".}
-proc OwnDump*(this: IGESDefs_ToolMacroDef; ent: handle[IGESDefs_MacroDef];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
-                                    header: "IGESDefs_ToolMacroDef.hxx".}
+proc ownDump*(this: IGESDefsToolMacroDef; ent: Handle[IGESDefsMacroDef];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump", header: "IGESDefs_ToolMacroDef.hxx".}

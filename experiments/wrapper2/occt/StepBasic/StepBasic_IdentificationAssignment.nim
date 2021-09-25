@@ -13,51 +13,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_IdentificationRole"
 discard "forward decl of StepBasic_IdentificationAssignment"
 discard "forward decl of StepBasic_IdentificationAssignment"
 type
-  Handle_StepBasic_IdentificationAssignment* = handle[
-      StepBasic_IdentificationAssignment]
+  HandleStepBasicIdentificationAssignment* = Handle[
+      StepBasicIdentificationAssignment]
 
 ## ! Representation of STEP entity IdentificationAssignment
 
 type
-  StepBasic_IdentificationAssignment* {.importcpp: "StepBasic_IdentificationAssignment", header: "StepBasic_IdentificationAssignment.hxx",
-                                       bycopy.} = object of Standard_Transient ## ! Empty
-                                                                          ## constructor
+  StepBasicIdentificationAssignment* {.importcpp: "StepBasic_IdentificationAssignment", header: "StepBasic_IdentificationAssignment.hxx",
+                                      bycopy.} = object of StandardTransient ## ! Empty
+                                                                        ## constructor
 
 
-proc constructStepBasic_IdentificationAssignment*(): StepBasic_IdentificationAssignment {.
+proc constructStepBasicIdentificationAssignment*(): StepBasicIdentificationAssignment {.
     constructor, importcpp: "StepBasic_IdentificationAssignment(@)",
     header: "StepBasic_IdentificationAssignment.hxx".}
-proc Init*(this: var StepBasic_IdentificationAssignment;
-          aAssignedId: handle[TCollection_HAsciiString];
-          aRole: handle[StepBasic_IdentificationRole]) {.importcpp: "Init",
+proc init*(this: var StepBasicIdentificationAssignment;
+          aAssignedId: Handle[TCollectionHAsciiString];
+          aRole: Handle[StepBasicIdentificationRole]) {.importcpp: "Init",
     header: "StepBasic_IdentificationAssignment.hxx".}
-proc AssignedId*(this: StepBasic_IdentificationAssignment): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "AssignedId",
-                               header: "StepBasic_IdentificationAssignment.hxx".}
-proc SetAssignedId*(this: var StepBasic_IdentificationAssignment;
-                   AssignedId: handle[TCollection_HAsciiString]) {.
+proc assignedId*(this: StepBasicIdentificationAssignment): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "AssignedId",
+                              header: "StepBasic_IdentificationAssignment.hxx".}
+proc setAssignedId*(this: var StepBasicIdentificationAssignment;
+                   assignedId: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetAssignedId", header: "StepBasic_IdentificationAssignment.hxx".}
-proc Role*(this: StepBasic_IdentificationAssignment): handle[
-    StepBasic_IdentificationRole] {.noSideEffect, importcpp: "Role", header: "StepBasic_IdentificationAssignment.hxx".}
-proc SetRole*(this: var StepBasic_IdentificationAssignment;
-             Role: handle[StepBasic_IdentificationRole]) {.importcpp: "SetRole",
+proc role*(this: StepBasicIdentificationAssignment): Handle[
+    StepBasicIdentificationRole] {.noSideEffect, importcpp: "Role", header: "StepBasic_IdentificationAssignment.hxx".}
+proc setRole*(this: var StepBasicIdentificationAssignment;
+             role: Handle[StepBasicIdentificationRole]) {.importcpp: "SetRole",
     header: "StepBasic_IdentificationAssignment.hxx".}
 type
-  StepBasic_IdentificationAssignmentbase_type* = Standard_Transient
+  StepBasicIdentificationAssignmentbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_IdentificationAssignment::get_type_name(@)",
-                              header: "StepBasic_IdentificationAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_IdentificationAssignment::get_type_name(@)",
+                            header: "StepBasic_IdentificationAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_IdentificationAssignment::get_type_descriptor(@)",
     header: "StepBasic_IdentificationAssignment.hxx".}
-proc DynamicType*(this: StepBasic_IdentificationAssignment): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicIdentificationAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_IdentificationAssignment.hxx".}

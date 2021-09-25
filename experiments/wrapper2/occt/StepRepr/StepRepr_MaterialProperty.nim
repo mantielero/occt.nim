@@ -13,34 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_PropertyDefinition
-
 discard "forward decl of StepRepr_MaterialProperty"
 discard "forward decl of StepRepr_MaterialProperty"
 type
-  Handle_StepRepr_MaterialProperty* = handle[StepRepr_MaterialProperty]
+  HandleStepReprMaterialProperty* = Handle[StepReprMaterialProperty]
 
 ## ! Representation of STEP entity MaterialProperty
 
 type
-  StepRepr_MaterialProperty* {.importcpp: "StepRepr_MaterialProperty",
-                              header: "StepRepr_MaterialProperty.hxx", bycopy.} = object of StepRepr_PropertyDefinition ##
-                                                                                                                 ## !
-                                                                                                                 ## Empty
-                                                                                                                 ## constructor
+  StepReprMaterialProperty* {.importcpp: "StepRepr_MaterialProperty",
+                             header: "StepRepr_MaterialProperty.hxx", bycopy.} = object of StepReprPropertyDefinition ##
+                                                                                                               ## !
+                                                                                                               ## Empty
+                                                                                                               ## constructor
 
 
-proc constructStepRepr_MaterialProperty*(): StepRepr_MaterialProperty {.
-    constructor, importcpp: "StepRepr_MaterialProperty(@)",
+proc constructStepReprMaterialProperty*(): StepReprMaterialProperty {.constructor,
+    importcpp: "StepRepr_MaterialProperty(@)",
     header: "StepRepr_MaterialProperty.hxx".}
 type
-  StepRepr_MaterialPropertybase_type* = StepRepr_PropertyDefinition
+  StepReprMaterialPropertybaseType* = StepReprPropertyDefinition
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_MaterialProperty::get_type_name(@)",
-                              header: "StepRepr_MaterialProperty.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_MaterialProperty::get_type_name(@)",
+                            header: "StepRepr_MaterialProperty.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_MaterialProperty::get_type_descriptor(@)",
     header: "StepRepr_MaterialProperty.hxx".}
-proc DynamicType*(this: StepRepr_MaterialProperty): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprMaterialProperty): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepRepr_MaterialProperty.hxx".}

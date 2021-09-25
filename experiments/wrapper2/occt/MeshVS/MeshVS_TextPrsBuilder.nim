@@ -13,17 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  MeshVS_DataMapOfIntegerAsciiString, MeshVS_PrsBuilder, MeshVS_DisplayModeFlags,
-  MeshVS_BuilderPriority
-
 discard "forward decl of MeshVS_Mesh"
 discard "forward decl of Quantity_Color"
 discard "forward decl of MeshVS_DataSource"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of MeshVS_TextPrsBuilder"
 type
-  Handle_MeshVS_TextPrsBuilder* = handle[MeshVS_TextPrsBuilder]
+  HandleMeshVS_TextPrsBuilder* = Handle[MeshVS_TextPrsBuilder]
 
 ## ! This class provides methods to create text data presentation.
 ## ! It store map of texts assigned with nodes or elements.
@@ -33,38 +29,37 @@ type
                           header: "MeshVS_TextPrsBuilder.hxx", bycopy.} = object of MeshVS_PrsBuilder
 
 
-proc constructMeshVS_TextPrsBuilder*(Parent: handle[MeshVS_Mesh];
-                                    Height: Standard_Real; Color: Quantity_Color;
-    Flags: MeshVS_DisplayModeFlags = MeshVS_DMF_TextDataPrs;
-                                    DS: handle[MeshVS_DataSource] = 0;
-                                    Id: Standard_Integer = -1; Priority: MeshVS_BuilderPriority = MeshVS_BP_Text): MeshVS_TextPrsBuilder {.
+proc constructMeshVS_TextPrsBuilder*(parent: Handle[MeshVS_Mesh]; height: float;
+                                    color: QuantityColor; flags: MeshVS_DisplayModeFlags = meshVS_DMF_TextDataPrs;
+                                    ds: Handle[MeshVS_DataSource] = 0;
+                                    id: int = -1; priority: MeshVS_BuilderPriority = meshVS_BP_Text): MeshVS_TextPrsBuilder {.
     constructor, importcpp: "MeshVS_TextPrsBuilder(@)",
     header: "MeshVS_TextPrsBuilder.hxx".}
-proc Build*(this: MeshVS_TextPrsBuilder; Prs: handle[Prs3d_Presentation];
-           IDs: TColStd_PackedMapOfInteger;
-           IDsToExclude: var TColStd_PackedMapOfInteger;
-           IsElement: Standard_Boolean; theDisplayMode: Standard_Integer) {.
-    noSideEffect, importcpp: "Build", header: "MeshVS_TextPrsBuilder.hxx".}
-proc GetTexts*(this: MeshVS_TextPrsBuilder; IsElement: Standard_Boolean): MeshVS_DataMapOfIntegerAsciiString {.
+proc build*(this: MeshVS_TextPrsBuilder; prs: Handle[Prs3dPresentation];
+           iDs: TColStdPackedMapOfInteger;
+           iDsToExclude: var TColStdPackedMapOfInteger; isElement: bool;
+           theDisplayMode: int) {.noSideEffect, importcpp: "Build",
+                                header: "MeshVS_TextPrsBuilder.hxx".}
+proc getTexts*(this: MeshVS_TextPrsBuilder; isElement: bool): MeshVS_DataMapOfIntegerAsciiString {.
     noSideEffect, importcpp: "GetTexts", header: "MeshVS_TextPrsBuilder.hxx".}
-proc SetTexts*(this: var MeshVS_TextPrsBuilder; IsElement: Standard_Boolean;
-              Map: MeshVS_DataMapOfIntegerAsciiString) {.importcpp: "SetTexts",
+proc setTexts*(this: var MeshVS_TextPrsBuilder; isElement: bool;
+              map: MeshVS_DataMapOfIntegerAsciiString) {.importcpp: "SetTexts",
     header: "MeshVS_TextPrsBuilder.hxx".}
-proc HasTexts*(this: MeshVS_TextPrsBuilder; IsElement: Standard_Boolean): Standard_Boolean {.
-    noSideEffect, importcpp: "HasTexts", header: "MeshVS_TextPrsBuilder.hxx".}
-proc GetText*(this: MeshVS_TextPrsBuilder; IsElement: Standard_Boolean;
-             ID: Standard_Integer; Text: var TCollection_AsciiString): Standard_Boolean {.
-    noSideEffect, importcpp: "GetText", header: "MeshVS_TextPrsBuilder.hxx".}
-proc SetText*(this: var MeshVS_TextPrsBuilder; IsElement: Standard_Boolean;
-             ID: Standard_Integer; Text: TCollection_AsciiString) {.
-    importcpp: "SetText", header: "MeshVS_TextPrsBuilder.hxx".}
+proc hasTexts*(this: MeshVS_TextPrsBuilder; isElement: bool): bool {.noSideEffect,
+    importcpp: "HasTexts", header: "MeshVS_TextPrsBuilder.hxx".}
+proc getText*(this: MeshVS_TextPrsBuilder; isElement: bool; id: int;
+             text: var TCollectionAsciiString): bool {.noSideEffect,
+    importcpp: "GetText", header: "MeshVS_TextPrsBuilder.hxx".}
+proc setText*(this: var MeshVS_TextPrsBuilder; isElement: bool; id: int;
+             text: TCollectionAsciiString) {.importcpp: "SetText",
+    header: "MeshVS_TextPrsBuilder.hxx".}
 type
-  MeshVS_TextPrsBuilderbase_type* = MeshVS_PrsBuilder
+  MeshVS_TextPrsBuilderbaseType* = MeshVS_PrsBuilder
 
-proc get_type_name*(): cstring {.importcpp: "MeshVS_TextPrsBuilder::get_type_name(@)",
-                              header: "MeshVS_TextPrsBuilder.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "MeshVS_TextPrsBuilder::get_type_name(@)",
+                            header: "MeshVS_TextPrsBuilder.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "MeshVS_TextPrsBuilder::get_type_descriptor(@)",
     header: "MeshVS_TextPrsBuilder.hxx".}
-proc DynamicType*(this: MeshVS_TextPrsBuilder): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "MeshVS_TextPrsBuilder.hxx".}
+proc dynamicType*(this: MeshVS_TextPrsBuilder): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "MeshVS_TextPrsBuilder.hxx".}

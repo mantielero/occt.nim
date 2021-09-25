@@ -17,9 +17,10 @@
 ## ! validity state of anentity's content (see InterfaceModel)
 
 type
-  Interface_DataState* {.size: sizeof(cint), importcpp: "Interface_DataState",
-                        header: "Interface_DataState.hxx".} = enum
-    Interface_StateOK, Interface_LoadWarning, Interface_LoadFail,
-    Interface_DataWarning, Interface_DataFail, Interface_StateUnloaded,
-    Interface_StateUnknown
+  InterfaceDataState* {.size: sizeof(cint), importcpp: "Interface_DataState",
+                       header: "Interface_DataState.hxx".} = enum
+    InterfaceStateOK, InterfaceLoadWarning, InterfaceLoadFail,
+    InterfaceDataWarning, InterfaceDataFail, InterfaceStateUnloaded,
+    InterfaceStateUnknown
+
 

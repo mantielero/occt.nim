@@ -14,46 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepVisual_StyledItem,
-  StepVisual_HArray1OfPresentationStyleAssignment
-
 discard "forward decl of StepVisual_StyledItem"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_RepresentationItem"
 discard "forward decl of StepVisual_OverRidingStyledItem"
 discard "forward decl of StepVisual_OverRidingStyledItem"
 type
-  Handle_StepVisual_OverRidingStyledItem* = handle[StepVisual_OverRidingStyledItem]
-  StepVisual_OverRidingStyledItem* {.importcpp: "StepVisual_OverRidingStyledItem", header: "StepVisual_OverRidingStyledItem.hxx",
-                                    bycopy.} = object of StepVisual_StyledItem ## !
-                                                                          ## Returns a
-                                                                          ## OverRidingStyledItem
+  HandleStepVisualOverRidingStyledItem* = Handle[StepVisualOverRidingStyledItem]
+  StepVisualOverRidingStyledItem* {.importcpp: "StepVisual_OverRidingStyledItem", header: "StepVisual_OverRidingStyledItem.hxx",
+                                   bycopy.} = object of StepVisualStyledItem ## ! Returns a
+                                                                        ## OverRidingStyledItem
 
 
-proc constructStepVisual_OverRidingStyledItem*(): StepVisual_OverRidingStyledItem {.
+proc constructStepVisualOverRidingStyledItem*(): StepVisualOverRidingStyledItem {.
     constructor, importcpp: "StepVisual_OverRidingStyledItem(@)",
     header: "StepVisual_OverRidingStyledItem.hxx".}
-proc Init*(this: var StepVisual_OverRidingStyledItem;
-          aName: handle[TCollection_HAsciiString];
-          aStyles: handle[StepVisual_HArray1OfPresentationStyleAssignment];
-          aItem: handle[Standard_Transient];
-          aOverRiddenStyle: handle[StepVisual_StyledItem]) {.importcpp: "Init",
+proc init*(this: var StepVisualOverRidingStyledItem;
+          aName: Handle[TCollectionHAsciiString];
+          aStyles: Handle[StepVisualHArray1OfPresentationStyleAssignment];
+          aItem: Handle[StandardTransient];
+          aOverRiddenStyle: Handle[StepVisualStyledItem]) {.importcpp: "Init",
     header: "StepVisual_OverRidingStyledItem.hxx".}
-proc SetOverRiddenStyle*(this: var StepVisual_OverRidingStyledItem;
-                        aOverRiddenStyle: handle[StepVisual_StyledItem]) {.
+proc setOverRiddenStyle*(this: var StepVisualOverRidingStyledItem;
+                        aOverRiddenStyle: Handle[StepVisualStyledItem]) {.
     importcpp: "SetOverRiddenStyle", header: "StepVisual_OverRidingStyledItem.hxx".}
-proc OverRiddenStyle*(this: StepVisual_OverRidingStyledItem): handle[
-    StepVisual_StyledItem] {.noSideEffect, importcpp: "OverRiddenStyle",
-                            header: "StepVisual_OverRidingStyledItem.hxx".}
+proc overRiddenStyle*(this: StepVisualOverRidingStyledItem): Handle[
+    StepVisualStyledItem] {.noSideEffect, importcpp: "OverRiddenStyle",
+                           header: "StepVisual_OverRidingStyledItem.hxx".}
 type
-  StepVisual_OverRidingStyledItembase_type* = StepVisual_StyledItem
+  StepVisualOverRidingStyledItembaseType* = StepVisualStyledItem
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_OverRidingStyledItem::get_type_name(@)",
-                              header: "StepVisual_OverRidingStyledItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_OverRidingStyledItem::get_type_name(@)",
+                            header: "StepVisual_OverRidingStyledItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_OverRidingStyledItem::get_type_descriptor(@)",
     header: "StepVisual_OverRidingStyledItem.hxx".}
-proc DynamicType*(this: StepVisual_OverRidingStyledItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualOverRidingStyledItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_OverRidingStyledItem.hxx".}

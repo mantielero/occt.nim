@@ -17,8 +17,9 @@
 ## ! Types of standard textures.
 
 type
-  Graphic3d_NameOfTexture1D* {.size: sizeof(cint),
-                              importcpp: "Graphic3d_NameOfTexture1D",
-                              header: "Graphic3d_NameOfTexture1D.hxx".} = enum
-    Graphic3d_NOT_1D_ELEVATION, Graphic3d_NOT_1D_UNKNOWN
+  Graphic3dNameOfTexture1D* {.size: sizeof(cint),
+                             importcpp: "Graphic3d_NameOfTexture1D",
+                             header: "Graphic3d_NameOfTexture1D.hxx".} = enum
+    Graphic3dNOT_1D_ELEVATION, Graphic3dNOT_1D_UNKNOWN
+
 

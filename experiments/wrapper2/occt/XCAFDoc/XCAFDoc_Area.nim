@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../TDataStd/TDataStd_Real, ../Standard/Standard_Boolean,
-  ../Standard/Standard_OStream
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
 discard "forward decl of TDF_Attribute"
@@ -25,38 +20,38 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of XCAFDoc_Area"
 discard "forward decl of XCAFDoc_Area"
 type
-  Handle_XCAFDoc_Area* = handle[XCAFDoc_Area]
+  HandleXCAFDocArea* = Handle[XCAFDocArea]
 
 ## ! attribute to store area
 
 type
-  XCAFDoc_Area* {.importcpp: "XCAFDoc_Area", header: "XCAFDoc_Area.hxx", bycopy.} = object of TDataStd_Real ##
-                                                                                                  ## !
-                                                                                                  ## class
-                                                                                                  ## methods
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## =============
+  XCAFDocArea* {.importcpp: "XCAFDoc_Area", header: "XCAFDoc_Area.hxx", bycopy.} = object of TDataStdReal ##
+                                                                                                ## !
+                                                                                                ## class
+                                                                                                ## methods
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## =============
 
 
-proc constructXCAFDoc_Area*(): XCAFDoc_Area {.constructor,
+proc constructXCAFDocArea*(): XCAFDocArea {.constructor,
     importcpp: "XCAFDoc_Area(@)", header: "XCAFDoc_Area.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "XCAFDoc_Area::GetID(@)",
-                            header: "XCAFDoc_Area.hxx".}
-proc ID*(this: XCAFDoc_Area): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc getID*(): StandardGUID {.importcpp: "XCAFDoc_Area::GetID(@)",
+                           header: "XCAFDoc_Area.hxx".}
+proc id*(this: XCAFDocArea): StandardGUID {.noSideEffect, importcpp: "ID",
+                                        header: "XCAFDoc_Area.hxx".}
+proc set*(this: var XCAFDocArea; vol: float) {.importcpp: "Set",
     header: "XCAFDoc_Area.hxx".}
-proc Set*(this: var XCAFDoc_Area; vol: Standard_Real) {.importcpp: "Set",
-    header: "XCAFDoc_Area.hxx".}
-proc Set*(label: TDF_Label; area: Standard_Real): handle[XCAFDoc_Area] {.
+proc set*(label: TDF_Label; area: float): Handle[XCAFDocArea] {.
     importcpp: "XCAFDoc_Area::Set(@)", header: "XCAFDoc_Area.hxx".}
-proc Get*(this: XCAFDoc_Area): Standard_Real {.noSideEffect, importcpp: "Get",
+proc get*(this: XCAFDocArea): float {.noSideEffect, importcpp: "Get",
+                                  header: "XCAFDoc_Area.hxx".}
+proc get*(label: TDF_Label; area: var float): bool {.importcpp: "XCAFDoc_Area::Get(@)",
     header: "XCAFDoc_Area.hxx".}
-proc Get*(label: TDF_Label; area: var Standard_Real): Standard_Boolean {.
-    importcpp: "XCAFDoc_Area::Get(@)", header: "XCAFDoc_Area.hxx".}
-proc Dump*(this: XCAFDoc_Area; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: XCAFDocArea; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "XCAFDoc_Area.hxx".}
-proc DumpJson*(this: XCAFDoc_Area; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "XCAFDoc_Area.hxx".}
+proc dumpJson*(this: XCAFDocArea; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "XCAFDoc_Area.hxx".}
 ## !!!Ignored construct:  DEFINE_DERIVED_ATTRIBUTE ( XCAFDoc_Area , TDataStd_Real ) }
 ## Error: token expected: ) but got: ,!!!
+

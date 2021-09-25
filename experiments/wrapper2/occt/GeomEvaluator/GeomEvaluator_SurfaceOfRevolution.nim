@@ -12,68 +12,60 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  GeomEvaluator_Surface, ../Geom/Geom_Curve, ../gp/gp_Dir, ../gp/gp_Pnt,
-  ../gp/gp_Ax1
-
 discard "forward decl of Adaptor3d_HCurve"
 type
-  GeomEvaluator_SurfaceOfRevolution* {.importcpp: "GeomEvaluator_SurfaceOfRevolution", header: "GeomEvaluator_SurfaceOfRevolution.hxx",
-                                      bycopy.} = object of GeomEvaluator_Surface ## !
-                                                                            ## Initialize
-                                                                            ## evaluator by
-                                                                            ## revolved
-                                                                            ## curve, the axis of
-                                                                            ## revolution and the
-                                                                            ## location
+  GeomEvaluatorSurfaceOfRevolution* {.importcpp: "GeomEvaluator_SurfaceOfRevolution", header: "GeomEvaluator_SurfaceOfRevolution.hxx",
+                                     bycopy.} = object of GeomEvaluatorSurface ## !
+                                                                          ## Initialize
+                                                                          ## evaluator by
+                                                                          ## revolved curve, the axis of
+                                                                          ## revolution and the
+                                                                          ## location
 
 
-proc constructGeomEvaluator_SurfaceOfRevolution*(theBase: handle[Geom_Curve];
-    theRevolDir: gp_Dir; theRevolLoc: gp_Pnt): GeomEvaluator_SurfaceOfRevolution {.
+proc constructGeomEvaluatorSurfaceOfRevolution*(theBase: Handle[GeomCurve];
+    theRevolDir: Dir; theRevolLoc: Pnt): GeomEvaluatorSurfaceOfRevolution {.
     constructor, importcpp: "GeomEvaluator_SurfaceOfRevolution(@)",
     header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
-proc constructGeomEvaluator_SurfaceOfRevolution*(
-    theBase: handle[Adaptor3d_HCurve]; theRevolDir: gp_Dir; theRevolLoc: gp_Pnt): GeomEvaluator_SurfaceOfRevolution {.
+proc constructGeomEvaluatorSurfaceOfRevolution*(theBase: Handle[Adaptor3dHCurve];
+    theRevolDir: Dir; theRevolLoc: Pnt): GeomEvaluatorSurfaceOfRevolution {.
     constructor, importcpp: "GeomEvaluator_SurfaceOfRevolution(@)",
     header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
-proc SetDirection*(this: var GeomEvaluator_SurfaceOfRevolution; theDirection: gp_Dir) {.
+proc setDirection*(this: var GeomEvaluatorSurfaceOfRevolution; theDirection: Dir) {.
     importcpp: "SetDirection", header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
-proc SetLocation*(this: var GeomEvaluator_SurfaceOfRevolution; theLocation: gp_Pnt) {.
+proc setLocation*(this: var GeomEvaluatorSurfaceOfRevolution; theLocation: Pnt) {.
     importcpp: "SetLocation", header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
-proc SetAxis*(this: var GeomEvaluator_SurfaceOfRevolution; theAxis: gp_Ax1) {.
+proc setAxis*(this: var GeomEvaluatorSurfaceOfRevolution; theAxis: Ax1) {.
     importcpp: "SetAxis", header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
-proc D0*(this: GeomEvaluator_SurfaceOfRevolution; theU: Standard_Real;
-        theV: Standard_Real; theValue: var gp_Pnt) {.noSideEffect, importcpp: "D0",
+proc d0*(this: GeomEvaluatorSurfaceOfRevolution; theU: float; theV: float;
+        theValue: var Pnt) {.noSideEffect, importcpp: "D0",
+                          header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
+proc d1*(this: GeomEvaluatorSurfaceOfRevolution; theU: float; theV: float;
+        theValue: var Pnt; theD1U: var Vec; theD1V: var Vec) {.noSideEffect,
+    importcpp: "D1", header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
+proc d2*(this: GeomEvaluatorSurfaceOfRevolution; theU: float; theV: float;
+        theValue: var Pnt; theD1U: var Vec; theD1V: var Vec; theD2U: var Vec;
+        theD2V: var Vec; theD2UV: var Vec) {.noSideEffect, importcpp: "D2", header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
+proc d3*(this: GeomEvaluatorSurfaceOfRevolution; theU: float; theV: float;
+        theValue: var Pnt; theD1U: var Vec; theD1V: var Vec; theD2U: var Vec;
+        theD2V: var Vec; theD2UV: var Vec; theD3U: var Vec; theD3V: var Vec;
+        theD3UUV: var Vec; theD3UVV: var Vec) {.noSideEffect, importcpp: "D3",
     header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
-proc D1*(this: GeomEvaluator_SurfaceOfRevolution; theU: Standard_Real;
-        theV: Standard_Real; theValue: var gp_Pnt; theD1U: var gp_Vec;
-        theD1V: var gp_Vec) {.noSideEffect, importcpp: "D1",
-                           header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
-proc D2*(this: GeomEvaluator_SurfaceOfRevolution; theU: Standard_Real;
-        theV: Standard_Real; theValue: var gp_Pnt; theD1U: var gp_Vec;
-        theD1V: var gp_Vec; theD2U: var gp_Vec; theD2V: var gp_Vec; theD2UV: var gp_Vec) {.
-    noSideEffect, importcpp: "D2", header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
-proc D3*(this: GeomEvaluator_SurfaceOfRevolution; theU: Standard_Real;
-        theV: Standard_Real; theValue: var gp_Pnt; theD1U: var gp_Vec;
-        theD1V: var gp_Vec; theD2U: var gp_Vec; theD2V: var gp_Vec; theD2UV: var gp_Vec;
-        theD3U: var gp_Vec; theD3V: var gp_Vec; theD3UUV: var gp_Vec;
-        theD3UVV: var gp_Vec) {.noSideEffect, importcpp: "D3",
-                             header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
-proc DN*(this: GeomEvaluator_SurfaceOfRevolution; theU: Standard_Real;
-        theV: Standard_Real; theDerU: Standard_Integer; theDerV: Standard_Integer): gp_Vec {.
-    noSideEffect, importcpp: "DN", header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
+proc dn*(this: GeomEvaluatorSurfaceOfRevolution; theU: float; theV: float;
+        theDerU: int; theDerV: int): Vec {.noSideEffect, importcpp: "DN", header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
 type
-  GeomEvaluator_SurfaceOfRevolutionbase_type* = GeomEvaluator_Surface
+  GeomEvaluatorSurfaceOfRevolutionbaseType* = GeomEvaluatorSurface
 
-proc get_type_name*(): cstring {.importcpp: "GeomEvaluator_SurfaceOfRevolution::get_type_name(@)",
-                              header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "GeomEvaluator_SurfaceOfRevolution::get_type_name(@)",
+                            header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GeomEvaluator_SurfaceOfRevolution::get_type_descriptor(@)",
     header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
-proc DynamicType*(this: GeomEvaluator_SurfaceOfRevolution): handle[Standard_Type] {.
+proc dynamicType*(this: GeomEvaluatorSurfaceOfRevolution): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
 discard "forward decl of GeomEvaluator_SurfaceOfRevolution"
 type
-  Handle_GeomEvaluator_SurfaceOfRevolution* = handle[
-      GeomEvaluator_SurfaceOfRevolution]
+  HandleGeomEvaluatorSurfaceOfRevolution* = Handle[
+      GeomEvaluatorSurfaceOfRevolution]
+

@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Sequence, Graphic3d_ClipPlane
-
 ## ! Class defines a Clipping Volume as a logical OR (disjunction) operation between Graphic3d_ClipPlane in sequence.
 ## ! Each Graphic3d_ClipPlane represents either a single Plane clipping a halfspace (direction is specified by normal),
 ## ! or a sub-chain of planes defining a logical AND (conjunction) operation.
@@ -29,75 +26,73 @@ import
 ## ! the overall number of simultaneously active clipping planes - but at least 6 planes should be supported on all configurations.
 
 type
-  Graphic3d_SequenceOfHClipPlane* {.importcpp: "Graphic3d_SequenceOfHClipPlane", header: "Graphic3d_SequenceOfHClipPlane.hxx",
-                                   bycopy.} = object of Standard_Transient ## ! Iterator through clipping planes.
-                                                                      ## ! Empty
-                                                                      ## constructor.
+  Graphic3dSequenceOfHClipPlane* {.importcpp: "Graphic3d_SequenceOfHClipPlane",
+                                  header: "Graphic3d_SequenceOfHClipPlane.hxx",
+                                  bycopy.} = object of StandardTransient ## ! Iterator through clipping planes.
+                                                                    ## ! Empty constructor.
 
-  Graphic3d_SequenceOfHClipPlanebase_type* = Standard_Transient
+  Graphic3dSequenceOfHClipPlanebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_SequenceOfHClipPlane::get_type_name(@)",
-                              header: "Graphic3d_SequenceOfHClipPlane.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_SequenceOfHClipPlane::get_type_name(@)",
+                            header: "Graphic3d_SequenceOfHClipPlane.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_SequenceOfHClipPlane::get_type_descriptor(@)",
     header: "Graphic3d_SequenceOfHClipPlane.hxx".}
-proc DynamicType*(this: Graphic3d_SequenceOfHClipPlane): handle[Standard_Type] {.
+proc dynamicType*(this: Graphic3dSequenceOfHClipPlane): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Graphic3d_SequenceOfHClipPlane.hxx".}
 type
-  Graphic3d_SequenceOfHClipPlaneIterator* {.
+  Graphic3dSequenceOfHClipPlaneIterator* {.
       importcpp: "Graphic3d_SequenceOfHClipPlane::Iterator",
-      header: "Graphic3d_SequenceOfHClipPlane.hxx", bycopy.} = object of Graphic3d_SequenceOfHClipPlaneIterator[
-      handle[Graphic3d_ClipPlane]]
+      header: "Graphic3d_SequenceOfHClipPlane.hxx", bycopy.} = object of Graphic3dSequenceOfHClipPlaneIterator[
+      Handle[Graphic3dClipPlane]]
 
 
-proc constructGraphic3d_SequenceOfHClipPlaneIterator*(): Graphic3d_SequenceOfHClipPlaneIterator {.
+proc constructGraphic3dSequenceOfHClipPlaneIterator*(): Graphic3dSequenceOfHClipPlaneIterator {.
     constructor, importcpp: "Graphic3d_SequenceOfHClipPlane::Iterator(@)",
     header: "Graphic3d_SequenceOfHClipPlane.hxx".}
-proc constructGraphic3d_SequenceOfHClipPlaneIterator*(
-    thePlanes: Graphic3d_SequenceOfHClipPlane): Graphic3d_SequenceOfHClipPlaneIterator {.
+proc constructGraphic3dSequenceOfHClipPlaneIterator*(
+    thePlanes: Graphic3dSequenceOfHClipPlane): Graphic3dSequenceOfHClipPlaneIterator {.
     constructor, importcpp: "Graphic3d_SequenceOfHClipPlane::Iterator(@)",
     header: "Graphic3d_SequenceOfHClipPlane.hxx".}
-proc constructGraphic3d_SequenceOfHClipPlaneIterator*(
-    thePlanes: handle[Graphic3d_SequenceOfHClipPlane]): Graphic3d_SequenceOfHClipPlaneIterator {.
+proc constructGraphic3dSequenceOfHClipPlaneIterator*(
+    thePlanes: Handle[Graphic3dSequenceOfHClipPlane]): Graphic3dSequenceOfHClipPlaneIterator {.
     constructor, importcpp: "Graphic3d_SequenceOfHClipPlane::Iterator(@)",
     header: "Graphic3d_SequenceOfHClipPlane.hxx".}
-proc Init*(this: var Graphic3d_SequenceOfHClipPlaneIterator;
-          thePlanes: Graphic3d_SequenceOfHClipPlane) {.importcpp: "Init",
+proc init*(this: var Graphic3dSequenceOfHClipPlaneIterator;
+          thePlanes: Graphic3dSequenceOfHClipPlane) {.importcpp: "Init",
     header: "Graphic3d_SequenceOfHClipPlane.hxx".}
-proc Init*(this: var Graphic3d_SequenceOfHClipPlaneIterator;
-          thePlanes: handle[Graphic3d_SequenceOfHClipPlane]) {.importcpp: "Init",
+proc init*(this: var Graphic3dSequenceOfHClipPlaneIterator;
+          thePlanes: Handle[Graphic3dSequenceOfHClipPlane]) {.importcpp: "Init",
     header: "Graphic3d_SequenceOfHClipPlane.hxx".}
-proc constructGraphic3d_SequenceOfHClipPlane*(): Graphic3d_SequenceOfHClipPlane {.
+proc constructGraphic3dSequenceOfHClipPlane*(): Graphic3dSequenceOfHClipPlane {.
     constructor, importcpp: "Graphic3d_SequenceOfHClipPlane(@)",
     header: "Graphic3d_SequenceOfHClipPlane.hxx".}
-proc ToOverrideGlobal*(this: Graphic3d_SequenceOfHClipPlane): Standard_Boolean {.
-    noSideEffect, importcpp: "ToOverrideGlobal",
-    header: "Graphic3d_SequenceOfHClipPlane.hxx".}
-proc SetOverrideGlobal*(this: var Graphic3d_SequenceOfHClipPlane;
-                       theToOverride: Standard_Boolean) {.
+proc toOverrideGlobal*(this: Graphic3dSequenceOfHClipPlane): bool {.noSideEffect,
+    importcpp: "ToOverrideGlobal", header: "Graphic3d_SequenceOfHClipPlane.hxx".}
+proc setOverrideGlobal*(this: var Graphic3dSequenceOfHClipPlane; theToOverride: bool) {.
     importcpp: "SetOverrideGlobal", header: "Graphic3d_SequenceOfHClipPlane.hxx".}
-proc IsEmpty*(this: Graphic3d_SequenceOfHClipPlane): bool {.noSideEffect,
+proc isEmpty*(this: Graphic3dSequenceOfHClipPlane): bool {.noSideEffect,
     importcpp: "IsEmpty", header: "Graphic3d_SequenceOfHClipPlane.hxx".}
-proc Size*(this: Graphic3d_SequenceOfHClipPlane): Standard_Integer {.noSideEffect,
+proc size*(this: Graphic3dSequenceOfHClipPlane): int {.noSideEffect,
     importcpp: "Size", header: "Graphic3d_SequenceOfHClipPlane.hxx".}
-proc Append*(this: var Graphic3d_SequenceOfHClipPlane;
-            theItem: handle[Graphic3d_ClipPlane]): bool {.importcpp: "Append",
+proc append*(this: var Graphic3dSequenceOfHClipPlane;
+            theItem: Handle[Graphic3dClipPlane]): bool {.importcpp: "Append",
     header: "Graphic3d_SequenceOfHClipPlane.hxx".}
-proc Remove*(this: var Graphic3d_SequenceOfHClipPlane;
-            theItem: handle[Graphic3d_ClipPlane]): bool {.importcpp: "Remove",
+proc remove*(this: var Graphic3dSequenceOfHClipPlane;
+            theItem: Handle[Graphic3dClipPlane]): bool {.importcpp: "Remove",
     header: "Graphic3d_SequenceOfHClipPlane.hxx".}
-proc Remove*(this: var Graphic3d_SequenceOfHClipPlane;
-            theItem: var Graphic3d_SequenceOfHClipPlaneIterator) {.
+proc remove*(this: var Graphic3dSequenceOfHClipPlane;
+            theItem: var Graphic3dSequenceOfHClipPlaneIterator) {.
     importcpp: "Remove", header: "Graphic3d_SequenceOfHClipPlane.hxx".}
-proc Clear*(this: var Graphic3d_SequenceOfHClipPlane) {.importcpp: "Clear",
+proc clear*(this: var Graphic3dSequenceOfHClipPlane) {.importcpp: "Clear",
     header: "Graphic3d_SequenceOfHClipPlane.hxx".}
-proc First*(this: Graphic3d_SequenceOfHClipPlane): handle[Graphic3d_ClipPlane] {.
+proc first*(this: Graphic3dSequenceOfHClipPlane): Handle[Graphic3dClipPlane] {.
     noSideEffect, importcpp: "First", header: "Graphic3d_SequenceOfHClipPlane.hxx".}
-proc DumpJson*(this: Graphic3d_SequenceOfHClipPlane;
-              theOStream: var Standard_OStream; theDepth: Standard_Integer = -1) {.
-    noSideEffect, importcpp: "DumpJson",
-    header: "Graphic3d_SequenceOfHClipPlane.hxx".}
+proc dumpJson*(this: Graphic3dSequenceOfHClipPlane;
+              theOStream: var StandardOStream; theDepth: int = -1) {.noSideEffect,
+    importcpp: "DumpJson", header: "Graphic3d_SequenceOfHClipPlane.hxx".}
 discard "forward decl of Graphic3d_SequenceOfHClipPlane"
 type
-  Handle_Graphic3d_SequenceOfHClipPlane* = handle[Graphic3d_SequenceOfHClipPlane]
+  HandleGraphic3dSequenceOfHClipPlane* = Handle[Graphic3dSequenceOfHClipPlane]
+

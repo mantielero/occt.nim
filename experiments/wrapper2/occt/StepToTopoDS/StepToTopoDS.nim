@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, StepToTopoDS_BuilderError,
-  StepToTopoDS_TranslateShellError, StepToTopoDS_TranslateFaceError,
-  StepToTopoDS_TranslateEdgeError, StepToTopoDS_TranslateVertexError,
-  StepToTopoDS_TranslateVertexLoopError, StepToTopoDS_TranslatePolyLoopError,
-  ../Standard/Standard_CString, StepToTopoDS_GeometricToolError
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepToTopoDS_Root"
 discard "forward decl of StepToTopoDS_TranslateShell"
@@ -45,27 +37,27 @@ type
   StepToTopoDS* {.importcpp: "StepToTopoDS", header: "StepToTopoDS.hxx", bycopy.} = object
 
 
-proc DecodeBuilderError*(Error: StepToTopoDS_BuilderError): handle[
-    TCollection_HAsciiString] {.importcpp: "StepToTopoDS::DecodeBuilderError(@)",
-                               header: "StepToTopoDS.hxx".}
-proc DecodeShellError*(Error: StepToTopoDS_TranslateShellError): handle[
-    TCollection_HAsciiString] {.importcpp: "StepToTopoDS::DecodeShellError(@)",
-                               header: "StepToTopoDS.hxx".}
-proc DecodeFaceError*(Error: StepToTopoDS_TranslateFaceError): handle[
-    TCollection_HAsciiString] {.importcpp: "StepToTopoDS::DecodeFaceError(@)",
-                               header: "StepToTopoDS.hxx".}
-proc DecodeEdgeError*(Error: StepToTopoDS_TranslateEdgeError): handle[
-    TCollection_HAsciiString] {.importcpp: "StepToTopoDS::DecodeEdgeError(@)",
-                               header: "StepToTopoDS.hxx".}
-proc DecodeVertexError*(Error: StepToTopoDS_TranslateVertexError): handle[
-    TCollection_HAsciiString] {.importcpp: "StepToTopoDS::DecodeVertexError(@)",
-                               header: "StepToTopoDS.hxx".}
-proc DecodeVertexLoopError*(Error: StepToTopoDS_TranslateVertexLoopError): handle[
-    TCollection_HAsciiString] {.importcpp: "StepToTopoDS::DecodeVertexLoopError(@)",
-                               header: "StepToTopoDS.hxx".}
-proc DecodePolyLoopError*(Error: StepToTopoDS_TranslatePolyLoopError): handle[
-    TCollection_HAsciiString] {.importcpp: "StepToTopoDS::DecodePolyLoopError(@)",
-                               header: "StepToTopoDS.hxx".}
-proc DecodeGeometricToolError*(Error: StepToTopoDS_GeometricToolError): Standard_CString {.
+proc decodeBuilderError*(error: StepToTopoDS_BuilderError): Handle[
+    TCollectionHAsciiString] {.importcpp: "StepToTopoDS::DecodeBuilderError(@)",
+                              header: "StepToTopoDS.hxx".}
+proc decodeShellError*(error: StepToTopoDS_TranslateShellError): Handle[
+    TCollectionHAsciiString] {.importcpp: "StepToTopoDS::DecodeShellError(@)",
+                              header: "StepToTopoDS.hxx".}
+proc decodeFaceError*(error: StepToTopoDS_TranslateFaceError): Handle[
+    TCollectionHAsciiString] {.importcpp: "StepToTopoDS::DecodeFaceError(@)",
+                              header: "StepToTopoDS.hxx".}
+proc decodeEdgeError*(error: StepToTopoDS_TranslateEdgeError): Handle[
+    TCollectionHAsciiString] {.importcpp: "StepToTopoDS::DecodeEdgeError(@)",
+                              header: "StepToTopoDS.hxx".}
+proc decodeVertexError*(error: StepToTopoDS_TranslateVertexError): Handle[
+    TCollectionHAsciiString] {.importcpp: "StepToTopoDS::DecodeVertexError(@)",
+                              header: "StepToTopoDS.hxx".}
+proc decodeVertexLoopError*(error: StepToTopoDS_TranslateVertexLoopError): Handle[
+    TCollectionHAsciiString] {.importcpp: "StepToTopoDS::DecodeVertexLoopError(@)",
+                              header: "StepToTopoDS.hxx".}
+proc decodePolyLoopError*(error: StepToTopoDS_TranslatePolyLoopError): Handle[
+    TCollectionHAsciiString] {.importcpp: "StepToTopoDS::DecodePolyLoopError(@)",
+                              header: "StepToTopoDS.hxx".}
+proc decodeGeometricToolError*(error: StepToTopoDS_GeometricToolError): StandardCString {.
     importcpp: "StepToTopoDS::DecodeGeometricToolError(@)",
     header: "StepToTopoDS.hxx".}

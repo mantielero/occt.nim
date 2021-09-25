@@ -14,31 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepVisual_PresentationRepresentation"
 discard "forward decl of StepRepr_RepresentationItem"
 type
-  StepVisual_LayeredItem* {.importcpp: "StepVisual_LayeredItem",
-                           header: "StepVisual_LayeredItem.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                   ## !
-                                                                                                   ## Returns
-                                                                                                   ## a
-                                                                                                   ## LayeredItem
-                                                                                                   ## SelectType
+  StepVisualLayeredItem* {.importcpp: "StepVisual_LayeredItem",
+                          header: "StepVisual_LayeredItem.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                 ## !
+                                                                                                 ## Returns
+                                                                                                 ## a
+                                                                                                 ## LayeredItem
+                                                                                                 ## SelectType
 
 
-proc constructStepVisual_LayeredItem*(): StepVisual_LayeredItem {.constructor,
+proc constructStepVisualLayeredItem*(): StepVisualLayeredItem {.constructor,
     importcpp: "StepVisual_LayeredItem(@)", header: "StepVisual_LayeredItem.hxx".}
-proc CaseNum*(this: StepVisual_LayeredItem; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepVisualLayeredItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_LayeredItem.hxx".}
-proc PresentationRepresentation*(this: StepVisual_LayeredItem): handle[
-    StepVisual_PresentationRepresentation] {.noSideEffect,
+proc presentationRepresentation*(this: StepVisualLayeredItem): Handle[
+    StepVisualPresentationRepresentation] {.noSideEffect,
     importcpp: "PresentationRepresentation", header: "StepVisual_LayeredItem.hxx".}
-proc RepresentationItem*(this: StepVisual_LayeredItem): handle[
-    StepRepr_RepresentationItem] {.noSideEffect, importcpp: "RepresentationItem",
-                                  header: "StepVisual_LayeredItem.hxx".}
+proc representationItem*(this: StepVisualLayeredItem): Handle[
+    StepReprRepresentationItem] {.noSideEffect, importcpp: "RepresentationItem",
+                                 header: "StepVisual_LayeredItem.hxx".}

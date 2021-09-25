@@ -14,32 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepVisual_PresentationArea
-
 discard "forward decl of StepVisual_MechanicalDesignGeometricPresentationArea"
 discard "forward decl of StepVisual_MechanicalDesignGeometricPresentationArea"
 type
-  Handle_StepVisual_MechanicalDesignGeometricPresentationArea* = handle[
-      StepVisual_MechanicalDesignGeometricPresentationArea]
-  StepVisual_MechanicalDesignGeometricPresentationArea* {.
+  HandleStepVisualMechanicalDesignGeometricPresentationArea* = Handle[
+      StepVisualMechanicalDesignGeometricPresentationArea]
+  StepVisualMechanicalDesignGeometricPresentationArea* {.
       importcpp: "StepVisual_MechanicalDesignGeometricPresentationArea",
-      header: "StepVisual_MechanicalDesignGeometricPresentationArea.hxx", bycopy.} = object of StepVisual_PresentationArea ##
-                                                                                                                    ## !
-                                                                                                                    ## Returns
-                                                                                                                    ## a
-                                                                                                                    ## MechanicalDesignGeometricPresentationArea
+      header: "StepVisual_MechanicalDesignGeometricPresentationArea.hxx", bycopy.} = object of StepVisualPresentationArea ##
+                                                                                                                   ## !
+                                                                                                                   ## Returns
+                                                                                                                   ## a
+                                                                                                                   ## MechanicalDesignGeometricPresentationArea
 
 
-proc constructStepVisual_MechanicalDesignGeometricPresentationArea*(): StepVisual_MechanicalDesignGeometricPresentationArea {.
+proc constructStepVisualMechanicalDesignGeometricPresentationArea*(): StepVisualMechanicalDesignGeometricPresentationArea {.
     constructor,
     importcpp: "StepVisual_MechanicalDesignGeometricPresentationArea(@)",
     header: "StepVisual_MechanicalDesignGeometricPresentationArea.hxx".}
 type
-  StepVisual_MechanicalDesignGeometricPresentationAreabase_type* = StepVisual_PresentationArea
+  StepVisualMechanicalDesignGeometricPresentationAreabaseType* = StepVisualPresentationArea
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_MechanicalDesignGeometricPresentationArea::get_type_name(@)", header: "StepVisual_MechanicalDesignGeometricPresentationArea.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_MechanicalDesignGeometricPresentationArea::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepVisual_MechanicalDesignGeometricPresentationArea::get_type_name(@)", header: "StepVisual_MechanicalDesignGeometricPresentationArea.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_MechanicalDesignGeometricPresentationArea::get_type_descriptor(@)",
     header: "StepVisual_MechanicalDesignGeometricPresentationArea.hxx".}
-proc DynamicType*(this: StepVisual_MechanicalDesignGeometricPresentationArea): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepVisual_MechanicalDesignGeometricPresentationArea.hxx".}
+proc dynamicType*(this: StepVisualMechanicalDesignGeometricPresentationArea): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepVisual_MechanicalDesignGeometricPresentationArea.hxx".}

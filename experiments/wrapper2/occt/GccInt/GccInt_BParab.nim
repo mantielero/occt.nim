@@ -14,48 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Parab2d, GccInt_Bisec,
-  GccInt_IType
-
 discard "forward decl of gp_Parab2d"
 discard "forward decl of GccInt_BParab"
 discard "forward decl of GccInt_BParab"
 type
-  Handle_GccInt_BParab* = handle[GccInt_BParab]
+  HandleGccIntBParab* = Handle[GccIntBParab]
 
 ## ! Describes a parabola as a bisecting curve between two
 ## ! 2D geometric objects (such as lines, circles or points).
 
 type
-  GccInt_BParab* {.importcpp: "GccInt_BParab", header: "GccInt_BParab.hxx", bycopy.} = object of GccInt_Bisec ##
-                                                                                                    ## !
-                                                                                                    ## Constructs
-                                                                                                    ## a
-                                                                                                    ## bisecting
-                                                                                                    ## curve
-                                                                                                    ## whose
-                                                                                                    ## geometry
-                                                                                                    ## is
-                                                                                                    ## the
-                                                                                                    ## 2D
-                                                                                                    ## parabola
-                                                                                                    ## Parab.
+  GccIntBParab* {.importcpp: "GccInt_BParab", header: "GccInt_BParab.hxx", bycopy.} = object of GccIntBisec ##
+                                                                                                  ## !
+                                                                                                  ## Constructs
+                                                                                                  ## a
+                                                                                                  ## bisecting
+                                                                                                  ## curve
+                                                                                                  ## whose
+                                                                                                  ## geometry
+                                                                                                  ## is
+                                                                                                  ## the
+                                                                                                  ## 2D
+                                                                                                  ## parabola
+                                                                                                  ## Parab.
 
 
-proc constructGccInt_BParab*(Parab: gp_Parab2d): GccInt_BParab {.constructor,
+proc constructGccIntBParab*(parab: Parab2d): GccIntBParab {.constructor,
     importcpp: "GccInt_BParab(@)", header: "GccInt_BParab.hxx".}
-proc Parabola*(this: GccInt_BParab): gp_Parab2d {.noSideEffect,
-    importcpp: "Parabola", header: "GccInt_BParab.hxx".}
-proc ArcType*(this: GccInt_BParab): GccInt_IType {.noSideEffect,
-    importcpp: "ArcType", header: "GccInt_BParab.hxx".}
+proc parabola*(this: GccIntBParab): Parab2d {.noSideEffect, importcpp: "Parabola",
+    header: "GccInt_BParab.hxx".}
+proc arcType*(this: GccIntBParab): GccIntIType {.noSideEffect, importcpp: "ArcType",
+    header: "GccInt_BParab.hxx".}
 type
-  GccInt_BParabbase_type* = GccInt_Bisec
+  GccIntBParabbaseType* = GccIntBisec
 
-proc get_type_name*(): cstring {.importcpp: "GccInt_BParab::get_type_name(@)",
-                              header: "GccInt_BParab.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "GccInt_BParab::get_type_name(@)",
+                            header: "GccInt_BParab.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GccInt_BParab::get_type_descriptor(@)",
     header: "GccInt_BParab.hxx".}
-proc DynamicType*(this: GccInt_BParab): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: GccIntBParab): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "GccInt_BParab.hxx".}

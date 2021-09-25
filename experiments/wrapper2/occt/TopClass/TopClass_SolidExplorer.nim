@@ -14,53 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real
-
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Lin"
 discard "forward decl of TopoDS_Face"
 type
-  TopClass_SolidExplorer* {.importcpp: "TopClass_SolidExplorer",
-                           header: "TopClass_SolidExplorer.hxx", bycopy.} = object ## !
-                                                                              ## Should
-                                                                              ## return
-                                                                              ## True  if
-                                                                              ## the
-                                                                              ## point  is
-                                                                              ## outside a
-                                                                              ## !
-                                                                              ## bounding
-                                                                              ## volume of
-                                                                              ## the
-                                                                              ## shape.
+  TopClassSolidExplorer* {.importcpp: "TopClass_SolidExplorer",
+                          header: "TopClass_SolidExplorer.hxx", bycopy.} = object ## !
+                                                                             ## Should
+                                                                             ## return
+                                                                             ## True  if the
+                                                                             ## point  is
+                                                                             ## outside a
+                                                                             ## !
+                                                                             ## bounding
+                                                                             ## volume of the
+                                                                             ## shape.
 
 
-proc Reject*(this: TopClass_SolidExplorer; P: gp_Pnt): Standard_Boolean {.
-    noSideEffect, importcpp: "Reject", header: "TopClass_SolidExplorer.hxx".}
-proc Segment*(this: var TopClass_SolidExplorer; P: gp_Pnt; L: var gp_Lin;
-             Par: var Standard_Real) {.importcpp: "Segment",
-                                    header: "TopClass_SolidExplorer.hxx".}
-proc OtherSegment*(this: var TopClass_SolidExplorer; P: gp_Pnt; L: var gp_Lin;
-                  Par: var Standard_Real) {.importcpp: "OtherSegment",
+proc reject*(this: TopClassSolidExplorer; p: Pnt): bool {.noSideEffect,
+    importcpp: "Reject", header: "TopClass_SolidExplorer.hxx".}
+proc segment*(this: var TopClassSolidExplorer; p: Pnt; L: var Lin; par: var float) {.
+    importcpp: "Segment", header: "TopClass_SolidExplorer.hxx".}
+proc otherSegment*(this: var TopClassSolidExplorer; p: Pnt; L: var Lin; par: var float) {.
+    importcpp: "OtherSegment", header: "TopClass_SolidExplorer.hxx".}
+proc initShell*(this: var TopClassSolidExplorer) {.importcpp: "InitShell",
     header: "TopClass_SolidExplorer.hxx".}
-proc InitShell*(this: var TopClass_SolidExplorer) {.importcpp: "InitShell",
-    header: "TopClass_SolidExplorer.hxx".}
-proc MoreShells*(this: TopClass_SolidExplorer): Standard_Boolean {.noSideEffect,
+proc moreShells*(this: TopClassSolidExplorer): bool {.noSideEffect,
     importcpp: "MoreShells", header: "TopClass_SolidExplorer.hxx".}
-proc NextShell*(this: var TopClass_SolidExplorer) {.importcpp: "NextShell",
+proc nextShell*(this: var TopClassSolidExplorer) {.importcpp: "NextShell",
     header: "TopClass_SolidExplorer.hxx".}
-proc RejectShell*(this: TopClass_SolidExplorer; L: gp_Lin; Par: Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "RejectShell", header: "TopClass_SolidExplorer.hxx".}
-proc InitFace*(this: var TopClass_SolidExplorer) {.importcpp: "InitFace",
+proc rejectShell*(this: TopClassSolidExplorer; L: Lin; par: float): bool {.noSideEffect,
+    importcpp: "RejectShell", header: "TopClass_SolidExplorer.hxx".}
+proc initFace*(this: var TopClassSolidExplorer) {.importcpp: "InitFace",
     header: "TopClass_SolidExplorer.hxx".}
-proc MoreFaces*(this: TopClass_SolidExplorer): Standard_Boolean {.noSideEffect,
+proc moreFaces*(this: TopClassSolidExplorer): bool {.noSideEffect,
     importcpp: "MoreFaces", header: "TopClass_SolidExplorer.hxx".}
-proc NextFace*(this: var TopClass_SolidExplorer) {.importcpp: "NextFace",
+proc nextFace*(this: var TopClassSolidExplorer) {.importcpp: "NextFace",
     header: "TopClass_SolidExplorer.hxx".}
-proc CurrentFace*(this: TopClass_SolidExplorer): TopoDS_Face {.noSideEffect,
+proc currentFace*(this: TopClassSolidExplorer): TopoDS_Face {.noSideEffect,
     importcpp: "CurrentFace", header: "TopClass_SolidExplorer.hxx".}
-proc RejectFace*(this: TopClass_SolidExplorer; L: gp_Lin; Par: Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "RejectFace", header: "TopClass_SolidExplorer.hxx".}
+proc rejectFace*(this: TopClassSolidExplorer; L: Lin; par: float): bool {.noSideEffect,
+    importcpp: "RejectFace", header: "TopClass_SolidExplorer.hxx".}

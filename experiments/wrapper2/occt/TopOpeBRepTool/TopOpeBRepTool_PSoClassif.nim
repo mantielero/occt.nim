@@ -16,4 +16,5 @@
 
 discard "forward decl of BRepClass3d_SolidClassifier"
 type
-  TopOpeBRepTool_PSoClassif* = ptr BRepClass3d_SolidClassifier
+  TopOpeBRepToolPSoClassif* = ptr BRepClass3dSolidClassifier
+

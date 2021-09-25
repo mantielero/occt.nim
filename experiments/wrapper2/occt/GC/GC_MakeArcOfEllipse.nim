@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GC_Root, ../Geom/Geom_TrimmedCurve
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Elips"
 discard "forward decl of gp_Pnt"
@@ -46,20 +42,17 @@ type
                                                                                  ## Alpha2.
 
 
-proc constructGC_MakeArcOfEllipse*(Elips: gp_Elips; Alpha1: Standard_Real;
-                                  Alpha2: Standard_Real; Sense: Standard_Boolean): GC_MakeArcOfEllipse {.
+proc constructGC_MakeArcOfEllipse*(elips: Elips; alpha1: float; alpha2: float;
+                                  sense: bool): GC_MakeArcOfEllipse {.constructor,
+    importcpp: "GC_MakeArcOfEllipse(@)", header: "GC_MakeArcOfEllipse.hxx".}
+proc constructGC_MakeArcOfEllipse*(elips: Elips; p: Pnt; alpha: float; sense: bool): GC_MakeArcOfEllipse {.
     constructor, importcpp: "GC_MakeArcOfEllipse(@)",
     header: "GC_MakeArcOfEllipse.hxx".}
-proc constructGC_MakeArcOfEllipse*(Elips: gp_Elips; P: gp_Pnt; Alpha: Standard_Real;
-                                  Sense: Standard_Boolean): GC_MakeArcOfEllipse {.
+proc constructGC_MakeArcOfEllipse*(elips: Elips; p1: Pnt; p2: Pnt; sense: bool): GC_MakeArcOfEllipse {.
     constructor, importcpp: "GC_MakeArcOfEllipse(@)",
     header: "GC_MakeArcOfEllipse.hxx".}
-proc constructGC_MakeArcOfEllipse*(Elips: gp_Elips; P1: gp_Pnt; P2: gp_Pnt;
-                                  Sense: Standard_Boolean): GC_MakeArcOfEllipse {.
-    constructor, importcpp: "GC_MakeArcOfEllipse(@)",
-    header: "GC_MakeArcOfEllipse.hxx".}
-proc Value*(this: GC_MakeArcOfEllipse): handle[Geom_TrimmedCurve] {.noSideEffect,
+proc value*(this: GC_MakeArcOfEllipse): Handle[GeomTrimmedCurve] {.noSideEffect,
     importcpp: "Value", header: "GC_MakeArcOfEllipse.hxx".}
-converter `constopencascade`*(this: GC_MakeArcOfEllipse): handle[Geom_TrimmedCurve] {.
+converter `constopencascade`*(this: GC_MakeArcOfEllipse): Handle[GeomTrimmedCurve] {.
     noSideEffect, importcpp: "GC_MakeArcOfEllipse::operator constopencascade",
     header: "GC_MakeArcOfEllipse.hxx".}

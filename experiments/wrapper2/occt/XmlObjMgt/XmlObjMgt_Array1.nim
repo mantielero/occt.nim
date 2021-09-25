@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, XmlObjMgt_Element, ../Standard/Standard_Integer,
-  XmlObjMgt_DOMString
-
 ## ! The class Array1 represents unidimensionnal
 ## ! array of fixed size known at run time.
 ## ! The range of the index is user defined.
@@ -28,31 +23,29 @@ import
 ## ! for (i = A->Lower(); i <= A->Upper(); i++)
 
 type
-  XmlObjMgt_Array1* {.importcpp: "XmlObjMgt_Array1",
-                     header: "XmlObjMgt_Array1.hxx", bycopy.} = object ## ! Create an array of lower bound <Low> and
-                                                                  ## ! upper bound <Up>. Range error is raised
-                                                                  ## ! when <Up> is less than <Low>.
+  XmlObjMgtArray1* {.importcpp: "XmlObjMgt_Array1", header: "XmlObjMgt_Array1.hxx",
+                    bycopy.} = object ## ! Create an array of lower bound <Low> and
+                                   ## ! upper bound <Up>. Range error is raised
+                                   ## ! when <Up> is less than <Low>.
 
 
-proc constructXmlObjMgt_Array1*(Low: Standard_Integer; Up: Standard_Integer): XmlObjMgt_Array1 {.
+proc constructXmlObjMgtArray1*(low: int; up: int): XmlObjMgtArray1 {.constructor,
+    importcpp: "XmlObjMgt_Array1(@)", header: "XmlObjMgt_Array1.hxx".}
+proc constructXmlObjMgtArray1*(theParent: XmlObjMgtElement;
+                              theName: XmlObjMgtDOMString): XmlObjMgtArray1 {.
     constructor, importcpp: "XmlObjMgt_Array1(@)", header: "XmlObjMgt_Array1.hxx".}
-proc constructXmlObjMgt_Array1*(theParent: XmlObjMgt_Element;
-                               theName: XmlObjMgt_DOMString): XmlObjMgt_Array1 {.
-    constructor, importcpp: "XmlObjMgt_Array1(@)", header: "XmlObjMgt_Array1.hxx".}
-proc CreateArrayElement*(this: var XmlObjMgt_Array1;
-                        theParent: var XmlObjMgt_Element;
-                        theName: XmlObjMgt_DOMString) {.
+proc createArrayElement*(this: var XmlObjMgtArray1; theParent: var XmlObjMgtElement;
+                        theName: XmlObjMgtDOMString) {.
     importcpp: "CreateArrayElement", header: "XmlObjMgt_Array1.hxx".}
-proc Element*(this: XmlObjMgt_Array1): XmlObjMgt_Element {.noSideEffect,
+proc element*(this: XmlObjMgtArray1): XmlObjMgtElement {.noSideEffect,
     importcpp: "Element", header: "XmlObjMgt_Array1.hxx".}
-proc Length*(this: XmlObjMgt_Array1): Standard_Integer {.noSideEffect,
-    importcpp: "Length", header: "XmlObjMgt_Array1.hxx".}
-proc Lower*(this: XmlObjMgt_Array1): Standard_Integer {.noSideEffect,
-    importcpp: "Lower", header: "XmlObjMgt_Array1.hxx".}
-proc Upper*(this: XmlObjMgt_Array1): Standard_Integer {.noSideEffect,
-    importcpp: "Upper", header: "XmlObjMgt_Array1.hxx".}
-proc SetValue*(this: var XmlObjMgt_Array1; Index: Standard_Integer;
-              Value: var XmlObjMgt_Element) {.importcpp: "SetValue",
-    header: "XmlObjMgt_Array1.hxx".}
-proc Value*(this: XmlObjMgt_Array1; Index: Standard_Integer): XmlObjMgt_Element {.
-    noSideEffect, importcpp: "Value", header: "XmlObjMgt_Array1.hxx".}
+proc length*(this: XmlObjMgtArray1): int {.noSideEffect, importcpp: "Length",
+                                       header: "XmlObjMgt_Array1.hxx".}
+proc lower*(this: XmlObjMgtArray1): int {.noSideEffect, importcpp: "Lower",
+                                      header: "XmlObjMgt_Array1.hxx".}
+proc upper*(this: XmlObjMgtArray1): int {.noSideEffect, importcpp: "Upper",
+                                      header: "XmlObjMgt_Array1.hxx".}
+proc setValue*(this: var XmlObjMgtArray1; index: int; value: var XmlObjMgtElement) {.
+    importcpp: "SetValue", header: "XmlObjMgt_Array1.hxx".}
+proc value*(this: XmlObjMgtArray1; index: int): XmlObjMgtElement {.noSideEffect,
+    importcpp: "Value", header: "XmlObjMgt_Array1.hxx".}

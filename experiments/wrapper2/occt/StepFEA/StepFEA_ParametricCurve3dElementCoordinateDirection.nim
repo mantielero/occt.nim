@@ -13,15 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepFEA_FeaRepresentationItem
-
 discard "forward decl of StepGeom_Direction"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepFEA_ParametricCurve3dElementCoordinateDirection"
 discard "forward decl of StepFEA_ParametricCurve3dElementCoordinateDirection"
 type
-  Handle_StepFEA_ParametricCurve3dElementCoordinateDirection* = handle[
+  HandleStepFEA_ParametricCurve3dElementCoordinateDirection* = Handle[
       StepFEA_ParametricCurve3dElementCoordinateDirection]
 
 ## ! Representation of STEP entity ParametricCurve3dElementCoordinateDirection
@@ -39,21 +36,21 @@ proc constructStepFEA_ParametricCurve3dElementCoordinateDirection*(): StepFEA_Pa
     constructor,
     importcpp: "StepFEA_ParametricCurve3dElementCoordinateDirection(@)",
     header: "StepFEA_ParametricCurve3dElementCoordinateDirection.hxx".}
-proc Init*(this: var StepFEA_ParametricCurve3dElementCoordinateDirection;
-          aRepresentationItem_Name: handle[TCollection_HAsciiString];
-          aOrientation: handle[StepGeom_Direction]) {.importcpp: "Init",
+proc init*(this: var StepFEA_ParametricCurve3dElementCoordinateDirection;
+          aRepresentationItemName: Handle[TCollectionHAsciiString];
+          aOrientation: Handle[StepGeomDirection]) {.importcpp: "Init",
     header: "StepFEA_ParametricCurve3dElementCoordinateDirection.hxx".}
-proc Orientation*(this: StepFEA_ParametricCurve3dElementCoordinateDirection): handle[
-    StepGeom_Direction] {.noSideEffect, importcpp: "Orientation", header: "StepFEA_ParametricCurve3dElementCoordinateDirection.hxx".}
-proc SetOrientation*(this: var StepFEA_ParametricCurve3dElementCoordinateDirection;
-                    Orientation: handle[StepGeom_Direction]) {.
+proc orientation*(this: StepFEA_ParametricCurve3dElementCoordinateDirection): Handle[
+    StepGeomDirection] {.noSideEffect, importcpp: "Orientation", header: "StepFEA_ParametricCurve3dElementCoordinateDirection.hxx".}
+proc setOrientation*(this: var StepFEA_ParametricCurve3dElementCoordinateDirection;
+                    orientation: Handle[StepGeomDirection]) {.
     importcpp: "SetOrientation",
     header: "StepFEA_ParametricCurve3dElementCoordinateDirection.hxx".}
 type
-  StepFEA_ParametricCurve3dElementCoordinateDirectionbase_type* = StepFEA_FeaRepresentationItem
+  StepFEA_ParametricCurve3dElementCoordinateDirectionbaseType* = StepFEA_FeaRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_ParametricCurve3dElementCoordinateDirection::get_type_name(@)", header: "StepFEA_ParametricCurve3dElementCoordinateDirection.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepFEA_ParametricCurve3dElementCoordinateDirection::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepFEA_ParametricCurve3dElementCoordinateDirection::get_type_name(@)", header: "StepFEA_ParametricCurve3dElementCoordinateDirection.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_ParametricCurve3dElementCoordinateDirection::get_type_descriptor(@)",
     header: "StepFEA_ParametricCurve3dElementCoordinateDirection.hxx".}
-proc DynamicType*(this: StepFEA_ParametricCurve3dElementCoordinateDirection): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepFEA_ParametricCurve3dElementCoordinateDirection.hxx".}
+proc dynamicType*(this: StepFEA_ParametricCurve3dElementCoordinateDirection): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepFEA_ParametricCurve3dElementCoordinateDirection.hxx".}

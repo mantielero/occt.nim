@@ -13,46 +13,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_DerivedShapeAspect,
-  ../StepData/StepData_Logical
-
 discard "forward decl of StepBasic_MeasureWithUnit"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_ProductDefinitionShape"
 discard "forward decl of StepRepr_ParallelOffset"
 discard "forward decl of StepRepr_ParallelOffset"
 type
-  Handle_StepRepr_ParallelOffset* = handle[StepRepr_ParallelOffset]
+  HandleStepReprParallelOffset* = Handle[StepReprParallelOffset]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepRepr_ParallelOffset* {.importcpp: "StepRepr_ParallelOffset",
-                            header: "StepRepr_ParallelOffset.hxx", bycopy.} = object of StepRepr_DerivedShapeAspect
+  StepReprParallelOffset* {.importcpp: "StepRepr_ParallelOffset",
+                           header: "StepRepr_ParallelOffset.hxx", bycopy.} = object of StepReprDerivedShapeAspect
 
 
-proc constructStepRepr_ParallelOffset*(): StepRepr_ParallelOffset {.constructor,
+proc constructStepReprParallelOffset*(): StepReprParallelOffset {.constructor,
     importcpp: "StepRepr_ParallelOffset(@)", header: "StepRepr_ParallelOffset.hxx".}
-proc Init*(this: var StepRepr_ParallelOffset;
-          theName: handle[TCollection_HAsciiString];
-          theDescription: handle[TCollection_HAsciiString];
-          theOfShape: handle[StepRepr_ProductDefinitionShape];
-          theProductDefinitional: StepData_Logical;
-          theOffset: handle[StepBasic_MeasureWithUnit]) {.importcpp: "Init",
+proc init*(this: var StepReprParallelOffset;
+          theName: Handle[TCollectionHAsciiString];
+          theDescription: Handle[TCollectionHAsciiString];
+          theOfShape: Handle[StepReprProductDefinitionShape];
+          theProductDefinitional: StepDataLogical;
+          theOffset: Handle[StepBasicMeasureWithUnit]) {.importcpp: "Init",
     header: "StepRepr_ParallelOffset.hxx".}
-proc Offset*(this: StepRepr_ParallelOffset): handle[StepBasic_MeasureWithUnit] {.
+proc offset*(this: StepReprParallelOffset): Handle[StepBasicMeasureWithUnit] {.
     noSideEffect, importcpp: "Offset", header: "StepRepr_ParallelOffset.hxx".}
-proc SetOffset*(this: var StepRepr_ParallelOffset;
-               theOffset: handle[StepBasic_MeasureWithUnit]) {.
+proc setOffset*(this: var StepReprParallelOffset;
+               theOffset: Handle[StepBasicMeasureWithUnit]) {.
     importcpp: "SetOffset", header: "StepRepr_ParallelOffset.hxx".}
 type
-  StepRepr_ParallelOffsetbase_type* = StepRepr_DerivedShapeAspect
+  StepReprParallelOffsetbaseType* = StepReprDerivedShapeAspect
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_ParallelOffset::get_type_name(@)",
-                              header: "StepRepr_ParallelOffset.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_ParallelOffset::get_type_name(@)",
+                            header: "StepRepr_ParallelOffset.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_ParallelOffset::get_type_descriptor(@)",
     header: "StepRepr_ParallelOffset.hxx".}
-proc DynamicType*(this: StepRepr_ParallelOffset): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprParallelOffset): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepRepr_ParallelOffset.hxx".}

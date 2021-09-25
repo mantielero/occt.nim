@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  PrsDim_Relation
-
 discard "forward decl of Geom_Plane"
 discard "forward decl of gp_Lin"
 discard "forward decl of gp_Pnt"
@@ -23,32 +20,32 @@ discard "forward decl of gp_Circ"
 discard "forward decl of gp_Elips"
 discard "forward decl of PrsDim_MidPointRelation"
 type
-  Handle_PrsDim_MidPointRelation* = handle[PrsDim_MidPointRelation]
+  HandlePrsDimMidPointRelation* = Handle[PrsDimMidPointRelation]
 
 ## ! presentation of equal distance to point myMidPoint
 
 type
-  PrsDim_MidPointRelation* {.importcpp: "PrsDim_MidPointRelation",
-                            header: "PrsDim_MidPointRelation.hxx", bycopy.} = object of PrsDim_Relation
+  PrsDimMidPointRelation* {.importcpp: "PrsDim_MidPointRelation",
+                           header: "PrsDim_MidPointRelation.hxx", bycopy.} = object of PrsDimRelation
 
-  PrsDim_MidPointRelationbase_type* = PrsDim_Relation
+  PrsDimMidPointRelationbaseType* = PrsDimRelation
 
-proc get_type_name*(): cstring {.importcpp: "PrsDim_MidPointRelation::get_type_name(@)",
-                              header: "PrsDim_MidPointRelation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "PrsDim_MidPointRelation::get_type_name(@)",
+                            header: "PrsDim_MidPointRelation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "PrsDim_MidPointRelation::get_type_descriptor(@)",
     header: "PrsDim_MidPointRelation.hxx".}
-proc DynamicType*(this: PrsDim_MidPointRelation): handle[Standard_Type] {.
+proc dynamicType*(this: PrsDimMidPointRelation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "PrsDim_MidPointRelation.hxx".}
-proc constructPrsDim_MidPointRelation*(aSymmTool: TopoDS_Shape;
-                                      FirstShape: TopoDS_Shape;
-                                      SecondShape: TopoDS_Shape;
-                                      aPlane: handle[Geom_Plane]): PrsDim_MidPointRelation {.
+proc constructPrsDimMidPointRelation*(aSymmTool: TopoDS_Shape;
+                                     firstShape: TopoDS_Shape;
+                                     secondShape: TopoDS_Shape;
+                                     aPlane: Handle[GeomPlane]): PrsDimMidPointRelation {.
     constructor, importcpp: "PrsDim_MidPointRelation(@)",
     header: "PrsDim_MidPointRelation.hxx".}
-proc IsMovable*(this: PrsDim_MidPointRelation): Standard_Boolean {.noSideEffect,
+proc isMovable*(this: PrsDimMidPointRelation): bool {.noSideEffect,
     importcpp: "IsMovable", header: "PrsDim_MidPointRelation.hxx".}
-proc SetTool*(this: var PrsDim_MidPointRelation; aMidPointTool: TopoDS_Shape) {.
+proc setTool*(this: var PrsDimMidPointRelation; aMidPointTool: TopoDS_Shape) {.
     importcpp: "SetTool", header: "PrsDim_MidPointRelation.hxx".}
-proc GetTool*(this: PrsDim_MidPointRelation): TopoDS_Shape {.noSideEffect,
+proc getTool*(this: PrsDimMidPointRelation): TopoDS_Shape {.noSideEffect,
     importcpp: "GetTool", header: "PrsDim_MidPointRelation.hxx".}

@@ -13,12 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  XCAFPrs_Style, ../TopoDS/TopoDS_Shape, XCAFPrs_Style,
-  ../NCollection/NCollection_DataMap
-
 type
-  XCAFPrs_DataMapOfStyleShape* = NCollection_DataMap[XCAFPrs_Style, TopoDS_Shape,
-      XCAFPrs_Style]
-  XCAFPrs_DataMapIteratorOfDataMapOfStyleShape* = Iterator[XCAFPrs_Style,
-      TopoDS_Shape, XCAFPrs_Style]
+  XCAFPrsDataMapOfStyleShape* = NCollectionDataMap[XCAFPrsStyle, TopoDS_Shape,
+      XCAFPrsStyle]
+  XCAFPrsDataMapIteratorOfDataMapOfStyleShape* = Iterator[XCAFPrsStyle,
+      TopoDS_Shape, XCAFPrsStyle]
+

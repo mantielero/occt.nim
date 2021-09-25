@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESDraw_DrawingWithRotation"
 discard "forward decl of IGESData_IGESReaderData"
@@ -31,44 +26,44 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESDraw_ToolDrawingWithRotation* {.importcpp: "IGESDraw_ToolDrawingWithRotation", header: "IGESDraw_ToolDrawingWithRotation.hxx",
-                                     bycopy.} = object ## ! Returns a ToolDrawingWithRotation, ready to work
+  IGESDrawToolDrawingWithRotation* {.importcpp: "IGESDraw_ToolDrawingWithRotation", header: "IGESDraw_ToolDrawingWithRotation.hxx",
+                                    bycopy.} = object ## ! Returns a ToolDrawingWithRotation, ready to work
 
 
-proc constructIGESDraw_ToolDrawingWithRotation*(): IGESDraw_ToolDrawingWithRotation {.
+proc constructIGESDrawToolDrawingWithRotation*(): IGESDrawToolDrawingWithRotation {.
     constructor, importcpp: "IGESDraw_ToolDrawingWithRotation(@)",
     header: "IGESDraw_ToolDrawingWithRotation.hxx".}
-proc ReadOwnParams*(this: IGESDraw_ToolDrawingWithRotation;
-                   ent: handle[IGESDraw_DrawingWithRotation];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESDraw_ToolDrawingWithRotation.hxx".}
-proc WriteOwnParams*(this: IGESDraw_ToolDrawingWithRotation;
-                    ent: handle[IGESDraw_DrawingWithRotation];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
-    importcpp: "WriteOwnParams", header: "IGESDraw_ToolDrawingWithRotation.hxx".}
-proc OwnShared*(this: IGESDraw_ToolDrawingWithRotation;
-               ent: handle[IGESDraw_DrawingWithRotation];
-               iter: var Interface_EntityIterator) {.noSideEffect,
-    importcpp: "OwnShared", header: "IGESDraw_ToolDrawingWithRotation.hxx".}
-proc OwnCorrect*(this: IGESDraw_ToolDrawingWithRotation;
-                ent: handle[IGESDraw_DrawingWithRotation]): Standard_Boolean {.
-    noSideEffect, importcpp: "OwnCorrect",
+proc readOwnParams*(this: IGESDrawToolDrawingWithRotation;
+                   ent: Handle[IGESDrawDrawingWithRotation];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
     header: "IGESDraw_ToolDrawingWithRotation.hxx".}
-proc DirChecker*(this: IGESDraw_ToolDrawingWithRotation;
-                ent: handle[IGESDraw_DrawingWithRotation]): IGESData_DirChecker {.
+proc writeOwnParams*(this: IGESDrawToolDrawingWithRotation;
+                    ent: Handle[IGESDrawDrawingWithRotation];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
+    importcpp: "WriteOwnParams", header: "IGESDraw_ToolDrawingWithRotation.hxx".}
+proc ownShared*(this: IGESDrawToolDrawingWithRotation;
+               ent: Handle[IGESDrawDrawingWithRotation];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
+    importcpp: "OwnShared", header: "IGESDraw_ToolDrawingWithRotation.hxx".}
+proc ownCorrect*(this: IGESDrawToolDrawingWithRotation;
+                ent: Handle[IGESDrawDrawingWithRotation]): bool {.noSideEffect,
+    importcpp: "OwnCorrect", header: "IGESDraw_ToolDrawingWithRotation.hxx".}
+proc dirChecker*(this: IGESDrawToolDrawingWithRotation;
+                ent: Handle[IGESDrawDrawingWithRotation]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESDraw_ToolDrawingWithRotation.hxx".}
-proc OwnCheck*(this: IGESDraw_ToolDrawingWithRotation;
-              ent: handle[IGESDraw_DrawingWithRotation];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESDrawToolDrawingWithRotation;
+              ent: Handle[IGESDrawDrawingWithRotation];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck",
     header: "IGESDraw_ToolDrawingWithRotation.hxx".}
-proc OwnCopy*(this: IGESDraw_ToolDrawingWithRotation;
-             entfrom: handle[IGESDraw_DrawingWithRotation];
-             entto: handle[IGESDraw_DrawingWithRotation];
-             TC: var Interface_CopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESDraw_ToolDrawingWithRotation.hxx".}
-proc OwnDump*(this: IGESDraw_ToolDrawingWithRotation;
-             ent: handle[IGESDraw_DrawingWithRotation];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump", header: "IGESDraw_ToolDrawingWithRotation.hxx".}
+proc ownCopy*(this: IGESDrawToolDrawingWithRotation;
+             entfrom: Handle[IGESDrawDrawingWithRotation];
+             entto: Handle[IGESDrawDrawingWithRotation]; tc: var InterfaceCopyTool) {.
+    noSideEffect, importcpp: "OwnCopy",
+    header: "IGESDraw_ToolDrawingWithRotation.hxx".}
+proc ownDump*(this: IGESDrawToolDrawingWithRotation;
+             ent: Handle[IGESDrawDrawingWithRotation]; dumper: IGESDataIGESDumper;
+             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+    header: "IGESDraw_ToolDrawingWithRotation.hxx".}

@@ -12,8 +12,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepElement_ElementVolume* {.size: sizeof(cint),
-                              importcpp: "StepElement_ElementVolume",
-                              header: "StepElement_ElementVolume.hxx".} = enum
-    StepElement_Volume
+  StepElementElementVolume* {.size: sizeof(cint),
+                             importcpp: "StepElement_ElementVolume",
+                             header: "StepElement_ElementVolume.hxx".} = enum
+    StepElementVolume
+
 

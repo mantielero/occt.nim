@@ -12,12 +12,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Integer, TColStd_MapIntegerHasher,
-  ../NCollection/NCollection_Map
-
 type
-  TColStd_MapOfInteger* = NCollection_Map[Standard_Integer,
-                                        TColStd_MapIntegerHasher]
-  TColStd_MapIteratorOfMapOfInteger* = Iterator[Standard_Integer,
-      TColStd_MapIntegerHasher]
+  TColStdMapOfInteger* = NCollectionMap[int, TColStdMapIntegerHasher]
+  TColStdMapIteratorOfMapOfInteger* = Iterator[int, TColStdMapIntegerHasher]
+

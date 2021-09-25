@@ -14,15 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Boolean
-
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESSolid_SolidInstance"
 discard "forward decl of IGESSolid_SolidInstance"
 type
-  Handle_IGESSolid_SolidInstance* = handle[IGESSolid_SolidInstance]
+  HandleIGESSolidSolidInstance* = Handle[IGESSolidSolidInstance]
 
 ## ! defines SolidInstance, Type <430> Form Number <0>
 ## ! in package IGESSolid
@@ -33,27 +29,27 @@ type
 ## ! Else it is for a Boolean Tree, Primitive, other Solid Inst.
 
 type
-  IGESSolid_SolidInstance* {.importcpp: "IGESSolid_SolidInstance",
-                            header: "IGESSolid_SolidInstance.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESSolidSolidInstance* {.importcpp: "IGESSolid_SolidInstance",
+                           header: "IGESSolid_SolidInstance.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESSolid_SolidInstance*(): IGESSolid_SolidInstance {.constructor,
+proc constructIGESSolidSolidInstance*(): IGESSolidSolidInstance {.constructor,
     importcpp: "IGESSolid_SolidInstance(@)", header: "IGESSolid_SolidInstance.hxx".}
-proc Init*(this: var IGESSolid_SolidInstance; anEntity: handle[IGESData_IGESEntity]) {.
+proc init*(this: var IGESSolidSolidInstance; anEntity: Handle[IGESDataIGESEntity]) {.
     importcpp: "Init", header: "IGESSolid_SolidInstance.hxx".}
-proc IsBrep*(this: IGESSolid_SolidInstance): Standard_Boolean {.noSideEffect,
-    importcpp: "IsBrep", header: "IGESSolid_SolidInstance.hxx".}
-proc SetBrep*(this: var IGESSolid_SolidInstance; brep: Standard_Boolean) {.
-    importcpp: "SetBrep", header: "IGESSolid_SolidInstance.hxx".}
-proc Entity*(this: IGESSolid_SolidInstance): handle[IGESData_IGESEntity] {.
+proc isBrep*(this: IGESSolidSolidInstance): bool {.noSideEffect, importcpp: "IsBrep",
+    header: "IGESSolid_SolidInstance.hxx".}
+proc setBrep*(this: var IGESSolidSolidInstance; brep: bool) {.importcpp: "SetBrep",
+    header: "IGESSolid_SolidInstance.hxx".}
+proc entity*(this: IGESSolidSolidInstance): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Entity", header: "IGESSolid_SolidInstance.hxx".}
 type
-  IGESSolid_SolidInstancebase_type* = IGESData_IGESEntity
+  IGESSolidSolidInstancebaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESSolid_SolidInstance::get_type_name(@)",
-                              header: "IGESSolid_SolidInstance.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSolid_SolidInstance::get_type_name(@)",
+                            header: "IGESSolid_SolidInstance.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSolid_SolidInstance::get_type_descriptor(@)",
     header: "IGESSolid_SolidInstance.hxx".}
-proc DynamicType*(this: IGESSolid_SolidInstance): handle[Standard_Type] {.
+proc dynamicType*(this: IGESSolidSolidInstance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSolid_SolidInstance.hxx".}

@@ -14,48 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../TopoDS/TopoDS_Shape, TopOpeBRepBuild_BlockIterator,
-  ../Standard/Standard_Transient
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRepBuild_BlockIterator"
 discard "forward decl of TopOpeBRepBuild_Loop"
 discard "forward decl of TopOpeBRepBuild_Loop"
 type
-  Handle_TopOpeBRepBuild_Loop* = handle[TopOpeBRepBuild_Loop]
+  HandleTopOpeBRepBuildLoop* = Handle[TopOpeBRepBuildLoop]
 
 ## ! a Loop is an existing shape (Shell,Wire) or a set
 ## ! of shapes (Faces,Edges) which are connex.
 ## ! a set of connex shape is represented by a BlockIterator
 
 type
-  TopOpeBRepBuild_Loop* {.importcpp: "TopOpeBRepBuild_Loop",
-                         header: "TopOpeBRepBuild_Loop.hxx", bycopy.} = object of Standard_Transient
+  TopOpeBRepBuildLoop* {.importcpp: "TopOpeBRepBuild_Loop",
+                        header: "TopOpeBRepBuild_Loop.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructTopOpeBRepBuild_Loop*(S: TopoDS_Shape): TopOpeBRepBuild_Loop {.
+proc constructTopOpeBRepBuildLoop*(s: TopoDS_Shape): TopOpeBRepBuildLoop {.
     constructor, importcpp: "TopOpeBRepBuild_Loop(@)",
     header: "TopOpeBRepBuild_Loop.hxx".}
-proc constructTopOpeBRepBuild_Loop*(BI: TopOpeBRepBuild_BlockIterator): TopOpeBRepBuild_Loop {.
+proc constructTopOpeBRepBuildLoop*(bi: TopOpeBRepBuildBlockIterator): TopOpeBRepBuildLoop {.
     constructor, importcpp: "TopOpeBRepBuild_Loop(@)",
     header: "TopOpeBRepBuild_Loop.hxx".}
-proc IsShape*(this: TopOpeBRepBuild_Loop): Standard_Boolean {.noSideEffect,
-    importcpp: "IsShape", header: "TopOpeBRepBuild_Loop.hxx".}
-proc Shape*(this: TopOpeBRepBuild_Loop): TopoDS_Shape {.noSideEffect,
+proc isShape*(this: TopOpeBRepBuildLoop): bool {.noSideEffect, importcpp: "IsShape",
+    header: "TopOpeBRepBuild_Loop.hxx".}
+proc shape*(this: TopOpeBRepBuildLoop): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "TopOpeBRepBuild_Loop.hxx".}
-proc BlockIterator*(this: TopOpeBRepBuild_Loop): TopOpeBRepBuild_BlockIterator {.
+proc blockIterator*(this: TopOpeBRepBuildLoop): TopOpeBRepBuildBlockIterator {.
     noSideEffect, importcpp: "BlockIterator", header: "TopOpeBRepBuild_Loop.hxx".}
-proc Dump*(this: TopOpeBRepBuild_Loop) {.noSideEffect, importcpp: "Dump",
-                                      header: "TopOpeBRepBuild_Loop.hxx".}
+proc dump*(this: TopOpeBRepBuildLoop) {.noSideEffect, importcpp: "Dump",
+                                     header: "TopOpeBRepBuild_Loop.hxx".}
 type
-  TopOpeBRepBuild_Loopbase_type* = Standard_Transient
+  TopOpeBRepBuildLoopbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TopOpeBRepBuild_Loop::get_type_name(@)",
-                              header: "TopOpeBRepBuild_Loop.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TopOpeBRepBuild_Loop::get_type_name(@)",
+                            header: "TopOpeBRepBuild_Loop.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopOpeBRepBuild_Loop::get_type_descriptor(@)",
     header: "TopOpeBRepBuild_Loop.hxx".}
-proc DynamicType*(this: TopOpeBRepBuild_Loop): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TopOpeBRepBuildLoop): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopOpeBRepBuild_Loop.hxx".}

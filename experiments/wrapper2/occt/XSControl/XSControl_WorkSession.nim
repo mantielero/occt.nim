@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../IFSelect/IFSelect_WorkSession, ../IFSelect/IFSelect_ReturnStatus,
-  XSControl_TransferWriter
-
 discard "forward decl of XSControl_Controller"
 discard "forward decl of XSControl_TransferReader"
 discard "forward decl of XSControl_Vars"
@@ -32,7 +27,7 @@ discard "forward decl of Interface_CheckIterator"
 discard "forward decl of XSControl_WorkSession"
 discard "forward decl of XSControl_WorkSession"
 type
-  Handle_XSControl_WorkSession* = handle[XSControl_WorkSession]
+  HandleXSControlWorkSession* = Handle[XSControlWorkSession]
 
 ## ! This WorkSession completes the basic one, by adding :
 ## ! - use of Controller, with norm selection...
@@ -44,85 +39,84 @@ type
 ## ! Each item is accessed by a Name
 
 type
-  XSControl_WorkSession* {.importcpp: "XSControl_WorkSession",
-                          header: "XSControl_WorkSession.hxx", bycopy.} = object of IFSelect_WorkSession ##
-                                                                                                  ## !
-                                                                                                  ## Clears
-                                                                                                  ## binders
+  XSControlWorkSession* {.importcpp: "XSControl_WorkSession",
+                         header: "XSControl_WorkSession.hxx", bycopy.} = object of IFSelectWorkSession ##
+                                                                                                ## !
+                                                                                                ## Clears
+                                                                                                ## binders
 
 
-proc constructXSControl_WorkSession*(): XSControl_WorkSession {.constructor,
+proc constructXSControlWorkSession*(): XSControlWorkSession {.constructor,
     importcpp: "XSControl_WorkSession(@)", header: "XSControl_WorkSession.hxx".}
-proc destroyXSControl_WorkSession*(this: var XSControl_WorkSession) {.
+proc destroyXSControlWorkSession*(this: var XSControlWorkSession) {.
     importcpp: "#.~XSControl_WorkSession()", header: "XSControl_WorkSession.hxx".}
-proc ClearData*(this: var XSControl_WorkSession; theMode: Standard_Integer) {.
+proc clearData*(this: var XSControlWorkSession; theMode: int) {.
     importcpp: "ClearData", header: "XSControl_WorkSession.hxx".}
-proc SelectNorm*(this: var XSControl_WorkSession; theNormName: Standard_CString): Standard_Boolean {.
+proc selectNorm*(this: var XSControlWorkSession; theNormName: StandardCString): bool {.
     importcpp: "SelectNorm", header: "XSControl_WorkSession.hxx".}
-proc SetController*(this: var XSControl_WorkSession;
-                   theCtl: handle[XSControl_Controller]) {.
+proc setController*(this: var XSControlWorkSession;
+                   theCtl: Handle[XSControlController]) {.
     importcpp: "SetController", header: "XSControl_WorkSession.hxx".}
-proc SelectedNorm*(this: XSControl_WorkSession;
-                  theRsc: Standard_Boolean = Standard_False): Standard_CString {.
+proc selectedNorm*(this: XSControlWorkSession; theRsc: bool = false): StandardCString {.
     noSideEffect, importcpp: "SelectedNorm", header: "XSControl_WorkSession.hxx".}
-proc NormAdaptor*(this: XSControl_WorkSession): handle[XSControl_Controller] {.
+proc normAdaptor*(this: XSControlWorkSession): Handle[XSControlController] {.
     noSideEffect, importcpp: "NormAdaptor", header: "XSControl_WorkSession.hxx".}
-proc Context*(this: XSControl_WorkSession): NCollection_DataMap[
-    TCollection_AsciiString, handle[Standard_Transient]] {.noSideEffect,
+proc context*(this: XSControlWorkSession): NCollectionDataMap[
+    TCollectionAsciiString, Handle[StandardTransient]] {.noSideEffect,
     importcpp: "Context", header: "XSControl_WorkSession.hxx".}
-proc SetAllContext*(this: var XSControl_WorkSession; theContext: NCollection_DataMap[
-    TCollection_AsciiString, handle[Standard_Transient]]) {.
+proc setAllContext*(this: var XSControlWorkSession; theContext: NCollectionDataMap[
+    TCollectionAsciiString, Handle[StandardTransient]]) {.
     importcpp: "SetAllContext", header: "XSControl_WorkSession.hxx".}
-proc ClearContext*(this: var XSControl_WorkSession) {.importcpp: "ClearContext",
+proc clearContext*(this: var XSControlWorkSession) {.importcpp: "ClearContext",
     header: "XSControl_WorkSession.hxx".}
-proc PrintTransferStatus*(this: XSControl_WorkSession; theNum: Standard_Integer;
-                         theWri: Standard_Boolean; theS: var Standard_OStream): Standard_Boolean {.
-    noSideEffect, importcpp: "PrintTransferStatus",
-    header: "XSControl_WorkSession.hxx".}
-proc InitTransferReader*(this: var XSControl_WorkSession; theMode: Standard_Integer) {.
+proc printTransferStatus*(this: XSControlWorkSession; theNum: int; theWri: bool;
+                         theS: var StandardOStream): bool {.noSideEffect,
+    importcpp: "PrintTransferStatus", header: "XSControl_WorkSession.hxx".}
+proc initTransferReader*(this: var XSControlWorkSession; theMode: int) {.
     importcpp: "InitTransferReader", header: "XSControl_WorkSession.hxx".}
-proc SetTransferReader*(this: var XSControl_WorkSession;
-                       theTR: handle[XSControl_TransferReader]) {.
+proc setTransferReader*(this: var XSControlWorkSession;
+                       theTR: Handle[XSControlTransferReader]) {.
     importcpp: "SetTransferReader", header: "XSControl_WorkSession.hxx".}
-proc TransferReader*(this: XSControl_WorkSession): handle[XSControl_TransferReader] {.
+proc transferReader*(this: XSControlWorkSession): Handle[XSControlTransferReader] {.
     noSideEffect, importcpp: "TransferReader", header: "XSControl_WorkSession.hxx".}
-proc MapReader*(this: XSControl_WorkSession): handle[Transfer_TransientProcess] {.
+proc mapReader*(this: XSControlWorkSession): Handle[TransferTransientProcess] {.
     noSideEffect, importcpp: "MapReader", header: "XSControl_WorkSession.hxx".}
-proc SetMapReader*(this: var XSControl_WorkSession;
-                  theTP: handle[Transfer_TransientProcess]): Standard_Boolean {.
+proc setMapReader*(this: var XSControlWorkSession;
+                  theTP: Handle[TransferTransientProcess]): bool {.
     importcpp: "SetMapReader", header: "XSControl_WorkSession.hxx".}
-proc Result*(this: XSControl_WorkSession; theEnt: handle[Standard_Transient];
-            theMode: Standard_Integer): handle[Standard_Transient] {.noSideEffect,
+proc result*(this: XSControlWorkSession; theEnt: Handle[StandardTransient];
+            theMode: int): Handle[StandardTransient] {.noSideEffect,
     importcpp: "Result", header: "XSControl_WorkSession.hxx".}
-proc TransferReadOne*(this: var XSControl_WorkSession;
-                     theEnts: handle[Standard_Transient]; theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Integer {.
+proc transferReadOne*(this: var XSControlWorkSession;
+                     theEnts: Handle[StandardTransient];
+                     theProgress: MessageProgressRange = messageProgressRange()): int {.
     importcpp: "TransferReadOne", header: "XSControl_WorkSession.hxx".}
-proc TransferReadRoots*(this: var XSControl_WorkSession; theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Integer {.
+proc transferReadRoots*(this: var XSControlWorkSession; theProgress: MessageProgressRange = messageProgressRange()): int {.
     importcpp: "TransferReadRoots", header: "XSControl_WorkSession.hxx".}
-proc NewModel*(this: var XSControl_WorkSession): handle[Interface_InterfaceModel] {.
+proc newModel*(this: var XSControlWorkSession): Handle[InterfaceInterfaceModel] {.
     importcpp: "NewModel", header: "XSControl_WorkSession.hxx".}
-proc TransferWriter*(this: XSControl_WorkSession): handle[XSControl_TransferWriter] {.
+proc transferWriter*(this: XSControlWorkSession): Handle[XSControlTransferWriter] {.
     noSideEffect, importcpp: "TransferWriter", header: "XSControl_WorkSession.hxx".}
-proc SetMapWriter*(this: var XSControl_WorkSession;
-                  theFP: handle[Transfer_FinderProcess]): Standard_Boolean {.
+proc setMapWriter*(this: var XSControlWorkSession;
+                  theFP: Handle[TransferFinderProcess]): bool {.
     importcpp: "SetMapWriter", header: "XSControl_WorkSession.hxx".}
-proc TransferWriteShape*(this: var XSControl_WorkSession; theShape: TopoDS_Shape;
-                        theCompGraph: Standard_Boolean = Standard_True; theProgress: Message_ProgressRange = Message_ProgressRange()): IFSelect_ReturnStatus {.
+proc transferWriteShape*(this: var XSControlWorkSession; theShape: TopoDS_Shape;
+                        theCompGraph: bool = true; theProgress: MessageProgressRange = messageProgressRange()): IFSelectReturnStatus {.
     importcpp: "TransferWriteShape", header: "XSControl_WorkSession.hxx".}
-proc TransferWriteCheckList*(this: XSControl_WorkSession): Interface_CheckIterator {.
+proc transferWriteCheckList*(this: XSControlWorkSession): InterfaceCheckIterator {.
     noSideEffect, importcpp: "TransferWriteCheckList",
     header: "XSControl_WorkSession.hxx".}
-proc Vars*(this: XSControl_WorkSession): handle[XSControl_Vars] {.noSideEffect,
+proc vars*(this: XSControlWorkSession): Handle[XSControlVars] {.noSideEffect,
     importcpp: "Vars", header: "XSControl_WorkSession.hxx".}
-proc SetVars*(this: var XSControl_WorkSession; theVars: handle[XSControl_Vars]) {.
+proc setVars*(this: var XSControlWorkSession; theVars: Handle[XSControlVars]) {.
     importcpp: "SetVars", header: "XSControl_WorkSession.hxx".}
 type
-  XSControl_WorkSessionbase_type* = IFSelect_WorkSession
+  XSControlWorkSessionbaseType* = IFSelectWorkSession
 
-proc get_type_name*(): cstring {.importcpp: "XSControl_WorkSession::get_type_name(@)",
-                              header: "XSControl_WorkSession.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XSControl_WorkSession::get_type_name(@)",
+                            header: "XSControl_WorkSession.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XSControl_WorkSession::get_type_descriptor(@)",
     header: "XSControl_WorkSession.hxx".}
-proc DynamicType*(this: XSControl_WorkSession): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "XSControl_WorkSession.hxx".}
+proc dynamicType*(this: XSControlWorkSession): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "XSControl_WorkSession.hxx".}

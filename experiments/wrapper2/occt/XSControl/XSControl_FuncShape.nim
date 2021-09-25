@@ -14,30 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../TopTools/TopTools_HSequenceOfShape, ../Standard/Standard_CString,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of XSControl_WorkSession"
 discard "forward decl of TCollection_AsciiString"
 type
-  XSControl_FuncShape* {.importcpp: "XSControl_FuncShape",
-                        header: "XSControl_FuncShape.hxx", bycopy.} = object ## ! Defines and loads all
-                                                                        ## functions which work on shapes for
-                                                                        ## XSControl (as ActFunc)
+  XSControlFuncShape* {.importcpp: "XSControl_FuncShape",
+                       header: "XSControl_FuncShape.hxx", bycopy.} = object ## ! Defines and loads all functions which work on shapes for XSControl (as ActFunc)
 
 
-proc Init*() {.importcpp: "XSControl_FuncShape::Init(@)",
+proc init*() {.importcpp: "XSControl_FuncShape::Init(@)",
              header: "XSControl_FuncShape.hxx".}
-proc MoreShapes*(session: handle[XSControl_WorkSession];
-                list: var handle[TopTools_HSequenceOfShape]; name: Standard_CString): Standard_Integer {.
+proc moreShapes*(session: Handle[XSControlWorkSession];
+                list: var Handle[TopToolsHSequenceOfShape]; name: StandardCString): int {.
     importcpp: "XSControl_FuncShape::MoreShapes(@)",
     header: "XSControl_FuncShape.hxx".}
-proc FileAndVar*(session: handle[XSControl_WorkSession]; file: Standard_CString;
-                `var`: Standard_CString; def: Standard_CString;
-                resfile: var TCollection_AsciiString;
-                resvar: var TCollection_AsciiString): Standard_Boolean {.
+proc fileAndVar*(session: Handle[XSControlWorkSession]; file: StandardCString;
+                `var`: StandardCString; def: StandardCString;
+                resfile: var TCollectionAsciiString;
+                resvar: var TCollectionAsciiString): bool {.
     importcpp: "XSControl_FuncShape::FileAndVar(@)",
     header: "XSControl_FuncShape.hxx".}

@@ -14,21 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GeomToStep_Root
-
 discard "forward decl of StepGeom_CylindricalSurface"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom_CylindricalSurface"
 type
-  GeomToStep_MakeCylindricalSurface* {.importcpp: "GeomToStep_MakeCylindricalSurface", header: "GeomToStep_MakeCylindricalSurface.hxx",
-                                      bycopy.} = object of GeomToStep_Root
+  GeomToStepMakeCylindricalSurface* {.importcpp: "GeomToStep_MakeCylindricalSurface", header: "GeomToStep_MakeCylindricalSurface.hxx",
+                                     bycopy.} = object of GeomToStepRoot
 
 
-proc constructGeomToStep_MakeCylindricalSurface*(
-    CSurf: handle[Geom_CylindricalSurface]): GeomToStep_MakeCylindricalSurface {.
+proc constructGeomToStepMakeCylindricalSurface*(
+    cSurf: Handle[GeomCylindricalSurface]): GeomToStepMakeCylindricalSurface {.
     constructor, importcpp: "GeomToStep_MakeCylindricalSurface(@)",
     header: "GeomToStep_MakeCylindricalSurface.hxx".}
-proc Value*(this: GeomToStep_MakeCylindricalSurface): handle[
-    StepGeom_CylindricalSurface] {.noSideEffect, importcpp: "Value", header: "GeomToStep_MakeCylindricalSurface.hxx".}
+proc value*(this: GeomToStepMakeCylindricalSurface): Handle[
+    StepGeomCylindricalSurface] {.noSideEffect, importcpp: "Value", header: "GeomToStep_MakeCylindricalSurface.hxx".}

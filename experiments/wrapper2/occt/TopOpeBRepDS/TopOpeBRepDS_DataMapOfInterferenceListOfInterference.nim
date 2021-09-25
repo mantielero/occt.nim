@@ -14,14 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TopOpeBRepDS_Interference, TopOpeBRepDS_ListOfInterference,
-  ../TColStd/TColStd_MapTransientHasher, ../NCollection/NCollection_DataMap
-
 type
-  TopOpeBRepDS_DataMapOfInterferenceListOfInterference* = NCollection_DataMap[
-      handle[TopOpeBRepDS_Interference], TopOpeBRepDS_ListOfInterference,
-      TColStd_MapTransientHasher]
+  TopOpeBRepDS_DataMapOfInterferenceListOfInterference* = NCollectionDataMap[
+      Handle[TopOpeBRepDS_Interference], TopOpeBRepDS_ListOfInterference,
+      TColStdMapTransientHasher]
   TopOpeBRepDS_DataMapIteratorOfDataMapOfInterferenceListOfInterference* = Iterator[
-      handle[TopOpeBRepDS_Interference], TopOpeBRepDS_ListOfInterference,
-      TColStd_MapTransientHasher]
+      Handle[TopOpeBRepDS_Interference], TopOpeBRepDS_ListOfInterference,
+      TColStdMapTransientHasher]
+

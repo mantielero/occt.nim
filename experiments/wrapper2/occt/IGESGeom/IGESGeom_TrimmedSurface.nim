@@ -14,18 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  IGESGeom_HArray1OfCurveOnSurface, ../IGESData/IGESData_IGESEntity,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESGeom_CurveOnSurface"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESGeom_TrimmedSurface"
 discard "forward decl of IGESGeom_TrimmedSurface"
 type
-  Handle_IGESGeom_TrimmedSurface* = handle[IGESGeom_TrimmedSurface]
+  HandleIGESGeomTrimmedSurface* = Handle[IGESGeomTrimmedSurface]
 
 ## ! defines IGESTrimmedSurface, Type <144> Form <0>
 ## ! in package IGESGeom
@@ -39,39 +34,36 @@ type
 ## ! boundary curves.
 
 type
-  IGESGeom_TrimmedSurface* {.importcpp: "IGESGeom_TrimmedSurface",
-                            header: "IGESGeom_TrimmedSurface.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESGeomTrimmedSurface* {.importcpp: "IGESGeom_TrimmedSurface",
+                           header: "IGESGeom_TrimmedSurface.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESGeom_TrimmedSurface*(): IGESGeom_TrimmedSurface {.constructor,
+proc constructIGESGeomTrimmedSurface*(): IGESGeomTrimmedSurface {.constructor,
     importcpp: "IGESGeom_TrimmedSurface(@)", header: "IGESGeom_TrimmedSurface.hxx".}
-proc Init*(this: var IGESGeom_TrimmedSurface; aSurface: handle[IGESData_IGESEntity];
-          aFlag: Standard_Integer; anOuter: handle[IGESGeom_CurveOnSurface];
-          allInners: handle[IGESGeom_HArray1OfCurveOnSurface]) {.
-    importcpp: "Init", header: "IGESGeom_TrimmedSurface.hxx".}
-proc Surface*(this: IGESGeom_TrimmedSurface): handle[IGESData_IGESEntity] {.
+proc init*(this: var IGESGeomTrimmedSurface; aSurface: Handle[IGESDataIGESEntity];
+          aFlag: int; anOuter: Handle[IGESGeomCurveOnSurface];
+          allInners: Handle[IGESGeomHArray1OfCurveOnSurface]) {.importcpp: "Init",
+    header: "IGESGeom_TrimmedSurface.hxx".}
+proc surface*(this: IGESGeomTrimmedSurface): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Surface", header: "IGESGeom_TrimmedSurface.hxx".}
-proc HasOuterContour*(this: IGESGeom_TrimmedSurface): Standard_Boolean {.
-    noSideEffect, importcpp: "HasOuterContour",
-    header: "IGESGeom_TrimmedSurface.hxx".}
-proc OuterContour*(this: IGESGeom_TrimmedSurface): handle[IGESGeom_CurveOnSurface] {.
+proc hasOuterContour*(this: IGESGeomTrimmedSurface): bool {.noSideEffect,
+    importcpp: "HasOuterContour", header: "IGESGeom_TrimmedSurface.hxx".}
+proc outerContour*(this: IGESGeomTrimmedSurface): Handle[IGESGeomCurveOnSurface] {.
     noSideEffect, importcpp: "OuterContour", header: "IGESGeom_TrimmedSurface.hxx".}
-proc OuterBoundaryType*(this: IGESGeom_TrimmedSurface): Standard_Integer {.
-    noSideEffect, importcpp: "OuterBoundaryType",
-    header: "IGESGeom_TrimmedSurface.hxx".}
-proc NbInnerContours*(this: IGESGeom_TrimmedSurface): Standard_Integer {.
-    noSideEffect, importcpp: "NbInnerContours",
-    header: "IGESGeom_TrimmedSurface.hxx".}
-proc InnerContour*(this: IGESGeom_TrimmedSurface; Index: Standard_Integer): handle[
-    IGESGeom_CurveOnSurface] {.noSideEffect, importcpp: "InnerContour",
-                              header: "IGESGeom_TrimmedSurface.hxx".}
+proc outerBoundaryType*(this: IGESGeomTrimmedSurface): int {.noSideEffect,
+    importcpp: "OuterBoundaryType", header: "IGESGeom_TrimmedSurface.hxx".}
+proc nbInnerContours*(this: IGESGeomTrimmedSurface): int {.noSideEffect,
+    importcpp: "NbInnerContours", header: "IGESGeom_TrimmedSurface.hxx".}
+proc innerContour*(this: IGESGeomTrimmedSurface; index: int): Handle[
+    IGESGeomCurveOnSurface] {.noSideEffect, importcpp: "InnerContour",
+                             header: "IGESGeom_TrimmedSurface.hxx".}
 type
-  IGESGeom_TrimmedSurfacebase_type* = IGESData_IGESEntity
+  IGESGeomTrimmedSurfacebaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESGeom_TrimmedSurface::get_type_name(@)",
-                              header: "IGESGeom_TrimmedSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESGeom_TrimmedSurface::get_type_name(@)",
+                            header: "IGESGeom_TrimmedSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESGeom_TrimmedSurface::get_type_descriptor(@)",
     header: "IGESGeom_TrimmedSurface.hxx".}
-proc DynamicType*(this: IGESGeom_TrimmedSurface): handle[Standard_Type] {.
+proc dynamicType*(this: IGESGeomTrimmedSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESGeom_TrimmedSurface.hxx".}

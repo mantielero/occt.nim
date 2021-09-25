@@ -12,5 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # TColStd_HSequenceOfInteger_HeaderFile [NewLine] # TColStd_HSequenceOfInteger_HeaderFile [NewLine] # ../Standard/Standard_Integer.hxx [NewLine] # TColStd_SequenceOfInteger.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( TColStd_HSequenceOfInteger , TColStd_SequenceOfInteger ) # [NewLine]
+## !!!Ignored construct:  # TColStd_HSequenceOfInteger_HeaderFile [NewLine] # TColStd_HSequenceOfInteger_HeaderFile [NewLine] # < Standard_Integer . hxx > [NewLine] # < TColStd_SequenceOfInteger . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( TColStd_HSequenceOfInteger , TColStd_SequenceOfInteger ) # [NewLine]
 ## Error: expected ';'!!!
+

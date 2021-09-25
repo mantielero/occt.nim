@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of ShapeAlgo_AlgoContainer"
 discard "forward decl of ShapeAlgo_ToolContainer"
 discard "forward decl of ShapeAlgo_AlgoContainer"
@@ -33,8 +29,8 @@ type
                                                                           ## AlgoContainer.
 
 
-proc Init*() {.importcpp: "ShapeAlgo::Init(@)", header: "ShapeAlgo.hxx".}
-proc SetAlgoContainer*(aContainer: handle[ShapeAlgo_AlgoContainer]) {.
+proc init*() {.importcpp: "ShapeAlgo::Init(@)", header: "ShapeAlgo.hxx".}
+proc setAlgoContainer*(aContainer: Handle[ShapeAlgoAlgoContainer]) {.
     importcpp: "ShapeAlgo::SetAlgoContainer(@)", header: "ShapeAlgo.hxx".}
-proc AlgoContainer*(): handle[ShapeAlgo_AlgoContainer] {.
+proc algoContainer*(): Handle[ShapeAlgoAlgoContainer] {.
     importcpp: "ShapeAlgo::AlgoContainer(@)", header: "ShapeAlgo.hxx".}

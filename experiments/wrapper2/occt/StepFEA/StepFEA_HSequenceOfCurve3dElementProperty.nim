@@ -11,5 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # StepFEA_HSequenceOfCurve3dElementProperty_HeaderFile [NewLine] # StepFEA_HSequenceOfCurve3dElementProperty_HeaderFile [NewLine] # StepFEA_Curve3dElementProperty.hxx [NewLine] # StepFEA_SequenceOfCurve3dElementProperty.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( StepFEA_HSequenceOfCurve3dElementProperty , StepFEA_SequenceOfCurve3dElementProperty ) # [NewLine]
+## !!!Ignored construct:  # StepFEA_HSequenceOfCurve3dElementProperty_HeaderFile [NewLine] # StepFEA_HSequenceOfCurve3dElementProperty_HeaderFile [NewLine] # < StepFEA_Curve3dElementProperty . hxx > [NewLine] # < StepFEA_SequenceOfCurve3dElementProperty . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( StepFEA_HSequenceOfCurve3dElementProperty , StepFEA_SequenceOfCurve3dElementProperty ) # [NewLine]
 ## Error: expected ';'!!!
+

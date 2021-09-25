@@ -14,14 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Integer, ../TopoDS/TopoDS_Shape,
-  ../TColStd/TColStd_MapIntegerHasher, ../TopTools/TopTools_ShapeMapHasher,
-  ../NCollection/NCollection_DoubleMap
-
 type
-  TopOpeBRepDS_DoubleMapOfIntegerShape* = NCollection_DoubleMap[Standard_Integer,
-      TopoDS_Shape, TColStd_MapIntegerHasher, TopTools_ShapeMapHasher]
-  TopOpeBRepDS_DoubleMapIteratorOfDoubleMapOfIntegerShape* = Iterator[
-      Standard_Integer, TopoDS_Shape, TColStd_MapIntegerHasher,
-      TopTools_ShapeMapHasher]
+  TopOpeBRepDS_DoubleMapOfIntegerShape* = NCollectionDoubleMap[int, TopoDS_Shape,
+      TColStdMapIntegerHasher, TopToolsShapeMapHasher]
+  TopOpeBRepDS_DoubleMapIteratorOfDoubleMapOfIntegerShape* = Iterator[int,
+      TopoDS_Shape, TColStdMapIntegerHasher, TopToolsShapeMapHasher]
+

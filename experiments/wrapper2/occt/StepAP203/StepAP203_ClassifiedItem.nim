@@ -14,32 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_ProductDefinitionFormation"
 discard "forward decl of StepRepr_AssemblyComponentUsage"
 type
-  StepAP203_ClassifiedItem* {.importcpp: "StepAP203_ClassifiedItem",
-                             header: "StepAP203_ClassifiedItem.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                       ## !
-                                                                                                       ## Empty
-                                                                                                       ## constructor
+  StepAP203ClassifiedItem* {.importcpp: "StepAP203_ClassifiedItem",
+                            header: "StepAP203_ClassifiedItem.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                     ## !
+                                                                                                     ## Empty
+                                                                                                     ## constructor
 
 
-proc constructStepAP203_ClassifiedItem*(): StepAP203_ClassifiedItem {.constructor,
+proc constructStepAP203ClassifiedItem*(): StepAP203ClassifiedItem {.constructor,
     importcpp: "StepAP203_ClassifiedItem(@)",
     header: "StepAP203_ClassifiedItem.hxx".}
-proc CaseNum*(this: StepAP203_ClassifiedItem; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepAP203ClassifiedItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP203_ClassifiedItem.hxx".}
-proc ProductDefinitionFormation*(this: StepAP203_ClassifiedItem): handle[
-    StepBasic_ProductDefinitionFormation] {.noSideEffect,
+proc productDefinitionFormation*(this: StepAP203ClassifiedItem): Handle[
+    StepBasicProductDefinitionFormation] {.noSideEffect,
     importcpp: "ProductDefinitionFormation",
     header: "StepAP203_ClassifiedItem.hxx".}
-proc AssemblyComponentUsage*(this: StepAP203_ClassifiedItem): handle[
-    StepRepr_AssemblyComponentUsage] {.noSideEffect,
-                                      importcpp: "AssemblyComponentUsage",
-                                      header: "StepAP203_ClassifiedItem.hxx".}
+proc assemblyComponentUsage*(this: StepAP203ClassifiedItem): Handle[
+    StepReprAssemblyComponentUsage] {.noSideEffect,
+                                     importcpp: "AssemblyComponentUsage",
+                                     header: "StepAP203_ClassifiedItem.hxx".}

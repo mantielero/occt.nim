@@ -11,9 +11,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepFEA_Curve3dElementProperty, ../NCollection/NCollection_Sequence
-
 type
-  StepFEA_SequenceOfCurve3dElementProperty* = NCollection_Sequence[
-      handle[StepFEA_Curve3dElementProperty]]
+  StepFEA_SequenceOfCurve3dElementProperty* = NCollectionSequence[
+      Handle[StepFEA_Curve3dElementProperty]]
+

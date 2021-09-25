@@ -13,11 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Vector, BinLDrivers_DocumentSection
-
 ## / Collection of BinLDrivers_DocumentSection
 
 type
-  BinLDrivers_VectorOfDocumentSection* = NCollection_Vector[
-      BinLDrivers_DocumentSection]
+  BinLDriversVectorOfDocumentSection* = NCollectionVector[
+      BinLDriversDocumentSection]
+

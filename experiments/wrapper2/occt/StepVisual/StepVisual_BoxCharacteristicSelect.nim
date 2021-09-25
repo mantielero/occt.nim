@@ -14,28 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer
-
 type
-  StepVisual_BoxCharacteristicSelect* {.importcpp: "StepVisual_BoxCharacteristicSelect", header: "StepVisual_BoxCharacteristicSelect.hxx",
-                                       bycopy.} = object
+  StepVisualBoxCharacteristicSelect* {.importcpp: "StepVisual_BoxCharacteristicSelect", header: "StepVisual_BoxCharacteristicSelect.hxx",
+                                      bycopy.} = object
 
 
-proc constructStepVisual_BoxCharacteristicSelect*(): StepVisual_BoxCharacteristicSelect {.
+proc constructStepVisualBoxCharacteristicSelect*(): StepVisualBoxCharacteristicSelect {.
     constructor, importcpp: "StepVisual_BoxCharacteristicSelect(@)",
     header: "StepVisual_BoxCharacteristicSelect.hxx".}
-proc TypeOfContent*(this: StepVisual_BoxCharacteristicSelect): Standard_Integer {.
-    noSideEffect, importcpp: "TypeOfContent",
+proc typeOfContent*(this: StepVisualBoxCharacteristicSelect): int {.noSideEffect,
+    importcpp: "TypeOfContent", header: "StepVisual_BoxCharacteristicSelect.hxx".}
+proc setTypeOfContent*(this: var StepVisualBoxCharacteristicSelect; aType: int) {.
+    importcpp: "SetTypeOfContent",
     header: "StepVisual_BoxCharacteristicSelect.hxx".}
-proc SetTypeOfContent*(this: var StepVisual_BoxCharacteristicSelect;
-                      aType: Standard_Integer) {.importcpp: "SetTypeOfContent",
-    header: "StepVisual_BoxCharacteristicSelect.hxx".}
-proc RealValue*(this: StepVisual_BoxCharacteristicSelect): Standard_Real {.
-    noSideEffect, importcpp: "RealValue",
-    header: "StepVisual_BoxCharacteristicSelect.hxx".}
-proc SetRealValue*(this: var StepVisual_BoxCharacteristicSelect;
-                  aValue: Standard_Real) {.importcpp: "SetRealValue",
-    header: "StepVisual_BoxCharacteristicSelect.hxx".}
+proc realValue*(this: StepVisualBoxCharacteristicSelect): float {.noSideEffect,
+    importcpp: "RealValue", header: "StepVisual_BoxCharacteristicSelect.hxx".}
+proc setRealValue*(this: var StepVisualBoxCharacteristicSelect; aValue: float) {.
+    importcpp: "SetRealValue", header: "StepVisual_BoxCharacteristicSelect.hxx".}

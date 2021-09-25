@@ -13,65 +13,59 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape,
-  ../Standard/Standard_Boolean, BOPAlgo_Algo, BOPAlgo_Operation,
-  BOPAlgo_ListOfCheckResult, ../Standard/Standard_Real, ../TopAbs/TopAbs_ShapeEnum
-
 discard "forward decl of TopoDS_Shape"
 type
-  BOPAlgo_ArgumentAnalyzer* {.importcpp: "BOPAlgo_ArgumentAnalyzer",
-                             header: "BOPAlgo_ArgumentAnalyzer.hxx", bycopy.} = object of BOPAlgo_Algo ##
-                                                                                                ## !
-                                                                                                ## empty
-                                                                                                ## constructor
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Prepares
-                                                                                                ## data;
+  BOPAlgoArgumentAnalyzer* {.importcpp: "BOPAlgo_ArgumentAnalyzer",
+                            header: "BOPAlgo_ArgumentAnalyzer.hxx", bycopy.} = object of BOPAlgoAlgo ##
+                                                                                              ## !
+                                                                                              ## empty
+                                                                                              ## constructor
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Prepares
+                                                                                              ## data;
 
 
-proc constructBOPAlgo_ArgumentAnalyzer*(): BOPAlgo_ArgumentAnalyzer {.constructor,
+proc constructBOPAlgoArgumentAnalyzer*(): BOPAlgoArgumentAnalyzer {.constructor,
     importcpp: "BOPAlgo_ArgumentAnalyzer(@)",
     header: "BOPAlgo_ArgumentAnalyzer.hxx".}
-proc destroyBOPAlgo_ArgumentAnalyzer*(this: var BOPAlgo_ArgumentAnalyzer) {.
+proc destroyBOPAlgoArgumentAnalyzer*(this: var BOPAlgoArgumentAnalyzer) {.
     importcpp: "#.~BOPAlgo_ArgumentAnalyzer()",
     header: "BOPAlgo_ArgumentAnalyzer.hxx".}
-proc SetShape1*(this: var BOPAlgo_ArgumentAnalyzer; TheShape: TopoDS_Shape) {.
+proc setShape1*(this: var BOPAlgoArgumentAnalyzer; theShape: TopoDS_Shape) {.
     importcpp: "SetShape1", header: "BOPAlgo_ArgumentAnalyzer.hxx".}
-proc SetShape2*(this: var BOPAlgo_ArgumentAnalyzer; TheShape: TopoDS_Shape) {.
+proc setShape2*(this: var BOPAlgoArgumentAnalyzer; theShape: TopoDS_Shape) {.
     importcpp: "SetShape2", header: "BOPAlgo_ArgumentAnalyzer.hxx".}
-proc GetShape1*(this: BOPAlgo_ArgumentAnalyzer): TopoDS_Shape {.noSideEffect,
+proc getShape1*(this: BOPAlgoArgumentAnalyzer): TopoDS_Shape {.noSideEffect,
     importcpp: "GetShape1", header: "BOPAlgo_ArgumentAnalyzer.hxx".}
-proc GetShape2*(this: BOPAlgo_ArgumentAnalyzer): TopoDS_Shape {.noSideEffect,
+proc getShape2*(this: BOPAlgoArgumentAnalyzer): TopoDS_Shape {.noSideEffect,
     importcpp: "GetShape2", header: "BOPAlgo_ArgumentAnalyzer.hxx".}
-proc OperationType*(this: var BOPAlgo_ArgumentAnalyzer): var BOPAlgo_Operation {.
+proc operationType*(this: var BOPAlgoArgumentAnalyzer): var BOPAlgoOperation {.
     importcpp: "OperationType", header: "BOPAlgo_ArgumentAnalyzer.hxx".}
-proc StopOnFirstFaulty*(this: var BOPAlgo_ArgumentAnalyzer): var Standard_Boolean {.
+proc stopOnFirstFaulty*(this: var BOPAlgoArgumentAnalyzer): var bool {.
     importcpp: "StopOnFirstFaulty", header: "BOPAlgo_ArgumentAnalyzer.hxx".}
-proc ArgumentTypeMode*(this: var BOPAlgo_ArgumentAnalyzer): var Standard_Boolean {.
+proc argumentTypeMode*(this: var BOPAlgoArgumentAnalyzer): var bool {.
     importcpp: "ArgumentTypeMode", header: "BOPAlgo_ArgumentAnalyzer.hxx".}
-proc SelfInterMode*(this: var BOPAlgo_ArgumentAnalyzer): var Standard_Boolean {.
+proc selfInterMode*(this: var BOPAlgoArgumentAnalyzer): var bool {.
     importcpp: "SelfInterMode", header: "BOPAlgo_ArgumentAnalyzer.hxx".}
-proc SmallEdgeMode*(this: var BOPAlgo_ArgumentAnalyzer): var Standard_Boolean {.
+proc smallEdgeMode*(this: var BOPAlgoArgumentAnalyzer): var bool {.
     importcpp: "SmallEdgeMode", header: "BOPAlgo_ArgumentAnalyzer.hxx".}
-proc RebuildFaceMode*(this: var BOPAlgo_ArgumentAnalyzer): var Standard_Boolean {.
+proc rebuildFaceMode*(this: var BOPAlgoArgumentAnalyzer): var bool {.
     importcpp: "RebuildFaceMode", header: "BOPAlgo_ArgumentAnalyzer.hxx".}
-proc TangentMode*(this: var BOPAlgo_ArgumentAnalyzer): var Standard_Boolean {.
+proc tangentMode*(this: var BOPAlgoArgumentAnalyzer): var bool {.
     importcpp: "TangentMode", header: "BOPAlgo_ArgumentAnalyzer.hxx".}
-proc MergeVertexMode*(this: var BOPAlgo_ArgumentAnalyzer): var Standard_Boolean {.
+proc mergeVertexMode*(this: var BOPAlgoArgumentAnalyzer): var bool {.
     importcpp: "MergeVertexMode", header: "BOPAlgo_ArgumentAnalyzer.hxx".}
-proc MergeEdgeMode*(this: var BOPAlgo_ArgumentAnalyzer): var Standard_Boolean {.
+proc mergeEdgeMode*(this: var BOPAlgoArgumentAnalyzer): var bool {.
     importcpp: "MergeEdgeMode", header: "BOPAlgo_ArgumentAnalyzer.hxx".}
-proc ContinuityMode*(this: var BOPAlgo_ArgumentAnalyzer): var Standard_Boolean {.
+proc continuityMode*(this: var BOPAlgoArgumentAnalyzer): var bool {.
     importcpp: "ContinuityMode", header: "BOPAlgo_ArgumentAnalyzer.hxx".}
-proc CurveOnSurfaceMode*(this: var BOPAlgo_ArgumentAnalyzer): var Standard_Boolean {.
+proc curveOnSurfaceMode*(this: var BOPAlgoArgumentAnalyzer): var bool {.
     importcpp: "CurveOnSurfaceMode", header: "BOPAlgo_ArgumentAnalyzer.hxx".}
-proc Perform*(this: var BOPAlgo_ArgumentAnalyzer) {.importcpp: "Perform",
+proc perform*(this: var BOPAlgoArgumentAnalyzer) {.importcpp: "Perform",
     header: "BOPAlgo_ArgumentAnalyzer.hxx".}
-proc HasFaulty*(this: BOPAlgo_ArgumentAnalyzer): Standard_Boolean {.noSideEffect,
+proc hasFaulty*(this: BOPAlgoArgumentAnalyzer): bool {.noSideEffect,
     importcpp: "HasFaulty", header: "BOPAlgo_ArgumentAnalyzer.hxx".}
-proc GetCheckResult*(this: BOPAlgo_ArgumentAnalyzer): BOPAlgo_ListOfCheckResult {.
+proc getCheckResult*(this: BOPAlgoArgumentAnalyzer): BOPAlgoListOfCheckResult {.
     noSideEffect, importcpp: "GetCheckResult",
     header: "BOPAlgo_ArgumentAnalyzer.hxx".}

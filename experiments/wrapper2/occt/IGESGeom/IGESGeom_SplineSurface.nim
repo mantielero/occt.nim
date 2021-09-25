@@ -14,18 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_HArray1OfReal,
-  ../IGESBasic/IGESBasic_HArray2OfHArray1OfReal, ../IGESData/IGESData_IGESEntity,
-  ../Standard/Standard_Real
-
 discard "forward decl of Standard_DimensionMismatch"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESGeom_SplineSurface"
 discard "forward decl of IGESGeom_SplineSurface"
 type
-  Handle_IGESGeom_SplineSurface* = handle[IGESGeom_SplineSurface]
+  HandleIGESGeomSplineSurface* = Handle[IGESGeomSplineSurface]
 
 ## ! defines IGESSplineSurface, Type <114> Form <0>
 ## ! in package IGESGeom
@@ -37,53 +31,52 @@ type
 ## ! points TV(1), TV(2), TV(3) ..., TV(N+1).
 
 type
-  IGESGeom_SplineSurface* {.importcpp: "IGESGeom_SplineSurface",
-                           header: "IGESGeom_SplineSurface.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESGeomSplineSurface* {.importcpp: "IGESGeom_SplineSurface",
+                          header: "IGESGeom_SplineSurface.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESGeom_SplineSurface*(): IGESGeom_SplineSurface {.constructor,
+proc constructIGESGeomSplineSurface*(): IGESGeomSplineSurface {.constructor,
     importcpp: "IGESGeom_SplineSurface(@)", header: "IGESGeom_SplineSurface.hxx".}
-proc Init*(this: var IGESGeom_SplineSurface; aBoundaryType: Standard_Integer;
-          aPatchType: Standard_Integer;
-          allUBreakpoints: handle[TColStd_HArray1OfReal];
-          allVBreakpoints: handle[TColStd_HArray1OfReal];
-          allXCoeffs: handle[IGESBasic_HArray2OfHArray1OfReal];
-          allYCoeffs: handle[IGESBasic_HArray2OfHArray1OfReal];
-          allZCoeffs: handle[IGESBasic_HArray2OfHArray1OfReal]) {.
+proc init*(this: var IGESGeomSplineSurface; aBoundaryType: int; aPatchType: int;
+          allUBreakpoints: Handle[TColStdHArray1OfReal];
+          allVBreakpoints: Handle[TColStdHArray1OfReal];
+          allXCoeffs: Handle[IGESBasicHArray2OfHArray1OfReal];
+          allYCoeffs: Handle[IGESBasicHArray2OfHArray1OfReal];
+          allZCoeffs: Handle[IGESBasicHArray2OfHArray1OfReal]) {.
     importcpp: "Init", header: "IGESGeom_SplineSurface.hxx".}
-proc NbUSegments*(this: IGESGeom_SplineSurface): Standard_Integer {.noSideEffect,
+proc nbUSegments*(this: IGESGeomSplineSurface): int {.noSideEffect,
     importcpp: "NbUSegments", header: "IGESGeom_SplineSurface.hxx".}
-proc NbVSegments*(this: IGESGeom_SplineSurface): Standard_Integer {.noSideEffect,
+proc nbVSegments*(this: IGESGeomSplineSurface): int {.noSideEffect,
     importcpp: "NbVSegments", header: "IGESGeom_SplineSurface.hxx".}
-proc BoundaryType*(this: IGESGeom_SplineSurface): Standard_Integer {.noSideEffect,
+proc boundaryType*(this: IGESGeomSplineSurface): int {.noSideEffect,
     importcpp: "BoundaryType", header: "IGESGeom_SplineSurface.hxx".}
-proc PatchType*(this: IGESGeom_SplineSurface): Standard_Integer {.noSideEffect,
+proc patchType*(this: IGESGeomSplineSurface): int {.noSideEffect,
     importcpp: "PatchType", header: "IGESGeom_SplineSurface.hxx".}
-proc UBreakPoint*(this: IGESGeom_SplineSurface; anIndex: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "UBreakPoint", header: "IGESGeom_SplineSurface.hxx".}
-proc VBreakPoint*(this: IGESGeom_SplineSurface; anIndex: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "VBreakPoint", header: "IGESGeom_SplineSurface.hxx".}
-proc XPolynomial*(this: IGESGeom_SplineSurface; anIndex1: Standard_Integer;
-                 anIndex2: Standard_Integer): handle[TColStd_HArray1OfReal] {.
-    noSideEffect, importcpp: "XPolynomial", header: "IGESGeom_SplineSurface.hxx".}
-proc YPolynomial*(this: IGESGeom_SplineSurface; anIndex1: Standard_Integer;
-                 anIndex2: Standard_Integer): handle[TColStd_HArray1OfReal] {.
-    noSideEffect, importcpp: "YPolynomial", header: "IGESGeom_SplineSurface.hxx".}
-proc ZPolynomial*(this: IGESGeom_SplineSurface; anIndex1: Standard_Integer;
-                 anIndex2: Standard_Integer): handle[TColStd_HArray1OfReal] {.
-    noSideEffect, importcpp: "ZPolynomial", header: "IGESGeom_SplineSurface.hxx".}
-proc Polynomials*(this: IGESGeom_SplineSurface;
-                 XCoef: var handle[IGESBasic_HArray2OfHArray1OfReal];
-                 YCoef: var handle[IGESBasic_HArray2OfHArray1OfReal];
-                 ZCoef: var handle[IGESBasic_HArray2OfHArray1OfReal]) {.
+proc uBreakPoint*(this: IGESGeomSplineSurface; anIndex: int): float {.noSideEffect,
+    importcpp: "UBreakPoint", header: "IGESGeom_SplineSurface.hxx".}
+proc vBreakPoint*(this: IGESGeomSplineSurface; anIndex: int): float {.noSideEffect,
+    importcpp: "VBreakPoint", header: "IGESGeom_SplineSurface.hxx".}
+proc xPolynomial*(this: IGESGeomSplineSurface; anIndex1: int; anIndex2: int): Handle[
+    TColStdHArray1OfReal] {.noSideEffect, importcpp: "XPolynomial",
+                           header: "IGESGeom_SplineSurface.hxx".}
+proc yPolynomial*(this: IGESGeomSplineSurface; anIndex1: int; anIndex2: int): Handle[
+    TColStdHArray1OfReal] {.noSideEffect, importcpp: "YPolynomial",
+                           header: "IGESGeom_SplineSurface.hxx".}
+proc zPolynomial*(this: IGESGeomSplineSurface; anIndex1: int; anIndex2: int): Handle[
+    TColStdHArray1OfReal] {.noSideEffect, importcpp: "ZPolynomial",
+                           header: "IGESGeom_SplineSurface.hxx".}
+proc polynomials*(this: IGESGeomSplineSurface;
+                 xCoef: var Handle[IGESBasicHArray2OfHArray1OfReal];
+                 yCoef: var Handle[IGESBasicHArray2OfHArray1OfReal];
+                 zCoef: var Handle[IGESBasicHArray2OfHArray1OfReal]) {.
     noSideEffect, importcpp: "Polynomials", header: "IGESGeom_SplineSurface.hxx".}
 type
-  IGESGeom_SplineSurfacebase_type* = IGESData_IGESEntity
+  IGESGeomSplineSurfacebaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESGeom_SplineSurface::get_type_name(@)",
-                              header: "IGESGeom_SplineSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESGeom_SplineSurface::get_type_name(@)",
+                            header: "IGESGeom_SplineSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESGeom_SplineSurface::get_type_descriptor(@)",
     header: "IGESGeom_SplineSurface.hxx".}
-proc DynamicType*(this: IGESGeom_SplineSurface): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IGESGeom_SplineSurface.hxx".}
+proc dynamicType*(this: IGESGeomSplineSurface): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IGESGeom_SplineSurface.hxx".}

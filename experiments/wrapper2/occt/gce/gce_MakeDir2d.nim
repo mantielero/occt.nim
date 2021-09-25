@@ -14,48 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Dir2d, gce_Root, ../Standard/Standard_Real
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_XY"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Dir2d"
 type
-  gce_MakeDir2d* {.importcpp: "gce_MakeDir2d", header: "gce_MakeDir2d.hxx", bycopy.} = object of gce_Root ##
-                                                                                                ## !
-                                                                                                ## Normalizes
-                                                                                                ## the
-                                                                                                ## vector
-                                                                                                ## V
-                                                                                                ## and
-                                                                                                ## creates
-                                                                                                ## a
-                                                                                                ## direction.
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Status
-                                                                                                ## is
-                                                                                                ## "NullVector"
-                                                                                                ## if
-                                                                                                ## V.Magnitude()
-                                                                                                ## <=
-                                                                                                ## Resolution.
+  GceMakeDir2d* {.importcpp: "gce_MakeDir2d", header: "gce_MakeDir2d.hxx", bycopy.} = object of GceRoot ##
+                                                                                              ## !
+                                                                                              ## Normalizes
+                                                                                              ## the
+                                                                                              ## vector
+                                                                                              ## V
+                                                                                              ## and
+                                                                                              ## creates
+                                                                                              ## a
+                                                                                              ## direction.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Status
+                                                                                              ## is
+                                                                                              ## "NullVector"
+                                                                                              ## if
+                                                                                              ## V.Magnitude()
+                                                                                              ## <=
+                                                                                              ## Resolution.
 
 
-proc constructgce_MakeDir2d*(V: gp_Vec2d): gce_MakeDir2d {.constructor,
+proc constructGceMakeDir2d*(v: Vec2d): GceMakeDir2d {.constructor,
     importcpp: "gce_MakeDir2d(@)", header: "gce_MakeDir2d.hxx".}
-proc constructgce_MakeDir2d*(Coord: gp_XY): gce_MakeDir2d {.constructor,
+proc constructGceMakeDir2d*(coord: Xy): GceMakeDir2d {.constructor,
     importcpp: "gce_MakeDir2d(@)", header: "gce_MakeDir2d.hxx".}
-proc constructgce_MakeDir2d*(Xv: Standard_Real; Yv: Standard_Real): gce_MakeDir2d {.
-    constructor, importcpp: "gce_MakeDir2d(@)", header: "gce_MakeDir2d.hxx".}
-proc constructgce_MakeDir2d*(P1: gp_Pnt2d; P2: gp_Pnt2d): gce_MakeDir2d {.constructor,
+proc constructGceMakeDir2d*(xv: float; yv: float): GceMakeDir2d {.constructor,
     importcpp: "gce_MakeDir2d(@)", header: "gce_MakeDir2d.hxx".}
-proc Value*(this: gce_MakeDir2d): gp_Dir2d {.noSideEffect, importcpp: "Value",
-    header: "gce_MakeDir2d.hxx".}
-proc Operator*(this: gce_MakeDir2d): gp_Dir2d {.noSideEffect, importcpp: "Operator",
-    header: "gce_MakeDir2d.hxx".}
-converter `gp_Dir2d`*(this: gce_MakeDir2d): gp_Dir2d {.noSideEffect,
+proc constructGceMakeDir2d*(p1: Pnt2d; p2: Pnt2d): GceMakeDir2d {.constructor,
+    importcpp: "gce_MakeDir2d(@)", header: "gce_MakeDir2d.hxx".}
+proc value*(this: GceMakeDir2d): Dir2d {.noSideEffect, importcpp: "Value",
+                                     header: "gce_MakeDir2d.hxx".}
+proc operator*(this: GceMakeDir2d): Dir2d {.noSideEffect, importcpp: "Operator",
+                                        header: "gce_MakeDir2d.hxx".}
+converter `dir2d`*(this: GceMakeDir2d): Dir2d {.noSideEffect,
     importcpp: "gce_MakeDir2d::operator gp_Dir2d", header: "gce_MakeDir2d.hxx".}

@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepBasic_Organization, StepBasic_Array1OfOrganization,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepBasic_HArray1OfOrganization* {.importcpp: "StepBasic_HArray1OfOrganization", header: "StepBasic_HArray1OfOrganization.hxx",
-                                    bycopy.} = object of StepBasic_Array1OfOrganization
+  StepBasicHArray1OfOrganization* {.importcpp: "StepBasic_HArray1OfOrganization", header: "StepBasic_HArray1OfOrganization.hxx",
+                                   bycopy.} = object of StepBasicArray1OfOrganization
 
 
-proc constructStepBasic_HArray1OfOrganization*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepBasic_HArray1OfOrganization {.constructor,
+proc constructStepBasicHArray1OfOrganization*(theLower: int; theUpper: int): StepBasicHArray1OfOrganization {.
+    constructor, importcpp: "StepBasic_HArray1OfOrganization(@)",
+    header: "StepBasic_HArray1OfOrganization.hxx".}
+proc constructStepBasicHArray1OfOrganization*(theLower: int; theUpper: int;
+    theValue: ValueType): StepBasicHArray1OfOrganization {.constructor,
     importcpp: "StepBasic_HArray1OfOrganization(@)",
     header: "StepBasic_HArray1OfOrganization.hxx".}
-proc constructStepBasic_HArray1OfOrganization*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepBasic_HArray1OfOrganization {.
+proc constructStepBasicHArray1OfOrganization*(
+    theOther: StepBasicArray1OfOrganization): StepBasicHArray1OfOrganization {.
     constructor, importcpp: "StepBasic_HArray1OfOrganization(@)",
     header: "StepBasic_HArray1OfOrganization.hxx".}
-proc constructStepBasic_HArray1OfOrganization*(
-    theOther: StepBasic_Array1OfOrganization): StepBasic_HArray1OfOrganization {.
-    constructor, importcpp: "StepBasic_HArray1OfOrganization(@)",
-    header: "StepBasic_HArray1OfOrganization.hxx".}
-proc Array1*(this: StepBasic_HArray1OfOrganization): StepBasic_Array1OfOrganization {.
+proc array1*(this: StepBasicHArray1OfOrganization): StepBasicArray1OfOrganization {.
     noSideEffect, importcpp: "Array1",
     header: "StepBasic_HArray1OfOrganization.hxx".}
-proc ChangeArray1*(this: var StepBasic_HArray1OfOrganization): var StepBasic_Array1OfOrganization {.
+proc changeArray1*(this: var StepBasicHArray1OfOrganization): var StepBasicArray1OfOrganization {.
     importcpp: "ChangeArray1", header: "StepBasic_HArray1OfOrganization.hxx".}
 type
-  StepBasic_HArray1OfOrganizationbase_type* = MMgt_TShared
+  StepBasicHArray1OfOrganizationbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_HArray1OfOrganization::get_type_name(@)",
-                              header: "StepBasic_HArray1OfOrganization.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_HArray1OfOrganization::get_type_name(@)",
+                            header: "StepBasic_HArray1OfOrganization.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_HArray1OfOrganization::get_type_descriptor(@)",
     header: "StepBasic_HArray1OfOrganization.hxx".}
-proc DynamicType*(this: StepBasic_HArray1OfOrganization): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicHArray1OfOrganization): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_HArray1OfOrganization.hxx".}

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GC_Root, ../Geom/Geom_Hyperbola
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Hypr"
 discard "forward decl of gp_Ax2"
@@ -33,15 +29,14 @@ type
                                                                            ## conversion.
 
 
-proc constructGC_MakeHyperbola*(H: gp_Hypr): GC_MakeHyperbola {.constructor,
+proc constructGC_MakeHyperbola*(h: Hypr): GC_MakeHyperbola {.constructor,
     importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}
-proc constructGC_MakeHyperbola*(A2: gp_Ax2; MajorRadius: Standard_Real;
-                               MinorRadius: Standard_Real): GC_MakeHyperbola {.
+proc constructGC_MakeHyperbola*(a2: Ax2; majorRadius: float; minorRadius: float): GC_MakeHyperbola {.
     constructor, importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}
-proc constructGC_MakeHyperbola*(S1: gp_Pnt; S2: gp_Pnt; Center: gp_Pnt): GC_MakeHyperbola {.
+proc constructGC_MakeHyperbola*(s1: Pnt; s2: Pnt; center: Pnt): GC_MakeHyperbola {.
     constructor, importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}
-proc Value*(this: GC_MakeHyperbola): handle[Geom_Hyperbola] {.noSideEffect,
+proc value*(this: GC_MakeHyperbola): Handle[GeomHyperbola] {.noSideEffect,
     importcpp: "Value", header: "GC_MakeHyperbola.hxx".}
-converter `constopencascade`*(this: GC_MakeHyperbola): handle[Geom_Hyperbola] {.
+converter `constopencascade`*(this: GC_MakeHyperbola): Handle[GeomHyperbola] {.
     noSideEffect, importcpp: "GC_MakeHyperbola::operator constopencascade",
     header: "GC_MakeHyperbola.hxx".}

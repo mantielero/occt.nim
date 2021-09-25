@@ -14,43 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepVisual_AreaOrView,
-  StepVisual_Colour
-
 discard "forward decl of StepVisual_AreaOrView"
 discard "forward decl of StepVisual_BackgroundColour"
 discard "forward decl of StepVisual_BackgroundColour"
 type
-  Handle_StepVisual_BackgroundColour* = handle[StepVisual_BackgroundColour]
-  StepVisual_BackgroundColour* {.importcpp: "StepVisual_BackgroundColour",
-                                header: "StepVisual_BackgroundColour.hxx", bycopy.} = object of StepVisual_Colour ##
-                                                                                                           ## !
-                                                                                                           ## Returns
-                                                                                                           ## a
-                                                                                                           ## BackgroundColour
+  HandleStepVisualBackgroundColour* = Handle[StepVisualBackgroundColour]
+  StepVisualBackgroundColour* {.importcpp: "StepVisual_BackgroundColour",
+                               header: "StepVisual_BackgroundColour.hxx", bycopy.} = object of StepVisualColour ##
+                                                                                                         ## !
+                                                                                                         ## Returns
+                                                                                                         ## a
+                                                                                                         ## BackgroundColour
 
 
-proc constructStepVisual_BackgroundColour*(): StepVisual_BackgroundColour {.
+proc constructStepVisualBackgroundColour*(): StepVisualBackgroundColour {.
     constructor, importcpp: "StepVisual_BackgroundColour(@)",
     header: "StepVisual_BackgroundColour.hxx".}
-proc Init*(this: var StepVisual_BackgroundColour;
-          aPresentation: StepVisual_AreaOrView) {.importcpp: "Init",
-    header: "StepVisual_BackgroundColour.hxx".}
-proc SetPresentation*(this: var StepVisual_BackgroundColour;
-                     aPresentation: StepVisual_AreaOrView) {.
+proc init*(this: var StepVisualBackgroundColour; aPresentation: StepVisualAreaOrView) {.
+    importcpp: "Init", header: "StepVisual_BackgroundColour.hxx".}
+proc setPresentation*(this: var StepVisualBackgroundColour;
+                     aPresentation: StepVisualAreaOrView) {.
     importcpp: "SetPresentation", header: "StepVisual_BackgroundColour.hxx".}
-proc Presentation*(this: StepVisual_BackgroundColour): StepVisual_AreaOrView {.
+proc presentation*(this: StepVisualBackgroundColour): StepVisualAreaOrView {.
     noSideEffect, importcpp: "Presentation",
     header: "StepVisual_BackgroundColour.hxx".}
 type
-  StepVisual_BackgroundColourbase_type* = StepVisual_Colour
+  StepVisualBackgroundColourbaseType* = StepVisualColour
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_BackgroundColour::get_type_name(@)",
-                              header: "StepVisual_BackgroundColour.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_BackgroundColour::get_type_name(@)",
+                            header: "StepVisual_BackgroundColour.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_BackgroundColour::get_type_descriptor(@)",
     header: "StepVisual_BackgroundColour.hxx".}
-proc DynamicType*(this: StepVisual_BackgroundColour): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualBackgroundColour): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_BackgroundColour.hxx".}

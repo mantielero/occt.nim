@@ -14,10 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-proc ChFiKPart_MakeFillet*(DStr: var TopOpeBRepDS_DataStructure;
-                          Data: handle[ChFiDS_SurfData]; Pl1: gp_Pln; Pl2: gp_Pln;
-                          Or1: TopAbs_Orientation; Or2: TopAbs_Orientation;
-                          Radius: Standard_Real; Spine: gp_Lin;
-                          First: Standard_Real; Of1: TopAbs_Orientation): Standard_Boolean {.
+proc chFiKPartMakeFillet*(dStr: var TopOpeBRepDS_DataStructure;
+                         data: Handle[ChFiDS_SurfData]; pl1: Pln; pl2: Pln;
+                         or1: TopAbsOrientation; or2: TopAbsOrientation;
+                         radius: float; spine: Lin; first: float;
+                         of1: TopAbsOrientation): bool {.
     importcpp: "ChFiKPart_MakeFillet(@)",
     header: "ChFiKPart_ComputeData_FilPlnPln.hxx".}

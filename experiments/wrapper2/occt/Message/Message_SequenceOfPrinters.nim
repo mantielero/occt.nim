@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Message_Printer, ../NCollection/NCollection_Sequence
-
 type
-  Message_SequenceOfPrinters* = NCollection_Sequence[handle[Message_Printer]]
+  MessageSequenceOfPrinters* = NCollectionSequence[Handle[MessagePrinter]]
+

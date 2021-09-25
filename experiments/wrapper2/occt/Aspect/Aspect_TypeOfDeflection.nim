@@ -18,8 +18,9 @@
 ## ! of the object.
 
 type
-  Aspect_TypeOfDeflection* {.size: sizeof(cint),
-                            importcpp: "Aspect_TypeOfDeflection",
-                            header: "Aspect_TypeOfDeflection.hxx".} = enum
-    Aspect_TOD_RELATIVE, Aspect_TOD_ABSOLUTE
+  AspectTypeOfDeflection* {.size: sizeof(cint),
+                           importcpp: "Aspect_TypeOfDeflection",
+                           header: "Aspect_TypeOfDeflection.hxx".} = enum
+    AspectTOD_RELATIVE, AspectTOD_ABSOLUTE
+
 

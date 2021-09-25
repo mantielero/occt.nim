@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../IMeshTools/IMeshTools_ModelBuilder, ../Standard/Standard_Type,
-  ../TopoDS/TopoDS_Shape
-
 ## ! Class implements interface representing tool for discrete model building.
 ## !
 ## ! The following statuses should be used by default:
@@ -25,40 +21,40 @@ import
 ## ! Message_Fail2 - model has not been build due to unexpected reason.
 
 type
-  BRepMesh_ModelBuilder* {.importcpp: "BRepMesh_ModelBuilder",
-                          header: "BRepMesh_ModelBuilder.hxx", bycopy.} = object of IMeshTools_ModelBuilder ##
-                                                                                                     ## !
-                                                                                                     ## Constructor.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Creates
-                                                                                                     ## discrete
-                                                                                                     ## model
-                                                                                                     ## for
-                                                                                                     ## the
-                                                                                                     ## given
-                                                                                                     ## shape.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Returns
-                                                                                                     ## nullptr
-                                                                                                     ## in
-                                                                                                     ## case
-                                                                                                     ## of
-                                                                                                     ## failure.
+  BRepMeshModelBuilder* {.importcpp: "BRepMesh_ModelBuilder",
+                         header: "BRepMesh_ModelBuilder.hxx", bycopy.} = object of IMeshToolsModelBuilder ##
+                                                                                                   ## !
+                                                                                                   ## Constructor.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## Creates
+                                                                                                   ## discrete
+                                                                                                   ## model
+                                                                                                   ## for
+                                                                                                   ## the
+                                                                                                   ## given
+                                                                                                   ## shape.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## Returns
+                                                                                                   ## nullptr
+                                                                                                   ## in
+                                                                                                   ## case
+                                                                                                   ## of
+                                                                                                   ## failure.
 
 
-proc constructBRepMesh_ModelBuilder*(): BRepMesh_ModelBuilder {.constructor,
+proc constructBRepMeshModelBuilder*(): BRepMeshModelBuilder {.constructor,
     importcpp: "BRepMesh_ModelBuilder(@)", header: "BRepMesh_ModelBuilder.hxx".}
-proc destroyBRepMesh_ModelBuilder*(this: var BRepMesh_ModelBuilder) {.
+proc destroyBRepMeshModelBuilder*(this: var BRepMeshModelBuilder) {.
     importcpp: "#.~BRepMesh_ModelBuilder()", header: "BRepMesh_ModelBuilder.hxx".}
 type
-  BRepMesh_ModelBuilderbase_type* = IMeshTools_ModelBuilder
+  BRepMeshModelBuilderbaseType* = IMeshToolsModelBuilder
 
-proc get_type_name*(): cstring {.importcpp: "BRepMesh_ModelBuilder::get_type_name(@)",
-                              header: "BRepMesh_ModelBuilder.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepMesh_ModelBuilder::get_type_name(@)",
+                            header: "BRepMesh_ModelBuilder.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepMesh_ModelBuilder::get_type_descriptor(@)",
     header: "BRepMesh_ModelBuilder.hxx".}
-proc DynamicType*(this: BRepMesh_ModelBuilder): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "BRepMesh_ModelBuilder.hxx".}
+proc dynamicType*(this: BRepMeshModelBuilder): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "BRepMesh_ModelBuilder.hxx".}

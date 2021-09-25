@@ -18,9 +18,10 @@
 ## ! no error
 
 type
-  BRepLib_EdgeError* {.size: sizeof(cint), importcpp: "BRepLib_EdgeError",
-                      header: "BRepLib_EdgeError.hxx".} = enum
-    BRepLib_EdgeDone, BRepLib_PointProjectionFailed, BRepLib_ParameterOutOfRange,
-    BRepLib_DifferentPointsOnClosedCurve, BRepLib_PointWithInfiniteParameter,
-    BRepLib_DifferentsPointAndParameter, BRepLib_LineThroughIdenticPoints
+  BRepLibEdgeError* {.size: sizeof(cint), importcpp: "BRepLib_EdgeError",
+                     header: "BRepLib_EdgeError.hxx".} = enum
+    BRepLibEdgeDone, BRepLibPointProjectionFailed, BRepLibParameterOutOfRange,
+    BRepLibDifferentPointsOnClosedCurve, BRepLibPointWithInfiniteParameter,
+    BRepLibDifferentsPointAndParameter, BRepLibLineThroughIdenticPoints
+
 

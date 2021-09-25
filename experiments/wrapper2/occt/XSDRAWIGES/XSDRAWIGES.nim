@@ -14,23 +14,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor
-
 ## ! XSDRAW for IGES : commands IGESSelect, Controller, transfer
 
 type
-  XSDRAWIGES* {.importcpp: "XSDRAWIGES", header: "XSDRAWIGES.hxx", bycopy.} = object ## !
+  Xsdrawiges* {.importcpp: "XSDRAWIGES", header: "XSDRAWIGES.hxx", bycopy.} = object ## !
                                                                              ## Inits
                                                                              ## IGESSelect
                                                                              ## commands, for
                                                                              ## DRAW
 
 
-proc InitSelect*() {.importcpp: "XSDRAWIGES::InitSelect(@)",
+proc initSelect*() {.importcpp: "XSDRAWIGES::InitSelect(@)",
                    header: "XSDRAWIGES.hxx".}
-proc InitToBRep*(theCommands: var Draw_Interpretor) {.
+proc initToBRep*(theCommands: var DrawInterpretor) {.
     importcpp: "XSDRAWIGES::InitToBRep(@)", header: "XSDRAWIGES.hxx".}
-proc InitFromBRep*(theCommands: var Draw_Interpretor) {.
+proc initFromBRep*(theCommands: var DrawInterpretor) {.
     importcpp: "XSDRAWIGES::InitFromBRep(@)", header: "XSDRAWIGES.hxx".}

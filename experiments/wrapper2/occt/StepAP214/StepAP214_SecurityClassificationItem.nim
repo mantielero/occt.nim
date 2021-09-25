@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, StepAP214_ApprovalItem
-
 discard "forward decl of StepBasic_Action"
 discard "forward decl of StepRepr_AssemblyComponentUsage"
 discard "forward decl of StepRepr_ConfigurationDesign"
@@ -29,46 +25,42 @@ discard "forward decl of StepRepr_ProductConcept"
 discard "forward decl of StepRepr_ProductDefinitionUsage"
 discard "forward decl of StepBasic_VersionedActionRequest"
 type
-  StepAP214_SecurityClassificationItem* {.
-      importcpp: "StepAP214_SecurityClassificationItem",
-      header: "StepAP214_SecurityClassificationItem.hxx", bycopy.} = object of StepAP214_ApprovalItem ##
-                                                                                               ## !
-                                                                                               ## Returns
-                                                                                               ## a
-                                                                                               ## SecurityClassificationItem
-                                                                                               ## SelectType
+  StepAP214SecurityClassificationItem* {.importcpp: "StepAP214_SecurityClassificationItem", header: "StepAP214_SecurityClassificationItem.hxx",
+                                        bycopy.} = object of StepAP214ApprovalItem ## !
+                                                                              ## Returns a
+                                                                              ## SecurityClassificationItem
+                                                                              ## SelectType
 
 
-proc constructStepAP214_SecurityClassificationItem*(): StepAP214_SecurityClassificationItem {.
+proc constructStepAP214SecurityClassificationItem*(): StepAP214SecurityClassificationItem {.
     constructor, importcpp: "StepAP214_SecurityClassificationItem(@)",
     header: "StepAP214_SecurityClassificationItem.hxx".}
-proc CaseNum*(this: StepAP214_SecurityClassificationItem;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepAP214SecurityClassificationItem;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_SecurityClassificationItem.hxx".}
-proc Action*(this: StepAP214_SecurityClassificationItem): handle[StepBasic_Action] {.
+proc action*(this: StepAP214SecurityClassificationItem): Handle[StepBasicAction] {.
     noSideEffect, importcpp: "Action",
     header: "StepAP214_SecurityClassificationItem.hxx".}
-proc AssemblyComponentUsage*(this: StepAP214_SecurityClassificationItem): handle[
-    StepRepr_AssemblyComponentUsage] {.noSideEffect,
-                                      importcpp: "AssemblyComponentUsage", header: "StepAP214_SecurityClassificationItem.hxx".}
-proc ConfigurationDesign*(this: StepAP214_SecurityClassificationItem): handle[
-    StepRepr_ConfigurationDesign] {.noSideEffect,
-                                   importcpp: "ConfigurationDesign", header: "StepAP214_SecurityClassificationItem.hxx".}
-proc ConfigurationEffectivity*(this: StepAP214_SecurityClassificationItem): handle[
-    StepRepr_ConfigurationEffectivity] {.noSideEffect,
-                                        importcpp: "ConfigurationEffectivity", header: "StepAP214_SecurityClassificationItem.hxx".}
-proc DraughtingModel*(this: StepAP214_SecurityClassificationItem): handle[
-    StepVisual_DraughtingModel] {.noSideEffect, importcpp: "DraughtingModel", header: "StepAP214_SecurityClassificationItem.hxx".}
-proc GeneralProperty*(this: StepAP214_SecurityClassificationItem): handle[
-    StepBasic_GeneralProperty] {.noSideEffect, importcpp: "GeneralProperty", header: "StepAP214_SecurityClassificationItem.hxx".}
-proc MakeFromUsageOption*(this: StepAP214_SecurityClassificationItem): handle[
-    StepRepr_MakeFromUsageOption] {.noSideEffect,
-                                   importcpp: "MakeFromUsageOption", header: "StepAP214_SecurityClassificationItem.hxx".}
-proc ProductConcept*(this: StepAP214_SecurityClassificationItem): handle[
-    StepRepr_ProductConcept] {.noSideEffect, importcpp: "ProductConcept", header: "StepAP214_SecurityClassificationItem.hxx".}
-proc ProductDefinitionUsage*(this: StepAP214_SecurityClassificationItem): handle[
-    StepRepr_ProductDefinitionUsage] {.noSideEffect,
-                                      importcpp: "ProductDefinitionUsage", header: "StepAP214_SecurityClassificationItem.hxx".}
-proc VersionedActionRequest*(this: StepAP214_SecurityClassificationItem): handle[
-    StepBasic_VersionedActionRequest] {.noSideEffect,
-                                       importcpp: "VersionedActionRequest", header: "StepAP214_SecurityClassificationItem.hxx".}
+proc assemblyComponentUsage*(this: StepAP214SecurityClassificationItem): Handle[
+    StepReprAssemblyComponentUsage] {.noSideEffect,
+                                     importcpp: "AssemblyComponentUsage", header: "StepAP214_SecurityClassificationItem.hxx".}
+proc configurationDesign*(this: StepAP214SecurityClassificationItem): Handle[
+    StepReprConfigurationDesign] {.noSideEffect, importcpp: "ConfigurationDesign", header: "StepAP214_SecurityClassificationItem.hxx".}
+proc configurationEffectivity*(this: StepAP214SecurityClassificationItem): Handle[
+    StepReprConfigurationEffectivity] {.noSideEffect,
+                                       importcpp: "ConfigurationEffectivity", header: "StepAP214_SecurityClassificationItem.hxx".}
+proc draughtingModel*(this: StepAP214SecurityClassificationItem): Handle[
+    StepVisualDraughtingModel] {.noSideEffect, importcpp: "DraughtingModel", header: "StepAP214_SecurityClassificationItem.hxx".}
+proc generalProperty*(this: StepAP214SecurityClassificationItem): Handle[
+    StepBasicGeneralProperty] {.noSideEffect, importcpp: "GeneralProperty", header: "StepAP214_SecurityClassificationItem.hxx".}
+proc makeFromUsageOption*(this: StepAP214SecurityClassificationItem): Handle[
+    StepReprMakeFromUsageOption] {.noSideEffect, importcpp: "MakeFromUsageOption", header: "StepAP214_SecurityClassificationItem.hxx".}
+proc productConcept*(this: StepAP214SecurityClassificationItem): Handle[
+    StepReprProductConcept] {.noSideEffect, importcpp: "ProductConcept",
+                             header: "StepAP214_SecurityClassificationItem.hxx".}
+proc productDefinitionUsage*(this: StepAP214SecurityClassificationItem): Handle[
+    StepReprProductDefinitionUsage] {.noSideEffect,
+                                     importcpp: "ProductDefinitionUsage", header: "StepAP214_SecurityClassificationItem.hxx".}
+proc versionedActionRequest*(this: StepAP214SecurityClassificationItem): Handle[
+    StepBasicVersionedActionRequest] {.noSideEffect,
+                                      importcpp: "VersionedActionRequest", header: "StepAP214_SecurityClassificationItem.hxx".}

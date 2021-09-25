@@ -14,17 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_HArray1OfReal, ../TColStd/TColStd_HArray2OfReal,
-  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Real
-
 discard "forward decl of Standard_DimensionMismatch"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESGeom_SplineCurve"
 discard "forward decl of IGESGeom_SplineCurve"
 type
-  Handle_IGESGeom_SplineCurve* = handle[IGESGeom_SplineCurve]
+  HandleIGESGeomSplineCurve* = Handle[IGESGeomSplineCurve]
 
 ## ! Defines IGESSplineCurve, Type <112> Form <0>
 ## ! in package IGESGeom
@@ -36,60 +31,56 @@ type
 ## ! ..., T(N+1).
 
 type
-  IGESGeom_SplineCurve* {.importcpp: "IGESGeom_SplineCurve",
-                         header: "IGESGeom_SplineCurve.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESGeomSplineCurve* {.importcpp: "IGESGeom_SplineCurve",
+                        header: "IGESGeom_SplineCurve.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESGeom_SplineCurve*(): IGESGeom_SplineCurve {.constructor,
+proc constructIGESGeomSplineCurve*(): IGESGeomSplineCurve {.constructor,
     importcpp: "IGESGeom_SplineCurve(@)", header: "IGESGeom_SplineCurve.hxx".}
-proc Init*(this: var IGESGeom_SplineCurve; aType: Standard_Integer;
-          aDegree: Standard_Integer; nbDimensions: Standard_Integer;
-          allBreakPoints: handle[TColStd_HArray1OfReal];
-          allXPolynomials: handle[TColStd_HArray2OfReal];
-          allYPolynomials: handle[TColStd_HArray2OfReal];
-          allZPolynomials: handle[TColStd_HArray2OfReal];
-          allXvalues: handle[TColStd_HArray1OfReal];
-          allYvalues: handle[TColStd_HArray1OfReal];
-          allZvalues: handle[TColStd_HArray1OfReal]) {.importcpp: "Init",
+proc init*(this: var IGESGeomSplineCurve; aType: int; aDegree: int; nbDimensions: int;
+          allBreakPoints: Handle[TColStdHArray1OfReal];
+          allXPolynomials: Handle[TColStdHArray2OfReal];
+          allYPolynomials: Handle[TColStdHArray2OfReal];
+          allZPolynomials: Handle[TColStdHArray2OfReal];
+          allXvalues: Handle[TColStdHArray1OfReal];
+          allYvalues: Handle[TColStdHArray1OfReal];
+          allZvalues: Handle[TColStdHArray1OfReal]) {.importcpp: "Init",
     header: "IGESGeom_SplineCurve.hxx".}
-proc SplineType*(this: IGESGeom_SplineCurve): Standard_Integer {.noSideEffect,
+proc splineType*(this: IGESGeomSplineCurve): int {.noSideEffect,
     importcpp: "SplineType", header: "IGESGeom_SplineCurve.hxx".}
-proc Degree*(this: IGESGeom_SplineCurve): Standard_Integer {.noSideEffect,
-    importcpp: "Degree", header: "IGESGeom_SplineCurve.hxx".}
-proc NbDimensions*(this: IGESGeom_SplineCurve): Standard_Integer {.noSideEffect,
+proc degree*(this: IGESGeomSplineCurve): int {.noSideEffect, importcpp: "Degree",
+    header: "IGESGeom_SplineCurve.hxx".}
+proc nbDimensions*(this: IGESGeomSplineCurve): int {.noSideEffect,
     importcpp: "NbDimensions", header: "IGESGeom_SplineCurve.hxx".}
-proc NbSegments*(this: IGESGeom_SplineCurve): Standard_Integer {.noSideEffect,
+proc nbSegments*(this: IGESGeomSplineCurve): int {.noSideEffect,
     importcpp: "NbSegments", header: "IGESGeom_SplineCurve.hxx".}
-proc BreakPoint*(this: IGESGeom_SplineCurve; Index: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "BreakPoint", header: "IGESGeom_SplineCurve.hxx".}
-proc XCoordPolynomial*(this: IGESGeom_SplineCurve; Index: Standard_Integer;
-                      AX: var Standard_Real; BX: var Standard_Real;
-                      CX: var Standard_Real; DX: var Standard_Real) {.noSideEffect,
+proc breakPoint*(this: IGESGeomSplineCurve; index: int): float {.noSideEffect,
+    importcpp: "BreakPoint", header: "IGESGeom_SplineCurve.hxx".}
+proc xCoordPolynomial*(this: IGESGeomSplineCurve; index: int; ax: var float;
+                      bx: var float; cx: var float; dx: var float) {.noSideEffect,
     importcpp: "XCoordPolynomial", header: "IGESGeom_SplineCurve.hxx".}
-proc YCoordPolynomial*(this: IGESGeom_SplineCurve; Index: Standard_Integer;
-                      AY: var Standard_Real; BY: var Standard_Real;
-                      CY: var Standard_Real; DY: var Standard_Real) {.noSideEffect,
+proc yCoordPolynomial*(this: IGESGeomSplineCurve; index: int; ay: var float;
+                      by: var float; cy: var float; dy: var float) {.noSideEffect,
     importcpp: "YCoordPolynomial", header: "IGESGeom_SplineCurve.hxx".}
-proc ZCoordPolynomial*(this: IGESGeom_SplineCurve; Index: Standard_Integer;
-                      AZ: var Standard_Real; BZ: var Standard_Real;
-                      CZ: var Standard_Real; DZ: var Standard_Real) {.noSideEffect,
+proc zCoordPolynomial*(this: IGESGeomSplineCurve; index: int; az: var float;
+                      bz: var float; cz: var float; dz: var float) {.noSideEffect,
     importcpp: "ZCoordPolynomial", header: "IGESGeom_SplineCurve.hxx".}
-proc XValues*(this: IGESGeom_SplineCurve; TPX0: var Standard_Real;
-             TPX1: var Standard_Real; TPX2: var Standard_Real; TPX3: var Standard_Real) {.
-    noSideEffect, importcpp: "XValues", header: "IGESGeom_SplineCurve.hxx".}
-proc YValues*(this: IGESGeom_SplineCurve; TPY0: var Standard_Real;
-             TPY1: var Standard_Real; TPY2: var Standard_Real; TPY3: var Standard_Real) {.
-    noSideEffect, importcpp: "YValues", header: "IGESGeom_SplineCurve.hxx".}
-proc ZValues*(this: IGESGeom_SplineCurve; TPZ0: var Standard_Real;
-             TPZ1: var Standard_Real; TPZ2: var Standard_Real; TPZ3: var Standard_Real) {.
-    noSideEffect, importcpp: "ZValues", header: "IGESGeom_SplineCurve.hxx".}
+proc xValues*(this: IGESGeomSplineCurve; tpx0: var float; tpx1: var float;
+             tpx2: var float; tpx3: var float) {.noSideEffect, importcpp: "XValues",
+    header: "IGESGeom_SplineCurve.hxx".}
+proc yValues*(this: IGESGeomSplineCurve; tpy0: var float; tpy1: var float;
+             tpy2: var float; tpy3: var float) {.noSideEffect, importcpp: "YValues",
+    header: "IGESGeom_SplineCurve.hxx".}
+proc zValues*(this: IGESGeomSplineCurve; tpz0: var float; tpz1: var float;
+             tpz2: var float; tpz3: var float) {.noSideEffect, importcpp: "ZValues",
+    header: "IGESGeom_SplineCurve.hxx".}
 type
-  IGESGeom_SplineCurvebase_type* = IGESData_IGESEntity
+  IGESGeomSplineCurvebaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESGeom_SplineCurve::get_type_name(@)",
-                              header: "IGESGeom_SplineCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESGeom_SplineCurve::get_type_name(@)",
+                            header: "IGESGeom_SplineCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESGeom_SplineCurve::get_type_descriptor(@)",
     header: "IGESGeom_SplineCurve.hxx".}
-proc DynamicType*(this: IGESGeom_SplineCurve): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IGESGeomSplineCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_SplineCurve.hxx".}

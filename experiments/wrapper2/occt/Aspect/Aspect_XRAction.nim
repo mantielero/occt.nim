@@ -11,44 +11,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Aspect_XRActionType, ../NCollection/NCollection_IndexedDataMap,
-  ../Standard/Standard_Transient, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString
-
 ## ! XR action definition.
 
 type
-  Aspect_XRAction* {.importcpp: "Aspect_XRAction", header: "Aspect_XRAction.hxx",
-                    bycopy.} = object of Standard_Transient ## ! Return action id.
+  AspectXRAction* {.importcpp: "Aspect_XRAction", header: "Aspect_XRAction.hxx",
+                   bycopy.} = object of StandardTransient ## ! Return action id.
     ## !< action id
     ## !< action handle
     ## !< action type
 
-  Aspect_XRActionbase_type* = Standard_Transient
+  AspectXRActionbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Aspect_XRAction::get_type_name(@)",
-                              header: "Aspect_XRAction.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Aspect_XRAction::get_type_name(@)",
+                            header: "Aspect_XRAction.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Aspect_XRAction::get_type_descriptor(@)",
     header: "Aspect_XRAction.hxx".}
-proc DynamicType*(this: Aspect_XRAction): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: AspectXRAction): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Aspect_XRAction.hxx".}
-proc Id*(this: Aspect_XRAction): TCollection_AsciiString {.noSideEffect,
+proc id*(this: AspectXRAction): TCollectionAsciiString {.noSideEffect,
     importcpp: "Id", header: "Aspect_XRAction.hxx".}
-proc Type*(this: Aspect_XRAction): Aspect_XRActionType {.noSideEffect,
+proc `type`*(this: AspectXRAction): AspectXRActionType {.noSideEffect,
     importcpp: "Type", header: "Aspect_XRAction.hxx".}
-proc IsValid*(this: Aspect_XRAction): bool {.noSideEffect, importcpp: "IsValid",
-    header: "Aspect_XRAction.hxx".}
-proc RawHandle*(this: Aspect_XRAction): uint64_t {.noSideEffect,
+proc isValid*(this: AspectXRAction): bool {.noSideEffect, importcpp: "IsValid",
+                                        header: "Aspect_XRAction.hxx".}
+proc rawHandle*(this: AspectXRAction): uint64T {.noSideEffect,
     importcpp: "RawHandle", header: "Aspect_XRAction.hxx".}
-proc SetRawHandle*(this: var Aspect_XRAction; theHande: uint64_t) {.
+proc setRawHandle*(this: var AspectXRAction; theHande: uint64T) {.
     importcpp: "SetRawHandle", header: "Aspect_XRAction.hxx".}
-proc constructAspect_XRAction*(theId: TCollection_AsciiString;
-                              theType: Aspect_XRActionType): Aspect_XRAction {.
+proc constructAspectXRAction*(theId: TCollectionAsciiString;
+                             theType: AspectXRActionType): AspectXRAction {.
     constructor, importcpp: "Aspect_XRAction(@)", header: "Aspect_XRAction.hxx".}
 ## ! Map of actions with action Id as a key.
 
 type
-  Aspect_XRActionMap* = NCollection_IndexedDataMap[TCollection_AsciiString,
-      handle[Aspect_XRAction], TCollection_AsciiString]
+  AspectXRActionMap* = NCollectionIndexedDataMap[TCollectionAsciiString,
+      Handle[AspectXRAction], TCollectionAsciiString]
+

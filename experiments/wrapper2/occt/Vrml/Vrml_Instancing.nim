@@ -14,20 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TCollection/TCollection_AsciiString,
-  ../Standard/Standard_OStream
-
 discard "forward decl of TCollection_AsciiString"
 type
-  Vrml_Instancing* {.importcpp: "Vrml_Instancing", header: "Vrml_Instancing.hxx",
-                    bycopy.} = object ## ! Adds "DEF  <myName>" in  anOStream  (VRML  file).
+  VrmlInstancing* {.importcpp: "Vrml_Instancing", header: "Vrml_Instancing.hxx",
+                   bycopy.} = object ## ! Adds "DEF  <myName>" in  anOStream  (VRML  file).
 
 
-proc constructVrml_Instancing*(aString: TCollection_AsciiString): Vrml_Instancing {.
+proc constructVrmlInstancing*(aString: TCollectionAsciiString): VrmlInstancing {.
     constructor, importcpp: "Vrml_Instancing(@)", header: "Vrml_Instancing.hxx".}
-proc DEF*(this: Vrml_Instancing; anOStream: var Standard_OStream): var Standard_OStream {.
+proc def*(this: VrmlInstancing; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "DEF", header: "Vrml_Instancing.hxx".}
-proc USE*(this: Vrml_Instancing; anOStream: var Standard_OStream): var Standard_OStream {.
+proc use*(this: VrmlInstancing; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "USE", header: "Vrml_Instancing.hxx".}

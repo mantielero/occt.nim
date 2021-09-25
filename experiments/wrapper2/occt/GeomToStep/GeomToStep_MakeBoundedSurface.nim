@@ -14,21 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GeomToStep_Root
-
 discard "forward decl of StepGeom_BoundedSurface"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom_BoundedSurface"
 type
-  GeomToStep_MakeBoundedSurface* {.importcpp: "GeomToStep_MakeBoundedSurface",
-                                  header: "GeomToStep_MakeBoundedSurface.hxx",
-                                  bycopy.} = object of GeomToStep_Root
+  GeomToStepMakeBoundedSurface* {.importcpp: "GeomToStep_MakeBoundedSurface",
+                                 header: "GeomToStep_MakeBoundedSurface.hxx",
+                                 bycopy.} = object of GeomToStepRoot
 
 
-proc constructGeomToStep_MakeBoundedSurface*(C: handle[Geom_BoundedSurface]): GeomToStep_MakeBoundedSurface {.
+proc constructGeomToStepMakeBoundedSurface*(c: Handle[GeomBoundedSurface]): GeomToStepMakeBoundedSurface {.
     constructor, importcpp: "GeomToStep_MakeBoundedSurface(@)",
     header: "GeomToStep_MakeBoundedSurface.hxx".}
-proc Value*(this: GeomToStep_MakeBoundedSurface): handle[StepGeom_BoundedSurface] {.
+proc value*(this: GeomToStepMakeBoundedSurface): Handle[StepGeomBoundedSurface] {.
     noSideEffect, importcpp: "Value", header: "GeomToStep_MakeBoundedSurface.hxx".}

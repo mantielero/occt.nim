@@ -14,14 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ChFiDS_ChamfMethod, ChFiDS_ChamfMode, ChFiDS_Spine
-
 discard "forward decl of ChFiDS_ChamfSpine"
 discard "forward decl of ChFiDS_ChamfSpine"
 type
-  Handle_ChFiDS_ChamfSpine* = handle[ChFiDS_ChamfSpine]
+  HandleChFiDS_ChamfSpine* = Handle[ChFiDS_ChamfSpine]
 
 ## ! Provides  data specific to chamfers
 ## ! distances on  each  of faces.
@@ -34,33 +30,31 @@ type
 
 proc constructChFiDS_ChamfSpine*(): ChFiDS_ChamfSpine {.constructor,
     importcpp: "ChFiDS_ChamfSpine(@)", header: "ChFiDS_ChamfSpine.hxx".}
-proc constructChFiDS_ChamfSpine*(Tol: Standard_Real): ChFiDS_ChamfSpine {.
-    constructor, importcpp: "ChFiDS_ChamfSpine(@)", header: "ChFiDS_ChamfSpine.hxx".}
-proc SetDist*(this: var ChFiDS_ChamfSpine; Dis: Standard_Real) {.importcpp: "SetDist",
+proc constructChFiDS_ChamfSpine*(tol: float): ChFiDS_ChamfSpine {.constructor,
+    importcpp: "ChFiDS_ChamfSpine(@)", header: "ChFiDS_ChamfSpine.hxx".}
+proc setDist*(this: var ChFiDS_ChamfSpine; dis: float) {.importcpp: "SetDist",
     header: "ChFiDS_ChamfSpine.hxx".}
-proc GetDist*(this: ChFiDS_ChamfSpine; Dis: var Standard_Real) {.noSideEffect,
+proc getDist*(this: ChFiDS_ChamfSpine; dis: var float) {.noSideEffect,
     importcpp: "GetDist", header: "ChFiDS_ChamfSpine.hxx".}
-proc SetDists*(this: var ChFiDS_ChamfSpine; Dis1: Standard_Real; Dis2: Standard_Real) {.
+proc setDists*(this: var ChFiDS_ChamfSpine; dis1: float; dis2: float) {.
     importcpp: "SetDists", header: "ChFiDS_ChamfSpine.hxx".}
-proc Dists*(this: ChFiDS_ChamfSpine; Dis1: var Standard_Real; Dis2: var Standard_Real) {.
-    noSideEffect, importcpp: "Dists", header: "ChFiDS_ChamfSpine.hxx".}
-proc GetDistAngle*(this: ChFiDS_ChamfSpine; Dis: var Standard_Real;
-                  Angle: var Standard_Real) {.noSideEffect,
-    importcpp: "GetDistAngle", header: "ChFiDS_ChamfSpine.hxx".}
-proc SetDistAngle*(this: var ChFiDS_ChamfSpine; Dis: Standard_Real;
-                  Angle: Standard_Real) {.importcpp: "SetDistAngle",
-                                        header: "ChFiDS_ChamfSpine.hxx".}
-proc SetMode*(this: var ChFiDS_ChamfSpine; theMode: ChFiDS_ChamfMode) {.
+proc dists*(this: ChFiDS_ChamfSpine; dis1: var float; dis2: var float) {.noSideEffect,
+    importcpp: "Dists", header: "ChFiDS_ChamfSpine.hxx".}
+proc getDistAngle*(this: ChFiDS_ChamfSpine; dis: var float; angle: var float) {.
+    noSideEffect, importcpp: "GetDistAngle", header: "ChFiDS_ChamfSpine.hxx".}
+proc setDistAngle*(this: var ChFiDS_ChamfSpine; dis: float; angle: float) {.
+    importcpp: "SetDistAngle", header: "ChFiDS_ChamfSpine.hxx".}
+proc setMode*(this: var ChFiDS_ChamfSpine; theMode: ChFiDS_ChamfMode) {.
     importcpp: "SetMode", header: "ChFiDS_ChamfSpine.hxx".}
-proc IsChamfer*(this: ChFiDS_ChamfSpine): ChFiDS_ChamfMethod {.noSideEffect,
+proc isChamfer*(this: ChFiDS_ChamfSpine): ChFiDS_ChamfMethod {.noSideEffect,
     importcpp: "IsChamfer", header: "ChFiDS_ChamfSpine.hxx".}
 type
-  ChFiDS_ChamfSpinebase_type* = ChFiDS_Spine
+  ChFiDS_ChamfSpinebaseType* = ChFiDS_Spine
 
-proc get_type_name*(): cstring {.importcpp: "ChFiDS_ChamfSpine::get_type_name(@)",
-                              header: "ChFiDS_ChamfSpine.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ChFiDS_ChamfSpine::get_type_name(@)",
+                            header: "ChFiDS_ChamfSpine.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ChFiDS_ChamfSpine::get_type_descriptor(@)",
     header: "ChFiDS_ChamfSpine.hxx".}
-proc DynamicType*(this: ChFiDS_ChamfSpine): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: ChFiDS_ChamfSpine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ChFiDS_ChamfSpine.hxx".}

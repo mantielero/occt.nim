@@ -14,20 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Type,
-  ../TColStd/TColStd_HArray1OfAsciiString, ../MoniTool/MoniTool_TypedValue,
-  ../Standard/Standard_CString, Interface_ParamType,
-  ../MoniTool/MoniTool_ValueType
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of Interface_TypedValue"
 discard "forward decl of Interface_TypedValue"
 type
-  Handle_Interface_TypedValue* = handle[Interface_TypedValue]
+  HandleInterfaceTypedValue* = Handle[InterfaceTypedValue]
 
 ## ! Now strictly equivalent to TypedValue from MoniTool,
 ## ! except for ParamType which remains for compatibility reasons
@@ -46,104 +39,104 @@ type
 ## ! access to its value.
 
 type
-  Interface_TypedValue* {.importcpp: "Interface_TypedValue",
-                         header: "Interface_TypedValue.hxx", bycopy.} = object of MoniTool_TypedValue ##
-                                                                                               ## !
-                                                                                               ## Creates
-                                                                                               ## a
-                                                                                               ## TypedValue,
-                                                                                               ## with
-                                                                                               ## a
-                                                                                               ## name
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## type
-                                                                                               ## gives
-                                                                                               ## the
-                                                                                               ## type
-                                                                                               ## of
-                                                                                               ## the
-                                                                                               ## parameter,
-                                                                                               ## default
-                                                                                               ## is
-                                                                                               ## free
-                                                                                               ## text
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Also
-                                                                                               ## available
-                                                                                               ## :
-                                                                                               ## Integer,
-                                                                                               ## Real,
-                                                                                               ## Enum,
-                                                                                               ## Entity
-                                                                                               ## (i.e.
-                                                                                               ## Object)
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## More
-                                                                                               ## precise
-                                                                                               ## specifications,
-                                                                                               ## titles,
-                                                                                               ## can
-                                                                                               ## be
-                                                                                               ## given
-                                                                                               ## to
-                                                                                               ## the
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## TypedValue
-                                                                                               ## once
-                                                                                               ## created
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## init
-                                                                                               ## gives
-                                                                                               ## an
-                                                                                               ## initial
-                                                                                               ## value.
-                                                                                               ## If
-                                                                                               ## it
-                                                                                               ## is
-                                                                                               ## not
-                                                                                               ## given,
-                                                                                               ## the
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## TypedValue
-                                                                                               ## begins
-                                                                                               ## as
-                                                                                               ## "not
-                                                                                               ## set",
-                                                                                               ## its
-                                                                                               ## value
-                                                                                               ## is
-                                                                                               ## empty
+  InterfaceTypedValue* {.importcpp: "Interface_TypedValue",
+                        header: "Interface_TypedValue.hxx", bycopy.} = object of MoniToolTypedValue ##
+                                                                                             ## !
+                                                                                             ## Creates
+                                                                                             ## a
+                                                                                             ## TypedValue,
+                                                                                             ## with
+                                                                                             ## a
+                                                                                             ## name
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## type
+                                                                                             ## gives
+                                                                                             ## the
+                                                                                             ## type
+                                                                                             ## of
+                                                                                             ## the
+                                                                                             ## parameter,
+                                                                                             ## default
+                                                                                             ## is
+                                                                                             ## free
+                                                                                             ## text
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Also
+                                                                                             ## available
+                                                                                             ## :
+                                                                                             ## Integer,
+                                                                                             ## Real,
+                                                                                             ## Enum,
+                                                                                             ## Entity
+                                                                                             ## (i.e.
+                                                                                             ## Object)
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## More
+                                                                                             ## precise
+                                                                                             ## specifications,
+                                                                                             ## titles,
+                                                                                             ## can
+                                                                                             ## be
+                                                                                             ## given
+                                                                                             ## to
+                                                                                             ## the
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## TypedValue
+                                                                                             ## once
+                                                                                             ## created
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## init
+                                                                                             ## gives
+                                                                                             ## an
+                                                                                             ## initial
+                                                                                             ## value.
+                                                                                             ## If
+                                                                                             ## it
+                                                                                             ## is
+                                                                                             ## not
+                                                                                             ## given,
+                                                                                             ## the
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## TypedValue
+                                                                                             ## begins
+                                                                                             ## as
+                                                                                             ## "not
+                                                                                             ## set",
+                                                                                             ## its
+                                                                                             ## value
+                                                                                             ## is
+                                                                                             ## empty
 
 
-proc constructInterface_TypedValue*(name: Standard_CString; `type`: Interface_ParamType = Interface_ParamText;
-                                   init: Standard_CString = ""): Interface_TypedValue {.
+proc constructInterfaceTypedValue*(name: StandardCString; `type`: InterfaceParamType = interfaceParamText;
+                                  init: StandardCString = ""): InterfaceTypedValue {.
     constructor, importcpp: "Interface_TypedValue(@)",
     header: "Interface_TypedValue.hxx".}
-proc Type*(this: Interface_TypedValue): Interface_ParamType {.noSideEffect,
+proc `type`*(this: InterfaceTypedValue): InterfaceParamType {.noSideEffect,
     importcpp: "Type", header: "Interface_TypedValue.hxx".}
-proc ParamTypeToValueType*(typ: Interface_ParamType): MoniTool_ValueType {.
+proc paramTypeToValueType*(typ: InterfaceParamType): MoniToolValueType {.
     importcpp: "Interface_TypedValue::ParamTypeToValueType(@)",
     header: "Interface_TypedValue.hxx".}
-proc ValueTypeToParamType*(typ: MoniTool_ValueType): Interface_ParamType {.
+proc valueTypeToParamType*(typ: MoniToolValueType): InterfaceParamType {.
     importcpp: "Interface_TypedValue::ValueTypeToParamType(@)",
     header: "Interface_TypedValue.hxx".}
 type
-  Interface_TypedValuebase_type* = MoniTool_TypedValue
+  InterfaceTypedValuebaseType* = MoniToolTypedValue
 
-proc get_type_name*(): cstring {.importcpp: "Interface_TypedValue::get_type_name(@)",
-                              header: "Interface_TypedValue.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Interface_TypedValue::get_type_name(@)",
+                            header: "Interface_TypedValue.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Interface_TypedValue::get_type_descriptor(@)",
     header: "Interface_TypedValue.hxx".}
-proc DynamicType*(this: Interface_TypedValue): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: InterfaceTypedValue): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_TypedValue.hxx".}

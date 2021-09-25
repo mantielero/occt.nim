@@ -14,35 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepVisual_DraughtingModel"
 discard "forward decl of StepVisual_PresentationRepresentation"
 discard "forward decl of StepVisual_PresentationSet"
 type
-  StepVisual_InvisibilityContext* {.importcpp: "StepVisual_InvisibilityContext", header: "StepVisual_InvisibilityContext.hxx",
-                                   bycopy.} = object of StepData_SelectType ## ! Returns a
-                                                                       ## InvisibilityContext
-                                                                       ## SelectType
+  StepVisualInvisibilityContext* {.importcpp: "StepVisual_InvisibilityContext",
+                                  header: "StepVisual_InvisibilityContext.hxx",
+                                  bycopy.} = object of StepDataSelectType ## ! Returns a
+                                                                     ## InvisibilityContext SelectType
 
 
-proc constructStepVisual_InvisibilityContext*(): StepVisual_InvisibilityContext {.
+proc constructStepVisualInvisibilityContext*(): StepVisualInvisibilityContext {.
     constructor, importcpp: "StepVisual_InvisibilityContext(@)",
     header: "StepVisual_InvisibilityContext.hxx".}
-proc CaseNum*(this: StepVisual_InvisibilityContext; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepVisualInvisibilityContext; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepVisual_InvisibilityContext.hxx".}
-proc PresentationRepresentation*(this: StepVisual_InvisibilityContext): handle[
-    StepVisual_PresentationRepresentation] {.noSideEffect,
+proc presentationRepresentation*(this: StepVisualInvisibilityContext): Handle[
+    StepVisualPresentationRepresentation] {.noSideEffect,
     importcpp: "PresentationRepresentation",
     header: "StepVisual_InvisibilityContext.hxx".}
-proc PresentationSet*(this: StepVisual_InvisibilityContext): handle[
-    StepVisual_PresentationSet] {.noSideEffect, importcpp: "PresentationSet",
-                                 header: "StepVisual_InvisibilityContext.hxx".}
-proc DraughtingModel*(this: StepVisual_InvisibilityContext): handle[
-    StepVisual_DraughtingModel] {.noSideEffect, importcpp: "DraughtingModel",
-                                 header: "StepVisual_InvisibilityContext.hxx".}
+proc presentationSet*(this: StepVisualInvisibilityContext): Handle[
+    StepVisualPresentationSet] {.noSideEffect, importcpp: "PresentationSet",
+                                header: "StepVisual_InvisibilityContext.hxx".}
+proc draughtingModel*(this: StepVisualInvisibilityContext): Handle[
+    StepVisualDraughtingModel] {.noSideEffect, importcpp: "DraughtingModel",
+                                header: "StepVisual_InvisibilityContext.hxx".}

@@ -13,24 +13,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColStd/TColStd_HArray1OfReal,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer, math_Vector
-
 type
-  math_ComputeKronrodPointsAndWeights* {.importcpp: "math_ComputeKronrodPointsAndWeights", header: "math_ComputeKronrodPointsAndWeights.hxx",
-                                        bycopy.} = object
+  MathComputeKronrodPointsAndWeights* {.importcpp: "math_ComputeKronrodPointsAndWeights", header: "math_ComputeKronrodPointsAndWeights.hxx",
+                                       bycopy.} = object
 
 
-proc constructmath_ComputeKronrodPointsAndWeights*(Number: Standard_Integer): math_ComputeKronrodPointsAndWeights {.
+proc constructMathComputeKronrodPointsAndWeights*(number: int): MathComputeKronrodPointsAndWeights {.
     constructor, importcpp: "math_ComputeKronrodPointsAndWeights(@)",
     header: "math_ComputeKronrodPointsAndWeights.hxx".}
-proc IsDone*(this: math_ComputeKronrodPointsAndWeights): Standard_Boolean {.
-    noSideEffect, importcpp: "IsDone",
-    header: "math_ComputeKronrodPointsAndWeights.hxx".}
-proc Points*(this: math_ComputeKronrodPointsAndWeights): math_Vector {.noSideEffect,
+proc isDone*(this: MathComputeKronrodPointsAndWeights): bool {.noSideEffect,
+    importcpp: "IsDone", header: "math_ComputeKronrodPointsAndWeights.hxx".}
+proc points*(this: MathComputeKronrodPointsAndWeights): MathVector {.noSideEffect,
     importcpp: "Points", header: "math_ComputeKronrodPointsAndWeights.hxx".}
-proc Weights*(this: math_ComputeKronrodPointsAndWeights): math_Vector {.
-    noSideEffect, importcpp: "Weights",
-    header: "math_ComputeKronrodPointsAndWeights.hxx".}
+proc weights*(this: MathComputeKronrodPointsAndWeights): MathVector {.noSideEffect,
+    importcpp: "Weights", header: "math_ComputeKronrodPointsAndWeights.hxx".}

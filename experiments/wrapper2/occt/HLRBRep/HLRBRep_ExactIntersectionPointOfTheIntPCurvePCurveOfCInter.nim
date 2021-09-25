@@ -14,48 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real,
-  HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter, ../math/math_Vector,
-  ../Standard/Standard_Address
-
 discard "forward decl of HLRBRep_CurveTool"
 discard "forward decl of HLRBRep_TheProjPCurOfCInter"
 discard "forward decl of HLRBRep_TheIntPCurvePCurveOfCInter"
 discard "forward decl of HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter"
 discard "forward decl of HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter"
 type
-  HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter* {.
+  HLRBRepExactIntersectionPointOfTheIntPCurvePCurveOfCInter* {.
       importcpp: "HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter",
       header: "HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter.hxx",
       bycopy.} = object
 
 
-proc constructHLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter*(
-    C1: Standard_Address; C2: Standard_Address; Tol: Standard_Real): HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter {.
+proc constructHLRBRepExactIntersectionPointOfTheIntPCurvePCurveOfCInter*(
+    c1: StandardAddress; c2: StandardAddress; tol: float): HLRBRepExactIntersectionPointOfTheIntPCurvePCurveOfCInter {.
     constructor,
     importcpp: "HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter(@)",
     header: "HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter.hxx".}
-proc Perform*(this: var HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter;
-             Poly1: HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter;
-             Poly2: HLRBRep_ThePolygon2dOfTheIntPCurvePCurveOfCInter;
-             NumSegOn1: var Standard_Integer; NumSegOn2: var Standard_Integer;
-             ParamOnSeg1: var Standard_Real; ParamOnSeg2: var Standard_Real) {.
+proc perform*(this: var HLRBRepExactIntersectionPointOfTheIntPCurvePCurveOfCInter;
+             poly1: HLRBRepThePolygon2dOfTheIntPCurvePCurveOfCInter;
+             poly2: HLRBRepThePolygon2dOfTheIntPCurvePCurveOfCInter;
+             numSegOn1: var int; numSegOn2: var int; paramOnSeg1: var float;
+             paramOnSeg2: var float) {.importcpp: "Perform", header: "HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter.hxx".}
+proc perform*(this: var HLRBRepExactIntersectionPointOfTheIntPCurvePCurveOfCInter;
+             uo: float; vo: float; uInf: float; vInf: float; uSup: float; vSup: float) {.
     importcpp: "Perform",
     header: "HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter.hxx".}
-proc Perform*(this: var HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter;
-             Uo: Standard_Real; Vo: Standard_Real; UInf: Standard_Real;
-             VInf: Standard_Real; USup: Standard_Real; VSup: Standard_Real) {.
-    importcpp: "Perform",
-    header: "HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter.hxx".}
-proc NbRoots*(this: HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter): Standard_Integer {.
+proc nbRoots*(this: HLRBRepExactIntersectionPointOfTheIntPCurvePCurveOfCInter): int {.
     noSideEffect, importcpp: "NbRoots",
     header: "HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter.hxx".}
-proc Roots*(this: var HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter;
-           U: var Standard_Real; V: var Standard_Real) {.importcpp: "Roots",
-    header: "HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter.hxx".}
-proc AnErrorOccurred*(this: HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter): Standard_Boolean {.
+proc roots*(this: var HLRBRepExactIntersectionPointOfTheIntPCurvePCurveOfCInter;
+           u: var float; v: var float) {.importcpp: "Roots", header: "HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter.hxx".}
+proc anErrorOccurred*(this: HLRBRepExactIntersectionPointOfTheIntPCurvePCurveOfCInter): bool {.
     noSideEffect, importcpp: "AnErrorOccurred",
     header: "HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter.hxx".}

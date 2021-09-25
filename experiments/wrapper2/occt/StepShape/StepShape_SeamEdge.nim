@@ -13,48 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_OrientedEdge,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of StepGeom_Pcurve"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_Edge"
 discard "forward decl of StepShape_SeamEdge"
 discard "forward decl of StepShape_SeamEdge"
 type
-  Handle_StepShape_SeamEdge* = handle[StepShape_SeamEdge]
+  HandleStepShapeSeamEdge* = Handle[StepShapeSeamEdge]
 
 ## ! Representation of STEP entity SeamEdge
 
 type
-  StepShape_SeamEdge* {.importcpp: "StepShape_SeamEdge",
-                       header: "StepShape_SeamEdge.hxx", bycopy.} = object of StepShape_OrientedEdge ##
-                                                                                              ## !
-                                                                                              ## Empty
-                                                                                              ## constructor
+  StepShapeSeamEdge* {.importcpp: "StepShape_SeamEdge",
+                      header: "StepShape_SeamEdge.hxx", bycopy.} = object of StepShapeOrientedEdge ##
+                                                                                            ## !
+                                                                                            ## Empty
+                                                                                            ## constructor
 
 
-proc constructStepShape_SeamEdge*(): StepShape_SeamEdge {.constructor,
+proc constructStepShapeSeamEdge*(): StepShapeSeamEdge {.constructor,
     importcpp: "StepShape_SeamEdge(@)", header: "StepShape_SeamEdge.hxx".}
-proc Init*(this: var StepShape_SeamEdge;
-          aRepresentationItem_Name: handle[TCollection_HAsciiString];
-          aOrientedEdge_EdgeElement: handle[StepShape_Edge];
-          aOrientedEdge_Orientation: Standard_Boolean;
-          aPcurveReference: handle[StepGeom_Pcurve]) {.importcpp: "Init",
-    header: "StepShape_SeamEdge.hxx".}
-proc PcurveReference*(this: StepShape_SeamEdge): handle[StepGeom_Pcurve] {.
+proc init*(this: var StepShapeSeamEdge;
+          aRepresentationItemName: Handle[TCollectionHAsciiString];
+          aOrientedEdgeEdgeElement: Handle[StepShapeEdge];
+          aOrientedEdgeOrientation: bool; aPcurveReference: Handle[StepGeomPcurve]) {.
+    importcpp: "Init", header: "StepShape_SeamEdge.hxx".}
+proc pcurveReference*(this: StepShapeSeamEdge): Handle[StepGeomPcurve] {.
     noSideEffect, importcpp: "PcurveReference", header: "StepShape_SeamEdge.hxx".}
-proc SetPcurveReference*(this: var StepShape_SeamEdge;
-                        PcurveReference: handle[StepGeom_Pcurve]) {.
+proc setPcurveReference*(this: var StepShapeSeamEdge;
+                        pcurveReference: Handle[StepGeomPcurve]) {.
     importcpp: "SetPcurveReference", header: "StepShape_SeamEdge.hxx".}
 type
-  StepShape_SeamEdgebase_type* = StepShape_OrientedEdge
+  StepShapeSeamEdgebaseType* = StepShapeOrientedEdge
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_SeamEdge::get_type_name(@)",
-                              header: "StepShape_SeamEdge.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_SeamEdge::get_type_name(@)",
+                            header: "StepShape_SeamEdge.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_SeamEdge::get_type_descriptor(@)",
     header: "StepShape_SeamEdge.hxx".}
-proc DynamicType*(this: StepShape_SeamEdge): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepShapeSeamEdge): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_SeamEdge.hxx".}

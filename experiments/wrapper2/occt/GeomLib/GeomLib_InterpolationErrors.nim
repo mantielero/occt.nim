@@ -18,9 +18,10 @@
 ## ! tells what happened
 
 type
-  GeomLib_InterpolationErrors* {.size: sizeof(cint),
-                                importcpp: "GeomLib_InterpolationErrors",
-                                header: "GeomLib_InterpolationErrors.hxx".} = enum
-    GeomLib_NoError, GeomLib_NotEnoughtPoints, GeomLib_DegreeSmallerThan3,
-    GeomLib_InversionProblem
+  GeomLibInterpolationErrors* {.size: sizeof(cint),
+                               importcpp: "GeomLib_InterpolationErrors",
+                               header: "GeomLib_InterpolationErrors.hxx".} = enum
+    GeomLibNoError, GeomLibNotEnoughtPoints, GeomLibDegreeSmallerThan3,
+    GeomLibInversionProblem
+
 

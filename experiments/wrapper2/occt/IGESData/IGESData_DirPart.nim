@@ -14,39 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Character, ../Standard/Standard_CString
-
 discard "forward decl of IGESData_IGESType"
 type
-  IGESData_DirPart* {.importcpp: "IGESData_DirPart",
-                     header: "IGESData_DirPart.hxx", bycopy.} = object ## ! creates an empty DirPart, ready to be filled by Init
+  IGESDataDirPart* {.importcpp: "IGESData_DirPart", header: "IGESData_DirPart.hxx",
+                    bycopy.} = object ## ! creates an empty DirPart, ready to be filled by Init
 
 
-proc constructIGESData_DirPart*(): IGESData_DirPart {.constructor,
+proc constructIGESDataDirPart*(): IGESDataDirPart {.constructor,
     importcpp: "IGESData_DirPart(@)", header: "IGESData_DirPart.hxx".}
-proc Init*(this: var IGESData_DirPart; i1: Standard_Integer; i2: Standard_Integer;
-          i3: Standard_Integer; i4: Standard_Integer; i5: Standard_Integer;
-          i6: Standard_Integer; i7: Standard_Integer; i8: Standard_Integer;
-          i9: Standard_Integer; i19: Standard_Integer; i11: Standard_Integer;
-          i12: Standard_Integer; i13: Standard_Integer; i14: Standard_Integer;
-          i15: Standard_Integer; i16: Standard_Integer; i17: Standard_Integer;
-          res1: Standard_CString; res2: Standard_CString; label: Standard_CString;
-          subscript: Standard_CString) {.importcpp: "Init",
-                                       header: "IGESData_DirPart.hxx".}
-proc Values*(this: IGESData_DirPart; i1: var Standard_Integer;
-            i2: var Standard_Integer; i3: var Standard_Integer;
-            i4: var Standard_Integer; i5: var Standard_Integer;
-            i6: var Standard_Integer; i7: var Standard_Integer;
-            i8: var Standard_Integer; i9: var Standard_Integer;
-            i19: var Standard_Integer; i11: var Standard_Integer;
-            i12: var Standard_Integer; i13: var Standard_Integer;
-            i14: var Standard_Integer; i15: var Standard_Integer;
-            i16: var Standard_Integer; i17: var Standard_Integer;
-            res1: Standard_CString; res2: Standard_CString; label: Standard_CString;
-            subscript: Standard_CString) {.noSideEffect, importcpp: "Values",
+proc init*(this: var IGESDataDirPart; i1: int; i2: int; i3: int; i4: int; i5: int; i6: int;
+          i7: int; i8: int; i9: int; i19: int; i11: int; i12: int; i13: int; i14: int; i15: int;
+          i16: int; i17: int; res1: StandardCString; res2: StandardCString;
+          label: StandardCString; subscript: StandardCString) {.importcpp: "Init",
     header: "IGESData_DirPart.hxx".}
-proc Type*(this: IGESData_DirPart): IGESData_IGESType {.noSideEffect,
+proc values*(this: IGESDataDirPart; i1: var int; i2: var int; i3: var int; i4: var int;
+            i5: var int; i6: var int; i7: var int; i8: var int; i9: var int; i19: var int;
+            i11: var int; i12: var int; i13: var int; i14: var int; i15: var int; i16: var int;
+            i17: var int; res1: StandardCString; res2: StandardCString;
+            label: StandardCString; subscript: StandardCString) {.noSideEffect,
+    importcpp: "Values", header: "IGESData_DirPart.hxx".}
+proc `type`*(this: IGESDataDirPart): IGESDataIGESType {.noSideEffect,
     importcpp: "Type", header: "IGESData_DirPart.hxx".}

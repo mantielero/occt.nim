@@ -13,51 +13,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_RenderFilter, ../Standard/Standard_Type
-
 discard "forward decl of Graphic3d_FrameStatsDataTmp"
 discard "forward decl of OpenGl_Workspace"
 discard "forward decl of OpenGl_Context"
 type
-  OpenGl_Element* {.importcpp: "OpenGl_Element", header: "OpenGl_Element.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Return
-                                                                                         ## TRUE
-                                                                                         ## if
-                                                                                         ## primitive
-                                                                                         ## type
-                                                                                         ## generates
-                                                                                         ## shaded
-                                                                                         ## triangulation
-                                                                                         ## (to
-                                                                                         ## be
-                                                                                         ## used
-                                                                                         ## in
-                                                                                         ## filters).
+  OpenGlElement* {.importcpp: "OpenGl_Element", header: "OpenGl_Element.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Return
+                                                                                        ## TRUE
+                                                                                        ## if
+                                                                                        ## primitive
+                                                                                        ## type
+                                                                                        ## generates
+                                                                                        ## shaded
+                                                                                        ## triangulation
+                                                                                        ## (to
+                                                                                        ## be
+                                                                                        ## used
+                                                                                        ## in
+                                                                                        ## filters).
 
 
-proc constructOpenGl_Element*(): OpenGl_Element {.constructor,
+proc constructOpenGlElement*(): OpenGlElement {.constructor,
     importcpp: "OpenGl_Element(@)", header: "OpenGl_Element.hxx".}
-proc Render*(this: OpenGl_Element; theWorkspace: handle[OpenGl_Workspace]) {.
+proc render*(this: OpenGlElement; theWorkspace: Handle[OpenGlWorkspace]) {.
     noSideEffect, importcpp: "Render", header: "OpenGl_Element.hxx".}
-proc Release*(this: var OpenGl_Element; theContext: ptr OpenGl_Context) {.
+proc release*(this: var OpenGlElement; theContext: ptr OpenGlContext) {.
     importcpp: "Release", header: "OpenGl_Element.hxx".}
-proc Destroy*[theResource_t](theContext: ptr OpenGl_Context;
-                            theElement: ptr theResource_t) {.
+proc destroy*[TheResourceT](theContext: ptr OpenGlContext;
+                           theElement: ptr TheResourceT) {.
     importcpp: "OpenGl_Element::Destroy(@)", header: "OpenGl_Element.hxx".}
-proc IsFillDrawMode*(this: OpenGl_Element): Standard_Boolean {.noSideEffect,
+proc isFillDrawMode*(this: OpenGlElement): bool {.noSideEffect,
     importcpp: "IsFillDrawMode", header: "OpenGl_Element.hxx".}
-proc EstimatedDataSize*(this: OpenGl_Element): Standard_Size {.noSideEffect,
+proc estimatedDataSize*(this: OpenGlElement): StandardSize {.noSideEffect,
     importcpp: "EstimatedDataSize", header: "OpenGl_Element.hxx".}
-proc UpdateMemStats*(this: OpenGl_Element;
-                    theStats: var Graphic3d_FrameStatsDataTmp) {.noSideEffect,
-    importcpp: "UpdateMemStats", header: "OpenGl_Element.hxx".}
-proc UpdateDrawStats*(this: OpenGl_Element;
-                     theStats: var Graphic3d_FrameStatsDataTmp; theIsDetailed: bool) {.
+proc updateMemStats*(this: OpenGlElement; theStats: var Graphic3dFrameStatsDataTmp) {.
+    noSideEffect, importcpp: "UpdateMemStats", header: "OpenGl_Element.hxx".}
+proc updateDrawStats*(this: OpenGlElement;
+                     theStats: var Graphic3dFrameStatsDataTmp; theIsDetailed: bool) {.
     noSideEffect, importcpp: "UpdateDrawStats", header: "OpenGl_Element.hxx".}
-proc SynchronizeAspects*(this: var OpenGl_Element) {.
-    importcpp: "SynchronizeAspects", header: "OpenGl_Element.hxx".}
-proc DumpJson*(this: OpenGl_Element; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
+proc synchronizeAspects*(this: var OpenGlElement) {.importcpp: "SynchronizeAspects",
     header: "OpenGl_Element.hxx".}
+proc dumpJson*(this: OpenGlElement; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "OpenGl_Element.hxx".}

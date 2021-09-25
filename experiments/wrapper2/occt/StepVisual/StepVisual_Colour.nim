@@ -14,30 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepVisual_Colour"
 discard "forward decl of StepVisual_Colour"
 type
-  Handle_StepVisual_Colour* = handle[StepVisual_Colour]
-  StepVisual_Colour* {.importcpp: "StepVisual_Colour",
-                      header: "StepVisual_Colour.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                        ## !
-                                                                                        ## Returns
-                                                                                        ## a
-                                                                                        ## Colour
+  HandleStepVisualColour* = Handle[StepVisualColour]
+  StepVisualColour* {.importcpp: "StepVisual_Colour",
+                     header: "StepVisual_Colour.hxx", bycopy.} = object of StandardTransient ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## a
+                                                                                      ## Colour
 
 
-proc constructStepVisual_Colour*(): StepVisual_Colour {.constructor,
+proc constructStepVisualColour*(): StepVisualColour {.constructor,
     importcpp: "StepVisual_Colour(@)", header: "StepVisual_Colour.hxx".}
 type
-  StepVisual_Colourbase_type* = Standard_Transient
+  StepVisualColourbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_Colour::get_type_name(@)",
-                              header: "StepVisual_Colour.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_Colour::get_type_name(@)",
+                            header: "StepVisual_Colour.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_Colour::get_type_descriptor(@)",
     header: "StepVisual_Colour.hxx".}
-proc DynamicType*(this: StepVisual_Colour): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepVisualColour): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepVisual_Colour.hxx".}

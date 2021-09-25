@@ -14,13 +14,14 @@
 ## ! Enumeration defining Unicode subsets.
 
 type
-  Font_UnicodeSubset* {.size: sizeof(cint), importcpp: "Font_UnicodeSubset",
-                       header: "Font_UnicodeSubset.hxx".} = enum
-    Font_UnicodeSubset_Western, ## !< western letters
-    Font_UnicodeSubset_Korean, ## !< modern Korean letters
-    Font_UnicodeSubset_CJK,   ## !< Chinese characters (Chinese, Japanese, Korean and Vietnam)
-    Font_UnicodeSubset_Arabic ## !< Arabic  characters
+  FontUnicodeSubset* {.size: sizeof(cint), importcpp: "Font_UnicodeSubset",
+                      header: "Font_UnicodeSubset.hxx".} = enum
+    FontUnicodeSubsetWestern, ## !< western letters
+    FontUnicodeSubsetKorean,  ## !< modern Korean letters
+    FontUnicodeSubsetCJK,     ## !< Chinese characters (Chinese, Japanese, Korean and Vietnam)
+    FontUnicodeSubsetArabic   ## !< Arabic  characters
 
 
 const
-  Font_UnicodeSubset_NB* = Font_UnicodeSubset_Arabic
+  FontUnicodeSubsetNB* = fontUnicodeSubsetArabic
+

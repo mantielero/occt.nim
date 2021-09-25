@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRepDS_Curve, TopOpeBRepDS_GeometryData
-
 discard "forward decl of TopOpeBRepDS_DataStructure"
 discard "forward decl of TopOpeBRepDS_Curve"
 type
@@ -27,6 +23,6 @@ type
 
 proc constructTopOpeBRepDS_CurveData*(): TopOpeBRepDS_CurveData {.constructor,
     importcpp: "TopOpeBRepDS_CurveData(@)", header: "TopOpeBRepDS_CurveData.hxx".}
-proc constructTopOpeBRepDS_CurveData*(C: TopOpeBRepDS_Curve): TopOpeBRepDS_CurveData {.
+proc constructTopOpeBRepDS_CurveData*(c: TopOpeBRepDS_Curve): TopOpeBRepDS_CurveData {.
     constructor, importcpp: "TopOpeBRepDS_CurveData(@)",
     header: "TopOpeBRepDS_CurveData.hxx".}

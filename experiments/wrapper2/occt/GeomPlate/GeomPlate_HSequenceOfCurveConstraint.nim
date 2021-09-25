@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # GeomPlate_HSequenceOfCurveConstraint_HeaderFile [NewLine] # GeomPlate_HSequenceOfCurveConstraint_HeaderFile [NewLine] # GeomPlate_CurveConstraint.hxx [NewLine] # GeomPlate_SequenceOfCurveConstraint.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( GeomPlate_HSequenceOfCurveConstraint , GeomPlate_SequenceOfCurveConstraint ) # [NewLine]
+## !!!Ignored construct:  # GeomPlate_HSequenceOfCurveConstraint_HeaderFile [NewLine] # GeomPlate_HSequenceOfCurveConstraint_HeaderFile [NewLine] # < GeomPlate_CurveConstraint . hxx > [NewLine] # < GeomPlate_SequenceOfCurveConstraint . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( GeomPlate_HSequenceOfCurveConstraint , GeomPlate_SequenceOfCurveConstraint ) # [NewLine]
 ## Error: expected ';'!!!
+

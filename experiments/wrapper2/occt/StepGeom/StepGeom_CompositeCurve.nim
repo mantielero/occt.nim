@@ -14,55 +14,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepGeom_HArray1OfCompositeCurveSegment, ../StepData/StepData_Logical,
-  StepGeom_BoundedCurve, ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_CompositeCurveSegment"
 discard "forward decl of StepGeom_CompositeCurve"
 discard "forward decl of StepGeom_CompositeCurve"
 type
-  Handle_StepGeom_CompositeCurve* = handle[StepGeom_CompositeCurve]
-  StepGeom_CompositeCurve* {.importcpp: "StepGeom_CompositeCurve",
-                            header: "StepGeom_CompositeCurve.hxx", bycopy.} = object of StepGeom_BoundedCurve ##
-                                                                                                       ## !
-                                                                                                       ## Returns
-                                                                                                       ## a
-                                                                                                       ## CompositeCurve
+  HandleStepGeomCompositeCurve* = Handle[StepGeomCompositeCurve]
+  StepGeomCompositeCurve* {.importcpp: "StepGeom_CompositeCurve",
+                           header: "StepGeom_CompositeCurve.hxx", bycopy.} = object of StepGeomBoundedCurve ##
+                                                                                                     ## !
+                                                                                                     ## Returns
+                                                                                                     ## a
+                                                                                                     ## CompositeCurve
 
 
-proc constructStepGeom_CompositeCurve*(): StepGeom_CompositeCurve {.constructor,
+proc constructStepGeomCompositeCurve*(): StepGeomCompositeCurve {.constructor,
     importcpp: "StepGeom_CompositeCurve(@)", header: "StepGeom_CompositeCurve.hxx".}
-proc Init*(this: var StepGeom_CompositeCurve;
-          aName: handle[TCollection_HAsciiString];
-          aSegments: handle[StepGeom_HArray1OfCompositeCurveSegment];
-          aSelfIntersect: StepData_Logical) {.importcpp: "Init",
+proc init*(this: var StepGeomCompositeCurve; aName: Handle[TCollectionHAsciiString];
+          aSegments: Handle[StepGeomHArray1OfCompositeCurveSegment];
+          aSelfIntersect: StepDataLogical) {.importcpp: "Init",
     header: "StepGeom_CompositeCurve.hxx".}
-proc SetSegments*(this: var StepGeom_CompositeCurve;
-                 aSegments: handle[StepGeom_HArray1OfCompositeCurveSegment]) {.
+proc setSegments*(this: var StepGeomCompositeCurve;
+                 aSegments: Handle[StepGeomHArray1OfCompositeCurveSegment]) {.
     importcpp: "SetSegments", header: "StepGeom_CompositeCurve.hxx".}
-proc Segments*(this: StepGeom_CompositeCurve): handle[
-    StepGeom_HArray1OfCompositeCurveSegment] {.noSideEffect,
-    importcpp: "Segments", header: "StepGeom_CompositeCurve.hxx".}
-proc SegmentsValue*(this: StepGeom_CompositeCurve; num: Standard_Integer): handle[
-    StepGeom_CompositeCurveSegment] {.noSideEffect, importcpp: "SegmentsValue",
-                                     header: "StepGeom_CompositeCurve.hxx".}
-proc NbSegments*(this: StepGeom_CompositeCurve): Standard_Integer {.noSideEffect,
+proc segments*(this: StepGeomCompositeCurve): Handle[
+    StepGeomHArray1OfCompositeCurveSegment] {.noSideEffect, importcpp: "Segments",
+    header: "StepGeom_CompositeCurve.hxx".}
+proc segmentsValue*(this: StepGeomCompositeCurve; num: int): Handle[
+    StepGeomCompositeCurveSegment] {.noSideEffect, importcpp: "SegmentsValue",
+                                    header: "StepGeom_CompositeCurve.hxx".}
+proc nbSegments*(this: StepGeomCompositeCurve): int {.noSideEffect,
     importcpp: "NbSegments", header: "StepGeom_CompositeCurve.hxx".}
-proc SetSelfIntersect*(this: var StepGeom_CompositeCurve;
-                      aSelfIntersect: StepData_Logical) {.
+proc setSelfIntersect*(this: var StepGeomCompositeCurve;
+                      aSelfIntersect: StepDataLogical) {.
     importcpp: "SetSelfIntersect", header: "StepGeom_CompositeCurve.hxx".}
-proc SelfIntersect*(this: StepGeom_CompositeCurve): StepData_Logical {.noSideEffect,
+proc selfIntersect*(this: StepGeomCompositeCurve): StepDataLogical {.noSideEffect,
     importcpp: "SelfIntersect", header: "StepGeom_CompositeCurve.hxx".}
 type
-  StepGeom_CompositeCurvebase_type* = StepGeom_BoundedCurve
+  StepGeomCompositeCurvebaseType* = StepGeomBoundedCurve
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_CompositeCurve::get_type_name(@)",
-                              header: "StepGeom_CompositeCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_CompositeCurve::get_type_name(@)",
+                            header: "StepGeom_CompositeCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_CompositeCurve::get_type_descriptor(@)",
     header: "StepGeom_CompositeCurve.hxx".}
-proc DynamicType*(this: StepGeom_CompositeCurve): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomCompositeCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_CompositeCurve.hxx".}

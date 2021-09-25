@@ -14,54 +14,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean, math_Vector,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer, math_Status,
-  ../Standard/Standard_OStream
-
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of math_MultipleVarFunctionWithGradient"
 type
-  math_FRPR* {.importcpp: "math_FRPR", header: "math_FRPR.hxx", bycopy.} = object ## !
-                                                                          ## Initializes the
-                                                                          ## computation of the
-                                                                          ## minimum of F.
-                                                                          ## !
-                                                                          ## Warning:
-                                                                          ## constructor does not
-                                                                          ## perform
-                                                                          ## computations.
+  MathFRPR* {.importcpp: "math_FRPR", header: "math_FRPR.hxx", bycopy.} = object ## !
+                                                                         ## Initializes the
+                                                                         ## computation of the minimum of F.
+                                                                         ## !
+                                                                         ## Warning:
+                                                                         ## constructor does not perform
+                                                                         ## computations.
 
 
-proc constructmath_FRPR*(theFunction: math_MultipleVarFunctionWithGradient;
-                        theTolerance: Standard_Real;
-                        theNbIterations: Standard_Integer = 200;
-                        theZEPS: Standard_Real = 1.0e-12): math_FRPR {.constructor,
+proc constructMathFRPR*(theFunction: MathMultipleVarFunctionWithGradient;
+                       theTolerance: float; theNbIterations: int = 200;
+                       theZEPS: float = 1.0e-12): MathFRPR {.constructor,
     importcpp: "math_FRPR(@)", header: "math_FRPR.hxx".}
-proc destroymath_FRPR*(this: var math_FRPR) {.importcpp: "#.~math_FRPR()",
+proc destroyMathFRPR*(this: var MathFRPR) {.importcpp: "#.~math_FRPR()",
+                                        header: "math_FRPR.hxx".}
+proc perform*(this: var MathFRPR;
+             theFunction: var MathMultipleVarFunctionWithGradient;
+             theStartingPoint: MathVector) {.importcpp: "Perform",
     header: "math_FRPR.hxx".}
-proc Perform*(this: var math_FRPR;
-             theFunction: var math_MultipleVarFunctionWithGradient;
-             theStartingPoint: math_Vector) {.importcpp: "Perform",
-    header: "math_FRPR.hxx".}
-proc IsSolutionReached*(this: var math_FRPR;
-                       theFunction: var math_MultipleVarFunctionWithGradient): Standard_Boolean {.
+proc isSolutionReached*(this: var MathFRPR;
+                       theFunction: var MathMultipleVarFunctionWithGradient): bool {.
     importcpp: "IsSolutionReached", header: "math_FRPR.hxx".}
-proc IsDone*(this: math_FRPR): Standard_Boolean {.noSideEffect, importcpp: "IsDone",
+proc isDone*(this: MathFRPR): bool {.noSideEffect, importcpp: "IsDone",
+                                 header: "math_FRPR.hxx".}
+proc location*(this: MathFRPR): MathVector {.noSideEffect, importcpp: "Location",
     header: "math_FRPR.hxx".}
-proc Location*(this: math_FRPR): math_Vector {.noSideEffect, importcpp: "Location",
-    header: "math_FRPR.hxx".}
-proc Location*(this: math_FRPR; Loc: var math_Vector) {.noSideEffect,
+proc location*(this: MathFRPR; loc: var MathVector) {.noSideEffect,
     importcpp: "Location", header: "math_FRPR.hxx".}
-proc Minimum*(this: math_FRPR): Standard_Real {.noSideEffect, importcpp: "Minimum",
+proc minimum*(this: MathFRPR): float {.noSideEffect, importcpp: "Minimum",
+                                   header: "math_FRPR.hxx".}
+proc gradient*(this: MathFRPR): MathVector {.noSideEffect, importcpp: "Gradient",
     header: "math_FRPR.hxx".}
-proc Gradient*(this: math_FRPR): math_Vector {.noSideEffect, importcpp: "Gradient",
-    header: "math_FRPR.hxx".}
-proc Gradient*(this: math_FRPR; Grad: var math_Vector) {.noSideEffect,
+proc gradient*(this: MathFRPR; grad: var MathVector) {.noSideEffect,
     importcpp: "Gradient", header: "math_FRPR.hxx".}
-proc NbIterations*(this: math_FRPR): Standard_Integer {.noSideEffect,
-    importcpp: "NbIterations", header: "math_FRPR.hxx".}
-proc Dump*(this: math_FRPR; o: var Standard_OStream) {.noSideEffect, importcpp: "Dump",
+proc nbIterations*(this: MathFRPR): int {.noSideEffect, importcpp: "NbIterations",
+                                      header: "math_FRPR.hxx".}
+proc dump*(this: MathFRPR; o: var StandardOStream) {.noSideEffect, importcpp: "Dump",
     header: "math_FRPR.hxx".}

@@ -13,33 +13,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_EulerAngles"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasic_RWEulerAngles* {.importcpp: "RWStepBasic_RWEulerAngles",
-                              header: "RWStepBasic_RWEulerAngles.hxx", bycopy.} = object ##
-                                                                                    ## !
-                                                                                    ## Empty
-                                                                                    ## constructor
+  RWStepBasicRWEulerAngles* {.importcpp: "RWStepBasic_RWEulerAngles",
+                             header: "RWStepBasic_RWEulerAngles.hxx", bycopy.} = object ##
+                                                                                   ## !
+                                                                                   ## Empty
+                                                                                   ## constructor
 
 
-proc constructRWStepBasic_RWEulerAngles*(): RWStepBasic_RWEulerAngles {.
-    constructor, importcpp: "RWStepBasic_RWEulerAngles(@)",
+proc constructRWStepBasicRWEulerAngles*(): RWStepBasicRWEulerAngles {.constructor,
+    importcpp: "RWStepBasic_RWEulerAngles(@)",
     header: "RWStepBasic_RWEulerAngles.hxx".}
-proc ReadStep*(this: RWStepBasic_RWEulerAngles;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check]; ent: handle[StepBasic_EulerAngles]) {.
+proc readStep*(this: RWStepBasicRWEulerAngles;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicEulerAngles]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWEulerAngles.hxx".}
-proc WriteStep*(this: RWStepBasic_RWEulerAngles; SW: var StepData_StepWriter;
-               ent: handle[StepBasic_EulerAngles]) {.noSideEffect,
+proc writeStep*(this: RWStepBasicRWEulerAngles; sw: var StepDataStepWriter;
+               ent: Handle[StepBasicEulerAngles]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWEulerAngles.hxx".}
-proc Share*(this: RWStepBasic_RWEulerAngles; ent: handle[StepBasic_EulerAngles];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepBasicRWEulerAngles; ent: Handle[StepBasicEulerAngles];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWEulerAngles.hxx".}

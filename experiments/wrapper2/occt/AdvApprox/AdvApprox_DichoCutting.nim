@@ -14,20 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, AdvApprox_Cutting, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real
-
 ## ! if Cutting is necessary in [a,b], we cut at (a+b) / 2.
 
 type
-  AdvApprox_DichoCutting* {.importcpp: "AdvApprox_DichoCutting",
-                           header: "AdvApprox_DichoCutting.hxx", bycopy.} = object of AdvApprox_Cutting
+  AdvApproxDichoCutting* {.importcpp: "AdvApprox_DichoCutting",
+                          header: "AdvApprox_DichoCutting.hxx", bycopy.} = object of AdvApproxCutting
 
 
-proc constructAdvApprox_DichoCutting*(): AdvApprox_DichoCutting {.constructor,
+proc constructAdvApproxDichoCutting*(): AdvApproxDichoCutting {.constructor,
     importcpp: "AdvApprox_DichoCutting(@)", header: "AdvApprox_DichoCutting.hxx".}
-proc Value*(this: AdvApprox_DichoCutting; a: Standard_Real; b: Standard_Real;
-           cuttingvalue: var Standard_Real): Standard_Boolean {.noSideEffect,
-    importcpp: "Value", header: "AdvApprox_DichoCutting.hxx".}
+proc value*(this: AdvApproxDichoCutting; a: float; b: float; cuttingvalue: var float): bool {.
+    noSideEffect, importcpp: "Value", header: "AdvApprox_DichoCutting.hxx".}

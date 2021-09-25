@@ -14,43 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepRepr_MaterialPropertyRepresentation,
-  StepRepr_Array1OfMaterialPropertyRepresentation,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepRepr_HArray1OfMaterialPropertyRepresentation* {.
+  StepReprHArray1OfMaterialPropertyRepresentation* {.
       importcpp: "StepRepr_HArray1OfMaterialPropertyRepresentation",
-      header: "StepRepr_HArray1OfMaterialPropertyRepresentation.hxx", bycopy.} = object of StepRepr_Array1OfMaterialPropertyRepresentation
+      header: "StepRepr_HArray1OfMaterialPropertyRepresentation.hxx", bycopy.} = object of StepReprArray1OfMaterialPropertyRepresentation
 
 
-proc constructStepRepr_HArray1OfMaterialPropertyRepresentation*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepRepr_HArray1OfMaterialPropertyRepresentation {.
+proc constructStepReprHArray1OfMaterialPropertyRepresentation*(theLower: int;
+    theUpper: int): StepReprHArray1OfMaterialPropertyRepresentation {.constructor,
+    importcpp: "StepRepr_HArray1OfMaterialPropertyRepresentation(@)",
+    header: "StepRepr_HArray1OfMaterialPropertyRepresentation.hxx".}
+proc constructStepReprHArray1OfMaterialPropertyRepresentation*(theLower: int;
+    theUpper: int; theValue: ValueType): StepReprHArray1OfMaterialPropertyRepresentation {.
     constructor,
     importcpp: "StepRepr_HArray1OfMaterialPropertyRepresentation(@)",
     header: "StepRepr_HArray1OfMaterialPropertyRepresentation.hxx".}
-proc constructStepRepr_HArray1OfMaterialPropertyRepresentation*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepRepr_HArray1OfMaterialPropertyRepresentation {.
+proc constructStepReprHArray1OfMaterialPropertyRepresentation*(
+    theOther: StepReprArray1OfMaterialPropertyRepresentation): StepReprHArray1OfMaterialPropertyRepresentation {.
     constructor,
     importcpp: "StepRepr_HArray1OfMaterialPropertyRepresentation(@)",
     header: "StepRepr_HArray1OfMaterialPropertyRepresentation.hxx".}
-proc constructStepRepr_HArray1OfMaterialPropertyRepresentation*(
-    theOther: StepRepr_Array1OfMaterialPropertyRepresentation): StepRepr_HArray1OfMaterialPropertyRepresentation {.
-    constructor,
-    importcpp: "StepRepr_HArray1OfMaterialPropertyRepresentation(@)",
-    header: "StepRepr_HArray1OfMaterialPropertyRepresentation.hxx".}
-proc Array1*(this: StepRepr_HArray1OfMaterialPropertyRepresentation): StepRepr_Array1OfMaterialPropertyRepresentation {.
+proc array1*(this: StepReprHArray1OfMaterialPropertyRepresentation): StepReprArray1OfMaterialPropertyRepresentation {.
     noSideEffect, importcpp: "Array1",
     header: "StepRepr_HArray1OfMaterialPropertyRepresentation.hxx".}
-proc ChangeArray1*(this: var StepRepr_HArray1OfMaterialPropertyRepresentation): var StepRepr_Array1OfMaterialPropertyRepresentation {.
+proc changeArray1*(this: var StepReprHArray1OfMaterialPropertyRepresentation): var StepReprArray1OfMaterialPropertyRepresentation {.
     importcpp: "ChangeArray1",
     header: "StepRepr_HArray1OfMaterialPropertyRepresentation.hxx".}
 type
-  StepRepr_HArray1OfMaterialPropertyRepresentationbase_type* = MMgt_TShared
+  StepReprHArray1OfMaterialPropertyRepresentationbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_HArray1OfMaterialPropertyRepresentation::get_type_name(@)", header: "StepRepr_HArray1OfMaterialPropertyRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepRepr_HArray1OfMaterialPropertyRepresentation::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepRepr_HArray1OfMaterialPropertyRepresentation::get_type_name(@)", header: "StepRepr_HArray1OfMaterialPropertyRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_HArray1OfMaterialPropertyRepresentation::get_type_descriptor(@)",
     header: "StepRepr_HArray1OfMaterialPropertyRepresentation.hxx".}
-proc DynamicType*(this: StepRepr_HArray1OfMaterialPropertyRepresentation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepRepr_HArray1OfMaterialPropertyRepresentation.hxx".}
+proc dynamicType*(this: StepReprHArray1OfMaterialPropertyRepresentation): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepRepr_HArray1OfMaterialPropertyRepresentation.hxx".}

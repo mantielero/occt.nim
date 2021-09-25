@@ -11,42 +11,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../XmlMDF/XmlMDF_ADriver,
-  ../Standard/Standard_Boolean, ../XmlObjMgt/XmlObjMgt_RRelocationTable,
-  ../XmlObjMgt/XmlObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMNaming_NamingDriver"
 discard "forward decl of XmlMNaming_NamingDriver"
 type
-  Handle_XmlMNaming_NamingDriver* = handle[XmlMNaming_NamingDriver]
-  XmlMNaming_NamingDriver* {.importcpp: "XmlMNaming_NamingDriver",
-                            header: "XmlMNaming_NamingDriver.hxx", bycopy.} = object of XmlMDF_ADriver
+  HandleXmlMNamingNamingDriver* = Handle[XmlMNamingNamingDriver]
+  XmlMNamingNamingDriver* {.importcpp: "XmlMNaming_NamingDriver",
+                           header: "XmlMNaming_NamingDriver.hxx", bycopy.} = object of XmlMDF_ADriver
 
 
-proc constructXmlMNaming_NamingDriver*(aMessageDriver: handle[Message_Messenger]): XmlMNaming_NamingDriver {.
+proc constructXmlMNamingNamingDriver*(aMessageDriver: Handle[MessageMessenger]): XmlMNamingNamingDriver {.
     constructor, importcpp: "XmlMNaming_NamingDriver(@)",
     header: "XmlMNaming_NamingDriver.hxx".}
-proc NewEmpty*(this: XmlMNaming_NamingDriver): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: XmlMNamingNamingDriver): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "XmlMNaming_NamingDriver.hxx".}
-proc Paste*(this: XmlMNaming_NamingDriver; theSource: XmlObjMgt_Persistent;
-           theTarget: handle[TDF_Attribute];
-           theRelocTable: var XmlObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "XmlMNaming_NamingDriver.hxx".}
-proc Paste*(this: XmlMNaming_NamingDriver; theSource: handle[TDF_Attribute];
-           theTarget: var XmlObjMgt_Persistent;
-           theRelocTable: var XmlObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: XmlMNamingNamingDriver; theSource: XmlObjMgtPersistent;
+           theTarget: Handle[TDF_Attribute];
+           theRelocTable: var XmlObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "XmlMNaming_NamingDriver.hxx".}
+proc paste*(this: XmlMNamingNamingDriver; theSource: Handle[TDF_Attribute];
+           theTarget: var XmlObjMgtPersistent;
+           theRelocTable: var XmlObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "XmlMNaming_NamingDriver.hxx".}
 type
-  XmlMNaming_NamingDriverbase_type* = XmlMDF_ADriver
+  XmlMNamingNamingDriverbaseType* = XmlMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "XmlMNaming_NamingDriver::get_type_name(@)",
-                              header: "XmlMNaming_NamingDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XmlMNaming_NamingDriver::get_type_name(@)",
+                            header: "XmlMNaming_NamingDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XmlMNaming_NamingDriver::get_type_descriptor(@)",
     header: "XmlMNaming_NamingDriver.hxx".}
-proc DynamicType*(this: XmlMNaming_NamingDriver): handle[Standard_Type] {.
+proc dynamicType*(this: XmlMNamingNamingDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "XmlMNaming_NamingDriver.hxx".}

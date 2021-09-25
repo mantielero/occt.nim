@@ -17,9 +17,10 @@
 ## ! Modification type after a topologic operation.
 
 type
-  BRepLib_ShapeModification* {.size: sizeof(cint),
-                              importcpp: "BRepLib_ShapeModification",
-                              header: "BRepLib_ShapeModification.hxx".} = enum
-    BRepLib_Preserved, BRepLib_Deleted, BRepLib_Trimmed, BRepLib_Merged,
-    BRepLib_BoundaryModified
+  BRepLibShapeModification* {.size: sizeof(cint),
+                             importcpp: "BRepLib_ShapeModification",
+                             header: "BRepLib_ShapeModification.hxx".} = enum
+    BRepLibPreserved, BRepLibDeleted, BRepLibTrimmed, BRepLibMerged,
+    BRepLibBoundaryModified
+
 

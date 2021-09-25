@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  LDOM_BasicNode, ../LDOMBasicString/LDOMBasicString
-
 discard "forward decl of LDOM_Node"
 discard "forward decl of LDOM_CharacterData"
 discard "forward decl of LDOMParser"
@@ -28,8 +25,8 @@ type
 
 proc constructLDOM_BasicText*(): LDOM_BasicText {.constructor,
     importcpp: "LDOM_BasicText(@)", header: "LDOM_BasicText.hxx".}
-proc GetData*(this: LDOM_BasicText): LDOMBasicString {.noSideEffect,
+proc getData*(this: LDOM_BasicText): LDOMBasicString {.noSideEffect,
     importcpp: "GetData", header: "LDOM_BasicText.hxx".}
-proc SetData*(this: var LDOM_BasicText; aValue: LDOMBasicString;
-             aDoc: handle[LDOM_MemManager]) {.importcpp: "SetData",
+proc setData*(this: var LDOM_BasicText; aValue: LDOMBasicString;
+             aDoc: Handle[LDOM_MemManager]) {.importcpp: "SetData",
     header: "LDOM_BasicText.hxx".}

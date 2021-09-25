@@ -13,22 +13,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TDF/TDF_DeltaOnModification
-
 discard "forward decl of TColStd_HPackedMapOfInteger"
 discard "forward decl of TDataStd_IntPackedMap"
 discard "forward decl of TDataStd_DeltaOnModificationOfIntPackedMap"
 discard "forward decl of TDataStd_DeltaOnModificationOfIntPackedMap"
 type
-  Handle_TDataStd_DeltaOnModificationOfIntPackedMap* = handle[
-      TDataStd_DeltaOnModificationOfIntPackedMap]
+  HandleTDataStdDeltaOnModificationOfIntPackedMap* = Handle[
+      TDataStdDeltaOnModificationOfIntPackedMap]
 
 ## ! This class provides default services for an
 ## ! AttributeDelta on a MODIFICATION action.
 
 type
-  TDataStd_DeltaOnModificationOfIntPackedMap* {.
+  TDataStdDeltaOnModificationOfIntPackedMap* {.
       importcpp: "TDataStd_DeltaOnModificationOfIntPackedMap",
       header: "TDataStd_DeltaOnModificationOfIntPackedMap.hxx", bycopy.} = object of TDF_DeltaOnModification ##
                                                                                                       ## !
@@ -37,18 +34,18 @@ type
                                                                                                       ## TDF_DeltaOnModification.
 
 
-proc constructTDataStd_DeltaOnModificationOfIntPackedMap*(
-    Arr: handle[TDataStd_IntPackedMap]): TDataStd_DeltaOnModificationOfIntPackedMap {.
+proc constructTDataStdDeltaOnModificationOfIntPackedMap*(
+    arr: Handle[TDataStdIntPackedMap]): TDataStdDeltaOnModificationOfIntPackedMap {.
     constructor, importcpp: "TDataStd_DeltaOnModificationOfIntPackedMap(@)",
     header: "TDataStd_DeltaOnModificationOfIntPackedMap.hxx".}
-proc Apply*(this: var TDataStd_DeltaOnModificationOfIntPackedMap) {.
+proc apply*(this: var TDataStdDeltaOnModificationOfIntPackedMap) {.
     importcpp: "Apply", header: "TDataStd_DeltaOnModificationOfIntPackedMap.hxx".}
 type
-  TDataStd_DeltaOnModificationOfIntPackedMapbase_type* = TDF_DeltaOnModification
+  TDataStdDeltaOnModificationOfIntPackedMapbaseType* = TDF_DeltaOnModification
 
-proc get_type_name*(): cstring {.importcpp: "TDataStd_DeltaOnModificationOfIntPackedMap::get_type_name(@)", header: "TDataStd_DeltaOnModificationOfIntPackedMap.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "TDataStd_DeltaOnModificationOfIntPackedMap::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "TDataStd_DeltaOnModificationOfIntPackedMap::get_type_name(@)", header: "TDataStd_DeltaOnModificationOfIntPackedMap.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "TDataStd_DeltaOnModificationOfIntPackedMap::get_type_descriptor(@)",
     header: "TDataStd_DeltaOnModificationOfIntPackedMap.hxx".}
-proc DynamicType*(this: TDataStd_DeltaOnModificationOfIntPackedMap): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "TDataStd_DeltaOnModificationOfIntPackedMap.hxx".}
+proc dynamicType*(this: TDataStdDeltaOnModificationOfIntPackedMap): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "TDataStd_DeltaOnModificationOfIntPackedMap.hxx".}

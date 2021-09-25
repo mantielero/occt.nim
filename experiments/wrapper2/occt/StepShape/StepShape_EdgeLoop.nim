@@ -14,46 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepShape_HArray1OfOrientedEdge, StepShape_Loop, ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_OrientedEdge"
 discard "forward decl of StepShape_EdgeLoop"
 discard "forward decl of StepShape_EdgeLoop"
 type
-  Handle_StepShape_EdgeLoop* = handle[StepShape_EdgeLoop]
-  StepShape_EdgeLoop* {.importcpp: "StepShape_EdgeLoop",
-                       header: "StepShape_EdgeLoop.hxx", bycopy.} = object of StepShape_Loop ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## a
-                                                                                      ## EdgeLoop
+  HandleStepShapeEdgeLoop* = Handle[StepShapeEdgeLoop]
+  StepShapeEdgeLoop* {.importcpp: "StepShape_EdgeLoop",
+                      header: "StepShape_EdgeLoop.hxx", bycopy.} = object of StepShapeLoop ##
+                                                                                    ## !
+                                                                                    ## Returns
+                                                                                    ## a
+                                                                                    ## EdgeLoop
 
 
-proc constructStepShape_EdgeLoop*(): StepShape_EdgeLoop {.constructor,
+proc constructStepShapeEdgeLoop*(): StepShapeEdgeLoop {.constructor,
     importcpp: "StepShape_EdgeLoop(@)", header: "StepShape_EdgeLoop.hxx".}
-proc Init*(this: var StepShape_EdgeLoop; aName: handle[TCollection_HAsciiString];
-          aEdgeList: handle[StepShape_HArray1OfOrientedEdge]) {.importcpp: "Init",
+proc init*(this: var StepShapeEdgeLoop; aName: Handle[TCollectionHAsciiString];
+          aEdgeList: Handle[StepShapeHArray1OfOrientedEdge]) {.importcpp: "Init",
     header: "StepShape_EdgeLoop.hxx".}
-proc SetEdgeList*(this: var StepShape_EdgeLoop;
-                 aEdgeList: handle[StepShape_HArray1OfOrientedEdge]) {.
+proc setEdgeList*(this: var StepShapeEdgeLoop;
+                 aEdgeList: Handle[StepShapeHArray1OfOrientedEdge]) {.
     importcpp: "SetEdgeList", header: "StepShape_EdgeLoop.hxx".}
-proc EdgeList*(this: StepShape_EdgeLoop): handle[StepShape_HArray1OfOrientedEdge] {.
+proc edgeList*(this: StepShapeEdgeLoop): Handle[StepShapeHArray1OfOrientedEdge] {.
     noSideEffect, importcpp: "EdgeList", header: "StepShape_EdgeLoop.hxx".}
-proc EdgeListValue*(this: StepShape_EdgeLoop; num: Standard_Integer): handle[
-    StepShape_OrientedEdge] {.noSideEffect, importcpp: "EdgeListValue",
-                             header: "StepShape_EdgeLoop.hxx".}
-proc NbEdgeList*(this: StepShape_EdgeLoop): Standard_Integer {.noSideEffect,
+proc edgeListValue*(this: StepShapeEdgeLoop; num: int): Handle[StepShapeOrientedEdge] {.
+    noSideEffect, importcpp: "EdgeListValue", header: "StepShape_EdgeLoop.hxx".}
+proc nbEdgeList*(this: StepShapeEdgeLoop): int {.noSideEffect,
     importcpp: "NbEdgeList", header: "StepShape_EdgeLoop.hxx".}
 type
-  StepShape_EdgeLoopbase_type* = StepShape_Loop
+  StepShapeEdgeLoopbaseType* = StepShapeLoop
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_EdgeLoop::get_type_name(@)",
-                              header: "StepShape_EdgeLoop.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_EdgeLoop::get_type_name(@)",
+                            header: "StepShape_EdgeLoop.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_EdgeLoop::get_type_descriptor(@)",
     header: "StepShape_EdgeLoop.hxx".}
-proc DynamicType*(this: StepShape_EdgeLoop): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepShapeEdgeLoop): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_EdgeLoop.hxx".}

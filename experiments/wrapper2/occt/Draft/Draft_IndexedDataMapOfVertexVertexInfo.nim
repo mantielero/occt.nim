@@ -14,10 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Vertex, Draft_VertexInfo, ../TopTools/TopTools_ShapeMapHasher,
-  ../NCollection/NCollection_IndexedDataMap
-
 type
-  Draft_IndexedDataMapOfVertexVertexInfo* = NCollection_IndexedDataMap[
-      TopoDS_Vertex, Draft_VertexInfo, TopTools_ShapeMapHasher]
+  DraftIndexedDataMapOfVertexVertexInfo* = NCollectionIndexedDataMap[
+      TopoDS_Vertex, DraftVertexInfo, TopToolsShapeMapHasher]
+

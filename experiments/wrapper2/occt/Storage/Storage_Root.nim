@@ -14,18 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Integer,
-  ../Standard/Standard_Transient
-
 discard "forward decl of Standard_Persistent"
 discard "forward decl of Storage_Schema"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Storage_Root"
 discard "forward decl of Storage_Root"
 type
-  Handle_Storage_Root* = handle[Storage_Root]
+  HandleStorageRoot* = Handle[StorageRoot]
 
 ## ! A root object extracted from a Storage_Data object.
 ## ! A Storage_Root encapsulates a persistent
@@ -42,40 +37,39 @@ type
 ## ! the persistent object and optionally its name to the function AddRoot.
 
 type
-  Storage_Root* {.importcpp: "Storage_Root", header: "Storage_Root.hxx", bycopy.} = object of Standard_Transient
+  StorageRoot* {.importcpp: "Storage_Root", header: "Storage_Root.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructStorage_Root*(): Storage_Root {.constructor,
+proc constructStorageRoot*(): StorageRoot {.constructor,
     importcpp: "Storage_Root(@)", header: "Storage_Root.hxx".}
-proc constructStorage_Root*(theName: TCollection_AsciiString;
-                           theObject: handle[Standard_Persistent]): Storage_Root {.
+proc constructStorageRoot*(theName: TCollectionAsciiString;
+                          theObject: Handle[StandardPersistent]): StorageRoot {.
     constructor, importcpp: "Storage_Root(@)", header: "Storage_Root.hxx".}
-proc constructStorage_Root*(theName: TCollection_AsciiString;
-                           theRef: Standard_Integer;
-                           theType: TCollection_AsciiString): Storage_Root {.
+proc constructStorageRoot*(theName: TCollectionAsciiString; theRef: int;
+                          theType: TCollectionAsciiString): StorageRoot {.
     constructor, importcpp: "Storage_Root(@)", header: "Storage_Root.hxx".}
-proc SetName*(this: var Storage_Root; theName: TCollection_AsciiString) {.
+proc setName*(this: var StorageRoot; theName: TCollectionAsciiString) {.
     importcpp: "SetName", header: "Storage_Root.hxx".}
-proc Name*(this: Storage_Root): TCollection_AsciiString {.noSideEffect,
+proc name*(this: StorageRoot): TCollectionAsciiString {.noSideEffect,
     importcpp: "Name", header: "Storage_Root.hxx".}
-proc SetObject*(this: var Storage_Root; anObject: handle[Standard_Persistent]) {.
+proc setObject*(this: var StorageRoot; anObject: Handle[StandardPersistent]) {.
     importcpp: "SetObject", header: "Storage_Root.hxx".}
-proc Object*(this: Storage_Root): handle[Standard_Persistent] {.noSideEffect,
+proc `object`*(this: StorageRoot): Handle[StandardPersistent] {.noSideEffect,
     importcpp: "Object", header: "Storage_Root.hxx".}
-proc Type*(this: Storage_Root): TCollection_AsciiString {.noSideEffect,
+proc `type`*(this: StorageRoot): TCollectionAsciiString {.noSideEffect,
     importcpp: "Type", header: "Storage_Root.hxx".}
-proc SetReference*(this: var Storage_Root; aRef: Standard_Integer) {.
-    importcpp: "SetReference", header: "Storage_Root.hxx".}
-proc Reference*(this: Storage_Root): Standard_Integer {.noSideEffect,
-    importcpp: "Reference", header: "Storage_Root.hxx".}
-proc SetType*(this: var Storage_Root; aType: TCollection_AsciiString) {.
+proc setReference*(this: var StorageRoot; aRef: int) {.importcpp: "SetReference",
+    header: "Storage_Root.hxx".}
+proc reference*(this: StorageRoot): int {.noSideEffect, importcpp: "Reference",
+                                      header: "Storage_Root.hxx".}
+proc setType*(this: var StorageRoot; aType: TCollectionAsciiString) {.
     importcpp: "SetType", header: "Storage_Root.hxx".}
 type
-  Storage_Rootbase_type* = Standard_Transient
+  StorageRootbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Storage_Root::get_type_name(@)",
-                              header: "Storage_Root.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Storage_Root::get_type_name(@)",
+                            header: "Storage_Root.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Storage_Root::get_type_descriptor(@)", header: "Storage_Root.hxx".}
-proc DynamicType*(this: Storage_Root): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StorageRoot): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Storage_Root.hxx".}

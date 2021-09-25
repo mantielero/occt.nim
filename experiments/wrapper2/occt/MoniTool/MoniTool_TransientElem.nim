@@ -14,17 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, MoniTool_Element,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Type,
-  ../Standard/Standard_CString
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of MoniTool_Element"
 discard "forward decl of MoniTool_TransientElem"
 discard "forward decl of MoniTool_TransientElem"
 type
-  Handle_MoniTool_TransientElem* = handle[MoniTool_TransientElem]
+  HandleMoniToolTransientElem* = Handle[MoniToolTransientElem]
 
 ## ! an TransientElem defines an Element for a specific input class
 ## ! its definition includes the value of the Key to be mapped,
@@ -36,65 +31,65 @@ type
 ## ! informations on the value (template : see DataInfo)
 
 type
-  MoniTool_TransientElem* {.importcpp: "MoniTool_TransientElem",
-                           header: "MoniTool_TransientElem.hxx", bycopy.} = object of MoniTool_Element ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## a
-                                                                                                ## TransientElem
-                                                                                                ## with
-                                                                                                ## a
-                                                                                                ## Value.
-                                                                                                ## This
-                                                                                                ## Value
-                                                                                                ## can
-                                                                                                ## then
-                                                                                                ## not
-                                                                                                ## be
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## changed.
-                                                                                                ## It
-                                                                                                ## is
-                                                                                                ## used
-                                                                                                ## by
-                                                                                                ## the
-                                                                                                ## Hasher
-                                                                                                ## to
-                                                                                                ## compute
-                                                                                                ## the
-                                                                                                ## HashCode,
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## which
-                                                                                                ## will
-                                                                                                ## then
-                                                                                                ## be
-                                                                                                ## stored
-                                                                                                ## for
-                                                                                                ## an
-                                                                                                ## immediate
-                                                                                                ## reading.
+  MoniToolTransientElem* {.importcpp: "MoniTool_TransientElem",
+                          header: "MoniTool_TransientElem.hxx", bycopy.} = object of MoniToolElement ##
+                                                                                              ## !
+                                                                                              ## Creates
+                                                                                              ## a
+                                                                                              ## TransientElem
+                                                                                              ## with
+                                                                                              ## a
+                                                                                              ## Value.
+                                                                                              ## This
+                                                                                              ## Value
+                                                                                              ## can
+                                                                                              ## then
+                                                                                              ## not
+                                                                                              ## be
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## changed.
+                                                                                              ## It
+                                                                                              ## is
+                                                                                              ## used
+                                                                                              ## by
+                                                                                              ## the
+                                                                                              ## Hasher
+                                                                                              ## to
+                                                                                              ## compute
+                                                                                              ## the
+                                                                                              ## HashCode,
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## which
+                                                                                              ## will
+                                                                                              ## then
+                                                                                              ## be
+                                                                                              ## stored
+                                                                                              ## for
+                                                                                              ## an
+                                                                                              ## immediate
+                                                                                              ## reading.
 
 
-proc constructMoniTool_TransientElem*(akey: handle[Standard_Transient]): MoniTool_TransientElem {.
+proc constructMoniToolTransientElem*(akey: Handle[StandardTransient]): MoniToolTransientElem {.
     constructor, importcpp: "MoniTool_TransientElem(@)",
     header: "MoniTool_TransientElem.hxx".}
-proc Value*(this: MoniTool_TransientElem): handle[Standard_Transient] {.
-    noSideEffect, importcpp: "Value", header: "MoniTool_TransientElem.hxx".}
-proc Equates*(this: MoniTool_TransientElem; other: handle[MoniTool_Element]): Standard_Boolean {.
+proc value*(this: MoniToolTransientElem): Handle[StandardTransient] {.noSideEffect,
+    importcpp: "Value", header: "MoniTool_TransientElem.hxx".}
+proc equates*(this: MoniToolTransientElem; other: Handle[MoniToolElement]): bool {.
     noSideEffect, importcpp: "Equates", header: "MoniTool_TransientElem.hxx".}
-proc ValueType*(this: MoniTool_TransientElem): handle[Standard_Type] {.noSideEffect,
+proc valueType*(this: MoniToolTransientElem): Handle[StandardType] {.noSideEffect,
     importcpp: "ValueType", header: "MoniTool_TransientElem.hxx".}
-proc ValueTypeName*(this: MoniTool_TransientElem): Standard_CString {.noSideEffect,
+proc valueTypeName*(this: MoniToolTransientElem): StandardCString {.noSideEffect,
     importcpp: "ValueTypeName", header: "MoniTool_TransientElem.hxx".}
 type
-  MoniTool_TransientElembase_type* = MoniTool_Element
+  MoniToolTransientElembaseType* = MoniToolElement
 
-proc get_type_name*(): cstring {.importcpp: "MoniTool_TransientElem::get_type_name(@)",
-                              header: "MoniTool_TransientElem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "MoniTool_TransientElem::get_type_name(@)",
+                            header: "MoniTool_TransientElem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "MoniTool_TransientElem::get_type_descriptor(@)",
     header: "MoniTool_TransientElem.hxx".}
-proc DynamicType*(this: MoniTool_TransientElem): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "MoniTool_TransientElem.hxx".}
+proc dynamicType*(this: MoniToolTransientElem): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "MoniTool_TransientElem.hxx".}

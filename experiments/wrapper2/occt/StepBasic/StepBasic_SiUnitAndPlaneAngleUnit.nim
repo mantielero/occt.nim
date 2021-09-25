@@ -14,43 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_SiUnit,
-  ../Standard/Standard_Boolean, StepBasic_SiPrefix, StepBasic_SiUnitName
-
 discard "forward decl of StepBasic_PlaneAngleUnit"
 discard "forward decl of StepBasic_DimensionalExponents"
 discard "forward decl of StepBasic_SiUnitAndPlaneAngleUnit"
 discard "forward decl of StepBasic_SiUnitAndPlaneAngleUnit"
 type
-  Handle_StepBasic_SiUnitAndPlaneAngleUnit* = handle[
-      StepBasic_SiUnitAndPlaneAngleUnit]
-  StepBasic_SiUnitAndPlaneAngleUnit* {.importcpp: "StepBasic_SiUnitAndPlaneAngleUnit", header: "StepBasic_SiUnitAndPlaneAngleUnit.hxx",
-                                      bycopy.} = object of StepBasic_SiUnit ## ! Returns a
-                                                                       ## SiUnitAndPlaneAngleUnit
+  HandleStepBasicSiUnitAndPlaneAngleUnit* = Handle[
+      StepBasicSiUnitAndPlaneAngleUnit]
+  StepBasicSiUnitAndPlaneAngleUnit* {.importcpp: "StepBasic_SiUnitAndPlaneAngleUnit", header: "StepBasic_SiUnitAndPlaneAngleUnit.hxx",
+                                     bycopy.} = object of StepBasicSiUnit ## ! Returns a
+                                                                     ## SiUnitAndPlaneAngleUnit
 
 
-proc constructStepBasic_SiUnitAndPlaneAngleUnit*(): StepBasic_SiUnitAndPlaneAngleUnit {.
+proc constructStepBasicSiUnitAndPlaneAngleUnit*(): StepBasicSiUnitAndPlaneAngleUnit {.
     constructor, importcpp: "StepBasic_SiUnitAndPlaneAngleUnit(@)",
     header: "StepBasic_SiUnitAndPlaneAngleUnit.hxx".}
-proc Init*(this: var StepBasic_SiUnitAndPlaneAngleUnit;
-          hasAprefix: Standard_Boolean; aPrefix: StepBasic_SiPrefix;
-          aName: StepBasic_SiUnitName) {.importcpp: "Init", header: "StepBasic_SiUnitAndPlaneAngleUnit.hxx".}
-proc SetPlaneAngleUnit*(this: var StepBasic_SiUnitAndPlaneAngleUnit;
-                       aPlaneAngleUnit: handle[StepBasic_PlaneAngleUnit]) {.
+proc init*(this: var StepBasicSiUnitAndPlaneAngleUnit; hasAprefix: bool;
+          aPrefix: StepBasicSiPrefix; aName: StepBasicSiUnitName) {.
+    importcpp: "Init", header: "StepBasic_SiUnitAndPlaneAngleUnit.hxx".}
+proc setPlaneAngleUnit*(this: var StepBasicSiUnitAndPlaneAngleUnit;
+                       aPlaneAngleUnit: Handle[StepBasicPlaneAngleUnit]) {.
     importcpp: "SetPlaneAngleUnit",
     header: "StepBasic_SiUnitAndPlaneAngleUnit.hxx".}
-proc PlaneAngleUnit*(this: StepBasic_SiUnitAndPlaneAngleUnit): handle[
-    StepBasic_PlaneAngleUnit] {.noSideEffect, importcpp: "PlaneAngleUnit",
-                               header: "StepBasic_SiUnitAndPlaneAngleUnit.hxx".}
-type
-  StepBasic_SiUnitAndPlaneAngleUnitbase_type* = StepBasic_SiUnit
-
-proc get_type_name*(): cstring {.importcpp: "StepBasic_SiUnitAndPlaneAngleUnit::get_type_name(@)",
+proc planeAngleUnit*(this: StepBasicSiUnitAndPlaneAngleUnit): Handle[
+    StepBasicPlaneAngleUnit] {.noSideEffect, importcpp: "PlaneAngleUnit",
                               header: "StepBasic_SiUnitAndPlaneAngleUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+type
+  StepBasicSiUnitAndPlaneAngleUnitbaseType* = StepBasicSiUnit
+
+proc getTypeName*(): cstring {.importcpp: "StepBasic_SiUnitAndPlaneAngleUnit::get_type_name(@)",
+                            header: "StepBasic_SiUnitAndPlaneAngleUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_SiUnitAndPlaneAngleUnit::get_type_descriptor(@)",
     header: "StepBasic_SiUnitAndPlaneAngleUnit.hxx".}
-proc DynamicType*(this: StepBasic_SiUnitAndPlaneAngleUnit): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicSiUnitAndPlaneAngleUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_SiUnitAndPlaneAngleUnit.hxx".}

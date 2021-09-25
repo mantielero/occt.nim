@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_IndexedMapOfTransient, ../TColStd/TColStd_SequenceOfInteger,
-  ../Standard/Standard_Transient, ../Standard/Standard_Boolean,
-  ../TColStd/TColStd_HSequenceOfTransient, ../Standard/Standard_Integer
-
 discard "forward decl of IGESData_IGESModel"
 discard "forward decl of Standard_Transient"
 discard "forward decl of IGESData_IGESEntity"
@@ -29,7 +23,7 @@ discard "forward decl of IFSelect_PacketList"
 discard "forward decl of IGESSelect_ViewSorter"
 discard "forward decl of IGESSelect_ViewSorter"
 type
-  Handle_IGESSelect_ViewSorter* = handle[IGESSelect_ViewSorter]
+  HandleIGESSelectViewSorter* = Handle[IGESSelectViewSorter]
 
 ## ! Sorts IGES Entities on the views and drawings.
 ## ! In a first step, it splits a set of entities according the
@@ -41,58 +35,56 @@ type
 ## ! mutable object (a Dispatch for instance)
 
 type
-  IGESSelect_ViewSorter* {.importcpp: "IGESSelect_ViewSorter",
-                          header: "IGESSelect_ViewSorter.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## a
-                                                                                                ## ViewSorter,
-                                                                                                ## empty.
-                                                                                                ## SetModel
-                                                                                                ## remains
-                                                                                                ## to
-                                                                                                ## be
-                                                                                                ## called
+  IGESSelectViewSorter* {.importcpp: "IGESSelect_ViewSorter",
+                         header: "IGESSelect_ViewSorter.hxx", bycopy.} = object of StandardTransient ##
+                                                                                              ## !
+                                                                                              ## Creates
+                                                                                              ## a
+                                                                                              ## ViewSorter,
+                                                                                              ## empty.
+                                                                                              ## SetModel
+                                                                                              ## remains
+                                                                                              ## to
+                                                                                              ## be
+                                                                                              ## called
 
 
-proc constructIGESSelect_ViewSorter*(): IGESSelect_ViewSorter {.constructor,
+proc constructIGESSelectViewSorter*(): IGESSelectViewSorter {.constructor,
     importcpp: "IGESSelect_ViewSorter(@)", header: "IGESSelect_ViewSorter.hxx".}
-proc SetModel*(this: var IGESSelect_ViewSorter; model: handle[IGESData_IGESModel]) {.
+proc setModel*(this: var IGESSelectViewSorter; model: Handle[IGESDataIGESModel]) {.
     importcpp: "SetModel", header: "IGESSelect_ViewSorter.hxx".}
-proc Clear*(this: var IGESSelect_ViewSorter) {.importcpp: "Clear",
+proc clear*(this: var IGESSelectViewSorter) {.importcpp: "Clear",
     header: "IGESSelect_ViewSorter.hxx".}
-proc Add*(this: var IGESSelect_ViewSorter; ent: handle[Standard_Transient]): Standard_Boolean {.
+proc add*(this: var IGESSelectViewSorter; ent: Handle[StandardTransient]): bool {.
     importcpp: "Add", header: "IGESSelect_ViewSorter.hxx".}
-proc AddEntity*(this: var IGESSelect_ViewSorter;
-               igesent: handle[IGESData_IGESEntity]): Standard_Boolean {.
+proc addEntity*(this: var IGESSelectViewSorter; igesent: Handle[IGESDataIGESEntity]): bool {.
     importcpp: "AddEntity", header: "IGESSelect_ViewSorter.hxx".}
-proc AddList*(this: var IGESSelect_ViewSorter;
-             list: handle[TColStd_HSequenceOfTransient]) {.importcpp: "AddList",
+proc addList*(this: var IGESSelectViewSorter;
+             list: Handle[TColStdHSequenceOfTransient]) {.importcpp: "AddList",
     header: "IGESSelect_ViewSorter.hxx".}
-proc AddModel*(this: var IGESSelect_ViewSorter;
-              model: handle[Interface_InterfaceModel]) {.importcpp: "AddModel",
+proc addModel*(this: var IGESSelectViewSorter;
+              model: Handle[InterfaceInterfaceModel]) {.importcpp: "AddModel",
     header: "IGESSelect_ViewSorter.hxx".}
-proc NbEntities*(this: IGESSelect_ViewSorter): Standard_Integer {.noSideEffect,
+proc nbEntities*(this: IGESSelectViewSorter): int {.noSideEffect,
     importcpp: "NbEntities", header: "IGESSelect_ViewSorter.hxx".}
-proc SortSingleViews*(this: var IGESSelect_ViewSorter; alsoframes: Standard_Boolean) {.
+proc sortSingleViews*(this: var IGESSelectViewSorter; alsoframes: bool) {.
     importcpp: "SortSingleViews", header: "IGESSelect_ViewSorter.hxx".}
-proc SortDrawings*(this: var IGESSelect_ViewSorter; G: Interface_Graph) {.
+proc sortDrawings*(this: var IGESSelectViewSorter; g: InterfaceGraph) {.
     importcpp: "SortDrawings", header: "IGESSelect_ViewSorter.hxx".}
-proc NbSets*(this: IGESSelect_ViewSorter; final: Standard_Boolean): Standard_Integer {.
-    noSideEffect, importcpp: "NbSets", header: "IGESSelect_ViewSorter.hxx".}
-proc SetItem*(this: IGESSelect_ViewSorter; num: Standard_Integer;
-             final: Standard_Boolean): handle[IGESData_IGESEntity] {.noSideEffect,
-    importcpp: "SetItem", header: "IGESSelect_ViewSorter.hxx".}
-proc Sets*(this: IGESSelect_ViewSorter; final: Standard_Boolean): handle[
-    IFSelect_PacketList] {.noSideEffect, importcpp: "Sets",
-                          header: "IGESSelect_ViewSorter.hxx".}
+proc nbSets*(this: IGESSelectViewSorter; final: bool): int {.noSideEffect,
+    importcpp: "NbSets", header: "IGESSelect_ViewSorter.hxx".}
+proc setItem*(this: IGESSelectViewSorter; num: int; final: bool): Handle[
+    IGESDataIGESEntity] {.noSideEffect, importcpp: "SetItem",
+                         header: "IGESSelect_ViewSorter.hxx".}
+proc sets*(this: IGESSelectViewSorter; final: bool): Handle[IFSelectPacketList] {.
+    noSideEffect, importcpp: "Sets", header: "IGESSelect_ViewSorter.hxx".}
 type
-  IGESSelect_ViewSorterbase_type* = Standard_Transient
+  IGESSelectViewSorterbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "IGESSelect_ViewSorter::get_type_name(@)",
-                              header: "IGESSelect_ViewSorter.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_ViewSorter::get_type_name(@)",
+                            header: "IGESSelect_ViewSorter.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSelect_ViewSorter::get_type_descriptor(@)",
     header: "IGESSelect_ViewSorter.hxx".}
-proc DynamicType*(this: IGESSelect_ViewSorter): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IGESSelect_ViewSorter.hxx".}
+proc dynamicType*(this: IGESSelectViewSorter): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IGESSelect_ViewSorter.hxx".}

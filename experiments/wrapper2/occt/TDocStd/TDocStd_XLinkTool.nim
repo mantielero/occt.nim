@@ -14,30 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean
-
 discard "forward decl of TDF_DataSet"
 discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDF_Label"
 type
-  TDocStd_XLinkTool* {.importcpp: "TDocStd_XLinkTool",
-                      header: "TDocStd_XLinkTool.hxx", bycopy.} = object
+  TDocStdXLinkTool* {.importcpp: "TDocStd_XLinkTool",
+                     header: "TDocStd_XLinkTool.hxx", bycopy.} = object
 
 
-proc constructTDocStd_XLinkTool*(): TDocStd_XLinkTool {.constructor,
+proc constructTDocStdXLinkTool*(): TDocStdXLinkTool {.constructor,
     importcpp: "TDocStd_XLinkTool(@)", header: "TDocStd_XLinkTool.hxx".}
-proc CopyWithLink*(this: var TDocStd_XLinkTool; intarget: TDF_Label;
+proc copyWithLink*(this: var TDocStdXLinkTool; intarget: TDF_Label;
                   fromsource: TDF_Label) {.importcpp: "CopyWithLink",
     header: "TDocStd_XLinkTool.hxx".}
-proc UpdateLink*(this: var TDocStd_XLinkTool; L: TDF_Label) {.importcpp: "UpdateLink",
+proc updateLink*(this: var TDocStdXLinkTool; L: TDF_Label) {.importcpp: "UpdateLink",
     header: "TDocStd_XLinkTool.hxx".}
-proc Copy*(this: var TDocStd_XLinkTool; intarget: TDF_Label; fromsource: TDF_Label) {.
+proc copy*(this: var TDocStdXLinkTool; intarget: TDF_Label; fromsource: TDF_Label) {.
     importcpp: "Copy", header: "TDocStd_XLinkTool.hxx".}
-proc IsDone*(this: TDocStd_XLinkTool): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "TDocStd_XLinkTool.hxx".}
-proc DataSet*(this: TDocStd_XLinkTool): handle[TDF_DataSet] {.noSideEffect,
+proc isDone*(this: TDocStdXLinkTool): bool {.noSideEffect, importcpp: "IsDone",
+    header: "TDocStd_XLinkTool.hxx".}
+proc dataSet*(this: TDocStdXLinkTool): Handle[TDF_DataSet] {.noSideEffect,
     importcpp: "DataSet", header: "TDocStd_XLinkTool.hxx".}
-proc RelocationTable*(this: TDocStd_XLinkTool): handle[TDF_RelocationTable] {.
+proc relocationTable*(this: TDocStdXLinkTool): Handle[TDF_RelocationTable] {.
     noSideEffect, importcpp: "RelocationTable", header: "TDocStd_XLinkTool.hxx".}

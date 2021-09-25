@@ -13,12 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString, ../TDF/TDF_Attribute,
-  ../Standard/Standard_Boolean, ../Standard/Standard_OStream,
-  ../Standard/Standard_GUID
-
 discard "forward decl of TDF_Label"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of TDF_Attribute"
@@ -26,70 +20,70 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataStd_AsciiString"
 discard "forward decl of TDataStd_AsciiString"
 type
-  Handle_TDataStd_AsciiString* = handle[TDataStd_AsciiString]
+  HandleTDataStdAsciiString* = Handle[TDataStdAsciiString]
 
 ## ! Used to define an AsciiString attribute containing a TCollection_AsciiString
 
 type
-  TDataStd_AsciiString* {.importcpp: "TDataStd_AsciiString",
-                         header: "TDataStd_AsciiString.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                         ## !
-                                                                                         ## class
-                                                                                         ## methods
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## =============
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Returns
-                                                                                         ## the
-                                                                                         ## GUID
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## attribute.
+  TDataStdAsciiString* {.importcpp: "TDataStd_AsciiString",
+                        header: "TDataStd_AsciiString.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                        ## !
+                                                                                        ## class
+                                                                                        ## methods
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## =============
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Returns
+                                                                                        ## the
+                                                                                        ## GUID
+                                                                                        ## of
+                                                                                        ## the
+                                                                                        ## attribute.
 
 
-proc GetID*(): Standard_GUID {.importcpp: "TDataStd_AsciiString::GetID(@)",
-                            header: "TDataStd_AsciiString.hxx".}
-proc Set*(label: TDF_Label; string: TCollection_AsciiString): handle[
-    TDataStd_AsciiString] {.importcpp: "TDataStd_AsciiString::Set(@)",
+proc getID*(): StandardGUID {.importcpp: "TDataStd_AsciiString::GetID(@)",
                            header: "TDataStd_AsciiString.hxx".}
-proc Set*(label: TDF_Label; guid: Standard_GUID; string: TCollection_AsciiString): handle[
-    TDataStd_AsciiString] {.importcpp: "TDataStd_AsciiString::Set(@)",
-                           header: "TDataStd_AsciiString.hxx".}
-proc constructTDataStd_AsciiString*(): TDataStd_AsciiString {.constructor,
+proc set*(label: TDF_Label; string: TCollectionAsciiString): Handle[
+    TDataStdAsciiString] {.importcpp: "TDataStd_AsciiString::Set(@)",
+                          header: "TDataStd_AsciiString.hxx".}
+proc set*(label: TDF_Label; guid: StandardGUID; string: TCollectionAsciiString): Handle[
+    TDataStdAsciiString] {.importcpp: "TDataStd_AsciiString::Set(@)",
+                          header: "TDataStd_AsciiString.hxx".}
+proc constructTDataStdAsciiString*(): TDataStdAsciiString {.constructor,
     importcpp: "TDataStd_AsciiString(@)", header: "TDataStd_AsciiString.hxx".}
-proc Set*(this: var TDataStd_AsciiString; S: TCollection_AsciiString) {.
+proc set*(this: var TDataStdAsciiString; s: TCollectionAsciiString) {.
     importcpp: "Set", header: "TDataStd_AsciiString.hxx".}
-proc SetID*(this: var TDataStd_AsciiString; guid: Standard_GUID) {.importcpp: "SetID",
+proc setID*(this: var TDataStdAsciiString; guid: StandardGUID) {.importcpp: "SetID",
     header: "TDataStd_AsciiString.hxx".}
-proc SetID*(this: var TDataStd_AsciiString) {.importcpp: "SetID",
+proc setID*(this: var TDataStdAsciiString) {.importcpp: "SetID",
     header: "TDataStd_AsciiString.hxx".}
-proc Get*(this: TDataStd_AsciiString): TCollection_AsciiString {.noSideEffect,
+proc get*(this: TDataStdAsciiString): TCollectionAsciiString {.noSideEffect,
     importcpp: "Get", header: "TDataStd_AsciiString.hxx".}
-proc IsEmpty*(this: TDataStd_AsciiString): Standard_Boolean {.noSideEffect,
-    importcpp: "IsEmpty", header: "TDataStd_AsciiString.hxx".}
-proc ID*(this: TDataStd_AsciiString): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc isEmpty*(this: TDataStdAsciiString): bool {.noSideEffect, importcpp: "IsEmpty",
     header: "TDataStd_AsciiString.hxx".}
-proc Restore*(this: var TDataStd_AsciiString; with: handle[TDF_Attribute]) {.
+proc id*(this: TDataStdAsciiString): StandardGUID {.noSideEffect, importcpp: "ID",
+    header: "TDataStd_AsciiString.hxx".}
+proc restore*(this: var TDataStdAsciiString; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TDataStd_AsciiString.hxx".}
-proc NewEmpty*(this: TDataStd_AsciiString): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TDataStdAsciiString): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TDataStd_AsciiString.hxx".}
-proc Paste*(this: TDataStd_AsciiString; into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TDataStdAsciiString; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TDataStd_AsciiString.hxx".}
-proc Dump*(this: TDataStd_AsciiString; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDataStdAsciiString; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_AsciiString.hxx".}
-proc DumpJson*(this: TDataStd_AsciiString; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TDataStd_AsciiString.hxx".}
+proc dumpJson*(this: TDataStdAsciiString; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TDataStd_AsciiString.hxx".}
 type
-  TDataStd_AsciiStringbase_type* = TDF_Attribute
+  TDataStdAsciiStringbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TDataStd_AsciiString::get_type_name(@)",
-                              header: "TDataStd_AsciiString.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDataStd_AsciiString::get_type_name(@)",
+                            header: "TDataStd_AsciiString.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDataStd_AsciiString::get_type_descriptor(@)",
     header: "TDataStd_AsciiString.hxx".}
-proc DynamicType*(this: TDataStd_AsciiString): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDataStdAsciiString): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_AsciiString.hxx".}

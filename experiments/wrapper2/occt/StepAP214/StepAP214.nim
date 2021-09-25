@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of StepAP214_Protocol"
 discard "forward decl of StepAP214_AutoDesignDateAndPersonItem"
 discard "forward decl of StepAP214_AutoDesignDateAndTimeItem"
@@ -70,5 +66,5 @@ type
                                                                           ## Protocol
 
 
-proc Protocol*(): handle[StepAP214_Protocol] {.importcpp: "StepAP214::Protocol(@)",
+proc protocol*(): Handle[StepAP214Protocol] {.importcpp: "StepAP214::Protocol(@)",
     header: "StepAP214.hxx".}

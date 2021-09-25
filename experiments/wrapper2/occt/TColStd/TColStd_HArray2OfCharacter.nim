@@ -12,5 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # TColStd_HArray2OfCharacter_HeaderFile [NewLine] # TColStd_HArray2OfCharacter_HeaderFile [NewLine] # ../Standard/Standard_Character.hxx [NewLine] # TColStd_Array2OfCharacter.hxx [NewLine] # ../NCollection/NCollection_DefineHArray2.hxx [NewLine] DEFINE_HARRAY2 ( TColStd_HArray2OfCharacter , TColStd_Array2OfCharacter ) # [NewLine]
+## !!!Ignored construct:  # TColStd_HArray2OfCharacter_HeaderFile [NewLine] # TColStd_HArray2OfCharacter_HeaderFile [NewLine] # < Standard_Character . hxx > [NewLine] # < TColStd_Array2OfCharacter . hxx > [NewLine] # < NCollection_DefineHArray2 . hxx > [NewLine] DEFINE_HARRAY2 ( TColStd_HArray2OfCharacter , TColStd_Array2OfCharacter ) # [NewLine]
 ## Error: expected ';'!!!
+

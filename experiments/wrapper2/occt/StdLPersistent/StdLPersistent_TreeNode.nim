@@ -11,25 +11,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../StdObjMgt/StdObjMgt_Attribute, ../TDataStd/TDataStd_TreeNode,
-  ../Standard/Standard_GUID
-
 type
-  StdLPersistent_TreeNode* {.importcpp: "StdLPersistent_TreeNode",
-                            header: "StdLPersistent_TreeNode.hxx", bycopy.} = object of Static[
-      TDataStd_TreeNode]      ## ! Read persistent data from a file.
+  StdLPersistentTreeNode* {.importcpp: "StdLPersistent_TreeNode",
+                           header: "StdLPersistent_TreeNode.hxx", bycopy.} = object of Static[
+      TDataStdTreeNode]       ## ! Read persistent data from a file.
 
 
-proc Read*(this: var StdLPersistent_TreeNode; theReadData: var StdObjMgt_ReadData) {.
+proc read*(this: var StdLPersistentTreeNode; theReadData: var StdObjMgtReadData) {.
     importcpp: "Read", header: "StdLPersistent_TreeNode.hxx".}
-proc Write*(this: StdLPersistent_TreeNode; theWriteData: var StdObjMgt_WriteData) {.
+proc write*(this: StdLPersistentTreeNode; theWriteData: var StdObjMgtWriteData) {.
     noSideEffect, importcpp: "Write", header: "StdLPersistent_TreeNode.hxx".}
-proc PChildren*(this: StdLPersistent_TreeNode; a2: var SequenceOfPersistent) {.
+proc pChildren*(this: StdLPersistentTreeNode; a2: var SequenceOfPersistent) {.
     noSideEffect, importcpp: "PChildren", header: "StdLPersistent_TreeNode.hxx".}
-proc PName*(this: StdLPersistent_TreeNode): Standard_CString {.noSideEffect,
+proc pName*(this: StdLPersistentTreeNode): StandardCString {.noSideEffect,
     importcpp: "PName", header: "StdLPersistent_TreeNode.hxx".}
-proc CreateAttribute*(this: var StdLPersistent_TreeNode): handle[TDF_Attribute] {.
+proc createAttribute*(this: var StdLPersistentTreeNode): Handle[TDF_Attribute] {.
     importcpp: "CreateAttribute", header: "StdLPersistent_TreeNode.hxx".}
-proc ImportAttribute*(this: var StdLPersistent_TreeNode) {.
+proc importAttribute*(this: var StdLPersistentTreeNode) {.
     importcpp: "ImportAttribute", header: "StdLPersistent_TreeNode.hxx".}

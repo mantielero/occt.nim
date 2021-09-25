@@ -13,53 +13,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  VrmlData_Texture
-
 ## *
 ##   Implementation of the ImageTexture node
 ##
 
 type
-  VrmlData_ImageTexture* {.importcpp: "VrmlData_ImageTexture",
-                          header: "VrmlData_ImageTexture.hxx", bycopy.} = object of VrmlData_Texture ##  ---------- PUBLIC METHODS ----------
-                                                                                              ## *
-                                                                                              ##  Empty constructor
-                                                                                              ##
-                                                                                              ##  ---------- PROTECTED METHODS ----------
-                                                                                              ##  ---------- PRIVATE FIELDS ----------
-                                                                                              ##  Declaration of CASCADE RTTI
+  VrmlDataImageTexture* {.importcpp: "VrmlData_ImageTexture",
+                         header: "VrmlData_ImageTexture.hxx", bycopy.} = object of VrmlDataTexture ##  ---------- PUBLIC METHODS ----------
+                                                                                            ## *
+                                                                                            ##  Empty constructor
+                                                                                            ##
+                                                                                            ##  ---------- PROTECTED METHODS ----------
+                                                                                            ##  ---------- PRIVATE FIELDS ----------
+                                                                                            ##  Declaration of CASCADE RTTI
 
 
-proc constructVrmlData_ImageTexture*(): VrmlData_ImageTexture {.constructor,
+proc constructVrmlDataImageTexture*(): VrmlDataImageTexture {.constructor,
     importcpp: "VrmlData_ImageTexture(@)", header: "VrmlData_ImageTexture.hxx".}
-proc constructVrmlData_ImageTexture*(theScene: VrmlData_Scene; theName: cstring;
-                                    theURL: cstring = 0L'i64;
-                                    theRepS: Standard_Boolean = Standard_False;
-                                    theRepT: Standard_Boolean = Standard_False): VrmlData_ImageTexture {.
+proc constructVrmlDataImageTexture*(theScene: VrmlDataScene; theName: cstring;
+                                   theURL: cstring = 0'i64; theRepS: bool = false;
+                                   theRepT: bool = false): VrmlDataImageTexture {.
     constructor, importcpp: "VrmlData_ImageTexture(@)",
     header: "VrmlData_ImageTexture.hxx".}
-proc URL*(this: VrmlData_ImageTexture): NCollection_List[TCollection_AsciiString] {.
+proc url*(this: VrmlDataImageTexture): NCollectionList[TCollectionAsciiString] {.
     noSideEffect, importcpp: "URL", header: "VrmlData_ImageTexture.hxx".}
-proc Clone*(this: VrmlData_ImageTexture; theOther: handle[VrmlData_Node]): handle[
-    VrmlData_Node] {.noSideEffect, importcpp: "Clone",
-                    header: "VrmlData_ImageTexture.hxx".}
-proc Read*(this: var VrmlData_ImageTexture; theBuffer: var VrmlData_InBuffer): VrmlData_ErrorStatus {.
+proc clone*(this: VrmlDataImageTexture; theOther: Handle[VrmlDataNode]): Handle[
+    VrmlDataNode] {.noSideEffect, importcpp: "Clone",
+                   header: "VrmlData_ImageTexture.hxx".}
+proc read*(this: var VrmlDataImageTexture; theBuffer: var VrmlDataInBuffer): VrmlDataErrorStatus {.
     importcpp: "Read", header: "VrmlData_ImageTexture.hxx".}
-proc Write*(this: VrmlData_ImageTexture; thePrefix: cstring): VrmlData_ErrorStatus {.
+proc write*(this: VrmlDataImageTexture; thePrefix: cstring): VrmlDataErrorStatus {.
     noSideEffect, importcpp: "Write", header: "VrmlData_ImageTexture.hxx".}
 type
-  VrmlData_ImageTexturebase_type* = VrmlData_Texture
+  VrmlDataImageTexturebaseType* = VrmlDataTexture
 
-proc get_type_name*(): cstring {.importcpp: "VrmlData_ImageTexture::get_type_name(@)",
-                              header: "VrmlData_ImageTexture.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "VrmlData_ImageTexture::get_type_name(@)",
+                            header: "VrmlData_ImageTexture.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "VrmlData_ImageTexture::get_type_descriptor(@)",
     header: "VrmlData_ImageTexture.hxx".}
-proc DynamicType*(this: VrmlData_ImageTexture): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "VrmlData_ImageTexture.hxx".}
+proc dynamicType*(this: VrmlDataImageTexture): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "VrmlData_ImageTexture.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of VrmlData_ImageTexture"
 type
-  Handle_VrmlData_ImageTexture* = handle[VrmlData_ImageTexture]
+  HandleVrmlDataImageTexture* = Handle[VrmlDataImageTexture]
+

@@ -15,10 +15,10 @@
 ##  commercial license or contractual agreement.
 
 type
-  TopoDSToStep_MakeFaceError* {.size: sizeof(cint),
-                               importcpp: "TopoDSToStep_MakeFaceError",
-                               header: "TopoDSToStep_MakeFaceError.hxx".} = enum
-    TopoDSToStep_FaceDone, TopoDSToStep_InfiniteFace,
-    TopoDSToStep_NonManifoldFace, TopoDSToStep_NoWireMapped,
-    TopoDSToStep_FaceOther
+  TopoDSToStepMakeFaceError* {.size: sizeof(cint),
+                              importcpp: "TopoDSToStep_MakeFaceError",
+                              header: "TopoDSToStep_MakeFaceError.hxx".} = enum
+    TopoDSToStepFaceDone, TopoDSToStepInfiniteFace, TopoDSToStepNonManifoldFace,
+    TopoDSToStepNoWireMapped, TopoDSToStepFaceOther
+
 

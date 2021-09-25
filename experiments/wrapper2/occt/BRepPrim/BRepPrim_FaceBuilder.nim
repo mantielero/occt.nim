@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Vertex, ../TopoDS/TopoDS_Edge,
-  ../TopoDS/TopoDS_Face, ../Standard/Standard_Real, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of BRep_Builder"
@@ -27,32 +22,30 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
 type
-  BRepPrim_FaceBuilder* {.importcpp: "BRepPrim_FaceBuilder",
-                         header: "BRepPrim_FaceBuilder.hxx", bycopy.} = object
+  BRepPrimFaceBuilder* {.importcpp: "BRepPrim_FaceBuilder",
+                        header: "BRepPrim_FaceBuilder.hxx", bycopy.} = object
 
 
-proc constructBRepPrim_FaceBuilder*(): BRepPrim_FaceBuilder {.constructor,
+proc constructBRepPrimFaceBuilder*(): BRepPrimFaceBuilder {.constructor,
     importcpp: "BRepPrim_FaceBuilder(@)", header: "BRepPrim_FaceBuilder.hxx".}
-proc constructBRepPrim_FaceBuilder*(B: BRep_Builder; S: handle[Geom_Surface]): BRepPrim_FaceBuilder {.
+proc constructBRepPrimFaceBuilder*(b: BRepBuilder; s: Handle[GeomSurface]): BRepPrimFaceBuilder {.
     constructor, importcpp: "BRepPrim_FaceBuilder(@)",
     header: "BRepPrim_FaceBuilder.hxx".}
-proc constructBRepPrim_FaceBuilder*(B: BRep_Builder; S: handle[Geom_Surface];
-                                   UMin: Standard_Real; UMax: Standard_Real;
-                                   VMin: Standard_Real; VMax: Standard_Real): BRepPrim_FaceBuilder {.
+proc constructBRepPrimFaceBuilder*(b: BRepBuilder; s: Handle[GeomSurface];
+                                  uMin: float; uMax: float; vMin: float; vMax: float): BRepPrimFaceBuilder {.
     constructor, importcpp: "BRepPrim_FaceBuilder(@)",
     header: "BRepPrim_FaceBuilder.hxx".}
-proc Init*(this: var BRepPrim_FaceBuilder; B: BRep_Builder; S: handle[Geom_Surface]) {.
+proc init*(this: var BRepPrimFaceBuilder; b: BRepBuilder; s: Handle[GeomSurface]) {.
     importcpp: "Init", header: "BRepPrim_FaceBuilder.hxx".}
-proc Init*(this: var BRepPrim_FaceBuilder; B: BRep_Builder; S: handle[Geom_Surface];
-          UMin: Standard_Real; UMax: Standard_Real; VMin: Standard_Real;
-          VMax: Standard_Real) {.importcpp: "Init",
-                               header: "BRepPrim_FaceBuilder.hxx".}
-proc Face*(this: BRepPrim_FaceBuilder): TopoDS_Face {.noSideEffect,
-    importcpp: "Face", header: "BRepPrim_FaceBuilder.hxx".}
-converter `TopoDS_Face`*(this: var BRepPrim_FaceBuilder): TopoDS_Face {.
+proc init*(this: var BRepPrimFaceBuilder; b: BRepBuilder; s: Handle[GeomSurface];
+          uMin: float; uMax: float; vMin: float; vMax: float) {.importcpp: "Init",
+    header: "BRepPrim_FaceBuilder.hxx".}
+proc face*(this: BRepPrimFaceBuilder): TopoDS_Face {.noSideEffect, importcpp: "Face",
+    header: "BRepPrim_FaceBuilder.hxx".}
+converter `topoDS_Face`*(this: var BRepPrimFaceBuilder): TopoDS_Face {.
     importcpp: "BRepPrim_FaceBuilder::operator TopoDS_Face",
     header: "BRepPrim_FaceBuilder.hxx".}
-proc Edge*(this: BRepPrim_FaceBuilder; I: Standard_Integer): TopoDS_Edge {.
-    noSideEffect, importcpp: "Edge", header: "BRepPrim_FaceBuilder.hxx".}
-proc Vertex*(this: BRepPrim_FaceBuilder; I: Standard_Integer): TopoDS_Vertex {.
-    noSideEffect, importcpp: "Vertex", header: "BRepPrim_FaceBuilder.hxx".}
+proc edge*(this: BRepPrimFaceBuilder; i: int): TopoDS_Edge {.noSideEffect,
+    importcpp: "Edge", header: "BRepPrim_FaceBuilder.hxx".}
+proc vertex*(this: BRepPrimFaceBuilder; i: int): TopoDS_Vertex {.noSideEffect,
+    importcpp: "Vertex", header: "BRepPrim_FaceBuilder.hxx".}

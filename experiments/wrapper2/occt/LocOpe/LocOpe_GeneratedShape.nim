@@ -14,36 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TopTools/TopTools_ListOfShape, ../Standard/Standard_Transient
-
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of LocOpe_GeneratedShape"
 discard "forward decl of LocOpe_GeneratedShape"
 type
-  Handle_LocOpe_GeneratedShape* = handle[LocOpe_GeneratedShape]
-  LocOpe_GeneratedShape* {.importcpp: "LocOpe_GeneratedShape",
-                          header: "LocOpe_GeneratedShape.hxx", bycopy.} = object of Standard_Transient
+  HandleLocOpeGeneratedShape* = Handle[LocOpeGeneratedShape]
+  LocOpeGeneratedShape* {.importcpp: "LocOpe_GeneratedShape",
+                         header: "LocOpe_GeneratedShape.hxx", bycopy.} = object of StandardTransient
 
 
-proc GeneratingEdges*(this: var LocOpe_GeneratedShape): TopTools_ListOfShape {.
+proc generatingEdges*(this: var LocOpeGeneratedShape): TopToolsListOfShape {.
     importcpp: "GeneratingEdges", header: "LocOpe_GeneratedShape.hxx".}
-proc Generated*(this: var LocOpe_GeneratedShape; V: TopoDS_Vertex): TopoDS_Edge {.
+proc generated*(this: var LocOpeGeneratedShape; v: TopoDS_Vertex): TopoDS_Edge {.
     importcpp: "Generated", header: "LocOpe_GeneratedShape.hxx".}
-proc Generated*(this: var LocOpe_GeneratedShape; E: TopoDS_Edge): TopoDS_Face {.
+proc generated*(this: var LocOpeGeneratedShape; e: TopoDS_Edge): TopoDS_Face {.
     importcpp: "Generated", header: "LocOpe_GeneratedShape.hxx".}
-proc OrientedFaces*(this: var LocOpe_GeneratedShape): TopTools_ListOfShape {.
+proc orientedFaces*(this: var LocOpeGeneratedShape): TopToolsListOfShape {.
     importcpp: "OrientedFaces", header: "LocOpe_GeneratedShape.hxx".}
 type
-  LocOpe_GeneratedShapebase_type* = Standard_Transient
+  LocOpeGeneratedShapebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "LocOpe_GeneratedShape::get_type_name(@)",
-                              header: "LocOpe_GeneratedShape.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "LocOpe_GeneratedShape::get_type_name(@)",
+                            header: "LocOpe_GeneratedShape.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "LocOpe_GeneratedShape::get_type_descriptor(@)",
     header: "LocOpe_GeneratedShape.hxx".}
-proc DynamicType*(this: LocOpe_GeneratedShape): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "LocOpe_GeneratedShape.hxx".}
+proc dynamicType*(this: LocOpeGeneratedShape): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "LocOpe_GeneratedShape.hxx".}

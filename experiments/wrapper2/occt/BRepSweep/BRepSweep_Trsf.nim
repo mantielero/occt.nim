@@ -14,128 +14,120 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopLoc/TopLoc_Location,
-  ../Standard/Standard_Boolean, BRepSweep_NumLinearRegularSweep,
-  ../TopAbs/TopAbs_Orientation
-
 discard "forward decl of BRep_Builder"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Sweep_NumShape"
 discard "forward decl of TopLoc_Location"
 type
-  BRepSweep_Trsf* {.importcpp: "BRepSweep_Trsf", header: "BRepSweep_Trsf.hxx", bycopy.} = object of BRepSweep_NumLinearRegularSweep ##
-                                                                                                                          ## !
-                                                                                                                          ## ends
-                                                                                                                          ## the
-                                                                                                                          ## construction
-                                                                                                                          ## of
-                                                                                                                          ## the
-                                                                                                                          ## swept
-                                                                                                                          ## primitive
-                                                                                                                          ##
-                                                                                                                          ## !
-                                                                                                                          ## calling
-                                                                                                                          ## the
-                                                                                                                          ## virtual
-                                                                                                                          ## geometric
-                                                                                                                          ## functions
-                                                                                                                          ## that
-                                                                                                                          ## can't
-                                                                                                                          ##
-                                                                                                                          ## !
-                                                                                                                          ## be
-                                                                                                                          ## called
-                                                                                                                          ## in
-                                                                                                                          ## the
-                                                                                                                          ## initialize.
-                                                                                                                          ##
-                                                                                                                          ## !
-                                                                                                                          ## Initialize
-                                                                                                                          ## the
-                                                                                                                          ## Trsf
-                                                                                                                          ## BrepSweep,
-                                                                                                                          ## if
-                                                                                                                          ## aCopy
-                                                                                                                          ## is
-                                                                                                                          ## true
-                                                                                                                          ##
-                                                                                                                          ## !
-                                                                                                                          ## the
-                                                                                                                          ## basis
-                                                                                                                          ## elements
-                                                                                                                          ## are
-                                                                                                                          ## shared
-                                                                                                                          ## as
-                                                                                                                          ## often
-                                                                                                                          ## as
-                                                                                                                          ##
-                                                                                                                          ## !
-                                                                                                                          ## possible,
-                                                                                                                          ## else
-                                                                                                                          ## everything
-                                                                                                                          ## is
-                                                                                                                          ## copied.
+  BRepSweepTrsf* {.importcpp: "BRepSweep_Trsf", header: "BRepSweep_Trsf.hxx", bycopy.} = object of BRepSweepNumLinearRegularSweep ##
+                                                                                                                        ## !
+                                                                                                                        ## ends
+                                                                                                                        ## the
+                                                                                                                        ## construction
+                                                                                                                        ## of
+                                                                                                                        ## the
+                                                                                                                        ## swept
+                                                                                                                        ## primitive
+                                                                                                                        ##
+                                                                                                                        ## !
+                                                                                                                        ## calling
+                                                                                                                        ## the
+                                                                                                                        ## virtual
+                                                                                                                        ## geometric
+                                                                                                                        ## functions
+                                                                                                                        ## that
+                                                                                                                        ## can't
+                                                                                                                        ##
+                                                                                                                        ## !
+                                                                                                                        ## be
+                                                                                                                        ## called
+                                                                                                                        ## in
+                                                                                                                        ## the
+                                                                                                                        ## initialize.
+                                                                                                                        ##
+                                                                                                                        ## !
+                                                                                                                        ## Initialize
+                                                                                                                        ## the
+                                                                                                                        ## Trsf
+                                                                                                                        ## BrepSweep,
+                                                                                                                        ## if
+                                                                                                                        ## aCopy
+                                                                                                                        ## is
+                                                                                                                        ## true
+                                                                                                                        ##
+                                                                                                                        ## !
+                                                                                                                        ## the
+                                                                                                                        ## basis
+                                                                                                                        ## elements
+                                                                                                                        ## are
+                                                                                                                        ## shared
+                                                                                                                        ## as
+                                                                                                                        ## often
+                                                                                                                        ## as
+                                                                                                                        ##
+                                                                                                                        ## !
+                                                                                                                        ## possible,
+                                                                                                                        ## else
+                                                                                                                        ## everything
+                                                                                                                        ## is
+                                                                                                                        ## copied.
 
 
-proc Init*(this: var BRepSweep_Trsf) {.importcpp: "Init", header: "BRepSweep_Trsf.hxx".}
-proc Process*(this: var BRepSweep_Trsf; aGenS: TopoDS_Shape; aDirV: Sweep_NumShape): Standard_Boolean {.
+proc init*(this: var BRepSweepTrsf) {.importcpp: "Init", header: "BRepSweep_Trsf.hxx".}
+proc process*(this: var BRepSweepTrsf; aGenS: TopoDS_Shape; aDirV: SweepNumShape): bool {.
     importcpp: "Process", header: "BRepSweep_Trsf.hxx".}
-proc MakeEmptyVertex*(this: var BRepSweep_Trsf; aGenV: TopoDS_Shape;
-                     aDirV: Sweep_NumShape): TopoDS_Shape {.
+proc makeEmptyVertex*(this: var BRepSweepTrsf; aGenV: TopoDS_Shape;
+                     aDirV: SweepNumShape): TopoDS_Shape {.
     importcpp: "MakeEmptyVertex", header: "BRepSweep_Trsf.hxx".}
-proc MakeEmptyDirectingEdge*(this: var BRepSweep_Trsf; aGenV: TopoDS_Shape;
-                            aDirE: Sweep_NumShape): TopoDS_Shape {.
+proc makeEmptyDirectingEdge*(this: var BRepSweepTrsf; aGenV: TopoDS_Shape;
+                            aDirE: SweepNumShape): TopoDS_Shape {.
     importcpp: "MakeEmptyDirectingEdge", header: "BRepSweep_Trsf.hxx".}
-proc MakeEmptyGeneratingEdge*(this: var BRepSweep_Trsf; aGenE: TopoDS_Shape;
-                             aDirV: Sweep_NumShape): TopoDS_Shape {.
+proc makeEmptyGeneratingEdge*(this: var BRepSweepTrsf; aGenE: TopoDS_Shape;
+                             aDirV: SweepNumShape): TopoDS_Shape {.
     importcpp: "MakeEmptyGeneratingEdge", header: "BRepSweep_Trsf.hxx".}
-proc SetParameters*(this: var BRepSweep_Trsf; aNewFace: TopoDS_Shape;
+proc setParameters*(this: var BRepSweepTrsf; aNewFace: TopoDS_Shape;
                    aNewVertex: var TopoDS_Shape; aGenF: TopoDS_Shape;
-                   aGenV: TopoDS_Shape; aDirV: Sweep_NumShape) {.
+                   aGenV: TopoDS_Shape; aDirV: SweepNumShape) {.
     importcpp: "SetParameters", header: "BRepSweep_Trsf.hxx".}
-proc SetDirectingParameter*(this: var BRepSweep_Trsf; aNewEdge: TopoDS_Shape;
+proc setDirectingParameter*(this: var BRepSweepTrsf; aNewEdge: TopoDS_Shape;
                            aNewVertex: var TopoDS_Shape; aGenV: TopoDS_Shape;
-                           aDirE: Sweep_NumShape; aDirV: Sweep_NumShape) {.
+                           aDirE: SweepNumShape; aDirV: SweepNumShape) {.
     importcpp: "SetDirectingParameter", header: "BRepSweep_Trsf.hxx".}
-proc SetGeneratingParameter*(this: var BRepSweep_Trsf; aNewEdge: TopoDS_Shape;
+proc setGeneratingParameter*(this: var BRepSweepTrsf; aNewEdge: TopoDS_Shape;
                             aNewVertex: var TopoDS_Shape; aGenE: TopoDS_Shape;
-                            aGenV: TopoDS_Shape; aDirV: Sweep_NumShape) {.
+                            aGenV: TopoDS_Shape; aDirV: SweepNumShape) {.
     importcpp: "SetGeneratingParameter", header: "BRepSweep_Trsf.hxx".}
-proc MakeEmptyFace*(this: var BRepSweep_Trsf; aGenS: TopoDS_Shape;
-                   aDirS: Sweep_NumShape): TopoDS_Shape {.
+proc makeEmptyFace*(this: var BRepSweepTrsf; aGenS: TopoDS_Shape; aDirS: SweepNumShape): TopoDS_Shape {.
     importcpp: "MakeEmptyFace", header: "BRepSweep_Trsf.hxx".}
-proc SetPCurve*(this: var BRepSweep_Trsf; aNewFace: TopoDS_Shape;
+proc setPCurve*(this: var BRepSweepTrsf; aNewFace: TopoDS_Shape;
                aNewEdge: var TopoDS_Shape; aGenF: TopoDS_Shape; aGenE: TopoDS_Shape;
-               aDirV: Sweep_NumShape; orien: TopAbs_Orientation) {.
+               aDirV: SweepNumShape; orien: TopAbsOrientation) {.
     importcpp: "SetPCurve", header: "BRepSweep_Trsf.hxx".}
-proc SetGeneratingPCurve*(this: var BRepSweep_Trsf; aNewFace: TopoDS_Shape;
+proc setGeneratingPCurve*(this: var BRepSweepTrsf; aNewFace: TopoDS_Shape;
                          aNewEdge: var TopoDS_Shape; aGenE: TopoDS_Shape;
-                         aDirE: Sweep_NumShape; aDirV: Sweep_NumShape;
-                         orien: TopAbs_Orientation) {.
+                         aDirE: SweepNumShape; aDirV: SweepNumShape;
+                         orien: TopAbsOrientation) {.
     importcpp: "SetGeneratingPCurve", header: "BRepSweep_Trsf.hxx".}
-proc SetDirectingPCurve*(this: var BRepSweep_Trsf; aNewFace: TopoDS_Shape;
+proc setDirectingPCurve*(this: var BRepSweepTrsf; aNewFace: TopoDS_Shape;
                         aNewEdge: var TopoDS_Shape; aGenE: TopoDS_Shape;
-                        aGenV: TopoDS_Shape; aDirE: Sweep_NumShape;
-                        orien: TopAbs_Orientation) {.
+                        aGenV: TopoDS_Shape; aDirE: SweepNumShape;
+                        orien: TopAbsOrientation) {.
     importcpp: "SetDirectingPCurve", header: "BRepSweep_Trsf.hxx".}
-proc GGDShapeIsToAdd*(this: BRepSweep_Trsf; aNewShape: TopoDS_Shape;
+proc gGDShapeIsToAdd*(this: BRepSweepTrsf; aNewShape: TopoDS_Shape;
                      aNewSubShape: TopoDS_Shape; aGenS: TopoDS_Shape;
-                     aSubGenS: TopoDS_Shape; aDirS: Sweep_NumShape): Standard_Boolean {.
+                     aSubGenS: TopoDS_Shape; aDirS: SweepNumShape): bool {.
     noSideEffect, importcpp: "GGDShapeIsToAdd", header: "BRepSweep_Trsf.hxx".}
-proc GDDShapeIsToAdd*(this: BRepSweep_Trsf; aNewShape: TopoDS_Shape;
+proc gDDShapeIsToAdd*(this: BRepSweepTrsf; aNewShape: TopoDS_Shape;
                      aNewSubShape: TopoDS_Shape; aGenS: TopoDS_Shape;
-                     aDirS: Sweep_NumShape; aSubDirS: Sweep_NumShape): Standard_Boolean {.
+                     aDirS: SweepNumShape; aSubDirS: SweepNumShape): bool {.
     noSideEffect, importcpp: "GDDShapeIsToAdd", header: "BRepSweep_Trsf.hxx".}
-proc SeparatedWires*(this: BRepSweep_Trsf; aNewShape: TopoDS_Shape;
+proc separatedWires*(this: BRepSweepTrsf; aNewShape: TopoDS_Shape;
                     aNewSubShape: TopoDS_Shape; aGenS: TopoDS_Shape;
-                    aSubGenS: TopoDS_Shape; aDirS: Sweep_NumShape): Standard_Boolean {.
+                    aSubGenS: TopoDS_Shape; aDirS: SweepNumShape): bool {.
     noSideEffect, importcpp: "SeparatedWires", header: "BRepSweep_Trsf.hxx".}
-proc HasShape*(this: BRepSweep_Trsf; aGenS: TopoDS_Shape; aDirS: Sweep_NumShape): Standard_Boolean {.
+proc hasShape*(this: BRepSweepTrsf; aGenS: TopoDS_Shape; aDirS: SweepNumShape): bool {.
     noSideEffect, importcpp: "HasShape", header: "BRepSweep_Trsf.hxx".}
-proc IsInvariant*(this: BRepSweep_Trsf; aGenS: TopoDS_Shape): Standard_Boolean {.
-    noSideEffect, importcpp: "IsInvariant", header: "BRepSweep_Trsf.hxx".}
-proc SetContinuity*(this: var BRepSweep_Trsf; aGenS: TopoDS_Shape;
-                   aDirS: Sweep_NumShape) {.importcpp: "SetContinuity",
-    header: "BRepSweep_Trsf.hxx".}
+proc isInvariant*(this: BRepSweepTrsf; aGenS: TopoDS_Shape): bool {.noSideEffect,
+    importcpp: "IsInvariant", header: "BRepSweep_Trsf.hxx".}
+proc setContinuity*(this: var BRepSweepTrsf; aGenS: TopoDS_Shape; aDirS: SweepNumShape) {.
+    importcpp: "SetContinuity", header: "BRepSweep_Trsf.hxx".}

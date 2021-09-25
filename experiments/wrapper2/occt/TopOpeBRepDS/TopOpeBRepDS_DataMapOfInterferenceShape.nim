@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TopOpeBRepDS_Interference, ../TopoDS/TopoDS_Shape,
-  ../TColStd/TColStd_MapTransientHasher, ../NCollection/NCollection_DataMap
-
 type
-  TopOpeBRepDS_DataMapOfInterferenceShape* = NCollection_DataMap[
-      handle[TopOpeBRepDS_Interference], TopoDS_Shape, TColStd_MapTransientHasher]
+  TopOpeBRepDS_DataMapOfInterferenceShape* = NCollectionDataMap[
+      Handle[TopOpeBRepDS_Interference], TopoDS_Shape, TColStdMapTransientHasher]
   TopOpeBRepDS_DataMapIteratorOfDataMapOfInterferenceShape* = Iterator[
-      handle[TopOpeBRepDS_Interference], TopoDS_Shape, TColStd_MapTransientHasher]
+      Handle[TopOpeBRepDS_Interference], TopoDS_Shape, TColStdMapTransientHasher]
+

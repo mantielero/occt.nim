@@ -14,45 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepBasic_ApplicationContextElement
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_ApplicationContext"
 discard "forward decl of StepBasic_ProductContext"
 discard "forward decl of StepBasic_ProductContext"
 type
-  Handle_StepBasic_ProductContext* = handle[StepBasic_ProductContext]
-  StepBasic_ProductContext* {.importcpp: "StepBasic_ProductContext",
-                             header: "StepBasic_ProductContext.hxx", bycopy.} = object of StepBasic_ApplicationContextElement ##
-                                                                                                                       ## !
-                                                                                                                       ## Returns
-                                                                                                                       ## a
-                                                                                                                       ## ProductContext
+  HandleStepBasicProductContext* = Handle[StepBasicProductContext]
+  StepBasicProductContext* {.importcpp: "StepBasic_ProductContext",
+                            header: "StepBasic_ProductContext.hxx", bycopy.} = object of StepBasicApplicationContextElement ##
+                                                                                                                     ## !
+                                                                                                                     ## Returns
+                                                                                                                     ## a
+                                                                                                                     ## ProductContext
 
 
-proc constructStepBasic_ProductContext*(): StepBasic_ProductContext {.constructor,
+proc constructStepBasicProductContext*(): StepBasicProductContext {.constructor,
     importcpp: "StepBasic_ProductContext(@)",
     header: "StepBasic_ProductContext.hxx".}
-proc Init*(this: var StepBasic_ProductContext;
-          aName: handle[TCollection_HAsciiString];
-          aFrameOfReference: handle[StepBasic_ApplicationContext];
-          aDisciplineType: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepBasicProductContext;
+          aName: Handle[TCollectionHAsciiString];
+          aFrameOfReference: Handle[StepBasicApplicationContext];
+          aDisciplineType: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepBasic_ProductContext.hxx".}
-proc SetDisciplineType*(this: var StepBasic_ProductContext;
-                       aDisciplineType: handle[TCollection_HAsciiString]) {.
+proc setDisciplineType*(this: var StepBasicProductContext;
+                       aDisciplineType: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDisciplineType", header: "StepBasic_ProductContext.hxx".}
-proc DisciplineType*(this: StepBasic_ProductContext): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "DisciplineType",
-                               header: "StepBasic_ProductContext.hxx".}
+proc disciplineType*(this: StepBasicProductContext): Handle[TCollectionHAsciiString] {.
+    noSideEffect, importcpp: "DisciplineType",
+    header: "StepBasic_ProductContext.hxx".}
 type
-  StepBasic_ProductContextbase_type* = StepBasic_ApplicationContextElement
+  StepBasicProductContextbaseType* = StepBasicApplicationContextElement
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ProductContext::get_type_name(@)",
-                              header: "StepBasic_ProductContext.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ProductContext::get_type_name(@)",
+                            header: "StepBasic_ProductContext.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_ProductContext::get_type_descriptor(@)",
     header: "StepBasic_ProductContext.hxx".}
-proc DynamicType*(this: StepBasic_ProductContext): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicProductContext): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_ProductContext.hxx".}

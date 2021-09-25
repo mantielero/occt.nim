@@ -14,56 +14,53 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_Document"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_DocumentUsageConstraint"
 discard "forward decl of StepBasic_DocumentUsageConstraint"
 type
-  Handle_StepBasic_DocumentUsageConstraint* = handle[
-      StepBasic_DocumentUsageConstraint]
-  StepBasic_DocumentUsageConstraint* {.importcpp: "StepBasic_DocumentUsageConstraint", header: "StepBasic_DocumentUsageConstraint.hxx",
-                                      bycopy.} = object of Standard_Transient
+  HandleStepBasicDocumentUsageConstraint* = Handle[
+      StepBasicDocumentUsageConstraint]
+  StepBasicDocumentUsageConstraint* {.importcpp: "StepBasic_DocumentUsageConstraint", header: "StepBasic_DocumentUsageConstraint.hxx",
+                                     bycopy.} = object of StandardTransient
 
 
-proc constructStepBasic_DocumentUsageConstraint*(): StepBasic_DocumentUsageConstraint {.
+proc constructStepBasicDocumentUsageConstraint*(): StepBasicDocumentUsageConstraint {.
     constructor, importcpp: "StepBasic_DocumentUsageConstraint(@)",
     header: "StepBasic_DocumentUsageConstraint.hxx".}
-proc Init*(this: var StepBasic_DocumentUsageConstraint;
-          aSource: handle[StepBasic_Document];
-          ase: handle[TCollection_HAsciiString];
-          asev: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepBasicDocumentUsageConstraint;
+          aSource: Handle[StepBasicDocument];
+          ase: Handle[TCollectionHAsciiString];
+          asev: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepBasic_DocumentUsageConstraint.hxx".}
-proc Source*(this: StepBasic_DocumentUsageConstraint): handle[StepBasic_Document] {.
+proc source*(this: StepBasicDocumentUsageConstraint): Handle[StepBasicDocument] {.
     noSideEffect, importcpp: "Source",
     header: "StepBasic_DocumentUsageConstraint.hxx".}
-proc SetSource*(this: var StepBasic_DocumentUsageConstraint;
-               aSource: handle[StepBasic_Document]) {.importcpp: "SetSource",
+proc setSource*(this: var StepBasicDocumentUsageConstraint;
+               aSource: Handle[StepBasicDocument]) {.importcpp: "SetSource",
     header: "StepBasic_DocumentUsageConstraint.hxx".}
-proc SubjectElement*(this: StepBasic_DocumentUsageConstraint): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "SubjectElement",
-                               header: "StepBasic_DocumentUsageConstraint.hxx".}
-proc SetSubjectElement*(this: var StepBasic_DocumentUsageConstraint;
-                       ase: handle[TCollection_HAsciiString]) {.
+proc subjectElement*(this: StepBasicDocumentUsageConstraint): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "SubjectElement",
+                              header: "StepBasic_DocumentUsageConstraint.hxx".}
+proc setSubjectElement*(this: var StepBasicDocumentUsageConstraint;
+                       ase: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetSubjectElement",
     header: "StepBasic_DocumentUsageConstraint.hxx".}
-proc SubjectElementValue*(this: StepBasic_DocumentUsageConstraint): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "SubjectElementValue",
-                               header: "StepBasic_DocumentUsageConstraint.hxx".}
-proc SetSubjectElementValue*(this: var StepBasic_DocumentUsageConstraint;
-                            asev: handle[TCollection_HAsciiString]) {.
+proc subjectElementValue*(this: StepBasicDocumentUsageConstraint): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "SubjectElementValue",
+                              header: "StepBasic_DocumentUsageConstraint.hxx".}
+proc setSubjectElementValue*(this: var StepBasicDocumentUsageConstraint;
+                            asev: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetSubjectElementValue",
     header: "StepBasic_DocumentUsageConstraint.hxx".}
 type
-  StepBasic_DocumentUsageConstraintbase_type* = Standard_Transient
+  StepBasicDocumentUsageConstraintbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_DocumentUsageConstraint::get_type_name(@)",
-                              header: "StepBasic_DocumentUsageConstraint.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_DocumentUsageConstraint::get_type_name(@)",
+                            header: "StepBasic_DocumentUsageConstraint.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_DocumentUsageConstraint::get_type_descriptor(@)",
     header: "StepBasic_DocumentUsageConstraint.hxx".}
-proc DynamicType*(this: StepBasic_DocumentUsageConstraint): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicDocumentUsageConstraint): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_DocumentUsageConstraint.hxx".}

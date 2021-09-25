@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_GUID, TFunction_Driver, ../Standard/Standard_GUID,
-  ../NCollection/NCollection_DataMap
-
 type
-  TFunction_DataMapOfGUIDDriver* = NCollection_DataMap[Standard_GUID,
-      handle[TFunction_Driver], Standard_GUID]
-  TFunction_DataMapIteratorOfDataMapOfGUIDDriver* = Iterator[Standard_GUID,
-      handle[TFunction_Driver], Standard_GUID]
+  TFunctionDataMapOfGUIDDriver* = NCollectionDataMap[StandardGUID,
+      Handle[TFunctionDriver], StandardGUID]
+  TFunctionDataMapIteratorOfDataMapOfGUIDDriver* = Iterator[StandardGUID,
+      Handle[TFunctionDriver], StandardGUID]
+

@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, ../ShapeExtend/ShapeExtend_BasicMsgRegistrator,
-  ../Message/Message_ProgressRange
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of ShapeExtend_BasicMsgRegistrator"
 discard "forward decl of ShapeBuild_ReShape"
@@ -62,17 +56,17 @@ type
                                                                        ## ! if needed.
 
 
-proc SameParameter*(shape: TopoDS_Shape; enforce: Standard_Boolean;
-                   preci: Standard_Real = 0.0; theProgress: Message_ProgressRange = Message_ProgressRange();
-                   theMsgReg: handle[ShapeExtend_BasicMsgRegistrator] = 0): Standard_Boolean {.
+proc sameParameter*(shape: TopoDS_Shape; enforce: bool; preci: float = 0.0;
+                   theProgress: MessageProgressRange = messageProgressRange();
+                   theMsgReg: Handle[ShapeExtendBasicMsgRegistrator] = 0): bool {.
     importcpp: "ShapeFix::SameParameter(@)", header: "ShapeFix.hxx".}
-proc EncodeRegularity*(shape: TopoDS_Shape; tolang: Standard_Real = 1.0e-10) {.
+proc encodeRegularity*(shape: TopoDS_Shape; tolang: float = 1.0e-10) {.
     importcpp: "ShapeFix::EncodeRegularity(@)", header: "ShapeFix.hxx".}
-proc RemoveSmallEdges*(shape: var TopoDS_Shape; Tolerance: Standard_Real;
-                      context: var handle[ShapeBuild_ReShape]): TopoDS_Shape {.
+proc removeSmallEdges*(shape: var TopoDS_Shape; tolerance: float;
+                      context: var Handle[ShapeBuildReShape]): TopoDS_Shape {.
     importcpp: "ShapeFix::RemoveSmallEdges(@)", header: "ShapeFix.hxx".}
-proc FixVertexPosition*(theshape: var TopoDS_Shape; theTolerance: Standard_Real;
-                       thecontext: handle[ShapeBuild_ReShape]): Standard_Boolean {.
+proc fixVertexPosition*(theshape: var TopoDS_Shape; theTolerance: float;
+                       thecontext: Handle[ShapeBuildReShape]): bool {.
     importcpp: "ShapeFix::FixVertexPosition(@)", header: "ShapeFix.hxx".}
-proc LeastEdgeSize*(theshape: var TopoDS_Shape): Standard_Real {.
+proc leastEdgeSize*(theshape: var TopoDS_Shape): float {.
     importcpp: "ShapeFix::LeastEdgeSize(@)", header: "ShapeFix.hxx".}

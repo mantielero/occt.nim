@@ -14,46 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Trsf, ../Standard/Standard_Real
-
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Trsf"
 type
-  gce_MakeScale* {.importcpp: "gce_MakeScale", header: "gce_MakeScale.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Constructs
-                                                                                      ## a
-                                                                                      ## scaling
-                                                                                      ## transformation
-                                                                                      ## with
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## -
-                                                                                      ## Point
-                                                                                      ## as
-                                                                                      ## the
-                                                                                      ## center
-                                                                                      ## of
-                                                                                      ## the
-                                                                                      ## transformation,
-                                                                                      ## and
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## -
-                                                                                      ## Scale
-                                                                                      ## as
-                                                                                      ## the
-                                                                                      ## scale
-                                                                                      ## factor.
+  GceMakeScale* {.importcpp: "gce_MakeScale", header: "gce_MakeScale.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Constructs
+                                                                                     ## a
+                                                                                     ## scaling
+                                                                                     ## transformation
+                                                                                     ## with
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## -
+                                                                                     ## Point
+                                                                                     ## as
+                                                                                     ## the
+                                                                                     ## center
+                                                                                     ## of
+                                                                                     ## the
+                                                                                     ## transformation,
+                                                                                     ## and
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## -
+                                                                                     ## Scale
+                                                                                     ## as
+                                                                                     ## the
+                                                                                     ## scale
+                                                                                     ## factor.
 
 
-proc constructgce_MakeScale*(Point: gp_Pnt; Scale: Standard_Real): gce_MakeScale {.
-    constructor, importcpp: "gce_MakeScale(@)", header: "gce_MakeScale.hxx".}
-proc Value*(this: gce_MakeScale): gp_Trsf {.noSideEffect, importcpp: "Value",
-                                        header: "gce_MakeScale.hxx".}
-proc Operator*(this: gce_MakeScale): gp_Trsf {.noSideEffect, importcpp: "Operator",
-    header: "gce_MakeScale.hxx".}
-converter `gp_Trsf`*(this: gce_MakeScale): gp_Trsf {.noSideEffect,
+proc constructGceMakeScale*(point: Pnt; scale: float): GceMakeScale {.constructor,
+    importcpp: "gce_MakeScale(@)", header: "gce_MakeScale.hxx".}
+proc value*(this: GceMakeScale): Trsf {.noSideEffect, importcpp: "Value",
+                                    header: "gce_MakeScale.hxx".}
+proc operator*(this: GceMakeScale): Trsf {.noSideEffect, importcpp: "Operator",
+                                       header: "gce_MakeScale.hxx".}
+converter `trsf`*(this: GceMakeScale): Trsf {.noSideEffect,
     importcpp: "gce_MakeScale::operator gp_Trsf", header: "gce_MakeScale.hxx".}

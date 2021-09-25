@@ -17,12 +17,13 @@
 ## ! Describes type of view background.
 
 type
-  Graphic3d_TypeOfBackground* {.size: sizeof(cint),
-                               importcpp: "Graphic3d_TypeOfBackground",
-                               header: "Graphic3d_TypeOfBackground.hxx".} = enum
-    Graphic3d_TOB_NONE = -1, Graphic3d_TOB_GRADIENT, Graphic3d_TOB_TEXTURE,
-    Graphic3d_TOB_CUBEMAP
+  Graphic3dTypeOfBackground* {.size: sizeof(cint),
+                              importcpp: "Graphic3d_TypeOfBackground",
+                              header: "Graphic3d_TypeOfBackground.hxx".} = enum
+    Graphic3dTOB_NONE = -1, Graphic3dTOB_GRADIENT, Graphic3dTOB_TEXTURE,
+    Graphic3dTOB_CUBEMAP
 
 
 const
-  Graphic3d_TypeOfBackground_NB* = Graphic3d_TOB_CUBEMAP + 1
+  Graphic3dTypeOfBackgroundNB* = graphic3dTOB_CUBEMAP + 1
+

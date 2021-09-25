@@ -14,15 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TopoDS_TShape,
-  ../TopAbs/TopAbs_ShapeEnum
-
 discard "forward decl of TopoDS_TShape"
 discard "forward decl of TopoDS_TWire"
 discard "forward decl of TopoDS_TWire"
 type
-  Handle_TopoDS_TWire* = handle[TopoDS_TWire]
+  HandleTopoDS_TWire* = Handle[TopoDS_TWire]
 
 ## ! A set of edges connected by their vertices.
 
@@ -37,16 +33,16 @@ type
 
 proc constructTopoDS_TWire*(): TopoDS_TWire {.constructor,
     importcpp: "TopoDS_TWire(@)", header: "TopoDS_TWire.hxx".}
-proc ShapeType*(this: TopoDS_TWire): TopAbs_ShapeEnum {.noSideEffect,
+proc shapeType*(this: TopoDS_TWire): TopAbsShapeEnum {.noSideEffect,
     importcpp: "ShapeType", header: "TopoDS_TWire.hxx".}
-proc EmptyCopy*(this: TopoDS_TWire): handle[TopoDS_TShape] {.noSideEffect,
+proc emptyCopy*(this: TopoDS_TWire): Handle[TopoDS_TShape] {.noSideEffect,
     importcpp: "EmptyCopy", header: "TopoDS_TWire.hxx".}
 type
-  TopoDS_TWirebase_type* = TopoDS_TShape
+  TopoDS_TWirebaseType* = TopoDS_TShape
 
-proc get_type_name*(): cstring {.importcpp: "TopoDS_TWire::get_type_name(@)",
-                              header: "TopoDS_TWire.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TopoDS_TWire::get_type_name(@)",
+                            header: "TopoDS_TWire.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopoDS_TWire::get_type_descriptor(@)", header: "TopoDS_TWire.hxx".}
-proc DynamicType*(this: TopoDS_TWire): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TopoDS_TWire): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopoDS_TWire.hxx".}

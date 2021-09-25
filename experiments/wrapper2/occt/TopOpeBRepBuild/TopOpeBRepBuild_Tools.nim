@@ -14,18 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../TopOpeBRepDS/TopOpeBRepDS_IndexedDataMapOfShapeWithState,
-  ../TopAbs/TopAbs_State, ../TopAbs/TopAbs_ShapeEnum,
-  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape,
-  ../TopTools/TopTools_MapOfShape,
-  ../TopOpeBRepDS/TopOpeBRepDS_DataMapOfShapeState,
-  ../TopTools/TopTools_IndexedMapOfShape, ../Standard/Standard_Boolean,
-  ../TopTools/TopTools_IndexedMapOfOrientedShape,
-  ../TopTools/TopTools_IndexedDataMapOfShapeShape, ../Standard/Standard_Real
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRepTool_ShapeClassifier"
 discard "forward decl of TopoDS_Face"
@@ -33,101 +21,101 @@ discard "forward decl of TopoDS_Edge"
 discard "forward decl of gp_Vec"
 discard "forward decl of TopoDS_Wire"
 type
-  TopOpeBRepBuild_Tools* {.importcpp: "TopOpeBRepBuild_Tools",
-                          header: "TopOpeBRepBuild_Tools.hxx", bycopy.} = object
+  TopOpeBRepBuildTools* {.importcpp: "TopOpeBRepBuild_Tools",
+                         header: "TopOpeBRepBuild_Tools.hxx", bycopy.} = object
 
 
-proc FindState*(aVertex: TopoDS_Shape; aState: TopAbs_State;
-               aShapeEnum: TopAbs_ShapeEnum;
-               aMapVertexEdges: TopTools_IndexedDataMapOfShapeListOfShape;
-               aMapProcessedVertices: var TopTools_MapOfShape;
+proc findState*(aVertex: TopoDS_Shape; aState: TopAbsState;
+               aShapeEnum: TopAbsShapeEnum;
+               aMapVertexEdges: TopToolsIndexedDataMapOfShapeListOfShape;
+               aMapProcessedVertices: var TopToolsMapOfShape;
                aMapVs: var TopOpeBRepDS_DataMapOfShapeState) {.
     importcpp: "TopOpeBRepBuild_Tools::FindState(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc PropagateState*(aSplEdgesState: TopOpeBRepDS_DataMapOfShapeState;
-                    anEdgesToRestMap: TopTools_IndexedMapOfShape;
-                    aShapeEnum1: TopAbs_ShapeEnum; aShapeEnum2: TopAbs_ShapeEnum;
-                    aShapeClassifier: var TopOpeBRepTool_ShapeClassifier;
+proc propagateState*(aSplEdgesState: TopOpeBRepDS_DataMapOfShapeState;
+                    anEdgesToRestMap: TopToolsIndexedMapOfShape;
+                    aShapeEnum1: TopAbsShapeEnum; aShapeEnum2: TopAbsShapeEnum;
+                    aShapeClassifier: var TopOpeBRepToolShapeClassifier;
     aMapOfShapeWithState: var TopOpeBRepDS_IndexedDataMapOfShapeWithState;
-                    anUnkStateShapes: TopTools_MapOfShape) {.
+                    anUnkStateShapes: TopToolsMapOfShape) {.
     importcpp: "TopOpeBRepBuild_Tools::PropagateState(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc FindStateThroughVertex*(aShape: TopoDS_Shape; aShapeClassifier: var TopOpeBRepTool_ShapeClassifier;
+proc findStateThroughVertex*(aShape: TopoDS_Shape; aShapeClassifier: var TopOpeBRepToolShapeClassifier;
     aMapOfShapeWithState: var TopOpeBRepDS_IndexedDataMapOfShapeWithState;
-                            anAvoidSubshMap: TopTools_MapOfShape): TopAbs_State {.
+                            anAvoidSubshMap: TopToolsMapOfShape): TopAbsState {.
     importcpp: "TopOpeBRepBuild_Tools::FindStateThroughVertex(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc PropagateStateForWires*(aFacesToRestMap: TopTools_IndexedMapOfShape;
+proc propagateStateForWires*(aFacesToRestMap: TopToolsIndexedMapOfShape;
     aMapOfShapeWithState: var TopOpeBRepDS_IndexedDataMapOfShapeWithState) {.
     importcpp: "TopOpeBRepBuild_Tools::PropagateStateForWires(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc SpreadStateToChild*(aShape: TopoDS_Shape; aState: TopAbs_State;
+proc spreadStateToChild*(aShape: TopoDS_Shape; aState: TopAbsState;
     aMapOfShapeWithState: var TopOpeBRepDS_IndexedDataMapOfShapeWithState) {.
     importcpp: "TopOpeBRepBuild_Tools::SpreadStateToChild(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc FindState1*(anEdge: TopoDS_Shape; aState: TopAbs_State;
-                aMapEdgesFaces: TopTools_IndexedDataMapOfShapeListOfShape;
-                aMapProcessedVertices: var TopTools_MapOfShape;
+proc findState1*(anEdge: TopoDS_Shape; aState: TopAbsState;
+                aMapEdgesFaces: TopToolsIndexedDataMapOfShapeListOfShape;
+                aMapProcessedVertices: var TopToolsMapOfShape;
                 aMapVs: var TopOpeBRepDS_DataMapOfShapeState) {.
     importcpp: "TopOpeBRepBuild_Tools::FindState1(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc FindState2*(anEdge: TopoDS_Shape; aState: TopAbs_State;
-                aMapEdgesFaces: TopTools_IndexedDataMapOfShapeListOfShape;
-                aMapProcessedEdges: var TopTools_MapOfShape;
+proc findState2*(anEdge: TopoDS_Shape; aState: TopAbsState;
+                aMapEdgesFaces: TopToolsIndexedDataMapOfShapeListOfShape;
+                aMapProcessedEdges: var TopToolsMapOfShape;
                 aMapVs: var TopOpeBRepDS_DataMapOfShapeState) {.
     importcpp: "TopOpeBRepBuild_Tools::FindState2(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc GetAdjacentFace*(aFaceObj: TopoDS_Shape; anEObj: TopoDS_Shape;
-                     anEdgeFaceMap: TopTools_IndexedDataMapOfShapeListOfShape;
-                     anAdjFaceObj: var TopoDS_Shape): Standard_Boolean {.
+proc getAdjacentFace*(aFaceObj: TopoDS_Shape; anEObj: TopoDS_Shape;
+                     anEdgeFaceMap: TopToolsIndexedDataMapOfShapeListOfShape;
+                     anAdjFaceObj: var TopoDS_Shape): bool {.
     importcpp: "TopOpeBRepBuild_Tools::GetAdjacentFace(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc GetNormalToFaceOnEdge*(aFObj: TopoDS_Face; anEdgeObj: TopoDS_Edge;
-                           aDirNormal: var gp_Vec) {.
+proc getNormalToFaceOnEdge*(aFObj: TopoDS_Face; anEdgeObj: TopoDS_Edge;
+                           aDirNormal: var Vec) {.
     importcpp: "TopOpeBRepBuild_Tools::GetNormalToFaceOnEdge(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc GetNormalInNearestPoint*(aFace: TopoDS_Face; anEdge: TopoDS_Edge;
-                             aNormal: var gp_Vec) {.
+proc getNormalInNearestPoint*(aFace: TopoDS_Face; anEdge: TopoDS_Edge;
+                             aNormal: var Vec) {.
     importcpp: "TopOpeBRepBuild_Tools::GetNormalInNearestPoint(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc GetTangentToEdgeEdge*(aFObj: TopoDS_Face; anEdgeObj: TopoDS_Edge;
-                          aOriEObj: TopoDS_Edge; aTangent: var gp_Vec): Standard_Boolean {.
+proc getTangentToEdgeEdge*(aFObj: TopoDS_Face; anEdgeObj: TopoDS_Edge;
+                          aOriEObj: TopoDS_Edge; aTangent: var Vec): bool {.
     importcpp: "TopOpeBRepBuild_Tools::GetTangentToEdgeEdge(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc GetTangentToEdge*(anEdgeObj: TopoDS_Edge; aTangent: var gp_Vec): Standard_Boolean {.
+proc getTangentToEdge*(anEdgeObj: TopoDS_Edge; aTangent: var Vec): bool {.
     importcpp: "TopOpeBRepBuild_Tools::GetTangentToEdge(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc UpdatePCurves*(aWire: TopoDS_Wire; fromFace: TopoDS_Face; toFace: TopoDS_Face) {.
+proc updatePCurves*(aWire: TopoDS_Wire; fromFace: TopoDS_Face; toFace: TopoDS_Face) {.
     importcpp: "TopOpeBRepBuild_Tools::UpdatePCurves(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc UpdateEdgeOnPeriodicalFace*(aEdgeToUpdate: TopoDS_Edge; OldFace: TopoDS_Face;
-                                NewFace: TopoDS_Face) {.
+proc updateEdgeOnPeriodicalFace*(aEdgeToUpdate: TopoDS_Edge; oldFace: TopoDS_Face;
+                                newFace: TopoDS_Face) {.
     importcpp: "TopOpeBRepBuild_Tools::UpdateEdgeOnPeriodicalFace(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc UpdateEdgeOnFace*(aEdgeToUpdate: TopoDS_Edge; OldFace: TopoDS_Face;
-                      NewFace: TopoDS_Face) {.
+proc updateEdgeOnFace*(aEdgeToUpdate: TopoDS_Edge; oldFace: TopoDS_Face;
+                      newFace: TopoDS_Face) {.
     importcpp: "TopOpeBRepBuild_Tools::UpdateEdgeOnFace(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc IsDegEdgesTheSame*(anE1: TopoDS_Shape; anE2: TopoDS_Shape): Standard_Boolean {.
+proc isDegEdgesTheSame*(anE1: TopoDS_Shape; anE2: TopoDS_Shape): bool {.
     importcpp: "TopOpeBRepBuild_Tools::IsDegEdgesTheSame(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc NormalizeFace*(oldFace: TopoDS_Shape; corrFace: var TopoDS_Shape) {.
+proc normalizeFace*(oldFace: TopoDS_Shape; corrFace: var TopoDS_Shape) {.
     importcpp: "TopOpeBRepBuild_Tools::NormalizeFace(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc CorrectFace2d*(oldFace: TopoDS_Shape; corrFace: var TopoDS_Shape;
-                   aSourceShapes: TopTools_IndexedMapOfOrientedShape;
-    aMapOfCorrect2dEdges: var TopTools_IndexedDataMapOfShapeShape) {.
+proc correctFace2d*(oldFace: TopoDS_Shape; corrFace: var TopoDS_Shape;
+                   aSourceShapes: TopToolsIndexedMapOfOrientedShape;
+                   aMapOfCorrect2dEdges: var TopToolsIndexedDataMapOfShapeShape) {.
     importcpp: "TopOpeBRepBuild_Tools::CorrectFace2d(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc CorrectTolerances*(`aS`: TopoDS_Shape; aTolMax: Standard_Real = 0.0001) {.
+proc correctTolerances*(`aS`: TopoDS_Shape; aTolMax: float = 0.0001) {.
     importcpp: "TopOpeBRepBuild_Tools::CorrectTolerances(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc CorrectCurveOnSurface*(`aS`: TopoDS_Shape; aTolMax: Standard_Real = 0.0001) {.
+proc correctCurveOnSurface*(`aS`: TopoDS_Shape; aTolMax: float = 0.0001) {.
     importcpp: "TopOpeBRepBuild_Tools::CorrectCurveOnSurface(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc CorrectPointOnCurve*(`aS`: TopoDS_Shape; aTolMax: Standard_Real = 0.0001) {.
+proc correctPointOnCurve*(`aS`: TopoDS_Shape; aTolMax: float = 0.0001) {.
     importcpp: "TopOpeBRepBuild_Tools::CorrectPointOnCurve(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc CheckFaceClosed2d*(theFace: TopoDS_Face): Standard_Boolean {.
+proc checkFaceClosed2d*(theFace: TopoDS_Face): bool {.
     importcpp: "TopOpeBRepBuild_Tools::CheckFaceClosed2d(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}

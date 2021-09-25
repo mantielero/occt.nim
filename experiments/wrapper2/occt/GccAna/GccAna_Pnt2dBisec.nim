@@ -14,23 +14,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean, ../gp/gp_Lin2d
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Lin2d"
 type
-  GccAna_Pnt2dBisec* {.importcpp: "GccAna_Pnt2dBisec",
-                      header: "GccAna_Pnt2dBisec.hxx", bycopy.} = object ## ! Constructs a bisecting line between the points Point1 and Point2.
+  GccAnaPnt2dBisec* {.importcpp: "GccAna_Pnt2dBisec",
+                     header: "GccAna_Pnt2dBisec.hxx", bycopy.} = object ## ! Constructs a bisecting line between the points Point1 and Point2.
 
 
-proc constructGccAna_Pnt2dBisec*(Point1: gp_Pnt2d; Point2: gp_Pnt2d): GccAna_Pnt2dBisec {.
+proc constructGccAnaPnt2dBisec*(point1: Pnt2d; point2: Pnt2d): GccAnaPnt2dBisec {.
     constructor, importcpp: "GccAna_Pnt2dBisec(@)", header: "GccAna_Pnt2dBisec.hxx".}
-proc IsDone*(this: GccAna_Pnt2dBisec): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "GccAna_Pnt2dBisec.hxx".}
-proc HasSolution*(this: GccAna_Pnt2dBisec): Standard_Boolean {.noSideEffect,
+proc isDone*(this: GccAnaPnt2dBisec): bool {.noSideEffect, importcpp: "IsDone",
+    header: "GccAna_Pnt2dBisec.hxx".}
+proc hasSolution*(this: GccAnaPnt2dBisec): bool {.noSideEffect,
     importcpp: "HasSolution", header: "GccAna_Pnt2dBisec.hxx".}
-proc ThisSolution*(this: GccAna_Pnt2dBisec): gp_Lin2d {.noSideEffect,
+proc thisSolution*(this: GccAnaPnt2dBisec): Lin2d {.noSideEffect,
     importcpp: "ThisSolution", header: "GccAna_Pnt2dBisec.hxx".}

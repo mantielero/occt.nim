@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GC_Root, ../Geom/Geom_RectangularTrimmedSurface
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Circ"
@@ -65,18 +61,17 @@ type
                                                                                        ## P2.
 
 
-proc constructGC_MakeTrimmedCylinder*(P1: gp_Pnt; P2: gp_Pnt; P3: gp_Pnt): GC_MakeTrimmedCylinder {.
+proc constructGC_MakeTrimmedCylinder*(p1: Pnt; p2: Pnt; p3: Pnt): GC_MakeTrimmedCylinder {.
     constructor, importcpp: "GC_MakeTrimmedCylinder(@)",
     header: "GC_MakeTrimmedCylinder.hxx".}
-proc constructGC_MakeTrimmedCylinder*(Circ: gp_Circ; Height: Standard_Real): GC_MakeTrimmedCylinder {.
+proc constructGC_MakeTrimmedCylinder*(circ: Circ; height: float): GC_MakeTrimmedCylinder {.
     constructor, importcpp: "GC_MakeTrimmedCylinder(@)",
     header: "GC_MakeTrimmedCylinder.hxx".}
-proc constructGC_MakeTrimmedCylinder*(A1: gp_Ax1; Radius: Standard_Real;
-                                     Height: Standard_Real): GC_MakeTrimmedCylinder {.
+proc constructGC_MakeTrimmedCylinder*(a1: Ax1; radius: float; height: float): GC_MakeTrimmedCylinder {.
     constructor, importcpp: "GC_MakeTrimmedCylinder(@)",
     header: "GC_MakeTrimmedCylinder.hxx".}
-proc Value*(this: GC_MakeTrimmedCylinder): handle[Geom_RectangularTrimmedSurface] {.
+proc value*(this: GC_MakeTrimmedCylinder): Handle[GeomRectangularTrimmedSurface] {.
     noSideEffect, importcpp: "Value", header: "GC_MakeTrimmedCylinder.hxx".}
-converter `constopencascade`*(this: GC_MakeTrimmedCylinder): handle[
-    Geom_RectangularTrimmedSurface] {.noSideEffect, importcpp: "GC_MakeTrimmedCylinder::operator constopencascade",
-                                     header: "GC_MakeTrimmedCylinder.hxx".}
+converter `constopencascade`*(this: GC_MakeTrimmedCylinder): Handle[
+    GeomRectangularTrimmedSurface] {.noSideEffect, importcpp: "GC_MakeTrimmedCylinder::operator constopencascade",
+                                    header: "GC_MakeTrimmedCylinder.hxx".}

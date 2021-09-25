@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../Interface/Interface_CopyControl, ../Standard/Standard_Boolean
-
 discard "forward decl of Transfer_TransientProcess"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_InterfaceError"
@@ -25,7 +21,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_DispatchControl"
 discard "forward decl of Transfer_DispatchControl"
 type
-  Handle_Transfer_DispatchControl* = handle[Transfer_DispatchControl]
+  HandleTransferDispatchControl* = Handle[TransferDispatchControl]
 
 ## ! This is an auxiliary class for TransferDispatch, which allows
 ## ! to record simple copies, as CopyControl from Interface, but
@@ -33,42 +29,42 @@ type
 ## ! more actions (such as recording results of adaptations)
 
 type
-  Transfer_DispatchControl* {.importcpp: "Transfer_DispatchControl",
-                             header: "Transfer_DispatchControl.hxx", bycopy.} = object of Interface_CopyControl ##
-                                                                                                         ## !
-                                                                                                         ## Creates
-                                                                                                         ## the
-                                                                                                         ## DispatchControl,
-                                                                                                         ## ready
-                                                                                                         ## for
-                                                                                                         ## use
+  TransferDispatchControl* {.importcpp: "Transfer_DispatchControl",
+                            header: "Transfer_DispatchControl.hxx", bycopy.} = object of InterfaceCopyControl ##
+                                                                                                       ## !
+                                                                                                       ## Creates
+                                                                                                       ## the
+                                                                                                       ## DispatchControl,
+                                                                                                       ## ready
+                                                                                                       ## for
+                                                                                                       ## use
 
 
-proc constructTransfer_DispatchControl*(model: handle[Interface_InterfaceModel];
-                                       TP: handle[Transfer_TransientProcess]): Transfer_DispatchControl {.
+proc constructTransferDispatchControl*(model: Handle[InterfaceInterfaceModel];
+                                      tp: Handle[TransferTransientProcess]): TransferDispatchControl {.
     constructor, importcpp: "Transfer_DispatchControl(@)",
     header: "Transfer_DispatchControl.hxx".}
-proc TransientProcess*(this: Transfer_DispatchControl): handle[
-    Transfer_TransientProcess] {.noSideEffect, importcpp: "TransientProcess",
-                                header: "Transfer_DispatchControl.hxx".}
-proc StartingModel*(this: Transfer_DispatchControl): handle[
-    Interface_InterfaceModel] {.noSideEffect, importcpp: "StartingModel",
+proc transientProcess*(this: TransferDispatchControl): Handle[
+    TransferTransientProcess] {.noSideEffect, importcpp: "TransientProcess",
                                header: "Transfer_DispatchControl.hxx".}
-proc Clear*(this: var Transfer_DispatchControl) {.importcpp: "Clear",
+proc startingModel*(this: TransferDispatchControl): Handle[InterfaceInterfaceModel] {.
+    noSideEffect, importcpp: "StartingModel",
     header: "Transfer_DispatchControl.hxx".}
-proc Bind*(this: var Transfer_DispatchControl; ent: handle[Standard_Transient];
-          res: handle[Standard_Transient]) {.importcpp: "Bind",
+proc clear*(this: var TransferDispatchControl) {.importcpp: "Clear",
     header: "Transfer_DispatchControl.hxx".}
-proc Search*(this: Transfer_DispatchControl; ent: handle[Standard_Transient];
-            res: var handle[Standard_Transient]): Standard_Boolean {.noSideEffect,
+proc `bind`*(this: var TransferDispatchControl; ent: Handle[StandardTransient];
+            res: Handle[StandardTransient]) {.importcpp: "Bind",
+    header: "Transfer_DispatchControl.hxx".}
+proc search*(this: TransferDispatchControl; ent: Handle[StandardTransient];
+            res: var Handle[StandardTransient]): bool {.noSideEffect,
     importcpp: "Search", header: "Transfer_DispatchControl.hxx".}
 type
-  Transfer_DispatchControlbase_type* = Interface_CopyControl
+  TransferDispatchControlbaseType* = InterfaceCopyControl
 
-proc get_type_name*(): cstring {.importcpp: "Transfer_DispatchControl::get_type_name(@)",
-                              header: "Transfer_DispatchControl.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Transfer_DispatchControl::get_type_name(@)",
+                            header: "Transfer_DispatchControl.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_DispatchControl::get_type_descriptor(@)",
     header: "Transfer_DispatchControl.hxx".}
-proc DynamicType*(this: Transfer_DispatchControl): handle[Standard_Type] {.
+proc dynamicType*(this: TransferDispatchControl): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Transfer_DispatchControl.hxx".}

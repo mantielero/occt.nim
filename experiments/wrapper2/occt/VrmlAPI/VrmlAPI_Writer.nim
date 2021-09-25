@@ -13,13 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, VrmlAPI_RepresentationOfShape,
-  ../Standard/Standard_Real, ../Quantity/Quantity_HArray1OfColor,
-  ../Standard/Standard_CString, ../Standard/Standard_Integer,
-  ../TDocStd/TDocStd_Document
-
 discard "forward decl of VrmlConverter_Drawer"
 discard "forward decl of VrmlConverter_Projector"
 discard "forward decl of Vrml_Material"
@@ -64,61 +57,60 @@ type
 
 proc constructVrmlAPI_Writer*(): VrmlAPI_Writer {.constructor,
     importcpp: "VrmlAPI_Writer(@)", header: "VrmlAPI_Writer.hxx".}
-proc ResetToDefaults*(this: var VrmlAPI_Writer) {.importcpp: "ResetToDefaults",
+proc resetToDefaults*(this: var VrmlAPI_Writer) {.importcpp: "ResetToDefaults",
     header: "VrmlAPI_Writer.hxx".}
-proc Drawer*(this: VrmlAPI_Writer): handle[VrmlConverter_Drawer] {.noSideEffect,
+proc drawer*(this: VrmlAPI_Writer): Handle[VrmlConverterDrawer] {.noSideEffect,
     importcpp: "Drawer", header: "VrmlAPI_Writer.hxx".}
-proc SetDeflection*(this: var VrmlAPI_Writer; aDef: Standard_Real) {.
+proc setDeflection*(this: var VrmlAPI_Writer; aDef: float) {.
     importcpp: "SetDeflection", header: "VrmlAPI_Writer.hxx".}
-proc SetRepresentation*(this: var VrmlAPI_Writer;
+proc setRepresentation*(this: var VrmlAPI_Writer;
                        aRep: VrmlAPI_RepresentationOfShape) {.
     importcpp: "SetRepresentation", header: "VrmlAPI_Writer.hxx".}
-proc SetTransparencyToMaterial*(this: var VrmlAPI_Writer;
-                               aMaterial: var handle[Vrml_Material];
-                               aTransparency: Standard_Real) {.
+proc setTransparencyToMaterial*(this: var VrmlAPI_Writer;
+                               aMaterial: var Handle[VrmlMaterial];
+                               aTransparency: float) {.
     importcpp: "SetTransparencyToMaterial", header: "VrmlAPI_Writer.hxx".}
-proc SetShininessToMaterial*(this: var VrmlAPI_Writer;
-                            aMaterial: var handle[Vrml_Material];
-                            aShininess: Standard_Real) {.
+proc setShininessToMaterial*(this: var VrmlAPI_Writer;
+                            aMaterial: var Handle[VrmlMaterial]; aShininess: float) {.
     importcpp: "SetShininessToMaterial", header: "VrmlAPI_Writer.hxx".}
-proc SetAmbientColorToMaterial*(this: var VrmlAPI_Writer;
-                               aMaterial: var handle[Vrml_Material];
-                               Color: handle[Quantity_HArray1OfColor]) {.
+proc setAmbientColorToMaterial*(this: var VrmlAPI_Writer;
+                               aMaterial: var Handle[VrmlMaterial];
+                               color: Handle[QuantityHArray1OfColor]) {.
     importcpp: "SetAmbientColorToMaterial", header: "VrmlAPI_Writer.hxx".}
-proc SetDiffuseColorToMaterial*(this: var VrmlAPI_Writer;
-                               aMaterial: var handle[Vrml_Material];
-                               Color: handle[Quantity_HArray1OfColor]) {.
+proc setDiffuseColorToMaterial*(this: var VrmlAPI_Writer;
+                               aMaterial: var Handle[VrmlMaterial];
+                               color: Handle[QuantityHArray1OfColor]) {.
     importcpp: "SetDiffuseColorToMaterial", header: "VrmlAPI_Writer.hxx".}
-proc SetSpecularColorToMaterial*(this: var VrmlAPI_Writer;
-                                aMaterial: var handle[Vrml_Material];
-                                Color: handle[Quantity_HArray1OfColor]) {.
+proc setSpecularColorToMaterial*(this: var VrmlAPI_Writer;
+                                aMaterial: var Handle[VrmlMaterial];
+                                color: Handle[QuantityHArray1OfColor]) {.
     importcpp: "SetSpecularColorToMaterial", header: "VrmlAPI_Writer.hxx".}
-proc SetEmissiveColorToMaterial*(this: var VrmlAPI_Writer;
-                                aMaterial: var handle[Vrml_Material];
-                                Color: handle[Quantity_HArray1OfColor]) {.
+proc setEmissiveColorToMaterial*(this: var VrmlAPI_Writer;
+                                aMaterial: var Handle[VrmlMaterial];
+                                color: Handle[QuantityHArray1OfColor]) {.
     importcpp: "SetEmissiveColorToMaterial", header: "VrmlAPI_Writer.hxx".}
-proc GetRepresentation*(this: VrmlAPI_Writer): VrmlAPI_RepresentationOfShape {.
+proc getRepresentation*(this: VrmlAPI_Writer): VrmlAPI_RepresentationOfShape {.
     noSideEffect, importcpp: "GetRepresentation", header: "VrmlAPI_Writer.hxx".}
-proc GetFrontMaterial*(this: VrmlAPI_Writer): handle[Vrml_Material] {.noSideEffect,
+proc getFrontMaterial*(this: VrmlAPI_Writer): Handle[VrmlMaterial] {.noSideEffect,
     importcpp: "GetFrontMaterial", header: "VrmlAPI_Writer.hxx".}
-proc GetPointsMaterial*(this: VrmlAPI_Writer): handle[Vrml_Material] {.noSideEffect,
+proc getPointsMaterial*(this: VrmlAPI_Writer): Handle[VrmlMaterial] {.noSideEffect,
     importcpp: "GetPointsMaterial", header: "VrmlAPI_Writer.hxx".}
-proc GetUisoMaterial*(this: VrmlAPI_Writer): handle[Vrml_Material] {.noSideEffect,
+proc getUisoMaterial*(this: VrmlAPI_Writer): Handle[VrmlMaterial] {.noSideEffect,
     importcpp: "GetUisoMaterial", header: "VrmlAPI_Writer.hxx".}
-proc GetVisoMaterial*(this: VrmlAPI_Writer): handle[Vrml_Material] {.noSideEffect,
+proc getVisoMaterial*(this: VrmlAPI_Writer): Handle[VrmlMaterial] {.noSideEffect,
     importcpp: "GetVisoMaterial", header: "VrmlAPI_Writer.hxx".}
-proc GetLineMaterial*(this: VrmlAPI_Writer): handle[Vrml_Material] {.noSideEffect,
+proc getLineMaterial*(this: VrmlAPI_Writer): Handle[VrmlMaterial] {.noSideEffect,
     importcpp: "GetLineMaterial", header: "VrmlAPI_Writer.hxx".}
-proc GetWireMaterial*(this: VrmlAPI_Writer): handle[Vrml_Material] {.noSideEffect,
+proc getWireMaterial*(this: VrmlAPI_Writer): Handle[VrmlMaterial] {.noSideEffect,
     importcpp: "GetWireMaterial", header: "VrmlAPI_Writer.hxx".}
-proc GetFreeBoundsMaterial*(this: VrmlAPI_Writer): handle[Vrml_Material] {.
+proc getFreeBoundsMaterial*(this: VrmlAPI_Writer): Handle[VrmlMaterial] {.
     noSideEffect, importcpp: "GetFreeBoundsMaterial", header: "VrmlAPI_Writer.hxx".}
-proc GetUnfreeBoundsMaterial*(this: VrmlAPI_Writer): handle[Vrml_Material] {.
+proc getUnfreeBoundsMaterial*(this: VrmlAPI_Writer): Handle[VrmlMaterial] {.
     noSideEffect, importcpp: "GetUnfreeBoundsMaterial",
     header: "VrmlAPI_Writer.hxx".}
-proc Write*(this: VrmlAPI_Writer; aShape: TopoDS_Shape; aFile: Standard_CString;
-           aVersion: Standard_Integer = 2): Standard_Boolean {.noSideEffect,
-    importcpp: "Write", header: "VrmlAPI_Writer.hxx".}
-proc WriteDoc*(this: VrmlAPI_Writer; theDoc: handle[TDocStd_Document];
-              theFile: Standard_CString; theScale: Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "WriteDoc", header: "VrmlAPI_Writer.hxx".}
+proc write*(this: VrmlAPI_Writer; aShape: TopoDS_Shape; aFile: StandardCString;
+           aVersion: int = 2): bool {.noSideEffect, importcpp: "Write",
+                                 header: "VrmlAPI_Writer.hxx".}
+proc writeDoc*(this: VrmlAPI_Writer; theDoc: Handle[TDocStdDocument];
+              theFile: StandardCString; theScale: float): bool {.noSideEffect,
+    importcpp: "WriteDoc", header: "VrmlAPI_Writer.hxx".}

@@ -25,3 +25,4 @@
 
 ## !!!Ignored construct:  result = ( * ( opencascade :: handle < atype > [end of template] * ) ) & start [NewLine] # [NewLine]
 ## Error: identifier expected, but got: *!!!
+

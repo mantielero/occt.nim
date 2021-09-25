@@ -11,32 +11,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../RWMesh/RWMesh_CafReader, RWObj_TriangulationReader
-
 ## ! The OBJ mesh reader into XDE document.
 
 type
-  RWObj_CafReader* {.importcpp: "RWObj_CafReader", header: "RWObj_CafReader.hxx",
-                    bycopy.} = object of RWMesh_CafReader ## ! Empty constructor.
-                                                     ## ! Read the mesh from specified file.
-                                                     ## ! Create reader context.
-                                                     ## ! Can be overridden by sub-class to read triangulation into application-specific data structures instead of Poly_Triangulation.
+  RWObjCafReader* {.importcpp: "RWObj_CafReader", header: "RWObj_CafReader.hxx",
+                   bycopy.} = object of RWMeshCafReader ## ! Empty constructor.
+                                                   ## ! Read the mesh from specified file.
+                                                   ## ! Create reader context.
+                                                   ## ! Can be overridden by sub-class to read triangulation into application-specific data structures instead of Poly_Triangulation.
     ## !< flag for reading vertex data with single or double floating point precision
 
-  RWObj_CafReaderbase_type* = RWMesh_CafReader
+  RWObjCafReaderbaseType* = RWMeshCafReader
 
-proc get_type_name*(): cstring {.importcpp: "RWObj_CafReader::get_type_name(@)",
-                              header: "RWObj_CafReader.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "RWObj_CafReader::get_type_name(@)",
+                            header: "RWObj_CafReader.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "RWObj_CafReader::get_type_descriptor(@)",
     header: "RWObj_CafReader.hxx".}
-proc DynamicType*(this: RWObj_CafReader): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: RWObjCafReader): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "RWObj_CafReader.hxx".}
-proc constructRWObj_CafReader*(): RWObj_CafReader {.constructor,
+proc constructRWObjCafReader*(): RWObjCafReader {.constructor,
     importcpp: "RWObj_CafReader(@)", header: "RWObj_CafReader.hxx".}
-proc IsSinglePrecision*(this: RWObj_CafReader): Standard_Boolean {.noSideEffect,
+proc isSinglePrecision*(this: RWObjCafReader): bool {.noSideEffect,
     importcpp: "IsSinglePrecision", header: "RWObj_CafReader.hxx".}
-proc SetSinglePrecision*(this: var RWObj_CafReader;
-                        theIsSinglePrecision: Standard_Boolean) {.
+proc setSinglePrecision*(this: var RWObjCafReader; theIsSinglePrecision: bool) {.
     importcpp: "SetSinglePrecision", header: "RWObj_CafReader.hxx".}

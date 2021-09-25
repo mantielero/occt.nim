@@ -22,7 +22,8 @@
 ## ! failures and warnings. used to pilot PrintCheckList
 
 type
-  IFSelect_PrintFail* {.size: sizeof(cint), importcpp: "IFSelect_PrintFail",
-                       header: "IFSelect_PrintFail.hxx".} = enum
-    IFSelect_FailOnly, IFSelect_FailAndWarn
+  IFSelectPrintFail* {.size: sizeof(cint), importcpp: "IFSelect_PrintFail",
+                      header: "IFSelect_PrintFail.hxx".} = enum
+    IFSelectFailOnly, IFSelectFailAndWarn
+
 

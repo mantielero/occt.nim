@@ -14,39 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRepTool_PSoClassif,
-  ../TopTools/TopTools_IndexedDataMapOfShapeAddress, ../TopAbs/TopAbs_State,
-  ../TopoDS/TopoDS_Shell, ../TopoDS/TopoDS_Solid, ../BRep/BRep_Builder,
-  ../Standard/Standard_Real
-
 discard "forward decl of TopoDS_Solid"
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Shell"
 type
-  TopOpeBRepTool_SolidClassifier* {.importcpp: "TopOpeBRepTool_SolidClassifier", header: "TopOpeBRepTool_SolidClassifier.hxx",
-                                   bycopy.} = object
+  TopOpeBRepToolSolidClassifier* {.importcpp: "TopOpeBRepTool_SolidClassifier",
+                                  header: "TopOpeBRepTool_SolidClassifier.hxx",
+                                  bycopy.} = object
 
 
-proc constructTopOpeBRepTool_SolidClassifier*(): TopOpeBRepTool_SolidClassifier {.
+proc constructTopOpeBRepToolSolidClassifier*(): TopOpeBRepToolSolidClassifier {.
     constructor, importcpp: "TopOpeBRepTool_SolidClassifier(@)",
     header: "TopOpeBRepTool_SolidClassifier.hxx".}
-proc Clear*(this: var TopOpeBRepTool_SolidClassifier) {.importcpp: "Clear",
+proc clear*(this: var TopOpeBRepToolSolidClassifier) {.importcpp: "Clear",
     header: "TopOpeBRepTool_SolidClassifier.hxx".}
-proc destroyTopOpeBRepTool_SolidClassifier*(
-    this: var TopOpeBRepTool_SolidClassifier) {.
+proc destroyTopOpeBRepToolSolidClassifier*(
+    this: var TopOpeBRepToolSolidClassifier) {.
     importcpp: "#.~TopOpeBRepTool_SolidClassifier()",
     header: "TopOpeBRepTool_SolidClassifier.hxx".}
-proc LoadSolid*(this: var TopOpeBRepTool_SolidClassifier; S: TopoDS_Solid) {.
+proc loadSolid*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Solid) {.
     importcpp: "LoadSolid", header: "TopOpeBRepTool_SolidClassifier.hxx".}
-proc Classify*(this: var TopOpeBRepTool_SolidClassifier; S: TopoDS_Solid; P: gp_Pnt;
-              Tol: Standard_Real): TopAbs_State {.importcpp: "Classify",
-    header: "TopOpeBRepTool_SolidClassifier.hxx".}
-proc LoadShell*(this: var TopOpeBRepTool_SolidClassifier; S: TopoDS_Shell) {.
+proc classify*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Solid; p: Pnt;
+              tol: float): TopAbsState {.importcpp: "Classify", header: "TopOpeBRepTool_SolidClassifier.hxx".}
+proc loadShell*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Shell) {.
     importcpp: "LoadShell", header: "TopOpeBRepTool_SolidClassifier.hxx".}
-proc Classify*(this: var TopOpeBRepTool_SolidClassifier; S: TopoDS_Shell; P: gp_Pnt;
-              Tol: Standard_Real): TopAbs_State {.importcpp: "Classify",
-    header: "TopOpeBRepTool_SolidClassifier.hxx".}
-proc State*(this: TopOpeBRepTool_SolidClassifier): TopAbs_State {.noSideEffect,
+proc classify*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Shell; p: Pnt;
+              tol: float): TopAbsState {.importcpp: "Classify", header: "TopOpeBRepTool_SolidClassifier.hxx".}
+proc state*(this: TopOpeBRepToolSolidClassifier): TopAbsState {.noSideEffect,
     importcpp: "State", header: "TopOpeBRepTool_SolidClassifier.hxx".}

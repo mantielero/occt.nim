@@ -14,43 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_PersonAndOrganization"
 discard "forward decl of StepBasic_PersonAndOrganizationRole"
 discard "forward decl of StepBasic_PersonAndOrganizationAssignment"
 discard "forward decl of StepBasic_PersonAndOrganizationAssignment"
 type
-  Handle_StepBasic_PersonAndOrganizationAssignment* = handle[
-      StepBasic_PersonAndOrganizationAssignment]
-  StepBasic_PersonAndOrganizationAssignment* {.
+  HandleStepBasicPersonAndOrganizationAssignment* = Handle[
+      StepBasicPersonAndOrganizationAssignment]
+  StepBasicPersonAndOrganizationAssignment* {.
       importcpp: "StepBasic_PersonAndOrganizationAssignment",
-      header: "StepBasic_PersonAndOrganizationAssignment.hxx", bycopy.} = object of Standard_Transient
+      header: "StepBasic_PersonAndOrganizationAssignment.hxx", bycopy.} = object of StandardTransient
 
 
-proc Init*(this: var StepBasic_PersonAndOrganizationAssignment;
-    aAssignedPersonAndOrganization: handle[StepBasic_PersonAndOrganization];
-          aRole: handle[StepBasic_PersonAndOrganizationRole]) {.importcpp: "Init",
+proc init*(this: var StepBasicPersonAndOrganizationAssignment;
+    aAssignedPersonAndOrganization: Handle[StepBasicPersonAndOrganization];
+          aRole: Handle[StepBasicPersonAndOrganizationRole]) {.importcpp: "Init",
     header: "StepBasic_PersonAndOrganizationAssignment.hxx".}
-proc SetAssignedPersonAndOrganization*(this: var StepBasic_PersonAndOrganizationAssignment;
-    aAssignedPersonAndOrganization: handle[StepBasic_PersonAndOrganization]) {.
+proc setAssignedPersonAndOrganization*(this: var StepBasicPersonAndOrganizationAssignment;
+    aAssignedPersonAndOrganization: Handle[StepBasicPersonAndOrganization]) {.
     importcpp: "SetAssignedPersonAndOrganization",
     header: "StepBasic_PersonAndOrganizationAssignment.hxx".}
-proc AssignedPersonAndOrganization*(this: StepBasic_PersonAndOrganizationAssignment): handle[
-    StepBasic_PersonAndOrganization] {.noSideEffect, importcpp: "AssignedPersonAndOrganization", header: "StepBasic_PersonAndOrganizationAssignment.hxx".}
-proc SetRole*(this: var StepBasic_PersonAndOrganizationAssignment;
-             aRole: handle[StepBasic_PersonAndOrganizationRole]) {.
+proc assignedPersonAndOrganization*(this: StepBasicPersonAndOrganizationAssignment): Handle[
+    StepBasicPersonAndOrganization] {.noSideEffect, importcpp: "AssignedPersonAndOrganization", header: "StepBasic_PersonAndOrganizationAssignment.hxx".}
+proc setRole*(this: var StepBasicPersonAndOrganizationAssignment;
+             aRole: Handle[StepBasicPersonAndOrganizationRole]) {.
     importcpp: "SetRole", header: "StepBasic_PersonAndOrganizationAssignment.hxx".}
-proc Role*(this: StepBasic_PersonAndOrganizationAssignment): handle[
-    StepBasic_PersonAndOrganizationRole] {.noSideEffect, importcpp: "Role",
+proc role*(this: StepBasicPersonAndOrganizationAssignment): Handle[
+    StepBasicPersonAndOrganizationRole] {.noSideEffect, importcpp: "Role",
     header: "StepBasic_PersonAndOrganizationAssignment.hxx".}
 type
-  StepBasic_PersonAndOrganizationAssignmentbase_type* = Standard_Transient
+  StepBasicPersonAndOrganizationAssignmentbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_PersonAndOrganizationAssignment::get_type_name(@)", header: "StepBasic_PersonAndOrganizationAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepBasic_PersonAndOrganizationAssignment::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepBasic_PersonAndOrganizationAssignment::get_type_name(@)", header: "StepBasic_PersonAndOrganizationAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_PersonAndOrganizationAssignment::get_type_descriptor(@)",
     header: "StepBasic_PersonAndOrganizationAssignment.hxx".}
-proc DynamicType*(this: StepBasic_PersonAndOrganizationAssignment): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepBasic_PersonAndOrganizationAssignment.hxx".}
+proc dynamicType*(this: StepBasicPersonAndOrganizationAssignment): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepBasic_PersonAndOrganizationAssignment.hxx".}

@@ -14,27 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_PresentationSet"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepVisual_RWPresentationSet* {.importcpp: "RWStepVisual_RWPresentationSet", header: "RWStepVisual_RWPresentationSet.hxx",
-                                   bycopy.} = object
+  RWStepVisualRWPresentationSet* {.importcpp: "RWStepVisual_RWPresentationSet",
+                                  header: "RWStepVisual_RWPresentationSet.hxx",
+                                  bycopy.} = object
 
 
-proc constructRWStepVisual_RWPresentationSet*(): RWStepVisual_RWPresentationSet {.
+proc constructRWStepVisualRWPresentationSet*(): RWStepVisualRWPresentationSet {.
     constructor, importcpp: "RWStepVisual_RWPresentationSet(@)",
     header: "RWStepVisual_RWPresentationSet.hxx".}
-proc ReadStep*(this: RWStepVisual_RWPresentationSet;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepVisual_PresentationSet]) {.noSideEffect,
+proc readStep*(this: RWStepVisualRWPresentationSet;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepVisualPresentationSet]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWPresentationSet.hxx".}
-proc WriteStep*(this: RWStepVisual_RWPresentationSet; SW: var StepData_StepWriter;
-               ent: handle[StepVisual_PresentationSet]) {.noSideEffect,
+proc writeStep*(this: RWStepVisualRWPresentationSet; sw: var StepDataStepWriter;
+               ent: Handle[StepVisualPresentationSet]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWPresentationSet.hxx".}

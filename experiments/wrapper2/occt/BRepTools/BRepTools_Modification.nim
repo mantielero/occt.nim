@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
-  ../GeomAbs/GeomAbs_Shape
-
 discard "forward decl of TopoDS_Face"
 discard "forward decl of Geom_Surface"
 discard "forward decl of TopLoc_Location"
@@ -33,186 +28,184 @@ discard "forward decl of Poly_PolygonOnTriangulation"
 discard "forward decl of BRepTools_Modification"
 discard "forward decl of BRepTools_Modification"
 type
-  Handle_BRepTools_Modification* = handle[BRepTools_Modification]
+  HandleBRepToolsModification* = Handle[BRepToolsModification]
 
 ## ! Defines geometric modifications to a shape, i.e.
 ## ! changes to faces, edges and vertices.
 
 type
-  BRepTools_Modification* {.importcpp: "BRepTools_Modification",
-                           header: "BRepTools_Modification.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                  ## !
-                                                                                                  ## Returns
-                                                                                                  ## true
-                                                                                                  ## if
-                                                                                                  ## the
-                                                                                                  ## face,
-                                                                                                  ## F,
-                                                                                                  ## has
-                                                                                                  ## been
-                                                                                                  ## modified.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## If
-                                                                                                  ## the
-                                                                                                  ## face
-                                                                                                  ## has
-                                                                                                  ## been
-                                                                                                  ## modified:
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## -
-                                                                                                  ## S
-                                                                                                  ## is
-                                                                                                  ## the
-                                                                                                  ## new
-                                                                                                  ## geometry
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## face,
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## -
-                                                                                                  ## L
-                                                                                                  ## is
-                                                                                                  ## its
-                                                                                                  ## new
-                                                                                                  ## location,
-                                                                                                  ## and
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## -
-                                                                                                  ## Tol
-                                                                                                  ## is
-                                                                                                  ## the
-                                                                                                  ## new
-                                                                                                  ## tolerance.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## The
-                                                                                                  ## flag,
-                                                                                                  ## RevWires,
-                                                                                                  ## is
-                                                                                                  ## set
-                                                                                                  ## to
-                                                                                                  ## true
-                                                                                                  ## when
-                                                                                                  ## the
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## modification
-                                                                                                  ## reverses
-                                                                                                  ## the
-                                                                                                  ## normal
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## surface,
-                                                                                                  ## (i.e.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## the
-                                                                                                  ## wires
-                                                                                                  ## have
-                                                                                                  ## to
-                                                                                                  ## be
-                                                                                                  ## reversed).
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## The
-                                                                                                  ## flag,
-                                                                                                  ## RevFace,
-                                                                                                  ## is
-                                                                                                  ## set
-                                                                                                  ## to
-                                                                                                  ## true
-                                                                                                  ## if
-                                                                                                  ## the
-                                                                                                  ## orientation
-                                                                                                  ## of
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## the
-                                                                                                  ## modified
-                                                                                                  ## face
-                                                                                                  ## changes
-                                                                                                  ## in
-                                                                                                  ## the
-                                                                                                  ## shells
-                                                                                                  ## which
-                                                                                                  ## contain
-                                                                                                  ## it.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## If
-                                                                                                  ## the
-                                                                                                  ## face
-                                                                                                  ## has
-                                                                                                  ## not
-                                                                                                  ## been
-                                                                                                  ## modified
-                                                                                                  ## this
-                                                                                                  ## function
-                                                                                                  ## returns
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## false,
-                                                                                                  ## and
-                                                                                                  ## the
-                                                                                                  ## values
-                                                                                                  ## of
-                                                                                                  ## S,
-                                                                                                  ## L,
-                                                                                                  ## Tol,
-                                                                                                  ## RevWires
-                                                                                                  ## and
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## RevFace
-                                                                                                  ## are
-                                                                                                  ## not
-                                                                                                  ## significant.
+  BRepToolsModification* {.importcpp: "BRepTools_Modification",
+                          header: "BRepTools_Modification.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                ## !
+                                                                                                ## Returns
+                                                                                                ## true
+                                                                                                ## if
+                                                                                                ## the
+                                                                                                ## face,
+                                                                                                ## F,
+                                                                                                ## has
+                                                                                                ## been
+                                                                                                ## modified.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## If
+                                                                                                ## the
+                                                                                                ## face
+                                                                                                ## has
+                                                                                                ## been
+                                                                                                ## modified:
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## -
+                                                                                                ## S
+                                                                                                ## is
+                                                                                                ## the
+                                                                                                ## new
+                                                                                                ## geometry
+                                                                                                ## of
+                                                                                                ## the
+                                                                                                ## face,
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## -
+                                                                                                ## L
+                                                                                                ## is
+                                                                                                ## its
+                                                                                                ## new
+                                                                                                ## location,
+                                                                                                ## and
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## -
+                                                                                                ## Tol
+                                                                                                ## is
+                                                                                                ## the
+                                                                                                ## new
+                                                                                                ## tolerance.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## The
+                                                                                                ## flag,
+                                                                                                ## RevWires,
+                                                                                                ## is
+                                                                                                ## set
+                                                                                                ## to
+                                                                                                ## true
+                                                                                                ## when
+                                                                                                ## the
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## modification
+                                                                                                ## reverses
+                                                                                                ## the
+                                                                                                ## normal
+                                                                                                ## of
+                                                                                                ## the
+                                                                                                ## surface,
+                                                                                                ## (i.e.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## the
+                                                                                                ## wires
+                                                                                                ## have
+                                                                                                ## to
+                                                                                                ## be
+                                                                                                ## reversed).
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## The
+                                                                                                ## flag,
+                                                                                                ## RevFace,
+                                                                                                ## is
+                                                                                                ## set
+                                                                                                ## to
+                                                                                                ## true
+                                                                                                ## if
+                                                                                                ## the
+                                                                                                ## orientation
+                                                                                                ## of
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## the
+                                                                                                ## modified
+                                                                                                ## face
+                                                                                                ## changes
+                                                                                                ## in
+                                                                                                ## the
+                                                                                                ## shells
+                                                                                                ## which
+                                                                                                ## contain
+                                                                                                ## it.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## If
+                                                                                                ## the
+                                                                                                ## face
+                                                                                                ## has
+                                                                                                ## not
+                                                                                                ## been
+                                                                                                ## modified
+                                                                                                ## this
+                                                                                                ## function
+                                                                                                ## returns
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## false,
+                                                                                                ## and
+                                                                                                ## the
+                                                                                                ## values
+                                                                                                ## of
+                                                                                                ## S,
+                                                                                                ## L,
+                                                                                                ## Tol,
+                                                                                                ## RevWires
+                                                                                                ## and
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## RevFace
+                                                                                                ## are
+                                                                                                ## not
+                                                                                                ## significant.
 
 
-proc NewSurface*(this: var BRepTools_Modification; F: TopoDS_Face;
-                S: var handle[Geom_Surface]; L: var TopLoc_Location;
-                Tol: var Standard_Real; RevWires: var Standard_Boolean;
-                RevFace: var Standard_Boolean): Standard_Boolean {.
-    importcpp: "NewSurface", header: "BRepTools_Modification.hxx".}
-proc NewTriangulation*(this: var BRepTools_Modification; F: TopoDS_Face;
-                      T: var handle[Poly_Triangulation]): Standard_Boolean {.
+proc newSurface*(this: var BRepToolsModification; f: TopoDS_Face;
+                s: var Handle[GeomSurface]; L: var TopLocLocation; tol: var float;
+                revWires: var bool; revFace: var bool): bool {.importcpp: "NewSurface",
+    header: "BRepTools_Modification.hxx".}
+proc newTriangulation*(this: var BRepToolsModification; f: TopoDS_Face;
+                      t: var Handle[PolyTriangulation]): bool {.
     importcpp: "NewTriangulation", header: "BRepTools_Modification.hxx".}
-proc NewCurve*(this: var BRepTools_Modification; E: TopoDS_Edge;
-              C: var handle[Geom_Curve]; L: var TopLoc_Location;
-              Tol: var Standard_Real): Standard_Boolean {.importcpp: "NewCurve",
+proc newCurve*(this: var BRepToolsModification; e: TopoDS_Edge;
+              c: var Handle[GeomCurve]; L: var TopLocLocation; tol: var float): bool {.
+    importcpp: "NewCurve", header: "BRepTools_Modification.hxx".}
+proc newPolygon*(this: var BRepToolsModification; e: TopoDS_Edge;
+                p: var Handle[PolyPolygon3D]): bool {.importcpp: "NewPolygon",
     header: "BRepTools_Modification.hxx".}
-proc NewPolygon*(this: var BRepTools_Modification; E: TopoDS_Edge;
-                P: var handle[Poly_Polygon3D]): Standard_Boolean {.
-    importcpp: "NewPolygon", header: "BRepTools_Modification.hxx".}
-proc NewPolygonOnTriangulation*(this: var BRepTools_Modification; E: TopoDS_Edge;
-                               F: TopoDS_Face;
-                               P: var handle[Poly_PolygonOnTriangulation]): Standard_Boolean {.
+proc newPolygonOnTriangulation*(this: var BRepToolsModification; e: TopoDS_Edge;
+                               f: TopoDS_Face;
+                               p: var Handle[PolyPolygonOnTriangulation]): bool {.
     importcpp: "NewPolygonOnTriangulation", header: "BRepTools_Modification.hxx".}
-proc NewPoint*(this: var BRepTools_Modification; V: TopoDS_Vertex; P: var gp_Pnt;
-              Tol: var Standard_Real): Standard_Boolean {.importcpp: "NewPoint",
+proc newPoint*(this: var BRepToolsModification; v: TopoDS_Vertex; p: var Pnt;
+              tol: var float): bool {.importcpp: "NewPoint",
+                                  header: "BRepTools_Modification.hxx".}
+proc newCurve2d*(this: var BRepToolsModification; e: TopoDS_Edge; f: TopoDS_Face;
+                newE: TopoDS_Edge; newF: TopoDS_Face; c: var Handle[Geom2dCurve];
+                tol: var float): bool {.importcpp: "NewCurve2d",
+                                    header: "BRepTools_Modification.hxx".}
+proc newParameter*(this: var BRepToolsModification; v: TopoDS_Vertex; e: TopoDS_Edge;
+                  p: var float; tol: var float): bool {.importcpp: "NewParameter",
     header: "BRepTools_Modification.hxx".}
-proc NewCurve2d*(this: var BRepTools_Modification; E: TopoDS_Edge; F: TopoDS_Face;
-                NewE: TopoDS_Edge; NewF: TopoDS_Face; C: var handle[Geom2d_Curve];
-                Tol: var Standard_Real): Standard_Boolean {.importcpp: "NewCurve2d",
-    header: "BRepTools_Modification.hxx".}
-proc NewParameter*(this: var BRepTools_Modification; V: TopoDS_Vertex; E: TopoDS_Edge;
-                  P: var Standard_Real; Tol: var Standard_Real): Standard_Boolean {.
-    importcpp: "NewParameter", header: "BRepTools_Modification.hxx".}
-proc Continuity*(this: var BRepTools_Modification; E: TopoDS_Edge; F1: TopoDS_Face;
-                F2: TopoDS_Face; NewE: TopoDS_Edge; NewF1: TopoDS_Face;
-                NewF2: TopoDS_Face): GeomAbs_Shape {.importcpp: "Continuity",
+proc continuity*(this: var BRepToolsModification; e: TopoDS_Edge; f1: TopoDS_Face;
+                f2: TopoDS_Face; newE: TopoDS_Edge; newF1: TopoDS_Face;
+                newF2: TopoDS_Face): GeomAbsShape {.importcpp: "Continuity",
     header: "BRepTools_Modification.hxx".}
 type
-  BRepTools_Modificationbase_type* = Standard_Transient
+  BRepToolsModificationbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "BRepTools_Modification::get_type_name(@)",
-                              header: "BRepTools_Modification.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepTools_Modification::get_type_name(@)",
+                            header: "BRepTools_Modification.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepTools_Modification::get_type_descriptor(@)",
     header: "BRepTools_Modification.hxx".}
-proc DynamicType*(this: BRepTools_Modification): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "BRepTools_Modification.hxx".}
+proc dynamicType*(this: BRepToolsModification): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "BRepTools_Modification.hxx".}

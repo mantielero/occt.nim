@@ -14,78 +14,72 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Transfer_Finder,
-  ../TColStd/TColStd_MapTransientHasher, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Type, ../Standard/Standard_CString
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_DataInfo"
 discard "forward decl of Transfer_Finder"
 discard "forward decl of Transfer_TransientMapper"
 discard "forward decl of Transfer_TransientMapper"
 type
-  Handle_Transfer_TransientMapper* = handle[Transfer_TransientMapper]
-  Transfer_TransientMapper* {.importcpp: "Transfer_TransientMapper",
-                             header: "Transfer_TransientMapper.hxx", bycopy.} = object of Transfer_Finder ##
-                                                                                                   ## !
-                                                                                                   ## Creates
-                                                                                                   ## a
-                                                                                                   ## Mapper
-                                                                                                   ## with
-                                                                                                   ## a
-                                                                                                   ## Value.
-                                                                                                   ## This
-                                                                                                   ## Value
-                                                                                                   ## can
-                                                                                                   ## then
-                                                                                                   ## not
-                                                                                                   ## be
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## changed.
-                                                                                                   ## It
-                                                                                                   ## is
-                                                                                                   ## used
-                                                                                                   ## by
-                                                                                                   ## the
-                                                                                                   ## Hasher
-                                                                                                   ## to
-                                                                                                   ## compute
-                                                                                                   ## the
-                                                                                                   ## HashCode,
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## which
-                                                                                                   ## will
-                                                                                                   ## then
-                                                                                                   ## be
-                                                                                                   ## stored
-                                                                                                   ## for
-                                                                                                   ## an
-                                                                                                   ## immediate
-                                                                                                   ## reading.
+  HandleTransferTransientMapper* = Handle[TransferTransientMapper]
+  TransferTransientMapper* {.importcpp: "Transfer_TransientMapper",
+                            header: "Transfer_TransientMapper.hxx", bycopy.} = object of TransferFinder ##
+                                                                                                 ## !
+                                                                                                 ## Creates
+                                                                                                 ## a
+                                                                                                 ## Mapper
+                                                                                                 ## with
+                                                                                                 ## a
+                                                                                                 ## Value.
+                                                                                                 ## This
+                                                                                                 ## Value
+                                                                                                 ## can
+                                                                                                 ## then
+                                                                                                 ## not
+                                                                                                 ## be
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## changed.
+                                                                                                 ## It
+                                                                                                 ## is
+                                                                                                 ## used
+                                                                                                 ## by
+                                                                                                 ## the
+                                                                                                 ## Hasher
+                                                                                                 ## to
+                                                                                                 ## compute
+                                                                                                 ## the
+                                                                                                 ## HashCode,
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## which
+                                                                                                 ## will
+                                                                                                 ## then
+                                                                                                 ## be
+                                                                                                 ## stored
+                                                                                                 ## for
+                                                                                                 ## an
+                                                                                                 ## immediate
+                                                                                                 ## reading.
 
 
-proc constructTransfer_TransientMapper*(akey: handle[Standard_Transient]): Transfer_TransientMapper {.
+proc constructTransferTransientMapper*(akey: Handle[StandardTransient]): TransferTransientMapper {.
     constructor, importcpp: "Transfer_TransientMapper(@)",
     header: "Transfer_TransientMapper.hxx".}
-proc Value*(this: Transfer_TransientMapper): handle[Standard_Transient] {.
+proc value*(this: TransferTransientMapper): Handle[StandardTransient] {.
     noSideEffect, importcpp: "Value", header: "Transfer_TransientMapper.hxx".}
-proc Equates*(this: Transfer_TransientMapper; other: handle[Transfer_Finder]): Standard_Boolean {.
+proc equates*(this: TransferTransientMapper; other: Handle[TransferFinder]): bool {.
     noSideEffect, importcpp: "Equates", header: "Transfer_TransientMapper.hxx".}
-proc ValueType*(this: Transfer_TransientMapper): handle[Standard_Type] {.
-    noSideEffect, importcpp: "ValueType", header: "Transfer_TransientMapper.hxx".}
-proc ValueTypeName*(this: Transfer_TransientMapper): Standard_CString {.
-    noSideEffect, importcpp: "ValueTypeName",
-    header: "Transfer_TransientMapper.hxx".}
+proc valueType*(this: TransferTransientMapper): Handle[StandardType] {.noSideEffect,
+    importcpp: "ValueType", header: "Transfer_TransientMapper.hxx".}
+proc valueTypeName*(this: TransferTransientMapper): StandardCString {.noSideEffect,
+    importcpp: "ValueTypeName", header: "Transfer_TransientMapper.hxx".}
 type
-  Transfer_TransientMapperbase_type* = Transfer_Finder
+  TransferTransientMapperbaseType* = TransferFinder
 
-proc get_type_name*(): cstring {.importcpp: "Transfer_TransientMapper::get_type_name(@)",
-                              header: "Transfer_TransientMapper.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Transfer_TransientMapper::get_type_name(@)",
+                            header: "Transfer_TransientMapper.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_TransientMapper::get_type_descriptor(@)",
     header: "Transfer_TransientMapper.hxx".}
-proc DynamicType*(this: Transfer_TransientMapper): handle[Standard_Type] {.
+proc dynamicType*(this: TransferTransientMapper): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Transfer_TransientMapper.hxx".}

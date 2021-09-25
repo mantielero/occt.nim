@@ -14,16 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Address,
-  ../math/math_Vector, ../Blend/Blend_Point, ../gp/gp_Pnt,
-  ../Approx/Approx_SweepFunction, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../TColgp/TColgp_Array1OfPnt,
-  ../TColgp/TColgp_Array1OfPnt2d, ../TColStd/TColStd_Array1OfReal,
-  ../TColgp/TColgp_Array1OfVec, ../TColgp/TColgp_Array1OfVec2d,
-  ../Standard/Standard_Integer, ../TColStd/TColStd_Array1OfInteger,
-  ../GeomAbs/GeomAbs_Shape
-
 discard "forward decl of BRepBlend_Line"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Blend_AppFunction"
@@ -32,88 +22,84 @@ discard "forward decl of Blend_Point"
 discard "forward decl of BRepBlend_AppFuncRoot"
 discard "forward decl of BRepBlend_AppFuncRoot"
 type
-  Handle_BRepBlend_AppFuncRoot* = handle[BRepBlend_AppFuncRoot]
+  HandleBRepBlendAppFuncRoot* = Handle[BRepBlendAppFuncRoot]
 
 ## ! Function to approximate by AppSurface
 
 type
-  BRepBlend_AppFuncRoot* {.importcpp: "BRepBlend_AppFuncRoot",
-                          header: "BRepBlend_AppFuncRoot.hxx", bycopy.} = object of Approx_SweepFunction ##
-                                                                                                  ## !
-                                                                                                  ## compute
-                                                                                                  ## the
-                                                                                                  ## section
-                                                                                                  ## for
-                                                                                                  ## v
-                                                                                                  ## =
-                                                                                                  ## param
+  BRepBlendAppFuncRoot* {.importcpp: "BRepBlend_AppFuncRoot",
+                         header: "BRepBlend_AppFuncRoot.hxx", bycopy.} = object of ApproxSweepFunction ##
+                                                                                                ## !
+                                                                                                ## compute
+                                                                                                ## the
+                                                                                                ## section
+                                                                                                ## for
+                                                                                                ## v
+                                                                                                ## =
+                                                                                                ## param
 
 
-proc D0*(this: var BRepBlend_AppFuncRoot; Param: Standard_Real; First: Standard_Real;
-        Last: Standard_Real; Poles: var TColgp_Array1OfPnt;
-        Poles2d: var TColgp_Array1OfPnt2d; Weigths: var TColStd_Array1OfReal): Standard_Boolean {.
-    importcpp: "D0", header: "BRepBlend_AppFuncRoot.hxx".}
-proc D1*(this: var BRepBlend_AppFuncRoot; Param: Standard_Real; First: Standard_Real;
-        Last: Standard_Real; Poles: var TColgp_Array1OfPnt;
-        DPoles: var TColgp_Array1OfVec; Poles2d: var TColgp_Array1OfPnt2d;
-        DPoles2d: var TColgp_Array1OfVec2d; Weigths: var TColStd_Array1OfReal;
-        DWeigths: var TColStd_Array1OfReal): Standard_Boolean {.importcpp: "D1",
+proc d0*(this: var BRepBlendAppFuncRoot; param: float; first: float; last: float;
+        poles: var TColgpArray1OfPnt; poles2d: var TColgpArray1OfPnt2d;
+        weigths: var TColStdArray1OfReal): bool {.importcpp: "D0",
     header: "BRepBlend_AppFuncRoot.hxx".}
-proc D2*(this: var BRepBlend_AppFuncRoot; Param: Standard_Real; First: Standard_Real;
-        Last: Standard_Real; Poles: var TColgp_Array1OfPnt;
-        DPoles: var TColgp_Array1OfVec; D2Poles: var TColgp_Array1OfVec;
-        Poles2d: var TColgp_Array1OfPnt2d; DPoles2d: var TColgp_Array1OfVec2d;
-        D2Poles2d: var TColgp_Array1OfVec2d; Weigths: var TColStd_Array1OfReal;
-        DWeigths: var TColStd_Array1OfReal; D2Weigths: var TColStd_Array1OfReal): Standard_Boolean {.
-    importcpp: "D2", header: "BRepBlend_AppFuncRoot.hxx".}
-proc Nb2dCurves*(this: BRepBlend_AppFuncRoot): Standard_Integer {.noSideEffect,
+proc d1*(this: var BRepBlendAppFuncRoot; param: float; first: float; last: float;
+        poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
+        poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
+        weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal): bool {.
+    importcpp: "D1", header: "BRepBlend_AppFuncRoot.hxx".}
+proc d2*(this: var BRepBlendAppFuncRoot; param: float; first: float; last: float;
+        poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
+        d2Poles: var TColgpArray1OfVec; poles2d: var TColgpArray1OfPnt2d;
+        dPoles2d: var TColgpArray1OfVec2d; d2Poles2d: var TColgpArray1OfVec2d;
+        weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal;
+        d2Weigths: var TColStdArray1OfReal): bool {.importcpp: "D2",
+    header: "BRepBlend_AppFuncRoot.hxx".}
+proc nb2dCurves*(this: BRepBlendAppFuncRoot): int {.noSideEffect,
     importcpp: "Nb2dCurves", header: "BRepBlend_AppFuncRoot.hxx".}
-proc SectionShape*(this: BRepBlend_AppFuncRoot; NbPoles: var Standard_Integer;
-                  NbKnots: var Standard_Integer; Degree: var Standard_Integer) {.
-    noSideEffect, importcpp: "SectionShape", header: "BRepBlend_AppFuncRoot.hxx".}
-proc Knots*(this: BRepBlend_AppFuncRoot; TKnots: var TColStd_Array1OfReal) {.
+proc sectionShape*(this: BRepBlendAppFuncRoot; nbPoles: var int; nbKnots: var int;
+                  degree: var int) {.noSideEffect, importcpp: "SectionShape",
+                                  header: "BRepBlend_AppFuncRoot.hxx".}
+proc knots*(this: BRepBlendAppFuncRoot; tKnots: var TColStdArray1OfReal) {.
     noSideEffect, importcpp: "Knots", header: "BRepBlend_AppFuncRoot.hxx".}
-proc Mults*(this: BRepBlend_AppFuncRoot; TMults: var TColStd_Array1OfInteger) {.
+proc mults*(this: BRepBlendAppFuncRoot; tMults: var TColStdArray1OfInteger) {.
     noSideEffect, importcpp: "Mults", header: "BRepBlend_AppFuncRoot.hxx".}
-proc IsRational*(this: BRepBlend_AppFuncRoot): Standard_Boolean {.noSideEffect,
+proc isRational*(this: BRepBlendAppFuncRoot): bool {.noSideEffect,
     importcpp: "IsRational", header: "BRepBlend_AppFuncRoot.hxx".}
-proc NbIntervals*(this: BRepBlend_AppFuncRoot; S: GeomAbs_Shape): Standard_Integer {.
-    noSideEffect, importcpp: "NbIntervals", header: "BRepBlend_AppFuncRoot.hxx".}
-proc Intervals*(this: BRepBlend_AppFuncRoot; T: var TColStd_Array1OfReal;
-               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
-                                 header: "BRepBlend_AppFuncRoot.hxx".}
-proc SetInterval*(this: var BRepBlend_AppFuncRoot; First: Standard_Real;
-                 Last: Standard_Real) {.importcpp: "SetInterval",
-                                      header: "BRepBlend_AppFuncRoot.hxx".}
-proc Resolution*(this: BRepBlend_AppFuncRoot; Index: Standard_Integer;
-                Tol: Standard_Real; TolU: var Standard_Real; TolV: var Standard_Real) {.
-    noSideEffect, importcpp: "Resolution", header: "BRepBlend_AppFuncRoot.hxx".}
-proc GetTolerance*(this: BRepBlend_AppFuncRoot; BoundTol: Standard_Real;
-                  SurfTol: Standard_Real; AngleTol: Standard_Real;
-                  Tol3d: var TColStd_Array1OfReal) {.noSideEffect,
+proc nbIntervals*(this: BRepBlendAppFuncRoot; s: GeomAbsShape): int {.noSideEffect,
+    importcpp: "NbIntervals", header: "BRepBlend_AppFuncRoot.hxx".}
+proc intervals*(this: BRepBlendAppFuncRoot; t: var TColStdArray1OfReal;
+               s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
+                                header: "BRepBlend_AppFuncRoot.hxx".}
+proc setInterval*(this: var BRepBlendAppFuncRoot; first: float; last: float) {.
+    importcpp: "SetInterval", header: "BRepBlend_AppFuncRoot.hxx".}
+proc resolution*(this: BRepBlendAppFuncRoot; index: int; tol: float; tolU: var float;
+                tolV: var float) {.noSideEffect, importcpp: "Resolution",
+                                header: "BRepBlend_AppFuncRoot.hxx".}
+proc getTolerance*(this: BRepBlendAppFuncRoot; boundTol: float; surfTol: float;
+                  angleTol: float; tol3d: var TColStdArray1OfReal) {.noSideEffect,
     importcpp: "GetTolerance", header: "BRepBlend_AppFuncRoot.hxx".}
-proc SetTolerance*(this: var BRepBlend_AppFuncRoot; Tol3d: Standard_Real;
-                  Tol2d: Standard_Real) {.importcpp: "SetTolerance",
-                                        header: "BRepBlend_AppFuncRoot.hxx".}
-proc BarycentreOfSurf*(this: BRepBlend_AppFuncRoot): gp_Pnt {.noSideEffect,
+proc setTolerance*(this: var BRepBlendAppFuncRoot; tol3d: float; tol2d: float) {.
+    importcpp: "SetTolerance", header: "BRepBlend_AppFuncRoot.hxx".}
+proc barycentreOfSurf*(this: BRepBlendAppFuncRoot): Pnt {.noSideEffect,
     importcpp: "BarycentreOfSurf", header: "BRepBlend_AppFuncRoot.hxx".}
-proc MaximalSection*(this: BRepBlend_AppFuncRoot): Standard_Real {.noSideEffect,
+proc maximalSection*(this: BRepBlendAppFuncRoot): float {.noSideEffect,
     importcpp: "MaximalSection", header: "BRepBlend_AppFuncRoot.hxx".}
-proc GetMinimalWeight*(this: BRepBlend_AppFuncRoot;
-                      Weigths: var TColStd_Array1OfReal) {.noSideEffect,
-    importcpp: "GetMinimalWeight", header: "BRepBlend_AppFuncRoot.hxx".}
-proc Point*(this: BRepBlend_AppFuncRoot; Func: Blend_AppFunction;
-           Param: Standard_Real; Sol: math_Vector; Pnt: var Blend_Point) {.
-    noSideEffect, importcpp: "Point", header: "BRepBlend_AppFuncRoot.hxx".}
-proc Vec*(this: BRepBlend_AppFuncRoot; Sol: var math_Vector; Pnt: Blend_Point) {.
+proc getMinimalWeight*(this: BRepBlendAppFuncRoot; weigths: var TColStdArray1OfReal) {.
+    noSideEffect, importcpp: "GetMinimalWeight",
+    header: "BRepBlend_AppFuncRoot.hxx".}
+proc point*(this: BRepBlendAppFuncRoot; `func`: BlendAppFunction; param: float;
+           sol: MathVector; pnt: var BlendPoint) {.noSideEffect, importcpp: "Point",
+    header: "BRepBlend_AppFuncRoot.hxx".}
+proc vec*(this: BRepBlendAppFuncRoot; sol: var MathVector; pnt: BlendPoint) {.
     noSideEffect, importcpp: "Vec", header: "BRepBlend_AppFuncRoot.hxx".}
 type
-  BRepBlend_AppFuncRootbase_type* = Approx_SweepFunction
+  BRepBlendAppFuncRootbaseType* = ApproxSweepFunction
 
-proc get_type_name*(): cstring {.importcpp: "BRepBlend_AppFuncRoot::get_type_name(@)",
-                              header: "BRepBlend_AppFuncRoot.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepBlend_AppFuncRoot::get_type_name(@)",
+                            header: "BRepBlend_AppFuncRoot.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepBlend_AppFuncRoot::get_type_descriptor(@)",
     header: "BRepBlend_AppFuncRoot.hxx".}
-proc DynamicType*(this: BRepBlend_AppFuncRoot): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "BRepBlend_AppFuncRoot.hxx".}
+proc dynamicType*(this: BRepBlendAppFuncRoot): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "BRepBlend_AppFuncRoot.hxx".}

@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # TransferBRep_HSequenceOfTransferResultInfo_HeaderFile [NewLine] # TransferBRep_HSequenceOfTransferResultInfo_HeaderFile [NewLine] # TransferBRep_TransferResultInfo.hxx [NewLine] # TransferBRep_SequenceOfTransferResultInfo.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( TransferBRep_HSequenceOfTransferResultInfo , TransferBRep_SequenceOfTransferResultInfo ) # [NewLine]
+## !!!Ignored construct:  # TransferBRep_HSequenceOfTransferResultInfo_HeaderFile [NewLine] # TransferBRep_HSequenceOfTransferResultInfo_HeaderFile [NewLine] # < TransferBRep_TransferResultInfo . hxx > [NewLine] # < TransferBRep_SequenceOfTransferResultInfo . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( TransferBRep_HSequenceOfTransferResultInfo , TransferBRep_SequenceOfTransferResultInfo ) # [NewLine]
 ## Error: expected ';'!!!
+

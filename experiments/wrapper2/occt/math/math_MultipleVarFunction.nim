@@ -14,33 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, math_Vector, ../Standard/Standard_Real
-
 ## ! Describes the virtual functions associated with a multiple variable function.
 
 type
-  math_MultipleVarFunction* {.importcpp: "math_MultipleVarFunction",
-                             header: "math_MultipleVarFunction.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Returns
-                                                                                  ## the
-                                                                                  ## number
-                                                                                  ## of
-                                                                                  ## variables
-                                                                                  ## of
-                                                                                  ## the
-                                                                                  ## function
+  MathMultipleVarFunction* {.importcpp: "math_MultipleVarFunction",
+                            header: "math_MultipleVarFunction.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## Returns
+                                                                                 ## the
+                                                                                 ## number
+                                                                                 ## of
+                                                                                 ## variables
+                                                                                 ## of
+                                                                                 ## the
+                                                                                 ## function
 
 
-proc NbVariables*(this: math_MultipleVarFunction): Standard_Integer {.noSideEffect,
+proc nbVariables*(this: MathMultipleVarFunction): int {.noSideEffect,
     importcpp: "NbVariables", header: "math_MultipleVarFunction.hxx".}
-proc Value*(this: var math_MultipleVarFunction; X: math_Vector; F: var Standard_Real): Standard_Boolean {.
+proc value*(this: var MathMultipleVarFunction; x: MathVector; f: var float): bool {.
     importcpp: "Value", header: "math_MultipleVarFunction.hxx".}
-proc GetStateNumber*(this: var math_MultipleVarFunction): Standard_Integer {.
+proc getStateNumber*(this: var MathMultipleVarFunction): int {.
     importcpp: "GetStateNumber", header: "math_MultipleVarFunction.hxx".}
-proc destroymath_MultipleVarFunction*(this: var math_MultipleVarFunction) {.
+proc destroyMathMultipleVarFunction*(this: var MathMultipleVarFunction) {.
     importcpp: "#.~math_MultipleVarFunction()",
     header: "math_MultipleVarFunction.hxx".}

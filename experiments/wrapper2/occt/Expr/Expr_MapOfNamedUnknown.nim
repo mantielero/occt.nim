@@ -14,10 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Expr_NamedUnknown, ../TColStd/TColStd_MapTransientHasher,
-  ../NCollection/NCollection_IndexedMap
-
 type
-  Expr_MapOfNamedUnknown* = NCollection_IndexedMap[handle[Expr_NamedUnknown],
-      TColStd_MapTransientHasher]
+  ExprMapOfNamedUnknown* = NCollectionIndexedMap[Handle[ExprNamedUnknown],
+      TColStdMapTransientHasher]
+

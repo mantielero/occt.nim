@@ -14,14 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Geom_Curve
-
 discard "forward decl of gp_Pnt"
 discard "forward decl of Geom_BoundedCurve"
 discard "forward decl of Geom_BoundedCurve"
 type
-  Handle_Geom_BoundedCurve* = handle[Geom_BoundedCurve]
+  HandleGeomBoundedCurve* = Handle[GeomBoundedCurve]
 
 ## ! The abstract class BoundedCurve describes the
 ## ! common behavior of bounded curves in 3D space. A
@@ -40,32 +37,30 @@ type
 ## ! parameter of the basis curve.
 
 type
-  Geom_BoundedCurve* {.importcpp: "Geom_BoundedCurve",
-                      header: "Geom_BoundedCurve.hxx", bycopy.} = object of Geom_Curve ##
-                                                                                ## !
-                                                                                ## Returns
-                                                                                ## the
-                                                                                ## end
-                                                                                ## point
-                                                                                ## of
-                                                                                ## the
-                                                                                ## curve.
+  GeomBoundedCurve* {.importcpp: "Geom_BoundedCurve",
+                     header: "Geom_BoundedCurve.hxx", bycopy.} = object of GeomCurve ## !
+                                                                              ## Returns
+                                                                              ## the
+                                                                              ## end
+                                                                              ## point of
+                                                                              ## the
+                                                                              ## curve.
 
 
-proc EndPoint*(this: Geom_BoundedCurve): gp_Pnt {.noSideEffect,
-    importcpp: "EndPoint", header: "Geom_BoundedCurve.hxx".}
-proc StartPoint*(this: Geom_BoundedCurve): gp_Pnt {.noSideEffect,
-    importcpp: "StartPoint", header: "Geom_BoundedCurve.hxx".}
-proc DumpJson*(this: Geom_BoundedCurve; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
+proc endPoint*(this: GeomBoundedCurve): Pnt {.noSideEffect, importcpp: "EndPoint",
     header: "Geom_BoundedCurve.hxx".}
+proc startPoint*(this: GeomBoundedCurve): Pnt {.noSideEffect,
+    importcpp: "StartPoint", header: "Geom_BoundedCurve.hxx".}
+proc dumpJson*(this: GeomBoundedCurve; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Geom_BoundedCurve.hxx".}
 type
-  Geom_BoundedCurvebase_type* = Geom_Curve
+  GeomBoundedCurvebaseType* = GeomCurve
 
-proc get_type_name*(): cstring {.importcpp: "Geom_BoundedCurve::get_type_name(@)",
-                              header: "Geom_BoundedCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Geom_BoundedCurve::get_type_name(@)",
+                            header: "Geom_BoundedCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_BoundedCurve::get_type_descriptor(@)",
     header: "Geom_BoundedCurve.hxx".}
-proc DynamicType*(this: Geom_BoundedCurve): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: GeomBoundedCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom_BoundedCurve.hxx".}

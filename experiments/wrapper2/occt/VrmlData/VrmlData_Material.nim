@@ -13,77 +13,74 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  VrmlData_Node, ../Quantity/Quantity_Color
-
 ## *
 ##   Implementation of the Material node
 ##
 
 type
-  VrmlData_Material* {.importcpp: "VrmlData_Material",
-                      header: "VrmlData_Material.hxx", bycopy.} = object of VrmlData_Node ##  ---------- PUBLIC METHODS ----------
-                                                                                   ## *
-                                                                                   ##  Empty constructor
-                                                                                   ##
-                                                                                   ##  ---------- PROTECTED METHODS ----------
-                                                                                   ##  ---------- PRIVATE FIELDS ----------
-                                                                                   ##  Declaration of CASCADE RTTI
+  VrmlDataMaterial* {.importcpp: "VrmlData_Material",
+                     header: "VrmlData_Material.hxx", bycopy.} = object of VrmlDataNode ##  ---------- PUBLIC METHODS ----------
+                                                                                 ## *
+                                                                                 ##  Empty constructor
+                                                                                 ##
+                                                                                 ##  ---------- PROTECTED METHODS ----------
+                                                                                 ##  ---------- PRIVATE FIELDS ----------
+                                                                                 ##  Declaration of CASCADE RTTI
 
 
-proc constructVrmlData_Material*(): VrmlData_Material {.constructor,
+proc constructVrmlDataMaterial*(): VrmlDataMaterial {.constructor,
     importcpp: "VrmlData_Material(@)", header: "VrmlData_Material.hxx".}
-proc constructVrmlData_Material*(theScene: VrmlData_Scene; theName: cstring;
-                                theAmbientIntensity: Standard_Real = -1.0;
-                                theShininess: Standard_Real = -1.0;
-                                theTransparency: Standard_Real = -1.0): VrmlData_Material {.
+proc constructVrmlDataMaterial*(theScene: VrmlDataScene; theName: cstring;
+                               theAmbientIntensity: float = -1.0;
+                               theShininess: float = -1.0;
+                               theTransparency: float = -1.0): VrmlDataMaterial {.
     constructor, importcpp: "VrmlData_Material(@)", header: "VrmlData_Material.hxx".}
-proc AmbientIntensity*(this: VrmlData_Material): Standard_Real {.noSideEffect,
+proc ambientIntensity*(this: VrmlDataMaterial): float {.noSideEffect,
     importcpp: "AmbientIntensity", header: "VrmlData_Material.hxx".}
-proc Shininess*(this: VrmlData_Material): Standard_Real {.noSideEffect,
+proc shininess*(this: VrmlDataMaterial): float {.noSideEffect,
     importcpp: "Shininess", header: "VrmlData_Material.hxx".}
-proc Transparency*(this: VrmlData_Material): Standard_Real {.noSideEffect,
+proc transparency*(this: VrmlDataMaterial): float {.noSideEffect,
     importcpp: "Transparency", header: "VrmlData_Material.hxx".}
-proc DiffuseColor*(this: VrmlData_Material): Quantity_Color {.noSideEffect,
+proc diffuseColor*(this: VrmlDataMaterial): QuantityColor {.noSideEffect,
     importcpp: "DiffuseColor", header: "VrmlData_Material.hxx".}
-proc EmissiveColor*(this: VrmlData_Material): Quantity_Color {.noSideEffect,
+proc emissiveColor*(this: VrmlDataMaterial): QuantityColor {.noSideEffect,
     importcpp: "EmissiveColor", header: "VrmlData_Material.hxx".}
-proc SpecularColor*(this: VrmlData_Material): Quantity_Color {.noSideEffect,
+proc specularColor*(this: VrmlDataMaterial): QuantityColor {.noSideEffect,
     importcpp: "SpecularColor", header: "VrmlData_Material.hxx".}
-proc SetAmbientIntensity*(this: var VrmlData_Material;
-                         theAmbientIntensity: Standard_Real) {.
+proc setAmbientIntensity*(this: var VrmlDataMaterial; theAmbientIntensity: float) {.
     importcpp: "SetAmbientIntensity", header: "VrmlData_Material.hxx".}
-proc SetShininess*(this: var VrmlData_Material; theShininess: Standard_Real) {.
+proc setShininess*(this: var VrmlDataMaterial; theShininess: float) {.
     importcpp: "SetShininess", header: "VrmlData_Material.hxx".}
-proc SetTransparency*(this: var VrmlData_Material; theTransparency: Standard_Real) {.
+proc setTransparency*(this: var VrmlDataMaterial; theTransparency: float) {.
     importcpp: "SetTransparency", header: "VrmlData_Material.hxx".}
-proc SetDiffuseColor*(this: var VrmlData_Material; theColor: Quantity_Color) {.
+proc setDiffuseColor*(this: var VrmlDataMaterial; theColor: QuantityColor) {.
     importcpp: "SetDiffuseColor", header: "VrmlData_Material.hxx".}
-proc SetEmissiveColor*(this: var VrmlData_Material; theColor: Quantity_Color) {.
+proc setEmissiveColor*(this: var VrmlDataMaterial; theColor: QuantityColor) {.
     importcpp: "SetEmissiveColor", header: "VrmlData_Material.hxx".}
-proc SetSpecularColor*(this: var VrmlData_Material; theColor: Quantity_Color) {.
+proc setSpecularColor*(this: var VrmlDataMaterial; theColor: QuantityColor) {.
     importcpp: "SetSpecularColor", header: "VrmlData_Material.hxx".}
-proc Clone*(this: VrmlData_Material; theOther: handle[VrmlData_Node]): handle[
-    VrmlData_Node] {.noSideEffect, importcpp: "Clone",
-                    header: "VrmlData_Material.hxx".}
-proc Read*(this: var VrmlData_Material; theBuffer: var VrmlData_InBuffer): VrmlData_ErrorStatus {.
+proc clone*(this: VrmlDataMaterial; theOther: Handle[VrmlDataNode]): Handle[
+    VrmlDataNode] {.noSideEffect, importcpp: "Clone",
+                   header: "VrmlData_Material.hxx".}
+proc read*(this: var VrmlDataMaterial; theBuffer: var VrmlDataInBuffer): VrmlDataErrorStatus {.
     importcpp: "Read", header: "VrmlData_Material.hxx".}
-proc Write*(this: VrmlData_Material; thePrefix: cstring): VrmlData_ErrorStatus {.
+proc write*(this: VrmlDataMaterial; thePrefix: cstring): VrmlDataErrorStatus {.
     noSideEffect, importcpp: "Write", header: "VrmlData_Material.hxx".}
-proc IsDefault*(this: VrmlData_Material): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDefault", header: "VrmlData_Material.hxx".}
+proc isDefault*(this: VrmlDataMaterial): bool {.noSideEffect, importcpp: "IsDefault",
+    header: "VrmlData_Material.hxx".}
 type
-  VrmlData_Materialbase_type* = VrmlData_Node
+  VrmlDataMaterialbaseType* = VrmlDataNode
 
-proc get_type_name*(): cstring {.importcpp: "VrmlData_Material::get_type_name(@)",
-                              header: "VrmlData_Material.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "VrmlData_Material::get_type_name(@)",
+                            header: "VrmlData_Material.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "VrmlData_Material::get_type_descriptor(@)",
     header: "VrmlData_Material.hxx".}
-proc DynamicType*(this: VrmlData_Material): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: VrmlDataMaterial): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "VrmlData_Material.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of VrmlData_Material"
 type
-  Handle_VrmlData_Material* = handle[VrmlData_Material]
+  HandleVrmlDataMaterial* = Handle[VrmlDataMaterial]
+

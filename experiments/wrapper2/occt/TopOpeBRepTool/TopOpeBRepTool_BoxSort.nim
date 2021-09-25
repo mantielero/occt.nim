@@ -14,58 +14,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Bnd/Bnd_Box, ../Bnd/Bnd_BoundSortBox,
-  ../TColStd/TColStd_ListIteratorOfListOfInteger, ../TopoDS/TopoDS_Shape,
-  ../Bnd/Bnd_HArray1OfBox, ../TColStd/TColStd_HArray1OfInteger,
-  ../TopAbs/TopAbs_ShapeEnum, ../Standard/Standard_Integer
-
 discard "forward decl of TopOpeBRepTool_HBoxTool"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Bnd_Box"
 type
-  TopOpeBRepTool_BoxSort* {.importcpp: "TopOpeBRepTool_BoxSort",
-                           header: "TopOpeBRepTool_BoxSort.hxx", bycopy.} = object
+  TopOpeBRepToolBoxSort* {.importcpp: "TopOpeBRepTool_BoxSort",
+                          header: "TopOpeBRepTool_BoxSort.hxx", bycopy.} = object
 
 
-proc constructTopOpeBRepTool_BoxSort*(): TopOpeBRepTool_BoxSort {.constructor,
+proc constructTopOpeBRepToolBoxSort*(): TopOpeBRepToolBoxSort {.constructor,
     importcpp: "TopOpeBRepTool_BoxSort(@)", header: "TopOpeBRepTool_BoxSort.hxx".}
-proc constructTopOpeBRepTool_BoxSort*(T: handle[TopOpeBRepTool_HBoxTool]): TopOpeBRepTool_BoxSort {.
+proc constructTopOpeBRepToolBoxSort*(t: Handle[TopOpeBRepToolHBoxTool]): TopOpeBRepToolBoxSort {.
     constructor, importcpp: "TopOpeBRepTool_BoxSort(@)",
     header: "TopOpeBRepTool_BoxSort.hxx".}
-proc SetHBoxTool*(this: var TopOpeBRepTool_BoxSort;
-                 T: handle[TopOpeBRepTool_HBoxTool]) {.importcpp: "SetHBoxTool",
-    header: "TopOpeBRepTool_BoxSort.hxx".}
-proc HBoxTool*(this: TopOpeBRepTool_BoxSort): handle[TopOpeBRepTool_HBoxTool] {.
+proc setHBoxTool*(this: var TopOpeBRepToolBoxSort; t: Handle[TopOpeBRepToolHBoxTool]) {.
+    importcpp: "SetHBoxTool", header: "TopOpeBRepTool_BoxSort.hxx".}
+proc hBoxTool*(this: TopOpeBRepToolBoxSort): Handle[TopOpeBRepToolHBoxTool] {.
     noSideEffect, importcpp: "HBoxTool", header: "TopOpeBRepTool_BoxSort.hxx".}
-proc Clear*(this: var TopOpeBRepTool_BoxSort) {.importcpp: "Clear",
+proc clear*(this: var TopOpeBRepToolBoxSort) {.importcpp: "Clear",
     header: "TopOpeBRepTool_BoxSort.hxx".}
-proc AddBoxes*(this: var TopOpeBRepTool_BoxSort; S: TopoDS_Shape;
-              TS: TopAbs_ShapeEnum; TA: TopAbs_ShapeEnum = TopAbs_SHAPE) {.
-    importcpp: "AddBoxes", header: "TopOpeBRepTool_BoxSort.hxx".}
-proc MakeHAB*(this: var TopOpeBRepTool_BoxSort; S: TopoDS_Shape; TS: TopAbs_ShapeEnum;
-             TA: TopAbs_ShapeEnum = TopAbs_SHAPE) {.importcpp: "MakeHAB",
+proc addBoxes*(this: var TopOpeBRepToolBoxSort; s: TopoDS_Shape; ts: TopAbsShapeEnum;
+              ta: TopAbsShapeEnum = topAbsSHAPE) {.importcpp: "AddBoxes",
     header: "TopOpeBRepTool_BoxSort.hxx".}
-proc HAB*(this: TopOpeBRepTool_BoxSort): handle[Bnd_HArray1OfBox] {.noSideEffect,
+proc makeHAB*(this: var TopOpeBRepToolBoxSort; s: TopoDS_Shape; ts: TopAbsShapeEnum;
+             ta: TopAbsShapeEnum = topAbsSHAPE) {.importcpp: "MakeHAB",
+    header: "TopOpeBRepTool_BoxSort.hxx".}
+proc hab*(this: TopOpeBRepToolBoxSort): Handle[BndHArray1OfBox] {.noSideEffect,
     importcpp: "HAB", header: "TopOpeBRepTool_BoxSort.hxx".}
-proc MakeHABCOB*(HAB: handle[Bnd_HArray1OfBox]; COB: var Bnd_Box) {.
+proc makeHABCOB*(hab: Handle[BndHArray1OfBox]; cob: var BndBox) {.
     importcpp: "TopOpeBRepTool_BoxSort::MakeHABCOB(@)",
     header: "TopOpeBRepTool_BoxSort.hxx".}
-proc HABShape*(this: TopOpeBRepTool_BoxSort; I: Standard_Integer): TopoDS_Shape {.
-    noSideEffect, importcpp: "HABShape", header: "TopOpeBRepTool_BoxSort.hxx".}
-proc MakeCOB*(this: var TopOpeBRepTool_BoxSort; S: TopoDS_Shape; TS: TopAbs_ShapeEnum;
-             TA: TopAbs_ShapeEnum = TopAbs_SHAPE) {.importcpp: "MakeCOB",
+proc hABShape*(this: TopOpeBRepToolBoxSort; i: int): TopoDS_Shape {.noSideEffect,
+    importcpp: "HABShape", header: "TopOpeBRepTool_BoxSort.hxx".}
+proc makeCOB*(this: var TopOpeBRepToolBoxSort; s: TopoDS_Shape; ts: TopAbsShapeEnum;
+             ta: TopAbsShapeEnum = topAbsSHAPE) {.importcpp: "MakeCOB",
     header: "TopOpeBRepTool_BoxSort.hxx".}
-proc AddBoxesMakeCOB*(this: var TopOpeBRepTool_BoxSort; S: TopoDS_Shape;
-                     TS: TopAbs_ShapeEnum; TA: TopAbs_ShapeEnum = TopAbs_SHAPE) {.
+proc addBoxesMakeCOB*(this: var TopOpeBRepToolBoxSort; s: TopoDS_Shape;
+                     ts: TopAbsShapeEnum; ta: TopAbsShapeEnum = topAbsSHAPE) {.
     importcpp: "AddBoxesMakeCOB", header: "TopOpeBRepTool_BoxSort.hxx".}
-proc Compare*(this: var TopOpeBRepTool_BoxSort; S: TopoDS_Shape): TColStd_ListIteratorOfListOfInteger {.
+proc compare*(this: var TopOpeBRepToolBoxSort; s: TopoDS_Shape): TColStdListIteratorOfListOfInteger {.
     importcpp: "Compare", header: "TopOpeBRepTool_BoxSort.hxx".}
-proc TouchedShape*(this: TopOpeBRepTool_BoxSort;
-                  I: TColStd_ListIteratorOfListOfInteger): TopoDS_Shape {.
+proc touchedShape*(this: TopOpeBRepToolBoxSort;
+                  i: TColStdListIteratorOfListOfInteger): TopoDS_Shape {.
     noSideEffect, importcpp: "TouchedShape", header: "TopOpeBRepTool_BoxSort.hxx".}
-proc Box*(this: TopOpeBRepTool_BoxSort; S: TopoDS_Shape): Bnd_Box {.noSideEffect,
+proc box*(this: TopOpeBRepToolBoxSort; s: TopoDS_Shape): BndBox {.noSideEffect,
     importcpp: "Box", header: "TopOpeBRepTool_BoxSort.hxx".}
-proc destroyTopOpeBRepTool_BoxSort*(this: var TopOpeBRepTool_BoxSort) {.
+proc destroyTopOpeBRepToolBoxSort*(this: var TopOpeBRepToolBoxSort) {.
     importcpp: "#.~TopOpeBRepTool_BoxSort()", header: "TopOpeBRepTool_BoxSort.hxx".}

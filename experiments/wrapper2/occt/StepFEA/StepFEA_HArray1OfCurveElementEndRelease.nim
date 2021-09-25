@@ -11,40 +11,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepFEA_CurveElementEndRelease, StepFEA_Array1OfCurveElementEndRelease,
-  ../NCollection/NCollection_DefineHArray1
-
 type
   StepFEA_HArray1OfCurveElementEndRelease* {.
       importcpp: "StepFEA_HArray1OfCurveElementEndRelease",
       header: "StepFEA_HArray1OfCurveElementEndRelease.hxx", bycopy.} = object of StepFEA_Array1OfCurveElementEndRelease
 
 
-proc constructStepFEA_HArray1OfCurveElementEndRelease*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepFEA_HArray1OfCurveElementEndRelease {.
+proc constructStepFEA_HArray1OfCurveElementEndRelease*(theLower: int; theUpper: int): StepFEA_HArray1OfCurveElementEndRelease {.
     constructor, importcpp: "StepFEA_HArray1OfCurveElementEndRelease(@)",
     header: "StepFEA_HArray1OfCurveElementEndRelease.hxx".}
-proc constructStepFEA_HArray1OfCurveElementEndRelease*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepFEA_HArray1OfCurveElementEndRelease {.
+proc constructStepFEA_HArray1OfCurveElementEndRelease*(theLower: int;
+    theUpper: int; theValue: ValueType): StepFEA_HArray1OfCurveElementEndRelease {.
     constructor, importcpp: "StepFEA_HArray1OfCurveElementEndRelease(@)",
     header: "StepFEA_HArray1OfCurveElementEndRelease.hxx".}
 proc constructStepFEA_HArray1OfCurveElementEndRelease*(
     theOther: StepFEA_Array1OfCurveElementEndRelease): StepFEA_HArray1OfCurveElementEndRelease {.
     constructor, importcpp: "StepFEA_HArray1OfCurveElementEndRelease(@)",
     header: "StepFEA_HArray1OfCurveElementEndRelease.hxx".}
-proc Array1*(this: StepFEA_HArray1OfCurveElementEndRelease): StepFEA_Array1OfCurveElementEndRelease {.
+proc array1*(this: StepFEA_HArray1OfCurveElementEndRelease): StepFEA_Array1OfCurveElementEndRelease {.
     noSideEffect, importcpp: "Array1",
     header: "StepFEA_HArray1OfCurveElementEndRelease.hxx".}
-proc ChangeArray1*(this: var StepFEA_HArray1OfCurveElementEndRelease): var StepFEA_Array1OfCurveElementEndRelease {.
+proc changeArray1*(this: var StepFEA_HArray1OfCurveElementEndRelease): var StepFEA_Array1OfCurveElementEndRelease {.
     importcpp: "ChangeArray1",
     header: "StepFEA_HArray1OfCurveElementEndRelease.hxx".}
 type
-  StepFEA_HArray1OfCurveElementEndReleasebase_type* = MMgt_TShared
+  StepFEA_HArray1OfCurveElementEndReleasebaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_HArray1OfCurveElementEndRelease::get_type_name(@)", header: "StepFEA_HArray1OfCurveElementEndRelease.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepFEA_HArray1OfCurveElementEndRelease::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepFEA_HArray1OfCurveElementEndRelease::get_type_name(@)", header: "StepFEA_HArray1OfCurveElementEndRelease.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_HArray1OfCurveElementEndRelease::get_type_descriptor(@)",
     header: "StepFEA_HArray1OfCurveElementEndRelease.hxx".}
-proc DynamicType*(this: StepFEA_HArray1OfCurveElementEndRelease): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepFEA_HArray1OfCurveElementEndRelease.hxx".}
+proc dynamicType*(this: StepFEA_HArray1OfCurveElementEndRelease): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepFEA_HArray1OfCurveElementEndRelease.hxx".}

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Type
-
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_Graph"
@@ -27,7 +22,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_Protocol"
 discard "forward decl of Interface_Protocol"
 type
-  Handle_Interface_Protocol* = handle[Interface_Protocol]
+  HandleInterfaceProtocol* = Handle[InterfaceProtocol]
 
 ## ! General description of Interface Protocols. A Protocol defines
 ## ! a set of Entity types. This class provides also the notion of
@@ -39,72 +34,71 @@ type
 ## ! like multi-typing, may involve another way
 
 type
-  Interface_Protocol* {.importcpp: "Interface_Protocol",
-                       header: "Interface_Protocol.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                          ## !
-                                                                                          ## Returns
-                                                                                          ## the
-                                                                                          ## Active
-                                                                                          ## Protocol,
-                                                                                          ## if
-                                                                                          ## defined
-                                                                                          ## (else,
-                                                                                          ## returns
-                                                                                          ## a
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Null
-                                                                                          ## Handle,
-                                                                                          ## which
-                                                                                          ## means
-                                                                                          ## "no
-                                                                                          ## defined
-                                                                                          ## active
-                                                                                          ## protocol")
+  InterfaceProtocol* {.importcpp: "Interface_Protocol",
+                      header: "Interface_Protocol.hxx", bycopy.} = object of StandardTransient ##
+                                                                                        ## !
+                                                                                        ## Returns
+                                                                                        ## the
+                                                                                        ## Active
+                                                                                        ## Protocol,
+                                                                                        ## if
+                                                                                        ## defined
+                                                                                        ## (else,
+                                                                                        ## returns
+                                                                                        ## a
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Null
+                                                                                        ## Handle,
+                                                                                        ## which
+                                                                                        ## means
+                                                                                        ## "no
+                                                                                        ## defined
+                                                                                        ## active
+                                                                                        ## protocol")
 
 
-proc Active*(): handle[Interface_Protocol] {.
+proc active*(): Handle[InterfaceProtocol] {.
     importcpp: "Interface_Protocol::Active(@)", header: "Interface_Protocol.hxx".}
-proc SetActive*(aprotocol: handle[Interface_Protocol]) {.
+proc setActive*(aprotocol: Handle[InterfaceProtocol]) {.
     importcpp: "Interface_Protocol::SetActive(@)",
     header: "Interface_Protocol.hxx".}
-proc ClearActive*() {.importcpp: "Interface_Protocol::ClearActive(@)",
+proc clearActive*() {.importcpp: "Interface_Protocol::ClearActive(@)",
                     header: "Interface_Protocol.hxx".}
-proc NbResources*(this: Interface_Protocol): Standard_Integer {.noSideEffect,
+proc nbResources*(this: InterfaceProtocol): int {.noSideEffect,
     importcpp: "NbResources", header: "Interface_Protocol.hxx".}
-proc Resource*(this: Interface_Protocol; num: Standard_Integer): handle[
-    Interface_Protocol] {.noSideEffect, importcpp: "Resource",
-                         header: "Interface_Protocol.hxx".}
-proc CaseNumber*(this: Interface_Protocol; obj: handle[Standard_Transient]): Standard_Integer {.
+proc resource*(this: InterfaceProtocol; num: int): Handle[InterfaceProtocol] {.
+    noSideEffect, importcpp: "Resource", header: "Interface_Protocol.hxx".}
+proc caseNumber*(this: InterfaceProtocol; obj: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNumber", header: "Interface_Protocol.hxx".}
-proc IsDynamicType*(this: Interface_Protocol; obj: handle[Standard_Transient]): Standard_Boolean {.
+proc isDynamicType*(this: InterfaceProtocol; obj: Handle[StandardTransient]): bool {.
     noSideEffect, importcpp: "IsDynamicType", header: "Interface_Protocol.hxx".}
-proc NbTypes*(this: Interface_Protocol; obj: handle[Standard_Transient]): Standard_Integer {.
+proc nbTypes*(this: InterfaceProtocol; obj: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "NbTypes", header: "Interface_Protocol.hxx".}
-proc Type*(this: Interface_Protocol; obj: handle[Standard_Transient];
-          nt: Standard_Integer = 1): handle[Standard_Type] {.noSideEffect,
-    importcpp: "Type", header: "Interface_Protocol.hxx".}
-proc TypeNumber*(this: Interface_Protocol; atype: handle[Standard_Type]): Standard_Integer {.
+proc `type`*(this: InterfaceProtocol; obj: Handle[StandardTransient]; nt: int = 1): Handle[
+    StandardType] {.noSideEffect, importcpp: "Type",
+                   header: "Interface_Protocol.hxx".}
+proc typeNumber*(this: InterfaceProtocol; atype: Handle[StandardType]): int {.
     noSideEffect, importcpp: "TypeNumber", header: "Interface_Protocol.hxx".}
-proc GlobalCheck*(this: Interface_Protocol; G: Interface_Graph;
-                 ach: var handle[Interface_Check]): Standard_Boolean {.noSideEffect,
+proc globalCheck*(this: InterfaceProtocol; g: InterfaceGraph;
+                 ach: var Handle[InterfaceCheck]): bool {.noSideEffect,
     importcpp: "GlobalCheck", header: "Interface_Protocol.hxx".}
-proc NewModel*(this: Interface_Protocol): handle[Interface_InterfaceModel] {.
+proc newModel*(this: InterfaceProtocol): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "NewModel", header: "Interface_Protocol.hxx".}
-proc IsSuitableModel*(this: Interface_Protocol;
-                     model: handle[Interface_InterfaceModel]): Standard_Boolean {.
-    noSideEffect, importcpp: "IsSuitableModel", header: "Interface_Protocol.hxx".}
-proc UnknownEntity*(this: Interface_Protocol): handle[Standard_Transient] {.
+proc isSuitableModel*(this: InterfaceProtocol;
+                     model: Handle[InterfaceInterfaceModel]): bool {.noSideEffect,
+    importcpp: "IsSuitableModel", header: "Interface_Protocol.hxx".}
+proc unknownEntity*(this: InterfaceProtocol): Handle[StandardTransient] {.
     noSideEffect, importcpp: "UnknownEntity", header: "Interface_Protocol.hxx".}
-proc IsUnknownEntity*(this: Interface_Protocol; ent: handle[Standard_Transient]): Standard_Boolean {.
+proc isUnknownEntity*(this: InterfaceProtocol; ent: Handle[StandardTransient]): bool {.
     noSideEffect, importcpp: "IsUnknownEntity", header: "Interface_Protocol.hxx".}
 type
-  Interface_Protocolbase_type* = Standard_Transient
+  InterfaceProtocolbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Interface_Protocol::get_type_name(@)",
-                              header: "Interface_Protocol.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Interface_Protocol::get_type_name(@)",
+                            header: "Interface_Protocol.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Interface_Protocol::get_type_descriptor(@)",
     header: "Interface_Protocol.hxx".}
-proc DynamicType*(this: Interface_Protocol): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: InterfaceProtocol): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_Protocol.hxx".}

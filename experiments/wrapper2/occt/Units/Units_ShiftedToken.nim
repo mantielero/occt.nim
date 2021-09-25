@@ -14,16 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  Units_Token, ../Standard/Standard_CString, ../Standard/Standard_Integer
-
 discard "forward decl of Units_Dimensions"
 discard "forward decl of Units_Token"
 discard "forward decl of Units_ShiftedToken"
 discard "forward decl of Units_ShiftedToken"
 type
-  Handle_Units_ShiftedToken* = handle[Units_ShiftedToken]
+  HandleUnitsShiftedToken* = Handle[UnitsShiftedToken]
 
 ## ! The  ShiftedToken class  inherits   from Token and
 ## ! describes tokens which have  a gap in  addition of
@@ -41,87 +37,86 @@ type
 ## ! and Fahrenheit degree of temperature.
 
 type
-  Units_ShiftedToken* {.importcpp: "Units_ShiftedToken",
-                       header: "Units_ShiftedToken.hxx", bycopy.} = object of Units_Token ##
-                                                                                   ## !
-                                                                                   ## Creates
-                                                                                   ## and
-                                                                                   ## returns
-                                                                                   ## a
-                                                                                   ## shifted
-                                                                                   ## token.
-                                                                                   ## <aword>
-                                                                                   ## is
-                                                                                   ## a
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## string
-                                                                                   ## containing
-                                                                                   ## the
-                                                                                   ## available
-                                                                                   ## word,
-                                                                                   ## <amean>
-                                                                                   ## gives
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## the
-                                                                                   ## signification
-                                                                                   ## of
-                                                                                   ## the
-                                                                                   ## token,
-                                                                                   ## <avalue>
-                                                                                   ## is
-                                                                                   ## the
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## numeric
-                                                                                   ## value
-                                                                                   ## of
-                                                                                   ## the
-                                                                                   ## dimension,
-                                                                                   ## <amove>
-                                                                                   ## is
-                                                                                   ## the
-                                                                                   ## gap,
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## and
-                                                                                   ## <adimensions>
-                                                                                   ## is
-                                                                                   ## the
-                                                                                   ## dimension
-                                                                                   ## of
-                                                                                   ## the
-                                                                                   ## given
-                                                                                   ## word
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## <aword>.
+  UnitsShiftedToken* {.importcpp: "Units_ShiftedToken",
+                      header: "Units_ShiftedToken.hxx", bycopy.} = object of UnitsToken ##
+                                                                                 ## !
+                                                                                 ## Creates
+                                                                                 ## and
+                                                                                 ## returns
+                                                                                 ## a
+                                                                                 ## shifted
+                                                                                 ## token.
+                                                                                 ## <aword>
+                                                                                 ## is
+                                                                                 ## a
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## string
+                                                                                 ## containing
+                                                                                 ## the
+                                                                                 ## available
+                                                                                 ## word,
+                                                                                 ## <amean>
+                                                                                 ## gives
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## the
+                                                                                 ## signification
+                                                                                 ## of
+                                                                                 ## the
+                                                                                 ## token,
+                                                                                 ## <avalue>
+                                                                                 ## is
+                                                                                 ## the
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## numeric
+                                                                                 ## value
+                                                                                 ## of
+                                                                                 ## the
+                                                                                 ## dimension,
+                                                                                 ## <amove>
+                                                                                 ## is
+                                                                                 ## the
+                                                                                 ## gap,
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## and
+                                                                                 ## <adimensions>
+                                                                                 ## is
+                                                                                 ## the
+                                                                                 ## dimension
+                                                                                 ## of
+                                                                                 ## the
+                                                                                 ## given
+                                                                                 ## word
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## <aword>.
 
 
-proc constructUnits_ShiftedToken*(aword: Standard_CString; amean: Standard_CString;
-                                 avalue: Standard_Real; amove: Standard_Real;
-                                 adimensions: handle[Units_Dimensions]): Units_ShiftedToken {.
+proc constructUnitsShiftedToken*(aword: StandardCString; amean: StandardCString;
+                                avalue: float; amove: float;
+                                adimensions: Handle[UnitsDimensions]): UnitsShiftedToken {.
     constructor, importcpp: "Units_ShiftedToken(@)",
     header: "Units_ShiftedToken.hxx".}
-proc Creates*(this: Units_ShiftedToken): handle[Units_Token] {.noSideEffect,
+proc creates*(this: UnitsShiftedToken): Handle[UnitsToken] {.noSideEffect,
     importcpp: "Creates", header: "Units_ShiftedToken.hxx".}
-proc Move*(this: Units_ShiftedToken): Standard_Real {.noSideEffect,
-    importcpp: "Move", header: "Units_ShiftedToken.hxx".}
-proc Multiplied*(this: Units_ShiftedToken; avalue: Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "Multiplied", header: "Units_ShiftedToken.hxx".}
-proc Divided*(this: Units_ShiftedToken; avalue: Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "Divided", header: "Units_ShiftedToken.hxx".}
-proc Dump*(this: Units_ShiftedToken; ashift: Standard_Integer;
-          alevel: Standard_Integer) {.noSideEffect, importcpp: "Dump",
-                                    header: "Units_ShiftedToken.hxx".}
+proc move*(this: UnitsShiftedToken): float {.noSideEffect, importcpp: "Move",
+    header: "Units_ShiftedToken.hxx".}
+proc multiplied*(this: UnitsShiftedToken; avalue: float): float {.noSideEffect,
+    importcpp: "Multiplied", header: "Units_ShiftedToken.hxx".}
+proc divided*(this: UnitsShiftedToken; avalue: float): float {.noSideEffect,
+    importcpp: "Divided", header: "Units_ShiftedToken.hxx".}
+proc dump*(this: UnitsShiftedToken; ashift: int; alevel: int) {.noSideEffect,
+    importcpp: "Dump", header: "Units_ShiftedToken.hxx".}
 type
-  Units_ShiftedTokenbase_type* = Units_Token
+  UnitsShiftedTokenbaseType* = UnitsToken
 
-proc get_type_name*(): cstring {.importcpp: "Units_ShiftedToken::get_type_name(@)",
-                              header: "Units_ShiftedToken.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Units_ShiftedToken::get_type_name(@)",
+                            header: "Units_ShiftedToken.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Units_ShiftedToken::get_type_descriptor(@)",
     header: "Units_ShiftedToken.hxx".}
-proc DynamicType*(this: Units_ShiftedToken): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: UnitsShiftedToken): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Units_ShiftedToken.hxx".}

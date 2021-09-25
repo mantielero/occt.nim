@@ -14,14 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Transfer_Binder,
-  ../Standard/Standard_Type, ../Standard/Standard_CString
-
 discard "forward decl of Transfer_VoidBinder"
 discard "forward decl of Transfer_VoidBinder"
 type
-  Handle_Transfer_VoidBinder* = handle[Transfer_VoidBinder]
+  HandleTransferVoidBinder* = Handle[TransferVoidBinder]
 
 ## ! a VoidBinder is used to bind a starting item with a status,
 ## ! error or warning messages, but no result
@@ -30,45 +26,45 @@ type
 ## ! new Binder
 
 type
-  Transfer_VoidBinder* {.importcpp: "Transfer_VoidBinder",
-                        header: "Transfer_VoidBinder.hxx", bycopy.} = object of Transfer_Binder ##
-                                                                                         ## !
-                                                                                         ## a
-                                                                                         ## VoidBinder
-                                                                                         ## is
-                                                                                         ## not
-                                                                                         ## Multiple
-                                                                                         ## (Remark
-                                                                                         ## :
-                                                                                         ## it
-                                                                                         ## is
-                                                                                         ## not
-                                                                                         ## Simple
-                                                                                         ## too)
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## But
-                                                                                         ## it
-                                                                                         ## can
-                                                                                         ## bring
-                                                                                         ## next
-                                                                                         ## results
-                                                                                         ## ...
+  TransferVoidBinder* {.importcpp: "Transfer_VoidBinder",
+                       header: "Transfer_VoidBinder.hxx", bycopy.} = object of TransferBinder ##
+                                                                                       ## !
+                                                                                       ## a
+                                                                                       ## VoidBinder
+                                                                                       ## is
+                                                                                       ## not
+                                                                                       ## Multiple
+                                                                                       ## (Remark
+                                                                                       ## :
+                                                                                       ## it
+                                                                                       ## is
+                                                                                       ## not
+                                                                                       ## Simple
+                                                                                       ## too)
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## But
+                                                                                       ## it
+                                                                                       ## can
+                                                                                       ## bring
+                                                                                       ## next
+                                                                                       ## results
+                                                                                       ## ...
 
 
-proc constructTransfer_VoidBinder*(): Transfer_VoidBinder {.constructor,
+proc constructTransferVoidBinder*(): TransferVoidBinder {.constructor,
     importcpp: "Transfer_VoidBinder(@)", header: "Transfer_VoidBinder.hxx".}
-proc ResultType*(this: Transfer_VoidBinder): handle[Standard_Type] {.noSideEffect,
+proc resultType*(this: TransferVoidBinder): Handle[StandardType] {.noSideEffect,
     importcpp: "ResultType", header: "Transfer_VoidBinder.hxx".}
-proc ResultTypeName*(this: Transfer_VoidBinder): Standard_CString {.noSideEffect,
+proc resultTypeName*(this: TransferVoidBinder): StandardCString {.noSideEffect,
     importcpp: "ResultTypeName", header: "Transfer_VoidBinder.hxx".}
 type
-  Transfer_VoidBinderbase_type* = Transfer_Binder
+  TransferVoidBinderbaseType* = TransferBinder
 
-proc get_type_name*(): cstring {.importcpp: "Transfer_VoidBinder::get_type_name(@)",
-                              header: "Transfer_VoidBinder.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Transfer_VoidBinder::get_type_name(@)",
+                            header: "Transfer_VoidBinder.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_VoidBinder::get_type_descriptor(@)",
     header: "Transfer_VoidBinder.hxx".}
-proc DynamicType*(this: Transfer_VoidBinder): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TransferVoidBinder): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Transfer_VoidBinder.hxx".}

@@ -14,38 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, StepAP214_ApprovalItem,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepAP214_AppliedOrganizationAssignment"
 discard "forward decl of StepAP214_AppliedSecurityClassificationAssignment"
 discard "forward decl of StepBasic_Approval"
 type
-  StepAP214_PersonAndOrganizationItem* {.importcpp: "StepAP214_PersonAndOrganizationItem", header: "StepAP214_PersonAndOrganizationItem.hxx",
-                                        bycopy.} = object of StepAP214_ApprovalItem ## !
-                                                                               ## Returns a
-                                                                               ## PersonAndOrganizationItem
-                                                                               ## SelectType
+  StepAP214PersonAndOrganizationItem* {.importcpp: "StepAP214_PersonAndOrganizationItem", header: "StepAP214_PersonAndOrganizationItem.hxx",
+                                       bycopy.} = object of StepAP214ApprovalItem ## !
+                                                                             ## Returns a
+                                                                             ## PersonAndOrganizationItem
+                                                                             ## SelectType
 
 
-proc constructStepAP214_PersonAndOrganizationItem*(): StepAP214_PersonAndOrganizationItem {.
+proc constructStepAP214PersonAndOrganizationItem*(): StepAP214PersonAndOrganizationItem {.
     constructor, importcpp: "StepAP214_PersonAndOrganizationItem(@)",
     header: "StepAP214_PersonAndOrganizationItem.hxx".}
-proc CaseNum*(this: StepAP214_PersonAndOrganizationItem;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepAP214PersonAndOrganizationItem;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_PersonAndOrganizationItem.hxx".}
-proc AppliedOrganizationAssignment*(this: StepAP214_PersonAndOrganizationItem): handle[
-    StepAP214_AppliedOrganizationAssignment] {.noSideEffect,
+proc appliedOrganizationAssignment*(this: StepAP214PersonAndOrganizationItem): Handle[
+    StepAP214AppliedOrganizationAssignment] {.noSideEffect,
     importcpp: "AppliedOrganizationAssignment",
     header: "StepAP214_PersonAndOrganizationItem.hxx".}
-proc AppliedSecurityClassificationAssignment*(
-    this: StepAP214_PersonAndOrganizationItem): handle[
-    StepAP214_AppliedSecurityClassificationAssignment] {.noSideEffect,
+proc appliedSecurityClassificationAssignment*(
+    this: StepAP214PersonAndOrganizationItem): Handle[
+    StepAP214AppliedSecurityClassificationAssignment] {.noSideEffect,
     importcpp: "AppliedSecurityClassificationAssignment",
     header: "StepAP214_PersonAndOrganizationItem.hxx".}
-proc Approval*(this: StepAP214_PersonAndOrganizationItem): handle[
-    StepBasic_Approval] {.noSideEffect, importcpp: "Approval",
-                         header: "StepAP214_PersonAndOrganizationItem.hxx".}
+proc approval*(this: StepAP214PersonAndOrganizationItem): Handle[StepBasicApproval] {.
+    noSideEffect, importcpp: "Approval",
+    header: "StepAP214_PersonAndOrganizationItem.hxx".}

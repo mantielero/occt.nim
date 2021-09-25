@@ -17,7 +17,8 @@
 ## ! Determines the axis type through the coordinates X, Y, Z.
 
 type
-  V3d_TypeOfAxe* {.size: sizeof(cint), importcpp: "V3d_TypeOfAxe",
-                  header: "V3d_TypeOfAxe.hxx".} = enum
-    V3d_X, V3d_Y, V3d_Z
+  V3dTypeOfAxe* {.size: sizeof(cint), importcpp: "V3d_TypeOfAxe",
+                 header: "V3d_TypeOfAxe.hxx".} = enum
+    V3dX, V3dY, V3dZ
+
 

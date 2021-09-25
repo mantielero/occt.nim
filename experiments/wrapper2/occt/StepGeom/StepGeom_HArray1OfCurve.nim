@@ -14,37 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepGeom_Curve, StepGeom_Array1OfCurve, ../NCollection/NCollection_DefineHArray1
-
 type
-  StepGeom_HArray1OfCurve* {.importcpp: "StepGeom_HArray1OfCurve",
-                            header: "StepGeom_HArray1OfCurve.hxx", bycopy.} = object of StepGeom_Array1OfCurve
+  StepGeomHArray1OfCurve* {.importcpp: "StepGeom_HArray1OfCurve",
+                           header: "StepGeom_HArray1OfCurve.hxx", bycopy.} = object of StepGeomArray1OfCurve
 
 
-proc constructStepGeom_HArray1OfCurve*(theLower: Standard_Integer;
-                                      theUpper: Standard_Integer): StepGeom_HArray1OfCurve {.
+proc constructStepGeomHArray1OfCurve*(theLower: int; theUpper: int): StepGeomHArray1OfCurve {.
     constructor, importcpp: "StepGeom_HArray1OfCurve(@)",
     header: "StepGeom_HArray1OfCurve.hxx".}
-proc constructStepGeom_HArray1OfCurve*(theLower: Standard_Integer;
-                                      theUpper: Standard_Integer;
-                                      theValue: value_type): StepGeom_HArray1OfCurve {.
+proc constructStepGeomHArray1OfCurve*(theLower: int; theUpper: int;
+                                     theValue: ValueType): StepGeomHArray1OfCurve {.
     constructor, importcpp: "StepGeom_HArray1OfCurve(@)",
     header: "StepGeom_HArray1OfCurve.hxx".}
-proc constructStepGeom_HArray1OfCurve*(theOther: StepGeom_Array1OfCurve): StepGeom_HArray1OfCurve {.
+proc constructStepGeomHArray1OfCurve*(theOther: StepGeomArray1OfCurve): StepGeomHArray1OfCurve {.
     constructor, importcpp: "StepGeom_HArray1OfCurve(@)",
     header: "StepGeom_HArray1OfCurve.hxx".}
-proc Array1*(this: StepGeom_HArray1OfCurve): StepGeom_Array1OfCurve {.noSideEffect,
+proc array1*(this: StepGeomHArray1OfCurve): StepGeomArray1OfCurve {.noSideEffect,
     importcpp: "Array1", header: "StepGeom_HArray1OfCurve.hxx".}
-proc ChangeArray1*(this: var StepGeom_HArray1OfCurve): var StepGeom_Array1OfCurve {.
+proc changeArray1*(this: var StepGeomHArray1OfCurve): var StepGeomArray1OfCurve {.
     importcpp: "ChangeArray1", header: "StepGeom_HArray1OfCurve.hxx".}
 type
-  StepGeom_HArray1OfCurvebase_type* = MMgt_TShared
+  StepGeomHArray1OfCurvebaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_HArray1OfCurve::get_type_name(@)",
-                              header: "StepGeom_HArray1OfCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_HArray1OfCurve::get_type_name(@)",
+                            header: "StepGeom_HArray1OfCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_HArray1OfCurve::get_type_descriptor(@)",
     header: "StepGeom_HArray1OfCurve.hxx".}
-proc DynamicType*(this: StepGeom_HArray1OfCurve): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomHArray1OfCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_HArray1OfCurve.hxx".}

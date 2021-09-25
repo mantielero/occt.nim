@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Draw/Draw_Color, DrawTrSurf_Curve2d, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real
-
 discard "forward decl of Geom2d_BezierCurve"
 discard "forward decl of Draw_Color"
 discard "forward decl of Draw_Display"
@@ -26,58 +21,56 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DrawTrSurf_BezierCurve2d"
 discard "forward decl of DrawTrSurf_BezierCurve2d"
 type
-  Handle_DrawTrSurf_BezierCurve2d* = handle[DrawTrSurf_BezierCurve2d]
-  DrawTrSurf_BezierCurve2d* {.importcpp: "DrawTrSurf_BezierCurve2d",
-                             header: "DrawTrSurf_BezierCurve2d.hxx", bycopy.} = object of DrawTrSurf_Curve2d ##
-                                                                                                      ## !
-                                                                                                      ## creates
-                                                                                                      ## a
-                                                                                                      ## drawable
-                                                                                                      ## Bezier
-                                                                                                      ## curve
-                                                                                                      ## from
-                                                                                                      ## a
-                                                                                                      ## Bezier
-                                                                                                      ## curve
-                                                                                                      ## of
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## package
-                                                                                                      ## Geom2d.
+  HandleDrawTrSurfBezierCurve2d* = Handle[DrawTrSurfBezierCurve2d]
+  DrawTrSurfBezierCurve2d* {.importcpp: "DrawTrSurf_BezierCurve2d",
+                            header: "DrawTrSurf_BezierCurve2d.hxx", bycopy.} = object of DrawTrSurfCurve2d ##
+                                                                                                    ## !
+                                                                                                    ## creates
+                                                                                                    ## a
+                                                                                                    ## drawable
+                                                                                                    ## Bezier
+                                                                                                    ## curve
+                                                                                                    ## from
+                                                                                                    ## a
+                                                                                                    ## Bezier
+                                                                                                    ## curve
+                                                                                                    ## of
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## package
+                                                                                                    ## Geom2d.
 
 
-proc constructDrawTrSurf_BezierCurve2d*(C: handle[Geom2d_BezierCurve]): DrawTrSurf_BezierCurve2d {.
+proc constructDrawTrSurfBezierCurve2d*(c: Handle[Geom2dBezierCurve]): DrawTrSurfBezierCurve2d {.
     constructor, importcpp: "DrawTrSurf_BezierCurve2d(@)",
     header: "DrawTrSurf_BezierCurve2d.hxx".}
-proc constructDrawTrSurf_BezierCurve2d*(C: handle[Geom2d_BezierCurve];
-                                       CurvColor: Draw_Color;
-                                       PolesColor: Draw_Color;
-                                       ShowPoles: Standard_Boolean;
-                                       Discret: Standard_Integer): DrawTrSurf_BezierCurve2d {.
+proc constructDrawTrSurfBezierCurve2d*(c: Handle[Geom2dBezierCurve];
+                                      curvColor: DrawColor; polesColor: DrawColor;
+                                      showPoles: bool; discret: int): DrawTrSurfBezierCurve2d {.
     constructor, importcpp: "DrawTrSurf_BezierCurve2d(@)",
     header: "DrawTrSurf_BezierCurve2d.hxx".}
-proc DrawOn*(this: DrawTrSurf_BezierCurve2d; dis: var Draw_Display) {.noSideEffect,
+proc drawOn*(this: DrawTrSurfBezierCurve2d; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "DrawTrSurf_BezierCurve2d.hxx".}
-proc ShowPoles*(this: var DrawTrSurf_BezierCurve2d) {.importcpp: "ShowPoles",
+proc showPoles*(this: var DrawTrSurfBezierCurve2d) {.importcpp: "ShowPoles",
     header: "DrawTrSurf_BezierCurve2d.hxx".}
-proc ClearPoles*(this: var DrawTrSurf_BezierCurve2d) {.importcpp: "ClearPoles",
+proc clearPoles*(this: var DrawTrSurfBezierCurve2d) {.importcpp: "ClearPoles",
     header: "DrawTrSurf_BezierCurve2d.hxx".}
-proc FindPole*(this: DrawTrSurf_BezierCurve2d; X: Standard_Real; Y: Standard_Real;
-              D: Draw_Display; Prec: Standard_Real; Index: var Standard_Integer) {.
-    noSideEffect, importcpp: "FindPole", header: "DrawTrSurf_BezierCurve2d.hxx".}
-proc SetPolesColor*(this: var DrawTrSurf_BezierCurve2d; aColor: Draw_Color) {.
+proc findPole*(this: DrawTrSurfBezierCurve2d; x: float; y: float; d: DrawDisplay;
+              prec: float; index: var int) {.noSideEffect, importcpp: "FindPole",
+                                        header: "DrawTrSurf_BezierCurve2d.hxx".}
+proc setPolesColor*(this: var DrawTrSurfBezierCurve2d; aColor: DrawColor) {.
     importcpp: "SetPolesColor", header: "DrawTrSurf_BezierCurve2d.hxx".}
-proc PolesColor*(this: DrawTrSurf_BezierCurve2d): Draw_Color {.noSideEffect,
+proc polesColor*(this: DrawTrSurfBezierCurve2d): DrawColor {.noSideEffect,
     importcpp: "PolesColor", header: "DrawTrSurf_BezierCurve2d.hxx".}
-proc Copy*(this: DrawTrSurf_BezierCurve2d): handle[Draw_Drawable3D] {.noSideEffect,
+proc copy*(this: DrawTrSurfBezierCurve2d): Handle[DrawDrawable3D] {.noSideEffect,
     importcpp: "Copy", header: "DrawTrSurf_BezierCurve2d.hxx".}
 type
-  DrawTrSurf_BezierCurve2dbase_type* = DrawTrSurf_Curve2d
+  DrawTrSurfBezierCurve2dbaseType* = DrawTrSurfCurve2d
 
-proc get_type_name*(): cstring {.importcpp: "DrawTrSurf_BezierCurve2d::get_type_name(@)",
-                              header: "DrawTrSurf_BezierCurve2d.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "DrawTrSurf_BezierCurve2d::get_type_name(@)",
+                            header: "DrawTrSurf_BezierCurve2d.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "DrawTrSurf_BezierCurve2d::get_type_descriptor(@)",
     header: "DrawTrSurf_BezierCurve2d.hxx".}
-proc DynamicType*(this: DrawTrSurf_BezierCurve2d): handle[Standard_Type] {.
+proc dynamicType*(this: DrawTrSurfBezierCurve2d): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "DrawTrSurf_BezierCurve2d.hxx".}

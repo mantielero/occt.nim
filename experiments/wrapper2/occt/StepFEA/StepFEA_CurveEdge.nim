@@ -16,3 +16,4 @@ type
                       header: "StepFEA_CurveEdge.hxx".} = enum
     StepFEA_ElementEdge
 
+

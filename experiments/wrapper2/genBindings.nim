@@ -9,9 +9,9 @@ const
   newHeadersDir = "headers"
 
 # 0. Create folder with modified headers
-#var groups = newSeq[seq[string]]()
-#var old = ""
-#var group = newSeq[string]()
+# The reason is that this `include <whatever>` is not considered by `c2nim`
+# so this piece of code replace "<" and ">" with '"'.
+#[
 createDir(newHeadersDir)
 for i in walkFiles(lib & "*.hxx"):
   let (dir, name, ext) = i.splitFile()
@@ -38,6 +38,7 @@ for j in walkFiles(newHeadersDir / "*.hxx"):
 
     txt &= newLine & "\n"
   j.writeFile txt
+  ]#
 
   # Parse includes
 
@@ -57,7 +58,8 @@ for j in walkFiles(newHeadersDir / "*.hxx"):
 var groups = newSeq[seq[string]]()
 var old = ""
 var group = newSeq[string]()
-for i in walkFiles(newHeadersDir / "*.hxx"):
+#for i in walkFiles(newHeadersDir / "*.hxx"):
+for i in walkFiles(lib / "*.hxx"):
   let (dir, name, ext) = i.splitFile()
   let nameBase = name.split("_")
   #echo nameBase
@@ -71,30 +73,44 @@ groups &= group
 
 #echo groups
 # 2. Process the files
-var cfgFiles = newSeq[string]()
 for group in groups:
+
 #for i in 0..<3:#groups.len:
 #  let group = groups[i]
+  var baseName = ""
+  var includeFiles = newSeq[string]()  
   if group.len > 0:
     let (dir, name, ext) = group[0].splitFile()
     var base = name.split("_")[0]
+    baseName = base
     var outDir = &"{dest}/{base}"
     createDir(outDir)
     
     for file in group:
       let (dir, name, ext) = file.splitFile()
-      let data = &"c2nim --cpp --header --out:{outDir}/{name}.nim {c2nimFile} {file}"
+      let data = &"c2nim --cpp --nep1 --header --out:{outDir}/{name}.nim {c2nimFile} {file}"
       # --nep1
       echo data
       let result = execCmdEx(data)
+      includeFiles &= name
     
-    
+    # Create files such as: occt/gp/gp_includes.nim
+    var data = &"""{{.passC:"-I{lib}" .}}
+{{.experimental: "codeReordering".}}
+{{.experimental: "callOperator".}}
+
+"""
+    for file in includeFiles:
+      data &= &"include {file}\n"
+    writeFile(&"occt/{baseName}/{baseName}_includes.nim", data)
+
     # var includes = ""
     # for file in group:
     #   includes &= file & " "
     # let data = &"c2nim --cpp --header --concat --out:{outDir}/{base}.nim {c2nimFile} {includes}"
     # echo data
     # let result = execCmdEx(data)
+  
     
 
 
@@ -150,12 +166,13 @@ let
     prefix: @["BSplCLib", "BSplSLib", "BVH", "Bnd", "CSLib", "Convert",
               "ElCLib", "ElSLib", "Expr", "ExprIntrp", "GeomAbs", "PLib",
               "Poly", "Precision", "TColgp", "TopLoc", "gp", "math"],
-    header: &"""#{{.experimental: "codeReordering".}}
+    header: &"""{{.passL: "-lTKMath".}}
+{{.passC:"-I{lib}" .}}
+
+#{{.experimental: "codeReordering".}}
 #{{.experimental: "callOperator".}}
 
-{{.passL: "-lTKMath".}}
 
-{{.passC:"-I{lib}" .}}
 import tKernel
 
 """
@@ -291,6 +308,26 @@ proc globCommentWhens(glb:string) =
     fname.commentWhens
 
 
+"occt/gp/gp_includes.nim".append(3, """
+# TODO: what would be better
+type
+  StandardOStream* = object
+  StandardSStream* = object
+  NCollectionMat4*[T] = object
+  TColStdArray1OfReal* = object
+  NCollectionLerp*[T] = object    
+  """)
+"occt/gp/gp_QuaternionSLerp.nim".comment(31,3)
+#"occt/gp/gp_Vec.nim".comment(31,3)
+"occt/gp/gp_VectorWithNullMagnitude.nim".comment(21,3)  # Hay que importar el Handle
+
+"occt/GC/GC_Root.nim".fileReplace("  GC_Root* {.importcpp: \"GC_Root\", header: \"GC_Root.hxx\", bycopy.} = object",
+    "  GC_Root* {.importcpp: \"GC_Root\", header: \"GC_Root.hxx\", bycopy.} = object of RootObj")
+"occt/GC/GC_includes.nim".append(4, """
+import ../gp/gp_includes
+""")
+#----------------------------------------------
+
 "occt/AdvApp2Var/AdvApp2Var_Data_f2c.nim".comment("when not defined(Skip_f2c_Undefs):")
 "occt/ApproxInt/ApproxInt_KnotTools.nim".comment(14, 12)
 
@@ -315,12 +352,12 @@ proc globCommentWhens(glb:string) =
 "occt/IVtkDraw/IVtkDraw_Interactor.nim".comment(18, 2)
 "occt/IVtkTools/IVtkTools_DisplayModeFilter.nim".comment("when defined(_MSC_VER):")
 "occt/IVtkTools/IVtkTools_DisplayModeFilter.nim".comment( 74, 2 )
-"occt/IVtkTools/IVtkTools_ShapeDataSource.nim".comment("when defined(_MSC_VER):")
-"occt/IVtkTools/IVtkTools_ShapeDataSource.nim".comment( 249, 2 )
-"occt/IVtkTools/IVtkTools_ShapeObject.nim".comment("when defined(_MSC_VER):")
-"occt/IVtkTools/IVtkTools_ShapeObject.nim".comment( 65, 2 )
-"occt/IVtkTools/IVtkTools_ShapePicker.nim".comment("when defined(_MSC_VER):")
-"occt/IVtkTools/IVtkTools_ShapePicker.nim".comment( 103, 2 )
+#"occt/IVtkTools/IVtkTools_ShapeDataSource.nim".comment("when defined(_MSC_VER):")
+#"occt/IVtkTools/IVtkTools_ShapeDataSource.nim".comment( 249, 2 )
+#"occt/IVtkTools/IVtkTools_ShapeObject.nim".comment("when defined(_MSC_VER):")
+#"occt/IVtkTools/IVtkTools_ShapeObject.nim".comment( 65, 2 )
+#"occt/IVtkTools/IVtkTools_ShapePicker.nim".comment("when defined(_MSC_VER):")
+#"occt/IVtkTools/IVtkTools_ShapePicker.nim".comment( 103, 2 )
 "occt/IVtkTools/IVtkTools_SubPolyDataFilter.nim".comment("when defined(_MSC_VER):")
 "occt/IVtkTools/IVtkTools_SubPolyDataFilter.nim".comment( 81, 2 )
 "occt/IVtk/IVtk_Types.nim".comment( 16, 6 )

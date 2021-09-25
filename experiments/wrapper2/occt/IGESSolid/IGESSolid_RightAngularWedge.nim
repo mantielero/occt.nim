@@ -14,67 +14,63 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_XYZ,
-  ../Standard/Standard_Real, ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of gp_XYZ"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
 discard "forward decl of IGESSolid_RightAngularWedge"
 discard "forward decl of IGESSolid_RightAngularWedge"
 type
-  Handle_IGESSolid_RightAngularWedge* = handle[IGESSolid_RightAngularWedge]
+  HandleIGESSolidRightAngularWedge* = Handle[IGESSolidRightAngularWedge]
 
 ## ! defines RightAngularWedge, Type <152> Form Number <0>
 ## ! in package IGESSolid
 ## ! A right angular wedge is a triangular/trapezoidal prism
 
 type
-  IGESSolid_RightAngularWedge* {.importcpp: "IGESSolid_RightAngularWedge",
-                                header: "IGESSolid_RightAngularWedge.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESSolidRightAngularWedge* {.importcpp: "IGESSolid_RightAngularWedge",
+                               header: "IGESSolid_RightAngularWedge.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESSolid_RightAngularWedge*(): IGESSolid_RightAngularWedge {.
+proc constructIGESSolidRightAngularWedge*(): IGESSolidRightAngularWedge {.
     constructor, importcpp: "IGESSolid_RightAngularWedge(@)",
     header: "IGESSolid_RightAngularWedge.hxx".}
-proc Init*(this: var IGESSolid_RightAngularWedge; aSize: gp_XYZ; lowX: Standard_Real;
-          aCorner: gp_XYZ; anXAxis: gp_XYZ; anZAxis: gp_XYZ) {.importcpp: "Init",
+proc init*(this: var IGESSolidRightAngularWedge; aSize: Xyz; lowX: float; aCorner: Xyz;
+          anXAxis: Xyz; anZAxis: Xyz) {.importcpp: "Init",
+                                    header: "IGESSolid_RightAngularWedge.hxx".}
+proc size*(this: IGESSolidRightAngularWedge): Xyz {.noSideEffect, importcpp: "Size",
     header: "IGESSolid_RightAngularWedge.hxx".}
-proc Size*(this: IGESSolid_RightAngularWedge): gp_XYZ {.noSideEffect,
-    importcpp: "Size", header: "IGESSolid_RightAngularWedge.hxx".}
-proc XBigLength*(this: IGESSolid_RightAngularWedge): Standard_Real {.noSideEffect,
+proc xBigLength*(this: IGESSolidRightAngularWedge): float {.noSideEffect,
     importcpp: "XBigLength", header: "IGESSolid_RightAngularWedge.hxx".}
-proc XSmallLength*(this: IGESSolid_RightAngularWedge): Standard_Real {.noSideEffect,
+proc xSmallLength*(this: IGESSolidRightAngularWedge): float {.noSideEffect,
     importcpp: "XSmallLength", header: "IGESSolid_RightAngularWedge.hxx".}
-proc YLength*(this: IGESSolid_RightAngularWedge): Standard_Real {.noSideEffect,
+proc yLength*(this: IGESSolidRightAngularWedge): float {.noSideEffect,
     importcpp: "YLength", header: "IGESSolid_RightAngularWedge.hxx".}
-proc ZLength*(this: IGESSolid_RightAngularWedge): Standard_Real {.noSideEffect,
+proc zLength*(this: IGESSolidRightAngularWedge): float {.noSideEffect,
     importcpp: "ZLength", header: "IGESSolid_RightAngularWedge.hxx".}
-proc Corner*(this: IGESSolid_RightAngularWedge): gp_Pnt {.noSideEffect,
+proc corner*(this: IGESSolidRightAngularWedge): Pnt {.noSideEffect,
     importcpp: "Corner", header: "IGESSolid_RightAngularWedge.hxx".}
-proc TransformedCorner*(this: IGESSolid_RightAngularWedge): gp_Pnt {.noSideEffect,
+proc transformedCorner*(this: IGESSolidRightAngularWedge): Pnt {.noSideEffect,
     importcpp: "TransformedCorner", header: "IGESSolid_RightAngularWedge.hxx".}
-proc XAxis*(this: IGESSolid_RightAngularWedge): gp_Dir {.noSideEffect,
+proc xAxis*(this: IGESSolidRightAngularWedge): Dir {.noSideEffect,
     importcpp: "XAxis", header: "IGESSolid_RightAngularWedge.hxx".}
-proc TransformedXAxis*(this: IGESSolid_RightAngularWedge): gp_Dir {.noSideEffect,
+proc transformedXAxis*(this: IGESSolidRightAngularWedge): Dir {.noSideEffect,
     importcpp: "TransformedXAxis", header: "IGESSolid_RightAngularWedge.hxx".}
-proc YAxis*(this: IGESSolid_RightAngularWedge): gp_Dir {.noSideEffect,
+proc yAxis*(this: IGESSolidRightAngularWedge): Dir {.noSideEffect,
     importcpp: "YAxis", header: "IGESSolid_RightAngularWedge.hxx".}
-proc TransformedYAxis*(this: IGESSolid_RightAngularWedge): gp_Dir {.noSideEffect,
+proc transformedYAxis*(this: IGESSolidRightAngularWedge): Dir {.noSideEffect,
     importcpp: "TransformedYAxis", header: "IGESSolid_RightAngularWedge.hxx".}
-proc ZAxis*(this: IGESSolid_RightAngularWedge): gp_Dir {.noSideEffect,
+proc zAxis*(this: IGESSolidRightAngularWedge): Dir {.noSideEffect,
     importcpp: "ZAxis", header: "IGESSolid_RightAngularWedge.hxx".}
-proc TransformedZAxis*(this: IGESSolid_RightAngularWedge): gp_Dir {.noSideEffect,
+proc transformedZAxis*(this: IGESSolidRightAngularWedge): Dir {.noSideEffect,
     importcpp: "TransformedZAxis", header: "IGESSolid_RightAngularWedge.hxx".}
 type
-  IGESSolid_RightAngularWedgebase_type* = IGESData_IGESEntity
+  IGESSolidRightAngularWedgebaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESSolid_RightAngularWedge::get_type_name(@)",
-                              header: "IGESSolid_RightAngularWedge.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSolid_RightAngularWedge::get_type_name(@)",
+                            header: "IGESSolid_RightAngularWedge.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSolid_RightAngularWedge::get_type_descriptor(@)",
     header: "IGESSolid_RightAngularWedge.hxx".}
-proc DynamicType*(this: IGESSolid_RightAngularWedge): handle[Standard_Type] {.
+proc dynamicType*(this: IGESSolidRightAngularWedge): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSolid_RightAngularWedge.hxx".}

@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Draw/Draw_Color,
-  ../DBRep/DBRep_DrawableShape, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer, ../Standard/Standard_CString
-
 discard "forward decl of Draw_Text3D"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Draw_Color"
@@ -26,32 +21,31 @@ discard "forward decl of Draw_Display"
 discard "forward decl of BOPTest_DrawableShape"
 discard "forward decl of BOPTest_DrawableShape"
 type
-  Handle_BOPTest_DrawableShape* = handle[BOPTest_DrawableShape]
-  BOPTest_DrawableShape* {.importcpp: "BOPTest_DrawableShape",
-                          header: "BOPTest_DrawableShape.hxx", bycopy.} = object of DBRep_DrawableShape
+  HandleBOPTestDrawableShape* = Handle[BOPTestDrawableShape]
+  BOPTestDrawableShape* {.importcpp: "BOPTest_DrawableShape",
+                         header: "BOPTest_DrawableShape.hxx", bycopy.} = object of DBRepDrawableShape
 
 
-proc constructBOPTest_DrawableShape*(S: TopoDS_Shape; FreeCol: Draw_Color;
-                                    ConnCol: Draw_Color; EdgeCol: Draw_Color;
-                                    IsosCol: Draw_Color; size: Standard_Real;
-                                    nbisos: Standard_Integer;
-                                    discret: Standard_Integer;
-                                    Text: Standard_CString; TextColor: Draw_Color): BOPTest_DrawableShape {.
+proc constructBOPTestDrawableShape*(s: TopoDS_Shape; freeCol: DrawColor;
+                                   connCol: DrawColor; edgeCol: DrawColor;
+                                   isosCol: DrawColor; size: float; nbisos: int;
+                                   discret: int; text: StandardCString;
+                                   textColor: DrawColor): BOPTestDrawableShape {.
     constructor, importcpp: "BOPTest_DrawableShape(@)",
     header: "BOPTest_DrawableShape.hxx".}
-proc constructBOPTest_DrawableShape*(S: TopoDS_Shape; Text: Standard_CString;
-                                    TextColor: Draw_Color): BOPTest_DrawableShape {.
+proc constructBOPTestDrawableShape*(s: TopoDS_Shape; text: StandardCString;
+                                   textColor: DrawColor): BOPTestDrawableShape {.
     constructor, importcpp: "BOPTest_DrawableShape(@)",
     header: "BOPTest_DrawableShape.hxx".}
-proc DrawOn*(this: BOPTest_DrawableShape; dis: var Draw_Display) {.noSideEffect,
+proc drawOn*(this: BOPTestDrawableShape; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "BOPTest_DrawableShape.hxx".}
 type
-  BOPTest_DrawableShapebase_type* = DBRep_DrawableShape
+  BOPTestDrawableShapebaseType* = DBRepDrawableShape
 
-proc get_type_name*(): cstring {.importcpp: "BOPTest_DrawableShape::get_type_name(@)",
-                              header: "BOPTest_DrawableShape.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BOPTest_DrawableShape::get_type_name(@)",
+                            header: "BOPTest_DrawableShape.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BOPTest_DrawableShape::get_type_descriptor(@)",
     header: "BOPTest_DrawableShape.hxx".}
-proc DynamicType*(this: BOPTest_DrawableShape): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "BOPTest_DrawableShape.hxx".}
+proc dynamicType*(this: BOPTestDrawableShape): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "BOPTest_DrawableShape.hxx".}

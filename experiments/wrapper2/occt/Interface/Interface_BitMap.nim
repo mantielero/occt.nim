@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_HArray1OfInteger, ../TColStd/TColStd_HSequenceOfAsciiString,
-  ../Standard/Standard_Boolean, ../Standard/Standard_CString
-
 ## ! A bit map simply allows to associate a boolean flag to each
 ## ! item of a list, such as a list of entities, etc... numbered
 ## ! between 1 and a positive count nbitems
@@ -34,64 +28,54 @@ import
 ## ! (flag n0 0 has no name)
 
 type
-  Interface_BitMap* {.importcpp: "Interface_BitMap",
-                     header: "Interface_BitMap.hxx", bycopy.} = object ## ! Creates a empty BitMap
+  InterfaceBitMap* {.importcpp: "Interface_BitMap", header: "Interface_BitMap.hxx",
+                    bycopy.} = object ## ! Creates a empty BitMap
 
 
-proc constructInterface_BitMap*(): Interface_BitMap {.constructor,
+proc constructInterfaceBitMap*(): InterfaceBitMap {.constructor,
     importcpp: "Interface_BitMap(@)", header: "Interface_BitMap.hxx".}
-proc constructInterface_BitMap*(nbitems: Standard_Integer;
-                               resflags: Standard_Integer = 0): Interface_BitMap {.
+proc constructInterfaceBitMap*(nbitems: int; resflags: int = 0): InterfaceBitMap {.
     constructor, importcpp: "Interface_BitMap(@)", header: "Interface_BitMap.hxx".}
-proc Initialize*(this: var Interface_BitMap; nbitems: Standard_Integer;
-                resflags: Standard_Integer = 0) {.importcpp: "Initialize",
-    header: "Interface_BitMap.hxx".}
-proc constructInterface_BitMap*(other: Interface_BitMap;
-                               copied: Standard_Boolean = Standard_False): Interface_BitMap {.
-    constructor, importcpp: "Interface_BitMap(@)", header: "Interface_BitMap.hxx".}
-proc Initialize*(this: var Interface_BitMap; other: Interface_BitMap;
-                copied: Standard_Boolean = Standard_False) {.
+proc initialize*(this: var InterfaceBitMap; nbitems: int; resflags: int = 0) {.
     importcpp: "Initialize", header: "Interface_BitMap.hxx".}
-proc Reservate*(this: var Interface_BitMap; moreflags: Standard_Integer) {.
-    importcpp: "Reservate", header: "Interface_BitMap.hxx".}
-proc SetLength*(this: var Interface_BitMap; nbitems: Standard_Integer) {.
-    importcpp: "SetLength", header: "Interface_BitMap.hxx".}
-proc AddFlag*(this: var Interface_BitMap; name: Standard_CString = ""): Standard_Integer {.
+proc constructInterfaceBitMap*(other: InterfaceBitMap; copied: bool = false): InterfaceBitMap {.
+    constructor, importcpp: "Interface_BitMap(@)", header: "Interface_BitMap.hxx".}
+proc initialize*(this: var InterfaceBitMap; other: InterfaceBitMap;
+                copied: bool = false) {.importcpp: "Initialize",
+                                    header: "Interface_BitMap.hxx".}
+proc reservate*(this: var InterfaceBitMap; moreflags: int) {.importcpp: "Reservate",
+    header: "Interface_BitMap.hxx".}
+proc setLength*(this: var InterfaceBitMap; nbitems: int) {.importcpp: "SetLength",
+    header: "Interface_BitMap.hxx".}
+proc addFlag*(this: var InterfaceBitMap; name: StandardCString = ""): int {.
     importcpp: "AddFlag", header: "Interface_BitMap.hxx".}
-proc AddSomeFlags*(this: var Interface_BitMap; more: Standard_Integer): Standard_Integer {.
+proc addSomeFlags*(this: var InterfaceBitMap; more: int): int {.
     importcpp: "AddSomeFlags", header: "Interface_BitMap.hxx".}
-proc RemoveFlag*(this: var Interface_BitMap; num: Standard_Integer): Standard_Boolean {.
-    importcpp: "RemoveFlag", header: "Interface_BitMap.hxx".}
-proc SetFlagName*(this: var Interface_BitMap; num: Standard_Integer;
-                 name: Standard_CString): Standard_Boolean {.
+proc removeFlag*(this: var InterfaceBitMap; num: int): bool {.importcpp: "RemoveFlag",
+    header: "Interface_BitMap.hxx".}
+proc setFlagName*(this: var InterfaceBitMap; num: int; name: StandardCString): bool {.
     importcpp: "SetFlagName", header: "Interface_BitMap.hxx".}
-proc NbFlags*(this: Interface_BitMap): Standard_Integer {.noSideEffect,
-    importcpp: "NbFlags", header: "Interface_BitMap.hxx".}
-proc Length*(this: Interface_BitMap): Standard_Integer {.noSideEffect,
-    importcpp: "Length", header: "Interface_BitMap.hxx".}
-proc FlagName*(this: Interface_BitMap; num: Standard_Integer): Standard_CString {.
-    noSideEffect, importcpp: "FlagName", header: "Interface_BitMap.hxx".}
-proc FlagNumber*(this: Interface_BitMap; name: Standard_CString): Standard_Integer {.
-    noSideEffect, importcpp: "FlagNumber", header: "Interface_BitMap.hxx".}
-proc Value*(this: Interface_BitMap; item: Standard_Integer;
-           flag: Standard_Integer = 0): Standard_Boolean {.noSideEffect,
-    importcpp: "Value", header: "Interface_BitMap.hxx".}
-proc SetValue*(this: Interface_BitMap; item: Standard_Integer; val: Standard_Boolean;
-              flag: Standard_Integer = 0) {.noSideEffect, importcpp: "SetValue",
+proc nbFlags*(this: InterfaceBitMap): int {.noSideEffect, importcpp: "NbFlags",
                                         header: "Interface_BitMap.hxx".}
-proc SetTrue*(this: Interface_BitMap; item: Standard_Integer;
-             flag: Standard_Integer = 0) {.noSideEffect, importcpp: "SetTrue",
+proc length*(this: InterfaceBitMap): int {.noSideEffect, importcpp: "Length",
                                        header: "Interface_BitMap.hxx".}
-proc SetFalse*(this: Interface_BitMap; item: Standard_Integer;
-              flag: Standard_Integer = 0) {.noSideEffect, importcpp: "SetFalse",
-                                        header: "Interface_BitMap.hxx".}
-proc CTrue*(this: Interface_BitMap; item: Standard_Integer;
-           flag: Standard_Integer = 0): Standard_Boolean {.noSideEffect,
+proc flagName*(this: InterfaceBitMap; num: int): StandardCString {.noSideEffect,
+    importcpp: "FlagName", header: "Interface_BitMap.hxx".}
+proc flagNumber*(this: InterfaceBitMap; name: StandardCString): int {.noSideEffect,
+    importcpp: "FlagNumber", header: "Interface_BitMap.hxx".}
+proc value*(this: InterfaceBitMap; item: int; flag: int = 0): bool {.noSideEffect,
+    importcpp: "Value", header: "Interface_BitMap.hxx".}
+proc setValue*(this: InterfaceBitMap; item: int; val: bool; flag: int = 0) {.noSideEffect,
+    importcpp: "SetValue", header: "Interface_BitMap.hxx".}
+proc setTrue*(this: InterfaceBitMap; item: int; flag: int = 0) {.noSideEffect,
+    importcpp: "SetTrue", header: "Interface_BitMap.hxx".}
+proc setFalse*(this: InterfaceBitMap; item: int; flag: int = 0) {.noSideEffect,
+    importcpp: "SetFalse", header: "Interface_BitMap.hxx".}
+proc cTrue*(this: InterfaceBitMap; item: int; flag: int = 0): bool {.noSideEffect,
     importcpp: "CTrue", header: "Interface_BitMap.hxx".}
-proc CFalse*(this: Interface_BitMap; item: Standard_Integer;
-            flag: Standard_Integer = 0): Standard_Boolean {.noSideEffect,
+proc cFalse*(this: InterfaceBitMap; item: int; flag: int = 0): bool {.noSideEffect,
     importcpp: "CFalse", header: "Interface_BitMap.hxx".}
-proc Init*(this: Interface_BitMap; val: Standard_Boolean; flag: Standard_Integer = 0) {.
-    noSideEffect, importcpp: "Init", header: "Interface_BitMap.hxx".}
-proc Clear*(this: var Interface_BitMap) {.importcpp: "Clear",
-                                      header: "Interface_BitMap.hxx".}
+proc init*(this: InterfaceBitMap; val: bool; flag: int = 0) {.noSideEffect,
+    importcpp: "Init", header: "Interface_BitMap.hxx".}
+proc clear*(this: var InterfaceBitMap) {.importcpp: "Clear",
+                                     header: "Interface_BitMap.hxx".}

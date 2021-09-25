@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  Extrema_ElementType* {.size: sizeof(cint), importcpp: "Extrema_ElementType",
-                        header: "Extrema_ElementType.hxx".} = enum
-    Extrema_Node, Extrema_UIsoEdge, Extrema_VIsoEdge, Extrema_Face
+  ExtremaElementType* {.size: sizeof(cint), importcpp: "Extrema_ElementType",
+                       header: "Extrema_ElementType.hxx".} = enum
+    ExtremaNode, ExtremaUIsoEdge, ExtremaVIsoEdge, ExtremaFace
+
 

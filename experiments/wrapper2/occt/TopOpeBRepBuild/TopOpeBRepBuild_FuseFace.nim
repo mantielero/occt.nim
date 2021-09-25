@@ -14,52 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopTools/TopTools_ListOfShape,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 type
-  TopOpeBRepBuild_FuseFace* {.importcpp: "TopOpeBRepBuild_FuseFace",
-                             header: "TopOpeBRepBuild_FuseFace.hxx", bycopy.} = object
+  TopOpeBRepBuildFuseFace* {.importcpp: "TopOpeBRepBuild_FuseFace",
+                            header: "TopOpeBRepBuild_FuseFace.hxx", bycopy.} = object
 
 
-proc constructTopOpeBRepBuild_FuseFace*(): TopOpeBRepBuild_FuseFace {.constructor,
+proc constructTopOpeBRepBuildFuseFace*(): TopOpeBRepBuildFuseFace {.constructor,
     importcpp: "TopOpeBRepBuild_FuseFace(@)",
     header: "TopOpeBRepBuild_FuseFace.hxx".}
-proc constructTopOpeBRepBuild_FuseFace*(LIF: TopTools_ListOfShape;
-                                       LRF: TopTools_ListOfShape;
-                                       CXM: Standard_Integer): TopOpeBRepBuild_FuseFace {.
+proc constructTopOpeBRepBuildFuseFace*(lif: TopToolsListOfShape;
+                                      lrf: TopToolsListOfShape; cxm: int): TopOpeBRepBuildFuseFace {.
     constructor, importcpp: "TopOpeBRepBuild_FuseFace(@)",
     header: "TopOpeBRepBuild_FuseFace.hxx".}
-proc Init*(this: var TopOpeBRepBuild_FuseFace; LIF: TopTools_ListOfShape;
-          LRF: TopTools_ListOfShape; CXM: Standard_Integer) {.importcpp: "Init",
+proc init*(this: var TopOpeBRepBuildFuseFace; lif: TopToolsListOfShape;
+          lrf: TopToolsListOfShape; cxm: int) {.importcpp: "Init",
     header: "TopOpeBRepBuild_FuseFace.hxx".}
-proc PerformFace*(this: var TopOpeBRepBuild_FuseFace) {.importcpp: "PerformFace",
+proc performFace*(this: var TopOpeBRepBuildFuseFace) {.importcpp: "PerformFace",
     header: "TopOpeBRepBuild_FuseFace.hxx".}
-proc PerformEdge*(this: var TopOpeBRepBuild_FuseFace) {.importcpp: "PerformEdge",
+proc performEdge*(this: var TopOpeBRepBuildFuseFace) {.importcpp: "PerformEdge",
     header: "TopOpeBRepBuild_FuseFace.hxx".}
-proc ClearEdge*(this: var TopOpeBRepBuild_FuseFace) {.importcpp: "ClearEdge",
+proc clearEdge*(this: var TopOpeBRepBuildFuseFace) {.importcpp: "ClearEdge",
     header: "TopOpeBRepBuild_FuseFace.hxx".}
-proc ClearVertex*(this: var TopOpeBRepBuild_FuseFace) {.importcpp: "ClearVertex",
+proc clearVertex*(this: var TopOpeBRepBuildFuseFace) {.importcpp: "ClearVertex",
     header: "TopOpeBRepBuild_FuseFace.hxx".}
-proc IsDone*(this: TopOpeBRepBuild_FuseFace): Standard_Boolean {.noSideEffect,
+proc isDone*(this: TopOpeBRepBuildFuseFace): bool {.noSideEffect,
     importcpp: "IsDone", header: "TopOpeBRepBuild_FuseFace.hxx".}
-proc IsModified*(this: TopOpeBRepBuild_FuseFace): Standard_Boolean {.noSideEffect,
+proc isModified*(this: TopOpeBRepBuildFuseFace): bool {.noSideEffect,
     importcpp: "IsModified", header: "TopOpeBRepBuild_FuseFace.hxx".}
-proc LFuseFace*(this: TopOpeBRepBuild_FuseFace): TopTools_ListOfShape {.
-    noSideEffect, importcpp: "LFuseFace", header: "TopOpeBRepBuild_FuseFace.hxx".}
-proc LInternEdge*(this: TopOpeBRepBuild_FuseFace): TopTools_ListOfShape {.
+proc lFuseFace*(this: TopOpeBRepBuildFuseFace): TopToolsListOfShape {.noSideEffect,
+    importcpp: "LFuseFace", header: "TopOpeBRepBuild_FuseFace.hxx".}
+proc lInternEdge*(this: TopOpeBRepBuildFuseFace): TopToolsListOfShape {.
     noSideEffect, importcpp: "LInternEdge", header: "TopOpeBRepBuild_FuseFace.hxx".}
-proc LExternEdge*(this: TopOpeBRepBuild_FuseFace): TopTools_ListOfShape {.
+proc lExternEdge*(this: TopOpeBRepBuildFuseFace): TopToolsListOfShape {.
     noSideEffect, importcpp: "LExternEdge", header: "TopOpeBRepBuild_FuseFace.hxx".}
-proc LModifEdge*(this: TopOpeBRepBuild_FuseFace): TopTools_ListOfShape {.
-    noSideEffect, importcpp: "LModifEdge", header: "TopOpeBRepBuild_FuseFace.hxx".}
-proc LInternVertex*(this: TopOpeBRepBuild_FuseFace): TopTools_ListOfShape {.
+proc lModifEdge*(this: TopOpeBRepBuildFuseFace): TopToolsListOfShape {.noSideEffect,
+    importcpp: "LModifEdge", header: "TopOpeBRepBuild_FuseFace.hxx".}
+proc lInternVertex*(this: TopOpeBRepBuildFuseFace): TopToolsListOfShape {.
     noSideEffect, importcpp: "LInternVertex",
     header: "TopOpeBRepBuild_FuseFace.hxx".}
-proc LExternVertex*(this: TopOpeBRepBuild_FuseFace): TopTools_ListOfShape {.
+proc lExternVertex*(this: TopOpeBRepBuildFuseFace): TopToolsListOfShape {.
     noSideEffect, importcpp: "LExternVertex",
     header: "TopOpeBRepBuild_FuseFace.hxx".}
-proc LModifVertex*(this: TopOpeBRepBuild_FuseFace): TopTools_ListOfShape {.
+proc lModifVertex*(this: TopOpeBRepBuildFuseFace): TopToolsListOfShape {.
     noSideEffect, importcpp: "LModifVertex", header: "TopOpeBRepBuild_FuseFace.hxx".}

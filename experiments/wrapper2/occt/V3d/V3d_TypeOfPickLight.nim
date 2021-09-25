@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  V3d_TypeOfPickLight* {.size: sizeof(cint), importcpp: "V3d_TypeOfPickLight",
-                        header: "V3d_TypeOfPickLight.hxx".} = enum
-    V3d_POSITIONLIGHT, V3d_SPACELIGHT, V3d_RADIUSTEXTLIGHT, V3d_ExtRADIUSLIGHT,
-    V3d_IntRADIUSLIGHT, V3d_NOTHING
+  V3dTypeOfPickLight* {.size: sizeof(cint), importcpp: "V3d_TypeOfPickLight",
+                       header: "V3d_TypeOfPickLight.hxx".} = enum
+    V3dPOSITIONLIGHT, V3dSPACELIGHT, V3dRADIUSTEXTLIGHT, V3dExtRADIUSLIGHT,
+    V3dIntRADIUSLIGHT, V3dNOTHING
+
 

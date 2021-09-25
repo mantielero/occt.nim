@@ -14,16 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_NumericError_HeaderFile [NewLine] # _Standard_NumericError_HeaderFile [NewLine] # Standard_Type.hxx [NewLine] # Standard_DefineException.hxx [NewLine] # Standard_SStream.hxx [NewLine] # Standard_Failure.hxx [NewLine] class Standard_NumericError ;
+## !!!Ignored construct:  # _Standard_NumericError_HeaderFile [NewLine] # _Standard_NumericError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class Standard_NumericError ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Standard_NumericError"
 type
-  Handle_Standard_NumericErrorStandard_NumericError* = handle[
-      Standard_NumericError]
+  HandleStandardNumericErrorStandardNumericError* = Handle[StandardNumericError]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_NumericError [NewLine] # if ( CONDITION ) throw Standard_NumericError ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_NumericError , Standard_Failure ) #  _Standard_NumericError_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_NumericError , Standard_Failure ) #  _Standard_NumericError_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

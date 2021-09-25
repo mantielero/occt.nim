@@ -14,40 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_ConversionBasedUnit
-
 discard "forward decl of StepBasic_AreaUnit"
 discard "forward decl of StepBasic_ConversionBasedUnitAndAreaUnit"
 discard "forward decl of StepBasic_ConversionBasedUnitAndAreaUnit"
 type
-  Handle_StepBasic_ConversionBasedUnitAndAreaUnit* = handle[
-      StepBasic_ConversionBasedUnitAndAreaUnit]
-  StepBasic_ConversionBasedUnitAndAreaUnit* {.
+  HandleStepBasicConversionBasedUnitAndAreaUnit* = Handle[
+      StepBasicConversionBasedUnitAndAreaUnit]
+  StepBasicConversionBasedUnitAndAreaUnit* {.
       importcpp: "StepBasic_ConversionBasedUnitAndAreaUnit",
-      header: "StepBasic_ConversionBasedUnitAndAreaUnit.hxx", bycopy.} = object of StepBasic_ConversionBasedUnit ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## a
-                                                                                                          ## ConversionBasedUnitAndAreaUnit
+      header: "StepBasic_ConversionBasedUnitAndAreaUnit.hxx", bycopy.} = object of StepBasicConversionBasedUnit ##
+                                                                                                         ## !
+                                                                                                         ## Returns
+                                                                                                         ## a
+                                                                                                         ## ConversionBasedUnitAndAreaUnit
 
 
-proc constructStepBasic_ConversionBasedUnitAndAreaUnit*(): StepBasic_ConversionBasedUnitAndAreaUnit {.
+proc constructStepBasicConversionBasedUnitAndAreaUnit*(): StepBasicConversionBasedUnitAndAreaUnit {.
     constructor, importcpp: "StepBasic_ConversionBasedUnitAndAreaUnit(@)",
     header: "StepBasic_ConversionBasedUnitAndAreaUnit.hxx".}
-proc SetAreaUnit*(this: var StepBasic_ConversionBasedUnitAndAreaUnit;
-                 anAreaUnit: handle[StepBasic_AreaUnit]) {.
+proc setAreaUnit*(this: var StepBasicConversionBasedUnitAndAreaUnit;
+                 anAreaUnit: Handle[StepBasicAreaUnit]) {.
     importcpp: "SetAreaUnit",
     header: "StepBasic_ConversionBasedUnitAndAreaUnit.hxx".}
-proc AreaUnit*(this: StepBasic_ConversionBasedUnitAndAreaUnit): handle[
-    StepBasic_AreaUnit] {.noSideEffect, importcpp: "AreaUnit",
-                         header: "StepBasic_ConversionBasedUnitAndAreaUnit.hxx".}
+proc areaUnit*(this: StepBasicConversionBasedUnitAndAreaUnit): Handle[
+    StepBasicAreaUnit] {.noSideEffect, importcpp: "AreaUnit",
+                        header: "StepBasic_ConversionBasedUnitAndAreaUnit.hxx".}
 type
-  StepBasic_ConversionBasedUnitAndAreaUnitbase_type* = StepBasic_ConversionBasedUnit
+  StepBasicConversionBasedUnitAndAreaUnitbaseType* = StepBasicConversionBasedUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ConversionBasedUnitAndAreaUnit::get_type_name(@)", header: "StepBasic_ConversionBasedUnitAndAreaUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepBasic_ConversionBasedUnitAndAreaUnit::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ConversionBasedUnitAndAreaUnit::get_type_name(@)", header: "StepBasic_ConversionBasedUnitAndAreaUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_ConversionBasedUnitAndAreaUnit::get_type_descriptor(@)",
     header: "StepBasic_ConversionBasedUnitAndAreaUnit.hxx".}
-proc DynamicType*(this: StepBasic_ConversionBasedUnitAndAreaUnit): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepBasic_ConversionBasedUnitAndAreaUnit.hxx".}
+proc dynamicType*(this: StepBasicConversionBasedUnitAndAreaUnit): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepBasic_ConversionBasedUnitAndAreaUnit.hxx".}

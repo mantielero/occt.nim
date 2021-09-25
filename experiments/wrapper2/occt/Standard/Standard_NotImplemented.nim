@@ -14,16 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_NotImplemented_HeaderFile [NewLine] # _Standard_NotImplemented_HeaderFile [NewLine] # Standard_Type.hxx [NewLine] # Standard_DefineException.hxx [NewLine] # Standard_SStream.hxx [NewLine] # Standard_ProgramError.hxx [NewLine] class Standard_NotImplemented ;
+## !!!Ignored construct:  # _Standard_NotImplemented_HeaderFile [NewLine] # _Standard_NotImplemented_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_ProgramError . hxx > [NewLine] class Standard_NotImplemented ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Standard_NotImplemented"
 type
-  Handle_Standard_NotImplementedStandard_NotImplemented* = handle[
-      Standard_NotImplemented]
+  HandleStandardNotImplementedStandardNotImplemented* = Handle[
+      StandardNotImplemented]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_NotImplemented [NewLine] # if ( CONDITION ) throw Standard_NotImplemented ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_NotImplemented , Standard_ProgramError ) #  _Standard_NotImplemented_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_NotImplemented , Standard_ProgramError ) #  _Standard_NotImplemented_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Expr_PolyExpression,
-  Expr_SequenceOfGeneralExpression, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, Expr_Array1OfNamedUnknown,
-  ../TColStd/TColStd_Array1OfReal
-
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Expr_NotEvaluable"
 discard "forward decl of Expr_GeneralExpression"
@@ -28,47 +22,47 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_Product"
 discard "forward decl of Expr_Product"
 type
-  Handle_Expr_Product* = handle[Expr_Product]
-  Expr_Product* {.importcpp: "Expr_Product", header: "Expr_Product.hxx", bycopy.} = object of Expr_PolyExpression ##
-                                                                                                        ## !
-                                                                                                        ## Creates
-                                                                                                        ## the
-                                                                                                        ## product
-                                                                                                        ## of
-                                                                                                        ## all
-                                                                                                        ## members
-                                                                                                        ## of
-                                                                                                        ## sequence
-                                                                                                        ## <exps>
+  HandleExprProduct* = Handle[ExprProduct]
+  ExprProduct* {.importcpp: "Expr_Product", header: "Expr_Product.hxx", bycopy.} = object of ExprPolyExpression ##
+                                                                                                      ## !
+                                                                                                      ## Creates
+                                                                                                      ## the
+                                                                                                      ## product
+                                                                                                      ## of
+                                                                                                      ## all
+                                                                                                      ## members
+                                                                                                      ## of
+                                                                                                      ## sequence
+                                                                                                      ## <exps>
 
 
-proc constructExpr_Product*(exps: Expr_SequenceOfGeneralExpression): Expr_Product {.
+proc constructExprProduct*(exps: ExprSequenceOfGeneralExpression): ExprProduct {.
     constructor, importcpp: "Expr_Product(@)", header: "Expr_Product.hxx".}
-proc constructExpr_Product*(exp1: handle[Expr_GeneralExpression];
-                           exp2: handle[Expr_GeneralExpression]): Expr_Product {.
+proc constructExprProduct*(exp1: Handle[ExprGeneralExpression];
+                          exp2: Handle[ExprGeneralExpression]): ExprProduct {.
     constructor, importcpp: "Expr_Product(@)", header: "Expr_Product.hxx".}
-proc ShallowSimplified*(this: Expr_Product): handle[Expr_GeneralExpression] {.
+proc shallowSimplified*(this: ExprProduct): Handle[ExprGeneralExpression] {.
     noSideEffect, importcpp: "ShallowSimplified", header: "Expr_Product.hxx".}
-proc Copy*(this: Expr_Product): handle[Expr_GeneralExpression] {.noSideEffect,
+proc copy*(this: ExprProduct): Handle[ExprGeneralExpression] {.noSideEffect,
     importcpp: "Copy", header: "Expr_Product.hxx".}
-proc IsIdentical*(this: Expr_Product; Other: handle[Expr_GeneralExpression]): Standard_Boolean {.
+proc isIdentical*(this: ExprProduct; other: Handle[ExprGeneralExpression]): bool {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_Product.hxx".}
-proc IsLinear*(this: Expr_Product): Standard_Boolean {.noSideEffect,
-    importcpp: "IsLinear", header: "Expr_Product.hxx".}
-proc Derivative*(this: Expr_Product; X: handle[Expr_NamedUnknown]): handle[
-    Expr_GeneralExpression] {.noSideEffect, importcpp: "Derivative",
-                             header: "Expr_Product.hxx".}
-proc Evaluate*(this: Expr_Product; vars: Expr_Array1OfNamedUnknown;
-              vals: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
+proc isLinear*(this: ExprProduct): bool {.noSideEffect, importcpp: "IsLinear",
+                                      header: "Expr_Product.hxx".}
+proc derivative*(this: ExprProduct; x: Handle[ExprNamedUnknown]): Handle[
+    ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
+                            header: "Expr_Product.hxx".}
+proc evaluate*(this: ExprProduct; vars: ExprArray1OfNamedUnknown;
+              vals: TColStdArray1OfReal): float {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_Product.hxx".}
-proc String*(this: Expr_Product): TCollection_AsciiString {.noSideEffect,
+proc string*(this: ExprProduct): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_Product.hxx".}
 type
-  Expr_Productbase_type* = Expr_PolyExpression
+  ExprProductbaseType* = ExprPolyExpression
 
-proc get_type_name*(): cstring {.importcpp: "Expr_Product::get_type_name(@)",
-                              header: "Expr_Product.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Expr_Product::get_type_name(@)",
+                            header: "Expr_Product.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Expr_Product::get_type_descriptor(@)", header: "Expr_Product.hxx".}
-proc DynamicType*(this: Expr_Product): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: ExprProduct): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_Product.hxx".}

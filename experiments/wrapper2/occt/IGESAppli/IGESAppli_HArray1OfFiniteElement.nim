@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IGESAppli_FiniteElement, IGESAppli_Array1OfFiniteElement,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  IGESAppli_HArray1OfFiniteElement* {.importcpp: "IGESAppli_HArray1OfFiniteElement", header: "IGESAppli_HArray1OfFiniteElement.hxx",
-                                     bycopy.} = object of IGESAppli_Array1OfFiniteElement
+  IGESAppliHArray1OfFiniteElement* {.importcpp: "IGESAppli_HArray1OfFiniteElement", header: "IGESAppli_HArray1OfFiniteElement.hxx",
+                                    bycopy.} = object of IGESAppliArray1OfFiniteElement
 
 
-proc constructIGESAppli_HArray1OfFiniteElement*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): IGESAppli_HArray1OfFiniteElement {.constructor,
+proc constructIGESAppliHArray1OfFiniteElement*(theLower: int; theUpper: int): IGESAppliHArray1OfFiniteElement {.
+    constructor, importcpp: "IGESAppli_HArray1OfFiniteElement(@)",
+    header: "IGESAppli_HArray1OfFiniteElement.hxx".}
+proc constructIGESAppliHArray1OfFiniteElement*(theLower: int; theUpper: int;
+    theValue: ValueType): IGESAppliHArray1OfFiniteElement {.constructor,
     importcpp: "IGESAppli_HArray1OfFiniteElement(@)",
     header: "IGESAppli_HArray1OfFiniteElement.hxx".}
-proc constructIGESAppli_HArray1OfFiniteElement*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): IGESAppli_HArray1OfFiniteElement {.
+proc constructIGESAppliHArray1OfFiniteElement*(
+    theOther: IGESAppliArray1OfFiniteElement): IGESAppliHArray1OfFiniteElement {.
     constructor, importcpp: "IGESAppli_HArray1OfFiniteElement(@)",
     header: "IGESAppli_HArray1OfFiniteElement.hxx".}
-proc constructIGESAppli_HArray1OfFiniteElement*(
-    theOther: IGESAppli_Array1OfFiniteElement): IGESAppli_HArray1OfFiniteElement {.
-    constructor, importcpp: "IGESAppli_HArray1OfFiniteElement(@)",
-    header: "IGESAppli_HArray1OfFiniteElement.hxx".}
-proc Array1*(this: IGESAppli_HArray1OfFiniteElement): IGESAppli_Array1OfFiniteElement {.
+proc array1*(this: IGESAppliHArray1OfFiniteElement): IGESAppliArray1OfFiniteElement {.
     noSideEffect, importcpp: "Array1",
     header: "IGESAppli_HArray1OfFiniteElement.hxx".}
-proc ChangeArray1*(this: var IGESAppli_HArray1OfFiniteElement): var IGESAppli_Array1OfFiniteElement {.
+proc changeArray1*(this: var IGESAppliHArray1OfFiniteElement): var IGESAppliArray1OfFiniteElement {.
     importcpp: "ChangeArray1", header: "IGESAppli_HArray1OfFiniteElement.hxx".}
 type
-  IGESAppli_HArray1OfFiniteElementbase_type* = MMgt_TShared
+  IGESAppliHArray1OfFiniteElementbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "IGESAppli_HArray1OfFiniteElement::get_type_name(@)",
-                              header: "IGESAppli_HArray1OfFiniteElement.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESAppli_HArray1OfFiniteElement::get_type_name(@)",
+                            header: "IGESAppli_HArray1OfFiniteElement.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESAppli_HArray1OfFiniteElement::get_type_descriptor(@)",
     header: "IGESAppli_HArray1OfFiniteElement.hxx".}
-proc DynamicType*(this: IGESAppli_HArray1OfFiniteElement): handle[Standard_Type] {.
+proc dynamicType*(this: IGESAppliHArray1OfFiniteElement): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESAppli_HArray1OfFiniteElement.hxx".}

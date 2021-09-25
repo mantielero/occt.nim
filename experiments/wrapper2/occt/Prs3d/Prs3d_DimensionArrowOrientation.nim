@@ -21,6 +21,7 @@
 ## ! otherwise - externally
 
 type
-  Prs3d_DimensionArrowOrientation* {.size: sizeof(cint), importcpp: "Prs3d_DimensionArrowOrientation", header: "Prs3d_DimensionArrowOrientation.hxx".} = enum
-    Prs3d_DAO_Internal, Prs3d_DAO_External, Prs3d_DAO_Fit
+  Prs3dDimensionArrowOrientation* {.size: sizeof(cint), importcpp: "Prs3d_DimensionArrowOrientation", header: "Prs3d_DimensionArrowOrientation.hxx".} = enum
+    Prs3dDAO_Internal, Prs3dDAO_External, Prs3dDAO_Fit
+
 

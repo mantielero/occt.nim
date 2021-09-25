@@ -13,49 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../BinMDF/BinMDF_ADriver,
-  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
-  ../BinObjMgt/BinObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataXtd_PatternStdDriver"
 discard "forward decl of BinMDataXtd_PatternStdDriver"
 type
-  Handle_BinMDataXtd_PatternStdDriver* = handle[BinMDataXtd_PatternStdDriver]
+  HandleBinMDataXtdPatternStdDriver* = Handle[BinMDataXtdPatternStdDriver]
 
 ## ! Attribute Driver.
 
 type
-  BinMDataXtd_PatternStdDriver* {.importcpp: "BinMDataXtd_PatternStdDriver",
-                                 header: "BinMDataXtd_PatternStdDriver.hxx",
-                                 bycopy.} = object of BinMDF_ADriver
+  BinMDataXtdPatternStdDriver* {.importcpp: "BinMDataXtd_PatternStdDriver",
+                                header: "BinMDataXtd_PatternStdDriver.hxx", bycopy.} = object of BinMDF_ADriver
 
 
-proc constructBinMDataXtd_PatternStdDriver*(
-    theMessageDriver: handle[Message_Messenger]): BinMDataXtd_PatternStdDriver {.
+proc constructBinMDataXtdPatternStdDriver*(
+    theMessageDriver: Handle[MessageMessenger]): BinMDataXtdPatternStdDriver {.
     constructor, importcpp: "BinMDataXtd_PatternStdDriver(@)",
     header: "BinMDataXtd_PatternStdDriver.hxx".}
-proc NewEmpty*(this: BinMDataXtd_PatternStdDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: BinMDataXtdPatternStdDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty", header: "BinMDataXtd_PatternStdDriver.hxx".}
-proc Paste*(this: BinMDataXtd_PatternStdDriver; Source: BinObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "BinMDataXtd_PatternStdDriver.hxx".}
-proc Paste*(this: BinMDataXtd_PatternStdDriver; Source: handle[TDF_Attribute];
-           Target: var BinObjMgt_Persistent;
-           RelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: BinMDataXtdPatternStdDriver; source: BinObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var BinObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "BinMDataXtd_PatternStdDriver.hxx".}
+proc paste*(this: BinMDataXtdPatternStdDriver; source: Handle[TDF_Attribute];
+           target: var BinObjMgtPersistent;
+           relocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMDataXtd_PatternStdDriver.hxx".}
 type
-  BinMDataXtd_PatternStdDriverbase_type* = BinMDF_ADriver
+  BinMDataXtdPatternStdDriverbaseType* = BinMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "BinMDataXtd_PatternStdDriver::get_type_name(@)",
-                              header: "BinMDataXtd_PatternStdDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BinMDataXtd_PatternStdDriver::get_type_name(@)",
+                            header: "BinMDataXtd_PatternStdDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BinMDataXtd_PatternStdDriver::get_type_descriptor(@)",
     header: "BinMDataXtd_PatternStdDriver.hxx".}
-proc DynamicType*(this: BinMDataXtd_PatternStdDriver): handle[Standard_Type] {.
+proc dynamicType*(this: BinMDataXtdPatternStdDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataXtd_PatternStdDriver.hxx".}

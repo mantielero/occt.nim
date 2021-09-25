@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Integer, TopOpeBRepDS_CurveData,
-  ../TColStd/TColStd_MapIntegerHasher, ../NCollection/NCollection_DataMap
-
 type
-  TopOpeBRepDS_MapOfCurve* = NCollection_DataMap[Standard_Integer,
-      TopOpeBRepDS_CurveData, TColStd_MapIntegerHasher]
-  TopOpeBRepDS_DataMapIteratorOfMapOfCurve* = Iterator[Standard_Integer,
-      TopOpeBRepDS_CurveData, TColStd_MapIntegerHasher]
+  TopOpeBRepDS_MapOfCurve* = NCollectionDataMap[int, TopOpeBRepDS_CurveData,
+      TColStdMapIntegerHasher]
+  TopOpeBRepDS_DataMapIteratorOfMapOfCurve* = Iterator[int, TopOpeBRepDS_CurveData,
+      TColStdMapIntegerHasher]
+

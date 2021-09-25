@@ -14,19 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Type,
-  ../Standard/Standard_CString
-
 discard "forward decl of Standard_Transient"
 type
-  Transfer_DataInfo* {.importcpp: "Transfer_DataInfo",
-                      header: "Transfer_DataInfo.hxx", bycopy.} = object ## ! Returns the Type attached to an object
-                                                                    ## ! Here, the Dynamic Type of a Transient. Null Type if unknown
+  TransferDataInfo* {.importcpp: "Transfer_DataInfo",
+                     header: "Transfer_DataInfo.hxx", bycopy.} = object ## ! Returns the Type attached to an object
+                                                                   ## ! Here, the Dynamic Type of a Transient. Null Type if unknown
 
 
-proc Type*(ent: handle[Standard_Transient]): handle[Standard_Type] {.
+proc `type`*(ent: Handle[StandardTransient]): Handle[StandardType] {.
     importcpp: "Transfer_DataInfo::Type(@)", header: "Transfer_DataInfo.hxx".}
-proc TypeName*(ent: handle[Standard_Transient]): Standard_CString {.
+proc typeName*(ent: Handle[StandardTransient]): StandardCString {.
     importcpp: "Transfer_DataInfo::TypeName(@)", header: "Transfer_DataInfo.hxx".}

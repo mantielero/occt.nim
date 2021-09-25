@@ -14,76 +14,64 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TopoDS_Shape"
 type
-  TopTools_ShapeMapHasher* {.importcpp: "TopTools_ShapeMapHasher",
-                            header: "TopTools_ShapeMapHasher.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Computes
-                                                                                ## a
-                                                                                ## hash
-                                                                                ## code
-                                                                                ## for
-                                                                                ## the
-                                                                                ## given
-                                                                                ## shape,
-                                                                                ## in
-                                                                                ## the
-                                                                                ## range
-                                                                                ## [1,
-                                                                                ## theUpperBound]
-                                                                                ##
-                                                                                ## !
-                                                                                ## @param
-                                                                                ## theShape
-                                                                                ## the
-                                                                                ## shape
-                                                                                ## which
-                                                                                ## hash
-                                                                                ## code
-                                                                                ## is
-                                                                                ## to
-                                                                                ## be
-                                                                                ## computed
-                                                                                ##
-                                                                                ## !
-                                                                                ## @param
-                                                                                ## theUpperBound
-                                                                                ## the
-                                                                                ## upper
-                                                                                ## bound
-                                                                                ## of
-                                                                                ## the
-                                                                                ## range
-                                                                                ## a
-                                                                                ## computing
-                                                                                ## hash
-                                                                                ## code
-                                                                                ## must
-                                                                                ## be
-                                                                                ## within
-                                                                                ##
-                                                                                ## !
-                                                                                ## @return
-                                                                                ## a
-                                                                                ## computed
-                                                                                ## hash
-                                                                                ## code,
-                                                                                ## in
-                                                                                ## the
-                                                                                ## range
-                                                                                ## [1,
-                                                                                ## theUpperBound]
+  TopToolsShapeMapHasher* {.importcpp: "TopTools_ShapeMapHasher",
+                           header: "TopTools_ShapeMapHasher.hxx", bycopy.} = object ## !
+                                                                               ## Computes a
+                                                                               ## hash
+                                                                               ## code
+                                                                               ## for
+                                                                               ## the
+                                                                               ## given
+                                                                               ## shape,
+                                                                               ## in
+                                                                               ## the
+                                                                               ## range
+                                                                               ## [1,
+                                                                               ## theUpperBound]
+                                                                               ## !
+                                                                               ## @param
+                                                                               ## theShape
+                                                                               ## the
+                                                                               ## shape
+                                                                               ## which
+                                                                               ## hash
+                                                                               ## code
+                                                                               ## is
+                                                                               ## to
+                                                                               ## be
+                                                                               ## computed
+                                                                               ## !
+                                                                               ## @param
+                                                                               ## theUpperBound
+                                                                               ## the
+                                                                               ## upper
+                                                                               ## bound
+                                                                               ## of
+                                                                               ## the
+                                                                               ## range a
+                                                                               ## computing
+                                                                               ## hash
+                                                                               ## code
+                                                                               ## must
+                                                                               ## be
+                                                                               ## within
+                                                                               ## !
+                                                                               ## @return a
+                                                                               ## computed
+                                                                               ## hash
+                                                                               ## code,
+                                                                               ## in
+                                                                               ## the
+                                                                               ## range
+                                                                               ## [1,
+                                                                               ## theUpperBound]
 
 
-proc HashCode*(theShape: TopoDS_Shape; theUpperBound: Standard_Integer): Standard_Integer {.
+proc hashCode*(theShape: TopoDS_Shape; theUpperBound: int): int {.
     importcpp: "TopTools_ShapeMapHasher::HashCode(@)",
     header: "TopTools_ShapeMapHasher.hxx".}
-proc IsEqual*(S1: TopoDS_Shape; S2: TopoDS_Shape): Standard_Boolean {.
+proc isEqual*(s1: TopoDS_Shape; s2: TopoDS_Shape): bool {.
     importcpp: "TopTools_ShapeMapHasher::IsEqual(@)",
     header: "TopTools_ShapeMapHasher.hxx".}

@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepRepr_RepresentationItem, StepRepr_Array1OfRepresentationItem,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepRepr_HArray1OfRepresentationItem* {.
-      importcpp: "StepRepr_HArray1OfRepresentationItem",
-      header: "StepRepr_HArray1OfRepresentationItem.hxx", bycopy.} = object of StepRepr_Array1OfRepresentationItem
+  StepReprHArray1OfRepresentationItem* {.importcpp: "StepRepr_HArray1OfRepresentationItem", header: "StepRepr_HArray1OfRepresentationItem.hxx",
+                                        bycopy.} = object of StepReprArray1OfRepresentationItem
 
 
-proc constructStepRepr_HArray1OfRepresentationItem*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepRepr_HArray1OfRepresentationItem {.
+proc constructStepReprHArray1OfRepresentationItem*(theLower: int; theUpper: int): StepReprHArray1OfRepresentationItem {.
     constructor, importcpp: "StepRepr_HArray1OfRepresentationItem(@)",
     header: "StepRepr_HArray1OfRepresentationItem.hxx".}
-proc constructStepRepr_HArray1OfRepresentationItem*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepRepr_HArray1OfRepresentationItem {.
+proc constructStepReprHArray1OfRepresentationItem*(theLower: int; theUpper: int;
+    theValue: ValueType): StepReprHArray1OfRepresentationItem {.constructor,
+    importcpp: "StepRepr_HArray1OfRepresentationItem(@)",
+    header: "StepRepr_HArray1OfRepresentationItem.hxx".}
+proc constructStepReprHArray1OfRepresentationItem*(
+    theOther: StepReprArray1OfRepresentationItem): StepReprHArray1OfRepresentationItem {.
     constructor, importcpp: "StepRepr_HArray1OfRepresentationItem(@)",
     header: "StepRepr_HArray1OfRepresentationItem.hxx".}
-proc constructStepRepr_HArray1OfRepresentationItem*(
-    theOther: StepRepr_Array1OfRepresentationItem): StepRepr_HArray1OfRepresentationItem {.
-    constructor, importcpp: "StepRepr_HArray1OfRepresentationItem(@)",
-    header: "StepRepr_HArray1OfRepresentationItem.hxx".}
-proc Array1*(this: StepRepr_HArray1OfRepresentationItem): StepRepr_Array1OfRepresentationItem {.
+proc array1*(this: StepReprHArray1OfRepresentationItem): StepReprArray1OfRepresentationItem {.
     noSideEffect, importcpp: "Array1",
     header: "StepRepr_HArray1OfRepresentationItem.hxx".}
-proc ChangeArray1*(this: var StepRepr_HArray1OfRepresentationItem): var StepRepr_Array1OfRepresentationItem {.
+proc changeArray1*(this: var StepReprHArray1OfRepresentationItem): var StepReprArray1OfRepresentationItem {.
     importcpp: "ChangeArray1", header: "StepRepr_HArray1OfRepresentationItem.hxx".}
 type
-  StepRepr_HArray1OfRepresentationItembase_type* = MMgt_TShared
+  StepReprHArray1OfRepresentationItembaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_HArray1OfRepresentationItem::get_type_name(@)", header: "StepRepr_HArray1OfRepresentationItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_HArray1OfRepresentationItem::get_type_name(@)",
+                            header: "StepRepr_HArray1OfRepresentationItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_HArray1OfRepresentationItem::get_type_descriptor(@)",
     header: "StepRepr_HArray1OfRepresentationItem.hxx".}
-proc DynamicType*(this: StepRepr_HArray1OfRepresentationItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprHArray1OfRepresentationItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_HArray1OfRepresentationItem.hxx".}

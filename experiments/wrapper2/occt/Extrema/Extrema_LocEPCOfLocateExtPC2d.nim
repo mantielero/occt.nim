@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, Extrema_PCLocFOfLocEPCOfLocateExtPC2d
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of StdFail_NotDone"
@@ -29,33 +24,32 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of Extrema_PCLocFOfLocEPCOfLocateExtPC2d"
 type
-  Extrema_LocEPCOfLocateExtPC2d* {.importcpp: "Extrema_LocEPCOfLocateExtPC2d",
-                                  header: "Extrema_LocEPCOfLocateExtPC2d.hxx",
-                                  bycopy.} = object
+  ExtremaLocEPCOfLocateExtPC2d* {.importcpp: "Extrema_LocEPCOfLocateExtPC2d",
+                                 header: "Extrema_LocEPCOfLocateExtPC2d.hxx",
+                                 bycopy.} = object
 
 
-proc constructExtrema_LocEPCOfLocateExtPC2d*(): Extrema_LocEPCOfLocateExtPC2d {.
+proc constructExtremaLocEPCOfLocateExtPC2d*(): ExtremaLocEPCOfLocateExtPC2d {.
     constructor, importcpp: "Extrema_LocEPCOfLocateExtPC2d(@)",
     header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
-proc constructExtrema_LocEPCOfLocateExtPC2d*(P: gp_Pnt2d; C: Adaptor2d_Curve2d;
-    U0: Standard_Real; TolU: Standard_Real): Extrema_LocEPCOfLocateExtPC2d {.
-    constructor, importcpp: "Extrema_LocEPCOfLocateExtPC2d(@)",
+proc constructExtremaLocEPCOfLocateExtPC2d*(p: Pnt2d; c: Adaptor2dCurve2d; u0: float;
+    tolU: float): ExtremaLocEPCOfLocateExtPC2d {.constructor,
+    importcpp: "Extrema_LocEPCOfLocateExtPC2d(@)",
     header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
-proc constructExtrema_LocEPCOfLocateExtPC2d*(P: gp_Pnt2d; C: Adaptor2d_Curve2d;
-    U0: Standard_Real; Umin: Standard_Real; Usup: Standard_Real; TolU: Standard_Real): Extrema_LocEPCOfLocateExtPC2d {.
-    constructor, importcpp: "Extrema_LocEPCOfLocateExtPC2d(@)",
+proc constructExtremaLocEPCOfLocateExtPC2d*(p: Pnt2d; c: Adaptor2dCurve2d; u0: float;
+    umin: float; usup: float; tolU: float): ExtremaLocEPCOfLocateExtPC2d {.constructor,
+    importcpp: "Extrema_LocEPCOfLocateExtPC2d(@)",
     header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
-proc Initialize*(this: var Extrema_LocEPCOfLocateExtPC2d; C: Adaptor2d_Curve2d;
-                Umin: Standard_Real; Usup: Standard_Real; TolU: Standard_Real) {.
-    importcpp: "Initialize", header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
-proc Perform*(this: var Extrema_LocEPCOfLocateExtPC2d; P: gp_Pnt2d; U0: Standard_Real) {.
+proc initialize*(this: var ExtremaLocEPCOfLocateExtPC2d; c: Adaptor2dCurve2d;
+                umin: float; usup: float; tolU: float) {.importcpp: "Initialize",
+    header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
+proc perform*(this: var ExtremaLocEPCOfLocateExtPC2d; p: Pnt2d; u0: float) {.
     importcpp: "Perform", header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
-proc IsDone*(this: Extrema_LocEPCOfLocateExtPC2d): Standard_Boolean {.noSideEffect,
+proc isDone*(this: ExtremaLocEPCOfLocateExtPC2d): bool {.noSideEffect,
     importcpp: "IsDone", header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
-proc SquareDistance*(this: Extrema_LocEPCOfLocateExtPC2d): Standard_Real {.
-    noSideEffect, importcpp: "SquareDistance",
-    header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
-proc IsMin*(this: Extrema_LocEPCOfLocateExtPC2d): Standard_Boolean {.noSideEffect,
+proc squareDistance*(this: ExtremaLocEPCOfLocateExtPC2d): float {.noSideEffect,
+    importcpp: "SquareDistance", header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
+proc isMin*(this: ExtremaLocEPCOfLocateExtPC2d): bool {.noSideEffect,
     importcpp: "IsMin", header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
-proc Point*(this: Extrema_LocEPCOfLocateExtPC2d): Extrema_POnCurv2d {.noSideEffect,
+proc point*(this: ExtremaLocEPCOfLocateExtPC2d): ExtremaPOnCurv2d {.noSideEffect,
     importcpp: "Point", header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}

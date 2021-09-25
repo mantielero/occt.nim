@@ -1,16 +1,25 @@
 import cinterop
 
-import gp_Pnt, gp_XYZ
-export gp_Pnt, gp_XYZ
+import gp_Pnt, gp_XYZ, gp_Dir, gp_Ax1, gp_Trsf, gp_Vec, gp_Ax2
+export gp_Pnt, gp_XYZ, gp_Dir, gp_Ax1, gp_Trsf, gp_Vec, gp_Ax2
 
 
 
 
 type
-  Point* = Pnt | XYZ # | gp_Vec   | gp_Dir
+  Point* = Pnt | XYZ | Dir  # | gp_Vec   
 
 
+csource "gp.hxx":
+  type 
+    gp*  {.cgen:"(gp::$1(@))".} = object of CClass
 
+proc dx*():Dir =
+  cexpr[Dir]^gp.DX()
+
+proc dz*():Dir =
+  cexpr[Dir]^gp.DZ()
+#--------------
 
 
 #[
@@ -20,7 +29,7 @@ proc `$`*(pnt:gp_Vec):string =
 proc `$`*(pnt:gp_XYZ):string =
   result = "XYZ(x:" & $pnt.x & ", y:" & $pnt.y & ", z:" & $pnt.z & ")\n"
 
-proc `$`*(pnt:gp_Dir):string =
+proc `$`*(pnt:gp_Dir):string =| gp_Dir
   result = "Dir(x:" & $pnt.x & ", y:" & $pnt.y & ", z:" & $pnt.z & ")\n"
 ]#
 proc x*[T:Point](p:T):cfloat =

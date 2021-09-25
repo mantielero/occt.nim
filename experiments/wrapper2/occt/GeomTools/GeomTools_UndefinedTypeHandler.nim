@@ -14,57 +14,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_OStream, ../Standard/Standard_Boolean,
-  ../Standard/Standard_IStream, ../Standard/Standard_Integer
-
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Geom_Surface"
 discard "forward decl of GeomTools_UndefinedTypeHandler"
 discard "forward decl of GeomTools_UndefinedTypeHandler"
 type
-  Handle_GeomTools_UndefinedTypeHandler* = handle[GeomTools_UndefinedTypeHandler]
-  GeomTools_UndefinedTypeHandler* {.importcpp: "GeomTools_UndefinedTypeHandler", header: "GeomTools_UndefinedTypeHandler.hxx",
-                                   bycopy.} = object of Standard_Transient
+  HandleGeomToolsUndefinedTypeHandler* = Handle[GeomToolsUndefinedTypeHandler]
+  GeomToolsUndefinedTypeHandler* {.importcpp: "GeomTools_UndefinedTypeHandler",
+                                  header: "GeomTools_UndefinedTypeHandler.hxx",
+                                  bycopy.} = object of StandardTransient
 
 
-proc constructGeomTools_UndefinedTypeHandler*(): GeomTools_UndefinedTypeHandler {.
+proc constructGeomToolsUndefinedTypeHandler*(): GeomToolsUndefinedTypeHandler {.
     constructor, importcpp: "GeomTools_UndefinedTypeHandler(@)",
     header: "GeomTools_UndefinedTypeHandler.hxx".}
-proc PrintCurve*(this: GeomTools_UndefinedTypeHandler; C: handle[Geom_Curve];
-                OS: var Standard_OStream;
-                compact: Standard_Boolean = Standard_False) {.noSideEffect,
+proc printCurve*(this: GeomToolsUndefinedTypeHandler; c: Handle[GeomCurve];
+                os: var StandardOStream; compact: bool = false) {.noSideEffect,
     importcpp: "PrintCurve", header: "GeomTools_UndefinedTypeHandler.hxx".}
-proc ReadCurve*(this: GeomTools_UndefinedTypeHandler; ctype: Standard_Integer;
-               IS: var Standard_IStream; C: var handle[Geom_Curve]): var Standard_IStream {.
+proc readCurve*(this: GeomToolsUndefinedTypeHandler; ctype: int;
+               `is`: var StandardIStream; c: var Handle[GeomCurve]): var StandardIStream {.
     noSideEffect, importcpp: "ReadCurve",
     header: "GeomTools_UndefinedTypeHandler.hxx".}
-proc PrintCurve2d*(this: GeomTools_UndefinedTypeHandler; C: handle[Geom2d_Curve];
-                  OS: var Standard_OStream;
-                  compact: Standard_Boolean = Standard_False) {.noSideEffect,
+proc printCurve2d*(this: GeomToolsUndefinedTypeHandler; c: Handle[Geom2dCurve];
+                  os: var StandardOStream; compact: bool = false) {.noSideEffect,
     importcpp: "PrintCurve2d", header: "GeomTools_UndefinedTypeHandler.hxx".}
-proc ReadCurve2d*(this: GeomTools_UndefinedTypeHandler; ctype: Standard_Integer;
-                 IS: var Standard_IStream; C: var handle[Geom2d_Curve]): var Standard_IStream {.
+proc readCurve2d*(this: GeomToolsUndefinedTypeHandler; ctype: int;
+                 `is`: var StandardIStream; c: var Handle[Geom2dCurve]): var StandardIStream {.
     noSideEffect, importcpp: "ReadCurve2d",
     header: "GeomTools_UndefinedTypeHandler.hxx".}
-proc PrintSurface*(this: GeomTools_UndefinedTypeHandler; S: handle[Geom_Surface];
-                  OS: var Standard_OStream;
-                  compact: Standard_Boolean = Standard_False) {.noSideEffect,
+proc printSurface*(this: GeomToolsUndefinedTypeHandler; s: Handle[GeomSurface];
+                  os: var StandardOStream; compact: bool = false) {.noSideEffect,
     importcpp: "PrintSurface", header: "GeomTools_UndefinedTypeHandler.hxx".}
-proc ReadSurface*(this: GeomTools_UndefinedTypeHandler; ctype: Standard_Integer;
-                 IS: var Standard_IStream; S: var handle[Geom_Surface]): var Standard_IStream {.
+proc readSurface*(this: GeomToolsUndefinedTypeHandler; ctype: int;
+                 `is`: var StandardIStream; s: var Handle[GeomSurface]): var StandardIStream {.
     noSideEffect, importcpp: "ReadSurface",
     header: "GeomTools_UndefinedTypeHandler.hxx".}
 type
-  GeomTools_UndefinedTypeHandlerbase_type* = Standard_Transient
+  GeomToolsUndefinedTypeHandlerbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "GeomTools_UndefinedTypeHandler::get_type_name(@)",
-                              header: "GeomTools_UndefinedTypeHandler.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "GeomTools_UndefinedTypeHandler::get_type_name(@)",
+                            header: "GeomTools_UndefinedTypeHandler.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GeomTools_UndefinedTypeHandler::get_type_descriptor(@)",
     header: "GeomTools_UndefinedTypeHandler.hxx".}
-proc DynamicType*(this: GeomTools_UndefinedTypeHandler): handle[Standard_Type] {.
+proc dynamicType*(this: GeomToolsUndefinedTypeHandler): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "GeomTools_UndefinedTypeHandler.hxx".}

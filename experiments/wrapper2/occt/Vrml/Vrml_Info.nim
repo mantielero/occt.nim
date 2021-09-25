@@ -14,21 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TCollection/TCollection_AsciiString,
-  ../Standard/Standard_OStream
-
 discard "forward decl of TCollection_AsciiString"
 type
-  Vrml_Info* {.importcpp: "Vrml_Info", header: "Vrml_Info.hxx", bycopy.} = object
+  VrmlInfo* {.importcpp: "Vrml_Info", header: "Vrml_Info.hxx", bycopy.} = object
 
 
-proc constructVrml_Info*(aString: TCollection_AsciiString = "<Undefined info>"): Vrml_Info {.
+proc constructVrmlInfo*(aString: TCollectionAsciiString = "<Undefined info>"): VrmlInfo {.
     constructor, importcpp: "Vrml_Info(@)", header: "Vrml_Info.hxx".}
-proc SetString*(this: var Vrml_Info; aString: TCollection_AsciiString) {.
+proc setString*(this: var VrmlInfo; aString: TCollectionAsciiString) {.
     importcpp: "SetString", header: "Vrml_Info.hxx".}
-proc String*(this: Vrml_Info): TCollection_AsciiString {.noSideEffect,
+proc string*(this: VrmlInfo): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Vrml_Info.hxx".}
-proc Print*(this: Vrml_Info; anOStream: var Standard_OStream): var Standard_OStream {.
+proc print*(this: VrmlInfo; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Info.hxx".}

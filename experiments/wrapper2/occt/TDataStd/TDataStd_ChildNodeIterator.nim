@@ -13,38 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TDataStd_TreeNode"
 type
-  TDataStd_ChildNodeIterator* {.importcpp: "TDataStd_ChildNodeIterator",
-                               header: "TDataStd_ChildNodeIterator.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Creates
-                                                                                      ## an
-                                                                                      ## empty
-                                                                                      ## iterator.
+  TDataStdChildNodeIterator* {.importcpp: "TDataStd_ChildNodeIterator",
+                              header: "TDataStd_ChildNodeIterator.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Creates
+                                                                                     ## an
+                                                                                     ## empty
+                                                                                     ## iterator.
 
 
-proc constructTDataStd_ChildNodeIterator*(): TDataStd_ChildNodeIterator {.
+proc constructTDataStdChildNodeIterator*(): TDataStdChildNodeIterator {.
     constructor, importcpp: "TDataStd_ChildNodeIterator(@)",
     header: "TDataStd_ChildNodeIterator.hxx".}
-proc constructTDataStd_ChildNodeIterator*(aTreeNode: handle[TDataStd_TreeNode];
-    allLevels: Standard_Boolean = Standard_False): TDataStd_ChildNodeIterator {.
+proc constructTDataStdChildNodeIterator*(aTreeNode: Handle[TDataStdTreeNode];
+                                        allLevels: bool = false): TDataStdChildNodeIterator {.
     constructor, importcpp: "TDataStd_ChildNodeIterator(@)",
     header: "TDataStd_ChildNodeIterator.hxx".}
-proc Initialize*(this: var TDataStd_ChildNodeIterator;
-                aTreeNode: handle[TDataStd_TreeNode];
-                allLevels: Standard_Boolean = Standard_False) {.
+proc initialize*(this: var TDataStdChildNodeIterator;
+                aTreeNode: Handle[TDataStdTreeNode]; allLevels: bool = false) {.
     importcpp: "Initialize", header: "TDataStd_ChildNodeIterator.hxx".}
-proc More*(this: TDataStd_ChildNodeIterator): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "TDataStd_ChildNodeIterator.hxx".}
-proc Next*(this: var TDataStd_ChildNodeIterator) {.importcpp: "Next",
+proc more*(this: TDataStdChildNodeIterator): bool {.noSideEffect, importcpp: "More",
     header: "TDataStd_ChildNodeIterator.hxx".}
-proc NextBrother*(this: var TDataStd_ChildNodeIterator) {.importcpp: "NextBrother",
+proc next*(this: var TDataStdChildNodeIterator) {.importcpp: "Next",
     header: "TDataStd_ChildNodeIterator.hxx".}
-proc Value*(this: TDataStd_ChildNodeIterator): handle[TDataStd_TreeNode] {.
+proc nextBrother*(this: var TDataStdChildNodeIterator) {.importcpp: "NextBrother",
+    header: "TDataStd_ChildNodeIterator.hxx".}
+proc value*(this: TDataStdChildNodeIterator): Handle[TDataStdTreeNode] {.
     noSideEffect, importcpp: "Value", header: "TDataStd_ChildNodeIterator.hxx".}

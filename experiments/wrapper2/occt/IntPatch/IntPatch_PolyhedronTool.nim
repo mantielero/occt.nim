@@ -14,49 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Bnd/Bnd_HArray1OfBox, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Bnd_Box"
 discard "forward decl of IntPatch_Polyhedron"
 discard "forward decl of gp_Pnt"
 type
-  IntPatch_PolyhedronTool* {.importcpp: "IntPatch_PolyhedronTool",
-                            header: "IntPatch_PolyhedronTool.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Give
-                                                                                ## the
-                                                                                ## bounding
-                                                                                ## box
-                                                                                ## of
-                                                                                ## the
-                                                                                ## Polyhedron.
+  IntPatchPolyhedronTool* {.importcpp: "IntPatch_PolyhedronTool",
+                           header: "IntPatch_PolyhedronTool.hxx", bycopy.} = object ## !
+                                                                               ## Give
+                                                                               ## the
+                                                                               ## bounding
+                                                                               ## box
+                                                                               ## of
+                                                                               ## the
+                                                                               ## Polyhedron.
 
 
-proc Bounding*(thePolyh: IntPatch_Polyhedron): Bnd_Box {.
+proc bounding*(thePolyh: IntPatchPolyhedron): BndBox {.
     importcpp: "IntPatch_PolyhedronTool::Bounding(@)",
     header: "IntPatch_PolyhedronTool.hxx".}
-proc ComponentsBounding*(thePolyh: IntPatch_Polyhedron): handle[Bnd_HArray1OfBox] {.
+proc componentsBounding*(thePolyh: IntPatchPolyhedron): Handle[BndHArray1OfBox] {.
     importcpp: "IntPatch_PolyhedronTool::ComponentsBounding(@)",
     header: "IntPatch_PolyhedronTool.hxx".}
-proc DeflectionOverEstimation*(thePolyh: IntPatch_Polyhedron): Standard_Real {.
+proc deflectionOverEstimation*(thePolyh: IntPatchPolyhedron): float {.
     importcpp: "IntPatch_PolyhedronTool::DeflectionOverEstimation(@)",
     header: "IntPatch_PolyhedronTool.hxx".}
-proc NbTriangles*(thePolyh: IntPatch_Polyhedron): Standard_Integer {.
+proc nbTriangles*(thePolyh: IntPatchPolyhedron): int {.
     importcpp: "IntPatch_PolyhedronTool::NbTriangles(@)",
     header: "IntPatch_PolyhedronTool.hxx".}
-proc Triangle*(thePolyh: IntPatch_Polyhedron; Index: Standard_Integer;
-              P1: var Standard_Integer; P2: var Standard_Integer;
-              P3: var Standard_Integer) {.importcpp: "IntPatch_PolyhedronTool::Triangle(@)",
-                                       header: "IntPatch_PolyhedronTool.hxx".}
-proc Point*(thePolyh: IntPatch_Polyhedron; Index: Standard_Integer): gp_Pnt {.
+proc triangle*(thePolyh: IntPatchPolyhedron; index: int; p1: var int; p2: var int;
+              p3: var int) {.importcpp: "IntPatch_PolyhedronTool::Triangle(@)",
+                          header: "IntPatch_PolyhedronTool.hxx".}
+proc point*(thePolyh: IntPatchPolyhedron; index: int): Pnt {.
     importcpp: "IntPatch_PolyhedronTool::Point(@)",
     header: "IntPatch_PolyhedronTool.hxx".}
-proc TriConnex*(thePolyh: IntPatch_Polyhedron; Triang: Standard_Integer;
-               Pivot: Standard_Integer; Pedge: Standard_Integer;
-               TriCon: var Standard_Integer; OtherP: var Standard_Integer): Standard_Integer {.
+proc triConnex*(thePolyh: IntPatchPolyhedron; triang: int; pivot: int; pedge: int;
+               triCon: var int; otherP: var int): int {.
     importcpp: "IntPatch_PolyhedronTool::TriConnex(@)",
     header: "IntPatch_PolyhedronTool.hxx".}

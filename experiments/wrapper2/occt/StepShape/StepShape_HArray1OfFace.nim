@@ -14,37 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepShape_Face, StepShape_Array1OfFace, ../NCollection/NCollection_DefineHArray1
-
 type
-  StepShape_HArray1OfFace* {.importcpp: "StepShape_HArray1OfFace",
-                            header: "StepShape_HArray1OfFace.hxx", bycopy.} = object of StepShape_Array1OfFace
+  StepShapeHArray1OfFace* {.importcpp: "StepShape_HArray1OfFace",
+                           header: "StepShape_HArray1OfFace.hxx", bycopy.} = object of StepShapeArray1OfFace
 
 
-proc constructStepShape_HArray1OfFace*(theLower: Standard_Integer;
-                                      theUpper: Standard_Integer): StepShape_HArray1OfFace {.
+proc constructStepShapeHArray1OfFace*(theLower: int; theUpper: int): StepShapeHArray1OfFace {.
     constructor, importcpp: "StepShape_HArray1OfFace(@)",
     header: "StepShape_HArray1OfFace.hxx".}
-proc constructStepShape_HArray1OfFace*(theLower: Standard_Integer;
-                                      theUpper: Standard_Integer;
-                                      theValue: value_type): StepShape_HArray1OfFace {.
+proc constructStepShapeHArray1OfFace*(theLower: int; theUpper: int;
+                                     theValue: ValueType): StepShapeHArray1OfFace {.
     constructor, importcpp: "StepShape_HArray1OfFace(@)",
     header: "StepShape_HArray1OfFace.hxx".}
-proc constructStepShape_HArray1OfFace*(theOther: StepShape_Array1OfFace): StepShape_HArray1OfFace {.
+proc constructStepShapeHArray1OfFace*(theOther: StepShapeArray1OfFace): StepShapeHArray1OfFace {.
     constructor, importcpp: "StepShape_HArray1OfFace(@)",
     header: "StepShape_HArray1OfFace.hxx".}
-proc Array1*(this: StepShape_HArray1OfFace): StepShape_Array1OfFace {.noSideEffect,
+proc array1*(this: StepShapeHArray1OfFace): StepShapeArray1OfFace {.noSideEffect,
     importcpp: "Array1", header: "StepShape_HArray1OfFace.hxx".}
-proc ChangeArray1*(this: var StepShape_HArray1OfFace): var StepShape_Array1OfFace {.
+proc changeArray1*(this: var StepShapeHArray1OfFace): var StepShapeArray1OfFace {.
     importcpp: "ChangeArray1", header: "StepShape_HArray1OfFace.hxx".}
 type
-  StepShape_HArray1OfFacebase_type* = MMgt_TShared
+  StepShapeHArray1OfFacebaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_HArray1OfFace::get_type_name(@)",
-                              header: "StepShape_HArray1OfFace.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_HArray1OfFace::get_type_name(@)",
+                            header: "StepShape_HArray1OfFace.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_HArray1OfFace::get_type_descriptor(@)",
     header: "StepShape_HArray1OfFace.hxx".}
-proc DynamicType*(this: StepShape_HArray1OfFace): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeHArray1OfFace): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_HArray1OfFace.hxx".}

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GeomToStep_Root
-
 discard "forward decl of StepGeom_Axis2Placement3d"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Ax2"
@@ -25,25 +21,24 @@ discard "forward decl of gp_Ax3"
 discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Axis2Placement"
 type
-  GeomToStep_MakeAxis2Placement3d* {.importcpp: "GeomToStep_MakeAxis2Placement3d", header: "GeomToStep_MakeAxis2Placement3d.hxx",
-                                    bycopy.} = object of GeomToStep_Root
+  GeomToStepMakeAxis2Placement3d* {.importcpp: "GeomToStep_MakeAxis2Placement3d", header: "GeomToStep_MakeAxis2Placement3d.hxx",
+                                   bycopy.} = object of GeomToStepRoot
 
 
-proc constructGeomToStep_MakeAxis2Placement3d*(): GeomToStep_MakeAxis2Placement3d {.
+proc constructGeomToStepMakeAxis2Placement3d*(): GeomToStepMakeAxis2Placement3d {.
     constructor, importcpp: "GeomToStep_MakeAxis2Placement3d(@)",
     header: "GeomToStep_MakeAxis2Placement3d.hxx".}
-proc constructGeomToStep_MakeAxis2Placement3d*(A: gp_Ax2): GeomToStep_MakeAxis2Placement3d {.
+proc constructGeomToStepMakeAxis2Placement3d*(a: Ax2): GeomToStepMakeAxis2Placement3d {.
     constructor, importcpp: "GeomToStep_MakeAxis2Placement3d(@)",
     header: "GeomToStep_MakeAxis2Placement3d.hxx".}
-proc constructGeomToStep_MakeAxis2Placement3d*(A: gp_Ax3): GeomToStep_MakeAxis2Placement3d {.
+proc constructGeomToStepMakeAxis2Placement3d*(a: Ax3): GeomToStepMakeAxis2Placement3d {.
     constructor, importcpp: "GeomToStep_MakeAxis2Placement3d(@)",
     header: "GeomToStep_MakeAxis2Placement3d.hxx".}
-proc constructGeomToStep_MakeAxis2Placement3d*(T: gp_Trsf): GeomToStep_MakeAxis2Placement3d {.
+proc constructGeomToStepMakeAxis2Placement3d*(t: Trsf): GeomToStepMakeAxis2Placement3d {.
     constructor, importcpp: "GeomToStep_MakeAxis2Placement3d(@)",
     header: "GeomToStep_MakeAxis2Placement3d.hxx".}
-proc constructGeomToStep_MakeAxis2Placement3d*(A: handle[Geom_Axis2Placement]): GeomToStep_MakeAxis2Placement3d {.
+proc constructGeomToStepMakeAxis2Placement3d*(a: Handle[GeomAxis2Placement]): GeomToStepMakeAxis2Placement3d {.
     constructor, importcpp: "GeomToStep_MakeAxis2Placement3d(@)",
     header: "GeomToStep_MakeAxis2Placement3d.hxx".}
-proc Value*(this: GeomToStep_MakeAxis2Placement3d): handle[
-    StepGeom_Axis2Placement3d] {.noSideEffect, importcpp: "Value",
-                                header: "GeomToStep_MakeAxis2Placement3d.hxx".}
+proc value*(this: GeomToStepMakeAxis2Placement3d): Handle[StepGeomAxis2Placement3d] {.
+    noSideEffect, importcpp: "Value", header: "GeomToStep_MakeAxis2Placement3d.hxx".}

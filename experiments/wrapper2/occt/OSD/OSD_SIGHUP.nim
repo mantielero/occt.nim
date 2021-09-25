@@ -12,15 +12,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _OSD_SIGHUP_HeaderFile [NewLine] # _OSD_SIGHUP_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # OSD_Signal.hxx [NewLine] class OSD_SIGHUP ;
+## !!!Ignored construct:  # _OSD_SIGHUP_HeaderFile [NewLine] # _OSD_SIGHUP_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < OSD_Signal . hxx > [NewLine] class OSD_SIGHUP ;
 ## Error: expected ';'!!!
 
 discard "forward decl of OSD_SIGHUP"
 type
-  Handle_OSD_SIGHUPOSD_SIGHUP* = handle[OSD_SIGHUP]
+  HandleOSD_SIGHUPOSD_SIGHUP* = Handle[Osd_Sighup]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_SIGHUP [NewLine] # if ( CONDITION ) throw OSD_SIGHUP ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_SIGHUP , OSD_Signal ) #  _OSD_SIGHUP_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_SIGHUP , OSD_Signal ) #  _OSD_SIGHUP_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

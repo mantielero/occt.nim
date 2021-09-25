@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepFEA_FreedomsList"
@@ -33,13 +29,13 @@ type
 proc constructRWStepFEA_RWFreedomsList*(): RWStepFEA_RWFreedomsList {.constructor,
     importcpp: "RWStepFEA_RWFreedomsList(@)",
     header: "RWStepFEA_RWFreedomsList.hxx".}
-proc ReadStep*(this: RWStepFEA_RWFreedomsList;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check]; ent: handle[StepFEA_FreedomsList]) {.
+proc readStep*(this: RWStepFEA_RWFreedomsList;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck]; ent: Handle[StepFEA_FreedomsList]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepFEA_RWFreedomsList.hxx".}
-proc WriteStep*(this: RWStepFEA_RWFreedomsList; SW: var StepData_StepWriter;
-               ent: handle[StepFEA_FreedomsList]) {.noSideEffect,
+proc writeStep*(this: RWStepFEA_RWFreedomsList; sw: var StepDataStepWriter;
+               ent: Handle[StepFEA_FreedomsList]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepFEA_RWFreedomsList.hxx".}
-proc Share*(this: RWStepFEA_RWFreedomsList; ent: handle[StepFEA_FreedomsList];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepFEA_RWFreedomsList; ent: Handle[StepFEA_FreedomsList];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFreedomsList.hxx".}

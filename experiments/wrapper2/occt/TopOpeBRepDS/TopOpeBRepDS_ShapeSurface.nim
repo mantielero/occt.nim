@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, ../Geom/Geom_Surface,
-  ../TopTools/TopTools_ShapeMapHasher, ../NCollection/NCollection_DataMap
-
 type
-  TopOpeBRepDS_ShapeSurface* = NCollection_DataMap[TopoDS_Shape,
-      handle[Geom_Surface], TopTools_ShapeMapHasher]
+  TopOpeBRepDS_ShapeSurface* = NCollectionDataMap[TopoDS_Shape,
+      Handle[GeomSurface], TopToolsShapeMapHasher]
   TopOpeBRepDS_DataMapIteratorOfShapeSurface* = Iterator[TopoDS_Shape,
-      handle[Geom_Surface], TopTools_ShapeMapHasher]
+      Handle[GeomSurface], TopToolsShapeMapHasher]
+

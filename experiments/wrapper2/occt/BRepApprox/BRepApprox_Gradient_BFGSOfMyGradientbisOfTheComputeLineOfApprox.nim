@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real, ../math/math_BFGS,
-  ../math/math_Vector, ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of BRepApprox_TheMultiLineOfApprox"
 discard "forward decl of BRepApprox_TheMultiLineToolOfApprox"
 discard "forward decl of BRepApprox_MyGradientbisOfTheComputeLineOfApprox"
@@ -27,15 +22,14 @@ discard "forward decl of BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLine
 discard "forward decl of BRepApprox_ParFunctionOfMyGradientbisOfTheComputeLineOfApprox"
 discard "forward decl of math_MultipleVarFunctionWithGradient"
 type
-  BRepApprox_Gradient_BFGSOfMyGradientbisOfTheComputeLineOfApprox* {.importcpp: "BRepApprox_Gradient_BFGSOfMyGradientbisOfTheComputeLineOfApprox", header: "BRepApprox_Gradient_BFGSOfMyGradientbisOfTheComputeLineOfApprox.hxx",
-      bycopy.} = object of math_BFGS
+  BRepApproxGradientBFGSOfMyGradientbisOfTheComputeLineOfApprox* {.importcpp: "BRepApprox_Gradient_BFGSOfMyGradientbisOfTheComputeLineOfApprox", header: "BRepApprox_Gradient_BFGSOfMyGradientbisOfTheComputeLineOfApprox.hxx",
+      bycopy.} = object of MathBFGS
 
 
-proc constructBRepApprox_Gradient_BFGSOfMyGradientbisOfTheComputeLineOfApprox*(
-    F: var math_MultipleVarFunctionWithGradient; StartingPoint: math_Vector;
-    Tolerance3d: Standard_Real; Tolerance2d: Standard_Real; Eps: Standard_Real;
-    NbIterations: Standard_Integer = 200): BRepApprox_Gradient_BFGSOfMyGradientbisOfTheComputeLineOfApprox {.
+proc constructBRepApproxGradientBFGSOfMyGradientbisOfTheComputeLineOfApprox*(
+    f: var MathMultipleVarFunctionWithGradient; startingPoint: MathVector;
+    tolerance3d: float; tolerance2d: float; eps: float; nbIterations: int = 200): BRepApproxGradientBFGSOfMyGradientbisOfTheComputeLineOfApprox {.
     constructor, importcpp: "BRepApprox_Gradient_BFGSOfMyGradientbisOfTheComputeLineOfApprox(@)", header: "BRepApprox_Gradient_BFGSOfMyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc IsSolutionReached*(this: BRepApprox_Gradient_BFGSOfMyGradientbisOfTheComputeLineOfApprox;
-                       F: var math_MultipleVarFunctionWithGradient): Standard_Boolean {.
+proc isSolutionReached*(this: BRepApproxGradientBFGSOfMyGradientbisOfTheComputeLineOfApprox;
+                       f: var MathMultipleVarFunctionWithGradient): bool {.
     noSideEffect, importcpp: "IsSolutionReached", header: "BRepApprox_Gradient_BFGSOfMyGradientbisOfTheComputeLineOfApprox.hxx".}

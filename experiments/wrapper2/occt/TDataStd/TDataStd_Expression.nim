@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_ExtendedString, ../TDF/TDF_AttributeList,
-  ../TDF/TDF_DerivedAttribute, ../Standard/Standard_OStream
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
 discard "forward decl of TCollection_ExtendedString"
@@ -27,7 +22,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataStd_Expression"
 discard "forward decl of TDataStd_Expression"
 type
-  Handle_TDataStd_Expression* = handle[TDataStd_Expression]
+  HandleTDataStdExpression* = Handle[TDataStdExpression]
 
 ## ! Expression attribute.
 ## ! ====================
@@ -39,51 +34,51 @@ type
 ## ! expression must have its equivalent in the string
 
 type
-  TDataStd_Expression* {.importcpp: "TDataStd_Expression",
-                        header: "TDataStd_Expression.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                       ## !
-                                                                                       ## class
-                                                                                       ## methods
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## =============
+  TDataStdExpression* {.importcpp: "TDataStd_Expression",
+                       header: "TDataStd_Expression.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                      ## !
+                                                                                      ## class
+                                                                                      ## methods
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## =============
 
 
-proc GetID*(): Standard_GUID {.importcpp: "TDataStd_Expression::GetID(@)",
-                            header: "TDataStd_Expression.hxx".}
-proc Set*(label: TDF_Label): handle[TDataStd_Expression] {.
+proc getID*(): StandardGUID {.importcpp: "TDataStd_Expression::GetID(@)",
+                           header: "TDataStd_Expression.hxx".}
+proc set*(label: TDF_Label): Handle[TDataStdExpression] {.
     importcpp: "TDataStd_Expression::Set(@)", header: "TDataStd_Expression.hxx".}
-proc constructTDataStd_Expression*(): TDataStd_Expression {.constructor,
+proc constructTDataStdExpression*(): TDataStdExpression {.constructor,
     importcpp: "TDataStd_Expression(@)", header: "TDataStd_Expression.hxx".}
-proc Name*(this: TDataStd_Expression): TCollection_ExtendedString {.noSideEffect,
+proc name*(this: TDataStdExpression): TCollectionExtendedString {.noSideEffect,
     importcpp: "Name", header: "TDataStd_Expression.hxx".}
-proc SetExpression*(this: var TDataStd_Expression; E: TCollection_ExtendedString) {.
+proc setExpression*(this: var TDataStdExpression; e: TCollectionExtendedString) {.
     importcpp: "SetExpression", header: "TDataStd_Expression.hxx".}
-proc GetExpression*(this: TDataStd_Expression): TCollection_ExtendedString {.
+proc getExpression*(this: TDataStdExpression): TCollectionExtendedString {.
     noSideEffect, importcpp: "GetExpression", header: "TDataStd_Expression.hxx".}
-proc GetVariables*(this: var TDataStd_Expression): var TDF_AttributeList {.
+proc getVariables*(this: var TDataStdExpression): var TDF_AttributeList {.
     importcpp: "GetVariables", header: "TDataStd_Expression.hxx".}
-proc ID*(this: TDataStd_Expression): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TDataStdExpression): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TDataStd_Expression.hxx".}
-proc Restore*(this: var TDataStd_Expression; With: handle[TDF_Attribute]) {.
+proc restore*(this: var TDataStdExpression; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TDataStd_Expression.hxx".}
-proc NewEmpty*(this: TDataStd_Expression): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TDataStdExpression): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TDataStd_Expression.hxx".}
-proc Paste*(this: TDataStd_Expression; Into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TDataStdExpression; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TDataStd_Expression.hxx".}
-proc Dump*(this: TDataStd_Expression; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDataStdExpression; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_Expression.hxx".}
-proc DumpJson*(this: TDataStd_Expression; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TDataStd_Expression.hxx".}
+proc dumpJson*(this: TDataStdExpression; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TDataStd_Expression.hxx".}
 type
-  TDataStd_Expressionbase_type* = TDF_Attribute
+  TDataStdExpressionbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TDataStd_Expression::get_type_name(@)",
-                              header: "TDataStd_Expression.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDataStd_Expression::get_type_name(@)",
+                            header: "TDataStd_Expression.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDataStd_Expression::get_type_descriptor(@)",
     header: "TDataStd_Expression.hxx".}
-proc DynamicType*(this: TDataStd_Expression): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDataStdExpression): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_Expression.hxx".}

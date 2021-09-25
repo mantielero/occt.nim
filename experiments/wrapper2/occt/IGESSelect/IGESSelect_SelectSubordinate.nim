@@ -14,19 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../IFSelect/IFSelect_SelectExtract, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of TCollection_AsciiString"
-when defined(Status):
-  discard
+# when defined(Status):
+#   discard
 discard "forward decl of IGESSelect_SelectSubordinate"
 discard "forward decl of IGESSelect_SelectSubordinate"
 type
-  Handle_IGESSelect_SelectSubordinate* = handle[IGESSelect_SelectSubordinate]
+  HandleIGESSelectSelectSubordinate* = Handle[IGESSelectSelectSubordinate]
 
 ## ! This selections uses Subordinate Status as sort criterium
 ## ! It is an integer number which can be :
@@ -41,31 +37,39 @@ type
 ## ! (corresponds to 0 reversed)
 
 type
-  IGESSelect_SelectSubordinate* {.importcpp: "IGESSelect_SelectSubordinate",
-                                 header: "IGESSelect_SelectSubordinate.hxx",
-                                 bycopy.} = object of IFSelect_SelectExtract ## ! Creates a
-                                                                        ## SelectSubordinate with a status to be sorted
+  IGESSelectSelectSubordinate* {.importcpp: "IGESSelect_SelectSubordinate",
+                                header: "IGESSelect_SelectSubordinate.hxx", bycopy.} = object of IFSelectSelectExtract ##
+                                                                                                                ## !
+                                                                                                                ## Creates
+                                                                                                                ## a
+                                                                                                                ## SelectSubordinate
+                                                                                                                ## with
+                                                                                                                ## a
+                                                                                                                ## status
+                                                                                                                ## to
+                                                                                                                ## be
+                                                                                                                ## sorted
 
 
-proc constructIGESSelect_SelectSubordinate*(status: Standard_Integer): IGESSelect_SelectSubordinate {.
+proc constructIGESSelectSelectSubordinate*(status: int): IGESSelectSelectSubordinate {.
     constructor, importcpp: "IGESSelect_SelectSubordinate(@)",
     header: "IGESSelect_SelectSubordinate.hxx".}
-proc Status*(this: IGESSelect_SelectSubordinate): Standard_Integer {.noSideEffect,
+proc status*(this: IGESSelectSelectSubordinate): int {.noSideEffect,
     importcpp: "Status", header: "IGESSelect_SelectSubordinate.hxx".}
-proc Sort*(this: IGESSelect_SelectSubordinate; rank: Standard_Integer;
-          ent: handle[Standard_Transient]; model: handle[Interface_InterfaceModel]): Standard_Boolean {.
+proc sort*(this: IGESSelectSelectSubordinate; rank: int;
+          ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, importcpp: "Sort", header: "IGESSelect_SelectSubordinate.hxx".}
-proc ExtractLabel*(this: IGESSelect_SelectSubordinate): TCollection_AsciiString {.
+proc extractLabel*(this: IGESSelectSelectSubordinate): TCollectionAsciiString {.
     noSideEffect, importcpp: "ExtractLabel",
     header: "IGESSelect_SelectSubordinate.hxx".}
 type
-  IGESSelect_SelectSubordinatebase_type* = IFSelect_SelectExtract
+  IGESSelectSelectSubordinatebaseType* = IFSelectSelectExtract
 
-proc get_type_name*(): cstring {.importcpp: "IGESSelect_SelectSubordinate::get_type_name(@)",
-                              header: "IGESSelect_SelectSubordinate.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_SelectSubordinate::get_type_name(@)",
+                            header: "IGESSelect_SelectSubordinate.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSelect_SelectSubordinate::get_type_descriptor(@)",
     header: "IGESSelect_SelectSubordinate.hxx".}
-proc DynamicType*(this: IGESSelect_SelectSubordinate): handle[Standard_Type] {.
+proc dynamicType*(this: IGESSelectSelectSubordinate): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SelectSubordinate.hxx".}

@@ -13,41 +13,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_HArray1OfReal, ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_EulerAngles"
 discard "forward decl of StepBasic_EulerAngles"
 type
-  Handle_StepBasic_EulerAngles* = handle[StepBasic_EulerAngles]
+  HandleStepBasicEulerAngles* = Handle[StepBasicEulerAngles]
 
 ## ! Representation of STEP entity EulerAngles
 
 type
-  StepBasic_EulerAngles* {.importcpp: "StepBasic_EulerAngles",
-                          header: "StepBasic_EulerAngles.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                ## !
-                                                                                                ## Empty
-                                                                                                ## constructor
+  StepBasicEulerAngles* {.importcpp: "StepBasic_EulerAngles",
+                         header: "StepBasic_EulerAngles.hxx", bycopy.} = object of StandardTransient ##
+                                                                                              ## !
+                                                                                              ## Empty
+                                                                                              ## constructor
 
 
-proc constructStepBasic_EulerAngles*(): StepBasic_EulerAngles {.constructor,
+proc constructStepBasicEulerAngles*(): StepBasicEulerAngles {.constructor,
     importcpp: "StepBasic_EulerAngles(@)", header: "StepBasic_EulerAngles.hxx".}
-proc Init*(this: var StepBasic_EulerAngles; aAngles: handle[TColStd_HArray1OfReal]) {.
+proc init*(this: var StepBasicEulerAngles; aAngles: Handle[TColStdHArray1OfReal]) {.
     importcpp: "Init", header: "StepBasic_EulerAngles.hxx".}
-proc Angles*(this: StepBasic_EulerAngles): handle[TColStd_HArray1OfReal] {.
+proc angles*(this: StepBasicEulerAngles): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "Angles", header: "StepBasic_EulerAngles.hxx".}
-proc SetAngles*(this: var StepBasic_EulerAngles;
-               Angles: handle[TColStd_HArray1OfReal]) {.importcpp: "SetAngles",
-    header: "StepBasic_EulerAngles.hxx".}
+proc setAngles*(this: var StepBasicEulerAngles; angles: Handle[TColStdHArray1OfReal]) {.
+    importcpp: "SetAngles", header: "StepBasic_EulerAngles.hxx".}
 type
-  StepBasic_EulerAnglesbase_type* = Standard_Transient
+  StepBasicEulerAnglesbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_EulerAngles::get_type_name(@)",
-                              header: "StepBasic_EulerAngles.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_EulerAngles::get_type_name(@)",
+                            header: "StepBasic_EulerAngles.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_EulerAngles::get_type_descriptor(@)",
     header: "StepBasic_EulerAngles.hxx".}
-proc DynamicType*(this: StepBasic_EulerAngles): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepBasic_EulerAngles.hxx".}
+proc dynamicType*(this: StepBasicEulerAngles): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepBasic_EulerAngles.hxx".}

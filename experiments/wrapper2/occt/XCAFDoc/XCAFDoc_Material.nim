@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../TDF/TDF_Attribute
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
@@ -25,58 +21,58 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of XCAFDoc_Material"
 discard "forward decl of XCAFDoc_Material"
 type
-  Handle_XCAFDoc_Material* = handle[XCAFDoc_Material]
+  HandleXCAFDocMaterial* = Handle[XCAFDocMaterial]
 
 ## ! attribute to store material
 
 type
-  XCAFDoc_Material* {.importcpp: "XCAFDoc_Material",
-                     header: "XCAFDoc_Material.hxx", bycopy.} = object of TDF_Attribute
+  XCAFDocMaterial* {.importcpp: "XCAFDoc_Material", header: "XCAFDoc_Material.hxx",
+                    bycopy.} = object of TDF_Attribute
 
 
-proc constructXCAFDoc_Material*(): XCAFDoc_Material {.constructor,
+proc constructXCAFDocMaterial*(): XCAFDocMaterial {.constructor,
     importcpp: "XCAFDoc_Material(@)", header: "XCAFDoc_Material.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "XCAFDoc_Material::GetID(@)",
-                            header: "XCAFDoc_Material.hxx".}
-proc Set*(label: TDF_Label; aName: handle[TCollection_HAsciiString];
-         aDescription: handle[TCollection_HAsciiString]; aDensity: Standard_Real;
-         aDensName: handle[TCollection_HAsciiString];
-         aDensValType: handle[TCollection_HAsciiString]): handle[XCAFDoc_Material] {.
+proc getID*(): StandardGUID {.importcpp: "XCAFDoc_Material::GetID(@)",
+                           header: "XCAFDoc_Material.hxx".}
+proc set*(label: TDF_Label; aName: Handle[TCollectionHAsciiString];
+         aDescription: Handle[TCollectionHAsciiString]; aDensity: float;
+         aDensName: Handle[TCollectionHAsciiString];
+         aDensValType: Handle[TCollectionHAsciiString]): Handle[XCAFDocMaterial] {.
     importcpp: "XCAFDoc_Material::Set(@)", header: "XCAFDoc_Material.hxx".}
-proc Set*(this: var XCAFDoc_Material; aName: handle[TCollection_HAsciiString];
-         aDescription: handle[TCollection_HAsciiString]; aDensity: Standard_Real;
-         aDensName: handle[TCollection_HAsciiString];
-         aDensValType: handle[TCollection_HAsciiString]) {.importcpp: "Set",
+proc set*(this: var XCAFDocMaterial; aName: Handle[TCollectionHAsciiString];
+         aDescription: Handle[TCollectionHAsciiString]; aDensity: float;
+         aDensName: Handle[TCollectionHAsciiString];
+         aDensValType: Handle[TCollectionHAsciiString]) {.importcpp: "Set",
     header: "XCAFDoc_Material.hxx".}
-proc GetName*(this: XCAFDoc_Material): handle[TCollection_HAsciiString] {.
+proc getName*(this: XCAFDocMaterial): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "GetName", header: "XCAFDoc_Material.hxx".}
-proc GetDescription*(this: XCAFDoc_Material): handle[TCollection_HAsciiString] {.
+proc getDescription*(this: XCAFDocMaterial): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "GetDescription", header: "XCAFDoc_Material.hxx".}
-proc GetDensity*(this: XCAFDoc_Material): Standard_Real {.noSideEffect,
+proc getDensity*(this: XCAFDocMaterial): float {.noSideEffect,
     importcpp: "GetDensity", header: "XCAFDoc_Material.hxx".}
-proc GetDensName*(this: XCAFDoc_Material): handle[TCollection_HAsciiString] {.
+proc getDensName*(this: XCAFDocMaterial): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "GetDensName", header: "XCAFDoc_Material.hxx".}
-proc GetDensValType*(this: XCAFDoc_Material): handle[TCollection_HAsciiString] {.
+proc getDensValType*(this: XCAFDocMaterial): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "GetDensValType", header: "XCAFDoc_Material.hxx".}
-proc ID*(this: XCAFDoc_Material): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: XCAFDocMaterial): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "XCAFDoc_Material.hxx".}
-proc Restore*(this: var XCAFDoc_Material; With: handle[TDF_Attribute]) {.
+proc restore*(this: var XCAFDocMaterial; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "XCAFDoc_Material.hxx".}
-proc NewEmpty*(this: XCAFDoc_Material): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: XCAFDocMaterial): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "XCAFDoc_Material.hxx".}
-proc Paste*(this: XCAFDoc_Material; Into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: XCAFDocMaterial; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "XCAFDoc_Material.hxx".}
-proc DumpJson*(this: XCAFDoc_Material; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "XCAFDoc_Material.hxx".}
+proc dumpJson*(this: XCAFDocMaterial; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "XCAFDoc_Material.hxx".}
 type
-  XCAFDoc_Materialbase_type* = TDF_Attribute
+  XCAFDocMaterialbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "XCAFDoc_Material::get_type_name(@)",
-                              header: "XCAFDoc_Material.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XCAFDoc_Material::get_type_name(@)",
+                            header: "XCAFDoc_Material.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XCAFDoc_Material::get_type_descriptor(@)",
     header: "XCAFDoc_Material.hxx".}
-proc DynamicType*(this: XCAFDoc_Material): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: XCAFDocMaterial): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XCAFDoc_Material.hxx".}

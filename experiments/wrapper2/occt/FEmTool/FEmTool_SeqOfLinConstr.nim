@@ -14,10 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  FEmTool_ListOfVectors, ../NCollection/NCollection_Sequence
-
 ## ! To  define  sequence  of  constraints
 
 type
-  FEmTool_SeqOfLinConstr* = NCollection_Sequence[FEmTool_ListOfVectors]
+  FEmToolSeqOfLinConstr* = NCollectionSequence[FEmToolListOfVectors]
+

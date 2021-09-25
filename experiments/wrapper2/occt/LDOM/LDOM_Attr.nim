@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  LDOM_Node
-
 discard "forward decl of LDOM_BasicAttribute"
 discard "forward decl of LDOM_Element"
 type

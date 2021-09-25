@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESAppli_NodalDisplAndRot"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,41 +26,41 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESAppli_ToolNodalDisplAndRot* {.importcpp: "IGESAppli_ToolNodalDisplAndRot", header: "IGESAppli_ToolNodalDisplAndRot.hxx",
-                                   bycopy.} = object ## ! Returns a ToolNodalDisplAndRot, ready to work
+  IGESAppliToolNodalDisplAndRot* {.importcpp: "IGESAppli_ToolNodalDisplAndRot",
+                                  header: "IGESAppli_ToolNodalDisplAndRot.hxx",
+                                  bycopy.} = object ## ! Returns a ToolNodalDisplAndRot, ready to work
 
 
-proc constructIGESAppli_ToolNodalDisplAndRot*(): IGESAppli_ToolNodalDisplAndRot {.
+proc constructIGESAppliToolNodalDisplAndRot*(): IGESAppliToolNodalDisplAndRot {.
     constructor, importcpp: "IGESAppli_ToolNodalDisplAndRot(@)",
     header: "IGESAppli_ToolNodalDisplAndRot.hxx".}
-proc ReadOwnParams*(this: IGESAppli_ToolNodalDisplAndRot;
-                   ent: handle[IGESAppli_NodalDisplAndRot];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESAppli_ToolNodalDisplAndRot.hxx".}
-proc WriteOwnParams*(this: IGESAppli_ToolNodalDisplAndRot;
-                    ent: handle[IGESAppli_NodalDisplAndRot];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESAppliToolNodalDisplAndRot;
+                   ent: Handle[IGESAppliNodalDisplAndRot];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESAppli_ToolNodalDisplAndRot.hxx".}
+proc writeOwnParams*(this: IGESAppliToolNodalDisplAndRot;
+                    ent: Handle[IGESAppliNodalDisplAndRot];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESAppli_ToolNodalDisplAndRot.hxx".}
-proc OwnShared*(this: IGESAppli_ToolNodalDisplAndRot;
-               ent: handle[IGESAppli_NodalDisplAndRot];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESAppliToolNodalDisplAndRot;
+               ent: Handle[IGESAppliNodalDisplAndRot];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESAppli_ToolNodalDisplAndRot.hxx".}
-proc DirChecker*(this: IGESAppli_ToolNodalDisplAndRot;
-                ent: handle[IGESAppli_NodalDisplAndRot]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESAppliToolNodalDisplAndRot;
+                ent: Handle[IGESAppliNodalDisplAndRot]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESAppli_ToolNodalDisplAndRot.hxx".}
-proc OwnCheck*(this: IGESAppli_ToolNodalDisplAndRot;
-              ent: handle[IGESAppli_NodalDisplAndRot];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
-    noSideEffect, importcpp: "OwnCheck",
-    header: "IGESAppli_ToolNodalDisplAndRot.hxx".}
-proc OwnCopy*(this: IGESAppli_ToolNodalDisplAndRot;
-             entfrom: handle[IGESAppli_NodalDisplAndRot];
-             entto: handle[IGESAppli_NodalDisplAndRot]; TC: var Interface_CopyTool) {.
+proc ownCheck*(this: IGESAppliToolNodalDisplAndRot;
+              ent: Handle[IGESAppliNodalDisplAndRot]; shares: InterfaceShareTool;
+              ach: var Handle[InterfaceCheck]) {.noSideEffect,
+    importcpp: "OwnCheck", header: "IGESAppli_ToolNodalDisplAndRot.hxx".}
+proc ownCopy*(this: IGESAppliToolNodalDisplAndRot;
+             entfrom: Handle[IGESAppliNodalDisplAndRot];
+             entto: Handle[IGESAppliNodalDisplAndRot]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy",
     header: "IGESAppli_ToolNodalDisplAndRot.hxx".}
-proc OwnDump*(this: IGESAppli_ToolNodalDisplAndRot;
-             ent: handle[IGESAppli_NodalDisplAndRot]; dumper: IGESData_IGESDumper;
-             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
-    importcpp: "OwnDump", header: "IGESAppli_ToolNodalDisplAndRot.hxx".}
+proc ownDump*(this: IGESAppliToolNodalDisplAndRot;
+             ent: Handle[IGESAppliNodalDisplAndRot]; dumper: IGESDataIGESDumper;
+             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+    header: "IGESAppli_ToolNodalDisplAndRot.hxx".}

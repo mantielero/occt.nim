@@ -13,9 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TDF_Label, TDF_LabelMapHasher, ../NCollection/NCollection_Map
-
 type
-  TDF_LabelMap* = NCollection_Map[TDF_Label, TDF_LabelMapHasher]
+  TDF_LabelMap* = NCollectionMap[TDF_Label, TDF_LabelMapHasher]
   TDF_MapIteratorOfLabelMap* = Iterator[TDF_Label, TDF_LabelMapHasher]
+

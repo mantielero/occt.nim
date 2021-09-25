@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_SurfaceStyleElementSelect, ../NCollection/NCollection_Array1
-
 type
-  StepVisual_Array1OfSurfaceStyleElementSelect* = NCollection_Array1[
-      StepVisual_SurfaceStyleElementSelect]
+  StepVisualArray1OfSurfaceStyleElementSelect* = NCollectionArray1[
+      StepVisualSurfaceStyleElementSelect]
+

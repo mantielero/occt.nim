@@ -14,10 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TopOpeBRepDS_DataMapOfIntegerListOfInterference,
-  ../NCollection/NCollection_Array1
-
 type
-  TopOpeBRepDS_Array1OfDataMapOfIntegerListOfInterference* = NCollection_Array1[
+  TopOpeBRepDS_Array1OfDataMapOfIntegerListOfInterference* = NCollectionArray1[
       TopOpeBRepDS_DataMapOfIntegerListOfInterference]
+

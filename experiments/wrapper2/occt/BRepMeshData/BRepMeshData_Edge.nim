@@ -13,40 +13,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../IMeshData/IMeshData_Edge, ../IMeshData/IMeshData_Curve,
-  ../NCollection/NCollection_IncAllocator, ../IMeshData/IMeshData_Types
-
 ## ! Default implementation of edge data model entity.
 
 type
-  BRepMeshData_Edge* {.importcpp: "BRepMeshData_Edge",
-                      header: "BRepMeshData_Edge.hxx", bycopy.} = object of IMeshData_Edge
+  BRepMeshDataEdge* {.importcpp: "BRepMeshData_Edge",
+                     header: "BRepMeshData_Edge.hxx", bycopy.} = object of IMeshDataEdge
 
 
-proc BRepMeshData_Edge*(this: var BRepMeshData_Edge; theEdge: TopoDS_Edge;
-                       theAllocator: handle[NCollection_IncAllocator]): DEFINE_INC_ALLOC {.
+proc bRepMeshDataEdge*(this: var BRepMeshDataEdge; theEdge: TopoDS_Edge;
+                      theAllocator: Handle[NCollectionIncAllocator]): Define_Inc_Alloc {.
     importcpp: "BRepMeshData_Edge", header: "BRepMeshData_Edge.hxx".}
   ## ! Constructor.
-proc destroyBRepMeshData_Edge*(this: var BRepMeshData_Edge) {.
+proc destroyBRepMeshDataEdge*(this: var BRepMeshDataEdge) {.
     importcpp: "#.~BRepMeshData_Edge()", header: "BRepMeshData_Edge.hxx".}
-proc PCurvesNb*(this: BRepMeshData_Edge): Standard_Integer {.noSideEffect,
-    importcpp: "PCurvesNb", header: "BRepMeshData_Edge.hxx".}
-proc AddPCurve*(this: var BRepMeshData_Edge; theDFace: IFacePtr;
-               theOrientation: TopAbs_Orientation): IPCurveHandle {.
+proc pCurvesNb*(this: BRepMeshDataEdge): int {.noSideEffect, importcpp: "PCurvesNb",
+    header: "BRepMeshData_Edge.hxx".}
+proc addPCurve*(this: var BRepMeshDataEdge; theDFace: IFacePtr;
+               theOrientation: TopAbsOrientation): IPCurveHandle {.
     importcpp: "AddPCurve", header: "BRepMeshData_Edge.hxx".}
-proc GetPCurve*(this: BRepMeshData_Edge; theDFace: IFacePtr;
-               theOrientation: TopAbs_Orientation): IPCurveHandle {.noSideEffect,
+proc getPCurve*(this: BRepMeshDataEdge; theDFace: IFacePtr;
+               theOrientation: TopAbsOrientation): IPCurveHandle {.noSideEffect,
     importcpp: "GetPCurve", header: "BRepMeshData_Edge.hxx".}
-proc GetPCurve*(this: BRepMeshData_Edge; theIndex: Standard_Integer): IPCurveHandle {.
-    noSideEffect, importcpp: "GetPCurve", header: "BRepMeshData_Edge.hxx".}
+proc getPCurve*(this: BRepMeshDataEdge; theIndex: int): IPCurveHandle {.noSideEffect,
+    importcpp: "GetPCurve", header: "BRepMeshData_Edge.hxx".}
 type
-  BRepMeshData_Edgebase_type* = IMeshData_Edge
+  BRepMeshDataEdgebaseType* = IMeshDataEdge
 
-proc get_type_name*(): cstring {.importcpp: "BRepMeshData_Edge::get_type_name(@)",
-                              header: "BRepMeshData_Edge.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepMeshData_Edge::get_type_name(@)",
+                            header: "BRepMeshData_Edge.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepMeshData_Edge::get_type_descriptor(@)",
     header: "BRepMeshData_Edge.hxx".}
-proc DynamicType*(this: BRepMeshData_Edge): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: BRepMeshDataEdge): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMeshData_Edge.hxx".}

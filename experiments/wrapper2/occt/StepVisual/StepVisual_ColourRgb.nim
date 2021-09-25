@@ -14,47 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  StepVisual_ColourSpecification
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepVisual_ColourRgb"
 discard "forward decl of StepVisual_ColourRgb"
 type
-  Handle_StepVisual_ColourRgb* = handle[StepVisual_ColourRgb]
-  StepVisual_ColourRgb* {.importcpp: "StepVisual_ColourRgb",
-                         header: "StepVisual_ColourRgb.hxx", bycopy.} = object of StepVisual_ColourSpecification ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## a
-                                                                                                          ## ColourRgb
+  HandleStepVisualColourRgb* = Handle[StepVisualColourRgb]
+  StepVisualColourRgb* {.importcpp: "StepVisual_ColourRgb",
+                        header: "StepVisual_ColourRgb.hxx", bycopy.} = object of StepVisualColourSpecification ##
+                                                                                                        ## !
+                                                                                                        ## Returns
+                                                                                                        ## a
+                                                                                                        ## ColourRgb
 
 
-proc constructStepVisual_ColourRgb*(): StepVisual_ColourRgb {.constructor,
+proc constructStepVisualColourRgb*(): StepVisualColourRgb {.constructor,
     importcpp: "StepVisual_ColourRgb(@)", header: "StepVisual_ColourRgb.hxx".}
-proc Init*(this: var StepVisual_ColourRgb; aName: handle[TCollection_HAsciiString];
-          aRed: Standard_Real; aGreen: Standard_Real; aBlue: Standard_Real) {.
-    importcpp: "Init", header: "StepVisual_ColourRgb.hxx".}
-proc SetRed*(this: var StepVisual_ColourRgb; aRed: Standard_Real) {.
-    importcpp: "SetRed", header: "StepVisual_ColourRgb.hxx".}
-proc Red*(this: StepVisual_ColourRgb): Standard_Real {.noSideEffect,
-    importcpp: "Red", header: "StepVisual_ColourRgb.hxx".}
-proc SetGreen*(this: var StepVisual_ColourRgb; aGreen: Standard_Real) {.
-    importcpp: "SetGreen", header: "StepVisual_ColourRgb.hxx".}
-proc Green*(this: StepVisual_ColourRgb): Standard_Real {.noSideEffect,
-    importcpp: "Green", header: "StepVisual_ColourRgb.hxx".}
-proc SetBlue*(this: var StepVisual_ColourRgb; aBlue: Standard_Real) {.
-    importcpp: "SetBlue", header: "StepVisual_ColourRgb.hxx".}
-proc Blue*(this: StepVisual_ColourRgb): Standard_Real {.noSideEffect,
-    importcpp: "Blue", header: "StepVisual_ColourRgb.hxx".}
+proc init*(this: var StepVisualColourRgb; aName: Handle[TCollectionHAsciiString];
+          aRed: float; aGreen: float; aBlue: float) {.importcpp: "Init",
+    header: "StepVisual_ColourRgb.hxx".}
+proc setRed*(this: var StepVisualColourRgb; aRed: float) {.importcpp: "SetRed",
+    header: "StepVisual_ColourRgb.hxx".}
+proc red*(this: StepVisualColourRgb): float {.noSideEffect, importcpp: "Red",
+    header: "StepVisual_ColourRgb.hxx".}
+proc setGreen*(this: var StepVisualColourRgb; aGreen: float) {.importcpp: "SetGreen",
+    header: "StepVisual_ColourRgb.hxx".}
+proc green*(this: StepVisualColourRgb): float {.noSideEffect, importcpp: "Green",
+    header: "StepVisual_ColourRgb.hxx".}
+proc setBlue*(this: var StepVisualColourRgb; aBlue: float) {.importcpp: "SetBlue",
+    header: "StepVisual_ColourRgb.hxx".}
+proc blue*(this: StepVisualColourRgb): float {.noSideEffect, importcpp: "Blue",
+    header: "StepVisual_ColourRgb.hxx".}
 type
-  StepVisual_ColourRgbbase_type* = StepVisual_ColourSpecification
+  StepVisualColourRgbbaseType* = StepVisualColourSpecification
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_ColourRgb::get_type_name(@)",
-                              header: "StepVisual_ColourRgb.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_ColourRgb::get_type_name(@)",
+                            header: "StepVisual_ColourRgb.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_ColourRgb::get_type_descriptor(@)",
     header: "StepVisual_ColourRgb.hxx".}
-proc DynamicType*(this: StepVisual_ColourRgb): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepVisualColourRgb): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepVisual_ColourRgb.hxx".}

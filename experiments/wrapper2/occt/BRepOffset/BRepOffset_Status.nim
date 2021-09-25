@@ -21,8 +21,8 @@
 ## ! Unknown : e.g. for a Beziersurf
 
 type
-  BRepOffset_Status* {.size: sizeof(cint), importcpp: "BRepOffset_Status",
-                      header: "BRepOffset_Status.hxx".} = enum
-    BRepOffset_Good, BRepOffset_Reversed, BRepOffset_Degenerated,
-    BRepOffset_Unknown
+  BRepOffsetStatus* {.size: sizeof(cint), importcpp: "BRepOffset_Status",
+                     header: "BRepOffset_Status.hxx".} = enum
+    BRepOffsetGood, BRepOffsetReversed, BRepOffsetDegenerated, BRepOffsetUnknown
+
 

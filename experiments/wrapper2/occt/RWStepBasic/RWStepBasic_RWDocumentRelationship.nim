@@ -14,33 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_DocumentRelationship"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasic_RWDocumentRelationship* {.importcpp: "RWStepBasic_RWDocumentRelationship", header: "RWStepBasic_RWDocumentRelationship.hxx",
-                                       bycopy.} = object
+  RWStepBasicRWDocumentRelationship* {.importcpp: "RWStepBasic_RWDocumentRelationship", header: "RWStepBasic_RWDocumentRelationship.hxx",
+                                      bycopy.} = object
 
 
-proc constructRWStepBasic_RWDocumentRelationship*(): RWStepBasic_RWDocumentRelationship {.
+proc constructRWStepBasicRWDocumentRelationship*(): RWStepBasicRWDocumentRelationship {.
     constructor, importcpp: "RWStepBasic_RWDocumentRelationship(@)",
     header: "RWStepBasic_RWDocumentRelationship.hxx".}
-proc ReadStep*(this: RWStepBasic_RWDocumentRelationship;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepBasic_DocumentRelationship]) {.noSideEffect,
+proc readStep*(this: RWStepBasicRWDocumentRelationship;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepBasicDocumentRelationship]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWDocumentRelationship.hxx".}
-proc WriteStep*(this: RWStepBasic_RWDocumentRelationship;
-               SW: var StepData_StepWriter;
-               ent: handle[StepBasic_DocumentRelationship]) {.noSideEffect,
+proc writeStep*(this: RWStepBasicRWDocumentRelationship;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepBasicDocumentRelationship]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWDocumentRelationship.hxx".}
-proc Share*(this: RWStepBasic_RWDocumentRelationship;
-           ent: handle[StepBasic_DocumentRelationship];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepBasicRWDocumentRelationship;
+           ent: Handle[StepBasicDocumentRelationship];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWDocumentRelationship.hxx".}

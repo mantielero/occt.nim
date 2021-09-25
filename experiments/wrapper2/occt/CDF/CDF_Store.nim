@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../TCollection/TCollection_ExtendedString, ../PCDM/PCDM_StoreStatus,
-  CDF_TryStoreStatus, ../Standard/Standard_ExtString, CDF_StoreSetNameStatus,
-  CDF_SubComponentStatus, ../TCollection/TCollection_HExtendedString,
-  ../Message/Message_ProgressRange
-
 discard "forward decl of CDF_StoreList"
 discard "forward decl of CDM_Document"
 discard "forward decl of TCollection_ExtendedString"
@@ -33,55 +25,55 @@ type
                                                                           ## selection.
 
 
-proc constructCDF_Store*(aDocument: handle[CDM_Document]): CDF_Store {.constructor,
+proc constructCDF_Store*(aDocument: Handle[CDM_Document]): CDF_Store {.constructor,
     importcpp: "CDF_Store(@)", header: "CDF_Store.hxx".}
-proc Folder*(this: CDF_Store): handle[TCollection_HExtendedString] {.noSideEffect,
+proc folder*(this: CDF_Store): Handle[TCollectionHExtendedString] {.noSideEffect,
     importcpp: "Folder", header: "CDF_Store.hxx".}
-proc Name*(this: CDF_Store): handle[TCollection_HExtendedString] {.noSideEffect,
+proc name*(this: CDF_Store): Handle[TCollectionHExtendedString] {.noSideEffect,
     importcpp: "Name", header: "CDF_Store.hxx".}
-proc IsStored*(this: CDF_Store): Standard_Boolean {.noSideEffect,
-    importcpp: "IsStored", header: "CDF_Store.hxx".}
-proc IsModified*(this: CDF_Store): Standard_Boolean {.noSideEffect,
-    importcpp: "IsModified", header: "CDF_Store.hxx".}
-proc CurrentIsConsistent*(this: CDF_Store): Standard_Boolean {.noSideEffect,
+proc isStored*(this: CDF_Store): bool {.noSideEffect, importcpp: "IsStored",
+                                    header: "CDF_Store.hxx".}
+proc isModified*(this: CDF_Store): bool {.noSideEffect, importcpp: "IsModified",
+                                      header: "CDF_Store.hxx".}
+proc currentIsConsistent*(this: CDF_Store): bool {.noSideEffect,
     importcpp: "CurrentIsConsistent", header: "CDF_Store.hxx".}
-proc IsConsistent*(this: CDF_Store): Standard_Boolean {.noSideEffect,
-    importcpp: "IsConsistent", header: "CDF_Store.hxx".}
-proc HasAPreviousVersion*(this: CDF_Store): Standard_Boolean {.noSideEffect,
+proc isConsistent*(this: CDF_Store): bool {.noSideEffect, importcpp: "IsConsistent",
+                                        header: "CDF_Store.hxx".}
+proc hasAPreviousVersion*(this: CDF_Store): bool {.noSideEffect,
     importcpp: "HasAPreviousVersion", header: "CDF_Store.hxx".}
-proc PreviousVersion*(this: CDF_Store): handle[TCollection_HExtendedString] {.
+proc previousVersion*(this: CDF_Store): Handle[TCollectionHExtendedString] {.
     noSideEffect, importcpp: "PreviousVersion", header: "CDF_Store.hxx".}
-proc IsMainDocument*(this: CDF_Store): Standard_Boolean {.noSideEffect,
+proc isMainDocument*(this: CDF_Store): bool {.noSideEffect,
     importcpp: "IsMainDocument", header: "CDF_Store.hxx".}
-proc SetFolder*(this: var CDF_Store; aFolder: TCollection_ExtendedString): Standard_Boolean {.
+proc setFolder*(this: var CDF_Store; aFolder: TCollectionExtendedString): bool {.
     importcpp: "SetFolder", header: "CDF_Store.hxx".}
-proc SetName*(this: var CDF_Store; aName: Standard_ExtString): CDF_StoreSetNameStatus {.
+proc setName*(this: var CDF_Store; aName: StandardExtString): CDF_StoreSetNameStatus {.
     importcpp: "SetName", header: "CDF_Store.hxx".}
-proc SetComment*(this: var CDF_Store; aComment: Standard_ExtString) {.
+proc setComment*(this: var CDF_Store; aComment: StandardExtString) {.
     importcpp: "SetComment", header: "CDF_Store.hxx".}
-proc Comment*(this: CDF_Store): handle[TCollection_HExtendedString] {.noSideEffect,
+proc comment*(this: CDF_Store): Handle[TCollectionHExtendedString] {.noSideEffect,
     importcpp: "Comment", header: "CDF_Store.hxx".}
-proc RecheckName*(this: var CDF_Store): CDF_StoreSetNameStatus {.
+proc recheckName*(this: var CDF_Store): CDF_StoreSetNameStatus {.
     importcpp: "RecheckName", header: "CDF_Store.hxx".}
-proc SetPreviousVersion*(this: var CDF_Store; aPreviousVersion: Standard_ExtString): Standard_Boolean {.
+proc setPreviousVersion*(this: var CDF_Store; aPreviousVersion: StandardExtString): bool {.
     importcpp: "SetPreviousVersion", header: "CDF_Store.hxx".}
-proc Realize*(this: var CDF_Store;
-             theRange: Message_ProgressRange = Message_ProgressRange()) {.
+proc realize*(this: var CDF_Store;
+             theRange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Realize", header: "CDF_Store.hxx".}
-proc Path*(this: CDF_Store): Standard_ExtString {.noSideEffect, importcpp: "Path",
+proc path*(this: CDF_Store): StandardExtString {.noSideEffect, importcpp: "Path",
     header: "CDF_Store.hxx".}
-proc MetaDataPath*(this: CDF_Store): handle[TCollection_HExtendedString] {.
+proc metaDataPath*(this: CDF_Store): Handle[TCollectionHExtendedString] {.
     noSideEffect, importcpp: "MetaDataPath", header: "CDF_Store.hxx".}
-proc Description*(this: CDF_Store): handle[TCollection_HExtendedString] {.
+proc description*(this: CDF_Store): Handle[TCollectionHExtendedString] {.
     noSideEffect, importcpp: "Description", header: "CDF_Store.hxx".}
-proc SetCurrent*(this: var CDF_Store; aPresentation: Standard_ExtString) {.
+proc setCurrent*(this: var CDF_Store; aPresentation: StandardExtString) {.
     importcpp: "SetCurrent", header: "CDF_Store.hxx".}
-proc SetMain*(this: var CDF_Store) {.importcpp: "SetMain", header: "CDF_Store.hxx".}
-proc StoreStatus*(this: CDF_Store): PCDM_StoreStatus {.noSideEffect,
+proc setMain*(this: var CDF_Store) {.importcpp: "SetMain", header: "CDF_Store.hxx".}
+proc storeStatus*(this: CDF_Store): PCDM_StoreStatus {.noSideEffect,
     importcpp: "StoreStatus", header: "CDF_Store.hxx".}
-proc AssociatedStatusText*(this: CDF_Store): Standard_ExtString {.noSideEffect,
+proc associatedStatusText*(this: CDF_Store): StandardExtString {.noSideEffect,
     importcpp: "AssociatedStatusText", header: "CDF_Store.hxx".}
-proc SetName*(this: var CDF_Store; aName: TCollection_ExtendedString): CDF_StoreSetNameStatus {.
+proc setName*(this: var CDF_Store; aName: TCollectionExtendedString): CDF_StoreSetNameStatus {.
     importcpp: "SetName", header: "CDF_Store.hxx".}
-proc SetFolder*(this: var CDF_Store; aFolder: Standard_ExtString): Standard_Boolean {.
+proc setFolder*(this: var CDF_Store; aFolder: StandardExtString): bool {.
     importcpp: "SetFolder", header: "CDF_Store.hxx".}

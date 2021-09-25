@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepShape_ConnectedEdgeSet, StepShape_Array1OfConnectedEdgeSet,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepShape_HArray1OfConnectedEdgeSet* {.importcpp: "StepShape_HArray1OfConnectedEdgeSet", header: "StepShape_HArray1OfConnectedEdgeSet.hxx",
-                                        bycopy.} = object of StepShape_Array1OfConnectedEdgeSet
+  StepShapeHArray1OfConnectedEdgeSet* {.importcpp: "StepShape_HArray1OfConnectedEdgeSet", header: "StepShape_HArray1OfConnectedEdgeSet.hxx",
+                                       bycopy.} = object of StepShapeArray1OfConnectedEdgeSet
 
 
-proc constructStepShape_HArray1OfConnectedEdgeSet*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepShape_HArray1OfConnectedEdgeSet {.constructor,
+proc constructStepShapeHArray1OfConnectedEdgeSet*(theLower: int; theUpper: int): StepShapeHArray1OfConnectedEdgeSet {.
+    constructor, importcpp: "StepShape_HArray1OfConnectedEdgeSet(@)",
+    header: "StepShape_HArray1OfConnectedEdgeSet.hxx".}
+proc constructStepShapeHArray1OfConnectedEdgeSet*(theLower: int; theUpper: int;
+    theValue: ValueType): StepShapeHArray1OfConnectedEdgeSet {.constructor,
     importcpp: "StepShape_HArray1OfConnectedEdgeSet(@)",
     header: "StepShape_HArray1OfConnectedEdgeSet.hxx".}
-proc constructStepShape_HArray1OfConnectedEdgeSet*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepShape_HArray1OfConnectedEdgeSet {.
+proc constructStepShapeHArray1OfConnectedEdgeSet*(
+    theOther: StepShapeArray1OfConnectedEdgeSet): StepShapeHArray1OfConnectedEdgeSet {.
     constructor, importcpp: "StepShape_HArray1OfConnectedEdgeSet(@)",
     header: "StepShape_HArray1OfConnectedEdgeSet.hxx".}
-proc constructStepShape_HArray1OfConnectedEdgeSet*(
-    theOther: StepShape_Array1OfConnectedEdgeSet): StepShape_HArray1OfConnectedEdgeSet {.
-    constructor, importcpp: "StepShape_HArray1OfConnectedEdgeSet(@)",
-    header: "StepShape_HArray1OfConnectedEdgeSet.hxx".}
-proc Array1*(this: StepShape_HArray1OfConnectedEdgeSet): StepShape_Array1OfConnectedEdgeSet {.
+proc array1*(this: StepShapeHArray1OfConnectedEdgeSet): StepShapeArray1OfConnectedEdgeSet {.
     noSideEffect, importcpp: "Array1",
     header: "StepShape_HArray1OfConnectedEdgeSet.hxx".}
-proc ChangeArray1*(this: var StepShape_HArray1OfConnectedEdgeSet): var StepShape_Array1OfConnectedEdgeSet {.
+proc changeArray1*(this: var StepShapeHArray1OfConnectedEdgeSet): var StepShapeArray1OfConnectedEdgeSet {.
     importcpp: "ChangeArray1", header: "StepShape_HArray1OfConnectedEdgeSet.hxx".}
 type
-  StepShape_HArray1OfConnectedEdgeSetbase_type* = MMgt_TShared
+  StepShapeHArray1OfConnectedEdgeSetbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_HArray1OfConnectedEdgeSet::get_type_name(@)",
-                              header: "StepShape_HArray1OfConnectedEdgeSet.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_HArray1OfConnectedEdgeSet::get_type_name(@)",
+                            header: "StepShape_HArray1OfConnectedEdgeSet.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_HArray1OfConnectedEdgeSet::get_type_descriptor(@)",
     header: "StepShape_HArray1OfConnectedEdgeSet.hxx".}
-proc DynamicType*(this: StepShape_HArray1OfConnectedEdgeSet): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeHArray1OfConnectedEdgeSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_HArray1OfConnectedEdgeSet.hxx".}

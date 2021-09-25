@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Sequence, SelectMgr_Selection
-
 type
-  SelectMgr_SequenceOfSelection* = NCollection_Sequence[
-      handle[SelectMgr_Selection]]
+  SelectMgrSequenceOfSelection* = NCollectionSequence[Handle[SelectMgrSelection]]
+

@@ -16,4 +16,5 @@
 
 discard "forward decl of TopOpeBRepBuild_GTopo"
 type
-  TopOpeBRepBuild_PGTopo* = ptr TopOpeBRepBuild_GTopo
+  TopOpeBRepBuildPGTopo* = ptr TopOpeBRepBuildGTopo
+

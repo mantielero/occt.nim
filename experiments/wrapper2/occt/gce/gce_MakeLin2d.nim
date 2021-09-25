@@ -14,41 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Lin2d, gce_Root, ../Standard/Standard_Real
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Dir2d"
 discard "forward decl of gp_Lin2d"
 type
-  gce_MakeLin2d* {.importcpp: "gce_MakeLin2d", header: "gce_MakeLin2d.hxx", bycopy.} = object of gce_Root ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## a
-                                                                                                ## line
-                                                                                                ## located
-                                                                                                ## with
-                                                                                                ## A.
+  GceMakeLin2d* {.importcpp: "gce_MakeLin2d", header: "gce_MakeLin2d.hxx", bycopy.} = object of GceRoot ##
+                                                                                              ## !
+                                                                                              ## Creates
+                                                                                              ## a
+                                                                                              ## line
+                                                                                              ## located
+                                                                                              ## with
+                                                                                              ## A.
 
 
-proc constructgce_MakeLin2d*(A: gp_Ax2d): gce_MakeLin2d {.constructor,
+proc constructGceMakeLin2d*(a: Ax2d): GceMakeLin2d {.constructor,
     importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
-proc constructgce_MakeLin2d*(P: gp_Pnt2d; V: gp_Dir2d): gce_MakeLin2d {.constructor,
+proc constructGceMakeLin2d*(p: Pnt2d; v: Dir2d): GceMakeLin2d {.constructor,
     importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
-proc constructgce_MakeLin2d*(A: Standard_Real; B: Standard_Real; C: Standard_Real): gce_MakeLin2d {.
-    constructor, importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
-proc constructgce_MakeLin2d*(Lin: gp_Lin2d; Dist: Standard_Real): gce_MakeLin2d {.
-    constructor, importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
-proc constructgce_MakeLin2d*(Lin: gp_Lin2d; Point: gp_Pnt2d): gce_MakeLin2d {.
-    constructor, importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
-proc constructgce_MakeLin2d*(P1: gp_Pnt2d; P2: gp_Pnt2d): gce_MakeLin2d {.constructor,
+proc constructGceMakeLin2d*(a: float; b: float; c: float): GceMakeLin2d {.constructor,
     importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
-proc Value*(this: gce_MakeLin2d): gp_Lin2d {.noSideEffect, importcpp: "Value",
-    header: "gce_MakeLin2d.hxx".}
-proc Operator*(this: gce_MakeLin2d): gp_Lin2d {.noSideEffect, importcpp: "Operator",
-    header: "gce_MakeLin2d.hxx".}
-converter `gp_Lin2d`*(this: gce_MakeLin2d): gp_Lin2d {.noSideEffect,
+proc constructGceMakeLin2d*(lin: Lin2d; dist: float): GceMakeLin2d {.constructor,
+    importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
+proc constructGceMakeLin2d*(lin: Lin2d; point: Pnt2d): GceMakeLin2d {.constructor,
+    importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
+proc constructGceMakeLin2d*(p1: Pnt2d; p2: Pnt2d): GceMakeLin2d {.constructor,
+    importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
+proc value*(this: GceMakeLin2d): Lin2d {.noSideEffect, importcpp: "Value",
+                                     header: "gce_MakeLin2d.hxx".}
+proc operator*(this: GceMakeLin2d): Lin2d {.noSideEffect, importcpp: "Operator",
+                                        header: "gce_MakeLin2d.hxx".}
+converter `lin2d`*(this: GceMakeLin2d): Lin2d {.noSideEffect,
     importcpp: "gce_MakeLin2d::operator gp_Lin2d", header: "gce_MakeLin2d.hxx".}

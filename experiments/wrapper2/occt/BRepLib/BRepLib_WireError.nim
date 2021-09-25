@@ -18,8 +18,9 @@
 ## ! no error
 
 type
-  BRepLib_WireError* {.size: sizeof(cint), importcpp: "BRepLib_WireError",
-                      header: "BRepLib_WireError.hxx".} = enum
-    BRepLib_WireDone, BRepLib_EmptyWire, BRepLib_DisconnectedWire,
-    BRepLib_NonManifoldWire
+  BRepLibWireError* {.size: sizeof(cint), importcpp: "BRepLib_WireError",
+                     header: "BRepLib_WireError.hxx".} = enum
+    BRepLibWireDone, BRepLibEmptyWire, BRepLibDisconnectedWire,
+    BRepLibNonManifoldWire
+
 

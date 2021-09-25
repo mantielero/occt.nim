@@ -13,38 +13,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_ThermodynamicTemperatureUnit"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasic_RWThermodynamicTemperatureUnit* {.
+  RWStepBasicRWThermodynamicTemperatureUnit* {.
       importcpp: "RWStepBasic_RWThermodynamicTemperatureUnit",
       header: "RWStepBasic_RWThermodynamicTemperatureUnit.hxx", bycopy.} = object ## !
                                                                              ## Empty
                                                                              ## constructor
 
 
-proc constructRWStepBasic_RWThermodynamicTemperatureUnit*(): RWStepBasic_RWThermodynamicTemperatureUnit {.
+proc constructRWStepBasicRWThermodynamicTemperatureUnit*(): RWStepBasicRWThermodynamicTemperatureUnit {.
     constructor, importcpp: "RWStepBasic_RWThermodynamicTemperatureUnit(@)",
     header: "RWStepBasic_RWThermodynamicTemperatureUnit.hxx".}
-proc ReadStep*(this: RWStepBasic_RWThermodynamicTemperatureUnit;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepBasic_ThermodynamicTemperatureUnit]) {.noSideEffect,
+proc readStep*(this: RWStepBasicRWThermodynamicTemperatureUnit;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepBasicThermodynamicTemperatureUnit]) {.noSideEffect,
     importcpp: "ReadStep",
     header: "RWStepBasic_RWThermodynamicTemperatureUnit.hxx".}
-proc WriteStep*(this: RWStepBasic_RWThermodynamicTemperatureUnit;
-               SW: var StepData_StepWriter;
-               ent: handle[StepBasic_ThermodynamicTemperatureUnit]) {.
-    noSideEffect, importcpp: "WriteStep",
+proc writeStep*(this: RWStepBasicRWThermodynamicTemperatureUnit;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepBasicThermodynamicTemperatureUnit]) {.noSideEffect,
+    importcpp: "WriteStep",
     header: "RWStepBasic_RWThermodynamicTemperatureUnit.hxx".}
-proc Share*(this: RWStepBasic_RWThermodynamicTemperatureUnit;
-           ent: handle[StepBasic_ThermodynamicTemperatureUnit];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepBasicRWThermodynamicTemperatureUnit;
+           ent: Handle[StepBasicThermodynamicTemperatureUnit];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWThermodynamicTemperatureUnit.hxx".}

@@ -12,5 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # TColStd_HArray2OfBoolean_HeaderFile [NewLine] # TColStd_HArray2OfBoolean_HeaderFile [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # TColStd_Array2OfBoolean.hxx [NewLine] # ../NCollection/NCollection_DefineHArray2.hxx [NewLine] DEFINE_HARRAY2 ( TColStd_HArray2OfBoolean , TColStd_Array2OfBoolean ) # [NewLine]
+## !!!Ignored construct:  # TColStd_HArray2OfBoolean_HeaderFile [NewLine] # TColStd_HArray2OfBoolean_HeaderFile [NewLine] # < Standard_Boolean . hxx > [NewLine] # < TColStd_Array2OfBoolean . hxx > [NewLine] # < NCollection_DefineHArray2 . hxx > [NewLine] DEFINE_HARRAY2 ( TColStd_HArray2OfBoolean , TColStd_Array2OfBoolean ) # [NewLine]
 ## Error: expected ';'!!!
+

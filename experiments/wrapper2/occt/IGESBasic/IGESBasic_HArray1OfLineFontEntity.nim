@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../IGESData/IGESData_LineFontEntity, IGESBasic_Array1OfLineFontEntity,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  IGESBasic_HArray1OfLineFontEntity* {.importcpp: "IGESBasic_HArray1OfLineFontEntity", header: "IGESBasic_HArray1OfLineFontEntity.hxx",
-                                      bycopy.} = object of IGESBasic_Array1OfLineFontEntity
+  IGESBasicHArray1OfLineFontEntity* {.importcpp: "IGESBasic_HArray1OfLineFontEntity", header: "IGESBasic_HArray1OfLineFontEntity.hxx",
+                                     bycopy.} = object of IGESBasicArray1OfLineFontEntity
 
 
-proc constructIGESBasic_HArray1OfLineFontEntity*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): IGESBasic_HArray1OfLineFontEntity {.constructor,
+proc constructIGESBasicHArray1OfLineFontEntity*(theLower: int; theUpper: int): IGESBasicHArray1OfLineFontEntity {.
+    constructor, importcpp: "IGESBasic_HArray1OfLineFontEntity(@)",
+    header: "IGESBasic_HArray1OfLineFontEntity.hxx".}
+proc constructIGESBasicHArray1OfLineFontEntity*(theLower: int; theUpper: int;
+    theValue: ValueType): IGESBasicHArray1OfLineFontEntity {.constructor,
     importcpp: "IGESBasic_HArray1OfLineFontEntity(@)",
     header: "IGESBasic_HArray1OfLineFontEntity.hxx".}
-proc constructIGESBasic_HArray1OfLineFontEntity*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): IGESBasic_HArray1OfLineFontEntity {.
+proc constructIGESBasicHArray1OfLineFontEntity*(
+    theOther: IGESBasicArray1OfLineFontEntity): IGESBasicHArray1OfLineFontEntity {.
     constructor, importcpp: "IGESBasic_HArray1OfLineFontEntity(@)",
     header: "IGESBasic_HArray1OfLineFontEntity.hxx".}
-proc constructIGESBasic_HArray1OfLineFontEntity*(
-    theOther: IGESBasic_Array1OfLineFontEntity): IGESBasic_HArray1OfLineFontEntity {.
-    constructor, importcpp: "IGESBasic_HArray1OfLineFontEntity(@)",
-    header: "IGESBasic_HArray1OfLineFontEntity.hxx".}
-proc Array1*(this: IGESBasic_HArray1OfLineFontEntity): IGESBasic_Array1OfLineFontEntity {.
+proc array1*(this: IGESBasicHArray1OfLineFontEntity): IGESBasicArray1OfLineFontEntity {.
     noSideEffect, importcpp: "Array1",
     header: "IGESBasic_HArray1OfLineFontEntity.hxx".}
-proc ChangeArray1*(this: var IGESBasic_HArray1OfLineFontEntity): var IGESBasic_Array1OfLineFontEntity {.
+proc changeArray1*(this: var IGESBasicHArray1OfLineFontEntity): var IGESBasicArray1OfLineFontEntity {.
     importcpp: "ChangeArray1", header: "IGESBasic_HArray1OfLineFontEntity.hxx".}
 type
-  IGESBasic_HArray1OfLineFontEntitybase_type* = MMgt_TShared
+  IGESBasicHArray1OfLineFontEntitybaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "IGESBasic_HArray1OfLineFontEntity::get_type_name(@)",
-                              header: "IGESBasic_HArray1OfLineFontEntity.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESBasic_HArray1OfLineFontEntity::get_type_name(@)",
+                            header: "IGESBasic_HArray1OfLineFontEntity.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESBasic_HArray1OfLineFontEntity::get_type_descriptor(@)",
     header: "IGESBasic_HArray1OfLineFontEntity.hxx".}
-proc DynamicType*(this: IGESBasic_HArray1OfLineFontEntity): handle[Standard_Type] {.
+proc dynamicType*(this: IGESBasicHArray1OfLineFontEntity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESBasic_HArray1OfLineFontEntity.hxx".}

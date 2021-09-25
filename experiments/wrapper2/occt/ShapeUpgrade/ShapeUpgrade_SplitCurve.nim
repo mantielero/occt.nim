@@ -14,57 +14,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_HSequenceOfReal, ../Standard/Standard_Integer,
-  ../Standard/Standard_Transient, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../ShapeExtend/ShapeExtend_Status
-
 ##  resolve name collisions with X11 headers
 
-when defined(Status):
-  discard
+# when defined(Status):
+#   discard
 discard "forward decl of ShapeUpgrade_SplitCurve"
 discard "forward decl of ShapeUpgrade_SplitCurve"
 type
-  Handle_ShapeUpgrade_SplitCurve* = handle[ShapeUpgrade_SplitCurve]
+  HandleShapeUpgradeSplitCurve* = Handle[ShapeUpgradeSplitCurve]
 
 ## ! Splits a  curve with a  criterion.
 
 type
-  ShapeUpgrade_SplitCurve* {.importcpp: "ShapeUpgrade_SplitCurve",
-                            header: "ShapeUpgrade_SplitCurve.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                    ## !
-                                                                                                    ## Empty
-                                                                                                    ## constructor.
+  ShapeUpgradeSplitCurve* {.importcpp: "ShapeUpgrade_SplitCurve",
+                           header: "ShapeUpgrade_SplitCurve.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                  ## !
+                                                                                                  ## Empty
+                                                                                                  ## constructor.
 
 
-proc constructShapeUpgrade_SplitCurve*(): ShapeUpgrade_SplitCurve {.constructor,
+proc constructShapeUpgradeSplitCurve*(): ShapeUpgradeSplitCurve {.constructor,
     importcpp: "ShapeUpgrade_SplitCurve(@)", header: "ShapeUpgrade_SplitCurve.hxx".}
-proc Init*(this: var ShapeUpgrade_SplitCurve; First: Standard_Real;
-          Last: Standard_Real) {.importcpp: "Init",
-                               header: "ShapeUpgrade_SplitCurve.hxx".}
-proc SetSplitValues*(this: var ShapeUpgrade_SplitCurve;
-                    SplitValues: handle[TColStd_HSequenceOfReal]) {.
+proc init*(this: var ShapeUpgradeSplitCurve; first: float; last: float) {.
+    importcpp: "Init", header: "ShapeUpgrade_SplitCurve.hxx".}
+proc setSplitValues*(this: var ShapeUpgradeSplitCurve;
+                    splitValues: Handle[TColStdHSequenceOfReal]) {.
     importcpp: "SetSplitValues", header: "ShapeUpgrade_SplitCurve.hxx".}
-proc Build*(this: var ShapeUpgrade_SplitCurve; Segment: Standard_Boolean) {.
-    importcpp: "Build", header: "ShapeUpgrade_SplitCurve.hxx".}
-proc SplitValues*(this: ShapeUpgrade_SplitCurve): handle[TColStd_HSequenceOfReal] {.
+proc build*(this: var ShapeUpgradeSplitCurve; segment: bool) {.importcpp: "Build",
+    header: "ShapeUpgrade_SplitCurve.hxx".}
+proc splitValues*(this: ShapeUpgradeSplitCurve): Handle[TColStdHSequenceOfReal] {.
     noSideEffect, importcpp: "SplitValues", header: "ShapeUpgrade_SplitCurve.hxx".}
-proc Compute*(this: var ShapeUpgrade_SplitCurve) {.importcpp: "Compute",
+proc compute*(this: var ShapeUpgradeSplitCurve) {.importcpp: "Compute",
     header: "ShapeUpgrade_SplitCurve.hxx".}
-proc Perform*(this: var ShapeUpgrade_SplitCurve;
-             Segment: Standard_Boolean = Standard_True) {.importcpp: "Perform",
-    header: "ShapeUpgrade_SplitCurve.hxx".}
-proc Status*(this: ShapeUpgrade_SplitCurve; status: ShapeExtend_Status): Standard_Boolean {.
+proc perform*(this: var ShapeUpgradeSplitCurve; segment: bool = true) {.
+    importcpp: "Perform", header: "ShapeUpgrade_SplitCurve.hxx".}
+proc status*(this: ShapeUpgradeSplitCurve; status: ShapeExtendStatus): bool {.
     noSideEffect, importcpp: "Status", header: "ShapeUpgrade_SplitCurve.hxx".}
 type
-  ShapeUpgrade_SplitCurvebase_type* = Standard_Transient
+  ShapeUpgradeSplitCurvebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "ShapeUpgrade_SplitCurve::get_type_name(@)",
-                              header: "ShapeUpgrade_SplitCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeUpgrade_SplitCurve::get_type_name(@)",
+                            header: "ShapeUpgrade_SplitCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeUpgrade_SplitCurve::get_type_descriptor(@)",
     header: "ShapeUpgrade_SplitCurve.hxx".}
-proc DynamicType*(this: ShapeUpgrade_SplitCurve): handle[Standard_Type] {.
+proc dynamicType*(this: ShapeUpgradeSplitCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "ShapeUpgrade_SplitCurve.hxx".}

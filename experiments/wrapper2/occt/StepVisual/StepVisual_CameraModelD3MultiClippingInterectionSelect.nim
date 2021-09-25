@@ -13,37 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepGeom_Plane"
 discard "forward decl of StepVisual_CameraModelD3MultiClippingUnion"
 type
-  StepVisual_CameraModelD3MultiClippingInterectionSelect* {.
+  StepVisualCameraModelD3MultiClippingInterectionSelect* {.
       importcpp: "StepVisual_CameraModelD3MultiClippingInterectionSelect",
-      header: "StepVisual_CameraModelD3MultiClippingInterectionSelect.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                              ## !
-                                                                                                              ## Returns
-                                                                                                              ## a
-                                                                                                              ## CameraModelD3MultiClippingInterectionSelect
-                                                                                                              ## select
-                                                                                                              ## type
+      header: "StepVisual_CameraModelD3MultiClippingInterectionSelect.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                             ## !
+                                                                                                             ## Returns
+                                                                                                             ## a
+                                                                                                             ## CameraModelD3MultiClippingInterectionSelect
+                                                                                                             ## select
+                                                                                                             ## type
 
 
-proc constructStepVisual_CameraModelD3MultiClippingInterectionSelect*(): StepVisual_CameraModelD3MultiClippingInterectionSelect {.
+proc constructStepVisualCameraModelD3MultiClippingInterectionSelect*(): StepVisualCameraModelD3MultiClippingInterectionSelect {.
     constructor,
     importcpp: "StepVisual_CameraModelD3MultiClippingInterectionSelect(@)",
     header: "StepVisual_CameraModelD3MultiClippingInterectionSelect.hxx".}
-proc CaseNum*(this: StepVisual_CameraModelD3MultiClippingInterectionSelect;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepVisualCameraModelD3MultiClippingInterectionSelect;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum",
     header: "StepVisual_CameraModelD3MultiClippingInterectionSelect.hxx".}
-proc Plane*(this: StepVisual_CameraModelD3MultiClippingInterectionSelect): handle[
-    StepGeom_Plane] {.noSideEffect, importcpp: "Plane", header: "StepVisual_CameraModelD3MultiClippingInterectionSelect.hxx".}
-proc CameraModelD3MultiClippingUnion*(this: StepVisual_CameraModelD3MultiClippingInterectionSelect): handle[
-    StepVisual_CameraModelD3MultiClippingUnion] {.noSideEffect,
+proc plane*(this: StepVisualCameraModelD3MultiClippingInterectionSelect): Handle[
+    StepGeomPlane] {.noSideEffect, importcpp: "Plane", header: "StepVisual_CameraModelD3MultiClippingInterectionSelect.hxx".}
+proc cameraModelD3MultiClippingUnion*(this: StepVisualCameraModelD3MultiClippingInterectionSelect): Handle[
+    StepVisualCameraModelD3MultiClippingUnion] {.noSideEffect,
     importcpp: "CameraModelD3MultiClippingUnion",
     header: "StepVisual_CameraModelD3MultiClippingInterectionSelect.hxx".}

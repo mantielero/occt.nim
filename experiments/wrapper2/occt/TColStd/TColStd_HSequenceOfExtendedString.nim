@@ -12,5 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # TColStd_HSequenceOfExtendedString_HeaderFile [NewLine] # TColStd_HSequenceOfExtendedString_HeaderFile [NewLine] # ../TCollection/TCollection_ExtendedString.hxx [NewLine] # TColStd_SequenceOfExtendedString.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( TColStd_HSequenceOfExtendedString , TColStd_SequenceOfExtendedString ) # [NewLine]
+## !!!Ignored construct:  # TColStd_HSequenceOfExtendedString_HeaderFile [NewLine] # TColStd_HSequenceOfExtendedString_HeaderFile [NewLine] # < TCollection_ExtendedString . hxx > [NewLine] # < TColStd_SequenceOfExtendedString . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( TColStd_HSequenceOfExtendedString , TColStd_SequenceOfExtendedString ) # [NewLine]
 ## Error: expected ';'!!!
+

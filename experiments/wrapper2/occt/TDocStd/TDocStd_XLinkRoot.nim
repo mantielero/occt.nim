@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TDocStd_XLinkPtr,
-  ../TDF/TDF_Attribute, ../Standard/Standard_OStream
-
 discard "forward decl of TDocStd_XLinkIterator"
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Data"
@@ -25,7 +21,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDocStd_XLinkRoot"
 discard "forward decl of TDocStd_XLinkRoot"
 type
-  Handle_TDocStd_XLinkRoot* = handle[TDocStd_XLinkRoot]
+  HandleTDocStdXLinkRoot* = Handle[TDocStdXLinkRoot]
 
 ## ! This attribute is the root of all external
 ## ! references contained in a Data from TDF. Only one
@@ -35,47 +31,47 @@ type
 ## ! easely.
 
 type
-  TDocStd_XLinkRoot* {.importcpp: "TDocStd_XLinkRoot",
-                      header: "TDocStd_XLinkRoot.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                   ## !
-                                                                                   ## Returns
-                                                                                   ## the
-                                                                                   ## ID:
-                                                                                   ## 2a96b61d-ec8b-11d0-bee7-080009dc3333
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Initializes
-                                                                                   ## fields.
+  TDocStdXLinkRoot* {.importcpp: "TDocStd_XLinkRoot",
+                     header: "TDocStd_XLinkRoot.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                  ## !
+                                                                                  ## Returns
+                                                                                  ## the
+                                                                                  ## ID:
+                                                                                  ## 2a96b61d-ec8b-11d0-bee7-080009dc3333
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## Initializes
+                                                                                  ## fields.
 
 
-proc GetID*(): Standard_GUID {.importcpp: "TDocStd_XLinkRoot::GetID(@)",
-                            header: "TDocStd_XLinkRoot.hxx".}
-proc Set*(aDF: handle[TDF_Data]): handle[TDocStd_XLinkRoot] {.
+proc getID*(): StandardGUID {.importcpp: "TDocStd_XLinkRoot::GetID(@)",
+                           header: "TDocStd_XLinkRoot.hxx".}
+proc set*(aDF: Handle[TDF_Data]): Handle[TDocStdXLinkRoot] {.
     importcpp: "TDocStd_XLinkRoot::Set(@)", header: "TDocStd_XLinkRoot.hxx".}
-proc Insert*(anXLinkPtr: TDocStd_XLinkPtr) {.
+proc insert*(anXLinkPtr: TDocStdXLinkPtr) {.
     importcpp: "TDocStd_XLinkRoot::Insert(@)", header: "TDocStd_XLinkRoot.hxx".}
-proc Remove*(anXLinkPtr: TDocStd_XLinkPtr) {.
+proc remove*(anXLinkPtr: TDocStdXLinkPtr) {.
     importcpp: "TDocStd_XLinkRoot::Remove(@)", header: "TDocStd_XLinkRoot.hxx".}
-proc ID*(this: TDocStd_XLinkRoot): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TDocStdXLinkRoot): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TDocStd_XLinkRoot.hxx".}
-proc BackupCopy*(this: TDocStd_XLinkRoot): handle[TDF_Attribute] {.noSideEffect,
+proc backupCopy*(this: TDocStdXLinkRoot): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "BackupCopy", header: "TDocStd_XLinkRoot.hxx".}
-proc Restore*(this: var TDocStd_XLinkRoot; anAttribute: handle[TDF_Attribute]) {.
+proc restore*(this: var TDocStdXLinkRoot; anAttribute: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TDocStd_XLinkRoot.hxx".}
-proc NewEmpty*(this: TDocStd_XLinkRoot): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TDocStdXLinkRoot): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TDocStd_XLinkRoot.hxx".}
-proc Paste*(this: TDocStd_XLinkRoot; intoAttribute: handle[TDF_Attribute];
-           aRelocationTable: handle[TDF_RelocationTable]) {.noSideEffect,
+proc paste*(this: TDocStdXLinkRoot; intoAttribute: Handle[TDF_Attribute];
+           aRelocationTable: Handle[TDF_RelocationTable]) {.noSideEffect,
     importcpp: "Paste", header: "TDocStd_XLinkRoot.hxx".}
-proc Dump*(this: TDocStd_XLinkRoot; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDocStdXLinkRoot; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDocStd_XLinkRoot.hxx".}
 type
-  TDocStd_XLinkRootbase_type* = TDF_Attribute
+  TDocStdXLinkRootbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TDocStd_XLinkRoot::get_type_name(@)",
-                              header: "TDocStd_XLinkRoot.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDocStd_XLinkRoot::get_type_name(@)",
+                            header: "TDocStd_XLinkRoot.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDocStd_XLinkRoot::get_type_descriptor(@)",
     header: "TDocStd_XLinkRoot.hxx".}
-proc DynamicType*(this: TDocStd_XLinkRoot): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDocStdXLinkRoot): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDocStd_XLinkRoot.hxx".}

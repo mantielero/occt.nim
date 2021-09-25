@@ -14,44 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  V3d_Light
-
 discard "forward decl of V3d_Viewer"
 type
-  V3d_AmbientLight* {.importcpp: "V3d_AmbientLight",
-                     header: "V3d_AmbientLight.hxx", bycopy.} = object of Graphic3d_CLight ##
-                                                                                    ## !
-                                                                                    ## Constructs
-                                                                                    ## an
-                                                                                    ## ambient
-                                                                                    ## light
-                                                                                    ## source
-                                                                                    ## in
-                                                                                    ## the
-                                                                                    ## viewer.
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## The
-                                                                                    ## default
-                                                                                    ## Color
-                                                                                    ## of
-                                                                                    ## this
-                                                                                    ## light
-                                                                                    ## source
-                                                                                    ## is
-                                                                                    ## WHITE.
+  V3dAmbientLight* {.importcpp: "V3d_AmbientLight", header: "V3d_AmbientLight.hxx",
+                    bycopy.} = object of Graphic3dCLight ## ! Constructs an ambient light source in the viewer.
+                                                    ## ! The default Color of this light source is WHITE.
 
-  V3d_AmbientLightbase_type* = Graphic3d_CLight
+  V3dAmbientLightbaseType* = Graphic3dCLight
 
-proc get_type_name*(): cstring {.importcpp: "V3d_AmbientLight::get_type_name(@)",
-                              header: "V3d_AmbientLight.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "V3d_AmbientLight::get_type_name(@)",
+                            header: "V3d_AmbientLight.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "V3d_AmbientLight::get_type_descriptor(@)",
     header: "V3d_AmbientLight.hxx".}
-proc DynamicType*(this: V3d_AmbientLight): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: V3dAmbientLight): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "V3d_AmbientLight.hxx".}
-proc constructV3d_AmbientLight*(theColor: Quantity_Color = Quantity_NOC_WHITE): V3d_AmbientLight {.
+proc constructV3dAmbientLight*(theColor: QuantityColor = quantityNOC_WHITE): V3dAmbientLight {.
     constructor, importcpp: "V3d_AmbientLight(@)", header: "V3d_AmbientLight.hxx".}
 ## using statement
 
@@ -91,4 +69,5 @@ proc constructV3d_AmbientLight*(theColor: Quantity_Color = Quantity_NOC_WHITE): 
 
 discard "forward decl of V3d_AmbientLight"
 type
-  Handle_V3d_AmbientLight* = handle[V3d_AmbientLight]
+  HandleV3dAmbientLight* = Handle[V3dAmbientLight]
+

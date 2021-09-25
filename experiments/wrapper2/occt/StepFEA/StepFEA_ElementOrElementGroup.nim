@@ -13,30 +13,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepFEA_ElementRepresentation"
 discard "forward decl of StepFEA_ElementGroup"
 type
   StepFEA_ElementOrElementGroup* {.importcpp: "StepFEA_ElementOrElementGroup",
                                   header: "StepFEA_ElementOrElementGroup.hxx",
-                                  bycopy.} = object of StepData_SelectType ## ! Empty
-                                                                      ## constructor
+                                  bycopy.} = object of StepDataSelectType ## ! Empty constructor
 
 
 proc constructStepFEA_ElementOrElementGroup*(): StepFEA_ElementOrElementGroup {.
     constructor, importcpp: "StepFEA_ElementOrElementGroup(@)",
     header: "StepFEA_ElementOrElementGroup.hxx".}
-proc CaseNum*(this: StepFEA_ElementOrElementGroup; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepFEA_ElementOrElementGroup; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepFEA_ElementOrElementGroup.hxx".}
-proc ElementRepresentation*(this: StepFEA_ElementOrElementGroup): handle[
+proc elementRepresentation*(this: StepFEA_ElementOrElementGroup): Handle[
     StepFEA_ElementRepresentation] {.noSideEffect,
                                     importcpp: "ElementRepresentation",
                                     header: "StepFEA_ElementOrElementGroup.hxx".}
-proc ElementGroup*(this: StepFEA_ElementOrElementGroup): handle[
+proc elementGroup*(this: StepFEA_ElementOrElementGroup): Handle[
     StepFEA_ElementGroup] {.noSideEffect, importcpp: "ElementGroup",
                            header: "StepFEA_ElementOrElementGroup.hxx".}

@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopTools/TopTools_DataMapOfShapeListOfShape,
-  ../TopoDS/TopoDS_Edge, ../TopoDS/TopoDS_Vertex, ../TopoDS/TopoDS_Face,
-  ../TopTools/TopTools_MapOfShape, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, ../TopAbs/TopAbs_Orientation
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_NoMoreObject"
@@ -29,43 +22,41 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
 type
-  BRepTools_WireExplorer* {.importcpp: "BRepTools_WireExplorer",
-                           header: "BRepTools_WireExplorer.hxx", bycopy.} = object ## !
-                                                                              ## Constructs an
-                                                                              ## empty
-                                                                              ## explorer
-                                                                              ## (which
-                                                                              ## can be
-                                                                              ## initialized
-                                                                              ## using
-                                                                              ## Init)
+  BRepToolsWireExplorer* {.importcpp: "BRepTools_WireExplorer",
+                          header: "BRepTools_WireExplorer.hxx", bycopy.} = object ## !
+                                                                             ## Constructs an
+                                                                             ## empty
+                                                                             ## explorer
+                                                                             ## (which can be
+                                                                             ## initialized
+                                                                             ## using
+                                                                             ## Init)
 
 
-proc constructBRepTools_WireExplorer*(): BRepTools_WireExplorer {.constructor,
+proc constructBRepToolsWireExplorer*(): BRepToolsWireExplorer {.constructor,
     importcpp: "BRepTools_WireExplorer(@)", header: "BRepTools_WireExplorer.hxx".}
-proc constructBRepTools_WireExplorer*(W: TopoDS_Wire): BRepTools_WireExplorer {.
+proc constructBRepToolsWireExplorer*(w: TopoDS_Wire): BRepToolsWireExplorer {.
     constructor, importcpp: "BRepTools_WireExplorer(@)",
     header: "BRepTools_WireExplorer.hxx".}
-proc constructBRepTools_WireExplorer*(W: TopoDS_Wire; F: TopoDS_Face): BRepTools_WireExplorer {.
+proc constructBRepToolsWireExplorer*(w: TopoDS_Wire; f: TopoDS_Face): BRepToolsWireExplorer {.
     constructor, importcpp: "BRepTools_WireExplorer(@)",
     header: "BRepTools_WireExplorer.hxx".}
-proc Init*(this: var BRepTools_WireExplorer; W: TopoDS_Wire) {.importcpp: "Init",
+proc init*(this: var BRepToolsWireExplorer; w: TopoDS_Wire) {.importcpp: "Init",
     header: "BRepTools_WireExplorer.hxx".}
-proc Init*(this: var BRepTools_WireExplorer; W: TopoDS_Wire; F: TopoDS_Face) {.
+proc init*(this: var BRepToolsWireExplorer; w: TopoDS_Wire; f: TopoDS_Face) {.
     importcpp: "Init", header: "BRepTools_WireExplorer.hxx".}
-proc Init*(this: var BRepTools_WireExplorer; W: TopoDS_Wire; F: TopoDS_Face;
-          UMin: Standard_Real; UMax: Standard_Real; VMin: Standard_Real;
-          VMax: Standard_Real) {.importcpp: "Init",
-                               header: "BRepTools_WireExplorer.hxx".}
-proc More*(this: BRepTools_WireExplorer): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "BRepTools_WireExplorer.hxx".}
-proc Next*(this: var BRepTools_WireExplorer) {.importcpp: "Next",
+proc init*(this: var BRepToolsWireExplorer; w: TopoDS_Wire; f: TopoDS_Face; uMin: float;
+          uMax: float; vMin: float; vMax: float) {.importcpp: "Init",
     header: "BRepTools_WireExplorer.hxx".}
-proc Current*(this: BRepTools_WireExplorer): TopoDS_Edge {.noSideEffect,
+proc more*(this: BRepToolsWireExplorer): bool {.noSideEffect, importcpp: "More",
+    header: "BRepTools_WireExplorer.hxx".}
+proc next*(this: var BRepToolsWireExplorer) {.importcpp: "Next",
+    header: "BRepTools_WireExplorer.hxx".}
+proc current*(this: BRepToolsWireExplorer): TopoDS_Edge {.noSideEffect,
     importcpp: "Current", header: "BRepTools_WireExplorer.hxx".}
-proc Orientation*(this: BRepTools_WireExplorer): TopAbs_Orientation {.noSideEffect,
+proc orientation*(this: BRepToolsWireExplorer): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "BRepTools_WireExplorer.hxx".}
-proc CurrentVertex*(this: BRepTools_WireExplorer): TopoDS_Vertex {.noSideEffect,
+proc currentVertex*(this: BRepToolsWireExplorer): TopoDS_Vertex {.noSideEffect,
     importcpp: "CurrentVertex", header: "BRepTools_WireExplorer.hxx".}
-proc Clear*(this: var BRepTools_WireExplorer) {.importcpp: "Clear",
+proc clear*(this: var BRepToolsWireExplorer) {.importcpp: "Clear",
     header: "BRepTools_WireExplorer.hxx".}

@@ -14,35 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_SignType,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SignAncestor"
 discard "forward decl of IFSelect_SignAncestor"
 type
-  Handle_IFSelect_SignAncestor* = handle[IFSelect_SignAncestor]
-  IFSelect_SignAncestor* {.importcpp: "IFSelect_SignAncestor",
-                          header: "IFSelect_SignAncestor.hxx", bycopy.} = object of IFSelect_SignType
+  HandleIFSelectSignAncestor* = Handle[IFSelectSignAncestor]
+  IFSelectSignAncestor* {.importcpp: "IFSelect_SignAncestor",
+                         header: "IFSelect_SignAncestor.hxx", bycopy.} = object of IFSelectSignType
 
 
-proc constructIFSelect_SignAncestor*(nopk: Standard_Boolean = Standard_False): IFSelect_SignAncestor {.
+proc constructIFSelectSignAncestor*(nopk: bool = false): IFSelectSignAncestor {.
     constructor, importcpp: "IFSelect_SignAncestor(@)",
     header: "IFSelect_SignAncestor.hxx".}
-proc Matches*(this: IFSelect_SignAncestor; ent: handle[Standard_Transient];
-             model: handle[Interface_InterfaceModel];
-             text: TCollection_AsciiString; exact: Standard_Boolean): Standard_Boolean {.
-    noSideEffect, importcpp: "Matches", header: "IFSelect_SignAncestor.hxx".}
+proc matches*(this: IFSelectSignAncestor; ent: Handle[StandardTransient];
+             model: Handle[InterfaceInterfaceModel]; text: TCollectionAsciiString;
+             exact: bool): bool {.noSideEffect, importcpp: "Matches",
+                               header: "IFSelect_SignAncestor.hxx".}
 type
-  IFSelect_SignAncestorbase_type* = IFSelect_SignType
+  IFSelectSignAncestorbaseType* = IFSelectSignType
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_SignAncestor::get_type_name(@)",
-                              header: "IFSelect_SignAncestor.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_SignAncestor::get_type_name(@)",
+                            header: "IFSelect_SignAncestor.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_SignAncestor::get_type_descriptor(@)",
     header: "IFSelect_SignAncestor.hxx".}
-proc DynamicType*(this: IFSelect_SignAncestor): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IFSelect_SignAncestor.hxx".}
+proc dynamicType*(this: IFSelectSignAncestor): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IFSelect_SignAncestor.hxx".}

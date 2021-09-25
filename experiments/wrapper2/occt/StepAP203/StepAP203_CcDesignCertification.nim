@@ -14,47 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP203_HArray1OfCertifiedItem,
-  ../StepBasic/StepBasic_CertificationAssignment
-
 discard "forward decl of StepBasic_Certification"
 discard "forward decl of StepAP203_CcDesignCertification"
 discard "forward decl of StepAP203_CcDesignCertification"
 type
-  Handle_StepAP203_CcDesignCertification* = handle[StepAP203_CcDesignCertification]
+  HandleStepAP203CcDesignCertification* = Handle[StepAP203CcDesignCertification]
 
 ## ! Representation of STEP entity CcDesignCertification
 
 type
-  StepAP203_CcDesignCertification* {.importcpp: "StepAP203_CcDesignCertification", header: "StepAP203_CcDesignCertification.hxx",
-                                    bycopy.} = object of StepBasic_CertificationAssignment ##
-                                                                                      ## !
-                                                                                      ## Empty
-                                                                                      ## constructor
+  StepAP203CcDesignCertification* {.importcpp: "StepAP203_CcDesignCertification", header: "StepAP203_CcDesignCertification.hxx",
+                                   bycopy.} = object of StepBasicCertificationAssignment ##
+                                                                                    ## !
+                                                                                    ## Empty
+                                                                                    ## constructor
 
 
-proc constructStepAP203_CcDesignCertification*(): StepAP203_CcDesignCertification {.
+proc constructStepAP203CcDesignCertification*(): StepAP203CcDesignCertification {.
     constructor, importcpp: "StepAP203_CcDesignCertification(@)",
     header: "StepAP203_CcDesignCertification.hxx".}
-proc Init*(this: var StepAP203_CcDesignCertification;
-    aCertificationAssignment_AssignedCertification: handle[
-    StepBasic_Certification]; aItems: handle[StepAP203_HArray1OfCertifiedItem]) {.
-    importcpp: "Init", header: "StepAP203_CcDesignCertification.hxx".}
-proc Items*(this: StepAP203_CcDesignCertification): handle[
-    StepAP203_HArray1OfCertifiedItem] {.noSideEffect, importcpp: "Items", header: "StepAP203_CcDesignCertification.hxx".}
-proc SetItems*(this: var StepAP203_CcDesignCertification;
-              Items: handle[StepAP203_HArray1OfCertifiedItem]) {.
+proc init*(this: var StepAP203CcDesignCertification;
+    aCertificationAssignmentAssignedCertification: Handle[StepBasicCertification];
+          aItems: Handle[StepAP203HArray1OfCertifiedItem]) {.importcpp: "Init",
+    header: "StepAP203_CcDesignCertification.hxx".}
+proc items*(this: StepAP203CcDesignCertification): Handle[
+    StepAP203HArray1OfCertifiedItem] {.noSideEffect, importcpp: "Items", header: "StepAP203_CcDesignCertification.hxx".}
+proc setItems*(this: var StepAP203CcDesignCertification;
+              items: Handle[StepAP203HArray1OfCertifiedItem]) {.
     importcpp: "SetItems", header: "StepAP203_CcDesignCertification.hxx".}
 type
-  StepAP203_CcDesignCertificationbase_type* = StepBasic_CertificationAssignment
+  StepAP203CcDesignCertificationbaseType* = StepBasicCertificationAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP203_CcDesignCertification::get_type_name(@)",
-                              header: "StepAP203_CcDesignCertification.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP203_CcDesignCertification::get_type_name(@)",
+                            header: "StepAP203_CcDesignCertification.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP203_CcDesignCertification::get_type_descriptor(@)",
     header: "StepAP203_CcDesignCertification.hxx".}
-proc DynamicType*(this: StepAP203_CcDesignCertification): handle[Standard_Type] {.
+proc dynamicType*(this: StepAP203CcDesignCertification): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP203_CcDesignCertification.hxx".}

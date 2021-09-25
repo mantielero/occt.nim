@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESBasic_Name"
 discard "forward decl of IGESData_IGESReaderData"
@@ -31,33 +26,31 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESBasic_ToolName* {.importcpp: "IGESBasic_ToolName",
-                       header: "IGESBasic_ToolName.hxx", bycopy.} = object ## ! Returns a ToolName, ready to work
+  IGESBasicToolName* {.importcpp: "IGESBasic_ToolName",
+                      header: "IGESBasic_ToolName.hxx", bycopy.} = object ## ! Returns a ToolName, ready to work
 
 
-proc constructIGESBasic_ToolName*(): IGESBasic_ToolName {.constructor,
+proc constructIGESBasicToolName*(): IGESBasicToolName {.constructor,
     importcpp: "IGESBasic_ToolName(@)", header: "IGESBasic_ToolName.hxx".}
-proc ReadOwnParams*(this: IGESBasic_ToolName; ent: handle[IGESBasic_Name];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESBasic_ToolName.hxx".}
-proc WriteOwnParams*(this: IGESBasic_ToolName; ent: handle[IGESBasic_Name];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESBasicToolName; ent: Handle[IGESBasicName];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams", header: "IGESBasic_ToolName.hxx".}
+proc writeOwnParams*(this: IGESBasicToolName; ent: Handle[IGESBasicName];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESBasic_ToolName.hxx".}
-proc OwnShared*(this: IGESBasic_ToolName; ent: handle[IGESBasic_Name];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESBasicToolName; ent: Handle[IGESBasicName];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESBasic_ToolName.hxx".}
-proc OwnCorrect*(this: IGESBasic_ToolName; ent: handle[IGESBasic_Name]): Standard_Boolean {.
+proc ownCorrect*(this: IGESBasicToolName; ent: Handle[IGESBasicName]): bool {.
     noSideEffect, importcpp: "OwnCorrect", header: "IGESBasic_ToolName.hxx".}
-proc DirChecker*(this: IGESBasic_ToolName; ent: handle[IGESBasic_Name]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESBasicToolName; ent: Handle[IGESBasicName]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESBasic_ToolName.hxx".}
-proc OwnCheck*(this: IGESBasic_ToolName; ent: handle[IGESBasic_Name];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESBasicToolName; ent: Handle[IGESBasicName];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESBasic_ToolName.hxx".}
-proc OwnCopy*(this: IGESBasic_ToolName; entfrom: handle[IGESBasic_Name];
-             entto: handle[IGESBasic_Name]; TC: var Interface_CopyTool) {.
-    noSideEffect, importcpp: "OwnCopy", header: "IGESBasic_ToolName.hxx".}
-proc OwnDump*(this: IGESBasic_ToolName; ent: handle[IGESBasic_Name];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
-                                    header: "IGESBasic_ToolName.hxx".}
+proc ownCopy*(this: IGESBasicToolName; entfrom: Handle[IGESBasicName];
+             entto: Handle[IGESBasicName]; tc: var InterfaceCopyTool) {.noSideEffect,
+    importcpp: "OwnCopy", header: "IGESBasic_ToolName.hxx".}
+proc ownDump*(this: IGESBasicToolName; ent: Handle[IGESBasicName];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump", header: "IGESBasic_ToolName.hxx".}

@@ -14,14 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  StepData_SelectMember
-
 discard "forward decl of StepData_SelectInt"
 discard "forward decl of StepData_SelectInt"
 type
-  Handle_StepData_SelectInt* = handle[StepData_SelectInt]
+  HandleStepDataSelectInt* = Handle[StepDataSelectInt]
 
 ## ! A SelectInt is a SelectMember specialised for a basic integer
 ## ! type in a select which also accepts entities : this one has
@@ -29,27 +25,27 @@ type
 ## ! For a named select, see SelectNamed
 
 type
-  StepData_SelectInt* {.importcpp: "StepData_SelectInt",
-                       header: "StepData_SelectInt.hxx", bycopy.} = object of StepData_SelectMember
+  StepDataSelectInt* {.importcpp: "StepData_SelectInt",
+                      header: "StepData_SelectInt.hxx", bycopy.} = object of StepDataSelectMember
 
 
-proc constructStepData_SelectInt*(): StepData_SelectInt {.constructor,
+proc constructStepDataSelectInt*(): StepDataSelectInt {.constructor,
     importcpp: "StepData_SelectInt(@)", header: "StepData_SelectInt.hxx".}
-proc Kind*(this: StepData_SelectInt): Standard_Integer {.noSideEffect,
-    importcpp: "Kind", header: "StepData_SelectInt.hxx".}
-proc SetKind*(this: var StepData_SelectInt; kind: Standard_Integer) {.
-    importcpp: "SetKind", header: "StepData_SelectInt.hxx".}
-proc Int*(this: StepData_SelectInt): Standard_Integer {.noSideEffect,
-    importcpp: "Int", header: "StepData_SelectInt.hxx".}
-proc SetInt*(this: var StepData_SelectInt; val: Standard_Integer) {.
-    importcpp: "SetInt", header: "StepData_SelectInt.hxx".}
+proc kind*(this: StepDataSelectInt): int {.noSideEffect, importcpp: "Kind",
+                                       header: "StepData_SelectInt.hxx".}
+proc setKind*(this: var StepDataSelectInt; kind: int) {.importcpp: "SetKind",
+    header: "StepData_SelectInt.hxx".}
+proc int*(this: StepDataSelectInt): int {.noSideEffect, importcpp: "Int",
+                                      header: "StepData_SelectInt.hxx".}
+proc setInt*(this: var StepDataSelectInt; val: int) {.importcpp: "SetInt",
+    header: "StepData_SelectInt.hxx".}
 type
-  StepData_SelectIntbase_type* = StepData_SelectMember
+  StepDataSelectIntbaseType* = StepDataSelectMember
 
-proc get_type_name*(): cstring {.importcpp: "StepData_SelectInt::get_type_name(@)",
-                              header: "StepData_SelectInt.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepData_SelectInt::get_type_name(@)",
+                            header: "StepData_SelectInt.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepData_SelectInt::get_type_descriptor(@)",
     header: "StepData_SelectInt.hxx".}
-proc DynamicType*(this: StepData_SelectInt): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepDataSelectInt): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_SelectInt.hxx".}

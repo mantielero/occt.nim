@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Expr_UnaryExpression,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
-  Expr_Array1OfNamedUnknown, ../TColStd/TColStd_Array1OfReal
-
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Expr_NotEvaluable"
 discard "forward decl of Expr_GeneralExpression"
@@ -27,36 +22,36 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_ArcTangent"
 discard "forward decl of Expr_ArcTangent"
 type
-  Handle_Expr_ArcTangent* = handle[Expr_ArcTangent]
-  Expr_ArcTangent* {.importcpp: "Expr_ArcTangent", header: "Expr_ArcTangent.hxx",
-                    bycopy.} = object of Expr_UnaryExpression ## ! Creates the Arctan of <exp>.
+  HandleExprArcTangent* = Handle[ExprArcTangent]
+  ExprArcTangent* {.importcpp: "Expr_ArcTangent", header: "Expr_ArcTangent.hxx",
+                   bycopy.} = object of ExprUnaryExpression ## ! Creates the Arctan of <exp>.
 
 
-proc constructExpr_ArcTangent*(exp: handle[Expr_GeneralExpression]): Expr_ArcTangent {.
+proc constructExprArcTangent*(exp: Handle[ExprGeneralExpression]): ExprArcTangent {.
     constructor, importcpp: "Expr_ArcTangent(@)", header: "Expr_ArcTangent.hxx".}
-proc ShallowSimplified*(this: Expr_ArcTangent): handle[Expr_GeneralExpression] {.
+proc shallowSimplified*(this: ExprArcTangent): Handle[ExprGeneralExpression] {.
     noSideEffect, importcpp: "ShallowSimplified", header: "Expr_ArcTangent.hxx".}
-proc Copy*(this: Expr_ArcTangent): handle[Expr_GeneralExpression] {.noSideEffect,
+proc copy*(this: ExprArcTangent): Handle[ExprGeneralExpression] {.noSideEffect,
     importcpp: "Copy", header: "Expr_ArcTangent.hxx".}
-proc IsIdentical*(this: Expr_ArcTangent; Other: handle[Expr_GeneralExpression]): Standard_Boolean {.
+proc isIdentical*(this: ExprArcTangent; other: Handle[ExprGeneralExpression]): bool {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_ArcTangent.hxx".}
-proc IsLinear*(this: Expr_ArcTangent): Standard_Boolean {.noSideEffect,
-    importcpp: "IsLinear", header: "Expr_ArcTangent.hxx".}
-proc Derivative*(this: Expr_ArcTangent; X: handle[Expr_NamedUnknown]): handle[
-    Expr_GeneralExpression] {.noSideEffect, importcpp: "Derivative",
-                             header: "Expr_ArcTangent.hxx".}
-proc Evaluate*(this: Expr_ArcTangent; vars: Expr_Array1OfNamedUnknown;
-              vals: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
+proc isLinear*(this: ExprArcTangent): bool {.noSideEffect, importcpp: "IsLinear",
+    header: "Expr_ArcTangent.hxx".}
+proc derivative*(this: ExprArcTangent; x: Handle[ExprNamedUnknown]): Handle[
+    ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
+                            header: "Expr_ArcTangent.hxx".}
+proc evaluate*(this: ExprArcTangent; vars: ExprArray1OfNamedUnknown;
+              vals: TColStdArray1OfReal): float {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_ArcTangent.hxx".}
-proc String*(this: Expr_ArcTangent): TCollection_AsciiString {.noSideEffect,
+proc string*(this: ExprArcTangent): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_ArcTangent.hxx".}
 type
-  Expr_ArcTangentbase_type* = Expr_UnaryExpression
+  ExprArcTangentbaseType* = ExprUnaryExpression
 
-proc get_type_name*(): cstring {.importcpp: "Expr_ArcTangent::get_type_name(@)",
-                              header: "Expr_ArcTangent.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Expr_ArcTangent::get_type_name(@)",
+                            header: "Expr_ArcTangent.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Expr_ArcTangent::get_type_descriptor(@)",
     header: "Expr_ArcTangent.hxx".}
-proc DynamicType*(this: Expr_ArcTangent): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: ExprArcTangent): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_ArcTangent.hxx".}

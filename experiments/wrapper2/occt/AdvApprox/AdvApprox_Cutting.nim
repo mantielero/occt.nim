@@ -14,20 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real
-
 ## ! to choose the way of cutting in approximation
 
 type
-  AdvApprox_Cutting* {.importcpp: "AdvApprox_Cutting",
-                      header: "AdvApprox_Cutting.hxx", bycopy.} = object
+  AdvApproxCutting* {.importcpp: "AdvApprox_Cutting",
+                     header: "AdvApprox_Cutting.hxx", bycopy.} = object
 
 
-proc destroyAdvApprox_Cutting*(this: var AdvApprox_Cutting) {.
+proc destroyAdvApproxCutting*(this: var AdvApproxCutting) {.
     importcpp: "#.~AdvApprox_Cutting()", header: "AdvApprox_Cutting.hxx".}
-proc Value*(this: AdvApprox_Cutting; a: Standard_Real; b: Standard_Real;
-           cuttingvalue: var Standard_Real): Standard_Boolean {.noSideEffect,
-    importcpp: "Value", header: "AdvApprox_Cutting.hxx".}
+proc value*(this: AdvApproxCutting; a: float; b: float; cuttingvalue: var float): bool {.
+    noSideEffect, importcpp: "Value", header: "AdvApprox_Cutting.hxx".}

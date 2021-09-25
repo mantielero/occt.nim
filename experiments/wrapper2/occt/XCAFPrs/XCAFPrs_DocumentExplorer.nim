@@ -12,133 +12,129 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Vector, ../NCollection/NCollection_Sequence,
-  XCAFPrs_DocumentNode, ../TDF/TDF_LabelSequence, ../TopoDS/TopoDS_Shape
-
 discard "forward decl of TDocStd_Document"
 discard "forward decl of XCAFDoc_ShapeTool"
 discard "forward decl of XCAFDoc_ColorTool"
 discard "forward decl of XCAFDoc_VisMaterialTool"
 type
-  XCAFPrs_DocumentExplorerFlags* = Standard_Integer
+  XCAFPrsDocumentExplorerFlags* = int
 
 ## ! Document explorer flags.
 
 const
-  XCAFPrs_DocumentExplorerFlags_None* = 0x00 ## !< no flags
-  XCAFPrs_DocumentExplorerFlags_OnlyLeafNodes* = 0x01 ## !< explore only leaf nodes (skip assembly nodes)
-  XCAFPrs_DocumentExplorerFlags_NoStyle* = 0x02 ## !< do not fetch styles
+  XCAFPrsDocumentExplorerFlagsNone* = 0x00 ## !< no flags
+  XCAFPrsDocumentExplorerFlagsOnlyLeafNodes* = 0x01 ## !< explore only leaf nodes (skip assembly nodes)
+  XCAFPrsDocumentExplorerFlagsNoStyle* = 0x02 ## !< do not fetch styles
 
 ## ! Document iterator through shape nodes.
 
 type
-  XCAFPrs_DocumentExplorer* {.importcpp: "XCAFPrs_DocumentExplorer",
-                             header: "XCAFPrs_DocumentExplorer.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## @name
-                                                                                  ## string
-                                                                                  ## identification
-                                                                                  ## tools
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Construct
-                                                                                  ## a
-                                                                                  ## unique
-                                                                                  ## string
-                                                                                  ## identifier
-                                                                                  ## for
-                                                                                  ## the
-                                                                                  ## given
-                                                                                  ## label.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## The
-                                                                                  ## identifier
-                                                                                  ## is
-                                                                                  ## a
-                                                                                  ## concatenation
-                                                                                  ## of
-                                                                                  ## label
-                                                                                  ## entries
-                                                                                  ## (TDF_Tool::Entry()
-                                                                                  ## with
-                                                                                  ## tailing
-                                                                                  ## '.')
-                                                                                  ## of
-                                                                                  ## hierarchy
-                                                                                  ## from
-                                                                                  ## parent
-                                                                                  ## to
-                                                                                  ## child
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## joined
-                                                                                  ## via
-                                                                                  ## '/'
-                                                                                  ## and
-                                                                                  ## looking
-                                                                                  ## like
-                                                                                  ## this:
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## @code
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## 0:1:1:1./0:1:1:1:9./0:1:1:5:7.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## @endcode
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## This
-                                                                                  ## generation
-                                                                                  ## scheme
-                                                                                  ## also
-                                                                                  ## allows
-                                                                                  ## finding
-                                                                                  ## originating
-                                                                                  ## labels
-                                                                                  ## using
-                                                                                  ## TDF_Tool::Label().
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## The
-                                                                                  ## tailing
-                                                                                  ## dot
-                                                                                  ## simplifies
-                                                                                  ## parent
-                                                                                  ## equality
-                                                                                  ## check.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## @param
-                                                                                  ## theLabel
-                                                                                  ## child
-                                                                                  ## label
-                                                                                  ## to
-                                                                                  ## define
-                                                                                  ## id
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## @param
-                                                                                  ## theParentId
-                                                                                  ## parent
-                                                                                  ## string
-                                                                                  ## identifier
-                                                                                  ## defined
-                                                                                  ## by
-                                                                                  ## this
-                                                                                  ## method
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Empty
-                                                                                  ## constructor.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Initialize
-                                                                                  ## root
-                                                                                  ## label.
+  XCAFPrsDocumentExplorer* {.importcpp: "XCAFPrs_DocumentExplorer",
+                            header: "XCAFPrs_DocumentExplorer.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## @name
+                                                                                 ## string
+                                                                                 ## identification
+                                                                                 ## tools
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## Construct
+                                                                                 ## a
+                                                                                 ## unique
+                                                                                 ## string
+                                                                                 ## identifier
+                                                                                 ## for
+                                                                                 ## the
+                                                                                 ## given
+                                                                                 ## label.
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## The
+                                                                                 ## identifier
+                                                                                 ## is
+                                                                                 ## a
+                                                                                 ## concatenation
+                                                                                 ## of
+                                                                                 ## label
+                                                                                 ## entries
+                                                                                 ## (TDF_Tool::Entry()
+                                                                                 ## with
+                                                                                 ## tailing
+                                                                                 ## '.')
+                                                                                 ## of
+                                                                                 ## hierarchy
+                                                                                 ## from
+                                                                                 ## parent
+                                                                                 ## to
+                                                                                 ## child
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## joined
+                                                                                 ## via
+                                                                                 ## '/'
+                                                                                 ## and
+                                                                                 ## looking
+                                                                                 ## like
+                                                                                 ## this:
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## @code
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## 0:1:1:1./0:1:1:1:9./0:1:1:5:7.
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## @endcode
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## This
+                                                                                 ## generation
+                                                                                 ## scheme
+                                                                                 ## also
+                                                                                 ## allows
+                                                                                 ## finding
+                                                                                 ## originating
+                                                                                 ## labels
+                                                                                 ## using
+                                                                                 ## TDF_Tool::Label().
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## The
+                                                                                 ## tailing
+                                                                                 ## dot
+                                                                                 ## simplifies
+                                                                                 ## parent
+                                                                                 ## equality
+                                                                                 ## check.
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## @param
+                                                                                 ## theLabel
+                                                                                 ## child
+                                                                                 ## label
+                                                                                 ## to
+                                                                                 ## define
+                                                                                 ## id
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## @param
+                                                                                 ## theParentId
+                                                                                 ## parent
+                                                                                 ## string
+                                                                                 ## identifier
+                                                                                 ## defined
+                                                                                 ## by
+                                                                                 ## this
+                                                                                 ## method
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## Empty
+                                                                                 ## constructor.
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## Initialize
+                                                                                 ## root
+                                                                                 ## label.
     ## !< color tool
     ## !< visual material tool
     ## !< sequence of root labels
@@ -151,62 +147,60 @@ type
     ## !< iteration flags
 
 
-proc DefineChildId*(theLabel: TDF_Label; theParentId: TCollection_AsciiString): TCollection_AsciiString {.
+proc defineChildId*(theLabel: TDF_Label; theParentId: TCollectionAsciiString): TCollectionAsciiString {.
     importcpp: "XCAFPrs_DocumentExplorer::DefineChildId(@)",
     header: "XCAFPrs_DocumentExplorer.hxx".}
-proc FindLabelFromPathId*(theDocument: handle[TDocStd_Document];
-                         theId: TCollection_AsciiString;
-                         theParentLocation: var TopLoc_Location;
-                         theLocation: var TopLoc_Location): TDF_Label {.
+proc findLabelFromPathId*(theDocument: Handle[TDocStdDocument];
+                         theId: TCollectionAsciiString;
+                         theParentLocation: var TopLocLocation;
+                         theLocation: var TopLocLocation): TDF_Label {.
     importcpp: "XCAFPrs_DocumentExplorer::FindLabelFromPathId(@)",
     header: "XCAFPrs_DocumentExplorer.hxx".}
-proc FindLabelFromPathId*(theDocument: handle[TDocStd_Document];
-                         theId: TCollection_AsciiString;
-                         theLocation: var TopLoc_Location): TDF_Label {.
+proc findLabelFromPathId*(theDocument: Handle[TDocStdDocument];
+                         theId: TCollectionAsciiString;
+                         theLocation: var TopLocLocation): TDF_Label {.
     importcpp: "XCAFPrs_DocumentExplorer::FindLabelFromPathId(@)",
     header: "XCAFPrs_DocumentExplorer.hxx".}
-proc FindShapeFromPathId*(theDocument: handle[TDocStd_Document];
-                         theId: TCollection_AsciiString): TopoDS_Shape {.
+proc findShapeFromPathId*(theDocument: Handle[TDocStdDocument];
+                         theId: TCollectionAsciiString): TopoDS_Shape {.
     importcpp: "XCAFPrs_DocumentExplorer::FindShapeFromPathId(@)",
     header: "XCAFPrs_DocumentExplorer.hxx".}
-proc constructXCAFPrs_DocumentExplorer*(): XCAFPrs_DocumentExplorer {.constructor,
+proc constructXCAFPrsDocumentExplorer*(): XCAFPrsDocumentExplorer {.constructor,
     importcpp: "XCAFPrs_DocumentExplorer(@)",
     header: "XCAFPrs_DocumentExplorer.hxx".}
-proc constructXCAFPrs_DocumentExplorer*(theDocument: handle[TDocStd_Document];
-                                       theFlags: XCAFPrs_DocumentExplorerFlags;
-    theDefStyle: XCAFPrs_Style = XCAFPrs_Style()): XCAFPrs_DocumentExplorer {.
+proc constructXCAFPrsDocumentExplorer*(theDocument: Handle[TDocStdDocument];
+                                      theFlags: XCAFPrsDocumentExplorerFlags;
+    theDefStyle: XCAFPrsStyle = xCAFPrsStyle()): XCAFPrsDocumentExplorer {.
     constructor, importcpp: "XCAFPrs_DocumentExplorer(@)",
     header: "XCAFPrs_DocumentExplorer.hxx".}
-proc constructXCAFPrs_DocumentExplorer*(theDocument: handle[TDocStd_Document];
-                                       theRoots: TDF_LabelSequence;
-                                       theFlags: XCAFPrs_DocumentExplorerFlags;
-    theDefStyle: XCAFPrs_Style = XCAFPrs_Style()): XCAFPrs_DocumentExplorer {.
+proc constructXCAFPrsDocumentExplorer*(theDocument: Handle[TDocStdDocument];
+                                      theRoots: TDF_LabelSequence;
+                                      theFlags: XCAFPrsDocumentExplorerFlags;
+    theDefStyle: XCAFPrsStyle = xCAFPrsStyle()): XCAFPrsDocumentExplorer {.
     constructor, importcpp: "XCAFPrs_DocumentExplorer(@)",
     header: "XCAFPrs_DocumentExplorer.hxx".}
-proc Init*(this: var XCAFPrs_DocumentExplorer;
-          theDocument: handle[TDocStd_Document]; theRoot: TDF_Label;
-          theFlags: XCAFPrs_DocumentExplorerFlags;
-          theDefStyle: XCAFPrs_Style = XCAFPrs_Style()) {.importcpp: "Init",
+proc init*(this: var XCAFPrsDocumentExplorer; theDocument: Handle[TDocStdDocument];
+          theRoot: TDF_Label; theFlags: XCAFPrsDocumentExplorerFlags;
+          theDefStyle: XCAFPrsStyle = xCAFPrsStyle()) {.importcpp: "Init",
     header: "XCAFPrs_DocumentExplorer.hxx".}
-proc Init*(this: var XCAFPrs_DocumentExplorer;
-          theDocument: handle[TDocStd_Document]; theRoots: TDF_LabelSequence;
-          theFlags: XCAFPrs_DocumentExplorerFlags;
-          theDefStyle: XCAFPrs_Style = XCAFPrs_Style()) {.importcpp: "Init",
+proc init*(this: var XCAFPrsDocumentExplorer; theDocument: Handle[TDocStdDocument];
+          theRoots: TDF_LabelSequence; theFlags: XCAFPrsDocumentExplorerFlags;
+          theDefStyle: XCAFPrsStyle = xCAFPrsStyle()) {.importcpp: "Init",
     header: "XCAFPrs_DocumentExplorer.hxx".}
-proc More*(this: XCAFPrs_DocumentExplorer): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "XCAFPrs_DocumentExplorer.hxx".}
-proc Current*(this: XCAFPrs_DocumentExplorer): XCAFPrs_DocumentNode {.noSideEffect,
+proc more*(this: XCAFPrsDocumentExplorer): bool {.noSideEffect, importcpp: "More",
+    header: "XCAFPrs_DocumentExplorer.hxx".}
+proc current*(this: XCAFPrsDocumentExplorer): XCAFPrsDocumentNode {.noSideEffect,
     importcpp: "Current", header: "XCAFPrs_DocumentExplorer.hxx".}
-proc ChangeCurrent*(this: var XCAFPrs_DocumentExplorer): var XCAFPrs_DocumentNode {.
+proc changeCurrent*(this: var XCAFPrsDocumentExplorer): var XCAFPrsDocumentNode {.
     importcpp: "ChangeCurrent", header: "XCAFPrs_DocumentExplorer.hxx".}
-proc Current*(this: XCAFPrs_DocumentExplorer; theDepth: Standard_Integer): XCAFPrs_DocumentNode {.
+proc current*(this: XCAFPrsDocumentExplorer; theDepth: int): XCAFPrsDocumentNode {.
     noSideEffect, importcpp: "Current", header: "XCAFPrs_DocumentExplorer.hxx".}
-proc CurrentDepth*(this: XCAFPrs_DocumentExplorer): Standard_Integer {.noSideEffect,
+proc currentDepth*(this: XCAFPrsDocumentExplorer): int {.noSideEffect,
     importcpp: "CurrentDepth", header: "XCAFPrs_DocumentExplorer.hxx".}
-proc Next*(this: var XCAFPrs_DocumentExplorer) {.importcpp: "Next",
+proc next*(this: var XCAFPrsDocumentExplorer) {.importcpp: "Next",
     header: "XCAFPrs_DocumentExplorer.hxx".}
-proc ColorTool*(this: XCAFPrs_DocumentExplorer): handle[XCAFDoc_ColorTool] {.
+proc colorTool*(this: XCAFPrsDocumentExplorer): Handle[XCAFDocColorTool] {.
     noSideEffect, importcpp: "ColorTool", header: "XCAFPrs_DocumentExplorer.hxx".}
-proc VisMaterialTool*(this: XCAFPrs_DocumentExplorer): handle[
-    XCAFDoc_VisMaterialTool] {.noSideEffect, importcpp: "VisMaterialTool",
-                              header: "XCAFPrs_DocumentExplorer.hxx".}
+proc visMaterialTool*(this: XCAFPrsDocumentExplorer): Handle[XCAFDocVisMaterialTool] {.
+    noSideEffect, importcpp: "VisMaterialTool",
+    header: "XCAFPrs_DocumentExplorer.hxx".}

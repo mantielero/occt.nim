@@ -14,18 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_HArray1OfInteger, ../Draw/Draw_Drawable2D,
-  ../Standard/Standard_OStream, ../Draw/Draw_Interpretor
-
 discard "forward decl of Poly_Triangulation"
 discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DrawTrSurf_Triangulation2D"
 discard "forward decl of DrawTrSurf_Triangulation2D"
 type
-  Handle_DrawTrSurf_Triangulation2D* = handle[DrawTrSurf_Triangulation2D]
+  HandleDrawTrSurfTriangulation2D* = Handle[DrawTrSurfTriangulation2D]
 
 ## ! Used to display a 2d triangulation.
 ## !
@@ -34,32 +29,32 @@ type
 ## ! Optional display of triangles and nodes indices.
 
 type
-  DrawTrSurf_Triangulation2D* {.importcpp: "DrawTrSurf_Triangulation2D",
-                               header: "DrawTrSurf_Triangulation2D.hxx", bycopy.} = object of Draw_Drawable2D
+  DrawTrSurfTriangulation2D* {.importcpp: "DrawTrSurf_Triangulation2D",
+                              header: "DrawTrSurf_Triangulation2D.hxx", bycopy.} = object of DrawDrawable2D
 
 
-proc constructDrawTrSurf_Triangulation2D*(T: handle[Poly_Triangulation]): DrawTrSurf_Triangulation2D {.
+proc constructDrawTrSurfTriangulation2D*(t: Handle[PolyTriangulation]): DrawTrSurfTriangulation2D {.
     constructor, importcpp: "DrawTrSurf_Triangulation2D(@)",
     header: "DrawTrSurf_Triangulation2D.hxx".}
-proc Triangulation*(this: DrawTrSurf_Triangulation2D): handle[Poly_Triangulation] {.
+proc triangulation*(this: DrawTrSurfTriangulation2D): Handle[PolyTriangulation] {.
     noSideEffect, importcpp: "Triangulation",
     header: "DrawTrSurf_Triangulation2D.hxx".}
-proc DrawOn*(this: DrawTrSurf_Triangulation2D; dis: var Draw_Display) {.noSideEffect,
+proc drawOn*(this: DrawTrSurfTriangulation2D; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "DrawTrSurf_Triangulation2D.hxx".}
-proc Copy*(this: DrawTrSurf_Triangulation2D): handle[Draw_Drawable3D] {.
-    noSideEffect, importcpp: "Copy", header: "DrawTrSurf_Triangulation2D.hxx".}
-proc Dump*(this: DrawTrSurf_Triangulation2D; S: var Standard_OStream) {.noSideEffect,
+proc copy*(this: DrawTrSurfTriangulation2D): Handle[DrawDrawable3D] {.noSideEffect,
+    importcpp: "Copy", header: "DrawTrSurf_Triangulation2D.hxx".}
+proc dump*(this: DrawTrSurfTriangulation2D; s: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "DrawTrSurf_Triangulation2D.hxx".}
-proc Whatis*(this: DrawTrSurf_Triangulation2D; I: var Draw_Interpretor) {.
-    noSideEffect, importcpp: "Whatis", header: "DrawTrSurf_Triangulation2D.hxx".}
+proc whatis*(this: DrawTrSurfTriangulation2D; i: var DrawInterpretor) {.noSideEffect,
+    importcpp: "Whatis", header: "DrawTrSurf_Triangulation2D.hxx".}
 type
-  DrawTrSurf_Triangulation2Dbase_type* = Draw_Drawable2D
+  DrawTrSurfTriangulation2DbaseType* = DrawDrawable2D
 
-proc get_type_name*(): cstring {.importcpp: "DrawTrSurf_Triangulation2D::get_type_name(@)",
-                              header: "DrawTrSurf_Triangulation2D.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "DrawTrSurf_Triangulation2D::get_type_name(@)",
+                            header: "DrawTrSurf_Triangulation2D.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "DrawTrSurf_Triangulation2D::get_type_descriptor(@)",
     header: "DrawTrSurf_Triangulation2D.hxx".}
-proc DynamicType*(this: DrawTrSurf_Triangulation2D): handle[Standard_Type] {.
+proc dynamicType*(this: DrawTrSurfTriangulation2D): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "DrawTrSurf_Triangulation2D.hxx".}

@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Integer, ../gp/gp_Pnt2d,
-  ../TColStd/TColStd_MapIntegerHasher, ../NCollection/NCollection_DataMap
-
 type
-  MAT2d_DataMapOfIntegerPnt2d* = NCollection_DataMap[Standard_Integer, gp_Pnt2d,
-      TColStd_MapIntegerHasher]
-  MAT2d_DataMapIteratorOfDataMapOfIntegerPnt2d* = Iterator[Standard_Integer,
-      gp_Pnt2d, TColStd_MapIntegerHasher]
+  MAT2dDataMapOfIntegerPnt2d* = NCollectionDataMap[int, Pnt2d,
+      TColStdMapIntegerHasher]
+  MAT2dDataMapIteratorOfDataMapOfIntegerPnt2d* = Iterator[int, Pnt2d,
+      TColStdMapIntegerHasher]
+

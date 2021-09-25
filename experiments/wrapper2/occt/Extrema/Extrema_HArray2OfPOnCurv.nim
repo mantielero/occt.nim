@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # Extrema_HArray2OfPOnCurv_HeaderFile [NewLine] # Extrema_HArray2OfPOnCurv_HeaderFile [NewLine] # Extrema_POnCurv.hxx [NewLine] # Extrema_Array2OfPOnCurv.hxx [NewLine] # ../NCollection/NCollection_DefineHArray2.hxx [NewLine] DEFINE_HARRAY2 ( Extrema_HArray2OfPOnCurv , Extrema_Array2OfPOnCurv ) # [NewLine]
+## !!!Ignored construct:  # Extrema_HArray2OfPOnCurv_HeaderFile [NewLine] # Extrema_HArray2OfPOnCurv_HeaderFile [NewLine] # < Extrema_POnCurv . hxx > [NewLine] # < Extrema_Array2OfPOnCurv . hxx > [NewLine] # < NCollection_DefineHArray2 . hxx > [NewLine] DEFINE_HARRAY2 ( Extrema_HArray2OfPOnCurv , Extrema_Array2OfPOnCurv ) # [NewLine]
 ## Error: expected ';'!!!
+

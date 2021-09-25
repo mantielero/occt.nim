@@ -12,10 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, gp_Ax2, ../Standard/Standard_Real, gp_Ax1, gp_Pnt
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Ax2"
@@ -24,103 +20,82 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Vec"
 type
-  gp_Hypr* {.importcpp: "gp_Hypr", header: "gp_Hypr.hxx", bycopy.} = object ## ! Creates of an indefinite hyperbola.
-    gp_Hypr* {.importc: "gp_Hypr".}: Standard_NODISCARD
-    gp_Hypr* {.importc: "gp_Hypr".}: Standard_NODISCARD
-    gp_Hypr* {.importc: "gp_Hypr".}: Standard_NODISCARD
-    gp_Hypr* {.importc: "gp_Hypr".}: Standard_NODISCARD
-    gp_Hypr* {.importc: "gp_Hypr".}: Standard_NODISCARD
-    gp_Hypr* {.importc: "gp_Hypr".}: Standard_NODISCARD
-    gp_Hypr* {.importc: "gp_Hypr".}: Standard_NODISCARD
-    gp_Hypr* {.importc: "gp_Hypr".}: Standard_NODISCARD
+  Hypr* {.importcpp: "gp_Hypr", header: "gp_Hypr.hxx", bycopy.} = object ## ! Creates of an indefinite hyperbola.
 
 
-proc constructgp_Hypr*(): gp_Hypr {.constructor, importcpp: "gp_Hypr(@)",
-                                 header: "gp_Hypr.hxx".}
-proc constructgp_Hypr*(A2: gp_Ax2; MajorRadius: Standard_Real;
-                      MinorRadius: Standard_Real): gp_Hypr {.constructor,
-    importcpp: "gp_Hypr(@)", header: "gp_Hypr.hxx".}
-proc SetAxis*(this: var gp_Hypr; A1: gp_Ax1) {.importcpp: "SetAxis",
-    header: "gp_Hypr.hxx".}
-proc SetLocation*(this: var gp_Hypr; P: gp_Pnt) {.importcpp: "SetLocation",
-    header: "gp_Hypr.hxx".}
-proc SetMajorRadius*(this: var gp_Hypr; MajorRadius: Standard_Real) {.
+proc constructHypr*(): Hypr {.constructor, importcpp: "gp_Hypr(@)",
+                           header: "gp_Hypr.hxx".}
+proc constructHypr*(a2: Ax2; majorRadius: float; minorRadius: float): Hypr {.
+    constructor, importcpp: "gp_Hypr(@)", header: "gp_Hypr.hxx".}
+proc setAxis*(this: var Hypr; a1: Ax1) {.importcpp: "SetAxis", header: "gp_Hypr.hxx".}
+proc setLocation*(this: var Hypr; p: Pnt) {.importcpp: "SetLocation",
+                                      header: "gp_Hypr.hxx".}
+proc setMajorRadius*(this: var Hypr; majorRadius: float) {.
     importcpp: "SetMajorRadius", header: "gp_Hypr.hxx".}
-proc SetMinorRadius*(this: var gp_Hypr; MinorRadius: Standard_Real) {.
+proc setMinorRadius*(this: var Hypr; minorRadius: float) {.
     importcpp: "SetMinorRadius", header: "gp_Hypr.hxx".}
-proc SetPosition*(this: var gp_Hypr; A2: gp_Ax2) {.importcpp: "SetPosition",
-    header: "gp_Hypr.hxx".}
-proc Asymptote1*(this: gp_Hypr): gp_Ax1 {.noSideEffect, importcpp: "Asymptote1",
-                                      header: "gp_Hypr.hxx".}
-proc Asymptote2*(this: gp_Hypr): gp_Ax1 {.noSideEffect, importcpp: "Asymptote2",
-                                      header: "gp_Hypr.hxx".}
-proc Axis*(this: gp_Hypr): gp_Ax1 {.noSideEffect, importcpp: "Axis",
+proc setPosition*(this: var Hypr; a2: Ax2) {.importcpp: "SetPosition",
+                                       header: "gp_Hypr.hxx".}
+proc asymptote1*(this: Hypr): Ax1 {.noSideEffect, importcpp: "Asymptote1",
                                 header: "gp_Hypr.hxx".}
-proc ConjugateBranch1*(this: gp_Hypr): gp_Hypr {.noSideEffect,
-    importcpp: "ConjugateBranch1", header: "gp_Hypr.hxx".}
-proc ConjugateBranch2*(this: gp_Hypr): gp_Hypr {.noSideEffect,
-    importcpp: "ConjugateBranch2", header: "gp_Hypr.hxx".}
-proc Directrix1*(this: gp_Hypr): gp_Ax1 {.noSideEffect, importcpp: "Directrix1",
-                                      header: "gp_Hypr.hxx".}
-proc Directrix2*(this: gp_Hypr): gp_Ax1 {.noSideEffect, importcpp: "Directrix2",
-                                      header: "gp_Hypr.hxx".}
-proc Eccentricity*(this: gp_Hypr): Standard_Real {.noSideEffect,
-    importcpp: "Eccentricity", header: "gp_Hypr.hxx".}
-proc Focal*(this: gp_Hypr): Standard_Real {.noSideEffect, importcpp: "Focal",
-                                        header: "gp_Hypr.hxx".}
-proc Focus1*(this: gp_Hypr): gp_Pnt {.noSideEffect, importcpp: "Focus1",
-                                  header: "gp_Hypr.hxx".}
-proc Focus2*(this: gp_Hypr): gp_Pnt {.noSideEffect, importcpp: "Focus2",
-                                  header: "gp_Hypr.hxx".}
-proc Location*(this: gp_Hypr): gp_Pnt {.noSideEffect, importcpp: "Location",
+proc asymptote2*(this: Hypr): Ax1 {.noSideEffect, importcpp: "Asymptote2",
+                                header: "gp_Hypr.hxx".}
+proc axis*(this: Hypr): Ax1 {.noSideEffect, importcpp: "Axis", header: "gp_Hypr.hxx".}
+proc conjugateBranch1*(this: Hypr): Hypr {.noSideEffect,
+                                       importcpp: "ConjugateBranch1",
+                                       header: "gp_Hypr.hxx".}
+proc conjugateBranch2*(this: Hypr): Hypr {.noSideEffect,
+                                       importcpp: "ConjugateBranch2",
+                                       header: "gp_Hypr.hxx".}
+proc directrix1*(this: Hypr): Ax1 {.noSideEffect, importcpp: "Directrix1",
+                                header: "gp_Hypr.hxx".}
+proc directrix2*(this: Hypr): Ax1 {.noSideEffect, importcpp: "Directrix2",
+                                header: "gp_Hypr.hxx".}
+proc eccentricity*(this: Hypr): float {.noSideEffect, importcpp: "Eccentricity",
                                     header: "gp_Hypr.hxx".}
-proc MajorRadius*(this: gp_Hypr): Standard_Real {.noSideEffect,
-    importcpp: "MajorRadius", header: "gp_Hypr.hxx".}
-proc MinorRadius*(this: gp_Hypr): Standard_Real {.noSideEffect,
-    importcpp: "MinorRadius", header: "gp_Hypr.hxx".}
-proc OtherBranch*(this: gp_Hypr): gp_Hypr {.noSideEffect, importcpp: "OtherBranch",
-                                        header: "gp_Hypr.hxx".}
-proc Parameter*(this: gp_Hypr): Standard_Real {.noSideEffect, importcpp: "Parameter",
-    header: "gp_Hypr.hxx".}
-proc Position*(this: gp_Hypr): gp_Ax2 {.noSideEffect, importcpp: "Position",
-                                    header: "gp_Hypr.hxx".}
-proc XAxis*(this: gp_Hypr): gp_Ax1 {.noSideEffect, importcpp: "XAxis",
+proc focal*(this: Hypr): float {.noSideEffect, importcpp: "Focal",
+                             header: "gp_Hypr.hxx".}
+proc focus1*(this: Hypr): Pnt {.noSideEffect, importcpp: "Focus1",
+                            header: "gp_Hypr.hxx".}
+proc focus2*(this: Hypr): Pnt {.noSideEffect, importcpp: "Focus2",
+                            header: "gp_Hypr.hxx".}
+proc location*(this: Hypr): Pnt {.noSideEffect, importcpp: "Location",
+                              header: "gp_Hypr.hxx".}
+proc majorRadius*(this: Hypr): float {.noSideEffect, importcpp: "MajorRadius",
+                                   header: "gp_Hypr.hxx".}
+proc minorRadius*(this: Hypr): float {.noSideEffect, importcpp: "MinorRadius",
+                                   header: "gp_Hypr.hxx".}
+proc otherBranch*(this: Hypr): Hypr {.noSideEffect, importcpp: "OtherBranch",
+                                  header: "gp_Hypr.hxx".}
+proc parameter*(this: Hypr): float {.noSideEffect, importcpp: "Parameter",
                                  header: "gp_Hypr.hxx".}
-proc YAxis*(this: gp_Hypr): gp_Ax1 {.noSideEffect, importcpp: "YAxis",
-                                 header: "gp_Hypr.hxx".}
-proc Mirror*(this: var gp_Hypr; P: gp_Pnt) {.importcpp: "Mirror", header: "gp_Hypr.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Pnt & P ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Mirror*(this: var gp_Hypr; A1: gp_Ax1) {.importcpp: "Mirror", header: "gp_Hypr.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Ax1 & A1 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Mirror*(this: var gp_Hypr; A2: gp_Ax2) {.importcpp: "Mirror", header: "gp_Hypr.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Ax2 & A2 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Rotate*(this: var gp_Hypr; A1: gp_Ax1; Ang: Standard_Real) {.importcpp: "Rotate",
+proc position*(this: Hypr): Ax2 {.noSideEffect, importcpp: "Position",
+                              header: "gp_Hypr.hxx".}
+proc xAxis*(this: Hypr): Ax1 {.noSideEffect, importcpp: "XAxis", header: "gp_Hypr.hxx".}
+proc yAxis*(this: Hypr): Ax1 {.noSideEffect, importcpp: "YAxis", header: "gp_Hypr.hxx".}
+proc mirror*(this: var Hypr; p: Pnt) {.importcpp: "Mirror", header: "gp_Hypr.hxx".}
+proc mirrored*(this: Hypr; p: Pnt): Hypr {.noSideEffect, importcpp: "Mirrored",
+                                     header: "gp_Hypr.hxx".}
+proc mirror*(this: var Hypr; a1: Ax1) {.importcpp: "Mirror", header: "gp_Hypr.hxx".}
+proc mirrored*(this: Hypr; a1: Ax1): Hypr {.noSideEffect, importcpp: "Mirrored",
+                                      header: "gp_Hypr.hxx".}
+proc mirror*(this: var Hypr; a2: Ax2) {.importcpp: "Mirror", header: "gp_Hypr.hxx".}
+proc mirrored*(this: Hypr; a2: Ax2): Hypr {.noSideEffect, importcpp: "Mirrored",
+                                      header: "gp_Hypr.hxx".}
+proc rotate*(this: var Hypr; a1: Ax1; ang: float) {.importcpp: "Rotate",
     header: "gp_Hypr.hxx".}
-## !!!Ignored construct:  Rotated ( const gp_Ax1 & A1 , const Standard_Real Ang ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Scale*(this: var gp_Hypr; P: gp_Pnt; S: Standard_Real) {.importcpp: "Scale",
+proc rotated*(this: Hypr; a1: Ax1; ang: float): Hypr {.noSideEffect,
+    importcpp: "Rotated", header: "gp_Hypr.hxx".}
+proc scale*(this: var Hypr; p: Pnt; s: float) {.importcpp: "Scale", header: "gp_Hypr.hxx".}
+proc scaled*(this: Hypr; p: Pnt; s: float): Hypr {.noSideEffect, importcpp: "Scaled",
     header: "gp_Hypr.hxx".}
-## !!!Ignored construct:  Scaled ( const gp_Pnt & P , const Standard_Real S ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Transform*(this: var gp_Hypr; T: gp_Trsf) {.importcpp: "Transform",
+proc transform*(this: var Hypr; t: Trsf) {.importcpp: "Transform", header: "gp_Hypr.hxx".}
+proc transformed*(this: Hypr; t: Trsf): Hypr {.noSideEffect, importcpp: "Transformed",
     header: "gp_Hypr.hxx".}
-## !!!Ignored construct:  Transformed ( const gp_Trsf & T ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Translate*(this: var gp_Hypr; V: gp_Vec) {.importcpp: "Translate",
+proc translate*(this: var Hypr; v: Vec) {.importcpp: "Translate", header: "gp_Hypr.hxx".}
+proc translated*(this: Hypr; v: Vec): Hypr {.noSideEffect, importcpp: "Translated",
+                                       header: "gp_Hypr.hxx".}
+proc translate*(this: var Hypr; p1: Pnt; p2: Pnt) {.importcpp: "Translate",
     header: "gp_Hypr.hxx".}
-## !!!Ignored construct:  Translated ( const gp_Vec & V ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Translate*(this: var gp_Hypr; P1: gp_Pnt; P2: gp_Pnt) {.importcpp: "Translate",
-    header: "gp_Hypr.hxx".}
-## !!!Ignored construct:  Translated ( const gp_Pnt & P1 , const gp_Pnt & P2 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
+proc translated*(this: Hypr; p1: Pnt; p2: Pnt): Hypr {.noSideEffect,
+    importcpp: "Translated", header: "gp_Hypr.hxx".}

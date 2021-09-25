@@ -14,61 +14,55 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Compound,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean,
-  ../TopTools/TopTools_HSequenceOfShape, ../TopTools/TopTools_DataMapOfShapeShape
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Compound"
 type
-  ShapeAnalysis_FreeBounds* {.importcpp: "ShapeAnalysis_FreeBounds",
-                             header: "ShapeAnalysis_FreeBounds.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Empty
-                                                                                  ## constructor
+  ShapeAnalysisFreeBounds* {.importcpp: "ShapeAnalysis_FreeBounds",
+                            header: "ShapeAnalysis_FreeBounds.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## Empty
+                                                                                 ## constructor
 
 
-proc constructShapeAnalysis_FreeBounds*(): ShapeAnalysis_FreeBounds {.constructor,
+proc constructShapeAnalysisFreeBounds*(): ShapeAnalysisFreeBounds {.constructor,
     importcpp: "ShapeAnalysis_FreeBounds(@)",
     header: "ShapeAnalysis_FreeBounds.hxx".}
-proc constructShapeAnalysis_FreeBounds*(shape: TopoDS_Shape; toler: Standard_Real;
-    splitclosed: Standard_Boolean = Standard_False; splitopen: Standard_Boolean = Standard_True): ShapeAnalysis_FreeBounds {.
+proc constructShapeAnalysisFreeBounds*(shape: TopoDS_Shape; toler: float;
+                                      splitclosed: bool = false;
+                                      splitopen: bool = true): ShapeAnalysisFreeBounds {.
     constructor, importcpp: "ShapeAnalysis_FreeBounds(@)",
     header: "ShapeAnalysis_FreeBounds.hxx".}
-proc constructShapeAnalysis_FreeBounds*(shape: TopoDS_Shape; splitclosed: Standard_Boolean = Standard_False;
-    splitopen: Standard_Boolean = Standard_True; checkinternaledges: Standard_Boolean = Standard_False): ShapeAnalysis_FreeBounds {.
+proc constructShapeAnalysisFreeBounds*(shape: TopoDS_Shape;
+                                      splitclosed: bool = false;
+                                      splitopen: bool = true;
+                                      checkinternaledges: bool = false): ShapeAnalysisFreeBounds {.
     constructor, importcpp: "ShapeAnalysis_FreeBounds(@)",
     header: "ShapeAnalysis_FreeBounds.hxx".}
-proc GetClosedWires*(this: ShapeAnalysis_FreeBounds): TopoDS_Compound {.
-    noSideEffect, importcpp: "GetClosedWires",
-    header: "ShapeAnalysis_FreeBounds.hxx".}
-proc GetOpenWires*(this: ShapeAnalysis_FreeBounds): TopoDS_Compound {.noSideEffect,
+proc getClosedWires*(this: ShapeAnalysisFreeBounds): TopoDS_Compound {.noSideEffect,
+    importcpp: "GetClosedWires", header: "ShapeAnalysis_FreeBounds.hxx".}
+proc getOpenWires*(this: ShapeAnalysisFreeBounds): TopoDS_Compound {.noSideEffect,
     importcpp: "GetOpenWires", header: "ShapeAnalysis_FreeBounds.hxx".}
-proc ConnectEdgesToWires*(edges: var handle[TopTools_HSequenceOfShape];
-                         toler: Standard_Real; shared: Standard_Boolean;
-                         wires: var handle[TopTools_HSequenceOfShape]) {.
+proc connectEdgesToWires*(edges: var Handle[TopToolsHSequenceOfShape]; toler: float;
+                         shared: bool; wires: var Handle[TopToolsHSequenceOfShape]) {.
     importcpp: "ShapeAnalysis_FreeBounds::ConnectEdgesToWires(@)",
     header: "ShapeAnalysis_FreeBounds.hxx".}
-proc ConnectWiresToWires*(iwires: var handle[TopTools_HSequenceOfShape];
-                         toler: Standard_Real; shared: Standard_Boolean;
-                         owires: var handle[TopTools_HSequenceOfShape]) {.
+proc connectWiresToWires*(iwires: var Handle[TopToolsHSequenceOfShape];
+                         toler: float; shared: bool;
+                         owires: var Handle[TopToolsHSequenceOfShape]) {.
     importcpp: "ShapeAnalysis_FreeBounds::ConnectWiresToWires(@)",
     header: "ShapeAnalysis_FreeBounds.hxx".}
-proc ConnectWiresToWires*(iwires: var handle[TopTools_HSequenceOfShape];
-                         toler: Standard_Real; shared: Standard_Boolean;
-                         owires: var handle[TopTools_HSequenceOfShape];
-                         vertices: var TopTools_DataMapOfShapeShape) {.
+proc connectWiresToWires*(iwires: var Handle[TopToolsHSequenceOfShape];
+                         toler: float; shared: bool;
+                         owires: var Handle[TopToolsHSequenceOfShape];
+                         vertices: var TopToolsDataMapOfShapeShape) {.
     importcpp: "ShapeAnalysis_FreeBounds::ConnectWiresToWires(@)",
     header: "ShapeAnalysis_FreeBounds.hxx".}
-proc SplitWires*(wires: handle[TopTools_HSequenceOfShape]; toler: Standard_Real;
-                shared: Standard_Boolean;
-                closed: var handle[TopTools_HSequenceOfShape];
-                open: var handle[TopTools_HSequenceOfShape]) {.
+proc splitWires*(wires: Handle[TopToolsHSequenceOfShape]; toler: float; shared: bool;
+                closed: var Handle[TopToolsHSequenceOfShape];
+                open: var Handle[TopToolsHSequenceOfShape]) {.
     importcpp: "ShapeAnalysis_FreeBounds::SplitWires(@)",
     header: "ShapeAnalysis_FreeBounds.hxx".}
-proc DispatchWires*(wires: handle[TopTools_HSequenceOfShape];
+proc dispatchWires*(wires: Handle[TopToolsHSequenceOfShape];
                    closed: var TopoDS_Compound; open: var TopoDS_Compound) {.
     importcpp: "ShapeAnalysis_FreeBounds::DispatchWires(@)",
     header: "ShapeAnalysis_FreeBounds.hxx".}

@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_SelectBase
-
 discard "forward decl of IFSelect_IntParam"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
@@ -24,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectEntityNumber"
 discard "forward decl of IFSelect_SelectEntityNumber"
 type
-  Handle_IFSelect_SelectEntityNumber* = handle[IFSelect_SelectEntityNumber]
+  HandleIFSelectSelectEntityNumber* = Handle[IFSelectSelectEntityNumber]
 
 ## ! A SelectEntityNumber gets in an InterfaceModel (through a
 ## ! Graph), the Entity which has a specified Number (its rank of
@@ -33,40 +30,39 @@ type
 ## ! Parameter, which can be externally controled
 
 type
-  IFSelect_SelectEntityNumber* {.importcpp: "IFSelect_SelectEntityNumber",
-                                header: "IFSelect_SelectEntityNumber.hxx", bycopy.} = object of IFSelect_SelectBase ##
-                                                                                                             ## !
-                                                                                                             ## Creates
-                                                                                                             ## a
-                                                                                                             ## SelectEntityNumber,
-                                                                                                             ## initially
-                                                                                                             ## with
-                                                                                                             ## no
-                                                                                                             ## specified
-                                                                                                             ## Number
+  IFSelectSelectEntityNumber* {.importcpp: "IFSelect_SelectEntityNumber",
+                               header: "IFSelect_SelectEntityNumber.hxx", bycopy.} = object of IFSelectSelectBase ##
+                                                                                                           ## !
+                                                                                                           ## Creates
+                                                                                                           ## a
+                                                                                                           ## SelectEntityNumber,
+                                                                                                           ## initially
+                                                                                                           ## with
+                                                                                                           ## no
+                                                                                                           ## specified
+                                                                                                           ## Number
 
 
-proc constructIFSelect_SelectEntityNumber*(): IFSelect_SelectEntityNumber {.
+proc constructIFSelectSelectEntityNumber*(): IFSelectSelectEntityNumber {.
     constructor, importcpp: "IFSelect_SelectEntityNumber(@)",
     header: "IFSelect_SelectEntityNumber.hxx".}
-proc SetNumber*(this: var IFSelect_SelectEntityNumber;
-               num: handle[IFSelect_IntParam]) {.importcpp: "SetNumber",
-    header: "IFSelect_SelectEntityNumber.hxx".}
-proc Number*(this: IFSelect_SelectEntityNumber): handle[IFSelect_IntParam] {.
+proc setNumber*(this: var IFSelectSelectEntityNumber; num: Handle[IFSelectIntParam]) {.
+    importcpp: "SetNumber", header: "IFSelect_SelectEntityNumber.hxx".}
+proc number*(this: IFSelectSelectEntityNumber): Handle[IFSelectIntParam] {.
     noSideEffect, importcpp: "Number", header: "IFSelect_SelectEntityNumber.hxx".}
-proc RootResult*(this: IFSelect_SelectEntityNumber; G: Interface_Graph): Interface_EntityIterator {.
+proc rootResult*(this: IFSelectSelectEntityNumber; g: InterfaceGraph): InterfaceEntityIterator {.
     noSideEffect, importcpp: "RootResult",
     header: "IFSelect_SelectEntityNumber.hxx".}
-proc Label*(this: IFSelect_SelectEntityNumber): TCollection_AsciiString {.
+proc label*(this: IFSelectSelectEntityNumber): TCollectionAsciiString {.
     noSideEffect, importcpp: "Label", header: "IFSelect_SelectEntityNumber.hxx".}
 type
-  IFSelect_SelectEntityNumberbase_type* = IFSelect_SelectBase
+  IFSelectSelectEntityNumberbaseType* = IFSelectSelectBase
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectEntityNumber::get_type_name(@)",
-                              header: "IFSelect_SelectEntityNumber.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectEntityNumber::get_type_name(@)",
+                            header: "IFSelect_SelectEntityNumber.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_SelectEntityNumber::get_type_descriptor(@)",
     header: "IFSelect_SelectEntityNumber.hxx".}
-proc DynamicType*(this: IFSelect_SelectEntityNumber): handle[Standard_Type] {.
+proc dynamicType*(this: IFSelectSelectEntityNumber): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IFSelect_SelectEntityNumber.hxx".}

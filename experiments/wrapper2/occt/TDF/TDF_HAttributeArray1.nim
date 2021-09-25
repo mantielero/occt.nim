@@ -13,37 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TDF_Attribute, TDF_AttributeArray1, ../NCollection/NCollection_DefineHArray1
-
 type
   TDF_HAttributeArray1* {.importcpp: "TDF_HAttributeArray1",
                          header: "TDF_HAttributeArray1.hxx", bycopy.} = object of TDF_AttributeArray1
 
 
-proc constructTDF_HAttributeArray1*(theLower: Standard_Integer;
-                                   theUpper: Standard_Integer): TDF_HAttributeArray1 {.
+proc constructTDF_HAttributeArray1*(theLower: int; theUpper: int): TDF_HAttributeArray1 {.
     constructor, importcpp: "TDF_HAttributeArray1(@)",
     header: "TDF_HAttributeArray1.hxx".}
-proc constructTDF_HAttributeArray1*(theLower: Standard_Integer;
-                                   theUpper: Standard_Integer;
-                                   theValue: value_type): TDF_HAttributeArray1 {.
+proc constructTDF_HAttributeArray1*(theLower: int; theUpper: int; theValue: ValueType): TDF_HAttributeArray1 {.
     constructor, importcpp: "TDF_HAttributeArray1(@)",
     header: "TDF_HAttributeArray1.hxx".}
 proc constructTDF_HAttributeArray1*(theOther: TDF_AttributeArray1): TDF_HAttributeArray1 {.
     constructor, importcpp: "TDF_HAttributeArray1(@)",
     header: "TDF_HAttributeArray1.hxx".}
-proc Array1*(this: TDF_HAttributeArray1): TDF_AttributeArray1 {.noSideEffect,
+proc array1*(this: TDF_HAttributeArray1): TDF_AttributeArray1 {.noSideEffect,
     importcpp: "Array1", header: "TDF_HAttributeArray1.hxx".}
-proc ChangeArray1*(this: var TDF_HAttributeArray1): var TDF_AttributeArray1 {.
+proc changeArray1*(this: var TDF_HAttributeArray1): var TDF_AttributeArray1 {.
     importcpp: "ChangeArray1", header: "TDF_HAttributeArray1.hxx".}
 type
-  TDF_HAttributeArray1base_type* = MMgt_TShared
+  TDF_HAttributeArray1baseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TDF_HAttributeArray1::get_type_name(@)",
-                              header: "TDF_HAttributeArray1.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDF_HAttributeArray1::get_type_name(@)",
+                            header: "TDF_HAttributeArray1.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDF_HAttributeArray1::get_type_descriptor(@)",
     header: "TDF_HAttributeArray1.hxx".}
-proc DynamicType*(this: TDF_HAttributeArray1): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDF_HAttributeArray1): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDF_HAttributeArray1.hxx".}

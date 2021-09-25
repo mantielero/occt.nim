@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, StepToTopoDS_BuilderError, ../TopoDS/TopoDS_Shape,
-  StepToTopoDS_Root, ../Standard/Standard_Boolean,
-  ../Message/Message_ProgressRange
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of StepShape_ManifoldSolidBrep"
 discard "forward decl of Transfer_TransientProcess"
@@ -40,43 +34,43 @@ type
 
 proc constructStepToTopoDS_Builder*(): StepToTopoDS_Builder {.constructor,
     importcpp: "StepToTopoDS_Builder(@)", header: "StepToTopoDS_Builder.hxx".}
-proc Init*(this: var StepToTopoDS_Builder; S: handle[StepShape_ManifoldSolidBrep];
-          TP: handle[Transfer_TransientProcess];
-          theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc init*(this: var StepToTopoDS_Builder; s: Handle[StepShapeManifoldSolidBrep];
+          tp: Handle[TransferTransientProcess];
+          theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Init", header: "StepToTopoDS_Builder.hxx".}
-proc Init*(this: var StepToTopoDS_Builder; S: handle[StepShape_BrepWithVoids];
-          TP: handle[Transfer_TransientProcess];
-          theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc init*(this: var StepToTopoDS_Builder; s: Handle[StepShapeBrepWithVoids];
+          tp: Handle[TransferTransientProcess];
+          theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Init", header: "StepToTopoDS_Builder.hxx".}
-proc Init*(this: var StepToTopoDS_Builder; S: handle[StepShape_FacetedBrep];
-          TP: handle[Transfer_TransientProcess];
-          theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc init*(this: var StepToTopoDS_Builder; s: Handle[StepShapeFacetedBrep];
+          tp: Handle[TransferTransientProcess];
+          theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Init", header: "StepToTopoDS_Builder.hxx".}
-proc Init*(this: var StepToTopoDS_Builder;
-          S: handle[StepShape_FacetedBrepAndBrepWithVoids];
-          TP: handle[Transfer_TransientProcess];
-          theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc init*(this: var StepToTopoDS_Builder;
+          s: Handle[StepShapeFacetedBrepAndBrepWithVoids];
+          tp: Handle[TransferTransientProcess];
+          theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Init", header: "StepToTopoDS_Builder.hxx".}
-proc Init*(this: var StepToTopoDS_Builder;
-          S: handle[StepShape_ShellBasedSurfaceModel];
-          TP: handle[Transfer_TransientProcess]; NMTool: var StepToTopoDS_NMTool;
-          theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc init*(this: var StepToTopoDS_Builder;
+          s: Handle[StepShapeShellBasedSurfaceModel];
+          tp: Handle[TransferTransientProcess]; nMTool: var StepToTopoDS_NMTool;
+          theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Init", header: "StepToTopoDS_Builder.hxx".}
-proc Init*(this: var StepToTopoDS_Builder;
-          S: handle[StepShape_EdgeBasedWireframeModel];
-          TP: handle[Transfer_TransientProcess]) {.importcpp: "Init",
+proc init*(this: var StepToTopoDS_Builder;
+          s: Handle[StepShapeEdgeBasedWireframeModel];
+          tp: Handle[TransferTransientProcess]) {.importcpp: "Init",
     header: "StepToTopoDS_Builder.hxx".}
-proc Init*(this: var StepToTopoDS_Builder;
-          S: handle[StepShape_FaceBasedSurfaceModel];
-          TP: handle[Transfer_TransientProcess]) {.importcpp: "Init",
+proc init*(this: var StepToTopoDS_Builder;
+          s: Handle[StepShapeFaceBasedSurfaceModel];
+          tp: Handle[TransferTransientProcess]) {.importcpp: "Init",
     header: "StepToTopoDS_Builder.hxx".}
-proc Init*(this: var StepToTopoDS_Builder; S: handle[StepShape_GeometricSet];
-          TP: handle[Transfer_TransientProcess];
-          RA: handle[Transfer_ActorOfTransientProcess] = nil;
-          isManifold: Standard_Boolean = Standard_False;
-          theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc init*(this: var StepToTopoDS_Builder; s: Handle[StepShapeGeometricSet];
+          tp: Handle[TransferTransientProcess];
+          ra: Handle[TransferActorOfTransientProcess] = nil;
+          isManifold: bool = false;
+          theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Init", header: "StepToTopoDS_Builder.hxx".}
-proc Value*(this: StepToTopoDS_Builder): TopoDS_Shape {.noSideEffect,
+proc value*(this: StepToTopoDS_Builder): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "StepToTopoDS_Builder.hxx".}
-proc Error*(this: StepToTopoDS_Builder): StepToTopoDS_BuilderError {.noSideEffect,
+proc error*(this: StepToTopoDS_Builder): StepToTopoDS_BuilderError {.noSideEffect,
     importcpp: "Error", header: "StepToTopoDS_Builder.hxx".}

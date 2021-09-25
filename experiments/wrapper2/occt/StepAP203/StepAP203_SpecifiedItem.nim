@@ -14,28 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_ProductDefinition"
 discard "forward decl of StepRepr_ShapeAspect"
 type
-  StepAP203_SpecifiedItem* {.importcpp: "StepAP203_SpecifiedItem",
-                            header: "StepAP203_SpecifiedItem.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                     ## !
-                                                                                                     ## Empty
-                                                                                                     ## constructor
+  StepAP203SpecifiedItem* {.importcpp: "StepAP203_SpecifiedItem",
+                           header: "StepAP203_SpecifiedItem.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                   ## !
+                                                                                                   ## Empty
+                                                                                                   ## constructor
 
 
-proc constructStepAP203_SpecifiedItem*(): StepAP203_SpecifiedItem {.constructor,
+proc constructStepAP203SpecifiedItem*(): StepAP203SpecifiedItem {.constructor,
     importcpp: "StepAP203_SpecifiedItem(@)", header: "StepAP203_SpecifiedItem.hxx".}
-proc CaseNum*(this: StepAP203_SpecifiedItem; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepAP203SpecifiedItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP203_SpecifiedItem.hxx".}
-proc ProductDefinition*(this: StepAP203_SpecifiedItem): handle[
-    StepBasic_ProductDefinition] {.noSideEffect, importcpp: "ProductDefinition",
-                                  header: "StepAP203_SpecifiedItem.hxx".}
-proc ShapeAspect*(this: StepAP203_SpecifiedItem): handle[StepRepr_ShapeAspect] {.
+proc productDefinition*(this: StepAP203SpecifiedItem): Handle[
+    StepBasicProductDefinition] {.noSideEffect, importcpp: "ProductDefinition",
+                                 header: "StepAP203_SpecifiedItem.hxx".}
+proc shapeAspect*(this: StepAP203SpecifiedItem): Handle[StepReprShapeAspect] {.
     noSideEffect, importcpp: "ShapeAspect", header: "StepAP203_SpecifiedItem.hxx".}

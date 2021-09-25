@@ -12,12 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Bnd/Bnd_Box, BOPDS_ListOfPaveBlock,
-  ../IntTools/IntTools_Curve, ../NCollection/NCollection_BaseAllocator,
-  ../Standard/Standard_Boolean, ../TColStd/TColStd_ListOfInteger
-
 discard "forward decl of IntTools_Curve"
 discard "forward decl of Bnd_Box"
 discard "forward decl of BOPDS_PaveBlock"
@@ -32,37 +26,37 @@ proc constructBOPDS_Curve*(): BOPDS_Curve {.constructor,
     importcpp: "BOPDS_Curve(@)", header: "BOPDS_Curve.hxx".}
 proc destroyBOPDS_Curve*(this: var BOPDS_Curve) {.importcpp: "#.~BOPDS_Curve()",
     header: "BOPDS_Curve.hxx".}
-proc constructBOPDS_Curve*(theAllocator: handle[NCollection_BaseAllocator]): BOPDS_Curve {.
+proc constructBOPDS_Curve*(theAllocator: Handle[NCollectionBaseAllocator]): BOPDS_Curve {.
     constructor, importcpp: "BOPDS_Curve(@)", header: "BOPDS_Curve.hxx".}
-proc SetCurve*(this: var BOPDS_Curve; theC: IntTools_Curve) {.importcpp: "SetCurve",
+proc setCurve*(this: var BOPDS_Curve; theC: IntToolsCurve) {.importcpp: "SetCurve",
     header: "BOPDS_Curve.hxx".}
-proc Curve*(this: BOPDS_Curve): IntTools_Curve {.noSideEffect, importcpp: "Curve",
+proc curve*(this: BOPDS_Curve): IntToolsCurve {.noSideEffect, importcpp: "Curve",
     header: "BOPDS_Curve.hxx".}
-proc SetBox*(this: var BOPDS_Curve; theBox: Bnd_Box) {.importcpp: "SetBox",
+proc setBox*(this: var BOPDS_Curve; theBox: BndBox) {.importcpp: "SetBox",
     header: "BOPDS_Curve.hxx".}
-proc Box*(this: BOPDS_Curve): Bnd_Box {.noSideEffect, importcpp: "Box",
-                                    header: "BOPDS_Curve.hxx".}
-proc ChangeBox*(this: var BOPDS_Curve): var Bnd_Box {.importcpp: "ChangeBox",
+proc box*(this: BOPDS_Curve): BndBox {.noSideEffect, importcpp: "Box",
+                                   header: "BOPDS_Curve.hxx".}
+proc changeBox*(this: var BOPDS_Curve): var BndBox {.importcpp: "ChangeBox",
     header: "BOPDS_Curve.hxx".}
-proc SetPaveBlocks*(this: var BOPDS_Curve; theLPB: BOPDS_ListOfPaveBlock) {.
+proc setPaveBlocks*(this: var BOPDS_Curve; theLPB: BOPDS_ListOfPaveBlock) {.
     importcpp: "SetPaveBlocks", header: "BOPDS_Curve.hxx".}
-proc PaveBlocks*(this: BOPDS_Curve): BOPDS_ListOfPaveBlock {.noSideEffect,
+proc paveBlocks*(this: BOPDS_Curve): BOPDS_ListOfPaveBlock {.noSideEffect,
     importcpp: "PaveBlocks", header: "BOPDS_Curve.hxx".}
-proc ChangePaveBlocks*(this: var BOPDS_Curve): var BOPDS_ListOfPaveBlock {.
+proc changePaveBlocks*(this: var BOPDS_Curve): var BOPDS_ListOfPaveBlock {.
     importcpp: "ChangePaveBlocks", header: "BOPDS_Curve.hxx".}
-proc InitPaveBlock1*(this: var BOPDS_Curve) {.importcpp: "InitPaveBlock1",
+proc initPaveBlock1*(this: var BOPDS_Curve) {.importcpp: "InitPaveBlock1",
     header: "BOPDS_Curve.hxx".}
-proc ChangePaveBlock1*(this: var BOPDS_Curve): var handle[BOPDS_PaveBlock] {.
+proc changePaveBlock1*(this: var BOPDS_Curve): var Handle[BOPDS_PaveBlock] {.
     importcpp: "ChangePaveBlock1", header: "BOPDS_Curve.hxx".}
-proc TechnoVertices*(this: BOPDS_Curve): TColStd_ListOfInteger {.noSideEffect,
+proc technoVertices*(this: BOPDS_Curve): TColStdListOfInteger {.noSideEffect,
     importcpp: "TechnoVertices", header: "BOPDS_Curve.hxx".}
-proc ChangeTechnoVertices*(this: var BOPDS_Curve): var TColStd_ListOfInteger {.
+proc changeTechnoVertices*(this: var BOPDS_Curve): var TColStdListOfInteger {.
     importcpp: "ChangeTechnoVertices", header: "BOPDS_Curve.hxx".}
-proc HasEdge*(this: BOPDS_Curve): Standard_Boolean {.noSideEffect,
-    importcpp: "HasEdge", header: "BOPDS_Curve.hxx".}
-proc SetTolerance*(this: var BOPDS_Curve; theTol: Standard_Real) {.
-    importcpp: "SetTolerance", header: "BOPDS_Curve.hxx".}
-proc Tolerance*(this: BOPDS_Curve): Standard_Real {.noSideEffect,
-    importcpp: "Tolerance", header: "BOPDS_Curve.hxx".}
-proc TangentialTolerance*(this: BOPDS_Curve): Standard_Real {.noSideEffect,
+proc hasEdge*(this: BOPDS_Curve): bool {.noSideEffect, importcpp: "HasEdge",
+                                     header: "BOPDS_Curve.hxx".}
+proc setTolerance*(this: var BOPDS_Curve; theTol: float) {.importcpp: "SetTolerance",
+    header: "BOPDS_Curve.hxx".}
+proc tolerance*(this: BOPDS_Curve): float {.noSideEffect, importcpp: "Tolerance",
+                                        header: "BOPDS_Curve.hxx".}
+proc tangentialTolerance*(this: BOPDS_Curve): float {.noSideEffect,
     importcpp: "TangentialTolerance", header: "BOPDS_Curve.hxx".}

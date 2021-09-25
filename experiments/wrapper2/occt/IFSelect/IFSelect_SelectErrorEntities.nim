@@ -14,17 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_SelectExtract,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectErrorEntities"
 discard "forward decl of IFSelect_SelectErrorEntities"
 type
-  Handle_IFSelect_SelectErrorEntities* = handle[IFSelect_SelectErrorEntities]
+  HandleIFSelectSelectErrorEntities* = Handle[IFSelectSelectErrorEntities]
 
 ## ! A SelectErrorEntities sorts the Entities which are qualified
 ## ! as "Error" (their Type has not been recognized) during reading
@@ -32,29 +28,31 @@ type
 ## ! correct, but with incorrect data (for integrity constraints).
 
 type
-  IFSelect_SelectErrorEntities* {.importcpp: "IFSelect_SelectErrorEntities",
-                                 header: "IFSelect_SelectErrorEntities.hxx",
-                                 bycopy.} = object of IFSelect_SelectExtract ## ! Creates a
-                                                                        ## SelectErrorEntities
+  IFSelectSelectErrorEntities* {.importcpp: "IFSelect_SelectErrorEntities",
+                                header: "IFSelect_SelectErrorEntities.hxx", bycopy.} = object of IFSelectSelectExtract ##
+                                                                                                                ## !
+                                                                                                                ## Creates
+                                                                                                                ## a
+                                                                                                                ## SelectErrorEntities
 
 
-proc constructIFSelect_SelectErrorEntities*(): IFSelect_SelectErrorEntities {.
+proc constructIFSelectSelectErrorEntities*(): IFSelectSelectErrorEntities {.
     constructor, importcpp: "IFSelect_SelectErrorEntities(@)",
     header: "IFSelect_SelectErrorEntities.hxx".}
-proc Sort*(this: IFSelect_SelectErrorEntities; rank: Standard_Integer;
-          ent: handle[Standard_Transient]; model: handle[Interface_InterfaceModel]): Standard_Boolean {.
+proc sort*(this: IFSelectSelectErrorEntities; rank: int;
+          ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, importcpp: "Sort", header: "IFSelect_SelectErrorEntities.hxx".}
-proc ExtractLabel*(this: IFSelect_SelectErrorEntities): TCollection_AsciiString {.
+proc extractLabel*(this: IFSelectSelectErrorEntities): TCollectionAsciiString {.
     noSideEffect, importcpp: "ExtractLabel",
     header: "IFSelect_SelectErrorEntities.hxx".}
 type
-  IFSelect_SelectErrorEntitiesbase_type* = IFSelect_SelectExtract
+  IFSelectSelectErrorEntitiesbaseType* = IFSelectSelectExtract
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectErrorEntities::get_type_name(@)",
-                              header: "IFSelect_SelectErrorEntities.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectErrorEntities::get_type_name(@)",
+                            header: "IFSelect_SelectErrorEntities.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_SelectErrorEntities::get_type_descriptor(@)",
     header: "IFSelect_SelectErrorEntities.hxx".}
-proc DynamicType*(this: IFSelect_SelectErrorEntities): handle[Standard_Type] {.
+proc dynamicType*(this: IFSelectSelectErrorEntities): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IFSelect_SelectErrorEntities.hxx".}

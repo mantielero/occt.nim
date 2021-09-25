@@ -12,28 +12,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape
-
 ## =======================================================================
 ## class :
 ## purpose  :
 ## =======================================================================
 
 type
-  BOPTools_CoupleOfShape* {.importcpp: "BOPTools_CoupleOfShape",
-                           header: "BOPTools_CoupleOfShape.hxx", bycopy.} = object
+  BOPToolsCoupleOfShape* {.importcpp: "BOPTools_CoupleOfShape",
+                          header: "BOPTools_CoupleOfShape.hxx", bycopy.} = object
 
 
-proc constructBOPTools_CoupleOfShape*(): BOPTools_CoupleOfShape {.constructor,
+proc constructBOPToolsCoupleOfShape*(): BOPToolsCoupleOfShape {.constructor,
     importcpp: "BOPTools_CoupleOfShape(@)", header: "BOPTools_CoupleOfShape.hxx".}
-proc destroyBOPTools_CoupleOfShape*(this: var BOPTools_CoupleOfShape) {.
+proc destroyBOPToolsCoupleOfShape*(this: var BOPToolsCoupleOfShape) {.
     importcpp: "#.~BOPTools_CoupleOfShape()", header: "BOPTools_CoupleOfShape.hxx".}
-proc SetShape1*(this: var BOPTools_CoupleOfShape; theShape: TopoDS_Shape) {.
+proc setShape1*(this: var BOPToolsCoupleOfShape; theShape: TopoDS_Shape) {.
     importcpp: "SetShape1", header: "BOPTools_CoupleOfShape.hxx".}
-proc Shape1*(this: BOPTools_CoupleOfShape): TopoDS_Shape {.noSideEffect,
+proc shape1*(this: BOPToolsCoupleOfShape): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape1", header: "BOPTools_CoupleOfShape.hxx".}
-proc SetShape2*(this: var BOPTools_CoupleOfShape; theShape: TopoDS_Shape) {.
+proc setShape2*(this: var BOPToolsCoupleOfShape; theShape: TopoDS_Shape) {.
     importcpp: "SetShape2", header: "BOPTools_CoupleOfShape.hxx".}
-proc Shape2*(this: BOPTools_CoupleOfShape): TopoDS_Shape {.noSideEffect,
+proc shape2*(this: BOPToolsCoupleOfShape): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape2", header: "BOPTools_CoupleOfShape.hxx".}

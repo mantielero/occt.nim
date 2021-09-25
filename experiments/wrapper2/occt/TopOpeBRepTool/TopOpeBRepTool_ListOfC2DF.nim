@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TopOpeBRepTool_C2DF, ../NCollection/NCollection_List
-
 type
-  TopOpeBRepTool_ListOfC2DF* = NCollection_List[TopOpeBRepTool_C2DF]
-  TopOpeBRepTool_ListIteratorOfListOfC2DF* = Iterator[TopOpeBRepTool_C2DF]
+  TopOpeBRepToolListOfC2DF* = NCollectionList[TopOpeBRepToolC2DF]
+  TopOpeBRepToolListIteratorOfListOfC2DF* = Iterator[TopOpeBRepToolC2DF]
+

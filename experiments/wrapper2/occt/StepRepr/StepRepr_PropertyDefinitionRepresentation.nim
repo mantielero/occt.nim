@@ -13,55 +13,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_RepresentedDefinition,
-  ../Standard/Standard_Transient
-
 discard "forward decl of StepRepr_Representation"
 discard "forward decl of StepRepr_RepresentedDefinition"
 discard "forward decl of StepRepr_PropertyDefinitionRepresentation"
 discard "forward decl of StepRepr_PropertyDefinitionRepresentation"
 type
-  Handle_StepRepr_PropertyDefinitionRepresentation* = handle[
-      StepRepr_PropertyDefinitionRepresentation]
+  HandleStepReprPropertyDefinitionRepresentation* = Handle[
+      StepReprPropertyDefinitionRepresentation]
 
 ## ! Representation of STEP entity PropertyDefinitionRepresentation
 
 type
-  StepRepr_PropertyDefinitionRepresentation* {.
+  StepReprPropertyDefinitionRepresentation* {.
       importcpp: "StepRepr_PropertyDefinitionRepresentation",
-      header: "StepRepr_PropertyDefinitionRepresentation.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                ## !
-                                                                                                ## Empty
-                                                                                                ## constructor
+      header: "StepRepr_PropertyDefinitionRepresentation.hxx", bycopy.} = object of StandardTransient ##
+                                                                                               ## !
+                                                                                               ## Empty
+                                                                                               ## constructor
 
 
-proc constructStepRepr_PropertyDefinitionRepresentation*(): StepRepr_PropertyDefinitionRepresentation {.
+proc constructStepReprPropertyDefinitionRepresentation*(): StepReprPropertyDefinitionRepresentation {.
     constructor, importcpp: "StepRepr_PropertyDefinitionRepresentation(@)",
     header: "StepRepr_PropertyDefinitionRepresentation.hxx".}
-proc Init*(this: var StepRepr_PropertyDefinitionRepresentation;
-          aDefinition: StepRepr_RepresentedDefinition;
-          aUsedRepresentation: handle[StepRepr_Representation]) {.
+proc init*(this: var StepReprPropertyDefinitionRepresentation;
+          aDefinition: StepReprRepresentedDefinition;
+          aUsedRepresentation: Handle[StepReprRepresentation]) {.
     importcpp: "Init", header: "StepRepr_PropertyDefinitionRepresentation.hxx".}
-proc Definition*(this: StepRepr_PropertyDefinitionRepresentation): StepRepr_RepresentedDefinition {.
+proc definition*(this: StepReprPropertyDefinitionRepresentation): StepReprRepresentedDefinition {.
     noSideEffect, importcpp: "Definition",
     header: "StepRepr_PropertyDefinitionRepresentation.hxx".}
-proc SetDefinition*(this: var StepRepr_PropertyDefinitionRepresentation;
-                   Definition: StepRepr_RepresentedDefinition) {.
+proc setDefinition*(this: var StepReprPropertyDefinitionRepresentation;
+                   definition: StepReprRepresentedDefinition) {.
     importcpp: "SetDefinition",
     header: "StepRepr_PropertyDefinitionRepresentation.hxx".}
-proc UsedRepresentation*(this: StepRepr_PropertyDefinitionRepresentation): handle[
-    StepRepr_Representation] {.noSideEffect, importcpp: "UsedRepresentation", header: "StepRepr_PropertyDefinitionRepresentation.hxx".}
-proc SetUsedRepresentation*(this: var StepRepr_PropertyDefinitionRepresentation;
-                           UsedRepresentation: handle[StepRepr_Representation]) {.
+proc usedRepresentation*(this: StepReprPropertyDefinitionRepresentation): Handle[
+    StepReprRepresentation] {.noSideEffect, importcpp: "UsedRepresentation", header: "StepRepr_PropertyDefinitionRepresentation.hxx".}
+proc setUsedRepresentation*(this: var StepReprPropertyDefinitionRepresentation;
+                           usedRepresentation: Handle[StepReprRepresentation]) {.
     importcpp: "SetUsedRepresentation",
     header: "StepRepr_PropertyDefinitionRepresentation.hxx".}
 type
-  StepRepr_PropertyDefinitionRepresentationbase_type* = Standard_Transient
+  StepReprPropertyDefinitionRepresentationbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_PropertyDefinitionRepresentation::get_type_name(@)", header: "StepRepr_PropertyDefinitionRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepRepr_PropertyDefinitionRepresentation::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepRepr_PropertyDefinitionRepresentation::get_type_name(@)", header: "StepRepr_PropertyDefinitionRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_PropertyDefinitionRepresentation::get_type_descriptor(@)",
     header: "StepRepr_PropertyDefinitionRepresentation.hxx".}
-proc DynamicType*(this: StepRepr_PropertyDefinitionRepresentation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepRepr_PropertyDefinitionRepresentation.hxx".}
+proc dynamicType*(this: StepReprPropertyDefinitionRepresentation): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepRepr_PropertyDefinitionRepresentation.hxx".}

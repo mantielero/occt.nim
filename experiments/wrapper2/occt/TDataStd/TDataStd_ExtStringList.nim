@@ -13,12 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TDataStd_ListOfExtendedString,
-  ../TDF/TDF_Attribute, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../Standard/Standard_OStream,
-  ../Standard/Standard_GUID
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
 discard "forward decl of TCollection_ExtendedString"
@@ -27,101 +21,100 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataStd_ExtStringList"
 discard "forward decl of TDataStd_ExtStringList"
 type
-  Handle_TDataStd_ExtStringList* = handle[TDataStd_ExtStringList]
+  HandleTDataStdExtStringList* = Handle[TDataStdExtStringList]
 
 ## ! Contains a list of ExtendedString.
 
 type
-  TDataStd_ExtStringList* {.importcpp: "TDataStd_ExtStringList",
-                           header: "TDataStd_ExtStringList.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                             ## !
-                                                                                             ## Static
-                                                                                             ## methods
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## ==============
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Returns
-                                                                                             ## the
-                                                                                             ## ID
-                                                                                             ## of
-                                                                                             ## the
-                                                                                             ## list
-                                                                                             ## of
-                                                                                             ## strings
-                                                                                             ## attribute.
+  TDataStdExtStringList* {.importcpp: "TDataStd_ExtStringList",
+                          header: "TDataStd_ExtStringList.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                            ## !
+                                                                                            ## Static
+                                                                                            ## methods
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## ==============
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## the
+                                                                                            ## ID
+                                                                                            ## of
+                                                                                            ## the
+                                                                                            ## list
+                                                                                            ## of
+                                                                                            ## strings
+                                                                                            ## attribute.
 
 
-proc GetID*(): Standard_GUID {.importcpp: "TDataStd_ExtStringList::GetID(@)",
-                            header: "TDataStd_ExtStringList.hxx".}
-proc Set*(label: TDF_Label): handle[TDataStd_ExtStringList] {.
+proc getID*(): StandardGUID {.importcpp: "TDataStd_ExtStringList::GetID(@)",
+                           header: "TDataStd_ExtStringList.hxx".}
+proc set*(label: TDF_Label): Handle[TDataStdExtStringList] {.
     importcpp: "TDataStd_ExtStringList::Set(@)",
     header: "TDataStd_ExtStringList.hxx".}
-proc Set*(label: TDF_Label; theGuid: Standard_GUID): handle[TDataStd_ExtStringList] {.
+proc set*(label: TDF_Label; theGuid: StandardGUID): Handle[TDataStdExtStringList] {.
     importcpp: "TDataStd_ExtStringList::Set(@)",
     header: "TDataStd_ExtStringList.hxx".}
-proc constructTDataStd_ExtStringList*(): TDataStd_ExtStringList {.constructor,
+proc constructTDataStdExtStringList*(): TDataStdExtStringList {.constructor,
     importcpp: "TDataStd_ExtStringList(@)", header: "TDataStd_ExtStringList.hxx".}
-proc IsEmpty*(this: TDataStd_ExtStringList): Standard_Boolean {.noSideEffect,
+proc isEmpty*(this: TDataStdExtStringList): bool {.noSideEffect,
     importcpp: "IsEmpty", header: "TDataStd_ExtStringList.hxx".}
-proc Extent*(this: TDataStd_ExtStringList): Standard_Integer {.noSideEffect,
-    importcpp: "Extent", header: "TDataStd_ExtStringList.hxx".}
-proc Prepend*(this: var TDataStd_ExtStringList; value: TCollection_ExtendedString) {.
+proc extent*(this: TDataStdExtStringList): int {.noSideEffect, importcpp: "Extent",
+    header: "TDataStd_ExtStringList.hxx".}
+proc prepend*(this: var TDataStdExtStringList; value: TCollectionExtendedString) {.
     importcpp: "Prepend", header: "TDataStd_ExtStringList.hxx".}
-proc Append*(this: var TDataStd_ExtStringList; value: TCollection_ExtendedString) {.
+proc append*(this: var TDataStdExtStringList; value: TCollectionExtendedString) {.
     importcpp: "Append", header: "TDataStd_ExtStringList.hxx".}
-proc SetID*(this: var TDataStd_ExtStringList; theGuid: Standard_GUID) {.
+proc setID*(this: var TDataStdExtStringList; theGuid: StandardGUID) {.
     importcpp: "SetID", header: "TDataStd_ExtStringList.hxx".}
-proc SetID*(this: var TDataStd_ExtStringList) {.importcpp: "SetID",
+proc setID*(this: var TDataStdExtStringList) {.importcpp: "SetID",
     header: "TDataStd_ExtStringList.hxx".}
-proc InsertBefore*(this: var TDataStd_ExtStringList;
-                  value: TCollection_ExtendedString;
-                  before_value: TCollection_ExtendedString): Standard_Boolean {.
+proc insertBefore*(this: var TDataStdExtStringList;
+                  value: TCollectionExtendedString;
+                  beforeValue: TCollectionExtendedString): bool {.
     importcpp: "InsertBefore", header: "TDataStd_ExtStringList.hxx".}
-proc InsertBefore*(this: var TDataStd_ExtStringList; index: Standard_Integer;
-                  before_value: TCollection_ExtendedString): Standard_Boolean {.
+proc insertBefore*(this: var TDataStdExtStringList; index: int;
+                  beforeValue: TCollectionExtendedString): bool {.
     importcpp: "InsertBefore", header: "TDataStd_ExtStringList.hxx".}
-proc InsertAfter*(this: var TDataStd_ExtStringList;
-                 value: TCollection_ExtendedString;
-                 after_value: TCollection_ExtendedString): Standard_Boolean {.
+proc insertAfter*(this: var TDataStdExtStringList; value: TCollectionExtendedString;
+                 afterValue: TCollectionExtendedString): bool {.
     importcpp: "InsertAfter", header: "TDataStd_ExtStringList.hxx".}
-proc InsertAfter*(this: var TDataStd_ExtStringList; index: Standard_Integer;
-                 after_value: TCollection_ExtendedString): Standard_Boolean {.
+proc insertAfter*(this: var TDataStdExtStringList; index: int;
+                 afterValue: TCollectionExtendedString): bool {.
     importcpp: "InsertAfter", header: "TDataStd_ExtStringList.hxx".}
-proc Remove*(this: var TDataStd_ExtStringList; value: TCollection_ExtendedString): Standard_Boolean {.
+proc remove*(this: var TDataStdExtStringList; value: TCollectionExtendedString): bool {.
     importcpp: "Remove", header: "TDataStd_ExtStringList.hxx".}
-proc Remove*(this: var TDataStd_ExtStringList; index: Standard_Integer): Standard_Boolean {.
-    importcpp: "Remove", header: "TDataStd_ExtStringList.hxx".}
-proc Clear*(this: var TDataStd_ExtStringList) {.importcpp: "Clear",
+proc remove*(this: var TDataStdExtStringList; index: int): bool {.importcpp: "Remove",
     header: "TDataStd_ExtStringList.hxx".}
-proc First*(this: TDataStd_ExtStringList): TCollection_ExtendedString {.
-    noSideEffect, importcpp: "First", header: "TDataStd_ExtStringList.hxx".}
-proc Last*(this: TDataStd_ExtStringList): TCollection_ExtendedString {.noSideEffect,
+proc clear*(this: var TDataStdExtStringList) {.importcpp: "Clear",
+    header: "TDataStd_ExtStringList.hxx".}
+proc first*(this: TDataStdExtStringList): TCollectionExtendedString {.noSideEffect,
+    importcpp: "First", header: "TDataStd_ExtStringList.hxx".}
+proc last*(this: TDataStdExtStringList): TCollectionExtendedString {.noSideEffect,
     importcpp: "Last", header: "TDataStd_ExtStringList.hxx".}
-proc List*(this: TDataStd_ExtStringList): TDataStd_ListOfExtendedString {.
+proc list*(this: TDataStdExtStringList): TDataStdListOfExtendedString {.
     noSideEffect, importcpp: "List", header: "TDataStd_ExtStringList.hxx".}
-proc ID*(this: TDataStd_ExtStringList): Standard_GUID {.noSideEffect,
-    importcpp: "ID", header: "TDataStd_ExtStringList.hxx".}
-proc Restore*(this: var TDataStd_ExtStringList; With: handle[TDF_Attribute]) {.
+proc id*(this: TDataStdExtStringList): StandardGUID {.noSideEffect, importcpp: "ID",
+    header: "TDataStd_ExtStringList.hxx".}
+proc restore*(this: var TDataStdExtStringList; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TDataStd_ExtStringList.hxx".}
-proc NewEmpty*(this: TDataStd_ExtStringList): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TDataStdExtStringList): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TDataStd_ExtStringList.hxx".}
-proc Paste*(this: TDataStd_ExtStringList; Into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TDataStdExtStringList; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TDataStd_ExtStringList.hxx".}
-proc Dump*(this: TDataStd_ExtStringList; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDataStdExtStringList; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_ExtStringList.hxx".}
-proc DumpJson*(this: TDataStd_ExtStringList; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TDataStd_ExtStringList.hxx".}
+proc dumpJson*(this: TDataStdExtStringList; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TDataStd_ExtStringList.hxx".}
 type
-  TDataStd_ExtStringListbase_type* = TDF_Attribute
+  TDataStdExtStringListbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TDataStd_ExtStringList::get_type_name(@)",
-                              header: "TDataStd_ExtStringList.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDataStd_ExtStringList::get_type_name(@)",
+                            header: "TDataStd_ExtStringList.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDataStd_ExtStringList::get_type_descriptor(@)",
     header: "TDataStd_ExtStringList.hxx".}
-proc DynamicType*(this: TDataStd_ExtStringList): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "TDataStd_ExtStringList.hxx".}
+proc dynamicType*(this: TDataStdExtStringList): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "TDataStd_ExtStringList.hxx".}

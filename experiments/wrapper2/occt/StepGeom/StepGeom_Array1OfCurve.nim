@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepGeom_Curve, ../NCollection/NCollection_Array1
-
 type
-  StepGeom_Array1OfCurve* = NCollection_Array1[handle[StepGeom_Curve]]
+  StepGeomArray1OfCurve* = NCollectionArray1[Handle[StepGeomCurve]]
+

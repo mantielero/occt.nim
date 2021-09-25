@@ -14,46 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopAbs/TopAbs_ShapeEnum,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
-  ../TopAbs/TopAbs_Orientation
-
 ## ! Gives    a  simple  indexed   representation  of a
 ## ! Directing Edge topology.
 
 type
-  Sweep_NumShape* {.importcpp: "Sweep_NumShape", header: "Sweep_NumShape.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## a
-                                                                                         ## dummy
-                                                                                         ## indexed
-                                                                                         ## edge.
+  SweepNumShape* {.importcpp: "Sweep_NumShape", header: "Sweep_NumShape.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Creates
+                                                                                        ## a
+                                                                                        ## dummy
+                                                                                        ## indexed
+                                                                                        ## edge.
 
 
-proc constructSweep_NumShape*(): Sweep_NumShape {.constructor,
+proc constructSweepNumShape*(): SweepNumShape {.constructor,
     importcpp: "Sweep_NumShape(@)", header: "Sweep_NumShape.hxx".}
-proc constructSweep_NumShape*(Index: Standard_Integer; Type: TopAbs_ShapeEnum;
-                             Closed: Standard_Boolean = Standard_False;
-                             BegInf: Standard_Boolean = Standard_False;
-                             EndInf: Standard_Boolean = Standard_False): Sweep_NumShape {.
-    constructor, importcpp: "Sweep_NumShape(@)", header: "Sweep_NumShape.hxx".}
-proc Init*(this: var Sweep_NumShape; Index: Standard_Integer; Type: TopAbs_ShapeEnum;
-          Closed: Standard_Boolean = Standard_False;
-          BegInf: Standard_Boolean = Standard_False;
-          EndInf: Standard_Boolean = Standard_False) {.importcpp: "Init",
+proc constructSweepNumShape*(index: int; `type`: TopAbsShapeEnum;
+                            closed: bool = false; begInf: bool = false;
+                            endInf: bool = false): SweepNumShape {.constructor,
+    importcpp: "Sweep_NumShape(@)", header: "Sweep_NumShape.hxx".}
+proc init*(this: var SweepNumShape; index: int; `type`: TopAbsShapeEnum;
+          closed: bool = false; begInf: bool = false; endInf: bool = false) {.
+    importcpp: "Init", header: "Sweep_NumShape.hxx".}
+proc index*(this: SweepNumShape): int {.noSideEffect, importcpp: "Index",
+                                    header: "Sweep_NumShape.hxx".}
+proc `type`*(this: SweepNumShape): TopAbsShapeEnum {.noSideEffect, importcpp: "Type",
     header: "Sweep_NumShape.hxx".}
-proc Index*(this: Sweep_NumShape): Standard_Integer {.noSideEffect,
-    importcpp: "Index", header: "Sweep_NumShape.hxx".}
-proc Type*(this: Sweep_NumShape): TopAbs_ShapeEnum {.noSideEffect, importcpp: "Type",
-    header: "Sweep_NumShape.hxx".}
-proc Closed*(this: Sweep_NumShape): Standard_Boolean {.noSideEffect,
-    importcpp: "Closed", header: "Sweep_NumShape.hxx".}
-proc BegInfinite*(this: Sweep_NumShape): Standard_Boolean {.noSideEffect,
+proc closed*(this: SweepNumShape): bool {.noSideEffect, importcpp: "Closed",
+                                      header: "Sweep_NumShape.hxx".}
+proc begInfinite*(this: SweepNumShape): bool {.noSideEffect,
     importcpp: "BegInfinite", header: "Sweep_NumShape.hxx".}
-proc EndInfinite*(this: Sweep_NumShape): Standard_Boolean {.noSideEffect,
+proc endInfinite*(this: SweepNumShape): bool {.noSideEffect,
     importcpp: "EndInfinite", header: "Sweep_NumShape.hxx".}
-proc Orientation*(this: Sweep_NumShape): TopAbs_Orientation {.noSideEffect,
+proc orientation*(this: SweepNumShape): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "Sweep_NumShape.hxx".}

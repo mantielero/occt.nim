@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  TopoDSToStep_MakeVertexError* {.size: sizeof(cint),
-                                 importcpp: "TopoDSToStep_MakeVertexError",
-                                 header: "TopoDSToStep_MakeVertexError.hxx".} = enum
-    TopoDSToStep_VertexDone, TopoDSToStep_VertexOther
+  TopoDSToStepMakeVertexError* {.size: sizeof(cint),
+                                importcpp: "TopoDSToStep_MakeVertexError",
+                                header: "TopoDSToStep_MakeVertexError.hxx".} = enum
+    TopoDSToStepVertexDone, TopoDSToStepVertexOther
+
 

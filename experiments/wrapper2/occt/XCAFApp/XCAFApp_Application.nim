@@ -13,47 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TDocStd/TDocStd_Application,
-  ../TColStd/TColStd_SequenceOfExtendedString, ../Standard/Standard_CString
-
 discard "forward decl of TDocStd_Document"
 discard "forward decl of XCAFApp_Application"
 discard "forward decl of XCAFApp_Application"
 type
-  Handle_XCAFApp_Application* = handle[XCAFApp_Application]
+  HandleXCAFAppApplication* = Handle[XCAFAppApplication]
 
 ## ! Implements an Application for the DECAF documents
 
 type
-  XCAFApp_Application* {.importcpp: "XCAFApp_Application",
-                        header: "XCAFApp_Application.hxx", bycopy.} = object of TDocStd_Application ##
-                                                                                             ## !
-                                                                                             ## methods
-                                                                                             ## from
-                                                                                             ## TDocStd_Application
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## ================================
+  XCAFAppApplication* {.importcpp: "XCAFApp_Application",
+                       header: "XCAFApp_Application.hxx", bycopy.} = object of TDocStdApplication ##
+                                                                                           ## !
+                                                                                           ## methods
+                                                                                           ## from
+                                                                                           ## TDocStd_Application
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## ================================
 
 
-proc ResourcesName*(this: var XCAFApp_Application): Standard_CString {.
+proc resourcesName*(this: var XCAFAppApplication): StandardCString {.
     importcpp: "ResourcesName", header: "XCAFApp_Application.hxx".}
-proc InitDocument*(this: XCAFApp_Application; aDoc: handle[TDocStd_Document]) {.
+proc initDocument*(this: XCAFAppApplication; aDoc: Handle[TDocStdDocument]) {.
     noSideEffect, importcpp: "InitDocument", header: "XCAFApp_Application.hxx".}
-proc GetApplication*(): handle[XCAFApp_Application] {.
+proc getApplication*(): Handle[XCAFAppApplication] {.
     importcpp: "XCAFApp_Application::GetApplication(@)",
     header: "XCAFApp_Application.hxx".}
-proc DumpJson*(this: XCAFApp_Application; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "XCAFApp_Application.hxx".}
+proc dumpJson*(this: XCAFAppApplication; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "XCAFApp_Application.hxx".}
 type
-  XCAFApp_Applicationbase_type* = TDocStd_Application
+  XCAFAppApplicationbaseType* = TDocStdApplication
 
-proc get_type_name*(): cstring {.importcpp: "XCAFApp_Application::get_type_name(@)",
-                              header: "XCAFApp_Application.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XCAFApp_Application::get_type_name(@)",
+                            header: "XCAFApp_Application.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XCAFApp_Application::get_type_descriptor(@)",
     header: "XCAFApp_Application.hxx".}
-proc DynamicType*(this: XCAFApp_Application): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: XCAFAppApplication): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XCAFApp_Application.hxx".}

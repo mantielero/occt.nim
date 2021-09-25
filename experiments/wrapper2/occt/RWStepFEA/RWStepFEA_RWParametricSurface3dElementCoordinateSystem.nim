@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepFEA_ParametricSurface3dElementCoordinateSystem"
@@ -35,18 +31,18 @@ proc constructRWStepFEA_RWParametricSurface3dElementCoordinateSystem*(): RWStepF
     constructor,
     importcpp: "RWStepFEA_RWParametricSurface3dElementCoordinateSystem(@)",
     header: "RWStepFEA_RWParametricSurface3dElementCoordinateSystem.hxx".}
-proc ReadStep*(this: RWStepFEA_RWParametricSurface3dElementCoordinateSystem;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepFEA_ParametricSurface3dElementCoordinateSystem]) {.
+proc readStep*(this: RWStepFEA_RWParametricSurface3dElementCoordinateSystem;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepFEA_ParametricSurface3dElementCoordinateSystem]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepFEA_RWParametricSurface3dElementCoordinateSystem.hxx".}
-proc WriteStep*(this: RWStepFEA_RWParametricSurface3dElementCoordinateSystem;
-               SW: var StepData_StepWriter;
-               ent: handle[StepFEA_ParametricSurface3dElementCoordinateSystem]) {.
+proc writeStep*(this: RWStepFEA_RWParametricSurface3dElementCoordinateSystem;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepFEA_ParametricSurface3dElementCoordinateSystem]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepFEA_RWParametricSurface3dElementCoordinateSystem.hxx".}
-proc Share*(this: RWStepFEA_RWParametricSurface3dElementCoordinateSystem;
-           ent: handle[StepFEA_ParametricSurface3dElementCoordinateSystem];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepFEA_RWParametricSurface3dElementCoordinateSystem;
+           ent: Handle[StepFEA_ParametricSurface3dElementCoordinateSystem];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWParametricSurface3dElementCoordinateSystem.hxx".}

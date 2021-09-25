@@ -12,38 +12,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_ShortReal, TShort_Array1OfShortReal,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  TShort_HArray1OfShortReal* {.importcpp: "TShort_HArray1OfShortReal",
-                              header: "TShort_HArray1OfShortReal.hxx", bycopy.} = object of TShort_Array1OfShortReal
+  TShortHArray1OfShortReal* {.importcpp: "TShort_HArray1OfShortReal",
+                             header: "TShort_HArray1OfShortReal.hxx", bycopy.} = object of TShortArray1OfShortReal
 
 
-proc constructTShort_HArray1OfShortReal*(theLower: Standard_Integer;
-                                        theUpper: Standard_Integer): TShort_HArray1OfShortReal {.
+proc constructTShortHArray1OfShortReal*(theLower: int; theUpper: int): TShortHArray1OfShortReal {.
     constructor, importcpp: "TShort_HArray1OfShortReal(@)",
     header: "TShort_HArray1OfShortReal.hxx".}
-proc constructTShort_HArray1OfShortReal*(theLower: Standard_Integer;
-                                        theUpper: Standard_Integer;
-                                        theValue: value_type): TShort_HArray1OfShortReal {.
+proc constructTShortHArray1OfShortReal*(theLower: int; theUpper: int;
+                                       theValue: ValueType): TShortHArray1OfShortReal {.
     constructor, importcpp: "TShort_HArray1OfShortReal(@)",
     header: "TShort_HArray1OfShortReal.hxx".}
-proc constructTShort_HArray1OfShortReal*(theOther: TShort_Array1OfShortReal): TShort_HArray1OfShortReal {.
+proc constructTShortHArray1OfShortReal*(theOther: TShortArray1OfShortReal): TShortHArray1OfShortReal {.
     constructor, importcpp: "TShort_HArray1OfShortReal(@)",
     header: "TShort_HArray1OfShortReal.hxx".}
-proc Array1*(this: TShort_HArray1OfShortReal): TShort_Array1OfShortReal {.
+proc array1*(this: TShortHArray1OfShortReal): TShortArray1OfShortReal {.
     noSideEffect, importcpp: "Array1", header: "TShort_HArray1OfShortReal.hxx".}
-proc ChangeArray1*(this: var TShort_HArray1OfShortReal): var TShort_Array1OfShortReal {.
+proc changeArray1*(this: var TShortHArray1OfShortReal): var TShortArray1OfShortReal {.
     importcpp: "ChangeArray1", header: "TShort_HArray1OfShortReal.hxx".}
 type
-  TShort_HArray1OfShortRealbase_type* = MMgt_TShared
+  TShortHArray1OfShortRealbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TShort_HArray1OfShortReal::get_type_name(@)",
-                              header: "TShort_HArray1OfShortReal.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TShort_HArray1OfShortReal::get_type_name(@)",
+                            header: "TShort_HArray1OfShortReal.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TShort_HArray1OfShortReal::get_type_descriptor(@)",
     header: "TShort_HArray1OfShortReal.hxx".}
-proc DynamicType*(this: TShort_HArray1OfShortReal): handle[Standard_Type] {.
+proc dynamicType*(this: TShortHArray1OfShortReal): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TShort_HArray1OfShortReal.hxx".}

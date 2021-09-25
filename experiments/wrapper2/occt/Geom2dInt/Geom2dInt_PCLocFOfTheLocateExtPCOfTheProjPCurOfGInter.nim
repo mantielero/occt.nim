@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Pnt2d, ../Standard/Standard_Address,
-  ../Standard/Standard_Real, ../TColStd/TColStd_SequenceOfReal,
-  ../TColStd/TColStd_SequenceOfInteger, ../Extrema/Extrema_SequenceOfPOnCurv2d,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
-  ../math/math_FunctionWithDerivative
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of Adaptor2d_Curve2d"
@@ -30,58 +22,50 @@ discard "forward decl of Extrema_POnCurv2d"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 type
-  Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter* {.
+  Geom2dIntPCLocFOfTheLocateExtPCOfTheProjPCurOfGInter* {.
       importcpp: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter",
-      header: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter.hxx", bycopy.} = object of math_FunctionWithDerivative
+      header: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter.hxx", bycopy.} = object of MathFunctionWithDerivative
 
 
-proc constructGeom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter*(): Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter {.
+proc constructGeom2dIntPCLocFOfTheLocateExtPCOfTheProjPCurOfGInter*(): Geom2dIntPCLocFOfTheLocateExtPCOfTheProjPCurOfGInter {.
     constructor,
     importcpp: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter(@)",
     header: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter.hxx".}
-proc constructGeom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter*(P: gp_Pnt2d;
-    C: Adaptor2d_Curve2d): Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter {.
+proc constructGeom2dIntPCLocFOfTheLocateExtPCOfTheProjPCurOfGInter*(p: Pnt2d;
+    c: Adaptor2dCurve2d): Geom2dIntPCLocFOfTheLocateExtPCOfTheProjPCurOfGInter {.
     constructor,
     importcpp: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter(@)",
     header: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter.hxx".}
-proc Initialize*(this: var Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter;
-                C: Adaptor2d_Curve2d) {.importcpp: "Initialize", header: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter.hxx".}
-proc SetPoint*(this: var Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter;
-              P: gp_Pnt2d) {.importcpp: "SetPoint", header: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter.hxx".}
-proc Value*(this: var Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter;
-           U: Standard_Real; F: var Standard_Real): Standard_Boolean {.
-    importcpp: "Value",
+proc initialize*(this: var Geom2dIntPCLocFOfTheLocateExtPCOfTheProjPCurOfGInter;
+                c: Adaptor2dCurve2d) {.importcpp: "Initialize", header: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter.hxx".}
+proc setPoint*(this: var Geom2dIntPCLocFOfTheLocateExtPCOfTheProjPCurOfGInter;
+              p: Pnt2d) {.importcpp: "SetPoint", header: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter.hxx".}
+proc value*(this: var Geom2dIntPCLocFOfTheLocateExtPCOfTheProjPCurOfGInter;
+           u: float; f: var float): bool {.importcpp: "Value", header: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter.hxx".}
+proc derivative*(this: var Geom2dIntPCLocFOfTheLocateExtPCOfTheProjPCurOfGInter;
+                u: float; df: var float): bool {.importcpp: "Derivative",
     header: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter.hxx".}
-proc Derivative*(this: var Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter;
-                U: Standard_Real; DF: var Standard_Real): Standard_Boolean {.
-    importcpp: "Derivative",
+proc values*(this: var Geom2dIntPCLocFOfTheLocateExtPCOfTheProjPCurOfGInter;
+            u: float; f: var float; df: var float): bool {.importcpp: "Values",
     header: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter.hxx".}
-proc Values*(this: var Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter;
-            U: Standard_Real; F: var Standard_Real; DF: var Standard_Real): Standard_Boolean {.
-    importcpp: "Values",
-    header: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter.hxx".}
-proc GetStateNumber*(this: var Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter): Standard_Integer {.
+proc getStateNumber*(this: var Geom2dIntPCLocFOfTheLocateExtPCOfTheProjPCurOfGInter): int {.
     importcpp: "GetStateNumber",
     header: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter.hxx".}
-proc NbExt*(this: Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter): Standard_Integer {.
+proc nbExt*(this: Geom2dIntPCLocFOfTheLocateExtPCOfTheProjPCurOfGInter): int {.
     noSideEffect, importcpp: "NbExt",
     header: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter.hxx".}
-proc SquareDistance*(this: Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter;
-                    N: Standard_Integer): Standard_Real {.noSideEffect,
-    importcpp: "SquareDistance",
+proc squareDistance*(this: Geom2dIntPCLocFOfTheLocateExtPCOfTheProjPCurOfGInter;
+                    n: int): float {.noSideEffect, importcpp: "SquareDistance", header: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter.hxx".}
+proc isMin*(this: Geom2dIntPCLocFOfTheLocateExtPCOfTheProjPCurOfGInter; n: int): bool {.
+    noSideEffect, importcpp: "IsMin",
     header: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter.hxx".}
-proc IsMin*(this: Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter;
-           N: Standard_Integer): Standard_Boolean {.noSideEffect,
-    importcpp: "IsMin",
+proc point*(this: Geom2dIntPCLocFOfTheLocateExtPCOfTheProjPCurOfGInter; n: int): ExtremaPOnCurv2d {.
+    noSideEffect, importcpp: "Point",
     header: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter.hxx".}
-proc Point*(this: Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter;
-           N: Standard_Integer): Extrema_POnCurv2d {.noSideEffect,
-    importcpp: "Point",
-    header: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter.hxx".}
-proc SubIntervalInitialize*(this: var Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter;
-                           theUfirst: Standard_Real; theUlast: Standard_Real) {.
+proc subIntervalInitialize*(this: var Geom2dIntPCLocFOfTheLocateExtPCOfTheProjPCurOfGInter;
+                           theUfirst: float; theUlast: float) {.
     importcpp: "SubIntervalInitialize",
     header: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter.hxx".}
-proc SearchOfTolerance*(this: var Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter): Standard_Real {.
+proc searchOfTolerance*(this: var Geom2dIntPCLocFOfTheLocateExtPCOfTheProjPCurOfGInter): float {.
     importcpp: "SearchOfTolerance",
     header: "Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter.hxx".}

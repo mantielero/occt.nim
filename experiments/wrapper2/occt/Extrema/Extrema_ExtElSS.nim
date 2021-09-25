@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../TColStd/TColStd_HArray1OfReal,
-  Extrema_HArray1OfPOnSurf, ../Standard/Standard_Real
-
 discard "forward decl of gp_Pln"
 discard "forward decl of gp_Sphere"
 discard "forward decl of gp_Cylinder"
@@ -27,44 +21,44 @@ discard "forward decl of gp_Cone"
 discard "forward decl of gp_Torus"
 discard "forward decl of Extrema_POnSurf"
 type
-  Extrema_ExtElSS* {.importcpp: "Extrema_ExtElSS", header: "Extrema_ExtElSS.hxx",
-                    bycopy.} = object
+  ExtremaExtElSS* {.importcpp: "Extrema_ExtElSS", header: "Extrema_ExtElSS.hxx",
+                   bycopy.} = object
 
 
-proc constructExtrema_ExtElSS*(): Extrema_ExtElSS {.constructor,
+proc constructExtremaExtElSS*(): ExtremaExtElSS {.constructor,
     importcpp: "Extrema_ExtElSS(@)", header: "Extrema_ExtElSS.hxx".}
-proc constructExtrema_ExtElSS*(S1: gp_Pln; S2: gp_Pln): Extrema_ExtElSS {.constructor,
+proc constructExtremaExtElSS*(s1: Pln; s2: Pln): ExtremaExtElSS {.constructor,
     importcpp: "Extrema_ExtElSS(@)", header: "Extrema_ExtElSS.hxx".}
-proc Perform*(this: var Extrema_ExtElSS; S1: gp_Pln; S2: gp_Pln) {.importcpp: "Perform",
+proc perform*(this: var ExtremaExtElSS; s1: Pln; s2: Pln) {.importcpp: "Perform",
     header: "Extrema_ExtElSS.hxx".}
-proc constructExtrema_ExtElSS*(S1: gp_Pln; S2: gp_Sphere): Extrema_ExtElSS {.
-    constructor, importcpp: "Extrema_ExtElSS(@)", header: "Extrema_ExtElSS.hxx".}
-proc Perform*(this: var Extrema_ExtElSS; S1: gp_Pln; S2: gp_Sphere) {.
+proc constructExtremaExtElSS*(s1: Pln; s2: Sphere): ExtremaExtElSS {.constructor,
+    importcpp: "Extrema_ExtElSS(@)", header: "Extrema_ExtElSS.hxx".}
+proc perform*(this: var ExtremaExtElSS; s1: Pln; s2: Sphere) {.importcpp: "Perform",
+    header: "Extrema_ExtElSS.hxx".}
+proc constructExtremaExtElSS*(s1: Sphere; s2: Sphere): ExtremaExtElSS {.constructor,
+    importcpp: "Extrema_ExtElSS(@)", header: "Extrema_ExtElSS.hxx".}
+proc perform*(this: var ExtremaExtElSS; s1: Sphere; s2: Sphere) {.importcpp: "Perform",
+    header: "Extrema_ExtElSS.hxx".}
+proc constructExtremaExtElSS*(s1: Sphere; s2: Cylinder): ExtremaExtElSS {.constructor,
+    importcpp: "Extrema_ExtElSS(@)", header: "Extrema_ExtElSS.hxx".}
+proc perform*(this: var ExtremaExtElSS; s1: Sphere; s2: Cylinder) {.
     importcpp: "Perform", header: "Extrema_ExtElSS.hxx".}
-proc constructExtrema_ExtElSS*(S1: gp_Sphere; S2: gp_Sphere): Extrema_ExtElSS {.
-    constructor, importcpp: "Extrema_ExtElSS(@)", header: "Extrema_ExtElSS.hxx".}
-proc Perform*(this: var Extrema_ExtElSS; S1: gp_Sphere; S2: gp_Sphere) {.
-    importcpp: "Perform", header: "Extrema_ExtElSS.hxx".}
-proc constructExtrema_ExtElSS*(S1: gp_Sphere; S2: gp_Cylinder): Extrema_ExtElSS {.
-    constructor, importcpp: "Extrema_ExtElSS(@)", header: "Extrema_ExtElSS.hxx".}
-proc Perform*(this: var Extrema_ExtElSS; S1: gp_Sphere; S2: gp_Cylinder) {.
-    importcpp: "Perform", header: "Extrema_ExtElSS.hxx".}
-proc constructExtrema_ExtElSS*(S1: gp_Sphere; S2: gp_Cone): Extrema_ExtElSS {.
-    constructor, importcpp: "Extrema_ExtElSS(@)", header: "Extrema_ExtElSS.hxx".}
-proc Perform*(this: var Extrema_ExtElSS; S1: gp_Sphere; S2: gp_Cone) {.
-    importcpp: "Perform", header: "Extrema_ExtElSS.hxx".}
-proc constructExtrema_ExtElSS*(S1: gp_Sphere; S2: gp_Torus): Extrema_ExtElSS {.
-    constructor, importcpp: "Extrema_ExtElSS(@)", header: "Extrema_ExtElSS.hxx".}
-proc Perform*(this: var Extrema_ExtElSS; S1: gp_Sphere; S2: gp_Torus) {.
-    importcpp: "Perform", header: "Extrema_ExtElSS.hxx".}
-proc IsDone*(this: Extrema_ExtElSS): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "Extrema_ExtElSS.hxx".}
-proc IsParallel*(this: Extrema_ExtElSS): Standard_Boolean {.noSideEffect,
-    importcpp: "IsParallel", header: "Extrema_ExtElSS.hxx".}
-proc NbExt*(this: Extrema_ExtElSS): Standard_Integer {.noSideEffect,
-    importcpp: "NbExt", header: "Extrema_ExtElSS.hxx".}
-proc SquareDistance*(this: Extrema_ExtElSS; N: Standard_Integer = 1): Standard_Real {.
-    noSideEffect, importcpp: "SquareDistance", header: "Extrema_ExtElSS.hxx".}
-proc Points*(this: Extrema_ExtElSS; N: Standard_Integer; P1: var Extrema_POnSurf;
-            P2: var Extrema_POnSurf) {.noSideEffect, importcpp: "Points",
-                                    header: "Extrema_ExtElSS.hxx".}
+proc constructExtremaExtElSS*(s1: Sphere; s2: Cone): ExtremaExtElSS {.constructor,
+    importcpp: "Extrema_ExtElSS(@)", header: "Extrema_ExtElSS.hxx".}
+proc perform*(this: var ExtremaExtElSS; s1: Sphere; s2: Cone) {.importcpp: "Perform",
+    header: "Extrema_ExtElSS.hxx".}
+proc constructExtremaExtElSS*(s1: Sphere; s2: Torus): ExtremaExtElSS {.constructor,
+    importcpp: "Extrema_ExtElSS(@)", header: "Extrema_ExtElSS.hxx".}
+proc perform*(this: var ExtremaExtElSS; s1: Sphere; s2: Torus) {.importcpp: "Perform",
+    header: "Extrema_ExtElSS.hxx".}
+proc isDone*(this: ExtremaExtElSS): bool {.noSideEffect, importcpp: "IsDone",
+                                       header: "Extrema_ExtElSS.hxx".}
+proc isParallel*(this: ExtremaExtElSS): bool {.noSideEffect, importcpp: "IsParallel",
+    header: "Extrema_ExtElSS.hxx".}
+proc nbExt*(this: ExtremaExtElSS): int {.noSideEffect, importcpp: "NbExt",
+                                     header: "Extrema_ExtElSS.hxx".}
+proc squareDistance*(this: ExtremaExtElSS; n: int = 1): float {.noSideEffect,
+    importcpp: "SquareDistance", header: "Extrema_ExtElSS.hxx".}
+proc points*(this: ExtremaExtElSS; n: int; p1: var ExtremaPOnSurf;
+            p2: var ExtremaPOnSurf) {.noSideEffect, importcpp: "Points",
+                                   header: "Extrema_ExtElSS.hxx".}

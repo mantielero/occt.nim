@@ -14,36 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Pnt, TColgp_Array1OfPnt, ../NCollection/NCollection_DefineHArray1
-
 type
-  TColgp_HArray1OfPnt* {.importcpp: "TColgp_HArray1OfPnt",
-                        header: "TColgp_HArray1OfPnt.hxx", bycopy.} = object of TColgp_Array1OfPnt
+  TColgpHArray1OfPnt* {.importcpp: "TColgp_HArray1OfPnt",
+                       header: "TColgp_HArray1OfPnt.hxx", bycopy.} = object of TColgpArray1OfPnt
 
 
-proc constructTColgp_HArray1OfPnt*(theLower: Standard_Integer;
-                                  theUpper: Standard_Integer): TColgp_HArray1OfPnt {.
+proc constructTColgpHArray1OfPnt*(theLower: int; theUpper: int): TColgpHArray1OfPnt {.
     constructor, importcpp: "TColgp_HArray1OfPnt(@)",
     header: "TColgp_HArray1OfPnt.hxx".}
-proc constructTColgp_HArray1OfPnt*(theLower: Standard_Integer;
-                                  theUpper: Standard_Integer; theValue: value_type): TColgp_HArray1OfPnt {.
+proc constructTColgpHArray1OfPnt*(theLower: int; theUpper: int; theValue: ValueType): TColgpHArray1OfPnt {.
     constructor, importcpp: "TColgp_HArray1OfPnt(@)",
     header: "TColgp_HArray1OfPnt.hxx".}
-proc constructTColgp_HArray1OfPnt*(theOther: TColgp_Array1OfPnt): TColgp_HArray1OfPnt {.
+proc constructTColgpHArray1OfPnt*(theOther: TColgpArray1OfPnt): TColgpHArray1OfPnt {.
     constructor, importcpp: "TColgp_HArray1OfPnt(@)",
     header: "TColgp_HArray1OfPnt.hxx".}
-proc Array1*(this: TColgp_HArray1OfPnt): TColgp_Array1OfPnt {.noSideEffect,
+proc array1*(this: TColgpHArray1OfPnt): TColgpArray1OfPnt {.noSideEffect,
     importcpp: "Array1", header: "TColgp_HArray1OfPnt.hxx".}
-proc ChangeArray1*(this: var TColgp_HArray1OfPnt): var TColgp_Array1OfPnt {.
+proc changeArray1*(this: var TColgpHArray1OfPnt): var TColgpArray1OfPnt {.
     importcpp: "ChangeArray1", header: "TColgp_HArray1OfPnt.hxx".}
 type
-  TColgp_HArray1OfPntbase_type* = MMgt_TShared
+  TColgpHArray1OfPntbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TColgp_HArray1OfPnt::get_type_name(@)",
-                              header: "TColgp_HArray1OfPnt.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TColgp_HArray1OfPnt::get_type_name(@)",
+                            header: "TColgp_HArray1OfPnt.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TColgp_HArray1OfPnt::get_type_descriptor(@)",
     header: "TColgp_HArray1OfPnt.hxx".}
-proc DynamicType*(this: TColgp_HArray1OfPnt): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TColgpHArray1OfPnt): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TColgp_HArray1OfPnt.hxx".}

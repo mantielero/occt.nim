@@ -19,8 +19,9 @@
 ## ! StdSelect_FaceFilter.
 
 type
-  StdSelect_TypeOfFace* {.size: sizeof(cint), importcpp: "StdSelect_TypeOfFace",
-                         header: "StdSelect_TypeOfFace.hxx".} = enum
-    StdSelect_AnyFace, StdSelect_Plane, StdSelect_Cylinder, StdSelect_Sphere,
-    StdSelect_Torus, StdSelect_Revol, StdSelect_Cone
+  StdSelectTypeOfFace* {.size: sizeof(cint), importcpp: "StdSelect_TypeOfFace",
+                        header: "StdSelect_TypeOfFace.hxx".} = enum
+    StdSelectAnyFace, StdSelectPlane, StdSelectCylinder, StdSelectSphere,
+    StdSelectTorus, StdSelectRevol, StdSelectCone
+
 

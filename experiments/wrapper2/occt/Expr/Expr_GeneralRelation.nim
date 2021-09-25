@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Expr_GeneralExpression"
@@ -26,56 +22,54 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_GeneralRelation"
 discard "forward decl of Expr_GeneralRelation"
 type
-  Handle_Expr_GeneralRelation* = handle[Expr_GeneralRelation]
+  HandleExprGeneralRelation* = Handle[ExprGeneralRelation]
 
 ## ! Defines the general purposes of any relation between
 ## ! expressions.
 
 type
-  Expr_GeneralRelation* {.importcpp: "Expr_GeneralRelation",
-                         header: "Expr_GeneralRelation.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## the
-                                                                                              ## current
-                                                                                              ## status
-                                                                                              ## of
-                                                                                              ## the
-                                                                                              ## relation
+  ExprGeneralRelation* {.importcpp: "Expr_GeneralRelation",
+                        header: "Expr_GeneralRelation.hxx", bycopy.} = object of StandardTransient ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## the
+                                                                                            ## current
+                                                                                            ## status
+                                                                                            ## of
+                                                                                            ## the
+                                                                                            ## relation
 
 
-proc IsSatisfied*(this: Expr_GeneralRelation): Standard_Boolean {.noSideEffect,
+proc isSatisfied*(this: ExprGeneralRelation): bool {.noSideEffect,
     importcpp: "IsSatisfied", header: "Expr_GeneralRelation.hxx".}
-proc IsLinear*(this: Expr_GeneralRelation): Standard_Boolean {.noSideEffect,
+proc isLinear*(this: ExprGeneralRelation): bool {.noSideEffect,
     importcpp: "IsLinear", header: "Expr_GeneralRelation.hxx".}
-proc Simplified*(this: Expr_GeneralRelation): handle[Expr_GeneralRelation] {.
+proc simplified*(this: ExprGeneralRelation): Handle[ExprGeneralRelation] {.
     noSideEffect, importcpp: "Simplified", header: "Expr_GeneralRelation.hxx".}
-proc Simplify*(this: var Expr_GeneralRelation) {.importcpp: "Simplify",
+proc simplify*(this: var ExprGeneralRelation) {.importcpp: "Simplify",
     header: "Expr_GeneralRelation.hxx".}
-proc Copy*(this: Expr_GeneralRelation): handle[Expr_GeneralRelation] {.noSideEffect,
+proc copy*(this: ExprGeneralRelation): Handle[ExprGeneralRelation] {.noSideEffect,
     importcpp: "Copy", header: "Expr_GeneralRelation.hxx".}
-proc NbOfSubRelations*(this: Expr_GeneralRelation): Standard_Integer {.noSideEffect,
+proc nbOfSubRelations*(this: ExprGeneralRelation): int {.noSideEffect,
     importcpp: "NbOfSubRelations", header: "Expr_GeneralRelation.hxx".}
-proc NbOfSingleRelations*(this: Expr_GeneralRelation): Standard_Integer {.
-    noSideEffect, importcpp: "NbOfSingleRelations",
-    header: "Expr_GeneralRelation.hxx".}
-proc SubRelation*(this: Expr_GeneralRelation; index: Standard_Integer): handle[
-    Expr_GeneralRelation] {.noSideEffect, importcpp: "SubRelation",
-                           header: "Expr_GeneralRelation.hxx".}
-proc Contains*(this: Expr_GeneralRelation; exp: handle[Expr_GeneralExpression]): Standard_Boolean {.
+proc nbOfSingleRelations*(this: ExprGeneralRelation): int {.noSideEffect,
+    importcpp: "NbOfSingleRelations", header: "Expr_GeneralRelation.hxx".}
+proc subRelation*(this: ExprGeneralRelation; index: int): Handle[ExprGeneralRelation] {.
+    noSideEffect, importcpp: "SubRelation", header: "Expr_GeneralRelation.hxx".}
+proc contains*(this: ExprGeneralRelation; exp: Handle[ExprGeneralExpression]): bool {.
     noSideEffect, importcpp: "Contains", header: "Expr_GeneralRelation.hxx".}
-proc Replace*(this: var Expr_GeneralRelation; `var`: handle[Expr_NamedUnknown];
-             with: handle[Expr_GeneralExpression]) {.importcpp: "Replace",
+proc replace*(this: var ExprGeneralRelation; `var`: Handle[ExprNamedUnknown];
+             with: Handle[ExprGeneralExpression]) {.importcpp: "Replace",
     header: "Expr_GeneralRelation.hxx".}
-proc String*(this: Expr_GeneralRelation): TCollection_AsciiString {.noSideEffect,
+proc string*(this: ExprGeneralRelation): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_GeneralRelation.hxx".}
 type
-  Expr_GeneralRelationbase_type* = Standard_Transient
+  ExprGeneralRelationbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Expr_GeneralRelation::get_type_name(@)",
-                              header: "Expr_GeneralRelation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Expr_GeneralRelation::get_type_name(@)",
+                            header: "Expr_GeneralRelation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Expr_GeneralRelation::get_type_descriptor(@)",
     header: "Expr_GeneralRelation.hxx".}
-proc DynamicType*(this: Expr_GeneralRelation): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: ExprGeneralRelation): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_GeneralRelation.hxx".}

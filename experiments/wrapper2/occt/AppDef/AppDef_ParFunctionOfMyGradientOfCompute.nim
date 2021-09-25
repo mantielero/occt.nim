@@ -14,98 +14,83 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean, AppDef_MultiLine,
-  ../AppParCurves/AppParCurves_MultiCurve, ../Standard/Standard_Integer,
-  ../math/math_Vector, ../Standard/Standard_Real, ../math/math_Matrix,
-  AppDef_ParLeastSquareOfMyGradientOfCompute,
-  ../TColStd/TColStd_HArray1OfInteger,
-  ../AppParCurves/AppParCurves_HArray1OfConstraintCouple,
-  ../math/math_MultipleVarFunctionWithGradient,
-  ../AppParCurves/AppParCurves_Constraint
-
 discard "forward decl of AppDef_MultiLine"
 discard "forward decl of AppDef_MyLineTool"
 discard "forward decl of AppDef_ParLeastSquareOfMyGradientOfCompute"
 discard "forward decl of AppDef_ResConstraintOfMyGradientOfCompute"
 discard "forward decl of AppParCurves_MultiCurve"
 type
-  AppDef_ParFunctionOfMyGradientOfCompute* {.
+  AppDefParFunctionOfMyGradientOfCompute* {.
       importcpp: "AppDef_ParFunctionOfMyGradientOfCompute",
-      header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx", bycopy.} = object of math_MultipleVarFunctionWithGradient ##
-                                                                                                                ## !
-                                                                                                                ## initializes
-                                                                                                                ## the
-                                                                                                                ## fields
-                                                                                                                ## of
-                                                                                                                ## the
-                                                                                                                ## function.
-                                                                                                                ## The
-                                                                                                                ## approximating
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## curve
-                                                                                                                ## has
-                                                                                                                ## the
-                                                                                                                ## desired
-                                                                                                                ## degree
-                                                                                                                ## Deg.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## this
-                                                                                                                ## method
-                                                                                                                ## is
-                                                                                                                ## used
-                                                                                                                ## each
-                                                                                                                ## time
-                                                                                                                ## Value
-                                                                                                                ## or
-                                                                                                                ## Gradient
-                                                                                                                ## is
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## needed.
+      header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx", bycopy.} = object of MathMultipleVarFunctionWithGradient ##
+                                                                                                               ## !
+                                                                                                               ## initializes
+                                                                                                               ## the
+                                                                                                               ## fields
+                                                                                                               ## of
+                                                                                                               ## the
+                                                                                                               ## function.
+                                                                                                               ## The
+                                                                                                               ## approximating
+                                                                                                               ##
+                                                                                                               ## !
+                                                                                                               ## curve
+                                                                                                               ## has
+                                                                                                               ## the
+                                                                                                               ## desired
+                                                                                                               ## degree
+                                                                                                               ## Deg.
+                                                                                                               ##
+                                                                                                               ## !
+                                                                                                               ## this
+                                                                                                               ## method
+                                                                                                               ## is
+                                                                                                               ## used
+                                                                                                               ## each
+                                                                                                               ## time
+                                                                                                               ## Value
+                                                                                                               ## or
+                                                                                                               ## Gradient
+                                                                                                               ## is
+                                                                                                               ##
+                                                                                                               ## !
+                                                                                                               ## needed.
 
 
-proc constructAppDef_ParFunctionOfMyGradientOfCompute*(SSP: AppDef_MultiLine;
-    FirstPoint: Standard_Integer; LastPoint: Standard_Integer;
-    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
-    Parameters: math_Vector; Deg: Standard_Integer): AppDef_ParFunctionOfMyGradientOfCompute {.
+proc constructAppDefParFunctionOfMyGradientOfCompute*(ssp: AppDefMultiLine;
+    firstPoint: int; lastPoint: int;
+    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
+    parameters: MathVector; deg: int): AppDefParFunctionOfMyGradientOfCompute {.
     constructor, importcpp: "AppDef_ParFunctionOfMyGradientOfCompute(@)",
     header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
-proc NbVariables*(this: AppDef_ParFunctionOfMyGradientOfCompute): Standard_Integer {.
-    noSideEffect, importcpp: "NbVariables",
+proc nbVariables*(this: AppDefParFunctionOfMyGradientOfCompute): int {.noSideEffect,
+    importcpp: "NbVariables",
     header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
-proc Value*(this: var AppDef_ParFunctionOfMyGradientOfCompute; X: math_Vector;
-           F: var Standard_Real): Standard_Boolean {.importcpp: "Value",
+proc value*(this: var AppDefParFunctionOfMyGradientOfCompute; x: MathVector;
+           f: var float): bool {.importcpp: "Value", header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
+proc gradient*(this: var AppDefParFunctionOfMyGradientOfCompute; x: MathVector;
+              g: var MathVector): bool {.importcpp: "Gradient", header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
+proc values*(this: var AppDefParFunctionOfMyGradientOfCompute; x: MathVector;
+            f: var float; g: var MathVector): bool {.importcpp: "Values",
     header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
-proc Gradient*(this: var AppDef_ParFunctionOfMyGradientOfCompute; X: math_Vector;
-              G: var math_Vector): Standard_Boolean {.importcpp: "Gradient",
-    header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
-proc Values*(this: var AppDef_ParFunctionOfMyGradientOfCompute; X: math_Vector;
-            F: var Standard_Real; G: var math_Vector): Standard_Boolean {.
-    importcpp: "Values", header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
-proc NewParameters*(this: AppDef_ParFunctionOfMyGradientOfCompute): math_Vector {.
+proc newParameters*(this: AppDefParFunctionOfMyGradientOfCompute): MathVector {.
     noSideEffect, importcpp: "NewParameters",
     header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
-proc CurveValue*(this: var AppDef_ParFunctionOfMyGradientOfCompute): AppParCurves_MultiCurve {.
+proc curveValue*(this: var AppDefParFunctionOfMyGradientOfCompute): AppParCurvesMultiCurve {.
     importcpp: "CurveValue", header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
-proc Error*(this: AppDef_ParFunctionOfMyGradientOfCompute;
-           IPoint: Standard_Integer; CurveIndex: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "Error",
-    header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
-proc MaxError3d*(this: AppDef_ParFunctionOfMyGradientOfCompute): Standard_Real {.
+proc error*(this: AppDefParFunctionOfMyGradientOfCompute; iPoint: int;
+           curveIndex: int): float {.noSideEffect, importcpp: "Error", header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
+proc maxError3d*(this: AppDefParFunctionOfMyGradientOfCompute): float {.
     noSideEffect, importcpp: "MaxError3d",
     header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
-proc MaxError2d*(this: AppDef_ParFunctionOfMyGradientOfCompute): Standard_Real {.
+proc maxError2d*(this: AppDefParFunctionOfMyGradientOfCompute): float {.
     noSideEffect, importcpp: "MaxError2d",
     header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
-proc FirstConstraint*(this: AppDef_ParFunctionOfMyGradientOfCompute; TheConstraints: handle[
-    AppParCurves_HArray1OfConstraintCouple]; FirstPoint: Standard_Integer): AppParCurves_Constraint {.
+proc firstConstraint*(this: AppDefParFunctionOfMyGradientOfCompute; theConstraints: Handle[
+    AppParCurvesHArray1OfConstraintCouple]; firstPoint: int): AppParCurvesConstraint {.
     noSideEffect, importcpp: "FirstConstraint",
     header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
-proc LastConstraint*(this: AppDef_ParFunctionOfMyGradientOfCompute; TheConstraints: handle[
-    AppParCurves_HArray1OfConstraintCouple]; LastPoint: Standard_Integer): AppParCurves_Constraint {.
+proc lastConstraint*(this: AppDefParFunctionOfMyGradientOfCompute; theConstraints: Handle[
+    AppParCurvesHArray1OfConstraintCouple]; lastPoint: int): AppParCurvesConstraint {.
     noSideEffect, importcpp: "LastConstraint",
     header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}

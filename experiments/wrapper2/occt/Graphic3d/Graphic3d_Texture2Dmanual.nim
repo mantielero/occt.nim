@@ -14,52 +14,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Graphic3d_Texture2D, Graphic3d_NameOfTexture2D
-
 ## ! This class defined a manual texture 2D
 ## ! facets MUST define texture coordinate
 ## ! if you want to see somethings on.
 
 type
-  Graphic3d_Texture2Dmanual* {.importcpp: "Graphic3d_Texture2Dmanual",
-                              header: "Graphic3d_Texture2Dmanual.hxx", bycopy.} = object of Graphic3d_Texture2D ##
-                                                                                                         ## !
-                                                                                                         ## Creates
-                                                                                                         ## a
-                                                                                                         ## texture
-                                                                                                         ## from
-                                                                                                         ## a
-                                                                                                         ## file.
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## MipMaps
-                                                                                                         ## levels
-                                                                                                         ## will
-                                                                                                         ## be
-                                                                                                         ## automatically
-                                                                                                         ## generated
-                                                                                                         ## if
-                                                                                                         ## needed.
+  Graphic3dTexture2Dmanual* {.importcpp: "Graphic3d_Texture2Dmanual",
+                             header: "Graphic3d_Texture2Dmanual.hxx", bycopy.} = object of Graphic3dTexture2D ##
+                                                                                                       ## !
+                                                                                                       ## Creates
+                                                                                                       ## a
+                                                                                                       ## texture
+                                                                                                       ## from
+                                                                                                       ## a
+                                                                                                       ## file.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## MipMaps
+                                                                                                       ## levels
+                                                                                                       ## will
+                                                                                                       ## be
+                                                                                                       ## automatically
+                                                                                                       ## generated
+                                                                                                       ## if
+                                                                                                       ## needed.
 
-  Graphic3d_Texture2Dmanualbase_type* = Graphic3d_Texture2D
+  Graphic3dTexture2DmanualbaseType* = Graphic3dTexture2D
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_Texture2Dmanual::get_type_name(@)",
-                              header: "Graphic3d_Texture2Dmanual.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_Texture2Dmanual::get_type_name(@)",
+                            header: "Graphic3d_Texture2Dmanual.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_Texture2Dmanual::get_type_descriptor(@)",
     header: "Graphic3d_Texture2Dmanual.hxx".}
-proc DynamicType*(this: Graphic3d_Texture2Dmanual): handle[Standard_Type] {.
+proc dynamicType*(this: Graphic3dTexture2Dmanual): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Graphic3d_Texture2Dmanual.hxx".}
-proc constructGraphic3d_Texture2Dmanual*(theFileName: TCollection_AsciiString): Graphic3d_Texture2Dmanual {.
+proc constructGraphic3dTexture2Dmanual*(theFileName: TCollectionAsciiString): Graphic3dTexture2Dmanual {.
     constructor, importcpp: "Graphic3d_Texture2Dmanual(@)",
     header: "Graphic3d_Texture2Dmanual.hxx".}
-proc constructGraphic3d_Texture2Dmanual*(theNOT: Graphic3d_NameOfTexture2D): Graphic3d_Texture2Dmanual {.
+proc constructGraphic3dTexture2Dmanual*(theNOT: Graphic3dNameOfTexture2D): Graphic3dTexture2Dmanual {.
     constructor, importcpp: "Graphic3d_Texture2Dmanual(@)",
     header: "Graphic3d_Texture2Dmanual.hxx".}
-proc constructGraphic3d_Texture2Dmanual*(thePixMap: handle[Image_PixMap]): Graphic3d_Texture2Dmanual {.
+proc constructGraphic3dTexture2Dmanual*(thePixMap: Handle[ImagePixMap]): Graphic3dTexture2Dmanual {.
     constructor, importcpp: "Graphic3d_Texture2Dmanual(@)",
     header: "Graphic3d_Texture2Dmanual.hxx".}
 discard "forward decl of Graphic3d_Texture2Dmanual"
 type
-  Handle_Graphic3d_Texture2Dmanual* = handle[Graphic3d_Texture2Dmanual]
+  HandleGraphic3dTexture2Dmanual* = Handle[Graphic3dTexture2Dmanual]
+

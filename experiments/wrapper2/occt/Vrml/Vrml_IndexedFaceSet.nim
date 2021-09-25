@@ -14,15 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_HArray1OfInteger, ../Standard/Standard_Transient,
-  ../Standard/Standard_OStream
-
 discard "forward decl of Vrml_IndexedFaceSet"
 discard "forward decl of Vrml_IndexedFaceSet"
 type
-  Handle_Vrml_IndexedFaceSet* = handle[Vrml_IndexedFaceSet]
+  HandleVrmlIndexedFaceSet* = Handle[VrmlIndexedFaceSet]
 
 ## ! defines a IndexedFaceSet node of VRML specifying geometry shapes.
 ## ! This node represents a 3D shape formed by constructing faces (polygons) from
@@ -31,46 +26,47 @@ type
 ## ! (so a -1 at the end of the list is optional).
 
 type
-  Vrml_IndexedFaceSet* {.importcpp: "Vrml_IndexedFaceSet",
-                        header: "Vrml_IndexedFaceSet.hxx", bycopy.} = object of Standard_Transient
+  VrmlIndexedFaceSet* {.importcpp: "Vrml_IndexedFaceSet",
+                       header: "Vrml_IndexedFaceSet.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructVrml_IndexedFaceSet*(aCoordIndex: handle[TColStd_HArray1OfInteger];
-    aMaterialIndex: handle[TColStd_HArray1OfInteger]; aNormalIndex: handle[
-    TColStd_HArray1OfInteger]; aTextureCoordIndex: handle[TColStd_HArray1OfInteger]): Vrml_IndexedFaceSet {.
+proc constructVrmlIndexedFaceSet*(aCoordIndex: Handle[TColStdHArray1OfInteger];
+    aMaterialIndex: Handle[TColStdHArray1OfInteger];
+                                 aNormalIndex: Handle[TColStdHArray1OfInteger];
+    aTextureCoordIndex: Handle[TColStdHArray1OfInteger]): VrmlIndexedFaceSet {.
     constructor, importcpp: "Vrml_IndexedFaceSet(@)",
     header: "Vrml_IndexedFaceSet.hxx".}
-proc constructVrml_IndexedFaceSet*(): Vrml_IndexedFaceSet {.constructor,
+proc constructVrmlIndexedFaceSet*(): VrmlIndexedFaceSet {.constructor,
     importcpp: "Vrml_IndexedFaceSet(@)", header: "Vrml_IndexedFaceSet.hxx".}
-proc SetCoordIndex*(this: var Vrml_IndexedFaceSet;
-                   aCoordIndex: handle[TColStd_HArray1OfInteger]) {.
+proc setCoordIndex*(this: var VrmlIndexedFaceSet;
+                   aCoordIndex: Handle[TColStdHArray1OfInteger]) {.
     importcpp: "SetCoordIndex", header: "Vrml_IndexedFaceSet.hxx".}
-proc CoordIndex*(this: Vrml_IndexedFaceSet): handle[TColStd_HArray1OfInteger] {.
+proc coordIndex*(this: VrmlIndexedFaceSet): Handle[TColStdHArray1OfInteger] {.
     noSideEffect, importcpp: "CoordIndex", header: "Vrml_IndexedFaceSet.hxx".}
-proc SetMaterialIndex*(this: var Vrml_IndexedFaceSet;
-                      aMaterialIndex: handle[TColStd_HArray1OfInteger]) {.
+proc setMaterialIndex*(this: var VrmlIndexedFaceSet;
+                      aMaterialIndex: Handle[TColStdHArray1OfInteger]) {.
     importcpp: "SetMaterialIndex", header: "Vrml_IndexedFaceSet.hxx".}
-proc MaterialIndex*(this: Vrml_IndexedFaceSet): handle[TColStd_HArray1OfInteger] {.
+proc materialIndex*(this: VrmlIndexedFaceSet): Handle[TColStdHArray1OfInteger] {.
     noSideEffect, importcpp: "MaterialIndex", header: "Vrml_IndexedFaceSet.hxx".}
-proc SetNormalIndex*(this: var Vrml_IndexedFaceSet;
-                    aNormalIndex: handle[TColStd_HArray1OfInteger]) {.
+proc setNormalIndex*(this: var VrmlIndexedFaceSet;
+                    aNormalIndex: Handle[TColStdHArray1OfInteger]) {.
     importcpp: "SetNormalIndex", header: "Vrml_IndexedFaceSet.hxx".}
-proc NormalIndex*(this: Vrml_IndexedFaceSet): handle[TColStd_HArray1OfInteger] {.
+proc normalIndex*(this: VrmlIndexedFaceSet): Handle[TColStdHArray1OfInteger] {.
     noSideEffect, importcpp: "NormalIndex", header: "Vrml_IndexedFaceSet.hxx".}
-proc SetTextureCoordIndex*(this: var Vrml_IndexedFaceSet;
-                          aTextureCoordIndex: handle[TColStd_HArray1OfInteger]) {.
+proc setTextureCoordIndex*(this: var VrmlIndexedFaceSet;
+                          aTextureCoordIndex: Handle[TColStdHArray1OfInteger]) {.
     importcpp: "SetTextureCoordIndex", header: "Vrml_IndexedFaceSet.hxx".}
-proc TextureCoordIndex*(this: Vrml_IndexedFaceSet): handle[TColStd_HArray1OfInteger] {.
+proc textureCoordIndex*(this: VrmlIndexedFaceSet): Handle[TColStdHArray1OfInteger] {.
     noSideEffect, importcpp: "TextureCoordIndex", header: "Vrml_IndexedFaceSet.hxx".}
-proc Print*(this: Vrml_IndexedFaceSet; anOStream: var Standard_OStream): var Standard_OStream {.
+proc print*(this: VrmlIndexedFaceSet; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_IndexedFaceSet.hxx".}
 type
-  Vrml_IndexedFaceSetbase_type* = Standard_Transient
+  VrmlIndexedFaceSetbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Vrml_IndexedFaceSet::get_type_name(@)",
-                              header: "Vrml_IndexedFaceSet.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Vrml_IndexedFaceSet::get_type_name(@)",
+                            header: "Vrml_IndexedFaceSet.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Vrml_IndexedFaceSet::get_type_descriptor(@)",
     header: "Vrml_IndexedFaceSet.hxx".}
-proc DynamicType*(this: Vrml_IndexedFaceSet): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: VrmlIndexedFaceSet): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Vrml_IndexedFaceSet.hxx".}

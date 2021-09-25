@@ -17,9 +17,10 @@
 ## ! Types of materials specifies if a material can change color.
 
 type
-  Graphic3d_TypeOfMaterial* {.size: sizeof(cint),
-                             importcpp: "Graphic3d_TypeOfMaterial",
-                             header: "Graphic3d_TypeOfMaterial.hxx".} = enum
-    Graphic3d_MATERIAL_ASPECT, ## !< aspect   material definition with configurable color (like plastic)
-    Graphic3d_MATERIAL_PHYSIC ## !< physical material definition with fixed color (like gold)
+  Graphic3dTypeOfMaterial* {.size: sizeof(cint),
+                            importcpp: "Graphic3d_TypeOfMaterial",
+                            header: "Graphic3d_TypeOfMaterial.hxx".} = enum
+    Graphic3dMATERIAL_ASPECT, ## !< aspect   material definition with configurable color (like plastic)
+    Graphic3dMATERIAL_PHYSIC  ## !< physical material definition with fixed color (like gold)
+
 

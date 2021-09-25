@@ -11,5 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _AIS_ConcentricRelation_HeaderFile [NewLine] # _AIS_ConcentricRelation_HeaderFile [NewLine] # ../PrsDim/PrsDim_ConcentricRelation.hxx [NewLine] Standard_DEPRECATED ( Alias to moved class ) typedef PrsDim_ConcentricRelation AIS_ConcentricRelation ;
+## !!!Ignored construct:  # _AIS_ConcentricRelation_HeaderFile [NewLine] # _AIS_ConcentricRelation_HeaderFile [NewLine] # < PrsDim_ConcentricRelation . hxx > [NewLine] Standard_DEPRECATED ( Alias to moved class ) typedef PrsDim_ConcentricRelation AIS_ConcentricRelation ;
 ## Error: expected ';'!!!
+

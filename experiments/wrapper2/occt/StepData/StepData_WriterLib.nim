@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of StepData_NodeOfWriterLib"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_Transient"
@@ -26,38 +21,37 @@ discard "forward decl of StepData_ReadWriteModule"
 discard "forward decl of StepData_Protocol"
 discard "forward decl of StepData_GlobalNodeOfWriterLib"
 type
-  StepData_WriterLib* {.importcpp: "StepData_WriterLib",
-                       header: "StepData_WriterLib.hxx", bycopy.} = object ## ! Adds a couple
-                                                                      ## (Module-Protocol) into the global definition set
-                                                                      ## ! for this class of Library.
+  StepDataWriterLib* {.importcpp: "StepData_WriterLib",
+                      header: "StepData_WriterLib.hxx", bycopy.} = object ## ! Adds a couple
+                                                                     ## (Module-Protocol) into the global definition set
+                                                                     ## ! for this class of Library.
 
 
-proc SetGlobal*(amodule: handle[StepData_ReadWriteModule];
-               aprotocol: handle[StepData_Protocol]) {.
+proc setGlobal*(amodule: Handle[StepDataReadWriteModule];
+               aprotocol: Handle[StepDataProtocol]) {.
     importcpp: "StepData_WriterLib::SetGlobal(@)",
     header: "StepData_WriterLib.hxx".}
-proc constructStepData_WriterLib*(aprotocol: handle[StepData_Protocol]): StepData_WriterLib {.
+proc constructStepDataWriterLib*(aprotocol: Handle[StepDataProtocol]): StepDataWriterLib {.
     constructor, importcpp: "StepData_WriterLib(@)",
     header: "StepData_WriterLib.hxx".}
-proc constructStepData_WriterLib*(): StepData_WriterLib {.constructor,
+proc constructStepDataWriterLib*(): StepDataWriterLib {.constructor,
     importcpp: "StepData_WriterLib(@)", header: "StepData_WriterLib.hxx".}
-proc AddProtocol*(this: var StepData_WriterLib;
-                 aprotocol: handle[Standard_Transient]) {.
+proc addProtocol*(this: var StepDataWriterLib; aprotocol: Handle[StandardTransient]) {.
     importcpp: "AddProtocol", header: "StepData_WriterLib.hxx".}
-proc Clear*(this: var StepData_WriterLib) {.importcpp: "Clear",
-                                        header: "StepData_WriterLib.hxx".}
-proc SetComplete*(this: var StepData_WriterLib) {.importcpp: "SetComplete",
-    header: "StepData_WriterLib.hxx".}
-proc Select*(this: StepData_WriterLib; obj: handle[Standard_Transient];
-            module: var handle[StepData_ReadWriteModule]; CN: var Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "Select", header: "StepData_WriterLib.hxx".}
-proc Start*(this: var StepData_WriterLib) {.importcpp: "Start",
-                                        header: "StepData_WriterLib.hxx".}
-proc More*(this: StepData_WriterLib): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "StepData_WriterLib.hxx".}
-proc Next*(this: var StepData_WriterLib) {.importcpp: "Next",
+proc clear*(this: var StepDataWriterLib) {.importcpp: "Clear",
                                        header: "StepData_WriterLib.hxx".}
-proc Module*(this: StepData_WriterLib): handle[StepData_ReadWriteModule] {.
+proc setComplete*(this: var StepDataWriterLib) {.importcpp: "SetComplete",
+    header: "StepData_WriterLib.hxx".}
+proc select*(this: StepDataWriterLib; obj: Handle[StandardTransient];
+            module: var Handle[StepDataReadWriteModule]; cn: var int): bool {.
+    noSideEffect, importcpp: "Select", header: "StepData_WriterLib.hxx".}
+proc start*(this: var StepDataWriterLib) {.importcpp: "Start",
+                                       header: "StepData_WriterLib.hxx".}
+proc more*(this: StepDataWriterLib): bool {.noSideEffect, importcpp: "More",
+                                        header: "StepData_WriterLib.hxx".}
+proc next*(this: var StepDataWriterLib) {.importcpp: "Next",
+                                      header: "StepData_WriterLib.hxx".}
+proc module*(this: StepDataWriterLib): Handle[StepDataReadWriteModule] {.
     noSideEffect, importcpp: "Module", header: "StepData_WriterLib.hxx".}
-proc Protocol*(this: StepData_WriterLib): handle[StepData_Protocol] {.noSideEffect,
+proc protocol*(this: StepDataWriterLib): Handle[StepDataProtocol] {.noSideEffect,
     importcpp: "Protocol", header: "StepData_WriterLib.hxx".}

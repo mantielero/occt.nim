@@ -14,17 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Pnt, ../gp/gp_Pnt2d,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean, ../gp/gp_Vec,
-  ../gp/gp_Vec2d, ../Standard/Standard_Integer, BlendFunc_SectionShape,
-  ../Convert/Convert_ParameterisationType, ../Blend/Blend_CSFunction,
-  ../math/math_Vector, ../TColgp/TColgp_Array1OfPnt, ../TColgp/TColgp_Array1OfVec,
-  ../TColgp/TColgp_Array1OfPnt2d, ../TColgp/TColgp_Array1OfVec2d,
-  ../TColStd/TColStd_Array1OfReal, ../GeomAbs/GeomAbs_Shape,
-  ../TColStd/TColStd_Array1OfInteger
-
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Law_Function"
@@ -36,198 +25,188 @@ discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_Circ"
 discard "forward decl of Blend_Point"
 type
-  BlendFunc_CSCircular* {.importcpp: "BlendFunc_CSCircular",
-                         header: "BlendFunc_CSCircular.hxx", bycopy.} = object of Blend_CSFunction ##
-                                                                                            ## !
-                                                                                            ## Creates
-                                                                                            ## a
-                                                                                            ## function
-                                                                                            ## for
-                                                                                            ## a
-                                                                                            ## circular
-                                                                                            ## blending
-                                                                                            ## between
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## a
-                                                                                            ## curve
-                                                                                            ## <C>
-                                                                                            ## and
-                                                                                            ## a
-                                                                                            ## surface
-                                                                                            ## <S>.
-                                                                                            ## The
-                                                                                            ## direction
-                                                                                            ## of
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## the
-                                                                                            ## planes
-                                                                                            ## are
-                                                                                            ## given
-                                                                                            ## by
-                                                                                            ## <CGuide>.
-                                                                                            ## The
-                                                                                            ## position
-                                                                                            ## of
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## the
-                                                                                            ## plane
-                                                                                            ## is
-                                                                                            ## determined
-                                                                                            ## on
-                                                                                            ## the
-                                                                                            ## curve
-                                                                                            ## <C>.
-                                                                                            ## <L>
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## defines
-                                                                                            ## the
-                                                                                            ## change
-                                                                                            ## of
-                                                                                            ## parameter
-                                                                                            ## between
-                                                                                            ## <C>
-                                                                                            ## and
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## <CGuide>.
-                                                                                            ## So,
-                                                                                            ## the
-                                                                                            ## planes
-                                                                                            ## are
-                                                                                            ## defined
-                                                                                            ## as
-                                                                                            ## described
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## below
-                                                                                            ## :
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## t
-                                                                                            ## is
-                                                                                            ## the
-                                                                                            ## current
-                                                                                            ## parameter
-                                                                                            ## on
-                                                                                            ## the
-                                                                                            ## guide
-                                                                                            ## line.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Pguide
-                                                                                            ## =
-                                                                                            ## C(L(t));
-                                                                                            ## Nguide
-                                                                                            ## =
-                                                                                            ## CGuide'(t)/||CGuide'(t)||
+  BlendFuncCSCircular* {.importcpp: "BlendFunc_CSCircular",
+                        header: "BlendFunc_CSCircular.hxx", bycopy.} = object of BlendCSFunction ##
+                                                                                          ## !
+                                                                                          ## Creates
+                                                                                          ## a
+                                                                                          ## function
+                                                                                          ## for
+                                                                                          ## a
+                                                                                          ## circular
+                                                                                          ## blending
+                                                                                          ## between
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## a
+                                                                                          ## curve
+                                                                                          ## <C>
+                                                                                          ## and
+                                                                                          ## a
+                                                                                          ## surface
+                                                                                          ## <S>.
+                                                                                          ## The
+                                                                                          ## direction
+                                                                                          ## of
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## the
+                                                                                          ## planes
+                                                                                          ## are
+                                                                                          ## given
+                                                                                          ## by
+                                                                                          ## <CGuide>.
+                                                                                          ## The
+                                                                                          ## position
+                                                                                          ## of
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## the
+                                                                                          ## plane
+                                                                                          ## is
+                                                                                          ## determined
+                                                                                          ## on
+                                                                                          ## the
+                                                                                          ## curve
+                                                                                          ## <C>.
+                                                                                          ## <L>
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## defines
+                                                                                          ## the
+                                                                                          ## change
+                                                                                          ## of
+                                                                                          ## parameter
+                                                                                          ## between
+                                                                                          ## <C>
+                                                                                          ## and
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## <CGuide>.
+                                                                                          ## So,
+                                                                                          ## the
+                                                                                          ## planes
+                                                                                          ## are
+                                                                                          ## defined
+                                                                                          ## as
+                                                                                          ## described
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## below
+                                                                                          ## :
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## t
+                                                                                          ## is
+                                                                                          ## the
+                                                                                          ## current
+                                                                                          ## parameter
+                                                                                          ## on
+                                                                                          ## the
+                                                                                          ## guide
+                                                                                          ## line.
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## Pguide
+                                                                                          ## =
+                                                                                          ## C(L(t));
+                                                                                          ## Nguide
+                                                                                          ## =
+                                                                                          ## CGuide'(t)/||CGuide'(t)||
 
 
-proc constructBlendFunc_CSCircular*(S: handle[Adaptor3d_HSurface];
-                                   C: handle[Adaptor3d_HCurve];
-                                   CGuide: handle[Adaptor3d_HCurve];
-                                   L: handle[Law_Function]): BlendFunc_CSCircular {.
+proc constructBlendFuncCSCircular*(s: Handle[Adaptor3dHSurface];
+                                  c: Handle[Adaptor3dHCurve];
+                                  cGuide: Handle[Adaptor3dHCurve];
+                                  L: Handle[LawFunction]): BlendFuncCSCircular {.
     constructor, importcpp: "BlendFunc_CSCircular(@)",
     header: "BlendFunc_CSCircular.hxx".}
-proc NbVariables*(this: BlendFunc_CSCircular): Standard_Integer {.noSideEffect,
+proc nbVariables*(this: BlendFuncCSCircular): int {.noSideEffect,
     importcpp: "NbVariables", header: "BlendFunc_CSCircular.hxx".}
-proc NbEquations*(this: BlendFunc_CSCircular): Standard_Integer {.noSideEffect,
+proc nbEquations*(this: BlendFuncCSCircular): int {.noSideEffect,
     importcpp: "NbEquations", header: "BlendFunc_CSCircular.hxx".}
-proc Value*(this: var BlendFunc_CSCircular; X: math_Vector; F: var math_Vector): Standard_Boolean {.
+proc value*(this: var BlendFuncCSCircular; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "BlendFunc_CSCircular.hxx".}
-proc Derivatives*(this: var BlendFunc_CSCircular; X: math_Vector; D: var math_Matrix): Standard_Boolean {.
+proc derivatives*(this: var BlendFuncCSCircular; x: MathVector; d: var MathMatrix): bool {.
     importcpp: "Derivatives", header: "BlendFunc_CSCircular.hxx".}
-proc Values*(this: var BlendFunc_CSCircular; X: math_Vector; F: var math_Vector;
-            D: var math_Matrix): Standard_Boolean {.importcpp: "Values",
+proc values*(this: var BlendFuncCSCircular; x: MathVector; f: var MathVector;
+            d: var MathMatrix): bool {.importcpp: "Values",
+                                   header: "BlendFunc_CSCircular.hxx".}
+proc set*(this: var BlendFuncCSCircular; param: float) {.importcpp: "Set",
     header: "BlendFunc_CSCircular.hxx".}
-proc Set*(this: var BlendFunc_CSCircular; Param: Standard_Real) {.importcpp: "Set",
+proc set*(this: var BlendFuncCSCircular; first: float; last: float) {.importcpp: "Set",
     header: "BlendFunc_CSCircular.hxx".}
-proc Set*(this: var BlendFunc_CSCircular; First: Standard_Real; Last: Standard_Real) {.
-    importcpp: "Set", header: "BlendFunc_CSCircular.hxx".}
-proc GetTolerance*(this: BlendFunc_CSCircular; Tolerance: var math_Vector;
-                  Tol: Standard_Real) {.noSideEffect, importcpp: "GetTolerance",
-                                      header: "BlendFunc_CSCircular.hxx".}
-proc GetBounds*(this: BlendFunc_CSCircular; InfBound: var math_Vector;
-               SupBound: var math_Vector) {.noSideEffect, importcpp: "GetBounds",
-    header: "BlendFunc_CSCircular.hxx".}
-proc IsSolution*(this: var BlendFunc_CSCircular; Sol: math_Vector; Tol: Standard_Real): Standard_Boolean {.
+proc getTolerance*(this: BlendFuncCSCircular; tolerance: var MathVector; tol: float) {.
+    noSideEffect, importcpp: "GetTolerance", header: "BlendFunc_CSCircular.hxx".}
+proc getBounds*(this: BlendFuncCSCircular; infBound: var MathVector;
+               supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds",
+                                        header: "BlendFunc_CSCircular.hxx".}
+proc isSolution*(this: var BlendFuncCSCircular; sol: MathVector; tol: float): bool {.
     importcpp: "IsSolution", header: "BlendFunc_CSCircular.hxx".}
-proc PointOnS*(this: BlendFunc_CSCircular): gp_Pnt {.noSideEffect,
-    importcpp: "PointOnS", header: "BlendFunc_CSCircular.hxx".}
-proc PointOnC*(this: BlendFunc_CSCircular): gp_Pnt {.noSideEffect,
-    importcpp: "PointOnC", header: "BlendFunc_CSCircular.hxx".}
-proc Pnt2d*(this: BlendFunc_CSCircular): gp_Pnt2d {.noSideEffect, importcpp: "Pnt2d",
+proc pointOnS*(this: BlendFuncCSCircular): Pnt {.noSideEffect, importcpp: "PointOnS",
     header: "BlendFunc_CSCircular.hxx".}
-proc ParameterOnC*(this: BlendFunc_CSCircular): Standard_Real {.noSideEffect,
+proc pointOnC*(this: BlendFuncCSCircular): Pnt {.noSideEffect, importcpp: "PointOnC",
+    header: "BlendFunc_CSCircular.hxx".}
+proc pnt2d*(this: BlendFuncCSCircular): Pnt2d {.noSideEffect, importcpp: "Pnt2d",
+    header: "BlendFunc_CSCircular.hxx".}
+proc parameterOnC*(this: BlendFuncCSCircular): float {.noSideEffect,
     importcpp: "ParameterOnC", header: "BlendFunc_CSCircular.hxx".}
-proc IsTangencyPoint*(this: BlendFunc_CSCircular): Standard_Boolean {.noSideEffect,
+proc isTangencyPoint*(this: BlendFuncCSCircular): bool {.noSideEffect,
     importcpp: "IsTangencyPoint", header: "BlendFunc_CSCircular.hxx".}
-proc TangentOnS*(this: BlendFunc_CSCircular): gp_Vec {.noSideEffect,
+proc tangentOnS*(this: BlendFuncCSCircular): Vec {.noSideEffect,
     importcpp: "TangentOnS", header: "BlendFunc_CSCircular.hxx".}
-proc Tangent2d*(this: BlendFunc_CSCircular): gp_Vec2d {.noSideEffect,
+proc tangent2d*(this: BlendFuncCSCircular): Vec2d {.noSideEffect,
     importcpp: "Tangent2d", header: "BlendFunc_CSCircular.hxx".}
-proc TangentOnC*(this: BlendFunc_CSCircular): gp_Vec {.noSideEffect,
+proc tangentOnC*(this: BlendFuncCSCircular): Vec {.noSideEffect,
     importcpp: "TangentOnC", header: "BlendFunc_CSCircular.hxx".}
-proc Tangent*(this: BlendFunc_CSCircular; U: Standard_Real; V: Standard_Real;
-             TgS: var gp_Vec; NormS: var gp_Vec) {.noSideEffect, importcpp: "Tangent",
+proc tangent*(this: BlendFuncCSCircular; u: float; v: float; tgS: var Vec; normS: var Vec) {.
+    noSideEffect, importcpp: "Tangent", header: "BlendFunc_CSCircular.hxx".}
+proc set*(this: var BlendFuncCSCircular; radius: float; choix: int) {.importcpp: "Set",
     header: "BlendFunc_CSCircular.hxx".}
-proc Set*(this: var BlendFunc_CSCircular; Radius: Standard_Real;
-         Choix: Standard_Integer) {.importcpp: "Set",
-                                  header: "BlendFunc_CSCircular.hxx".}
-proc Set*(this: var BlendFunc_CSCircular; TypeSection: BlendFunc_SectionShape) {.
+proc set*(this: var BlendFuncCSCircular; typeSection: BlendFuncSectionShape) {.
     importcpp: "Set", header: "BlendFunc_CSCircular.hxx".}
-proc Section*(this: var BlendFunc_CSCircular; Param: Standard_Real; U: Standard_Real;
-             V: Standard_Real; W: Standard_Real; Pdeb: var Standard_Real;
-             Pfin: var Standard_Real; C: var gp_Circ) {.importcpp: "Section",
+proc section*(this: var BlendFuncCSCircular; param: float; u: float; v: float; w: float;
+             pdeb: var float; pfin: var float; c: var Circ) {.importcpp: "Section",
     header: "BlendFunc_CSCircular.hxx".}
-proc Section*(this: var BlendFunc_CSCircular; P: Blend_Point;
-             Poles: var TColgp_Array1OfPnt; DPoles: var TColgp_Array1OfVec;
-             D2Poles: var TColgp_Array1OfVec; Poles2d: var TColgp_Array1OfPnt2d;
-             DPoles2d: var TColgp_Array1OfVec2d;
-             D2Poles2d: var TColgp_Array1OfVec2d;
-             Weigths: var TColStd_Array1OfReal; DWeigths: var TColStd_Array1OfReal;
-             D2Weigths: var TColStd_Array1OfReal): Standard_Boolean {.
-    importcpp: "Section", header: "BlendFunc_CSCircular.hxx".}
-proc GetSection*(this: var BlendFunc_CSCircular; Param: Standard_Real;
-                U: Standard_Real; V: Standard_Real; W: Standard_Real;
-                tabP: var TColgp_Array1OfPnt; tabV: var TColgp_Array1OfVec): Standard_Boolean {.
+proc section*(this: var BlendFuncCSCircular; p: BlendPoint;
+             poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
+             d2Poles: var TColgpArray1OfVec; poles2d: var TColgpArray1OfPnt2d;
+             dPoles2d: var TColgpArray1OfVec2d; d2Poles2d: var TColgpArray1OfVec2d;
+             weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal;
+             d2Weigths: var TColStdArray1OfReal): bool {.importcpp: "Section",
+    header: "BlendFunc_CSCircular.hxx".}
+proc getSection*(this: var BlendFuncCSCircular; param: float; u: float; v: float;
+                w: float; tabP: var TColgpArray1OfPnt; tabV: var TColgpArray1OfVec): bool {.
     importcpp: "GetSection", header: "BlendFunc_CSCircular.hxx".}
-proc IsRational*(this: BlendFunc_CSCircular): Standard_Boolean {.noSideEffect,
+proc isRational*(this: BlendFuncCSCircular): bool {.noSideEffect,
     importcpp: "IsRational", header: "BlendFunc_CSCircular.hxx".}
-proc GetSectionSize*(this: BlendFunc_CSCircular): Standard_Real {.noSideEffect,
+proc getSectionSize*(this: BlendFuncCSCircular): float {.noSideEffect,
     importcpp: "GetSectionSize", header: "BlendFunc_CSCircular.hxx".}
-proc GetMinimalWeight*(this: BlendFunc_CSCircular;
-                      Weigths: var TColStd_Array1OfReal) {.noSideEffect,
-    importcpp: "GetMinimalWeight", header: "BlendFunc_CSCircular.hxx".}
-proc NbIntervals*(this: BlendFunc_CSCircular; S: GeomAbs_Shape): Standard_Integer {.
-    noSideEffect, importcpp: "NbIntervals", header: "BlendFunc_CSCircular.hxx".}
-proc Intervals*(this: BlendFunc_CSCircular; T: var TColStd_Array1OfReal;
-               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
-                                 header: "BlendFunc_CSCircular.hxx".}
-proc GetShape*(this: var BlendFunc_CSCircular; NbPoles: var Standard_Integer;
-              NbKnots: var Standard_Integer; Degree: var Standard_Integer;
-              NbPoles2d: var Standard_Integer) {.importcpp: "GetShape",
+proc getMinimalWeight*(this: BlendFuncCSCircular; weigths: var TColStdArray1OfReal) {.
+    noSideEffect, importcpp: "GetMinimalWeight", header: "BlendFunc_CSCircular.hxx".}
+proc nbIntervals*(this: BlendFuncCSCircular; s: GeomAbsShape): int {.noSideEffect,
+    importcpp: "NbIntervals", header: "BlendFunc_CSCircular.hxx".}
+proc intervals*(this: BlendFuncCSCircular; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+    noSideEffect, importcpp: "Intervals", header: "BlendFunc_CSCircular.hxx".}
+proc getShape*(this: var BlendFuncCSCircular; nbPoles: var int; nbKnots: var int;
+              degree: var int; nbPoles2d: var int) {.importcpp: "GetShape",
     header: "BlendFunc_CSCircular.hxx".}
-proc GetTolerance*(this: BlendFunc_CSCircular; BoundTol: Standard_Real;
-                  SurfTol: Standard_Real; AngleTol: Standard_Real;
-                  Tol3d: var math_Vector; Tol1D: var math_Vector) {.noSideEffect,
-    importcpp: "GetTolerance", header: "BlendFunc_CSCircular.hxx".}
-proc Knots*(this: var BlendFunc_CSCircular; TKnots: var TColStd_Array1OfReal) {.
+proc getTolerance*(this: BlendFuncCSCircular; boundTol: float; surfTol: float;
+                  angleTol: float; tol3d: var MathVector; tol1D: var MathVector) {.
+    noSideEffect, importcpp: "GetTolerance", header: "BlendFunc_CSCircular.hxx".}
+proc knots*(this: var BlendFuncCSCircular; tKnots: var TColStdArray1OfReal) {.
     importcpp: "Knots", header: "BlendFunc_CSCircular.hxx".}
-proc Mults*(this: var BlendFunc_CSCircular; TMults: var TColStd_Array1OfInteger) {.
+proc mults*(this: var BlendFuncCSCircular; tMults: var TColStdArray1OfInteger) {.
     importcpp: "Mults", header: "BlendFunc_CSCircular.hxx".}
-proc Section*(this: var BlendFunc_CSCircular; P: Blend_Point;
-             Poles: var TColgp_Array1OfPnt; DPoles: var TColgp_Array1OfVec;
-             Poles2d: var TColgp_Array1OfPnt2d; DPoles2d: var TColgp_Array1OfVec2d;
-             Weigths: var TColStd_Array1OfReal; DWeigths: var TColStd_Array1OfReal): Standard_Boolean {.
+proc section*(this: var BlendFuncCSCircular; p: BlendPoint;
+             poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
+             poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
+             weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal): bool {.
     importcpp: "Section", header: "BlendFunc_CSCircular.hxx".}
-proc Section*(this: var BlendFunc_CSCircular; P: Blend_Point;
-             Poles: var TColgp_Array1OfPnt; Poles2d: var TColgp_Array1OfPnt2d;
-             Weigths: var TColStd_Array1OfReal) {.importcpp: "Section",
+proc section*(this: var BlendFuncCSCircular; p: BlendPoint;
+             poles: var TColgpArray1OfPnt; poles2d: var TColgpArray1OfPnt2d;
+             weigths: var TColStdArray1OfReal) {.importcpp: "Section",
     header: "BlendFunc_CSCircular.hxx".}
-proc Resolution*(this: BlendFunc_CSCircular; IC2d: Standard_Integer;
-                Tol: Standard_Real; TolU: var Standard_Real; TolV: var Standard_Real) {.
-    noSideEffect, importcpp: "Resolution", header: "BlendFunc_CSCircular.hxx".}
+proc resolution*(this: BlendFuncCSCircular; iC2d: int; tol: float; tolU: var float;
+                tolV: var float) {.noSideEffect, importcpp: "Resolution",
+                                header: "BlendFunc_CSCircular.hxx".}

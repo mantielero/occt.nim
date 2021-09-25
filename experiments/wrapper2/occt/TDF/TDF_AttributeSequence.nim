@@ -13,8 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TDF_Attribute, ../NCollection/NCollection_Sequence
-
 type
-  TDF_AttributeSequence* = NCollection_Sequence[handle[TDF_Attribute]]
+  TDF_AttributeSequence* = NCollectionSequence[Handle[TDF_Attribute]]
+

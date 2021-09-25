@@ -11,21 +11,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Image_Format
-
 ## ! List of compressed pixel formats natively supported by various graphics hardware (e.g. for efficient decoding on-the-fly).
 ## ! It is defined as extension of Image_Format.
 
 type
-  Image_CompressedFormat* {.size: sizeof(cint),
-                           importcpp: "Image_CompressedFormat",
-                           header: "Image_CompressedFormat.hxx".} = enum
-    Image_CompressedFormat_UNKNOWN = Image_Format_UNKNOWN,
-    Image_CompressedFormat_RGB_S3TC_DXT1 = Image_Format_NB,
-    Image_CompressedFormat_RGBA_S3TC_DXT1, Image_CompressedFormat_RGBA_S3TC_DXT3,
-    Image_CompressedFormat_RGBA_S3TC_DXT5
+  ImageCompressedFormat* {.size: sizeof(cint), importcpp: "Image_CompressedFormat",
+                          header: "Image_CompressedFormat.hxx".} = enum
+    ImageCompressedFormatUNKNOWN = imageFormatUNKNOWN,
+    ImageCompressedFormatRGB_S3TC_DXT1 = imageFormatNB,
+    ImageCompressedFormatRGBA_S3TC_DXT1, ImageCompressedFormatRGBA_S3TC_DXT3,
+    ImageCompressedFormatRGBA_S3TC_DXT5
 
 
 const
-  Image_CompressedFormat_NB* = Image_CompressedFormat_RGBA_S3TC_DXT5 + 1
+  ImageCompressedFormatNB* = imageCompressedFormatRGBA_S3TC_DXT5 + 1
+

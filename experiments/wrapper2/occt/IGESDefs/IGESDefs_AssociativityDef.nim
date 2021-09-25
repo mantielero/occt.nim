@@ -14,18 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_HArray1OfInteger, ../IGESData/IGESData_IGESEntity,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of IGESBasic_HArray1OfHArray1OfInteger"
 discard "forward decl of Standard_DimensionMismatch"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESDefs_AssociativityDef"
 discard "forward decl of IGESDefs_AssociativityDef"
 type
-  Handle_IGESDefs_AssociativityDef* = handle[IGESDefs_AssociativityDef]
+  HandleIGESDefsAssociativityDef* = Handle[IGESDefsAssociativityDef]
 
 ## ! defines IGES Associativity Definition Entity, Type <302>
 ## ! Form <5001 - 9999> in package IGESDefs.
@@ -34,46 +29,45 @@ type
 ## ! defines the type of relationship.
 
 type
-  IGESDefs_AssociativityDef* {.importcpp: "IGESDefs_AssociativityDef",
-                              header: "IGESDefs_AssociativityDef.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESDefsAssociativityDef* {.importcpp: "IGESDefs_AssociativityDef",
+                             header: "IGESDefs_AssociativityDef.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESDefs_AssociativityDef*(): IGESDefs_AssociativityDef {.
-    constructor, importcpp: "IGESDefs_AssociativityDef(@)",
+proc constructIGESDefsAssociativityDef*(): IGESDefsAssociativityDef {.constructor,
+    importcpp: "IGESDefs_AssociativityDef(@)",
     header: "IGESDefs_AssociativityDef.hxx".}
-proc Init*(this: var IGESDefs_AssociativityDef;
-          requirements: handle[TColStd_HArray1OfInteger];
-          orders: handle[TColStd_HArray1OfInteger];
-          numItems: handle[TColStd_HArray1OfInteger];
-          items: handle[IGESBasic_HArray1OfHArray1OfInteger]) {.importcpp: "Init",
+proc init*(this: var IGESDefsAssociativityDef;
+          requirements: Handle[TColStdHArray1OfInteger];
+          orders: Handle[TColStdHArray1OfInteger];
+          numItems: Handle[TColStdHArray1OfInteger];
+          items: Handle[IGESBasicHArray1OfHArray1OfInteger]) {.importcpp: "Init",
     header: "IGESDefs_AssociativityDef.hxx".}
-proc SetFormNumber*(this: var IGESDefs_AssociativityDef; form: Standard_Integer) {.
+proc setFormNumber*(this: var IGESDefsAssociativityDef; form: int) {.
     importcpp: "SetFormNumber", header: "IGESDefs_AssociativityDef.hxx".}
-proc NbClassDefs*(this: IGESDefs_AssociativityDef): Standard_Integer {.noSideEffect,
+proc nbClassDefs*(this: IGESDefsAssociativityDef): int {.noSideEffect,
     importcpp: "NbClassDefs", header: "IGESDefs_AssociativityDef.hxx".}
-proc IsBackPointerReq*(this: IGESDefs_AssociativityDef; ClassNum: Standard_Integer): Standard_Boolean {.
+proc isBackPointerReq*(this: IGESDefsAssociativityDef; classNum: int): bool {.
     noSideEffect, importcpp: "IsBackPointerReq",
     header: "IGESDefs_AssociativityDef.hxx".}
-proc BackPointerReq*(this: IGESDefs_AssociativityDef; ClassNum: Standard_Integer): Standard_Integer {.
+proc backPointerReq*(this: IGESDefsAssociativityDef; classNum: int): int {.
     noSideEffect, importcpp: "BackPointerReq",
     header: "IGESDefs_AssociativityDef.hxx".}
-proc IsOrdered*(this: IGESDefs_AssociativityDef; ClassNum: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsOrdered", header: "IGESDefs_AssociativityDef.hxx".}
-proc ClassOrder*(this: IGESDefs_AssociativityDef; ClassNum: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "ClassOrder", header: "IGESDefs_AssociativityDef.hxx".}
-proc NbItemsPerClass*(this: IGESDefs_AssociativityDef; ClassNum: Standard_Integer): Standard_Integer {.
+proc isOrdered*(this: IGESDefsAssociativityDef; classNum: int): bool {.noSideEffect,
+    importcpp: "IsOrdered", header: "IGESDefs_AssociativityDef.hxx".}
+proc classOrder*(this: IGESDefsAssociativityDef; classNum: int): int {.noSideEffect,
+    importcpp: "ClassOrder", header: "IGESDefs_AssociativityDef.hxx".}
+proc nbItemsPerClass*(this: IGESDefsAssociativityDef; classNum: int): int {.
     noSideEffect, importcpp: "NbItemsPerClass",
     header: "IGESDefs_AssociativityDef.hxx".}
-proc Item*(this: IGESDefs_AssociativityDef; ClassNum: Standard_Integer;
-          ItemNum: Standard_Integer): Standard_Integer {.noSideEffect,
-    importcpp: "Item", header: "IGESDefs_AssociativityDef.hxx".}
+proc item*(this: IGESDefsAssociativityDef; classNum: int; itemNum: int): int {.
+    noSideEffect, importcpp: "Item", header: "IGESDefs_AssociativityDef.hxx".}
 type
-  IGESDefs_AssociativityDefbase_type* = IGESData_IGESEntity
+  IGESDefsAssociativityDefbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESDefs_AssociativityDef::get_type_name(@)",
-                              header: "IGESDefs_AssociativityDef.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESDefs_AssociativityDef::get_type_name(@)",
+                            header: "IGESDefs_AssociativityDef.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESDefs_AssociativityDef::get_type_descriptor(@)",
     header: "IGESDefs_AssociativityDef.hxx".}
-proc DynamicType*(this: IGESDefs_AssociativityDef): handle[Standard_Type] {.
+proc dynamicType*(this: IGESDefsAssociativityDef): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDefs_AssociativityDef.hxx".}

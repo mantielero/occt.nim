@@ -14,132 +14,127 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Address,
-  ../Standard/Standard_Real
-
 discard "forward decl of HLRBRep_CurveTool"
 discard "forward decl of HLRBRep_TheCurveLocatorOfTheProjPCurOfCInter"
 discard "forward decl of HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter"
 discard "forward decl of HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter"
 discard "forward decl of gp_Pnt2d"
 type
-  HLRBRep_TheProjPCurOfCInter* {.importcpp: "HLRBRep_TheProjPCurOfCInter",
-                                header: "HLRBRep_TheProjPCurOfCInter.hxx", bycopy.} = object ##
-                                                                                        ## !
-                                                                                        ## Returns
-                                                                                        ## the
-                                                                                        ## parameter
-                                                                                        ## V
-                                                                                        ## of
-                                                                                        ## the
-                                                                                        ## point
-                                                                                        ## on
-                                                                                        ## the
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## parametric
-                                                                                        ## curve
-                                                                                        ## corresponding
-                                                                                        ## to
-                                                                                        ## the
-                                                                                        ## Point
-                                                                                        ## Pnt.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## The
-                                                                                        ## Correspondance
-                                                                                        ## between
-                                                                                        ## Pnt
-                                                                                        ## and
-                                                                                        ## the
-                                                                                        ## point
-                                                                                        ## P(V)
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## on
-                                                                                        ## the
-                                                                                        ## parametric
-                                                                                        ## curve
-                                                                                        ## must
-                                                                                        ## be
-                                                                                        ## coherent
-                                                                                        ## with
-                                                                                        ## the
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## way
-                                                                                        ## of
-                                                                                        ## determination
-                                                                                        ## of
-                                                                                        ## the
-                                                                                        ## signed
-                                                                                        ## distance
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## between
-                                                                                        ## a
-                                                                                        ## point
-                                                                                        ## and
-                                                                                        ## the
-                                                                                        ## implicit
-                                                                                        ## curve.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Tol
-                                                                                        ## is
-                                                                                        ## the
-                                                                                        ## tolerance
-                                                                                        ## on
-                                                                                        ## the
-                                                                                        ## distance
-                                                                                        ## between
-                                                                                        ## a
-                                                                                        ## point
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## and
-                                                                                        ## the
-                                                                                        ## parametrised
-                                                                                        ## curve.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## In
-                                                                                        ## that
-                                                                                        ## case,
-                                                                                        ## no
-                                                                                        ## bounds
-                                                                                        ## are
-                                                                                        ## given.
-                                                                                        ## The
-                                                                                        ## research
-                                                                                        ## of
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## the
-                                                                                        ## rigth
-                                                                                        ## parameter
-                                                                                        ## has
-                                                                                        ## to
-                                                                                        ## be
-                                                                                        ## made
-                                                                                        ## on
-                                                                                        ## the
-                                                                                        ## natural
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## parametric
-                                                                                        ## domain
-                                                                                        ## of
-                                                                                        ## the
-                                                                                        ## curve.
+  HLRBRepTheProjPCurOfCInter* {.importcpp: "HLRBRep_TheProjPCurOfCInter",
+                               header: "HLRBRep_TheProjPCurOfCInter.hxx", bycopy.} = object ##
+                                                                                       ## !
+                                                                                       ## Returns
+                                                                                       ## the
+                                                                                       ## parameter
+                                                                                       ## V
+                                                                                       ## of
+                                                                                       ## the
+                                                                                       ## point
+                                                                                       ## on
+                                                                                       ## the
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## parametric
+                                                                                       ## curve
+                                                                                       ## corresponding
+                                                                                       ## to
+                                                                                       ## the
+                                                                                       ## Point
+                                                                                       ## Pnt.
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## The
+                                                                                       ## Correspondance
+                                                                                       ## between
+                                                                                       ## Pnt
+                                                                                       ## and
+                                                                                       ## the
+                                                                                       ## point
+                                                                                       ## P(V)
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## on
+                                                                                       ## the
+                                                                                       ## parametric
+                                                                                       ## curve
+                                                                                       ## must
+                                                                                       ## be
+                                                                                       ## coherent
+                                                                                       ## with
+                                                                                       ## the
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## way
+                                                                                       ## of
+                                                                                       ## determination
+                                                                                       ## of
+                                                                                       ## the
+                                                                                       ## signed
+                                                                                       ## distance
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## between
+                                                                                       ## a
+                                                                                       ## point
+                                                                                       ## and
+                                                                                       ## the
+                                                                                       ## implicit
+                                                                                       ## curve.
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## Tol
+                                                                                       ## is
+                                                                                       ## the
+                                                                                       ## tolerance
+                                                                                       ## on
+                                                                                       ## the
+                                                                                       ## distance
+                                                                                       ## between
+                                                                                       ## a
+                                                                                       ## point
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## and
+                                                                                       ## the
+                                                                                       ## parametrised
+                                                                                       ## curve.
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## In
+                                                                                       ## that
+                                                                                       ## case,
+                                                                                       ## no
+                                                                                       ## bounds
+                                                                                       ## are
+                                                                                       ## given.
+                                                                                       ## The
+                                                                                       ## research
+                                                                                       ## of
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## the
+                                                                                       ## rigth
+                                                                                       ## parameter
+                                                                                       ## has
+                                                                                       ## to
+                                                                                       ## be
+                                                                                       ## made
+                                                                                       ## on
+                                                                                       ## the
+                                                                                       ## natural
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## parametric
+                                                                                       ## domain
+                                                                                       ## of
+                                                                                       ## the
+                                                                                       ## curve.
 
 
-proc FindParameter*(C: Standard_Address; Pnt: gp_Pnt2d; Tol: Standard_Real): Standard_Real {.
+proc findParameter*(c: StandardAddress; pnt: Pnt2d; tol: float): float {.
     importcpp: "HLRBRep_TheProjPCurOfCInter::FindParameter(@)",
     header: "HLRBRep_TheProjPCurOfCInter.hxx".}
-proc FindParameter*(C: Standard_Address; Pnt: gp_Pnt2d; LowParameter: Standard_Real;
-                   HighParameter: Standard_Real; Tol: Standard_Real): Standard_Real {.
+proc findParameter*(c: StandardAddress; pnt: Pnt2d; lowParameter: float;
+                   highParameter: float; tol: float): float {.
     importcpp: "HLRBRep_TheProjPCurOfCInter::FindParameter(@)",
     header: "HLRBRep_TheProjPCurOfCInter.hxx".}

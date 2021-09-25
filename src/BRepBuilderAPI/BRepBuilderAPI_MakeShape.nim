@@ -24,6 +24,7 @@ proc build*(this: var BRepBuilderAPI_MakeShape)  {.importcpp: "Build".}
 proc shape*(this: var BRepBuilderAPI_MakeShape): TopoDS_Shape  {.importcpp: "Shape".}
     ## Returns a shape built by the shape construction algorithm. Raises
     ## exception StdFail_NotDone if the shape was not built.
+
 #[FIXME
 proc generated*(this: var BRepBuilderAPI_MakeShape, S: TopoDS_Shape): TopTools_ListOfShape  {.importcpp: "Generated".}
     ## Returns the list of shapes generated from the shape <S>.

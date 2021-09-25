@@ -13,15 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  MeshVS_EntityType, ../SelectMgr/SelectMgr_EntityOwner,
-  ../PrsMgr/PrsMgr_PresentationManager3d, ../Quantity/Quantity_NameOfColor
-
 discard "forward decl of PrsMgr_PresentationManager"
 discard "forward decl of MeshVS_MeshEntityOwner"
 discard "forward decl of MeshVS_MeshEntityOwner"
 type
-  Handle_MeshVS_MeshEntityOwner* = handle[MeshVS_MeshEntityOwner]
+  HandleMeshVS_MeshEntityOwner* = Handle[MeshVS_MeshEntityOwner]
 
 ## ! The custom owner. This class provides methods to store owner information:
 ## ! 1) An address of element or node data structure
@@ -30,47 +26,42 @@ type
 
 type
   MeshVS_MeshEntityOwner* {.importcpp: "MeshVS_MeshEntityOwner",
-                           header: "MeshVS_MeshEntityOwner.hxx", bycopy.} = object of SelectMgr_EntityOwner
+                           header: "MeshVS_MeshEntityOwner.hxx", bycopy.} = object of SelectMgrEntityOwner
 
 
-proc constructMeshVS_MeshEntityOwner*(SelObj: ptr SelectMgr_SelectableObject;
-                                     ID: Standard_Integer;
-                                     MeshEntity: Standard_Address;
-                                     Type: MeshVS_EntityType;
-                                     Priority: Standard_Integer = 0;
-                                     IsGroup: Standard_Boolean = Standard_False): MeshVS_MeshEntityOwner {.
+proc constructMeshVS_MeshEntityOwner*(selObj: ptr SelectMgrSelectableObject;
+                                     id: int; meshEntity: StandardAddress;
+                                     `type`: MeshVS_EntityType; priority: int = 0;
+                                     isGroup: bool = false): MeshVS_MeshEntityOwner {.
     constructor, importcpp: "MeshVS_MeshEntityOwner(@)",
     header: "MeshVS_MeshEntityOwner.hxx".}
-proc Owner*(this: MeshVS_MeshEntityOwner): Standard_Address {.noSideEffect,
+proc owner*(this: MeshVS_MeshEntityOwner): StandardAddress {.noSideEffect,
     importcpp: "Owner", header: "MeshVS_MeshEntityOwner.hxx".}
-proc Type*(this: MeshVS_MeshEntityOwner): MeshVS_EntityType {.noSideEffect,
+proc `type`*(this: MeshVS_MeshEntityOwner): MeshVS_EntityType {.noSideEffect,
     importcpp: "Type", header: "MeshVS_MeshEntityOwner.hxx".}
-proc ID*(this: MeshVS_MeshEntityOwner): Standard_Integer {.noSideEffect,
-    importcpp: "ID", header: "MeshVS_MeshEntityOwner.hxx".}
-proc IsGroup*(this: MeshVS_MeshEntityOwner): Standard_Boolean {.noSideEffect,
+proc id*(this: MeshVS_MeshEntityOwner): int {.noSideEffect, importcpp: "ID",
+    header: "MeshVS_MeshEntityOwner.hxx".}
+proc isGroup*(this: MeshVS_MeshEntityOwner): bool {.noSideEffect,
     importcpp: "IsGroup", header: "MeshVS_MeshEntityOwner.hxx".}
-proc IsHilighted*(this: MeshVS_MeshEntityOwner;
-                 PM: handle[PrsMgr_PresentationManager];
-                 Mode: Standard_Integer = 0): Standard_Boolean {.noSideEffect,
-    importcpp: "IsHilighted", header: "MeshVS_MeshEntityOwner.hxx".}
-proc HilightWithColor*(this: var MeshVS_MeshEntityOwner;
-                      thePM: handle[PrsMgr_PresentationManager3d];
-                      theStyle: handle[Prs3d_Drawer];
-                      theMode: Standard_Integer = 0) {.
+proc isHilighted*(this: MeshVS_MeshEntityOwner;
+                 pm: Handle[PrsMgrPresentationManager]; mode: int = 0): bool {.
+    noSideEffect, importcpp: "IsHilighted", header: "MeshVS_MeshEntityOwner.hxx".}
+proc hilightWithColor*(this: var MeshVS_MeshEntityOwner;
+                      thePM: Handle[PrsMgrPresentationManager3d];
+                      theStyle: Handle[Prs3dDrawer]; theMode: int = 0) {.
     importcpp: "HilightWithColor", header: "MeshVS_MeshEntityOwner.hxx".}
-proc Unhilight*(this: var MeshVS_MeshEntityOwner;
-               PM: handle[PrsMgr_PresentationManager]; Mode: Standard_Integer = 0) {.
+proc unhilight*(this: var MeshVS_MeshEntityOwner;
+               pm: Handle[PrsMgrPresentationManager]; mode: int = 0) {.
     importcpp: "Unhilight", header: "MeshVS_MeshEntityOwner.hxx".}
-proc Clear*(this: var MeshVS_MeshEntityOwner;
-           PM: handle[PrsMgr_PresentationManager]; Mode: Standard_Integer = 0) {.
-    importcpp: "Clear", header: "MeshVS_MeshEntityOwner.hxx".}
+proc clear*(this: var MeshVS_MeshEntityOwner; pm: Handle[PrsMgrPresentationManager];
+           mode: int = 0) {.importcpp: "Clear", header: "MeshVS_MeshEntityOwner.hxx".}
 type
-  MeshVS_MeshEntityOwnerbase_type* = SelectMgr_EntityOwner
+  MeshVS_MeshEntityOwnerbaseType* = SelectMgrEntityOwner
 
-proc get_type_name*(): cstring {.importcpp: "MeshVS_MeshEntityOwner::get_type_name(@)",
-                              header: "MeshVS_MeshEntityOwner.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "MeshVS_MeshEntityOwner::get_type_name(@)",
+                            header: "MeshVS_MeshEntityOwner.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "MeshVS_MeshEntityOwner::get_type_descriptor(@)",
     header: "MeshVS_MeshEntityOwner.hxx".}
-proc DynamicType*(this: MeshVS_MeshEntityOwner): handle[Standard_Type] {.
+proc dynamicType*(this: MeshVS_MeshEntityOwner): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "MeshVS_MeshEntityOwner.hxx".}

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Circ, Select3D_SensitivePoly, Select3D_TypeOfSensitivity,
-  ../SelectMgr/SelectMgr_SelectingVolumeManager, ../TColgp/TColgp_HArray1OfPnt
-
 ## ! A framework to define sensitive 3D arcs and circles.
 ## ! In some cases this class can raise Standard_ConstructionError and
 ## ! Standard_OutOfRange exceptions. For more details see Select3D_SensitivePoly.
@@ -88,48 +84,50 @@ type
     ## !< Sensitive arc parameter
     ## !< Sensitive arc parameter
 
-  Select3D_SensitiveCirclebase_type* = Select3D_SensitivePoly
+  Select3D_SensitiveCirclebaseType* = Select3D_SensitivePoly
 
-proc get_type_name*(): cstring {.importcpp: "Select3D_SensitiveCircle::get_type_name(@)",
-                              header: "Select3D_SensitiveCircle.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Select3D_SensitiveCircle::get_type_name(@)",
+                            header: "Select3D_SensitiveCircle.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Select3D_SensitiveCircle::get_type_descriptor(@)",
     header: "Select3D_SensitiveCircle.hxx".}
-proc DynamicType*(this: Select3D_SensitiveCircle): handle[Standard_Type] {.
+proc dynamicType*(this: Select3D_SensitiveCircle): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Select3D_SensitiveCircle.hxx".}
-proc constructSelect3D_SensitiveCircle*(theOwnerId: handle[SelectMgr_EntityOwner];
-                                       theCircle: gp_Circ; theIsFilled: Standard_Boolean = Standard_False;
-                                       theNbPnts: Standard_Integer = 12): Select3D_SensitiveCircle {.
+proc constructSelect3D_SensitiveCircle*(theOwnerId: Handle[SelectMgrEntityOwner];
+                                       theCircle: Circ; theIsFilled: bool = false;
+                                       theNbPnts: int = 12): Select3D_SensitiveCircle {.
     constructor, importcpp: "Select3D_SensitiveCircle(@)",
     header: "Select3D_SensitiveCircle.hxx".}
-proc constructSelect3D_SensitiveCircle*(theOwnerId: handle[SelectMgr_EntityOwner];
-                                       theCircle: gp_Circ; theU1: Standard_Real;
-                                       theU2: Standard_Real; theIsFilled: Standard_Boolean = Standard_False;
-                                       theNbPnts: Standard_Integer = 12): Select3D_SensitiveCircle {.
+proc constructSelect3D_SensitiveCircle*(theOwnerId: Handle[SelectMgrEntityOwner];
+                                       theCircle: Circ; theU1: float; theU2: float;
+                                       theIsFilled: bool = false;
+                                       theNbPnts: int = 12): Select3D_SensitiveCircle {.
     constructor, importcpp: "Select3D_SensitiveCircle(@)",
     header: "Select3D_SensitiveCircle.hxx".}
-proc constructSelect3D_SensitiveCircle*(theOwnerId: handle[SelectMgr_EntityOwner];
-                                       thePnts3d: handle[TColgp_HArray1OfPnt];
-    theIsFilled: Standard_Boolean = Standard_False): Select3D_SensitiveCircle {.
+proc constructSelect3D_SensitiveCircle*(theOwnerId: Handle[SelectMgrEntityOwner];
+                                       thePnts3d: Handle[TColgpHArray1OfPnt];
+                                       theIsFilled: bool = false): Select3D_SensitiveCircle {.
     constructor, importcpp: "Select3D_SensitiveCircle(@)",
     header: "Select3D_SensitiveCircle.hxx".}
-proc constructSelect3D_SensitiveCircle*(theOwnerId: handle[SelectMgr_EntityOwner];
-                                       thePnts3d: TColgp_Array1OfPnt; theIsFilled: Standard_Boolean = Standard_False): Select3D_SensitiveCircle {.
+proc constructSelect3D_SensitiveCircle*(theOwnerId: Handle[SelectMgrEntityOwner];
+                                       thePnts3d: TColgpArray1OfPnt;
+                                       theIsFilled: bool = false): Select3D_SensitiveCircle {.
     constructor, importcpp: "Select3D_SensitiveCircle(@)",
     header: "Select3D_SensitiveCircle.hxx".}
-proc Matches*(this: var Select3D_SensitiveCircle;
-             theMgr: var SelectBasics_SelectingVolumeManager;
-             thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
+proc matches*(this: var Select3D_SensitiveCircle;
+             theMgr: var SelectBasicsSelectingVolumeManager;
+             thePickResult: var SelectBasicsPickResult): bool {.
     importcpp: "Matches", header: "Select3D_SensitiveCircle.hxx".}
-proc GetConnected*(this: var Select3D_SensitiveCircle): handle[
+proc getConnected*(this: var Select3D_SensitiveCircle): Handle[
     Select3D_SensitiveEntity] {.importcpp: "GetConnected",
                                header: "Select3D_SensitiveCircle.hxx".}
-proc CenterOfGeometry*(this: Select3D_SensitiveCircle): gp_Pnt {.noSideEffect,
+proc centerOfGeometry*(this: Select3D_SensitiveCircle): Pnt {.noSideEffect,
     importcpp: "CenterOfGeometry", header: "Select3D_SensitiveCircle.hxx".}
-proc BVH*(this: var Select3D_SensitiveCircle) {.importcpp: "BVH",
+proc bvh*(this: var Select3D_SensitiveCircle) {.importcpp: "BVH",
     header: "Select3D_SensitiveCircle.hxx".}
-proc ToBuildBVH*(this: Select3D_SensitiveCircle): Standard_Boolean {.noSideEffect,
+proc toBuildBVH*(this: Select3D_SensitiveCircle): bool {.noSideEffect,
     importcpp: "ToBuildBVH", header: "Select3D_SensitiveCircle.hxx".}
 discard "forward decl of Select3D_SensitiveCircle"
 type
-  Handle_Select3D_SensitiveCircle* = handle[Select3D_SensitiveCircle]
+  HandleSelect3D_SensitiveCircle* = Handle[Select3D_SensitiveCircle]
+

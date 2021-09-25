@@ -14,33 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 type
-  StepVisual_DirectionCountSelect* {.importcpp: "StepVisual_DirectionCountSelect", header: "StepVisual_DirectionCountSelect.hxx",
-                                    bycopy.} = object
+  StepVisualDirectionCountSelect* {.importcpp: "StepVisual_DirectionCountSelect", header: "StepVisual_DirectionCountSelect.hxx",
+                                   bycopy.} = object
 
 
-proc constructStepVisual_DirectionCountSelect*(): StepVisual_DirectionCountSelect {.
+proc constructStepVisualDirectionCountSelect*(): StepVisualDirectionCountSelect {.
     constructor, importcpp: "StepVisual_DirectionCountSelect(@)",
     header: "StepVisual_DirectionCountSelect.hxx".}
-proc SetTypeOfContent*(this: var StepVisual_DirectionCountSelect;
-                      aTypeOfContent: Standard_Integer) {.
+proc setTypeOfContent*(this: var StepVisualDirectionCountSelect; aTypeOfContent: int) {.
     importcpp: "SetTypeOfContent", header: "StepVisual_DirectionCountSelect.hxx".}
-proc TypeOfContent*(this: StepVisual_DirectionCountSelect): Standard_Integer {.
-    noSideEffect, importcpp: "TypeOfContent",
+proc typeOfContent*(this: StepVisualDirectionCountSelect): int {.noSideEffect,
+    importcpp: "TypeOfContent", header: "StepVisual_DirectionCountSelect.hxx".}
+proc uDirectionCount*(this: StepVisualDirectionCountSelect): int {.noSideEffect,
+    importcpp: "UDirectionCount", header: "StepVisual_DirectionCountSelect.hxx".}
+proc setUDirectionCount*(this: var StepVisualDirectionCountSelect;
+                        aUDirectionCount: int) {.importcpp: "SetUDirectionCount",
     header: "StepVisual_DirectionCountSelect.hxx".}
-proc UDirectionCount*(this: StepVisual_DirectionCountSelect): Standard_Integer {.
-    noSideEffect, importcpp: "UDirectionCount",
+proc vDirectionCount*(this: StepVisualDirectionCountSelect): int {.noSideEffect,
+    importcpp: "VDirectionCount", header: "StepVisual_DirectionCountSelect.hxx".}
+proc setVDirectionCount*(this: var StepVisualDirectionCountSelect;
+                        aUDirectionCount: int) {.importcpp: "SetVDirectionCount",
     header: "StepVisual_DirectionCountSelect.hxx".}
-proc SetUDirectionCount*(this: var StepVisual_DirectionCountSelect;
-                        aUDirectionCount: Standard_Integer) {.
-    importcpp: "SetUDirectionCount", header: "StepVisual_DirectionCountSelect.hxx".}
-proc VDirectionCount*(this: StepVisual_DirectionCountSelect): Standard_Integer {.
-    noSideEffect, importcpp: "VDirectionCount",
-    header: "StepVisual_DirectionCountSelect.hxx".}
-proc SetVDirectionCount*(this: var StepVisual_DirectionCountSelect;
-                        aUDirectionCount: Standard_Integer) {.
-    importcpp: "SetVDirectionCount", header: "StepVisual_DirectionCountSelect.hxx".}

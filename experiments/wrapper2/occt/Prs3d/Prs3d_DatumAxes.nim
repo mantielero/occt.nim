@@ -14,13 +14,14 @@
 ## ! Enumeration defining an axes used in datum aspect, see Prs3d_Datum.
 
 type
-  Prs3d_DatumAxes* {.size: sizeof(cint), importcpp: "Prs3d_DatumAxes",
-                    header: "Prs3d_DatumAxes.hxx".} = enum
-    Prs3d_DA_XAxis = 0x00000001, ## !< X axis of the datum
-    Prs3d_DA_YAxis = 0x00000002, ## !< Y axis of the datum
-    Prs3d_DA_ZAxis = 0x00000004, ## !< Z axis of the datum
-    Prs3d_DA_XYAxis = Prs3d_DA_XAxis or Prs3d_DA_YAxis, ## !< XOY 2D axes
-    Prs3d_DA_YZAxis = Prs3d_DA_YAxis or Prs3d_DA_ZAxis, ## !< YOZ 2D axes
-    Prs3d_DA_XZAxis = Prs3d_DA_XAxis or Prs3d_DA_ZAxis, ## !< XOZ 2D axes
-    Prs3d_DA_XYZAxis = Prs3d_DA_XAxis or Prs3d_DA_YAxis or Prs3d_DA_ZAxis
+  Prs3dDatumAxes* {.size: sizeof(cint), importcpp: "Prs3d_DatumAxes",
+                   header: "Prs3d_DatumAxes.hxx".} = enum
+    Prs3dDA_XAxis = 0x00000001, ## !< X axis of the datum
+    Prs3dDA_YAxis = 0x00000002, ## !< Y axis of the datum
+    Prs3dDA_ZAxis = 0x00000004, ## !< Z axis of the datum
+    Prs3dDA_XYAxis = prs3dDA_XAxis or prs3dDA_YAxis, ## !< XOY 2D axes
+    Prs3dDA_YZAxis = prs3dDA_YAxis or prs3dDA_ZAxis, ## !< YOZ 2D axes
+    Prs3dDA_XZAxis = prs3dDA_XAxis or prs3dDA_ZAxis, ## !< XOZ 2D axes
+    Prs3dDA_XYZAxis = prs3dDA_XAxis or prs3dDA_YAxis or prs3dDA_ZAxis
+
 

@@ -18,7 +18,8 @@
 ## ! application.
 
 type
-  Intf_PIType* {.size: sizeof(cint), importcpp: "Intf_PIType",
-                header: "Intf_PIType.hxx".} = enum
-    Intf_EXTERNAL, Intf_FACE, Intf_EDGE, Intf_VERTEX
+  IntfPIType* {.size: sizeof(cint), importcpp: "Intf_PIType",
+               header: "Intf_PIType.hxx".} = enum
+    IntfEXTERNAL, IntfFACE, IntfEDGE, IntfVERTEX
+
 

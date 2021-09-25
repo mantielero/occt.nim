@@ -16,11 +16,10 @@
 ## ! Defines types of qualifier
 
 type
-  XCAFDimTolObjects_DimensionQualifier* {.size: sizeof(cint),
-      importcpp: "XCAFDimTolObjects_DimensionQualifier",
-      header: "XCAFDimTolObjects_DimensionQualifier.hxx".} = enum
-    XCAFDimTolObjects_DimensionQualifier_None,
-    XCAFDimTolObjects_DimensionQualifier_Min,
-    XCAFDimTolObjects_DimensionQualifier_Max,
-    XCAFDimTolObjects_DimensionQualifier_Avg
+  XCAFDimTolObjectsDimensionQualifier* {.size: sizeof(cint), importcpp: "XCAFDimTolObjects_DimensionQualifier", header: "XCAFDimTolObjects_DimensionQualifier.hxx".} = enum
+    XCAFDimTolObjectsDimensionQualifierNone,
+    XCAFDimTolObjectsDimensionQualifierMin,
+    XCAFDimTolObjectsDimensionQualifierMax,
+    XCAFDimTolObjectsDimensionQualifierAvg
+
 

@@ -13,16 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../IFSelect/IFSelect_Signature, ../Standard/Standard_CString
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IGESSelect_SignColor"
 discard "forward decl of IGESSelect_SignColor"
 type
-  Handle_IGESSelect_SignColor* = handle[IGESSelect_SignColor]
+  HandleIGESSelectSignColor* = Handle[IGESSelectSignColor]
 
 ## ! Gives Color attached to an entity
 ## ! Several forms are possible, according to <mode>
@@ -37,54 +33,53 @@ type
 ## ! CMY values, Percentages for Hue, Lightness, Saturation
 
 type
-  IGESSelect_SignColor* {.importcpp: "IGESSelect_SignColor",
-                         header: "IGESSelect_SignColor.hxx", bycopy.} = object of IFSelect_Signature ##
-                                                                                              ## !
-                                                                                              ## Creates
-                                                                                              ## a
-                                                                                              ## SignColor
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## mode
-                                                                                              ## :
-                                                                                              ## see
-                                                                                              ## above
-                                                                                              ## for
-                                                                                              ## the
-                                                                                              ## meaning
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## modes
-                                                                                              ## 4,5,6
-                                                                                              ## give
-                                                                                              ## a
-                                                                                              ## numeric
-                                                                                              ## integer
-                                                                                              ## value
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Name
-                                                                                              ## is
-                                                                                              ## initialised
-                                                                                              ## according
-                                                                                              ## to
-                                                                                              ## the
-                                                                                              ## mode
+  IGESSelectSignColor* {.importcpp: "IGESSelect_SignColor",
+                        header: "IGESSelect_SignColor.hxx", bycopy.} = object of IFSelectSignature ##
+                                                                                            ## !
+                                                                                            ## Creates
+                                                                                            ## a
+                                                                                            ## SignColor
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## mode
+                                                                                            ## :
+                                                                                            ## see
+                                                                                            ## above
+                                                                                            ## for
+                                                                                            ## the
+                                                                                            ## meaning
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## modes
+                                                                                            ## 4,5,6
+                                                                                            ## give
+                                                                                            ## a
+                                                                                            ## numeric
+                                                                                            ## integer
+                                                                                            ## value
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Name
+                                                                                            ## is
+                                                                                            ## initialised
+                                                                                            ## according
+                                                                                            ## to
+                                                                                            ## the
+                                                                                            ## mode
 
 
-proc constructIGESSelect_SignColor*(mode: Standard_Integer): IGESSelect_SignColor {.
-    constructor, importcpp: "IGESSelect_SignColor(@)",
-    header: "IGESSelect_SignColor.hxx".}
-proc Value*(this: IGESSelect_SignColor; ent: handle[Standard_Transient];
-           model: handle[Interface_InterfaceModel]): Standard_CString {.
-    noSideEffect, importcpp: "Value", header: "IGESSelect_SignColor.hxx".}
+proc constructIGESSelectSignColor*(mode: int): IGESSelectSignColor {.constructor,
+    importcpp: "IGESSelect_SignColor(@)", header: "IGESSelect_SignColor.hxx".}
+proc value*(this: IGESSelectSignColor; ent: Handle[StandardTransient];
+           model: Handle[InterfaceInterfaceModel]): StandardCString {.noSideEffect,
+    importcpp: "Value", header: "IGESSelect_SignColor.hxx".}
 type
-  IGESSelect_SignColorbase_type* = IFSelect_Signature
+  IGESSelectSignColorbaseType* = IFSelectSignature
 
-proc get_type_name*(): cstring {.importcpp: "IGESSelect_SignColor::get_type_name(@)",
-                              header: "IGESSelect_SignColor.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_SignColor::get_type_name(@)",
+                            header: "IGESSelect_SignColor.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSelect_SignColor::get_type_descriptor(@)",
     header: "IGESSelect_SignColor.hxx".}
-proc DynamicType*(this: IGESSelect_SignColor): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IGESSelectSignColor): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSelect_SignColor.hxx".}

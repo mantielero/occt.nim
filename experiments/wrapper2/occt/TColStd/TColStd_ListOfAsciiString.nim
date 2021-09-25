@@ -12,9 +12,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_AsciiString, ../NCollection/NCollection_List
-
 type
-  TColStd_ListOfAsciiString* = NCollection_List[TCollection_AsciiString]
-  TColStd_ListIteratorOfListOfAsciiString* = Iterator[TCollection_AsciiString]
+  TColStdListOfAsciiString* = NCollectionList[TCollectionAsciiString]
+  TColStdListIteratorOfListOfAsciiString* = Iterator[TCollectionAsciiString]
+

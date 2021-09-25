@@ -11,24 +11,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Lin2d, ../math/math_Function, ../math/math_MultipleVarFunction,
-  ../Adaptor2d/Adaptor2d_Curve2d
-
 discard "forward decl of gp_Pnt2d"
 type
-  GCPnts_DistFunction2d* {.importcpp: "GCPnts_DistFunction2d",
-                          header: "GCPnts_DistFunction2d.hxx", bycopy.} = object of math_Function
+  GCPntsDistFunction2d* {.importcpp: "GCPnts_DistFunction2d",
+                         header: "GCPnts_DistFunction2d.hxx", bycopy.} = object of MathFunction
 
 
-proc constructGCPnts_DistFunction2d*(theCurve: Adaptor2d_Curve2d;
-                                    U1: Standard_Real; U2: Standard_Real): GCPnts_DistFunction2d {.
+proc constructGCPntsDistFunction2d*(theCurve: Adaptor2dCurve2d; u1: float; u2: float): GCPntsDistFunction2d {.
     constructor, importcpp: "GCPnts_DistFunction2d(@)",
     header: "GCPnts_DistFunction2d.hxx".}
-proc constructGCPnts_DistFunction2d*(theOther: GCPnts_DistFunction2d): GCPnts_DistFunction2d {.
+proc constructGCPntsDistFunction2d*(theOther: GCPntsDistFunction2d): GCPntsDistFunction2d {.
     constructor, importcpp: "GCPnts_DistFunction2d(@)",
     header: "GCPnts_DistFunction2d.hxx".}
-proc Value*(this: var GCPnts_DistFunction2d; X: Standard_Real; F: var Standard_Real): Standard_Boolean {.
+proc value*(this: var GCPntsDistFunction2d; x: float; f: var float): bool {.
     importcpp: "Value", header: "GCPnts_DistFunction2d.hxx".}
 ##
 ## ! The same as class GCPnts_DistFunction2d,
@@ -36,14 +31,15 @@ proc Value*(this: var GCPnts_DistFunction2d; X: Standard_Real; F: var Standard_R
 ## ! requires multi variable function
 
 type
-  GCPnts_DistFunction2dMV* {.importcpp: "GCPnts_DistFunction2dMV",
-                            header: "GCPnts_DistFunction2d.hxx", bycopy.} = object of math_MultipleVarFunction
+  GCPntsDistFunction2dMV* {.importcpp: "GCPnts_DistFunction2dMV",
+                           header: "GCPnts_DistFunction2d.hxx", bycopy.} = object of MathMultipleVarFunction
 
 
-proc constructGCPnts_DistFunction2dMV*(theCurvLinDist: var GCPnts_DistFunction2d): GCPnts_DistFunction2dMV {.
+proc constructGCPntsDistFunction2dMV*(theCurvLinDist: var GCPntsDistFunction2d): GCPntsDistFunction2dMV {.
     constructor, importcpp: "GCPnts_DistFunction2dMV(@)",
     header: "GCPnts_DistFunction2d.hxx".}
-proc Value*(this: var GCPnts_DistFunction2dMV; X: math_Vector; F: var Standard_Real): Standard_Boolean {.
+proc value*(this: var GCPntsDistFunction2dMV; x: MathVector; f: var float): bool {.
     importcpp: "Value", header: "GCPnts_DistFunction2d.hxx".}
-proc NbVariables*(this: GCPnts_DistFunction2dMV): Standard_Integer {.noSideEffect,
+proc nbVariables*(this: GCPntsDistFunction2dMV): int {.noSideEffect,
     importcpp: "NbVariables", header: "GCPnts_DistFunction2d.hxx".}
+

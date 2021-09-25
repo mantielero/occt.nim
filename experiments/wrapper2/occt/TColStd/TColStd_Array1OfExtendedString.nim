@@ -12,8 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_ExtendedString, ../NCollection/NCollection_Array1
-
 type
-  TColStd_Array1OfExtendedString* = NCollection_Array1[TCollection_ExtendedString]
+  TColStdArray1OfExtendedString* = NCollectionArray1[TCollectionExtendedString]
+

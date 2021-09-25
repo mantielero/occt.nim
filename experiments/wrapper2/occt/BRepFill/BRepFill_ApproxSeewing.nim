@@ -14,30 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, BRepFill_MultiLine, ../Standard/Standard_Boolean
-
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of StdFail_NotDone"
 type
-  BRepFill_ApproxSeewing* {.importcpp: "BRepFill_ApproxSeewing",
-                           header: "BRepFill_ApproxSeewing.hxx", bycopy.} = object
+  BRepFillApproxSeewing* {.importcpp: "BRepFill_ApproxSeewing",
+                          header: "BRepFill_ApproxSeewing.hxx", bycopy.} = object
 
 
-proc constructBRepFill_ApproxSeewing*(): BRepFill_ApproxSeewing {.constructor,
+proc constructBRepFillApproxSeewing*(): BRepFillApproxSeewing {.constructor,
     importcpp: "BRepFill_ApproxSeewing(@)", header: "BRepFill_ApproxSeewing.hxx".}
-proc constructBRepFill_ApproxSeewing*(ML: BRepFill_MultiLine): BRepFill_ApproxSeewing {.
+proc constructBRepFillApproxSeewing*(ml: BRepFillMultiLine): BRepFillApproxSeewing {.
     constructor, importcpp: "BRepFill_ApproxSeewing(@)",
     header: "BRepFill_ApproxSeewing.hxx".}
-proc Perform*(this: var BRepFill_ApproxSeewing; ML: BRepFill_MultiLine) {.
+proc perform*(this: var BRepFillApproxSeewing; ml: BRepFillMultiLine) {.
     importcpp: "Perform", header: "BRepFill_ApproxSeewing.hxx".}
-proc IsDone*(this: BRepFill_ApproxSeewing): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "BRepFill_ApproxSeewing.hxx".}
-proc Curve*(this: BRepFill_ApproxSeewing): handle[Geom_Curve] {.noSideEffect,
+proc isDone*(this: BRepFillApproxSeewing): bool {.noSideEffect, importcpp: "IsDone",
+    header: "BRepFill_ApproxSeewing.hxx".}
+proc curve*(this: BRepFillApproxSeewing): Handle[GeomCurve] {.noSideEffect,
     importcpp: "Curve", header: "BRepFill_ApproxSeewing.hxx".}
-proc CurveOnF1*(this: BRepFill_ApproxSeewing): handle[Geom2d_Curve] {.noSideEffect,
+proc curveOnF1*(this: BRepFillApproxSeewing): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "CurveOnF1", header: "BRepFill_ApproxSeewing.hxx".}
-proc CurveOnF2*(this: BRepFill_ApproxSeewing): handle[Geom2d_Curve] {.noSideEffect,
+proc curveOnF2*(this: BRepFillApproxSeewing): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "CurveOnF2", header: "BRepFill_ApproxSeewing.hxx".}

@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Contap_TheIWLineOfTheIWalking, ../NCollection/NCollection_Sequence
-
 type
-  Contap_SequenceOfIWLineOfTheIWalking* = NCollection_Sequence[
-      handle[Contap_TheIWLineOfTheIWalking]]
+  ContapSequenceOfIWLineOfTheIWalking* = NCollectionSequence[
+      Handle[ContapTheIWLineOfTheIWalking]]
+

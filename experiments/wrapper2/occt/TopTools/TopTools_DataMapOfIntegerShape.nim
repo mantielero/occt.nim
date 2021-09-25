@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Integer, ../TopoDS/TopoDS_Shape,
-  ../TColStd/TColStd_MapIntegerHasher, ../NCollection/NCollection_DataMap
-
 type
-  TopTools_DataMapOfIntegerShape* = NCollection_DataMap[Standard_Integer,
-      TopoDS_Shape, TColStd_MapIntegerHasher]
-  TopTools_DataMapIteratorOfDataMapOfIntegerShape* = Iterator[Standard_Integer,
-      TopoDS_Shape, TColStd_MapIntegerHasher]
+  TopToolsDataMapOfIntegerShape* = NCollectionDataMap[int, TopoDS_Shape,
+      TColStdMapIntegerHasher]
+  TopToolsDataMapIteratorOfDataMapOfIntegerShape* = Iterator[int, TopoDS_Shape,
+      TColStdMapIntegerHasher]
+

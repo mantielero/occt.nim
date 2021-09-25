@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_DirectionCountSelect, ../NCollection/NCollection_Array1
-
 type
-  StepVisual_Array1OfDirectionCountSelect* = NCollection_Array1[
-      StepVisual_DirectionCountSelect]
+  StepVisualArray1OfDirectionCountSelect* = NCollectionArray1[
+      StepVisualDirectionCountSelect]
+

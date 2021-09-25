@@ -15,11 +15,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, BOPAlgo_PaveFiller
-
 ## ! Checks the shape on self-interference.
 ## !
 ## ! The algorithm can set the following errors:
@@ -30,15 +25,15 @@ import
 ## ! directly will be returned.
 
 type
-  BOPAlgo_CheckerSI* {.importcpp: "BOPAlgo_CheckerSI",
-                      header: "BOPAlgo_CheckerSI.hxx", bycopy.} = object of BOPAlgo_PaveFiller
+  BOPAlgoCheckerSI* {.importcpp: "BOPAlgo_CheckerSI",
+                     header: "BOPAlgo_CheckerSI.hxx", bycopy.} = object of BOPAlgoPaveFiller
 
 
-proc constructBOPAlgo_CheckerSI*(): BOPAlgo_CheckerSI {.constructor,
+proc constructBOPAlgoCheckerSI*(): BOPAlgoCheckerSI {.constructor,
     importcpp: "BOPAlgo_CheckerSI(@)", header: "BOPAlgo_CheckerSI.hxx".}
-proc destroyBOPAlgo_CheckerSI*(this: var BOPAlgo_CheckerSI) {.
+proc destroyBOPAlgoCheckerSI*(this: var BOPAlgoCheckerSI) {.
     importcpp: "#.~BOPAlgo_CheckerSI()", header: "BOPAlgo_CheckerSI.hxx".}
-proc Perform*(this: var BOPAlgo_CheckerSI) {.importcpp: "Perform",
-    header: "BOPAlgo_CheckerSI.hxx".}
-proc SetLevelOfCheck*(this: var BOPAlgo_CheckerSI; theLevel: Standard_Integer) {.
+proc perform*(this: var BOPAlgoCheckerSI) {.importcpp: "Perform",
+                                        header: "BOPAlgo_CheckerSI.hxx".}
+proc setLevelOfCheck*(this: var BOPAlgoCheckerSI; theLevel: int) {.
     importcpp: "SetLevelOfCheck", header: "BOPAlgo_CheckerSI.hxx".}

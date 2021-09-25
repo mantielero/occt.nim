@@ -14,48 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ExprIntrp_SequenceOfNamedFunction, ExprIntrp_SequenceOfNamedExpression,
-  ../Standard/Standard_Transient
-
 discard "forward decl of Expr_NamedFunction"
 discard "forward decl of Expr_NamedExpression"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of ExprIntrp_Generator"
 discard "forward decl of ExprIntrp_Generator"
 type
-  Handle_ExprIntrp_Generator* = handle[ExprIntrp_Generator]
+  HandleExprIntrpGenerator* = Handle[ExprIntrpGenerator]
 
 ## ! Implements general services for interpretation of
 ## ! expressions.
 
 type
-  ExprIntrp_Generator* {.importcpp: "ExprIntrp_Generator",
-                        header: "ExprIntrp_Generator.hxx", bycopy.} = object of Standard_Transient
+  ExprIntrpGenerator* {.importcpp: "ExprIntrp_Generator",
+                       header: "ExprIntrp_Generator.hxx", bycopy.} = object of StandardTransient
 
 
-proc Use*(this: var ExprIntrp_Generator; `func`: handle[Expr_NamedFunction]) {.
+proc use*(this: var ExprIntrpGenerator; `func`: Handle[ExprNamedFunction]) {.
     importcpp: "Use", header: "ExprIntrp_Generator.hxx".}
-proc Use*(this: var ExprIntrp_Generator; named: handle[Expr_NamedExpression]) {.
+proc use*(this: var ExprIntrpGenerator; named: Handle[ExprNamedExpression]) {.
     importcpp: "Use", header: "ExprIntrp_Generator.hxx".}
-proc GetNamed*(this: ExprIntrp_Generator): ExprIntrp_SequenceOfNamedExpression {.
+proc getNamed*(this: ExprIntrpGenerator): ExprIntrpSequenceOfNamedExpression {.
     noSideEffect, importcpp: "GetNamed", header: "ExprIntrp_Generator.hxx".}
-proc GetFunctions*(this: ExprIntrp_Generator): ExprIntrp_SequenceOfNamedFunction {.
+proc getFunctions*(this: ExprIntrpGenerator): ExprIntrpSequenceOfNamedFunction {.
     noSideEffect, importcpp: "GetFunctions", header: "ExprIntrp_Generator.hxx".}
-proc GetNamed*(this: ExprIntrp_Generator; name: TCollection_AsciiString): handle[
-    Expr_NamedExpression] {.noSideEffect, importcpp: "GetNamed",
-                           header: "ExprIntrp_Generator.hxx".}
-proc GetFunction*(this: ExprIntrp_Generator; name: TCollection_AsciiString): handle[
-    Expr_NamedFunction] {.noSideEffect, importcpp: "GetFunction",
-                         header: "ExprIntrp_Generator.hxx".}
+proc getNamed*(this: ExprIntrpGenerator; name: TCollectionAsciiString): Handle[
+    ExprNamedExpression] {.noSideEffect, importcpp: "GetNamed",
+                          header: "ExprIntrp_Generator.hxx".}
+proc getFunction*(this: ExprIntrpGenerator; name: TCollectionAsciiString): Handle[
+    ExprNamedFunction] {.noSideEffect, importcpp: "GetFunction",
+                        header: "ExprIntrp_Generator.hxx".}
 type
-  ExprIntrp_Generatorbase_type* = Standard_Transient
+  ExprIntrpGeneratorbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "ExprIntrp_Generator::get_type_name(@)",
-                              header: "ExprIntrp_Generator.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ExprIntrp_Generator::get_type_name(@)",
+                            header: "ExprIntrp_Generator.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ExprIntrp_Generator::get_type_descriptor(@)",
     header: "ExprIntrp_Generator.hxx".}
-proc DynamicType*(this: ExprIntrp_Generator): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: ExprIntrpGenerator): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ExprIntrp_Generator.hxx".}

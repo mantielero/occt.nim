@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP203_WorkItem, ../NCollection/NCollection_Array1
-
 type
-  StepAP203_Array1OfWorkItem* = NCollection_Array1[StepAP203_WorkItem]
+  StepAP203Array1OfWorkItem* = NCollectionArray1[StepAP203WorkItem]
+

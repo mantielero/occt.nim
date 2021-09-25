@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ExprIntrp_Analysis
+var exprIntrpRecept* {.importcpp: "ExprIntrp_Recept",
+                     header: "ExprIntrp_yaccanal.hxx".}: ExprIntrpAnalysis
 
-var ExprIntrp_Recept* {.importcpp: "ExprIntrp_Recept",
-                      header: "ExprIntrp_yaccanal.hxx".}: ExprIntrp_Analysis

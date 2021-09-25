@@ -14,16 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StdSelect_TypeOfFace,
-  ../SelectMgr/SelectMgr_Filter, ../Standard/Standard_Boolean,
-  ../TopAbs/TopAbs_ShapeEnum
-
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of StdSelect_FaceFilter"
 discard "forward decl of StdSelect_FaceFilter"
 type
-  Handle_StdSelect_FaceFilter* = handle[StdSelect_FaceFilter]
+  HandleStdSelectFaceFilter* = Handle[StdSelectFaceFilter]
 
 ## ! A framework to define a filter to select a specific type of face.
 ## ! The types available include:
@@ -35,41 +30,41 @@ type
 ## ! -   a revol face.
 
 type
-  StdSelect_FaceFilter* {.importcpp: "StdSelect_FaceFilter",
-                         header: "StdSelect_FaceFilter.hxx", bycopy.} = object of SelectMgr_Filter ##
-                                                                                            ## !
-                                                                                            ## Constructs
-                                                                                            ## a
-                                                                                            ## face
-                                                                                            ## filter
-                                                                                            ## object
-                                                                                            ## defined
-                                                                                            ## by
-                                                                                            ## the
-                                                                                            ## type
-                                                                                            ## of
-                                                                                            ## face
-                                                                                            ## aTypeOfFace.
+  StdSelectFaceFilter* {.importcpp: "StdSelect_FaceFilter",
+                        header: "StdSelect_FaceFilter.hxx", bycopy.} = object of SelectMgrFilter ##
+                                                                                          ## !
+                                                                                          ## Constructs
+                                                                                          ## a
+                                                                                          ## face
+                                                                                          ## filter
+                                                                                          ## object
+                                                                                          ## defined
+                                                                                          ## by
+                                                                                          ## the
+                                                                                          ## type
+                                                                                          ## of
+                                                                                          ## face
+                                                                                          ## aTypeOfFace.
 
 
-proc constructStdSelect_FaceFilter*(aTypeOfFace: StdSelect_TypeOfFace): StdSelect_FaceFilter {.
+proc constructStdSelectFaceFilter*(aTypeOfFace: StdSelectTypeOfFace): StdSelectFaceFilter {.
     constructor, importcpp: "StdSelect_FaceFilter(@)",
     header: "StdSelect_FaceFilter.hxx".}
-proc SetType*(this: var StdSelect_FaceFilter; aNewType: StdSelect_TypeOfFace) {.
+proc setType*(this: var StdSelectFaceFilter; aNewType: StdSelectTypeOfFace) {.
     importcpp: "SetType", header: "StdSelect_FaceFilter.hxx".}
-proc Type*(this: StdSelect_FaceFilter): StdSelect_TypeOfFace {.noSideEffect,
+proc `type`*(this: StdSelectFaceFilter): StdSelectTypeOfFace {.noSideEffect,
     importcpp: "Type", header: "StdSelect_FaceFilter.hxx".}
-proc IsOk*(this: StdSelect_FaceFilter; anobj: handle[SelectMgr_EntityOwner]): Standard_Boolean {.
+proc isOk*(this: StdSelectFaceFilter; anobj: Handle[SelectMgrEntityOwner]): bool {.
     noSideEffect, importcpp: "IsOk", header: "StdSelect_FaceFilter.hxx".}
-proc ActsOn*(this: StdSelect_FaceFilter; aStandardMode: TopAbs_ShapeEnum): Standard_Boolean {.
+proc actsOn*(this: StdSelectFaceFilter; aStandardMode: TopAbsShapeEnum): bool {.
     noSideEffect, importcpp: "ActsOn", header: "StdSelect_FaceFilter.hxx".}
 type
-  StdSelect_FaceFilterbase_type* = SelectMgr_Filter
+  StdSelectFaceFilterbaseType* = SelectMgrFilter
 
-proc get_type_name*(): cstring {.importcpp: "StdSelect_FaceFilter::get_type_name(@)",
-                              header: "StdSelect_FaceFilter.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StdSelect_FaceFilter::get_type_name(@)",
+                            header: "StdSelect_FaceFilter.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StdSelect_FaceFilter::get_type_descriptor(@)",
     header: "StdSelect_FaceFilter.hxx".}
-proc DynamicType*(this: StdSelect_FaceFilter): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StdSelectFaceFilter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StdSelect_FaceFilter.hxx".}

@@ -14,33 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepVisual_PresentationRepresentation
-
 discard "forward decl of StepVisual_PresentationView"
 discard "forward decl of StepVisual_PresentationView"
 type
-  Handle_StepVisual_PresentationView* = handle[StepVisual_PresentationView]
-  StepVisual_PresentationView* {.importcpp: "StepVisual_PresentationView",
-                                header: "StepVisual_PresentationView.hxx", bycopy.} = object of StepVisual_PresentationRepresentation ##
-                                                                                                                               ## !
-                                                                                                                               ## Returns
-                                                                                                                               ## a
-                                                                                                                               ## PresentationView
+  HandleStepVisualPresentationView* = Handle[StepVisualPresentationView]
+  StepVisualPresentationView* {.importcpp: "StepVisual_PresentationView",
+                               header: "StepVisual_PresentationView.hxx", bycopy.} = object of StepVisualPresentationRepresentation ##
+                                                                                                                             ## !
+                                                                                                                             ## Returns
+                                                                                                                             ## a
+                                                                                                                             ## PresentationView
 
 
-proc constructStepVisual_PresentationView*(): StepVisual_PresentationView {.
+proc constructStepVisualPresentationView*(): StepVisualPresentationView {.
     constructor, importcpp: "StepVisual_PresentationView(@)",
     header: "StepVisual_PresentationView.hxx".}
 type
-  StepVisual_PresentationViewbase_type* = StepVisual_PresentationRepresentation
+  StepVisualPresentationViewbaseType* = StepVisualPresentationRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_PresentationView::get_type_name(@)",
-                              header: "StepVisual_PresentationView.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_PresentationView::get_type_name(@)",
+                            header: "StepVisual_PresentationView.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_PresentationView::get_type_descriptor(@)",
     header: "StepVisual_PresentationView.hxx".}
-proc DynamicType*(this: StepVisual_PresentationView): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualPresentationView): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_PresentationView.hxx".}

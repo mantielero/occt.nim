@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../OSD/OSD_Path, ../Poly/Poly_Triangulation, ../Standard/Standard_Macro,
-  ../Message/Message_ProgressScope
-
 ## ! This class provides methods to read and write triangulation from / to the STL files.
 
 type
@@ -26,21 +22,21 @@ type
                                                               ## ! Write ASCII version.
 
 
-proc WriteBinary*(theMesh: handle[Poly_Triangulation]; thePath: OSD_Path;
-                 theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
+proc writeBinary*(theMesh: Handle[PolyTriangulation]; thePath: OSD_Path;
+                 theProgress: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "RWStl::WriteBinary(@)", header: "RWStl.hxx".}
-proc WriteAscii*(theMesh: handle[Poly_Triangulation]; thePath: OSD_Path;
-                theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
+proc writeAscii*(theMesh: Handle[PolyTriangulation]; thePath: OSD_Path;
+                theProgress: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "RWStl::WriteAscii(@)", header: "RWStl.hxx".}
-proc ReadFile*(theFile: OSD_Path;
-              aProgInd: Message_ProgressRange = Message_ProgressRange()): handle[
-    Poly_Triangulation] {.importcpp: "RWStl::ReadFile(@)", header: "RWStl.hxx".}
-proc ReadFile*(theFile: Standard_CString;
-              aProgInd: Message_ProgressRange = Message_ProgressRange()): handle[
-    Poly_Triangulation] {.importcpp: "RWStl::ReadFile(@)", header: "RWStl.hxx".}
-proc ReadBinary*(thePath: OSD_Path;
-                theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
-    Poly_Triangulation] {.importcpp: "RWStl::ReadBinary(@)", header: "RWStl.hxx".}
-proc ReadAscii*(thePath: OSD_Path;
-               theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
-    Poly_Triangulation] {.importcpp: "RWStl::ReadAscii(@)", header: "RWStl.hxx".}
+proc readFile*(theFile: OSD_Path;
+              aProgInd: MessageProgressRange = messageProgressRange()): Handle[
+    PolyTriangulation] {.importcpp: "RWStl::ReadFile(@)", header: "RWStl.hxx".}
+proc readFile*(theFile: StandardCString;
+              aProgInd: MessageProgressRange = messageProgressRange()): Handle[
+    PolyTriangulation] {.importcpp: "RWStl::ReadFile(@)", header: "RWStl.hxx".}
+proc readBinary*(thePath: OSD_Path;
+                theProgress: MessageProgressRange = messageProgressRange()): Handle[
+    PolyTriangulation] {.importcpp: "RWStl::ReadBinary(@)", header: "RWStl.hxx".}
+proc readAscii*(thePath: OSD_Path;
+               theProgress: MessageProgressRange = messageProgressRange()): Handle[
+    PolyTriangulation] {.importcpp: "RWStl::ReadAscii(@)", header: "RWStl.hxx".}

@@ -14,28 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 ## ! BiInt is a set of two integers.
 
 type
-  MAT2d_BiInt* {.importcpp: "MAT2d_BiInt", header: "MAT2d_BiInt.hxx", bycopy.} = object
+  MAT2dBiInt* {.importcpp: "MAT2d_BiInt", header: "MAT2d_BiInt.hxx", bycopy.} = object
 
 
-proc constructMAT2d_BiInt*(I1: Standard_Integer; I2: Standard_Integer): MAT2d_BiInt {.
-    constructor, importcpp: "MAT2d_BiInt(@)", header: "MAT2d_BiInt.hxx".}
-proc FirstIndex*(this: MAT2d_BiInt): Standard_Integer {.noSideEffect,
-    importcpp: "FirstIndex", header: "MAT2d_BiInt.hxx".}
-proc SecondIndex*(this: MAT2d_BiInt): Standard_Integer {.noSideEffect,
-    importcpp: "SecondIndex", header: "MAT2d_BiInt.hxx".}
-proc FirstIndex*(this: var MAT2d_BiInt; I1: Standard_Integer) {.
-    importcpp: "FirstIndex", header: "MAT2d_BiInt.hxx".}
-proc SecondIndex*(this: var MAT2d_BiInt; I2: Standard_Integer) {.
-    importcpp: "SecondIndex", header: "MAT2d_BiInt.hxx".}
-proc IsEqual*(this: MAT2d_BiInt; B: MAT2d_BiInt): Standard_Boolean {.noSideEffect,
+proc constructMAT2dBiInt*(i1: int; i2: int): MAT2dBiInt {.constructor,
+    importcpp: "MAT2d_BiInt(@)", header: "MAT2d_BiInt.hxx".}
+proc firstIndex*(this: MAT2dBiInt): int {.noSideEffect, importcpp: "FirstIndex",
+                                      header: "MAT2d_BiInt.hxx".}
+proc secondIndex*(this: MAT2dBiInt): int {.noSideEffect, importcpp: "SecondIndex",
+                                       header: "MAT2d_BiInt.hxx".}
+proc firstIndex*(this: var MAT2dBiInt; i1: int) {.importcpp: "FirstIndex",
+    header: "MAT2d_BiInt.hxx".}
+proc secondIndex*(this: var MAT2dBiInt; i2: int) {.importcpp: "SecondIndex",
+    header: "MAT2d_BiInt.hxx".}
+proc isEqual*(this: MAT2dBiInt; b: MAT2dBiInt): bool {.noSideEffect,
     importcpp: "IsEqual", header: "MAT2d_BiInt.hxx".}
-proc `==`*(this: MAT2d_BiInt; B: MAT2d_BiInt): Standard_Boolean {.noSideEffect,
+proc `==`*(this: MAT2dBiInt; b: MAT2dBiInt): bool {.noSideEffect,
     importcpp: "(# == #)", header: "MAT2d_BiInt.hxx".}

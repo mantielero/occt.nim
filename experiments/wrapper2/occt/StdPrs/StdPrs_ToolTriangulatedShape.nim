@@ -11,10 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Poly/Poly_Connect, ../Poly/Poly_Triangulation, ../Prs3d/Prs3d_Drawer,
-  ../Standard/Standard, ../Standard/Standard_Macro, ../TColgp/TColgp_Array1OfDir
-
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopLoc_Location"
 discard "forward decl of TopoDS_Shape"
@@ -22,40 +18,57 @@ discard "forward decl of Prs3d_Drawer"
 discard "forward decl of Poly_Triangulation"
 discard "forward decl of Poly_Connect"
 type
-  StdPrs_ToolTriangulatedShape* {.importcpp: "StdPrs_ToolTriangulatedShape",
-                                 header: "StdPrs_ToolTriangulatedShape.hxx",
-                                 bycopy.} = object ## ! Similar to BRepTools::Triangulation() but without extra checks.
-                                                ## ! @return true if all faces within shape are triangulated.
+  StdPrsToolTriangulatedShape* {.importcpp: "StdPrs_ToolTriangulatedShape",
+                                header: "StdPrs_ToolTriangulatedShape.hxx", bycopy.} = object ##
+                                                                                         ## !
+                                                                                         ## Similar
+                                                                                         ## to
+                                                                                         ## BRepTools::Triangulation()
+                                                                                         ## but
+                                                                                         ## without
+                                                                                         ## extra
+                                                                                         ## checks.
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## @return
+                                                                                         ## true
+                                                                                         ## if
+                                                                                         ## all
+                                                                                         ## faces
+                                                                                         ## within
+                                                                                         ## shape
+                                                                                         ## are
+                                                                                         ## triangulated.
 
 
-proc IsTriangulated*(theShape: TopoDS_Shape): Standard_Boolean {.
+proc isTriangulated*(theShape: TopoDS_Shape): bool {.
     importcpp: "StdPrs_ToolTriangulatedShape::IsTriangulated(@)",
     header: "StdPrs_ToolTriangulatedShape.hxx".}
-proc IsClosed*(theShape: TopoDS_Shape): Standard_Boolean {.
+proc isClosed*(theShape: TopoDS_Shape): bool {.
     importcpp: "StdPrs_ToolTriangulatedShape::IsClosed(@)",
     header: "StdPrs_ToolTriangulatedShape.hxx".}
-proc ComputeNormals*(theFace: TopoDS_Face; theTris: handle[Poly_Triangulation]) {.
+proc computeNormals*(theFace: TopoDS_Face; theTris: Handle[PolyTriangulation]) {.
     importcpp: "StdPrs_ToolTriangulatedShape::ComputeNormals(@)",
     header: "StdPrs_ToolTriangulatedShape.hxx".}
-proc ComputeNormals*(theFace: TopoDS_Face; theTris: handle[Poly_Triangulation];
-                    thePolyConnect: var Poly_Connect) {.
+proc computeNormals*(theFace: TopoDS_Face; theTris: Handle[PolyTriangulation];
+                    thePolyConnect: var PolyConnect) {.
     importcpp: "StdPrs_ToolTriangulatedShape::ComputeNormals(@)",
     header: "StdPrs_ToolTriangulatedShape.hxx".}
-proc Normal*(theFace: TopoDS_Face; thePolyConnect: var Poly_Connect;
-            theNormals: var TColgp_Array1OfDir) {.
+proc normal*(theFace: TopoDS_Face; thePolyConnect: var PolyConnect;
+            theNormals: var TColgpArray1OfDir) {.
     importcpp: "StdPrs_ToolTriangulatedShape::Normal(@)",
     header: "StdPrs_ToolTriangulatedShape.hxx".}
-proc GetDeflection*(theShape: TopoDS_Shape; theDrawer: handle[Prs3d_Drawer]): Standard_Real {.
+proc getDeflection*(theShape: TopoDS_Shape; theDrawer: Handle[Prs3dDrawer]): float {.
     importcpp: "StdPrs_ToolTriangulatedShape::GetDeflection(@)",
     header: "StdPrs_ToolTriangulatedShape.hxx".}
-proc IsTessellated*(theShape: TopoDS_Shape; theDrawer: handle[Prs3d_Drawer]): Standard_Boolean {.
+proc isTessellated*(theShape: TopoDS_Shape; theDrawer: Handle[Prs3dDrawer]): bool {.
     importcpp: "StdPrs_ToolTriangulatedShape::IsTessellated(@)",
     header: "StdPrs_ToolTriangulatedShape.hxx".}
-proc Tessellate*(theShape: TopoDS_Shape; theDrawer: handle[Prs3d_Drawer]): Standard_Boolean {.
+proc tessellate*(theShape: TopoDS_Shape; theDrawer: Handle[Prs3dDrawer]): bool {.
     importcpp: "StdPrs_ToolTriangulatedShape::Tessellate(@)",
     header: "StdPrs_ToolTriangulatedShape.hxx".}
-proc ClearOnOwnDeflectionChange*(theShape: TopoDS_Shape;
-                                theDrawer: handle[Prs3d_Drawer];
-                                theToResetCoeff: Standard_Boolean) {.
+proc clearOnOwnDeflectionChange*(theShape: TopoDS_Shape;
+                                theDrawer: Handle[Prs3dDrawer];
+                                theToResetCoeff: bool) {.
     importcpp: "StdPrs_ToolTriangulatedShape::ClearOnOwnDeflectionChange(@)",
     header: "StdPrs_ToolTriangulatedShape.hxx".}

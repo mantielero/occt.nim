@@ -11,22 +11,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StdObject_gp_Vectors, ../gp/gp_Mat2d, ../gp/gp_Mat, ../gp/gp_Trsf2d, ../gp/gp_Trsf
-
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theMat: var gp_Mat2d): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theMat: var Mat2d): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Trsfs.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theMat: gp_Mat2d): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theMat: Mat2d): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Trsfs.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theMat: var gp_Mat): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theMat: var Mat): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Trsfs.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theMat: gp_Mat): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theMat: Mat): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Trsfs.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theTrsf: var gp_Trsf2d): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theTrsf: var Trsf2d): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Trsfs.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theTrsf: gp_Trsf2d): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theTrsf: Trsf2d): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Trsfs.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theTrsf: var gp_Trsf): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theTrsf: var Trsf): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Trsfs.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theTrsf: gp_Trsf): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theTrsf: Trsf): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Trsfs.hxx".}

@@ -13,59 +13,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer, math_Vector
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of math_Function"
 type
-  math_KronrodSingleIntegration* {.importcpp: "math_KronrodSingleIntegration",
-                                  header: "math_KronrodSingleIntegration.hxx",
-                                  bycopy.} = object ## ! An empty constructor.
+  MathKronrodSingleIntegration* {.importcpp: "math_KronrodSingleIntegration",
+                                 header: "math_KronrodSingleIntegration.hxx",
+                                 bycopy.} = object ## ! An empty constructor.
 
 
-proc constructmath_KronrodSingleIntegration*(): math_KronrodSingleIntegration {.
+proc constructMathKronrodSingleIntegration*(): MathKronrodSingleIntegration {.
     constructor, importcpp: "math_KronrodSingleIntegration(@)",
     header: "math_KronrodSingleIntegration.hxx".}
-proc constructmath_KronrodSingleIntegration*(theFunction: var math_Function;
-    theLower: Standard_Real; theUpper: Standard_Real; theNbPnts: Standard_Integer): math_KronrodSingleIntegration {.
+proc constructMathKronrodSingleIntegration*(theFunction: var MathFunction;
+    theLower: float; theUpper: float; theNbPnts: int): MathKronrodSingleIntegration {.
     constructor, importcpp: "math_KronrodSingleIntegration(@)",
     header: "math_KronrodSingleIntegration.hxx".}
-proc constructmath_KronrodSingleIntegration*(theFunction: var math_Function;
-    theLower: Standard_Real; theUpper: Standard_Real; theNbPnts: Standard_Integer;
-    theTolerance: Standard_Real; theMaxNbIter: Standard_Integer): math_KronrodSingleIntegration {.
-    constructor, importcpp: "math_KronrodSingleIntegration(@)",
+proc constructMathKronrodSingleIntegration*(theFunction: var MathFunction;
+    theLower: float; theUpper: float; theNbPnts: int; theTolerance: float;
+    theMaxNbIter: int): MathKronrodSingleIntegration {.constructor,
+    importcpp: "math_KronrodSingleIntegration(@)",
     header: "math_KronrodSingleIntegration.hxx".}
-proc Perform*(this: var math_KronrodSingleIntegration;
-             theFunction: var math_Function; theLower: Standard_Real;
-             theUpper: Standard_Real; theNbPnts: Standard_Integer) {.
-    importcpp: "Perform", header: "math_KronrodSingleIntegration.hxx".}
-proc Perform*(this: var math_KronrodSingleIntegration;
-             theFunction: var math_Function; theLower: Standard_Real;
-             theUpper: Standard_Real; theNbPnts: Standard_Integer;
-             theTolerance: Standard_Real; theMaxNbIter: Standard_Integer) {.
-    importcpp: "Perform", header: "math_KronrodSingleIntegration.hxx".}
-proc IsDone*(this: math_KronrodSingleIntegration): Standard_Boolean {.noSideEffect,
+proc perform*(this: var MathKronrodSingleIntegration; theFunction: var MathFunction;
+             theLower: float; theUpper: float; theNbPnts: int) {.importcpp: "Perform",
+    header: "math_KronrodSingleIntegration.hxx".}
+proc perform*(this: var MathKronrodSingleIntegration; theFunction: var MathFunction;
+             theLower: float; theUpper: float; theNbPnts: int; theTolerance: float;
+             theMaxNbIter: int) {.importcpp: "Perform",
+                                header: "math_KronrodSingleIntegration.hxx".}
+proc isDone*(this: MathKronrodSingleIntegration): bool {.noSideEffect,
     importcpp: "IsDone", header: "math_KronrodSingleIntegration.hxx".}
-proc Value*(this: math_KronrodSingleIntegration): Standard_Real {.noSideEffect,
+proc value*(this: MathKronrodSingleIntegration): float {.noSideEffect,
     importcpp: "Value", header: "math_KronrodSingleIntegration.hxx".}
-proc ErrorReached*(this: math_KronrodSingleIntegration): Standard_Real {.
-    noSideEffect, importcpp: "ErrorReached",
-    header: "math_KronrodSingleIntegration.hxx".}
-proc AbsolutError*(this: math_KronrodSingleIntegration): Standard_Real {.
-    noSideEffect, importcpp: "AbsolutError",
-    header: "math_KronrodSingleIntegration.hxx".}
-proc OrderReached*(this: math_KronrodSingleIntegration): Standard_Integer {.
-    noSideEffect, importcpp: "OrderReached",
-    header: "math_KronrodSingleIntegration.hxx".}
-proc NbIterReached*(this: math_KronrodSingleIntegration): Standard_Integer {.
-    noSideEffect, importcpp: "NbIterReached",
-    header: "math_KronrodSingleIntegration.hxx".}
-proc GKRule*(theFunction: var math_Function; theLower: Standard_Real;
-            theUpper: Standard_Real; theGaussP: math_Vector; theGaussW: math_Vector;
-            theKronrodP: math_Vector; theKronrodW: math_Vector;
-            theValue: var Standard_Real; theError: var Standard_Real): Standard_Boolean {.
+proc errorReached*(this: MathKronrodSingleIntegration): float {.noSideEffect,
+    importcpp: "ErrorReached", header: "math_KronrodSingleIntegration.hxx".}
+proc absolutError*(this: MathKronrodSingleIntegration): float {.noSideEffect,
+    importcpp: "AbsolutError", header: "math_KronrodSingleIntegration.hxx".}
+proc orderReached*(this: MathKronrodSingleIntegration): int {.noSideEffect,
+    importcpp: "OrderReached", header: "math_KronrodSingleIntegration.hxx".}
+proc nbIterReached*(this: MathKronrodSingleIntegration): int {.noSideEffect,
+    importcpp: "NbIterReached", header: "math_KronrodSingleIntegration.hxx".}
+proc gKRule*(theFunction: var MathFunction; theLower: float; theUpper: float;
+            theGaussP: MathVector; theGaussW: MathVector; theKronrodP: MathVector;
+            theKronrodW: MathVector; theValue: var float; theError: var float): bool {.
     importcpp: "math_KronrodSingleIntegration::GKRule(@)",
     header: "math_KronrodSingleIntegration.hxx".}

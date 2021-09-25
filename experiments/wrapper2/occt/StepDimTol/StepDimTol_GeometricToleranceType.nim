@@ -14,13 +14,14 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepDimTol_GeometricToleranceType* {.size: sizeof(cint), importcpp: "StepDimTol_GeometricToleranceType", header: "StepDimTol_GeometricToleranceType.hxx".} = enum
-    StepDimTol_GTTAngularityTolerance, StepDimTol_GTTCircularRunoutTolerance,
-    StepDimTol_GTTCoaxialityTolerance, StepDimTol_GTTConcentricityTolerance,
-    StepDimTol_GTTCylindricityTolerance, StepDimTol_GTTFlatnessTolerance,
-    StepDimTol_GTTLineProfileTolerance, StepDimTol_GTTParallelismTolerance,
-    StepDimTol_GTTPerpendicularityTolerance, StepDimTol_GTTPositionTolerance,
-    StepDimTol_GTTRoundnessTolerance, StepDimTol_GTTStraightnessTolerance,
-    StepDimTol_GTTSurfaceProfileTolerance, StepDimTol_GTTSymmetryTolerance,
-    StepDimTol_GTTTotalRunoutTolerance
+  StepDimTolGeometricToleranceType* {.size: sizeof(cint), importcpp: "StepDimTol_GeometricToleranceType", header: "StepDimTol_GeometricToleranceType.hxx".} = enum
+    StepDimTolGTTAngularityTolerance, StepDimTolGTTCircularRunoutTolerance,
+    StepDimTolGTTCoaxialityTolerance, StepDimTolGTTConcentricityTolerance,
+    StepDimTolGTTCylindricityTolerance, StepDimTolGTTFlatnessTolerance,
+    StepDimTolGTTLineProfileTolerance, StepDimTolGTTParallelismTolerance,
+    StepDimTolGTTPerpendicularityTolerance, StepDimTolGTTPositionTolerance,
+    StepDimTolGTTRoundnessTolerance, StepDimTolGTTStraightnessTolerance,
+    StepDimTolGTTSurfaceProfileTolerance, StepDimTolGTTSymmetryTolerance,
+    StepDimTolGTTTotalRunoutTolerance
+
 

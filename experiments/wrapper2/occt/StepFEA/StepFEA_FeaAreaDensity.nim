@@ -13,15 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  StepFEA_FeaMaterialPropertyRepresentationItem
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepFEA_FeaAreaDensity"
 discard "forward decl of StepFEA_FeaAreaDensity"
 type
-  Handle_StepFEA_FeaAreaDensity* = handle[StepFEA_FeaAreaDensity]
+  HandleStepFEA_FeaAreaDensity* = Handle[StepFEA_FeaAreaDensity]
 
 ## ! Representation of STEP entity FeaAreaDensity
 
@@ -35,21 +31,21 @@ type
 
 proc constructStepFEA_FeaAreaDensity*(): StepFEA_FeaAreaDensity {.constructor,
     importcpp: "StepFEA_FeaAreaDensity(@)", header: "StepFEA_FeaAreaDensity.hxx".}
-proc Init*(this: var StepFEA_FeaAreaDensity;
-          aRepresentationItem_Name: handle[TCollection_HAsciiString];
-          aFeaConstant: Standard_Real) {.importcpp: "Init",
-                                       header: "StepFEA_FeaAreaDensity.hxx".}
-proc FeaConstant*(this: StepFEA_FeaAreaDensity): Standard_Real {.noSideEffect,
+proc init*(this: var StepFEA_FeaAreaDensity;
+          aRepresentationItemName: Handle[TCollectionHAsciiString];
+          aFeaConstant: float) {.importcpp: "Init",
+                               header: "StepFEA_FeaAreaDensity.hxx".}
+proc feaConstant*(this: StepFEA_FeaAreaDensity): float {.noSideEffect,
     importcpp: "FeaConstant", header: "StepFEA_FeaAreaDensity.hxx".}
-proc SetFeaConstant*(this: var StepFEA_FeaAreaDensity; FeaConstant: Standard_Real) {.
+proc setFeaConstant*(this: var StepFEA_FeaAreaDensity; feaConstant: float) {.
     importcpp: "SetFeaConstant", header: "StepFEA_FeaAreaDensity.hxx".}
 type
-  StepFEA_FeaAreaDensitybase_type* = StepFEA_FeaMaterialPropertyRepresentationItem
+  StepFEA_FeaAreaDensitybaseType* = StepFEA_FeaMaterialPropertyRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_FeaAreaDensity::get_type_name(@)",
-                              header: "StepFEA_FeaAreaDensity.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_FeaAreaDensity::get_type_name(@)",
+                            header: "StepFEA_FeaAreaDensity.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_FeaAreaDensity::get_type_descriptor(@)",
     header: "StepFEA_FeaAreaDensity.hxx".}
-proc DynamicType*(this: StepFEA_FeaAreaDensity): handle[Standard_Type] {.
+proc dynamicType*(this: StepFEA_FeaAreaDensity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepFEA_FeaAreaDensity.hxx".}

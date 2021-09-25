@@ -11,17 +11,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../OSD/OSD_Thread, ../Standard/Standard_Condition, ../Standard/Standard_Mutex,
-  ../Standard/Standard_Type
-
 discard "forward decl of Aspect_Window"
 type
-  ViewerTest_ContinuousRedrawer* {.importcpp: "ViewerTest_ContinuousRedrawer",
-                                  header: "ViewerTest_ContinuousRedrawer.hxx",
-                                  bycopy.} = object ## ! Return global instance.
-                                                 ## ! Destructor.
-                                                 ## ! Thread loop.
+  ViewerTestContinuousRedrawer* {.importcpp: "ViewerTest_ContinuousRedrawer",
+                                 header: "ViewerTest_ContinuousRedrawer.hxx",
+                                 bycopy.} = object ## ! Return global instance.
+                                                ## ! Destructor.
+                                                ## ! Thread loop.
     ## !< window to invalidate
     ## !< working thread
     ## !< mutex for accessing common variables
@@ -31,22 +27,21 @@ type
     ## !< flag to put  working thread asleep without stopping
 
 
-proc Instance*(): var ViewerTest_ContinuousRedrawer {.
+proc instance*(): var ViewerTestContinuousRedrawer {.
     importcpp: "ViewerTest_ContinuousRedrawer::Instance(@)",
     header: "ViewerTest_ContinuousRedrawer.hxx".}
-proc destroyViewerTest_ContinuousRedrawer*(
-    this: var ViewerTest_ContinuousRedrawer) {.
+proc destroyViewerTestContinuousRedrawer*(this: var ViewerTestContinuousRedrawer) {.
     importcpp: "#.~ViewerTest_ContinuousRedrawer()",
     header: "ViewerTest_ContinuousRedrawer.hxx".}
-proc IsStarted*(this: ViewerTest_ContinuousRedrawer): bool {.noSideEffect,
+proc isStarted*(this: ViewerTestContinuousRedrawer): bool {.noSideEffect,
     importcpp: "IsStarted", header: "ViewerTest_ContinuousRedrawer.hxx".}
-proc Start*(this: var ViewerTest_ContinuousRedrawer;
-           theWindow: handle[Aspect_Window]; theTargetFps: Standard_Real) {.
-    importcpp: "Start", header: "ViewerTest_ContinuousRedrawer.hxx".}
-proc Stop*(this: var ViewerTest_ContinuousRedrawer;
-          theWindow: handle[Aspect_Window] = nil) {.importcpp: "Stop",
+proc start*(this: var ViewerTestContinuousRedrawer; theWindow: Handle[AspectWindow];
+           theTargetFps: float) {.importcpp: "Start",
+                                header: "ViewerTest_ContinuousRedrawer.hxx".}
+proc stop*(this: var ViewerTestContinuousRedrawer;
+          theWindow: Handle[AspectWindow] = nil) {.importcpp: "Stop",
     header: "ViewerTest_ContinuousRedrawer.hxx".}
-proc IsPaused*(this: ViewerTest_ContinuousRedrawer): bool {.noSideEffect,
+proc isPaused*(this: ViewerTestContinuousRedrawer): bool {.noSideEffect,
     importcpp: "IsPaused", header: "ViewerTest_ContinuousRedrawer.hxx".}
-proc Pause*(this: var ViewerTest_ContinuousRedrawer) {.importcpp: "Pause",
+proc pause*(this: var ViewerTestContinuousRedrawer) {.importcpp: "Pause",
     header: "ViewerTest_ContinuousRedrawer.hxx".}

@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _IntCurveSurface_ThePolyhedronOfHInter_HeaderFile [NewLine] # _IntCurveSurface_ThePolyhedronOfHInter_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Standard/Standard_Integer.hxx [NewLine] # ../Bnd/Bnd_Box.hxx [NewLine] # ../Bnd/Bnd_HArray1OfBox.hxx [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # ../Standard/Standard_Address.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # ../TColStd/TColStd_Array1OfReal.hxx [NewLine] class Standard_OutOfRange ;
+## !!!Ignored construct:  # _IntCurveSurface_ThePolyhedronOfHInter_HeaderFile [NewLine] # _IntCurveSurface_ThePolyhedronOfHInter_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] # < Bnd_Box . hxx > [NewLine] # < Bnd_HArray1OfBox . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] # < Standard_Address . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < TColStd_Array1OfReal . hxx > [NewLine] class Standard_OutOfRange ;
 ## Error: did not expect <!!!
 
 discard "forward decl of Adaptor3d_HSurface"
@@ -23,7 +23,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of Bnd_Box"
 discard "forward decl of gp_XYZ"
 type
-  IntCurveSurface_ThePolyhedronOfHInter* {.
+  IntCurveSurfaceThePolyhedronOfHInter* {.
       importcpp: "IntCurveSurface_ThePolyhedronOfHInter",
       header: "IntCurveSurface_ThePolyhedronOfHInter.hxx", bycopy.} = object ## ! This method computes and returns a
                                                                         ## deflection of isoline
@@ -31,116 +31,104 @@ type
                                                                         ## parameter on Surface.
 
 
-proc constructIntCurveSurface_ThePolyhedronOfHInter*(
-    Surface: handle[Adaptor3d_HSurface]; nbdU: Standard_Integer;
-    nbdV: Standard_Integer; U1: Standard_Real; V1: Standard_Real; U2: Standard_Real;
-    V2: Standard_Real): IntCurveSurface_ThePolyhedronOfHInter {.constructor,
+proc constructIntCurveSurfaceThePolyhedronOfHInter*(
+    surface: Handle[Adaptor3dHSurface]; nbdU: int; nbdV: int; u1: float; v1: float;
+    u2: float; v2: float): IntCurveSurfaceThePolyhedronOfHInter {.constructor,
     importcpp: "IntCurveSurface_ThePolyhedronOfHInter(@)",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc constructIntCurveSurface_ThePolyhedronOfHInter*(
-    Surface: handle[Adaptor3d_HSurface]; Upars: TColStd_Array1OfReal;
-    Vpars: TColStd_Array1OfReal): IntCurveSurface_ThePolyhedronOfHInter {.
+proc constructIntCurveSurfaceThePolyhedronOfHInter*(
+    surface: Handle[Adaptor3dHSurface]; upars: TColStdArray1OfReal;
+    vpars: TColStdArray1OfReal): IntCurveSurfaceThePolyhedronOfHInter {.
     constructor, importcpp: "IntCurveSurface_ThePolyhedronOfHInter(@)",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc Destroy*(this: var IntCurveSurface_ThePolyhedronOfHInter) {.
+proc destroy*(this: var IntCurveSurfaceThePolyhedronOfHInter) {.
     importcpp: "Destroy", header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc destroyIntCurveSurface_ThePolyhedronOfHInter*(
-    this: var IntCurveSurface_ThePolyhedronOfHInter) {.
+proc destroyIntCurveSurfaceThePolyhedronOfHInter*(
+    this: var IntCurveSurfaceThePolyhedronOfHInter) {.
     importcpp: "#.~IntCurveSurface_ThePolyhedronOfHInter()",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc DeflectionOverEstimation*(this: var IntCurveSurface_ThePolyhedronOfHInter;
-                              flec: Standard_Real) {.
+proc deflectionOverEstimation*(this: var IntCurveSurfaceThePolyhedronOfHInter;
+                              flec: float) {.
     importcpp: "DeflectionOverEstimation",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc DeflectionOnTriangle*(this: IntCurveSurface_ThePolyhedronOfHInter;
-                          Surface: handle[Adaptor3d_HSurface];
-                          Index: Standard_Integer): Standard_Real {.noSideEffect,
-    importcpp: "DeflectionOnTriangle",
+proc deflectionOnTriangle*(this: IntCurveSurfaceThePolyhedronOfHInter;
+                          surface: Handle[Adaptor3dHSurface]; index: int): float {.
+    noSideEffect, importcpp: "DeflectionOnTriangle",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc UMinSingularity*(this: var IntCurveSurface_ThePolyhedronOfHInter;
-                     Sing: Standard_Boolean) {.importcpp: "UMinSingularity",
+proc uMinSingularity*(this: var IntCurveSurfaceThePolyhedronOfHInter; sing: bool) {.
+    importcpp: "UMinSingularity",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc UMaxSingularity*(this: var IntCurveSurface_ThePolyhedronOfHInter;
-                     Sing: Standard_Boolean) {.importcpp: "UMaxSingularity",
+proc uMaxSingularity*(this: var IntCurveSurfaceThePolyhedronOfHInter; sing: bool) {.
+    importcpp: "UMaxSingularity",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc VMinSingularity*(this: var IntCurveSurface_ThePolyhedronOfHInter;
-                     Sing: Standard_Boolean) {.importcpp: "VMinSingularity",
+proc vMinSingularity*(this: var IntCurveSurfaceThePolyhedronOfHInter; sing: bool) {.
+    importcpp: "VMinSingularity",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc VMaxSingularity*(this: var IntCurveSurface_ThePolyhedronOfHInter;
-                     Sing: Standard_Boolean) {.importcpp: "VMaxSingularity",
+proc vMaxSingularity*(this: var IntCurveSurfaceThePolyhedronOfHInter; sing: bool) {.
+    importcpp: "VMaxSingularity",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc Size*(this: IntCurveSurface_ThePolyhedronOfHInter; nbdu: var Standard_Integer;
-          nbdv: var Standard_Integer) {.noSideEffect, importcpp: "Size", header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc NbTriangles*(this: IntCurveSurface_ThePolyhedronOfHInter): Standard_Integer {.
-    noSideEffect, importcpp: "NbTriangles",
+proc size*(this: IntCurveSurfaceThePolyhedronOfHInter; nbdu: var int; nbdv: var int) {.
+    noSideEffect, importcpp: "Size",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc Triangle*(this: IntCurveSurface_ThePolyhedronOfHInter;
-              Index: Standard_Integer; P1: var Standard_Integer;
-              P2: var Standard_Integer; P3: var Standard_Integer) {.noSideEffect,
-    importcpp: "Triangle", header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc TriConnex*(this: IntCurveSurface_ThePolyhedronOfHInter;
-               Triang: Standard_Integer; Pivot: Standard_Integer;
-               Pedge: Standard_Integer; TriCon: var Standard_Integer;
-               OtherP: var Standard_Integer): Standard_Integer {.noSideEffect,
+proc nbTriangles*(this: IntCurveSurfaceThePolyhedronOfHInter): int {.noSideEffect,
+    importcpp: "NbTriangles", header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
+proc triangle*(this: IntCurveSurfaceThePolyhedronOfHInter; index: int; p1: var int;
+              p2: var int; p3: var int) {.noSideEffect, importcpp: "Triangle", header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
+proc triConnex*(this: IntCurveSurfaceThePolyhedronOfHInter; triang: int; pivot: int;
+               pedge: int; triCon: var int; otherP: var int): int {.noSideEffect,
     importcpp: "TriConnex", header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc NbPoints*(this: IntCurveSurface_ThePolyhedronOfHInter): Standard_Integer {.
-    noSideEffect, importcpp: "NbPoints",
-    header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc Point*(this: var IntCurveSurface_ThePolyhedronOfHInter; thePnt: gp_Pnt;
-           lig: Standard_Integer; col: Standard_Integer; U: Standard_Real;
-           V: Standard_Real) {.importcpp: "Point", header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc Point*(this: IntCurveSurface_ThePolyhedronOfHInter; Index: Standard_Integer;
-           U: var Standard_Real; V: var Standard_Real): gp_Pnt {.noSideEffect,
-    importcpp: "Point", header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc Point*(this: IntCurveSurface_ThePolyhedronOfHInter; Index: Standard_Integer): gp_Pnt {.
+proc nbPoints*(this: IntCurveSurfaceThePolyhedronOfHInter): int {.noSideEffect,
+    importcpp: "NbPoints", header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
+proc point*(this: var IntCurveSurfaceThePolyhedronOfHInter; thePnt: Pnt; lig: int;
+           col: int; u: float; v: float) {.importcpp: "Point", header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
+proc point*(this: IntCurveSurfaceThePolyhedronOfHInter; index: int; u: var float;
+           v: var float): Pnt {.noSideEffect, importcpp: "Point",
+                            header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
+proc point*(this: IntCurveSurfaceThePolyhedronOfHInter; index: int): Pnt {.
     noSideEffect, importcpp: "Point",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc Point*(this: IntCurveSurface_ThePolyhedronOfHInter; Index: Standard_Integer;
-           P: var gp_Pnt) {.noSideEffect, importcpp: "Point",
-                         header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc Bounding*(this: IntCurveSurface_ThePolyhedronOfHInter): Bnd_Box {.noSideEffect,
+proc point*(this: IntCurveSurfaceThePolyhedronOfHInter; index: int; p: var Pnt) {.
+    noSideEffect, importcpp: "Point",
+    header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
+proc bounding*(this: IntCurveSurfaceThePolyhedronOfHInter): BndBox {.noSideEffect,
     importcpp: "Bounding", header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc FillBounding*(this: var IntCurveSurface_ThePolyhedronOfHInter) {.
+proc fillBounding*(this: var IntCurveSurfaceThePolyhedronOfHInter) {.
     importcpp: "FillBounding", header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc ComponentsBounding*(this: IntCurveSurface_ThePolyhedronOfHInter): handle[
-    Bnd_HArray1OfBox] {.noSideEffect, importcpp: "ComponentsBounding",
-                       header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc DeflectionOverEstimation*(this: IntCurveSurface_ThePolyhedronOfHInter): Standard_Real {.
+proc componentsBounding*(this: IntCurveSurfaceThePolyhedronOfHInter): Handle[
+    BndHArray1OfBox] {.noSideEffect, importcpp: "ComponentsBounding",
+                      header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
+proc deflectionOverEstimation*(this: IntCurveSurfaceThePolyhedronOfHInter): float {.
     noSideEffect, importcpp: "DeflectionOverEstimation",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc HasUMinSingularity*(this: IntCurveSurface_ThePolyhedronOfHInter): Standard_Boolean {.
+proc hasUMinSingularity*(this: IntCurveSurfaceThePolyhedronOfHInter): bool {.
     noSideEffect, importcpp: "HasUMinSingularity",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc HasUMaxSingularity*(this: IntCurveSurface_ThePolyhedronOfHInter): Standard_Boolean {.
+proc hasUMaxSingularity*(this: IntCurveSurfaceThePolyhedronOfHInter): bool {.
     noSideEffect, importcpp: "HasUMaxSingularity",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc HasVMinSingularity*(this: IntCurveSurface_ThePolyhedronOfHInter): Standard_Boolean {.
+proc hasVMinSingularity*(this: IntCurveSurfaceThePolyhedronOfHInter): bool {.
     noSideEffect, importcpp: "HasVMinSingularity",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc HasVMaxSingularity*(this: IntCurveSurface_ThePolyhedronOfHInter): Standard_Boolean {.
+proc hasVMaxSingularity*(this: IntCurveSurfaceThePolyhedronOfHInter): bool {.
     noSideEffect, importcpp: "HasVMaxSingularity",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc PlaneEquation*(this: IntCurveSurface_ThePolyhedronOfHInter;
-                   Triang: Standard_Integer; NormalVector: var gp_XYZ;
-                   PolarDistance: var Standard_Real) {.noSideEffect,
+proc planeEquation*(this: IntCurveSurfaceThePolyhedronOfHInter; triang: int;
+                   normalVector: var Xyz; polarDistance: var float) {.noSideEffect,
     importcpp: "PlaneEquation",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc Contain*(this: IntCurveSurface_ThePolyhedronOfHInter;
-             Triang: Standard_Integer; ThePnt: gp_Pnt): Standard_Boolean {.
+proc contain*(this: IntCurveSurfaceThePolyhedronOfHInter; triang: int; thePnt: Pnt): bool {.
     noSideEffect, importcpp: "Contain",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc Parameters*(this: IntCurveSurface_ThePolyhedronOfHInter;
-                Index: Standard_Integer; U: var Standard_Real; V: var Standard_Real) {.
-    noSideEffect, importcpp: "Parameters",
-    header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc IsOnBound*(this: IntCurveSurface_ThePolyhedronOfHInter;
-               Index1: Standard_Integer; Index2: Standard_Integer): Standard_Boolean {.
+proc parameters*(this: IntCurveSurfaceThePolyhedronOfHInter; index: int;
+                u: var float; v: var float) {.noSideEffect, importcpp: "Parameters", header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
+proc isOnBound*(this: IntCurveSurfaceThePolyhedronOfHInter; index1: int; index2: int): bool {.
     noSideEffect, importcpp: "IsOnBound",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc GetBorderDeflection*(this: IntCurveSurface_ThePolyhedronOfHInter): Standard_Real {.
+proc getBorderDeflection*(this: IntCurveSurfaceThePolyhedronOfHInter): float {.
     noSideEffect, importcpp: "GetBorderDeflection",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc Dump*(this: IntCurveSurface_ThePolyhedronOfHInter) {.noSideEffect,
+proc dump*(this: IntCurveSurfaceThePolyhedronOfHInter) {.noSideEffect,
     importcpp: "Dump", header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-## !!!Ignored construct:  # ThePSurface opencascade :: handle < Adaptor3d_HSurface > [end of template] [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # IntCurveSurface_Polyhedron IntCurveSurface_ThePolyhedronOfHInter [NewLine] # IntCurveSurface_Polyhedron_hxx < IntCurveSurface_ThePolyhedronOfHInter . hxx > [NewLine] # < IntCurveSurface_Polyhedron . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # IntCurveSurface_Polyhedron [NewLine] # IntCurveSurface_Polyhedron_hxx [NewLine] #  _IntCurveSurface_ThePolyhedronOfHInter_HeaderFile [NewLine]
+## !!!Ignored construct:  # ThePSurface opencascade :: handle < Adaptor3d_HSurface > [end of template] [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # IntCurveSurface_Polyhedron IntCurveSurface_ThePolyhedronOfHInter [NewLine] # IntCurveSurface_Polyhedron_hxx < IntCurveSurface_ThePolyhedronOfHInter . hxx > [NewLine] # < IntCurveSurface_Polyhedron . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # IntCurveSurface_Polyhedron [NewLine] # IntCurveSurface_Polyhedron_hxx [NewLine] #  _IntCurveSurface_ThePolyhedronOfHInter_HeaderFile
 ## Error: did not expect <!!!
+

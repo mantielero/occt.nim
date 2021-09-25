@@ -14,11 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TNaming_NamedShape, TNaming_NamedShapeHasher, ../NCollection/NCollection_Map
-
 type
-  TNaming_MapOfNamedShape* = NCollection_Map[handle[TNaming_NamedShape],
-      TNaming_NamedShapeHasher]
-  TNaming_MapIteratorOfMapOfNamedShape* = Iterator[handle[TNaming_NamedShape],
-      TNaming_NamedShapeHasher]
+  TNamingMapOfNamedShape* = NCollectionMap[Handle[TNamingNamedShape],
+      TNamingNamedShapeHasher]
+  TNamingMapIteratorOfMapOfNamedShape* = Iterator[Handle[TNamingNamedShape],
+      TNamingNamedShapeHasher]
+

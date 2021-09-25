@@ -14,41 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Pnt2d, Draw_Color,
-  Draw_MarkerShape, ../Standard/Standard_Integer, Draw_Drawable2D,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean
-
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of Draw_Color"
 discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Marker2D"
 discard "forward decl of Draw_Marker2D"
 type
-  Handle_Draw_Marker2D* = handle[Draw_Marker2D]
-  Draw_Marker2D* {.importcpp: "Draw_Marker2D", header: "Draw_Marker2D.hxx", bycopy.} = object of Draw_Drawable2D
+  HandleDrawMarker2D* = Handle[DrawMarker2D]
+  DrawMarker2D* {.importcpp: "Draw_Marker2D", header: "Draw_Marker2D.hxx", bycopy.} = object of DrawDrawable2D
 
 
-proc constructDraw_Marker2D*(P: gp_Pnt2d; T: Draw_MarkerShape; C: Draw_Color;
-                            Size: Standard_Integer = 5): Draw_Marker2D {.constructor,
-    importcpp: "Draw_Marker2D(@)", header: "Draw_Marker2D.hxx".}
-proc constructDraw_Marker2D*(P: gp_Pnt2d; T: Draw_MarkerShape; C: Draw_Color;
-                            RSize: Standard_Real): Draw_Marker2D {.constructor,
-    importcpp: "Draw_Marker2D(@)", header: "Draw_Marker2D.hxx".}
-proc ChangePos*(this: var Draw_Marker2D): var gp_Pnt2d {.importcpp: "ChangePos",
+proc constructDrawMarker2D*(p: Pnt2d; t: DrawMarkerShape; c: DrawColor; size: int = 5): DrawMarker2D {.
+    constructor, importcpp: "Draw_Marker2D(@)", header: "Draw_Marker2D.hxx".}
+proc constructDrawMarker2D*(p: Pnt2d; t: DrawMarkerShape; c: DrawColor; rSize: float): DrawMarker2D {.
+    constructor, importcpp: "Draw_Marker2D(@)", header: "Draw_Marker2D.hxx".}
+proc changePos*(this: var DrawMarker2D): var Pnt2d {.importcpp: "ChangePos",
     header: "Draw_Marker2D.hxx".}
-proc DrawOn*(this: Draw_Marker2D; dis: var Draw_Display) {.noSideEffect,
+proc drawOn*(this: DrawMarker2D; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "Draw_Marker2D.hxx".}
-proc PickReject*(this: Draw_Marker2D; X: Standard_Real; Y: Standard_Real;
-                Prec: Standard_Real): Standard_Boolean {.noSideEffect,
-    importcpp: "PickReject", header: "Draw_Marker2D.hxx".}
+proc pickReject*(this: DrawMarker2D; x: float; y: float; prec: float): bool {.
+    noSideEffect, importcpp: "PickReject", header: "Draw_Marker2D.hxx".}
 type
-  Draw_Marker2Dbase_type* = Draw_Drawable2D
+  DrawMarker2DbaseType* = DrawDrawable2D
 
-proc get_type_name*(): cstring {.importcpp: "Draw_Marker2D::get_type_name(@)",
-                              header: "Draw_Marker2D.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Draw_Marker2D::get_type_name(@)",
+                            header: "Draw_Marker2D.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Draw_Marker2D::get_type_descriptor(@)",
     header: "Draw_Marker2D.hxx".}
-proc DynamicType*(this: Draw_Marker2D): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: DrawMarker2D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Marker2D.hxx".}

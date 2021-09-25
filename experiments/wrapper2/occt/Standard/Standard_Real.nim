@@ -12,7 +12,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_Real_HeaderFile [NewLine] # _Standard_Real_HeaderFile [NewLine] # < cmath > [NewLine] # < float . h > [NewLine] # < Standard_values . h > [NewLine] # Standard_math.hxx [NewLine] # Standard_TypeDef.hxx [NewLine]  ===============================================
+## !!!Ignored construct:  # _Standard_Real_HeaderFile [NewLine] # _Standard_Real_HeaderFile [NewLine] # < cmath > [NewLine] # < float . h > [NewLine] # < Standard_values . h > [NewLine] # < Standard_math . hxx > [NewLine] # < Standard_TypeDef . hxx > [NewLine]  ===============================================
 ##  Methods from Standard_Entity class which are redefined:
 ##     - Hascode
 ##     - IsEqual
@@ -24,51 +24,43 @@
 ## ! @return a computed hash code, in the range [1, theUpperBound] Standard_Integer HashCode ( Standard_Real theReal , Standard_Integer theUpperBound ) ;
 ## Error: expected ';'!!!
 
-proc ACos*(a1: Standard_Real): Standard_Real {.importcpp: "ACos(@)",
+proc aCos*(a1: float): float {.importcpp: "ACos(@)", header: "Standard_Real.hxx".}
+proc aCosApprox*(a1: float): float {.importcpp: "ACosApprox(@)",
+                                 header: "Standard_Real.hxx".}
+proc aSin*(a1: float): float {.importcpp: "ASin(@)", header: "Standard_Real.hxx".}
+proc aTan2*(a1: float; a2: float): float {.importcpp: "ATan2(@)",
+                                     header: "Standard_Real.hxx".}
+proc nextAfter*(a1: float; a2: float): float {.importcpp: "NextAfter(@)",
     header: "Standard_Real.hxx".}
-proc ACosApprox*(a1: Standard_Real): Standard_Real {.importcpp: "ACosApprox(@)",
-    header: "Standard_Real.hxx".}
-proc ASin*(a1: Standard_Real): Standard_Real {.importcpp: "ASin(@)",
-    header: "Standard_Real.hxx".}
-proc ATan2*(a1: Standard_Real; a2: Standard_Real): Standard_Real {.
-    importcpp: "ATan2(@)", header: "Standard_Real.hxx".}
-proc NextAfter*(a1: Standard_Real; a2: Standard_Real): Standard_Real {.
-    importcpp: "NextAfter(@)", header: "Standard_Real.hxx".}
 ## ! Returns |a| if b >= 0; -|a| if b < 0.
 
-proc Sign*(a: Standard_Real; b: Standard_Real): Standard_Real {.importcpp: "Sign(@)",
-    header: "Standard_Real.hxx".}
-proc ATanh*(a1: Standard_Real): Standard_Real {.importcpp: "ATanh(@)",
-    header: "Standard_Real.hxx".}
-proc ACosh*(a1: Standard_Real): Standard_Real {.importcpp: "ACosh(@)",
-    header: "Standard_Real.hxx".}
-proc Sinh*(a1: Standard_Real): Standard_Real {.importcpp: "Sinh(@)",
-    header: "Standard_Real.hxx".}
-proc Cosh*(a1: Standard_Real): Standard_Real {.importcpp: "Cosh(@)",
-    header: "Standard_Real.hxx".}
-proc Log*(a1: Standard_Real): Standard_Real {.importcpp: "Log(@)",
-    header: "Standard_Real.hxx".}
-proc Sqrt*(a1: Standard_Real): Standard_Real {.importcpp: "Sqrt(@)",
-    header: "Standard_Real.hxx".}
+proc sign*(a: float; b: float): float {.importcpp: "Sign(@)",
+                                  header: "Standard_Real.hxx".}
+proc aTanh*(a1: float): float {.importcpp: "ATanh(@)", header: "Standard_Real.hxx".}
+proc aCosh*(a1: float): float {.importcpp: "ACosh(@)", header: "Standard_Real.hxx".}
+proc sinh*(a1: float): float {.importcpp: "Sinh(@)", header: "Standard_Real.hxx".}
+proc cosh*(a1: float): float {.importcpp: "Cosh(@)", header: "Standard_Real.hxx".}
+proc log*(a1: float): float {.importcpp: "Log(@)", header: "Standard_Real.hxx".}
+proc sqrt*(a1: float): float {.importcpp: "Sqrt(@)", header: "Standard_Real.hxx".}
 ## -------------------------------------------------------------------
 ##  RealSmall : Returns the smallest positive real
 ## -------------------------------------------------------------------
 
-proc RealSmall*(): Standard_Real =
+proc realSmall*(): float =
   discard
 
 ## -------------------------------------------------------------------
 ##  Abs : Returns the absolute value of a real
 ## -------------------------------------------------------------------
 
-proc Abs*(Value: Standard_Real): Standard_Real =
+proc abs*(value: float): float =
   discard
 
 ## -------------------------------------------------------------------
 ##  IsEqual : Returns Standard_True if two reals are equal
 ## -------------------------------------------------------------------
 
-proc IsEqual*(Value1: Standard_Real; Value2: Standard_Real): Standard_Boolean =
+proc isEqual*(value1: float; value2: float): bool =
   discard
 
 ##   *********************************** //
@@ -81,7 +73,7 @@ proc IsEqual*(Value1: Standard_Real; Value2: Standard_Real): Standard_Boolean =
 ##  RealDigit : Returns the number of digits of precision in a real
 ## -------------------------------------------------------------------
 
-proc RealDigits*(): Standard_Integer =
+proc realDigits*(): int =
   discard
 
 ## -------------------------------------------------------------------
@@ -89,14 +81,14 @@ proc RealDigits*(): Standard_Integer =
 ##                1.0 + x is not equal to 1.0
 ## -------------------------------------------------------------------
 
-proc RealEpsilon*(): Standard_Real =
+proc realEpsilon*(): float =
   discard
 
 ## -------------------------------------------------------------------
 ##  RealFirst : Returns the minimum negative value of a real
 ## -------------------------------------------------------------------
 
-proc RealFirst*(): Standard_Real =
+proc realFirst*(): float =
   discard
 
 ## -------------------------------------------------------------------
@@ -104,14 +96,14 @@ proc RealFirst*(): Standard_Real =
 ##                   a real.
 ## -------------------------------------------------------------------
 
-proc RealFirst10Exp*(): Standard_Integer =
+proc realFirst10Exp*(): int =
   discard
 
 ## -------------------------------------------------------------------
 ##  RealLast : Returns the maximum value of a real
 ## -------------------------------------------------------------------
 
-proc RealLast*(): Standard_Real =
+proc realLast*(): float =
   discard
 
 ## -------------------------------------------------------------------
@@ -119,7 +111,7 @@ proc RealLast*(): Standard_Real =
 ##                  a real.
 ## -------------------------------------------------------------------
 
-proc RealLast10Exp*(): Standard_Integer =
+proc realLast10Exp*(): int =
   discard
 
 ## -------------------------------------------------------------------
@@ -127,21 +119,21 @@ proc RealLast10Exp*(): Standard_Integer =
 ##                 real.
 ## -------------------------------------------------------------------
 
-proc RealMantissa*(): Standard_Integer =
+proc realMantissa*(): int =
   discard
 
 ## -------------------------------------------------------------------
 ##  RealRadix : Returns the radix of exponent representation
 ## -------------------------------------------------------------------
 
-proc RealRadix*(): Standard_Integer =
+proc realRadix*(): int =
   discard
 
 ## -------------------------------------------------------------------
 ##  RealSize : Returns the size in bits of an integer
 ## -------------------------------------------------------------------
 
-proc RealSize*(): Standard_Integer =
+proc realSize*(): int =
   discard
 
 ## =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
@@ -151,28 +143,28 @@ proc RealSize*(): Standard_Integer =
 ##  IntToReal : Converts an integer in a real
 ## -------------------------------------------------------------------
 
-proc IntToReal*(Value: Standard_Integer): Standard_Real =
+proc intToReal*(value: int): float =
   discard
 
 ## -------------------------------------------------------------------
 ##  ATan : Returns the value of the arc tangent of a real
 ## -------------------------------------------------------------------
 
-proc ATan*(Value: Standard_Real): Standard_Real =
+proc aTan*(value: float): float =
   discard
 
 ## -------------------------------------------------------------------
 ##  Ceiling : Returns the smallest integer not less than a real
 ## -------------------------------------------------------------------
 
-proc Ceiling*(Value: Standard_Real): Standard_Real =
+proc ceiling*(value: float): float =
   discard
 
 ## -------------------------------------------------------------------
 ##  Cos : Returns the cosine of a real
 ## -------------------------------------------------------------------
 
-proc Cos*(Value: Standard_Real): Standard_Real =
+proc cos*(value: float): float =
   discard
 
 ## -------------------------------------------------------------------
@@ -185,63 +177,63 @@ proc Cos*(Value: Standard_Real): Standard_Real =
 ##            of Standard_Real type.
 ## -------------------------------------------------------------------
 
-proc Epsilon*(Value: Standard_Real): Standard_Real =
+proc epsilon*(value: float): float =
   discard
 
 ## -------------------------------------------------------------------
 ##  Exp : Returns the exponential function of a real
 ## -------------------------------------------------------------------
 
-proc Exp*(Value: Standard_Real): Standard_Real =
+proc exp*(value: float): float =
   discard
 
 ## -------------------------------------------------------------------
 ##  Floor : Return the largest integer not greater than a real
 ## -------------------------------------------------------------------
 
-proc Floor*(Value: Standard_Real): Standard_Real =
+proc floor*(value: float): float =
   discard
 
 ## -------------------------------------------------------------------
 ##  IntegerPart : Returns the integer part of a real
 ## -------------------------------------------------------------------
 
-proc IntegerPart*(Value: Standard_Real): Standard_Real =
+proc integerPart*(value: float): float =
   discard
 
 ## -------------------------------------------------------------------
 ##  Log10 : Returns the base-10 logarithm of a real
 ## -------------------------------------------------------------------
 
-proc Log10*(Value: Standard_Real): Standard_Real =
+proc log10*(value: float): float =
   discard
 
 ## -------------------------------------------------------------------
 ##  Max : Returns the maximum value of two reals
 ## -------------------------------------------------------------------
 
-proc Max*(Val1: Standard_Real; Val2: Standard_Real): Standard_Real =
+proc max*(val1: float; val2: float): float =
   discard
 
 ## -------------------------------------------------------------------
 ##  Min : Returns the minimum value of two reals
 ## -------------------------------------------------------------------
 
-proc Min*(Val1: Standard_Real; Val2: Standard_Real): Standard_Real =
+proc min*(val1: float; val2: float): float =
   discard
 
 ## -------------------------------------------------------------------
 ##  Pow : Returns a real to a given power
 ## -------------------------------------------------------------------
 
-proc Pow*(Value: Standard_Real; P: Standard_Real): Standard_Real =
+proc pow*(value: float; p: float): float =
   discard
 
 ## -------------------------------------------------------------------
 ##  RealPart : Returns the fractional part of a real.
 ## -------------------------------------------------------------------
 
-proc RealPart*(Value: Standard_Real): Standard_Real =
+proc realPart*(value: float): float =
   discard
 
 ## -------------------------------------------------------------------
@@ -250,7 +242,7 @@ proc RealPart*(Value: Standard_Real): Standard_Real =
 ##              minimal or maximal possible integer is returned.
 ## -------------------------------------------------------------------
 
-proc RealToInt*(Value: Standard_Real): Standard_Integer =
+proc realToInt*(value: float): int =
   discard
 
 ##  =======================================================================
@@ -261,21 +253,21 @@ proc RealToInt*(Value: Standard_Real): Standard_Integer =
 ##             Standard_ShortReal is returned.
 ##  =======================================================================
 
-proc RealToShortReal*(theVal: Standard_Real): Standard_ShortReal =
+proc realToShortReal*(theVal: float): StandardShortReal =
   discard
 
 ## -------------------------------------------------------------------
 ##  Round : Returns the nearest integer of a real
 ## -------------------------------------------------------------------
 
-proc Round*(Value: Standard_Real): Standard_Real =
+proc round*(value: float): float =
   discard
 
 ## -------------------------------------------------------------------
 ##  Sin : Returns the sine of a real
 ## -------------------------------------------------------------------
 
-proc Sin*(Value: Standard_Real): Standard_Real =
+proc sin*(value: float): float =
   discard
 
 ## -------------------------------------------------------------------
@@ -290,3 +282,4 @@ proc Sin*(Value: Standard_Real): Standard_Real =
 ##  Tanh : Returns the hyperbolic tangent of a real
 ## ------------------------------------------------------------------- inline Standard_Real Tanh ( const Standard_Real Value ) { return tanh ( Value ) ; } # [NewLine]
 ## Error: expected ';'!!!
+

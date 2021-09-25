@@ -14,39 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../BRepClass/BRepClass_FaceExplorer,
-  ../BRepTopAdaptor/BRepTopAdaptor_SeqOfPtr,
-  ../TColStd/TColStd_SequenceOfInteger, ../Standard/Standard_Real,
-  ../TopoDS/TopoDS_Face, ../Standard/Standard_Boolean, ../TopAbs/TopAbs_State
-
 discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Pnt2d"
 type
-  IntTools_FClass2d* {.importcpp: "IntTools_FClass2d",
-                      header: "IntTools_FClass2d.hxx", bycopy.} = object ## ! Empty constructor
+  IntToolsFClass2d* {.importcpp: "IntTools_FClass2d",
+                     header: "IntTools_FClass2d.hxx", bycopy.} = object ## ! Empty constructor
 
 
-proc constructIntTools_FClass2d*(): IntTools_FClass2d {.constructor,
+proc constructIntToolsFClass2d*(): IntToolsFClass2d {.constructor,
     importcpp: "IntTools_FClass2d(@)", header: "IntTools_FClass2d.hxx".}
-proc constructIntTools_FClass2d*(F: TopoDS_Face; Tol: Standard_Real): IntTools_FClass2d {.
+proc constructIntToolsFClass2d*(f: TopoDS_Face; tol: float): IntToolsFClass2d {.
     constructor, importcpp: "IntTools_FClass2d(@)", header: "IntTools_FClass2d.hxx".}
-proc Init*(this: var IntTools_FClass2d; F: TopoDS_Face; Tol: Standard_Real) {.
-    importcpp: "Init", header: "IntTools_FClass2d.hxx".}
-proc PerformInfinitePoint*(this: IntTools_FClass2d): TopAbs_State {.noSideEffect,
-    importcpp: "PerformInfinitePoint", header: "IntTools_FClass2d.hxx".}
-proc Perform*(this: IntTools_FClass2d; Puv: gp_Pnt2d;
-             RecadreOnPeriodic: Standard_Boolean = Standard_True): TopAbs_State {.
-    noSideEffect, importcpp: "Perform", header: "IntTools_FClass2d.hxx".}
-proc Destroy*(this: var IntTools_FClass2d) {.importcpp: "Destroy",
+proc init*(this: var IntToolsFClass2d; f: TopoDS_Face; tol: float) {.importcpp: "Init",
     header: "IntTools_FClass2d.hxx".}
-proc destroyIntTools_FClass2d*(this: var IntTools_FClass2d) {.
+proc performInfinitePoint*(this: IntToolsFClass2d): TopAbsState {.noSideEffect,
+    importcpp: "PerformInfinitePoint", header: "IntTools_FClass2d.hxx".}
+proc perform*(this: IntToolsFClass2d; puv: Pnt2d; recadreOnPeriodic: bool = true): TopAbsState {.
+    noSideEffect, importcpp: "Perform", header: "IntTools_FClass2d.hxx".}
+proc destroy*(this: var IntToolsFClass2d) {.importcpp: "Destroy",
+                                        header: "IntTools_FClass2d.hxx".}
+proc destroyIntToolsFClass2d*(this: var IntToolsFClass2d) {.
     importcpp: "#.~IntTools_FClass2d()", header: "IntTools_FClass2d.hxx".}
-proc TestOnRestriction*(this: IntTools_FClass2d; Puv: gp_Pnt2d; Tol: Standard_Real;
-                       RecadreOnPeriodic: Standard_Boolean = Standard_True): TopAbs_State {.
-    noSideEffect, importcpp: "TestOnRestriction", header: "IntTools_FClass2d.hxx".}
-proc IsHole*(this: IntTools_FClass2d): Standard_Boolean {.noSideEffect,
-    importcpp: "IsHole", header: "IntTools_FClass2d.hxx".}
+proc testOnRestriction*(this: IntToolsFClass2d; puv: Pnt2d; tol: float;
+                       recadreOnPeriodic: bool = true): TopAbsState {.noSideEffect,
+    importcpp: "TestOnRestriction", header: "IntTools_FClass2d.hxx".}
+proc isHole*(this: IntToolsFClass2d): bool {.noSideEffect, importcpp: "IsHole",
+    header: "IntTools_FClass2d.hxx".}
 ## !!!Ignored construct:  # _MSC_VER [NewLine] # _MSC_VER < 1600 [NewLine] mutable std :: auto_ptr < BRepClass_FaceExplorer > myFExplorer ;
 ## Error: identifier expected, but got: #!!!
+

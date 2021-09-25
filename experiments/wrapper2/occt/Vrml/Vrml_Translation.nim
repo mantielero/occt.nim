@@ -14,23 +14,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Vec, ../Standard/Standard_OStream
-
 discard "forward decl of gp_Vec"
 type
-  Vrml_Translation* {.importcpp: "Vrml_Translation",
-                     header: "Vrml_Translation.hxx", bycopy.} = object
+  VrmlTranslation* {.importcpp: "Vrml_Translation", header: "Vrml_Translation.hxx",
+                    bycopy.} = object
 
 
-proc constructVrml_Translation*(): Vrml_Translation {.constructor,
+proc constructVrmlTranslation*(): VrmlTranslation {.constructor,
     importcpp: "Vrml_Translation(@)", header: "Vrml_Translation.hxx".}
-proc constructVrml_Translation*(aTranslation: gp_Vec): Vrml_Translation {.
-    constructor, importcpp: "Vrml_Translation(@)", header: "Vrml_Translation.hxx".}
-proc SetTranslation*(this: var Vrml_Translation; aTranslation: gp_Vec) {.
+proc constructVrmlTranslation*(aTranslation: Vec): VrmlTranslation {.constructor,
+    importcpp: "Vrml_Translation(@)", header: "Vrml_Translation.hxx".}
+proc setTranslation*(this: var VrmlTranslation; aTranslation: Vec) {.
     importcpp: "SetTranslation", header: "Vrml_Translation.hxx".}
-proc Translation*(this: Vrml_Translation): gp_Vec {.noSideEffect,
+proc translation*(this: VrmlTranslation): Vec {.noSideEffect,
     importcpp: "Translation", header: "Vrml_Translation.hxx".}
-proc Print*(this: Vrml_Translation; anOStream: var Standard_OStream): var Standard_OStream {.
+proc print*(this: VrmlTranslation; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Translation.hxx".}

@@ -14,43 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Vec, Vrml_SFRotation,
-  ../Standard/Standard_Real, ../Standard/Standard_OStream
-
 discard "forward decl of gp_Vec"
 discard "forward decl of Vrml_SFRotation"
 type
-  Vrml_OrthographicCamera* {.importcpp: "Vrml_OrthographicCamera",
-                            header: "Vrml_OrthographicCamera.hxx", bycopy.} = object
+  VrmlOrthographicCamera* {.importcpp: "Vrml_OrthographicCamera",
+                           header: "Vrml_OrthographicCamera.hxx", bycopy.} = object
 
 
-proc constructVrml_OrthographicCamera*(): Vrml_OrthographicCamera {.constructor,
+proc constructVrmlOrthographicCamera*(): VrmlOrthographicCamera {.constructor,
     importcpp: "Vrml_OrthographicCamera(@)", header: "Vrml_OrthographicCamera.hxx".}
-proc constructVrml_OrthographicCamera*(aPosition: gp_Vec;
-                                      aOrientation: Vrml_SFRotation;
-                                      aFocalDistance: Standard_Real;
-                                      aHeight: Standard_Real): Vrml_OrthographicCamera {.
+proc constructVrmlOrthographicCamera*(aPosition: Vec; aOrientation: VrmlSFRotation;
+                                     aFocalDistance: float; aHeight: float): VrmlOrthographicCamera {.
     constructor, importcpp: "Vrml_OrthographicCamera(@)",
     header: "Vrml_OrthographicCamera.hxx".}
-proc SetPosition*(this: var Vrml_OrthographicCamera; aPosition: gp_Vec) {.
+proc setPosition*(this: var VrmlOrthographicCamera; aPosition: Vec) {.
     importcpp: "SetPosition", header: "Vrml_OrthographicCamera.hxx".}
-proc Position*(this: Vrml_OrthographicCamera): gp_Vec {.noSideEffect,
+proc position*(this: VrmlOrthographicCamera): Vec {.noSideEffect,
     importcpp: "Position", header: "Vrml_OrthographicCamera.hxx".}
-proc SetOrientation*(this: var Vrml_OrthographicCamera;
-                    aOrientation: Vrml_SFRotation) {.importcpp: "SetOrientation",
-    header: "Vrml_OrthographicCamera.hxx".}
-proc Orientation*(this: Vrml_OrthographicCamera): Vrml_SFRotation {.noSideEffect,
+proc setOrientation*(this: var VrmlOrthographicCamera; aOrientation: VrmlSFRotation) {.
+    importcpp: "SetOrientation", header: "Vrml_OrthographicCamera.hxx".}
+proc orientation*(this: VrmlOrthographicCamera): VrmlSFRotation {.noSideEffect,
     importcpp: "Orientation", header: "Vrml_OrthographicCamera.hxx".}
-proc SetFocalDistance*(this: var Vrml_OrthographicCamera;
-                      aFocalDistance: Standard_Real) {.
+proc setFocalDistance*(this: var VrmlOrthographicCamera; aFocalDistance: float) {.
     importcpp: "SetFocalDistance", header: "Vrml_OrthographicCamera.hxx".}
-proc FocalDistance*(this: Vrml_OrthographicCamera): Standard_Real {.noSideEffect,
+proc focalDistance*(this: VrmlOrthographicCamera): float {.noSideEffect,
     importcpp: "FocalDistance", header: "Vrml_OrthographicCamera.hxx".}
-proc SetHeight*(this: var Vrml_OrthographicCamera; aHeight: Standard_Real) {.
+proc setHeight*(this: var VrmlOrthographicCamera; aHeight: float) {.
     importcpp: "SetHeight", header: "Vrml_OrthographicCamera.hxx".}
-proc Height*(this: Vrml_OrthographicCamera): Standard_Real {.noSideEffect,
+proc height*(this: VrmlOrthographicCamera): float {.noSideEffect,
     importcpp: "Height", header: "Vrml_OrthographicCamera.hxx".}
-proc Print*(this: Vrml_OrthographicCamera; anOStream: var Standard_OStream): var Standard_OStream {.
+proc print*(this: VrmlOrthographicCamera; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_OrthographicCamera.hxx".}

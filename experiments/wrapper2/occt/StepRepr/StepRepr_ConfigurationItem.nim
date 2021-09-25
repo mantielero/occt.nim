@@ -14,78 +14,71 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_ProductConcept"
 discard "forward decl of StepRepr_ConfigurationItem"
 discard "forward decl of StepRepr_ConfigurationItem"
 type
-  Handle_StepRepr_ConfigurationItem* = handle[StepRepr_ConfigurationItem]
+  HandleStepReprConfigurationItem* = Handle[StepReprConfigurationItem]
 
 ## ! Representation of STEP entity ConfigurationItem
 
 type
-  StepRepr_ConfigurationItem* {.importcpp: "StepRepr_ConfigurationItem",
-                               header: "StepRepr_ConfigurationItem.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                          ## !
-                                                                                                          ## Empty
-                                                                                                          ## constructor
+  StepReprConfigurationItem* {.importcpp: "StepRepr_ConfigurationItem",
+                              header: "StepRepr_ConfigurationItem.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                        ## !
+                                                                                                        ## Empty
+                                                                                                        ## constructor
 
 
-proc constructStepRepr_ConfigurationItem*(): StepRepr_ConfigurationItem {.
+proc constructStepReprConfigurationItem*(): StepReprConfigurationItem {.
     constructor, importcpp: "StepRepr_ConfigurationItem(@)",
     header: "StepRepr_ConfigurationItem.hxx".}
-proc Init*(this: var StepRepr_ConfigurationItem;
-          aId: handle[TCollection_HAsciiString];
-          aName: handle[TCollection_HAsciiString];
-          hasDescription: Standard_Boolean;
-          aDescription: handle[TCollection_HAsciiString];
-          aItemConcept: handle[StepRepr_ProductConcept];
-          hasPurpose: Standard_Boolean; aPurpose: handle[TCollection_HAsciiString]) {.
-    importcpp: "Init", header: "StepRepr_ConfigurationItem.hxx".}
-proc Id*(this: StepRepr_ConfigurationItem): handle[TCollection_HAsciiString] {.
+proc init*(this: var StepReprConfigurationItem;
+          aId: Handle[TCollectionHAsciiString];
+          aName: Handle[TCollectionHAsciiString]; hasDescription: bool;
+          aDescription: Handle[TCollectionHAsciiString];
+          aItemConcept: Handle[StepReprProductConcept]; hasPurpose: bool;
+          aPurpose: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
+    header: "StepRepr_ConfigurationItem.hxx".}
+proc id*(this: StepReprConfigurationItem): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Id", header: "StepRepr_ConfigurationItem.hxx".}
-proc SetId*(this: var StepRepr_ConfigurationItem;
-           Id: handle[TCollection_HAsciiString]) {.importcpp: "SetId",
-    header: "StepRepr_ConfigurationItem.hxx".}
-proc Name*(this: StepRepr_ConfigurationItem): handle[TCollection_HAsciiString] {.
+proc setId*(this: var StepReprConfigurationItem; id: Handle[TCollectionHAsciiString]) {.
+    importcpp: "SetId", header: "StepRepr_ConfigurationItem.hxx".}
+proc name*(this: StepReprConfigurationItem): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepRepr_ConfigurationItem.hxx".}
-proc SetName*(this: var StepRepr_ConfigurationItem;
-             Name: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepReprConfigurationItem;
+             name: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepRepr_ConfigurationItem.hxx".}
-proc Description*(this: StepRepr_ConfigurationItem): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description",
-                               header: "StepRepr_ConfigurationItem.hxx".}
-proc SetDescription*(this: var StepRepr_ConfigurationItem;
-                    Description: handle[TCollection_HAsciiString]) {.
+proc description*(this: StepReprConfigurationItem): Handle[TCollectionHAsciiString] {.
+    noSideEffect, importcpp: "Description",
+    header: "StepRepr_ConfigurationItem.hxx".}
+proc setDescription*(this: var StepReprConfigurationItem;
+                    description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepRepr_ConfigurationItem.hxx".}
-proc HasDescription*(this: StepRepr_ConfigurationItem): Standard_Boolean {.
-    noSideEffect, importcpp: "HasDescription",
-    header: "StepRepr_ConfigurationItem.hxx".}
-proc ItemConcept*(this: StepRepr_ConfigurationItem): handle[StepRepr_ProductConcept] {.
+proc hasDescription*(this: StepReprConfigurationItem): bool {.noSideEffect,
+    importcpp: "HasDescription", header: "StepRepr_ConfigurationItem.hxx".}
+proc itemConcept*(this: StepReprConfigurationItem): Handle[StepReprProductConcept] {.
     noSideEffect, importcpp: "ItemConcept",
     header: "StepRepr_ConfigurationItem.hxx".}
-proc SetItemConcept*(this: var StepRepr_ConfigurationItem;
-                    ItemConcept: handle[StepRepr_ProductConcept]) {.
+proc setItemConcept*(this: var StepReprConfigurationItem;
+                    itemConcept: Handle[StepReprProductConcept]) {.
     importcpp: "SetItemConcept", header: "StepRepr_ConfigurationItem.hxx".}
-proc Purpose*(this: StepRepr_ConfigurationItem): handle[TCollection_HAsciiString] {.
+proc purpose*(this: StepReprConfigurationItem): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Purpose", header: "StepRepr_ConfigurationItem.hxx".}
-proc SetPurpose*(this: var StepRepr_ConfigurationItem;
-                Purpose: handle[TCollection_HAsciiString]) {.
+proc setPurpose*(this: var StepReprConfigurationItem;
+                purpose: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetPurpose", header: "StepRepr_ConfigurationItem.hxx".}
-proc HasPurpose*(this: StepRepr_ConfigurationItem): Standard_Boolean {.noSideEffect,
+proc hasPurpose*(this: StepReprConfigurationItem): bool {.noSideEffect,
     importcpp: "HasPurpose", header: "StepRepr_ConfigurationItem.hxx".}
 type
-  StepRepr_ConfigurationItembase_type* = Standard_Transient
+  StepReprConfigurationItembaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_ConfigurationItem::get_type_name(@)",
-                              header: "StepRepr_ConfigurationItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_ConfigurationItem::get_type_name(@)",
+                            header: "StepRepr_ConfigurationItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_ConfigurationItem::get_type_descriptor(@)",
     header: "StepRepr_ConfigurationItem.hxx".}
-proc DynamicType*(this: StepRepr_ConfigurationItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprConfigurationItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_ConfigurationItem.hxx".}

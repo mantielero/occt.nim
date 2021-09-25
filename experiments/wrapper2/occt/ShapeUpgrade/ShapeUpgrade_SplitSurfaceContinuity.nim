@@ -14,16 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../GeomAbs/GeomAbs_Shape,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer,
-  ShapeUpgrade_SplitSurface, ../Standard/Standard_Boolean
-
 discard "forward decl of ShapeUpgrade_SplitSurfaceContinuity"
 discard "forward decl of ShapeUpgrade_SplitSurfaceContinuity"
 type
-  Handle_ShapeUpgrade_SplitSurfaceContinuity* = handle[
-      ShapeUpgrade_SplitSurfaceContinuity]
+  HandleShapeUpgradeSplitSurfaceContinuity* = Handle[
+      ShapeUpgradeSplitSurfaceContinuity]
 
 ## ! Splits a Surface with a continuity criterion.
 ## ! At the present moment C1 criterion is used only.
@@ -32,31 +27,31 @@ type
 ## ! otherwise it is spltted at that knot.
 
 type
-  ShapeUpgrade_SplitSurfaceContinuity* {.importcpp: "ShapeUpgrade_SplitSurfaceContinuity", header: "ShapeUpgrade_SplitSurfaceContinuity.hxx",
-                                        bycopy.} = object of ShapeUpgrade_SplitSurface ##
-                                                                                  ## !
-                                                                                  ## Empty
-                                                                                  ## constructor.
+  ShapeUpgradeSplitSurfaceContinuity* {.importcpp: "ShapeUpgrade_SplitSurfaceContinuity", header: "ShapeUpgrade_SplitSurfaceContinuity.hxx",
+                                       bycopy.} = object of ShapeUpgradeSplitSurface ##
+                                                                                ## !
+                                                                                ## Empty
+                                                                                ## constructor.
 
 
-proc constructShapeUpgrade_SplitSurfaceContinuity*(): ShapeUpgrade_SplitSurfaceContinuity {.
+proc constructShapeUpgradeSplitSurfaceContinuity*(): ShapeUpgradeSplitSurfaceContinuity {.
     constructor, importcpp: "ShapeUpgrade_SplitSurfaceContinuity(@)",
     header: "ShapeUpgrade_SplitSurfaceContinuity.hxx".}
-proc SetCriterion*(this: var ShapeUpgrade_SplitSurfaceContinuity;
-                  Criterion: GeomAbs_Shape) {.importcpp: "SetCriterion",
+proc setCriterion*(this: var ShapeUpgradeSplitSurfaceContinuity;
+                  criterion: GeomAbsShape) {.importcpp: "SetCriterion",
     header: "ShapeUpgrade_SplitSurfaceContinuity.hxx".}
-proc SetTolerance*(this: var ShapeUpgrade_SplitSurfaceContinuity; Tol: Standard_Real) {.
+proc setTolerance*(this: var ShapeUpgradeSplitSurfaceContinuity; tol: float) {.
     importcpp: "SetTolerance", header: "ShapeUpgrade_SplitSurfaceContinuity.hxx".}
-proc Compute*(this: var ShapeUpgrade_SplitSurfaceContinuity;
-             Segment: Standard_Boolean) {.importcpp: "Compute", header: "ShapeUpgrade_SplitSurfaceContinuity.hxx".}
+proc compute*(this: var ShapeUpgradeSplitSurfaceContinuity; segment: bool) {.
+    importcpp: "Compute", header: "ShapeUpgrade_SplitSurfaceContinuity.hxx".}
 type
-  ShapeUpgrade_SplitSurfaceContinuitybase_type* = ShapeUpgrade_SplitSurface
+  ShapeUpgradeSplitSurfaceContinuitybaseType* = ShapeUpgradeSplitSurface
 
-proc get_type_name*(): cstring {.importcpp: "ShapeUpgrade_SplitSurfaceContinuity::get_type_name(@)",
-                              header: "ShapeUpgrade_SplitSurfaceContinuity.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeUpgrade_SplitSurfaceContinuity::get_type_name(@)",
+                            header: "ShapeUpgrade_SplitSurfaceContinuity.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeUpgrade_SplitSurfaceContinuity::get_type_descriptor(@)",
     header: "ShapeUpgrade_SplitSurfaceContinuity.hxx".}
-proc DynamicType*(this: ShapeUpgrade_SplitSurfaceContinuity): handle[Standard_Type] {.
+proc dynamicType*(this: ShapeUpgradeSplitSurfaceContinuity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_SplitSurfaceContinuity.hxx".}

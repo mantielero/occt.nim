@@ -11,40 +11,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepElement_VolumeElementPurposeMember,
-  StepElement_Array1OfVolumeElementPurposeMember,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepElement_HArray1OfVolumeElementPurposeMember* {.
+  StepElementHArray1OfVolumeElementPurposeMember* {.
       importcpp: "StepElement_HArray1OfVolumeElementPurposeMember",
-      header: "StepElement_HArray1OfVolumeElementPurposeMember.hxx", bycopy.} = object of StepElement_Array1OfVolumeElementPurposeMember
+      header: "StepElement_HArray1OfVolumeElementPurposeMember.hxx", bycopy.} = object of StepElementArray1OfVolumeElementPurposeMember
 
 
-proc constructStepElement_HArray1OfVolumeElementPurposeMember*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepElement_HArray1OfVolumeElementPurposeMember {.
+proc constructStepElementHArray1OfVolumeElementPurposeMember*(theLower: int;
+    theUpper: int): StepElementHArray1OfVolumeElementPurposeMember {.constructor,
+    importcpp: "StepElement_HArray1OfVolumeElementPurposeMember(@)",
+    header: "StepElement_HArray1OfVolumeElementPurposeMember.hxx".}
+proc constructStepElementHArray1OfVolumeElementPurposeMember*(theLower: int;
+    theUpper: int; theValue: ValueType): StepElementHArray1OfVolumeElementPurposeMember {.
     constructor, importcpp: "StepElement_HArray1OfVolumeElementPurposeMember(@)",
     header: "StepElement_HArray1OfVolumeElementPurposeMember.hxx".}
-proc constructStepElement_HArray1OfVolumeElementPurposeMember*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepElement_HArray1OfVolumeElementPurposeMember {.
+proc constructStepElementHArray1OfVolumeElementPurposeMember*(
+    theOther: StepElementArray1OfVolumeElementPurposeMember): StepElementHArray1OfVolumeElementPurposeMember {.
     constructor, importcpp: "StepElement_HArray1OfVolumeElementPurposeMember(@)",
     header: "StepElement_HArray1OfVolumeElementPurposeMember.hxx".}
-proc constructStepElement_HArray1OfVolumeElementPurposeMember*(
-    theOther: StepElement_Array1OfVolumeElementPurposeMember): StepElement_HArray1OfVolumeElementPurposeMember {.
-    constructor, importcpp: "StepElement_HArray1OfVolumeElementPurposeMember(@)",
-    header: "StepElement_HArray1OfVolumeElementPurposeMember.hxx".}
-proc Array1*(this: StepElement_HArray1OfVolumeElementPurposeMember): StepElement_Array1OfVolumeElementPurposeMember {.
+proc array1*(this: StepElementHArray1OfVolumeElementPurposeMember): StepElementArray1OfVolumeElementPurposeMember {.
     noSideEffect, importcpp: "Array1",
     header: "StepElement_HArray1OfVolumeElementPurposeMember.hxx".}
-proc ChangeArray1*(this: var StepElement_HArray1OfVolumeElementPurposeMember): var StepElement_Array1OfVolumeElementPurposeMember {.
+proc changeArray1*(this: var StepElementHArray1OfVolumeElementPurposeMember): var StepElementArray1OfVolumeElementPurposeMember {.
     importcpp: "ChangeArray1",
     header: "StepElement_HArray1OfVolumeElementPurposeMember.hxx".}
 type
-  StepElement_HArray1OfVolumeElementPurposeMemberbase_type* = MMgt_TShared
+  StepElementHArray1OfVolumeElementPurposeMemberbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepElement_HArray1OfVolumeElementPurposeMember::get_type_name(@)", header: "StepElement_HArray1OfVolumeElementPurposeMember.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepElement_HArray1OfVolumeElementPurposeMember::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepElement_HArray1OfVolumeElementPurposeMember::get_type_name(@)", header: "StepElement_HArray1OfVolumeElementPurposeMember.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_HArray1OfVolumeElementPurposeMember::get_type_descriptor(@)",
     header: "StepElement_HArray1OfVolumeElementPurposeMember.hxx".}
-proc DynamicType*(this: StepElement_HArray1OfVolumeElementPurposeMember): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepElement_HArray1OfVolumeElementPurposeMember.hxx".}
+proc dynamicType*(this: StepElementHArray1OfVolumeElementPurposeMember): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepElement_HArray1OfVolumeElementPurposeMember.hxx".}

@@ -11,13 +11,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Vec2, ../Standard/Standard_TypeDef
-
 type
-  Graphic3d_Vec2* = NCollection_Vec2[Standard_ShortReal]
-  Graphic3d_Vec2d* = NCollection_Vec2[Standard_Real]
-  Graphic3d_Vec2i* = NCollection_Vec2[Standard_Integer]
-  Graphic3d_Vec2u* = NCollection_Vec2[cuint]
-  Graphic3d_Vec2ub* = NCollection_Vec2[Standard_Byte]
-  Graphic3d_Vec2b* = NCollection_Vec2[Standard_Character]
+  Graphic3dVec2* = NCollectionVec2[StandardShortReal]
+  Graphic3dVec2d* = NCollectionVec2[float]
+  Graphic3dVec2i* = NCollectionVec2[int]
+  Graphic3dVec2u* = NCollectionVec2[cuint]
+  Graphic3dVec2ub* = NCollectionVec2[StandardByte]
+  Graphic3dVec2b* = NCollectionVec2[StandardCharacter]
+

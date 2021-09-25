@@ -14,30 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_BSplineSurface
-
 discard "forward decl of StepGeom_QuasiUniformSurface"
 discard "forward decl of StepGeom_QuasiUniformSurface"
 type
-  Handle_StepGeom_QuasiUniformSurface* = handle[StepGeom_QuasiUniformSurface]
-  StepGeom_QuasiUniformSurface* {.importcpp: "StepGeom_QuasiUniformSurface",
-                                 header: "StepGeom_QuasiUniformSurface.hxx",
-                                 bycopy.} = object of StepGeom_BSplineSurface ## ! Returns a
-                                                                         ## QuasiUniformSurface
+  HandleStepGeomQuasiUniformSurface* = Handle[StepGeomQuasiUniformSurface]
+  StepGeomQuasiUniformSurface* {.importcpp: "StepGeom_QuasiUniformSurface",
+                                header: "StepGeom_QuasiUniformSurface.hxx", bycopy.} = object of StepGeomBSplineSurface ##
+                                                                                                                 ## !
+                                                                                                                 ## Returns
+                                                                                                                 ## a
+                                                                                                                 ## QuasiUniformSurface
 
 
-proc constructStepGeom_QuasiUniformSurface*(): StepGeom_QuasiUniformSurface {.
+proc constructStepGeomQuasiUniformSurface*(): StepGeomQuasiUniformSurface {.
     constructor, importcpp: "StepGeom_QuasiUniformSurface(@)",
     header: "StepGeom_QuasiUniformSurface.hxx".}
 type
-  StepGeom_QuasiUniformSurfacebase_type* = StepGeom_BSplineSurface
+  StepGeomQuasiUniformSurfacebaseType* = StepGeomBSplineSurface
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_QuasiUniformSurface::get_type_name(@)",
-                              header: "StepGeom_QuasiUniformSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_QuasiUniformSurface::get_type_name(@)",
+                            header: "StepGeom_QuasiUniformSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_QuasiUniformSurface::get_type_descriptor(@)",
     header: "StepGeom_QuasiUniformSurface.hxx".}
-proc DynamicType*(this: StepGeom_QuasiUniformSurface): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomQuasiUniformSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_QuasiUniformSurface.hxx".}

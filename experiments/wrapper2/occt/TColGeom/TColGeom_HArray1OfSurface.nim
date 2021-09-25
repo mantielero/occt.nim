@@ -14,38 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Geom/Geom_Surface, TColGeom_Array1OfSurface,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  TColGeom_HArray1OfSurface* {.importcpp: "TColGeom_HArray1OfSurface",
-                              header: "TColGeom_HArray1OfSurface.hxx", bycopy.} = object of TColGeom_Array1OfSurface
+  TColGeomHArray1OfSurface* {.importcpp: "TColGeom_HArray1OfSurface",
+                             header: "TColGeom_HArray1OfSurface.hxx", bycopy.} = object of TColGeomArray1OfSurface
 
 
-proc constructTColGeom_HArray1OfSurface*(theLower: Standard_Integer;
-                                        theUpper: Standard_Integer): TColGeom_HArray1OfSurface {.
+proc constructTColGeomHArray1OfSurface*(theLower: int; theUpper: int): TColGeomHArray1OfSurface {.
     constructor, importcpp: "TColGeom_HArray1OfSurface(@)",
     header: "TColGeom_HArray1OfSurface.hxx".}
-proc constructTColGeom_HArray1OfSurface*(theLower: Standard_Integer;
-                                        theUpper: Standard_Integer;
-                                        theValue: value_type): TColGeom_HArray1OfSurface {.
+proc constructTColGeomHArray1OfSurface*(theLower: int; theUpper: int;
+                                       theValue: ValueType): TColGeomHArray1OfSurface {.
     constructor, importcpp: "TColGeom_HArray1OfSurface(@)",
     header: "TColGeom_HArray1OfSurface.hxx".}
-proc constructTColGeom_HArray1OfSurface*(theOther: TColGeom_Array1OfSurface): TColGeom_HArray1OfSurface {.
+proc constructTColGeomHArray1OfSurface*(theOther: TColGeomArray1OfSurface): TColGeomHArray1OfSurface {.
     constructor, importcpp: "TColGeom_HArray1OfSurface(@)",
     header: "TColGeom_HArray1OfSurface.hxx".}
-proc Array1*(this: TColGeom_HArray1OfSurface): TColGeom_Array1OfSurface {.
+proc array1*(this: TColGeomHArray1OfSurface): TColGeomArray1OfSurface {.
     noSideEffect, importcpp: "Array1", header: "TColGeom_HArray1OfSurface.hxx".}
-proc ChangeArray1*(this: var TColGeom_HArray1OfSurface): var TColGeom_Array1OfSurface {.
+proc changeArray1*(this: var TColGeomHArray1OfSurface): var TColGeomArray1OfSurface {.
     importcpp: "ChangeArray1", header: "TColGeom_HArray1OfSurface.hxx".}
 type
-  TColGeom_HArray1OfSurfacebase_type* = MMgt_TShared
+  TColGeomHArray1OfSurfacebaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TColGeom_HArray1OfSurface::get_type_name(@)",
-                              header: "TColGeom_HArray1OfSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TColGeom_HArray1OfSurface::get_type_name(@)",
+                            header: "TColGeom_HArray1OfSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TColGeom_HArray1OfSurface::get_type_descriptor(@)",
     header: "TColGeom_HArray1OfSurface.hxx".}
-proc DynamicType*(this: TColGeom_HArray1OfSurface): handle[Standard_Type] {.
+proc dynamicType*(this: TColGeomHArray1OfSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TColGeom_HArray1OfSurface.hxx".}

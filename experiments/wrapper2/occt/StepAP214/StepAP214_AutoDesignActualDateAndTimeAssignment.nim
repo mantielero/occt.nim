@@ -14,57 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP214_HArray1OfAutoDesignDateAndTimeItem,
-  ../StepBasic/StepBasic_DateAndTimeAssignment, ../Standard/Standard_Integer
-
 discard "forward decl of StepBasic_DateAndTime"
 discard "forward decl of StepBasic_DateTimeRole"
 discard "forward decl of StepAP214_AutoDesignDateAndTimeItem"
 discard "forward decl of StepAP214_AutoDesignActualDateAndTimeAssignment"
 discard "forward decl of StepAP214_AutoDesignActualDateAndTimeAssignment"
 type
-  Handle_StepAP214_AutoDesignActualDateAndTimeAssignment* = handle[
-      StepAP214_AutoDesignActualDateAndTimeAssignment]
-  StepAP214_AutoDesignActualDateAndTimeAssignment* {.
+  HandleStepAP214AutoDesignActualDateAndTimeAssignment* = Handle[
+      StepAP214AutoDesignActualDateAndTimeAssignment]
+  StepAP214AutoDesignActualDateAndTimeAssignment* {.
       importcpp: "StepAP214_AutoDesignActualDateAndTimeAssignment",
-      header: "StepAP214_AutoDesignActualDateAndTimeAssignment.hxx", bycopy.} = object of StepBasic_DateAndTimeAssignment ##
-                                                                                                                   ## !
-                                                                                                                   ## Returns
-                                                                                                                   ## a
-                                                                                                                   ## AutoDesignActualDateAndTimeAssignment
+      header: "StepAP214_AutoDesignActualDateAndTimeAssignment.hxx", bycopy.} = object of StepBasicDateAndTimeAssignment ##
+                                                                                                                  ## !
+                                                                                                                  ## Returns
+                                                                                                                  ## a
+                                                                                                                  ## AutoDesignActualDateAndTimeAssignment
 
 
-proc constructStepAP214_AutoDesignActualDateAndTimeAssignment*(): StepAP214_AutoDesignActualDateAndTimeAssignment {.
+proc constructStepAP214AutoDesignActualDateAndTimeAssignment*(): StepAP214AutoDesignActualDateAndTimeAssignment {.
     constructor, importcpp: "StepAP214_AutoDesignActualDateAndTimeAssignment(@)",
     header: "StepAP214_AutoDesignActualDateAndTimeAssignment.hxx".}
-proc Init*(this: var StepAP214_AutoDesignActualDateAndTimeAssignment;
-          aAssignedDateAndTime: handle[StepBasic_DateAndTime];
-          aRole: handle[StepBasic_DateTimeRole];
-          aItems: handle[StepAP214_HArray1OfAutoDesignDateAndTimeItem]) {.
+proc init*(this: var StepAP214AutoDesignActualDateAndTimeAssignment;
+          aAssignedDateAndTime: Handle[StepBasicDateAndTime];
+          aRole: Handle[StepBasicDateTimeRole];
+          aItems: Handle[StepAP214HArray1OfAutoDesignDateAndTimeItem]) {.
     importcpp: "Init",
     header: "StepAP214_AutoDesignActualDateAndTimeAssignment.hxx".}
-proc SetItems*(this: var StepAP214_AutoDesignActualDateAndTimeAssignment;
-              aItems: handle[StepAP214_HArray1OfAutoDesignDateAndTimeItem]) {.
+proc setItems*(this: var StepAP214AutoDesignActualDateAndTimeAssignment;
+              aItems: Handle[StepAP214HArray1OfAutoDesignDateAndTimeItem]) {.
     importcpp: "SetItems",
     header: "StepAP214_AutoDesignActualDateAndTimeAssignment.hxx".}
-proc Items*(this: StepAP214_AutoDesignActualDateAndTimeAssignment): handle[
-    StepAP214_HArray1OfAutoDesignDateAndTimeItem] {.noSideEffect,
+proc items*(this: StepAP214AutoDesignActualDateAndTimeAssignment): Handle[
+    StepAP214HArray1OfAutoDesignDateAndTimeItem] {.noSideEffect,
     importcpp: "Items",
     header: "StepAP214_AutoDesignActualDateAndTimeAssignment.hxx".}
-proc ItemsValue*(this: StepAP214_AutoDesignActualDateAndTimeAssignment;
-                num: Standard_Integer): StepAP214_AutoDesignDateAndTimeItem {.
+proc itemsValue*(this: StepAP214AutoDesignActualDateAndTimeAssignment; num: int): StepAP214AutoDesignDateAndTimeItem {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AutoDesignActualDateAndTimeAssignment.hxx".}
-proc NbItems*(this: StepAP214_AutoDesignActualDateAndTimeAssignment): Standard_Integer {.
+proc nbItems*(this: StepAP214AutoDesignActualDateAndTimeAssignment): int {.
     noSideEffect, importcpp: "NbItems",
     header: "StepAP214_AutoDesignActualDateAndTimeAssignment.hxx".}
 type
-  StepAP214_AutoDesignActualDateAndTimeAssignmentbase_type* = StepBasic_DateAndTimeAssignment
+  StepAP214AutoDesignActualDateAndTimeAssignmentbaseType* = StepBasicDateAndTimeAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_AutoDesignActualDateAndTimeAssignment::get_type_name(@)", header: "StepAP214_AutoDesignActualDateAndTimeAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP214_AutoDesignActualDateAndTimeAssignment::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP214_AutoDesignActualDateAndTimeAssignment::get_type_name(@)", header: "StepAP214_AutoDesignActualDateAndTimeAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_AutoDesignActualDateAndTimeAssignment::get_type_descriptor(@)",
     header: "StepAP214_AutoDesignActualDateAndTimeAssignment.hxx".}
-proc DynamicType*(this: StepAP214_AutoDesignActualDateAndTimeAssignment): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepAP214_AutoDesignActualDateAndTimeAssignment.hxx".}
+proc dynamicType*(this: StepAP214AutoDesignActualDateAndTimeAssignment): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepAP214_AutoDesignActualDateAndTimeAssignment.hxx".}

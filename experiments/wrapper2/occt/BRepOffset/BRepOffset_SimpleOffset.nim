@@ -13,17 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../BRepTools/BRepTools_Modification, ../GeomAbs/GeomAbs_Shape,
-  ../Geom2d/Geom2d_Curve, ../Standard/Standard_Real, ../Standard/Standard_Macro,
-  ../Standard/Standard_Type, ../TopoDS/TopoDS_Shape,
-  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape,
-  ../NCollection/NCollection_DataMap
-
 discard "forward decl of BRepOffset_SimpleOffset"
 discard "forward decl of BRepOffset_SimpleOffset"
 type
-  Handle_BRepOffset_SimpleOffset* = handle[BRepOffset_SimpleOffset]
+  HandleBRepOffsetSimpleOffset* = Handle[BRepOffsetSimpleOffset]
 
 ## ! This class represents mechanism of simple offset algorithm i. e.
 ## ! topology-preserve offset construction without intersection.
@@ -36,57 +29,54 @@ type
 ## ! - Tolerances are updated according to the resulting geometry.
 
 type
-  BRepOffset_SimpleOffset* {.importcpp: "BRepOffset_SimpleOffset",
-                            header: "BRepOffset_SimpleOffset.hxx", bycopy.} = object of BRepTools_Modification ##
-                                                                                                        ## !
-                                                                                                        ## Method
-                                                                                                        ## to
-                                                                                                        ## fill
-                                                                                                        ## new
-                                                                                                        ## face
-                                                                                                        ## data
-                                                                                                        ## for
-                                                                                                        ## single
-                                                                                                        ## face.
+  BRepOffsetSimpleOffset* {.importcpp: "BRepOffset_SimpleOffset",
+                           header: "BRepOffset_SimpleOffset.hxx", bycopy.} = object of BRepToolsModification ##
+                                                                                                      ## !
+                                                                                                      ## Method
+                                                                                                      ## to
+                                                                                                      ## fill
+                                                                                                      ## new
+                                                                                                      ## face
+                                                                                                      ## data
+                                                                                                      ## for
+                                                                                                      ## single
+                                                                                                      ## face.
     ## ! Map of edges to new edges information.
     ## ! Map of vertices to new vertices information.
     ## ! Offset value.
     ## ! Tolerance.
 
-  BRepOffset_SimpleOffsetbase_type* = BRepTools_Modification
+  BRepOffsetSimpleOffsetbaseType* = BRepToolsModification
 
-proc get_type_name*(): cstring {.importcpp: "BRepOffset_SimpleOffset::get_type_name(@)",
-                              header: "BRepOffset_SimpleOffset.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepOffset_SimpleOffset::get_type_name(@)",
+                            header: "BRepOffset_SimpleOffset.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepOffset_SimpleOffset::get_type_descriptor(@)",
     header: "BRepOffset_SimpleOffset.hxx".}
-proc DynamicType*(this: BRepOffset_SimpleOffset): handle[Standard_Type] {.
+proc dynamicType*(this: BRepOffsetSimpleOffset): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BRepOffset_SimpleOffset.hxx".}
-proc constructBRepOffset_SimpleOffset*(theInputShape: TopoDS_Shape;
-                                      theOffsetValue: Standard_Real;
-                                      theTolerance: Standard_Real): BRepOffset_SimpleOffset {.
+proc constructBRepOffsetSimpleOffset*(theInputShape: TopoDS_Shape;
+                                     theOffsetValue: float; theTolerance: float): BRepOffsetSimpleOffset {.
     constructor, importcpp: "BRepOffset_SimpleOffset(@)",
     header: "BRepOffset_SimpleOffset.hxx".}
-proc NewSurface*(this: var BRepOffset_SimpleOffset; F: TopoDS_Face;
-                S: var handle[Geom_Surface]; L: var TopLoc_Location;
-                Tol: var Standard_Real; RevWires: var Standard_Boolean;
-                RevFace: var Standard_Boolean): Standard_Boolean {.
-    importcpp: "NewSurface", header: "BRepOffset_SimpleOffset.hxx".}
-proc NewCurve*(this: var BRepOffset_SimpleOffset; E: TopoDS_Edge;
-              C: var handle[Geom_Curve]; L: var TopLoc_Location;
-              Tol: var Standard_Real): Standard_Boolean {.importcpp: "NewCurve",
+proc newSurface*(this: var BRepOffsetSimpleOffset; f: TopoDS_Face;
+                s: var Handle[GeomSurface]; L: var TopLocLocation; tol: var float;
+                revWires: var bool; revFace: var bool): bool {.importcpp: "NewSurface",
     header: "BRepOffset_SimpleOffset.hxx".}
-proc NewPoint*(this: var BRepOffset_SimpleOffset; V: TopoDS_Vertex; P: var gp_Pnt;
-              Tol: var Standard_Real): Standard_Boolean {.importcpp: "NewPoint",
+proc newCurve*(this: var BRepOffsetSimpleOffset; e: TopoDS_Edge;
+              c: var Handle[GeomCurve]; L: var TopLocLocation; tol: var float): bool {.
+    importcpp: "NewCurve", header: "BRepOffset_SimpleOffset.hxx".}
+proc newPoint*(this: var BRepOffsetSimpleOffset; v: TopoDS_Vertex; p: var Pnt;
+              tol: var float): bool {.importcpp: "NewPoint",
+                                  header: "BRepOffset_SimpleOffset.hxx".}
+proc newCurve2d*(this: var BRepOffsetSimpleOffset; e: TopoDS_Edge; f: TopoDS_Face;
+                newE: TopoDS_Edge; newF: TopoDS_Face; c: var Handle[Geom2dCurve];
+                tol: var float): bool {.importcpp: "NewCurve2d",
+                                    header: "BRepOffset_SimpleOffset.hxx".}
+proc newParameter*(this: var BRepOffsetSimpleOffset; v: TopoDS_Vertex; e: TopoDS_Edge;
+                  p: var float; tol: var float): bool {.importcpp: "NewParameter",
     header: "BRepOffset_SimpleOffset.hxx".}
-proc NewCurve2d*(this: var BRepOffset_SimpleOffset; E: TopoDS_Edge; F: TopoDS_Face;
-                NewE: TopoDS_Edge; NewF: TopoDS_Face; C: var handle[Geom2d_Curve];
-                Tol: var Standard_Real): Standard_Boolean {.importcpp: "NewCurve2d",
-    header: "BRepOffset_SimpleOffset.hxx".}
-proc NewParameter*(this: var BRepOffset_SimpleOffset; V: TopoDS_Vertex;
-                  E: TopoDS_Edge; P: var Standard_Real; Tol: var Standard_Real): Standard_Boolean {.
-    importcpp: "NewParameter", header: "BRepOffset_SimpleOffset.hxx".}
-proc Continuity*(this: var BRepOffset_SimpleOffset; E: TopoDS_Edge; F1: TopoDS_Face;
-                F2: TopoDS_Face; NewE: TopoDS_Edge; NewF1: TopoDS_Face;
-                NewF2: TopoDS_Face): GeomAbs_Shape {.importcpp: "Continuity",
+proc continuity*(this: var BRepOffsetSimpleOffset; e: TopoDS_Edge; f1: TopoDS_Face;
+                f2: TopoDS_Face; newE: TopoDS_Edge; newF1: TopoDS_Face;
+                newF2: TopoDS_Face): GeomAbsShape {.importcpp: "Continuity",
     header: "BRepOffset_SimpleOffset.hxx".}

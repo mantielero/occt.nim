@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepGeom_SurfaceBoundary, StepGeom_Array1OfSurfaceBoundary,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepGeom_HArray1OfSurfaceBoundary* {.importcpp: "StepGeom_HArray1OfSurfaceBoundary", header: "StepGeom_HArray1OfSurfaceBoundary.hxx",
-                                      bycopy.} = object of StepGeom_Array1OfSurfaceBoundary
+  StepGeomHArray1OfSurfaceBoundary* {.importcpp: "StepGeom_HArray1OfSurfaceBoundary", header: "StepGeom_HArray1OfSurfaceBoundary.hxx",
+                                     bycopy.} = object of StepGeomArray1OfSurfaceBoundary
 
 
-proc constructStepGeom_HArray1OfSurfaceBoundary*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepGeom_HArray1OfSurfaceBoundary {.constructor,
+proc constructStepGeomHArray1OfSurfaceBoundary*(theLower: int; theUpper: int): StepGeomHArray1OfSurfaceBoundary {.
+    constructor, importcpp: "StepGeom_HArray1OfSurfaceBoundary(@)",
+    header: "StepGeom_HArray1OfSurfaceBoundary.hxx".}
+proc constructStepGeomHArray1OfSurfaceBoundary*(theLower: int; theUpper: int;
+    theValue: ValueType): StepGeomHArray1OfSurfaceBoundary {.constructor,
     importcpp: "StepGeom_HArray1OfSurfaceBoundary(@)",
     header: "StepGeom_HArray1OfSurfaceBoundary.hxx".}
-proc constructStepGeom_HArray1OfSurfaceBoundary*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepGeom_HArray1OfSurfaceBoundary {.
+proc constructStepGeomHArray1OfSurfaceBoundary*(
+    theOther: StepGeomArray1OfSurfaceBoundary): StepGeomHArray1OfSurfaceBoundary {.
     constructor, importcpp: "StepGeom_HArray1OfSurfaceBoundary(@)",
     header: "StepGeom_HArray1OfSurfaceBoundary.hxx".}
-proc constructStepGeom_HArray1OfSurfaceBoundary*(
-    theOther: StepGeom_Array1OfSurfaceBoundary): StepGeom_HArray1OfSurfaceBoundary {.
-    constructor, importcpp: "StepGeom_HArray1OfSurfaceBoundary(@)",
-    header: "StepGeom_HArray1OfSurfaceBoundary.hxx".}
-proc Array1*(this: StepGeom_HArray1OfSurfaceBoundary): StepGeom_Array1OfSurfaceBoundary {.
+proc array1*(this: StepGeomHArray1OfSurfaceBoundary): StepGeomArray1OfSurfaceBoundary {.
     noSideEffect, importcpp: "Array1",
     header: "StepGeom_HArray1OfSurfaceBoundary.hxx".}
-proc ChangeArray1*(this: var StepGeom_HArray1OfSurfaceBoundary): var StepGeom_Array1OfSurfaceBoundary {.
+proc changeArray1*(this: var StepGeomHArray1OfSurfaceBoundary): var StepGeomArray1OfSurfaceBoundary {.
     importcpp: "ChangeArray1", header: "StepGeom_HArray1OfSurfaceBoundary.hxx".}
 type
-  StepGeom_HArray1OfSurfaceBoundarybase_type* = MMgt_TShared
+  StepGeomHArray1OfSurfaceBoundarybaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_HArray1OfSurfaceBoundary::get_type_name(@)",
-                              header: "StepGeom_HArray1OfSurfaceBoundary.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_HArray1OfSurfaceBoundary::get_type_name(@)",
+                            header: "StepGeom_HArray1OfSurfaceBoundary.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_HArray1OfSurfaceBoundary::get_type_descriptor(@)",
     header: "StepGeom_HArray1OfSurfaceBoundary.hxx".}
-proc DynamicType*(this: StepGeom_HArray1OfSurfaceBoundary): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomHArray1OfSurfaceBoundary): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_HArray1OfSurfaceBoundary.hxx".}

@@ -11,39 +11,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Macro, BRepMesh_DegreeOfFreedom, BRepMesh_OrientedEdge
-
 ## ! Light weighted structure representing link of the mesh.
 
 type
-  BRepMesh_Edge* {.importcpp: "BRepMesh_Edge", header: "BRepMesh_Edge.hxx", bycopy.} = object of BRepMesh_OrientedEdge ##
-                                                                                                             ## !
-                                                                                                             ## Default
-                                                                                                             ## constructor.
+  BRepMeshEdge* {.importcpp: "BRepMesh_Edge", header: "BRepMesh_Edge.hxx", bycopy.} = object of BRepMeshOrientedEdge ##
+                                                                                                           ## !
+                                                                                                           ## Default
+                                                                                                           ## constructor.
 
 
-proc constructBRepMesh_Edge*(): BRepMesh_Edge {.constructor,
+proc constructBRepMeshEdge*(): BRepMeshEdge {.constructor,
     importcpp: "BRepMesh_Edge(@)", header: "BRepMesh_Edge.hxx".}
-proc constructBRepMesh_Edge*(theFirstNode: Standard_Integer;
-                            theLastNode: Standard_Integer;
-                            theMovability: BRepMesh_DegreeOfFreedom): BRepMesh_Edge {.
+proc constructBRepMeshEdge*(theFirstNode: int; theLastNode: int;
+                           theMovability: BRepMeshDegreeOfFreedom): BRepMeshEdge {.
     constructor, importcpp: "BRepMesh_Edge(@)", header: "BRepMesh_Edge.hxx".}
-proc Movability*(this: BRepMesh_Edge): BRepMesh_DegreeOfFreedom {.noSideEffect,
+proc movability*(this: BRepMeshEdge): BRepMeshDegreeOfFreedom {.noSideEffect,
     importcpp: "Movability", header: "BRepMesh_Edge.hxx".}
-proc SetMovability*(this: var BRepMesh_Edge; theMovability: BRepMesh_DegreeOfFreedom) {.
+proc setMovability*(this: var BRepMeshEdge; theMovability: BRepMeshDegreeOfFreedom) {.
     importcpp: "SetMovability", header: "BRepMesh_Edge.hxx".}
-proc IsSameOrientation*(this: BRepMesh_Edge; theOther: BRepMesh_Edge): Standard_Boolean {.
+proc isSameOrientation*(this: BRepMeshEdge; theOther: BRepMeshEdge): bool {.
     noSideEffect, importcpp: "IsSameOrientation", header: "BRepMesh_Edge.hxx".}
-proc IsEqual*(this: BRepMesh_Edge; theOther: BRepMesh_Edge): Standard_Boolean {.
-    noSideEffect, importcpp: "IsEqual", header: "BRepMesh_Edge.hxx".}
-proc `==`*(this: BRepMesh_Edge; Other: BRepMesh_Edge): Standard_Boolean {.
-    noSideEffect, importcpp: "(# == #)", header: "BRepMesh_Edge.hxx".}
+proc isEqual*(this: BRepMeshEdge; theOther: BRepMeshEdge): bool {.noSideEffect,
+    importcpp: "IsEqual", header: "BRepMesh_Edge.hxx".}
+proc `==`*(this: BRepMeshEdge; other: BRepMeshEdge): bool {.noSideEffect,
+    importcpp: "(# == #)", header: "BRepMesh_Edge.hxx".}
 ## ! Computes a hash code for the given edge, in the range [1, theUpperBound]
 ## ! @param theEdge the edge which hash code is to be computed
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
-proc HashCode*(theEdge: BRepMesh_Edge; theUpperBound: Standard_Integer): Standard_Integer =
+proc hashCode*(theEdge: BRepMeshEdge; theUpperBound: int): int =
   discard
+

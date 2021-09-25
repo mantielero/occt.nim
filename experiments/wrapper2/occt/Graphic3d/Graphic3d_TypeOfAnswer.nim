@@ -22,8 +22,8 @@
 ## ! TOA_COMPUTE yes but we have to compute the representation
 
 type
-  Graphic3d_TypeOfAnswer* {.size: sizeof(cint),
-                           importcpp: "Graphic3d_TypeOfAnswer",
-                           header: "Graphic3d_TypeOfAnswer.hxx".} = enum
-    Graphic3d_TOA_YES, Graphic3d_TOA_NO, Graphic3d_TOA_COMPUTE
+  Graphic3dTypeOfAnswer* {.size: sizeof(cint), importcpp: "Graphic3d_TypeOfAnswer",
+                          header: "Graphic3d_TypeOfAnswer.hxx".} = enum
+    Graphic3dTOA_YES, Graphic3dTOA_NO, Graphic3dTOA_COMPUTE
+
 

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of Interface_Protocol"
 discard "forward decl of StepData_StepModel"
 discard "forward decl of IFSelect_Signature"
@@ -28,15 +24,15 @@ type
   STEPEdit* {.importcpp: "STEPEdit", header: "STEPEdit.hxx", bycopy.} = object ## ! Returns a Protocol fit for STEP (creates the first time)
 
 
-proc Protocol*(): handle[Interface_Protocol] {.importcpp: "STEPEdit::Protocol(@)",
+proc protocol*(): Handle[InterfaceProtocol] {.importcpp: "STEPEdit::Protocol(@)",
     header: "STEPEdit.hxx".}
-proc NewModel*(): handle[StepData_StepModel] {.importcpp: "STEPEdit::NewModel(@)",
+proc newModel*(): Handle[StepDataStepModel] {.importcpp: "STEPEdit::NewModel(@)",
     header: "STEPEdit.hxx".}
-proc SignType*(): handle[IFSelect_Signature] {.importcpp: "STEPEdit::SignType(@)",
+proc signType*(): Handle[IFSelectSignature] {.importcpp: "STEPEdit::SignType(@)",
     header: "STEPEdit.hxx".}
-proc NewSelectSDR*(): handle[IFSelect_SelectSignature] {.
+proc newSelectSDR*(): Handle[IFSelectSelectSignature] {.
     importcpp: "STEPEdit::NewSelectSDR(@)", header: "STEPEdit.hxx".}
-proc NewSelectPlacedItem*(): handle[IFSelect_SelectSignature] {.
+proc newSelectPlacedItem*(): Handle[IFSelectSelectSignature] {.
     importcpp: "STEPEdit::NewSelectPlacedItem(@)", header: "STEPEdit.hxx".}
-proc NewSelectShapeRepr*(): handle[IFSelect_SelectSignature] {.
+proc newSelectShapeRepr*(): Handle[IFSelectSelectSignature] {.
     importcpp: "STEPEdit::NewSelectShapeRepr(@)", header: "STEPEdit.hxx".}

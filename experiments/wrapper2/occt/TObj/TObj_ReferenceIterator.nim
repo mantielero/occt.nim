@@ -14,79 +14,76 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation Copyright: (C) RINA S.p.A
 
-import
-  TObj_LabelIterator
-
 ## *
 ##  This class provides an iterator by references of the object
 ##  (implements TObj_ReferenceIterator interface)
 ##
 
 type
-  TObj_ReferenceIterator* {.importcpp: "TObj_ReferenceIterator",
-                           header: "TObj_ReferenceIterator.hxx", bycopy.} = object of TObj_LabelIterator ##
-                                                                                                  ##
-                                                                                                  ## Constructor
-                                                                                                  ##
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Creates
-                                                                                                  ## the
-                                                                                                  ## iterator
-                                                                                                  ## on
-                                                                                                  ## references
-                                                                                                  ## in
-                                                                                                  ## partition
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## theType
-                                                                                                  ## narrows
-                                                                                                  ## a
-                                                                                                  ## variety
-                                                                                                  ## of
-                                                                                                  ## iterated
-                                                                                                  ## objects
-                                                                                                  ##
-                                                                                                  ## *
-                                                                                                  ##
-                                                                                                  ## Internal
-                                                                                                  ## methods
-                                                                                                  ##
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Shift
-                                                                                                  ## iterator
-                                                                                                  ## to
-                                                                                                  ## the
-                                                                                                  ## next
-                                                                                                  ## object
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## CASCADE
-                                                                                                  ## RTTI
+  TObjReferenceIterator* {.importcpp: "TObj_ReferenceIterator",
+                          header: "TObj_ReferenceIterator.hxx", bycopy.} = object of TObjLabelIterator ##
+                                                                                                ##
+                                                                                                ## Constructor
+                                                                                                ##
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Creates
+                                                                                                ## the
+                                                                                                ## iterator
+                                                                                                ## on
+                                                                                                ## references
+                                                                                                ## in
+                                                                                                ## partition
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## theType
+                                                                                                ## narrows
+                                                                                                ## a
+                                                                                                ## variety
+                                                                                                ## of
+                                                                                                ## iterated
+                                                                                                ## objects
+                                                                                                ##
+                                                                                                ## *
+                                                                                                ##
+                                                                                                ## Internal
+                                                                                                ## methods
+                                                                                                ##
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Shift
+                                                                                                ## iterator
+                                                                                                ## to
+                                                                                                ## the
+                                                                                                ## next
+                                                                                                ## object
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## CASCADE
+                                                                                                ## RTTI
     ## !< Type of objects to iterate on
 
 
-proc constructTObj_ReferenceIterator*(theLabel: TDF_Label;
-                                     theType: handle[Standard_Type] = nil;
-    theRecursive: Standard_Boolean = Standard_True): TObj_ReferenceIterator {.
+proc constructTObjReferenceIterator*(theLabel: TDF_Label;
+                                    theType: Handle[StandardType] = nil;
+                                    theRecursive: bool = true): TObjReferenceIterator {.
     constructor, importcpp: "TObj_ReferenceIterator(@)",
     header: "TObj_ReferenceIterator.hxx".}
 type
-  TObj_ReferenceIteratorbase_type* = TObj_LabelIterator
+  TObjReferenceIteratorbaseType* = TObjLabelIterator
 
-proc get_type_name*(): cstring {.importcpp: "TObj_ReferenceIterator::get_type_name(@)",
-                              header: "TObj_ReferenceIterator.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TObj_ReferenceIterator::get_type_name(@)",
+                            header: "TObj_ReferenceIterator.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TObj_ReferenceIterator::get_type_descriptor(@)",
     header: "TObj_ReferenceIterator.hxx".}
-proc DynamicType*(this: TObj_ReferenceIterator): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "TObj_ReferenceIterator.hxx".}
+proc dynamicType*(this: TObjReferenceIterator): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "TObj_ReferenceIterator.hxx".}
 ## ! Define handle class for TObj_ReferenceIterator
 
 discard "forward decl of TObj_ReferenceIterator"
 type
-  Handle_TObj_ReferenceIterator* = handle[TObj_ReferenceIterator]
+  HandleTObjReferenceIterator* = Handle[TObjReferenceIterator]
 
-when defined(_MSC_VER):
-  discard
+# when defined(_MSC_VER):
+#   discard

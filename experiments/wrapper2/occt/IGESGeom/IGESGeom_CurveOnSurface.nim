@@ -14,15 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESGeom_CurveOnSurface"
 discard "forward decl of IGESGeom_CurveOnSurface"
 type
-  Handle_IGESGeom_CurveOnSurface* = handle[IGESGeom_CurveOnSurface]
+  HandleIGESGeomCurveOnSurface* = Handle[IGESGeomCurveOnSurface]
 
 ## ! defines IGESCurveOnSurface, Type <142> Form <0>
 ## ! in package IGESGeom
@@ -31,35 +27,34 @@ type
 ## ! the surface.
 
 type
-  IGESGeom_CurveOnSurface* {.importcpp: "IGESGeom_CurveOnSurface",
-                            header: "IGESGeom_CurveOnSurface.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESGeomCurveOnSurface* {.importcpp: "IGESGeom_CurveOnSurface",
+                           header: "IGESGeom_CurveOnSurface.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESGeom_CurveOnSurface*(): IGESGeom_CurveOnSurface {.constructor,
+proc constructIGESGeomCurveOnSurface*(): IGESGeomCurveOnSurface {.constructor,
     importcpp: "IGESGeom_CurveOnSurface(@)", header: "IGESGeom_CurveOnSurface.hxx".}
-proc Init*(this: var IGESGeom_CurveOnSurface; aMode: Standard_Integer;
-          aSurface: handle[IGESData_IGESEntity];
-          aCurveUV: handle[IGESData_IGESEntity];
-          aCurve3D: handle[IGESData_IGESEntity]; aPreference: Standard_Integer) {.
+proc init*(this: var IGESGeomCurveOnSurface; aMode: int;
+          aSurface: Handle[IGESDataIGESEntity];
+          aCurveUV: Handle[IGESDataIGESEntity];
+          aCurve3D: Handle[IGESDataIGESEntity]; aPreference: int) {.
     importcpp: "Init", header: "IGESGeom_CurveOnSurface.hxx".}
-proc CreationMode*(this: IGESGeom_CurveOnSurface): Standard_Integer {.noSideEffect,
+proc creationMode*(this: IGESGeomCurveOnSurface): int {.noSideEffect,
     importcpp: "CreationMode", header: "IGESGeom_CurveOnSurface.hxx".}
-proc Surface*(this: IGESGeom_CurveOnSurface): handle[IGESData_IGESEntity] {.
+proc surface*(this: IGESGeomCurveOnSurface): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Surface", header: "IGESGeom_CurveOnSurface.hxx".}
-proc CurveUV*(this: IGESGeom_CurveOnSurface): handle[IGESData_IGESEntity] {.
+proc curveUV*(this: IGESGeomCurveOnSurface): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "CurveUV", header: "IGESGeom_CurveOnSurface.hxx".}
-proc Curve3D*(this: IGESGeom_CurveOnSurface): handle[IGESData_IGESEntity] {.
+proc curve3D*(this: IGESGeomCurveOnSurface): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Curve3D", header: "IGESGeom_CurveOnSurface.hxx".}
-proc PreferenceMode*(this: IGESGeom_CurveOnSurface): Standard_Integer {.
-    noSideEffect, importcpp: "PreferenceMode",
-    header: "IGESGeom_CurveOnSurface.hxx".}
+proc preferenceMode*(this: IGESGeomCurveOnSurface): int {.noSideEffect,
+    importcpp: "PreferenceMode", header: "IGESGeom_CurveOnSurface.hxx".}
 type
-  IGESGeom_CurveOnSurfacebase_type* = IGESData_IGESEntity
+  IGESGeomCurveOnSurfacebaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESGeom_CurveOnSurface::get_type_name(@)",
-                              header: "IGESGeom_CurveOnSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESGeom_CurveOnSurface::get_type_name(@)",
+                            header: "IGESGeom_CurveOnSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESGeom_CurveOnSurface::get_type_descriptor(@)",
     header: "IGESGeom_CurveOnSurface.hxx".}
-proc DynamicType*(this: IGESGeom_CurveOnSurface): handle[Standard_Type] {.
+proc dynamicType*(this: IGESGeomCurveOnSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESGeom_CurveOnSurface.hxx".}

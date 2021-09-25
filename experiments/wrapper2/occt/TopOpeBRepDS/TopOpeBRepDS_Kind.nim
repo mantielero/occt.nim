@@ -24,3 +24,4 @@ type
     TopOpeBRepDS_SHELL, TopOpeBRepDS_SOLID, TopOpeBRepDS_COMPSOLID,
     TopOpeBRepDS_COMPOUND, TopOpeBRepDS_UNKNOWN
 
+

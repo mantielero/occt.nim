@@ -14,16 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../IGESData/IGESData_IGESEntity,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESGraph_NominalSize"
 discard "forward decl of IGESGraph_NominalSize"
 type
-  Handle_IGESGraph_NominalSize* = handle[IGESGraph_NominalSize]
+  HandleIGESGraphNominalSize* = Handle[IGESGraphNominalSize]
 
 ## ! defines IGESNominalSize, Type <406> Form <13>
 ## ! in package IGESGraph
@@ -32,35 +27,33 @@ type
 ## ! reference to an engineering standard
 
 type
-  IGESGraph_NominalSize* {.importcpp: "IGESGraph_NominalSize",
-                          header: "IGESGraph_NominalSize.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESGraphNominalSize* {.importcpp: "IGESGraph_NominalSize",
+                         header: "IGESGraph_NominalSize.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESGraph_NominalSize*(): IGESGraph_NominalSize {.constructor,
+proc constructIGESGraphNominalSize*(): IGESGraphNominalSize {.constructor,
     importcpp: "IGESGraph_NominalSize(@)", header: "IGESGraph_NominalSize.hxx".}
-proc Init*(this: var IGESGraph_NominalSize; nbProps: Standard_Integer;
-          aNominalSizeValue: Standard_Real;
-          aNominalSizeName: handle[TCollection_HAsciiString];
-          aStandardName: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var IGESGraphNominalSize; nbProps: int; aNominalSizeValue: float;
+          aNominalSizeName: Handle[TCollectionHAsciiString];
+          aStandardName: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "IGESGraph_NominalSize.hxx".}
-proc NbPropertyValues*(this: IGESGraph_NominalSize): Standard_Integer {.
-    noSideEffect, importcpp: "NbPropertyValues",
-    header: "IGESGraph_NominalSize.hxx".}
-proc NominalSizeValue*(this: IGESGraph_NominalSize): Standard_Real {.noSideEffect,
+proc nbPropertyValues*(this: IGESGraphNominalSize): int {.noSideEffect,
+    importcpp: "NbPropertyValues", header: "IGESGraph_NominalSize.hxx".}
+proc nominalSizeValue*(this: IGESGraphNominalSize): float {.noSideEffect,
     importcpp: "NominalSizeValue", header: "IGESGraph_NominalSize.hxx".}
-proc NominalSizeName*(this: IGESGraph_NominalSize): handle[TCollection_HAsciiString] {.
+proc nominalSizeName*(this: IGESGraphNominalSize): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "NominalSizeName", header: "IGESGraph_NominalSize.hxx".}
-proc HasStandardName*(this: IGESGraph_NominalSize): Standard_Boolean {.noSideEffect,
+proc hasStandardName*(this: IGESGraphNominalSize): bool {.noSideEffect,
     importcpp: "HasStandardName", header: "IGESGraph_NominalSize.hxx".}
-proc StandardName*(this: IGESGraph_NominalSize): handle[TCollection_HAsciiString] {.
+proc standardName*(this: IGESGraphNominalSize): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "StandardName", header: "IGESGraph_NominalSize.hxx".}
 type
-  IGESGraph_NominalSizebase_type* = IGESData_IGESEntity
+  IGESGraphNominalSizebaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESGraph_NominalSize::get_type_name(@)",
-                              header: "IGESGraph_NominalSize.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESGraph_NominalSize::get_type_name(@)",
+                            header: "IGESGraph_NominalSize.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESGraph_NominalSize::get_type_descriptor(@)",
     header: "IGESGraph_NominalSize.hxx".}
-proc DynamicType*(this: IGESGraph_NominalSize): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IGESGraph_NominalSize.hxx".}
+proc dynamicType*(this: IGESGraphNominalSize): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IGESGraph_NominalSize.hxx".}

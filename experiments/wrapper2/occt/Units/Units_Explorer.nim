@@ -14,60 +14,52 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  Units_QuantitiesSequence, Units_UnitsSequence,
-  ../TColStd/TColStd_HSequenceOfInteger, ../Standard/Standard_CString,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Units_UnitsSystem"
 discard "forward decl of Units_UnitsDictionary"
 discard "forward decl of TCollection_AsciiString"
 type
-  Units_Explorer* {.importcpp: "Units_Explorer", header: "Units_Explorer.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Empty
-                                                                                         ## contructor
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## class.
+  UnitsExplorer* {.importcpp: "Units_Explorer", header: "Units_Explorer.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Empty
+                                                                                        ## contructor
+                                                                                        ## of
+                                                                                        ## the
+                                                                                        ## class.
 
 
-proc constructUnits_Explorer*(): Units_Explorer {.constructor,
+proc constructUnitsExplorer*(): UnitsExplorer {.constructor,
     importcpp: "Units_Explorer(@)", header: "Units_Explorer.hxx".}
-proc constructUnits_Explorer*(aunitssystem: handle[Units_UnitsSystem]): Units_Explorer {.
+proc constructUnitsExplorer*(aunitssystem: Handle[UnitsUnitsSystem]): UnitsExplorer {.
     constructor, importcpp: "Units_Explorer(@)", header: "Units_Explorer.hxx".}
-proc constructUnits_Explorer*(aunitsdictionary: handle[Units_UnitsDictionary]): Units_Explorer {.
+proc constructUnitsExplorer*(aunitsdictionary: Handle[UnitsUnitsDictionary]): UnitsExplorer {.
     constructor, importcpp: "Units_Explorer(@)", header: "Units_Explorer.hxx".}
-proc constructUnits_Explorer*(aunitssystem: handle[Units_UnitsSystem];
-                             aquantity: Standard_CString): Units_Explorer {.
+proc constructUnitsExplorer*(aunitssystem: Handle[UnitsUnitsSystem];
+                            aquantity: StandardCString): UnitsExplorer {.
     constructor, importcpp: "Units_Explorer(@)", header: "Units_Explorer.hxx".}
-proc constructUnits_Explorer*(aunitsdictionary: handle[Units_UnitsDictionary];
-                             aquantity: Standard_CString): Units_Explorer {.
+proc constructUnitsExplorer*(aunitsdictionary: Handle[UnitsUnitsDictionary];
+                            aquantity: StandardCString): UnitsExplorer {.
     constructor, importcpp: "Units_Explorer(@)", header: "Units_Explorer.hxx".}
-proc Init*(this: var Units_Explorer; aunitssystem: handle[Units_UnitsSystem]) {.
+proc init*(this: var UnitsExplorer; aunitssystem: Handle[UnitsUnitsSystem]) {.
     importcpp: "Init", header: "Units_Explorer.hxx".}
-proc Init*(this: var Units_Explorer; aunitsdictionary: handle[Units_UnitsDictionary]) {.
+proc init*(this: var UnitsExplorer; aunitsdictionary: Handle[UnitsUnitsDictionary]) {.
     importcpp: "Init", header: "Units_Explorer.hxx".}
-proc Init*(this: var Units_Explorer; aunitssystem: handle[Units_UnitsSystem];
-          aquantity: Standard_CString) {.importcpp: "Init",
-                                       header: "Units_Explorer.hxx".}
-proc Init*(this: var Units_Explorer;
-          aunitsdictionary: handle[Units_UnitsDictionary];
-          aquantity: Standard_CString) {.importcpp: "Init",
-                                       header: "Units_Explorer.hxx".}
-proc MoreQuantity*(this: Units_Explorer): Standard_Boolean {.noSideEffect,
+proc init*(this: var UnitsExplorer; aunitssystem: Handle[UnitsUnitsSystem];
+          aquantity: StandardCString) {.importcpp: "Init",
+                                      header: "Units_Explorer.hxx".}
+proc init*(this: var UnitsExplorer; aunitsdictionary: Handle[UnitsUnitsDictionary];
+          aquantity: StandardCString) {.importcpp: "Init",
+                                      header: "Units_Explorer.hxx".}
+proc moreQuantity*(this: UnitsExplorer): bool {.noSideEffect,
     importcpp: "MoreQuantity", header: "Units_Explorer.hxx".}
-proc NextQuantity*(this: var Units_Explorer) {.importcpp: "NextQuantity",
+proc nextQuantity*(this: var UnitsExplorer) {.importcpp: "NextQuantity",
     header: "Units_Explorer.hxx".}
-proc Quantity*(this: Units_Explorer): TCollection_AsciiString {.noSideEffect,
+proc quantity*(this: UnitsExplorer): TCollectionAsciiString {.noSideEffect,
     importcpp: "Quantity", header: "Units_Explorer.hxx".}
-proc MoreUnit*(this: Units_Explorer): Standard_Boolean {.noSideEffect,
-    importcpp: "MoreUnit", header: "Units_Explorer.hxx".}
-proc NextUnit*(this: var Units_Explorer) {.importcpp: "NextUnit",
-                                       header: "Units_Explorer.hxx".}
-proc Unit*(this: Units_Explorer): TCollection_AsciiString {.noSideEffect,
+proc moreUnit*(this: UnitsExplorer): bool {.noSideEffect, importcpp: "MoreUnit",
+                                        header: "Units_Explorer.hxx".}
+proc nextUnit*(this: var UnitsExplorer) {.importcpp: "NextUnit",
+                                      header: "Units_Explorer.hxx".}
+proc unit*(this: UnitsExplorer): TCollectionAsciiString {.noSideEffect,
     importcpp: "Unit", header: "Units_Explorer.hxx".}
-proc IsActive*(this: Units_Explorer): Standard_Boolean {.noSideEffect,
-    importcpp: "IsActive", header: "Units_Explorer.hxx".}
+proc isActive*(this: UnitsExplorer): bool {.noSideEffect, importcpp: "IsActive",
+                                        header: "Units_Explorer.hxx".}

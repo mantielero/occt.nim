@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Real
-
 type
-  V3d_Parameter* = Standard_Real
+  V3dParameter* = float
+

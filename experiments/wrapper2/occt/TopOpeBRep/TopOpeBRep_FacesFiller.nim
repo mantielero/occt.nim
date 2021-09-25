@@ -14,20 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Face,
-  ../TopAbs/TopAbs_Orientation, TopOpeBRep_PFacesIntersector,
-  ../TopOpeBRepDS/TopOpeBRepDS_PDataStructure, ../Standard/Standard_Integer,
-  TopOpeBRep_PLineInter, ../Standard/Standard_Boolean,
-  ../TopOpeBRepDS/TopOpeBRepDS_Transition, ../TopTools/TopTools_ListOfShape,
-  ../TopTools/TopTools_DataMapOfShapeListOfShape,
-  ../TopOpeBRepDS/TopOpeBRepDS_ListOfInterference, TopOpeBRep_PointClassifier,
-  ../TopOpeBRepTool/TopOpeBRepTool_PShapeClassifier,
-  ../TopOpeBRepDS/TopOpeBRepDS_Kind,
-  ../TopOpeBRepDS/TopOpeBRepDS_ListIteratorOfListOfInterference,
-  ../TopAbs/TopAbs_State, ../Standard/Standard_Real
-
 discard "forward decl of TopOpeBRepDS_HDataStructure"
 discard "forward decl of TopOpeBRep_FFDumper"
 discard "forward decl of TopoDS_Shape"
@@ -44,154 +30,145 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopOpeBRepDS_DataStructure"
 type
-  TopOpeBRep_FacesFiller* {.importcpp: "TopOpeBRep_FacesFiller",
-                           header: "TopOpeBRep_FacesFiller.hxx", bycopy.} = object
+  TopOpeBRepFacesFiller* {.importcpp: "TopOpeBRep_FacesFiller",
+                          header: "TopOpeBRep_FacesFiller.hxx", bycopy.} = object
 
 
-proc constructTopOpeBRep_FacesFiller*(): TopOpeBRep_FacesFiller {.constructor,
+proc constructTopOpeBRepFacesFiller*(): TopOpeBRepFacesFiller {.constructor,
     importcpp: "TopOpeBRep_FacesFiller(@)", header: "TopOpeBRep_FacesFiller.hxx".}
-proc Insert*(this: var TopOpeBRep_FacesFiller; F1: TopoDS_Shape; F2: TopoDS_Shape;
-            FACINT: var TopOpeBRep_FacesIntersector;
-            HDS: handle[TopOpeBRepDS_HDataStructure]) {.importcpp: "Insert",
+proc insert*(this: var TopOpeBRepFacesFiller; f1: TopoDS_Shape; f2: TopoDS_Shape;
+            facint: var TopOpeBRepFacesIntersector;
+            hds: Handle[TopOpeBRepDS_HDataStructure]) {.importcpp: "Insert",
     header: "TopOpeBRep_FacesFiller.hxx".}
-proc ProcessSectionEdges*(this: var TopOpeBRep_FacesFiller) {.
+proc processSectionEdges*(this: var TopOpeBRepFacesFiller) {.
     importcpp: "ProcessSectionEdges", header: "TopOpeBRep_FacesFiller.hxx".}
-proc ChangePointClassifier*(this: var TopOpeBRep_FacesFiller): var TopOpeBRep_PointClassifier {.
+proc changePointClassifier*(this: var TopOpeBRepFacesFiller): var TopOpeBRepPointClassifier {.
     importcpp: "ChangePointClassifier", header: "TopOpeBRep_FacesFiller.hxx".}
-proc PShapeClassifier*(this: TopOpeBRep_FacesFiller): TopOpeBRepTool_PShapeClassifier {.
+proc pShapeClassifier*(this: TopOpeBRepFacesFiller): TopOpeBRepToolPShapeClassifier {.
     noSideEffect, importcpp: "PShapeClassifier",
     header: "TopOpeBRep_FacesFiller.hxx".}
-proc SetPShapeClassifier*(this: var TopOpeBRep_FacesFiller;
-                         PSC: TopOpeBRepTool_PShapeClassifier) {.
+proc setPShapeClassifier*(this: var TopOpeBRepFacesFiller;
+                         psc: TopOpeBRepToolPShapeClassifier) {.
     importcpp: "SetPShapeClassifier", header: "TopOpeBRep_FacesFiller.hxx".}
-proc LoadLine*(this: var TopOpeBRep_FacesFiller; L: var TopOpeBRep_LineInter) {.
+proc loadLine*(this: var TopOpeBRepFacesFiller; L: var TopOpeBRepLineInter) {.
     importcpp: "LoadLine", header: "TopOpeBRep_FacesFiller.hxx".}
-proc CheckLine*(this: TopOpeBRep_FacesFiller; L: var TopOpeBRep_LineInter): Standard_Boolean {.
+proc checkLine*(this: TopOpeBRepFacesFiller; L: var TopOpeBRepLineInter): bool {.
     noSideEffect, importcpp: "CheckLine", header: "TopOpeBRep_FacesFiller.hxx".}
-proc VP_Position*(this: var TopOpeBRep_FacesFiller;
-                 FACINT: var TopOpeBRep_FacesIntersector) {.
+proc vP_Position*(this: var TopOpeBRepFacesFiller;
+                 facint: var TopOpeBRepFacesIntersector) {.
     importcpp: "VP_Position", header: "TopOpeBRep_FacesFiller.hxx".}
-proc VP_Position*(this: var TopOpeBRep_FacesFiller; L: var TopOpeBRep_LineInter) {.
+proc vP_Position*(this: var TopOpeBRepFacesFiller; L: var TopOpeBRepLineInter) {.
     importcpp: "VP_Position", header: "TopOpeBRep_FacesFiller.hxx".}
-proc VP_PositionOnL*(this: var TopOpeBRep_FacesFiller; L: var TopOpeBRep_LineInter) {.
+proc vP_PositionOnL*(this: var TopOpeBRepFacesFiller; L: var TopOpeBRepLineInter) {.
     importcpp: "VP_PositionOnL", header: "TopOpeBRep_FacesFiller.hxx".}
-proc VP_PositionOnR*(this: var TopOpeBRep_FacesFiller; L: var TopOpeBRep_LineInter) {.
+proc vP_PositionOnR*(this: var TopOpeBRepFacesFiller; L: var TopOpeBRepLineInter) {.
     importcpp: "VP_PositionOnR", header: "TopOpeBRep_FacesFiller.hxx".}
-proc VP_Position*(this: var TopOpeBRep_FacesFiller; VP: var TopOpeBRep_VPointInter;
-                 VPC: var TopOpeBRep_VPointInterClassifier) {.
+proc vP_Position*(this: var TopOpeBRepFacesFiller; vp: var TopOpeBRepVPointInter;
+                 vpc: var TopOpeBRepVPointInterClassifier) {.
     importcpp: "VP_Position", header: "TopOpeBRep_FacesFiller.hxx".}
-proc ProcessLine*(this: var TopOpeBRep_FacesFiller) {.importcpp: "ProcessLine",
+proc processLine*(this: var TopOpeBRepFacesFiller) {.importcpp: "ProcessLine",
     header: "TopOpeBRep_FacesFiller.hxx".}
-proc ResetDSC*(this: var TopOpeBRep_FacesFiller) {.importcpp: "ResetDSC",
+proc resetDSC*(this: var TopOpeBRepFacesFiller) {.importcpp: "ResetDSC",
     header: "TopOpeBRep_FacesFiller.hxx".}
-proc ProcessRLine*(this: var TopOpeBRep_FacesFiller) {.importcpp: "ProcessRLine",
+proc processRLine*(this: var TopOpeBRepFacesFiller) {.importcpp: "ProcessRLine",
     header: "TopOpeBRep_FacesFiller.hxx".}
-proc FillLineVPonR*(this: var TopOpeBRep_FacesFiller) {.importcpp: "FillLineVPonR",
+proc fillLineVPonR*(this: var TopOpeBRepFacesFiller) {.importcpp: "FillLineVPonR",
     header: "TopOpeBRep_FacesFiller.hxx".}
-proc FillLine*(this: var TopOpeBRep_FacesFiller) {.importcpp: "FillLine",
+proc fillLine*(this: var TopOpeBRepFacesFiller) {.importcpp: "FillLine",
     header: "TopOpeBRep_FacesFiller.hxx".}
-proc AddShapesLine*(this: var TopOpeBRep_FacesFiller) {.importcpp: "AddShapesLine",
+proc addShapesLine*(this: var TopOpeBRepFacesFiller) {.importcpp: "AddShapesLine",
     header: "TopOpeBRep_FacesFiller.hxx".}
-proc GetESL*(this: var TopOpeBRep_FacesFiller; LES: var TopTools_ListOfShape) {.
+proc getESL*(this: var TopOpeBRepFacesFiller; les: var TopToolsListOfShape) {.
     importcpp: "GetESL", header: "TopOpeBRep_FacesFiller.hxx".}
-proc ProcessVPR*(this: var TopOpeBRep_FacesFiller; FF: var TopOpeBRep_FacesFiller;
-                VP: TopOpeBRep_VPointInter) {.importcpp: "ProcessVPR",
+proc processVPR*(this: var TopOpeBRepFacesFiller; ff: var TopOpeBRepFacesFiller;
+                vp: TopOpeBRepVPointInter) {.importcpp: "ProcessVPR",
     header: "TopOpeBRep_FacesFiller.hxx".}
-proc ProcessVPIonR*(this: var TopOpeBRep_FacesFiller;
-                   VPI: var TopOpeBRep_VPointInterIterator;
-                   trans1: TopOpeBRepDS_Transition; F1: TopoDS_Shape;
-                   ShapeIndex: Standard_Integer) {.importcpp: "ProcessVPIonR",
-    header: "TopOpeBRep_FacesFiller.hxx".}
-proc ProcessVPonR*(this: var TopOpeBRep_FacesFiller; VP: TopOpeBRep_VPointInter;
-                  trans1: TopOpeBRepDS_Transition; F1: TopoDS_Shape;
-                  ShapeIndex: Standard_Integer) {.importcpp: "ProcessVPonR",
-    header: "TopOpeBRep_FacesFiller.hxx".}
-proc ProcessVPonclosingR*(this: var TopOpeBRep_FacesFiller;
-                         VP: TopOpeBRep_VPointInter; F1: TopoDS_Shape;
-                         ShapeIndex: Standard_Integer;
-                         transEdge: TopOpeBRepDS_Transition;
-                         PVKind: TopOpeBRepDS_Kind; PVIndex: Standard_Integer;
-                         EPIfound: Standard_Boolean;
-                         IEPI: handle[TopOpeBRepDS_Interference]) {.
+proc processVPIonR*(this: var TopOpeBRepFacesFiller;
+                   vpi: var TopOpeBRepVPointInterIterator;
+                   trans1: TopOpeBRepDS_Transition; f1: TopoDS_Shape;
+                   shapeIndex: int) {.importcpp: "ProcessVPIonR",
+                                    header: "TopOpeBRep_FacesFiller.hxx".}
+proc processVPonR*(this: var TopOpeBRepFacesFiller; vp: TopOpeBRepVPointInter;
+                  trans1: TopOpeBRepDS_Transition; f1: TopoDS_Shape; shapeIndex: int) {.
+    importcpp: "ProcessVPonR", header: "TopOpeBRep_FacesFiller.hxx".}
+proc processVPonclosingR*(this: var TopOpeBRepFacesFiller;
+                         vp: TopOpeBRepVPointInter; f1: TopoDS_Shape;
+                         shapeIndex: int; transEdge: TopOpeBRepDS_Transition;
+                         pVKind: TopOpeBRepDS_Kind; pVIndex: int; ePIfound: bool;
+                         iepi: Handle[TopOpeBRepDS_Interference]) {.
     importcpp: "ProcessVPonclosingR", header: "TopOpeBRep_FacesFiller.hxx".}
-proc ProcessVPondgE*(this: var TopOpeBRep_FacesFiller; VP: TopOpeBRep_VPointInter;
-                    ShapeIndex: Standard_Integer; PVKind: var TopOpeBRepDS_Kind;
-                    PVIndex: var Standard_Integer; EPIfound: var Standard_Boolean;
-                    IEPI: var handle[TopOpeBRepDS_Interference];
-                    CPIfound: var Standard_Boolean;
-                    ICPI: var handle[TopOpeBRepDS_Interference]): Standard_Boolean {.
+proc processVPondgE*(this: var TopOpeBRepFacesFiller; vp: TopOpeBRepVPointInter;
+                    shapeIndex: int; pVKind: var TopOpeBRepDS_Kind; pVIndex: var int;
+                    ePIfound: var bool;
+                    iepi: var Handle[TopOpeBRepDS_Interference];
+                    cPIfound: var bool; icpi: var Handle[TopOpeBRepDS_Interference]): bool {.
     importcpp: "ProcessVPondgE", header: "TopOpeBRep_FacesFiller.hxx".}
-proc ProcessVPInotonR*(this: var TopOpeBRep_FacesFiller;
-                      VPI: var TopOpeBRep_VPointInterIterator) {.
+proc processVPInotonR*(this: var TopOpeBRepFacesFiller;
+                      vpi: var TopOpeBRepVPointInterIterator) {.
     importcpp: "ProcessVPInotonR", header: "TopOpeBRep_FacesFiller.hxx".}
-proc ProcessVPnotonR*(this: var TopOpeBRep_FacesFiller; VP: TopOpeBRep_VPointInter) {.
+proc processVPnotonR*(this: var TopOpeBRepFacesFiller; vp: TopOpeBRepVPointInter) {.
     importcpp: "ProcessVPnotonR", header: "TopOpeBRep_FacesFiller.hxx".}
-proc GetGeometry*(this: var TopOpeBRep_FacesFiller;
-                 IT: var TopOpeBRepDS_ListIteratorOfListOfInterference;
-                 VP: TopOpeBRep_VPointInter; G: var Standard_Integer;
-                 K: var TopOpeBRepDS_Kind): Standard_Boolean {.
+proc getGeometry*(this: var TopOpeBRepFacesFiller;
+                 it: var TopOpeBRepDS_ListIteratorOfListOfInterference;
+                 vp: TopOpeBRepVPointInter; g: var int; k: var TopOpeBRepDS_Kind): bool {.
     importcpp: "GetGeometry", header: "TopOpeBRep_FacesFiller.hxx".}
-proc MakeGeometry*(this: var TopOpeBRep_FacesFiller; VP: TopOpeBRep_VPointInter;
-                  ShapeIndex: Standard_Integer; K: var TopOpeBRepDS_Kind): Standard_Integer {.
+proc makeGeometry*(this: var TopOpeBRepFacesFiller; vp: TopOpeBRepVPointInter;
+                  shapeIndex: int; k: var TopOpeBRepDS_Kind): int {.
     importcpp: "MakeGeometry", header: "TopOpeBRep_FacesFiller.hxx".}
-proc StoreCurveInterference*(this: var TopOpeBRep_FacesFiller;
-                            I: handle[TopOpeBRepDS_Interference]) {.
+proc storeCurveInterference*(this: var TopOpeBRepFacesFiller;
+                            i: Handle[TopOpeBRepDS_Interference]) {.
     importcpp: "StoreCurveInterference", header: "TopOpeBRep_FacesFiller.hxx".}
-proc GetFFGeometry*(this: TopOpeBRep_FacesFiller; DSP: TopOpeBRepDS_Point;
-                   K: var TopOpeBRepDS_Kind; G: var Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "GetFFGeometry", header: "TopOpeBRep_FacesFiller.hxx".}
-proc GetFFGeometry*(this: TopOpeBRep_FacesFiller; VP: TopOpeBRep_VPointInter;
-                   K: var TopOpeBRepDS_Kind; G: var Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "GetFFGeometry", header: "TopOpeBRep_FacesFiller.hxx".}
-proc ChangeFacesIntersector*(this: var TopOpeBRep_FacesFiller): var TopOpeBRep_FacesIntersector {.
+proc getFFGeometry*(this: TopOpeBRepFacesFiller; dsp: TopOpeBRepDS_Point;
+                   k: var TopOpeBRepDS_Kind; g: var int): bool {.noSideEffect,
+    importcpp: "GetFFGeometry", header: "TopOpeBRep_FacesFiller.hxx".}
+proc getFFGeometry*(this: TopOpeBRepFacesFiller; vp: TopOpeBRepVPointInter;
+                   k: var TopOpeBRepDS_Kind; g: var int): bool {.noSideEffect,
+    importcpp: "GetFFGeometry", header: "TopOpeBRep_FacesFiller.hxx".}
+proc changeFacesIntersector*(this: var TopOpeBRepFacesFiller): var TopOpeBRepFacesIntersector {.
     importcpp: "ChangeFacesIntersector", header: "TopOpeBRep_FacesFiller.hxx".}
-proc HDataStructure*(this: var TopOpeBRep_FacesFiller): handle[
+proc hDataStructure*(this: var TopOpeBRepFacesFiller): Handle[
     TopOpeBRepDS_HDataStructure] {.importcpp: "HDataStructure",
                                   header: "TopOpeBRep_FacesFiller.hxx".}
-proc ChangeDataStructure*(this: var TopOpeBRep_FacesFiller): var TopOpeBRepDS_DataStructure {.
+proc changeDataStructure*(this: var TopOpeBRepFacesFiller): var TopOpeBRepDS_DataStructure {.
     importcpp: "ChangeDataStructure", header: "TopOpeBRep_FacesFiller.hxx".}
-proc Face*(this: TopOpeBRep_FacesFiller; I: Standard_Integer): TopoDS_Face {.
-    noSideEffect, importcpp: "Face", header: "TopOpeBRep_FacesFiller.hxx".}
-proc FaceFaceTransition*(this: TopOpeBRep_FacesFiller; L: TopOpeBRep_LineInter;
-                        I: Standard_Integer): TopOpeBRepDS_Transition {.
+proc face*(this: TopOpeBRepFacesFiller; i: int): TopoDS_Face {.noSideEffect,
+    importcpp: "Face", header: "TopOpeBRep_FacesFiller.hxx".}
+proc faceFaceTransition*(this: TopOpeBRepFacesFiller; L: TopOpeBRepLineInter; i: int): TopOpeBRepDS_Transition {.
     noSideEffect, importcpp: "FaceFaceTransition",
     header: "TopOpeBRep_FacesFiller.hxx".}
-proc FaceFaceTransition*(this: TopOpeBRep_FacesFiller; I: Standard_Integer): TopOpeBRepDS_Transition {.
+proc faceFaceTransition*(this: TopOpeBRepFacesFiller; i: int): TopOpeBRepDS_Transition {.
     noSideEffect, importcpp: "FaceFaceTransition",
     header: "TopOpeBRep_FacesFiller.hxx".}
-proc PFacesIntersectorDummy*(this: TopOpeBRep_FacesFiller): TopOpeBRep_PFacesIntersector {.
+proc pFacesIntersectorDummy*(this: TopOpeBRepFacesFiller): TopOpeBRepPFacesIntersector {.
     noSideEffect, importcpp: "PFacesIntersectorDummy",
     header: "TopOpeBRep_FacesFiller.hxx".}
-proc PDataStructureDummy*(this: TopOpeBRep_FacesFiller): TopOpeBRepDS_PDataStructure {.
+proc pDataStructureDummy*(this: TopOpeBRepFacesFiller): TopOpeBRepDS_PDataStructure {.
     noSideEffect, importcpp: "PDataStructureDummy",
     header: "TopOpeBRep_FacesFiller.hxx".}
-proc PLineInterDummy*(this: TopOpeBRep_FacesFiller): TopOpeBRep_PLineInter {.
+proc pLineInterDummy*(this: TopOpeBRepFacesFiller): TopOpeBRepPLineInter {.
     noSideEffect, importcpp: "PLineInterDummy",
     header: "TopOpeBRep_FacesFiller.hxx".}
-proc SetTraceIndex*(this: var TopOpeBRep_FacesFiller; exF1: Standard_Integer;
-                   exF2: Standard_Integer) {.importcpp: "SetTraceIndex",
+proc setTraceIndex*(this: var TopOpeBRepFacesFiller; exF1: int; exF2: int) {.
+    importcpp: "SetTraceIndex", header: "TopOpeBRep_FacesFiller.hxx".}
+proc getTraceIndex*(this: TopOpeBRepFacesFiller; exF1: var int; exF2: var int) {.
+    noSideEffect, importcpp: "GetTraceIndex", header: "TopOpeBRep_FacesFiller.hxx".}
+proc lminmax*(L: TopOpeBRepLineInter; pmin: var float; pmax: var float) {.
+    importcpp: "TopOpeBRep_FacesFiller::Lminmax(@)",
     header: "TopOpeBRep_FacesFiller.hxx".}
-proc GetTraceIndex*(this: TopOpeBRep_FacesFiller; exF1: var Standard_Integer;
-                   exF2: var Standard_Integer) {.noSideEffect,
-    importcpp: "GetTraceIndex", header: "TopOpeBRep_FacesFiller.hxx".}
-proc Lminmax*(L: TopOpeBRep_LineInter; pmin: var Standard_Real;
-             pmax: var Standard_Real) {.importcpp: "TopOpeBRep_FacesFiller::Lminmax(@)",
-                                     header: "TopOpeBRep_FacesFiller.hxx".}
-proc LSameDomainERL*(L: TopOpeBRep_LineInter; ERL: TopTools_ListOfShape): Standard_Boolean {.
+proc lSameDomainERL*(L: TopOpeBRepLineInter; erl: TopToolsListOfShape): bool {.
     importcpp: "TopOpeBRep_FacesFiller::LSameDomainERL(@)",
     header: "TopOpeBRep_FacesFiller.hxx".}
-proc IsVPtransLok*(L: TopOpeBRep_LineInter; iVP: Standard_Integer;
-                  SI12: Standard_Integer; T: var TopOpeBRepDS_Transition): Standard_Boolean {.
+proc isVPtransLok*(L: TopOpeBRepLineInter; iVP: int; si12: int;
+                  t: var TopOpeBRepDS_Transition): bool {.
     importcpp: "TopOpeBRep_FacesFiller::IsVPtransLok(@)",
     header: "TopOpeBRep_FacesFiller.hxx".}
-proc TransvpOK*(L: TopOpeBRep_LineInter; iVP: Standard_Integer; SI: Standard_Integer;
-               isINOUT: Standard_Boolean): Standard_Boolean {.
+proc transvpOK*(L: TopOpeBRepLineInter; iVP: int; si: int; isINOUT: bool): bool {.
     importcpp: "TopOpeBRep_FacesFiller::TransvpOK(@)",
     header: "TopOpeBRep_FacesFiller.hxx".}
-proc VPParamOnER*(vp: TopOpeBRep_VPointInter; Lrest: TopOpeBRep_LineInter): Standard_Real {.
+proc vPParamOnER*(vp: TopOpeBRepVPointInter; lrest: TopOpeBRepLineInter): float {.
     importcpp: "TopOpeBRep_FacesFiller::VPParamOnER(@)",
     header: "TopOpeBRep_FacesFiller.hxx".}
-proc EqualpPonR*(Lrest: TopOpeBRep_LineInter; VP1: TopOpeBRep_VPointInter;
-                VP2: TopOpeBRep_VPointInter): Standard_Boolean {.
+proc equalpPonR*(lrest: TopOpeBRepLineInter; vp1: TopOpeBRepVPointInter;
+                vp2: TopOpeBRepVPointInter): bool {.
     importcpp: "TopOpeBRep_FacesFiller::EqualpPonR(@)",
     header: "TopOpeBRep_FacesFiller.hxx".}

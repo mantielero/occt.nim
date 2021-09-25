@@ -13,93 +13,82 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../BVH/BVH_Box, ../gp/gp_Pnt, ../TColgp/TColgp_HArray1OfPnt,
-  SelectBasics_PickResult, ../Standard/Standard_Dump
-
 discard "forward decl of Bnd_Box"
 discard "forward decl of gp_Pnt"
 type
-  SelectBasics_SelectingVolumeManager* {.importcpp: "SelectBasics_SelectingVolumeManager", header: "SelectBasics_SelectingVolumeManager.hxx",
-                                        bycopy.} = object ## ! Available selection types
+  SelectBasicsSelectingVolumeManager* {.importcpp: "SelectBasics_SelectingVolumeManager", header: "SelectBasics_SelectingVolumeManager.hxx",
+                                       bycopy.} = object ## ! Available selection types
     ## !< Active selection type: point, box or polyline
 
-  SelectBasics_SelectingVolumeManagerSelectionType* {.size: sizeof(cint),
+  SelectBasicsSelectingVolumeManagerSelectionType* {.size: sizeof(cint),
       importcpp: "SelectBasics_SelectingVolumeManager::SelectionType",
       header: "SelectBasics_SelectingVolumeManager.hxx".} = enum
     Point, Box, Polyline, Unknown
 
 
-proc constructSelectBasics_SelectingVolumeManager*(): SelectBasics_SelectingVolumeManager {.
+proc constructSelectBasicsSelectingVolumeManager*(): SelectBasicsSelectingVolumeManager {.
     constructor, importcpp: "SelectBasics_SelectingVolumeManager(@)",
     header: "SelectBasics_SelectingVolumeManager.hxx".}
-proc destroySelectBasics_SelectingVolumeManager*(
-    this: var SelectBasics_SelectingVolumeManager) {.
+proc destroySelectBasicsSelectingVolumeManager*(
+    this: var SelectBasicsSelectingVolumeManager) {.
     importcpp: "#.~SelectBasics_SelectingVolumeManager()",
     header: "SelectBasics_SelectingVolumeManager.hxx".}
-proc GetActiveSelectionType*(this: SelectBasics_SelectingVolumeManager): Standard_Integer {.
+proc getActiveSelectionType*(this: SelectBasicsSelectingVolumeManager): int {.
     noSideEffect, importcpp: "GetActiveSelectionType",
     header: "SelectBasics_SelectingVolumeManager.hxx".}
-proc Overlaps*(this: SelectBasics_SelectingVolumeManager;
-              theBoxMin: NCollection_Vec3[Standard_Real];
-              theBoxMax: NCollection_Vec3[Standard_Real];
-              thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
-    noSideEffect, importcpp: "Overlaps",
-    header: "SelectBasics_SelectingVolumeManager.hxx".}
-proc Overlaps*(this: SelectBasics_SelectingVolumeManager;
-              theBoxMin: NCollection_Vec3[Standard_Real];
-              theBoxMax: NCollection_Vec3[Standard_Real];
-              theInside: ptr Standard_Boolean = nil): Standard_Boolean {.noSideEffect,
+proc overlaps*(this: SelectBasicsSelectingVolumeManager;
+              theBoxMin: NCollectionVec3[float];
+              theBoxMax: NCollectionVec3[float];
+              thePickResult: var SelectBasicsPickResult): bool {.noSideEffect,
     importcpp: "Overlaps", header: "SelectBasics_SelectingVolumeManager.hxx".}
-proc Overlaps*(this: SelectBasics_SelectingVolumeManager; thePnt: gp_Pnt;
-              thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
+proc overlaps*(this: SelectBasicsSelectingVolumeManager;
+              theBoxMin: NCollectionVec3[float];
+              theBoxMax: NCollectionVec3[float]; theInside: ptr bool = nil): bool {.
     noSideEffect, importcpp: "Overlaps",
     header: "SelectBasics_SelectingVolumeManager.hxx".}
-proc Overlaps*(this: SelectBasics_SelectingVolumeManager; thePnt: gp_Pnt): Standard_Boolean {.
+proc overlaps*(this: SelectBasicsSelectingVolumeManager; thePnt: Pnt;
+              thePickResult: var SelectBasicsPickResult): bool {.noSideEffect,
+    importcpp: "Overlaps", header: "SelectBasics_SelectingVolumeManager.hxx".}
+proc overlaps*(this: SelectBasicsSelectingVolumeManager; thePnt: Pnt): bool {.
     noSideEffect, importcpp: "Overlaps",
     header: "SelectBasics_SelectingVolumeManager.hxx".}
-proc Overlaps*(this: SelectBasics_SelectingVolumeManager;
-              theArrayOfPts: handle[TColgp_HArray1OfPnt];
-              theSensType: Standard_Integer;
-              thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
-    noSideEffect, importcpp: "Overlaps",
+proc overlaps*(this: SelectBasicsSelectingVolumeManager;
+              theArrayOfPts: Handle[TColgpHArray1OfPnt]; theSensType: int;
+              thePickResult: var SelectBasicsPickResult): bool {.noSideEffect,
+    importcpp: "Overlaps", header: "SelectBasics_SelectingVolumeManager.hxx".}
+proc overlaps*(this: SelectBasicsSelectingVolumeManager;
+              theArrayOfPts: TColgpArray1OfPnt; theSensType: int;
+              thePickResult: var SelectBasicsPickResult): bool {.noSideEffect,
+    importcpp: "Overlaps", header: "SelectBasics_SelectingVolumeManager.hxx".}
+proc overlaps*(this: SelectBasicsSelectingVolumeManager; thePt1: Pnt; thePt2: Pnt;
+              thePickResult: var SelectBasicsPickResult): bool {.noSideEffect,
+    importcpp: "Overlaps", header: "SelectBasics_SelectingVolumeManager.hxx".}
+proc overlaps*(this: SelectBasicsSelectingVolumeManager; thePt1: Pnt; thePt2: Pnt;
+              thePt3: Pnt; theSensType: int;
+              thePickResult: var SelectBasicsPickResult): bool {.noSideEffect,
+    importcpp: "Overlaps", header: "SelectBasics_SelectingVolumeManager.hxx".}
+proc distToGeometryCenter*(this: SelectBasicsSelectingVolumeManager; theCOG: Pnt): float {.
+    noSideEffect, importcpp: "DistToGeometryCenter",
     header: "SelectBasics_SelectingVolumeManager.hxx".}
-proc Overlaps*(this: SelectBasics_SelectingVolumeManager;
-              theArrayOfPts: TColgp_Array1OfPnt; theSensType: Standard_Integer;
-              thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
-    noSideEffect, importcpp: "Overlaps",
+proc detectedPoint*(this: SelectBasicsSelectingVolumeManager; theDepth: float): Pnt {.
+    noSideEffect, importcpp: "DetectedPoint",
     header: "SelectBasics_SelectingVolumeManager.hxx".}
-proc Overlaps*(this: SelectBasics_SelectingVolumeManager; thePt1: gp_Pnt;
-              thePt2: gp_Pnt; thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
-    noSideEffect, importcpp: "Overlaps",
-    header: "SelectBasics_SelectingVolumeManager.hxx".}
-proc Overlaps*(this: SelectBasics_SelectingVolumeManager; thePt1: gp_Pnt;
-              thePt2: gp_Pnt; thePt3: gp_Pnt; theSensType: Standard_Integer;
-              thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
-    noSideEffect, importcpp: "Overlaps",
-    header: "SelectBasics_SelectingVolumeManager.hxx".}
-proc DistToGeometryCenter*(this: SelectBasics_SelectingVolumeManager;
-                          theCOG: gp_Pnt): Standard_Real {.noSideEffect,
-    importcpp: "DistToGeometryCenter",
-    header: "SelectBasics_SelectingVolumeManager.hxx".}
-proc DetectedPoint*(this: SelectBasics_SelectingVolumeManager;
-                   theDepth: Standard_Real): gp_Pnt {.noSideEffect,
-    importcpp: "DetectedPoint", header: "SelectBasics_SelectingVolumeManager.hxx".}
-proc IsOverlapAllowed*(this: SelectBasics_SelectingVolumeManager): Standard_Boolean {.
+proc isOverlapAllowed*(this: SelectBasicsSelectingVolumeManager): bool {.
     noSideEffect, importcpp: "IsOverlapAllowed",
     header: "SelectBasics_SelectingVolumeManager.hxx".}
-proc GetNearPickedPnt*(this: SelectBasics_SelectingVolumeManager): gp_Pnt {.
+proc getNearPickedPnt*(this: SelectBasicsSelectingVolumeManager): Pnt {.
     noSideEffect, importcpp: "GetNearPickedPnt",
     header: "SelectBasics_SelectingVolumeManager.hxx".}
-proc GetFarPickedPnt*(this: SelectBasics_SelectingVolumeManager): gp_Pnt {.
-    noSideEffect, importcpp: "GetFarPickedPnt",
+proc getFarPickedPnt*(this: SelectBasicsSelectingVolumeManager): Pnt {.noSideEffect,
+    importcpp: "GetFarPickedPnt",
     header: "SelectBasics_SelectingVolumeManager.hxx".}
-proc GetMousePosition*(this: SelectBasics_SelectingVolumeManager): gp_Pnt2d {.
+proc getMousePosition*(this: SelectBasicsSelectingVolumeManager): Pnt2d {.
     noSideEffect, importcpp: "GetMousePosition",
     header: "SelectBasics_SelectingVolumeManager.hxx".}
-proc GetPlanes*(this: SelectBasics_SelectingVolumeManager; thePlaneEquations: var NCollection_Vector[
-    NCollection_Vec4[Standard_Real]]) {.noSideEffect, importcpp: "GetPlanes", header: "SelectBasics_SelectingVolumeManager.hxx".}
-proc DumpJson*(this: SelectBasics_SelectingVolumeManager;
-              theOStream: var Standard_OStream; theDepth: Standard_Integer = -1) {.
-    noSideEffect, importcpp: "DumpJson",
+proc getPlanes*(this: SelectBasicsSelectingVolumeManager;
+               thePlaneEquations: var NCollectionVector[NCollectionVec4[float]]) {.
+    noSideEffect, importcpp: "GetPlanes",
     header: "SelectBasics_SelectingVolumeManager.hxx".}
+proc dumpJson*(this: SelectBasicsSelectingVolumeManager;
+              theOStream: var StandardOStream; theDepth: int = -1) {.noSideEffect,
+    importcpp: "DumpJson", header: "SelectBasics_SelectingVolumeManager.hxx".}

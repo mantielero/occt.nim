@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Draw/Draw_MarkerShape, ../Draw/Draw_Color, ../Standard/Standard_Integer,
-  DrawTrSurf_Surface, ../Standard/Standard_Real
-
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of Draw_Color"
 discard "forward decl of Draw_Display"
@@ -26,7 +21,7 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DrawTrSurf_BSplineSurface"
 discard "forward decl of DrawTrSurf_BSplineSurface"
 type
-  Handle_DrawTrSurf_BSplineSurface* = handle[DrawTrSurf_BSplineSurface]
+  HandleDrawTrSurfBSplineSurface* = Handle[DrawTrSurfBSplineSurface]
 
 ## ! This class defines a drawable BSplineSurface.
 ## ! With this class you can draw the control points and the knots
@@ -35,146 +30,137 @@ type
 ## ! if you just want to sea boundaries and isoparametric curves.
 
 type
-  DrawTrSurf_BSplineSurface* {.importcpp: "DrawTrSurf_BSplineSurface",
-                              header: "DrawTrSurf_BSplineSurface.hxx", bycopy.} = object of DrawTrSurf_Surface ##
-                                                                                                        ## !
-                                                                                                        ## default
-                                                                                                        ## drawing
-                                                                                                        ## mode.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## The
-                                                                                                        ## isoparametric
-                                                                                                        ## curves
-                                                                                                        ## corresponding
-                                                                                                        ## to
-                                                                                                        ## the
-                                                                                                        ## knots
-                                                                                                        ## values
-                                                                                                        ## are
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## drawn.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## The
-                                                                                                        ## control
-                                                                                                        ## points
-                                                                                                        ## and
-                                                                                                        ## the
-                                                                                                        ## knots
-                                                                                                        ## points
-                                                                                                        ## are
-                                                                                                        ## drawn.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## The
-                                                                                                        ## boundaries
-                                                                                                        ## are
-                                                                                                        ## yellow,
-                                                                                                        ## the
-                                                                                                        ## isoparametric
-                                                                                                        ## curves
-                                                                                                        ## are
-                                                                                                        ## blues.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## For
-                                                                                                        ## the
-                                                                                                        ## discretisation
-                                                                                                        ## 50
-                                                                                                        ## points
-                                                                                                        ## are
-                                                                                                        ## computed
-                                                                                                        ## in
-                                                                                                        ## each
-                                                                                                        ## parametric
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## direction.
+  DrawTrSurfBSplineSurface* {.importcpp: "DrawTrSurf_BSplineSurface",
+                             header: "DrawTrSurf_BSplineSurface.hxx", bycopy.} = object of DrawTrSurfSurface ##
+                                                                                                      ## !
+                                                                                                      ## default
+                                                                                                      ## drawing
+                                                                                                      ## mode.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## The
+                                                                                                      ## isoparametric
+                                                                                                      ## curves
+                                                                                                      ## corresponding
+                                                                                                      ## to
+                                                                                                      ## the
+                                                                                                      ## knots
+                                                                                                      ## values
+                                                                                                      ## are
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## drawn.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## The
+                                                                                                      ## control
+                                                                                                      ## points
+                                                                                                      ## and
+                                                                                                      ## the
+                                                                                                      ## knots
+                                                                                                      ## points
+                                                                                                      ## are
+                                                                                                      ## drawn.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## The
+                                                                                                      ## boundaries
+                                                                                                      ## are
+                                                                                                      ## yellow,
+                                                                                                      ## the
+                                                                                                      ## isoparametric
+                                                                                                      ## curves
+                                                                                                      ## are
+                                                                                                      ## blues.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## For
+                                                                                                      ## the
+                                                                                                      ## discretisation
+                                                                                                      ## 50
+                                                                                                      ## points
+                                                                                                      ## are
+                                                                                                      ## computed
+                                                                                                      ## in
+                                                                                                      ## each
+                                                                                                      ## parametric
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## direction.
 
 
-proc constructDrawTrSurf_BSplineSurface*(S: handle[Geom_BSplineSurface]): DrawTrSurf_BSplineSurface {.
+proc constructDrawTrSurfBSplineSurface*(s: Handle[GeomBSplineSurface]): DrawTrSurfBSplineSurface {.
     constructor, importcpp: "DrawTrSurf_BSplineSurface(@)",
     header: "DrawTrSurf_BSplineSurface.hxx".}
-proc constructDrawTrSurf_BSplineSurface*(S: handle[Geom_BSplineSurface];
-                                        BoundsColor: Draw_Color;
-                                        IsosColor: Draw_Color;
-                                        PolesColor: Draw_Color;
-                                        KnotsColor: Draw_Color;
-                                        KnotsShape: Draw_MarkerShape;
-                                        KnotsSize: Standard_Integer;
-                                        ShowPoles: Standard_Boolean;
-                                        ShowKnots: Standard_Boolean;
-                                        Discret: Standard_Integer;
-                                        Deflection: Standard_Real;
-                                        DrawMode: Standard_Integer): DrawTrSurf_BSplineSurface {.
+proc constructDrawTrSurfBSplineSurface*(s: Handle[GeomBSplineSurface];
+                                       boundsColor: DrawColor;
+                                       isosColor: DrawColor;
+                                       polesColor: DrawColor;
+                                       knotsColor: DrawColor;
+                                       knotsShape: DrawMarkerShape;
+                                       knotsSize: int; showPoles: bool;
+                                       showKnots: bool; discret: int;
+                                       deflection: float; drawMode: int): DrawTrSurfBSplineSurface {.
     constructor, importcpp: "DrawTrSurf_BSplineSurface(@)",
     header: "DrawTrSurf_BSplineSurface.hxx".}
-proc constructDrawTrSurf_BSplineSurface*(S: handle[Geom_BSplineSurface];
-                                        NbUIsos: Standard_Integer;
-                                        NbVIsos: Standard_Integer;
-                                        BoundsColor: Draw_Color;
-                                        IsosColor: Draw_Color;
-                                        PolesColor: Draw_Color;
-                                        KnotsColor: Draw_Color;
-                                        KnotsShape: Draw_MarkerShape;
-                                        KnotsSize: Standard_Integer;
-                                        ShowPoles: Standard_Boolean;
-                                        ShowKnots: Standard_Boolean;
-                                        Discret: Standard_Integer;
-                                        Deflection: Standard_Real;
-                                        DrawMode: Standard_Integer): DrawTrSurf_BSplineSurface {.
+proc constructDrawTrSurfBSplineSurface*(s: Handle[GeomBSplineSurface];
+                                       nbUIsos: int; nbVIsos: int;
+                                       boundsColor: DrawColor;
+                                       isosColor: DrawColor;
+                                       polesColor: DrawColor;
+                                       knotsColor: DrawColor;
+                                       knotsShape: DrawMarkerShape;
+                                       knotsSize: int; showPoles: bool;
+                                       showKnots: bool; discret: int;
+                                       deflection: float; drawMode: int): DrawTrSurfBSplineSurface {.
     constructor, importcpp: "DrawTrSurf_BSplineSurface(@)",
     header: "DrawTrSurf_BSplineSurface.hxx".}
-proc DrawOn*(this: DrawTrSurf_BSplineSurface; dis: var Draw_Display) {.noSideEffect,
+proc drawOn*(this: DrawTrSurfBSplineSurface; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "DrawTrSurf_BSplineSurface.hxx".}
-proc ShowPoles*(this: var DrawTrSurf_BSplineSurface) {.importcpp: "ShowPoles",
+proc showPoles*(this: var DrawTrSurfBSplineSurface) {.importcpp: "ShowPoles",
     header: "DrawTrSurf_BSplineSurface.hxx".}
-proc ShowKnots*(this: var DrawTrSurf_BSplineSurface) {.importcpp: "ShowKnots",
+proc showKnots*(this: var DrawTrSurfBSplineSurface) {.importcpp: "ShowKnots",
     header: "DrawTrSurf_BSplineSurface.hxx".}
-proc ShowIsos*(this: var DrawTrSurf_BSplineSurface; Nu: Standard_Integer;
-              Nv: Standard_Integer) {.importcpp: "ShowIsos",
-                                    header: "DrawTrSurf_BSplineSurface.hxx".}
-proc ShowKnotsIsos*(this: var DrawTrSurf_BSplineSurface) {.
+proc showIsos*(this: var DrawTrSurfBSplineSurface; nu: int; nv: int) {.
+    importcpp: "ShowIsos", header: "DrawTrSurf_BSplineSurface.hxx".}
+proc showKnotsIsos*(this: var DrawTrSurfBSplineSurface) {.
     importcpp: "ShowKnotsIsos", header: "DrawTrSurf_BSplineSurface.hxx".}
-proc ClearIsos*(this: var DrawTrSurf_BSplineSurface) {.importcpp: "ClearIsos",
+proc clearIsos*(this: var DrawTrSurfBSplineSurface) {.importcpp: "ClearIsos",
     header: "DrawTrSurf_BSplineSurface.hxx".}
-proc ClearPoles*(this: var DrawTrSurf_BSplineSurface) {.importcpp: "ClearPoles",
+proc clearPoles*(this: var DrawTrSurfBSplineSurface) {.importcpp: "ClearPoles",
     header: "DrawTrSurf_BSplineSurface.hxx".}
-proc ClearKnots*(this: var DrawTrSurf_BSplineSurface) {.importcpp: "ClearKnots",
+proc clearKnots*(this: var DrawTrSurfBSplineSurface) {.importcpp: "ClearKnots",
     header: "DrawTrSurf_BSplineSurface.hxx".}
-proc FindPole*(this: DrawTrSurf_BSplineSurface; X: Standard_Real; Y: Standard_Real;
-              D: Draw_Display; Prec: Standard_Real; UIndex: var Standard_Integer;
-              VIndex: var Standard_Integer) {.noSideEffect, importcpp: "FindPole",
+proc findPole*(this: DrawTrSurfBSplineSurface; x: float; y: float; d: DrawDisplay;
+              prec: float; uIndex: var int; vIndex: var int) {.noSideEffect,
+    importcpp: "FindPole", header: "DrawTrSurf_BSplineSurface.hxx".}
+proc findUKnot*(this: DrawTrSurfBSplineSurface; x: float; y: float; d: DrawDisplay;
+               prec: float; uIndex: var int) {.noSideEffect, importcpp: "FindUKnot",
     header: "DrawTrSurf_BSplineSurface.hxx".}
-proc FindUKnot*(this: DrawTrSurf_BSplineSurface; X: Standard_Real; Y: Standard_Real;
-               D: Draw_Display; Prec: Standard_Real; UIndex: var Standard_Integer) {.
-    noSideEffect, importcpp: "FindUKnot", header: "DrawTrSurf_BSplineSurface.hxx".}
-proc FindVKnot*(this: DrawTrSurf_BSplineSurface; X: Standard_Real; Y: Standard_Real;
-               D: Draw_Display; Prec: Standard_Real; VIndex: var Standard_Integer) {.
-    noSideEffect, importcpp: "FindVKnot", header: "DrawTrSurf_BSplineSurface.hxx".}
-proc SetPolesColor*(this: var DrawTrSurf_BSplineSurface; aColor: Draw_Color) {.
+proc findVKnot*(this: DrawTrSurfBSplineSurface; x: float; y: float; d: DrawDisplay;
+               prec: float; vIndex: var int) {.noSideEffect, importcpp: "FindVKnot",
+    header: "DrawTrSurf_BSplineSurface.hxx".}
+proc setPolesColor*(this: var DrawTrSurfBSplineSurface; aColor: DrawColor) {.
     importcpp: "SetPolesColor", header: "DrawTrSurf_BSplineSurface.hxx".}
-proc SetKnotsColor*(this: var DrawTrSurf_BSplineSurface; aColor: Draw_Color) {.
+proc setKnotsColor*(this: var DrawTrSurfBSplineSurface; aColor: DrawColor) {.
     importcpp: "SetKnotsColor", header: "DrawTrSurf_BSplineSurface.hxx".}
-proc SetKnotsShape*(this: var DrawTrSurf_BSplineSurface; Shape: Draw_MarkerShape) {.
+proc setKnotsShape*(this: var DrawTrSurfBSplineSurface; shape: DrawMarkerShape) {.
     importcpp: "SetKnotsShape", header: "DrawTrSurf_BSplineSurface.hxx".}
-proc KnotsShape*(this: DrawTrSurf_BSplineSurface): Draw_MarkerShape {.noSideEffect,
+proc knotsShape*(this: DrawTrSurfBSplineSurface): DrawMarkerShape {.noSideEffect,
     importcpp: "KnotsShape", header: "DrawTrSurf_BSplineSurface.hxx".}
-proc KnotsColor*(this: DrawTrSurf_BSplineSurface): Draw_Color {.noSideEffect,
+proc knotsColor*(this: DrawTrSurfBSplineSurface): DrawColor {.noSideEffect,
     importcpp: "KnotsColor", header: "DrawTrSurf_BSplineSurface.hxx".}
-proc PolesColor*(this: DrawTrSurf_BSplineSurface): Draw_Color {.noSideEffect,
+proc polesColor*(this: DrawTrSurfBSplineSurface): DrawColor {.noSideEffect,
     importcpp: "PolesColor", header: "DrawTrSurf_BSplineSurface.hxx".}
-proc Copy*(this: DrawTrSurf_BSplineSurface): handle[Draw_Drawable3D] {.noSideEffect,
+proc copy*(this: DrawTrSurfBSplineSurface): Handle[DrawDrawable3D] {.noSideEffect,
     importcpp: "Copy", header: "DrawTrSurf_BSplineSurface.hxx".}
 type
-  DrawTrSurf_BSplineSurfacebase_type* = DrawTrSurf_Surface
+  DrawTrSurfBSplineSurfacebaseType* = DrawTrSurfSurface
 
-proc get_type_name*(): cstring {.importcpp: "DrawTrSurf_BSplineSurface::get_type_name(@)",
-                              header: "DrawTrSurf_BSplineSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "DrawTrSurf_BSplineSurface::get_type_name(@)",
+                            header: "DrawTrSurf_BSplineSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "DrawTrSurf_BSplineSurface::get_type_descriptor(@)",
     header: "DrawTrSurf_BSplineSurface.hxx".}
-proc DynamicType*(this: DrawTrSurf_BSplineSurface): handle[Standard_Type] {.
+proc dynamicType*(this: DrawTrSurfBSplineSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "DrawTrSurf_BSplineSurface.hxx".}

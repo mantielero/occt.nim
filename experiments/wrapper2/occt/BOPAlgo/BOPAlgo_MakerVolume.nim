@@ -12,50 +12,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean, BOPAlgo_Builder,
-  ../Bnd/Bnd_Box, ../NCollection/NCollection_BaseAllocator,
-  ../TopoDS/TopoDS_Solid, ../TopTools/TopTools_ListOfShape,
-  ../TopTools/TopTools_MapOfShape
-
 discard "forward decl of TopoDS_Solid"
 discard "forward decl of BOPAlgo_PaveFiller"
 type
-  BOPAlgo_MakerVolume* {.importcpp: "BOPAlgo_MakerVolume",
-                        header: "BOPAlgo_MakerVolume.hxx", bycopy.} = object of BOPAlgo_Builder ##
-                                                                                         ## !
-                                                                                         ## Empty
-                                                                                         ## contructor.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Checks
-                                                                                         ## the
-                                                                                         ## data.
+  BOPAlgoMakerVolume* {.importcpp: "BOPAlgo_MakerVolume",
+                       header: "BOPAlgo_MakerVolume.hxx", bycopy.} = object of BOPAlgoBuilder ##
+                                                                                       ## !
+                                                                                       ## Empty
+                                                                                       ## contructor.
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## Checks
+                                                                                       ## the
+                                                                                       ## data.
 
 
-proc constructBOPAlgo_MakerVolume*(): BOPAlgo_MakerVolume {.constructor,
+proc constructBOPAlgoMakerVolume*(): BOPAlgoMakerVolume {.constructor,
     importcpp: "BOPAlgo_MakerVolume(@)", header: "BOPAlgo_MakerVolume.hxx".}
-proc destroyBOPAlgo_MakerVolume*(this: var BOPAlgo_MakerVolume) {.
+proc destroyBOPAlgoMakerVolume*(this: var BOPAlgoMakerVolume) {.
     importcpp: "#.~BOPAlgo_MakerVolume()", header: "BOPAlgo_MakerVolume.hxx".}
-proc constructBOPAlgo_MakerVolume*(theAllocator: handle[NCollection_BaseAllocator]): BOPAlgo_MakerVolume {.
+proc constructBOPAlgoMakerVolume*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoMakerVolume {.
     constructor, importcpp: "BOPAlgo_MakerVolume(@)",
     header: "BOPAlgo_MakerVolume.hxx".}
-proc Clear*(this: var BOPAlgo_MakerVolume) {.importcpp: "Clear",
-    header: "BOPAlgo_MakerVolume.hxx".}
-proc SetIntersect*(this: var BOPAlgo_MakerVolume; bIntersect: Standard_Boolean) {.
+proc clear*(this: var BOPAlgoMakerVolume) {.importcpp: "Clear",
+                                        header: "BOPAlgo_MakerVolume.hxx".}
+proc setIntersect*(this: var BOPAlgoMakerVolume; bIntersect: bool) {.
     importcpp: "SetIntersect", header: "BOPAlgo_MakerVolume.hxx".}
-proc IsIntersect*(this: BOPAlgo_MakerVolume): Standard_Boolean {.noSideEffect,
+proc isIntersect*(this: BOPAlgoMakerVolume): bool {.noSideEffect,
     importcpp: "IsIntersect", header: "BOPAlgo_MakerVolume.hxx".}
-proc Box*(this: BOPAlgo_MakerVolume): TopoDS_Solid {.noSideEffect, importcpp: "Box",
+proc box*(this: BOPAlgoMakerVolume): TopoDS_Solid {.noSideEffect, importcpp: "Box",
     header: "BOPAlgo_MakerVolume.hxx".}
-proc Faces*(this: BOPAlgo_MakerVolume): TopTools_ListOfShape {.noSideEffect,
+proc faces*(this: BOPAlgoMakerVolume): TopToolsListOfShape {.noSideEffect,
     importcpp: "Faces", header: "BOPAlgo_MakerVolume.hxx".}
-proc SetAvoidInternalShapes*(this: var BOPAlgo_MakerVolume;
-                            theAvoidInternal: Standard_Boolean) {.
+proc setAvoidInternalShapes*(this: var BOPAlgoMakerVolume; theAvoidInternal: bool) {.
     importcpp: "SetAvoidInternalShapes", header: "BOPAlgo_MakerVolume.hxx".}
-proc IsAvoidInternalShapes*(this: BOPAlgo_MakerVolume): Standard_Boolean {.
-    noSideEffect, importcpp: "IsAvoidInternalShapes",
-    header: "BOPAlgo_MakerVolume.hxx".}
-proc Perform*(this: var BOPAlgo_MakerVolume) {.importcpp: "Perform",
+proc isAvoidInternalShapes*(this: BOPAlgoMakerVolume): bool {.noSideEffect,
+    importcpp: "IsAvoidInternalShapes", header: "BOPAlgo_MakerVolume.hxx".}
+proc perform*(this: var BOPAlgoMakerVolume) {.importcpp: "Perform",
     header: "BOPAlgo_MakerVolume.hxx".}

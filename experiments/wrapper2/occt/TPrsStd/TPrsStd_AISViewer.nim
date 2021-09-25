@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TDF/TDF_Attribute,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of AIS_InteractiveContext"
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
@@ -27,66 +23,66 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TPrsStd_AISViewer"
 discard "forward decl of TPrsStd_AISViewer"
 type
-  Handle_TPrsStd_AISViewer* = handle[TPrsStd_AISViewer]
+  HandleTPrsStdAISViewer* = Handle[TPrsStdAISViewer]
 
 ## ! The groundwork to define an interactive viewer attribute.
 ## ! This attribute stores an interactive context at the root label.
 ## ! You can only have one instance of this class per data framework.
 
 type
-  TPrsStd_AISViewer* {.importcpp: "TPrsStd_AISViewer",
-                      header: "TPrsStd_AISViewer.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                   ## !
-                                                                                   ## class
-                                                                                   ## methods
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## =============
+  TPrsStdAISViewer* {.importcpp: "TPrsStd_AISViewer",
+                     header: "TPrsStd_AISViewer.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                  ## !
+                                                                                  ## class
+                                                                                  ## methods
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## =============
 
 
-proc GetID*(): Standard_GUID {.importcpp: "TPrsStd_AISViewer::GetID(@)",
-                            header: "TPrsStd_AISViewer.hxx".}
-proc Has*(acces: TDF_Label): Standard_Boolean {.
-    importcpp: "TPrsStd_AISViewer::Has(@)", header: "TPrsStd_AISViewer.hxx".}
-proc New*(access: TDF_Label; selector: handle[AIS_InteractiveContext]): handle[
-    TPrsStd_AISViewer] {.importcpp: "TPrsStd_AISViewer::New(@)",
-                        header: "TPrsStd_AISViewer.hxx".}
-proc New*(acces: TDF_Label; viewer: handle[V3d_Viewer]): handle[TPrsStd_AISViewer] {.
+proc getID*(): StandardGUID {.importcpp: "TPrsStd_AISViewer::GetID(@)",
+                           header: "TPrsStd_AISViewer.hxx".}
+proc has*(acces: TDF_Label): bool {.importcpp: "TPrsStd_AISViewer::Has(@)",
+                                header: "TPrsStd_AISViewer.hxx".}
+proc new*(access: TDF_Label; selector: Handle[AIS_InteractiveContext]): Handle[
+    TPrsStdAISViewer] {.importcpp: "TPrsStd_AISViewer::New(@)",
+                       header: "TPrsStd_AISViewer.hxx".}
+proc new*(acces: TDF_Label; viewer: Handle[V3dViewer]): Handle[TPrsStdAISViewer] {.
     importcpp: "TPrsStd_AISViewer::New(@)", header: "TPrsStd_AISViewer.hxx".}
-proc Find*(acces: TDF_Label; A: var handle[TPrsStd_AISViewer]): Standard_Boolean {.
+proc find*(acces: TDF_Label; a: var Handle[TPrsStdAISViewer]): bool {.
     importcpp: "TPrsStd_AISViewer::Find(@)", header: "TPrsStd_AISViewer.hxx".}
-proc Find*(acces: TDF_Label; IC: var handle[AIS_InteractiveContext]): Standard_Boolean {.
+proc find*(acces: TDF_Label; ic: var Handle[AIS_InteractiveContext]): bool {.
     importcpp: "TPrsStd_AISViewer::Find(@)", header: "TPrsStd_AISViewer.hxx".}
-proc Find*(acces: TDF_Label; V: var handle[V3d_Viewer]): Standard_Boolean {.
+proc find*(acces: TDF_Label; v: var Handle[V3dViewer]): bool {.
     importcpp: "TPrsStd_AISViewer::Find(@)", header: "TPrsStd_AISViewer.hxx".}
-proc Update*(acces: TDF_Label) {.importcpp: "TPrsStd_AISViewer::Update(@)",
+proc update*(acces: TDF_Label) {.importcpp: "TPrsStd_AISViewer::Update(@)",
                               header: "TPrsStd_AISViewer.hxx".}
-proc constructTPrsStd_AISViewer*(): TPrsStd_AISViewer {.constructor,
+proc constructTPrsStdAISViewer*(): TPrsStdAISViewer {.constructor,
     importcpp: "TPrsStd_AISViewer(@)", header: "TPrsStd_AISViewer.hxx".}
-proc Update*(this: TPrsStd_AISViewer) {.noSideEffect, importcpp: "Update",
-                                     header: "TPrsStd_AISViewer.hxx".}
-proc SetInteractiveContext*(this: var TPrsStd_AISViewer;
-                           ctx: handle[AIS_InteractiveContext]) {.
+proc update*(this: TPrsStdAISViewer) {.noSideEffect, importcpp: "Update",
+                                    header: "TPrsStd_AISViewer.hxx".}
+proc setInteractiveContext*(this: var TPrsStdAISViewer;
+                           ctx: Handle[AIS_InteractiveContext]) {.
     importcpp: "SetInteractiveContext", header: "TPrsStd_AISViewer.hxx".}
-proc GetInteractiveContext*(this: TPrsStd_AISViewer): handle[AIS_InteractiveContext] {.
+proc getInteractiveContext*(this: TPrsStdAISViewer): Handle[AIS_InteractiveContext] {.
     noSideEffect, importcpp: "GetInteractiveContext",
     header: "TPrsStd_AISViewer.hxx".}
-proc ID*(this: TPrsStd_AISViewer): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TPrsStdAISViewer): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TPrsStd_AISViewer.hxx".}
-proc Restore*(this: var TPrsStd_AISViewer; with: handle[TDF_Attribute]) {.
+proc restore*(this: var TPrsStdAISViewer; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TPrsStd_AISViewer.hxx".}
-proc NewEmpty*(this: TPrsStd_AISViewer): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TPrsStdAISViewer): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TPrsStd_AISViewer.hxx".}
-proc Paste*(this: TPrsStd_AISViewer; into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TPrsStdAISViewer; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TPrsStd_AISViewer.hxx".}
 type
-  TPrsStd_AISViewerbase_type* = TDF_Attribute
+  TPrsStdAISViewerbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TPrsStd_AISViewer::get_type_name(@)",
-                              header: "TPrsStd_AISViewer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TPrsStd_AISViewer::get_type_name(@)",
+                            header: "TPrsStd_AISViewer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TPrsStd_AISViewer::get_type_descriptor(@)",
     header: "TPrsStd_AISViewer.hxx".}
-proc DynamicType*(this: TPrsStd_AISViewer): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TPrsStdAISViewer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TPrsStd_AISViewer.hxx".}

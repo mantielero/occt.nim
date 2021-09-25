@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # TColgp_HArray2OfXY_HeaderFile [NewLine] # TColgp_HArray2OfXY_HeaderFile [NewLine] # ../gp/gp_XY.hxx [NewLine] # TColgp_Array2OfXY.hxx [NewLine] # ../NCollection/NCollection_DefineHArray2.hxx [NewLine] DEFINE_HARRAY2 ( TColgp_HArray2OfXY , TColgp_Array2OfXY ) # [NewLine]
+## !!!Ignored construct:  # TColgp_HArray2OfXY_HeaderFile [NewLine] # TColgp_HArray2OfXY_HeaderFile [NewLine] # < gp_XY . hxx > [NewLine] # < TColgp_Array2OfXY . hxx > [NewLine] # < NCollection_DefineHArray2 . hxx > [NewLine] DEFINE_HARRAY2 ( TColgp_HArray2OfXY , TColgp_Array2OfXY ) # [NewLine]
 ## Error: expected ';'!!!
+

@@ -13,13 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepFEA_Node
-
 discard "forward decl of StepFEA_NodeWithSolutionCoordinateSystem"
 discard "forward decl of StepFEA_NodeWithSolutionCoordinateSystem"
 type
-  Handle_StepFEA_NodeWithSolutionCoordinateSystem* = handle[
+  HandleStepFEA_NodeWithSolutionCoordinateSystem* = Handle[
       StepFEA_NodeWithSolutionCoordinateSystem]
 
 ## ! Representation of STEP entity NodeWithSolutionCoordinateSystem
@@ -37,11 +34,11 @@ proc constructStepFEA_NodeWithSolutionCoordinateSystem*(): StepFEA_NodeWithSolut
     constructor, importcpp: "StepFEA_NodeWithSolutionCoordinateSystem(@)",
     header: "StepFEA_NodeWithSolutionCoordinateSystem.hxx".}
 type
-  StepFEA_NodeWithSolutionCoordinateSystembase_type* = StepFEA_Node
+  StepFEA_NodeWithSolutionCoordinateSystembaseType* = StepFEA_Node
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_NodeWithSolutionCoordinateSystem::get_type_name(@)", header: "StepFEA_NodeWithSolutionCoordinateSystem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepFEA_NodeWithSolutionCoordinateSystem::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepFEA_NodeWithSolutionCoordinateSystem::get_type_name(@)", header: "StepFEA_NodeWithSolutionCoordinateSystem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_NodeWithSolutionCoordinateSystem::get_type_descriptor(@)",
     header: "StepFEA_NodeWithSolutionCoordinateSystem.hxx".}
-proc DynamicType*(this: StepFEA_NodeWithSolutionCoordinateSystem): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepFEA_NodeWithSolutionCoordinateSystem.hxx".}
+proc dynamicType*(this: StepFEA_NodeWithSolutionCoordinateSystem): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepFEA_NodeWithSolutionCoordinateSystem.hxx".}

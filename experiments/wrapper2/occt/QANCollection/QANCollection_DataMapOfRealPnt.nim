@@ -13,12 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Real, ../gp/gp_Pnt, ../TColStd/TColStd_MapRealHasher,
-  ../NCollection/NCollection_DataMap
-
 type
-  QANCollection_DataMapOfRealPnt* = NCollection_DataMap[Standard_Real, gp_Pnt,
-      TColStd_MapRealHasher]
-  QANCollection_DataMapIteratorOfDataMapOfRealPnt* = Iterator[Standard_Real,
-      gp_Pnt, TColStd_MapRealHasher]
+  QANCollectionDataMapOfRealPnt* = NCollectionDataMap[float, Pnt,
+      TColStdMapRealHasher]
+  QANCollectionDataMapIteratorOfDataMapOfRealPnt* = Iterator[float, Pnt,
+      TColStdMapRealHasher]
+

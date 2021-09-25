@@ -14,131 +14,126 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_CString,
-  ../Prs3d/Prs3d_Presentation
-
 discard "forward decl of Prs3d_LineAspect"
 discard "forward decl of gp_Dir"
 discard "forward decl of gp_Pnt"
 discard "forward decl of Prs3d_ArrowAspect"
 discard "forward decl of Prs3d_TextAspect"
 type
-  DsgPrs_XYZAxisPresentation* {.importcpp: "DsgPrs_XYZAxisPresentation",
-                               header: "DsgPrs_XYZAxisPresentation.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Draws
-                                                                                      ## each
-                                                                                      ## axis
-                                                                                      ## of
-                                                                                      ## a
-                                                                                      ## trihedron
-                                                                                      ## displayed
-                                                                                      ## in
-                                                                                      ## the
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## presentation
-                                                                                      ## aPresentation
-                                                                                      ## and
-                                                                                      ## with
-                                                                                      ## lines
-                                                                                      ## shown
-                                                                                      ## by
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## the
-                                                                                      ## values
-                                                                                      ## of
-                                                                                      ## aLineAspect.
-                                                                                      ## Each
-                                                                                      ## axis
-                                                                                      ## is
-                                                                                      ## defined
-                                                                                      ## by:
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## -
-                                                                                      ## the
-                                                                                      ## first
-                                                                                      ## and
-                                                                                      ## last
-                                                                                      ## points
-                                                                                      ## aPfirst
-                                                                                      ## and
-                                                                                      ## aPlast
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## -
-                                                                                      ## the
-                                                                                      ## direction
-                                                                                      ## aDir
-                                                                                      ## and
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## -
-                                                                                      ## the
-                                                                                      ## value
-                                                                                      ## aVal
-                                                                                      ## which
-                                                                                      ## provides
-                                                                                      ## a
-                                                                                      ## value
-                                                                                      ## for
-                                                                                      ## length.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## The
-                                                                                      ## value
-                                                                                      ## for
-                                                                                      ## length
-                                                                                      ## is
-                                                                                      ## provided
-                                                                                      ## so
-                                                                                      ## that
-                                                                                      ## the
-                                                                                      ## trihedron
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## can
-                                                                                      ## vary
-                                                                                      ## in
-                                                                                      ## length
-                                                                                      ## relative
-                                                                                      ## to
-                                                                                      ## the
-                                                                                      ## scale
-                                                                                      ## of
-                                                                                      ## shape
-                                                                                      ## display.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Each
-                                                                                      ## axis
-                                                                                      ## will
-                                                                                      ## be
-                                                                                      ## identified
-                                                                                      ## as
-                                                                                      ## X,
-                                                                                      ## Y,
-                                                                                      ## or
-                                                                                      ## Z
-                                                                                      ## by
-                                                                                      ## the
-                                                                                      ## text
-                                                                                      ## aText.
+  DsgPrsXYZAxisPresentation* {.importcpp: "DsgPrs_XYZAxisPresentation",
+                              header: "DsgPrs_XYZAxisPresentation.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Draws
+                                                                                     ## each
+                                                                                     ## axis
+                                                                                     ## of
+                                                                                     ## a
+                                                                                     ## trihedron
+                                                                                     ## displayed
+                                                                                     ## in
+                                                                                     ## the
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## presentation
+                                                                                     ## aPresentation
+                                                                                     ## and
+                                                                                     ## with
+                                                                                     ## lines
+                                                                                     ## shown
+                                                                                     ## by
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## the
+                                                                                     ## values
+                                                                                     ## of
+                                                                                     ## aLineAspect.
+                                                                                     ## Each
+                                                                                     ## axis
+                                                                                     ## is
+                                                                                     ## defined
+                                                                                     ## by:
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## -
+                                                                                     ## the
+                                                                                     ## first
+                                                                                     ## and
+                                                                                     ## last
+                                                                                     ## points
+                                                                                     ## aPfirst
+                                                                                     ## and
+                                                                                     ## aPlast
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## -
+                                                                                     ## the
+                                                                                     ## direction
+                                                                                     ## aDir
+                                                                                     ## and
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## -
+                                                                                     ## the
+                                                                                     ## value
+                                                                                     ## aVal
+                                                                                     ## which
+                                                                                     ## provides
+                                                                                     ## a
+                                                                                     ## value
+                                                                                     ## for
+                                                                                     ## length.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## The
+                                                                                     ## value
+                                                                                     ## for
+                                                                                     ## length
+                                                                                     ## is
+                                                                                     ## provided
+                                                                                     ## so
+                                                                                     ## that
+                                                                                     ## the
+                                                                                     ## trihedron
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## can
+                                                                                     ## vary
+                                                                                     ## in
+                                                                                     ## length
+                                                                                     ## relative
+                                                                                     ## to
+                                                                                     ## the
+                                                                                     ## scale
+                                                                                     ## of
+                                                                                     ## shape
+                                                                                     ## display.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Each
+                                                                                     ## axis
+                                                                                     ## will
+                                                                                     ## be
+                                                                                     ## identified
+                                                                                     ## as
+                                                                                     ## X,
+                                                                                     ## Y,
+                                                                                     ## or
+                                                                                     ## Z
+                                                                                     ## by
+                                                                                     ## the
+                                                                                     ## text
+                                                                                     ## aText.
 
 
-proc Add*(aPresentation: handle[Prs3d_Presentation];
-         anLineAspect: handle[Prs3d_LineAspect]; aDir: gp_Dir; aVal: Standard_Real;
-         aText: Standard_CString; aPfirst: gp_Pnt; aPlast: gp_Pnt) {.
+proc add*(aPresentation: Handle[Prs3dPresentation];
+         anLineAspect: Handle[Prs3dLineAspect]; aDir: Dir; aVal: float;
+         aText: StandardCString; aPfirst: Pnt; aPlast: Pnt) {.
     importcpp: "DsgPrs_XYZAxisPresentation::Add(@)",
     header: "DsgPrs_XYZAxisPresentation.hxx".}
-proc Add*(aPresentation: handle[Prs3d_Presentation];
-         aLineAspect: handle[Prs3d_LineAspect];
-         anArrowAspect: handle[Prs3d_ArrowAspect];
-         aTextAspect: handle[Prs3d_TextAspect]; aDir: gp_Dir; aVal: Standard_Real;
-         aText: Standard_CString; aPfirst: gp_Pnt; aPlast: gp_Pnt) {.
+proc add*(aPresentation: Handle[Prs3dPresentation];
+         aLineAspect: Handle[Prs3dLineAspect];
+         anArrowAspect: Handle[Prs3dArrowAspect];
+         aTextAspect: Handle[Prs3dTextAspect]; aDir: Dir; aVal: float;
+         aText: StandardCString; aPfirst: Pnt; aPlast: Pnt) {.
     importcpp: "DsgPrs_XYZAxisPresentation::Add(@)",
     header: "DsgPrs_XYZAxisPresentation.hxx".}

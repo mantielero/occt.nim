@@ -12,5 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # TColStd_HArray2OfTransient_HeaderFile [NewLine] # TColStd_HArray2OfTransient_HeaderFile [NewLine] # ../Standard/Standard_Transient.hxx [NewLine] # TColStd_Array2OfTransient.hxx [NewLine] # ../NCollection/NCollection_DefineHArray2.hxx [NewLine] DEFINE_HARRAY2 ( TColStd_HArray2OfTransient , TColStd_Array2OfTransient ) # [NewLine]
+## !!!Ignored construct:  # TColStd_HArray2OfTransient_HeaderFile [NewLine] # TColStd_HArray2OfTransient_HeaderFile [NewLine] # < Standard_Transient . hxx > [NewLine] # < TColStd_Array2OfTransient . hxx > [NewLine] # < NCollection_DefineHArray2 . hxx > [NewLine] DEFINE_HARRAY2 ( TColStd_HArray2OfTransient , TColStd_Array2OfTransient ) # [NewLine]
 ## Error: expected ';'!!!
+

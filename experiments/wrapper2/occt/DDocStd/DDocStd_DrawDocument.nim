@@ -13,48 +13,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../DDF/DDF_Data,
-  ../Standard/Standard_OStream, ../Draw/Draw_Interpretor
-
 discard "forward decl of TDocStd_Document"
 discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DDocStd_DrawDocument"
 discard "forward decl of DDocStd_DrawDocument"
 type
-  Handle_DDocStd_DrawDocument* = handle[DDocStd_DrawDocument]
+  HandleDDocStdDrawDocument* = Handle[DDocStdDrawDocument]
 
 ## ! draw variable for TDocStd_Document.
 ## ! ==================================
 
 type
-  DDocStd_DrawDocument* {.importcpp: "DDocStd_DrawDocument",
-                         header: "DDocStd_DrawDocument.hxx", bycopy.} = object of DDF_Data
+  DDocStdDrawDocument* {.importcpp: "DDocStd_DrawDocument",
+                        header: "DDocStd_DrawDocument.hxx", bycopy.} = object of DDF_Data
 
 
-proc Find*(Doc: handle[TDocStd_Document]): handle[DDocStd_DrawDocument] {.
+proc find*(doc: Handle[TDocStdDocument]): Handle[DDocStdDrawDocument] {.
     importcpp: "DDocStd_DrawDocument::Find(@)", header: "DDocStd_DrawDocument.hxx".}
-proc constructDDocStd_DrawDocument*(Doc: handle[TDocStd_Document]): DDocStd_DrawDocument {.
+proc constructDDocStdDrawDocument*(doc: Handle[TDocStdDocument]): DDocStdDrawDocument {.
     constructor, importcpp: "DDocStd_DrawDocument(@)",
     header: "DDocStd_DrawDocument.hxx".}
-proc GetDocument*(this: DDocStd_DrawDocument): handle[TDocStd_Document] {.
+proc getDocument*(this: DDocStdDrawDocument): Handle[TDocStdDocument] {.
     noSideEffect, importcpp: "GetDocument", header: "DDocStd_DrawDocument.hxx".}
-proc DrawOn*(this: DDocStd_DrawDocument; dis: var Draw_Display) {.noSideEffect,
+proc drawOn*(this: DDocStdDrawDocument; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "DDocStd_DrawDocument.hxx".}
-proc Copy*(this: DDocStd_DrawDocument): handle[Draw_Drawable3D] {.noSideEffect,
+proc copy*(this: DDocStdDrawDocument): Handle[DrawDrawable3D] {.noSideEffect,
     importcpp: "Copy", header: "DDocStd_DrawDocument.hxx".}
-proc Dump*(this: DDocStd_DrawDocument; S: var Standard_OStream) {.noSideEffect,
+proc dump*(this: DDocStdDrawDocument; s: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "DDocStd_DrawDocument.hxx".}
-proc Whatis*(this: DDocStd_DrawDocument; I: var Draw_Interpretor) {.noSideEffect,
+proc whatis*(this: DDocStdDrawDocument; i: var DrawInterpretor) {.noSideEffect,
     importcpp: "Whatis", header: "DDocStd_DrawDocument.hxx".}
 type
-  DDocStd_DrawDocumentbase_type* = DDF_Data
+  DDocStdDrawDocumentbaseType* = DDF_Data
 
-proc get_type_name*(): cstring {.importcpp: "DDocStd_DrawDocument::get_type_name(@)",
-                              header: "DDocStd_DrawDocument.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "DDocStd_DrawDocument::get_type_name(@)",
+                            header: "DDocStd_DrawDocument.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "DDocStd_DrawDocument::get_type_descriptor(@)",
     header: "DDocStd_DrawDocument.hxx".}
-proc DynamicType*(this: DDocStd_DrawDocument): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: DDocStdDrawDocument): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DDocStd_DrawDocument.hxx".}

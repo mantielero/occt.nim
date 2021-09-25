@@ -14,5 +14,3 @@
 
 ## typedef unsigned integer  Standard_Boolean;
 
-import
-  Standard_TypeDef

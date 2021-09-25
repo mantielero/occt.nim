@@ -13,48 +13,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  VrmlData_ArrayVec3d
-
 ## *
 ##   Implementation of the node Normal
 ##
 
 type
-  VrmlData_Normal* {.importcpp: "VrmlData_Normal", header: "VrmlData_Normal.hxx",
-                    bycopy.} = object of VrmlData_ArrayVec3d ##  ---------- PUBLIC METHODS ----------
-                                                        ## *
-                                                        ##  Empty constructor
-                                                        ##
-                                                        ##  ---------- PRIVATE FIELDS ----------
-                                                        ##  Declaration of CASCADE RTTI
+  VrmlDataNormal* {.importcpp: "VrmlData_Normal", header: "VrmlData_Normal.hxx",
+                   bycopy.} = object of VrmlDataArrayVec3d ##  ---------- PUBLIC METHODS ----------
+                                                      ## *
+                                                      ##  Empty constructor
+                                                      ##
+                                                      ##  ---------- PRIVATE FIELDS ----------
+                                                      ##  Declaration of CASCADE RTTI
 
 
-proc constructVrmlData_Normal*(): VrmlData_Normal {.constructor,
+proc constructVrmlDataNormal*(): VrmlDataNormal {.constructor,
     importcpp: "VrmlData_Normal(@)", header: "VrmlData_Normal.hxx".}
-proc constructVrmlData_Normal*(theScene: VrmlData_Scene; theName: cstring;
-                              nVec: csize_t = 0; arrVec: ptr gp_XYZ = 0L'i64): VrmlData_Normal {.
+proc constructVrmlDataNormal*(theScene: VrmlDataScene; theName: cstring;
+                             nVec: csize_t = 0; arrVec: ptr Xyz = 0'i64): VrmlDataNormal {.
     constructor, importcpp: "VrmlData_Normal(@)", header: "VrmlData_Normal.hxx".}
-proc Normal*(this: VrmlData_Normal; i: Standard_Integer): gp_XYZ {.noSideEffect,
-    importcpp: "Normal", header: "VrmlData_Normal.hxx".}
-proc Clone*(this: VrmlData_Normal; theOther: handle[VrmlData_Node]): handle[
-    VrmlData_Node] {.noSideEffect, importcpp: "Clone", header: "VrmlData_Normal.hxx".}
-proc Read*(this: var VrmlData_Normal; theBuffer: var VrmlData_InBuffer): VrmlData_ErrorStatus {.
+proc normal*(this: VrmlDataNormal; i: int): Xyz {.noSideEffect, importcpp: "Normal",
+    header: "VrmlData_Normal.hxx".}
+proc clone*(this: VrmlDataNormal; theOther: Handle[VrmlDataNode]): Handle[
+    VrmlDataNode] {.noSideEffect, importcpp: "Clone", header: "VrmlData_Normal.hxx".}
+proc read*(this: var VrmlDataNormal; theBuffer: var VrmlDataInBuffer): VrmlDataErrorStatus {.
     importcpp: "Read", header: "VrmlData_Normal.hxx".}
-proc Write*(this: VrmlData_Normal; thePrefix: cstring): VrmlData_ErrorStatus {.
+proc write*(this: VrmlDataNormal; thePrefix: cstring): VrmlDataErrorStatus {.
     noSideEffect, importcpp: "Write", header: "VrmlData_Normal.hxx".}
 type
-  VrmlData_Normalbase_type* = VrmlData_ArrayVec3d
+  VrmlDataNormalbaseType* = VrmlDataArrayVec3d
 
-proc get_type_name*(): cstring {.importcpp: "VrmlData_Normal::get_type_name(@)",
-                              header: "VrmlData_Normal.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "VrmlData_Normal::get_type_name(@)",
+                            header: "VrmlData_Normal.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "VrmlData_Normal::get_type_descriptor(@)",
     header: "VrmlData_Normal.hxx".}
-proc DynamicType*(this: VrmlData_Normal): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: VrmlDataNormal): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "VrmlData_Normal.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of VrmlData_Normal"
 type
-  Handle_VrmlData_Normal* = handle[VrmlData_Normal]
+  HandleVrmlDataNormal* = Handle[VrmlDataNormal]
+

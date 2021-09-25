@@ -14,22 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../HLRAlgo/HLRAlgo_InterferenceList
-
 discard "forward decl of HLRAlgo_Interference"
 discard "forward decl of HLRBRep_EdgeInterferenceTool"
 type
-  HLRBRep_EdgeIList* {.importcpp: "HLRBRep_EdgeIList",
-                      header: "HLRBRep_EdgeIList.hxx", bycopy.} = object ## ! Add the interference <I> to the list <IL>.
+  HLRBRepEdgeIList* {.importcpp: "HLRBRep_EdgeIList",
+                     header: "HLRBRep_EdgeIList.hxx", bycopy.} = object ## ! Add the interference <I> to the list <IL>.
 
 
-proc AddInterference*(IL: var HLRAlgo_InterferenceList; I: HLRAlgo_Interference;
-                     T: HLRBRep_EdgeInterferenceTool) {.
+proc addInterference*(il: var HLRAlgoInterferenceList; i: HLRAlgoInterference;
+                     t: HLRBRepEdgeInterferenceTool) {.
     importcpp: "HLRBRep_EdgeIList::AddInterference(@)",
     header: "HLRBRep_EdgeIList.hxx".}
-proc ProcessComplex*(IL: var HLRAlgo_InterferenceList;
-                    T: HLRBRep_EdgeInterferenceTool) {.
+proc processComplex*(il: var HLRAlgoInterferenceList; t: HLRBRepEdgeInterferenceTool) {.
     importcpp: "HLRBRep_EdgeIList::ProcessComplex(@)",
     header: "HLRBRep_EdgeIList.hxx".}

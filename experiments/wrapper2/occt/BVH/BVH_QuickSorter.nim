@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  BVH_Sorter
-
 ## ! Performs centroid-based sorting of abstract set along
 ## ! the given axis (X - 0, Y - 1, Z - 2) using quick sort.
 
@@ -26,14 +23,12 @@ type
           ## ! Axis used to arrange the primitives (X - 0, Y - 1, Z - 2).
 
 
-proc constructBVH_QuickSorter*[T; N: static[cint]](theAxis: Standard_Integer = 0): BVH_QuickSorter[
+proc constructBVH_QuickSorter*[T; N: static[cint]](theAxis: int = 0): BVH_QuickSorter[
     T, N] {.constructor, importcpp: "BVH_QuickSorter<\'*0,\'*1>(@)",
           header: "BVH_QuickSorter.hxx".}
-proc Perform*[T; N: static[cint]](this: var BVH_QuickSorter[T, N];
+proc perform*[T; N: static[cint]](this: var BVH_QuickSorter[T, N];
                                theSet: ptr BVH_Set[T, N]) {.importcpp: "Perform",
     header: "BVH_QuickSorter.hxx".}
-proc Perform*[T; N: static[cint]](this: var BVH_QuickSorter[T, N];
-                               theSet: ptr BVH_Set[T, N];
-                               theStart: Standard_Integer;
-                               theFinal: Standard_Integer) {.importcpp: "Perform",
-    header: "BVH_QuickSorter.hxx".}
+proc perform*[T; N: static[cint]](this: var BVH_QuickSorter[T, N];
+                               theSet: ptr BVH_Set[T, N]; theStart: int; theFinal: int) {.
+    importcpp: "Perform", header: "BVH_QuickSorter.hxx".}

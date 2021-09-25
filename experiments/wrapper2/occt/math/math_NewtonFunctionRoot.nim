@@ -14,112 +14,93 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer,
-  ../Standard/Standard_OStream
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of math_FunctionWithDerivative"
 type
-  math_NewtonFunctionRoot* {.importcpp: "math_NewtonFunctionRoot",
-                            header: "math_NewtonFunctionRoot.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## The
-                                                                                ## Newton
-                                                                                ## method
-                                                                                ## is
-                                                                                ## done
-                                                                                ## to
-                                                                                ## find
-                                                                                ## the
-                                                                                ## root
-                                                                                ## of
-                                                                                ## the
-                                                                                ## function
-                                                                                ## F
-                                                                                ##
-                                                                                ## !
-                                                                                ## from
-                                                                                ## the
-                                                                                ## initial
-                                                                                ## guess
-                                                                                ## Guess.
-                                                                                ##
-                                                                                ## !
-                                                                                ## The
-                                                                                ## tolerance
-                                                                                ## required
-                                                                                ## on
-                                                                                ## the
-                                                                                ## root
-                                                                                ## is
-                                                                                ## given
-                                                                                ## by
-                                                                                ## Tolerance.
-                                                                                ##
-                                                                                ## !
-                                                                                ## The
-                                                                                ## solution
-                                                                                ## is
-                                                                                ## found
-                                                                                ## when
-                                                                                ## :
-                                                                                ##
-                                                                                ## !
-                                                                                ## abs(Xi
-                                                                                ## -
-                                                                                ## Xi-1)
-                                                                                ## <=
-                                                                                ## EpsX
-                                                                                ## and
-                                                                                ## abs(F(Xi))<=
-                                                                                ## EpsF
-                                                                                ##
-                                                                                ## !
-                                                                                ## The
-                                                                                ## maximum
-                                                                                ## number
-                                                                                ## of
-                                                                                ## iterations
-                                                                                ## allowed
-                                                                                ## is
-                                                                                ## given
-                                                                                ## by
-                                                                                ## NbIterations.
+  MathNewtonFunctionRoot* {.importcpp: "math_NewtonFunctionRoot",
+                           header: "math_NewtonFunctionRoot.hxx", bycopy.} = object ## !
+                                                                               ## The
+                                                                               ## Newton
+                                                                               ## method
+                                                                               ## is
+                                                                               ## done
+                                                                               ## to
+                                                                               ## find
+                                                                               ## the
+                                                                               ## root
+                                                                               ## of
+                                                                               ## the
+                                                                               ## function F
+                                                                               ## !
+                                                                               ## from
+                                                                               ## the
+                                                                               ## initial
+                                                                               ## guess
+                                                                               ## Guess.
+                                                                               ## !
+                                                                               ## The
+                                                                               ## tolerance
+                                                                               ## required
+                                                                               ## on
+                                                                               ## the
+                                                                               ## root
+                                                                               ## is
+                                                                               ## given
+                                                                               ## by
+                                                                               ## Tolerance.
+                                                                               ## !
+                                                                               ## The
+                                                                               ## solution
+                                                                               ## is
+                                                                               ## found
+                                                                               ## when :
+                                                                               ## !
+                                                                               ## abs(Xi -
+                                                                               ## Xi-1)
+                                                                               ## <=
+                                                                               ## EpsX
+                                                                               ## and
+                                                                               ## abs(F(Xi))<=
+                                                                               ## EpsF
+                                                                               ## !
+                                                                               ## The
+                                                                               ## maximum
+                                                                               ## number
+                                                                               ## of
+                                                                               ## iterations
+                                                                               ## allowed
+                                                                               ## is
+                                                                               ## given
+                                                                               ## by
+                                                                               ## NbIterations.
 
 
-proc constructmath_NewtonFunctionRoot*(F: var math_FunctionWithDerivative;
-                                      Guess: Standard_Real; EpsX: Standard_Real;
-                                      EpsF: Standard_Real;
-                                      NbIterations: Standard_Integer = 100): math_NewtonFunctionRoot {.
+proc constructMathNewtonFunctionRoot*(f: var MathFunctionWithDerivative;
+                                     guess: float; epsX: float; epsF: float;
+                                     nbIterations: int = 100): MathNewtonFunctionRoot {.
     constructor, importcpp: "math_NewtonFunctionRoot(@)",
     header: "math_NewtonFunctionRoot.hxx".}
-proc constructmath_NewtonFunctionRoot*(F: var math_FunctionWithDerivative;
-                                      Guess: Standard_Real; EpsX: Standard_Real;
-                                      EpsF: Standard_Real; A: Standard_Real;
-                                      B: Standard_Real;
-                                      NbIterations: Standard_Integer = 100): math_NewtonFunctionRoot {.
+proc constructMathNewtonFunctionRoot*(f: var MathFunctionWithDerivative;
+                                     guess: float; epsX: float; epsF: float; a: float;
+                                     b: float; nbIterations: int = 100): MathNewtonFunctionRoot {.
     constructor, importcpp: "math_NewtonFunctionRoot(@)",
     header: "math_NewtonFunctionRoot.hxx".}
-proc constructmath_NewtonFunctionRoot*(A: Standard_Real; B: Standard_Real;
-                                      EpsX: Standard_Real; EpsF: Standard_Real;
-                                      NbIterations: Standard_Integer = 100): math_NewtonFunctionRoot {.
+proc constructMathNewtonFunctionRoot*(a: float; b: float; epsX: float; epsF: float;
+                                     nbIterations: int = 100): MathNewtonFunctionRoot {.
     constructor, importcpp: "math_NewtonFunctionRoot(@)",
     header: "math_NewtonFunctionRoot.hxx".}
-proc Perform*(this: var math_NewtonFunctionRoot; F: var math_FunctionWithDerivative;
-             Guess: Standard_Real) {.importcpp: "Perform",
-                                   header: "math_NewtonFunctionRoot.hxx".}
-proc IsDone*(this: math_NewtonFunctionRoot): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "math_NewtonFunctionRoot.hxx".}
-proc Root*(this: math_NewtonFunctionRoot): Standard_Real {.noSideEffect,
-    importcpp: "Root", header: "math_NewtonFunctionRoot.hxx".}
-proc Derivative*(this: math_NewtonFunctionRoot): Standard_Real {.noSideEffect,
+proc perform*(this: var MathNewtonFunctionRoot; f: var MathFunctionWithDerivative;
+             guess: float) {.importcpp: "Perform",
+                           header: "math_NewtonFunctionRoot.hxx".}
+proc isDone*(this: MathNewtonFunctionRoot): bool {.noSideEffect, importcpp: "IsDone",
+    header: "math_NewtonFunctionRoot.hxx".}
+proc root*(this: MathNewtonFunctionRoot): float {.noSideEffect, importcpp: "Root",
+    header: "math_NewtonFunctionRoot.hxx".}
+proc derivative*(this: MathNewtonFunctionRoot): float {.noSideEffect,
     importcpp: "Derivative", header: "math_NewtonFunctionRoot.hxx".}
-proc Value*(this: math_NewtonFunctionRoot): Standard_Real {.noSideEffect,
-    importcpp: "Value", header: "math_NewtonFunctionRoot.hxx".}
-proc NbIterations*(this: math_NewtonFunctionRoot): Standard_Integer {.noSideEffect,
+proc value*(this: MathNewtonFunctionRoot): float {.noSideEffect, importcpp: "Value",
+    header: "math_NewtonFunctionRoot.hxx".}
+proc nbIterations*(this: MathNewtonFunctionRoot): int {.noSideEffect,
     importcpp: "NbIterations", header: "math_NewtonFunctionRoot.hxx".}
-proc Dump*(this: math_NewtonFunctionRoot; o: var Standard_OStream) {.noSideEffect,
+proc dump*(this: MathNewtonFunctionRoot; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_NewtonFunctionRoot.hxx".}

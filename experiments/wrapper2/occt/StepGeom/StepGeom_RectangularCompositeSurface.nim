@@ -14,55 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_HArray2OfSurfacePatch,
-  StepGeom_BoundedSurface, ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_SurfacePatch"
 discard "forward decl of StepGeom_RectangularCompositeSurface"
 discard "forward decl of StepGeom_RectangularCompositeSurface"
 type
-  Handle_StepGeom_RectangularCompositeSurface* = handle[
-      StepGeom_RectangularCompositeSurface]
-  StepGeom_RectangularCompositeSurface* {.
-      importcpp: "StepGeom_RectangularCompositeSurface",
-      header: "StepGeom_RectangularCompositeSurface.hxx", bycopy.} = object of StepGeom_BoundedSurface ##
-                                                                                                ## !
-                                                                                                ## Returns
-                                                                                                ## a
-                                                                                                ## RectangularCompositeSurface
+  HandleStepGeomRectangularCompositeSurface* = Handle[
+      StepGeomRectangularCompositeSurface]
+  StepGeomRectangularCompositeSurface* {.importcpp: "StepGeom_RectangularCompositeSurface", header: "StepGeom_RectangularCompositeSurface.hxx",
+                                        bycopy.} = object of StepGeomBoundedSurface ## !
+                                                                               ## Returns a
+                                                                               ## RectangularCompositeSurface
 
 
-proc constructStepGeom_RectangularCompositeSurface*(): StepGeom_RectangularCompositeSurface {.
+proc constructStepGeomRectangularCompositeSurface*(): StepGeomRectangularCompositeSurface {.
     constructor, importcpp: "StepGeom_RectangularCompositeSurface(@)",
     header: "StepGeom_RectangularCompositeSurface.hxx".}
-proc Init*(this: var StepGeom_RectangularCompositeSurface;
-          aName: handle[TCollection_HAsciiString];
-          aSegments: handle[StepGeom_HArray2OfSurfacePatch]) {.importcpp: "Init",
+proc init*(this: var StepGeomRectangularCompositeSurface;
+          aName: Handle[TCollectionHAsciiString];
+          aSegments: Handle[StepGeomHArray2OfSurfacePatch]) {.importcpp: "Init",
     header: "StepGeom_RectangularCompositeSurface.hxx".}
-proc SetSegments*(this: var StepGeom_RectangularCompositeSurface;
-                 aSegments: handle[StepGeom_HArray2OfSurfacePatch]) {.
+proc setSegments*(this: var StepGeomRectangularCompositeSurface;
+                 aSegments: Handle[StepGeomHArray2OfSurfacePatch]) {.
     importcpp: "SetSegments", header: "StepGeom_RectangularCompositeSurface.hxx".}
-proc Segments*(this: StepGeom_RectangularCompositeSurface): handle[
-    StepGeom_HArray2OfSurfacePatch] {.noSideEffect, importcpp: "Segments", header: "StepGeom_RectangularCompositeSurface.hxx".}
-proc SegmentsValue*(this: StepGeom_RectangularCompositeSurface;
-                   num1: Standard_Integer; num2: Standard_Integer): handle[
-    StepGeom_SurfacePatch] {.noSideEffect, importcpp: "SegmentsValue",
-                            header: "StepGeom_RectangularCompositeSurface.hxx".}
-proc NbSegmentsI*(this: StepGeom_RectangularCompositeSurface): Standard_Integer {.
-    noSideEffect, importcpp: "NbSegmentsI",
-    header: "StepGeom_RectangularCompositeSurface.hxx".}
-proc NbSegmentsJ*(this: StepGeom_RectangularCompositeSurface): Standard_Integer {.
-    noSideEffect, importcpp: "NbSegmentsJ",
-    header: "StepGeom_RectangularCompositeSurface.hxx".}
+proc segments*(this: StepGeomRectangularCompositeSurface): Handle[
+    StepGeomHArray2OfSurfacePatch] {.noSideEffect, importcpp: "Segments", header: "StepGeom_RectangularCompositeSurface.hxx".}
+proc segmentsValue*(this: StepGeomRectangularCompositeSurface; num1: int; num2: int): Handle[
+    StepGeomSurfacePatch] {.noSideEffect, importcpp: "SegmentsValue",
+                           header: "StepGeom_RectangularCompositeSurface.hxx".}
+proc nbSegmentsI*(this: StepGeomRectangularCompositeSurface): int {.noSideEffect,
+    importcpp: "NbSegmentsI", header: "StepGeom_RectangularCompositeSurface.hxx".}
+proc nbSegmentsJ*(this: StepGeomRectangularCompositeSurface): int {.noSideEffect,
+    importcpp: "NbSegmentsJ", header: "StepGeom_RectangularCompositeSurface.hxx".}
 type
-  StepGeom_RectangularCompositeSurfacebase_type* = StepGeom_BoundedSurface
+  StepGeomRectangularCompositeSurfacebaseType* = StepGeomBoundedSurface
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_RectangularCompositeSurface::get_type_name(@)", header: "StepGeom_RectangularCompositeSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_RectangularCompositeSurface::get_type_name(@)",
+                            header: "StepGeom_RectangularCompositeSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_RectangularCompositeSurface::get_type_descriptor(@)",
     header: "StepGeom_RectangularCompositeSurface.hxx".}
-proc DynamicType*(this: StepGeom_RectangularCompositeSurface): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomRectangularCompositeSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_RectangularCompositeSurface.hxx".}

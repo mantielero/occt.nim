@@ -14,17 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_SelectAnyList,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of IFSelect_SelectInList"
 discard "forward decl of IFSelect_SelectInList"
 type
-  Handle_IFSelect_SelectInList* = handle[IFSelect_SelectInList]
+  HandleIFSelectSelectInList* = Handle[IFSelectSelectInList]
 
 ## ! A SelectInList kind Selection selects a List of an Entity,
 ## ! which is composed of single Entities
@@ -38,34 +34,34 @@ type
 ## ! lists, a given sub-class of SelectInList is attached on one
 
 type
-  IFSelect_SelectInList* {.importcpp: "IFSelect_SelectInList",
-                          header: "IFSelect_SelectInList.hxx", bycopy.} = object of IFSelect_SelectAnyList ##
-                                                                                                    ## !
-                                                                                                    ## Returns
-                                                                                                    ## an
-                                                                                                    ## Entity,
-                                                                                                    ## given
-                                                                                                    ## its
-                                                                                                    ## rank
-                                                                                                    ## in
-                                                                                                    ## the
-                                                                                                    ## list
+  IFSelectSelectInList* {.importcpp: "IFSelect_SelectInList",
+                         header: "IFSelect_SelectInList.hxx", bycopy.} = object of IFSelectSelectAnyList ##
+                                                                                                  ## !
+                                                                                                  ## Returns
+                                                                                                  ## an
+                                                                                                  ## Entity,
+                                                                                                  ## given
+                                                                                                  ## its
+                                                                                                  ## rank
+                                                                                                  ## in
+                                                                                                  ## the
+                                                                                                  ## list
 
 
-proc ListedEntity*(this: IFSelect_SelectInList; num: Standard_Integer;
-                  ent: handle[Standard_Transient]): handle[Standard_Transient] {.
+proc listedEntity*(this: IFSelectSelectInList; num: int;
+                  ent: Handle[StandardTransient]): Handle[StandardTransient] {.
     noSideEffect, importcpp: "ListedEntity", header: "IFSelect_SelectInList.hxx".}
-proc FillResult*(this: IFSelect_SelectInList; n1: Standard_Integer;
-                n2: Standard_Integer; ent: handle[Standard_Transient];
-                result: var Interface_EntityIterator) {.noSideEffect,
+proc fillResult*(this: IFSelectSelectInList; n1: int; n2: int;
+                ent: Handle[StandardTransient];
+                result: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "FillResult", header: "IFSelect_SelectInList.hxx".}
 type
-  IFSelect_SelectInListbase_type* = IFSelect_SelectAnyList
+  IFSelectSelectInListbaseType* = IFSelectSelectAnyList
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectInList::get_type_name(@)",
-                              header: "IFSelect_SelectInList.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectInList::get_type_name(@)",
+                            header: "IFSelect_SelectInList.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_SelectInList::get_type_descriptor(@)",
     header: "IFSelect_SelectInList.hxx".}
-proc DynamicType*(this: IFSelect_SelectInList): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IFSelect_SelectInList.hxx".}
+proc dynamicType*(this: IFSelectSelectInList): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IFSelect_SelectInList.hxx".}

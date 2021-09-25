@@ -14,57 +14,55 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  PrsDim_Relation
-
 discard "forward decl of Geom_Plane"
 discard "forward decl of PrsDim_EqualRadiusRelation"
 type
-  Handle_PrsDim_EqualRadiusRelation* = handle[PrsDim_EqualRadiusRelation]
-  PrsDim_EqualRadiusRelation* {.importcpp: "PrsDim_EqualRadiusRelation",
-                               header: "PrsDim_EqualRadiusRelation.hxx", bycopy.} = object of PrsDim_Relation ##
-                                                                                                       ## !
-                                                                                                       ## Creates
-                                                                                                       ## equal
-                                                                                                       ## relation
-                                                                                                       ## of
-                                                                                                       ## two
-                                                                                                       ## arc's
-                                                                                                       ## radiuses.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## If
-                                                                                                       ## one
-                                                                                                       ## of
-                                                                                                       ## edges
-                                                                                                       ## is
-                                                                                                       ## not
-                                                                                                       ## in
-                                                                                                       ## the
-                                                                                                       ## given
-                                                                                                       ## plane,
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## the
-                                                                                                       ## presentation
-                                                                                                       ## method
-                                                                                                       ## projects
-                                                                                                       ## it
-                                                                                                       ## onto
-                                                                                                       ## the
-                                                                                                       ## plane.
+  HandlePrsDimEqualRadiusRelation* = Handle[PrsDimEqualRadiusRelation]
+  PrsDimEqualRadiusRelation* {.importcpp: "PrsDim_EqualRadiusRelation",
+                              header: "PrsDim_EqualRadiusRelation.hxx", bycopy.} = object of PrsDimRelation ##
+                                                                                                     ## !
+                                                                                                     ## Creates
+                                                                                                     ## equal
+                                                                                                     ## relation
+                                                                                                     ## of
+                                                                                                     ## two
+                                                                                                     ## arc's
+                                                                                                     ## radiuses.
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## If
+                                                                                                     ## one
+                                                                                                     ## of
+                                                                                                     ## edges
+                                                                                                     ## is
+                                                                                                     ## not
+                                                                                                     ## in
+                                                                                                     ## the
+                                                                                                     ## given
+                                                                                                     ## plane,
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## the
+                                                                                                     ## presentation
+                                                                                                     ## method
+                                                                                                     ## projects
+                                                                                                     ## it
+                                                                                                     ## onto
+                                                                                                     ## the
+                                                                                                     ## plane.
 
-  PrsDim_EqualRadiusRelationbase_type* = PrsDim_Relation
+  PrsDimEqualRadiusRelationbaseType* = PrsDimRelation
 
-proc get_type_name*(): cstring {.importcpp: "PrsDim_EqualRadiusRelation::get_type_name(@)",
-                              header: "PrsDim_EqualRadiusRelation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "PrsDim_EqualRadiusRelation::get_type_name(@)",
+                            header: "PrsDim_EqualRadiusRelation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "PrsDim_EqualRadiusRelation::get_type_descriptor(@)",
     header: "PrsDim_EqualRadiusRelation.hxx".}
-proc DynamicType*(this: PrsDim_EqualRadiusRelation): handle[Standard_Type] {.
+proc dynamicType*(this: PrsDimEqualRadiusRelation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "PrsDim_EqualRadiusRelation.hxx".}
-proc constructPrsDim_EqualRadiusRelation*(aFirstEdge: TopoDS_Edge;
-    aSecondEdge: TopoDS_Edge; aPlane: handle[Geom_Plane]): PrsDim_EqualRadiusRelation {.
+proc constructPrsDimEqualRadiusRelation*(aFirstEdge: TopoDS_Edge;
+                                        aSecondEdge: TopoDS_Edge;
+                                        aPlane: Handle[GeomPlane]): PrsDimEqualRadiusRelation {.
     constructor, importcpp: "PrsDim_EqualRadiusRelation(@)",
     header: "PrsDim_EqualRadiusRelation.hxx".}

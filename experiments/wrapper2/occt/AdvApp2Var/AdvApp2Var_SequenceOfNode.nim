@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  AdvApp2Var_Node, ../NCollection/NCollection_Sequence
-
 type
-  AdvApp2Var_SequenceOfNode* = NCollection_Sequence[handle[AdvApp2Var_Node]]
+  AdvApp2VarSequenceOfNode* = NCollectionSequence[Handle[AdvApp2VarNode]]
+

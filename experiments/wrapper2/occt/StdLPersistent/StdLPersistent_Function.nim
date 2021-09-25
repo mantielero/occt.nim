@@ -11,26 +11,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../StdObjMgt/StdObjMgt_Attribute, ../TFunction/TFunction_Function,
-  ../Standard/Standard_GUID
-
 type
-  StdLPersistent_Function* {.importcpp: "StdLPersistent_Function",
-                            header: "StdLPersistent_Function.hxx", bycopy.} = object of StdObjMgt_Attribute[
-      TFunction_Function]     ## ! Empty constructor.
+  StdLPersistentFunction* {.importcpp: "StdLPersistent_Function",
+                           header: "StdLPersistent_Function.hxx", bycopy.} = object of StdObjMgtAttribute[
+      TFunctionFunction]      ## ! Empty constructor.
 
 
-proc constructStdLPersistent_Function*(): StdLPersistent_Function {.constructor,
+proc constructStdLPersistentFunction*(): StdLPersistentFunction {.constructor,
     importcpp: "StdLPersistent_Function(@)", header: "StdLPersistent_Function.hxx".}
-proc Read*(this: var StdLPersistent_Function; theReadData: var StdObjMgt_ReadData) {.
+proc read*(this: var StdLPersistentFunction; theReadData: var StdObjMgtReadData) {.
     importcpp: "Read", header: "StdLPersistent_Function.hxx".}
-proc Write*(this: StdLPersistent_Function; theWriteData: var StdObjMgt_WriteData) {.
+proc write*(this: StdLPersistentFunction; theWriteData: var StdObjMgtWriteData) {.
     noSideEffect, importcpp: "Write", header: "StdLPersistent_Function.hxx".}
-proc PChildren*(this: StdLPersistent_Function; a2: var SequenceOfPersistent) {.
+proc pChildren*(this: StdLPersistentFunction; a2: var SequenceOfPersistent) {.
     noSideEffect, importcpp: "PChildren", header: "StdLPersistent_Function.hxx".}
-proc PName*(this: StdLPersistent_Function): Standard_CString {.noSideEffect,
+proc pName*(this: StdLPersistentFunction): StandardCString {.noSideEffect,
     importcpp: "PName", header: "StdLPersistent_Function.hxx".}
-proc Import*(this: StdLPersistent_Function;
-            theAttribute: handle[TFunction_Function]) {.noSideEffect,
+proc `import`*(this: StdLPersistentFunction;
+              theAttribute: Handle[TFunctionFunction]) {.noSideEffect,
     importcpp: "Import", header: "StdLPersistent_Function.hxx".}

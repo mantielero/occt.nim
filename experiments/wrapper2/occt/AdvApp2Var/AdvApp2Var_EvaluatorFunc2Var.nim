@@ -1,3 +1,4 @@
+{.experimental: "callOperator".}
 ##  Created on: 1996-04-18
 ##  Created by: Joelle CHAUVET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -14,33 +15,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Integer, ../Standard/Standard_Real,
-  ../Standard/Standard_PrimitiveTypes
-
 ##  History - the C function pointer converted to a virtual class
 ##  in order to get rid of usage of static functions and static data
 
 type
-  AdvApp2Var_EvaluatorFunc2Var* {.importcpp: "AdvApp2Var_EvaluatorFunc2Var",
-                                 header: "AdvApp2Var_EvaluatorFunc2Var.hxx",
-                                 bycopy.} = object ## ! Empty constructor
-                                                ## ! Copy constructor is declared private to forbid copying
+  AdvApp2VarEvaluatorFunc2Var* {.importcpp: "AdvApp2Var_EvaluatorFunc2Var",
+                                header: "AdvApp2Var_EvaluatorFunc2Var.hxx", bycopy.} = object ##
+                                                                                         ## !
+                                                                                         ## Empty
+                                                                                         ## constructor
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## Copy
+                                                                                         ## constructor
+                                                                                         ## is
+                                                                                         ## declared
+                                                                                         ## private
+                                                                                         ## to
+                                                                                         ## forbid
+                                                                                         ## copying
 
 
-proc constructAdvApp2Var_EvaluatorFunc2Var*(): AdvApp2Var_EvaluatorFunc2Var {.
+proc constructAdvApp2VarEvaluatorFunc2Var*(): AdvApp2VarEvaluatorFunc2Var {.
     constructor, importcpp: "AdvApp2Var_EvaluatorFunc2Var(@)",
     header: "AdvApp2Var_EvaluatorFunc2Var.hxx".}
-proc destroyAdvApp2Var_EvaluatorFunc2Var*(this: var AdvApp2Var_EvaluatorFunc2Var) {.
+proc destroyAdvApp2VarEvaluatorFunc2Var*(this: var AdvApp2VarEvaluatorFunc2Var) {.
     importcpp: "#.~AdvApp2Var_EvaluatorFunc2Var()",
     header: "AdvApp2Var_EvaluatorFunc2Var.hxx".}
-proc Evaluate*(this: AdvApp2Var_EvaluatorFunc2Var;
-              theDimension: ptr Standard_Integer; theUStartEnd: ptr Standard_Real;
-              theVStartEnd: ptr Standard_Real; theFavorIso: ptr Standard_Integer;
-              theConstParam: ptr Standard_Real; theNbParams: ptr Standard_Integer;
-              theParameters: ptr Standard_Real; theUOrder: ptr Standard_Integer;
-              theVOrder: ptr Standard_Integer; theResult: ptr Standard_Real;
-              theErrorCode: ptr Standard_Integer) {.noSideEffect,
+proc evaluate*(this: AdvApp2VarEvaluatorFunc2Var; theDimension: ptr int;
+              theUStartEnd: ptr float; theVStartEnd: ptr float; theFavorIso: ptr int;
+              theConstParam: ptr float; theNbParams: ptr int;
+              theParameters: ptr float; theUOrder: ptr int; theVOrder: ptr int;
+              theResult: ptr float; theErrorCode: ptr int) {.noSideEffect,
     importcpp: "Evaluate", header: "AdvApp2Var_EvaluatorFunc2Var.hxx".}
   ## !< First and last parameters in U
   ## !< First and last parameters in V
@@ -51,10 +57,10 @@ proc Evaluate*(this: AdvApp2Var_EvaluatorFunc2Var;
   ## !< Derivative Request in U
   ## !< Derivative Request in V
   ## !< Result[Dimension,N]
-proc `()`*(this: AdvApp2Var_EvaluatorFunc2Var; theDimension: ptr Standard_Integer;
-          theUStartEnd: ptr Standard_Real; theVStartEnd: ptr Standard_Real;
-          theFavorIso: ptr Standard_Integer; theConstParam: ptr Standard_Real;
-          theNbParams: ptr Standard_Integer; theParameters: ptr Standard_Real;
-          theUOrder: ptr Standard_Integer; theVOrder: ptr Standard_Integer;
-          theResult: ptr Standard_Real; theErrorCode: ptr Standard_Integer) {.
-    noSideEffect, importcpp: "#(@)", header: "AdvApp2Var_EvaluatorFunc2Var.hxx".}
+proc `()`*(this: AdvApp2VarEvaluatorFunc2Var; theDimension: ptr int;
+          theUStartEnd: ptr float; theVStartEnd: ptr float; theFavorIso: ptr int;
+          theConstParam: ptr float; theNbParams: ptr int; theParameters: ptr float;
+          theUOrder: ptr int; theVOrder: ptr int; theResult: ptr float;
+          theErrorCode: ptr int) {.noSideEffect, importcpp: "#(@)",
+                                header: "AdvApp2Var_EvaluatorFunc2Var.hxx".}
+

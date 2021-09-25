@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Geom_Curve
-
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_GTrsf2d"
 discard "forward decl of gp_Pnt"
@@ -24,7 +21,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of Geom_Surface"
 discard "forward decl of Geom_Surface"
 type
-  Handle_Geom_Surface* = handle[Geom_Surface]
+  HandleGeomSurface* = Handle[GeomSurface]
 
 ## ! Describes the common behavior of surfaces in 3D
 ## ! space. The Geom package provides many
@@ -54,100 +51,90 @@ type
 ## ! surfaces with null areas, or surfaces which self-intersect.
 
 type
-  Geom_Surface* {.importcpp: "Geom_Surface", header: "Geom_Surface.hxx", bycopy.} = object of Geom_Geometry ##
-                                                                                                  ## !
-                                                                                                  ## Reverses
-                                                                                                  ## the
-                                                                                                  ## U
-                                                                                                  ## direction
-                                                                                                  ## of
-                                                                                                  ## parametrization
-                                                                                                  ## of
-                                                                                                  ## <me>.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## The
-                                                                                                  ## bounds
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## surface
-                                                                                                  ## are
-                                                                                                  ## not
-                                                                                                  ## modified.
-    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
-    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
+  GeomSurface* {.importcpp: "Geom_Surface", header: "Geom_Surface.hxx", bycopy.} = object of GeomGeometry ##
+                                                                                                ## !
+                                                                                                ## Reverses
+                                                                                                ## the
+                                                                                                ## U
+                                                                                                ## direction
+                                                                                                ## of
+                                                                                                ## parametrization
+                                                                                                ## of
+                                                                                                ## <me>.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## The
+                                                                                                ## bounds
+                                                                                                ## of
+                                                                                                ## the
+                                                                                                ## surface
+                                                                                                ## are
+                                                                                                ## not
+                                                                                                ## modified.
 
 
-proc UReverse*(this: var Geom_Surface) {.importcpp: "UReverse",
-                                     header: "Geom_Surface.hxx".}
-## !!!Ignored construct:  :: handle < Geom_Surface > [end of template] UReversed ( ) const ;
-## Error: identifier expected, but got: ::!!!
-
-proc UReversedParameter*(this: Geom_Surface; U: Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "UReversedParameter", header: "Geom_Surface.hxx".}
-proc VReverse*(this: var Geom_Surface) {.importcpp: "VReverse",
-                                     header: "Geom_Surface.hxx".}
-## !!!Ignored construct:  :: handle < Geom_Surface > [end of template] VReversed ( ) const ;
-## Error: identifier expected, but got: ::!!!
-
-proc VReversedParameter*(this: Geom_Surface; V: Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "VReversedParameter", header: "Geom_Surface.hxx".}
-proc TransformParameters*(this: Geom_Surface; U: var Standard_Real;
-                         V: var Standard_Real; T: gp_Trsf) {.noSideEffect,
-    importcpp: "TransformParameters", header: "Geom_Surface.hxx".}
-proc ParametricTransformation*(this: Geom_Surface; T: gp_Trsf): gp_GTrsf2d {.
-    noSideEffect, importcpp: "ParametricTransformation", header: "Geom_Surface.hxx".}
-proc Bounds*(this: Geom_Surface; U1: var Standard_Real; U2: var Standard_Real;
-            V1: var Standard_Real; V2: var Standard_Real) {.noSideEffect,
-    importcpp: "Bounds", header: "Geom_Surface.hxx".}
-proc IsUClosed*(this: Geom_Surface): Standard_Boolean {.noSideEffect,
-    importcpp: "IsUClosed", header: "Geom_Surface.hxx".}
-proc IsVClosed*(this: Geom_Surface): Standard_Boolean {.noSideEffect,
-    importcpp: "IsVClosed", header: "Geom_Surface.hxx".}
-proc IsUPeriodic*(this: Geom_Surface): Standard_Boolean {.noSideEffect,
-    importcpp: "IsUPeriodic", header: "Geom_Surface.hxx".}
-proc UPeriod*(this: Geom_Surface): Standard_Real {.noSideEffect,
-    importcpp: "UPeriod", header: "Geom_Surface.hxx".}
-proc IsVPeriodic*(this: Geom_Surface): Standard_Boolean {.noSideEffect,
-    importcpp: "IsVPeriodic", header: "Geom_Surface.hxx".}
-proc VPeriod*(this: Geom_Surface): Standard_Real {.noSideEffect,
-    importcpp: "VPeriod", header: "Geom_Surface.hxx".}
-proc UIso*(this: Geom_Surface; U: Standard_Real): handle[Geom_Curve] {.noSideEffect,
-    importcpp: "UIso", header: "Geom_Surface.hxx".}
-proc VIso*(this: Geom_Surface; V: Standard_Real): handle[Geom_Curve] {.noSideEffect,
-    importcpp: "VIso", header: "Geom_Surface.hxx".}
-proc Continuity*(this: Geom_Surface): GeomAbs_Shape {.noSideEffect,
-    importcpp: "Continuity", header: "Geom_Surface.hxx".}
-proc IsCNu*(this: Geom_Surface; N: Standard_Integer): Standard_Boolean {.noSideEffect,
-    importcpp: "IsCNu", header: "Geom_Surface.hxx".}
-proc IsCNv*(this: Geom_Surface; N: Standard_Integer): Standard_Boolean {.noSideEffect,
-    importcpp: "IsCNv", header: "Geom_Surface.hxx".}
-proc D0*(this: Geom_Surface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt) {.
-    noSideEffect, importcpp: "D0", header: "Geom_Surface.hxx".}
-proc D1*(this: Geom_Surface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
-        D1U: var gp_Vec; D1V: var gp_Vec) {.noSideEffect, importcpp: "D1",
-                                      header: "Geom_Surface.hxx".}
-proc D2*(this: Geom_Surface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
-        D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec; D2UV: var gp_Vec) {.
-    noSideEffect, importcpp: "D2", header: "Geom_Surface.hxx".}
-proc D3*(this: Geom_Surface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
-        D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec;
-        D2UV: var gp_Vec; D3U: var gp_Vec; D3V: var gp_Vec; D3UUV: var gp_Vec;
-        D3UVV: var gp_Vec) {.noSideEffect, importcpp: "D3", header: "Geom_Surface.hxx".}
-proc DN*(this: Geom_Surface; U: Standard_Real; V: Standard_Real; Nu: Standard_Integer;
-        Nv: Standard_Integer): gp_Vec {.noSideEffect, importcpp: "DN",
-                                     header: "Geom_Surface.hxx".}
-proc Value*(this: Geom_Surface; U: Standard_Real; V: Standard_Real): gp_Pnt {.
-    noSideEffect, importcpp: "Value", header: "Geom_Surface.hxx".}
-proc DumpJson*(this: Geom_Surface; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
+proc uReverse*(this: var GeomSurface) {.importcpp: "UReverse",
+                                    header: "Geom_Surface.hxx".}
+proc uReversed*(this: GeomSurface): Handle[GeomSurface] {.noSideEffect,
+    importcpp: "UReversed", header: "Geom_Surface.hxx".}
+proc uReversedParameter*(this: GeomSurface; u: float): float {.noSideEffect,
+    importcpp: "UReversedParameter", header: "Geom_Surface.hxx".}
+proc vReverse*(this: var GeomSurface) {.importcpp: "VReverse",
+                                    header: "Geom_Surface.hxx".}
+proc vReversed*(this: GeomSurface): Handle[GeomSurface] {.noSideEffect,
+    importcpp: "VReversed", header: "Geom_Surface.hxx".}
+proc vReversedParameter*(this: GeomSurface; v: float): float {.noSideEffect,
+    importcpp: "VReversedParameter", header: "Geom_Surface.hxx".}
+proc transformParameters*(this: GeomSurface; u: var float; v: var float; t: Trsf) {.
+    noSideEffect, importcpp: "TransformParameters", header: "Geom_Surface.hxx".}
+proc parametricTransformation*(this: GeomSurface; t: Trsf): GTrsf2d {.noSideEffect,
+    importcpp: "ParametricTransformation", header: "Geom_Surface.hxx".}
+proc bounds*(this: GeomSurface; u1: var float; u2: var float; v1: var float; v2: var float) {.
+    noSideEffect, importcpp: "Bounds", header: "Geom_Surface.hxx".}
+proc isUClosed*(this: GeomSurface): bool {.noSideEffect, importcpp: "IsUClosed",
+                                       header: "Geom_Surface.hxx".}
+proc isVClosed*(this: GeomSurface): bool {.noSideEffect, importcpp: "IsVClosed",
+                                       header: "Geom_Surface.hxx".}
+proc isUPeriodic*(this: GeomSurface): bool {.noSideEffect, importcpp: "IsUPeriodic",
     header: "Geom_Surface.hxx".}
+proc uPeriod*(this: GeomSurface): float {.noSideEffect, importcpp: "UPeriod",
+                                      header: "Geom_Surface.hxx".}
+proc isVPeriodic*(this: GeomSurface): bool {.noSideEffect, importcpp: "IsVPeriodic",
+    header: "Geom_Surface.hxx".}
+proc vPeriod*(this: GeomSurface): float {.noSideEffect, importcpp: "VPeriod",
+                                      header: "Geom_Surface.hxx".}
+proc uIso*(this: GeomSurface; u: float): Handle[GeomCurve] {.noSideEffect,
+    importcpp: "UIso", header: "Geom_Surface.hxx".}
+proc vIso*(this: GeomSurface; v: float): Handle[GeomCurve] {.noSideEffect,
+    importcpp: "VIso", header: "Geom_Surface.hxx".}
+proc continuity*(this: GeomSurface): GeomAbsShape {.noSideEffect,
+    importcpp: "Continuity", header: "Geom_Surface.hxx".}
+proc isCNu*(this: GeomSurface; n: int): bool {.noSideEffect, importcpp: "IsCNu",
+    header: "Geom_Surface.hxx".}
+proc isCNv*(this: GeomSurface; n: int): bool {.noSideEffect, importcpp: "IsCNv",
+    header: "Geom_Surface.hxx".}
+proc d0*(this: GeomSurface; u: float; v: float; p: var Pnt) {.noSideEffect,
+    importcpp: "D0", header: "Geom_Surface.hxx".}
+proc d1*(this: GeomSurface; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec) {.
+    noSideEffect, importcpp: "D1", header: "Geom_Surface.hxx".}
+proc d2*(this: GeomSurface; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec;
+        d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect, importcpp: "D2",
+    header: "Geom_Surface.hxx".}
+proc d3*(this: GeomSurface; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec;
+        d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec; d3uuv: var Vec;
+        d3uvv: var Vec) {.noSideEffect, importcpp: "D3", header: "Geom_Surface.hxx".}
+proc dn*(this: GeomSurface; u: float; v: float; nu: int; nv: int): Vec {.noSideEffect,
+    importcpp: "DN", header: "Geom_Surface.hxx".}
+proc value*(this: GeomSurface; u: float; v: float): Pnt {.noSideEffect,
+    importcpp: "Value", header: "Geom_Surface.hxx".}
+proc dumpJson*(this: GeomSurface; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "Geom_Surface.hxx".}
 type
-  Geom_Surfacebase_type* = Geom_Geometry
+  GeomSurfacebaseType* = GeomGeometry
 
-proc get_type_name*(): cstring {.importcpp: "Geom_Surface::get_type_name(@)",
-                              header: "Geom_Surface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Geom_Surface::get_type_name(@)",
+                            header: "Geom_Surface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_Surface::get_type_descriptor(@)", header: "Geom_Surface.hxx".}
-proc DynamicType*(this: Geom_Surface): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: GeomSurface): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom_Surface.hxx".}

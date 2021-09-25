@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, IGESData_GeneralModule,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of IGESData_DirChecker"
@@ -28,60 +24,60 @@ discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_DefaultGeneral"
 discard "forward decl of IGESData_DefaultGeneral"
 type
-  Handle_IGESData_DefaultGeneral* = handle[IGESData_DefaultGeneral]
+  HandleIGESDataDefaultGeneral* = Handle[IGESDataDefaultGeneral]
 
 ## ! Processes the specific case of UndefinedEntity from IGESData
 ## ! (Case Number 1)
 
 type
-  IGESData_DefaultGeneral* {.importcpp: "IGESData_DefaultGeneral",
-                            header: "IGESData_DefaultGeneral.hxx", bycopy.} = object of IGESData_GeneralModule ##
-                                                                                                        ## !
-                                                                                                        ## Creates
-                                                                                                        ## a
-                                                                                                        ## DefaultGeneral
-                                                                                                        ## and
-                                                                                                        ## puts
-                                                                                                        ## it
-                                                                                                        ## into
-                                                                                                        ## GeneralLib,
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## bound
-                                                                                                        ## with
-                                                                                                        ## a
-                                                                                                        ## Protocol
-                                                                                                        ## from
-                                                                                                        ## IGESData
+  IGESDataDefaultGeneral* {.importcpp: "IGESData_DefaultGeneral",
+                           header: "IGESData_DefaultGeneral.hxx", bycopy.} = object of IGESDataGeneralModule ##
+                                                                                                      ## !
+                                                                                                      ## Creates
+                                                                                                      ## a
+                                                                                                      ## DefaultGeneral
+                                                                                                      ## and
+                                                                                                      ## puts
+                                                                                                      ## it
+                                                                                                      ## into
+                                                                                                      ## GeneralLib,
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## bound
+                                                                                                      ## with
+                                                                                                      ## a
+                                                                                                      ## Protocol
+                                                                                                      ## from
+                                                                                                      ## IGESData
 
 
-proc constructIGESData_DefaultGeneral*(): IGESData_DefaultGeneral {.constructor,
+proc constructIGESDataDefaultGeneral*(): IGESDataDefaultGeneral {.constructor,
     importcpp: "IGESData_DefaultGeneral(@)", header: "IGESData_DefaultGeneral.hxx".}
-proc OwnSharedCase*(this: IGESData_DefaultGeneral; CN: Standard_Integer;
-                   ent: handle[IGESData_IGESEntity];
-                   iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownSharedCase*(this: IGESDataDefaultGeneral; cn: int;
+                   ent: Handle[IGESDataIGESEntity];
+                   iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnSharedCase", header: "IGESData_DefaultGeneral.hxx".}
-proc DirChecker*(this: IGESData_DefaultGeneral; CN: Standard_Integer;
-                ent: handle[IGESData_IGESEntity]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESDataDefaultGeneral; cn: int;
+                ent: Handle[IGESDataIGESEntity]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESData_DefaultGeneral.hxx".}
-proc OwnCheckCase*(this: IGESData_DefaultGeneral; CN: Standard_Integer;
-                  ent: handle[IGESData_IGESEntity]; shares: Interface_ShareTool;
-                  ach: var handle[Interface_Check]) {.noSideEffect,
+proc ownCheckCase*(this: IGESDataDefaultGeneral; cn: int;
+                  ent: Handle[IGESDataIGESEntity]; shares: InterfaceShareTool;
+                  ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "OwnCheckCase", header: "IGESData_DefaultGeneral.hxx".}
-proc NewVoid*(this: IGESData_DefaultGeneral; CN: Standard_Integer;
-             entto: var handle[Standard_Transient]): Standard_Boolean {.
-    noSideEffect, importcpp: "NewVoid", header: "IGESData_DefaultGeneral.hxx".}
-proc OwnCopyCase*(this: IGESData_DefaultGeneral; CN: Standard_Integer;
-                 entfrom: handle[IGESData_IGESEntity];
-                 entto: handle[IGESData_IGESEntity]; TC: var Interface_CopyTool) {.
+proc newVoid*(this: IGESDataDefaultGeneral; cn: int;
+             entto: var Handle[StandardTransient]): bool {.noSideEffect,
+    importcpp: "NewVoid", header: "IGESData_DefaultGeneral.hxx".}
+proc ownCopyCase*(this: IGESDataDefaultGeneral; cn: int;
+                 entfrom: Handle[IGESDataIGESEntity];
+                 entto: Handle[IGESDataIGESEntity]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopyCase", header: "IGESData_DefaultGeneral.hxx".}
 type
-  IGESData_DefaultGeneralbase_type* = IGESData_GeneralModule
+  IGESDataDefaultGeneralbaseType* = IGESDataGeneralModule
 
-proc get_type_name*(): cstring {.importcpp: "IGESData_DefaultGeneral::get_type_name(@)",
-                              header: "IGESData_DefaultGeneral.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESData_DefaultGeneral::get_type_name(@)",
+                            header: "IGESData_DefaultGeneral.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESData_DefaultGeneral::get_type_descriptor(@)",
     header: "IGESData_DefaultGeneral.hxx".}
-proc DynamicType*(this: IGESData_DefaultGeneral): handle[Standard_Type] {.
+proc dynamicType*(this: IGESDataDefaultGeneral): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESData_DefaultGeneral.hxx".}

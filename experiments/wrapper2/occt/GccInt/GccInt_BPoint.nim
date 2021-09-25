@@ -14,47 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Pnt2d, GccInt_Bisec,
-  GccInt_IType
-
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of GccInt_BPoint"
 discard "forward decl of GccInt_BPoint"
 type
-  Handle_GccInt_BPoint* = handle[GccInt_BPoint]
+  HandleGccIntBPoint* = Handle[GccIntBPoint]
 
 ## ! Describes a point as a bisecting object between two 2D geometric objects.
 
 type
-  GccInt_BPoint* {.importcpp: "GccInt_BPoint", header: "GccInt_BPoint.hxx", bycopy.} = object of GccInt_Bisec ##
-                                                                                                    ## !
-                                                                                                    ## Constructs
-                                                                                                    ## a
-                                                                                                    ## bisecting
-                                                                                                    ## object
-                                                                                                    ## whose
-                                                                                                    ## geometry
-                                                                                                    ## is
-                                                                                                    ## the
-                                                                                                    ## 2D
-                                                                                                    ## point
-                                                                                                    ## Point.
+  GccIntBPoint* {.importcpp: "GccInt_BPoint", header: "GccInt_BPoint.hxx", bycopy.} = object of GccIntBisec ##
+                                                                                                  ## !
+                                                                                                  ## Constructs
+                                                                                                  ## a
+                                                                                                  ## bisecting
+                                                                                                  ## object
+                                                                                                  ## whose
+                                                                                                  ## geometry
+                                                                                                  ## is
+                                                                                                  ## the
+                                                                                                  ## 2D
+                                                                                                  ## point
+                                                                                                  ## Point.
 
 
-proc constructGccInt_BPoint*(Point: gp_Pnt2d): GccInt_BPoint {.constructor,
+proc constructGccIntBPoint*(point: Pnt2d): GccIntBPoint {.constructor,
     importcpp: "GccInt_BPoint(@)", header: "GccInt_BPoint.hxx".}
-proc Point*(this: GccInt_BPoint): gp_Pnt2d {.noSideEffect, importcpp: "Point",
+proc point*(this: GccIntBPoint): Pnt2d {.noSideEffect, importcpp: "Point",
+                                     header: "GccInt_BPoint.hxx".}
+proc arcType*(this: GccIntBPoint): GccIntIType {.noSideEffect, importcpp: "ArcType",
     header: "GccInt_BPoint.hxx".}
-proc ArcType*(this: GccInt_BPoint): GccInt_IType {.noSideEffect,
-    importcpp: "ArcType", header: "GccInt_BPoint.hxx".}
 type
-  GccInt_BPointbase_type* = GccInt_Bisec
+  GccIntBPointbaseType* = GccIntBisec
 
-proc get_type_name*(): cstring {.importcpp: "GccInt_BPoint::get_type_name(@)",
-                              header: "GccInt_BPoint.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "GccInt_BPoint::get_type_name(@)",
+                            header: "GccInt_BPoint.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GccInt_BPoint::get_type_descriptor(@)",
     header: "GccInt_BPoint.hxx".}
-proc DynamicType*(this: GccInt_BPoint): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: GccIntBPoint): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "GccInt_BPoint.hxx".}

@@ -13,81 +13,77 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_ProductDefinitionFormation"
 discard "forward decl of StepBasic_ProductDefinitionFormationRelationship"
 discard "forward decl of StepBasic_ProductDefinitionFormationRelationship"
 type
-  Handle_StepBasic_ProductDefinitionFormationRelationship* = handle[
-      StepBasic_ProductDefinitionFormationRelationship]
+  HandleStepBasicProductDefinitionFormationRelationship* = Handle[
+      StepBasicProductDefinitionFormationRelationship]
 
 ## ! Representation of STEP entity ProductDefinitionFormationRelationship
 
 type
-  StepBasic_ProductDefinitionFormationRelationship* {.
+  StepBasicProductDefinitionFormationRelationship* {.
       importcpp: "StepBasic_ProductDefinitionFormationRelationship",
-      header: "StepBasic_ProductDefinitionFormationRelationship.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                       ## !
-                                                                                                       ## Empty
-                                                                                                       ## constructor
+      header: "StepBasic_ProductDefinitionFormationRelationship.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                      ## !
+                                                                                                      ## Empty
+                                                                                                      ## constructor
 
 
-proc constructStepBasic_ProductDefinitionFormationRelationship*(): StepBasic_ProductDefinitionFormationRelationship {.
+proc constructStepBasicProductDefinitionFormationRelationship*(): StepBasicProductDefinitionFormationRelationship {.
     constructor,
     importcpp: "StepBasic_ProductDefinitionFormationRelationship(@)",
     header: "StepBasic_ProductDefinitionFormationRelationship.hxx".}
-proc Init*(this: var StepBasic_ProductDefinitionFormationRelationship;
-          aId: handle[TCollection_HAsciiString];
-          aName: handle[TCollection_HAsciiString];
-          aDescription: handle[TCollection_HAsciiString];
-    aRelatingProductDefinitionFormation: handle[
-    StepBasic_ProductDefinitionFormation]; aRelatedProductDefinitionFormation: handle[
-    StepBasic_ProductDefinitionFormation]) {.importcpp: "Init",
+proc init*(this: var StepBasicProductDefinitionFormationRelationship;
+          aId: Handle[TCollectionHAsciiString];
+          aName: Handle[TCollectionHAsciiString];
+          aDescription: Handle[TCollectionHAsciiString];
+    aRelatingProductDefinitionFormation: Handle[
+    StepBasicProductDefinitionFormation]; aRelatedProductDefinitionFormation: Handle[
+    StepBasicProductDefinitionFormation]) {.importcpp: "Init",
     header: "StepBasic_ProductDefinitionFormationRelationship.hxx".}
-proc Id*(this: StepBasic_ProductDefinitionFormationRelationship): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Id", header: "StepBasic_ProductDefinitionFormationRelationship.hxx".}
-proc SetId*(this: var StepBasic_ProductDefinitionFormationRelationship;
-           Id: handle[TCollection_HAsciiString]) {.importcpp: "SetId",
+proc id*(this: StepBasicProductDefinitionFormationRelationship): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Id", header: "StepBasic_ProductDefinitionFormationRelationship.hxx".}
+proc setId*(this: var StepBasicProductDefinitionFormationRelationship;
+           id: Handle[TCollectionHAsciiString]) {.importcpp: "SetId",
     header: "StepBasic_ProductDefinitionFormationRelationship.hxx".}
-proc Name*(this: StepBasic_ProductDefinitionFormationRelationship): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Name", header: "StepBasic_ProductDefinitionFormationRelationship.hxx".}
-proc SetName*(this: var StepBasic_ProductDefinitionFormationRelationship;
-             Name: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc name*(this: StepBasicProductDefinitionFormationRelationship): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Name", header: "StepBasic_ProductDefinitionFormationRelationship.hxx".}
+proc setName*(this: var StepBasicProductDefinitionFormationRelationship;
+             name: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepBasic_ProductDefinitionFormationRelationship.hxx".}
-proc Description*(this: StepBasic_ProductDefinitionFormationRelationship): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description", header: "StepBasic_ProductDefinitionFormationRelationship.hxx".}
-proc SetDescription*(this: var StepBasic_ProductDefinitionFormationRelationship;
-                    Description: handle[TCollection_HAsciiString]) {.
+proc description*(this: StepBasicProductDefinitionFormationRelationship): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Description", header: "StepBasic_ProductDefinitionFormationRelationship.hxx".}
+proc setDescription*(this: var StepBasicProductDefinitionFormationRelationship;
+                    description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription",
     header: "StepBasic_ProductDefinitionFormationRelationship.hxx".}
-proc RelatingProductDefinitionFormation*(this: StepBasic_ProductDefinitionFormationRelationship): handle[
-    StepBasic_ProductDefinitionFormation] {.noSideEffect,
+proc relatingProductDefinitionFormation*(this: StepBasicProductDefinitionFormationRelationship): Handle[
+    StepBasicProductDefinitionFormation] {.noSideEffect,
     importcpp: "RelatingProductDefinitionFormation",
     header: "StepBasic_ProductDefinitionFormationRelationship.hxx".}
-proc SetRelatingProductDefinitionFormation*(
-    this: var StepBasic_ProductDefinitionFormationRelationship;
-    RelatingProductDefinitionFormation: handle[
-    StepBasic_ProductDefinitionFormation]) {.
+proc setRelatingProductDefinitionFormation*(
+    this: var StepBasicProductDefinitionFormationRelationship;
+    relatingProductDefinitionFormation: Handle[
+    StepBasicProductDefinitionFormation]) {.
     importcpp: "SetRelatingProductDefinitionFormation",
     header: "StepBasic_ProductDefinitionFormationRelationship.hxx".}
-proc RelatedProductDefinitionFormation*(this: StepBasic_ProductDefinitionFormationRelationship): handle[
-    StepBasic_ProductDefinitionFormation] {.noSideEffect,
+proc relatedProductDefinitionFormation*(this: StepBasicProductDefinitionFormationRelationship): Handle[
+    StepBasicProductDefinitionFormation] {.noSideEffect,
     importcpp: "RelatedProductDefinitionFormation",
     header: "StepBasic_ProductDefinitionFormationRelationship.hxx".}
-proc SetRelatedProductDefinitionFormation*(
-    this: var StepBasic_ProductDefinitionFormationRelationship;
-    RelatedProductDefinitionFormation: handle[
-    StepBasic_ProductDefinitionFormation]) {.
+proc setRelatedProductDefinitionFormation*(
+    this: var StepBasicProductDefinitionFormationRelationship;
+    relatedProductDefinitionFormation: Handle[StepBasicProductDefinitionFormation]) {.
     importcpp: "SetRelatedProductDefinitionFormation",
     header: "StepBasic_ProductDefinitionFormationRelationship.hxx".}
 type
-  StepBasic_ProductDefinitionFormationRelationshipbase_type* = Standard_Transient
+  StepBasicProductDefinitionFormationRelationshipbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ProductDefinitionFormationRelationship::get_type_name(@)", header: "StepBasic_ProductDefinitionFormationRelationship.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepBasic_ProductDefinitionFormationRelationship::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ProductDefinitionFormationRelationship::get_type_name(@)", header: "StepBasic_ProductDefinitionFormationRelationship.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_ProductDefinitionFormationRelationship::get_type_descriptor(@)",
     header: "StepBasic_ProductDefinitionFormationRelationship.hxx".}
-proc DynamicType*(this: StepBasic_ProductDefinitionFormationRelationship): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepBasic_ProductDefinitionFormationRelationship.hxx".}
+proc dynamicType*(this: StepBasicProductDefinitionFormationRelationship): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepBasic_ProductDefinitionFormationRelationship.hxx".}

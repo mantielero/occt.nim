@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  TopOpeBRep_P2Dstatus* {.size: sizeof(cint), importcpp: "TopOpeBRep_P2Dstatus",
-                         header: "TopOpeBRep_P2Dstatus.hxx".} = enum
-    TopOpeBRep_P2DUNK, TopOpeBRep_P2DINT, TopOpeBRep_P2DSGF, TopOpeBRep_P2DSGL,
-    TopOpeBRep_P2DNEW
+  TopOpeBRepP2Dstatus* {.size: sizeof(cint), importcpp: "TopOpeBRep_P2Dstatus",
+                        header: "TopOpeBRep_P2Dstatus.hxx".} = enum
+    TopOpeBRepP2DUNK, TopOpeBRepP2DINT, TopOpeBRepP2DSGF, TopOpeBRepP2DSGL,
+    TopOpeBRepP2DNEW
+
 

@@ -12,38 +12,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Real, TColStd_Array1OfReal,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  TColStd_HArray1OfReal* {.importcpp: "TColStd_HArray1OfReal",
-                          header: "TColStd_HArray1OfReal.hxx", bycopy.} = object of TColStd_Array1OfReal
+  TColStdHArray1OfReal* {.importcpp: "TColStd_HArray1OfReal",
+                         header: "TColStd_HArray1OfReal.hxx", bycopy.} = object of TColStdArray1OfReal
 
 
-proc constructTColStd_HArray1OfReal*(theLower: Standard_Integer;
-                                    theUpper: Standard_Integer): TColStd_HArray1OfReal {.
+proc constructTColStdHArray1OfReal*(theLower: int; theUpper: int): TColStdHArray1OfReal {.
     constructor, importcpp: "TColStd_HArray1OfReal(@)",
     header: "TColStd_HArray1OfReal.hxx".}
-proc constructTColStd_HArray1OfReal*(theLower: Standard_Integer;
-                                    theUpper: Standard_Integer;
-                                    theValue: value_type): TColStd_HArray1OfReal {.
+proc constructTColStdHArray1OfReal*(theLower: int; theUpper: int; theValue: ValueType): TColStdHArray1OfReal {.
     constructor, importcpp: "TColStd_HArray1OfReal(@)",
     header: "TColStd_HArray1OfReal.hxx".}
-proc constructTColStd_HArray1OfReal*(theOther: TColStd_Array1OfReal): TColStd_HArray1OfReal {.
+proc constructTColStdHArray1OfReal*(theOther: TColStdArray1OfReal): TColStdHArray1OfReal {.
     constructor, importcpp: "TColStd_HArray1OfReal(@)",
     header: "TColStd_HArray1OfReal.hxx".}
-proc Array1*(this: TColStd_HArray1OfReal): TColStd_Array1OfReal {.noSideEffect,
+proc array1*(this: TColStdHArray1OfReal): TColStdArray1OfReal {.noSideEffect,
     importcpp: "Array1", header: "TColStd_HArray1OfReal.hxx".}
-proc ChangeArray1*(this: var TColStd_HArray1OfReal): var TColStd_Array1OfReal {.
+proc changeArray1*(this: var TColStdHArray1OfReal): var TColStdArray1OfReal {.
     importcpp: "ChangeArray1", header: "TColStd_HArray1OfReal.hxx".}
 type
-  TColStd_HArray1OfRealbase_type* = MMgt_TShared
+  TColStdHArray1OfRealbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TColStd_HArray1OfReal::get_type_name(@)",
-                              header: "TColStd_HArray1OfReal.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TColStd_HArray1OfReal::get_type_name(@)",
+                            header: "TColStd_HArray1OfReal.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TColStd_HArray1OfReal::get_type_descriptor(@)",
     header: "TColStd_HArray1OfReal.hxx".}
-proc DynamicType*(this: TColStd_HArray1OfReal): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "TColStd_HArray1OfReal.hxx".}
+proc dynamicType*(this: TColStdHArray1OfReal): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "TColStd_HArray1OfReal.hxx".}

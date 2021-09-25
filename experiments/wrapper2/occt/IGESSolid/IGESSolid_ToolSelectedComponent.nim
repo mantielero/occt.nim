@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESSolid_SelectedComponent"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,40 +26,40 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESSolid_ToolSelectedComponent* {.importcpp: "IGESSolid_ToolSelectedComponent", header: "IGESSolid_ToolSelectedComponent.hxx",
-                                    bycopy.} = object ## ! Returns a ToolSelectedComponent, ready to work
+  IGESSolidToolSelectedComponent* {.importcpp: "IGESSolid_ToolSelectedComponent", header: "IGESSolid_ToolSelectedComponent.hxx",
+                                   bycopy.} = object ## ! Returns a ToolSelectedComponent, ready to work
 
 
-proc constructIGESSolid_ToolSelectedComponent*(): IGESSolid_ToolSelectedComponent {.
+proc constructIGESSolidToolSelectedComponent*(): IGESSolidToolSelectedComponent {.
     constructor, importcpp: "IGESSolid_ToolSelectedComponent(@)",
     header: "IGESSolid_ToolSelectedComponent.hxx".}
-proc ReadOwnParams*(this: IGESSolid_ToolSelectedComponent;
-                   ent: handle[IGESSolid_SelectedComponent];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESSolid_ToolSelectedComponent.hxx".}
-proc WriteOwnParams*(this: IGESSolid_ToolSelectedComponent;
-                    ent: handle[IGESSolid_SelectedComponent];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESSolidToolSelectedComponent;
+                   ent: Handle[IGESSolidSelectedComponent];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESSolid_ToolSelectedComponent.hxx".}
+proc writeOwnParams*(this: IGESSolidToolSelectedComponent;
+                    ent: Handle[IGESSolidSelectedComponent];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESSolid_ToolSelectedComponent.hxx".}
-proc OwnShared*(this: IGESSolid_ToolSelectedComponent;
-               ent: handle[IGESSolid_SelectedComponent];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESSolidToolSelectedComponent;
+               ent: Handle[IGESSolidSelectedComponent];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESSolid_ToolSelectedComponent.hxx".}
-proc DirChecker*(this: IGESSolid_ToolSelectedComponent;
-                ent: handle[IGESSolid_SelectedComponent]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESSolidToolSelectedComponent;
+                ent: Handle[IGESSolidSelectedComponent]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESSolid_ToolSelectedComponent.hxx".}
-proc OwnCheck*(this: IGESSolid_ToolSelectedComponent;
-              ent: handle[IGESSolid_SelectedComponent];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
-    noSideEffect, importcpp: "OwnCheck",
+proc ownCheck*(this: IGESSolidToolSelectedComponent;
+              ent: Handle[IGESSolidSelectedComponent]; shares: InterfaceShareTool;
+              ach: var Handle[InterfaceCheck]) {.noSideEffect,
+    importcpp: "OwnCheck", header: "IGESSolid_ToolSelectedComponent.hxx".}
+proc ownCopy*(this: IGESSolidToolSelectedComponent;
+             entfrom: Handle[IGESSolidSelectedComponent];
+             entto: Handle[IGESSolidSelectedComponent]; tc: var InterfaceCopyTool) {.
+    noSideEffect, importcpp: "OwnCopy",
     header: "IGESSolid_ToolSelectedComponent.hxx".}
-proc OwnCopy*(this: IGESSolid_ToolSelectedComponent;
-             entfrom: handle[IGESSolid_SelectedComponent];
-             entto: handle[IGESSolid_SelectedComponent];
-             TC: var Interface_CopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESSolid_ToolSelectedComponent.hxx".}
-proc OwnDump*(this: IGESSolid_ToolSelectedComponent;
-             ent: handle[IGESSolid_SelectedComponent];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump", header: "IGESSolid_ToolSelectedComponent.hxx".}
+proc ownDump*(this: IGESSolidToolSelectedComponent;
+             ent: Handle[IGESSolidSelectedComponent]; dumper: IGESDataIGESDumper;
+             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+    header: "IGESSolid_ToolSelectedComponent.hxx".}

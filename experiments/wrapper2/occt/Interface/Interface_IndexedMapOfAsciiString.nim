@@ -14,10 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_AsciiString, Interface_MapAsciiStringHasher,
-  ../NCollection/NCollection_IndexedMap
-
 type
-  Interface_IndexedMapOfAsciiString* = NCollection_IndexedMap[
-      TCollection_AsciiString, Interface_MapAsciiStringHasher]
+  InterfaceIndexedMapOfAsciiString* = NCollectionIndexedMap[
+      TCollectionAsciiString, InterfaceMapAsciiStringHasher]
+

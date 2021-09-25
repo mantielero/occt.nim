@@ -12,9 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_ExtendedString, ../NCollection/NCollection_Sequence
-
 type
-  TColStd_SequenceOfExtendedString* = NCollection_Sequence[
-      TCollection_ExtendedString]
+  TColStdSequenceOfExtendedString* = NCollectionSequence[TCollectionExtendedString]
+

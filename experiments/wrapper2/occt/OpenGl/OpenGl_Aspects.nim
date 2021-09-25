@@ -11,57 +11,52 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_Element, OpenGl_AspectsProgram, OpenGl_AspectsTextureSet,
-  OpenGl_AspectsSprite, ../Graphic3d/Graphic3d_Aspects,
-  ../Graphic3d/Graphic3d_BSDF
-
 ## ! The element holding Graphic3d_Aspects.
 
 type
-  OpenGl_Aspects* {.importcpp: "OpenGl_Aspects", header: "OpenGl_Aspects.hxx", bycopy.} = object of OpenGl_Element ##
-                                                                                                         ## !
-                                                                                                         ## Empty
-                                                                                                         ## constructor.
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## OpenGl
-                                                                                                         ## resources
+  OpenGlAspects* {.importcpp: "OpenGl_Aspects", header: "OpenGl_Aspects.hxx", bycopy.} = object of OpenGlElement ##
+                                                                                                       ## !
+                                                                                                       ## Empty
+                                                                                                       ## constructor.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## OpenGl
+                                                                                                       ## resources
 
 
-proc constructOpenGl_Aspects*(): OpenGl_Aspects {.constructor,
+proc constructOpenGlAspects*(): OpenGlAspects {.constructor,
     importcpp: "OpenGl_Aspects(@)", header: "OpenGl_Aspects.hxx".}
-proc constructOpenGl_Aspects*(theAspect: handle[Graphic3d_Aspects]): OpenGl_Aspects {.
+proc constructOpenGlAspects*(theAspect: Handle[Graphic3dAspects]): OpenGlAspects {.
     constructor, importcpp: "OpenGl_Aspects(@)", header: "OpenGl_Aspects.hxx".}
-proc Aspect*(this: OpenGl_Aspects): handle[Graphic3d_Aspects] {.noSideEffect,
+proc aspect*(this: OpenGlAspects): Handle[Graphic3dAspects] {.noSideEffect,
     importcpp: "Aspect", header: "OpenGl_Aspects.hxx".}
-proc SetAspect*(this: var OpenGl_Aspects; theAspect: handle[Graphic3d_Aspects]) {.
+proc setAspect*(this: var OpenGlAspects; theAspect: Handle[Graphic3dAspects]) {.
     importcpp: "SetAspect", header: "OpenGl_Aspects.hxx".}
-proc ShadingModel*(this: OpenGl_Aspects): Graphic3d_TypeOfShadingModel {.
-    noSideEffect, importcpp: "ShadingModel", header: "OpenGl_Aspects.hxx".}
-proc SetNoLighting*(this: var OpenGl_Aspects) {.importcpp: "SetNoLighting",
+proc shadingModel*(this: OpenGlAspects): Graphic3dTypeOfShadingModel {.noSideEffect,
+    importcpp: "ShadingModel", header: "OpenGl_Aspects.hxx".}
+proc setNoLighting*(this: var OpenGlAspects) {.importcpp: "SetNoLighting",
     header: "OpenGl_Aspects.hxx".}
-proc TextureSet*(this: OpenGl_Aspects; theCtx: handle[OpenGl_Context];
-                theToHighlight: bool = false): handle[OpenGl_TextureSet] {.
+proc textureSet*(this: OpenGlAspects; theCtx: Handle[OpenGlContext];
+                theToHighlight: bool = false): Handle[OpenGlTextureSet] {.
     noSideEffect, importcpp: "TextureSet", header: "OpenGl_Aspects.hxx".}
-proc ShaderProgramRes*(this: OpenGl_Aspects; theCtx: handle[OpenGl_Context]): handle[
-    OpenGl_ShaderProgram] {.noSideEffect, importcpp: "ShaderProgramRes",
-                           header: "OpenGl_Aspects.hxx".}
-proc MarkerSize*(this: OpenGl_Aspects): Standard_ShortReal {.noSideEffect,
+proc shaderProgramRes*(this: OpenGlAspects; theCtx: Handle[OpenGlContext]): Handle[
+    OpenGlShaderProgram] {.noSideEffect, importcpp: "ShaderProgramRes",
+                          header: "OpenGl_Aspects.hxx".}
+proc markerSize*(this: OpenGlAspects): StandardShortReal {.noSideEffect,
     importcpp: "MarkerSize", header: "OpenGl_Aspects.hxx".}
-proc HasPointSprite*(this: OpenGl_Aspects; theCtx: handle[OpenGl_Context]): bool {.
+proc hasPointSprite*(this: OpenGlAspects; theCtx: Handle[OpenGlContext]): bool {.
     noSideEffect, importcpp: "HasPointSprite", header: "OpenGl_Aspects.hxx".}
-proc IsDisplayListSprite*(this: OpenGl_Aspects; theCtx: handle[OpenGl_Context]): bool {.
+proc isDisplayListSprite*(this: OpenGlAspects; theCtx: Handle[OpenGlContext]): bool {.
     noSideEffect, importcpp: "IsDisplayListSprite", header: "OpenGl_Aspects.hxx".}
-proc SpriteRes*(this: OpenGl_Aspects; theCtx: handle[OpenGl_Context];
-               theIsAlphaSprite: bool): handle[OpenGl_PointSprite] {.noSideEffect,
+proc spriteRes*(this: OpenGlAspects; theCtx: Handle[OpenGlContext];
+               theIsAlphaSprite: bool): Handle[OpenGlPointSprite] {.noSideEffect,
     importcpp: "SpriteRes", header: "OpenGl_Aspects.hxx".}
-proc Render*(this: OpenGl_Aspects; theWorkspace: handle[OpenGl_Workspace]) {.
+proc render*(this: OpenGlAspects; theWorkspace: Handle[OpenGlWorkspace]) {.
     noSideEffect, importcpp: "Render", header: "OpenGl_Aspects.hxx".}
-proc Release*(this: var OpenGl_Aspects; theContext: ptr OpenGl_Context) {.
+proc release*(this: var OpenGlAspects; theContext: ptr OpenGlContext) {.
     importcpp: "Release", header: "OpenGl_Aspects.hxx".}
-proc SynchronizeAspects*(this: var OpenGl_Aspects) {.
-    importcpp: "SynchronizeAspects", header: "OpenGl_Aspects.hxx".}
-proc DumpJson*(this: OpenGl_Aspects; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
+proc synchronizeAspects*(this: var OpenGlAspects) {.importcpp: "SynchronizeAspects",
     header: "OpenGl_Aspects.hxx".}
+proc dumpJson*(this: OpenGlAspects; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "OpenGl_Aspects.hxx".}

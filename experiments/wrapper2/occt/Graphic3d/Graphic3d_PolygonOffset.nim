@@ -11,23 +11,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Aspect/Aspect_PolygonOffsetMode, ../Standard/Standard_OStream
-
 ## ! Polygon offset parameters.
 
 type
-  Graphic3d_PolygonOffset* {.importcpp: "Graphic3d_PolygonOffset",
-                            header: "Graphic3d_PolygonOffset.hxx", bycopy.} = object
-    Mode* {.importc: "Mode".}: Aspect_PolygonOffsetMode
-    Factor* {.importc: "Factor".}: Standard_ShortReal
-    Units* {.importc: "Units".}: Standard_ShortReal ## ! Empty constructor.
+  Graphic3dPolygonOffset* {.importcpp: "Graphic3d_PolygonOffset",
+                           header: "Graphic3d_PolygonOffset.hxx", bycopy.} = object
+    mode* {.importc: "Mode".}: AspectPolygonOffsetMode
+    factor* {.importc: "Factor".}: StandardShortReal
+    units* {.importc: "Units".}: StandardShortReal ## ! Empty constructor.
 
 
-proc constructGraphic3d_PolygonOffset*(): Graphic3d_PolygonOffset {.constructor,
+proc constructGraphic3dPolygonOffset*(): Graphic3dPolygonOffset {.constructor,
     importcpp: "Graphic3d_PolygonOffset(@)", header: "Graphic3d_PolygonOffset.hxx".}
-proc `==`*(this: Graphic3d_PolygonOffset; theOther: Graphic3d_PolygonOffset): bool {.
+proc `==`*(this: Graphic3dPolygonOffset; theOther: Graphic3dPolygonOffset): bool {.
     noSideEffect, importcpp: "(# == #)", header: "Graphic3d_PolygonOffset.hxx".}
-proc DumpJson*(this: Graphic3d_PolygonOffset; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Graphic3d_PolygonOffset.hxx".}
+proc dumpJson*(this: Graphic3dPolygonOffset; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Graphic3d_PolygonOffset.hxx".}

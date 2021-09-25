@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Interface/Interface_GeneralLib,
-  ../Interface/Interface_ReaderLib, ../Standard/Standard_Integer,
-  IGESData_IGESType, IGESData_ReadStage, ../Standard/Standard_Real,
-  ../Interface/Interface_FileReaderTool, ../Standard/Standard_Boolean
-
 discard "forward decl of Interface_ParamList"
 discard "forward decl of IGESData_FileRecognizer"
 discard "forward decl of Interface_Check"
@@ -32,64 +25,60 @@ discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESData_DirPart"
 discard "forward decl of IGESData_ParamReader"
 type
-  IGESData_IGESReaderTool* {.importcpp: "IGESData_IGESReaderTool",
-                            header: "IGESData_IGESReaderTool.hxx", bycopy.} = object of Interface_FileReaderTool ##
-                                                                                                          ## !
-                                                                                                          ## creates
-                                                                                                          ## IGESReaderTool
-                                                                                                          ## to
-                                                                                                          ## work
-                                                                                                          ## with
-                                                                                                          ## an
-                                                                                                          ## IGESReaderData
-                                                                                                          ## and
-                                                                                                          ## an
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## IGES
-                                                                                                          ## Protocol.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Actually,
-                                                                                                          ## no
-                                                                                                          ## Lib
-                                                                                                          ## is
-                                                                                                          ## used
+  IGESDataIGESReaderTool* {.importcpp: "IGESData_IGESReaderTool",
+                           header: "IGESData_IGESReaderTool.hxx", bycopy.} = object of InterfaceFileReaderTool ##
+                                                                                                        ## !
+                                                                                                        ## creates
+                                                                                                        ## IGESReaderTool
+                                                                                                        ## to
+                                                                                                        ## work
+                                                                                                        ## with
+                                                                                                        ## an
+                                                                                                        ## IGESReaderData
+                                                                                                        ## and
+                                                                                                        ## an
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## IGES
+                                                                                                        ## Protocol.
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## Actually,
+                                                                                                        ## no
+                                                                                                        ## Lib
+                                                                                                        ## is
+                                                                                                        ## used
 
 
-proc constructIGESData_IGESReaderTool*(reader: handle[IGESData_IGESReaderData];
-                                      protocol: handle[IGESData_Protocol]): IGESData_IGESReaderTool {.
+proc constructIGESDataIGESReaderTool*(reader: Handle[IGESDataIGESReaderData];
+                                     protocol: Handle[IGESDataProtocol]): IGESDataIGESReaderTool {.
     constructor, importcpp: "IGESData_IGESReaderTool(@)",
     header: "IGESData_IGESReaderTool.hxx".}
-proc Prepare*(this: var IGESData_IGESReaderTool;
-             reco: handle[IGESData_FileRecognizer]) {.importcpp: "Prepare",
-    header: "IGESData_IGESReaderTool.hxx".}
-proc Recognize*(this: var IGESData_IGESReaderTool; num: Standard_Integer;
-               ach: var handle[Interface_Check];
-               ent: var handle[Standard_Transient]): Standard_Boolean {.
+proc prepare*(this: var IGESDataIGESReaderTool; reco: Handle[IGESDataFileRecognizer]) {.
+    importcpp: "Prepare", header: "IGESData_IGESReaderTool.hxx".}
+proc recognize*(this: var IGESDataIGESReaderTool; num: int;
+               ach: var Handle[InterfaceCheck]; ent: var Handle[StandardTransient]): bool {.
     importcpp: "Recognize", header: "IGESData_IGESReaderTool.hxx".}
-proc BeginRead*(this: var IGESData_IGESReaderTool;
-               amodel: handle[Interface_InterfaceModel]) {.importcpp: "BeginRead",
+proc beginRead*(this: var IGESDataIGESReaderTool;
+               amodel: Handle[InterfaceInterfaceModel]) {.importcpp: "BeginRead",
     header: "IGESData_IGESReaderTool.hxx".}
-proc AnalyseRecord*(this: var IGESData_IGESReaderTool; num: Standard_Integer;
-                   anent: handle[Standard_Transient];
-                   acheck: var handle[Interface_Check]): Standard_Boolean {.
+proc analyseRecord*(this: var IGESDataIGESReaderTool; num: int;
+                   anent: Handle[StandardTransient];
+                   acheck: var Handle[InterfaceCheck]): bool {.
     importcpp: "AnalyseRecord", header: "IGESData_IGESReaderTool.hxx".}
-proc EndRead*(this: var IGESData_IGESReaderTool;
-             amodel: handle[Interface_InterfaceModel]) {.importcpp: "EndRead",
+proc endRead*(this: var IGESDataIGESReaderTool;
+             amodel: Handle[InterfaceInterfaceModel]) {.importcpp: "EndRead",
     header: "IGESData_IGESReaderTool.hxx".}
-proc ReadDir*(this: IGESData_IGESReaderTool; ent: handle[IGESData_IGESEntity];
-             IR: handle[IGESData_IGESReaderData]; DP: IGESData_DirPart;
-             ach: var handle[Interface_Check]) {.noSideEffect, importcpp: "ReadDir",
+proc readDir*(this: IGESDataIGESReaderTool; ent: Handle[IGESDataIGESEntity];
+             ir: Handle[IGESDataIGESReaderData]; dp: IGESDataDirPart;
+             ach: var Handle[InterfaceCheck]) {.noSideEffect, importcpp: "ReadDir",
     header: "IGESData_IGESReaderTool.hxx".}
-proc ReadOwnParams*(this: IGESData_IGESReaderTool;
-                   ent: handle[IGESData_IGESEntity];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESData_IGESReaderTool.hxx".}
-proc ReadProps*(this: IGESData_IGESReaderTool; ent: handle[IGESData_IGESEntity];
-               IR: handle[IGESData_IGESReaderData]; PR: var IGESData_ParamReader) {.
+proc readOwnParams*(this: IGESDataIGESReaderTool; ent: Handle[IGESDataIGESEntity];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams", header: "IGESData_IGESReaderTool.hxx".}
+proc readProps*(this: IGESDataIGESReaderTool; ent: Handle[IGESDataIGESEntity];
+               ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
     noSideEffect, importcpp: "ReadProps", header: "IGESData_IGESReaderTool.hxx".}
-proc ReadAssocs*(this: IGESData_IGESReaderTool; ent: handle[IGESData_IGESEntity];
-                IR: handle[IGESData_IGESReaderData]; PR: var IGESData_ParamReader) {.
+proc readAssocs*(this: IGESDataIGESReaderTool; ent: Handle[IGESDataIGESEntity];
+                ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
     noSideEffect, importcpp: "ReadAssocs", header: "IGESData_IGESReaderTool.hxx".}

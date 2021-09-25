@@ -14,15 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
-  ../Convert/Convert_ParameterisationType,
-  ../TColGeom2d/TColGeom2d_Array1OfBSplineCurve, ../TColStd/TColStd_Array1OfReal,
-  ../TColGeom2d/TColGeom2d_HArray1OfBSplineCurve,
-  ../TColStd/TColStd_HArray1OfInteger
-
 discard "forward decl of Geom2d_BSplineCurve"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Geom2dConvert_BSplineCurveKnotSplitting"
@@ -206,47 +197,41 @@ type
                                                                                       ## ToK2
 
 
-proc SplitBSplineCurve*(C: handle[Geom2d_BSplineCurve]; FromK1: Standard_Integer;
-                       ToK2: Standard_Integer;
-                       SameOrientation: Standard_Boolean = Standard_True): handle[
-    Geom2d_BSplineCurve] {.importcpp: "Geom2dConvert::SplitBSplineCurve(@)",
-                          header: "Geom2dConvert.hxx".}
-proc SplitBSplineCurve*(C: handle[Geom2d_BSplineCurve]; FromU1: Standard_Real;
-                       ToU2: Standard_Real; ParametricTolerance: Standard_Real;
-                       SameOrientation: Standard_Boolean = Standard_True): handle[
-    Geom2d_BSplineCurve] {.importcpp: "Geom2dConvert::SplitBSplineCurve(@)",
-                          header: "Geom2dConvert.hxx".}
-proc CurveToBSplineCurve*(C: handle[Geom2d_Curve]; Parameterisation: Convert_ParameterisationType = Convert_TgtThetaOver2): handle[
-    Geom2d_BSplineCurve] {.importcpp: "Geom2dConvert::CurveToBSplineCurve(@)",
-                          header: "Geom2dConvert.hxx".}
-proc ConcatG1*(ArrayOfCurves: var TColGeom2d_Array1OfBSplineCurve;
-              ArrayOfToler: TColStd_Array1OfReal; ArrayOfConcatenated: var handle[
-    TColGeom2d_HArray1OfBSplineCurve]; ClosedFlag: var Standard_Boolean;
-              ClosedTolerance: Standard_Real) {.
+proc splitBSplineCurve*(c: Handle[Geom2dBSplineCurve]; fromK1: int; toK2: int;
+                       sameOrientation: bool = true): Handle[Geom2dBSplineCurve] {.
+    importcpp: "Geom2dConvert::SplitBSplineCurve(@)", header: "Geom2dConvert.hxx".}
+proc splitBSplineCurve*(c: Handle[Geom2dBSplineCurve]; fromU1: float; toU2: float;
+                       parametricTolerance: float; sameOrientation: bool = true): Handle[
+    Geom2dBSplineCurve] {.importcpp: "Geom2dConvert::SplitBSplineCurve(@)",
+                         header: "Geom2dConvert.hxx".}
+proc curveToBSplineCurve*(c: Handle[Geom2dCurve]; parameterisation: ConvertParameterisationType = convertTgtThetaOver2): Handle[
+    Geom2dBSplineCurve] {.importcpp: "Geom2dConvert::CurveToBSplineCurve(@)",
+                         header: "Geom2dConvert.hxx".}
+proc concatG1*(arrayOfCurves: var TColGeom2dArray1OfBSplineCurve;
+              arrayOfToler: TColStdArray1OfReal;
+              arrayOfConcatenated: var Handle[TColGeom2dHArray1OfBSplineCurve];
+              closedFlag: var bool; closedTolerance: float) {.
     importcpp: "Geom2dConvert::ConcatG1(@)", header: "Geom2dConvert.hxx".}
-proc ConcatC1*(ArrayOfCurves: var TColGeom2d_Array1OfBSplineCurve;
-              ArrayOfToler: TColStd_Array1OfReal;
-              ArrayOfIndices: var handle[TColStd_HArray1OfInteger];
-    ArrayOfConcatenated: var handle[TColGeom2d_HArray1OfBSplineCurve];
-              ClosedFlag: var Standard_Boolean; ClosedTolerance: Standard_Real) {.
+proc concatC1*(arrayOfCurves: var TColGeom2dArray1OfBSplineCurve;
+              arrayOfToler: TColStdArray1OfReal;
+              arrayOfIndices: var Handle[TColStdHArray1OfInteger];
+              arrayOfConcatenated: var Handle[TColGeom2dHArray1OfBSplineCurve];
+              closedFlag: var bool; closedTolerance: float) {.
     importcpp: "Geom2dConvert::ConcatC1(@)", header: "Geom2dConvert.hxx".}
-proc ConcatC1*(ArrayOfCurves: var TColGeom2d_Array1OfBSplineCurve;
-              ArrayOfToler: TColStd_Array1OfReal;
-              ArrayOfIndices: var handle[TColStd_HArray1OfInteger];
-    ArrayOfConcatenated: var handle[TColGeom2d_HArray1OfBSplineCurve];
-              ClosedFlag: var Standard_Boolean; ClosedTolerance: Standard_Real;
-              AngularTolerance: Standard_Real) {.
+proc concatC1*(arrayOfCurves: var TColGeom2dArray1OfBSplineCurve;
+              arrayOfToler: TColStdArray1OfReal;
+              arrayOfIndices: var Handle[TColStdHArray1OfInteger];
+              arrayOfConcatenated: var Handle[TColGeom2dHArray1OfBSplineCurve];
+              closedFlag: var bool; closedTolerance: float; angularTolerance: float) {.
     importcpp: "Geom2dConvert::ConcatC1(@)", header: "Geom2dConvert.hxx".}
-proc C0BSplineToC1BSplineCurve*(BS: var handle[Geom2d_BSplineCurve];
-                               Tolerance: Standard_Real) {.
+proc c0BSplineToC1BSplineCurve*(bs: var Handle[Geom2dBSplineCurve]; tolerance: float) {.
     importcpp: "Geom2dConvert::C0BSplineToC1BSplineCurve(@)",
     header: "Geom2dConvert.hxx".}
-proc C0BSplineToArrayOfC1BSplineCurve*(BS: handle[Geom2d_BSplineCurve]; tabBS: var handle[
-    TColGeom2d_HArray1OfBSplineCurve]; Tolerance: Standard_Real) {.
+proc c0BSplineToArrayOfC1BSplineCurve*(bs: Handle[Geom2dBSplineCurve]; tabBS: var Handle[
+    TColGeom2dHArray1OfBSplineCurve]; tolerance: float) {.
     importcpp: "Geom2dConvert::C0BSplineToArrayOfC1BSplineCurve(@)",
     header: "Geom2dConvert.hxx".}
-proc C0BSplineToArrayOfC1BSplineCurve*(BS: handle[Geom2d_BSplineCurve]; tabBS: var handle[
-    TColGeom2d_HArray1OfBSplineCurve]; AngularTolerance: Standard_Real;
-                                      Tolerance: Standard_Real) {.
+proc c0BSplineToArrayOfC1BSplineCurve*(bs: Handle[Geom2dBSplineCurve]; tabBS: var Handle[
+    TColGeom2dHArray1OfBSplineCurve]; angularTolerance: float; tolerance: float) {.
     importcpp: "Geom2dConvert::C0BSplineToArrayOfC1BSplineCurve(@)",
     header: "Geom2dConvert.hxx".}

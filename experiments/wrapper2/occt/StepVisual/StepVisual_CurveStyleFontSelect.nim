@@ -14,35 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepVisual_CurveStyleFont"
 discard "forward decl of StepVisual_PreDefinedCurveFont"
 discard "forward decl of StepVisual_ExternallyDefinedCurveFont"
 type
-  StepVisual_CurveStyleFontSelect* {.importcpp: "StepVisual_CurveStyleFontSelect", header: "StepVisual_CurveStyleFontSelect.hxx",
-                                    bycopy.} = object of StepData_SelectType ## ! Returns a
-                                                                        ## CurveStyleFontSelect
-                                                                        ## SelectType
+  StepVisualCurveStyleFontSelect* {.importcpp: "StepVisual_CurveStyleFontSelect", header: "StepVisual_CurveStyleFontSelect.hxx",
+                                   bycopy.} = object of StepDataSelectType ## ! Returns a
+                                                                      ## CurveStyleFontSelect SelectType
 
 
-proc constructStepVisual_CurveStyleFontSelect*(): StepVisual_CurveStyleFontSelect {.
+proc constructStepVisualCurveStyleFontSelect*(): StepVisualCurveStyleFontSelect {.
     constructor, importcpp: "StepVisual_CurveStyleFontSelect(@)",
     header: "StepVisual_CurveStyleFontSelect.hxx".}
-proc CaseNum*(this: StepVisual_CurveStyleFontSelect;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
-    importcpp: "CaseNum", header: "StepVisual_CurveStyleFontSelect.hxx".}
-proc CurveStyleFont*(this: StepVisual_CurveStyleFontSelect): handle[
-    StepVisual_CurveStyleFont] {.noSideEffect, importcpp: "CurveStyleFont",
-                                header: "StepVisual_CurveStyleFontSelect.hxx".}
-proc PreDefinedCurveFont*(this: StepVisual_CurveStyleFontSelect): handle[
-    StepVisual_PreDefinedCurveFont] {.noSideEffect,
-                                     importcpp: "PreDefinedCurveFont", header: "StepVisual_CurveStyleFontSelect.hxx".}
-proc ExternallyDefinedCurveFont*(this: StepVisual_CurveStyleFontSelect): handle[
-    StepVisual_ExternallyDefinedCurveFont] {.noSideEffect,
+proc caseNum*(this: StepVisualCurveStyleFontSelect; ent: Handle[StandardTransient]): int {.
+    noSideEffect, importcpp: "CaseNum",
+    header: "StepVisual_CurveStyleFontSelect.hxx".}
+proc curveStyleFont*(this: StepVisualCurveStyleFontSelect): Handle[
+    StepVisualCurveStyleFont] {.noSideEffect, importcpp: "CurveStyleFont",
+                               header: "StepVisual_CurveStyleFontSelect.hxx".}
+proc preDefinedCurveFont*(this: StepVisualCurveStyleFontSelect): Handle[
+    StepVisualPreDefinedCurveFont] {.noSideEffect,
+                                    importcpp: "PreDefinedCurveFont", header: "StepVisual_CurveStyleFontSelect.hxx".}
+proc externallyDefinedCurveFont*(this: StepVisualCurveStyleFontSelect): Handle[
+    StepVisualExternallyDefinedCurveFont] {.noSideEffect,
     importcpp: "ExternallyDefinedCurveFont",
     header: "StepVisual_CurveStyleFontSelect.hxx".}

@@ -14,47 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GCE2d_Root, ../Geom2d/Geom2d_Circle
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Circ2d"
 discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Ax22d"
 discard "forward decl of gp_Pnt2d"
 type
-  GCE2d_MakeCircle* {.importcpp: "GCE2d_MakeCircle",
-                     header: "GCE2d_MakeCircle.hxx", bycopy.} = object of GCE2d_Root ## !
-                                                                              ## creates a
-                                                                              ## circle
-                                                                              ## from a
-                                                                              ## non
-                                                                              ## persistent
-                                                                              ## one.
+  GCE2dMakeCircle* {.importcpp: "GCE2d_MakeCircle", header: "GCE2d_MakeCircle.hxx",
+                    bycopy.} = object of GCE2dRoot ## ! creates a circle from a non persistent one.
 
 
-proc constructGCE2d_MakeCircle*(C: gp_Circ2d): GCE2d_MakeCircle {.constructor,
+proc constructGCE2dMakeCircle*(c: Circ2d): GCE2dMakeCircle {.constructor,
     importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
-proc constructGCE2d_MakeCircle*(A: gp_Ax2d; Radius: Standard_Real;
-                               Sense: Standard_Boolean = Standard_True): GCE2d_MakeCircle {.
+proc constructGCE2dMakeCircle*(a: Ax2d; radius: float; sense: bool = true): GCE2dMakeCircle {.
     constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
-proc constructGCE2d_MakeCircle*(A: gp_Ax22d; Radius: Standard_Real): GCE2d_MakeCircle {.
+proc constructGCE2dMakeCircle*(a: Ax22d; radius: float): GCE2dMakeCircle {.
     constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
-proc constructGCE2d_MakeCircle*(Circ: gp_Circ2d; Dist: Standard_Real): GCE2d_MakeCircle {.
+proc constructGCE2dMakeCircle*(circ: Circ2d; dist: float): GCE2dMakeCircle {.
     constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
-proc constructGCE2d_MakeCircle*(Circ: gp_Circ2d; Point: gp_Pnt2d): GCE2d_MakeCircle {.
+proc constructGCE2dMakeCircle*(circ: Circ2d; point: Pnt2d): GCE2dMakeCircle {.
     constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
-proc constructGCE2d_MakeCircle*(P1: gp_Pnt2d; P2: gp_Pnt2d; P3: gp_Pnt2d): GCE2d_MakeCircle {.
+proc constructGCE2dMakeCircle*(p1: Pnt2d; p2: Pnt2d; p3: Pnt2d): GCE2dMakeCircle {.
     constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
-proc constructGCE2d_MakeCircle*(P: gp_Pnt2d; Radius: Standard_Real;
-                               Sense: Standard_Boolean = Standard_True): GCE2d_MakeCircle {.
+proc constructGCE2dMakeCircle*(p: Pnt2d; radius: float; sense: bool = true): GCE2dMakeCircle {.
     constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
-proc constructGCE2d_MakeCircle*(Center: gp_Pnt2d; Point: gp_Pnt2d;
-                               Sense: Standard_Boolean = Standard_True): GCE2d_MakeCircle {.
+proc constructGCE2dMakeCircle*(center: Pnt2d; point: Pnt2d; sense: bool = true): GCE2dMakeCircle {.
     constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
-proc Value*(this: GCE2d_MakeCircle): handle[Geom2d_Circle] {.noSideEffect,
+proc value*(this: GCE2dMakeCircle): Handle[Geom2dCircle] {.noSideEffect,
     importcpp: "Value", header: "GCE2d_MakeCircle.hxx".}
-converter `constopencascade`*(this: GCE2d_MakeCircle): handle[Geom2d_Circle] {.
+converter `constopencascade`*(this: GCE2dMakeCircle): Handle[Geom2dCircle] {.
     noSideEffect, importcpp: "GCE2d_MakeCircle::operator constopencascade",
     header: "GCE2d_MakeCircle.hxx".}

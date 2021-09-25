@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../IFSelect/IFSelect_SelectExtract, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of XSControl_TransferReader"
 discard "forward decl of Transfer_ActorOfTransientProcess"
 discard "forward decl of Standard_Transient"
@@ -27,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of XSControl_SelectForTransfer"
 discard "forward decl of XSControl_SelectForTransfer"
 type
-  Handle_XSControl_SelectForTransfer* = handle[XSControl_SelectForTransfer]
+  HandleXSControlSelectForTransfer* = Handle[XSControlSelectForTransfer]
 
 ## ! This selection selects the entities which are recognised for
 ## ! transfer by an Actor for Read : current one or another one.
@@ -44,57 +39,58 @@ type
 ## ! the TransferReader, updated as required), or a precise one.
 
 type
-  XSControl_SelectForTransfer* {.importcpp: "XSControl_SelectForTransfer",
-                                header: "XSControl_SelectForTransfer.hxx", bycopy.} = object of IFSelect_SelectExtract ##
-                                                                                                                ## !
-                                                                                                                ## Creates
-                                                                                                                ## a
-                                                                                                                ## SelectForTransfer,
-                                                                                                                ## non
-                                                                                                                ## initialised
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## it
-                                                                                                                ## sorts
-                                                                                                                ## nothing,
-                                                                                                                ## unless
-                                                                                                                ## an
-                                                                                                                ## Actor
-                                                                                                                ## has
-                                                                                                                ## been
-                                                                                                                ## defined
+  XSControlSelectForTransfer* {.importcpp: "XSControl_SelectForTransfer",
+                               header: "XSControl_SelectForTransfer.hxx", bycopy.} = object of IFSelectSelectExtract ##
+                                                                                                              ## !
+                                                                                                              ## Creates
+                                                                                                              ## a
+                                                                                                              ## SelectForTransfer,
+                                                                                                              ## non
+                                                                                                              ## initialised
+                                                                                                              ##
+                                                                                                              ## !
+                                                                                                              ## it
+                                                                                                              ## sorts
+                                                                                                              ## nothing,
+                                                                                                              ## unless
+                                                                                                              ## an
+                                                                                                              ## Actor
+                                                                                                              ## has
+                                                                                                              ## been
+                                                                                                              ## defined
 
 
-proc constructXSControl_SelectForTransfer*(): XSControl_SelectForTransfer {.
+proc constructXSControlSelectForTransfer*(): XSControlSelectForTransfer {.
     constructor, importcpp: "XSControl_SelectForTransfer(@)",
     header: "XSControl_SelectForTransfer.hxx".}
-proc constructXSControl_SelectForTransfer*(TR: handle[XSControl_TransferReader]): XSControl_SelectForTransfer {.
+proc constructXSControlSelectForTransfer*(tr: Handle[XSControlTransferReader]): XSControlSelectForTransfer {.
     constructor, importcpp: "XSControl_SelectForTransfer(@)",
     header: "XSControl_SelectForTransfer.hxx".}
-proc SetReader*(this: var XSControl_SelectForTransfer;
-               TR: handle[XSControl_TransferReader]) {.importcpp: "SetReader",
+proc setReader*(this: var XSControlSelectForTransfer;
+               tr: Handle[XSControlTransferReader]) {.importcpp: "SetReader",
     header: "XSControl_SelectForTransfer.hxx".}
-proc SetActor*(this: var XSControl_SelectForTransfer;
-              act: handle[Transfer_ActorOfTransientProcess]) {.
+proc setActor*(this: var XSControlSelectForTransfer;
+              act: Handle[TransferActorOfTransientProcess]) {.
     importcpp: "SetActor", header: "XSControl_SelectForTransfer.hxx".}
-proc Actor*(this: XSControl_SelectForTransfer): handle[
-    Transfer_ActorOfTransientProcess] {.noSideEffect, importcpp: "Actor", header: "XSControl_SelectForTransfer.hxx".}
-proc Reader*(this: XSControl_SelectForTransfer): handle[XSControl_TransferReader] {.
+proc actor*(this: XSControlSelectForTransfer): Handle[
+    TransferActorOfTransientProcess] {.noSideEffect, importcpp: "Actor",
+                                      header: "XSControl_SelectForTransfer.hxx".}
+proc reader*(this: XSControlSelectForTransfer): Handle[XSControlTransferReader] {.
     noSideEffect, importcpp: "Reader", header: "XSControl_SelectForTransfer.hxx".}
-proc Sort*(this: XSControl_SelectForTransfer; rank: Standard_Integer;
-          ent: handle[Standard_Transient]; model: handle[Interface_InterfaceModel]): Standard_Boolean {.
+proc sort*(this: XSControlSelectForTransfer; rank: int;
+          ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, importcpp: "Sort", header: "XSControl_SelectForTransfer.hxx".}
-proc ExtractLabel*(this: XSControl_SelectForTransfer): TCollection_AsciiString {.
+proc extractLabel*(this: XSControlSelectForTransfer): TCollectionAsciiString {.
     noSideEffect, importcpp: "ExtractLabel",
     header: "XSControl_SelectForTransfer.hxx".}
 type
-  XSControl_SelectForTransferbase_type* = IFSelect_SelectExtract
+  XSControlSelectForTransferbaseType* = IFSelectSelectExtract
 
-proc get_type_name*(): cstring {.importcpp: "XSControl_SelectForTransfer::get_type_name(@)",
-                              header: "XSControl_SelectForTransfer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XSControl_SelectForTransfer::get_type_name(@)",
+                            header: "XSControl_SelectForTransfer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XSControl_SelectForTransfer::get_type_descriptor(@)",
     header: "XSControl_SelectForTransfer.hxx".}
-proc DynamicType*(this: XSControl_SelectForTransfer): handle[Standard_Type] {.
+proc dynamicType*(this: XSControlSelectForTransfer): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XSControl_SelectForTransfer.hxx".}

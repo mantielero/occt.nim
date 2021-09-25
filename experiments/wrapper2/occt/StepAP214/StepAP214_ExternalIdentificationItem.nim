@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_DocumentFile"
 discard "forward decl of StepAP214_AppliedOrganizationAssignment"
@@ -35,62 +30,59 @@ discard "forward decl of StepGeom_TrimmedCurve"
 discard "forward decl of StepBasic_DateAndTimeAssignment"
 discard "forward decl of StepBasic_DateAssignment"
 type
-  StepAP214_ExternalIdentificationItem* {.
-      importcpp: "StepAP214_ExternalIdentificationItem",
-      header: "StepAP214_ExternalIdentificationItem.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                            ## !
-                                                                                            ## Empty
-                                                                                            ## constructor
+  StepAP214ExternalIdentificationItem* {.importcpp: "StepAP214_ExternalIdentificationItem", header: "StepAP214_ExternalIdentificationItem.hxx",
+                                        bycopy.} = object of StepDataSelectType ## ! Empty
+                                                                           ## constructor
 
 
-proc constructStepAP214_ExternalIdentificationItem*(): StepAP214_ExternalIdentificationItem {.
+proc constructStepAP214ExternalIdentificationItem*(): StepAP214ExternalIdentificationItem {.
     constructor, importcpp: "StepAP214_ExternalIdentificationItem(@)",
     header: "StepAP214_ExternalIdentificationItem.hxx".}
-proc CaseNum*(this: StepAP214_ExternalIdentificationItem;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepAP214ExternalIdentificationItem;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_ExternalIdentificationItem.hxx".}
-proc DocumentFile*(this: StepAP214_ExternalIdentificationItem): handle[
-    StepBasic_DocumentFile] {.noSideEffect, importcpp: "DocumentFile",
-                             header: "StepAP214_ExternalIdentificationItem.hxx".}
-proc ExternallyDefinedClass*(this: StepAP214_ExternalIdentificationItem): handle[
-    StepAP214_ExternallyDefinedClass] {.noSideEffect,
-                                       importcpp: "ExternallyDefinedClass", header: "StepAP214_ExternalIdentificationItem.hxx".}
-proc ExternallyDefinedGeneralProperty*(this: StepAP214_ExternalIdentificationItem): handle[
-    StepAP214_ExternallyDefinedGeneralProperty] {.noSideEffect,
+proc documentFile*(this: StepAP214ExternalIdentificationItem): Handle[
+    StepBasicDocumentFile] {.noSideEffect, importcpp: "DocumentFile",
+                            header: "StepAP214_ExternalIdentificationItem.hxx".}
+proc externallyDefinedClass*(this: StepAP214ExternalIdentificationItem): Handle[
+    StepAP214ExternallyDefinedClass] {.noSideEffect,
+                                      importcpp: "ExternallyDefinedClass", header: "StepAP214_ExternalIdentificationItem.hxx".}
+proc externallyDefinedGeneralProperty*(this: StepAP214ExternalIdentificationItem): Handle[
+    StepAP214ExternallyDefinedGeneralProperty] {.noSideEffect,
     importcpp: "ExternallyDefinedGeneralProperty",
     header: "StepAP214_ExternalIdentificationItem.hxx".}
-proc ProductDefinition*(this: StepAP214_ExternalIdentificationItem): handle[
-    StepBasic_ProductDefinition] {.noSideEffect, importcpp: "ProductDefinition", header: "StepAP214_ExternalIdentificationItem.hxx".}
-proc AppliedOrganizationAssignment*(this: StepAP214_ExternalIdentificationItem): handle[
-    StepAP214_AppliedOrganizationAssignment] {.noSideEffect,
+proc productDefinition*(this: StepAP214ExternalIdentificationItem): Handle[
+    StepBasicProductDefinition] {.noSideEffect, importcpp: "ProductDefinition", header: "StepAP214_ExternalIdentificationItem.hxx".}
+proc appliedOrganizationAssignment*(this: StepAP214ExternalIdentificationItem): Handle[
+    StepAP214AppliedOrganizationAssignment] {.noSideEffect,
     importcpp: "AppliedOrganizationAssignment",
     header: "StepAP214_ExternalIdentificationItem.hxx".}
-proc AppliedPersonAndOrganizationAssignment*(
-    this: StepAP214_ExternalIdentificationItem): handle[
-    StepAP214_AppliedPersonAndOrganizationAssignment] {.noSideEffect,
+proc appliedPersonAndOrganizationAssignment*(
+    this: StepAP214ExternalIdentificationItem): Handle[
+    StepAP214AppliedPersonAndOrganizationAssignment] {.noSideEffect,
     importcpp: "AppliedPersonAndOrganizationAssignment",
     header: "StepAP214_ExternalIdentificationItem.hxx".}
-proc Approval*(this: StepAP214_ExternalIdentificationItem): handle[
-    StepBasic_Approval] {.noSideEffect, importcpp: "Approval",
-                         header: "StepAP214_ExternalIdentificationItem.hxx".}
-proc ApprovalStatus*(this: StepAP214_ExternalIdentificationItem): handle[
-    StepBasic_ApprovalStatus] {.noSideEffect, importcpp: "ApprovalStatus", header: "StepAP214_ExternalIdentificationItem.hxx".}
-proc ExternalSource*(this: StepAP214_ExternalIdentificationItem): handle[
-    StepBasic_ExternalSource] {.noSideEffect, importcpp: "ExternalSource", header: "StepAP214_ExternalIdentificationItem.hxx".}
-proc OrganizationalAddress*(this: StepAP214_ExternalIdentificationItem): handle[
-    StepBasic_OrganizationalAddress] {.noSideEffect,
-                                      importcpp: "OrganizationalAddress", header: "StepAP214_ExternalIdentificationItem.hxx".}
-proc SecurityClassification*(this: StepAP214_ExternalIdentificationItem): handle[
-    StepBasic_SecurityClassification] {.noSideEffect,
-                                       importcpp: "SecurityClassification", header: "StepAP214_ExternalIdentificationItem.hxx".}
-proc TrimmedCurve*(this: StepAP214_ExternalIdentificationItem): handle[
-    StepGeom_TrimmedCurve] {.noSideEffect, importcpp: "TrimmedCurve",
-                            header: "StepAP214_ExternalIdentificationItem.hxx".}
-proc VersionedActionRequest*(this: StepAP214_ExternalIdentificationItem): handle[
-    StepBasic_VersionedActionRequest] {.noSideEffect,
-                                       importcpp: "VersionedActionRequest", header: "StepAP214_ExternalIdentificationItem.hxx".}
-proc DateAndTimeAssignment*(this: StepAP214_ExternalIdentificationItem): handle[
-    StepBasic_DateAndTimeAssignment] {.noSideEffect,
-                                      importcpp: "DateAndTimeAssignment", header: "StepAP214_ExternalIdentificationItem.hxx".}
-proc DateAssignment*(this: StepAP214_ExternalIdentificationItem): handle[
-    StepBasic_DateAssignment] {.noSideEffect, importcpp: "DateAssignment", header: "StepAP214_ExternalIdentificationItem.hxx".}
+proc approval*(this: StepAP214ExternalIdentificationItem): Handle[StepBasicApproval] {.
+    noSideEffect, importcpp: "Approval",
+    header: "StepAP214_ExternalIdentificationItem.hxx".}
+proc approvalStatus*(this: StepAP214ExternalIdentificationItem): Handle[
+    StepBasicApprovalStatus] {.noSideEffect, importcpp: "ApprovalStatus", header: "StepAP214_ExternalIdentificationItem.hxx".}
+proc externalSource*(this: StepAP214ExternalIdentificationItem): Handle[
+    StepBasicExternalSource] {.noSideEffect, importcpp: "ExternalSource", header: "StepAP214_ExternalIdentificationItem.hxx".}
+proc organizationalAddress*(this: StepAP214ExternalIdentificationItem): Handle[
+    StepBasicOrganizationalAddress] {.noSideEffect,
+                                     importcpp: "OrganizationalAddress", header: "StepAP214_ExternalIdentificationItem.hxx".}
+proc securityClassification*(this: StepAP214ExternalIdentificationItem): Handle[
+    StepBasicSecurityClassification] {.noSideEffect,
+                                      importcpp: "SecurityClassification", header: "StepAP214_ExternalIdentificationItem.hxx".}
+proc trimmedCurve*(this: StepAP214ExternalIdentificationItem): Handle[
+    StepGeomTrimmedCurve] {.noSideEffect, importcpp: "TrimmedCurve",
+                           header: "StepAP214_ExternalIdentificationItem.hxx".}
+proc versionedActionRequest*(this: StepAP214ExternalIdentificationItem): Handle[
+    StepBasicVersionedActionRequest] {.noSideEffect,
+                                      importcpp: "VersionedActionRequest", header: "StepAP214_ExternalIdentificationItem.hxx".}
+proc dateAndTimeAssignment*(this: StepAP214ExternalIdentificationItem): Handle[
+    StepBasicDateAndTimeAssignment] {.noSideEffect,
+                                     importcpp: "DateAndTimeAssignment", header: "StepAP214_ExternalIdentificationItem.hxx".}
+proc dateAssignment*(this: StepAP214ExternalIdentificationItem): Handle[
+    StepBasicDateAssignment] {.noSideEffect, importcpp: "DateAssignment", header: "StepAP214_ExternalIdentificationItem.hxx".}

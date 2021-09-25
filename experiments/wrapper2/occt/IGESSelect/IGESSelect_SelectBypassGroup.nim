@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../IFSelect/IFSelect_SelectExplore, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_Graph"
@@ -27,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SelectBypassGroup"
 discard "forward decl of IGESSelect_SelectBypassGroup"
 type
-  Handle_IGESSelect_SelectBypassGroup* = handle[IGESSelect_SelectBypassGroup]
+  HandleIGESSelectSelectBypassGroup* = Handle[IGESSelectSelectBypassGroup]
 
 ## ! Selects a list built as follows :
 ## ! Groups are entities type 402, forms 1,7,14,15 (Group,
@@ -39,31 +34,45 @@ type
 ## ! its Elements are Groups. level 1 explores just at first level
 
 type
-  IGESSelect_SelectBypassGroup* {.importcpp: "IGESSelect_SelectBypassGroup",
-                                 header: "IGESSelect_SelectBypassGroup.hxx",
-                                 bycopy.} = object of IFSelect_SelectExplore ## ! Creates a
-                                                                        ## SelectBypassGroup, by default all level
-                                                                        ## ! (level = 1 explores at first level)
+  IGESSelectSelectBypassGroup* {.importcpp: "IGESSelect_SelectBypassGroup",
+                                header: "IGESSelect_SelectBypassGroup.hxx", bycopy.} = object of IFSelectSelectExplore ##
+                                                                                                                ## !
+                                                                                                                ## Creates
+                                                                                                                ## a
+                                                                                                                ## SelectBypassGroup,
+                                                                                                                ## by
+                                                                                                                ## default
+                                                                                                                ## all
+                                                                                                                ## level
+                                                                                                                ##
+                                                                                                                ## !
+                                                                                                                ## (level
+                                                                                                                ## =
+                                                                                                                ## 1
+                                                                                                                ## explores
+                                                                                                                ## at
+                                                                                                                ## first
+                                                                                                                ## level)
 
 
-proc constructIGESSelect_SelectBypassGroup*(level: Standard_Integer = 0): IGESSelect_SelectBypassGroup {.
+proc constructIGESSelectSelectBypassGroup*(level: int = 0): IGESSelectSelectBypassGroup {.
     constructor, importcpp: "IGESSelect_SelectBypassGroup(@)",
     header: "IGESSelect_SelectBypassGroup.hxx".}
-proc Explore*(this: IGESSelect_SelectBypassGroup; level: Standard_Integer;
-             ent: handle[Standard_Transient]; G: Interface_Graph;
-             explored: var Interface_EntityIterator): Standard_Boolean {.
-    noSideEffect, importcpp: "Explore", header: "IGESSelect_SelectBypassGroup.hxx".}
-proc ExploreLabel*(this: IGESSelect_SelectBypassGroup): TCollection_AsciiString {.
+proc explore*(this: IGESSelectSelectBypassGroup; level: int;
+             ent: Handle[StandardTransient]; g: InterfaceGraph;
+             explored: var InterfaceEntityIterator): bool {.noSideEffect,
+    importcpp: "Explore", header: "IGESSelect_SelectBypassGroup.hxx".}
+proc exploreLabel*(this: IGESSelectSelectBypassGroup): TCollectionAsciiString {.
     noSideEffect, importcpp: "ExploreLabel",
     header: "IGESSelect_SelectBypassGroup.hxx".}
 type
-  IGESSelect_SelectBypassGroupbase_type* = IFSelect_SelectExplore
+  IGESSelectSelectBypassGroupbaseType* = IFSelectSelectExplore
 
-proc get_type_name*(): cstring {.importcpp: "IGESSelect_SelectBypassGroup::get_type_name(@)",
-                              header: "IGESSelect_SelectBypassGroup.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_SelectBypassGroup::get_type_name(@)",
+                            header: "IGESSelect_SelectBypassGroup.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSelect_SelectBypassGroup::get_type_descriptor(@)",
     header: "IGESSelect_SelectBypassGroup.hxx".}
-proc DynamicType*(this: IGESSelect_SelectBypassGroup): handle[Standard_Type] {.
+proc dynamicType*(this: IGESSelectSelectBypassGroup): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SelectBypassGroup.hxx".}

@@ -14,25 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_ProductDefinitionFormation"
 type
-  StepAP203_WorkItem* {.importcpp: "StepAP203_WorkItem",
-                       header: "StepAP203_WorkItem.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                           ## !
-                                                                                           ## Empty
-                                                                                           ## constructor
+  StepAP203WorkItem* {.importcpp: "StepAP203_WorkItem",
+                      header: "StepAP203_WorkItem.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                         ## !
+                                                                                         ## Empty
+                                                                                         ## constructor
 
 
-proc constructStepAP203_WorkItem*(): StepAP203_WorkItem {.constructor,
+proc constructStepAP203WorkItem*(): StepAP203WorkItem {.constructor,
     importcpp: "StepAP203_WorkItem(@)", header: "StepAP203_WorkItem.hxx".}
-proc CaseNum*(this: StepAP203_WorkItem; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepAP203WorkItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP203_WorkItem.hxx".}
-proc ProductDefinitionFormation*(this: StepAP203_WorkItem): handle[
-    StepBasic_ProductDefinitionFormation] {.noSideEffect,
+proc productDefinitionFormation*(this: StepAP203WorkItem): Handle[
+    StepBasicProductDefinitionFormation] {.noSideEffect,
     importcpp: "ProductDefinitionFormation", header: "StepAP203_WorkItem.hxx".}

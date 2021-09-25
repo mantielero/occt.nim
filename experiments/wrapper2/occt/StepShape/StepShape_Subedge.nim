@@ -13,46 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_Edge
-
 discard "forward decl of StepShape_Edge"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_Vertex"
 discard "forward decl of StepShape_Subedge"
 discard "forward decl of StepShape_Subedge"
 type
-  Handle_StepShape_Subedge* = handle[StepShape_Subedge]
+  HandleStepShapeSubedge* = Handle[StepShapeSubedge]
 
 ## ! Representation of STEP entity Subedge
 
 type
-  StepShape_Subedge* {.importcpp: "StepShape_Subedge",
-                      header: "StepShape_Subedge.hxx", bycopy.} = object of StepShape_Edge ##
-                                                                                    ## !
-                                                                                    ## Empty
-                                                                                    ## constructor
+  StepShapeSubedge* {.importcpp: "StepShape_Subedge",
+                     header: "StepShape_Subedge.hxx", bycopy.} = object of StepShapeEdge ##
+                                                                                  ## !
+                                                                                  ## Empty
+                                                                                  ## constructor
 
 
-proc constructStepShape_Subedge*(): StepShape_Subedge {.constructor,
+proc constructStepShapeSubedge*(): StepShapeSubedge {.constructor,
     importcpp: "StepShape_Subedge(@)", header: "StepShape_Subedge.hxx".}
-proc Init*(this: var StepShape_Subedge;
-          aRepresentationItem_Name: handle[TCollection_HAsciiString];
-          aEdge_EdgeStart: handle[StepShape_Vertex];
-          aEdge_EdgeEnd: handle[StepShape_Vertex];
-          aParentEdge: handle[StepShape_Edge]) {.importcpp: "Init",
+proc init*(this: var StepShapeSubedge;
+          aRepresentationItemName: Handle[TCollectionHAsciiString];
+          aEdgeEdgeStart: Handle[StepShapeVertex];
+          aEdgeEdgeEnd: Handle[StepShapeVertex];
+          aParentEdge: Handle[StepShapeEdge]) {.importcpp: "Init",
     header: "StepShape_Subedge.hxx".}
-proc ParentEdge*(this: StepShape_Subedge): handle[StepShape_Edge] {.noSideEffect,
+proc parentEdge*(this: StepShapeSubedge): Handle[StepShapeEdge] {.noSideEffect,
     importcpp: "ParentEdge", header: "StepShape_Subedge.hxx".}
-proc SetParentEdge*(this: var StepShape_Subedge; ParentEdge: handle[StepShape_Edge]) {.
+proc setParentEdge*(this: var StepShapeSubedge; parentEdge: Handle[StepShapeEdge]) {.
     importcpp: "SetParentEdge", header: "StepShape_Subedge.hxx".}
 type
-  StepShape_Subedgebase_type* = StepShape_Edge
+  StepShapeSubedgebaseType* = StepShapeEdge
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_Subedge::get_type_name(@)",
-                              header: "StepShape_Subedge.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_Subedge::get_type_name(@)",
+                            header: "StepShape_Subedge.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_Subedge::get_type_descriptor(@)",
     header: "StepShape_Subedge.hxx".}
-proc DynamicType*(this: StepShape_Subedge): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepShapeSubedge): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_Subedge.hxx".}

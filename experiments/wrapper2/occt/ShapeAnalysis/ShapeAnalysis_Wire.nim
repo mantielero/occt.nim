@@ -14,16 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Face,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer,
-  ../Standard/Standard_Transient, ../Standard/Standard_Boolean,
-  ../IntRes2d/IntRes2d_SequenceOfIntersectionPoint,
-  ../TColgp/TColgp_SequenceOfPnt, ../TColStd/TColStd_SequenceOfReal,
-  ../TopTools/TopTools_IndexedMapOfShape,
-  ../TopTools/TopTools_DataMapOfShapeListOfShape,
-  ../TopTools/TopTools_MapOfShape, ../ShapeExtend/ShapeExtend_Status
-
 discard "forward decl of ShapeExtend_WireData"
 discard "forward decl of ShapeAnalysis_Surface"
 discard "forward decl of TopoDS_Wire"
@@ -34,12 +24,12 @@ discard "forward decl of Geom2d_Curve"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Edge"
-when defined(Status):
-  discard
+# when defined(Status):
+#   discard
 discard "forward decl of ShapeAnalysis_Wire"
 discard "forward decl of ShapeAnalysis_Wire"
 type
-  Handle_ShapeAnalysis_Wire* = handle[ShapeAnalysis_Wire]
+  HandleShapeAnalysisWire* = Handle[ShapeAnalysisWire]
 
 ## ! This class provides analysis of a wire to be compliant to
 ## ! CAS.CADE requirements.
@@ -80,210 +70,195 @@ type
 ## ! set face and precision.
 
 type
-  ShapeAnalysis_Wire* {.importcpp: "ShapeAnalysis_Wire",
-                       header: "ShapeAnalysis_Wire.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                          ## !
-                                                                                          ## Empty
-                                                                                          ## constructor
+  ShapeAnalysisWire* {.importcpp: "ShapeAnalysis_Wire",
+                      header: "ShapeAnalysis_Wire.hxx", bycopy.} = object of StandardTransient ##
+                                                                                        ## !
+                                                                                        ## Empty
+                                                                                        ## constructor
 
 
-proc constructShapeAnalysis_Wire*(): ShapeAnalysis_Wire {.constructor,
+proc constructShapeAnalysisWire*(): ShapeAnalysisWire {.constructor,
     importcpp: "ShapeAnalysis_Wire(@)", header: "ShapeAnalysis_Wire.hxx".}
-proc constructShapeAnalysis_Wire*(wire: TopoDS_Wire; face: TopoDS_Face;
-                                 precision: Standard_Real): ShapeAnalysis_Wire {.
+proc constructShapeAnalysisWire*(wire: TopoDS_Wire; face: TopoDS_Face;
+                                precision: float): ShapeAnalysisWire {.constructor,
+    importcpp: "ShapeAnalysis_Wire(@)", header: "ShapeAnalysis_Wire.hxx".}
+proc constructShapeAnalysisWire*(sbwd: Handle[ShapeExtendWireData];
+                                face: TopoDS_Face; precision: float): ShapeAnalysisWire {.
     constructor, importcpp: "ShapeAnalysis_Wire(@)",
     header: "ShapeAnalysis_Wire.hxx".}
-proc constructShapeAnalysis_Wire*(sbwd: handle[ShapeExtend_WireData];
-                                 face: TopoDS_Face; precision: Standard_Real): ShapeAnalysis_Wire {.
-    constructor, importcpp: "ShapeAnalysis_Wire(@)",
+proc init*(this: var ShapeAnalysisWire; wire: TopoDS_Wire; face: TopoDS_Face;
+          precision: float) {.importcpp: "Init", header: "ShapeAnalysis_Wire.hxx".}
+proc init*(this: var ShapeAnalysisWire; sbwd: Handle[ShapeExtendWireData];
+          face: TopoDS_Face; precision: float) {.importcpp: "Init",
     header: "ShapeAnalysis_Wire.hxx".}
-proc Init*(this: var ShapeAnalysis_Wire; wire: TopoDS_Wire; face: TopoDS_Face;
-          precision: Standard_Real) {.importcpp: "Init",
-                                    header: "ShapeAnalysis_Wire.hxx".}
-proc Init*(this: var ShapeAnalysis_Wire; sbwd: handle[ShapeExtend_WireData];
-          face: TopoDS_Face; precision: Standard_Real) {.importcpp: "Init",
+proc load*(this: var ShapeAnalysisWire; wire: TopoDS_Wire) {.importcpp: "Load",
     header: "ShapeAnalysis_Wire.hxx".}
-proc Load*(this: var ShapeAnalysis_Wire; wire: TopoDS_Wire) {.importcpp: "Load",
-    header: "ShapeAnalysis_Wire.hxx".}
-proc Load*(this: var ShapeAnalysis_Wire; sbwd: handle[ShapeExtend_WireData]) {.
+proc load*(this: var ShapeAnalysisWire; sbwd: Handle[ShapeExtendWireData]) {.
     importcpp: "Load", header: "ShapeAnalysis_Wire.hxx".}
-proc SetFace*(this: var ShapeAnalysis_Wire; face: TopoDS_Face) {.importcpp: "SetFace",
+proc setFace*(this: var ShapeAnalysisWire; face: TopoDS_Face) {.importcpp: "SetFace",
     header: "ShapeAnalysis_Wire.hxx".}
-proc SetSurface*(this: var ShapeAnalysis_Wire; surface: handle[Geom_Surface]) {.
+proc setSurface*(this: var ShapeAnalysisWire; surface: Handle[GeomSurface]) {.
     importcpp: "SetSurface", header: "ShapeAnalysis_Wire.hxx".}
-proc SetSurface*(this: var ShapeAnalysis_Wire; surface: handle[Geom_Surface];
-                location: TopLoc_Location) {.importcpp: "SetSurface",
+proc setSurface*(this: var ShapeAnalysisWire; surface: Handle[GeomSurface];
+                location: TopLocLocation) {.importcpp: "SetSurface",
     header: "ShapeAnalysis_Wire.hxx".}
-proc SetPrecision*(this: var ShapeAnalysis_Wire; precision: Standard_Real) {.
+proc setPrecision*(this: var ShapeAnalysisWire; precision: float) {.
     importcpp: "SetPrecision", header: "ShapeAnalysis_Wire.hxx".}
-proc ClearStatuses*(this: var ShapeAnalysis_Wire) {.importcpp: "ClearStatuses",
+proc clearStatuses*(this: var ShapeAnalysisWire) {.importcpp: "ClearStatuses",
     header: "ShapeAnalysis_Wire.hxx".}
-proc IsLoaded*(this: ShapeAnalysis_Wire): Standard_Boolean {.noSideEffect,
-    importcpp: "IsLoaded", header: "ShapeAnalysis_Wire.hxx".}
-proc IsReady*(this: ShapeAnalysis_Wire): Standard_Boolean {.noSideEffect,
-    importcpp: "IsReady", header: "ShapeAnalysis_Wire.hxx".}
-proc Precision*(this: ShapeAnalysis_Wire): Standard_Real {.noSideEffect,
+proc isLoaded*(this: ShapeAnalysisWire): bool {.noSideEffect, importcpp: "IsLoaded",
+    header: "ShapeAnalysis_Wire.hxx".}
+proc isReady*(this: ShapeAnalysisWire): bool {.noSideEffect, importcpp: "IsReady",
+    header: "ShapeAnalysis_Wire.hxx".}
+proc precision*(this: ShapeAnalysisWire): float {.noSideEffect,
     importcpp: "Precision", header: "ShapeAnalysis_Wire.hxx".}
-proc WireData*(this: ShapeAnalysis_Wire): handle[ShapeExtend_WireData] {.
-    noSideEffect, importcpp: "WireData", header: "ShapeAnalysis_Wire.hxx".}
-proc NbEdges*(this: ShapeAnalysis_Wire): Standard_Integer {.noSideEffect,
-    importcpp: "NbEdges", header: "ShapeAnalysis_Wire.hxx".}
-proc Face*(this: ShapeAnalysis_Wire): TopoDS_Face {.noSideEffect, importcpp: "Face",
+proc wireData*(this: ShapeAnalysisWire): Handle[ShapeExtendWireData] {.noSideEffect,
+    importcpp: "WireData", header: "ShapeAnalysis_Wire.hxx".}
+proc nbEdges*(this: ShapeAnalysisWire): int {.noSideEffect, importcpp: "NbEdges",
     header: "ShapeAnalysis_Wire.hxx".}
-proc Surface*(this: ShapeAnalysis_Wire): handle[ShapeAnalysis_Surface] {.
-    noSideEffect, importcpp: "Surface", header: "ShapeAnalysis_Wire.hxx".}
-proc Perform*(this: var ShapeAnalysis_Wire): Standard_Boolean {.importcpp: "Perform",
+proc face*(this: ShapeAnalysisWire): TopoDS_Face {.noSideEffect, importcpp: "Face",
     header: "ShapeAnalysis_Wire.hxx".}
-proc CheckOrder*(this: var ShapeAnalysis_Wire;
-                isClosed: Standard_Boolean = Standard_True;
-                mode3d: Standard_Boolean = Standard_True): Standard_Boolean {.
+proc surface*(this: ShapeAnalysisWire): Handle[ShapeAnalysisSurface] {.noSideEffect,
+    importcpp: "Surface", header: "ShapeAnalysis_Wire.hxx".}
+proc perform*(this: var ShapeAnalysisWire): bool {.importcpp: "Perform",
+    header: "ShapeAnalysis_Wire.hxx".}
+proc checkOrder*(this: var ShapeAnalysisWire; isClosed: bool = true; mode3d: bool = true): bool {.
     importcpp: "CheckOrder", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckConnected*(this: var ShapeAnalysis_Wire; prec: Standard_Real = 0.0): Standard_Boolean {.
+proc checkConnected*(this: var ShapeAnalysisWire; prec: float = 0.0): bool {.
     importcpp: "CheckConnected", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckSmall*(this: var ShapeAnalysis_Wire; precsmall: Standard_Real = 0.0): Standard_Boolean {.
+proc checkSmall*(this: var ShapeAnalysisWire; precsmall: float = 0.0): bool {.
     importcpp: "CheckSmall", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckEdgeCurves*(this: var ShapeAnalysis_Wire): Standard_Boolean {.
+proc checkEdgeCurves*(this: var ShapeAnalysisWire): bool {.
     importcpp: "CheckEdgeCurves", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckDegenerated*(this: var ShapeAnalysis_Wire): Standard_Boolean {.
+proc checkDegenerated*(this: var ShapeAnalysisWire): bool {.
     importcpp: "CheckDegenerated", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckClosed*(this: var ShapeAnalysis_Wire; prec: Standard_Real = 0.0): Standard_Boolean {.
+proc checkClosed*(this: var ShapeAnalysisWire; prec: float = 0.0): bool {.
     importcpp: "CheckClosed", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckSelfIntersection*(this: var ShapeAnalysis_Wire): Standard_Boolean {.
+proc checkSelfIntersection*(this: var ShapeAnalysisWire): bool {.
     importcpp: "CheckSelfIntersection", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckLacking*(this: var ShapeAnalysis_Wire): Standard_Boolean {.
-    importcpp: "CheckLacking", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckGaps3d*(this: var ShapeAnalysis_Wire): Standard_Boolean {.
-    importcpp: "CheckGaps3d", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckGaps2d*(this: var ShapeAnalysis_Wire): Standard_Boolean {.
-    importcpp: "CheckGaps2d", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckCurveGaps*(this: var ShapeAnalysis_Wire): Standard_Boolean {.
+proc checkLacking*(this: var ShapeAnalysisWire): bool {.importcpp: "CheckLacking",
+    header: "ShapeAnalysis_Wire.hxx".}
+proc checkGaps3d*(this: var ShapeAnalysisWire): bool {.importcpp: "CheckGaps3d",
+    header: "ShapeAnalysis_Wire.hxx".}
+proc checkGaps2d*(this: var ShapeAnalysisWire): bool {.importcpp: "CheckGaps2d",
+    header: "ShapeAnalysis_Wire.hxx".}
+proc checkCurveGaps*(this: var ShapeAnalysisWire): bool {.
     importcpp: "CheckCurveGaps", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckOrder*(this: var ShapeAnalysis_Wire; sawo: var ShapeAnalysis_WireOrder;
-                isClosed: Standard_Boolean = Standard_True;
-                mode3d: Standard_Boolean = Standard_True): Standard_Boolean {.
+proc checkOrder*(this: var ShapeAnalysisWire; sawo: var ShapeAnalysisWireOrder;
+                isClosed: bool = true; mode3d: bool = true): bool {.
     importcpp: "CheckOrder", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckConnected*(this: var ShapeAnalysis_Wire; num: Standard_Integer;
-                    prec: Standard_Real = 0.0): Standard_Boolean {.
+proc checkConnected*(this: var ShapeAnalysisWire; num: int; prec: float = 0.0): bool {.
     importcpp: "CheckConnected", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckSmall*(this: var ShapeAnalysis_Wire; num: Standard_Integer;
-                precsmall: Standard_Real = 0.0): Standard_Boolean {.
+proc checkSmall*(this: var ShapeAnalysisWire; num: int; precsmall: float = 0.0): bool {.
     importcpp: "CheckSmall", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckSeam*(this: var ShapeAnalysis_Wire; num: Standard_Integer;
-               C1: var handle[Geom2d_Curve]; C2: var handle[Geom2d_Curve];
-               cf: var Standard_Real; cl: var Standard_Real): Standard_Boolean {.
+proc checkSeam*(this: var ShapeAnalysisWire; num: int; c1: var Handle[Geom2dCurve];
+               c2: var Handle[Geom2dCurve]; cf: var float; cl: var float): bool {.
     importcpp: "CheckSeam", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckSeam*(this: var ShapeAnalysis_Wire; num: Standard_Integer): Standard_Boolean {.
-    importcpp: "CheckSeam", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckDegenerated*(this: var ShapeAnalysis_Wire; num: Standard_Integer;
-                      dgnr1: var gp_Pnt2d; dgnr2: var gp_Pnt2d): Standard_Boolean {.
+proc checkSeam*(this: var ShapeAnalysisWire; num: int): bool {.importcpp: "CheckSeam",
+    header: "ShapeAnalysis_Wire.hxx".}
+proc checkDegenerated*(this: var ShapeAnalysisWire; num: int; dgnr1: var Pnt2d;
+                      dgnr2: var Pnt2d): bool {.importcpp: "CheckDegenerated",
+    header: "ShapeAnalysis_Wire.hxx".}
+proc checkDegenerated*(this: var ShapeAnalysisWire; num: int): bool {.
     importcpp: "CheckDegenerated", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckDegenerated*(this: var ShapeAnalysis_Wire; num: Standard_Integer): Standard_Boolean {.
-    importcpp: "CheckDegenerated", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckGap3d*(this: var ShapeAnalysis_Wire; num: Standard_Integer = 0): Standard_Boolean {.
+proc checkGap3d*(this: var ShapeAnalysisWire; num: int = 0): bool {.
     importcpp: "CheckGap3d", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckGap2d*(this: var ShapeAnalysis_Wire; num: Standard_Integer = 0): Standard_Boolean {.
+proc checkGap2d*(this: var ShapeAnalysisWire; num: int = 0): bool {.
     importcpp: "CheckGap2d", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckCurveGap*(this: var ShapeAnalysis_Wire; num: Standard_Integer = 0): Standard_Boolean {.
+proc checkCurveGap*(this: var ShapeAnalysisWire; num: int = 0): bool {.
     importcpp: "CheckCurveGap", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckSelfIntersectingEdge*(this: var ShapeAnalysis_Wire; num: Standard_Integer;
-    points2d: var IntRes2d_SequenceOfIntersectionPoint;
-                               points3d: var TColgp_SequenceOfPnt): Standard_Boolean {.
+proc checkSelfIntersectingEdge*(this: var ShapeAnalysisWire; num: int; points2d: var IntRes2dSequenceOfIntersectionPoint;
+                               points3d: var TColgpSequenceOfPnt): bool {.
     importcpp: "CheckSelfIntersectingEdge", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckSelfIntersectingEdge*(this: var ShapeAnalysis_Wire; num: Standard_Integer): Standard_Boolean {.
+proc checkSelfIntersectingEdge*(this: var ShapeAnalysisWire; num: int): bool {.
     importcpp: "CheckSelfIntersectingEdge", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckIntersectingEdges*(this: var ShapeAnalysis_Wire; num: Standard_Integer;
-                            points2d: var IntRes2d_SequenceOfIntersectionPoint;
-                            points3d: var TColgp_SequenceOfPnt;
-                            errors: var TColStd_SequenceOfReal): Standard_Boolean {.
+proc checkIntersectingEdges*(this: var ShapeAnalysisWire; num: int;
+                            points2d: var IntRes2dSequenceOfIntersectionPoint;
+                            points3d: var TColgpSequenceOfPnt;
+                            errors: var TColStdSequenceOfReal): bool {.
     importcpp: "CheckIntersectingEdges", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckIntersectingEdges*(this: var ShapeAnalysis_Wire; num: Standard_Integer): Standard_Boolean {.
+proc checkIntersectingEdges*(this: var ShapeAnalysisWire; num: int): bool {.
     importcpp: "CheckIntersectingEdges", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckIntersectingEdges*(this: var ShapeAnalysis_Wire; num1: Standard_Integer;
-                            num2: Standard_Integer;
-                            points2d: var IntRes2d_SequenceOfIntersectionPoint;
-                            points3d: var TColgp_SequenceOfPnt;
-                            errors: var TColStd_SequenceOfReal): Standard_Boolean {.
+proc checkIntersectingEdges*(this: var ShapeAnalysisWire; num1: int; num2: int;
+                            points2d: var IntRes2dSequenceOfIntersectionPoint;
+                            points3d: var TColgpSequenceOfPnt;
+                            errors: var TColStdSequenceOfReal): bool {.
     importcpp: "CheckIntersectingEdges", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckIntersectingEdges*(this: var ShapeAnalysis_Wire; num1: Standard_Integer;
-                            num2: Standard_Integer): Standard_Boolean {.
+proc checkIntersectingEdges*(this: var ShapeAnalysisWire; num1: int; num2: int): bool {.
     importcpp: "CheckIntersectingEdges", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckLacking*(this: var ShapeAnalysis_Wire; num: Standard_Integer;
-                  Tolerance: Standard_Real; p2d1: var gp_Pnt2d; p2d2: var gp_Pnt2d): Standard_Boolean {.
+proc checkLacking*(this: var ShapeAnalysisWire; num: int; tolerance: float;
+                  p2d1: var Pnt2d; p2d2: var Pnt2d): bool {.importcpp: "CheckLacking",
+    header: "ShapeAnalysis_Wire.hxx".}
+proc checkLacking*(this: var ShapeAnalysisWire; num: int; tolerance: float = 0.0): bool {.
     importcpp: "CheckLacking", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckLacking*(this: var ShapeAnalysis_Wire; num: Standard_Integer;
-                  Tolerance: Standard_Real = 0.0): Standard_Boolean {.
-    importcpp: "CheckLacking", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckOuterBound*(this: var ShapeAnalysis_Wire;
-                     APIMake: Standard_Boolean = Standard_True): Standard_Boolean {.
+proc checkOuterBound*(this: var ShapeAnalysisWire; aPIMake: bool = true): bool {.
     importcpp: "CheckOuterBound", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckNotchedEdges*(this: var ShapeAnalysis_Wire; num: Standard_Integer;
-                       shortNum: var Standard_Integer; param: var Standard_Real;
-                       Tolerance: Standard_Real = 0.0): Standard_Boolean {.
+proc checkNotchedEdges*(this: var ShapeAnalysisWire; num: int; shortNum: var int;
+                       param: var float; tolerance: float = 0.0): bool {.
     importcpp: "CheckNotchedEdges", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckSmallArea*(this: var ShapeAnalysis_Wire; theWire: TopoDS_Wire): Standard_Boolean {.
+proc checkSmallArea*(this: var ShapeAnalysisWire; theWire: TopoDS_Wire): bool {.
     importcpp: "CheckSmallArea", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckShapeConnect*(this: var ShapeAnalysis_Wire; shape: TopoDS_Shape;
-                       prec: Standard_Real = 0.0): Standard_Boolean {.
+proc checkShapeConnect*(this: var ShapeAnalysisWire; shape: TopoDS_Shape;
+                       prec: float = 0.0): bool {.importcpp: "CheckShapeConnect",
+    header: "ShapeAnalysis_Wire.hxx".}
+proc checkShapeConnect*(this: var ShapeAnalysisWire; tailhead: var float;
+                       tailtail: var float; headtail: var float; headhead: var float;
+                       shape: TopoDS_Shape; prec: float = 0.0): bool {.
     importcpp: "CheckShapeConnect", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckShapeConnect*(this: var ShapeAnalysis_Wire; tailhead: var Standard_Real;
-                       tailtail: var Standard_Real; headtail: var Standard_Real;
-                       headhead: var Standard_Real; shape: TopoDS_Shape;
-                       prec: Standard_Real = 0.0): Standard_Boolean {.
-    importcpp: "CheckShapeConnect", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckLoop*(this: var ShapeAnalysis_Wire;
-               aMapLoopVertices: var TopTools_IndexedMapOfShape;
-               aMapVertexEdges: var TopTools_DataMapOfShapeListOfShape;
-               aMapSmallEdges: var TopTools_MapOfShape;
-               aMapSeemEdges: var TopTools_MapOfShape): Standard_Boolean {.
+proc checkLoop*(this: var ShapeAnalysisWire;
+               aMapLoopVertices: var TopToolsIndexedMapOfShape;
+               aMapVertexEdges: var TopToolsDataMapOfShapeListOfShape;
+               aMapSmallEdges: var TopToolsMapOfShape;
+               aMapSeemEdges: var TopToolsMapOfShape): bool {.
     importcpp: "CheckLoop", header: "ShapeAnalysis_Wire.hxx".}
-proc CheckTail*(this: var ShapeAnalysis_Wire; theEdge1: TopoDS_Edge;
-               theEdge2: TopoDS_Edge; theMaxSine: Standard_Real;
-               theMaxWidth: Standard_Real; theMaxTolerance: Standard_Real;
-               theEdge11: var TopoDS_Edge; theEdge12: var TopoDS_Edge;
-               theEdge21: var TopoDS_Edge; theEdge22: var TopoDS_Edge): Standard_Boolean {.
-    importcpp: "CheckTail", header: "ShapeAnalysis_Wire.hxx".}
-proc StatusOrder*(this: ShapeAnalysis_Wire; Status: ShapeExtend_Status): Standard_Boolean {.
+proc checkTail*(this: var ShapeAnalysisWire; theEdge1: TopoDS_Edge;
+               theEdge2: TopoDS_Edge; theMaxSine: float; theMaxWidth: float;
+               theMaxTolerance: float; theEdge11: var TopoDS_Edge;
+               theEdge12: var TopoDS_Edge; theEdge21: var TopoDS_Edge;
+               theEdge22: var TopoDS_Edge): bool {.importcpp: "CheckTail",
+    header: "ShapeAnalysis_Wire.hxx".}
+proc statusOrder*(this: ShapeAnalysisWire; status: ShapeExtendStatus): bool {.
     noSideEffect, importcpp: "StatusOrder", header: "ShapeAnalysis_Wire.hxx".}
-proc StatusConnected*(this: ShapeAnalysis_Wire; Status: ShapeExtend_Status): Standard_Boolean {.
+proc statusConnected*(this: ShapeAnalysisWire; status: ShapeExtendStatus): bool {.
     noSideEffect, importcpp: "StatusConnected", header: "ShapeAnalysis_Wire.hxx".}
-proc StatusEdgeCurves*(this: ShapeAnalysis_Wire; Status: ShapeExtend_Status): Standard_Boolean {.
+proc statusEdgeCurves*(this: ShapeAnalysisWire; status: ShapeExtendStatus): bool {.
     noSideEffect, importcpp: "StatusEdgeCurves", header: "ShapeAnalysis_Wire.hxx".}
-proc StatusDegenerated*(this: ShapeAnalysis_Wire; Status: ShapeExtend_Status): Standard_Boolean {.
+proc statusDegenerated*(this: ShapeAnalysisWire; status: ShapeExtendStatus): bool {.
     noSideEffect, importcpp: "StatusDegenerated", header: "ShapeAnalysis_Wire.hxx".}
-proc StatusClosed*(this: ShapeAnalysis_Wire; Status: ShapeExtend_Status): Standard_Boolean {.
+proc statusClosed*(this: ShapeAnalysisWire; status: ShapeExtendStatus): bool {.
     noSideEffect, importcpp: "StatusClosed", header: "ShapeAnalysis_Wire.hxx".}
-proc StatusSmall*(this: ShapeAnalysis_Wire; Status: ShapeExtend_Status): Standard_Boolean {.
+proc statusSmall*(this: ShapeAnalysisWire; status: ShapeExtendStatus): bool {.
     noSideEffect, importcpp: "StatusSmall", header: "ShapeAnalysis_Wire.hxx".}
-proc StatusSelfIntersection*(this: ShapeAnalysis_Wire; Status: ShapeExtend_Status): Standard_Boolean {.
+proc statusSelfIntersection*(this: ShapeAnalysisWire; status: ShapeExtendStatus): bool {.
     noSideEffect, importcpp: "StatusSelfIntersection",
     header: "ShapeAnalysis_Wire.hxx".}
-proc StatusLacking*(this: ShapeAnalysis_Wire; Status: ShapeExtend_Status): Standard_Boolean {.
+proc statusLacking*(this: ShapeAnalysisWire; status: ShapeExtendStatus): bool {.
     noSideEffect, importcpp: "StatusLacking", header: "ShapeAnalysis_Wire.hxx".}
-proc StatusGaps3d*(this: ShapeAnalysis_Wire; Status: ShapeExtend_Status): Standard_Boolean {.
+proc statusGaps3d*(this: ShapeAnalysisWire; status: ShapeExtendStatus): bool {.
     noSideEffect, importcpp: "StatusGaps3d", header: "ShapeAnalysis_Wire.hxx".}
-proc StatusGaps2d*(this: ShapeAnalysis_Wire; Status: ShapeExtend_Status): Standard_Boolean {.
+proc statusGaps2d*(this: ShapeAnalysisWire; status: ShapeExtendStatus): bool {.
     noSideEffect, importcpp: "StatusGaps2d", header: "ShapeAnalysis_Wire.hxx".}
-proc StatusCurveGaps*(this: ShapeAnalysis_Wire; Status: ShapeExtend_Status): Standard_Boolean {.
+proc statusCurveGaps*(this: ShapeAnalysisWire; status: ShapeExtendStatus): bool {.
     noSideEffect, importcpp: "StatusCurveGaps", header: "ShapeAnalysis_Wire.hxx".}
-proc StatusLoop*(this: ShapeAnalysis_Wire; Status: ShapeExtend_Status): Standard_Boolean {.
+proc statusLoop*(this: ShapeAnalysisWire; status: ShapeExtendStatus): bool {.
     noSideEffect, importcpp: "StatusLoop", header: "ShapeAnalysis_Wire.hxx".}
-proc LastCheckStatus*(this: ShapeAnalysis_Wire; Status: ShapeExtend_Status): Standard_Boolean {.
+proc lastCheckStatus*(this: ShapeAnalysisWire; status: ShapeExtendStatus): bool {.
     noSideEffect, importcpp: "LastCheckStatus", header: "ShapeAnalysis_Wire.hxx".}
-proc MinDistance3d*(this: ShapeAnalysis_Wire): Standard_Real {.noSideEffect,
+proc minDistance3d*(this: ShapeAnalysisWire): float {.noSideEffect,
     importcpp: "MinDistance3d", header: "ShapeAnalysis_Wire.hxx".}
-proc MinDistance2d*(this: ShapeAnalysis_Wire): Standard_Real {.noSideEffect,
+proc minDistance2d*(this: ShapeAnalysisWire): float {.noSideEffect,
     importcpp: "MinDistance2d", header: "ShapeAnalysis_Wire.hxx".}
-proc MaxDistance3d*(this: ShapeAnalysis_Wire): Standard_Real {.noSideEffect,
+proc maxDistance3d*(this: ShapeAnalysisWire): float {.noSideEffect,
     importcpp: "MaxDistance3d", header: "ShapeAnalysis_Wire.hxx".}
-proc MaxDistance2d*(this: ShapeAnalysis_Wire): Standard_Real {.noSideEffect,
+proc maxDistance2d*(this: ShapeAnalysisWire): float {.noSideEffect,
     importcpp: "MaxDistance2d", header: "ShapeAnalysis_Wire.hxx".}
 type
-  ShapeAnalysis_Wirebase_type* = Standard_Transient
+  ShapeAnalysisWirebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "ShapeAnalysis_Wire::get_type_name(@)",
-                              header: "ShapeAnalysis_Wire.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeAnalysis_Wire::get_type_name(@)",
+                            header: "ShapeAnalysis_Wire.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeAnalysis_Wire::get_type_descriptor(@)",
     header: "ShapeAnalysis_Wire.hxx".}
-proc DynamicType*(this: ShapeAnalysis_Wire): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: ShapeAnalysisWire): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeAnalysis_Wire.hxx".}

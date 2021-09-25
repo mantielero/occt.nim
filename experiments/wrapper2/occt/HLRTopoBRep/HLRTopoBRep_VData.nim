@@ -14,21 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real, ../TopoDS/TopoDS_Shape
-
 discard "forward decl of TopoDS_Shape"
 type
-  HLRTopoBRep_VData* {.importcpp: "HLRTopoBRep_VData",
-                      header: "HLRTopoBRep_VData.hxx", bycopy.} = object
+  HLRTopoBRepVData* {.importcpp: "HLRTopoBRep_VData",
+                     header: "HLRTopoBRep_VData.hxx", bycopy.} = object
 
 
-proc constructHLRTopoBRep_VData*(): HLRTopoBRep_VData {.constructor,
+proc constructHLRTopoBRepVData*(): HLRTopoBRepVData {.constructor,
     importcpp: "HLRTopoBRep_VData(@)", header: "HLRTopoBRep_VData.hxx".}
-proc constructHLRTopoBRep_VData*(P: Standard_Real; V: TopoDS_Shape): HLRTopoBRep_VData {.
+proc constructHLRTopoBRepVData*(p: float; v: TopoDS_Shape): HLRTopoBRepVData {.
     constructor, importcpp: "HLRTopoBRep_VData(@)", header: "HLRTopoBRep_VData.hxx".}
-proc Parameter*(this: HLRTopoBRep_VData): Standard_Real {.noSideEffect,
+proc parameter*(this: HLRTopoBRepVData): float {.noSideEffect,
     importcpp: "Parameter", header: "HLRTopoBRep_VData.hxx".}
-proc Vertex*(this: HLRTopoBRep_VData): TopoDS_Shape {.noSideEffect,
+proc vertex*(this: HLRTopoBRepVData): TopoDS_Shape {.noSideEffect,
     importcpp: "Vertex", header: "HLRTopoBRep_VData.hxx".}

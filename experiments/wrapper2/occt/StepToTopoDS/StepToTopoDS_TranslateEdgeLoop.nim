@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, StepToTopoDS_TranslateEdgeLoopError,
-  ../TopoDS/TopoDS_Shape, StepToTopoDS_Root, ../Standard/Standard_Boolean
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of StepShape_FaceBound"
 discard "forward decl of TopoDS_Face"
@@ -35,17 +30,16 @@ type
 proc constructStepToTopoDS_TranslateEdgeLoop*(): StepToTopoDS_TranslateEdgeLoop {.
     constructor, importcpp: "StepToTopoDS_TranslateEdgeLoop(@)",
     header: "StepToTopoDS_TranslateEdgeLoop.hxx".}
-proc constructStepToTopoDS_TranslateEdgeLoop*(FB: handle[StepShape_FaceBound];
-    F: TopoDS_Face; S: handle[Geom_Surface]; SS: handle[StepGeom_Surface];
-    ss: Standard_Boolean; T: var StepToTopoDS_Tool; NMTool: var StepToTopoDS_NMTool): StepToTopoDS_TranslateEdgeLoop {.
+proc constructStepToTopoDS_TranslateEdgeLoop*(fb: Handle[StepShapeFaceBound];
+    f: TopoDS_Face; s: Handle[GeomSurface]; ss: Handle[StepGeomSurface]; ss: bool;
+    t: var StepToTopoDS_Tool; nMTool: var StepToTopoDS_NMTool): StepToTopoDS_TranslateEdgeLoop {.
     constructor, importcpp: "StepToTopoDS_TranslateEdgeLoop(@)",
     header: "StepToTopoDS_TranslateEdgeLoop.hxx".}
-proc Init*(this: var StepToTopoDS_TranslateEdgeLoop;
-          FB: handle[StepShape_FaceBound]; F: TopoDS_Face; S: handle[Geom_Surface];
-          SS: handle[StepGeom_Surface]; ss: Standard_Boolean;
-          T: var StepToTopoDS_Tool; NMTool: var StepToTopoDS_NMTool) {.
+proc init*(this: var StepToTopoDS_TranslateEdgeLoop; fb: Handle[StepShapeFaceBound];
+          f: TopoDS_Face; s: Handle[GeomSurface]; ss: Handle[StepGeomSurface];
+          ss: bool; t: var StepToTopoDS_Tool; nMTool: var StepToTopoDS_NMTool) {.
     importcpp: "Init", header: "StepToTopoDS_TranslateEdgeLoop.hxx".}
-proc Value*(this: StepToTopoDS_TranslateEdgeLoop): TopoDS_Shape {.noSideEffect,
+proc value*(this: StepToTopoDS_TranslateEdgeLoop): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "StepToTopoDS_TranslateEdgeLoop.hxx".}
-proc Error*(this: StepToTopoDS_TranslateEdgeLoop): StepToTopoDS_TranslateEdgeLoopError {.
+proc error*(this: StepToTopoDS_TranslateEdgeLoop): StepToTopoDS_TranslateEdgeLoopError {.
     noSideEffect, importcpp: "Error", header: "StepToTopoDS_TranslateEdgeLoop.hxx".}

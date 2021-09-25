@@ -14,47 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Integer,
-  ../Standard/Standard_Transient
-
 discard "forward decl of Storage_CallBack"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Storage_TypedCallBack"
 discard "forward decl of Storage_TypedCallBack"
 type
-  Handle_Storage_TypedCallBack* = handle[Storage_TypedCallBack]
-  Storage_TypedCallBack* {.importcpp: "Storage_TypedCallBack",
-                          header: "Storage_TypedCallBack.hxx", bycopy.} = object of Standard_Transient
+  HandleStorageTypedCallBack* = Handle[StorageTypedCallBack]
+  StorageTypedCallBack* {.importcpp: "Storage_TypedCallBack",
+                         header: "Storage_TypedCallBack.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructStorage_TypedCallBack*(): Storage_TypedCallBack {.constructor,
+proc constructStorageTypedCallBack*(): StorageTypedCallBack {.constructor,
     importcpp: "Storage_TypedCallBack(@)", header: "Storage_TypedCallBack.hxx".}
-proc constructStorage_TypedCallBack*(aTypeName: TCollection_AsciiString;
-                                    aCallBack: handle[Storage_CallBack]): Storage_TypedCallBack {.
+proc constructStorageTypedCallBack*(aTypeName: TCollectionAsciiString;
+                                   aCallBack: Handle[StorageCallBack]): StorageTypedCallBack {.
     constructor, importcpp: "Storage_TypedCallBack(@)",
     header: "Storage_TypedCallBack.hxx".}
-proc SetType*(this: var Storage_TypedCallBack; aType: TCollection_AsciiString) {.
+proc setType*(this: var StorageTypedCallBack; aType: TCollectionAsciiString) {.
     importcpp: "SetType", header: "Storage_TypedCallBack.hxx".}
-proc Type*(this: Storage_TypedCallBack): TCollection_AsciiString {.noSideEffect,
+proc `type`*(this: StorageTypedCallBack): TCollectionAsciiString {.noSideEffect,
     importcpp: "Type", header: "Storage_TypedCallBack.hxx".}
-proc SetCallBack*(this: var Storage_TypedCallBack;
-                 aCallBack: handle[Storage_CallBack]) {.importcpp: "SetCallBack",
+proc setCallBack*(this: var StorageTypedCallBack; aCallBack: Handle[StorageCallBack]) {.
+    importcpp: "SetCallBack", header: "Storage_TypedCallBack.hxx".}
+proc callBack*(this: StorageTypedCallBack): Handle[StorageCallBack] {.noSideEffect,
+    importcpp: "CallBack", header: "Storage_TypedCallBack.hxx".}
+proc setIndex*(this: var StorageTypedCallBack; anIndex: int) {.importcpp: "SetIndex",
     header: "Storage_TypedCallBack.hxx".}
-proc CallBack*(this: Storage_TypedCallBack): handle[Storage_CallBack] {.
-    noSideEffect, importcpp: "CallBack", header: "Storage_TypedCallBack.hxx".}
-proc SetIndex*(this: var Storage_TypedCallBack; anIndex: Standard_Integer) {.
-    importcpp: "SetIndex", header: "Storage_TypedCallBack.hxx".}
-proc Index*(this: Storage_TypedCallBack): Standard_Integer {.noSideEffect,
-    importcpp: "Index", header: "Storage_TypedCallBack.hxx".}
+proc index*(this: StorageTypedCallBack): int {.noSideEffect, importcpp: "Index",
+    header: "Storage_TypedCallBack.hxx".}
 type
-  Storage_TypedCallBackbase_type* = Standard_Transient
+  StorageTypedCallBackbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Storage_TypedCallBack::get_type_name(@)",
-                              header: "Storage_TypedCallBack.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Storage_TypedCallBack::get_type_name(@)",
+                            header: "Storage_TypedCallBack.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Storage_TypedCallBack::get_type_descriptor(@)",
     header: "Storage_TypedCallBack.hxx".}
-proc DynamicType*(this: Storage_TypedCallBack): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Storage_TypedCallBack.hxx".}
+proc dynamicType*(this: StorageTypedCallBack): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Storage_TypedCallBack.hxx".}

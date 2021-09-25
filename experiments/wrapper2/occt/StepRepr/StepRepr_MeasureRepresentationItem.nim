@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_RepresentationItem
-
 discard "forward decl of StepBasic_MeasureWithUnit"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_MeasureValueMember"
@@ -24,43 +21,44 @@ discard "forward decl of StepBasic_Unit"
 discard "forward decl of StepRepr_MeasureRepresentationItem"
 discard "forward decl of StepRepr_MeasureRepresentationItem"
 type
-  Handle_StepRepr_MeasureRepresentationItem* = handle[
-      StepRepr_MeasureRepresentationItem]
+  HandleStepReprMeasureRepresentationItem* = Handle[
+      StepReprMeasureRepresentationItem]
 
 ## ! Implements a measure_representation_item entity
 ## ! which is used for storing validation properties
 ## ! (e.g. area) for shapes
 
 type
-  StepRepr_MeasureRepresentationItem* {.importcpp: "StepRepr_MeasureRepresentationItem", header: "StepRepr_MeasureRepresentationItem.hxx",
-                                       bycopy.} = object of StepRepr_RepresentationItem ##
-                                                                                   ## !
-                                                                                   ## Creates
-                                                                                   ## empty
-                                                                                   ## object
+  StepReprMeasureRepresentationItem* {.importcpp: "StepRepr_MeasureRepresentationItem", header: "StepRepr_MeasureRepresentationItem.hxx",
+                                      bycopy.} = object of StepReprRepresentationItem ##
+                                                                                 ## !
+                                                                                 ## Creates
+                                                                                 ## empty
+                                                                                 ## object
 
 
-proc constructStepRepr_MeasureRepresentationItem*(): StepRepr_MeasureRepresentationItem {.
+proc constructStepReprMeasureRepresentationItem*(): StepReprMeasureRepresentationItem {.
     constructor, importcpp: "StepRepr_MeasureRepresentationItem(@)",
     header: "StepRepr_MeasureRepresentationItem.hxx".}
-proc Init*(this: var StepRepr_MeasureRepresentationItem;
-          aName: handle[TCollection_HAsciiString];
-          aValueComponent: handle[StepBasic_MeasureValueMember];
-          aUnitComponent: StepBasic_Unit) {.importcpp: "Init",
+proc init*(this: var StepReprMeasureRepresentationItem;
+          aName: Handle[TCollectionHAsciiString];
+          aValueComponent: Handle[StepBasicMeasureValueMember];
+          aUnitComponent: StepBasicUnit) {.importcpp: "Init",
     header: "StepRepr_MeasureRepresentationItem.hxx".}
-proc SetMeasure*(this: var StepRepr_MeasureRepresentationItem;
-                Measure: handle[StepBasic_MeasureWithUnit]) {.
+proc setMeasure*(this: var StepReprMeasureRepresentationItem;
+                measure: Handle[StepBasicMeasureWithUnit]) {.
     importcpp: "SetMeasure", header: "StepRepr_MeasureRepresentationItem.hxx".}
-proc Measure*(this: StepRepr_MeasureRepresentationItem): handle[
-    StepBasic_MeasureWithUnit] {.noSideEffect, importcpp: "Measure", header: "StepRepr_MeasureRepresentationItem.hxx".}
+proc measure*(this: StepReprMeasureRepresentationItem): Handle[
+    StepBasicMeasureWithUnit] {.noSideEffect, importcpp: "Measure",
+                               header: "StepRepr_MeasureRepresentationItem.hxx".}
 type
-  StepRepr_MeasureRepresentationItembase_type* = StepRepr_RepresentationItem
+  StepReprMeasureRepresentationItembaseType* = StepReprRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_MeasureRepresentationItem::get_type_name(@)",
-                              header: "StepRepr_MeasureRepresentationItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_MeasureRepresentationItem::get_type_name(@)",
+                            header: "StepRepr_MeasureRepresentationItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_MeasureRepresentationItem::get_type_descriptor(@)",
     header: "StepRepr_MeasureRepresentationItem.hxx".}
-proc DynamicType*(this: StepRepr_MeasureRepresentationItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprMeasureRepresentationItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_MeasureRepresentationItem.hxx".}

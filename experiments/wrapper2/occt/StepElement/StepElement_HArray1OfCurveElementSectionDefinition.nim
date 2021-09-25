@@ -11,43 +11,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepElement_CurveElementSectionDefinition,
-  StepElement_Array1OfCurveElementSectionDefinition,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepElement_HArray1OfCurveElementSectionDefinition* {.
+  StepElementHArray1OfCurveElementSectionDefinition* {.
       importcpp: "StepElement_HArray1OfCurveElementSectionDefinition",
-      header: "StepElement_HArray1OfCurveElementSectionDefinition.hxx", bycopy.} = object of StepElement_Array1OfCurveElementSectionDefinition
+      header: "StepElement_HArray1OfCurveElementSectionDefinition.hxx", bycopy.} = object of StepElementArray1OfCurveElementSectionDefinition
 
 
-proc constructStepElement_HArray1OfCurveElementSectionDefinition*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepElement_HArray1OfCurveElementSectionDefinition {.
+proc constructStepElementHArray1OfCurveElementSectionDefinition*(theLower: int;
+    theUpper: int): StepElementHArray1OfCurveElementSectionDefinition {.
     constructor,
     importcpp: "StepElement_HArray1OfCurveElementSectionDefinition(@)",
     header: "StepElement_HArray1OfCurveElementSectionDefinition.hxx".}
-proc constructStepElement_HArray1OfCurveElementSectionDefinition*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepElement_HArray1OfCurveElementSectionDefinition {.
+proc constructStepElementHArray1OfCurveElementSectionDefinition*(theLower: int;
+    theUpper: int; theValue: ValueType): StepElementHArray1OfCurveElementSectionDefinition {.
     constructor,
     importcpp: "StepElement_HArray1OfCurveElementSectionDefinition(@)",
     header: "StepElement_HArray1OfCurveElementSectionDefinition.hxx".}
-proc constructStepElement_HArray1OfCurveElementSectionDefinition*(
-    theOther: StepElement_Array1OfCurveElementSectionDefinition): StepElement_HArray1OfCurveElementSectionDefinition {.
+proc constructStepElementHArray1OfCurveElementSectionDefinition*(
+    theOther: StepElementArray1OfCurveElementSectionDefinition): StepElementHArray1OfCurveElementSectionDefinition {.
     constructor,
     importcpp: "StepElement_HArray1OfCurveElementSectionDefinition(@)",
     header: "StepElement_HArray1OfCurveElementSectionDefinition.hxx".}
-proc Array1*(this: StepElement_HArray1OfCurveElementSectionDefinition): StepElement_Array1OfCurveElementSectionDefinition {.
+proc array1*(this: StepElementHArray1OfCurveElementSectionDefinition): StepElementArray1OfCurveElementSectionDefinition {.
     noSideEffect, importcpp: "Array1",
     header: "StepElement_HArray1OfCurveElementSectionDefinition.hxx".}
-proc ChangeArray1*(this: var StepElement_HArray1OfCurveElementSectionDefinition): var StepElement_Array1OfCurveElementSectionDefinition {.
+proc changeArray1*(this: var StepElementHArray1OfCurveElementSectionDefinition): var StepElementArray1OfCurveElementSectionDefinition {.
     importcpp: "ChangeArray1",
     header: "StepElement_HArray1OfCurveElementSectionDefinition.hxx".}
 type
-  StepElement_HArray1OfCurveElementSectionDefinitionbase_type* = MMgt_TShared
+  StepElementHArray1OfCurveElementSectionDefinitionbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepElement_HArray1OfCurveElementSectionDefinition::get_type_name(@)", header: "StepElement_HArray1OfCurveElementSectionDefinition.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepElement_HArray1OfCurveElementSectionDefinition::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepElement_HArray1OfCurveElementSectionDefinition::get_type_name(@)", header: "StepElement_HArray1OfCurveElementSectionDefinition.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_HArray1OfCurveElementSectionDefinition::get_type_descriptor(@)",
     header: "StepElement_HArray1OfCurveElementSectionDefinition.hxx".}
-proc DynamicType*(this: StepElement_HArray1OfCurveElementSectionDefinition): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepElement_HArray1OfCurveElementSectionDefinition.hxx".}
+proc dynamicType*(this: StepElementHArray1OfCurveElementSectionDefinition): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepElement_HArray1OfCurveElementSectionDefinition.hxx".}

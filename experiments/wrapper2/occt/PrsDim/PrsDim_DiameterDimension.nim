@@ -12,13 +12,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  PrsDim_Dimension, ../gp/gp_Pnt, ../gp/gp_Circ, ../Standard/Standard,
-  ../Standard/Standard_Macro, ../Standard/Standard_Type
-
 discard "forward decl of PrsDim_DiameterDimension"
 type
-  Handle_PrsDim_DiameterDimension* = handle[PrsDim_DiameterDimension]
+  HandlePrsDimDiameterDimension* = Handle[PrsDimDiameterDimension]
 
 ## ! Diameter dimension. Can be constructued:
 ## ! - On generic circle.
@@ -47,274 +43,274 @@ type
 ## ! as invalid if the shape does not contain circle geometry.
 
 type
-  PrsDim_DiameterDimension* {.importcpp: "PrsDim_DiameterDimension",
-                             header: "PrsDim_DiameterDimension.hxx", bycopy.} = object of PrsDim_Dimension ##
-                                                                                                    ## !
-                                                                                                    ## Construct
-                                                                                                    ## diameter
-                                                                                                    ## dimension
-                                                                                                    ## for
-                                                                                                    ## the
-                                                                                                    ## circle.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## @param
-                                                                                                    ## theCircle
-                                                                                                    ## [in]
-                                                                                                    ## the
-                                                                                                    ## circle
-                                                                                                    ## to
-                                                                                                    ## measure.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## @return
-                                                                                                    ## measured
-                                                                                                    ## geometry
-                                                                                                    ## circle.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Measure
-                                                                                                    ## diameter
-                                                                                                    ## of
-                                                                                                    ## the
-                                                                                                    ## circle.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## The
-                                                                                                    ## actual
-                                                                                                    ## dimension
-                                                                                                    ## plane
-                                                                                                    ## is
-                                                                                                    ## used
-                                                                                                    ## for
-                                                                                                    ## determining
-                                                                                                    ## anchor
-                                                                                                    ## points
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## on
-                                                                                                    ## the
-                                                                                                    ## circle
-                                                                                                    ## to
-                                                                                                    ## attach
-                                                                                                    ## the
-                                                                                                    ## dimension
-                                                                                                    ## lines
-                                                                                                    ## to.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## The
-                                                                                                    ## dimension
-                                                                                                    ## will
-                                                                                                    ## become
-                                                                                                    ## invalid
-                                                                                                    ## if
-                                                                                                    ## the
-                                                                                                    ## diameter
-                                                                                                    ## of
-                                                                                                    ## the
-                                                                                                    ## circle
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## is
-                                                                                                    ## less
-                                                                                                    ## than
-                                                                                                    ## Precision::Confusion().
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## @param
-                                                                                                    ## theCircle
-                                                                                                    ## [in]
-                                                                                                    ## the
-                                                                                                    ## circle
-                                                                                                    ## to
-                                                                                                    ## measure.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Override
-                                                                                                    ## this
-                                                                                                    ## method
-                                                                                                    ## to
-                                                                                                    ## change
-                                                                                                    ## logic
-                                                                                                    ## of
-                                                                                                    ## anchor
-                                                                                                    ## point
-                                                                                                    ## computation.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Computes
-                                                                                                    ## anchor
-                                                                                                    ## point.
-                                                                                                    ## Its
-                                                                                                    ## computation
-                                                                                                    ## is
-                                                                                                    ## based
-                                                                                                    ## on
-                                                                                                    ## the
-                                                                                                    ## current
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## dimension
-                                                                                                    ## plane.
-                                                                                                    ## Therfore,
-                                                                                                    ## anchor
-                                                                                                    ## point
-                                                                                                    ## is
-                                                                                                    ## an
-                                                                                                    ## intersection
-                                                                                                    ## of
-                                                                                                    ## plane
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## and
-                                                                                                    ## circle.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## ATTENTION!
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## 1)
-                                                                                                    ## The
-                                                                                                    ## plane
-                                                                                                    ## should
-                                                                                                    ## be
-                                                                                                    ## set
-                                                                                                    ## or
-                                                                                                    ## computed
-                                                                                                    ## before.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## 2)
-                                                                                                    ## The
-                                                                                                    ## plane
-                                                                                                    ## should
-                                                                                                    ## inclide
-                                                                                                    ## th
-                                                                                                    ## ecircle
-                                                                                                    ## center
-                                                                                                    ## to
-                                                                                                    ## be
-                                                                                                    ## valid.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Compute
-                                                                                                    ## points
-                                                                                                    ## on
-                                                                                                    ## the
-                                                                                                    ## circle
-                                                                                                    ## sides
-                                                                                                    ## for
-                                                                                                    ## the
-                                                                                                    ## dimension
-                                                                                                    ## plane.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Program
-                                                                                                    ## error
-                                                                                                    ## exception
-                                                                                                    ## is
-                                                                                                    ## raised
-                                                                                                    ## if
-                                                                                                    ## the
-                                                                                                    ## dimension
-                                                                                                    ## plane
-                                                                                                    ## "x"
-                                                                                                    ## direction
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## is
-                                                                                                    ## orthogonal
-                                                                                                    ## to
-                                                                                                    ## plane
-                                                                                                    ## (the
-                                                                                                    ## "impossible"
-                                                                                                    ## case).
-                                                                                                    ## The
-                                                                                                    ## passed
-                                                                                                    ## dimension
-                                                                                                    ## plane
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## is
-                                                                                                    ## the
-                                                                                                    ## one
-                                                                                                    ## specially
-                                                                                                    ## computed
-                                                                                                    ## to
-                                                                                                    ## locate
-                                                                                                    ## dimension
-                                                                                                    ## presentation
-                                                                                                    ## in
-                                                                                                    ## circle.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## @param
-                                                                                                    ## theCircle
-                                                                                                    ## [in]
-                                                                                                    ## the
-                                                                                                    ## circle.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## @param
-                                                                                                    ## theFirstPnt
-                                                                                                    ## [out]
-                                                                                                    ## the
-                                                                                                    ## first
-                                                                                                    ## point.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## @param
-                                                                                                    ## theSecondPnt
-                                                                                                    ## [out]
-                                                                                                    ## the
-                                                                                                    ## second
-                                                                                                    ## point.
+  PrsDimDiameterDimension* {.importcpp: "PrsDim_DiameterDimension",
+                            header: "PrsDim_DiameterDimension.hxx", bycopy.} = object of PrsDimDimension ##
+                                                                                                  ## !
+                                                                                                  ## Construct
+                                                                                                  ## diameter
+                                                                                                  ## dimension
+                                                                                                  ## for
+                                                                                                  ## the
+                                                                                                  ## circle.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## @param
+                                                                                                  ## theCircle
+                                                                                                  ## [in]
+                                                                                                  ## the
+                                                                                                  ## circle
+                                                                                                  ## to
+                                                                                                  ## measure.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## @return
+                                                                                                  ## measured
+                                                                                                  ## geometry
+                                                                                                  ## circle.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Measure
+                                                                                                  ## diameter
+                                                                                                  ## of
+                                                                                                  ## the
+                                                                                                  ## circle.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## The
+                                                                                                  ## actual
+                                                                                                  ## dimension
+                                                                                                  ## plane
+                                                                                                  ## is
+                                                                                                  ## used
+                                                                                                  ## for
+                                                                                                  ## determining
+                                                                                                  ## anchor
+                                                                                                  ## points
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## on
+                                                                                                  ## the
+                                                                                                  ## circle
+                                                                                                  ## to
+                                                                                                  ## attach
+                                                                                                  ## the
+                                                                                                  ## dimension
+                                                                                                  ## lines
+                                                                                                  ## to.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## The
+                                                                                                  ## dimension
+                                                                                                  ## will
+                                                                                                  ## become
+                                                                                                  ## invalid
+                                                                                                  ## if
+                                                                                                  ## the
+                                                                                                  ## diameter
+                                                                                                  ## of
+                                                                                                  ## the
+                                                                                                  ## circle
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## is
+                                                                                                  ## less
+                                                                                                  ## than
+                                                                                                  ## Precision::Confusion().
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## @param
+                                                                                                  ## theCircle
+                                                                                                  ## [in]
+                                                                                                  ## the
+                                                                                                  ## circle
+                                                                                                  ## to
+                                                                                                  ## measure.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Override
+                                                                                                  ## this
+                                                                                                  ## method
+                                                                                                  ## to
+                                                                                                  ## change
+                                                                                                  ## logic
+                                                                                                  ## of
+                                                                                                  ## anchor
+                                                                                                  ## point
+                                                                                                  ## computation.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Computes
+                                                                                                  ## anchor
+                                                                                                  ## point.
+                                                                                                  ## Its
+                                                                                                  ## computation
+                                                                                                  ## is
+                                                                                                  ## based
+                                                                                                  ## on
+                                                                                                  ## the
+                                                                                                  ## current
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## dimension
+                                                                                                  ## plane.
+                                                                                                  ## Therfore,
+                                                                                                  ## anchor
+                                                                                                  ## point
+                                                                                                  ## is
+                                                                                                  ## an
+                                                                                                  ## intersection
+                                                                                                  ## of
+                                                                                                  ## plane
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## and
+                                                                                                  ## circle.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## ATTENTION!
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## 1)
+                                                                                                  ## The
+                                                                                                  ## plane
+                                                                                                  ## should
+                                                                                                  ## be
+                                                                                                  ## set
+                                                                                                  ## or
+                                                                                                  ## computed
+                                                                                                  ## before.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## 2)
+                                                                                                  ## The
+                                                                                                  ## plane
+                                                                                                  ## should
+                                                                                                  ## inclide
+                                                                                                  ## th
+                                                                                                  ## ecircle
+                                                                                                  ## center
+                                                                                                  ## to
+                                                                                                  ## be
+                                                                                                  ## valid.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Compute
+                                                                                                  ## points
+                                                                                                  ## on
+                                                                                                  ## the
+                                                                                                  ## circle
+                                                                                                  ## sides
+                                                                                                  ## for
+                                                                                                  ## the
+                                                                                                  ## dimension
+                                                                                                  ## plane.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Program
+                                                                                                  ## error
+                                                                                                  ## exception
+                                                                                                  ## is
+                                                                                                  ## raised
+                                                                                                  ## if
+                                                                                                  ## the
+                                                                                                  ## dimension
+                                                                                                  ## plane
+                                                                                                  ## "x"
+                                                                                                  ## direction
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## is
+                                                                                                  ## orthogonal
+                                                                                                  ## to
+                                                                                                  ## plane
+                                                                                                  ## (the
+                                                                                                  ## "impossible"
+                                                                                                  ## case).
+                                                                                                  ## The
+                                                                                                  ## passed
+                                                                                                  ## dimension
+                                                                                                  ## plane
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## is
+                                                                                                  ## the
+                                                                                                  ## one
+                                                                                                  ## specially
+                                                                                                  ## computed
+                                                                                                  ## to
+                                                                                                  ## locate
+                                                                                                  ## dimension
+                                                                                                  ## presentation
+                                                                                                  ## in
+                                                                                                  ## circle.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## @param
+                                                                                                  ## theCircle
+                                                                                                  ## [in]
+                                                                                                  ## the
+                                                                                                  ## circle.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## @param
+                                                                                                  ## theFirstPnt
+                                                                                                  ## [out]
+                                                                                                  ## the
+                                                                                                  ## first
+                                                                                                  ## point.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## @param
+                                                                                                  ## theSecondPnt
+                                                                                                  ## [out]
+                                                                                                  ## the
+                                                                                                  ## second
+                                                                                                  ## point.
 
-  PrsDim_DiameterDimensionbase_type* = PrsDim_Dimension
+  PrsDimDiameterDimensionbaseType* = PrsDimDimension
 
-proc get_type_name*(): cstring {.importcpp: "PrsDim_DiameterDimension::get_type_name(@)",
-                              header: "PrsDim_DiameterDimension.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "PrsDim_DiameterDimension::get_type_name(@)",
+                            header: "PrsDim_DiameterDimension.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "PrsDim_DiameterDimension::get_type_descriptor(@)",
     header: "PrsDim_DiameterDimension.hxx".}
-proc DynamicType*(this: PrsDim_DiameterDimension): handle[Standard_Type] {.
+proc dynamicType*(this: PrsDimDiameterDimension): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "PrsDim_DiameterDimension.hxx".}
-proc constructPrsDim_DiameterDimension*(theCircle: gp_Circ): PrsDim_DiameterDimension {.
+proc constructPrsDimDiameterDimension*(theCircle: Circ): PrsDimDiameterDimension {.
     constructor, importcpp: "PrsDim_DiameterDimension(@)",
     header: "PrsDim_DiameterDimension.hxx".}
-proc constructPrsDim_DiameterDimension*(theCircle: gp_Circ; thePlane: gp_Pln): PrsDim_DiameterDimension {.
+proc constructPrsDimDiameterDimension*(theCircle: Circ; thePlane: Pln): PrsDimDiameterDimension {.
     constructor, importcpp: "PrsDim_DiameterDimension(@)",
     header: "PrsDim_DiameterDimension.hxx".}
-proc constructPrsDim_DiameterDimension*(theShape: TopoDS_Shape): PrsDim_DiameterDimension {.
+proc constructPrsDimDiameterDimension*(theShape: TopoDS_Shape): PrsDimDiameterDimension {.
     constructor, importcpp: "PrsDim_DiameterDimension(@)",
     header: "PrsDim_DiameterDimension.hxx".}
-proc constructPrsDim_DiameterDimension*(theShape: TopoDS_Shape; thePlane: gp_Pln): PrsDim_DiameterDimension {.
+proc constructPrsDimDiameterDimension*(theShape: TopoDS_Shape; thePlane: Pln): PrsDimDiameterDimension {.
     constructor, importcpp: "PrsDim_DiameterDimension(@)",
     header: "PrsDim_DiameterDimension.hxx".}
-proc Circle*(this: PrsDim_DiameterDimension): gp_Circ {.noSideEffect,
+proc circle*(this: PrsDimDiameterDimension): Circ {.noSideEffect,
     importcpp: "Circle", header: "PrsDim_DiameterDimension.hxx".}
-proc AnchorPoint*(this: var PrsDim_DiameterDimension): gp_Pnt {.
-    importcpp: "AnchorPoint", header: "PrsDim_DiameterDimension.hxx".}
-proc Shape*(this: PrsDim_DiameterDimension): TopoDS_Shape {.noSideEffect,
+proc anchorPoint*(this: var PrsDimDiameterDimension): Pnt {.importcpp: "AnchorPoint",
+    header: "PrsDim_DiameterDimension.hxx".}
+proc shape*(this: PrsDimDiameterDimension): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "PrsDim_DiameterDimension.hxx".}
-proc SetMeasuredGeometry*(this: var PrsDim_DiameterDimension; theCircle: gp_Circ) {.
+proc setMeasuredGeometry*(this: var PrsDimDiameterDimension; theCircle: Circ) {.
     importcpp: "SetMeasuredGeometry", header: "PrsDim_DiameterDimension.hxx".}
-proc SetMeasuredGeometry*(this: var PrsDim_DiameterDimension; theShape: TopoDS_Shape) {.
+proc setMeasuredGeometry*(this: var PrsDimDiameterDimension; theShape: TopoDS_Shape) {.
     importcpp: "SetMeasuredGeometry", header: "PrsDim_DiameterDimension.hxx".}
-proc GetDisplayUnits*(this: PrsDim_DiameterDimension): TCollection_AsciiString {.
+proc getDisplayUnits*(this: PrsDimDiameterDimension): TCollectionAsciiString {.
     noSideEffect, importcpp: "GetDisplayUnits",
     header: "PrsDim_DiameterDimension.hxx".}
-proc GetModelUnits*(this: PrsDim_DiameterDimension): TCollection_AsciiString {.
+proc getModelUnits*(this: PrsDimDiameterDimension): TCollectionAsciiString {.
     noSideEffect, importcpp: "GetModelUnits",
     header: "PrsDim_DiameterDimension.hxx".}
-proc SetDisplayUnits*(this: var PrsDim_DiameterDimension;
-                     theUnits: TCollection_AsciiString) {.
+proc setDisplayUnits*(this: var PrsDimDiameterDimension;
+                     theUnits: TCollectionAsciiString) {.
     importcpp: "SetDisplayUnits", header: "PrsDim_DiameterDimension.hxx".}
-proc SetModelUnits*(this: var PrsDim_DiameterDimension;
-                   theUnits: TCollection_AsciiString) {.
-    importcpp: "SetModelUnits", header: "PrsDim_DiameterDimension.hxx".}
-proc SetTextPosition*(this: var PrsDim_DiameterDimension; theTextPos: gp_Pnt) {.
+proc setModelUnits*(this: var PrsDimDiameterDimension;
+                   theUnits: TCollectionAsciiString) {.importcpp: "SetModelUnits",
+    header: "PrsDim_DiameterDimension.hxx".}
+proc setTextPosition*(this: var PrsDimDiameterDimension; theTextPos: Pnt) {.
     importcpp: "SetTextPosition", header: "PrsDim_DiameterDimension.hxx".}
-proc GetTextPosition*(this: PrsDim_DiameterDimension): gp_Pnt {.noSideEffect,
+proc getTextPosition*(this: PrsDimDiameterDimension): Pnt {.noSideEffect,
     importcpp: "GetTextPosition", header: "PrsDim_DiameterDimension.hxx".}

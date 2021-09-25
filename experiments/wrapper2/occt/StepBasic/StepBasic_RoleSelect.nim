@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_ActionAssignment"
 discard "forward decl of StepBasic_ActionRequestAssignment"
@@ -31,49 +26,47 @@ discard "forward decl of StepBasic_GroupAssignment"
 discard "forward decl of StepBasic_NameAssignment"
 discard "forward decl of StepBasic_SecurityClassificationAssignment"
 type
-  StepBasic_RoleSelect* {.importcpp: "StepBasic_RoleSelect",
-                         header: "StepBasic_RoleSelect.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                               ## !
-                                                                                               ## Empty
-                                                                                               ## constructor
+  StepBasicRoleSelect* {.importcpp: "StepBasic_RoleSelect",
+                        header: "StepBasic_RoleSelect.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                             ## !
+                                                                                             ## Empty
+                                                                                             ## constructor
 
 
-proc constructStepBasic_RoleSelect*(): StepBasic_RoleSelect {.constructor,
+proc constructStepBasicRoleSelect*(): StepBasicRoleSelect {.constructor,
     importcpp: "StepBasic_RoleSelect(@)", header: "StepBasic_RoleSelect.hxx".}
-proc CaseNum*(this: StepBasic_RoleSelect; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepBasicRoleSelect; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepBasic_RoleSelect.hxx".}
-proc ActionAssignment*(this: StepBasic_RoleSelect): handle[
-    StepBasic_ActionAssignment] {.noSideEffect, importcpp: "ActionAssignment",
-                                 header: "StepBasic_RoleSelect.hxx".}
-proc ActionRequestAssignment*(this: StepBasic_RoleSelect): handle[
-    StepBasic_ActionRequestAssignment] {.noSideEffect,
-                                        importcpp: "ActionRequestAssignment",
-                                        header: "StepBasic_RoleSelect.hxx".}
-proc ApprovalAssignment*(this: StepBasic_RoleSelect): handle[
-    StepBasic_ApprovalAssignment] {.noSideEffect, importcpp: "ApprovalAssignment",
-                                   header: "StepBasic_RoleSelect.hxx".}
-proc ApprovalDateTime*(this: StepBasic_RoleSelect): handle[
-    StepBasic_ApprovalDateTime] {.noSideEffect, importcpp: "ApprovalDateTime",
-                                 header: "StepBasic_RoleSelect.hxx".}
-proc CertificationAssignment*(this: StepBasic_RoleSelect): handle[
-    StepBasic_CertificationAssignment] {.noSideEffect,
-                                        importcpp: "CertificationAssignment",
-                                        header: "StepBasic_RoleSelect.hxx".}
-proc ContractAssignment*(this: StepBasic_RoleSelect): handle[
-    StepBasic_ContractAssignment] {.noSideEffect, importcpp: "ContractAssignment",
-                                   header: "StepBasic_RoleSelect.hxx".}
-proc DocumentReference*(this: StepBasic_RoleSelect): handle[
-    StepBasic_DocumentReference] {.noSideEffect, importcpp: "DocumentReference",
+proc actionAssignment*(this: StepBasicRoleSelect): Handle[StepBasicActionAssignment] {.
+    noSideEffect, importcpp: "ActionAssignment", header: "StepBasic_RoleSelect.hxx".}
+proc actionRequestAssignment*(this: StepBasicRoleSelect): Handle[
+    StepBasicActionRequestAssignment] {.noSideEffect,
+                                       importcpp: "ActionRequestAssignment",
+                                       header: "StepBasic_RoleSelect.hxx".}
+proc approvalAssignment*(this: StepBasicRoleSelect): Handle[
+    StepBasicApprovalAssignment] {.noSideEffect, importcpp: "ApprovalAssignment",
                                   header: "StepBasic_RoleSelect.hxx".}
-proc EffectivityAssignment*(this: StepBasic_RoleSelect): handle[
-    StepBasic_EffectivityAssignment] {.noSideEffect,
-                                      importcpp: "EffectivityAssignment",
-                                      header: "StepBasic_RoleSelect.hxx".}
-proc GroupAssignment*(this: StepBasic_RoleSelect): handle[StepBasic_GroupAssignment] {.
+proc approvalDateTime*(this: StepBasicRoleSelect): Handle[StepBasicApprovalDateTime] {.
+    noSideEffect, importcpp: "ApprovalDateTime", header: "StepBasic_RoleSelect.hxx".}
+proc certificationAssignment*(this: StepBasicRoleSelect): Handle[
+    StepBasicCertificationAssignment] {.noSideEffect,
+                                       importcpp: "CertificationAssignment",
+                                       header: "StepBasic_RoleSelect.hxx".}
+proc contractAssignment*(this: StepBasicRoleSelect): Handle[
+    StepBasicContractAssignment] {.noSideEffect, importcpp: "ContractAssignment",
+                                  header: "StepBasic_RoleSelect.hxx".}
+proc documentReference*(this: StepBasicRoleSelect): Handle[
+    StepBasicDocumentReference] {.noSideEffect, importcpp: "DocumentReference",
+                                 header: "StepBasic_RoleSelect.hxx".}
+proc effectivityAssignment*(this: StepBasicRoleSelect): Handle[
+    StepBasicEffectivityAssignment] {.noSideEffect,
+                                     importcpp: "EffectivityAssignment",
+                                     header: "StepBasic_RoleSelect.hxx".}
+proc groupAssignment*(this: StepBasicRoleSelect): Handle[StepBasicGroupAssignment] {.
     noSideEffect, importcpp: "GroupAssignment", header: "StepBasic_RoleSelect.hxx".}
-proc NameAssignment*(this: StepBasic_RoleSelect): handle[StepBasic_NameAssignment] {.
+proc nameAssignment*(this: StepBasicRoleSelect): Handle[StepBasicNameAssignment] {.
     noSideEffect, importcpp: "NameAssignment", header: "StepBasic_RoleSelect.hxx".}
-proc SecurityClassificationAssignment*(this: StepBasic_RoleSelect): handle[
-    StepBasic_SecurityClassificationAssignment] {.noSideEffect,
+proc securityClassificationAssignment*(this: StepBasicRoleSelect): Handle[
+    StepBasicSecurityClassificationAssignment] {.noSideEffect,
     importcpp: "SecurityClassificationAssignment",
     header: "StepBasic_RoleSelect.hxx".}

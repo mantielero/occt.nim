@@ -13,43 +13,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TDataStd/TDataStd_GenericEmpty
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of TDF_RelocationTable"
 discard "forward decl of XCAFDimTolObjects_DimensionObject"
-when defined(GetObject):
-  discard
+# when defined(GetObject):
+#   discard
 discard "forward decl of XCAFDoc_Dimension"
 discard "forward decl of XCAFDoc_Dimension"
 type
-  Handle_XCAFDoc_Dimension* = handle[XCAFDoc_Dimension]
+  HandleXCAFDocDimension* = Handle[XCAFDocDimension]
 
 ## ! Attribute that identifies a dimension in the GD&T table.
 ## ! Its parent label is used as a container to store data provided
 ## ! by XCAFDimTolObjects_DimensionObject.
 
 type
-  XCAFDoc_Dimension* {.importcpp: "XCAFDoc_Dimension",
-                      header: "XCAFDoc_Dimension.hxx", bycopy.} = object of TDataStd_GenericEmpty
+  XCAFDocDimension* {.importcpp: "XCAFDoc_Dimension",
+                     header: "XCAFDoc_Dimension.hxx", bycopy.} = object of TDataStdGenericEmpty
 
 
-proc constructXCAFDoc_Dimension*(): XCAFDoc_Dimension {.constructor,
+proc constructXCAFDocDimension*(): XCAFDocDimension {.constructor,
     importcpp: "XCAFDoc_Dimension(@)", header: "XCAFDoc_Dimension.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "XCAFDoc_Dimension::GetID(@)",
-                            header: "XCAFDoc_Dimension.hxx".}
-proc Set*(theLabel: TDF_Label): handle[XCAFDoc_Dimension] {.
+proc getID*(): StandardGUID {.importcpp: "XCAFDoc_Dimension::GetID(@)",
+                           header: "XCAFDoc_Dimension.hxx".}
+proc set*(theLabel: TDF_Label): Handle[XCAFDocDimension] {.
     importcpp: "XCAFDoc_Dimension::Set(@)", header: "XCAFDoc_Dimension.hxx".}
-proc ID*(this: XCAFDoc_Dimension): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: XCAFDocDimension): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "XCAFDoc_Dimension.hxx".}
-proc SetObject*(this: var XCAFDoc_Dimension;
-               theDimensionObject: handle[XCAFDimTolObjects_DimensionObject]) {.
+proc setObject*(this: var XCAFDocDimension;
+               theDimensionObject: Handle[XCAFDimTolObjectsDimensionObject]) {.
     importcpp: "SetObject", header: "XCAFDoc_Dimension.hxx".}
-proc GetObject*(this: XCAFDoc_Dimension): handle[XCAFDimTolObjects_DimensionObject] {.
+proc getObject*(this: XCAFDocDimension): Handle[XCAFDimTolObjectsDimensionObject] {.
     noSideEffect, importcpp: "GetObject", header: "XCAFDoc_Dimension.hxx".}
 ## !!!Ignored construct:  DEFINE_DERIVED_ATTRIBUTE ( XCAFDoc_Dimension , TDataStd_GenericEmpty ) }
 ## Error: token expected: ) but got: ,!!!
+

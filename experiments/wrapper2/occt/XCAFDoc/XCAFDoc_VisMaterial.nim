@@ -11,35 +11,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TDF/TDF_Attribute, XCAFDoc_VisMaterialCommon, XCAFDoc_VisMaterialPBR
-
 discard "forward decl of Graphic3d_Aspects"
 discard "forward decl of Graphic3d_MaterialAspect"
 type
-  XCAFDoc_VisMaterial* {.importcpp: "XCAFDoc_VisMaterial",
-                        header: "XCAFDoc_VisMaterial.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                       ## !
-                                                                                       ## Return
-                                                                                       ## attribute
-                                                                                       ## GUID.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Empty
-                                                                                       ## constructor.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## @name
-                                                                                       ## interface
-                                                                                       ## implementation
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Return
-                                                                                       ## GUID
-                                                                                       ## of
-                                                                                       ## this
-                                                                                       ## attribute
-                                                                                       ## type.
+  XCAFDocVisMaterial* {.importcpp: "XCAFDoc_VisMaterial",
+                       header: "XCAFDoc_VisMaterial.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                      ## !
+                                                                                      ## Return
+                                                                                      ## attribute
+                                                                                      ## GUID.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Empty
+                                                                                      ## constructor.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## @name
+                                                                                      ## interface
+                                                                                      ## implementation
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Return
+                                                                                      ## GUID
+                                                                                      ## of
+                                                                                      ## this
+                                                                                      ## attribute
+                                                                                      ## type.
     ## !< material name / tag (transient data)
     ## !< metal-roughness material definition
     ## !< common material definition
@@ -47,81 +44,81 @@ type
     ## !< alpha cutoff value; 0.5 by default
     ## !< specifies whether the material is double sided; TRUE by default
 
-  XCAFDoc_VisMaterialbase_type* = TDF_Attribute
+  XCAFDocVisMaterialbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "XCAFDoc_VisMaterial::get_type_name(@)",
-                              header: "XCAFDoc_VisMaterial.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XCAFDoc_VisMaterial::get_type_name(@)",
+                            header: "XCAFDoc_VisMaterial.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XCAFDoc_VisMaterial::get_type_descriptor(@)",
     header: "XCAFDoc_VisMaterial.hxx".}
-proc DynamicType*(this: XCAFDoc_VisMaterial): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: XCAFDocVisMaterial): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XCAFDoc_VisMaterial.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "XCAFDoc_VisMaterial::GetID(@)",
-                            header: "XCAFDoc_VisMaterial.hxx".}
-proc constructXCAFDoc_VisMaterial*(): XCAFDoc_VisMaterial {.constructor,
+proc getID*(): StandardGUID {.importcpp: "XCAFDoc_VisMaterial::GetID(@)",
+                           header: "XCAFDoc_VisMaterial.hxx".}
+proc constructXCAFDocVisMaterial*(): XCAFDocVisMaterial {.constructor,
     importcpp: "XCAFDoc_VisMaterial(@)", header: "XCAFDoc_VisMaterial.hxx".}
-proc IsEmpty*(this: XCAFDoc_VisMaterial): bool {.noSideEffect, importcpp: "IsEmpty",
+proc isEmpty*(this: XCAFDocVisMaterial): bool {.noSideEffect, importcpp: "IsEmpty",
     header: "XCAFDoc_VisMaterial.hxx".}
-proc FillMaterialAspect*(this: XCAFDoc_VisMaterial;
-                        theAspect: var Graphic3d_MaterialAspect) {.noSideEffect,
+proc fillMaterialAspect*(this: XCAFDocVisMaterial;
+                        theAspect: var Graphic3dMaterialAspect) {.noSideEffect,
     importcpp: "FillMaterialAspect", header: "XCAFDoc_VisMaterial.hxx".}
-proc FillAspect*(this: XCAFDoc_VisMaterial; theAspect: handle[Graphic3d_Aspects]) {.
+proc fillAspect*(this: XCAFDocVisMaterial; theAspect: Handle[Graphic3dAspects]) {.
     noSideEffect, importcpp: "FillAspect", header: "XCAFDoc_VisMaterial.hxx".}
-proc HasPbrMaterial*(this: XCAFDoc_VisMaterial): Standard_Boolean {.noSideEffect,
+proc hasPbrMaterial*(this: XCAFDocVisMaterial): bool {.noSideEffect,
     importcpp: "HasPbrMaterial", header: "XCAFDoc_VisMaterial.hxx".}
-proc PbrMaterial*(this: XCAFDoc_VisMaterial): XCAFDoc_VisMaterialPBR {.noSideEffect,
+proc pbrMaterial*(this: XCAFDocVisMaterial): XCAFDocVisMaterialPBR {.noSideEffect,
     importcpp: "PbrMaterial", header: "XCAFDoc_VisMaterial.hxx".}
-proc SetPbrMaterial*(this: var XCAFDoc_VisMaterial;
-                    theMaterial: XCAFDoc_VisMaterialPBR) {.
+proc setPbrMaterial*(this: var XCAFDocVisMaterial;
+                    theMaterial: XCAFDocVisMaterialPBR) {.
     importcpp: "SetPbrMaterial", header: "XCAFDoc_VisMaterial.hxx".}
-proc UnsetPbrMaterial*(this: var XCAFDoc_VisMaterial) {.
+proc unsetPbrMaterial*(this: var XCAFDocVisMaterial) {.
     importcpp: "UnsetPbrMaterial", header: "XCAFDoc_VisMaterial.hxx".}
-proc HasCommonMaterial*(this: XCAFDoc_VisMaterial): Standard_Boolean {.noSideEffect,
+proc hasCommonMaterial*(this: XCAFDocVisMaterial): bool {.noSideEffect,
     importcpp: "HasCommonMaterial", header: "XCAFDoc_VisMaterial.hxx".}
-proc CommonMaterial*(this: XCAFDoc_VisMaterial): XCAFDoc_VisMaterialCommon {.
+proc commonMaterial*(this: XCAFDocVisMaterial): XCAFDocVisMaterialCommon {.
     noSideEffect, importcpp: "CommonMaterial", header: "XCAFDoc_VisMaterial.hxx".}
-proc SetCommonMaterial*(this: var XCAFDoc_VisMaterial;
-                       theMaterial: XCAFDoc_VisMaterialCommon) {.
+proc setCommonMaterial*(this: var XCAFDocVisMaterial;
+                       theMaterial: XCAFDocVisMaterialCommon) {.
     importcpp: "SetCommonMaterial", header: "XCAFDoc_VisMaterial.hxx".}
-proc UnsetCommonMaterial*(this: var XCAFDoc_VisMaterial) {.
+proc unsetCommonMaterial*(this: var XCAFDocVisMaterial) {.
     importcpp: "UnsetCommonMaterial", header: "XCAFDoc_VisMaterial.hxx".}
-proc BaseColor*(this: XCAFDoc_VisMaterial): Quantity_ColorRGBA {.noSideEffect,
+proc baseColor*(this: XCAFDocVisMaterial): QuantityColorRGBA {.noSideEffect,
     importcpp: "BaseColor", header: "XCAFDoc_VisMaterial.hxx".}
-proc AlphaMode*(this: XCAFDoc_VisMaterial): Graphic3d_AlphaMode {.noSideEffect,
+proc alphaMode*(this: XCAFDocVisMaterial): Graphic3dAlphaMode {.noSideEffect,
     importcpp: "AlphaMode", header: "XCAFDoc_VisMaterial.hxx".}
-proc AlphaCutOff*(this: XCAFDoc_VisMaterial): Standard_ShortReal {.noSideEffect,
+proc alphaCutOff*(this: XCAFDocVisMaterial): StandardShortReal {.noSideEffect,
     importcpp: "AlphaCutOff", header: "XCAFDoc_VisMaterial.hxx".}
-proc SetAlphaMode*(this: var XCAFDoc_VisMaterial; theMode: Graphic3d_AlphaMode;
-                  theCutOff: Standard_ShortReal = 0.5f) {.importcpp: "SetAlphaMode",
+proc setAlphaMode*(this: var XCAFDocVisMaterial; theMode: Graphic3dAlphaMode;
+                  theCutOff: StandardShortReal = 0.5f) {.importcpp: "SetAlphaMode",
     header: "XCAFDoc_VisMaterial.hxx".}
-proc IsDoubleSided*(this: XCAFDoc_VisMaterial): Standard_Boolean {.noSideEffect,
+proc isDoubleSided*(this: XCAFDocVisMaterial): bool {.noSideEffect,
     importcpp: "IsDoubleSided", header: "XCAFDoc_VisMaterial.hxx".}
-proc SetDoubleSided*(this: var XCAFDoc_VisMaterial;
-                    theIsDoubleSided: Standard_Boolean) {.
+proc setDoubleSided*(this: var XCAFDocVisMaterial; theIsDoubleSided: bool) {.
     importcpp: "SetDoubleSided", header: "XCAFDoc_VisMaterial.hxx".}
-proc RawName*(this: XCAFDoc_VisMaterial): handle[TCollection_HAsciiString] {.
+proc rawName*(this: XCAFDocVisMaterial): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "RawName", header: "XCAFDoc_VisMaterial.hxx".}
-proc SetRawName*(this: var XCAFDoc_VisMaterial;
-                theName: handle[TCollection_HAsciiString]) {.
+proc setRawName*(this: var XCAFDocVisMaterial;
+                theName: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetRawName", header: "XCAFDoc_VisMaterial.hxx".}
-proc IsEqual*(this: XCAFDoc_VisMaterial; theOther: handle[XCAFDoc_VisMaterial]): Standard_Boolean {.
+proc isEqual*(this: XCAFDocVisMaterial; theOther: Handle[XCAFDocVisMaterial]): bool {.
     noSideEffect, importcpp: "IsEqual", header: "XCAFDoc_VisMaterial.hxx".}
-proc ConvertToCommonMaterial*(this: var XCAFDoc_VisMaterial): XCAFDoc_VisMaterialCommon {.
+proc convertToCommonMaterial*(this: var XCAFDocVisMaterial): XCAFDocVisMaterialCommon {.
     importcpp: "ConvertToCommonMaterial", header: "XCAFDoc_VisMaterial.hxx".}
-proc ConvertToPbrMaterial*(this: var XCAFDoc_VisMaterial): XCAFDoc_VisMaterialPBR {.
+proc convertToPbrMaterial*(this: var XCAFDocVisMaterial): XCAFDocVisMaterialPBR {.
     importcpp: "ConvertToPbrMaterial", header: "XCAFDoc_VisMaterial.hxx".}
-proc ID*(this: XCAFDoc_VisMaterial): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: XCAFDocVisMaterial): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "XCAFDoc_VisMaterial.hxx".}
-proc Restore*(this: var XCAFDoc_VisMaterial; theWith: handle[TDF_Attribute]) {.
+proc restore*(this: var XCAFDocVisMaterial; theWith: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "XCAFDoc_VisMaterial.hxx".}
-proc NewEmpty*(this: XCAFDoc_VisMaterial): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: XCAFDocVisMaterial): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "XCAFDoc_VisMaterial.hxx".}
-proc Paste*(this: XCAFDoc_VisMaterial; theInto: handle[TDF_Attribute];
-           theRelTable: handle[TDF_RelocationTable]) {.noSideEffect,
+proc paste*(this: XCAFDocVisMaterial; theInto: Handle[TDF_Attribute];
+           theRelTable: Handle[TDF_RelocationTable]) {.noSideEffect,
     importcpp: "Paste", header: "XCAFDoc_VisMaterial.hxx".}
-proc DumpJson*(this: XCAFDoc_VisMaterial; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "XCAFDoc_VisMaterial.hxx".}
+proc dumpJson*(this: XCAFDocVisMaterial; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "XCAFDoc_VisMaterial.hxx".}
 discard "forward decl of XCAFDoc_VisMaterial"
 type
-  Handle_XCAFDoc_VisMaterial* = handle[XCAFDoc_VisMaterial]
+  HandleXCAFDocVisMaterial* = Handle[XCAFDocVisMaterial]
+

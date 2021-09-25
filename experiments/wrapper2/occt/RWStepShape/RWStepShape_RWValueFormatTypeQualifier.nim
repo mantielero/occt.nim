@@ -13,30 +13,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_ValueFormatTypeQualifier"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepShape_RWValueFormatTypeQualifier* {.
+  RWStepShapeRWValueFormatTypeQualifier* {.
       importcpp: "RWStepShape_RWValueFormatTypeQualifier",
       header: "RWStepShape_RWValueFormatTypeQualifier.hxx", bycopy.} = object ## ! Empty
                                                                          ## constructor
 
 
-proc constructRWStepShape_RWValueFormatTypeQualifier*(): RWStepShape_RWValueFormatTypeQualifier {.
+proc constructRWStepShapeRWValueFormatTypeQualifier*(): RWStepShapeRWValueFormatTypeQualifier {.
     constructor, importcpp: "RWStepShape_RWValueFormatTypeQualifier(@)",
     header: "RWStepShape_RWValueFormatTypeQualifier.hxx".}
-proc ReadStep*(this: RWStepShape_RWValueFormatTypeQualifier;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepShape_ValueFormatTypeQualifier]) {.noSideEffect,
+proc readStep*(this: RWStepShapeRWValueFormatTypeQualifier;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepShapeValueFormatTypeQualifier]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWValueFormatTypeQualifier.hxx".}
-proc WriteStep*(this: RWStepShape_RWValueFormatTypeQualifier;
-               SW: var StepData_StepWriter;
-               ent: handle[StepShape_ValueFormatTypeQualifier]) {.noSideEffect,
+proc writeStep*(this: RWStepShapeRWValueFormatTypeQualifier;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepShapeValueFormatTypeQualifier]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWValueFormatTypeQualifier.hxx".}

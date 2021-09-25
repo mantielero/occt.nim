@@ -14,38 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepAP203_CcDesignSpecificationReference"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepAP203_RWCcDesignSpecificationReference* {.
+  RWStepAP203RWCcDesignSpecificationReference* {.
       importcpp: "RWStepAP203_RWCcDesignSpecificationReference",
       header: "RWStepAP203_RWCcDesignSpecificationReference.hxx", bycopy.} = object ## !
                                                                                ## Empty
                                                                                ## constructor
 
 
-proc constructRWStepAP203_RWCcDesignSpecificationReference*(): RWStepAP203_RWCcDesignSpecificationReference {.
+proc constructRWStepAP203RWCcDesignSpecificationReference*(): RWStepAP203RWCcDesignSpecificationReference {.
     constructor, importcpp: "RWStepAP203_RWCcDesignSpecificationReference(@)",
     header: "RWStepAP203_RWCcDesignSpecificationReference.hxx".}
-proc ReadStep*(this: RWStepAP203_RWCcDesignSpecificationReference;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepAP203_CcDesignSpecificationReference]) {.
+proc readStep*(this: RWStepAP203RWCcDesignSpecificationReference;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepAP203CcDesignSpecificationReference]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepAP203_RWCcDesignSpecificationReference.hxx".}
-proc WriteStep*(this: RWStepAP203_RWCcDesignSpecificationReference;
-               SW: var StepData_StepWriter;
-               ent: handle[StepAP203_CcDesignSpecificationReference]) {.
+proc writeStep*(this: RWStepAP203RWCcDesignSpecificationReference;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepAP203CcDesignSpecificationReference]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepAP203_RWCcDesignSpecificationReference.hxx".}
-proc Share*(this: RWStepAP203_RWCcDesignSpecificationReference;
-           ent: handle[StepAP203_CcDesignSpecificationReference];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepAP203RWCcDesignSpecificationReference;
+           ent: Handle[StepAP203CcDesignSpecificationReference];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP203_RWCcDesignSpecificationReference.hxx".}

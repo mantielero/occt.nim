@@ -14,15 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Geom2d_Geometry,
-  ../Standard/Standard_Real
-
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of Geom2d_Point"
 discard "forward decl of Geom2d_Point"
 type
-  Handle_Geom2d_Point* = handle[Geom2d_Point]
+  HandleGeom2dPoint* = Handle[Geom2dPoint]
 
 ## ! The abstract class Point describes the common
 ## ! behavior of geometric points in 2D space.
@@ -30,36 +26,35 @@ type
 ## ! class Geom2d_CartesianPoint.
 
 type
-  Geom2d_Point* {.importcpp: "Geom2d_Point", header: "Geom2d_Point.hxx", bycopy.} = object of Geom2d_Geometry ##
-                                                                                                    ## !
-                                                                                                    ## returns
-                                                                                                    ## the
-                                                                                                    ## Coordinates
-                                                                                                    ## of
-                                                                                                    ## <me>.
+  Geom2dPoint* {.importcpp: "Geom2d_Point", header: "Geom2d_Point.hxx", bycopy.} = object of Geom2dGeometry ##
+                                                                                                  ## !
+                                                                                                  ## returns
+                                                                                                  ## the
+                                                                                                  ## Coordinates
+                                                                                                  ## of
+                                                                                                  ## <me>.
 
 
-proc Coord*(this: Geom2d_Point; X: var Standard_Real; Y: var Standard_Real) {.
-    noSideEffect, importcpp: "Coord", header: "Geom2d_Point.hxx".}
-proc Pnt2d*(this: Geom2d_Point): gp_Pnt2d {.noSideEffect, importcpp: "Pnt2d",
-                                        header: "Geom2d_Point.hxx".}
-proc X*(this: Geom2d_Point): Standard_Real {.noSideEffect, importcpp: "X",
-    header: "Geom2d_Point.hxx".}
-proc Y*(this: Geom2d_Point): Standard_Real {.noSideEffect, importcpp: "Y",
-    header: "Geom2d_Point.hxx".}
-proc Distance*(this: Geom2d_Point; Other: handle[Geom2d_Point]): Standard_Real {.
-    noSideEffect, importcpp: "Distance", header: "Geom2d_Point.hxx".}
-proc SquareDistance*(this: Geom2d_Point; Other: handle[Geom2d_Point]): Standard_Real {.
+proc coord*(this: Geom2dPoint; x: var float; y: var float) {.noSideEffect,
+    importcpp: "Coord", header: "Geom2d_Point.hxx".}
+proc pnt2d*(this: Geom2dPoint): Pnt2d {.noSideEffect, importcpp: "Pnt2d",
+                                    header: "Geom2d_Point.hxx".}
+proc x*(this: Geom2dPoint): float {.noSideEffect, importcpp: "X",
+                                header: "Geom2d_Point.hxx".}
+proc y*(this: Geom2dPoint): float {.noSideEffect, importcpp: "Y",
+                                header: "Geom2d_Point.hxx".}
+proc distance*(this: Geom2dPoint; other: Handle[Geom2dPoint]): float {.noSideEffect,
+    importcpp: "Distance", header: "Geom2d_Point.hxx".}
+proc squareDistance*(this: Geom2dPoint; other: Handle[Geom2dPoint]): float {.
     noSideEffect, importcpp: "SquareDistance", header: "Geom2d_Point.hxx".}
-proc DumpJson*(this: Geom2d_Point; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Geom2d_Point.hxx".}
+proc dumpJson*(this: Geom2dPoint; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "Geom2d_Point.hxx".}
 type
-  Geom2d_Pointbase_type* = Geom2d_Geometry
+  Geom2dPointbaseType* = Geom2dGeometry
 
-proc get_type_name*(): cstring {.importcpp: "Geom2d_Point::get_type_name(@)",
-                              header: "Geom2d_Point.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Geom2d_Point::get_type_name(@)",
+                            header: "Geom2d_Point.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom2d_Point::get_type_descriptor(@)", header: "Geom2d_Point.hxx".}
-proc DynamicType*(this: Geom2d_Point): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: Geom2dPoint): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom2d_Point.hxx".}

@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  AIS_InteractiveObject, ../NCollection/NCollection_Sequence
-
 type
-  AIS_SequenceOfInteractive* = NCollection_Sequence[handle[AIS_InteractiveObject]]
+  AIS_SequenceOfInteractive* = NCollectionSequence[Handle[AIS_InteractiveObject]]
+

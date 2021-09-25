@@ -14,43 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_SiUnit,
-  ../Standard/Standard_Boolean, StepBasic_SiPrefix, StepBasic_SiUnitName
-
 discard "forward decl of StepBasic_TimeUnit"
 discard "forward decl of StepBasic_DimensionalExponents"
 discard "forward decl of StepBasic_SiUnitAndTimeUnit"
 discard "forward decl of StepBasic_SiUnitAndTimeUnit"
 type
-  Handle_StepBasic_SiUnitAndTimeUnit* = handle[StepBasic_SiUnitAndTimeUnit]
-  StepBasic_SiUnitAndTimeUnit* {.importcpp: "StepBasic_SiUnitAndTimeUnit",
-                                header: "StepBasic_SiUnitAndTimeUnit.hxx", bycopy.} = object of StepBasic_SiUnit ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## a
-                                                                                                          ## SiUnitAndTimeUnit
+  HandleStepBasicSiUnitAndTimeUnit* = Handle[StepBasicSiUnitAndTimeUnit]
+  StepBasicSiUnitAndTimeUnit* {.importcpp: "StepBasic_SiUnitAndTimeUnit",
+                               header: "StepBasic_SiUnitAndTimeUnit.hxx", bycopy.} = object of StepBasicSiUnit ##
+                                                                                                        ## !
+                                                                                                        ## Returns
+                                                                                                        ## a
+                                                                                                        ## SiUnitAndTimeUnit
 
 
-proc constructStepBasic_SiUnitAndTimeUnit*(): StepBasic_SiUnitAndTimeUnit {.
+proc constructStepBasicSiUnitAndTimeUnit*(): StepBasicSiUnitAndTimeUnit {.
     constructor, importcpp: "StepBasic_SiUnitAndTimeUnit(@)",
     header: "StepBasic_SiUnitAndTimeUnit.hxx".}
-proc Init*(this: var StepBasic_SiUnitAndTimeUnit; hasAprefix: Standard_Boolean;
-          aPrefix: StepBasic_SiPrefix; aName: StepBasic_SiUnitName) {.
+proc init*(this: var StepBasicSiUnitAndTimeUnit; hasAprefix: bool;
+          aPrefix: StepBasicSiPrefix; aName: StepBasicSiUnitName) {.
     importcpp: "Init", header: "StepBasic_SiUnitAndTimeUnit.hxx".}
-proc SetTimeUnit*(this: var StepBasic_SiUnitAndTimeUnit;
-                 aTimeUnit: handle[StepBasic_TimeUnit]) {.
-    importcpp: "SetTimeUnit", header: "StepBasic_SiUnitAndTimeUnit.hxx".}
-proc TimeUnit*(this: StepBasic_SiUnitAndTimeUnit): handle[StepBasic_TimeUnit] {.
+proc setTimeUnit*(this: var StepBasicSiUnitAndTimeUnit;
+                 aTimeUnit: Handle[StepBasicTimeUnit]) {.importcpp: "SetTimeUnit",
+    header: "StepBasic_SiUnitAndTimeUnit.hxx".}
+proc timeUnit*(this: StepBasicSiUnitAndTimeUnit): Handle[StepBasicTimeUnit] {.
     noSideEffect, importcpp: "TimeUnit", header: "StepBasic_SiUnitAndTimeUnit.hxx".}
 type
-  StepBasic_SiUnitAndTimeUnitbase_type* = StepBasic_SiUnit
+  StepBasicSiUnitAndTimeUnitbaseType* = StepBasicSiUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_SiUnitAndTimeUnit::get_type_name(@)",
-                              header: "StepBasic_SiUnitAndTimeUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_SiUnitAndTimeUnit::get_type_name(@)",
+                            header: "StepBasic_SiUnitAndTimeUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_SiUnitAndTimeUnit::get_type_descriptor(@)",
     header: "StepBasic_SiUnitAndTimeUnit.hxx".}
-proc DynamicType*(this: StepBasic_SiUnitAndTimeUnit): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicSiUnitAndTimeUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_SiUnitAndTimeUnit.hxx".}

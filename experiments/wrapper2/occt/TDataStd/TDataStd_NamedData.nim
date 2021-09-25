@@ -13,13 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TDF/TDF_Attribute, ../TColStd/TColStd_DataMapOfStringInteger,
-  ../TColStd/TColStd_HArray1OfInteger, ../TColStd/TColStd_HArray1OfReal,
-  TDataStd_DataMapOfStringReal, TDataStd_DataMapOfStringString,
-  TDataStd_DataMapOfStringByte, TDataStd_DataMapOfStringHArray1OfInteger,
-  TDataStd_DataMapOfStringHArray1OfReal
-
 discard "forward decl of TDataStd_HDataMapOfStringInteger"
 discard "forward decl of TDataStd_HDataMapOfStringReal"
 discard "forward decl of TDataStd_HDataMapOfStringString"
@@ -30,411 +23,408 @@ discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of TDataStd_NamedData"
 discard "forward decl of TDataStd_NamedData"
 type
-  Handle_TDataStd_NamedData* = handle[TDataStd_NamedData]
+  HandleTDataStdNamedData* = Handle[TDataStdNamedData]
 
 ## ! Contains a named data.
 
 type
-  TDataStd_NamedData* {.importcpp: "TDataStd_NamedData",
-                       header: "TDataStd_NamedData.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                     ## !
-                                                                                     ## Returns
-                                                                                     ## the
-                                                                                     ## ID
-                                                                                     ## of
-                                                                                     ## the
-                                                                                     ## named
-                                                                                     ## data
-                                                                                     ## attribute.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Empty
-                                                                                     ## constructor.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## @name
-                                                                                     ## late-load
-                                                                                     ## deferred
-                                                                                     ## data
-                                                                                     ## interface
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Returns
-                                                                                     ## TRUE
-                                                                                     ## if
-                                                                                     ## some
-                                                                                     ## data
-                                                                                     ## is
-                                                                                     ## not
-                                                                                     ## loaded
-                                                                                     ## from
-                                                                                     ## deferred
-                                                                                     ## storage
-                                                                                     ## and
-                                                                                     ## can
-                                                                                     ## be
-                                                                                     ## loaded
-                                                                                     ## using
-                                                                                     ## LoadDeferredData().
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Late-load
-                                                                                     ## interface
-                                                                                     ## allows
-                                                                                     ## to
-                                                                                     ## avoid
-                                                                                     ## loading
-                                                                                     ## auxiliary
-                                                                                     ## data
-                                                                                     ## into
-                                                                                     ## memory
-                                                                                     ## until
-                                                                                     ## it
-                                                                                     ## is
-                                                                                     ## needed
-                                                                                     ## by
-                                                                                     ## application
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## and
-                                                                                     ## also
-                                                                                     ## speed
-                                                                                     ## up
-                                                                                     ## reader
-                                                                                     ## by
-                                                                                     ## skipping
-                                                                                     ## data
-                                                                                     ## chunks
-                                                                                     ## in
-                                                                                     ## file.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## This
-                                                                                     ## feature
-                                                                                     ## requires
-                                                                                     ## file
-                                                                                     ## format
-                                                                                     ## having
-                                                                                     ## special
-                                                                                     ## structure,
-                                                                                     ## and
-                                                                                     ## usually
-                                                                                     ## implies
-                                                                                     ## read-only
-                                                                                     ## access,
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## therefore
-                                                                                     ## default
-                                                                                     ## implementation
-                                                                                     ## will
-                                                                                     ## return
-                                                                                     ## FALSE
-                                                                                     ## here.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Late-load
-                                                                                     ## elements
-                                                                                     ## require
-                                                                                     ## special
-                                                                                     ## attention
-                                                                                     ## to
-                                                                                     ## ensure
-                                                                                     ## data
-                                                                                     ## consistency,
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## as
-                                                                                     ## such
-                                                                                     ## elements
-                                                                                     ## are
-                                                                                     ## created
-                                                                                     ## in
-                                                                                     ## undefined
-                                                                                     ## state
-                                                                                     ## (no
-                                                                                     ## data)
-                                                                                     ## and
-                                                                                     ## Undo/Redo
-                                                                                     ## mechanism
-                                                                                     ## will
-                                                                                     ## not
-                                                                                     ## work
-                                                                                     ## until
-                                                                                     ## deferred
-                                                                                     ## data
-                                                                                     ## being
-                                                                                     ## loaded.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Usage
-                                                                                     ## scenarios:
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## -
-                                                                                     ## Application
-                                                                                     ## displays
-                                                                                     ## model
-                                                                                     ## in
-                                                                                     ## read-only
-                                                                                     ## way.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Late-load
-                                                                                     ## elements
-                                                                                     ## are
-                                                                                     ## loaded
-                                                                                     ## temporarily
-                                                                                     ## on
-                                                                                     ## demand
-                                                                                     ## and
-                                                                                     ## immediatly
-                                                                                     ## unloaded.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## theNamedData->LoadDeferredData
-                                                                                     ## (true);
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## TCollection_AsciiString
-                                                                                     ## aValue
-                                                                                     ## =
-                                                                                     ## theNamedData->GetString
-                                                                                     ## (theKey);
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## theNamedData->UnloadDeferredData();
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## -
-                                                                                     ## Application
-                                                                                     ## saves
-                                                                                     ## the
-                                                                                     ## model
-                                                                                     ## into
-                                                                                     ## another
-                                                                                     ## format.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## All
-                                                                                     ## late-load
-                                                                                     ## elements
-                                                                                     ## should
-                                                                                     ## be
-                                                                                     ## loaded
-                                                                                     ## (at
-                                                                                     ## least
-                                                                                     ## temporary
-                                                                                     ## during
-                                                                                     ## operation).
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## -
-                                                                                     ## Application
-                                                                                     ## modifies
-                                                                                     ## the
-                                                                                     ## model.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Late-load
-                                                                                     ## element
-                                                                                     ## should
-                                                                                     ## be
-                                                                                     ## loaded
-                                                                                     ## with
-                                                                                     ## removed
-                                                                                     ## link
-                                                                                     ## to
-                                                                                     ## deferred
-                                                                                     ## storage,
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## so
-                                                                                     ## that
-                                                                                     ## Undo()/Redo()
-                                                                                     ## will
-                                                                                     ## work
-                                                                                     ## as
-                                                                                     ## expected
-                                                                                     ## since
-                                                                                     ## loading.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## theNamedData->LoadDeferredData
-                                                                                     ## (false);
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## theNamedData->SetString
-                                                                                     ## (theKey,
-                                                                                     ## theNewValue);
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Clear
-                                                                                     ## data
-                                                                                     ## without
-                                                                                     ## calling
-                                                                                     ## Backup().
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## @name
-                                                                                     ## TDF_Attribute
-                                                                                     ## interface
+  TDataStdNamedData* {.importcpp: "TDataStd_NamedData",
+                      header: "TDataStd_NamedData.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                    ## !
+                                                                                    ## Returns
+                                                                                    ## the
+                                                                                    ## ID
+                                                                                    ## of
+                                                                                    ## the
+                                                                                    ## named
+                                                                                    ## data
+                                                                                    ## attribute.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Empty
+                                                                                    ## constructor.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## @name
+                                                                                    ## late-load
+                                                                                    ## deferred
+                                                                                    ## data
+                                                                                    ## interface
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Returns
+                                                                                    ## TRUE
+                                                                                    ## if
+                                                                                    ## some
+                                                                                    ## data
+                                                                                    ## is
+                                                                                    ## not
+                                                                                    ## loaded
+                                                                                    ## from
+                                                                                    ## deferred
+                                                                                    ## storage
+                                                                                    ## and
+                                                                                    ## can
+                                                                                    ## be
+                                                                                    ## loaded
+                                                                                    ## using
+                                                                                    ## LoadDeferredData().
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Late-load
+                                                                                    ## interface
+                                                                                    ## allows
+                                                                                    ## to
+                                                                                    ## avoid
+                                                                                    ## loading
+                                                                                    ## auxiliary
+                                                                                    ## data
+                                                                                    ## into
+                                                                                    ## memory
+                                                                                    ## until
+                                                                                    ## it
+                                                                                    ## is
+                                                                                    ## needed
+                                                                                    ## by
+                                                                                    ## application
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## and
+                                                                                    ## also
+                                                                                    ## speed
+                                                                                    ## up
+                                                                                    ## reader
+                                                                                    ## by
+                                                                                    ## skipping
+                                                                                    ## data
+                                                                                    ## chunks
+                                                                                    ## in
+                                                                                    ## file.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## This
+                                                                                    ## feature
+                                                                                    ## requires
+                                                                                    ## file
+                                                                                    ## format
+                                                                                    ## having
+                                                                                    ## special
+                                                                                    ## structure,
+                                                                                    ## and
+                                                                                    ## usually
+                                                                                    ## implies
+                                                                                    ## read-only
+                                                                                    ## access,
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## therefore
+                                                                                    ## default
+                                                                                    ## implementation
+                                                                                    ## will
+                                                                                    ## return
+                                                                                    ## FALSE
+                                                                                    ## here.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Late-load
+                                                                                    ## elements
+                                                                                    ## require
+                                                                                    ## special
+                                                                                    ## attention
+                                                                                    ## to
+                                                                                    ## ensure
+                                                                                    ## data
+                                                                                    ## consistency,
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## as
+                                                                                    ## such
+                                                                                    ## elements
+                                                                                    ## are
+                                                                                    ## created
+                                                                                    ## in
+                                                                                    ## undefined
+                                                                                    ## state
+                                                                                    ## (no
+                                                                                    ## data)
+                                                                                    ## and
+                                                                                    ## Undo/Redo
+                                                                                    ## mechanism
+                                                                                    ## will
+                                                                                    ## not
+                                                                                    ## work
+                                                                                    ## until
+                                                                                    ## deferred
+                                                                                    ## data
+                                                                                    ## being
+                                                                                    ## loaded.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Usage
+                                                                                    ## scenarios:
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## -
+                                                                                    ## Application
+                                                                                    ## displays
+                                                                                    ## model
+                                                                                    ## in
+                                                                                    ## read-only
+                                                                                    ## way.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Late-load
+                                                                                    ## elements
+                                                                                    ## are
+                                                                                    ## loaded
+                                                                                    ## temporarily
+                                                                                    ## on
+                                                                                    ## demand
+                                                                                    ## and
+                                                                                    ## immediatly
+                                                                                    ## unloaded.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## theNamedData->LoadDeferredData
+                                                                                    ## (true);
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## TCollection_AsciiString
+                                                                                    ## aValue
+                                                                                    ## =
+                                                                                    ## theNamedData->GetString
+                                                                                    ## (theKey);
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## theNamedData->UnloadDeferredData();
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## -
+                                                                                    ## Application
+                                                                                    ## saves
+                                                                                    ## the
+                                                                                    ## model
+                                                                                    ## into
+                                                                                    ## another
+                                                                                    ## format.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## All
+                                                                                    ## late-load
+                                                                                    ## elements
+                                                                                    ## should
+                                                                                    ## be
+                                                                                    ## loaded
+                                                                                    ## (at
+                                                                                    ## least
+                                                                                    ## temporary
+                                                                                    ## during
+                                                                                    ## operation).
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## -
+                                                                                    ## Application
+                                                                                    ## modifies
+                                                                                    ## the
+                                                                                    ## model.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Late-load
+                                                                                    ## element
+                                                                                    ## should
+                                                                                    ## be
+                                                                                    ## loaded
+                                                                                    ## with
+                                                                                    ## removed
+                                                                                    ## link
+                                                                                    ## to
+                                                                                    ## deferred
+                                                                                    ## storage,
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## so
+                                                                                    ## that
+                                                                                    ## Undo()/Redo()
+                                                                                    ## will
+                                                                                    ## work
+                                                                                    ## as
+                                                                                    ## expected
+                                                                                    ## since
+                                                                                    ## loading.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## theNamedData->LoadDeferredData
+                                                                                    ## (false);
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## theNamedData->SetString
+                                                                                    ## (theKey,
+                                                                                    ## theNewValue);
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Clear
+                                                                                    ## data
+                                                                                    ## without
+                                                                                    ## calling
+                                                                                    ## Backup().
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## @name
+                                                                                    ## TDF_Attribute
+                                                                                    ## interface
 
 
-proc GetID*(): Standard_GUID {.importcpp: "TDataStd_NamedData::GetID(@)",
-                            header: "TDataStd_NamedData.hxx".}
-proc Set*(label: TDF_Label): handle[TDataStd_NamedData] {.
+proc getID*(): StandardGUID {.importcpp: "TDataStd_NamedData::GetID(@)",
+                           header: "TDataStd_NamedData.hxx".}
+proc set*(label: TDF_Label): Handle[TDataStdNamedData] {.
     importcpp: "TDataStd_NamedData::Set(@)", header: "TDataStd_NamedData.hxx".}
-proc constructTDataStd_NamedData*(): TDataStd_NamedData {.constructor,
+proc constructTDataStdNamedData*(): TDataStdNamedData {.constructor,
     importcpp: "TDataStd_NamedData(@)", header: "TDataStd_NamedData.hxx".}
-proc HasIntegers*(this: TDataStd_NamedData): Standard_Boolean {.noSideEffect,
+proc hasIntegers*(this: TDataStdNamedData): bool {.noSideEffect,
     importcpp: "HasIntegers", header: "TDataStd_NamedData.hxx".}
-proc HasInteger*(this: TDataStd_NamedData; theName: TCollection_ExtendedString): Standard_Boolean {.
+proc hasInteger*(this: TDataStdNamedData; theName: TCollectionExtendedString): bool {.
     noSideEffect, importcpp: "HasInteger", header: "TDataStd_NamedData.hxx".}
-proc GetInteger*(this: var TDataStd_NamedData; theName: TCollection_ExtendedString): Standard_Integer {.
+proc getInteger*(this: var TDataStdNamedData; theName: TCollectionExtendedString): int {.
     importcpp: "GetInteger", header: "TDataStd_NamedData.hxx".}
-proc SetInteger*(this: var TDataStd_NamedData; theName: TCollection_ExtendedString;
-                theInteger: Standard_Integer) {.importcpp: "SetInteger",
-    header: "TDataStd_NamedData.hxx".}
-proc GetIntegersContainer*(this: var TDataStd_NamedData): TColStd_DataMapOfStringInteger {.
+proc setInteger*(this: var TDataStdNamedData; theName: TCollectionExtendedString;
+                theInteger: int) {.importcpp: "SetInteger",
+                                 header: "TDataStd_NamedData.hxx".}
+proc getIntegersContainer*(this: var TDataStdNamedData): TColStdDataMapOfStringInteger {.
     importcpp: "GetIntegersContainer", header: "TDataStd_NamedData.hxx".}
-proc ChangeIntegers*(this: var TDataStd_NamedData;
-                    theIntegers: TColStd_DataMapOfStringInteger) {.
+proc changeIntegers*(this: var TDataStdNamedData;
+                    theIntegers: TColStdDataMapOfStringInteger) {.
     importcpp: "ChangeIntegers", header: "TDataStd_NamedData.hxx".}
-proc HasReals*(this: TDataStd_NamedData): Standard_Boolean {.noSideEffect,
-    importcpp: "HasReals", header: "TDataStd_NamedData.hxx".}
-proc HasReal*(this: TDataStd_NamedData; theName: TCollection_ExtendedString): Standard_Boolean {.
+proc hasReals*(this: TDataStdNamedData): bool {.noSideEffect, importcpp: "HasReals",
+    header: "TDataStd_NamedData.hxx".}
+proc hasReal*(this: TDataStdNamedData; theName: TCollectionExtendedString): bool {.
     noSideEffect, importcpp: "HasReal", header: "TDataStd_NamedData.hxx".}
-proc GetReal*(this: var TDataStd_NamedData; theName: TCollection_ExtendedString): Standard_Real {.
+proc getReal*(this: var TDataStdNamedData; theName: TCollectionExtendedString): float {.
     importcpp: "GetReal", header: "TDataStd_NamedData.hxx".}
-proc SetReal*(this: var TDataStd_NamedData; theName: TCollection_ExtendedString;
-             theReal: Standard_Real) {.importcpp: "SetReal",
-                                     header: "TDataStd_NamedData.hxx".}
-proc GetRealsContainer*(this: var TDataStd_NamedData): TDataStd_DataMapOfStringReal {.
+proc setReal*(this: var TDataStdNamedData; theName: TCollectionExtendedString;
+             theReal: float) {.importcpp: "SetReal",
+                             header: "TDataStd_NamedData.hxx".}
+proc getRealsContainer*(this: var TDataStdNamedData): TDataStdDataMapOfStringReal {.
     importcpp: "GetRealsContainer", header: "TDataStd_NamedData.hxx".}
-proc ChangeReals*(this: var TDataStd_NamedData;
-                 theReals: TDataStd_DataMapOfStringReal) {.
+proc changeReals*(this: var TDataStdNamedData; theReals: TDataStdDataMapOfStringReal) {.
     importcpp: "ChangeReals", header: "TDataStd_NamedData.hxx".}
-proc HasStrings*(this: TDataStd_NamedData): Standard_Boolean {.noSideEffect,
+proc hasStrings*(this: TDataStdNamedData): bool {.noSideEffect,
     importcpp: "HasStrings", header: "TDataStd_NamedData.hxx".}
-proc HasString*(this: TDataStd_NamedData; theName: TCollection_ExtendedString): Standard_Boolean {.
+proc hasString*(this: TDataStdNamedData; theName: TCollectionExtendedString): bool {.
     noSideEffect, importcpp: "HasString", header: "TDataStd_NamedData.hxx".}
-proc GetString*(this: var TDataStd_NamedData; theName: TCollection_ExtendedString): TCollection_ExtendedString {.
+proc getString*(this: var TDataStdNamedData; theName: TCollectionExtendedString): TCollectionExtendedString {.
     importcpp: "GetString", header: "TDataStd_NamedData.hxx".}
-proc SetString*(this: var TDataStd_NamedData; theName: TCollection_ExtendedString;
-               theString: TCollection_ExtendedString) {.importcpp: "SetString",
+proc setString*(this: var TDataStdNamedData; theName: TCollectionExtendedString;
+               theString: TCollectionExtendedString) {.importcpp: "SetString",
     header: "TDataStd_NamedData.hxx".}
-proc GetStringsContainer*(this: var TDataStd_NamedData): TDataStd_DataMapOfStringString {.
+proc getStringsContainer*(this: var TDataStdNamedData): TDataStdDataMapOfStringString {.
     importcpp: "GetStringsContainer", header: "TDataStd_NamedData.hxx".}
-proc ChangeStrings*(this: var TDataStd_NamedData;
-                   theStrings: TDataStd_DataMapOfStringString) {.
+proc changeStrings*(this: var TDataStdNamedData;
+                   theStrings: TDataStdDataMapOfStringString) {.
     importcpp: "ChangeStrings", header: "TDataStd_NamedData.hxx".}
-proc HasBytes*(this: TDataStd_NamedData): Standard_Boolean {.noSideEffect,
-    importcpp: "HasBytes", header: "TDataStd_NamedData.hxx".}
-proc HasByte*(this: TDataStd_NamedData; theName: TCollection_ExtendedString): Standard_Boolean {.
+proc hasBytes*(this: TDataStdNamedData): bool {.noSideEffect, importcpp: "HasBytes",
+    header: "TDataStd_NamedData.hxx".}
+proc hasByte*(this: TDataStdNamedData; theName: TCollectionExtendedString): bool {.
     noSideEffect, importcpp: "HasByte", header: "TDataStd_NamedData.hxx".}
-proc GetByte*(this: var TDataStd_NamedData; theName: TCollection_ExtendedString): Standard_Byte {.
+proc getByte*(this: var TDataStdNamedData; theName: TCollectionExtendedString): StandardByte {.
     importcpp: "GetByte", header: "TDataStd_NamedData.hxx".}
-proc SetByte*(this: var TDataStd_NamedData; theName: TCollection_ExtendedString;
-             theByte: Standard_Byte) {.importcpp: "SetByte",
-                                     header: "TDataStd_NamedData.hxx".}
-proc GetBytesContainer*(this: var TDataStd_NamedData): TDataStd_DataMapOfStringByte {.
+proc setByte*(this: var TDataStdNamedData; theName: TCollectionExtendedString;
+             theByte: StandardByte) {.importcpp: "SetByte",
+                                    header: "TDataStd_NamedData.hxx".}
+proc getBytesContainer*(this: var TDataStdNamedData): TDataStdDataMapOfStringByte {.
     importcpp: "GetBytesContainer", header: "TDataStd_NamedData.hxx".}
-proc ChangeBytes*(this: var TDataStd_NamedData;
-                 theBytes: TDataStd_DataMapOfStringByte) {.
+proc changeBytes*(this: var TDataStdNamedData; theBytes: TDataStdDataMapOfStringByte) {.
     importcpp: "ChangeBytes", header: "TDataStd_NamedData.hxx".}
-proc HasArraysOfIntegers*(this: TDataStd_NamedData): Standard_Boolean {.
-    noSideEffect, importcpp: "HasArraysOfIntegers",
-    header: "TDataStd_NamedData.hxx".}
-proc HasArrayOfIntegers*(this: TDataStd_NamedData;
-                        theName: TCollection_ExtendedString): Standard_Boolean {.
-    noSideEffect, importcpp: "HasArrayOfIntegers", header: "TDataStd_NamedData.hxx".}
-proc GetArrayOfIntegers*(this: var TDataStd_NamedData;
-                        theName: TCollection_ExtendedString): handle[
-    TColStd_HArray1OfInteger] {.importcpp: "GetArrayOfIntegers",
-                               header: "TDataStd_NamedData.hxx".}
-proc SetArrayOfIntegers*(this: var TDataStd_NamedData;
-                        theName: TCollection_ExtendedString;
-                        theArrayOfIntegers: handle[TColStd_HArray1OfInteger]) {.
-    importcpp: "SetArrayOfIntegers", header: "TDataStd_NamedData.hxx".}
-proc GetArraysOfIntegersContainer*(this: var TDataStd_NamedData): TDataStd_DataMapOfStringHArray1OfInteger {.
-    importcpp: "GetArraysOfIntegersContainer", header: "TDataStd_NamedData.hxx".}
-proc ChangeArraysOfIntegers*(this: var TDataStd_NamedData; theArraysOfIntegers: TDataStd_DataMapOfStringHArray1OfInteger) {.
-    importcpp: "ChangeArraysOfIntegers", header: "TDataStd_NamedData.hxx".}
-proc HasArraysOfReals*(this: TDataStd_NamedData): Standard_Boolean {.noSideEffect,
-    importcpp: "HasArraysOfReals", header: "TDataStd_NamedData.hxx".}
-proc HasArrayOfReals*(this: TDataStd_NamedData; theName: TCollection_ExtendedString): Standard_Boolean {.
-    noSideEffect, importcpp: "HasArrayOfReals", header: "TDataStd_NamedData.hxx".}
-proc GetArrayOfReals*(this: var TDataStd_NamedData;
-                     theName: TCollection_ExtendedString): handle[
-    TColStd_HArray1OfReal] {.importcpp: "GetArrayOfReals",
-                            header: "TDataStd_NamedData.hxx".}
-proc SetArrayOfReals*(this: var TDataStd_NamedData;
-                     theName: TCollection_ExtendedString;
-                     theArrayOfReals: handle[TColStd_HArray1OfReal]) {.
-    importcpp: "SetArrayOfReals", header: "TDataStd_NamedData.hxx".}
-proc GetArraysOfRealsContainer*(this: var TDataStd_NamedData): TDataStd_DataMapOfStringHArray1OfReal {.
-    importcpp: "GetArraysOfRealsContainer", header: "TDataStd_NamedData.hxx".}
-proc ChangeArraysOfReals*(this: var TDataStd_NamedData; theArraysOfReals: TDataStd_DataMapOfStringHArray1OfReal) {.
-    importcpp: "ChangeArraysOfReals", header: "TDataStd_NamedData.hxx".}
-proc Clear*(this: var TDataStd_NamedData) {.importcpp: "Clear",
-                                        header: "TDataStd_NamedData.hxx".}
-proc HasDeferredData*(this: TDataStd_NamedData): Standard_Boolean {.noSideEffect,
-    importcpp: "HasDeferredData", header: "TDataStd_NamedData.hxx".}
-proc LoadDeferredData*(this: var TDataStd_NamedData;
-                      theToKeepDeferred: Standard_Boolean = false): Standard_Boolean {.
-    importcpp: "LoadDeferredData", header: "TDataStd_NamedData.hxx".}
-proc UnloadDeferredData*(this: var TDataStd_NamedData): Standard_Boolean {.
-    importcpp: "UnloadDeferredData", header: "TDataStd_NamedData.hxx".}
-proc clear*(this: var TDataStd_NamedData) {.importcpp: "clear",
-                                        header: "TDataStd_NamedData.hxx".}
-proc setInteger*(this: var TDataStd_NamedData; theName: TCollection_ExtendedString;
-                theInteger: Standard_Integer) {.importcpp: "setInteger",
-    header: "TDataStd_NamedData.hxx".}
-proc setReal*(this: var TDataStd_NamedData; theName: TCollection_ExtendedString;
-             theReal: Standard_Real) {.importcpp: "setReal",
-                                     header: "TDataStd_NamedData.hxx".}
-proc setString*(this: var TDataStd_NamedData; theName: TCollection_ExtendedString;
-               theString: TCollection_ExtendedString) {.importcpp: "setString",
-    header: "TDataStd_NamedData.hxx".}
-proc setByte*(this: var TDataStd_NamedData; theName: TCollection_ExtendedString;
-             theByte: Standard_Byte) {.importcpp: "setByte",
-                                     header: "TDataStd_NamedData.hxx".}
-proc setArrayOfIntegers*(this: var TDataStd_NamedData;
-                        theName: TCollection_ExtendedString;
-                        theArrayOfIntegers: handle[TColStd_HArray1OfInteger]) {.
-    importcpp: "setArrayOfIntegers", header: "TDataStd_NamedData.hxx".}
-proc setArrayOfReals*(this: var TDataStd_NamedData;
-                     theName: TCollection_ExtendedString;
-                     theArrayOfReals: handle[TColStd_HArray1OfReal]) {.
-    importcpp: "setArrayOfReals", header: "TDataStd_NamedData.hxx".}
-proc ID*(this: TDataStd_NamedData): Standard_GUID {.noSideEffect, importcpp: "ID",
-    header: "TDataStd_NamedData.hxx".}
-proc Restore*(this: var TDataStd_NamedData; With: handle[TDF_Attribute]) {.
-    importcpp: "Restore", header: "TDataStd_NamedData.hxx".}
-proc NewEmpty*(this: TDataStd_NamedData): handle[TDF_Attribute] {.noSideEffect,
-    importcpp: "NewEmpty", header: "TDataStd_NamedData.hxx".}
-proc Paste*(this: TDataStd_NamedData; Into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
-    header: "TDataStd_NamedData.hxx".}
-proc Dump*(this: TDataStd_NamedData; anOS: var Standard_OStream): var Standard_OStream {.
-    noSideEffect, importcpp: "Dump", header: "TDataStd_NamedData.hxx".}
-proc DumpJson*(this: TDataStd_NamedData; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TDataStd_NamedData.hxx".}
-type
-  TDataStd_NamedDatabase_type* = TDF_Attribute
-
-proc get_type_name*(): cstring {.importcpp: "TDataStd_NamedData::get_type_name(@)",
+proc hasArraysOfIntegers*(this: TDataStdNamedData): bool {.noSideEffect,
+    importcpp: "HasArraysOfIntegers", header: "TDataStd_NamedData.hxx".}
+proc hasArrayOfIntegers*(this: TDataStdNamedData;
+                        theName: TCollectionExtendedString): bool {.noSideEffect,
+    importcpp: "HasArrayOfIntegers", header: "TDataStd_NamedData.hxx".}
+proc getArrayOfIntegers*(this: var TDataStdNamedData;
+                        theName: TCollectionExtendedString): Handle[
+    TColStdHArray1OfInteger] {.importcpp: "GetArrayOfIntegers",
                               header: "TDataStd_NamedData.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc setArrayOfIntegers*(this: var TDataStdNamedData;
+                        theName: TCollectionExtendedString;
+                        theArrayOfIntegers: Handle[TColStdHArray1OfInteger]) {.
+    importcpp: "SetArrayOfIntegers", header: "TDataStd_NamedData.hxx".}
+proc getArraysOfIntegersContainer*(this: var TDataStdNamedData): TDataStdDataMapOfStringHArray1OfInteger {.
+    importcpp: "GetArraysOfIntegersContainer", header: "TDataStd_NamedData.hxx".}
+proc changeArraysOfIntegers*(this: var TDataStdNamedData; theArraysOfIntegers: TDataStdDataMapOfStringHArray1OfInteger) {.
+    importcpp: "ChangeArraysOfIntegers", header: "TDataStd_NamedData.hxx".}
+proc hasArraysOfReals*(this: TDataStdNamedData): bool {.noSideEffect,
+    importcpp: "HasArraysOfReals", header: "TDataStd_NamedData.hxx".}
+proc hasArrayOfReals*(this: TDataStdNamedData; theName: TCollectionExtendedString): bool {.
+    noSideEffect, importcpp: "HasArrayOfReals", header: "TDataStd_NamedData.hxx".}
+proc getArrayOfReals*(this: var TDataStdNamedData;
+                     theName: TCollectionExtendedString): Handle[
+    TColStdHArray1OfReal] {.importcpp: "GetArrayOfReals",
+                           header: "TDataStd_NamedData.hxx".}
+proc setArrayOfReals*(this: var TDataStdNamedData;
+                     theName: TCollectionExtendedString;
+                     theArrayOfReals: Handle[TColStdHArray1OfReal]) {.
+    importcpp: "SetArrayOfReals", header: "TDataStd_NamedData.hxx".}
+proc getArraysOfRealsContainer*(this: var TDataStdNamedData): TDataStdDataMapOfStringHArray1OfReal {.
+    importcpp: "GetArraysOfRealsContainer", header: "TDataStd_NamedData.hxx".}
+proc changeArraysOfReals*(this: var TDataStdNamedData;
+                         theArraysOfReals: TDataStdDataMapOfStringHArray1OfReal) {.
+    importcpp: "ChangeArraysOfReals", header: "TDataStd_NamedData.hxx".}
+proc clear*(this: var TDataStdNamedData) {.importcpp: "Clear",
+                                       header: "TDataStd_NamedData.hxx".}
+proc hasDeferredData*(this: TDataStdNamedData): bool {.noSideEffect,
+    importcpp: "HasDeferredData", header: "TDataStd_NamedData.hxx".}
+proc loadDeferredData*(this: var TDataStdNamedData; theToKeepDeferred: bool = false): bool {.
+    importcpp: "LoadDeferredData", header: "TDataStd_NamedData.hxx".}
+proc unloadDeferredData*(this: var TDataStdNamedData): bool {.
+    importcpp: "UnloadDeferredData", header: "TDataStd_NamedData.hxx".}
+proc clear*(this: var TDataStdNamedData) {.importcpp: "clear",
+                                       header: "TDataStd_NamedData.hxx".}
+proc setInteger*(this: var TDataStdNamedData; theName: TCollectionExtendedString;
+                theInteger: int) {.importcpp: "setInteger",
+                                 header: "TDataStd_NamedData.hxx".}
+proc setReal*(this: var TDataStdNamedData; theName: TCollectionExtendedString;
+             theReal: float) {.importcpp: "setReal",
+                             header: "TDataStd_NamedData.hxx".}
+proc setString*(this: var TDataStdNamedData; theName: TCollectionExtendedString;
+               theString: TCollectionExtendedString) {.importcpp: "setString",
+    header: "TDataStd_NamedData.hxx".}
+proc setByte*(this: var TDataStdNamedData; theName: TCollectionExtendedString;
+             theByte: StandardByte) {.importcpp: "setByte",
+                                    header: "TDataStd_NamedData.hxx".}
+proc setArrayOfIntegers*(this: var TDataStdNamedData;
+                        theName: TCollectionExtendedString;
+                        theArrayOfIntegers: Handle[TColStdHArray1OfInteger]) {.
+    importcpp: "setArrayOfIntegers", header: "TDataStd_NamedData.hxx".}
+proc setArrayOfReals*(this: var TDataStdNamedData;
+                     theName: TCollectionExtendedString;
+                     theArrayOfReals: Handle[TColStdHArray1OfReal]) {.
+    importcpp: "setArrayOfReals", header: "TDataStd_NamedData.hxx".}
+proc id*(this: TDataStdNamedData): StandardGUID {.noSideEffect, importcpp: "ID",
+    header: "TDataStd_NamedData.hxx".}
+proc restore*(this: var TDataStdNamedData; with: Handle[TDF_Attribute]) {.
+    importcpp: "Restore", header: "TDataStd_NamedData.hxx".}
+proc newEmpty*(this: TDataStdNamedData): Handle[TDF_Attribute] {.noSideEffect,
+    importcpp: "NewEmpty", header: "TDataStd_NamedData.hxx".}
+proc paste*(this: TDataStdNamedData; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+    header: "TDataStd_NamedData.hxx".}
+proc dump*(this: TDataStdNamedData; anOS: var StandardOStream): var StandardOStream {.
+    noSideEffect, importcpp: "Dump", header: "TDataStd_NamedData.hxx".}
+proc dumpJson*(this: TDataStdNamedData; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TDataStd_NamedData.hxx".}
+type
+  TDataStdNamedDatabaseType* = TDF_Attribute
+
+proc getTypeName*(): cstring {.importcpp: "TDataStd_NamedData::get_type_name(@)",
+                            header: "TDataStd_NamedData.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDataStd_NamedData::get_type_descriptor(@)",
     header: "TDataStd_NamedData.hxx".}
-proc DynamicType*(this: TDataStd_NamedData): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDataStdNamedData): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_NamedData.hxx".}

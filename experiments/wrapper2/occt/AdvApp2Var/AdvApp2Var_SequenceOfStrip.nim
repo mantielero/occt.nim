@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  AdvApp2Var_Strip, ../NCollection/NCollection_Sequence
-
 type
-  AdvApp2Var_SequenceOfStrip* = NCollection_Sequence[AdvApp2Var_Strip]
+  AdvApp2VarSequenceOfStrip* = NCollectionSequence[AdvApp2VarStrip]
+

@@ -14,36 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopOpeBRepDS/TopOpeBRepDS_define, TopOpeBRepBuild_PWireEdgeSet,
-  TopOpeBRepBuild_WireEdgeSet, TopOpeBRepBuild_ShellFaceSet,
-  TopOpeBRepBuild_GTopo, TopOpeBRepBuild_PaveClassifier, TopOpeBRepBuild_PaveSet,
-  TopOpeBRepBuild_Pave, TopOpeBRepBuild_SolidBuilder, TopOpeBRepBuild_FaceBuilder,
-  TopOpeBRepBuild_EdgeBuilder, TopOpeBRepBuild_Builder, TopOpeBRepBuild_PBuilder,
-  TopOpeBRepBuild_DataMapIteratorOfDataMapOfShapeListOfShapeListOfShape,
-  TopOpeBRepBuild_DataMapOfShapeListOfShapeListOfShape,
-  TopOpeBRepBuild_ListIteratorOfListOfShapeListOfShape,
-  TopOpeBRepBuild_ListOfShapeListOfShape, TopOpeBRepBuild_ShapeListOfShape,
-  TopOpeBRepBuild_HBuilder
-
 const
-  MTBpwes* = TopOpeBRepBuild_PWireEdgeSet
-  MTBwes* = TopOpeBRepBuild_WireEdgeSet
-  MTBsfs* = TopOpeBRepBuild_ShellFaceSet
-  MTBgt* = TopOpeBRepBuild_GTopo
-  MTBpvc* = TopOpeBRepBuild_PaveClassifier
-  MTBpvs* = TopOpeBRepBuild_PaveSet
-  MTBhpv* = handle[TopOpeBRepBuild_Pave]
-  MTBpv* = TopOpeBRepBuild_Pave
-  MTBsb* = TopOpeBRepBuild_SolidBuilder
-  MTBfb* = TopOpeBRepBuild_FaceBuilder
-  MTBeb* = TopOpeBRepBuild_EdgeBuilder
-  MTBbON* = TopOpeBRepBuild_BuilderON
-  MTBb* = TopOpeBRepBuild_Builder
-  MTBpb* = TopOpeBRepBuild_PBuilder
-  MTBdmiodmosloslos* = TopOpeBRepBuild_DataMapIteratorOfDataMapOfShapeListOfShapeListOfShape
-  MTBdmosloslos* = TopOpeBRepBuild_DataMapOfShapeListOfShapeListOfShape
-  MTBlioloslos* = TopOpeBRepBuild_ListIteratorOfListOfShapeListOfShape
-  MTBloslos* = TopOpeBRepBuild_ListOfShapeListOfShape
-  MTBslos* = TopOpeBRepBuild_ShapeListOfShape
-  MTBhb* = handle[TopOpeBRepBuild_HBuilder]
+  MTBpwes* = topOpeBRepBuildPWireEdgeSet
+  MTBwes* = topOpeBRepBuildWireEdgeSet
+  MTBsfs* = topOpeBRepBuildShellFaceSet
+  MTBgt* = topOpeBRepBuildGTopo
+  MTBpvc* = topOpeBRepBuildPaveClassifier
+  MTBpvs* = topOpeBRepBuildPaveSet
+  MTBhpv* = handle[TopOpeBRepBuildPave]
+  MTBpv* = topOpeBRepBuildPave
+  MTBsb* = topOpeBRepBuildSolidBuilder
+  MTBfb* = topOpeBRepBuildFaceBuilder
+  MTBeb* = topOpeBRepBuildEdgeBuilder
+  MTBbON* = topOpeBRepBuildBuilderON
+  MTBb* = topOpeBRepBuildBuilder
+  MTBpb* = topOpeBRepBuildPBuilder
+  MTBdmiodmosloslos* = topOpeBRepBuildDataMapIteratorOfDataMapOfShapeListOfShapeListOfShape
+  MTBdmosloslos* = topOpeBRepBuildDataMapOfShapeListOfShapeListOfShape
+  MTBlioloslos* = topOpeBRepBuildListIteratorOfListOfShapeListOfShape
+  MTBloslos* = topOpeBRepBuildListOfShapeListOfShape
+  MTBslos* = topOpeBRepBuildShapeListOfShape
+  MTBhb* = handle[TopOpeBRepBuildHBuilder]
+

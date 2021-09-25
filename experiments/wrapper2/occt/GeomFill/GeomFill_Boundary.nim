@@ -14,16 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../Standard/Standard_Transient, ../Standard/Standard_Boolean
-
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_Boundary"
 discard "forward decl of GeomFill_Boundary"
 type
-  Handle_GeomFill_Boundary* = handle[GeomFill_Boundary]
+  HandleGeomFillBoundary* = Handle[GeomFillBoundary]
 
 ## ! Root class to define a boundary  which will form part of a
 ## ! contour around a gap requiring filling.
@@ -35,47 +31,44 @@ type
 ## ! GeomFill_ConstrainedFilling framework.
 
 type
-  GeomFill_Boundary* {.importcpp: "GeomFill_Boundary",
-                      header: "GeomFill_Boundary.hxx", bycopy.} = object of Standard_Transient
+  GeomFillBoundary* {.importcpp: "GeomFill_Boundary",
+                     header: "GeomFill_Boundary.hxx", bycopy.} = object of StandardTransient
 
 
-proc Value*(this: GeomFill_Boundary; U: Standard_Real): gp_Pnt {.noSideEffect,
-    importcpp: "Value", header: "GeomFill_Boundary.hxx".}
-proc D1*(this: GeomFill_Boundary; U: Standard_Real; P: var gp_Pnt; V: var gp_Vec) {.
-    noSideEffect, importcpp: "D1", header: "GeomFill_Boundary.hxx".}
-proc HasNormals*(this: GeomFill_Boundary): Standard_Boolean {.noSideEffect,
+proc value*(this: GeomFillBoundary; u: float): Pnt {.noSideEffect, importcpp: "Value",
+    header: "GeomFill_Boundary.hxx".}
+proc d1*(this: GeomFillBoundary; u: float; p: var Pnt; v: var Vec) {.noSideEffect,
+    importcpp: "D1", header: "GeomFill_Boundary.hxx".}
+proc hasNormals*(this: GeomFillBoundary): bool {.noSideEffect,
     importcpp: "HasNormals", header: "GeomFill_Boundary.hxx".}
-proc Norm*(this: GeomFill_Boundary; U: Standard_Real): gp_Vec {.noSideEffect,
-    importcpp: "Norm", header: "GeomFill_Boundary.hxx".}
-proc D1Norm*(this: GeomFill_Boundary; U: Standard_Real; N: var gp_Vec; DN: var gp_Vec) {.
-    noSideEffect, importcpp: "D1Norm", header: "GeomFill_Boundary.hxx".}
-proc Reparametrize*(this: var GeomFill_Boundary; First: Standard_Real;
-                   Last: Standard_Real; HasDF: Standard_Boolean;
-                   HasDL: Standard_Boolean; DF: Standard_Real; DL: Standard_Real;
-                   Rev: Standard_Boolean) {.importcpp: "Reparametrize",
+proc norm*(this: GeomFillBoundary; u: float): Vec {.noSideEffect, importcpp: "Norm",
     header: "GeomFill_Boundary.hxx".}
-proc Points*(this: GeomFill_Boundary; PFirst: var gp_Pnt; PLast: var gp_Pnt) {.
-    noSideEffect, importcpp: "Points", header: "GeomFill_Boundary.hxx".}
-proc Bounds*(this: GeomFill_Boundary; First: var Standard_Real;
-            Last: var Standard_Real) {.noSideEffect, importcpp: "Bounds",
-                                    header: "GeomFill_Boundary.hxx".}
-proc IsDegenerated*(this: GeomFill_Boundary): Standard_Boolean {.noSideEffect,
+proc d1Norm*(this: GeomFillBoundary; u: float; n: var Vec; dn: var Vec) {.noSideEffect,
+    importcpp: "D1Norm", header: "GeomFill_Boundary.hxx".}
+proc reparametrize*(this: var GeomFillBoundary; first: float; last: float; hasDF: bool;
+                   hasDL: bool; df: float; dl: float; rev: bool) {.
+    importcpp: "Reparametrize", header: "GeomFill_Boundary.hxx".}
+proc points*(this: GeomFillBoundary; pFirst: var Pnt; pLast: var Pnt) {.noSideEffect,
+    importcpp: "Points", header: "GeomFill_Boundary.hxx".}
+proc bounds*(this: GeomFillBoundary; first: var float; last: var float) {.noSideEffect,
+    importcpp: "Bounds", header: "GeomFill_Boundary.hxx".}
+proc isDegenerated*(this: GeomFillBoundary): bool {.noSideEffect,
     importcpp: "IsDegenerated", header: "GeomFill_Boundary.hxx".}
-proc Tol3d*(this: GeomFill_Boundary): Standard_Real {.noSideEffect,
-    importcpp: "Tol3d", header: "GeomFill_Boundary.hxx".}
-proc Tol3d*(this: var GeomFill_Boundary; Tol: Standard_Real) {.importcpp: "Tol3d",
+proc tol3d*(this: GeomFillBoundary): float {.noSideEffect, importcpp: "Tol3d",
     header: "GeomFill_Boundary.hxx".}
-proc Tolang*(this: GeomFill_Boundary): Standard_Real {.noSideEffect,
-    importcpp: "Tolang", header: "GeomFill_Boundary.hxx".}
-proc Tolang*(this: var GeomFill_Boundary; Tol: Standard_Real) {.importcpp: "Tolang",
+proc tol3d*(this: var GeomFillBoundary; tol: float) {.importcpp: "Tol3d",
+    header: "GeomFill_Boundary.hxx".}
+proc tolang*(this: GeomFillBoundary): float {.noSideEffect, importcpp: "Tolang",
+    header: "GeomFill_Boundary.hxx".}
+proc tolang*(this: var GeomFillBoundary; tol: float) {.importcpp: "Tolang",
     header: "GeomFill_Boundary.hxx".}
 type
-  GeomFill_Boundarybase_type* = Standard_Transient
+  GeomFillBoundarybaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "GeomFill_Boundary::get_type_name(@)",
-                              header: "GeomFill_Boundary.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "GeomFill_Boundary::get_type_name(@)",
+                            header: "GeomFill_Boundary.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GeomFill_Boundary::get_type_descriptor(@)",
     header: "GeomFill_Boundary.hxx".}
-proc DynamicType*(this: GeomFill_Boundary): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: GeomFillBoundary): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "GeomFill_Boundary.hxx".}

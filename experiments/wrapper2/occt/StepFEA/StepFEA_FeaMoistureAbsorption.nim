@@ -13,16 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepFEA_SymmetricTensor23d,
-  StepFEA_FeaMaterialPropertyRepresentationItem
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepFEA_SymmetricTensor23d"
 discard "forward decl of StepFEA_FeaMoistureAbsorption"
 discard "forward decl of StepFEA_FeaMoistureAbsorption"
 type
-  Handle_StepFEA_FeaMoistureAbsorption* = handle[StepFEA_FeaMoistureAbsorption]
+  HandleStepFEA_FeaMoistureAbsorption* = Handle[StepFEA_FeaMoistureAbsorption]
 
 ## ! Representation of STEP entity FeaMoistureAbsorption
 
@@ -38,24 +34,24 @@ type
 proc constructStepFEA_FeaMoistureAbsorption*(): StepFEA_FeaMoistureAbsorption {.
     constructor, importcpp: "StepFEA_FeaMoistureAbsorption(@)",
     header: "StepFEA_FeaMoistureAbsorption.hxx".}
-proc Init*(this: var StepFEA_FeaMoistureAbsorption;
-          aRepresentationItem_Name: handle[TCollection_HAsciiString];
+proc init*(this: var StepFEA_FeaMoistureAbsorption;
+          aRepresentationItemName: Handle[TCollectionHAsciiString];
           aFeaConstants: StepFEA_SymmetricTensor23d) {.importcpp: "Init",
     header: "StepFEA_FeaMoistureAbsorption.hxx".}
-proc FeaConstants*(this: StepFEA_FeaMoistureAbsorption): StepFEA_SymmetricTensor23d {.
+proc feaConstants*(this: StepFEA_FeaMoistureAbsorption): StepFEA_SymmetricTensor23d {.
     noSideEffect, importcpp: "FeaConstants",
     header: "StepFEA_FeaMoistureAbsorption.hxx".}
-proc SetFeaConstants*(this: var StepFEA_FeaMoistureAbsorption;
-                     FeaConstants: StepFEA_SymmetricTensor23d) {.
+proc setFeaConstants*(this: var StepFEA_FeaMoistureAbsorption;
+                     feaConstants: StepFEA_SymmetricTensor23d) {.
     importcpp: "SetFeaConstants", header: "StepFEA_FeaMoistureAbsorption.hxx".}
 type
-  StepFEA_FeaMoistureAbsorptionbase_type* = StepFEA_FeaMaterialPropertyRepresentationItem
+  StepFEA_FeaMoistureAbsorptionbaseType* = StepFEA_FeaMaterialPropertyRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_FeaMoistureAbsorption::get_type_name(@)",
-                              header: "StepFEA_FeaMoistureAbsorption.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_FeaMoistureAbsorption::get_type_name(@)",
+                            header: "StepFEA_FeaMoistureAbsorption.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_FeaMoistureAbsorption::get_type_descriptor(@)",
     header: "StepFEA_FeaMoistureAbsorption.hxx".}
-proc DynamicType*(this: StepFEA_FeaMoistureAbsorption): handle[Standard_Type] {.
+proc dynamicType*(this: StepFEA_FeaMoistureAbsorption): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_FeaMoistureAbsorption.hxx".}

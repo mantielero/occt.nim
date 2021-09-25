@@ -13,33 +13,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepDimTol_TotalRunoutTolerance"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepDimTol_RWTotalRunoutTolerance* {.importcpp: "RWStepDimTol_RWTotalRunoutTolerance", header: "RWStepDimTol_RWTotalRunoutTolerance.hxx",
-                                        bycopy.} = object ## ! Empty constructor
+  RWStepDimTolRWTotalRunoutTolerance* {.importcpp: "RWStepDimTol_RWTotalRunoutTolerance", header: "RWStepDimTol_RWTotalRunoutTolerance.hxx",
+                                       bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepDimTol_RWTotalRunoutTolerance*(): RWStepDimTol_RWTotalRunoutTolerance {.
+proc constructRWStepDimTolRWTotalRunoutTolerance*(): RWStepDimTolRWTotalRunoutTolerance {.
     constructor, importcpp: "RWStepDimTol_RWTotalRunoutTolerance(@)",
     header: "RWStepDimTol_RWTotalRunoutTolerance.hxx".}
-proc ReadStep*(this: RWStepDimTol_RWTotalRunoutTolerance;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepDimTol_TotalRunoutTolerance]) {.noSideEffect,
+proc readStep*(this: RWStepDimTolRWTotalRunoutTolerance;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepDimTolTotalRunoutTolerance]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepDimTol_RWTotalRunoutTolerance.hxx".}
-proc WriteStep*(this: RWStepDimTol_RWTotalRunoutTolerance;
-               SW: var StepData_StepWriter;
-               ent: handle[StepDimTol_TotalRunoutTolerance]) {.noSideEffect,
+proc writeStep*(this: RWStepDimTolRWTotalRunoutTolerance;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepDimTolTotalRunoutTolerance]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepDimTol_RWTotalRunoutTolerance.hxx".}
-proc Share*(this: RWStepDimTol_RWTotalRunoutTolerance;
-           ent: handle[StepDimTol_TotalRunoutTolerance];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepDimTolRWTotalRunoutTolerance;
+           ent: Handle[StepDimTolTotalRunoutTolerance];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWTotalRunoutTolerance.hxx".}

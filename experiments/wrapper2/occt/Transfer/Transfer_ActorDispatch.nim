@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Transfer_TransferDispatch,
-  Transfer_ActorOfTransientProcess
-
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_GeneralLib"
@@ -30,7 +26,7 @@ discard "forward decl of Transfer_TransientProcess"
 discard "forward decl of Transfer_ActorDispatch"
 discard "forward decl of Transfer_ActorDispatch"
 type
-  Handle_Transfer_ActorDispatch* = handle[Transfer_ActorDispatch]
+  HandleTransferActorDispatch* = Handle[TransferActorDispatch]
 
 ## ! This class allows to work with a TransferDispatch, i.e. to
 ## ! transfer entities from a data set to another one defined by
@@ -43,73 +39,73 @@ type
 ## ! other than one-one)
 
 type
-  Transfer_ActorDispatch* {.importcpp: "Transfer_ActorDispatch",
-                           header: "Transfer_ActorDispatch.hxx", bycopy.} = object of Transfer_ActorOfTransientProcess ##
-                                                                                                                ## !
-                                                                                                                ## Creates
-                                                                                                                ## an
-                                                                                                                ## ActorDispatch
-                                                                                                                ## from
-                                                                                                                ## a
-                                                                                                                ## Model.
-                                                                                                                ## Works
-                                                                                                                ## with
-                                                                                                                ## a
-                                                                                                                ## General
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## Service
-                                                                                                                ## Library,
-                                                                                                                ## given
-                                                                                                                ## as
-                                                                                                                ## an
-                                                                                                                ## Argument
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## This
-                                                                                                                ## causes
-                                                                                                                ## TransferDispatch
-                                                                                                                ## and
-                                                                                                                ## its
-                                                                                                                ## TransientProcess
-                                                                                                                ## to
-                                                                                                                ## be
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## created,
-                                                                                                                ## with
-                                                                                                                ## default
-                                                                                                                ## actor
-                                                                                                                ## <me>
+  TransferActorDispatch* {.importcpp: "Transfer_ActorDispatch",
+                          header: "Transfer_ActorDispatch.hxx", bycopy.} = object of TransferActorOfTransientProcess ##
+                                                                                                              ## !
+                                                                                                              ## Creates
+                                                                                                              ## an
+                                                                                                              ## ActorDispatch
+                                                                                                              ## from
+                                                                                                              ## a
+                                                                                                              ## Model.
+                                                                                                              ## Works
+                                                                                                              ## with
+                                                                                                              ## a
+                                                                                                              ## General
+                                                                                                              ##
+                                                                                                              ## !
+                                                                                                              ## Service
+                                                                                                              ## Library,
+                                                                                                              ## given
+                                                                                                              ## as
+                                                                                                              ## an
+                                                                                                              ## Argument
+                                                                                                              ##
+                                                                                                              ## !
+                                                                                                              ## This
+                                                                                                              ## causes
+                                                                                                              ## TransferDispatch
+                                                                                                              ## and
+                                                                                                              ## its
+                                                                                                              ## TransientProcess
+                                                                                                              ## to
+                                                                                                              ## be
+                                                                                                              ##
+                                                                                                              ## !
+                                                                                                              ## created,
+                                                                                                              ## with
+                                                                                                              ## default
+                                                                                                              ## actor
+                                                                                                              ## <me>
 
 
-proc constructTransfer_ActorDispatch*(amodel: handle[Interface_InterfaceModel];
-                                     lib: Interface_GeneralLib): Transfer_ActorDispatch {.
+proc constructTransferActorDispatch*(amodel: Handle[InterfaceInterfaceModel];
+                                    lib: InterfaceGeneralLib): TransferActorDispatch {.
     constructor, importcpp: "Transfer_ActorDispatch(@)",
     header: "Transfer_ActorDispatch.hxx".}
-proc constructTransfer_ActorDispatch*(amodel: handle[Interface_InterfaceModel];
-                                     protocol: handle[Interface_Protocol]): Transfer_ActorDispatch {.
+proc constructTransferActorDispatch*(amodel: Handle[InterfaceInterfaceModel];
+                                    protocol: Handle[InterfaceProtocol]): TransferActorDispatch {.
     constructor, importcpp: "Transfer_ActorDispatch(@)",
     header: "Transfer_ActorDispatch.hxx".}
-proc constructTransfer_ActorDispatch*(amodel: handle[Interface_InterfaceModel]): Transfer_ActorDispatch {.
+proc constructTransferActorDispatch*(amodel: Handle[InterfaceInterfaceModel]): TransferActorDispatch {.
     constructor, importcpp: "Transfer_ActorDispatch(@)",
     header: "Transfer_ActorDispatch.hxx".}
-proc AddActor*(this: var Transfer_ActorDispatch;
-              actor: handle[Transfer_ActorOfTransientProcess]) {.
+proc addActor*(this: var TransferActorDispatch;
+              actor: Handle[TransferActorOfTransientProcess]) {.
     importcpp: "AddActor", header: "Transfer_ActorDispatch.hxx".}
-proc TransferDispatch*(this: var Transfer_ActorDispatch): var Transfer_TransferDispatch {.
+proc transferDispatch*(this: var TransferActorDispatch): var TransferTransferDispatch {.
     importcpp: "TransferDispatch", header: "Transfer_ActorDispatch.hxx".}
-proc Transfer*(this: var Transfer_ActorDispatch; start: handle[Standard_Transient];
-              TP: handle[Transfer_TransientProcess];
-              theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
-    Transfer_Binder] {.importcpp: "Transfer", header: "Transfer_ActorDispatch.hxx".}
+proc transfer*(this: var TransferActorDispatch; start: Handle[StandardTransient];
+              tp: Handle[TransferTransientProcess];
+              theProgress: MessageProgressRange = messageProgressRange()): Handle[
+    TransferBinder] {.importcpp: "Transfer", header: "Transfer_ActorDispatch.hxx".}
 type
-  Transfer_ActorDispatchbase_type* = Transfer_ActorOfTransientProcess
+  TransferActorDispatchbaseType* = TransferActorOfTransientProcess
 
-proc get_type_name*(): cstring {.importcpp: "Transfer_ActorDispatch::get_type_name(@)",
-                              header: "Transfer_ActorDispatch.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Transfer_ActorDispatch::get_type_name(@)",
+                            header: "Transfer_ActorDispatch.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_ActorDispatch::get_type_descriptor(@)",
     header: "Transfer_ActorDispatch.hxx".}
-proc DynamicType*(this: Transfer_ActorDispatch): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Transfer_ActorDispatch.hxx".}
+proc dynamicType*(this: TransferActorDispatch): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Transfer_ActorDispatch.hxx".}

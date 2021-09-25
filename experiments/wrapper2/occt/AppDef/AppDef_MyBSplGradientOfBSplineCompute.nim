@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../AppParCurves/AppParCurves_MultiBSpCurve,
-  ../math/math_Vector, ../Standard/Standard_Real, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer,
-  ../AppParCurves/AppParCurves_HArray1OfConstraintCouple,
-  ../TColStd/TColStd_Array1OfReal, ../TColStd/TColStd_Array1OfInteger
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of AppDef_MultiLine"
@@ -31,7 +23,7 @@ discard "forward decl of AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute"
 discard "forward decl of AppDef_BSpGradient_BFGSOfMyBSplGradientOfBSplineCompute"
 discard "forward decl of AppParCurves_MultiBSpCurve"
 type
-  AppDef_MyBSplGradientOfBSplineCompute* {.
+  AppDefMyBSplGradientOfBSplineCompute* {.
       importcpp: "AppDef_MyBSplGradientOfBSplineCompute",
       header: "AppDef_MyBSplGradientOfBSplineCompute.hxx", bycopy.} = object ## ! Tries to minimize the sum
                                                                         ## (square(||Qui -
@@ -52,38 +44,34 @@ type
                                                                         ## resulting curve is Deg.
 
 
-proc constructAppDef_MyBSplGradientOfBSplineCompute*(SSP: AppDef_MultiLine;
-    FirstPoint: Standard_Integer; LastPoint: Standard_Integer;
-    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
-    Parameters: var math_Vector; Knots: TColStd_Array1OfReal;
-    Mults: TColStd_Array1OfInteger; Deg: Standard_Integer; Tol3d: Standard_Real;
-    Tol2d: Standard_Real; NbIterations: Standard_Integer = 1): AppDef_MyBSplGradientOfBSplineCompute {.
-    constructor, importcpp: "AppDef_MyBSplGradientOfBSplineCompute(@)",
-    header: "AppDef_MyBSplGradientOfBSplineCompute.hxx".}
-proc constructAppDef_MyBSplGradientOfBSplineCompute*(SSP: AppDef_MultiLine;
-    FirstPoint: Standard_Integer; LastPoint: Standard_Integer;
-    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
-    Parameters: var math_Vector; Knots: TColStd_Array1OfReal;
-    Mults: TColStd_Array1OfInteger; Deg: Standard_Integer; Tol3d: Standard_Real;
-    Tol2d: Standard_Real; NbIterations: Standard_Integer; lambda1: Standard_Real;
-    lambda2: Standard_Real): AppDef_MyBSplGradientOfBSplineCompute {.constructor,
+proc constructAppDefMyBSplGradientOfBSplineCompute*(ssp: AppDefMultiLine;
+    firstPoint: int; lastPoint: int;
+    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
+    parameters: var MathVector; knots: TColStdArray1OfReal;
+    mults: TColStdArray1OfInteger; deg: int; tol3d: float; tol2d: float;
+    nbIterations: int = 1): AppDefMyBSplGradientOfBSplineCompute {.constructor,
     importcpp: "AppDef_MyBSplGradientOfBSplineCompute(@)",
     header: "AppDef_MyBSplGradientOfBSplineCompute.hxx".}
-proc IsDone*(this: AppDef_MyBSplGradientOfBSplineCompute): Standard_Boolean {.
-    noSideEffect, importcpp: "IsDone",
+proc constructAppDefMyBSplGradientOfBSplineCompute*(ssp: AppDefMultiLine;
+    firstPoint: int; lastPoint: int;
+    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
+    parameters: var MathVector; knots: TColStdArray1OfReal;
+    mults: TColStdArray1OfInteger; deg: int; tol3d: float; tol2d: float;
+    nbIterations: int; lambda1: float; lambda2: float): AppDefMyBSplGradientOfBSplineCompute {.
+    constructor, importcpp: "AppDef_MyBSplGradientOfBSplineCompute(@)",
     header: "AppDef_MyBSplGradientOfBSplineCompute.hxx".}
-proc Value*(this: AppDef_MyBSplGradientOfBSplineCompute): AppParCurves_MultiBSpCurve {.
+proc isDone*(this: AppDefMyBSplGradientOfBSplineCompute): bool {.noSideEffect,
+    importcpp: "IsDone", header: "AppDef_MyBSplGradientOfBSplineCompute.hxx".}
+proc value*(this: AppDefMyBSplGradientOfBSplineCompute): AppParCurvesMultiBSpCurve {.
     noSideEffect, importcpp: "Value",
     header: "AppDef_MyBSplGradientOfBSplineCompute.hxx".}
-proc Error*(this: AppDef_MyBSplGradientOfBSplineCompute; Index: Standard_Integer): Standard_Real {.
+proc error*(this: AppDefMyBSplGradientOfBSplineCompute; index: int): float {.
     noSideEffect, importcpp: "Error",
     header: "AppDef_MyBSplGradientOfBSplineCompute.hxx".}
-proc MaxError3d*(this: AppDef_MyBSplGradientOfBSplineCompute): Standard_Real {.
-    noSideEffect, importcpp: "MaxError3d",
-    header: "AppDef_MyBSplGradientOfBSplineCompute.hxx".}
-proc MaxError2d*(this: AppDef_MyBSplGradientOfBSplineCompute): Standard_Real {.
-    noSideEffect, importcpp: "MaxError2d",
-    header: "AppDef_MyBSplGradientOfBSplineCompute.hxx".}
-proc AverageError*(this: AppDef_MyBSplGradientOfBSplineCompute): Standard_Real {.
+proc maxError3d*(this: AppDefMyBSplGradientOfBSplineCompute): float {.noSideEffect,
+    importcpp: "MaxError3d", header: "AppDef_MyBSplGradientOfBSplineCompute.hxx".}
+proc maxError2d*(this: AppDefMyBSplGradientOfBSplineCompute): float {.noSideEffect,
+    importcpp: "MaxError2d", header: "AppDef_MyBSplGradientOfBSplineCompute.hxx".}
+proc averageError*(this: AppDefMyBSplGradientOfBSplineCompute): float {.
     noSideEffect, importcpp: "AverageError",
     header: "AppDef_MyBSplGradientOfBSplineCompute.hxx".}

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of XSControl_WorkSession"
 discard "forward decl of IFSelect_SessionPilot"
 discard "forward decl of XSControl_Vars"
@@ -45,7 +41,7 @@ type
                                                                           ## Transfers
 
 
-proc Session*(pilot: handle[IFSelect_SessionPilot]): handle[XSControl_WorkSession] {.
+proc session*(pilot: Handle[IFSelectSessionPilot]): Handle[XSControlWorkSession] {.
     importcpp: "XSControl::Session(@)", header: "XSControl.hxx".}
-proc Vars*(pilot: handle[IFSelect_SessionPilot]): handle[XSControl_Vars] {.
+proc vars*(pilot: Handle[IFSelectSessionPilot]): Handle[XSControlVars] {.
     importcpp: "XSControl::Vars(@)", header: "XSControl.hxx".}

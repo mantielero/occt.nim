@@ -14,32 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_BoundaryCurve
-
 discard "forward decl of StepGeom_OuterBoundaryCurve"
 discard "forward decl of StepGeom_OuterBoundaryCurve"
 type
-  Handle_StepGeom_OuterBoundaryCurve* = handle[StepGeom_OuterBoundaryCurve]
-  StepGeom_OuterBoundaryCurve* {.importcpp: "StepGeom_OuterBoundaryCurve",
-                                header: "StepGeom_OuterBoundaryCurve.hxx", bycopy.} = object of StepGeom_BoundaryCurve ##
-                                                                                                                ## !
-                                                                                                                ## Returns
-                                                                                                                ## a
-                                                                                                                ## OuterBoundaryCurve
+  HandleStepGeomOuterBoundaryCurve* = Handle[StepGeomOuterBoundaryCurve]
+  StepGeomOuterBoundaryCurve* {.importcpp: "StepGeom_OuterBoundaryCurve",
+                               header: "StepGeom_OuterBoundaryCurve.hxx", bycopy.} = object of StepGeomBoundaryCurve ##
+                                                                                                              ## !
+                                                                                                              ## Returns
+                                                                                                              ## a
+                                                                                                              ## OuterBoundaryCurve
 
 
-proc constructStepGeom_OuterBoundaryCurve*(): StepGeom_OuterBoundaryCurve {.
+proc constructStepGeomOuterBoundaryCurve*(): StepGeomOuterBoundaryCurve {.
     constructor, importcpp: "StepGeom_OuterBoundaryCurve(@)",
     header: "StepGeom_OuterBoundaryCurve.hxx".}
 type
-  StepGeom_OuterBoundaryCurvebase_type* = StepGeom_BoundaryCurve
+  StepGeomOuterBoundaryCurvebaseType* = StepGeomBoundaryCurve
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_OuterBoundaryCurve::get_type_name(@)",
-                              header: "StepGeom_OuterBoundaryCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_OuterBoundaryCurve::get_type_name(@)",
+                            header: "StepGeom_OuterBoundaryCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_OuterBoundaryCurve::get_type_descriptor(@)",
     header: "StepGeom_OuterBoundaryCurve.hxx".}
-proc DynamicType*(this: StepGeom_OuterBoundaryCurve): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomOuterBoundaryCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_OuterBoundaryCurve.hxx".}

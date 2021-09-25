@@ -13,14 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TDF_AttributeDelta
-
 discard "forward decl of TDF_Attribute"
 discard "forward decl of TDF_DeltaOnModification"
 discard "forward decl of TDF_DeltaOnModification"
 type
-  Handle_TDF_DeltaOnModification* = handle[TDF_DeltaOnModification]
+  HandleTDF_DeltaOnModification* = Handle[TDF_DeltaOnModification]
 
 ## ! This class provides default services for an
 ## ! AttributeDelta on a MODIFICATION action.
@@ -45,15 +42,15 @@ type
                                                                                                     ## TDF_DeltaOnModification.
 
 
-proc Apply*(this: var TDF_DeltaOnModification) {.importcpp: "Apply",
+proc apply*(this: var TDF_DeltaOnModification) {.importcpp: "Apply",
     header: "TDF_DeltaOnModification.hxx".}
 type
-  TDF_DeltaOnModificationbase_type* = TDF_AttributeDelta
+  TDF_DeltaOnModificationbaseType* = TDF_AttributeDelta
 
-proc get_type_name*(): cstring {.importcpp: "TDF_DeltaOnModification::get_type_name(@)",
-                              header: "TDF_DeltaOnModification.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDF_DeltaOnModification::get_type_name(@)",
+                            header: "TDF_DeltaOnModification.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDF_DeltaOnModification::get_type_descriptor(@)",
     header: "TDF_DeltaOnModification.hxx".}
-proc DynamicType*(this: TDF_DeltaOnModification): handle[Standard_Type] {.
+proc dynamicType*(this: TDF_DeltaOnModification): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TDF_DeltaOnModification.hxx".}

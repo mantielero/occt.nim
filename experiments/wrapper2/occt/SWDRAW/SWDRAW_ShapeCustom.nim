@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor
-
 ## ! Contains commands to activate package ShapeCustom
 ## ! List of DRAW commands and corresponding functionalities:
 ## ! directfaces - ShapeCustom::DirectFaces
@@ -29,6 +25,6 @@ type
                                                                       ## ShapeCustom
 
 
-proc InitCommands*(theCommands: var Draw_Interpretor) {.
+proc initCommands*(theCommands: var DrawInterpretor) {.
     importcpp: "SWDRAW_ShapeCustom::InitCommands(@)",
     header: "SWDRAW_ShapeCustom.hxx".}

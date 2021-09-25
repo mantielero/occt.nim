@@ -13,47 +13,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Macro, ../Standard/Standard_ShortReal,
-  ../Standard/Standard_Real
-
 ## ! This class represents a graphical 3D point.
 
 type
-  Graphic3d_Vertex* {.importcpp: "Graphic3d_Vertex",
-                     header: "Graphic3d_Vertex.hxx", bycopy.} = object ## ! Creates a point with 0.0, 0.0, 0.0 coordinates.
+  Graphic3dVertex* {.importcpp: "Graphic3d_Vertex", header: "Graphic3d_Vertex.hxx",
+                    bycopy.} = object ## ! Creates a point with 0.0, 0.0, 0.0 coordinates.
     xyz* {.importc: "xyz".}: array[3, cfloat]
 
 
-proc constructGraphic3d_Vertex*(): Graphic3d_Vertex {.constructor,
+proc constructGraphic3dVertex*(): Graphic3dVertex {.constructor,
     importcpp: "Graphic3d_Vertex(@)", header: "Graphic3d_Vertex.hxx".}
-proc constructGraphic3d_Vertex*(theX: Standard_ShortReal; theY: Standard_ShortReal;
-                               theZ: Standard_ShortReal): Graphic3d_Vertex {.
+proc constructGraphic3dVertex*(theX: StandardShortReal; theY: StandardShortReal;
+                              theZ: StandardShortReal): Graphic3dVertex {.
     constructor, importcpp: "Graphic3d_Vertex(@)", header: "Graphic3d_Vertex.hxx".}
-proc constructGraphic3d_Vertex*(theX: Standard_Real; theY: Standard_Real;
-                               theZ: Standard_Real): Graphic3d_Vertex {.
+proc constructGraphic3dVertex*(theX: float; theY: float; theZ: float): Graphic3dVertex {.
     constructor, importcpp: "Graphic3d_Vertex(@)", header: "Graphic3d_Vertex.hxx".}
-proc SetCoord*(this: var Graphic3d_Vertex; theX: Standard_ShortReal;
-              theY: Standard_ShortReal; theZ: Standard_ShortReal) {.
+proc setCoord*(this: var Graphic3dVertex; theX: StandardShortReal;
+              theY: StandardShortReal; theZ: StandardShortReal) {.
     importcpp: "SetCoord", header: "Graphic3d_Vertex.hxx".}
-proc SetCoord*(this: var Graphic3d_Vertex; theX: Standard_Real; theY: Standard_Real;
-              theZ: Standard_Real) {.importcpp: "SetCoord",
-                                   header: "Graphic3d_Vertex.hxx".}
-proc Coord*(this: Graphic3d_Vertex; theX: var Standard_ShortReal;
-           theY: var Standard_ShortReal; theZ: var Standard_ShortReal) {.noSideEffect,
+proc setCoord*(this: var Graphic3dVertex; theX: float; theY: float; theZ: float) {.
+    importcpp: "SetCoord", header: "Graphic3d_Vertex.hxx".}
+proc coord*(this: Graphic3dVertex; theX: var StandardShortReal;
+           theY: var StandardShortReal; theZ: var StandardShortReal) {.noSideEffect,
     importcpp: "Coord", header: "Graphic3d_Vertex.hxx".}
-proc Coord*(this: Graphic3d_Vertex; theX: var Standard_Real; theY: var Standard_Real;
-           theZ: var Standard_Real) {.noSideEffect, importcpp: "Coord",
-                                   header: "Graphic3d_Vertex.hxx".}
-proc X*(this: Graphic3d_Vertex): Standard_ShortReal {.noSideEffect, importcpp: "X",
+proc coord*(this: Graphic3dVertex; theX: var float; theY: var float; theZ: var float) {.
+    noSideEffect, importcpp: "Coord", header: "Graphic3d_Vertex.hxx".}
+proc x*(this: Graphic3dVertex): StandardShortReal {.noSideEffect, importcpp: "X",
     header: "Graphic3d_Vertex.hxx".}
-proc Y*(this: Graphic3d_Vertex): Standard_ShortReal {.noSideEffect, importcpp: "Y",
+proc y*(this: Graphic3dVertex): StandardShortReal {.noSideEffect, importcpp: "Y",
     header: "Graphic3d_Vertex.hxx".}
-proc Z*(this: Graphic3d_Vertex): Standard_ShortReal {.noSideEffect, importcpp: "Z",
+proc z*(this: Graphic3dVertex): StandardShortReal {.noSideEffect, importcpp: "Z",
     header: "Graphic3d_Vertex.hxx".}
-proc Distance*(this: Graphic3d_Vertex; theOther: Graphic3d_Vertex): Standard_ShortReal {.
+proc distance*(this: Graphic3dVertex; theOther: Graphic3dVertex): StandardShortReal {.
     noSideEffect, importcpp: "Distance", header: "Graphic3d_Vertex.hxx".}
-proc DumpJson*(this: Graphic3d_Vertex; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Graphic3d_Vertex.hxx".}
+proc dumpJson*(this: Graphic3dVertex; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Graphic3d_Vertex.hxx".}

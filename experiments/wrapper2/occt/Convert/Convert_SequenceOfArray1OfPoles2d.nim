@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TColgp/TColgp_SequenceOfArray1OfPnt2d
-
 type
-  Convert_SequenceOfArray1OfPoles2d* = TColgp_SequenceOfArray1OfPnt2d
+  ConvertSequenceOfArray1OfPoles2d* = TColgpSequenceOfArray1OfPnt2d
+

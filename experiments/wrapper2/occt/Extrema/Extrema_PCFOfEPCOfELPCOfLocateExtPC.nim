@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Pnt, ../Standard/Standard_Address,
-  ../Standard/Standard_Real, ../TColStd/TColStd_SequenceOfReal,
-  ../TColStd/TColStd_SequenceOfInteger, Extrema_SequenceOfPOnCurv,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
-  ../math/math_FunctionWithDerivative
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of Adaptor3d_Curve"
@@ -30,47 +22,42 @@ discard "forward decl of Extrema_POnCurv"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 type
-  Extrema_PCFOfEPCOfELPCOfLocateExtPC* {.importcpp: "Extrema_PCFOfEPCOfELPCOfLocateExtPC", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx",
-                                        bycopy.} = object of math_FunctionWithDerivative
+  ExtremaPCFOfEPCOfELPCOfLocateExtPC* {.importcpp: "Extrema_PCFOfEPCOfELPCOfLocateExtPC", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx",
+                                       bycopy.} = object of MathFunctionWithDerivative
 
 
-proc constructExtrema_PCFOfEPCOfELPCOfLocateExtPC*(): Extrema_PCFOfEPCOfELPCOfLocateExtPC {.
+proc constructExtremaPCFOfEPCOfELPCOfLocateExtPC*(): ExtremaPCFOfEPCOfELPCOfLocateExtPC {.
     constructor, importcpp: "Extrema_PCFOfEPCOfELPCOfLocateExtPC(@)",
     header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}
-proc constructExtrema_PCFOfEPCOfELPCOfLocateExtPC*(P: gp_Pnt; C: Adaptor3d_Curve): Extrema_PCFOfEPCOfELPCOfLocateExtPC {.
+proc constructExtremaPCFOfEPCOfELPCOfLocateExtPC*(p: Pnt; c: Adaptor3dCurve): ExtremaPCFOfEPCOfELPCOfLocateExtPC {.
     constructor, importcpp: "Extrema_PCFOfEPCOfELPCOfLocateExtPC(@)",
     header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}
-proc Initialize*(this: var Extrema_PCFOfEPCOfELPCOfLocateExtPC; C: Adaptor3d_Curve) {.
+proc initialize*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC; c: Adaptor3dCurve) {.
     importcpp: "Initialize", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}
-proc SetPoint*(this: var Extrema_PCFOfEPCOfELPCOfLocateExtPC; P: gp_Pnt) {.
+proc setPoint*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC; p: Pnt) {.
     importcpp: "SetPoint", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}
-proc Value*(this: var Extrema_PCFOfEPCOfELPCOfLocateExtPC; U: Standard_Real;
-           F: var Standard_Real): Standard_Boolean {.importcpp: "Value",
-    header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}
-proc Derivative*(this: var Extrema_PCFOfEPCOfELPCOfLocateExtPC; U: Standard_Real;
-                DF: var Standard_Real): Standard_Boolean {.importcpp: "Derivative",
-    header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}
-proc Values*(this: var Extrema_PCFOfEPCOfELPCOfLocateExtPC; U: Standard_Real;
-            F: var Standard_Real; DF: var Standard_Real): Standard_Boolean {.
-    importcpp: "Values", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}
-proc GetStateNumber*(this: var Extrema_PCFOfEPCOfELPCOfLocateExtPC): Standard_Integer {.
+proc value*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC; u: float; f: var float): bool {.
+    importcpp: "Value", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}
+proc derivative*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC; u: float; df: var float): bool {.
+    importcpp: "Derivative", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}
+proc values*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC; u: float; f: var float;
+            df: var float): bool {.importcpp: "Values", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}
+proc getStateNumber*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC): int {.
     importcpp: "GetStateNumber", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}
-proc NbExt*(this: Extrema_PCFOfEPCOfELPCOfLocateExtPC): Standard_Integer {.
-    noSideEffect, importcpp: "NbExt",
-    header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}
-proc SquareDistance*(this: Extrema_PCFOfEPCOfELPCOfLocateExtPC; N: Standard_Integer): Standard_Real {.
+proc nbExt*(this: ExtremaPCFOfEPCOfELPCOfLocateExtPC): int {.noSideEffect,
+    importcpp: "NbExt", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}
+proc squareDistance*(this: ExtremaPCFOfEPCOfELPCOfLocateExtPC; n: int): float {.
     noSideEffect, importcpp: "SquareDistance",
     header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}
-proc IsMin*(this: Extrema_PCFOfEPCOfELPCOfLocateExtPC; N: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsMin",
-    header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}
-proc Point*(this: Extrema_PCFOfEPCOfELPCOfLocateExtPC; N: Standard_Integer): Extrema_POnCurv {.
+proc isMin*(this: ExtremaPCFOfEPCOfELPCOfLocateExtPC; n: int): bool {.noSideEffect,
+    importcpp: "IsMin", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}
+proc point*(this: ExtremaPCFOfEPCOfELPCOfLocateExtPC; n: int): ExtremaPOnCurv {.
     noSideEffect, importcpp: "Point",
     header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}
-proc SubIntervalInitialize*(this: var Extrema_PCFOfEPCOfELPCOfLocateExtPC;
-                           theUfirst: Standard_Real; theUlast: Standard_Real) {.
+proc subIntervalInitialize*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC;
+                           theUfirst: float; theUlast: float) {.
     importcpp: "SubIntervalInitialize",
     header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}
-proc SearchOfTolerance*(this: var Extrema_PCFOfEPCOfELPCOfLocateExtPC): Standard_Real {.
+proc searchOfTolerance*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC): float {.
     importcpp: "SearchOfTolerance",
     header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC.hxx".}

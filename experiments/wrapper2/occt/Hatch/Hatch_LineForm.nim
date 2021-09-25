@@ -17,7 +17,8 @@
 ## ! Form of a trimmed line
 
 type
-  Hatch_LineForm* {.size: sizeof(cint), importcpp: "Hatch_LineForm",
-                   header: "Hatch_LineForm.hxx".} = enum
-    Hatch_XLINE, Hatch_YLINE, Hatch_ANYLINE
+  HatchLineForm* {.size: sizeof(cint), importcpp: "Hatch_LineForm",
+                  header: "Hatch_LineForm.hxx".} = enum
+    HatchXLINE, HatchYLINE, HatchANYLINE
+
 

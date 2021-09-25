@@ -14,28 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_WeekOfYearAndDayDate"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepBasic_RWWeekOfYearAndDayDate* {.importcpp: "RWStepBasic_RWWeekOfYearAndDayDate", header: "RWStepBasic_RWWeekOfYearAndDayDate.hxx",
-                                       bycopy.} = object
+  RWStepBasicRWWeekOfYearAndDayDate* {.importcpp: "RWStepBasic_RWWeekOfYearAndDayDate", header: "RWStepBasic_RWWeekOfYearAndDayDate.hxx",
+                                      bycopy.} = object
 
 
-proc constructRWStepBasic_RWWeekOfYearAndDayDate*(): RWStepBasic_RWWeekOfYearAndDayDate {.
+proc constructRWStepBasicRWWeekOfYearAndDayDate*(): RWStepBasicRWWeekOfYearAndDayDate {.
     constructor, importcpp: "RWStepBasic_RWWeekOfYearAndDayDate(@)",
     header: "RWStepBasic_RWWeekOfYearAndDayDate.hxx".}
-proc ReadStep*(this: RWStepBasic_RWWeekOfYearAndDayDate;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepBasic_WeekOfYearAndDayDate]) {.noSideEffect,
+proc readStep*(this: RWStepBasicRWWeekOfYearAndDayDate;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepBasicWeekOfYearAndDayDate]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWWeekOfYearAndDayDate.hxx".}
-proc WriteStep*(this: RWStepBasic_RWWeekOfYearAndDayDate;
-               SW: var StepData_StepWriter;
-               ent: handle[StepBasic_WeekOfYearAndDayDate]) {.noSideEffect,
+proc writeStep*(this: RWStepBasicRWWeekOfYearAndDayDate;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepBasicWeekOfYearAndDayDate]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWWeekOfYearAndDayDate.hxx".}

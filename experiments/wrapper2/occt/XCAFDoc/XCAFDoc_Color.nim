@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Quantity/Quantity_Color,
-  ../Quantity/Quantity_ColorRGBA, ../TDF/TDF_Attribute,
-  ../Quantity/Quantity_NameOfColor, ../Standard/Standard_Real
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
 discard "forward decl of Quantity_Color"
@@ -27,65 +22,63 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of XCAFDoc_Color"
 discard "forward decl of XCAFDoc_Color"
 type
-  Handle_XCAFDoc_Color* = handle[XCAFDoc_Color]
+  HandleXCAFDocColor* = Handle[XCAFDocColor]
 
 ## ! attribute to store color
 
 type
-  XCAFDoc_Color* {.importcpp: "XCAFDoc_Color", header: "XCAFDoc_Color.hxx", bycopy.} = object of TDF_Attribute
+  XCAFDocColor* {.importcpp: "XCAFDoc_Color", header: "XCAFDoc_Color.hxx", bycopy.} = object of TDF_Attribute
 
 
-proc constructXCAFDoc_Color*(): XCAFDoc_Color {.constructor,
+proc constructXCAFDocColor*(): XCAFDocColor {.constructor,
     importcpp: "XCAFDoc_Color(@)", header: "XCAFDoc_Color.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "XCAFDoc_Color::GetID(@)",
-                            header: "XCAFDoc_Color.hxx".}
-proc Set*(label: TDF_Label; C: Quantity_Color): handle[XCAFDoc_Color] {.
+proc getID*(): StandardGUID {.importcpp: "XCAFDoc_Color::GetID(@)",
+                           header: "XCAFDoc_Color.hxx".}
+proc set*(label: TDF_Label; c: QuantityColor): Handle[XCAFDocColor] {.
     importcpp: "XCAFDoc_Color::Set(@)", header: "XCAFDoc_Color.hxx".}
-proc Set*(label: TDF_Label; C: Quantity_ColorRGBA): handle[XCAFDoc_Color] {.
+proc set*(label: TDF_Label; c: QuantityColorRGBA): Handle[XCAFDocColor] {.
     importcpp: "XCAFDoc_Color::Set(@)", header: "XCAFDoc_Color.hxx".}
-proc Set*(label: TDF_Label; C: Quantity_NameOfColor): handle[XCAFDoc_Color] {.
+proc set*(label: TDF_Label; c: QuantityNameOfColor): Handle[XCAFDocColor] {.
     importcpp: "XCAFDoc_Color::Set(@)", header: "XCAFDoc_Color.hxx".}
-proc Set*(label: TDF_Label; R: Standard_Real; G: Standard_Real; B: Standard_Real;
-         alpha: Standard_Real = 1.0): handle[XCAFDoc_Color] {.
-    importcpp: "XCAFDoc_Color::Set(@)", header: "XCAFDoc_Color.hxx".}
-proc Set*(this: var XCAFDoc_Color; C: Quantity_Color) {.importcpp: "Set",
+proc set*(label: TDF_Label; r: float; g: float; b: float; alpha: float = 1.0): Handle[
+    XCAFDocColor] {.importcpp: "XCAFDoc_Color::Set(@)", header: "XCAFDoc_Color.hxx".}
+proc set*(this: var XCAFDocColor; c: QuantityColor) {.importcpp: "Set",
     header: "XCAFDoc_Color.hxx".}
-proc Set*(this: var XCAFDoc_Color; C: Quantity_ColorRGBA) {.importcpp: "Set",
+proc set*(this: var XCAFDocColor; c: QuantityColorRGBA) {.importcpp: "Set",
     header: "XCAFDoc_Color.hxx".}
-proc Set*(this: var XCAFDoc_Color; C: Quantity_NameOfColor) {.importcpp: "Set",
+proc set*(this: var XCAFDocColor; c: QuantityNameOfColor) {.importcpp: "Set",
     header: "XCAFDoc_Color.hxx".}
-proc Set*(this: var XCAFDoc_Color; R: Standard_Real; G: Standard_Real; B: Standard_Real;
-         alpha: Standard_Real = 1.0) {.importcpp: "Set", header: "XCAFDoc_Color.hxx".}
-proc GetColor*(this: XCAFDoc_Color): Quantity_Color {.noSideEffect,
+proc set*(this: var XCAFDocColor; r: float; g: float; b: float; alpha: float = 1.0) {.
+    importcpp: "Set", header: "XCAFDoc_Color.hxx".}
+proc getColor*(this: XCAFDocColor): QuantityColor {.noSideEffect,
     importcpp: "GetColor", header: "XCAFDoc_Color.hxx".}
-proc GetColorRGBA*(this: XCAFDoc_Color): Quantity_ColorRGBA {.noSideEffect,
+proc getColorRGBA*(this: XCAFDocColor): QuantityColorRGBA {.noSideEffect,
     importcpp: "GetColorRGBA", header: "XCAFDoc_Color.hxx".}
-proc GetNOC*(this: XCAFDoc_Color): Quantity_NameOfColor {.noSideEffect,
+proc getNOC*(this: XCAFDocColor): QuantityNameOfColor {.noSideEffect,
     importcpp: "GetNOC", header: "XCAFDoc_Color.hxx".}
-proc GetRGB*(this: XCAFDoc_Color; R: var Standard_Real; G: var Standard_Real;
-            B: var Standard_Real) {.noSideEffect, importcpp: "GetRGB",
-                                 header: "XCAFDoc_Color.hxx".}
-proc GetAlpha*(this: XCAFDoc_Color): Standard_ShortReal {.noSideEffect,
+proc getRGB*(this: XCAFDocColor; r: var float; g: var float; b: var float) {.noSideEffect,
+    importcpp: "GetRGB", header: "XCAFDoc_Color.hxx".}
+proc getAlpha*(this: XCAFDocColor): StandardShortReal {.noSideEffect,
     importcpp: "GetAlpha", header: "XCAFDoc_Color.hxx".}
-proc ID*(this: XCAFDoc_Color): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: XCAFDocColor): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "XCAFDoc_Color.hxx".}
-proc Restore*(this: var XCAFDoc_Color; With: handle[TDF_Attribute]) {.
+proc restore*(this: var XCAFDocColor; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "XCAFDoc_Color.hxx".}
-proc NewEmpty*(this: XCAFDoc_Color): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: XCAFDocColor): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "XCAFDoc_Color.hxx".}
-proc Paste*(this: XCAFDoc_Color; Into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: XCAFDocColor; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "XCAFDoc_Color.hxx".}
-proc DumpJson*(this: XCAFDoc_Color; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "XCAFDoc_Color.hxx".}
+proc dumpJson*(this: XCAFDocColor; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "XCAFDoc_Color.hxx".}
 type
-  XCAFDoc_Colorbase_type* = TDF_Attribute
+  XCAFDocColorbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "XCAFDoc_Color::get_type_name(@)",
-                              header: "XCAFDoc_Color.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XCAFDoc_Color::get_type_name(@)",
+                            header: "XCAFDoc_Color.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XCAFDoc_Color::get_type_descriptor(@)",
     header: "XCAFDoc_Color.hxx".}
-proc DynamicType*(this: XCAFDoc_Color): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: XCAFDocColor): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XCAFDoc_Color.hxx".}

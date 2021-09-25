@@ -13,40 +13,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepDimTol_GeometricToleranceModifier,
-  StepDimTol_Array1OfGeometricToleranceModifier,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepDimTol_HArray1OfGeometricToleranceModifier* {.
+  StepDimTolHArray1OfGeometricToleranceModifier* {.
       importcpp: "StepDimTol_HArray1OfGeometricToleranceModifier",
-      header: "StepDimTol_HArray1OfGeometricToleranceModifier.hxx", bycopy.} = object of StepDimTol_Array1OfGeometricToleranceModifier
+      header: "StepDimTol_HArray1OfGeometricToleranceModifier.hxx", bycopy.} = object of StepDimTolArray1OfGeometricToleranceModifier
 
 
-proc constructStepDimTol_HArray1OfGeometricToleranceModifier*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepDimTol_HArray1OfGeometricToleranceModifier {.
+proc constructStepDimTolHArray1OfGeometricToleranceModifier*(theLower: int;
+    theUpper: int): StepDimTolHArray1OfGeometricToleranceModifier {.constructor,
+    importcpp: "StepDimTol_HArray1OfGeometricToleranceModifier(@)",
+    header: "StepDimTol_HArray1OfGeometricToleranceModifier.hxx".}
+proc constructStepDimTolHArray1OfGeometricToleranceModifier*(theLower: int;
+    theUpper: int; theValue: ValueType): StepDimTolHArray1OfGeometricToleranceModifier {.
     constructor, importcpp: "StepDimTol_HArray1OfGeometricToleranceModifier(@)",
     header: "StepDimTol_HArray1OfGeometricToleranceModifier.hxx".}
-proc constructStepDimTol_HArray1OfGeometricToleranceModifier*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepDimTol_HArray1OfGeometricToleranceModifier {.
+proc constructStepDimTolHArray1OfGeometricToleranceModifier*(
+    theOther: StepDimTolArray1OfGeometricToleranceModifier): StepDimTolHArray1OfGeometricToleranceModifier {.
     constructor, importcpp: "StepDimTol_HArray1OfGeometricToleranceModifier(@)",
     header: "StepDimTol_HArray1OfGeometricToleranceModifier.hxx".}
-proc constructStepDimTol_HArray1OfGeometricToleranceModifier*(
-    theOther: StepDimTol_Array1OfGeometricToleranceModifier): StepDimTol_HArray1OfGeometricToleranceModifier {.
-    constructor, importcpp: "StepDimTol_HArray1OfGeometricToleranceModifier(@)",
-    header: "StepDimTol_HArray1OfGeometricToleranceModifier.hxx".}
-proc Array1*(this: StepDimTol_HArray1OfGeometricToleranceModifier): StepDimTol_Array1OfGeometricToleranceModifier {.
+proc array1*(this: StepDimTolHArray1OfGeometricToleranceModifier): StepDimTolArray1OfGeometricToleranceModifier {.
     noSideEffect, importcpp: "Array1",
     header: "StepDimTol_HArray1OfGeometricToleranceModifier.hxx".}
-proc ChangeArray1*(this: var StepDimTol_HArray1OfGeometricToleranceModifier): var StepDimTol_Array1OfGeometricToleranceModifier {.
+proc changeArray1*(this: var StepDimTolHArray1OfGeometricToleranceModifier): var StepDimTolArray1OfGeometricToleranceModifier {.
     importcpp: "ChangeArray1",
     header: "StepDimTol_HArray1OfGeometricToleranceModifier.hxx".}
 type
-  StepDimTol_HArray1OfGeometricToleranceModifierbase_type* = MMgt_TShared
+  StepDimTolHArray1OfGeometricToleranceModifierbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_HArray1OfGeometricToleranceModifier::get_type_name(@)", header: "StepDimTol_HArray1OfGeometricToleranceModifier.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepDimTol_HArray1OfGeometricToleranceModifier::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_HArray1OfGeometricToleranceModifier::get_type_name(@)", header: "StepDimTol_HArray1OfGeometricToleranceModifier.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepDimTol_HArray1OfGeometricToleranceModifier::get_type_descriptor(@)",
     header: "StepDimTol_HArray1OfGeometricToleranceModifier.hxx".}
-proc DynamicType*(this: StepDimTol_HArray1OfGeometricToleranceModifier): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepDimTol_HArray1OfGeometricToleranceModifier.hxx".}
+proc dynamicType*(this: StepDimTolHArray1OfGeometricToleranceModifier): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepDimTol_HArray1OfGeometricToleranceModifier.hxx".}

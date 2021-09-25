@@ -14,30 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepGeom_BoundaryCurve"
 discard "forward decl of StepGeom_DegeneratePcurve"
 type
-  StepGeom_SurfaceBoundary* {.importcpp: "StepGeom_SurfaceBoundary",
-                             header: "StepGeom_SurfaceBoundary.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                       ## !
-                                                                                                       ## Empty
-                                                                                                       ## constructor
+  StepGeomSurfaceBoundary* {.importcpp: "StepGeom_SurfaceBoundary",
+                            header: "StepGeom_SurfaceBoundary.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                     ## !
+                                                                                                     ## Empty
+                                                                                                     ## constructor
 
 
-proc constructStepGeom_SurfaceBoundary*(): StepGeom_SurfaceBoundary {.constructor,
+proc constructStepGeomSurfaceBoundary*(): StepGeomSurfaceBoundary {.constructor,
     importcpp: "StepGeom_SurfaceBoundary(@)",
     header: "StepGeom_SurfaceBoundary.hxx".}
-proc CaseNum*(this: StepGeom_SurfaceBoundary; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepGeomSurfaceBoundary; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepGeom_SurfaceBoundary.hxx".}
-proc BoundaryCurve*(this: StepGeom_SurfaceBoundary): handle[StepGeom_BoundaryCurve] {.
+proc boundaryCurve*(this: StepGeomSurfaceBoundary): Handle[StepGeomBoundaryCurve] {.
     noSideEffect, importcpp: "BoundaryCurve",
     header: "StepGeom_SurfaceBoundary.hxx".}
-proc DegeneratePcurve*(this: StepGeom_SurfaceBoundary): handle[
-    StepGeom_DegeneratePcurve] {.noSideEffect, importcpp: "DegeneratePcurve",
-                                header: "StepGeom_SurfaceBoundary.hxx".}
+proc degeneratePcurve*(this: StepGeomSurfaceBoundary): Handle[
+    StepGeomDegeneratePcurve] {.noSideEffect, importcpp: "DegeneratePcurve",
+                               header: "StepGeom_SurfaceBoundary.hxx".}

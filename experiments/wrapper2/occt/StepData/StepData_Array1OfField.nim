@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepData_Field, ../NCollection/NCollection_Array1
-
 type
-  StepData_Array1OfField* = NCollection_Array1[StepData_Field]
+  StepDataArray1OfField* = NCollectionArray1[StepDataField]
+

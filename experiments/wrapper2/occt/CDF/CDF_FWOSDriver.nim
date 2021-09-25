@@ -14,17 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, CDF_MetaDataDriver,
-  ../CDM/CDM_MetaDataLookUpTable, ../Standard/Standard_Boolean
-
 discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of CDM_MetaData"
 discard "forward decl of CDM_Document"
 discard "forward decl of CDF_FWOSDriver"
 discard "forward decl of CDF_FWOSDriver"
 type
-  Handle_CDF_FWOSDriver* = handle[CDF_FWOSDriver]
+  HandleCDF_FWOSDriver* = Handle[CDF_FWOSDriver]
   CDF_FWOSDriver* {.importcpp: "CDF_FWOSDriver", header: "CDF_FWOSDriver.hxx", bycopy.} = object of CDF_MetaDataDriver ##
                                                                                                              ## !
                                                                                                              ## Initializes
@@ -64,30 +60,30 @@ type
 
 proc constructCDF_FWOSDriver*(theLookUpTable: var CDM_MetaDataLookUpTable): CDF_FWOSDriver {.
     constructor, importcpp: "CDF_FWOSDriver(@)", header: "CDF_FWOSDriver.hxx".}
-proc Find*(this: var CDF_FWOSDriver; aFolder: TCollection_ExtendedString;
-          aName: TCollection_ExtendedString; aVersion: TCollection_ExtendedString): Standard_Boolean {.
+proc find*(this: var CDF_FWOSDriver; aFolder: TCollectionExtendedString;
+          aName: TCollectionExtendedString; aVersion: TCollectionExtendedString): bool {.
     importcpp: "Find", header: "CDF_FWOSDriver.hxx".}
-proc HasReadPermission*(this: var CDF_FWOSDriver;
-                       aFolder: TCollection_ExtendedString;
-                       aName: TCollection_ExtendedString;
-                       aVersion: TCollection_ExtendedString): Standard_Boolean {.
+proc hasReadPermission*(this: var CDF_FWOSDriver;
+                       aFolder: TCollectionExtendedString;
+                       aName: TCollectionExtendedString;
+                       aVersion: TCollectionExtendedString): bool {.
     importcpp: "HasReadPermission", header: "CDF_FWOSDriver.hxx".}
-proc FindFolder*(this: var CDF_FWOSDriver; aFolder: TCollection_ExtendedString): Standard_Boolean {.
+proc findFolder*(this: var CDF_FWOSDriver; aFolder: TCollectionExtendedString): bool {.
     importcpp: "FindFolder", header: "CDF_FWOSDriver.hxx".}
-proc DefaultFolder*(this: var CDF_FWOSDriver): TCollection_ExtendedString {.
+proc defaultFolder*(this: var CDF_FWOSDriver): TCollectionExtendedString {.
     importcpp: "DefaultFolder", header: "CDF_FWOSDriver.hxx".}
-proc BuildFileName*(this: var CDF_FWOSDriver; aDocument: handle[CDM_Document]): TCollection_ExtendedString {.
+proc buildFileName*(this: var CDF_FWOSDriver; aDocument: Handle[CDM_Document]): TCollectionExtendedString {.
     importcpp: "BuildFileName", header: "CDF_FWOSDriver.hxx".}
-proc SetName*(this: var CDF_FWOSDriver; aDocument: handle[CDM_Document];
-             aName: TCollection_ExtendedString): TCollection_ExtendedString {.
+proc setName*(this: var CDF_FWOSDriver; aDocument: Handle[CDM_Document];
+             aName: TCollectionExtendedString): TCollectionExtendedString {.
     importcpp: "SetName", header: "CDF_FWOSDriver.hxx".}
 type
-  CDF_FWOSDriverbase_type* = CDF_MetaDataDriver
+  CDF_FWOSDriverbaseType* = CDF_MetaDataDriver
 
-proc get_type_name*(): cstring {.importcpp: "CDF_FWOSDriver::get_type_name(@)",
-                              header: "CDF_FWOSDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "CDF_FWOSDriver::get_type_name(@)",
+                            header: "CDF_FWOSDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "CDF_FWOSDriver::get_type_descriptor(@)",
     header: "CDF_FWOSDriver.hxx".}
-proc DynamicType*(this: CDF_FWOSDriver): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: CDF_FWOSDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "CDF_FWOSDriver.hxx".}

@@ -14,38 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_QuasiUniformSurfaceAndRationalBSplineSurface"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeom_RWQuasiUniformSurfaceAndRationalBSplineSurface* {.
+  RWStepGeomRWQuasiUniformSurfaceAndRationalBSplineSurface* {.
       importcpp: "RWStepGeom_RWQuasiUniformSurfaceAndRationalBSplineSurface",
       header: "RWStepGeom_RWQuasiUniformSurfaceAndRationalBSplineSurface.hxx",
       bycopy.} = object
 
 
-proc constructRWStepGeom_RWQuasiUniformSurfaceAndRationalBSplineSurface*(): RWStepGeom_RWQuasiUniformSurfaceAndRationalBSplineSurface {.
+proc constructRWStepGeomRWQuasiUniformSurfaceAndRationalBSplineSurface*(): RWStepGeomRWQuasiUniformSurfaceAndRationalBSplineSurface {.
     constructor,
     importcpp: "RWStepGeom_RWQuasiUniformSurfaceAndRationalBSplineSurface(@)",
     header: "RWStepGeom_RWQuasiUniformSurfaceAndRationalBSplineSurface.hxx".}
-proc ReadStep*(this: RWStepGeom_RWQuasiUniformSurfaceAndRationalBSplineSurface;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check]; ent: handle[
-    StepGeom_QuasiUniformSurfaceAndRationalBSplineSurface]) {.noSideEffect,
-    importcpp: "ReadStep",
+proc readStep*(this: RWStepGeomRWQuasiUniformSurfaceAndRationalBSplineSurface;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepGeomQuasiUniformSurfaceAndRationalBSplineSurface]) {.
+    noSideEffect, importcpp: "ReadStep",
     header: "RWStepGeom_RWQuasiUniformSurfaceAndRationalBSplineSurface.hxx".}
-proc WriteStep*(this: RWStepGeom_RWQuasiUniformSurfaceAndRationalBSplineSurface;
-               SW: var StepData_StepWriter; ent: handle[
-    StepGeom_QuasiUniformSurfaceAndRationalBSplineSurface]) {.noSideEffect,
+proc writeStep*(this: RWStepGeomRWQuasiUniformSurfaceAndRationalBSplineSurface;
+               sw: var StepDataStepWriter; ent: Handle[
+    StepGeomQuasiUniformSurfaceAndRationalBSplineSurface]) {.noSideEffect,
     importcpp: "WriteStep",
     header: "RWStepGeom_RWQuasiUniformSurfaceAndRationalBSplineSurface.hxx".}
-proc Share*(this: RWStepGeom_RWQuasiUniformSurfaceAndRationalBSplineSurface;
-           ent: handle[StepGeom_QuasiUniformSurfaceAndRationalBSplineSurface];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepGeomRWQuasiUniformSurfaceAndRationalBSplineSurface;
+           ent: Handle[StepGeomQuasiUniformSurfaceAndRationalBSplineSurface];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWQuasiUniformSurfaceAndRationalBSplineSurface.hxx".}

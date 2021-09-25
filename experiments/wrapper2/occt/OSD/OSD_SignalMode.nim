@@ -16,8 +16,9 @@
 type
   OSD_SignalMode* {.size: sizeof(cint), importcpp: "OSD_SignalMode",
                    header: "OSD_SignalMode.hxx".} = enum
-    OSD_SignalMode_AsIs,      ## !< Do not set or remove signal handlers
-    OSD_SignalMode_Set,       ## !< Set OCCT signal handlers
-    OSD_SignalMode_SetUnhandled, ## !< Set OCCT signal handler but only if no handler is set, for each particular signal type
-    OSD_SignalMode_Unset      ## !< Unset signal handler to system default
+    OSD_SignalModeAsIs,       ## !< Do not set or remove signal handlers
+    OSD_SignalModeSet,        ## !< Set OCCT signal handlers
+    OSD_SignalModeSetUnhandled, ## !< Set OCCT signal handler but only if no handler is set, for each particular signal type
+    OSD_SignalModeUnset       ## !< Unset signal handler to system default
+
 

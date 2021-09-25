@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of Interface_Graph"
 discard "forward decl of IGESSelect_EditHeader"
@@ -80,7 +76,7 @@ type
                                                                              ## status of a
 
 
-proc Run*() {.importcpp: "IGESSelect::Run(@)", header: "IGESSelect.hxx".}
-proc WhatIges*(ent: handle[IGESData_IGESEntity]; G: Interface_Graph;
-              sup: var handle[IGESData_IGESEntity]; index: var Standard_Integer): Standard_Integer {.
+proc run*() {.importcpp: "IGESSelect::Run(@)", header: "IGESSelect.hxx".}
+proc whatIges*(ent: Handle[IGESDataIGESEntity]; g: InterfaceGraph;
+              sup: var Handle[IGESDataIGESEntity]; index: var int): int {.
     importcpp: "IGESSelect::WhatIges(@)", header: "IGESSelect.hxx".}

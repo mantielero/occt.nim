@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
-  ../Standard/Standard_ExtString, ../TCollection/TCollection_AsciiString,
-  ../TCollection/TCollection_ExtendedString, CDM_MetaDataLookUpTable,
-  ../Message/Message_ProgressRange
-
 discard "forward decl of CDM_Reference"
 discard "forward decl of CDM_MetaData"
 discard "forward decl of CDM_Document"
@@ -29,40 +22,39 @@ discard "forward decl of Message_Messenger"
 discard "forward decl of CDM_Application"
 discard "forward decl of CDM_Application"
 type
-  Handle_CDM_Application* = handle[CDM_Application]
+  HandleCDM_Application* = Handle[CDM_Application]
   CDM_Application* {.importcpp: "CDM_Application", header: "CDM_Application.hxx",
-                    bycopy.} = object of Standard_Transient ## ! The manager returned by  this virtual  method will be
-                                                       ## ! used to search for Format.Retrieval  resource items.
+                    bycopy.} = object of StandardTransient ## ! The manager returned by  this virtual  method will be
+                                                      ## ! used to search for Format.Retrieval  resource items.
 
 
-proc Resources*(this: var CDM_Application): handle[Resource_Manager] {.
+proc resources*(this: var CDM_Application): Handle[ResourceManager] {.
     importcpp: "Resources", header: "CDM_Application.hxx".}
-proc MessageDriver*(this: var CDM_Application): handle[Message_Messenger] {.
+proc messageDriver*(this: var CDM_Application): Handle[MessageMessenger] {.
     importcpp: "MessageDriver", header: "CDM_Application.hxx".}
-proc BeginOfUpdate*(this: var CDM_Application; aDocument: handle[CDM_Document]) {.
+proc beginOfUpdate*(this: var CDM_Application; aDocument: Handle[CDM_Document]) {.
     importcpp: "BeginOfUpdate", header: "CDM_Application.hxx".}
-proc EndOfUpdate*(this: var CDM_Application; aDocument: handle[CDM_Document];
-                 theStatus: Standard_Boolean;
-                 ErrorString: TCollection_ExtendedString) {.
+proc endOfUpdate*(this: var CDM_Application; aDocument: Handle[CDM_Document];
+                 theStatus: bool; errorString: TCollectionExtendedString) {.
     importcpp: "EndOfUpdate", header: "CDM_Application.hxx".}
-proc Write*(this: var CDM_Application; aString: Standard_ExtString) {.
+proc write*(this: var CDM_Application; aString: StandardExtString) {.
     importcpp: "Write", header: "CDM_Application.hxx".}
-proc Name*(this: CDM_Application): TCollection_ExtendedString {.noSideEffect,
+proc name*(this: CDM_Application): TCollectionExtendedString {.noSideEffect,
     importcpp: "Name", header: "CDM_Application.hxx".}
-proc Version*(this: CDM_Application): TCollection_AsciiString {.noSideEffect,
+proc version*(this: CDM_Application): TCollectionAsciiString {.noSideEffect,
     importcpp: "Version", header: "CDM_Application.hxx".}
-proc MetaDataLookUpTable*(this: var CDM_Application): var CDM_MetaDataLookUpTable {.
+proc metaDataLookUpTable*(this: var CDM_Application): var CDM_MetaDataLookUpTable {.
     importcpp: "MetaDataLookUpTable", header: "CDM_Application.hxx".}
-proc DumpJson*(this: CDM_Application; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "CDM_Application.hxx".}
+proc dumpJson*(this: CDM_Application; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "CDM_Application.hxx".}
 type
-  CDM_Applicationbase_type* = Standard_Transient
+  CDM_ApplicationbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "CDM_Application::get_type_name(@)",
-                              header: "CDM_Application.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "CDM_Application::get_type_name(@)",
+                            header: "CDM_Application.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "CDM_Application::get_type_descriptor(@)",
     header: "CDM_Application.hxx".}
-proc DynamicType*(this: CDM_Application): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: CDM_Application): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "CDM_Application.hxx".}

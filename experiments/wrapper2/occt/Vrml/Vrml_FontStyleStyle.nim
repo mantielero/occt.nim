@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  Vrml_FontStyleStyle* {.size: sizeof(cint), importcpp: "Vrml_FontStyleStyle",
-                        header: "Vrml_FontStyleStyle.hxx".} = enum
-    Vrml_NONE, Vrml_BOLD, Vrml_ITALIC
+  VrmlFontStyleStyle* {.size: sizeof(cint), importcpp: "Vrml_FontStyleStyle",
+                       header: "Vrml_FontStyleStyle.hxx".} = enum
+    VrmlNONE, VrmlBOLD, VrmlITALIC
+
 

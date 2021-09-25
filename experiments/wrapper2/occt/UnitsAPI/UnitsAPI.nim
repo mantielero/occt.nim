@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_CString, UnitsAPI_SystemUnits, ../Standard/Standard_Boolean
-
 discard "forward decl of Units_Dimensions"
 type
   UnitsAPI* {.importcpp: "UnitsAPI", header: "UnitsAPI.hxx", bycopy.} = object ## ! Converts the current unit value to the local system units value.
@@ -28,73 +23,68 @@ type
                                                                        ## LocalSystem is MDTV.
 
 
-proc CurrentToLS*(aData: Standard_Real; aQuantity: Standard_CString): Standard_Real {.
+proc currentToLS*(aData: float; aQuantity: StandardCString): float {.
     importcpp: "UnitsAPI::CurrentToLS(@)", header: "UnitsAPI.hxx".}
-proc CurrentToSI*(aData: Standard_Real; aQuantity: Standard_CString): Standard_Real {.
+proc currentToSI*(aData: float; aQuantity: StandardCString): float {.
     importcpp: "UnitsAPI::CurrentToSI(@)", header: "UnitsAPI.hxx".}
-proc CurrentFromLS*(aData: Standard_Real; aQuantity: Standard_CString): Standard_Real {.
+proc currentFromLS*(aData: float; aQuantity: StandardCString): float {.
     importcpp: "UnitsAPI::CurrentFromLS(@)", header: "UnitsAPI.hxx".}
-proc CurrentFromSI*(aData: Standard_Real; aQuantity: Standard_CString): Standard_Real {.
+proc currentFromSI*(aData: float; aQuantity: StandardCString): float {.
     importcpp: "UnitsAPI::CurrentFromSI(@)", header: "UnitsAPI.hxx".}
-proc AnyToLS*(aData: Standard_Real; aUnit: Standard_CString): Standard_Real {.
+proc anyToLS*(aData: float; aUnit: StandardCString): float {.
     importcpp: "UnitsAPI::AnyToLS(@)", header: "UnitsAPI.hxx".}
-proc AnyToLS*(aData: Standard_Real; aUnit: Standard_CString;
-             aDim: var handle[Units_Dimensions]): Standard_Real {.
+proc anyToLS*(aData: float; aUnit: StandardCString; aDim: var Handle[UnitsDimensions]): float {.
     importcpp: "UnitsAPI::AnyToLS(@)", header: "UnitsAPI.hxx".}
-proc AnyToSI*(aData: Standard_Real; aUnit: Standard_CString): Standard_Real {.
+proc anyToSI*(aData: float; aUnit: StandardCString): float {.
     importcpp: "UnitsAPI::AnyToSI(@)", header: "UnitsAPI.hxx".}
-proc AnyToSI*(aData: Standard_Real; aUnit: Standard_CString;
-             aDim: var handle[Units_Dimensions]): Standard_Real {.
+proc anyToSI*(aData: float; aUnit: StandardCString; aDim: var Handle[UnitsDimensions]): float {.
     importcpp: "UnitsAPI::AnyToSI(@)", header: "UnitsAPI.hxx".}
-proc AnyFromLS*(aData: Standard_Real; aUnit: Standard_CString): Standard_Real {.
+proc anyFromLS*(aData: float; aUnit: StandardCString): float {.
     importcpp: "UnitsAPI::AnyFromLS(@)", header: "UnitsAPI.hxx".}
-proc AnyFromSI*(aData: Standard_Real; aUnit: Standard_CString): Standard_Real {.
+proc anyFromSI*(aData: float; aUnit: StandardCString): float {.
     importcpp: "UnitsAPI::AnyFromSI(@)", header: "UnitsAPI.hxx".}
-proc CurrentToAny*(aData: Standard_Real; aQuantity: Standard_CString;
-                  aUnit: Standard_CString): Standard_Real {.
+proc currentToAny*(aData: float; aQuantity: StandardCString; aUnit: StandardCString): float {.
     importcpp: "UnitsAPI::CurrentToAny(@)", header: "UnitsAPI.hxx".}
-proc CurrentFromAny*(aData: Standard_Real; aQuantity: Standard_CString;
-                    aUnit: Standard_CString): Standard_Real {.
+proc currentFromAny*(aData: float; aQuantity: StandardCString; aUnit: StandardCString): float {.
     importcpp: "UnitsAPI::CurrentFromAny(@)", header: "UnitsAPI.hxx".}
-proc AnyToAny*(aData: Standard_Real; aUnit1: Standard_CString;
-              aUnit2: Standard_CString): Standard_Real {.
+proc anyToAny*(aData: float; aUnit1: StandardCString; aUnit2: StandardCString): float {.
     importcpp: "UnitsAPI::AnyToAny(@)", header: "UnitsAPI.hxx".}
-proc LSToSI*(aData: Standard_Real; aQuantity: Standard_CString): Standard_Real {.
+proc lSToSI*(aData: float; aQuantity: StandardCString): float {.
     importcpp: "UnitsAPI::LSToSI(@)", header: "UnitsAPI.hxx".}
-proc SIToLS*(aData: Standard_Real; aQuantity: Standard_CString): Standard_Real {.
+proc sIToLS*(aData: float; aQuantity: StandardCString): float {.
     importcpp: "UnitsAPI::SIToLS(@)", header: "UnitsAPI.hxx".}
-proc SetLocalSystem*(aSystemUnit: UnitsAPI_SystemUnits = UnitsAPI_SI) {.
+proc setLocalSystem*(aSystemUnit: UnitsAPI_SystemUnits = unitsAPI_SI) {.
     importcpp: "UnitsAPI::SetLocalSystem(@)", header: "UnitsAPI.hxx".}
-proc LocalSystem*(): UnitsAPI_SystemUnits {.importcpp: "UnitsAPI::LocalSystem(@)",
+proc localSystem*(): UnitsAPI_SystemUnits {.importcpp: "UnitsAPI::LocalSystem(@)",
     header: "UnitsAPI.hxx".}
-proc SetCurrentUnit*(aQuantity: Standard_CString; aUnit: Standard_CString) {.
+proc setCurrentUnit*(aQuantity: StandardCString; aUnit: StandardCString) {.
     importcpp: "UnitsAPI::SetCurrentUnit(@)", header: "UnitsAPI.hxx".}
-proc CurrentUnit*(aQuantity: Standard_CString): Standard_CString {.
+proc currentUnit*(aQuantity: StandardCString): StandardCString {.
     importcpp: "UnitsAPI::CurrentUnit(@)", header: "UnitsAPI.hxx".}
-proc Save*() {.importcpp: "UnitsAPI::Save(@)", header: "UnitsAPI.hxx".}
-proc Reload*() {.importcpp: "UnitsAPI::Reload(@)", header: "UnitsAPI.hxx".}
-proc Dimensions*(aQuantity: Standard_CString): handle[Units_Dimensions] {.
+proc save*() {.importcpp: "UnitsAPI::Save(@)", header: "UnitsAPI.hxx".}
+proc reload*() {.importcpp: "UnitsAPI::Reload(@)", header: "UnitsAPI.hxx".}
+proc dimensions*(aQuantity: StandardCString): Handle[UnitsDimensions] {.
     importcpp: "UnitsAPI::Dimensions(@)", header: "UnitsAPI.hxx".}
-proc DimensionLess*(): handle[Units_Dimensions] {.
+proc dimensionLess*(): Handle[UnitsDimensions] {.
     importcpp: "UnitsAPI::DimensionLess(@)", header: "UnitsAPI.hxx".}
-proc DimensionMass*(): handle[Units_Dimensions] {.
+proc dimensionMass*(): Handle[UnitsDimensions] {.
     importcpp: "UnitsAPI::DimensionMass(@)", header: "UnitsAPI.hxx".}
-proc DimensionLength*(): handle[Units_Dimensions] {.
+proc dimensionLength*(): Handle[UnitsDimensions] {.
     importcpp: "UnitsAPI::DimensionLength(@)", header: "UnitsAPI.hxx".}
-proc DimensionTime*(): handle[Units_Dimensions] {.
+proc dimensionTime*(): Handle[UnitsDimensions] {.
     importcpp: "UnitsAPI::DimensionTime(@)", header: "UnitsAPI.hxx".}
-proc DimensionElectricCurrent*(): handle[Units_Dimensions] {.
+proc dimensionElectricCurrent*(): Handle[UnitsDimensions] {.
     importcpp: "UnitsAPI::DimensionElectricCurrent(@)", header: "UnitsAPI.hxx".}
-proc DimensionThermodynamicTemperature*(): handle[Units_Dimensions] {.
+proc dimensionThermodynamicTemperature*(): Handle[UnitsDimensions] {.
     importcpp: "UnitsAPI::DimensionThermodynamicTemperature(@)",
     header: "UnitsAPI.hxx".}
-proc DimensionAmountOfSubstance*(): handle[Units_Dimensions] {.
+proc dimensionAmountOfSubstance*(): Handle[UnitsDimensions] {.
     importcpp: "UnitsAPI::DimensionAmountOfSubstance(@)", header: "UnitsAPI.hxx".}
-proc DimensionLuminousIntensity*(): handle[Units_Dimensions] {.
+proc dimensionLuminousIntensity*(): Handle[UnitsDimensions] {.
     importcpp: "UnitsAPI::DimensionLuminousIntensity(@)", header: "UnitsAPI.hxx".}
-proc DimensionPlaneAngle*(): handle[Units_Dimensions] {.
+proc dimensionPlaneAngle*(): Handle[UnitsDimensions] {.
     importcpp: "UnitsAPI::DimensionPlaneAngle(@)", header: "UnitsAPI.hxx".}
-proc DimensionSolidAngle*(): handle[Units_Dimensions] {.
+proc dimensionSolidAngle*(): Handle[UnitsDimensions] {.
     importcpp: "UnitsAPI::DimensionSolidAngle(@)", header: "UnitsAPI.hxx".}
-proc Check*(aQuantity: Standard_CString; aUnit: Standard_CString): Standard_Boolean {.
+proc check*(aQuantity: StandardCString; aUnit: StandardCString): bool {.
     importcpp: "UnitsAPI::Check(@)", header: "UnitsAPI.hxx".}

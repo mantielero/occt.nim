@@ -14,44 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepVisual_SurfaceSide,
-  ../Standard/Standard_Transient
-
 discard "forward decl of StepVisual_SurfaceSideStyle"
 discard "forward decl of StepVisual_SurfaceStyleUsage"
 discard "forward decl of StepVisual_SurfaceStyleUsage"
 type
-  Handle_StepVisual_SurfaceStyleUsage* = handle[StepVisual_SurfaceStyleUsage]
-  StepVisual_SurfaceStyleUsage* {.importcpp: "StepVisual_SurfaceStyleUsage",
-                                 header: "StepVisual_SurfaceStyleUsage.hxx",
-                                 bycopy.} = object of Standard_Transient ## ! Returns a
-                                                                    ## SurfaceStyleUsage
+  HandleStepVisualSurfaceStyleUsage* = Handle[StepVisualSurfaceStyleUsage]
+  StepVisualSurfaceStyleUsage* {.importcpp: "StepVisual_SurfaceStyleUsage",
+                                header: "StepVisual_SurfaceStyleUsage.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                            ## !
+                                                                                                            ## Returns
+                                                                                                            ## a
+                                                                                                            ## SurfaceStyleUsage
 
 
-proc constructStepVisual_SurfaceStyleUsage*(): StepVisual_SurfaceStyleUsage {.
+proc constructStepVisualSurfaceStyleUsage*(): StepVisualSurfaceStyleUsage {.
     constructor, importcpp: "StepVisual_SurfaceStyleUsage(@)",
     header: "StepVisual_SurfaceStyleUsage.hxx".}
-proc Init*(this: var StepVisual_SurfaceStyleUsage; aSide: StepVisual_SurfaceSide;
-          aStyle: handle[StepVisual_SurfaceSideStyle]) {.importcpp: "Init",
+proc init*(this: var StepVisualSurfaceStyleUsage; aSide: StepVisualSurfaceSide;
+          aStyle: Handle[StepVisualSurfaceSideStyle]) {.importcpp: "Init",
     header: "StepVisual_SurfaceStyleUsage.hxx".}
-proc SetSide*(this: var StepVisual_SurfaceStyleUsage; aSide: StepVisual_SurfaceSide) {.
+proc setSide*(this: var StepVisualSurfaceStyleUsage; aSide: StepVisualSurfaceSide) {.
     importcpp: "SetSide", header: "StepVisual_SurfaceStyleUsage.hxx".}
-proc Side*(this: StepVisual_SurfaceStyleUsage): StepVisual_SurfaceSide {.
-    noSideEffect, importcpp: "Side", header: "StepVisual_SurfaceStyleUsage.hxx".}
-proc SetStyle*(this: var StepVisual_SurfaceStyleUsage;
-              aStyle: handle[StepVisual_SurfaceSideStyle]) {.
-    importcpp: "SetStyle", header: "StepVisual_SurfaceStyleUsage.hxx".}
-proc Style*(this: StepVisual_SurfaceStyleUsage): handle[StepVisual_SurfaceSideStyle] {.
+proc side*(this: StepVisualSurfaceStyleUsage): StepVisualSurfaceSide {.noSideEffect,
+    importcpp: "Side", header: "StepVisual_SurfaceStyleUsage.hxx".}
+proc setStyle*(this: var StepVisualSurfaceStyleUsage;
+              aStyle: Handle[StepVisualSurfaceSideStyle]) {.importcpp: "SetStyle",
+    header: "StepVisual_SurfaceStyleUsage.hxx".}
+proc style*(this: StepVisualSurfaceStyleUsage): Handle[StepVisualSurfaceSideStyle] {.
     noSideEffect, importcpp: "Style", header: "StepVisual_SurfaceStyleUsage.hxx".}
 type
-  StepVisual_SurfaceStyleUsagebase_type* = Standard_Transient
+  StepVisualSurfaceStyleUsagebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_SurfaceStyleUsage::get_type_name(@)",
-                              header: "StepVisual_SurfaceStyleUsage.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_SurfaceStyleUsage::get_type_name(@)",
+                            header: "StepVisual_SurfaceStyleUsage.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_SurfaceStyleUsage::get_type_descriptor(@)",
     header: "StepVisual_SurfaceStyleUsage.hxx".}
-proc DynamicType*(this: StepVisual_SurfaceStyleUsage): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualSurfaceStyleUsage): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_SurfaceStyleUsage.hxx".}

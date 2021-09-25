@@ -25,9 +25,10 @@
 ## ! - None       : entities of the selection are up to date.
 
 type
-  SelectMgr_TypeOfBVHUpdate* {.size: sizeof(cint),
-                              importcpp: "SelectMgr_TypeOfBVHUpdate",
-                              header: "SelectMgr_TypeOfBVHUpdate.hxx".} = enum
-    SelectMgr_TBU_Add, SelectMgr_TBU_Remove, SelectMgr_TBU_Renew,
-    SelectMgr_TBU_Invalidate, SelectMgr_TBU_None
+  SelectMgrTypeOfBVHUpdate* {.size: sizeof(cint),
+                             importcpp: "SelectMgr_TypeOfBVHUpdate",
+                             header: "SelectMgr_TypeOfBVHUpdate.hxx".} = enum
+    SelectMgrTBU_Add, SelectMgrTBU_Remove, SelectMgrTBU_Renew,
+    SelectMgrTBU_Invalidate, SelectMgrTBU_None
+
 

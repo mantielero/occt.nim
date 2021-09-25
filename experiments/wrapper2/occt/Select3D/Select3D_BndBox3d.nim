@@ -13,10 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../BVH/BVH_Box, ../BVH/BVH_Types, ../gp/gp_Trsf,
-  ../NCollection/NCollection_Vector
-
 type
-  Select3D_BndBox3d* = BVH_Box[Standard_Real, 3]
-  Select3D_Vec3* = NCollection_Vec3[Standard_Real]
+  Select3D_BndBox3d* = BVH_Box[float, 3]
+  Select3D_Vec3* = NCollectionVec3[float]
+

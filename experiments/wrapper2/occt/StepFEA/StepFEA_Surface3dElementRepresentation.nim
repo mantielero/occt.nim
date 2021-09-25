@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepFEA_ElementRepresentation,
-  ../StepRepr/StepRepr_HArray1OfRepresentationItem,
-  StepFEA_HArray1OfNodeRepresentation
-
 discard "forward decl of StepFEA_FeaModel3d"
 discard "forward decl of StepElement_Surface3dElementDescriptor"
 discard "forward decl of StepElement_SurfaceElementProperty"
@@ -27,7 +22,7 @@ discard "forward decl of StepRepr_RepresentationContext"
 discard "forward decl of StepFEA_Surface3dElementRepresentation"
 discard "forward decl of StepFEA_Surface3dElementRepresentation"
 type
-  Handle_StepFEA_Surface3dElementRepresentation* = handle[
+  HandleStepFEA_Surface3dElementRepresentation* = Handle[
       StepFEA_Surface3dElementRepresentation]
 
 ## ! Representation of STEP entity Surface3dElementRepresentation
@@ -44,47 +39,46 @@ type
 proc constructStepFEA_Surface3dElementRepresentation*(): StepFEA_Surface3dElementRepresentation {.
     constructor, importcpp: "StepFEA_Surface3dElementRepresentation(@)",
     header: "StepFEA_Surface3dElementRepresentation.hxx".}
-proc Init*(this: var StepFEA_Surface3dElementRepresentation;
-          aRepresentation_Name: handle[TCollection_HAsciiString];
-          aRepresentation_Items: handle[StepRepr_HArray1OfRepresentationItem];
-    aRepresentation_ContextOfItems: handle[StepRepr_RepresentationContext];
-    aElementRepresentation_NodeList: handle[StepFEA_HArray1OfNodeRepresentation];
-          aModelRef: handle[StepFEA_FeaModel3d];
-          aElementDescriptor: handle[StepElement_Surface3dElementDescriptor];
-          aProperty: handle[StepElement_SurfaceElementProperty];
-          aMaterial: handle[StepElement_ElementMaterial]) {.importcpp: "Init",
+proc init*(this: var StepFEA_Surface3dElementRepresentation;
+          aRepresentationName: Handle[TCollectionHAsciiString];
+          aRepresentationItems: Handle[StepReprHArray1OfRepresentationItem];
+          aRepresentationContextOfItems: Handle[StepReprRepresentationContext];
+    aElementRepresentationNodeList: Handle[StepFEA_HArray1OfNodeRepresentation];
+          aModelRef: Handle[StepFEA_FeaModel3d];
+          aElementDescriptor: Handle[StepElementSurface3dElementDescriptor];
+          aProperty: Handle[StepElementSurfaceElementProperty];
+          aMaterial: Handle[StepElementElementMaterial]) {.importcpp: "Init",
     header: "StepFEA_Surface3dElementRepresentation.hxx".}
-proc ModelRef*(this: StepFEA_Surface3dElementRepresentation): handle[
+proc modelRef*(this: StepFEA_Surface3dElementRepresentation): Handle[
     StepFEA_FeaModel3d] {.noSideEffect, importcpp: "ModelRef",
                          header: "StepFEA_Surface3dElementRepresentation.hxx".}
-proc SetModelRef*(this: var StepFEA_Surface3dElementRepresentation;
-                 ModelRef: handle[StepFEA_FeaModel3d]) {.importcpp: "SetModelRef",
+proc setModelRef*(this: var StepFEA_Surface3dElementRepresentation;
+                 modelRef: Handle[StepFEA_FeaModel3d]) {.importcpp: "SetModelRef",
     header: "StepFEA_Surface3dElementRepresentation.hxx".}
-proc ElementDescriptor*(this: StepFEA_Surface3dElementRepresentation): handle[
-    StepElement_Surface3dElementDescriptor] {.noSideEffect,
+proc elementDescriptor*(this: StepFEA_Surface3dElementRepresentation): Handle[
+    StepElementSurface3dElementDescriptor] {.noSideEffect,
     importcpp: "ElementDescriptor",
     header: "StepFEA_Surface3dElementRepresentation.hxx".}
-proc SetElementDescriptor*(this: var StepFEA_Surface3dElementRepresentation;
-    ElementDescriptor: handle[StepElement_Surface3dElementDescriptor]) {.
+proc setElementDescriptor*(this: var StepFEA_Surface3dElementRepresentation;
+    elementDescriptor: Handle[StepElementSurface3dElementDescriptor]) {.
     importcpp: "SetElementDescriptor",
     header: "StepFEA_Surface3dElementRepresentation.hxx".}
-proc Property*(this: StepFEA_Surface3dElementRepresentation): handle[
-    StepElement_SurfaceElementProperty] {.noSideEffect, importcpp: "Property",
-    header: "StepFEA_Surface3dElementRepresentation.hxx".}
-proc SetProperty*(this: var StepFEA_Surface3dElementRepresentation;
-                 Property: handle[StepElement_SurfaceElementProperty]) {.
+proc property*(this: StepFEA_Surface3dElementRepresentation): Handle[
+    StepElementSurfaceElementProperty] {.noSideEffect, importcpp: "Property", header: "StepFEA_Surface3dElementRepresentation.hxx".}
+proc setProperty*(this: var StepFEA_Surface3dElementRepresentation;
+                 property: Handle[StepElementSurfaceElementProperty]) {.
     importcpp: "SetProperty", header: "StepFEA_Surface3dElementRepresentation.hxx".}
-proc Material*(this: StepFEA_Surface3dElementRepresentation): handle[
-    StepElement_ElementMaterial] {.noSideEffect, importcpp: "Material", header: "StepFEA_Surface3dElementRepresentation.hxx".}
-proc SetMaterial*(this: var StepFEA_Surface3dElementRepresentation;
-                 Material: handle[StepElement_ElementMaterial]) {.
+proc material*(this: StepFEA_Surface3dElementRepresentation): Handle[
+    StepElementElementMaterial] {.noSideEffect, importcpp: "Material", header: "StepFEA_Surface3dElementRepresentation.hxx".}
+proc setMaterial*(this: var StepFEA_Surface3dElementRepresentation;
+                 material: Handle[StepElementElementMaterial]) {.
     importcpp: "SetMaterial", header: "StepFEA_Surface3dElementRepresentation.hxx".}
 type
-  StepFEA_Surface3dElementRepresentationbase_type* = StepFEA_ElementRepresentation
+  StepFEA_Surface3dElementRepresentationbaseType* = StepFEA_ElementRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_Surface3dElementRepresentation::get_type_name(@)", header: "StepFEA_Surface3dElementRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepFEA_Surface3dElementRepresentation::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepFEA_Surface3dElementRepresentation::get_type_name(@)", header: "StepFEA_Surface3dElementRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_Surface3dElementRepresentation::get_type_descriptor(@)",
     header: "StepFEA_Surface3dElementRepresentation.hxx".}
-proc DynamicType*(this: StepFEA_Surface3dElementRepresentation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepFEA_Surface3dElementRepresentation.hxx".}
+proc dynamicType*(this: StepFEA_Surface3dElementRepresentation): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepFEA_Surface3dElementRepresentation.hxx".}

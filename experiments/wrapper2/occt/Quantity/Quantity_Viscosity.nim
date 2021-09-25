@@ -14,9 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Viscosity_HeaderFile [NewLine] # _Quantity_Viscosity_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the resistance to flow in a fluid.
+## !!!Ignored construct:  # _Quantity_Viscosity_HeaderFile [NewLine] # _Quantity_Viscosity_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the resistance to flow in a fluid.
 ## ! It is quantified as the product of pressure
 ## ! and time. For a liquid it generally decreases with
 ## ! temperature; for a gas it increases.
 ## ! It is measured in pascal-seconds. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Viscosity ;
 ## Error: expected ';'!!!
+

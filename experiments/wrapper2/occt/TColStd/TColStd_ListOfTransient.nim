@@ -12,9 +12,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Transient, ../NCollection/NCollection_List
-
 type
-  TColStd_ListOfTransient* = NCollection_List[handle[Standard_Transient]]
-  TColStd_ListIteratorOfListOfTransient* = Iterator[handle[Standard_Transient]]
+  TColStdListOfTransient* = NCollectionList[Handle[StandardTransient]]
+  TColStdListIteratorOfListOfTransient* = Iterator[Handle[StandardTransient]]
+

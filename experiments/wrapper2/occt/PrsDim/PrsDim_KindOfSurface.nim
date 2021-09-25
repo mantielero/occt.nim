@@ -15,9 +15,10 @@
 ##  commercial license or contractual agreement.
 
 type
-  PrsDim_KindOfSurface* {.size: sizeof(cint), importcpp: "PrsDim_KindOfSurface",
-                         header: "PrsDim_KindOfSurface.hxx".} = enum
-    PrsDim_KOS_Plane, PrsDim_KOS_Cylinder, PrsDim_KOS_Cone, PrsDim_KOS_Sphere,
-    PrsDim_KOS_Torus, PrsDim_KOS_Revolution, PrsDim_KOS_Extrusion,
-    PrsDim_KOS_OtherSurface
+  PrsDimKindOfSurface* {.size: sizeof(cint), importcpp: "PrsDim_KindOfSurface",
+                        header: "PrsDim_KindOfSurface.hxx".} = enum
+    PrsDimKOS_Plane, PrsDimKOS_Cylinder, PrsDimKOS_Cone, PrsDimKOS_Sphere,
+    PrsDimKOS_Torus, PrsDimKOS_Revolution, PrsDimKOS_Extrusion,
+    PrsDimKOS_OtherSurface
+
 

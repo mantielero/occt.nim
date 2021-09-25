@@ -13,9 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepDimTol_DatumReferenceModifier, ../NCollection/NCollection_Array1
-
 type
-  StepDimTol_Array1OfDatumReferenceModifier* = NCollection_Array1[
-      StepDimTol_DatumReferenceModifier]
+  StepDimTolArray1OfDatumReferenceModifier* = NCollectionArray1[
+      StepDimTolDatumReferenceModifier]
+

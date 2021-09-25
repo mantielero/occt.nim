@@ -13,13 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Standard_Integer, Standard_Boolean, Standard_ErrorHandler
-
-when defined(_WIN32):
-  discard
-else:
-  discard
+# when defined(win32):
+#   discard
+# else:
+#   discard
 ## *
 ##  @brief Mutex: a class to synchronize access to shared data.
 ##
@@ -54,49 +51,50 @@ else:
 ##
 
 type
-  Standard_Mutex* {.importcpp: "Standard_Mutex", header: "Standard_Mutex.hxx", bycopy.} = object of Callback ## *
-                                                                                                   ##  @brief Simple sentry class providing convenient interface to mutex.
-                                                                                                   ##
-                                                                                                   ##  Provides automatic locking and unlocking a mutex in its constructor
-                                                                                                   ##  and destructor, thus ensuring correct unlock of the mutex even in case of
-                                                                                                   ##  raising an exception or signal from the protected code.
-                                                                                                   ##
-                                                                                                   ##  Create instance of that class when entering critical section.
-                                                                                                   ##
-                                                                                                   ## ! Constructor: creates a mutex object and initializes it.
-                                                                                                   ## ! It is strongly recommended that mutexes were created as
-                                                                                                   ## ! static objects whenever possible.
-                                                                                                   ## ! Callback method to unlock the mutex if OCC exception or signal is raised
-    when (defined(_WIN32) or defined(__WIN32__)):
-      discard
-    when not (defined(_WIN32) or defined(__WIN32__)):
-      discard
+  StandardMutex* {.importcpp: "Standard_Mutex", header: "Standard_Mutex.hxx", bycopy.} = object of Callback ## *
+                                                                                                  ##  @brief Simple sentry class providing convenient interface to mutex.
+                                                                                                  ##
+                                                                                                  ##  Provides automatic locking and unlocking a mutex in its constructor
+                                                                                                  ##  and destructor, thus ensuring correct unlock of the mutex even in case of
+                                                                                                  ##  raising an exception or signal from the protected code.
+                                                                                                  ##
+                                                                                                  ##  Create instance of that class when entering critical section.
+                                                                                                  ##
+                                                                                                  ## ! Constructor: creates a mutex object and initializes it.
+                                                                                                  ## ! It is strongly recommended that mutexes were created as
+                                                                                                  ## ! static objects whenever possible.
+                                                                                                  ## ! Callback method to unlock the mutex if OCC exception or signal is raised
+#     when (defined(win32) or defined(win32)):
+#       discard
+#     when not (defined(win32) or defined(win32)):
+#       discard
 
-  Standard_MutexSentry* {.importcpp: "Standard_Mutex::Sentry",
-                         header: "Standard_Mutex.hxx", bycopy.} = object ## ! Constructor - initializes the sentry object by reference to a
-                                                                    ## ! mutex (which must be initialized) and locks the mutex immediately
-                                                                    ## ! Lock the mutex
+  StandardMutexSentry* {.importcpp: "Standard_Mutex::Sentry",
+                        header: "Standard_Mutex.hxx", bycopy.} = object ## ! Constructor - initializes the sentry object by reference to a
+                                                                   ## ! mutex (which must be initialized) and locks the mutex immediately
+                                                                   ## ! Lock the mutex
 
 
-proc constructStandard_MutexSentry*(theMutex: var Standard_Mutex): Standard_MutexSentry {.
+proc constructStandardMutexSentry*(theMutex: var StandardMutex): StandardMutexSentry {.
     constructor, importcpp: "Standard_Mutex::Sentry(@)",
     header: "Standard_Mutex.hxx".}
-proc constructStandard_MutexSentry*(theMutex: ptr Standard_Mutex): Standard_MutexSentry {.
+proc constructStandardMutexSentry*(theMutex: ptr StandardMutex): StandardMutexSentry {.
     constructor, importcpp: "Standard_Mutex::Sentry(@)",
     header: "Standard_Mutex.hxx".}
-proc destroyStandard_MutexSentry*(this: var Standard_MutexSentry) {.
+proc destroyStandardMutexSentry*(this: var StandardMutexSentry) {.
     importcpp: "#.~Sentry()", header: "Standard_Mutex.hxx".}
-proc constructStandard_Mutex*(): Standard_Mutex {.constructor,
+proc constructStandardMutex*(): StandardMutex {.constructor,
     importcpp: "Standard_Mutex(@)", header: "Standard_Mutex.hxx".}
-proc destroyStandard_Mutex*(this: var Standard_Mutex) {.
+proc destroyStandardMutex*(this: var StandardMutex) {.
     importcpp: "#.~Standard_Mutex()", header: "Standard_Mutex.hxx".}
-proc Lock*(this: var Standard_Mutex) {.importcpp: "Lock", header: "Standard_Mutex.hxx".}
-proc TryLock*(this: var Standard_Mutex): Standard_Boolean {.importcpp: "TryLock",
+proc lock*(this: var StandardMutex) {.importcpp: "Lock", header: "Standard_Mutex.hxx".}
+proc tryLock*(this: var StandardMutex): bool {.importcpp: "TryLock",
     header: "Standard_Mutex.hxx".}
-proc Unlock*(this: var Standard_Mutex) {.importcpp: "Unlock",
-                                     header: "Standard_Mutex.hxx".}
+proc unlock*(this: var StandardMutex) {.importcpp: "Unlock",
+                                    header: "Standard_Mutex.hxx".}
 ##  Implementation of the method Unlock is inline, since it is
 ##  just a shortcut to system function
 
-proc Unlock*(this: var Standard_Mutex) {.importcpp: "Unlock",
-                                     header: "Standard_Mutex.hxx".}
+proc unlock*(this: var StandardMutex) {.importcpp: "Unlock",
+                                    header: "Standard_Mutex.hxx".}
+

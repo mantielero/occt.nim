@@ -14,31 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopTools/TopTools_IndexedDataMapOfShapeShape,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Shape"
 type
-  BRepTools_Quilt* {.importcpp: "BRepTools_Quilt", header: "BRepTools_Quilt.hxx",
-                    bycopy.} = object
+  BRepToolsQuilt* {.importcpp: "BRepTools_Quilt", header: "BRepTools_Quilt.hxx",
+                   bycopy.} = object
 
 
-proc constructBRepTools_Quilt*(): BRepTools_Quilt {.constructor,
+proc constructBRepToolsQuilt*(): BRepToolsQuilt {.constructor,
     importcpp: "BRepTools_Quilt(@)", header: "BRepTools_Quilt.hxx".}
-proc Bind*(this: var BRepTools_Quilt; Eold: TopoDS_Edge; Enew: TopoDS_Edge) {.
+proc `bind`*(this: var BRepToolsQuilt; eold: TopoDS_Edge; enew: TopoDS_Edge) {.
     importcpp: "Bind", header: "BRepTools_Quilt.hxx".}
-proc Bind*(this: var BRepTools_Quilt; Vold: TopoDS_Vertex; Vnew: TopoDS_Vertex) {.
+proc `bind`*(this: var BRepToolsQuilt; vold: TopoDS_Vertex; vnew: TopoDS_Vertex) {.
     importcpp: "Bind", header: "BRepTools_Quilt.hxx".}
-proc Add*(this: var BRepTools_Quilt; S: TopoDS_Shape) {.importcpp: "Add",
+proc add*(this: var BRepToolsQuilt; s: TopoDS_Shape) {.importcpp: "Add",
     header: "BRepTools_Quilt.hxx".}
-proc IsCopied*(this: BRepTools_Quilt; S: TopoDS_Shape): Standard_Boolean {.
-    noSideEffect, importcpp: "IsCopied", header: "BRepTools_Quilt.hxx".}
-proc Copy*(this: BRepTools_Quilt; S: TopoDS_Shape): TopoDS_Shape {.noSideEffect,
+proc isCopied*(this: BRepToolsQuilt; s: TopoDS_Shape): bool {.noSideEffect,
+    importcpp: "IsCopied", header: "BRepTools_Quilt.hxx".}
+proc copy*(this: BRepToolsQuilt; s: TopoDS_Shape): TopoDS_Shape {.noSideEffect,
     importcpp: "Copy", header: "BRepTools_Quilt.hxx".}
-proc Shells*(this: BRepTools_Quilt): TopoDS_Shape {.noSideEffect,
-    importcpp: "Shells", header: "BRepTools_Quilt.hxx".}
+proc shells*(this: BRepToolsQuilt): TopoDS_Shape {.noSideEffect, importcpp: "Shells",
+    header: "BRepTools_Quilt.hxx".}

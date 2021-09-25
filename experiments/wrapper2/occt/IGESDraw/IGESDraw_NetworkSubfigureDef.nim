@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../IGESData/IGESData_HArray1OfIGESEntity, IGESDraw_HArray1OfConnectPoint,
-  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Boolean
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESGraph_TextDisplayTemplate"
 discard "forward decl of Standard_OutOfRange"
@@ -27,7 +22,7 @@ discard "forward decl of IGESDraw_ConnectPoint"
 discard "forward decl of IGESDraw_NetworkSubfigureDef"
 discard "forward decl of IGESDraw_NetworkSubfigureDef"
 type
-  Handle_IGESDraw_NetworkSubfigureDef* = handle[IGESDraw_NetworkSubfigureDef]
+  HandleIGESDrawNetworkSubfigureDef* = Handle[IGESDrawNetworkSubfigureDef]
 
 ## ! defines IGESNetworkSubfigureDef,
 ## ! Type <320> Form Number <0> in package IGESDraw
@@ -43,61 +38,55 @@ type
 ## ! the instance must be indicated by a null(zero) pointer.
 
 type
-  IGESDraw_NetworkSubfigureDef* {.importcpp: "IGESDraw_NetworkSubfigureDef",
-                                 header: "IGESDraw_NetworkSubfigureDef.hxx",
-                                 bycopy.} = object of IGESData_IGESEntity
+  IGESDrawNetworkSubfigureDef* {.importcpp: "IGESDraw_NetworkSubfigureDef",
+                                header: "IGESDraw_NetworkSubfigureDef.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESDraw_NetworkSubfigureDef*(): IGESDraw_NetworkSubfigureDef {.
+proc constructIGESDrawNetworkSubfigureDef*(): IGESDrawNetworkSubfigureDef {.
     constructor, importcpp: "IGESDraw_NetworkSubfigureDef(@)",
     header: "IGESDraw_NetworkSubfigureDef.hxx".}
-proc Init*(this: var IGESDraw_NetworkSubfigureDef; aDepth: Standard_Integer;
-          aName: handle[TCollection_HAsciiString];
-          allEntities: handle[IGESData_HArray1OfIGESEntity];
-          aTypeFlag: Standard_Integer;
-          aDesignator: handle[TCollection_HAsciiString];
-          aTemplate: handle[IGESGraph_TextDisplayTemplate];
-          allPointEntities: handle[IGESDraw_HArray1OfConnectPoint]) {.
+proc init*(this: var IGESDrawNetworkSubfigureDef; aDepth: int;
+          aName: Handle[TCollectionHAsciiString];
+          allEntities: Handle[IGESDataHArray1OfIGESEntity]; aTypeFlag: int;
+          aDesignator: Handle[TCollectionHAsciiString];
+          aTemplate: Handle[IGESGraphTextDisplayTemplate];
+          allPointEntities: Handle[IGESDrawHArray1OfConnectPoint]) {.
     importcpp: "Init", header: "IGESDraw_NetworkSubfigureDef.hxx".}
-proc Depth*(this: IGESDraw_NetworkSubfigureDef): Standard_Integer {.noSideEffect,
+proc depth*(this: IGESDrawNetworkSubfigureDef): int {.noSideEffect,
     importcpp: "Depth", header: "IGESDraw_NetworkSubfigureDef.hxx".}
-proc Name*(this: IGESDraw_NetworkSubfigureDef): handle[TCollection_HAsciiString] {.
+proc name*(this: IGESDrawNetworkSubfigureDef): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "IGESDraw_NetworkSubfigureDef.hxx".}
-proc NbEntities*(this: IGESDraw_NetworkSubfigureDef): Standard_Integer {.
-    noSideEffect, importcpp: "NbEntities",
-    header: "IGESDraw_NetworkSubfigureDef.hxx".}
-proc Entity*(this: IGESDraw_NetworkSubfigureDef; Index: Standard_Integer): handle[
-    IGESData_IGESEntity] {.noSideEffect, importcpp: "Entity",
-                          header: "IGESDraw_NetworkSubfigureDef.hxx".}
-proc TypeFlag*(this: IGESDraw_NetworkSubfigureDef): Standard_Integer {.noSideEffect,
+proc nbEntities*(this: IGESDrawNetworkSubfigureDef): int {.noSideEffect,
+    importcpp: "NbEntities", header: "IGESDraw_NetworkSubfigureDef.hxx".}
+proc entity*(this: IGESDrawNetworkSubfigureDef; index: int): Handle[
+    IGESDataIGESEntity] {.noSideEffect, importcpp: "Entity",
+                         header: "IGESDraw_NetworkSubfigureDef.hxx".}
+proc typeFlag*(this: IGESDrawNetworkSubfigureDef): int {.noSideEffect,
     importcpp: "TypeFlag", header: "IGESDraw_NetworkSubfigureDef.hxx".}
-proc Designator*(this: IGESDraw_NetworkSubfigureDef): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Designator",
-                               header: "IGESDraw_NetworkSubfigureDef.hxx".}
-proc HasDesignatorTemplate*(this: IGESDraw_NetworkSubfigureDef): Standard_Boolean {.
-    noSideEffect, importcpp: "HasDesignatorTemplate",
+proc designator*(this: IGESDrawNetworkSubfigureDef): Handle[TCollectionHAsciiString] {.
+    noSideEffect, importcpp: "Designator",
     header: "IGESDraw_NetworkSubfigureDef.hxx".}
-proc DesignatorTemplate*(this: IGESDraw_NetworkSubfigureDef): handle[
-    IGESGraph_TextDisplayTemplate] {.noSideEffect,
-                                    importcpp: "DesignatorTemplate",
-                                    header: "IGESDraw_NetworkSubfigureDef.hxx".}
-proc NbPointEntities*(this: IGESDraw_NetworkSubfigureDef): Standard_Integer {.
-    noSideEffect, importcpp: "NbPointEntities",
-    header: "IGESDraw_NetworkSubfigureDef.hxx".}
-proc HasPointEntity*(this: IGESDraw_NetworkSubfigureDef; Index: Standard_Integer): Standard_Boolean {.
+proc hasDesignatorTemplate*(this: IGESDrawNetworkSubfigureDef): bool {.noSideEffect,
+    importcpp: "HasDesignatorTemplate", header: "IGESDraw_NetworkSubfigureDef.hxx".}
+proc designatorTemplate*(this: IGESDrawNetworkSubfigureDef): Handle[
+    IGESGraphTextDisplayTemplate] {.noSideEffect, importcpp: "DesignatorTemplate",
+                                   header: "IGESDraw_NetworkSubfigureDef.hxx".}
+proc nbPointEntities*(this: IGESDrawNetworkSubfigureDef): int {.noSideEffect,
+    importcpp: "NbPointEntities", header: "IGESDraw_NetworkSubfigureDef.hxx".}
+proc hasPointEntity*(this: IGESDrawNetworkSubfigureDef; index: int): bool {.
     noSideEffect, importcpp: "HasPointEntity",
     header: "IGESDraw_NetworkSubfigureDef.hxx".}
-proc PointEntity*(this: IGESDraw_NetworkSubfigureDef; Index: Standard_Integer): handle[
-    IGESDraw_ConnectPoint] {.noSideEffect, importcpp: "PointEntity",
-                            header: "IGESDraw_NetworkSubfigureDef.hxx".}
+proc pointEntity*(this: IGESDrawNetworkSubfigureDef; index: int): Handle[
+    IGESDrawConnectPoint] {.noSideEffect, importcpp: "PointEntity",
+                           header: "IGESDraw_NetworkSubfigureDef.hxx".}
 type
-  IGESDraw_NetworkSubfigureDefbase_type* = IGESData_IGESEntity
+  IGESDrawNetworkSubfigureDefbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESDraw_NetworkSubfigureDef::get_type_name(@)",
-                              header: "IGESDraw_NetworkSubfigureDef.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESDraw_NetworkSubfigureDef::get_type_name(@)",
+                            header: "IGESDraw_NetworkSubfigureDef.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESDraw_NetworkSubfigureDef::get_type_descriptor(@)",
     header: "IGESDraw_NetworkSubfigureDef.hxx".}
-proc DynamicType*(this: IGESDraw_NetworkSubfigureDef): handle[Standard_Type] {.
+proc dynamicType*(this: IGESDrawNetworkSubfigureDef): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESDraw_NetworkSubfigureDef.hxx".}

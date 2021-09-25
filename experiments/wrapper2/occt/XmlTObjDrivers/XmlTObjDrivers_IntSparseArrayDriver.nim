@@ -14,47 +14,43 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation Copyright: (C) RINA S.p.A
 
-import
-  ../TObj/TObj_Common, ../XmlMDF/XmlMDF_ADriver
-
 type
-  XmlTObjDrivers_IntSparseArrayDriver* {.importcpp: "XmlTObjDrivers_IntSparseArrayDriver", header: "XmlTObjDrivers_IntSparseArrayDriver.hxx",
-                                        bycopy.} = object of XmlMDF_ADriver ##  CASCADE RTTI
+  XmlTObjDriversIntSparseArrayDriver* {.importcpp: "XmlTObjDrivers_IntSparseArrayDriver", header: "XmlTObjDrivers_IntSparseArrayDriver.hxx",
+                                       bycopy.} = object of XmlMDF_ADriver ##  CASCADE RTTI
 
 
-proc constructXmlTObjDrivers_IntSparseArrayDriver*(
-    theMessageDriver: handle[Message_Messenger]): XmlTObjDrivers_IntSparseArrayDriver {.
+proc constructXmlTObjDriversIntSparseArrayDriver*(
+    theMessageDriver: Handle[MessageMessenger]): XmlTObjDriversIntSparseArrayDriver {.
     constructor, importcpp: "XmlTObjDrivers_IntSparseArrayDriver(@)",
     header: "XmlTObjDrivers_IntSparseArrayDriver.hxx".}
-proc NewEmpty*(this: XmlTObjDrivers_IntSparseArrayDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: XmlTObjDriversIntSparseArrayDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty",
     header: "XmlTObjDrivers_IntSparseArrayDriver.hxx".}
-proc Paste*(this: XmlTObjDrivers_IntSparseArrayDriver;
-           theSource: XmlObjMgt_Persistent; theTarget: handle[TDF_Attribute];
-           theRelocTable: var XmlObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste",
-    header: "XmlTObjDrivers_IntSparseArrayDriver.hxx".}
-proc Paste*(this: XmlTObjDrivers_IntSparseArrayDriver;
-           theSource: handle[TDF_Attribute]; theTarget: var XmlObjMgt_Persistent;
-           theRelocTable: var XmlObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: XmlTObjDriversIntSparseArrayDriver;
+           theSource: XmlObjMgtPersistent; theTarget: Handle[TDF_Attribute];
+           theRelocTable: var XmlObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "XmlTObjDrivers_IntSparseArrayDriver.hxx".}
+proc paste*(this: XmlTObjDriversIntSparseArrayDriver;
+           theSource: Handle[TDF_Attribute]; theTarget: var XmlObjMgtPersistent;
+           theRelocTable: var XmlObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "XmlTObjDrivers_IntSparseArrayDriver.hxx".}
 type
-  XmlTObjDrivers_IntSparseArrayDriverbase_type* = XmlMDF_ADriver
+  XmlTObjDriversIntSparseArrayDriverbaseType* = XmlMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "XmlTObjDrivers_IntSparseArrayDriver::get_type_name(@)",
-                              header: "XmlTObjDrivers_IntSparseArrayDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XmlTObjDrivers_IntSparseArrayDriver::get_type_name(@)",
+                            header: "XmlTObjDrivers_IntSparseArrayDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XmlTObjDrivers_IntSparseArrayDriver::get_type_descriptor(@)",
     header: "XmlTObjDrivers_IntSparseArrayDriver.hxx".}
-proc DynamicType*(this: XmlTObjDrivers_IntSparseArrayDriver): handle[Standard_Type] {.
+proc dynamicType*(this: XmlTObjDriversIntSparseArrayDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlTObjDrivers_IntSparseArrayDriver.hxx".}
 ##  Define handle class
 
 discard "forward decl of XmlTObjDrivers_IntSparseArrayDriver"
 type
-  Handle_XmlTObjDrivers_IntSparseArrayDriver* = handle[
-      XmlTObjDrivers_IntSparseArrayDriver]
+  HandleXmlTObjDriversIntSparseArrayDriver* = Handle[
+      XmlTObjDriversIntSparseArrayDriver]
 
-when defined(_MSC_VER):
-  discard
+# when defined(_MSC_VER):
+#   discard

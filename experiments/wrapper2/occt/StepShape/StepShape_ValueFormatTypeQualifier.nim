@@ -13,45 +13,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepShape_ValueFormatTypeQualifier, ../Standard/Standard_Transient,
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_HAsciiString
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_ValueFormatTypeQualifier"
 discard "forward decl of StepShape_ValueFormatTypeQualifier"
 type
-  Handle_StepShape_ValueFormatTypeQualifier* = handle[
-      StepShape_ValueFormatTypeQualifier]
+  HandleStepShapeValueFormatTypeQualifier* = Handle[
+      StepShapeValueFormatTypeQualifier]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepShape_ValueFormatTypeQualifier* {.importcpp: "StepShape_ValueFormatTypeQualifier", header: "StepShape_ValueFormatTypeQualifier.hxx",
-                                       bycopy.} = object of Standard_Transient
+  StepShapeValueFormatTypeQualifier* {.importcpp: "StepShape_ValueFormatTypeQualifier", header: "StepShape_ValueFormatTypeQualifier.hxx",
+                                      bycopy.} = object of StandardTransient
 
 
-proc constructStepShape_ValueFormatTypeQualifier*(): StepShape_ValueFormatTypeQualifier {.
+proc constructStepShapeValueFormatTypeQualifier*(): StepShapeValueFormatTypeQualifier {.
     constructor, importcpp: "StepShape_ValueFormatTypeQualifier(@)",
     header: "StepShape_ValueFormatTypeQualifier.hxx".}
-proc Init*(this: var StepShape_ValueFormatTypeQualifier;
-          theFormatType: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepShapeValueFormatTypeQualifier;
+          theFormatType: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepShape_ValueFormatTypeQualifier.hxx".}
-proc FormatType*(this: var StepShape_ValueFormatTypeQualifier): handle[
-    TCollection_HAsciiString] {.importcpp: "FormatType",
-                               header: "StepShape_ValueFormatTypeQualifier.hxx".}
-proc SetFormatType*(this: var StepShape_ValueFormatTypeQualifier;
-                   theFormatType: handle[TCollection_HAsciiString]) {.
+proc formatType*(this: var StepShapeValueFormatTypeQualifier): Handle[
+    TCollectionHAsciiString] {.importcpp: "FormatType",
+                              header: "StepShape_ValueFormatTypeQualifier.hxx".}
+proc setFormatType*(this: var StepShapeValueFormatTypeQualifier;
+                   theFormatType: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetFormatType", header: "StepShape_ValueFormatTypeQualifier.hxx".}
 type
-  StepShape_ValueFormatTypeQualifierbase_type* = Standard_Transient
+  StepShapeValueFormatTypeQualifierbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_ValueFormatTypeQualifier::get_type_name(@)",
-                              header: "StepShape_ValueFormatTypeQualifier.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_ValueFormatTypeQualifier::get_type_name(@)",
+                            header: "StepShape_ValueFormatTypeQualifier.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_ValueFormatTypeQualifier::get_type_descriptor(@)",
     header: "StepShape_ValueFormatTypeQualifier.hxx".}
-proc DynamicType*(this: StepShape_ValueFormatTypeQualifier): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeValueFormatTypeQualifier): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_ValueFormatTypeQualifier.hxx".}

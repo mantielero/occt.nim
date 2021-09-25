@@ -13,37 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepBasic_DocumentProductAssociation
-
 discard "forward decl of StepBasic_DocumentProductEquivalence"
 discard "forward decl of StepBasic_DocumentProductEquivalence"
 type
-  Handle_StepBasic_DocumentProductEquivalence* = handle[
-      StepBasic_DocumentProductEquivalence]
+  HandleStepBasicDocumentProductEquivalence* = Handle[
+      StepBasicDocumentProductEquivalence]
 
 ## ! Representation of STEP entity DocumentProductEquivalence
 
 type
-  StepBasic_DocumentProductEquivalence* {.
-      importcpp: "StepBasic_DocumentProductEquivalence",
-      header: "StepBasic_DocumentProductEquivalence.hxx", bycopy.} = object of StepBasic_DocumentProductAssociation ##
-                                                                                                             ## !
-                                                                                                             ## Empty
-                                                                                                             ## constructor
+  StepBasicDocumentProductEquivalence* {.importcpp: "StepBasic_DocumentProductEquivalence", header: "StepBasic_DocumentProductEquivalence.hxx",
+                                        bycopy.} = object of StepBasicDocumentProductAssociation ##
+                                                                                            ## !
+                                                                                            ## Empty
+                                                                                            ## constructor
 
 
-proc constructStepBasic_DocumentProductEquivalence*(): StepBasic_DocumentProductEquivalence {.
+proc constructStepBasicDocumentProductEquivalence*(): StepBasicDocumentProductEquivalence {.
     constructor, importcpp: "StepBasic_DocumentProductEquivalence(@)",
     header: "StepBasic_DocumentProductEquivalence.hxx".}
 type
-  StepBasic_DocumentProductEquivalencebase_type* = StepBasic_DocumentProductAssociation
+  StepBasicDocumentProductEquivalencebaseType* = StepBasicDocumentProductAssociation
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_DocumentProductEquivalence::get_type_name(@)", header: "StepBasic_DocumentProductEquivalence.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_DocumentProductEquivalence::get_type_name(@)",
+                            header: "StepBasic_DocumentProductEquivalence.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_DocumentProductEquivalence::get_type_descriptor(@)",
     header: "StepBasic_DocumentProductEquivalence.hxx".}
-proc DynamicType*(this: StepBasic_DocumentProductEquivalence): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicDocumentProductEquivalence): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_DocumentProductEquivalence.hxx".}

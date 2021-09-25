@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_GUID, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../BinObjMgt/BinObjMgt_Persistent
-
 discard "forward decl of BinMDF_ADriverTable"
 discard "forward decl of Message_Messenger"
 type
@@ -31,9 +26,9 @@ type
                                                                                 ## <theDriverTable>.
 
 
-proc AddDrivers*(theDriverTable: handle[BinMDF_ADriverTable];
-                aMsgDrv: handle[Message_Messenger]) {.
+proc addDrivers*(theDriverTable: Handle[BinMDF_ADriverTable];
+                aMsgDrv: Handle[MessageMessenger]) {.
     importcpp: "BinMDataStd::AddDrivers(@)", header: "BinMDataStd.hxx".}
-proc SetAttributeID*[T](theSource: BinObjMgt_Persistent; anAtt: handle[T];
-                       aDocFormatVersion: Standard_Integer) {.
+proc setAttributeID*[T](theSource: BinObjMgtPersistent; anAtt: Handle[T];
+                       aDocFormatVersion: int) {.
     importcpp: "BinMDataStd::SetAttributeID(@)", header: "BinMDataStd.hxx".}

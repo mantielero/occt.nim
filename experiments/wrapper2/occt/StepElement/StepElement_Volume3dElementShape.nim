@@ -12,7 +12,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepElement_Volume3dElementShape* {.size: sizeof(cint), importcpp: "StepElement_Volume3dElementShape", header: "StepElement_Volume3dElementShape.hxx".} = enum
-    StepElement_Hexahedron, StepElement_Wedge, StepElement_Tetrahedron,
-    StepElement_Pyramid
+  StepElementVolume3dElementShape* {.size: sizeof(cint), importcpp: "StepElement_Volume3dElementShape", header: "StepElement_Volume3dElementShape.hxx".} = enum
+    StepElementHexahedron, StepElementWedge, StepElementTetrahedron,
+    StepElementPyramid
+
 

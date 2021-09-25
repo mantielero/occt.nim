@@ -14,28 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_SiUnitAndRatioUnit"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepBasic_RWSiUnitAndRatioUnit* {.importcpp: "RWStepBasic_RWSiUnitAndRatioUnit", header: "RWStepBasic_RWSiUnitAndRatioUnit.hxx",
-                                     bycopy.} = object
+  RWStepBasicRWSiUnitAndRatioUnit* {.importcpp: "RWStepBasic_RWSiUnitAndRatioUnit", header: "RWStepBasic_RWSiUnitAndRatioUnit.hxx",
+                                    bycopy.} = object
 
 
-proc constructRWStepBasic_RWSiUnitAndRatioUnit*(): RWStepBasic_RWSiUnitAndRatioUnit {.
+proc constructRWStepBasicRWSiUnitAndRatioUnit*(): RWStepBasicRWSiUnitAndRatioUnit {.
     constructor, importcpp: "RWStepBasic_RWSiUnitAndRatioUnit(@)",
     header: "RWStepBasic_RWSiUnitAndRatioUnit.hxx".}
-proc ReadStep*(this: RWStepBasic_RWSiUnitAndRatioUnit;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepBasic_SiUnitAndRatioUnit]) {.noSideEffect,
+proc readStep*(this: RWStepBasicRWSiUnitAndRatioUnit;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepBasicSiUnitAndRatioUnit]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWSiUnitAndRatioUnit.hxx".}
-proc WriteStep*(this: RWStepBasic_RWSiUnitAndRatioUnit;
-               SW: var StepData_StepWriter;
-               ent: handle[StepBasic_SiUnitAndRatioUnit]) {.noSideEffect,
+proc writeStep*(this: RWStepBasicRWSiUnitAndRatioUnit; sw: var StepDataStepWriter;
+               ent: Handle[StepBasicSiUnitAndRatioUnit]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWSiUnitAndRatioUnit.hxx".}

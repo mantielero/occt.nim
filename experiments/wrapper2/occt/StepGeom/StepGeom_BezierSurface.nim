@@ -14,30 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_BSplineSurface
-
 discard "forward decl of StepGeom_BezierSurface"
 discard "forward decl of StepGeom_BezierSurface"
 type
-  Handle_StepGeom_BezierSurface* = handle[StepGeom_BezierSurface]
-  StepGeom_BezierSurface* {.importcpp: "StepGeom_BezierSurface",
-                           header: "StepGeom_BezierSurface.hxx", bycopy.} = object of StepGeom_BSplineSurface ##
-                                                                                                       ## !
-                                                                                                       ## Returns
-                                                                                                       ## a
-                                                                                                       ## BezierSurface
+  HandleStepGeomBezierSurface* = Handle[StepGeomBezierSurface]
+  StepGeomBezierSurface* {.importcpp: "StepGeom_BezierSurface",
+                          header: "StepGeom_BezierSurface.hxx", bycopy.} = object of StepGeomBSplineSurface ##
+                                                                                                     ## !
+                                                                                                     ## Returns
+                                                                                                     ## a
+                                                                                                     ## BezierSurface
 
 
-proc constructStepGeom_BezierSurface*(): StepGeom_BezierSurface {.constructor,
+proc constructStepGeomBezierSurface*(): StepGeomBezierSurface {.constructor,
     importcpp: "StepGeom_BezierSurface(@)", header: "StepGeom_BezierSurface.hxx".}
 type
-  StepGeom_BezierSurfacebase_type* = StepGeom_BSplineSurface
+  StepGeomBezierSurfacebaseType* = StepGeomBSplineSurface
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_BezierSurface::get_type_name(@)",
-                              header: "StepGeom_BezierSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_BezierSurface::get_type_name(@)",
+                            header: "StepGeom_BezierSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_BezierSurface::get_type_descriptor(@)",
     header: "StepGeom_BezierSurface.hxx".}
-proc DynamicType*(this: StepGeom_BezierSurface): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepGeom_BezierSurface.hxx".}
+proc dynamicType*(this: StepGeomBezierSurface): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepGeom_BezierSurface.hxx".}

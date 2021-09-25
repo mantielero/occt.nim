@@ -14,38 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Geom/Geom_Curve, TColGeom_Array1OfCurve,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  TColGeom_HArray1OfCurve* {.importcpp: "TColGeom_HArray1OfCurve",
-                            header: "TColGeom_HArray1OfCurve.hxx", bycopy.} = object of TColGeom_Array1OfCurve
+  TColGeomHArray1OfCurve* {.importcpp: "TColGeom_HArray1OfCurve",
+                           header: "TColGeom_HArray1OfCurve.hxx", bycopy.} = object of TColGeomArray1OfCurve
 
 
-proc constructTColGeom_HArray1OfCurve*(theLower: Standard_Integer;
-                                      theUpper: Standard_Integer): TColGeom_HArray1OfCurve {.
+proc constructTColGeomHArray1OfCurve*(theLower: int; theUpper: int): TColGeomHArray1OfCurve {.
     constructor, importcpp: "TColGeom_HArray1OfCurve(@)",
     header: "TColGeom_HArray1OfCurve.hxx".}
-proc constructTColGeom_HArray1OfCurve*(theLower: Standard_Integer;
-                                      theUpper: Standard_Integer;
-                                      theValue: value_type): TColGeom_HArray1OfCurve {.
+proc constructTColGeomHArray1OfCurve*(theLower: int; theUpper: int;
+                                     theValue: ValueType): TColGeomHArray1OfCurve {.
     constructor, importcpp: "TColGeom_HArray1OfCurve(@)",
     header: "TColGeom_HArray1OfCurve.hxx".}
-proc constructTColGeom_HArray1OfCurve*(theOther: TColGeom_Array1OfCurve): TColGeom_HArray1OfCurve {.
+proc constructTColGeomHArray1OfCurve*(theOther: TColGeomArray1OfCurve): TColGeomHArray1OfCurve {.
     constructor, importcpp: "TColGeom_HArray1OfCurve(@)",
     header: "TColGeom_HArray1OfCurve.hxx".}
-proc Array1*(this: TColGeom_HArray1OfCurve): TColGeom_Array1OfCurve {.noSideEffect,
+proc array1*(this: TColGeomHArray1OfCurve): TColGeomArray1OfCurve {.noSideEffect,
     importcpp: "Array1", header: "TColGeom_HArray1OfCurve.hxx".}
-proc ChangeArray1*(this: var TColGeom_HArray1OfCurve): var TColGeom_Array1OfCurve {.
+proc changeArray1*(this: var TColGeomHArray1OfCurve): var TColGeomArray1OfCurve {.
     importcpp: "ChangeArray1", header: "TColGeom_HArray1OfCurve.hxx".}
 type
-  TColGeom_HArray1OfCurvebase_type* = MMgt_TShared
+  TColGeomHArray1OfCurvebaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TColGeom_HArray1OfCurve::get_type_name(@)",
-                              header: "TColGeom_HArray1OfCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TColGeom_HArray1OfCurve::get_type_name(@)",
+                            header: "TColGeom_HArray1OfCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TColGeom_HArray1OfCurve::get_type_descriptor(@)",
     header: "TColGeom_HArray1OfCurve.hxx".}
-proc DynamicType*(this: TColGeom_HArray1OfCurve): handle[Standard_Type] {.
+proc dynamicType*(this: TColGeomHArray1OfCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TColGeom_HArray1OfCurve.hxx".}

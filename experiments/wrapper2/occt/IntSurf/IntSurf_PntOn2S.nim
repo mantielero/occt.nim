@@ -14,50 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Pnt, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Pnt2d"
 type
-  IntSurf_PntOn2S* {.importcpp: "IntSurf_PntOn2S", header: "IntSurf_PntOn2S.hxx",
-                    bycopy.} = object ## ! Empty constructor.
+  IntSurfPntOn2S* {.importcpp: "IntSurf_PntOn2S", header: "IntSurf_PntOn2S.hxx",
+                   bycopy.} = object ## ! Empty constructor.
 
 
-proc constructIntSurf_PntOn2S*(): IntSurf_PntOn2S {.constructor,
+proc constructIntSurfPntOn2S*(): IntSurfPntOn2S {.constructor,
     importcpp: "IntSurf_PntOn2S(@)", header: "IntSurf_PntOn2S.hxx".}
-proc SetValue*(this: var IntSurf_PntOn2S; Pt: gp_Pnt) {.importcpp: "SetValue",
+proc setValue*(this: var IntSurfPntOn2S; pt: Pnt) {.importcpp: "SetValue",
     header: "IntSurf_PntOn2S.hxx".}
-proc SetValue*(this: var IntSurf_PntOn2S; Pt: gp_Pnt; OnFirst: Standard_Boolean;
-              U: Standard_Real; V: Standard_Real) {.importcpp: "SetValue",
-    header: "IntSurf_PntOn2S.hxx".}
-proc SetValue*(this: var IntSurf_PntOn2S; Pt: gp_Pnt; U1: Standard_Real;
-              V1: Standard_Real; U2: Standard_Real; V2: Standard_Real) {.
+proc setValue*(this: var IntSurfPntOn2S; pt: Pnt; onFirst: bool; u: float; v: float) {.
     importcpp: "SetValue", header: "IntSurf_PntOn2S.hxx".}
-proc SetValue*(this: var IntSurf_PntOn2S; OnFirst: Standard_Boolean; U: Standard_Real;
-              V: Standard_Real) {.importcpp: "SetValue",
-                                header: "IntSurf_PntOn2S.hxx".}
-proc SetValue*(this: var IntSurf_PntOn2S; U1: Standard_Real; V1: Standard_Real;
-              U2: Standard_Real; V2: Standard_Real) {.importcpp: "SetValue",
-    header: "IntSurf_PntOn2S.hxx".}
-proc Value*(this: IntSurf_PntOn2S): gp_Pnt {.noSideEffect, importcpp: "Value",
-    header: "IntSurf_PntOn2S.hxx".}
-proc ValueOnSurface*(this: IntSurf_PntOn2S; OnFirst: Standard_Boolean): gp_Pnt2d {.
-    noSideEffect, importcpp: "ValueOnSurface", header: "IntSurf_PntOn2S.hxx".}
-proc ParametersOnS1*(this: IntSurf_PntOn2S; U1: var Standard_Real;
-                    V1: var Standard_Real) {.noSideEffect,
+proc setValue*(this: var IntSurfPntOn2S; pt: Pnt; u1: float; v1: float; u2: float; v2: float) {.
+    importcpp: "SetValue", header: "IntSurf_PntOn2S.hxx".}
+proc setValue*(this: var IntSurfPntOn2S; onFirst: bool; u: float; v: float) {.
+    importcpp: "SetValue", header: "IntSurf_PntOn2S.hxx".}
+proc setValue*(this: var IntSurfPntOn2S; u1: float; v1: float; u2: float; v2: float) {.
+    importcpp: "SetValue", header: "IntSurf_PntOn2S.hxx".}
+proc value*(this: IntSurfPntOn2S): Pnt {.noSideEffect, importcpp: "Value",
+                                     header: "IntSurf_PntOn2S.hxx".}
+proc valueOnSurface*(this: IntSurfPntOn2S; onFirst: bool): Pnt2d {.noSideEffect,
+    importcpp: "ValueOnSurface", header: "IntSurf_PntOn2S.hxx".}
+proc parametersOnS1*(this: IntSurfPntOn2S; u1: var float; v1: var float) {.noSideEffect,
     importcpp: "ParametersOnS1", header: "IntSurf_PntOn2S.hxx".}
-proc ParametersOnS2*(this: IntSurf_PntOn2S; U2: var Standard_Real;
-                    V2: var Standard_Real) {.noSideEffect,
+proc parametersOnS2*(this: IntSurfPntOn2S; u2: var float; v2: var float) {.noSideEffect,
     importcpp: "ParametersOnS2", header: "IntSurf_PntOn2S.hxx".}
-proc ParametersOnSurface*(this: IntSurf_PntOn2S; OnFirst: Standard_Boolean;
-                         U: var Standard_Real; V: var Standard_Real) {.noSideEffect,
-    importcpp: "ParametersOnSurface", header: "IntSurf_PntOn2S.hxx".}
-proc Parameters*(this: IntSurf_PntOn2S; U1: var Standard_Real; V1: var Standard_Real;
-                U2: var Standard_Real; V2: var Standard_Real) {.noSideEffect,
-    importcpp: "Parameters", header: "IntSurf_PntOn2S.hxx".}
-proc IsSame*(this: IntSurf_PntOn2S; theOtherPoint: IntSurf_PntOn2S;
-            theTol3D: Standard_Real = 0.0; theTol2D: Standard_Real = -1.0): Standard_Boolean {.
-    noSideEffect, importcpp: "IsSame", header: "IntSurf_PntOn2S.hxx".}
+proc parametersOnSurface*(this: IntSurfPntOn2S; onFirst: bool; u: var float;
+                         v: var float) {.noSideEffect,
+                                      importcpp: "ParametersOnSurface",
+                                      header: "IntSurf_PntOn2S.hxx".}
+proc parameters*(this: IntSurfPntOn2S; u1: var float; v1: var float; u2: var float;
+                v2: var float) {.noSideEffect, importcpp: "Parameters",
+                              header: "IntSurf_PntOn2S.hxx".}
+proc isSame*(this: IntSurfPntOn2S; theOtherPoint: IntSurfPntOn2S;
+            theTol3D: float = 0.0; theTol2D: float = -1.0): bool {.noSideEffect,
+    importcpp: "IsSame", header: "IntSurf_PntOn2S.hxx".}

@@ -13,64 +13,58 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../IGESControl/IGESControl_Reader,
-  ../TCollection/TCollection_AsciiString
-
 discard "forward decl of XSControl_WorkSession"
 discard "forward decl of TDocStd_Document"
 type
-  IGESCAFControl_Reader* {.importcpp: "IGESCAFControl_Reader",
-                          header: "IGESCAFControl_Reader.hxx", bycopy.} = object of IGESControl_Reader ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## a
-                                                                                                ## reader
-                                                                                                ## with
-                                                                                                ## an
-                                                                                                ## empty
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## IGES
-                                                                                                ## model
-                                                                                                ## and
-                                                                                                ## sets
-                                                                                                ## ColorMode,
-                                                                                                ## LayerMode
-                                                                                                ## and
-                                                                                                ## NameMode
-                                                                                                ## to
-                                                                                                ## Standard_True.
+  IGESCAFControlReader* {.importcpp: "IGESCAFControl_Reader",
+                         header: "IGESCAFControl_Reader.hxx", bycopy.} = object of IGESControlReader ##
+                                                                                              ## !
+                                                                                              ## Creates
+                                                                                              ## a
+                                                                                              ## reader
+                                                                                              ## with
+                                                                                              ## an
+                                                                                              ## empty
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## IGES
+                                                                                              ## model
+                                                                                              ## and
+                                                                                              ## sets
+                                                                                              ## ColorMode,
+                                                                                              ## LayerMode
+                                                                                              ## and
+                                                                                              ## NameMode
+                                                                                              ## to
+                                                                                              ## Standard_True.
 
 
-proc constructIGESCAFControl_Reader*(): IGESCAFControl_Reader {.constructor,
+proc constructIGESCAFControlReader*(): IGESCAFControlReader {.constructor,
     importcpp: "IGESCAFControl_Reader(@)", header: "IGESCAFControl_Reader.hxx".}
-proc constructIGESCAFControl_Reader*(theWS: handle[XSControl_WorkSession];
-    FromScratch: Standard_Boolean = Standard_True): IGESCAFControl_Reader {.
+proc constructIGESCAFControlReader*(theWS: Handle[XSControlWorkSession];
+                                   fromScratch: bool = true): IGESCAFControlReader {.
     constructor, importcpp: "IGESCAFControl_Reader(@)",
     header: "IGESCAFControl_Reader.hxx".}
-proc Transfer*(this: var IGESCAFControl_Reader;
-              theDoc: var handle[TDocStd_Document];
-              theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
+proc transfer*(this: var IGESCAFControlReader; theDoc: var Handle[TDocStdDocument];
+              theProgress: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "Transfer", header: "IGESCAFControl_Reader.hxx".}
-proc Perform*(this: var IGESCAFControl_Reader; theFileName: TCollection_AsciiString;
-             theDoc: var handle[TDocStd_Document];
-             theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
+proc perform*(this: var IGESCAFControlReader; theFileName: TCollectionAsciiString;
+             theDoc: var Handle[TDocStdDocument];
+             theProgress: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "Perform", header: "IGESCAFControl_Reader.hxx".}
-proc Perform*(this: var IGESCAFControl_Reader; theFileName: Standard_CString;
-             theDoc: var handle[TDocStd_Document];
-             theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
+proc perform*(this: var IGESCAFControlReader; theFileName: StandardCString;
+             theDoc: var Handle[TDocStdDocument];
+             theProgress: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "Perform", header: "IGESCAFControl_Reader.hxx".}
-proc SetColorMode*(this: var IGESCAFControl_Reader; theMode: Standard_Boolean) {.
+proc setColorMode*(this: var IGESCAFControlReader; theMode: bool) {.
     importcpp: "SetColorMode", header: "IGESCAFControl_Reader.hxx".}
-proc GetColorMode*(this: IGESCAFControl_Reader): Standard_Boolean {.noSideEffect,
+proc getColorMode*(this: IGESCAFControlReader): bool {.noSideEffect,
     importcpp: "GetColorMode", header: "IGESCAFControl_Reader.hxx".}
-proc SetNameMode*(this: var IGESCAFControl_Reader; theMode: Standard_Boolean) {.
+proc setNameMode*(this: var IGESCAFControlReader; theMode: bool) {.
     importcpp: "SetNameMode", header: "IGESCAFControl_Reader.hxx".}
-proc GetNameMode*(this: IGESCAFControl_Reader): Standard_Boolean {.noSideEffect,
+proc getNameMode*(this: IGESCAFControlReader): bool {.noSideEffect,
     importcpp: "GetNameMode", header: "IGESCAFControl_Reader.hxx".}
-proc SetLayerMode*(this: var IGESCAFControl_Reader; theMode: Standard_Boolean) {.
+proc setLayerMode*(this: var IGESCAFControlReader; theMode: bool) {.
     importcpp: "SetLayerMode", header: "IGESCAFControl_Reader.hxx".}
-proc GetLayerMode*(this: IGESCAFControl_Reader): Standard_Boolean {.noSideEffect,
+proc getLayerMode*(this: IGESCAFControlReader): bool {.noSideEffect,
     importcpp: "GetLayerMode", header: "IGESCAFControl_Reader.hxx".}

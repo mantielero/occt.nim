@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of StepGeom_CartesianPoint"
 discard "forward decl of StepToTopoDS_PointPairHasher"
 type
@@ -25,7 +21,7 @@ type
                            header: "StepToTopoDS_PointPair.hxx", bycopy.} = object
 
 
-proc constructStepToTopoDS_PointPair*(P1: handle[StepGeom_CartesianPoint];
-                                     P2: handle[StepGeom_CartesianPoint]): StepToTopoDS_PointPair {.
+proc constructStepToTopoDS_PointPair*(p1: Handle[StepGeomCartesianPoint];
+                                     p2: Handle[StepGeomCartesianPoint]): StepToTopoDS_PointPair {.
     constructor, importcpp: "StepToTopoDS_PointPair(@)",
     header: "StepToTopoDS_PointPair.hxx".}

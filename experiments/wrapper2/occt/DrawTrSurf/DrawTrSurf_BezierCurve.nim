@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Draw/Draw_Color, DrawTrSurf_Curve, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real
-
 discard "forward decl of Geom_BezierCurve"
 discard "forward decl of Draw_Color"
 discard "forward decl of Draw_Display"
@@ -26,60 +21,57 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DrawTrSurf_BezierCurve"
 discard "forward decl of DrawTrSurf_BezierCurve"
 type
-  Handle_DrawTrSurf_BezierCurve* = handle[DrawTrSurf_BezierCurve]
-  DrawTrSurf_BezierCurve* {.importcpp: "DrawTrSurf_BezierCurve",
-                           header: "DrawTrSurf_BezierCurve.hxx", bycopy.} = object of DrawTrSurf_Curve ##
-                                                                                                ## !
-                                                                                                ## creates
-                                                                                                ## a
-                                                                                                ## drawable
-                                                                                                ## Bezier
-                                                                                                ## curve
-                                                                                                ## from
-                                                                                                ## a
-                                                                                                ## Bezier
-                                                                                                ## curve
-                                                                                                ## of
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## package
-                                                                                                ## Geom.
+  HandleDrawTrSurfBezierCurve* = Handle[DrawTrSurfBezierCurve]
+  DrawTrSurfBezierCurve* {.importcpp: "DrawTrSurf_BezierCurve",
+                          header: "DrawTrSurf_BezierCurve.hxx", bycopy.} = object of DrawTrSurfCurve ##
+                                                                                              ## !
+                                                                                              ## creates
+                                                                                              ## a
+                                                                                              ## drawable
+                                                                                              ## Bezier
+                                                                                              ## curve
+                                                                                              ## from
+                                                                                              ## a
+                                                                                              ## Bezier
+                                                                                              ## curve
+                                                                                              ## of
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## package
+                                                                                              ## Geom.
 
 
-proc constructDrawTrSurf_BezierCurve*(C: handle[Geom_BezierCurve]): DrawTrSurf_BezierCurve {.
+proc constructDrawTrSurfBezierCurve*(c: Handle[GeomBezierCurve]): DrawTrSurfBezierCurve {.
     constructor, importcpp: "DrawTrSurf_BezierCurve(@)",
     header: "DrawTrSurf_BezierCurve.hxx".}
-proc constructDrawTrSurf_BezierCurve*(C: handle[Geom_BezierCurve];
-                                     CurvColor: Draw_Color;
-                                     PolesColor: Draw_Color;
-                                     ShowPoles: Standard_Boolean;
-                                     Discret: Standard_Integer;
-                                     Deflection: Standard_Real;
-                                     DrawMode: Standard_Integer): DrawTrSurf_BezierCurve {.
+proc constructDrawTrSurfBezierCurve*(c: Handle[GeomBezierCurve];
+                                    curvColor: DrawColor; polesColor: DrawColor;
+                                    showPoles: bool; discret: int;
+                                    deflection: float; drawMode: int): DrawTrSurfBezierCurve {.
     constructor, importcpp: "DrawTrSurf_BezierCurve(@)",
     header: "DrawTrSurf_BezierCurve.hxx".}
-proc DrawOn*(this: DrawTrSurf_BezierCurve; dis: var Draw_Display) {.noSideEffect,
+proc drawOn*(this: DrawTrSurfBezierCurve; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "DrawTrSurf_BezierCurve.hxx".}
-proc ShowPoles*(this: var DrawTrSurf_BezierCurve) {.importcpp: "ShowPoles",
+proc showPoles*(this: var DrawTrSurfBezierCurve) {.importcpp: "ShowPoles",
     header: "DrawTrSurf_BezierCurve.hxx".}
-proc ClearPoles*(this: var DrawTrSurf_BezierCurve) {.importcpp: "ClearPoles",
+proc clearPoles*(this: var DrawTrSurfBezierCurve) {.importcpp: "ClearPoles",
     header: "DrawTrSurf_BezierCurve.hxx".}
-proc FindPole*(this: DrawTrSurf_BezierCurve; X: Standard_Real; Y: Standard_Real;
-              D: Draw_Display; Prec: Standard_Real; Index: var Standard_Integer) {.
-    noSideEffect, importcpp: "FindPole", header: "DrawTrSurf_BezierCurve.hxx".}
-proc SetPolesColor*(this: var DrawTrSurf_BezierCurve; aColor: Draw_Color) {.
+proc findPole*(this: DrawTrSurfBezierCurve; x: float; y: float; d: DrawDisplay;
+              prec: float; index: var int) {.noSideEffect, importcpp: "FindPole",
+                                        header: "DrawTrSurf_BezierCurve.hxx".}
+proc setPolesColor*(this: var DrawTrSurfBezierCurve; aColor: DrawColor) {.
     importcpp: "SetPolesColor", header: "DrawTrSurf_BezierCurve.hxx".}
-proc PolesColor*(this: DrawTrSurf_BezierCurve): Draw_Color {.noSideEffect,
+proc polesColor*(this: DrawTrSurfBezierCurve): DrawColor {.noSideEffect,
     importcpp: "PolesColor", header: "DrawTrSurf_BezierCurve.hxx".}
-proc Copy*(this: DrawTrSurf_BezierCurve): handle[Draw_Drawable3D] {.noSideEffect,
+proc copy*(this: DrawTrSurfBezierCurve): Handle[DrawDrawable3D] {.noSideEffect,
     importcpp: "Copy", header: "DrawTrSurf_BezierCurve.hxx".}
 type
-  DrawTrSurf_BezierCurvebase_type* = DrawTrSurf_Curve
+  DrawTrSurfBezierCurvebaseType* = DrawTrSurfCurve
 
-proc get_type_name*(): cstring {.importcpp: "DrawTrSurf_BezierCurve::get_type_name(@)",
-                              header: "DrawTrSurf_BezierCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "DrawTrSurf_BezierCurve::get_type_name(@)",
+                            header: "DrawTrSurf_BezierCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "DrawTrSurf_BezierCurve::get_type_descriptor(@)",
     header: "DrawTrSurf_BezierCurve.hxx".}
-proc DynamicType*(this: DrawTrSurf_BezierCurve): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "DrawTrSurf_BezierCurve.hxx".}
+proc dynamicType*(this: DrawTrSurfBezierCurve): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "DrawTrSurf_BezierCurve.hxx".}

@@ -11,40 +11,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Graphic3d_Buffer
-
 ## ! Bounds buffer.
 
 type
-  Graphic3d_BoundBuffer* {.importcpp: "Graphic3d_BoundBuffer",
-                          header: "Graphic3d_BoundBuffer.hxx", bycopy.} = object of NCollection_Buffer ##
-                                                                                                ## !
-                                                                                                ## Empty
-                                                                                                ## constructor.
-    Colors* {.importc: "Colors".}: ptr Graphic3d_Vec4 ## !< pointer to facet color values
-    Bounds* {.importc: "Bounds".}: ptr Standard_Integer ## !< pointer to bounds array
-    NbBounds* {.importc: "NbBounds".}: Standard_Integer ## !< number of bounds
-    NbMaxBounds* {.importc: "NbMaxBounds".}: Standard_Integer ## !< number of allocated bounds
+  Graphic3dBoundBuffer* {.importcpp: "Graphic3d_BoundBuffer",
+                         header: "Graphic3d_BoundBuffer.hxx", bycopy.} = object of NCollectionBuffer ##
+                                                                                              ## !
+                                                                                              ## Empty
+                                                                                              ## constructor.
+    colors* {.importc: "Colors".}: ptr Graphic3dVec4 ## !< pointer to facet color values
+    bounds* {.importc: "Bounds".}: ptr int ## !< pointer to bounds array
+    nbBounds* {.importc: "NbBounds".}: int ## !< number of bounds
+    nbMaxBounds* {.importc: "NbMaxBounds".}: int ## !< number of allocated bounds
 
-  Graphic3d_BoundBufferbase_type* = NCollection_Buffer
+  Graphic3dBoundBufferbaseType* = NCollectionBuffer
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_BoundBuffer::get_type_name(@)",
-                              header: "Graphic3d_BoundBuffer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_BoundBuffer::get_type_name(@)",
+                            header: "Graphic3d_BoundBuffer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_BoundBuffer::get_type_descriptor(@)",
     header: "Graphic3d_BoundBuffer.hxx".}
-proc DynamicType*(this: Graphic3d_BoundBuffer): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Graphic3d_BoundBuffer.hxx".}
-proc constructGraphic3d_BoundBuffer*(theAlloc: handle[NCollection_BaseAllocator]): Graphic3d_BoundBuffer {.
+proc dynamicType*(this: Graphic3dBoundBuffer): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Graphic3d_BoundBuffer.hxx".}
+proc constructGraphic3dBoundBuffer*(theAlloc: Handle[NCollectionBaseAllocator]): Graphic3dBoundBuffer {.
     constructor, importcpp: "Graphic3d_BoundBuffer(@)",
     header: "Graphic3d_BoundBuffer.hxx".}
-proc Init*(this: var Graphic3d_BoundBuffer; theNbBounds: Standard_Integer;
-          theHasColors: Standard_Boolean): bool {.importcpp: "Init",
-    header: "Graphic3d_BoundBuffer.hxx".}
-proc DumpJson*(this: Graphic3d_BoundBuffer; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Graphic3d_BoundBuffer.hxx".}
+proc init*(this: var Graphic3dBoundBuffer; theNbBounds: int; theHasColors: bool): bool {.
+    importcpp: "Init", header: "Graphic3d_BoundBuffer.hxx".}
+proc dumpJson*(this: Graphic3dBoundBuffer; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Graphic3d_BoundBuffer.hxx".}
 discard "forward decl of Graphic3d_BoundBuffer"
 type
-  Handle_Graphic3d_BoundBuffer* = handle[Graphic3d_BoundBuffer]
+  HandleGraphic3dBoundBuffer* = Handle[Graphic3dBoundBuffer]
+

@@ -14,11 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TopOpeBRepDS_Interference, ../NCollection/NCollection_List
-
 type
-  TopOpeBRepDS_ListOfInterference* = NCollection_List[
-      handle[TopOpeBRepDS_Interference]]
+  TopOpeBRepDS_ListOfInterference* = NCollectionList[
+      Handle[TopOpeBRepDS_Interference]]
   TopOpeBRepDS_ListIteratorOfListOfInterference* = Iterator[
-      handle[TopOpeBRepDS_Interference]]
+      Handle[TopOpeBRepDS_Interference]]
+

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  Geom_ElementarySurface, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_RangeError"
 discard "forward decl of gp_Ax3"
@@ -32,7 +27,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_CylindricalSurface"
 discard "forward decl of Geom_CylindricalSurface"
 type
-  Handle_Geom_CylindricalSurface* = handle[Geom_CylindricalSurface]
+  HandleGeomCylindricalSurface* = Handle[GeomCylindricalSurface]
 
 ## ! This class defines the infinite cylindrical surface.
 ## !
@@ -63,179 +58,174 @@ type
 ## ! surface.
 
 type
-  Geom_CylindricalSurface* {.importcpp: "Geom_CylindricalSurface",
-                            header: "Geom_CylindricalSurface.hxx", bycopy.} = object of Geom_ElementarySurface ##
-                                                                                                        ## !
-                                                                                                        ## A3
-                                                                                                        ## defines
-                                                                                                        ## the
-                                                                                                        ## local
-                                                                                                        ## coordinate
-                                                                                                        ## system
-                                                                                                        ## of
-                                                                                                        ## the
-                                                                                                        ## cylindrical
-                                                                                                        ## surface.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## The
-                                                                                                        ## "ZDirection"
-                                                                                                        ## of
-                                                                                                        ## A3
-                                                                                                        ## defines
-                                                                                                        ## the
-                                                                                                        ## direction
-                                                                                                        ## of
-                                                                                                        ## the
-                                                                                                        ## surface's
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## axis
-                                                                                                        ## of
-                                                                                                        ## symmetry.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## At
-                                                                                                        ## the
-                                                                                                        ## creation
-                                                                                                        ## the
-                                                                                                        ## parametrization
-                                                                                                        ## of
-                                                                                                        ## the
-                                                                                                        ## surface
-                                                                                                        ## is
-                                                                                                        ## defined
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## such
-                                                                                                        ## that
-                                                                                                        ## the
-                                                                                                        ## normal
-                                                                                                        ## Vector
-                                                                                                        ## (N
-                                                                                                        ## =
-                                                                                                        ## D1U
-                                                                                                        ## ^
-                                                                                                        ## D1V)
-                                                                                                        ## is
-                                                                                                        ## oriented
-                                                                                                        ## towards
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## the
-                                                                                                        ## "outside
-                                                                                                        ## region"
-                                                                                                        ## of
-                                                                                                        ## the
-                                                                                                        ## surface.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Warnings
-                                                                                                        ## :
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## It
-                                                                                                        ## is
-                                                                                                        ## not
-                                                                                                        ## forbidden
-                                                                                                        ## to
-                                                                                                        ## create
-                                                                                                        ## a
-                                                                                                        ## cylindrical
-                                                                                                        ## surface
-                                                                                                        ## with
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Radius
-                                                                                                        ## =
-                                                                                                        ## 0.0
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Raised
-                                                                                                        ## if
-                                                                                                        ## Radius
-                                                                                                        ## <
-                                                                                                        ## 0.0
+  GeomCylindricalSurface* {.importcpp: "Geom_CylindricalSurface",
+                           header: "Geom_CylindricalSurface.hxx", bycopy.} = object of GeomElementarySurface ##
+                                                                                                      ## !
+                                                                                                      ## A3
+                                                                                                      ## defines
+                                                                                                      ## the
+                                                                                                      ## local
+                                                                                                      ## coordinate
+                                                                                                      ## system
+                                                                                                      ## of
+                                                                                                      ## the
+                                                                                                      ## cylindrical
+                                                                                                      ## surface.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## The
+                                                                                                      ## "ZDirection"
+                                                                                                      ## of
+                                                                                                      ## A3
+                                                                                                      ## defines
+                                                                                                      ## the
+                                                                                                      ## direction
+                                                                                                      ## of
+                                                                                                      ## the
+                                                                                                      ## surface's
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## axis
+                                                                                                      ## of
+                                                                                                      ## symmetry.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## At
+                                                                                                      ## the
+                                                                                                      ## creation
+                                                                                                      ## the
+                                                                                                      ## parametrization
+                                                                                                      ## of
+                                                                                                      ## the
+                                                                                                      ## surface
+                                                                                                      ## is
+                                                                                                      ## defined
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## such
+                                                                                                      ## that
+                                                                                                      ## the
+                                                                                                      ## normal
+                                                                                                      ## Vector
+                                                                                                      ## (N
+                                                                                                      ## =
+                                                                                                      ## D1U
+                                                                                                      ## ^
+                                                                                                      ## D1V)
+                                                                                                      ## is
+                                                                                                      ## oriented
+                                                                                                      ## towards
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## the
+                                                                                                      ## "outside
+                                                                                                      ## region"
+                                                                                                      ## of
+                                                                                                      ## the
+                                                                                                      ## surface.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Warnings
+                                                                                                      ## :
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## It
+                                                                                                      ## is
+                                                                                                      ## not
+                                                                                                      ## forbidden
+                                                                                                      ## to
+                                                                                                      ## create
+                                                                                                      ## a
+                                                                                                      ## cylindrical
+                                                                                                      ## surface
+                                                                                                      ## with
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Radius
+                                                                                                      ## =
+                                                                                                      ## 0.0
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Raised
+                                                                                                      ## if
+                                                                                                      ## Radius
+                                                                                                      ## <
+                                                                                                      ## 0.0
 
 
-proc constructGeom_CylindricalSurface*(A3: gp_Ax3; Radius: Standard_Real): Geom_CylindricalSurface {.
+proc constructGeomCylindricalSurface*(a3: Ax3; radius: float): GeomCylindricalSurface {.
     constructor, importcpp: "Geom_CylindricalSurface(@)",
     header: "Geom_CylindricalSurface.hxx".}
-proc constructGeom_CylindricalSurface*(C: gp_Cylinder): Geom_CylindricalSurface {.
+proc constructGeomCylindricalSurface*(c: Cylinder): GeomCylindricalSurface {.
     constructor, importcpp: "Geom_CylindricalSurface(@)",
     header: "Geom_CylindricalSurface.hxx".}
-proc SetCylinder*(this: var Geom_CylindricalSurface; C: gp_Cylinder) {.
+proc setCylinder*(this: var GeomCylindricalSurface; c: Cylinder) {.
     importcpp: "SetCylinder", header: "Geom_CylindricalSurface.hxx".}
-proc SetRadius*(this: var Geom_CylindricalSurface; R: Standard_Real) {.
-    importcpp: "SetRadius", header: "Geom_CylindricalSurface.hxx".}
-proc Cylinder*(this: Geom_CylindricalSurface): gp_Cylinder {.noSideEffect,
+proc setRadius*(this: var GeomCylindricalSurface; r: float) {.importcpp: "SetRadius",
+    header: "Geom_CylindricalSurface.hxx".}
+proc cylinder*(this: GeomCylindricalSurface): Cylinder {.noSideEffect,
     importcpp: "Cylinder", header: "Geom_CylindricalSurface.hxx".}
-proc UReversedParameter*(this: Geom_CylindricalSurface; U: Standard_Real): Standard_Real {.
+proc uReversedParameter*(this: GeomCylindricalSurface; u: float): float {.
     noSideEffect, importcpp: "UReversedParameter",
     header: "Geom_CylindricalSurface.hxx".}
-proc VReversedParameter*(this: Geom_CylindricalSurface; V: Standard_Real): Standard_Real {.
+proc vReversedParameter*(this: GeomCylindricalSurface; v: float): float {.
     noSideEffect, importcpp: "VReversedParameter",
     header: "Geom_CylindricalSurface.hxx".}
-proc TransformParameters*(this: Geom_CylindricalSurface; U: var Standard_Real;
-                         V: var Standard_Real; T: gp_Trsf) {.noSideEffect,
-    importcpp: "TransformParameters", header: "Geom_CylindricalSurface.hxx".}
-proc ParametricTransformation*(this: Geom_CylindricalSurface; T: gp_Trsf): gp_GTrsf2d {.
+proc transformParameters*(this: GeomCylindricalSurface; u: var float; v: var float;
+                         t: Trsf) {.noSideEffect, importcpp: "TransformParameters",
+                                  header: "Geom_CylindricalSurface.hxx".}
+proc parametricTransformation*(this: GeomCylindricalSurface; t: Trsf): GTrsf2d {.
     noSideEffect, importcpp: "ParametricTransformation",
     header: "Geom_CylindricalSurface.hxx".}
-proc Bounds*(this: Geom_CylindricalSurface; U1: var Standard_Real;
-            U2: var Standard_Real; V1: var Standard_Real; V2: var Standard_Real) {.
-    noSideEffect, importcpp: "Bounds", header: "Geom_CylindricalSurface.hxx".}
-proc Coefficients*(this: Geom_CylindricalSurface; A1: var Standard_Real;
-                  A2: var Standard_Real; A3: var Standard_Real; B1: var Standard_Real;
-                  B2: var Standard_Real; B3: var Standard_Real; C1: var Standard_Real;
-                  C2: var Standard_Real; C3: var Standard_Real; D: var Standard_Real) {.
-    noSideEffect, importcpp: "Coefficients", header: "Geom_CylindricalSurface.hxx".}
-proc Radius*(this: Geom_CylindricalSurface): Standard_Real {.noSideEffect,
-    importcpp: "Radius", header: "Geom_CylindricalSurface.hxx".}
-proc IsUClosed*(this: Geom_CylindricalSurface): Standard_Boolean {.noSideEffect,
-    importcpp: "IsUClosed", header: "Geom_CylindricalSurface.hxx".}
-proc IsVClosed*(this: Geom_CylindricalSurface): Standard_Boolean {.noSideEffect,
-    importcpp: "IsVClosed", header: "Geom_CylindricalSurface.hxx".}
-proc IsUPeriodic*(this: Geom_CylindricalSurface): Standard_Boolean {.noSideEffect,
-    importcpp: "IsUPeriodic", header: "Geom_CylindricalSurface.hxx".}
-proc IsVPeriodic*(this: Geom_CylindricalSurface): Standard_Boolean {.noSideEffect,
-    importcpp: "IsVPeriodic", header: "Geom_CylindricalSurface.hxx".}
-proc UIso*(this: Geom_CylindricalSurface; U: Standard_Real): handle[Geom_Curve] {.
-    noSideEffect, importcpp: "UIso", header: "Geom_CylindricalSurface.hxx".}
-proc VIso*(this: Geom_CylindricalSurface; V: Standard_Real): handle[Geom_Curve] {.
-    noSideEffect, importcpp: "VIso", header: "Geom_CylindricalSurface.hxx".}
-proc D0*(this: Geom_CylindricalSurface; U: Standard_Real; V: Standard_Real;
-        P: var gp_Pnt) {.noSideEffect, importcpp: "D0",
-                      header: "Geom_CylindricalSurface.hxx".}
-proc D1*(this: Geom_CylindricalSurface; U: Standard_Real; V: Standard_Real;
-        P: var gp_Pnt; D1U: var gp_Vec; D1V: var gp_Vec) {.noSideEffect, importcpp: "D1",
-    header: "Geom_CylindricalSurface.hxx".}
-proc D2*(this: Geom_CylindricalSurface; U: Standard_Real; V: Standard_Real;
-        P: var gp_Pnt; D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec;
-        D2UV: var gp_Vec) {.noSideEffect, importcpp: "D2",
-                         header: "Geom_CylindricalSurface.hxx".}
-proc D3*(this: Geom_CylindricalSurface; U: Standard_Real; V: Standard_Real;
-        P: var gp_Pnt; D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec;
-        D2UV: var gp_Vec; D3U: var gp_Vec; D3V: var gp_Vec; D3UUV: var gp_Vec;
-        D3UVV: var gp_Vec) {.noSideEffect, importcpp: "D3",
+proc bounds*(this: GeomCylindricalSurface; u1: var float; u2: var float; v1: var float;
+            v2: var float) {.noSideEffect, importcpp: "Bounds",
                           header: "Geom_CylindricalSurface.hxx".}
-proc DN*(this: Geom_CylindricalSurface; U: Standard_Real; V: Standard_Real;
-        Nu: Standard_Integer; Nv: Standard_Integer): gp_Vec {.noSideEffect,
-    importcpp: "DN", header: "Geom_CylindricalSurface.hxx".}
-proc Transform*(this: var Geom_CylindricalSurface; T: gp_Trsf) {.
-    importcpp: "Transform", header: "Geom_CylindricalSurface.hxx".}
-proc Copy*(this: Geom_CylindricalSurface): handle[Geom_Geometry] {.noSideEffect,
-    importcpp: "Copy", header: "Geom_CylindricalSurface.hxx".}
-proc DumpJson*(this: Geom_CylindricalSurface; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
+proc coefficients*(this: GeomCylindricalSurface; a1: var float; a2: var float;
+                  a3: var float; b1: var float; b2: var float; b3: var float; c1: var float;
+                  c2: var float; c3: var float; d: var float) {.noSideEffect,
+    importcpp: "Coefficients", header: "Geom_CylindricalSurface.hxx".}
+proc radius*(this: GeomCylindricalSurface): float {.noSideEffect,
+    importcpp: "Radius", header: "Geom_CylindricalSurface.hxx".}
+proc isUClosed*(this: GeomCylindricalSurface): bool {.noSideEffect,
+    importcpp: "IsUClosed", header: "Geom_CylindricalSurface.hxx".}
+proc isVClosed*(this: GeomCylindricalSurface): bool {.noSideEffect,
+    importcpp: "IsVClosed", header: "Geom_CylindricalSurface.hxx".}
+proc isUPeriodic*(this: GeomCylindricalSurface): bool {.noSideEffect,
+    importcpp: "IsUPeriodic", header: "Geom_CylindricalSurface.hxx".}
+proc isVPeriodic*(this: GeomCylindricalSurface): bool {.noSideEffect,
+    importcpp: "IsVPeriodic", header: "Geom_CylindricalSurface.hxx".}
+proc uIso*(this: GeomCylindricalSurface; u: float): Handle[GeomCurve] {.noSideEffect,
+    importcpp: "UIso", header: "Geom_CylindricalSurface.hxx".}
+proc vIso*(this: GeomCylindricalSurface; v: float): Handle[GeomCurve] {.noSideEffect,
+    importcpp: "VIso", header: "Geom_CylindricalSurface.hxx".}
+proc d0*(this: GeomCylindricalSurface; u: float; v: float; p: var Pnt) {.noSideEffect,
+    importcpp: "D0", header: "Geom_CylindricalSurface.hxx".}
+proc d1*(this: GeomCylindricalSurface; u: float; v: float; p: var Pnt; d1u: var Vec;
+        d1v: var Vec) {.noSideEffect, importcpp: "D1",
+                     header: "Geom_CylindricalSurface.hxx".}
+proc d2*(this: GeomCylindricalSurface; u: float; v: float; p: var Pnt; d1u: var Vec;
+        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
+    importcpp: "D2", header: "Geom_CylindricalSurface.hxx".}
+proc d3*(this: GeomCylindricalSurface; u: float; v: float; p: var Pnt; d1u: var Vec;
+        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
+        d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
+                                    header: "Geom_CylindricalSurface.hxx".}
+proc dn*(this: GeomCylindricalSurface; u: float; v: float; nu: int; nv: int): Vec {.
+    noSideEffect, importcpp: "DN", header: "Geom_CylindricalSurface.hxx".}
+proc transform*(this: var GeomCylindricalSurface; t: Trsf) {.importcpp: "Transform",
     header: "Geom_CylindricalSurface.hxx".}
+proc copy*(this: GeomCylindricalSurface): Handle[GeomGeometry] {.noSideEffect,
+    importcpp: "Copy", header: "Geom_CylindricalSurface.hxx".}
+proc dumpJson*(this: GeomCylindricalSurface; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Geom_CylindricalSurface.hxx".}
 type
-  Geom_CylindricalSurfacebase_type* = Geom_ElementarySurface
+  GeomCylindricalSurfacebaseType* = GeomElementarySurface
 
-proc get_type_name*(): cstring {.importcpp: "Geom_CylindricalSurface::get_type_name(@)",
-                              header: "Geom_CylindricalSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Geom_CylindricalSurface::get_type_name(@)",
+                            header: "Geom_CylindricalSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_CylindricalSurface::get_type_descriptor(@)",
     header: "Geom_CylindricalSurface.hxx".}
-proc DynamicType*(this: Geom_CylindricalSurface): handle[Standard_Type] {.
+proc dynamicType*(this: GeomCylindricalSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Geom_CylindricalSurface.hxx".}

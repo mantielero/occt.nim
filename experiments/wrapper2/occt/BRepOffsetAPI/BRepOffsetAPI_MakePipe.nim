@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../BRepFill/BRepFill_Pipe,
-  ../BRepPrimAPI/BRepPrimAPI_MakeSweep, ../GeomFill/GeomFill_Trihedron,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real
-
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepFill_Pipe"
@@ -128,25 +122,26 @@ type
                                                                                                      ## solid.
 
 
-proc constructBRepOffsetAPI_MakePipe*(Spine: TopoDS_Wire; Profile: TopoDS_Shape): BRepOffsetAPI_MakePipe {.
+proc constructBRepOffsetAPI_MakePipe*(spine: TopoDS_Wire; profile: TopoDS_Shape): BRepOffsetAPI_MakePipe {.
     constructor, importcpp: "BRepOffsetAPI_MakePipe(@)",
     header: "BRepOffsetAPI_MakePipe.hxx".}
-proc constructBRepOffsetAPI_MakePipe*(Spine: TopoDS_Wire; Profile: TopoDS_Shape;
-                                     aMode: GeomFill_Trihedron; ForceApproxC1: Standard_Boolean = Standard_False): BRepOffsetAPI_MakePipe {.
+proc constructBRepOffsetAPI_MakePipe*(spine: TopoDS_Wire; profile: TopoDS_Shape;
+                                     aMode: GeomFillTrihedron;
+                                     forceApproxC1: bool = false): BRepOffsetAPI_MakePipe {.
     constructor, importcpp: "BRepOffsetAPI_MakePipe(@)",
     header: "BRepOffsetAPI_MakePipe.hxx".}
-proc Pipe*(this: BRepOffsetAPI_MakePipe): BRepFill_Pipe {.noSideEffect,
+proc pipe*(this: BRepOffsetAPI_MakePipe): BRepFillPipe {.noSideEffect,
     importcpp: "Pipe", header: "BRepOffsetAPI_MakePipe.hxx".}
-proc Build*(this: var BRepOffsetAPI_MakePipe) {.importcpp: "Build",
+proc build*(this: var BRepOffsetAPI_MakePipe) {.importcpp: "Build",
     header: "BRepOffsetAPI_MakePipe.hxx".}
-proc FirstShape*(this: var BRepOffsetAPI_MakePipe): TopoDS_Shape {.
+proc firstShape*(this: var BRepOffsetAPI_MakePipe): TopoDS_Shape {.
     importcpp: "FirstShape", header: "BRepOffsetAPI_MakePipe.hxx".}
-proc LastShape*(this: var BRepOffsetAPI_MakePipe): TopoDS_Shape {.
+proc lastShape*(this: var BRepOffsetAPI_MakePipe): TopoDS_Shape {.
     importcpp: "LastShape", header: "BRepOffsetAPI_MakePipe.hxx".}
-proc Generated*(this: var BRepOffsetAPI_MakePipe; S: TopoDS_Shape): TopTools_ListOfShape {.
+proc generated*(this: var BRepOffsetAPI_MakePipe; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Generated", header: "BRepOffsetAPI_MakePipe.hxx".}
-proc Generated*(this: var BRepOffsetAPI_MakePipe; SSpine: TopoDS_Shape;
-               SProfile: TopoDS_Shape): TopoDS_Shape {.importcpp: "Generated",
+proc generated*(this: var BRepOffsetAPI_MakePipe; sSpine: TopoDS_Shape;
+               sProfile: TopoDS_Shape): TopoDS_Shape {.importcpp: "Generated",
     header: "BRepOffsetAPI_MakePipe.hxx".}
-proc ErrorOnSurface*(this: BRepOffsetAPI_MakePipe): Standard_Real {.noSideEffect,
+proc errorOnSurface*(this: BRepOffsetAPI_MakePipe): float {.noSideEffect,
     importcpp: "ErrorOnSurface", header: "BRepOffsetAPI_MakePipe.hxx".}

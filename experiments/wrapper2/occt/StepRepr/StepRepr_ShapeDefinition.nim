@@ -14,37 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepRepr_ProductDefinitionShape"
 discard "forward decl of StepRepr_ShapeAspect"
 discard "forward decl of StepRepr_ShapeAspectRelationship"
 type
-  StepRepr_ShapeDefinition* {.importcpp: "StepRepr_ShapeDefinition",
-                             header: "StepRepr_ShapeDefinition.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                       ## !
-                                                                                                       ## Returns
-                                                                                                       ## a
-                                                                                                       ## ShapeDefinition
-                                                                                                       ## SelectType
+  StepReprShapeDefinition* {.importcpp: "StepRepr_ShapeDefinition",
+                            header: "StepRepr_ShapeDefinition.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                     ## !
+                                                                                                     ## Returns
+                                                                                                     ## a
+                                                                                                     ## ShapeDefinition
+                                                                                                     ## SelectType
 
 
-proc constructStepRepr_ShapeDefinition*(): StepRepr_ShapeDefinition {.constructor,
+proc constructStepReprShapeDefinition*(): StepReprShapeDefinition {.constructor,
     importcpp: "StepRepr_ShapeDefinition(@)",
     header: "StepRepr_ShapeDefinition.hxx".}
-proc CaseNum*(this: StepRepr_ShapeDefinition; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepReprShapeDefinition; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepRepr_ShapeDefinition.hxx".}
-proc ProductDefinitionShape*(this: StepRepr_ShapeDefinition): handle[
-    StepRepr_ProductDefinitionShape] {.noSideEffect,
-                                      importcpp: "ProductDefinitionShape",
-                                      header: "StepRepr_ShapeDefinition.hxx".}
-proc ShapeAspect*(this: StepRepr_ShapeDefinition): handle[StepRepr_ShapeAspect] {.
+proc productDefinitionShape*(this: StepReprShapeDefinition): Handle[
+    StepReprProductDefinitionShape] {.noSideEffect,
+                                     importcpp: "ProductDefinitionShape",
+                                     header: "StepRepr_ShapeDefinition.hxx".}
+proc shapeAspect*(this: StepReprShapeDefinition): Handle[StepReprShapeAspect] {.
     noSideEffect, importcpp: "ShapeAspect", header: "StepRepr_ShapeDefinition.hxx".}
-proc ShapeAspectRelationship*(this: StepRepr_ShapeDefinition): handle[
-    StepRepr_ShapeAspectRelationship] {.noSideEffect,
-                                       importcpp: "ShapeAspectRelationship",
-                                       header: "StepRepr_ShapeDefinition.hxx".}
+proc shapeAspectRelationship*(this: StepReprShapeDefinition): Handle[
+    StepReprShapeAspectRelationship] {.noSideEffect,
+                                      importcpp: "ShapeAspectRelationship",
+                                      header: "StepRepr_ShapeDefinition.hxx".}

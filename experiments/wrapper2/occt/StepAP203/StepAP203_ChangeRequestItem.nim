@@ -14,27 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_ProductDefinitionFormation"
 type
-  StepAP203_ChangeRequestItem* {.importcpp: "StepAP203_ChangeRequestItem",
-                                header: "StepAP203_ChangeRequestItem.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                             ## !
-                                                                                                             ## Empty
-                                                                                                             ## constructor
+  StepAP203ChangeRequestItem* {.importcpp: "StepAP203_ChangeRequestItem",
+                               header: "StepAP203_ChangeRequestItem.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                           ## !
+                                                                                                           ## Empty
+                                                                                                           ## constructor
 
 
-proc constructStepAP203_ChangeRequestItem*(): StepAP203_ChangeRequestItem {.
+proc constructStepAP203ChangeRequestItem*(): StepAP203ChangeRequestItem {.
     constructor, importcpp: "StepAP203_ChangeRequestItem(@)",
     header: "StepAP203_ChangeRequestItem.hxx".}
-proc CaseNum*(this: StepAP203_ChangeRequestItem; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepAP203ChangeRequestItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP203_ChangeRequestItem.hxx".}
-proc ProductDefinitionFormation*(this: StepAP203_ChangeRequestItem): handle[
-    StepBasic_ProductDefinitionFormation] {.noSideEffect,
+proc productDefinitionFormation*(this: StepAP203ChangeRequestItem): Handle[
+    StepBasicProductDefinitionFormation] {.noSideEffect,
     importcpp: "ProductDefinitionFormation",
     header: "StepAP203_ChangeRequestItem.hxx".}

@@ -13,12 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IntTools_SurfaceRangeSample, ../Bnd/Bnd_Box,
-  IntTools_SurfaceRangeSampleMapHasher, ../NCollection/NCollection_DataMap
-
 type
-  IntTools_DataMapOfSurfaceSampleBox* = NCollection_DataMap[
-      IntTools_SurfaceRangeSample, Bnd_Box, IntTools_SurfaceRangeSampleMapHasher]
-  IntTools_DataMapIteratorOfDataMapOfSurfaceSampleBox* = Iterator[
-      IntTools_SurfaceRangeSample, Bnd_Box, IntTools_SurfaceRangeSampleMapHasher]
+  IntToolsDataMapOfSurfaceSampleBox* = NCollectionDataMap[
+      IntToolsSurfaceRangeSample, BndBox, IntToolsSurfaceRangeSampleMapHasher]
+  IntToolsDataMapIteratorOfDataMapOfSurfaceSampleBox* = Iterator[
+      IntToolsSurfaceRangeSample, BndBox, IntToolsSurfaceRangeSampleMapHasher]
+

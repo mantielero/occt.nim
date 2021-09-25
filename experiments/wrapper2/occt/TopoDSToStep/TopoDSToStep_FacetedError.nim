@@ -15,9 +15,10 @@
 ##  commercial license or contractual agreement.
 
 type
-  TopoDSToStep_FacetedError* {.size: sizeof(cint),
-                              importcpp: "TopoDSToStep_FacetedError",
-                              header: "TopoDSToStep_FacetedError.hxx".} = enum
-    TopoDSToStep_FacetedDone, TopoDSToStep_SurfaceNotPlane,
-    TopoDSToStep_PCurveNotLinear
+  TopoDSToStepFacetedError* {.size: sizeof(cint),
+                             importcpp: "TopoDSToStep_FacetedError",
+                             header: "TopoDSToStep_FacetedError.hxx".} = enum
+    TopoDSToStepFacetedDone, TopoDSToStepSurfaceNotPlane,
+    TopoDSToStepPCurveNotLinear
+
 

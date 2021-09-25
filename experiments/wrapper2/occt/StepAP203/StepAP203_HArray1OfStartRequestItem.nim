@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP203_StartRequestItem, StepAP203_Array1OfStartRequestItem,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepAP203_HArray1OfStartRequestItem* {.importcpp: "StepAP203_HArray1OfStartRequestItem", header: "StepAP203_HArray1OfStartRequestItem.hxx",
-                                        bycopy.} = object of StepAP203_Array1OfStartRequestItem
+  StepAP203HArray1OfStartRequestItem* {.importcpp: "StepAP203_HArray1OfStartRequestItem", header: "StepAP203_HArray1OfStartRequestItem.hxx",
+                                       bycopy.} = object of StepAP203Array1OfStartRequestItem
 
 
-proc constructStepAP203_HArray1OfStartRequestItem*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepAP203_HArray1OfStartRequestItem {.constructor,
+proc constructStepAP203HArray1OfStartRequestItem*(theLower: int; theUpper: int): StepAP203HArray1OfStartRequestItem {.
+    constructor, importcpp: "StepAP203_HArray1OfStartRequestItem(@)",
+    header: "StepAP203_HArray1OfStartRequestItem.hxx".}
+proc constructStepAP203HArray1OfStartRequestItem*(theLower: int; theUpper: int;
+    theValue: ValueType): StepAP203HArray1OfStartRequestItem {.constructor,
     importcpp: "StepAP203_HArray1OfStartRequestItem(@)",
     header: "StepAP203_HArray1OfStartRequestItem.hxx".}
-proc constructStepAP203_HArray1OfStartRequestItem*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepAP203_HArray1OfStartRequestItem {.
+proc constructStepAP203HArray1OfStartRequestItem*(
+    theOther: StepAP203Array1OfStartRequestItem): StepAP203HArray1OfStartRequestItem {.
     constructor, importcpp: "StepAP203_HArray1OfStartRequestItem(@)",
     header: "StepAP203_HArray1OfStartRequestItem.hxx".}
-proc constructStepAP203_HArray1OfStartRequestItem*(
-    theOther: StepAP203_Array1OfStartRequestItem): StepAP203_HArray1OfStartRequestItem {.
-    constructor, importcpp: "StepAP203_HArray1OfStartRequestItem(@)",
-    header: "StepAP203_HArray1OfStartRequestItem.hxx".}
-proc Array1*(this: StepAP203_HArray1OfStartRequestItem): StepAP203_Array1OfStartRequestItem {.
+proc array1*(this: StepAP203HArray1OfStartRequestItem): StepAP203Array1OfStartRequestItem {.
     noSideEffect, importcpp: "Array1",
     header: "StepAP203_HArray1OfStartRequestItem.hxx".}
-proc ChangeArray1*(this: var StepAP203_HArray1OfStartRequestItem): var StepAP203_Array1OfStartRequestItem {.
+proc changeArray1*(this: var StepAP203HArray1OfStartRequestItem): var StepAP203Array1OfStartRequestItem {.
     importcpp: "ChangeArray1", header: "StepAP203_HArray1OfStartRequestItem.hxx".}
 type
-  StepAP203_HArray1OfStartRequestItembase_type* = MMgt_TShared
+  StepAP203HArray1OfStartRequestItembaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepAP203_HArray1OfStartRequestItem::get_type_name(@)",
-                              header: "StepAP203_HArray1OfStartRequestItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP203_HArray1OfStartRequestItem::get_type_name(@)",
+                            header: "StepAP203_HArray1OfStartRequestItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP203_HArray1OfStartRequestItem::get_type_descriptor(@)",
     header: "StepAP203_HArray1OfStartRequestItem.hxx".}
-proc DynamicType*(this: StepAP203_HArray1OfStartRequestItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepAP203HArray1OfStartRequestItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP203_HArray1OfStartRequestItem.hxx".}

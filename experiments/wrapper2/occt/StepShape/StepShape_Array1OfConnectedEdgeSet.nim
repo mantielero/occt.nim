@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepShape_ConnectedEdgeSet, ../NCollection/NCollection_Array1
-
 type
-  StepShape_Array1OfConnectedEdgeSet* = NCollection_Array1[
-      handle[StepShape_ConnectedEdgeSet]]
+  StepShapeArray1OfConnectedEdgeSet* = NCollectionArray1[
+      Handle[StepShapeConnectedEdgeSet]]
+

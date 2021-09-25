@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Handle
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Standard_GUID"
 discard "forward decl of BinMDF_ADriverTable"
@@ -28,12 +25,12 @@ type
   BinDrivers* {.importcpp: "BinDrivers", header: "BinDrivers.hxx", bycopy.} = object
 
 
-proc Factory*(theGUID: Standard_GUID): handle[Standard_Transient] {.
+proc factory*(theGUID: StandardGUID): Handle[StandardTransient] {.
     importcpp: "BinDrivers::Factory(@)", header: "BinDrivers.hxx".}
-proc DefineFormat*(theApp: handle[TDocStd_Application]) {.
+proc defineFormat*(theApp: Handle[TDocStdApplication]) {.
     importcpp: "BinDrivers::DefineFormat(@)", header: "BinDrivers.hxx".}
-proc AttributeDrivers*(MsgDrv: handle[Message_Messenger]): handle[
+proc attributeDrivers*(msgDrv: Handle[MessageMessenger]): Handle[
     BinMDF_ADriverTable] {.importcpp: "BinDrivers::AttributeDrivers(@)",
                           header: "BinDrivers.hxx".}
-proc StorageVersion*(): TCollection_AsciiString {.
+proc storageVersion*(): TCollectionAsciiString {.
     importcpp: "BinDrivers::StorageVersion(@)", header: "BinDrivers.hxx".}

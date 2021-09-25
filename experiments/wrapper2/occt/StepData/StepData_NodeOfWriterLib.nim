@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepData_GlobalNodeOfWriterLib"
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepData_ReadWriteModule"
@@ -25,38 +22,38 @@ discard "forward decl of StepData_WriterLib"
 discard "forward decl of StepData_NodeOfWriterLib"
 discard "forward decl of StepData_NodeOfWriterLib"
 type
-  Handle_StepData_NodeOfWriterLib* = handle[StepData_NodeOfWriterLib]
-  StepData_NodeOfWriterLib* {.importcpp: "StepData_NodeOfWriterLib",
-                             header: "StepData_NodeOfWriterLib.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                      ## !
-                                                                                                      ## Creates
-                                                                                                      ## an
-                                                                                                      ## empty
-                                                                                                      ## Node,
-                                                                                                      ## with
-                                                                                                      ## no
-                                                                                                      ## Next
+  HandleStepDataNodeOfWriterLib* = Handle[StepDataNodeOfWriterLib]
+  StepDataNodeOfWriterLib* {.importcpp: "StepData_NodeOfWriterLib",
+                            header: "StepData_NodeOfWriterLib.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                    ## !
+                                                                                                    ## Creates
+                                                                                                    ## an
+                                                                                                    ## empty
+                                                                                                    ## Node,
+                                                                                                    ## with
+                                                                                                    ## no
+                                                                                                    ## Next
 
 
-proc constructStepData_NodeOfWriterLib*(): StepData_NodeOfWriterLib {.constructor,
+proc constructStepDataNodeOfWriterLib*(): StepDataNodeOfWriterLib {.constructor,
     importcpp: "StepData_NodeOfWriterLib(@)",
     header: "StepData_NodeOfWriterLib.hxx".}
-proc AddNode*(this: var StepData_NodeOfWriterLib;
-             anode: handle[StepData_GlobalNodeOfWriterLib]) {.
-    importcpp: "AddNode", header: "StepData_NodeOfWriterLib.hxx".}
-proc Module*(this: StepData_NodeOfWriterLib): handle[StepData_ReadWriteModule] {.
+proc addNode*(this: var StepDataNodeOfWriterLib;
+             anode: Handle[StepDataGlobalNodeOfWriterLib]) {.importcpp: "AddNode",
+    header: "StepData_NodeOfWriterLib.hxx".}
+proc module*(this: StepDataNodeOfWriterLib): Handle[StepDataReadWriteModule] {.
     noSideEffect, importcpp: "Module", header: "StepData_NodeOfWriterLib.hxx".}
-proc Protocol*(this: StepData_NodeOfWriterLib): handle[StepData_Protocol] {.
+proc protocol*(this: StepDataNodeOfWriterLib): Handle[StepDataProtocol] {.
     noSideEffect, importcpp: "Protocol", header: "StepData_NodeOfWriterLib.hxx".}
-proc Next*(this: StepData_NodeOfWriterLib): handle[StepData_NodeOfWriterLib] {.
+proc next*(this: StepDataNodeOfWriterLib): Handle[StepDataNodeOfWriterLib] {.
     noSideEffect, importcpp: "Next", header: "StepData_NodeOfWriterLib.hxx".}
 type
-  StepData_NodeOfWriterLibbase_type* = Standard_Transient
+  StepDataNodeOfWriterLibbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepData_NodeOfWriterLib::get_type_name(@)",
-                              header: "StepData_NodeOfWriterLib.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepData_NodeOfWriterLib::get_type_name(@)",
+                            header: "StepData_NodeOfWriterLib.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepData_NodeOfWriterLib::get_type_descriptor(@)",
     header: "StepData_NodeOfWriterLib.hxx".}
-proc DynamicType*(this: StepData_NodeOfWriterLib): handle[Standard_Type] {.
+proc dynamicType*(this: StepDataNodeOfWriterLib): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepData_NodeOfWriterLib.hxx".}

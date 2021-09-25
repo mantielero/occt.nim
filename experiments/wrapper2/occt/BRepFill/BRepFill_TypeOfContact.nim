@@ -17,8 +17,8 @@
 ## ! A pair of bound shapes with the result.
 
 type
-  BRepFill_TypeOfContact* {.size: sizeof(cint),
-                           importcpp: "BRepFill_TypeOfContact",
-                           header: "BRepFill_TypeOfContact.hxx".} = enum
-    BRepFill_NoContact, BRepFill_Contact, BRepFill_ContactOnBorder
+  BRepFillTypeOfContact* {.size: sizeof(cint), importcpp: "BRepFill_TypeOfContact",
+                          header: "BRepFill_TypeOfContact.hxx".} = enum
+    BRepFillNoContact, BRepFillContact, BRepFillContactOnBorder
+
 

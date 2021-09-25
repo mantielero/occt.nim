@@ -12,32 +12,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, BOPAlgo_Operation, ../Standard/Standard_Integer,
-  ../TopoDS/TopoDS_Shape, BOPAlgo_ToolsProvider,
-  ../NCollection/NCollection_BaseAllocator, ../TopAbs/TopAbs_ShapeEnum,
-  ../Standard/Standard_Boolean,
-  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of BOPAlgo_PaveFiller"
 type
-  BOPAlgo_BOP* {.importcpp: "BOPAlgo_BOP", header: "BOPAlgo_BOP.hxx", bycopy.} = object of BOPAlgo_ToolsProvider ##
-                                                                                                       ## !
-                                                                                                       ## Empty
-                                                                                                       ## constructor
+  BOPAlgoBOP* {.importcpp: "BOPAlgo_BOP", header: "BOPAlgo_BOP.hxx", bycopy.} = object of BOPAlgoToolsProvider ##
+                                                                                                     ## !
+                                                                                                     ## Empty
+                                                                                                     ## constructor
 
 
-proc constructBOPAlgo_BOP*(): BOPAlgo_BOP {.constructor,
-    importcpp: "BOPAlgo_BOP(@)", header: "BOPAlgo_BOP.hxx".}
-proc destroyBOPAlgo_BOP*(this: var BOPAlgo_BOP) {.importcpp: "#.~BOPAlgo_BOP()",
+proc constructBOPAlgoBOP*(): BOPAlgoBOP {.constructor, importcpp: "BOPAlgo_BOP(@)",
+                                       header: "BOPAlgo_BOP.hxx".}
+proc destroyBOPAlgoBOP*(this: var BOPAlgoBOP) {.importcpp: "#.~BOPAlgo_BOP()",
     header: "BOPAlgo_BOP.hxx".}
-proc constructBOPAlgo_BOP*(theAllocator: handle[NCollection_BaseAllocator]): BOPAlgo_BOP {.
+proc constructBOPAlgoBOP*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoBOP {.
     constructor, importcpp: "BOPAlgo_BOP(@)", header: "BOPAlgo_BOP.hxx".}
-proc Clear*(this: var BOPAlgo_BOP) {.importcpp: "Clear", header: "BOPAlgo_BOP.hxx".}
-proc SetOperation*(this: var BOPAlgo_BOP; theOperation: BOPAlgo_Operation) {.
+proc clear*(this: var BOPAlgoBOP) {.importcpp: "Clear", header: "BOPAlgo_BOP.hxx".}
+proc setOperation*(this: var BOPAlgoBOP; theOperation: BOPAlgoOperation) {.
     importcpp: "SetOperation", header: "BOPAlgo_BOP.hxx".}
-proc Operation*(this: BOPAlgo_BOP): BOPAlgo_Operation {.noSideEffect,
+proc operation*(this: BOPAlgoBOP): BOPAlgoOperation {.noSideEffect,
     importcpp: "Operation", header: "BOPAlgo_BOP.hxx".}
-proc Perform*(this: var BOPAlgo_BOP) {.importcpp: "Perform", header: "BOPAlgo_BOP.hxx".}
+proc perform*(this: var BOPAlgoBOP) {.importcpp: "Perform", header: "BOPAlgo_BOP.hxx".}

@@ -13,44 +13,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_Effectivity"
 discard "forward decl of StepBasic_EffectivityAssignment"
 discard "forward decl of StepBasic_EffectivityAssignment"
 type
-  Handle_StepBasic_EffectivityAssignment* = handle[StepBasic_EffectivityAssignment]
+  HandleStepBasicEffectivityAssignment* = Handle[StepBasicEffectivityAssignment]
 
 ## ! Representation of STEP entity EffectivityAssignment
 
 type
-  StepBasic_EffectivityAssignment* {.importcpp: "StepBasic_EffectivityAssignment", header: "StepBasic_EffectivityAssignment.hxx",
-                                    bycopy.} = object of Standard_Transient ## ! Empty
-                                                                       ## constructor
+  StepBasicEffectivityAssignment* {.importcpp: "StepBasic_EffectivityAssignment", header: "StepBasic_EffectivityAssignment.hxx",
+                                   bycopy.} = object of StandardTransient ## ! Empty constructor
 
 
-proc constructStepBasic_EffectivityAssignment*(): StepBasic_EffectivityAssignment {.
+proc constructStepBasicEffectivityAssignment*(): StepBasicEffectivityAssignment {.
     constructor, importcpp: "StepBasic_EffectivityAssignment(@)",
     header: "StepBasic_EffectivityAssignment.hxx".}
-proc Init*(this: var StepBasic_EffectivityAssignment;
-          aAssignedEffectivity: handle[StepBasic_Effectivity]) {.
-    importcpp: "Init", header: "StepBasic_EffectivityAssignment.hxx".}
-proc AssignedEffectivity*(this: StepBasic_EffectivityAssignment): handle[
-    StepBasic_Effectivity] {.noSideEffect, importcpp: "AssignedEffectivity",
-                            header: "StepBasic_EffectivityAssignment.hxx".}
-proc SetAssignedEffectivity*(this: var StepBasic_EffectivityAssignment;
-                            AssignedEffectivity: handle[StepBasic_Effectivity]) {.
+proc init*(this: var StepBasicEffectivityAssignment;
+          aAssignedEffectivity: Handle[StepBasicEffectivity]) {.importcpp: "Init",
+    header: "StepBasic_EffectivityAssignment.hxx".}
+proc assignedEffectivity*(this: StepBasicEffectivityAssignment): Handle[
+    StepBasicEffectivity] {.noSideEffect, importcpp: "AssignedEffectivity",
+                           header: "StepBasic_EffectivityAssignment.hxx".}
+proc setAssignedEffectivity*(this: var StepBasicEffectivityAssignment;
+                            assignedEffectivity: Handle[StepBasicEffectivity]) {.
     importcpp: "SetAssignedEffectivity",
     header: "StepBasic_EffectivityAssignment.hxx".}
 type
-  StepBasic_EffectivityAssignmentbase_type* = Standard_Transient
+  StepBasicEffectivityAssignmentbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_EffectivityAssignment::get_type_name(@)",
-                              header: "StepBasic_EffectivityAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_EffectivityAssignment::get_type_name(@)",
+                            header: "StepBasic_EffectivityAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_EffectivityAssignment::get_type_descriptor(@)",
     header: "StepBasic_EffectivityAssignment.hxx".}
-proc DynamicType*(this: StepBasic_EffectivityAssignment): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicEffectivityAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_EffectivityAssignment.hxx".}

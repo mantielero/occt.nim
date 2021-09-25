@@ -14,60 +14,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Transfer_Binder,
-  ../Standard/Standard_Type, ../Standard/Standard_CString,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_TransferFailure"
 discard "forward decl of Transfer_Binder"
 discard "forward decl of Transfer_SimpleBinderOfTransient"
 discard "forward decl of Transfer_SimpleBinderOfTransient"
 type
-  Handle_Transfer_SimpleBinderOfTransient* = handle[
-      Transfer_SimpleBinderOfTransient]
+  HandleTransferSimpleBinderOfTransient* = Handle[TransferSimpleBinderOfTransient]
 
 ## ! An adapted instantiation of SimpleBinder for Transient Result,
 ## ! i.e. ResultType can be computed from the Result itself,
 ## ! instead of being static
 
 type
-  Transfer_SimpleBinderOfTransient* {.importcpp: "Transfer_SimpleBinderOfTransient", header: "Transfer_SimpleBinderOfTransient.hxx",
-                                     bycopy.} = object of Transfer_Binder ## ! Creates an empty
-                                                                     ## SimpleBinderOfTransient
-                                                                     ## ! Returns True if a starting object is bound with SEVERAL
-                                                                     ## ! results : Here, returns allways False
-                                                                     ## ! See Binder itself
+  TransferSimpleBinderOfTransient* {.importcpp: "Transfer_SimpleBinderOfTransient", header: "Transfer_SimpleBinderOfTransient.hxx",
+                                    bycopy.} = object of TransferBinder ## ! Creates an empty
+                                                                   ## SimpleBinderOfTransient
+                                                                   ## ! Returns True if a starting object is bound with SEVERAL
+                                                                   ## ! results : Here, returns allways False
+                                                                   ## ! See Binder itself
 
 
-proc constructTransfer_SimpleBinderOfTransient*(): Transfer_SimpleBinderOfTransient {.
+proc constructTransferSimpleBinderOfTransient*(): TransferSimpleBinderOfTransient {.
     constructor, importcpp: "Transfer_SimpleBinderOfTransient(@)",
     header: "Transfer_SimpleBinderOfTransient.hxx".}
-proc ResultType*(this: Transfer_SimpleBinderOfTransient): handle[Standard_Type] {.
+proc resultType*(this: TransferSimpleBinderOfTransient): Handle[StandardType] {.
     noSideEffect, importcpp: "ResultType",
     header: "Transfer_SimpleBinderOfTransient.hxx".}
-proc ResultTypeName*(this: Transfer_SimpleBinderOfTransient): Standard_CString {.
+proc resultTypeName*(this: TransferSimpleBinderOfTransient): StandardCString {.
     noSideEffect, importcpp: "ResultTypeName",
     header: "Transfer_SimpleBinderOfTransient.hxx".}
-proc SetResult*(this: var Transfer_SimpleBinderOfTransient;
-               res: handle[Standard_Transient]) {.importcpp: "SetResult",
+proc setResult*(this: var TransferSimpleBinderOfTransient;
+               res: Handle[StandardTransient]) {.importcpp: "SetResult",
     header: "Transfer_SimpleBinderOfTransient.hxx".}
-proc Result*(this: Transfer_SimpleBinderOfTransient): handle[Standard_Transient] {.
+proc result*(this: TransferSimpleBinderOfTransient): Handle[StandardTransient] {.
     noSideEffect, importcpp: "Result",
     header: "Transfer_SimpleBinderOfTransient.hxx".}
-proc GetTypedResult*(bnd: handle[Transfer_Binder]; atype: handle[Standard_Type];
-                    res: var handle[Standard_Transient]): Standard_Boolean {.
+proc getTypedResult*(bnd: Handle[TransferBinder]; atype: Handle[StandardType];
+                    res: var Handle[StandardTransient]): bool {.
     importcpp: "Transfer_SimpleBinderOfTransient::GetTypedResult(@)",
     header: "Transfer_SimpleBinderOfTransient.hxx".}
 type
-  Transfer_SimpleBinderOfTransientbase_type* = Transfer_Binder
+  TransferSimpleBinderOfTransientbaseType* = TransferBinder
 
-proc get_type_name*(): cstring {.importcpp: "Transfer_SimpleBinderOfTransient::get_type_name(@)",
-                              header: "Transfer_SimpleBinderOfTransient.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Transfer_SimpleBinderOfTransient::get_type_name(@)",
+                            header: "Transfer_SimpleBinderOfTransient.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_SimpleBinderOfTransient::get_type_descriptor(@)",
     header: "Transfer_SimpleBinderOfTransient.hxx".}
-proc DynamicType*(this: Transfer_SimpleBinderOfTransient): handle[Standard_Type] {.
+proc dynamicType*(this: TransferSimpleBinderOfTransient): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Transfer_SimpleBinderOfTransient.hxx".}

@@ -43,7 +43,8 @@
 ## ! i in the u parametric direction, and j in the v parametric direction.
 
 type
-  GeomAbs_Shape* {.size: sizeof(cint), importcpp: "GeomAbs_Shape",
-                  header: "GeomAbs_Shape.hxx".} = enum
-    GeomAbs_C0, GeomAbs_G1, GeomAbs_C1, GeomAbs_G2, GeomAbs_C2, GeomAbs_C3, GeomAbs_CN
+  GeomAbsShape* {.size: sizeof(cint), importcpp: "GeomAbs_Shape",
+                 header: "GeomAbs_Shape.hxx".} = enum
+    GeomAbsC0, GeomAbsG1, GeomAbsC1, GeomAbsG2, GeomAbsC2, GeomAbsC3, GeomAbsCN
+
 

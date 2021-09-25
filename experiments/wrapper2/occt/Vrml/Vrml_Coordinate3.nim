@@ -14,14 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TColgp/TColgp_HArray1OfVec,
-  ../Standard/Standard_Transient, ../Standard/Standard_OStream
-
 discard "forward decl of Vrml_Coordinate3"
 discard "forward decl of Vrml_Coordinate3"
 type
-  Handle_Vrml_Coordinate3* = handle[Vrml_Coordinate3]
+  HandleVrmlCoordinate3* = Handle[VrmlCoordinate3]
 
 ## ! defines a Coordinate3 node of VRML specifying
 ## ! properties of geometry and its appearance.
@@ -31,27 +27,27 @@ type
 ## ! state for subsequent nodes to use.
 
 type
-  Vrml_Coordinate3* {.importcpp: "Vrml_Coordinate3",
-                     header: "Vrml_Coordinate3.hxx", bycopy.} = object of Standard_Transient
+  VrmlCoordinate3* {.importcpp: "Vrml_Coordinate3", header: "Vrml_Coordinate3.hxx",
+                    bycopy.} = object of StandardTransient
 
 
-proc constructVrml_Coordinate3*(aPoint: handle[TColgp_HArray1OfVec]): Vrml_Coordinate3 {.
+proc constructVrmlCoordinate3*(aPoint: Handle[TColgpHArray1OfVec]): VrmlCoordinate3 {.
     constructor, importcpp: "Vrml_Coordinate3(@)", header: "Vrml_Coordinate3.hxx".}
-proc constructVrml_Coordinate3*(): Vrml_Coordinate3 {.constructor,
+proc constructVrmlCoordinate3*(): VrmlCoordinate3 {.constructor,
     importcpp: "Vrml_Coordinate3(@)", header: "Vrml_Coordinate3.hxx".}
-proc SetPoint*(this: var Vrml_Coordinate3; aPoint: handle[TColgp_HArray1OfVec]) {.
+proc setPoint*(this: var VrmlCoordinate3; aPoint: Handle[TColgpHArray1OfVec]) {.
     importcpp: "SetPoint", header: "Vrml_Coordinate3.hxx".}
-proc Point*(this: Vrml_Coordinate3): handle[TColgp_HArray1OfVec] {.noSideEffect,
+proc point*(this: VrmlCoordinate3): Handle[TColgpHArray1OfVec] {.noSideEffect,
     importcpp: "Point", header: "Vrml_Coordinate3.hxx".}
-proc Print*(this: Vrml_Coordinate3; anOStream: var Standard_OStream): var Standard_OStream {.
+proc print*(this: VrmlCoordinate3; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Coordinate3.hxx".}
 type
-  Vrml_Coordinate3base_type* = Standard_Transient
+  VrmlCoordinate3baseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Vrml_Coordinate3::get_type_name(@)",
-                              header: "Vrml_Coordinate3.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Vrml_Coordinate3::get_type_name(@)",
+                            header: "Vrml_Coordinate3.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Vrml_Coordinate3::get_type_descriptor(@)",
     header: "Vrml_Coordinate3.hxx".}
-proc DynamicType*(this: Vrml_Coordinate3): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: VrmlCoordinate3): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Vrml_Coordinate3.hxx".}

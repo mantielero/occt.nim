@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OSD_File, OSD_Error, ../TCollection/TCollection_AsciiString
-
 discard "forward decl of OSD_OSDError"
 discard "forward decl of OSD_Path"
 discard "forward decl of OSD_File"
@@ -24,42 +21,42 @@ type
   OSD_FileIterator* {.importcpp: "OSD_FileIterator",
                      header: "OSD_FileIterator.hxx", bycopy.} = object ## ! Instantiates Object as empty Iterator;
     ##  platform-specific fields
-    when defined(_WIN32):
-      discard
-    when defined(_WIN32):
-      discard
-    when defined(_WIN32):
-      discard
-    when not defined(_WIN32):
-      discard
-    when not defined(_WIN32):
-      discard
-    when not defined(_WIN32):
-      discard
+#     when defined windows:
+#       discard
+#     when defined windows:
+#       discard
+#     when defined windows:
+#       discard
+#     when not defined windows:
+#       discard
+#     when not defined windows:
+#       discard
+#     when not defined windows:
+#       discard
 
 
 proc constructOSD_FileIterator*(): OSD_FileIterator {.constructor,
     importcpp: "OSD_FileIterator(@)", header: "OSD_FileIterator.hxx".}
-proc constructOSD_FileIterator*(where: OSD_Path; Mask: TCollection_AsciiString): OSD_FileIterator {.
+proc constructOSD_FileIterator*(where: OSD_Path; mask: TCollectionAsciiString): OSD_FileIterator {.
     constructor, importcpp: "OSD_FileIterator(@)", header: "OSD_FileIterator.hxx".}
-proc Destroy*(this: var OSD_FileIterator) {.importcpp: "Destroy",
+proc destroy*(this: var OSD_FileIterator) {.importcpp: "Destroy",
                                         header: "OSD_FileIterator.hxx".}
 proc destroyOSD_FileIterator*(this: var OSD_FileIterator) {.
     importcpp: "#.~OSD_FileIterator()", header: "OSD_FileIterator.hxx".}
-proc Initialize*(this: var OSD_FileIterator; where: OSD_Path;
-                Mask: TCollection_AsciiString) {.importcpp: "Initialize",
+proc initialize*(this: var OSD_FileIterator; where: OSD_Path;
+                mask: TCollectionAsciiString) {.importcpp: "Initialize",
     header: "OSD_FileIterator.hxx".}
-proc More*(this: var OSD_FileIterator): Standard_Boolean {.importcpp: "More",
+proc more*(this: var OSD_FileIterator): bool {.importcpp: "More",
     header: "OSD_FileIterator.hxx".}
-proc Next*(this: var OSD_FileIterator) {.importcpp: "Next",
+proc next*(this: var OSD_FileIterator) {.importcpp: "Next",
                                      header: "OSD_FileIterator.hxx".}
-proc Values*(this: var OSD_FileIterator): OSD_File {.importcpp: "Values",
+proc values*(this: var OSD_FileIterator): OSD_File {.importcpp: "Values",
     header: "OSD_FileIterator.hxx".}
-proc Failed*(this: OSD_FileIterator): Standard_Boolean {.noSideEffect,
-    importcpp: "Failed", header: "OSD_FileIterator.hxx".}
-proc Reset*(this: var OSD_FileIterator) {.importcpp: "Reset",
+proc failed*(this: OSD_FileIterator): bool {.noSideEffect, importcpp: "Failed",
+    header: "OSD_FileIterator.hxx".}
+proc reset*(this: var OSD_FileIterator) {.importcpp: "Reset",
                                       header: "OSD_FileIterator.hxx".}
-proc Perror*(this: var OSD_FileIterator) {.importcpp: "Perror",
+proc perror*(this: var OSD_FileIterator) {.importcpp: "Perror",
                                        header: "OSD_FileIterator.hxx".}
-proc Error*(this: OSD_FileIterator): Standard_Integer {.noSideEffect,
-    importcpp: "Error", header: "OSD_FileIterator.hxx".}
+proc error*(this: OSD_FileIterator): int {.noSideEffect, importcpp: "Error",
+                                       header: "OSD_FileIterator.hxx".}

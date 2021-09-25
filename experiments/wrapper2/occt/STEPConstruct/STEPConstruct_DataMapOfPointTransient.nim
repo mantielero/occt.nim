@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Pnt, ../Standard/Standard_Transient, STEPConstruct_PointHasher,
-  ../NCollection/NCollection_DataMap
-
 type
-  STEPConstruct_DataMapOfPointTransient* = NCollection_DataMap[gp_Pnt,
-      handle[Standard_Transient], STEPConstruct_PointHasher]
-  STEPConstruct_DataMapIteratorOfDataMapOfPointTransient* = Iterator[gp_Pnt,
-      handle[Standard_Transient], STEPConstruct_PointHasher]
+  STEPConstructDataMapOfPointTransient* = NCollectionDataMap[Pnt,
+      Handle[StandardTransient], STEPConstructPointHasher]
+  STEPConstructDataMapIteratorOfDataMapOfPointTransient* = Iterator[Pnt,
+      Handle[StandardTransient], STEPConstructPointHasher]
+

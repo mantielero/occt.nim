@@ -13,35 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_ShapeRepresentation
-
 discard "forward decl of StepShape_ShapeRepresentationWithParameters"
 discard "forward decl of StepShape_ShapeRepresentationWithParameters"
 type
-  Handle_StepShape_ShapeRepresentationWithParameters* = handle[
-      StepShape_ShapeRepresentationWithParameters]
+  HandleStepShapeShapeRepresentationWithParameters* = Handle[
+      StepShapeShapeRepresentationWithParameters]
 
 ## ! Representation of STEP entity ShapeRepresentationWithParameters
 
 type
-  StepShape_ShapeRepresentationWithParameters* {.
+  StepShapeShapeRepresentationWithParameters* {.
       importcpp: "StepShape_ShapeRepresentationWithParameters",
-      header: "StepShape_ShapeRepresentationWithParameters.hxx", bycopy.} = object of StepShape_ShapeRepresentation ##
-                                                                                                             ## !
-                                                                                                             ## Empty
-                                                                                                             ## constructor
+      header: "StepShape_ShapeRepresentationWithParameters.hxx", bycopy.} = object of StepShapeShapeRepresentation ##
+                                                                                                            ## !
+                                                                                                            ## Empty
+                                                                                                            ## constructor
 
 
-proc constructStepShape_ShapeRepresentationWithParameters*(): StepShape_ShapeRepresentationWithParameters {.
+proc constructStepShapeShapeRepresentationWithParameters*(): StepShapeShapeRepresentationWithParameters {.
     constructor, importcpp: "StepShape_ShapeRepresentationWithParameters(@)",
     header: "StepShape_ShapeRepresentationWithParameters.hxx".}
 type
-  StepShape_ShapeRepresentationWithParametersbase_type* = StepShape_ShapeRepresentation
+  StepShapeShapeRepresentationWithParametersbaseType* = StepShapeShapeRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_ShapeRepresentationWithParameters::get_type_name(@)", header: "StepShape_ShapeRepresentationWithParameters.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepShape_ShapeRepresentationWithParameters::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepShape_ShapeRepresentationWithParameters::get_type_name(@)", header: "StepShape_ShapeRepresentationWithParameters.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_ShapeRepresentationWithParameters::get_type_descriptor(@)",
     header: "StepShape_ShapeRepresentationWithParameters.hxx".}
-proc DynamicType*(this: StepShape_ShapeRepresentationWithParameters): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepShape_ShapeRepresentationWithParameters.hxx".}
+proc dynamicType*(this: StepShapeShapeRepresentationWithParameters): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepShape_ShapeRepresentationWithParameters.hxx".}

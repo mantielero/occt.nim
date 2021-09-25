@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  Vrml_Texture2Wrap* {.size: sizeof(cint), importcpp: "Vrml_Texture2Wrap",
-                      header: "Vrml_Texture2Wrap.hxx".} = enum
-    Vrml_REPEAT, Vrml_CLAMP
+  VrmlTexture2Wrap* {.size: sizeof(cint), importcpp: "Vrml_Texture2Wrap",
+                     header: "Vrml_Texture2Wrap.hxx".} = enum
+    VrmlREPEAT, VrmlCLAMP
+
 

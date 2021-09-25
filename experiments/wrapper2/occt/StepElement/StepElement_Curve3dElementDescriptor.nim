@@ -13,50 +13,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepElement_HArray1OfHSequenceOfCurveElementPurposeMember,
-  StepElement_ElementDescriptor, StepElement_ElementOrder
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepElement_Curve3dElementDescriptor"
 discard "forward decl of StepElement_Curve3dElementDescriptor"
 type
-  Handle_StepElement_Curve3dElementDescriptor* = handle[
-      StepElement_Curve3dElementDescriptor]
+  HandleStepElementCurve3dElementDescriptor* = Handle[
+      StepElementCurve3dElementDescriptor]
 
 ## ! Representation of STEP entity Curve3dElementDescriptor
 
 type
-  StepElement_Curve3dElementDescriptor* {.
-      importcpp: "StepElement_Curve3dElementDescriptor",
-      header: "StepElement_Curve3dElementDescriptor.hxx", bycopy.} = object of StepElement_ElementDescriptor ##
-                                                                                                      ## !
-                                                                                                      ## Empty
-                                                                                                      ## constructor
+  StepElementCurve3dElementDescriptor* {.importcpp: "StepElement_Curve3dElementDescriptor", header: "StepElement_Curve3dElementDescriptor.hxx",
+                                        bycopy.} = object of StepElementElementDescriptor ##
+                                                                                     ## !
+                                                                                     ## Empty
+                                                                                     ## constructor
 
 
-proc constructStepElement_Curve3dElementDescriptor*(): StepElement_Curve3dElementDescriptor {.
+proc constructStepElementCurve3dElementDescriptor*(): StepElementCurve3dElementDescriptor {.
     constructor, importcpp: "StepElement_Curve3dElementDescriptor(@)",
     header: "StepElement_Curve3dElementDescriptor.hxx".}
-proc Init*(this: var StepElement_Curve3dElementDescriptor;
-          aElementDescriptor_TopologyOrder: StepElement_ElementOrder;
-          aElementDescriptor_Description: handle[TCollection_HAsciiString];
-    aPurpose: handle[StepElement_HArray1OfHSequenceOfCurveElementPurposeMember]) {.
+proc init*(this: var StepElementCurve3dElementDescriptor;
+          aElementDescriptorTopologyOrder: StepElementElementOrder;
+          aElementDescriptorDescription: Handle[TCollectionHAsciiString]; aPurpose: Handle[
+    StepElementHArray1OfHSequenceOfCurveElementPurposeMember]) {.
     importcpp: "Init", header: "StepElement_Curve3dElementDescriptor.hxx".}
-proc Purpose*(this: StepElement_Curve3dElementDescriptor): handle[
-    StepElement_HArray1OfHSequenceOfCurveElementPurposeMember] {.noSideEffect,
+proc purpose*(this: StepElementCurve3dElementDescriptor): Handle[
+    StepElementHArray1OfHSequenceOfCurveElementPurposeMember] {.noSideEffect,
     importcpp: "Purpose", header: "StepElement_Curve3dElementDescriptor.hxx".}
-proc SetPurpose*(this: var StepElement_Curve3dElementDescriptor; Purpose: handle[
-    StepElement_HArray1OfHSequenceOfCurveElementPurposeMember]) {.
+proc setPurpose*(this: var StepElementCurve3dElementDescriptor; purpose: Handle[
+    StepElementHArray1OfHSequenceOfCurveElementPurposeMember]) {.
     importcpp: "SetPurpose", header: "StepElement_Curve3dElementDescriptor.hxx".}
 type
-  StepElement_Curve3dElementDescriptorbase_type* = StepElement_ElementDescriptor
+  StepElementCurve3dElementDescriptorbaseType* = StepElementElementDescriptor
 
-proc get_type_name*(): cstring {.importcpp: "StepElement_Curve3dElementDescriptor::get_type_name(@)", header: "StepElement_Curve3dElementDescriptor.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepElement_Curve3dElementDescriptor::get_type_name(@)",
+                            header: "StepElement_Curve3dElementDescriptor.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepElement_Curve3dElementDescriptor::get_type_descriptor(@)",
     header: "StepElement_Curve3dElementDescriptor.hxx".}
-proc DynamicType*(this: StepElement_Curve3dElementDescriptor): handle[Standard_Type] {.
+proc dynamicType*(this: StepElementCurve3dElementDescriptor): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_Curve3dElementDescriptor.hxx".}

@@ -14,30 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Trsf, ../Standard/Standard_Real
-
 discard "forward decl of gp_Lin"
 discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
 discard "forward decl of gp_Trsf"
 type
-  gce_MakeRotation* {.importcpp: "gce_MakeRotation",
-                     header: "gce_MakeRotation.hxx", bycopy.} = object ## ! Constructs a rotation through angle Angle about the axis defined by the line Line.
+  GceMakeRotation* {.importcpp: "gce_MakeRotation", header: "gce_MakeRotation.hxx",
+                    bycopy.} = object ## ! Constructs a rotation through angle Angle about the axis defined by the line Line.
 
 
-proc constructgce_MakeRotation*(Line: gp_Lin; Angle: Standard_Real): gce_MakeRotation {.
+proc constructGceMakeRotation*(line: Lin; angle: float): GceMakeRotation {.
     constructor, importcpp: "gce_MakeRotation(@)", header: "gce_MakeRotation.hxx".}
-proc constructgce_MakeRotation*(Axis: gp_Ax1; Angle: Standard_Real): gce_MakeRotation {.
+proc constructGceMakeRotation*(axis: Ax1; angle: float): GceMakeRotation {.
     constructor, importcpp: "gce_MakeRotation(@)", header: "gce_MakeRotation.hxx".}
-proc constructgce_MakeRotation*(Point: gp_Pnt; Direc: gp_Dir; Angle: Standard_Real): gce_MakeRotation {.
+proc constructGceMakeRotation*(point: Pnt; direc: Dir; angle: float): GceMakeRotation {.
     constructor, importcpp: "gce_MakeRotation(@)", header: "gce_MakeRotation.hxx".}
-proc Value*(this: gce_MakeRotation): gp_Trsf {.noSideEffect, importcpp: "Value",
+proc value*(this: GceMakeRotation): Trsf {.noSideEffect, importcpp: "Value",
+                                       header: "gce_MakeRotation.hxx".}
+proc operator*(this: GceMakeRotation): Trsf {.noSideEffect, importcpp: "Operator",
     header: "gce_MakeRotation.hxx".}
-proc Operator*(this: gce_MakeRotation): gp_Trsf {.noSideEffect,
-    importcpp: "Operator", header: "gce_MakeRotation.hxx".}
-converter `gp_Trsf`*(this: gce_MakeRotation): gp_Trsf {.noSideEffect,
+converter `trsf`*(this: GceMakeRotation): Trsf {.noSideEffect,
     importcpp: "gce_MakeRotation::operator gp_Trsf",
     header: "gce_MakeRotation.hxx".}

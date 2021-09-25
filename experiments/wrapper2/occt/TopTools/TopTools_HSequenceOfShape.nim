@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # TopTools_HSequenceOfShape_HeaderFile [NewLine] # TopTools_HSequenceOfShape_HeaderFile [NewLine] # ../TopoDS/TopoDS_Shape.hxx [NewLine] # TopTools_SequenceOfShape.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( TopTools_HSequenceOfShape , TopTools_SequenceOfShape ) # [NewLine]
+## !!!Ignored construct:  # TopTools_HSequenceOfShape_HeaderFile [NewLine] # TopTools_HSequenceOfShape_HeaderFile [NewLine] # < TopoDS_Shape . hxx > [NewLine] # < TopTools_SequenceOfShape . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( TopTools_HSequenceOfShape , TopTools_SequenceOfShape ) # [NewLine]
 ## Error: expected ';'!!!
+

@@ -13,13 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
-  ../Standard/Standard_ExtCharacter, ../Standard/Standard_OStream,
-  ../Standard/Standard_IStream, ../Message/Message_ProgressRange
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of BinTools_ShapeSet"
 discard "forward decl of BinTools_Curve2dSet"
@@ -30,35 +23,35 @@ type
   BinTools* {.importcpp: "BinTools", header: "BinTools.hxx", bycopy.} = object
 
 
-proc PutReal*(OS: var Standard_OStream; theValue: Standard_Real): var Standard_OStream {.
+proc putReal*(os: var StandardOStream; theValue: float): var StandardOStream {.
     importcpp: "BinTools::PutReal(@)", header: "BinTools.hxx".}
-proc PutShortReal*(OS: var Standard_OStream; theValue: Standard_ShortReal): var Standard_OStream {.
+proc putShortReal*(os: var StandardOStream; theValue: StandardShortReal): var StandardOStream {.
     importcpp: "BinTools::PutShortReal(@)", header: "BinTools.hxx".}
-proc PutInteger*(OS: var Standard_OStream; theValue: Standard_Integer): var Standard_OStream {.
+proc putInteger*(os: var StandardOStream; theValue: int): var StandardOStream {.
     importcpp: "BinTools::PutInteger(@)", header: "BinTools.hxx".}
-proc PutBool*(OS: var Standard_OStream; theValue: Standard_Boolean): var Standard_OStream {.
+proc putBool*(os: var StandardOStream; theValue: bool): var StandardOStream {.
     importcpp: "BinTools::PutBool(@)", header: "BinTools.hxx".}
-proc PutExtChar*(OS: var Standard_OStream; theValue: Standard_ExtCharacter): var Standard_OStream {.
+proc putExtChar*(os: var StandardOStream; theValue: StandardExtCharacter): var StandardOStream {.
     importcpp: "BinTools::PutExtChar(@)", header: "BinTools.hxx".}
-proc GetReal*(IS: var Standard_IStream; theValue: var Standard_Real): var Standard_IStream {.
+proc getReal*(`is`: var StandardIStream; theValue: var float): var StandardIStream {.
     importcpp: "BinTools::GetReal(@)", header: "BinTools.hxx".}
-proc GetShortReal*(IS: var Standard_IStream; theValue: var Standard_ShortReal): var Standard_IStream {.
+proc getShortReal*(`is`: var StandardIStream; theValue: var StandardShortReal): var StandardIStream {.
     importcpp: "BinTools::GetShortReal(@)", header: "BinTools.hxx".}
-proc GetInteger*(IS: var Standard_IStream; theValue: var Standard_Integer): var Standard_IStream {.
+proc getInteger*(`is`: var StandardIStream; theValue: var int): var StandardIStream {.
     importcpp: "BinTools::GetInteger(@)", header: "BinTools.hxx".}
-proc GetBool*(IS: var Standard_IStream; theValue: var Standard_Boolean): var Standard_IStream {.
+proc getBool*(`is`: var StandardIStream; theValue: var bool): var StandardIStream {.
     importcpp: "BinTools::GetBool(@)", header: "BinTools.hxx".}
-proc GetExtChar*(IS: var Standard_IStream; theValue: var Standard_ExtCharacter): var Standard_IStream {.
+proc getExtChar*(`is`: var StandardIStream; theValue: var StandardExtCharacter): var StandardIStream {.
     importcpp: "BinTools::GetExtChar(@)", header: "BinTools.hxx".}
-proc Write*(theShape: TopoDS_Shape; theStream: var Standard_OStream;
-           theRange: Message_ProgressRange = Message_ProgressRange()) {.
+proc write*(theShape: TopoDS_Shape; theStream: var StandardOStream;
+           theRange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "BinTools::Write(@)", header: "BinTools.hxx".}
-proc Read*(theShape: var TopoDS_Shape; theStream: var Standard_IStream;
-          theRange: Message_ProgressRange = Message_ProgressRange()) {.
+proc read*(theShape: var TopoDS_Shape; theStream: var StandardIStream;
+          theRange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "BinTools::Read(@)", header: "BinTools.hxx".}
-proc Write*(theShape: TopoDS_Shape; theFile: Standard_CString;
-           theRange: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
+proc write*(theShape: TopoDS_Shape; theFile: StandardCString;
+           theRange: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "BinTools::Write(@)", header: "BinTools.hxx".}
-proc Read*(theShape: var TopoDS_Shape; theFile: Standard_CString;
-          theRange: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
+proc read*(theShape: var TopoDS_Shape; theFile: StandardCString;
+          theRange: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "BinTools::Read(@)", header: "BinTools.hxx".}

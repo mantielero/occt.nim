@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_OStream, ../Standard/Standard_TypeDef
-
 discard "forward decl of LDOM_Document"
 discard "forward decl of LDOM_Node"
 discard "forward decl of LDOMBasicString"
@@ -27,9 +24,9 @@ proc constructLDOM_XmlWriter*(theEncoding: cstring = nil): LDOM_XmlWriter {.
     constructor, importcpp: "LDOM_XmlWriter(@)", header: "LDOM_XmlWriter.hxx".}
 proc destroyLDOM_XmlWriter*(this: var LDOM_XmlWriter) {.
     importcpp: "#.~LDOM_XmlWriter()", header: "LDOM_XmlWriter.hxx".}
-proc SetIndentation*(this: var LDOM_XmlWriter; theIndent: Standard_Integer) {.
+proc setIndentation*(this: var LDOM_XmlWriter; theIndent: int) {.
     importcpp: "SetIndentation", header: "LDOM_XmlWriter.hxx".}
-proc Write*(this: var LDOM_XmlWriter; theOStream: var Standard_OStream;
+proc write*(this: var LDOM_XmlWriter; theOStream: var StandardOStream;
            theDoc: LDOM_Document) {.importcpp: "Write", header: "LDOM_XmlWriter.hxx".}
-proc Write*(this: var LDOM_XmlWriter; theOStream: var Standard_OStream;
+proc write*(this: var LDOM_XmlWriter; theOStream: var StandardOStream;
            theNode: LDOM_Node) {.importcpp: "Write", header: "LDOM_XmlWriter.hxx".}

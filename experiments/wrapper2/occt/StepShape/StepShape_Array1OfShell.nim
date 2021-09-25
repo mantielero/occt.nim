@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepShape_Shell, ../NCollection/NCollection_Array1
-
 type
-  StepShape_Array1OfShell* = NCollection_Array1[StepShape_Shell]
+  StepShapeArray1OfShell* = NCollectionArray1[StepShapeShell]
+

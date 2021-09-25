@@ -20,8 +20,8 @@
 ## ! -   none.
 
 type
-  SelectMgr_TypeOfUpdate* {.size: sizeof(cint),
-                           importcpp: "SelectMgr_TypeOfUpdate",
-                           header: "SelectMgr_TypeOfUpdate.hxx".} = enum
-    SelectMgr_TOU_Full, SelectMgr_TOU_Partial, SelectMgr_TOU_None
+  SelectMgrTypeOfUpdate* {.size: sizeof(cint), importcpp: "SelectMgr_TypeOfUpdate",
+                          header: "SelectMgr_TypeOfUpdate.hxx".} = enum
+    SelectMgrTOU_Full, SelectMgrTOU_Partial, SelectMgrTOU_None
+
 

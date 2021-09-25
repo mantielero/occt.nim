@@ -14,45 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_HArray1OfFaceBound,
-  StepShape_TopologicalRepresentationItem, ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_FaceBound"
 discard "forward decl of StepShape_Face"
 discard "forward decl of StepShape_Face"
 type
-  Handle_StepShape_Face* = handle[StepShape_Face]
-  StepShape_Face* {.importcpp: "StepShape_Face", header: "StepShape_Face.hxx", bycopy.} = object of StepShape_TopologicalRepresentationItem ##
-                                                                                                                                  ## !
-                                                                                                                                  ## Returns
-                                                                                                                                  ## a
-                                                                                                                                  ## Face
+  HandleStepShapeFace* = Handle[StepShapeFace]
+  StepShapeFace* {.importcpp: "StepShape_Face", header: "StepShape_Face.hxx", bycopy.} = object of StepShapeTopologicalRepresentationItem ##
+                                                                                                                                ## !
+                                                                                                                                ## Returns
+                                                                                                                                ## a
+                                                                                                                                ## Face
 
 
-proc constructStepShape_Face*(): StepShape_Face {.constructor,
+proc constructStepShapeFace*(): StepShapeFace {.constructor,
     importcpp: "StepShape_Face(@)", header: "StepShape_Face.hxx".}
-proc Init*(this: var StepShape_Face; aName: handle[TCollection_HAsciiString];
-          aBounds: handle[StepShape_HArray1OfFaceBound]) {.importcpp: "Init",
+proc init*(this: var StepShapeFace; aName: Handle[TCollectionHAsciiString];
+          aBounds: Handle[StepShapeHArray1OfFaceBound]) {.importcpp: "Init",
     header: "StepShape_Face.hxx".}
-proc SetBounds*(this: var StepShape_Face;
-               aBounds: handle[StepShape_HArray1OfFaceBound]) {.
+proc setBounds*(this: var StepShapeFace;
+               aBounds: Handle[StepShapeHArray1OfFaceBound]) {.
     importcpp: "SetBounds", header: "StepShape_Face.hxx".}
-proc Bounds*(this: StepShape_Face): handle[StepShape_HArray1OfFaceBound] {.
+proc bounds*(this: StepShapeFace): Handle[StepShapeHArray1OfFaceBound] {.
     noSideEffect, importcpp: "Bounds", header: "StepShape_Face.hxx".}
-proc BoundsValue*(this: StepShape_Face; num: Standard_Integer): handle[
-    StepShape_FaceBound] {.noSideEffect, importcpp: "BoundsValue",
-                          header: "StepShape_Face.hxx".}
-proc NbBounds*(this: StepShape_Face): Standard_Integer {.noSideEffect,
-    importcpp: "NbBounds", header: "StepShape_Face.hxx".}
+proc boundsValue*(this: StepShapeFace; num: int): Handle[StepShapeFaceBound] {.
+    noSideEffect, importcpp: "BoundsValue", header: "StepShape_Face.hxx".}
+proc nbBounds*(this: StepShapeFace): int {.noSideEffect, importcpp: "NbBounds",
+                                       header: "StepShape_Face.hxx".}
 type
-  StepShape_Facebase_type* = StepShape_TopologicalRepresentationItem
+  StepShapeFacebaseType* = StepShapeTopologicalRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_Face::get_type_name(@)",
-                              header: "StepShape_Face.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_Face::get_type_name(@)",
+                            header: "StepShape_Face.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_Face::get_type_descriptor(@)",
     header: "StepShape_Face.hxx".}
-proc DynamicType*(this: StepShape_Face): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepShapeFace): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_Face.hxx".}

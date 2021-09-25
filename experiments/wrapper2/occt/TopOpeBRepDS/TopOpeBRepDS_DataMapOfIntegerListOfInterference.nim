@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Integer, TopOpeBRepDS_ListOfInterference,
-  ../TColStd/TColStd_MapIntegerHasher, ../NCollection/NCollection_DataMap
-
 type
-  TopOpeBRepDS_DataMapOfIntegerListOfInterference* = NCollection_DataMap[
-      Standard_Integer, TopOpeBRepDS_ListOfInterference, TColStd_MapIntegerHasher]
+  TopOpeBRepDS_DataMapOfIntegerListOfInterference* = NCollectionDataMap[int,
+      TopOpeBRepDS_ListOfInterference, TColStdMapIntegerHasher]
   TopOpeBRepDS_DataMapIteratorOfDataMapOfIntegerListOfInterference* = Iterator[
-      Standard_Integer, TopOpeBRepDS_ListOfInterference, TColStd_MapIntegerHasher]
+      int, TopOpeBRepDS_ListOfInterference, TColStdMapIntegerHasher]
+

@@ -11,8 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Aspect_Touch, ../NCollection/NCollection_IndexedDataMap
-
 type
-  Aspect_TouchMap* = NCollection_IndexedDataMap[Standard_Size, Aspect_Touch]
+  AspectTouchMap* = NCollectionIndexedDataMap[StandardSize, AspectTouch]
+

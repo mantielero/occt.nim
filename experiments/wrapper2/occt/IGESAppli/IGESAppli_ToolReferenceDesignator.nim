@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESAppli_ReferenceDesignator"
 discard "forward decl of IGESData_IGESReaderData"
@@ -31,44 +26,44 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESAppli_ToolReferenceDesignator* {.importcpp: "IGESAppli_ToolReferenceDesignator", header: "IGESAppli_ToolReferenceDesignator.hxx",
-                                      bycopy.} = object ## ! Returns a ToolReferenceDesignator, ready to work
+  IGESAppliToolReferenceDesignator* {.importcpp: "IGESAppli_ToolReferenceDesignator", header: "IGESAppli_ToolReferenceDesignator.hxx",
+                                     bycopy.} = object ## ! Returns a ToolReferenceDesignator, ready to work
 
 
-proc constructIGESAppli_ToolReferenceDesignator*(): IGESAppli_ToolReferenceDesignator {.
+proc constructIGESAppliToolReferenceDesignator*(): IGESAppliToolReferenceDesignator {.
     constructor, importcpp: "IGESAppli_ToolReferenceDesignator(@)",
     header: "IGESAppli_ToolReferenceDesignator.hxx".}
-proc ReadOwnParams*(this: IGESAppli_ToolReferenceDesignator;
-                   ent: handle[IGESAppli_ReferenceDesignator];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESAppli_ToolReferenceDesignator.hxx".}
-proc WriteOwnParams*(this: IGESAppli_ToolReferenceDesignator;
-                    ent: handle[IGESAppli_ReferenceDesignator];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
-    importcpp: "WriteOwnParams", header: "IGESAppli_ToolReferenceDesignator.hxx".}
-proc OwnShared*(this: IGESAppli_ToolReferenceDesignator;
-               ent: handle[IGESAppli_ReferenceDesignator];
-               iter: var Interface_EntityIterator) {.noSideEffect,
-    importcpp: "OwnShared", header: "IGESAppli_ToolReferenceDesignator.hxx".}
-proc OwnCorrect*(this: IGESAppli_ToolReferenceDesignator;
-                ent: handle[IGESAppli_ReferenceDesignator]): Standard_Boolean {.
-    noSideEffect, importcpp: "OwnCorrect",
+proc readOwnParams*(this: IGESAppliToolReferenceDesignator;
+                   ent: Handle[IGESAppliReferenceDesignator];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
     header: "IGESAppli_ToolReferenceDesignator.hxx".}
-proc DirChecker*(this: IGESAppli_ToolReferenceDesignator;
-                ent: handle[IGESAppli_ReferenceDesignator]): IGESData_DirChecker {.
+proc writeOwnParams*(this: IGESAppliToolReferenceDesignator;
+                    ent: Handle[IGESAppliReferenceDesignator];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
+    importcpp: "WriteOwnParams", header: "IGESAppli_ToolReferenceDesignator.hxx".}
+proc ownShared*(this: IGESAppliToolReferenceDesignator;
+               ent: Handle[IGESAppliReferenceDesignator];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
+    importcpp: "OwnShared", header: "IGESAppli_ToolReferenceDesignator.hxx".}
+proc ownCorrect*(this: IGESAppliToolReferenceDesignator;
+                ent: Handle[IGESAppliReferenceDesignator]): bool {.noSideEffect,
+    importcpp: "OwnCorrect", header: "IGESAppli_ToolReferenceDesignator.hxx".}
+proc dirChecker*(this: IGESAppliToolReferenceDesignator;
+                ent: Handle[IGESAppliReferenceDesignator]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESAppli_ToolReferenceDesignator.hxx".}
-proc OwnCheck*(this: IGESAppli_ToolReferenceDesignator;
-              ent: handle[IGESAppli_ReferenceDesignator];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESAppliToolReferenceDesignator;
+              ent: Handle[IGESAppliReferenceDesignator];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck",
     header: "IGESAppli_ToolReferenceDesignator.hxx".}
-proc OwnCopy*(this: IGESAppli_ToolReferenceDesignator;
-             entfrom: handle[IGESAppli_ReferenceDesignator];
-             entto: handle[IGESAppli_ReferenceDesignator];
-             TC: var Interface_CopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESAppli_ToolReferenceDesignator.hxx".}
-proc OwnDump*(this: IGESAppli_ToolReferenceDesignator;
-             ent: handle[IGESAppli_ReferenceDesignator];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump", header: "IGESAppli_ToolReferenceDesignator.hxx".}
+proc ownCopy*(this: IGESAppliToolReferenceDesignator;
+             entfrom: Handle[IGESAppliReferenceDesignator];
+             entto: Handle[IGESAppliReferenceDesignator];
+             tc: var InterfaceCopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESAppli_ToolReferenceDesignator.hxx".}
+proc ownDump*(this: IGESAppliToolReferenceDesignator;
+             ent: Handle[IGESAppliReferenceDesignator];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump",
+    header: "IGESAppli_ToolReferenceDesignator.hxx".}

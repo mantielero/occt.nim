@@ -14,4 +14,5 @@
 
 discard "forward decl of BOPAlgo_ArgumentAnalyzer"
 type
-  BOPAlgo_PArgumentAnalyzer* = ptr BOPAlgo_ArgumentAnalyzer
+  BOPAlgoPArgumentAnalyzer* = ptr BOPAlgoArgumentAnalyzer
+

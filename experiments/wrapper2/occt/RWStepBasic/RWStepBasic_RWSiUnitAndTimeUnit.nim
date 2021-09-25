@@ -14,27 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_SiUnitAndTimeUnit"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepBasic_RWSiUnitAndTimeUnit* {.importcpp: "RWStepBasic_RWSiUnitAndTimeUnit", header: "RWStepBasic_RWSiUnitAndTimeUnit.hxx",
-                                    bycopy.} = object
+  RWStepBasicRWSiUnitAndTimeUnit* {.importcpp: "RWStepBasic_RWSiUnitAndTimeUnit", header: "RWStepBasic_RWSiUnitAndTimeUnit.hxx",
+                                   bycopy.} = object
 
 
-proc constructRWStepBasic_RWSiUnitAndTimeUnit*(): RWStepBasic_RWSiUnitAndTimeUnit {.
+proc constructRWStepBasicRWSiUnitAndTimeUnit*(): RWStepBasicRWSiUnitAndTimeUnit {.
     constructor, importcpp: "RWStepBasic_RWSiUnitAndTimeUnit(@)",
     header: "RWStepBasic_RWSiUnitAndTimeUnit.hxx".}
-proc ReadStep*(this: RWStepBasic_RWSiUnitAndTimeUnit;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepBasic_SiUnitAndTimeUnit]) {.noSideEffect,
+proc readStep*(this: RWStepBasicRWSiUnitAndTimeUnit;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepBasicSiUnitAndTimeUnit]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWSiUnitAndTimeUnit.hxx".}
-proc WriteStep*(this: RWStepBasic_RWSiUnitAndTimeUnit; SW: var StepData_StepWriter;
-               ent: handle[StepBasic_SiUnitAndTimeUnit]) {.noSideEffect,
+proc writeStep*(this: RWStepBasicRWSiUnitAndTimeUnit; sw: var StepDataStepWriter;
+               ent: Handle[StepBasicSiUnitAndTimeUnit]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWSiUnitAndTimeUnit.hxx".}

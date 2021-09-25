@@ -13,50 +13,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepRepr_ShapeAspect"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_DimensionalSize"
 discard "forward decl of StepShape_DimensionalSize"
 type
-  Handle_StepShape_DimensionalSize* = handle[StepShape_DimensionalSize]
+  HandleStepShapeDimensionalSize* = Handle[StepShapeDimensionalSize]
 
 ## ! Representation of STEP entity DimensionalSize
 
 type
-  StepShape_DimensionalSize* {.importcpp: "StepShape_DimensionalSize",
-                              header: "StepShape_DimensionalSize.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                        ## !
-                                                                                                        ## Empty
-                                                                                                        ## constructor
+  StepShapeDimensionalSize* {.importcpp: "StepShape_DimensionalSize",
+                             header: "StepShape_DimensionalSize.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                      ## !
+                                                                                                      ## Empty
+                                                                                                      ## constructor
 
 
-proc constructStepShape_DimensionalSize*(): StepShape_DimensionalSize {.
-    constructor, importcpp: "StepShape_DimensionalSize(@)",
+proc constructStepShapeDimensionalSize*(): StepShapeDimensionalSize {.constructor,
+    importcpp: "StepShape_DimensionalSize(@)",
     header: "StepShape_DimensionalSize.hxx".}
-proc Init*(this: var StepShape_DimensionalSize;
-          aAppliesTo: handle[StepRepr_ShapeAspect];
-          aName: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepShapeDimensionalSize;
+          aAppliesTo: Handle[StepReprShapeAspect];
+          aName: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepShape_DimensionalSize.hxx".}
-proc AppliesTo*(this: StepShape_DimensionalSize): handle[StepRepr_ShapeAspect] {.
+proc appliesTo*(this: StepShapeDimensionalSize): Handle[StepReprShapeAspect] {.
     noSideEffect, importcpp: "AppliesTo", header: "StepShape_DimensionalSize.hxx".}
-proc SetAppliesTo*(this: var StepShape_DimensionalSize;
-                  AppliesTo: handle[StepRepr_ShapeAspect]) {.
+proc setAppliesTo*(this: var StepShapeDimensionalSize;
+                  appliesTo: Handle[StepReprShapeAspect]) {.
     importcpp: "SetAppliesTo", header: "StepShape_DimensionalSize.hxx".}
-proc Name*(this: StepShape_DimensionalSize): handle[TCollection_HAsciiString] {.
+proc name*(this: StepShapeDimensionalSize): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepShape_DimensionalSize.hxx".}
-proc SetName*(this: var StepShape_DimensionalSize;
-             Name: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepShapeDimensionalSize;
+             name: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepShape_DimensionalSize.hxx".}
 type
-  StepShape_DimensionalSizebase_type* = Standard_Transient
+  StepShapeDimensionalSizebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_DimensionalSize::get_type_name(@)",
-                              header: "StepShape_DimensionalSize.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_DimensionalSize::get_type_name(@)",
+                            header: "StepShape_DimensionalSize.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_DimensionalSize::get_type_descriptor(@)",
     header: "StepShape_DimensionalSize.hxx".}
-proc DynamicType*(this: StepShape_DimensionalSize): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeDimensionalSize): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_DimensionalSize.hxx".}

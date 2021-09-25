@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # StepRepr_HSequenceOfMaterialPropertyRepresentation_HeaderFile [NewLine] # StepRepr_HSequenceOfMaterialPropertyRepresentation_HeaderFile [NewLine] # StepRepr_MaterialPropertyRepresentation.hxx [NewLine] # StepRepr_SequenceOfMaterialPropertyRepresentation.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( StepRepr_HSequenceOfMaterialPropertyRepresentation , StepRepr_SequenceOfMaterialPropertyRepresentation ) # [NewLine]
+## !!!Ignored construct:  # StepRepr_HSequenceOfMaterialPropertyRepresentation_HeaderFile [NewLine] # StepRepr_HSequenceOfMaterialPropertyRepresentation_HeaderFile [NewLine] # < StepRepr_MaterialPropertyRepresentation . hxx > [NewLine] # < StepRepr_SequenceOfMaterialPropertyRepresentation . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( StepRepr_HSequenceOfMaterialPropertyRepresentation , StepRepr_SequenceOfMaterialPropertyRepresentation ) # [NewLine]
 ## Error: expected ';'!!!
+

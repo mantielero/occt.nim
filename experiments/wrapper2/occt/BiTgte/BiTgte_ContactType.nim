@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  BiTgte_ContactType* {.size: sizeof(cint), importcpp: "BiTgte_ContactType",
-                       header: "BiTgte_ContactType.hxx".} = enum
-    BiTgte_FaceFace, BiTgte_FaceEdge, BiTgte_FaceVertex, BiTgte_EdgeEdge,
-    BiTgte_EdgeVertex, BiTgte_VertexVertex
+  BiTgteContactType* {.size: sizeof(cint), importcpp: "BiTgte_ContactType",
+                      header: "BiTgte_ContactType.hxx".} = enum
+    BiTgteFaceFace, BiTgteFaceEdge, BiTgteFaceVertex, BiTgteEdgeEdge,
+    BiTgteEdgeVertex, BiTgteVertexVertex
+
 

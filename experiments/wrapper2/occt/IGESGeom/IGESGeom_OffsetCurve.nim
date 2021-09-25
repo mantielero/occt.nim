@@ -14,18 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../gp/gp_XYZ, ../IGESData/IGESData_IGESEntity,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of gp_XYZ"
 discard "forward decl of gp_Vec"
 discard "forward decl of IGESGeom_OffsetCurve"
 discard "forward decl of IGESGeom_OffsetCurve"
 type
-  Handle_IGESGeom_OffsetCurve* = handle[IGESGeom_OffsetCurve]
+  HandleIGESGeomOffsetCurve* = Handle[IGESGeomOffsetCurve]
 
 ## ! defines IGESOffsetCurve, Type <130> Form <0>
 ## ! in package IGESGeom
@@ -35,61 +30,55 @@ type
 ## ! offset distance and other pertinent information.
 
 type
-  IGESGeom_OffsetCurve* {.importcpp: "IGESGeom_OffsetCurve",
-                         header: "IGESGeom_OffsetCurve.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESGeomOffsetCurve* {.importcpp: "IGESGeom_OffsetCurve",
+                        header: "IGESGeom_OffsetCurve.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESGeom_OffsetCurve*(): IGESGeom_OffsetCurve {.constructor,
+proc constructIGESGeomOffsetCurve*(): IGESGeomOffsetCurve {.constructor,
     importcpp: "IGESGeom_OffsetCurve(@)", header: "IGESGeom_OffsetCurve.hxx".}
-proc Init*(this: var IGESGeom_OffsetCurve; aBaseCurve: handle[IGESData_IGESEntity];
-          anOffsetType: Standard_Integer; aFunction: handle[IGESData_IGESEntity];
-          aFunctionCoord: Standard_Integer; aTaperedOffsetType: Standard_Integer;
-          offDistance1: Standard_Real; arcLength1: Standard_Real;
-          offDistance2: Standard_Real; arcLength2: Standard_Real;
-          aNormalVec: gp_XYZ; anOffsetParam: Standard_Real;
-          anotherOffsetParam: Standard_Real) {.importcpp: "Init",
+proc init*(this: var IGESGeomOffsetCurve; aBaseCurve: Handle[IGESDataIGESEntity];
+          anOffsetType: int; aFunction: Handle[IGESDataIGESEntity];
+          aFunctionCoord: int; aTaperedOffsetType: int; offDistance1: float;
+          arcLength1: float; offDistance2: float; arcLength2: float; aNormalVec: Xyz;
+          anOffsetParam: float; anotherOffsetParam: float) {.importcpp: "Init",
     header: "IGESGeom_OffsetCurve.hxx".}
-proc BaseCurve*(this: IGESGeom_OffsetCurve): handle[IGESData_IGESEntity] {.
+proc baseCurve*(this: IGESGeomOffsetCurve): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "BaseCurve", header: "IGESGeom_OffsetCurve.hxx".}
-proc OffsetType*(this: IGESGeom_OffsetCurve): Standard_Integer {.noSideEffect,
+proc offsetType*(this: IGESGeomOffsetCurve): int {.noSideEffect,
     importcpp: "OffsetType", header: "IGESGeom_OffsetCurve.hxx".}
-proc Function*(this: IGESGeom_OffsetCurve): handle[IGESData_IGESEntity] {.
+proc function*(this: IGESGeomOffsetCurve): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Function", header: "IGESGeom_OffsetCurve.hxx".}
-proc HasFunction*(this: IGESGeom_OffsetCurve): Standard_Boolean {.noSideEffect,
+proc hasFunction*(this: IGESGeomOffsetCurve): bool {.noSideEffect,
     importcpp: "HasFunction", header: "IGESGeom_OffsetCurve.hxx".}
-proc FunctionParameter*(this: IGESGeom_OffsetCurve): Standard_Integer {.
-    noSideEffect, importcpp: "FunctionParameter",
-    header: "IGESGeom_OffsetCurve.hxx".}
-proc TaperedOffsetType*(this: IGESGeom_OffsetCurve): Standard_Integer {.
-    noSideEffect, importcpp: "TaperedOffsetType",
-    header: "IGESGeom_OffsetCurve.hxx".}
-proc FirstOffsetDistance*(this: IGESGeom_OffsetCurve): Standard_Real {.noSideEffect,
+proc functionParameter*(this: IGESGeomOffsetCurve): int {.noSideEffect,
+    importcpp: "FunctionParameter", header: "IGESGeom_OffsetCurve.hxx".}
+proc taperedOffsetType*(this: IGESGeomOffsetCurve): int {.noSideEffect,
+    importcpp: "TaperedOffsetType", header: "IGESGeom_OffsetCurve.hxx".}
+proc firstOffsetDistance*(this: IGESGeomOffsetCurve): float {.noSideEffect,
     importcpp: "FirstOffsetDistance", header: "IGESGeom_OffsetCurve.hxx".}
-proc ArcLength1*(this: IGESGeom_OffsetCurve): Standard_Real {.noSideEffect,
+proc arcLength1*(this: IGESGeomOffsetCurve): float {.noSideEffect,
     importcpp: "ArcLength1", header: "IGESGeom_OffsetCurve.hxx".}
-proc SecondOffsetDistance*(this: IGESGeom_OffsetCurve): Standard_Real {.
-    noSideEffect, importcpp: "SecondOffsetDistance",
-    header: "IGESGeom_OffsetCurve.hxx".}
-proc ArcLength2*(this: IGESGeom_OffsetCurve): Standard_Real {.noSideEffect,
+proc secondOffsetDistance*(this: IGESGeomOffsetCurve): float {.noSideEffect,
+    importcpp: "SecondOffsetDistance", header: "IGESGeom_OffsetCurve.hxx".}
+proc arcLength2*(this: IGESGeomOffsetCurve): float {.noSideEffect,
     importcpp: "ArcLength2", header: "IGESGeom_OffsetCurve.hxx".}
-proc NormalVector*(this: IGESGeom_OffsetCurve): gp_Vec {.noSideEffect,
+proc normalVector*(this: IGESGeomOffsetCurve): Vec {.noSideEffect,
     importcpp: "NormalVector", header: "IGESGeom_OffsetCurve.hxx".}
-proc TransformedNormalVector*(this: IGESGeom_OffsetCurve): gp_Vec {.noSideEffect,
+proc transformedNormalVector*(this: IGESGeomOffsetCurve): Vec {.noSideEffect,
     importcpp: "TransformedNormalVector", header: "IGESGeom_OffsetCurve.hxx".}
-proc Parameters*(this: IGESGeom_OffsetCurve; StartParam: var Standard_Real;
-                EndParam: var Standard_Real) {.noSideEffect,
-    importcpp: "Parameters", header: "IGESGeom_OffsetCurve.hxx".}
-proc StartParameter*(this: IGESGeom_OffsetCurve): Standard_Real {.noSideEffect,
+proc parameters*(this: IGESGeomOffsetCurve; startParam: var float; endParam: var float) {.
+    noSideEffect, importcpp: "Parameters", header: "IGESGeom_OffsetCurve.hxx".}
+proc startParameter*(this: IGESGeomOffsetCurve): float {.noSideEffect,
     importcpp: "StartParameter", header: "IGESGeom_OffsetCurve.hxx".}
-proc EndParameter*(this: IGESGeom_OffsetCurve): Standard_Real {.noSideEffect,
+proc endParameter*(this: IGESGeomOffsetCurve): float {.noSideEffect,
     importcpp: "EndParameter", header: "IGESGeom_OffsetCurve.hxx".}
 type
-  IGESGeom_OffsetCurvebase_type* = IGESData_IGESEntity
+  IGESGeomOffsetCurvebaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESGeom_OffsetCurve::get_type_name(@)",
-                              header: "IGESGeom_OffsetCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESGeom_OffsetCurve::get_type_name(@)",
+                            header: "IGESGeom_OffsetCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESGeom_OffsetCurve::get_type_descriptor(@)",
     header: "IGESGeom_OffsetCurve.hxx".}
-proc DynamicType*(this: IGESGeom_OffsetCurve): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IGESGeomOffsetCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_OffsetCurve.hxx".}

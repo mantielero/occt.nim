@@ -48,8 +48,9 @@
 ## ! removed by a Boolean operation.
 
 type
-  TNaming_Evolution* {.size: sizeof(cint), importcpp: "TNaming_Evolution",
-                      header: "TNaming_Evolution.hxx".} = enum
-    TNaming_PRIMITIVE, TNaming_GENERATED, TNaming_MODIFY, TNaming_DELETE,
-    TNaming_REPLACE, TNaming_SELECTED
+  TNamingEvolution* {.size: sizeof(cint), importcpp: "TNaming_Evolution",
+                     header: "TNaming_Evolution.hxx".} = enum
+    TNamingPRIMITIVE, TNamingGENERATED, TNamingMODIFY, TNamingDELETE,
+    TNamingREPLACE, TNamingSELECTED
+
 

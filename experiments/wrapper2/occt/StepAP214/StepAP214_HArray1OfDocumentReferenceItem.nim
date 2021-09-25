@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP214_DocumentReferenceItem, StepAP214_Array1OfDocumentReferenceItem,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepAP214_HArray1OfDocumentReferenceItem* {.
+  StepAP214HArray1OfDocumentReferenceItem* {.
       importcpp: "StepAP214_HArray1OfDocumentReferenceItem",
-      header: "StepAP214_HArray1OfDocumentReferenceItem.hxx", bycopy.} = object of StepAP214_Array1OfDocumentReferenceItem
+      header: "StepAP214_HArray1OfDocumentReferenceItem.hxx", bycopy.} = object of StepAP214Array1OfDocumentReferenceItem
 
 
-proc constructStepAP214_HArray1OfDocumentReferenceItem*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepAP214_HArray1OfDocumentReferenceItem {.
+proc constructStepAP214HArray1OfDocumentReferenceItem*(theLower: int; theUpper: int): StepAP214HArray1OfDocumentReferenceItem {.
     constructor, importcpp: "StepAP214_HArray1OfDocumentReferenceItem(@)",
     header: "StepAP214_HArray1OfDocumentReferenceItem.hxx".}
-proc constructStepAP214_HArray1OfDocumentReferenceItem*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepAP214_HArray1OfDocumentReferenceItem {.
+proc constructStepAP214HArray1OfDocumentReferenceItem*(theLower: int;
+    theUpper: int; theValue: ValueType): StepAP214HArray1OfDocumentReferenceItem {.
     constructor, importcpp: "StepAP214_HArray1OfDocumentReferenceItem(@)",
     header: "StepAP214_HArray1OfDocumentReferenceItem.hxx".}
-proc constructStepAP214_HArray1OfDocumentReferenceItem*(
-    theOther: StepAP214_Array1OfDocumentReferenceItem): StepAP214_HArray1OfDocumentReferenceItem {.
+proc constructStepAP214HArray1OfDocumentReferenceItem*(
+    theOther: StepAP214Array1OfDocumentReferenceItem): StepAP214HArray1OfDocumentReferenceItem {.
     constructor, importcpp: "StepAP214_HArray1OfDocumentReferenceItem(@)",
     header: "StepAP214_HArray1OfDocumentReferenceItem.hxx".}
-proc Array1*(this: StepAP214_HArray1OfDocumentReferenceItem): StepAP214_Array1OfDocumentReferenceItem {.
+proc array1*(this: StepAP214HArray1OfDocumentReferenceItem): StepAP214Array1OfDocumentReferenceItem {.
     noSideEffect, importcpp: "Array1",
     header: "StepAP214_HArray1OfDocumentReferenceItem.hxx".}
-proc ChangeArray1*(this: var StepAP214_HArray1OfDocumentReferenceItem): var StepAP214_Array1OfDocumentReferenceItem {.
+proc changeArray1*(this: var StepAP214HArray1OfDocumentReferenceItem): var StepAP214Array1OfDocumentReferenceItem {.
     importcpp: "ChangeArray1",
     header: "StepAP214_HArray1OfDocumentReferenceItem.hxx".}
 type
-  StepAP214_HArray1OfDocumentReferenceItembase_type* = MMgt_TShared
+  StepAP214HArray1OfDocumentReferenceItembaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_HArray1OfDocumentReferenceItem::get_type_name(@)", header: "StepAP214_HArray1OfDocumentReferenceItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP214_HArray1OfDocumentReferenceItem::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP214_HArray1OfDocumentReferenceItem::get_type_name(@)", header: "StepAP214_HArray1OfDocumentReferenceItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_HArray1OfDocumentReferenceItem::get_type_descriptor(@)",
     header: "StepAP214_HArray1OfDocumentReferenceItem.hxx".}
-proc DynamicType*(this: StepAP214_HArray1OfDocumentReferenceItem): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepAP214_HArray1OfDocumentReferenceItem.hxx".}
+proc dynamicType*(this: StepAP214HArray1OfDocumentReferenceItem): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepAP214_HArray1OfDocumentReferenceItem.hxx".}

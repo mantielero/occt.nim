@@ -14,11 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TopOpeBRepTool_define, ../TopTools/TopTools_Array1OfShape, ../gp/gp_Pnt2d
-
 when defined(OCCT_DEBUG):
-  proc FUN_REINIT*() {.importcpp: "FUN_REINIT(@)",
+  proc fun_Reinit*() {.importcpp: "FUN_REINIT(@)",
                      header: "TopOpeBRepTool_PURGE.hxx".}
   ## extern Standard_Integer FUN_addepc(const TopoDS_Shape& ed,const TopoDS_Shape& f);
 ##  ----------------------------------------------------------------------
@@ -39,3 +36,4 @@ when defined(OCCT_DEBUG):
 ##  TopOpeBRepTool_PURGE.cxx
 ##  ----------------------------------------------------------------------
 ## Standard_IMPORT void FUN_tool_ttranslate(const gp_Vec2d& tvector, const TopoDS_Face& fF, TopoDS_Edge& fyE);
+

@@ -14,54 +14,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP214_HArray1OfDateAndTimeItem,
-  ../StepBasic/StepBasic_DateAndTimeAssignment, ../Standard/Standard_Integer
-
 discard "forward decl of StepBasic_DateAndTime"
 discard "forward decl of StepBasic_DateTimeRole"
 discard "forward decl of StepAP214_DateAndTimeItem"
 discard "forward decl of StepAP214_AppliedDateAndTimeAssignment"
 discard "forward decl of StepAP214_AppliedDateAndTimeAssignment"
 type
-  Handle_StepAP214_AppliedDateAndTimeAssignment* = handle[
-      StepAP214_AppliedDateAndTimeAssignment]
-  StepAP214_AppliedDateAndTimeAssignment* {.
+  HandleStepAP214AppliedDateAndTimeAssignment* = Handle[
+      StepAP214AppliedDateAndTimeAssignment]
+  StepAP214AppliedDateAndTimeAssignment* {.
       importcpp: "StepAP214_AppliedDateAndTimeAssignment",
-      header: "StepAP214_AppliedDateAndTimeAssignment.hxx", bycopy.} = object of StepBasic_DateAndTimeAssignment ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## a
-                                                                                                          ## AppliedDateAndTimeAssignment
+      header: "StepAP214_AppliedDateAndTimeAssignment.hxx", bycopy.} = object of StepBasicDateAndTimeAssignment ##
+                                                                                                         ## !
+                                                                                                         ## Returns
+                                                                                                         ## a
+                                                                                                         ## AppliedDateAndTimeAssignment
 
 
-proc constructStepAP214_AppliedDateAndTimeAssignment*(): StepAP214_AppliedDateAndTimeAssignment {.
+proc constructStepAP214AppliedDateAndTimeAssignment*(): StepAP214AppliedDateAndTimeAssignment {.
     constructor, importcpp: "StepAP214_AppliedDateAndTimeAssignment(@)",
     header: "StepAP214_AppliedDateAndTimeAssignment.hxx".}
-proc Init*(this: var StepAP214_AppliedDateAndTimeAssignment;
-          aAssignedDateAndTime: handle[StepBasic_DateAndTime];
-          aRole: handle[StepBasic_DateTimeRole];
-          aItems: handle[StepAP214_HArray1OfDateAndTimeItem]) {.importcpp: "Init",
+proc init*(this: var StepAP214AppliedDateAndTimeAssignment;
+          aAssignedDateAndTime: Handle[StepBasicDateAndTime];
+          aRole: Handle[StepBasicDateTimeRole];
+          aItems: Handle[StepAP214HArray1OfDateAndTimeItem]) {.importcpp: "Init",
     header: "StepAP214_AppliedDateAndTimeAssignment.hxx".}
-proc SetItems*(this: var StepAP214_AppliedDateAndTimeAssignment;
-              aItems: handle[StepAP214_HArray1OfDateAndTimeItem]) {.
+proc setItems*(this: var StepAP214AppliedDateAndTimeAssignment;
+              aItems: Handle[StepAP214HArray1OfDateAndTimeItem]) {.
     importcpp: "SetItems", header: "StepAP214_AppliedDateAndTimeAssignment.hxx".}
-proc Items*(this: StepAP214_AppliedDateAndTimeAssignment): handle[
-    StepAP214_HArray1OfDateAndTimeItem] {.noSideEffect, importcpp: "Items",
+proc items*(this: StepAP214AppliedDateAndTimeAssignment): Handle[
+    StepAP214HArray1OfDateAndTimeItem] {.noSideEffect, importcpp: "Items", header: "StepAP214_AppliedDateAndTimeAssignment.hxx".}
+proc itemsValue*(this: StepAP214AppliedDateAndTimeAssignment; num: int): StepAP214DateAndTimeItem {.
+    noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AppliedDateAndTimeAssignment.hxx".}
-proc ItemsValue*(this: StepAP214_AppliedDateAndTimeAssignment;
-                num: Standard_Integer): StepAP214_DateAndTimeItem {.noSideEffect,
-    importcpp: "ItemsValue", header: "StepAP214_AppliedDateAndTimeAssignment.hxx".}
-proc NbItems*(this: StepAP214_AppliedDateAndTimeAssignment): Standard_Integer {.
-    noSideEffect, importcpp: "NbItems",
-    header: "StepAP214_AppliedDateAndTimeAssignment.hxx".}
+proc nbItems*(this: StepAP214AppliedDateAndTimeAssignment): int {.noSideEffect,
+    importcpp: "NbItems", header: "StepAP214_AppliedDateAndTimeAssignment.hxx".}
 type
-  StepAP214_AppliedDateAndTimeAssignmentbase_type* = StepBasic_DateAndTimeAssignment
+  StepAP214AppliedDateAndTimeAssignmentbaseType* = StepBasicDateAndTimeAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_AppliedDateAndTimeAssignment::get_type_name(@)", header: "StepAP214_AppliedDateAndTimeAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP214_AppliedDateAndTimeAssignment::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP214_AppliedDateAndTimeAssignment::get_type_name(@)", header: "StepAP214_AppliedDateAndTimeAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_AppliedDateAndTimeAssignment::get_type_descriptor(@)",
     header: "StepAP214_AppliedDateAndTimeAssignment.hxx".}
-proc DynamicType*(this: StepAP214_AppliedDateAndTimeAssignment): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepAP214_AppliedDateAndTimeAssignment.hxx".}
+proc dynamicType*(this: StepAP214AppliedDateAndTimeAssignment): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepAP214_AppliedDateAndTimeAssignment.hxx".}

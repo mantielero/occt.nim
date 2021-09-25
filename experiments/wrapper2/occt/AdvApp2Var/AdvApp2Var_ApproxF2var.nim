@@ -17,93 +17,89 @@
 ## |  a utiliser dans AdvApp2Var
 ## |--------------------------------------------------------------
 
-import
-  ../Standard/Standard_Macro, AdvApp2Var_Data_f2c, AdvApp2Var_EvaluatorFunc2Var
-
 
 type
-  AdvApp2Var_ApproxF2var* {.importcpp: "AdvApp2Var_ApproxF2var",
-                           header: "AdvApp2Var_ApproxF2var.hxx", bycopy.} = object
+  AdvApp2VarApproxF2var* {.importcpp: "AdvApp2Var_ApproxF2var",
+                          header: "AdvApp2Var_ApproxF2var.hxx", bycopy.} = object
 
 
-proc mma2fnc_*(ndimen: ptr integer; nbsesp: ptr integer; ndimse: ptr integer;
-              uvfonc: ptr doublereal; foncnp: AdvApp2Var_EvaluatorFunc2Var;
-              tconst: ptr doublereal; isofav: ptr integer; nbroot: ptr integer;
-              rootlg: ptr doublereal; iordre: ptr integer; ideriv: ptr integer;
-              ndgjac: ptr integer; nbcrmx: ptr integer; ncflim: ptr integer;
-              epsapr: ptr doublereal; ncoeff: ptr integer; courbe: ptr doublereal;
-              nbcrbe: ptr integer; somtab: ptr doublereal; diftab: ptr doublereal;
-              contr1: ptr doublereal; contr2: ptr doublereal; tabdec: ptr doublereal;
-              errmax: ptr doublereal; errmoy: ptr doublereal; iercod: ptr integer): cint {.
+proc mma2fnc*(ndimen: ptr integer; nbsesp: ptr integer; ndimse: ptr integer;
+             uvfonc: ptr Doublereal; foncnp: AdvApp2VarEvaluatorFunc2Var;
+             tconst: ptr Doublereal; isofav: ptr integer; nbroot: ptr integer;
+             rootlg: ptr Doublereal; iordre: ptr integer; ideriv: ptr integer;
+             ndgjac: ptr integer; nbcrmx: ptr integer; ncflim: ptr integer;
+             epsapr: ptr Doublereal; ncoeff: ptr integer; courbe: ptr Doublereal;
+             nbcrbe: ptr integer; somtab: ptr Doublereal; diftab: ptr Doublereal;
+             contr1: ptr Doublereal; contr2: ptr Doublereal; tabdec: ptr Doublereal;
+             errmax: ptr Doublereal; errmoy: ptr Doublereal; iercod: ptr integer): cint {.
     importcpp: "AdvApp2Var_ApproxF2var::mma2fnc_(@)",
     header: "AdvApp2Var_ApproxF2var.hxx".}
-proc mma2roo_*(nbpntu: ptr integer; nbpntv: ptr integer; urootl: ptr doublereal;
-              vrootl: ptr doublereal): cint {.
+proc mma2roo*(nbpntu: ptr integer; nbpntv: ptr integer; urootl: ptr Doublereal;
+             vrootl: ptr Doublereal): cint {.
     importcpp: "AdvApp2Var_ApproxF2var::mma2roo_(@)",
     header: "AdvApp2Var_ApproxF2var.hxx".}
-proc mma2jmx_*(ndgjac: ptr integer; iordre: ptr integer; xjacmx: ptr doublereal): cint {.
+proc mma2jmx*(ndgjac: ptr integer; iordre: ptr integer; xjacmx: ptr Doublereal): cint {.
     importcpp: "AdvApp2Var_ApproxF2var::mma2jmx_(@)",
     header: "AdvApp2Var_ApproxF2var.hxx".}
-proc mmapptt_*(a1: ptr integer; a2: ptr integer; a3: ptr integer; a4: ptr doublereal;
-              a5: ptr integer): cint {.importcpp: "AdvApp2Var_ApproxF2var::mmapptt_(@)",
-                                   header: "AdvApp2Var_ApproxF2var.hxx".}
-proc mma2cdi_*(ndimen: ptr integer; nbpntu: ptr integer; urootl: ptr doublereal;
-              nbpntv: ptr integer; vrootl: ptr doublereal; iordru: ptr integer;
-              iordrv: ptr integer; contr1: ptr doublereal; contr2: ptr doublereal;
-              contr3: ptr doublereal; contr4: ptr doublereal; sotbu1: ptr doublereal;
-              sotbu2: ptr doublereal; ditbu1: ptr doublereal; ditbu2: ptr doublereal;
-              sotbv1: ptr doublereal; sotbv2: ptr doublereal; ditbv1: ptr doublereal;
-              ditbv2: ptr doublereal; sosotb: ptr doublereal; soditb: ptr doublereal;
-              disotb: ptr doublereal; diditb: ptr doublereal; iercod: ptr integer): cint {.
+proc mmapptt*(a1: ptr integer; a2: ptr integer; a3: ptr integer; a4: ptr Doublereal;
+             a5: ptr integer): cint {.importcpp: "AdvApp2Var_ApproxF2var::mmapptt_(@)",
+                                  header: "AdvApp2Var_ApproxF2var.hxx".}
+proc mma2cdi*(ndimen: ptr integer; nbpntu: ptr integer; urootl: ptr Doublereal;
+             nbpntv: ptr integer; vrootl: ptr Doublereal; iordru: ptr integer;
+             iordrv: ptr integer; contr1: ptr Doublereal; contr2: ptr Doublereal;
+             contr3: ptr Doublereal; contr4: ptr Doublereal; sotbu1: ptr Doublereal;
+             sotbu2: ptr Doublereal; ditbu1: ptr Doublereal; ditbu2: ptr Doublereal;
+             sotbv1: ptr Doublereal; sotbv2: ptr Doublereal; ditbv1: ptr Doublereal;
+             ditbv2: ptr Doublereal; sosotb: ptr Doublereal; soditb: ptr Doublereal;
+             disotb: ptr Doublereal; diditb: ptr Doublereal; iercod: ptr integer): cint {.
     importcpp: "AdvApp2Var_ApproxF2var::mma2cdi_(@)",
     header: "AdvApp2Var_ApproxF2var.hxx".}
-proc mma2ds1_*(ndimen: ptr integer; uintfn: ptr doublereal; vintfn: ptr doublereal;
-              foncnp: AdvApp2Var_EvaluatorFunc2Var; nbpntu: ptr integer;
-              nbpntv: ptr integer; urootb: ptr doublereal; vrootb: ptr doublereal;
-              isofav: ptr integer; sosotb: ptr doublereal; disotb: ptr doublereal;
-              soditb: ptr doublereal; diditb: ptr doublereal; fpntab: ptr doublereal;
-              ttable: ptr doublereal; iercod: ptr integer): cint {.
+proc mma2ds1*(ndimen: ptr integer; uintfn: ptr Doublereal; vintfn: ptr Doublereal;
+             foncnp: AdvApp2VarEvaluatorFunc2Var; nbpntu: ptr integer;
+             nbpntv: ptr integer; urootb: ptr Doublereal; vrootb: ptr Doublereal;
+             isofav: ptr integer; sosotb: ptr Doublereal; disotb: ptr Doublereal;
+             soditb: ptr Doublereal; diditb: ptr Doublereal; fpntab: ptr Doublereal;
+             ttable: ptr Doublereal; iercod: ptr integer): cint {.
     importcpp: "AdvApp2Var_ApproxF2var::mma2ds1_(@)",
     header: "AdvApp2Var_ApproxF2var.hxx".}
-proc mma2ce1_*(numdec: ptr integer; ndimen: ptr integer; nbsesp: ptr integer;
-              ndimse: ptr integer; ndminu: ptr integer; ndminv: ptr integer;
-              ndguli: ptr integer; ndgvli: ptr integer; ndjacu: ptr integer;
-              ndjacv: ptr integer; iordru: ptr integer; iordrv: ptr integer;
-              nbpntu: ptr integer; nbpntv: ptr integer; epsapr: ptr doublereal;
-              sosotb: ptr doublereal; disotb: ptr doublereal; soditb: ptr doublereal;
-              diditb: ptr doublereal; patjac: ptr doublereal; errmax: ptr doublereal;
-              errmoy: ptr doublereal; ndegpu: ptr integer; ndegpv: ptr integer;
-              itydec: ptr integer; iercod: ptr integer): cint {.
+proc mma2ce1*(numdec: ptr integer; ndimen: ptr integer; nbsesp: ptr integer;
+             ndimse: ptr integer; ndminu: ptr integer; ndminv: ptr integer;
+             ndguli: ptr integer; ndgvli: ptr integer; ndjacu: ptr integer;
+             ndjacv: ptr integer; iordru: ptr integer; iordrv: ptr integer;
+             nbpntu: ptr integer; nbpntv: ptr integer; epsapr: ptr Doublereal;
+             sosotb: ptr Doublereal; disotb: ptr Doublereal; soditb: ptr Doublereal;
+             diditb: ptr Doublereal; patjac: ptr Doublereal; errmax: ptr Doublereal;
+             errmoy: ptr Doublereal; ndegpu: ptr integer; ndegpv: ptr integer;
+             itydec: ptr integer; iercod: ptr integer): cint {.
     importcpp: "AdvApp2Var_ApproxF2var::mma2ce1_(@)",
     header: "AdvApp2Var_ApproxF2var.hxx".}
-proc mma2can_*(a1: ptr integer; a2: ptr integer; a3: ptr integer; a4: ptr integer;
-              a5: ptr integer; a6: ptr integer; a7: ptr integer; a8: ptr doublereal;
-              a9: ptr doublereal; a10: ptr doublereal; a11: ptr integer): cint {.
+proc mma2can*(a1: ptr integer; a2: ptr integer; a3: ptr integer; a4: ptr integer;
+             a5: ptr integer; a6: ptr integer; a7: ptr integer; a8: ptr Doublereal;
+             a9: ptr Doublereal; a10: ptr Doublereal; a11: ptr integer): cint {.
     importcpp: "AdvApp2Var_ApproxF2var::mma2can_(@)",
     header: "AdvApp2Var_ApproxF2var.hxx".}
-proc mma1her_*(a1: ptr integer; a2: ptr doublereal; a3: ptr integer): cint {.
+proc mma1her*(a1: ptr integer; a2: ptr Doublereal; a3: ptr integer): cint {.
     importcpp: "AdvApp2Var_ApproxF2var::mma1her_(@)",
     header: "AdvApp2Var_ApproxF2var.hxx".}
-proc mma2ac2_*(a1: ptr integer; a2: ptr integer; a3: ptr integer; a4: ptr integer;
-              a5: ptr integer; a6: ptr integer; a7: ptr doublereal; a8: ptr integer;
-              a9: ptr doublereal; a10: ptr doublereal; a11: ptr doublereal): cint {.
+proc mma2ac2*(a1: ptr integer; a2: ptr integer; a3: ptr integer; a4: ptr integer;
+             a5: ptr integer; a6: ptr integer; a7: ptr Doublereal; a8: ptr integer;
+             a9: ptr Doublereal; a10: ptr Doublereal; a11: ptr Doublereal): cint {.
     importcpp: "AdvApp2Var_ApproxF2var::mma2ac2_(@)",
     header: "AdvApp2Var_ApproxF2var.hxx".}
-proc mma2ac3_*(a1: ptr integer; a2: ptr integer; a3: ptr integer; a4: ptr integer;
-              a5: ptr integer; a6: ptr integer; a7: ptr doublereal; a8: ptr integer;
-              a9: ptr doublereal; a10: ptr doublereal; a11: ptr doublereal): cint {.
+proc mma2ac3*(a1: ptr integer; a2: ptr integer; a3: ptr integer; a4: ptr integer;
+             a5: ptr integer; a6: ptr integer; a7: ptr Doublereal; a8: ptr integer;
+             a9: ptr Doublereal; a10: ptr Doublereal; a11: ptr Doublereal): cint {.
     importcpp: "AdvApp2Var_ApproxF2var::mma2ac3_(@)",
     header: "AdvApp2Var_ApproxF2var.hxx".}
-proc mma2ac1_*(a1: ptr integer; a2: ptr integer; a3: ptr integer; a4: ptr integer;
-              a5: ptr integer; a6: ptr doublereal; a7: ptr doublereal;
-              a8: ptr doublereal; a9: ptr doublereal; a10: ptr doublereal;
-              a11: ptr doublereal; a12: ptr doublereal): cint {.
-    importcpp: "AdvApp2Var_ApproxF2var::mma2ac1_(@)",
-    header: "AdvApp2Var_ApproxF2var.hxx".}
-proc mma2fx6_*(ncfmxu: ptr integer; ncfmxv: ptr integer; ndimen: ptr integer;
-              nbsesp: ptr integer; ndimse: ptr integer; nbupat: ptr integer;
-              nbvpat: ptr integer; iordru: ptr integer; iordrv: ptr integer;
-              epsapr: ptr doublereal; epsfro: ptr doublereal; patcan: ptr doublereal;
-              errmax: ptr doublereal; ncoefu: ptr integer; ncoefv: ptr integer): cint {.
+proc mma2ac1*(a1: ptr integer; a2: ptr integer; a3: ptr integer; a4: ptr integer;
+             a5: ptr integer; a6: ptr Doublereal; a7: ptr Doublereal; a8: ptr Doublereal;
+             a9: ptr Doublereal; a10: ptr Doublereal; a11: ptr Doublereal;
+             a12: ptr Doublereal): cint {.importcpp: "AdvApp2Var_ApproxF2var::mma2ac1_(@)",
+                                      header: "AdvApp2Var_ApproxF2var.hxx".}
+proc mma2fx6*(ncfmxu: ptr integer; ncfmxv: ptr integer; ndimen: ptr integer;
+             nbsesp: ptr integer; ndimse: ptr integer; nbupat: ptr integer;
+             nbvpat: ptr integer; iordru: ptr integer; iordrv: ptr integer;
+             epsapr: ptr Doublereal; epsfro: ptr Doublereal; patcan: ptr Doublereal;
+             errmax: ptr Doublereal; ncoefu: ptr integer; ncoefv: ptr integer): cint {.
     importcpp: "AdvApp2Var_ApproxF2var::mma2fx6_(@)",
     header: "AdvApp2Var_ApproxF2var.hxx".}

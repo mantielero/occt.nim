@@ -14,29 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRepBuild_Area3dBuilder,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TopOpeBRepBuild_LoopSet"
 discard "forward decl of TopOpeBRepBuild_LoopClassifier"
 type
-  TopOpeBRepBuild_SolidAreaBuilder* {.importcpp: "TopOpeBRepBuild_SolidAreaBuilder", header: "TopOpeBRepBuild_SolidAreaBuilder.hxx",
-                                     bycopy.} = object of TopOpeBRepBuild_Area3dBuilder
+  TopOpeBRepBuildSolidAreaBuilder* {.importcpp: "TopOpeBRepBuild_SolidAreaBuilder", header: "TopOpeBRepBuild_SolidAreaBuilder.hxx",
+                                    bycopy.} = object of TopOpeBRepBuildArea3dBuilder
 
 
-proc constructTopOpeBRepBuild_SolidAreaBuilder*(): TopOpeBRepBuild_SolidAreaBuilder {.
+proc constructTopOpeBRepBuildSolidAreaBuilder*(): TopOpeBRepBuildSolidAreaBuilder {.
     constructor, importcpp: "TopOpeBRepBuild_SolidAreaBuilder(@)",
     header: "TopOpeBRepBuild_SolidAreaBuilder.hxx".}
-proc constructTopOpeBRepBuild_SolidAreaBuilder*(LS: var TopOpeBRepBuild_LoopSet;
-    LC: var TopOpeBRepBuild_LoopClassifier;
-    ForceClass: Standard_Boolean = Standard_False): TopOpeBRepBuild_SolidAreaBuilder {.
+proc constructTopOpeBRepBuildSolidAreaBuilder*(ls: var TopOpeBRepBuildLoopSet;
+    lc: var TopOpeBRepBuildLoopClassifier; forceClass: bool = false): TopOpeBRepBuildSolidAreaBuilder {.
     constructor, importcpp: "TopOpeBRepBuild_SolidAreaBuilder(@)",
     header: "TopOpeBRepBuild_SolidAreaBuilder.hxx".}
-proc InitSolidAreaBuilder*(this: var TopOpeBRepBuild_SolidAreaBuilder;
-                          LS: var TopOpeBRepBuild_LoopSet;
-                          LC: var TopOpeBRepBuild_LoopClassifier;
-                          ForceClass: Standard_Boolean = Standard_False) {.
+proc initSolidAreaBuilder*(this: var TopOpeBRepBuildSolidAreaBuilder;
+                          ls: var TopOpeBRepBuildLoopSet;
+                          lc: var TopOpeBRepBuildLoopClassifier;
+                          forceClass: bool = false) {.
     importcpp: "InitSolidAreaBuilder",
     header: "TopOpeBRepBuild_SolidAreaBuilder.hxx".}

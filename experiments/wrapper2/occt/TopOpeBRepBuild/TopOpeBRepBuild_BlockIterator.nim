@@ -14,32 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_NoMoreObject"
 type
-  TopOpeBRepBuild_BlockIterator* {.importcpp: "TopOpeBRepBuild_BlockIterator",
-                                  header: "TopOpeBRepBuild_BlockIterator.hxx",
-                                  bycopy.} = object
+  TopOpeBRepBuildBlockIterator* {.importcpp: "TopOpeBRepBuild_BlockIterator",
+                                 header: "TopOpeBRepBuild_BlockIterator.hxx",
+                                 bycopy.} = object
 
 
-proc constructTopOpeBRepBuild_BlockIterator*(): TopOpeBRepBuild_BlockIterator {.
+proc constructTopOpeBRepBuildBlockIterator*(): TopOpeBRepBuildBlockIterator {.
     constructor, importcpp: "TopOpeBRepBuild_BlockIterator(@)",
     header: "TopOpeBRepBuild_BlockIterator.hxx".}
-proc constructTopOpeBRepBuild_BlockIterator*(Lower: Standard_Integer;
-    Upper: Standard_Integer): TopOpeBRepBuild_BlockIterator {.constructor,
-    importcpp: "TopOpeBRepBuild_BlockIterator(@)",
+proc constructTopOpeBRepBuildBlockIterator*(lower: int; upper: int): TopOpeBRepBuildBlockIterator {.
+    constructor, importcpp: "TopOpeBRepBuild_BlockIterator(@)",
     header: "TopOpeBRepBuild_BlockIterator.hxx".}
-proc Initialize*(this: var TopOpeBRepBuild_BlockIterator) {.importcpp: "Initialize",
+proc initialize*(this: var TopOpeBRepBuildBlockIterator) {.importcpp: "Initialize",
     header: "TopOpeBRepBuild_BlockIterator.hxx".}
-proc More*(this: TopOpeBRepBuild_BlockIterator): Standard_Boolean {.noSideEffect,
+proc more*(this: TopOpeBRepBuildBlockIterator): bool {.noSideEffect,
     importcpp: "More", header: "TopOpeBRepBuild_BlockIterator.hxx".}
-proc Next*(this: var TopOpeBRepBuild_BlockIterator) {.importcpp: "Next",
+proc next*(this: var TopOpeBRepBuildBlockIterator) {.importcpp: "Next",
     header: "TopOpeBRepBuild_BlockIterator.hxx".}
-proc Value*(this: TopOpeBRepBuild_BlockIterator): Standard_Integer {.noSideEffect,
+proc value*(this: TopOpeBRepBuildBlockIterator): int {.noSideEffect,
     importcpp: "Value", header: "TopOpeBRepBuild_BlockIterator.hxx".}
-proc Extent*(this: TopOpeBRepBuild_BlockIterator): Standard_Integer {.noSideEffect,
+proc extent*(this: TopOpeBRepBuildBlockIterator): int {.noSideEffect,
     importcpp: "Extent", header: "TopOpeBRepBuild_BlockIterator.hxx".}

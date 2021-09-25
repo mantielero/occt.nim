@@ -14,41 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepGeom_GeometricRepresentationItem
-
 discard "forward decl of StepGeom_CartesianPoint"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_Placement"
 discard "forward decl of StepGeom_Placement"
 type
-  Handle_StepGeom_Placement* = handle[StepGeom_Placement]
-  StepGeom_Placement* {.importcpp: "StepGeom_Placement",
-                       header: "StepGeom_Placement.hxx", bycopy.} = object of StepGeom_GeometricRepresentationItem ##
-                                                                                                            ## !
-                                                                                                            ## Returns
-                                                                                                            ## a
-                                                                                                            ## Placement
+  HandleStepGeomPlacement* = Handle[StepGeomPlacement]
+  StepGeomPlacement* {.importcpp: "StepGeom_Placement",
+                      header: "StepGeom_Placement.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
+                                                                                                          ## !
+                                                                                                          ## Returns
+                                                                                                          ## a
+                                                                                                          ## Placement
 
 
-proc constructStepGeom_Placement*(): StepGeom_Placement {.constructor,
+proc constructStepGeomPlacement*(): StepGeomPlacement {.constructor,
     importcpp: "StepGeom_Placement(@)", header: "StepGeom_Placement.hxx".}
-proc Init*(this: var StepGeom_Placement; aName: handle[TCollection_HAsciiString];
-          aLocation: handle[StepGeom_CartesianPoint]) {.importcpp: "Init",
+proc init*(this: var StepGeomPlacement; aName: Handle[TCollectionHAsciiString];
+          aLocation: Handle[StepGeomCartesianPoint]) {.importcpp: "Init",
     header: "StepGeom_Placement.hxx".}
-proc SetLocation*(this: var StepGeom_Placement;
-                 aLocation: handle[StepGeom_CartesianPoint]) {.
+proc setLocation*(this: var StepGeomPlacement;
+                 aLocation: Handle[StepGeomCartesianPoint]) {.
     importcpp: "SetLocation", header: "StepGeom_Placement.hxx".}
-proc Location*(this: StepGeom_Placement): handle[StepGeom_CartesianPoint] {.
+proc location*(this: StepGeomPlacement): Handle[StepGeomCartesianPoint] {.
     noSideEffect, importcpp: "Location", header: "StepGeom_Placement.hxx".}
 type
-  StepGeom_Placementbase_type* = StepGeom_GeometricRepresentationItem
+  StepGeomPlacementbaseType* = StepGeomGeometricRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_Placement::get_type_name(@)",
-                              header: "StepGeom_Placement.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_Placement::get_type_name(@)",
+                            header: "StepGeom_Placement.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_Placement::get_type_descriptor(@)",
     header: "StepGeom_Placement.hxx".}
-proc DynamicType*(this: StepGeom_Placement): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepGeomPlacement): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Placement.hxx".}

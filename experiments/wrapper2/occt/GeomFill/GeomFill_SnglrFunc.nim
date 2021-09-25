@@ -14,56 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Adaptor3d/Adaptor3d_Curve, ../Standard/Standard_Integer,
-  ../GeomAbs/GeomAbs_Shape, ../TColStd/TColStd_Array1OfReal,
-  ../Standard/Standard_Boolean, ../GeomAbs/GeomAbs_CurveType
-
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 type
-  GeomFill_SnglrFunc* {.importcpp: "GeomFill_SnglrFunc",
-                       header: "GeomFill_SnglrFunc.hxx", bycopy.} = object of Adaptor3d_Curve
+  GeomFillSnglrFunc* {.importcpp: "GeomFill_SnglrFunc",
+                      header: "GeomFill_SnglrFunc.hxx", bycopy.} = object of Adaptor3dCurve
 
 
-proc constructGeomFill_SnglrFunc*(HC: handle[Adaptor3d_HCurve]): GeomFill_SnglrFunc {.
+proc constructGeomFillSnglrFunc*(hc: Handle[Adaptor3dHCurve]): GeomFillSnglrFunc {.
     constructor, importcpp: "GeomFill_SnglrFunc(@)",
     header: "GeomFill_SnglrFunc.hxx".}
-proc SetRatio*(this: var GeomFill_SnglrFunc; Ratio: Standard_Real) {.
-    importcpp: "SetRatio", header: "GeomFill_SnglrFunc.hxx".}
-proc FirstParameter*(this: GeomFill_SnglrFunc): Standard_Real {.noSideEffect,
+proc setRatio*(this: var GeomFillSnglrFunc; ratio: float) {.importcpp: "SetRatio",
+    header: "GeomFill_SnglrFunc.hxx".}
+proc firstParameter*(this: GeomFillSnglrFunc): float {.noSideEffect,
     importcpp: "FirstParameter", header: "GeomFill_SnglrFunc.hxx".}
-proc LastParameter*(this: GeomFill_SnglrFunc): Standard_Real {.noSideEffect,
+proc lastParameter*(this: GeomFillSnglrFunc): float {.noSideEffect,
     importcpp: "LastParameter", header: "GeomFill_SnglrFunc.hxx".}
-proc NbIntervals*(this: GeomFill_SnglrFunc; S: GeomAbs_Shape): Standard_Integer {.
-    noSideEffect, importcpp: "NbIntervals", header: "GeomFill_SnglrFunc.hxx".}
-proc Intervals*(this: GeomFill_SnglrFunc; T: var TColStd_Array1OfReal;
-               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
-                                 header: "GeomFill_SnglrFunc.hxx".}
-proc Value*(this: GeomFill_SnglrFunc; U: Standard_Real): gp_Pnt {.noSideEffect,
-    importcpp: "Value", header: "GeomFill_SnglrFunc.hxx".}
-proc IsPeriodic*(this: GeomFill_SnglrFunc): Standard_Boolean {.noSideEffect,
+proc nbIntervals*(this: GeomFillSnglrFunc; s: GeomAbsShape): int {.noSideEffect,
+    importcpp: "NbIntervals", header: "GeomFill_SnglrFunc.hxx".}
+proc intervals*(this: GeomFillSnglrFunc; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+    noSideEffect, importcpp: "Intervals", header: "GeomFill_SnglrFunc.hxx".}
+proc value*(this: GeomFillSnglrFunc; u: float): Pnt {.noSideEffect, importcpp: "Value",
+    header: "GeomFill_SnglrFunc.hxx".}
+proc isPeriodic*(this: GeomFillSnglrFunc): bool {.noSideEffect,
     importcpp: "IsPeriodic", header: "GeomFill_SnglrFunc.hxx".}
-proc Period*(this: GeomFill_SnglrFunc): Standard_Real {.noSideEffect,
-    importcpp: "Period", header: "GeomFill_SnglrFunc.hxx".}
-proc D0*(this: GeomFill_SnglrFunc; U: Standard_Real; P: var gp_Pnt) {.noSideEffect,
-    importcpp: "D0", header: "GeomFill_SnglrFunc.hxx".}
-proc D1*(this: GeomFill_SnglrFunc; U: Standard_Real; P: var gp_Pnt; V: var gp_Vec) {.
-    noSideEffect, importcpp: "D1", header: "GeomFill_SnglrFunc.hxx".}
-proc D2*(this: GeomFill_SnglrFunc; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
-        V2: var gp_Vec) {.noSideEffect, importcpp: "D2",
-                       header: "GeomFill_SnglrFunc.hxx".}
-proc D3*(this: GeomFill_SnglrFunc; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
-        V2: var gp_Vec; V3: var gp_Vec) {.noSideEffect, importcpp: "D3",
-                                    header: "GeomFill_SnglrFunc.hxx".}
-proc DN*(this: GeomFill_SnglrFunc; U: Standard_Real; N: Standard_Integer): gp_Vec {.
-    noSideEffect, importcpp: "DN", header: "GeomFill_SnglrFunc.hxx".}
-proc Resolution*(this: GeomFill_SnglrFunc; R3d: Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "Resolution", header: "GeomFill_SnglrFunc.hxx".}
-proc GetType*(this: GeomFill_SnglrFunc): GeomAbs_CurveType {.noSideEffect,
+proc period*(this: GeomFillSnglrFunc): float {.noSideEffect, importcpp: "Period",
+    header: "GeomFill_SnglrFunc.hxx".}
+proc d0*(this: GeomFillSnglrFunc; u: float; p: var Pnt) {.noSideEffect, importcpp: "D0",
+    header: "GeomFill_SnglrFunc.hxx".}
+proc d1*(this: GeomFillSnglrFunc; u: float; p: var Pnt; v: var Vec) {.noSideEffect,
+    importcpp: "D1", header: "GeomFill_SnglrFunc.hxx".}
+proc d2*(this: GeomFillSnglrFunc; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.
+    noSideEffect, importcpp: "D2", header: "GeomFill_SnglrFunc.hxx".}
+proc d3*(this: GeomFillSnglrFunc; u: float; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+    noSideEffect, importcpp: "D3", header: "GeomFill_SnglrFunc.hxx".}
+proc dn*(this: GeomFillSnglrFunc; u: float; n: int): Vec {.noSideEffect, importcpp: "DN",
+    header: "GeomFill_SnglrFunc.hxx".}
+proc resolution*(this: GeomFillSnglrFunc; r3d: float): float {.noSideEffect,
+    importcpp: "Resolution", header: "GeomFill_SnglrFunc.hxx".}
+proc getType*(this: GeomFillSnglrFunc): GeomAbsCurveType {.noSideEffect,
     importcpp: "GetType", header: "GeomFill_SnglrFunc.hxx".}

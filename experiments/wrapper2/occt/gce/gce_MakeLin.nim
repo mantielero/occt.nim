@@ -14,39 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Lin, gce_Root
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
 discard "forward decl of gp_Lin"
 type
-  gce_MakeLin* {.importcpp: "gce_MakeLin", header: "gce_MakeLin.hxx", bycopy.} = object of gce_Root ##
-                                                                                          ## !
-                                                                                          ## Creates
-                                                                                          ## a
-                                                                                          ## line
-                                                                                          ## located
-                                                                                          ## along
-                                                                                          ## the
-                                                                                          ## axis
-                                                                                          ## A1.
+  GceMakeLin* {.importcpp: "gce_MakeLin", header: "gce_MakeLin.hxx", bycopy.} = object of GceRoot ##
+                                                                                        ## !
+                                                                                        ## Creates
+                                                                                        ## a
+                                                                                        ## line
+                                                                                        ## located
+                                                                                        ## along
+                                                                                        ## the
+                                                                                        ## axis
+                                                                                        ## A1.
 
 
-proc constructgce_MakeLin*(A1: gp_Ax1): gce_MakeLin {.constructor,
+proc constructGceMakeLin*(a1: Ax1): GceMakeLin {.constructor,
     importcpp: "gce_MakeLin(@)", header: "gce_MakeLin.hxx".}
-proc constructgce_MakeLin*(P: gp_Pnt; V: gp_Dir): gce_MakeLin {.constructor,
+proc constructGceMakeLin*(p: Pnt; v: Dir): GceMakeLin {.constructor,
     importcpp: "gce_MakeLin(@)", header: "gce_MakeLin.hxx".}
-proc constructgce_MakeLin*(Lin: gp_Lin; Point: gp_Pnt): gce_MakeLin {.constructor,
+proc constructGceMakeLin*(lin: Lin; point: Pnt): GceMakeLin {.constructor,
     importcpp: "gce_MakeLin(@)", header: "gce_MakeLin.hxx".}
-proc constructgce_MakeLin*(P1: gp_Pnt; P2: gp_Pnt): gce_MakeLin {.constructor,
+proc constructGceMakeLin*(p1: Pnt; p2: Pnt): GceMakeLin {.constructor,
     importcpp: "gce_MakeLin(@)", header: "gce_MakeLin.hxx".}
-proc Value*(this: gce_MakeLin): gp_Lin {.noSideEffect, importcpp: "Value",
-                                     header: "gce_MakeLin.hxx".}
-proc Operator*(this: gce_MakeLin): gp_Lin {.noSideEffect, importcpp: "Operator",
-                                        header: "gce_MakeLin.hxx".}
-converter `gp_Lin`*(this: gce_MakeLin): gp_Lin {.noSideEffect,
-    importcpp: "gce_MakeLin::operator gp_Lin", header: "gce_MakeLin.hxx".}
+proc value*(this: GceMakeLin): Lin {.noSideEffect, importcpp: "Value",
+                                 header: "gce_MakeLin.hxx".}
+proc operator*(this: GceMakeLin): Lin {.noSideEffect, importcpp: "Operator",
+                                    header: "gce_MakeLin.hxx".}
+converter `lin`*(this: GceMakeLin): Lin {.noSideEffect, importcpp: "gce_MakeLin::operator gp_Lin",
+                                      header: "gce_MakeLin.hxx".}

@@ -11,30 +11,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  XCAFDoc_NoteComment
-
 ## ! A comment note attribute.
 ## ! Contains a textual comment.
 
 type
-  XCAFDoc_NoteBalloon* {.importcpp: "XCAFDoc_NoteBalloon",
-                        header: "XCAFDoc_NoteBalloon.hxx", bycopy.} = object of XCAFDoc_NoteComment ##  Overrides TDF_Attribute virtuals
+  XCAFDocNoteBalloon* {.importcpp: "XCAFDoc_NoteBalloon",
+                       header: "XCAFDoc_NoteBalloon.hxx", bycopy.} = object of XCAFDocNoteComment ##  Overrides TDF_Attribute virtuals
 
 
 ## !!!Ignored construct:  public : DEFINE_DERIVED_ATTRIBUTE ( XCAFDoc_NoteBalloon , XCAFDoc_NoteComment ) ! Returns default attribute GUID static const Standard_GUID & GetID ( ) ;
 ## Error: token expected: ) but got: ,!!!
 
-proc Get*(theLabel: TDF_Label): handle[XCAFDoc_NoteBalloon] {.
+proc get*(theLabel: TDF_Label): Handle[XCAFDocNoteBalloon] {.
     importcpp: "XCAFDoc_NoteBalloon::Get(@)", header: "XCAFDoc_NoteBalloon.hxx".}
-proc Set*(theLabel: TDF_Label; theUserName: TCollection_ExtendedString;
-         theTimeStamp: TCollection_ExtendedString;
-         theComment: TCollection_ExtendedString): handle[XCAFDoc_NoteBalloon] {.
+proc set*(theLabel: TDF_Label; theUserName: TCollectionExtendedString;
+         theTimeStamp: TCollectionExtendedString;
+         theComment: TCollectionExtendedString): Handle[XCAFDocNoteBalloon] {.
     importcpp: "XCAFDoc_NoteBalloon::Set(@)", header: "XCAFDoc_NoteBalloon.hxx".}
-proc constructXCAFDoc_NoteBalloon*(): XCAFDoc_NoteBalloon {.constructor,
+proc constructXCAFDocNoteBalloon*(): XCAFDocNoteBalloon {.constructor,
     importcpp: "XCAFDoc_NoteBalloon(@)", header: "XCAFDoc_NoteBalloon.hxx".}
-proc ID*(this: XCAFDoc_NoteBalloon): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: XCAFDocNoteBalloon): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "XCAFDoc_NoteBalloon.hxx".}
 discard "forward decl of XCAFDoc_NoteBalloon"
 type
-  Handle_XCAFDoc_NoteBalloon* = handle[XCAFDoc_NoteBalloon]
+  HandleXCAFDocNoteBalloon* = Handle[XCAFDocNoteBalloon]
+

@@ -14,32 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_ConfigurationItem"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepRepr_RWConfigurationItem* {.importcpp: "RWStepRepr_RWConfigurationItem", header: "RWStepRepr_RWConfigurationItem.hxx",
-                                   bycopy.} = object ## ! Empty constructor
+  RWStepReprRWConfigurationItem* {.importcpp: "RWStepRepr_RWConfigurationItem",
+                                  header: "RWStepRepr_RWConfigurationItem.hxx",
+                                  bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepRepr_RWConfigurationItem*(): RWStepRepr_RWConfigurationItem {.
+proc constructRWStepReprRWConfigurationItem*(): RWStepReprRWConfigurationItem {.
     constructor, importcpp: "RWStepRepr_RWConfigurationItem(@)",
     header: "RWStepRepr_RWConfigurationItem.hxx".}
-proc ReadStep*(this: RWStepRepr_RWConfigurationItem;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepRepr_ConfigurationItem]) {.noSideEffect,
+proc readStep*(this: RWStepReprRWConfigurationItem;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepReprConfigurationItem]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWConfigurationItem.hxx".}
-proc WriteStep*(this: RWStepRepr_RWConfigurationItem; SW: var StepData_StepWriter;
-               ent: handle[StepRepr_ConfigurationItem]) {.noSideEffect,
+proc writeStep*(this: RWStepReprRWConfigurationItem; sw: var StepDataStepWriter;
+               ent: Handle[StepReprConfigurationItem]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepRepr_RWConfigurationItem.hxx".}
-proc Share*(this: RWStepRepr_RWConfigurationItem;
-           ent: handle[StepRepr_ConfigurationItem];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepReprRWConfigurationItem;
+           ent: Handle[StepReprConfigurationItem];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWConfigurationItem.hxx".}

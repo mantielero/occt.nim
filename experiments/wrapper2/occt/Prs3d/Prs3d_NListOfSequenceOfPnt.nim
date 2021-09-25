@@ -13,8 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TColgp/TColgp_HSequenceOfPnt, ../NCollection/NCollection_List
-
 type
-  Prs3d_NListOfSequenceOfPnt* = NCollection_List[handle[TColgp_HSequenceOfPnt]]
+  Prs3dNListOfSequenceOfPnt* = NCollectionList[Handle[TColgpHSequenceOfPnt]]
+

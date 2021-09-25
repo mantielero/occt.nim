@@ -14,18 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopTools/TopTools_IndexedMapOfShape,
-  ../TopoDS/TopoDS_Shape, ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape,
-  ../TopTools/TopTools_DataMapOfOrientedShapeInteger,
-  ../TopTools/TopTools_IndexedMapOfOrientedShape,
-  ../TopTools/TopTools_IndexedDataMapOfShapeShape,
-  ../TopTools/TopTools_DataMapOfShapeListOfShape, TopOpeBRepBuild_Builder,
-  ../TopAbs/TopAbs_State, ../TopTools/TopTools_ListOfShape,
-  ../TopOpeBRepDS/TopOpeBRepDS_DataMapOfShapeState, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../TopTools/TopTools_SequenceOfShape
-
 discard "forward decl of TopOpeBRepBuild_HBuilder"
 discard "forward decl of TopOpeBRepDS_BuildTool"
 discard "forward decl of TopOpeBRepDS_HDataStructure"
@@ -37,97 +25,95 @@ discard "forward decl of TopOpeBRepBuild_PaveSet"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
 type
-  TopOpeBRepBuild_Builder1* {.importcpp: "TopOpeBRepBuild_Builder1",
-                             header: "TopOpeBRepBuild_Builder1.hxx", bycopy.} = object of TopOpeBRepBuild_Builder
+  TopOpeBRepBuildBuilder1* {.importcpp: "TopOpeBRepBuild_Builder1",
+                            header: "TopOpeBRepBuild_Builder1.hxx", bycopy.} = object of TopOpeBRepBuildBuilder
 
 
-proc constructTopOpeBRepBuild_Builder1*(BT: TopOpeBRepDS_BuildTool): TopOpeBRepBuild_Builder1 {.
+proc constructTopOpeBRepBuildBuilder1*(bt: TopOpeBRepDS_BuildTool): TopOpeBRepBuildBuilder1 {.
     constructor, importcpp: "TopOpeBRepBuild_Builder1(@)",
     header: "TopOpeBRepBuild_Builder1.hxx".}
-proc destroyTopOpeBRepBuild_Builder1*(this: var TopOpeBRepBuild_Builder1) {.
+proc destroyTopOpeBRepBuildBuilder1*(this: var TopOpeBRepBuildBuilder1) {.
     importcpp: "#.~TopOpeBRepBuild_Builder1()",
     header: "TopOpeBRepBuild_Builder1.hxx".}
-proc Clear*(this: var TopOpeBRepBuild_Builder1) {.importcpp: "Clear",
+proc clear*(this: var TopOpeBRepBuildBuilder1) {.importcpp: "Clear",
     header: "TopOpeBRepBuild_Builder1.hxx".}
-proc Perform*(this: var TopOpeBRepBuild_Builder1;
-             HDS: handle[TopOpeBRepDS_HDataStructure]) {.importcpp: "Perform",
+proc perform*(this: var TopOpeBRepBuildBuilder1;
+             hds: Handle[TopOpeBRepDS_HDataStructure]) {.importcpp: "Perform",
     header: "TopOpeBRepBuild_Builder1.hxx".}
-proc Perform*(this: var TopOpeBRepBuild_Builder1;
-             HDS: handle[TopOpeBRepDS_HDataStructure]; S1: TopoDS_Shape;
-             S2: TopoDS_Shape) {.importcpp: "Perform",
+proc perform*(this: var TopOpeBRepBuildBuilder1;
+             hds: Handle[TopOpeBRepDS_HDataStructure]; s1: TopoDS_Shape;
+             s2: TopoDS_Shape) {.importcpp: "Perform",
                                header: "TopOpeBRepBuild_Builder1.hxx".}
-proc MergeKPart*(this: var TopOpeBRepBuild_Builder1) {.importcpp: "MergeKPart",
+proc mergeKPart*(this: var TopOpeBRepBuildBuilder1) {.importcpp: "MergeKPart",
     header: "TopOpeBRepBuild_Builder1.hxx".}
-proc MergeKPart*(this: var TopOpeBRepBuild_Builder1; TB1: TopAbs_State;
-                TB2: TopAbs_State) {.importcpp: "MergeKPart",
-                                   header: "TopOpeBRepBuild_Builder1.hxx".}
-proc GFillSolidSFS*(this: var TopOpeBRepBuild_Builder1; SO1: TopoDS_Shape;
-                   LSO2: TopTools_ListOfShape; G: TopOpeBRepBuild_GTopo;
-                   SFS: var TopOpeBRepBuild_ShellFaceSet) {.
+proc mergeKPart*(this: var TopOpeBRepBuildBuilder1; tb1: TopAbsState; tb2: TopAbsState) {.
+    importcpp: "MergeKPart", header: "TopOpeBRepBuild_Builder1.hxx".}
+proc gFillSolidSFS*(this: var TopOpeBRepBuildBuilder1; so1: TopoDS_Shape;
+                   lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
+                   sfs: var TopOpeBRepBuildShellFaceSet) {.
     importcpp: "GFillSolidSFS", header: "TopOpeBRepBuild_Builder1.hxx".}
-proc GFillShellSFS*(this: var TopOpeBRepBuild_Builder1; SH1: TopoDS_Shape;
-                   LSO2: TopTools_ListOfShape; G: TopOpeBRepBuild_GTopo;
-                   SFS: var TopOpeBRepBuild_ShellFaceSet) {.
+proc gFillShellSFS*(this: var TopOpeBRepBuildBuilder1; sh1: TopoDS_Shape;
+                   lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
+                   sfs: var TopOpeBRepBuildShellFaceSet) {.
     importcpp: "GFillShellSFS", header: "TopOpeBRepBuild_Builder1.hxx".}
-proc GWESMakeFaces*(this: var TopOpeBRepBuild_Builder1; FF: TopoDS_Shape;
-                   WES: var TopOpeBRepBuild_WireEdgeSet;
-                   LOF: var TopTools_ListOfShape) {.importcpp: "GWESMakeFaces",
+proc gWESMakeFaces*(this: var TopOpeBRepBuildBuilder1; ff: TopoDS_Shape;
+                   wes: var TopOpeBRepBuildWireEdgeSet;
+                   lof: var TopToolsListOfShape) {.importcpp: "GWESMakeFaces",
     header: "TopOpeBRepBuild_Builder1.hxx".}
-proc GFillSplitsPVS*(this: var TopOpeBRepBuild_Builder1; anEdge: TopoDS_Shape;
-                    G1: TopOpeBRepBuild_GTopo; PVS: var TopOpeBRepBuild_PaveSet) {.
+proc gFillSplitsPVS*(this: var TopOpeBRepBuildBuilder1; anEdge: TopoDS_Shape;
+                    g1: TopOpeBRepBuildGTopo; pvs: var TopOpeBRepBuildPaveSet) {.
     importcpp: "GFillSplitsPVS", header: "TopOpeBRepBuild_Builder1.hxx".}
-proc GFillFaceNotSameDomSFS*(this: var TopOpeBRepBuild_Builder1; F1: TopoDS_Shape;
-                            LSO2: TopTools_ListOfShape; G: TopOpeBRepBuild_GTopo;
-                            SFS: var TopOpeBRepBuild_ShellFaceSet) {.
+proc gFillFaceNotSameDomSFS*(this: var TopOpeBRepBuildBuilder1; f1: TopoDS_Shape;
+                            lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
+                            sfs: var TopOpeBRepBuildShellFaceSet) {.
     importcpp: "GFillFaceNotSameDomSFS", header: "TopOpeBRepBuild_Builder1.hxx".}
-proc GFillFaceNotSameDomWES*(this: var TopOpeBRepBuild_Builder1; F1: TopoDS_Shape;
-                            LSO2: TopTools_ListOfShape; G: TopOpeBRepBuild_GTopo;
-                            WES: var TopOpeBRepBuild_WireEdgeSet) {.
+proc gFillFaceNotSameDomWES*(this: var TopOpeBRepBuildBuilder1; f1: TopoDS_Shape;
+                            lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
+                            wes: var TopOpeBRepBuildWireEdgeSet) {.
     importcpp: "GFillFaceNotSameDomWES", header: "TopOpeBRepBuild_Builder1.hxx".}
-proc GFillWireNotSameDomWES*(this: var TopOpeBRepBuild_Builder1; W1: TopoDS_Shape;
-                            LSO2: TopTools_ListOfShape; G: TopOpeBRepBuild_GTopo;
-                            WES: var TopOpeBRepBuild_WireEdgeSet) {.
+proc gFillWireNotSameDomWES*(this: var TopOpeBRepBuildBuilder1; w1: TopoDS_Shape;
+                            lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
+                            wes: var TopOpeBRepBuildWireEdgeSet) {.
     importcpp: "GFillWireNotSameDomWES", header: "TopOpeBRepBuild_Builder1.hxx".}
-proc GFillEdgeNotSameDomWES*(this: var TopOpeBRepBuild_Builder1; E1: TopoDS_Shape;
-                            LSO2: TopTools_ListOfShape; G: TopOpeBRepBuild_GTopo;
-                            WES: var TopOpeBRepBuild_WireEdgeSet) {.
+proc gFillEdgeNotSameDomWES*(this: var TopOpeBRepBuildBuilder1; e1: TopoDS_Shape;
+                            lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
+                            wes: var TopOpeBRepBuildWireEdgeSet) {.
     importcpp: "GFillEdgeNotSameDomWES", header: "TopOpeBRepBuild_Builder1.hxx".}
-proc GFillFaceSameDomSFS*(this: var TopOpeBRepBuild_Builder1; F1: TopoDS_Shape;
-                         LSO2: TopTools_ListOfShape; G: TopOpeBRepBuild_GTopo;
-                         SFS: var TopOpeBRepBuild_ShellFaceSet) {.
+proc gFillFaceSameDomSFS*(this: var TopOpeBRepBuildBuilder1; f1: TopoDS_Shape;
+                         lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
+                         sfs: var TopOpeBRepBuildShellFaceSet) {.
     importcpp: "GFillFaceSameDomSFS", header: "TopOpeBRepBuild_Builder1.hxx".}
-proc GFillFaceSameDomWES*(this: var TopOpeBRepBuild_Builder1; F1: TopoDS_Shape;
-                         LSO2: TopTools_ListOfShape; G: TopOpeBRepBuild_GTopo;
-                         WES: var TopOpeBRepBuild_WireEdgeSet) {.
+proc gFillFaceSameDomWES*(this: var TopOpeBRepBuildBuilder1; f1: TopoDS_Shape;
+                         lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
+                         wes: var TopOpeBRepBuildWireEdgeSet) {.
     importcpp: "GFillFaceSameDomWES", header: "TopOpeBRepBuild_Builder1.hxx".}
-proc GFillWireSameDomWES*(this: var TopOpeBRepBuild_Builder1; W1: TopoDS_Shape;
-                         LSO2: TopTools_ListOfShape; G: TopOpeBRepBuild_GTopo;
-                         WES: var TopOpeBRepBuild_WireEdgeSet) {.
+proc gFillWireSameDomWES*(this: var TopOpeBRepBuildBuilder1; w1: TopoDS_Shape;
+                         lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
+                         wes: var TopOpeBRepBuildWireEdgeSet) {.
     importcpp: "GFillWireSameDomWES", header: "TopOpeBRepBuild_Builder1.hxx".}
-proc GFillEdgeSameDomWES*(this: var TopOpeBRepBuild_Builder1; E1: TopoDS_Shape;
-                         LSO2: TopTools_ListOfShape; G: TopOpeBRepBuild_GTopo;
-                         WES: var TopOpeBRepBuild_WireEdgeSet) {.
+proc gFillEdgeSameDomWES*(this: var TopOpeBRepBuildBuilder1; e1: TopoDS_Shape;
+                         lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
+                         wes: var TopOpeBRepBuildWireEdgeSet) {.
     importcpp: "GFillEdgeSameDomWES", header: "TopOpeBRepBuild_Builder1.hxx".}
-proc PerformONParts*(this: var TopOpeBRepBuild_Builder1; F: TopoDS_Shape;
-                    SDfaces: TopTools_IndexedMapOfShape; G: TopOpeBRepBuild_GTopo;
-                    WES: var TopOpeBRepBuild_WireEdgeSet) {.
+proc performONParts*(this: var TopOpeBRepBuildBuilder1; f: TopoDS_Shape;
+                    sDfaces: TopToolsIndexedMapOfShape; g: TopOpeBRepBuildGTopo;
+                    wes: var TopOpeBRepBuildWireEdgeSet) {.
     importcpp: "PerformONParts", header: "TopOpeBRepBuild_Builder1.hxx".}
-proc PerformPieceIn2D*(this: var TopOpeBRepBuild_Builder1;
+proc performPieceIn2D*(this: var TopOpeBRepBuildBuilder1;
                       aPieceToPerform: TopoDS_Edge; aOriginalEdge: TopoDS_Edge;
                       edgeFace: TopoDS_Face; toFace: TopoDS_Face;
-                      G: TopOpeBRepBuild_GTopo; keep: var Standard_Boolean) {.
+                      g: TopOpeBRepBuildGTopo; keep: var bool) {.
     importcpp: "PerformPieceIn2D", header: "TopOpeBRepBuild_Builder1.hxx".}
-proc PerformPieceOn2D*(this: var TopOpeBRepBuild_Builder1; aPieceObj: TopoDS_Shape;
+proc performPieceOn2D*(this: var TopOpeBRepBuildBuilder1; aPieceObj: TopoDS_Shape;
                       aFaceObj: TopoDS_Shape; aEdgeObj: TopoDS_Shape;
-                      aListOfPieces: var TopTools_ListOfShape;
-                      aListOfFaces: var TopTools_ListOfShape;
-                      aListOfPiecesOut2d: var TopTools_ListOfShape): Standard_Integer {.
+                      aListOfPieces: var TopToolsListOfShape;
+                      aListOfFaces: var TopToolsListOfShape;
+                      aListOfPiecesOut2d: var TopToolsListOfShape): int {.
     importcpp: "PerformPieceOn2D", header: "TopOpeBRepBuild_Builder1.hxx".}
-proc TwoPiecesON*(this: var TopOpeBRepBuild_Builder1;
-                 aSeq: TopTools_SequenceOfShape;
-                 aListOfPieces: var TopTools_ListOfShape;
-                 aListOfFaces: var TopTools_ListOfShape;
-                 aListOfPiecesOut2d: var TopTools_ListOfShape): Standard_Integer {.
+proc twoPiecesON*(this: var TopOpeBRepBuildBuilder1; aSeq: TopToolsSequenceOfShape;
+                 aListOfPieces: var TopToolsListOfShape;
+                 aListOfFaces: var TopToolsListOfShape;
+                 aListOfPiecesOut2d: var TopToolsListOfShape): int {.
     importcpp: "TwoPiecesON", header: "TopOpeBRepBuild_Builder1.hxx".}
-proc CorrectResult2d*(this: var TopOpeBRepBuild_Builder1; aResult: var TopoDS_Shape): Standard_Integer {.
+proc correctResult2d*(this: var TopOpeBRepBuildBuilder1; aResult: var TopoDS_Shape): int {.
     importcpp: "CorrectResult2d", header: "TopOpeBRepBuild_Builder1.hxx".}

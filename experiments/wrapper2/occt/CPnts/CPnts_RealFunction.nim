@@ -14,10 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_TypeDef
-
 ## ! A pointer on a function for MyGaussFunction
 
 type
-  CPnts_RealFunction* = proc (a1: Standard_Real; a2: Standard_Address): Standard_Real
+  CPntsRealFunction* = proc (a1: float; a2: StandardAddress): float
+

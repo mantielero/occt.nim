@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../AppCont/AppCont_Function, ../Standard/Standard,
-  ../Standard/Standard_DefineAlloc, ../Standard/Standard_Macro,
-  ../TopoDS/TopoDS_Edge, ../TopoDS/TopoDS_Face,
-  ../Geom2dAdaptor/Geom2dAdaptor_Curve, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../GeomAbs/GeomAbs_Shape,
-  ../Standard/Standard_Real
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
@@ -30,43 +22,41 @@ discard "forward decl of Geom_Curve"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Pnt2d"
 type
-  BRepFill_MultiLine* {.importcpp: "BRepFill_MultiLine",
-                       header: "BRepFill_MultiLine.hxx", bycopy.} = object of AppCont_Function
+  BRepFillMultiLine* {.importcpp: "BRepFill_MultiLine",
+                      header: "BRepFill_MultiLine.hxx", bycopy.} = object of AppContFunction
 
 
-proc constructBRepFill_MultiLine*(): BRepFill_MultiLine {.constructor,
+proc constructBRepFillMultiLine*(): BRepFillMultiLine {.constructor,
     importcpp: "BRepFill_MultiLine(@)", header: "BRepFill_MultiLine.hxx".}
-proc constructBRepFill_MultiLine*(Face1: TopoDS_Face; Face2: TopoDS_Face;
-                                 Edge1: TopoDS_Edge; Edge2: TopoDS_Edge;
-                                 Inv1: Standard_Boolean; Inv2: Standard_Boolean;
-                                 Bissec: handle[Geom2d_Curve]): BRepFill_MultiLine {.
+proc constructBRepFillMultiLine*(face1: TopoDS_Face; face2: TopoDS_Face;
+                                edge1: TopoDS_Edge; edge2: TopoDS_Edge; inv1: bool;
+                                inv2: bool; bissec: Handle[Geom2dCurve]): BRepFillMultiLine {.
     constructor, importcpp: "BRepFill_MultiLine(@)",
     header: "BRepFill_MultiLine.hxx".}
-proc IsParticularCase*(this: BRepFill_MultiLine): Standard_Boolean {.noSideEffect,
+proc isParticularCase*(this: BRepFillMultiLine): bool {.noSideEffect,
     importcpp: "IsParticularCase", header: "BRepFill_MultiLine.hxx".}
-proc Continuity*(this: BRepFill_MultiLine): GeomAbs_Shape {.noSideEffect,
+proc continuity*(this: BRepFillMultiLine): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "BRepFill_MultiLine.hxx".}
-proc Curves*(this: BRepFill_MultiLine; Curve: var handle[Geom_Curve];
-            PCurve1: var handle[Geom2d_Curve]; PCurve2: var handle[Geom2d_Curve]) {.
+proc curves*(this: BRepFillMultiLine; curve: var Handle[GeomCurve];
+            pCurve1: var Handle[Geom2dCurve]; pCurve2: var Handle[Geom2dCurve]) {.
     noSideEffect, importcpp: "Curves", header: "BRepFill_MultiLine.hxx".}
-proc FirstParameter*(this: BRepFill_MultiLine): Standard_Real {.noSideEffect,
+proc firstParameter*(this: BRepFillMultiLine): float {.noSideEffect,
     importcpp: "FirstParameter", header: "BRepFill_MultiLine.hxx".}
-proc LastParameter*(this: BRepFill_MultiLine): Standard_Real {.noSideEffect,
+proc lastParameter*(this: BRepFillMultiLine): float {.noSideEffect,
     importcpp: "LastParameter", header: "BRepFill_MultiLine.hxx".}
-proc Value*(this: BRepFill_MultiLine; U: Standard_Real): gp_Pnt {.noSideEffect,
-    importcpp: "Value", header: "BRepFill_MultiLine.hxx".}
-proc ValueOnF1*(this: BRepFill_MultiLine; U: Standard_Real): gp_Pnt2d {.noSideEffect,
+proc value*(this: BRepFillMultiLine; u: float): Pnt {.noSideEffect, importcpp: "Value",
+    header: "BRepFill_MultiLine.hxx".}
+proc valueOnF1*(this: BRepFillMultiLine; u: float): Pnt2d {.noSideEffect,
     importcpp: "ValueOnF1", header: "BRepFill_MultiLine.hxx".}
-proc ValueOnF2*(this: BRepFill_MultiLine; U: Standard_Real): gp_Pnt2d {.noSideEffect,
+proc valueOnF2*(this: BRepFillMultiLine; u: float): Pnt2d {.noSideEffect,
     importcpp: "ValueOnF2", header: "BRepFill_MultiLine.hxx".}
-proc Value3dOnF1OnF2*(this: BRepFill_MultiLine; U: Standard_Real; P3d: var gp_Pnt;
-                     PF1: var gp_Pnt2d; PF2: var gp_Pnt2d) {.noSideEffect,
-    importcpp: "Value3dOnF1OnF2", header: "BRepFill_MultiLine.hxx".}
-proc Value*(this: BRepFill_MultiLine; theU: Standard_Real;
-           thePnt2d: var NCollection_Array1[gp_Pnt2d];
-           thePnt: var NCollection_Array1[gp_Pnt]): Standard_Boolean {.noSideEffect,
+proc value3dOnF1OnF2*(this: BRepFillMultiLine; u: float; p3d: var Pnt; pf1: var Pnt2d;
+                     pf2: var Pnt2d) {.noSideEffect, importcpp: "Value3dOnF1OnF2",
+                                    header: "BRepFill_MultiLine.hxx".}
+proc value*(this: BRepFillMultiLine; theU: float;
+           thePnt2d: var NCollectionArray1[Pnt2d];
+           thePnt: var NCollectionArray1[Pnt]): bool {.noSideEffect,
     importcpp: "Value", header: "BRepFill_MultiLine.hxx".}
-proc D1*(this: BRepFill_MultiLine; theU: Standard_Real;
-        theVec2d: var NCollection_Array1[gp_Vec2d];
-        theVec: var NCollection_Array1[gp_Vec]): Standard_Boolean {.noSideEffect,
-    importcpp: "D1", header: "BRepFill_MultiLine.hxx".}
+proc d1*(this: BRepFillMultiLine; theU: float;
+        theVec2d: var NCollectionArray1[Vec2d]; theVec: var NCollectionArray1[Vec]): bool {.
+    noSideEffect, importcpp: "D1", header: "BRepFill_MultiLine.hxx".}

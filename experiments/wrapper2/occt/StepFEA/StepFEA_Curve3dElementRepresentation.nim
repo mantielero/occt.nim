@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepFEA_ElementRepresentation,
-  ../StepRepr/StepRepr_HArray1OfRepresentationItem,
-  StepFEA_HArray1OfNodeRepresentation
-
 discard "forward decl of StepFEA_FeaModel3d"
 discard "forward decl of StepElement_Curve3dElementDescriptor"
 discard "forward decl of StepFEA_Curve3dElementProperty"
@@ -27,7 +22,7 @@ discard "forward decl of StepRepr_RepresentationContext"
 discard "forward decl of StepFEA_Curve3dElementRepresentation"
 discard "forward decl of StepFEA_Curve3dElementRepresentation"
 type
-  Handle_StepFEA_Curve3dElementRepresentation* = handle[
+  HandleStepFEA_Curve3dElementRepresentation* = Handle[
       StepFEA_Curve3dElementRepresentation]
 
 ## ! Representation of STEP entity Curve3dElementRepresentation
@@ -44,47 +39,48 @@ type
 proc constructStepFEA_Curve3dElementRepresentation*(): StepFEA_Curve3dElementRepresentation {.
     constructor, importcpp: "StepFEA_Curve3dElementRepresentation(@)",
     header: "StepFEA_Curve3dElementRepresentation.hxx".}
-proc Init*(this: var StepFEA_Curve3dElementRepresentation;
-          aRepresentation_Name: handle[TCollection_HAsciiString];
-          aRepresentation_Items: handle[StepRepr_HArray1OfRepresentationItem];
-    aRepresentation_ContextOfItems: handle[StepRepr_RepresentationContext];
-    aElementRepresentation_NodeList: handle[StepFEA_HArray1OfNodeRepresentation];
-          aModelRef: handle[StepFEA_FeaModel3d];
-          aElementDescriptor: handle[StepElement_Curve3dElementDescriptor];
-          aProperty: handle[StepFEA_Curve3dElementProperty];
-          aMaterial: handle[StepElement_ElementMaterial]) {.importcpp: "Init",
+proc init*(this: var StepFEA_Curve3dElementRepresentation;
+          aRepresentationName: Handle[TCollectionHAsciiString];
+          aRepresentationItems: Handle[StepReprHArray1OfRepresentationItem];
+          aRepresentationContextOfItems: Handle[StepReprRepresentationContext];
+    aElementRepresentationNodeList: Handle[StepFEA_HArray1OfNodeRepresentation];
+          aModelRef: Handle[StepFEA_FeaModel3d];
+          aElementDescriptor: Handle[StepElementCurve3dElementDescriptor];
+          aProperty: Handle[StepFEA_Curve3dElementProperty];
+          aMaterial: Handle[StepElementElementMaterial]) {.importcpp: "Init",
     header: "StepFEA_Curve3dElementRepresentation.hxx".}
-proc ModelRef*(this: StepFEA_Curve3dElementRepresentation): handle[
+proc modelRef*(this: StepFEA_Curve3dElementRepresentation): Handle[
     StepFEA_FeaModel3d] {.noSideEffect, importcpp: "ModelRef",
                          header: "StepFEA_Curve3dElementRepresentation.hxx".}
-proc SetModelRef*(this: var StepFEA_Curve3dElementRepresentation;
-                 ModelRef: handle[StepFEA_FeaModel3d]) {.importcpp: "SetModelRef",
+proc setModelRef*(this: var StepFEA_Curve3dElementRepresentation;
+                 modelRef: Handle[StepFEA_FeaModel3d]) {.importcpp: "SetModelRef",
     header: "StepFEA_Curve3dElementRepresentation.hxx".}
-proc ElementDescriptor*(this: StepFEA_Curve3dElementRepresentation): handle[
-    StepElement_Curve3dElementDescriptor] {.noSideEffect,
+proc elementDescriptor*(this: StepFEA_Curve3dElementRepresentation): Handle[
+    StepElementCurve3dElementDescriptor] {.noSideEffect,
     importcpp: "ElementDescriptor",
     header: "StepFEA_Curve3dElementRepresentation.hxx".}
-proc SetElementDescriptor*(this: var StepFEA_Curve3dElementRepresentation;
-    ElementDescriptor: handle[StepElement_Curve3dElementDescriptor]) {.
+proc setElementDescriptor*(this: var StepFEA_Curve3dElementRepresentation;
+    elementDescriptor: Handle[StepElementCurve3dElementDescriptor]) {.
     importcpp: "SetElementDescriptor",
     header: "StepFEA_Curve3dElementRepresentation.hxx".}
-proc Property*(this: StepFEA_Curve3dElementRepresentation): handle[
+proc property*(this: StepFEA_Curve3dElementRepresentation): Handle[
     StepFEA_Curve3dElementProperty] {.noSideEffect, importcpp: "Property", header: "StepFEA_Curve3dElementRepresentation.hxx".}
-proc SetProperty*(this: var StepFEA_Curve3dElementRepresentation;
-                 Property: handle[StepFEA_Curve3dElementProperty]) {.
+proc setProperty*(this: var StepFEA_Curve3dElementRepresentation;
+                 property: Handle[StepFEA_Curve3dElementProperty]) {.
     importcpp: "SetProperty", header: "StepFEA_Curve3dElementRepresentation.hxx".}
-proc Material*(this: StepFEA_Curve3dElementRepresentation): handle[
-    StepElement_ElementMaterial] {.noSideEffect, importcpp: "Material", header: "StepFEA_Curve3dElementRepresentation.hxx".}
-proc SetMaterial*(this: var StepFEA_Curve3dElementRepresentation;
-                 Material: handle[StepElement_ElementMaterial]) {.
+proc material*(this: StepFEA_Curve3dElementRepresentation): Handle[
+    StepElementElementMaterial] {.noSideEffect, importcpp: "Material", header: "StepFEA_Curve3dElementRepresentation.hxx".}
+proc setMaterial*(this: var StepFEA_Curve3dElementRepresentation;
+                 material: Handle[StepElementElementMaterial]) {.
     importcpp: "SetMaterial", header: "StepFEA_Curve3dElementRepresentation.hxx".}
 type
-  StepFEA_Curve3dElementRepresentationbase_type* = StepFEA_ElementRepresentation
+  StepFEA_Curve3dElementRepresentationbaseType* = StepFEA_ElementRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_Curve3dElementRepresentation::get_type_name(@)", header: "StepFEA_Curve3dElementRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_Curve3dElementRepresentation::get_type_name(@)",
+                            header: "StepFEA_Curve3dElementRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_Curve3dElementRepresentation::get_type_descriptor(@)",
     header: "StepFEA_Curve3dElementRepresentation.hxx".}
-proc DynamicType*(this: StepFEA_Curve3dElementRepresentation): handle[Standard_Type] {.
+proc dynamicType*(this: StepFEA_Curve3dElementRepresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_Curve3dElementRepresentation.hxx".}

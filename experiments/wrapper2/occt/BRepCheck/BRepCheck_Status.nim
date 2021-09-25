@@ -15,22 +15,23 @@
 ##  commercial license or contractual agreement.
 
 type
-  BRepCheck_Status* {.size: sizeof(cint), importcpp: "BRepCheck_Status",
-                     header: "BRepCheck_Status.hxx".} = enum
-    BRepCheck_NoError, BRepCheck_InvalidPointOnCurve,
-    BRepCheck_InvalidPointOnCurveOnSurface, BRepCheck_InvalidPointOnSurface,
-    BRepCheck_No3DCurve, BRepCheck_Multiple3DCurve, BRepCheck_Invalid3DCurve,
-    BRepCheck_NoCurveOnSurface, BRepCheck_InvalidCurveOnSurface,
-    BRepCheck_InvalidCurveOnClosedSurface, BRepCheck_InvalidSameRangeFlag,
-    BRepCheck_InvalidSameParameterFlag, BRepCheck_InvalidDegeneratedFlag,
-    BRepCheck_FreeEdge, BRepCheck_InvalidMultiConnexity, BRepCheck_InvalidRange,
-    BRepCheck_EmptyWire, BRepCheck_RedundantEdge, BRepCheck_SelfIntersectingWire,
-    BRepCheck_NoSurface, BRepCheck_InvalidWire, BRepCheck_RedundantWire,
-    BRepCheck_IntersectingWires, BRepCheck_InvalidImbricationOfWires,
-    BRepCheck_EmptyShell, BRepCheck_RedundantFace,
-    BRepCheck_InvalidImbricationOfShells, BRepCheck_UnorientableShape,
-    BRepCheck_NotClosed, BRepCheck_NotConnected, BRepCheck_SubshapeNotInShape,
-    BRepCheck_BadOrientation, BRepCheck_BadOrientationOfSubshape,
-    BRepCheck_InvalidPolygonOnTriangulation, BRepCheck_InvalidToleranceValue,
-    BRepCheck_EnclosedRegion, BRepCheck_CheckFail
+  BRepCheckStatus* {.size: sizeof(cint), importcpp: "BRepCheck_Status",
+                    header: "BRepCheck_Status.hxx".} = enum
+    BRepCheckNoError, BRepCheckInvalidPointOnCurve,
+    BRepCheckInvalidPointOnCurveOnSurface, BRepCheckInvalidPointOnSurface,
+    BRepCheckNo3DCurve, BRepCheckMultiple3DCurve, BRepCheckInvalid3DCurve,
+    BRepCheckNoCurveOnSurface, BRepCheckInvalidCurveOnSurface,
+    BRepCheckInvalidCurveOnClosedSurface, BRepCheckInvalidSameRangeFlag,
+    BRepCheckInvalidSameParameterFlag, BRepCheckInvalidDegeneratedFlag,
+    BRepCheckFreeEdge, BRepCheckInvalidMultiConnexity, BRepCheckInvalidRange,
+    BRepCheckEmptyWire, BRepCheckRedundantEdge, BRepCheckSelfIntersectingWire,
+    BRepCheckNoSurface, BRepCheckInvalidWire, BRepCheckRedundantWire,
+    BRepCheckIntersectingWires, BRepCheckInvalidImbricationOfWires,
+    BRepCheckEmptyShell, BRepCheckRedundantFace,
+    BRepCheckInvalidImbricationOfShells, BRepCheckUnorientableShape,
+    BRepCheckNotClosed, BRepCheckNotConnected, BRepCheckSubshapeNotInShape,
+    BRepCheckBadOrientation, BRepCheckBadOrientationOfSubshape,
+    BRepCheckInvalidPolygonOnTriangulation, BRepCheckInvalidToleranceValue,
+    BRepCheckEnclosedRegion, BRepCheckCheckFail
+
 

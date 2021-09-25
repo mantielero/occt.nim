@@ -16,4 +16,5 @@
 
 discard "forward decl of TopOpeBRep_LineInter"
 type
-  TopOpeBRep_PLineInter* = ptr TopOpeBRep_LineInter
+  TopOpeBRepPLineInter* = ptr TopOpeBRepLineInter
+

@@ -14,23 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRepBuild_IndexedDataMapOfShapeVertexInfo,
-  ../TopTools/TopTools_ListOfShape
-
 discard "forward decl of TopoDS_Wire"
 type
-  TopOpeBRepBuild_Tools2d* {.importcpp: "TopOpeBRepBuild_Tools2d",
-                            header: "TopOpeBRepBuild_Tools2d.hxx", bycopy.} = object
+  TopOpeBRepBuildTools2d* {.importcpp: "TopOpeBRepBuild_Tools2d",
+                           header: "TopOpeBRepBuild_Tools2d.hxx", bycopy.} = object
 
 
-proc MakeMapOfShapeVertexInfo*(aWire: TopoDS_Wire; aMap: var TopOpeBRepBuild_IndexedDataMapOfShapeVertexInfo) {.
+proc makeMapOfShapeVertexInfo*(aWire: TopoDS_Wire; aMap: var TopOpeBRepBuildIndexedDataMapOfShapeVertexInfo) {.
     importcpp: "TopOpeBRepBuild_Tools2d::MakeMapOfShapeVertexInfo(@)",
     header: "TopOpeBRepBuild_Tools2d.hxx".}
-proc DumpMapOfShapeVertexInfo*(aMap: TopOpeBRepBuild_IndexedDataMapOfShapeVertexInfo) {.
+proc dumpMapOfShapeVertexInfo*(aMap: TopOpeBRepBuildIndexedDataMapOfShapeVertexInfo) {.
     importcpp: "TopOpeBRepBuild_Tools2d::DumpMapOfShapeVertexInfo(@)",
     header: "TopOpeBRepBuild_Tools2d.hxx".}
-proc Path*(aWire: TopoDS_Wire; aResList: var TopTools_ListOfShape) {.
+proc path*(aWire: TopoDS_Wire; aResList: var TopToolsListOfShape) {.
     importcpp: "TopOpeBRepBuild_Tools2d::Path(@)",
     header: "TopOpeBRepBuild_Tools2d.hxx".}

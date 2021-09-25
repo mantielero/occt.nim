@@ -16,24 +16,23 @@
 ## ! Defines modifirs
 
 type
-  XCAFDimTolObjects_GeomToleranceModif* {.size: sizeof(cint),
-      importcpp: "XCAFDimTolObjects_GeomToleranceModif",
-      header: "XCAFDimTolObjects_GeomToleranceModif.hxx".} = enum
-    XCAFDimTolObjects_GeomToleranceModif_Any_Cross_Section,
-    XCAFDimTolObjects_GeomToleranceModif_Common_Zone,
-    XCAFDimTolObjects_GeomToleranceModif_Each_Radial_Element,
-    XCAFDimTolObjects_GeomToleranceModif_Free_State,
-    XCAFDimTolObjects_GeomToleranceModif_Least_Material_Requirement,
-    XCAFDimTolObjects_GeomToleranceModif_Line_Element,
-    XCAFDimTolObjects_GeomToleranceModif_Major_Diameter,
-    XCAFDimTolObjects_GeomToleranceModif_Maximum_Material_Requirement,
-    XCAFDimTolObjects_GeomToleranceModif_Minor_Diameter,
-    XCAFDimTolObjects_GeomToleranceModif_Not_Convex,
-    XCAFDimTolObjects_GeomToleranceModif_Pitch_Diameter,
-    XCAFDimTolObjects_GeomToleranceModif_Reciprocity_Requirement,
-    XCAFDimTolObjects_GeomToleranceModif_Separate_Requirement,
-    XCAFDimTolObjects_GeomToleranceModif_Statistical_Tolerance,
-    XCAFDimTolObjects_GeomToleranceModif_Tangent_Plane,
-    XCAFDimTolObjects_GeomToleranceModif_All_Around,
-    XCAFDimTolObjects_GeomToleranceModif_All_Over
+  XCAFDimTolObjectsGeomToleranceModif* {.size: sizeof(cint), importcpp: "XCAFDimTolObjects_GeomToleranceModif", header: "XCAFDimTolObjects_GeomToleranceModif.hxx".} = enum
+    XCAFDimTolObjectsGeomToleranceModifAnyCrossSection,
+    XCAFDimTolObjectsGeomToleranceModifCommonZone,
+    XCAFDimTolObjectsGeomToleranceModifEachRadialElement,
+    XCAFDimTolObjectsGeomToleranceModifFreeState,
+    XCAFDimTolObjectsGeomToleranceModifLeastMaterialRequirement,
+    XCAFDimTolObjectsGeomToleranceModifLineElement,
+    XCAFDimTolObjectsGeomToleranceModifMajorDiameter,
+    XCAFDimTolObjectsGeomToleranceModifMaximumMaterialRequirement,
+    XCAFDimTolObjectsGeomToleranceModifMinorDiameter,
+    XCAFDimTolObjectsGeomToleranceModifNotConvex,
+    XCAFDimTolObjectsGeomToleranceModifPitchDiameter,
+    XCAFDimTolObjectsGeomToleranceModifReciprocityRequirement,
+    XCAFDimTolObjectsGeomToleranceModifSeparateRequirement,
+    XCAFDimTolObjectsGeomToleranceModifStatisticalTolerance,
+    XCAFDimTolObjectsGeomToleranceModifTangentPlane,
+    XCAFDimTolObjectsGeomToleranceModifAllAround,
+    XCAFDimTolObjectsGeomToleranceModifAllOver
+
 

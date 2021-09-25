@@ -11,32 +11,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Graphic3d/Graphic3d_AlphaMode, ../Graphic3d/Graphic3d_Vec,
-  ../Image/Image_Texture, ../Quantity/Quantity_ColorRGBA,
-  ../Standard/Standard_Dump
-
 discard "forward decl of Graphic3d_Aspects"
 discard "forward decl of Graphic3d_MaterialAspect"
 type
-  XCAFDoc_VisMaterialCommon* {.importcpp: "XCAFDoc_VisMaterialCommon",
-                              header: "XCAFDoc_VisMaterialCommon.hxx", bycopy.} = object
-    DiffuseTexture* {.importc: "DiffuseTexture".}: handle[Image_Texture] ## !< image defining diffuse color
-    AmbientColor* {.importc: "AmbientColor".}: Quantity_Color ## !< ambient  color
-    DiffuseColor* {.importc: "DiffuseColor".}: Quantity_Color ## !< diffuse  color
-    SpecularColor* {.importc: "SpecularColor".}: Quantity_Color ## !< specular color
-    EmissiveColor* {.importc: "EmissiveColor".}: Quantity_Color ## !< emission color
-    Shininess* {.importc: "Shininess".}: Standard_ShortReal ## !< shininess value
-    Transparency* {.importc: "Transparency".}: Standard_ShortReal ## !< transparency value within [0, 1] range with 0 meaning opaque
-    IsDefined* {.importc: "IsDefined".}: Standard_Boolean ## !< defined flag; FALSE by default
-                                                      ## ! Empty constructor.
+  XCAFDocVisMaterialCommon* {.importcpp: "XCAFDoc_VisMaterialCommon",
+                             header: "XCAFDoc_VisMaterialCommon.hxx", bycopy.} = object
+    diffuseTexture* {.importc: "DiffuseTexture".}: Handle[ImageTexture] ## !< image defining diffuse color
+    ambientColor* {.importc: "AmbientColor".}: QuantityColor ## !< ambient  color
+    diffuseColor* {.importc: "DiffuseColor".}: QuantityColor ## !< diffuse  color
+    specularColor* {.importc: "SpecularColor".}: QuantityColor ## !< specular color
+    emissiveColor* {.importc: "EmissiveColor".}: QuantityColor ## !< emission color
+    shininess* {.importc: "Shininess".}: StandardShortReal ## !< shininess value
+    transparency* {.importc: "Transparency".}: StandardShortReal ## !< transparency value within [0, 1] range with 0 meaning opaque
+    isDefined* {.importc: "IsDefined".}: bool ## !< defined flag; FALSE by default
+                                          ## ! Empty constructor.
 
 
-proc constructXCAFDoc_VisMaterialCommon*(): XCAFDoc_VisMaterialCommon {.
-    constructor, importcpp: "XCAFDoc_VisMaterialCommon(@)",
+proc constructXCAFDocVisMaterialCommon*(): XCAFDocVisMaterialCommon {.constructor,
+    importcpp: "XCAFDoc_VisMaterialCommon(@)",
     header: "XCAFDoc_VisMaterialCommon.hxx".}
-proc IsEqual*(this: XCAFDoc_VisMaterialCommon; theOther: XCAFDoc_VisMaterialCommon): Standard_Boolean {.
+proc isEqual*(this: XCAFDocVisMaterialCommon; theOther: XCAFDocVisMaterialCommon): bool {.
     noSideEffect, importcpp: "IsEqual", header: "XCAFDoc_VisMaterialCommon.hxx".}
-proc DumpJson*(this: XCAFDoc_VisMaterialCommon; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "XCAFDoc_VisMaterialCommon.hxx".}
+proc dumpJson*(this: XCAFDocVisMaterialCommon; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "XCAFDoc_VisMaterialCommon.hxx".}

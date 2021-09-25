@@ -16,4 +16,5 @@
 
 discard "forward decl of TCollection_MapNode"
 type
-  TCollection_MapNodePtr* = ptr TCollection_MapNode
+  TCollectionMapNodePtr* = ptr TCollectionMapNode
+

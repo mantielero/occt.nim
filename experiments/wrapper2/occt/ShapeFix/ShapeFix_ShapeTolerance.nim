@@ -14,24 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, ../TopAbs/TopAbs_ShapeEnum
-
 discard "forward decl of TopoDS_Shape"
 type
-  ShapeFix_ShapeTolerance* {.importcpp: "ShapeFix_ShapeTolerance",
-                            header: "ShapeFix_ShapeTolerance.hxx", bycopy.} = object
+  ShapeFixShapeTolerance* {.importcpp: "ShapeFix_ShapeTolerance",
+                           header: "ShapeFix_ShapeTolerance.hxx", bycopy.} = object
 
 
-proc constructShapeFix_ShapeTolerance*(): ShapeFix_ShapeTolerance {.constructor,
+proc constructShapeFixShapeTolerance*(): ShapeFixShapeTolerance {.constructor,
     importcpp: "ShapeFix_ShapeTolerance(@)", header: "ShapeFix_ShapeTolerance.hxx".}
-proc LimitTolerance*(this: ShapeFix_ShapeTolerance; shape: TopoDS_Shape;
-                    tmin: Standard_Real; tmax: Standard_Real = 0.0;
-                    styp: TopAbs_ShapeEnum = TopAbs_SHAPE): Standard_Boolean {.
+proc limitTolerance*(this: ShapeFixShapeTolerance; shape: TopoDS_Shape; tmin: float;
+                    tmax: float = 0.0; styp: TopAbsShapeEnum = topAbsSHAPE): bool {.
     noSideEffect, importcpp: "LimitTolerance",
     header: "ShapeFix_ShapeTolerance.hxx".}
-proc SetTolerance*(this: ShapeFix_ShapeTolerance; shape: TopoDS_Shape;
-                  preci: Standard_Real; styp: TopAbs_ShapeEnum = TopAbs_SHAPE) {.
-    noSideEffect, importcpp: "SetTolerance", header: "ShapeFix_ShapeTolerance.hxx".}
+proc setTolerance*(this: ShapeFixShapeTolerance; shape: TopoDS_Shape; preci: float;
+                  styp: TopAbsShapeEnum = topAbsSHAPE) {.noSideEffect,
+    importcpp: "SetTolerance", header: "ShapeFix_ShapeTolerance.hxx".}

@@ -14,39 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Units_Sentence, ../Standard/Standard_CString
-
 ## ! This class  defines all the methods to  create and
 ## ! compute an algebraic formula.
 
 type
-  Units_MathSentence* {.importcpp: "Units_MathSentence",
-                       header: "Units_MathSentence.hxx", bycopy.} = object of Units_Sentence ##
-                                                                                      ## !
-                                                                                      ## Creates
-                                                                                      ## and
-                                                                                      ## returns
-                                                                                      ## a
-                                                                                      ## MathSentence
-                                                                                      ## object.
-                                                                                      ## The
-                                                                                      ## string
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## <astring>
-                                                                                      ## describes
-                                                                                      ## an
-                                                                                      ## algebraic
-                                                                                      ## formula
-                                                                                      ## in
-                                                                                      ## natural
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## language.
+  UnitsMathSentence* {.importcpp: "Units_MathSentence",
+                      header: "Units_MathSentence.hxx", bycopy.} = object of UnitsSentence ##
+                                                                                    ## !
+                                                                                    ## Creates
+                                                                                    ## and
+                                                                                    ## returns
+                                                                                    ## a
+                                                                                    ## MathSentence
+                                                                                    ## object.
+                                                                                    ## The
+                                                                                    ## string
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## <astring>
+                                                                                    ## describes
+                                                                                    ## an
+                                                                                    ## algebraic
+                                                                                    ## formula
+                                                                                    ## in
+                                                                                    ## natural
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## language.
 
 
-proc constructUnits_MathSentence*(astring: Standard_CString): Units_MathSentence {.
+proc constructUnitsMathSentence*(astring: StandardCString): UnitsMathSentence {.
     constructor, importcpp: "Units_MathSentence(@)",
     header: "Units_MathSentence.hxx".}

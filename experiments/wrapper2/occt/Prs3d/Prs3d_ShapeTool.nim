@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Prs3d_ShapeTool_HeaderFile [NewLine] # _Prs3d_ShapeTool_HeaderFile [NewLine] # ../StdPrs/StdPrs_ShapeTool.hxx [NewLine] Standard_DEPRECATED ( Alias to moved class StdPrs_ShapeTool ) typedef StdPrs_ShapeTool Prs3d_ShapeTool ;
+## !!!Ignored construct:  # _Prs3d_ShapeTool_HeaderFile [NewLine] # _Prs3d_ShapeTool_HeaderFile [NewLine] # < StdPrs_ShapeTool . hxx > [NewLine] Standard_DEPRECATED ( Alias to moved class StdPrs_ShapeTool ) typedef StdPrs_ShapeTool Prs3d_ShapeTool ;
 ## Error: expected ';'!!!
+

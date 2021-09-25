@@ -14,46 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP203_HArray1OfContractedItem, ../StepBasic/StepBasic_ContractAssignment
-
 discard "forward decl of StepBasic_Contract"
 discard "forward decl of StepAP203_CcDesignContract"
 discard "forward decl of StepAP203_CcDesignContract"
 type
-  Handle_StepAP203_CcDesignContract* = handle[StepAP203_CcDesignContract]
+  HandleStepAP203CcDesignContract* = Handle[StepAP203CcDesignContract]
 
 ## ! Representation of STEP entity CcDesignContract
 
 type
-  StepAP203_CcDesignContract* {.importcpp: "StepAP203_CcDesignContract",
-                               header: "StepAP203_CcDesignContract.hxx", bycopy.} = object of StepBasic_ContractAssignment ##
-                                                                                                                    ## !
-                                                                                                                    ## Empty
-                                                                                                                    ## constructor
+  StepAP203CcDesignContract* {.importcpp: "StepAP203_CcDesignContract",
+                              header: "StepAP203_CcDesignContract.hxx", bycopy.} = object of StepBasicContractAssignment ##
+                                                                                                                  ## !
+                                                                                                                  ## Empty
+                                                                                                                  ## constructor
 
 
-proc constructStepAP203_CcDesignContract*(): StepAP203_CcDesignContract {.
+proc constructStepAP203CcDesignContract*(): StepAP203CcDesignContract {.
     constructor, importcpp: "StepAP203_CcDesignContract(@)",
     header: "StepAP203_CcDesignContract.hxx".}
-proc Init*(this: var StepAP203_CcDesignContract;
-          aContractAssignment_AssignedContract: handle[StepBasic_Contract];
-          aItems: handle[StepAP203_HArray1OfContractedItem]) {.importcpp: "Init",
+proc init*(this: var StepAP203CcDesignContract;
+          aContractAssignmentAssignedContract: Handle[StepBasicContract];
+          aItems: Handle[StepAP203HArray1OfContractedItem]) {.importcpp: "Init",
     header: "StepAP203_CcDesignContract.hxx".}
-proc Items*(this: StepAP203_CcDesignContract): handle[
-    StepAP203_HArray1OfContractedItem] {.noSideEffect, importcpp: "Items", header: "StepAP203_CcDesignContract.hxx".}
-proc SetItems*(this: var StepAP203_CcDesignContract;
-              Items: handle[StepAP203_HArray1OfContractedItem]) {.
+proc items*(this: StepAP203CcDesignContract): Handle[
+    StepAP203HArray1OfContractedItem] {.noSideEffect, importcpp: "Items",
+                                       header: "StepAP203_CcDesignContract.hxx".}
+proc setItems*(this: var StepAP203CcDesignContract;
+              items: Handle[StepAP203HArray1OfContractedItem]) {.
     importcpp: "SetItems", header: "StepAP203_CcDesignContract.hxx".}
 type
-  StepAP203_CcDesignContractbase_type* = StepBasic_ContractAssignment
+  StepAP203CcDesignContractbaseType* = StepBasicContractAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP203_CcDesignContract::get_type_name(@)",
-                              header: "StepAP203_CcDesignContract.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP203_CcDesignContract::get_type_name(@)",
+                            header: "StepAP203_CcDesignContract.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP203_CcDesignContract::get_type_descriptor(@)",
     header: "StepAP203_CcDesignContract.hxx".}
-proc DynamicType*(this: StepAP203_CcDesignContract): handle[Standard_Type] {.
+proc dynamicType*(this: StepAP203CcDesignContract): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP203_CcDesignContract.hxx".}

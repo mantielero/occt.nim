@@ -12,49 +12,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Message/Message_ProgressRange, ../NCollection/NCollection_Vector,
-  ../RWMesh/RWMesh_CafReader, ../TopoDS/TopoDS_Face
-
 discard "forward decl of RWGltf_PrimitiveArrayReader"
 type
-  RWGltf_CafReader* {.importcpp: "RWGltf_CafReader",
-                     header: "RWGltf_CafReader.hxx", bycopy.} = object of RWMesh_CafReader ##
-                                                                                    ## !
-                                                                                    ## Empty
-                                                                                    ## constructor.
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## Read
-                                                                                    ## the
-                                                                                    ## mesh
-                                                                                    ## from
-                                                                                    ## specified
-                                                                                    ## file.
+  RWGltfCafReader* {.importcpp: "RWGltf_CafReader", header: "RWGltf_CafReader.hxx",
+                    bycopy.} = object of RWMeshCafReader ## ! Empty constructor.
+                                                    ## ! Read the mesh from specified file.
     ## !< flag to use multithreading; FALSE by default
     ## !< ignore nodes without Geometry; TRUE by default
     ## !< flag to use Mesh name in case if Node name is empty, TRUE by default
 
-  RWGltf_CafReaderbase_type* = RWMesh_CafReader
+  RWGltfCafReaderbaseType* = RWMeshCafReader
 
-proc get_type_name*(): cstring {.importcpp: "RWGltf_CafReader::get_type_name(@)",
-                              header: "RWGltf_CafReader.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "RWGltf_CafReader::get_type_name(@)",
+                            header: "RWGltf_CafReader.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "RWGltf_CafReader::get_type_descriptor(@)",
     header: "RWGltf_CafReader.hxx".}
-proc DynamicType*(this: RWGltf_CafReader): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: RWGltfCafReader): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "RWGltf_CafReader.hxx".}
-proc constructRWGltf_CafReader*(): RWGltf_CafReader {.constructor,
+proc constructRWGltfCafReader*(): RWGltfCafReader {.constructor,
     importcpp: "RWGltf_CafReader(@)", header: "RWGltf_CafReader.hxx".}
-proc ToParallel*(this: RWGltf_CafReader): bool {.noSideEffect,
+proc toParallel*(this: RWGltfCafReader): bool {.noSideEffect,
     importcpp: "ToParallel", header: "RWGltf_CafReader.hxx".}
-proc SetParallel*(this: var RWGltf_CafReader; theToParallel: bool) {.
+proc setParallel*(this: var RWGltfCafReader; theToParallel: bool) {.
     importcpp: "SetParallel", header: "RWGltf_CafReader.hxx".}
-proc ToSkipEmptyNodes*(this: var RWGltf_CafReader): bool {.
+proc toSkipEmptyNodes*(this: var RWGltfCafReader): bool {.
     importcpp: "ToSkipEmptyNodes", header: "RWGltf_CafReader.hxx".}
-proc SetSkipEmptyNodes*(this: var RWGltf_CafReader; theToSkip: bool) {.
+proc setSkipEmptyNodes*(this: var RWGltfCafReader; theToSkip: bool) {.
     importcpp: "SetSkipEmptyNodes", header: "RWGltf_CafReader.hxx".}
-proc ToUseMeshNameAsFallback*(this: var RWGltf_CafReader): bool {.
+proc toUseMeshNameAsFallback*(this: var RWGltfCafReader): bool {.
     importcpp: "ToUseMeshNameAsFallback", header: "RWGltf_CafReader.hxx".}
-proc SetMeshNameAsFallback*(this: var RWGltf_CafReader; theToFallback: bool) {.
+proc setMeshNameAsFallback*(this: var RWGltfCafReader; theToFallback: bool) {.
     importcpp: "SetMeshNameAsFallback", header: "RWGltf_CafReader.hxx".}

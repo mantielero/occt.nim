@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  GeomPlate_Aij, ../NCollection/NCollection_Sequence
-
 type
-  GeomPlate_SequenceOfAij* = NCollection_Sequence[GeomPlate_Aij]
+  GeomPlateSequenceOfAij* = NCollectionSequence[GeomPlateAij]
+

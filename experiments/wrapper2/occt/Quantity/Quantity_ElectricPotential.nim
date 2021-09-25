@@ -14,10 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_ElectricPotential_HeaderFile [NewLine] # _Quantity_ElectricPotential_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the work done in bringing unit positive
+## !!!Ignored construct:  # _Quantity_ElectricPotential_HeaderFile [NewLine] # _Quantity_ElectricPotential_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the work done in bringing unit positive
 ## ! charge from infinity to the point.
 ## ! It is measured in volts.
 ## ! Volts are in practice used to measure differences
 ## ! in potential e.g. the electromotive force generated when
 ## ! a conductor cuts a magnetic field. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_ElectricPotential ;
 ## Error: expected ';'!!!
+

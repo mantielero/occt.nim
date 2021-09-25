@@ -37,55 +37,57 @@
 ##   Items from <arr> are considered as compatible with items from <seq>
 ##     (no DownCast required for Handles)
 
-template SeqToArrayFrom*(seq, arr, typarr, lowind: untyped): void =
-  if not seq.IsNull():
-    var
-      numseq: Standard_Integer
-      lenseq: Standard_Integer
-    if lenseq > 0:
-      arr = new(typarr(lowind, lenseq + 1 - lowind))
-      numseq = 1
-      while numseq <= lenseq:
-        arr.SetValue(numseq + 1 - lowind, seq.Value(numseq))
-        inc(numseq)
+# template seqToArrayFrom*(seq, arr, typarr, lowind: untyped): void =
+#   if not seq.isNull():
+#     var
+#       numseq: int
+#       lenseq: int
+#     if lenseq > 0:
+#       arr = new(typarr(lowind, lenseq + 1 - lowind))
+#       numseq = 1
+#       while numseq <= lenseq:
+#         arr.setValue(numseq + 1 - lowind, seq.value(numseq))
+#         inc(numseq)
+# 
+# template seqToArray*(seq, arr, typarr: untyped): void =
+#   if not seq.isNull():
+#     var
+#       numseq: int
+#       lenseq: int
+#     if lenseq > 0:
+#       arr = new(typarr(1, lenseq))
+#       numseq = 1
+#       while numseq <= lenseq:
+#         arr.setValue(numseq, seq.value(numseq))
+#         inc(numseq)
+# 
+# template seqToArrayCast*(seq, arr, typarr, typent: untyped): void =
+#   if not seq.isNull():
+#     var
+#       numseq: int
+#       lenseq: int
+#     if lenseq > 0:
+#       arr = new(typarr(1, lenseq))
+#       numseq = 1
+#       while numseq <= lenseq:
+#         arr.setValue(numseq, DownCast[Typent](seq.value(numseq)))
+#         inc(numseq)
+# 
+# const
+#   ArrayToSeq* = (
+#     arr
+#     seq)
+# 
+# var
+#   nument: int
+#   numlow: int
+#   numup: int
+# 
+# nument = numlow
+# while nument <= numup:
+#   seq.append(arr.value(nument))
+#   inc(nument)
+# ## !!!Ignored construct:  [NewLine]
+# ## Error: did not expect [NewLine]!!!
+# 
 
-template SeqToArray*(seq, arr, typarr: untyped): void =
-  if not seq.IsNull():
-    var
-      numseq: Standard_Integer
-      lenseq: Standard_Integer
-    if lenseq > 0:
-      arr = new(typarr(1, lenseq))
-      numseq = 1
-      while numseq <= lenseq:
-        arr.SetValue(numseq, seq.Value(numseq))
-        inc(numseq)
-
-template SeqToArrayCast*(seq, arr, typarr, typent: untyped): void =
-  if not seq.IsNull():
-    var
-      numseq: Standard_Integer
-      lenseq: Standard_Integer
-    if lenseq > 0:
-      arr = new(typarr(1, lenseq))
-      numseq = 1
-      while numseq <= lenseq:
-        arr.SetValue(numseq, DownCast[typent](seq.Value(numseq)))
-        inc(numseq)
-
-const
-  ArrayToSeq* = (
-    arr
-    seq)
-
-var
-  nument: Standard_Integer
-  numlow: Standard_Integer
-  numup: Standard_Integer
-
-nument = numlow
-while nument <= numup:
-  seq.Append(arr.Value(nument))
-  inc(nument)
-## !!!Ignored construct:  [NewLine]
-## Error: did not expect [NewLine]!!!

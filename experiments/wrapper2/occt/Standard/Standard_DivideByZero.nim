@@ -14,16 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_DivideByZero_HeaderFile [NewLine] # _Standard_DivideByZero_HeaderFile [NewLine] # Standard_Type.hxx [NewLine] # Standard_DefineException.hxx [NewLine] # Standard_SStream.hxx [NewLine] # Standard_NumericError.hxx [NewLine] class Standard_DivideByZero ;
+## !!!Ignored construct:  # _Standard_DivideByZero_HeaderFile [NewLine] # _Standard_DivideByZero_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_NumericError . hxx > [NewLine] class Standard_DivideByZero ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Standard_DivideByZero"
 type
-  Handle_Standard_DivideByZeroStandard_DivideByZero* = handle[
-      Standard_DivideByZero]
+  HandleStandardDivideByZeroStandardDivideByZero* = Handle[StandardDivideByZero]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_DivideByZero [NewLine] # if ( CONDITION ) throw Standard_DivideByZero ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_DivideByZero , Standard_NumericError ) #  _Standard_DivideByZero_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_DivideByZero , Standard_NumericError ) #  _Standard_DivideByZero_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

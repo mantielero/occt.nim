@@ -14,48 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Edge, ../Standard/Standard_Real,
-  ../TopoDS/TopoDS_Face, ../gp/gp_Pnt2d, ../Standard/Standard_Boolean,
-  ../TopAbs/TopAbs_State
-
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Pnt2d"
 type
-  TopOpeBRepTool_makeTransition* {.importcpp: "TopOpeBRepTool_makeTransition",
-                                  header: "TopOpeBRepTool_makeTransition.hxx",
-                                  bycopy.} = object
+  TopOpeBRepToolMakeTransition* {.importcpp: "TopOpeBRepTool_makeTransition",
+                                 header: "TopOpeBRepTool_makeTransition.hxx",
+                                 bycopy.} = object
 
 
-proc constructTopOpeBRepTool_makeTransition*(): TopOpeBRepTool_makeTransition {.
+proc constructTopOpeBRepToolMakeTransition*(): TopOpeBRepToolMakeTransition {.
     constructor, importcpp: "TopOpeBRepTool_makeTransition(@)",
     header: "TopOpeBRepTool_makeTransition.hxx".}
-proc Initialize*(this: var TopOpeBRepTool_makeTransition; E: TopoDS_Edge;
-                pbef: Standard_Real; paft: Standard_Real; parE: Standard_Real;
-                FS: TopoDS_Face; uv: gp_Pnt2d; factor: Standard_Real): Standard_Boolean {.
+proc initialize*(this: var TopOpeBRepToolMakeTransition; e: TopoDS_Edge; pbef: float;
+                paft: float; parE: float; fs: TopoDS_Face; uv: Pnt2d; factor: float): bool {.
     importcpp: "Initialize", header: "TopOpeBRepTool_makeTransition.hxx".}
-proc Setfactor*(this: var TopOpeBRepTool_makeTransition; factor: Standard_Real) {.
+proc setfactor*(this: var TopOpeBRepToolMakeTransition; factor: float) {.
     importcpp: "Setfactor", header: "TopOpeBRepTool_makeTransition.hxx".}
-proc Getfactor*(this: TopOpeBRepTool_makeTransition): Standard_Real {.noSideEffect,
+proc getfactor*(this: TopOpeBRepToolMakeTransition): float {.noSideEffect,
     importcpp: "Getfactor", header: "TopOpeBRepTool_makeTransition.hxx".}
-proc IsT2d*(this: TopOpeBRepTool_makeTransition): Standard_Boolean {.noSideEffect,
+proc isT2d*(this: TopOpeBRepToolMakeTransition): bool {.noSideEffect,
     importcpp: "IsT2d", header: "TopOpeBRepTool_makeTransition.hxx".}
-proc SetRest*(this: var TopOpeBRepTool_makeTransition; ES: TopoDS_Edge;
-             parES: Standard_Real): Standard_Boolean {.importcpp: "SetRest",
-    header: "TopOpeBRepTool_makeTransition.hxx".}
-proc HasRest*(this: TopOpeBRepTool_makeTransition): Standard_Boolean {.noSideEffect,
+proc setRest*(this: var TopOpeBRepToolMakeTransition; es: TopoDS_Edge; parES: float): bool {.
+    importcpp: "SetRest", header: "TopOpeBRepTool_makeTransition.hxx".}
+proc hasRest*(this: TopOpeBRepToolMakeTransition): bool {.noSideEffect,
     importcpp: "HasRest", header: "TopOpeBRepTool_makeTransition.hxx".}
-proc MkT2donE*(this: TopOpeBRepTool_makeTransition; stb: var TopAbs_State;
-              sta: var TopAbs_State): Standard_Boolean {.noSideEffect,
-    importcpp: "MkT2donE", header: "TopOpeBRepTool_makeTransition.hxx".}
-proc MkT3onE*(this: TopOpeBRepTool_makeTransition; stb: var TopAbs_State;
-             sta: var TopAbs_State): Standard_Boolean {.noSideEffect,
-    importcpp: "MkT3onE", header: "TopOpeBRepTool_makeTransition.hxx".}
-proc MkT3dproj*(this: TopOpeBRepTool_makeTransition; stb: var TopAbs_State;
-               sta: var TopAbs_State): Standard_Boolean {.noSideEffect,
-    importcpp: "MkT3dproj", header: "TopOpeBRepTool_makeTransition.hxx".}
-proc MkTonE*(this: var TopOpeBRepTool_makeTransition; stb: var TopAbs_State;
-            sta: var TopAbs_State): Standard_Boolean {.importcpp: "MkTonE",
+proc mkT2donE*(this: TopOpeBRepToolMakeTransition; stb: var TopAbsState;
+              sta: var TopAbsState): bool {.noSideEffect, importcpp: "MkT2donE", header: "TopOpeBRepTool_makeTransition.hxx".}
+proc mkT3onE*(this: TopOpeBRepToolMakeTransition; stb: var TopAbsState;
+             sta: var TopAbsState): bool {.noSideEffect, importcpp: "MkT3onE", header: "TopOpeBRepTool_makeTransition.hxx".}
+proc mkT3dproj*(this: TopOpeBRepToolMakeTransition; stb: var TopAbsState;
+               sta: var TopAbsState): bool {.noSideEffect, importcpp: "MkT3dproj",
     header: "TopOpeBRepTool_makeTransition.hxx".}
+proc mkTonE*(this: var TopOpeBRepToolMakeTransition; stb: var TopAbsState;
+            sta: var TopAbsState): bool {.importcpp: "MkTonE", header: "TopOpeBRepTool_makeTransition.hxx".}

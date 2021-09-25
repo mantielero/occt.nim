@@ -14,49 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP214_HArray1OfAutoDesignPresentedItemSelect,
-  ../StepVisual/StepVisual_PresentedItem, ../Standard/Standard_Integer
-
 discard "forward decl of StepAP214_AutoDesignPresentedItemSelect"
 discard "forward decl of StepAP214_AutoDesignPresentedItem"
 discard "forward decl of StepAP214_AutoDesignPresentedItem"
 type
-  Handle_StepAP214_AutoDesignPresentedItem* = handle[
-      StepAP214_AutoDesignPresentedItem]
-  StepAP214_AutoDesignPresentedItem* {.importcpp: "StepAP214_AutoDesignPresentedItem", header: "StepAP214_AutoDesignPresentedItem.hxx",
-                                      bycopy.} = object of StepVisual_PresentedItem ## !
-                                                                               ## Returns a
-                                                                               ## AutoDesignPresentedItem
+  HandleStepAP214AutoDesignPresentedItem* = Handle[
+      StepAP214AutoDesignPresentedItem]
+  StepAP214AutoDesignPresentedItem* {.importcpp: "StepAP214_AutoDesignPresentedItem", header: "StepAP214_AutoDesignPresentedItem.hxx",
+                                     bycopy.} = object of StepVisualPresentedItem ## !
+                                                                             ## Returns a
+                                                                             ## AutoDesignPresentedItem
 
 
-proc constructStepAP214_AutoDesignPresentedItem*(): StepAP214_AutoDesignPresentedItem {.
+proc constructStepAP214AutoDesignPresentedItem*(): StepAP214AutoDesignPresentedItem {.
     constructor, importcpp: "StepAP214_AutoDesignPresentedItem(@)",
     header: "StepAP214_AutoDesignPresentedItem.hxx".}
-proc Init*(this: var StepAP214_AutoDesignPresentedItem;
-          aItems: handle[StepAP214_HArray1OfAutoDesignPresentedItemSelect]) {.
+proc init*(this: var StepAP214AutoDesignPresentedItem;
+          aItems: Handle[StepAP214HArray1OfAutoDesignPresentedItemSelect]) {.
     importcpp: "Init", header: "StepAP214_AutoDesignPresentedItem.hxx".}
-proc SetItems*(this: var StepAP214_AutoDesignPresentedItem;
-              aItems: handle[StepAP214_HArray1OfAutoDesignPresentedItemSelect]) {.
+proc setItems*(this: var StepAP214AutoDesignPresentedItem;
+              aItems: Handle[StepAP214HArray1OfAutoDesignPresentedItemSelect]) {.
     importcpp: "SetItems", header: "StepAP214_AutoDesignPresentedItem.hxx".}
-proc Items*(this: StepAP214_AutoDesignPresentedItem): handle[
-    StepAP214_HArray1OfAutoDesignPresentedItemSelect] {.noSideEffect,
+proc items*(this: StepAP214AutoDesignPresentedItem): Handle[
+    StepAP214HArray1OfAutoDesignPresentedItemSelect] {.noSideEffect,
     importcpp: "Items", header: "StepAP214_AutoDesignPresentedItem.hxx".}
-proc ItemsValue*(this: StepAP214_AutoDesignPresentedItem; num: Standard_Integer): StepAP214_AutoDesignPresentedItemSelect {.
+proc itemsValue*(this: StepAP214AutoDesignPresentedItem; num: int): StepAP214AutoDesignPresentedItemSelect {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AutoDesignPresentedItem.hxx".}
-proc NbItems*(this: StepAP214_AutoDesignPresentedItem): Standard_Integer {.
-    noSideEffect, importcpp: "NbItems",
-    header: "StepAP214_AutoDesignPresentedItem.hxx".}
+proc nbItems*(this: StepAP214AutoDesignPresentedItem): int {.noSideEffect,
+    importcpp: "NbItems", header: "StepAP214_AutoDesignPresentedItem.hxx".}
 type
-  StepAP214_AutoDesignPresentedItembase_type* = StepVisual_PresentedItem
+  StepAP214AutoDesignPresentedItembaseType* = StepVisualPresentedItem
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_AutoDesignPresentedItem::get_type_name(@)",
-                              header: "StepAP214_AutoDesignPresentedItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP214_AutoDesignPresentedItem::get_type_name(@)",
+                            header: "StepAP214_AutoDesignPresentedItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP214_AutoDesignPresentedItem::get_type_descriptor(@)",
     header: "StepAP214_AutoDesignPresentedItem.hxx".}
-proc DynamicType*(this: StepAP214_AutoDesignPresentedItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepAP214AutoDesignPresentedItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_AutoDesignPresentedItem.hxx".}

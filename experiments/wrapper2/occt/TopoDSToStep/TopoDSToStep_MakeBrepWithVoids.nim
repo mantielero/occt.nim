@@ -14,23 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopoDSToStep_Root, ../Message/Message_ProgressRange
-
 discard "forward decl of StepShape_BrepWithVoids"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Solid"
 discard "forward decl of Transfer_FinderProcess"
 type
-  TopoDSToStep_MakeBrepWithVoids* {.importcpp: "TopoDSToStep_MakeBrepWithVoids", header: "TopoDSToStep_MakeBrepWithVoids.hxx",
-                                   bycopy.} = object of TopoDSToStep_Root
+  TopoDSToStepMakeBrepWithVoids* {.importcpp: "TopoDSToStep_MakeBrepWithVoids",
+                                  header: "TopoDSToStep_MakeBrepWithVoids.hxx",
+                                  bycopy.} = object of TopoDSToStepRoot
 
 
-proc constructTopoDSToStep_MakeBrepWithVoids*(S: TopoDS_Solid;
-    FP: handle[Transfer_FinderProcess];
-    theProgress: Message_ProgressRange = Message_ProgressRange()): TopoDSToStep_MakeBrepWithVoids {.
+proc constructTopoDSToStepMakeBrepWithVoids*(s: TopoDS_Solid;
+    fp: Handle[TransferFinderProcess];
+    theProgress: MessageProgressRange = messageProgressRange()): TopoDSToStepMakeBrepWithVoids {.
     constructor, importcpp: "TopoDSToStep_MakeBrepWithVoids(@)",
     header: "TopoDSToStep_MakeBrepWithVoids.hxx".}
-proc Value*(this: TopoDSToStep_MakeBrepWithVoids): handle[StepShape_BrepWithVoids] {.
+proc value*(this: TopoDSToStepMakeBrepWithVoids): Handle[StepShapeBrepWithVoids] {.
     noSideEffect, importcpp: "Value", header: "TopoDSToStep_MakeBrepWithVoids.hxx".}

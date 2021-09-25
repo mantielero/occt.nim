@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of IGESDimen_Protocol"
 discard "forward decl of IGESDimen_CenterLine"
 discard "forward decl of IGESDimen_Section"
@@ -78,6 +74,6 @@ type
                                                                           ## package
 
 
-proc Init*() {.importcpp: "IGESDimen::Init(@)", header: "IGESDimen.hxx".}
-proc Protocol*(): handle[IGESDimen_Protocol] {.importcpp: "IGESDimen::Protocol(@)",
+proc init*() {.importcpp: "IGESDimen::Init(@)", header: "IGESDimen.hxx".}
+proc protocol*(): Handle[IGESDimenProtocol] {.importcpp: "IGESDimen::Protocol(@)",
     header: "IGESDimen.hxx".}

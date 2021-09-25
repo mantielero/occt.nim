@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../GeomAbs/GeomAbs_Shape,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ShapeCustom_Modification
-
 discard "forward decl of ShapeCustom_RestrictionParameters"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of Geom_Surface"
@@ -31,141 +26,122 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of ShapeCustom_BSplineRestriction"
 discard "forward decl of ShapeCustom_BSplineRestriction"
 type
-  Handle_ShapeCustom_BSplineRestriction* = handle[ShapeCustom_BSplineRestriction]
+  HandleShapeCustomBSplineRestriction* = Handle[ShapeCustomBSplineRestriction]
 
 ## ! this tool intended for aproximation surfaces, curves and pcurves with
 ## ! specified degree , max number of segments, tolerance 2d, tolerance 3d. Specified
 ## ! continuity can be reduced if approximation with specified continuity was not done.
 
 type
-  ShapeCustom_BSplineRestriction* {.importcpp: "ShapeCustom_BSplineRestriction", header: "ShapeCustom_BSplineRestriction.hxx",
-                                   bycopy.} = object of ShapeCustom_Modification ## !
-                                                                            ## Empty
-                                                                            ## constructor.
+  ShapeCustomBSplineRestriction* {.importcpp: "ShapeCustom_BSplineRestriction",
+                                  header: "ShapeCustom_BSplineRestriction.hxx",
+                                  bycopy.} = object of ShapeCustomModification ## ! Empty
+                                                                          ## constructor.
 
 
-proc constructShapeCustom_BSplineRestriction*(): ShapeCustom_BSplineRestriction {.
+proc constructShapeCustomBSplineRestriction*(): ShapeCustomBSplineRestriction {.
     constructor, importcpp: "ShapeCustom_BSplineRestriction(@)",
     header: "ShapeCustom_BSplineRestriction.hxx".}
-proc constructShapeCustom_BSplineRestriction*(
-    anApproxSurfaceFlag: Standard_Boolean; anApproxCurve3dFlag: Standard_Boolean;
-    anApproxCurve2dFlag: Standard_Boolean; aTol3d: Standard_Real;
-    aTol2d: Standard_Real; aContinuity3d: GeomAbs_Shape;
-    aContinuity2d: GeomAbs_Shape; aMaxDegree: Standard_Integer;
-    aNbMaxSeg: Standard_Integer; Degree: Standard_Boolean;
-    Rational: Standard_Boolean): ShapeCustom_BSplineRestriction {.constructor,
-    importcpp: "ShapeCustom_BSplineRestriction(@)",
-    header: "ShapeCustom_BSplineRestriction.hxx".}
-proc constructShapeCustom_BSplineRestriction*(
-    anApproxSurfaceFlag: Standard_Boolean; anApproxCurve3dFlag: Standard_Boolean;
-    anApproxCurve2dFlag: Standard_Boolean; aTol3d: Standard_Real;
-    aTol2d: Standard_Real; aContinuity3d: GeomAbs_Shape;
-    aContinuity2d: GeomAbs_Shape; aMaxDegree: Standard_Integer;
-    aNbMaxSeg: Standard_Integer; Degree: Standard_Boolean;
-    Rational: Standard_Boolean; aModes: handle[ShapeCustom_RestrictionParameters]): ShapeCustom_BSplineRestriction {.
+proc constructShapeCustomBSplineRestriction*(anApproxSurfaceFlag: bool;
+    anApproxCurve3dFlag: bool; anApproxCurve2dFlag: bool; aTol3d: float;
+    aTol2d: float; aContinuity3d: GeomAbsShape; aContinuity2d: GeomAbsShape;
+    aMaxDegree: int; aNbMaxSeg: int; degree: bool; rational: bool): ShapeCustomBSplineRestriction {.
     constructor, importcpp: "ShapeCustom_BSplineRestriction(@)",
     header: "ShapeCustom_BSplineRestriction.hxx".}
-proc NewSurface*(this: var ShapeCustom_BSplineRestriction; F: TopoDS_Face;
-                S: var handle[Geom_Surface]; L: var TopLoc_Location;
-                Tol: var Standard_Real; RevWires: var Standard_Boolean;
-                RevFace: var Standard_Boolean): Standard_Boolean {.
-    importcpp: "NewSurface", header: "ShapeCustom_BSplineRestriction.hxx".}
-proc NewCurve*(this: var ShapeCustom_BSplineRestriction; E: TopoDS_Edge;
-              C: var handle[Geom_Curve]; L: var TopLoc_Location;
-              Tol: var Standard_Real): Standard_Boolean {.importcpp: "NewCurve",
+proc constructShapeCustomBSplineRestriction*(anApproxSurfaceFlag: bool;
+    anApproxCurve3dFlag: bool; anApproxCurve2dFlag: bool; aTol3d: float;
+    aTol2d: float; aContinuity3d: GeomAbsShape; aContinuity2d: GeomAbsShape;
+    aMaxDegree: int; aNbMaxSeg: int; degree: bool; rational: bool;
+    aModes: Handle[ShapeCustomRestrictionParameters]): ShapeCustomBSplineRestriction {.
+    constructor, importcpp: "ShapeCustom_BSplineRestriction(@)",
     header: "ShapeCustom_BSplineRestriction.hxx".}
-proc NewCurve2d*(this: var ShapeCustom_BSplineRestriction; E: TopoDS_Edge;
-                F: TopoDS_Face; NewE: TopoDS_Edge; NewF: TopoDS_Face;
-                C: var handle[Geom2d_Curve]; Tol: var Standard_Real): Standard_Boolean {.
+proc newSurface*(this: var ShapeCustomBSplineRestriction; f: TopoDS_Face;
+                s: var Handle[GeomSurface]; L: var TopLocLocation; tol: var float;
+                revWires: var bool; revFace: var bool): bool {.importcpp: "NewSurface",
+    header: "ShapeCustom_BSplineRestriction.hxx".}
+proc newCurve*(this: var ShapeCustomBSplineRestriction; e: TopoDS_Edge;
+              c: var Handle[GeomCurve]; L: var TopLocLocation; tol: var float): bool {.
+    importcpp: "NewCurve", header: "ShapeCustom_BSplineRestriction.hxx".}
+proc newCurve2d*(this: var ShapeCustomBSplineRestriction; e: TopoDS_Edge;
+                f: TopoDS_Face; newE: TopoDS_Edge; newF: TopoDS_Face;
+                c: var Handle[Geom2dCurve]; tol: var float): bool {.
     importcpp: "NewCurve2d", header: "ShapeCustom_BSplineRestriction.hxx".}
-proc ConvertSurface*(this: var ShapeCustom_BSplineRestriction;
-                    aSurface: handle[Geom_Surface]; S: var handle[Geom_Surface];
-                    UF: Standard_Real; UL: Standard_Real; VF: Standard_Real;
-                    VL: Standard_Real; IsOf: Standard_Boolean = Standard_True): Standard_Boolean {.
+proc convertSurface*(this: var ShapeCustomBSplineRestriction;
+                    aSurface: Handle[GeomSurface]; s: var Handle[GeomSurface];
+                    uf: float; ul: float; vf: float; vl: float; isOf: bool = true): bool {.
     importcpp: "ConvertSurface", header: "ShapeCustom_BSplineRestriction.hxx".}
-proc ConvertCurve*(this: var ShapeCustom_BSplineRestriction;
-                  aCurve: handle[Geom_Curve]; C: var handle[Geom_Curve];
-                  IsConvert: Standard_Boolean; First: Standard_Real;
-                  Last: Standard_Real; TolCur: var Standard_Real;
-                  IsOf: Standard_Boolean = Standard_True): Standard_Boolean {.
-    importcpp: "ConvertCurve", header: "ShapeCustom_BSplineRestriction.hxx".}
-proc ConvertCurve2d*(this: var ShapeCustom_BSplineRestriction;
-                    aCurve: handle[Geom2d_Curve]; C: var handle[Geom2d_Curve];
-                    IsConvert: Standard_Boolean; First: Standard_Real;
-                    Last: Standard_Real; TolCur: var Standard_Real;
-                    IsOf: Standard_Boolean = Standard_True): Standard_Boolean {.
-    importcpp: "ConvertCurve2d", header: "ShapeCustom_BSplineRestriction.hxx".}
-proc SetTol3d*(this: var ShapeCustom_BSplineRestriction; Tol3d: Standard_Real) {.
+proc convertCurve*(this: var ShapeCustomBSplineRestriction;
+                  aCurve: Handle[GeomCurve]; c: var Handle[GeomCurve];
+                  isConvert: bool; first: float; last: float; tolCur: var float;
+                  isOf: bool = true): bool {.importcpp: "ConvertCurve", header: "ShapeCustom_BSplineRestriction.hxx".}
+proc convertCurve2d*(this: var ShapeCustomBSplineRestriction;
+                    aCurve: Handle[Geom2dCurve]; c: var Handle[Geom2dCurve];
+                    isConvert: bool; first: float; last: float; tolCur: var float;
+                    isOf: bool = true): bool {.importcpp: "ConvertCurve2d",
+    header: "ShapeCustom_BSplineRestriction.hxx".}
+proc setTol3d*(this: var ShapeCustomBSplineRestriction; tol3d: float) {.
     importcpp: "SetTol3d", header: "ShapeCustom_BSplineRestriction.hxx".}
-proc SetTol2d*(this: var ShapeCustom_BSplineRestriction; Tol2d: Standard_Real) {.
+proc setTol2d*(this: var ShapeCustomBSplineRestriction; tol2d: float) {.
     importcpp: "SetTol2d", header: "ShapeCustom_BSplineRestriction.hxx".}
-proc ModifyApproxSurfaceFlag*(this: var ShapeCustom_BSplineRestriction): var Standard_Boolean {.
+proc modifyApproxSurfaceFlag*(this: var ShapeCustomBSplineRestriction): var bool {.
     importcpp: "ModifyApproxSurfaceFlag",
     header: "ShapeCustom_BSplineRestriction.hxx".}
-proc ModifyApproxCurve3dFlag*(this: var ShapeCustom_BSplineRestriction): var Standard_Boolean {.
+proc modifyApproxCurve3dFlag*(this: var ShapeCustomBSplineRestriction): var bool {.
     importcpp: "ModifyApproxCurve3dFlag",
     header: "ShapeCustom_BSplineRestriction.hxx".}
-proc ModifyApproxCurve2dFlag*(this: var ShapeCustom_BSplineRestriction): var Standard_Boolean {.
+proc modifyApproxCurve2dFlag*(this: var ShapeCustomBSplineRestriction): var bool {.
     importcpp: "ModifyApproxCurve2dFlag",
     header: "ShapeCustom_BSplineRestriction.hxx".}
-proc SetContinuity3d*(this: var ShapeCustom_BSplineRestriction;
-                     Continuity3d: GeomAbs_Shape) {.importcpp: "SetContinuity3d",
+proc setContinuity3d*(this: var ShapeCustomBSplineRestriction;
+                     continuity3d: GeomAbsShape) {.importcpp: "SetContinuity3d",
     header: "ShapeCustom_BSplineRestriction.hxx".}
-proc SetContinuity2d*(this: var ShapeCustom_BSplineRestriction;
-                     Continuity2d: GeomAbs_Shape) {.importcpp: "SetContinuity2d",
+proc setContinuity2d*(this: var ShapeCustomBSplineRestriction;
+                     continuity2d: GeomAbsShape) {.importcpp: "SetContinuity2d",
     header: "ShapeCustom_BSplineRestriction.hxx".}
-proc SetMaxDegree*(this: var ShapeCustom_BSplineRestriction;
-                  MaxDegree: Standard_Integer) {.importcpp: "SetMaxDegree",
-    header: "ShapeCustom_BSplineRestriction.hxx".}
-proc SetMaxNbSegments*(this: var ShapeCustom_BSplineRestriction;
-                      MaxNbSegments: Standard_Integer) {.
+proc setMaxDegree*(this: var ShapeCustomBSplineRestriction; maxDegree: int) {.
+    importcpp: "SetMaxDegree", header: "ShapeCustom_BSplineRestriction.hxx".}
+proc setMaxNbSegments*(this: var ShapeCustomBSplineRestriction; maxNbSegments: int) {.
     importcpp: "SetMaxNbSegments", header: "ShapeCustom_BSplineRestriction.hxx".}
-proc SetPriority*(this: var ShapeCustom_BSplineRestriction; Degree: Standard_Boolean) {.
+proc setPriority*(this: var ShapeCustomBSplineRestriction; degree: bool) {.
     importcpp: "SetPriority", header: "ShapeCustom_BSplineRestriction.hxx".}
-proc SetConvRational*(this: var ShapeCustom_BSplineRestriction;
-                     Rational: Standard_Boolean) {.importcpp: "SetConvRational",
-    header: "ShapeCustom_BSplineRestriction.hxx".}
-proc GetRestrictionParameters*(this: ShapeCustom_BSplineRestriction): handle[
-    ShapeCustom_RestrictionParameters] {.noSideEffect,
-                                        importcpp: "GetRestrictionParameters", header: "ShapeCustom_BSplineRestriction.hxx".}
-proc SetRestrictionParameters*(this: var ShapeCustom_BSplineRestriction;
-                              aModes: handle[ShapeCustom_RestrictionParameters]) {.
+proc setConvRational*(this: var ShapeCustomBSplineRestriction; rational: bool) {.
+    importcpp: "SetConvRational", header: "ShapeCustom_BSplineRestriction.hxx".}
+proc getRestrictionParameters*(this: ShapeCustomBSplineRestriction): Handle[
+    ShapeCustomRestrictionParameters] {.noSideEffect,
+                                       importcpp: "GetRestrictionParameters", header: "ShapeCustom_BSplineRestriction.hxx".}
+proc setRestrictionParameters*(this: var ShapeCustomBSplineRestriction;
+                              aModes: Handle[ShapeCustomRestrictionParameters]) {.
     importcpp: "SetRestrictionParameters",
     header: "ShapeCustom_BSplineRestriction.hxx".}
-proc Curve3dError*(this: ShapeCustom_BSplineRestriction): Standard_Real {.
-    noSideEffect, importcpp: "Curve3dError",
-    header: "ShapeCustom_BSplineRestriction.hxx".}
-proc Curve2dError*(this: ShapeCustom_BSplineRestriction): Standard_Real {.
-    noSideEffect, importcpp: "Curve2dError",
-    header: "ShapeCustom_BSplineRestriction.hxx".}
-proc SurfaceError*(this: ShapeCustom_BSplineRestriction): Standard_Real {.
-    noSideEffect, importcpp: "SurfaceError",
-    header: "ShapeCustom_BSplineRestriction.hxx".}
-proc NewPoint*(this: var ShapeCustom_BSplineRestriction; V: TopoDS_Vertex;
-              P: var gp_Pnt; Tol: var Standard_Real): Standard_Boolean {.
-    importcpp: "NewPoint", header: "ShapeCustom_BSplineRestriction.hxx".}
-proc NewParameter*(this: var ShapeCustom_BSplineRestriction; V: TopoDS_Vertex;
-                  E: TopoDS_Edge; P: var Standard_Real; Tol: var Standard_Real): Standard_Boolean {.
+proc curve3dError*(this: ShapeCustomBSplineRestriction): float {.noSideEffect,
+    importcpp: "Curve3dError", header: "ShapeCustom_BSplineRestriction.hxx".}
+proc curve2dError*(this: ShapeCustomBSplineRestriction): float {.noSideEffect,
+    importcpp: "Curve2dError", header: "ShapeCustom_BSplineRestriction.hxx".}
+proc surfaceError*(this: ShapeCustomBSplineRestriction): float {.noSideEffect,
+    importcpp: "SurfaceError", header: "ShapeCustom_BSplineRestriction.hxx".}
+proc newPoint*(this: var ShapeCustomBSplineRestriction; v: TopoDS_Vertex; p: var Pnt;
+              tol: var float): bool {.importcpp: "NewPoint",
+                                  header: "ShapeCustom_BSplineRestriction.hxx".}
+proc newParameter*(this: var ShapeCustomBSplineRestriction; v: TopoDS_Vertex;
+                  e: TopoDS_Edge; p: var float; tol: var float): bool {.
     importcpp: "NewParameter", header: "ShapeCustom_BSplineRestriction.hxx".}
-proc Continuity*(this: var ShapeCustom_BSplineRestriction; E: TopoDS_Edge;
-                F1: TopoDS_Face; F2: TopoDS_Face; NewE: TopoDS_Edge;
-                NewF1: TopoDS_Face; NewF2: TopoDS_Face): GeomAbs_Shape {.
+proc continuity*(this: var ShapeCustomBSplineRestriction; e: TopoDS_Edge;
+                f1: TopoDS_Face; f2: TopoDS_Face; newE: TopoDS_Edge;
+                newF1: TopoDS_Face; newF2: TopoDS_Face): GeomAbsShape {.
     importcpp: "Continuity", header: "ShapeCustom_BSplineRestriction.hxx".}
-proc MaxErrors*(this: ShapeCustom_BSplineRestriction;
-               aCurve3dErr: var Standard_Real; aCurve2dErr: var Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "MaxErrors",
+proc maxErrors*(this: ShapeCustomBSplineRestriction; aCurve3dErr: var float;
+               aCurve2dErr: var float): float {.noSideEffect, importcpp: "MaxErrors",
     header: "ShapeCustom_BSplineRestriction.hxx".}
-proc NbOfSpan*(this: ShapeCustom_BSplineRestriction): Standard_Integer {.
-    noSideEffect, importcpp: "NbOfSpan",
-    header: "ShapeCustom_BSplineRestriction.hxx".}
+proc nbOfSpan*(this: ShapeCustomBSplineRestriction): int {.noSideEffect,
+    importcpp: "NbOfSpan", header: "ShapeCustom_BSplineRestriction.hxx".}
 type
-  ShapeCustom_BSplineRestrictionbase_type* = ShapeCustom_Modification
+  ShapeCustomBSplineRestrictionbaseType* = ShapeCustomModification
 
-proc get_type_name*(): cstring {.importcpp: "ShapeCustom_BSplineRestriction::get_type_name(@)",
-                              header: "ShapeCustom_BSplineRestriction.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeCustom_BSplineRestriction::get_type_name(@)",
+                            header: "ShapeCustom_BSplineRestriction.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeCustom_BSplineRestriction::get_type_descriptor(@)",
     header: "ShapeCustom_BSplineRestriction.hxx".}
-proc DynamicType*(this: ShapeCustom_BSplineRestriction): handle[Standard_Type] {.
+proc dynamicType*(this: ShapeCustomBSplineRestriction): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeCustom_BSplineRestriction.hxx".}

@@ -14,104 +14,96 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Circ2d, gce_Root,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Ax22d"
 discard "forward decl of gp_Circ2d"
 discard "forward decl of gp_Pnt2d"
 type
-  gce_MakeCirc2d* {.importcpp: "gce_MakeCirc2d", header: "gce_MakeCirc2d.hxx", bycopy.} = object of gce_Root ##
-                                                                                                   ## !
-                                                                                                   ## The
-                                                                                                   ## location
-                                                                                                   ## point
-                                                                                                   ## of
-                                                                                                   ## XAxis
-                                                                                                   ## is
-                                                                                                   ## the
-                                                                                                   ## center
-                                                                                                   ## of
-                                                                                                   ## the
-                                                                                                   ## circle.
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## Warnings
-                                                                                                   ## :
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## It
-                                                                                                   ## is
-                                                                                                   ## not
-                                                                                                   ## forbidden
-                                                                                                   ## to
-                                                                                                   ## create
-                                                                                                   ## a
-                                                                                                   ## circle
-                                                                                                   ## with
-                                                                                                   ## Radius
-                                                                                                   ## =
-                                                                                                   ## 0.0
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## If
-                                                                                                   ## Sense
-                                                                                                   ## is
-                                                                                                   ## true
-                                                                                                   ## the
-                                                                                                   ## local
-                                                                                                   ## coordinate
-                                                                                                   ## system
-                                                                                                   ## of
-                                                                                                   ## the
-                                                                                                   ## solution
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## is
-                                                                                                   ## direct
-                                                                                                   ## and
-                                                                                                   ## non
-                                                                                                   ## direct
-                                                                                                   ## in
-                                                                                                   ## the
-                                                                                                   ## other
-                                                                                                   ## case.
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## The
-                                                                                                   ## status
-                                                                                                   ## is
-                                                                                                   ## "NegativeRadius"
-                                                                                                   ## if
-                                                                                                   ## Radius
-                                                                                                   ## <
-                                                                                                   ## 0.0.
+  GceMakeCirc2d* {.importcpp: "gce_MakeCirc2d", header: "gce_MakeCirc2d.hxx", bycopy.} = object of GceRoot ##
+                                                                                                 ## !
+                                                                                                 ## The
+                                                                                                 ## location
+                                                                                                 ## point
+                                                                                                 ## of
+                                                                                                 ## XAxis
+                                                                                                 ## is
+                                                                                                 ## the
+                                                                                                 ## center
+                                                                                                 ## of
+                                                                                                 ## the
+                                                                                                 ## circle.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Warnings
+                                                                                                 ## :
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## It
+                                                                                                 ## is
+                                                                                                 ## not
+                                                                                                 ## forbidden
+                                                                                                 ## to
+                                                                                                 ## create
+                                                                                                 ## a
+                                                                                                 ## circle
+                                                                                                 ## with
+                                                                                                 ## Radius
+                                                                                                 ## =
+                                                                                                 ## 0.0
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## If
+                                                                                                 ## Sense
+                                                                                                 ## is
+                                                                                                 ## true
+                                                                                                 ## the
+                                                                                                 ## local
+                                                                                                 ## coordinate
+                                                                                                 ## system
+                                                                                                 ## of
+                                                                                                 ## the
+                                                                                                 ## solution
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## is
+                                                                                                 ## direct
+                                                                                                 ## and
+                                                                                                 ## non
+                                                                                                 ## direct
+                                                                                                 ## in
+                                                                                                 ## the
+                                                                                                 ## other
+                                                                                                 ## case.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## The
+                                                                                                 ## status
+                                                                                                 ## is
+                                                                                                 ## "NegativeRadius"
+                                                                                                 ## if
+                                                                                                 ## Radius
+                                                                                                 ## <
+                                                                                                 ## 0.0.
 
 
-proc constructgce_MakeCirc2d*(XAxis: gp_Ax2d; Radius: Standard_Real;
-                             Sense: Standard_Boolean = Standard_True): gce_MakeCirc2d {.
+proc constructGceMakeCirc2d*(xAxis: Ax2d; radius: float; sense: bool = true): GceMakeCirc2d {.
     constructor, importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
-proc constructgce_MakeCirc2d*(Axis: gp_Ax22d; Radius: Standard_Real): gce_MakeCirc2d {.
+proc constructGceMakeCirc2d*(axis: Ax22d; radius: float): GceMakeCirc2d {.constructor,
+    importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
+proc constructGceMakeCirc2d*(circ: Circ2d; dist: float): GceMakeCirc2d {.constructor,
+    importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
+proc constructGceMakeCirc2d*(circ: Circ2d; point: Pnt2d): GceMakeCirc2d {.constructor,
+    importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
+proc constructGceMakeCirc2d*(p1: Pnt2d; p2: Pnt2d; p3: Pnt2d): GceMakeCirc2d {.
     constructor, importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
-proc constructgce_MakeCirc2d*(Circ: gp_Circ2d; Dist: Standard_Real): gce_MakeCirc2d {.
+proc constructGceMakeCirc2d*(center: Pnt2d; radius: float; sense: bool = true): GceMakeCirc2d {.
     constructor, importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
-proc constructgce_MakeCirc2d*(Circ: gp_Circ2d; Point: gp_Pnt2d): gce_MakeCirc2d {.
+proc constructGceMakeCirc2d*(center: Pnt2d; point: Pnt2d; sense: bool = true): GceMakeCirc2d {.
     constructor, importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
-proc constructgce_MakeCirc2d*(P1: gp_Pnt2d; P2: gp_Pnt2d; P3: gp_Pnt2d): gce_MakeCirc2d {.
-    constructor, importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
-proc constructgce_MakeCirc2d*(Center: gp_Pnt2d; Radius: Standard_Real;
-                             Sense: Standard_Boolean = Standard_True): gce_MakeCirc2d {.
-    constructor, importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
-proc constructgce_MakeCirc2d*(Center: gp_Pnt2d; Point: gp_Pnt2d;
-                             Sense: Standard_Boolean = Standard_True): gce_MakeCirc2d {.
-    constructor, importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
-proc Value*(this: gce_MakeCirc2d): gp_Circ2d {.noSideEffect, importcpp: "Value",
+proc value*(this: GceMakeCirc2d): Circ2d {.noSideEffect, importcpp: "Value",
+                                       header: "gce_MakeCirc2d.hxx".}
+proc operator*(this: GceMakeCirc2d): Circ2d {.noSideEffect, importcpp: "Operator",
     header: "gce_MakeCirc2d.hxx".}
-proc Operator*(this: gce_MakeCirc2d): gp_Circ2d {.noSideEffect,
-    importcpp: "Operator", header: "gce_MakeCirc2d.hxx".}
-converter `gp_Circ2d`*(this: gce_MakeCirc2d): gp_Circ2d {.noSideEffect,
+converter `circ2d`*(this: GceMakeCirc2d): Circ2d {.noSideEffect,
     importcpp: "gce_MakeCirc2d::operator gp_Circ2d", header: "gce_MakeCirc2d.hxx".}

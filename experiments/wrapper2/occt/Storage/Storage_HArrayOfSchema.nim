@@ -14,37 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Storage_Schema, Storage_ArrayOfSchema, ../NCollection/NCollection_DefineHArray1
-
 type
-  Storage_HArrayOfSchema* {.importcpp: "Storage_HArrayOfSchema",
-                           header: "Storage_HArrayOfSchema.hxx", bycopy.} = object of Storage_ArrayOfSchema
+  StorageHArrayOfSchema* {.importcpp: "Storage_HArrayOfSchema",
+                          header: "Storage_HArrayOfSchema.hxx", bycopy.} = object of StorageArrayOfSchema
 
 
-proc constructStorage_HArrayOfSchema*(theLower: Standard_Integer;
-                                     theUpper: Standard_Integer): Storage_HArrayOfSchema {.
+proc constructStorageHArrayOfSchema*(theLower: int; theUpper: int): StorageHArrayOfSchema {.
     constructor, importcpp: "Storage_HArrayOfSchema(@)",
     header: "Storage_HArrayOfSchema.hxx".}
-proc constructStorage_HArrayOfSchema*(theLower: Standard_Integer;
-                                     theUpper: Standard_Integer;
-                                     theValue: value_type): Storage_HArrayOfSchema {.
+proc constructStorageHArrayOfSchema*(theLower: int; theUpper: int;
+                                    theValue: ValueType): StorageHArrayOfSchema {.
     constructor, importcpp: "Storage_HArrayOfSchema(@)",
     header: "Storage_HArrayOfSchema.hxx".}
-proc constructStorage_HArrayOfSchema*(theOther: Storage_ArrayOfSchema): Storage_HArrayOfSchema {.
+proc constructStorageHArrayOfSchema*(theOther: StorageArrayOfSchema): StorageHArrayOfSchema {.
     constructor, importcpp: "Storage_HArrayOfSchema(@)",
     header: "Storage_HArrayOfSchema.hxx".}
-proc Array1*(this: Storage_HArrayOfSchema): Storage_ArrayOfSchema {.noSideEffect,
+proc array1*(this: StorageHArrayOfSchema): StorageArrayOfSchema {.noSideEffect,
     importcpp: "Array1", header: "Storage_HArrayOfSchema.hxx".}
-proc ChangeArray1*(this: var Storage_HArrayOfSchema): var Storage_ArrayOfSchema {.
+proc changeArray1*(this: var StorageHArrayOfSchema): var StorageArrayOfSchema {.
     importcpp: "ChangeArray1", header: "Storage_HArrayOfSchema.hxx".}
 type
-  Storage_HArrayOfSchemabase_type* = MMgt_TShared
+  StorageHArrayOfSchemabaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "Storage_HArrayOfSchema::get_type_name(@)",
-                              header: "Storage_HArrayOfSchema.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Storage_HArrayOfSchema::get_type_name(@)",
+                            header: "Storage_HArrayOfSchema.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Storage_HArrayOfSchema::get_type_descriptor(@)",
     header: "Storage_HArrayOfSchema.hxx".}
-proc DynamicType*(this: Storage_HArrayOfSchema): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Storage_HArrayOfSchema.hxx".}
+proc dynamicType*(this: StorageHArrayOfSchema): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Storage_HArrayOfSchema.hxx".}

@@ -14,32 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_RevolvedFaceSolid"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShape_RWRevolvedFaceSolid* {.importcpp: "RWStepShape_RWRevolvedFaceSolid", header: "RWStepShape_RWRevolvedFaceSolid.hxx",
-                                    bycopy.} = object
+  RWStepShapeRWRevolvedFaceSolid* {.importcpp: "RWStepShape_RWRevolvedFaceSolid", header: "RWStepShape_RWRevolvedFaceSolid.hxx",
+                                   bycopy.} = object
 
 
-proc constructRWStepShape_RWRevolvedFaceSolid*(): RWStepShape_RWRevolvedFaceSolid {.
+proc constructRWStepShapeRWRevolvedFaceSolid*(): RWStepShapeRWRevolvedFaceSolid {.
     constructor, importcpp: "RWStepShape_RWRevolvedFaceSolid(@)",
     header: "RWStepShape_RWRevolvedFaceSolid.hxx".}
-proc ReadStep*(this: RWStepShape_RWRevolvedFaceSolid;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepShape_RevolvedFaceSolid]) {.noSideEffect,
+proc readStep*(this: RWStepShapeRWRevolvedFaceSolid;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepShapeRevolvedFaceSolid]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWRevolvedFaceSolid.hxx".}
-proc WriteStep*(this: RWStepShape_RWRevolvedFaceSolid; SW: var StepData_StepWriter;
-               ent: handle[StepShape_RevolvedFaceSolid]) {.noSideEffect,
+proc writeStep*(this: RWStepShapeRWRevolvedFaceSolid; sw: var StepDataStepWriter;
+               ent: Handle[StepShapeRevolvedFaceSolid]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWRevolvedFaceSolid.hxx".}
-proc Share*(this: RWStepShape_RWRevolvedFaceSolid;
-           ent: handle[StepShape_RevolvedFaceSolid];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepShapeRWRevolvedFaceSolid;
+           ent: Handle[StepShapeRevolvedFaceSolid];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWRevolvedFaceSolid.hxx".}

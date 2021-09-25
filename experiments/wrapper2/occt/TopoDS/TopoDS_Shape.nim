@@ -14,14 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_DefineAlloc, ../Standard/Standard_Handle, ../TopAbs/TopAbs,
-  ../TopAbs/TopAbs_Orientation, ../TopLoc/TopLoc_Location, TopoDS_TShape
-
 ##  resolve name collisions with X11 headers
 
-when defined(Convex):
-  discard
+# when defined(Convex):
+#   discard
 ## ! Describes a shape which
 ## ! - references an underlying shape with the potential
 ## ! to be given a location and an orientation
@@ -80,19 +76,20 @@ proc constructTopoDS_Shape*(): TopoDS_Shape {.constructor,
 ## Error: identifier expected, but got: ! Generalized move constructor, accepting also sub-classes
 ## ! (TopoDS_Shape hierarchy declares only fake sub-classes with no extra fields).!!!
 
-proc EmptyCopy*(this: var TopoDS_Shape) {.importcpp: "EmptyCopy",
+proc emptyCopy*(this: var TopoDS_Shape) {.importcpp: "EmptyCopy",
                                       header: "TopoDS_Shape.hxx".}
-proc EmptyCopied*(this: TopoDS_Shape): TopoDS_Shape {.noSideEffect,
+proc emptyCopied*(this: TopoDS_Shape): TopoDS_Shape {.noSideEffect,
     importcpp: "EmptyCopied", header: "TopoDS_Shape.hxx".}
-proc TShape*(this: var TopoDS_Shape; theTShape: handle[TopoDS_TShape]) {.
+proc tShape*(this: var TopoDS_Shape; theTShape: Handle[TopoDS_TShape]) {.
     importcpp: "TShape", header: "TopoDS_Shape.hxx".}
-proc DumpJson*(this: TopoDS_Shape; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TopoDS_Shape.hxx".}
+proc dumpJson*(this: TopoDS_Shape; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TopoDS_Shape.hxx".}
 ## ! Computes a hash code for the given shape, in the range [1, theUpperBound]
 ## ! @param theShape the shape which hash code is to be computed
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
-proc HashCode*(theShape: TopoDS_Shape; theUpperBound: Standard_Integer): Standard_Integer =
+proc hashCode*(theShape: TopoDS_Shape; theUpperBound: int): int =
   discard
+

@@ -14,21 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean
-
 ## ! This class implements the common services for
 ## ! all classes of TopoDSToStep which report error.
 
 type
-  TopoDSToStep_Root* {.importcpp: "TopoDSToStep_Root",
-                      header: "TopoDSToStep_Root.hxx", bycopy.} = object ## ! Returns (modifiable) the tolerance to be used for writing
-                                                                    ## ! If not set, starts at 0.0001
+  TopoDSToStepRoot* {.importcpp: "TopoDSToStep_Root",
+                     header: "TopoDSToStep_Root.hxx", bycopy.} = object ## ! Returns (modifiable) the tolerance to be used for writing
+                                                                   ## ! If not set, starts at 0.0001
 
 
-proc Tolerance*(this: var TopoDSToStep_Root): var Standard_Real {.
-    importcpp: "Tolerance", header: "TopoDSToStep_Root.hxx".}
-proc IsDone*(this: TopoDSToStep_Root): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "TopoDSToStep_Root.hxx".}
+proc tolerance*(this: var TopoDSToStepRoot): var float {.importcpp: "Tolerance",
+    header: "TopoDSToStep_Root.hxx".}
+proc isDone*(this: TopoDSToStepRoot): bool {.noSideEffect, importcpp: "IsDone",
+    header: "TopoDSToStep_Root.hxx".}

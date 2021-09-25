@@ -13,67 +13,62 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Font_FontAspect, ../Standard/Standard, ../Standard/Standard_Type,
-  ../Standard/Standard_Transient, ../TCollection/TCollection_AsciiString
-
 ## ! This class stores information about the font, which is merely a file path and cached metadata about the font.
 
 type
-  Font_SystemFont* {.importcpp: "Font_SystemFont", header: "Font_SystemFont.hxx",
-                    bycopy.} = object of Standard_Transient ## ! Creates a new font object.
-                                                       ## ! Computes a hash code for the system font, in the range [1, theUpperBound]. Based on Font Family, so that the whole
-                                                       ## ! family with different aspects can be found within the same bucket of some map
-                                                       ## ! @param theSystemFont the system font which hash code is to be computed
-                                                       ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
-                                                       ## ! @return a computed hash code, in the range [1, theUpperBound]
+  FontSystemFont* {.importcpp: "Font_SystemFont", header: "Font_SystemFont.hxx",
+                   bycopy.} = object of StandardTransient ## ! Creates a new font object.
+                                                     ## ! Computes a hash code for the system font, in the range [1, theUpperBound]. Based on Font Family, so that the whole
+                                                     ## ! family with different aspects can be found within the same bucket of some map
+                                                     ## ! @param theSystemFont the system font which hash code is to be computed
+                                                     ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
+                                                     ## ! @return a computed hash code, in the range [1, theUpperBound]
     ## !< paths to the font file
     ## !< face ids per font file
     ## !< font family name, lower cased
     ## !< font family name
     ## !< single stroke font flag, FALSE by default
 
-  Font_SystemFontbase_type* = Standard_Transient
+  FontSystemFontbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Font_SystemFont::get_type_name(@)",
-                              header: "Font_SystemFont.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Font_SystemFont::get_type_name(@)",
+                            header: "Font_SystemFont.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Font_SystemFont::get_type_descriptor(@)",
     header: "Font_SystemFont.hxx".}
-proc DynamicType*(this: Font_SystemFont): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: FontSystemFont): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Font_SystemFont.hxx".}
-proc constructFont_SystemFont*(theFontName: TCollection_AsciiString): Font_SystemFont {.
+proc constructFontSystemFont*(theFontName: TCollectionAsciiString): FontSystemFont {.
     constructor, importcpp: "Font_SystemFont(@)", header: "Font_SystemFont.hxx".}
-proc FontKey*(this: Font_SystemFont): TCollection_AsciiString {.noSideEffect,
+proc fontKey*(this: FontSystemFont): TCollectionAsciiString {.noSideEffect,
     importcpp: "FontKey", header: "Font_SystemFont.hxx".}
-proc FontName*(this: Font_SystemFont): TCollection_AsciiString {.noSideEffect,
+proc fontName*(this: FontSystemFont): TCollectionAsciiString {.noSideEffect,
     importcpp: "FontName", header: "Font_SystemFont.hxx".}
-proc FontPath*(this: Font_SystemFont; theAspect: Font_FontAspect): TCollection_AsciiString {.
+proc fontPath*(this: FontSystemFont; theAspect: FontFontAspect): TCollectionAsciiString {.
     noSideEffect, importcpp: "FontPath", header: "Font_SystemFont.hxx".}
-proc FontFaceId*(this: Font_SystemFont; theAspect: Font_FontAspect): Standard_Integer {.
-    noSideEffect, importcpp: "FontFaceId", header: "Font_SystemFont.hxx".}
-proc SetFontPath*(this: var Font_SystemFont; theAspect: Font_FontAspect;
-                 thePath: TCollection_AsciiString; theFaceId: Standard_Integer = 0) {.
+proc fontFaceId*(this: FontSystemFont; theAspect: FontFontAspect): int {.noSideEffect,
+    importcpp: "FontFaceId", header: "Font_SystemFont.hxx".}
+proc setFontPath*(this: var FontSystemFont; theAspect: FontFontAspect;
+                 thePath: TCollectionAsciiString; theFaceId: int = 0) {.
     importcpp: "SetFontPath", header: "Font_SystemFont.hxx".}
-proc HasFontAspect*(this: Font_SystemFont; theAspect: Font_FontAspect): bool {.
+proc hasFontAspect*(this: FontSystemFont; theAspect: FontFontAspect): bool {.
     noSideEffect, importcpp: "HasFontAspect", header: "Font_SystemFont.hxx".}
-proc FontPathAny*(this: Font_SystemFont; theAspect: Font_FontAspect;
-                 theToSynthesizeItalic: var bool; theFaceId: var Standard_Integer): TCollection_AsciiString {.
+proc fontPathAny*(this: FontSystemFont; theAspect: FontFontAspect;
+                 theToSynthesizeItalic: var bool; theFaceId: var int): TCollectionAsciiString {.
     noSideEffect, importcpp: "FontPathAny", header: "Font_SystemFont.hxx".}
-proc IsEqual*(this: Font_SystemFont; theOtherFont: handle[Font_SystemFont]): Standard_Boolean {.
+proc isEqual*(this: FontSystemFont; theOtherFont: Handle[FontSystemFont]): bool {.
     noSideEffect, importcpp: "IsEqual", header: "Font_SystemFont.hxx".}
-proc IsSingleStrokeFont*(this: Font_SystemFont): Standard_Boolean {.noSideEffect,
+proc isSingleStrokeFont*(this: FontSystemFont): bool {.noSideEffect,
     importcpp: "IsSingleStrokeFont", header: "Font_SystemFont.hxx".}
-proc SetSingleStrokeFont*(this: var Font_SystemFont;
-                         theIsSingleLine: Standard_Boolean) {.
+proc setSingleStrokeFont*(this: var FontSystemFont; theIsSingleLine: bool) {.
     importcpp: "SetSingleStrokeFont", header: "Font_SystemFont.hxx".}
-proc ToString*(this: Font_SystemFont): TCollection_AsciiString {.noSideEffect,
+proc toString*(this: FontSystemFont): TCollectionAsciiString {.noSideEffect,
     importcpp: "ToString", header: "Font_SystemFont.hxx".}
-proc HashCode*(theSystemFont: handle[Font_SystemFont];
-              theUpperBound: Standard_Integer): Standard_Integer {.
+proc hashCode*(theSystemFont: Handle[FontSystemFont]; theUpperBound: int): int {.
     importcpp: "Font_SystemFont::HashCode(@)", header: "Font_SystemFont.hxx".}
-proc IsEqual*(theFont1: handle[Font_SystemFont]; theFont2: handle[Font_SystemFont]): bool {.
+proc isEqual*(theFont1: Handle[FontSystemFont]; theFont2: Handle[FontSystemFont]): bool {.
     importcpp: "Font_SystemFont::IsEqual(@)", header: "Font_SystemFont.hxx".}
 discard "forward decl of Font_SystemFont"
 type
-  Handle_Font_SystemFont* = handle[Font_SystemFont]
+  HandleFontSystemFont* = Handle[FontSystemFont]
+

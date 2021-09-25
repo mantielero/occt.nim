@@ -14,20 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  AIS_DataMapOfIOStatus, AIS_DisplayMode, AIS_DisplayStatus, AIS_ClearMode,
-  AIS_KindOfInteractive, AIS_ListOfInteractive, AIS_Selection,
-  AIS_SelectionModesConcurrency, AIS_StatusOfDetection, AIS_StatusOfPick,
-  AIS_TypeOfIso, ../Aspect/Aspect_TypeOfFacingModel, ../Prs3d/Prs3d_Drawer,
-  ../Prs3d/Prs3d_TypeOfHighlight, ../PrsMgr/PrsMgr_PresentationManager3d,
-  ../SelectMgr/SelectMgr_AndOrFilter, ../SelectMgr/SelectMgr_IndexedMapOfOwner,
-  ../SelectMgr/SelectMgr_ListOfFilter, ../SelectMgr/SelectMgr_PickingStrategy,
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StdSelect/StdSelect_ViewerSelector3d,
-  ../TCollection/TCollection_AsciiString, ../TColgp/TColgp_Array1OfPnt2d,
-  ../TColStd/TColStd_ListOfInteger, ../TopAbs/TopAbs_ShapeEnum,
-  ../Quantity/Quantity_Color
-
 discard "forward decl of SelectMgr_SelectionManager"
 discard "forward decl of V3d_Viewer"
 discard "forward decl of V3d_View"
@@ -40,1072 +26,1055 @@ discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of SelectMgr_Filter"
 type
   AIS_InteractiveContext* {.importcpp: "AIS_InteractiveContext",
-                           header: "AIS_InteractiveContext.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## object
-                                                                                                  ## display
-                                                                                                  ## management
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Constructs
-                                                                                                  ## the
-                                                                                                  ## interactive
-                                                                                                  ## context
-                                                                                                  ## object
-                                                                                                  ## defined
-                                                                                                  ## by
-                                                                                                  ## the
-                                                                                                  ## principal
-                                                                                                  ## viewer
-                                                                                                  ## MainViewer.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## highlighting
-                                                                                                  ## management
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Returns
-                                                                                                  ## highlight
-                                                                                                  ## style
-                                                                                                  ## settings.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## object
-                                                                                                  ## presence
-                                                                                                  ## management
-                                                                                                  ## (View
-                                                                                                  ## affinity,
-                                                                                                  ## Layer,
-                                                                                                  ## Priority)
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Returns
-                                                                                                  ## the
-                                                                                                  ## display
-                                                                                                  ## priority
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## Object.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## Display
-                                                                                                  ## Mode
-                                                                                                  ## management
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Returns
-                                                                                                  ## the
-                                                                                                  ## Display
-                                                                                                  ## Mode
-                                                                                                  ## setting
-                                                                                                  ## to
-                                                                                                  ## be
-                                                                                                  ## used
-                                                                                                  ## by
-                                                                                                  ## default.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## object
-                                                                                                  ## local
-                                                                                                  ## transformation
-                                                                                                  ## management
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Puts
-                                                                                                  ## the
-                                                                                                  ## location
-                                                                                                  ## on
-                                                                                                  ## the
-                                                                                                  ## initial
-                                                                                                  ## graphic
-                                                                                                  ## representation
-                                                                                                  ## and
-                                                                                                  ## the
-                                                                                                  ## selection
-                                                                                                  ## for
-                                                                                                  ## the
-                                                                                                  ## Object.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## iteration
-                                                                                                  ## through
-                                                                                                  ## detected
-                                                                                                  ## entities
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Initialization
-                                                                                                  ## for
-                                                                                                  ## iteration
-                                                                                                  ## through
-                                                                                                  ## mouse-detected
-                                                                                                  ## objects
-                                                                                                  ## in
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## interactive
-                                                                                                  ## context
-                                                                                                  ## or
-                                                                                                  ## in
-                                                                                                  ## local
-                                                                                                  ## context
-                                                                                                  ## if
-                                                                                                  ## it
-                                                                                                  ## is
-                                                                                                  ## opened.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @sa
-                                                                                                  ## DetectedCurrentOwner()/MoreDetected()/NextDetected().
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## Selection
-                                                                                                  ## management
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Sets
-                                                                                                  ## the
-                                                                                                  ## graphic
-                                                                                                  ## basic
-                                                                                                  ## aspect
-                                                                                                  ## to
-                                                                                                  ## the
-                                                                                                  ## current
-                                                                                                  ## presentation
-                                                                                                  ## of
-                                                                                                  ## ALL
-                                                                                                  ## selected
-                                                                                                  ## objects.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## immediate
-                                                                                                  ## mode
-                                                                                                  ## rendering
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## initializes
-                                                                                                  ## the
-                                                                                                  ## list
-                                                                                                  ## of
-                                                                                                  ## presentations
-                                                                                                  ## to
-                                                                                                  ## be
-                                                                                                  ## displayed
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## returns
-                                                                                                  ## False
-                                                                                                  ## if
-                                                                                                  ## no
-                                                                                                  ## local
-                                                                                                  ## context
-                                                                                                  ## is
-                                                                                                  ## opened.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## management
-                                                                                                  ## of
-                                                                                                  ## active
-                                                                                                  ## Selection
-                                                                                                  ## Modes
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Activates
-                                                                                                  ## or
-                                                                                                  ## deactivates
-                                                                                                  ## the
-                                                                                                  ## selection
-                                                                                                  ## mode
-                                                                                                  ## for
-                                                                                                  ## specified
-                                                                                                  ## object.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Has
-                                                                                                  ## no
-                                                                                                  ## effect
-                                                                                                  ## if
-                                                                                                  ## selection
-                                                                                                  ## mode
-                                                                                                  ## was
-                                                                                                  ## already
-                                                                                                  ## active/deactivated.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @param
-                                                                                                  ## theObj
-                                                                                                  ## object
-                                                                                                  ## to
-                                                                                                  ## activate/deactivate
-                                                                                                  ## selection
-                                                                                                  ## mode
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @param
-                                                                                                  ## theMode
-                                                                                                  ## selection
-                                                                                                  ## mode
-                                                                                                  ## to
-                                                                                                  ## activate/deactivate;
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## deactivation
-                                                                                                  ## of
-                                                                                                  ## -1
-                                                                                                  ## selection
-                                                                                                  ## mode
-                                                                                                  ## will
-                                                                                                  ## effectively
-                                                                                                  ## deactivate
-                                                                                                  ## all
-                                                                                                  ## selection
-                                                                                                  ## modes;
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## activation
-                                                                                                  ## of
-                                                                                                  ## -1
-                                                                                                  ## selection
-                                                                                                  ## mode
-                                                                                                  ## with
-                                                                                                  ## AIS_SelectionModesConcurrency_Single
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## will
-                                                                                                  ## deactivate
-                                                                                                  ## all
-                                                                                                  ## selection
-                                                                                                  ## modes,
-                                                                                                  ## and
-                                                                                                  ## will
-                                                                                                  ## has
-                                                                                                  ## no
-                                                                                                  ## effect
-                                                                                                  ## otherwise
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @param
-                                                                                                  ## theToActivate
-                                                                                                  ## activation/deactivation
-                                                                                                  ## flag
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @param
-                                                                                                  ## theConcurrency
-                                                                                                  ## specifies
-                                                                                                  ## how
-                                                                                                  ## to
-                                                                                                  ## handle
-                                                                                                  ## already
-                                                                                                  ## activated
-                                                                                                  ## selection
-                                                                                                  ## modes;
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## default
-                                                                                                  ## value
-                                                                                                  ## (AIS_SelectionModesConcurrency_Multiple)
-                                                                                                  ## means
-                                                                                                  ## active
-                                                                                                  ## selection
-                                                                                                  ## modes
-                                                                                                  ## should
-                                                                                                  ## be
-                                                                                                  ## left
-                                                                                                  ## as
-                                                                                                  ## is,
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## AIS_SelectionModesConcurrency_Single
-                                                                                                  ## can
-                                                                                                  ## be
-                                                                                                  ## used
-                                                                                                  ## if
-                                                                                                  ## only
-                                                                                                  ## one
-                                                                                                  ## selection
-                                                                                                  ## mode
-                                                                                                  ## is
-                                                                                                  ## expected
-                                                                                                  ## to
-                                                                                                  ## be
-                                                                                                  ## active
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## and
-                                                                                                  ## AIS_SelectionModesConcurrency_GlobalOrLocal
-                                                                                                  ## can
-                                                                                                  ## be
-                                                                                                  ## used
-                                                                                                  ## if
-                                                                                                  ## either
-                                                                                                  ## AIS_InteractiveObject::GlobalSelectionMode()
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## or
-                                                                                                  ## any
-                                                                                                  ## combination
-                                                                                                  ## of
-                                                                                                  ## Local
-                                                                                                  ## selection
-                                                                                                  ## modes
-                                                                                                  ## is
-                                                                                                  ## acceptable;
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## this
-                                                                                                  ## value
-                                                                                                  ## is
-                                                                                                  ## considered
-                                                                                                  ## only
-                                                                                                  ## if
-                                                                                                  ## theToActivate
-                                                                                                  ## set
-                                                                                                  ## to
-                                                                                                  ## TRUE
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @param
-                                                                                                  ## theIsForce
-                                                                                                  ## when
-                                                                                                  ## set
-                                                                                                  ## to
-                                                                                                  ## TRUE,
-                                                                                                  ## the
-                                                                                                  ## display
-                                                                                                  ## status
-                                                                                                  ## will
-                                                                                                  ## be
-                                                                                                  ## ignored
-                                                                                                  ## while
-                                                                                                  ## activating
-                                                                                                  ## selection
-                                                                                                  ## mode
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## Selection
-                                                                                                  ## Filters
-                                                                                                  ## management
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @return
-                                                                                                  ## the
-                                                                                                  ## context
-                                                                                                  ## selection
-                                                                                                  ## filter
-                                                                                                  ## type.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## common
-                                                                                                  ## properties
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Returns
-                                                                                                  ## the
-                                                                                                  ## default
-                                                                                                  ## attribute
-                                                                                                  ## manager.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## This
-                                                                                                  ## contains
-                                                                                                  ## all
-                                                                                                  ## the
-                                                                                                  ## color
-                                                                                                  ## and
-                                                                                                  ## line
-                                                                                                  ## attributes
-                                                                                                  ## which
-                                                                                                  ## can
-                                                                                                  ## be
-                                                                                                  ## used
-                                                                                                  ## by
-                                                                                                  ## interactive
-                                                                                                  ## objects
-                                                                                                  ## which
-                                                                                                  ## do
-                                                                                                  ## not
-                                                                                                  ## have
-                                                                                                  ## their
-                                                                                                  ## own
-                                                                                                  ## attributes.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## debug
-                                                                                                  ## visualization
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Visualization
-                                                                                                  ## of
-                                                                                                  ## sensitives
-                                                                                                  ## -
-                                                                                                  ## for
-                                                                                                  ## debugging
-                                                                                                  ## purposes!
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## common
-                                                                                                  ## object
-                                                                                                  ## display
-                                                                                                  ## attributes
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Sets
-                                                                                                  ## the
-                                                                                                  ## graphic
-                                                                                                  ## attributes
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## interactive
-                                                                                                  ## object,
-                                                                                                  ## such
-                                                                                                  ## as
-                                                                                                  ## visualization
-                                                                                                  ## mode,
-                                                                                                  ## color,
-                                                                                                  ## and
-                                                                                                  ## material.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## trihedron
-                                                                                                  ## display
-                                                                                                  ## attributes
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Sets
-                                                                                                  ## the
-                                                                                                  ## size
-                                                                                                  ## aSize
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## trihedron.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Is
-                                                                                                  ## used
-                                                                                                  ## to
-                                                                                                  ## change
-                                                                                                  ## the
-                                                                                                  ## default
-                                                                                                  ## value
-                                                                                                  ## 100
-                                                                                                  ## mm
-                                                                                                  ## for
-                                                                                                  ## display
-                                                                                                  ## of
-                                                                                                  ## trihedra.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Use
-                                                                                                  ## of
-                                                                                                  ## this
-                                                                                                  ## function
-                                                                                                  ## in
-                                                                                                  ## one
-                                                                                                  ## of
-                                                                                                  ## your
-                                                                                                  ## own
-                                                                                                  ## interactive
-                                                                                                  ## objects
-                                                                                                  ## requires
-                                                                                                  ## a
-                                                                                                  ## call
-                                                                                                  ## to
-                                                                                                  ## the
-                                                                                                  ## Compute
-                                                                                                  ## function
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## new
-                                                                                                  ## class.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## This
-                                                                                                  ## will
-                                                                                                  ## recalculate
-                                                                                                  ## the
-                                                                                                  ## presentation
-                                                                                                  ## for
-                                                                                                  ## every
-                                                                                                  ## trihedron
-                                                                                                  ## displayed.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## plane
-                                                                                                  ## display
-                                                                                                  ## attributes
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Sets
-                                                                                                  ## the
-                                                                                                  ## plane
-                                                                                                  ## size
-                                                                                                  ## defined
-                                                                                                  ## by
-                                                                                                  ## the
-                                                                                                  ## length
-                                                                                                  ## in
-                                                                                                  ## the
-                                                                                                  ## X
-                                                                                                  ## direction
-                                                                                                  ## XSize
-                                                                                                  ## and
-                                                                                                  ## that
-                                                                                                  ## in
-                                                                                                  ## the
-                                                                                                  ## Y
-                                                                                                  ## direction
-                                                                                                  ## YSize.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## tessellation
-                                                                                                  ## deviation
-                                                                                                  ## properties
-                                                                                                  ## for
-                                                                                                  ## automatic
-                                                                                                  ## triangulation
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Sets
-                                                                                                  ## the
-                                                                                                  ## deviation
-                                                                                                  ## coefficient
-                                                                                                  ## theCoefficient.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Drawings
-                                                                                                  ## of
-                                                                                                  ## curves
-                                                                                                  ## or
-                                                                                                  ## patches
-                                                                                                  ## are
-                                                                                                  ## made
-                                                                                                  ## with
-                                                                                                  ## respect
-                                                                                                  ## to
-                                                                                                  ## a
-                                                                                                  ## maximal
-                                                                                                  ## chordal
-                                                                                                  ## deviation.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## A
-                                                                                                  ## Deviation
-                                                                                                  ## coefficient
-                                                                                                  ## is
-                                                                                                  ## used
-                                                                                                  ## in
-                                                                                                  ## the
-                                                                                                  ## shading
-                                                                                                  ## display
-                                                                                                  ## mode.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## The
-                                                                                                  ## shape
-                                                                                                  ## is
-                                                                                                  ## seen
-                                                                                                  ## decomposed
-                                                                                                  ## into
-                                                                                                  ## triangles.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## These
-                                                                                                  ## are
-                                                                                                  ## used
-                                                                                                  ## to
-                                                                                                  ## calculate
-                                                                                                  ## reflection
-                                                                                                  ## of
-                                                                                                  ## light
-                                                                                                  ## from
-                                                                                                  ## the
-                                                                                                  ## surface
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## object.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## The
-                                                                                                  ## triangles
-                                                                                                  ## are
-                                                                                                  ## formed
-                                                                                                  ## from
-                                                                                                  ## chords
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## curves
-                                                                                                  ## in
-                                                                                                  ## the
-                                                                                                  ## shape.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## The
-                                                                                                  ## deviation
-                                                                                                  ## coefficient
-                                                                                                  ## theCoefficient
-                                                                                                  ## gives
-                                                                                                  ## the
-                                                                                                  ## highest
-                                                                                                  ## value
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## angle
-                                                                                                  ## with
-                                                                                                  ## which
-                                                                                                  ## a
-                                                                                                  ## chord
-                                                                                                  ## can
-                                                                                                  ## deviate
-                                                                                                  ## from
-                                                                                                  ## a
-                                                                                                  ## tangent
-                                                                                                  ## to
-                                                                                                  ## a
-                                                                                                  ## curve.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## If
-                                                                                                  ## this
-                                                                                                  ## limit
-                                                                                                  ## is
-                                                                                                  ## reached,
-                                                                                                  ## a
-                                                                                                  ## new
-                                                                                                  ## triangle
-                                                                                                  ## is
-                                                                                                  ## begun.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## This
-                                                                                                  ## deviation
-                                                                                                  ## is
-                                                                                                  ## absolute
-                                                                                                  ## and
-                                                                                                  ## is
-                                                                                                  ## set
-                                                                                                  ## through
-                                                                                                  ## the
-                                                                                                  ## method:
-                                                                                                  ## SetMaximalChordialDeviation.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## The
-                                                                                                  ## default
-                                                                                                  ## value
-                                                                                                  ## is
-                                                                                                  ## 0.001.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## In
-                                                                                                  ## drawing
-                                                                                                  ## shapes,
-                                                                                                  ## however,
-                                                                                                  ## you
-                                                                                                  ## are
-                                                                                                  ## allowed
-                                                                                                  ## to
-                                                                                                  ## ask
-                                                                                                  ## for
-                                                                                                  ## a
-                                                                                                  ## relative
-                                                                                                  ## deviation.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## This
-                                                                                                  ## deviation
-                                                                                                  ## will
-                                                                                                  ## be:
-                                                                                                  ## SizeOfObject
-                                                                                                  ## *
-                                                                                                  ## DeviationCoefficient.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## HLR
-                                                                                                  ## (Hidden
-                                                                                                  ## Line
-                                                                                                  ## Removal)
-                                                                                                  ## display
-                                                                                                  ## attributes
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Initializes
-                                                                                                  ## hidden
-                                                                                                  ## line
-                                                                                                  ## aspect
-                                                                                                  ## in
-                                                                                                  ## the
-                                                                                                  ## default
-                                                                                                  ## drawing
-                                                                                                  ## tool,
-                                                                                                  ## or
-                                                                                                  ## Drawer.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## The
-                                                                                                  ## default
-                                                                                                  ## values
-                                                                                                  ## are:
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Color:
-                                                                                                  ## Quantity_NOC_YELLOW
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Type
-                                                                                                  ## of
-                                                                                                  ## line:
-                                                                                                  ## Aspect_TOL_DASH
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Width:
-                                                                                                  ## 1.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## iso-line
-                                                                                                  ## display
-                                                                                                  ## attributes
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Sets
-                                                                                                  ## the
-                                                                                                  ## number
-                                                                                                  ## of
-                                                                                                  ## U
-                                                                                                  ## and
-                                                                                                  ## V
-                                                                                                  ## isoparameters
-                                                                                                  ## displayed.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Updates
-                                                                                                  ## the
-                                                                                                  ## view
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## current
-                                                                                                  ## object
-                                                                                                  ## in
-                                                                                                  ## open
-                                                                                                  ## context.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Objects
-                                                                                                  ## selected
-                                                                                                  ## when
-                                                                                                  ## there
-                                                                                                  ## is
-                                                                                                  ## no
-                                                                                                  ## open
-                                                                                                  ## local
-                                                                                                  ## context
-                                                                                                  ## are
-                                                                                                  ## called
-                                                                                                  ## current
-                                                                                                  ## objects;
-                                                                                                  ## those
-                                                                                                  ## selected
-                                                                                                  ## in
-                                                                                                  ## open
-                                                                                                  ## local
-                                                                                                  ## context,
-                                                                                                  ## selected
-                                                                                                  ## objects.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## sub-intensity
-                                                                                                  ## management
-                                                                                                  ## (deprecated)
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Sub-intensity
-                                                                                                  ## allows
-                                                                                                  ## temporary
-                                                                                                  ## highlighting
-                                                                                                  ## of
-                                                                                                  ## particular
-                                                                                                  ## objects
-                                                                                                  ## with
-                                                                                                  ## specified
-                                                                                                  ## color
-                                                                                                  ## in
-                                                                                                  ## a
-                                                                                                  ## manner
-                                                                                                  ## of
-                                                                                                  ## selection
-                                                                                                  ## highlight,
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## but
-                                                                                                  ## without
-                                                                                                  ## actual
-                                                                                                  ## selection
-                                                                                                  ## (e.g.,
-                                                                                                  ## global
-                                                                                                  ## status
-                                                                                                  ## and
-                                                                                                  ## owner's
-                                                                                                  ## selection
-                                                                                                  ## state
-                                                                                                  ## will
-                                                                                                  ## not
-                                                                                                  ## be
-                                                                                                  ## updated).
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## The
-                                                                                                  ## method
-                                                                                                  ## returns
-                                                                                                  ## the
-                                                                                                  ## color
-                                                                                                  ## of
-                                                                                                  ## such
-                                                                                                  ## highlighting.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## By
-                                                                                                  ## default,
-                                                                                                  ## it
-                                                                                                  ## is
-                                                                                                  ## Quantity_NOC_GRAY40.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## internal
-                                                                                                  ## methods
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## internal
-                                                                                                  ## fields
+                           header: "AIS_InteractiveContext.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                 ## !
+                                                                                                 ## @name
+                                                                                                 ## object
+                                                                                                 ## display
+                                                                                                 ## management
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Constructs
+                                                                                                 ## the
+                                                                                                 ## interactive
+                                                                                                 ## context
+                                                                                                 ## object
+                                                                                                 ## defined
+                                                                                                 ## by
+                                                                                                 ## the
+                                                                                                 ## principal
+                                                                                                 ## viewer
+                                                                                                 ## MainViewer.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @name
+                                                                                                 ## highlighting
+                                                                                                 ## management
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Returns
+                                                                                                 ## highlight
+                                                                                                 ## style
+                                                                                                 ## settings.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @name
+                                                                                                 ## object
+                                                                                                 ## presence
+                                                                                                 ## management
+                                                                                                 ## (View
+                                                                                                 ## affinity,
+                                                                                                 ## Layer,
+                                                                                                 ## Priority)
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Returns
+                                                                                                 ## the
+                                                                                                 ## display
+                                                                                                 ## priority
+                                                                                                 ## of
+                                                                                                 ## the
+                                                                                                 ## Object.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @name
+                                                                                                 ## Display
+                                                                                                 ## Mode
+                                                                                                 ## management
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Returns
+                                                                                                 ## the
+                                                                                                 ## Display
+                                                                                                 ## Mode
+                                                                                                 ## setting
+                                                                                                 ## to
+                                                                                                 ## be
+                                                                                                 ## used
+                                                                                                 ## by
+                                                                                                 ## default.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @name
+                                                                                                 ## object
+                                                                                                 ## local
+                                                                                                 ## transformation
+                                                                                                 ## management
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Puts
+                                                                                                 ## the
+                                                                                                 ## location
+                                                                                                 ## on
+                                                                                                 ## the
+                                                                                                 ## initial
+                                                                                                 ## graphic
+                                                                                                 ## representation
+                                                                                                 ## and
+                                                                                                 ## the
+                                                                                                 ## selection
+                                                                                                 ## for
+                                                                                                 ## the
+                                                                                                 ## Object.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @name
+                                                                                                 ## iteration
+                                                                                                 ## through
+                                                                                                 ## detected
+                                                                                                 ## entities
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Initialization
+                                                                                                 ## for
+                                                                                                 ## iteration
+                                                                                                 ## through
+                                                                                                 ## mouse-detected
+                                                                                                 ## objects
+                                                                                                 ## in
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## interactive
+                                                                                                 ## context
+                                                                                                 ## or
+                                                                                                 ## in
+                                                                                                 ## local
+                                                                                                 ## context
+                                                                                                 ## if
+                                                                                                 ## it
+                                                                                                 ## is
+                                                                                                 ## opened.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @sa
+                                                                                                 ## DetectedCurrentOwner()/MoreDetected()/NextDetected().
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @name
+                                                                                                 ## Selection
+                                                                                                 ## management
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Sets
+                                                                                                 ## the
+                                                                                                 ## graphic
+                                                                                                 ## basic
+                                                                                                 ## aspect
+                                                                                                 ## to
+                                                                                                 ## the
+                                                                                                 ## current
+                                                                                                 ## presentation
+                                                                                                 ## of
+                                                                                                 ## ALL
+                                                                                                 ## selected
+                                                                                                 ## objects.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @name
+                                                                                                 ## immediate
+                                                                                                 ## mode
+                                                                                                 ## rendering
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## initializes
+                                                                                                 ## the
+                                                                                                 ## list
+                                                                                                 ## of
+                                                                                                 ## presentations
+                                                                                                 ## to
+                                                                                                 ## be
+                                                                                                 ## displayed
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## returns
+                                                                                                 ## False
+                                                                                                 ## if
+                                                                                                 ## no
+                                                                                                 ## local
+                                                                                                 ## context
+                                                                                                 ## is
+                                                                                                 ## opened.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @name
+                                                                                                 ## management
+                                                                                                 ## of
+                                                                                                 ## active
+                                                                                                 ## Selection
+                                                                                                 ## Modes
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Activates
+                                                                                                 ## or
+                                                                                                 ## deactivates
+                                                                                                 ## the
+                                                                                                 ## selection
+                                                                                                 ## mode
+                                                                                                 ## for
+                                                                                                 ## specified
+                                                                                                 ## object.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Has
+                                                                                                 ## no
+                                                                                                 ## effect
+                                                                                                 ## if
+                                                                                                 ## selection
+                                                                                                 ## mode
+                                                                                                 ## was
+                                                                                                 ## already
+                                                                                                 ## active/deactivated.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @param
+                                                                                                 ## theObj
+                                                                                                 ## object
+                                                                                                 ## to
+                                                                                                 ## activate/deactivate
+                                                                                                 ## selection
+                                                                                                 ## mode
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @param
+                                                                                                 ## theMode
+                                                                                                 ## selection
+                                                                                                 ## mode
+                                                                                                 ## to
+                                                                                                 ## activate/deactivate;
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## deactivation
+                                                                                                 ## of
+                                                                                                 ## -1
+                                                                                                 ## selection
+                                                                                                 ## mode
+                                                                                                 ## will
+                                                                                                 ## effectively
+                                                                                                 ## deactivate
+                                                                                                 ## all
+                                                                                                 ## selection
+                                                                                                 ## modes;
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## activation
+                                                                                                 ## of
+                                                                                                 ## -1
+                                                                                                 ## selection
+                                                                                                 ## mode
+                                                                                                 ## with
+                                                                                                 ## AIS_SelectionModesConcurrency_Single
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## will
+                                                                                                 ## deactivate
+                                                                                                 ## all
+                                                                                                 ## selection
+                                                                                                 ## modes,
+                                                                                                 ## and
+                                                                                                 ## will
+                                                                                                 ## has
+                                                                                                 ## no
+                                                                                                 ## effect
+                                                                                                 ## otherwise
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @param
+                                                                                                 ## theToActivate
+                                                                                                 ## activation/deactivation
+                                                                                                 ## flag
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @param
+                                                                                                 ## theConcurrency
+                                                                                                 ## specifies
+                                                                                                 ## how
+                                                                                                 ## to
+                                                                                                 ## handle
+                                                                                                 ## already
+                                                                                                 ## activated
+                                                                                                 ## selection
+                                                                                                 ## modes;
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## default
+                                                                                                 ## value
+                                                                                                 ## (AIS_SelectionModesConcurrency_Multiple)
+                                                                                                 ## means
+                                                                                                 ## active
+                                                                                                 ## selection
+                                                                                                 ## modes
+                                                                                                 ## should
+                                                                                                 ## be
+                                                                                                 ## left
+                                                                                                 ## as
+                                                                                                 ## is,
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## AIS_SelectionModesConcurrency_Single
+                                                                                                 ## can
+                                                                                                 ## be
+                                                                                                 ## used
+                                                                                                 ## if
+                                                                                                 ## only
+                                                                                                 ## one
+                                                                                                 ## selection
+                                                                                                 ## mode
+                                                                                                 ## is
+                                                                                                 ## expected
+                                                                                                 ## to
+                                                                                                 ## be
+                                                                                                 ## active
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## and
+                                                                                                 ## AIS_SelectionModesConcurrency_GlobalOrLocal
+                                                                                                 ## can
+                                                                                                 ## be
+                                                                                                 ## used
+                                                                                                 ## if
+                                                                                                 ## either
+                                                                                                 ## AIS_InteractiveObject::GlobalSelectionMode()
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## or
+                                                                                                 ## any
+                                                                                                 ## combination
+                                                                                                 ## of
+                                                                                                 ## Local
+                                                                                                 ## selection
+                                                                                                 ## modes
+                                                                                                 ## is
+                                                                                                 ## acceptable;
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## this
+                                                                                                 ## value
+                                                                                                 ## is
+                                                                                                 ## considered
+                                                                                                 ## only
+                                                                                                 ## if
+                                                                                                 ## theToActivate
+                                                                                                 ## set
+                                                                                                 ## to
+                                                                                                 ## TRUE
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @param
+                                                                                                 ## theIsForce
+                                                                                                 ## when
+                                                                                                 ## set
+                                                                                                 ## to
+                                                                                                 ## TRUE,
+                                                                                                 ## the
+                                                                                                 ## display
+                                                                                                 ## status
+                                                                                                 ## will
+                                                                                                 ## be
+                                                                                                 ## ignored
+                                                                                                 ## while
+                                                                                                 ## activating
+                                                                                                 ## selection
+                                                                                                 ## mode
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @name
+                                                                                                 ## Selection
+                                                                                                 ## Filters
+                                                                                                 ## management
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @return
+                                                                                                 ## the
+                                                                                                 ## context
+                                                                                                 ## selection
+                                                                                                 ## filter
+                                                                                                 ## type.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @name
+                                                                                                 ## common
+                                                                                                 ## properties
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Returns
+                                                                                                 ## the
+                                                                                                 ## default
+                                                                                                 ## attribute
+                                                                                                 ## manager.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## This
+                                                                                                 ## contains
+                                                                                                 ## all
+                                                                                                 ## the
+                                                                                                 ## color
+                                                                                                 ## and
+                                                                                                 ## line
+                                                                                                 ## attributes
+                                                                                                 ## which
+                                                                                                 ## can
+                                                                                                 ## be
+                                                                                                 ## used
+                                                                                                 ## by
+                                                                                                 ## interactive
+                                                                                                 ## objects
+                                                                                                 ## which
+                                                                                                 ## do
+                                                                                                 ## not
+                                                                                                 ## have
+                                                                                                 ## their
+                                                                                                 ## own
+                                                                                                 ## attributes.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @name
+                                                                                                 ## debug
+                                                                                                 ## visualization
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Visualization
+                                                                                                 ## of
+                                                                                                 ## sensitives
+                                                                                                 ## -
+                                                                                                 ## for
+                                                                                                 ## debugging
+                                                                                                 ## purposes!
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @name
+                                                                                                 ## common
+                                                                                                 ## object
+                                                                                                 ## display
+                                                                                                 ## attributes
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Sets
+                                                                                                 ## the
+                                                                                                 ## graphic
+                                                                                                 ## attributes
+                                                                                                 ## of
+                                                                                                 ## the
+                                                                                                 ## interactive
+                                                                                                 ## object,
+                                                                                                 ## such
+                                                                                                 ## as
+                                                                                                 ## visualization
+                                                                                                 ## mode,
+                                                                                                 ## color,
+                                                                                                 ## and
+                                                                                                 ## material.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @name
+                                                                                                 ## trihedron
+                                                                                                 ## display
+                                                                                                 ## attributes
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Sets
+                                                                                                 ## the
+                                                                                                 ## size
+                                                                                                 ## aSize
+                                                                                                 ## of
+                                                                                                 ## the
+                                                                                                 ## trihedron.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Is
+                                                                                                 ## used
+                                                                                                 ## to
+                                                                                                 ## change
+                                                                                                 ## the
+                                                                                                 ## default
+                                                                                                 ## value
+                                                                                                 ## 100
+                                                                                                 ## mm
+                                                                                                 ## for
+                                                                                                 ## display
+                                                                                                 ## of
+                                                                                                 ## trihedra.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Use
+                                                                                                 ## of
+                                                                                                 ## this
+                                                                                                 ## function
+                                                                                                 ## in
+                                                                                                 ## one
+                                                                                                 ## of
+                                                                                                 ## your
+                                                                                                 ## own
+                                                                                                 ## interactive
+                                                                                                 ## objects
+                                                                                                 ## requires
+                                                                                                 ## a
+                                                                                                 ## call
+                                                                                                 ## to
+                                                                                                 ## the
+                                                                                                 ## Compute
+                                                                                                 ## function
+                                                                                                 ## of
+                                                                                                 ## the
+                                                                                                 ## new
+                                                                                                 ## class.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## This
+                                                                                                 ## will
+                                                                                                 ## recalculate
+                                                                                                 ## the
+                                                                                                 ## presentation
+                                                                                                 ## for
+                                                                                                 ## every
+                                                                                                 ## trihedron
+                                                                                                 ## displayed.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @name
+                                                                                                 ## plane
+                                                                                                 ## display
+                                                                                                 ## attributes
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Sets
+                                                                                                 ## the
+                                                                                                 ## plane
+                                                                                                 ## size
+                                                                                                 ## defined
+                                                                                                 ## by
+                                                                                                 ## the
+                                                                                                 ## length
+                                                                                                 ## in
+                                                                                                 ## the
+                                                                                                 ## X
+                                                                                                 ## direction
+                                                                                                 ## XSize
+                                                                                                 ## and
+                                                                                                 ## that
+                                                                                                 ## in
+                                                                                                 ## the
+                                                                                                 ## Y
+                                                                                                 ## direction
+                                                                                                 ## YSize.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @name
+                                                                                                 ## tessellation
+                                                                                                 ## deviation
+                                                                                                 ## properties
+                                                                                                 ## for
+                                                                                                 ## automatic
+                                                                                                 ## triangulation
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Sets
+                                                                                                 ## the
+                                                                                                 ## deviation
+                                                                                                 ## coefficient
+                                                                                                 ## theCoefficient.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Drawings
+                                                                                                 ## of
+                                                                                                 ## curves
+                                                                                                 ## or
+                                                                                                 ## patches
+                                                                                                 ## are
+                                                                                                 ## made
+                                                                                                 ## with
+                                                                                                 ## respect
+                                                                                                 ## to
+                                                                                                 ## a
+                                                                                                 ## maximal
+                                                                                                 ## chordal
+                                                                                                 ## deviation.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## A
+                                                                                                 ## Deviation
+                                                                                                 ## coefficient
+                                                                                                 ## is
+                                                                                                 ## used
+                                                                                                 ## in
+                                                                                                 ## the
+                                                                                                 ## shading
+                                                                                                 ## display
+                                                                                                 ## mode.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## The
+                                                                                                 ## shape
+                                                                                                 ## is
+                                                                                                 ## seen
+                                                                                                 ## decomposed
+                                                                                                 ## into
+                                                                                                 ## triangles.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## These
+                                                                                                 ## are
+                                                                                                 ## used
+                                                                                                 ## to
+                                                                                                 ## calculate
+                                                                                                 ## reflection
+                                                                                                 ## of
+                                                                                                 ## light
+                                                                                                 ## from
+                                                                                                 ## the
+                                                                                                 ## surface
+                                                                                                 ## of
+                                                                                                 ## the
+                                                                                                 ## object.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## The
+                                                                                                 ## triangles
+                                                                                                 ## are
+                                                                                                 ## formed
+                                                                                                 ## from
+                                                                                                 ## chords
+                                                                                                 ## of
+                                                                                                 ## the
+                                                                                                 ## curves
+                                                                                                 ## in
+                                                                                                 ## the
+                                                                                                 ## shape.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## The
+                                                                                                 ## deviation
+                                                                                                 ## coefficient
+                                                                                                 ## theCoefficient
+                                                                                                 ## gives
+                                                                                                 ## the
+                                                                                                 ## highest
+                                                                                                 ## value
+                                                                                                 ## of
+                                                                                                 ## the
+                                                                                                 ## angle
+                                                                                                 ## with
+                                                                                                 ## which
+                                                                                                 ## a
+                                                                                                 ## chord
+                                                                                                 ## can
+                                                                                                 ## deviate
+                                                                                                 ## from
+                                                                                                 ## a
+                                                                                                 ## tangent
+                                                                                                 ## to
+                                                                                                 ## a
+                                                                                                 ## curve.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## If
+                                                                                                 ## this
+                                                                                                 ## limit
+                                                                                                 ## is
+                                                                                                 ## reached,
+                                                                                                 ## a
+                                                                                                 ## new
+                                                                                                 ## triangle
+                                                                                                 ## is
+                                                                                                 ## begun.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## This
+                                                                                                 ## deviation
+                                                                                                 ## is
+                                                                                                 ## absolute
+                                                                                                 ## and
+                                                                                                 ## is
+                                                                                                 ## set
+                                                                                                 ## through
+                                                                                                 ## the
+                                                                                                 ## method:
+                                                                                                 ## SetMaximalChordialDeviation.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## The
+                                                                                                 ## default
+                                                                                                 ## value
+                                                                                                 ## is
+                                                                                                 ## 0.001.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## In
+                                                                                                 ## drawing
+                                                                                                 ## shapes,
+                                                                                                 ## however,
+                                                                                                 ## you
+                                                                                                 ## are
+                                                                                                 ## allowed
+                                                                                                 ## to
+                                                                                                 ## ask
+                                                                                                 ## for
+                                                                                                 ## a
+                                                                                                 ## relative
+                                                                                                 ## deviation.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## This
+                                                                                                 ## deviation
+                                                                                                 ## will
+                                                                                                 ## be:
+                                                                                                 ## SizeOfObject
+                                                                                                 ## *
+                                                                                                 ## DeviationCoefficient.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @name
+                                                                                                 ## HLR
+                                                                                                 ## (Hidden
+                                                                                                 ## Line
+                                                                                                 ## Removal)
+                                                                                                 ## display
+                                                                                                 ## attributes
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Initializes
+                                                                                                 ## hidden
+                                                                                                 ## line
+                                                                                                 ## aspect
+                                                                                                 ## in
+                                                                                                 ## the
+                                                                                                 ## default
+                                                                                                 ## drawing
+                                                                                                 ## tool,
+                                                                                                 ## or
+                                                                                                 ## Drawer.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## The
+                                                                                                 ## default
+                                                                                                 ## values
+                                                                                                 ## are:
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Color:
+                                                                                                 ## Quantity_NOC_YELLOW
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Type
+                                                                                                 ## of
+                                                                                                 ## line:
+                                                                                                 ## Aspect_TOL_DASH
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Width:
+                                                                                                 ## 1.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @name
+                                                                                                 ## iso-line
+                                                                                                 ## display
+                                                                                                 ## attributes
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Sets
+                                                                                                 ## the
+                                                                                                 ## number
+                                                                                                 ## of
+                                                                                                 ## U
+                                                                                                 ## and
+                                                                                                 ## V
+                                                                                                 ## isoparameters
+                                                                                                 ## displayed.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Updates
+                                                                                                 ## the
+                                                                                                 ## view
+                                                                                                 ## of
+                                                                                                 ## the
+                                                                                                 ## current
+                                                                                                 ## object
+                                                                                                 ## in
+                                                                                                 ## open
+                                                                                                 ## context.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Objects
+                                                                                                 ## selected
+                                                                                                 ## when
+                                                                                                 ## there
+                                                                                                 ## is
+                                                                                                 ## no
+                                                                                                 ## open
+                                                                                                 ## local
+                                                                                                 ## context
+                                                                                                 ## are
+                                                                                                 ## called
+                                                                                                 ## current
+                                                                                                 ## objects;
+                                                                                                 ## those
+                                                                                                 ## selected
+                                                                                                 ## in
+                                                                                                 ## open
+                                                                                                 ## local
+                                                                                                 ## context,
+                                                                                                 ## selected
+                                                                                                 ## objects.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @name
+                                                                                                 ## sub-intensity
+                                                                                                 ## management
+                                                                                                 ## (deprecated)
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Sub-intensity
+                                                                                                 ## allows
+                                                                                                 ## temporary
+                                                                                                 ## highlighting
+                                                                                                 ## of
+                                                                                                 ## particular
+                                                                                                 ## objects
+                                                                                                 ## with
+                                                                                                 ## specified
+                                                                                                 ## color
+                                                                                                 ## in
+                                                                                                 ## a
+                                                                                                 ## manner
+                                                                                                 ## of
+                                                                                                 ## selection
+                                                                                                 ## highlight,
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## but
+                                                                                                 ## without
+                                                                                                 ## actual
+                                                                                                 ## selection
+                                                                                                 ## (e.g.,
+                                                                                                 ## global
+                                                                                                 ## status
+                                                                                                 ## and
+                                                                                                 ## owner's
+                                                                                                 ## selection
+                                                                                                 ## state
+                                                                                                 ## will
+                                                                                                 ## not
+                                                                                                 ## be
+                                                                                                 ## updated).
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## The
+                                                                                                 ## method
+                                                                                                 ## returns
+                                                                                                 ## the
+                                                                                                 ## color
+                                                                                                 ## of
+                                                                                                 ## such
+                                                                                                 ## highlighting.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## By
+                                                                                                 ## default,
+                                                                                                 ## it
+                                                                                                 ## is
+                                                                                                 ## Quantity_NOC_GRAY40.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @name
+                                                                                                 ## internal
+                                                                                                 ## methods
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## @name
+                                                                                                 ## internal
+                                                                                                 ## fields
     ## !< context filter (the content active filters
     ## !  can be applied with AND or OR operation)
     ## !< picking strategy to be applied within MoveTo()
 
-  AIS_InteractiveContextbase_type* = Standard_Transient
+  AIS_InteractiveContextbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "AIS_InteractiveContext::get_type_name(@)",
-                              header: "AIS_InteractiveContext.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "AIS_InteractiveContext::get_type_name(@)",
+                            header: "AIS_InteractiveContext.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "AIS_InteractiveContext::get_type_descriptor(@)",
     header: "AIS_InteractiveContext.hxx".}
-proc DynamicType*(this: AIS_InteractiveContext): handle[Standard_Type] {.
+proc dynamicType*(this: AIS_InteractiveContext): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "AIS_InteractiveContext.hxx".}
-proc constructAIS_InteractiveContext*(MainViewer: handle[V3d_Viewer]): AIS_InteractiveContext {.
+proc constructAIS_InteractiveContext*(mainViewer: Handle[V3dViewer]): AIS_InteractiveContext {.
     constructor, importcpp: "AIS_InteractiveContext(@)",
     header: "AIS_InteractiveContext.hxx".}
 proc destroyAIS_InteractiveContext*(this: var AIS_InteractiveContext) {.
     importcpp: "#.~AIS_InteractiveContext()", header: "AIS_InteractiveContext.hxx".}
-proc DisplayStatus*(this: AIS_InteractiveContext;
-                   anIobj: handle[AIS_InteractiveObject]): AIS_DisplayStatus {.
+proc displayStatus*(this: AIS_InteractiveContext;
+                   anIobj: Handle[AIS_InteractiveObject]): AIS_DisplayStatus {.
     noSideEffect, importcpp: "DisplayStatus", header: "AIS_InteractiveContext.hxx".}
-proc Status*(this: AIS_InteractiveContext; anObj: handle[AIS_InteractiveObject];
-            astatus: var TCollection_ExtendedString) {.noSideEffect,
+proc status*(this: AIS_InteractiveContext; anObj: Handle[AIS_InteractiveObject];
+            astatus: var TCollectionExtendedString) {.noSideEffect,
     importcpp: "Status", header: "AIS_InteractiveContext.hxx".}
-proc IsDisplayed*(this: AIS_InteractiveContext;
-                 anIobj: handle[AIS_InteractiveObject]): Standard_Boolean {.
+proc isDisplayed*(this: AIS_InteractiveContext;
+                 anIobj: Handle[AIS_InteractiveObject]): bool {.noSideEffect,
+    importcpp: "IsDisplayed", header: "AIS_InteractiveContext.hxx".}
+proc isDisplayed*(this: AIS_InteractiveContext;
+                 aniobj: Handle[AIS_InteractiveObject]; aMode: int): bool {.
     noSideEffect, importcpp: "IsDisplayed", header: "AIS_InteractiveContext.hxx".}
-proc IsDisplayed*(this: AIS_InteractiveContext;
-                 aniobj: handle[AIS_InteractiveObject]; aMode: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsDisplayed", header: "AIS_InteractiveContext.hxx".}
-proc SetAutoActivateSelection*(this: var AIS_InteractiveContext;
-                              theIsAuto: Standard_Boolean) {.
+proc setAutoActivateSelection*(this: var AIS_InteractiveContext; theIsAuto: bool) {.
     importcpp: "SetAutoActivateSelection", header: "AIS_InteractiveContext.hxx".}
-proc GetAutoActivateSelection*(this: AIS_InteractiveContext): Standard_Boolean {.
-    noSideEffect, importcpp: "GetAutoActivateSelection",
+proc getAutoActivateSelection*(this: AIS_InteractiveContext): bool {.noSideEffect,
+    importcpp: "GetAutoActivateSelection", header: "AIS_InteractiveContext.hxx".}
+proc display*(this: var AIS_InteractiveContext;
+             theIObj: Handle[AIS_InteractiveObject]; theToUpdateViewer: bool) {.
+    importcpp: "Display", header: "AIS_InteractiveContext.hxx".}
+proc display*(this: var AIS_InteractiveContext;
+             theIObj: Handle[AIS_InteractiveObject]; theDispMode: int;
+             theSelectionMode: int; theToUpdateViewer: bool;
+             theDispStatus: AIS_DisplayStatus = aIS_DS_None) {.importcpp: "Display",
     header: "AIS_InteractiveContext.hxx".}
-proc Display*(this: var AIS_InteractiveContext;
-             theIObj: handle[AIS_InteractiveObject];
-             theToUpdateViewer: Standard_Boolean) {.importcpp: "Display",
-    header: "AIS_InteractiveContext.hxx".}
-proc Display*(this: var AIS_InteractiveContext;
-             theIObj: handle[AIS_InteractiveObject];
-             theDispMode: Standard_Integer; theSelectionMode: Standard_Integer;
-             theToUpdateViewer: Standard_Boolean;
-             theDispStatus: AIS_DisplayStatus = AIS_DS_None) {.importcpp: "Display",
-    header: "AIS_InteractiveContext.hxx".}
-proc Load*(this: var AIS_InteractiveContext; theObj: handle[AIS_InteractiveObject];
-          theSelectionMode: Standard_Integer = -1) {.importcpp: "Load",
-    header: "AIS_InteractiveContext.hxx".}
+proc load*(this: var AIS_InteractiveContext; theObj: Handle[AIS_InteractiveObject];
+          theSelectionMode: int = -1) {.importcpp: "Load",
+                                    header: "AIS_InteractiveContext.hxx".}
 ## !!!Ignored construct:  Standard_DEPRECATED ( Deprecated method Display() with obsolete argument theToAllowDecomposition ) void Display ( const opencascade :: handle < AIS_InteractiveObject > [end of template] & theIObj , const Standard_Integer theDispMode , const Standard_Integer theSelectionMode , const Standard_Boolean theToUpdateViewer , const Standard_Boolean theToAllowDecomposition , const AIS_DisplayStatus theDispStatus = AIS_DS_None ) { ( void ) theToAllowDecomposition ; Display ( theIObj , theDispMode , theSelectionMode , theToUpdateViewer , theDispStatus ) ; } Standard_DEPRECATED ( Deprecated method Load() with obsolete last argument theToAllowDecomposition ) void Load ( const opencascade :: handle < AIS_InteractiveObject > [end of template] & theObj , Standard_Integer theSelectionMode , Standard_Boolean ) { Load ( theObj , theSelectionMode ) ; } ! Hides the object. The object's presentations are simply flagged as invisible and therefore excluded from redrawing.
 ## ! To show hidden objects, use Display(). void Erase ( const opencascade :: handle < AIS_InteractiveObject > [end of template] & theIObj , const Standard_Boolean theToUpdateViewer ) ;
 ## Error: identifier expected, but got: Deprecated method Display() with obsolete argument theToAllowDecomposition!!!
 
-proc EraseAll*(this: var AIS_InteractiveContext; theToUpdateViewer: Standard_Boolean) {.
+proc eraseAll*(this: var AIS_InteractiveContext; theToUpdateViewer: bool) {.
     importcpp: "EraseAll", header: "AIS_InteractiveContext.hxx".}
-proc DisplayAll*(this: var AIS_InteractiveContext;
-                theToUpdateViewer: Standard_Boolean) {.importcpp: "DisplayAll",
-    header: "AIS_InteractiveContext.hxx".}
-proc EraseSelected*(this: var AIS_InteractiveContext;
-                   theToUpdateViewer: Standard_Boolean) {.
+proc displayAll*(this: var AIS_InteractiveContext; theToUpdateViewer: bool) {.
+    importcpp: "DisplayAll", header: "AIS_InteractiveContext.hxx".}
+proc eraseSelected*(this: var AIS_InteractiveContext; theToUpdateViewer: bool) {.
     importcpp: "EraseSelected", header: "AIS_InteractiveContext.hxx".}
-proc DisplaySelected*(this: var AIS_InteractiveContext;
-                     theToUpdateViewer: Standard_Boolean) {.
+proc displaySelected*(this: var AIS_InteractiveContext; theToUpdateViewer: bool) {.
     importcpp: "DisplaySelected", header: "AIS_InteractiveContext.hxx".}
-proc ClearPrs*(this: var AIS_InteractiveContext;
-              theIObj: handle[AIS_InteractiveObject]; theMode: Standard_Integer;
-              theToUpdateViewer: Standard_Boolean) {.importcpp: "ClearPrs",
-    header: "AIS_InteractiveContext.hxx".}
-proc Remove*(this: var AIS_InteractiveContext;
-            theIObj: handle[AIS_InteractiveObject];
-            theToUpdateViewer: Standard_Boolean) {.importcpp: "Remove",
-    header: "AIS_InteractiveContext.hxx".}
-proc RemoveAll*(this: var AIS_InteractiveContext;
-               theToUpdateViewer: Standard_Boolean) {.importcpp: "RemoveAll",
-    header: "AIS_InteractiveContext.hxx".}
-proc Redisplay*(this: var AIS_InteractiveContext;
-               theIObj: handle[AIS_InteractiveObject];
-               theToUpdateViewer: Standard_Boolean;
-               theAllModes: Standard_Boolean = Standard_False) {.
-    importcpp: "Redisplay", header: "AIS_InteractiveContext.hxx".}
-proc Redisplay*(this: var AIS_InteractiveContext;
-               theTypeOfObject: AIS_KindOfInteractive;
-               theSignature: Standard_Integer; theToUpdateViewer: Standard_Boolean) {.
-    importcpp: "Redisplay", header: "AIS_InteractiveContext.hxx".}
-proc RecomputePrsOnly*(this: var AIS_InteractiveContext;
-                      theIObj: handle[AIS_InteractiveObject];
-                      theToUpdateViewer: Standard_Boolean;
-                      theAllModes: Standard_Boolean = Standard_False) {.
+proc clearPrs*(this: var AIS_InteractiveContext;
+              theIObj: Handle[AIS_InteractiveObject]; theMode: int;
+              theToUpdateViewer: bool) {.importcpp: "ClearPrs",
+                                       header: "AIS_InteractiveContext.hxx".}
+proc remove*(this: var AIS_InteractiveContext;
+            theIObj: Handle[AIS_InteractiveObject]; theToUpdateViewer: bool) {.
+    importcpp: "Remove", header: "AIS_InteractiveContext.hxx".}
+proc removeAll*(this: var AIS_InteractiveContext; theToUpdateViewer: bool) {.
+    importcpp: "RemoveAll", header: "AIS_InteractiveContext.hxx".}
+proc redisplay*(this: var AIS_InteractiveContext;
+               theIObj: Handle[AIS_InteractiveObject]; theToUpdateViewer: bool;
+               theAllModes: bool = false) {.importcpp: "Redisplay",
+                                        header: "AIS_InteractiveContext.hxx".}
+proc redisplay*(this: var AIS_InteractiveContext;
+               theTypeOfObject: AIS_KindOfInteractive; theSignature: int;
+               theToUpdateViewer: bool) {.importcpp: "Redisplay",
+                                        header: "AIS_InteractiveContext.hxx".}
+proc recomputePrsOnly*(this: var AIS_InteractiveContext;
+                      theIObj: Handle[AIS_InteractiveObject];
+                      theToUpdateViewer: bool; theAllModes: bool = false) {.
     importcpp: "RecomputePrsOnly", header: "AIS_InteractiveContext.hxx".}
-proc RecomputeSelectionOnly*(this: var AIS_InteractiveContext;
-                            anIObj: handle[AIS_InteractiveObject]) {.
+proc recomputeSelectionOnly*(this: var AIS_InteractiveContext;
+                            anIObj: Handle[AIS_InteractiveObject]) {.
     importcpp: "RecomputeSelectionOnly", header: "AIS_InteractiveContext.hxx".}
-proc Update*(this: var AIS_InteractiveContext;
-            theIObj: handle[AIS_InteractiveObject];
-            theUpdateViewer: Standard_Boolean) {.importcpp: "Update",
-    header: "AIS_InteractiveContext.hxx".}
-proc HighlightStyle*(this: AIS_InteractiveContext;
-                    theStyleType: Prs3d_TypeOfHighlight): handle[Prs3d_Drawer] {.
+proc update*(this: var AIS_InteractiveContext;
+            theIObj: Handle[AIS_InteractiveObject]; theUpdateViewer: bool) {.
+    importcpp: "Update", header: "AIS_InteractiveContext.hxx".}
+proc highlightStyle*(this: AIS_InteractiveContext;
+                    theStyleType: Prs3dTypeOfHighlight): Handle[Prs3dDrawer] {.
     noSideEffect, importcpp: "HighlightStyle", header: "AIS_InteractiveContext.hxx".}
-proc SetHighlightStyle*(this: var AIS_InteractiveContext;
-                       theStyleType: Prs3d_TypeOfHighlight;
-                       theStyle: handle[Prs3d_Drawer]) {.
+proc setHighlightStyle*(this: var AIS_InteractiveContext;
+                       theStyleType: Prs3dTypeOfHighlight;
+                       theStyle: Handle[Prs3dDrawer]) {.
     importcpp: "SetHighlightStyle", header: "AIS_InteractiveContext.hxx".}
-proc HighlightStyle*(this: AIS_InteractiveContext): handle[Prs3d_Drawer] {.
+proc highlightStyle*(this: AIS_InteractiveContext): Handle[Prs3dDrawer] {.
     noSideEffect, importcpp: "HighlightStyle", header: "AIS_InteractiveContext.hxx".}
-proc SetHighlightStyle*(this: var AIS_InteractiveContext;
-                       theStyle: handle[Prs3d_Drawer]) {.
+proc setHighlightStyle*(this: var AIS_InteractiveContext;
+                       theStyle: Handle[Prs3dDrawer]) {.
     importcpp: "SetHighlightStyle", header: "AIS_InteractiveContext.hxx".}
-proc SelectionStyle*(this: AIS_InteractiveContext): handle[Prs3d_Drawer] {.
+proc selectionStyle*(this: AIS_InteractiveContext): Handle[Prs3dDrawer] {.
     noSideEffect, importcpp: "SelectionStyle", header: "AIS_InteractiveContext.hxx".}
-proc SetSelectionStyle*(this: var AIS_InteractiveContext;
-                       theStyle: handle[Prs3d_Drawer]) {.
+proc setSelectionStyle*(this: var AIS_InteractiveContext;
+                       theStyle: Handle[Prs3dDrawer]) {.
     importcpp: "SetSelectionStyle", header: "AIS_InteractiveContext.hxx".}
-proc HighlightStyle*(this: AIS_InteractiveContext;
-                    theObj: handle[AIS_InteractiveObject];
-                    theStyle: var handle[Prs3d_Drawer]): Standard_Boolean {.
-    noSideEffect, importcpp: "HighlightStyle", header: "AIS_InteractiveContext.hxx".}
-proc HighlightStyle*(this: AIS_InteractiveContext;
-                    theOwner: handle[SelectMgr_EntityOwner];
-                    theStyle: var handle[Prs3d_Drawer]): Standard_Boolean {.
-    noSideEffect, importcpp: "HighlightStyle", header: "AIS_InteractiveContext.hxx".}
-proc IsHilighted*(this: AIS_InteractiveContext;
-                 theObj: handle[AIS_InteractiveObject]): Standard_Boolean {.
-    noSideEffect, importcpp: "IsHilighted", header: "AIS_InteractiveContext.hxx".}
-proc IsHilighted*(this: AIS_InteractiveContext;
-                 theOwner: handle[SelectMgr_EntityOwner]): Standard_Boolean {.
-    noSideEffect, importcpp: "IsHilighted", header: "AIS_InteractiveContext.hxx".}
+proc highlightStyle*(this: AIS_InteractiveContext;
+                    theObj: Handle[AIS_InteractiveObject];
+                    theStyle: var Handle[Prs3dDrawer]): bool {.noSideEffect,
+    importcpp: "HighlightStyle", header: "AIS_InteractiveContext.hxx".}
+proc highlightStyle*(this: AIS_InteractiveContext;
+                    theOwner: Handle[SelectMgrEntityOwner];
+                    theStyle: var Handle[Prs3dDrawer]): bool {.noSideEffect,
+    importcpp: "HighlightStyle", header: "AIS_InteractiveContext.hxx".}
+proc isHilighted*(this: AIS_InteractiveContext;
+                 theObj: Handle[AIS_InteractiveObject]): bool {.noSideEffect,
+    importcpp: "IsHilighted", header: "AIS_InteractiveContext.hxx".}
+proc isHilighted*(this: AIS_InteractiveContext;
+                 theOwner: Handle[SelectMgrEntityOwner]): bool {.noSideEffect,
+    importcpp: "IsHilighted", header: "AIS_InteractiveContext.hxx".}
 ## !!!Ignored construct:  ! Updates the display in the viewer to take dynamic detection into account.
 ## ! On dynamic detection by the mouse cursor, sensitive primitives are highlighted.
 ## ! The highlight color of entities detected by mouse movement is white by default. Standard_DEPRECATED ( Deprecated method Hilight() ) void Hilight ( const opencascade :: handle < AIS_InteractiveObject > [end of template] & theObj , const Standard_Boolean theIsToUpdateViewer ) { return HilightWithColor ( theObj , myStyles [ Prs3d_TypeOfHighlight_Dynamic ] , theIsToUpdateViewer ) ; } ! Changes the color of all the lines of the object in view. void HilightWithColor ( const opencascade :: handle < AIS_InteractiveObject > [end of template] & theObj , const opencascade :: handle < Prs3d_Drawer > [end of template] & theStyle , const Standard_Boolean theToUpdateViewer ) ;
 ## Error: identifier expected, but got: Deprecated method Hilight()!!!
 
-proc Unhilight*(this: var AIS_InteractiveContext;
-               theIObj: handle[AIS_InteractiveObject];
-               theToUpdateViewer: Standard_Boolean) {.importcpp: "Unhilight",
-    header: "AIS_InteractiveContext.hxx".}
-proc DisplayPriority*(this: AIS_InteractiveContext;
-                     theIObj: handle[AIS_InteractiveObject]): Standard_Integer {.
-    noSideEffect, importcpp: "DisplayPriority",
-    header: "AIS_InteractiveContext.hxx".}
-proc SetDisplayPriority*(this: var AIS_InteractiveContext;
-                        theIObj: handle[AIS_InteractiveObject];
-                        thePriority: Standard_Integer) {.
+proc unhilight*(this: var AIS_InteractiveContext;
+               theIObj: Handle[AIS_InteractiveObject]; theToUpdateViewer: bool) {.
+    importcpp: "Unhilight", header: "AIS_InteractiveContext.hxx".}
+proc displayPriority*(this: AIS_InteractiveContext;
+                     theIObj: Handle[AIS_InteractiveObject]): int {.noSideEffect,
+    importcpp: "DisplayPriority", header: "AIS_InteractiveContext.hxx".}
+proc setDisplayPriority*(this: var AIS_InteractiveContext;
+                        theIObj: Handle[AIS_InteractiveObject]; thePriority: int) {.
     importcpp: "SetDisplayPriority", header: "AIS_InteractiveContext.hxx".}
-proc GetZLayer*(this: AIS_InteractiveContext;
-               theIObj: handle[AIS_InteractiveObject]): Graphic3d_ZLayerId {.
+proc getZLayer*(this: AIS_InteractiveContext;
+               theIObj: Handle[AIS_InteractiveObject]): Graphic3dZLayerId {.
     noSideEffect, importcpp: "GetZLayer", header: "AIS_InteractiveContext.hxx".}
-proc SetZLayer*(this: var AIS_InteractiveContext;
-               theIObj: handle[AIS_InteractiveObject];
-               theLayerId: Graphic3d_ZLayerId) {.importcpp: "SetZLayer",
+proc setZLayer*(this: var AIS_InteractiveContext;
+               theIObj: Handle[AIS_InteractiveObject];
+               theLayerId: Graphic3dZLayerId) {.importcpp: "SetZLayer",
     header: "AIS_InteractiveContext.hxx".}
-proc SetViewAffinity*(this: var AIS_InteractiveContext;
-                     theIObj: handle[AIS_InteractiveObject];
-                     theView: handle[V3d_View]; theIsVisible: Standard_Boolean) {.
+proc setViewAffinity*(this: var AIS_InteractiveContext;
+                     theIObj: Handle[AIS_InteractiveObject];
+                     theView: Handle[V3dView]; theIsVisible: bool) {.
     importcpp: "SetViewAffinity", header: "AIS_InteractiveContext.hxx".}
-proc DisplayMode*(this: AIS_InteractiveContext): Standard_Integer {.noSideEffect,
+proc displayMode*(this: AIS_InteractiveContext): int {.noSideEffect,
     importcpp: "DisplayMode", header: "AIS_InteractiveContext.hxx".}
-proc SetDisplayMode*(this: var AIS_InteractiveContext; theMode: Standard_Integer;
-                    theToUpdateViewer: Standard_Boolean) {.
-    importcpp: "SetDisplayMode", header: "AIS_InteractiveContext.hxx".}
-proc SetDisplayMode*(this: var AIS_InteractiveContext;
-                    theIObj: handle[AIS_InteractiveObject];
-                    theMode: Standard_Integer; theToUpdateViewer: Standard_Boolean) {.
-    importcpp: "SetDisplayMode", header: "AIS_InteractiveContext.hxx".}
-proc UnsetDisplayMode*(this: var AIS_InteractiveContext;
-                      theIObj: handle[AIS_InteractiveObject];
-                      theToUpdateViewer: Standard_Boolean) {.
-    importcpp: "UnsetDisplayMode", header: "AIS_InteractiveContext.hxx".}
-proc SetLocation*(this: var AIS_InteractiveContext;
-                 theObject: handle[AIS_InteractiveObject];
-                 theLocation: TopLoc_Location) {.importcpp: "SetLocation",
+proc setDisplayMode*(this: var AIS_InteractiveContext; theMode: int;
+                    theToUpdateViewer: bool) {.importcpp: "SetDisplayMode",
     header: "AIS_InteractiveContext.hxx".}
-proc ResetLocation*(this: var AIS_InteractiveContext;
-                   theObject: handle[AIS_InteractiveObject]) {.
+proc setDisplayMode*(this: var AIS_InteractiveContext;
+                    theIObj: Handle[AIS_InteractiveObject]; theMode: int;
+                    theToUpdateViewer: bool) {.importcpp: "SetDisplayMode",
+    header: "AIS_InteractiveContext.hxx".}
+proc unsetDisplayMode*(this: var AIS_InteractiveContext;
+                      theIObj: Handle[AIS_InteractiveObject];
+                      theToUpdateViewer: bool) {.importcpp: "UnsetDisplayMode",
+    header: "AIS_InteractiveContext.hxx".}
+proc setLocation*(this: var AIS_InteractiveContext;
+                 theObject: Handle[AIS_InteractiveObject];
+                 theLocation: TopLocLocation) {.importcpp: "SetLocation",
+    header: "AIS_InteractiveContext.hxx".}
+proc resetLocation*(this: var AIS_InteractiveContext;
+                   theObject: Handle[AIS_InteractiveObject]) {.
     importcpp: "ResetLocation", header: "AIS_InteractiveContext.hxx".}
-proc HasLocation*(this: AIS_InteractiveContext;
-                 theObject: handle[AIS_InteractiveObject]): Standard_Boolean {.
-    noSideEffect, importcpp: "HasLocation", header: "AIS_InteractiveContext.hxx".}
-proc Location*(this: AIS_InteractiveContext;
-              theObject: handle[AIS_InteractiveObject]): TopLoc_Location {.
+proc hasLocation*(this: AIS_InteractiveContext;
+                 theObject: Handle[AIS_InteractiveObject]): bool {.noSideEffect,
+    importcpp: "HasLocation", header: "AIS_InteractiveContext.hxx".}
+proc location*(this: AIS_InteractiveContext;
+              theObject: Handle[AIS_InteractiveObject]): TopLocLocation {.
     noSideEffect, importcpp: "Location", header: "AIS_InteractiveContext.hxx".}
-proc SetTransformPersistence*(this: var AIS_InteractiveContext;
-                             theObject: handle[AIS_InteractiveObject];
-                             theTrsfPers: handle[Graphic3d_TransformPers]) {.
+proc setTransformPersistence*(this: var AIS_InteractiveContext;
+                             theObject: Handle[AIS_InteractiveObject];
+                             theTrsfPers: Handle[Graphic3dTransformPers]) {.
     importcpp: "SetTransformPersistence", header: "AIS_InteractiveContext.hxx".}
 ## !!!Ignored construct:  Standard_DEPRECATED ( This method is deprecated - SetTransformPersistence() taking Graphic3d_TransformPers should be called instead ) void SetTransformPersistence ( const opencascade :: handle < AIS_InteractiveObject > [end of template] & theObj , const Graphic3d_TransModeFlags & theFlag , const gp_Pnt & thePoint = gp_Pnt ( 0.0 , 0.0 , 0.0 ) ) { SetTransformPersistence ( theObj , Graphic3d_TransformPers :: FromDeprecatedParams ( theFlag , thePoint ) ) ; } public : ! @name mouse picking logic (detection and dynamic highlighting of entities under cursor) ! Setup pixel tolerance for MoveTo() operation.
 ## ! @sa MoveTo(). void SetPixelTolerance ( const Standard_Integer thePrecision = 2 ) ;
 ## Error: identifier expected, but got: This method is deprecated - SetTransformPersistence() taking Graphic3d_TransformPers should be called instead!!!
 
-proc PixelTolerance*(this: AIS_InteractiveContext): Standard_Integer {.noSideEffect,
+proc pixelTolerance*(this: AIS_InteractiveContext): int {.noSideEffect,
     importcpp: "PixelTolerance", header: "AIS_InteractiveContext.hxx".}
-proc SetSelectionSensitivity*(this: var AIS_InteractiveContext;
-                             theObject: handle[AIS_InteractiveObject];
-                             theMode: Standard_Integer;
-                             theNewSensitivity: Standard_Integer) {.
+proc setSelectionSensitivity*(this: var AIS_InteractiveContext;
+                             theObject: Handle[AIS_InteractiveObject];
+                             theMode: int; theNewSensitivity: int) {.
     importcpp: "SetSelectionSensitivity", header: "AIS_InteractiveContext.hxx".}
-proc LastActiveView*(this: AIS_InteractiveContext): handle[V3d_View] {.noSideEffect,
+proc lastActiveView*(this: AIS_InteractiveContext): Handle[V3dView] {.noSideEffect,
     importcpp: "LastActiveView", header: "AIS_InteractiveContext.hxx".}
-proc MoveTo*(this: var AIS_InteractiveContext; theXPix: Standard_Integer;
-            theYPix: Standard_Integer; theView: handle[V3d_View];
-            theToRedrawOnUpdate: Standard_Boolean): AIS_StatusOfDetection {.
+proc moveTo*(this: var AIS_InteractiveContext; theXPix: int; theYPix: int;
+            theView: Handle[V3dView]; theToRedrawOnUpdate: bool): AIS_StatusOfDetection {.
     importcpp: "MoveTo", header: "AIS_InteractiveContext.hxx".}
-proc ClearDetected*(this: var AIS_InteractiveContext;
-                   theToRedrawImmediate: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc clearDetected*(this: var AIS_InteractiveContext;
+                   theToRedrawImmediate: bool = false): bool {.
     importcpp: "ClearDetected", header: "AIS_InteractiveContext.hxx".}
-proc HasDetected*(this: AIS_InteractiveContext): Standard_Boolean {.noSideEffect,
+proc hasDetected*(this: AIS_InteractiveContext): bool {.noSideEffect,
     importcpp: "HasDetected", header: "AIS_InteractiveContext.hxx".}
-proc DetectedOwner*(this: AIS_InteractiveContext): handle[SelectMgr_EntityOwner] {.
+proc detectedOwner*(this: AIS_InteractiveContext): Handle[SelectMgrEntityOwner] {.
     noSideEffect, importcpp: "DetectedOwner", header: "AIS_InteractiveContext.hxx".}
-proc DetectedInteractive*(this: AIS_InteractiveContext): handle[
+proc detectedInteractive*(this: AIS_InteractiveContext): Handle[
     AIS_InteractiveObject] {.noSideEffect, importcpp: "DetectedInteractive",
                             header: "AIS_InteractiveContext.hxx".}
 ## !!!Ignored construct:  ! Returns true if there is a detected shape in local context.
@@ -1116,415 +1085,373 @@ proc DetectedInteractive*(this: AIS_InteractiveContext): handle[
 ## ! @sa DetectedOwner() Standard_DEPRECATED ( Local Context is deprecated - local selection should be used without Local Context ) const TopoDS_Shape & DetectedShape ( ) const ;
 ## Error: identifier expected, but got: Local Context is deprecated - local selection should be used without Local Context!!!
 
-proc HasNextDetected*(this: AIS_InteractiveContext): Standard_Boolean {.
-    noSideEffect, importcpp: "HasNextDetected",
-    header: "AIS_InteractiveContext.hxx".}
-proc HilightNextDetected*(this: var AIS_InteractiveContext;
-                         theView: handle[V3d_View];
-                         theToRedrawImmediate: Standard_Boolean = Standard_True): Standard_Integer {.
+proc hasNextDetected*(this: AIS_InteractiveContext): bool {.noSideEffect,
+    importcpp: "HasNextDetected", header: "AIS_InteractiveContext.hxx".}
+proc hilightNextDetected*(this: var AIS_InteractiveContext;
+                         theView: Handle[V3dView];
+                         theToRedrawImmediate: bool = true): int {.
     importcpp: "HilightNextDetected", header: "AIS_InteractiveContext.hxx".}
-proc HilightPreviousDetected*(this: var AIS_InteractiveContext;
-                             theView: handle[V3d_View]; theToRedrawImmediate: Standard_Boolean = Standard_True): Standard_Integer {.
+proc hilightPreviousDetected*(this: var AIS_InteractiveContext;
+                             theView: Handle[V3dView];
+                             theToRedrawImmediate: bool = true): int {.
     importcpp: "HilightPreviousDetected", header: "AIS_InteractiveContext.hxx".}
-proc InitDetected*(this: var AIS_InteractiveContext) {.importcpp: "InitDetected",
+proc initDetected*(this: var AIS_InteractiveContext) {.importcpp: "InitDetected",
     header: "AIS_InteractiveContext.hxx".}
-proc MoreDetected*(this: AIS_InteractiveContext): Standard_Boolean {.noSideEffect,
+proc moreDetected*(this: AIS_InteractiveContext): bool {.noSideEffect,
     importcpp: "MoreDetected", header: "AIS_InteractiveContext.hxx".}
-proc NextDetected*(this: var AIS_InteractiveContext) {.importcpp: "NextDetected",
+proc nextDetected*(this: var AIS_InteractiveContext) {.importcpp: "NextDetected",
     header: "AIS_InteractiveContext.hxx".}
-proc DetectedCurrentOwner*(this: AIS_InteractiveContext): handle[
-    SelectMgr_EntityOwner] {.noSideEffect, importcpp: "DetectedCurrentOwner",
-                            header: "AIS_InteractiveContext.hxx".}
+proc detectedCurrentOwner*(this: AIS_InteractiveContext): Handle[
+    SelectMgrEntityOwner] {.noSideEffect, importcpp: "DetectedCurrentOwner",
+                           header: "AIS_InteractiveContext.hxx".}
 ## !!!Ignored construct:  public : ! @name Selection management ! Sets the graphic basic aspect to the current presentation of ALL selected objects. Standard_DEPRECATED ( Deprecated method - presentation attributes should be assigned directly to object ) void SetSelectedAspect ( const opencascade :: handle < Prs3d_BasicAspect > [end of template] & theAspect , const Standard_Boolean theToUpdateViewer ) ;
 ## Error: identifier expected, but got: Deprecated method - presentation attributes should be assigned directly to object!!!
 
-proc AddSelect*(this: var AIS_InteractiveContext;
-               theObject: handle[SelectMgr_EntityOwner]): AIS_StatusOfPick {.
+proc addSelect*(this: var AIS_InteractiveContext;
+               theObject: Handle[SelectMgrEntityOwner]): AIS_StatusOfPick {.
     importcpp: "AddSelect", header: "AIS_InteractiveContext.hxx".}
-proc AddSelect*(this: var AIS_InteractiveContext;
-               theObject: handle[AIS_InteractiveObject]): AIS_StatusOfPick {.
+proc addSelect*(this: var AIS_InteractiveContext;
+               theObject: Handle[AIS_InteractiveObject]): AIS_StatusOfPick {.
     importcpp: "AddSelect", header: "AIS_InteractiveContext.hxx".}
-proc Select*(this: var AIS_InteractiveContext; theXPMin: Standard_Integer;
-            theYPMin: Standard_Integer; theXPMax: Standard_Integer;
-            theYPMax: Standard_Integer; theView: handle[V3d_View];
-            theToUpdateViewer: Standard_Boolean): AIS_StatusOfPick {.
+proc select*(this: var AIS_InteractiveContext; theXPMin: int; theYPMin: int;
+            theXPMax: int; theYPMax: int; theView: Handle[V3dView];
+            theToUpdateViewer: bool): AIS_StatusOfPick {.importcpp: "Select",
+    header: "AIS_InteractiveContext.hxx".}
+proc select*(this: var AIS_InteractiveContext; thePolyline: TColgpArray1OfPnt2d;
+            theView: Handle[V3dView]; theToUpdateViewer: bool): AIS_StatusOfPick {.
     importcpp: "Select", header: "AIS_InteractiveContext.hxx".}
-proc Select*(this: var AIS_InteractiveContext; thePolyline: TColgp_Array1OfPnt2d;
-            theView: handle[V3d_View]; theToUpdateViewer: Standard_Boolean): AIS_StatusOfPick {.
+proc select*(this: var AIS_InteractiveContext; theToUpdateViewer: bool): AIS_StatusOfPick {.
     importcpp: "Select", header: "AIS_InteractiveContext.hxx".}
-proc Select*(this: var AIS_InteractiveContext; theToUpdateViewer: Standard_Boolean): AIS_StatusOfPick {.
-    importcpp: "Select", header: "AIS_InteractiveContext.hxx".}
-proc ShiftSelect*(this: var AIS_InteractiveContext;
-                 theToUpdateViewer: Standard_Boolean): AIS_StatusOfPick {.
+proc shiftSelect*(this: var AIS_InteractiveContext; theToUpdateViewer: bool): AIS_StatusOfPick {.
     importcpp: "ShiftSelect", header: "AIS_InteractiveContext.hxx".}
-proc ShiftSelect*(this: var AIS_InteractiveContext;
-                 thePolyline: TColgp_Array1OfPnt2d; theView: handle[V3d_View];
-                 theToUpdateViewer: Standard_Boolean): AIS_StatusOfPick {.
+proc shiftSelect*(this: var AIS_InteractiveContext;
+                 thePolyline: TColgpArray1OfPnt2d; theView: Handle[V3dView];
+                 theToUpdateViewer: bool): AIS_StatusOfPick {.
     importcpp: "ShiftSelect", header: "AIS_InteractiveContext.hxx".}
-proc ShiftSelect*(this: var AIS_InteractiveContext; theXPMin: Standard_Integer;
-                 theYPMin: Standard_Integer; theXPMax: Standard_Integer;
-                 theYPMax: Standard_Integer; theView: handle[V3d_View];
-                 theToUpdateViewer: Standard_Boolean): AIS_StatusOfPick {.
+proc shiftSelect*(this: var AIS_InteractiveContext; theXPMin: int; theYPMin: int;
+                 theXPMax: int; theYPMax: int; theView: Handle[V3dView];
+                 theToUpdateViewer: bool): AIS_StatusOfPick {.
     importcpp: "ShiftSelect", header: "AIS_InteractiveContext.hxx".}
-proc BoundingBoxOfSelection*(this: AIS_InteractiveContext): Bnd_Box {.noSideEffect,
+proc boundingBoxOfSelection*(this: AIS_InteractiveContext): BndBox {.noSideEffect,
     importcpp: "BoundingBoxOfSelection", header: "AIS_InteractiveContext.hxx".}
-proc FitSelected*(this: var AIS_InteractiveContext; theView: handle[V3d_View];
-                 theMargin: Standard_Real; theToUpdate: Standard_Boolean) {.
-    importcpp: "FitSelected", header: "AIS_InteractiveContext.hxx".}
-proc FitSelected*(this: var AIS_InteractiveContext; theView: handle[V3d_View]) {.
-    importcpp: "FitSelected", header: "AIS_InteractiveContext.hxx".}
-proc ToHilightSelected*(this: AIS_InteractiveContext): Standard_Boolean {.
-    noSideEffect, importcpp: "ToHilightSelected",
+proc fitSelected*(this: var AIS_InteractiveContext; theView: Handle[V3dView];
+                 theMargin: float; theToUpdate: bool) {.importcpp: "FitSelected",
     header: "AIS_InteractiveContext.hxx".}
-proc SetToHilightSelected*(this: var AIS_InteractiveContext;
-                          toHilight: Standard_Boolean) {.
+proc fitSelected*(this: var AIS_InteractiveContext; theView: Handle[V3dView]) {.
+    importcpp: "FitSelected", header: "AIS_InteractiveContext.hxx".}
+proc toHilightSelected*(this: AIS_InteractiveContext): bool {.noSideEffect,
+    importcpp: "ToHilightSelected", header: "AIS_InteractiveContext.hxx".}
+proc setToHilightSelected*(this: var AIS_InteractiveContext; toHilight: bool) {.
     importcpp: "SetToHilightSelected", header: "AIS_InteractiveContext.hxx".}
-proc AutomaticHilight*(this: AIS_InteractiveContext): Standard_Boolean {.
-    noSideEffect, importcpp: "AutomaticHilight",
-    header: "AIS_InteractiveContext.hxx".}
-proc SetAutomaticHilight*(this: var AIS_InteractiveContext;
-                         theStatus: Standard_Boolean) {.
+proc automaticHilight*(this: AIS_InteractiveContext): bool {.noSideEffect,
+    importcpp: "AutomaticHilight", header: "AIS_InteractiveContext.hxx".}
+proc setAutomaticHilight*(this: var AIS_InteractiveContext; theStatus: bool) {.
     importcpp: "SetAutomaticHilight", header: "AIS_InteractiveContext.hxx".}
-proc SetSelected*(this: var AIS_InteractiveContext;
-                 theOwners: handle[SelectMgr_EntityOwner];
-                 theToUpdateViewer: Standard_Boolean) {.importcpp: "SetSelected",
-    header: "AIS_InteractiveContext.hxx".}
-proc SetSelected*(this: var AIS_InteractiveContext;
-                 theObject: handle[AIS_InteractiveObject];
-                 theToUpdateViewer: Standard_Boolean) {.importcpp: "SetSelected",
-    header: "AIS_InteractiveContext.hxx".}
-proc AddOrRemoveSelected*(this: var AIS_InteractiveContext;
-                         theObject: handle[AIS_InteractiveObject];
-                         theToUpdateViewer: Standard_Boolean) {.
+proc setSelected*(this: var AIS_InteractiveContext;
+                 theOwners: Handle[SelectMgrEntityOwner]; theToUpdateViewer: bool) {.
+    importcpp: "SetSelected", header: "AIS_InteractiveContext.hxx".}
+proc setSelected*(this: var AIS_InteractiveContext;
+                 theObject: Handle[AIS_InteractiveObject]; theToUpdateViewer: bool) {.
+    importcpp: "SetSelected", header: "AIS_InteractiveContext.hxx".}
+proc addOrRemoveSelected*(this: var AIS_InteractiveContext;
+                         theObject: Handle[AIS_InteractiveObject];
+                         theToUpdateViewer: bool) {.
     importcpp: "AddOrRemoveSelected", header: "AIS_InteractiveContext.hxx".}
-proc SetSelectedState*(this: var AIS_InteractiveContext;
-                      theOwner: handle[SelectMgr_EntityOwner];
-                      theIsSelected: Standard_Boolean): Standard_Boolean {.
+proc setSelectedState*(this: var AIS_InteractiveContext;
+                      theOwner: Handle[SelectMgrEntityOwner]; theIsSelected: bool): bool {.
     importcpp: "SetSelectedState", header: "AIS_InteractiveContext.hxx".}
-proc HilightSelected*(this: var AIS_InteractiveContext;
-                     theToUpdateViewer: Standard_Boolean) {.
+proc hilightSelected*(this: var AIS_InteractiveContext; theToUpdateViewer: bool) {.
     importcpp: "HilightSelected", header: "AIS_InteractiveContext.hxx".}
-proc UnhilightSelected*(this: var AIS_InteractiveContext;
-                       theToUpdateViewer: Standard_Boolean) {.
+proc unhilightSelected*(this: var AIS_InteractiveContext; theToUpdateViewer: bool) {.
     importcpp: "UnhilightSelected", header: "AIS_InteractiveContext.hxx".}
-proc UpdateSelected*(this: var AIS_InteractiveContext;
-                    theToUpdateViewer: Standard_Boolean) {.
+proc updateSelected*(this: var AIS_InteractiveContext; theToUpdateViewer: bool) {.
     importcpp: "UpdateSelected", header: "AIS_InteractiveContext.hxx".}
-proc ClearSelected*(this: var AIS_InteractiveContext;
-                   theToUpdateViewer: Standard_Boolean) {.
+proc clearSelected*(this: var AIS_InteractiveContext; theToUpdateViewer: bool) {.
     importcpp: "ClearSelected", header: "AIS_InteractiveContext.hxx".}
-proc AddOrRemoveSelected*(this: var AIS_InteractiveContext;
-                         theOwner: handle[SelectMgr_EntityOwner];
-                         theToUpdateViewer: Standard_Boolean) {.
+proc addOrRemoveSelected*(this: var AIS_InteractiveContext;
+                         theOwner: Handle[SelectMgrEntityOwner];
+                         theToUpdateViewer: bool) {.
     importcpp: "AddOrRemoveSelected", header: "AIS_InteractiveContext.hxx".}
-proc IsSelected*(this: AIS_InteractiveContext;
-                theOwner: handle[SelectMgr_EntityOwner]): Standard_Boolean {.
-    noSideEffect, importcpp: "IsSelected", header: "AIS_InteractiveContext.hxx".}
-proc IsSelected*(this: AIS_InteractiveContext;
-                theObj: handle[AIS_InteractiveObject]): Standard_Boolean {.
-    noSideEffect, importcpp: "IsSelected", header: "AIS_InteractiveContext.hxx".}
-proc FirstSelectedObject*(this: AIS_InteractiveContext): handle[
+proc isSelected*(this: AIS_InteractiveContext;
+                theOwner: Handle[SelectMgrEntityOwner]): bool {.noSideEffect,
+    importcpp: "IsSelected", header: "AIS_InteractiveContext.hxx".}
+proc isSelected*(this: AIS_InteractiveContext;
+                theObj: Handle[AIS_InteractiveObject]): bool {.noSideEffect,
+    importcpp: "IsSelected", header: "AIS_InteractiveContext.hxx".}
+proc firstSelectedObject*(this: AIS_InteractiveContext): Handle[
     AIS_InteractiveObject] {.noSideEffect, importcpp: "FirstSelectedObject",
                             header: "AIS_InteractiveContext.hxx".}
-proc NbSelected*(this: var AIS_InteractiveContext): Standard_Integer {.
-    importcpp: "NbSelected", header: "AIS_InteractiveContext.hxx".}
-proc InitSelected*(this: var AIS_InteractiveContext) {.importcpp: "InitSelected",
+proc nbSelected*(this: var AIS_InteractiveContext): int {.importcpp: "NbSelected",
     header: "AIS_InteractiveContext.hxx".}
-proc MoreSelected*(this: AIS_InteractiveContext): Standard_Boolean {.noSideEffect,
+proc initSelected*(this: var AIS_InteractiveContext) {.importcpp: "InitSelected",
+    header: "AIS_InteractiveContext.hxx".}
+proc moreSelected*(this: AIS_InteractiveContext): bool {.noSideEffect,
     importcpp: "MoreSelected", header: "AIS_InteractiveContext.hxx".}
-proc NextSelected*(this: var AIS_InteractiveContext) {.importcpp: "NextSelected",
+proc nextSelected*(this: var AIS_InteractiveContext) {.importcpp: "NextSelected",
     header: "AIS_InteractiveContext.hxx".}
-proc SelectedOwner*(this: AIS_InteractiveContext): handle[SelectMgr_EntityOwner] {.
+proc selectedOwner*(this: AIS_InteractiveContext): Handle[SelectMgrEntityOwner] {.
     noSideEffect, importcpp: "SelectedOwner", header: "AIS_InteractiveContext.hxx".}
-proc SelectedInteractive*(this: AIS_InteractiveContext): handle[
+proc selectedInteractive*(this: AIS_InteractiveContext): Handle[
     AIS_InteractiveObject] {.noSideEffect, importcpp: "SelectedInteractive",
                             header: "AIS_InteractiveContext.hxx".}
-proc HasSelectedShape*(this: AIS_InteractiveContext): Standard_Boolean {.
-    noSideEffect, importcpp: "HasSelectedShape",
-    header: "AIS_InteractiveContext.hxx".}
-proc SelectedShape*(this: AIS_InteractiveContext): TopoDS_Shape {.noSideEffect,
+proc hasSelectedShape*(this: AIS_InteractiveContext): bool {.noSideEffect,
+    importcpp: "HasSelectedShape", header: "AIS_InteractiveContext.hxx".}
+proc selectedShape*(this: AIS_InteractiveContext): TopoDS_Shape {.noSideEffect,
     importcpp: "SelectedShape", header: "AIS_InteractiveContext.hxx".}
-proc HasApplicative*(this: AIS_InteractiveContext): Standard_Boolean {.noSideEffect,
+proc hasApplicative*(this: AIS_InteractiveContext): bool {.noSideEffect,
     importcpp: "HasApplicative", header: "AIS_InteractiveContext.hxx".}
-proc Applicative*(this: AIS_InteractiveContext): handle[Standard_Transient] {.
+proc applicative*(this: AIS_InteractiveContext): Handle[StandardTransient] {.
     noSideEffect, importcpp: "Applicative", header: "AIS_InteractiveContext.hxx".}
-proc BeginImmediateDraw*(this: var AIS_InteractiveContext): Standard_Boolean {.
+proc beginImmediateDraw*(this: var AIS_InteractiveContext): bool {.
     importcpp: "BeginImmediateDraw", header: "AIS_InteractiveContext.hxx".}
-proc ImmediateAdd*(this: var AIS_InteractiveContext;
-                  theObj: handle[AIS_InteractiveObject];
-                  theMode: Standard_Integer = 0): Standard_Boolean {.
+proc immediateAdd*(this: var AIS_InteractiveContext;
+                  theObj: Handle[AIS_InteractiveObject]; theMode: int = 0): bool {.
     importcpp: "ImmediateAdd", header: "AIS_InteractiveContext.hxx".}
-proc EndImmediateDraw*(this: var AIS_InteractiveContext; theView: handle[V3d_View]): Standard_Boolean {.
+proc endImmediateDraw*(this: var AIS_InteractiveContext; theView: Handle[V3dView]): bool {.
     importcpp: "EndImmediateDraw", header: "AIS_InteractiveContext.hxx".}
-proc EndImmediateDraw*(this: var AIS_InteractiveContext): Standard_Boolean {.
+proc endImmediateDraw*(this: var AIS_InteractiveContext): bool {.
     importcpp: "EndImmediateDraw", header: "AIS_InteractiveContext.hxx".}
-proc IsImmediateModeOn*(this: AIS_InteractiveContext): Standard_Boolean {.
-    noSideEffect, importcpp: "IsImmediateModeOn",
-    header: "AIS_InteractiveContext.hxx".}
-proc RedrawImmediate*(this: var AIS_InteractiveContext;
-                     theViewer: handle[V3d_Viewer]) {.
+proc isImmediateModeOn*(this: AIS_InteractiveContext): bool {.noSideEffect,
+    importcpp: "IsImmediateModeOn", header: "AIS_InteractiveContext.hxx".}
+proc redrawImmediate*(this: var AIS_InteractiveContext; theViewer: Handle[V3dViewer]) {.
     importcpp: "RedrawImmediate", header: "AIS_InteractiveContext.hxx".}
-proc SetSelectionModeActive*(this: var AIS_InteractiveContext;
-                            theObj: handle[AIS_InteractiveObject];
-                            theMode: Standard_Integer;
-                            theToActivate: Standard_Boolean; theConcurrency: AIS_SelectionModesConcurrency = AIS_SelectionModesConcurrency_Multiple;
-                            theIsForce: Standard_Boolean = Standard_False) {.
+proc setSelectionModeActive*(this: var AIS_InteractiveContext;
+                            theObj: Handle[AIS_InteractiveObject]; theMode: int;
+                            theToActivate: bool; theConcurrency: AIS_SelectionModesConcurrency = aIS_SelectionModesConcurrencyMultiple;
+                            theIsForce: bool = false) {.
     importcpp: "SetSelectionModeActive", header: "AIS_InteractiveContext.hxx".}
-proc Activate*(this: var AIS_InteractiveContext;
-              theObj: handle[AIS_InteractiveObject];
-              theMode: Standard_Integer = 0;
-              theIsForce: Standard_Boolean = Standard_False) {.
-    importcpp: "Activate", header: "AIS_InteractiveContext.hxx".}
-proc Activate*(this: var AIS_InteractiveContext; theMode: Standard_Integer;
-              theIsForce: Standard_Boolean = Standard_False) {.
-    importcpp: "Activate", header: "AIS_InteractiveContext.hxx".}
-proc Deactivate*(this: var AIS_InteractiveContext;
-                theObj: handle[AIS_InteractiveObject]) {.importcpp: "Deactivate",
+proc activate*(this: var AIS_InteractiveContext;
+              theObj: Handle[AIS_InteractiveObject]; theMode: int = 0;
+              theIsForce: bool = false) {.importcpp: "Activate",
+                                      header: "AIS_InteractiveContext.hxx".}
+proc activate*(this: var AIS_InteractiveContext; theMode: int;
+              theIsForce: bool = false) {.importcpp: "Activate",
+                                      header: "AIS_InteractiveContext.hxx".}
+proc deactivate*(this: var AIS_InteractiveContext;
+                theObj: Handle[AIS_InteractiveObject]) {.importcpp: "Deactivate",
     header: "AIS_InteractiveContext.hxx".}
-proc Deactivate*(this: var AIS_InteractiveContext;
-                theObj: handle[AIS_InteractiveObject]; theMode: Standard_Integer) {.
+proc deactivate*(this: var AIS_InteractiveContext;
+                theObj: Handle[AIS_InteractiveObject]; theMode: int) {.
     importcpp: "Deactivate", header: "AIS_InteractiveContext.hxx".}
-proc Deactivate*(this: var AIS_InteractiveContext; theMode: Standard_Integer) {.
+proc deactivate*(this: var AIS_InteractiveContext; theMode: int) {.
     importcpp: "Deactivate", header: "AIS_InteractiveContext.hxx".}
-proc Deactivate*(this: var AIS_InteractiveContext) {.importcpp: "Deactivate",
+proc deactivate*(this: var AIS_InteractiveContext) {.importcpp: "Deactivate",
     header: "AIS_InteractiveContext.hxx".}
-proc ActivatedModes*(this: AIS_InteractiveContext;
-                    anIobj: handle[AIS_InteractiveObject];
-                    theList: var TColStd_ListOfInteger) {.noSideEffect,
+proc activatedModes*(this: AIS_InteractiveContext;
+                    anIobj: Handle[AIS_InteractiveObject];
+                    theList: var TColStdListOfInteger) {.noSideEffect,
     importcpp: "ActivatedModes", header: "AIS_InteractiveContext.hxx".}
-proc EntityOwners*(this: AIS_InteractiveContext;
-                  theOwners: var handle[SelectMgr_IndexedMapOfOwner];
-                  theIObj: handle[AIS_InteractiveObject];
-                  theMode: Standard_Integer = -1) {.noSideEffect,
-    importcpp: "EntityOwners", header: "AIS_InteractiveContext.hxx".}
-proc FilterType*(this: AIS_InteractiveContext): SelectMgr_FilterType {.noSideEffect,
+proc entityOwners*(this: AIS_InteractiveContext;
+                  theOwners: var Handle[SelectMgrIndexedMapOfOwner];
+                  theIObj: Handle[AIS_InteractiveObject]; theMode: int = -1) {.
+    noSideEffect, importcpp: "EntityOwners", header: "AIS_InteractiveContext.hxx".}
+proc filterType*(this: AIS_InteractiveContext): SelectMgrFilterType {.noSideEffect,
     importcpp: "FilterType", header: "AIS_InteractiveContext.hxx".}
-proc SetFilterType*(this: var AIS_InteractiveContext;
-                   theFilterType: SelectMgr_FilterType) {.
+proc setFilterType*(this: var AIS_InteractiveContext;
+                   theFilterType: SelectMgrFilterType) {.
     importcpp: "SetFilterType", header: "AIS_InteractiveContext.hxx".}
-proc Filters*(this: AIS_InteractiveContext): SelectMgr_ListOfFilter {.noSideEffect,
+proc filters*(this: AIS_InteractiveContext): SelectMgrListOfFilter {.noSideEffect,
     importcpp: "Filters", header: "AIS_InteractiveContext.hxx".}
-proc AddFilter*(this: var AIS_InteractiveContext;
-               theFilter: handle[SelectMgr_Filter]) {.importcpp: "AddFilter",
+proc addFilter*(this: var AIS_InteractiveContext; theFilter: Handle[SelectMgrFilter]) {.
+    importcpp: "AddFilter", header: "AIS_InteractiveContext.hxx".}
+proc removeFilter*(this: var AIS_InteractiveContext;
+                  theFilter: Handle[SelectMgrFilter]) {.importcpp: "RemoveFilter",
     header: "AIS_InteractiveContext.hxx".}
-proc RemoveFilter*(this: var AIS_InteractiveContext;
-                  theFilter: handle[SelectMgr_Filter]) {.
-    importcpp: "RemoveFilter", header: "AIS_InteractiveContext.hxx".}
-proc RemoveFilters*(this: var AIS_InteractiveContext) {.importcpp: "RemoveFilters",
+proc removeFilters*(this: var AIS_InteractiveContext) {.importcpp: "RemoveFilters",
     header: "AIS_InteractiveContext.hxx".}
-proc PickingStrategy*(this: AIS_InteractiveContext): SelectMgr_PickingStrategy {.
+proc pickingStrategy*(this: AIS_InteractiveContext): SelectMgrPickingStrategy {.
     noSideEffect, importcpp: "PickingStrategy",
     header: "AIS_InteractiveContext.hxx".}
-proc SetPickingStrategy*(this: var AIS_InteractiveContext;
-                        theStrategy: SelectMgr_PickingStrategy) {.
+proc setPickingStrategy*(this: var AIS_InteractiveContext;
+                        theStrategy: SelectMgrPickingStrategy) {.
     importcpp: "SetPickingStrategy", header: "AIS_InteractiveContext.hxx".}
-proc DefaultDrawer*(this: AIS_InteractiveContext): handle[Prs3d_Drawer] {.
+proc defaultDrawer*(this: AIS_InteractiveContext): Handle[Prs3dDrawer] {.
     noSideEffect, importcpp: "DefaultDrawer", header: "AIS_InteractiveContext.hxx".}
-proc CurrentViewer*(this: AIS_InteractiveContext): handle[V3d_Viewer] {.
-    noSideEffect, importcpp: "CurrentViewer", header: "AIS_InteractiveContext.hxx".}
-proc SelectionManager*(this: AIS_InteractiveContext): handle[
-    SelectMgr_SelectionManager] {.noSideEffect, importcpp: "SelectionManager",
-                                 header: "AIS_InteractiveContext.hxx".}
-proc MainPrsMgr*(this: AIS_InteractiveContext): handle[PrsMgr_PresentationManager3d] {.
+proc currentViewer*(this: AIS_InteractiveContext): Handle[V3dViewer] {.noSideEffect,
+    importcpp: "CurrentViewer", header: "AIS_InteractiveContext.hxx".}
+proc selectionManager*(this: AIS_InteractiveContext): Handle[
+    SelectMgrSelectionManager] {.noSideEffect, importcpp: "SelectionManager",
+                                header: "AIS_InteractiveContext.hxx".}
+proc mainPrsMgr*(this: AIS_InteractiveContext): Handle[PrsMgrPresentationManager3d] {.
     noSideEffect, importcpp: "MainPrsMgr", header: "AIS_InteractiveContext.hxx".}
-proc MainSelector*(this: AIS_InteractiveContext): handle[StdSelect_ViewerSelector3d] {.
+proc mainSelector*(this: AIS_InteractiveContext): Handle[StdSelectViewerSelector3d] {.
     noSideEffect, importcpp: "MainSelector", header: "AIS_InteractiveContext.hxx".}
-proc UpdateCurrentViewer*(this: var AIS_InteractiveContext) {.
+proc updateCurrentViewer*(this: var AIS_InteractiveContext) {.
     importcpp: "UpdateCurrentViewer", header: "AIS_InteractiveContext.hxx".}
-proc DisplayedObjects*(this: AIS_InteractiveContext;
+proc displayedObjects*(this: AIS_InteractiveContext;
                       aListOfIO: var AIS_ListOfInteractive) {.noSideEffect,
     importcpp: "DisplayedObjects", header: "AIS_InteractiveContext.hxx".}
-proc DisplayedObjects*(this: AIS_InteractiveContext;
-                      theWhichKind: AIS_KindOfInteractive;
-                      theWhichSignature: Standard_Integer;
+proc displayedObjects*(this: AIS_InteractiveContext;
+                      theWhichKind: AIS_KindOfInteractive; theWhichSignature: int;
                       theListOfIO: var AIS_ListOfInteractive) {.noSideEffect,
     importcpp: "DisplayedObjects", header: "AIS_InteractiveContext.hxx".}
-proc ErasedObjects*(this: AIS_InteractiveContext;
+proc erasedObjects*(this: AIS_InteractiveContext;
                    theListOfIO: var AIS_ListOfInteractive) {.noSideEffect,
     importcpp: "ErasedObjects", header: "AIS_InteractiveContext.hxx".}
-proc ErasedObjects*(this: AIS_InteractiveContext;
-                   theWhichKind: AIS_KindOfInteractive;
-                   theWhichSignature: Standard_Integer;
+proc erasedObjects*(this: AIS_InteractiveContext;
+                   theWhichKind: AIS_KindOfInteractive; theWhichSignature: int;
                    theListOfIO: var AIS_ListOfInteractive) {.noSideEffect,
     importcpp: "ErasedObjects", header: "AIS_InteractiveContext.hxx".}
-proc ObjectsByDisplayStatus*(this: AIS_InteractiveContext;
+proc objectsByDisplayStatus*(this: AIS_InteractiveContext;
                             theStatus: AIS_DisplayStatus;
                             theListOfIO: var AIS_ListOfInteractive) {.noSideEffect,
     importcpp: "ObjectsByDisplayStatus", header: "AIS_InteractiveContext.hxx".}
-proc ObjectsByDisplayStatus*(this: AIS_InteractiveContext;
-                            WhichKind: AIS_KindOfInteractive;
-                            WhichSignature: Standard_Integer;
+proc objectsByDisplayStatus*(this: AIS_InteractiveContext;
+                            whichKind: AIS_KindOfInteractive; whichSignature: int;
                             theStatus: AIS_DisplayStatus;
                             theListOfIO: var AIS_ListOfInteractive) {.noSideEffect,
     importcpp: "ObjectsByDisplayStatus", header: "AIS_InteractiveContext.hxx".}
-proc ObjectsInside*(this: AIS_InteractiveContext;
+proc objectsInside*(this: AIS_InteractiveContext;
                    aListOfIO: var AIS_ListOfInteractive;
-                   WhichKind: AIS_KindOfInteractive = AIS_KOI_None;
-                   WhichSignature: Standard_Integer = -1) {.noSideEffect,
+                   whichKind: AIS_KindOfInteractive = aIS_KOI_None;
+                   whichSignature: int = -1) {.noSideEffect,
     importcpp: "ObjectsInside", header: "AIS_InteractiveContext.hxx".}
-proc RebuildSelectionStructs*(this: var AIS_InteractiveContext) {.
+proc rebuildSelectionStructs*(this: var AIS_InteractiveContext) {.
     importcpp: "RebuildSelectionStructs", header: "AIS_InteractiveContext.hxx".}
-proc Disconnect*(this: var AIS_InteractiveContext;
-                theAssembly: handle[AIS_InteractiveObject];
-                theObjToDisconnect: handle[AIS_InteractiveObject] = nil) {.
+proc disconnect*(this: var AIS_InteractiveContext;
+                theAssembly: Handle[AIS_InteractiveObject];
+                theObjToDisconnect: Handle[AIS_InteractiveObject] = nil) {.
     importcpp: "Disconnect", header: "AIS_InteractiveContext.hxx".}
-proc ObjectsForView*(this: AIS_InteractiveContext;
+proc objectsForView*(this: AIS_InteractiveContext;
                     theListOfIO: var AIS_ListOfInteractive;
-                    theView: handle[V3d_View];
-                    theIsVisibleInView: Standard_Boolean;
-                    theStatus: AIS_DisplayStatus = AIS_DS_None) {.noSideEffect,
+                    theView: Handle[V3dView]; theIsVisibleInView: bool;
+                    theStatus: AIS_DisplayStatus = aIS_DS_None) {.noSideEffect,
     importcpp: "ObjectsForView", header: "AIS_InteractiveContext.hxx".}
-proc PurgeDisplay*(this: var AIS_InteractiveContext): Standard_Integer {.
+proc purgeDisplay*(this: var AIS_InteractiveContext): int {.
     importcpp: "PurgeDisplay", header: "AIS_InteractiveContext.hxx".}
-proc GravityPoint*(this: AIS_InteractiveContext; theView: handle[V3d_View]): gp_Pnt {.
+proc gravityPoint*(this: AIS_InteractiveContext; theView: Handle[V3dView]): Pnt {.
     noSideEffect, importcpp: "GravityPoint", header: "AIS_InteractiveContext.hxx".}
-proc DisplayActiveSensitive*(this: var AIS_InteractiveContext;
-                            aView: handle[V3d_View]) {.
+proc displayActiveSensitive*(this: var AIS_InteractiveContext;
+                            aView: Handle[V3dView]) {.
     importcpp: "DisplayActiveSensitive", header: "AIS_InteractiveContext.hxx".}
-proc ClearActiveSensitive*(this: var AIS_InteractiveContext; aView: handle[V3d_View]) {.
+proc clearActiveSensitive*(this: var AIS_InteractiveContext; aView: Handle[V3dView]) {.
     importcpp: "ClearActiveSensitive", header: "AIS_InteractiveContext.hxx".}
-proc DisplayActiveSensitive*(this: var AIS_InteractiveContext;
-                            anObject: handle[AIS_InteractiveObject];
-                            aView: handle[V3d_View]) {.
+proc displayActiveSensitive*(this: var AIS_InteractiveContext;
+                            anObject: Handle[AIS_InteractiveObject];
+                            aView: Handle[V3dView]) {.
     importcpp: "DisplayActiveSensitive", header: "AIS_InteractiveContext.hxx".}
-proc SetLocalAttributes*(this: var AIS_InteractiveContext;
-                        theIObj: handle[AIS_InteractiveObject];
-                        theDrawer: handle[Prs3d_Drawer];
-                        theToUpdateViewer: Standard_Boolean) {.
+proc setLocalAttributes*(this: var AIS_InteractiveContext;
+                        theIObj: Handle[AIS_InteractiveObject];
+                        theDrawer: Handle[Prs3dDrawer]; theToUpdateViewer: bool) {.
     importcpp: "SetLocalAttributes", header: "AIS_InteractiveContext.hxx".}
-proc UnsetLocalAttributes*(this: var AIS_InteractiveContext;
-                          theIObj: handle[AIS_InteractiveObject];
-                          theToUpdateViewer: Standard_Boolean) {.
+proc unsetLocalAttributes*(this: var AIS_InteractiveContext;
+                          theIObj: Handle[AIS_InteractiveObject];
+                          theToUpdateViewer: bool) {.
     importcpp: "UnsetLocalAttributes", header: "AIS_InteractiveContext.hxx".}
-proc SetCurrentFacingModel*(this: var AIS_InteractiveContext;
-                           aniobj: handle[AIS_InteractiveObject]; aModel: Aspect_TypeOfFacingModel = Aspect_TOFM_BOTH_SIDE) {.
+proc setCurrentFacingModel*(this: var AIS_InteractiveContext;
+                           aniobj: Handle[AIS_InteractiveObject]; aModel: AspectTypeOfFacingModel = aspectTOFM_BOTH_SIDE) {.
     importcpp: "SetCurrentFacingModel", header: "AIS_InteractiveContext.hxx".}
-proc HasColor*(this: AIS_InteractiveContext; aniobj: handle[AIS_InteractiveObject]): Standard_Boolean {.
+proc hasColor*(this: AIS_InteractiveContext; aniobj: Handle[AIS_InteractiveObject]): bool {.
     noSideEffect, importcpp: "HasColor", header: "AIS_InteractiveContext.hxx".}
-proc Color*(this: AIS_InteractiveContext; aniobj: handle[AIS_InteractiveObject];
-           acolor: var Quantity_Color) {.noSideEffect, importcpp: "Color",
-                                      header: "AIS_InteractiveContext.hxx".}
-proc SetColor*(this: var AIS_InteractiveContext;
-              theIObj: handle[AIS_InteractiveObject]; theColor: Quantity_Color;
-              theToUpdateViewer: Standard_Boolean) {.importcpp: "SetColor",
-    header: "AIS_InteractiveContext.hxx".}
-proc UnsetColor*(this: var AIS_InteractiveContext;
-                theIObj: handle[AIS_InteractiveObject];
-                theToUpdateViewer: Standard_Boolean) {.importcpp: "UnsetColor",
-    header: "AIS_InteractiveContext.hxx".}
-proc Width*(this: AIS_InteractiveContext; aniobj: handle[AIS_InteractiveObject]): Standard_Real {.
+proc color*(this: AIS_InteractiveContext; aniobj: Handle[AIS_InteractiveObject];
+           acolor: var QuantityColor) {.noSideEffect, importcpp: "Color",
+                                     header: "AIS_InteractiveContext.hxx".}
+proc setColor*(this: var AIS_InteractiveContext;
+              theIObj: Handle[AIS_InteractiveObject]; theColor: QuantityColor;
+              theToUpdateViewer: bool) {.importcpp: "SetColor",
+                                       header: "AIS_InteractiveContext.hxx".}
+proc unsetColor*(this: var AIS_InteractiveContext;
+                theIObj: Handle[AIS_InteractiveObject]; theToUpdateViewer: bool) {.
+    importcpp: "UnsetColor", header: "AIS_InteractiveContext.hxx".}
+proc width*(this: AIS_InteractiveContext; aniobj: Handle[AIS_InteractiveObject]): float {.
     noSideEffect, importcpp: "Width", header: "AIS_InteractiveContext.hxx".}
-proc SetWidth*(this: var AIS_InteractiveContext;
-              theIObj: handle[AIS_InteractiveObject]; theValue: Standard_Real;
-              theToUpdateViewer: Standard_Boolean) {.importcpp: "SetWidth",
-    header: "AIS_InteractiveContext.hxx".}
-proc UnsetWidth*(this: var AIS_InteractiveContext;
-                theIObj: handle[AIS_InteractiveObject];
-                theToUpdateViewer: Standard_Boolean) {.importcpp: "UnsetWidth",
-    header: "AIS_InteractiveContext.hxx".}
-proc SetMaterial*(this: var AIS_InteractiveContext;
-                 theIObj: handle[AIS_InteractiveObject];
-                 theMaterial: Graphic3d_MaterialAspect;
-                 theToUpdateViewer: Standard_Boolean) {.importcpp: "SetMaterial",
-    header: "AIS_InteractiveContext.hxx".}
-proc UnsetMaterial*(this: var AIS_InteractiveContext;
-                   theIObj: handle[AIS_InteractiveObject];
-                   theToUpdateViewer: Standard_Boolean) {.
+proc setWidth*(this: var AIS_InteractiveContext;
+              theIObj: Handle[AIS_InteractiveObject]; theValue: float;
+              theToUpdateViewer: bool) {.importcpp: "SetWidth",
+                                       header: "AIS_InteractiveContext.hxx".}
+proc unsetWidth*(this: var AIS_InteractiveContext;
+                theIObj: Handle[AIS_InteractiveObject]; theToUpdateViewer: bool) {.
+    importcpp: "UnsetWidth", header: "AIS_InteractiveContext.hxx".}
+proc setMaterial*(this: var AIS_InteractiveContext;
+                 theIObj: Handle[AIS_InteractiveObject];
+                 theMaterial: Graphic3dMaterialAspect; theToUpdateViewer: bool) {.
+    importcpp: "SetMaterial", header: "AIS_InteractiveContext.hxx".}
+proc unsetMaterial*(this: var AIS_InteractiveContext;
+                   theIObj: Handle[AIS_InteractiveObject]; theToUpdateViewer: bool) {.
     importcpp: "UnsetMaterial", header: "AIS_InteractiveContext.hxx".}
-proc SetTransparency*(this: var AIS_InteractiveContext;
-                     theIObj: handle[AIS_InteractiveObject];
-                     theValue: Standard_Real; theToUpdateViewer: Standard_Boolean) {.
-    importcpp: "SetTransparency", header: "AIS_InteractiveContext.hxx".}
-proc UnsetTransparency*(this: var AIS_InteractiveContext;
-                       theIObj: handle[AIS_InteractiveObject];
-                       theToUpdateViewer: Standard_Boolean) {.
-    importcpp: "UnsetTransparency", header: "AIS_InteractiveContext.hxx".}
-proc SetPolygonOffsets*(this: var AIS_InteractiveContext;
-                       theIObj: handle[AIS_InteractiveObject];
-                       theMode: Standard_Integer; theFactor: Standard_ShortReal;
-                       theUnits: Standard_ShortReal;
-                       theToUpdateViewer: Standard_Boolean) {.
-    importcpp: "SetPolygonOffsets", header: "AIS_InteractiveContext.hxx".}
-proc HasPolygonOffsets*(this: AIS_InteractiveContext;
-                       anObj: handle[AIS_InteractiveObject]): Standard_Boolean {.
-    noSideEffect, importcpp: "HasPolygonOffsets",
+proc setTransparency*(this: var AIS_InteractiveContext;
+                     theIObj: Handle[AIS_InteractiveObject]; theValue: float;
+                     theToUpdateViewer: bool) {.importcpp: "SetTransparency",
     header: "AIS_InteractiveContext.hxx".}
-proc PolygonOffsets*(this: AIS_InteractiveContext;
-                    anObj: handle[AIS_InteractiveObject];
-                    aMode: var Standard_Integer; aFactor: var Standard_ShortReal;
-                    aUnits: var Standard_ShortReal) {.noSideEffect,
-    importcpp: "PolygonOffsets", header: "AIS_InteractiveContext.hxx".}
-proc SetTrihedronSize*(this: var AIS_InteractiveContext; theSize: Standard_Real;
-                      theToUpdateViewer: Standard_Boolean) {.
-    importcpp: "SetTrihedronSize", header: "AIS_InteractiveContext.hxx".}
-proc TrihedronSize*(this: AIS_InteractiveContext): Standard_Real {.noSideEffect,
+proc unsetTransparency*(this: var AIS_InteractiveContext;
+                       theIObj: Handle[AIS_InteractiveObject];
+                       theToUpdateViewer: bool) {.importcpp: "UnsetTransparency",
+    header: "AIS_InteractiveContext.hxx".}
+proc setPolygonOffsets*(this: var AIS_InteractiveContext;
+                       theIObj: Handle[AIS_InteractiveObject]; theMode: int;
+                       theFactor: StandardShortReal; theUnits: StandardShortReal;
+                       theToUpdateViewer: bool) {.importcpp: "SetPolygonOffsets",
+    header: "AIS_InteractiveContext.hxx".}
+proc hasPolygonOffsets*(this: AIS_InteractiveContext;
+                       anObj: Handle[AIS_InteractiveObject]): bool {.noSideEffect,
+    importcpp: "HasPolygonOffsets", header: "AIS_InteractiveContext.hxx".}
+proc polygonOffsets*(this: AIS_InteractiveContext;
+                    anObj: Handle[AIS_InteractiveObject]; aMode: var int;
+                    aFactor: var StandardShortReal; aUnits: var StandardShortReal) {.
+    noSideEffect, importcpp: "PolygonOffsets", header: "AIS_InteractiveContext.hxx".}
+proc setTrihedronSize*(this: var AIS_InteractiveContext; theSize: float;
+                      theToUpdateViewer: bool) {.importcpp: "SetTrihedronSize",
+    header: "AIS_InteractiveContext.hxx".}
+proc trihedronSize*(this: AIS_InteractiveContext): float {.noSideEffect,
     importcpp: "TrihedronSize", header: "AIS_InteractiveContext.hxx".}
-proc SetPlaneSize*(this: var AIS_InteractiveContext; theSizeX: Standard_Real;
-                  theSizeY: Standard_Real; theToUpdateViewer: Standard_Boolean) {.
-    importcpp: "SetPlaneSize", header: "AIS_InteractiveContext.hxx".}
-proc SetPlaneSize*(this: var AIS_InteractiveContext; theSize: Standard_Real;
-                  theToUpdateViewer: Standard_Boolean) {.
-    importcpp: "SetPlaneSize", header: "AIS_InteractiveContext.hxx".}
-proc PlaneSize*(this: AIS_InteractiveContext; XSize: var Standard_Real;
-               YSize: var Standard_Real): Standard_Boolean {.noSideEffect,
-    importcpp: "PlaneSize", header: "AIS_InteractiveContext.hxx".}
-proc SetDeviationCoefficient*(this: var AIS_InteractiveContext;
-                             theIObj: handle[AIS_InteractiveObject];
-                             theCoefficient: Standard_Real;
-                             theToUpdateViewer: Standard_Boolean) {.
-    importcpp: "SetDeviationCoefficient", header: "AIS_InteractiveContext.hxx".}
-proc SetDeviationAngle*(this: var AIS_InteractiveContext;
-                       theIObj: handle[AIS_InteractiveObject];
-                       theAngle: Standard_Real;
-                       theToUpdateViewer: Standard_Boolean) {.
-    importcpp: "SetDeviationAngle", header: "AIS_InteractiveContext.hxx".}
-proc SetAngleAndDeviation*(this: var AIS_InteractiveContext;
-                          theIObj: handle[AIS_InteractiveObject];
-                          theAngle: Standard_Real;
-                          theToUpdateViewer: Standard_Boolean) {.
-    importcpp: "SetAngleAndDeviation", header: "AIS_InteractiveContext.hxx".}
-proc SetDeviationCoefficient*(this: var AIS_InteractiveContext;
-                             theCoefficient: Standard_Real) {.
-    importcpp: "SetDeviationCoefficient", header: "AIS_InteractiveContext.hxx".}
-proc DeviationCoefficient*(this: AIS_InteractiveContext): Standard_Real {.
-    noSideEffect, importcpp: "DeviationCoefficient",
+proc setPlaneSize*(this: var AIS_InteractiveContext; theSizeX: float; theSizeY: float;
+                  theToUpdateViewer: bool) {.importcpp: "SetPlaneSize",
     header: "AIS_InteractiveContext.hxx".}
-proc SetDeviationAngle*(this: var AIS_InteractiveContext; anAngle: Standard_Real) {.
+proc setPlaneSize*(this: var AIS_InteractiveContext; theSize: float;
+                  theToUpdateViewer: bool) {.importcpp: "SetPlaneSize",
+    header: "AIS_InteractiveContext.hxx".}
+proc planeSize*(this: AIS_InteractiveContext; xSize: var float; ySize: var float): bool {.
+    noSideEffect, importcpp: "PlaneSize", header: "AIS_InteractiveContext.hxx".}
+proc setDeviationCoefficient*(this: var AIS_InteractiveContext;
+                             theIObj: Handle[AIS_InteractiveObject];
+                             theCoefficient: float; theToUpdateViewer: bool) {.
+    importcpp: "SetDeviationCoefficient", header: "AIS_InteractiveContext.hxx".}
+proc setDeviationAngle*(this: var AIS_InteractiveContext;
+                       theIObj: Handle[AIS_InteractiveObject]; theAngle: float;
+                       theToUpdateViewer: bool) {.importcpp: "SetDeviationAngle",
+    header: "AIS_InteractiveContext.hxx".}
+proc setAngleAndDeviation*(this: var AIS_InteractiveContext;
+                          theIObj: Handle[AIS_InteractiveObject]; theAngle: float;
+                          theToUpdateViewer: bool) {.
+    importcpp: "SetAngleAndDeviation", header: "AIS_InteractiveContext.hxx".}
+proc setDeviationCoefficient*(this: var AIS_InteractiveContext;
+                             theCoefficient: float) {.
+    importcpp: "SetDeviationCoefficient", header: "AIS_InteractiveContext.hxx".}
+proc deviationCoefficient*(this: AIS_InteractiveContext): float {.noSideEffect,
+    importcpp: "DeviationCoefficient", header: "AIS_InteractiveContext.hxx".}
+proc setDeviationAngle*(this: var AIS_InteractiveContext; anAngle: float) {.
     importcpp: "SetDeviationAngle", header: "AIS_InteractiveContext.hxx".}
-proc DeviationAngle*(this: AIS_InteractiveContext): Standard_Real {.noSideEffect,
+proc deviationAngle*(this: AIS_InteractiveContext): float {.noSideEffect,
     importcpp: "DeviationAngle", header: "AIS_InteractiveContext.hxx".}
-proc HiddenLineAspect*(this: AIS_InteractiveContext): handle[Prs3d_LineAspect] {.
+proc hiddenLineAspect*(this: AIS_InteractiveContext): Handle[Prs3dLineAspect] {.
     noSideEffect, importcpp: "HiddenLineAspect",
     header: "AIS_InteractiveContext.hxx".}
-proc SetHiddenLineAspect*(this: AIS_InteractiveContext;
-                         anAspect: handle[Prs3d_LineAspect]) {.noSideEffect,
+proc setHiddenLineAspect*(this: AIS_InteractiveContext;
+                         anAspect: Handle[Prs3dLineAspect]) {.noSideEffect,
     importcpp: "SetHiddenLineAspect", header: "AIS_InteractiveContext.hxx".}
-proc DrawHiddenLine*(this: AIS_InteractiveContext): Standard_Boolean {.noSideEffect,
+proc drawHiddenLine*(this: AIS_InteractiveContext): bool {.noSideEffect,
     importcpp: "DrawHiddenLine", header: "AIS_InteractiveContext.hxx".}
-proc EnableDrawHiddenLine*(this: AIS_InteractiveContext) {.noSideEffect,
+proc enableDrawHiddenLine*(this: AIS_InteractiveContext) {.noSideEffect,
     importcpp: "EnableDrawHiddenLine", header: "AIS_InteractiveContext.hxx".}
-proc DisableDrawHiddenLine*(this: AIS_InteractiveContext) {.noSideEffect,
+proc disableDrawHiddenLine*(this: AIS_InteractiveContext) {.noSideEffect,
     importcpp: "DisableDrawHiddenLine", header: "AIS_InteractiveContext.hxx".}
-proc SetIsoNumber*(this: var AIS_InteractiveContext; NbIsos: Standard_Integer;
-                  WhichIsos: AIS_TypeOfIso = AIS_TOI_Both) {.
+proc setIsoNumber*(this: var AIS_InteractiveContext; nbIsos: int;
+                  whichIsos: AIS_TypeOfIso = aIS_TOI_Both) {.
     importcpp: "SetIsoNumber", header: "AIS_InteractiveContext.hxx".}
-proc IsoNumber*(this: var AIS_InteractiveContext;
-               WhichIsos: AIS_TypeOfIso = AIS_TOI_Both): Standard_Integer {.
+proc isoNumber*(this: var AIS_InteractiveContext;
+               whichIsos: AIS_TypeOfIso = aIS_TOI_Both): int {.
     importcpp: "IsoNumber", header: "AIS_InteractiveContext.hxx".}
-proc IsoOnPlane*(this: var AIS_InteractiveContext; SwitchOn: Standard_Boolean) {.
+proc isoOnPlane*(this: var AIS_InteractiveContext; switchOn: bool) {.
     importcpp: "IsoOnPlane", header: "AIS_InteractiveContext.hxx".}
-proc IsoOnPlane*(this: AIS_InteractiveContext): Standard_Boolean {.noSideEffect,
+proc isoOnPlane*(this: AIS_InteractiveContext): bool {.noSideEffect,
     importcpp: "IsoOnPlane", header: "AIS_InteractiveContext.hxx".}
-proc IsoOnTriangulation*(this: var AIS_InteractiveContext;
-                        theIsEnabled: Standard_Boolean;
-                        theObject: handle[AIS_InteractiveObject]) {.
+proc isoOnTriangulation*(this: var AIS_InteractiveContext; theIsEnabled: bool;
+                        theObject: Handle[AIS_InteractiveObject]) {.
     importcpp: "IsoOnTriangulation", header: "AIS_InteractiveContext.hxx".}
-proc IsoOnTriangulation*(this: var AIS_InteractiveContext;
-                        theToSwitchOn: Standard_Boolean) {.
+proc isoOnTriangulation*(this: var AIS_InteractiveContext; theToSwitchOn: bool) {.
     importcpp: "IsoOnTriangulation", header: "AIS_InteractiveContext.hxx".}
-proc IsoOnTriangulation*(this: AIS_InteractiveContext): Standard_Boolean {.
-    noSideEffect, importcpp: "IsoOnTriangulation",
-    header: "AIS_InteractiveContext.hxx".}
+proc isoOnTriangulation*(this: AIS_InteractiveContext): bool {.noSideEffect,
+    importcpp: "IsoOnTriangulation", header: "AIS_InteractiveContext.hxx".}
 ## !!!Ignored construct:  ! @name obsolete methods public : ! Updates the view of the current object in open context.
 ## ! Objects selected when there is no open local context are called current objects; those selected in open local context, selected objects. Standard_DEPRECATED ( Local Context is deprecated - local selection should be used without Local Context ) void SetCurrentObject ( const opencascade :: handle < AIS_InteractiveObject > [end of template] & theIObj , const Standard_Boolean theToUpdateViewer ) { SetSelected ( theIObj , theToUpdateViewer ) ; } ! Allows to add or remove the object given to the list of current and highlight/unhighlight it correspondingly.
 ## ! Is valid for global context only; for local context use method AddOrRemoveSelected.
@@ -1548,28 +1475,27 @@ proc IsoOnTriangulation*(this: AIS_InteractiveContext): Standard_Boolean {.
 ## ! @sa DetectedCurrentOwner()/InitDetected()/MoreDetected()/NextDetected(). Standard_DEPRECATED ( Local Context is deprecated - ::DetectedCurrentOwner() should be called instead ) opencascade :: handle < AIS_InteractiveObject > [end of template] DetectedCurrentObject ( ) const ;
 ## Error: identifier expected, but got: Local Context is deprecated - ::DetectedCurrentOwner() should be called instead!!!
 
-proc SubIntensityColor*(this: AIS_InteractiveContext): Quantity_Color {.
-    noSideEffect, importcpp: "SubIntensityColor",
-    header: "AIS_InteractiveContext.hxx".}
-proc SetSubIntensityColor*(this: var AIS_InteractiveContext;
-                          theColor: Quantity_Color) {.
+proc subIntensityColor*(this: AIS_InteractiveContext): QuantityColor {.noSideEffect,
+    importcpp: "SubIntensityColor", header: "AIS_InteractiveContext.hxx".}
+proc setSubIntensityColor*(this: var AIS_InteractiveContext; theColor: QuantityColor) {.
     importcpp: "SetSubIntensityColor", header: "AIS_InteractiveContext.hxx".}
-proc SubIntensityOn*(this: var AIS_InteractiveContext;
-                    theIObj: handle[AIS_InteractiveObject];
-                    theToUpdateViewer: Standard_Boolean) {.
-    importcpp: "SubIntensityOn", header: "AIS_InteractiveContext.hxx".}
-proc SubIntensityOff*(this: var AIS_InteractiveContext;
-                     theIObj: handle[AIS_InteractiveObject];
-                     theToUpdateViewer: Standard_Boolean) {.
-    importcpp: "SubIntensityOff", header: "AIS_InteractiveContext.hxx".}
-proc Selection*(this: AIS_InteractiveContext): handle[AIS_Selection] {.noSideEffect,
-    importcpp: "Selection", header: "AIS_InteractiveContext.hxx".}
-proc SetSelection*(this: var AIS_InteractiveContext;
-                  theSelection: handle[AIS_Selection]) {.
-    importcpp: "SetSelection", header: "AIS_InteractiveContext.hxx".}
-proc DumpJson*(this: AIS_InteractiveContext; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
+proc subIntensityOn*(this: var AIS_InteractiveContext;
+                    theIObj: Handle[AIS_InteractiveObject];
+                    theToUpdateViewer: bool) {.importcpp: "SubIntensityOn",
     header: "AIS_InteractiveContext.hxx".}
+proc subIntensityOff*(this: var AIS_InteractiveContext;
+                     theIObj: Handle[AIS_InteractiveObject];
+                     theToUpdateViewer: bool) {.importcpp: "SubIntensityOff",
+    header: "AIS_InteractiveContext.hxx".}
+proc selection*(this: AIS_InteractiveContext): Handle[AIS_Selection] {.noSideEffect,
+    importcpp: "Selection", header: "AIS_InteractiveContext.hxx".}
+proc setSelection*(this: var AIS_InteractiveContext;
+                  theSelection: Handle[AIS_Selection]) {.
+    importcpp: "SetSelection", header: "AIS_InteractiveContext.hxx".}
+proc dumpJson*(this: AIS_InteractiveContext; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "AIS_InteractiveContext.hxx".}
 discard "forward decl of AIS_InteractiveContext"
 type
-  Handle_AIS_InteractiveContext* = handle[AIS_InteractiveContext]
+  HandleAIS_InteractiveContext* = Handle[AIS_InteractiveContext]
+

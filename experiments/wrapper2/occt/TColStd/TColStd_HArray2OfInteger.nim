@@ -12,5 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # TColStd_HArray2OfInteger_HeaderFile [NewLine] # TColStd_HArray2OfInteger_HeaderFile [NewLine] # ../Standard/Standard_Integer.hxx [NewLine] # TColStd_Array2OfInteger.hxx [NewLine] # ../NCollection/NCollection_DefineHArray2.hxx [NewLine] DEFINE_HARRAY2 ( TColStd_HArray2OfInteger , TColStd_Array2OfInteger ) # [NewLine]
+## !!!Ignored construct:  # TColStd_HArray2OfInteger_HeaderFile [NewLine] # TColStd_HArray2OfInteger_HeaderFile [NewLine] # < Standard_Integer . hxx > [NewLine] # < TColStd_Array2OfInteger . hxx > [NewLine] # < NCollection_DefineHArray2 . hxx > [NewLine] DEFINE_HARRAY2 ( TColStd_HArray2OfInteger , TColStd_Array2OfInteger ) # [NewLine]
 ## Error: expected ';'!!!
+

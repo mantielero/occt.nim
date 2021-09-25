@@ -14,160 +14,100 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../Standard/Standard_Transient, ../Standard/Standard_CString,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of Units_Dimensions"
 discard "forward decl of Units_Dimensions"
 type
-  Handle_Units_Dimensions* = handle[Units_Dimensions]
+  HandleUnitsDimensions* = Handle[UnitsDimensions]
 
 ## ! This class includes all  the methods to create and
 ## ! manipulate    the   dimensions  of the    physical
 ## ! quantities.
 
 type
-  Units_Dimensions* {.importcpp: "Units_Dimensions",
-                     header: "Units_Dimensions.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## a
-                                                                                      ## Dimensions
-                                                                                      ## object
-                                                                                      ## which
-                                                                                      ## represents
-                                                                                      ## the
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## dimension
-                                                                                      ## of
-                                                                                      ## a
-                                                                                      ## physical
-                                                                                      ## quantity.
-                                                                                      ## Each
-                                                                                      ## of
-                                                                                      ## the
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## <amass>,
-                                                                                      ## <alength>,
-                                                                                      ## <atime>,
-                                                                                      ## <anelectriccurrent>,
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## <athermodynamictemperature>,
-                                                                                      ## <anamountofsubstance>,
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## <aluminousintensity>,
-                                                                                      ## <aplaneangle>,
-                                                                                      ## <asolidangle>
-                                                                                      ## are
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## the
-                                                                                      ## powers
-                                                                                      ## for
-                                                                                      ## the
-                                                                                      ## 7
-                                                                                      ## fundamental
-                                                                                      ## units
-                                                                                      ## of
-                                                                                      ## physical
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## quantity
-                                                                                      ## and
-                                                                                      ## the
-                                                                                      ## 2
-                                                                                      ## secondary
-                                                                                      ## fundamental
-                                                                                      ## units
-                                                                                      ## of
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## physical
-                                                                                      ## quantity.
+  UnitsDimensions* {.importcpp: "Units_Dimensions", header: "Units_Dimensions.hxx",
+                    bycopy.} = object of StandardTransient ## ! Returns  a  Dimensions  object  which  represents  the
+                                                      ## ! dimension  of  a  physical  quantity.    Each  of  the
+                                                      ## ! <amass>,  <alength>,   <atime>,   <anelectriccurrent>,
+                                                      ## !
+                                                      ## <athermodynamictemperature>,    <anamountofsubstance>,
+                                                      ## ! <aluminousintensity>, <aplaneangle>, <asolidangle> are
+                                                      ## ! the powers for  the 7  fundamental  units of  physical
+                                                      ## ! quantity and  the 2  secondary  fundamental  units  of
+                                                      ## ! physical quantity.
 
 
-proc constructUnits_Dimensions*(amass: Standard_Real; alength: Standard_Real;
-                               atime: Standard_Real;
-                               anelectriccurrent: Standard_Real;
-                               athermodynamictemperature: Standard_Real;
-                               anamountofsubstance: Standard_Real;
-                               aluminousintensity: Standard_Real;
-                               aplaneangle: Standard_Real;
-                               asolidangle: Standard_Real): Units_Dimensions {.
-    constructor, importcpp: "Units_Dimensions(@)", header: "Units_Dimensions.hxx".}
-proc Mass*(this: Units_Dimensions): Standard_Real {.noSideEffect, importcpp: "Mass",
+proc constructUnitsDimensions*(amass: float; alength: float; atime: float;
+                              anelectriccurrent: float;
+                              athermodynamictemperature: float;
+                              anamountofsubstance: float;
+                              aluminousintensity: float; aplaneangle: float;
+                              asolidangle: float): UnitsDimensions {.constructor,
+    importcpp: "Units_Dimensions(@)", header: "Units_Dimensions.hxx".}
+proc mass*(this: UnitsDimensions): float {.noSideEffect, importcpp: "Mass",
+                                       header: "Units_Dimensions.hxx".}
+proc length*(this: UnitsDimensions): float {.noSideEffect, importcpp: "Length",
     header: "Units_Dimensions.hxx".}
-proc Length*(this: Units_Dimensions): Standard_Real {.noSideEffect,
-    importcpp: "Length", header: "Units_Dimensions.hxx".}
-proc Time*(this: Units_Dimensions): Standard_Real {.noSideEffect, importcpp: "Time",
-    header: "Units_Dimensions.hxx".}
-proc ElectricCurrent*(this: Units_Dimensions): Standard_Real {.noSideEffect,
+proc time*(this: UnitsDimensions): float {.noSideEffect, importcpp: "Time",
+                                       header: "Units_Dimensions.hxx".}
+proc electricCurrent*(this: UnitsDimensions): float {.noSideEffect,
     importcpp: "ElectricCurrent", header: "Units_Dimensions.hxx".}
-proc ThermodynamicTemperature*(this: Units_Dimensions): Standard_Real {.
-    noSideEffect, importcpp: "ThermodynamicTemperature",
-    header: "Units_Dimensions.hxx".}
-proc AmountOfSubstance*(this: Units_Dimensions): Standard_Real {.noSideEffect,
+proc thermodynamicTemperature*(this: UnitsDimensions): float {.noSideEffect,
+    importcpp: "ThermodynamicTemperature", header: "Units_Dimensions.hxx".}
+proc amountOfSubstance*(this: UnitsDimensions): float {.noSideEffect,
     importcpp: "AmountOfSubstance", header: "Units_Dimensions.hxx".}
-proc LuminousIntensity*(this: Units_Dimensions): Standard_Real {.noSideEffect,
+proc luminousIntensity*(this: UnitsDimensions): float {.noSideEffect,
     importcpp: "LuminousIntensity", header: "Units_Dimensions.hxx".}
-proc PlaneAngle*(this: Units_Dimensions): Standard_Real {.noSideEffect,
+proc planeAngle*(this: UnitsDimensions): float {.noSideEffect,
     importcpp: "PlaneAngle", header: "Units_Dimensions.hxx".}
-proc SolidAngle*(this: Units_Dimensions): Standard_Real {.noSideEffect,
+proc solidAngle*(this: UnitsDimensions): float {.noSideEffect,
     importcpp: "SolidAngle", header: "Units_Dimensions.hxx".}
-proc Quantity*(this: Units_Dimensions): Standard_CString {.noSideEffect,
+proc quantity*(this: UnitsDimensions): StandardCString {.noSideEffect,
     importcpp: "Quantity", header: "Units_Dimensions.hxx".}
-proc Multiply*(this: Units_Dimensions; adimensions: handle[Units_Dimensions]): handle[
-    Units_Dimensions] {.noSideEffect, importcpp: "Multiply",
-                       header: "Units_Dimensions.hxx".}
-proc Divide*(this: Units_Dimensions; adimensions: handle[Units_Dimensions]): handle[
-    Units_Dimensions] {.noSideEffect, importcpp: "Divide",
-                       header: "Units_Dimensions.hxx".}
-proc Power*(this: Units_Dimensions; anexponent: Standard_Real): handle[
-    Units_Dimensions] {.noSideEffect, importcpp: "Power",
-                       header: "Units_Dimensions.hxx".}
-proc IsEqual*(this: Units_Dimensions; adimensions: handle[Units_Dimensions]): Standard_Boolean {.
+proc multiply*(this: UnitsDimensions; adimensions: Handle[UnitsDimensions]): Handle[
+    UnitsDimensions] {.noSideEffect, importcpp: "Multiply",
+                      header: "Units_Dimensions.hxx".}
+proc divide*(this: UnitsDimensions; adimensions: Handle[UnitsDimensions]): Handle[
+    UnitsDimensions] {.noSideEffect, importcpp: "Divide",
+                      header: "Units_Dimensions.hxx".}
+proc power*(this: UnitsDimensions; anexponent: float): Handle[UnitsDimensions] {.
+    noSideEffect, importcpp: "Power", header: "Units_Dimensions.hxx".}
+proc isEqual*(this: UnitsDimensions; adimensions: Handle[UnitsDimensions]): bool {.
     noSideEffect, importcpp: "IsEqual", header: "Units_Dimensions.hxx".}
-proc IsNotEqual*(this: Units_Dimensions; adimensions: handle[Units_Dimensions]): Standard_Boolean {.
+proc isNotEqual*(this: UnitsDimensions; adimensions: Handle[UnitsDimensions]): bool {.
     noSideEffect, importcpp: "IsNotEqual", header: "Units_Dimensions.hxx".}
-proc Dump*(this: Units_Dimensions; ashift: Standard_Integer) {.noSideEffect,
-    importcpp: "Dump", header: "Units_Dimensions.hxx".}
-proc ALess*(): handle[Units_Dimensions] {.importcpp: "Units_Dimensions::ALess(@)",
-                                       header: "Units_Dimensions.hxx".}
-proc AMass*(): handle[Units_Dimensions] {.importcpp: "Units_Dimensions::AMass(@)",
-                                       header: "Units_Dimensions.hxx".}
-proc ALength*(): handle[Units_Dimensions] {.
-    importcpp: "Units_Dimensions::ALength(@)", header: "Units_Dimensions.hxx".}
-proc ATime*(): handle[Units_Dimensions] {.importcpp: "Units_Dimensions::ATime(@)",
-                                       header: "Units_Dimensions.hxx".}
-proc AElectricCurrent*(): handle[Units_Dimensions] {.
+proc dump*(this: UnitsDimensions; ashift: int) {.noSideEffect, importcpp: "Dump",
+    header: "Units_Dimensions.hxx".}
+proc aLess*(): Handle[UnitsDimensions] {.importcpp: "Units_Dimensions::ALess(@)",
+                                      header: "Units_Dimensions.hxx".}
+proc aMass*(): Handle[UnitsDimensions] {.importcpp: "Units_Dimensions::AMass(@)",
+                                      header: "Units_Dimensions.hxx".}
+proc aLength*(): Handle[UnitsDimensions] {.importcpp: "Units_Dimensions::ALength(@)",
+                                        header: "Units_Dimensions.hxx".}
+proc aTime*(): Handle[UnitsDimensions] {.importcpp: "Units_Dimensions::ATime(@)",
+                                      header: "Units_Dimensions.hxx".}
+proc aElectricCurrent*(): Handle[UnitsDimensions] {.
     importcpp: "Units_Dimensions::AElectricCurrent(@)",
     header: "Units_Dimensions.hxx".}
-proc AThermodynamicTemperature*(): handle[Units_Dimensions] {.
+proc aThermodynamicTemperature*(): Handle[UnitsDimensions] {.
     importcpp: "Units_Dimensions::AThermodynamicTemperature(@)",
     header: "Units_Dimensions.hxx".}
-proc AAmountOfSubstance*(): handle[Units_Dimensions] {.
+proc aAmountOfSubstance*(): Handle[UnitsDimensions] {.
     importcpp: "Units_Dimensions::AAmountOfSubstance(@)",
     header: "Units_Dimensions.hxx".}
-proc ALuminousIntensity*(): handle[Units_Dimensions] {.
+proc aLuminousIntensity*(): Handle[UnitsDimensions] {.
     importcpp: "Units_Dimensions::ALuminousIntensity(@)",
     header: "Units_Dimensions.hxx".}
-proc APlaneAngle*(): handle[Units_Dimensions] {.
+proc aPlaneAngle*(): Handle[UnitsDimensions] {.
     importcpp: "Units_Dimensions::APlaneAngle(@)", header: "Units_Dimensions.hxx".}
-proc ASolidAngle*(): handle[Units_Dimensions] {.
+proc aSolidAngle*(): Handle[UnitsDimensions] {.
     importcpp: "Units_Dimensions::ASolidAngle(@)", header: "Units_Dimensions.hxx".}
 type
-  Units_Dimensionsbase_type* = Standard_Transient
+  UnitsDimensionsbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Units_Dimensions::get_type_name(@)",
-                              header: "Units_Dimensions.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Units_Dimensions::get_type_name(@)",
+                            header: "Units_Dimensions.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Units_Dimensions::get_type_descriptor(@)",
     header: "Units_Dimensions.hxx".}
-proc DynamicType*(this: Units_Dimensions): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: UnitsDimensions): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Units_Dimensions.hxx".}

@@ -14,15 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../AppParCurves/AppParCurves_Constraint,
-  ../AppParCurves/AppParCurves_MultiBSpCurve, ../TColStd/TColStd_HArray1OfReal,
-  ../TColStd/TColStd_HArray1OfInteger, ../math/math_Matrix, ../math/math_Vector,
-  ../math/math_IntegerVector, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
-  ../TColStd/TColStd_Array1OfReal, ../TColStd/TColStd_Array1OfInteger
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_DimensionError"
@@ -33,96 +24,86 @@ discard "forward decl of AppParCurves_MultiCurve"
 discard "forward decl of AppParCurves_MultiBSpCurve"
 discard "forward decl of math_Matrix"
 type
-  AppDef_ParLeastSquareOfTheGradient* {.importcpp: "AppDef_ParLeastSquareOfTheGradient", header: "AppDef_ParLeastSquareOfTheGradient.hxx",
-                                       bycopy.} = object ## ! given a MultiLine, this algorithm computes the least
-                                                      ## ! square resolution using the Householder-QR method.
-                                                      ## ! If the first and/or the last point is a constraint
-                                                      ## ! point, the value of the tangency or curvature is
-                                                      ## ! computed in the resolution.
-                                                      ## ! NbPol is the number of control points wanted
-                                                      ## ! for the approximating curves.
-                                                      ## ! The system to solve is the following:
-                                                      ## ! A X = B.
-                                                      ## ! Where A is the Bernstein matrix computed with the
-                                                      ## ! parameters, B the points coordinates and X the poles
-                                                      ## ! solutions.
-                                                      ## ! The matrix A is the same for each coordinate x, y and z
-                                                      ## ! and is also the same for each MultiLine point because
-                                                      ## ! they are approximated in parallel(so with the same
-                                                      ## ! parameter, only the vector B changes).
-                                                      ## ! is used by the constuctors above.
+  AppDefParLeastSquareOfTheGradient* {.importcpp: "AppDef_ParLeastSquareOfTheGradient", header: "AppDef_ParLeastSquareOfTheGradient.hxx",
+                                      bycopy.} = object ## ! given a MultiLine, this algorithm computes the least
+                                                     ## ! square resolution using the Householder-QR method.
+                                                     ## ! If the first and/or the last point is a constraint
+                                                     ## ! point, the value of the tangency or curvature is
+                                                     ## ! computed in the resolution.
+                                                     ## ! NbPol is the number of control points wanted
+                                                     ## ! for the approximating curves.
+                                                     ## ! The system to solve is the following:
+                                                     ## ! A X = B.
+                                                     ## ! Where A is the Bernstein matrix computed with the
+                                                     ## ! parameters, B the points coordinates and X the poles
+                                                     ## ! solutions.
+                                                     ## ! The matrix A is the same for each coordinate x, y and z
+                                                     ## ! and is also the same for each MultiLine point because
+                                                     ## ! they are approximated in parallel(so with the same
+                                                     ## ! parameter, only the vector B changes).
+                                                     ## ! is used by the constuctors above.
 
 
-proc constructAppDef_ParLeastSquareOfTheGradient*(SSP: AppDef_MultiLine;
-    FirstPoint: Standard_Integer; LastPoint: Standard_Integer;
-    FirstCons: AppParCurves_Constraint; LastCons: AppParCurves_Constraint;
-    Parameters: math_Vector; NbPol: Standard_Integer): AppDef_ParLeastSquareOfTheGradient {.
+proc constructAppDefParLeastSquareOfTheGradient*(ssp: AppDefMultiLine;
+    firstPoint: int; lastPoint: int; firstCons: AppParCurvesConstraint;
+    lastCons: AppParCurvesConstraint; parameters: MathVector; nbPol: int): AppDefParLeastSquareOfTheGradient {.
     constructor, importcpp: "AppDef_ParLeastSquareOfTheGradient(@)",
     header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
-proc constructAppDef_ParLeastSquareOfTheGradient*(SSP: AppDef_MultiLine;
-    FirstPoint: Standard_Integer; LastPoint: Standard_Integer;
-    FirstCons: AppParCurves_Constraint; LastCons: AppParCurves_Constraint;
-    NbPol: Standard_Integer): AppDef_ParLeastSquareOfTheGradient {.constructor,
-    importcpp: "AppDef_ParLeastSquareOfTheGradient(@)",
-    header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
-proc constructAppDef_ParLeastSquareOfTheGradient*(SSP: AppDef_MultiLine;
-    Knots: TColStd_Array1OfReal; Mults: TColStd_Array1OfInteger;
-    FirstPoint: Standard_Integer; LastPoint: Standard_Integer;
-    FirstCons: AppParCurves_Constraint; LastCons: AppParCurves_Constraint;
-    Parameters: math_Vector; NbPol: Standard_Integer): AppDef_ParLeastSquareOfTheGradient {.
+proc constructAppDefParLeastSquareOfTheGradient*(ssp: AppDefMultiLine;
+    firstPoint: int; lastPoint: int; firstCons: AppParCurvesConstraint;
+    lastCons: AppParCurvesConstraint; nbPol: int): AppDefParLeastSquareOfTheGradient {.
     constructor, importcpp: "AppDef_ParLeastSquareOfTheGradient(@)",
     header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
-proc constructAppDef_ParLeastSquareOfTheGradient*(SSP: AppDef_MultiLine;
-    Knots: TColStd_Array1OfReal; Mults: TColStd_Array1OfInteger;
-    FirstPoint: Standard_Integer; LastPoint: Standard_Integer;
-    FirstCons: AppParCurves_Constraint; LastCons: AppParCurves_Constraint;
-    NbPol: Standard_Integer): AppDef_ParLeastSquareOfTheGradient {.constructor,
-    importcpp: "AppDef_ParLeastSquareOfTheGradient(@)",
+proc constructAppDefParLeastSquareOfTheGradient*(ssp: AppDefMultiLine;
+    knots: TColStdArray1OfReal; mults: TColStdArray1OfInteger; firstPoint: int;
+    lastPoint: int; firstCons: AppParCurvesConstraint;
+    lastCons: AppParCurvesConstraint; parameters: MathVector; nbPol: int): AppDefParLeastSquareOfTheGradient {.
+    constructor, importcpp: "AppDef_ParLeastSquareOfTheGradient(@)",
     header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
-proc Perform*(this: var AppDef_ParLeastSquareOfTheGradient; Parameters: math_Vector) {.
+proc constructAppDefParLeastSquareOfTheGradient*(ssp: AppDefMultiLine;
+    knots: TColStdArray1OfReal; mults: TColStdArray1OfInteger; firstPoint: int;
+    lastPoint: int; firstCons: AppParCurvesConstraint;
+    lastCons: AppParCurvesConstraint; nbPol: int): AppDefParLeastSquareOfTheGradient {.
+    constructor, importcpp: "AppDef_ParLeastSquareOfTheGradient(@)",
+    header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
+proc perform*(this: var AppDefParLeastSquareOfTheGradient; parameters: MathVector) {.
     importcpp: "Perform", header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
-proc Perform*(this: var AppDef_ParLeastSquareOfTheGradient; Parameters: math_Vector;
-             l1: Standard_Real; l2: Standard_Real) {.importcpp: "Perform",
-    header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
-proc Perform*(this: var AppDef_ParLeastSquareOfTheGradient; Parameters: math_Vector;
-             V1t: math_Vector; V2t: math_Vector; l1: Standard_Real; l2: Standard_Real) {.
+proc perform*(this: var AppDefParLeastSquareOfTheGradient; parameters: MathVector;
+             l1: float; l2: float) {.importcpp: "Perform", header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
+proc perform*(this: var AppDefParLeastSquareOfTheGradient; parameters: MathVector;
+             v1t: MathVector; v2t: MathVector; l1: float; l2: float) {.
     importcpp: "Perform", header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
-proc Perform*(this: var AppDef_ParLeastSquareOfTheGradient; Parameters: math_Vector;
-             V1t: math_Vector; V2t: math_Vector; V1c: math_Vector; V2c: math_Vector;
-             l1: Standard_Real; l2: Standard_Real) {.importcpp: "Perform",
-    header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
-proc IsDone*(this: AppDef_ParLeastSquareOfTheGradient): Standard_Boolean {.
-    noSideEffect, importcpp: "IsDone",
-    header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
-proc BezierValue*(this: var AppDef_ParLeastSquareOfTheGradient): AppParCurves_MultiCurve {.
+proc perform*(this: var AppDefParLeastSquareOfTheGradient; parameters: MathVector;
+             v1t: MathVector; v2t: MathVector; v1c: MathVector; v2c: MathVector;
+             l1: float; l2: float) {.importcpp: "Perform", header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
+proc isDone*(this: AppDefParLeastSquareOfTheGradient): bool {.noSideEffect,
+    importcpp: "IsDone", header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
+proc bezierValue*(this: var AppDefParLeastSquareOfTheGradient): AppParCurvesMultiCurve {.
     importcpp: "BezierValue", header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
-proc BSplineValue*(this: var AppDef_ParLeastSquareOfTheGradient): AppParCurves_MultiBSpCurve {.
+proc bSplineValue*(this: var AppDefParLeastSquareOfTheGradient): AppParCurvesMultiBSpCurve {.
     importcpp: "BSplineValue", header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
-proc FunctionMatrix*(this: AppDef_ParLeastSquareOfTheGradient): math_Matrix {.
+proc functionMatrix*(this: AppDefParLeastSquareOfTheGradient): MathMatrix {.
     noSideEffect, importcpp: "FunctionMatrix",
     header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
-proc DerivativeFunctionMatrix*(this: AppDef_ParLeastSquareOfTheGradient): math_Matrix {.
+proc derivativeFunctionMatrix*(this: AppDefParLeastSquareOfTheGradient): MathMatrix {.
     noSideEffect, importcpp: "DerivativeFunctionMatrix",
     header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
-proc ErrorGradient*(this: var AppDef_ParLeastSquareOfTheGradient;
-                   Grad: var math_Vector; F: var Standard_Real;
-                   MaxE3d: var Standard_Real; MaxE2d: var Standard_Real) {.
-    importcpp: "ErrorGradient", header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
-proc Distance*(this: var AppDef_ParLeastSquareOfTheGradient): math_Matrix {.
+proc errorGradient*(this: var AppDefParLeastSquareOfTheGradient;
+                   grad: var MathVector; f: var float; maxE3d: var float;
+                   maxE2d: var float) {.importcpp: "ErrorGradient", header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
+proc distance*(this: var AppDefParLeastSquareOfTheGradient): MathMatrix {.
     importcpp: "Distance", header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
-proc Error*(this: var AppDef_ParLeastSquareOfTheGradient; F: var Standard_Real;
-           MaxE3d: var Standard_Real; MaxE2d: var Standard_Real) {.importcpp: "Error",
+proc error*(this: var AppDefParLeastSquareOfTheGradient; f: var float;
+           maxE3d: var float; maxE2d: var float) {.importcpp: "Error",
     header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
-proc FirstLambda*(this: AppDef_ParLeastSquareOfTheGradient): Standard_Real {.
-    noSideEffect, importcpp: "FirstLambda",
-    header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
-proc LastLambda*(this: AppDef_ParLeastSquareOfTheGradient): Standard_Real {.
-    noSideEffect, importcpp: "LastLambda",
-    header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
-proc Points*(this: AppDef_ParLeastSquareOfTheGradient): math_Matrix {.noSideEffect,
+proc firstLambda*(this: AppDefParLeastSquareOfTheGradient): float {.noSideEffect,
+    importcpp: "FirstLambda", header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
+proc lastLambda*(this: AppDefParLeastSquareOfTheGradient): float {.noSideEffect,
+    importcpp: "LastLambda", header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
+proc points*(this: AppDefParLeastSquareOfTheGradient): MathMatrix {.noSideEffect,
     importcpp: "Points", header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
-proc Poles*(this: AppDef_ParLeastSquareOfTheGradient): math_Matrix {.noSideEffect,
+proc poles*(this: AppDefParLeastSquareOfTheGradient): MathMatrix {.noSideEffect,
     importcpp: "Poles", header: "AppDef_ParLeastSquareOfTheGradient.hxx".}
-proc KIndex*(this: AppDef_ParLeastSquareOfTheGradient): math_IntegerVector {.
+proc kIndex*(this: AppDefParLeastSquareOfTheGradient): MathIntegerVector {.
     noSideEffect, importcpp: "KIndex",
     header: "AppDef_ParLeastSquareOfTheGradient.hxx".}

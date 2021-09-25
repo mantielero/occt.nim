@@ -14,18 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_Array1OfTransient, Interface_CopyControl,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_CopyMap"
 discard "forward decl of Interface_CopyMap"
 type
-  Handle_Interface_CopyMap* = handle[Interface_CopyMap]
+  HandleInterfaceCopyMap* = Handle[InterfaceCopyMap]
 
 ## ! Manages a Map for the need of single Transfers, such as Copies
 ## ! In such transfer, Starting Entities are read from a unique
@@ -33,39 +28,39 @@ type
 ## ! and only one Result, which cannot be changed later.
 
 type
-  Interface_CopyMap* {.importcpp: "Interface_CopyMap",
-                      header: "Interface_CopyMap.hxx", bycopy.} = object of Interface_CopyControl ##
-                                                                                           ## !
-                                                                                           ## Creates
-                                                                                           ## a
-                                                                                           ## CopyMap
-                                                                                           ## adapted
-                                                                                           ## to
-                                                                                           ## work
-                                                                                           ## from
-                                                                                           ## a
-                                                                                           ## Model
+  InterfaceCopyMap* {.importcpp: "Interface_CopyMap",
+                     header: "Interface_CopyMap.hxx", bycopy.} = object of InterfaceCopyControl ##
+                                                                                         ## !
+                                                                                         ## Creates
+                                                                                         ## a
+                                                                                         ## CopyMap
+                                                                                         ## adapted
+                                                                                         ## to
+                                                                                         ## work
+                                                                                         ## from
+                                                                                         ## a
+                                                                                         ## Model
 
 
-proc constructInterface_CopyMap*(amodel: handle[Interface_InterfaceModel]): Interface_CopyMap {.
+proc constructInterfaceCopyMap*(amodel: Handle[InterfaceInterfaceModel]): InterfaceCopyMap {.
     constructor, importcpp: "Interface_CopyMap(@)", header: "Interface_CopyMap.hxx".}
-proc Clear*(this: var Interface_CopyMap) {.importcpp: "Clear",
-                                       header: "Interface_CopyMap.hxx".}
-proc Model*(this: Interface_CopyMap): handle[Interface_InterfaceModel] {.
-    noSideEffect, importcpp: "Model", header: "Interface_CopyMap.hxx".}
-proc Bind*(this: var Interface_CopyMap; ent: handle[Standard_Transient];
-          res: handle[Standard_Transient]) {.importcpp: "Bind",
+proc clear*(this: var InterfaceCopyMap) {.importcpp: "Clear",
+                                      header: "Interface_CopyMap.hxx".}
+proc model*(this: InterfaceCopyMap): Handle[InterfaceInterfaceModel] {.noSideEffect,
+    importcpp: "Model", header: "Interface_CopyMap.hxx".}
+proc `bind`*(this: var InterfaceCopyMap; ent: Handle[StandardTransient];
+            res: Handle[StandardTransient]) {.importcpp: "Bind",
     header: "Interface_CopyMap.hxx".}
-proc Search*(this: Interface_CopyMap; ent: handle[Standard_Transient];
-            res: var handle[Standard_Transient]): Standard_Boolean {.noSideEffect,
+proc search*(this: InterfaceCopyMap; ent: Handle[StandardTransient];
+            res: var Handle[StandardTransient]): bool {.noSideEffect,
     importcpp: "Search", header: "Interface_CopyMap.hxx".}
 type
-  Interface_CopyMapbase_type* = Interface_CopyControl
+  InterfaceCopyMapbaseType* = InterfaceCopyControl
 
-proc get_type_name*(): cstring {.importcpp: "Interface_CopyMap::get_type_name(@)",
-                              header: "Interface_CopyMap.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Interface_CopyMap::get_type_name(@)",
+                            header: "Interface_CopyMap.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Interface_CopyMap::get_type_descriptor(@)",
     header: "Interface_CopyMap.hxx".}
-proc DynamicType*(this: Interface_CopyMap): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: InterfaceCopyMap): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_CopyMap.hxx".}

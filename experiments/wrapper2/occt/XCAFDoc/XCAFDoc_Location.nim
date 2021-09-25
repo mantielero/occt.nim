@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TopLoc/TopLoc_Location,
-  ../TDF/TDF_Attribute
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
 discard "forward decl of TopLoc_Location"
@@ -25,50 +21,45 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of XCAFDoc_Location"
 discard "forward decl of XCAFDoc_Location"
 type
-  Handle_XCAFDoc_Location* = handle[XCAFDoc_Location]
+  HandleXCAFDocLocation* = Handle[XCAFDocLocation]
 
 ## ! attribute to store TopLoc_Location
 
 type
-  XCAFDoc_Location* {.importcpp: "XCAFDoc_Location",
-                     header: "XCAFDoc_Location.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                 ## !
-                                                                                 ## class
-                                                                                 ## methods
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## =============
+  XCAFDocLocation* {.importcpp: "XCAFDoc_Location", header: "XCAFDoc_Location.hxx",
+                    bycopy.} = object of TDF_Attribute ## ! class methods
+                                                  ## ! =============
 
 
-proc constructXCAFDoc_Location*(): XCAFDoc_Location {.constructor,
+proc constructXCAFDocLocation*(): XCAFDocLocation {.constructor,
     importcpp: "XCAFDoc_Location(@)", header: "XCAFDoc_Location.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "XCAFDoc_Location::GetID(@)",
-                            header: "XCAFDoc_Location.hxx".}
-proc Set*(label: TDF_Label; Loc: TopLoc_Location): handle[XCAFDoc_Location] {.
+proc getID*(): StandardGUID {.importcpp: "XCAFDoc_Location::GetID(@)",
+                           header: "XCAFDoc_Location.hxx".}
+proc set*(label: TDF_Label; loc: TopLocLocation): Handle[XCAFDocLocation] {.
     importcpp: "XCAFDoc_Location::Set(@)", header: "XCAFDoc_Location.hxx".}
-proc Set*(this: var XCAFDoc_Location; Loc: TopLoc_Location) {.importcpp: "Set",
+proc set*(this: var XCAFDocLocation; loc: TopLocLocation) {.importcpp: "Set",
     header: "XCAFDoc_Location.hxx".}
-proc Get*(this: XCAFDoc_Location): TopLoc_Location {.noSideEffect, importcpp: "Get",
+proc get*(this: XCAFDocLocation): TopLocLocation {.noSideEffect, importcpp: "Get",
     header: "XCAFDoc_Location.hxx".}
-proc ID*(this: XCAFDoc_Location): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: XCAFDocLocation): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "XCAFDoc_Location.hxx".}
-proc Restore*(this: var XCAFDoc_Location; With: handle[TDF_Attribute]) {.
+proc restore*(this: var XCAFDocLocation; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "XCAFDoc_Location.hxx".}
-proc NewEmpty*(this: XCAFDoc_Location): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: XCAFDocLocation): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "XCAFDoc_Location.hxx".}
-proc Paste*(this: XCAFDoc_Location; Into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: XCAFDocLocation; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "XCAFDoc_Location.hxx".}
-proc DumpJson*(this: XCAFDoc_Location; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "XCAFDoc_Location.hxx".}
+proc dumpJson*(this: XCAFDocLocation; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "XCAFDoc_Location.hxx".}
 type
-  XCAFDoc_Locationbase_type* = TDF_Attribute
+  XCAFDocLocationbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "XCAFDoc_Location::get_type_name(@)",
-                              header: "XCAFDoc_Location.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XCAFDoc_Location::get_type_name(@)",
+                            header: "XCAFDoc_Location.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XCAFDoc_Location::get_type_descriptor(@)",
     header: "XCAFDoc_Location.hxx".}
-proc DynamicType*(this: XCAFDoc_Location): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: XCAFDocLocation): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XCAFDoc_Location.hxx".}

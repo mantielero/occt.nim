@@ -13,7 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # NCollection_EBTree_HeaderFile [NewLine] # NCollection_EBTree_HeaderFile [NewLine] # NCollection_UBTree.hxx [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_Transient.hxx [NewLine] # NCollection_List.hxx [NewLine] # ../TColStd/TColStd_SequenceOfInteger.hxx [NewLine] # NCollection_DataMap.hxx [NewLine] *
+## !!!Ignored construct:  # NCollection_EBTree_HeaderFile [NewLine] # NCollection_EBTree_HeaderFile [NewLine] # < NCollection_UBTree . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_Transient . hxx > [NewLine] # < NCollection_List . hxx > [NewLine] # < TColStd_SequenceOfInteger . hxx > [NewLine] # < NCollection_DataMap . hxx > [NewLine] *
 ##  The algorithm of unbalanced binary  tree of overlapped bounding boxes with
 ##  the possibility of deleting objects from the tree.
 ##
@@ -66,7 +66,8 @@
 
 discard "forward decl of _HEBTREE"
 type
-  Handle__HEBTREE* = handle[_HEBTREE]
+  HandleHEBTREE* = Handle[Hebtree]
 
 ## !!!Ignored construct:  [NewLine] # IMPLEMENT_HEBTREE ( _HEBTREE , _HUBTREE ) [NewLine] # [NewLine]
 ## Error: did not expect [NewLine]!!!
+

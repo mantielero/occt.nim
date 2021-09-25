@@ -19,7 +19,8 @@
 ## ! arcs of a contour parallel to a given contour.
 
 type
-  GeomAbs_JoinType* {.size: sizeof(cint), importcpp: "GeomAbs_JoinType",
-                     header: "GeomAbs_JoinType.hxx".} = enum
-    GeomAbs_Arc, GeomAbs_Tangent, GeomAbs_Intersection
+  GeomAbsJoinType* {.size: sizeof(cint), importcpp: "GeomAbs_JoinType",
+                    header: "GeomAbs_JoinType.hxx".} = enum
+    GeomAbsArc, GeomAbsTangent, GeomAbsIntersection
+
 

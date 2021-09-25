@@ -13,23 +13,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Bnd_Box2d, Bnd_Box, ../BVH/BVH_Box
-
 ## ! Defines a set of static methods operating with bounding boxes
 
 type
-  Bnd_Tools* {.importcpp: "Bnd_Tools", header: "Bnd_Tools.hxx", bycopy.} = object ## ! @name
-                                                                          ## Bnd_Box to
-                                                                          ## BVH_Box
-                                                                          ## conversion
-                                                                          ## !
-                                                                          ## Converts the given
-                                                                          ## Bnd_Box2d to
-                                                                          ## BVH_Box
+  BndTools* {.importcpp: "Bnd_Tools", header: "Bnd_Tools.hxx", bycopy.} = object ## ! @name Bnd_Box to BVH_Box
+                                                                         ## conversion
+                                                                         ## !
+                                                                         ## Converts the given
+                                                                         ## Bnd_Box2d to BVH_Box
 
 
-proc Bnd2BVH*(theBox: Bnd_Box2d): BVH_Box[Standard_Real, 2] {.
+proc bnd2BVH*(theBox: BndBox2d): BVH_Box[float, 2] {.
     importcpp: "Bnd_Tools::Bnd2BVH(@)", header: "Bnd_Tools.hxx".}
-proc Bnd2BVH*(theBox: Bnd_Box): BVH_Box[Standard_Real, 3] {.
+proc bnd2BVH*(theBox: BndBox): BVH_Box[float, 3] {.
     importcpp: "Bnd_Tools::Bnd2BVH(@)", header: "Bnd_Tools.hxx".}

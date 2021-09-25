@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TDF/TDF_LabelMap, ../TDF/TDF_Attribute,
-  ../Standard/Standard_Boolean, ../Standard/Standard_OStream
-
 discard "forward decl of TDF_Label"
 discard "forward decl of Standard_GUID"
 discard "forward decl of TFunction_Logbook"
@@ -27,7 +22,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TFunction_Logbook"
 discard "forward decl of TFunction_Logbook"
 type
-  Handle_TFunction_Logbook* = handle[TFunction_Logbook]
+  HandleTFunctionLogbook* = Handle[TFunctionLogbook]
 
 ## ! This class contains information which is written and
 ## ! read during the solving process. Information is divided
@@ -38,72 +33,69 @@ type
 ## ! * Valid Labels    (within the valid label scope).
 
 type
-  TFunction_Logbook* {.importcpp: "TFunction_Logbook",
-                      header: "TFunction_Logbook.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                   ## !
-                                                                                   ## Finds
-                                                                                   ## or
-                                                                                   ## Creates
-                                                                                   ## a
-                                                                                   ## TFunction_Logbook
-                                                                                   ## attribute
-                                                                                   ## at
-                                                                                   ## the
-                                                                                   ## root
-                                                                                   ## label
-                                                                                   ## accessed
-                                                                                   ## by
-                                                                                   ## <Access>.
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Returns
-                                                                                   ## the
-                                                                                   ## attribute.
+  TFunctionLogbook* {.importcpp: "TFunction_Logbook",
+                     header: "TFunction_Logbook.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                  ## !
+                                                                                  ## Finds
+                                                                                  ## or
+                                                                                  ## Creates
+                                                                                  ## a
+                                                                                  ## TFunction_Logbook
+                                                                                  ## attribute
+                                                                                  ## at
+                                                                                  ## the
+                                                                                  ## root
+                                                                                  ## label
+                                                                                  ## accessed
+                                                                                  ## by
+                                                                                  ## <Access>.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## Returns
+                                                                                  ## the
+                                                                                  ## attribute.
 
 
-proc Set*(Access: TDF_Label): handle[TFunction_Logbook] {.
+proc set*(access: TDF_Label): Handle[TFunctionLogbook] {.
     importcpp: "TFunction_Logbook::Set(@)", header: "TFunction_Logbook.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "TFunction_Logbook::GetID(@)",
-                            header: "TFunction_Logbook.hxx".}
-proc constructTFunction_Logbook*(): TFunction_Logbook {.constructor,
+proc getID*(): StandardGUID {.importcpp: "TFunction_Logbook::GetID(@)",
+                           header: "TFunction_Logbook.hxx".}
+proc constructTFunctionLogbook*(): TFunctionLogbook {.constructor,
     importcpp: "TFunction_Logbook(@)", header: "TFunction_Logbook.hxx".}
-proc Clear*(this: var TFunction_Logbook) {.importcpp: "Clear",
-                                       header: "TFunction_Logbook.hxx".}
-proc IsEmpty*(this: TFunction_Logbook): Standard_Boolean {.noSideEffect,
-    importcpp: "IsEmpty", header: "TFunction_Logbook.hxx".}
-proc SetTouched*(this: var TFunction_Logbook; L: TDF_Label) {.importcpp: "SetTouched",
+proc clear*(this: var TFunctionLogbook) {.importcpp: "Clear",
+                                      header: "TFunction_Logbook.hxx".}
+proc isEmpty*(this: TFunctionLogbook): bool {.noSideEffect, importcpp: "IsEmpty",
     header: "TFunction_Logbook.hxx".}
-proc SetImpacted*(this: var TFunction_Logbook; L: TDF_Label;
-                 WithChildren: Standard_Boolean = Standard_False) {.
+proc setTouched*(this: var TFunctionLogbook; L: TDF_Label) {.importcpp: "SetTouched",
+    header: "TFunction_Logbook.hxx".}
+proc setImpacted*(this: var TFunctionLogbook; L: TDF_Label; withChildren: bool = false) {.
     importcpp: "SetImpacted", header: "TFunction_Logbook.hxx".}
-proc SetValid*(this: var TFunction_Logbook; L: TDF_Label;
-              WithChildren: Standard_Boolean = Standard_False) {.
+proc setValid*(this: var TFunctionLogbook; L: TDF_Label; withChildren: bool = false) {.
     importcpp: "SetValid", header: "TFunction_Logbook.hxx".}
-proc SetValid*(this: var TFunction_Logbook; Ls: TDF_LabelMap) {.importcpp: "SetValid",
+proc setValid*(this: var TFunctionLogbook; ls: TDF_LabelMap) {.importcpp: "SetValid",
     header: "TFunction_Logbook.hxx".}
-proc IsModified*(this: TFunction_Logbook; L: TDF_Label;
-                WithChildren: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc isModified*(this: TFunctionLogbook; L: TDF_Label; withChildren: bool = false): bool {.
     noSideEffect, importcpp: "IsModified", header: "TFunction_Logbook.hxx".}
-proc GetTouched*(this: TFunction_Logbook): TDF_LabelMap {.noSideEffect,
+proc getTouched*(this: TFunctionLogbook): TDF_LabelMap {.noSideEffect,
     importcpp: "GetTouched", header: "TFunction_Logbook.hxx".}
-proc GetImpacted*(this: TFunction_Logbook): TDF_LabelMap {.noSideEffect,
+proc getImpacted*(this: TFunctionLogbook): TDF_LabelMap {.noSideEffect,
     importcpp: "GetImpacted", header: "TFunction_Logbook.hxx".}
-proc GetValid*(this: TFunction_Logbook): TDF_LabelMap {.noSideEffect,
+proc getValid*(this: TFunctionLogbook): TDF_LabelMap {.noSideEffect,
     importcpp: "GetValid", header: "TFunction_Logbook.hxx".}
-proc GetValid*(this: TFunction_Logbook; Ls: var TDF_LabelMap) {.noSideEffect,
+proc getValid*(this: TFunctionLogbook; ls: var TDF_LabelMap) {.noSideEffect,
     importcpp: "GetValid", header: "TFunction_Logbook.hxx".}
-proc Done*(this: var TFunction_Logbook; status: Standard_Boolean) {.importcpp: "Done",
+proc done*(this: var TFunctionLogbook; status: bool) {.importcpp: "Done",
     header: "TFunction_Logbook.hxx".}
-proc IsDone*(this: TFunction_Logbook): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "TFunction_Logbook.hxx".}
-proc ID*(this: TFunction_Logbook): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc isDone*(this: TFunctionLogbook): bool {.noSideEffect, importcpp: "IsDone",
     header: "TFunction_Logbook.hxx".}
-proc Restore*(this: var TFunction_Logbook; with: handle[TDF_Attribute]) {.
+proc id*(this: TFunctionLogbook): StandardGUID {.noSideEffect, importcpp: "ID",
+    header: "TFunction_Logbook.hxx".}
+proc restore*(this: var TFunctionLogbook; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TFunction_Logbook.hxx".}
-proc Paste*(this: TFunction_Logbook; into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TFunctionLogbook; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TFunction_Logbook.hxx".}
-proc NewEmpty*(this: TFunction_Logbook): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TFunctionLogbook): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TFunction_Logbook.hxx".}
-proc Dump*(this: TFunction_Logbook; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TFunctionLogbook; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TFunction_Logbook.hxx".}

@@ -14,37 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepVisual_StyledItem"
 discard "forward decl of StepVisual_PresentationLayerAssignment"
 discard "forward decl of StepVisual_PresentationRepresentation"
 type
-  StepVisual_InvisibleItem* {.importcpp: "StepVisual_InvisibleItem",
-                             header: "StepVisual_InvisibleItem.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                       ## !
-                                                                                                       ## Returns
-                                                                                                       ## a
-                                                                                                       ## InvisibleItem
-                                                                                                       ## SelectType
+  StepVisualInvisibleItem* {.importcpp: "StepVisual_InvisibleItem",
+                            header: "StepVisual_InvisibleItem.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                     ## !
+                                                                                                     ## Returns
+                                                                                                     ## a
+                                                                                                     ## InvisibleItem
+                                                                                                     ## SelectType
 
 
-proc constructStepVisual_InvisibleItem*(): StepVisual_InvisibleItem {.constructor,
+proc constructStepVisualInvisibleItem*(): StepVisualInvisibleItem {.constructor,
     importcpp: "StepVisual_InvisibleItem(@)",
     header: "StepVisual_InvisibleItem.hxx".}
-proc CaseNum*(this: StepVisual_InvisibleItem; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepVisualInvisibleItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_InvisibleItem.hxx".}
-proc StyledItem*(this: StepVisual_InvisibleItem): handle[StepVisual_StyledItem] {.
+proc styledItem*(this: StepVisualInvisibleItem): Handle[StepVisualStyledItem] {.
     noSideEffect, importcpp: "StyledItem", header: "StepVisual_InvisibleItem.hxx".}
-proc PresentationLayerAssignment*(this: StepVisual_InvisibleItem): handle[
-    StepVisual_PresentationLayerAssignment] {.noSideEffect,
+proc presentationLayerAssignment*(this: StepVisualInvisibleItem): Handle[
+    StepVisualPresentationLayerAssignment] {.noSideEffect,
     importcpp: "PresentationLayerAssignment",
     header: "StepVisual_InvisibleItem.hxx".}
-proc PresentationRepresentation*(this: StepVisual_InvisibleItem): handle[
-    StepVisual_PresentationRepresentation] {.noSideEffect,
+proc presentationRepresentation*(this: StepVisualInvisibleItem): Handle[
+    StepVisualPresentationRepresentation] {.noSideEffect,
     importcpp: "PresentationRepresentation",
     header: "StepVisual_InvisibleItem.hxx".}

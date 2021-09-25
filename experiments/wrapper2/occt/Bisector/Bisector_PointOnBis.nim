@@ -14,47 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../gp/gp_Pnt2d
-
 discard "forward decl of gp_Pnt2d"
 type
-  Bisector_PointOnBis* {.importcpp: "Bisector_PointOnBis",
-                        header: "Bisector_PointOnBis.hxx", bycopy.} = object
+  BisectorPointOnBis* {.importcpp: "Bisector_PointOnBis",
+                       header: "Bisector_PointOnBis.hxx", bycopy.} = object
 
 
-proc constructBisector_PointOnBis*(): Bisector_PointOnBis {.constructor,
+proc constructBisectorPointOnBis*(): BisectorPointOnBis {.constructor,
     importcpp: "Bisector_PointOnBis(@)", header: "Bisector_PointOnBis.hxx".}
-proc constructBisector_PointOnBis*(Param1: Standard_Real; Param2: Standard_Real;
-                                  ParamBis: Standard_Real;
-                                  Distance: Standard_Real; Point: gp_Pnt2d): Bisector_PointOnBis {.
+proc constructBisectorPointOnBis*(param1: float; param2: float; paramBis: float;
+                                 distance: float; point: Pnt2d): BisectorPointOnBis {.
     constructor, importcpp: "Bisector_PointOnBis(@)",
     header: "Bisector_PointOnBis.hxx".}
-proc ParamOnC1*(this: var Bisector_PointOnBis; Param: Standard_Real) {.
-    importcpp: "ParamOnC1", header: "Bisector_PointOnBis.hxx".}
-proc ParamOnC2*(this: var Bisector_PointOnBis; Param: Standard_Real) {.
-    importcpp: "ParamOnC2", header: "Bisector_PointOnBis.hxx".}
-proc ParamOnBis*(this: var Bisector_PointOnBis; Param: Standard_Real) {.
-    importcpp: "ParamOnBis", header: "Bisector_PointOnBis.hxx".}
-proc Distance*(this: var Bisector_PointOnBis; Distance: Standard_Real) {.
-    importcpp: "Distance", header: "Bisector_PointOnBis.hxx".}
-proc IsInfinite*(this: var Bisector_PointOnBis; Infinite: Standard_Boolean) {.
-    importcpp: "IsInfinite", header: "Bisector_PointOnBis.hxx".}
-proc Point*(this: var Bisector_PointOnBis; P: gp_Pnt2d) {.importcpp: "Point",
+proc paramOnC1*(this: var BisectorPointOnBis; param: float) {.importcpp: "ParamOnC1",
     header: "Bisector_PointOnBis.hxx".}
-proc ParamOnC1*(this: Bisector_PointOnBis): Standard_Real {.noSideEffect,
-    importcpp: "ParamOnC1", header: "Bisector_PointOnBis.hxx".}
-proc ParamOnC2*(this: Bisector_PointOnBis): Standard_Real {.noSideEffect,
-    importcpp: "ParamOnC2", header: "Bisector_PointOnBis.hxx".}
-proc ParamOnBis*(this: Bisector_PointOnBis): Standard_Real {.noSideEffect,
-    importcpp: "ParamOnBis", header: "Bisector_PointOnBis.hxx".}
-proc Distance*(this: Bisector_PointOnBis): Standard_Real {.noSideEffect,
-    importcpp: "Distance", header: "Bisector_PointOnBis.hxx".}
-proc Point*(this: Bisector_PointOnBis): gp_Pnt2d {.noSideEffect, importcpp: "Point",
+proc paramOnC2*(this: var BisectorPointOnBis; param: float) {.importcpp: "ParamOnC2",
     header: "Bisector_PointOnBis.hxx".}
-proc IsInfinite*(this: Bisector_PointOnBis): Standard_Boolean {.noSideEffect,
+proc paramOnBis*(this: var BisectorPointOnBis; param: float) {.
+    importcpp: "ParamOnBis", header: "Bisector_PointOnBis.hxx".}
+proc distance*(this: var BisectorPointOnBis; distance: float) {.importcpp: "Distance",
+    header: "Bisector_PointOnBis.hxx".}
+proc isInfinite*(this: var BisectorPointOnBis; infinite: bool) {.
     importcpp: "IsInfinite", header: "Bisector_PointOnBis.hxx".}
-proc Dump*(this: Bisector_PointOnBis) {.noSideEffect, importcpp: "Dump",
-                                     header: "Bisector_PointOnBis.hxx".}
+proc point*(this: var BisectorPointOnBis; p: Pnt2d) {.importcpp: "Point",
+    header: "Bisector_PointOnBis.hxx".}
+proc paramOnC1*(this: BisectorPointOnBis): float {.noSideEffect,
+    importcpp: "ParamOnC1", header: "Bisector_PointOnBis.hxx".}
+proc paramOnC2*(this: BisectorPointOnBis): float {.noSideEffect,
+    importcpp: "ParamOnC2", header: "Bisector_PointOnBis.hxx".}
+proc paramOnBis*(this: BisectorPointOnBis): float {.noSideEffect,
+    importcpp: "ParamOnBis", header: "Bisector_PointOnBis.hxx".}
+proc distance*(this: BisectorPointOnBis): float {.noSideEffect,
+    importcpp: "Distance", header: "Bisector_PointOnBis.hxx".}
+proc point*(this: BisectorPointOnBis): Pnt2d {.noSideEffect, importcpp: "Point",
+    header: "Bisector_PointOnBis.hxx".}
+proc isInfinite*(this: BisectorPointOnBis): bool {.noSideEffect,
+    importcpp: "IsInfinite", header: "Bisector_PointOnBis.hxx".}
+proc dump*(this: BisectorPointOnBis) {.noSideEffect, importcpp: "Dump",
+                                    header: "Bisector_PointOnBis.hxx".}

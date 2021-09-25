@@ -11,23 +11,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StdObject_gp_Axes, ../gp/gp_Cone, ../gp/gp_Cylinder, ../gp/gp_Sphere,
-  ../gp/gp_Torus
-
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theCone: var gp_Cone): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theCone: var Cone): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Surfaces.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theCone: gp_Cone): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theCone: Cone): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Surfaces.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theCyl: var gp_Cylinder): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theCyl: var Cylinder): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Surfaces.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theCyl: gp_Cylinder): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theCyl: Cylinder): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Surfaces.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theSph: var gp_Sphere): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theSph: var Sphere): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Surfaces.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theSph: gp_Sphere): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theSph: Sphere): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Surfaces.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theTorus: var gp_Torus): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theTorus: var Torus): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Surfaces.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theTorus: gp_Torus): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theTorus: Torus): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Surfaces.hxx".}

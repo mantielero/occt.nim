@@ -14,52 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_SiPrefix,
-  StepBasic_SiUnitName, ../Standard/Standard_Boolean, StepBasic_NamedUnit
-
 discard "forward decl of StepBasic_DimensionalExponents"
 discard "forward decl of StepBasic_SiUnit"
 discard "forward decl of StepBasic_SiUnit"
 type
-  Handle_StepBasic_SiUnit* = handle[StepBasic_SiUnit]
-  StepBasic_SiUnit* {.importcpp: "StepBasic_SiUnit",
-                     header: "StepBasic_SiUnit.hxx", bycopy.} = object of StepBasic_NamedUnit ##
-                                                                                       ## !
-                                                                                       ## Returns
-                                                                                       ## a
-                                                                                       ## SiUnit
+  HandleStepBasicSiUnit* = Handle[StepBasicSiUnit]
+  StepBasicSiUnit* {.importcpp: "StepBasic_SiUnit", header: "StepBasic_SiUnit.hxx",
+                    bycopy.} = object of StepBasicNamedUnit ## ! Returns a SiUnit
 
 
-proc constructStepBasic_SiUnit*(): StepBasic_SiUnit {.constructor,
+proc constructStepBasicSiUnit*(): StepBasicSiUnit {.constructor,
     importcpp: "StepBasic_SiUnit(@)", header: "StepBasic_SiUnit.hxx".}
-proc Init*(this: var StepBasic_SiUnit; hasAprefix: Standard_Boolean;
-          aPrefix: StepBasic_SiPrefix; aName: StepBasic_SiUnitName) {.
-    importcpp: "Init", header: "StepBasic_SiUnit.hxx".}
-proc SetPrefix*(this: var StepBasic_SiUnit; aPrefix: StepBasic_SiPrefix) {.
+proc init*(this: var StepBasicSiUnit; hasAprefix: bool; aPrefix: StepBasicSiPrefix;
+          aName: StepBasicSiUnitName) {.importcpp: "Init",
+                                      header: "StepBasic_SiUnit.hxx".}
+proc setPrefix*(this: var StepBasicSiUnit; aPrefix: StepBasicSiPrefix) {.
     importcpp: "SetPrefix", header: "StepBasic_SiUnit.hxx".}
-proc UnSetPrefix*(this: var StepBasic_SiUnit) {.importcpp: "UnSetPrefix",
+proc unSetPrefix*(this: var StepBasicSiUnit) {.importcpp: "UnSetPrefix",
     header: "StepBasic_SiUnit.hxx".}
-proc Prefix*(this: StepBasic_SiUnit): StepBasic_SiPrefix {.noSideEffect,
+proc prefix*(this: StepBasicSiUnit): StepBasicSiPrefix {.noSideEffect,
     importcpp: "Prefix", header: "StepBasic_SiUnit.hxx".}
-proc HasPrefix*(this: StepBasic_SiUnit): Standard_Boolean {.noSideEffect,
-    importcpp: "HasPrefix", header: "StepBasic_SiUnit.hxx".}
-proc SetName*(this: var StepBasic_SiUnit; aName: StepBasic_SiUnitName) {.
+proc hasPrefix*(this: StepBasicSiUnit): bool {.noSideEffect, importcpp: "HasPrefix",
+    header: "StepBasic_SiUnit.hxx".}
+proc setName*(this: var StepBasicSiUnit; aName: StepBasicSiUnitName) {.
     importcpp: "SetName", header: "StepBasic_SiUnit.hxx".}
-proc Name*(this: StepBasic_SiUnit): StepBasic_SiUnitName {.noSideEffect,
+proc name*(this: StepBasicSiUnit): StepBasicSiUnitName {.noSideEffect,
     importcpp: "Name", header: "StepBasic_SiUnit.hxx".}
-proc SetDimensions*(this: var StepBasic_SiUnit;
-                   aDimensions: handle[StepBasic_DimensionalExponents]) {.
+proc setDimensions*(this: var StepBasicSiUnit;
+                   aDimensions: Handle[StepBasicDimensionalExponents]) {.
     importcpp: "SetDimensions", header: "StepBasic_SiUnit.hxx".}
-proc Dimensions*(this: StepBasic_SiUnit): handle[StepBasic_DimensionalExponents] {.
+proc dimensions*(this: StepBasicSiUnit): Handle[StepBasicDimensionalExponents] {.
     noSideEffect, importcpp: "Dimensions", header: "StepBasic_SiUnit.hxx".}
 type
-  StepBasic_SiUnitbase_type* = StepBasic_NamedUnit
+  StepBasicSiUnitbaseType* = StepBasicNamedUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_SiUnit::get_type_name(@)",
-                              header: "StepBasic_SiUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_SiUnit::get_type_name(@)",
+                            header: "StepBasic_SiUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_SiUnit::get_type_descriptor(@)",
     header: "StepBasic_SiUnit.hxx".}
-proc DynamicType*(this: StepBasic_SiUnit): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepBasicSiUnit): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_SiUnit.hxx".}

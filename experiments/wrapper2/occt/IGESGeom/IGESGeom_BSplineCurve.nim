@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../TColStd/TColStd_HArray1OfReal,
-  ../TColgp/TColgp_HArray1OfXYZ, ../Standard/Standard_Real, ../gp/gp_XYZ,
-  ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of Standard_DimensionMismatch"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_XYZ"
@@ -27,7 +21,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESGeom_BSplineCurve"
 discard "forward decl of IGESGeom_BSplineCurve"
 type
-  Handle_IGESGeom_BSplineCurve* = handle[IGESGeom_BSplineCurve]
+  HandleIGESGeomBSplineCurve* = Handle[IGESGeomBSplineCurve]
 
 ## ! defines IGESBSplineCurve, Type <126> Form <0-5>
 ## ! in package IGESGeom
@@ -36,60 +30,57 @@ type
 ## ! points, and B-Spline basis functions
 
 type
-  IGESGeom_BSplineCurve* {.importcpp: "IGESGeom_BSplineCurve",
-                          header: "IGESGeom_BSplineCurve.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESGeomBSplineCurve* {.importcpp: "IGESGeom_BSplineCurve",
+                         header: "IGESGeom_BSplineCurve.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESGeom_BSplineCurve*(): IGESGeom_BSplineCurve {.constructor,
+proc constructIGESGeomBSplineCurve*(): IGESGeomBSplineCurve {.constructor,
     importcpp: "IGESGeom_BSplineCurve(@)", header: "IGESGeom_BSplineCurve.hxx".}
-proc Init*(this: var IGESGeom_BSplineCurve; anIndex: Standard_Integer;
-          aDegree: Standard_Integer; aPlanar: Standard_Boolean;
-          aClosed: Standard_Boolean; aPolynom: Standard_Boolean;
-          aPeriodic: Standard_Boolean; allKnots: handle[TColStd_HArray1OfReal];
-          allWeights: handle[TColStd_HArray1OfReal];
-          allPoles: handle[TColgp_HArray1OfXYZ]; aUmin: Standard_Real;
-          aUmax: Standard_Real; aNorm: gp_XYZ) {.importcpp: "Init",
-    header: "IGESGeom_BSplineCurve.hxx".}
-proc SetFormNumber*(this: var IGESGeom_BSplineCurve; form: Standard_Integer) {.
+proc init*(this: var IGESGeomBSplineCurve; anIndex: int; aDegree: int; aPlanar: bool;
+          aClosed: bool; aPolynom: bool; aPeriodic: bool;
+          allKnots: Handle[TColStdHArray1OfReal];
+          allWeights: Handle[TColStdHArray1OfReal];
+          allPoles: Handle[TColgpHArray1OfXYZ]; aUmin: float; aUmax: float; aNorm: Xyz) {.
+    importcpp: "Init", header: "IGESGeom_BSplineCurve.hxx".}
+proc setFormNumber*(this: var IGESGeomBSplineCurve; form: int) {.
     importcpp: "SetFormNumber", header: "IGESGeom_BSplineCurve.hxx".}
-proc UpperIndex*(this: IGESGeom_BSplineCurve): Standard_Integer {.noSideEffect,
+proc upperIndex*(this: IGESGeomBSplineCurve): int {.noSideEffect,
     importcpp: "UpperIndex", header: "IGESGeom_BSplineCurve.hxx".}
-proc Degree*(this: IGESGeom_BSplineCurve): Standard_Integer {.noSideEffect,
-    importcpp: "Degree", header: "IGESGeom_BSplineCurve.hxx".}
-proc IsPlanar*(this: IGESGeom_BSplineCurve): Standard_Boolean {.noSideEffect,
+proc degree*(this: IGESGeomBSplineCurve): int {.noSideEffect, importcpp: "Degree",
+    header: "IGESGeom_BSplineCurve.hxx".}
+proc isPlanar*(this: IGESGeomBSplineCurve): bool {.noSideEffect,
     importcpp: "IsPlanar", header: "IGESGeom_BSplineCurve.hxx".}
-proc IsClosed*(this: IGESGeom_BSplineCurve): Standard_Boolean {.noSideEffect,
+proc isClosed*(this: IGESGeomBSplineCurve): bool {.noSideEffect,
     importcpp: "IsClosed", header: "IGESGeom_BSplineCurve.hxx".}
-proc IsPolynomial*(this: IGESGeom_BSplineCurve;
-                  flag: Standard_Boolean = Standard_False): Standard_Boolean {.
-    noSideEffect, importcpp: "IsPolynomial", header: "IGESGeom_BSplineCurve.hxx".}
-proc IsPeriodic*(this: IGESGeom_BSplineCurve): Standard_Boolean {.noSideEffect,
+proc isPolynomial*(this: IGESGeomBSplineCurve; flag: bool = false): bool {.noSideEffect,
+    importcpp: "IsPolynomial", header: "IGESGeom_BSplineCurve.hxx".}
+proc isPeriodic*(this: IGESGeomBSplineCurve): bool {.noSideEffect,
     importcpp: "IsPeriodic", header: "IGESGeom_BSplineCurve.hxx".}
-proc NbKnots*(this: IGESGeom_BSplineCurve): Standard_Integer {.noSideEffect,
-    importcpp: "NbKnots", header: "IGESGeom_BSplineCurve.hxx".}
-proc Knot*(this: IGESGeom_BSplineCurve; anIndex: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "Knot", header: "IGESGeom_BSplineCurve.hxx".}
-proc NbPoles*(this: IGESGeom_BSplineCurve): Standard_Integer {.noSideEffect,
-    importcpp: "NbPoles", header: "IGESGeom_BSplineCurve.hxx".}
-proc Weight*(this: IGESGeom_BSplineCurve; anIndex: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "Weight", header: "IGESGeom_BSplineCurve.hxx".}
-proc Pole*(this: IGESGeom_BSplineCurve; anIndex: Standard_Integer): gp_Pnt {.
-    noSideEffect, importcpp: "Pole", header: "IGESGeom_BSplineCurve.hxx".}
-proc TransformedPole*(this: IGESGeom_BSplineCurve; anIndex: Standard_Integer): gp_Pnt {.
-    noSideEffect, importcpp: "TransformedPole", header: "IGESGeom_BSplineCurve.hxx".}
-proc UMin*(this: IGESGeom_BSplineCurve): Standard_Real {.noSideEffect,
-    importcpp: "UMin", header: "IGESGeom_BSplineCurve.hxx".}
-proc UMax*(this: IGESGeom_BSplineCurve): Standard_Real {.noSideEffect,
-    importcpp: "UMax", header: "IGESGeom_BSplineCurve.hxx".}
-proc Normal*(this: IGESGeom_BSplineCurve): gp_XYZ {.noSideEffect,
-    importcpp: "Normal", header: "IGESGeom_BSplineCurve.hxx".}
+proc nbKnots*(this: IGESGeomBSplineCurve): int {.noSideEffect, importcpp: "NbKnots",
+    header: "IGESGeom_BSplineCurve.hxx".}
+proc knot*(this: IGESGeomBSplineCurve; anIndex: int): float {.noSideEffect,
+    importcpp: "Knot", header: "IGESGeom_BSplineCurve.hxx".}
+proc nbPoles*(this: IGESGeomBSplineCurve): int {.noSideEffect, importcpp: "NbPoles",
+    header: "IGESGeom_BSplineCurve.hxx".}
+proc weight*(this: IGESGeomBSplineCurve; anIndex: int): float {.noSideEffect,
+    importcpp: "Weight", header: "IGESGeom_BSplineCurve.hxx".}
+proc pole*(this: IGESGeomBSplineCurve; anIndex: int): Pnt {.noSideEffect,
+    importcpp: "Pole", header: "IGESGeom_BSplineCurve.hxx".}
+proc transformedPole*(this: IGESGeomBSplineCurve; anIndex: int): Pnt {.noSideEffect,
+    importcpp: "TransformedPole", header: "IGESGeom_BSplineCurve.hxx".}
+proc uMin*(this: IGESGeomBSplineCurve): float {.noSideEffect, importcpp: "UMin",
+    header: "IGESGeom_BSplineCurve.hxx".}
+proc uMax*(this: IGESGeomBSplineCurve): float {.noSideEffect, importcpp: "UMax",
+    header: "IGESGeom_BSplineCurve.hxx".}
+proc normal*(this: IGESGeomBSplineCurve): Xyz {.noSideEffect, importcpp: "Normal",
+    header: "IGESGeom_BSplineCurve.hxx".}
 type
-  IGESGeom_BSplineCurvebase_type* = IGESData_IGESEntity
+  IGESGeomBSplineCurvebaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESGeom_BSplineCurve::get_type_name(@)",
-                              header: "IGESGeom_BSplineCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESGeom_BSplineCurve::get_type_name(@)",
+                            header: "IGESGeom_BSplineCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESGeom_BSplineCurve::get_type_descriptor(@)",
     header: "IGESGeom_BSplineCurve.hxx".}
-proc DynamicType*(this: IGESGeom_BSplineCurve): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IGESGeom_BSplineCurve.hxx".}
+proc dynamicType*(this: IGESGeomBSplineCurve): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IGESGeom_BSplineCurve.hxx".}

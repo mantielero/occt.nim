@@ -14,36 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Bnd_Box2d, Bnd_Array1OfBox2d, ../NCollection/NCollection_DefineHArray1
-
 type
-  Bnd_HArray1OfBox2d* {.importcpp: "Bnd_HArray1OfBox2d",
-                       header: "Bnd_HArray1OfBox2d.hxx", bycopy.} = object of Bnd_Array1OfBox2d
+  BndHArray1OfBox2d* {.importcpp: "Bnd_HArray1OfBox2d",
+                      header: "Bnd_HArray1OfBox2d.hxx", bycopy.} = object of BndArray1OfBox2d
 
 
-proc constructBnd_HArray1OfBox2d*(theLower: Standard_Integer;
-                                 theUpper: Standard_Integer): Bnd_HArray1OfBox2d {.
+proc constructBndHArray1OfBox2d*(theLower: int; theUpper: int): BndHArray1OfBox2d {.
     constructor, importcpp: "Bnd_HArray1OfBox2d(@)",
     header: "Bnd_HArray1OfBox2d.hxx".}
-proc constructBnd_HArray1OfBox2d*(theLower: Standard_Integer;
-                                 theUpper: Standard_Integer; theValue: value_type): Bnd_HArray1OfBox2d {.
+proc constructBndHArray1OfBox2d*(theLower: int; theUpper: int; theValue: ValueType): BndHArray1OfBox2d {.
     constructor, importcpp: "Bnd_HArray1OfBox2d(@)",
     header: "Bnd_HArray1OfBox2d.hxx".}
-proc constructBnd_HArray1OfBox2d*(theOther: Bnd_Array1OfBox2d): Bnd_HArray1OfBox2d {.
+proc constructBndHArray1OfBox2d*(theOther: BndArray1OfBox2d): BndHArray1OfBox2d {.
     constructor, importcpp: "Bnd_HArray1OfBox2d(@)",
     header: "Bnd_HArray1OfBox2d.hxx".}
-proc Array1*(this: Bnd_HArray1OfBox2d): Bnd_Array1OfBox2d {.noSideEffect,
+proc array1*(this: BndHArray1OfBox2d): BndArray1OfBox2d {.noSideEffect,
     importcpp: "Array1", header: "Bnd_HArray1OfBox2d.hxx".}
-proc ChangeArray1*(this: var Bnd_HArray1OfBox2d): var Bnd_Array1OfBox2d {.
+proc changeArray1*(this: var BndHArray1OfBox2d): var BndArray1OfBox2d {.
     importcpp: "ChangeArray1", header: "Bnd_HArray1OfBox2d.hxx".}
 type
-  Bnd_HArray1OfBox2dbase_type* = MMgt_TShared
+  BndHArray1OfBox2dbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "Bnd_HArray1OfBox2d::get_type_name(@)",
-                              header: "Bnd_HArray1OfBox2d.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Bnd_HArray1OfBox2d::get_type_name(@)",
+                            header: "Bnd_HArray1OfBox2d.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Bnd_HArray1OfBox2d::get_type_descriptor(@)",
     header: "Bnd_HArray1OfBox2d.hxx".}
-proc DynamicType*(this: Bnd_HArray1OfBox2d): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: BndHArray1OfBox2d): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Bnd_HArray1OfBox2d.hxx".}

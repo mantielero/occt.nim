@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../IFSelect/IFSelect_SelectExplore, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_Graph"
 discard "forward decl of Interface_EntityIterator"
@@ -26,33 +21,33 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of STEPSelections_SelectFaces"
 discard "forward decl of STEPSelections_SelectFaces"
 type
-  Handle_STEPSelections_SelectFaces* = handle[STEPSelections_SelectFaces]
+  HandleSTEPSelectionsSelectFaces* = Handle[STEPSelectionsSelectFaces]
 
 ## ! This selection returns "STEP faces"
 
 type
-  STEPSelections_SelectFaces* {.importcpp: "STEPSelections_SelectFaces",
-                               header: "STEPSelections_SelectFaces.hxx", bycopy.} = object of IFSelect_SelectExplore
+  STEPSelectionsSelectFaces* {.importcpp: "STEPSelections_SelectFaces",
+                              header: "STEPSelections_SelectFaces.hxx", bycopy.} = object of IFSelectSelectExplore
 
 
-proc constructSTEPSelections_SelectFaces*(): STEPSelections_SelectFaces {.
+proc constructSTEPSelectionsSelectFaces*(): STEPSelectionsSelectFaces {.
     constructor, importcpp: "STEPSelections_SelectFaces(@)",
     header: "STEPSelections_SelectFaces.hxx".}
-proc Explore*(this: STEPSelections_SelectFaces; level: Standard_Integer;
-             ent: handle[Standard_Transient]; G: Interface_Graph;
-             explored: var Interface_EntityIterator): Standard_Boolean {.
-    noSideEffect, importcpp: "Explore", header: "STEPSelections_SelectFaces.hxx".}
-proc ExploreLabel*(this: STEPSelections_SelectFaces): TCollection_AsciiString {.
+proc explore*(this: STEPSelectionsSelectFaces; level: int;
+             ent: Handle[StandardTransient]; g: InterfaceGraph;
+             explored: var InterfaceEntityIterator): bool {.noSideEffect,
+    importcpp: "Explore", header: "STEPSelections_SelectFaces.hxx".}
+proc exploreLabel*(this: STEPSelectionsSelectFaces): TCollectionAsciiString {.
     noSideEffect, importcpp: "ExploreLabel",
     header: "STEPSelections_SelectFaces.hxx".}
 type
-  STEPSelections_SelectFacesbase_type* = IFSelect_SelectExplore
+  STEPSelectionsSelectFacesbaseType* = IFSelectSelectExplore
 
-proc get_type_name*(): cstring {.importcpp: "STEPSelections_SelectFaces::get_type_name(@)",
-                              header: "STEPSelections_SelectFaces.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "STEPSelections_SelectFaces::get_type_name(@)",
+                            header: "STEPSelections_SelectFaces.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "STEPSelections_SelectFaces::get_type_descriptor(@)",
     header: "STEPSelections_SelectFaces.hxx".}
-proc DynamicType*(this: STEPSelections_SelectFaces): handle[Standard_Type] {.
+proc dynamicType*(this: STEPSelectionsSelectFaces): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "STEPSelections_SelectFaces.hxx".}

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepData_FieldListN,
-  StepData_Described, ../Standard/Standard_CString, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Interface_InterfaceMismatch"
 discard "forward decl of StepData_ESDescr"
 discard "forward decl of StepData_Field"
@@ -28,55 +23,55 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of StepData_Simple"
 discard "forward decl of StepData_Simple"
 type
-  Handle_StepData_Simple* = handle[StepData_Simple]
+  HandleStepDataSimple* = Handle[StepDataSimple]
 
 ## ! A Simple Entity is defined by a type (which can heve super
 ## ! types) and a list of parameters
 
 type
-  StepData_Simple* {.importcpp: "StepData_Simple", header: "StepData_Simple.hxx",
-                    bycopy.} = object of StepData_Described ## ! Creates a Simple Entity
+  StepDataSimple* {.importcpp: "StepData_Simple", header: "StepData_Simple.hxx",
+                   bycopy.} = object of StepDataDescribed ## ! Creates a Simple Entity
 
 
-proc constructStepData_Simple*(descr: handle[StepData_ESDescr]): StepData_Simple {.
+proc constructStepDataSimple*(descr: Handle[StepDataESDescr]): StepDataSimple {.
     constructor, importcpp: "StepData_Simple(@)", header: "StepData_Simple.hxx".}
-proc ESDescr*(this: StepData_Simple): handle[StepData_ESDescr] {.noSideEffect,
+proc eSDescr*(this: StepDataSimple): Handle[StepDataESDescr] {.noSideEffect,
     importcpp: "ESDescr", header: "StepData_Simple.hxx".}
-proc StepType*(this: StepData_Simple): Standard_CString {.noSideEffect,
+proc stepType*(this: StepDataSimple): StandardCString {.noSideEffect,
     importcpp: "StepType", header: "StepData_Simple.hxx".}
-proc IsComplex*(this: StepData_Simple): Standard_Boolean {.noSideEffect,
-    importcpp: "IsComplex", header: "StepData_Simple.hxx".}
-proc Matches*(this: StepData_Simple; steptype: Standard_CString): Standard_Boolean {.
-    noSideEffect, importcpp: "Matches", header: "StepData_Simple.hxx".}
-proc As*(this: StepData_Simple; steptype: Standard_CString): handle[StepData_Simple] {.
+proc isComplex*(this: StepDataSimple): bool {.noSideEffect, importcpp: "IsComplex",
+    header: "StepData_Simple.hxx".}
+proc matches*(this: StepDataSimple; steptype: StandardCString): bool {.noSideEffect,
+    importcpp: "Matches", header: "StepData_Simple.hxx".}
+proc `as`*(this: StepDataSimple; steptype: StandardCString): Handle[StepDataSimple] {.
     noSideEffect, importcpp: "As", header: "StepData_Simple.hxx".}
-proc HasField*(this: StepData_Simple; name: Standard_CString): Standard_Boolean {.
-    noSideEffect, importcpp: "HasField", header: "StepData_Simple.hxx".}
-proc Field*(this: StepData_Simple; name: Standard_CString): StepData_Field {.
+proc hasField*(this: StepDataSimple; name: StandardCString): bool {.noSideEffect,
+    importcpp: "HasField", header: "StepData_Simple.hxx".}
+proc field*(this: StepDataSimple; name: StandardCString): StepDataField {.
     noSideEffect, importcpp: "Field", header: "StepData_Simple.hxx".}
-proc CField*(this: var StepData_Simple; name: Standard_CString): var StepData_Field {.
+proc cField*(this: var StepDataSimple; name: StandardCString): var StepDataField {.
     importcpp: "CField", header: "StepData_Simple.hxx".}
-proc NbFields*(this: StepData_Simple): Standard_Integer {.noSideEffect,
-    importcpp: "NbFields", header: "StepData_Simple.hxx".}
-proc FieldNum*(this: StepData_Simple; num: Standard_Integer): StepData_Field {.
-    noSideEffect, importcpp: "FieldNum", header: "StepData_Simple.hxx".}
-proc CFieldNum*(this: var StepData_Simple; num: Standard_Integer): var StepData_Field {.
+proc nbFields*(this: StepDataSimple): int {.noSideEffect, importcpp: "NbFields",
+                                        header: "StepData_Simple.hxx".}
+proc fieldNum*(this: StepDataSimple; num: int): StepDataField {.noSideEffect,
+    importcpp: "FieldNum", header: "StepData_Simple.hxx".}
+proc cFieldNum*(this: var StepDataSimple; num: int): var StepDataField {.
     importcpp: "CFieldNum", header: "StepData_Simple.hxx".}
-proc Fields*(this: StepData_Simple): StepData_FieldListN {.noSideEffect,
+proc fields*(this: StepDataSimple): StepDataFieldListN {.noSideEffect,
     importcpp: "Fields", header: "StepData_Simple.hxx".}
-proc CFields*(this: var StepData_Simple): var StepData_FieldListN {.
+proc cFields*(this: var StepDataSimple): var StepDataFieldListN {.
     importcpp: "CFields", header: "StepData_Simple.hxx".}
-proc Check*(this: StepData_Simple; ach: var handle[Interface_Check]) {.noSideEffect,
+proc check*(this: StepDataSimple; ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "Check", header: "StepData_Simple.hxx".}
-proc Shared*(this: StepData_Simple; list: var Interface_EntityIterator) {.
-    noSideEffect, importcpp: "Shared", header: "StepData_Simple.hxx".}
+proc shared*(this: StepDataSimple; list: var InterfaceEntityIterator) {.noSideEffect,
+    importcpp: "Shared", header: "StepData_Simple.hxx".}
 type
-  StepData_Simplebase_type* = StepData_Described
+  StepDataSimplebaseType* = StepDataDescribed
 
-proc get_type_name*(): cstring {.importcpp: "StepData_Simple::get_type_name(@)",
-                              header: "StepData_Simple.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepData_Simple::get_type_name(@)",
+                            header: "StepData_Simple.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepData_Simple::get_type_descriptor(@)",
     header: "StepData_Simple.hxx".}
-proc DynamicType*(this: StepData_Simple): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepDataSimple): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_Simple.hxx".}

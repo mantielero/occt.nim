@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of BinMDF_ADriverTable"
 discard "forward decl of Message_Messenger"
 discard "forward decl of BinMXCAFDoc_CentroidDriver"
@@ -37,6 +33,6 @@ type
                                                                                 ## <theDriverTable>.
 
 
-proc AddDrivers*(theDriverTable: handle[BinMDF_ADriverTable];
-                theMsgDrv: handle[Message_Messenger]) {.
+proc addDrivers*(theDriverTable: Handle[BinMDF_ADriverTable];
+                theMsgDrv: Handle[MessageMessenger]) {.
     importcpp: "BinMXCAFDoc::AddDrivers(@)", header: "BinMXCAFDoc.hxx".}

@@ -15,10 +15,11 @@
 ##  commercial license or contractual agreement.
 
 type
-  Approx_ParametrizationType* {.size: sizeof(cint),
-                               importcpp: "Approx_ParametrizationType",
-                               header: "Approx_ParametrizationType.hxx".} = enum
-    Approx_ChordLength,       ## !< parameters of points are proportionate to distances between them
-    Approx_Centripetal,       ## !< parameters of points are proportionate to square roots of distances between them
-    Approx_IsoParametric      ## !< parameters of points are distributed uniformly
+  ApproxParametrizationType* {.size: sizeof(cint),
+                              importcpp: "Approx_ParametrizationType",
+                              header: "Approx_ParametrizationType.hxx".} = enum
+    ApproxChordLength,        ## !< parameters of points are proportionate to distances between them
+    ApproxCentripetal,        ## !< parameters of points are proportionate to square roots of distances between them
+    ApproxIsoParametric       ## !< parameters of points are distributed uniformly
+
 

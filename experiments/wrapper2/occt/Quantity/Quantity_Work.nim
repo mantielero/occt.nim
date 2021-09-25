@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Work_HeaderFile [NewLine] # _Quantity_Work_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! In mechanics, the product of a force and the distance
+## !!!Ignored construct:  # _Quantity_Work_HeaderFile [NewLine] # _Quantity_Work_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! In mechanics, the product of a force and the distance
 ## ! moved. In a rotating system, the product of the torque
 ## ! and the angular displacement. In a pressure system,
 ## ! the product of the pressure and the change in volume.
@@ -22,3 +22,4 @@
 ## ! potential difference it traverses.
 ## ! It is measured in joules (newton-metres). Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Work ;
 ## Error: expected ';'!!!
+

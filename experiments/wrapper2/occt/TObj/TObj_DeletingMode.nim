@@ -15,12 +15,12 @@
 ##  The original implementation Copyright: (C) RINA S.p.A
 
 type
-  TObj_DeletingMode* {.size: sizeof(cint), importcpp: "TObj_DeletingMode",
-                      header: "TObj_DeletingMode.hxx".} = enum
-    TObj_FreeOnly = 0,          ## !< Delete objects only without dependence.
-    TObj_KeepDepending,       ## !< Remove object if depending one will be correct elsewhere.
-    TObj_Forced               ## !< Delete this object and all depenging object.
+  TObjDeletingMode* {.size: sizeof(cint), importcpp: "TObj_DeletingMode",
+                     header: "TObj_DeletingMode.hxx".} = enum
+    TObjFreeOnly = 0,           ## !< Delete objects only without dependence.
+    TObjKeepDepending,        ## !< Remove object if depending one will be correct elsewhere.
+    TObjForced                ## !< Delete this object and all depenging object.
 
 
-when defined(_MSC_VER):
-  discard
+# when defined(_MSC_VER):
+#   discard

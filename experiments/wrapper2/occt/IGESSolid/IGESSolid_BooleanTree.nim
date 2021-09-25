@@ -14,18 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../IGESData/IGESData_HArray1OfIGESEntity, ../TColStd/TColStd_HArray1OfInteger,
-  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESSolid_BooleanTree"
 discard "forward decl of IGESSolid_BooleanTree"
 type
-  Handle_IGESSolid_BooleanTree* = handle[IGESSolid_BooleanTree]
+  HandleIGESSolidBooleanTree* = Handle[IGESSolidBooleanTree]
 
 ## ! defines BooleanTree, Type <180> Form Number <0>
 ## ! in package IGESSolid
@@ -34,32 +28,31 @@ type
 ## ! in post-order notation.
 
 type
-  IGESSolid_BooleanTree* {.importcpp: "IGESSolid_BooleanTree",
-                          header: "IGESSolid_BooleanTree.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESSolidBooleanTree* {.importcpp: "IGESSolid_BooleanTree",
+                         header: "IGESSolid_BooleanTree.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESSolid_BooleanTree*(): IGESSolid_BooleanTree {.constructor,
+proc constructIGESSolidBooleanTree*(): IGESSolidBooleanTree {.constructor,
     importcpp: "IGESSolid_BooleanTree(@)", header: "IGESSolid_BooleanTree.hxx".}
-proc Init*(this: var IGESSolid_BooleanTree;
-          operands: handle[IGESData_HArray1OfIGESEntity];
-          operations: handle[TColStd_HArray1OfInteger]) {.importcpp: "Init",
+proc init*(this: var IGESSolidBooleanTree;
+          operands: Handle[IGESDataHArray1OfIGESEntity];
+          operations: Handle[TColStdHArray1OfInteger]) {.importcpp: "Init",
     header: "IGESSolid_BooleanTree.hxx".}
-proc Length*(this: IGESSolid_BooleanTree): Standard_Integer {.noSideEffect,
-    importcpp: "Length", header: "IGESSolid_BooleanTree.hxx".}
-proc IsOperand*(this: IGESSolid_BooleanTree; Index: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsOperand", header: "IGESSolid_BooleanTree.hxx".}
-proc Operand*(this: IGESSolid_BooleanTree; Index: Standard_Integer): handle[
-    IGESData_IGESEntity] {.noSideEffect, importcpp: "Operand",
-                          header: "IGESSolid_BooleanTree.hxx".}
-proc Operation*(this: IGESSolid_BooleanTree; Index: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "Operation", header: "IGESSolid_BooleanTree.hxx".}
+proc length*(this: IGESSolidBooleanTree): int {.noSideEffect, importcpp: "Length",
+    header: "IGESSolid_BooleanTree.hxx".}
+proc isOperand*(this: IGESSolidBooleanTree; index: int): bool {.noSideEffect,
+    importcpp: "IsOperand", header: "IGESSolid_BooleanTree.hxx".}
+proc operand*(this: IGESSolidBooleanTree; index: int): Handle[IGESDataIGESEntity] {.
+    noSideEffect, importcpp: "Operand", header: "IGESSolid_BooleanTree.hxx".}
+proc operation*(this: IGESSolidBooleanTree; index: int): int {.noSideEffect,
+    importcpp: "Operation", header: "IGESSolid_BooleanTree.hxx".}
 type
-  IGESSolid_BooleanTreebase_type* = IGESData_IGESEntity
+  IGESSolidBooleanTreebaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESSolid_BooleanTree::get_type_name(@)",
-                              header: "IGESSolid_BooleanTree.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSolid_BooleanTree::get_type_name(@)",
+                            header: "IGESSolid_BooleanTree.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSolid_BooleanTree::get_type_descriptor(@)",
     header: "IGESSolid_BooleanTree.hxx".}
-proc DynamicType*(this: IGESSolid_BooleanTree): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IGESSolid_BooleanTree.hxx".}
+proc dynamicType*(this: IGESSolidBooleanTree): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IGESSolid_BooleanTree.hxx".}

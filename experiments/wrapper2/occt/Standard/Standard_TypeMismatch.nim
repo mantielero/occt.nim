@@ -14,16 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_TypeMismatch_HeaderFile [NewLine] # _Standard_TypeMismatch_HeaderFile [NewLine] # Standard_Type.hxx [NewLine] # Standard_DefineException.hxx [NewLine] # Standard_SStream.hxx [NewLine] # Standard_DomainError.hxx [NewLine] class Standard_TypeMismatch ;
+## !!!Ignored construct:  # _Standard_TypeMismatch_HeaderFile [NewLine] # _Standard_TypeMismatch_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class Standard_TypeMismatch ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Standard_TypeMismatch"
 type
-  Handle_Standard_TypeMismatchStandard_TypeMismatch* = handle[
-      Standard_TypeMismatch]
+  HandleStandardTypeMismatchStandardTypeMismatch* = Handle[StandardTypeMismatch]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_TypeMismatch [NewLine] # if ( CONDITION ) throw Standard_TypeMismatch ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_TypeMismatch , Standard_DomainError ) #  _Standard_TypeMismatch_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_TypeMismatch , Standard_DomainError ) #  _Standard_TypeMismatch_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

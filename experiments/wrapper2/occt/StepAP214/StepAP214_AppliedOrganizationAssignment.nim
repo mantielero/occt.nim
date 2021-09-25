@@ -14,54 +14,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP214_HArray1OfOrganizationItem,
-  ../StepBasic/StepBasic_OrganizationAssignment, ../Standard/Standard_Integer
-
 discard "forward decl of StepBasic_Organization"
 discard "forward decl of StepBasic_OrganizationRole"
 discard "forward decl of StepAP214_OrganizationItem"
 discard "forward decl of StepAP214_AppliedOrganizationAssignment"
 discard "forward decl of StepAP214_AppliedOrganizationAssignment"
 type
-  Handle_StepAP214_AppliedOrganizationAssignment* = handle[
-      StepAP214_AppliedOrganizationAssignment]
-  StepAP214_AppliedOrganizationAssignment* {.
+  HandleStepAP214AppliedOrganizationAssignment* = Handle[
+      StepAP214AppliedOrganizationAssignment]
+  StepAP214AppliedOrganizationAssignment* {.
       importcpp: "StepAP214_AppliedOrganizationAssignment",
-      header: "StepAP214_AppliedOrganizationAssignment.hxx", bycopy.} = object of StepBasic_OrganizationAssignment ##
-                                                                                                            ## !
-                                                                                                            ## Returns
-                                                                                                            ## a
-                                                                                                            ## AppliedOrganizationAssignment
+      header: "StepAP214_AppliedOrganizationAssignment.hxx", bycopy.} = object of StepBasicOrganizationAssignment ##
+                                                                                                           ## !
+                                                                                                           ## Returns
+                                                                                                           ## a
+                                                                                                           ## AppliedOrganizationAssignment
 
 
-proc constructStepAP214_AppliedOrganizationAssignment*(): StepAP214_AppliedOrganizationAssignment {.
+proc constructStepAP214AppliedOrganizationAssignment*(): StepAP214AppliedOrganizationAssignment {.
     constructor, importcpp: "StepAP214_AppliedOrganizationAssignment(@)",
     header: "StepAP214_AppliedOrganizationAssignment.hxx".}
-proc Init*(this: var StepAP214_AppliedOrganizationAssignment;
-          aAssignedOrganization: handle[StepBasic_Organization];
-          aRole: handle[StepBasic_OrganizationRole];
-          aItems: handle[StepAP214_HArray1OfOrganizationItem]) {.
-    importcpp: "Init", header: "StepAP214_AppliedOrganizationAssignment.hxx".}
-proc SetItems*(this: var StepAP214_AppliedOrganizationAssignment;
-              aItems: handle[StepAP214_HArray1OfOrganizationItem]) {.
+proc init*(this: var StepAP214AppliedOrganizationAssignment;
+          aAssignedOrganization: Handle[StepBasicOrganization];
+          aRole: Handle[StepBasicOrganizationRole];
+          aItems: Handle[StepAP214HArray1OfOrganizationItem]) {.importcpp: "Init",
+    header: "StepAP214_AppliedOrganizationAssignment.hxx".}
+proc setItems*(this: var StepAP214AppliedOrganizationAssignment;
+              aItems: Handle[StepAP214HArray1OfOrganizationItem]) {.
     importcpp: "SetItems", header: "StepAP214_AppliedOrganizationAssignment.hxx".}
-proc Items*(this: StepAP214_AppliedOrganizationAssignment): handle[
-    StepAP214_HArray1OfOrganizationItem] {.noSideEffect, importcpp: "Items",
+proc items*(this: StepAP214AppliedOrganizationAssignment): Handle[
+    StepAP214HArray1OfOrganizationItem] {.noSideEffect, importcpp: "Items",
     header: "StepAP214_AppliedOrganizationAssignment.hxx".}
-proc ItemsValue*(this: StepAP214_AppliedOrganizationAssignment;
-                num: Standard_Integer): StepAP214_OrganizationItem {.noSideEffect,
-    importcpp: "ItemsValue", header: "StepAP214_AppliedOrganizationAssignment.hxx".}
-proc NbItems*(this: StepAP214_AppliedOrganizationAssignment): Standard_Integer {.
-    noSideEffect, importcpp: "NbItems",
+proc itemsValue*(this: StepAP214AppliedOrganizationAssignment; num: int): StepAP214OrganizationItem {.
+    noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AppliedOrganizationAssignment.hxx".}
+proc nbItems*(this: StepAP214AppliedOrganizationAssignment): int {.noSideEffect,
+    importcpp: "NbItems", header: "StepAP214_AppliedOrganizationAssignment.hxx".}
 type
-  StepAP214_AppliedOrganizationAssignmentbase_type* = StepBasic_OrganizationAssignment
+  StepAP214AppliedOrganizationAssignmentbaseType* = StepBasicOrganizationAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_AppliedOrganizationAssignment::get_type_name(@)", header: "StepAP214_AppliedOrganizationAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP214_AppliedOrganizationAssignment::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP214_AppliedOrganizationAssignment::get_type_name(@)", header: "StepAP214_AppliedOrganizationAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_AppliedOrganizationAssignment::get_type_descriptor(@)",
     header: "StepAP214_AppliedOrganizationAssignment.hxx".}
-proc DynamicType*(this: StepAP214_AppliedOrganizationAssignment): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepAP214_AppliedOrganizationAssignment.hxx".}
+proc dynamicType*(this: StepAP214AppliedOrganizationAssignment): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepAP214_AppliedOrganizationAssignment.hxx".}

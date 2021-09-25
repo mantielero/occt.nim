@@ -14,55 +14,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_Unit,
-  ../Standard/Standard_Transient, ../Standard/Standard_Real
-
 discard "forward decl of StepBasic_MeasureValueMember"
 discard "forward decl of StepBasic_Unit"
 discard "forward decl of StepBasic_MeasureWithUnit"
 discard "forward decl of StepBasic_MeasureWithUnit"
 type
-  Handle_StepBasic_MeasureWithUnit* = handle[StepBasic_MeasureWithUnit]
-  StepBasic_MeasureWithUnit* {.importcpp: "StepBasic_MeasureWithUnit",
-                              header: "StepBasic_MeasureWithUnit.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                        ## !
-                                                                                                        ## Returns
-                                                                                                        ## a
-                                                                                                        ## MeasureWithUnit
+  HandleStepBasicMeasureWithUnit* = Handle[StepBasicMeasureWithUnit]
+  StepBasicMeasureWithUnit* {.importcpp: "StepBasic_MeasureWithUnit",
+                             header: "StepBasic_MeasureWithUnit.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                      ## !
+                                                                                                      ## Returns
+                                                                                                      ## a
+                                                                                                      ## MeasureWithUnit
 
 
-proc constructStepBasic_MeasureWithUnit*(): StepBasic_MeasureWithUnit {.
-    constructor, importcpp: "StepBasic_MeasureWithUnit(@)",
+proc constructStepBasicMeasureWithUnit*(): StepBasicMeasureWithUnit {.constructor,
+    importcpp: "StepBasic_MeasureWithUnit(@)",
     header: "StepBasic_MeasureWithUnit.hxx".}
-proc Init*(this: var StepBasic_MeasureWithUnit;
-          aValueComponent: handle[StepBasic_MeasureValueMember];
-          aUnitComponent: StepBasic_Unit) {.importcpp: "Init",
+proc init*(this: var StepBasicMeasureWithUnit;
+          aValueComponent: Handle[StepBasicMeasureValueMember];
+          aUnitComponent: StepBasicUnit) {.importcpp: "Init",
     header: "StepBasic_MeasureWithUnit.hxx".}
-proc SetValueComponent*(this: var StepBasic_MeasureWithUnit;
-                       aValueComponent: Standard_Real) {.
+proc setValueComponent*(this: var StepBasicMeasureWithUnit; aValueComponent: float) {.
     importcpp: "SetValueComponent", header: "StepBasic_MeasureWithUnit.hxx".}
-proc ValueComponent*(this: StepBasic_MeasureWithUnit): Standard_Real {.noSideEffect,
+proc valueComponent*(this: StepBasicMeasureWithUnit): float {.noSideEffect,
     importcpp: "ValueComponent", header: "StepBasic_MeasureWithUnit.hxx".}
-proc ValueComponentMember*(this: StepBasic_MeasureWithUnit): handle[
-    StepBasic_MeasureValueMember] {.noSideEffect,
-                                   importcpp: "ValueComponentMember",
-                                   header: "StepBasic_MeasureWithUnit.hxx".}
-proc SetValueComponentMember*(this: var StepBasic_MeasureWithUnit;
-                             val: handle[StepBasic_MeasureValueMember]) {.
+proc valueComponentMember*(this: StepBasicMeasureWithUnit): Handle[
+    StepBasicMeasureValueMember] {.noSideEffect,
+                                  importcpp: "ValueComponentMember",
+                                  header: "StepBasic_MeasureWithUnit.hxx".}
+proc setValueComponentMember*(this: var StepBasicMeasureWithUnit;
+                             val: Handle[StepBasicMeasureValueMember]) {.
     importcpp: "SetValueComponentMember", header: "StepBasic_MeasureWithUnit.hxx".}
-proc SetUnitComponent*(this: var StepBasic_MeasureWithUnit;
-                      aUnitComponent: StepBasic_Unit) {.
+proc setUnitComponent*(this: var StepBasicMeasureWithUnit;
+                      aUnitComponent: StepBasicUnit) {.
     importcpp: "SetUnitComponent", header: "StepBasic_MeasureWithUnit.hxx".}
-proc UnitComponent*(this: StepBasic_MeasureWithUnit): StepBasic_Unit {.noSideEffect,
+proc unitComponent*(this: StepBasicMeasureWithUnit): StepBasicUnit {.noSideEffect,
     importcpp: "UnitComponent", header: "StepBasic_MeasureWithUnit.hxx".}
 type
-  StepBasic_MeasureWithUnitbase_type* = Standard_Transient
+  StepBasicMeasureWithUnitbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_MeasureWithUnit::get_type_name(@)",
-                              header: "StepBasic_MeasureWithUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_MeasureWithUnit::get_type_name(@)",
+                            header: "StepBasic_MeasureWithUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_MeasureWithUnit::get_type_descriptor(@)",
     header: "StepBasic_MeasureWithUnit.hxx".}
-proc DynamicType*(this: StepBasic_MeasureWithUnit): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicMeasureWithUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_MeasureWithUnit.hxx".}

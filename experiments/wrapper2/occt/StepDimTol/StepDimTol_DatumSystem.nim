@@ -13,55 +13,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../StepRepr/StepRepr_ShapeAspect, StepDimTol_HArray1OfDatumReferenceCompartment
-
 discard "forward decl of StepDimTol_DatumSystem"
 discard "forward decl of StepDimTol_DatumSystem"
 type
-  Handle_StepDimTol_DatumSystem* = handle[StepDimTol_DatumSystem]
+  HandleStepDimTolDatumSystem* = Handle[StepDimTolDatumSystem]
 
 ## ! Representation of STEP entity DatumSystem
 
 type
-  StepDimTol_DatumSystem* {.importcpp: "StepDimTol_DatumSystem",
-                           header: "StepDimTol_DatumSystem.hxx", bycopy.} = object of StepRepr_ShapeAspect ##
-                                                                                                    ## !
-                                                                                                    ## Empty
-                                                                                                    ## constructor
+  StepDimTolDatumSystem* {.importcpp: "StepDimTol_DatumSystem",
+                          header: "StepDimTol_DatumSystem.hxx", bycopy.} = object of StepReprShapeAspect ##
+                                                                                                  ## !
+                                                                                                  ## Empty
+                                                                                                  ## constructor
 
 
-proc constructStepDimTol_DatumSystem*(): StepDimTol_DatumSystem {.constructor,
+proc constructStepDimTolDatumSystem*(): StepDimTolDatumSystem {.constructor,
     importcpp: "StepDimTol_DatumSystem(@)", header: "StepDimTol_DatumSystem.hxx".}
-proc Init*(this: var StepDimTol_DatumSystem;
-          theName: handle[TCollection_HAsciiString];
-          theDescription: handle[TCollection_HAsciiString];
-          theOfShape: handle[StepRepr_ProductDefinitionShape];
-          theProductDefinitional: StepData_Logical; theConstituents: handle[
-    StepDimTol_HArray1OfDatumReferenceCompartment]) {.importcpp: "Init",
+proc init*(this: var StepDimTolDatumSystem;
+          theName: Handle[TCollectionHAsciiString];
+          theDescription: Handle[TCollectionHAsciiString];
+          theOfShape: Handle[StepReprProductDefinitionShape];
+          theProductDefinitional: StepDataLogical;
+          theConstituents: Handle[StepDimTolHArray1OfDatumReferenceCompartment]) {.
+    importcpp: "Init", header: "StepDimTol_DatumSystem.hxx".}
+proc constituents*(this: var StepDimTolDatumSystem): Handle[
+    StepDimTolHArray1OfDatumReferenceCompartment] {.importcpp: "Constituents",
     header: "StepDimTol_DatumSystem.hxx".}
-proc Constituents*(this: var StepDimTol_DatumSystem): handle[
-    StepDimTol_HArray1OfDatumReferenceCompartment] {.importcpp: "Constituents",
-    header: "StepDimTol_DatumSystem.hxx".}
-proc SetConstituents*(this: var StepDimTol_DatumSystem; theConstituents: handle[
-    StepDimTol_HArray1OfDatumReferenceCompartment]) {.
+proc setConstituents*(this: var StepDimTolDatumSystem; theConstituents: Handle[
+    StepDimTolHArray1OfDatumReferenceCompartment]) {.
     importcpp: "SetConstituents", header: "StepDimTol_DatumSystem.hxx".}
-proc NbConstituents*(this: StepDimTol_DatumSystem): Standard_Integer {.noSideEffect,
+proc nbConstituents*(this: StepDimTolDatumSystem): int {.noSideEffect,
     importcpp: "NbConstituents", header: "StepDimTol_DatumSystem.hxx".}
-proc ConstituentsValue*(this: StepDimTol_DatumSystem; num: Standard_Integer): handle[
-    StepDimTol_DatumReferenceCompartment] {.noSideEffect,
+proc constituentsValue*(this: StepDimTolDatumSystem; num: int): Handle[
+    StepDimTolDatumReferenceCompartment] {.noSideEffect,
     importcpp: "ConstituentsValue", header: "StepDimTol_DatumSystem.hxx".}
-proc ConstituentsValue*(this: var StepDimTol_DatumSystem; num: Standard_Integer;
-                       theItem: handle[StepDimTol_DatumReferenceCompartment]) {.
+proc constituentsValue*(this: var StepDimTolDatumSystem; num: int;
+                       theItem: Handle[StepDimTolDatumReferenceCompartment]) {.
     importcpp: "ConstituentsValue", header: "StepDimTol_DatumSystem.hxx".}
 type
-  StepDimTol_DatumSystembase_type* = StepRepr_ShapeAspect
+  StepDimTolDatumSystembaseType* = StepReprShapeAspect
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_DatumSystem::get_type_name(@)",
-                              header: "StepDimTol_DatumSystem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_DatumSystem::get_type_name(@)",
+                            header: "StepDimTol_DatumSystem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_DatumSystem::get_type_descriptor(@)",
     header: "StepDimTol_DatumSystem.hxx".}
-proc DynamicType*(this: StepDimTol_DatumSystem): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepDimTol_DatumSystem.hxx".}
+proc dynamicType*(this: StepDimTolDatumSystem): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepDimTol_DatumSystem.hxx".}

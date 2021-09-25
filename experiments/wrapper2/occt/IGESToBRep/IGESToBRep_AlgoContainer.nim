@@ -13,37 +13,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of IGESToBRep_ToolContainer"
 discard "forward decl of IGESToBRep_AlgoContainer"
 discard "forward decl of IGESToBRep_AlgoContainer"
 type
-  Handle_IGESToBRep_AlgoContainer* = handle[IGESToBRep_AlgoContainer]
-  IGESToBRep_AlgoContainer* {.importcpp: "IGESToBRep_AlgoContainer",
-                             header: "IGESToBRep_AlgoContainer.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                      ## !
-                                                                                                      ## Empty
-                                                                                                      ## constructor
+  HandleIGESToBRepAlgoContainer* = Handle[IGESToBRepAlgoContainer]
+  IGESToBRepAlgoContainer* {.importcpp: "IGESToBRep_AlgoContainer",
+                            header: "IGESToBRep_AlgoContainer.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                    ## !
+                                                                                                    ## Empty
+                                                                                                    ## constructor
 
 
-proc constructIGESToBRep_AlgoContainer*(): IGESToBRep_AlgoContainer {.constructor,
+proc constructIGESToBRepAlgoContainer*(): IGESToBRepAlgoContainer {.constructor,
     importcpp: "IGESToBRep_AlgoContainer(@)",
     header: "IGESToBRep_AlgoContainer.hxx".}
-proc SetToolContainer*(this: var IGESToBRep_AlgoContainer;
-                      TC: handle[IGESToBRep_ToolContainer]) {.
+proc setToolContainer*(this: var IGESToBRepAlgoContainer;
+                      tc: Handle[IGESToBRepToolContainer]) {.
     importcpp: "SetToolContainer", header: "IGESToBRep_AlgoContainer.hxx".}
-proc ToolContainer*(this: IGESToBRep_AlgoContainer): handle[
-    IGESToBRep_ToolContainer] {.noSideEffect, importcpp: "ToolContainer",
-                               header: "IGESToBRep_AlgoContainer.hxx".}
+proc toolContainer*(this: IGESToBRepAlgoContainer): Handle[IGESToBRepToolContainer] {.
+    noSideEffect, importcpp: "ToolContainer",
+    header: "IGESToBRep_AlgoContainer.hxx".}
 type
-  IGESToBRep_AlgoContainerbase_type* = Standard_Transient
+  IGESToBRepAlgoContainerbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "IGESToBRep_AlgoContainer::get_type_name(@)",
-                              header: "IGESToBRep_AlgoContainer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESToBRep_AlgoContainer::get_type_name(@)",
+                            header: "IGESToBRep_AlgoContainer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESToBRep_AlgoContainer::get_type_descriptor(@)",
     header: "IGESToBRep_AlgoContainer.hxx".}
-proc DynamicType*(this: IGESToBRep_AlgoContainer): handle[Standard_Type] {.
+proc dynamicType*(this: IGESToBRepAlgoContainer): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESToBRep_AlgoContainer.hxx".}

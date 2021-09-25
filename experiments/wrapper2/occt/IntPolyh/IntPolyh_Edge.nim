@@ -14,41 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 ## ! The class represents the edge built between the two IntPolyh points.<br>
 ## ! It is linked to two IntPolyh triangles.
 
 type
-  IntPolyh_Edge* {.importcpp: "IntPolyh_Edge", header: "IntPolyh_Edge.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Constructor
+  IntPolyhEdge* {.importcpp: "IntPolyh_Edge", header: "IntPolyh_Edge.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Constructor
 
 
-proc constructIntPolyh_Edge*(): IntPolyh_Edge {.constructor,
+proc constructIntPolyhEdge*(): IntPolyhEdge {.constructor,
     importcpp: "IntPolyh_Edge(@)", header: "IntPolyh_Edge.hxx".}
-proc constructIntPolyh_Edge*(thePoint1: Standard_Integer;
-                            thePoint2: Standard_Integer;
-                            theTriangle1: Standard_Integer;
-                            theTriangle2: Standard_Integer): IntPolyh_Edge {.
-    constructor, importcpp: "IntPolyh_Edge(@)", header: "IntPolyh_Edge.hxx".}
-proc FirstPoint*(this: IntPolyh_Edge): Standard_Integer {.noSideEffect,
-    importcpp: "FirstPoint", header: "IntPolyh_Edge.hxx".}
-proc SecondPoint*(this: IntPolyh_Edge): Standard_Integer {.noSideEffect,
-    importcpp: "SecondPoint", header: "IntPolyh_Edge.hxx".}
-proc FirstTriangle*(this: IntPolyh_Edge): Standard_Integer {.noSideEffect,
+proc constructIntPolyhEdge*(thePoint1: int; thePoint2: int; theTriangle1: int;
+                           theTriangle2: int): IntPolyhEdge {.constructor,
+    importcpp: "IntPolyh_Edge(@)", header: "IntPolyh_Edge.hxx".}
+proc firstPoint*(this: IntPolyhEdge): int {.noSideEffect, importcpp: "FirstPoint",
+                                        header: "IntPolyh_Edge.hxx".}
+proc secondPoint*(this: IntPolyhEdge): int {.noSideEffect, importcpp: "SecondPoint",
+    header: "IntPolyh_Edge.hxx".}
+proc firstTriangle*(this: IntPolyhEdge): int {.noSideEffect,
     importcpp: "FirstTriangle", header: "IntPolyh_Edge.hxx".}
-proc SecondTriangle*(this: IntPolyh_Edge): Standard_Integer {.noSideEffect,
+proc secondTriangle*(this: IntPolyhEdge): int {.noSideEffect,
     importcpp: "SecondTriangle", header: "IntPolyh_Edge.hxx".}
-proc SetFirstPoint*(this: var IntPolyh_Edge; thePoint: Standard_Integer) {.
+proc setFirstPoint*(this: var IntPolyhEdge; thePoint: int) {.
     importcpp: "SetFirstPoint", header: "IntPolyh_Edge.hxx".}
-proc SetSecondPoint*(this: var IntPolyh_Edge; thePoint: Standard_Integer) {.
+proc setSecondPoint*(this: var IntPolyhEdge; thePoint: int) {.
     importcpp: "SetSecondPoint", header: "IntPolyh_Edge.hxx".}
-proc SetFirstTriangle*(this: var IntPolyh_Edge; theTriangle: Standard_Integer) {.
+proc setFirstTriangle*(this: var IntPolyhEdge; theTriangle: int) {.
     importcpp: "SetFirstTriangle", header: "IntPolyh_Edge.hxx".}
-proc SetSecondTriangle*(this: var IntPolyh_Edge; theTriangle: Standard_Integer) {.
+proc setSecondTriangle*(this: var IntPolyhEdge; theTriangle: int) {.
     importcpp: "SetSecondTriangle", header: "IntPolyh_Edge.hxx".}
-proc Dump*(this: IntPolyh_Edge; v: Standard_Integer) {.noSideEffect,
-    importcpp: "Dump", header: "IntPolyh_Edge.hxx".}
+proc dump*(this: IntPolyhEdge; v: int) {.noSideEffect, importcpp: "Dump",
+                                    header: "IntPolyh_Edge.hxx".}

@@ -13,38 +13,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_AnnotationCurveOccurrenceAndGeomReprItem"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisual_RWAnnotationCurveOccurrenceAndGeomReprItem* {.
+  RWStepVisualRWAnnotationCurveOccurrenceAndGeomReprItem* {.
       importcpp: "RWStepVisual_RWAnnotationCurveOccurrenceAndGeomReprItem",
       header: "RWStepVisual_RWAnnotationCurveOccurrenceAndGeomReprItem.hxx",
       bycopy.} = object
 
 
-proc constructRWStepVisual_RWAnnotationCurveOccurrenceAndGeomReprItem*(): RWStepVisual_RWAnnotationCurveOccurrenceAndGeomReprItem {.
+proc constructRWStepVisualRWAnnotationCurveOccurrenceAndGeomReprItem*(): RWStepVisualRWAnnotationCurveOccurrenceAndGeomReprItem {.
     constructor,
     importcpp: "RWStepVisual_RWAnnotationCurveOccurrenceAndGeomReprItem(@)",
     header: "RWStepVisual_RWAnnotationCurveOccurrenceAndGeomReprItem.hxx".}
-proc ReadStep*(this: RWStepVisual_RWAnnotationCurveOccurrenceAndGeomReprItem;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepVisual_AnnotationCurveOccurrenceAndGeomReprItem]) {.
+proc readStep*(this: RWStepVisualRWAnnotationCurveOccurrenceAndGeomReprItem;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepVisualAnnotationCurveOccurrenceAndGeomReprItem]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepVisual_RWAnnotationCurveOccurrenceAndGeomReprItem.hxx".}
-proc WriteStep*(this: RWStepVisual_RWAnnotationCurveOccurrenceAndGeomReprItem;
-               SW: var StepData_StepWriter;
-               ent: handle[StepVisual_AnnotationCurveOccurrenceAndGeomReprItem]) {.
+proc writeStep*(this: RWStepVisualRWAnnotationCurveOccurrenceAndGeomReprItem;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepVisualAnnotationCurveOccurrenceAndGeomReprItem]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepVisual_RWAnnotationCurveOccurrenceAndGeomReprItem.hxx".}
-proc Share*(this: RWStepVisual_RWAnnotationCurveOccurrenceAndGeomReprItem;
-           ent: handle[StepVisual_AnnotationCurveOccurrenceAndGeomReprItem];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepVisualRWAnnotationCurveOccurrenceAndGeomReprItem;
+           ent: Handle[StepVisualAnnotationCurveOccurrenceAndGeomReprItem];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWAnnotationCurveOccurrenceAndGeomReprItem.hxx".}

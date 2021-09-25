@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  PrsDim_KindOfSurface, ../Aspect/Aspect_TypeOfLine,
-  ../Aspect/Aspect_TypeOfMarker, ../gp/gp_Dir, ../gp/gp_Pnt,
-  ../Quantity/Quantity_NameOfColor, ../Prs3d/Prs3d_Drawer,
-  ../Prs3d/Prs3d_Presentation, ../Standard/Standard,
-  ../Standard/Standard_DefineAlloc, ../Standard/Standard_Handle
-
 discard "forward decl of Bnd_Box"
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom_Plane"
@@ -34,122 +27,110 @@ type
                                                                  ## ! several classes in calculation of dimensions.
 
 
-proc Nearest*(aShape: TopoDS_Shape; aPoint: gp_Pnt): gp_Pnt {.
+proc nearest*(aShape: TopoDS_Shape; aPoint: Pnt): Pnt {.
     importcpp: "PrsDim::Nearest(@)", header: "PrsDim.hxx".}
-proc Nearest*(theLine: gp_Lin; thePoint: gp_Pnt): gp_Pnt {.
+proc nearest*(theLine: Lin; thePoint: Pnt): Pnt {.importcpp: "PrsDim::Nearest(@)",
+    header: "PrsDim.hxx".}
+proc nearest*(theCurve: Handle[GeomCurve]; thePoint: Pnt; theFirstPoint: Pnt;
+             theLastPoint: Pnt; theNearestPoint: var Pnt): bool {.
     importcpp: "PrsDim::Nearest(@)", header: "PrsDim.hxx".}
-proc Nearest*(theCurve: handle[Geom_Curve]; thePoint: gp_Pnt; theFirstPoint: gp_Pnt;
-             theLastPoint: gp_Pnt; theNearestPoint: var gp_Pnt): Standard_Boolean {.
-    importcpp: "PrsDim::Nearest(@)", header: "PrsDim.hxx".}
-proc Farest*(aShape: TopoDS_Shape; aPoint: gp_Pnt): gp_Pnt {.
-    importcpp: "PrsDim::Farest(@)", header: "PrsDim.hxx".}
-proc ComputeGeometry*(theEdge: TopoDS_Edge; theCurve: var handle[Geom_Curve];
-                     theFirstPnt: var gp_Pnt; theLastPnt: var gp_Pnt): Standard_Boolean {.
+proc farest*(aShape: TopoDS_Shape; aPoint: Pnt): Pnt {.importcpp: "PrsDim::Farest(@)",
+    header: "PrsDim.hxx".}
+proc computeGeometry*(theEdge: TopoDS_Edge; theCurve: var Handle[GeomCurve];
+                     theFirstPnt: var Pnt; theLastPnt: var Pnt): bool {.
     importcpp: "PrsDim::ComputeGeometry(@)", header: "PrsDim.hxx".}
-proc ComputeGeometry*(theEdge: TopoDS_Edge; theCurve: var handle[Geom_Curve];
-                     theFirstPnt: var gp_Pnt; theLastPnt: var gp_Pnt;
-                     theIsInfinite: var Standard_Boolean): Standard_Boolean {.
+proc computeGeometry*(theEdge: TopoDS_Edge; theCurve: var Handle[GeomCurve];
+                     theFirstPnt: var Pnt; theLastPnt: var Pnt;
+                     theIsInfinite: var bool): bool {.
     importcpp: "PrsDim::ComputeGeometry(@)", header: "PrsDim.hxx".}
-proc ComputeGeometry*(theEdge: TopoDS_Edge; theCurve: var handle[Geom_Curve];
-                     theFirstPnt: var gp_Pnt; theLastPnt: var gp_Pnt;
-                     theExtCurve: var handle[Geom_Curve];
-                     theIsInfinite: var Standard_Boolean;
-                     theIsOnPlane: var Standard_Boolean;
-                     thePlane: handle[Geom_Plane]): Standard_Boolean {.
+proc computeGeometry*(theEdge: TopoDS_Edge; theCurve: var Handle[GeomCurve];
+                     theFirstPnt: var Pnt; theLastPnt: var Pnt;
+                     theExtCurve: var Handle[GeomCurve]; theIsInfinite: var bool;
+                     theIsOnPlane: var bool; thePlane: Handle[GeomPlane]): bool {.
     importcpp: "PrsDim::ComputeGeometry(@)", header: "PrsDim.hxx".}
-proc ComputeGeometry*(theFirstEdge: TopoDS_Edge; theSecondEdge: TopoDS_Edge;
-                     theFirstCurve: var handle[Geom_Curve];
-                     theSecondCurve: var handle[Geom_Curve];
-                     theFirstPnt1: var gp_Pnt; theLastPnt1: var gp_Pnt;
-                     theFirstPnt2: var gp_Pnt; theLastPnt2: var gp_Pnt;
-                     thePlane: handle[Geom_Plane]): Standard_Boolean {.
+proc computeGeometry*(theFirstEdge: TopoDS_Edge; theSecondEdge: TopoDS_Edge;
+                     theFirstCurve: var Handle[GeomCurve];
+                     theSecondCurve: var Handle[GeomCurve]; theFirstPnt1: var Pnt;
+                     theLastPnt1: var Pnt; theFirstPnt2: var Pnt;
+                     theLastPnt2: var Pnt; thePlane: Handle[GeomPlane]): bool {.
     importcpp: "PrsDim::ComputeGeometry(@)", header: "PrsDim.hxx".}
-proc ComputeGeometry*(theFirstEdge: TopoDS_Edge; theSecondEdge: TopoDS_Edge;
-                     theFirstCurve: var handle[Geom_Curve];
-                     theSecondCurve: var handle[Geom_Curve];
-                     theFirstPnt1: var gp_Pnt; theLastPnt1: var gp_Pnt;
-                     theFirstPnt2: var gp_Pnt; theLastPnt2: var gp_Pnt;
-                     theIsinfinite1: var Standard_Boolean;
-                     theIsinfinite2: var Standard_Boolean): Standard_Boolean {.
+proc computeGeometry*(theFirstEdge: TopoDS_Edge; theSecondEdge: TopoDS_Edge;
+                     theFirstCurve: var Handle[GeomCurve];
+                     theSecondCurve: var Handle[GeomCurve]; theFirstPnt1: var Pnt;
+                     theLastPnt1: var Pnt; theFirstPnt2: var Pnt;
+                     theLastPnt2: var Pnt; theIsinfinite1: var bool;
+                     theIsinfinite2: var bool): bool {.
     importcpp: "PrsDim::ComputeGeometry(@)", header: "PrsDim.hxx".}
-proc ComputeGeometry*(theFirstEdge: TopoDS_Edge; theSecondEdge: TopoDS_Edge;
-                     theExtIndex: var Standard_Integer;
-                     theFirstCurve: var handle[Geom_Curve];
-                     theSecondCurve: var handle[Geom_Curve];
-                     theFirstPnt1: var gp_Pnt; theLastPnt1: var gp_Pnt;
-                     theFirstPnt2: var gp_Pnt; theLastPnt2: var gp_Pnt;
-                     theExtCurve: var handle[Geom_Curve];
-                     theIsinfinite1: var Standard_Boolean;
-                     theIsinfinite2: var Standard_Boolean;
-                     thePlane: handle[Geom_Plane]): Standard_Boolean {.
+proc computeGeometry*(theFirstEdge: TopoDS_Edge; theSecondEdge: TopoDS_Edge;
+                     theExtIndex: var int; theFirstCurve: var Handle[GeomCurve];
+                     theSecondCurve: var Handle[GeomCurve]; theFirstPnt1: var Pnt;
+                     theLastPnt1: var Pnt; theFirstPnt2: var Pnt;
+                     theLastPnt2: var Pnt; theExtCurve: var Handle[GeomCurve];
+                     theIsinfinite1: var bool; theIsinfinite2: var bool;
+                     thePlane: Handle[GeomPlane]): bool {.
     importcpp: "PrsDim::ComputeGeometry(@)", header: "PrsDim.hxx".}
-proc ComputeGeomCurve*(aCurve: var handle[Geom_Curve]; first1: Standard_Real;
-                      last1: Standard_Real; FirstPnt1: var gp_Pnt;
-                      LastPnt1: var gp_Pnt; aPlane: handle[Geom_Plane];
-                      isOnPlane: var Standard_Boolean): Standard_Boolean {.
+proc computeGeomCurve*(aCurve: var Handle[GeomCurve]; first1: float; last1: float;
+                      firstPnt1: var Pnt; lastPnt1: var Pnt;
+                      aPlane: Handle[GeomPlane]; isOnPlane: var bool): bool {.
     importcpp: "PrsDim::ComputeGeomCurve(@)", header: "PrsDim.hxx".}
-proc ComputeGeometry*(aVertex: TopoDS_Vertex; point: var gp_Pnt;
-                     aPlane: handle[Geom_Plane]; isOnPlane: var Standard_Boolean): Standard_Boolean {.
+proc computeGeometry*(aVertex: TopoDS_Vertex; point: var Pnt;
+                     aPlane: Handle[GeomPlane]; isOnPlane: var bool): bool {.
     importcpp: "PrsDim::ComputeGeometry(@)", header: "PrsDim.hxx".}
-proc GetPlaneFromFace*(aFace: TopoDS_Face; aPlane: var gp_Pln;
-                      aSurf: var handle[Geom_Surface];
-                      aSurfType: var PrsDim_KindOfSurface;
-                      Offset: var Standard_Real): Standard_Boolean {.
+proc getPlaneFromFace*(aFace: TopoDS_Face; aPlane: var Pln;
+                      aSurf: var Handle[GeomSurface];
+                      aSurfType: var PrsDimKindOfSurface; offset: var float): bool {.
     importcpp: "PrsDim::GetPlaneFromFace(@)", header: "PrsDim.hxx".}
-proc InitFaceLength*(aFace: TopoDS_Face; aPlane: var gp_Pln;
-                    aSurface: var handle[Geom_Surface];
-                    aSurfaceType: var PrsDim_KindOfSurface;
-                    anOffset: var Standard_Real) {.
+proc initFaceLength*(aFace: TopoDS_Face; aPlane: var Pln;
+                    aSurface: var Handle[GeomSurface];
+                    aSurfaceType: var PrsDimKindOfSurface; anOffset: var float) {.
     importcpp: "PrsDim::InitFaceLength(@)", header: "PrsDim.hxx".}
-proc InitLengthBetweenCurvilinearFaces*(theFirstFace: TopoDS_Face;
+proc initLengthBetweenCurvilinearFaces*(theFirstFace: TopoDS_Face;
                                        theSecondFace: TopoDS_Face;
-                                       theFirstSurf: var handle[Geom_Surface];
-                                       theSecondSurf: var handle[Geom_Surface];
-                                       theFirstAttach: var gp_Pnt;
-                                       theSecondAttach: var gp_Pnt;
-                                       theDirOnPlane: var gp_Dir) {.
+                                       theFirstSurf: var Handle[GeomSurface];
+                                       theSecondSurf: var Handle[GeomSurface];
+                                       theFirstAttach: var Pnt;
+                                       theSecondAttach: var Pnt;
+                                       theDirOnPlane: var Dir) {.
     importcpp: "PrsDim::InitLengthBetweenCurvilinearFaces(@)",
     header: "PrsDim.hxx".}
-proc InitAngleBetweenPlanarFaces*(theFirstFace: TopoDS_Face;
-                                 theSecondFace: TopoDS_Face;
-                                 theCenter: var gp_Pnt; theFirstAttach: var gp_Pnt;
-                                 theSecondAttach: var gp_Pnt; theIsFirstPointSet: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc initAngleBetweenPlanarFaces*(theFirstFace: TopoDS_Face;
+                                 theSecondFace: TopoDS_Face; theCenter: var Pnt;
+                                 theFirstAttach: var Pnt; theSecondAttach: var Pnt;
+                                 theIsFirstPointSet: bool = false): bool {.
     importcpp: "PrsDim::InitAngleBetweenPlanarFaces(@)", header: "PrsDim.hxx".}
-proc InitAngleBetweenCurvilinearFaces*(theFirstFace: TopoDS_Face;
+proc initAngleBetweenCurvilinearFaces*(theFirstFace: TopoDS_Face;
                                       theSecondFace: TopoDS_Face;
-                                      theFirstSurfType: PrsDim_KindOfSurface;
-                                      theSecondSurfType: PrsDim_KindOfSurface;
-                                      theCenter: var gp_Pnt;
-                                      theFirstAttach: var gp_Pnt;
-                                      theSecondAttach: var gp_Pnt;
-    theIsFirstPointSet: Standard_Boolean = Standard_False): Standard_Boolean {.
+                                      theFirstSurfType: PrsDimKindOfSurface;
+                                      theSecondSurfType: PrsDimKindOfSurface;
+                                      theCenter: var Pnt; theFirstAttach: var Pnt;
+                                      theSecondAttach: var Pnt;
+                                      theIsFirstPointSet: bool = false): bool {.
     importcpp: "PrsDim::InitAngleBetweenCurvilinearFaces(@)", header: "PrsDim.hxx".}
-proc ProjectPointOnPlane*(aPoint: gp_Pnt; aPlane: gp_Pln): gp_Pnt {.
+proc projectPointOnPlane*(aPoint: Pnt; aPlane: Pln): Pnt {.
     importcpp: "PrsDim::ProjectPointOnPlane(@)", header: "PrsDim.hxx".}
-proc ProjectPointOnLine*(aPoint: gp_Pnt; aLine: gp_Lin): gp_Pnt {.
+proc projectPointOnLine*(aPoint: Pnt; aLine: Lin): Pnt {.
     importcpp: "PrsDim::ProjectPointOnLine(@)", header: "PrsDim.hxx".}
-proc TranslatePointToBound*(aPoint: gp_Pnt; aDir: gp_Dir; aBndBox: Bnd_Box): gp_Pnt {.
+proc translatePointToBound*(aPoint: Pnt; aDir: Dir; aBndBox: BndBox): Pnt {.
     importcpp: "PrsDim::TranslatePointToBound(@)", header: "PrsDim.hxx".}
-proc InDomain*(aFirstPar: Standard_Real; aLastPar: Standard_Real;
-              anAttachPar: Standard_Real): Standard_Boolean {.
+proc inDomain*(aFirstPar: float; aLastPar: float; anAttachPar: float): bool {.
     importcpp: "PrsDim::InDomain(@)", header: "PrsDim.hxx".}
-proc NearestApex*(elips: gp_Elips; pApex: gp_Pnt; nApex: gp_Pnt; fpara: Standard_Real;
-                 lpara: Standard_Real; IsInDomain: var Standard_Boolean): gp_Pnt {.
-    importcpp: "PrsDim::NearestApex(@)", header: "PrsDim.hxx".}
-proc DistanceFromApex*(elips: gp_Elips; Apex: gp_Pnt; par: Standard_Real): Standard_Real {.
+proc nearestApex*(elips: Elips; pApex: Pnt; nApex: Pnt; fpara: float; lpara: float;
+                 isInDomain: var bool): Pnt {.importcpp: "PrsDim::NearestApex(@)",
+    header: "PrsDim.hxx".}
+proc distanceFromApex*(elips: Elips; apex: Pnt; par: float): float {.
     importcpp: "PrsDim::DistanceFromApex(@)", header: "PrsDim.hxx".}
-proc ComputeProjEdgePresentation*(aPres: handle[Prs3d_Presentation];
-                                 aDrawer: handle[Prs3d_Drawer];
+proc computeProjEdgePresentation*(aPres: Handle[Prs3dPresentation];
+                                 aDrawer: Handle[Prs3dDrawer];
                                  anEdge: TopoDS_Edge;
-                                 ProjCurve: handle[Geom_Curve]; FirstP: gp_Pnt;
-                                 LastP: gp_Pnt; aColor: Quantity_NameOfColor = Quantity_NOC_PURPLE;
-                                 aWidth: Standard_Real = 2;
-                                 aProjTOL: Aspect_TypeOfLine = Aspect_TOL_DASH;
-                                 aCallTOL: Aspect_TypeOfLine = Aspect_TOL_DOT) {.
+                                 projCurve: Handle[GeomCurve]; firstP: Pnt;
+                                 lastP: Pnt; aColor: QuantityNameOfColor = quantityNOC_PURPLE;
+                                 aWidth: float = 2;
+                                 aProjTOL: AspectTypeOfLine = aspectTOL_DASH;
+                                 aCallTOL: AspectTypeOfLine = aspectTOL_DOT) {.
     importcpp: "PrsDim::ComputeProjEdgePresentation(@)", header: "PrsDim.hxx".}
-proc ComputeProjVertexPresentation*(aPres: handle[Prs3d_Presentation];
-                                   aDrawer: handle[Prs3d_Drawer];
-                                   aVertex: TopoDS_Vertex; ProjPoint: gp_Pnt; aColor: Quantity_NameOfColor = Quantity_NOC_PURPLE;
-                                   aWidth: Standard_Real = 2; aProjTOM: Aspect_TypeOfMarker = Aspect_TOM_PLUS;
-                                   aCallTOL: Aspect_TypeOfLine = Aspect_TOL_DOT) {.
+proc computeProjVertexPresentation*(aPres: Handle[Prs3dPresentation];
+                                   aDrawer: Handle[Prs3dDrawer];
+                                   aVertex: TopoDS_Vertex; projPoint: Pnt; aColor: QuantityNameOfColor = quantityNOC_PURPLE;
+                                   aWidth: float = 2; aProjTOM: AspectTypeOfMarker = aspectTOM_PLUS;
+                                   aCallTOL: AspectTypeOfLine = aspectTOL_DOT) {.
     importcpp: "PrsDim::ComputeProjVertexPresentation(@)", header: "PrsDim.hxx".}

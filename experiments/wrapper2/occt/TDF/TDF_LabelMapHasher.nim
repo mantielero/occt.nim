@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TDF_Label
-
 ## ! A label hasher for label maps.
 
 type
@@ -29,7 +26,7 @@ type
                                                                       ## theUpperBound]
 
 
-proc HashCode*(theLabel: TDF_Label; theUpperBound: Standard_Integer): Standard_Integer {.
+proc hashCode*(theLabel: TDF_Label; theUpperBound: int): int {.
     importcpp: "TDF_LabelMapHasher::HashCode(@)", header: "TDF_LabelMapHasher.hxx".}
-proc IsEqual*(aLab1: TDF_Label; aLab2: TDF_Label): Standard_Boolean {.
+proc isEqual*(aLab1: TDF_Label; aLab2: TDF_Label): bool {.
     importcpp: "TDF_LabelMapHasher::IsEqual(@)", header: "TDF_LabelMapHasher.hxx".}

@@ -14,52 +14,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  StepVisual_ShadingSurfaceMethod, StepVisual_Colour
-
 discard "forward decl of StepVisual_SurfaceStyleRendering"
 discard "forward decl of StepVisual_SurfaceStyleRendering"
 type
-  Handle_StepVisual_SurfaceStyleRendering* = handle[
-      StepVisual_SurfaceStyleRendering]
+  HandleStepVisualSurfaceStyleRendering* = Handle[StepVisualSurfaceStyleRendering]
 
 ## ! Representation of STEP entity SurfaceStyleRendering
 
 type
-  StepVisual_SurfaceStyleRendering* {.importcpp: "StepVisual_SurfaceStyleRendering", header: "StepVisual_SurfaceStyleRendering.hxx",
-                                     bycopy.} = object of Standard_Transient ## ! default
-                                                                        ## constructor
+  StepVisualSurfaceStyleRendering* {.importcpp: "StepVisual_SurfaceStyleRendering", header: "StepVisual_SurfaceStyleRendering.hxx",
+                                    bycopy.} = object of StandardTransient ## ! default
+                                                                      ## constructor
 
 
-proc constructStepVisual_SurfaceStyleRendering*(): StepVisual_SurfaceStyleRendering {.
+proc constructStepVisualSurfaceStyleRendering*(): StepVisualSurfaceStyleRendering {.
     constructor, importcpp: "StepVisual_SurfaceStyleRendering(@)",
     header: "StepVisual_SurfaceStyleRendering.hxx".}
-proc Init*(this: var StepVisual_SurfaceStyleRendering;
-          theRenderingMethod: StepVisual_ShadingSurfaceMethod;
-          theSurfaceColour: handle[StepVisual_Colour]) {.importcpp: "Init",
+proc init*(this: var StepVisualSurfaceStyleRendering;
+          theRenderingMethod: StepVisualShadingSurfaceMethod;
+          theSurfaceColour: Handle[StepVisualColour]) {.importcpp: "Init",
     header: "StepVisual_SurfaceStyleRendering.hxx".}
-proc RenderingMethod*(this: StepVisual_SurfaceStyleRendering): StepVisual_ShadingSurfaceMethod {.
+proc renderingMethod*(this: StepVisualSurfaceStyleRendering): StepVisualShadingSurfaceMethod {.
     noSideEffect, importcpp: "RenderingMethod",
     header: "StepVisual_SurfaceStyleRendering.hxx".}
-proc SetRenderingMethod*(this: var StepVisual_SurfaceStyleRendering;
-                        theRenderingMethod: StepVisual_ShadingSurfaceMethod) {.
+proc setRenderingMethod*(this: var StepVisualSurfaceStyleRendering;
+                        theRenderingMethod: StepVisualShadingSurfaceMethod) {.
     importcpp: "SetRenderingMethod",
     header: "StepVisual_SurfaceStyleRendering.hxx".}
-proc SurfaceColour*(this: StepVisual_SurfaceStyleRendering): handle[
-    StepVisual_Colour] {.noSideEffect, importcpp: "SurfaceColour",
-                        header: "StepVisual_SurfaceStyleRendering.hxx".}
-proc SetSurfaceColour*(this: var StepVisual_SurfaceStyleRendering;
-                      theSurfaceColour: handle[StepVisual_Colour]) {.
+proc surfaceColour*(this: StepVisualSurfaceStyleRendering): Handle[StepVisualColour] {.
+    noSideEffect, importcpp: "SurfaceColour",
+    header: "StepVisual_SurfaceStyleRendering.hxx".}
+proc setSurfaceColour*(this: var StepVisualSurfaceStyleRendering;
+                      theSurfaceColour: Handle[StepVisualColour]) {.
     importcpp: "SetSurfaceColour", header: "StepVisual_SurfaceStyleRendering.hxx".}
 type
-  StepVisual_SurfaceStyleRenderingbase_type* = Standard_Transient
+  StepVisualSurfaceStyleRenderingbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_SurfaceStyleRendering::get_type_name(@)",
-                              header: "StepVisual_SurfaceStyleRendering.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_SurfaceStyleRendering::get_type_name(@)",
+                            header: "StepVisual_SurfaceStyleRendering.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_SurfaceStyleRendering::get_type_descriptor(@)",
     header: "StepVisual_SurfaceStyleRendering.hxx".}
-proc DynamicType*(this: StepVisual_SurfaceStyleRendering): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualSurfaceStyleRendering): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_SurfaceStyleRendering.hxx".}

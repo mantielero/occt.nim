@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer, ../gp/gp_Pnt, ../gp/gp_Vec, ../gp/gp_Dir,
-  ../LProp/LProp_Status, ../Standard/Standard_Boolean
-
 discard "forward decl of Geom_Curve"
 discard "forward decl of LProp_BadContinuity"
 discard "forward decl of Standard_DomainError"
@@ -30,45 +24,44 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
 discard "forward decl of GeomLProp_CurveTool"
 type
-  GeomLProp_CLProps* {.importcpp: "GeomLProp_CLProps",
-                      header: "GeomLProp_CLProps.hxx", bycopy.} = object ## ! Initializes the local properties of the curve <C>
-                                                                    ## ! The current point and the derivatives are
-                                                                    ## ! computed at the same time, which allows an
-                                                                    ## ! optimization of the computation time.
-                                                                    ## ! <N> indicates the maximum number of derivations to
-                                                                    ## ! be done (0, 1, 2 or 3). For example, to compute
-                                                                    ## ! only the tangent, N should be equal to 1.
-                                                                    ## ! <Resolution> is the linear tolerance (it is used to test
-                                                                    ## ! if a vector is null).
+  GeomLPropCLProps* {.importcpp: "GeomLProp_CLProps",
+                     header: "GeomLProp_CLProps.hxx", bycopy.} = object ## ! Initializes the local properties of the curve <C>
+                                                                   ## ! The current point and the derivatives are
+                                                                   ## ! computed at the same time, which allows an
+                                                                   ## ! optimization of the computation time.
+                                                                   ## ! <N> indicates the maximum number of derivations to
+                                                                   ## ! be done (0, 1, 2 or 3). For example, to compute
+                                                                   ## ! only the tangent, N should be equal to 1.
+                                                                   ## ! <Resolution> is the linear tolerance (it is used to test
+                                                                   ## ! if a vector is null).
 
 
-proc constructGeomLProp_CLProps*(C: handle[Geom_Curve]; N: Standard_Integer;
-                                Resolution: Standard_Real): GeomLProp_CLProps {.
+proc constructGeomLPropCLProps*(c: Handle[GeomCurve]; n: int; resolution: float): GeomLPropCLProps {.
     constructor, importcpp: "GeomLProp_CLProps(@)", header: "GeomLProp_CLProps.hxx".}
-proc constructGeomLProp_CLProps*(C: handle[Geom_Curve]; U: Standard_Real;
-                                N: Standard_Integer; Resolution: Standard_Real): GeomLProp_CLProps {.
+proc constructGeomLPropCLProps*(c: Handle[GeomCurve]; u: float; n: int;
+                               resolution: float): GeomLPropCLProps {.constructor,
+    importcpp: "GeomLProp_CLProps(@)", header: "GeomLProp_CLProps.hxx".}
+proc constructGeomLPropCLProps*(n: int; resolution: float): GeomLPropCLProps {.
     constructor, importcpp: "GeomLProp_CLProps(@)", header: "GeomLProp_CLProps.hxx".}
-proc constructGeomLProp_CLProps*(N: Standard_Integer; Resolution: Standard_Real): GeomLProp_CLProps {.
-    constructor, importcpp: "GeomLProp_CLProps(@)", header: "GeomLProp_CLProps.hxx".}
-proc SetParameter*(this: var GeomLProp_CLProps; U: Standard_Real) {.
-    importcpp: "SetParameter", header: "GeomLProp_CLProps.hxx".}
-proc SetCurve*(this: var GeomLProp_CLProps; C: handle[Geom_Curve]) {.
+proc setParameter*(this: var GeomLPropCLProps; u: float) {.importcpp: "SetParameter",
+    header: "GeomLProp_CLProps.hxx".}
+proc setCurve*(this: var GeomLPropCLProps; c: Handle[GeomCurve]) {.
     importcpp: "SetCurve", header: "GeomLProp_CLProps.hxx".}
-proc Value*(this: GeomLProp_CLProps): gp_Pnt {.noSideEffect, importcpp: "Value",
-    header: "GeomLProp_CLProps.hxx".}
-proc D1*(this: var GeomLProp_CLProps): gp_Vec {.importcpp: "D1",
-    header: "GeomLProp_CLProps.hxx".}
-proc D2*(this: var GeomLProp_CLProps): gp_Vec {.importcpp: "D2",
-    header: "GeomLProp_CLProps.hxx".}
-proc D3*(this: var GeomLProp_CLProps): gp_Vec {.importcpp: "D3",
-    header: "GeomLProp_CLProps.hxx".}
-proc IsTangentDefined*(this: var GeomLProp_CLProps): Standard_Boolean {.
+proc value*(this: GeomLPropCLProps): Pnt {.noSideEffect, importcpp: "Value",
+                                       header: "GeomLProp_CLProps.hxx".}
+proc d1*(this: var GeomLPropCLProps): Vec {.importcpp: "D1",
+                                       header: "GeomLProp_CLProps.hxx".}
+proc d2*(this: var GeomLPropCLProps): Vec {.importcpp: "D2",
+                                       header: "GeomLProp_CLProps.hxx".}
+proc d3*(this: var GeomLPropCLProps): Vec {.importcpp: "D3",
+                                       header: "GeomLProp_CLProps.hxx".}
+proc isTangentDefined*(this: var GeomLPropCLProps): bool {.
     importcpp: "IsTangentDefined", header: "GeomLProp_CLProps.hxx".}
-proc Tangent*(this: var GeomLProp_CLProps; D: var gp_Dir) {.importcpp: "Tangent",
+proc tangent*(this: var GeomLPropCLProps; d: var Dir) {.importcpp: "Tangent",
     header: "GeomLProp_CLProps.hxx".}
-proc Curvature*(this: var GeomLProp_CLProps): Standard_Real {.importcpp: "Curvature",
+proc curvature*(this: var GeomLPropCLProps): float {.importcpp: "Curvature",
     header: "GeomLProp_CLProps.hxx".}
-proc Normal*(this: var GeomLProp_CLProps; N: var gp_Dir) {.importcpp: "Normal",
+proc normal*(this: var GeomLPropCLProps; n: var Dir) {.importcpp: "Normal",
     header: "GeomLProp_CLProps.hxx".}
-proc CentreOfCurvature*(this: var GeomLProp_CLProps; P: var gp_Pnt) {.
+proc centreOfCurvature*(this: var GeomLPropCLProps; p: var Pnt) {.
     importcpp: "CentreOfCurvature", header: "GeomLProp_CLProps.hxx".}

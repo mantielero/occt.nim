@@ -14,47 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepVisual_StyleContextSelect,
-  StepVisual_PresentationStyleAssignment,
-  StepVisual_HArray1OfPresentationStyleSelect
-
 discard "forward decl of StepVisual_StyleContextSelect"
 discard "forward decl of StepVisual_PresentationStyleByContext"
 discard "forward decl of StepVisual_PresentationStyleByContext"
 type
-  Handle_StepVisual_PresentationStyleByContext* = handle[
-      StepVisual_PresentationStyleByContext]
-  StepVisual_PresentationStyleByContext* {.
+  HandleStepVisualPresentationStyleByContext* = Handle[
+      StepVisualPresentationStyleByContext]
+  StepVisualPresentationStyleByContext* {.
       importcpp: "StepVisual_PresentationStyleByContext",
-      header: "StepVisual_PresentationStyleByContext.hxx", bycopy.} = object of StepVisual_PresentationStyleAssignment ##
-                                                                                                                ## !
-                                                                                                                ## Returns
-                                                                                                                ## a
-                                                                                                                ## PresentationStyleByContext
+      header: "StepVisual_PresentationStyleByContext.hxx", bycopy.} = object of StepVisualPresentationStyleAssignment ##
+                                                                                                               ## !
+                                                                                                               ## Returns
+                                                                                                               ## a
+                                                                                                               ## PresentationStyleByContext
 
 
-proc constructStepVisual_PresentationStyleByContext*(): StepVisual_PresentationStyleByContext {.
+proc constructStepVisualPresentationStyleByContext*(): StepVisualPresentationStyleByContext {.
     constructor, importcpp: "StepVisual_PresentationStyleByContext(@)",
     header: "StepVisual_PresentationStyleByContext.hxx".}
-proc Init*(this: var StepVisual_PresentationStyleByContext;
-          aStyles: handle[StepVisual_HArray1OfPresentationStyleSelect];
-          aStyleContext: StepVisual_StyleContextSelect) {.importcpp: "Init",
+proc init*(this: var StepVisualPresentationStyleByContext;
+          aStyles: Handle[StepVisualHArray1OfPresentationStyleSelect];
+          aStyleContext: StepVisualStyleContextSelect) {.importcpp: "Init",
     header: "StepVisual_PresentationStyleByContext.hxx".}
-proc SetStyleContext*(this: var StepVisual_PresentationStyleByContext;
-                     aStyleContext: StepVisual_StyleContextSelect) {.
+proc setStyleContext*(this: var StepVisualPresentationStyleByContext;
+                     aStyleContext: StepVisualStyleContextSelect) {.
     importcpp: "SetStyleContext",
     header: "StepVisual_PresentationStyleByContext.hxx".}
-proc StyleContext*(this: StepVisual_PresentationStyleByContext): StepVisual_StyleContextSelect {.
+proc styleContext*(this: StepVisualPresentationStyleByContext): StepVisualStyleContextSelect {.
     noSideEffect, importcpp: "StyleContext",
     header: "StepVisual_PresentationStyleByContext.hxx".}
 type
-  StepVisual_PresentationStyleByContextbase_type* = StepVisual_PresentationStyleAssignment
+  StepVisualPresentationStyleByContextbaseType* = StepVisualPresentationStyleAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_PresentationStyleByContext::get_type_name(@)", header: "StepVisual_PresentationStyleByContext.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_PresentationStyleByContext::get_type_name(@)",
+                            header: "StepVisual_PresentationStyleByContext.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_PresentationStyleByContext::get_type_descriptor(@)",
     header: "StepVisual_PresentationStyleByContext.hxx".}
-proc DynamicType*(this: StepVisual_PresentationStyleByContext): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepVisual_PresentationStyleByContext.hxx".}
+proc dynamicType*(this: StepVisualPresentationStyleByContext): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepVisual_PresentationStyleByContext.hxx".}

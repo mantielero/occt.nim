@@ -14,16 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_CopyControl"
 discard "forward decl of Interface_CopyControl"
 type
-  Handle_Interface_CopyControl* = handle[Interface_CopyControl]
+  HandleInterfaceCopyControl* = Handle[InterfaceCopyControl]
 
 ## ! This deferred class describes the services required by
 ## ! CopyTool to work. They are very simple and correspond
@@ -33,40 +29,40 @@ type
 ## ! one Result (Mapping one-one)
 
 type
-  Interface_CopyControl* {.importcpp: "Interface_CopyControl",
-                          header: "Interface_CopyControl.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                ## !
-                                                                                                ## Clears
-                                                                                                ## List
-                                                                                                ## of
-                                                                                                ## Copy
-                                                                                                ## Results.
-                                                                                                ## Gets
-                                                                                                ## Ready
-                                                                                                ## to
-                                                                                                ## begin
-                                                                                                ## another
-                                                                                                ## Copy
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Process.
+  InterfaceCopyControl* {.importcpp: "Interface_CopyControl",
+                         header: "Interface_CopyControl.hxx", bycopy.} = object of StandardTransient ##
+                                                                                              ## !
+                                                                                              ## Clears
+                                                                                              ## List
+                                                                                              ## of
+                                                                                              ## Copy
+                                                                                              ## Results.
+                                                                                              ## Gets
+                                                                                              ## Ready
+                                                                                              ## to
+                                                                                              ## begin
+                                                                                              ## another
+                                                                                              ## Copy
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Process.
 
 
-proc Clear*(this: var Interface_CopyControl) {.importcpp: "Clear",
+proc clear*(this: var InterfaceCopyControl) {.importcpp: "Clear",
     header: "Interface_CopyControl.hxx".}
-proc Bind*(this: var Interface_CopyControl; ent: handle[Standard_Transient];
-          res: handle[Standard_Transient]) {.importcpp: "Bind",
+proc `bind`*(this: var InterfaceCopyControl; ent: Handle[StandardTransient];
+            res: Handle[StandardTransient]) {.importcpp: "Bind",
     header: "Interface_CopyControl.hxx".}
-proc Search*(this: Interface_CopyControl; ent: handle[Standard_Transient];
-            res: var handle[Standard_Transient]): Standard_Boolean {.noSideEffect,
+proc search*(this: InterfaceCopyControl; ent: Handle[StandardTransient];
+            res: var Handle[StandardTransient]): bool {.noSideEffect,
     importcpp: "Search", header: "Interface_CopyControl.hxx".}
 type
-  Interface_CopyControlbase_type* = Standard_Transient
+  InterfaceCopyControlbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Interface_CopyControl::get_type_name(@)",
-                              header: "Interface_CopyControl.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Interface_CopyControl::get_type_name(@)",
+                            header: "Interface_CopyControl.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Interface_CopyControl::get_type_descriptor(@)",
     header: "Interface_CopyControl.hxx".}
-proc DynamicType*(this: Interface_CopyControl): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Interface_CopyControl.hxx".}
+proc dynamicType*(this: InterfaceCopyControl): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Interface_CopyControl.hxx".}

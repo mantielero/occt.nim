@@ -79,10 +79,11 @@
 ## ! parameter t on the BSpline curve does not give an exact point on the circle or the ellipse).
 
 type
-  Convert_ParameterisationType* {.size: sizeof(cint),
-                                 importcpp: "Convert_ParameterisationType",
-                                 header: "Convert_ParameterisationType.hxx".} = enum
-    Convert_TgtThetaOver2, Convert_TgtThetaOver2_1, Convert_TgtThetaOver2_2,
-    Convert_TgtThetaOver2_3, Convert_TgtThetaOver2_4, Convert_QuasiAngular,
-    Convert_RationalC1, Convert_Polynomial
+  ConvertParameterisationType* {.size: sizeof(cint),
+                                importcpp: "Convert_ParameterisationType",
+                                header: "Convert_ParameterisationType.hxx".} = enum
+    ConvertTgtThetaOver2, ConvertTgtThetaOver21, ConvertTgtThetaOver22,
+    ConvertTgtThetaOver23, ConvertTgtThetaOver24, ConvertQuasiAngular,
+    ConvertRationalC1, ConvertPolynomial
+
 

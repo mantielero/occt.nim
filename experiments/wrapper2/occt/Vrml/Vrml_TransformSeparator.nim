@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_OStream
-
 ## ! defines a TransformSeparator node of VRML specifying group properties.
 ## ! This  group  node  is  similar  to  separator  node  in  that it  saves state
 ## ! before  traversing  its  children  and  restores  it  afterwards.
@@ -26,11 +21,11 @@ import
 ## ! or  objects.
 
 type
-  Vrml_TransformSeparator* {.importcpp: "Vrml_TransformSeparator",
-                            header: "Vrml_TransformSeparator.hxx", bycopy.} = object
+  VrmlTransformSeparator* {.importcpp: "Vrml_TransformSeparator",
+                           header: "Vrml_TransformSeparator.hxx", bycopy.} = object
 
 
-proc constructVrml_TransformSeparator*(): Vrml_TransformSeparator {.constructor,
+proc constructVrmlTransformSeparator*(): VrmlTransformSeparator {.constructor,
     importcpp: "Vrml_TransformSeparator(@)", header: "Vrml_TransformSeparator.hxx".}
-proc Print*(this: var Vrml_TransformSeparator; anOStream: var Standard_OStream): var Standard_OStream {.
+proc print*(this: var VrmlTransformSeparator; anOStream: var StandardOStream): var StandardOStream {.
     importcpp: "Print", header: "Vrml_TransformSeparator.hxx".}

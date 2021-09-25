@@ -14,66 +14,62 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Transient
-
 discard "forward decl of Vrml_Material"
 discard "forward decl of VrmlConverter_PointAspect"
 discard "forward decl of VrmlConverter_PointAspect"
 type
-  Handle_VrmlConverter_PointAspect* = handle[VrmlConverter_PointAspect]
+  HandleVrmlConverterPointAspect* = Handle[VrmlConverterPointAspect]
 
 ## ! qualifies the aspect properties for
 ## ! the VRML conversation of a Point Set.
 
 type
-  VrmlConverter_PointAspect* {.importcpp: "VrmlConverter_PointAspect",
-                              header: "VrmlConverter_PointAspect.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                        ## !
-                                                                                                        ## create
-                                                                                                        ## a
-                                                                                                        ## default
-                                                                                                        ## PointAspect.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Default
-                                                                                                        ## value:
-                                                                                                        ## HasMaterial
-                                                                                                        ## =
-                                                                                                        ## False
-                                                                                                        ## -
-                                                                                                        ## a
-                                                                                                        ## line
-                                                                                                        ## hasn't
-                                                                                                        ## own
-                                                                                                        ## material
-                                                                                                        ## (color)
+  VrmlConverterPointAspect* {.importcpp: "VrmlConverter_PointAspect",
+                             header: "VrmlConverter_PointAspect.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                      ## !
+                                                                                                      ## create
+                                                                                                      ## a
+                                                                                                      ## default
+                                                                                                      ## PointAspect.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Default
+                                                                                                      ## value:
+                                                                                                      ## HasMaterial
+                                                                                                      ## =
+                                                                                                      ## False
+                                                                                                      ## -
+                                                                                                      ## a
+                                                                                                      ## line
+                                                                                                      ## hasn't
+                                                                                                      ## own
+                                                                                                      ## material
+                                                                                                      ## (color)
 
 
-proc constructVrmlConverter_PointAspect*(): VrmlConverter_PointAspect {.
+proc constructVrmlConverterPointAspect*(): VrmlConverterPointAspect {.constructor,
+    importcpp: "VrmlConverter_PointAspect(@)",
+    header: "VrmlConverter_PointAspect.hxx".}
+proc constructVrmlConverterPointAspect*(aMaterial: Handle[VrmlMaterial];
+                                       onOff: bool): VrmlConverterPointAspect {.
     constructor, importcpp: "VrmlConverter_PointAspect(@)",
     header: "VrmlConverter_PointAspect.hxx".}
-proc constructVrmlConverter_PointAspect*(aMaterial: handle[Vrml_Material];
-                                        OnOff: Standard_Boolean): VrmlConverter_PointAspect {.
-    constructor, importcpp: "VrmlConverter_PointAspect(@)",
+proc setMaterial*(this: var VrmlConverterPointAspect;
+                 aMaterial: Handle[VrmlMaterial]) {.importcpp: "SetMaterial",
     header: "VrmlConverter_PointAspect.hxx".}
-proc SetMaterial*(this: var VrmlConverter_PointAspect;
-                 aMaterial: handle[Vrml_Material]) {.importcpp: "SetMaterial",
-    header: "VrmlConverter_PointAspect.hxx".}
-proc Material*(this: VrmlConverter_PointAspect): handle[Vrml_Material] {.
-    noSideEffect, importcpp: "Material", header: "VrmlConverter_PointAspect.hxx".}
-proc SetHasMaterial*(this: var VrmlConverter_PointAspect; OnOff: Standard_Boolean) {.
+proc material*(this: VrmlConverterPointAspect): Handle[VrmlMaterial] {.noSideEffect,
+    importcpp: "Material", header: "VrmlConverter_PointAspect.hxx".}
+proc setHasMaterial*(this: var VrmlConverterPointAspect; onOff: bool) {.
     importcpp: "SetHasMaterial", header: "VrmlConverter_PointAspect.hxx".}
-proc HasMaterial*(this: VrmlConverter_PointAspect): Standard_Boolean {.noSideEffect,
+proc hasMaterial*(this: VrmlConverterPointAspect): bool {.noSideEffect,
     importcpp: "HasMaterial", header: "VrmlConverter_PointAspect.hxx".}
 type
-  VrmlConverter_PointAspectbase_type* = Standard_Transient
+  VrmlConverterPointAspectbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "VrmlConverter_PointAspect::get_type_name(@)",
-                              header: "VrmlConverter_PointAspect.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "VrmlConverter_PointAspect::get_type_name(@)",
+                            header: "VrmlConverter_PointAspect.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "VrmlConverter_PointAspect::get_type_descriptor(@)",
     header: "VrmlConverter_PointAspect.hxx".}
-proc DynamicType*(this: VrmlConverter_PointAspect): handle[Standard_Type] {.
+proc dynamicType*(this: VrmlConverterPointAspect): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "VrmlConverter_PointAspect.hxx".}

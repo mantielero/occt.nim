@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepGeom_TrimmingSelect, StepGeom_Array1OfTrimmingSelect,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepGeom_HArray1OfTrimmingSelect* {.importcpp: "StepGeom_HArray1OfTrimmingSelect", header: "StepGeom_HArray1OfTrimmingSelect.hxx",
-                                     bycopy.} = object of StepGeom_Array1OfTrimmingSelect
+  StepGeomHArray1OfTrimmingSelect* {.importcpp: "StepGeom_HArray1OfTrimmingSelect", header: "StepGeom_HArray1OfTrimmingSelect.hxx",
+                                    bycopy.} = object of StepGeomArray1OfTrimmingSelect
 
 
-proc constructStepGeom_HArray1OfTrimmingSelect*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepGeom_HArray1OfTrimmingSelect {.constructor,
+proc constructStepGeomHArray1OfTrimmingSelect*(theLower: int; theUpper: int): StepGeomHArray1OfTrimmingSelect {.
+    constructor, importcpp: "StepGeom_HArray1OfTrimmingSelect(@)",
+    header: "StepGeom_HArray1OfTrimmingSelect.hxx".}
+proc constructStepGeomHArray1OfTrimmingSelect*(theLower: int; theUpper: int;
+    theValue: ValueType): StepGeomHArray1OfTrimmingSelect {.constructor,
     importcpp: "StepGeom_HArray1OfTrimmingSelect(@)",
     header: "StepGeom_HArray1OfTrimmingSelect.hxx".}
-proc constructStepGeom_HArray1OfTrimmingSelect*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepGeom_HArray1OfTrimmingSelect {.
+proc constructStepGeomHArray1OfTrimmingSelect*(
+    theOther: StepGeomArray1OfTrimmingSelect): StepGeomHArray1OfTrimmingSelect {.
     constructor, importcpp: "StepGeom_HArray1OfTrimmingSelect(@)",
     header: "StepGeom_HArray1OfTrimmingSelect.hxx".}
-proc constructStepGeom_HArray1OfTrimmingSelect*(
-    theOther: StepGeom_Array1OfTrimmingSelect): StepGeom_HArray1OfTrimmingSelect {.
-    constructor, importcpp: "StepGeom_HArray1OfTrimmingSelect(@)",
-    header: "StepGeom_HArray1OfTrimmingSelect.hxx".}
-proc Array1*(this: StepGeom_HArray1OfTrimmingSelect): StepGeom_Array1OfTrimmingSelect {.
+proc array1*(this: StepGeomHArray1OfTrimmingSelect): StepGeomArray1OfTrimmingSelect {.
     noSideEffect, importcpp: "Array1",
     header: "StepGeom_HArray1OfTrimmingSelect.hxx".}
-proc ChangeArray1*(this: var StepGeom_HArray1OfTrimmingSelect): var StepGeom_Array1OfTrimmingSelect {.
+proc changeArray1*(this: var StepGeomHArray1OfTrimmingSelect): var StepGeomArray1OfTrimmingSelect {.
     importcpp: "ChangeArray1", header: "StepGeom_HArray1OfTrimmingSelect.hxx".}
 type
-  StepGeom_HArray1OfTrimmingSelectbase_type* = MMgt_TShared
+  StepGeomHArray1OfTrimmingSelectbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_HArray1OfTrimmingSelect::get_type_name(@)",
-                              header: "StepGeom_HArray1OfTrimmingSelect.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_HArray1OfTrimmingSelect::get_type_name(@)",
+                            header: "StepGeom_HArray1OfTrimmingSelect.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_HArray1OfTrimmingSelect::get_type_descriptor(@)",
     header: "StepGeom_HArray1OfTrimmingSelect.hxx".}
-proc DynamicType*(this: StepGeom_HArray1OfTrimmingSelect): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomHArray1OfTrimmingSelect): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_HArray1OfTrimmingSelect.hxx".}

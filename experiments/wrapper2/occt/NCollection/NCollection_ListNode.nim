@@ -13,26 +13,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  NCollection_BaseAllocator, NCollection_DefineAlloc
-
 ## *
 ##  Purpose:     This class is used to  represent a node  in the BaseList and
 ##               BaseMap.
 ##
 
 type
-  NCollection_ListNode* {.importcpp: "NCollection_ListNode",
-                         header: "NCollection_ListNode.hxx", bycopy.} = object ##  define new operator for use with NCollection allocators
-                                                                          ## ! The only constructor
-                                                                          ## ! operator= - forbidden
+  NCollectionListNode* {.importcpp: "NCollection_ListNode",
+                        header: "NCollection_ListNode.hxx", bycopy.} = object ##  define new operator for use with NCollection allocators
+                                                                         ## ! The only constructor
+                                                                         ## ! operator= - forbidden
     ## !< Pointer to the next node
 
 
-proc constructNCollection_ListNode*(theNext: ptr NCollection_ListNode): NCollection_ListNode {.
+proc constructNCollectionListNode*(theNext: ptr NCollectionListNode): NCollectionListNode {.
     constructor, importcpp: "NCollection_ListNode(@)",
     header: "NCollection_ListNode.hxx".}
-proc Next*(this: var NCollection_ListNode): ptr NCollection_ListNode {.
+proc next*(this: var NCollectionListNode): ptr NCollectionListNode {.
     importcpp: "Next", header: "NCollection_ListNode.hxx".}
-proc Next*(this: NCollection_ListNode): ptr NCollection_ListNode {.noSideEffect,
+proc next*(this: NCollectionListNode): ptr NCollectionListNode {.noSideEffect,
     importcpp: "Next", header: "NCollection_ListNode.hxx".}

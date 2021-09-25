@@ -14,20 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_OStream
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of VrmlConverter_Drawer"
 discard "forward decl of VrmlConverter_Projector"
 type
-  VrmlConverter_HLRShape* {.importcpp: "VrmlConverter_HLRShape",
-                           header: "VrmlConverter_HLRShape.hxx", bycopy.} = object
+  VrmlConverterHLRShape* {.importcpp: "VrmlConverter_HLRShape",
+                          header: "VrmlConverter_HLRShape.hxx", bycopy.} = object
 
 
-proc Add*(anOStream: var Standard_OStream; aShape: TopoDS_Shape;
-         aDrawer: handle[VrmlConverter_Drawer];
-         aProjector: handle[VrmlConverter_Projector]) {.
+proc add*(anOStream: var StandardOStream; aShape: TopoDS_Shape;
+         aDrawer: Handle[VrmlConverterDrawer];
+         aProjector: Handle[VrmlConverterProjector]) {.
     importcpp: "VrmlConverter_HLRShape::Add(@)",
     header: "VrmlConverter_HLRShape.hxx".}

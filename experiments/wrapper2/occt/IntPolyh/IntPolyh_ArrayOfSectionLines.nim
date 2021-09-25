@@ -13,8 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IntPolyh_Array, IntPolyh_SectionLine
-
 type
-  IntPolyh_ArrayOfSectionLines* = IntPolyh_Array[IntPolyh_SectionLine]
+  IntPolyhArrayOfSectionLines* = IntPolyhArray[IntPolyhSectionLine]
+

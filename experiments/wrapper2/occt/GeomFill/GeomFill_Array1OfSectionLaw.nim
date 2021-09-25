@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  GeomFill_SectionLaw, ../NCollection/NCollection_Array1
-
 type
-  GeomFill_Array1OfSectionLaw* = NCollection_Array1[handle[GeomFill_SectionLaw]]
+  GeomFillArray1OfSectionLaw* = NCollectionArray1[Handle[GeomFillSectionLaw]]
+

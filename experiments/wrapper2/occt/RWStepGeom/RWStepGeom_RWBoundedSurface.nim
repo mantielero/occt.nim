@@ -14,27 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_BoundedSurface"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepGeom_RWBoundedSurface* {.importcpp: "RWStepGeom_RWBoundedSurface",
-                                header: "RWStepGeom_RWBoundedSurface.hxx", bycopy.} = object
+  RWStepGeomRWBoundedSurface* {.importcpp: "RWStepGeom_RWBoundedSurface",
+                               header: "RWStepGeom_RWBoundedSurface.hxx", bycopy.} = object
 
 
-proc constructRWStepGeom_RWBoundedSurface*(): RWStepGeom_RWBoundedSurface {.
+proc constructRWStepGeomRWBoundedSurface*(): RWStepGeomRWBoundedSurface {.
     constructor, importcpp: "RWStepGeom_RWBoundedSurface(@)",
     header: "RWStepGeom_RWBoundedSurface.hxx".}
-proc ReadStep*(this: RWStepGeom_RWBoundedSurface;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepGeom_BoundedSurface]) {.noSideEffect,
-    importcpp: "ReadStep", header: "RWStepGeom_RWBoundedSurface.hxx".}
-proc WriteStep*(this: RWStepGeom_RWBoundedSurface; SW: var StepData_StepWriter;
-               ent: handle[StepGeom_BoundedSurface]) {.noSideEffect,
+proc readStep*(this: RWStepGeomRWBoundedSurface;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomBoundedSurface]) {.
+    noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWBoundedSurface.hxx".}
+proc writeStep*(this: RWStepGeomRWBoundedSurface; sw: var StepDataStepWriter;
+               ent: Handle[StepGeomBoundedSurface]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWBoundedSurface.hxx".}

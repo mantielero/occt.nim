@@ -14,15 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Boolean
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESBasic_ExternalRefFileName"
 discard "forward decl of IGESBasic_ExternalRefFileName"
 type
-  Handle_IGESBasic_ExternalRefFileName* = handle[IGESBasic_ExternalRefFileName]
+  HandleIGESBasicExternalRefFileName* = Handle[IGESBasicExternalRefFileName]
 
 ## ! defines ExternalRefFileName, Type <416> Form <0-2>
 ## ! in package IGESBasic
@@ -31,33 +27,33 @@ type
 ## ! entity in one file relates to an entity in another file
 
 type
-  IGESBasic_ExternalRefFileName* {.importcpp: "IGESBasic_ExternalRefFileName",
-                                  header: "IGESBasic_ExternalRefFileName.hxx",
-                                  bycopy.} = object of IGESData_IGESEntity
+  IGESBasicExternalRefFileName* {.importcpp: "IGESBasic_ExternalRefFileName",
+                                 header: "IGESBasic_ExternalRefFileName.hxx",
+                                 bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESBasic_ExternalRefFileName*(): IGESBasic_ExternalRefFileName {.
+proc constructIGESBasicExternalRefFileName*(): IGESBasicExternalRefFileName {.
     constructor, importcpp: "IGESBasic_ExternalRefFileName(@)",
     header: "IGESBasic_ExternalRefFileName.hxx".}
-proc Init*(this: var IGESBasic_ExternalRefFileName;
-          aFileIdent: handle[TCollection_HAsciiString];
-          anExtName: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var IGESBasicExternalRefFileName;
+          aFileIdent: Handle[TCollectionHAsciiString];
+          anExtName: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "IGESBasic_ExternalRefFileName.hxx".}
-proc SetForEntity*(this: var IGESBasic_ExternalRefFileName; mode: Standard_Boolean) {.
+proc setForEntity*(this: var IGESBasicExternalRefFileName; mode: bool) {.
     importcpp: "SetForEntity", header: "IGESBasic_ExternalRefFileName.hxx".}
-proc FileId*(this: IGESBasic_ExternalRefFileName): handle[TCollection_HAsciiString] {.
+proc fileId*(this: IGESBasicExternalRefFileName): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "FileId", header: "IGESBasic_ExternalRefFileName.hxx".}
-proc ReferenceName*(this: IGESBasic_ExternalRefFileName): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "ReferenceName",
-                               header: "IGESBasic_ExternalRefFileName.hxx".}
-type
-  IGESBasic_ExternalRefFileNamebase_type* = IGESData_IGESEntity
-
-proc get_type_name*(): cstring {.importcpp: "IGESBasic_ExternalRefFileName::get_type_name(@)",
+proc referenceName*(this: IGESBasicExternalRefFileName): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "ReferenceName",
                               header: "IGESBasic_ExternalRefFileName.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+type
+  IGESBasicExternalRefFileNamebaseType* = IGESDataIGESEntity
+
+proc getTypeName*(): cstring {.importcpp: "IGESBasic_ExternalRefFileName::get_type_name(@)",
+                            header: "IGESBasic_ExternalRefFileName.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESBasic_ExternalRefFileName::get_type_descriptor(@)",
     header: "IGESBasic_ExternalRefFileName.hxx".}
-proc DynamicType*(this: IGESBasic_ExternalRefFileName): handle[Standard_Type] {.
+proc dynamicType*(this: IGESBasicExternalRefFileName): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESBasic_ExternalRefFileName.hxx".}

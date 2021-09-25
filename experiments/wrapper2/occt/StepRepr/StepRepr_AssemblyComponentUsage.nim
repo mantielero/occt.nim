@@ -13,68 +13,64 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  StepRepr_ProductDefinitionUsage
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_ProductDefinition"
 discard "forward decl of StepRepr_AssemblyComponentUsage"
 discard "forward decl of StepRepr_AssemblyComponentUsage"
 type
-  Handle_StepRepr_AssemblyComponentUsage* = handle[StepRepr_AssemblyComponentUsage]
+  HandleStepReprAssemblyComponentUsage* = Handle[StepReprAssemblyComponentUsage]
 
 ## ! Representation of STEP entity AssemblyComponentUsage
 
 type
-  StepRepr_AssemblyComponentUsage* {.importcpp: "StepRepr_AssemblyComponentUsage", header: "StepRepr_AssemblyComponentUsage.hxx",
-                                    bycopy.} = object of StepRepr_ProductDefinitionUsage ##
-                                                                                    ## !
-                                                                                    ## Empty
-                                                                                    ## constructor
+  StepReprAssemblyComponentUsage* {.importcpp: "StepRepr_AssemblyComponentUsage", header: "StepRepr_AssemblyComponentUsage.hxx",
+                                   bycopy.} = object of StepReprProductDefinitionUsage ##
+                                                                                  ## !
+                                                                                  ## Empty
+                                                                                  ## constructor
 
 
-proc constructStepRepr_AssemblyComponentUsage*(): StepRepr_AssemblyComponentUsage {.
+proc constructStepReprAssemblyComponentUsage*(): StepReprAssemblyComponentUsage {.
     constructor, importcpp: "StepRepr_AssemblyComponentUsage(@)",
     header: "StepRepr_AssemblyComponentUsage.hxx".}
-proc Init*(this: var StepRepr_AssemblyComponentUsage;
-          aProductDefinitionRelationship_Id: handle[TCollection_HAsciiString];
-    aProductDefinitionRelationship_Name: handle[TCollection_HAsciiString];
-          hasProductDefinitionRelationship_Description: Standard_Boolean;
-    aProductDefinitionRelationship_Description: handle[TCollection_HAsciiString];
-    aProductDefinitionRelationship_RelatingProductDefinition: handle[
-    StepBasic_ProductDefinition]; aProductDefinitionRelationship_RelatedProductDefinition: handle[
-    StepBasic_ProductDefinition]; hasReferenceDesignator: Standard_Boolean;
-          aReferenceDesignator: handle[TCollection_HAsciiString]) {.
+proc init*(this: var StepReprAssemblyComponentUsage;
+          aProductDefinitionRelationshipId: Handle[TCollectionHAsciiString];
+          aProductDefinitionRelationshipName: Handle[TCollectionHAsciiString];
+          hasProductDefinitionRelationshipDescription: bool;
+    aProductDefinitionRelationshipDescription: Handle[TCollectionHAsciiString];
+    aProductDefinitionRelationshipRelatingProductDefinition: Handle[
+    StepBasicProductDefinition]; aProductDefinitionRelationshipRelatedProductDefinition: Handle[
+    StepBasicProductDefinition]; hasReferenceDesignator: bool;
+          aReferenceDesignator: Handle[TCollectionHAsciiString]) {.
     importcpp: "Init", header: "StepRepr_AssemblyComponentUsage.hxx".}
-proc Init*(this: var StepRepr_AssemblyComponentUsage;
-          aProductDefinitionRelationship_Id: handle[TCollection_HAsciiString];
-    aProductDefinitionRelationship_Name: handle[TCollection_HAsciiString];
-          hasProductDefinitionRelationship_Description: Standard_Boolean;
-    aProductDefinitionRelationship_Description: handle[TCollection_HAsciiString];
-    aProductDefinitionRelationship_RelatingProductDefinition: StepBasic_ProductDefinitionOrReference;
-    aProductDefinitionRelationship_RelatedProductDefinition: StepBasic_ProductDefinitionOrReference;
-          hasReferenceDesignator: Standard_Boolean;
-          aReferenceDesignator: handle[TCollection_HAsciiString]) {.
+proc init*(this: var StepReprAssemblyComponentUsage;
+          aProductDefinitionRelationshipId: Handle[TCollectionHAsciiString];
+          aProductDefinitionRelationshipName: Handle[TCollectionHAsciiString];
+          hasProductDefinitionRelationshipDescription: bool;
+    aProductDefinitionRelationshipDescription: Handle[TCollectionHAsciiString];
+    aProductDefinitionRelationshipRelatingProductDefinition: StepBasicProductDefinitionOrReference;
+    aProductDefinitionRelationshipRelatedProductDefinition: StepBasicProductDefinitionOrReference;
+          hasReferenceDesignator: bool;
+          aReferenceDesignator: Handle[TCollectionHAsciiString]) {.
     importcpp: "Init", header: "StepRepr_AssemblyComponentUsage.hxx".}
-proc ReferenceDesignator*(this: StepRepr_AssemblyComponentUsage): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "ReferenceDesignator",
-                               header: "StepRepr_AssemblyComponentUsage.hxx".}
-proc SetReferenceDesignator*(this: var StepRepr_AssemblyComponentUsage;
-    ReferenceDesignator: handle[TCollection_HAsciiString]) {.
+proc referenceDesignator*(this: StepReprAssemblyComponentUsage): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "ReferenceDesignator",
+                              header: "StepRepr_AssemblyComponentUsage.hxx".}
+proc setReferenceDesignator*(this: var StepReprAssemblyComponentUsage;
+    referenceDesignator: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetReferenceDesignator",
     header: "StepRepr_AssemblyComponentUsage.hxx".}
-proc HasReferenceDesignator*(this: StepRepr_AssemblyComponentUsage): Standard_Boolean {.
+proc hasReferenceDesignator*(this: StepReprAssemblyComponentUsage): bool {.
     noSideEffect, importcpp: "HasReferenceDesignator",
     header: "StepRepr_AssemblyComponentUsage.hxx".}
 type
-  StepRepr_AssemblyComponentUsagebase_type* = StepRepr_ProductDefinitionUsage
+  StepReprAssemblyComponentUsagebaseType* = StepReprProductDefinitionUsage
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_AssemblyComponentUsage::get_type_name(@)",
-                              header: "StepRepr_AssemblyComponentUsage.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_AssemblyComponentUsage::get_type_name(@)",
+                            header: "StepRepr_AssemblyComponentUsage.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_AssemblyComponentUsage::get_type_descriptor(@)",
     header: "StepRepr_AssemblyComponentUsage.hxx".}
-proc DynamicType*(this: StepRepr_AssemblyComponentUsage): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprAssemblyComponentUsage): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_AssemblyComponentUsage.hxx".}

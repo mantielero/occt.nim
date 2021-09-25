@@ -13,13 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_GUID, ../TCollection/TCollection_ExtendedString,
-  ../Standard/Standard_GUID, ../TCollection/TCollection_ExtendedString,
-  ../NCollection/NCollection_DoubleMap
-
 type
-  TDF_GUIDProgIDMap* = NCollection_DoubleMap[Standard_GUID,
-      TCollection_ExtendedString, Standard_GUID, TCollection_ExtendedString]
-  TDF_DoubleMapIteratorOfGUIDProgIDMap* = Iterator[Standard_GUID,
-      TCollection_ExtendedString, Standard_GUID, TCollection_ExtendedString]
+  TDF_GUIDProgIDMap* = NCollectionDoubleMap[StandardGUID,
+      TCollectionExtendedString, StandardGUID, TCollectionExtendedString]
+  TDF_DoubleMapIteratorOfGUIDProgIDMap* = Iterator[StandardGUID,
+      TCollectionExtendedString, StandardGUID, TCollectionExtendedString]
+

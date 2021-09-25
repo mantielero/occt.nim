@@ -14,39 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  IntCurveSurface_SequenceOfPnt, IntCurveSurface_SequenceOfSeg,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IntCurveSurface_IntersectionPoint"
 discard "forward decl of IntCurveSurface_IntersectionSegment"
 type
-  IntCurveSurface_Intersection* {.importcpp: "IntCurveSurface_Intersection",
-                                 header: "IntCurveSurface_Intersection.hxx",
-                                 bycopy.} = object ## ! returns the <done> field.
-                                                ## ! Empty Constructor;
+  IntCurveSurfaceIntersection* {.importcpp: "IntCurveSurface_Intersection",
+                                header: "IntCurveSurface_Intersection.hxx", bycopy.} = object ##
+                                                                                         ## !
+                                                                                         ## returns
+                                                                                         ## the
+                                                                                         ## <done>
+                                                                                         ## field.
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## Empty
+                                                                                         ## Constructor;
     ## Curve is "parallel" surface
     ## This case is recognized only for some pairs
     ## of analytical curves and surfaces (plane - line, ...)
 
 
-proc IsDone*(this: IntCurveSurface_Intersection): Standard_Boolean {.noSideEffect,
+proc isDone*(this: IntCurveSurfaceIntersection): bool {.noSideEffect,
     importcpp: "IsDone", header: "IntCurveSurface_Intersection.hxx".}
-proc NbPoints*(this: IntCurveSurface_Intersection): Standard_Integer {.noSideEffect,
+proc nbPoints*(this: IntCurveSurfaceIntersection): int {.noSideEffect,
     importcpp: "NbPoints", header: "IntCurveSurface_Intersection.hxx".}
-proc Point*(this: IntCurveSurface_Intersection; Index: Standard_Integer): IntCurveSurface_IntersectionPoint {.
+proc point*(this: IntCurveSurfaceIntersection; index: int): IntCurveSurfaceIntersectionPoint {.
     noSideEffect, importcpp: "Point", header: "IntCurveSurface_Intersection.hxx".}
-proc NbSegments*(this: IntCurveSurface_Intersection): Standard_Integer {.
-    noSideEffect, importcpp: "NbSegments",
-    header: "IntCurveSurface_Intersection.hxx".}
-proc Segment*(this: IntCurveSurface_Intersection; Index: Standard_Integer): IntCurveSurface_IntersectionSegment {.
+proc nbSegments*(this: IntCurveSurfaceIntersection): int {.noSideEffect,
+    importcpp: "NbSegments", header: "IntCurveSurface_Intersection.hxx".}
+proc segment*(this: IntCurveSurfaceIntersection; index: int): IntCurveSurfaceIntersectionSegment {.
     noSideEffect, importcpp: "Segment", header: "IntCurveSurface_Intersection.hxx".}
-proc IsParallel*(this: IntCurveSurface_Intersection): Standard_Boolean {.
-    noSideEffect, importcpp: "IsParallel",
-    header: "IntCurveSurface_Intersection.hxx".}
-proc Dump*(this: IntCurveSurface_Intersection) {.noSideEffect, importcpp: "Dump",
+proc isParallel*(this: IntCurveSurfaceIntersection): bool {.noSideEffect,
+    importcpp: "IsParallel", header: "IntCurveSurface_Intersection.hxx".}
+proc dump*(this: IntCurveSurfaceIntersection) {.noSideEffect, importcpp: "Dump",
     header: "IntCurveSurface_Intersection.hxx".}

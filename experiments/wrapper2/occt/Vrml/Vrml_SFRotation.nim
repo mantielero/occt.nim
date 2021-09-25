@@ -14,38 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real
-
 ## ! defines SFRotation type of VRML field types.
 ## ! The  4  values  represent  an  axis  of  rotation  followed  by  amount  of
 ## ! right-handed  rotation  about  the  that  axis, in  radians.
 
 type
-  Vrml_SFRotation* {.importcpp: "Vrml_SFRotation", header: "Vrml_SFRotation.hxx",
-                    bycopy.} = object
+  VrmlSFRotation* {.importcpp: "Vrml_SFRotation", header: "Vrml_SFRotation.hxx",
+                   bycopy.} = object
 
 
-proc constructVrml_SFRotation*(): Vrml_SFRotation {.constructor,
+proc constructVrmlSFRotation*(): VrmlSFRotation {.constructor,
     importcpp: "Vrml_SFRotation(@)", header: "Vrml_SFRotation.hxx".}
-proc constructVrml_SFRotation*(aRotationX: Standard_Real;
-                              aRotationY: Standard_Real;
-                              aRotationZ: Standard_Real; anAngle: Standard_Real): Vrml_SFRotation {.
+proc constructVrmlSFRotation*(aRotationX: float; aRotationY: float;
+                             aRotationZ: float; anAngle: float): VrmlSFRotation {.
     constructor, importcpp: "Vrml_SFRotation(@)", header: "Vrml_SFRotation.hxx".}
-proc SetRotationX*(this: var Vrml_SFRotation; aRotationX: Standard_Real) {.
+proc setRotationX*(this: var VrmlSFRotation; aRotationX: float) {.
     importcpp: "SetRotationX", header: "Vrml_SFRotation.hxx".}
-proc RotationX*(this: Vrml_SFRotation): Standard_Real {.noSideEffect,
-    importcpp: "RotationX", header: "Vrml_SFRotation.hxx".}
-proc SetRotationY*(this: var Vrml_SFRotation; aRotationY: Standard_Real) {.
-    importcpp: "SetRotationY", header: "Vrml_SFRotation.hxx".}
-proc RotationY*(this: Vrml_SFRotation): Standard_Real {.noSideEffect,
-    importcpp: "RotationY", header: "Vrml_SFRotation.hxx".}
-proc SetRotationZ*(this: var Vrml_SFRotation; aRotationZ: Standard_Real) {.
-    importcpp: "SetRotationZ", header: "Vrml_SFRotation.hxx".}
-proc RotationZ*(this: Vrml_SFRotation): Standard_Real {.noSideEffect,
-    importcpp: "RotationZ", header: "Vrml_SFRotation.hxx".}
-proc SetAngle*(this: var Vrml_SFRotation; anAngle: Standard_Real) {.
-    importcpp: "SetAngle", header: "Vrml_SFRotation.hxx".}
-proc Angle*(this: Vrml_SFRotation): Standard_Real {.noSideEffect, importcpp: "Angle",
+proc rotationX*(this: VrmlSFRotation): float {.noSideEffect, importcpp: "RotationX",
     header: "Vrml_SFRotation.hxx".}
+proc setRotationY*(this: var VrmlSFRotation; aRotationY: float) {.
+    importcpp: "SetRotationY", header: "Vrml_SFRotation.hxx".}
+proc rotationY*(this: VrmlSFRotation): float {.noSideEffect, importcpp: "RotationY",
+    header: "Vrml_SFRotation.hxx".}
+proc setRotationZ*(this: var VrmlSFRotation; aRotationZ: float) {.
+    importcpp: "SetRotationZ", header: "Vrml_SFRotation.hxx".}
+proc rotationZ*(this: VrmlSFRotation): float {.noSideEffect, importcpp: "RotationZ",
+    header: "Vrml_SFRotation.hxx".}
+proc setAngle*(this: var VrmlSFRotation; anAngle: float) {.importcpp: "SetAngle",
+    header: "Vrml_SFRotation.hxx".}
+proc angle*(this: VrmlSFRotation): float {.noSideEffect, importcpp: "Angle",
+                                       header: "Vrml_SFRotation.hxx".}

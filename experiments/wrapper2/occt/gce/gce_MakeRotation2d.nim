@@ -14,24 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Trsf2d, ../Standard/Standard_Real
-
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Trsf2d"
 type
-  gce_MakeRotation2d* {.importcpp: "gce_MakeRotation2d",
-                       header: "gce_MakeRotation2d.hxx", bycopy.} = object ## ! Constructs a rotation through angle Angle about the center Point.
+  GceMakeRotation2d* {.importcpp: "gce_MakeRotation2d",
+                      header: "gce_MakeRotation2d.hxx", bycopy.} = object ## ! Constructs a rotation through angle Angle about the center Point.
 
 
-proc constructgce_MakeRotation2d*(Point: gp_Pnt2d; Angle: Standard_Real): gce_MakeRotation2d {.
+proc constructGceMakeRotation2d*(point: Pnt2d; angle: float): GceMakeRotation2d {.
     constructor, importcpp: "gce_MakeRotation2d(@)",
     header: "gce_MakeRotation2d.hxx".}
-proc Value*(this: gce_MakeRotation2d): gp_Trsf2d {.noSideEffect, importcpp: "Value",
+proc value*(this: GceMakeRotation2d): Trsf2d {.noSideEffect, importcpp: "Value",
     header: "gce_MakeRotation2d.hxx".}
-proc Operator*(this: gce_MakeRotation2d): gp_Trsf2d {.noSideEffect,
+proc operator*(this: GceMakeRotation2d): Trsf2d {.noSideEffect,
     importcpp: "Operator", header: "gce_MakeRotation2d.hxx".}
-converter `gp_Trsf2d`*(this: gce_MakeRotation2d): gp_Trsf2d {.noSideEffect,
+converter `trsf2d`*(this: GceMakeRotation2d): Trsf2d {.noSideEffect,
     importcpp: "gce_MakeRotation2d::operator gp_Trsf2d",
     header: "gce_MakeRotation2d.hxx".}

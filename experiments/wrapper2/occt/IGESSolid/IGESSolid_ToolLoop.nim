@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESSolid_Loop"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,31 +26,29 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESSolid_ToolLoop* {.importcpp: "IGESSolid_ToolLoop",
-                       header: "IGESSolid_ToolLoop.hxx", bycopy.} = object ## ! Returns a ToolLoop, ready to work
+  IGESSolidToolLoop* {.importcpp: "IGESSolid_ToolLoop",
+                      header: "IGESSolid_ToolLoop.hxx", bycopy.} = object ## ! Returns a ToolLoop, ready to work
 
 
-proc constructIGESSolid_ToolLoop*(): IGESSolid_ToolLoop {.constructor,
+proc constructIGESSolidToolLoop*(): IGESSolidToolLoop {.constructor,
     importcpp: "IGESSolid_ToolLoop(@)", header: "IGESSolid_ToolLoop.hxx".}
-proc ReadOwnParams*(this: IGESSolid_ToolLoop; ent: handle[IGESSolid_Loop];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESSolid_ToolLoop.hxx".}
-proc WriteOwnParams*(this: IGESSolid_ToolLoop; ent: handle[IGESSolid_Loop];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESSolidToolLoop; ent: Handle[IGESSolidLoop];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams", header: "IGESSolid_ToolLoop.hxx".}
+proc writeOwnParams*(this: IGESSolidToolLoop; ent: Handle[IGESSolidLoop];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESSolid_ToolLoop.hxx".}
-proc OwnShared*(this: IGESSolid_ToolLoop; ent: handle[IGESSolid_Loop];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESSolidToolLoop; ent: Handle[IGESSolidLoop];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESSolid_ToolLoop.hxx".}
-proc DirChecker*(this: IGESSolid_ToolLoop; ent: handle[IGESSolid_Loop]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESSolidToolLoop; ent: Handle[IGESSolidLoop]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESSolid_ToolLoop.hxx".}
-proc OwnCheck*(this: IGESSolid_ToolLoop; ent: handle[IGESSolid_Loop];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESSolidToolLoop; ent: Handle[IGESSolidLoop];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESSolid_ToolLoop.hxx".}
-proc OwnCopy*(this: IGESSolid_ToolLoop; entfrom: handle[IGESSolid_Loop];
-             entto: handle[IGESSolid_Loop]; TC: var Interface_CopyTool) {.
-    noSideEffect, importcpp: "OwnCopy", header: "IGESSolid_ToolLoop.hxx".}
-proc OwnDump*(this: IGESSolid_ToolLoop; ent: handle[IGESSolid_Loop];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
-                                    header: "IGESSolid_ToolLoop.hxx".}
+proc ownCopy*(this: IGESSolidToolLoop; entfrom: Handle[IGESSolidLoop];
+             entto: Handle[IGESSolidLoop]; tc: var InterfaceCopyTool) {.noSideEffect,
+    importcpp: "OwnCopy", header: "IGESSolid_ToolLoop.hxx".}
+proc ownDump*(this: IGESSolidToolLoop; ent: Handle[IGESSolidLoop];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump", header: "IGESSolid_ToolLoop.hxx".}

@@ -14,14 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Type, ../TopAbs/TopAbs, ../TopAbs/TopAbs_ShapeEnum,
-  TopoDS_ListOfShape
-
 discard "forward decl of TopoDS_Iterator"
 discard "forward decl of TopoDS_Builder"
-when defined(Convex):
-  discard
+# when defined(Convex):
+#   discard
 ## ! A TShape  is a topological  structure describing a
 ## ! set of points in a 2D or 3D space.
 ## !
@@ -49,110 +45,111 @@ when defined(Convex):
 ## ! derived from Shape.
 
 type
-  TopoDS_TShape* {.importcpp: "TopoDS_TShape", header: "TopoDS_TShape.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## the
-                                                                                                          ## free
-                                                                                                          ## flag.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Constructs
-                                                                                                          ## an
-                                                                                                          ## empty
-                                                                                                          ## TShape.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Free
-                                                                                                          ## :
-                                                                                                          ## True
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Modified
-                                                                                                          ## :
-                                                                                                          ## True
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Checked
-                                                                                                          ## :
-                                                                                                          ## False
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Orientable
-                                                                                                          ## :
-                                                                                                          ## True
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Closed
-                                                                                                          ## :
-                                                                                                          ## False
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Infinite
-                                                                                                          ## :
-                                                                                                          ## False
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Convex
-                                                                                                          ## :
-                                                                                                          ## False
-                                                                                                          ##
-                                                                                                          ## Defined
-                                                                                                          ## mask
-                                                                                                          ## values
+  TopoDS_TShape* {.importcpp: "TopoDS_TShape", header: "TopoDS_TShape.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                         ## !
+                                                                                                         ## Returns
+                                                                                                         ## the
+                                                                                                         ## free
+                                                                                                         ## flag.
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Constructs
+                                                                                                         ## an
+                                                                                                         ## empty
+                                                                                                         ## TShape.
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Free
+                                                                                                         ## :
+                                                                                                         ## True
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Modified
+                                                                                                         ## :
+                                                                                                         ## True
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Checked
+                                                                                                         ## :
+                                                                                                         ## False
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Orientable
+                                                                                                         ## :
+                                                                                                         ## True
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Closed
+                                                                                                         ## :
+                                                                                                         ## False
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Infinite
+                                                                                                         ## :
+                                                                                                         ## False
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Convex
+                                                                                                         ## :
+                                                                                                         ## False
+                                                                                                         ##
+                                                                                                         ## Defined
+                                                                                                         ## mask
+                                                                                                         ## values
 
 
-proc Free*(this: TopoDS_TShape): Standard_Boolean {.noSideEffect, importcpp: "Free",
+proc free*(this: TopoDS_TShape): bool {.noSideEffect, importcpp: "Free",
+                                    header: "TopoDS_TShape.hxx".}
+proc free*(this: var TopoDS_TShape; theIsFree: bool) {.importcpp: "Free",
     header: "TopoDS_TShape.hxx".}
-proc Free*(this: var TopoDS_TShape; theIsFree: Standard_Boolean) {.importcpp: "Free",
+proc locked*(this: TopoDS_TShape): bool {.noSideEffect, importcpp: "Locked",
+                                      header: "TopoDS_TShape.hxx".}
+proc locked*(this: var TopoDS_TShape; theIsLocked: bool) {.importcpp: "Locked",
     header: "TopoDS_TShape.hxx".}
-proc Locked*(this: TopoDS_TShape): Standard_Boolean {.noSideEffect,
-    importcpp: "Locked", header: "TopoDS_TShape.hxx".}
-proc Locked*(this: var TopoDS_TShape; theIsLocked: Standard_Boolean) {.
-    importcpp: "Locked", header: "TopoDS_TShape.hxx".}
-proc Modified*(this: TopoDS_TShape): Standard_Boolean {.noSideEffect,
-    importcpp: "Modified", header: "TopoDS_TShape.hxx".}
-proc Modified*(this: var TopoDS_TShape; theIsModified: Standard_Boolean) {.
-    importcpp: "Modified", header: "TopoDS_TShape.hxx".}
-proc Checked*(this: TopoDS_TShape): Standard_Boolean {.noSideEffect,
-    importcpp: "Checked", header: "TopoDS_TShape.hxx".}
-proc Checked*(this: var TopoDS_TShape; theIsChecked: Standard_Boolean) {.
-    importcpp: "Checked", header: "TopoDS_TShape.hxx".}
-proc Orientable*(this: TopoDS_TShape): Standard_Boolean {.noSideEffect,
+proc modified*(this: TopoDS_TShape): bool {.noSideEffect, importcpp: "Modified",
+                                        header: "TopoDS_TShape.hxx".}
+proc modified*(this: var TopoDS_TShape; theIsModified: bool) {.importcpp: "Modified",
+    header: "TopoDS_TShape.hxx".}
+proc checked*(this: TopoDS_TShape): bool {.noSideEffect, importcpp: "Checked",
+                                       header: "TopoDS_TShape.hxx".}
+proc checked*(this: var TopoDS_TShape; theIsChecked: bool) {.importcpp: "Checked",
+    header: "TopoDS_TShape.hxx".}
+proc orientable*(this: TopoDS_TShape): bool {.noSideEffect, importcpp: "Orientable",
+    header: "TopoDS_TShape.hxx".}
+proc orientable*(this: var TopoDS_TShape; theIsOrientable: bool) {.
     importcpp: "Orientable", header: "TopoDS_TShape.hxx".}
-proc Orientable*(this: var TopoDS_TShape; theIsOrientable: Standard_Boolean) {.
-    importcpp: "Orientable", header: "TopoDS_TShape.hxx".}
-proc Closed*(this: TopoDS_TShape): Standard_Boolean {.noSideEffect,
-    importcpp: "Closed", header: "TopoDS_TShape.hxx".}
-proc Closed*(this: var TopoDS_TShape; theIsClosed: Standard_Boolean) {.
-    importcpp: "Closed", header: "TopoDS_TShape.hxx".}
-proc Infinite*(this: TopoDS_TShape): Standard_Boolean {.noSideEffect,
-    importcpp: "Infinite", header: "TopoDS_TShape.hxx".}
-proc Infinite*(this: var TopoDS_TShape; theIsInfinite: Standard_Boolean) {.
-    importcpp: "Infinite", header: "TopoDS_TShape.hxx".}
-proc Convex*(this: TopoDS_TShape): Standard_Boolean {.noSideEffect,
-    importcpp: "Convex", header: "TopoDS_TShape.hxx".}
-proc Convex*(this: var TopoDS_TShape; theIsConvex: Standard_Boolean) {.
-    importcpp: "Convex", header: "TopoDS_TShape.hxx".}
-proc ShapeType*(this: TopoDS_TShape): TopAbs_ShapeEnum {.noSideEffect,
+proc closed*(this: TopoDS_TShape): bool {.noSideEffect, importcpp: "Closed",
+                                      header: "TopoDS_TShape.hxx".}
+proc closed*(this: var TopoDS_TShape; theIsClosed: bool) {.importcpp: "Closed",
+    header: "TopoDS_TShape.hxx".}
+proc infinite*(this: TopoDS_TShape): bool {.noSideEffect, importcpp: "Infinite",
+                                        header: "TopoDS_TShape.hxx".}
+proc infinite*(this: var TopoDS_TShape; theIsInfinite: bool) {.importcpp: "Infinite",
+    header: "TopoDS_TShape.hxx".}
+proc convex*(this: TopoDS_TShape): bool {.noSideEffect, importcpp: "Convex",
+                                      header: "TopoDS_TShape.hxx".}
+proc convex*(this: var TopoDS_TShape; theIsConvex: bool) {.importcpp: "Convex",
+    header: "TopoDS_TShape.hxx".}
+proc shapeType*(this: TopoDS_TShape): TopAbsShapeEnum {.noSideEffect,
     importcpp: "ShapeType", header: "TopoDS_TShape.hxx".}
-proc EmptyCopy*(this: TopoDS_TShape): handle[TopoDS_TShape] {.noSideEffect,
+proc emptyCopy*(this: TopoDS_TShape): Handle[TopoDS_TShape] {.noSideEffect,
     importcpp: "EmptyCopy", header: "TopoDS_TShape.hxx".}
-proc NbChildren*(this: TopoDS_TShape): Standard_Integer {.noSideEffect,
-    importcpp: "NbChildren", header: "TopoDS_TShape.hxx".}
-proc DumpJson*(this: TopoDS_TShape; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
+proc nbChildren*(this: TopoDS_TShape): int {.noSideEffect, importcpp: "NbChildren",
     header: "TopoDS_TShape.hxx".}
+proc dumpJson*(this: TopoDS_TShape; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TopoDS_TShape.hxx".}
 type
-  TopoDS_TShapebase_type* = Standard_Transient
+  TopoDS_TShapebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TopoDS_TShape::get_type_name(@)",
-                              header: "TopoDS_TShape.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TopoDS_TShape::get_type_name(@)",
+                            header: "TopoDS_TShape.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopoDS_TShape::get_type_descriptor(@)",
     header: "TopoDS_TShape.hxx".}
-proc DynamicType*(this: TopoDS_TShape): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TopoDS_TShape): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopoDS_TShape.hxx".}
 discard "forward decl of TopoDS_TShape"
 type
-  Handle_TopoDS_TShape* = handle[TopoDS_TShape]
+  HandleTopoDS_TShape* = Handle[TopoDS_TShape]
+

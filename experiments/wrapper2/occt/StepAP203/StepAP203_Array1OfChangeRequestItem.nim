@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP203_ChangeRequestItem, ../NCollection/NCollection_Array1
-
 type
-  StepAP203_Array1OfChangeRequestItem* = NCollection_Array1[
-      StepAP203_ChangeRequestItem]
+  StepAP203Array1OfChangeRequestItem* = NCollectionArray1[
+      StepAP203ChangeRequestItem]
+

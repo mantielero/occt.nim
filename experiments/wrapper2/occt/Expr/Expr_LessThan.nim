@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Expr_SingleRelation,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Expr_GeneralExpression"
 discard "forward decl of Expr_GeneralRelation"
@@ -25,37 +21,37 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_LessThan"
 discard "forward decl of Expr_LessThan"
 type
-  Handle_Expr_LessThan* = handle[Expr_LessThan]
-  Expr_LessThan* {.importcpp: "Expr_LessThan", header: "Expr_LessThan.hxx", bycopy.} = object of Expr_SingleRelation ##
-                                                                                                           ## !
-                                                                                                           ## Creates
-                                                                                                           ## the
-                                                                                                           ## relation
-                                                                                                           ## <exp1>
-                                                                                                           ## <
-                                                                                                           ## <exp2>.
+  HandleExprLessThan* = Handle[ExprLessThan]
+  ExprLessThan* {.importcpp: "Expr_LessThan", header: "Expr_LessThan.hxx", bycopy.} = object of ExprSingleRelation ##
+                                                                                                         ## !
+                                                                                                         ## Creates
+                                                                                                         ## the
+                                                                                                         ## relation
+                                                                                                         ## <exp1>
+                                                                                                         ## <
+                                                                                                         ## <exp2>.
 
 
-proc constructExpr_LessThan*(exp1: handle[Expr_GeneralExpression];
-                            exp2: handle[Expr_GeneralExpression]): Expr_LessThan {.
+proc constructExprLessThan*(exp1: Handle[ExprGeneralExpression];
+                           exp2: Handle[ExprGeneralExpression]): ExprLessThan {.
     constructor, importcpp: "Expr_LessThan(@)", header: "Expr_LessThan.hxx".}
-proc IsSatisfied*(this: Expr_LessThan): Standard_Boolean {.noSideEffect,
-    importcpp: "IsSatisfied", header: "Expr_LessThan.hxx".}
-proc Simplified*(this: Expr_LessThan): handle[Expr_GeneralRelation] {.noSideEffect,
+proc isSatisfied*(this: ExprLessThan): bool {.noSideEffect, importcpp: "IsSatisfied",
+    header: "Expr_LessThan.hxx".}
+proc simplified*(this: ExprLessThan): Handle[ExprGeneralRelation] {.noSideEffect,
     importcpp: "Simplified", header: "Expr_LessThan.hxx".}
-proc Simplify*(this: var Expr_LessThan) {.importcpp: "Simplify",
-                                      header: "Expr_LessThan.hxx".}
-proc Copy*(this: Expr_LessThan): handle[Expr_GeneralRelation] {.noSideEffect,
+proc simplify*(this: var ExprLessThan) {.importcpp: "Simplify",
+                                     header: "Expr_LessThan.hxx".}
+proc copy*(this: ExprLessThan): Handle[ExprGeneralRelation] {.noSideEffect,
     importcpp: "Copy", header: "Expr_LessThan.hxx".}
-proc String*(this: Expr_LessThan): TCollection_AsciiString {.noSideEffect,
+proc string*(this: ExprLessThan): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_LessThan.hxx".}
 type
-  Expr_LessThanbase_type* = Expr_SingleRelation
+  ExprLessThanbaseType* = ExprSingleRelation
 
-proc get_type_name*(): cstring {.importcpp: "Expr_LessThan::get_type_name(@)",
-                              header: "Expr_LessThan.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Expr_LessThan::get_type_name(@)",
+                            header: "Expr_LessThan.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Expr_LessThan::get_type_descriptor(@)",
     header: "Expr_LessThan.hxx".}
-proc DynamicType*(this: Expr_LessThan): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: ExprLessThan): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_LessThan.hxx".}

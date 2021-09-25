@@ -14,7 +14,7 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation Copyright: (C) RINA S.p.A
 
-## !!!Ignored construct:  # TObj_Persistence_HeaderFile [NewLine] # TObj_Persistence_HeaderFile [NewLine] # TObj_Container.hxx [NewLine] class TDF_Label ;
+## !!!Ignored construct:  # TObj_Persistence_HeaderFile [NewLine] # TObj_Persistence_HeaderFile [NewLine] # < TObj_Container . hxx > [NewLine] class TDF_Label ;
 ## Error: did not expect :!!!
 
 ## * This class is intended to be a root of tools (one per class)
@@ -28,23 +28,23 @@
 ##
 
 type
-  TObj_Persistence* {.importcpp: "TObj_Persistence",
-                     header: "TObj_Persistence.hxx", bycopy.} = object ## *
-                                                                  ##  Public methods, to be called externally
-                                                                  ##
-                                                                  ## ! Creates and returns a new object of the registered type
-                                                                  ## ! If the type is not registered, returns Null handle
-                                                                  ## *
-                                                                  ##  Protected methods, to be used or defined by descendants
-                                                                  ##
-                                                                  ## ! The constructor registers the object
+  TObjPersistence* {.importcpp: "TObj_Persistence", header: "TObj_Persistence.hxx",
+                    bycopy.} = object ## *
+                                   ##  Public methods, to be called externally
+                                   ##
+                                   ## ! Creates and returns a new object of the registered type
+                                   ## ! If the type is not registered, returns Null handle
+                                   ## *
+                                   ##  Protected methods, to be used or defined by descendants
+                                   ##
+                                   ## ! The constructor registers the object
     ## !< Name of managed type (recorded for unregistering)
 
 
-proc CreateNewObject*(theType: Standard_CString; theLabel: TDF_Label): handle[
-    TObj_Object] {.importcpp: "TObj_Persistence::CreateNewObject(@)",
-                  header: "TObj_Persistence.hxx".}
-proc DumpTypes*(theOs: var Standard_OStream) {.
+proc createNewObject*(theType: StandardCString; theLabel: TDF_Label): Handle[
+    TObjObject] {.importcpp: "TObj_Persistence::CreateNewObject(@)",
+                 header: "TObj_Persistence.hxx".}
+proc dumpTypes*(theOs: var StandardOStream) {.
     importcpp: "TObj_Persistence::DumpTypes(@)", header: "TObj_Persistence.hxx".}
 ## ! Declare subclass and methods of the class inherited from TObj_Object
 ## ! necessary for implementation of persistence
@@ -56,7 +56,7 @@ proc DumpTypes*(theOs: var Standard_OStream) {.
 ## !!!Ignored construct:  friend class Persistence_ ;
 ## Error: token expected: ; but got: [identifier]!!!
 
-var myPersistence_* {.importcpp: "myPersistence_", header: "TObj_Persistence.hxx".}: Persistence_
+var myPersistence* {.importcpp: "myPersistence_", header: "TObj_Persistence.hxx".}: Persistence
 
 ##  Static field implementing persistsnce tool
 
@@ -66,3 +66,4 @@ var myPersistence_* {.importcpp: "myPersistence_", header: "TObj_Persistence.hxx
 
 ## !!!Ignored construct:  opencascade :: handle < TObj_Object > [end of template] name :: Persistence_ :: New ( const TDF_Label & aLabel ) const { return new name ( ( const TObj_Persistence * ) 0 , aLabel ) ; } [NewLine] # [NewLine] # _MSC_VER [NewLine] # once [NewLine] # [NewLine]
 ## Error: token expected: ( but got: ::!!!
+

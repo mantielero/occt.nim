@@ -14,38 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepVisual_Colour
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepVisual_ColourSpecification"
 discard "forward decl of StepVisual_ColourSpecification"
 type
-  Handle_StepVisual_ColourSpecification* = handle[StepVisual_ColourSpecification]
-  StepVisual_ColourSpecification* {.importcpp: "StepVisual_ColourSpecification", header: "StepVisual_ColourSpecification.hxx",
-                                   bycopy.} = object of StepVisual_Colour ## ! Returns a
-                                                                     ## ColourSpecification
+  HandleStepVisualColourSpecification* = Handle[StepVisualColourSpecification]
+  StepVisualColourSpecification* {.importcpp: "StepVisual_ColourSpecification",
+                                  header: "StepVisual_ColourSpecification.hxx",
+                                  bycopy.} = object of StepVisualColour ## ! Returns a
+                                                                   ## ColourSpecification
 
 
-proc constructStepVisual_ColourSpecification*(): StepVisual_ColourSpecification {.
+proc constructStepVisualColourSpecification*(): StepVisualColourSpecification {.
     constructor, importcpp: "StepVisual_ColourSpecification(@)",
     header: "StepVisual_ColourSpecification.hxx".}
-proc Init*(this: var StepVisual_ColourSpecification;
-          aName: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepVisualColourSpecification;
+          aName: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepVisual_ColourSpecification.hxx".}
-proc SetName*(this: var StepVisual_ColourSpecification;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepVisualColourSpecification;
+             aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepVisual_ColourSpecification.hxx".}
-proc Name*(this: StepVisual_ColourSpecification): handle[TCollection_HAsciiString] {.
+proc name*(this: StepVisualColourSpecification): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepVisual_ColourSpecification.hxx".}
 type
-  StepVisual_ColourSpecificationbase_type* = StepVisual_Colour
+  StepVisualColourSpecificationbaseType* = StepVisualColour
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_ColourSpecification::get_type_name(@)",
-                              header: "StepVisual_ColourSpecification.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_ColourSpecification::get_type_name(@)",
+                            header: "StepVisual_ColourSpecification.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_ColourSpecification::get_type_descriptor(@)",
     header: "StepVisual_ColourSpecification.hxx".}
-proc DynamicType*(this: StepVisual_ColourSpecification): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualColourSpecification): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_ColourSpecification.hxx".}

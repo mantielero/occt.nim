@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor
-
 ## ! Provides DRAW commands for work with TObj data structures
 
 type
@@ -24,7 +20,7 @@ type
                                                                        ## Initializes all the functions
 
 
-proc Init*(di: var Draw_Interpretor) {.importcpp: "TObjDRAW::Init(@)",
-                                   header: "TObjDRAW.hxx".}
-proc Factory*(theDI: var Draw_Interpretor) {.importcpp: "TObjDRAW::Factory(@)",
-    header: "TObjDRAW.hxx".}
+proc init*(di: var DrawInterpretor) {.importcpp: "TObjDRAW::Init(@)",
+                                  header: "TObjDRAW.hxx".}
+proc factory*(theDI: var DrawInterpretor) {.importcpp: "TObjDRAW::Factory(@)",
+                                        header: "TObjDRAW.hxx".}

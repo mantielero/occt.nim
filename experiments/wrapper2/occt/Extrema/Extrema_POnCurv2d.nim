@@ -14,23 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Extrema_POnCurv2d_HeaderFile [NewLine] # _Extrema_POnCurv2d_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # ../gp/gp_Pnt2d.hxx [NewLine] class gp_Pnt2d ;
+## !!!Ignored construct:  # _Extrema_POnCurv2d_HeaderFile [NewLine] # _Extrema_POnCurv2d_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] # < gp_Pnt2d . hxx > [NewLine] class gp_Pnt2d ;
 ## Error: did not expect <!!!
 
 type
-  Extrema_POnCurv2d* {.importcpp: "Extrema_POnCurv2d",
-                      header: "Extrema_POnCurv2d.hxx", bycopy.} = object ## ! Creation of an indefinite point on curve.
+  ExtremaPOnCurv2d* {.importcpp: "Extrema_POnCurv2d",
+                     header: "Extrema_POnCurv2d.hxx", bycopy.} = object ## ! Creation of an indefinite point on curve.
 
 
-proc constructExtrema_POnCurv2d*(): Extrema_POnCurv2d {.constructor,
+proc constructExtremaPOnCurv2d*(): ExtremaPOnCurv2d {.constructor,
     importcpp: "Extrema_POnCurv2d(@)", header: "Extrema_POnCurv2d.hxx".}
-proc constructExtrema_POnCurv2d*(U: Standard_Real; P: gp_Pnt2d): Extrema_POnCurv2d {.
-    constructor, importcpp: "Extrema_POnCurv2d(@)", header: "Extrema_POnCurv2d.hxx".}
-proc SetValues*(this: var Extrema_POnCurv2d; U: Standard_Real; P: gp_Pnt2d) {.
+proc constructExtremaPOnCurv2d*(u: float; p: Pnt2d): ExtremaPOnCurv2d {.constructor,
+    importcpp: "Extrema_POnCurv2d(@)", header: "Extrema_POnCurv2d.hxx".}
+proc setValues*(this: var ExtremaPOnCurv2d; u: float; p: Pnt2d) {.
     importcpp: "SetValues", header: "Extrema_POnCurv2d.hxx".}
-proc Value*(this: Extrema_POnCurv2d): gp_Pnt2d {.noSideEffect, importcpp: "Value",
+proc value*(this: ExtremaPOnCurv2d): Pnt2d {.noSideEffect, importcpp: "Value",
     header: "Extrema_POnCurv2d.hxx".}
-proc Parameter*(this: Extrema_POnCurv2d): Standard_Real {.noSideEffect,
+proc parameter*(this: ExtremaPOnCurv2d): float {.noSideEffect,
     importcpp: "Parameter", header: "Extrema_POnCurv2d.hxx".}
-## !!!Ignored construct:  # Pnt gp_Pnt2d [NewLine] # Pnt_hxx < gp_Pnt2d . hxx > [NewLine] # Extrema_Point Extrema_POnCurv2d [NewLine] # Extrema_Point_hxx < Extrema_POnCurv2d . hxx > [NewLine] # < Extrema_Point . lxx > [NewLine] # Pnt [NewLine] # Pnt_hxx [NewLine] # Extrema_Point [NewLine] # Extrema_Point_hxx [NewLine] #  _Extrema_POnCurv2d_HeaderFile [NewLine]
+## !!!Ignored construct:  # Pnt gp_Pnt2d [NewLine] # Pnt_hxx < gp_Pnt2d . hxx > [NewLine] # Extrema_Point Extrema_POnCurv2d [NewLine] # Extrema_Point_hxx < Extrema_POnCurv2d . hxx > [NewLine] # < Extrema_Point . lxx > [NewLine] # Pnt [NewLine] # Pnt_hxx [NewLine] # Extrema_Point [NewLine] # Extrema_Point_hxx [NewLine] #  _Extrema_POnCurv2d_HeaderFile
 ## Error: did not expect <!!!
+

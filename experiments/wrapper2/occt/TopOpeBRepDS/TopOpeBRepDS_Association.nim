@@ -14,51 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  TopOpeBRepDS_DataMapOfInterferenceListOfInterference,
-  ../Standard/Standard_Transient, TopOpeBRepDS_ListOfInterference,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TopOpeBRepDS_Interference"
 discard "forward decl of TopOpeBRepDS_Association"
 discard "forward decl of TopOpeBRepDS_Association"
 type
-  Handle_TopOpeBRepDS_Association* = handle[TopOpeBRepDS_Association]
+  HandleTopOpeBRepDS_Association* = Handle[TopOpeBRepDS_Association]
   TopOpeBRepDS_Association* {.importcpp: "TopOpeBRepDS_Association",
-                             header: "TopOpeBRepDS_Association.hxx", bycopy.} = object of Standard_Transient
+                             header: "TopOpeBRepDS_Association.hxx", bycopy.} = object of StandardTransient
 
 
 proc constructTopOpeBRepDS_Association*(): TopOpeBRepDS_Association {.constructor,
     importcpp: "TopOpeBRepDS_Association(@)",
     header: "TopOpeBRepDS_Association.hxx".}
-proc Associate*(this: var TopOpeBRepDS_Association;
-               I: handle[TopOpeBRepDS_Interference];
-               K: handle[TopOpeBRepDS_Interference]) {.importcpp: "Associate",
+proc associate*(this: var TopOpeBRepDS_Association;
+               i: Handle[TopOpeBRepDS_Interference];
+               k: Handle[TopOpeBRepDS_Interference]) {.importcpp: "Associate",
     header: "TopOpeBRepDS_Association.hxx".}
-proc Associate*(this: var TopOpeBRepDS_Association;
-               I: handle[TopOpeBRepDS_Interference];
-               LI: TopOpeBRepDS_ListOfInterference) {.importcpp: "Associate",
+proc associate*(this: var TopOpeBRepDS_Association;
+               i: Handle[TopOpeBRepDS_Interference];
+               li: TopOpeBRepDS_ListOfInterference) {.importcpp: "Associate",
     header: "TopOpeBRepDS_Association.hxx".}
-proc HasAssociation*(this: TopOpeBRepDS_Association;
-                    I: handle[TopOpeBRepDS_Interference]): Standard_Boolean {.
-    noSideEffect, importcpp: "HasAssociation",
-    header: "TopOpeBRepDS_Association.hxx".}
-proc Associated*(this: var TopOpeBRepDS_Association;
-                I: handle[TopOpeBRepDS_Interference]): var TopOpeBRepDS_ListOfInterference {.
+proc hasAssociation*(this: TopOpeBRepDS_Association;
+                    i: Handle[TopOpeBRepDS_Interference]): bool {.noSideEffect,
+    importcpp: "HasAssociation", header: "TopOpeBRepDS_Association.hxx".}
+proc associated*(this: var TopOpeBRepDS_Association;
+                i: Handle[TopOpeBRepDS_Interference]): var TopOpeBRepDS_ListOfInterference {.
     importcpp: "Associated", header: "TopOpeBRepDS_Association.hxx".}
-proc AreAssociated*(this: TopOpeBRepDS_Association;
-                   I: handle[TopOpeBRepDS_Interference];
-                   K: handle[TopOpeBRepDS_Interference]): Standard_Boolean {.
-    noSideEffect, importcpp: "AreAssociated",
-    header: "TopOpeBRepDS_Association.hxx".}
+proc areAssociated*(this: TopOpeBRepDS_Association;
+                   i: Handle[TopOpeBRepDS_Interference];
+                   k: Handle[TopOpeBRepDS_Interference]): bool {.noSideEffect,
+    importcpp: "AreAssociated", header: "TopOpeBRepDS_Association.hxx".}
 type
-  TopOpeBRepDS_Associationbase_type* = Standard_Transient
+  TopOpeBRepDS_AssociationbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TopOpeBRepDS_Association::get_type_name(@)",
-                              header: "TopOpeBRepDS_Association.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TopOpeBRepDS_Association::get_type_name(@)",
+                            header: "TopOpeBRepDS_Association.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopOpeBRepDS_Association::get_type_descriptor(@)",
     header: "TopOpeBRepDS_Association.hxx".}
-proc DynamicType*(this: TopOpeBRepDS_Association): handle[Standard_Type] {.
+proc dynamicType*(this: TopOpeBRepDS_Association): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TopOpeBRepDS_Association.hxx".}

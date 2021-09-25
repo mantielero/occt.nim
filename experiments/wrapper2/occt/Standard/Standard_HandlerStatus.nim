@@ -15,8 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  Standard_HandlerStatus* {.size: sizeof(cint),
-                           importcpp: "Standard_HandlerStatus",
-                           header: "Standard_HandlerStatus.hxx".} = enum
-    Standard_HandlerVoid, Standard_HandlerJumped, Standard_HandlerProcessed
+  StandardHandlerStatus* {.size: sizeof(cint), importcpp: "Standard_HandlerStatus",
+                          header: "Standard_HandlerStatus.hxx".} = enum
+    StandardHandlerVoid, StandardHandlerJumped, StandardHandlerProcessed
+
 

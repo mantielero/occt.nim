@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../GeomAbs/GeomAbs_CurveType,
-  ../Standard/Standard_Real, ../BSplCLib/BSplCLib_Cache,
-  ../Adaptor3d/Adaptor3d_Curve, ../GeomAbs/GeomAbs_Shape,
-  ../Standard/Standard_Integer, ../TColStd/TColStd_Array1OfReal,
-  ../Standard/Standard_Boolean, ../GeomEvaluator/GeomEvaluator_Curve
-
 discard "forward decl of Geom_Curve"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Standard_NoSuchObject"
@@ -40,86 +32,83 @@ discard "forward decl of Geom_BezierCurve"
 discard "forward decl of Geom_BSplineCurve"
 discard "forward decl of Geom_OffsetCurve"
 type
-  GeomAdaptor_Curve* {.importcpp: "GeomAdaptor_Curve",
-                      header: "GeomAdaptor_Curve.hxx", bycopy.} = object of Adaptor3d_Curve
+  GeomAdaptorCurve* {.importcpp: "GeomAdaptor_Curve",
+                     header: "GeomAdaptor_Curve.hxx", bycopy.} = object of Adaptor3dCurve
     ## /< B-spline representation to prevent castings
     ## /< Cached data for B-spline or Bezier curve
     ## /< Calculates value of offset curve
 
 
-proc constructGeomAdaptor_Curve*(): GeomAdaptor_Curve {.constructor,
+proc constructGeomAdaptorCurve*(): GeomAdaptorCurve {.constructor,
     importcpp: "GeomAdaptor_Curve(@)", header: "GeomAdaptor_Curve.hxx".}
-proc constructGeomAdaptor_Curve*(C: handle[Geom_Curve]): GeomAdaptor_Curve {.
+proc constructGeomAdaptorCurve*(c: Handle[GeomCurve]): GeomAdaptorCurve {.
     constructor, importcpp: "GeomAdaptor_Curve(@)", header: "GeomAdaptor_Curve.hxx".}
-proc constructGeomAdaptor_Curve*(C: handle[Geom_Curve]; UFirst: Standard_Real;
-                                ULast: Standard_Real): GeomAdaptor_Curve {.
+proc constructGeomAdaptorCurve*(c: Handle[GeomCurve]; uFirst: float; uLast: float): GeomAdaptorCurve {.
     constructor, importcpp: "GeomAdaptor_Curve(@)", header: "GeomAdaptor_Curve.hxx".}
-proc Reset*(this: var GeomAdaptor_Curve) {.importcpp: "Reset",
-                                       header: "GeomAdaptor_Curve.hxx".}
-proc Load*(this: var GeomAdaptor_Curve; C: handle[Geom_Curve]) {.importcpp: "Load",
+proc reset*(this: var GeomAdaptorCurve) {.importcpp: "Reset",
+                                      header: "GeomAdaptor_Curve.hxx".}
+proc load*(this: var GeomAdaptorCurve; c: Handle[GeomCurve]) {.importcpp: "Load",
     header: "GeomAdaptor_Curve.hxx".}
-proc Load*(this: var GeomAdaptor_Curve; C: handle[Geom_Curve]; UFirst: Standard_Real;
-          ULast: Standard_Real) {.importcpp: "Load", header: "GeomAdaptor_Curve.hxx".}
-proc Curve*(this: GeomAdaptor_Curve): handle[Geom_Curve] {.noSideEffect,
+proc load*(this: var GeomAdaptorCurve; c: Handle[GeomCurve]; uFirst: float; uLast: float) {.
+    importcpp: "Load", header: "GeomAdaptor_Curve.hxx".}
+proc curve*(this: GeomAdaptorCurve): Handle[GeomCurve] {.noSideEffect,
     importcpp: "Curve", header: "GeomAdaptor_Curve.hxx".}
-proc FirstParameter*(this: GeomAdaptor_Curve): Standard_Real {.noSideEffect,
+proc firstParameter*(this: GeomAdaptorCurve): float {.noSideEffect,
     importcpp: "FirstParameter", header: "GeomAdaptor_Curve.hxx".}
-proc LastParameter*(this: GeomAdaptor_Curve): Standard_Real {.noSideEffect,
+proc lastParameter*(this: GeomAdaptorCurve): float {.noSideEffect,
     importcpp: "LastParameter", header: "GeomAdaptor_Curve.hxx".}
-proc Continuity*(this: GeomAdaptor_Curve): GeomAbs_Shape {.noSideEffect,
+proc continuity*(this: GeomAdaptorCurve): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "GeomAdaptor_Curve.hxx".}
-proc NbIntervals*(this: GeomAdaptor_Curve; S: GeomAbs_Shape): Standard_Integer {.
-    noSideEffect, importcpp: "NbIntervals", header: "GeomAdaptor_Curve.hxx".}
-proc Intervals*(this: GeomAdaptor_Curve; T: var TColStd_Array1OfReal; S: GeomAbs_Shape) {.
+proc nbIntervals*(this: GeomAdaptorCurve; s: GeomAbsShape): int {.noSideEffect,
+    importcpp: "NbIntervals", header: "GeomAdaptor_Curve.hxx".}
+proc intervals*(this: GeomAdaptorCurve; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, importcpp: "Intervals", header: "GeomAdaptor_Curve.hxx".}
-proc Trim*(this: GeomAdaptor_Curve; First: Standard_Real; Last: Standard_Real;
-          Tol: Standard_Real): handle[Adaptor3d_HCurve] {.noSideEffect,
-    importcpp: "Trim", header: "GeomAdaptor_Curve.hxx".}
-proc IsClosed*(this: GeomAdaptor_Curve): Standard_Boolean {.noSideEffect,
-    importcpp: "IsClosed", header: "GeomAdaptor_Curve.hxx".}
-proc IsPeriodic*(this: GeomAdaptor_Curve): Standard_Boolean {.noSideEffect,
+proc trim*(this: GeomAdaptorCurve; first: float; last: float; tol: float): Handle[
+    Adaptor3dHCurve] {.noSideEffect, importcpp: "Trim",
+                      header: "GeomAdaptor_Curve.hxx".}
+proc isClosed*(this: GeomAdaptorCurve): bool {.noSideEffect, importcpp: "IsClosed",
+    header: "GeomAdaptor_Curve.hxx".}
+proc isPeriodic*(this: GeomAdaptorCurve): bool {.noSideEffect,
     importcpp: "IsPeriodic", header: "GeomAdaptor_Curve.hxx".}
-proc Period*(this: GeomAdaptor_Curve): Standard_Real {.noSideEffect,
-    importcpp: "Period", header: "GeomAdaptor_Curve.hxx".}
-proc Value*(this: GeomAdaptor_Curve; U: Standard_Real): gp_Pnt {.noSideEffect,
-    importcpp: "Value", header: "GeomAdaptor_Curve.hxx".}
-proc D0*(this: GeomAdaptor_Curve; U: Standard_Real; P: var gp_Pnt) {.noSideEffect,
-    importcpp: "D0", header: "GeomAdaptor_Curve.hxx".}
-proc D1*(this: GeomAdaptor_Curve; U: Standard_Real; P: var gp_Pnt; V: var gp_Vec) {.
-    noSideEffect, importcpp: "D1", header: "GeomAdaptor_Curve.hxx".}
-proc D2*(this: GeomAdaptor_Curve; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
-        V2: var gp_Vec) {.noSideEffect, importcpp: "D2",
-                       header: "GeomAdaptor_Curve.hxx".}
-proc D3*(this: GeomAdaptor_Curve; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
-        V2: var gp_Vec; V3: var gp_Vec) {.noSideEffect, importcpp: "D3",
-                                    header: "GeomAdaptor_Curve.hxx".}
-proc DN*(this: GeomAdaptor_Curve; U: Standard_Real; N: Standard_Integer): gp_Vec {.
-    noSideEffect, importcpp: "DN", header: "GeomAdaptor_Curve.hxx".}
-proc Resolution*(this: GeomAdaptor_Curve; R3d: Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "Resolution", header: "GeomAdaptor_Curve.hxx".}
-proc GetType*(this: GeomAdaptor_Curve): GeomAbs_CurveType {.noSideEffect,
+proc period*(this: GeomAdaptorCurve): float {.noSideEffect, importcpp: "Period",
+    header: "GeomAdaptor_Curve.hxx".}
+proc value*(this: GeomAdaptorCurve; u: float): Pnt {.noSideEffect, importcpp: "Value",
+    header: "GeomAdaptor_Curve.hxx".}
+proc d0*(this: GeomAdaptorCurve; u: float; p: var Pnt) {.noSideEffect, importcpp: "D0",
+    header: "GeomAdaptor_Curve.hxx".}
+proc d1*(this: GeomAdaptorCurve; u: float; p: var Pnt; v: var Vec) {.noSideEffect,
+    importcpp: "D1", header: "GeomAdaptor_Curve.hxx".}
+proc d2*(this: GeomAdaptorCurve; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.
+    noSideEffect, importcpp: "D2", header: "GeomAdaptor_Curve.hxx".}
+proc d3*(this: GeomAdaptorCurve; u: float; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+    noSideEffect, importcpp: "D3", header: "GeomAdaptor_Curve.hxx".}
+proc dn*(this: GeomAdaptorCurve; u: float; n: int): Vec {.noSideEffect, importcpp: "DN",
+    header: "GeomAdaptor_Curve.hxx".}
+proc resolution*(this: GeomAdaptorCurve; r3d: float): float {.noSideEffect,
+    importcpp: "Resolution", header: "GeomAdaptor_Curve.hxx".}
+proc getType*(this: GeomAdaptorCurve): GeomAbsCurveType {.noSideEffect,
     importcpp: "GetType", header: "GeomAdaptor_Curve.hxx".}
-proc Line*(this: GeomAdaptor_Curve): gp_Lin {.noSideEffect, importcpp: "Line",
+proc line*(this: GeomAdaptorCurve): Lin {.noSideEffect, importcpp: "Line",
+                                      header: "GeomAdaptor_Curve.hxx".}
+proc circle*(this: GeomAdaptorCurve): Circ {.noSideEffect, importcpp: "Circle",
     header: "GeomAdaptor_Curve.hxx".}
-proc Circle*(this: GeomAdaptor_Curve): gp_Circ {.noSideEffect, importcpp: "Circle",
+proc ellipse*(this: GeomAdaptorCurve): Elips {.noSideEffect, importcpp: "Ellipse",
     header: "GeomAdaptor_Curve.hxx".}
-proc Ellipse*(this: GeomAdaptor_Curve): gp_Elips {.noSideEffect,
-    importcpp: "Ellipse", header: "GeomAdaptor_Curve.hxx".}
-proc Hyperbola*(this: GeomAdaptor_Curve): gp_Hypr {.noSideEffect,
-    importcpp: "Hyperbola", header: "GeomAdaptor_Curve.hxx".}
-proc Parabola*(this: GeomAdaptor_Curve): gp_Parab {.noSideEffect,
-    importcpp: "Parabola", header: "GeomAdaptor_Curve.hxx".}
-proc Degree*(this: GeomAdaptor_Curve): Standard_Integer {.noSideEffect,
-    importcpp: "Degree", header: "GeomAdaptor_Curve.hxx".}
-proc IsRational*(this: GeomAdaptor_Curve): Standard_Boolean {.noSideEffect,
+proc hyperbola*(this: GeomAdaptorCurve): Hypr {.noSideEffect, importcpp: "Hyperbola",
+    header: "GeomAdaptor_Curve.hxx".}
+proc parabola*(this: GeomAdaptorCurve): Parab {.noSideEffect, importcpp: "Parabola",
+    header: "GeomAdaptor_Curve.hxx".}
+proc degree*(this: GeomAdaptorCurve): int {.noSideEffect, importcpp: "Degree",
+                                        header: "GeomAdaptor_Curve.hxx".}
+proc isRational*(this: GeomAdaptorCurve): bool {.noSideEffect,
     importcpp: "IsRational", header: "GeomAdaptor_Curve.hxx".}
-proc NbPoles*(this: GeomAdaptor_Curve): Standard_Integer {.noSideEffect,
-    importcpp: "NbPoles", header: "GeomAdaptor_Curve.hxx".}
-proc NbKnots*(this: GeomAdaptor_Curve): Standard_Integer {.noSideEffect,
-    importcpp: "NbKnots", header: "GeomAdaptor_Curve.hxx".}
-proc Bezier*(this: GeomAdaptor_Curve): handle[Geom_BezierCurve] {.noSideEffect,
+proc nbPoles*(this: GeomAdaptorCurve): int {.noSideEffect, importcpp: "NbPoles",
+    header: "GeomAdaptor_Curve.hxx".}
+proc nbKnots*(this: GeomAdaptorCurve): int {.noSideEffect, importcpp: "NbKnots",
+    header: "GeomAdaptor_Curve.hxx".}
+proc bezier*(this: GeomAdaptorCurve): Handle[GeomBezierCurve] {.noSideEffect,
     importcpp: "Bezier", header: "GeomAdaptor_Curve.hxx".}
-proc BSpline*(this: GeomAdaptor_Curve): handle[Geom_BSplineCurve] {.noSideEffect,
+proc bSpline*(this: GeomAdaptorCurve): Handle[GeomBSplineCurve] {.noSideEffect,
     importcpp: "BSpline", header: "GeomAdaptor_Curve.hxx".}
-proc OffsetCurve*(this: GeomAdaptor_Curve): handle[Geom_OffsetCurve] {.noSideEffect,
+proc offsetCurve*(this: GeomAdaptorCurve): Handle[GeomOffsetCurve] {.noSideEffect,
     importcpp: "OffsetCurve", header: "GeomAdaptor_Curve.hxx".}

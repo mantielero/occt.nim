@@ -14,30 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRepBuild_ListOfLoop,
-  TopOpeBRepBuild_ListIteratorOfListOfLoop, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TopOpeBRepBuild_Loop"
 type
-  TopOpeBRepBuild_LoopSet* {.importcpp: "TopOpeBRepBuild_LoopSet",
-                            header: "TopOpeBRepBuild_LoopSet.hxx", bycopy.} = object
+  TopOpeBRepBuildLoopSet* {.importcpp: "TopOpeBRepBuild_LoopSet",
+                           header: "TopOpeBRepBuild_LoopSet.hxx", bycopy.} = object
 
 
-proc constructTopOpeBRepBuild_LoopSet*(): TopOpeBRepBuild_LoopSet {.constructor,
+proc constructTopOpeBRepBuildLoopSet*(): TopOpeBRepBuildLoopSet {.constructor,
     importcpp: "TopOpeBRepBuild_LoopSet(@)", header: "TopOpeBRepBuild_LoopSet.hxx".}
-proc destroyTopOpeBRepBuild_LoopSet*(this: var TopOpeBRepBuild_LoopSet) {.
+proc destroyTopOpeBRepBuildLoopSet*(this: var TopOpeBRepBuildLoopSet) {.
     importcpp: "#.~TopOpeBRepBuild_LoopSet()",
     header: "TopOpeBRepBuild_LoopSet.hxx".}
-proc ChangeListOfLoop*(this: var TopOpeBRepBuild_LoopSet): var TopOpeBRepBuild_ListOfLoop {.
+proc changeListOfLoop*(this: var TopOpeBRepBuildLoopSet): var TopOpeBRepBuildListOfLoop {.
     importcpp: "ChangeListOfLoop", header: "TopOpeBRepBuild_LoopSet.hxx".}
-proc InitLoop*(this: var TopOpeBRepBuild_LoopSet) {.importcpp: "InitLoop",
+proc initLoop*(this: var TopOpeBRepBuildLoopSet) {.importcpp: "InitLoop",
     header: "TopOpeBRepBuild_LoopSet.hxx".}
-proc MoreLoop*(this: TopOpeBRepBuild_LoopSet): Standard_Boolean {.noSideEffect,
+proc moreLoop*(this: TopOpeBRepBuildLoopSet): bool {.noSideEffect,
     importcpp: "MoreLoop", header: "TopOpeBRepBuild_LoopSet.hxx".}
-proc NextLoop*(this: var TopOpeBRepBuild_LoopSet) {.importcpp: "NextLoop",
+proc nextLoop*(this: var TopOpeBRepBuildLoopSet) {.importcpp: "NextLoop",
     header: "TopOpeBRepBuild_LoopSet.hxx".}
-proc Loop*(this: TopOpeBRepBuild_LoopSet): handle[TopOpeBRepBuild_Loop] {.
+proc loop*(this: TopOpeBRepBuildLoopSet): Handle[TopOpeBRepBuildLoop] {.
     noSideEffect, importcpp: "Loop", header: "TopOpeBRepBuild_LoopSet.hxx".}

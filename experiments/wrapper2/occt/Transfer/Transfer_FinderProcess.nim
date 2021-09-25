@@ -14,63 +14,58 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Transfer_ProcessForFinder, ../Interface/Interface_InterfaceModel
-
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Transfer_TransientMapper"
 discard "forward decl of Transfer_Finder"
 discard "forward decl of Transfer_FinderProcess"
 discard "forward decl of Transfer_FinderProcess"
 type
-  Handle_Transfer_FinderProcess* = handle[Transfer_FinderProcess]
+  HandleTransferFinderProcess* = Handle[TransferFinderProcess]
 
 ## ! Adds specific features to the generic definition :
 ## ! PrintTrace is adapted
 
 type
-  Transfer_FinderProcess* {.importcpp: "Transfer_FinderProcess",
-                           header: "Transfer_FinderProcess.hxx", bycopy.} = object of Transfer_ProcessForFinder ##
-                                                                                                         ## !
-                                                                                                         ## Sets
-                                                                                                         ## FinderProcess
-                                                                                                         ## at
-                                                                                                         ## initial
-                                                                                                         ## state,
-                                                                                                         ## with
-                                                                                                         ## an
-                                                                                                         ## initial
-                                                                                                         ## size
+  TransferFinderProcess* {.importcpp: "Transfer_FinderProcess",
+                          header: "Transfer_FinderProcess.hxx", bycopy.} = object of TransferProcessForFinder ##
+                                                                                                       ## !
+                                                                                                       ## Sets
+                                                                                                       ## FinderProcess
+                                                                                                       ## at
+                                                                                                       ## initial
+                                                                                                       ## state,
+                                                                                                       ## with
+                                                                                                       ## an
+                                                                                                       ## initial
+                                                                                                       ## size
 
 
-proc constructTransfer_FinderProcess*(nb: Standard_Integer = 10000): Transfer_FinderProcess {.
+proc constructTransferFinderProcess*(nb: int = 10000): TransferFinderProcess {.
     constructor, importcpp: "Transfer_FinderProcess(@)",
     header: "Transfer_FinderProcess.hxx".}
-proc SetModel*(this: var Transfer_FinderProcess;
-              model: handle[Interface_InterfaceModel]) {.importcpp: "SetModel",
+proc setModel*(this: var TransferFinderProcess;
+              model: Handle[InterfaceInterfaceModel]) {.importcpp: "SetModel",
     header: "Transfer_FinderProcess.hxx".}
-proc Model*(this: Transfer_FinderProcess): handle[Interface_InterfaceModel] {.
+proc model*(this: TransferFinderProcess): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "Model", header: "Transfer_FinderProcess.hxx".}
-proc NextMappedWithAttribute*(this: Transfer_FinderProcess; name: Standard_CString;
-                             num0: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "NextMappedWithAttribute",
-    header: "Transfer_FinderProcess.hxx".}
-proc TransientMapper*(this: Transfer_FinderProcess; obj: handle[Standard_Transient]): handle[
-    Transfer_TransientMapper] {.noSideEffect, importcpp: "TransientMapper",
-                               header: "Transfer_FinderProcess.hxx".}
-proc PrintTrace*(this: Transfer_FinderProcess; start: handle[Transfer_Finder];
-                S: var Standard_OStream) {.noSideEffect, importcpp: "PrintTrace",
-                                        header: "Transfer_FinderProcess.hxx".}
-proc PrintStats*(this: Transfer_FinderProcess; mode: Standard_Integer;
-                S: var Standard_OStream) {.noSideEffect, importcpp: "PrintStats",
-                                        header: "Transfer_FinderProcess.hxx".}
-type
-  Transfer_FinderProcessbase_type* = Transfer_ProcessForFinder
-
-proc get_type_name*(): cstring {.importcpp: "Transfer_FinderProcess::get_type_name(@)",
+proc nextMappedWithAttribute*(this: TransferFinderProcess; name: StandardCString;
+                             num0: int): int {.noSideEffect,
+    importcpp: "NextMappedWithAttribute", header: "Transfer_FinderProcess.hxx".}
+proc transientMapper*(this: TransferFinderProcess; obj: Handle[StandardTransient]): Handle[
+    TransferTransientMapper] {.noSideEffect, importcpp: "TransientMapper",
                               header: "Transfer_FinderProcess.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc printTrace*(this: TransferFinderProcess; start: Handle[TransferFinder];
+                s: var StandardOStream) {.noSideEffect, importcpp: "PrintTrace",
+                                       header: "Transfer_FinderProcess.hxx".}
+proc printStats*(this: TransferFinderProcess; mode: int; s: var StandardOStream) {.
+    noSideEffect, importcpp: "PrintStats", header: "Transfer_FinderProcess.hxx".}
+type
+  TransferFinderProcessbaseType* = TransferProcessForFinder
+
+proc getTypeName*(): cstring {.importcpp: "Transfer_FinderProcess::get_type_name(@)",
+                            header: "Transfer_FinderProcess.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_FinderProcess::get_type_descriptor(@)",
     header: "Transfer_FinderProcess.hxx".}
-proc DynamicType*(this: Transfer_FinderProcess): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Transfer_FinderProcess.hxx".}
+proc dynamicType*(this: TransferFinderProcess): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Transfer_FinderProcess.hxx".}

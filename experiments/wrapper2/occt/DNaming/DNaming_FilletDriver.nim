@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TFunction/TFunction_Driver,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of TFunction_Logbook"
 discard "forward decl of TDF_Label"
 discard "forward decl of BRepFilletAPI_MakeFillet"
@@ -24,34 +20,34 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of DNaming_FilletDriver"
 discard "forward decl of DNaming_FilletDriver"
 type
-  Handle_DNaming_FilletDriver* = handle[DNaming_FilletDriver]
-  DNaming_FilletDriver* {.importcpp: "DNaming_FilletDriver",
-                         header: "DNaming_FilletDriver.hxx", bycopy.} = object of TFunction_Driver ##
-                                                                                            ## !
-                                                                                            ## Constructor
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## validation
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## ==========
+  HandleDNamingFilletDriver* = Handle[DNamingFilletDriver]
+  DNamingFilletDriver* {.importcpp: "DNaming_FilletDriver",
+                        header: "DNaming_FilletDriver.hxx", bycopy.} = object of TFunctionDriver ##
+                                                                                          ## !
+                                                                                          ## Constructor
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## validation
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## ==========
 
 
-proc constructDNaming_FilletDriver*(): DNaming_FilletDriver {.constructor,
+proc constructDNamingFilletDriver*(): DNamingFilletDriver {.constructor,
     importcpp: "DNaming_FilletDriver(@)", header: "DNaming_FilletDriver.hxx".}
-proc Validate*(this: DNaming_FilletDriver; theLog: var handle[TFunction_Logbook]) {.
+proc validate*(this: DNamingFilletDriver; theLog: var Handle[TFunctionLogbook]) {.
     noSideEffect, importcpp: "Validate", header: "DNaming_FilletDriver.hxx".}
-proc MustExecute*(this: DNaming_FilletDriver; theLog: handle[TFunction_Logbook]): Standard_Boolean {.
+proc mustExecute*(this: DNamingFilletDriver; theLog: Handle[TFunctionLogbook]): bool {.
     noSideEffect, importcpp: "MustExecute", header: "DNaming_FilletDriver.hxx".}
-proc Execute*(this: DNaming_FilletDriver; theLog: var handle[TFunction_Logbook]): Standard_Integer {.
+proc execute*(this: DNamingFilletDriver; theLog: var Handle[TFunctionLogbook]): int {.
     noSideEffect, importcpp: "Execute", header: "DNaming_FilletDriver.hxx".}
 type
-  DNaming_FilletDriverbase_type* = TFunction_Driver
+  DNamingFilletDriverbaseType* = TFunctionDriver
 
-proc get_type_name*(): cstring {.importcpp: "DNaming_FilletDriver::get_type_name(@)",
-                              header: "DNaming_FilletDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "DNaming_FilletDriver::get_type_name(@)",
+                            header: "DNaming_FilletDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "DNaming_FilletDriver::get_type_descriptor(@)",
     header: "DNaming_FilletDriver.hxx".}
-proc DynamicType*(this: DNaming_FilletDriver): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: DNamingFilletDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DNaming_FilletDriver.hxx".}

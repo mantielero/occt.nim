@@ -14,15 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColgp/TColgp_HArray1OfVec2d, ../Standard/Standard_Transient,
-  ../Standard/Standard_OStream
-
 discard "forward decl of Vrml_TextureCoordinate2"
 discard "forward decl of Vrml_TextureCoordinate2"
 type
-  Handle_Vrml_TextureCoordinate2* = handle[Vrml_TextureCoordinate2]
+  HandleVrmlTextureCoordinate2* = Handle[VrmlTextureCoordinate2]
 
 ## ! defines a TextureCoordinate2 node of VRML specifying properties of geometry
 ## ! and its appearance.
@@ -37,29 +32,29 @@ type
 ## ! myPoint (0 0)
 
 type
-  Vrml_TextureCoordinate2* {.importcpp: "Vrml_TextureCoordinate2",
-                            header: "Vrml_TextureCoordinate2.hxx", bycopy.} = object of Standard_Transient
+  VrmlTextureCoordinate2* {.importcpp: "Vrml_TextureCoordinate2",
+                           header: "Vrml_TextureCoordinate2.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructVrml_TextureCoordinate2*(): Vrml_TextureCoordinate2 {.constructor,
+proc constructVrmlTextureCoordinate2*(): VrmlTextureCoordinate2 {.constructor,
     importcpp: "Vrml_TextureCoordinate2(@)", header: "Vrml_TextureCoordinate2.hxx".}
-proc constructVrml_TextureCoordinate2*(aPoint: handle[TColgp_HArray1OfVec2d]): Vrml_TextureCoordinate2 {.
+proc constructVrmlTextureCoordinate2*(aPoint: Handle[TColgpHArray1OfVec2d]): VrmlTextureCoordinate2 {.
     constructor, importcpp: "Vrml_TextureCoordinate2(@)",
     header: "Vrml_TextureCoordinate2.hxx".}
-proc SetPoint*(this: var Vrml_TextureCoordinate2;
-              aPoint: handle[TColgp_HArray1OfVec2d]) {.importcpp: "SetPoint",
+proc setPoint*(this: var VrmlTextureCoordinate2;
+              aPoint: Handle[TColgpHArray1OfVec2d]) {.importcpp: "SetPoint",
     header: "Vrml_TextureCoordinate2.hxx".}
-proc Point*(this: Vrml_TextureCoordinate2): handle[TColgp_HArray1OfVec2d] {.
+proc point*(this: VrmlTextureCoordinate2): Handle[TColgpHArray1OfVec2d] {.
     noSideEffect, importcpp: "Point", header: "Vrml_TextureCoordinate2.hxx".}
-proc Print*(this: Vrml_TextureCoordinate2; anOStream: var Standard_OStream): var Standard_OStream {.
+proc print*(this: VrmlTextureCoordinate2; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_TextureCoordinate2.hxx".}
 type
-  Vrml_TextureCoordinate2base_type* = Standard_Transient
+  VrmlTextureCoordinate2baseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Vrml_TextureCoordinate2::get_type_name(@)",
-                              header: "Vrml_TextureCoordinate2.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Vrml_TextureCoordinate2::get_type_name(@)",
+                            header: "Vrml_TextureCoordinate2.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Vrml_TextureCoordinate2::get_type_descriptor(@)",
     header: "Vrml_TextureCoordinate2.hxx".}
-proc DynamicType*(this: Vrml_TextureCoordinate2): handle[Standard_Type] {.
+proc dynamicType*(this: VrmlTextureCoordinate2): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Vrml_TextureCoordinate2.hxx".}

@@ -14,38 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Extrema_POnCurv2d, Extrema_Array1OfPOnCurv2d,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  Extrema_HArray1OfPOnCurv2d* {.importcpp: "Extrema_HArray1OfPOnCurv2d",
-                               header: "Extrema_HArray1OfPOnCurv2d.hxx", bycopy.} = object of Extrema_Array1OfPOnCurv2d
+  ExtremaHArray1OfPOnCurv2d* {.importcpp: "Extrema_HArray1OfPOnCurv2d",
+                              header: "Extrema_HArray1OfPOnCurv2d.hxx", bycopy.} = object of ExtremaArray1OfPOnCurv2d
 
 
-proc constructExtrema_HArray1OfPOnCurv2d*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): Extrema_HArray1OfPOnCurv2d {.constructor,
-    importcpp: "Extrema_HArray1OfPOnCurv2d(@)",
-    header: "Extrema_HArray1OfPOnCurv2d.hxx".}
-proc constructExtrema_HArray1OfPOnCurv2d*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): Extrema_HArray1OfPOnCurv2d {.
+proc constructExtremaHArray1OfPOnCurv2d*(theLower: int; theUpper: int): ExtremaHArray1OfPOnCurv2d {.
     constructor, importcpp: "Extrema_HArray1OfPOnCurv2d(@)",
     header: "Extrema_HArray1OfPOnCurv2d.hxx".}
-proc constructExtrema_HArray1OfPOnCurv2d*(theOther: Extrema_Array1OfPOnCurv2d): Extrema_HArray1OfPOnCurv2d {.
+proc constructExtremaHArray1OfPOnCurv2d*(theLower: int; theUpper: int;
+                                        theValue: ValueType): ExtremaHArray1OfPOnCurv2d {.
     constructor, importcpp: "Extrema_HArray1OfPOnCurv2d(@)",
     header: "Extrema_HArray1OfPOnCurv2d.hxx".}
-proc Array1*(this: Extrema_HArray1OfPOnCurv2d): Extrema_Array1OfPOnCurv2d {.
+proc constructExtremaHArray1OfPOnCurv2d*(theOther: ExtremaArray1OfPOnCurv2d): ExtremaHArray1OfPOnCurv2d {.
+    constructor, importcpp: "Extrema_HArray1OfPOnCurv2d(@)",
+    header: "Extrema_HArray1OfPOnCurv2d.hxx".}
+proc array1*(this: ExtremaHArray1OfPOnCurv2d): ExtremaArray1OfPOnCurv2d {.
     noSideEffect, importcpp: "Array1", header: "Extrema_HArray1OfPOnCurv2d.hxx".}
-proc ChangeArray1*(this: var Extrema_HArray1OfPOnCurv2d): var Extrema_Array1OfPOnCurv2d {.
+proc changeArray1*(this: var ExtremaHArray1OfPOnCurv2d): var ExtremaArray1OfPOnCurv2d {.
     importcpp: "ChangeArray1", header: "Extrema_HArray1OfPOnCurv2d.hxx".}
 type
-  Extrema_HArray1OfPOnCurv2dbase_type* = MMgt_TShared
+  ExtremaHArray1OfPOnCurv2dbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "Extrema_HArray1OfPOnCurv2d::get_type_name(@)",
-                              header: "Extrema_HArray1OfPOnCurv2d.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Extrema_HArray1OfPOnCurv2d::get_type_name(@)",
+                            header: "Extrema_HArray1OfPOnCurv2d.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Extrema_HArray1OfPOnCurv2d::get_type_descriptor(@)",
     header: "Extrema_HArray1OfPOnCurv2d.hxx".}
-proc DynamicType*(this: Extrema_HArray1OfPOnCurv2d): handle[Standard_Type] {.
+proc dynamicType*(this: ExtremaHArray1OfPOnCurv2d): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Extrema_HArray1OfPOnCurv2d.hxx".}

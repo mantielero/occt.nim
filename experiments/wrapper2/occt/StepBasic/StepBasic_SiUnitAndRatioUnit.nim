@@ -14,42 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_SiUnit,
-  ../Standard/Standard_Boolean, StepBasic_SiPrefix, StepBasic_SiUnitName
-
 discard "forward decl of StepBasic_RatioUnit"
 discard "forward decl of StepBasic_DimensionalExponents"
 discard "forward decl of StepBasic_SiUnitAndRatioUnit"
 discard "forward decl of StepBasic_SiUnitAndRatioUnit"
 type
-  Handle_StepBasic_SiUnitAndRatioUnit* = handle[StepBasic_SiUnitAndRatioUnit]
-  StepBasic_SiUnitAndRatioUnit* {.importcpp: "StepBasic_SiUnitAndRatioUnit",
-                                 header: "StepBasic_SiUnitAndRatioUnit.hxx",
-                                 bycopy.} = object of StepBasic_SiUnit ## ! Returns a
-                                                                  ## SiUnitAndRatioUnit
+  HandleStepBasicSiUnitAndRatioUnit* = Handle[StepBasicSiUnitAndRatioUnit]
+  StepBasicSiUnitAndRatioUnit* {.importcpp: "StepBasic_SiUnitAndRatioUnit",
+                                header: "StepBasic_SiUnitAndRatioUnit.hxx", bycopy.} = object of StepBasicSiUnit ##
+                                                                                                          ## !
+                                                                                                          ## Returns
+                                                                                                          ## a
+                                                                                                          ## SiUnitAndRatioUnit
 
 
-proc constructStepBasic_SiUnitAndRatioUnit*(): StepBasic_SiUnitAndRatioUnit {.
+proc constructStepBasicSiUnitAndRatioUnit*(): StepBasicSiUnitAndRatioUnit {.
     constructor, importcpp: "StepBasic_SiUnitAndRatioUnit(@)",
     header: "StepBasic_SiUnitAndRatioUnit.hxx".}
-proc Init*(this: var StepBasic_SiUnitAndRatioUnit; hasAprefix: Standard_Boolean;
-          aPrefix: StepBasic_SiPrefix; aName: StepBasic_SiUnitName) {.
+proc init*(this: var StepBasicSiUnitAndRatioUnit; hasAprefix: bool;
+          aPrefix: StepBasicSiPrefix; aName: StepBasicSiUnitName) {.
     importcpp: "Init", header: "StepBasic_SiUnitAndRatioUnit.hxx".}
-proc SetRatioUnit*(this: var StepBasic_SiUnitAndRatioUnit;
-                  aRatioUnit: handle[StepBasic_RatioUnit]) {.
+proc setRatioUnit*(this: var StepBasicSiUnitAndRatioUnit;
+                  aRatioUnit: Handle[StepBasicRatioUnit]) {.
     importcpp: "SetRatioUnit", header: "StepBasic_SiUnitAndRatioUnit.hxx".}
-proc RatioUnit*(this: StepBasic_SiUnitAndRatioUnit): handle[StepBasic_RatioUnit] {.
+proc ratioUnit*(this: StepBasicSiUnitAndRatioUnit): Handle[StepBasicRatioUnit] {.
     noSideEffect, importcpp: "RatioUnit",
     header: "StepBasic_SiUnitAndRatioUnit.hxx".}
 type
-  StepBasic_SiUnitAndRatioUnitbase_type* = StepBasic_SiUnit
+  StepBasicSiUnitAndRatioUnitbaseType* = StepBasicSiUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_SiUnitAndRatioUnit::get_type_name(@)",
-                              header: "StepBasic_SiUnitAndRatioUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_SiUnitAndRatioUnit::get_type_name(@)",
+                            header: "StepBasic_SiUnitAndRatioUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_SiUnitAndRatioUnit::get_type_descriptor(@)",
     header: "StepBasic_SiUnitAndRatioUnit.hxx".}
-proc DynamicType*(this: StepBasic_SiUnitAndRatioUnit): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicSiUnitAndRatioUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_SiUnitAndRatioUnit.hxx".}

@@ -14,86 +14,72 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Vertex,
-  ../TopAbs/TopAbs_Orientation, ../TColStd/TColStd_HSequenceOfInteger,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of ShapeExtend_WireData"
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Edge"
 type
-  ShapeFix_WireSegment* {.importcpp: "ShapeFix_WireSegment",
-                         header: "ShapeFix_WireSegment.hxx", bycopy.} = object ## !
-                                                                          ## Creates empty
-                                                                          ## segment.
+  ShapeFixWireSegment* {.importcpp: "ShapeFix_WireSegment",
+                        header: "ShapeFix_WireSegment.hxx", bycopy.} = object ## ! Creates empty
+                                                                         ## segment.
 
 
-proc constructShapeFix_WireSegment*(): ShapeFix_WireSegment {.constructor,
+proc constructShapeFixWireSegment*(): ShapeFixWireSegment {.constructor,
     importcpp: "ShapeFix_WireSegment(@)", header: "ShapeFix_WireSegment.hxx".}
-proc constructShapeFix_WireSegment*(wire: handle[ShapeExtend_WireData];
-                                   ori: TopAbs_Orientation = TopAbs_EXTERNAL): ShapeFix_WireSegment {.
+proc constructShapeFixWireSegment*(wire: Handle[ShapeExtendWireData];
+                                  ori: TopAbsOrientation = topAbsEXTERNAL): ShapeFixWireSegment {.
     constructor, importcpp: "ShapeFix_WireSegment(@)",
     header: "ShapeFix_WireSegment.hxx".}
-proc constructShapeFix_WireSegment*(wire: TopoDS_Wire;
-                                   ori: TopAbs_Orientation = TopAbs_EXTERNAL): ShapeFix_WireSegment {.
+proc constructShapeFixWireSegment*(wire: TopoDS_Wire;
+                                  ori: TopAbsOrientation = topAbsEXTERNAL): ShapeFixWireSegment {.
     constructor, importcpp: "ShapeFix_WireSegment(@)",
     header: "ShapeFix_WireSegment.hxx".}
-proc Clear*(this: var ShapeFix_WireSegment) {.importcpp: "Clear",
+proc clear*(this: var ShapeFixWireSegment) {.importcpp: "Clear",
     header: "ShapeFix_WireSegment.hxx".}
-proc Load*(this: var ShapeFix_WireSegment; wire: handle[ShapeExtend_WireData]) {.
+proc load*(this: var ShapeFixWireSegment; wire: Handle[ShapeExtendWireData]) {.
     importcpp: "Load", header: "ShapeFix_WireSegment.hxx".}
-proc WireData*(this: ShapeFix_WireSegment): handle[ShapeExtend_WireData] {.
+proc wireData*(this: ShapeFixWireSegment): Handle[ShapeExtendWireData] {.
     noSideEffect, importcpp: "WireData", header: "ShapeFix_WireSegment.hxx".}
-proc Orientation*(this: var ShapeFix_WireSegment; ori: TopAbs_Orientation) {.
+proc orientation*(this: var ShapeFixWireSegment; ori: TopAbsOrientation) {.
     importcpp: "Orientation", header: "ShapeFix_WireSegment.hxx".}
-proc Orientation*(this: ShapeFix_WireSegment): TopAbs_Orientation {.noSideEffect,
+proc orientation*(this: ShapeFixWireSegment): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "ShapeFix_WireSegment.hxx".}
-proc FirstVertex*(this: ShapeFix_WireSegment): TopoDS_Vertex {.noSideEffect,
+proc firstVertex*(this: ShapeFixWireSegment): TopoDS_Vertex {.noSideEffect,
     importcpp: "FirstVertex", header: "ShapeFix_WireSegment.hxx".}
-proc LastVertex*(this: ShapeFix_WireSegment): TopoDS_Vertex {.noSideEffect,
+proc lastVertex*(this: ShapeFixWireSegment): TopoDS_Vertex {.noSideEffect,
     importcpp: "LastVertex", header: "ShapeFix_WireSegment.hxx".}
-proc IsClosed*(this: ShapeFix_WireSegment): Standard_Boolean {.noSideEffect,
+proc isClosed*(this: ShapeFixWireSegment): bool {.noSideEffect,
     importcpp: "IsClosed", header: "ShapeFix_WireSegment.hxx".}
-proc NbEdges*(this: ShapeFix_WireSegment): Standard_Integer {.noSideEffect,
-    importcpp: "NbEdges", header: "ShapeFix_WireSegment.hxx".}
-proc Edge*(this: ShapeFix_WireSegment; i: Standard_Integer): TopoDS_Edge {.
-    noSideEffect, importcpp: "Edge", header: "ShapeFix_WireSegment.hxx".}
-proc SetEdge*(this: var ShapeFix_WireSegment; i: Standard_Integer; edge: TopoDS_Edge) {.
+proc nbEdges*(this: ShapeFixWireSegment): int {.noSideEffect, importcpp: "NbEdges",
+    header: "ShapeFix_WireSegment.hxx".}
+proc edge*(this: ShapeFixWireSegment; i: int): TopoDS_Edge {.noSideEffect,
+    importcpp: "Edge", header: "ShapeFix_WireSegment.hxx".}
+proc setEdge*(this: var ShapeFixWireSegment; i: int; edge: TopoDS_Edge) {.
     importcpp: "SetEdge", header: "ShapeFix_WireSegment.hxx".}
-proc AddEdge*(this: var ShapeFix_WireSegment; i: Standard_Integer; edge: TopoDS_Edge) {.
+proc addEdge*(this: var ShapeFixWireSegment; i: int; edge: TopoDS_Edge) {.
     importcpp: "AddEdge", header: "ShapeFix_WireSegment.hxx".}
-proc AddEdge*(this: var ShapeFix_WireSegment; i: Standard_Integer; edge: TopoDS_Edge;
-             iumin: Standard_Integer; iumax: Standard_Integer;
-             ivmin: Standard_Integer; ivmax: Standard_Integer) {.
-    importcpp: "AddEdge", header: "ShapeFix_WireSegment.hxx".}
-proc SetPatchIndex*(this: var ShapeFix_WireSegment; i: Standard_Integer;
-                   iumin: Standard_Integer; iumax: Standard_Integer;
-                   ivmin: Standard_Integer; ivmax: Standard_Integer) {.
-    importcpp: "SetPatchIndex", header: "ShapeFix_WireSegment.hxx".}
-proc DefineIUMin*(this: var ShapeFix_WireSegment; i: Standard_Integer;
-                 iumin: Standard_Integer) {.importcpp: "DefineIUMin",
+proc addEdge*(this: var ShapeFixWireSegment; i: int; edge: TopoDS_Edge; iumin: int;
+             iumax: int; ivmin: int; ivmax: int) {.importcpp: "AddEdge",
     header: "ShapeFix_WireSegment.hxx".}
-proc DefineIUMax*(this: var ShapeFix_WireSegment; i: Standard_Integer;
-                 iumax: Standard_Integer) {.importcpp: "DefineIUMax",
+proc setPatchIndex*(this: var ShapeFixWireSegment; i: int; iumin: int; iumax: int;
+                   ivmin: int; ivmax: int) {.importcpp: "SetPatchIndex",
     header: "ShapeFix_WireSegment.hxx".}
-proc DefineIVMin*(this: var ShapeFix_WireSegment; i: Standard_Integer;
-                 ivmin: Standard_Integer) {.importcpp: "DefineIVMin",
-    header: "ShapeFix_WireSegment.hxx".}
-proc DefineIVMax*(this: var ShapeFix_WireSegment; i: Standard_Integer;
-                 ivmax: Standard_Integer) {.importcpp: "DefineIVMax",
-    header: "ShapeFix_WireSegment.hxx".}
-proc GetPatchIndex*(this: ShapeFix_WireSegment; i: Standard_Integer;
-                   iumin: var Standard_Integer; iumax: var Standard_Integer;
-                   ivmin: var Standard_Integer; ivmax: var Standard_Integer) {.
-    noSideEffect, importcpp: "GetPatchIndex", header: "ShapeFix_WireSegment.hxx".}
-proc CheckPatchIndex*(this: ShapeFix_WireSegment; i: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "CheckPatchIndex", header: "ShapeFix_WireSegment.hxx".}
-proc SetVertex*(this: var ShapeFix_WireSegment; theVertex: TopoDS_Vertex) {.
+proc defineIUMin*(this: var ShapeFixWireSegment; i: int; iumin: int) {.
+    importcpp: "DefineIUMin", header: "ShapeFix_WireSegment.hxx".}
+proc defineIUMax*(this: var ShapeFixWireSegment; i: int; iumax: int) {.
+    importcpp: "DefineIUMax", header: "ShapeFix_WireSegment.hxx".}
+proc defineIVMin*(this: var ShapeFixWireSegment; i: int; ivmin: int) {.
+    importcpp: "DefineIVMin", header: "ShapeFix_WireSegment.hxx".}
+proc defineIVMax*(this: var ShapeFixWireSegment; i: int; ivmax: int) {.
+    importcpp: "DefineIVMax", header: "ShapeFix_WireSegment.hxx".}
+proc getPatchIndex*(this: ShapeFixWireSegment; i: int; iumin: var int; iumax: var int;
+                   ivmin: var int; ivmax: var int) {.noSideEffect,
+    importcpp: "GetPatchIndex", header: "ShapeFix_WireSegment.hxx".}
+proc checkPatchIndex*(this: ShapeFixWireSegment; i: int): bool {.noSideEffect,
+    importcpp: "CheckPatchIndex", header: "ShapeFix_WireSegment.hxx".}
+proc setVertex*(this: var ShapeFixWireSegment; theVertex: TopoDS_Vertex) {.
     importcpp: "SetVertex", header: "ShapeFix_WireSegment.hxx".}
-proc GetVertex*(this: ShapeFix_WireSegment): TopoDS_Vertex {.noSideEffect,
+proc getVertex*(this: ShapeFixWireSegment): TopoDS_Vertex {.noSideEffect,
     importcpp: "GetVertex", header: "ShapeFix_WireSegment.hxx".}
-proc IsVertex*(this: ShapeFix_WireSegment): Standard_Boolean {.noSideEffect,
+proc isVertex*(this: ShapeFixWireSegment): bool {.noSideEffect,
     importcpp: "IsVertex", header: "ShapeFix_WireSegment.hxx".}

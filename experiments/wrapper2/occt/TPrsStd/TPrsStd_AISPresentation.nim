@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_GUID,
-  ../Standard/Standard_Real, ../Quantity/Quantity_NameOfColor,
-  ../Graphic3d/Graphic3d_NameOfMaterial, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../TDF/TDF_Attribute,
-  ../TDataXtd/TDataXtd_Presentation, ../AIS/AIS_InteractiveContext
-
 discard "forward decl of AIS_InteractiveObject"
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
@@ -30,7 +23,7 @@ discard "forward decl of TDF_AttributeDelta"
 discard "forward decl of TPrsStd_AISPresentation"
 discard "forward decl of TPrsStd_AISPresentation"
 type
-  Handle_TPrsStd_AISPresentation* = handle[TPrsStd_AISPresentation]
+  HandleTPrsStdAISPresentation* = Handle[TPrsStdAISPresentation]
 
 ## ! An attribute to associate an
 ## ! AIS_InteractiveObject to a label in an AIS viewer.
@@ -42,148 +35,138 @@ type
 ## ! AIS_InteractiveObject settings.
 
 type
-  TPrsStd_AISPresentation* {.importcpp: "TPrsStd_AISPresentation",
-                            header: "TPrsStd_AISPresentation.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                               ## !
-                                                                                               ## Returns
-                                                                                               ## the
-                                                                                               ## GUID
-                                                                                               ## for
-                                                                                               ## TPrsStd_AISPresentation
-                                                                                               ## attributes.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Returns
-                                                                                               ## attribute
-                                                                                               ## storing
-                                                                                               ## presentation
-                                                                                               ## data
+  TPrsStdAISPresentation* {.importcpp: "TPrsStd_AISPresentation",
+                           header: "TPrsStd_AISPresentation.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                              ## !
+                                                                                              ## Returns
+                                                                                              ## the
+                                                                                              ## GUID
+                                                                                              ## for
+                                                                                              ## TPrsStd_AISPresentation
+                                                                                              ## attributes.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Returns
+                                                                                              ## attribute
+                                                                                              ## storing
+                                                                                              ## presentation
+                                                                                              ## data
 
 
-proc GetID*(): Standard_GUID {.importcpp: "TPrsStd_AISPresentation::GetID(@)",
-                            header: "TPrsStd_AISPresentation.hxx".}
-proc Set*(L: TDF_Label; driver: Standard_GUID): handle[TPrsStd_AISPresentation] {.
+proc getID*(): StandardGUID {.importcpp: "TPrsStd_AISPresentation::GetID(@)",
+                           header: "TPrsStd_AISPresentation.hxx".}
+proc set*(L: TDF_Label; driver: StandardGUID): Handle[TPrsStdAISPresentation] {.
     importcpp: "TPrsStd_AISPresentation::Set(@)",
     header: "TPrsStd_AISPresentation.hxx".}
-proc Unset*(L: TDF_Label) {.importcpp: "TPrsStd_AISPresentation::Unset(@)",
+proc unset*(L: TDF_Label) {.importcpp: "TPrsStd_AISPresentation::Unset(@)",
                          header: "TPrsStd_AISPresentation.hxx".}
-proc Set*(master: handle[TDF_Attribute]): handle[TPrsStd_AISPresentation] {.
+proc set*(master: Handle[TDF_Attribute]): Handle[TPrsStdAISPresentation] {.
     importcpp: "TPrsStd_AISPresentation::Set(@)",
     header: "TPrsStd_AISPresentation.hxx".}
-proc constructTPrsStd_AISPresentation*(): TPrsStd_AISPresentation {.constructor,
+proc constructTPrsStdAISPresentation*(): TPrsStdAISPresentation {.constructor,
     importcpp: "TPrsStd_AISPresentation(@)", header: "TPrsStd_AISPresentation.hxx".}
-proc SetDisplayed*(this: var TPrsStd_AISPresentation; B: Standard_Boolean) {.
+proc setDisplayed*(this: var TPrsStdAISPresentation; b: bool) {.
     importcpp: "SetDisplayed", header: "TPrsStd_AISPresentation.hxx".}
-proc Display*(this: var TPrsStd_AISPresentation;
-             update: Standard_Boolean = Standard_False) {.importcpp: "Display",
+proc display*(this: var TPrsStdAISPresentation; update: bool = false) {.
+    importcpp: "Display", header: "TPrsStd_AISPresentation.hxx".}
+proc erase*(this: var TPrsStdAISPresentation; remove: bool = false) {.
+    importcpp: "Erase", header: "TPrsStd_AISPresentation.hxx".}
+proc update*(this: var TPrsStdAISPresentation) {.importcpp: "Update",
     header: "TPrsStd_AISPresentation.hxx".}
-proc Erase*(this: var TPrsStd_AISPresentation;
-           remove: Standard_Boolean = Standard_False) {.importcpp: "Erase",
-    header: "TPrsStd_AISPresentation.hxx".}
-proc Update*(this: var TPrsStd_AISPresentation) {.importcpp: "Update",
-    header: "TPrsStd_AISPresentation.hxx".}
-proc GetDriverGUID*(this: TPrsStd_AISPresentation): Standard_GUID {.noSideEffect,
+proc getDriverGUID*(this: TPrsStdAISPresentation): StandardGUID {.noSideEffect,
     importcpp: "GetDriverGUID", header: "TPrsStd_AISPresentation.hxx".}
-proc SetDriverGUID*(this: var TPrsStd_AISPresentation; guid: Standard_GUID) {.
+proc setDriverGUID*(this: var TPrsStdAISPresentation; guid: StandardGUID) {.
     importcpp: "SetDriverGUID", header: "TPrsStd_AISPresentation.hxx".}
-proc IsDisplayed*(this: TPrsStd_AISPresentation): Standard_Boolean {.noSideEffect,
+proc isDisplayed*(this: TPrsStdAISPresentation): bool {.noSideEffect,
     importcpp: "IsDisplayed", header: "TPrsStd_AISPresentation.hxx".}
-proc GetAIS*(this: TPrsStd_AISPresentation): handle[AIS_InteractiveObject] {.
+proc getAIS*(this: TPrsStdAISPresentation): Handle[AIS_InteractiveObject] {.
     noSideEffect, importcpp: "GetAIS", header: "TPrsStd_AISPresentation.hxx".}
-proc Material*(this: TPrsStd_AISPresentation): Graphic3d_NameOfMaterial {.
+proc material*(this: TPrsStdAISPresentation): Graphic3dNameOfMaterial {.
     noSideEffect, importcpp: "Material", header: "TPrsStd_AISPresentation.hxx".}
-proc SetMaterial*(this: var TPrsStd_AISPresentation; aName: Graphic3d_NameOfMaterial) {.
+proc setMaterial*(this: var TPrsStdAISPresentation; aName: Graphic3dNameOfMaterial) {.
     importcpp: "SetMaterial", header: "TPrsStd_AISPresentation.hxx".}
-proc HasOwnMaterial*(this: TPrsStd_AISPresentation): Standard_Boolean {.
-    noSideEffect, importcpp: "HasOwnMaterial",
+proc hasOwnMaterial*(this: TPrsStdAISPresentation): bool {.noSideEffect,
+    importcpp: "HasOwnMaterial", header: "TPrsStd_AISPresentation.hxx".}
+proc unsetMaterial*(this: var TPrsStdAISPresentation) {.importcpp: "UnsetMaterial",
     header: "TPrsStd_AISPresentation.hxx".}
-proc UnsetMaterial*(this: var TPrsStd_AISPresentation) {.importcpp: "UnsetMaterial",
-    header: "TPrsStd_AISPresentation.hxx".}
-proc SetTransparency*(this: var TPrsStd_AISPresentation; aValue: Standard_Real = 0.6) {.
+proc setTransparency*(this: var TPrsStdAISPresentation; aValue: float = 0.6) {.
     importcpp: "SetTransparency", header: "TPrsStd_AISPresentation.hxx".}
-proc Transparency*(this: TPrsStd_AISPresentation): Standard_Real {.noSideEffect,
+proc transparency*(this: TPrsStdAISPresentation): float {.noSideEffect,
     importcpp: "Transparency", header: "TPrsStd_AISPresentation.hxx".}
-proc HasOwnTransparency*(this: TPrsStd_AISPresentation): Standard_Boolean {.
-    noSideEffect, importcpp: "HasOwnTransparency",
-    header: "TPrsStd_AISPresentation.hxx".}
-proc UnsetTransparency*(this: var TPrsStd_AISPresentation) {.
+proc hasOwnTransparency*(this: TPrsStdAISPresentation): bool {.noSideEffect,
+    importcpp: "HasOwnTransparency", header: "TPrsStd_AISPresentation.hxx".}
+proc unsetTransparency*(this: var TPrsStdAISPresentation) {.
     importcpp: "UnsetTransparency", header: "TPrsStd_AISPresentation.hxx".}
-proc Color*(this: TPrsStd_AISPresentation): Quantity_NameOfColor {.noSideEffect,
+proc color*(this: TPrsStdAISPresentation): QuantityNameOfColor {.noSideEffect,
     importcpp: "Color", header: "TPrsStd_AISPresentation.hxx".}
-proc SetColor*(this: var TPrsStd_AISPresentation; aColor: Quantity_NameOfColor) {.
+proc setColor*(this: var TPrsStdAISPresentation; aColor: QuantityNameOfColor) {.
     importcpp: "SetColor", header: "TPrsStd_AISPresentation.hxx".}
-proc HasOwnColor*(this: TPrsStd_AISPresentation): Standard_Boolean {.noSideEffect,
+proc hasOwnColor*(this: TPrsStdAISPresentation): bool {.noSideEffect,
     importcpp: "HasOwnColor", header: "TPrsStd_AISPresentation.hxx".}
-proc UnsetColor*(this: var TPrsStd_AISPresentation) {.importcpp: "UnsetColor",
+proc unsetColor*(this: var TPrsStdAISPresentation) {.importcpp: "UnsetColor",
     header: "TPrsStd_AISPresentation.hxx".}
-proc Width*(this: TPrsStd_AISPresentation): Standard_Real {.noSideEffect,
-    importcpp: "Width", header: "TPrsStd_AISPresentation.hxx".}
-proc SetWidth*(this: var TPrsStd_AISPresentation; aWidth: Standard_Real) {.
+proc width*(this: TPrsStdAISPresentation): float {.noSideEffect, importcpp: "Width",
+    header: "TPrsStd_AISPresentation.hxx".}
+proc setWidth*(this: var TPrsStdAISPresentation; aWidth: float) {.
     importcpp: "SetWidth", header: "TPrsStd_AISPresentation.hxx".}
-proc HasOwnWidth*(this: TPrsStd_AISPresentation): Standard_Boolean {.noSideEffect,
+proc hasOwnWidth*(this: TPrsStdAISPresentation): bool {.noSideEffect,
     importcpp: "HasOwnWidth", header: "TPrsStd_AISPresentation.hxx".}
-proc UnsetWidth*(this: var TPrsStd_AISPresentation) {.importcpp: "UnsetWidth",
+proc unsetWidth*(this: var TPrsStdAISPresentation) {.importcpp: "UnsetWidth",
     header: "TPrsStd_AISPresentation.hxx".}
-proc Mode*(this: TPrsStd_AISPresentation): Standard_Integer {.noSideEffect,
-    importcpp: "Mode", header: "TPrsStd_AISPresentation.hxx".}
-proc SetMode*(this: var TPrsStd_AISPresentation; theMode: Standard_Integer) {.
-    importcpp: "SetMode", header: "TPrsStd_AISPresentation.hxx".}
-proc HasOwnMode*(this: TPrsStd_AISPresentation): Standard_Boolean {.noSideEffect,
+proc mode*(this: TPrsStdAISPresentation): int {.noSideEffect, importcpp: "Mode",
+    header: "TPrsStd_AISPresentation.hxx".}
+proc setMode*(this: var TPrsStdAISPresentation; theMode: int) {.importcpp: "SetMode",
+    header: "TPrsStd_AISPresentation.hxx".}
+proc hasOwnMode*(this: TPrsStdAISPresentation): bool {.noSideEffect,
     importcpp: "HasOwnMode", header: "TPrsStd_AISPresentation.hxx".}
-proc UnsetMode*(this: var TPrsStd_AISPresentation) {.importcpp: "UnsetMode",
+proc unsetMode*(this: var TPrsStdAISPresentation) {.importcpp: "UnsetMode",
     header: "TPrsStd_AISPresentation.hxx".}
-proc GetNbSelectionModes*(this: TPrsStd_AISPresentation): Standard_Integer {.
-    noSideEffect, importcpp: "GetNbSelectionModes",
+proc getNbSelectionModes*(this: TPrsStdAISPresentation): int {.noSideEffect,
+    importcpp: "GetNbSelectionModes", header: "TPrsStd_AISPresentation.hxx".}
+proc selectionMode*(this: TPrsStdAISPresentation; index: cint = 1): int {.noSideEffect,
+    importcpp: "SelectionMode", header: "TPrsStd_AISPresentation.hxx".}
+proc setSelectionMode*(this: var TPrsStdAISPresentation; theSelectionMode: int;
+                      theTransaction: bool = true) {.importcpp: "SetSelectionMode",
     header: "TPrsStd_AISPresentation.hxx".}
-proc SelectionMode*(this: TPrsStd_AISPresentation; index: cint = 1): Standard_Integer {.
-    noSideEffect, importcpp: "SelectionMode", header: "TPrsStd_AISPresentation.hxx".}
-proc SetSelectionMode*(this: var TPrsStd_AISPresentation;
-                      theSelectionMode: Standard_Integer;
-                      theTransaction: Standard_Boolean = Standard_True) {.
-    importcpp: "SetSelectionMode", header: "TPrsStd_AISPresentation.hxx".}
-proc AddSelectionMode*(this: var TPrsStd_AISPresentation;
-                      theSelectionMode: Standard_Integer;
-                      theTransaction: Standard_Boolean = Standard_True) {.
-    importcpp: "AddSelectionMode", header: "TPrsStd_AISPresentation.hxx".}
-proc HasOwnSelectionMode*(this: TPrsStd_AISPresentation): Standard_Boolean {.
-    noSideEffect, importcpp: "HasOwnSelectionMode",
+proc addSelectionMode*(this: var TPrsStdAISPresentation; theSelectionMode: int;
+                      theTransaction: bool = true) {.importcpp: "AddSelectionMode",
     header: "TPrsStd_AISPresentation.hxx".}
-proc UnsetSelectionMode*(this: var TPrsStd_AISPresentation) {.
+proc hasOwnSelectionMode*(this: TPrsStdAISPresentation): bool {.noSideEffect,
+    importcpp: "HasOwnSelectionMode", header: "TPrsStd_AISPresentation.hxx".}
+proc unsetSelectionMode*(this: var TPrsStdAISPresentation) {.
     importcpp: "UnsetSelectionMode", header: "TPrsStd_AISPresentation.hxx".}
-proc ID*(this: TPrsStd_AISPresentation): Standard_GUID {.noSideEffect,
-    importcpp: "ID", header: "TPrsStd_AISPresentation.hxx".}
-proc NewEmpty*(this: TPrsStd_AISPresentation): handle[TDF_Attribute] {.noSideEffect,
+proc id*(this: TPrsStdAISPresentation): StandardGUID {.noSideEffect, importcpp: "ID",
+    header: "TPrsStd_AISPresentation.hxx".}
+proc newEmpty*(this: TPrsStdAISPresentation): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TPrsStd_AISPresentation.hxx".}
-proc Restore*(this: var TPrsStd_AISPresentation; with: handle[TDF_Attribute]) {.
+proc restore*(this: var TPrsStdAISPresentation; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TPrsStd_AISPresentation.hxx".}
-proc Paste*(this: TPrsStd_AISPresentation; into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TPrsStdAISPresentation; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TPrsStd_AISPresentation.hxx".}
-proc BackupCopy*(this: TPrsStd_AISPresentation): handle[TDF_Attribute] {.
+proc backupCopy*(this: TPrsStdAISPresentation): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "BackupCopy", header: "TPrsStd_AISPresentation.hxx".}
-proc AfterAddition*(this: var TPrsStd_AISPresentation) {.importcpp: "AfterAddition",
+proc afterAddition*(this: var TPrsStdAISPresentation) {.importcpp: "AfterAddition",
     header: "TPrsStd_AISPresentation.hxx".}
-proc BeforeRemoval*(this: var TPrsStd_AISPresentation) {.importcpp: "BeforeRemoval",
+proc beforeRemoval*(this: var TPrsStdAISPresentation) {.importcpp: "BeforeRemoval",
     header: "TPrsStd_AISPresentation.hxx".}
-proc BeforeForget*(this: var TPrsStd_AISPresentation) {.importcpp: "BeforeForget",
+proc beforeForget*(this: var TPrsStdAISPresentation) {.importcpp: "BeforeForget",
     header: "TPrsStd_AISPresentation.hxx".}
-proc AfterResume*(this: var TPrsStd_AISPresentation) {.importcpp: "AfterResume",
+proc afterResume*(this: var TPrsStdAISPresentation) {.importcpp: "AfterResume",
     header: "TPrsStd_AISPresentation.hxx".}
-proc BeforeUndo*(this: var TPrsStd_AISPresentation;
-                anAttDelta: handle[TDF_AttributeDelta];
-                forceIt: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc beforeUndo*(this: var TPrsStdAISPresentation;
+                anAttDelta: Handle[TDF_AttributeDelta]; forceIt: bool = false): bool {.
     importcpp: "BeforeUndo", header: "TPrsStd_AISPresentation.hxx".}
-proc AfterUndo*(this: var TPrsStd_AISPresentation;
-               anAttDelta: handle[TDF_AttributeDelta];
-               forceIt: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc afterUndo*(this: var TPrsStdAISPresentation;
+               anAttDelta: Handle[TDF_AttributeDelta]; forceIt: bool = false): bool {.
     importcpp: "AfterUndo", header: "TPrsStd_AISPresentation.hxx".}
 type
-  TPrsStd_AISPresentationbase_type* = TDF_Attribute
+  TPrsStdAISPresentationbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TPrsStd_AISPresentation::get_type_name(@)",
-                              header: "TPrsStd_AISPresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TPrsStd_AISPresentation::get_type_name(@)",
+                            header: "TPrsStd_AISPresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TPrsStd_AISPresentation::get_type_descriptor(@)",
     header: "TPrsStd_AISPresentation.hxx".}
-proc DynamicType*(this: TPrsStd_AISPresentation): handle[Standard_Type] {.
+proc dynamicType*(this: TPrsStdAISPresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TPrsStd_AISPresentation.hxx".}

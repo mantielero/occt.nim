@@ -19,8 +19,9 @@
 ## ! - RM_RAYTRACING: enables GPU ray-tracing mode.
 
 type
-  Graphic3d_RenderingMode* {.size: sizeof(cint),
-                            importcpp: "Graphic3d_RenderingMode",
-                            header: "Graphic3d_RenderingMode.hxx".} = enum
-    Graphic3d_RM_RASTERIZATION, Graphic3d_RM_RAYTRACING
+  Graphic3dRenderingMode* {.size: sizeof(cint),
+                           importcpp: "Graphic3d_RenderingMode",
+                           header: "Graphic3d_RenderingMode.hxx".} = enum
+    Graphic3dRM_RASTERIZATION, Graphic3dRM_RAYTRACING
+
 

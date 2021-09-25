@@ -14,39 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP214_GroupItem, StepAP214_Array1OfGroupItem,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepAP214_HArray1OfGroupItem* {.importcpp: "StepAP214_HArray1OfGroupItem",
-                                 header: "StepAP214_HArray1OfGroupItem.hxx",
-                                 bycopy.} = object of StepAP214_Array1OfGroupItem
+  StepAP214HArray1OfGroupItem* {.importcpp: "StepAP214_HArray1OfGroupItem",
+                                header: "StepAP214_HArray1OfGroupItem.hxx", bycopy.} = object of StepAP214Array1OfGroupItem
 
 
-proc constructStepAP214_HArray1OfGroupItem*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepAP214_HArray1OfGroupItem {.constructor,
+proc constructStepAP214HArray1OfGroupItem*(theLower: int; theUpper: int): StepAP214HArray1OfGroupItem {.
+    constructor, importcpp: "StepAP214_HArray1OfGroupItem(@)",
+    header: "StepAP214_HArray1OfGroupItem.hxx".}
+proc constructStepAP214HArray1OfGroupItem*(theLower: int; theUpper: int;
+    theValue: ValueType): StepAP214HArray1OfGroupItem {.constructor,
     importcpp: "StepAP214_HArray1OfGroupItem(@)",
     header: "StepAP214_HArray1OfGroupItem.hxx".}
-proc constructStepAP214_HArray1OfGroupItem*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepAP214_HArray1OfGroupItem {.
+proc constructStepAP214HArray1OfGroupItem*(theOther: StepAP214Array1OfGroupItem): StepAP214HArray1OfGroupItem {.
     constructor, importcpp: "StepAP214_HArray1OfGroupItem(@)",
     header: "StepAP214_HArray1OfGroupItem.hxx".}
-proc constructStepAP214_HArray1OfGroupItem*(theOther: StepAP214_Array1OfGroupItem): StepAP214_HArray1OfGroupItem {.
-    constructor, importcpp: "StepAP214_HArray1OfGroupItem(@)",
-    header: "StepAP214_HArray1OfGroupItem.hxx".}
-proc Array1*(this: StepAP214_HArray1OfGroupItem): StepAP214_Array1OfGroupItem {.
+proc array1*(this: StepAP214HArray1OfGroupItem): StepAP214Array1OfGroupItem {.
     noSideEffect, importcpp: "Array1", header: "StepAP214_HArray1OfGroupItem.hxx".}
-proc ChangeArray1*(this: var StepAP214_HArray1OfGroupItem): var StepAP214_Array1OfGroupItem {.
+proc changeArray1*(this: var StepAP214HArray1OfGroupItem): var StepAP214Array1OfGroupItem {.
     importcpp: "ChangeArray1", header: "StepAP214_HArray1OfGroupItem.hxx".}
 type
-  StepAP214_HArray1OfGroupItembase_type* = MMgt_TShared
+  StepAP214HArray1OfGroupItembaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_HArray1OfGroupItem::get_type_name(@)",
-                              header: "StepAP214_HArray1OfGroupItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP214_HArray1OfGroupItem::get_type_name(@)",
+                            header: "StepAP214_HArray1OfGroupItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP214_HArray1OfGroupItem::get_type_descriptor(@)",
     header: "StepAP214_HArray1OfGroupItem.hxx".}
-proc DynamicType*(this: StepAP214_HArray1OfGroupItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepAP214HArray1OfGroupItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_HArray1OfGroupItem.hxx".}

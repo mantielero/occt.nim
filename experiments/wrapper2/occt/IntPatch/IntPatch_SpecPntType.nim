@@ -19,8 +19,9 @@
 ## ! apex of cone, point on U- or V-seam etc.
 
 type
-  IntPatch_SpecPntType* {.size: sizeof(cint), importcpp: "IntPatch_SpecPntType",
-                         header: "IntPatch_SpecPntType.hxx".} = enum
-    IntPatch_SPntNone, IntPatch_SPntSeamU, IntPatch_SPntSeamV, IntPatch_SPntSeamUV,
-    IntPatch_SPntPoleSeamU, IntPatch_SPntPole
+  IntPatchSpecPntType* {.size: sizeof(cint), importcpp: "IntPatch_SpecPntType",
+                        header: "IntPatch_SpecPntType.hxx".} = enum
+    IntPatchSPntNone, IntPatchSPntSeamU, IntPatchSPntSeamV, IntPatchSPntSeamUV,
+    IntPatchSPntPoleSeamU, IntPatchSPntPole
+
 

@@ -14,56 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Graphic3d_NameOfTextureEnv,
-  Graphic3d_TextureRoot, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Graphic3d_TextureEnv"
 discard "forward decl of Graphic3d_TextureEnv"
 type
-  Handle_Graphic3d_TextureEnv* = handle[Graphic3d_TextureEnv]
+  HandleGraphic3dTextureEnv* = Handle[Graphic3dTextureEnv]
 
 ## ! This class provides environment texture.
 
 type
-  Graphic3d_TextureEnv* {.importcpp: "Graphic3d_TextureEnv",
-                         header: "Graphic3d_TextureEnv.hxx", bycopy.} = object of Graphic3d_TextureRoot ##
-                                                                                                 ## !
-                                                                                                 ## Creates
-                                                                                                 ## an
-                                                                                                 ## environment
-                                                                                                 ## texture
-                                                                                                 ## from
-                                                                                                 ## a
-                                                                                                 ## file.
+  Graphic3dTextureEnv* {.importcpp: "Graphic3d_TextureEnv",
+                        header: "Graphic3d_TextureEnv.hxx", bycopy.} = object of Graphic3dTextureRoot ##
+                                                                                               ## !
+                                                                                               ## Creates
+                                                                                               ## an
+                                                                                               ## environment
+                                                                                               ## texture
+                                                                                               ## from
+                                                                                               ## a
+                                                                                               ## file.
 
 
-proc constructGraphic3d_TextureEnv*(theFileName: TCollection_AsciiString): Graphic3d_TextureEnv {.
+proc constructGraphic3dTextureEnv*(theFileName: TCollectionAsciiString): Graphic3dTextureEnv {.
     constructor, importcpp: "Graphic3d_TextureEnv(@)",
     header: "Graphic3d_TextureEnv.hxx".}
-proc constructGraphic3d_TextureEnv*(theName: Graphic3d_NameOfTextureEnv): Graphic3d_TextureEnv {.
+proc constructGraphic3dTextureEnv*(theName: Graphic3dNameOfTextureEnv): Graphic3dTextureEnv {.
     constructor, importcpp: "Graphic3d_TextureEnv(@)",
     header: "Graphic3d_TextureEnv.hxx".}
-proc constructGraphic3d_TextureEnv*(thePixMap: handle[Image_PixMap]): Graphic3d_TextureEnv {.
+proc constructGraphic3dTextureEnv*(thePixMap: Handle[ImagePixMap]): Graphic3dTextureEnv {.
     constructor, importcpp: "Graphic3d_TextureEnv(@)",
     header: "Graphic3d_TextureEnv.hxx".}
-proc Name*(this: Graphic3d_TextureEnv): Graphic3d_NameOfTextureEnv {.noSideEffect,
+proc name*(this: Graphic3dTextureEnv): Graphic3dNameOfTextureEnv {.noSideEffect,
     importcpp: "Name", header: "Graphic3d_TextureEnv.hxx".}
-proc NumberOfTextures*(): Standard_Integer {.
-    importcpp: "Graphic3d_TextureEnv::NumberOfTextures(@)",
-    header: "Graphic3d_TextureEnv.hxx".}
-proc TextureName*(theRank: Standard_Integer): TCollection_AsciiString {.
+proc numberOfTextures*(): int {.importcpp: "Graphic3d_TextureEnv::NumberOfTextures(@)",
+                             header: "Graphic3d_TextureEnv.hxx".}
+proc textureName*(theRank: int): TCollectionAsciiString {.
     importcpp: "Graphic3d_TextureEnv::TextureName(@)",
     header: "Graphic3d_TextureEnv.hxx".}
 type
-  Graphic3d_TextureEnvbase_type* = Graphic3d_TextureRoot
+  Graphic3dTextureEnvbaseType* = Graphic3dTextureRoot
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_TextureEnv::get_type_name(@)",
-                              header: "Graphic3d_TextureEnv.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_TextureEnv::get_type_name(@)",
+                            header: "Graphic3d_TextureEnv.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_TextureEnv::get_type_descriptor(@)",
     header: "Graphic3d_TextureEnv.hxx".}
-proc DynamicType*(this: Graphic3d_TextureEnv): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: Graphic3dTextureEnv): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Graphic3d_TextureEnv.hxx".}

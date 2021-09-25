@@ -11,51 +11,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../RWMesh/RWMesh_MaterialMap
-
 discard "forward decl of RWGltf_GltfOStreamWriter"
 type
-  RWGltf_GltfMaterialMap* {.importcpp: "RWGltf_GltfMaterialMap",
-                           header: "RWGltf_GltfMaterialMap.hxx", bycopy.} = object of RWMesh_MaterialMap ##
-                                                                                                  ## !
-                                                                                                  ## Main
-                                                                                                  ## constructor.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Return
-                                                                                                  ## base
-                                                                                                  ## color
-                                                                                                  ## texture.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Add
-                                                                                                  ## texture
-                                                                                                  ## image.
+  RWGltfGltfMaterialMap* {.importcpp: "RWGltf_GltfMaterialMap",
+                          header: "RWGltf_GltfMaterialMap.hxx", bycopy.} = object of RWMeshMaterialMap ##
+                                                                                                ## !
+                                                                                                ## Main
+                                                                                                ## constructor.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Return
+                                                                                                ## base
+                                                                                                ## color
+                                                                                                ## texture.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Add
+                                                                                                ## texture
+                                                                                                ## image.
 
 
-proc constructRWGltf_GltfMaterialMap*(theFile: TCollection_AsciiString;
-                                     theDefSamplerId: Standard_Integer): RWGltf_GltfMaterialMap {.
+proc constructRWGltfGltfMaterialMap*(theFile: TCollectionAsciiString;
+                                    theDefSamplerId: int): RWGltfGltfMaterialMap {.
     constructor, importcpp: "RWGltf_GltfMaterialMap(@)",
     header: "RWGltf_GltfMaterialMap.hxx".}
-proc destroyRWGltf_GltfMaterialMap*(this: var RWGltf_GltfMaterialMap) {.
+proc destroyRWGltfGltfMaterialMap*(this: var RWGltfGltfMaterialMap) {.
     importcpp: "#.~RWGltf_GltfMaterialMap()", header: "RWGltf_GltfMaterialMap.hxx".}
-proc AddImages*(this: var RWGltf_GltfMaterialMap;
-               theWriter: ptr RWGltf_GltfOStreamWriter; theStyle: XCAFPrs_Style;
-               theIsStarted: var Standard_Boolean) {.importcpp: "AddImages",
-    header: "RWGltf_GltfMaterialMap.hxx".}
-proc AddMaterial*(this: var RWGltf_GltfMaterialMap;
-                 theWriter: ptr RWGltf_GltfOStreamWriter; theStyle: XCAFPrs_Style;
-                 theIsStarted: var Standard_Boolean) {.importcpp: "AddMaterial",
-    header: "RWGltf_GltfMaterialMap.hxx".}
-proc AddTextures*(this: var RWGltf_GltfMaterialMap;
-                 theWriter: ptr RWGltf_GltfOStreamWriter; theStyle: XCAFPrs_Style;
-                 theIsStarted: var Standard_Boolean) {.importcpp: "AddTextures",
-    header: "RWGltf_GltfMaterialMap.hxx".}
-proc NbImages*(this: RWGltf_GltfMaterialMap): Standard_Integer {.noSideEffect,
+proc addImages*(this: var RWGltfGltfMaterialMap;
+               theWriter: ptr RWGltfGltfOStreamWriter; theStyle: XCAFPrsStyle;
+               theIsStarted: var bool) {.importcpp: "AddImages",
+                                      header: "RWGltf_GltfMaterialMap.hxx".}
+proc addMaterial*(this: var RWGltfGltfMaterialMap;
+                 theWriter: ptr RWGltfGltfOStreamWriter; theStyle: XCAFPrsStyle;
+                 theIsStarted: var bool) {.importcpp: "AddMaterial",
+                                        header: "RWGltf_GltfMaterialMap.hxx".}
+proc addTextures*(this: var RWGltfGltfMaterialMap;
+                 theWriter: ptr RWGltfGltfOStreamWriter; theStyle: XCAFPrsStyle;
+                 theIsStarted: var bool) {.importcpp: "AddTextures",
+                                        header: "RWGltf_GltfMaterialMap.hxx".}
+proc nbImages*(this: RWGltfGltfMaterialMap): int {.noSideEffect,
     importcpp: "NbImages", header: "RWGltf_GltfMaterialMap.hxx".}
-proc NbTextures*(this: RWGltf_GltfMaterialMap): Standard_Integer {.noSideEffect,
+proc nbTextures*(this: RWGltfGltfMaterialMap): int {.noSideEffect,
     importcpp: "NbTextures", header: "RWGltf_GltfMaterialMap.hxx".}
-proc baseColorTexture*(theMat: handle[XCAFDoc_VisMaterial]): handle[Image_Texture] {.
+proc baseColorTexture*(theMat: Handle[XCAFDocVisMaterial]): Handle[ImageTexture] {.
     importcpp: "RWGltf_GltfMaterialMap::baseColorTexture(@)",
     header: "RWGltf_GltfMaterialMap.hxx".}

@@ -14,39 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepVisual_CurveStyle"
 discard "forward decl of StepVisual_SurfaceStyleBoundary"
 discard "forward decl of StepVisual_SurfaceStyleBoundary"
 type
-  Handle_StepVisual_SurfaceStyleBoundary* = handle[StepVisual_SurfaceStyleBoundary]
-  StepVisual_SurfaceStyleBoundary* {.importcpp: "StepVisual_SurfaceStyleBoundary", header: "StepVisual_SurfaceStyleBoundary.hxx",
-                                    bycopy.} = object of Standard_Transient ## ! Returns a
-                                                                       ## SurfaceStyleBoundary
+  HandleStepVisualSurfaceStyleBoundary* = Handle[StepVisualSurfaceStyleBoundary]
+  StepVisualSurfaceStyleBoundary* {.importcpp: "StepVisual_SurfaceStyleBoundary", header: "StepVisual_SurfaceStyleBoundary.hxx",
+                                   bycopy.} = object of StandardTransient ## ! Returns a
+                                                                     ## SurfaceStyleBoundary
 
 
-proc constructStepVisual_SurfaceStyleBoundary*(): StepVisual_SurfaceStyleBoundary {.
+proc constructStepVisualSurfaceStyleBoundary*(): StepVisualSurfaceStyleBoundary {.
     constructor, importcpp: "StepVisual_SurfaceStyleBoundary(@)",
     header: "StepVisual_SurfaceStyleBoundary.hxx".}
-proc Init*(this: var StepVisual_SurfaceStyleBoundary;
-          aStyleOfBoundary: handle[StepVisual_CurveStyle]) {.importcpp: "Init",
+proc init*(this: var StepVisualSurfaceStyleBoundary;
+          aStyleOfBoundary: Handle[StepVisualCurveStyle]) {.importcpp: "Init",
     header: "StepVisual_SurfaceStyleBoundary.hxx".}
-proc SetStyleOfBoundary*(this: var StepVisual_SurfaceStyleBoundary;
-                        aStyleOfBoundary: handle[StepVisual_CurveStyle]) {.
+proc setStyleOfBoundary*(this: var StepVisualSurfaceStyleBoundary;
+                        aStyleOfBoundary: Handle[StepVisualCurveStyle]) {.
     importcpp: "SetStyleOfBoundary", header: "StepVisual_SurfaceStyleBoundary.hxx".}
-proc StyleOfBoundary*(this: StepVisual_SurfaceStyleBoundary): handle[
-    StepVisual_CurveStyle] {.noSideEffect, importcpp: "StyleOfBoundary",
-                            header: "StepVisual_SurfaceStyleBoundary.hxx".}
+proc styleOfBoundary*(this: StepVisualSurfaceStyleBoundary): Handle[
+    StepVisualCurveStyle] {.noSideEffect, importcpp: "StyleOfBoundary",
+                           header: "StepVisual_SurfaceStyleBoundary.hxx".}
 type
-  StepVisual_SurfaceStyleBoundarybase_type* = Standard_Transient
+  StepVisualSurfaceStyleBoundarybaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_SurfaceStyleBoundary::get_type_name(@)",
-                              header: "StepVisual_SurfaceStyleBoundary.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_SurfaceStyleBoundary::get_type_name(@)",
+                            header: "StepVisual_SurfaceStyleBoundary.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_SurfaceStyleBoundary::get_type_descriptor(@)",
     header: "StepVisual_SurfaceStyleBoundary.hxx".}
-proc DynamicType*(this: StepVisual_SurfaceStyleBoundary): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualSurfaceStyleBoundary): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_SurfaceStyleBoundary.hxx".}

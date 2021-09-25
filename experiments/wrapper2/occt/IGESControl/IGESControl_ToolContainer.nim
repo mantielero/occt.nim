@@ -13,35 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../IGESToBRep/IGESToBRep_ToolContainer
-
 discard "forward decl of IGESToBRep_IGESBoundary"
 discard "forward decl of IGESControl_ToolContainer"
 discard "forward decl of IGESControl_ToolContainer"
 type
-  Handle_IGESControl_ToolContainer* = handle[IGESControl_ToolContainer]
-  IGESControl_ToolContainer* {.importcpp: "IGESControl_ToolContainer",
-                              header: "IGESControl_ToolContainer.hxx", bycopy.} = object of IGESToBRep_ToolContainer ##
-                                                                                                              ## !
-                                                                                                              ## Empty
-                                                                                                              ## constructor
+  HandleIGESControlToolContainer* = Handle[IGESControlToolContainer]
+  IGESControlToolContainer* {.importcpp: "IGESControl_ToolContainer",
+                             header: "IGESControl_ToolContainer.hxx", bycopy.} = object of IGESToBRepToolContainer ##
+                                                                                                            ## !
+                                                                                                            ## Empty
+                                                                                                            ## constructor
 
 
-proc constructIGESControl_ToolContainer*(): IGESControl_ToolContainer {.
-    constructor, importcpp: "IGESControl_ToolContainer(@)",
+proc constructIGESControlToolContainer*(): IGESControlToolContainer {.constructor,
+    importcpp: "IGESControl_ToolContainer(@)",
     header: "IGESControl_ToolContainer.hxx".}
-proc IGESBoundary*(this: IGESControl_ToolContainer): handle[IGESToBRep_IGESBoundary] {.
+proc iGESBoundary*(this: IGESControlToolContainer): Handle[IGESToBRepIGESBoundary] {.
     noSideEffect, importcpp: "IGESBoundary",
     header: "IGESControl_ToolContainer.hxx".}
 type
-  IGESControl_ToolContainerbase_type* = IGESToBRep_ToolContainer
+  IGESControlToolContainerbaseType* = IGESToBRepToolContainer
 
-proc get_type_name*(): cstring {.importcpp: "IGESControl_ToolContainer::get_type_name(@)",
-                              header: "IGESControl_ToolContainer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESControl_ToolContainer::get_type_name(@)",
+                            header: "IGESControl_ToolContainer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESControl_ToolContainer::get_type_descriptor(@)",
     header: "IGESControl_ToolContainer.hxx".}
-proc DynamicType*(this: IGESControl_ToolContainer): handle[Standard_Type] {.
+proc dynamicType*(this: IGESControlToolContainer): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESControl_ToolContainer.hxx".}

@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Transient,
-  ../TCollection/TCollection_AsciiString, ../NCollection/NCollection_DataMap
-
 type
-  STEPConstruct_DataMapOfAsciiStringTransient* = NCollection_DataMap[
-      TCollection_AsciiString, handle[Standard_Transient], TCollection_AsciiString]
-  STEPConstruct_DataMapIteratorOfDataMapOfAsciiStringTransient* = Iterator[
-      TCollection_AsciiString, handle[Standard_Transient], TCollection_AsciiString]
+  STEPConstructDataMapOfAsciiStringTransient* = NCollectionDataMap[
+      TCollectionAsciiString, Handle[StandardTransient], TCollectionAsciiString]
+  STEPConstructDataMapIteratorOfDataMapOfAsciiStringTransient* = Iterator[
+      TCollectionAsciiString, Handle[StandardTransient], TCollectionAsciiString]
+

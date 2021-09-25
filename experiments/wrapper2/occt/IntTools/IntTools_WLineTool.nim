@@ -11,34 +11,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Boolean, ../Standard/Standard_Macro,
-  ../IntPatch/IntPatch_WLine, ../IntPatch/IntPatch_SequenceOfLine
-
 discard "forward decl of TopoDS_Face"
 discard "forward decl of GeomAdaptor_HSurface"
 discard "forward decl of GeomInt_LineConstructor"
 discard "forward decl of IntTools_Context"
 discard "forward decl of Adaptor3d_TopolTool"
 type
-  IntTools_WLineTool* {.importcpp: "IntTools_WLineTool",
-                       header: "IntTools_WLineTool.hxx", bycopy.} = object
+  IntToolsWLineTool* {.importcpp: "IntTools_WLineTool",
+                      header: "IntTools_WLineTool.hxx", bycopy.} = object
 
 
-proc NotUseSurfacesForApprox*(aF1: TopoDS_Face; aF2: TopoDS_Face;
-                             WL: handle[IntPatch_WLine]; ifprm: Standard_Integer;
-                             ilprm: Standard_Integer): Standard_Boolean {.
+proc notUseSurfacesForApprox*(aF1: TopoDS_Face; aF2: TopoDS_Face;
+                             wl: Handle[IntPatchWLine]; ifprm: int; ilprm: int): bool {.
     importcpp: "IntTools_WLineTool::NotUseSurfacesForApprox(@)",
     header: "IntTools_WLineTool.hxx".}
-proc DecompositionOfWLine*(theWLine: handle[IntPatch_WLine];
-                          theSurface1: handle[GeomAdaptor_HSurface];
-                          theSurface2: handle[GeomAdaptor_HSurface];
+proc decompositionOfWLine*(theWLine: Handle[IntPatchWLine];
+                          theSurface1: Handle[GeomAdaptorHSurface];
+                          theSurface2: Handle[GeomAdaptorHSurface];
                           theFace1: TopoDS_Face; theFace2: TopoDS_Face;
-                          theLConstructor: GeomInt_LineConstructor;
-                          theAvoidLConstructor: Standard_Boolean;
-                          theTol: Standard_Real;
-                          theNewLines: var IntPatch_SequenceOfLine;
-                          theReachedTol3d: var Standard_Real;
-                          a11: handle[IntTools_Context]): Standard_Boolean {.
+                          theLConstructor: GeomIntLineConstructor;
+                          theAvoidLConstructor: bool; theTol: float;
+                          theNewLines: var IntPatchSequenceOfLine;
+                          theReachedTol3d: var float; a11: Handle[IntToolsContext]): bool {.
     importcpp: "IntTools_WLineTool::DecompositionOfWLine(@)",
     header: "IntTools_WLineTool.hxx".}

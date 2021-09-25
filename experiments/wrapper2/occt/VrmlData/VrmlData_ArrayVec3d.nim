@@ -13,63 +13,60 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  VrmlData_Node
-
 discard "forward decl of gp_XYZ"
 type
-  VrmlData_ArrayVec3d* {.importcpp: "VrmlData_ArrayVec3d",
-                        header: "VrmlData_ArrayVec3d.hxx", bycopy.} = object of VrmlData_Node ##  ---------- PUBLIC METHODS ----------
-                                                                                       ## *
-                                                                                       ##  Empty constructor
-                                                                                       ##
-                                                                                       ##  ---------- PROTECTED METHODS ----------
-                                                                                       ## *
-                                                                                       ##  Query one vector
-                                                                                       ##  @param i
-                                                                                       ##    index in the array of vectors [0 .. N-1]
-                                                                                       ##  @return
-                                                                                       ##    the vector for the index. If index irrelevant, returns (0., 0., 0.)
-                                                                                       ##
-                                                                                       ##  ---------- PROTECTED FIELDS ----------
-                                                                                       ##  Declaration of CASCADE RTTI
+  VrmlDataArrayVec3d* {.importcpp: "VrmlData_ArrayVec3d",
+                       header: "VrmlData_ArrayVec3d.hxx", bycopy.} = object of VrmlDataNode ##  ---------- PUBLIC METHODS ----------
+                                                                                     ## *
+                                                                                     ##  Empty constructor
+                                                                                     ##
+                                                                                     ##  ---------- PROTECTED METHODS ----------
+                                                                                     ## *
+                                                                                     ##  Query one vector
+                                                                                     ##  @param i
+                                                                                     ##    index in the array of vectors [0 .. N-1]
+                                                                                     ##  @return
+                                                                                     ##    the vector for the index. If index irrelevant, returns (0., 0., 0.)
+                                                                                     ##
+                                                                                     ##  ---------- PROTECTED FIELDS ----------
+                                                                                     ##  Declaration of CASCADE RTTI
 
 
-proc constructVrmlData_ArrayVec3d*(): VrmlData_ArrayVec3d {.constructor,
+proc constructVrmlDataArrayVec3d*(): VrmlDataArrayVec3d {.constructor,
     importcpp: "VrmlData_ArrayVec3d(@)", header: "VrmlData_ArrayVec3d.hxx".}
-proc constructVrmlData_ArrayVec3d*(theScene: VrmlData_Scene; theName: cstring;
-                                  nVec: Standard_Size; arrVec: ptr gp_XYZ): VrmlData_ArrayVec3d {.
+proc constructVrmlDataArrayVec3d*(theScene: VrmlDataScene; theName: cstring;
+                                 nVec: StandardSize; arrVec: ptr Xyz): VrmlDataArrayVec3d {.
     constructor, importcpp: "VrmlData_ArrayVec3d(@)",
     header: "VrmlData_ArrayVec3d.hxx".}
-proc Length*(this: VrmlData_ArrayVec3d): Standard_Size {.noSideEffect,
+proc length*(this: VrmlDataArrayVec3d): StandardSize {.noSideEffect,
     importcpp: "Length", header: "VrmlData_ArrayVec3d.hxx".}
-proc Values*(this: VrmlData_ArrayVec3d): ptr gp_XYZ {.noSideEffect,
-    importcpp: "Values", header: "VrmlData_ArrayVec3d.hxx".}
-proc AllocateValues*(this: var VrmlData_ArrayVec3d; theLength: Standard_Size): Standard_Boolean {.
+proc values*(this: VrmlDataArrayVec3d): ptr Xyz {.noSideEffect, importcpp: "Values",
+    header: "VrmlData_ArrayVec3d.hxx".}
+proc allocateValues*(this: var VrmlDataArrayVec3d; theLength: StandardSize): bool {.
     importcpp: "AllocateValues", header: "VrmlData_ArrayVec3d.hxx".}
-proc SetValues*(this: var VrmlData_ArrayVec3d; nValues: Standard_Size;
-               arrValues: ptr gp_XYZ) {.importcpp: "SetValues",
-                                     header: "VrmlData_ArrayVec3d.hxx".}
-proc ReadArray*(this: var VrmlData_ArrayVec3d; theBuffer: var VrmlData_InBuffer;
-               theName: cstring; isScale: Standard_Boolean): VrmlData_ErrorStatus {.
+proc setValues*(this: var VrmlDataArrayVec3d; nValues: StandardSize;
+               arrValues: ptr Xyz) {.importcpp: "SetValues",
+                                  header: "VrmlData_ArrayVec3d.hxx".}
+proc readArray*(this: var VrmlDataArrayVec3d; theBuffer: var VrmlDataInBuffer;
+               theName: cstring; isScale: bool): VrmlDataErrorStatus {.
     importcpp: "ReadArray", header: "VrmlData_ArrayVec3d.hxx".}
-proc WriteArray*(this: VrmlData_ArrayVec3d; theName: cstring;
-                isScale: Standard_Boolean): VrmlData_ErrorStatus {.noSideEffect,
-    importcpp: "WriteArray", header: "VrmlData_ArrayVec3d.hxx".}
-proc IsDefault*(this: VrmlData_ArrayVec3d): Standard_Boolean {.noSideEffect,
+proc writeArray*(this: VrmlDataArrayVec3d; theName: cstring; isScale: bool): VrmlDataErrorStatus {.
+    noSideEffect, importcpp: "WriteArray", header: "VrmlData_ArrayVec3d.hxx".}
+proc isDefault*(this: VrmlDataArrayVec3d): bool {.noSideEffect,
     importcpp: "IsDefault", header: "VrmlData_ArrayVec3d.hxx".}
 type
-  VrmlData_ArrayVec3dbase_type* = VrmlData_Node
+  VrmlDataArrayVec3dbaseType* = VrmlDataNode
 
-proc get_type_name*(): cstring {.importcpp: "VrmlData_ArrayVec3d::get_type_name(@)",
-                              header: "VrmlData_ArrayVec3d.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "VrmlData_ArrayVec3d::get_type_name(@)",
+                            header: "VrmlData_ArrayVec3d.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "VrmlData_ArrayVec3d::get_type_descriptor(@)",
     header: "VrmlData_ArrayVec3d.hxx".}
-proc DynamicType*(this: VrmlData_ArrayVec3d): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: VrmlDataArrayVec3d): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "VrmlData_ArrayVec3d.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of VrmlData_ArrayVec3d"
 type
-  Handle_VrmlData_ArrayVec3d* = handle[VrmlData_ArrayVec3d]
+  HandleVrmlDataArrayVec3d* = Handle[VrmlDataArrayVec3d]
+

@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopTools/TopTools_IndexedMapOfShape,
-  ../Standard/Standard_Real, ../TopTools/TopTools_DataMapOfShapeShape,
-  ../TopTools/TopTools_DataMapOfShapeListOfShape,
-  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape
-
 discard "forward decl of BRepAlgo_AsDes"
 discard "forward decl of BRepAlgo_Image"
 discard "forward decl of BRepOffset_Analyse"
@@ -28,49 +21,49 @@ discard "forward decl of BRepOffset_Offset"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
 type
-  BRepOffset_Inter2d* {.importcpp: "BRepOffset_Inter2d",
-                       header: "BRepOffset_Inter2d.hxx", bycopy.} = object ## ! Computes the
-                                                                      ## intersections between the edges stored
-                                                                      ## ! is AsDes as
-                                                                      ## descendants of <F> .
-                                                                      ## Intersections is computed
-                                                                      ## ! between two edges if one of them is bound in NewEdges.
-                                                                      ## ! When all faces of the shape are treated the
-                                                                      ## intersection
-                                                                      ## ! vertices have to be fused using the
-                                                                      ## FuseVertices method.
-                                                                      ## ! theDMVV contains the vertices that should be fused
+  BRepOffsetInter2d* {.importcpp: "BRepOffset_Inter2d",
+                      header: "BRepOffset_Inter2d.hxx", bycopy.} = object ## ! Computes the
+                                                                     ## intersections between the edges stored
+                                                                     ## ! is AsDes as descendants of <F> .
+                                                                     ## Intersections is computed
+                                                                     ## ! between two edges if one of them is bound in NewEdges.
+                                                                     ## ! When all faces of the shape are treated the
+                                                                     ## intersection
+                                                                     ## ! vertices have to be fused using the
+                                                                     ## FuseVertices method.
+                                                                     ## ! theDMVV contains the vertices that should be fused
 
 
-proc Compute*(AsDes: handle[BRepAlgo_AsDes]; F: TopoDS_Face;
-             NewEdges: TopTools_IndexedMapOfShape; Tol: Standard_Real;
-             theEdgeIntEdges: TopTools_DataMapOfShapeListOfShape;
-             theDMVV: var TopTools_IndexedDataMapOfShapeListOfShape) {.
+proc compute*(asDes: Handle[BRepAlgoAsDes]; f: TopoDS_Face;
+             newEdges: TopToolsIndexedMapOfShape; tol: float;
+             theEdgeIntEdges: TopToolsDataMapOfShapeListOfShape;
+             theDMVV: var TopToolsIndexedDataMapOfShapeListOfShape) {.
     importcpp: "BRepOffset_Inter2d::Compute(@)", header: "BRepOffset_Inter2d.hxx".}
-proc ConnexIntByInt*(FI: TopoDS_Face; OFI: var BRepOffset_Offset;
-                    MES: var TopTools_DataMapOfShapeShape;
-                    Build: TopTools_DataMapOfShapeShape;
-                    theAsDes: handle[BRepAlgo_AsDes];
-                    AsDes2d: handle[BRepAlgo_AsDes]; Offset: Standard_Real;
-                    Tol: Standard_Real; Analyse: BRepOffset_Analyse;
-                    FacesWithVerts: var TopTools_IndexedMapOfShape;
-                    theImageVV: var BRepAlgo_Image;
-                    theEdgeIntEdges: var TopTools_DataMapOfShapeListOfShape;
-                    theDMVV: var TopTools_IndexedDataMapOfShapeListOfShape): Standard_Boolean {.
+proc connexIntByInt*(fi: TopoDS_Face; ofi: var BRepOffsetOffset;
+                    mes: var TopToolsDataMapOfShapeShape;
+                    build: TopToolsDataMapOfShapeShape;
+                    theAsDes: Handle[BRepAlgoAsDes];
+                    asDes2d: Handle[BRepAlgoAsDes]; offset: float; tol: float;
+                    analyse: BRepOffsetAnalyse;
+                    facesWithVerts: var TopToolsIndexedMapOfShape;
+                    theImageVV: var BRepAlgoImage;
+                    theEdgeIntEdges: var TopToolsDataMapOfShapeListOfShape;
+                    theDMVV: var TopToolsIndexedDataMapOfShapeListOfShape): bool {.
     importcpp: "BRepOffset_Inter2d::ConnexIntByInt(@)",
     header: "BRepOffset_Inter2d.hxx".}
-proc ConnexIntByIntInVert*(FI: TopoDS_Face; OFI: var BRepOffset_Offset;
-                          MES: var TopTools_DataMapOfShapeShape;
-                          Build: TopTools_DataMapOfShapeShape;
-                          AsDes: handle[BRepAlgo_AsDes];
-                          AsDes2d: handle[BRepAlgo_AsDes]; Tol: Standard_Real;
-                          Analyse: BRepOffset_Analyse; theDMVV: var TopTools_IndexedDataMapOfShapeListOfShape) {.
+proc connexIntByIntInVert*(fi: TopoDS_Face; ofi: var BRepOffsetOffset;
+                          mes: var TopToolsDataMapOfShapeShape;
+                          build: TopToolsDataMapOfShapeShape;
+                          asDes: Handle[BRepAlgoAsDes];
+                          asDes2d: Handle[BRepAlgoAsDes]; tol: float;
+                          analyse: BRepOffsetAnalyse;
+                          theDMVV: var TopToolsIndexedDataMapOfShapeListOfShape) {.
     importcpp: "BRepOffset_Inter2d::ConnexIntByIntInVert(@)",
     header: "BRepOffset_Inter2d.hxx".}
-proc FuseVertices*(theDMVV: TopTools_IndexedDataMapOfShapeListOfShape;
-                  theAsDes: handle[BRepAlgo_AsDes]; theImageVV: var BRepAlgo_Image): Standard_Boolean {.
+proc fuseVertices*(theDMVV: TopToolsIndexedDataMapOfShapeListOfShape;
+                  theAsDes: Handle[BRepAlgoAsDes]; theImageVV: var BRepAlgoImage): bool {.
     importcpp: "BRepOffset_Inter2d::FuseVertices(@)",
     header: "BRepOffset_Inter2d.hxx".}
-proc ExtentEdge*(E: TopoDS_Edge; NE: var TopoDS_Edge; theOffset: Standard_Real): Standard_Boolean {.
+proc extentEdge*(e: TopoDS_Edge; ne: var TopoDS_Edge; theOffset: float): bool {.
     importcpp: "BRepOffset_Inter2d::ExtentEdge(@)",
     header: "BRepOffset_Inter2d.hxx".}

@@ -11,50 +11,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../PCDM/PCDM_RetrievalDriver, ../Storage/Storage_Error
-
 discard "forward decl of StdObjMgt_MapOfInstantiators"
 discard "forward decl of StdObjMgt_Persistent"
 type
-  StdLDrivers_DocumentRetrievalDriver* {.importcpp: "StdLDrivers_DocumentRetrievalDriver", header: "StdLDrivers_DocumentRetrievalDriver.hxx",
-                                        bycopy.} = object of PCDM_RetrievalDriver ## !
-                                                                             ## Create an
-                                                                             ## empty
-                                                                             ## TDocStd_Document.
-                                                                             ## !
-                                                                             ## Register
-                                                                             ## types.
-                                                                             ## !
-                                                                             ## Read
-                                                                             ## persistent
-                                                                             ## document
-                                                                             ## from a
-                                                                             ## file.
+  StdLDriversDocumentRetrievalDriver* {.importcpp: "StdLDrivers_DocumentRetrievalDriver", header: "StdLDrivers_DocumentRetrievalDriver.hxx",
+                                       bycopy.} = object of PCDM_RetrievalDriver ## !
+                                                                            ## Create an
+                                                                            ## empty
+                                                                            ## TDocStd_Document.
+                                                                            ## !
+                                                                            ## Register
+                                                                            ## types.
+                                                                            ## ! Read
+                                                                            ## persistent
+                                                                            ## document from a
+                                                                            ## file.
 
 
-proc CreateDocument*(this: var StdLDrivers_DocumentRetrievalDriver): handle[
+proc createDocument*(this: var StdLDriversDocumentRetrievalDriver): Handle[
     CDM_Document] {.importcpp: "CreateDocument",
                    header: "StdLDrivers_DocumentRetrievalDriver.hxx".}
-proc Read*(this: var StdLDrivers_DocumentRetrievalDriver;
-          theFileName: TCollection_ExtendedString;
-          theNewDocument: handle[CDM_Document];
-          theApplication: handle[CDM_Application];
-          theRange: Message_ProgressRange = Message_ProgressRange()) {.
+proc read*(this: var StdLDriversDocumentRetrievalDriver;
+          theFileName: TCollectionExtendedString;
+          theNewDocument: Handle[CDM_Document];
+          theApplication: Handle[CDM_Application];
+          theRange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Read", header: "StdLDrivers_DocumentRetrievalDriver.hxx".}
-proc Read*(this: var StdLDrivers_DocumentRetrievalDriver;
-          theIStream: var Standard_IStream; theStorageData: handle[Storage_Data];
-          theDoc: handle[CDM_Document]; theApplication: handle[CDM_Application];
-          theRange: Message_ProgressRange = Message_ProgressRange()) {.
+proc read*(this: var StdLDriversDocumentRetrievalDriver;
+          theIStream: var StandardIStream; theStorageData: Handle[StorageData];
+          theDoc: Handle[CDM_Document]; theApplication: Handle[CDM_Application];
+          theRange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Read", header: "StdLDrivers_DocumentRetrievalDriver.hxx".}
 type
-  StdLDrivers_DocumentRetrievalDriverbase_type* = PCDM_RetrievalDriver
+  StdLDriversDocumentRetrievalDriverbaseType* = PCDM_RetrievalDriver
 
-proc get_type_name*(): cstring {.importcpp: "StdLDrivers_DocumentRetrievalDriver::get_type_name(@)",
-                              header: "StdLDrivers_DocumentRetrievalDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StdLDrivers_DocumentRetrievalDriver::get_type_name(@)",
+                            header: "StdLDrivers_DocumentRetrievalDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StdLDrivers_DocumentRetrievalDriver::get_type_descriptor(@)",
     header: "StdLDrivers_DocumentRetrievalDriver.hxx".}
-proc DynamicType*(this: StdLDrivers_DocumentRetrievalDriver): handle[Standard_Type] {.
+proc dynamicType*(this: StdLDriversDocumentRetrievalDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StdLDrivers_DocumentRetrievalDriver.hxx".}

@@ -15,10 +15,11 @@
 ## ! Low-level glTF enumeration defining BufferView target.
 
 type
-  RWGltf_GltfBufferViewTarget* {.size: sizeof(cint),
-                                importcpp: "RWGltf_GltfBufferViewTarget",
-                                header: "RWGltf_GltfBufferViewTarget.hxx".} = enum
-    RWGltf_GltfBufferViewTarget_UNKNOWN, ## !< unknown or invalid type
-    RWGltf_GltfBufferViewTarget_ARRAY_BUFFER = 34962, ## !< GL_ARRAY_BUFFER
-    RWGltf_GltfBufferViewTarget_ELEMENT_ARRAY_BUFFER = 34963 ## !< GL_ELEMENT_ARRAY_BUFFER
+  RWGltfGltfBufferViewTarget* {.size: sizeof(cint),
+                               importcpp: "RWGltf_GltfBufferViewTarget",
+                               header: "RWGltf_GltfBufferViewTarget.hxx".} = enum
+    RWGltfGltfBufferViewTargetUNKNOWN, ## !< unknown or invalid type
+    RWGltfGltfBufferViewTargetARRAY_BUFFER = 34962, ## !< GL_ARRAY_BUFFER
+    RWGltfGltfBufferViewTargetELEMENT_ARRAY_BUFFER = 34963 ## !< GL_ELEMENT_ARRAY_BUFFER
+
 

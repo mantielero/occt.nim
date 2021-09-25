@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../TColgp/TColgp_Array1OfCirc2d,
-  ../GccEnt/GccEnt_Array1OfPosition, ../TColStd/TColStd_Array1OfInteger,
-  ../TColgp/TColgp_Array1OfPnt2d, ../TColStd/TColStd_Array1OfReal,
-  ../Standard/Standard_Real, ../GccEnt/GccEnt_Position
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of GccEnt_BadQualifier"
@@ -30,81 +22,72 @@ discard "forward decl of GccEnt_QualifiedLin"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Circ2d"
 type
-  GccAna_Circ2d3Tan* {.importcpp: "GccAna_Circ2d3Tan",
-                      header: "GccAna_Circ2d3Tan.hxx", bycopy.} = object ## ! This method implements the algorithms used to
-                                                                    ## ! create 2d circles tangent to 3 circles.
-                                                                    ## !
-                                                                    ## ConstructionError is raised if there is a problem during
-                                                                    ## ! the computation.
+  GccAnaCirc2d3Tan* {.importcpp: "GccAna_Circ2d3Tan",
+                     header: "GccAna_Circ2d3Tan.hxx", bycopy.} = object ## ! This method implements the algorithms used to
+                                                                   ## ! create 2d circles tangent to 3 circles.
+                                                                   ## !
+                                                                   ## ConstructionError is raised if there is a problem during
+                                                                   ## ! the computation.
 
 
-proc constructGccAna_Circ2d3Tan*(Qualified1: GccEnt_QualifiedCirc;
-                                Qualified2: GccEnt_QualifiedCirc;
-                                Qualified3: GccEnt_QualifiedCirc;
-                                Tolerance: Standard_Real): GccAna_Circ2d3Tan {.
+proc constructGccAnaCirc2d3Tan*(qualified1: GccEntQualifiedCirc;
+                               qualified2: GccEntQualifiedCirc;
+                               qualified3: GccEntQualifiedCirc; tolerance: float): GccAnaCirc2d3Tan {.
     constructor, importcpp: "GccAna_Circ2d3Tan(@)", header: "GccAna_Circ2d3Tan.hxx".}
-proc constructGccAna_Circ2d3Tan*(Qualified1: GccEnt_QualifiedCirc;
-                                Qualified2: GccEnt_QualifiedCirc;
-                                Qualified3: GccEnt_QualifiedLin;
-                                Tolerance: Standard_Real): GccAna_Circ2d3Tan {.
+proc constructGccAnaCirc2d3Tan*(qualified1: GccEntQualifiedCirc;
+                               qualified2: GccEntQualifiedCirc;
+                               qualified3: GccEntQualifiedLin; tolerance: float): GccAnaCirc2d3Tan {.
     constructor, importcpp: "GccAna_Circ2d3Tan(@)", header: "GccAna_Circ2d3Tan.hxx".}
-proc constructGccAna_Circ2d3Tan*(Qualified1: GccEnt_QualifiedCirc;
-                                Qualified2: GccEnt_QualifiedLin;
-                                Qualified3: GccEnt_QualifiedLin;
-                                Tolerance: Standard_Real): GccAna_Circ2d3Tan {.
+proc constructGccAnaCirc2d3Tan*(qualified1: GccEntQualifiedCirc;
+                               qualified2: GccEntQualifiedLin;
+                               qualified3: GccEntQualifiedLin; tolerance: float): GccAnaCirc2d3Tan {.
     constructor, importcpp: "GccAna_Circ2d3Tan(@)", header: "GccAna_Circ2d3Tan.hxx".}
-proc constructGccAna_Circ2d3Tan*(Qualified1: GccEnt_QualifiedLin;
-                                Qualified2: GccEnt_QualifiedLin;
-                                Qualified3: GccEnt_QualifiedLin;
-                                Tolerance: Standard_Real): GccAna_Circ2d3Tan {.
+proc constructGccAnaCirc2d3Tan*(qualified1: GccEntQualifiedLin;
+                               qualified2: GccEntQualifiedLin;
+                               qualified3: GccEntQualifiedLin; tolerance: float): GccAnaCirc2d3Tan {.
     constructor, importcpp: "GccAna_Circ2d3Tan(@)", header: "GccAna_Circ2d3Tan.hxx".}
-proc constructGccAna_Circ2d3Tan*(Qualified1: GccEnt_QualifiedCirc;
-                                Qualified2: GccEnt_QualifiedCirc;
-                                Point3: gp_Pnt2d; Tolerance: Standard_Real): GccAna_Circ2d3Tan {.
+proc constructGccAnaCirc2d3Tan*(qualified1: GccEntQualifiedCirc;
+                               qualified2: GccEntQualifiedCirc; point3: Pnt2d;
+                               tolerance: float): GccAnaCirc2d3Tan {.constructor,
+    importcpp: "GccAna_Circ2d3Tan(@)", header: "GccAna_Circ2d3Tan.hxx".}
+proc constructGccAnaCirc2d3Tan*(qualified1: GccEntQualifiedCirc;
+                               qualified2: GccEntQualifiedLin; point3: Pnt2d;
+                               tolerance: float): GccAnaCirc2d3Tan {.constructor,
+    importcpp: "GccAna_Circ2d3Tan(@)", header: "GccAna_Circ2d3Tan.hxx".}
+proc constructGccAnaCirc2d3Tan*(qualified1: GccEntQualifiedLin;
+                               qualified2: GccEntQualifiedLin; point3: Pnt2d;
+                               tolerance: float): GccAnaCirc2d3Tan {.constructor,
+    importcpp: "GccAna_Circ2d3Tan(@)", header: "GccAna_Circ2d3Tan.hxx".}
+proc constructGccAnaCirc2d3Tan*(qualified1: GccEntQualifiedCirc; point2: Pnt2d;
+                               point3: Pnt2d; tolerance: float): GccAnaCirc2d3Tan {.
     constructor, importcpp: "GccAna_Circ2d3Tan(@)", header: "GccAna_Circ2d3Tan.hxx".}
-proc constructGccAna_Circ2d3Tan*(Qualified1: GccEnt_QualifiedCirc;
-                                Qualified2: GccEnt_QualifiedLin; Point3: gp_Pnt2d;
-                                Tolerance: Standard_Real): GccAna_Circ2d3Tan {.
+proc constructGccAnaCirc2d3Tan*(qualified1: GccEntQualifiedLin; point2: Pnt2d;
+                               point3: Pnt2d; tolerance: float): GccAnaCirc2d3Tan {.
     constructor, importcpp: "GccAna_Circ2d3Tan(@)", header: "GccAna_Circ2d3Tan.hxx".}
-proc constructGccAna_Circ2d3Tan*(Qualified1: GccEnt_QualifiedLin;
-                                Qualified2: GccEnt_QualifiedLin; Point3: gp_Pnt2d;
-                                Tolerance: Standard_Real): GccAna_Circ2d3Tan {.
-    constructor, importcpp: "GccAna_Circ2d3Tan(@)", header: "GccAna_Circ2d3Tan.hxx".}
-proc constructGccAna_Circ2d3Tan*(Qualified1: GccEnt_QualifiedCirc;
-                                Point2: gp_Pnt2d; Point3: gp_Pnt2d;
-                                Tolerance: Standard_Real): GccAna_Circ2d3Tan {.
-    constructor, importcpp: "GccAna_Circ2d3Tan(@)", header: "GccAna_Circ2d3Tan.hxx".}
-proc constructGccAna_Circ2d3Tan*(Qualified1: GccEnt_QualifiedLin; Point2: gp_Pnt2d;
-                                Point3: gp_Pnt2d; Tolerance: Standard_Real): GccAna_Circ2d3Tan {.
-    constructor, importcpp: "GccAna_Circ2d3Tan(@)", header: "GccAna_Circ2d3Tan.hxx".}
-proc constructGccAna_Circ2d3Tan*(Point1: gp_Pnt2d; Point2: gp_Pnt2d;
-                                Point3: gp_Pnt2d; Tolerance: Standard_Real): GccAna_Circ2d3Tan {.
-    constructor, importcpp: "GccAna_Circ2d3Tan(@)", header: "GccAna_Circ2d3Tan.hxx".}
-proc IsDone*(this: GccAna_Circ2d3Tan): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "GccAna_Circ2d3Tan.hxx".}
-proc NbSolutions*(this: GccAna_Circ2d3Tan): Standard_Integer {.noSideEffect,
+proc constructGccAnaCirc2d3Tan*(point1: Pnt2d; point2: Pnt2d; point3: Pnt2d;
+                               tolerance: float): GccAnaCirc2d3Tan {.constructor,
+    importcpp: "GccAna_Circ2d3Tan(@)", header: "GccAna_Circ2d3Tan.hxx".}
+proc isDone*(this: GccAnaCirc2d3Tan): bool {.noSideEffect, importcpp: "IsDone",
+    header: "GccAna_Circ2d3Tan.hxx".}
+proc nbSolutions*(this: GccAnaCirc2d3Tan): int {.noSideEffect,
     importcpp: "NbSolutions", header: "GccAna_Circ2d3Tan.hxx".}
-proc ThisSolution*(this: GccAna_Circ2d3Tan; Index: Standard_Integer): gp_Circ2d {.
-    noSideEffect, importcpp: "ThisSolution", header: "GccAna_Circ2d3Tan.hxx".}
-proc WhichQualifier*(this: GccAna_Circ2d3Tan; Index: Standard_Integer;
-                    Qualif1: var GccEnt_Position; Qualif2: var GccEnt_Position;
-                    Qualif3: var GccEnt_Position) {.noSideEffect,
-    importcpp: "WhichQualifier", header: "GccAna_Circ2d3Tan.hxx".}
-proc Tangency1*(this: GccAna_Circ2d3Tan; Index: Standard_Integer;
-               ParSol: var Standard_Real; ParArg: var Standard_Real;
-               PntSol: var gp_Pnt2d) {.noSideEffect, importcpp: "Tangency1",
-                                    header: "GccAna_Circ2d3Tan.hxx".}
-proc Tangency2*(this: GccAna_Circ2d3Tan; Index: Standard_Integer;
-               ParSol: var Standard_Real; ParArg: var Standard_Real;
-               PntSol: var gp_Pnt2d) {.noSideEffect, importcpp: "Tangency2",
-                                    header: "GccAna_Circ2d3Tan.hxx".}
-proc Tangency3*(this: GccAna_Circ2d3Tan; Index: Standard_Integer;
-               ParSol: var Standard_Real; ParArg: var Standard_Real;
-               PntSol: var gp_Pnt2d) {.noSideEffect, importcpp: "Tangency3",
-                                    header: "GccAna_Circ2d3Tan.hxx".}
-proc IsTheSame1*(this: GccAna_Circ2d3Tan; Index: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsTheSame1", header: "GccAna_Circ2d3Tan.hxx".}
-proc IsTheSame2*(this: GccAna_Circ2d3Tan; Index: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsTheSame2", header: "GccAna_Circ2d3Tan.hxx".}
-proc IsTheSame3*(this: GccAna_Circ2d3Tan; Index: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsTheSame3", header: "GccAna_Circ2d3Tan.hxx".}
+proc thisSolution*(this: GccAnaCirc2d3Tan; index: int): Circ2d {.noSideEffect,
+    importcpp: "ThisSolution", header: "GccAna_Circ2d3Tan.hxx".}
+proc whichQualifier*(this: GccAnaCirc2d3Tan; index: int; qualif1: var GccEntPosition;
+                    qualif2: var GccEntPosition; qualif3: var GccEntPosition) {.
+    noSideEffect, importcpp: "WhichQualifier", header: "GccAna_Circ2d3Tan.hxx".}
+proc tangency1*(this: GccAnaCirc2d3Tan; index: int; parSol: var float;
+               parArg: var float; pntSol: var Pnt2d) {.noSideEffect,
+    importcpp: "Tangency1", header: "GccAna_Circ2d3Tan.hxx".}
+proc tangency2*(this: GccAnaCirc2d3Tan; index: int; parSol: var float;
+               parArg: var float; pntSol: var Pnt2d) {.noSideEffect,
+    importcpp: "Tangency2", header: "GccAna_Circ2d3Tan.hxx".}
+proc tangency3*(this: GccAnaCirc2d3Tan; index: int; parSol: var float;
+               parArg: var float; pntSol: var Pnt2d) {.noSideEffect,
+    importcpp: "Tangency3", header: "GccAna_Circ2d3Tan.hxx".}
+proc isTheSame1*(this: GccAnaCirc2d3Tan; index: int): bool {.noSideEffect,
+    importcpp: "IsTheSame1", header: "GccAna_Circ2d3Tan.hxx".}
+proc isTheSame2*(this: GccAnaCirc2d3Tan; index: int): bool {.noSideEffect,
+    importcpp: "IsTheSame2", header: "GccAna_Circ2d3Tan.hxx".}
+proc isTheSame3*(this: GccAnaCirc2d3Tan; index: int): bool {.noSideEffect,
+    importcpp: "IsTheSame3", header: "GccAna_Circ2d3Tan.hxx".}

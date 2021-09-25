@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, Extrema_POnCurv, Extrema_SequenceOfPOnCurv
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Adaptor3d_Curve"
@@ -28,63 +23,62 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of Extrema_CCLocFOfLocECC"
 type
-  Extrema_LocECC* {.importcpp: "Extrema_LocECC", header: "Extrema_LocECC.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Calculates
-                                                                                         ## the
-                                                                                         ## distance
-                                                                                         ## with
-                                                                                         ## a
-                                                                                         ## close
-                                                                                         ## point.
-                                                                                         ## The
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## close
-                                                                                         ## point
-                                                                                         ## is
-                                                                                         ## defined
-                                                                                         ## by
-                                                                                         ## a
-                                                                                         ## parameter
-                                                                                         ## value
-                                                                                         ## on
-                                                                                         ## each
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## curve.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## The
-                                                                                         ## function
-                                                                                         ## F(u,v)=distance(C1(u),C2(v))
-                                                                                         ## has
-                                                                                         ## an
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## extremun
-                                                                                         ## when
-                                                                                         ## gradient(f)=0.
-                                                                                         ## The
-                                                                                         ## algorithm
-                                                                                         ## searchs
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## the
-                                                                                         ## zero
-                                                                                         ## near
-                                                                                         ## the
-                                                                                         ## close
-                                                                                         ## point.
+  ExtremaLocECC* {.importcpp: "Extrema_LocECC", header: "Extrema_LocECC.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Calculates
+                                                                                        ## the
+                                                                                        ## distance
+                                                                                        ## with
+                                                                                        ## a
+                                                                                        ## close
+                                                                                        ## point.
+                                                                                        ## The
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## close
+                                                                                        ## point
+                                                                                        ## is
+                                                                                        ## defined
+                                                                                        ## by
+                                                                                        ## a
+                                                                                        ## parameter
+                                                                                        ## value
+                                                                                        ## on
+                                                                                        ## each
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## curve.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## The
+                                                                                        ## function
+                                                                                        ## F(u,v)=distance(C1(u),C2(v))
+                                                                                        ## has
+                                                                                        ## an
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## extremun
+                                                                                        ## when
+                                                                                        ## gradient(f)=0.
+                                                                                        ## The
+                                                                                        ## algorithm
+                                                                                        ## searchs
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## the
+                                                                                        ## zero
+                                                                                        ## near
+                                                                                        ## the
+                                                                                        ## close
+                                                                                        ## point.
 
 
-proc constructExtrema_LocECC*(C1: Adaptor3d_Curve; C2: Adaptor3d_Curve;
-                             U0: Standard_Real; V0: Standard_Real;
-                             TolU: Standard_Real; TolV: Standard_Real): Extrema_LocECC {.
+proc constructExtremaLocECC*(c1: Adaptor3dCurve; c2: Adaptor3dCurve; u0: float;
+                            v0: float; tolU: float; tolV: float): ExtremaLocECC {.
     constructor, importcpp: "Extrema_LocECC(@)", header: "Extrema_LocECC.hxx".}
-proc IsDone*(this: Extrema_LocECC): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "Extrema_LocECC.hxx".}
-proc SquareDistance*(this: Extrema_LocECC): Standard_Real {.noSideEffect,
+proc isDone*(this: ExtremaLocECC): bool {.noSideEffect, importcpp: "IsDone",
+                                      header: "Extrema_LocECC.hxx".}
+proc squareDistance*(this: ExtremaLocECC): float {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_LocECC.hxx".}
-proc Point*(this: Extrema_LocECC; P1: var Extrema_POnCurv; P2: var Extrema_POnCurv) {.
+proc point*(this: ExtremaLocECC; p1: var ExtremaPOnCurv; p2: var ExtremaPOnCurv) {.
     noSideEffect, importcpp: "Point", header: "Extrema_LocECC.hxx".}

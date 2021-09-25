@@ -14,16 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Boolean
-
 discard "forward decl of IGESGeom_Point"
 discard "forward decl of IGESGeom_Direction"
 discard "forward decl of IGESSolid_PlaneSurface"
 discard "forward decl of IGESSolid_PlaneSurface"
 type
-  Handle_IGESSolid_PlaneSurface* = handle[IGESSolid_PlaneSurface]
+  HandleIGESSolidPlaneSurface* = Handle[IGESSolidPlaneSurface]
 
 ## ! defines PlaneSurface, Type <190> Form Number <0,1>
 ## ! in package IGESSolid
@@ -31,30 +27,30 @@ type
 ## ! surface and a normal to it.
 
 type
-  IGESSolid_PlaneSurface* {.importcpp: "IGESSolid_PlaneSurface",
-                           header: "IGESSolid_PlaneSurface.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESSolidPlaneSurface* {.importcpp: "IGESSolid_PlaneSurface",
+                          header: "IGESSolid_PlaneSurface.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESSolid_PlaneSurface*(): IGESSolid_PlaneSurface {.constructor,
+proc constructIGESSolidPlaneSurface*(): IGESSolidPlaneSurface {.constructor,
     importcpp: "IGESSolid_PlaneSurface(@)", header: "IGESSolid_PlaneSurface.hxx".}
-proc Init*(this: var IGESSolid_PlaneSurface; aLocation: handle[IGESGeom_Point];
-          aNormal: handle[IGESGeom_Direction]; refdir: handle[IGESGeom_Direction]) {.
+proc init*(this: var IGESSolidPlaneSurface; aLocation: Handle[IGESGeomPoint];
+          aNormal: Handle[IGESGeomDirection]; refdir: Handle[IGESGeomDirection]) {.
     importcpp: "Init", header: "IGESSolid_PlaneSurface.hxx".}
-proc LocationPoint*(this: IGESSolid_PlaneSurface): handle[IGESGeom_Point] {.
+proc locationPoint*(this: IGESSolidPlaneSurface): Handle[IGESGeomPoint] {.
     noSideEffect, importcpp: "LocationPoint", header: "IGESSolid_PlaneSurface.hxx".}
-proc Normal*(this: IGESSolid_PlaneSurface): handle[IGESGeom_Direction] {.
-    noSideEffect, importcpp: "Normal", header: "IGESSolid_PlaneSurface.hxx".}
-proc ReferenceDir*(this: IGESSolid_PlaneSurface): handle[IGESGeom_Direction] {.
+proc normal*(this: IGESSolidPlaneSurface): Handle[IGESGeomDirection] {.noSideEffect,
+    importcpp: "Normal", header: "IGESSolid_PlaneSurface.hxx".}
+proc referenceDir*(this: IGESSolidPlaneSurface): Handle[IGESGeomDirection] {.
     noSideEffect, importcpp: "ReferenceDir", header: "IGESSolid_PlaneSurface.hxx".}
-proc IsParametrised*(this: IGESSolid_PlaneSurface): Standard_Boolean {.noSideEffect,
+proc isParametrised*(this: IGESSolidPlaneSurface): bool {.noSideEffect,
     importcpp: "IsParametrised", header: "IGESSolid_PlaneSurface.hxx".}
 type
-  IGESSolid_PlaneSurfacebase_type* = IGESData_IGESEntity
+  IGESSolidPlaneSurfacebaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESSolid_PlaneSurface::get_type_name(@)",
-                              header: "IGESSolid_PlaneSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSolid_PlaneSurface::get_type_name(@)",
+                            header: "IGESSolid_PlaneSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSolid_PlaneSurface::get_type_descriptor(@)",
     header: "IGESSolid_PlaneSurface.hxx".}
-proc DynamicType*(this: IGESSolid_PlaneSurface): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IGESSolid_PlaneSurface.hxx".}
+proc dynamicType*(this: IGESSolidPlaneSurface): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IGESSolid_PlaneSurface.hxx".}

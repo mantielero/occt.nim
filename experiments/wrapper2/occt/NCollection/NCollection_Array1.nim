@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_DimensionMismatch, ../Standard/Standard_OutOfMemory,
-  ../Standard/Standard_OutOfRange, NCollection_DefineAlloc,
-  NCollection_StlIterator
-
 ##  *********************************************** Template for Array1 class
 ## *
 ##  Purpose:     The class Array1 represents unidimensional arrays
@@ -49,106 +44,106 @@ import
 ##
 
 type
-  NCollection_Array1*[TheItemType] {.importcpp: "NCollection_Array1<\'0>",
-                                    header: "NCollection_Array1.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## STL-compliant
-                                                                                   ## typedef
-                                                                                   ## for
-                                                                                   ## value
-                                                                                   ## type
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Implementation
-                                                                                   ## of
-                                                                                   ## the
-                                                                                   ## Iterator
-                                                                                   ## interface.
-                                                                                   ##
-                                                                                   ## ----------
-                                                                                   ## PUBLIC
-                                                                                   ## METHODS
-                                                                                   ## ------------
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Empty
-                                                                                   ## constructor;
-                                                                                   ## should
-                                                                                   ## be
-                                                                                   ## used
-                                                                                   ## with
-                                                                                   ## caution.
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## @sa
-                                                                                   ## methods
-                                                                                   ## Resize()
-                                                                                   ## and
-                                                                                   ## Move().
-    myUpperBound* {.importc: "myUpperBound".}: Standard_Integer
-    myDeletable* {.importc: "myDeletable".}: Standard_Boolean ## !< Flag showing who allocated the array
+  NCollectionArray1*[TheItemType] {.importcpp: "NCollection_Array1<\'0>",
+                                   header: "NCollection_Array1.hxx", bycopy.} = object of RootObj##
+                                                                                  ## !
+                                                                                  ## STL-compliant
+                                                                                  ## typedef
+                                                                                  ## for
+                                                                                  ## value
+                                                                                  ## type
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## Implementation
+                                                                                  ## of
+                                                                                  ## the
+                                                                                  ## Iterator
+                                                                                  ## interface.
+                                                                                  ##
+                                                                                  ## ----------
+                                                                                  ## PUBLIC
+                                                                                  ## METHODS
+                                                                                  ## ------------
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## Empty
+                                                                                  ## constructor;
+                                                                                  ## should
+                                                                                  ## be
+                                                                                  ## used
+                                                                                  ## with
+                                                                                  ## caution.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## @sa
+                                                                                  ## methods
+                                                                                  ## Resize()
+                                                                                  ## and
+                                                                                  ## Move().
+    myUpperBound* {.importc: "myUpperBound".}: int
+    myDeletable* {.importc: "myDeletable".}: bool ## !< Flag showing who allocated the array
     myData* {.importc: "myData".}: ptr TheItemType ## !< Pointer to '0'th array item
 
-  NCollection_Array1value_type*[TheItemType] = TheItemType
-  NCollection_Array1Iterator*[TheItemType] {.
+  NCollectionArray1valueType*[TheItemType] = TheItemType
+  NCollectionArray1Iterator*[TheItemType] {.
       importcpp: "NCollection_Array1<\'0>::Iterator",
-      header: "NCollection_Array1.hxx", bycopy.} = object ## ! Empty constructor - for later Init
+      header: "NCollection_Array1.hxx", bycopy.} = object of RootObj## ! Empty constructor - for later Init
     ## !< Pointer to the current element in the array
     ## !< Pointer to the past-the-end element in the array
 
 
-proc constructNCollection_Array1Iterator*[TheItemType](): NCollection_Array1Iterator[
+proc constructNCollectionArray1Iterator*[TheItemType](): NCollectionArray1Iterator[
     TheItemType] {.constructor,
                   importcpp: "NCollection_Array1<\'*0>::Iterator(@)",
                   header: "NCollection_Array1.hxx".}
-proc constructNCollection_Array1Iterator*[TheItemType](
-    theArray: NCollection_Array1; theToEnd: Standard_Boolean = Standard_False): NCollection_Array1Iterator[
+proc constructNCollectionArray1Iterator*[TheItemType](
+    theArray: NCollectionArray1; theToEnd: bool = false): NCollectionArray1Iterator[
     TheItemType] {.constructor,
                   importcpp: "NCollection_Array1<\'*0>::Iterator(@)",
                   header: "NCollection_Array1.hxx".}
-proc Init*[TheItemType](this: var NCollection_Array1Iterator[TheItemType];
-                       theArray: NCollection_Array1) {.importcpp: "Init",
+proc init*[TheItemType](this: var NCollectionArray1Iterator[TheItemType];
+                       theArray: NCollectionArray1) {.importcpp: "Init",
     header: "NCollection_Array1.hxx".}
-proc More*[TheItemType](this: NCollection_Array1Iterator[TheItemType]): Standard_Boolean {.
+proc more*[TheItemType](this: NCollectionArray1Iterator[TheItemType]): bool {.
     noSideEffect, importcpp: "More", header: "NCollection_Array1.hxx".}
-proc Next*[TheItemType](this: var NCollection_Array1Iterator[TheItemType]) {.
+proc next*[TheItemType](this: var NCollectionArray1Iterator[TheItemType]) {.
     importcpp: "Next", header: "NCollection_Array1.hxx".}
-proc Previous*[TheItemType](this: var NCollection_Array1Iterator[TheItemType]) {.
+proc previous*[TheItemType](this: var NCollectionArray1Iterator[TheItemType]) {.
     importcpp: "Previous", header: "NCollection_Array1.hxx".}
-proc Offset*[TheItemType](this: var NCollection_Array1Iterator[TheItemType];
-                         theOffset: ptrdiff_t) {.importcpp: "Offset",
+proc offset*[TheItemType](this: var NCollectionArray1Iterator[TheItemType];
+                         theOffset: PtrdiffT) {.importcpp: "Offset",
     header: "NCollection_Array1.hxx".}
-proc Differ*[TheItemType](this: NCollection_Array1Iterator[TheItemType];
-                         theOther: NCollection_Array1Iterator): ptrdiff_t {.
+proc differ*[TheItemType](this: NCollectionArray1Iterator[TheItemType];
+                         theOther: NCollectionArray1Iterator): PtrdiffT {.
     noSideEffect, importcpp: "Differ", header: "NCollection_Array1.hxx".}
-proc Value*[TheItemType](this: NCollection_Array1Iterator[TheItemType]): TheItemType {.
+proc value*[TheItemType](this: NCollectionArray1Iterator[TheItemType]): TheItemType {.
     noSideEffect, importcpp: "Value", header: "NCollection_Array1.hxx".}
-proc ChangeValue*[TheItemType](this: NCollection_Array1Iterator[TheItemType]): var TheItemType {.
+proc changeValue*[TheItemType](this: NCollectionArray1Iterator[TheItemType]): var TheItemType {.
     noSideEffect, importcpp: "ChangeValue", header: "NCollection_Array1.hxx".}
-proc IsEqual*[TheItemType](this: NCollection_Array1Iterator[TheItemType];
-                          theOther: NCollection_Array1Iterator): Standard_Boolean {.
+proc isEqual*[TheItemType](this: NCollectionArray1Iterator[TheItemType];
+                          theOther: NCollectionArray1Iterator): bool {.
     noSideEffect, importcpp: "IsEqual", header: "NCollection_Array1.hxx".}
 type
-  NCollection_Array1iterator* = NCollection_StlIterator[
-      random_access_iterator_tag, NCollection_Array1Iterator, TheItemType, false]
-  NCollection_Array1const_iterator* = NCollection_StlIterator[
-      random_access_iterator_tag, NCollection_Array1Iterator, TheItemType, true]
+  NCollectionArray1iterator* = NCollectionStlIterator[RandomAccessIteratorTag,
+      NCollectionArray1Iterator, TheItemType, False]
+  NCollectionArray1constIterator* = NCollectionStlIterator[
+      RandomAccessIteratorTag, NCollectionArray1Iterator, TheItemType, True]
 
-proc begin*[TheItemType](this: NCollection_Array1[TheItemType]): NCollection_Array1iterator {.
+proc begin*[TheItemType](this: NCollectionArray1[TheItemType]): NCollectionArray1iterator {.
     noSideEffect, importcpp: "begin", header: "NCollection_Array1.hxx".}
-proc `end`*[TheItemType](this: NCollection_Array1[TheItemType]): NCollection_Array1iterator {.
+proc `end`*[TheItemType](this: NCollectionArray1[TheItemType]): NCollectionArray1iterator {.
     noSideEffect, importcpp: "end", header: "NCollection_Array1.hxx".}
-proc cbegin*[TheItemType](this: NCollection_Array1[TheItemType]): NCollection_Array1const_iterator {.
+proc cbegin*[TheItemType](this: NCollectionArray1[TheItemType]): NCollectionArray1constIterator {.
     noSideEffect, importcpp: "cbegin", header: "NCollection_Array1.hxx".}
-proc cend*[TheItemType](this: NCollection_Array1[TheItemType]): NCollection_Array1const_iterator {.
+proc cend*[TheItemType](this: NCollectionArray1[TheItemType]): NCollectionArray1constIterator {.
     noSideEffect, importcpp: "cend", header: "NCollection_Array1.hxx".}
-proc constructNCollection_Array1*[TheItemType](): NCollection_Array1[TheItemType] {.
+proc constructNCollectionArray1*[TheItemType](): NCollectionArray1[TheItemType] {.
     constructor, importcpp: "NCollection_Array1<\'*0>(@)",
     header: "NCollection_Array1.hxx".}
-proc constructNCollection_Array1*[TheItemType](theLower: Standard_Integer;
-    theUpper: Standard_Integer): NCollection_Array1[TheItemType] {.constructor,
-    importcpp: "NCollection_Array1<\'*0>(@)", header: "NCollection_Array1.hxx".}
-proc constructNCollection_Array1*[TheItemType](theOther: NCollection_Array1): NCollection_Array1[
+proc constructNCollectionArray1*[TheItemType](theLower: int; theUpper: int): NCollectionArray1[
+    TheItemType] {.constructor, importcpp: "NCollection_Array1<\'*0>(@)",
+                  header: "NCollection_Array1.hxx".}
+proc constructNCollectionArray1*[TheItemType](theOther: NCollectionArray1): NCollectionArray1[
     TheItemType] {.constructor, importcpp: "NCollection_Array1<\'*0>(@)",
                   header: "NCollection_Array1.hxx".}
 ## !!!Ignored construct:  # OCCT_NO_RVALUE_REFERENCE [NewLine] ! Move constructor NCollection_Array1 ( NCollection_Array1 && theOther ) : myLowerBound ( theOther . myLowerBound ) , myUpperBound ( theOther . myUpperBound ) , myDeletable ( theOther . myDeletable ) , myData ( theOther . myData ) { theOther . myDeletable = false ; } # [NewLine] ! C array-based constructor.
@@ -180,3 +175,4 @@ proc constructNCollection_Array1*[TheItemType](theOther: NCollection_Array1): NC
 ## ! @param theUpper new upper bound of array
 ## ! @param theToCopyData flag to copy existing data into new array void Resize ( const Standard_Integer theLower , const Standard_Integer theUpper , const Standard_Boolean theToCopyData ) { Standard_RangeError_Raise_if ( theUpper < theLower , NCollection_Array1::Resize ) ; const Standard_Integer anOldLen = Length ( ) ; const Standard_Integer aNewLen = theUpper - theLower + 1 ; const Standard_Integer aLowerOld = myLowerBound ; TheItemType * aBeginOld = & myData [ aLowerOld ] ; myLowerBound = theLower ; myUpperBound = theUpper ; if ( aNewLen == anOldLen ) { myData = aBeginOld - theLower ; return ; } if ( ! theToCopyData && myDeletable ) { delete [ ] aBeginOld ; } TheItemType * aBeginNew = new TheItemType [ aNewLen ] ; Standard_OutOfMemory_Raise_if ( aBeginNew == NULL , NCollection_Array1 : Allocation failed ) ; myData = aBeginNew - theLower ; if ( ! theToCopyData ) { myDeletable = Standard_True ; return ; } const Standard_Integer aLenCopy = Min ( anOldLen , aNewLen ) ; for ( Standard_Integer anIter = 0 ; anIter < aLenCopy ; ++ anIter ) { aBeginNew [ anIter ] = aBeginOld [ anIter ] ; } if ( myDeletable ) { delete [ ] aBeginOld ; } myDeletable = Standard_True ; } ! Destructor - releases the memory ~ NCollection_Array1 ( void ) { if ( myDeletable ) delete [ ] & ( myData [ myLowerBound ] ) ; } protected :  ---------- PROTECTED FIELDS ----------- Standard_Integer myLowerBound ;
 ## Error: identifier expected, but got: ! Move constructor!!!
+

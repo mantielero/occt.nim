@@ -13,8 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IntTools_Range, ../NCollection/NCollection_Array1
-
 type
-  IntTools_Array1OfRange* = NCollection_Array1[IntTools_Range]
+  IntToolsArray1OfRange* = NCollectionArray1[IntToolsRange]
+

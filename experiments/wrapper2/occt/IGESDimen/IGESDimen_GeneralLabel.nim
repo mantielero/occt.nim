@@ -14,46 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, IGESDimen_HArray1OfLeaderArrow,
-  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Integer
-
 discard "forward decl of IGESDimen_GeneralNote"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESDimen_LeaderArrow"
 discard "forward decl of IGESDimen_GeneralLabel"
 discard "forward decl of IGESDimen_GeneralLabel"
 type
-  Handle_IGESDimen_GeneralLabel* = handle[IGESDimen_GeneralLabel]
+  HandleIGESDimenGeneralLabel* = Handle[IGESDimenGeneralLabel]
 
 ## ! defines GeneralLabel, Type <210> Form <0>
 ## ! in package IGESDimen
 ## ! Used for general labeling with leaders
 
 type
-  IGESDimen_GeneralLabel* {.importcpp: "IGESDimen_GeneralLabel",
-                           header: "IGESDimen_GeneralLabel.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESDimenGeneralLabel* {.importcpp: "IGESDimen_GeneralLabel",
+                          header: "IGESDimen_GeneralLabel.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESDimen_GeneralLabel*(): IGESDimen_GeneralLabel {.constructor,
+proc constructIGESDimenGeneralLabel*(): IGESDimenGeneralLabel {.constructor,
     importcpp: "IGESDimen_GeneralLabel(@)", header: "IGESDimen_GeneralLabel.hxx".}
-proc Init*(this: var IGESDimen_GeneralLabel; aNote: handle[IGESDimen_GeneralNote];
-          someLeaders: handle[IGESDimen_HArray1OfLeaderArrow]) {.
-    importcpp: "Init", header: "IGESDimen_GeneralLabel.hxx".}
-proc Note*(this: IGESDimen_GeneralLabel): handle[IGESDimen_GeneralNote] {.
+proc init*(this: var IGESDimenGeneralLabel; aNote: Handle[IGESDimenGeneralNote];
+          someLeaders: Handle[IGESDimenHArray1OfLeaderArrow]) {.importcpp: "Init",
+    header: "IGESDimen_GeneralLabel.hxx".}
+proc note*(this: IGESDimenGeneralLabel): Handle[IGESDimenGeneralNote] {.
     noSideEffect, importcpp: "Note", header: "IGESDimen_GeneralLabel.hxx".}
-proc NbLeaders*(this: IGESDimen_GeneralLabel): Standard_Integer {.noSideEffect,
+proc nbLeaders*(this: IGESDimenGeneralLabel): int {.noSideEffect,
     importcpp: "NbLeaders", header: "IGESDimen_GeneralLabel.hxx".}
-proc Leader*(this: IGESDimen_GeneralLabel; Index: Standard_Integer): handle[
-    IGESDimen_LeaderArrow] {.noSideEffect, importcpp: "Leader",
-                            header: "IGESDimen_GeneralLabel.hxx".}
+proc leader*(this: IGESDimenGeneralLabel; index: int): Handle[IGESDimenLeaderArrow] {.
+    noSideEffect, importcpp: "Leader", header: "IGESDimen_GeneralLabel.hxx".}
 type
-  IGESDimen_GeneralLabelbase_type* = IGESData_IGESEntity
+  IGESDimenGeneralLabelbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESDimen_GeneralLabel::get_type_name(@)",
-                              header: "IGESDimen_GeneralLabel.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESDimen_GeneralLabel::get_type_name(@)",
+                            header: "IGESDimen_GeneralLabel.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESDimen_GeneralLabel::get_type_descriptor(@)",
     header: "IGESDimen_GeneralLabel.hxx".}
-proc DynamicType*(this: IGESDimen_GeneralLabel): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IGESDimen_GeneralLabel.hxx".}
+proc dynamicType*(this: IGESDimenGeneralLabel): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IGESDimen_GeneralLabel.hxx".}

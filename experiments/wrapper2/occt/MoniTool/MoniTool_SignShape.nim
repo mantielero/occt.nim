@@ -14,39 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, MoniTool_SignText,
-  ../Standard/Standard_CString
-
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Standard_Transient"
 discard "forward decl of MoniTool_SignShape"
 discard "forward decl of MoniTool_SignShape"
 type
-  Handle_MoniTool_SignShape* = handle[MoniTool_SignShape]
+  HandleMoniToolSignShape* = Handle[MoniToolSignShape]
 
 ## ! Signs HShape according to its real content (type of Shape)
 ## ! Context is not used
 
 type
-  MoniTool_SignShape* {.importcpp: "MoniTool_SignShape",
-                       header: "MoniTool_SignShape.hxx", bycopy.} = object of MoniTool_SignText
+  MoniToolSignShape* {.importcpp: "MoniTool_SignShape",
+                      header: "MoniTool_SignShape.hxx", bycopy.} = object of MoniToolSignText
 
 
-proc constructMoniTool_SignShape*(): MoniTool_SignShape {.constructor,
+proc constructMoniToolSignShape*(): MoniToolSignShape {.constructor,
     importcpp: "MoniTool_SignShape(@)", header: "MoniTool_SignShape.hxx".}
-proc Name*(this: MoniTool_SignShape): Standard_CString {.noSideEffect,
+proc name*(this: MoniToolSignShape): StandardCString {.noSideEffect,
     importcpp: "Name", header: "MoniTool_SignShape.hxx".}
-proc Text*(this: MoniTool_SignShape; ent: handle[Standard_Transient];
-          context: handle[Standard_Transient]): TCollection_AsciiString {.
+proc text*(this: MoniToolSignShape; ent: Handle[StandardTransient];
+          context: Handle[StandardTransient]): TCollectionAsciiString {.
     noSideEffect, importcpp: "Text", header: "MoniTool_SignShape.hxx".}
 type
-  MoniTool_SignShapebase_type* = MoniTool_SignText
+  MoniToolSignShapebaseType* = MoniToolSignText
 
-proc get_type_name*(): cstring {.importcpp: "MoniTool_SignShape::get_type_name(@)",
-                              header: "MoniTool_SignShape.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "MoniTool_SignShape::get_type_name(@)",
+                            header: "MoniTool_SignShape.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "MoniTool_SignShape::get_type_descriptor(@)",
     header: "MoniTool_SignShape.hxx".}
-proc DynamicType*(this: MoniTool_SignShape): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: MoniToolSignShape): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MoniTool_SignShape.hxx".}

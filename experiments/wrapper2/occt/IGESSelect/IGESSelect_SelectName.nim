@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../IFSelect/IFSelect_SelectExtract, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
@@ -26,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SelectName"
 discard "forward decl of IGESSelect_SelectName"
 type
-  Handle_IGESSelect_SelectName* = handle[IGESSelect_SelectName]
+  HandleIGESSelectSelectName* = Handle[IGESSelectSelectName]
 
 ## ! Selects Entities which have a given name.
 ## ! Consider Property Name if present, else Short Label, but
@@ -35,45 +30,44 @@ type
 ## ! Later : regular expression
 
 type
-  IGESSelect_SelectName* {.importcpp: "IGESSelect_SelectName",
-                          header: "IGESSelect_SelectName.hxx", bycopy.} = object of IFSelect_SelectExtract ##
-                                                                                                    ## !
-                                                                                                    ## Creates
-                                                                                                    ## an
-                                                                                                    ## empty
-                                                                                                    ## SelectName
-                                                                                                    ## :
-                                                                                                    ## every
-                                                                                                    ## entity
-                                                                                                    ## is
-                                                                                                    ## considered
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## good
-                                                                                                    ## (no
-                                                                                                    ## filter
-                                                                                                    ## active)
+  IGESSelectSelectName* {.importcpp: "IGESSelect_SelectName",
+                         header: "IGESSelect_SelectName.hxx", bycopy.} = object of IFSelectSelectExtract ##
+                                                                                                  ## !
+                                                                                                  ## Creates
+                                                                                                  ## an
+                                                                                                  ## empty
+                                                                                                  ## SelectName
+                                                                                                  ## :
+                                                                                                  ## every
+                                                                                                  ## entity
+                                                                                                  ## is
+                                                                                                  ## considered
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## good
+                                                                                                  ## (no
+                                                                                                  ## filter
+                                                                                                  ## active)
 
 
-proc constructIGESSelect_SelectName*(): IGESSelect_SelectName {.constructor,
+proc constructIGESSelectSelectName*(): IGESSelectSelectName {.constructor,
     importcpp: "IGESSelect_SelectName(@)", header: "IGESSelect_SelectName.hxx".}
-proc Sort*(this: IGESSelect_SelectName; rank: Standard_Integer;
-          ent: handle[Standard_Transient]; model: handle[Interface_InterfaceModel]): Standard_Boolean {.
-    noSideEffect, importcpp: "Sort", header: "IGESSelect_SelectName.hxx".}
-proc SetName*(this: var IGESSelect_SelectName;
-             name: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
-    header: "IGESSelect_SelectName.hxx".}
-proc Name*(this: IGESSelect_SelectName): handle[TCollection_HAsciiString] {.
+proc sort*(this: IGESSelectSelectName; rank: int; ent: Handle[StandardTransient];
+          model: Handle[InterfaceInterfaceModel]): bool {.noSideEffect,
+    importcpp: "Sort", header: "IGESSelect_SelectName.hxx".}
+proc setName*(this: var IGESSelectSelectName; name: Handle[TCollectionHAsciiString]) {.
+    importcpp: "SetName", header: "IGESSelect_SelectName.hxx".}
+proc name*(this: IGESSelectSelectName): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "IGESSelect_SelectName.hxx".}
-proc ExtractLabel*(this: IGESSelect_SelectName): TCollection_AsciiString {.
+proc extractLabel*(this: IGESSelectSelectName): TCollectionAsciiString {.
     noSideEffect, importcpp: "ExtractLabel", header: "IGESSelect_SelectName.hxx".}
 type
-  IGESSelect_SelectNamebase_type* = IFSelect_SelectExtract
+  IGESSelectSelectNamebaseType* = IFSelectSelectExtract
 
-proc get_type_name*(): cstring {.importcpp: "IGESSelect_SelectName::get_type_name(@)",
-                              header: "IGESSelect_SelectName.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_SelectName::get_type_name(@)",
+                            header: "IGESSelect_SelectName.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSelect_SelectName::get_type_descriptor(@)",
     header: "IGESSelect_SelectName.hxx".}
-proc DynamicType*(this: IGESSelect_SelectName): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IGESSelect_SelectName.hxx".}
+proc dynamicType*(this: IGESSelectSelectName): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IGESSelect_SelectName.hxx".}

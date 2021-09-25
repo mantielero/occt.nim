@@ -21,11 +21,9 @@
 ##               See  the  class   Map   from NCollection   for   a
 ##               discussion about the number of buckets.
 
-import
-  NCollection_IndexedMap
-
 ##  *********************************************** Class IndexedMap ***********
 
-template DEFINE_INDEXEDMAP*(_ClassName_, _BaseCollection_, TheKeyType: untyped): void =
+template define_Indexedmap*(className, baseCollection, theKeyType: untyped): void =
   type
-    _ClassName_* = NCollection_IndexedMap[TheKeyType]
+    ClassName* = NCollectionIndexedMap[TheKeyType]
+

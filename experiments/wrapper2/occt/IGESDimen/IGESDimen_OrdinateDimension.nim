@@ -14,17 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of IGESDimen_GeneralNote"
 discard "forward decl of IGESDimen_WitnessLine"
 discard "forward decl of IGESDimen_LeaderArrow"
 discard "forward decl of IGESDimen_OrdinateDimension"
 discard "forward decl of IGESDimen_OrdinateDimension"
 type
-  Handle_IGESDimen_OrdinateDimension* = handle[IGESDimen_OrdinateDimension]
+  HandleIGESDimenOrdinateDimension* = Handle[IGESDimenOrdinateDimension]
 
 ## ! defines IGES Ordinate Dimension, Type <218> Form <0, 1>,
 ## ! in package IGESDimen
@@ -34,37 +30,37 @@ type
 ## ! or YT axis.
 
 type
-  IGESDimen_OrdinateDimension* {.importcpp: "IGESDimen_OrdinateDimension",
-                                header: "IGESDimen_OrdinateDimension.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESDimenOrdinateDimension* {.importcpp: "IGESDimen_OrdinateDimension",
+                               header: "IGESDimen_OrdinateDimension.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESDimen_OrdinateDimension*(): IGESDimen_OrdinateDimension {.
+proc constructIGESDimenOrdinateDimension*(): IGESDimenOrdinateDimension {.
     constructor, importcpp: "IGESDimen_OrdinateDimension(@)",
     header: "IGESDimen_OrdinateDimension.hxx".}
-proc Init*(this: var IGESDimen_OrdinateDimension;
-          aNote: handle[IGESDimen_GeneralNote]; aType: Standard_Boolean;
-          aLine: handle[IGESDimen_WitnessLine];
-          anArrow: handle[IGESDimen_LeaderArrow]) {.importcpp: "Init",
+proc init*(this: var IGESDimenOrdinateDimension;
+          aNote: Handle[IGESDimenGeneralNote]; aType: bool;
+          aLine: Handle[IGESDimenWitnessLine];
+          anArrow: Handle[IGESDimenLeaderArrow]) {.importcpp: "Init",
     header: "IGESDimen_OrdinateDimension.hxx".}
-proc IsLine*(this: IGESDimen_OrdinateDimension): Standard_Boolean {.noSideEffect,
+proc isLine*(this: IGESDimenOrdinateDimension): bool {.noSideEffect,
     importcpp: "IsLine", header: "IGESDimen_OrdinateDimension.hxx".}
-proc IsLeader*(this: IGESDimen_OrdinateDimension): Standard_Boolean {.noSideEffect,
+proc isLeader*(this: IGESDimenOrdinateDimension): bool {.noSideEffect,
     importcpp: "IsLeader", header: "IGESDimen_OrdinateDimension.hxx".}
-proc Note*(this: IGESDimen_OrdinateDimension): handle[IGESDimen_GeneralNote] {.
+proc note*(this: IGESDimenOrdinateDimension): Handle[IGESDimenGeneralNote] {.
     noSideEffect, importcpp: "Note", header: "IGESDimen_OrdinateDimension.hxx".}
-proc WitnessLine*(this: IGESDimen_OrdinateDimension): handle[IGESDimen_WitnessLine] {.
+proc witnessLine*(this: IGESDimenOrdinateDimension): Handle[IGESDimenWitnessLine] {.
     noSideEffect, importcpp: "WitnessLine",
     header: "IGESDimen_OrdinateDimension.hxx".}
-proc Leader*(this: IGESDimen_OrdinateDimension): handle[IGESDimen_LeaderArrow] {.
+proc leader*(this: IGESDimenOrdinateDimension): Handle[IGESDimenLeaderArrow] {.
     noSideEffect, importcpp: "Leader", header: "IGESDimen_OrdinateDimension.hxx".}
 type
-  IGESDimen_OrdinateDimensionbase_type* = IGESData_IGESEntity
+  IGESDimenOrdinateDimensionbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESDimen_OrdinateDimension::get_type_name(@)",
-                              header: "IGESDimen_OrdinateDimension.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESDimen_OrdinateDimension::get_type_name(@)",
+                            header: "IGESDimen_OrdinateDimension.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESDimen_OrdinateDimension::get_type_descriptor(@)",
     header: "IGESDimen_OrdinateDimension.hxx".}
-proc DynamicType*(this: IGESDimen_OrdinateDimension): handle[Standard_Type] {.
+proc dynamicType*(this: IGESDimenOrdinateDimension): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESDimen_OrdinateDimension.hxx".}

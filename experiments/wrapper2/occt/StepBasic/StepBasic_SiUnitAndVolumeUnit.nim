@@ -14,38 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_SiUnit
-
 discard "forward decl of StepBasic_VolumeUnit"
 discard "forward decl of StepBasic_DimensionalExponents"
 discard "forward decl of StepBasic_SiUnitAndVolumeUnit"
 discard "forward decl of StepBasic_SiUnitAndVolumeUnit"
 type
-  Handle_StepBasic_SiUnitAndVolumeUnit* = handle[StepBasic_SiUnitAndVolumeUnit]
-  StepBasic_SiUnitAndVolumeUnit* {.importcpp: "StepBasic_SiUnitAndVolumeUnit",
-                                  header: "StepBasic_SiUnitAndVolumeUnit.hxx",
-                                  bycopy.} = object of StepBasic_SiUnit ## ! Returns a
-                                                                   ## SiUnitAndVolumeUnit
+  HandleStepBasicSiUnitAndVolumeUnit* = Handle[StepBasicSiUnitAndVolumeUnit]
+  StepBasicSiUnitAndVolumeUnit* {.importcpp: "StepBasic_SiUnitAndVolumeUnit",
+                                 header: "StepBasic_SiUnitAndVolumeUnit.hxx",
+                                 bycopy.} = object of StepBasicSiUnit ## ! Returns a
+                                                                 ## SiUnitAndVolumeUnit
 
 
-proc constructStepBasic_SiUnitAndVolumeUnit*(): StepBasic_SiUnitAndVolumeUnit {.
+proc constructStepBasicSiUnitAndVolumeUnit*(): StepBasicSiUnitAndVolumeUnit {.
     constructor, importcpp: "StepBasic_SiUnitAndVolumeUnit(@)",
     header: "StepBasic_SiUnitAndVolumeUnit.hxx".}
-proc SetVolumeUnit*(this: var StepBasic_SiUnitAndVolumeUnit;
-                   aVolumeUnit: handle[StepBasic_VolumeUnit]) {.
+proc setVolumeUnit*(this: var StepBasicSiUnitAndVolumeUnit;
+                   aVolumeUnit: Handle[StepBasicVolumeUnit]) {.
     importcpp: "SetVolumeUnit", header: "StepBasic_SiUnitAndVolumeUnit.hxx".}
-proc VolumeUnit*(this: StepBasic_SiUnitAndVolumeUnit): handle[StepBasic_VolumeUnit] {.
+proc volumeUnit*(this: StepBasicSiUnitAndVolumeUnit): Handle[StepBasicVolumeUnit] {.
     noSideEffect, importcpp: "VolumeUnit",
     header: "StepBasic_SiUnitAndVolumeUnit.hxx".}
 type
-  StepBasic_SiUnitAndVolumeUnitbase_type* = StepBasic_SiUnit
+  StepBasicSiUnitAndVolumeUnitbaseType* = StepBasicSiUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_SiUnitAndVolumeUnit::get_type_name(@)",
-                              header: "StepBasic_SiUnitAndVolumeUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_SiUnitAndVolumeUnit::get_type_name(@)",
+                            header: "StepBasic_SiUnitAndVolumeUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_SiUnitAndVolumeUnit::get_type_descriptor(@)",
     header: "StepBasic_SiUnitAndVolumeUnit.hxx".}
-proc DynamicType*(this: StepBasic_SiUnitAndVolumeUnit): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicSiUnitAndVolumeUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_SiUnitAndVolumeUnit.hxx".}

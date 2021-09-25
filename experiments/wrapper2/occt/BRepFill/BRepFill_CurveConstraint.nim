@@ -14,135 +14,127 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../GeomPlate/GeomPlate_CurveConstraint, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Adaptor3d_HCurveOnSurface"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of BRepFill_CurveConstraint"
 discard "forward decl of BRepFill_CurveConstraint"
 type
-  Handle_BRepFill_CurveConstraint* = handle[BRepFill_CurveConstraint]
+  HandleBRepFillCurveConstraint* = Handle[BRepFillCurveConstraint]
 
 ## ! same as CurveConstraint from GeomPlate
 ## ! with BRepAdaptor_Surface instead of
 ## ! GeomAdaptor_Surface
 
 type
-  BRepFill_CurveConstraint* {.importcpp: "BRepFill_CurveConstraint",
-                             header: "BRepFill_CurveConstraint.hxx", bycopy.} = object of GeomPlate_CurveConstraint ##
-                                                                                                             ## !
-                                                                                                             ## Create
-                                                                                                             ## a
-                                                                                                             ## constraint
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## Order
-                                                                                                             ## is
-                                                                                                             ## the
-                                                                                                             ## order
-                                                                                                             ## of
-                                                                                                             ## the
-                                                                                                             ## constraint.
-                                                                                                             ## The
-                                                                                                             ## possible
-                                                                                                             ## values
-                                                                                                             ## for
-                                                                                                             ## order
-                                                                                                             ## are
-                                                                                                             ## -1,0,1,2.
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## Order
-                                                                                                             ## i
-                                                                                                             ## means
-                                                                                                             ## constraints
-                                                                                                             ## Gi
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## Npt
-                                                                                                             ## is
-                                                                                                             ## the
-                                                                                                             ## number
-                                                                                                             ## of
-                                                                                                             ## points
-                                                                                                             ## associated
-                                                                                                             ## with
-                                                                                                             ## the
-                                                                                                             ## constraint.
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## TolDist
-                                                                                                             ## is
-                                                                                                             ## the
-                                                                                                             ## maximum
-                                                                                                             ## error
-                                                                                                             ## to
-                                                                                                             ## satisfy
-                                                                                                             ## for
-                                                                                                             ## G0
-                                                                                                             ## constraints
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## TolAng
-                                                                                                             ## is
-                                                                                                             ## the
-                                                                                                             ## maximum
-                                                                                                             ## error
-                                                                                                             ## to
-                                                                                                             ## satisfy
-                                                                                                             ## for
-                                                                                                             ## G1
-                                                                                                             ## constraints
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## TolCurv
-                                                                                                             ## is
-                                                                                                             ## the
-                                                                                                             ## maximum
-                                                                                                             ## error
-                                                                                                             ## to
-                                                                                                             ## satisfy
-                                                                                                             ## for
-                                                                                                             ## G2
-                                                                                                             ## constraints
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## These
-                                                                                                             ## errors
-                                                                                                             ## can
-                                                                                                             ## be
-                                                                                                             ## replaced
-                                                                                                             ## by
-                                                                                                             ## laws
-                                                                                                             ## of
-                                                                                                             ## criterion.
+  BRepFillCurveConstraint* {.importcpp: "BRepFill_CurveConstraint",
+                            header: "BRepFill_CurveConstraint.hxx", bycopy.} = object of GeomPlateCurveConstraint ##
+                                                                                                           ## !
+                                                                                                           ## Create
+                                                                                                           ## a
+                                                                                                           ## constraint
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## Order
+                                                                                                           ## is
+                                                                                                           ## the
+                                                                                                           ## order
+                                                                                                           ## of
+                                                                                                           ## the
+                                                                                                           ## constraint.
+                                                                                                           ## The
+                                                                                                           ## possible
+                                                                                                           ## values
+                                                                                                           ## for
+                                                                                                           ## order
+                                                                                                           ## are
+                                                                                                           ## -1,0,1,2.
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## Order
+                                                                                                           ## i
+                                                                                                           ## means
+                                                                                                           ## constraints
+                                                                                                           ## Gi
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## Npt
+                                                                                                           ## is
+                                                                                                           ## the
+                                                                                                           ## number
+                                                                                                           ## of
+                                                                                                           ## points
+                                                                                                           ## associated
+                                                                                                           ## with
+                                                                                                           ## the
+                                                                                                           ## constraint.
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## TolDist
+                                                                                                           ## is
+                                                                                                           ## the
+                                                                                                           ## maximum
+                                                                                                           ## error
+                                                                                                           ## to
+                                                                                                           ## satisfy
+                                                                                                           ## for
+                                                                                                           ## G0
+                                                                                                           ## constraints
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## TolAng
+                                                                                                           ## is
+                                                                                                           ## the
+                                                                                                           ## maximum
+                                                                                                           ## error
+                                                                                                           ## to
+                                                                                                           ## satisfy
+                                                                                                           ## for
+                                                                                                           ## G1
+                                                                                                           ## constraints
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## TolCurv
+                                                                                                           ## is
+                                                                                                           ## the
+                                                                                                           ## maximum
+                                                                                                           ## error
+                                                                                                           ## to
+                                                                                                           ## satisfy
+                                                                                                           ## for
+                                                                                                           ## G2
+                                                                                                           ## constraints
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## These
+                                                                                                           ## errors
+                                                                                                           ## can
+                                                                                                           ## be
+                                                                                                           ## replaced
+                                                                                                           ## by
+                                                                                                           ## laws
+                                                                                                           ## of
+                                                                                                           ## criterion.
 
 
-proc constructBRepFill_CurveConstraint*(Boundary: handle[Adaptor3d_HCurveOnSurface];
-                                       Order: Standard_Integer;
-                                       NPt: Standard_Integer = 10;
-                                       TolDist: Standard_Real = 0.0001;
-                                       TolAng: Standard_Real = 0.01;
-                                       TolCurv: Standard_Real = 0.1): BRepFill_CurveConstraint {.
+proc constructBRepFillCurveConstraint*(boundary: Handle[Adaptor3dHCurveOnSurface];
+                                      order: int; nPt: int = 10;
+                                      tolDist: float = 0.0001; tolAng: float = 0.01;
+                                      tolCurv: float = 0.1): BRepFillCurveConstraint {.
     constructor, importcpp: "BRepFill_CurveConstraint(@)",
     header: "BRepFill_CurveConstraint.hxx".}
-proc constructBRepFill_CurveConstraint*(Boundary: handle[Adaptor3d_HCurve];
-                                       Tang: Standard_Integer;
-                                       NPt: Standard_Integer = 10;
-                                       TolDist: Standard_Real = 0.0001): BRepFill_CurveConstraint {.
+proc constructBRepFillCurveConstraint*(boundary: Handle[Adaptor3dHCurve];
+                                      tang: int; nPt: int = 10;
+                                      tolDist: float = 0.0001): BRepFillCurveConstraint {.
     constructor, importcpp: "BRepFill_CurveConstraint(@)",
     header: "BRepFill_CurveConstraint.hxx".}
 type
-  BRepFill_CurveConstraintbase_type* = GeomPlate_CurveConstraint
+  BRepFillCurveConstraintbaseType* = GeomPlateCurveConstraint
 
-proc get_type_name*(): cstring {.importcpp: "BRepFill_CurveConstraint::get_type_name(@)",
-                              header: "BRepFill_CurveConstraint.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepFill_CurveConstraint::get_type_name(@)",
+                            header: "BRepFill_CurveConstraint.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepFill_CurveConstraint::get_type_descriptor(@)",
     header: "BRepFill_CurveConstraint.hxx".}
-proc DynamicType*(this: BRepFill_CurveConstraint): handle[Standard_Type] {.
+proc dynamicType*(this: BRepFillCurveConstraint): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BRepFill_CurveConstraint.hxx".}

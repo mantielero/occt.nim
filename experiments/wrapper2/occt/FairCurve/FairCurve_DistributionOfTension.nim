@@ -14,29 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real, FairCurve_BattenLaw,
-  FairCurve_DistributionOfEnergy, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_HArray1OfReal, ../TColgp/TColgp_HArray1OfPnt2d,
-  ../Standard/Standard_Boolean, ../math/math_Vector
-
 discard "forward decl of FairCurve_BattenLaw"
 type
-  FairCurve_DistributionOfTension* {.importcpp: "FairCurve_DistributionOfTension", header: "FairCurve_DistributionOfTension.hxx",
-                                    bycopy.} = object of FairCurve_DistributionOfEnergy
+  FairCurveDistributionOfTension* {.importcpp: "FairCurve_DistributionOfTension", header: "FairCurve_DistributionOfTension.hxx",
+                                   bycopy.} = object of FairCurveDistributionOfEnergy
 
 
-proc constructFairCurve_DistributionOfTension*(BSplOrder: Standard_Integer;
-    FlatKnots: handle[TColStd_HArray1OfReal];
-    Poles: handle[TColgp_HArray1OfPnt2d]; DerivativeOrder: Standard_Integer;
-    LengthSliding: Standard_Real; Law: FairCurve_BattenLaw;
-    NbValAux: Standard_Integer = 0; Uniform: Standard_Boolean = Standard_False): FairCurve_DistributionOfTension {.
+proc constructFairCurveDistributionOfTension*(bSplOrder: int;
+    flatKnots: Handle[TColStdHArray1OfReal]; poles: Handle[TColgpHArray1OfPnt2d];
+    derivativeOrder: int; lengthSliding: float; law: FairCurveBattenLaw;
+    nbValAux: int = 0; uniform: bool = false): FairCurveDistributionOfTension {.
     constructor, importcpp: "FairCurve_DistributionOfTension(@)",
     header: "FairCurve_DistributionOfTension.hxx".}
-proc SetLengthSliding*(this: var FairCurve_DistributionOfTension;
-                      LengthSliding: Standard_Real) {.
-    importcpp: "SetLengthSliding", header: "FairCurve_DistributionOfTension.hxx".}
-proc Value*(this: var FairCurve_DistributionOfTension; X: math_Vector;
-           F: var math_Vector): Standard_Boolean {.importcpp: "Value",
+proc setLengthSliding*(this: var FairCurveDistributionOfTension;
+                      lengthSliding: float) {.importcpp: "SetLengthSliding",
     header: "FairCurve_DistributionOfTension.hxx".}
+proc value*(this: var FairCurveDistributionOfTension; x: MathVector; f: var MathVector): bool {.
+    importcpp: "Value", header: "FairCurve_DistributionOfTension.hxx".}

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of Geom_Plane"
 discard "forward decl of ShapeBuild_Vertex"
 discard "forward decl of ShapeBuild_Edge"
@@ -50,5 +46,5 @@ type
                                                                              ## surface
 
 
-proc PlaneXOY*(): handle[Geom_Plane] {.importcpp: "ShapeBuild::PlaneXOY(@)",
-                                    header: "ShapeBuild.hxx".}
+proc planeXOY*(): Handle[GeomPlane] {.importcpp: "ShapeBuild::PlaneXOY(@)",
+                                   header: "ShapeBuild.hxx".}

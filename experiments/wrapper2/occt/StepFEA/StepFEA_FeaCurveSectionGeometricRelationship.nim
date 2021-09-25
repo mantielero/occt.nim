@@ -13,15 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepElement_CurveElementSectionDefinition"
 discard "forward decl of StepElement_AnalysisItemWithinRepresentation"
 discard "forward decl of StepFEA_FeaCurveSectionGeometricRelationship"
 discard "forward decl of StepFEA_FeaCurveSectionGeometricRelationship"
 type
-  Handle_StepFEA_FeaCurveSectionGeometricRelationship* = handle[
+  HandleStepFEA_FeaCurveSectionGeometricRelationship* = Handle[
       StepFEA_FeaCurveSectionGeometricRelationship]
 
 ## ! Representation of STEP entity FeaCurveSectionGeometricRelationship
@@ -29,40 +26,40 @@ type
 type
   StepFEA_FeaCurveSectionGeometricRelationship* {.
       importcpp: "StepFEA_FeaCurveSectionGeometricRelationship",
-      header: "StepFEA_FeaCurveSectionGeometricRelationship.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                   ## !
-                                                                                                   ## Empty
-                                                                                                   ## constructor
+      header: "StepFEA_FeaCurveSectionGeometricRelationship.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                  ## !
+                                                                                                  ## Empty
+                                                                                                  ## constructor
 
 
 proc constructStepFEA_FeaCurveSectionGeometricRelationship*(): StepFEA_FeaCurveSectionGeometricRelationship {.
     constructor, importcpp: "StepFEA_FeaCurveSectionGeometricRelationship(@)",
     header: "StepFEA_FeaCurveSectionGeometricRelationship.hxx".}
-proc Init*(this: var StepFEA_FeaCurveSectionGeometricRelationship;
-          aSectionRef: handle[StepElement_CurveElementSectionDefinition];
-          aItem: handle[StepElement_AnalysisItemWithinRepresentation]) {.
+proc init*(this: var StepFEA_FeaCurveSectionGeometricRelationship;
+          aSectionRef: Handle[StepElementCurveElementSectionDefinition];
+          aItem: Handle[StepElementAnalysisItemWithinRepresentation]) {.
     importcpp: "Init", header: "StepFEA_FeaCurveSectionGeometricRelationship.hxx".}
-proc SectionRef*(this: StepFEA_FeaCurveSectionGeometricRelationship): handle[
-    StepElement_CurveElementSectionDefinition] {.noSideEffect,
+proc sectionRef*(this: StepFEA_FeaCurveSectionGeometricRelationship): Handle[
+    StepElementCurveElementSectionDefinition] {.noSideEffect,
     importcpp: "SectionRef",
     header: "StepFEA_FeaCurveSectionGeometricRelationship.hxx".}
-proc SetSectionRef*(this: var StepFEA_FeaCurveSectionGeometricRelationship;
-    SectionRef: handle[StepElement_CurveElementSectionDefinition]) {.
+proc setSectionRef*(this: var StepFEA_FeaCurveSectionGeometricRelationship;
+                   sectionRef: Handle[StepElementCurveElementSectionDefinition]) {.
     importcpp: "SetSectionRef",
     header: "StepFEA_FeaCurveSectionGeometricRelationship.hxx".}
-proc Item*(this: StepFEA_FeaCurveSectionGeometricRelationship): handle[
-    StepElement_AnalysisItemWithinRepresentation] {.noSideEffect,
+proc item*(this: StepFEA_FeaCurveSectionGeometricRelationship): Handle[
+    StepElementAnalysisItemWithinRepresentation] {.noSideEffect,
     importcpp: "Item", header: "StepFEA_FeaCurveSectionGeometricRelationship.hxx".}
-proc SetItem*(this: var StepFEA_FeaCurveSectionGeometricRelationship;
-             Item: handle[StepElement_AnalysisItemWithinRepresentation]) {.
+proc setItem*(this: var StepFEA_FeaCurveSectionGeometricRelationship;
+             item: Handle[StepElementAnalysisItemWithinRepresentation]) {.
     importcpp: "SetItem",
     header: "StepFEA_FeaCurveSectionGeometricRelationship.hxx".}
 type
-  StepFEA_FeaCurveSectionGeometricRelationshipbase_type* = Standard_Transient
+  StepFEA_FeaCurveSectionGeometricRelationshipbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_FeaCurveSectionGeometricRelationship::get_type_name(@)", header: "StepFEA_FeaCurveSectionGeometricRelationship.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepFEA_FeaCurveSectionGeometricRelationship::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepFEA_FeaCurveSectionGeometricRelationship::get_type_name(@)", header: "StepFEA_FeaCurveSectionGeometricRelationship.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_FeaCurveSectionGeometricRelationship::get_type_descriptor(@)",
     header: "StepFEA_FeaCurveSectionGeometricRelationship.hxx".}
-proc DynamicType*(this: StepFEA_FeaCurveSectionGeometricRelationship): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepFEA_FeaCurveSectionGeometricRelationship.hxx".}
+proc dynamicType*(this: StepFEA_FeaCurveSectionGeometricRelationship): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepFEA_FeaCurveSectionGeometricRelationship.hxx".}

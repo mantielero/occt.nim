@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../gp/gp_XY, ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of gp_XY"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Pnt"
@@ -26,7 +21,7 @@ discard "forward decl of gp_Dir"
 discard "forward decl of IGESGeom_ConicArc"
 discard "forward decl of IGESGeom_ConicArc"
 type
-  Handle_IGESGeom_ConicArc* = handle[IGESGeom_ConicArc]
+  HandleIGESGeomConicArc* = Handle[IGESGeomConicArc]
 
 ## ! defines IGESConicArc, Type <104> Form <0-3>  in package IGESGeom
 ## ! A conic arc is a bounded connected portion of a parent
@@ -40,65 +35,61 @@ type
 ## ! A*XT^2 + B*XT*YT + C*YT^2 + D*XT + E*YT + F = 0
 
 type
-  IGESGeom_ConicArc* {.importcpp: "IGESGeom_ConicArc",
-                      header: "IGESGeom_ConicArc.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESGeomConicArc* {.importcpp: "IGESGeom_ConicArc",
+                     header: "IGESGeom_ConicArc.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESGeom_ConicArc*(): IGESGeom_ConicArc {.constructor,
+proc constructIGESGeomConicArc*(): IGESGeomConicArc {.constructor,
     importcpp: "IGESGeom_ConicArc(@)", header: "IGESGeom_ConicArc.hxx".}
-proc Init*(this: var IGESGeom_ConicArc; A: Standard_Real; B: Standard_Real;
-          C: Standard_Real; D: Standard_Real; E: Standard_Real; F: Standard_Real;
-          ZT: Standard_Real; aStart: gp_XY; anEnd: gp_XY) {.importcpp: "Init",
+proc init*(this: var IGESGeomConicArc; a: float; b: float; c: float; d: float; e: float;
+          f: float; zt: float; aStart: Xy; anEnd: Xy) {.importcpp: "Init",
     header: "IGESGeom_ConicArc.hxx".}
-proc OwnCorrect*(this: var IGESGeom_ConicArc): Standard_Boolean {.
-    importcpp: "OwnCorrect", header: "IGESGeom_ConicArc.hxx".}
-proc ComputedFormNumber*(this: IGESGeom_ConicArc): Standard_Integer {.noSideEffect,
+proc ownCorrect*(this: var IGESGeomConicArc): bool {.importcpp: "OwnCorrect",
+    header: "IGESGeom_ConicArc.hxx".}
+proc computedFormNumber*(this: IGESGeomConicArc): int {.noSideEffect,
     importcpp: "ComputedFormNumber", header: "IGESGeom_ConicArc.hxx".}
-proc Equation*(this: IGESGeom_ConicArc; A: var Standard_Real; B: var Standard_Real;
-              C: var Standard_Real; D: var Standard_Real; E: var Standard_Real;
-              F: var Standard_Real) {.noSideEffect, importcpp: "Equation",
-                                   header: "IGESGeom_ConicArc.hxx".}
-proc ZPlane*(this: IGESGeom_ConicArc): Standard_Real {.noSideEffect,
-    importcpp: "ZPlane", header: "IGESGeom_ConicArc.hxx".}
-proc StartPoint*(this: IGESGeom_ConicArc): gp_Pnt2d {.noSideEffect,
-    importcpp: "StartPoint", header: "IGESGeom_ConicArc.hxx".}
-proc TransformedStartPoint*(this: IGESGeom_ConicArc): gp_Pnt {.noSideEffect,
-    importcpp: "TransformedStartPoint", header: "IGESGeom_ConicArc.hxx".}
-proc EndPoint*(this: IGESGeom_ConicArc): gp_Pnt2d {.noSideEffect,
-    importcpp: "EndPoint", header: "IGESGeom_ConicArc.hxx".}
-proc TransformedEndPoint*(this: IGESGeom_ConicArc): gp_Pnt {.noSideEffect,
-    importcpp: "TransformedEndPoint", header: "IGESGeom_ConicArc.hxx".}
-proc IsFromEllipse*(this: IGESGeom_ConicArc): Standard_Boolean {.noSideEffect,
-    importcpp: "IsFromEllipse", header: "IGESGeom_ConicArc.hxx".}
-proc IsFromParabola*(this: IGESGeom_ConicArc): Standard_Boolean {.noSideEffect,
-    importcpp: "IsFromParabola", header: "IGESGeom_ConicArc.hxx".}
-proc IsFromHyperbola*(this: IGESGeom_ConicArc): Standard_Boolean {.noSideEffect,
-    importcpp: "IsFromHyperbola", header: "IGESGeom_ConicArc.hxx".}
-proc IsClosed*(this: IGESGeom_ConicArc): Standard_Boolean {.noSideEffect,
-    importcpp: "IsClosed", header: "IGESGeom_ConicArc.hxx".}
-proc Axis*(this: IGESGeom_ConicArc): gp_Dir {.noSideEffect, importcpp: "Axis",
+proc equation*(this: IGESGeomConicArc; a: var float; b: var float; c: var float;
+              d: var float; e: var float; f: var float) {.noSideEffect,
+    importcpp: "Equation", header: "IGESGeom_ConicArc.hxx".}
+proc zPlane*(this: IGESGeomConicArc): float {.noSideEffect, importcpp: "ZPlane",
     header: "IGESGeom_ConicArc.hxx".}
-proc TransformedAxis*(this: IGESGeom_ConicArc): gp_Dir {.noSideEffect,
+proc startPoint*(this: IGESGeomConicArc): Pnt2d {.noSideEffect,
+    importcpp: "StartPoint", header: "IGESGeom_ConicArc.hxx".}
+proc transformedStartPoint*(this: IGESGeomConicArc): Pnt {.noSideEffect,
+    importcpp: "TransformedStartPoint", header: "IGESGeom_ConicArc.hxx".}
+proc endPoint*(this: IGESGeomConicArc): Pnt2d {.noSideEffect, importcpp: "EndPoint",
+    header: "IGESGeom_ConicArc.hxx".}
+proc transformedEndPoint*(this: IGESGeomConicArc): Pnt {.noSideEffect,
+    importcpp: "TransformedEndPoint", header: "IGESGeom_ConicArc.hxx".}
+proc isFromEllipse*(this: IGESGeomConicArc): bool {.noSideEffect,
+    importcpp: "IsFromEllipse", header: "IGESGeom_ConicArc.hxx".}
+proc isFromParabola*(this: IGESGeomConicArc): bool {.noSideEffect,
+    importcpp: "IsFromParabola", header: "IGESGeom_ConicArc.hxx".}
+proc isFromHyperbola*(this: IGESGeomConicArc): bool {.noSideEffect,
+    importcpp: "IsFromHyperbola", header: "IGESGeom_ConicArc.hxx".}
+proc isClosed*(this: IGESGeomConicArc): bool {.noSideEffect, importcpp: "IsClosed",
+    header: "IGESGeom_ConicArc.hxx".}
+proc axis*(this: IGESGeomConicArc): Dir {.noSideEffect, importcpp: "Axis",
+                                      header: "IGESGeom_ConicArc.hxx".}
+proc transformedAxis*(this: IGESGeomConicArc): Dir {.noSideEffect,
     importcpp: "TransformedAxis", header: "IGESGeom_ConicArc.hxx".}
-proc Definition*(this: IGESGeom_ConicArc; Center: var gp_Pnt; MainAxis: var gp_Dir;
-                rmin: var Standard_Real; rmax: var Standard_Real) {.noSideEffect,
+proc definition*(this: IGESGeomConicArc; center: var Pnt; mainAxis: var Dir;
+                rmin: var float; rmax: var float) {.noSideEffect,
     importcpp: "Definition", header: "IGESGeom_ConicArc.hxx".}
-proc TransformedDefinition*(this: IGESGeom_ConicArc; Center: var gp_Pnt;
-                           MainAxis: var gp_Dir; rmin: var Standard_Real;
-                           rmax: var Standard_Real) {.noSideEffect,
-    importcpp: "TransformedDefinition", header: "IGESGeom_ConicArc.hxx".}
-proc ComputedDefinition*(this: IGESGeom_ConicArc; Xcen: var Standard_Real;
-                        Ycen: var Standard_Real; Xax: var Standard_Real;
-                        Yax: var Standard_Real; Rmin: var Standard_Real;
-                        Rmax: var Standard_Real) {.noSideEffect,
-    importcpp: "ComputedDefinition", header: "IGESGeom_ConicArc.hxx".}
+proc transformedDefinition*(this: IGESGeomConicArc; center: var Pnt;
+                           mainAxis: var Dir; rmin: var float; rmax: var float) {.
+    noSideEffect, importcpp: "TransformedDefinition",
+    header: "IGESGeom_ConicArc.hxx".}
+proc computedDefinition*(this: IGESGeomConicArc; xcen: var float; ycen: var float;
+                        xax: var float; yax: var float; rmin: var float; rmax: var float) {.
+    noSideEffect, importcpp: "ComputedDefinition", header: "IGESGeom_ConicArc.hxx".}
 type
-  IGESGeom_ConicArcbase_type* = IGESData_IGESEntity
+  IGESGeomConicArcbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESGeom_ConicArc::get_type_name(@)",
-                              header: "IGESGeom_ConicArc.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESGeom_ConicArc::get_type_name(@)",
+                            header: "IGESGeom_ConicArc.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESGeom_ConicArc::get_type_descriptor(@)",
     header: "IGESGeom_ConicArc.hxx".}
-proc DynamicType*(this: IGESGeom_ConicArc): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IGESGeomConicArc): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_ConicArc.hxx".}

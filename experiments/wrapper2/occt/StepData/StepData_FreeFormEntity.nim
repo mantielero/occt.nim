@@ -14,18 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString, StepData_HArray1OfField,
-  ../Standard/Standard_Transient, ../Standard/Standard_CString,
-  ../Standard/Standard_Boolean, ../TColStd/TColStd_HSequenceOfAsciiString,
-  ../Standard/Standard_Integer
-
 discard "forward decl of StepData_Field"
 discard "forward decl of StepData_FreeFormEntity"
 discard "forward decl of StepData_FreeFormEntity"
 type
-  Handle_StepData_FreeFormEntity* = handle[StepData_FreeFormEntity]
+  HandleStepDataFreeFormEntity* = Handle[StepDataFreeFormEntity]
 
 ## ! A Free Form Entity allows to record any kind of STEP
 ## ! parameters, in any way of typing
@@ -34,57 +27,55 @@ type
 ## ! (see Next and As)
 
 type
-  StepData_FreeFormEntity* {.importcpp: "StepData_FreeFormEntity",
-                            header: "StepData_FreeFormEntity.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                    ## !
-                                                                                                    ## Creates
-                                                                                                    ## a
-                                                                                                    ## FreeFormEntity,
-                                                                                                    ## with
-                                                                                                    ## no
-                                                                                                    ## field,
-                                                                                                    ## no
-                                                                                                    ## type
+  StepDataFreeFormEntity* {.importcpp: "StepData_FreeFormEntity",
+                           header: "StepData_FreeFormEntity.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                  ## !
+                                                                                                  ## Creates
+                                                                                                  ## a
+                                                                                                  ## FreeFormEntity,
+                                                                                                  ## with
+                                                                                                  ## no
+                                                                                                  ## field,
+                                                                                                  ## no
+                                                                                                  ## type
 
 
-proc constructStepData_FreeFormEntity*(): StepData_FreeFormEntity {.constructor,
+proc constructStepDataFreeFormEntity*(): StepDataFreeFormEntity {.constructor,
     importcpp: "StepData_FreeFormEntity(@)", header: "StepData_FreeFormEntity.hxx".}
-proc SetStepType*(this: var StepData_FreeFormEntity; typenam: Standard_CString) {.
+proc setStepType*(this: var StepDataFreeFormEntity; typenam: StandardCString) {.
     importcpp: "SetStepType", header: "StepData_FreeFormEntity.hxx".}
-proc StepType*(this: StepData_FreeFormEntity): Standard_CString {.noSideEffect,
+proc stepType*(this: StepDataFreeFormEntity): StandardCString {.noSideEffect,
     importcpp: "StepType", header: "StepData_FreeFormEntity.hxx".}
-proc SetNext*(this: var StepData_FreeFormEntity;
-             next: handle[StepData_FreeFormEntity];
-             last: Standard_Boolean = Standard_True) {.importcpp: "SetNext",
-    header: "StepData_FreeFormEntity.hxx".}
-proc Next*(this: StepData_FreeFormEntity): handle[StepData_FreeFormEntity] {.
+proc setNext*(this: var StepDataFreeFormEntity;
+             next: Handle[StepDataFreeFormEntity]; last: bool = true) {.
+    importcpp: "SetNext", header: "StepData_FreeFormEntity.hxx".}
+proc next*(this: StepDataFreeFormEntity): Handle[StepDataFreeFormEntity] {.
     noSideEffect, importcpp: "Next", header: "StepData_FreeFormEntity.hxx".}
-proc IsComplex*(this: StepData_FreeFormEntity): Standard_Boolean {.noSideEffect,
+proc isComplex*(this: StepDataFreeFormEntity): bool {.noSideEffect,
     importcpp: "IsComplex", header: "StepData_FreeFormEntity.hxx".}
-proc Typed*(this: StepData_FreeFormEntity; typenam: Standard_CString): handle[
-    StepData_FreeFormEntity] {.noSideEffect, importcpp: "Typed",
-                              header: "StepData_FreeFormEntity.hxx".}
-proc TypeList*(this: StepData_FreeFormEntity): handle[
-    TColStd_HSequenceOfAsciiString] {.noSideEffect, importcpp: "TypeList",
-                                     header: "StepData_FreeFormEntity.hxx".}
-proc Reorder*(ent: var handle[StepData_FreeFormEntity]): Standard_Boolean {.
+proc typed*(this: StepDataFreeFormEntity; typenam: StandardCString): Handle[
+    StepDataFreeFormEntity] {.noSideEffect, importcpp: "Typed",
+                             header: "StepData_FreeFormEntity.hxx".}
+proc typeList*(this: StepDataFreeFormEntity): Handle[TColStdHSequenceOfAsciiString] {.
+    noSideEffect, importcpp: "TypeList", header: "StepData_FreeFormEntity.hxx".}
+proc reorder*(ent: var Handle[StepDataFreeFormEntity]): bool {.
     importcpp: "StepData_FreeFormEntity::Reorder(@)",
     header: "StepData_FreeFormEntity.hxx".}
-proc SetNbFields*(this: var StepData_FreeFormEntity; nb: Standard_Integer) {.
+proc setNbFields*(this: var StepDataFreeFormEntity; nb: int) {.
     importcpp: "SetNbFields", header: "StepData_FreeFormEntity.hxx".}
-proc NbFields*(this: StepData_FreeFormEntity): Standard_Integer {.noSideEffect,
+proc nbFields*(this: StepDataFreeFormEntity): int {.noSideEffect,
     importcpp: "NbFields", header: "StepData_FreeFormEntity.hxx".}
-proc Field*(this: StepData_FreeFormEntity; num: Standard_Integer): StepData_Field {.
-    noSideEffect, importcpp: "Field", header: "StepData_FreeFormEntity.hxx".}
-proc CField*(this: var StepData_FreeFormEntity; num: Standard_Integer): var StepData_Field {.
+proc field*(this: StepDataFreeFormEntity; num: int): StepDataField {.noSideEffect,
+    importcpp: "Field", header: "StepData_FreeFormEntity.hxx".}
+proc cField*(this: var StepDataFreeFormEntity; num: int): var StepDataField {.
     importcpp: "CField", header: "StepData_FreeFormEntity.hxx".}
 type
-  StepData_FreeFormEntitybase_type* = Standard_Transient
+  StepDataFreeFormEntitybaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepData_FreeFormEntity::get_type_name(@)",
-                              header: "StepData_FreeFormEntity.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepData_FreeFormEntity::get_type_name(@)",
+                            header: "StepData_FreeFormEntity.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepData_FreeFormEntity::get_type_descriptor(@)",
     header: "StepData_FreeFormEntity.hxx".}
-proc DynamicType*(this: StepData_FreeFormEntity): handle[Standard_Type] {.
+proc dynamicType*(this: StepDataFreeFormEntity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepData_FreeFormEntity.hxx".}

@@ -20,9 +20,10 @@
 ## ! -   CurvaturePoint: this point has a curvature constraint.
 
 type
-  AppParCurves_Constraint* {.size: sizeof(cint),
-                            importcpp: "AppParCurves_Constraint",
-                            header: "AppParCurves_Constraint.hxx".} = enum
-    AppParCurves_NoConstraint, AppParCurves_PassPoint, AppParCurves_TangencyPoint,
-    AppParCurves_CurvaturePoint
+  AppParCurvesConstraint* {.size: sizeof(cint),
+                           importcpp: "AppParCurves_Constraint",
+                           header: "AppParCurves_Constraint.hxx".} = enum
+    AppParCurvesNoConstraint, AppParCurvesPassPoint, AppParCurvesTangencyPoint,
+    AppParCurvesCurvaturePoint
+
 

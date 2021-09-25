@@ -13,18 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_DefineAlloc,
-  ../NCollection/NCollection_BaseAllocator, ../Standard/Standard_OStream,
-  ../Standard/Standard_Boolean
-
 ## ! Class LDOM_SBuffer inherits std::streambuf and
 ## ! redefines some virtual methods of it (overflow() and xsputn()).
 ## ! This class contains pointers on first and current element
 ## ! of sequence, also it has methods for the sequence management.
 
 type
-  LDOM_SBuffer* {.importcpp: "LDOM_SBuffer", header: "LDOM_OSStream.hxx", bycopy.} = object of streambuf ##
+  LDOM_SBuffer* {.importcpp: "LDOM_SBuffer", header: "LDOM_OSStream.hxx", bycopy.} = object of Streambuf ##
                                                                                                ## !
                                                                                                ## One
                                                                                                ## element
@@ -73,18 +68,18 @@ type
     ## allocator for chunks
 
 
-proc constructLDOM_SBuffer*(theMaxBuf: Standard_Integer): LDOM_SBuffer {.
-    constructor, importcpp: "LDOM_SBuffer(@)", header: "LDOM_OSStream.hxx".}
-proc str*(this: LDOM_SBuffer): Standard_CString {.noSideEffect, importcpp: "str",
+proc constructLDOM_SBuffer*(theMaxBuf: int): LDOM_SBuffer {.constructor,
+    importcpp: "LDOM_SBuffer(@)", header: "LDOM_OSStream.hxx".}
+proc str*(this: LDOM_SBuffer): StandardCString {.noSideEffect, importcpp: "str",
     header: "LDOM_OSStream.hxx".}
-proc Length*(this: LDOM_SBuffer): Standard_Integer {.noSideEffect,
-    importcpp: "Length", header: "LDOM_OSStream.hxx".}
-proc Clear*(this: var LDOM_SBuffer) {.importcpp: "Clear", header: "LDOM_OSStream.hxx".}
-proc overflow*(this: var LDOM_SBuffer; c: cint = EOF): cint {.importcpp: "overflow",
+proc length*(this: LDOM_SBuffer): int {.noSideEffect, importcpp: "Length",
+                                    header: "LDOM_OSStream.hxx".}
+proc clear*(this: var LDOM_SBuffer) {.importcpp: "Clear", header: "LDOM_OSStream.hxx".}
+proc overflow*(this: var LDOM_SBuffer; c: cint = eof): cint {.importcpp: "overflow",
     header: "LDOM_OSStream.hxx".}
 proc underflow*(this: var LDOM_SBuffer): cint {.importcpp: "underflow",
     header: "LDOM_OSStream.hxx".}
-proc xsputn*(this: var LDOM_SBuffer; s: cstring; n: streamsize): streamsize {.
+proc xsputn*(this: var LDOM_SBuffer; s: cstring; n: Streamsize): Streamsize {.
     importcpp: "xsputn", header: "LDOM_OSStream.hxx".}
 proc destroyLDOM_SBuffer*(this: var LDOM_SBuffer) {.importcpp: "#.~LDOM_SBuffer()",
     header: "LDOM_OSStream.hxx".}
@@ -97,34 +92,35 @@ proc destroyLDOM_SBuffer*(this: var LDOM_SBuffer) {.importcpp: "#.~LDOM_SBuffer(
 ## ! useful methods: str(), Length() and Clear().
 
 type
-  LDOM_OSStream* {.importcpp: "LDOM_OSStream", header: "LDOM_OSStream.hxx", bycopy.} = object of Standard_OStream ##
-                                                                                                        ## !
-                                                                                                        ## Constructor
-                                                                                                        ##
-                                                                                                        ## byte
-                                                                                                        ## order
-                                                                                                        ## mark
-                                                                                                        ## defined
-                                                                                                        ## at
-                                                                                                        ## the
-                                                                                                        ## start
-                                                                                                        ## of
-                                                                                                        ## a
-                                                                                                        ## stream
+  LDOM_OSStream* {.importcpp: "LDOM_OSStream", header: "LDOM_OSStream.hxx", bycopy.} = object of StandardOStream ##
+                                                                                                       ## !
+                                                                                                       ## Constructor
+                                                                                                       ##
+                                                                                                       ## byte
+                                                                                                       ## order
+                                                                                                       ## mark
+                                                                                                       ## defined
+                                                                                                       ## at
+                                                                                                       ## the
+                                                                                                       ## start
+                                                                                                       ## of
+                                                                                                       ## a
+                                                                                                       ## stream
 
 
-proc constructLDOM_OSStream*(theMaxBuf: Standard_Integer): LDOM_OSStream {.
-    constructor, importcpp: "LDOM_OSStream(@)", header: "LDOM_OSStream.hxx".}
+proc constructLDOM_OSStream*(theMaxBuf: int): LDOM_OSStream {.constructor,
+    importcpp: "LDOM_OSStream(@)", header: "LDOM_OSStream.hxx".}
 proc destroyLDOM_OSStream*(this: var LDOM_OSStream) {.
     importcpp: "#.~LDOM_OSStream()", header: "LDOM_OSStream.hxx".}
-proc str*(this: LDOM_OSStream): Standard_CString {.noSideEffect, importcpp: "str",
+proc str*(this: LDOM_OSStream): StandardCString {.noSideEffect, importcpp: "str",
     header: "LDOM_OSStream.hxx".}
-proc Length*(this: LDOM_OSStream): Standard_Integer {.noSideEffect,
-    importcpp: "Length", header: "LDOM_OSStream.hxx".}
-proc Clear*(this: var LDOM_OSStream) {.importcpp: "Clear", header: "LDOM_OSStream.hxx".}
+proc length*(this: LDOM_OSStream): int {.noSideEffect, importcpp: "Length",
+                                     header: "LDOM_OSStream.hxx".}
+proc clear*(this: var LDOM_OSStream) {.importcpp: "Clear", header: "LDOM_OSStream.hxx".}
 type
   LDOM_OSStreamBOMType* {.size: sizeof(cint), importcpp: "LDOM_OSStream::BOMType",
                          header: "LDOM_OSStream.hxx".} = enum
     BOM_UNDEFINED, BOM_UTF8, BOM_UTF16BE, BOM_UTF16LE, BOM_UTF32BE, BOM_UTF32LE,
     BOM_UTF7, BOM_UTF1, BOM_UTFEBCDIC, BOM_SCSU, BOM_BOCU1, BOM_GB18030
+
 

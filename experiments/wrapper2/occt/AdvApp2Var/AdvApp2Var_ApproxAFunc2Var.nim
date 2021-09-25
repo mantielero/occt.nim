@@ -1,3 +1,4 @@
+{.experimental: "callOperator".}
 ##  Created on: 1996-02-14
 ##  Created by: Joelle CHAUVET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -14,106 +15,96 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_HArray1OfReal, ../TColStd/TColStd_HArray2OfReal,
-  ../Standard/Standard_Real, ../GeomAbs/GeomAbs_IsoType, ../GeomAbs/GeomAbs_Shape,
-  AdvApp2Var_Context, AdvApp2Var_Network, AdvApp2Var_Framework,
-  ../Standard/Standard_Boolean, ../TColGeom/TColGeom_HArray1OfSurface,
-  AdvApp2Var_EvaluatorFunc2Var, ../Standard/Standard_OStream
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of AdvApprox_Cutting"
 discard "forward decl of AdvApp2Var_Criterion"
 discard "forward decl of Geom_BSplineSurface"
 type
-  AdvApp2Var_ApproxAFunc2Var* {.importcpp: "AdvApp2Var_ApproxAFunc2Var",
-                               header: "AdvApp2Var_ApproxAFunc2Var.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Initialisation
-                                                                                      ## of
-                                                                                      ## the
-                                                                                      ## approximation
-                                                                                      ## ;
-                                                                                      ## used
-                                                                                      ## by
-                                                                                      ## Create
+  AdvApp2VarApproxAFunc2Var* {.importcpp: "AdvApp2Var_ApproxAFunc2Var",
+                              header: "AdvApp2Var_ApproxAFunc2Var.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Initialisation
+                                                                                     ## of
+                                                                                     ## the
+                                                                                     ## approximation
+                                                                                     ## ;
+                                                                                     ## used
+                                                                                     ## by
+                                                                                     ## Create
 
 
-proc constructAdvApp2Var_ApproxAFunc2Var*(Num1DSS: Standard_Integer;
-    Num2DSS: Standard_Integer; Num3DSS: Standard_Integer;
-    OneDTol: handle[TColStd_HArray1OfReal];
-    TwoDTol: handle[TColStd_HArray1OfReal];
-    ThreeDTol: handle[TColStd_HArray1OfReal];
-    OneDTolFr: handle[TColStd_HArray2OfReal];
-    TwoDTolFr: handle[TColStd_HArray2OfReal];
-    ThreeDTolFr: handle[TColStd_HArray2OfReal]; FirstInU: Standard_Real;
-    LastInU: Standard_Real; FirstInV: Standard_Real; LastInV: Standard_Real;
-    FavorIso: GeomAbs_IsoType; ContInU: GeomAbs_Shape; ContInV: GeomAbs_Shape;
-    PrecisCode: Standard_Integer; MaxDegInU: Standard_Integer;
-    MaxDegInV: Standard_Integer; MaxPatch: Standard_Integer;
-    Func: AdvApp2Var_EvaluatorFunc2Var; UChoice: var AdvApprox_Cutting;
-    VChoice: var AdvApprox_Cutting): AdvApp2Var_ApproxAFunc2Var {.constructor,
-    importcpp: "AdvApp2Var_ApproxAFunc2Var(@)",
-    header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
-proc constructAdvApp2Var_ApproxAFunc2Var*(Num1DSS: Standard_Integer;
-    Num2DSS: Standard_Integer; Num3DSS: Standard_Integer;
-    OneDTol: handle[TColStd_HArray1OfReal];
-    TwoDTol: handle[TColStd_HArray1OfReal];
-    ThreeDTol: handle[TColStd_HArray1OfReal];
-    OneDTolFr: handle[TColStd_HArray2OfReal];
-    TwoDTolFr: handle[TColStd_HArray2OfReal];
-    ThreeDTolFr: handle[TColStd_HArray2OfReal]; FirstInU: Standard_Real;
-    LastInU: Standard_Real; FirstInV: Standard_Real; LastInV: Standard_Real;
-    FavorIso: GeomAbs_IsoType; ContInU: GeomAbs_Shape; ContInV: GeomAbs_Shape;
-    PrecisCode: Standard_Integer; MaxDegInU: Standard_Integer;
-    MaxDegInV: Standard_Integer; MaxPatch: Standard_Integer;
-    Func: AdvApp2Var_EvaluatorFunc2Var; Crit: AdvApp2Var_Criterion;
-    UChoice: var AdvApprox_Cutting; VChoice: var AdvApprox_Cutting): AdvApp2Var_ApproxAFunc2Var {.
+proc constructAdvApp2VarApproxAFunc2Var*(num1DSS: int; num2DSS: int; num3DSS: int;
+                                        oneDTol: Handle[TColStdHArray1OfReal];
+                                        twoDTol: Handle[TColStdHArray1OfReal];
+    threeDTol: Handle[TColStdHArray1OfReal]; oneDTolFr: Handle[TColStdHArray2OfReal];
+    twoDTolFr: Handle[TColStdHArray2OfReal]; threeDTolFr: Handle[
+    TColStdHArray2OfReal]; firstInU: float; lastInU: float; firstInV: float;
+                                        lastInV: float; favorIso: GeomAbsIsoType;
+                                        contInU: GeomAbsShape;
+                                        contInV: GeomAbsShape; precisCode: int;
+                                        maxDegInU: int; maxDegInV: int;
+                                        maxPatch: int;
+                                        `func`: AdvApp2VarEvaluatorFunc2Var;
+                                        uChoice: var AdvApproxCutting;
+                                        vChoice: var AdvApproxCutting): AdvApp2VarApproxAFunc2Var {.
     constructor, importcpp: "AdvApp2Var_ApproxAFunc2Var(@)",
     header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
-proc IsDone*(this: AdvApp2Var_ApproxAFunc2Var): Standard_Boolean {.noSideEffect,
+proc constructAdvApp2VarApproxAFunc2Var*(num1DSS: int; num2DSS: int; num3DSS: int;
+                                        oneDTol: Handle[TColStdHArray1OfReal];
+                                        twoDTol: Handle[TColStdHArray1OfReal];
+    threeDTol: Handle[TColStdHArray1OfReal]; oneDTolFr: Handle[TColStdHArray2OfReal];
+    twoDTolFr: Handle[TColStdHArray2OfReal]; threeDTolFr: Handle[
+    TColStdHArray2OfReal]; firstInU: float; lastInU: float; firstInV: float;
+                                        lastInV: float; favorIso: GeomAbsIsoType;
+                                        contInU: GeomAbsShape;
+                                        contInV: GeomAbsShape; precisCode: int;
+                                        maxDegInU: int; maxDegInV: int;
+                                        maxPatch: int;
+                                        `func`: AdvApp2VarEvaluatorFunc2Var;
+                                        crit: AdvApp2VarCriterion;
+                                        uChoice: var AdvApproxCutting;
+                                        vChoice: var AdvApproxCutting): AdvApp2VarApproxAFunc2Var {.
+    constructor, importcpp: "AdvApp2Var_ApproxAFunc2Var(@)",
+    header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
+proc isDone*(this: AdvApp2VarApproxAFunc2Var): bool {.noSideEffect,
     importcpp: "IsDone", header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
-proc HasResult*(this: AdvApp2Var_ApproxAFunc2Var): Standard_Boolean {.noSideEffect,
+proc hasResult*(this: AdvApp2VarApproxAFunc2Var): bool {.noSideEffect,
     importcpp: "HasResult", header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
-proc Surface*(this: AdvApp2Var_ApproxAFunc2Var; Index: Standard_Integer): handle[
-    Geom_BSplineSurface] {.noSideEffect, importcpp: "Surface",
-                          header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
-proc UDegree*(this: AdvApp2Var_ApproxAFunc2Var): Standard_Integer {.noSideEffect,
+proc surface*(this: AdvApp2VarApproxAFunc2Var; index: int): Handle[GeomBSplineSurface] {.
+    noSideEffect, importcpp: "Surface", header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
+proc uDegree*(this: AdvApp2VarApproxAFunc2Var): int {.noSideEffect,
     importcpp: "UDegree", header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
-proc VDegree*(this: AdvApp2Var_ApproxAFunc2Var): Standard_Integer {.noSideEffect,
+proc vDegree*(this: AdvApp2VarApproxAFunc2Var): int {.noSideEffect,
     importcpp: "VDegree", header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
-proc NumSubSpaces*(this: AdvApp2Var_ApproxAFunc2Var; Dimension: Standard_Integer): Standard_Integer {.
+proc numSubSpaces*(this: AdvApp2VarApproxAFunc2Var; dimension: int): int {.
     noSideEffect, importcpp: "NumSubSpaces",
     header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
-proc MaxError*(this: AdvApp2Var_ApproxAFunc2Var; Dimension: Standard_Integer): handle[
-    TColStd_HArray1OfReal] {.noSideEffect, importcpp: "MaxError",
-                            header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
-proc AverageError*(this: AdvApp2Var_ApproxAFunc2Var; Dimension: Standard_Integer): handle[
-    TColStd_HArray1OfReal] {.noSideEffect, importcpp: "AverageError",
-                            header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
-proc UFrontError*(this: AdvApp2Var_ApproxAFunc2Var; Dimension: Standard_Integer): handle[
-    TColStd_HArray1OfReal] {.noSideEffect, importcpp: "UFrontError",
-                            header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
-proc VFrontError*(this: AdvApp2Var_ApproxAFunc2Var; Dimension: Standard_Integer): handle[
-    TColStd_HArray1OfReal] {.noSideEffect, importcpp: "VFrontError",
-                            header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
-proc MaxError*(this: AdvApp2Var_ApproxAFunc2Var; Dimension: Standard_Integer;
-              Index: Standard_Integer): Standard_Real {.noSideEffect,
-    importcpp: "MaxError", header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
-proc AverageError*(this: AdvApp2Var_ApproxAFunc2Var; Dimension: Standard_Integer;
-                  Index: Standard_Integer): Standard_Real {.noSideEffect,
-    importcpp: "AverageError", header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
-proc UFrontError*(this: AdvApp2Var_ApproxAFunc2Var; Dimension: Standard_Integer;
-                 Index: Standard_Integer): Standard_Real {.noSideEffect,
-    importcpp: "UFrontError", header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
-proc VFrontError*(this: AdvApp2Var_ApproxAFunc2Var; Dimension: Standard_Integer;
-                 Index: Standard_Integer): Standard_Real {.noSideEffect,
-    importcpp: "VFrontError", header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
-proc CritError*(this: AdvApp2Var_ApproxAFunc2Var; Dimension: Standard_Integer;
-               Index: Standard_Integer): Standard_Real {.noSideEffect,
-    importcpp: "CritError", header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
-proc Dump*(this: AdvApp2Var_ApproxAFunc2Var; o: var Standard_OStream) {.noSideEffect,
+proc maxError*(this: AdvApp2VarApproxAFunc2Var; dimension: int): Handle[
+    TColStdHArray1OfReal] {.noSideEffect, importcpp: "MaxError",
+                           header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
+proc averageError*(this: AdvApp2VarApproxAFunc2Var; dimension: int): Handle[
+    TColStdHArray1OfReal] {.noSideEffect, importcpp: "AverageError",
+                           header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
+proc uFrontError*(this: AdvApp2VarApproxAFunc2Var; dimension: int): Handle[
+    TColStdHArray1OfReal] {.noSideEffect, importcpp: "UFrontError",
+                           header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
+proc vFrontError*(this: AdvApp2VarApproxAFunc2Var; dimension: int): Handle[
+    TColStdHArray1OfReal] {.noSideEffect, importcpp: "VFrontError",
+                           header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
+proc maxError*(this: AdvApp2VarApproxAFunc2Var; dimension: int; index: int): float {.
+    noSideEffect, importcpp: "MaxError", header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
+proc averageError*(this: AdvApp2VarApproxAFunc2Var; dimension: int; index: int): float {.
+    noSideEffect, importcpp: "AverageError",
+    header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
+proc uFrontError*(this: AdvApp2VarApproxAFunc2Var; dimension: int; index: int): float {.
+    noSideEffect, importcpp: "UFrontError",
+    header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
+proc vFrontError*(this: AdvApp2VarApproxAFunc2Var; dimension: int; index: int): float {.
+    noSideEffect, importcpp: "VFrontError",
+    header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
+proc critError*(this: AdvApp2VarApproxAFunc2Var; dimension: int; index: int): float {.
+    noSideEffect, importcpp: "CritError", header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
+proc dump*(this: AdvApp2VarApproxAFunc2Var; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
+

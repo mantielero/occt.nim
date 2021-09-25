@@ -14,53 +14,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Prs3d/Prs3d_Root, ../Prs3d/Prs3d_Drawer
-
 discard "forward decl of Adaptor3d_Surface"
 type
-  StdPrs_Plane* {.importcpp: "StdPrs_Plane", header: "StdPrs_Plane.hxx", bycopy.} = object of Prs3d_Root ##
-                                                                                               ## !
-                                                                                               ## Defines
-                                                                                               ## display
-                                                                                               ## of
-                                                                                               ## infinite
-                                                                                               ## planes.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## The
-                                                                                               ## infinite
-                                                                                               ## plane
-                                                                                               ## aPlane
-                                                                                               ## is
-                                                                                               ## added
-                                                                                               ## to
-                                                                                               ## the
-                                                                                               ## display
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## aPresentation,
-                                                                                               ## and
-                                                                                               ## the
-                                                                                               ## attributes
-                                                                                               ## of
-                                                                                               ## the
-                                                                                               ## display
-                                                                                               ## are
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## defined
-                                                                                               ## by
-                                                                                               ## the
-                                                                                               ## attribute
-                                                                                               ## manager
-                                                                                               ## aDrawer.
+  StdPrsPlane* {.importcpp: "StdPrs_Plane", header: "StdPrs_Plane.hxx", bycopy.} = object of Prs3dRoot ##
+                                                                                             ## !
+                                                                                             ## Defines
+                                                                                             ## display
+                                                                                             ## of
+                                                                                             ## infinite
+                                                                                             ## planes.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## The
+                                                                                             ## infinite
+                                                                                             ## plane
+                                                                                             ## aPlane
+                                                                                             ## is
+                                                                                             ## added
+                                                                                             ## to
+                                                                                             ## the
+                                                                                             ## display
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## aPresentation,
+                                                                                             ## and
+                                                                                             ## the
+                                                                                             ## attributes
+                                                                                             ## of
+                                                                                             ## the
+                                                                                             ## display
+                                                                                             ## are
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## defined
+                                                                                             ## by
+                                                                                             ## the
+                                                                                             ## attribute
+                                                                                             ## manager
+                                                                                             ## aDrawer.
 
 
-proc Add*(aPresentation: handle[Prs3d_Presentation]; aPlane: Adaptor3d_Surface;
-         aDrawer: handle[Prs3d_Drawer]) {.importcpp: "StdPrs_Plane::Add(@)",
-                                        header: "StdPrs_Plane.hxx".}
-proc Match*(X: Standard_Real; Y: Standard_Real; Z: Standard_Real;
-           aDistance: Standard_Real; aPlane: Adaptor3d_Surface;
-           aDrawer: handle[Prs3d_Drawer]): Standard_Boolean {.
+proc add*(aPresentation: Handle[Prs3dPresentation]; aPlane: Adaptor3dSurface;
+         aDrawer: Handle[Prs3dDrawer]) {.importcpp: "StdPrs_Plane::Add(@)",
+                                       header: "StdPrs_Plane.hxx".}
+proc match*(x: float; y: float; z: float; aDistance: float; aPlane: Adaptor3dSurface;
+           aDrawer: Handle[Prs3dDrawer]): bool {.
     importcpp: "StdPrs_Plane::Match(@)", header: "StdPrs_Plane.hxx".}

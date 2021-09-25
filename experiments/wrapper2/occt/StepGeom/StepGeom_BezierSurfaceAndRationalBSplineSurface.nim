@@ -14,84 +14,76 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_BSplineSurface,
-  ../Standard/Standard_Integer, StepGeom_HArray2OfCartesianPoint,
-  StepGeom_BSplineSurfaceForm, ../StepData/StepData_Logical,
-  ../TColStd/TColStd_HArray2OfReal, ../Standard/Standard_Real
-
 discard "forward decl of StepGeom_BezierSurface"
 discard "forward decl of StepGeom_RationalBSplineSurface"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_BezierSurfaceAndRationalBSplineSurface"
 discard "forward decl of StepGeom_BezierSurfaceAndRationalBSplineSurface"
 type
-  Handle_StepGeom_BezierSurfaceAndRationalBSplineSurface* = handle[
-      StepGeom_BezierSurfaceAndRationalBSplineSurface]
-  StepGeom_BezierSurfaceAndRationalBSplineSurface* {.
+  HandleStepGeomBezierSurfaceAndRationalBSplineSurface* = Handle[
+      StepGeomBezierSurfaceAndRationalBSplineSurface]
+  StepGeomBezierSurfaceAndRationalBSplineSurface* {.
       importcpp: "StepGeom_BezierSurfaceAndRationalBSplineSurface",
-      header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx", bycopy.} = object of StepGeom_BSplineSurface ##
-                                                                                                           ## !
-                                                                                                           ## Returns
-                                                                                                           ## a
-                                                                                                           ## BezierSurfaceAndRationalBSplineSurface
+      header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx", bycopy.} = object of StepGeomBSplineSurface ##
+                                                                                                          ## !
+                                                                                                          ## Returns
+                                                                                                          ## a
+                                                                                                          ## BezierSurfaceAndRationalBSplineSurface
 
 
-proc constructStepGeom_BezierSurfaceAndRationalBSplineSurface*(): StepGeom_BezierSurfaceAndRationalBSplineSurface {.
+proc constructStepGeomBezierSurfaceAndRationalBSplineSurface*(): StepGeomBezierSurfaceAndRationalBSplineSurface {.
     constructor, importcpp: "StepGeom_BezierSurfaceAndRationalBSplineSurface(@)",
     header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
-proc Init*(this: var StepGeom_BezierSurfaceAndRationalBSplineSurface;
-          aName: handle[TCollection_HAsciiString]; aUDegree: Standard_Integer;
-          aVDegree: Standard_Integer;
-          aControlPointsList: handle[StepGeom_HArray2OfCartesianPoint];
-          aSurfaceForm: StepGeom_BSplineSurfaceForm; aUClosed: StepData_Logical;
-          aVClosed: StepData_Logical; aSelfIntersect: StepData_Logical;
-          aBezierSurface: handle[StepGeom_BezierSurface];
-          aRationalBSplineSurface: handle[StepGeom_RationalBSplineSurface]) {.
+proc init*(this: var StepGeomBezierSurfaceAndRationalBSplineSurface;
+          aName: Handle[TCollectionHAsciiString]; aUDegree: int; aVDegree: int;
+          aControlPointsList: Handle[StepGeomHArray2OfCartesianPoint];
+          aSurfaceForm: StepGeomBSplineSurfaceForm; aUClosed: StepDataLogical;
+          aVClosed: StepDataLogical; aSelfIntersect: StepDataLogical;
+          aBezierSurface: Handle[StepGeomBezierSurface];
+          aRationalBSplineSurface: Handle[StepGeomRationalBSplineSurface]) {.
     importcpp: "Init",
     header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
-proc Init*(this: var StepGeom_BezierSurfaceAndRationalBSplineSurface;
-          aName: handle[TCollection_HAsciiString]; aUDegree: Standard_Integer;
-          aVDegree: Standard_Integer;
-          aControlPointsList: handle[StepGeom_HArray2OfCartesianPoint];
-          aSurfaceForm: StepGeom_BSplineSurfaceForm; aUClosed: StepData_Logical;
-          aVClosed: StepData_Logical; aSelfIntersect: StepData_Logical;
-          aWeightsData: handle[TColStd_HArray2OfReal]) {.importcpp: "Init",
+proc init*(this: var StepGeomBezierSurfaceAndRationalBSplineSurface;
+          aName: Handle[TCollectionHAsciiString]; aUDegree: int; aVDegree: int;
+          aControlPointsList: Handle[StepGeomHArray2OfCartesianPoint];
+          aSurfaceForm: StepGeomBSplineSurfaceForm; aUClosed: StepDataLogical;
+          aVClosed: StepDataLogical; aSelfIntersect: StepDataLogical;
+          aWeightsData: Handle[TColStdHArray2OfReal]) {.importcpp: "Init",
     header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
-proc SetBezierSurface*(this: var StepGeom_BezierSurfaceAndRationalBSplineSurface;
-                      aBezierSurface: handle[StepGeom_BezierSurface]) {.
+proc setBezierSurface*(this: var StepGeomBezierSurfaceAndRationalBSplineSurface;
+                      aBezierSurface: Handle[StepGeomBezierSurface]) {.
     importcpp: "SetBezierSurface",
     header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
-proc BezierSurface*(this: StepGeom_BezierSurfaceAndRationalBSplineSurface): handle[
-    StepGeom_BezierSurface] {.noSideEffect, importcpp: "BezierSurface", header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
-proc SetRationalBSplineSurface*(this: var StepGeom_BezierSurfaceAndRationalBSplineSurface;
-    aRationalBSplineSurface: handle[StepGeom_RationalBSplineSurface]) {.
+proc bezierSurface*(this: StepGeomBezierSurfaceAndRationalBSplineSurface): Handle[
+    StepGeomBezierSurface] {.noSideEffect, importcpp: "BezierSurface", header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
+proc setRationalBSplineSurface*(this: var StepGeomBezierSurfaceAndRationalBSplineSurface;
+    aRationalBSplineSurface: Handle[StepGeomRationalBSplineSurface]) {.
     importcpp: "SetRationalBSplineSurface",
     header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
-proc RationalBSplineSurface*(this: StepGeom_BezierSurfaceAndRationalBSplineSurface): handle[
-    StepGeom_RationalBSplineSurface] {.noSideEffect,
-                                      importcpp: "RationalBSplineSurface", header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
-proc SetWeightsData*(this: var StepGeom_BezierSurfaceAndRationalBSplineSurface;
-                    aWeightsData: handle[TColStd_HArray2OfReal]) {.
+proc rationalBSplineSurface*(this: StepGeomBezierSurfaceAndRationalBSplineSurface): Handle[
+    StepGeomRationalBSplineSurface] {.noSideEffect,
+                                     importcpp: "RationalBSplineSurface", header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
+proc setWeightsData*(this: var StepGeomBezierSurfaceAndRationalBSplineSurface;
+                    aWeightsData: Handle[TColStdHArray2OfReal]) {.
     importcpp: "SetWeightsData",
     header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
-proc WeightsData*(this: StepGeom_BezierSurfaceAndRationalBSplineSurface): handle[
-    TColStd_HArray2OfReal] {.noSideEffect, importcpp: "WeightsData", header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
-proc WeightsDataValue*(this: StepGeom_BezierSurfaceAndRationalBSplineSurface;
-                      num1: Standard_Integer; num2: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "WeightsDataValue",
+proc weightsData*(this: StepGeomBezierSurfaceAndRationalBSplineSurface): Handle[
+    TColStdHArray2OfReal] {.noSideEffect, importcpp: "WeightsData", header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
+proc weightsDataValue*(this: StepGeomBezierSurfaceAndRationalBSplineSurface;
+                      num1: int; num2: int): float {.noSideEffect,
+    importcpp: "WeightsDataValue",
     header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
-proc NbWeightsDataI*(this: StepGeom_BezierSurfaceAndRationalBSplineSurface): Standard_Integer {.
+proc nbWeightsDataI*(this: StepGeomBezierSurfaceAndRationalBSplineSurface): int {.
     noSideEffect, importcpp: "NbWeightsDataI",
     header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
-proc NbWeightsDataJ*(this: StepGeom_BezierSurfaceAndRationalBSplineSurface): Standard_Integer {.
+proc nbWeightsDataJ*(this: StepGeomBezierSurfaceAndRationalBSplineSurface): int {.
     noSideEffect, importcpp: "NbWeightsDataJ",
     header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
 type
-  StepGeom_BezierSurfaceAndRationalBSplineSurfacebase_type* = StepGeom_BSplineSurface
+  StepGeomBezierSurfaceAndRationalBSplineSurfacebaseType* = StepGeomBSplineSurface
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_BezierSurfaceAndRationalBSplineSurface::get_type_name(@)", header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepGeom_BezierSurfaceAndRationalBSplineSurface::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepGeom_BezierSurfaceAndRationalBSplineSurface::get_type_name(@)", header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_BezierSurfaceAndRationalBSplineSurface::get_type_descriptor(@)",
     header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
-proc DynamicType*(this: StepGeom_BezierSurfaceAndRationalBSplineSurface): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
+proc dynamicType*(this: StepGeomBezierSurfaceAndRationalBSplineSurface): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}

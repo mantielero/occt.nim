@@ -14,45 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_CertificationType"
 discard "forward decl of StepBasic_CertificationType"
 type
-  Handle_StepBasic_CertificationType* = handle[StepBasic_CertificationType]
+  HandleStepBasicCertificationType* = Handle[StepBasicCertificationType]
 
 ## ! Representation of STEP entity CertificationType
 
 type
-  StepBasic_CertificationType* {.importcpp: "StepBasic_CertificationType",
-                                header: "StepBasic_CertificationType.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                            ## !
-                                                                                                            ## Empty
-                                                                                                            ## constructor
+  StepBasicCertificationType* {.importcpp: "StepBasic_CertificationType",
+                               header: "StepBasic_CertificationType.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                          ## !
+                                                                                                          ## Empty
+                                                                                                          ## constructor
 
 
-proc constructStepBasic_CertificationType*(): StepBasic_CertificationType {.
+proc constructStepBasicCertificationType*(): StepBasicCertificationType {.
     constructor, importcpp: "StepBasic_CertificationType(@)",
     header: "StepBasic_CertificationType.hxx".}
-proc Init*(this: var StepBasic_CertificationType;
-          aDescription: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepBasicCertificationType;
+          aDescription: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepBasic_CertificationType.hxx".}
-proc Description*(this: StepBasic_CertificationType): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description",
-                               header: "StepBasic_CertificationType.hxx".}
-proc SetDescription*(this: var StepBasic_CertificationType;
-                    Description: handle[TCollection_HAsciiString]) {.
+proc description*(this: StepBasicCertificationType): Handle[TCollectionHAsciiString] {.
+    noSideEffect, importcpp: "Description",
+    header: "StepBasic_CertificationType.hxx".}
+proc setDescription*(this: var StepBasicCertificationType;
+                    description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepBasic_CertificationType.hxx".}
 type
-  StepBasic_CertificationTypebase_type* = Standard_Transient
+  StepBasicCertificationTypebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_CertificationType::get_type_name(@)",
-                              header: "StepBasic_CertificationType.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_CertificationType::get_type_name(@)",
+                            header: "StepBasic_CertificationType.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_CertificationType::get_type_descriptor(@)",
     header: "StepBasic_CertificationType.hxx".}
-proc DynamicType*(this: StepBasic_CertificationType): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicCertificationType): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_CertificationType.hxx".}

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../IFSelect/IFSelect_SelectExplore, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_Graph"
 discard "forward decl of Interface_EntityIterator"
@@ -25,64 +21,64 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SelectPCurves"
 discard "forward decl of IGESSelect_SelectPCurves"
 type
-  Handle_IGESSelect_SelectPCurves* = handle[IGESSelect_SelectPCurves]
+  HandleIGESSelectSelectPCurves* = Handle[IGESSelectSelectPCurves]
 
 ## ! This Selection returns the pcurves which lie on a face
 ## ! In two modes : global (i.e. a CompositeCurve is not explored)
 ## ! or basic (all the basic curves are listed)
 
 type
-  IGESSelect_SelectPCurves* {.importcpp: "IGESSelect_SelectPCurves",
-                             header: "IGESSelect_SelectPCurves.hxx", bycopy.} = object of IFSelect_SelectExplore ##
-                                                                                                          ## !
-                                                                                                          ## Creates
-                                                                                                          ## a
-                                                                                                          ## SelectPCurves
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## basic
-                                                                                                          ## True
-                                                                                                          ## :
-                                                                                                          ## lists
-                                                                                                          ## all
-                                                                                                          ## the
-                                                                                                          ## components
-                                                                                                          ## of
-                                                                                                          ## pcurves
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## basic
-                                                                                                          ## False
-                                                                                                          ## :
-                                                                                                          ## lists
-                                                                                                          ## the
-                                                                                                          ## uppest
-                                                                                                          ## level
-                                                                                                          ## definitions
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## (i.e.
-                                                                                                          ## stops
-                                                                                                          ## at
-                                                                                                          ## CompositeCurve)
+  IGESSelectSelectPCurves* {.importcpp: "IGESSelect_SelectPCurves",
+                            header: "IGESSelect_SelectPCurves.hxx", bycopy.} = object of IFSelectSelectExplore ##
+                                                                                                        ## !
+                                                                                                        ## Creates
+                                                                                                        ## a
+                                                                                                        ## SelectPCurves
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## basic
+                                                                                                        ## True
+                                                                                                        ## :
+                                                                                                        ## lists
+                                                                                                        ## all
+                                                                                                        ## the
+                                                                                                        ## components
+                                                                                                        ## of
+                                                                                                        ## pcurves
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## basic
+                                                                                                        ## False
+                                                                                                        ## :
+                                                                                                        ## lists
+                                                                                                        ## the
+                                                                                                        ## uppest
+                                                                                                        ## level
+                                                                                                        ## definitions
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## (i.e.
+                                                                                                        ## stops
+                                                                                                        ## at
+                                                                                                        ## CompositeCurve)
 
 
-proc constructIGESSelect_SelectPCurves*(basic: Standard_Boolean): IGESSelect_SelectPCurves {.
+proc constructIGESSelectSelectPCurves*(basic: bool): IGESSelectSelectPCurves {.
     constructor, importcpp: "IGESSelect_SelectPCurves(@)",
     header: "IGESSelect_SelectPCurves.hxx".}
-proc Explore*(this: IGESSelect_SelectPCurves; level: Standard_Integer;
-             ent: handle[Standard_Transient]; G: Interface_Graph;
-             explored: var Interface_EntityIterator): Standard_Boolean {.
-    noSideEffect, importcpp: "Explore", header: "IGESSelect_SelectPCurves.hxx".}
-proc ExploreLabel*(this: IGESSelect_SelectPCurves): TCollection_AsciiString {.
+proc explore*(this: IGESSelectSelectPCurves; level: int;
+             ent: Handle[StandardTransient]; g: InterfaceGraph;
+             explored: var InterfaceEntityIterator): bool {.noSideEffect,
+    importcpp: "Explore", header: "IGESSelect_SelectPCurves.hxx".}
+proc exploreLabel*(this: IGESSelectSelectPCurves): TCollectionAsciiString {.
     noSideEffect, importcpp: "ExploreLabel", header: "IGESSelect_SelectPCurves.hxx".}
 type
-  IGESSelect_SelectPCurvesbase_type* = IFSelect_SelectExplore
+  IGESSelectSelectPCurvesbaseType* = IFSelectSelectExplore
 
-proc get_type_name*(): cstring {.importcpp: "IGESSelect_SelectPCurves::get_type_name(@)",
-                              header: "IGESSelect_SelectPCurves.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_SelectPCurves::get_type_name(@)",
+                            header: "IGESSelect_SelectPCurves.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSelect_SelectPCurves::get_type_descriptor(@)",
     header: "IGESSelect_SelectPCurves.hxx".}
-proc DynamicType*(this: IGESSelect_SelectPCurves): handle[Standard_Type] {.
+proc dynamicType*(this: IGESSelectSelectPCurves): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSelect_SelectPCurves.hxx".}

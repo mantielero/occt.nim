@@ -13,50 +13,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepFEA_CurveElementLocation"
 discard "forward decl of StepBasic_EulerAngles"
 discard "forward decl of StepFEA_CurveElementInterval"
 discard "forward decl of StepFEA_CurveElementInterval"
 type
-  Handle_StepFEA_CurveElementInterval* = handle[StepFEA_CurveElementInterval]
+  HandleStepFEA_CurveElementInterval* = Handle[StepFEA_CurveElementInterval]
 
 ## ! Representation of STEP entity CurveElementInterval
 
 type
   StepFEA_CurveElementInterval* {.importcpp: "StepFEA_CurveElementInterval",
                                  header: "StepFEA_CurveElementInterval.hxx",
-                                 bycopy.} = object of Standard_Transient ## ! Empty constructor
+                                 bycopy.} = object of StandardTransient ## ! Empty constructor
 
 
 proc constructStepFEA_CurveElementInterval*(): StepFEA_CurveElementInterval {.
     constructor, importcpp: "StepFEA_CurveElementInterval(@)",
     header: "StepFEA_CurveElementInterval.hxx".}
-proc Init*(this: var StepFEA_CurveElementInterval;
-          aFinishPosition: handle[StepFEA_CurveElementLocation];
-          aEuAngles: handle[StepBasic_EulerAngles]) {.importcpp: "Init",
+proc init*(this: var StepFEA_CurveElementInterval;
+          aFinishPosition: Handle[StepFEA_CurveElementLocation];
+          aEuAngles: Handle[StepBasicEulerAngles]) {.importcpp: "Init",
     header: "StepFEA_CurveElementInterval.hxx".}
-proc FinishPosition*(this: StepFEA_CurveElementInterval): handle[
+proc finishPosition*(this: StepFEA_CurveElementInterval): Handle[
     StepFEA_CurveElementLocation] {.noSideEffect, importcpp: "FinishPosition",
                                    header: "StepFEA_CurveElementInterval.hxx".}
-proc SetFinishPosition*(this: var StepFEA_CurveElementInterval;
-                       FinishPosition: handle[StepFEA_CurveElementLocation]) {.
+proc setFinishPosition*(this: var StepFEA_CurveElementInterval;
+                       finishPosition: Handle[StepFEA_CurveElementLocation]) {.
     importcpp: "SetFinishPosition", header: "StepFEA_CurveElementInterval.hxx".}
-proc EuAngles*(this: StepFEA_CurveElementInterval): handle[StepBasic_EulerAngles] {.
+proc euAngles*(this: StepFEA_CurveElementInterval): Handle[StepBasicEulerAngles] {.
     noSideEffect, importcpp: "EuAngles", header: "StepFEA_CurveElementInterval.hxx".}
-proc SetEuAngles*(this: var StepFEA_CurveElementInterval;
-                 EuAngles: handle[StepBasic_EulerAngles]) {.
+proc setEuAngles*(this: var StepFEA_CurveElementInterval;
+                 euAngles: Handle[StepBasicEulerAngles]) {.
     importcpp: "SetEuAngles", header: "StepFEA_CurveElementInterval.hxx".}
 type
-  StepFEA_CurveElementIntervalbase_type* = Standard_Transient
+  StepFEA_CurveElementIntervalbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_CurveElementInterval::get_type_name(@)",
-                              header: "StepFEA_CurveElementInterval.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_CurveElementInterval::get_type_name(@)",
+                            header: "StepFEA_CurveElementInterval.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_CurveElementInterval::get_type_descriptor(@)",
     header: "StepFEA_CurveElementInterval.hxx".}
-proc DynamicType*(this: StepFEA_CurveElementInterval): handle[Standard_Type] {.
+proc dynamicType*(this: StepFEA_CurveElementInterval): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_CurveElementInterval.hxx".}

@@ -13,46 +13,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../XmlMDF/XmlMDF_ADriver,
-  ../Standard/Standard_Boolean, ../XmlObjMgt/XmlObjMgt_RRelocationTable,
-  ../XmlObjMgt/XmlObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDataStd_IntegerListDriver"
 discard "forward decl of XmlMDataStd_IntegerListDriver"
 type
-  Handle_XmlMDataStd_IntegerListDriver* = handle[XmlMDataStd_IntegerListDriver]
-  XmlMDataStd_IntegerListDriver* {.importcpp: "XmlMDataStd_IntegerListDriver",
-                                  header: "XmlMDataStd_IntegerListDriver.hxx",
-                                  bycopy.} = object of XmlMDF_ADriver
+  HandleXmlMDataStdIntegerListDriver* = Handle[XmlMDataStdIntegerListDriver]
+  XmlMDataStdIntegerListDriver* {.importcpp: "XmlMDataStd_IntegerListDriver",
+                                 header: "XmlMDataStd_IntegerListDriver.hxx",
+                                 bycopy.} = object of XmlMDF_ADriver
 
 
-proc constructXmlMDataStd_IntegerListDriver*(
-    theMessageDriver: handle[Message_Messenger]): XmlMDataStd_IntegerListDriver {.
+proc constructXmlMDataStdIntegerListDriver*(
+    theMessageDriver: Handle[MessageMessenger]): XmlMDataStdIntegerListDriver {.
     constructor, importcpp: "XmlMDataStd_IntegerListDriver(@)",
     header: "XmlMDataStd_IntegerListDriver.hxx".}
-proc NewEmpty*(this: XmlMDataStd_IntegerListDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: XmlMDataStdIntegerListDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty",
     header: "XmlMDataStd_IntegerListDriver.hxx".}
-proc Paste*(this: XmlMDataStd_IntegerListDriver; Source: XmlObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var XmlObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "XmlMDataStd_IntegerListDriver.hxx".}
-proc Paste*(this: XmlMDataStd_IntegerListDriver; Source: handle[TDF_Attribute];
-           Target: var XmlObjMgt_Persistent;
-           RelocTable: var XmlObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: XmlMDataStdIntegerListDriver; source: XmlObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var XmlObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "XmlMDataStd_IntegerListDriver.hxx".}
+proc paste*(this: XmlMDataStdIntegerListDriver; source: Handle[TDF_Attribute];
+           target: var XmlObjMgtPersistent;
+           relocTable: var XmlObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "XmlMDataStd_IntegerListDriver.hxx".}
 type
-  XmlMDataStd_IntegerListDriverbase_type* = XmlMDF_ADriver
+  XmlMDataStdIntegerListDriverbaseType* = XmlMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "XmlMDataStd_IntegerListDriver::get_type_name(@)",
-                              header: "XmlMDataStd_IntegerListDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XmlMDataStd_IntegerListDriver::get_type_name(@)",
+                            header: "XmlMDataStd_IntegerListDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XmlMDataStd_IntegerListDriver::get_type_descriptor(@)",
     header: "XmlMDataStd_IntegerListDriver.hxx".}
-proc DynamicType*(this: XmlMDataStd_IntegerListDriver): handle[Standard_Type] {.
+proc dynamicType*(this: XmlMDataStdIntegerListDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMDataStd_IntegerListDriver.hxx".}

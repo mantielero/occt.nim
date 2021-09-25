@@ -14,36 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_Approval"
 discard "forward decl of StepBasic_ApprovalAssignment"
 discard "forward decl of StepBasic_ApprovalAssignment"
 type
-  Handle_StepBasic_ApprovalAssignment* = handle[StepBasic_ApprovalAssignment]
-  StepBasic_ApprovalAssignment* {.importcpp: "StepBasic_ApprovalAssignment",
-                                 header: "StepBasic_ApprovalAssignment.hxx",
-                                 bycopy.} = object of Standard_Transient
+  HandleStepBasicApprovalAssignment* = Handle[StepBasicApprovalAssignment]
+  StepBasicApprovalAssignment* {.importcpp: "StepBasic_ApprovalAssignment",
+                                header: "StepBasic_ApprovalAssignment.hxx", bycopy.} = object of StandardTransient
 
 
-proc Init*(this: var StepBasic_ApprovalAssignment;
-          aAssignedApproval: handle[StepBasic_Approval]) {.importcpp: "Init",
+proc init*(this: var StepBasicApprovalAssignment;
+          aAssignedApproval: Handle[StepBasicApproval]) {.importcpp: "Init",
     header: "StepBasic_ApprovalAssignment.hxx".}
-proc SetAssignedApproval*(this: var StepBasic_ApprovalAssignment;
-                         aAssignedApproval: handle[StepBasic_Approval]) {.
+proc setAssignedApproval*(this: var StepBasicApprovalAssignment;
+                         aAssignedApproval: Handle[StepBasicApproval]) {.
     importcpp: "SetAssignedApproval", header: "StepBasic_ApprovalAssignment.hxx".}
-proc AssignedApproval*(this: StepBasic_ApprovalAssignment): handle[
-    StepBasic_Approval] {.noSideEffect, importcpp: "AssignedApproval",
-                         header: "StepBasic_ApprovalAssignment.hxx".}
+proc assignedApproval*(this: StepBasicApprovalAssignment): Handle[StepBasicApproval] {.
+    noSideEffect, importcpp: "AssignedApproval",
+    header: "StepBasic_ApprovalAssignment.hxx".}
 type
-  StepBasic_ApprovalAssignmentbase_type* = Standard_Transient
+  StepBasicApprovalAssignmentbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ApprovalAssignment::get_type_name(@)",
-                              header: "StepBasic_ApprovalAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ApprovalAssignment::get_type_name(@)",
+                            header: "StepBasic_ApprovalAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_ApprovalAssignment::get_type_descriptor(@)",
     header: "StepBasic_ApprovalAssignment.hxx".}
-proc DynamicType*(this: StepBasic_ApprovalAssignment): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicApprovalAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ApprovalAssignment.hxx".}

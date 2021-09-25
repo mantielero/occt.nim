@@ -13,36 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_ShapeRepresentation
-
 discard "forward decl of StepShape_PointRepresentation"
 discard "forward decl of StepShape_PointRepresentation"
 type
-  Handle_StepShape_PointRepresentation* = handle[StepShape_PointRepresentation]
+  HandleStepShapePointRepresentation* = Handle[StepShapePointRepresentation]
 
 ## ! Representation of STEP entity PointRepresentation
 
 type
-  StepShape_PointRepresentation* {.importcpp: "StepShape_PointRepresentation",
-                                  header: "StepShape_PointRepresentation.hxx",
-                                  bycopy.} = object of StepShape_ShapeRepresentation ##
-                                                                                ## !
-                                                                                ## Empty
-                                                                                ## constructor
+  StepShapePointRepresentation* {.importcpp: "StepShape_PointRepresentation",
+                                 header: "StepShape_PointRepresentation.hxx",
+                                 bycopy.} = object of StepShapeShapeRepresentation ## !
+                                                                              ## Empty
+                                                                              ## constructor
 
 
-proc constructStepShape_PointRepresentation*(): StepShape_PointRepresentation {.
+proc constructStepShapePointRepresentation*(): StepShapePointRepresentation {.
     constructor, importcpp: "StepShape_PointRepresentation(@)",
     header: "StepShape_PointRepresentation.hxx".}
 type
-  StepShape_PointRepresentationbase_type* = StepShape_ShapeRepresentation
+  StepShapePointRepresentationbaseType* = StepShapeShapeRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_PointRepresentation::get_type_name(@)",
-                              header: "StepShape_PointRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_PointRepresentation::get_type_name(@)",
+                            header: "StepShape_PointRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_PointRepresentation::get_type_descriptor(@)",
     header: "StepShape_PointRepresentation.hxx".}
-proc DynamicType*(this: StepShape_PointRepresentation): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapePointRepresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_PointRepresentation.hxx".}

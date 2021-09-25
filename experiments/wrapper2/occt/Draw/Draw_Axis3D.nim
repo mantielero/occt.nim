@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Ax3, Draw_Color,
-  ../Standard/Standard_Integer, Draw_Drawable3D
-
 discard "forward decl of Draw_Color"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Ax3"
@@ -25,24 +21,24 @@ discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Axis3D"
 discard "forward decl of Draw_Axis3D"
 type
-  Handle_Draw_Axis3D* = handle[Draw_Axis3D]
-  Draw_Axis3D* {.importcpp: "Draw_Axis3D", header: "Draw_Axis3D.hxx", bycopy.} = object of Draw_Drawable3D
+  HandleDrawAxis3D* = Handle[DrawAxis3D]
+  DrawAxis3D* {.importcpp: "Draw_Axis3D", header: "Draw_Axis3D.hxx", bycopy.} = object of DrawDrawable3D
 
 
-proc constructDraw_Axis3D*(col: Draw_Color; Size: Standard_Integer = 5): Draw_Axis3D {.
+proc constructDrawAxis3D*(col: DrawColor; size: int = 5): DrawAxis3D {.constructor,
+    importcpp: "Draw_Axis3D(@)", header: "Draw_Axis3D.hxx".}
+proc constructDrawAxis3D*(p: Pnt; col: DrawColor; size: int = 5): DrawAxis3D {.
     constructor, importcpp: "Draw_Axis3D(@)", header: "Draw_Axis3D.hxx".}
-proc constructDraw_Axis3D*(p: gp_Pnt; col: Draw_Color; Size: Standard_Integer = 5): Draw_Axis3D {.
+proc constructDrawAxis3D*(a: Ax3; col: DrawColor; size: int = 5): DrawAxis3D {.
     constructor, importcpp: "Draw_Axis3D(@)", header: "Draw_Axis3D.hxx".}
-proc constructDraw_Axis3D*(A: gp_Ax3; col: Draw_Color; Size: Standard_Integer = 5): Draw_Axis3D {.
-    constructor, importcpp: "Draw_Axis3D(@)", header: "Draw_Axis3D.hxx".}
-proc DrawOn*(this: Draw_Axis3D; dis: var Draw_Display) {.noSideEffect,
+proc drawOn*(this: DrawAxis3D; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "Draw_Axis3D.hxx".}
 type
-  Draw_Axis3Dbase_type* = Draw_Drawable3D
+  DrawAxis3DbaseType* = DrawDrawable3D
 
-proc get_type_name*(): cstring {.importcpp: "Draw_Axis3D::get_type_name(@)",
-                              header: "Draw_Axis3D.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Draw_Axis3D::get_type_name(@)",
+                            header: "Draw_Axis3D.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Draw_Axis3D::get_type_descriptor(@)", header: "Draw_Axis3D.hxx".}
-proc DynamicType*(this: Draw_Axis3D): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: DrawAxis3D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Axis3D.hxx".}

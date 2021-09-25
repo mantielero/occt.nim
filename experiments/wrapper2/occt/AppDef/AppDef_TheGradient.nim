@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../AppParCurves/AppParCurves_MultiCurve,
-  ../math/math_Vector, ../Standard/Standard_Real, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer,
-  ../AppParCurves/AppParCurves_HArray1OfConstraintCouple
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of AppDef_MultiLine"
@@ -31,36 +24,33 @@ discard "forward decl of AppDef_ParFunctionOfTheGradient"
 discard "forward decl of AppDef_Gradient_BFGSOfTheGradient"
 discard "forward decl of AppParCurves_MultiCurve"
 type
-  AppDef_TheGradient* {.importcpp: "AppDef_TheGradient",
-                       header: "AppDef_TheGradient.hxx", bycopy.} = object ## ! Tries to minimize the sum
-                                                                      ## (square(||Qui - Bi*Pi||))
-                                                                      ## ! where Pui describe the
-                                                                      ## approximating Bezier
-                                                                      ## curves'Poles
-                                                                      ## ! and Qi the MultiLine points with a parameter ui.
-                                                                      ## ! In this algorithm, the parameters ui are the unknowns.
-                                                                      ## ! The tolerance required on this sum is given by Tol.
-                                                                      ## ! The desired degree of the resulting curve is Deg.
+  AppDefTheGradient* {.importcpp: "AppDef_TheGradient",
+                      header: "AppDef_TheGradient.hxx", bycopy.} = object ## ! Tries to minimize the sum
+                                                                     ## (square(||Qui - Bi*Pi||))
+                                                                     ## ! where Pui describe the
+                                                                     ## approximating Bezier
+                                                                     ## curves'Poles
+                                                                     ## ! and Qi the MultiLine points with a parameter ui.
+                                                                     ## ! In this algorithm, the parameters ui are the unknowns.
+                                                                     ## ! The tolerance required on this sum is given by Tol.
+                                                                     ## ! The desired degree of the resulting curve is Deg.
 
 
-proc constructAppDef_TheGradient*(SSP: AppDef_MultiLine;
-                                 FirstPoint: Standard_Integer;
-                                 LastPoint: Standard_Integer; TheConstraints: handle[
-    AppParCurves_HArray1OfConstraintCouple]; Parameters: var math_Vector;
-                                 Deg: Standard_Integer; Tol3d: Standard_Real;
-                                 Tol2d: Standard_Real;
-                                 NbIterations: Standard_Integer = 200): AppDef_TheGradient {.
+proc constructAppDefTheGradient*(ssp: AppDefMultiLine; firstPoint: int;
+                                lastPoint: int; theConstraints: Handle[
+    AppParCurvesHArray1OfConstraintCouple]; parameters: var MathVector; deg: int;
+                                tol3d: float; tol2d: float; nbIterations: int = 200): AppDefTheGradient {.
     constructor, importcpp: "AppDef_TheGradient(@)",
     header: "AppDef_TheGradient.hxx".}
-proc IsDone*(this: AppDef_TheGradient): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "AppDef_TheGradient.hxx".}
-proc Value*(this: AppDef_TheGradient): AppParCurves_MultiCurve {.noSideEffect,
+proc isDone*(this: AppDefTheGradient): bool {.noSideEffect, importcpp: "IsDone",
+    header: "AppDef_TheGradient.hxx".}
+proc value*(this: AppDefTheGradient): AppParCurvesMultiCurve {.noSideEffect,
     importcpp: "Value", header: "AppDef_TheGradient.hxx".}
-proc Error*(this: AppDef_TheGradient; Index: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "Error", header: "AppDef_TheGradient.hxx".}
-proc MaxError3d*(this: AppDef_TheGradient): Standard_Real {.noSideEffect,
+proc error*(this: AppDefTheGradient; index: int): float {.noSideEffect,
+    importcpp: "Error", header: "AppDef_TheGradient.hxx".}
+proc maxError3d*(this: AppDefTheGradient): float {.noSideEffect,
     importcpp: "MaxError3d", header: "AppDef_TheGradient.hxx".}
-proc MaxError2d*(this: AppDef_TheGradient): Standard_Real {.noSideEffect,
+proc maxError2d*(this: AppDefTheGradient): float {.noSideEffect,
     importcpp: "MaxError2d", header: "AppDef_TheGradient.hxx".}
-proc AverageError*(this: AppDef_TheGradient): Standard_Real {.noSideEffect,
+proc averageError*(this: AppDefTheGradient): float {.noSideEffect,
     importcpp: "AverageError", header: "AppDef_TheGradient.hxx".}

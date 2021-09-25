@@ -13,55 +13,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepGeom/StepGeom_GeometricRepresentationItem,
-  StepVisual_HArray1OfDraughtingCalloutElement
-
 discard "forward decl of StepVisual_DraughtingCallout"
 discard "forward decl of StepVisual_DraughtingCallout"
 type
-  Handle_StepVisual_DraughtingCallout* = handle[StepVisual_DraughtingCallout]
-  StepVisual_DraughtingCallout* {.importcpp: "StepVisual_DraughtingCallout",
-                                 header: "StepVisual_DraughtingCallout.hxx",
-                                 bycopy.} = object of StepGeom_GeometricRepresentationItem ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## a
-                                                                                      ## DraughtingCallout
+  HandleStepVisualDraughtingCallout* = Handle[StepVisualDraughtingCallout]
+  StepVisualDraughtingCallout* {.importcpp: "StepVisual_DraughtingCallout",
+                                header: "StepVisual_DraughtingCallout.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
+                                                                                                                              ## !
+                                                                                                                              ## Returns
+                                                                                                                              ## a
+                                                                                                                              ## DraughtingCallout
 
 
-proc constructStepVisual_DraughtingCallout*(): StepVisual_DraughtingCallout {.
+proc constructStepVisualDraughtingCallout*(): StepVisualDraughtingCallout {.
     constructor, importcpp: "StepVisual_DraughtingCallout(@)",
     header: "StepVisual_DraughtingCallout.hxx".}
-proc Init*(this: var StepVisual_DraughtingCallout;
-          theName: handle[TCollection_HAsciiString];
-          theContents: handle[StepVisual_HArray1OfDraughtingCalloutElement]) {.
+proc init*(this: var StepVisualDraughtingCallout;
+          theName: Handle[TCollectionHAsciiString];
+          theContents: Handle[StepVisualHArray1OfDraughtingCalloutElement]) {.
     importcpp: "Init", header: "StepVisual_DraughtingCallout.hxx".}
-proc Contents*(this: StepVisual_DraughtingCallout): handle[
-    StepVisual_HArray1OfDraughtingCalloutElement] {.noSideEffect,
+proc contents*(this: StepVisualDraughtingCallout): Handle[
+    StepVisualHArray1OfDraughtingCalloutElement] {.noSideEffect,
     importcpp: "Contents", header: "StepVisual_DraughtingCallout.hxx".}
-proc SetContents*(this: var StepVisual_DraughtingCallout; theContents: handle[
-    StepVisual_HArray1OfDraughtingCalloutElement]) {.importcpp: "SetContents",
+proc setContents*(this: var StepVisualDraughtingCallout; theContents: Handle[
+    StepVisualHArray1OfDraughtingCalloutElement]) {.importcpp: "SetContents",
     header: "StepVisual_DraughtingCallout.hxx".}
-proc NbContents*(this: StepVisual_DraughtingCallout): Standard_Integer {.
-    noSideEffect, importcpp: "NbContents",
-    header: "StepVisual_DraughtingCallout.hxx".}
-proc ContentsValue*(this: StepVisual_DraughtingCallout; theNum: Standard_Integer): StepVisual_DraughtingCalloutElement {.
+proc nbContents*(this: StepVisualDraughtingCallout): int {.noSideEffect,
+    importcpp: "NbContents", header: "StepVisual_DraughtingCallout.hxx".}
+proc contentsValue*(this: StepVisualDraughtingCallout; theNum: int): StepVisualDraughtingCalloutElement {.
     noSideEffect, importcpp: "ContentsValue",
     header: "StepVisual_DraughtingCallout.hxx".}
-proc SetContentsValue*(this: var StepVisual_DraughtingCallout;
-                      theNum: Standard_Integer;
-                      theItem: StepVisual_DraughtingCalloutElement) {.
+proc setContentsValue*(this: var StepVisualDraughtingCallout; theNum: int;
+                      theItem: StepVisualDraughtingCalloutElement) {.
     importcpp: "SetContentsValue", header: "StepVisual_DraughtingCallout.hxx".}
 type
-  StepVisual_DraughtingCalloutbase_type* = StepGeom_GeometricRepresentationItem
+  StepVisualDraughtingCalloutbaseType* = StepGeomGeometricRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_DraughtingCallout::get_type_name(@)",
-                              header: "StepVisual_DraughtingCallout.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_DraughtingCallout::get_type_name(@)",
+                            header: "StepVisual_DraughtingCallout.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_DraughtingCallout::get_type_descriptor(@)",
     header: "StepVisual_DraughtingCallout.hxx".}
-proc DynamicType*(this: StepVisual_DraughtingCallout): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualDraughtingCallout): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_DraughtingCallout.hxx".}

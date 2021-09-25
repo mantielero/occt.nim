@@ -13,13 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Graphic3d/Graphic3d_ClipPlane, ../Graphic3d/Graphic3d_Structure, V3d_View
-
 discard "forward decl of V3d_Plane"
 discard "forward decl of V3d_Plane"
 type
-  Handle_V3d_Plane* = handle[V3d_Plane]
+  HandleV3dPlane* = Handle[V3dPlane]
 
 ## ! Obsolete clip plane presentation class.
 ## ! Ported on new core of Graphic3d_ClipPlane approach.
@@ -41,48 +38,47 @@ type
 ## ! with clipping equation.
 
 type
-  V3d_Plane* {.importcpp: "V3d_Plane", header: "V3d_Plane.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                              ## !
-                                                                                              ## Creates
-                                                                                              ## a
-                                                                                              ## clipping
-                                                                                              ## plane
-                                                                                              ## from
-                                                                                              ## plane
-                                                                                              ## coefficients.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Updates
-                                                                                              ## the
-                                                                                              ## the
-                                                                                              ## plane
-                                                                                              ## representation.
+  V3dPlane* {.importcpp: "V3d_Plane", header: "V3d_Plane.hxx", bycopy.} = object of StandardTransient ##
+                                                                                            ## !
+                                                                                            ## Creates
+                                                                                            ## a
+                                                                                            ## clipping
+                                                                                            ## plane
+                                                                                            ## from
+                                                                                            ## plane
+                                                                                            ## coefficients.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Updates
+                                                                                            ## the
+                                                                                            ## the
+                                                                                            ## plane
+                                                                                            ## representation.
     ## !< clip plane implementation.
 
 
-proc constructV3d_Plane*(theA: Standard_Real = 0.0; theB: Standard_Real = 0.0;
-                        theC: Standard_Real = 1.0; theD: Standard_Real = 0.0): V3d_Plane {.
-    constructor, importcpp: "V3d_Plane(@)", header: "V3d_Plane.hxx".}
-proc SetPlane*(this: var V3d_Plane; theA: Standard_Real; theB: Standard_Real;
-              theC: Standard_Real; theD: Standard_Real) {.importcpp: "SetPlane",
+proc constructV3dPlane*(theA: float = 0.0; theB: float = 0.0; theC: float = 1.0;
+                       theD: float = 0.0): V3dPlane {.constructor,
+    importcpp: "V3d_Plane(@)", header: "V3d_Plane.hxx".}
+proc setPlane*(this: var V3dPlane; theA: float; theB: float; theC: float; theD: float) {.
+    importcpp: "SetPlane", header: "V3d_Plane.hxx".}
+proc display*(this: var V3dPlane; theView: Handle[V3dView];
+             theColor: QuantityColor = quantityNOC_GRAY) {.importcpp: "Display",
     header: "V3d_Plane.hxx".}
-proc Display*(this: var V3d_Plane; theView: handle[V3d_View];
-             theColor: Quantity_Color = Quantity_NOC_GRAY) {.importcpp: "Display",
-    header: "V3d_Plane.hxx".}
-proc Erase*(this: var V3d_Plane) {.importcpp: "Erase", header: "V3d_Plane.hxx".}
-proc Plane*(this: V3d_Plane; theA: var Standard_Real; theB: var Standard_Real;
-           theC: var Standard_Real; theD: var Standard_Real) {.noSideEffect,
-    importcpp: "Plane", header: "V3d_Plane.hxx".}
-proc IsDisplayed*(this: V3d_Plane): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDisplayed", header: "V3d_Plane.hxx".}
-proc ClipPlane*(this: V3d_Plane): handle[Graphic3d_ClipPlane] {.noSideEffect,
+proc erase*(this: var V3dPlane) {.importcpp: "Erase", header: "V3d_Plane.hxx".}
+proc plane*(this: V3dPlane; theA: var float; theB: var float; theC: var float;
+           theD: var float) {.noSideEffect, importcpp: "Plane",
+                           header: "V3d_Plane.hxx".}
+proc isDisplayed*(this: V3dPlane): bool {.noSideEffect, importcpp: "IsDisplayed",
+                                      header: "V3d_Plane.hxx".}
+proc clipPlane*(this: V3dPlane): Handle[Graphic3dClipPlane] {.noSideEffect,
     importcpp: "ClipPlane", header: "V3d_Plane.hxx".}
 type
-  V3d_Planebase_type* = Standard_Transient
+  V3dPlanebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "V3d_Plane::get_type_name(@)",
-                              header: "V3d_Plane.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "V3d_Plane::get_type_name(@)",
+                            header: "V3d_Plane.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "V3d_Plane::get_type_descriptor(@)", header: "V3d_Plane.hxx".}
-proc DynamicType*(this: V3d_Plane): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: V3dPlane): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "V3d_Plane.hxx".}

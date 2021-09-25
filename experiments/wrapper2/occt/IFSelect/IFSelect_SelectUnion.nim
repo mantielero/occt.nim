@@ -14,43 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_SelectCombine
-
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectUnion"
 discard "forward decl of IFSelect_SelectUnion"
 type
-  Handle_IFSelect_SelectUnion* = handle[IFSelect_SelectUnion]
+  HandleIFSelectSelectUnion* = Handle[IFSelectSelectUnion]
 
 ## ! A SelectUnion cumulates the Entities issued from several other
 ## ! Selections (union of results : "OR" operator)
 
 type
-  IFSelect_SelectUnion* {.importcpp: "IFSelect_SelectUnion",
-                         header: "IFSelect_SelectUnion.hxx", bycopy.} = object of IFSelect_SelectCombine ##
-                                                                                                  ## !
-                                                                                                  ## Creates
-                                                                                                  ## an
-                                                                                                  ## empty
-                                                                                                  ## SelectUnion
+  IFSelectSelectUnion* {.importcpp: "IFSelect_SelectUnion",
+                        header: "IFSelect_SelectUnion.hxx", bycopy.} = object of IFSelectSelectCombine ##
+                                                                                                ## !
+                                                                                                ## Creates
+                                                                                                ## an
+                                                                                                ## empty
+                                                                                                ## SelectUnion
 
 
-proc constructIFSelect_SelectUnion*(): IFSelect_SelectUnion {.constructor,
+proc constructIFSelectSelectUnion*(): IFSelectSelectUnion {.constructor,
     importcpp: "IFSelect_SelectUnion(@)", header: "IFSelect_SelectUnion.hxx".}
-proc RootResult*(this: IFSelect_SelectUnion; G: Interface_Graph): Interface_EntityIterator {.
+proc rootResult*(this: IFSelectSelectUnion; g: InterfaceGraph): InterfaceEntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "IFSelect_SelectUnion.hxx".}
-proc Label*(this: IFSelect_SelectUnion): TCollection_AsciiString {.noSideEffect,
+proc label*(this: IFSelectSelectUnion): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_SelectUnion.hxx".}
 type
-  IFSelect_SelectUnionbase_type* = IFSelect_SelectCombine
+  IFSelectSelectUnionbaseType* = IFSelectSelectCombine
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectUnion::get_type_name(@)",
-                              header: "IFSelect_SelectUnion.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectUnion::get_type_name(@)",
+                            header: "IFSelect_SelectUnion.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_SelectUnion::get_type_descriptor(@)",
     header: "IFSelect_SelectUnion.hxx".}
-proc DynamicType*(this: IFSelect_SelectUnion): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IFSelectSelectUnion): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectUnion.hxx".}

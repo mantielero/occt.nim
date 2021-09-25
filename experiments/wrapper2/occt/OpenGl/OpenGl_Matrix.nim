@@ -13,10 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Type
-
 type
-  OpenGl_Matrix* {.importcpp: "OpenGl_Matrix", header: "OpenGl_Matrix.hxx", bycopy.} = object
+  OpenGlMatrix* {.importcpp: "OpenGl_Matrix", header: "OpenGl_Matrix.hxx", bycopy.} = object
     mat* {.importc: "mat".}: array[4, array[4, cfloat]]
+
 

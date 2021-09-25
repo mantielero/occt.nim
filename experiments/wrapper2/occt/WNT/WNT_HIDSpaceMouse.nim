@@ -11,9 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Aspect/Aspect_VKey, ../Graphic3d/Graphic3d_Vec
-
 ## ! Wrapper over Space Mouse data chunk within WM_INPUT event (known also as Raw Input in WinAPI).
 ## ! This class predefines specific list of supported devices, which does not depend on 3rdparty library provided by mouse vendor.
 ## ! Supported input chunks:
@@ -94,27 +91,27 @@ const
   WNT_HIDSpaceMouseVENDOR_ID_LOGITECH* = 0x46D
   WNT_HIDSpaceMouseVENDOR_ID_3DCONNEXION* = 0x256F
 
-proc IsKnownProduct*(theProductId: culong): bool {.
+proc isKnownProduct*(theProductId: culong): bool {.
     importcpp: "WNT_HIDSpaceMouse::IsKnownProduct(@)",
     header: "WNT_HIDSpaceMouse.hxx".}
-proc constructWNT_HIDSpaceMouse*(theProductId: culong; theData: ptr Standard_Byte;
-                                theSize: Standard_Size): WNT_HIDSpaceMouse {.
+proc constructWNT_HIDSpaceMouse*(theProductId: culong; theData: ptr StandardByte;
+                                theSize: StandardSize): WNT_HIDSpaceMouse {.
     constructor, importcpp: "WNT_HIDSpaceMouse(@)", header: "WNT_HIDSpaceMouse.hxx".}
-proc RawValueRange*(this: WNT_HIDSpaceMouse): int16_t {.noSideEffect,
+proc rawValueRange*(this: WNT_HIDSpaceMouse): int16T {.noSideEffect,
     importcpp: "RawValueRange", header: "WNT_HIDSpaceMouse.hxx".}
-proc SetRawValueRange*(this: var WNT_HIDSpaceMouse; theRange: int16_t) {.
+proc setRawValueRange*(this: var WNT_HIDSpaceMouse; theRange: int16T) {.
     importcpp: "SetRawValueRange", header: "WNT_HIDSpaceMouse.hxx".}
-proc IsTranslation*(this: WNT_HIDSpaceMouse): bool {.noSideEffect,
+proc isTranslation*(this: WNT_HIDSpaceMouse): bool {.noSideEffect,
     importcpp: "IsTranslation", header: "WNT_HIDSpaceMouse.hxx".}
-proc Translation*(this: WNT_HIDSpaceMouse; theIsIdle: var bool; theIsQuadric: bool): Graphic3d_Vec3d {.
+proc translation*(this: WNT_HIDSpaceMouse; theIsIdle: var bool; theIsQuadric: bool): Graphic3dVec3d {.
     noSideEffect, importcpp: "Translation", header: "WNT_HIDSpaceMouse.hxx".}
-proc IsRotation*(this: WNT_HIDSpaceMouse): bool {.noSideEffect,
+proc isRotation*(this: WNT_HIDSpaceMouse): bool {.noSideEffect,
     importcpp: "IsRotation", header: "WNT_HIDSpaceMouse.hxx".}
-proc Rotation*(this: WNT_HIDSpaceMouse; theIsIdle: var bool; theIsQuadric: bool): Graphic3d_Vec3d {.
+proc rotation*(this: WNT_HIDSpaceMouse; theIsIdle: var bool; theIsQuadric: bool): Graphic3dVec3d {.
     noSideEffect, importcpp: "Rotation", header: "WNT_HIDSpaceMouse.hxx".}
-proc IsKeyState*(this: WNT_HIDSpaceMouse): bool {.noSideEffect,
+proc isKeyState*(this: WNT_HIDSpaceMouse): bool {.noSideEffect,
     importcpp: "IsKeyState", header: "WNT_HIDSpaceMouse.hxx".}
-proc KeyState*(this: WNT_HIDSpaceMouse): uint32_t {.noSideEffect,
+proc keyState*(this: WNT_HIDSpaceMouse): uint32T {.noSideEffect,
     importcpp: "KeyState", header: "WNT_HIDSpaceMouse.hxx".}
-proc HidToSpaceKey*(this: WNT_HIDSpaceMouse; theKeyBit: cushort): Aspect_VKey {.
+proc hidToSpaceKey*(this: WNT_HIDSpaceMouse; theKeyBit: cushort): AspectVKey {.
     noSideEffect, importcpp: "HidToSpaceKey", header: "WNT_HIDSpaceMouse.hxx".}

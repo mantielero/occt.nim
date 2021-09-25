@@ -14,36 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../IntSurf/IntSurf_Quadric,
-  ../math/math_FunctionWithDerivative, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real
-
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of IntSurf_Quadric"
 discard "forward decl of IntCurveSurface_TheHCurveTool"
 type
-  IntCurveSurface_TheQuadCurvFuncOfTheQuadCurvExactHInter* {.
+  IntCurveSurfaceTheQuadCurvFuncOfTheQuadCurvExactHInter* {.
       importcpp: "IntCurveSurface_TheQuadCurvFuncOfTheQuadCurvExactHInter",
       header: "IntCurveSurface_TheQuadCurvFuncOfTheQuadCurvExactHInter.hxx",
-      bycopy.} = object of math_FunctionWithDerivative ## ! Create the function.
+      bycopy.} = object of MathFunctionWithDerivative ## ! Create the function.
 
 
-proc constructIntCurveSurface_TheQuadCurvFuncOfTheQuadCurvExactHInter*(
-    Q: IntSurf_Quadric; C: handle[Adaptor3d_HCurve]): IntCurveSurface_TheQuadCurvFuncOfTheQuadCurvExactHInter {.
+proc constructIntCurveSurfaceTheQuadCurvFuncOfTheQuadCurvExactHInter*(
+    q: IntSurfQuadric; c: Handle[Adaptor3dHCurve]): IntCurveSurfaceTheQuadCurvFuncOfTheQuadCurvExactHInter {.
     constructor,
     importcpp: "IntCurveSurface_TheQuadCurvFuncOfTheQuadCurvExactHInter(@)",
     header: "IntCurveSurface_TheQuadCurvFuncOfTheQuadCurvExactHInter.hxx".}
-proc Value*(this: var IntCurveSurface_TheQuadCurvFuncOfTheQuadCurvExactHInter;
-           Param: Standard_Real; F: var Standard_Real): Standard_Boolean {.
-    importcpp: "Value",
+proc value*(this: var IntCurveSurfaceTheQuadCurvFuncOfTheQuadCurvExactHInter;
+           param: float; f: var float): bool {.importcpp: "Value",
     header: "IntCurveSurface_TheQuadCurvFuncOfTheQuadCurvExactHInter.hxx".}
-proc Derivative*(this: var IntCurveSurface_TheQuadCurvFuncOfTheQuadCurvExactHInter;
-                Param: Standard_Real; D: var Standard_Real): Standard_Boolean {.
-    importcpp: "Derivative",
+proc derivative*(this: var IntCurveSurfaceTheQuadCurvFuncOfTheQuadCurvExactHInter;
+                param: float; d: var float): bool {.importcpp: "Derivative",
     header: "IntCurveSurface_TheQuadCurvFuncOfTheQuadCurvExactHInter.hxx".}
-proc Values*(this: var IntCurveSurface_TheQuadCurvFuncOfTheQuadCurvExactHInter;
-            Param: Standard_Real; F: var Standard_Real; D: var Standard_Real): Standard_Boolean {.
-    importcpp: "Values",
+proc values*(this: var IntCurveSurfaceTheQuadCurvFuncOfTheQuadCurvExactHInter;
+            param: float; f: var float; d: var float): bool {.importcpp: "Values",
     header: "IntCurveSurface_TheQuadCurvFuncOfTheQuadCurvExactHInter.hxx".}

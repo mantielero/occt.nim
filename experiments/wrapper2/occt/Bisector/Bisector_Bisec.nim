@@ -14,43 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../GeomAbs/GeomAbs_JoinType, ../Standard/Standard_Boolean
-
 discard "forward decl of Geom2d_TrimmedCurve"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of Geom2d_Point"
 type
-  Bisector_Bisec* {.importcpp: "Bisector_Bisec", header: "Bisector_Bisec.hxx", bycopy.} = object
+  BisectorBisec* {.importcpp: "Bisector_Bisec", header: "Bisector_Bisec.hxx", bycopy.} = object
 
 
-proc constructBisector_Bisec*(): Bisector_Bisec {.constructor,
+proc constructBisectorBisec*(): BisectorBisec {.constructor,
     importcpp: "Bisector_Bisec(@)", header: "Bisector_Bisec.hxx".}
-proc Perform*(this: var Bisector_Bisec; Cu1: handle[Geom2d_Curve];
-             Cu2: handle[Geom2d_Curve]; P: gp_Pnt2d; V1: gp_Vec2d; V2: gp_Vec2d;
-             Sense: Standard_Real; ajointype: GeomAbs_JoinType;
-             Tolerance: Standard_Real; oncurve: Standard_Boolean = Standard_True) {.
+proc perform*(this: var BisectorBisec; cu1: Handle[Geom2dCurve];
+             cu2: Handle[Geom2dCurve]; p: Pnt2d; v1: Vec2d; v2: Vec2d; sense: float;
+             ajointype: GeomAbsJoinType; tolerance: float; oncurve: bool = true) {.
     importcpp: "Perform", header: "Bisector_Bisec.hxx".}
-proc Perform*(this: var Bisector_Bisec; Cu: handle[Geom2d_Curve];
-             Pnt: handle[Geom2d_Point]; P: gp_Pnt2d; V1: gp_Vec2d; V2: gp_Vec2d;
-             Sense: Standard_Real; Tolerance: Standard_Real;
-             oncurve: Standard_Boolean = Standard_True) {.importcpp: "Perform",
+proc perform*(this: var BisectorBisec; cu: Handle[Geom2dCurve];
+             pnt: Handle[Geom2dPoint]; p: Pnt2d; v1: Vec2d; v2: Vec2d; sense: float;
+             tolerance: float; oncurve: bool = true) {.importcpp: "Perform",
     header: "Bisector_Bisec.hxx".}
-proc Perform*(this: var Bisector_Bisec; Pnt: handle[Geom2d_Point];
-             Cu: handle[Geom2d_Curve]; P: gp_Pnt2d; V1: gp_Vec2d; V2: gp_Vec2d;
-             Sense: Standard_Real; Tolerance: Standard_Real;
-             oncurve: Standard_Boolean = Standard_True) {.importcpp: "Perform",
+proc perform*(this: var BisectorBisec; pnt: Handle[Geom2dPoint];
+             cu: Handle[Geom2dCurve]; p: Pnt2d; v1: Vec2d; v2: Vec2d; sense: float;
+             tolerance: float; oncurve: bool = true) {.importcpp: "Perform",
     header: "Bisector_Bisec.hxx".}
-proc Perform*(this: var Bisector_Bisec; Pnt1: handle[Geom2d_Point];
-             Pnt2: handle[Geom2d_Point]; P: gp_Pnt2d; V1: gp_Vec2d; V2: gp_Vec2d;
-             Sense: Standard_Real; Tolerance: Standard_Real = 0.0;
-             oncurve: Standard_Boolean = Standard_True) {.importcpp: "Perform",
+proc perform*(this: var BisectorBisec; pnt1: Handle[Geom2dPoint];
+             pnt2: Handle[Geom2dPoint]; p: Pnt2d; v1: Vec2d; v2: Vec2d; sense: float;
+             tolerance: float = 0.0; oncurve: bool = true) {.importcpp: "Perform",
     header: "Bisector_Bisec.hxx".}
-proc Value*(this: Bisector_Bisec): handle[Geom2d_TrimmedCurve] {.noSideEffect,
+proc value*(this: BisectorBisec): Handle[Geom2dTrimmedCurve] {.noSideEffect,
     importcpp: "Value", header: "Bisector_Bisec.hxx".}
-proc ChangeValue*(this: var Bisector_Bisec): handle[Geom2d_TrimmedCurve] {.
+proc changeValue*(this: var BisectorBisec): Handle[Geom2dTrimmedCurve] {.
     importcpp: "ChangeValue", header: "Bisector_Bisec.hxx".}

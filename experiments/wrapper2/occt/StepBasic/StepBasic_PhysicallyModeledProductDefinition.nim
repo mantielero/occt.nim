@@ -14,28 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_ProductDefinition
-
 discard "forward decl of StepBasic_PhysicallyModeledProductDefinition"
 discard "forward decl of StepBasic_PhysicallyModeledProductDefinition"
 type
-  Handle_StepBasic_PhysicallyModeledProductDefinition* = handle[
-      StepBasic_PhysicallyModeledProductDefinition]
-  StepBasic_PhysicallyModeledProductDefinition* {.
+  HandleStepBasicPhysicallyModeledProductDefinition* = Handle[
+      StepBasicPhysicallyModeledProductDefinition]
+  StepBasicPhysicallyModeledProductDefinition* {.
       importcpp: "StepBasic_PhysicallyModeledProductDefinition",
-      header: "StepBasic_PhysicallyModeledProductDefinition.hxx", bycopy.} = object of StepBasic_ProductDefinition
+      header: "StepBasic_PhysicallyModeledProductDefinition.hxx", bycopy.} = object of StepBasicProductDefinition
 
 
-proc constructStepBasic_PhysicallyModeledProductDefinition*(): StepBasic_PhysicallyModeledProductDefinition {.
+proc constructStepBasicPhysicallyModeledProductDefinition*(): StepBasicPhysicallyModeledProductDefinition {.
     constructor, importcpp: "StepBasic_PhysicallyModeledProductDefinition(@)",
     header: "StepBasic_PhysicallyModeledProductDefinition.hxx".}
 type
-  StepBasic_PhysicallyModeledProductDefinitionbase_type* = StepBasic_ProductDefinition
+  StepBasicPhysicallyModeledProductDefinitionbaseType* = StepBasicProductDefinition
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_PhysicallyModeledProductDefinition::get_type_name(@)", header: "StepBasic_PhysicallyModeledProductDefinition.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepBasic_PhysicallyModeledProductDefinition::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepBasic_PhysicallyModeledProductDefinition::get_type_name(@)", header: "StepBasic_PhysicallyModeledProductDefinition.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_PhysicallyModeledProductDefinition::get_type_descriptor(@)",
     header: "StepBasic_PhysicallyModeledProductDefinition.hxx".}
-proc DynamicType*(this: StepBasic_PhysicallyModeledProductDefinition): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepBasic_PhysicallyModeledProductDefinition.hxx".}
+proc dynamicType*(this: StepBasicPhysicallyModeledProductDefinition): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepBasic_PhysicallyModeledProductDefinition.hxx".}

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real
-
 ## ! This class implements the common services for
 ## ! all classes of StepToTopoDS which report error
 ## ! and sets and returns precision.
@@ -28,13 +23,13 @@ type
                       header: "StepToTopoDS_Root.hxx", bycopy.} = object
 
 
-proc IsDone*(this: StepToTopoDS_Root): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "StepToTopoDS_Root.hxx".}
-proc Precision*(this: StepToTopoDS_Root): Standard_Real {.noSideEffect,
+proc isDone*(this: StepToTopoDS_Root): bool {.noSideEffect, importcpp: "IsDone",
+    header: "StepToTopoDS_Root.hxx".}
+proc precision*(this: StepToTopoDS_Root): float {.noSideEffect,
     importcpp: "Precision", header: "StepToTopoDS_Root.hxx".}
-proc SetPrecision*(this: var StepToTopoDS_Root; preci: Standard_Real) {.
+proc setPrecision*(this: var StepToTopoDS_Root; preci: float) {.
     importcpp: "SetPrecision", header: "StepToTopoDS_Root.hxx".}
-proc MaxTol*(this: StepToTopoDS_Root): Standard_Real {.noSideEffect,
-    importcpp: "MaxTol", header: "StepToTopoDS_Root.hxx".}
-proc SetMaxTol*(this: var StepToTopoDS_Root; maxpreci: Standard_Real) {.
+proc maxTol*(this: StepToTopoDS_Root): float {.noSideEffect, importcpp: "MaxTol",
+    header: "StepToTopoDS_Root.hxx".}
+proc setMaxTol*(this: var StepToTopoDS_Root; maxpreci: float) {.
     importcpp: "SetMaxTol", header: "StepToTopoDS_Root.hxx".}

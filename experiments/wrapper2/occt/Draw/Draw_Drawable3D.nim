@@ -14,58 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../Standard/Standard_CString,
-  ../Standard/Standard_Transient, ../Standard/Standard_OStream, Draw_Interpretor
-
 discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Drawable3D"
 discard "forward decl of Draw_Drawable3D"
 type
-  Handle_Draw_Drawable3D* = handle[Draw_Drawable3D]
-  Draw_Drawable3D* {.importcpp: "Draw_Drawable3D", header: "Draw_Drawable3D.hxx",
-                    bycopy.} = object of Standard_Transient
+  HandleDrawDrawable3D* = Handle[DrawDrawable3D]
+  DrawDrawable3D* {.importcpp: "Draw_Drawable3D", header: "Draw_Drawable3D.hxx",
+                   bycopy.} = object of StandardTransient
 
 
-proc DrawOn*(this: Draw_Drawable3D; dis: var Draw_Display) {.noSideEffect,
+proc drawOn*(this: DrawDrawable3D; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "Draw_Drawable3D.hxx".}
-proc PickReject*(this: Draw_Drawable3D; X: Standard_Real; Y: Standard_Real;
-                Prec: Standard_Real): Standard_Boolean {.noSideEffect,
-    importcpp: "PickReject", header: "Draw_Drawable3D.hxx".}
-proc Copy*(this: Draw_Drawable3D): handle[Draw_Drawable3D] {.noSideEffect,
+proc pickReject*(this: DrawDrawable3D; x: float; y: float; prec: float): bool {.
+    noSideEffect, importcpp: "PickReject", header: "Draw_Drawable3D.hxx".}
+proc copy*(this: DrawDrawable3D): Handle[DrawDrawable3D] {.noSideEffect,
     importcpp: "Copy", header: "Draw_Drawable3D.hxx".}
-proc Dump*(this: Draw_Drawable3D; S: var Standard_OStream) {.noSideEffect,
+proc dump*(this: DrawDrawable3D; s: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "Draw_Drawable3D.hxx".}
-proc Whatis*(this: Draw_Drawable3D; I: var Draw_Interpretor) {.noSideEffect,
+proc whatis*(this: DrawDrawable3D; i: var DrawInterpretor) {.noSideEffect,
     importcpp: "Whatis", header: "Draw_Drawable3D.hxx".}
-proc Is3D*(this: Draw_Drawable3D): Standard_Boolean {.noSideEffect,
-    importcpp: "Is3D", header: "Draw_Drawable3D.hxx".}
-proc SetBounds*(this: var Draw_Drawable3D; xmin: Standard_Real; xmax: Standard_Real;
-               ymin: Standard_Real; ymax: Standard_Real) {.importcpp: "SetBounds",
+proc is3D*(this: DrawDrawable3D): bool {.noSideEffect, importcpp: "Is3D",
+                                     header: "Draw_Drawable3D.hxx".}
+proc setBounds*(this: var DrawDrawable3D; xmin: float; xmax: float; ymin: float;
+               ymax: float) {.importcpp: "SetBounds", header: "Draw_Drawable3D.hxx".}
+proc bounds*(this: DrawDrawable3D; xmin: var float; xmax: var float; ymin: var float;
+            ymax: var float) {.noSideEffect, importcpp: "Bounds",
+                            header: "Draw_Drawable3D.hxx".}
+proc visible*(this: DrawDrawable3D): bool {.noSideEffect, importcpp: "Visible",
+                                        header: "Draw_Drawable3D.hxx".}
+proc visible*(this: var DrawDrawable3D; v: bool) {.importcpp: "Visible",
     header: "Draw_Drawable3D.hxx".}
-proc Bounds*(this: Draw_Drawable3D; xmin: var Standard_Real; xmax: var Standard_Real;
-            ymin: var Standard_Real; ymax: var Standard_Real) {.noSideEffect,
-    importcpp: "Bounds", header: "Draw_Drawable3D.hxx".}
-proc Visible*(this: Draw_Drawable3D): Standard_Boolean {.noSideEffect,
-    importcpp: "Visible", header: "Draw_Drawable3D.hxx".}
-proc Visible*(this: var Draw_Drawable3D; V: Standard_Boolean) {.importcpp: "Visible",
+proc protected*(this: DrawDrawable3D): bool {.noSideEffect, importcpp: "Protected",
     header: "Draw_Drawable3D.hxx".}
-proc Protected*(this: Draw_Drawable3D): Standard_Boolean {.noSideEffect,
-    importcpp: "Protected", header: "Draw_Drawable3D.hxx".}
-proc Protected*(this: var Draw_Drawable3D; P: Standard_Boolean) {.
-    importcpp: "Protected", header: "Draw_Drawable3D.hxx".}
-proc Name*(this: Draw_Drawable3D): Standard_CString {.noSideEffect,
-    importcpp: "Name", header: "Draw_Drawable3D.hxx".}
-proc Name*(this: var Draw_Drawable3D; N: Standard_CString) {.importcpp: "Name",
+proc protected*(this: var DrawDrawable3D; p: bool) {.importcpp: "Protected",
+    header: "Draw_Drawable3D.hxx".}
+proc name*(this: DrawDrawable3D): StandardCString {.noSideEffect, importcpp: "Name",
+    header: "Draw_Drawable3D.hxx".}
+proc name*(this: var DrawDrawable3D; n: StandardCString) {.importcpp: "Name",
     header: "Draw_Drawable3D.hxx".}
 type
-  Draw_Drawable3Dbase_type* = Standard_Transient
+  DrawDrawable3DbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Draw_Drawable3D::get_type_name(@)",
-                              header: "Draw_Drawable3D.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Draw_Drawable3D::get_type_name(@)",
+                            header: "Draw_Drawable3D.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Draw_Drawable3D::get_type_descriptor(@)",
     header: "Draw_Drawable3D.hxx".}
-proc DynamicType*(this: Draw_Drawable3D): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: DrawDrawable3D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Drawable3D.hxx".}

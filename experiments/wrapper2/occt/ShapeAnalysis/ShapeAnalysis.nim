@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of ShapeExtend_WireData"
@@ -88,21 +83,20 @@ type
                                                                                       ## returned.
 
 
-proc OuterWire*(face: TopoDS_Face): TopoDS_Wire {.
+proc outerWire*(face: TopoDS_Face): TopoDS_Wire {.
     importcpp: "ShapeAnalysis::OuterWire(@)", header: "ShapeAnalysis.hxx".}
-proc TotCross2D*(sewd: handle[ShapeExtend_WireData]; aFace: TopoDS_Face): Standard_Real {.
+proc totCross2D*(sewd: Handle[ShapeExtendWireData]; aFace: TopoDS_Face): float {.
     importcpp: "ShapeAnalysis::TotCross2D(@)", header: "ShapeAnalysis.hxx".}
-proc ContourArea*(theWire: TopoDS_Wire): Standard_Real {.
+proc contourArea*(theWire: TopoDS_Wire): float {.
     importcpp: "ShapeAnalysis::ContourArea(@)", header: "ShapeAnalysis.hxx".}
-proc IsOuterBound*(face: TopoDS_Face): Standard_Boolean {.
+proc isOuterBound*(face: TopoDS_Face): bool {.
     importcpp: "ShapeAnalysis::IsOuterBound(@)", header: "ShapeAnalysis.hxx".}
-proc AdjustByPeriod*(Val: Standard_Real; ToVal: Standard_Real; Period: Standard_Real): Standard_Real {.
+proc adjustByPeriod*(val: float; toVal: float; period: float): float {.
     importcpp: "ShapeAnalysis::AdjustByPeriod(@)", header: "ShapeAnalysis.hxx".}
-proc AdjustToPeriod*(Val: Standard_Real; ValMin: Standard_Real; ValMax: Standard_Real): Standard_Real {.
+proc adjustToPeriod*(val: float; valMin: float; valMax: float): float {.
     importcpp: "ShapeAnalysis::AdjustToPeriod(@)", header: "ShapeAnalysis.hxx".}
-proc FindBounds*(shape: TopoDS_Shape; V1: var TopoDS_Vertex; V2: var TopoDS_Vertex) {.
+proc findBounds*(shape: TopoDS_Shape; v1: var TopoDS_Vertex; v2: var TopoDS_Vertex) {.
     importcpp: "ShapeAnalysis::FindBounds(@)", header: "ShapeAnalysis.hxx".}
-proc GetFaceUVBounds*(F: TopoDS_Face; Umin: var Standard_Real;
-                     Umax: var Standard_Real; Vmin: var Standard_Real;
-                     Vmax: var Standard_Real) {.
-    importcpp: "ShapeAnalysis::GetFaceUVBounds(@)", header: "ShapeAnalysis.hxx".}
+proc getFaceUVBounds*(f: TopoDS_Face; umin: var float; umax: var float; vmin: var float;
+                     vmax: var float) {.importcpp: "ShapeAnalysis::GetFaceUVBounds(@)",
+                                     header: "ShapeAnalysis.hxx".}

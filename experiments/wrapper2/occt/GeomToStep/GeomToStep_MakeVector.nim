@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GeomToStep_Root
-
 discard "forward decl of StepGeom_Vector"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Vec"
@@ -25,21 +21,19 @@ discard "forward decl of gp_Vec2d"
 discard "forward decl of Geom_Vector"
 discard "forward decl of Geom2d_Vector"
 type
-  GeomToStep_MakeVector* {.importcpp: "GeomToStep_MakeVector",
-                          header: "GeomToStep_MakeVector.hxx", bycopy.} = object of GeomToStep_Root
+  GeomToStepMakeVector* {.importcpp: "GeomToStep_MakeVector",
+                         header: "GeomToStep_MakeVector.hxx", bycopy.} = object of GeomToStepRoot
 
 
-proc constructGeomToStep_MakeVector*(V: gp_Vec): GeomToStep_MakeVector {.
+proc constructGeomToStepMakeVector*(v: Vec): GeomToStepMakeVector {.constructor,
+    importcpp: "GeomToStep_MakeVector(@)", header: "GeomToStep_MakeVector.hxx".}
+proc constructGeomToStepMakeVector*(v: Vec2d): GeomToStepMakeVector {.constructor,
+    importcpp: "GeomToStep_MakeVector(@)", header: "GeomToStep_MakeVector.hxx".}
+proc constructGeomToStepMakeVector*(v: Handle[GeomVector]): GeomToStepMakeVector {.
     constructor, importcpp: "GeomToStep_MakeVector(@)",
     header: "GeomToStep_MakeVector.hxx".}
-proc constructGeomToStep_MakeVector*(V: gp_Vec2d): GeomToStep_MakeVector {.
+proc constructGeomToStepMakeVector*(v: Handle[Geom2dVector]): GeomToStepMakeVector {.
     constructor, importcpp: "GeomToStep_MakeVector(@)",
     header: "GeomToStep_MakeVector.hxx".}
-proc constructGeomToStep_MakeVector*(V: handle[Geom_Vector]): GeomToStep_MakeVector {.
-    constructor, importcpp: "GeomToStep_MakeVector(@)",
-    header: "GeomToStep_MakeVector.hxx".}
-proc constructGeomToStep_MakeVector*(V: handle[Geom2d_Vector]): GeomToStep_MakeVector {.
-    constructor, importcpp: "GeomToStep_MakeVector(@)",
-    header: "GeomToStep_MakeVector.hxx".}
-proc Value*(this: GeomToStep_MakeVector): handle[StepGeom_Vector] {.noSideEffect,
+proc value*(this: GeomToStepMakeVector): Handle[StepGeomVector] {.noSideEffect,
     importcpp: "Value", header: "GeomToStep_MakeVector.hxx".}

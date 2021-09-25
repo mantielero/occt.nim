@@ -14,24 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GeomToStep_Root
-
 discard "forward decl of StepGeom_Parabola"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom2d_Parabola"
 discard "forward decl of Geom_Parabola"
 type
-  GeomToStep_MakeParabola* {.importcpp: "GeomToStep_MakeParabola",
-                            header: "GeomToStep_MakeParabola.hxx", bycopy.} = object of GeomToStep_Root
+  GeomToStepMakeParabola* {.importcpp: "GeomToStep_MakeParabola",
+                           header: "GeomToStep_MakeParabola.hxx", bycopy.} = object of GeomToStepRoot
 
 
-proc constructGeomToStep_MakeParabola*(C: handle[Geom2d_Parabola]): GeomToStep_MakeParabola {.
+proc constructGeomToStepMakeParabola*(c: Handle[Geom2dParabola]): GeomToStepMakeParabola {.
     constructor, importcpp: "GeomToStep_MakeParabola(@)",
     header: "GeomToStep_MakeParabola.hxx".}
-proc constructGeomToStep_MakeParabola*(C: handle[Geom_Parabola]): GeomToStep_MakeParabola {.
+proc constructGeomToStepMakeParabola*(c: Handle[GeomParabola]): GeomToStepMakeParabola {.
     constructor, importcpp: "GeomToStep_MakeParabola(@)",
     header: "GeomToStep_MakeParabola.hxx".}
-proc Value*(this: GeomToStep_MakeParabola): handle[StepGeom_Parabola] {.
-    noSideEffect, importcpp: "Value", header: "GeomToStep_MakeParabola.hxx".}
+proc value*(this: GeomToStepMakeParabola): Handle[StepGeomParabola] {.noSideEffect,
+    importcpp: "Value", header: "GeomToStep_MakeParabola.hxx".}

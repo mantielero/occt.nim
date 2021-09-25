@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Standard_GUID"
 discard "forward decl of Resource_Manager"
@@ -25,5 +21,5 @@ type
   Plugin* {.importcpp: "Plugin", header: "Plugin.hxx", bycopy.} = object
 
 
-proc Load*(aGUID: Standard_GUID; theVerbose: Standard_Boolean = Standard_True): handle[
-    Standard_Transient] {.importcpp: "Plugin::Load(@)", header: "Plugin.hxx".}
+proc load*(aGUID: StandardGUID; theVerbose: bool = true): Handle[StandardTransient] {.
+    importcpp: "Plugin::Load(@)", header: "Plugin.hxx".}

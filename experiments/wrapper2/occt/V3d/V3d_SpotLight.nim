@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  V3d_PositionLight, V3d_TypeOfOrientation
-
 ## ! Creation and modification of a spot.
 ## ! The attenuation factor F determines the illumination of a surface:
 ## ! @code
@@ -27,52 +24,52 @@ import
 ## ! The concentration factor determines the dispersion of the light on the surface, the default value (1.0) corresponds to a minimum of dispersion.
 
 type
-  V3d_SpotLight* {.importcpp: "V3d_SpotLight", header: "V3d_SpotLight.hxx", bycopy.} = object of V3d_PositionLight ##
-                                                                                                         ## !
-                                                                                                         ## Creates
-                                                                                                         ## a
-                                                                                                         ## light
-                                                                                                         ## source
-                                                                                                         ## of
-                                                                                                         ## the
-                                                                                                         ## Spot
-                                                                                                         ## type
-                                                                                                         ## in
-                                                                                                         ## the
-                                                                                                         ## viewer
-                                                                                                         ## with
-                                                                                                         ## default
-                                                                                                         ## attenuation
-                                                                                                         ## factors
-                                                                                                         ## (1.0,
-                                                                                                         ## 0.0),
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## concentration
-                                                                                                         ## factor
-                                                                                                         ## 1.0
-                                                                                                         ## and
-                                                                                                         ## spot
-                                                                                                         ## angle
-                                                                                                         ## 30
-                                                                                                         ## degrees.
+  V3dSpotLight* {.importcpp: "V3d_SpotLight", header: "V3d_SpotLight.hxx", bycopy.} = object of V3dPositionLight ##
+                                                                                                       ## !
+                                                                                                       ## Creates
+                                                                                                       ## a
+                                                                                                       ## light
+                                                                                                       ## source
+                                                                                                       ## of
+                                                                                                       ## the
+                                                                                                       ## Spot
+                                                                                                       ## type
+                                                                                                       ## in
+                                                                                                       ## the
+                                                                                                       ## viewer
+                                                                                                       ## with
+                                                                                                       ## default
+                                                                                                       ## attenuation
+                                                                                                       ## factors
+                                                                                                       ## (1.0,
+                                                                                                       ## 0.0),
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## concentration
+                                                                                                       ## factor
+                                                                                                       ## 1.0
+                                                                                                       ## and
+                                                                                                       ## spot
+                                                                                                       ## angle
+                                                                                                       ## 30
+                                                                                                       ## degrees.
 
-  V3d_SpotLightbase_type* = V3d_PositionLight
+  V3dSpotLightbaseType* = V3dPositionLight
 
-proc get_type_name*(): cstring {.importcpp: "V3d_SpotLight::get_type_name(@)",
-                              header: "V3d_SpotLight.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "V3d_SpotLight::get_type_name(@)",
+                            header: "V3d_SpotLight.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "V3d_SpotLight::get_type_descriptor(@)",
     header: "V3d_SpotLight.hxx".}
-proc DynamicType*(this: V3d_SpotLight): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: V3dSpotLight): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "V3d_SpotLight.hxx".}
-proc constructV3d_SpotLight*(thePos: gp_Pnt; theDirection: V3d_TypeOfOrientation = V3d_XnegYnegZpos;
-                            theColor: Quantity_Color = Quantity_NOC_WHITE): V3d_SpotLight {.
+proc constructV3dSpotLight*(thePos: Pnt; theDirection: V3dTypeOfOrientation = v3dXnegYnegZpos;
+                           theColor: QuantityColor = quantityNOC_WHITE): V3dSpotLight {.
     constructor, importcpp: "V3d_SpotLight(@)", header: "V3d_SpotLight.hxx".}
-proc constructV3d_SpotLight*(thePos: gp_Pnt; theDirection: gp_Dir;
-                            theColor: Quantity_Color = Quantity_NOC_WHITE): V3d_SpotLight {.
+proc constructV3dSpotLight*(thePos: Pnt; theDirection: Dir;
+                           theColor: QuantityColor = quantityNOC_WHITE): V3dSpotLight {.
     constructor, importcpp: "V3d_SpotLight(@)", header: "V3d_SpotLight.hxx".}
-proc SetDirection*(this: var V3d_SpotLight; theOrientation: V3d_TypeOfOrientation) {.
+proc setDirection*(this: var V3dSpotLight; theOrientation: V3dTypeOfOrientation) {.
     importcpp: "SetDirection", header: "V3d_SpotLight.hxx".}
 ## using statement
 
@@ -82,4 +79,5 @@ proc SetDirection*(this: var V3d_SpotLight; theOrientation: V3d_TypeOfOrientatio
 
 discard "forward decl of V3d_SpotLight"
 type
-  Handle_V3d_SpotLight* = handle[V3d_SpotLight]
+  HandleV3dSpotLight* = Handle[V3dSpotLight]
+

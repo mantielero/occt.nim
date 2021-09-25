@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  MAT2d_Connexion, ../NCollection/NCollection_Sequence
-
 type
-  MAT2d_SequenceOfConnexion* = NCollection_Sequence[handle[MAT2d_Connexion]]
+  MAT2dSequenceOfConnexion* = NCollectionSequence[Handle[MAT2dConnexion]]
+

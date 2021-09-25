@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRepDS_InterferenceIterator,
-  TopOpeBRepDS_ListOfInterference, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../TopAbs/TopAbs_Orientation,
-  ../TopAbs/TopAbs_State
-
 discard "forward decl of TopOpeBRepDS_Interference"
 discard "forward decl of Geom2d_Curve"
 type
@@ -48,14 +41,13 @@ type
 proc constructTopOpeBRepDS_CurveIterator*(L: TopOpeBRepDS_ListOfInterference): TopOpeBRepDS_CurveIterator {.
     constructor, importcpp: "TopOpeBRepDS_CurveIterator(@)",
     header: "TopOpeBRepDS_CurveIterator.hxx".}
-proc MatchInterference*(this: TopOpeBRepDS_CurveIterator;
-                       I: handle[TopOpeBRepDS_Interference]): Standard_Boolean {.
-    noSideEffect, importcpp: "MatchInterference",
-    header: "TopOpeBRepDS_CurveIterator.hxx".}
-proc Current*(this: TopOpeBRepDS_CurveIterator): Standard_Integer {.noSideEffect,
+proc matchInterference*(this: TopOpeBRepDS_CurveIterator;
+                       i: Handle[TopOpeBRepDS_Interference]): bool {.noSideEffect,
+    importcpp: "MatchInterference", header: "TopOpeBRepDS_CurveIterator.hxx".}
+proc current*(this: TopOpeBRepDS_CurveIterator): int {.noSideEffect,
     importcpp: "Current", header: "TopOpeBRepDS_CurveIterator.hxx".}
-proc Orientation*(this: TopOpeBRepDS_CurveIterator; S: TopAbs_State): TopAbs_Orientation {.
+proc orientation*(this: TopOpeBRepDS_CurveIterator; s: TopAbsState): TopAbsOrientation {.
     noSideEffect, importcpp: "Orientation",
     header: "TopOpeBRepDS_CurveIterator.hxx".}
-proc PCurve*(this: TopOpeBRepDS_CurveIterator): handle[Geom2d_Curve] {.noSideEffect,
+proc pCurve*(this: TopOpeBRepDS_CurveIterator): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "PCurve", header: "TopOpeBRepDS_CurveIterator.hxx".}

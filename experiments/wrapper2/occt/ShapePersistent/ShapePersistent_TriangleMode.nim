@@ -11,12 +11,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_PrimitiveTypes
-
 type
-  ShapePersistent_TriangleMode* {.size: sizeof(cint),
-                                 importcpp: "ShapePersistent_TriangleMode",
-                                 header: "ShapePersistent_TriangleMode.hxx".} = enum
-    ShapePersistent_WithTriangle, ShapePersistent_WithoutTriangle
+  ShapePersistentTriangleMode* {.size: sizeof(cint),
+                                importcpp: "ShapePersistent_TriangleMode",
+                                header: "ShapePersistent_TriangleMode.hxx".} = enum
+    ShapePersistentWithTriangle, ShapePersistentWithoutTriangle
+
 

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Shape,
-  ../Standard/Standard_Integer, ../ShapeAnalysis/ShapeAnalysis_CheckSmallFace,
-  ShapeFix_Root, ../Standard/Standard_Boolean, ../Standard/Standard_Real
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
@@ -26,65 +21,63 @@ discard "forward decl of TopoDS_Compound"
 discard "forward decl of ShapeFix_FixSmallFace"
 discard "forward decl of ShapeFix_FixSmallFace"
 type
-  Handle_ShapeFix_FixSmallFace* = handle[ShapeFix_FixSmallFace]
+  HandleShapeFixFixSmallFace* = Handle[ShapeFixFixSmallFace]
 
 ## ! Fixing face with small size
 
 type
-  ShapeFix_FixSmallFace* {.importcpp: "ShapeFix_FixSmallFace",
-                          header: "ShapeFix_FixSmallFace.hxx", bycopy.} = object of ShapeFix_Root
+  ShapeFixFixSmallFace* {.importcpp: "ShapeFix_FixSmallFace",
+                         header: "ShapeFix_FixSmallFace.hxx", bycopy.} = object of ShapeFixRoot
 
 
-proc constructShapeFix_FixSmallFace*(): ShapeFix_FixSmallFace {.constructor,
+proc constructShapeFixFixSmallFace*(): ShapeFixFixSmallFace {.constructor,
     importcpp: "ShapeFix_FixSmallFace(@)", header: "ShapeFix_FixSmallFace.hxx".}
-proc Init*(this: var ShapeFix_FixSmallFace; S: TopoDS_Shape) {.importcpp: "Init",
+proc init*(this: var ShapeFixFixSmallFace; s: TopoDS_Shape) {.importcpp: "Init",
     header: "ShapeFix_FixSmallFace.hxx".}
-proc Perform*(this: var ShapeFix_FixSmallFace) {.importcpp: "Perform",
+proc perform*(this: var ShapeFixFixSmallFace) {.importcpp: "Perform",
     header: "ShapeFix_FixSmallFace.hxx".}
-proc FixSpotFace*(this: var ShapeFix_FixSmallFace): TopoDS_Shape {.
+proc fixSpotFace*(this: var ShapeFixFixSmallFace): TopoDS_Shape {.
     importcpp: "FixSpotFace", header: "ShapeFix_FixSmallFace.hxx".}
-proc ReplaceVerticesInCaseOfSpot*(this: ShapeFix_FixSmallFace; F: var TopoDS_Face;
-                                 tol: Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "ReplaceVerticesInCaseOfSpot",
-    header: "ShapeFix_FixSmallFace.hxx".}
-proc RemoveFacesInCaseOfSpot*(this: ShapeFix_FixSmallFace; F: TopoDS_Face): Standard_Boolean {.
+proc replaceVerticesInCaseOfSpot*(this: ShapeFixFixSmallFace; f: var TopoDS_Face;
+                                 tol: float): bool {.noSideEffect,
+    importcpp: "ReplaceVerticesInCaseOfSpot", header: "ShapeFix_FixSmallFace.hxx".}
+proc removeFacesInCaseOfSpot*(this: ShapeFixFixSmallFace; f: TopoDS_Face): bool {.
     noSideEffect, importcpp: "RemoveFacesInCaseOfSpot",
     header: "ShapeFix_FixSmallFace.hxx".}
-proc FixStripFace*(this: var ShapeFix_FixSmallFace;
-                  wasdone: Standard_Boolean = Standard_False): TopoDS_Shape {.
+proc fixStripFace*(this: var ShapeFixFixSmallFace; wasdone: bool = false): TopoDS_Shape {.
     importcpp: "FixStripFace", header: "ShapeFix_FixSmallFace.hxx".}
-proc ReplaceInCaseOfStrip*(this: ShapeFix_FixSmallFace; F: var TopoDS_Face;
-                          E1: var TopoDS_Edge; E2: var TopoDS_Edge; tol: Standard_Real): Standard_Boolean {.
+proc replaceInCaseOfStrip*(this: ShapeFixFixSmallFace; f: var TopoDS_Face;
+                          e1: var TopoDS_Edge; e2: var TopoDS_Edge; tol: float): bool {.
     noSideEffect, importcpp: "ReplaceInCaseOfStrip",
     header: "ShapeFix_FixSmallFace.hxx".}
-proc RemoveFacesInCaseOfStrip*(this: ShapeFix_FixSmallFace; F: TopoDS_Face): Standard_Boolean {.
+proc removeFacesInCaseOfStrip*(this: ShapeFixFixSmallFace; f: TopoDS_Face): bool {.
     noSideEffect, importcpp: "RemoveFacesInCaseOfStrip",
     header: "ShapeFix_FixSmallFace.hxx".}
-proc ComputeSharedEdgeForStripFace*(this: ShapeFix_FixSmallFace; F: TopoDS_Face;
-                                   E1: TopoDS_Edge; E2: TopoDS_Edge;
-                                   F1: TopoDS_Face; tol: Standard_Real): TopoDS_Edge {.
+proc computeSharedEdgeForStripFace*(this: ShapeFixFixSmallFace; f: TopoDS_Face;
+                                   e1: TopoDS_Edge; e2: TopoDS_Edge;
+                                   f1: TopoDS_Face; tol: float): TopoDS_Edge {.
     noSideEffect, importcpp: "ComputeSharedEdgeForStripFace",
     header: "ShapeFix_FixSmallFace.hxx".}
-proc FixSplitFace*(this: var ShapeFix_FixSmallFace; S: TopoDS_Shape): TopoDS_Shape {.
+proc fixSplitFace*(this: var ShapeFixFixSmallFace; s: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "FixSplitFace", header: "ShapeFix_FixSmallFace.hxx".}
-proc SplitOneFace*(this: var ShapeFix_FixSmallFace; F: var TopoDS_Face;
-                  theSplittedFaces: var TopoDS_Compound): Standard_Boolean {.
+proc splitOneFace*(this: var ShapeFixFixSmallFace; f: var TopoDS_Face;
+                  theSplittedFaces: var TopoDS_Compound): bool {.
     importcpp: "SplitOneFace", header: "ShapeFix_FixSmallFace.hxx".}
-proc FixFace*(this: var ShapeFix_FixSmallFace; F: TopoDS_Face): TopoDS_Face {.
+proc fixFace*(this: var ShapeFixFixSmallFace; f: TopoDS_Face): TopoDS_Face {.
     importcpp: "FixFace", header: "ShapeFix_FixSmallFace.hxx".}
-proc FixShape*(this: var ShapeFix_FixSmallFace): TopoDS_Shape {.
-    importcpp: "FixShape", header: "ShapeFix_FixSmallFace.hxx".}
-proc Shape*(this: var ShapeFix_FixSmallFace): TopoDS_Shape {.importcpp: "Shape",
+proc fixShape*(this: var ShapeFixFixSmallFace): TopoDS_Shape {.importcpp: "FixShape",
     header: "ShapeFix_FixSmallFace.hxx".}
-proc FixPinFace*(this: var ShapeFix_FixSmallFace; F: var TopoDS_Face): Standard_Boolean {.
+proc shape*(this: var ShapeFixFixSmallFace): TopoDS_Shape {.importcpp: "Shape",
+    header: "ShapeFix_FixSmallFace.hxx".}
+proc fixPinFace*(this: var ShapeFixFixSmallFace; f: var TopoDS_Face): bool {.
     importcpp: "FixPinFace", header: "ShapeFix_FixSmallFace.hxx".}
 type
-  ShapeFix_FixSmallFacebase_type* = ShapeFix_Root
+  ShapeFixFixSmallFacebaseType* = ShapeFixRoot
 
-proc get_type_name*(): cstring {.importcpp: "ShapeFix_FixSmallFace::get_type_name(@)",
-                              header: "ShapeFix_FixSmallFace.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeFix_FixSmallFace::get_type_name(@)",
+                            header: "ShapeFix_FixSmallFace.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeFix_FixSmallFace::get_type_descriptor(@)",
     header: "ShapeFix_FixSmallFace.hxx".}
-proc DynamicType*(this: ShapeFix_FixSmallFace): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "ShapeFix_FixSmallFace.hxx".}
+proc dynamicType*(this: ShapeFixFixSmallFace): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "ShapeFix_FixSmallFace.hxx".}

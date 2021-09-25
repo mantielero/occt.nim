@@ -14,33 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_Date"
 discard "forward decl of StepBasic_LocalTime"
 discard "forward decl of StepBasic_DateAndTime"
 type
-  StepBasic_DateTimeSelect* {.importcpp: "StepBasic_DateTimeSelect",
-                             header: "StepBasic_DateTimeSelect.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                       ## !
-                                                                                                       ## Returns
-                                                                                                       ## a
-                                                                                                       ## DateTimeSelect
-                                                                                                       ## SelectType
+  StepBasicDateTimeSelect* {.importcpp: "StepBasic_DateTimeSelect",
+                            header: "StepBasic_DateTimeSelect.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                     ## !
+                                                                                                     ## Returns
+                                                                                                     ## a
+                                                                                                     ## DateTimeSelect
+                                                                                                     ## SelectType
 
 
-proc constructStepBasic_DateTimeSelect*(): StepBasic_DateTimeSelect {.constructor,
+proc constructStepBasicDateTimeSelect*(): StepBasicDateTimeSelect {.constructor,
     importcpp: "StepBasic_DateTimeSelect(@)",
     header: "StepBasic_DateTimeSelect.hxx".}
-proc CaseNum*(this: StepBasic_DateTimeSelect; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepBasicDateTimeSelect; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepBasic_DateTimeSelect.hxx".}
-proc Date*(this: StepBasic_DateTimeSelect): handle[StepBasic_Date] {.noSideEffect,
+proc date*(this: StepBasicDateTimeSelect): Handle[StepBasicDate] {.noSideEffect,
     importcpp: "Date", header: "StepBasic_DateTimeSelect.hxx".}
-proc LocalTime*(this: StepBasic_DateTimeSelect): handle[StepBasic_LocalTime] {.
+proc localTime*(this: StepBasicDateTimeSelect): Handle[StepBasicLocalTime] {.
     noSideEffect, importcpp: "LocalTime", header: "StepBasic_DateTimeSelect.hxx".}
-proc DateAndTime*(this: StepBasic_DateTimeSelect): handle[StepBasic_DateAndTime] {.
+proc dateAndTime*(this: StepBasicDateTimeSelect): Handle[StepBasicDateAndTime] {.
     noSideEffect, importcpp: "DateAndTime", header: "StepBasic_DateTimeSelect.hxx".}

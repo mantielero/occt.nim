@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TopLoc/TopLoc_Location,
-  ../Standard/Standard_Transient, ../Standard/Standard_Boolean,
-  ../GeomAbs/GeomAbs_Shape
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of TopLoc_Location"
 discard "forward decl of Geom_Surface"
@@ -31,125 +26,120 @@ discard "forward decl of Poly_PolygonOnTriangulation"
 discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of BRep_CurveRepresentation"
 type
-  Handle_BRep_CurveRepresentation* = handle[BRep_CurveRepresentation]
+  HandleBRepCurveRepresentation* = Handle[BRepCurveRepresentation]
 
 ## ! Root class for the curve representations. Contains
 ## ! a location.
 
 type
-  BRep_CurveRepresentation* {.importcpp: "BRep_CurveRepresentation",
-                             header: "BRep_CurveRepresentation.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                      ## !
-                                                                                                      ## A
-                                                                                                      ## 3D
-                                                                                                      ## curve
-                                                                                                      ## representation.
+  BRepCurveRepresentation* {.importcpp: "BRep_CurveRepresentation",
+                            header: "BRep_CurveRepresentation.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                    ## !
+                                                                                                    ## A
+                                                                                                    ## 3D
+                                                                                                    ## curve
+                                                                                                    ## representation.
 
 
-proc IsCurve3D*(this: BRep_CurveRepresentation): Standard_Boolean {.noSideEffect,
+proc isCurve3D*(this: BRepCurveRepresentation): bool {.noSideEffect,
     importcpp: "IsCurve3D", header: "BRep_CurveRepresentation.hxx".}
-proc IsCurveOnSurface*(this: BRep_CurveRepresentation): Standard_Boolean {.
-    noSideEffect, importcpp: "IsCurveOnSurface",
-    header: "BRep_CurveRepresentation.hxx".}
-proc IsRegularity*(this: BRep_CurveRepresentation): Standard_Boolean {.noSideEffect,
-    importcpp: "IsRegularity", header: "BRep_CurveRepresentation.hxx".}
-proc IsCurveOnClosedSurface*(this: BRep_CurveRepresentation): Standard_Boolean {.
-    noSideEffect, importcpp: "IsCurveOnClosedSurface",
-    header: "BRep_CurveRepresentation.hxx".}
-proc IsCurveOnSurface*(this: BRep_CurveRepresentation; S: handle[Geom_Surface];
-                      L: TopLoc_Location): Standard_Boolean {.noSideEffect,
+proc isCurveOnSurface*(this: BRepCurveRepresentation): bool {.noSideEffect,
     importcpp: "IsCurveOnSurface", header: "BRep_CurveRepresentation.hxx".}
-proc IsRegularity*(this: BRep_CurveRepresentation; S1: handle[Geom_Surface];
-                  S2: handle[Geom_Surface]; L1: TopLoc_Location; L2: TopLoc_Location): Standard_Boolean {.
+proc isRegularity*(this: BRepCurveRepresentation): bool {.noSideEffect,
+    importcpp: "IsRegularity", header: "BRep_CurveRepresentation.hxx".}
+proc isCurveOnClosedSurface*(this: BRepCurveRepresentation): bool {.noSideEffect,
+    importcpp: "IsCurveOnClosedSurface", header: "BRep_CurveRepresentation.hxx".}
+proc isCurveOnSurface*(this: BRepCurveRepresentation; s: Handle[GeomSurface];
+                      L: TopLocLocation): bool {.noSideEffect,
+    importcpp: "IsCurveOnSurface", header: "BRep_CurveRepresentation.hxx".}
+proc isRegularity*(this: BRepCurveRepresentation; s1: Handle[GeomSurface];
+                  s2: Handle[GeomSurface]; l1: TopLocLocation; l2: TopLocLocation): bool {.
     noSideEffect, importcpp: "IsRegularity", header: "BRep_CurveRepresentation.hxx".}
-proc IsPolygon3D*(this: BRep_CurveRepresentation): Standard_Boolean {.noSideEffect,
+proc isPolygon3D*(this: BRepCurveRepresentation): bool {.noSideEffect,
     importcpp: "IsPolygon3D", header: "BRep_CurveRepresentation.hxx".}
-proc IsPolygonOnTriangulation*(this: BRep_CurveRepresentation): Standard_Boolean {.
+proc isPolygonOnTriangulation*(this: BRepCurveRepresentation): bool {.noSideEffect,
+    importcpp: "IsPolygonOnTriangulation", header: "BRep_CurveRepresentation.hxx".}
+proc isPolygonOnTriangulation*(this: BRepCurveRepresentation;
+                              t: Handle[PolyTriangulation]; L: TopLocLocation): bool {.
     noSideEffect, importcpp: "IsPolygonOnTriangulation",
     header: "BRep_CurveRepresentation.hxx".}
-proc IsPolygonOnTriangulation*(this: BRep_CurveRepresentation;
-                              T: handle[Poly_Triangulation]; L: TopLoc_Location): Standard_Boolean {.
-    noSideEffect, importcpp: "IsPolygonOnTriangulation",
-    header: "BRep_CurveRepresentation.hxx".}
-proc IsPolygonOnClosedTriangulation*(this: BRep_CurveRepresentation): Standard_Boolean {.
+proc isPolygonOnClosedTriangulation*(this: BRepCurveRepresentation): bool {.
     noSideEffect, importcpp: "IsPolygonOnClosedTriangulation",
     header: "BRep_CurveRepresentation.hxx".}
-proc IsPolygonOnSurface*(this: BRep_CurveRepresentation): Standard_Boolean {.
-    noSideEffect, importcpp: "IsPolygonOnSurface",
-    header: "BRep_CurveRepresentation.hxx".}
-proc IsPolygonOnSurface*(this: BRep_CurveRepresentation; S: handle[Geom_Surface];
-                        L: TopLoc_Location): Standard_Boolean {.noSideEffect,
+proc isPolygonOnSurface*(this: BRepCurveRepresentation): bool {.noSideEffect,
     importcpp: "IsPolygonOnSurface", header: "BRep_CurveRepresentation.hxx".}
-proc IsPolygonOnClosedSurface*(this: BRep_CurveRepresentation): Standard_Boolean {.
-    noSideEffect, importcpp: "IsPolygonOnClosedSurface",
-    header: "BRep_CurveRepresentation.hxx".}
-proc Location*(this: BRep_CurveRepresentation): TopLoc_Location {.noSideEffect,
+proc isPolygonOnSurface*(this: BRepCurveRepresentation; s: Handle[GeomSurface];
+                        L: TopLocLocation): bool {.noSideEffect,
+    importcpp: "IsPolygonOnSurface", header: "BRep_CurveRepresentation.hxx".}
+proc isPolygonOnClosedSurface*(this: BRepCurveRepresentation): bool {.noSideEffect,
+    importcpp: "IsPolygonOnClosedSurface", header: "BRep_CurveRepresentation.hxx".}
+proc location*(this: BRepCurveRepresentation): TopLocLocation {.noSideEffect,
     importcpp: "Location", header: "BRep_CurveRepresentation.hxx".}
-proc Location*(this: var BRep_CurveRepresentation; L: TopLoc_Location) {.
+proc location*(this: var BRepCurveRepresentation; L: TopLocLocation) {.
     importcpp: "Location", header: "BRep_CurveRepresentation.hxx".}
-proc Curve3D*(this: BRep_CurveRepresentation): handle[Geom_Curve] {.noSideEffect,
+proc curve3D*(this: BRepCurveRepresentation): Handle[GeomCurve] {.noSideEffect,
     importcpp: "Curve3D", header: "BRep_CurveRepresentation.hxx".}
-proc Curve3D*(this: var BRep_CurveRepresentation; C: handle[Geom_Curve]) {.
+proc curve3D*(this: var BRepCurveRepresentation; c: Handle[GeomCurve]) {.
     importcpp: "Curve3D", header: "BRep_CurveRepresentation.hxx".}
-proc Surface*(this: BRep_CurveRepresentation): handle[Geom_Surface] {.noSideEffect,
+proc surface*(this: BRepCurveRepresentation): Handle[GeomSurface] {.noSideEffect,
     importcpp: "Surface", header: "BRep_CurveRepresentation.hxx".}
-proc PCurve*(this: BRep_CurveRepresentation): handle[Geom2d_Curve] {.noSideEffect,
+proc pCurve*(this: BRepCurveRepresentation): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "PCurve", header: "BRep_CurveRepresentation.hxx".}
-proc PCurve*(this: var BRep_CurveRepresentation; C: handle[Geom2d_Curve]) {.
+proc pCurve*(this: var BRepCurveRepresentation; c: Handle[Geom2dCurve]) {.
     importcpp: "PCurve", header: "BRep_CurveRepresentation.hxx".}
-proc PCurve2*(this: BRep_CurveRepresentation): handle[Geom2d_Curve] {.noSideEffect,
+proc pCurve2*(this: BRepCurveRepresentation): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "PCurve2", header: "BRep_CurveRepresentation.hxx".}
-proc PCurve2*(this: var BRep_CurveRepresentation; C: handle[Geom2d_Curve]) {.
+proc pCurve2*(this: var BRepCurveRepresentation; c: Handle[Geom2dCurve]) {.
     importcpp: "PCurve2", header: "BRep_CurveRepresentation.hxx".}
-proc Polygon3D*(this: BRep_CurveRepresentation): handle[Poly_Polygon3D] {.
+proc polygon3D*(this: BRepCurveRepresentation): Handle[PolyPolygon3D] {.
     noSideEffect, importcpp: "Polygon3D", header: "BRep_CurveRepresentation.hxx".}
-proc Polygon3D*(this: var BRep_CurveRepresentation; P: handle[Poly_Polygon3D]) {.
+proc polygon3D*(this: var BRepCurveRepresentation; p: Handle[PolyPolygon3D]) {.
     importcpp: "Polygon3D", header: "BRep_CurveRepresentation.hxx".}
-proc Polygon*(this: BRep_CurveRepresentation): handle[Poly_Polygon2D] {.
-    noSideEffect, importcpp: "Polygon", header: "BRep_CurveRepresentation.hxx".}
-proc Polygon*(this: var BRep_CurveRepresentation; P: handle[Poly_Polygon2D]) {.
+proc polygon*(this: BRepCurveRepresentation): Handle[PolyPolygon2D] {.noSideEffect,
     importcpp: "Polygon", header: "BRep_CurveRepresentation.hxx".}
-proc Polygon2*(this: BRep_CurveRepresentation): handle[Poly_Polygon2D] {.
-    noSideEffect, importcpp: "Polygon2", header: "BRep_CurveRepresentation.hxx".}
-proc Polygon2*(this: var BRep_CurveRepresentation; P: handle[Poly_Polygon2D]) {.
+proc polygon*(this: var BRepCurveRepresentation; p: Handle[PolyPolygon2D]) {.
+    importcpp: "Polygon", header: "BRep_CurveRepresentation.hxx".}
+proc polygon2*(this: BRepCurveRepresentation): Handle[PolyPolygon2D] {.noSideEffect,
     importcpp: "Polygon2", header: "BRep_CurveRepresentation.hxx".}
-proc Triangulation*(this: BRep_CurveRepresentation): handle[Poly_Triangulation] {.
+proc polygon2*(this: var BRepCurveRepresentation; p: Handle[PolyPolygon2D]) {.
+    importcpp: "Polygon2", header: "BRep_CurveRepresentation.hxx".}
+proc triangulation*(this: BRepCurveRepresentation): Handle[PolyTriangulation] {.
     noSideEffect, importcpp: "Triangulation",
     header: "BRep_CurveRepresentation.hxx".}
-proc PolygonOnTriangulation*(this: BRep_CurveRepresentation): handle[
-    Poly_PolygonOnTriangulation] {.noSideEffect,
-                                  importcpp: "PolygonOnTriangulation",
-                                  header: "BRep_CurveRepresentation.hxx".}
-proc PolygonOnTriangulation*(this: var BRep_CurveRepresentation;
-                            P: handle[Poly_PolygonOnTriangulation]) {.
+proc polygonOnTriangulation*(this: BRepCurveRepresentation): Handle[
+    PolyPolygonOnTriangulation] {.noSideEffect,
+                                 importcpp: "PolygonOnTriangulation",
+                                 header: "BRep_CurveRepresentation.hxx".}
+proc polygonOnTriangulation*(this: var BRepCurveRepresentation;
+                            p: Handle[PolyPolygonOnTriangulation]) {.
     importcpp: "PolygonOnTriangulation", header: "BRep_CurveRepresentation.hxx".}
-proc PolygonOnTriangulation2*(this: BRep_CurveRepresentation): handle[
-    Poly_PolygonOnTriangulation] {.noSideEffect,
-                                  importcpp: "PolygonOnTriangulation2",
-                                  header: "BRep_CurveRepresentation.hxx".}
-proc PolygonOnTriangulation2*(this: var BRep_CurveRepresentation;
-                             P2: handle[Poly_PolygonOnTriangulation]) {.
+proc polygonOnTriangulation2*(this: BRepCurveRepresentation): Handle[
+    PolyPolygonOnTriangulation] {.noSideEffect,
+                                 importcpp: "PolygonOnTriangulation2",
+                                 header: "BRep_CurveRepresentation.hxx".}
+proc polygonOnTriangulation2*(this: var BRepCurveRepresentation;
+                             p2: Handle[PolyPolygonOnTriangulation]) {.
     importcpp: "PolygonOnTriangulation2", header: "BRep_CurveRepresentation.hxx".}
-proc Surface2*(this: BRep_CurveRepresentation): handle[Geom_Surface] {.noSideEffect,
+proc surface2*(this: BRepCurveRepresentation): Handle[GeomSurface] {.noSideEffect,
     importcpp: "Surface2", header: "BRep_CurveRepresentation.hxx".}
-proc Location2*(this: BRep_CurveRepresentation): TopLoc_Location {.noSideEffect,
+proc location2*(this: BRepCurveRepresentation): TopLocLocation {.noSideEffect,
     importcpp: "Location2", header: "BRep_CurveRepresentation.hxx".}
-proc Continuity*(this: BRep_CurveRepresentation): GeomAbs_Shape {.noSideEffect,
+proc continuity*(this: BRepCurveRepresentation): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "BRep_CurveRepresentation.hxx".}
-proc Continuity*(this: var BRep_CurveRepresentation; C: GeomAbs_Shape) {.
+proc continuity*(this: var BRepCurveRepresentation; c: GeomAbsShape) {.
     importcpp: "Continuity", header: "BRep_CurveRepresentation.hxx".}
-proc Copy*(this: BRep_CurveRepresentation): handle[BRep_CurveRepresentation] {.
+proc copy*(this: BRepCurveRepresentation): Handle[BRepCurveRepresentation] {.
     noSideEffect, importcpp: "Copy", header: "BRep_CurveRepresentation.hxx".}
-proc DumpJson*(this: BRep_CurveRepresentation; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "BRep_CurveRepresentation.hxx".}
+proc dumpJson*(this: BRepCurveRepresentation; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "BRep_CurveRepresentation.hxx".}
 type
-  BRep_CurveRepresentationbase_type* = Standard_Transient
+  BRepCurveRepresentationbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "BRep_CurveRepresentation::get_type_name(@)",
-                              header: "BRep_CurveRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRep_CurveRepresentation::get_type_name(@)",
+                            header: "BRep_CurveRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRep_CurveRepresentation::get_type_descriptor(@)",
     header: "BRep_CurveRepresentation.hxx".}
-proc DynamicType*(this: BRep_CurveRepresentation): handle[Standard_Type] {.
+proc dynamicType*(this: BRepCurveRepresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BRep_CurveRepresentation.hxx".}

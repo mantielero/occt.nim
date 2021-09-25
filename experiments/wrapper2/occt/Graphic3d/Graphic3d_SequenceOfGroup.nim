@@ -13,8 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Graphic3d_Group, ../NCollection/NCollection_Sequence
-
 type
-  Graphic3d_SequenceOfGroup* = NCollection_Sequence[handle[Graphic3d_Group]]
+  Graphic3dSequenceOfGroup* = NCollectionSequence[Handle[Graphic3dGroup]]
+

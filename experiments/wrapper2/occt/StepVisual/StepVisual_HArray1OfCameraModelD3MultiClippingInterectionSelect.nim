@@ -13,33 +13,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_CameraModelD3MultiClippingInterectionSelect,
-  StepVisual_Array1OfCameraModelD3MultiClippingInterectionSelect,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect* {.importcpp: "StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect", header: "StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect.hxx",
-      bycopy.} = object of StepVisual_Array1OfCameraModelD3MultiClippingInterectionSelect
+  StepVisualHArray1OfCameraModelD3MultiClippingInterectionSelect* {.importcpp: "StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect", header: "StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect.hxx",
+      bycopy.} = object of StepVisualArray1OfCameraModelD3MultiClippingInterectionSelect
 
 
-proc constructStepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect {.
+proc constructStepVisualHArray1OfCameraModelD3MultiClippingInterectionSelect*(
+    theLower: int; theUpper: int): StepVisualHArray1OfCameraModelD3MultiClippingInterectionSelect {.
     constructor, importcpp: "StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect(@)", header: "StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect.hxx".}
-proc constructStepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect {.
+proc constructStepVisualHArray1OfCameraModelD3MultiClippingInterectionSelect*(
+    theLower: int; theUpper: int; theValue: ValueType): StepVisualHArray1OfCameraModelD3MultiClippingInterectionSelect {.
     constructor, importcpp: "StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect(@)", header: "StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect.hxx".}
-proc constructStepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect*(
-    theOther: StepVisual_Array1OfCameraModelD3MultiClippingInterectionSelect): StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect {.
+proc constructStepVisualHArray1OfCameraModelD3MultiClippingInterectionSelect*(
+    theOther: StepVisualArray1OfCameraModelD3MultiClippingInterectionSelect): StepVisualHArray1OfCameraModelD3MultiClippingInterectionSelect {.
     constructor, importcpp: "StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect(@)", header: "StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect.hxx".}
-proc Array1*(this: StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect): StepVisual_Array1OfCameraModelD3MultiClippingInterectionSelect {.
+proc array1*(this: StepVisualHArray1OfCameraModelD3MultiClippingInterectionSelect): StepVisualArray1OfCameraModelD3MultiClippingInterectionSelect {.
     noSideEffect, importcpp: "Array1", header: "StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect.hxx".}
-proc ChangeArray1*(this: var StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect): var StepVisual_Array1OfCameraModelD3MultiClippingInterectionSelect {.
+proc changeArray1*(this: var StepVisualHArray1OfCameraModelD3MultiClippingInterectionSelect): var StepVisualArray1OfCameraModelD3MultiClippingInterectionSelect {.
     importcpp: "ChangeArray1", header: "StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect.hxx".}
 type
-  StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelectbase_type* = MMgt_TShared
+  StepVisualHArray1OfCameraModelD3MultiClippingInterectionSelectbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect::get_type_name(@)", header: "StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect::get_type_descriptor(@)", header: "StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect.hxx".}
-proc DynamicType*(this: StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect.hxx".}
+proc getTypeName*(): cstring {.importcpp: "StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect::get_type_name(@)", header: "StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect::get_type_descriptor(@)", header: "StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect.hxx".}
+proc dynamicType*(this: StepVisualHArray1OfCameraModelD3MultiClippingInterectionSelect): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepVisual_HArray1OfCameraModelD3MultiClippingInterectionSelect.hxx".}

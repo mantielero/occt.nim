@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepGeom_CompositeCurveSegment, StepGeom_Array1OfCompositeCurveSegment,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepGeom_HArray1OfCompositeCurveSegment* {.
+  StepGeomHArray1OfCompositeCurveSegment* {.
       importcpp: "StepGeom_HArray1OfCompositeCurveSegment",
-      header: "StepGeom_HArray1OfCompositeCurveSegment.hxx", bycopy.} = object of StepGeom_Array1OfCompositeCurveSegment
+      header: "StepGeom_HArray1OfCompositeCurveSegment.hxx", bycopy.} = object of StepGeomArray1OfCompositeCurveSegment
 
 
-proc constructStepGeom_HArray1OfCompositeCurveSegment*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepGeom_HArray1OfCompositeCurveSegment {.
+proc constructStepGeomHArray1OfCompositeCurveSegment*(theLower: int; theUpper: int): StepGeomHArray1OfCompositeCurveSegment {.
     constructor, importcpp: "StepGeom_HArray1OfCompositeCurveSegment(@)",
     header: "StepGeom_HArray1OfCompositeCurveSegment.hxx".}
-proc constructStepGeom_HArray1OfCompositeCurveSegment*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepGeom_HArray1OfCompositeCurveSegment {.
+proc constructStepGeomHArray1OfCompositeCurveSegment*(theLower: int; theUpper: int;
+    theValue: ValueType): StepGeomHArray1OfCompositeCurveSegment {.constructor,
+    importcpp: "StepGeom_HArray1OfCompositeCurveSegment(@)",
+    header: "StepGeom_HArray1OfCompositeCurveSegment.hxx".}
+proc constructStepGeomHArray1OfCompositeCurveSegment*(
+    theOther: StepGeomArray1OfCompositeCurveSegment): StepGeomHArray1OfCompositeCurveSegment {.
     constructor, importcpp: "StepGeom_HArray1OfCompositeCurveSegment(@)",
     header: "StepGeom_HArray1OfCompositeCurveSegment.hxx".}
-proc constructStepGeom_HArray1OfCompositeCurveSegment*(
-    theOther: StepGeom_Array1OfCompositeCurveSegment): StepGeom_HArray1OfCompositeCurveSegment {.
-    constructor, importcpp: "StepGeom_HArray1OfCompositeCurveSegment(@)",
-    header: "StepGeom_HArray1OfCompositeCurveSegment.hxx".}
-proc Array1*(this: StepGeom_HArray1OfCompositeCurveSegment): StepGeom_Array1OfCompositeCurveSegment {.
+proc array1*(this: StepGeomHArray1OfCompositeCurveSegment): StepGeomArray1OfCompositeCurveSegment {.
     noSideEffect, importcpp: "Array1",
     header: "StepGeom_HArray1OfCompositeCurveSegment.hxx".}
-proc ChangeArray1*(this: var StepGeom_HArray1OfCompositeCurveSegment): var StepGeom_Array1OfCompositeCurveSegment {.
+proc changeArray1*(this: var StepGeomHArray1OfCompositeCurveSegment): var StepGeomArray1OfCompositeCurveSegment {.
     importcpp: "ChangeArray1",
     header: "StepGeom_HArray1OfCompositeCurveSegment.hxx".}
 type
-  StepGeom_HArray1OfCompositeCurveSegmentbase_type* = MMgt_TShared
+  StepGeomHArray1OfCompositeCurveSegmentbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_HArray1OfCompositeCurveSegment::get_type_name(@)", header: "StepGeom_HArray1OfCompositeCurveSegment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepGeom_HArray1OfCompositeCurveSegment::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepGeom_HArray1OfCompositeCurveSegment::get_type_name(@)", header: "StepGeom_HArray1OfCompositeCurveSegment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_HArray1OfCompositeCurveSegment::get_type_descriptor(@)",
     header: "StepGeom_HArray1OfCompositeCurveSegment.hxx".}
-proc DynamicType*(this: StepGeom_HArray1OfCompositeCurveSegment): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepGeom_HArray1OfCompositeCurveSegment.hxx".}
+proc dynamicType*(this: StepGeomHArray1OfCompositeCurveSegment): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepGeom_HArray1OfCompositeCurveSegment.hxx".}

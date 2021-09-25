@@ -14,14 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_ExtendedString, ../TColStd/TColStd_HArray1OfReal,
-  ../TCollection/TCollection_ExtendedString, ../NCollection/NCollection_DataMap
-
 type
-  TDataStd_DataMapOfStringHArray1OfReal* = NCollection_DataMap[
-      TCollection_ExtendedString, handle[TColStd_HArray1OfReal],
-      TCollection_ExtendedString]
-  TDataStd_DataMapIteratorOfDataMapOfStringHArray1OfReal* = Iterator[
-      TCollection_ExtendedString, handle[TColStd_HArray1OfReal],
-      TCollection_ExtendedString]
+  TDataStdDataMapOfStringHArray1OfReal* = NCollectionDataMap[
+      TCollectionExtendedString, Handle[TColStdHArray1OfReal],
+      TCollectionExtendedString]
+  TDataStdDataMapIteratorOfDataMapOfStringHArray1OfReal* = Iterator[
+      TCollectionExtendedString, Handle[TColStdHArray1OfReal],
+      TCollectionExtendedString]
+

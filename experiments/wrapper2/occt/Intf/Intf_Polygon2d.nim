@@ -13,36 +13,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Bnd/Bnd_Box2d, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Bnd_Box2d"
 discard "forward decl of gp_Pnt2d"
 type
-  Intf_Polygon2d* {.importcpp: "Intf_Polygon2d", header: "Intf_Polygon2d.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Returns
-                                                                                         ## the
-                                                                                         ## bounding
-                                                                                         ## box
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## polygon.
+  IntfPolygon2d* {.importcpp: "Intf_Polygon2d", header: "Intf_Polygon2d.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Returns
+                                                                                        ## the
+                                                                                        ## bounding
+                                                                                        ## box
+                                                                                        ## of
+                                                                                        ## the
+                                                                                        ## polygon.
 
 
-proc Bounding*(this: Intf_Polygon2d): Bnd_Box2d {.noSideEffect,
-    importcpp: "Bounding", header: "Intf_Polygon2d.hxx".}
-proc Closed*(this: Intf_Polygon2d): Standard_Boolean {.noSideEffect,
-    importcpp: "Closed", header: "Intf_Polygon2d.hxx".}
-proc destroyIntf_Polygon2d*(this: var Intf_Polygon2d) {.
+proc bounding*(this: IntfPolygon2d): BndBox2d {.noSideEffect, importcpp: "Bounding",
+    header: "Intf_Polygon2d.hxx".}
+proc closed*(this: IntfPolygon2d): bool {.noSideEffect, importcpp: "Closed",
+                                      header: "Intf_Polygon2d.hxx".}
+proc destroyIntfPolygon2d*(this: var IntfPolygon2d) {.
     importcpp: "#.~Intf_Polygon2d()", header: "Intf_Polygon2d.hxx".}
-proc DeflectionOverEstimation*(this: Intf_Polygon2d): Standard_Real {.noSideEffect,
+proc deflectionOverEstimation*(this: IntfPolygon2d): float {.noSideEffect,
     importcpp: "DeflectionOverEstimation", header: "Intf_Polygon2d.hxx".}
-proc NbSegments*(this: Intf_Polygon2d): Standard_Integer {.noSideEffect,
-    importcpp: "NbSegments", header: "Intf_Polygon2d.hxx".}
-proc Segment*(this: Intf_Polygon2d; theIndex: Standard_Integer;
-             theBegin: var gp_Pnt2d; theEnd: var gp_Pnt2d) {.noSideEffect,
-    importcpp: "Segment", header: "Intf_Polygon2d.hxx".}
+proc nbSegments*(this: IntfPolygon2d): int {.noSideEffect, importcpp: "NbSegments",
+    header: "Intf_Polygon2d.hxx".}
+proc segment*(this: IntfPolygon2d; theIndex: int; theBegin: var Pnt2d; theEnd: var Pnt2d) {.
+    noSideEffect, importcpp: "Segment", header: "Intf_Polygon2d.hxx".}

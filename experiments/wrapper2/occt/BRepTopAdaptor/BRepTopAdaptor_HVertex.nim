@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Vertex,
-  ../Adaptor3d/Adaptor3d_HVertex, ../Standard/Standard_Real,
-  ../TopAbs/TopAbs_Orientation, ../Standard/Standard_Boolean
-
 discard "forward decl of BRepAdaptor_HCurve2d"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of gp_Pnt2d"
@@ -27,36 +22,36 @@ discard "forward decl of Adaptor3d_HVertex"
 discard "forward decl of BRepTopAdaptor_HVertex"
 discard "forward decl of BRepTopAdaptor_HVertex"
 type
-  Handle_BRepTopAdaptor_HVertex* = handle[BRepTopAdaptor_HVertex]
-  BRepTopAdaptor_HVertex* {.importcpp: "BRepTopAdaptor_HVertex",
-                           header: "BRepTopAdaptor_HVertex.hxx", bycopy.} = object of Adaptor3d_HVertex
+  HandleBRepTopAdaptorHVertex* = Handle[BRepTopAdaptorHVertex]
+  BRepTopAdaptorHVertex* {.importcpp: "BRepTopAdaptor_HVertex",
+                          header: "BRepTopAdaptor_HVertex.hxx", bycopy.} = object of Adaptor3dHVertex
 
 
-proc constructBRepTopAdaptor_HVertex*(Vtx: TopoDS_Vertex;
-                                     Curve: handle[BRepAdaptor_HCurve2d]): BRepTopAdaptor_HVertex {.
+proc constructBRepTopAdaptorHVertex*(vtx: TopoDS_Vertex;
+                                    curve: Handle[BRepAdaptorHCurve2d]): BRepTopAdaptorHVertex {.
     constructor, importcpp: "BRepTopAdaptor_HVertex(@)",
     header: "BRepTopAdaptor_HVertex.hxx".}
-proc Vertex*(this: BRepTopAdaptor_HVertex): TopoDS_Vertex {.noSideEffect,
+proc vertex*(this: BRepTopAdaptorHVertex): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex", header: "BRepTopAdaptor_HVertex.hxx".}
-proc ChangeVertex*(this: var BRepTopAdaptor_HVertex): var TopoDS_Vertex {.
+proc changeVertex*(this: var BRepTopAdaptorHVertex): var TopoDS_Vertex {.
     importcpp: "ChangeVertex", header: "BRepTopAdaptor_HVertex.hxx".}
-proc Value*(this: var BRepTopAdaptor_HVertex): gp_Pnt2d {.importcpp: "Value",
+proc value*(this: var BRepTopAdaptorHVertex): Pnt2d {.importcpp: "Value",
     header: "BRepTopAdaptor_HVertex.hxx".}
-proc Parameter*(this: var BRepTopAdaptor_HVertex; C: handle[Adaptor2d_HCurve2d]): Standard_Real {.
+proc parameter*(this: var BRepTopAdaptorHVertex; c: Handle[Adaptor2dHCurve2d]): float {.
     importcpp: "Parameter", header: "BRepTopAdaptor_HVertex.hxx".}
-proc Resolution*(this: var BRepTopAdaptor_HVertex; C: handle[Adaptor2d_HCurve2d]): Standard_Real {.
+proc resolution*(this: var BRepTopAdaptorHVertex; c: Handle[Adaptor2dHCurve2d]): float {.
     importcpp: "Resolution", header: "BRepTopAdaptor_HVertex.hxx".}
-proc Orientation*(this: var BRepTopAdaptor_HVertex): TopAbs_Orientation {.
+proc orientation*(this: var BRepTopAdaptorHVertex): TopAbsOrientation {.
     importcpp: "Orientation", header: "BRepTopAdaptor_HVertex.hxx".}
-proc IsSame*(this: var BRepTopAdaptor_HVertex; Other: handle[Adaptor3d_HVertex]): Standard_Boolean {.
+proc isSame*(this: var BRepTopAdaptorHVertex; other: Handle[Adaptor3dHVertex]): bool {.
     importcpp: "IsSame", header: "BRepTopAdaptor_HVertex.hxx".}
 type
-  BRepTopAdaptor_HVertexbase_type* = Adaptor3d_HVertex
+  BRepTopAdaptorHVertexbaseType* = Adaptor3dHVertex
 
-proc get_type_name*(): cstring {.importcpp: "BRepTopAdaptor_HVertex::get_type_name(@)",
-                              header: "BRepTopAdaptor_HVertex.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepTopAdaptor_HVertex::get_type_name(@)",
+                            header: "BRepTopAdaptor_HVertex.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepTopAdaptor_HVertex::get_type_descriptor(@)",
     header: "BRepTopAdaptor_HVertex.hxx".}
-proc DynamicType*(this: BRepTopAdaptor_HVertex): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "BRepTopAdaptor_HVertex.hxx".}
+proc dynamicType*(this: BRepTopAdaptorHVertex): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "BRepTopAdaptor_HVertex.hxx".}

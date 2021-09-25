@@ -17,8 +17,9 @@
 ## ! used on processing Undefined Entities (see TransferOutput)
 
 type
-  Transfer_UndefMode* {.size: sizeof(cint), importcpp: "Transfer_UndefMode",
-                       header: "Transfer_UndefMode.hxx".} = enum
-    Transfer_UndefIgnore, Transfer_UndefFailure, Transfer_UndefContent,
-    Transfer_UndefUser
+  TransferUndefMode* {.size: sizeof(cint), importcpp: "Transfer_UndefMode",
+                      header: "Transfer_UndefMode.hxx".} = enum
+    TransferUndefIgnore, TransferUndefFailure, TransferUndefContent,
+    TransferUndefUser
+
 

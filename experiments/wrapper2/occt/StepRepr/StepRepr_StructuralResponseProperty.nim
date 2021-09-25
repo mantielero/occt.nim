@@ -13,36 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_PropertyDefinition
-
 discard "forward decl of StepRepr_StructuralResponseProperty"
 discard "forward decl of StepRepr_StructuralResponseProperty"
 type
-  Handle_StepRepr_StructuralResponseProperty* = handle[
-      StepRepr_StructuralResponseProperty]
+  HandleStepReprStructuralResponseProperty* = Handle[
+      StepReprStructuralResponseProperty]
 
 ## ! Representation of STEP entity StructuralResponseProperty
 
 type
-  StepRepr_StructuralResponseProperty* {.importcpp: "StepRepr_StructuralResponseProperty", header: "StepRepr_StructuralResponseProperty.hxx",
-                                        bycopy.} = object of StepRepr_PropertyDefinition ##
-                                                                                    ## !
-                                                                                    ## Empty
-                                                                                    ## constructor
+  StepReprStructuralResponseProperty* {.importcpp: "StepRepr_StructuralResponseProperty", header: "StepRepr_StructuralResponseProperty.hxx",
+                                       bycopy.} = object of StepReprPropertyDefinition ##
+                                                                                  ## !
+                                                                                  ## Empty
+                                                                                  ## constructor
 
 
-proc constructStepRepr_StructuralResponseProperty*(): StepRepr_StructuralResponseProperty {.
+proc constructStepReprStructuralResponseProperty*(): StepReprStructuralResponseProperty {.
     constructor, importcpp: "StepRepr_StructuralResponseProperty(@)",
     header: "StepRepr_StructuralResponseProperty.hxx".}
 type
-  StepRepr_StructuralResponsePropertybase_type* = StepRepr_PropertyDefinition
+  StepReprStructuralResponsePropertybaseType* = StepReprPropertyDefinition
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_StructuralResponseProperty::get_type_name(@)",
-                              header: "StepRepr_StructuralResponseProperty.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_StructuralResponseProperty::get_type_name(@)",
+                            header: "StepRepr_StructuralResponseProperty.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_StructuralResponseProperty::get_type_descriptor(@)",
     header: "StepRepr_StructuralResponseProperty.hxx".}
-proc DynamicType*(this: StepRepr_StructuralResponseProperty): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprStructuralResponseProperty): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_StructuralResponseProperty.hxx".}

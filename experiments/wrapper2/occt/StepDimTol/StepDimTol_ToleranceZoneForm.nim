@@ -13,44 +13,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepDimTol_ToleranceZoneForm, ../Standard/Standard_Transient,
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_HAsciiString
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepDimTol_ToleranceZoneForm"
 discard "forward decl of StepDimTol_ToleranceZoneForm"
 type
-  Handle_StepDimTol_ToleranceZoneForm* = handle[StepDimTol_ToleranceZoneForm]
+  HandleStepDimTolToleranceZoneForm* = Handle[StepDimTolToleranceZoneForm]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepDimTol_ToleranceZoneForm* {.importcpp: "StepDimTol_ToleranceZoneForm",
-                                 header: "StepDimTol_ToleranceZoneForm.hxx",
-                                 bycopy.} = object of Standard_Transient
+  StepDimTolToleranceZoneForm* {.importcpp: "StepDimTol_ToleranceZoneForm",
+                                header: "StepDimTol_ToleranceZoneForm.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructStepDimTol_ToleranceZoneForm*(): StepDimTol_ToleranceZoneForm {.
+proc constructStepDimTolToleranceZoneForm*(): StepDimTolToleranceZoneForm {.
     constructor, importcpp: "StepDimTol_ToleranceZoneForm(@)",
     header: "StepDimTol_ToleranceZoneForm.hxx".}
-proc Init*(this: var StepDimTol_ToleranceZoneForm;
-          theName: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepDimTolToleranceZoneForm;
+          theName: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepDimTol_ToleranceZoneForm.hxx".}
-proc Name*(this: var StepDimTol_ToleranceZoneForm): handle[TCollection_HAsciiString] {.
+proc name*(this: var StepDimTolToleranceZoneForm): Handle[TCollectionHAsciiString] {.
     importcpp: "Name", header: "StepDimTol_ToleranceZoneForm.hxx".}
-proc SetName*(this: var StepDimTol_ToleranceZoneForm;
-             theName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepDimTolToleranceZoneForm;
+             theName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepDimTol_ToleranceZoneForm.hxx".}
 type
-  StepDimTol_ToleranceZoneFormbase_type* = Standard_Transient
+  StepDimTolToleranceZoneFormbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_ToleranceZoneForm::get_type_name(@)",
-                              header: "StepDimTol_ToleranceZoneForm.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_ToleranceZoneForm::get_type_name(@)",
+                            header: "StepDimTol_ToleranceZoneForm.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_ToleranceZoneForm::get_type_descriptor(@)",
     header: "StepDimTol_ToleranceZoneForm.hxx".}
-proc DynamicType*(this: StepDimTol_ToleranceZoneForm): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolToleranceZoneForm): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_ToleranceZoneForm.hxx".}

@@ -13,34 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../AIS/AIS_InteractiveContext, ../V3d/V3d_View
-
 discard "forward decl of TCollection_AsciiString"
 type
-  ViewerTest_AutoUpdater* {.importcpp: "ViewerTest_AutoUpdater",
-                           header: "ViewerTest_AutoUpdater.hxx", bycopy.} = object ## !
-                                                                              ## Enumeration to
-                                                                              ## control
-                                                                              ## auto-update
-                                                                              ## !
-                                                                              ## Constructor
+  ViewerTestAutoUpdater* {.importcpp: "ViewerTest_AutoUpdater",
+                          header: "ViewerTest_AutoUpdater.hxx", bycopy.} = object ## !
+                                                                             ## Enumeration to
+                                                                             ## control
+                                                                             ## auto-update
+                                                                             ## !
+                                                                             ## Constructor
 
-  ViewerTest_AutoUpdaterRedrawMode* {.size: sizeof(cint), importcpp: "ViewerTest_AutoUpdater::RedrawMode",
-                                     header: "ViewerTest_AutoUpdater.hxx".} = enum
-    RedrawMode_Auto = -1, RedrawMode_Forced, RedrawMode_Suppressed
+  ViewerTestAutoUpdaterRedrawMode* {.size: sizeof(cint), importcpp: "ViewerTest_AutoUpdater::RedrawMode",
+                                    header: "ViewerTest_AutoUpdater.hxx".} = enum
+    RedrawModeAuto = -1, RedrawModeForced, RedrawModeSuppressed
 
 
-proc constructViewerTest_AutoUpdater*(theContext: handle[AIS_InteractiveContext];
-                                     theView: handle[V3d_View]): ViewerTest_AutoUpdater {.
+proc constructViewerTestAutoUpdater*(theContext: Handle[AIS_InteractiveContext];
+                                    theView: Handle[V3dView]): ViewerTestAutoUpdater {.
     constructor, importcpp: "ViewerTest_AutoUpdater(@)",
     header: "ViewerTest_AutoUpdater.hxx".}
-proc destroyViewerTest_AutoUpdater*(this: var ViewerTest_AutoUpdater) {.
+proc destroyViewerTestAutoUpdater*(this: var ViewerTestAutoUpdater) {.
     importcpp: "#.~ViewerTest_AutoUpdater()", header: "ViewerTest_AutoUpdater.hxx".}
-proc parseRedrawMode*(this: var ViewerTest_AutoUpdater;
-                     theArg: TCollection_AsciiString): Standard_Boolean {.
+proc parseRedrawMode*(this: var ViewerTestAutoUpdater;
+                     theArg: TCollectionAsciiString): bool {.
     importcpp: "parseRedrawMode", header: "ViewerTest_AutoUpdater.hxx".}
-proc Invalidate*(this: var ViewerTest_AutoUpdater) {.importcpp: "Invalidate",
+proc invalidate*(this: var ViewerTestAutoUpdater) {.importcpp: "Invalidate",
     header: "ViewerTest_AutoUpdater.hxx".}
-proc Update*(this: var ViewerTest_AutoUpdater) {.importcpp: "Update",
+proc update*(this: var ViewerTestAutoUpdater) {.importcpp: "Update",
     header: "ViewerTest_AutoUpdater.hxx".}

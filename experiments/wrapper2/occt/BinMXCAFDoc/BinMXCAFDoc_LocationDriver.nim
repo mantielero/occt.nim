@@ -13,12 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../BinTools/BinTools_LocationSetPtr, ../BinMDF/BinMDF_ADriver,
-  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
-  ../BinObjMgt/BinObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
@@ -26,42 +20,42 @@ discard "forward decl of TopLoc_Location"
 discard "forward decl of BinMXCAFDoc_LocationDriver"
 discard "forward decl of BinMXCAFDoc_LocationDriver"
 type
-  Handle_BinMXCAFDoc_LocationDriver* = handle[BinMXCAFDoc_LocationDriver]
-  BinMXCAFDoc_LocationDriver* {.importcpp: "BinMXCAFDoc_LocationDriver",
-                               header: "BinMXCAFDoc_LocationDriver.hxx", bycopy.} = object of BinMDF_ADriver
+  HandleBinMXCAFDocLocationDriver* = Handle[BinMXCAFDocLocationDriver]
+  BinMXCAFDocLocationDriver* {.importcpp: "BinMXCAFDoc_LocationDriver",
+                              header: "BinMXCAFDoc_LocationDriver.hxx", bycopy.} = object of BinMDF_ADriver
 
 
-proc constructBinMXCAFDoc_LocationDriver*(theMsgDriver: handle[Message_Messenger]): BinMXCAFDoc_LocationDriver {.
+proc constructBinMXCAFDocLocationDriver*(theMsgDriver: Handle[MessageMessenger]): BinMXCAFDocLocationDriver {.
     constructor, importcpp: "BinMXCAFDoc_LocationDriver(@)",
     header: "BinMXCAFDoc_LocationDriver.hxx".}
-proc NewEmpty*(this: BinMXCAFDoc_LocationDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: BinMXCAFDocLocationDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty", header: "BinMXCAFDoc_LocationDriver.hxx".}
-proc Paste*(this: BinMXCAFDoc_LocationDriver; theSource: BinObjMgt_Persistent;
-           theTarget: handle[TDF_Attribute];
-           theRelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "BinMXCAFDoc_LocationDriver.hxx".}
-proc Paste*(this: BinMXCAFDoc_LocationDriver; theSource: handle[TDF_Attribute];
-           theTarget: var BinObjMgt_Persistent;
-           theRelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: BinMXCAFDocLocationDriver; theSource: BinObjMgtPersistent;
+           theTarget: Handle[TDF_Attribute];
+           theRelocTable: var BinObjMgtRRelocationTable): bool {.noSideEffect,
     importcpp: "Paste", header: "BinMXCAFDoc_LocationDriver.hxx".}
-proc Translate*(this: BinMXCAFDoc_LocationDriver; theSource: BinObjMgt_Persistent;
-               theLoc: var TopLoc_Location; theMap: var BinObjMgt_RRelocationTable): Standard_Boolean {.
+proc paste*(this: BinMXCAFDocLocationDriver; theSource: Handle[TDF_Attribute];
+           theTarget: var BinObjMgtPersistent;
+           theRelocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
+    importcpp: "Paste", header: "BinMXCAFDoc_LocationDriver.hxx".}
+proc translate*(this: BinMXCAFDocLocationDriver; theSource: BinObjMgtPersistent;
+               theLoc: var TopLocLocation; theMap: var BinObjMgtRRelocationTable): bool {.
     noSideEffect, importcpp: "Translate", header: "BinMXCAFDoc_LocationDriver.hxx".}
-proc Translate*(this: BinMXCAFDoc_LocationDriver; theLoc: TopLoc_Location;
-               theTarget: var BinObjMgt_Persistent;
-               theMap: var BinObjMgt_SRelocationTable) {.noSideEffect,
+proc translate*(this: BinMXCAFDocLocationDriver; theLoc: TopLocLocation;
+               theTarget: var BinObjMgtPersistent;
+               theMap: var BinObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Translate", header: "BinMXCAFDoc_LocationDriver.hxx".}
-proc SetSharedLocations*(this: var BinMXCAFDoc_LocationDriver;
-                        theLocations: BinTools_LocationSetPtr) {.
+proc setSharedLocations*(this: var BinMXCAFDocLocationDriver;
+                        theLocations: BinToolsLocationSetPtr) {.
     importcpp: "SetSharedLocations", header: "BinMXCAFDoc_LocationDriver.hxx".}
 type
-  BinMXCAFDoc_LocationDriverbase_type* = BinMDF_ADriver
+  BinMXCAFDocLocationDriverbaseType* = BinMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "BinMXCAFDoc_LocationDriver::get_type_name(@)",
-                              header: "BinMXCAFDoc_LocationDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BinMXCAFDoc_LocationDriver::get_type_name(@)",
+                            header: "BinMXCAFDoc_LocationDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BinMXCAFDoc_LocationDriver::get_type_descriptor(@)",
     header: "BinMXCAFDoc_LocationDriver.hxx".}
-proc DynamicType*(this: BinMXCAFDoc_LocationDriver): handle[Standard_Type] {.
+proc dynamicType*(this: BinMXCAFDocLocationDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMXCAFDoc_LocationDriver.hxx".}

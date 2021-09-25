@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, IGESSelect_ModelModifier
-
 discard "forward decl of IFSelect_ContextModif"
 discard "forward decl of IGESData_IGESModel"
 discard "forward decl of Interface_CopyTool"
@@ -24,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_UpdateLastChange"
 discard "forward decl of IGESSelect_UpdateLastChange"
 type
-  Handle_IGESSelect_UpdateLastChange* = handle[IGESSelect_UpdateLastChange]
+  HandleIGESSelectUpdateLastChange* = Handle[IGESSelectUpdateLastChange]
 
 ## ! Allows to Change the Last Change Date indication in the Header
 ## ! (Global Section) of IGES File. It is taken from the operating
@@ -35,36 +32,36 @@ type
 ## ! addition changed to 5.1
 
 type
-  IGESSelect_UpdateLastChange* {.importcpp: "IGESSelect_UpdateLastChange",
-                                header: "IGESSelect_UpdateLastChange.hxx", bycopy.} = object of IGESSelect_ModelModifier ##
-                                                                                                                  ## !
-                                                                                                                  ## Creates
-                                                                                                                  ## an
-                                                                                                                  ## UpdateLastChange,
-                                                                                                                  ## which
-                                                                                                                  ## uses
-                                                                                                                  ## the
-                                                                                                                  ## system
-                                                                                                                  ## Date
+  IGESSelectUpdateLastChange* {.importcpp: "IGESSelect_UpdateLastChange",
+                               header: "IGESSelect_UpdateLastChange.hxx", bycopy.} = object of IGESSelectModelModifier ##
+                                                                                                                ## !
+                                                                                                                ## Creates
+                                                                                                                ## an
+                                                                                                                ## UpdateLastChange,
+                                                                                                                ## which
+                                                                                                                ## uses
+                                                                                                                ## the
+                                                                                                                ## system
+                                                                                                                ## Date
 
 
-proc constructIGESSelect_UpdateLastChange*(): IGESSelect_UpdateLastChange {.
+proc constructIGESSelectUpdateLastChange*(): IGESSelectUpdateLastChange {.
     constructor, importcpp: "IGESSelect_UpdateLastChange(@)",
     header: "IGESSelect_UpdateLastChange.hxx".}
-proc Performing*(this: IGESSelect_UpdateLastChange; ctx: var IFSelect_ContextModif;
-                target: handle[IGESData_IGESModel]; TC: var Interface_CopyTool) {.
+proc performing*(this: IGESSelectUpdateLastChange; ctx: var IFSelectContextModif;
+                target: Handle[IGESDataIGESModel]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "Performing",
     header: "IGESSelect_UpdateLastChange.hxx".}
-proc Label*(this: IGESSelect_UpdateLastChange): TCollection_AsciiString {.
+proc label*(this: IGESSelectUpdateLastChange): TCollectionAsciiString {.
     noSideEffect, importcpp: "Label", header: "IGESSelect_UpdateLastChange.hxx".}
 type
-  IGESSelect_UpdateLastChangebase_type* = IGESSelect_ModelModifier
+  IGESSelectUpdateLastChangebaseType* = IGESSelectModelModifier
 
-proc get_type_name*(): cstring {.importcpp: "IGESSelect_UpdateLastChange::get_type_name(@)",
-                              header: "IGESSelect_UpdateLastChange.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_UpdateLastChange::get_type_name(@)",
+                            header: "IGESSelect_UpdateLastChange.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSelect_UpdateLastChange::get_type_descriptor(@)",
     header: "IGESSelect_UpdateLastChange.hxx".}
-proc DynamicType*(this: IGESSelect_UpdateLastChange): handle[Standard_Type] {.
+proc dynamicType*(this: IGESSelectUpdateLastChange): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_UpdateLastChange.hxx".}

@@ -14,41 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Pnt, Draw_Color,
-  Draw_MarkerShape, ../Standard/Standard_Integer, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, Draw_Drawable3D
-
 discard "forward decl of gp_Pnt"
 discard "forward decl of Draw_Color"
 discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Marker3D"
 discard "forward decl of Draw_Marker3D"
 type
-  Handle_Draw_Marker3D* = handle[Draw_Marker3D]
-  Draw_Marker3D* {.importcpp: "Draw_Marker3D", header: "Draw_Marker3D.hxx", bycopy.} = object of Draw_Drawable3D
+  HandleDrawMarker3D* = Handle[DrawMarker3D]
+  DrawMarker3D* {.importcpp: "Draw_Marker3D", header: "Draw_Marker3D.hxx", bycopy.} = object of DrawDrawable3D
 
 
-proc constructDraw_Marker3D*(P: gp_Pnt; T: Draw_MarkerShape; C: Draw_Color;
-                            ISize: Standard_Integer = 5): Draw_Marker3D {.
+proc constructDrawMarker3D*(p: Pnt; t: DrawMarkerShape; c: DrawColor; iSize: int = 5): DrawMarker3D {.
     constructor, importcpp: "Draw_Marker3D(@)", header: "Draw_Marker3D.hxx".}
-proc constructDraw_Marker3D*(P: gp_Pnt; T: Draw_MarkerShape; C: Draw_Color;
-                            RSize: Standard_Real): Draw_Marker3D {.constructor,
-    importcpp: "Draw_Marker3D(@)", header: "Draw_Marker3D.hxx".}
-proc ChangePos*(this: var Draw_Marker3D): var gp_Pnt {.importcpp: "ChangePos",
+proc constructDrawMarker3D*(p: Pnt; t: DrawMarkerShape; c: DrawColor; rSize: float): DrawMarker3D {.
+    constructor, importcpp: "Draw_Marker3D(@)", header: "Draw_Marker3D.hxx".}
+proc changePos*(this: var DrawMarker3D): var Pnt {.importcpp: "ChangePos",
     header: "Draw_Marker3D.hxx".}
-proc DrawOn*(this: Draw_Marker3D; dis: var Draw_Display) {.noSideEffect,
+proc drawOn*(this: DrawMarker3D; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "Draw_Marker3D.hxx".}
-proc PickReject*(this: Draw_Marker3D; X: Standard_Real; Y: Standard_Real;
-                Prec: Standard_Real): Standard_Boolean {.noSideEffect,
-    importcpp: "PickReject", header: "Draw_Marker3D.hxx".}
+proc pickReject*(this: DrawMarker3D; x: float; y: float; prec: float): bool {.
+    noSideEffect, importcpp: "PickReject", header: "Draw_Marker3D.hxx".}
 type
-  Draw_Marker3Dbase_type* = Draw_Drawable3D
+  DrawMarker3DbaseType* = DrawDrawable3D
 
-proc get_type_name*(): cstring {.importcpp: "Draw_Marker3D::get_type_name(@)",
-                              header: "Draw_Marker3D.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Draw_Marker3D::get_type_name(@)",
+                            header: "Draw_Marker3D.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Draw_Marker3D::get_type_descriptor(@)",
     header: "Draw_Marker3D.hxx".}
-proc DynamicType*(this: Draw_Marker3D): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: DrawMarker3D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Marker3D.hxx".}

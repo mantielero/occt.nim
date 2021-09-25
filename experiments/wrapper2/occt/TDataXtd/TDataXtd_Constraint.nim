@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TDataXtd_ConstraintEnum,
-  ../Standard/Standard_Boolean, ../TDF/TDF_Attribute,
-  ../Standard/Standard_Integer, ../TDF/TDF_LabelList, ../Standard/Standard_OStream
-
 discard "forward decl of TDataStd_Real"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of Standard_GUID"
@@ -28,7 +23,7 @@ discard "forward decl of TDF_DataSet"
 discard "forward decl of TDataXtd_Constraint"
 discard "forward decl of TDataXtd_Constraint"
 type
-  Handle_TDataXtd_Constraint* = handle[TDataXtd_Constraint]
+  HandleTDataXtdConstraint* = Handle[TDataXtdConstraint]
 
 ## ! The groundwork to define constraint attributes.
 ## ! The constraint attribute contains the following sorts of data:
@@ -42,97 +37,96 @@ type
 ## ! -   Plane for 2D constraints.
 
 type
-  TDataXtd_Constraint* {.importcpp: "TDataXtd_Constraint",
-                        header: "TDataXtd_Constraint.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                       ## !
-                                                                                       ## Returns
-                                                                                       ## the
-                                                                                       ## GUID
-                                                                                       ## for
-                                                                                       ## constraints.
+  TDataXtdConstraint* {.importcpp: "TDataXtd_Constraint",
+                       header: "TDataXtd_Constraint.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## the
+                                                                                      ## GUID
+                                                                                      ## for
+                                                                                      ## constraints.
 
 
-proc GetID*(): Standard_GUID {.importcpp: "TDataXtd_Constraint::GetID(@)",
-                            header: "TDataXtd_Constraint.hxx".}
-proc Set*(label: TDF_Label): handle[TDataXtd_Constraint] {.
+proc getID*(): StandardGUID {.importcpp: "TDataXtd_Constraint::GetID(@)",
+                           header: "TDataXtd_Constraint.hxx".}
+proc set*(label: TDF_Label): Handle[TDataXtdConstraint] {.
     importcpp: "TDataXtd_Constraint::Set(@)", header: "TDataXtd_Constraint.hxx".}
-proc constructTDataXtd_Constraint*(): TDataXtd_Constraint {.constructor,
+proc constructTDataXtdConstraint*(): TDataXtdConstraint {.constructor,
     importcpp: "TDataXtd_Constraint(@)", header: "TDataXtd_Constraint.hxx".}
-proc Set*(this: var TDataXtd_Constraint; `type`: TDataXtd_ConstraintEnum;
-         G1: handle[TNaming_NamedShape]) {.importcpp: "Set",
-    header: "TDataXtd_Constraint.hxx".}
-proc Set*(this: var TDataXtd_Constraint; `type`: TDataXtd_ConstraintEnum;
-         G1: handle[TNaming_NamedShape]; G2: handle[TNaming_NamedShape]) {.
+proc set*(this: var TDataXtdConstraint; `type`: TDataXtdConstraintEnum;
+         g1: Handle[TNamingNamedShape]) {.importcpp: "Set",
+                                        header: "TDataXtd_Constraint.hxx".}
+proc set*(this: var TDataXtdConstraint; `type`: TDataXtdConstraintEnum;
+         g1: Handle[TNamingNamedShape]; g2: Handle[TNamingNamedShape]) {.
     importcpp: "Set", header: "TDataXtd_Constraint.hxx".}
-proc Set*(this: var TDataXtd_Constraint; `type`: TDataXtd_ConstraintEnum;
-         G1: handle[TNaming_NamedShape]; G2: handle[TNaming_NamedShape];
-         G3: handle[TNaming_NamedShape]) {.importcpp: "Set",
-    header: "TDataXtd_Constraint.hxx".}
-proc Set*(this: var TDataXtd_Constraint; `type`: TDataXtd_ConstraintEnum;
-         G1: handle[TNaming_NamedShape]; G2: handle[TNaming_NamedShape];
-         G3: handle[TNaming_NamedShape]; G4: handle[TNaming_NamedShape]) {.
+proc set*(this: var TDataXtdConstraint; `type`: TDataXtdConstraintEnum;
+         g1: Handle[TNamingNamedShape]; g2: Handle[TNamingNamedShape];
+         g3: Handle[TNamingNamedShape]) {.importcpp: "Set",
+                                        header: "TDataXtd_Constraint.hxx".}
+proc set*(this: var TDataXtdConstraint; `type`: TDataXtdConstraintEnum;
+         g1: Handle[TNamingNamedShape]; g2: Handle[TNamingNamedShape];
+         g3: Handle[TNamingNamedShape]; g4: Handle[TNamingNamedShape]) {.
     importcpp: "Set", header: "TDataXtd_Constraint.hxx".}
-proc Verified*(this: TDataXtd_Constraint): Standard_Boolean {.noSideEffect,
-    importcpp: "Verified", header: "TDataXtd_Constraint.hxx".}
-proc GetType*(this: TDataXtd_Constraint): TDataXtd_ConstraintEnum {.noSideEffect,
+proc verified*(this: TDataXtdConstraint): bool {.noSideEffect, importcpp: "Verified",
+    header: "TDataXtd_Constraint.hxx".}
+proc getType*(this: TDataXtdConstraint): TDataXtdConstraintEnum {.noSideEffect,
     importcpp: "GetType", header: "TDataXtd_Constraint.hxx".}
-proc IsPlanar*(this: TDataXtd_Constraint): Standard_Boolean {.noSideEffect,
-    importcpp: "IsPlanar", header: "TDataXtd_Constraint.hxx".}
-proc GetPlane*(this: TDataXtd_Constraint): handle[TNaming_NamedShape] {.
-    noSideEffect, importcpp: "GetPlane", header: "TDataXtd_Constraint.hxx".}
-proc IsDimension*(this: TDataXtd_Constraint): Standard_Boolean {.noSideEffect,
+proc isPlanar*(this: TDataXtdConstraint): bool {.noSideEffect, importcpp: "IsPlanar",
+    header: "TDataXtd_Constraint.hxx".}
+proc getPlane*(this: TDataXtdConstraint): Handle[TNamingNamedShape] {.noSideEffect,
+    importcpp: "GetPlane", header: "TDataXtd_Constraint.hxx".}
+proc isDimension*(this: TDataXtdConstraint): bool {.noSideEffect,
     importcpp: "IsDimension", header: "TDataXtd_Constraint.hxx".}
-proc GetValue*(this: TDataXtd_Constraint): handle[TDataStd_Real] {.noSideEffect,
+proc getValue*(this: TDataXtdConstraint): Handle[TDataStdReal] {.noSideEffect,
     importcpp: "GetValue", header: "TDataXtd_Constraint.hxx".}
-proc NbGeometries*(this: TDataXtd_Constraint): Standard_Integer {.noSideEffect,
+proc nbGeometries*(this: TDataXtdConstraint): int {.noSideEffect,
     importcpp: "NbGeometries", header: "TDataXtd_Constraint.hxx".}
-proc GetGeometry*(this: TDataXtd_Constraint; Index: Standard_Integer): handle[
-    TNaming_NamedShape] {.noSideEffect, importcpp: "GetGeometry",
-                         header: "TDataXtd_Constraint.hxx".}
-proc ClearGeometries*(this: var TDataXtd_Constraint) {.importcpp: "ClearGeometries",
+proc getGeometry*(this: TDataXtdConstraint; index: int): Handle[TNamingNamedShape] {.
+    noSideEffect, importcpp: "GetGeometry", header: "TDataXtd_Constraint.hxx".}
+proc clearGeometries*(this: var TDataXtdConstraint) {.importcpp: "ClearGeometries",
     header: "TDataXtd_Constraint.hxx".}
-proc SetType*(this: var TDataXtd_Constraint; CTR: TDataXtd_ConstraintEnum) {.
+proc setType*(this: var TDataXtdConstraint; ctr: TDataXtdConstraintEnum) {.
     importcpp: "SetType", header: "TDataXtd_Constraint.hxx".}
-proc SetPlane*(this: var TDataXtd_Constraint; plane: handle[TNaming_NamedShape]) {.
+proc setPlane*(this: var TDataXtdConstraint; plane: Handle[TNamingNamedShape]) {.
     importcpp: "SetPlane", header: "TDataXtd_Constraint.hxx".}
-proc SetValue*(this: var TDataXtd_Constraint; V: handle[TDataStd_Real]) {.
+proc setValue*(this: var TDataXtdConstraint; v: Handle[TDataStdReal]) {.
     importcpp: "SetValue", header: "TDataXtd_Constraint.hxx".}
-proc SetGeometry*(this: var TDataXtd_Constraint; Index: Standard_Integer;
-                 G: handle[TNaming_NamedShape]) {.importcpp: "SetGeometry",
+proc setGeometry*(this: var TDataXtdConstraint; index: int;
+                 g: Handle[TNamingNamedShape]) {.importcpp: "SetGeometry",
     header: "TDataXtd_Constraint.hxx".}
-proc Verified*(this: var TDataXtd_Constraint; status: Standard_Boolean) {.
-    importcpp: "Verified", header: "TDataXtd_Constraint.hxx".}
-proc Inverted*(this: var TDataXtd_Constraint; status: Standard_Boolean) {.
-    importcpp: "Inverted", header: "TDataXtd_Constraint.hxx".}
-proc Inverted*(this: TDataXtd_Constraint): Standard_Boolean {.noSideEffect,
-    importcpp: "Inverted", header: "TDataXtd_Constraint.hxx".}
-proc Reversed*(this: var TDataXtd_Constraint; status: Standard_Boolean) {.
-    importcpp: "Reversed", header: "TDataXtd_Constraint.hxx".}
-proc Reversed*(this: TDataXtd_Constraint): Standard_Boolean {.noSideEffect,
-    importcpp: "Reversed", header: "TDataXtd_Constraint.hxx".}
-proc CollectChildConstraints*(aLabel: TDF_Label; TheList: var TDF_LabelList) {.
+proc verified*(this: var TDataXtdConstraint; status: bool) {.importcpp: "Verified",
+    header: "TDataXtd_Constraint.hxx".}
+proc inverted*(this: var TDataXtdConstraint; status: bool) {.importcpp: "Inverted",
+    header: "TDataXtd_Constraint.hxx".}
+proc inverted*(this: TDataXtdConstraint): bool {.noSideEffect, importcpp: "Inverted",
+    header: "TDataXtd_Constraint.hxx".}
+proc reversed*(this: var TDataXtdConstraint; status: bool) {.importcpp: "Reversed",
+    header: "TDataXtd_Constraint.hxx".}
+proc reversed*(this: TDataXtdConstraint): bool {.noSideEffect, importcpp: "Reversed",
+    header: "TDataXtd_Constraint.hxx".}
+proc collectChildConstraints*(aLabel: TDF_Label; theList: var TDF_LabelList) {.
     importcpp: "TDataXtd_Constraint::CollectChildConstraints(@)",
     header: "TDataXtd_Constraint.hxx".}
-proc ID*(this: TDataXtd_Constraint): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TDataXtdConstraint): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TDataXtd_Constraint.hxx".}
-proc Restore*(this: var TDataXtd_Constraint; With: handle[TDF_Attribute]) {.
+proc restore*(this: var TDataXtdConstraint; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TDataXtd_Constraint.hxx".}
-proc NewEmpty*(this: TDataXtd_Constraint): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TDataXtdConstraint): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TDataXtd_Constraint.hxx".}
-proc Paste*(this: TDataXtd_Constraint; Into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TDataXtdConstraint; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TDataXtd_Constraint.hxx".}
-proc Dump*(this: TDataXtd_Constraint; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDataXtdConstraint; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataXtd_Constraint.hxx".}
-proc References*(this: TDataXtd_Constraint; DS: handle[TDF_DataSet]) {.noSideEffect,
+proc references*(this: TDataXtdConstraint; ds: Handle[TDF_DataSet]) {.noSideEffect,
     importcpp: "References", header: "TDataXtd_Constraint.hxx".}
 type
-  TDataXtd_Constraintbase_type* = TDF_Attribute
+  TDataXtdConstraintbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TDataXtd_Constraint::get_type_name(@)",
-                              header: "TDataXtd_Constraint.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDataXtd_Constraint::get_type_name(@)",
+                            header: "TDataXtd_Constraint.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDataXtd_Constraint::get_type_descriptor(@)",
     header: "TDataXtd_Constraint.hxx".}
-proc DynamicType*(this: TDataXtd_Constraint): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDataXtdConstraint): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataXtd_Constraint.hxx".}

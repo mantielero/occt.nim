@@ -12,20 +12,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  RWGltf_GltfBufferViewTarget, ../Standard/Standard_TypeDef
-
 ## ! Low-level glTF data structure defining BufferView.
 
 type
-  RWGltf_GltfBufferView* {.importcpp: "RWGltf_GltfBufferView",
-                          header: "RWGltf_GltfBufferView.hxx", bycopy.} = object
-    Id* {.importc: "Id".}: cint
-    ByteOffset* {.importc: "ByteOffset".}: int64_t
-    ByteLength* {.importc: "ByteLength".}: int64_t
-    ByteStride* {.importc: "ByteStride".}: int32_t ## !< [0, 255]
-    Target* {.importc: "Target".}: RWGltf_GltfBufferViewTarget
+  RWGltfGltfBufferView* {.importcpp: "RWGltf_GltfBufferView",
+                         header: "RWGltf_GltfBufferView.hxx", bycopy.} = object
+    id* {.importc: "Id".}: cint
+    byteOffset* {.importc: "ByteOffset".}: int64T
+    byteLength* {.importc: "ByteLength".}: int64T
+    byteStride* {.importc: "ByteStride".}: int32T ## !< [0, 255]
+    target* {.importc: "Target".}: RWGltfGltfBufferViewTarget
 
 
-proc constructRWGltf_GltfBufferView*(): RWGltf_GltfBufferView {.constructor,
+proc constructRWGltfGltfBufferView*(): RWGltfGltfBufferView {.constructor,
     importcpp: "RWGltf_GltfBufferView(@)", header: "RWGltf_GltfBufferView.hxx".}

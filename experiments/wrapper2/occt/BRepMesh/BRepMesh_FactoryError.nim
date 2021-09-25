@@ -12,8 +12,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  BRepMesh_FactoryError* {.size: sizeof(cint), importcpp: "BRepMesh_FactoryError",
-                          header: "BRepMesh_FactoryError.hxx".} = enum
-    BRepMesh_FE_NOERROR, BRepMesh_FE_LIBRARYNOTFOUND,
-    BRepMesh_FE_FUNCTIONNOTFOUND, BRepMesh_FE_CANNOTCREATEALGO
+  BRepMeshFactoryError* {.size: sizeof(cint), importcpp: "BRepMesh_FactoryError",
+                         header: "BRepMesh_FactoryError.hxx".} = enum
+    BRepMeshFE_NOERROR, BRepMeshFE_LIBRARYNOTFOUND, BRepMeshFE_FUNCTIONNOTFOUND,
+    BRepMeshFE_CANNOTCREATEALGO
+
 

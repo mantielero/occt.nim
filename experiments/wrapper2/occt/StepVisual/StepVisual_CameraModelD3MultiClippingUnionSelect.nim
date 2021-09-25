@@ -13,38 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepGeom_Plane"
 discard "forward decl of StepVisual_CameraModelD3MultiClippingIntersection"
 type
-  StepVisual_CameraModelD3MultiClippingUnionSelect* {.
+  StepVisualCameraModelD3MultiClippingUnionSelect* {.
       importcpp: "StepVisual_CameraModelD3MultiClippingUnionSelect",
-      header: "StepVisual_CameraModelD3MultiClippingUnionSelect.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                        ## !
-                                                                                                        ## Returns
-                                                                                                        ## a
-                                                                                                        ## CameraModelD3MultiClippingUnionSelect
-                                                                                                        ## select
-                                                                                                        ## type
+      header: "StepVisual_CameraModelD3MultiClippingUnionSelect.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                       ## !
+                                                                                                       ## Returns
+                                                                                                       ## a
+                                                                                                       ## CameraModelD3MultiClippingUnionSelect
+                                                                                                       ## select
+                                                                                                       ## type
 
 
-proc constructStepVisual_CameraModelD3MultiClippingUnionSelect*(): StepVisual_CameraModelD3MultiClippingUnionSelect {.
+proc constructStepVisualCameraModelD3MultiClippingUnionSelect*(): StepVisualCameraModelD3MultiClippingUnionSelect {.
     constructor,
     importcpp: "StepVisual_CameraModelD3MultiClippingUnionSelect(@)",
     header: "StepVisual_CameraModelD3MultiClippingUnionSelect.hxx".}
-proc CaseNum*(this: StepVisual_CameraModelD3MultiClippingUnionSelect;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepVisualCameraModelD3MultiClippingUnionSelect;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum",
     header: "StepVisual_CameraModelD3MultiClippingUnionSelect.hxx".}
-proc Plane*(this: StepVisual_CameraModelD3MultiClippingUnionSelect): handle[
-    StepGeom_Plane] {.noSideEffect, importcpp: "Plane", header: "StepVisual_CameraModelD3MultiClippingUnionSelect.hxx".}
-proc CameraModelD3MultiClippingIntersection*(
-    this: StepVisual_CameraModelD3MultiClippingUnionSelect): handle[
-    StepVisual_CameraModelD3MultiClippingIntersection] {.noSideEffect,
+proc plane*(this: StepVisualCameraModelD3MultiClippingUnionSelect): Handle[
+    StepGeomPlane] {.noSideEffect, importcpp: "Plane", header: "StepVisual_CameraModelD3MultiClippingUnionSelect.hxx".}
+proc cameraModelD3MultiClippingIntersection*(
+    this: StepVisualCameraModelD3MultiClippingUnionSelect): Handle[
+    StepVisualCameraModelD3MultiClippingIntersection] {.noSideEffect,
     importcpp: "CameraModelD3MultiClippingIntersection",
     header: "StepVisual_CameraModelD3MultiClippingUnionSelect.hxx".}

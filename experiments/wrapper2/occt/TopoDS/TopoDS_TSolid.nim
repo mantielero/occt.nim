@@ -14,15 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TopoDS_TShape,
-  ../TopAbs/TopAbs_ShapeEnum
-
 discard "forward decl of TopoDS_TShape"
 discard "forward decl of TopoDS_TSolid"
 discard "forward decl of TopoDS_TSolid"
 type
-  Handle_TopoDS_TSolid* = handle[TopoDS_TSolid]
+  HandleTopoDS_TSolid* = Handle[TopoDS_TSolid]
 
 ## ! A Topological part of 3D space, bounded by shells,
 ## ! edges and vertices.
@@ -38,17 +34,17 @@ type
 
 proc constructTopoDS_TSolid*(): TopoDS_TSolid {.constructor,
     importcpp: "TopoDS_TSolid(@)", header: "TopoDS_TSolid.hxx".}
-proc ShapeType*(this: TopoDS_TSolid): TopAbs_ShapeEnum {.noSideEffect,
+proc shapeType*(this: TopoDS_TSolid): TopAbsShapeEnum {.noSideEffect,
     importcpp: "ShapeType", header: "TopoDS_TSolid.hxx".}
-proc EmptyCopy*(this: TopoDS_TSolid): handle[TopoDS_TShape] {.noSideEffect,
+proc emptyCopy*(this: TopoDS_TSolid): Handle[TopoDS_TShape] {.noSideEffect,
     importcpp: "EmptyCopy", header: "TopoDS_TSolid.hxx".}
 type
-  TopoDS_TSolidbase_type* = TopoDS_TShape
+  TopoDS_TSolidbaseType* = TopoDS_TShape
 
-proc get_type_name*(): cstring {.importcpp: "TopoDS_TSolid::get_type_name(@)",
-                              header: "TopoDS_TSolid.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TopoDS_TSolid::get_type_name(@)",
+                            header: "TopoDS_TSolid.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopoDS_TSolid::get_type_descriptor(@)",
     header: "TopoDS_TSolid.hxx".}
-proc DynamicType*(this: TopoDS_TSolid): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TopoDS_TSolid): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopoDS_TSolid.hxx".}

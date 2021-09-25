@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepShape_Sphere"
 discard "forward decl of StepShape_Block"
@@ -27,32 +22,32 @@ discard "forward decl of StepShape_Torus"
 discard "forward decl of StepShape_RightCircularCone"
 discard "forward decl of StepShape_RightCircularCylinder"
 type
-  StepShape_CsgPrimitive* {.importcpp: "StepShape_CsgPrimitive",
-                           header: "StepShape_CsgPrimitive.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                   ## !
-                                                                                                   ## Returns
-                                                                                                   ## a
-                                                                                                   ## CsgPrimitive
-                                                                                                   ## SelectType
+  StepShapeCsgPrimitive* {.importcpp: "StepShape_CsgPrimitive",
+                          header: "StepShape_CsgPrimitive.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                 ## !
+                                                                                                 ## Returns
+                                                                                                 ## a
+                                                                                                 ## CsgPrimitive
+                                                                                                 ## SelectType
 
 
-proc constructStepShape_CsgPrimitive*(): StepShape_CsgPrimitive {.constructor,
+proc constructStepShapeCsgPrimitive*(): StepShapeCsgPrimitive {.constructor,
     importcpp: "StepShape_CsgPrimitive(@)", header: "StepShape_CsgPrimitive.hxx".}
-proc CaseNum*(this: StepShape_CsgPrimitive; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepShapeCsgPrimitive; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepShape_CsgPrimitive.hxx".}
-proc Sphere*(this: StepShape_CsgPrimitive): handle[StepShape_Sphere] {.noSideEffect,
+proc sphere*(this: StepShapeCsgPrimitive): Handle[StepShapeSphere] {.noSideEffect,
     importcpp: "Sphere", header: "StepShape_CsgPrimitive.hxx".}
-proc Block*(this: StepShape_CsgPrimitive): handle[StepShape_Block] {.noSideEffect,
+proc `block`*(this: StepShapeCsgPrimitive): Handle[StepShapeBlock] {.noSideEffect,
     importcpp: "Block", header: "StepShape_CsgPrimitive.hxx".}
-proc RightAngularWedge*(this: StepShape_CsgPrimitive): handle[
-    StepShape_RightAngularWedge] {.noSideEffect, importcpp: "RightAngularWedge",
-                                  header: "StepShape_CsgPrimitive.hxx".}
-proc Torus*(this: StepShape_CsgPrimitive): handle[StepShape_Torus] {.noSideEffect,
+proc rightAngularWedge*(this: StepShapeCsgPrimitive): Handle[
+    StepShapeRightAngularWedge] {.noSideEffect, importcpp: "RightAngularWedge",
+                                 header: "StepShape_CsgPrimitive.hxx".}
+proc torus*(this: StepShapeCsgPrimitive): Handle[StepShapeTorus] {.noSideEffect,
     importcpp: "Torus", header: "StepShape_CsgPrimitive.hxx".}
-proc RightCircularCone*(this: StepShape_CsgPrimitive): handle[
-    StepShape_RightCircularCone] {.noSideEffect, importcpp: "RightCircularCone",
-                                  header: "StepShape_CsgPrimitive.hxx".}
-proc RightCircularCylinder*(this: StepShape_CsgPrimitive): handle[
-    StepShape_RightCircularCylinder] {.noSideEffect,
-                                      importcpp: "RightCircularCylinder",
-                                      header: "StepShape_CsgPrimitive.hxx".}
+proc rightCircularCone*(this: StepShapeCsgPrimitive): Handle[
+    StepShapeRightCircularCone] {.noSideEffect, importcpp: "RightCircularCone",
+                                 header: "StepShape_CsgPrimitive.hxx".}
+proc rightCircularCylinder*(this: StepShapeCsgPrimitive): Handle[
+    StepShapeRightCircularCylinder] {.noSideEffect,
+                                     importcpp: "RightCircularCylinder",
+                                     header: "StepShape_CsgPrimitive.hxx".}

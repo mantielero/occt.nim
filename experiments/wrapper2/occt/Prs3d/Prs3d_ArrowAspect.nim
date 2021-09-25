@@ -14,81 +14,78 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Graphic3d/Graphic3d_AspectLine3d, Prs3d_BasicAspect
-
 ## ! A framework for displaying arrows in representations of dimensions and relations.
 
 type
-  Prs3d_ArrowAspect* {.importcpp: "Prs3d_ArrowAspect",
-                      header: "Prs3d_ArrowAspect.hxx", bycopy.} = object of Prs3d_BasicAspect ##
-                                                                                       ## !
-                                                                                       ## Constructs
-                                                                                       ## an
-                                                                                       ## empty
-                                                                                       ## framework
-                                                                                       ## for
-                                                                                       ## displaying
-                                                                                       ## arrows
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## in
-                                                                                       ## representations
-                                                                                       ## of
-                                                                                       ## lengths.
-                                                                                       ## The
-                                                                                       ## lengths
-                                                                                       ## displayed
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## are
-                                                                                       ## either
-                                                                                       ## on
-                                                                                       ## their
-                                                                                       ## own
-                                                                                       ## or
-                                                                                       ## in
-                                                                                       ## chamfers,
-                                                                                       ## fillets,
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## diameters
-                                                                                       ## and
-                                                                                       ## radii.
+  Prs3dArrowAspect* {.importcpp: "Prs3d_ArrowAspect",
+                     header: "Prs3d_ArrowAspect.hxx", bycopy.} = object of Prs3dBasicAspect ##
+                                                                                     ## !
+                                                                                     ## Constructs
+                                                                                     ## an
+                                                                                     ## empty
+                                                                                     ## framework
+                                                                                     ## for
+                                                                                     ## displaying
+                                                                                     ## arrows
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## in
+                                                                                     ## representations
+                                                                                     ## of
+                                                                                     ## lengths.
+                                                                                     ## The
+                                                                                     ## lengths
+                                                                                     ## displayed
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## are
+                                                                                     ## either
+                                                                                     ## on
+                                                                                     ## their
+                                                                                     ## own
+                                                                                     ## or
+                                                                                     ## in
+                                                                                     ## chamfers,
+                                                                                     ## fillets,
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## diameters
+                                                                                     ## and
+                                                                                     ## radii.
 
-  Prs3d_ArrowAspectbase_type* = Prs3d_BasicAspect
+  Prs3dArrowAspectbaseType* = Prs3dBasicAspect
 
-proc get_type_name*(): cstring {.importcpp: "Prs3d_ArrowAspect::get_type_name(@)",
-                              header: "Prs3d_ArrowAspect.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Prs3d_ArrowAspect::get_type_name(@)",
+                            header: "Prs3d_ArrowAspect.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Prs3d_ArrowAspect::get_type_descriptor(@)",
     header: "Prs3d_ArrowAspect.hxx".}
-proc DynamicType*(this: Prs3d_ArrowAspect): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: Prs3dArrowAspect): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Prs3d_ArrowAspect.hxx".}
-proc constructPrs3d_ArrowAspect*(): Prs3d_ArrowAspect {.constructor,
+proc constructPrs3dArrowAspect*(): Prs3dArrowAspect {.constructor,
     importcpp: "Prs3d_ArrowAspect(@)", header: "Prs3d_ArrowAspect.hxx".}
-proc constructPrs3d_ArrowAspect*(anAngle: Standard_Real; aLength: Standard_Real): Prs3d_ArrowAspect {.
+proc constructPrs3dArrowAspect*(anAngle: float; aLength: float): Prs3dArrowAspect {.
     constructor, importcpp: "Prs3d_ArrowAspect(@)", header: "Prs3d_ArrowAspect.hxx".}
-proc constructPrs3d_ArrowAspect*(theAspect: handle[Graphic3d_AspectLine3d]): Prs3d_ArrowAspect {.
+proc constructPrs3dArrowAspect*(theAspect: Handle[Graphic3dAspectLine3d]): Prs3dArrowAspect {.
     constructor, importcpp: "Prs3d_ArrowAspect(@)", header: "Prs3d_ArrowAspect.hxx".}
-proc SetAngle*(this: var Prs3d_ArrowAspect; anAngle: Standard_Real) {.
-    importcpp: "SetAngle", header: "Prs3d_ArrowAspect.hxx".}
-proc Angle*(this: Prs3d_ArrowAspect): Standard_Real {.noSideEffect,
-    importcpp: "Angle", header: "Prs3d_ArrowAspect.hxx".}
-proc SetLength*(this: var Prs3d_ArrowAspect; theLength: Standard_Real) {.
-    importcpp: "SetLength", header: "Prs3d_ArrowAspect.hxx".}
-proc Length*(this: Prs3d_ArrowAspect): Standard_Real {.noSideEffect,
-    importcpp: "Length", header: "Prs3d_ArrowAspect.hxx".}
-proc SetColor*(this: var Prs3d_ArrowAspect; theColor: Quantity_Color) {.
-    importcpp: "SetColor", header: "Prs3d_ArrowAspect.hxx".}
-proc Aspect*(this: Prs3d_ArrowAspect): handle[Graphic3d_AspectLine3d] {.
-    noSideEffect, importcpp: "Aspect", header: "Prs3d_ArrowAspect.hxx".}
-proc SetAspect*(this: var Prs3d_ArrowAspect;
-               theAspect: handle[Graphic3d_AspectLine3d]) {.
-    importcpp: "SetAspect", header: "Prs3d_ArrowAspect.hxx".}
-proc DumpJson*(this: Prs3d_ArrowAspect; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
+proc setAngle*(this: var Prs3dArrowAspect; anAngle: float) {.importcpp: "SetAngle",
     header: "Prs3d_ArrowAspect.hxx".}
+proc angle*(this: Prs3dArrowAspect): float {.noSideEffect, importcpp: "Angle",
+    header: "Prs3d_ArrowAspect.hxx".}
+proc setLength*(this: var Prs3dArrowAspect; theLength: float) {.
+    importcpp: "SetLength", header: "Prs3d_ArrowAspect.hxx".}
+proc length*(this: Prs3dArrowAspect): float {.noSideEffect, importcpp: "Length",
+    header: "Prs3d_ArrowAspect.hxx".}
+proc setColor*(this: var Prs3dArrowAspect; theColor: QuantityColor) {.
+    importcpp: "SetColor", header: "Prs3d_ArrowAspect.hxx".}
+proc aspect*(this: Prs3dArrowAspect): Handle[Graphic3dAspectLine3d] {.noSideEffect,
+    importcpp: "Aspect", header: "Prs3d_ArrowAspect.hxx".}
+proc setAspect*(this: var Prs3dArrowAspect; theAspect: Handle[Graphic3dAspectLine3d]) {.
+    importcpp: "SetAspect", header: "Prs3d_ArrowAspect.hxx".}
+proc dumpJson*(this: Prs3dArrowAspect; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Prs3d_ArrowAspect.hxx".}
 discard "forward decl of Prs3d_ArrowAspect"
 type
-  Handle_Prs3d_ArrowAspect* = handle[Prs3d_ArrowAspect]
+  HandlePrs3dArrowAspect* = Handle[Prs3dArrowAspect]
+

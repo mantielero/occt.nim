@@ -15,13 +15,13 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepGeom_BSplineSurfaceForm* {.size: sizeof(cint),
-                                importcpp: "StepGeom_BSplineSurfaceForm",
-                                header: "StepGeom_BSplineSurfaceForm.hxx".} = enum
-    StepGeom_bssfPlaneSurf, StepGeom_bssfCylindricalSurf,
-    StepGeom_bssfConicalSurf, StepGeom_bssfSphericalSurf,
-    StepGeom_bssfToroidalSurf, StepGeom_bssfSurfOfRevolution,
-    StepGeom_bssfRuledSurf, StepGeom_bssfGeneralisedCone,
-    StepGeom_bssfQuadricSurf, StepGeom_bssfSurfOfLinearExtrusion,
-    StepGeom_bssfUnspecified
+  StepGeomBSplineSurfaceForm* {.size: sizeof(cint),
+                               importcpp: "StepGeom_BSplineSurfaceForm",
+                               header: "StepGeom_BSplineSurfaceForm.hxx".} = enum
+    StepGeomBssfPlaneSurf, StepGeomBssfCylindricalSurf, StepGeomBssfConicalSurf,
+    StepGeomBssfSphericalSurf, StepGeomBssfToroidalSurf,
+    StepGeomBssfSurfOfRevolution, StepGeomBssfRuledSurf,
+    StepGeomBssfGeneralisedCone, StepGeomBssfQuadricSurf,
+    StepGeomBssfSurfOfLinearExtrusion, StepGeomBssfUnspecified
+
 

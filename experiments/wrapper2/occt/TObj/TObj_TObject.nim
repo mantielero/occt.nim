@@ -14,123 +14,120 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation Copyright: (C) RINA S.p.A
 
-import
-  TObj_Common, TObj_Object, ../TDF/TDF_Attribute
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
 type
-  TObj_TObject* {.importcpp: "TObj_TObject", header: "TObj_TObject.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                                  ## !
-                                                                                                  ## Standard
-                                                                                                  ## methods
-                                                                                                  ## of
-                                                                                                  ## OCAF
-                                                                                                  ## attribute
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Empty
-                                                                                                  ## constructor
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Method
-                                                                                                  ## for
-                                                                                                  ## create
-                                                                                                  ## TObj_TObject
-                                                                                                  ## object
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Creates
-                                                                                                  ## TObj_TObject
-                                                                                                  ## attribute
-                                                                                                  ## on
-                                                                                                  ## given
-                                                                                                  ## label
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Methods
-                                                                                                  ## for
-                                                                                                  ## setting
-                                                                                                  ## and
-                                                                                                  ## obtaining
-                                                                                                  ## TObj_Object
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Sets
-                                                                                                  ## the
-                                                                                                  ## TObj_Object
-                                                                                                  ## object
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Redefined
-                                                                                                  ## OCAF
-                                                                                                  ## abstract
-                                                                                                  ## methods
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Returns
-                                                                                                  ## an
-                                                                                                  ## new
-                                                                                                  ## empty
-                                                                                                  ## TObj_TObject
-                                                                                                  ## attribute.
-                                                                                                  ## It
-                                                                                                  ## is
-                                                                                                  ## used
-                                                                                                  ## by
-                                                                                                  ## the
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## copy
-                                                                                                  ## algorithm.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Fields
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## CASCADE
-                                                                                                  ## RTTI
+  TObjTObject* {.importcpp: "TObj_TObject", header: "TObj_TObject.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                                 ## !
+                                                                                                 ## Standard
+                                                                                                 ## methods
+                                                                                                 ## of
+                                                                                                 ## OCAF
+                                                                                                 ## attribute
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Empty
+                                                                                                 ## constructor
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Method
+                                                                                                 ## for
+                                                                                                 ## create
+                                                                                                 ## TObj_TObject
+                                                                                                 ## object
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Creates
+                                                                                                 ## TObj_TObject
+                                                                                                 ## attribute
+                                                                                                 ## on
+                                                                                                 ## given
+                                                                                                 ## label
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Methods
+                                                                                                 ## for
+                                                                                                 ## setting
+                                                                                                 ## and
+                                                                                                 ## obtaining
+                                                                                                 ## TObj_Object
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Sets
+                                                                                                 ## the
+                                                                                                 ## TObj_Object
+                                                                                                 ## object
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Redefined
+                                                                                                 ## OCAF
+                                                                                                 ## abstract
+                                                                                                 ## methods
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Returns
+                                                                                                 ## an
+                                                                                                 ## new
+                                                                                                 ## empty
+                                                                                                 ## TObj_TObject
+                                                                                                 ## attribute.
+                                                                                                 ## It
+                                                                                                 ## is
+                                                                                                 ## used
+                                                                                                 ## by
+                                                                                                 ## the
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## copy
+                                                                                                 ## algorithm.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Fields
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## CASCADE
+                                                                                                 ## RTTI
     ## !< The object interface stored by the attribute
 
 
-proc constructTObj_TObject*(): TObj_TObject {.constructor,
+proc constructTObjTObject*(): TObjTObject {.constructor,
     importcpp: "TObj_TObject(@)", header: "TObj_TObject.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "TObj_TObject::GetID(@)",
-                            header: "TObj_TObject.hxx".}
-proc ID*(this: TObj_TObject): Standard_GUID {.noSideEffect, importcpp: "ID",
-    header: "TObj_TObject.hxx".}
-proc Set*(theLabel: TDF_Label; theElem: handle[TObj_Object]): handle[TObj_TObject] {.
+proc getID*(): StandardGUID {.importcpp: "TObj_TObject::GetID(@)",
+                           header: "TObj_TObject.hxx".}
+proc id*(this: TObjTObject): StandardGUID {.noSideEffect, importcpp: "ID",
+                                        header: "TObj_TObject.hxx".}
+proc set*(theLabel: TDF_Label; theElem: Handle[TObjObject]): Handle[TObjTObject] {.
     importcpp: "TObj_TObject::Set(@)", header: "TObj_TObject.hxx".}
-proc Set*(this: var TObj_TObject; theElem: handle[TObj_Object]) {.importcpp: "Set",
+proc set*(this: var TObjTObject; theElem: Handle[TObjObject]) {.importcpp: "Set",
     header: "TObj_TObject.hxx".}
-proc Get*(this: TObj_TObject): handle[TObj_Object] {.noSideEffect, importcpp: "Get",
+proc get*(this: TObjTObject): Handle[TObjObject] {.noSideEffect, importcpp: "Get",
     header: "TObj_TObject.hxx".}
-proc NewEmpty*(this: TObj_TObject): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TObjTObject): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TObj_TObject.hxx".}
-proc Restore*(this: var TObj_TObject; theWith: handle[TDF_Attribute]) {.
+proc restore*(this: var TObjTObject; theWith: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TObj_TObject.hxx".}
-proc Paste*(this: TObj_TObject; theInto: handle[TDF_Attribute];
-           theRT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TObjTObject; theInto: Handle[TDF_Attribute];
+           theRT: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TObj_TObject.hxx".}
-proc BeforeForget*(this: var TObj_TObject) {.importcpp: "BeforeForget",
-    header: "TObj_TObject.hxx".}
-proc AfterUndo*(this: var TObj_TObject; anAttDelta: handle[TDF_AttributeDelta];
-               forceIt: Standard_Boolean): Standard_Boolean {.
-    importcpp: "AfterUndo", header: "TObj_TObject.hxx".}
+proc beforeForget*(this: var TObjTObject) {.importcpp: "BeforeForget",
+                                        header: "TObj_TObject.hxx".}
+proc afterUndo*(this: var TObjTObject; anAttDelta: Handle[TDF_AttributeDelta];
+               forceIt: bool): bool {.importcpp: "AfterUndo",
+                                   header: "TObj_TObject.hxx".}
 type
-  TObj_TObjectbase_type* = TDF_Attribute
+  TObjTObjectbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TObj_TObject::get_type_name(@)",
-                              header: "TObj_TObject.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TObj_TObject::get_type_name(@)",
+                            header: "TObj_TObject.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TObj_TObject::get_type_descriptor(@)", header: "TObj_TObject.hxx".}
-proc DynamicType*(this: TObj_TObject): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TObjTObject): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TObj_TObject.hxx".}
 ## ! Define handle class for TObj_TObject
 
 discard "forward decl of TObj_TObject"
 type
-  Handle_TObj_TObject* = handle[TObj_TObject]
+  HandleTObjTObject* = Handle[TObjTObject]
 
-when defined(_MSC_VER):
-  discard
+# when defined(_MSC_VER):
+#   discard

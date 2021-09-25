@@ -14,29 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColgp/TColgp_SequenceOfXY,
-  ../TColgp/TColgp_SequenceOfXYZ, ../AdvApp2Var/AdvApp2Var_Criterion,
-  ../Standard/Standard_Real, ../AdvApp2Var/AdvApp2Var_CriterionType,
-  ../AdvApp2Var/AdvApp2Var_CriterionRepartition, ../Standard/Standard_Boolean
-
 discard "forward decl of AdvApp2Var_Patch"
 discard "forward decl of AdvApp2Var_Context"
 type
-  GeomPlate_PlateG1Criterion* {.importcpp: "GeomPlate_PlateG1Criterion",
-                               header: "GeomPlate_PlateG1Criterion.hxx", bycopy.} = object of AdvApp2Var_Criterion
+  GeomPlatePlateG1Criterion* {.importcpp: "GeomPlate_PlateG1Criterion",
+                              header: "GeomPlate_PlateG1Criterion.hxx", bycopy.} = object of AdvApp2VarCriterion
 
 
-proc constructGeomPlate_PlateG1Criterion*(Data: TColgp_SequenceOfXY;
-    G1Data: TColgp_SequenceOfXYZ; Maximum: Standard_Real;
-    Type: AdvApp2Var_CriterionType = AdvApp2Var_Absolute;
-    Repart: AdvApp2Var_CriterionRepartition = AdvApp2Var_Regular): GeomPlate_PlateG1Criterion {.
+proc constructGeomPlatePlateG1Criterion*(data: TColgpSequenceOfXY;
+                                        g1Data: TColgpSequenceOfXYZ;
+                                        maximum: float; `type`: AdvApp2VarCriterionType = advApp2VarAbsolute;
+    repart: AdvApp2VarCriterionRepartition = advApp2VarRegular): GeomPlatePlateG1Criterion {.
     constructor, importcpp: "GeomPlate_PlateG1Criterion(@)",
     header: "GeomPlate_PlateG1Criterion.hxx".}
-proc Value*(this: GeomPlate_PlateG1Criterion; P: var AdvApp2Var_Patch;
-           C: AdvApp2Var_Context) {.noSideEffect, importcpp: "Value",
-                                  header: "GeomPlate_PlateG1Criterion.hxx".}
-proc IsSatisfied*(this: GeomPlate_PlateG1Criterion; P: AdvApp2Var_Patch): Standard_Boolean {.
+proc value*(this: GeomPlatePlateG1Criterion; p: var AdvApp2VarPatch;
+           c: AdvApp2VarContext) {.noSideEffect, importcpp: "Value",
+                                 header: "GeomPlate_PlateG1Criterion.hxx".}
+proc isSatisfied*(this: GeomPlatePlateG1Criterion; p: AdvApp2VarPatch): bool {.
     noSideEffect, importcpp: "IsSatisfied",
     header: "GeomPlate_PlateG1Criterion.hxx".}

@@ -13,37 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepDimTol_GeometricToleranceWithDatumReference
-
 discard "forward decl of StepDimTol_SymmetryTolerance"
 discard "forward decl of StepDimTol_SymmetryTolerance"
 type
-  Handle_StepDimTol_SymmetryTolerance* = handle[StepDimTol_SymmetryTolerance]
+  HandleStepDimTolSymmetryTolerance* = Handle[StepDimTolSymmetryTolerance]
 
 ## ! Representation of STEP entity SymmetryTolerance
 
 type
-  StepDimTol_SymmetryTolerance* {.importcpp: "StepDimTol_SymmetryTolerance",
-                                 header: "StepDimTol_SymmetryTolerance.hxx",
-                                 bycopy.} = object of StepDimTol_GeometricToleranceWithDatumReference ##
-                                                                                                 ## !
-                                                                                                 ## Empty
-                                                                                                 ## constructor
+  StepDimTolSymmetryTolerance* {.importcpp: "StepDimTol_SymmetryTolerance",
+                                header: "StepDimTol_SymmetryTolerance.hxx", bycopy.} = object of StepDimTolGeometricToleranceWithDatumReference ##
+                                                                                                                                         ## !
+                                                                                                                                         ## Empty
+                                                                                                                                         ## constructor
 
 
-proc constructStepDimTol_SymmetryTolerance*(): StepDimTol_SymmetryTolerance {.
+proc constructStepDimTolSymmetryTolerance*(): StepDimTolSymmetryTolerance {.
     constructor, importcpp: "StepDimTol_SymmetryTolerance(@)",
     header: "StepDimTol_SymmetryTolerance.hxx".}
 type
-  StepDimTol_SymmetryTolerancebase_type* = StepDimTol_GeometricToleranceWithDatumReference
+  StepDimTolSymmetryTolerancebaseType* = StepDimTolGeometricToleranceWithDatumReference
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_SymmetryTolerance::get_type_name(@)",
-                              header: "StepDimTol_SymmetryTolerance.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_SymmetryTolerance::get_type_name(@)",
+                            header: "StepDimTol_SymmetryTolerance.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_SymmetryTolerance::get_type_descriptor(@)",
     header: "StepDimTol_SymmetryTolerance.hxx".}
-proc DynamicType*(this: StepDimTol_SymmetryTolerance): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolSymmetryTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_SymmetryTolerance.hxx".}

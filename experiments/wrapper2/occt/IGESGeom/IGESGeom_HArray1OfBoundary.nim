@@ -14,38 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IGESGeom_Boundary, IGESGeom_Array1OfBoundary,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  IGESGeom_HArray1OfBoundary* {.importcpp: "IGESGeom_HArray1OfBoundary",
-                               header: "IGESGeom_HArray1OfBoundary.hxx", bycopy.} = object of IGESGeom_Array1OfBoundary
+  IGESGeomHArray1OfBoundary* {.importcpp: "IGESGeom_HArray1OfBoundary",
+                              header: "IGESGeom_HArray1OfBoundary.hxx", bycopy.} = object of IGESGeomArray1OfBoundary
 
 
-proc constructIGESGeom_HArray1OfBoundary*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): IGESGeom_HArray1OfBoundary {.constructor,
-    importcpp: "IGESGeom_HArray1OfBoundary(@)",
-    header: "IGESGeom_HArray1OfBoundary.hxx".}
-proc constructIGESGeom_HArray1OfBoundary*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): IGESGeom_HArray1OfBoundary {.
+proc constructIGESGeomHArray1OfBoundary*(theLower: int; theUpper: int): IGESGeomHArray1OfBoundary {.
     constructor, importcpp: "IGESGeom_HArray1OfBoundary(@)",
     header: "IGESGeom_HArray1OfBoundary.hxx".}
-proc constructIGESGeom_HArray1OfBoundary*(theOther: IGESGeom_Array1OfBoundary): IGESGeom_HArray1OfBoundary {.
+proc constructIGESGeomHArray1OfBoundary*(theLower: int; theUpper: int;
+                                        theValue: ValueType): IGESGeomHArray1OfBoundary {.
     constructor, importcpp: "IGESGeom_HArray1OfBoundary(@)",
     header: "IGESGeom_HArray1OfBoundary.hxx".}
-proc Array1*(this: IGESGeom_HArray1OfBoundary): IGESGeom_Array1OfBoundary {.
+proc constructIGESGeomHArray1OfBoundary*(theOther: IGESGeomArray1OfBoundary): IGESGeomHArray1OfBoundary {.
+    constructor, importcpp: "IGESGeom_HArray1OfBoundary(@)",
+    header: "IGESGeom_HArray1OfBoundary.hxx".}
+proc array1*(this: IGESGeomHArray1OfBoundary): IGESGeomArray1OfBoundary {.
     noSideEffect, importcpp: "Array1", header: "IGESGeom_HArray1OfBoundary.hxx".}
-proc ChangeArray1*(this: var IGESGeom_HArray1OfBoundary): var IGESGeom_Array1OfBoundary {.
+proc changeArray1*(this: var IGESGeomHArray1OfBoundary): var IGESGeomArray1OfBoundary {.
     importcpp: "ChangeArray1", header: "IGESGeom_HArray1OfBoundary.hxx".}
 type
-  IGESGeom_HArray1OfBoundarybase_type* = MMgt_TShared
+  IGESGeomHArray1OfBoundarybaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "IGESGeom_HArray1OfBoundary::get_type_name(@)",
-                              header: "IGESGeom_HArray1OfBoundary.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESGeom_HArray1OfBoundary::get_type_name(@)",
+                            header: "IGESGeom_HArray1OfBoundary.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESGeom_HArray1OfBoundary::get_type_descriptor(@)",
     header: "IGESGeom_HArray1OfBoundary.hxx".}
-proc DynamicType*(this: IGESGeom_HArray1OfBoundary): handle[Standard_Type] {.
+proc dynamicType*(this: IGESGeomHArray1OfBoundary): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESGeom_HArray1OfBoundary.hxx".}

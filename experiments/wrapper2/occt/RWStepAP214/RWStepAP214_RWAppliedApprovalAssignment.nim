@@ -14,34 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepAP214_AppliedApprovalAssignment"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepAP214_RWAppliedApprovalAssignment* {.
+  RWStepAP214RWAppliedApprovalAssignment* {.
       importcpp: "RWStepAP214_RWAppliedApprovalAssignment",
       header: "RWStepAP214_RWAppliedApprovalAssignment.hxx", bycopy.} = object
 
 
-proc constructRWStepAP214_RWAppliedApprovalAssignment*(): RWStepAP214_RWAppliedApprovalAssignment {.
+proc constructRWStepAP214RWAppliedApprovalAssignment*(): RWStepAP214RWAppliedApprovalAssignment {.
     constructor, importcpp: "RWStepAP214_RWAppliedApprovalAssignment(@)",
     header: "RWStepAP214_RWAppliedApprovalAssignment.hxx".}
-proc ReadStep*(this: RWStepAP214_RWAppliedApprovalAssignment;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepAP214_AppliedApprovalAssignment]) {.noSideEffect,
+proc readStep*(this: RWStepAP214RWAppliedApprovalAssignment;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepAP214AppliedApprovalAssignment]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepAP214_RWAppliedApprovalAssignment.hxx".}
-proc WriteStep*(this: RWStepAP214_RWAppliedApprovalAssignment;
-               SW: var StepData_StepWriter;
-               ent: handle[StepAP214_AppliedApprovalAssignment]) {.noSideEffect,
+proc writeStep*(this: RWStepAP214RWAppliedApprovalAssignment;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepAP214AppliedApprovalAssignment]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepAP214_RWAppliedApprovalAssignment.hxx".}
-proc Share*(this: RWStepAP214_RWAppliedApprovalAssignment;
-           ent: handle[StepAP214_AppliedApprovalAssignment];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepAP214RWAppliedApprovalAssignment;
+           ent: Handle[StepAP214AppliedApprovalAssignment];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWAppliedApprovalAssignment.hxx".}

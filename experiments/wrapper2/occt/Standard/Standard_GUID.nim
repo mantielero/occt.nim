@@ -14,59 +14,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Standard_DefineAlloc, Standard_Handle, Standard_Integer, Standard_ExtCharacter,
-  Standard_Byte, Standard_CString, Standard_ExtString, Standard_UUID,
-  Standard_PCharacter, Standard_PExtCharacter, Standard_Boolean, Standard_OStream
-
 const
-  Standard_GUID_SIZE* = 36
-  Standard_GUID_SIZE_ALLOC* = Standard_GUID_SIZE + 1
+  StandardGUID_SIZE* = 36
+  StandardGUID_SIZE_ALLOC* = standardGUID_SIZE + 1
 
 type
-  Standard_GUID* {.importcpp: "Standard_GUID", header: "Standard_GUID.hxx", bycopy.} = object
+  StandardGUID* {.importcpp: "Standard_GUID", header: "Standard_GUID.hxx", bycopy.} = object
 
 
-proc constructStandard_GUID*(): Standard_GUID {.constructor,
+proc constructStandardGUID*(): StandardGUID {.constructor,
     importcpp: "Standard_GUID(@)", header: "Standard_GUID.hxx".}
-proc constructStandard_GUID*(aGuid: Standard_CString): Standard_GUID {.constructor,
+proc constructStandardGUID*(aGuid: StandardCString): StandardGUID {.constructor,
     importcpp: "Standard_GUID(@)", header: "Standard_GUID.hxx".}
-proc constructStandard_GUID*(aGuid: Standard_ExtString): Standard_GUID {.
-    constructor, importcpp: "Standard_GUID(@)", header: "Standard_GUID.hxx".}
-proc constructStandard_GUID*(a32b: Standard_Integer; a16b1: Standard_ExtCharacter;
-                            a16b2: Standard_ExtCharacter;
-                            a16b3: Standard_ExtCharacter; a8b1: Standard_Byte;
-                            a8b2: Standard_Byte; a8b3: Standard_Byte;
-                            a8b4: Standard_Byte; a8b5: Standard_Byte;
-                            a8b6: Standard_Byte): Standard_GUID {.constructor,
+proc constructStandardGUID*(aGuid: StandardExtString): StandardGUID {.constructor,
     importcpp: "Standard_GUID(@)", header: "Standard_GUID.hxx".}
-proc constructStandard_GUID*(aGuid: Standard_UUID): Standard_GUID {.constructor,
+proc constructStandardGUID*(a32b: int; a16b1: StandardExtCharacter;
+                           a16b2: StandardExtCharacter;
+                           a16b3: StandardExtCharacter; a8b1: StandardByte;
+                           a8b2: StandardByte; a8b3: StandardByte;
+                           a8b4: StandardByte; a8b5: StandardByte;
+                           a8b6: StandardByte): StandardGUID {.constructor,
     importcpp: "Standard_GUID(@)", header: "Standard_GUID.hxx".}
-proc constructStandard_GUID*(aGuid: Standard_GUID): Standard_GUID {.constructor,
+proc constructStandardGUID*(aGuid: StandardUUID): StandardGUID {.constructor,
     importcpp: "Standard_GUID(@)", header: "Standard_GUID.hxx".}
-proc ToUUID*(this: Standard_GUID): Standard_UUID {.noSideEffect, importcpp: "ToUUID",
+proc constructStandardGUID*(aGuid: StandardGUID): StandardGUID {.constructor,
+    importcpp: "Standard_GUID(@)", header: "Standard_GUID.hxx".}
+proc toUUID*(this: StandardGUID): StandardUUID {.noSideEffect, importcpp: "ToUUID",
     header: "Standard_GUID.hxx".}
-proc ToCString*(this: Standard_GUID; aStrGuid: Standard_PCharacter) {.noSideEffect,
+proc toCString*(this: StandardGUID; aStrGuid: StandardPCharacter) {.noSideEffect,
     importcpp: "ToCString", header: "Standard_GUID.hxx".}
-proc ToExtString*(this: Standard_GUID; aStrGuid: Standard_PExtCharacter) {.
+proc toExtString*(this: StandardGUID; aStrGuid: StandardPExtCharacter) {.
     noSideEffect, importcpp: "ToExtString", header: "Standard_GUID.hxx".}
-proc IsSame*(this: Standard_GUID; uid: Standard_GUID): Standard_Boolean {.
-    noSideEffect, importcpp: "IsSame", header: "Standard_GUID.hxx".}
-proc `==`*(this: Standard_GUID; uid: Standard_GUID): Standard_Boolean {.noSideEffect,
+proc isSame*(this: StandardGUID; uid: StandardGUID): bool {.noSideEffect,
+    importcpp: "IsSame", header: "Standard_GUID.hxx".}
+proc `==`*(this: StandardGUID; uid: StandardGUID): bool {.noSideEffect,
     importcpp: "(# == #)", header: "Standard_GUID.hxx".}
-proc IsNotSame*(this: Standard_GUID; uid: Standard_GUID): Standard_Boolean {.
-    noSideEffect, importcpp: "IsNotSame", header: "Standard_GUID.hxx".}
-proc Assign*(this: var Standard_GUID; uid: Standard_GUID) {.importcpp: "Assign",
+proc isNotSame*(this: StandardGUID; uid: StandardGUID): bool {.noSideEffect,
+    importcpp: "IsNotSame", header: "Standard_GUID.hxx".}
+proc assign*(this: var StandardGUID; uid: StandardGUID) {.importcpp: "Assign",
     header: "Standard_GUID.hxx".}
-proc Assign*(this: var Standard_GUID; uid: Standard_UUID) {.importcpp: "Assign",
+proc assign*(this: var StandardGUID; uid: StandardUUID) {.importcpp: "Assign",
     header: "Standard_GUID.hxx".}
-proc ShallowDump*(this: Standard_GUID; aStream: var Standard_OStream) {.noSideEffect,
+proc shallowDump*(this: StandardGUID; aStream: var StandardOStream) {.noSideEffect,
     importcpp: "ShallowDump", header: "Standard_GUID.hxx".}
-proc CheckGUIDFormat*(aGuid: Standard_CString): Standard_Boolean {.
+proc checkGUIDFormat*(aGuid: StandardCString): bool {.
     importcpp: "Standard_GUID::CheckGUIDFormat(@)", header: "Standard_GUID.hxx".}
-proc Hash*(this: Standard_GUID; Upper: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "Hash", header: "Standard_GUID.hxx".}
-proc HashCode*(theGUID: Standard_GUID; theUpperBound: Standard_Integer): Standard_Integer {.
+proc hash*(this: StandardGUID; upper: int): int {.noSideEffect, importcpp: "Hash",
+    header: "Standard_GUID.hxx".}
+proc hashCode*(theGUID: StandardGUID; theUpperBound: int): int {.
     importcpp: "Standard_GUID::HashCode(@)", header: "Standard_GUID.hxx".}
-proc IsEqual*(string1: Standard_GUID; string2: Standard_GUID): Standard_Boolean {.
+proc isEqual*(string1: StandardGUID; string2: StandardGUID): bool {.
     importcpp: "Standard_GUID::IsEqual(@)", header: "Standard_GUID.hxx".}

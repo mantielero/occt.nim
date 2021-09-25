@@ -14,47 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP203_HArray1OfStartRequestItem,
-  ../StepBasic/StepBasic_ActionRequestAssignment
-
 discard "forward decl of StepBasic_VersionedActionRequest"
 discard "forward decl of StepAP203_StartRequest"
 discard "forward decl of StepAP203_StartRequest"
 type
-  Handle_StepAP203_StartRequest* = handle[StepAP203_StartRequest]
+  HandleStepAP203StartRequest* = Handle[StepAP203StartRequest]
 
 ## ! Representation of STEP entity StartRequest
 
 type
-  StepAP203_StartRequest* {.importcpp: "StepAP203_StartRequest",
-                           header: "StepAP203_StartRequest.hxx", bycopy.} = object of StepBasic_ActionRequestAssignment ##
-                                                                                                                 ## !
-                                                                                                                 ## Empty
-                                                                                                                 ## constructor
+  StepAP203StartRequest* {.importcpp: "StepAP203_StartRequest",
+                          header: "StepAP203_StartRequest.hxx", bycopy.} = object of StepBasicActionRequestAssignment ##
+                                                                                                               ## !
+                                                                                                               ## Empty
+                                                                                                               ## constructor
 
 
-proc constructStepAP203_StartRequest*(): StepAP203_StartRequest {.constructor,
+proc constructStepAP203StartRequest*(): StepAP203StartRequest {.constructor,
     importcpp: "StepAP203_StartRequest(@)", header: "StepAP203_StartRequest.hxx".}
-proc Init*(this: var StepAP203_StartRequest;
-    aActionRequestAssignment_AssignedActionRequest: handle[
-    StepBasic_VersionedActionRequest];
-          aItems: handle[StepAP203_HArray1OfStartRequestItem]) {.
-    importcpp: "Init", header: "StepAP203_StartRequest.hxx".}
-proc Items*(this: StepAP203_StartRequest): handle[
-    StepAP203_HArray1OfStartRequestItem] {.noSideEffect, importcpp: "Items",
+proc init*(this: var StepAP203StartRequest; aActionRequestAssignmentAssignedActionRequest: Handle[
+    StepBasicVersionedActionRequest];
+          aItems: Handle[StepAP203HArray1OfStartRequestItem]) {.importcpp: "Init",
     header: "StepAP203_StartRequest.hxx".}
-proc SetItems*(this: var StepAP203_StartRequest;
-              Items: handle[StepAP203_HArray1OfStartRequestItem]) {.
+proc items*(this: StepAP203StartRequest): Handle[StepAP203HArray1OfStartRequestItem] {.
+    noSideEffect, importcpp: "Items", header: "StepAP203_StartRequest.hxx".}
+proc setItems*(this: var StepAP203StartRequest;
+              items: Handle[StepAP203HArray1OfStartRequestItem]) {.
     importcpp: "SetItems", header: "StepAP203_StartRequest.hxx".}
 type
-  StepAP203_StartRequestbase_type* = StepBasic_ActionRequestAssignment
+  StepAP203StartRequestbaseType* = StepBasicActionRequestAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP203_StartRequest::get_type_name(@)",
-                              header: "StepAP203_StartRequest.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP203_StartRequest::get_type_name(@)",
+                            header: "StepAP203_StartRequest.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP203_StartRequest::get_type_descriptor(@)",
     header: "StepAP203_StartRequest.hxx".}
-proc DynamicType*(this: StepAP203_StartRequest): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepAP203_StartRequest.hxx".}
+proc dynamicType*(this: StepAP203StartRequest): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepAP203_StartRequest.hxx".}

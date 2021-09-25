@@ -12,9 +12,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Map, BOPDS_PairMapHasher, BOPDS_Pair
-
 type
-  BOPDS_MapOfPair* = NCollection_Map[BOPDS_Pair, BOPDS_PairMapHasher]
+  BOPDS_MapOfPair* = NCollectionMap[BOPDS_Pair, BOPDS_PairMapHasher]
   BOPDS_MapIteratorOfMapOfPair* = Iterator
+

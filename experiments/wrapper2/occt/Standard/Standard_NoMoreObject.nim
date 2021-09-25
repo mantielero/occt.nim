@@ -14,16 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_NoMoreObject_HeaderFile [NewLine] # _Standard_NoMoreObject_HeaderFile [NewLine] # Standard_Type.hxx [NewLine] # Standard_DefineException.hxx [NewLine] # Standard_SStream.hxx [NewLine] # Standard_DomainError.hxx [NewLine] class Standard_NoMoreObject ;
+## !!!Ignored construct:  # _Standard_NoMoreObject_HeaderFile [NewLine] # _Standard_NoMoreObject_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class Standard_NoMoreObject ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Standard_NoMoreObject"
 type
-  Handle_Standard_NoMoreObjectStandard_NoMoreObject* = handle[
-      Standard_NoMoreObject]
+  HandleStandardNoMoreObjectStandardNoMoreObject* = Handle[StandardNoMoreObject]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_NoMoreObject [NewLine] # if ( CONDITION ) throw Standard_NoMoreObject ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_NoMoreObject , Standard_DomainError ) #  _Standard_NoMoreObject_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_NoMoreObject , Standard_DomainError ) #  _Standard_NoMoreObject_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

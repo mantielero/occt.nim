@@ -14,31 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_CoordinatedUniversalTimeOffset"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepBasic_RWCoordinatedUniversalTimeOffset* {.
+  RWStepBasicRWCoordinatedUniversalTimeOffset* {.
       importcpp: "RWStepBasic_RWCoordinatedUniversalTimeOffset",
       header: "RWStepBasic_RWCoordinatedUniversalTimeOffset.hxx", bycopy.} = object
 
 
-proc constructRWStepBasic_RWCoordinatedUniversalTimeOffset*(): RWStepBasic_RWCoordinatedUniversalTimeOffset {.
+proc constructRWStepBasicRWCoordinatedUniversalTimeOffset*(): RWStepBasicRWCoordinatedUniversalTimeOffset {.
     constructor, importcpp: "RWStepBasic_RWCoordinatedUniversalTimeOffset(@)",
     header: "RWStepBasic_RWCoordinatedUniversalTimeOffset.hxx".}
-proc ReadStep*(this: RWStepBasic_RWCoordinatedUniversalTimeOffset;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepBasic_CoordinatedUniversalTimeOffset]) {.
+proc readStep*(this: RWStepBasicRWCoordinatedUniversalTimeOffset;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepBasicCoordinatedUniversalTimeOffset]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepBasic_RWCoordinatedUniversalTimeOffset.hxx".}
-proc WriteStep*(this: RWStepBasic_RWCoordinatedUniversalTimeOffset;
-               SW: var StepData_StepWriter;
-               ent: handle[StepBasic_CoordinatedUniversalTimeOffset]) {.
+proc writeStep*(this: RWStepBasicRWCoordinatedUniversalTimeOffset;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepBasicCoordinatedUniversalTimeOffset]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepBasic_RWCoordinatedUniversalTimeOffset.hxx".}

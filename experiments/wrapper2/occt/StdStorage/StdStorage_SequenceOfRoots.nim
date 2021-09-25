@@ -11,8 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StdStorage_Root, ../NCollection/NCollection_Sequence
-
 type
-  StdStorage_SequenceOfRoots* = NCollection_Sequence[handle[StdStorage_Root]]
+  StdStorageSequenceOfRoots* = NCollectionSequence[Handle[StdStorageRoot]]
+

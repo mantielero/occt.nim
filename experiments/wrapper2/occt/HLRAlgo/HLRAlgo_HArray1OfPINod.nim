@@ -14,38 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  HLRAlgo_PolyInternalNode, HLRAlgo_Array1OfPINod,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  HLRAlgo_HArray1OfPINod* {.importcpp: "HLRAlgo_HArray1OfPINod",
-                           header: "HLRAlgo_HArray1OfPINod.hxx", bycopy.} = object of HLRAlgo_Array1OfPINod
+  HLRAlgoHArray1OfPINod* {.importcpp: "HLRAlgo_HArray1OfPINod",
+                          header: "HLRAlgo_HArray1OfPINod.hxx", bycopy.} = object of HLRAlgoArray1OfPINod
 
 
-proc constructHLRAlgo_HArray1OfPINod*(theLower: Standard_Integer;
-                                     theUpper: Standard_Integer): HLRAlgo_HArray1OfPINod {.
+proc constructHLRAlgoHArray1OfPINod*(theLower: int; theUpper: int): HLRAlgoHArray1OfPINod {.
     constructor, importcpp: "HLRAlgo_HArray1OfPINod(@)",
     header: "HLRAlgo_HArray1OfPINod.hxx".}
-proc constructHLRAlgo_HArray1OfPINod*(theLower: Standard_Integer;
-                                     theUpper: Standard_Integer;
-                                     theValue: value_type): HLRAlgo_HArray1OfPINod {.
+proc constructHLRAlgoHArray1OfPINod*(theLower: int; theUpper: int;
+                                    theValue: ValueType): HLRAlgoHArray1OfPINod {.
     constructor, importcpp: "HLRAlgo_HArray1OfPINod(@)",
     header: "HLRAlgo_HArray1OfPINod.hxx".}
-proc constructHLRAlgo_HArray1OfPINod*(theOther: HLRAlgo_Array1OfPINod): HLRAlgo_HArray1OfPINod {.
+proc constructHLRAlgoHArray1OfPINod*(theOther: HLRAlgoArray1OfPINod): HLRAlgoHArray1OfPINod {.
     constructor, importcpp: "HLRAlgo_HArray1OfPINod(@)",
     header: "HLRAlgo_HArray1OfPINod.hxx".}
-proc Array1*(this: HLRAlgo_HArray1OfPINod): HLRAlgo_Array1OfPINod {.noSideEffect,
+proc array1*(this: HLRAlgoHArray1OfPINod): HLRAlgoArray1OfPINod {.noSideEffect,
     importcpp: "Array1", header: "HLRAlgo_HArray1OfPINod.hxx".}
-proc ChangeArray1*(this: var HLRAlgo_HArray1OfPINod): var HLRAlgo_Array1OfPINod {.
+proc changeArray1*(this: var HLRAlgoHArray1OfPINod): var HLRAlgoArray1OfPINod {.
     importcpp: "ChangeArray1", header: "HLRAlgo_HArray1OfPINod.hxx".}
 type
-  HLRAlgo_HArray1OfPINodbase_type* = MMgt_TShared
+  HLRAlgoHArray1OfPINodbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "HLRAlgo_HArray1OfPINod::get_type_name(@)",
-                              header: "HLRAlgo_HArray1OfPINod.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "HLRAlgo_HArray1OfPINod::get_type_name(@)",
+                            header: "HLRAlgo_HArray1OfPINod.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "HLRAlgo_HArray1OfPINod::get_type_descriptor(@)",
     header: "HLRAlgo_HArray1OfPINod.hxx".}
-proc DynamicType*(this: HLRAlgo_HArray1OfPINod): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "HLRAlgo_HArray1OfPINod.hxx".}
+proc dynamicType*(this: HLRAlgoHArray1OfPINod): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "HLRAlgo_HArray1OfPINod.hxx".}

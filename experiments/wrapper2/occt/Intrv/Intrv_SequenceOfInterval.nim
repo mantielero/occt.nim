@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Intrv_Interval, ../NCollection/NCollection_Sequence
-
 type
-  Intrv_SequenceOfInterval* = NCollection_Sequence[Intrv_Interval]
+  IntrvSequenceOfInterval* = NCollectionSequence[IntrvInterval]
+

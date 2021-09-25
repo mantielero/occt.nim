@@ -14,50 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Pnt2d, ../TopoDS/TopoDS_Shape,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real
-
 ## ! Contains the colors of a shape.
 
 type
-  HLRBRep_BiPnt2D* {.importcpp: "HLRBRep_BiPnt2D", header: "HLRBRep_BiPnt2D.hxx",
-                    bycopy.} = object
+  HLRBRepBiPnt2D* {.importcpp: "HLRBRep_BiPnt2D", header: "HLRBRep_BiPnt2D.hxx",
+                   bycopy.} = object
 
 
-proc constructHLRBRep_BiPnt2D*(): HLRBRep_BiPnt2D {.constructor,
+proc constructHLRBRepBiPnt2D*(): HLRBRepBiPnt2D {.constructor,
     importcpp: "HLRBRep_BiPnt2D(@)", header: "HLRBRep_BiPnt2D.hxx".}
-proc constructHLRBRep_BiPnt2D*(x1: Standard_Real; y1: Standard_Real;
-                              x2: Standard_Real; y2: Standard_Real; S: TopoDS_Shape;
-                              reg1: Standard_Boolean; regn: Standard_Boolean;
-                              outl: Standard_Boolean; intl: Standard_Boolean): HLRBRep_BiPnt2D {.
+proc constructHLRBRepBiPnt2D*(x1: float; y1: float; x2: float; y2: float;
+                             s: TopoDS_Shape; reg1: bool; regn: bool; outl: bool;
+                             intl: bool): HLRBRepBiPnt2D {.constructor,
+    importcpp: "HLRBRep_BiPnt2D(@)", header: "HLRBRep_BiPnt2D.hxx".}
+proc constructHLRBRepBiPnt2D*(thePoint1: Xy; thePoint2: Xy; s: TopoDS_Shape;
+                             reg1: bool; regn: bool; outl: bool; intl: bool): HLRBRepBiPnt2D {.
     constructor, importcpp: "HLRBRep_BiPnt2D(@)", header: "HLRBRep_BiPnt2D.hxx".}
-proc constructHLRBRep_BiPnt2D*(thePoint1: gp_XY; thePoint2: gp_XY; S: TopoDS_Shape;
-                              reg1: Standard_Boolean; regn: Standard_Boolean;
-                              outl: Standard_Boolean; intl: Standard_Boolean): HLRBRep_BiPnt2D {.
-    constructor, importcpp: "HLRBRep_BiPnt2D(@)", header: "HLRBRep_BiPnt2D.hxx".}
-proc P1*(this: HLRBRep_BiPnt2D): gp_Pnt2d {.noSideEffect, importcpp: "P1",
+proc p1*(this: HLRBRepBiPnt2D): Pnt2d {.noSideEffect, importcpp: "P1",
+                                    header: "HLRBRep_BiPnt2D.hxx".}
+proc p2*(this: HLRBRepBiPnt2D): Pnt2d {.noSideEffect, importcpp: "P2",
+                                    header: "HLRBRep_BiPnt2D.hxx".}
+proc shape*(this: HLRBRepBiPnt2D): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
+    header: "HLRBRep_BiPnt2D.hxx".}
+proc shape*(this: var HLRBRepBiPnt2D; s: TopoDS_Shape) {.importcpp: "Shape",
+    header: "HLRBRep_BiPnt2D.hxx".}
+proc rg1Line*(this: HLRBRepBiPnt2D): bool {.noSideEffect, importcpp: "Rg1Line",
                                         header: "HLRBRep_BiPnt2D.hxx".}
-proc P2*(this: HLRBRep_BiPnt2D): gp_Pnt2d {.noSideEffect, importcpp: "P2",
+proc rg1Line*(this: var HLRBRepBiPnt2D; b: bool) {.importcpp: "Rg1Line",
+    header: "HLRBRep_BiPnt2D.hxx".}
+proc rgNLine*(this: HLRBRepBiPnt2D): bool {.noSideEffect, importcpp: "RgNLine",
                                         header: "HLRBRep_BiPnt2D.hxx".}
-proc Shape*(this: HLRBRep_BiPnt2D): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
+proc rgNLine*(this: var HLRBRepBiPnt2D; b: bool) {.importcpp: "RgNLine",
     header: "HLRBRep_BiPnt2D.hxx".}
-proc Shape*(this: var HLRBRep_BiPnt2D; S: TopoDS_Shape) {.importcpp: "Shape",
+proc outLine*(this: HLRBRepBiPnt2D): bool {.noSideEffect, importcpp: "OutLine",
+                                        header: "HLRBRep_BiPnt2D.hxx".}
+proc outLine*(this: var HLRBRepBiPnt2D; b: bool) {.importcpp: "OutLine",
     header: "HLRBRep_BiPnt2D.hxx".}
-proc Rg1Line*(this: HLRBRep_BiPnt2D): Standard_Boolean {.noSideEffect,
-    importcpp: "Rg1Line", header: "HLRBRep_BiPnt2D.hxx".}
-proc Rg1Line*(this: var HLRBRep_BiPnt2D; B: Standard_Boolean) {.importcpp: "Rg1Line",
-    header: "HLRBRep_BiPnt2D.hxx".}
-proc RgNLine*(this: HLRBRep_BiPnt2D): Standard_Boolean {.noSideEffect,
-    importcpp: "RgNLine", header: "HLRBRep_BiPnt2D.hxx".}
-proc RgNLine*(this: var HLRBRep_BiPnt2D; B: Standard_Boolean) {.importcpp: "RgNLine",
-    header: "HLRBRep_BiPnt2D.hxx".}
-proc OutLine*(this: HLRBRep_BiPnt2D): Standard_Boolean {.noSideEffect,
-    importcpp: "OutLine", header: "HLRBRep_BiPnt2D.hxx".}
-proc OutLine*(this: var HLRBRep_BiPnt2D; B: Standard_Boolean) {.importcpp: "OutLine",
-    header: "HLRBRep_BiPnt2D.hxx".}
-proc IntLine*(this: HLRBRep_BiPnt2D): Standard_Boolean {.noSideEffect,
-    importcpp: "IntLine", header: "HLRBRep_BiPnt2D.hxx".}
-proc IntLine*(this: var HLRBRep_BiPnt2D; B: Standard_Boolean) {.importcpp: "IntLine",
+proc intLine*(this: HLRBRepBiPnt2D): bool {.noSideEffect, importcpp: "IntLine",
+                                        header: "HLRBRep_BiPnt2D.hxx".}
+proc intLine*(this: var HLRBRepBiPnt2D; b: bool) {.importcpp: "IntLine",
     header: "HLRBRep_BiPnt2D.hxx".}

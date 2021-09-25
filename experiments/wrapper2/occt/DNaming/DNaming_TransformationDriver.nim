@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TFunction/TFunction_Driver,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of TFunction_Logbook"
 discard "forward decl of TDF_Label"
 discard "forward decl of TNaming_NamedShape"
@@ -24,35 +20,39 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of DNaming_TransformationDriver"
 discard "forward decl of DNaming_TransformationDriver"
 type
-  Handle_DNaming_TransformationDriver* = handle[DNaming_TransformationDriver]
-  DNaming_TransformationDriver* {.importcpp: "DNaming_TransformationDriver",
-                                 header: "DNaming_TransformationDriver.hxx",
-                                 bycopy.} = object of TFunction_Driver ## ! Constructor
-                                                                  ## ! validation
-                                                                  ## ! ==========
+  HandleDNamingTransformationDriver* = Handle[DNamingTransformationDriver]
+  DNamingTransformationDriver* {.importcpp: "DNaming_TransformationDriver",
+                                header: "DNaming_TransformationDriver.hxx", bycopy.} = object of TFunctionDriver ##
+                                                                                                          ## !
+                                                                                                          ## Constructor
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## validation
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## ==========
 
 
-proc constructDNaming_TransformationDriver*(): DNaming_TransformationDriver {.
+proc constructDNamingTransformationDriver*(): DNamingTransformationDriver {.
     constructor, importcpp: "DNaming_TransformationDriver(@)",
     header: "DNaming_TransformationDriver.hxx".}
-proc Validate*(this: DNaming_TransformationDriver;
-              theLog: var handle[TFunction_Logbook]) {.noSideEffect,
+proc validate*(this: DNamingTransformationDriver;
+              theLog: var Handle[TFunctionLogbook]) {.noSideEffect,
     importcpp: "Validate", header: "DNaming_TransformationDriver.hxx".}
-proc MustExecute*(this: DNaming_TransformationDriver;
-                 theLog: handle[TFunction_Logbook]): Standard_Boolean {.
-    noSideEffect, importcpp: "MustExecute",
-    header: "DNaming_TransformationDriver.hxx".}
-proc Execute*(this: DNaming_TransformationDriver;
-             theLog: var handle[TFunction_Logbook]): Standard_Integer {.
-    noSideEffect, importcpp: "Execute", header: "DNaming_TransformationDriver.hxx".}
+proc mustExecute*(this: DNamingTransformationDriver;
+                 theLog: Handle[TFunctionLogbook]): bool {.noSideEffect,
+    importcpp: "MustExecute", header: "DNaming_TransformationDriver.hxx".}
+proc execute*(this: DNamingTransformationDriver;
+             theLog: var Handle[TFunctionLogbook]): int {.noSideEffect,
+    importcpp: "Execute", header: "DNaming_TransformationDriver.hxx".}
 type
-  DNaming_TransformationDriverbase_type* = TFunction_Driver
+  DNamingTransformationDriverbaseType* = TFunctionDriver
 
-proc get_type_name*(): cstring {.importcpp: "DNaming_TransformationDriver::get_type_name(@)",
-                              header: "DNaming_TransformationDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "DNaming_TransformationDriver::get_type_name(@)",
+                            header: "DNaming_TransformationDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "DNaming_TransformationDriver::get_type_descriptor(@)",
     header: "DNaming_TransformationDriver.hxx".}
-proc DynamicType*(this: DNaming_TransformationDriver): handle[Standard_Type] {.
+proc dynamicType*(this: DNamingTransformationDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "DNaming_TransformationDriver.hxx".}

@@ -14,37 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepData_SelectMember"
 discard "forward decl of StepGeom_CartesianPoint"
 type
-  StepGeom_TrimmingSelect* {.importcpp: "StepGeom_TrimmingSelect",
-                            header: "StepGeom_TrimmingSelect.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                     ## !
-                                                                                                     ## Returns
-                                                                                                     ## a
-                                                                                                     ## TrimmingSelect
-                                                                                                     ## SelectType
+  StepGeomTrimmingSelect* {.importcpp: "StepGeom_TrimmingSelect",
+                           header: "StepGeom_TrimmingSelect.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                   ## !
+                                                                                                   ## Returns
+                                                                                                   ## a
+                                                                                                   ## TrimmingSelect
+                                                                                                   ## SelectType
 
 
-proc constructStepGeom_TrimmingSelect*(): StepGeom_TrimmingSelect {.constructor,
+proc constructStepGeomTrimmingSelect*(): StepGeomTrimmingSelect {.constructor,
     importcpp: "StepGeom_TrimmingSelect(@)", header: "StepGeom_TrimmingSelect.hxx".}
-proc CaseNum*(this: StepGeom_TrimmingSelect; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepGeomTrimmingSelect; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepGeom_TrimmingSelect.hxx".}
-proc NewMember*(this: StepGeom_TrimmingSelect): handle[StepData_SelectMember] {.
+proc newMember*(this: StepGeomTrimmingSelect): Handle[StepDataSelectMember] {.
     noSideEffect, importcpp: "NewMember", header: "StepGeom_TrimmingSelect.hxx".}
-proc CaseMem*(this: StepGeom_TrimmingSelect; ent: handle[StepData_SelectMember]): Standard_Integer {.
+proc caseMem*(this: StepGeomTrimmingSelect; ent: Handle[StepDataSelectMember]): int {.
     noSideEffect, importcpp: "CaseMem", header: "StepGeom_TrimmingSelect.hxx".}
-proc CartesianPoint*(this: StepGeom_TrimmingSelect): handle[StepGeom_CartesianPoint] {.
+proc cartesianPoint*(this: StepGeomTrimmingSelect): Handle[StepGeomCartesianPoint] {.
     noSideEffect, importcpp: "CartesianPoint",
     header: "StepGeom_TrimmingSelect.hxx".}
-proc SetParameterValue*(this: var StepGeom_TrimmingSelect;
-                       aParameterValue: Standard_Real) {.
+proc setParameterValue*(this: var StepGeomTrimmingSelect; aParameterValue: float) {.
     importcpp: "SetParameterValue", header: "StepGeom_TrimmingSelect.hxx".}
-proc ParameterValue*(this: StepGeom_TrimmingSelect): Standard_Real {.noSideEffect,
+proc parameterValue*(this: StepGeomTrimmingSelect): float {.noSideEffect,
     importcpp: "ParameterValue", header: "StepGeom_TrimmingSelect.hxx".}

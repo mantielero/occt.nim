@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESGraph_UniformRectGrid"
 discard "forward decl of IGESData_IGESReaderData"
@@ -31,44 +26,43 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESGraph_ToolUniformRectGrid* {.importcpp: "IGESGraph_ToolUniformRectGrid",
-                                  header: "IGESGraph_ToolUniformRectGrid.hxx",
-                                  bycopy.} = object ## ! Returns a ToolUniformRectGrid, ready to work
+  IGESGraphToolUniformRectGrid* {.importcpp: "IGESGraph_ToolUniformRectGrid",
+                                 header: "IGESGraph_ToolUniformRectGrid.hxx",
+                                 bycopy.} = object ## ! Returns a ToolUniformRectGrid, ready to work
 
 
-proc constructIGESGraph_ToolUniformRectGrid*(): IGESGraph_ToolUniformRectGrid {.
+proc constructIGESGraphToolUniformRectGrid*(): IGESGraphToolUniformRectGrid {.
     constructor, importcpp: "IGESGraph_ToolUniformRectGrid(@)",
     header: "IGESGraph_ToolUniformRectGrid.hxx".}
-proc ReadOwnParams*(this: IGESGraph_ToolUniformRectGrid;
-                   ent: handle[IGESGraph_UniformRectGrid];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESGraph_ToolUniformRectGrid.hxx".}
-proc WriteOwnParams*(this: IGESGraph_ToolUniformRectGrid;
-                    ent: handle[IGESGraph_UniformRectGrid];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
-    importcpp: "WriteOwnParams", header: "IGESGraph_ToolUniformRectGrid.hxx".}
-proc OwnShared*(this: IGESGraph_ToolUniformRectGrid;
-               ent: handle[IGESGraph_UniformRectGrid];
-               iter: var Interface_EntityIterator) {.noSideEffect,
-    importcpp: "OwnShared", header: "IGESGraph_ToolUniformRectGrid.hxx".}
-proc OwnCorrect*(this: IGESGraph_ToolUniformRectGrid;
-                ent: handle[IGESGraph_UniformRectGrid]): Standard_Boolean {.
-    noSideEffect, importcpp: "OwnCorrect",
+proc readOwnParams*(this: IGESGraphToolUniformRectGrid;
+                   ent: Handle[IGESGraphUniformRectGrid];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
     header: "IGESGraph_ToolUniformRectGrid.hxx".}
-proc DirChecker*(this: IGESGraph_ToolUniformRectGrid;
-                ent: handle[IGESGraph_UniformRectGrid]): IGESData_DirChecker {.
+proc writeOwnParams*(this: IGESGraphToolUniformRectGrid;
+                    ent: Handle[IGESGraphUniformRectGrid];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
+    importcpp: "WriteOwnParams", header: "IGESGraph_ToolUniformRectGrid.hxx".}
+proc ownShared*(this: IGESGraphToolUniformRectGrid;
+               ent: Handle[IGESGraphUniformRectGrid];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
+    importcpp: "OwnShared", header: "IGESGraph_ToolUniformRectGrid.hxx".}
+proc ownCorrect*(this: IGESGraphToolUniformRectGrid;
+                ent: Handle[IGESGraphUniformRectGrid]): bool {.noSideEffect,
+    importcpp: "OwnCorrect", header: "IGESGraph_ToolUniformRectGrid.hxx".}
+proc dirChecker*(this: IGESGraphToolUniformRectGrid;
+                ent: Handle[IGESGraphUniformRectGrid]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESGraph_ToolUniformRectGrid.hxx".}
-proc OwnCheck*(this: IGESGraph_ToolUniformRectGrid;
-              ent: handle[IGESGraph_UniformRectGrid]; shares: Interface_ShareTool;
-              ach: var handle[Interface_Check]) {.noSideEffect,
+proc ownCheck*(this: IGESGraphToolUniformRectGrid;
+              ent: Handle[IGESGraphUniformRectGrid]; shares: InterfaceShareTool;
+              ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "OwnCheck", header: "IGESGraph_ToolUniformRectGrid.hxx".}
-proc OwnCopy*(this: IGESGraph_ToolUniformRectGrid;
-             entfrom: handle[IGESGraph_UniformRectGrid];
-             entto: handle[IGESGraph_UniformRectGrid]; TC: var Interface_CopyTool) {.
+proc ownCopy*(this: IGESGraphToolUniformRectGrid;
+             entfrom: Handle[IGESGraphUniformRectGrid];
+             entto: Handle[IGESGraphUniformRectGrid]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGraph_ToolUniformRectGrid.hxx".}
-proc OwnDump*(this: IGESGraph_ToolUniformRectGrid;
-             ent: handle[IGESGraph_UniformRectGrid]; dumper: IGESData_IGESDumper;
-             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
-    importcpp: "OwnDump", header: "IGESGraph_ToolUniformRectGrid.hxx".}
+proc ownDump*(this: IGESGraphToolUniformRectGrid;
+             ent: Handle[IGESGraphUniformRectGrid]; dumper: IGESDataIGESDumper;
+             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+    header: "IGESGraph_ToolUniformRectGrid.hxx".}

@@ -12,7 +12,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_ShortReal_HeaderFile [NewLine] # _Standard_ShortReal_HeaderFile [NewLine] # < cmath > [NewLine] # < float . h > [NewLine] # < Standard_values . h > [NewLine] # Standard_TypeDef.hxx [NewLine]   *********************************** //
+## !!!Ignored construct:  # _Standard_ShortReal_HeaderFile [NewLine] # _Standard_ShortReal_HeaderFile [NewLine] # < cmath > [NewLine] # < float . h > [NewLine] # < Standard_values . h > [NewLine] # < Standard_TypeDef . hxx > [NewLine]   *********************************** //
 ##        Class methods                  //
 ##                                       //
 ##   Machine-dependant values            //
@@ -63,5 +63,6 @@
 ##  IsEqual : Returns Standard_True if two ShortReals are equal
 ## -------------------------------------------------------------------
 
-proc IsEqual*(Value1: Standard_ShortReal; Value2: Standard_ShortReal): Standard_Boolean =
+proc isEqual*(value1: StandardShortReal; value2: StandardShortReal): bool =
   discard
+

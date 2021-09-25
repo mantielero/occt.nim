@@ -14,118 +14,116 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation Copyright: (C) RINA S.p.A
 
-import
-  TObj_LabelIterator
-
 ## *
 ##  This class provides an iterator by objects in a partition.
 ##  (implements TObj_ObjectIterator interface)
 ##
 
 type
-  TObj_OcafObjectIterator* {.importcpp: "TObj_OcafObjectIterator",
-                            header: "TObj_OcafObjectIterator.hxx", bycopy.} = object of TObj_LabelIterator ##
-                                                                                                    ## !
-                                                                                                    ## Creates
-                                                                                                    ## the
-                                                                                                    ## iterator
-                                                                                                    ## on
-                                                                                                    ## TObj
-                                                                                                    ## objects
-                                                                                                    ## on
-                                                                                                    ## the
-                                                                                                    ## sub-labels
-                                                                                                    ## of
-                                                                                                    ## theLabel.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## @param
-                                                                                                    ## theLabel
-                                                                                                    ## start
-                                                                                                    ## label
-                                                                                                    ## for
-                                                                                                    ## searching
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## @param
-                                                                                                    ## theType
-                                                                                                    ## type
-                                                                                                    ## of
-                                                                                                    ## the
-                                                                                                    ## found
-                                                                                                    ## objects,
-                                                                                                    ## or
-                                                                                                    ## all
-                                                                                                    ## types
-                                                                                                    ## if
-                                                                                                    ## Null
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## @param
-                                                                                                    ## theRecursive
-                                                                                                    ## search
-                                                                                                    ## children
-                                                                                                    ## recursively,
-                                                                                                    ## not
-                                                                                                    ## only
-                                                                                                    ## on
-                                                                                                    ## sub-labels
-                                                                                                    ## of
-                                                                                                    ## theLabel
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## @param
-                                                                                                    ## theAllSubChildren
-                                                                                                    ## do
-                                                                                                    ## not
-                                                                                                    ## stop
-                                                                                                    ## at
-                                                                                                    ## the
-                                                                                                    ## first
-                                                                                                    ## level
-                                                                                                    ## of
-                                                                                                    ## children,
-                                                                                                    ## but
-                                                                                                    ## search
-                                                                                                    ## for
-                                                                                                    ## sub-children
-                                                                                                    ## too
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Shift
-                                                                                                    ## iterator
-                                                                                                    ## to
-                                                                                                    ## the
-                                                                                                    ## next
-                                                                                                    ## object
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## CASCADE
-                                                                                                    ## RTTI
+  TObjOcafObjectIterator* {.importcpp: "TObj_OcafObjectIterator",
+                           header: "TObj_OcafObjectIterator.hxx", bycopy.} = object of TObjLabelIterator ##
+                                                                                                  ## !
+                                                                                                  ## Creates
+                                                                                                  ## the
+                                                                                                  ## iterator
+                                                                                                  ## on
+                                                                                                  ## TObj
+                                                                                                  ## objects
+                                                                                                  ## on
+                                                                                                  ## the
+                                                                                                  ## sub-labels
+                                                                                                  ## of
+                                                                                                  ## theLabel.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## @param
+                                                                                                  ## theLabel
+                                                                                                  ## start
+                                                                                                  ## label
+                                                                                                  ## for
+                                                                                                  ## searching
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## @param
+                                                                                                  ## theType
+                                                                                                  ## type
+                                                                                                  ## of
+                                                                                                  ## the
+                                                                                                  ## found
+                                                                                                  ## objects,
+                                                                                                  ## or
+                                                                                                  ## all
+                                                                                                  ## types
+                                                                                                  ## if
+                                                                                                  ## Null
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## @param
+                                                                                                  ## theRecursive
+                                                                                                  ## search
+                                                                                                  ## children
+                                                                                                  ## recursively,
+                                                                                                  ## not
+                                                                                                  ## only
+                                                                                                  ## on
+                                                                                                  ## sub-labels
+                                                                                                  ## of
+                                                                                                  ## theLabel
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## @param
+                                                                                                  ## theAllSubChildren
+                                                                                                  ## do
+                                                                                                  ## not
+                                                                                                  ## stop
+                                                                                                  ## at
+                                                                                                  ## the
+                                                                                                  ## first
+                                                                                                  ## level
+                                                                                                  ## of
+                                                                                                  ## children,
+                                                                                                  ## but
+                                                                                                  ## search
+                                                                                                  ## for
+                                                                                                  ## sub-children
+                                                                                                  ## too
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Shift
+                                                                                                  ## iterator
+                                                                                                  ## to
+                                                                                                  ## the
+                                                                                                  ## next
+                                                                                                  ## object
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## CASCADE
+                                                                                                  ## RTTI
     ## !< type of objects to iterate on
     ## !< to iterate all sub-children, do not stop on the first level
 
 
-proc constructTObj_OcafObjectIterator*(theLabel: TDF_Label;
-                                      theType: handle[Standard_Type] = nil;
-    theRecursive: Standard_Boolean = Standard_False; theAllSubChildren: Standard_Boolean = Standard_False): TObj_OcafObjectIterator {.
+proc constructTObjOcafObjectIterator*(theLabel: TDF_Label;
+                                     theType: Handle[StandardType] = nil;
+                                     theRecursive: bool = false;
+                                     theAllSubChildren: bool = false): TObjOcafObjectIterator {.
     constructor, importcpp: "TObj_OcafObjectIterator(@)",
     header: "TObj_OcafObjectIterator.hxx".}
 type
-  TObj_OcafObjectIteratorbase_type* = TObj_LabelIterator
+  TObjOcafObjectIteratorbaseType* = TObjLabelIterator
 
-proc get_type_name*(): cstring {.importcpp: "TObj_OcafObjectIterator::get_type_name(@)",
-                              header: "TObj_OcafObjectIterator.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TObj_OcafObjectIterator::get_type_name(@)",
+                            header: "TObj_OcafObjectIterator.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TObj_OcafObjectIterator::get_type_descriptor(@)",
     header: "TObj_OcafObjectIterator.hxx".}
-proc DynamicType*(this: TObj_OcafObjectIterator): handle[Standard_Type] {.
+proc dynamicType*(this: TObjOcafObjectIterator): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TObj_OcafObjectIterator.hxx".}
 ## ! Define handle class for TObj_OcafObjectIterator
 
 discard "forward decl of TObj_OcafObjectIterator"
 type
-  Handle_TObj_OcafObjectIterator* = handle[TObj_OcafObjectIterator]
+  HandleTObjOcafObjectIterator* = Handle[TObjOcafObjectIterator]
 
-when defined(_MSC_VER):
-  discard
+# when defined(_MSC_VER):
+#   discard

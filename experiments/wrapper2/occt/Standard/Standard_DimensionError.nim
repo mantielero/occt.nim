@@ -14,16 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_DimensionError_HeaderFile [NewLine] # _Standard_DimensionError_HeaderFile [NewLine] # Standard_Type.hxx [NewLine] # Standard_DefineException.hxx [NewLine] # Standard_SStream.hxx [NewLine] # Standard_DomainError.hxx [NewLine] class Standard_DimensionError ;
+## !!!Ignored construct:  # _Standard_DimensionError_HeaderFile [NewLine] # _Standard_DimensionError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class Standard_DimensionError ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Standard_DimensionError"
 type
-  Handle_Standard_DimensionErrorStandard_DimensionError* = handle[
-      Standard_DimensionError]
+  HandleStandardDimensionErrorStandardDimensionError* = Handle[
+      StandardDimensionError]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_DimensionError [NewLine] # if ( CONDITION ) throw Standard_DimensionError ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_DimensionError , Standard_DomainError ) #  _Standard_DimensionError_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_DimensionError , Standard_DomainError ) #  _Standard_DimensionError_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

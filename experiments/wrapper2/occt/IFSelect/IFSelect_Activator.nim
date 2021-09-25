@@ -14,20 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Transient,
-  ../Standard/Standard_Integer, ../Standard/Standard_CString,
-  ../Standard/Standard_Boolean, ../TColStd/TColStd_HSequenceOfAsciiString,
-  IFSelect_ReturnStatus
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SessionPilot"
 discard "forward decl of IFSelect_Activator"
 discard "forward decl of IFSelect_Activator"
 type
-  Handle_IFSelect_Activator* = handle[IFSelect_Activator]
+  HandleIFSelectActivator* = Handle[IFSelectActivator]
 
 ## ! Defines the general frame for working with a SessionPilot.
 ## ! Each Activator treats a set of Commands. Commands are given as
@@ -53,101 +46,99 @@ type
 ## ! recorded or not : see method Do
 
 type
-  IFSelect_Activator* {.importcpp: "IFSelect_Activator",
-                       header: "IFSelect_Activator.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                          ## !
-                                                                                          ## Records,
-                                                                                          ## in
-                                                                                          ## a
-                                                                                          ## Dictionary
-                                                                                          ## available
-                                                                                          ## for
-                                                                                          ## all
-                                                                                          ## the
-                                                                                          ## Activators,
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## the
-                                                                                          ## command
-                                                                                          ## title
-                                                                                          ## an
-                                                                                          ## Activator
-                                                                                          ## can
-                                                                                          ## process,
-                                                                                          ## attached
-                                                                                          ## with
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## its
-                                                                                          ## number,
-                                                                                          ## proper
-                                                                                          ## for
-                                                                                          ## this
-                                                                                          ## Activator
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## <mode>
-                                                                                          ## allows
-                                                                                          ## to
-                                                                                          ## distinguish
-                                                                                          ## various
-                                                                                          ## execution
-                                                                                          ## modes
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## 0:
-                                                                                          ## default
-                                                                                          ## mode;
-                                                                                          ## 1
-                                                                                          ## :
-                                                                                          ## for
-                                                                                          ## xset
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Sets
-                                                                                          ## the
-                                                                                          ## default
-                                                                                          ## values
+  IFSelectActivator* {.importcpp: "IFSelect_Activator",
+                      header: "IFSelect_Activator.hxx", bycopy.} = object of StandardTransient ##
+                                                                                        ## !
+                                                                                        ## Records,
+                                                                                        ## in
+                                                                                        ## a
+                                                                                        ## Dictionary
+                                                                                        ## available
+                                                                                        ## for
+                                                                                        ## all
+                                                                                        ## the
+                                                                                        ## Activators,
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## the
+                                                                                        ## command
+                                                                                        ## title
+                                                                                        ## an
+                                                                                        ## Activator
+                                                                                        ## can
+                                                                                        ## process,
+                                                                                        ## attached
+                                                                                        ## with
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## its
+                                                                                        ## number,
+                                                                                        ## proper
+                                                                                        ## for
+                                                                                        ## this
+                                                                                        ## Activator
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## <mode>
+                                                                                        ## allows
+                                                                                        ## to
+                                                                                        ## distinguish
+                                                                                        ## various
+                                                                                        ## execution
+                                                                                        ## modes
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## 0:
+                                                                                        ## default
+                                                                                        ## mode;
+                                                                                        ## 1
+                                                                                        ## :
+                                                                                        ## for
+                                                                                        ## xset
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Sets
+                                                                                        ## the
+                                                                                        ## default
+                                                                                        ## values
 
 
-proc Adding*(actor: handle[IFSelect_Activator]; number: Standard_Integer;
-            command: Standard_CString; mode: Standard_Integer) {.
-    importcpp: "IFSelect_Activator::Adding(@)", header: "IFSelect_Activator.hxx".}
-proc Add*(this: IFSelect_Activator; number: Standard_Integer;
-         command: Standard_CString) {.noSideEffect, importcpp: "Add",
-                                    header: "IFSelect_Activator.hxx".}
-proc AddSet*(this: IFSelect_Activator; number: Standard_Integer;
-            command: Standard_CString) {.noSideEffect, importcpp: "AddSet",
-                                       header: "IFSelect_Activator.hxx".}
-proc Remove*(command: Standard_CString) {.importcpp: "IFSelect_Activator::Remove(@)",
-                                       header: "IFSelect_Activator.hxx".}
-proc Select*(command: Standard_CString; number: var Standard_Integer;
-            actor: var handle[IFSelect_Activator]): Standard_Boolean {.
+proc adding*(actor: Handle[IFSelectActivator]; number: int; command: StandardCString;
+            mode: int) {.importcpp: "IFSelect_Activator::Adding(@)",
+                       header: "IFSelect_Activator.hxx".}
+proc add*(this: IFSelectActivator; number: int; command: StandardCString) {.
+    noSideEffect, importcpp: "Add", header: "IFSelect_Activator.hxx".}
+proc addSet*(this: IFSelectActivator; number: int; command: StandardCString) {.
+    noSideEffect, importcpp: "AddSet", header: "IFSelect_Activator.hxx".}
+proc remove*(command: StandardCString) {.importcpp: "IFSelect_Activator::Remove(@)",
+                                      header: "IFSelect_Activator.hxx".}
+proc select*(command: StandardCString; number: var int;
+            actor: var Handle[IFSelectActivator]): bool {.
     importcpp: "IFSelect_Activator::Select(@)", header: "IFSelect_Activator.hxx".}
-proc Mode*(command: Standard_CString): Standard_Integer {.
-    importcpp: "IFSelect_Activator::Mode(@)", header: "IFSelect_Activator.hxx".}
-proc Commands*(mode: Standard_Integer = -1; command: Standard_CString = ""): handle[
-    TColStd_HSequenceOfAsciiString] {.importcpp: "IFSelect_Activator::Commands(@)",
-                                     header: "IFSelect_Activator.hxx".}
-proc Do*(this: var IFSelect_Activator; number: Standard_Integer;
-        pilot: handle[IFSelect_SessionPilot]): IFSelect_ReturnStatus {.
+proc mode*(command: StandardCString): int {.importcpp: "IFSelect_Activator::Mode(@)",
+                                        header: "IFSelect_Activator.hxx".}
+proc commands*(mode: int = -1; command: StandardCString = ""): Handle[
+    TColStdHSequenceOfAsciiString] {.importcpp: "IFSelect_Activator::Commands(@)",
+                                    header: "IFSelect_Activator.hxx".}
+proc `do`*(this: var IFSelectActivator; number: int;
+          pilot: Handle[IFSelectSessionPilot]): IFSelectReturnStatus {.
     importcpp: "Do", header: "IFSelect_Activator.hxx".}
-proc Help*(this: IFSelect_Activator; number: Standard_Integer): Standard_CString {.
-    noSideEffect, importcpp: "Help", header: "IFSelect_Activator.hxx".}
-proc Group*(this: IFSelect_Activator): Standard_CString {.noSideEffect,
+proc help*(this: IFSelectActivator; number: int): StandardCString {.noSideEffect,
+    importcpp: "Help", header: "IFSelect_Activator.hxx".}
+proc group*(this: IFSelectActivator): StandardCString {.noSideEffect,
     importcpp: "Group", header: "IFSelect_Activator.hxx".}
-proc File*(this: IFSelect_Activator): Standard_CString {.noSideEffect,
+proc file*(this: IFSelectActivator): StandardCString {.noSideEffect,
     importcpp: "File", header: "IFSelect_Activator.hxx".}
-proc SetForGroup*(this: var IFSelect_Activator; group: Standard_CString;
-                 file: Standard_CString = "") {.importcpp: "SetForGroup",
+proc setForGroup*(this: var IFSelectActivator; group: StandardCString;
+                 file: StandardCString = "") {.importcpp: "SetForGroup",
     header: "IFSelect_Activator.hxx".}
 type
-  IFSelect_Activatorbase_type* = Standard_Transient
+  IFSelectActivatorbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_Activator::get_type_name(@)",
-                              header: "IFSelect_Activator.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_Activator::get_type_name(@)",
+                            header: "IFSelect_Activator.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_Activator::get_type_descriptor(@)",
     header: "IFSelect_Activator.hxx".}
-proc DynamicType*(this: IFSelect_Activator): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IFSelectActivator): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_Activator.hxx".}

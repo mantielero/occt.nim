@@ -12,15 +12,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _OSD_SIGILL_HeaderFile [NewLine] # _OSD_SIGILL_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # OSD_Signal.hxx [NewLine] class OSD_SIGILL ;
+## !!!Ignored construct:  # _OSD_SIGILL_HeaderFile [NewLine] # _OSD_SIGILL_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < OSD_Signal . hxx > [NewLine] class OSD_SIGILL ;
 ## Error: expected ';'!!!
 
 discard "forward decl of OSD_SIGILL"
 type
-  Handle_OSD_SIGILLOSD_SIGILL* = handle[OSD_SIGILL]
+  HandleOSD_SIGILLOSD_SIGILL* = Handle[Osd_Sigill]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_SIGILL [NewLine] # if ( CONDITION ) throw OSD_SIGILL ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_SIGILL , OSD_Signal ) #  _OSD_SIGILL_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_SIGILL , OSD_Signal ) #  _OSD_SIGILL_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

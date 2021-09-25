@@ -14,53 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP214_HArray1OfAutoDesignGeneralOrgItem,
-  ../StepBasic/StepBasic_ApprovalAssignment, ../Standard/Standard_Integer
-
 discard "forward decl of StepBasic_Approval"
 discard "forward decl of StepAP214_AutoDesignGeneralOrgItem"
 discard "forward decl of StepAP214_AutoDesignApprovalAssignment"
 discard "forward decl of StepAP214_AutoDesignApprovalAssignment"
 type
-  Handle_StepAP214_AutoDesignApprovalAssignment* = handle[
-      StepAP214_AutoDesignApprovalAssignment]
-  StepAP214_AutoDesignApprovalAssignment* {.
+  HandleStepAP214AutoDesignApprovalAssignment* = Handle[
+      StepAP214AutoDesignApprovalAssignment]
+  StepAP214AutoDesignApprovalAssignment* {.
       importcpp: "StepAP214_AutoDesignApprovalAssignment",
-      header: "StepAP214_AutoDesignApprovalAssignment.hxx", bycopy.} = object of StepBasic_ApprovalAssignment ##
-                                                                                                       ## !
-                                                                                                       ## Returns
-                                                                                                       ## a
-                                                                                                       ## AutoDesignApprovalAssignment
+      header: "StepAP214_AutoDesignApprovalAssignment.hxx", bycopy.} = object of StepBasicApprovalAssignment ##
+                                                                                                      ## !
+                                                                                                      ## Returns
+                                                                                                      ## a
+                                                                                                      ## AutoDesignApprovalAssignment
 
 
-proc constructStepAP214_AutoDesignApprovalAssignment*(): StepAP214_AutoDesignApprovalAssignment {.
+proc constructStepAP214AutoDesignApprovalAssignment*(): StepAP214AutoDesignApprovalAssignment {.
     constructor, importcpp: "StepAP214_AutoDesignApprovalAssignment(@)",
     header: "StepAP214_AutoDesignApprovalAssignment.hxx".}
-proc Init*(this: var StepAP214_AutoDesignApprovalAssignment;
-          aAssignedApproval: handle[StepBasic_Approval];
-          aItems: handle[StepAP214_HArray1OfAutoDesignGeneralOrgItem]) {.
+proc init*(this: var StepAP214AutoDesignApprovalAssignment;
+          aAssignedApproval: Handle[StepBasicApproval];
+          aItems: Handle[StepAP214HArray1OfAutoDesignGeneralOrgItem]) {.
     importcpp: "Init", header: "StepAP214_AutoDesignApprovalAssignment.hxx".}
-proc SetItems*(this: var StepAP214_AutoDesignApprovalAssignment;
-              aItems: handle[StepAP214_HArray1OfAutoDesignGeneralOrgItem]) {.
+proc setItems*(this: var StepAP214AutoDesignApprovalAssignment;
+              aItems: Handle[StepAP214HArray1OfAutoDesignGeneralOrgItem]) {.
     importcpp: "SetItems", header: "StepAP214_AutoDesignApprovalAssignment.hxx".}
-proc Items*(this: StepAP214_AutoDesignApprovalAssignment): handle[
-    StepAP214_HArray1OfAutoDesignGeneralOrgItem] {.noSideEffect,
+proc items*(this: StepAP214AutoDesignApprovalAssignment): Handle[
+    StepAP214HArray1OfAutoDesignGeneralOrgItem] {.noSideEffect,
     importcpp: "Items", header: "StepAP214_AutoDesignApprovalAssignment.hxx".}
-proc ItemsValue*(this: StepAP214_AutoDesignApprovalAssignment;
-                num: Standard_Integer): StepAP214_AutoDesignGeneralOrgItem {.
+proc itemsValue*(this: StepAP214AutoDesignApprovalAssignment; num: int): StepAP214AutoDesignGeneralOrgItem {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AutoDesignApprovalAssignment.hxx".}
-proc NbItems*(this: StepAP214_AutoDesignApprovalAssignment): Standard_Integer {.
-    noSideEffect, importcpp: "NbItems",
-    header: "StepAP214_AutoDesignApprovalAssignment.hxx".}
+proc nbItems*(this: StepAP214AutoDesignApprovalAssignment): int {.noSideEffect,
+    importcpp: "NbItems", header: "StepAP214_AutoDesignApprovalAssignment.hxx".}
 type
-  StepAP214_AutoDesignApprovalAssignmentbase_type* = StepBasic_ApprovalAssignment
+  StepAP214AutoDesignApprovalAssignmentbaseType* = StepBasicApprovalAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_AutoDesignApprovalAssignment::get_type_name(@)", header: "StepAP214_AutoDesignApprovalAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP214_AutoDesignApprovalAssignment::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP214_AutoDesignApprovalAssignment::get_type_name(@)", header: "StepAP214_AutoDesignApprovalAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_AutoDesignApprovalAssignment::get_type_descriptor(@)",
     header: "StepAP214_AutoDesignApprovalAssignment.hxx".}
-proc DynamicType*(this: StepAP214_AutoDesignApprovalAssignment): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepAP214_AutoDesignApprovalAssignment.hxx".}
+proc dynamicType*(this: StepAP214AutoDesignApprovalAssignment): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepAP214_AutoDesignApprovalAssignment.hxx".}

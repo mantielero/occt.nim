@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_FillStyleSelect, ../NCollection/NCollection_Array1
-
 type
-  StepVisual_Array1OfFillStyleSelect* = NCollection_Array1[
-      StepVisual_FillStyleSelect]
+  StepVisualArray1OfFillStyleSelect* = NCollectionArray1[StepVisualFillStyleSelect]
+

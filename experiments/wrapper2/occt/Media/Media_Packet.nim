@@ -12,54 +12,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Transient, ../Standard/Standard_Type
-
 discard "forward decl of AVPacket"
 type
-  Media_Packet* {.importcpp: "Media_Packet", header: "Media_Packet.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                       ## !
-                                                                                                       ## Empty
-                                                                                                       ## constructor
+  MediaPacket* {.importcpp: "Media_Packet", header: "Media_Packet.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                     ## !
+                                                                                                     ## Empty
+                                                                                                     ## constructor
     ## !< packet
     ## !< packet duration in seconds
 
-  Media_Packetbase_type* = Standard_Transient
+  MediaPacketbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Media_Packet::get_type_name(@)",
-                              header: "Media_Packet.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Media_Packet::get_type_name(@)",
+                            header: "Media_Packet.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Media_Packet::get_type_descriptor(@)", header: "Media_Packet.hxx".}
-proc DynamicType*(this: Media_Packet): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: MediaPacket): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Media_Packet.hxx".}
-proc constructMedia_Packet*(): Media_Packet {.constructor,
+proc constructMediaPacket*(): MediaPacket {.constructor,
     importcpp: "Media_Packet(@)", header: "Media_Packet.hxx".}
-proc destroyMedia_Packet*(this: var Media_Packet) {.importcpp: "#.~Media_Packet()",
+proc destroyMediaPacket*(this: var MediaPacket) {.importcpp: "#.~Media_Packet()",
     header: "Media_Packet.hxx".}
-proc Unref*(this: var Media_Packet) {.importcpp: "Unref", header: "Media_Packet.hxx".}
-proc Packet*(this: Media_Packet): ptr AVPacket {.noSideEffect, importcpp: "Packet",
+proc unref*(this: var MediaPacket) {.importcpp: "Unref", header: "Media_Packet.hxx".}
+proc packet*(this: MediaPacket): ptr AVPacket {.noSideEffect, importcpp: "Packet",
     header: "Media_Packet.hxx".}
-proc ChangePacket*(this: var Media_Packet): ptr AVPacket {.importcpp: "ChangePacket",
+proc changePacket*(this: var MediaPacket): ptr AVPacket {.importcpp: "ChangePacket",
     header: "Media_Packet.hxx".}
-proc Data*(this: Media_Packet): ptr uint8_t {.noSideEffect, importcpp: "Data",
+proc data*(this: MediaPacket): ptr uint8T {.noSideEffect, importcpp: "Data",
+                                       header: "Media_Packet.hxx".}
+proc changeData*(this: var MediaPacket): ptr uint8T {.importcpp: "ChangeData",
     header: "Media_Packet.hxx".}
-proc ChangeData*(this: var Media_Packet): ptr uint8_t {.importcpp: "ChangeData",
-    header: "Media_Packet.hxx".}
-proc Size*(this: Media_Packet): cint {.noSideEffect, importcpp: "Size",
+proc size*(this: MediaPacket): cint {.noSideEffect, importcpp: "Size",
+                                  header: "Media_Packet.hxx".}
+proc pts*(this: MediaPacket): int64T {.noSideEffect, importcpp: "Pts",
                                    header: "Media_Packet.hxx".}
-proc Pts*(this: Media_Packet): int64_t {.noSideEffect, importcpp: "Pts",
-                                     header: "Media_Packet.hxx".}
-proc Dts*(this: Media_Packet): int64_t {.noSideEffect, importcpp: "Dts",
-                                     header: "Media_Packet.hxx".}
-proc Duration*(this: Media_Packet): int64_t {.noSideEffect, importcpp: "Duration",
-    header: "Media_Packet.hxx".}
-proc DurationSeconds*(this: Media_Packet): cdouble {.noSideEffect,
-    importcpp: "DurationSeconds", header: "Media_Packet.hxx".}
-proc SetDurationSeconds*(this: var Media_Packet; theDurationSec: cdouble) {.
-    importcpp: "SetDurationSeconds", header: "Media_Packet.hxx".}
-proc StreamIndex*(this: Media_Packet): cint {.noSideEffect, importcpp: "StreamIndex",
-    header: "Media_Packet.hxx".}
-proc IsKeyFrame*(this: Media_Packet): bool {.noSideEffect, importcpp: "IsKeyFrame",
-    header: "Media_Packet.hxx".}
-proc SetKeyFrame*(this: var Media_Packet) {.importcpp: "SetKeyFrame",
+proc dts*(this: MediaPacket): int64T {.noSideEffect, importcpp: "Dts",
+                                   header: "Media_Packet.hxx".}
+proc duration*(this: MediaPacket): int64T {.noSideEffect, importcpp: "Duration",
                                         header: "Media_Packet.hxx".}
+proc durationSeconds*(this: MediaPacket): cdouble {.noSideEffect,
+    importcpp: "DurationSeconds", header: "Media_Packet.hxx".}
+proc setDurationSeconds*(this: var MediaPacket; theDurationSec: cdouble) {.
+    importcpp: "SetDurationSeconds", header: "Media_Packet.hxx".}
+proc streamIndex*(this: MediaPacket): cint {.noSideEffect, importcpp: "StreamIndex",
+    header: "Media_Packet.hxx".}
+proc isKeyFrame*(this: MediaPacket): bool {.noSideEffect, importcpp: "IsKeyFrame",
+                                        header: "Media_Packet.hxx".}
+proc setKeyFrame*(this: var MediaPacket) {.importcpp: "SetKeyFrame",
+                                       header: "Media_Packet.hxx".}

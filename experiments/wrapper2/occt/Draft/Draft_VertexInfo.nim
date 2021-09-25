@@ -14,38 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Pnt, ../TopTools/TopTools_ListOfShape,
-  ../TColStd/TColStd_ListOfReal, ../TopTools/TopTools_ListIteratorOfListOfShape,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_NoMoreObject"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of gp_Pnt"
 type
-  Draft_VertexInfo* {.importcpp: "Draft_VertexInfo",
-                     header: "Draft_VertexInfo.hxx", bycopy.} = object
+  DraftVertexInfo* {.importcpp: "Draft_VertexInfo", header: "Draft_VertexInfo.hxx",
+                    bycopy.} = object
 
 
-proc constructDraft_VertexInfo*(): Draft_VertexInfo {.constructor,
+proc constructDraftVertexInfo*(): DraftVertexInfo {.constructor,
     importcpp: "Draft_VertexInfo(@)", header: "Draft_VertexInfo.hxx".}
-proc Add*(this: var Draft_VertexInfo; E: TopoDS_Edge) {.importcpp: "Add",
+proc add*(this: var DraftVertexInfo; e: TopoDS_Edge) {.importcpp: "Add",
     header: "Draft_VertexInfo.hxx".}
-proc Geometry*(this: Draft_VertexInfo): gp_Pnt {.noSideEffect, importcpp: "Geometry",
+proc geometry*(this: DraftVertexInfo): Pnt {.noSideEffect, importcpp: "Geometry",
     header: "Draft_VertexInfo.hxx".}
-proc Parameter*(this: var Draft_VertexInfo; E: TopoDS_Edge): Standard_Real {.
+proc parameter*(this: var DraftVertexInfo; e: TopoDS_Edge): float {.
     importcpp: "Parameter", header: "Draft_VertexInfo.hxx".}
-proc InitEdgeIterator*(this: var Draft_VertexInfo) {.importcpp: "InitEdgeIterator",
+proc initEdgeIterator*(this: var DraftVertexInfo) {.importcpp: "InitEdgeIterator",
     header: "Draft_VertexInfo.hxx".}
-proc Edge*(this: Draft_VertexInfo): TopoDS_Edge {.noSideEffect, importcpp: "Edge",
+proc edge*(this: DraftVertexInfo): TopoDS_Edge {.noSideEffect, importcpp: "Edge",
     header: "Draft_VertexInfo.hxx".}
-proc NextEdge*(this: var Draft_VertexInfo) {.importcpp: "NextEdge",
+proc nextEdge*(this: var DraftVertexInfo) {.importcpp: "NextEdge",
+                                        header: "Draft_VertexInfo.hxx".}
+proc moreEdge*(this: DraftVertexInfo): bool {.noSideEffect, importcpp: "MoreEdge",
     header: "Draft_VertexInfo.hxx".}
-proc MoreEdge*(this: Draft_VertexInfo): Standard_Boolean {.noSideEffect,
-    importcpp: "MoreEdge", header: "Draft_VertexInfo.hxx".}
-proc ChangeGeometry*(this: var Draft_VertexInfo): var gp_Pnt {.
+proc changeGeometry*(this: var DraftVertexInfo): var Pnt {.
     importcpp: "ChangeGeometry", header: "Draft_VertexInfo.hxx".}
-proc ChangeParameter*(this: var Draft_VertexInfo; E: TopoDS_Edge): var Standard_Real {.
+proc changeParameter*(this: var DraftVertexInfo; e: TopoDS_Edge): var float {.
     importcpp: "ChangeParameter", header: "Draft_VertexInfo.hxx".}

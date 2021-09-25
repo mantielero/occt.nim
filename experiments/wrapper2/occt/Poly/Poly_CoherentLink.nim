@@ -13,37 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_TypeDef
-
 discard "forward decl of Poly_CoherentTriangle"
 discard "forward decl of Poly_CoherentTriangulation"
 type
-  Poly_CoherentLink* {.importcpp: "Poly_CoherentLink",
-                      header: "Poly_CoherentLink.hxx", bycopy.} = object ##  ---------- PUBLIC METHODS ----------
-                                                                    ## *
-                                                                    ##  Empty constructor.
-                                                                    ##
-                                                                    ##  ---------- PROTECTED METHODS ----------
-                                                                    ##  ---------- PRIVATE FIELDS ----------
+  PolyCoherentLink* {.importcpp: "Poly_CoherentLink",
+                     header: "Poly_CoherentLink.hxx", bycopy.} = object ##  ---------- PUBLIC METHODS ----------
+                                                                   ## *
+                                                                   ##  Empty constructor.
+                                                                   ##
+                                                                   ##  ---------- PROTECTED METHODS ----------
+                                                                   ##  ---------- PRIVATE FIELDS ----------
 
 
-proc constructPoly_CoherentLink*(): Poly_CoherentLink {.constructor,
+proc constructPolyCoherentLink*(): PolyCoherentLink {.constructor,
     importcpp: "Poly_CoherentLink(@)", header: "Poly_CoherentLink.hxx".}
-proc constructPoly_CoherentLink*(iNode0: Standard_Integer; iNode1: Standard_Integer): Poly_CoherentLink {.
+proc constructPolyCoherentLink*(iNode0: int; iNode1: int): PolyCoherentLink {.
     constructor, importcpp: "Poly_CoherentLink(@)", header: "Poly_CoherentLink.hxx".}
-proc constructPoly_CoherentLink*(theTri: Poly_CoherentTriangle;
-                                iSide: Standard_Integer): Poly_CoherentLink {.
+proc constructPolyCoherentLink*(theTri: PolyCoherentTriangle; iSide: int): PolyCoherentLink {.
     constructor, importcpp: "Poly_CoherentLink(@)", header: "Poly_CoherentLink.hxx".}
-proc Node*(this: Poly_CoherentLink; ind: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "Node", header: "Poly_CoherentLink.hxx".}
-proc OppositeNode*(this: Poly_CoherentLink; ind: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "OppositeNode", header: "Poly_CoherentLink.hxx".}
-proc GetAttribute*(this: Poly_CoherentLink): Standard_Address {.noSideEffect,
-    importcpp: "GetAttribute", header: "Poly_CoherentLink.hxx".}
-proc SetAttribute*(this: var Poly_CoherentLink; theAtt: Standard_Address) {.
-    importcpp: "SetAttribute", header: "Poly_CoherentLink.hxx".}
-proc IsEmpty*(this: Poly_CoherentLink): Standard_Boolean {.noSideEffect,
-    importcpp: "IsEmpty", header: "Poly_CoherentLink.hxx".}
-proc Nullify*(this: var Poly_CoherentLink) {.importcpp: "Nullify",
+proc node*(this: PolyCoherentLink; ind: int): int {.noSideEffect, importcpp: "Node",
     header: "Poly_CoherentLink.hxx".}
+proc oppositeNode*(this: PolyCoherentLink; ind: int): int {.noSideEffect,
+    importcpp: "OppositeNode", header: "Poly_CoherentLink.hxx".}
+proc getAttribute*(this: PolyCoherentLink): StandardAddress {.noSideEffect,
+    importcpp: "GetAttribute", header: "Poly_CoherentLink.hxx".}
+proc setAttribute*(this: var PolyCoherentLink; theAtt: StandardAddress) {.
+    importcpp: "SetAttribute", header: "Poly_CoherentLink.hxx".}
+proc isEmpty*(this: PolyCoherentLink): bool {.noSideEffect, importcpp: "IsEmpty",
+    header: "Poly_CoherentLink.hxx".}
+proc nullify*(this: var PolyCoherentLink) {.importcpp: "Nullify",
+                                        header: "Poly_CoherentLink.hxx".}

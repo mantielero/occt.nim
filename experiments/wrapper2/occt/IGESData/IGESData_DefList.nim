@@ -32,8 +32,9 @@
 ## ! items, but that at least one of them is incorrect.
 
 type
-  IGESData_DefList* {.size: sizeof(cint), importcpp: "IGESData_DefList",
-                     header: "IGESData_DefList.hxx".} = enum
-    IGESData_DefNone, IGESData_DefOne, IGESData_DefSeveral, IGESData_ErrorOne,
-    IGESData_ErrorSeveral
+  IGESDataDefList* {.size: sizeof(cint), importcpp: "IGESData_DefList",
+                    header: "IGESData_DefList.hxx".} = enum
+    IGESDataDefNone, IGESDataDefOne, IGESDataDefSeveral, IGESDataErrorOne,
+    IGESDataErrorSeveral
+
 

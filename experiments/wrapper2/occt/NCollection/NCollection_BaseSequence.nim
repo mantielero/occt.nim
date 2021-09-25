@@ -13,29 +13,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, NCollection_BaseAllocator, NCollection_DefineAlloc
-
 ##  **************************************** Class SeqNode ********************
 
 type
-  NCollection_SeqNode* {.importcpp: "NCollection_SeqNode",
-                        header: "NCollection_BaseSequence.hxx", bycopy.} = object ##  define new operator for use with NCollection allocators
+  NCollectionSeqNode* {.importcpp: "NCollection_SeqNode",
+                       header: "NCollection_BaseSequence.hxx", bycopy.} = object ##  define new operator for use with NCollection allocators
 
 
-proc constructNCollection_SeqNode*(): NCollection_SeqNode {.constructor,
+proc constructNCollectionSeqNode*(): NCollectionSeqNode {.constructor,
     importcpp: "NCollection_SeqNode(@)", header: "NCollection_BaseSequence.hxx".}
-proc Next*(this: NCollection_SeqNode): ptr NCollection_SeqNode {.noSideEffect,
+proc next*(this: NCollectionSeqNode): ptr NCollectionSeqNode {.noSideEffect,
     importcpp: "Next", header: "NCollection_BaseSequence.hxx".}
-proc Previous*(this: NCollection_SeqNode): ptr NCollection_SeqNode {.noSideEffect,
+proc previous*(this: NCollectionSeqNode): ptr NCollectionSeqNode {.noSideEffect,
     importcpp: "Previous", header: "NCollection_BaseSequence.hxx".}
-proc SetNext*(this: var NCollection_SeqNode; theNext: ptr NCollection_SeqNode) {.
+proc setNext*(this: var NCollectionSeqNode; theNext: ptr NCollectionSeqNode) {.
     importcpp: "SetNext", header: "NCollection_BaseSequence.hxx".}
-proc SetPrevious*(this: var NCollection_SeqNode; thePrev: ptr NCollection_SeqNode) {.
+proc setPrevious*(this: var NCollectionSeqNode; thePrev: ptr NCollectionSeqNode) {.
     importcpp: "SetPrevious", header: "NCollection_BaseSequence.hxx".}
 type
-  NCollection_DelSeqNode* = proc (a1: ptr NCollection_SeqNode;
-                               theAl: var handle[NCollection_BaseAllocator])
+  NCollectionDelSeqNode* = proc (a1: ptr NCollectionSeqNode;
+                              theAl: var Handle[NCollectionBaseAllocator])
 
 ## *
 ##  Purpose:     This  is  a base  class  for  the  Sequence.  It  deals with
@@ -43,51 +40,52 @@ type
 ##
 
 type
-  NCollection_BaseSequence* {.importcpp: "NCollection_BaseSequence",
-                             header: "NCollection_BaseSequence.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Memory
-                                                                                  ## allocation
-                                                                                  ##
-                                                                                  ## Methods
-                                                                                  ## PUBLIC
-                                                                                  ##
-                                                                                  ##
-                                                                                  ## Methods
-                                                                                  ## PROTECTED
-                                                                                  ##
-                                                                                  ##
-                                                                                  ## Fields
-                                                                                  ## PROTECTED
-                                                                                  ##
-                                                                                  ##
-                                                                                  ## Methods
-                                                                                  ## PRIVATE
-                                                                                  ##
+  NCollectionBaseSequence* {.importcpp: "NCollection_BaseSequence",
+                            header: "NCollection_BaseSequence.hxx", bycopy.} = object of RootObj##
+                                                                                 ## !
+                                                                                 ## Memory
+                                                                                 ## allocation
+                                                                                 ##
+                                                                                 ## Methods
+                                                                                 ## PUBLIC
+                                                                                 ##
+                                                                                 ##
+                                                                                 ## Methods
+                                                                                 ## PROTECTED
+                                                                                 ##
+                                                                                 ##
+                                                                                 ## Fields
+                                                                                 ## PROTECTED
+                                                                                 ##
+                                                                                 ##
+                                                                                 ## Methods
+                                                                                 ## PRIVATE
+                                                                                 ##
 
-  NCollection_BaseSequenceIterator* {.importcpp: "NCollection_BaseSequence::Iterator",
-                                     header: "NCollection_BaseSequence.hxx",
-                                     bycopy.} = object ## ! Empty constructor
+  NCollectionBaseSequenceIterator* {.importcpp: "NCollection_BaseSequence::Iterator",
+                                    header: "NCollection_BaseSequence.hxx", bycopy.} = object ##
+                                                                                         ## !
+                                                                                         ## Empty
+                                                                                         ## constructor
     ## !< Pointer to the current node
     ## !< Pointer to the previous node
 
 
-proc constructNCollection_BaseSequenceIterator*(): NCollection_BaseSequenceIterator {.
+proc constructNCollectionBaseSequenceIterator*(): NCollectionBaseSequenceIterator {.
     constructor, importcpp: "NCollection_BaseSequence::Iterator(@)",
     header: "NCollection_BaseSequence.hxx".}
-proc constructNCollection_BaseSequenceIterator*(theSeq: NCollection_BaseSequence;
-    isStart: Standard_Boolean): NCollection_BaseSequenceIterator {.constructor,
+proc constructNCollectionBaseSequenceIterator*(theSeq: NCollectionBaseSequence;
+    isStart: bool): NCollectionBaseSequenceIterator {.constructor,
     importcpp: "NCollection_BaseSequence::Iterator(@)",
     header: "NCollection_BaseSequence.hxx".}
-proc Init*(this: var NCollection_BaseSequenceIterator;
-          theSeq: NCollection_BaseSequence;
-          isStart: Standard_Boolean = Standard_True) {.importcpp: "Init",
+proc init*(this: var NCollectionBaseSequenceIterator;
+          theSeq: NCollectionBaseSequence; isStart: bool = true) {.importcpp: "Init",
     header: "NCollection_BaseSequence.hxx".}
-proc Previous*(this: var NCollection_BaseSequenceIterator) {.importcpp: "Previous",
+proc previous*(this: var NCollectionBaseSequenceIterator) {.importcpp: "Previous",
     header: "NCollection_BaseSequence.hxx".}
-proc IsEmpty*(this: NCollection_BaseSequence): Standard_Boolean {.noSideEffect,
+proc isEmpty*(this: NCollectionBaseSequence): bool {.noSideEffect,
     importcpp: "IsEmpty", header: "NCollection_BaseSequence.hxx".}
-proc Length*(this: NCollection_BaseSequence): Standard_Integer {.noSideEffect,
-    importcpp: "Length", header: "NCollection_BaseSequence.hxx".}
-proc Allocator*(this: NCollection_BaseSequence): handle[NCollection_BaseAllocator] {.
+proc length*(this: NCollectionBaseSequence): int {.noSideEffect, importcpp: "Length",
+    header: "NCollection_BaseSequence.hxx".}
+proc allocator*(this: NCollectionBaseSequence): Handle[NCollectionBaseAllocator] {.
     noSideEffect, importcpp: "Allocator", header: "NCollection_BaseSequence.hxx".}

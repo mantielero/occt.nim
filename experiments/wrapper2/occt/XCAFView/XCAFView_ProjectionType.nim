@@ -16,9 +16,10 @@
 ## ! Defines projection types of view
 
 type
-  XCAFView_ProjectionType* {.size: sizeof(cint),
-                            importcpp: "XCAFView_ProjectionType",
-                            header: "XCAFView_ProjectionType.hxx".} = enum
-    XCAFView_ProjectionType_NoCamera, XCAFView_ProjectionType_Parallel,
-    XCAFView_ProjectionType_Central
+  XCAFViewProjectionType* {.size: sizeof(cint),
+                           importcpp: "XCAFView_ProjectionType",
+                           header: "XCAFView_ProjectionType.hxx".} = enum
+    XCAFViewProjectionTypeNoCamera, XCAFViewProjectionTypeParallel,
+    XCAFViewProjectionTypeCentral
+
 

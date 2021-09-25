@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Pnt, ../NCollection/NCollection_Sequence
-
 type
-  TColgp_SequenceOfPnt* = NCollection_Sequence[gp_Pnt]
+  TColgpSequenceOfPnt* = NCollectionSequence[Pnt]
+

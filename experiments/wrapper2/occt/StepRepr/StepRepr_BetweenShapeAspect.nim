@@ -13,32 +13,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_ContinuosShapeAspect
-
 discard "forward decl of StepRepr_BetweenShapeAspect"
 discard "forward decl of StepRepr_BetweenShapeAspect"
 type
-  Handle_StepRepr_BetweenShapeAspect* = handle[StepRepr_BetweenShapeAspect]
+  HandleStepReprBetweenShapeAspect* = Handle[StepReprBetweenShapeAspect]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepRepr_BetweenShapeAspect* {.importcpp: "StepRepr_BetweenShapeAspect",
-                                header: "StepRepr_BetweenShapeAspect.hxx", bycopy.} = object of StepRepr_ContinuosShapeAspect
+  StepReprBetweenShapeAspect* {.importcpp: "StepRepr_BetweenShapeAspect",
+                               header: "StepRepr_BetweenShapeAspect.hxx", bycopy.} = object of StepReprContinuosShapeAspect
 
 
-proc constructStepRepr_BetweenShapeAspect*(): StepRepr_BetweenShapeAspect {.
+proc constructStepReprBetweenShapeAspect*(): StepReprBetweenShapeAspect {.
     constructor, importcpp: "StepRepr_BetweenShapeAspect(@)",
     header: "StepRepr_BetweenShapeAspect.hxx".}
 type
-  StepRepr_BetweenShapeAspectbase_type* = StepRepr_ContinuosShapeAspect
+  StepReprBetweenShapeAspectbaseType* = StepReprContinuosShapeAspect
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_BetweenShapeAspect::get_type_name(@)",
-                              header: "StepRepr_BetweenShapeAspect.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_BetweenShapeAspect::get_type_name(@)",
+                            header: "StepRepr_BetweenShapeAspect.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_BetweenShapeAspect::get_type_descriptor(@)",
     header: "StepRepr_BetweenShapeAspect.hxx".}
-proc DynamicType*(this: StepRepr_BetweenShapeAspect): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprBetweenShapeAspect): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_BetweenShapeAspect.hxx".}

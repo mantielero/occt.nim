@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TNaming_PtrNode, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_NoMoreObject"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TNaming_Tool"
@@ -25,16 +21,16 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of TNaming_UsedShapes"
 discard "forward decl of TDF_Label"
 type
-  TNaming_SameShapeIterator* {.importcpp: "TNaming_SameShapeIterator",
-                              header: "TNaming_SameShapeIterator.hxx", bycopy.} = object
+  TNamingSameShapeIterator* {.importcpp: "TNaming_SameShapeIterator",
+                             header: "TNaming_SameShapeIterator.hxx", bycopy.} = object
 
 
-proc constructTNaming_SameShapeIterator*(aShape: TopoDS_Shape; access: TDF_Label): TNaming_SameShapeIterator {.
+proc constructTNamingSameShapeIterator*(aShape: TopoDS_Shape; access: TDF_Label): TNamingSameShapeIterator {.
     constructor, importcpp: "TNaming_SameShapeIterator(@)",
     header: "TNaming_SameShapeIterator.hxx".}
-proc More*(this: TNaming_SameShapeIterator): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "TNaming_SameShapeIterator.hxx".}
-proc Next*(this: var TNaming_SameShapeIterator) {.importcpp: "Next",
+proc more*(this: TNamingSameShapeIterator): bool {.noSideEffect, importcpp: "More",
     header: "TNaming_SameShapeIterator.hxx".}
-proc Label*(this: TNaming_SameShapeIterator): TDF_Label {.noSideEffect,
+proc next*(this: var TNamingSameShapeIterator) {.importcpp: "Next",
+    header: "TNaming_SameShapeIterator.hxx".}
+proc label*(this: TNamingSameShapeIterator): TDF_Label {.noSideEffect,
     importcpp: "Label", header: "TNaming_SameShapeIterator.hxx".}

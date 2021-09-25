@@ -14,16 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Storage_StreamExtCharParityError_HeaderFile [NewLine] # _Storage_StreamExtCharParityError_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # Storage_StreamReadError.hxx [NewLine] class Storage_StreamExtCharParityError ;
+## !!!Ignored construct:  # _Storage_StreamExtCharParityError_HeaderFile [NewLine] # _Storage_StreamExtCharParityError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Storage_StreamReadError . hxx > [NewLine] class Storage_StreamExtCharParityError ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Storage_StreamExtCharParityError"
 type
-  Handle_Storage_StreamExtCharParityErrorStorage_StreamExtCharParityError* = handle[
-      Storage_StreamExtCharParityError]
+  HandleStorageStreamExtCharParityErrorStorageStreamExtCharParityError* = Handle[
+      StorageStreamExtCharParityError]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Storage_StreamExtCharParityError [NewLine] # if ( CONDITION ) throw Storage_StreamExtCharParityError ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Storage_StreamExtCharParityError , Storage_StreamReadError ) #  _Storage_StreamExtCharParityError_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Storage_StreamExtCharParityError , Storage_StreamReadError ) #  _Storage_StreamExtCharParityError_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

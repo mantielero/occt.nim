@@ -11,9 +11,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepElement_SurfaceElementPurpose, ../NCollection/NCollection_Array2
-
 type
-  StepElement_Array2OfSurfaceElementPurpose* = NCollection_Array2[
-      StepElement_SurfaceElementPurpose]
+  StepElementArray2OfSurfaceElementPurpose* = NCollectionArray2[
+      StepElementSurfaceElementPurpose]
+

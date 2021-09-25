@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Resistance_HeaderFile [NewLine] # _Quantity_Resistance_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the ratio of the potential difference
+## !!!Ignored construct:  # _Quantity_Resistance_HeaderFile [NewLine] # _Quantity_Resistance_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the ratio of the potential difference
 ## ! across a conductor to the current flowing through it.
 ## ! It is measured in ohms. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Resistance ;
 ## Error: expected ';'!!!
+

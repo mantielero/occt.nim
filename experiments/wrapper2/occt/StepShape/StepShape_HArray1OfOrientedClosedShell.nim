@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepShape_OrientedClosedShell, StepShape_Array1OfOrientedClosedShell,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepShape_HArray1OfOrientedClosedShell* {.
+  StepShapeHArray1OfOrientedClosedShell* {.
       importcpp: "StepShape_HArray1OfOrientedClosedShell",
-      header: "StepShape_HArray1OfOrientedClosedShell.hxx", bycopy.} = object of StepShape_Array1OfOrientedClosedShell
+      header: "StepShape_HArray1OfOrientedClosedShell.hxx", bycopy.} = object of StepShapeArray1OfOrientedClosedShell
 
 
-proc constructStepShape_HArray1OfOrientedClosedShell*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepShape_HArray1OfOrientedClosedShell {.
+proc constructStepShapeHArray1OfOrientedClosedShell*(theLower: int; theUpper: int): StepShapeHArray1OfOrientedClosedShell {.
     constructor, importcpp: "StepShape_HArray1OfOrientedClosedShell(@)",
     header: "StepShape_HArray1OfOrientedClosedShell.hxx".}
-proc constructStepShape_HArray1OfOrientedClosedShell*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepShape_HArray1OfOrientedClosedShell {.
+proc constructStepShapeHArray1OfOrientedClosedShell*(theLower: int; theUpper: int;
+    theValue: ValueType): StepShapeHArray1OfOrientedClosedShell {.constructor,
+    importcpp: "StepShape_HArray1OfOrientedClosedShell(@)",
+    header: "StepShape_HArray1OfOrientedClosedShell.hxx".}
+proc constructStepShapeHArray1OfOrientedClosedShell*(
+    theOther: StepShapeArray1OfOrientedClosedShell): StepShapeHArray1OfOrientedClosedShell {.
     constructor, importcpp: "StepShape_HArray1OfOrientedClosedShell(@)",
     header: "StepShape_HArray1OfOrientedClosedShell.hxx".}
-proc constructStepShape_HArray1OfOrientedClosedShell*(
-    theOther: StepShape_Array1OfOrientedClosedShell): StepShape_HArray1OfOrientedClosedShell {.
-    constructor, importcpp: "StepShape_HArray1OfOrientedClosedShell(@)",
-    header: "StepShape_HArray1OfOrientedClosedShell.hxx".}
-proc Array1*(this: StepShape_HArray1OfOrientedClosedShell): StepShape_Array1OfOrientedClosedShell {.
+proc array1*(this: StepShapeHArray1OfOrientedClosedShell): StepShapeArray1OfOrientedClosedShell {.
     noSideEffect, importcpp: "Array1",
     header: "StepShape_HArray1OfOrientedClosedShell.hxx".}
-proc ChangeArray1*(this: var StepShape_HArray1OfOrientedClosedShell): var StepShape_Array1OfOrientedClosedShell {.
+proc changeArray1*(this: var StepShapeHArray1OfOrientedClosedShell): var StepShapeArray1OfOrientedClosedShell {.
     importcpp: "ChangeArray1",
     header: "StepShape_HArray1OfOrientedClosedShell.hxx".}
 type
-  StepShape_HArray1OfOrientedClosedShellbase_type* = MMgt_TShared
+  StepShapeHArray1OfOrientedClosedShellbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_HArray1OfOrientedClosedShell::get_type_name(@)", header: "StepShape_HArray1OfOrientedClosedShell.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepShape_HArray1OfOrientedClosedShell::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepShape_HArray1OfOrientedClosedShell::get_type_name(@)", header: "StepShape_HArray1OfOrientedClosedShell.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_HArray1OfOrientedClosedShell::get_type_descriptor(@)",
     header: "StepShape_HArray1OfOrientedClosedShell.hxx".}
-proc DynamicType*(this: StepShape_HArray1OfOrientedClosedShell): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepShape_HArray1OfOrientedClosedShell.hxx".}
+proc dynamicType*(this: StepShapeHArray1OfOrientedClosedShell): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepShape_HArray1OfOrientedClosedShell.hxx".}

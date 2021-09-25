@@ -14,100 +14,84 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, math_Vector, math_Matrix,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, ../Standard/Standard_OStream
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of math_Matrix"
 type
-  math_Uzawa* {.importcpp: "math_Uzawa", header: "math_Uzawa.hxx", bycopy.} = object ## !
-                                                                             ## Given an
-                                                                             ## input
-                                                                             ## matrix
-                                                                             ## Cont, two
-                                                                             ## input
-                                                                             ## vectors
-                                                                             ## Secont
-                                                                             ## ! and
-                                                                             ## StartingPoint, it
-                                                                             ## solves
-                                                                             ## Cont*X =
-                                                                             ## Secont
-                                                                             ## (only
-                                                                             ## ! =
-                                                                             ## equations)
-                                                                             ## with a
-                                                                             ## minimization of
-                                                                             ## Norme(X-X0).
-                                                                             ## ! The
-                                                                             ## maximun
-                                                                             ## iterations
-                                                                             ## number
-                                                                             ## allowed is
-                                                                             ## fixed to
-                                                                             ## !
-                                                                             ## NbIterations.
-                                                                             ## ! The
-                                                                             ## tolerance
-                                                                             ## EpsLic is
-                                                                             ## fixed for the
-                                                                             ## dual
-                                                                             ## variable
-                                                                             ## !
-                                                                             ## convergence. The
-                                                                             ## tolerance
-                                                                             ## EpsLix is
-                                                                             ## used for the
-                                                                             ## !
-                                                                             ## convergence of X.
-                                                                             ## !
-                                                                             ## Exception
-                                                                             ## ConstuctionError is
-                                                                             ## raised if the
-                                                                             ## line
-                                                                             ## number
-                                                                             ## ! of
-                                                                             ## Cont is
-                                                                             ## different
-                                                                             ## from the
-                                                                             ## length of
-                                                                             ## Secont.
-                                                                             ## ! Is
-                                                                             ## used
-                                                                             ## internally by the two
-                                                                             ## constructors
-                                                                             ## above.
+  MathUzawa* {.importcpp: "math_Uzawa", header: "math_Uzawa.hxx", bycopy.} = object ## !
+                                                                            ## Given an
+                                                                            ## input
+                                                                            ## matrix
+                                                                            ## Cont, two
+                                                                            ## input
+                                                                            ## vectors
+                                                                            ## Secont
+                                                                            ## ! and
+                                                                            ## StartingPoint, it
+                                                                            ## solves
+                                                                            ## Cont*X =
+                                                                            ## Secont
+                                                                            ## (only
+                                                                            ## ! =
+                                                                            ## equations) with a
+                                                                            ## minimization of
+                                                                            ## Norme(X-X0).
+                                                                            ## ! The
+                                                                            ## maximun
+                                                                            ## iterations
+                                                                            ## number
+                                                                            ## allowed is
+                                                                            ## fixed to
+                                                                            ## !
+                                                                            ## NbIterations.
+                                                                            ## ! The
+                                                                            ## tolerance
+                                                                            ## EpsLic is
+                                                                            ## fixed for the dual
+                                                                            ## variable
+                                                                            ## !
+                                                                            ## convergence. The
+                                                                            ## tolerance
+                                                                            ## EpsLix is used for the
+                                                                            ## !
+                                                                            ## convergence of X.
+                                                                            ## !
+                                                                            ## Exception
+                                                                            ## ConstuctionError is
+                                                                            ## raised if the line
+                                                                            ## number
+                                                                            ## ! of Cont is
+                                                                            ## different from the
+                                                                            ## length of
+                                                                            ## Secont.
+                                                                            ## ! Is used
+                                                                            ## internally by the two
+                                                                            ## constructors
+                                                                            ## above.
 
 
-proc constructmath_Uzawa*(Cont: math_Matrix; Secont: math_Vector;
-                         StartingPoint: math_Vector;
-                         EpsLix: Standard_Real = 1.0e-06;
-                         EpsLic: Standard_Real = 1.0e-06;
-                         NbIterations: Standard_Integer = 500): math_Uzawa {.
+proc constructMathUzawa*(cont: MathMatrix; secont: MathVector;
+                        startingPoint: MathVector; epsLix: float = 1.0e-06;
+                        epsLic: float = 1.0e-06; nbIterations: int = 500): MathUzawa {.
     constructor, importcpp: "math_Uzawa(@)", header: "math_Uzawa.hxx".}
-proc constructmath_Uzawa*(Cont: math_Matrix; Secont: math_Vector;
-                         StartingPoint: math_Vector; Nci: Standard_Integer;
-                         Nce: Standard_Integer; EpsLix: Standard_Real = 1.0e-06;
-                         EpsLic: Standard_Real = 1.0e-06;
-                         NbIterations: Standard_Integer = 500): math_Uzawa {.
-    constructor, importcpp: "math_Uzawa(@)", header: "math_Uzawa.hxx".}
-proc IsDone*(this: math_Uzawa): Standard_Boolean {.noSideEffect, importcpp: "IsDone",
-    header: "math_Uzawa.hxx".}
-proc Value*(this: math_Uzawa): math_Vector {.noSideEffect, importcpp: "Value",
-    header: "math_Uzawa.hxx".}
-proc InitialError*(this: math_Uzawa): math_Vector {.noSideEffect,
+proc constructMathUzawa*(cont: MathMatrix; secont: MathVector;
+                        startingPoint: MathVector; nci: int; nce: int;
+                        epsLix: float = 1.0e-06; epsLic: float = 1.0e-06;
+                        nbIterations: int = 500): MathUzawa {.constructor,
+    importcpp: "math_Uzawa(@)", header: "math_Uzawa.hxx".}
+proc isDone*(this: MathUzawa): bool {.noSideEffect, importcpp: "IsDone",
+                                  header: "math_Uzawa.hxx".}
+proc value*(this: MathUzawa): MathVector {.noSideEffect, importcpp: "Value",
+                                       header: "math_Uzawa.hxx".}
+proc initialError*(this: MathUzawa): MathVector {.noSideEffect,
     importcpp: "InitialError", header: "math_Uzawa.hxx".}
-proc Duale*(this: math_Uzawa; V: var math_Vector) {.noSideEffect, importcpp: "Duale",
+proc duale*(this: MathUzawa; v: var MathVector) {.noSideEffect, importcpp: "Duale",
     header: "math_Uzawa.hxx".}
-proc Error*(this: math_Uzawa): math_Vector {.noSideEffect, importcpp: "Error",
-    header: "math_Uzawa.hxx".}
-proc NbIterations*(this: math_Uzawa): Standard_Integer {.noSideEffect,
-    importcpp: "NbIterations", header: "math_Uzawa.hxx".}
-proc InverseCont*(this: math_Uzawa): math_Matrix {.noSideEffect,
+proc error*(this: MathUzawa): MathVector {.noSideEffect, importcpp: "Error",
+                                       header: "math_Uzawa.hxx".}
+proc nbIterations*(this: MathUzawa): int {.noSideEffect, importcpp: "NbIterations",
+                                       header: "math_Uzawa.hxx".}
+proc inverseCont*(this: MathUzawa): MathMatrix {.noSideEffect,
     importcpp: "InverseCont", header: "math_Uzawa.hxx".}
-proc Dump*(this: math_Uzawa; o: var Standard_OStream) {.noSideEffect,
-    importcpp: "Dump", header: "math_Uzawa.hxx".}
+proc dump*(this: MathUzawa; o: var StandardOStream) {.noSideEffect, importcpp: "Dump",
+    header: "math_Uzawa.hxx".}

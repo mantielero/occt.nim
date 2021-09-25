@@ -12,10 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Real, TColStd_MapRealHasher,
-  ../NCollection/NCollection_IndexedMap
-
 type
-  TColStd_IndexedMapOfReal* = NCollection_IndexedMap[Standard_Real,
-      TColStd_MapRealHasher]
+  TColStdIndexedMapOfReal* = NCollectionIndexedMap[float, TColStdMapRealHasher]
+

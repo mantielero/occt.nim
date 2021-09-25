@@ -14,73 +14,64 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_HArray1OfInteger, ../TColStd/TColStd_HArray1OfReal,
-  StepGeom_KnotType, StepGeom_BSplineCurve, ../Standard/Standard_Integer,
-  StepGeom_HArray1OfCartesianPoint, StepGeom_BSplineCurveForm,
-  ../StepData/StepData_Logical, ../Standard/Standard_Real
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_BSplineCurveWithKnots"
 discard "forward decl of StepGeom_BSplineCurveWithKnots"
 type
-  Handle_StepGeom_BSplineCurveWithKnots* = handle[StepGeom_BSplineCurveWithKnots]
-  StepGeom_BSplineCurveWithKnots* {.importcpp: "StepGeom_BSplineCurveWithKnots", header: "StepGeom_BSplineCurveWithKnots.hxx",
-                                   bycopy.} = object of StepGeom_BSplineCurve ## ! Returns a
-                                                                         ## BSplineCurveWithKnots
+  HandleStepGeomBSplineCurveWithKnots* = Handle[StepGeomBSplineCurveWithKnots]
+  StepGeomBSplineCurveWithKnots* {.importcpp: "StepGeom_BSplineCurveWithKnots",
+                                  header: "StepGeom_BSplineCurveWithKnots.hxx",
+                                  bycopy.} = object of StepGeomBSplineCurve ## ! Returns a
+                                                                       ## BSplineCurveWithKnots
 
 
-proc constructStepGeom_BSplineCurveWithKnots*(): StepGeom_BSplineCurveWithKnots {.
+proc constructStepGeomBSplineCurveWithKnots*(): StepGeomBSplineCurveWithKnots {.
     constructor, importcpp: "StepGeom_BSplineCurveWithKnots(@)",
     header: "StepGeom_BSplineCurveWithKnots.hxx".}
-proc Init*(this: var StepGeom_BSplineCurveWithKnots;
-          aName: handle[TCollection_HAsciiString]; aDegree: Standard_Integer;
-          aControlPointsList: handle[StepGeom_HArray1OfCartesianPoint];
-          aCurveForm: StepGeom_BSplineCurveForm; aClosedCurve: StepData_Logical;
-          aSelfIntersect: StepData_Logical;
-          aKnotMultiplicities: handle[TColStd_HArray1OfInteger];
-          aKnots: handle[TColStd_HArray1OfReal]; aKnotSpec: StepGeom_KnotType) {.
+proc init*(this: var StepGeomBSplineCurveWithKnots;
+          aName: Handle[TCollectionHAsciiString]; aDegree: int;
+          aControlPointsList: Handle[StepGeomHArray1OfCartesianPoint];
+          aCurveForm: StepGeomBSplineCurveForm; aClosedCurve: StepDataLogical;
+          aSelfIntersect: StepDataLogical;
+          aKnotMultiplicities: Handle[TColStdHArray1OfInteger];
+          aKnots: Handle[TColStdHArray1OfReal]; aKnotSpec: StepGeomKnotType) {.
     importcpp: "Init", header: "StepGeom_BSplineCurveWithKnots.hxx".}
-proc SetKnotMultiplicities*(this: var StepGeom_BSplineCurveWithKnots;
-    aKnotMultiplicities: handle[TColStd_HArray1OfInteger]) {.
+proc setKnotMultiplicities*(this: var StepGeomBSplineCurveWithKnots;
+                           aKnotMultiplicities: Handle[TColStdHArray1OfInteger]) {.
     importcpp: "SetKnotMultiplicities",
     header: "StepGeom_BSplineCurveWithKnots.hxx".}
-proc KnotMultiplicities*(this: StepGeom_BSplineCurveWithKnots): handle[
-    TColStd_HArray1OfInteger] {.noSideEffect, importcpp: "KnotMultiplicities",
-                               header: "StepGeom_BSplineCurveWithKnots.hxx".}
-proc KnotMultiplicitiesValue*(this: StepGeom_BSplineCurveWithKnots;
-                             num: Standard_Integer): Standard_Integer {.
+proc knotMultiplicities*(this: StepGeomBSplineCurveWithKnots): Handle[
+    TColStdHArray1OfInteger] {.noSideEffect, importcpp: "KnotMultiplicities",
+                              header: "StepGeom_BSplineCurveWithKnots.hxx".}
+proc knotMultiplicitiesValue*(this: StepGeomBSplineCurveWithKnots; num: int): int {.
     noSideEffect, importcpp: "KnotMultiplicitiesValue",
     header: "StepGeom_BSplineCurveWithKnots.hxx".}
-proc NbKnotMultiplicities*(this: StepGeom_BSplineCurveWithKnots): Standard_Integer {.
-    noSideEffect, importcpp: "NbKnotMultiplicities",
+proc nbKnotMultiplicities*(this: StepGeomBSplineCurveWithKnots): int {.noSideEffect,
+    importcpp: "NbKnotMultiplicities",
     header: "StepGeom_BSplineCurveWithKnots.hxx".}
-proc SetKnots*(this: var StepGeom_BSplineCurveWithKnots;
-              aKnots: handle[TColStd_HArray1OfReal]) {.importcpp: "SetKnots",
+proc setKnots*(this: var StepGeomBSplineCurveWithKnots;
+              aKnots: Handle[TColStdHArray1OfReal]) {.importcpp: "SetKnots",
     header: "StepGeom_BSplineCurveWithKnots.hxx".}
-proc Knots*(this: StepGeom_BSplineCurveWithKnots): handle[TColStd_HArray1OfReal] {.
+proc knots*(this: StepGeomBSplineCurveWithKnots): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "Knots", header: "StepGeom_BSplineCurveWithKnots.hxx".}
-proc KnotsValue*(this: StepGeom_BSplineCurveWithKnots; num: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "KnotsValue",
+proc knotsValue*(this: StepGeomBSplineCurveWithKnots; num: int): float {.noSideEffect,
+    importcpp: "KnotsValue", header: "StepGeom_BSplineCurveWithKnots.hxx".}
+proc nbKnots*(this: StepGeomBSplineCurveWithKnots): int {.noSideEffect,
+    importcpp: "NbKnots", header: "StepGeom_BSplineCurveWithKnots.hxx".}
+proc setKnotSpec*(this: var StepGeomBSplineCurveWithKnots;
+                 aKnotSpec: StepGeomKnotType) {.importcpp: "SetKnotSpec",
     header: "StepGeom_BSplineCurveWithKnots.hxx".}
-proc NbKnots*(this: StepGeom_BSplineCurveWithKnots): Standard_Integer {.
-    noSideEffect, importcpp: "NbKnots",
-    header: "StepGeom_BSplineCurveWithKnots.hxx".}
-proc SetKnotSpec*(this: var StepGeom_BSplineCurveWithKnots;
-                 aKnotSpec: StepGeom_KnotType) {.importcpp: "SetKnotSpec",
-    header: "StepGeom_BSplineCurveWithKnots.hxx".}
-proc KnotSpec*(this: StepGeom_BSplineCurveWithKnots): StepGeom_KnotType {.
+proc knotSpec*(this: StepGeomBSplineCurveWithKnots): StepGeomKnotType {.
     noSideEffect, importcpp: "KnotSpec",
     header: "StepGeom_BSplineCurveWithKnots.hxx".}
 type
-  StepGeom_BSplineCurveWithKnotsbase_type* = StepGeom_BSplineCurve
+  StepGeomBSplineCurveWithKnotsbaseType* = StepGeomBSplineCurve
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_BSplineCurveWithKnots::get_type_name(@)",
-                              header: "StepGeom_BSplineCurveWithKnots.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_BSplineCurveWithKnots::get_type_name(@)",
+                            header: "StepGeom_BSplineCurveWithKnots.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_BSplineCurveWithKnots::get_type_descriptor(@)",
     header: "StepGeom_BSplineCurveWithKnots.hxx".}
-proc DynamicType*(this: StepGeom_BSplineCurveWithKnots): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomBSplineCurveWithKnots): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_BSplineCurveWithKnots.hxx".}

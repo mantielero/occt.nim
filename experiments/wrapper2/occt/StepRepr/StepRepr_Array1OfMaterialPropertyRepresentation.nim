@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepRepr_MaterialPropertyRepresentation, ../NCollection/NCollection_Array1
-
 type
-  StepRepr_Array1OfMaterialPropertyRepresentation* = NCollection_Array1[
-      handle[StepRepr_MaterialPropertyRepresentation]]
+  StepReprArray1OfMaterialPropertyRepresentation* = NCollectionArray1[
+      Handle[StepReprMaterialPropertyRepresentation]]
+

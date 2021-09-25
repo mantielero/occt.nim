@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_SequenceOfTransient, ../TColStd/TColStd_SequenceOfInteger,
-  IFSelect_Signature, ../Standard/Standard_CString, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of IFSelect_Signature"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
@@ -27,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SignMultiple"
 discard "forward decl of IFSelect_SignMultiple"
 type
-  Handle_IFSelect_SignMultiple* = handle[IFSelect_SignMultiple]
+  HandleIFSelectSignMultiple* = Handle[IFSelectSignMultiple]
 
 ## ! Multiple Signature : ordered list of other Signatures
 ## ! It concatenates on a same line the result of its sub-items
@@ -36,48 +30,48 @@ type
 ## ! Moreover, match rules are specific
 
 type
-  IFSelect_SignMultiple* {.importcpp: "IFSelect_SignMultiple",
-                          header: "IFSelect_SignMultiple.hxx", bycopy.} = object of IFSelect_Signature ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## an
-                                                                                                ## empty
-                                                                                                ## SignMultiple
-                                                                                                ## with
-                                                                                                ## a
-                                                                                                ## Name
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## This
-                                                                                                ## name
-                                                                                                ## should
-                                                                                                ## take
-                                                                                                ## expected
-                                                                                                ## tabulations
-                                                                                                ## into
-                                                                                                ## account
+  IFSelectSignMultiple* {.importcpp: "IFSelect_SignMultiple",
+                         header: "IFSelect_SignMultiple.hxx", bycopy.} = object of IFSelectSignature ##
+                                                                                              ## !
+                                                                                              ## Creates
+                                                                                              ## an
+                                                                                              ## empty
+                                                                                              ## SignMultiple
+                                                                                              ## with
+                                                                                              ## a
+                                                                                              ## Name
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## This
+                                                                                              ## name
+                                                                                              ## should
+                                                                                              ## take
+                                                                                              ## expected
+                                                                                              ## tabulations
+                                                                                              ## into
+                                                                                              ## account
 
 
-proc constructIFSelect_SignMultiple*(name: Standard_CString): IFSelect_SignMultiple {.
+proc constructIFSelectSignMultiple*(name: StandardCString): IFSelectSignMultiple {.
     constructor, importcpp: "IFSelect_SignMultiple(@)",
     header: "IFSelect_SignMultiple.hxx".}
-proc Add*(this: var IFSelect_SignMultiple; subsign: handle[IFSelect_Signature];
-         width: Standard_Integer = 0; maxi: Standard_Boolean = Standard_False) {.
-    importcpp: "Add", header: "IFSelect_SignMultiple.hxx".}
-proc Value*(this: IFSelect_SignMultiple; ent: handle[Standard_Transient];
-           model: handle[Interface_InterfaceModel]): Standard_CString {.
-    noSideEffect, importcpp: "Value", header: "IFSelect_SignMultiple.hxx".}
-proc Matches*(this: IFSelect_SignMultiple; ent: handle[Standard_Transient];
-             model: handle[Interface_InterfaceModel];
-             text: TCollection_AsciiString; exact: Standard_Boolean): Standard_Boolean {.
-    noSideEffect, importcpp: "Matches", header: "IFSelect_SignMultiple.hxx".}
+proc add*(this: var IFSelectSignMultiple; subsign: Handle[IFSelectSignature];
+         width: int = 0; maxi: bool = false) {.importcpp: "Add",
+                                       header: "IFSelect_SignMultiple.hxx".}
+proc value*(this: IFSelectSignMultiple; ent: Handle[StandardTransient];
+           model: Handle[InterfaceInterfaceModel]): StandardCString {.noSideEffect,
+    importcpp: "Value", header: "IFSelect_SignMultiple.hxx".}
+proc matches*(this: IFSelectSignMultiple; ent: Handle[StandardTransient];
+             model: Handle[InterfaceInterfaceModel]; text: TCollectionAsciiString;
+             exact: bool): bool {.noSideEffect, importcpp: "Matches",
+                               header: "IFSelect_SignMultiple.hxx".}
 type
-  IFSelect_SignMultiplebase_type* = IFSelect_Signature
+  IFSelectSignMultiplebaseType* = IFSelectSignature
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_SignMultiple::get_type_name(@)",
-                              header: "IFSelect_SignMultiple.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_SignMultiple::get_type_name(@)",
+                            header: "IFSelect_SignMultiple.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_SignMultiple::get_type_descriptor(@)",
     header: "IFSelect_SignMultiple.hxx".}
-proc DynamicType*(this: IFSelect_SignMultiple): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IFSelect_SignMultiple.hxx".}
+proc dynamicType*(this: IFSelectSignMultiple): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IFSelect_SignMultiple.hxx".}

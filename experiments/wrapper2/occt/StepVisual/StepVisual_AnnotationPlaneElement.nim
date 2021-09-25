@@ -13,29 +13,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepVisual_DraughtingCallout"
 discard "forward decl of StepVisual_StyledItem"
 type
-  StepVisual_AnnotationPlaneElement* {.importcpp: "StepVisual_AnnotationPlaneElement", header: "StepVisual_AnnotationPlaneElement.hxx",
-                                      bycopy.} = object of StepData_SelectType ## !
-                                                                          ## Returns a
-                                                                          ## AnnotationPlaneElement select type
+  StepVisualAnnotationPlaneElement* {.importcpp: "StepVisual_AnnotationPlaneElement", header: "StepVisual_AnnotationPlaneElement.hxx",
+                                     bycopy.} = object of StepDataSelectType ## ! Returns a
+                                                                        ## AnnotationPlaneElement select type
 
 
-proc constructStepVisual_AnnotationPlaneElement*(): StepVisual_AnnotationPlaneElement {.
+proc constructStepVisualAnnotationPlaneElement*(): StepVisualAnnotationPlaneElement {.
     constructor, importcpp: "StepVisual_AnnotationPlaneElement(@)",
     header: "StepVisual_AnnotationPlaneElement.hxx".}
-proc CaseNum*(this: StepVisual_AnnotationPlaneElement;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepVisualAnnotationPlaneElement;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepVisual_AnnotationPlaneElement.hxx".}
-proc DraughtingCallout*(this: StepVisual_AnnotationPlaneElement): handle[
-    StepVisual_DraughtingCallout] {.noSideEffect, importcpp: "DraughtingCallout", header: "StepVisual_AnnotationPlaneElement.hxx".}
-proc StyledItem*(this: StepVisual_AnnotationPlaneElement): handle[
-    StepVisual_StyledItem] {.noSideEffect, importcpp: "StyledItem",
-                            header: "StepVisual_AnnotationPlaneElement.hxx".}
+proc draughtingCallout*(this: StepVisualAnnotationPlaneElement): Handle[
+    StepVisualDraughtingCallout] {.noSideEffect, importcpp: "DraughtingCallout", header: "StepVisual_AnnotationPlaneElement.hxx".}
+proc styledItem*(this: StepVisualAnnotationPlaneElement): Handle[
+    StepVisualStyledItem] {.noSideEffect, importcpp: "StyledItem",
+                           header: "StepVisual_AnnotationPlaneElement.hxx".}

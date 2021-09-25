@@ -14,120 +14,101 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean, AppDef_MultiLine,
-  ../AppParCurves/AppParCurves_MultiBSpCurve, ../Standard/Standard_Integer,
-  ../math/math_Vector, ../Standard/Standard_Real, ../math/math_Matrix,
-  AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute,
-  ../TColStd/TColStd_HArray1OfInteger,
-  ../AppParCurves/AppParCurves_HArray1OfConstraintCouple,
-  ../math/math_MultipleVarFunctionWithGradient, ../TColStd/TColStd_Array1OfReal,
-  ../TColStd/TColStd_Array1OfInteger, ../math/math_IntegerVector,
-  ../AppParCurves/AppParCurves_Constraint
-
 discard "forward decl of AppDef_MultiLine"
 discard "forward decl of AppDef_MyLineTool"
 discard "forward decl of AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute"
 discard "forward decl of AppParCurves_MultiBSpCurve"
 discard "forward decl of math_Matrix"
 type
-  AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute* {.
+  AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute* {.
       importcpp: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute",
-      header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx", bycopy.} = object of math_MultipleVarFunctionWithGradient ##
-                                                                                                                              ## !
-                                                                                                                              ## initializes
-                                                                                                                              ## the
-                                                                                                                              ## fields
-                                                                                                                              ## of
-                                                                                                                              ## the
-                                                                                                                              ## function.
-                                                                                                                              ## The
-                                                                                                                              ## approximating
-                                                                                                                              ##
-                                                                                                                              ## !
-                                                                                                                              ## curve
-                                                                                                                              ## has
-                                                                                                                              ## <NbPol>
-                                                                                                                              ## control
-                                                                                                                              ## points.
-                                                                                                                              ##
-                                                                                                                              ## !
-                                                                                                                              ## this
-                                                                                                                              ## method
-                                                                                                                              ## is
-                                                                                                                              ## used
-                                                                                                                              ## each
-                                                                                                                              ## time
-                                                                                                                              ## Value
-                                                                                                                              ## or
-                                                                                                                              ## Gradient
-                                                                                                                              ## is
-                                                                                                                              ##
-                                                                                                                              ## !
-                                                                                                                              ## needed.
+      header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx", bycopy.} = object of MathMultipleVarFunctionWithGradient ##
+                                                                                                                             ## !
+                                                                                                                             ## initializes
+                                                                                                                             ## the
+                                                                                                                             ## fields
+                                                                                                                             ## of
+                                                                                                                             ## the
+                                                                                                                             ## function.
+                                                                                                                             ## The
+                                                                                                                             ## approximating
+                                                                                                                             ##
+                                                                                                                             ## !
+                                                                                                                             ## curve
+                                                                                                                             ## has
+                                                                                                                             ## <NbPol>
+                                                                                                                             ## control
+                                                                                                                             ## points.
+                                                                                                                             ##
+                                                                                                                             ## !
+                                                                                                                             ## this
+                                                                                                                             ## method
+                                                                                                                             ## is
+                                                                                                                             ## used
+                                                                                                                             ## each
+                                                                                                                             ## time
+                                                                                                                             ## Value
+                                                                                                                             ## or
+                                                                                                                             ## Gradient
+                                                                                                                             ## is
+                                                                                                                             ##
+                                                                                                                             ## !
+                                                                                                                             ## needed.
 
 
-proc constructAppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute*(
-    SSP: AppDef_MultiLine; FirstPoint: Standard_Integer;
-    LastPoint: Standard_Integer;
-    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
-    Parameters: math_Vector; Knots: TColStd_Array1OfReal;
-    Mults: TColStd_Array1OfInteger; NbPol: Standard_Integer): AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute {.
+proc constructAppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute*(
+    ssp: AppDefMultiLine; firstPoint: int; lastPoint: int;
+    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
+    parameters: MathVector; knots: TColStdArray1OfReal;
+    mults: TColStdArray1OfInteger; nbPol: int): AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute {.
     constructor,
     importcpp: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute(@)",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
-proc NbVariables*(this: AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute): Standard_Integer {.
+proc nbVariables*(this: AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute): int {.
     noSideEffect, importcpp: "NbVariables",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
-proc Value*(this: var AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute;
-           X: math_Vector; F: var Standard_Real): Standard_Boolean {.
-    importcpp: "Value",
+proc value*(this: var AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute;
+           x: MathVector; f: var float): bool {.importcpp: "Value",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
-proc Gradient*(this: var AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute;
-              X: math_Vector; G: var math_Vector): Standard_Boolean {.
-    importcpp: "Gradient",
+proc gradient*(this: var AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute;
+              x: MathVector; g: var MathVector): bool {.importcpp: "Gradient",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
-proc Values*(this: var AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute;
-            X: math_Vector; F: var Standard_Real; G: var math_Vector): Standard_Boolean {.
-    importcpp: "Values",
+proc values*(this: var AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute;
+            x: MathVector; f: var float; g: var MathVector): bool {.importcpp: "Values",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
-proc NewParameters*(this: AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute): math_Vector {.
+proc newParameters*(this: AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute): MathVector {.
     noSideEffect, importcpp: "NewParameters",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
-proc CurveValue*(this: var AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute): AppParCurves_MultiBSpCurve {.
+proc curveValue*(this: var AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute): AppParCurvesMultiBSpCurve {.
     importcpp: "CurveValue",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
-proc Error*(this: var AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute;
-           IPoint: Standard_Integer; CurveIndex: Standard_Integer): Standard_Real {.
-    importcpp: "Error",
+proc error*(this: var AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute;
+           iPoint: int; curveIndex: int): float {.importcpp: "Error",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
-proc MaxError3d*(this: AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute): Standard_Real {.
+proc maxError3d*(this: AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute): float {.
     noSideEffect, importcpp: "MaxError3d",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
-proc MaxError2d*(this: AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute): Standard_Real {.
+proc maxError2d*(this: AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute): float {.
     noSideEffect, importcpp: "MaxError2d",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
-proc FunctionMatrix*(this: AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute): math_Matrix {.
+proc functionMatrix*(this: AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute): MathMatrix {.
     noSideEffect, importcpp: "FunctionMatrix",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
-proc DerivativeFunctionMatrix*(this: AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute): math_Matrix {.
+proc derivativeFunctionMatrix*(this: AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute): MathMatrix {.
     noSideEffect, importcpp: "DerivativeFunctionMatrix",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
-proc Index*(this: AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute): math_IntegerVector {.
+proc index*(this: AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute): MathIntegerVector {.
     noSideEffect, importcpp: "Index",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
-proc FirstConstraint*(this: AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute;
-    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
-                     FirstPoint: Standard_Integer): AppParCurves_Constraint {.
+proc firstConstraint*(this: AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute;
+    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple]; firstPoint: int): AppParCurvesConstraint {.
     noSideEffect, importcpp: "FirstConstraint",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
-proc LastConstraint*(this: AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute;
-    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
-                    LastPoint: Standard_Integer): AppParCurves_Constraint {.
+proc lastConstraint*(this: AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute;
+    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple]; lastPoint: int): AppParCurvesConstraint {.
     noSideEffect, importcpp: "LastConstraint",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
-proc SetFirstLambda*(this: var AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute;
-                    l1: Standard_Real) {.importcpp: "SetFirstLambda", header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
-proc SetLastLambda*(this: var AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute;
-                   l2: Standard_Real) {.importcpp: "SetLastLambda", header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
+proc setFirstLambda*(this: var AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute;
+                    l1: float) {.importcpp: "SetFirstLambda", header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
+proc setLastLambda*(this: var AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute;
+                   l2: float) {.importcpp: "SetLastLambda", header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}

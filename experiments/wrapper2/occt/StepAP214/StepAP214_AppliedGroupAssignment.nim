@@ -13,46 +13,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepAP214_HArray1OfGroupItem,
-  ../StepBasic/StepBasic_GroupAssignment
-
 discard "forward decl of StepBasic_Group"
 discard "forward decl of StepAP214_AppliedGroupAssignment"
 discard "forward decl of StepAP214_AppliedGroupAssignment"
 type
-  Handle_StepAP214_AppliedGroupAssignment* = handle[
-      StepAP214_AppliedGroupAssignment]
+  HandleStepAP214AppliedGroupAssignment* = Handle[StepAP214AppliedGroupAssignment]
 
 ## ! Representation of STEP entity AppliedGroupAssignment
 
 type
-  StepAP214_AppliedGroupAssignment* {.importcpp: "StepAP214_AppliedGroupAssignment", header: "StepAP214_AppliedGroupAssignment.hxx",
-                                     bycopy.} = object of StepBasic_GroupAssignment ## !
-                                                                               ## Empty
-                                                                               ## constructor
+  StepAP214AppliedGroupAssignment* {.importcpp: "StepAP214_AppliedGroupAssignment", header: "StepAP214_AppliedGroupAssignment.hxx",
+                                    bycopy.} = object of StepBasicGroupAssignment ## !
+                                                                             ## Empty
+                                                                             ## constructor
 
 
-proc constructStepAP214_AppliedGroupAssignment*(): StepAP214_AppliedGroupAssignment {.
+proc constructStepAP214AppliedGroupAssignment*(): StepAP214AppliedGroupAssignment {.
     constructor, importcpp: "StepAP214_AppliedGroupAssignment(@)",
     header: "StepAP214_AppliedGroupAssignment.hxx".}
-proc Init*(this: var StepAP214_AppliedGroupAssignment;
-          aGroupAssignment_AssignedGroup: handle[StepBasic_Group];
-          aItems: handle[StepAP214_HArray1OfGroupItem]) {.importcpp: "Init",
+proc init*(this: var StepAP214AppliedGroupAssignment;
+          aGroupAssignmentAssignedGroup: Handle[StepBasicGroup];
+          aItems: Handle[StepAP214HArray1OfGroupItem]) {.importcpp: "Init",
     header: "StepAP214_AppliedGroupAssignment.hxx".}
-proc Items*(this: StepAP214_AppliedGroupAssignment): handle[
-    StepAP214_HArray1OfGroupItem] {.noSideEffect, importcpp: "Items", header: "StepAP214_AppliedGroupAssignment.hxx".}
-proc SetItems*(this: var StepAP214_AppliedGroupAssignment;
-              Items: handle[StepAP214_HArray1OfGroupItem]) {.
-    importcpp: "SetItems", header: "StepAP214_AppliedGroupAssignment.hxx".}
+proc items*(this: StepAP214AppliedGroupAssignment): Handle[
+    StepAP214HArray1OfGroupItem] {.noSideEffect, importcpp: "Items", header: "StepAP214_AppliedGroupAssignment.hxx".}
+proc setItems*(this: var StepAP214AppliedGroupAssignment;
+              items: Handle[StepAP214HArray1OfGroupItem]) {.importcpp: "SetItems",
+    header: "StepAP214_AppliedGroupAssignment.hxx".}
 type
-  StepAP214_AppliedGroupAssignmentbase_type* = StepBasic_GroupAssignment
+  StepAP214AppliedGroupAssignmentbaseType* = StepBasicGroupAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_AppliedGroupAssignment::get_type_name(@)",
-                              header: "StepAP214_AppliedGroupAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP214_AppliedGroupAssignment::get_type_name(@)",
+                            header: "StepAP214_AppliedGroupAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP214_AppliedGroupAssignment::get_type_descriptor(@)",
     header: "StepAP214_AppliedGroupAssignment.hxx".}
-proc DynamicType*(this: StepAP214_AppliedGroupAssignment): handle[Standard_Type] {.
+proc dynamicType*(this: StepAP214AppliedGroupAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_AppliedGroupAssignment.hxx".}

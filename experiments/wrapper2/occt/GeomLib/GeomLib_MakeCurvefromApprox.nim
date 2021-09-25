@@ -14,48 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../AdvApprox/AdvApprox_ApproxAFunction,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of AdvApprox_ApproxAFunction"
 discard "forward decl of Geom2d_BSplineCurve"
 discard "forward decl of Geom_BSplineCurve"
 type
-  GeomLib_MakeCurvefromApprox* {.importcpp: "GeomLib_MakeCurvefromApprox",
-                                header: "GeomLib_MakeCurvefromApprox.hxx", bycopy.} = object
+  GeomLibMakeCurvefromApprox* {.importcpp: "GeomLib_MakeCurvefromApprox",
+                               header: "GeomLib_MakeCurvefromApprox.hxx", bycopy.} = object
 
 
-proc constructGeomLib_MakeCurvefromApprox*(Approx: AdvApprox_ApproxAFunction): GeomLib_MakeCurvefromApprox {.
+proc constructGeomLibMakeCurvefromApprox*(approx: AdvApproxApproxAFunction): GeomLibMakeCurvefromApprox {.
     constructor, importcpp: "GeomLib_MakeCurvefromApprox(@)",
     header: "GeomLib_MakeCurvefromApprox.hxx".}
-proc IsDone*(this: GeomLib_MakeCurvefromApprox): Standard_Boolean {.noSideEffect,
+proc isDone*(this: GeomLibMakeCurvefromApprox): bool {.noSideEffect,
     importcpp: "IsDone", header: "GeomLib_MakeCurvefromApprox.hxx".}
-proc Nb1DSpaces*(this: GeomLib_MakeCurvefromApprox): Standard_Integer {.
-    noSideEffect, importcpp: "Nb1DSpaces",
-    header: "GeomLib_MakeCurvefromApprox.hxx".}
-proc Nb2DSpaces*(this: GeomLib_MakeCurvefromApprox): Standard_Integer {.
-    noSideEffect, importcpp: "Nb2DSpaces",
-    header: "GeomLib_MakeCurvefromApprox.hxx".}
-proc Nb3DSpaces*(this: GeomLib_MakeCurvefromApprox): Standard_Integer {.
-    noSideEffect, importcpp: "Nb3DSpaces",
-    header: "GeomLib_MakeCurvefromApprox.hxx".}
-proc Curve2d*(this: GeomLib_MakeCurvefromApprox; Index2d: Standard_Integer): handle[
-    Geom2d_BSplineCurve] {.noSideEffect, importcpp: "Curve2d",
-                          header: "GeomLib_MakeCurvefromApprox.hxx".}
-proc Curve2dFromTwo1d*(this: GeomLib_MakeCurvefromApprox;
-                      Index1d: Standard_Integer; Index2d: Standard_Integer): handle[
-    Geom2d_BSplineCurve] {.noSideEffect, importcpp: "Curve2dFromTwo1d",
-                          header: "GeomLib_MakeCurvefromApprox.hxx".}
-proc Curve2d*(this: GeomLib_MakeCurvefromApprox; Index1d: Standard_Integer;
-             Index2d: Standard_Integer): handle[Geom2d_BSplineCurve] {.
-    noSideEffect, importcpp: "Curve2d", header: "GeomLib_MakeCurvefromApprox.hxx".}
-proc Curve*(this: GeomLib_MakeCurvefromApprox; Index3d: Standard_Integer): handle[
-    Geom_BSplineCurve] {.noSideEffect, importcpp: "Curve",
-                        header: "GeomLib_MakeCurvefromApprox.hxx".}
-proc Curve*(this: GeomLib_MakeCurvefromApprox; Index1D: Standard_Integer;
-           Index3D: Standard_Integer): handle[Geom_BSplineCurve] {.noSideEffect,
-    importcpp: "Curve", header: "GeomLib_MakeCurvefromApprox.hxx".}
+proc nb1DSpaces*(this: GeomLibMakeCurvefromApprox): int {.noSideEffect,
+    importcpp: "Nb1DSpaces", header: "GeomLib_MakeCurvefromApprox.hxx".}
+proc nb2DSpaces*(this: GeomLibMakeCurvefromApprox): int {.noSideEffect,
+    importcpp: "Nb2DSpaces", header: "GeomLib_MakeCurvefromApprox.hxx".}
+proc nb3DSpaces*(this: GeomLibMakeCurvefromApprox): int {.noSideEffect,
+    importcpp: "Nb3DSpaces", header: "GeomLib_MakeCurvefromApprox.hxx".}
+proc curve2d*(this: GeomLibMakeCurvefromApprox; index2d: int): Handle[
+    Geom2dBSplineCurve] {.noSideEffect, importcpp: "Curve2d",
+                         header: "GeomLib_MakeCurvefromApprox.hxx".}
+proc curve2dFromTwo1d*(this: GeomLibMakeCurvefromApprox; index1d: int; index2d: int): Handle[
+    Geom2dBSplineCurve] {.noSideEffect, importcpp: "Curve2dFromTwo1d",
+                         header: "GeomLib_MakeCurvefromApprox.hxx".}
+proc curve2d*(this: GeomLibMakeCurvefromApprox; index1d: int; index2d: int): Handle[
+    Geom2dBSplineCurve] {.noSideEffect, importcpp: "Curve2d",
+                         header: "GeomLib_MakeCurvefromApprox.hxx".}
+proc curve*(this: GeomLibMakeCurvefromApprox; index3d: int): Handle[GeomBSplineCurve] {.
+    noSideEffect, importcpp: "Curve", header: "GeomLib_MakeCurvefromApprox.hxx".}
+proc curve*(this: GeomLibMakeCurvefromApprox; index1D: int; index3D: int): Handle[
+    GeomBSplineCurve] {.noSideEffect, importcpp: "Curve",
+                       header: "GeomLib_MakeCurvefromApprox.hxx".}

@@ -14,67 +14,63 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../MoniTool/MoniTool_SignText,
-  ../Standard/Standard_CString
-
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_SignType"
 discard "forward decl of Interface_SignType"
 type
-  Handle_Interface_SignType* = handle[Interface_SignType]
+  HandleInterfaceSignType* = Handle[InterfaceSignType]
 
 ## ! Provides the basic service to get a type name, according
 ## ! to a norm
 ## ! It can be used for other classes (general signatures ...)
 
 type
-  Interface_SignType* {.importcpp: "Interface_SignType",
-                       header: "Interface_SignType.hxx", bycopy.} = object of MoniTool_SignText ##
-                                                                                         ## !
-                                                                                         ## Returns
-                                                                                         ## an
-                                                                                         ## identification
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## Signature
-                                                                                         ## (a
-                                                                                         ## word),
-                                                                                         ## given
-                                                                                         ## at
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## initialization
-                                                                                         ## time
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Specialised
-                                                                                         ## to
-                                                                                         ## consider
-                                                                                         ## context
-                                                                                         ## as
-                                                                                         ## an
-                                                                                         ## InterfaceModel
+  InterfaceSignType* {.importcpp: "Interface_SignType",
+                      header: "Interface_SignType.hxx", bycopy.} = object of MoniToolSignText ##
+                                                                                       ## !
+                                                                                       ## Returns
+                                                                                       ## an
+                                                                                       ## identification
+                                                                                       ## of
+                                                                                       ## the
+                                                                                       ## Signature
+                                                                                       ## (a
+                                                                                       ## word),
+                                                                                       ## given
+                                                                                       ## at
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## initialization
+                                                                                       ## time
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## Specialised
+                                                                                       ## to
+                                                                                       ## consider
+                                                                                       ## context
+                                                                                       ## as
+                                                                                       ## an
+                                                                                       ## InterfaceModel
 
 
-proc Text*(this: Interface_SignType; ent: handle[Standard_Transient];
-          context: handle[Standard_Transient]): TCollection_AsciiString {.
+proc text*(this: InterfaceSignType; ent: Handle[StandardTransient];
+          context: Handle[StandardTransient]): TCollectionAsciiString {.
     noSideEffect, importcpp: "Text", header: "Interface_SignType.hxx".}
-proc Value*(this: Interface_SignType; ent: handle[Standard_Transient];
-           model: handle[Interface_InterfaceModel]): Standard_CString {.
-    noSideEffect, importcpp: "Value", header: "Interface_SignType.hxx".}
-proc ClassName*(typnam: Standard_CString): Standard_CString {.
+proc value*(this: InterfaceSignType; ent: Handle[StandardTransient];
+           model: Handle[InterfaceInterfaceModel]): StandardCString {.noSideEffect,
+    importcpp: "Value", header: "Interface_SignType.hxx".}
+proc className*(typnam: StandardCString): StandardCString {.
     importcpp: "Interface_SignType::ClassName(@)",
     header: "Interface_SignType.hxx".}
 type
-  Interface_SignTypebase_type* = MoniTool_SignText
+  InterfaceSignTypebaseType* = MoniToolSignText
 
-proc get_type_name*(): cstring {.importcpp: "Interface_SignType::get_type_name(@)",
-                              header: "Interface_SignType.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Interface_SignType::get_type_name(@)",
+                            header: "Interface_SignType.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Interface_SignType::get_type_descriptor(@)",
     header: "Interface_SignType.hxx".}
-proc DynamicType*(this: Interface_SignType): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: InterfaceSignType): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_SignType.hxx".}

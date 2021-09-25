@@ -14,46 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepVisual_Colour"
 discard "forward decl of StepVisual_FillAreaStyleColour"
 discard "forward decl of StepVisual_FillAreaStyleColour"
 type
-  Handle_StepVisual_FillAreaStyleColour* = handle[StepVisual_FillAreaStyleColour]
-  StepVisual_FillAreaStyleColour* {.importcpp: "StepVisual_FillAreaStyleColour", header: "StepVisual_FillAreaStyleColour.hxx",
-                                   bycopy.} = object of Standard_Transient ## ! Returns a
-                                                                      ## FillAreaStyleColour
+  HandleStepVisualFillAreaStyleColour* = Handle[StepVisualFillAreaStyleColour]
+  StepVisualFillAreaStyleColour* {.importcpp: "StepVisual_FillAreaStyleColour",
+                                  header: "StepVisual_FillAreaStyleColour.hxx",
+                                  bycopy.} = object of StandardTransient ## ! Returns a
+                                                                    ## FillAreaStyleColour
 
 
-proc constructStepVisual_FillAreaStyleColour*(): StepVisual_FillAreaStyleColour {.
+proc constructStepVisualFillAreaStyleColour*(): StepVisualFillAreaStyleColour {.
     constructor, importcpp: "StepVisual_FillAreaStyleColour(@)",
     header: "StepVisual_FillAreaStyleColour.hxx".}
-proc Init*(this: var StepVisual_FillAreaStyleColour;
-          aName: handle[TCollection_HAsciiString];
-          aFillColour: handle[StepVisual_Colour]) {.importcpp: "Init",
+proc init*(this: var StepVisualFillAreaStyleColour;
+          aName: Handle[TCollectionHAsciiString];
+          aFillColour: Handle[StepVisualColour]) {.importcpp: "Init",
     header: "StepVisual_FillAreaStyleColour.hxx".}
-proc SetName*(this: var StepVisual_FillAreaStyleColour;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepVisualFillAreaStyleColour;
+             aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepVisual_FillAreaStyleColour.hxx".}
-proc Name*(this: StepVisual_FillAreaStyleColour): handle[TCollection_HAsciiString] {.
+proc name*(this: StepVisualFillAreaStyleColour): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepVisual_FillAreaStyleColour.hxx".}
-proc SetFillColour*(this: var StepVisual_FillAreaStyleColour;
-                   aFillColour: handle[StepVisual_Colour]) {.
+proc setFillColour*(this: var StepVisualFillAreaStyleColour;
+                   aFillColour: Handle[StepVisualColour]) {.
     importcpp: "SetFillColour", header: "StepVisual_FillAreaStyleColour.hxx".}
-proc FillColour*(this: StepVisual_FillAreaStyleColour): handle[StepVisual_Colour] {.
+proc fillColour*(this: StepVisualFillAreaStyleColour): Handle[StepVisualColour] {.
     noSideEffect, importcpp: "FillColour",
     header: "StepVisual_FillAreaStyleColour.hxx".}
 type
-  StepVisual_FillAreaStyleColourbase_type* = Standard_Transient
+  StepVisualFillAreaStyleColourbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_FillAreaStyleColour::get_type_name(@)",
-                              header: "StepVisual_FillAreaStyleColour.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_FillAreaStyleColour::get_type_name(@)",
+                            header: "StepVisual_FillAreaStyleColour.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_FillAreaStyleColour::get_type_descriptor(@)",
     header: "StepVisual_FillAreaStyleColour.hxx".}
-proc DynamicType*(this: StepVisual_FillAreaStyleColour): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualFillAreaStyleColour): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_FillAreaStyleColour.hxx".}

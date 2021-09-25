@@ -12,8 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Real, ../NCollection/NCollection_Array2
-
 type
-  TColStd_Array2OfReal* = NCollection_Array2[Standard_Real]
+  TColStdArray2OfReal* = NCollectionArray2[float]
+

@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepShape_BooleanOperator* {.size: sizeof(cint),
-                              importcpp: "StepShape_BooleanOperator",
-                              header: "StepShape_BooleanOperator.hxx".} = enum
-    StepShape_boDifference, StepShape_boIntersection, StepShape_boUnion
+  StepShapeBooleanOperator* {.size: sizeof(cint),
+                             importcpp: "StepShape_BooleanOperator",
+                             header: "StepShape_BooleanOperator.hxx".} = enum
+    StepShapeBoDifference, StepShapeBoIntersection, StepShapeBoUnion
+
 

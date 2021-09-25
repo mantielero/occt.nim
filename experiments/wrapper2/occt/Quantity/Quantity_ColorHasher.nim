@@ -12,31 +12,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Quantity_Color
-
 ## ! Hasher of Quantity_Color.
 
 type
-  Quantity_ColorHasher* {.importcpp: "Quantity_ColorHasher",
-                         header: "Quantity_ColorHasher.hxx", bycopy.} = object ## !
-                                                                          ## Returns hash code for the given RGB color, in the range [1,
-                                                                          ## theUpperBound]
-                                                                          ## ! @param
-                                                                          ## theColor the RGB color object which hash code is to be
-                                                                          ## computed
-                                                                          ## ! @param
-                                                                          ## theUpperBound the upper bound of the range a
-                                                                          ## computing range must be within
-                                                                          ## !
-                                                                          ## @return a
-                                                                          ## computed hash code, in the range [1,
-                                                                          ## theUpperBound]
+  QuantityColorHasher* {.importcpp: "Quantity_ColorHasher",
+                        header: "Quantity_ColorHasher.hxx", bycopy.} = object ## ! Returns hash code for the given RGB color, in the range [1,
+                                                                         ## theUpperBound]
+                                                                         ## ! @param
+                                                                         ## theColor the RGB color object which hash code is to be
+                                                                         ## computed
+                                                                         ## ! @param
+                                                                         ## theUpperBound the upper bound of the range a
+                                                                         ## computing range must be within
+                                                                         ## ! @return a
+                                                                         ## computed hash code, in the range [1,
+                                                                         ## theUpperBound]
 
 
-proc HashCode*(theColor: Quantity_Color; theUpperBound: Standard_Integer): Standard_Integer {.
+proc hashCode*(theColor: QuantityColor; theUpperBound: int): int {.
     importcpp: "Quantity_ColorHasher::HashCode(@)",
     header: "Quantity_ColorHasher.hxx".}
-proc IsEqual*(theColor1: Quantity_Color; theColor2: Quantity_Color): Standard_Boolean {.
+proc isEqual*(theColor1: QuantityColor; theColor2: QuantityColor): bool {.
     importcpp: "Quantity_ColorHasher::IsEqual(@)",
     header: "Quantity_ColorHasher.hxx".}

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESDimen_NewGeneralNote"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,40 +26,46 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESDimen_ToolNewGeneralNote* {.importcpp: "IGESDimen_ToolNewGeneralNote",
-                                 header: "IGESDimen_ToolNewGeneralNote.hxx",
-                                 bycopy.} = object ## ! Returns a ToolNewGeneralNote, ready to work
+  IGESDimenToolNewGeneralNote* {.importcpp: "IGESDimen_ToolNewGeneralNote",
+                                header: "IGESDimen_ToolNewGeneralNote.hxx", bycopy.} = object ##
+                                                                                         ## !
+                                                                                         ## Returns
+                                                                                         ## a
+                                                                                         ## ToolNewGeneralNote,
+                                                                                         ## ready
+                                                                                         ## to
+                                                                                         ## work
 
 
-proc constructIGESDimen_ToolNewGeneralNote*(): IGESDimen_ToolNewGeneralNote {.
+proc constructIGESDimenToolNewGeneralNote*(): IGESDimenToolNewGeneralNote {.
     constructor, importcpp: "IGESDimen_ToolNewGeneralNote(@)",
     header: "IGESDimen_ToolNewGeneralNote.hxx".}
-proc ReadOwnParams*(this: IGESDimen_ToolNewGeneralNote;
-                   ent: handle[IGESDimen_NewGeneralNote];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESDimen_ToolNewGeneralNote.hxx".}
-proc WriteOwnParams*(this: IGESDimen_ToolNewGeneralNote;
-                    ent: handle[IGESDimen_NewGeneralNote];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESDimenToolNewGeneralNote;
+                   ent: Handle[IGESDimenNewGeneralNote];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESDimen_ToolNewGeneralNote.hxx".}
+proc writeOwnParams*(this: IGESDimenToolNewGeneralNote;
+                    ent: Handle[IGESDimenNewGeneralNote];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESDimen_ToolNewGeneralNote.hxx".}
-proc OwnShared*(this: IGESDimen_ToolNewGeneralNote;
-               ent: handle[IGESDimen_NewGeneralNote];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESDimenToolNewGeneralNote;
+               ent: Handle[IGESDimenNewGeneralNote];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESDimen_ToolNewGeneralNote.hxx".}
-proc DirChecker*(this: IGESDimen_ToolNewGeneralNote;
-                ent: handle[IGESDimen_NewGeneralNote]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESDimenToolNewGeneralNote;
+                ent: Handle[IGESDimenNewGeneralNote]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESDimen_ToolNewGeneralNote.hxx".}
-proc OwnCheck*(this: IGESDimen_ToolNewGeneralNote;
-              ent: handle[IGESDimen_NewGeneralNote]; shares: Interface_ShareTool;
-              ach: var handle[Interface_Check]) {.noSideEffect,
+proc ownCheck*(this: IGESDimenToolNewGeneralNote;
+              ent: Handle[IGESDimenNewGeneralNote]; shares: InterfaceShareTool;
+              ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "OwnCheck", header: "IGESDimen_ToolNewGeneralNote.hxx".}
-proc OwnCopy*(this: IGESDimen_ToolNewGeneralNote;
-             entfrom: handle[IGESDimen_NewGeneralNote];
-             entto: handle[IGESDimen_NewGeneralNote]; TC: var Interface_CopyTool) {.
+proc ownCopy*(this: IGESDimenToolNewGeneralNote;
+             entfrom: Handle[IGESDimenNewGeneralNote];
+             entto: Handle[IGESDimenNewGeneralNote]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESDimen_ToolNewGeneralNote.hxx".}
-proc OwnDump*(this: IGESDimen_ToolNewGeneralNote;
-             ent: handle[IGESDimen_NewGeneralNote]; dumper: IGESData_IGESDumper;
-             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
-    importcpp: "OwnDump", header: "IGESDimen_ToolNewGeneralNote.hxx".}
+proc ownDump*(this: IGESDimenToolNewGeneralNote;
+             ent: Handle[IGESDimenNewGeneralNote]; dumper: IGESDataIGESDumper;
+             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+    header: "IGESDimen_ToolNewGeneralNote.hxx".}

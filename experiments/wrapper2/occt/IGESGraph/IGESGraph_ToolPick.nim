@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESGraph_Pick"
 discard "forward decl of IGESData_IGESReaderData"
@@ -31,33 +26,31 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESGraph_ToolPick* {.importcpp: "IGESGraph_ToolPick",
-                       header: "IGESGraph_ToolPick.hxx", bycopy.} = object ## ! Returns a ToolPick, ready to work
+  IGESGraphToolPick* {.importcpp: "IGESGraph_ToolPick",
+                      header: "IGESGraph_ToolPick.hxx", bycopy.} = object ## ! Returns a ToolPick, ready to work
 
 
-proc constructIGESGraph_ToolPick*(): IGESGraph_ToolPick {.constructor,
+proc constructIGESGraphToolPick*(): IGESGraphToolPick {.constructor,
     importcpp: "IGESGraph_ToolPick(@)", header: "IGESGraph_ToolPick.hxx".}
-proc ReadOwnParams*(this: IGESGraph_ToolPick; ent: handle[IGESGraph_Pick];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESGraph_ToolPick.hxx".}
-proc WriteOwnParams*(this: IGESGraph_ToolPick; ent: handle[IGESGraph_Pick];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESGraphToolPick; ent: Handle[IGESGraphPick];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams", header: "IGESGraph_ToolPick.hxx".}
+proc writeOwnParams*(this: IGESGraphToolPick; ent: Handle[IGESGraphPick];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESGraph_ToolPick.hxx".}
-proc OwnShared*(this: IGESGraph_ToolPick; ent: handle[IGESGraph_Pick];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESGraphToolPick; ent: Handle[IGESGraphPick];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESGraph_ToolPick.hxx".}
-proc OwnCorrect*(this: IGESGraph_ToolPick; ent: handle[IGESGraph_Pick]): Standard_Boolean {.
+proc ownCorrect*(this: IGESGraphToolPick; ent: Handle[IGESGraphPick]): bool {.
     noSideEffect, importcpp: "OwnCorrect", header: "IGESGraph_ToolPick.hxx".}
-proc DirChecker*(this: IGESGraph_ToolPick; ent: handle[IGESGraph_Pick]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESGraphToolPick; ent: Handle[IGESGraphPick]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESGraph_ToolPick.hxx".}
-proc OwnCheck*(this: IGESGraph_ToolPick; ent: handle[IGESGraph_Pick];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESGraphToolPick; ent: Handle[IGESGraphPick];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESGraph_ToolPick.hxx".}
-proc OwnCopy*(this: IGESGraph_ToolPick; entfrom: handle[IGESGraph_Pick];
-             entto: handle[IGESGraph_Pick]; TC: var Interface_CopyTool) {.
-    noSideEffect, importcpp: "OwnCopy", header: "IGESGraph_ToolPick.hxx".}
-proc OwnDump*(this: IGESGraph_ToolPick; ent: handle[IGESGraph_Pick];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
-                                    header: "IGESGraph_ToolPick.hxx".}
+proc ownCopy*(this: IGESGraphToolPick; entfrom: Handle[IGESGraphPick];
+             entto: Handle[IGESGraphPick]; tc: var InterfaceCopyTool) {.noSideEffect,
+    importcpp: "OwnCopy", header: "IGESGraph_ToolPick.hxx".}
+proc ownDump*(this: IGESGraphToolPick; ent: Handle[IGESGraphPick];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump", header: "IGESGraph_ToolPick.hxx".}

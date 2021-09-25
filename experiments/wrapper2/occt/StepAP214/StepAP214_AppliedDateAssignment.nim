@@ -14,51 +14,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepAP214_HArray1OfDateItem,
-  ../StepBasic/StepBasic_DateAssignment, ../Standard/Standard_Integer
-
 discard "forward decl of StepBasic_Date"
 discard "forward decl of StepBasic_DateRole"
 discard "forward decl of StepAP214_DateItem"
 discard "forward decl of StepAP214_AppliedDateAssignment"
 discard "forward decl of StepAP214_AppliedDateAssignment"
 type
-  Handle_StepAP214_AppliedDateAssignment* = handle[StepAP214_AppliedDateAssignment]
-  StepAP214_AppliedDateAssignment* {.importcpp: "StepAP214_AppliedDateAssignment", header: "StepAP214_AppliedDateAssignment.hxx",
-                                    bycopy.} = object of StepBasic_DateAssignment ## !
-                                                                             ## Returns a
-                                                                             ## AppliedDateAssignment
+  HandleStepAP214AppliedDateAssignment* = Handle[StepAP214AppliedDateAssignment]
+  StepAP214AppliedDateAssignment* {.importcpp: "StepAP214_AppliedDateAssignment", header: "StepAP214_AppliedDateAssignment.hxx",
+                                   bycopy.} = object of StepBasicDateAssignment ## !
+                                                                           ## Returns a
+                                                                           ## AppliedDateAssignment
 
 
-proc constructStepAP214_AppliedDateAssignment*(): StepAP214_AppliedDateAssignment {.
+proc constructStepAP214AppliedDateAssignment*(): StepAP214AppliedDateAssignment {.
     constructor, importcpp: "StepAP214_AppliedDateAssignment(@)",
     header: "StepAP214_AppliedDateAssignment.hxx".}
-proc Init*(this: var StepAP214_AppliedDateAssignment;
-          aAssignedDate: handle[StepBasic_Date];
-          aRole: handle[StepBasic_DateRole];
-          aItems: handle[StepAP214_HArray1OfDateItem]) {.importcpp: "Init",
+proc init*(this: var StepAP214AppliedDateAssignment;
+          aAssignedDate: Handle[StepBasicDate]; aRole: Handle[StepBasicDateRole];
+          aItems: Handle[StepAP214HArray1OfDateItem]) {.importcpp: "Init",
     header: "StepAP214_AppliedDateAssignment.hxx".}
-proc SetItems*(this: var StepAP214_AppliedDateAssignment;
-              aItems: handle[StepAP214_HArray1OfDateItem]) {.
-    importcpp: "SetItems", header: "StepAP214_AppliedDateAssignment.hxx".}
-proc Items*(this: StepAP214_AppliedDateAssignment): handle[
-    StepAP214_HArray1OfDateItem] {.noSideEffect, importcpp: "Items",
-                                  header: "StepAP214_AppliedDateAssignment.hxx".}
-proc ItemsValue*(this: StepAP214_AppliedDateAssignment; num: Standard_Integer): StepAP214_DateItem {.
+proc setItems*(this: var StepAP214AppliedDateAssignment;
+              aItems: Handle[StepAP214HArray1OfDateItem]) {.importcpp: "SetItems",
+    header: "StepAP214_AppliedDateAssignment.hxx".}
+proc items*(this: StepAP214AppliedDateAssignment): Handle[
+    StepAP214HArray1OfDateItem] {.noSideEffect, importcpp: "Items",
+                                 header: "StepAP214_AppliedDateAssignment.hxx".}
+proc itemsValue*(this: StepAP214AppliedDateAssignment; num: int): StepAP214DateItem {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AppliedDateAssignment.hxx".}
-proc NbItems*(this: StepAP214_AppliedDateAssignment): Standard_Integer {.
-    noSideEffect, importcpp: "NbItems",
-    header: "StepAP214_AppliedDateAssignment.hxx".}
+proc nbItems*(this: StepAP214AppliedDateAssignment): int {.noSideEffect,
+    importcpp: "NbItems", header: "StepAP214_AppliedDateAssignment.hxx".}
 type
-  StepAP214_AppliedDateAssignmentbase_type* = StepBasic_DateAssignment
+  StepAP214AppliedDateAssignmentbaseType* = StepBasicDateAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_AppliedDateAssignment::get_type_name(@)",
-                              header: "StepAP214_AppliedDateAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP214_AppliedDateAssignment::get_type_name(@)",
+                            header: "StepAP214_AppliedDateAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP214_AppliedDateAssignment::get_type_descriptor(@)",
     header: "StepAP214_AppliedDateAssignment.hxx".}
-proc DynamicType*(this: StepAP214_AppliedDateAssignment): handle[Standard_Type] {.
+proc dynamicType*(this: StepAP214AppliedDateAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_AppliedDateAssignment.hxx".}

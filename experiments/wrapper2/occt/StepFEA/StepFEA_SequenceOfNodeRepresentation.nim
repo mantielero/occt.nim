@@ -11,9 +11,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepFEA_NodeRepresentation, ../NCollection/NCollection_Sequence
-
 type
-  StepFEA_SequenceOfNodeRepresentation* = NCollection_Sequence[
-      handle[StepFEA_NodeRepresentation]]
+  StepFEA_SequenceOfNodeRepresentation* = NCollectionSequence[
+      Handle[StepFEA_NodeRepresentation]]
+

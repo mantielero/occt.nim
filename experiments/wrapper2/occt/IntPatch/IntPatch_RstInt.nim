@@ -14,23 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IntPatch_Line"
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_TopolTool"
 type
-  IntPatch_RstInt* {.importcpp: "IntPatch_RstInt", header: "IntPatch_RstInt.hxx",
-                    bycopy.} = object
+  IntPatchRstInt* {.importcpp: "IntPatch_RstInt", header: "IntPatch_RstInt.hxx",
+                   bycopy.} = object
 
 
-proc PutVertexOnLine*(L: handle[IntPatch_Line]; Surf: handle[Adaptor3d_HSurface];
-                     Domain: handle[Adaptor3d_TopolTool];
-                     OtherSurf: handle[Adaptor3d_HSurface];
-                     OnFirst: Standard_Boolean; Tol: Standard_Real) {.
+proc putVertexOnLine*(L: Handle[IntPatchLine]; surf: Handle[Adaptor3dHSurface];
+                     domain: Handle[Adaptor3dTopolTool];
+                     otherSurf: Handle[Adaptor3dHSurface]; onFirst: bool; tol: float) {.
     importcpp: "IntPatch_RstInt::PutVertexOnLine(@)",
     header: "IntPatch_RstInt.hxx".}

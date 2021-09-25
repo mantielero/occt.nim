@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_MagneticFlux_HeaderFile [NewLine] # _Quantity_MagneticFlux_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the product of a given area and the
+## !!!Ignored construct:  # _Quantity_MagneticFlux_HeaderFile [NewLine] # _Quantity_MagneticFlux_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the product of a given area and the
 ## ! average magnetic flux density normal to it.
 ## ! It is measured in webers (tesla-square-metre). Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_MagneticFlux ;
 ## Error: expected ';'!!!
+

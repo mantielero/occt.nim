@@ -13,20 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  TDF_LabelDataMap, TDF_AttributeDataMap,
-  ../TColStd/TColStd_IndexedDataMapOfTransientTransient,
-  ../Standard/Standard_Transient, TDF_LabelMap, TDF_AttributeMap,
-  ../Standard/Standard_OStream
-
 discard "forward decl of TDF_Label"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of Standard_Transient"
 discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDF_RelocationTable"
 type
-  Handle_TDF_RelocationTable* = handle[TDF_RelocationTable]
+  HandleTDF_RelocationTable* = Handle[TDF_RelocationTable]
 
 ## ! This is a relocation dictionnary between source
 ## ! and target labels, attributes or any
@@ -43,91 +36,90 @@ type
 
 type
   TDF_RelocationTable* {.importcpp: "TDF_RelocationTable",
-                        header: "TDF_RelocationTable.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                            ## !
-                                                                                            ## Creates
-                                                                                            ## an
-                                                                                            ## relocation
-                                                                                            ## table.
-                                                                                            ## <selfRelocate>
-                                                                                            ## says
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## if
-                                                                                            ## a
-                                                                                            ## value
-                                                                                            ## without
-                                                                                            ## explicit
-                                                                                            ## relocation
-                                                                                            ## is
-                                                                                            ## its
-                                                                                            ## own
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## relocation.
+                        header: "TDF_RelocationTable.hxx", bycopy.} = object of StandardTransient ##
+                                                                                           ## !
+                                                                                           ## Creates
+                                                                                           ## an
+                                                                                           ## relocation
+                                                                                           ## table.
+                                                                                           ## <selfRelocate>
+                                                                                           ## says
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## if
+                                                                                           ## a
+                                                                                           ## value
+                                                                                           ## without
+                                                                                           ## explicit
+                                                                                           ## relocation
+                                                                                           ## is
+                                                                                           ## its
+                                                                                           ## own
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## relocation.
 
 
-proc constructTDF_RelocationTable*(selfRelocate: Standard_Boolean = Standard_False): TDF_RelocationTable {.
+proc constructTDF_RelocationTable*(selfRelocate: bool = false): TDF_RelocationTable {.
     constructor, importcpp: "TDF_RelocationTable(@)",
     header: "TDF_RelocationTable.hxx".}
-proc SelfRelocate*(this: var TDF_RelocationTable; selfRelocate: Standard_Boolean) {.
+proc selfRelocate*(this: var TDF_RelocationTable; selfRelocate: bool) {.
     importcpp: "SelfRelocate", header: "TDF_RelocationTable.hxx".}
-proc SelfRelocate*(this: TDF_RelocationTable): Standard_Boolean {.noSideEffect,
+proc selfRelocate*(this: TDF_RelocationTable): bool {.noSideEffect,
     importcpp: "SelfRelocate", header: "TDF_RelocationTable.hxx".}
-proc AfterRelocate*(this: var TDF_RelocationTable; afterRelocate: Standard_Boolean) {.
+proc afterRelocate*(this: var TDF_RelocationTable; afterRelocate: bool) {.
     importcpp: "AfterRelocate", header: "TDF_RelocationTable.hxx".}
-proc AfterRelocate*(this: TDF_RelocationTable): Standard_Boolean {.noSideEffect,
+proc afterRelocate*(this: TDF_RelocationTable): bool {.noSideEffect,
     importcpp: "AfterRelocate", header: "TDF_RelocationTable.hxx".}
-proc SetRelocation*(this: var TDF_RelocationTable; aSourceLabel: TDF_Label;
+proc setRelocation*(this: var TDF_RelocationTable; aSourceLabel: TDF_Label;
                    aTargetLabel: TDF_Label) {.importcpp: "SetRelocation",
     header: "TDF_RelocationTable.hxx".}
-proc HasRelocation*(this: TDF_RelocationTable; aSourceLabel: TDF_Label;
-                   aTargetLabel: var TDF_Label): Standard_Boolean {.noSideEffect,
+proc hasRelocation*(this: TDF_RelocationTable; aSourceLabel: TDF_Label;
+                   aTargetLabel: var TDF_Label): bool {.noSideEffect,
     importcpp: "HasRelocation", header: "TDF_RelocationTable.hxx".}
-proc SetRelocation*(this: var TDF_RelocationTable;
-                   aSourceAttribute: handle[TDF_Attribute];
-                   aTargetAttribute: handle[TDF_Attribute]) {.
+proc setRelocation*(this: var TDF_RelocationTable;
+                   aSourceAttribute: Handle[TDF_Attribute];
+                   aTargetAttribute: Handle[TDF_Attribute]) {.
     importcpp: "SetRelocation", header: "TDF_RelocationTable.hxx".}
-proc HasRelocation*(this: TDF_RelocationTable;
-                   aSourceAttribute: handle[TDF_Attribute];
-                   aTargetAttribute: var handle[TDF_Attribute]): Standard_Boolean {.
+proc hasRelocation*(this: TDF_RelocationTable;
+                   aSourceAttribute: Handle[TDF_Attribute];
+                   aTargetAttribute: var Handle[TDF_Attribute]): bool {.
     noSideEffect, importcpp: "HasRelocation", header: "TDF_RelocationTable.hxx".}
-proc HasRelocation*[T](this: TDF_RelocationTable; theSource: handle[TDF_Attribute];
-                      theTarget: var handle[T]): Standard_Boolean {.noSideEffect,
+proc hasRelocation*[T](this: TDF_RelocationTable; theSource: Handle[TDF_Attribute];
+                      theTarget: var Handle[T]): bool {.noSideEffect,
     importcpp: "HasRelocation", header: "TDF_RelocationTable.hxx".}
-proc SetTransientRelocation*(this: var TDF_RelocationTable;
-                            aSourceTransient: handle[Standard_Transient];
-                            aTargetTransient: handle[Standard_Transient]) {.
+proc setTransientRelocation*(this: var TDF_RelocationTable;
+                            aSourceTransient: Handle[StandardTransient];
+                            aTargetTransient: Handle[StandardTransient]) {.
     importcpp: "SetTransientRelocation", header: "TDF_RelocationTable.hxx".}
-proc HasTransientRelocation*(this: TDF_RelocationTable;
-                            aSourceTransient: handle[Standard_Transient];
-                            aTargetTransient: var handle[Standard_Transient]): Standard_Boolean {.
+proc hasTransientRelocation*(this: TDF_RelocationTable;
+                            aSourceTransient: Handle[StandardTransient];
+                            aTargetTransient: var Handle[StandardTransient]): bool {.
     noSideEffect, importcpp: "HasTransientRelocation",
     header: "TDF_RelocationTable.hxx".}
-proc Clear*(this: var TDF_RelocationTable) {.importcpp: "Clear",
+proc clear*(this: var TDF_RelocationTable) {.importcpp: "Clear",
     header: "TDF_RelocationTable.hxx".}
-proc TargetLabelMap*(this: TDF_RelocationTable; aLabelMap: var TDF_LabelMap) {.
+proc targetLabelMap*(this: TDF_RelocationTable; aLabelMap: var TDF_LabelMap) {.
     noSideEffect, importcpp: "TargetLabelMap", header: "TDF_RelocationTable.hxx".}
-proc TargetAttributeMap*(this: TDF_RelocationTable;
+proc targetAttributeMap*(this: TDF_RelocationTable;
                         anAttributeMap: var TDF_AttributeMap) {.noSideEffect,
     importcpp: "TargetAttributeMap", header: "TDF_RelocationTable.hxx".}
-proc LabelTable*(this: var TDF_RelocationTable): var TDF_LabelDataMap {.
+proc labelTable*(this: var TDF_RelocationTable): var TDF_LabelDataMap {.
     importcpp: "LabelTable", header: "TDF_RelocationTable.hxx".}
-proc AttributeTable*(this: var TDF_RelocationTable): var TDF_AttributeDataMap {.
+proc attributeTable*(this: var TDF_RelocationTable): var TDF_AttributeDataMap {.
     importcpp: "AttributeTable", header: "TDF_RelocationTable.hxx".}
-proc TransientTable*(this: var TDF_RelocationTable): var TColStd_IndexedDataMapOfTransientTransient {.
+proc transientTable*(this: var TDF_RelocationTable): var TColStdIndexedDataMapOfTransientTransient {.
     importcpp: "TransientTable", header: "TDF_RelocationTable.hxx".}
-proc Dump*(this: TDF_RelocationTable; dumpLabels: Standard_Boolean;
-          dumpAttributes: Standard_Boolean; dumpTransients: Standard_Boolean;
-          anOS: var Standard_OStream): var Standard_OStream {.noSideEffect,
-    importcpp: "Dump", header: "TDF_RelocationTable.hxx".}
+proc dump*(this: TDF_RelocationTable; dumpLabels: bool; dumpAttributes: bool;
+          dumpTransients: bool; anOS: var StandardOStream): var StandardOStream {.
+    noSideEffect, importcpp: "Dump", header: "TDF_RelocationTable.hxx".}
 type
-  TDF_RelocationTablebase_type* = Standard_Transient
+  TDF_RelocationTablebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TDF_RelocationTable::get_type_name(@)",
-                              header: "TDF_RelocationTable.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDF_RelocationTable::get_type_name(@)",
+                            header: "TDF_RelocationTable.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDF_RelocationTable::get_type_descriptor(@)",
     header: "TDF_RelocationTable.hxx".}
-proc DynamicType*(this: TDF_RelocationTable): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDF_RelocationTable): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDF_RelocationTable.hxx".}

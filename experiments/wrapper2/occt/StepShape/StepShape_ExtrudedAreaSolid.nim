@@ -14,51 +14,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  StepShape_SweptAreaSolid
-
 discard "forward decl of StepGeom_Direction"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_CurveBoundedSurface"
 discard "forward decl of StepShape_ExtrudedAreaSolid"
 discard "forward decl of StepShape_ExtrudedAreaSolid"
 type
-  Handle_StepShape_ExtrudedAreaSolid* = handle[StepShape_ExtrudedAreaSolid]
-  StepShape_ExtrudedAreaSolid* {.importcpp: "StepShape_ExtrudedAreaSolid",
-                                header: "StepShape_ExtrudedAreaSolid.hxx", bycopy.} = object of StepShape_SweptAreaSolid ##
-                                                                                                                  ## !
-                                                                                                                  ## Returns
-                                                                                                                  ## a
-                                                                                                                  ## ExtrudedAreaSolid
+  HandleStepShapeExtrudedAreaSolid* = Handle[StepShapeExtrudedAreaSolid]
+  StepShapeExtrudedAreaSolid* {.importcpp: "StepShape_ExtrudedAreaSolid",
+                               header: "StepShape_ExtrudedAreaSolid.hxx", bycopy.} = object of StepShapeSweptAreaSolid ##
+                                                                                                                ## !
+                                                                                                                ## Returns
+                                                                                                                ## a
+                                                                                                                ## ExtrudedAreaSolid
 
 
-proc constructStepShape_ExtrudedAreaSolid*(): StepShape_ExtrudedAreaSolid {.
+proc constructStepShapeExtrudedAreaSolid*(): StepShapeExtrudedAreaSolid {.
     constructor, importcpp: "StepShape_ExtrudedAreaSolid(@)",
     header: "StepShape_ExtrudedAreaSolid.hxx".}
-proc Init*(this: var StepShape_ExtrudedAreaSolid;
-          aName: handle[TCollection_HAsciiString];
-          aSweptArea: handle[StepGeom_CurveBoundedSurface];
-          aExtrudedDirection: handle[StepGeom_Direction]; aDepth: Standard_Real) {.
+proc init*(this: var StepShapeExtrudedAreaSolid;
+          aName: Handle[TCollectionHAsciiString];
+          aSweptArea: Handle[StepGeomCurveBoundedSurface];
+          aExtrudedDirection: Handle[StepGeomDirection]; aDepth: float) {.
     importcpp: "Init", header: "StepShape_ExtrudedAreaSolid.hxx".}
-proc SetExtrudedDirection*(this: var StepShape_ExtrudedAreaSolid;
-                          aExtrudedDirection: handle[StepGeom_Direction]) {.
+proc setExtrudedDirection*(this: var StepShapeExtrudedAreaSolid;
+                          aExtrudedDirection: Handle[StepGeomDirection]) {.
     importcpp: "SetExtrudedDirection", header: "StepShape_ExtrudedAreaSolid.hxx".}
-proc ExtrudedDirection*(this: StepShape_ExtrudedAreaSolid): handle[
-    StepGeom_Direction] {.noSideEffect, importcpp: "ExtrudedDirection",
-                         header: "StepShape_ExtrudedAreaSolid.hxx".}
-proc SetDepth*(this: var StepShape_ExtrudedAreaSolid; aDepth: Standard_Real) {.
+proc extrudedDirection*(this: StepShapeExtrudedAreaSolid): Handle[StepGeomDirection] {.
+    noSideEffect, importcpp: "ExtrudedDirection",
+    header: "StepShape_ExtrudedAreaSolid.hxx".}
+proc setDepth*(this: var StepShapeExtrudedAreaSolid; aDepth: float) {.
     importcpp: "SetDepth", header: "StepShape_ExtrudedAreaSolid.hxx".}
-proc Depth*(this: StepShape_ExtrudedAreaSolid): Standard_Real {.noSideEffect,
+proc depth*(this: StepShapeExtrudedAreaSolid): float {.noSideEffect,
     importcpp: "Depth", header: "StepShape_ExtrudedAreaSolid.hxx".}
 type
-  StepShape_ExtrudedAreaSolidbase_type* = StepShape_SweptAreaSolid
+  StepShapeExtrudedAreaSolidbaseType* = StepShapeSweptAreaSolid
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_ExtrudedAreaSolid::get_type_name(@)",
-                              header: "StepShape_ExtrudedAreaSolid.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_ExtrudedAreaSolid::get_type_name(@)",
+                            header: "StepShape_ExtrudedAreaSolid.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_ExtrudedAreaSolid::get_type_descriptor(@)",
     header: "StepShape_ExtrudedAreaSolid.hxx".}
-proc DynamicType*(this: StepShape_ExtrudedAreaSolid): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeExtrudedAreaSolid): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_ExtrudedAreaSolid.hxx".}

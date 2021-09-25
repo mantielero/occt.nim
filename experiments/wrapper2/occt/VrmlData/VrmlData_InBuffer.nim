@@ -13,22 +13,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_IStream, ../Standard/Standard_Boolean
-
 ## *
 ##  Structure passed to the methods dealing with input stream.
 ##
 
 type
-  VrmlData_InBuffer* {.importcpp: "VrmlData_InBuffer",
-                      header: "VrmlData_InBuffer.hxx", bycopy.} = object
-    Input* {.importc: "Input".}: var Standard_IStream
-    Line* {.importc: "Line".}: array[8096, char]
-    LinePtr* {.importc: "LinePtr".}: cstring
-    IsProcessed* {.importc: "IsProcessed".}: Standard_Boolean
-    LineCount* {.importc: "LineCount".}: Standard_Integer
+  VrmlDataInBuffer* {.importcpp: "VrmlData_InBuffer",
+                     header: "VrmlData_InBuffer.hxx", bycopy.} = object
+    input* {.importc: "Input".}: var StandardIStream
+    line* {.importc: "Line".}: array[8096, char]
+    linePtr* {.importc: "LinePtr".}: cstring
+    isProcessed* {.importc: "IsProcessed".}: bool
+    lineCount* {.importc: "LineCount".}: int
 
 
-proc constructVrmlData_InBuffer*(theStream: var Standard_IStream): VrmlData_InBuffer {.
+proc constructVrmlDataInBuffer*(theStream: var StandardIStream): VrmlDataInBuffer {.
     constructor, importcpp: "VrmlData_InBuffer(@)", header: "VrmlData_InBuffer.hxx".}

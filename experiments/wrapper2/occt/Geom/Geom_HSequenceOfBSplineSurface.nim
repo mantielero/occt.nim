@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # Geom_HSequenceOfBSplineSurface_HeaderFile [NewLine] # Geom_HSequenceOfBSplineSurface_HeaderFile [NewLine] # Geom_BSplineSurface.hxx [NewLine] # Geom_SequenceOfBSplineSurface.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( Geom_HSequenceOfBSplineSurface , Geom_SequenceOfBSplineSurface ) # [NewLine]
+## !!!Ignored construct:  # Geom_HSequenceOfBSplineSurface_HeaderFile [NewLine] # Geom_HSequenceOfBSplineSurface_HeaderFile [NewLine] # < Geom_BSplineSurface . hxx > [NewLine] # < Geom_SequenceOfBSplineSurface . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( Geom_HSequenceOfBSplineSurface , Geom_SequenceOfBSplineSurface ) # [NewLine]
 ## Error: expected ';'!!!
+

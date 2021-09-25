@@ -13,36 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepDimTol_GeometricToleranceWithDatumReference
-
 discard "forward decl of StepDimTol_TotalRunoutTolerance"
 discard "forward decl of StepDimTol_TotalRunoutTolerance"
 type
-  Handle_StepDimTol_TotalRunoutTolerance* = handle[StepDimTol_TotalRunoutTolerance]
+  HandleStepDimTolTotalRunoutTolerance* = Handle[StepDimTolTotalRunoutTolerance]
 
 ## ! Representation of STEP entity TotalRunoutTolerance
 
 type
-  StepDimTol_TotalRunoutTolerance* {.importcpp: "StepDimTol_TotalRunoutTolerance", header: "StepDimTol_TotalRunoutTolerance.hxx",
-                                    bycopy.} = object of StepDimTol_GeometricToleranceWithDatumReference ##
-                                                                                                    ## !
-                                                                                                    ## Empty
-                                                                                                    ## constructor
+  StepDimTolTotalRunoutTolerance* {.importcpp: "StepDimTol_TotalRunoutTolerance", header: "StepDimTol_TotalRunoutTolerance.hxx",
+                                   bycopy.} = object of StepDimTolGeometricToleranceWithDatumReference ##
+                                                                                                  ## !
+                                                                                                  ## Empty
+                                                                                                  ## constructor
 
 
-proc constructStepDimTol_TotalRunoutTolerance*(): StepDimTol_TotalRunoutTolerance {.
+proc constructStepDimTolTotalRunoutTolerance*(): StepDimTolTotalRunoutTolerance {.
     constructor, importcpp: "StepDimTol_TotalRunoutTolerance(@)",
     header: "StepDimTol_TotalRunoutTolerance.hxx".}
 type
-  StepDimTol_TotalRunoutTolerancebase_type* = StepDimTol_GeometricToleranceWithDatumReference
+  StepDimTolTotalRunoutTolerancebaseType* = StepDimTolGeometricToleranceWithDatumReference
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_TotalRunoutTolerance::get_type_name(@)",
-                              header: "StepDimTol_TotalRunoutTolerance.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_TotalRunoutTolerance::get_type_name(@)",
+                            header: "StepDimTol_TotalRunoutTolerance.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_TotalRunoutTolerance::get_type_descriptor(@)",
     header: "StepDimTol_TotalRunoutTolerance.hxx".}
-proc DynamicType*(this: StepDimTol_TotalRunoutTolerance): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolTotalRunoutTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_TotalRunoutTolerance.hxx".}

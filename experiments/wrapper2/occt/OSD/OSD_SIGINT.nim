@@ -12,15 +12,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _OSD_SIGINT_HeaderFile [NewLine] # _OSD_SIGINT_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # OSD_Signal.hxx [NewLine] class OSD_SIGINT ;
+## !!!Ignored construct:  # _OSD_SIGINT_HeaderFile [NewLine] # _OSD_SIGINT_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < OSD_Signal . hxx > [NewLine] class OSD_SIGINT ;
 ## Error: expected ';'!!!
 
 discard "forward decl of OSD_SIGINT"
 type
-  Handle_OSD_SIGINTOSD_SIGINT* = handle[OSD_SIGINT]
+  HandleOSD_SIGINTOSD_SIGINT* = Handle[Osd_Sigint]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_SIGINT [NewLine] # if ( CONDITION ) throw OSD_SIGINT ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_SIGINT , OSD_Signal ) #  _OSD_SIGINT_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_SIGINT , OSD_Signal ) #  _OSD_SIGINT_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

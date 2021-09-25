@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  HLRBRep_BiPoint, ../NCollection/NCollection_List
-
 type
-  HLRBRep_ListOfBPoint* = NCollection_List[HLRBRep_BiPoint]
-  HLRBRep_ListIteratorOfListOfBPoint* = Iterator[HLRBRep_BiPoint]
+  HLRBRepListOfBPoint* = NCollectionList[HLRBRepBiPoint]
+  HLRBRepListIteratorOfListOfBPoint* = Iterator[HLRBRepBiPoint]
+

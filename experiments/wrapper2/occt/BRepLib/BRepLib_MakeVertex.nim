@@ -14,21 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, BRepLib_MakeShape
-
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Vertex"
 type
-  BRepLib_MakeVertex* {.importcpp: "BRepLib_MakeVertex",
-                       header: "BRepLib_MakeVertex.hxx", bycopy.} = object of BRepLib_MakeShape
+  BRepLibMakeVertex* {.importcpp: "BRepLib_MakeVertex",
+                      header: "BRepLib_MakeVertex.hxx", bycopy.} = object of BRepLibMakeShape
 
 
-proc constructBRepLib_MakeVertex*(P: gp_Pnt): BRepLib_MakeVertex {.constructor,
+proc constructBRepLibMakeVertex*(p: Pnt): BRepLibMakeVertex {.constructor,
     importcpp: "BRepLib_MakeVertex(@)", header: "BRepLib_MakeVertex.hxx".}
-proc Vertex*(this: var BRepLib_MakeVertex): TopoDS_Vertex {.importcpp: "Vertex",
+proc vertex*(this: var BRepLibMakeVertex): TopoDS_Vertex {.importcpp: "Vertex",
     header: "BRepLib_MakeVertex.hxx".}
-converter `TopoDS_Vertex`*(this: var BRepLib_MakeVertex): TopoDS_Vertex {.
+converter `topoDS_Vertex`*(this: var BRepLibMakeVertex): TopoDS_Vertex {.
     importcpp: "BRepLib_MakeVertex::operator TopoDS_Vertex",
     header: "BRepLib_MakeVertex.hxx".}

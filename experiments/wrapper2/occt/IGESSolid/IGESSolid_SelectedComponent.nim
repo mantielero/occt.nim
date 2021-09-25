@@ -14,17 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_XYZ,
-  ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of IGESSolid_BooleanTree"
 discard "forward decl of gp_XYZ"
 discard "forward decl of gp_Pnt"
 discard "forward decl of IGESSolid_SelectedComponent"
 discard "forward decl of IGESSolid_SelectedComponent"
 type
-  Handle_IGESSolid_SelectedComponent* = handle[IGESSolid_SelectedComponent]
+  HandleIGESSolidSelectedComponent* = Handle[IGESSolidSelectedComponent]
 
 ## ! defines SelectedComponent, Type <182> Form Number <0>
 ## ! in package IGESSolid
@@ -32,31 +28,30 @@ type
 ## ! selecting one component of a disjoint CSG solid
 
 type
-  IGESSolid_SelectedComponent* {.importcpp: "IGESSolid_SelectedComponent",
-                                header: "IGESSolid_SelectedComponent.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESSolidSelectedComponent* {.importcpp: "IGESSolid_SelectedComponent",
+                               header: "IGESSolid_SelectedComponent.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESSolid_SelectedComponent*(): IGESSolid_SelectedComponent {.
+proc constructIGESSolidSelectedComponent*(): IGESSolidSelectedComponent {.
     constructor, importcpp: "IGESSolid_SelectedComponent(@)",
     header: "IGESSolid_SelectedComponent.hxx".}
-proc Init*(this: var IGESSolid_SelectedComponent;
-          anEntity: handle[IGESSolid_BooleanTree]; selectPnt: gp_XYZ) {.
+proc init*(this: var IGESSolidSelectedComponent;
+          anEntity: Handle[IGESSolidBooleanTree]; selectPnt: Xyz) {.
     importcpp: "Init", header: "IGESSolid_SelectedComponent.hxx".}
-proc Component*(this: IGESSolid_SelectedComponent): handle[IGESSolid_BooleanTree] {.
+proc component*(this: IGESSolidSelectedComponent): Handle[IGESSolidBooleanTree] {.
     noSideEffect, importcpp: "Component", header: "IGESSolid_SelectedComponent.hxx".}
-proc SelectPoint*(this: IGESSolid_SelectedComponent): gp_Pnt {.noSideEffect,
+proc selectPoint*(this: IGESSolidSelectedComponent): Pnt {.noSideEffect,
     importcpp: "SelectPoint", header: "IGESSolid_SelectedComponent.hxx".}
-proc TransformedSelectPoint*(this: IGESSolid_SelectedComponent): gp_Pnt {.
-    noSideEffect, importcpp: "TransformedSelectPoint",
-    header: "IGESSolid_SelectedComponent.hxx".}
+proc transformedSelectPoint*(this: IGESSolidSelectedComponent): Pnt {.noSideEffect,
+    importcpp: "TransformedSelectPoint", header: "IGESSolid_SelectedComponent.hxx".}
 type
-  IGESSolid_SelectedComponentbase_type* = IGESData_IGESEntity
+  IGESSolidSelectedComponentbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESSolid_SelectedComponent::get_type_name(@)",
-                              header: "IGESSolid_SelectedComponent.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSolid_SelectedComponent::get_type_name(@)",
+                            header: "IGESSolid_SelectedComponent.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSolid_SelectedComponent::get_type_descriptor(@)",
     header: "IGESSolid_SelectedComponent.hxx".}
-proc DynamicType*(this: IGESSolid_SelectedComponent): handle[Standard_Type] {.
+proc dynamicType*(this: IGESSolidSelectedComponent): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSolid_SelectedComponent.hxx".}

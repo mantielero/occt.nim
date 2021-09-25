@@ -17,7 +17,8 @@
 ## ! A Standard Definition for STEP (which knows Boolean too)
 
 type
-  StepData_Logical* {.size: sizeof(cint), importcpp: "StepData_Logical",
-                     header: "StepData_Logical.hxx".} = enum
-    StepData_LFalse, StepData_LTrue, StepData_LUnknown
+  StepDataLogical* {.size: sizeof(cint), importcpp: "StepData_Logical",
+                    header: "StepData_Logical.hxx".} = enum
+    StepDataLFalse, StepDataLTrue, StepDataLUnknown
+
 

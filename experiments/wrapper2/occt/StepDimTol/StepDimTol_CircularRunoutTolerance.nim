@@ -13,37 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepDimTol_GeometricToleranceWithDatumReference
-
 discard "forward decl of StepDimTol_CircularRunoutTolerance"
 discard "forward decl of StepDimTol_CircularRunoutTolerance"
 type
-  Handle_StepDimTol_CircularRunoutTolerance* = handle[
-      StepDimTol_CircularRunoutTolerance]
+  HandleStepDimTolCircularRunoutTolerance* = Handle[
+      StepDimTolCircularRunoutTolerance]
 
 ## ! Representation of STEP entity CircularRunoutTolerance
 
 type
-  StepDimTol_CircularRunoutTolerance* {.importcpp: "StepDimTol_CircularRunoutTolerance", header: "StepDimTol_CircularRunoutTolerance.hxx",
-                                       bycopy.} = object of StepDimTol_GeometricToleranceWithDatumReference ##
-                                                                                                       ## !
-                                                                                                       ## Empty
-                                                                                                       ## constructor
+  StepDimTolCircularRunoutTolerance* {.importcpp: "StepDimTol_CircularRunoutTolerance", header: "StepDimTol_CircularRunoutTolerance.hxx",
+                                      bycopy.} = object of StepDimTolGeometricToleranceWithDatumReference ##
+                                                                                                     ## !
+                                                                                                     ## Empty
+                                                                                                     ## constructor
 
 
-proc constructStepDimTol_CircularRunoutTolerance*(): StepDimTol_CircularRunoutTolerance {.
+proc constructStepDimTolCircularRunoutTolerance*(): StepDimTolCircularRunoutTolerance {.
     constructor, importcpp: "StepDimTol_CircularRunoutTolerance(@)",
     header: "StepDimTol_CircularRunoutTolerance.hxx".}
 type
-  StepDimTol_CircularRunoutTolerancebase_type* = StepDimTol_GeometricToleranceWithDatumReference
+  StepDimTolCircularRunoutTolerancebaseType* = StepDimTolGeometricToleranceWithDatumReference
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_CircularRunoutTolerance::get_type_name(@)",
-                              header: "StepDimTol_CircularRunoutTolerance.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_CircularRunoutTolerance::get_type_name(@)",
+                            header: "StepDimTol_CircularRunoutTolerance.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_CircularRunoutTolerance::get_type_descriptor(@)",
     header: "StepDimTol_CircularRunoutTolerance.hxx".}
-proc DynamicType*(this: StepDimTol_CircularRunoutTolerance): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolCircularRunoutTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_CircularRunoutTolerance.hxx".}

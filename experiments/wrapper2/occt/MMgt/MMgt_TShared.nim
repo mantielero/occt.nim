@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _MMgt_TShared_HeaderFile [NewLine] # _MMgt_TShared_HeaderFile [NewLine] # ../Standard/Standard_Transient.hxx [NewLine] Standard_DEPRECATED ( Type is deprecated, Standard_Transient should be used instead ) typedef Standard_Transient MMgt_TShared ;
+## !!!Ignored construct:  # _MMgt_TShared_HeaderFile [NewLine] # _MMgt_TShared_HeaderFile [NewLine] # < Standard_Transient . hxx > [NewLine] Standard_DEPRECATED ( Type is deprecated, Standard_Transient should be used instead ) typedef Standard_Transient MMgt_TShared ;
 ## Error: expected ';'!!!
+

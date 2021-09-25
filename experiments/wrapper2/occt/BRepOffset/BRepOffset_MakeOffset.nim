@@ -14,16 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real, ../TopoDS/TopoDS_Shape,
-  ../TopoDS/TopoDS_Compound, BRepOffset_Mode, ../Standard/Standard_Boolean,
-  ../GeomAbs/GeomAbs_JoinType, ../TopTools/TopTools_DataMapOfShapeReal,
-  ../TopTools/TopTools_IndexedMapOfShape, BRepOffset_Analyse,
-  ../BRepAlgo/BRepAlgo_Image, ../TopTools/TopTools_ListOfShape, BRepOffset_Error,
-  BRepOffset_MakeLoops, ../TopTools/TopTools_MapOfShape,
-  BRepOffset_DataMapOfShapeOffset
-
 discard "forward decl of BRepAlgo_AsDes"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Face"
@@ -31,94 +21,82 @@ discard "forward decl of BRepOffset_Analyse"
 discard "forward decl of BRepAlgo_Image"
 discard "forward decl of BRepOffset_Inter3d"
 type
-  BRepOffset_MakeOffset* {.importcpp: "BRepOffset_MakeOffset",
-                          header: "BRepOffset_MakeOffset.hxx", bycopy.} = object ## !
-                                                                            ## @name
-                                                                            ## History
-                                                                            ## methods
-                                                                            ## !
-                                                                            ## Returns the  list of
-                                                                            ## shapes
-                                                                            ## generated from the
-                                                                            ## shape <S>.
-                                                                            ## !
-                                                                            ## Check if
-                                                                            ## shape
-                                                                            ## consists of only
-                                                                            ## planar
-                                                                            ## faces
-                                                                            ## ! If
-                                                                            ## <myIsLinearizationAllowed> is
-                                                                            ## TRUE, try to
-                                                                            ## approximate
-                                                                            ## images of
-                                                                            ## faces
-                                                                            ## ! by
-                                                                            ## planar
-                                                                            ## faces
+  BRepOffsetMakeOffset* {.importcpp: "BRepOffset_MakeOffset",
+                         header: "BRepOffset_MakeOffset.hxx", bycopy.} = object ## ! @name
+                                                                           ## History
+                                                                           ## methods
+                                                                           ## !
+                                                                           ## Returns the  list of
+                                                                           ## shapes
+                                                                           ## generated from the shape <S>.
+                                                                           ## ! Check if shape
+                                                                           ## consists of only
+                                                                           ## planar faces
+                                                                           ## ! If
+                                                                           ## <myIsLinearizationAllowed> is TRUE, try to
+                                                                           ## approximate
+                                                                           ## images of faces
+                                                                           ## ! by
+                                                                           ## planar faces
     ##  Handle bad walls in thicksolid mode.
 
 
-proc constructBRepOffset_MakeOffset*(): BRepOffset_MakeOffset {.constructor,
+proc constructBRepOffsetMakeOffset*(): BRepOffsetMakeOffset {.constructor,
     importcpp: "BRepOffset_MakeOffset(@)", header: "BRepOffset_MakeOffset.hxx".}
-proc constructBRepOffset_MakeOffset*(S: TopoDS_Shape; Offset: Standard_Real;
-                                    Tol: Standard_Real;
-                                    Mode: BRepOffset_Mode = BRepOffset_Skin;
-    Intersection: Standard_Boolean = Standard_False; SelfInter: Standard_Boolean = Standard_False;
-                                    Join: GeomAbs_JoinType = GeomAbs_Arc; Thickening: Standard_Boolean = Standard_False;
-    RemoveIntEdges: Standard_Boolean = Standard_False): BRepOffset_MakeOffset {.
+proc constructBRepOffsetMakeOffset*(s: TopoDS_Shape; offset: float; tol: float;
+                                   mode: BRepOffsetMode = bRepOffsetSkin;
+                                   intersection: bool = false;
+                                   selfInter: bool = false;
+                                   join: GeomAbsJoinType = geomAbsArc;
+                                   thickening: bool = false;
+                                   removeIntEdges: bool = false): BRepOffsetMakeOffset {.
     constructor, importcpp: "BRepOffset_MakeOffset(@)",
     header: "BRepOffset_MakeOffset.hxx".}
-proc Initialize*(this: var BRepOffset_MakeOffset; S: TopoDS_Shape;
-                Offset: Standard_Real; Tol: Standard_Real;
-                Mode: BRepOffset_Mode = BRepOffset_Skin;
-                Intersection: Standard_Boolean = Standard_False;
-                SelfInter: Standard_Boolean = Standard_False;
-                Join: GeomAbs_JoinType = GeomAbs_Arc;
-                Thickening: Standard_Boolean = Standard_False;
-                RemoveIntEdges: Standard_Boolean = Standard_False) {.
-    importcpp: "Initialize", header: "BRepOffset_MakeOffset.hxx".}
-proc Clear*(this: var BRepOffset_MakeOffset) {.importcpp: "Clear",
+proc initialize*(this: var BRepOffsetMakeOffset; s: TopoDS_Shape; offset: float;
+                tol: float; mode: BRepOffsetMode = bRepOffsetSkin;
+                intersection: bool = false; selfInter: bool = false;
+                join: GeomAbsJoinType = geomAbsArc; thickening: bool = false;
+                removeIntEdges: bool = false) {.importcpp: "Initialize",
     header: "BRepOffset_MakeOffset.hxx".}
-proc AllowLinearization*(this: var BRepOffset_MakeOffset;
-                        theIsAllowed: Standard_Boolean) {.
+proc clear*(this: var BRepOffsetMakeOffset) {.importcpp: "Clear",
+    header: "BRepOffset_MakeOffset.hxx".}
+proc allowLinearization*(this: var BRepOffsetMakeOffset; theIsAllowed: bool) {.
     importcpp: "AllowLinearization", header: "BRepOffset_MakeOffset.hxx".}
-proc AddFace*(this: var BRepOffset_MakeOffset; F: TopoDS_Face) {.importcpp: "AddFace",
+proc addFace*(this: var BRepOffsetMakeOffset; f: TopoDS_Face) {.importcpp: "AddFace",
     header: "BRepOffset_MakeOffset.hxx".}
-proc SetOffsetOnFace*(this: var BRepOffset_MakeOffset; F: TopoDS_Face;
-                     Off: Standard_Real) {.importcpp: "SetOffsetOnFace",
-    header: "BRepOffset_MakeOffset.hxx".}
-proc MakeOffsetShape*(this: var BRepOffset_MakeOffset) {.
+proc setOffsetOnFace*(this: var BRepOffsetMakeOffset; f: TopoDS_Face; off: float) {.
+    importcpp: "SetOffsetOnFace", header: "BRepOffset_MakeOffset.hxx".}
+proc makeOffsetShape*(this: var BRepOffsetMakeOffset) {.
     importcpp: "MakeOffsetShape", header: "BRepOffset_MakeOffset.hxx".}
-proc MakeThickSolid*(this: var BRepOffset_MakeOffset) {.importcpp: "MakeThickSolid",
+proc makeThickSolid*(this: var BRepOffsetMakeOffset) {.importcpp: "MakeThickSolid",
     header: "BRepOffset_MakeOffset.hxx".}
-proc GetAnalyse*(this: BRepOffset_MakeOffset): BRepOffset_Analyse {.noSideEffect,
+proc getAnalyse*(this: BRepOffsetMakeOffset): BRepOffsetAnalyse {.noSideEffect,
     importcpp: "GetAnalyse", header: "BRepOffset_MakeOffset.hxx".}
-proc IsDone*(this: BRepOffset_MakeOffset): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "BRepOffset_MakeOffset.hxx".}
-proc Shape*(this: BRepOffset_MakeOffset): TopoDS_Shape {.noSideEffect,
+proc isDone*(this: BRepOffsetMakeOffset): bool {.noSideEffect, importcpp: "IsDone",
+    header: "BRepOffset_MakeOffset.hxx".}
+proc shape*(this: BRepOffsetMakeOffset): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "BRepOffset_MakeOffset.hxx".}
-proc InitShape*(this: BRepOffset_MakeOffset): TopoDS_Shape {.noSideEffect,
+proc initShape*(this: BRepOffsetMakeOffset): TopoDS_Shape {.noSideEffect,
     importcpp: "InitShape", header: "BRepOffset_MakeOffset.hxx".}
-proc Error*(this: BRepOffset_MakeOffset): BRepOffset_Error {.noSideEffect,
+proc error*(this: BRepOffsetMakeOffset): BRepOffsetError {.noSideEffect,
     importcpp: "Error", header: "BRepOffset_MakeOffset.hxx".}
-proc OffsetFacesFromShapes*(this: BRepOffset_MakeOffset): BRepAlgo_Image {.
+proc offsetFacesFromShapes*(this: BRepOffsetMakeOffset): BRepAlgoImage {.
     noSideEffect, importcpp: "OffsetFacesFromShapes",
     header: "BRepOffset_MakeOffset.hxx".}
-proc GetJoinType*(this: BRepOffset_MakeOffset): GeomAbs_JoinType {.noSideEffect,
+proc getJoinType*(this: BRepOffsetMakeOffset): GeomAbsJoinType {.noSideEffect,
     importcpp: "GetJoinType", header: "BRepOffset_MakeOffset.hxx".}
-proc OffsetEdgesFromShapes*(this: BRepOffset_MakeOffset): BRepAlgo_Image {.
+proc offsetEdgesFromShapes*(this: BRepOffsetMakeOffset): BRepAlgoImage {.
     noSideEffect, importcpp: "OffsetEdgesFromShapes",
     header: "BRepOffset_MakeOffset.hxx".}
-proc ClosingFaces*(this: BRepOffset_MakeOffset): TopTools_IndexedMapOfShape {.
+proc closingFaces*(this: BRepOffsetMakeOffset): TopToolsIndexedMapOfShape {.
     noSideEffect, importcpp: "ClosingFaces", header: "BRepOffset_MakeOffset.hxx".}
-proc CheckInputData*(this: var BRepOffset_MakeOffset): Standard_Boolean {.
+proc checkInputData*(this: var BRepOffsetMakeOffset): bool {.
     importcpp: "CheckInputData", header: "BRepOffset_MakeOffset.hxx".}
-proc GetBadShape*(this: BRepOffset_MakeOffset): TopoDS_Shape {.noSideEffect,
+proc getBadShape*(this: BRepOffsetMakeOffset): TopoDS_Shape {.noSideEffect,
     importcpp: "GetBadShape", header: "BRepOffset_MakeOffset.hxx".}
-proc Generated*(this: var BRepOffset_MakeOffset; theS: TopoDS_Shape): TopTools_ListOfShape {.
+proc generated*(this: var BRepOffsetMakeOffset; theS: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Generated", header: "BRepOffset_MakeOffset.hxx".}
-proc Modified*(this: var BRepOffset_MakeOffset; theS: TopoDS_Shape): TopTools_ListOfShape {.
+proc modified*(this: var BRepOffsetMakeOffset; theS: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Modified", header: "BRepOffset_MakeOffset.hxx".}
-proc IsDeleted*(this: var BRepOffset_MakeOffset; S: TopoDS_Shape): Standard_Boolean {.
+proc isDeleted*(this: var BRepOffsetMakeOffset; s: TopoDS_Shape): bool {.
     importcpp: "IsDeleted", header: "BRepOffset_MakeOffset.hxx".}

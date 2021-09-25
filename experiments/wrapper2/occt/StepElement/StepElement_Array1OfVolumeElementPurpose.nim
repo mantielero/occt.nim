@@ -11,9 +11,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepElement_VolumeElementPurpose, ../NCollection/NCollection_Array1
-
 type
-  StepElement_Array1OfVolumeElementPurpose* = NCollection_Array1[
-      StepElement_VolumeElementPurpose]
+  StepElementArray1OfVolumeElementPurpose* = NCollectionArray1[
+      StepElementVolumeElementPurpose]
+

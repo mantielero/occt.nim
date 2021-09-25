@@ -14,6 +14,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-when defined(DRAW):
-  import
-    ../TopOpeBRepDS/TopOpeBRepDS_DRAW
+# when defined(DRAW):
+#   discard

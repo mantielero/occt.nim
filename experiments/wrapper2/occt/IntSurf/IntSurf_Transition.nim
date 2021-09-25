@@ -14,42 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean, IntSurf_TypeTrans,
-  IntSurf_Situation
-
 discard "forward decl of Standard_DomainError"
 type
-  IntSurf_Transition* {.importcpp: "IntSurf_Transition",
-                       header: "IntSurf_Transition.hxx", bycopy.} = object ## ! Empty
-                                                                      ## constructor. Creates an UNDECIDED
-                                                                      ## transition.
+  IntSurfTransition* {.importcpp: "IntSurf_Transition",
+                      header: "IntSurf_Transition.hxx", bycopy.} = object ## ! Empty
+                                                                     ## constructor. Creates an UNDECIDED transition.
 
 
-proc constructIntSurf_Transition*(): IntSurf_Transition {.constructor,
+proc constructIntSurfTransition*(): IntSurfTransition {.constructor,
     importcpp: "IntSurf_Transition(@)", header: "IntSurf_Transition.hxx".}
-proc constructIntSurf_Transition*(Tangent: Standard_Boolean;
-                                 Type: IntSurf_TypeTrans): IntSurf_Transition {.
+proc constructIntSurfTransition*(tangent: bool; `type`: IntSurfTypeTrans): IntSurfTransition {.
     constructor, importcpp: "IntSurf_Transition(@)",
     header: "IntSurf_Transition.hxx".}
-proc constructIntSurf_Transition*(Tangent: Standard_Boolean;
-                                 Situ: IntSurf_Situation; Oppos: Standard_Boolean): IntSurf_Transition {.
+proc constructIntSurfTransition*(tangent: bool; situ: IntSurfSituation; oppos: bool): IntSurfTransition {.
     constructor, importcpp: "IntSurf_Transition(@)",
     header: "IntSurf_Transition.hxx".}
-proc SetValue*(this: var IntSurf_Transition; Tangent: Standard_Boolean;
-              Type: IntSurf_TypeTrans) {.importcpp: "SetValue",
-                                       header: "IntSurf_Transition.hxx".}
-proc SetValue*(this: var IntSurf_Transition; Tangent: Standard_Boolean;
-              Situ: IntSurf_Situation; Oppos: Standard_Boolean) {.
+proc setValue*(this: var IntSurfTransition; tangent: bool; `type`: IntSurfTypeTrans) {.
     importcpp: "SetValue", header: "IntSurf_Transition.hxx".}
-proc SetValue*(this: var IntSurf_Transition) {.importcpp: "SetValue",
+proc setValue*(this: var IntSurfTransition; tangent: bool; situ: IntSurfSituation;
+              oppos: bool) {.importcpp: "SetValue", header: "IntSurf_Transition.hxx".}
+proc setValue*(this: var IntSurfTransition) {.importcpp: "SetValue",
     header: "IntSurf_Transition.hxx".}
-proc TransitionType*(this: IntSurf_Transition): IntSurf_TypeTrans {.noSideEffect,
+proc transitionType*(this: IntSurfTransition): IntSurfTypeTrans {.noSideEffect,
     importcpp: "TransitionType", header: "IntSurf_Transition.hxx".}
-proc IsTangent*(this: IntSurf_Transition): Standard_Boolean {.noSideEffect,
+proc isTangent*(this: IntSurfTransition): bool {.noSideEffect,
     importcpp: "IsTangent", header: "IntSurf_Transition.hxx".}
-proc Situation*(this: IntSurf_Transition): IntSurf_Situation {.noSideEffect,
+proc situation*(this: IntSurfTransition): IntSurfSituation {.noSideEffect,
     importcpp: "Situation", header: "IntSurf_Transition.hxx".}
-proc IsOpposite*(this: IntSurf_Transition): Standard_Boolean {.noSideEffect,
+proc isOpposite*(this: IntSurfTransition): bool {.noSideEffect,
     importcpp: "IsOpposite", header: "IntSurf_Transition.hxx".}

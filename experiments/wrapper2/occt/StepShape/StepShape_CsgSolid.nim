@@ -14,41 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_CsgSelect,
-  StepShape_SolidModel
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_CsgSelect"
 discard "forward decl of StepShape_CsgSolid"
 discard "forward decl of StepShape_CsgSolid"
 type
-  Handle_StepShape_CsgSolid* = handle[StepShape_CsgSolid]
-  StepShape_CsgSolid* {.importcpp: "StepShape_CsgSolid",
-                       header: "StepShape_CsgSolid.hxx", bycopy.} = object of StepShape_SolidModel ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## a
-                                                                                            ## CsgSolid
+  HandleStepShapeCsgSolid* = Handle[StepShapeCsgSolid]
+  StepShapeCsgSolid* {.importcpp: "StepShape_CsgSolid",
+                      header: "StepShape_CsgSolid.hxx", bycopy.} = object of StepShapeSolidModel ##
+                                                                                          ## !
+                                                                                          ## Returns
+                                                                                          ## a
+                                                                                          ## CsgSolid
 
 
-proc constructStepShape_CsgSolid*(): StepShape_CsgSolid {.constructor,
+proc constructStepShapeCsgSolid*(): StepShapeCsgSolid {.constructor,
     importcpp: "StepShape_CsgSolid(@)", header: "StepShape_CsgSolid.hxx".}
-proc Init*(this: var StepShape_CsgSolid; aName: handle[TCollection_HAsciiString];
-          aTreeRootExpression: StepShape_CsgSelect) {.importcpp: "Init",
+proc init*(this: var StepShapeCsgSolid; aName: Handle[TCollectionHAsciiString];
+          aTreeRootExpression: StepShapeCsgSelect) {.importcpp: "Init",
     header: "StepShape_CsgSolid.hxx".}
-proc SetTreeRootExpression*(this: var StepShape_CsgSolid;
-                           aTreeRootExpression: StepShape_CsgSelect) {.
+proc setTreeRootExpression*(this: var StepShapeCsgSolid;
+                           aTreeRootExpression: StepShapeCsgSelect) {.
     importcpp: "SetTreeRootExpression", header: "StepShape_CsgSolid.hxx".}
-proc TreeRootExpression*(this: StepShape_CsgSolid): StepShape_CsgSelect {.
+proc treeRootExpression*(this: StepShapeCsgSolid): StepShapeCsgSelect {.
     noSideEffect, importcpp: "TreeRootExpression", header: "StepShape_CsgSolid.hxx".}
 type
-  StepShape_CsgSolidbase_type* = StepShape_SolidModel
+  StepShapeCsgSolidbaseType* = StepShapeSolidModel
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_CsgSolid::get_type_name(@)",
-                              header: "StepShape_CsgSolid.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_CsgSolid::get_type_name(@)",
+                            header: "StepShape_CsgSolid.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_CsgSolid::get_type_descriptor(@)",
     header: "StepShape_CsgSolid.hxx".}
-proc DynamicType*(this: StepShape_CsgSolid): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepShapeCsgSolid): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_CsgSolid.hxx".}

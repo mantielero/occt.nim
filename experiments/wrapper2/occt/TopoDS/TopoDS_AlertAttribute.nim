@@ -13,46 +13,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Message/Message_AttributeStream, ../Message/Message,
-  ../Message/Message_Messenger, ../Message/Message_Report, TopoDS_Shape
-
 discard "forward decl of Message_Messenger"
 type
   TopoDS_AlertAttribute* {.importcpp: "TopoDS_AlertAttribute",
-                          header: "TopoDS_AlertAttribute.hxx", bycopy.} = object of Message_AttributeStream ##
-                                                                                                     ## !
-                                                                                                     ## Constructor
-                                                                                                     ## with
-                                                                                                     ## shape
-                                                                                                     ## argument
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Push
-                                                                                                     ## shape
-                                                                                                     ## information
-                                                                                                     ## into
-                                                                                                     ## messenger
+                          header: "TopoDS_AlertAttribute.hxx", bycopy.} = object of MessageAttributeStream ##
+                                                                                                    ## !
+                                                                                                    ## Constructor
+                                                                                                    ## with
+                                                                                                    ## shape
+                                                                                                    ## argument
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Push
+                                                                                                    ## shape
+                                                                                                    ## information
+                                                                                                    ## into
+                                                                                                    ## messenger
 
-  TopoDS_AlertAttributebase_type* = Message_AttributeStream
+  TopoDS_AlertAttributebaseType* = MessageAttributeStream
 
-proc get_type_name*(): cstring {.importcpp: "TopoDS_AlertAttribute::get_type_name(@)",
-                              header: "TopoDS_AlertAttribute.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TopoDS_AlertAttribute::get_type_name(@)",
+                            header: "TopoDS_AlertAttribute.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopoDS_AlertAttribute::get_type_descriptor(@)",
     header: "TopoDS_AlertAttribute.hxx".}
-proc DynamicType*(this: TopoDS_AlertAttribute): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "TopoDS_AlertAttribute.hxx".}
-proc constructTopoDS_AlertAttribute*(theShape: TopoDS_Shape; theName: TCollection_AsciiString = TCollection_AsciiString()): TopoDS_AlertAttribute {.
+proc dynamicType*(this: TopoDS_AlertAttribute): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "TopoDS_AlertAttribute.hxx".}
+proc constructTopoDS_AlertAttribute*(theShape: TopoDS_Shape; theName: TCollectionAsciiString = tCollectionAsciiString()): TopoDS_AlertAttribute {.
     constructor, importcpp: "TopoDS_AlertAttribute(@)",
     header: "TopoDS_AlertAttribute.hxx".}
-proc GetShape*(this: TopoDS_AlertAttribute): TopoDS_Shape {.noSideEffect,
+proc getShape*(this: TopoDS_AlertAttribute): TopoDS_Shape {.noSideEffect,
     importcpp: "GetShape", header: "TopoDS_AlertAttribute.hxx".}
-proc Send*(theMessenger: handle[Message_Messenger]; theShape: TopoDS_Shape) {.
+proc send*(theMessenger: Handle[MessageMessenger]; theShape: TopoDS_Shape) {.
     importcpp: "TopoDS_AlertAttribute::Send(@)",
     header: "TopoDS_AlertAttribute.hxx".}
-proc DumpJson*(this: TopoDS_AlertAttribute; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TopoDS_AlertAttribute.hxx".}
-proc `<<`*(theMessenger: handle[Message_Messenger]; theShape: TopoDS_Shape): var handle[
-    Message_Messenger] {.importcpp: "(# << #)", header: "TopoDS_AlertAttribute.hxx".}
+proc dumpJson*(this: TopoDS_AlertAttribute; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TopoDS_AlertAttribute.hxx".}
+proc `<<`*(theMessenger: Handle[MessageMessenger]; theShape: TopoDS_Shape): var Handle[
+    MessageMessenger] {.importcpp: "(# << #)", header: "TopoDS_AlertAttribute.hxx".}

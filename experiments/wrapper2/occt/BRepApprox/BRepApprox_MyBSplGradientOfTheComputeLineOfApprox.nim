@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../AppParCurves/AppParCurves_MultiBSpCurve,
-  ../math/math_Vector, ../Standard/Standard_Real, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer,
-  ../AppParCurves/AppParCurves_HArray1OfConstraintCouple,
-  ../TColStd/TColStd_Array1OfReal, ../TColStd/TColStd_Array1OfInteger
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of BRepApprox_TheMultiLineOfApprox"
@@ -31,7 +23,7 @@ discard "forward decl of BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLi
 discard "forward decl of BRepApprox_BSpGradient_BFGSOfMyBSplGradientOfTheComputeLineOfApprox"
 discard "forward decl of AppParCurves_MultiBSpCurve"
 type
-  BRepApprox_MyBSplGradientOfTheComputeLineOfApprox* {.
+  BRepApproxMyBSplGradientOfTheComputeLineOfApprox* {.
       importcpp: "BRepApprox_MyBSplGradientOfTheComputeLineOfApprox",
       header: "BRepApprox_MyBSplGradientOfTheComputeLineOfApprox.hxx", bycopy.} = object ##
                                                                                     ## !
@@ -99,43 +91,39 @@ type
                                                                                     ## Deg.
 
 
-proc constructBRepApprox_MyBSplGradientOfTheComputeLineOfApprox*(
-    SSP: BRepApprox_TheMultiLineOfApprox; FirstPoint: Standard_Integer;
-    LastPoint: Standard_Integer;
-    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
-    Parameters: var math_Vector; Knots: TColStd_Array1OfReal;
-    Mults: TColStd_Array1OfInteger; Deg: Standard_Integer; Tol3d: Standard_Real;
-    Tol2d: Standard_Real; NbIterations: Standard_Integer = 1): BRepApprox_MyBSplGradientOfTheComputeLineOfApprox {.
+proc constructBRepApproxMyBSplGradientOfTheComputeLineOfApprox*(
+    ssp: BRepApproxTheMultiLineOfApprox; firstPoint: int; lastPoint: int;
+    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
+    parameters: var MathVector; knots: TColStdArray1OfReal;
+    mults: TColStdArray1OfInteger; deg: int; tol3d: float; tol2d: float;
+    nbIterations: int = 1): BRepApproxMyBSplGradientOfTheComputeLineOfApprox {.
     constructor,
     importcpp: "BRepApprox_MyBSplGradientOfTheComputeLineOfApprox(@)",
     header: "BRepApprox_MyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc constructBRepApprox_MyBSplGradientOfTheComputeLineOfApprox*(
-    SSP: BRepApprox_TheMultiLineOfApprox; FirstPoint: Standard_Integer;
-    LastPoint: Standard_Integer;
-    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
-    Parameters: var math_Vector; Knots: TColStd_Array1OfReal;
-    Mults: TColStd_Array1OfInteger; Deg: Standard_Integer; Tol3d: Standard_Real;
-    Tol2d: Standard_Real; NbIterations: Standard_Integer; lambda1: Standard_Real;
-    lambda2: Standard_Real): BRepApprox_MyBSplGradientOfTheComputeLineOfApprox {.
+proc constructBRepApproxMyBSplGradientOfTheComputeLineOfApprox*(
+    ssp: BRepApproxTheMultiLineOfApprox; firstPoint: int; lastPoint: int;
+    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
+    parameters: var MathVector; knots: TColStdArray1OfReal;
+    mults: TColStdArray1OfInteger; deg: int; tol3d: float; tol2d: float;
+    nbIterations: int; lambda1: float; lambda2: float): BRepApproxMyBSplGradientOfTheComputeLineOfApprox {.
     constructor,
     importcpp: "BRepApprox_MyBSplGradientOfTheComputeLineOfApprox(@)",
     header: "BRepApprox_MyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc IsDone*(this: BRepApprox_MyBSplGradientOfTheComputeLineOfApprox): Standard_Boolean {.
+proc isDone*(this: BRepApproxMyBSplGradientOfTheComputeLineOfApprox): bool {.
     noSideEffect, importcpp: "IsDone",
     header: "BRepApprox_MyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc Value*(this: BRepApprox_MyBSplGradientOfTheComputeLineOfApprox): AppParCurves_MultiBSpCurve {.
+proc value*(this: BRepApproxMyBSplGradientOfTheComputeLineOfApprox): AppParCurvesMultiBSpCurve {.
     noSideEffect, importcpp: "Value",
     header: "BRepApprox_MyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc Error*(this: BRepApprox_MyBSplGradientOfTheComputeLineOfApprox;
-           Index: Standard_Integer): Standard_Real {.noSideEffect,
-    importcpp: "Error",
+proc error*(this: BRepApproxMyBSplGradientOfTheComputeLineOfApprox; index: int): float {.
+    noSideEffect, importcpp: "Error",
     header: "BRepApprox_MyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc MaxError3d*(this: BRepApprox_MyBSplGradientOfTheComputeLineOfApprox): Standard_Real {.
+proc maxError3d*(this: BRepApproxMyBSplGradientOfTheComputeLineOfApprox): float {.
     noSideEffect, importcpp: "MaxError3d",
     header: "BRepApprox_MyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc MaxError2d*(this: BRepApprox_MyBSplGradientOfTheComputeLineOfApprox): Standard_Real {.
+proc maxError2d*(this: BRepApproxMyBSplGradientOfTheComputeLineOfApprox): float {.
     noSideEffect, importcpp: "MaxError2d",
     header: "BRepApprox_MyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc AverageError*(this: BRepApprox_MyBSplGradientOfTheComputeLineOfApprox): Standard_Real {.
+proc averageError*(this: BRepApproxMyBSplGradientOfTheComputeLineOfApprox): float {.
     noSideEffect, importcpp: "AverageError",
     header: "BRepApprox_MyBSplGradientOfTheComputeLineOfApprox.hxx".}

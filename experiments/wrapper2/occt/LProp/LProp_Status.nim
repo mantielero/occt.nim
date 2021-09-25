@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  LProp_Status* {.size: sizeof(cint), importcpp: "LProp_Status",
-                 header: "LProp_Status.hxx".} = enum
-    LProp_Undecided, LProp_Undefined, LProp_Defined, LProp_Computed
+  LPropStatus* {.size: sizeof(cint), importcpp: "LProp_Status",
+                header: "LProp_Status.hxx".} = enum
+    LPropUndecided, LPropUndefined, LPropDefined, LPropComputed
+
 

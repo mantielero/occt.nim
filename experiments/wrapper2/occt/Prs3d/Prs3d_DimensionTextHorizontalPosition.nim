@@ -22,8 +22,9 @@
 ## ! the dimension space, otherwise the value label is placed at center.
 
 type
-  Prs3d_DimensionTextHorizontalPosition* {.size: sizeof(cint),
+  Prs3dDimensionTextHorizontalPosition* {.size: sizeof(cint),
       importcpp: "Prs3d_DimensionTextHorizontalPosition",
       header: "Prs3d_DimensionTextHorizontalPosition.hxx".} = enum
-    Prs3d_DTHP_Left, Prs3d_DTHP_Right, Prs3d_DTHP_Center, Prs3d_DTHP_Fit
+    Prs3dDTHP_Left, Prs3dDTHP_Right, Prs3dDTHP_Center, Prs3dDTHP_Fit
+
 

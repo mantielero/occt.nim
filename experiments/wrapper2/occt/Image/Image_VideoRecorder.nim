@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Image_PixMap, ../Resource/Resource_DataMapOfAsciiStringAsciiString,
-  ../Standard/Standard_Transient, ../TCollection/TCollection_AsciiString
-
 ##  forward declarations
 
 discard "forward decl of AVFormatContext"
@@ -24,49 +20,48 @@ discard "forward decl of AVStream"
 discard "forward decl of AVCodec"
 discard "forward decl of AVFrame"
 discard "forward decl of SwsContext"
-when defined(PixelFormat):
-  discard
+# when defined(PixelFormat):
+#   discard
 ## ! Auxiliary structure defining video parameters.
 ## ! Please refer to FFmpeg documentation for defining text values.
 
 type
-  Image_VideoParams* {.importcpp: "Image_VideoParams",
-                      header: "Image_VideoRecorder.hxx", bycopy.} = object
-    Format* {.importc: "Format".}: TCollection_AsciiString ## !< [optional]  video format (container), if empty - will be determined from the file name
-    VideoCodec* {.importc: "VideoCodec".}: TCollection_AsciiString ## !< [optional]  codec identifier, if empty - default codec from file format will be used
-    PixelFormat* {.importc: "PixelFormat".}: TCollection_AsciiString ## !< [optional]  pixel format, if empty - default codec pixel format will be used
-    Width* {.importc: "Width".}: Standard_Integer ## !< [mandatory] video frame width
-    Height* {.importc: "Height".}: Standard_Integer ## !< [mandatory] video frame height
-    FpsNum* {.importc: "FpsNum".}: Standard_Integer ## !< [mandatory] framerate numerator
-    FpsDen* {.importc: "FpsDen".}: Standard_Integer ## !< [mandatory] framerate denumerator
-    VideoCodecParams* {.importc: "VideoCodecParams".}: Resource_DataMapOfAsciiStringAsciiString ## !< map of advanced video codec parameters
-                                                                                            ## ! Empty constructor.
+  ImageVideoParams* {.importcpp: "Image_VideoParams",
+                     header: "Image_VideoRecorder.hxx", bycopy.} = object
+    format* {.importc: "Format".}: TCollectionAsciiString ## !< [optional]  video format (container), if empty - will be determined from the file name
+    videoCodec* {.importc: "VideoCodec".}: TCollectionAsciiString ## !< [optional]  codec identifier, if empty - default codec from file format will be used
+    pixelFormat* {.importc: "PixelFormat".}: TCollectionAsciiString ## !< [optional]  pixel format, if empty - default codec pixel format will be used
+    width* {.importc: "Width".}: int ## !< [mandatory] video frame width
+    height* {.importc: "Height".}: int ## !< [mandatory] video frame height
+    fpsNum* {.importc: "FpsNum".}: int ## !< [mandatory] framerate numerator
+    fpsDen* {.importc: "FpsDen".}: int ## !< [mandatory] framerate denumerator
+    videoCodecParams* {.importc: "VideoCodecParams".}: ResourceDataMapOfAsciiStringAsciiString ## !< map of advanced video codec parameters
+                                                                                           ## ! Empty constructor.
 
 
-proc constructImage_VideoParams*(): Image_VideoParams {.constructor,
+proc constructImageVideoParams*(): ImageVideoParams {.constructor,
     importcpp: "Image_VideoParams(@)", header: "Image_VideoRecorder.hxx".}
-proc SetFramerate*(this: var Image_VideoParams; theNumerator: Standard_Integer;
-                  theDenominator: Standard_Integer) {.importcpp: "SetFramerate",
-    header: "Image_VideoRecorder.hxx".}
-proc SetFramerate*(this: var Image_VideoParams; theValue: Standard_Integer) {.
+proc setFramerate*(this: var ImageVideoParams; theNumerator: int; theDenominator: int) {.
+    importcpp: "SetFramerate", header: "Image_VideoRecorder.hxx".}
+proc setFramerate*(this: var ImageVideoParams; theValue: int) {.
     importcpp: "SetFramerate", header: "Image_VideoRecorder.hxx".}
 ## ! Video recording tool based on FFmpeg framework.
 
 type
-  Image_VideoRecorder* {.importcpp: "Image_VideoRecorder",
-                        header: "Image_VideoRecorder.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                            ## !
-                                                                                            ## Empty
-                                                                                            ## constructor.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Wrapper
-                                                                                            ## for
-                                                                                            ## av_strerror().
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## AVRational
-                                                                                            ## alias.
+  ImageVideoRecorder* {.importcpp: "Image_VideoRecorder",
+                       header: "Image_VideoRecorder.hxx", bycopy.} = object of StandardTransient ##
+                                                                                          ## !
+                                                                                          ## Empty
+                                                                                          ## constructor.
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## Wrapper
+                                                                                          ## for
+                                                                                          ## av_strerror().
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## AVRational
+                                                                                          ## alias.
     ## !< video context
     ## !< video stream
     ## !< video codec
@@ -76,30 +71,31 @@ type
     ## !< video framerate
     ## !< current frame index
 
-  Image_VideoRecorderbase_type* = Standard_Transient
+  ImageVideoRecorderbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Image_VideoRecorder::get_type_name(@)",
-                              header: "Image_VideoRecorder.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Image_VideoRecorder::get_type_name(@)",
+                            header: "Image_VideoRecorder.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Image_VideoRecorder::get_type_descriptor(@)",
     header: "Image_VideoRecorder.hxx".}
-proc DynamicType*(this: Image_VideoRecorder): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: ImageVideoRecorder): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Image_VideoRecorder.hxx".}
-proc constructImage_VideoRecorder*(): Image_VideoRecorder {.constructor,
+proc constructImageVideoRecorder*(): ImageVideoRecorder {.constructor,
     importcpp: "Image_VideoRecorder(@)", header: "Image_VideoRecorder.hxx".}
-proc destroyImage_VideoRecorder*(this: var Image_VideoRecorder) {.
+proc destroyImageVideoRecorder*(this: var ImageVideoRecorder) {.
     importcpp: "#.~Image_VideoRecorder()", header: "Image_VideoRecorder.hxx".}
-proc Close*(this: var Image_VideoRecorder) {.importcpp: "Close",
+proc close*(this: var ImageVideoRecorder) {.importcpp: "Close",
+                                        header: "Image_VideoRecorder.hxx".}
+proc open*(this: var ImageVideoRecorder; theFileName: cstring;
+          theParams: ImageVideoParams): bool {.importcpp: "Open",
     header: "Image_VideoRecorder.hxx".}
-proc Open*(this: var Image_VideoRecorder; theFileName: cstring;
-          theParams: Image_VideoParams): Standard_Boolean {.importcpp: "Open",
-    header: "Image_VideoRecorder.hxx".}
-proc ChangeFrame*(this: var Image_VideoRecorder): var Image_PixMap {.
+proc changeFrame*(this: var ImageVideoRecorder): var ImagePixMap {.
     importcpp: "ChangeFrame", header: "Image_VideoRecorder.hxx".}
-proc FrameCount*(this: Image_VideoRecorder): int64_t {.noSideEffect,
+proc frameCount*(this: ImageVideoRecorder): int64T {.noSideEffect,
     importcpp: "FrameCount", header: "Image_VideoRecorder.hxx".}
-proc PushFrame*(this: var Image_VideoRecorder): Standard_Boolean {.
-    importcpp: "PushFrame", header: "Image_VideoRecorder.hxx".}
+proc pushFrame*(this: var ImageVideoRecorder): bool {.importcpp: "PushFrame",
+    header: "Image_VideoRecorder.hxx".}
 discard "forward decl of Image_VideoRecorder"
 type
-  Handle_Image_VideoRecorder* = handle[Image_VideoRecorder]
+  HandleImageVideoRecorder* = Handle[ImageVideoRecorder]
+

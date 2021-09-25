@@ -14,55 +14,52 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  PrsDim_EllipseRadiusDimension, ../DsgPrs/DsgPrs_ArrowSide
-
 discard "forward decl of PrsDim_MinRadiusDimension"
 type
-  Handle_PrsDim_MinRadiusDimension* = handle[PrsDim_MinRadiusDimension]
+  HandlePrsDimMinRadiusDimension* = Handle[PrsDimMinRadiusDimension]
 
 ## ! --  Ellipse  Min  radius  dimension  of  a  Shape  which
 ## ! can  be  Edge  or  Face  (planar  or  cylindrical(surface  of
 ## ! extrusion  or  surface  of  offset))
 
 type
-  PrsDim_MinRadiusDimension* {.importcpp: "PrsDim_MinRadiusDimension",
-                              header: "PrsDim_MinRadiusDimension.hxx", bycopy.} = object of PrsDim_EllipseRadiusDimension ##
-                                                                                                                   ## !
-                                                                                                                   ## Max
-                                                                                                                   ## Ellipse
-                                                                                                                   ## radius
-                                                                                                                   ## dimension
-                                                                                                                   ##
-                                                                                                                   ## !
-                                                                                                                   ## Shape
-                                                                                                                   ## can
-                                                                                                                   ## be
-                                                                                                                   ## edge
-                                                                                                                   ## ,
-                                                                                                                   ## planar
-                                                                                                                   ## face
-                                                                                                                   ## or
-                                                                                                                   ## cylindrical
-                                                                                                                   ## face
+  PrsDimMinRadiusDimension* {.importcpp: "PrsDim_MinRadiusDimension",
+                             header: "PrsDim_MinRadiusDimension.hxx", bycopy.} = object of PrsDimEllipseRadiusDimension ##
+                                                                                                                 ## !
+                                                                                                                 ## Max
+                                                                                                                 ## Ellipse
+                                                                                                                 ## radius
+                                                                                                                 ## dimension
+                                                                                                                 ##
+                                                                                                                 ## !
+                                                                                                                 ## Shape
+                                                                                                                 ## can
+                                                                                                                 ## be
+                                                                                                                 ## edge
+                                                                                                                 ## ,
+                                                                                                                 ## planar
+                                                                                                                 ## face
+                                                                                                                 ## or
+                                                                                                                 ## cylindrical
+                                                                                                                 ## face
 
-  PrsDim_MinRadiusDimensionbase_type* = PrsDim_EllipseRadiusDimension
+  PrsDimMinRadiusDimensionbaseType* = PrsDimEllipseRadiusDimension
 
-proc get_type_name*(): cstring {.importcpp: "PrsDim_MinRadiusDimension::get_type_name(@)",
-                              header: "PrsDim_MinRadiusDimension.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "PrsDim_MinRadiusDimension::get_type_name(@)",
+                            header: "PrsDim_MinRadiusDimension.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "PrsDim_MinRadiusDimension::get_type_descriptor(@)",
     header: "PrsDim_MinRadiusDimension.hxx".}
-proc DynamicType*(this: PrsDim_MinRadiusDimension): handle[Standard_Type] {.
+proc dynamicType*(this: PrsDimMinRadiusDimension): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "PrsDim_MinRadiusDimension.hxx".}
-proc constructPrsDim_MinRadiusDimension*(aShape: TopoDS_Shape; aVal: Standard_Real;
-                                        aText: TCollection_ExtendedString): PrsDim_MinRadiusDimension {.
+proc constructPrsDimMinRadiusDimension*(aShape: TopoDS_Shape; aVal: float;
+                                       aText: TCollectionExtendedString): PrsDimMinRadiusDimension {.
     constructor, importcpp: "PrsDim_MinRadiusDimension(@)",
     header: "PrsDim_MinRadiusDimension.hxx".}
-proc constructPrsDim_MinRadiusDimension*(aShape: TopoDS_Shape; aVal: Standard_Real;
-                                        aText: TCollection_ExtendedString;
-                                        aPosition: gp_Pnt;
-                                        aSymbolPrs: DsgPrs_ArrowSide;
-                                        anArrowSize: Standard_Real = 0.0): PrsDim_MinRadiusDimension {.
+proc constructPrsDimMinRadiusDimension*(aShape: TopoDS_Shape; aVal: float;
+                                       aText: TCollectionExtendedString;
+                                       aPosition: Pnt;
+                                       aSymbolPrs: DsgPrsArrowSide;
+                                       anArrowSize: float = 0.0): PrsDimMinRadiusDimension {.
     constructor, importcpp: "PrsDim_MinRadiusDimension(@)",
     header: "PrsDim_MinRadiusDimension.hxx".}

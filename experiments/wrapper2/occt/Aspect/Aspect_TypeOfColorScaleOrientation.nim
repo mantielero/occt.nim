@@ -16,6 +16,7 @@
 ## ! Defines the type of color scale orientation
 
 type
-  Aspect_TypeOfColorScaleOrientation* {.size: sizeof(cint), importcpp: "Aspect_TypeOfColorScaleOrientation", header: "Aspect_TypeOfColorScaleOrientation.hxx".} = enum
-    Aspect_TOCSO_NONE, Aspect_TOCSO_LEFT, Aspect_TOCSO_RIGHT, Aspect_TOCSO_CENTER
+  AspectTypeOfColorScaleOrientation* {.size: sizeof(cint), importcpp: "Aspect_TypeOfColorScaleOrientation", header: "Aspect_TypeOfColorScaleOrientation.hxx".} = enum
+    AspectTOCSO_NONE, AspectTOCSO_LEFT, AspectTOCSO_RIGHT, AspectTOCSO_CENTER
+
 

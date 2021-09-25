@@ -14,31 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepGeom_Axis2Placement2d"
 discard "forward decl of StepGeom_Axis2Placement3d"
 type
-  StepGeom_Axis2Placement* {.importcpp: "StepGeom_Axis2Placement",
-                            header: "StepGeom_Axis2Placement.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                     ## !
-                                                                                                     ## Returns
-                                                                                                     ## a
-                                                                                                     ## Axis2Placement
-                                                                                                     ## SelectType
+  StepGeomAxis2Placement* {.importcpp: "StepGeom_Axis2Placement",
+                           header: "StepGeom_Axis2Placement.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                   ## !
+                                                                                                   ## Returns
+                                                                                                   ## a
+                                                                                                   ## Axis2Placement
+                                                                                                   ## SelectType
 
 
-proc constructStepGeom_Axis2Placement*(): StepGeom_Axis2Placement {.constructor,
+proc constructStepGeomAxis2Placement*(): StepGeomAxis2Placement {.constructor,
     importcpp: "StepGeom_Axis2Placement(@)", header: "StepGeom_Axis2Placement.hxx".}
-proc CaseNum*(this: StepGeom_Axis2Placement; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepGeomAxis2Placement; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepGeom_Axis2Placement.hxx".}
-proc Axis2Placement2d*(this: StepGeom_Axis2Placement): handle[
-    StepGeom_Axis2Placement2d] {.noSideEffect, importcpp: "Axis2Placement2d",
-                                header: "StepGeom_Axis2Placement.hxx".}
-proc Axis2Placement3d*(this: StepGeom_Axis2Placement): handle[
-    StepGeom_Axis2Placement3d] {.noSideEffect, importcpp: "Axis2Placement3d",
-                                header: "StepGeom_Axis2Placement.hxx".}
+proc axis2Placement2d*(this: StepGeomAxis2Placement): Handle[
+    StepGeomAxis2Placement2d] {.noSideEffect, importcpp: "Axis2Placement2d",
+                               header: "StepGeom_Axis2Placement.hxx".}
+proc axis2Placement3d*(this: StepGeomAxis2Placement): Handle[
+    StepGeomAxis2Placement3d] {.noSideEffect, importcpp: "Axis2Placement3d",
+                               header: "StepGeom_Axis2Placement.hxx".}

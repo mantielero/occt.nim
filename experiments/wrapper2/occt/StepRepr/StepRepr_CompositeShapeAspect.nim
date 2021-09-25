@@ -13,33 +13,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_ShapeAspect
-
 discard "forward decl of StepRepr_CompositeShapeAspect"
 discard "forward decl of StepRepr_CompositeShapeAspect"
 type
-  Handle_StepRepr_CompositeShapeAspect* = handle[StepRepr_CompositeShapeAspect]
+  HandleStepReprCompositeShapeAspect* = Handle[StepReprCompositeShapeAspect]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepRepr_CompositeShapeAspect* {.importcpp: "StepRepr_CompositeShapeAspect",
-                                  header: "StepRepr_CompositeShapeAspect.hxx",
-                                  bycopy.} = object of StepRepr_ShapeAspect
+  StepReprCompositeShapeAspect* {.importcpp: "StepRepr_CompositeShapeAspect",
+                                 header: "StepRepr_CompositeShapeAspect.hxx",
+                                 bycopy.} = object of StepReprShapeAspect
 
 
-proc constructStepRepr_CompositeShapeAspect*(): StepRepr_CompositeShapeAspect {.
+proc constructStepReprCompositeShapeAspect*(): StepReprCompositeShapeAspect {.
     constructor, importcpp: "StepRepr_CompositeShapeAspect(@)",
     header: "StepRepr_CompositeShapeAspect.hxx".}
 type
-  StepRepr_CompositeShapeAspectbase_type* = StepRepr_ShapeAspect
+  StepReprCompositeShapeAspectbaseType* = StepReprShapeAspect
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_CompositeShapeAspect::get_type_name(@)",
-                              header: "StepRepr_CompositeShapeAspect.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_CompositeShapeAspect::get_type_name(@)",
+                            header: "StepRepr_CompositeShapeAspect.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_CompositeShapeAspect::get_type_descriptor(@)",
     header: "StepRepr_CompositeShapeAspect.hxx".}
-proc DynamicType*(this: StepRepr_CompositeShapeAspect): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprCompositeShapeAspect): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_CompositeShapeAspect.hxx".}

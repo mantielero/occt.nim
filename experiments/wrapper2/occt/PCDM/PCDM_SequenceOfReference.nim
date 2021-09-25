@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  PCDM_Reference, ../NCollection/NCollection_Sequence
-
 type
-  PCDM_SequenceOfReference* = NCollection_Sequence[PCDM_Reference]
+  PCDM_SequenceOfReference* = NCollectionSequence[PCDM_Reference]
+

@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Geom/Geom_BoundedCurve, ../NCollection/NCollection_Sequence
-
 type
-  TColGeom_SequenceOfBoundedCurve* = NCollection_Sequence[
-      handle[Geom_BoundedCurve]]
+  TColGeomSequenceOfBoundedCurve* = NCollectionSequence[Handle[GeomBoundedCurve]]
+

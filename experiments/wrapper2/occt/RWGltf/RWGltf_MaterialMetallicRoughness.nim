@@ -12,32 +12,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Graphic3d/Graphic3d_Vec, ../Quantity/Quantity_ColorRGBA,
-  RWGltf_GltfAlphaMode, ../Standard/Standard_Transient,
-  ../TCollection/TCollection_AsciiString
-
 discard "forward decl of Image_Texture"
 type
-  RWGltf_MaterialMetallicRoughness* {.importcpp: "RWGltf_MaterialMetallicRoughness", header: "RWGltf_MaterialMetallicRoughness.hxx",
-                                     bycopy.} = object of Standard_Transient
-    BaseColorTexture* {.importc: "BaseColorTexture".}: handle[Image_Texture] ## !< RGB texture for the base color
-    MetallicRoughnessTexture* {.importc: "MetallicRoughnessTexture".}: handle[
-        Image_Texture]        ## !< RG texture packing the metallic and roughness properties together
-    EmissiveTexture* {.importc: "EmissiveTexture".}: handle[Image_Texture] ## !< RGB emissive map controls the color and intensity of the light being emitted by the material
-    OcclusionTexture* {.importc: "OcclusionTexture".}: handle[Image_Texture] ## !< R occlusion map indicating areas of indirect lighting
-    NormalTexture* {.importc: "NormalTexture".}: handle[Image_Texture] ## !< normal map
-    Id* {.importc: "Id".}: TCollection_AsciiString ## !< material identifier
-    Name* {.importc: "Name".}: TCollection_AsciiString ## !< material name
-    BaseColor* {.importc: "BaseColor".}: Quantity_ColorRGBA ## !< base color (or scale factor to the texture); [1.0, 1.0, 1.0, 1.0] by default
-    EmissiveFactor* {.importc: "EmissiveFactor".}: Graphic3d_Vec3 ## !< emissive color; [0.0, 0.0, 0.0] by default
-    Metallic* {.importc: "Metallic".}: Standard_ShortReal ## !< metalness  (or scale factor to the texture) within range [0.0, 1.0]; 1.0 by default
-    Roughness* {.importc: "Roughness".}: Standard_ShortReal ## !< roughness  (or scale factor to the texture) within range [0.0, 1.0]; 1.0 by default
-    AlphaCutOff* {.importc: "AlphaCutOff".}: Standard_ShortReal ## !< alpha cutoff value; 0.5 by default
-    AlphaMode* {.importc: "AlphaMode".}: RWGltf_GltfAlphaMode ## !< alpha mode; RWGltf_GltfAlphaMode_Opaque by default
-    IsDoubleSided* {.importc: "IsDoubleSided".}: Standard_Boolean ## !< specifies whether the material is double sided; FALSE by default
+  RWGltfMaterialMetallicRoughness* {.importcpp: "RWGltf_MaterialMetallicRoughness", header: "RWGltf_MaterialMetallicRoughness.hxx",
+                                    bycopy.} = object of StandardTransient
+    baseColorTexture* {.importc: "BaseColorTexture".}: Handle[ImageTexture] ## !< RGB texture for the base color
+    metallicRoughnessTexture* {.importc: "MetallicRoughnessTexture".}: Handle[
+        ImageTexture]         ## !< RG texture packing the metallic and roughness properties together
+    emissiveTexture* {.importc: "EmissiveTexture".}: Handle[ImageTexture] ## !< RGB emissive map controls the color and intensity of the light being emitted by the material
+    occlusionTexture* {.importc: "OcclusionTexture".}: Handle[ImageTexture] ## !< R occlusion map indicating areas of indirect lighting
+    normalTexture* {.importc: "NormalTexture".}: Handle[ImageTexture] ## !< normal map
+    id* {.importc: "Id".}: TCollectionAsciiString ## !< material identifier
+    name* {.importc: "Name".}: TCollectionAsciiString ## !< material name
+    baseColor* {.importc: "BaseColor".}: QuantityColorRGBA ## !< base color (or scale factor to the texture); [1.0, 1.0, 1.0, 1.0] by default
+    emissiveFactor* {.importc: "EmissiveFactor".}: Graphic3dVec3 ## !< emissive color; [0.0, 0.0, 0.0] by default
+    metallic* {.importc: "Metallic".}: StandardShortReal ## !< metalness  (or scale factor to the texture) within range [0.0, 1.0]; 1.0 by default
+    roughness* {.importc: "Roughness".}: StandardShortReal ## !< roughness  (or scale factor to the texture) within range [0.0, 1.0]; 1.0 by default
+    alphaCutOff* {.importc: "AlphaCutOff".}: StandardShortReal ## !< alpha cutoff value; 0.5 by default
+    alphaMode* {.importc: "AlphaMode".}: RWGltfGltfAlphaMode ## !< alpha mode; RWGltf_GltfAlphaMode_Opaque by default
+    isDoubleSided* {.importc: "IsDoubleSided".}: bool ## !< specifies whether the material is double sided; FALSE by default
 
 
-proc constructRWGltf_MaterialMetallicRoughness*(): RWGltf_MaterialMetallicRoughness {.
+proc constructRWGltfMaterialMetallicRoughness*(): RWGltfMaterialMetallicRoughness {.
     constructor, importcpp: "RWGltf_MaterialMetallicRoughness(@)",
     header: "RWGltf_MaterialMetallicRoughness.hxx".}

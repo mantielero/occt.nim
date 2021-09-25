@@ -13,45 +13,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Bnd/Bnd_Box,
-  ../Select3D/Select3D_SensitiveEntity, ../Select3D/Select3D_SensitiveEntity,
-  ../Select3D/Select3D_BndBox3d
-
 discard "forward decl of Select3D_SensitiveEntity"
 type
   MeshVS_SensitiveMesh* {.importcpp: "MeshVS_SensitiveMesh",
                          header: "MeshVS_SensitiveMesh.hxx", bycopy.} = object of Select3D_SensitiveEntity
 
 
-proc constructMeshVS_SensitiveMesh*(theOwner: handle[SelectMgr_EntityOwner];
-                                   theMode: Standard_Integer = 0): MeshVS_SensitiveMesh {.
+proc constructMeshVS_SensitiveMesh*(theOwner: Handle[SelectMgrEntityOwner];
+                                   theMode: int = 0): MeshVS_SensitiveMesh {.
     constructor, importcpp: "MeshVS_SensitiveMesh(@)",
     header: "MeshVS_SensitiveMesh.hxx".}
-proc GetMode*(this: MeshVS_SensitiveMesh): Standard_Integer {.noSideEffect,
-    importcpp: "GetMode", header: "MeshVS_SensitiveMesh.hxx".}
-proc GetConnected*(this: var MeshVS_SensitiveMesh): handle[Select3D_SensitiveEntity] {.
+proc getMode*(this: MeshVS_SensitiveMesh): int {.noSideEffect, importcpp: "GetMode",
+    header: "MeshVS_SensitiveMesh.hxx".}
+proc getConnected*(this: var MeshVS_SensitiveMesh): Handle[Select3D_SensitiveEntity] {.
     importcpp: "GetConnected", header: "MeshVS_SensitiveMesh.hxx".}
-proc Matches*(this: var MeshVS_SensitiveMesh;
-             theMgr: var SelectBasics_SelectingVolumeManager;
-             thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
+proc matches*(this: var MeshVS_SensitiveMesh;
+             theMgr: var SelectBasicsSelectingVolumeManager;
+             thePickResult: var SelectBasicsPickResult): bool {.
     importcpp: "Matches", header: "MeshVS_SensitiveMesh.hxx".}
-proc NbSubElements*(this: MeshVS_SensitiveMesh): Standard_Integer {.noSideEffect,
+proc nbSubElements*(this: MeshVS_SensitiveMesh): int {.noSideEffect,
     importcpp: "NbSubElements", header: "MeshVS_SensitiveMesh.hxx".}
-proc BoundingBox*(this: var MeshVS_SensitiveMesh): Select3D_BndBox3d {.
+proc boundingBox*(this: var MeshVS_SensitiveMesh): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "MeshVS_SensitiveMesh.hxx".}
-proc CenterOfGeometry*(this: MeshVS_SensitiveMesh): gp_Pnt {.noSideEffect,
+proc centerOfGeometry*(this: MeshVS_SensitiveMesh): Pnt {.noSideEffect,
     importcpp: "CenterOfGeometry", header: "MeshVS_SensitiveMesh.hxx".}
 type
-  MeshVS_SensitiveMeshbase_type* = Select3D_SensitiveEntity
+  MeshVS_SensitiveMeshbaseType* = Select3D_SensitiveEntity
 
-proc get_type_name*(): cstring {.importcpp: "MeshVS_SensitiveMesh::get_type_name(@)",
-                              header: "MeshVS_SensitiveMesh.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "MeshVS_SensitiveMesh::get_type_name(@)",
+                            header: "MeshVS_SensitiveMesh.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "MeshVS_SensitiveMesh::get_type_descriptor(@)",
     header: "MeshVS_SensitiveMesh.hxx".}
-proc DynamicType*(this: MeshVS_SensitiveMesh): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: MeshVS_SensitiveMesh): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MeshVS_SensitiveMesh.hxx".}
 discard "forward decl of MeshVS_SensitiveMesh"
 type
-  Handle_MeshVS_SensitiveMesh* = handle[MeshVS_SensitiveMesh]
+  HandleMeshVS_SensitiveMesh* = Handle[MeshVS_SensitiveMesh]
+

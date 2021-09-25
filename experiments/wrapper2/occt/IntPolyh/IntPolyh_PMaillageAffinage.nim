@@ -16,4 +16,5 @@
 
 discard "forward decl of IntPolyh_MaillageAffinage"
 type
-  IntPolyh_PMaillageAffinage* = ptr IntPolyh_MaillageAffinage
+  IntPolyhPMaillageAffinage* = ptr IntPolyhMaillageAffinage
+

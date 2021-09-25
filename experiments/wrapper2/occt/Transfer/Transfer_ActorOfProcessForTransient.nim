@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Transient, ../TColStd/TColStd_MapTransientHasher,
-  ../TColStd/TColStd_HSequenceOfTransient,
-  Transfer_TransferMapOfProcessForTransient, ../Message/Message_ProgressRange
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_ProcessForTransient"
@@ -29,51 +23,48 @@ discard "forward decl of Transfer_SimpleBinderOfTransient"
 discard "forward decl of Transfer_ActorOfProcessForTransient"
 discard "forward decl of Transfer_ActorOfProcessForTransient"
 type
-  Handle_Transfer_ActorOfProcessForTransient* = handle[
-      Transfer_ActorOfProcessForTransient]
-  Transfer_ActorOfProcessForTransient* {.importcpp: "Transfer_ActorOfProcessForTransient", header: "Transfer_ActorOfProcessForTransient.hxx",
-                                        bycopy.} = object of Standard_Transient
+  HandleTransferActorOfProcessForTransient* = Handle[
+      TransferActorOfProcessForTransient]
+  TransferActorOfProcessForTransient* {.importcpp: "Transfer_ActorOfProcessForTransient", header: "Transfer_ActorOfProcessForTransient.hxx",
+                                       bycopy.} = object of StandardTransient
 
 
-proc constructTransfer_ActorOfProcessForTransient*(): Transfer_ActorOfProcessForTransient {.
+proc constructTransferActorOfProcessForTransient*(): TransferActorOfProcessForTransient {.
     constructor, importcpp: "Transfer_ActorOfProcessForTransient(@)",
     header: "Transfer_ActorOfProcessForTransient.hxx".}
-proc Recognize*(this: var Transfer_ActorOfProcessForTransient;
-               start: handle[Standard_Transient]): Standard_Boolean {.
-    importcpp: "Recognize", header: "Transfer_ActorOfProcessForTransient.hxx".}
-proc Transferring*(this: var Transfer_ActorOfProcessForTransient;
-                  start: handle[Standard_Transient];
-                  TP: handle[Transfer_ProcessForTransient];
-                  theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
-    Transfer_Binder] {.importcpp: "Transferring",
-                      header: "Transfer_ActorOfProcessForTransient.hxx".}
-proc TransientResult*(this: Transfer_ActorOfProcessForTransient;
-                     res: handle[Standard_Transient]): handle[
-    Transfer_SimpleBinderOfTransient] {.noSideEffect,
-                                       importcpp: "TransientResult", header: "Transfer_ActorOfProcessForTransient.hxx".}
-proc NullResult*(this: Transfer_ActorOfProcessForTransient): handle[Transfer_Binder] {.
+proc recognize*(this: var TransferActorOfProcessForTransient;
+               start: Handle[StandardTransient]): bool {.importcpp: "Recognize",
+    header: "Transfer_ActorOfProcessForTransient.hxx".}
+proc transferring*(this: var TransferActorOfProcessForTransient;
+                  start: Handle[StandardTransient];
+                  tp: Handle[TransferProcessForTransient];
+                  theProgress: MessageProgressRange = messageProgressRange()): Handle[
+    TransferBinder] {.importcpp: "Transferring",
+                     header: "Transfer_ActorOfProcessForTransient.hxx".}
+proc transientResult*(this: TransferActorOfProcessForTransient;
+                     res: Handle[StandardTransient]): Handle[
+    TransferSimpleBinderOfTransient] {.noSideEffect, importcpp: "TransientResult", header: "Transfer_ActorOfProcessForTransient.hxx".}
+proc nullResult*(this: TransferActorOfProcessForTransient): Handle[TransferBinder] {.
     noSideEffect, importcpp: "NullResult",
     header: "Transfer_ActorOfProcessForTransient.hxx".}
-proc SetLast*(this: var Transfer_ActorOfProcessForTransient;
-             mode: Standard_Boolean = Standard_True) {.importcpp: "SetLast",
-    header: "Transfer_ActorOfProcessForTransient.hxx".}
-proc IsLast*(this: Transfer_ActorOfProcessForTransient): Standard_Boolean {.
-    noSideEffect, importcpp: "IsLast",
-    header: "Transfer_ActorOfProcessForTransient.hxx".}
-proc SetNext*(this: var Transfer_ActorOfProcessForTransient;
-             next: handle[Transfer_ActorOfProcessForTransient]) {.
+proc setLast*(this: var TransferActorOfProcessForTransient; mode: bool = true) {.
+    importcpp: "SetLast", header: "Transfer_ActorOfProcessForTransient.hxx".}
+proc isLast*(this: TransferActorOfProcessForTransient): bool {.noSideEffect,
+    importcpp: "IsLast", header: "Transfer_ActorOfProcessForTransient.hxx".}
+proc setNext*(this: var TransferActorOfProcessForTransient;
+             next: Handle[TransferActorOfProcessForTransient]) {.
     importcpp: "SetNext", header: "Transfer_ActorOfProcessForTransient.hxx".}
-proc Next*(this: Transfer_ActorOfProcessForTransient): handle[
-    Transfer_ActorOfProcessForTransient] {.noSideEffect, importcpp: "Next",
+proc next*(this: TransferActorOfProcessForTransient): Handle[
+    TransferActorOfProcessForTransient] {.noSideEffect, importcpp: "Next",
     header: "Transfer_ActorOfProcessForTransient.hxx".}
 type
-  Transfer_ActorOfProcessForTransientbase_type* = Standard_Transient
+  TransferActorOfProcessForTransientbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Transfer_ActorOfProcessForTransient::get_type_name(@)",
-                              header: "Transfer_ActorOfProcessForTransient.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Transfer_ActorOfProcessForTransient::get_type_name(@)",
+                            header: "Transfer_ActorOfProcessForTransient.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_ActorOfProcessForTransient::get_type_descriptor(@)",
     header: "Transfer_ActorOfProcessForTransient.hxx".}
-proc DynamicType*(this: Transfer_ActorOfProcessForTransient): handle[Standard_Type] {.
+proc dynamicType*(this: TransferActorOfProcessForTransient): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Transfer_ActorOfProcessForTransient.hxx".}

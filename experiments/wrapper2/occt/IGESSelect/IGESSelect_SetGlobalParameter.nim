@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  IGESSelect_ModelModifier
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IFSelect_ContextModif"
 discard "forward decl of IGESData_IGESModel"
@@ -26,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SetGlobalParameter"
 discard "forward decl of IGESSelect_SetGlobalParameter"
 type
-  Handle_IGESSelect_SetGlobalParameter* = handle[IGESSelect_SetGlobalParameter]
+  HandleIGESSelectSetGlobalParameter* = Handle[IGESSelectSetGlobalParameter]
 
 ## ! Sets a Global (Header) Parameter to a new value, directly given
 ## ! Controls the form of the parameter (Integer, Real, String
@@ -40,43 +36,39 @@ type
 ## ! give a Text Parameter which is empty
 
 type
-  IGESSelect_SetGlobalParameter* {.importcpp: "IGESSelect_SetGlobalParameter",
-                                  header: "IGESSelect_SetGlobalParameter.hxx",
-                                  bycopy.} = object of IGESSelect_ModelModifier ## !
-                                                                           ## Creates an
-                                                                           ## SetGlobalParameter, to be
-                                                                           ## applied on
-                                                                           ## Global
-                                                                           ## !
-                                                                           ## Parameter
-                                                                           ## <numpar>
+  IGESSelectSetGlobalParameter* {.importcpp: "IGESSelect_SetGlobalParameter",
+                                 header: "IGESSelect_SetGlobalParameter.hxx",
+                                 bycopy.} = object of IGESSelectModelModifier ## ! Creates an
+                                                                         ## SetGlobalParameter, to be applied on Global
+                                                                         ## !
+                                                                         ## Parameter
+                                                                         ## <numpar>
 
 
-proc constructIGESSelect_SetGlobalParameter*(numpar: Standard_Integer): IGESSelect_SetGlobalParameter {.
+proc constructIGESSelectSetGlobalParameter*(numpar: int): IGESSelectSetGlobalParameter {.
     constructor, importcpp: "IGESSelect_SetGlobalParameter(@)",
     header: "IGESSelect_SetGlobalParameter.hxx".}
-proc GlobalNumber*(this: IGESSelect_SetGlobalParameter): Standard_Integer {.
-    noSideEffect, importcpp: "GlobalNumber",
+proc globalNumber*(this: IGESSelectSetGlobalParameter): int {.noSideEffect,
+    importcpp: "GlobalNumber", header: "IGESSelect_SetGlobalParameter.hxx".}
+proc setValue*(this: var IGESSelectSetGlobalParameter;
+              text: Handle[TCollectionHAsciiString]) {.importcpp: "SetValue",
     header: "IGESSelect_SetGlobalParameter.hxx".}
-proc SetValue*(this: var IGESSelect_SetGlobalParameter;
-              text: handle[TCollection_HAsciiString]) {.importcpp: "SetValue",
-    header: "IGESSelect_SetGlobalParameter.hxx".}
-proc Value*(this: IGESSelect_SetGlobalParameter): handle[TCollection_HAsciiString] {.
+proc value*(this: IGESSelectSetGlobalParameter): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Value", header: "IGESSelect_SetGlobalParameter.hxx".}
-proc Performing*(this: IGESSelect_SetGlobalParameter;
-                ctx: var IFSelect_ContextModif; target: handle[IGESData_IGESModel];
-                TC: var Interface_CopyTool) {.noSideEffect, importcpp: "Performing",
+proc performing*(this: IGESSelectSetGlobalParameter; ctx: var IFSelectContextModif;
+                target: Handle[IGESDataIGESModel]; tc: var InterfaceCopyTool) {.
+    noSideEffect, importcpp: "Performing",
     header: "IGESSelect_SetGlobalParameter.hxx".}
-proc Label*(this: IGESSelect_SetGlobalParameter): TCollection_AsciiString {.
+proc label*(this: IGESSelectSetGlobalParameter): TCollectionAsciiString {.
     noSideEffect, importcpp: "Label", header: "IGESSelect_SetGlobalParameter.hxx".}
 type
-  IGESSelect_SetGlobalParameterbase_type* = IGESSelect_ModelModifier
+  IGESSelectSetGlobalParameterbaseType* = IGESSelectModelModifier
 
-proc get_type_name*(): cstring {.importcpp: "IGESSelect_SetGlobalParameter::get_type_name(@)",
-                              header: "IGESSelect_SetGlobalParameter.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_SetGlobalParameter::get_type_name(@)",
+                            header: "IGESSelect_SetGlobalParameter.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSelect_SetGlobalParameter::get_type_descriptor(@)",
     header: "IGESSelect_SetGlobalParameter.hxx".}
-proc DynamicType*(this: IGESSelect_SetGlobalParameter): handle[Standard_Type] {.
+proc dynamicType*(this: IGESSelectSetGlobalParameter): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SetGlobalParameter.hxx".}

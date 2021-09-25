@@ -12,10 +12,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Standard_Stream
-
 ## ! Defines Standard_SStream as typedef to C++ string stream.
 
 type
-  Standard_SStream* = stringstream
+  StandardSStream* = stringstream
+

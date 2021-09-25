@@ -14,16 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _StdFail_InfiniteSolutions_HeaderFile [NewLine] # _StdFail_InfiniteSolutions_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_Failure.hxx [NewLine] class StdFail_InfiniteSolutions ;
+## !!!Ignored construct:  # _StdFail_InfiniteSolutions_HeaderFile [NewLine] # _StdFail_InfiniteSolutions_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class StdFail_InfiniteSolutions ;
 ## Error: expected ';'!!!
 
 discard "forward decl of StdFail_InfiniteSolutions"
 type
-  Handle_StdFail_InfiniteSolutionsStdFail_InfiniteSolutions* = handle[
-      StdFail_InfiniteSolutions]
+  HandleStdFailInfiniteSolutionsStdFailInfiniteSolutions* = Handle[
+      StdFailInfiniteSolutions]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_StdFail_InfiniteSolutions [NewLine] # if ( CONDITION ) throw StdFail_InfiniteSolutions ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( StdFail_InfiniteSolutions , Standard_Failure ) #  _StdFail_InfiniteSolutions_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( StdFail_InfiniteSolutions , Standard_Failure ) #  _StdFail_InfiniteSolutions_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

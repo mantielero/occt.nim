@@ -14,11 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TopOpeBRepBuild_ShapeListOfShape, ../NCollection/NCollection_List
-
 type
-  TopOpeBRepBuild_ListOfShapeListOfShape* = NCollection_List[
-      TopOpeBRepBuild_ShapeListOfShape]
-  TopOpeBRepBuild_ListIteratorOfListOfShapeListOfShape* = Iterator[
-      TopOpeBRepBuild_ShapeListOfShape]
+  TopOpeBRepBuildListOfShapeListOfShape* = NCollectionList[
+      TopOpeBRepBuildShapeListOfShape]
+  TopOpeBRepBuildListIteratorOfListOfShapeListOfShape* = Iterator[
+      TopOpeBRepBuildShapeListOfShape]
+

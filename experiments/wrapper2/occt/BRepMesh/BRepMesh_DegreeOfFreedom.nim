@@ -12,9 +12,10 @@
 ##  commercial license or contractual agreement.
 
 type
-  BRepMesh_DegreeOfFreedom* {.size: sizeof(cint),
-                             importcpp: "BRepMesh_DegreeOfFreedom",
-                             header: "BRepMesh_DegreeOfFreedom.hxx".} = enum
-    BRepMesh_Free, BRepMesh_InVolume, BRepMesh_OnSurface, BRepMesh_OnCurve,
-    BRepMesh_Fixed, BRepMesh_Frontier, BRepMesh_Deleted
+  BRepMeshDegreeOfFreedom* {.size: sizeof(cint),
+                            importcpp: "BRepMesh_DegreeOfFreedom",
+                            header: "BRepMesh_DegreeOfFreedom.hxx".} = enum
+    BRepMeshFree, BRepMeshInVolume, BRepMeshOnSurface, BRepMeshOnCurve,
+    BRepMeshFixed, BRepMeshFrontier, BRepMeshDeleted
+
 

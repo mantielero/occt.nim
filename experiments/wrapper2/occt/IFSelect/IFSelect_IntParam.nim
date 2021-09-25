@@ -14,15 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Transient,
-  ../Standard/Standard_CString
-
 discard "forward decl of IFSelect_IntParam"
 discard "forward decl of IFSelect_IntParam"
 type
-  Handle_IFSelect_IntParam* = handle[IFSelect_IntParam]
+  HandleIFSelectIntParam* = Handle[IFSelectIntParam]
 
 ## ! This class simply allows to access an Integer value through a
 ## ! Handle, as a String can be (by using HString).
@@ -40,37 +35,37 @@ type
 ## ! is aknowledged
 
 type
-  IFSelect_IntParam* {.importcpp: "IFSelect_IntParam",
-                      header: "IFSelect_IntParam.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                        ## !
-                                                                                        ## Creates
-                                                                                        ## an
-                                                                                        ## IntParam.
-                                                                                        ## Initial
-                                                                                        ## value
-                                                                                        ## is
-                                                                                        ## set
-                                                                                        ## to
-                                                                                        ## zer
+  IFSelectIntParam* {.importcpp: "IFSelect_IntParam",
+                     header: "IFSelect_IntParam.hxx", bycopy.} = object of StandardTransient ##
+                                                                                      ## !
+                                                                                      ## Creates
+                                                                                      ## an
+                                                                                      ## IntParam.
+                                                                                      ## Initial
+                                                                                      ## value
+                                                                                      ## is
+                                                                                      ## set
+                                                                                      ## to
+                                                                                      ## zer
 
 
-proc constructIFSelect_IntParam*(): IFSelect_IntParam {.constructor,
+proc constructIFSelectIntParam*(): IFSelectIntParam {.constructor,
     importcpp: "IFSelect_IntParam(@)", header: "IFSelect_IntParam.hxx".}
-proc SetStaticName*(this: var IFSelect_IntParam; statname: Standard_CString) {.
+proc setStaticName*(this: var IFSelectIntParam; statname: StandardCString) {.
     importcpp: "SetStaticName", header: "IFSelect_IntParam.hxx".}
-proc StaticName*(this: IFSelect_IntParam): Standard_CString {.noSideEffect,
+proc staticName*(this: IFSelectIntParam): StandardCString {.noSideEffect,
     importcpp: "StaticName", header: "IFSelect_IntParam.hxx".}
-proc Value*(this: IFSelect_IntParam): Standard_Integer {.noSideEffect,
-    importcpp: "Value", header: "IFSelect_IntParam.hxx".}
-proc SetValue*(this: var IFSelect_IntParam; val: Standard_Integer) {.
-    importcpp: "SetValue", header: "IFSelect_IntParam.hxx".}
+proc value*(this: IFSelectIntParam): int {.noSideEffect, importcpp: "Value",
+                                       header: "IFSelect_IntParam.hxx".}
+proc setValue*(this: var IFSelectIntParam; val: int) {.importcpp: "SetValue",
+    header: "IFSelect_IntParam.hxx".}
 type
-  IFSelect_IntParambase_type* = Standard_Transient
+  IFSelectIntParambaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_IntParam::get_type_name(@)",
-                              header: "IFSelect_IntParam.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_IntParam::get_type_name(@)",
+                            header: "IFSelect_IntParam.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_IntParam::get_type_descriptor(@)",
     header: "IFSelect_IntParam.hxx".}
-proc DynamicType*(this: IFSelect_IntParam): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IFSelectIntParam): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_IntParam.hxx".}

@@ -16,4 +16,5 @@
 
 discard "forward decl of Tcl_Interp"
 type
-  Draw_PInterp* = ptr Tcl_Interp
+  DrawPInterp* = ptr TclInterp
+

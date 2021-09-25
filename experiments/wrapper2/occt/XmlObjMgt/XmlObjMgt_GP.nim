@@ -11,26 +11,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, XmlObjMgt_DOMString, ../Standard/Standard_Boolean
-
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Mat"
 discard "forward decl of gp_XYZ"
 type
-  XmlObjMgt_GP* {.importcpp: "XmlObjMgt_GP", header: "XmlObjMgt_GP.hxx", bycopy.} = object
+  XmlObjMgtGP* {.importcpp: "XmlObjMgt_GP", header: "XmlObjMgt_GP.hxx", bycopy.} = object
 
 
-proc Translate*(aTrsf: gp_Trsf): XmlObjMgt_DOMString {.
+proc translate*(aTrsf: Trsf): XmlObjMgtDOMString {.
     importcpp: "XmlObjMgt_GP::Translate(@)", header: "XmlObjMgt_GP.hxx".}
-proc Translate*(aMat: gp_Mat): XmlObjMgt_DOMString {.
+proc translate*(aMat: Mat): XmlObjMgtDOMString {.
     importcpp: "XmlObjMgt_GP::Translate(@)", header: "XmlObjMgt_GP.hxx".}
-proc Translate*(anXYZ: gp_XYZ): XmlObjMgt_DOMString {.
+proc translate*(anXYZ: Xyz): XmlObjMgtDOMString {.
     importcpp: "XmlObjMgt_GP::Translate(@)", header: "XmlObjMgt_GP.hxx".}
-proc Translate*(aStr: XmlObjMgt_DOMString; T: var gp_Trsf): Standard_Boolean {.
+proc translate*(aStr: XmlObjMgtDOMString; t: var Trsf): bool {.
     importcpp: "XmlObjMgt_GP::Translate(@)", header: "XmlObjMgt_GP.hxx".}
-proc Translate*(aStr: XmlObjMgt_DOMString; T: var gp_Mat): Standard_Boolean {.
+proc translate*(aStr: XmlObjMgtDOMString; t: var Mat): bool {.
     importcpp: "XmlObjMgt_GP::Translate(@)", header: "XmlObjMgt_GP.hxx".}
-proc Translate*(aStr: XmlObjMgt_DOMString; T: var gp_XYZ): Standard_Boolean {.
+proc translate*(aStr: XmlObjMgtDOMString; t: var Xyz): bool {.
     importcpp: "XmlObjMgt_GP::Translate(@)", header: "XmlObjMgt_GP.hxx".}

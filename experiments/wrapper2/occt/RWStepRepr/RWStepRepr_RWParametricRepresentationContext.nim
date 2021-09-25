@@ -14,31 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_ParametricRepresentationContext"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepRepr_RWParametricRepresentationContext* {.
+  RWStepReprRWParametricRepresentationContext* {.
       importcpp: "RWStepRepr_RWParametricRepresentationContext",
       header: "RWStepRepr_RWParametricRepresentationContext.hxx", bycopy.} = object
 
 
-proc constructRWStepRepr_RWParametricRepresentationContext*(): RWStepRepr_RWParametricRepresentationContext {.
+proc constructRWStepReprRWParametricRepresentationContext*(): RWStepReprRWParametricRepresentationContext {.
     constructor, importcpp: "RWStepRepr_RWParametricRepresentationContext(@)",
     header: "RWStepRepr_RWParametricRepresentationContext.hxx".}
-proc ReadStep*(this: RWStepRepr_RWParametricRepresentationContext;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepRepr_ParametricRepresentationContext]) {.
+proc readStep*(this: RWStepReprRWParametricRepresentationContext;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepReprParametricRepresentationContext]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepRepr_RWParametricRepresentationContext.hxx".}
-proc WriteStep*(this: RWStepRepr_RWParametricRepresentationContext;
-               SW: var StepData_StepWriter;
-               ent: handle[StepRepr_ParametricRepresentationContext]) {.
+proc writeStep*(this: RWStepReprRWParametricRepresentationContext;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepReprParametricRepresentationContext]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepRepr_RWParametricRepresentationContext.hxx".}

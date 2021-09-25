@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  PrsMgr_PresentationManager
-
 type
-  PrsMgr_PresentationManager3d* = PrsMgr_PresentationManager
-  Handle_PrsMgr_PresentationManager3d* = Handle_PrsMgr_PresentationManager
+  PrsMgrPresentationManager3d* = PrsMgrPresentationManager
+  HandlePrsMgrPresentationManager3d* = HandlePrsMgrPresentationManager
+

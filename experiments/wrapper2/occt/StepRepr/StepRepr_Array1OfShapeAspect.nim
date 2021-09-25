@@ -13,8 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepRepr_ShapeAspect, ../NCollection/NCollection_Array1
-
 type
-  StepRepr_Array1OfShapeAspect* = NCollection_Array1[handle[StepRepr_ShapeAspect]]
+  StepReprArray1OfShapeAspect* = NCollectionArray1[Handle[StepReprShapeAspect]]
+

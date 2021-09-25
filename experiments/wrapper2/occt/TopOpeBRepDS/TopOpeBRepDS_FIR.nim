@@ -12,22 +12,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TopOpeBRepDS_HDataStructure"
 type
   TopOpeBRepDS_FIR* {.importcpp: "TopOpeBRepDS_FIR",
                      header: "TopOpeBRepDS_FIR.hxx", bycopy.} = object
 
 
-proc constructTopOpeBRepDS_FIR*(HDS: handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_FIR {.
+proc constructTopOpeBRepDS_FIR*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_FIR {.
     constructor, importcpp: "TopOpeBRepDS_FIR(@)", header: "TopOpeBRepDS_FIR.hxx".}
-proc ProcessFaceInterferences*(this: var TopOpeBRepDS_FIR;
-                              M: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State) {.
+proc processFaceInterferences*(this: var TopOpeBRepDS_FIR;
+                              m: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State) {.
     importcpp: "ProcessFaceInterferences", header: "TopOpeBRepDS_FIR.hxx".}
-proc ProcessFaceInterferences*(this: var TopOpeBRepDS_FIR; I: Standard_Integer;
-                              M: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State) {.
+proc processFaceInterferences*(this: var TopOpeBRepDS_FIR; i: int;
+                              m: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State) {.
     importcpp: "ProcessFaceInterferences", header: "TopOpeBRepDS_FIR.hxx".}

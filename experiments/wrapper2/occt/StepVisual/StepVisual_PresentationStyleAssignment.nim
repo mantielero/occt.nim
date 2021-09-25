@@ -14,51 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepVisual_HArray1OfPresentationStyleSelect, ../Standard/Standard_Transient,
-  ../Standard/Standard_Integer
-
 discard "forward decl of StepVisual_PresentationStyleSelect"
 discard "forward decl of StepVisual_PresentationStyleAssignment"
 discard "forward decl of StepVisual_PresentationStyleAssignment"
 type
-  Handle_StepVisual_PresentationStyleAssignment* = handle[
-      StepVisual_PresentationStyleAssignment]
-  StepVisual_PresentationStyleAssignment* {.
+  HandleStepVisualPresentationStyleAssignment* = Handle[
+      StepVisualPresentationStyleAssignment]
+  StepVisualPresentationStyleAssignment* {.
       importcpp: "StepVisual_PresentationStyleAssignment",
-      header: "StepVisual_PresentationStyleAssignment.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                             ## !
-                                                                                             ## Returns
-                                                                                             ## a
-                                                                                             ## PresentationStyleAssignment
+      header: "StepVisual_PresentationStyleAssignment.hxx", bycopy.} = object of StandardTransient ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## a
+                                                                                            ## PresentationStyleAssignment
 
 
-proc constructStepVisual_PresentationStyleAssignment*(): StepVisual_PresentationStyleAssignment {.
+proc constructStepVisualPresentationStyleAssignment*(): StepVisualPresentationStyleAssignment {.
     constructor, importcpp: "StepVisual_PresentationStyleAssignment(@)",
     header: "StepVisual_PresentationStyleAssignment.hxx".}
-proc Init*(this: var StepVisual_PresentationStyleAssignment;
-          aStyles: handle[StepVisual_HArray1OfPresentationStyleSelect]) {.
+proc init*(this: var StepVisualPresentationStyleAssignment;
+          aStyles: Handle[StepVisualHArray1OfPresentationStyleSelect]) {.
     importcpp: "Init", header: "StepVisual_PresentationStyleAssignment.hxx".}
-proc SetStyles*(this: var StepVisual_PresentationStyleAssignment;
-               aStyles: handle[StepVisual_HArray1OfPresentationStyleSelect]) {.
+proc setStyles*(this: var StepVisualPresentationStyleAssignment;
+               aStyles: Handle[StepVisualHArray1OfPresentationStyleSelect]) {.
     importcpp: "SetStyles", header: "StepVisual_PresentationStyleAssignment.hxx".}
-proc Styles*(this: StepVisual_PresentationStyleAssignment): handle[
-    StepVisual_HArray1OfPresentationStyleSelect] {.noSideEffect,
+proc styles*(this: StepVisualPresentationStyleAssignment): Handle[
+    StepVisualHArray1OfPresentationStyleSelect] {.noSideEffect,
     importcpp: "Styles", header: "StepVisual_PresentationStyleAssignment.hxx".}
-proc StylesValue*(this: StepVisual_PresentationStyleAssignment;
-                 num: Standard_Integer): StepVisual_PresentationStyleSelect {.
+proc stylesValue*(this: StepVisualPresentationStyleAssignment; num: int): StepVisualPresentationStyleSelect {.
     noSideEffect, importcpp: "StylesValue",
     header: "StepVisual_PresentationStyleAssignment.hxx".}
-proc NbStyles*(this: StepVisual_PresentationStyleAssignment): Standard_Integer {.
-    noSideEffect, importcpp: "NbStyles",
-    header: "StepVisual_PresentationStyleAssignment.hxx".}
+proc nbStyles*(this: StepVisualPresentationStyleAssignment): int {.noSideEffect,
+    importcpp: "NbStyles", header: "StepVisual_PresentationStyleAssignment.hxx".}
 type
-  StepVisual_PresentationStyleAssignmentbase_type* = Standard_Transient
+  StepVisualPresentationStyleAssignmentbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_PresentationStyleAssignment::get_type_name(@)", header: "StepVisual_PresentationStyleAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_PresentationStyleAssignment::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepVisual_PresentationStyleAssignment::get_type_name(@)", header: "StepVisual_PresentationStyleAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_PresentationStyleAssignment::get_type_descriptor(@)",
     header: "StepVisual_PresentationStyleAssignment.hxx".}
-proc DynamicType*(this: StepVisual_PresentationStyleAssignment): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepVisual_PresentationStyleAssignment.hxx".}
+proc dynamicType*(this: StepVisualPresentationStyleAssignment): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepVisual_PresentationStyleAssignment.hxx".}

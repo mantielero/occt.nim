@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_XY,
-  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Boolean
-
 discard "forward decl of IGESDimen_GeneralNote"
 discard "forward decl of IGESDimen_LeaderArrow"
 discard "forward decl of gp_XY"
@@ -25,48 +21,47 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of IGESDimen_DiameterDimension"
 discard "forward decl of IGESDimen_DiameterDimension"
 type
-  Handle_IGESDimen_DiameterDimension* = handle[IGESDimen_DiameterDimension]
+  HandleIGESDimenDiameterDimension* = Handle[IGESDimenDiameterDimension]
 
 ## ! defines DiameterDimension, Type <206> Form <0>
 ## ! in package IGESDimen
 ## ! Used for dimensioning diameters
 
 type
-  IGESDimen_DiameterDimension* {.importcpp: "IGESDimen_DiameterDimension",
-                                header: "IGESDimen_DiameterDimension.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESDimenDiameterDimension* {.importcpp: "IGESDimen_DiameterDimension",
+                               header: "IGESDimen_DiameterDimension.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESDimen_DiameterDimension*(): IGESDimen_DiameterDimension {.
+proc constructIGESDimenDiameterDimension*(): IGESDimenDiameterDimension {.
     constructor, importcpp: "IGESDimen_DiameterDimension(@)",
     header: "IGESDimen_DiameterDimension.hxx".}
-proc Init*(this: var IGESDimen_DiameterDimension;
-          aNote: handle[IGESDimen_GeneralNote];
-          aLeader: handle[IGESDimen_LeaderArrow];
-          anotherLeader: handle[IGESDimen_LeaderArrow]; aCenter: gp_XY) {.
+proc init*(this: var IGESDimenDiameterDimension;
+          aNote: Handle[IGESDimenGeneralNote];
+          aLeader: Handle[IGESDimenLeaderArrow];
+          anotherLeader: Handle[IGESDimenLeaderArrow]; aCenter: Xy) {.
     importcpp: "Init", header: "IGESDimen_DiameterDimension.hxx".}
-proc Note*(this: IGESDimen_DiameterDimension): handle[IGESDimen_GeneralNote] {.
+proc note*(this: IGESDimenDiameterDimension): Handle[IGESDimenGeneralNote] {.
     noSideEffect, importcpp: "Note", header: "IGESDimen_DiameterDimension.hxx".}
-proc FirstLeader*(this: IGESDimen_DiameterDimension): handle[IGESDimen_LeaderArrow] {.
+proc firstLeader*(this: IGESDimenDiameterDimension): Handle[IGESDimenLeaderArrow] {.
     noSideEffect, importcpp: "FirstLeader",
     header: "IGESDimen_DiameterDimension.hxx".}
-proc HasSecondLeader*(this: IGESDimen_DiameterDimension): Standard_Boolean {.
-    noSideEffect, importcpp: "HasSecondLeader",
-    header: "IGESDimen_DiameterDimension.hxx".}
-proc SecondLeader*(this: IGESDimen_DiameterDimension): handle[IGESDimen_LeaderArrow] {.
+proc hasSecondLeader*(this: IGESDimenDiameterDimension): bool {.noSideEffect,
+    importcpp: "HasSecondLeader", header: "IGESDimen_DiameterDimension.hxx".}
+proc secondLeader*(this: IGESDimenDiameterDimension): Handle[IGESDimenLeaderArrow] {.
     noSideEffect, importcpp: "SecondLeader",
     header: "IGESDimen_DiameterDimension.hxx".}
-proc Center*(this: IGESDimen_DiameterDimension): gp_Pnt2d {.noSideEffect,
+proc center*(this: IGESDimenDiameterDimension): Pnt2d {.noSideEffect,
     importcpp: "Center", header: "IGESDimen_DiameterDimension.hxx".}
-proc TransformedCenter*(this: IGESDimen_DiameterDimension): gp_Pnt2d {.noSideEffect,
+proc transformedCenter*(this: IGESDimenDiameterDimension): Pnt2d {.noSideEffect,
     importcpp: "TransformedCenter", header: "IGESDimen_DiameterDimension.hxx".}
 type
-  IGESDimen_DiameterDimensionbase_type* = IGESData_IGESEntity
+  IGESDimenDiameterDimensionbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESDimen_DiameterDimension::get_type_name(@)",
-                              header: "IGESDimen_DiameterDimension.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESDimen_DiameterDimension::get_type_name(@)",
+                            header: "IGESDimen_DiameterDimension.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESDimen_DiameterDimension::get_type_descriptor(@)",
     header: "IGESDimen_DiameterDimension.hxx".}
-proc DynamicType*(this: IGESDimen_DiameterDimension): handle[Standard_Type] {.
+proc dynamicType*(this: IGESDimenDiameterDimension): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESDimen_DiameterDimension.hxx".}

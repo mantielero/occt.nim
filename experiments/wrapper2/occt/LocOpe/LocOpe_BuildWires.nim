@@ -14,27 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../TopTools/TopTools_ListOfShape
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of LocOpe_WiresOnShape"
 type
-  LocOpe_BuildWires* {.importcpp: "LocOpe_BuildWires",
-                      header: "LocOpe_BuildWires.hxx", bycopy.} = object
+  LocOpeBuildWires* {.importcpp: "LocOpe_BuildWires",
+                     header: "LocOpe_BuildWires.hxx", bycopy.} = object
 
 
-proc constructLocOpe_BuildWires*(): LocOpe_BuildWires {.constructor,
+proc constructLocOpeBuildWires*(): LocOpeBuildWires {.constructor,
     importcpp: "LocOpe_BuildWires(@)", header: "LocOpe_BuildWires.hxx".}
-proc constructLocOpe_BuildWires*(Ledges: TopTools_ListOfShape;
-                                PW: handle[LocOpe_WiresOnShape]): LocOpe_BuildWires {.
+proc constructLocOpeBuildWires*(ledges: TopToolsListOfShape;
+                               pw: Handle[LocOpeWiresOnShape]): LocOpeBuildWires {.
     constructor, importcpp: "LocOpe_BuildWires(@)", header: "LocOpe_BuildWires.hxx".}
-proc Perform*(this: var LocOpe_BuildWires; Ledges: TopTools_ListOfShape;
-             PW: handle[LocOpe_WiresOnShape]) {.importcpp: "Perform",
+proc perform*(this: var LocOpeBuildWires; ledges: TopToolsListOfShape;
+             pw: Handle[LocOpeWiresOnShape]) {.importcpp: "Perform",
     header: "LocOpe_BuildWires.hxx".}
-proc IsDone*(this: LocOpe_BuildWires): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "LocOpe_BuildWires.hxx".}
-proc Result*(this: LocOpe_BuildWires): TopTools_ListOfShape {.noSideEffect,
+proc isDone*(this: LocOpeBuildWires): bool {.noSideEffect, importcpp: "IsDone",
+    header: "LocOpe_BuildWires.hxx".}
+proc result*(this: LocOpeBuildWires): TopToolsListOfShape {.noSideEffect,
     importcpp: "Result", header: "LocOpe_BuildWires.hxx".}

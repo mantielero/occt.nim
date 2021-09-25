@@ -11,54 +11,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../XmlMDF/XmlMDF_ADriver,
-  ../Standard/Standard_Boolean, ../XmlObjMgt/XmlObjMgt_RRelocationTable,
-  ../XmlObjMgt/XmlObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDataStd_NameDriver"
 discard "forward decl of XmlMDataStd_GenericExtStringDriver"
 type
-  Handle_XmlMDataStd_GenericExtStringDriver* = handle[
-      XmlMDataStd_GenericExtStringDriver]
+  HandleXmlMDataStdGenericExtStringDriver* = Handle[
+      XmlMDataStdGenericExtStringDriver]
 
 ## ! Attribute Driver.
 
 type
-  XmlMDataStd_GenericExtStringDriver* {.importcpp: "XmlMDataStd_GenericExtStringDriver", header: "XmlMDataStd_GenericExtStringDriver.hxx",
-                                       bycopy.} = object of XmlMDF_ADriver
+  XmlMDataStdGenericExtStringDriver* {.importcpp: "XmlMDataStd_GenericExtStringDriver", header: "XmlMDataStd_GenericExtStringDriver.hxx",
+                                      bycopy.} = object of XmlMDF_ADriver
 
 
-proc constructXmlMDataStd_GenericExtStringDriver*(
-    theMessageDriver: handle[Message_Messenger]): XmlMDataStd_GenericExtStringDriver {.
+proc constructXmlMDataStdGenericExtStringDriver*(
+    theMessageDriver: Handle[MessageMessenger]): XmlMDataStdGenericExtStringDriver {.
     constructor, importcpp: "XmlMDataStd_GenericExtStringDriver(@)",
     header: "XmlMDataStd_GenericExtStringDriver.hxx".}
-proc NewEmpty*(this: XmlMDataStd_GenericExtStringDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: XmlMDataStdGenericExtStringDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty",
     header: "XmlMDataStd_GenericExtStringDriver.hxx".}
-proc SourceType*(this: XmlMDataStd_GenericExtStringDriver): handle[Standard_Type] {.
+proc sourceType*(this: XmlMDataStdGenericExtStringDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "SourceType",
     header: "XmlMDataStd_GenericExtStringDriver.hxx".}
-proc Paste*(this: XmlMDataStd_GenericExtStringDriver; Source: XmlObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var XmlObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste",
-    header: "XmlMDataStd_GenericExtStringDriver.hxx".}
-proc Paste*(this: XmlMDataStd_GenericExtStringDriver;
-           Source: handle[TDF_Attribute]; Target: var XmlObjMgt_Persistent;
-           RelocTable: var XmlObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: XmlMDataStdGenericExtStringDriver; source: XmlObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var XmlObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "XmlMDataStd_GenericExtStringDriver.hxx".}
+proc paste*(this: XmlMDataStdGenericExtStringDriver; source: Handle[TDF_Attribute];
+           target: var XmlObjMgtPersistent;
+           relocTable: var XmlObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "XmlMDataStd_GenericExtStringDriver.hxx".}
 type
-  XmlMDataStd_GenericExtStringDriverbase_type* = XmlMDF_ADriver
+  XmlMDataStdGenericExtStringDriverbaseType* = XmlMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "XmlMDataStd_GenericExtStringDriver::get_type_name(@)",
-                              header: "XmlMDataStd_GenericExtStringDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XmlMDataStd_GenericExtStringDriver::get_type_name(@)",
+                            header: "XmlMDataStd_GenericExtStringDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XmlMDataStd_GenericExtStringDriver::get_type_descriptor(@)",
     header: "XmlMDataStd_GenericExtStringDriver.hxx".}
-proc DynamicType*(this: XmlMDataStd_GenericExtStringDriver): handle[Standard_Type] {.
+proc dynamicType*(this: XmlMDataStdGenericExtStringDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMDataStd_GenericExtStringDriver.hxx".}

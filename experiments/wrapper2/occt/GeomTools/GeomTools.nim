@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_OStream,
-  ../Standard/Standard_IStream, ../Standard/Standard_Real
-
 discard "forward decl of Geom_Surface"
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom2d_Curve"
@@ -35,27 +30,27 @@ type
                                                                           ## stream.
 
 
-proc Dump*(S: handle[Geom_Surface]; OS: var Standard_OStream) {.
+proc dump*(s: Handle[GeomSurface]; os: var StandardOStream) {.
     importcpp: "GeomTools::Dump(@)", header: "GeomTools.hxx".}
-proc Write*(S: handle[Geom_Surface]; OS: var Standard_OStream) {.
+proc write*(s: Handle[GeomSurface]; os: var StandardOStream) {.
     importcpp: "GeomTools::Write(@)", header: "GeomTools.hxx".}
-proc Read*(S: var handle[Geom_Surface]; IS: var Standard_IStream) {.
+proc read*(s: var Handle[GeomSurface]; `is`: var StandardIStream) {.
     importcpp: "GeomTools::Read(@)", header: "GeomTools.hxx".}
-proc Dump*(C: handle[Geom_Curve]; OS: var Standard_OStream) {.
+proc dump*(c: Handle[GeomCurve]; os: var StandardOStream) {.
     importcpp: "GeomTools::Dump(@)", header: "GeomTools.hxx".}
-proc Write*(C: handle[Geom_Curve]; OS: var Standard_OStream) {.
+proc write*(c: Handle[GeomCurve]; os: var StandardOStream) {.
     importcpp: "GeomTools::Write(@)", header: "GeomTools.hxx".}
-proc Read*(C: var handle[Geom_Curve]; IS: var Standard_IStream) {.
+proc read*(c: var Handle[GeomCurve]; `is`: var StandardIStream) {.
     importcpp: "GeomTools::Read(@)", header: "GeomTools.hxx".}
-proc Dump*(C: handle[Geom2d_Curve]; OS: var Standard_OStream) {.
+proc dump*(c: Handle[Geom2dCurve]; os: var StandardOStream) {.
     importcpp: "GeomTools::Dump(@)", header: "GeomTools.hxx".}
-proc Write*(C: handle[Geom2d_Curve]; OS: var Standard_OStream) {.
+proc write*(c: Handle[Geom2dCurve]; os: var StandardOStream) {.
     importcpp: "GeomTools::Write(@)", header: "GeomTools.hxx".}
-proc Read*(C: var handle[Geom2d_Curve]; IS: var Standard_IStream) {.
+proc read*(c: var Handle[Geom2dCurve]; `is`: var StandardIStream) {.
     importcpp: "GeomTools::Read(@)", header: "GeomTools.hxx".}
-proc SetUndefinedTypeHandler*(aHandler: handle[GeomTools_UndefinedTypeHandler]) {.
+proc setUndefinedTypeHandler*(aHandler: Handle[GeomToolsUndefinedTypeHandler]) {.
     importcpp: "GeomTools::SetUndefinedTypeHandler(@)", header: "GeomTools.hxx".}
-proc GetUndefinedTypeHandler*(): handle[GeomTools_UndefinedTypeHandler] {.
+proc getUndefinedTypeHandler*(): Handle[GeomToolsUndefinedTypeHandler] {.
     importcpp: "GeomTools::GetUndefinedTypeHandler(@)", header: "GeomTools.hxx".}
-proc GetReal*(IS: var Standard_IStream; theValue: var Standard_Real) {.
+proc getReal*(`is`: var StandardIStream; theValue: var float) {.
     importcpp: "GeomTools::GetReal(@)", header: "GeomTools.hxx".}

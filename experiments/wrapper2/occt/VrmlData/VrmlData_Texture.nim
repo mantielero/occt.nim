@@ -13,50 +13,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  VrmlData_Node
-
 ## *
 ##   Implementation of the Texture node
 ##
 
 type
-  VrmlData_Texture* {.importcpp: "VrmlData_Texture",
-                     header: "VrmlData_Texture.hxx", bycopy.} = object of VrmlData_Node ##  ---------- PUBLIC METHODS ----------
-                                                                                 ## *
-                                                                                 ##  Empty constructor
-                                                                                 ##
-                                                                                 ##  ---------- PROTECTED METHODS ----------
-                                                                                 ##  ---------- PRIVATE FIELDS ----------
-                                                                                 ##  Declaration of CASCADE RTTI
+  VrmlDataTexture* {.importcpp: "VrmlData_Texture", header: "VrmlData_Texture.hxx",
+                    bycopy.} = object of VrmlDataNode ##  ---------- PUBLIC METHODS ----------
+                                                 ## *
+                                                 ##  Empty constructor
+                                                 ##
+                                                 ##  ---------- PROTECTED METHODS ----------
+                                                 ##  ---------- PRIVATE FIELDS ----------
+                                                 ##  Declaration of CASCADE RTTI
 
 
-proc constructVrmlData_Texture*(): VrmlData_Texture {.constructor,
+proc constructVrmlDataTexture*(): VrmlDataTexture {.constructor,
     importcpp: "VrmlData_Texture(@)", header: "VrmlData_Texture.hxx".}
-proc constructVrmlData_Texture*(theScene: VrmlData_Scene; theName: cstring;
-                               theRepeatS: Standard_Boolean = Standard_False;
-                               theRepeatT: Standard_Boolean = Standard_False): VrmlData_Texture {.
+proc constructVrmlDataTexture*(theScene: VrmlDataScene; theName: cstring;
+                              theRepeatS: bool = false; theRepeatT: bool = false): VrmlDataTexture {.
     constructor, importcpp: "VrmlData_Texture(@)", header: "VrmlData_Texture.hxx".}
-proc RepeatS*(this: VrmlData_Texture): Standard_Boolean {.noSideEffect,
-    importcpp: "RepeatS", header: "VrmlData_Texture.hxx".}
-proc RepeatT*(this: VrmlData_Texture): Standard_Boolean {.noSideEffect,
-    importcpp: "RepeatT", header: "VrmlData_Texture.hxx".}
-proc SetRepeatS*(this: var VrmlData_Texture; theFlag: Standard_Boolean) {.
-    importcpp: "SetRepeatS", header: "VrmlData_Texture.hxx".}
-proc SetRepeatT*(this: var VrmlData_Texture; theFlag: Standard_Boolean) {.
-    importcpp: "SetRepeatT", header: "VrmlData_Texture.hxx".}
+proc repeatS*(this: VrmlDataTexture): bool {.noSideEffect, importcpp: "RepeatS",
+    header: "VrmlData_Texture.hxx".}
+proc repeatT*(this: VrmlDataTexture): bool {.noSideEffect, importcpp: "RepeatT",
+    header: "VrmlData_Texture.hxx".}
+proc setRepeatS*(this: var VrmlDataTexture; theFlag: bool) {.importcpp: "SetRepeatS",
+    header: "VrmlData_Texture.hxx".}
+proc setRepeatT*(this: var VrmlDataTexture; theFlag: bool) {.importcpp: "SetRepeatT",
+    header: "VrmlData_Texture.hxx".}
 type
-  VrmlData_Texturebase_type* = VrmlData_Node
+  VrmlDataTexturebaseType* = VrmlDataNode
 
-proc get_type_name*(): cstring {.importcpp: "VrmlData_Texture::get_type_name(@)",
-                              header: "VrmlData_Texture.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "VrmlData_Texture::get_type_name(@)",
+                            header: "VrmlData_Texture.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "VrmlData_Texture::get_type_descriptor(@)",
     header: "VrmlData_Texture.hxx".}
-proc DynamicType*(this: VrmlData_Texture): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: VrmlDataTexture): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "VrmlData_Texture.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of VrmlData_Texture"
 type
-  Handle_VrmlData_Texture* = handle[VrmlData_Texture]
+  HandleVrmlDataTexture* = Handle[VrmlDataTexture]
+

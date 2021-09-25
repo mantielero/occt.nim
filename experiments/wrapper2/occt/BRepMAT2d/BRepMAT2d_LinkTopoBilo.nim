@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, BRepMAT2d_DataMapOfShapeSequenceOfBasicElt,
-  BRepMAT2d_DataMapOfBasicEltShape, ../TopoDS/TopoDS_Shape,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of BRepMAT2d_Explorer"
 discard "forward decl of BRepMAT2d_BisectingLocus"
@@ -27,27 +21,27 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of MAT_BasicElt"
 discard "forward decl of TopoDS_Wire"
 type
-  BRepMAT2d_LinkTopoBilo* {.importcpp: "BRepMAT2d_LinkTopoBilo",
-                           header: "BRepMAT2d_LinkTopoBilo.hxx", bycopy.} = object
+  BRepMAT2dLinkTopoBilo* {.importcpp: "BRepMAT2d_LinkTopoBilo",
+                          header: "BRepMAT2d_LinkTopoBilo.hxx", bycopy.} = object
 
 
-proc constructBRepMAT2d_LinkTopoBilo*(): BRepMAT2d_LinkTopoBilo {.constructor,
+proc constructBRepMAT2dLinkTopoBilo*(): BRepMAT2dLinkTopoBilo {.constructor,
     importcpp: "BRepMAT2d_LinkTopoBilo(@)", header: "BRepMAT2d_LinkTopoBilo.hxx".}
-proc constructBRepMAT2d_LinkTopoBilo*(Explo: BRepMAT2d_Explorer;
-                                     BiLo: BRepMAT2d_BisectingLocus): BRepMAT2d_LinkTopoBilo {.
+proc constructBRepMAT2dLinkTopoBilo*(explo: BRepMAT2dExplorer;
+                                    biLo: BRepMAT2dBisectingLocus): BRepMAT2dLinkTopoBilo {.
     constructor, importcpp: "BRepMAT2d_LinkTopoBilo(@)",
     header: "BRepMAT2d_LinkTopoBilo.hxx".}
-proc Perform*(this: var BRepMAT2d_LinkTopoBilo; Explo: BRepMAT2d_Explorer;
-             BiLo: BRepMAT2d_BisectingLocus) {.importcpp: "Perform",
+proc perform*(this: var BRepMAT2dLinkTopoBilo; explo: BRepMAT2dExplorer;
+             biLo: BRepMAT2dBisectingLocus) {.importcpp: "Perform",
     header: "BRepMAT2d_LinkTopoBilo.hxx".}
-proc Init*(this: var BRepMAT2d_LinkTopoBilo; S: TopoDS_Shape) {.importcpp: "Init",
+proc init*(this: var BRepMAT2dLinkTopoBilo; s: TopoDS_Shape) {.importcpp: "Init",
     header: "BRepMAT2d_LinkTopoBilo.hxx".}
-proc More*(this: var BRepMAT2d_LinkTopoBilo): Standard_Boolean {.importcpp: "More",
+proc more*(this: var BRepMAT2dLinkTopoBilo): bool {.importcpp: "More",
     header: "BRepMAT2d_LinkTopoBilo.hxx".}
-proc Next*(this: var BRepMAT2d_LinkTopoBilo) {.importcpp: "Next",
+proc next*(this: var BRepMAT2dLinkTopoBilo) {.importcpp: "Next",
     header: "BRepMAT2d_LinkTopoBilo.hxx".}
-proc Value*(this: BRepMAT2d_LinkTopoBilo): handle[MAT_BasicElt] {.noSideEffect,
+proc value*(this: BRepMAT2dLinkTopoBilo): Handle[MAT_BasicElt] {.noSideEffect,
     importcpp: "Value", header: "BRepMAT2d_LinkTopoBilo.hxx".}
-proc GeneratingShape*(this: BRepMAT2d_LinkTopoBilo; aBE: handle[MAT_BasicElt]): TopoDS_Shape {.
+proc generatingShape*(this: BRepMAT2dLinkTopoBilo; aBE: Handle[MAT_BasicElt]): TopoDS_Shape {.
     noSideEffect, importcpp: "GeneratingShape",
     header: "BRepMAT2d_LinkTopoBilo.hxx".}

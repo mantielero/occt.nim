@@ -16,7 +16,7 @@
 discard "forward decl of BRepMesh_DataStructureOfDelaun"
 discard "forward decl of BRepMesh_Delaun"
 type
-  BRepMesh_CustomDelaunayBaseMeshAlgo*[BaseAlgo] {.
+  BRepMeshCustomDelaunayBaseMeshAlgo*[BaseAlgo] {.
       importcpp: "BRepMesh_CustomDelaunayBaseMeshAlgo<\'0>",
       header: "BRepMesh_CustomDelaunayBaseMeshAlgo.hxx", bycopy.} = object of BaseAlgo ##
                                                                                 ## !
@@ -30,11 +30,11 @@ type
                                                                                 ## mesh.
 
 
-proc constructBRepMesh_CustomDelaunayBaseMeshAlgo*[BaseAlgo](): BRepMesh_CustomDelaunayBaseMeshAlgo[
+proc constructBRepMeshCustomDelaunayBaseMeshAlgo*[BaseAlgo](): BRepMeshCustomDelaunayBaseMeshAlgo[
     BaseAlgo] {.constructor,
                importcpp: "BRepMesh_CustomDelaunayBaseMeshAlgo<\'*0>(@)",
                header: "BRepMesh_CustomDelaunayBaseMeshAlgo.hxx".}
-proc destroyBRepMesh_CustomDelaunayBaseMeshAlgo*[BaseAlgo](
-    this: var BRepMesh_CustomDelaunayBaseMeshAlgo[BaseAlgo]) {.
+proc destroyBRepMeshCustomDelaunayBaseMeshAlgo*[BaseAlgo](
+    this: var BRepMeshCustomDelaunayBaseMeshAlgo[BaseAlgo]) {.
     importcpp: "#.~BRepMesh_CustomDelaunayBaseMeshAlgo()",
     header: "BRepMesh_CustomDelaunayBaseMeshAlgo.hxx".}

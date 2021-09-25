@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_XY, ../Standard/Standard_Integer,
-  Plate_PinpointConstraint, Plate_LinearScalarConstraint,
-  ../Standard/Standard_Real
-
 discard "forward decl of gp_XY"
 discard "forward decl of Plate_D1"
 discard "forward decl of Plate_D2"
@@ -27,33 +21,32 @@ discard "forward decl of Plate_D3"
 discard "forward decl of Plate_PinpointConstraint"
 discard "forward decl of Plate_LinearScalarConstraint"
 type
-  Plate_FreeGtoCConstraint* {.importcpp: "Plate_FreeGtoCConstraint",
-                             header: "Plate_FreeGtoCConstraint.hxx", bycopy.} = object
+  PlateFreeGtoCConstraint* {.importcpp: "Plate_FreeGtoCConstraint",
+                            header: "Plate_FreeGtoCConstraint.hxx", bycopy.} = object
 
 
-proc constructPlate_FreeGtoCConstraint*(point2d: gp_XY; D1S: Plate_D1; D1T: Plate_D1;
-                                       IncrementalLoad: Standard_Real = 1.0;
-                                       orientation: Standard_Integer = 0): Plate_FreeGtoCConstraint {.
+proc constructPlateFreeGtoCConstraint*(point2d: Xy; d1s: PlateD1; d1t: PlateD1;
+                                      incrementalLoad: float = 1.0;
+                                      orientation: int = 0): PlateFreeGtoCConstraint {.
     constructor, importcpp: "Plate_FreeGtoCConstraint(@)",
     header: "Plate_FreeGtoCConstraint.hxx".}
-proc constructPlate_FreeGtoCConstraint*(point2d: gp_XY; D1S: Plate_D1; D1T: Plate_D1;
-                                       D2S: Plate_D2; D2T: Plate_D2;
-                                       IncrementalLoad: Standard_Real = 1.0;
-                                       orientation: Standard_Integer = 0): Plate_FreeGtoCConstraint {.
+proc constructPlateFreeGtoCConstraint*(point2d: Xy; d1s: PlateD1; d1t: PlateD1;
+                                      d2s: PlateD2; d2t: PlateD2;
+                                      incrementalLoad: float = 1.0;
+                                      orientation: int = 0): PlateFreeGtoCConstraint {.
     constructor, importcpp: "Plate_FreeGtoCConstraint(@)",
     header: "Plate_FreeGtoCConstraint.hxx".}
-proc constructPlate_FreeGtoCConstraint*(point2d: gp_XY; D1S: Plate_D1; D1T: Plate_D1;
-                                       D2S: Plate_D2; D2T: Plate_D2; D3S: Plate_D3;
-                                       D3T: Plate_D3;
-                                       IncrementalLoad: Standard_Real = 1.0;
-                                       orientation: Standard_Integer = 0): Plate_FreeGtoCConstraint {.
+proc constructPlateFreeGtoCConstraint*(point2d: Xy; d1s: PlateD1; d1t: PlateD1;
+                                      d2s: PlateD2; d2t: PlateD2; d3s: PlateD3;
+                                      d3t: PlateD3; incrementalLoad: float = 1.0;
+                                      orientation: int = 0): PlateFreeGtoCConstraint {.
     constructor, importcpp: "Plate_FreeGtoCConstraint(@)",
     header: "Plate_FreeGtoCConstraint.hxx".}
-proc nb_PPC*(this: Plate_FreeGtoCConstraint): Standard_Integer {.noSideEffect,
-    importcpp: "nb_PPC", header: "Plate_FreeGtoCConstraint.hxx".}
-proc GetPPC*(this: Plate_FreeGtoCConstraint; Index: Standard_Integer): Plate_PinpointConstraint {.
+proc nbPPC*(this: PlateFreeGtoCConstraint): int {.noSideEffect, importcpp: "nb_PPC",
+    header: "Plate_FreeGtoCConstraint.hxx".}
+proc getPPC*(this: PlateFreeGtoCConstraint; index: int): PlatePinpointConstraint {.
     noSideEffect, importcpp: "GetPPC", header: "Plate_FreeGtoCConstraint.hxx".}
-proc nb_LSC*(this: Plate_FreeGtoCConstraint): Standard_Integer {.noSideEffect,
-    importcpp: "nb_LSC", header: "Plate_FreeGtoCConstraint.hxx".}
-proc LSC*(this: Plate_FreeGtoCConstraint; Index: Standard_Integer): Plate_LinearScalarConstraint {.
+proc nbLSC*(this: PlateFreeGtoCConstraint): int {.noSideEffect, importcpp: "nb_LSC",
+    header: "Plate_FreeGtoCConstraint.hxx".}
+proc lsc*(this: PlateFreeGtoCConstraint; index: int): PlateLinearScalarConstraint {.
     noSideEffect, importcpp: "LSC", header: "Plate_FreeGtoCConstraint.hxx".}

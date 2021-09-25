@@ -14,43 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopAbs/TopAbs_ShapeEnum,
-  ../Standard/Standard_OStream
-
 discard "forward decl of TopOpeBRepBuild_GTopo"
 type
-  TopOpeBRepBuild_GTool* {.importcpp: "TopOpeBRepBuild_GTool",
-                          header: "TopOpeBRepBuild_GTool.hxx", bycopy.} = object
+  TopOpeBRepBuildGTool* {.importcpp: "TopOpeBRepBuild_GTool",
+                         header: "TopOpeBRepBuild_GTool.hxx", bycopy.} = object
 
 
-proc GFusUnsh*(s1: TopAbs_ShapeEnum; s2: TopAbs_ShapeEnum): TopOpeBRepBuild_GTopo {.
+proc gFusUnsh*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
     importcpp: "TopOpeBRepBuild_GTool::GFusUnsh(@)",
     header: "TopOpeBRepBuild_GTool.hxx".}
-proc GFusSame*(s1: TopAbs_ShapeEnum; s2: TopAbs_ShapeEnum): TopOpeBRepBuild_GTopo {.
+proc gFusSame*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
     importcpp: "TopOpeBRepBuild_GTool::GFusSame(@)",
     header: "TopOpeBRepBuild_GTool.hxx".}
-proc GFusDiff*(s1: TopAbs_ShapeEnum; s2: TopAbs_ShapeEnum): TopOpeBRepBuild_GTopo {.
+proc gFusDiff*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
     importcpp: "TopOpeBRepBuild_GTool::GFusDiff(@)",
     header: "TopOpeBRepBuild_GTool.hxx".}
-proc GCutUnsh*(s1: TopAbs_ShapeEnum; s2: TopAbs_ShapeEnum): TopOpeBRepBuild_GTopo {.
+proc gCutUnsh*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
     importcpp: "TopOpeBRepBuild_GTool::GCutUnsh(@)",
     header: "TopOpeBRepBuild_GTool.hxx".}
-proc GCutSame*(s1: TopAbs_ShapeEnum; s2: TopAbs_ShapeEnum): TopOpeBRepBuild_GTopo {.
+proc gCutSame*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
     importcpp: "TopOpeBRepBuild_GTool::GCutSame(@)",
     header: "TopOpeBRepBuild_GTool.hxx".}
-proc GCutDiff*(s1: TopAbs_ShapeEnum; s2: TopAbs_ShapeEnum): TopOpeBRepBuild_GTopo {.
+proc gCutDiff*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
     importcpp: "TopOpeBRepBuild_GTool::GCutDiff(@)",
     header: "TopOpeBRepBuild_GTool.hxx".}
-proc GComUnsh*(s1: TopAbs_ShapeEnum; s2: TopAbs_ShapeEnum): TopOpeBRepBuild_GTopo {.
+proc gComUnsh*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
     importcpp: "TopOpeBRepBuild_GTool::GComUnsh(@)",
     header: "TopOpeBRepBuild_GTool.hxx".}
-proc GComSame*(s1: TopAbs_ShapeEnum; s2: TopAbs_ShapeEnum): TopOpeBRepBuild_GTopo {.
+proc gComSame*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
     importcpp: "TopOpeBRepBuild_GTool::GComSame(@)",
     header: "TopOpeBRepBuild_GTool.hxx".}
-proc GComDiff*(s1: TopAbs_ShapeEnum; s2: TopAbs_ShapeEnum): TopOpeBRepBuild_GTopo {.
+proc gComDiff*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
     importcpp: "TopOpeBRepBuild_GTool::GComDiff(@)",
     header: "TopOpeBRepBuild_GTool.hxx".}
-proc Dump*(OS: var Standard_OStream) {.importcpp: "TopOpeBRepBuild_GTool::Dump(@)",
-                                   header: "TopOpeBRepBuild_GTool.hxx".}
+proc dump*(os: var StandardOStream) {.importcpp: "TopOpeBRepBuild_GTool::Dump(@)",
+                                  header: "TopOpeBRepBuild_GTool.hxx".}

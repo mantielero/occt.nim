@@ -14,10 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_MagneticFluxDensity_HeaderFile [NewLine] # _Quantity_MagneticFluxDensity_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the magnetic flux passing through unit area
+## !!!Ignored construct:  # _Quantity_MagneticFluxDensity_HeaderFile [NewLine] # _Quantity_MagneticFluxDensity_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the magnetic flux passing through unit area
 ## ! of a magnetic field normal to the magnetic force.
 ## ! It is a vector quantity, the product of the permeability
 ## ! and the magnetic field strength and with a direction at any
 ## ! given point the same as that of the magnetic field.
 ## ! It is measured in teslas (webers per square metre). Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_MagneticFluxDensity ;
 ## Error: expected ';'!!!
+

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESDraw_View"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,31 +26,29 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESDraw_ToolView* {.importcpp: "IGESDraw_ToolView",
-                      header: "IGESDraw_ToolView.hxx", bycopy.} = object ## ! Returns a ToolView, ready to work
+  IGESDrawToolView* {.importcpp: "IGESDraw_ToolView",
+                     header: "IGESDraw_ToolView.hxx", bycopy.} = object ## ! Returns a ToolView, ready to work
 
 
-proc constructIGESDraw_ToolView*(): IGESDraw_ToolView {.constructor,
+proc constructIGESDrawToolView*(): IGESDrawToolView {.constructor,
     importcpp: "IGESDraw_ToolView(@)", header: "IGESDraw_ToolView.hxx".}
-proc ReadOwnParams*(this: IGESDraw_ToolView; ent: handle[IGESDraw_View];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESDraw_ToolView.hxx".}
-proc WriteOwnParams*(this: IGESDraw_ToolView; ent: handle[IGESDraw_View];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESDrawToolView; ent: Handle[IGESDrawView];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams", header: "IGESDraw_ToolView.hxx".}
+proc writeOwnParams*(this: IGESDrawToolView; ent: Handle[IGESDrawView];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESDraw_ToolView.hxx".}
-proc OwnShared*(this: IGESDraw_ToolView; ent: handle[IGESDraw_View];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESDrawToolView; ent: Handle[IGESDrawView];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESDraw_ToolView.hxx".}
-proc DirChecker*(this: IGESDraw_ToolView; ent: handle[IGESDraw_View]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESDrawToolView; ent: Handle[IGESDrawView]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESDraw_ToolView.hxx".}
-proc OwnCheck*(this: IGESDraw_ToolView; ent: handle[IGESDraw_View];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESDrawToolView; ent: Handle[IGESDrawView];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESDraw_ToolView.hxx".}
-proc OwnCopy*(this: IGESDraw_ToolView; entfrom: handle[IGESDraw_View];
-             entto: handle[IGESDraw_View]; TC: var Interface_CopyTool) {.
-    noSideEffect, importcpp: "OwnCopy", header: "IGESDraw_ToolView.hxx".}
-proc OwnDump*(this: IGESDraw_ToolView; ent: handle[IGESDraw_View];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
-                                    header: "IGESDraw_ToolView.hxx".}
+proc ownCopy*(this: IGESDrawToolView; entfrom: Handle[IGESDrawView];
+             entto: Handle[IGESDrawView]; tc: var InterfaceCopyTool) {.noSideEffect,
+    importcpp: "OwnCopy", header: "IGESDraw_ToolView.hxx".}
+proc ownDump*(this: IGESDrawToolView; ent: Handle[IGESDrawView];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump", header: "IGESDraw_ToolView.hxx".}

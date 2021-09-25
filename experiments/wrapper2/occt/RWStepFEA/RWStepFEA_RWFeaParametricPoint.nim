@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepFEA_FeaParametricPoint"
@@ -30,15 +26,15 @@ type
 proc constructRWStepFEA_RWFeaParametricPoint*(): RWStepFEA_RWFeaParametricPoint {.
     constructor, importcpp: "RWStepFEA_RWFeaParametricPoint(@)",
     header: "RWStepFEA_RWFeaParametricPoint.hxx".}
-proc ReadStep*(this: RWStepFEA_RWFeaParametricPoint;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepFEA_FeaParametricPoint]) {.noSideEffect,
+proc readStep*(this: RWStepFEA_RWFeaParametricPoint;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepFEA_FeaParametricPoint]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWFeaParametricPoint.hxx".}
-proc WriteStep*(this: RWStepFEA_RWFeaParametricPoint; SW: var StepData_StepWriter;
-               ent: handle[StepFEA_FeaParametricPoint]) {.noSideEffect,
+proc writeStep*(this: RWStepFEA_RWFeaParametricPoint; sw: var StepDataStepWriter;
+               ent: Handle[StepFEA_FeaParametricPoint]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepFEA_RWFeaParametricPoint.hxx".}
-proc Share*(this: RWStepFEA_RWFeaParametricPoint;
-           ent: handle[StepFEA_FeaParametricPoint];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepFEA_RWFeaParametricPoint;
+           ent: Handle[StepFEA_FeaParametricPoint];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFeaParametricPoint.hxx".}

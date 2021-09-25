@@ -14,36 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopLoc/TopLoc_IndexedMapOfLocation,
-  ../Standard/Standard_Integer, ../Standard/Standard_OStream,
-  ../Standard/Standard_IStream, ../Message/Message_ProgressRange
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of TopLoc_Location"
 type
-  TopTools_LocationSet* {.importcpp: "TopTools_LocationSet",
-                         header: "TopTools_LocationSet.hxx", bycopy.} = object ## !
-                                                                          ## Returns an empty set of
-                                                                          ## locations.
+  TopToolsLocationSet* {.importcpp: "TopTools_LocationSet",
+                        header: "TopTools_LocationSet.hxx", bycopy.} = object ## ! Returns an empty set of
+                                                                         ## locations.
 
 
-proc constructTopTools_LocationSet*(): TopTools_LocationSet {.constructor,
+proc constructTopToolsLocationSet*(): TopToolsLocationSet {.constructor,
     importcpp: "TopTools_LocationSet(@)", header: "TopTools_LocationSet.hxx".}
-proc Clear*(this: var TopTools_LocationSet) {.importcpp: "Clear",
+proc clear*(this: var TopToolsLocationSet) {.importcpp: "Clear",
     header: "TopTools_LocationSet.hxx".}
-proc Add*(this: var TopTools_LocationSet; L: TopLoc_Location): Standard_Integer {.
-    importcpp: "Add", header: "TopTools_LocationSet.hxx".}
-proc Location*(this: TopTools_LocationSet; I: Standard_Integer): TopLoc_Location {.
-    noSideEffect, importcpp: "Location", header: "TopTools_LocationSet.hxx".}
-proc Index*(this: TopTools_LocationSet; L: TopLoc_Location): Standard_Integer {.
-    noSideEffect, importcpp: "Index", header: "TopTools_LocationSet.hxx".}
-proc Dump*(this: TopTools_LocationSet; OS: var Standard_OStream) {.noSideEffect,
+proc add*(this: var TopToolsLocationSet; L: TopLocLocation): int {.importcpp: "Add",
+    header: "TopTools_LocationSet.hxx".}
+proc location*(this: TopToolsLocationSet; i: int): TopLocLocation {.noSideEffect,
+    importcpp: "Location", header: "TopTools_LocationSet.hxx".}
+proc index*(this: TopToolsLocationSet; L: TopLocLocation): int {.noSideEffect,
+    importcpp: "Index", header: "TopTools_LocationSet.hxx".}
+proc dump*(this: TopToolsLocationSet; os: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "TopTools_LocationSet.hxx".}
-proc Write*(this: TopTools_LocationSet; OS: var Standard_OStream;
-           theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc write*(this: TopToolsLocationSet; os: var StandardOStream;
+           theProgress: MessageProgressRange = messageProgressRange()) {.
     noSideEffect, importcpp: "Write", header: "TopTools_LocationSet.hxx".}
-proc Read*(this: var TopTools_LocationSet; IS: var Standard_IStream;
-          theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc read*(this: var TopToolsLocationSet; `is`: var StandardIStream;
+          theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Read", header: "TopTools_LocationSet.hxx".}

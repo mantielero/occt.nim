@@ -14,64 +14,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TopOpeBRepTool_define, ../Geom/Geom_Surface, ../gp/gp_Pnt2d, ../gp/gp_Pnt,
-  ../BRepAdaptor/BRepAdaptor_Curve, ../BRepAdaptor/BRepAdaptor_Curve2d,
-  ../Extrema/Extrema_ExtPC, ../Extrema/Extrema_ExtPC2d,
-  ../Extrema/Extrema_ExtFlag, ../Extrema/Extrema_ExtAlgo
-
 ##  ----------------------------------------------------------------------
 ##   project point <P> on geometries (curve <C>,surface <S>)
 ##  ----------------------------------------------------------------------
 
-proc FUN_tool_bounds*(E: TopoDS_Edge; f: var Standard_Real; l: var Standard_Real) {.
+proc fUN_toolBounds*(e: TopoDS_Edge; f: var float; l: var float) {.
     importcpp: "FUN_tool_bounds(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc FUN_tool_getindex*(ponc: Extrema_ExtPC): Standard_Integer {.
+proc fUN_toolGetindex*(ponc: ExtremaExtPC): int {.importcpp: "FUN_tool_getindex(@)",
+    header: "TopOpeBRepTool_PROJECT.hxx".}
+proc fUN_toolGetindex*(ponc: ExtremaExtPC2d): int {.
     importcpp: "FUN_tool_getindex(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc FUN_tool_getindex*(ponc: Extrema_ExtPC2d): Standard_Integer {.
-    importcpp: "FUN_tool_getindex(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc FUN_tool_projPonC*(P: gp_Pnt; tole: Standard_Real; BAC: BRepAdaptor_Curve;
-                       pmin: Standard_Real; pmax: Standard_Real;
-                       param: var Standard_Real; dist: var Standard_Real): Standard_Boolean {.
+proc fUN_toolProjPonC*(p: Pnt; tole: float; bac: BRepAdaptorCurve; pmin: float;
+                      pmax: float; param: var float; dist: var float): bool {.
     importcpp: "FUN_tool_projPonC(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc FUN_tool_projPonC*(P: gp_Pnt; BAC: BRepAdaptor_Curve; pmin: Standard_Real;
-                       pmax: Standard_Real; param: var Standard_Real;
-                       dist: var Standard_Real): Standard_Boolean {.
+proc fUN_toolProjPonC*(p: Pnt; bac: BRepAdaptorCurve; pmin: float; pmax: float;
+                      param: var float; dist: var float): bool {.
     importcpp: "FUN_tool_projPonC(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc FUN_tool_projPonC*(P: gp_Pnt; BAC: BRepAdaptor_Curve; param: var Standard_Real;
-                       dist: var Standard_Real): Standard_Boolean {.
+proc fUN_toolProjPonC*(p: Pnt; bac: BRepAdaptorCurve; param: var float; dist: var float): bool {.
     importcpp: "FUN_tool_projPonC(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc FUN_tool_projPonC2D*(P: gp_Pnt; tole: Standard_Real; BAC2D: BRepAdaptor_Curve2d;
-                         pmin: Standard_Real; pmax: Standard_Real;
-                         param: var Standard_Real; dist: var Standard_Real): Standard_Boolean {.
+proc fUN_toolProjPonC2D*(p: Pnt; tole: float; bac2d: BRepAdaptorCurve2d; pmin: float;
+                        pmax: float; param: var float; dist: var float): bool {.
     importcpp: "FUN_tool_projPonC2D(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc FUN_tool_projPonC2D*(P: gp_Pnt; BAC2D: BRepAdaptor_Curve2d; pmin: Standard_Real;
-                         pmax: Standard_Real; param: var Standard_Real;
-                         dist: var Standard_Real): Standard_Boolean {.
+proc fUN_toolProjPonC2D*(p: Pnt; bac2d: BRepAdaptorCurve2d; pmin: float; pmax: float;
+                        param: var float; dist: var float): bool {.
     importcpp: "FUN_tool_projPonC2D(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc FUN_tool_projPonC2D*(P: gp_Pnt; BAC2D: BRepAdaptor_Curve2d;
-                         param: var Standard_Real; dist: var Standard_Real): Standard_Boolean {.
+proc fUN_toolProjPonC2D*(p: Pnt; bac2d: BRepAdaptorCurve2d; param: var float;
+                        dist: var float): bool {.
     importcpp: "FUN_tool_projPonC2D(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc FUN_tool_projPonS*(P: gp_Pnt; S: handle[Geom_Surface]; UV: var gp_Pnt2d;
-                       dist: var Standard_Real;
-                       anExtFlag: Extrema_ExtFlag = Extrema_ExtFlag_MINMAX;
-                       anExtAlgo: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad): Standard_Boolean {.
+proc fUN_toolProjPonS*(p: Pnt; s: Handle[GeomSurface]; uv: var Pnt2d; dist: var float;
+                      anExtFlag: ExtremaExtFlag = extremaExtFlagMINMAX;
+                      anExtAlgo: ExtremaExtAlgo = extremaExtAlgoGrad): bool {.
     importcpp: "FUN_tool_projPonS(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
 ##  ----------------------------------------------------------------------
 ##   project point <P> on topologies (edge <E>,face <F>)
 ##  ----------------------------------------------------------------------
 
-proc FUN_tool_projPonE*(P: gp_Pnt; tole: Standard_Real; E: TopoDS_Edge;
-                       param: var Standard_Real; dist: var Standard_Real): Standard_Boolean {.
+proc fUN_toolProjPonE*(p: Pnt; tole: float; e: TopoDS_Edge; param: var float;
+                      dist: var float): bool {.importcpp: "FUN_tool_projPonE(@)",
+    header: "TopOpeBRepTool_PROJECT.hxx".}
+proc fUN_toolProjPonE*(p: Pnt; e: TopoDS_Edge; param: var float; dist: var float): bool {.
     importcpp: "FUN_tool_projPonE(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc FUN_tool_projPonE*(P: gp_Pnt; E: TopoDS_Edge; param: var Standard_Real;
-                       dist: var Standard_Real): Standard_Boolean {.
-    importcpp: "FUN_tool_projPonE(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc FUN_tool_projPonboundedF*(P: gp_Pnt; F: TopoDS_Face; UV: var gp_Pnt2d;
-                              dist: var Standard_Real): Standard_Boolean {.
+proc fUN_toolProjPonboundedF*(p: Pnt; f: TopoDS_Face; uv: var Pnt2d; dist: var float): bool {.
     importcpp: "FUN_tool_projPonboundedF(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc FUN_tool_projPonF*(P: gp_Pnt; F: TopoDS_Face; UV: var gp_Pnt2d;
-                       dist: var Standard_Real;
-                       anExtFlag: Extrema_ExtFlag = Extrema_ExtFlag_MINMAX;
-                       anExtAlgo: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad): Standard_Boolean {.
+proc fUN_toolProjPonF*(p: Pnt; f: TopoDS_Face; uv: var Pnt2d; dist: var float;
+                      anExtFlag: ExtremaExtFlag = extremaExtFlagMINMAX;
+                      anExtAlgo: ExtremaExtAlgo = extremaExtAlgoGrad): bool {.
     importcpp: "FUN_tool_projPonF(@)", header: "TopOpeBRepTool_PROJECT.hxx".}

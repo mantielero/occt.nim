@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of Geom_Transformation"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Pnt"
@@ -27,13 +23,13 @@ type
                                                                       ## translation along the vector " Vect "
 
 
-proc constructGC_MakeTranslation*(Vect: gp_Vec): GC_MakeTranslation {.constructor,
+proc constructGC_MakeTranslation*(vect: Vec): GC_MakeTranslation {.constructor,
     importcpp: "GC_MakeTranslation(@)", header: "GC_MakeTranslation.hxx".}
-proc constructGC_MakeTranslation*(Point1: gp_Pnt; Point2: gp_Pnt): GC_MakeTranslation {.
+proc constructGC_MakeTranslation*(point1: Pnt; point2: Pnt): GC_MakeTranslation {.
     constructor, importcpp: "GC_MakeTranslation(@)",
     header: "GC_MakeTranslation.hxx".}
-proc Value*(this: GC_MakeTranslation): handle[Geom_Transformation] {.noSideEffect,
+proc value*(this: GC_MakeTranslation): Handle[GeomTransformation] {.noSideEffect,
     importcpp: "Value", header: "GC_MakeTranslation.hxx".}
-converter `constopencascade`*(this: GC_MakeTranslation): handle[Geom_Transformation] {.
+converter `constopencascade`*(this: GC_MakeTranslation): Handle[GeomTransformation] {.
     noSideEffect, importcpp: "GC_MakeTranslation::operator constopencascade",
     header: "GC_MakeTranslation.hxx".}

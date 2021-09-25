@@ -14,17 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../TColgp/TColgp_HArray1OfXY,
-  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt"
 discard "forward decl of IGESDimen_CenterLine"
 discard "forward decl of IGESDimen_CenterLine"
 type
-  Handle_IGESDimen_CenterLine* = handle[IGESDimen_CenterLine]
+  HandleIGESDimenCenterLine* = Handle[IGESDimenCenterLine]
 
 ## ! defines CenterLine, Type <106> Form <20-21>
 ## ! in package IGESDimen
@@ -32,36 +27,36 @@ type
 ## ! construction between 2 positions
 
 type
-  IGESDimen_CenterLine* {.importcpp: "IGESDimen_CenterLine",
-                         header: "IGESDimen_CenterLine.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESDimenCenterLine* {.importcpp: "IGESDimen_CenterLine",
+                        header: "IGESDimen_CenterLine.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESDimen_CenterLine*(): IGESDimen_CenterLine {.constructor,
+proc constructIGESDimenCenterLine*(): IGESDimenCenterLine {.constructor,
     importcpp: "IGESDimen_CenterLine(@)", header: "IGESDimen_CenterLine.hxx".}
-proc Init*(this: var IGESDimen_CenterLine; aDataType: Standard_Integer;
-          aZdisp: Standard_Real; dataPnts: handle[TColgp_HArray1OfXY]) {.
-    importcpp: "Init", header: "IGESDimen_CenterLine.hxx".}
-proc SetCrossHair*(this: var IGESDimen_CenterLine; mode: Standard_Boolean) {.
+proc init*(this: var IGESDimenCenterLine; aDataType: int; aZdisp: float;
+          dataPnts: Handle[TColgpHArray1OfXY]) {.importcpp: "Init",
+    header: "IGESDimen_CenterLine.hxx".}
+proc setCrossHair*(this: var IGESDimenCenterLine; mode: bool) {.
     importcpp: "SetCrossHair", header: "IGESDimen_CenterLine.hxx".}
-proc Datatype*(this: IGESDimen_CenterLine): Standard_Integer {.noSideEffect,
-    importcpp: "Datatype", header: "IGESDimen_CenterLine.hxx".}
-proc NbPoints*(this: IGESDimen_CenterLine): Standard_Integer {.noSideEffect,
-    importcpp: "NbPoints", header: "IGESDimen_CenterLine.hxx".}
-proc ZDisplacement*(this: IGESDimen_CenterLine): Standard_Real {.noSideEffect,
+proc datatype*(this: IGESDimenCenterLine): int {.noSideEffect, importcpp: "Datatype",
+    header: "IGESDimen_CenterLine.hxx".}
+proc nbPoints*(this: IGESDimenCenterLine): int {.noSideEffect, importcpp: "NbPoints",
+    header: "IGESDimen_CenterLine.hxx".}
+proc zDisplacement*(this: IGESDimenCenterLine): float {.noSideEffect,
     importcpp: "ZDisplacement", header: "IGESDimen_CenterLine.hxx".}
-proc Point*(this: IGESDimen_CenterLine; Index: Standard_Integer): gp_Pnt {.
-    noSideEffect, importcpp: "Point", header: "IGESDimen_CenterLine.hxx".}
-proc TransformedPoint*(this: IGESDimen_CenterLine; Index: Standard_Integer): gp_Pnt {.
-    noSideEffect, importcpp: "TransformedPoint", header: "IGESDimen_CenterLine.hxx".}
-proc IsCrossHair*(this: IGESDimen_CenterLine): Standard_Boolean {.noSideEffect,
+proc point*(this: IGESDimenCenterLine; index: int): Pnt {.noSideEffect,
+    importcpp: "Point", header: "IGESDimen_CenterLine.hxx".}
+proc transformedPoint*(this: IGESDimenCenterLine; index: int): Pnt {.noSideEffect,
+    importcpp: "TransformedPoint", header: "IGESDimen_CenterLine.hxx".}
+proc isCrossHair*(this: IGESDimenCenterLine): bool {.noSideEffect,
     importcpp: "IsCrossHair", header: "IGESDimen_CenterLine.hxx".}
 type
-  IGESDimen_CenterLinebase_type* = IGESData_IGESEntity
+  IGESDimenCenterLinebaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESDimen_CenterLine::get_type_name(@)",
-                              header: "IGESDimen_CenterLine.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESDimen_CenterLine::get_type_name(@)",
+                            header: "IGESDimen_CenterLine.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESDimen_CenterLine::get_type_descriptor(@)",
     header: "IGESDimen_CenterLine.hxx".}
-proc DynamicType*(this: IGESDimen_CenterLine): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IGESDimenCenterLine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDimen_CenterLine.hxx".}

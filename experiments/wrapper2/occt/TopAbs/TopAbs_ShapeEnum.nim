@@ -41,8 +41,9 @@
 ## ! - VERTEX: A zero-dimensional shape corresponding to a point in geometry.
 
 type
-  TopAbs_ShapeEnum* {.size: sizeof(cint), importcpp: "TopAbs_ShapeEnum",
-                     header: "TopAbs_ShapeEnum.hxx".} = enum
-    TopAbs_COMPOUND, TopAbs_COMPSOLID, TopAbs_SOLID, TopAbs_SHELL, TopAbs_FACE,
-    TopAbs_WIRE, TopAbs_EDGE, TopAbs_VERTEX, TopAbs_SHAPE
+  TopAbsShapeEnum* {.size: sizeof(cint), importcpp: "TopAbs_ShapeEnum",
+                    header: "TopAbs_ShapeEnum.hxx".} = enum
+    TopAbsCOMPOUND, TopAbsCOMPSOLID, TopAbsSOLID, TopAbsSHELL, TopAbsFACE,
+    TopAbsWIRE, TopAbsEDGE, TopAbsVERTEX, TopAbsSHAPE
+
 

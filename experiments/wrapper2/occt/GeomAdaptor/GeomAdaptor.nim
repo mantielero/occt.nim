@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of Geom_Curve"
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Geom_Surface"
@@ -59,8 +55,7 @@ type
                                                                                 ## Adaptor3d
 
 
-proc MakeCurve*(C: Adaptor3d_Curve): handle[Geom_Curve] {.
+proc makeCurve*(c: Adaptor3dCurve): Handle[GeomCurve] {.
     importcpp: "GeomAdaptor::MakeCurve(@)", header: "GeomAdaptor.hxx".}
-proc MakeSurface*(theS: Adaptor3d_Surface;
-                 theTrimFlag: Standard_Boolean = Standard_True): handle[Geom_Surface] {.
+proc makeSurface*(theS: Adaptor3dSurface; theTrimFlag: bool = true): Handle[GeomSurface] {.
     importcpp: "GeomAdaptor::MakeSurface(@)", header: "GeomAdaptor.hxx".}

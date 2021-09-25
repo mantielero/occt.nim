@@ -13,49 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../BinMDF/BinMDF_ADriver,
-  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
-  ../BinObjMgt/BinObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataStd_UAttributeDriver"
 discard "forward decl of BinMDataStd_UAttributeDriver"
 type
-  Handle_BinMDataStd_UAttributeDriver* = handle[BinMDataStd_UAttributeDriver]
+  HandleBinMDataStdUAttributeDriver* = Handle[BinMDataStdUAttributeDriver]
 
 ## ! Attribute Driver.
 
 type
-  BinMDataStd_UAttributeDriver* {.importcpp: "BinMDataStd_UAttributeDriver",
-                                 header: "BinMDataStd_UAttributeDriver.hxx",
-                                 bycopy.} = object of BinMDF_ADriver
+  BinMDataStdUAttributeDriver* {.importcpp: "BinMDataStd_UAttributeDriver",
+                                header: "BinMDataStd_UAttributeDriver.hxx", bycopy.} = object of BinMDF_ADriver
 
 
-proc constructBinMDataStd_UAttributeDriver*(
-    theMessageDriver: handle[Message_Messenger]): BinMDataStd_UAttributeDriver {.
+proc constructBinMDataStdUAttributeDriver*(
+    theMessageDriver: Handle[MessageMessenger]): BinMDataStdUAttributeDriver {.
     constructor, importcpp: "BinMDataStd_UAttributeDriver(@)",
     header: "BinMDataStd_UAttributeDriver.hxx".}
-proc NewEmpty*(this: BinMDataStd_UAttributeDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: BinMDataStdUAttributeDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty", header: "BinMDataStd_UAttributeDriver.hxx".}
-proc Paste*(this: BinMDataStd_UAttributeDriver; Source: BinObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "BinMDataStd_UAttributeDriver.hxx".}
-proc Paste*(this: BinMDataStd_UAttributeDriver; Source: handle[TDF_Attribute];
-           Target: var BinObjMgt_Persistent;
-           RelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: BinMDataStdUAttributeDriver; source: BinObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var BinObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "BinMDataStd_UAttributeDriver.hxx".}
+proc paste*(this: BinMDataStdUAttributeDriver; source: Handle[TDF_Attribute];
+           target: var BinObjMgtPersistent;
+           relocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMDataStd_UAttributeDriver.hxx".}
 type
-  BinMDataStd_UAttributeDriverbase_type* = BinMDF_ADriver
+  BinMDataStdUAttributeDriverbaseType* = BinMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "BinMDataStd_UAttributeDriver::get_type_name(@)",
-                              header: "BinMDataStd_UAttributeDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BinMDataStd_UAttributeDriver::get_type_name(@)",
+                            header: "BinMDataStd_UAttributeDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BinMDataStd_UAttributeDriver::get_type_descriptor(@)",
     header: "BinMDataStd_UAttributeDriver.hxx".}
-proc DynamicType*(this: BinMDataStd_UAttributeDriver): handle[Standard_Type] {.
+proc dynamicType*(this: BinMDataStdUAttributeDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataStd_UAttributeDriver.hxx".}

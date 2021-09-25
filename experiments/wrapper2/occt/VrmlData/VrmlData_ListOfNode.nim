@@ -13,12 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_List, VrmlData_Node
-
 ## *
 ##  Container of List type, holding handles to VrmlData_Node objects
 ##
 
 type
-  VrmlData_ListOfNode* = NCollection_List[handle[VrmlData_Node]]
+  VrmlDataListOfNode* = NCollectionList[Handle[VrmlDataNode]]
+

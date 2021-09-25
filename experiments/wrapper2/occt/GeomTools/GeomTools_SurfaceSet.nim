@@ -14,44 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColStd/TColStd_IndexedMapOfTransient,
-  ../Standard/Standard_Integer, ../Standard/Standard_OStream,
-  ../Standard/Standard_IStream, ../Standard/Standard_Boolean,
-  ../Message/Message_ProgressRange
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Geom_Surface"
 type
-  GeomTools_SurfaceSet* {.importcpp: "GeomTools_SurfaceSet",
-                         header: "GeomTools_SurfaceSet.hxx", bycopy.} = object ## !
-                                                                          ## Returns an empty set of
-                                                                          ## Surfaces.
+  GeomToolsSurfaceSet* {.importcpp: "GeomTools_SurfaceSet",
+                        header: "GeomTools_SurfaceSet.hxx", bycopy.} = object ## ! Returns an empty set of
+                                                                         ## Surfaces.
 
 
-proc constructGeomTools_SurfaceSet*(): GeomTools_SurfaceSet {.constructor,
+proc constructGeomToolsSurfaceSet*(): GeomToolsSurfaceSet {.constructor,
     importcpp: "GeomTools_SurfaceSet(@)", header: "GeomTools_SurfaceSet.hxx".}
-proc Clear*(this: var GeomTools_SurfaceSet) {.importcpp: "Clear",
+proc clear*(this: var GeomToolsSurfaceSet) {.importcpp: "Clear",
     header: "GeomTools_SurfaceSet.hxx".}
-proc Add*(this: var GeomTools_SurfaceSet; S: handle[Geom_Surface]): Standard_Integer {.
+proc add*(this: var GeomToolsSurfaceSet; s: Handle[GeomSurface]): int {.
     importcpp: "Add", header: "GeomTools_SurfaceSet.hxx".}
-proc Surface*(this: GeomTools_SurfaceSet; I: Standard_Integer): handle[Geom_Surface] {.
-    noSideEffect, importcpp: "Surface", header: "GeomTools_SurfaceSet.hxx".}
-proc Index*(this: GeomTools_SurfaceSet; S: handle[Geom_Surface]): Standard_Integer {.
-    noSideEffect, importcpp: "Index", header: "GeomTools_SurfaceSet.hxx".}
-proc Dump*(this: GeomTools_SurfaceSet; OS: var Standard_OStream) {.noSideEffect,
+proc surface*(this: GeomToolsSurfaceSet; i: int): Handle[GeomSurface] {.noSideEffect,
+    importcpp: "Surface", header: "GeomTools_SurfaceSet.hxx".}
+proc index*(this: GeomToolsSurfaceSet; s: Handle[GeomSurface]): int {.noSideEffect,
+    importcpp: "Index", header: "GeomTools_SurfaceSet.hxx".}
+proc dump*(this: GeomToolsSurfaceSet; os: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "GeomTools_SurfaceSet.hxx".}
-proc Write*(this: GeomTools_SurfaceSet; OS: var Standard_OStream;
-           theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc write*(this: GeomToolsSurfaceSet; os: var StandardOStream;
+           theProgress: MessageProgressRange = messageProgressRange()) {.
     noSideEffect, importcpp: "Write", header: "GeomTools_SurfaceSet.hxx".}
-proc Read*(this: var GeomTools_SurfaceSet; IS: var Standard_IStream;
-          theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc read*(this: var GeomToolsSurfaceSet; `is`: var StandardIStream;
+          theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Read", header: "GeomTools_SurfaceSet.hxx".}
-proc PrintSurface*(S: handle[Geom_Surface]; OS: var Standard_OStream;
-                  compact: Standard_Boolean = Standard_False) {.
-    importcpp: "GeomTools_SurfaceSet::PrintSurface(@)",
-    header: "GeomTools_SurfaceSet.hxx".}
-proc ReadSurface*(IS: var Standard_IStream): handle[Geom_Surface] {.
+proc printSurface*(s: Handle[GeomSurface]; os: var StandardOStream;
+                  compact: bool = false) {.importcpp: "GeomTools_SurfaceSet::PrintSurface(@)",
+                                       header: "GeomTools_SurfaceSet.hxx".}
+proc readSurface*(`is`: var StandardIStream): Handle[GeomSurface] {.
     importcpp: "GeomTools_SurfaceSet::ReadSurface(@)",
     header: "GeomTools_SurfaceSet.hxx".}

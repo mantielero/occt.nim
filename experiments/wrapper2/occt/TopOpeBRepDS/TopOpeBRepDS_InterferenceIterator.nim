@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRepDS_ListIteratorOfListOfInterference,
-  ../Standard/Standard_Boolean, TopOpeBRepDS_Kind, ../Standard/Standard_Integer,
-  TopOpeBRepDS_ListOfInterference
-
 discard "forward decl of TopOpeBRepDS_Interference"
 type
   TopOpeBRepDS_InterferenceIterator* {.importcpp: "TopOpeBRepDS_InterferenceIterator", header: "TopOpeBRepDS_InterferenceIterator.hxx",
@@ -33,31 +27,30 @@ proc constructTopOpeBRepDS_InterferenceIterator*(
     L: TopOpeBRepDS_ListOfInterference): TopOpeBRepDS_InterferenceIterator {.
     constructor, importcpp: "TopOpeBRepDS_InterferenceIterator(@)",
     header: "TopOpeBRepDS_InterferenceIterator.hxx".}
-proc Init*(this: var TopOpeBRepDS_InterferenceIterator;
+proc init*(this: var TopOpeBRepDS_InterferenceIterator;
           L: TopOpeBRepDS_ListOfInterference) {.importcpp: "Init",
     header: "TopOpeBRepDS_InterferenceIterator.hxx".}
-proc GeometryKind*(this: var TopOpeBRepDS_InterferenceIterator;
-                  GK: TopOpeBRepDS_Kind) {.importcpp: "GeometryKind",
+proc geometryKind*(this: var TopOpeBRepDS_InterferenceIterator;
+                  gk: TopOpeBRepDS_Kind) {.importcpp: "GeometryKind",
     header: "TopOpeBRepDS_InterferenceIterator.hxx".}
-proc Geometry*(this: var TopOpeBRepDS_InterferenceIterator; G: Standard_Integer) {.
+proc geometry*(this: var TopOpeBRepDS_InterferenceIterator; g: int) {.
     importcpp: "Geometry", header: "TopOpeBRepDS_InterferenceIterator.hxx".}
-proc SupportKind*(this: var TopOpeBRepDS_InterferenceIterator; ST: TopOpeBRepDS_Kind) {.
+proc supportKind*(this: var TopOpeBRepDS_InterferenceIterator; st: TopOpeBRepDS_Kind) {.
     importcpp: "SupportKind", header: "TopOpeBRepDS_InterferenceIterator.hxx".}
-proc Support*(this: var TopOpeBRepDS_InterferenceIterator; S: Standard_Integer) {.
+proc support*(this: var TopOpeBRepDS_InterferenceIterator; s: int) {.
     importcpp: "Support", header: "TopOpeBRepDS_InterferenceIterator.hxx".}
-proc Match*(this: var TopOpeBRepDS_InterferenceIterator) {.importcpp: "Match",
+proc match*(this: var TopOpeBRepDS_InterferenceIterator) {.importcpp: "Match",
     header: "TopOpeBRepDS_InterferenceIterator.hxx".}
-proc MatchInterference*(this: TopOpeBRepDS_InterferenceIterator;
-                       I: handle[TopOpeBRepDS_Interference]): Standard_Boolean {.
-    noSideEffect, importcpp: "MatchInterference",
+proc matchInterference*(this: TopOpeBRepDS_InterferenceIterator;
+                       i: Handle[TopOpeBRepDS_Interference]): bool {.noSideEffect,
+    importcpp: "MatchInterference",
     header: "TopOpeBRepDS_InterferenceIterator.hxx".}
-proc More*(this: TopOpeBRepDS_InterferenceIterator): Standard_Boolean {.
-    noSideEffect, importcpp: "More",
+proc more*(this: TopOpeBRepDS_InterferenceIterator): bool {.noSideEffect,
+    importcpp: "More", header: "TopOpeBRepDS_InterferenceIterator.hxx".}
+proc next*(this: var TopOpeBRepDS_InterferenceIterator) {.importcpp: "Next",
     header: "TopOpeBRepDS_InterferenceIterator.hxx".}
-proc Next*(this: var TopOpeBRepDS_InterferenceIterator) {.importcpp: "Next",
-    header: "TopOpeBRepDS_InterferenceIterator.hxx".}
-proc Value*(this: TopOpeBRepDS_InterferenceIterator): handle[
+proc value*(this: TopOpeBRepDS_InterferenceIterator): Handle[
     TopOpeBRepDS_Interference] {.noSideEffect, importcpp: "Value",
                                 header: "TopOpeBRepDS_InterferenceIterator.hxx".}
-proc ChangeIterator*(this: var TopOpeBRepDS_InterferenceIterator): var TopOpeBRepDS_ListIteratorOfListOfInterference {.
+proc changeIterator*(this: var TopOpeBRepDS_InterferenceIterator): var TopOpeBRepDS_ListIteratorOfListOfInterference {.
     importcpp: "ChangeIterator", header: "TopOpeBRepDS_InterferenceIterator.hxx".}

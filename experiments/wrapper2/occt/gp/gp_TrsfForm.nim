@@ -17,15 +17,15 @@
 ## ! Identifies the type of a geometric transformation.
 
 type
-  gp_TrsfForm* {.size: sizeof(cint), importcpp: "gp_TrsfForm",
-                header: "gp_TrsfForm.hxx".} = enum
-    gp_Identity,              ## !< No transformation (matrix is identity)
-    gp_Rotation,              ## !< Rotation
-    gp_Translation,           ## !< Translation
-    gp_PntMirror,             ## !< Central symmetry
-    gp_Ax1Mirror,             ## !< Rotational symmetry
-    gp_Ax2Mirror,             ## !< Bilateral symmetry
-    gp_Scale,                 ## !< Scale
-    gp_CompoundTrsf,          ## !< Combination of the above transformations
-    gp_Other                  ## !< Transformation with not-orthogonal matrix
+  TrsfForm* {.size: sizeof(cint), importcpp: "gp_TrsfForm", header: "gp_TrsfForm.hxx".} = enum
+    Identity,                 ## !< No transformation (matrix is identity)
+    Rotation,                 ## !< Rotation
+    Translation,              ## !< Translation
+    PntMirror,                ## !< Central symmetry
+    Ax1Mirror,                ## !< Rotational symmetry
+    Ax2Mirror,                ## !< Bilateral symmetry
+    Scale,                    ## !< Scale
+    CompoundTrsf,             ## !< Combination of the above transformations
+    Other                     ## !< Transformation with not-orthogonal matrix
+
 

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESGeom_SplineCurve"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,42 +26,40 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESGeom_ToolSplineCurve* {.importcpp: "IGESGeom_ToolSplineCurve",
-                             header: "IGESGeom_ToolSplineCurve.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Returns
-                                                                                  ## a
-                                                                                  ## ToolSplineCurve,
-                                                                                  ## ready
-                                                                                  ## to
-                                                                                  ## work
+  IGESGeomToolSplineCurve* {.importcpp: "IGESGeom_ToolSplineCurve",
+                            header: "IGESGeom_ToolSplineCurve.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## Returns
+                                                                                 ## a
+                                                                                 ## ToolSplineCurve,
+                                                                                 ## ready
+                                                                                 ## to
+                                                                                 ## work
 
 
-proc constructIGESGeom_ToolSplineCurve*(): IGESGeom_ToolSplineCurve {.constructor,
+proc constructIGESGeomToolSplineCurve*(): IGESGeomToolSplineCurve {.constructor,
     importcpp: "IGESGeom_ToolSplineCurve(@)",
     header: "IGESGeom_ToolSplineCurve.hxx".}
-proc ReadOwnParams*(this: IGESGeom_ToolSplineCurve;
-                   ent: handle[IGESGeom_SplineCurve];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESGeom_ToolSplineCurve.hxx".}
-proc WriteOwnParams*(this: IGESGeom_ToolSplineCurve;
-                    ent: handle[IGESGeom_SplineCurve]; IW: var IGESData_IGESWriter) {.
+proc readOwnParams*(this: IGESGeomToolSplineCurve;
+                   ent: Handle[IGESGeomSplineCurve];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESGeom_ToolSplineCurve.hxx".}
+proc writeOwnParams*(this: IGESGeomToolSplineCurve;
+                    ent: Handle[IGESGeomSplineCurve]; iw: var IGESDataIGESWriter) {.
     noSideEffect, importcpp: "WriteOwnParams",
     header: "IGESGeom_ToolSplineCurve.hxx".}
-proc OwnShared*(this: IGESGeom_ToolSplineCurve; ent: handle[IGESGeom_SplineCurve];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESGeomToolSplineCurve; ent: Handle[IGESGeomSplineCurve];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESGeom_ToolSplineCurve.hxx".}
-proc DirChecker*(this: IGESGeom_ToolSplineCurve; ent: handle[IGESGeom_SplineCurve]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESGeomToolSplineCurve; ent: Handle[IGESGeomSplineCurve]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESGeom_ToolSplineCurve.hxx".}
-proc OwnCheck*(this: IGESGeom_ToolSplineCurve; ent: handle[IGESGeom_SplineCurve];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESGeomToolSplineCurve; ent: Handle[IGESGeomSplineCurve];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESGeom_ToolSplineCurve.hxx".}
-proc OwnCopy*(this: IGESGeom_ToolSplineCurve;
-             entfrom: handle[IGESGeom_SplineCurve];
-             entto: handle[IGESGeom_SplineCurve]; TC: var Interface_CopyTool) {.
+proc ownCopy*(this: IGESGeomToolSplineCurve; entfrom: Handle[IGESGeomSplineCurve];
+             entto: Handle[IGESGeomSplineCurve]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGeom_ToolSplineCurve.hxx".}
-proc OwnDump*(this: IGESGeom_ToolSplineCurve; ent: handle[IGESGeom_SplineCurve];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
-                                    header: "IGESGeom_ToolSplineCurve.hxx".}
+proc ownDump*(this: IGESGeomToolSplineCurve; ent: Handle[IGESGeomSplineCurve];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump", header: "IGESGeom_ToolSplineCurve.hxx".}

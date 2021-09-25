@@ -13,31 +13,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepRepr_CompoundRepresentationItem
-
 discard "forward decl of StepRepr_ValueRange"
 discard "forward decl of StepRepr_ValueRange"
 type
-  Handle_StepRepr_ValueRange* = handle[StepRepr_ValueRange]
+  HandleStepReprValueRange* = Handle[StepReprValueRange]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepRepr_ValueRange* {.importcpp: "StepRepr_ValueRange",
-                        header: "StepRepr_ValueRange.hxx", bycopy.} = object of StepRepr_CompoundRepresentationItem
+  StepReprValueRange* {.importcpp: "StepRepr_ValueRange",
+                       header: "StepRepr_ValueRange.hxx", bycopy.} = object of StepReprCompoundRepresentationItem
 
 
-proc constructStepRepr_ValueRange*(): StepRepr_ValueRange {.constructor,
+proc constructStepReprValueRange*(): StepReprValueRange {.constructor,
     importcpp: "StepRepr_ValueRange(@)", header: "StepRepr_ValueRange.hxx".}
 type
-  StepRepr_ValueRangebase_type* = StepRepr_CompoundRepresentationItem
+  StepReprValueRangebaseType* = StepReprCompoundRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_ValueRange::get_type_name(@)",
-                              header: "StepRepr_ValueRange.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_ValueRange::get_type_name(@)",
+                            header: "StepRepr_ValueRange.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_ValueRange::get_type_descriptor(@)",
     header: "StepRepr_ValueRange.hxx".}
-proc DynamicType*(this: StepRepr_ValueRange): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepReprValueRange): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepRepr_ValueRange.hxx".}

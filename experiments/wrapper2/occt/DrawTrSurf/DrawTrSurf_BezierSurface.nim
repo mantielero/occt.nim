@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Draw/Draw_Color, DrawTrSurf_Surface, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real
-
 discard "forward decl of Geom_BezierSurface"
 discard "forward decl of Draw_Color"
 discard "forward decl of Draw_Display"
@@ -26,64 +21,58 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DrawTrSurf_BezierSurface"
 discard "forward decl of DrawTrSurf_BezierSurface"
 type
-  Handle_DrawTrSurf_BezierSurface* = handle[DrawTrSurf_BezierSurface]
-  DrawTrSurf_BezierSurface* {.importcpp: "DrawTrSurf_BezierSurface",
-                             header: "DrawTrSurf_BezierSurface.hxx", bycopy.} = object of DrawTrSurf_Surface ##
-                                                                                                      ## !
-                                                                                                      ## creates
-                                                                                                      ## a
-                                                                                                      ## drawable
-                                                                                                      ## Bezier
-                                                                                                      ## curve
-                                                                                                      ## from
-                                                                                                      ## a
-                                                                                                      ## Bezier
-                                                                                                      ## curve
-                                                                                                      ## of
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## package
-                                                                                                      ## Geom.
+  HandleDrawTrSurfBezierSurface* = Handle[DrawTrSurfBezierSurface]
+  DrawTrSurfBezierSurface* {.importcpp: "DrawTrSurf_BezierSurface",
+                            header: "DrawTrSurf_BezierSurface.hxx", bycopy.} = object of DrawTrSurfSurface ##
+                                                                                                    ## !
+                                                                                                    ## creates
+                                                                                                    ## a
+                                                                                                    ## drawable
+                                                                                                    ## Bezier
+                                                                                                    ## curve
+                                                                                                    ## from
+                                                                                                    ## a
+                                                                                                    ## Bezier
+                                                                                                    ## curve
+                                                                                                    ## of
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## package
+                                                                                                    ## Geom.
 
 
-proc constructDrawTrSurf_BezierSurface*(S: handle[Geom_BezierSurface]): DrawTrSurf_BezierSurface {.
+proc constructDrawTrSurfBezierSurface*(s: Handle[GeomBezierSurface]): DrawTrSurfBezierSurface {.
     constructor, importcpp: "DrawTrSurf_BezierSurface(@)",
     header: "DrawTrSurf_BezierSurface.hxx".}
-proc constructDrawTrSurf_BezierSurface*(S: handle[Geom_BezierSurface];
-                                       NbUIsos: Standard_Integer;
-                                       NbVIsos: Standard_Integer;
-                                       BoundsColor: Draw_Color;
-                                       IsosColor: Draw_Color;
-                                       PolesColor: Draw_Color;
-                                       ShowPoles: Standard_Boolean;
-                                       Discret: Standard_Integer;
-                                       Deflection: Standard_Real;
-                                       DrawMode: Standard_Integer): DrawTrSurf_BezierSurface {.
+proc constructDrawTrSurfBezierSurface*(s: Handle[GeomBezierSurface]; nbUIsos: int;
+                                      nbVIsos: int; boundsColor: DrawColor;
+                                      isosColor: DrawColor; polesColor: DrawColor;
+                                      showPoles: bool; discret: int;
+                                      deflection: float; drawMode: int): DrawTrSurfBezierSurface {.
     constructor, importcpp: "DrawTrSurf_BezierSurface(@)",
     header: "DrawTrSurf_BezierSurface.hxx".}
-proc DrawOn*(this: DrawTrSurf_BezierSurface; dis: var Draw_Display) {.noSideEffect,
+proc drawOn*(this: DrawTrSurfBezierSurface; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "DrawTrSurf_BezierSurface.hxx".}
-proc ShowPoles*(this: var DrawTrSurf_BezierSurface) {.importcpp: "ShowPoles",
+proc showPoles*(this: var DrawTrSurfBezierSurface) {.importcpp: "ShowPoles",
     header: "DrawTrSurf_BezierSurface.hxx".}
-proc ClearPoles*(this: var DrawTrSurf_BezierSurface) {.importcpp: "ClearPoles",
+proc clearPoles*(this: var DrawTrSurfBezierSurface) {.importcpp: "ClearPoles",
     header: "DrawTrSurf_BezierSurface.hxx".}
-proc FindPole*(this: DrawTrSurf_BezierSurface; X: Standard_Real; Y: Standard_Real;
-              D: Draw_Display; Prec: Standard_Real; UIndex: var Standard_Integer;
-              VIndex: var Standard_Integer) {.noSideEffect, importcpp: "FindPole",
-    header: "DrawTrSurf_BezierSurface.hxx".}
-proc SetPolesColor*(this: var DrawTrSurf_BezierSurface; aColor: Draw_Color) {.
+proc findPole*(this: DrawTrSurfBezierSurface; x: float; y: float; d: DrawDisplay;
+              prec: float; uIndex: var int; vIndex: var int) {.noSideEffect,
+    importcpp: "FindPole", header: "DrawTrSurf_BezierSurface.hxx".}
+proc setPolesColor*(this: var DrawTrSurfBezierSurface; aColor: DrawColor) {.
     importcpp: "SetPolesColor", header: "DrawTrSurf_BezierSurface.hxx".}
-proc PolesColor*(this: DrawTrSurf_BezierSurface): Draw_Color {.noSideEffect,
+proc polesColor*(this: DrawTrSurfBezierSurface): DrawColor {.noSideEffect,
     importcpp: "PolesColor", header: "DrawTrSurf_BezierSurface.hxx".}
-proc Copy*(this: DrawTrSurf_BezierSurface): handle[Draw_Drawable3D] {.noSideEffect,
+proc copy*(this: DrawTrSurfBezierSurface): Handle[DrawDrawable3D] {.noSideEffect,
     importcpp: "Copy", header: "DrawTrSurf_BezierSurface.hxx".}
 type
-  DrawTrSurf_BezierSurfacebase_type* = DrawTrSurf_Surface
+  DrawTrSurfBezierSurfacebaseType* = DrawTrSurfSurface
 
-proc get_type_name*(): cstring {.importcpp: "DrawTrSurf_BezierSurface::get_type_name(@)",
-                              header: "DrawTrSurf_BezierSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "DrawTrSurf_BezierSurface::get_type_name(@)",
+                            header: "DrawTrSurf_BezierSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "DrawTrSurf_BezierSurface::get_type_descriptor(@)",
     header: "DrawTrSurf_BezierSurface.hxx".}
-proc DynamicType*(this: DrawTrSurf_BezierSurface): handle[Standard_Type] {.
+proc dynamicType*(this: DrawTrSurfBezierSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "DrawTrSurf_BezierSurface.hxx".}

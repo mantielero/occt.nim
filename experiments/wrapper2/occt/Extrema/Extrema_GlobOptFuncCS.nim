@@ -13,46 +13,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement
 
-import
-  ../Adaptor3d/Adaptor3d_Curve, ../Adaptor3d/Adaptor3d_Surface,
-  ../math/math_Matrix, ../math/math_Vector,
-  ../math/math_MultipleVarFunctionWithHessian
-
 ## ! This class implements function which calculate square Eucluidean distance
 ## ! between point on curve and point on surface in case of continuity is C2.
 
 type
-  Extrema_GlobOptFuncCS* {.importcpp: "Extrema_GlobOptFuncCS",
-                          header: "Extrema_GlobOptFuncCS.hxx", bycopy.} = object of math_MultipleVarFunctionWithHessian ##
-                                                                                                                 ## !
-                                                                                                                 ## Curve
-                                                                                                                 ## and
-                                                                                                                 ## surface
-                                                                                                                 ## should
-                                                                                                                 ## exist
-                                                                                                                 ## during
-                                                                                                                 ## all
-                                                                                                                 ## the
-                                                                                                                 ## lifetime
-                                                                                                                 ## of
-                                                                                                                 ## Extrema_GlobOptFuncCS.
+  ExtremaGlobOptFuncCS* {.importcpp: "Extrema_GlobOptFuncCS",
+                         header: "Extrema_GlobOptFuncCS.hxx", bycopy.} = object of MathMultipleVarFunctionWithHessian ##
+                                                                                                               ## !
+                                                                                                               ## Curve
+                                                                                                               ## and
+                                                                                                               ## surface
+                                                                                                               ## should
+                                                                                                               ## exist
+                                                                                                               ## during
+                                                                                                               ## all
+                                                                                                               ## the
+                                                                                                               ## lifetime
+                                                                                                               ## of
+                                                                                                               ## Extrema_GlobOptFuncCS.
 
 
-proc constructExtrema_GlobOptFuncCS*(C: ptr Adaptor3d_Curve;
-                                    S: ptr Adaptor3d_Surface): Extrema_GlobOptFuncCS {.
+proc constructExtremaGlobOptFuncCS*(c: ptr Adaptor3dCurve; s: ptr Adaptor3dSurface): ExtremaGlobOptFuncCS {.
     constructor, importcpp: "Extrema_GlobOptFuncCS(@)",
     header: "Extrema_GlobOptFuncCS.hxx".}
-proc NbVariables*(this: Extrema_GlobOptFuncCS): Standard_Integer {.noSideEffect,
+proc nbVariables*(this: ExtremaGlobOptFuncCS): int {.noSideEffect,
     importcpp: "NbVariables", header: "Extrema_GlobOptFuncCS.hxx".}
-proc Value*(this: var Extrema_GlobOptFuncCS; theX: math_Vector;
-           theF: var Standard_Real): Standard_Boolean {.importcpp: "Value",
+proc value*(this: var ExtremaGlobOptFuncCS; theX: MathVector; theF: var float): bool {.
+    importcpp: "Value", header: "Extrema_GlobOptFuncCS.hxx".}
+proc gradient*(this: var ExtremaGlobOptFuncCS; theX: MathVector; theG: var MathVector): bool {.
+    importcpp: "Gradient", header: "Extrema_GlobOptFuncCS.hxx".}
+proc values*(this: var ExtremaGlobOptFuncCS; theX: MathVector; theF: var float;
+            theG: var MathVector): bool {.importcpp: "Values",
+                                      header: "Extrema_GlobOptFuncCS.hxx".}
+proc values*(this: var ExtremaGlobOptFuncCS; theX: MathVector; theF: var float;
+            theG: var MathVector; theH: var MathMatrix): bool {.importcpp: "Values",
     header: "Extrema_GlobOptFuncCS.hxx".}
-proc Gradient*(this: var Extrema_GlobOptFuncCS; theX: math_Vector;
-              theG: var math_Vector): Standard_Boolean {.importcpp: "Gradient",
-    header: "Extrema_GlobOptFuncCS.hxx".}
-proc Values*(this: var Extrema_GlobOptFuncCS; theX: math_Vector;
-            theF: var Standard_Real; theG: var math_Vector): Standard_Boolean {.
-    importcpp: "Values", header: "Extrema_GlobOptFuncCS.hxx".}
-proc Values*(this: var Extrema_GlobOptFuncCS; theX: math_Vector;
-            theF: var Standard_Real; theG: var math_Vector; theH: var math_Matrix): Standard_Boolean {.
-    importcpp: "Values", header: "Extrema_GlobOptFuncCS.hxx".}

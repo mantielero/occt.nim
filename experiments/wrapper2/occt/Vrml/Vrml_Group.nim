@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_OStream
-
 ## ! defines a Group node of VRML specifying group properties.
 ## ! This node defines the base class for all group nodes. Group is a node that
 ## ! contains an ordered list of child nodes. This node is simply a container for
@@ -28,10 +23,10 @@ import
 ## ! state as separator does).
 
 type
-  Vrml_Group* {.importcpp: "Vrml_Group", header: "Vrml_Group.hxx", bycopy.} = object
+  VrmlGroup* {.importcpp: "Vrml_Group", header: "Vrml_Group.hxx", bycopy.} = object
 
 
-proc constructVrml_Group*(): Vrml_Group {.constructor, importcpp: "Vrml_Group(@)",
-                                       header: "Vrml_Group.hxx".}
-proc Print*(this: var Vrml_Group; anOStream: var Standard_OStream): var Standard_OStream {.
+proc constructVrmlGroup*(): VrmlGroup {.constructor, importcpp: "Vrml_Group(@)",
+                                     header: "Vrml_Group.hxx".}
+proc print*(this: var VrmlGroup; anOStream: var StandardOStream): var StandardOStream {.
     importcpp: "Print", header: "Vrml_Group.hxx".}

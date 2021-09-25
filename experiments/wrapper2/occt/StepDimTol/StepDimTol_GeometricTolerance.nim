@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  StepDimTol_GeometricToleranceTarget
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_MeasureWithUnit"
 discard "forward decl of StepDimTol_GeometricToleranceTarget"
@@ -24,67 +20,67 @@ discard "forward decl of StepRepr_ShapeAspect"
 discard "forward decl of StepDimTol_GeometricTolerance"
 discard "forward decl of StepDimTol_GeometricTolerance"
 type
-  Handle_StepDimTol_GeometricTolerance* = handle[StepDimTol_GeometricTolerance]
+  HandleStepDimTolGeometricTolerance* = Handle[StepDimTolGeometricTolerance]
 
 ## ! Representation of STEP entity GeometricTolerance
 
 type
-  StepDimTol_GeometricTolerance* {.importcpp: "StepDimTol_GeometricTolerance",
-                                  header: "StepDimTol_GeometricTolerance.hxx",
-                                  bycopy.} = object of Standard_Transient ## ! Empty constructor
+  StepDimTolGeometricTolerance* {.importcpp: "StepDimTol_GeometricTolerance",
+                                 header: "StepDimTol_GeometricTolerance.hxx",
+                                 bycopy.} = object of StandardTransient ## ! Empty constructor
 
 
-proc constructStepDimTol_GeometricTolerance*(): StepDimTol_GeometricTolerance {.
+proc constructStepDimTolGeometricTolerance*(): StepDimTolGeometricTolerance {.
     constructor, importcpp: "StepDimTol_GeometricTolerance(@)",
     header: "StepDimTol_GeometricTolerance.hxx".}
-proc Init*(this: var StepDimTol_GeometricTolerance;
-          theName: handle[TCollection_HAsciiString];
-          theDescription: handle[TCollection_HAsciiString];
-          theMagnitude: handle[StepBasic_MeasureWithUnit];
-          theTolerancedShapeAspect: handle[StepRepr_ShapeAspect]) {.
+proc init*(this: var StepDimTolGeometricTolerance;
+          theName: Handle[TCollectionHAsciiString];
+          theDescription: Handle[TCollectionHAsciiString];
+          theMagnitude: Handle[StepBasicMeasureWithUnit];
+          theTolerancedShapeAspect: Handle[StepReprShapeAspect]) {.
     importcpp: "Init", header: "StepDimTol_GeometricTolerance.hxx".}
-proc Init*(this: var StepDimTol_GeometricTolerance;
-          theName: handle[TCollection_HAsciiString];
-          theDescription: handle[TCollection_HAsciiString];
-          theMagnitude: handle[StepBasic_MeasureWithUnit];
-          theTolerancedShapeAspect: StepDimTol_GeometricToleranceTarget) {.
+proc init*(this: var StepDimTolGeometricTolerance;
+          theName: Handle[TCollectionHAsciiString];
+          theDescription: Handle[TCollectionHAsciiString];
+          theMagnitude: Handle[StepBasicMeasureWithUnit];
+          theTolerancedShapeAspect: StepDimTolGeometricToleranceTarget) {.
     importcpp: "Init", header: "StepDimTol_GeometricTolerance.hxx".}
-proc Name*(this: StepDimTol_GeometricTolerance): handle[TCollection_HAsciiString] {.
+proc name*(this: StepDimTolGeometricTolerance): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepDimTol_GeometricTolerance.hxx".}
-proc SetName*(this: var StepDimTol_GeometricTolerance;
-             theName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepDimTolGeometricTolerance;
+             theName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepDimTol_GeometricTolerance.hxx".}
-proc Description*(this: StepDimTol_GeometricTolerance): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description",
-                               header: "StepDimTol_GeometricTolerance.hxx".}
-proc SetDescription*(this: var StepDimTol_GeometricTolerance;
-                    theDescription: handle[TCollection_HAsciiString]) {.
+proc description*(this: StepDimTolGeometricTolerance): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Description",
+                              header: "StepDimTol_GeometricTolerance.hxx".}
+proc setDescription*(this: var StepDimTolGeometricTolerance;
+                    theDescription: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepDimTol_GeometricTolerance.hxx".}
-proc Magnitude*(this: StepDimTol_GeometricTolerance): handle[
-    StepBasic_MeasureWithUnit] {.noSideEffect, importcpp: "Magnitude",
-                                header: "StepDimTol_GeometricTolerance.hxx".}
-proc SetMagnitude*(this: var StepDimTol_GeometricTolerance;
-                  theMagnitude: handle[StepBasic_MeasureWithUnit]) {.
+proc magnitude*(this: StepDimTolGeometricTolerance): Handle[
+    StepBasicMeasureWithUnit] {.noSideEffect, importcpp: "Magnitude",
+                               header: "StepDimTol_GeometricTolerance.hxx".}
+proc setMagnitude*(this: var StepDimTolGeometricTolerance;
+                  theMagnitude: Handle[StepBasicMeasureWithUnit]) {.
     importcpp: "SetMagnitude", header: "StepDimTol_GeometricTolerance.hxx".}
-proc TolerancedShapeAspect*(this: StepDimTol_GeometricTolerance): StepDimTol_GeometricToleranceTarget {.
+proc tolerancedShapeAspect*(this: StepDimTolGeometricTolerance): StepDimTolGeometricToleranceTarget {.
     noSideEffect, importcpp: "TolerancedShapeAspect",
     header: "StepDimTol_GeometricTolerance.hxx".}
-proc SetTolerancedShapeAspect*(this: var StepDimTol_GeometricTolerance;
-    theTolerancedShapeAspect: handle[StepRepr_ShapeAspect]) {.
+proc setTolerancedShapeAspect*(this: var StepDimTolGeometricTolerance;
+    theTolerancedShapeAspect: Handle[StepReprShapeAspect]) {.
     importcpp: "SetTolerancedShapeAspect",
     header: "StepDimTol_GeometricTolerance.hxx".}
-proc SetTolerancedShapeAspect*(this: var StepDimTol_GeometricTolerance;
-    theTolerancedShapeAspect: StepDimTol_GeometricToleranceTarget) {.
+proc setTolerancedShapeAspect*(this: var StepDimTolGeometricTolerance;
+    theTolerancedShapeAspect: StepDimTolGeometricToleranceTarget) {.
     importcpp: "SetTolerancedShapeAspect",
     header: "StepDimTol_GeometricTolerance.hxx".}
 type
-  StepDimTol_GeometricTolerancebase_type* = Standard_Transient
+  StepDimTolGeometricTolerancebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_GeometricTolerance::get_type_name(@)",
-                              header: "StepDimTol_GeometricTolerance.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_GeometricTolerance::get_type_name(@)",
+                            header: "StepDimTol_GeometricTolerance.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_GeometricTolerance::get_type_descriptor(@)",
     header: "StepDimTol_GeometricTolerance.hxx".}
-proc DynamicType*(this: StepDimTol_GeometricTolerance): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolGeometricTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_GeometricTolerance.hxx".}

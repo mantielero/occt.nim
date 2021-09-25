@@ -14,55 +14,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Ax3, V3d_ViewerPointer,
-  ../Standard/Standard_Boolean, ../Aspect/Aspect_GridDrawMode,
-  ../Standard/Standard_Real, ../Aspect/Aspect_RectangularGrid
-
 discard "forward decl of Graphic3d_Structure"
 discard "forward decl of Graphic3d_Group"
 type
-  V3d_RectangularGrid* {.importcpp: "V3d_RectangularGrid",
-                        header: "V3d_RectangularGrid.hxx", bycopy.} = object of Aspect_RectangularGrid ##
-                                                                                                ## !
-                                                                                                ## Custom
-                                                                                                ## Graphic3d_Structure
-                                                                                                ## implementation.
+  V3dRectangularGrid* {.importcpp: "V3d_RectangularGrid",
+                       header: "V3d_RectangularGrid.hxx", bycopy.} = object of AspectRectangularGrid ##
+                                                                                              ## !
+                                                                                              ## Custom
+                                                                                              ## Graphic3d_Structure
+                                                                                              ## implementation.
 
-  V3d_RectangularGridbase_type* = Aspect_RectangularGrid
+  V3dRectangularGridbaseType* = AspectRectangularGrid
 
-proc get_type_name*(): cstring {.importcpp: "V3d_RectangularGrid::get_type_name(@)",
-                              header: "V3d_RectangularGrid.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "V3d_RectangularGrid::get_type_name(@)",
+                            header: "V3d_RectangularGrid.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "V3d_RectangularGrid::get_type_descriptor(@)",
     header: "V3d_RectangularGrid.hxx".}
-proc DynamicType*(this: V3d_RectangularGrid): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: V3dRectangularGrid): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "V3d_RectangularGrid.hxx".}
-proc constructV3d_RectangularGrid*(aViewer: V3d_ViewerPointer;
-                                  aColor: Quantity_Color;
-                                  aTenthColor: Quantity_Color): V3d_RectangularGrid {.
+proc constructV3dRectangularGrid*(aViewer: V3dViewerPointer; aColor: QuantityColor;
+                                 aTenthColor: QuantityColor): V3dRectangularGrid {.
     constructor, importcpp: "V3d_RectangularGrid(@)",
     header: "V3d_RectangularGrid.hxx".}
-proc destroyV3d_RectangularGrid*(this: var V3d_RectangularGrid) {.
+proc destroyV3dRectangularGrid*(this: var V3dRectangularGrid) {.
     importcpp: "#.~V3d_RectangularGrid()", header: "V3d_RectangularGrid.hxx".}
-proc SetColors*(this: var V3d_RectangularGrid; aColor: Quantity_Color;
-               aTenthColor: Quantity_Color) {.importcpp: "SetColors",
+proc setColors*(this: var V3dRectangularGrid; aColor: QuantityColor;
+               aTenthColor: QuantityColor) {.importcpp: "SetColors",
     header: "V3d_RectangularGrid.hxx".}
-proc Display*(this: var V3d_RectangularGrid) {.importcpp: "Display",
+proc display*(this: var V3dRectangularGrid) {.importcpp: "Display",
     header: "V3d_RectangularGrid.hxx".}
-proc Erase*(this: V3d_RectangularGrid) {.noSideEffect, importcpp: "Erase",
-                                      header: "V3d_RectangularGrid.hxx".}
-proc IsDisplayed*(this: V3d_RectangularGrid): Standard_Boolean {.noSideEffect,
+proc erase*(this: V3dRectangularGrid) {.noSideEffect, importcpp: "Erase",
+                                     header: "V3d_RectangularGrid.hxx".}
+proc isDisplayed*(this: V3dRectangularGrid): bool {.noSideEffect,
     importcpp: "IsDisplayed", header: "V3d_RectangularGrid.hxx".}
-proc GraphicValues*(this: V3d_RectangularGrid; XSize: var Standard_Real;
-                   YSize: var Standard_Real; OffSet: var Standard_Real) {.
-    noSideEffect, importcpp: "GraphicValues", header: "V3d_RectangularGrid.hxx".}
-proc SetGraphicValues*(this: var V3d_RectangularGrid; XSize: Standard_Real;
-                      YSize: Standard_Real; OffSet: Standard_Real) {.
-    importcpp: "SetGraphicValues", header: "V3d_RectangularGrid.hxx".}
-proc DumpJson*(this: V3d_RectangularGrid; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "V3d_RectangularGrid.hxx".}
+proc graphicValues*(this: V3dRectangularGrid; xSize: var float; ySize: var float;
+                   offSet: var float) {.noSideEffect, importcpp: "GraphicValues",
+                                     header: "V3d_RectangularGrid.hxx".}
+proc setGraphicValues*(this: var V3dRectangularGrid; xSize: float; ySize: float;
+                      offSet: float) {.importcpp: "SetGraphicValues",
+                                     header: "V3d_RectangularGrid.hxx".}
+proc dumpJson*(this: V3dRectangularGrid; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "V3d_RectangularGrid.hxx".}
 discard "forward decl of V3d_RectangularGrid"
 type
-  Handle_V3d_RectangularGrid* = handle[V3d_RectangularGrid]
+  HandleV3dRectangularGrid* = Handle[V3dRectangularGrid]
+

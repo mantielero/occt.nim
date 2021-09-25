@@ -14,50 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_ActionMethod"
 discard "forward decl of StepBasic_VersionedActionRequest"
 discard "forward decl of StepBasic_ActionRequestSolution"
 discard "forward decl of StepBasic_ActionRequestSolution"
 type
-  Handle_StepBasic_ActionRequestSolution* = handle[StepBasic_ActionRequestSolution]
+  HandleStepBasicActionRequestSolution* = Handle[StepBasicActionRequestSolution]
 
 ## ! Representation of STEP entity ActionRequestSolution
 
 type
-  StepBasic_ActionRequestSolution* {.importcpp: "StepBasic_ActionRequestSolution", header: "StepBasic_ActionRequestSolution.hxx",
-                                    bycopy.} = object of Standard_Transient ## ! Empty
-                                                                       ## constructor
+  StepBasicActionRequestSolution* {.importcpp: "StepBasic_ActionRequestSolution", header: "StepBasic_ActionRequestSolution.hxx",
+                                   bycopy.} = object of StandardTransient ## ! Empty constructor
 
 
-proc constructStepBasic_ActionRequestSolution*(): StepBasic_ActionRequestSolution {.
+proc constructStepBasicActionRequestSolution*(): StepBasicActionRequestSolution {.
     constructor, importcpp: "StepBasic_ActionRequestSolution(@)",
     header: "StepBasic_ActionRequestSolution.hxx".}
-proc Init*(this: var StepBasic_ActionRequestSolution;
-          aMethod: handle[StepBasic_ActionMethod];
-          aRequest: handle[StepBasic_VersionedActionRequest]) {.importcpp: "Init",
+proc init*(this: var StepBasicActionRequestSolution;
+          aMethod: Handle[StepBasicActionMethod];
+          aRequest: Handle[StepBasicVersionedActionRequest]) {.importcpp: "Init",
     header: "StepBasic_ActionRequestSolution.hxx".}
-proc Method*(this: StepBasic_ActionRequestSolution): handle[StepBasic_ActionMethod] {.
+proc `method`*(this: StepBasicActionRequestSolution): Handle[StepBasicActionMethod] {.
     noSideEffect, importcpp: "Method",
     header: "StepBasic_ActionRequestSolution.hxx".}
-proc SetMethod*(this: var StepBasic_ActionRequestSolution;
-               Method: handle[StepBasic_ActionMethod]) {.importcpp: "SetMethod",
+proc setMethod*(this: var StepBasicActionRequestSolution;
+               `method`: Handle[StepBasicActionMethod]) {.importcpp: "SetMethod",
     header: "StepBasic_ActionRequestSolution.hxx".}
-proc Request*(this: StepBasic_ActionRequestSolution): handle[
-    StepBasic_VersionedActionRequest] {.noSideEffect, importcpp: "Request", header: "StepBasic_ActionRequestSolution.hxx".}
-proc SetRequest*(this: var StepBasic_ActionRequestSolution;
-                Request: handle[StepBasic_VersionedActionRequest]) {.
+proc request*(this: StepBasicActionRequestSolution): Handle[
+    StepBasicVersionedActionRequest] {.noSideEffect, importcpp: "Request", header: "StepBasic_ActionRequestSolution.hxx".}
+proc setRequest*(this: var StepBasicActionRequestSolution;
+                request: Handle[StepBasicVersionedActionRequest]) {.
     importcpp: "SetRequest", header: "StepBasic_ActionRequestSolution.hxx".}
 type
-  StepBasic_ActionRequestSolutionbase_type* = Standard_Transient
+  StepBasicActionRequestSolutionbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ActionRequestSolution::get_type_name(@)",
-                              header: "StepBasic_ActionRequestSolution.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ActionRequestSolution::get_type_name(@)",
+                            header: "StepBasic_ActionRequestSolution.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_ActionRequestSolution::get_type_descriptor(@)",
     header: "StepBasic_ActionRequestSolution.hxx".}
-proc DynamicType*(this: StepBasic_ActionRequestSolution): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicActionRequestSolution): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ActionRequestSolution.hxx".}

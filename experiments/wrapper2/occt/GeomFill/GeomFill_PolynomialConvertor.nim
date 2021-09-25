@@ -14,41 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../math/math_Matrix, ../Standard/Standard_Real,
-  ../TColgp/TColgp_Array1OfPnt, ../TColgp/TColgp_Array1OfVec
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 type
-  GeomFill_PolynomialConvertor* {.importcpp: "GeomFill_PolynomialConvertor",
-                                 header: "GeomFill_PolynomialConvertor.hxx",
-                                 bycopy.} = object
+  GeomFillPolynomialConvertor* {.importcpp: "GeomFill_PolynomialConvertor",
+                                header: "GeomFill_PolynomialConvertor.hxx", bycopy.} = object
 
 
-proc constructGeomFill_PolynomialConvertor*(): GeomFill_PolynomialConvertor {.
+proc constructGeomFillPolynomialConvertor*(): GeomFillPolynomialConvertor {.
     constructor, importcpp: "GeomFill_PolynomialConvertor(@)",
     header: "GeomFill_PolynomialConvertor.hxx".}
-proc Initialized*(this: GeomFill_PolynomialConvertor): Standard_Boolean {.
-    noSideEffect, importcpp: "Initialized",
+proc initialized*(this: GeomFillPolynomialConvertor): bool {.noSideEffect,
+    importcpp: "Initialized", header: "GeomFill_PolynomialConvertor.hxx".}
+proc init*(this: var GeomFillPolynomialConvertor) {.importcpp: "Init",
     header: "GeomFill_PolynomialConvertor.hxx".}
-proc Init*(this: var GeomFill_PolynomialConvertor) {.importcpp: "Init",
-    header: "GeomFill_PolynomialConvertor.hxx".}
-proc Section*(this: GeomFill_PolynomialConvertor; FirstPnt: gp_Pnt; Center: gp_Pnt;
-             Dir: gp_Vec; Angle: Standard_Real; Poles: var TColgp_Array1OfPnt) {.
+proc section*(this: GeomFillPolynomialConvertor; firstPnt: Pnt; center: Pnt; dir: Vec;
+             angle: float; poles: var TColgpArray1OfPnt) {.noSideEffect,
+    importcpp: "Section", header: "GeomFill_PolynomialConvertor.hxx".}
+proc section*(this: GeomFillPolynomialConvertor; firstPnt: Pnt; dFirstPnt: Vec;
+             center: Pnt; dCenter: Vec; dir: Vec; dDir: Vec; angle: float; dAngle: float;
+             poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec) {.
     noSideEffect, importcpp: "Section", header: "GeomFill_PolynomialConvertor.hxx".}
-proc Section*(this: GeomFill_PolynomialConvertor; FirstPnt: gp_Pnt;
-             DFirstPnt: gp_Vec; Center: gp_Pnt; DCenter: gp_Vec; Dir: gp_Vec;
-             DDir: gp_Vec; Angle: Standard_Real; DAngle: Standard_Real;
-             Poles: var TColgp_Array1OfPnt; DPoles: var TColgp_Array1OfVec) {.
-    noSideEffect, importcpp: "Section", header: "GeomFill_PolynomialConvertor.hxx".}
-proc Section*(this: GeomFill_PolynomialConvertor; FirstPnt: gp_Pnt;
-             DFirstPnt: gp_Vec; D2FirstPnt: gp_Vec; Center: gp_Pnt; DCenter: gp_Vec;
-             D2Center: gp_Vec; Dir: gp_Vec; DDir: gp_Vec; D2Dir: gp_Vec;
-             Angle: Standard_Real; DAngle: Standard_Real; D2Angle: Standard_Real;
-             Poles: var TColgp_Array1OfPnt; DPoles: var TColgp_Array1OfVec;
-             D2Poles: var TColgp_Array1OfVec) {.noSideEffect, importcpp: "Section",
+proc section*(this: GeomFillPolynomialConvertor; firstPnt: Pnt; dFirstPnt: Vec;
+             d2FirstPnt: Vec; center: Pnt; dCenter: Vec; d2Center: Vec; dir: Vec;
+             dDir: Vec; d2Dir: Vec; angle: float; dAngle: float; d2Angle: float;
+             poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
+             d2Poles: var TColgpArray1OfVec) {.noSideEffect, importcpp: "Section",
     header: "GeomFill_PolynomialConvertor.hxx".}

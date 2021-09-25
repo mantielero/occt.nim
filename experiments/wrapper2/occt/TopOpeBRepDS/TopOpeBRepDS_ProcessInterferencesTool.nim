@@ -14,12 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TopOpeBRepDS_define, TopOpeBRepDS_EXPORT
-
-proc MakeCPVInterference*(T: TopOpeBRepDS_Transition; S: Standard_Integer;
-                         G: Standard_Integer; P: Standard_Real;
-                         GK: TopOpeBRepDS_Kind): handle[TopOpeBRepDS_Interference] {.
+proc makeCPVInterference*(t: TopOpeBRepDS_Transition; s: int; g: int; p: float;
+                         gk: TopOpeBRepDS_Kind): Handle[TopOpeBRepDS_Interference] {.
     importcpp: "MakeCPVInterference(@)",
     header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
   ##  transition
@@ -28,9 +24,8 @@ proc MakeCPVInterference*(T: TopOpeBRepDS_Transition; S: Standard_Integer;
   ##  parameter of G on S
 ##  POINT/VERTEX
 
-proc MakeEPVInterference*(T: TopOpeBRepDS_Transition; S: Standard_Integer;
-                         G: Standard_Integer; P: Standard_Real;
-                         GK: TopOpeBRepDS_Kind; B: Standard_Boolean): handle[
+proc makeEPVInterference*(t: TopOpeBRepDS_Transition; s: int; g: int; p: float;
+                         gk: TopOpeBRepDS_Kind; b: bool): Handle[
     TopOpeBRepDS_Interference] {.importcpp: "MakeEPVInterference(@)", header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
   ##  transition
   ##  curve/edge index
@@ -38,12 +33,9 @@ proc MakeEPVInterference*(T: TopOpeBRepDS_Transition; S: Standard_Integer;
   ##  parameter of G on S
 ##  G is a vertex (or not) of the interference master
 
-proc MakeEPVInterference*(T: TopOpeBRepDS_Transition; S: Standard_Integer;
-                         G: Standard_Integer; P: Standard_Real;
-                         GK: TopOpeBRepDS_Kind; SK: TopOpeBRepDS_Kind;
-                         B: Standard_Boolean): handle[TopOpeBRepDS_Interference] {.
-    importcpp: "MakeEPVInterference(@)",
-    header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
+proc makeEPVInterference*(t: TopOpeBRepDS_Transition; s: int; g: int; p: float;
+                         gk: TopOpeBRepDS_Kind; sk: TopOpeBRepDS_Kind; b: bool): Handle[
+    TopOpeBRepDS_Interference] {.importcpp: "MakeEPVInterference(@)", header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
   ##  transition
   ##  curve/edge index
   ##  point/vertex index
@@ -51,94 +43,91 @@ proc MakeEPVInterference*(T: TopOpeBRepDS_Transition; S: Standard_Integer;
   ##  POINT/VERTEX
 ##  G is a vertex (or not) of the interference master
 
-proc FUN_hasStateShape*(T: TopOpeBRepDS_Transition; state: TopAbs_State;
-                       shape: TopAbs_ShapeEnum): Standard_Boolean {.
+proc fUN_hasStateShape*(t: TopOpeBRepDS_Transition; state: TopAbsState;
+                       shape: TopAbsShapeEnum): bool {.
     importcpp: "FUN_hasStateShape(@)",
     header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
-proc FUN_selectTRASHAinterference*(L1: var TopOpeBRepDS_ListOfInterference;
-                                  sha: TopAbs_ShapeEnum;
-                                  L2: var TopOpeBRepDS_ListOfInterference): Standard_Integer {.
+proc fUN_selectTRASHAinterference*(l1: var TopOpeBRepDS_ListOfInterference;
+                                  sha: TopAbsShapeEnum;
+                                  l2: var TopOpeBRepDS_ListOfInterference): int {.
     importcpp: "FUN_selectTRASHAinterference(@)",
     header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
-proc FUN_selectITRASHAinterference*(L1: var TopOpeBRepDS_ListOfInterference;
-                                   Index: Standard_Integer;
-                                   L2: var TopOpeBRepDS_ListOfInterference): Standard_Integer {.
+proc fUN_selectITRASHAinterference*(l1: var TopOpeBRepDS_ListOfInterference;
+                                   index: int;
+                                   l2: var TopOpeBRepDS_ListOfInterference): int {.
     importcpp: "FUN_selectITRASHAinterference(@)",
     header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
-proc FUN_selectTRAUNKinterference*(L1: var TopOpeBRepDS_ListOfInterference;
-                                  L2: var TopOpeBRepDS_ListOfInterference): Standard_Integer {.
+proc fUN_selectTRAUNKinterference*(l1: var TopOpeBRepDS_ListOfInterference;
+                                  l2: var TopOpeBRepDS_ListOfInterference): int {.
     importcpp: "FUN_selectTRAUNKinterference(@)",
     header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
-proc FUN_selectTRAORIinterference*(L1: var TopOpeBRepDS_ListOfInterference;
-                                  O: TopAbs_Orientation;
-                                  L2: var TopOpeBRepDS_ListOfInterference): Standard_Integer {.
+proc fUN_selectTRAORIinterference*(l1: var TopOpeBRepDS_ListOfInterference;
+                                  o: TopAbsOrientation;
+                                  l2: var TopOpeBRepDS_ListOfInterference): int {.
     importcpp: "FUN_selectTRAORIinterference(@)",
     header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
-proc FUN_selectGKinterference*(L1: var TopOpeBRepDS_ListOfInterference;
-                              GK: TopOpeBRepDS_Kind;
-                              L2: var TopOpeBRepDS_ListOfInterference): Standard_Integer {.
+proc fUN_selectGKinterference*(l1: var TopOpeBRepDS_ListOfInterference;
+                              gk: TopOpeBRepDS_Kind;
+                              l2: var TopOpeBRepDS_ListOfInterference): int {.
     importcpp: "FUN_selectGKinterference(@)",
     header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
-proc FUN_selectSKinterference*(L1: var TopOpeBRepDS_ListOfInterference;
-                              SK: TopOpeBRepDS_Kind;
-                              L2: var TopOpeBRepDS_ListOfInterference): Standard_Integer {.
+proc fUN_selectSKinterference*(l1: var TopOpeBRepDS_ListOfInterference;
+                              sk: TopOpeBRepDS_Kind;
+                              l2: var TopOpeBRepDS_ListOfInterference): int {.
     importcpp: "FUN_selectSKinterference(@)",
     header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
-proc FUN_selectGIinterference*(L1: var TopOpeBRepDS_ListOfInterference;
-                              GI: Standard_Integer;
-                              L2: var TopOpeBRepDS_ListOfInterference): Standard_Integer {.
+proc fUN_selectGIinterference*(l1: var TopOpeBRepDS_ListOfInterference; gi: int;
+                              l2: var TopOpeBRepDS_ListOfInterference): int {.
     importcpp: "FUN_selectGIinterference(@)",
     header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
-proc FUN_selectSIinterference*(L1: var TopOpeBRepDS_ListOfInterference;
-                              SI: Standard_Integer;
-                              L2: var TopOpeBRepDS_ListOfInterference): Standard_Integer {.
+proc fUN_selectSIinterference*(l1: var TopOpeBRepDS_ListOfInterference; si: int;
+                              l2: var TopOpeBRepDS_ListOfInterference): int {.
     importcpp: "FUN_selectSIinterference(@)",
     header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
-proc FUN_interfhassupport*(DS: TopOpeBRepDS_DataStructure;
-                          I: handle[TopOpeBRepDS_Interference]; S: TopoDS_Shape): Standard_Boolean {.
+proc fUN_interfhassupport*(ds: TopOpeBRepDS_DataStructure;
+                          i: Handle[TopOpeBRepDS_Interference]; s: TopoDS_Shape): bool {.
     importcpp: "FUN_interfhassupport(@)",
     header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
-proc FUN_transitionEQUAL*(a1: TopOpeBRepDS_Transition; a2: TopOpeBRepDS_Transition): Standard_Boolean {.
+proc fUN_transitionEQUAL*(a1: TopOpeBRepDS_Transition; a2: TopOpeBRepDS_Transition): bool {.
     importcpp: "FUN_transitionEQUAL(@)",
     header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
-proc FUN_transitionSTATEEQUAL*(a1: TopOpeBRepDS_Transition;
-                              a2: TopOpeBRepDS_Transition): Standard_Boolean {.
+proc fUN_transitionSTATEEQUAL*(a1: TopOpeBRepDS_Transition;
+                              a2: TopOpeBRepDS_Transition): bool {.
     importcpp: "FUN_transitionSTATEEQUAL(@)",
     header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
-proc FUN_transitionSHAPEEQUAL*(a1: TopOpeBRepDS_Transition;
-                              a2: TopOpeBRepDS_Transition): Standard_Boolean {.
+proc fUN_transitionSHAPEEQUAL*(a1: TopOpeBRepDS_Transition;
+                              a2: TopOpeBRepDS_Transition): bool {.
     importcpp: "FUN_transitionSHAPEEQUAL(@)",
     header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
-proc FUN_transitionINDEXEQUAL*(a1: TopOpeBRepDS_Transition;
-                              a2: TopOpeBRepDS_Transition): Standard_Boolean {.
+proc fUN_transitionINDEXEQUAL*(a1: TopOpeBRepDS_Transition;
+                              a2: TopOpeBRepDS_Transition): bool {.
     importcpp: "FUN_transitionINDEXEQUAL(@)",
     header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
-proc FUN_reducedoublons*(LI: var TopOpeBRepDS_ListOfInterference;
-                        BDS: TopOpeBRepDS_DataStructure; SIX: Standard_Integer) {.
+proc fUN_reducedoublons*(li: var TopOpeBRepDS_ListOfInterference;
+                        bds: TopOpeBRepDS_DataStructure; six: int) {.
     importcpp: "FUN_reducedoublons(@)",
     header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
-proc FUN_unkeepUNKNOWN*(LI: var TopOpeBRepDS_ListOfInterference;
-                       BDS: var TopOpeBRepDS_DataStructure; SIX: Standard_Integer) {.
+proc fUN_unkeepUNKNOWN*(li: var TopOpeBRepDS_ListOfInterference;
+                       bds: var TopOpeBRepDS_DataStructure; six: int) {.
     importcpp: "FUN_unkeepUNKNOWN(@)",
     header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
-proc FUN_select2dI*(SIX: Standard_Integer; BDS: var TopOpeBRepDS_DataStructure;
-                   TRASHAk: TopAbs_ShapeEnum;
+proc fUN_select2dI*(six: int; bds: var TopOpeBRepDS_DataStructure;
+                   tRASHAk: TopAbsShapeEnum;
                    lI: var TopOpeBRepDS_ListOfInterference;
-                   l2dI: var TopOpeBRepDS_ListOfInterference): Standard_Integer {.
+                   l2dI: var TopOpeBRepDS_ListOfInterference): int {.
     importcpp: "FUN_select2dI(@)",
     header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
-proc FUN_selectpure2dI*(lF: TopOpeBRepDS_ListOfInterference;
+proc fUN_selectpure2dI*(lF: TopOpeBRepDS_ListOfInterference;
                        lFE: var TopOpeBRepDS_ListOfInterference;
-                       l2dFE: var TopOpeBRepDS_ListOfInterference): Standard_Integer {.
+                       l2dFE: var TopOpeBRepDS_ListOfInterference): int {.
     importcpp: "FUN_selectpure2dI(@)",
     header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
-proc FUN_select1dI*(SIX: Standard_Integer; BDS: var TopOpeBRepDS_DataStructure;
-                   LI: var TopOpeBRepDS_ListOfInterference;
-                   l1dI: var TopOpeBRepDS_ListOfInterference): Standard_Integer {.
+proc fUN_select1dI*(six: int; bds: var TopOpeBRepDS_DataStructure;
+                   li: var TopOpeBRepDS_ListOfInterference;
+                   l1dI: var TopOpeBRepDS_ListOfInterference): int {.
     importcpp: "FUN_select1dI(@)",
     header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
-proc FUN_select3dinterference*(SIX: Standard_Integer;
-                              BDS: var TopOpeBRepDS_DataStructure;
+proc fUN_select3dinterference*(six: int; bds: var TopOpeBRepDS_DataStructure;
                               lF: var TopOpeBRepDS_ListOfInterference;
                               l3dF: var TopOpeBRepDS_ListOfInterference;
                               lFE: var TopOpeBRepDS_ListOfInterference;

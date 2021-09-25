@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../IntSurf/IntSurf_TypeTrans,
-  Contap_TheHSequenceOfPoint, Contap_IType, ../gp/gp_Pnt, ../gp/gp_Dir,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer, ../gp/gp_Lin,
-  ../gp/gp_Circ
-
 discard "forward decl of IntSurf_LineOn2S"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Standard_DomainError"
@@ -30,45 +23,45 @@ discard "forward decl of gp_Lin"
 discard "forward decl of gp_Circ"
 discard "forward decl of Contap_Point"
 type
-  Contap_Line* {.importcpp: "Contap_Line", header: "Contap_Line.hxx", bycopy.} = object
+  ContapLine* {.importcpp: "Contap_Line", header: "Contap_Line.hxx", bycopy.} = object
 
 
-proc constructContap_Line*(): Contap_Line {.constructor,
-    importcpp: "Contap_Line(@)", header: "Contap_Line.hxx".}
-proc SetLineOn2S*(this: var Contap_Line; L: handle[IntSurf_LineOn2S]) {.
-    importcpp: "SetLineOn2S", header: "Contap_Line.hxx".}
-proc Clear*(this: var Contap_Line) {.importcpp: "Clear", header: "Contap_Line.hxx".}
-proc LineOn2S*(this: Contap_Line): handle[IntSurf_LineOn2S] {.noSideEffect,
-    importcpp: "LineOn2S", header: "Contap_Line.hxx".}
-proc ResetSeqOfVertex*(this: var Contap_Line) {.importcpp: "ResetSeqOfVertex",
-    header: "Contap_Line.hxx".}
-proc Add*(this: var Contap_Line; P: IntSurf_PntOn2S) {.importcpp: "Add",
-    header: "Contap_Line.hxx".}
-proc SetValue*(this: var Contap_Line; L: gp_Lin) {.importcpp: "SetValue",
-    header: "Contap_Line.hxx".}
-proc SetValue*(this: var Contap_Line; C: gp_Circ) {.importcpp: "SetValue",
-    header: "Contap_Line.hxx".}
-proc SetValue*(this: var Contap_Line; A: handle[Adaptor2d_HCurve2d]) {.
-    importcpp: "SetValue", header: "Contap_Line.hxx".}
-proc Add*(this: var Contap_Line; P: Contap_Point) {.importcpp: "Add",
-    header: "Contap_Line.hxx".}
-proc NbVertex*(this: Contap_Line): Standard_Integer {.noSideEffect,
-    importcpp: "NbVertex", header: "Contap_Line.hxx".}
-proc Vertex*(this: Contap_Line; Index: Standard_Integer): var Contap_Point {.
-    noSideEffect, importcpp: "Vertex", header: "Contap_Line.hxx".}
-proc TypeContour*(this: Contap_Line): Contap_IType {.noSideEffect,
-    importcpp: "TypeContour", header: "Contap_Line.hxx".}
-proc NbPnts*(this: Contap_Line): Standard_Integer {.noSideEffect,
-    importcpp: "NbPnts", header: "Contap_Line.hxx".}
-proc Point*(this: Contap_Line; Index: Standard_Integer): IntSurf_PntOn2S {.
-    noSideEffect, importcpp: "Point", header: "Contap_Line.hxx".}
-proc Line*(this: Contap_Line): gp_Lin {.noSideEffect, importcpp: "Line",
-                                    header: "Contap_Line.hxx".}
-proc Circle*(this: Contap_Line): gp_Circ {.noSideEffect, importcpp: "Circle",
+proc constructContapLine*(): ContapLine {.constructor, importcpp: "Contap_Line(@)",
                                        header: "Contap_Line.hxx".}
-proc Arc*(this: Contap_Line): handle[Adaptor2d_HCurve2d] {.noSideEffect,
+proc setLineOn2S*(this: var ContapLine; L: Handle[IntSurfLineOn2S]) {.
+    importcpp: "SetLineOn2S", header: "Contap_Line.hxx".}
+proc clear*(this: var ContapLine) {.importcpp: "Clear", header: "Contap_Line.hxx".}
+proc lineOn2S*(this: ContapLine): Handle[IntSurfLineOn2S] {.noSideEffect,
+    importcpp: "LineOn2S", header: "Contap_Line.hxx".}
+proc resetSeqOfVertex*(this: var ContapLine) {.importcpp: "ResetSeqOfVertex",
+    header: "Contap_Line.hxx".}
+proc add*(this: var ContapLine; p: IntSurfPntOn2S) {.importcpp: "Add",
+    header: "Contap_Line.hxx".}
+proc setValue*(this: var ContapLine; L: Lin) {.importcpp: "SetValue",
+    header: "Contap_Line.hxx".}
+proc setValue*(this: var ContapLine; c: Circ) {.importcpp: "SetValue",
+    header: "Contap_Line.hxx".}
+proc setValue*(this: var ContapLine; a: Handle[Adaptor2dHCurve2d]) {.
+    importcpp: "SetValue", header: "Contap_Line.hxx".}
+proc add*(this: var ContapLine; p: ContapPoint) {.importcpp: "Add",
+    header: "Contap_Line.hxx".}
+proc nbVertex*(this: ContapLine): int {.noSideEffect, importcpp: "NbVertex",
+                                    header: "Contap_Line.hxx".}
+proc vertex*(this: ContapLine; index: int): var ContapPoint {.noSideEffect,
+    importcpp: "Vertex", header: "Contap_Line.hxx".}
+proc typeContour*(this: ContapLine): ContapIType {.noSideEffect,
+    importcpp: "TypeContour", header: "Contap_Line.hxx".}
+proc nbPnts*(this: ContapLine): int {.noSideEffect, importcpp: "NbPnts",
+                                  header: "Contap_Line.hxx".}
+proc point*(this: ContapLine; index: int): IntSurfPntOn2S {.noSideEffect,
+    importcpp: "Point", header: "Contap_Line.hxx".}
+proc line*(this: ContapLine): Lin {.noSideEffect, importcpp: "Line",
+                                header: "Contap_Line.hxx".}
+proc circle*(this: ContapLine): Circ {.noSideEffect, importcpp: "Circle",
+                                   header: "Contap_Line.hxx".}
+proc arc*(this: ContapLine): Handle[Adaptor2dHCurve2d] {.noSideEffect,
     importcpp: "Arc", header: "Contap_Line.hxx".}
-proc SetTransitionOnS*(this: var Contap_Line; T: IntSurf_TypeTrans) {.
+proc setTransitionOnS*(this: var ContapLine; t: IntSurfTypeTrans) {.
     importcpp: "SetTransitionOnS", header: "Contap_Line.hxx".}
-proc TransitionOnS*(this: Contap_Line): IntSurf_TypeTrans {.noSideEffect,
+proc transitionOnS*(this: ContapLine): IntSurfTypeTrans {.noSideEffect,
     importcpp: "TransitionOnS", header: "Contap_Line.hxx".}

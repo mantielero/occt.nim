@@ -13,12 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../TopAbs/TopAbs_State, ../Standard/Standard_Real,
-  IntTools_SequenceOfCurves, ../Precision/Precision
-
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Face"
@@ -36,103 +30,99 @@ discard "forward decl of gp_Pln"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Geom_Surface"
 type
-  IntTools_Tools* {.importcpp: "IntTools_Tools", header: "IntTools_Tools.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Computes
-                                                                                         ## distance
-                                                                                         ## between
-                                                                                         ## vertex
-                                                                                         ## V1
-                                                                                         ## and
-                                                                                         ## vertex
-                                                                                         ## V2,
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## if
-                                                                                         ## the
-                                                                                         ## distance
-                                                                                         ## is
-                                                                                         ## less
-                                                                                         ## than
-                                                                                         ## sum
-                                                                                         ## of
-                                                                                         ## vertex
-                                                                                         ## tolerances
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## returns
-                                                                                         ## zero,
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## otherwise
-                                                                                         ## returns
-                                                                                         ## negative
-                                                                                         ## value
+  IntToolsTools* {.importcpp: "IntTools_Tools", header: "IntTools_Tools.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Computes
+                                                                                        ## distance
+                                                                                        ## between
+                                                                                        ## vertex
+                                                                                        ## V1
+                                                                                        ## and
+                                                                                        ## vertex
+                                                                                        ## V2,
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## if
+                                                                                        ## the
+                                                                                        ## distance
+                                                                                        ## is
+                                                                                        ## less
+                                                                                        ## than
+                                                                                        ## sum
+                                                                                        ## of
+                                                                                        ## vertex
+                                                                                        ## tolerances
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## returns
+                                                                                        ## zero,
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## otherwise
+                                                                                        ## returns
+                                                                                        ## negative
+                                                                                        ## value
 
 
-proc ComputeVV*(V1: TopoDS_Vertex; V2: TopoDS_Vertex): Standard_Integer {.
+proc computeVV*(v1: TopoDS_Vertex; v2: TopoDS_Vertex): int {.
     importcpp: "IntTools_Tools::ComputeVV(@)", header: "IntTools_Tools.hxx".}
-proc HasInternalEdge*(aW: TopoDS_Wire): Standard_Boolean {.
+proc hasInternalEdge*(aW: TopoDS_Wire): bool {.
     importcpp: "IntTools_Tools::HasInternalEdge(@)", header: "IntTools_Tools.hxx".}
-proc MakeFaceFromWireAndFace*(aW: TopoDS_Wire; aF: TopoDS_Face;
+proc makeFaceFromWireAndFace*(aW: TopoDS_Wire; aF: TopoDS_Face;
                              aFNew: var TopoDS_Face) {.
     importcpp: "IntTools_Tools::MakeFaceFromWireAndFace(@)",
     header: "IntTools_Tools.hxx".}
-proc ClassifyPointByFace*(aF: TopoDS_Face; P: gp_Pnt2d): TopAbs_State {.
+proc classifyPointByFace*(aF: TopoDS_Face; p: Pnt2d): TopAbsState {.
     importcpp: "IntTools_Tools::ClassifyPointByFace(@)",
     header: "IntTools_Tools.hxx".}
-proc IsVertex*(E: TopoDS_Edge; t: Standard_Real): Standard_Boolean {.
+proc isVertex*(e: TopoDS_Edge; t: float): bool {.
     importcpp: "IntTools_Tools::IsVertex(@)", header: "IntTools_Tools.hxx".}
-proc IsVertex*(E: TopoDS_Edge; V: TopoDS_Vertex; t: Standard_Real): Standard_Boolean {.
+proc isVertex*(e: TopoDS_Edge; v: TopoDS_Vertex; t: float): bool {.
     importcpp: "IntTools_Tools::IsVertex(@)", header: "IntTools_Tools.hxx".}
-proc IsVertex*(aCmnPrt: IntTools_CommonPrt): Standard_Boolean {.
+proc isVertex*(aCmnPrt: IntToolsCommonPrt): bool {.
     importcpp: "IntTools_Tools::IsVertex(@)", header: "IntTools_Tools.hxx".}
-proc IsMiddlePointsEqual*(E1: TopoDS_Edge; E2: TopoDS_Edge): Standard_Boolean {.
+proc isMiddlePointsEqual*(e1: TopoDS_Edge; e2: TopoDS_Edge): bool {.
     importcpp: "IntTools_Tools::IsMiddlePointsEqual(@)",
     header: "IntTools_Tools.hxx".}
-proc IsVertex*(aP: gp_Pnt; aTolPV: Standard_Real; aV: TopoDS_Vertex): Standard_Boolean {.
+proc isVertex*(aP: Pnt; aTolPV: float; aV: TopoDS_Vertex): bool {.
     importcpp: "IntTools_Tools::IsVertex(@)", header: "IntTools_Tools.hxx".}
-proc IntermediatePoint*(aFirst: Standard_Real; aLast: Standard_Real): Standard_Real {.
+proc intermediatePoint*(aFirst: float; aLast: float): float {.
     importcpp: "IntTools_Tools::IntermediatePoint(@)",
     header: "IntTools_Tools.hxx".}
-proc SplitCurve*(aC: IntTools_Curve; `aS`: var IntTools_SequenceOfCurves): Standard_Integer {.
+proc splitCurve*(aC: IntToolsCurve; `aS`: var IntToolsSequenceOfCurves): int {.
     importcpp: "IntTools_Tools::SplitCurve(@)", header: "IntTools_Tools.hxx".}
-proc RejectLines*(aSIn: IntTools_SequenceOfCurves;
-                 aSOut: var IntTools_SequenceOfCurves) {.
+proc rejectLines*(aSIn: IntToolsSequenceOfCurves;
+                 aSOut: var IntToolsSequenceOfCurves) {.
     importcpp: "IntTools_Tools::RejectLines(@)", header: "IntTools_Tools.hxx".}
-proc IsDirsCoinside*(D1: gp_Dir; D2: gp_Dir): Standard_Boolean {.
+proc isDirsCoinside*(d1: Dir; d2: Dir): bool {.
     importcpp: "IntTools_Tools::IsDirsCoinside(@)", header: "IntTools_Tools.hxx".}
-proc IsDirsCoinside*(D1: gp_Dir; D2: gp_Dir; aTol: Standard_Real): Standard_Boolean {.
+proc isDirsCoinside*(d1: Dir; d2: Dir; aTol: float): bool {.
     importcpp: "IntTools_Tools::IsDirsCoinside(@)", header: "IntTools_Tools.hxx".}
-proc IsClosed*(aC: handle[Geom_Curve]): Standard_Boolean {.
+proc isClosed*(aC: Handle[GeomCurve]): bool {.
     importcpp: "IntTools_Tools::IsClosed(@)", header: "IntTools_Tools.hxx".}
-proc CurveTolerance*(aC: handle[Geom_Curve]; aTolBase: Standard_Real): Standard_Real {.
+proc curveTolerance*(aC: Handle[GeomCurve]; aTolBase: float): float {.
     importcpp: "IntTools_Tools::CurveTolerance(@)", header: "IntTools_Tools.hxx".}
-proc CheckCurve*(theCurve: IntTools_Curve; theBox: var Bnd_Box): Standard_Boolean {.
+proc checkCurve*(theCurve: IntToolsCurve; theBox: var BndBox): bool {.
     importcpp: "IntTools_Tools::CheckCurve(@)", header: "IntTools_Tools.hxx".}
-proc IsOnPave*(theT: Standard_Real; theRange: IntTools_Range; theTol: Standard_Real): Standard_Boolean {.
+proc isOnPave*(theT: float; theRange: IntToolsRange; theTol: float): bool {.
     importcpp: "IntTools_Tools::IsOnPave(@)", header: "IntTools_Tools.hxx".}
-proc VertexParameters*(theCP: IntTools_CommonPrt; theT1: var Standard_Real;
-                      theT2: var Standard_Real) {.
+proc vertexParameters*(theCP: IntToolsCommonPrt; theT1: var float; theT2: var float) {.
     importcpp: "IntTools_Tools::VertexParameters(@)", header: "IntTools_Tools.hxx".}
-proc VertexParameter*(theCP: IntTools_CommonPrt; theT: var Standard_Real) {.
+proc vertexParameter*(theCP: IntToolsCommonPrt; theT: var float) {.
     importcpp: "IntTools_Tools::VertexParameter(@)", header: "IntTools_Tools.hxx".}
-proc IsOnPave1*(theT: Standard_Real; theRange: IntTools_Range; theTol: Standard_Real): Standard_Boolean {.
+proc isOnPave1*(theT: float; theRange: IntToolsRange; theTol: float): bool {.
     importcpp: "IntTools_Tools::IsOnPave1(@)", header: "IntTools_Tools.hxx".}
-proc IsInRange*(theRRef: IntTools_Range; theR: IntTools_Range; theTol: Standard_Real): Standard_Boolean {.
+proc isInRange*(theRRef: IntToolsRange; theR: IntToolsRange; theTol: float): bool {.
     importcpp: "IntTools_Tools::IsInRange(@)", header: "IntTools_Tools.hxx".}
-proc SegPln*(theLin: gp_Lin; theTLin1: Standard_Real; theTLin2: Standard_Real;
-            theTolLin: Standard_Real; thePln: gp_Pln; theTolPln: Standard_Real;
-            theP: var gp_Pnt; theT: var Standard_Real; theTolP: var Standard_Real;
-            theTmin: var Standard_Real; theTmax: var Standard_Real): Standard_Integer {.
+proc segPln*(theLin: Lin; theTLin1: float; theTLin2: float; theTolLin: float;
+            thePln: Pln; theTolPln: float; theP: var Pnt; theT: var float;
+            theTolP: var float; theTmin: var float; theTmax: var float): int {.
     importcpp: "IntTools_Tools::SegPln(@)", header: "IntTools_Tools.hxx".}
-proc ComputeTolerance*(theCurve3D: handle[Geom_Curve];
-                      theCurve2D: handle[Geom2d_Curve];
-                      theSurf: handle[Geom_Surface]; theFirst: Standard_Real;
-                      theLast: Standard_Real; theMaxDist: var Standard_Real;
-                      theMaxPar: var Standard_Real;
-                      theTolRange: Standard_Real = PConfusion()): Standard_Boolean {.
+proc computeTolerance*(theCurve3D: Handle[GeomCurve];
+                      theCurve2D: Handle[Geom2dCurve];
+                      theSurf: Handle[GeomSurface]; theFirst: float; theLast: float;
+                      theMaxDist: var float; theMaxPar: var float;
+                      theTolRange: float = pConfusion()): bool {.
     importcpp: "IntTools_Tools::ComputeTolerance(@)", header: "IntTools_Tools.hxx".}
-proc ComputeIntRange*(theTol1: Standard_Real; theTol2: Standard_Real;
-                     theAngle: Standard_Real): Standard_Real {.
+proc computeIntRange*(theTol1: float; theTol2: float; theAngle: float): float {.
     importcpp: "IntTools_Tools::ComputeIntRange(@)", header: "IntTools_Tools.hxx".}

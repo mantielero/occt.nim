@@ -14,16 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  Units_Unit, ../Standard/Standard_CString, ../Standard/Standard_Integer
-
 discard "forward decl of Units_Quantity"
 discard "forward decl of Units_Token"
 discard "forward decl of Units_ShiftedUnit"
 discard "forward decl of Units_ShiftedUnit"
 type
-  Handle_Units_ShiftedUnit* = handle[Units_ShiftedUnit]
+  HandleUnitsShiftedUnit* = Handle[UnitsShiftedUnit]
 
 ## ! This class is useful   to describe  units  with  a
 ## ! shifted origin in relation to another unit. A well
@@ -32,116 +28,86 @@ type
 ## ! is 273.15 Kelvin degrees.
 
 type
-  Units_ShiftedUnit* {.importcpp: "Units_ShiftedUnit",
-                      header: "Units_ShiftedUnit.hxx", bycopy.} = object of Units_Unit ##
-                                                                                ## !
-                                                                                ## Creates
-                                                                                ## and
-                                                                                ## returns
-                                                                                ## a
-                                                                                ## shifted
-                                                                                ## unit.
-                                                                                ## <aname>
-                                                                                ## is
-                                                                                ## the
-                                                                                ##
-                                                                                ## !
-                                                                                ## name
-                                                                                ## of
-                                                                                ## the
-                                                                                ## unit,
-                                                                                ## <asymbol>
-                                                                                ## is
-                                                                                ## the
-                                                                                ## usual
-                                                                                ## abbreviation
-                                                                                ##
-                                                                                ## !
-                                                                                ## of
-                                                                                ## the
-                                                                                ## unit,
-                                                                                ## <avalue>
-                                                                                ## is
-                                                                                ## the
-                                                                                ## value
-                                                                                ## in
-                                                                                ## relation
-                                                                                ## to
-                                                                                ## the
-                                                                                ##
-                                                                                ## !
-                                                                                ## International
-                                                                                ## System
-                                                                                ## of
-                                                                                ## Units,
-                                                                                ## and
-                                                                                ## <amove>
-                                                                                ## is
-                                                                                ## the
-                                                                                ## gap
-                                                                                ##
-                                                                                ## !
-                                                                                ## in
-                                                                                ## relation
-                                                                                ## to
-                                                                                ## another
-                                                                                ## unit.
-                                                                                ##
-                                                                                ## !
-                                                                                ##
-                                                                                ## !
-                                                                                ## For
-                                                                                ## example
-                                                                                ## Celcius
-                                                                                ## dregee
-                                                                                ## of
-                                                                                ## temperature
-                                                                                ## is
-                                                                                ## an
-                                                                                ##
-                                                                                ## !
-                                                                                ## instance
-                                                                                ## of
-                                                                                ## ShiftedUnit
-                                                                                ## with
-                                                                                ## <avalue>
-                                                                                ## equal
-                                                                                ## to
-                                                                                ## 1.
-                                                                                ## and
-                                                                                ##
-                                                                                ## !
-                                                                                ## <amove>
-                                                                                ## equal
-                                                                                ## to
-                                                                                ## 273.15.
+  UnitsShiftedUnit* {.importcpp: "Units_ShiftedUnit",
+                     header: "Units_ShiftedUnit.hxx", bycopy.} = object of UnitsUnit ## !
+                                                                              ## Creates
+                                                                              ## and
+                                                                              ## returns a
+                                                                              ## shifted
+                                                                              ## unit.
+                                                                              ## <aname> is
+                                                                              ## the
+                                                                              ## !
+                                                                              ## name of
+                                                                              ## the
+                                                                              ## unit,
+                                                                              ## <asymbol> is
+                                                                              ## the
+                                                                              ## usual
+                                                                              ## abbreviation
+                                                                              ## ! of
+                                                                              ## the
+                                                                              ## unit,
+                                                                              ## <avalue> is
+                                                                              ## the
+                                                                              ## value in
+                                                                              ## relation to
+                                                                              ## the
+                                                                              ## !
+                                                                              ## International
+                                                                              ## System of
+                                                                              ## Units,
+                                                                              ## and
+                                                                              ## <amove>  is
+                                                                              ## the
+                                                                              ## gap
+                                                                              ## ! in
+                                                                              ## relation to
+                                                                              ## another
+                                                                              ## unit.
+                                                                              ## !
+                                                                              ## !
+                                                                              ## For
+                                                                              ## example
+                                                                              ## Celcius
+                                                                              ## dregee   of
+                                                                              ## temperature  is  an
+                                                                              ## !
+                                                                              ## instance of
+                                                                              ## ShiftedUnit
+                                                                              ## with
+                                                                              ## <avalue>
+                                                                              ## equal to 1.
+                                                                              ## and
+                                                                              ## !
+                                                                              ## <amove>
+                                                                              ## equal to
+                                                                              ## 273.15.
 
 
-proc constructUnits_ShiftedUnit*(aname: Standard_CString;
-                                asymbol: Standard_CString; avalue: Standard_Real;
-                                amove: Standard_Real;
-                                aquantity: handle[Units_Quantity]): Units_ShiftedUnit {.
+proc constructUnitsShiftedUnit*(aname: StandardCString; asymbol: StandardCString;
+                               avalue: float; amove: float;
+                               aquantity: Handle[UnitsQuantity]): UnitsShiftedUnit {.
     constructor, importcpp: "Units_ShiftedUnit(@)", header: "Units_ShiftedUnit.hxx".}
-proc constructUnits_ShiftedUnit*(aname: Standard_CString; asymbol: Standard_CString): Units_ShiftedUnit {.
+proc constructUnitsShiftedUnit*(aname: StandardCString; asymbol: StandardCString): UnitsShiftedUnit {.
     constructor, importcpp: "Units_ShiftedUnit(@)", header: "Units_ShiftedUnit.hxx".}
-proc constructUnits_ShiftedUnit*(aname: Standard_CString): Units_ShiftedUnit {.
+proc constructUnitsShiftedUnit*(aname: StandardCString): UnitsShiftedUnit {.
     constructor, importcpp: "Units_ShiftedUnit(@)", header: "Units_ShiftedUnit.hxx".}
-proc Move*(this: var Units_ShiftedUnit; amove: Standard_Real) {.importcpp: "Move",
+proc move*(this: var UnitsShiftedUnit; amove: float) {.importcpp: "Move",
     header: "Units_ShiftedUnit.hxx".}
-proc Move*(this: Units_ShiftedUnit): Standard_Real {.noSideEffect, importcpp: "Move",
-    header: "Units_ShiftedUnit.hxx".}
-proc Token*(this: Units_ShiftedUnit): handle[Units_Token] {.noSideEffect,
+proc move*(this: UnitsShiftedUnit): float {.noSideEffect, importcpp: "Move",
+                                        header: "Units_ShiftedUnit.hxx".}
+proc token*(this: UnitsShiftedUnit): Handle[UnitsToken] {.noSideEffect,
     importcpp: "Token", header: "Units_ShiftedUnit.hxx".}
-proc Dump*(this: Units_ShiftedUnit; ashift: Standard_Integer;
-          alevel: Standard_Integer) {.noSideEffect, importcpp: "Dump",
-                                    header: "Units_ShiftedUnit.hxx".}
+proc dump*(this: UnitsShiftedUnit; ashift: int; alevel: int) {.noSideEffect,
+    importcpp: "Dump", header: "Units_ShiftedUnit.hxx".}
 type
-  Units_ShiftedUnitbase_type* = Units_Unit
+  UnitsShiftedUnitbaseType* = UnitsUnit
 
-proc get_type_name*(): cstring {.importcpp: "Units_ShiftedUnit::get_type_name(@)",
-                              header: "Units_ShiftedUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Units_ShiftedUnit::get_type_name(@)",
+                            header: "Units_ShiftedUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Units_ShiftedUnit::get_type_descriptor(@)",
     header: "Units_ShiftedUnit.hxx".}
-proc DynamicType*(this: Units_ShiftedUnit): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: UnitsShiftedUnit): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Units_ShiftedUnit.hxx".}

@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_Array1OfReal, ../Standard/Standard_Boolean, ../gp/gp_Pnt2d,
-  ../gp/gp_Vec2d, ../GeomAbs/GeomAbs_CurveType, ../gp/gp_Lin2d, ../gp/gp_Circ2d,
-  ../gp/gp_Elips2d, ../gp/gp_Hypr2d, ../gp/gp_Parab2d
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_DomainError"
@@ -31,80 +23,79 @@ discard "forward decl of gp_Vec2d"
 discard "forward decl of Geom2d_BezierCurve"
 discard "forward decl of Geom2d_BSplineCurve"
 type
-  BRepBlend_HCurve2dTool* {.importcpp: "BRepBlend_HCurve2dTool",
-                           header: "BRepBlend_HCurve2dTool.hxx", bycopy.} = object
+  BRepBlendHCurve2dTool* {.importcpp: "BRepBlend_HCurve2dTool",
+                          header: "BRepBlend_HCurve2dTool.hxx", bycopy.} = object
 
 
-proc FirstParameter*(C: handle[Adaptor2d_HCurve2d]): Standard_Real {.
+proc firstParameter*(c: Handle[Adaptor2dHCurve2d]): float {.
     importcpp: "BRepBlend_HCurve2dTool::FirstParameter(@)",
     header: "BRepBlend_HCurve2dTool.hxx".}
-proc LastParameter*(C: handle[Adaptor2d_HCurve2d]): Standard_Real {.
+proc lastParameter*(c: Handle[Adaptor2dHCurve2d]): float {.
     importcpp: "BRepBlend_HCurve2dTool::LastParameter(@)",
     header: "BRepBlend_HCurve2dTool.hxx".}
-proc Continuity*(C: handle[Adaptor2d_HCurve2d]): GeomAbs_Shape {.
+proc continuity*(c: Handle[Adaptor2dHCurve2d]): GeomAbsShape {.
     importcpp: "BRepBlend_HCurve2dTool::Continuity(@)",
     header: "BRepBlend_HCurve2dTool.hxx".}
-proc NbIntervals*(C: handle[Adaptor2d_HCurve2d]; S: GeomAbs_Shape): Standard_Integer {.
+proc nbIntervals*(c: Handle[Adaptor2dHCurve2d]; s: GeomAbsShape): int {.
     importcpp: "BRepBlend_HCurve2dTool::NbIntervals(@)",
     header: "BRepBlend_HCurve2dTool.hxx".}
-proc Intervals*(C: handle[Adaptor2d_HCurve2d]; T: var TColStd_Array1OfReal;
-               S: GeomAbs_Shape) {.importcpp: "BRepBlend_HCurve2dTool::Intervals(@)",
-                                 header: "BRepBlend_HCurve2dTool.hxx".}
-proc IsClosed*(C: handle[Adaptor2d_HCurve2d]): Standard_Boolean {.
+proc intervals*(c: Handle[Adaptor2dHCurve2d]; t: var TColStdArray1OfReal;
+               s: GeomAbsShape) {.importcpp: "BRepBlend_HCurve2dTool::Intervals(@)",
+                                header: "BRepBlend_HCurve2dTool.hxx".}
+proc isClosed*(c: Handle[Adaptor2dHCurve2d]): bool {.
     importcpp: "BRepBlend_HCurve2dTool::IsClosed(@)",
     header: "BRepBlend_HCurve2dTool.hxx".}
-proc IsPeriodic*(C: handle[Adaptor2d_HCurve2d]): Standard_Boolean {.
+proc isPeriodic*(c: Handle[Adaptor2dHCurve2d]): bool {.
     importcpp: "BRepBlend_HCurve2dTool::IsPeriodic(@)",
     header: "BRepBlend_HCurve2dTool.hxx".}
-proc Period*(C: handle[Adaptor2d_HCurve2d]): Standard_Real {.
+proc period*(c: Handle[Adaptor2dHCurve2d]): float {.
     importcpp: "BRepBlend_HCurve2dTool::Period(@)",
     header: "BRepBlend_HCurve2dTool.hxx".}
-proc Value*(C: handle[Adaptor2d_HCurve2d]; U: Standard_Real): gp_Pnt2d {.
+proc value*(c: Handle[Adaptor2dHCurve2d]; u: float): Pnt2d {.
     importcpp: "BRepBlend_HCurve2dTool::Value(@)",
     header: "BRepBlend_HCurve2dTool.hxx".}
-proc D0*(C: handle[Adaptor2d_HCurve2d]; U: Standard_Real; P: var gp_Pnt2d) {.
+proc d0*(c: Handle[Adaptor2dHCurve2d]; u: float; p: var Pnt2d) {.
     importcpp: "BRepBlend_HCurve2dTool::D0(@)",
     header: "BRepBlend_HCurve2dTool.hxx".}
-proc D1*(C: handle[Adaptor2d_HCurve2d]; U: Standard_Real; P: var gp_Pnt2d;
-        V: var gp_Vec2d) {.importcpp: "BRepBlend_HCurve2dTool::D1(@)",
-                        header: "BRepBlend_HCurve2dTool.hxx".}
-proc D2*(C: handle[Adaptor2d_HCurve2d]; U: Standard_Real; P: var gp_Pnt2d;
-        V1: var gp_Vec2d; V2: var gp_Vec2d) {.importcpp: "BRepBlend_HCurve2dTool::D2(@)",
-                                        header: "BRepBlend_HCurve2dTool.hxx".}
-proc D3*(C: handle[Adaptor2d_HCurve2d]; U: Standard_Real; P: var gp_Pnt2d;
-        V1: var gp_Vec2d; V2: var gp_Vec2d; V3: var gp_Vec2d) {.
-    importcpp: "BRepBlend_HCurve2dTool::D3(@)",
+proc d1*(c: Handle[Adaptor2dHCurve2d]; u: float; p: var Pnt2d; v: var Vec2d) {.
+    importcpp: "BRepBlend_HCurve2dTool::D1(@)",
     header: "BRepBlend_HCurve2dTool.hxx".}
-proc DN*(C: handle[Adaptor2d_HCurve2d]; U: Standard_Real; N: Standard_Integer): gp_Vec2d {.
+proc d2*(c: Handle[Adaptor2dHCurve2d]; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
+    importcpp: "BRepBlend_HCurve2dTool::D2(@)",
+    header: "BRepBlend_HCurve2dTool.hxx".}
+proc d3*(c: Handle[Adaptor2dHCurve2d]; u: float; p: var Pnt2d; v1: var Vec2d;
+        v2: var Vec2d; v3: var Vec2d) {.importcpp: "BRepBlend_HCurve2dTool::D3(@)",
+                                  header: "BRepBlend_HCurve2dTool.hxx".}
+proc dn*(c: Handle[Adaptor2dHCurve2d]; u: float; n: int): Vec2d {.
     importcpp: "BRepBlend_HCurve2dTool::DN(@)",
     header: "BRepBlend_HCurve2dTool.hxx".}
-proc Resolution*(C: handle[Adaptor2d_HCurve2d]; R3d: Standard_Real): Standard_Real {.
+proc resolution*(c: Handle[Adaptor2dHCurve2d]; r3d: float): float {.
     importcpp: "BRepBlend_HCurve2dTool::Resolution(@)",
     header: "BRepBlend_HCurve2dTool.hxx".}
-proc GetType*(C: handle[Adaptor2d_HCurve2d]): GeomAbs_CurveType {.
+proc getType*(c: Handle[Adaptor2dHCurve2d]): GeomAbsCurveType {.
     importcpp: "BRepBlend_HCurve2dTool::GetType(@)",
     header: "BRepBlend_HCurve2dTool.hxx".}
-proc Line*(C: handle[Adaptor2d_HCurve2d]): gp_Lin2d {.
+proc line*(c: Handle[Adaptor2dHCurve2d]): Lin2d {.
     importcpp: "BRepBlend_HCurve2dTool::Line(@)",
     header: "BRepBlend_HCurve2dTool.hxx".}
-proc Circle*(C: handle[Adaptor2d_HCurve2d]): gp_Circ2d {.
+proc circle*(c: Handle[Adaptor2dHCurve2d]): Circ2d {.
     importcpp: "BRepBlend_HCurve2dTool::Circle(@)",
     header: "BRepBlend_HCurve2dTool.hxx".}
-proc Ellipse*(C: handle[Adaptor2d_HCurve2d]): gp_Elips2d {.
+proc ellipse*(c: Handle[Adaptor2dHCurve2d]): Elips2d {.
     importcpp: "BRepBlend_HCurve2dTool::Ellipse(@)",
     header: "BRepBlend_HCurve2dTool.hxx".}
-proc Hyperbola*(C: handle[Adaptor2d_HCurve2d]): gp_Hypr2d {.
+proc hyperbola*(c: Handle[Adaptor2dHCurve2d]): Hypr2d {.
     importcpp: "BRepBlend_HCurve2dTool::Hyperbola(@)",
     header: "BRepBlend_HCurve2dTool.hxx".}
-proc Parabola*(C: handle[Adaptor2d_HCurve2d]): gp_Parab2d {.
+proc parabola*(c: Handle[Adaptor2dHCurve2d]): Parab2d {.
     importcpp: "BRepBlend_HCurve2dTool::Parabola(@)",
     header: "BRepBlend_HCurve2dTool.hxx".}
-proc Bezier*(C: handle[Adaptor2d_HCurve2d]): handle[Geom2d_BezierCurve] {.
+proc bezier*(c: Handle[Adaptor2dHCurve2d]): Handle[Geom2dBezierCurve] {.
     importcpp: "BRepBlend_HCurve2dTool::Bezier(@)",
     header: "BRepBlend_HCurve2dTool.hxx".}
-proc BSpline*(C: handle[Adaptor2d_HCurve2d]): handle[Geom2d_BSplineCurve] {.
+proc bSpline*(c: Handle[Adaptor2dHCurve2d]): Handle[Geom2dBSplineCurve] {.
     importcpp: "BRepBlend_HCurve2dTool::BSpline(@)",
     header: "BRepBlend_HCurve2dTool.hxx".}
-proc NbSamples*(C: handle[Adaptor2d_HCurve2d]; U0: Standard_Real; U1: Standard_Real): Standard_Integer {.
+proc nbSamples*(c: Handle[Adaptor2dHCurve2d]; u0: float; u1: float): int {.
     importcpp: "BRepBlend_HCurve2dTool::NbSamples(@)",
     header: "BRepBlend_HCurve2dTool.hxx".}

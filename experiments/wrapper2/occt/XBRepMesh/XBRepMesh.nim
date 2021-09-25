@@ -13,15 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Macro, ../BRepMesh/BRepMesh_DiscretRoot
-
 discard "forward decl of TopoDS_Shape"
 type
   XBRepMesh* {.importcpp: "XBRepMesh", header: "XBRepMesh.hxx", bycopy.} = object
 
 
-proc Discret*(theShape: TopoDS_Shape; theDeflection: Standard_Real;
-             theAngle: Standard_Real; theAlgo: ptr BRepMesh_DiscretRoot): Standard_Integer {.
+proc discret*(theShape: TopoDS_Shape; theDeflection: float; theAngle: float;
+             theAlgo: ptr BRepMeshDiscretRoot): int {.
     importcpp: "XBRepMesh::Discret(@)", header: "XBRepMesh.hxx".}

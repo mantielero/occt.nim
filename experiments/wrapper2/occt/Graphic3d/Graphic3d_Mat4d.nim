@@ -11,8 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Mat4, ../Standard/Standard_TypeDef
-
 type
-  Graphic3d_Mat4d* = NCollection_Mat4[Standard_Real]
+  Graphic3dMat4d* = NCollectionMat4[float]
+

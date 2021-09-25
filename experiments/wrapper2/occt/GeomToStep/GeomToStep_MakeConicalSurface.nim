@@ -14,21 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GeomToStep_Root
-
 discard "forward decl of StepGeom_ConicalSurface"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom_ConicalSurface"
 type
-  GeomToStep_MakeConicalSurface* {.importcpp: "GeomToStep_MakeConicalSurface",
-                                  header: "GeomToStep_MakeConicalSurface.hxx",
-                                  bycopy.} = object of GeomToStep_Root
+  GeomToStepMakeConicalSurface* {.importcpp: "GeomToStep_MakeConicalSurface",
+                                 header: "GeomToStep_MakeConicalSurface.hxx",
+                                 bycopy.} = object of GeomToStepRoot
 
 
-proc constructGeomToStep_MakeConicalSurface*(CSurf: handle[Geom_ConicalSurface]): GeomToStep_MakeConicalSurface {.
+proc constructGeomToStepMakeConicalSurface*(cSurf: Handle[GeomConicalSurface]): GeomToStepMakeConicalSurface {.
     constructor, importcpp: "GeomToStep_MakeConicalSurface(@)",
     header: "GeomToStep_MakeConicalSurface.hxx".}
-proc Value*(this: GeomToStep_MakeConicalSurface): handle[StepGeom_ConicalSurface] {.
+proc value*(this: GeomToStepMakeConicalSurface): Handle[StepGeomConicalSurface] {.
     noSideEffect, importcpp: "Value", header: "GeomToStep_MakeConicalSurface.hxx".}

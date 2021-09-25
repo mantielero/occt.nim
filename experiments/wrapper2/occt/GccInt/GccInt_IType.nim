@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  GccInt_IType* {.size: sizeof(cint), importcpp: "GccInt_IType",
-                 header: "GccInt_IType.hxx".} = enum
-    GccInt_Lin, GccInt_Cir, GccInt_Ell, GccInt_Par, GccInt_Hpr, GccInt_Pnt
+  GccIntIType* {.size: sizeof(cint), importcpp: "GccInt_IType",
+                header: "GccInt_IType.hxx".} = enum
+    GccIntLin, GccIntCir, GccIntEll, GccIntPar, GccIntHpr, GccIntPnt
+
 

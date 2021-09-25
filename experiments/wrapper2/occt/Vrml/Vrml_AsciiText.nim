@@ -14,16 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_HArray1OfAsciiString, ../Standard/Standard_Real,
-  Vrml_AsciiTextJustification, ../Standard/Standard_Transient,
-  ../Standard/Standard_OStream
-
 discard "forward decl of Vrml_AsciiText"
 discard "forward decl of Vrml_AsciiText"
 type
-  Handle_Vrml_AsciiText* = handle[Vrml_AsciiText]
+  HandleVrmlAsciiText* = Handle[VrmlAsciiText]
 
 ## ! defines a AsciiText node of VRML specifying geometry shapes.
 ## ! This  node  represents  strings  of  text  characters  from  ASCII  coded
@@ -37,43 +31,43 @@ type
 ## ! should  be  used  for  that  string.
 
 type
-  Vrml_AsciiText* {.importcpp: "Vrml_AsciiText", header: "Vrml_AsciiText.hxx", bycopy.} = object of Standard_Transient
+  VrmlAsciiText* {.importcpp: "Vrml_AsciiText", header: "Vrml_AsciiText.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructVrml_AsciiText*(): Vrml_AsciiText {.constructor,
+proc constructVrmlAsciiText*(): VrmlAsciiText {.constructor,
     importcpp: "Vrml_AsciiText(@)", header: "Vrml_AsciiText.hxx".}
-proc constructVrml_AsciiText*(aString: handle[TColStd_HArray1OfAsciiString];
-                             aSpacing: Standard_Real;
-                             aJustification: Vrml_AsciiTextJustification;
-                             aWidth: Standard_Real): Vrml_AsciiText {.constructor,
+proc constructVrmlAsciiText*(aString: Handle[TColStdHArray1OfAsciiString];
+                            aSpacing: float;
+                            aJustification: VrmlAsciiTextJustification;
+                            aWidth: float): VrmlAsciiText {.constructor,
     importcpp: "Vrml_AsciiText(@)", header: "Vrml_AsciiText.hxx".}
-proc SetString*(this: var Vrml_AsciiText;
-               aString: handle[TColStd_HArray1OfAsciiString]) {.
+proc setString*(this: var VrmlAsciiText;
+               aString: Handle[TColStdHArray1OfAsciiString]) {.
     importcpp: "SetString", header: "Vrml_AsciiText.hxx".}
-proc String*(this: Vrml_AsciiText): handle[TColStd_HArray1OfAsciiString] {.
+proc string*(this: VrmlAsciiText): Handle[TColStdHArray1OfAsciiString] {.
     noSideEffect, importcpp: "String", header: "Vrml_AsciiText.hxx".}
-proc SetSpacing*(this: var Vrml_AsciiText; aSpacing: Standard_Real) {.
-    importcpp: "SetSpacing", header: "Vrml_AsciiText.hxx".}
-proc Spacing*(this: Vrml_AsciiText): Standard_Real {.noSideEffect,
-    importcpp: "Spacing", header: "Vrml_AsciiText.hxx".}
-proc SetJustification*(this: var Vrml_AsciiText;
-                      aJustification: Vrml_AsciiTextJustification) {.
-    importcpp: "SetJustification", header: "Vrml_AsciiText.hxx".}
-proc Justification*(this: Vrml_AsciiText): Vrml_AsciiTextJustification {.
-    noSideEffect, importcpp: "Justification", header: "Vrml_AsciiText.hxx".}
-proc SetWidth*(this: var Vrml_AsciiText; aWidth: Standard_Real) {.
-    importcpp: "SetWidth", header: "Vrml_AsciiText.hxx".}
-proc Width*(this: Vrml_AsciiText): Standard_Real {.noSideEffect, importcpp: "Width",
+proc setSpacing*(this: var VrmlAsciiText; aSpacing: float) {.importcpp: "SetSpacing",
     header: "Vrml_AsciiText.hxx".}
-proc Print*(this: Vrml_AsciiText; anOStream: var Standard_OStream): var Standard_OStream {.
+proc spacing*(this: VrmlAsciiText): float {.noSideEffect, importcpp: "Spacing",
+                                        header: "Vrml_AsciiText.hxx".}
+proc setJustification*(this: var VrmlAsciiText;
+                      aJustification: VrmlAsciiTextJustification) {.
+    importcpp: "SetJustification", header: "Vrml_AsciiText.hxx".}
+proc justification*(this: VrmlAsciiText): VrmlAsciiTextJustification {.noSideEffect,
+    importcpp: "Justification", header: "Vrml_AsciiText.hxx".}
+proc setWidth*(this: var VrmlAsciiText; aWidth: float) {.importcpp: "SetWidth",
+    header: "Vrml_AsciiText.hxx".}
+proc width*(this: VrmlAsciiText): float {.noSideEffect, importcpp: "Width",
+                                      header: "Vrml_AsciiText.hxx".}
+proc print*(this: VrmlAsciiText; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_AsciiText.hxx".}
 type
-  Vrml_AsciiTextbase_type* = Standard_Transient
+  VrmlAsciiTextbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Vrml_AsciiText::get_type_name(@)",
-                              header: "Vrml_AsciiText.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Vrml_AsciiText::get_type_name(@)",
+                            header: "Vrml_AsciiText.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Vrml_AsciiText::get_type_descriptor(@)",
     header: "Vrml_AsciiText.hxx".}
-proc DynamicType*(this: Vrml_AsciiText): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: VrmlAsciiText): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Vrml_AsciiText.hxx".}

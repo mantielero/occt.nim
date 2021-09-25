@@ -16,7 +16,8 @@
 ## ! Defines the grid type : Rectangular or Circular.
 
 type
-  Aspect_GridType* {.size: sizeof(cint), importcpp: "Aspect_GridType",
-                    header: "Aspect_GridType.hxx".} = enum
-    Aspect_GT_Rectangular, Aspect_GT_Circular
+  AspectGridType* {.size: sizeof(cint), importcpp: "Aspect_GridType",
+                   header: "Aspect_GridType.hxx".} = enum
+    AspectGT_Rectangular, AspectGT_Circular
+
 

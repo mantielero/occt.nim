@@ -11,9 +11,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepElement_CurveElementSectionDefinition, ../NCollection/NCollection_Array1
-
 type
-  StepElement_Array1OfCurveElementSectionDefinition* = NCollection_Array1[
-      handle[StepElement_CurveElementSectionDefinition]]
+  StepElementArray1OfCurveElementSectionDefinition* = NCollectionArray1[
+      Handle[StepElementCurveElementSectionDefinition]]
+

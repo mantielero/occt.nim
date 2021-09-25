@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_HAsciiString, ../NCollection/NCollection_Array1
-
 type
-  Interface_Array1OfHAsciiString* = NCollection_Array1[
-      handle[TCollection_HAsciiString]]
+  InterfaceArray1OfHAsciiString* = NCollectionArray1[
+      Handle[TCollectionHAsciiString]]
+

@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IntSurf_PathPoint, ../NCollection/NCollection_Sequence
-
 type
-  IntSurf_SequenceOfPathPoint* = NCollection_Sequence[IntSurf_PathPoint]
+  IntSurfSequenceOfPathPoint* = NCollectionSequence[IntSurfPathPoint]
+

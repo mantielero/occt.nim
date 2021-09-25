@@ -14,18 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean
-
 type
-  TDocStd_Context* {.importcpp: "TDocStd_Context", header: "TDocStd_Context.hxx",
-                    bycopy.} = object
+  TDocStdContext* {.importcpp: "TDocStd_Context", header: "TDocStd_Context.hxx",
+                   bycopy.} = object
 
 
-proc constructTDocStd_Context*(): TDocStd_Context {.constructor,
+proc constructTDocStdContext*(): TDocStdContext {.constructor,
     importcpp: "TDocStd_Context(@)", header: "TDocStd_Context.hxx".}
-proc SetModifiedReferences*(this: var TDocStd_Context; Mod: Standard_Boolean) {.
+proc setModifiedReferences*(this: var TDocStdContext; `mod`: bool) {.
     importcpp: "SetModifiedReferences", header: "TDocStd_Context.hxx".}
-proc ModifiedReferences*(this: TDocStd_Context): Standard_Boolean {.noSideEffect,
+proc modifiedReferences*(this: TDocStdContext): bool {.noSideEffect,
     importcpp: "ModifiedReferences", header: "TDocStd_Context.hxx".}

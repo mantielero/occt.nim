@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, PCDM_ReaderStatus,
-  ../Standard/Standard_Transient, ../Standard/Standard_IStream,
-  ../Storage/Storage_Data, ../Message/Message_ProgressRange
-
 discard "forward decl of PCDM_DriverError"
 discard "forward decl of CDM_Document"
 discard "forward decl of TCollection_ExtendedString"
@@ -26,42 +21,42 @@ discard "forward decl of CDM_Application"
 discard "forward decl of PCDM_Reader"
 discard "forward decl of PCDM_Reader"
 type
-  Handle_PCDM_Reader* = handle[PCDM_Reader]
-  PCDM_Reader* {.importcpp: "PCDM_Reader", header: "PCDM_Reader.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                    ## !
-                                                                                                    ## this
-                                                                                                    ## method
-                                                                                                    ## is
-                                                                                                    ## called
-                                                                                                    ## by
-                                                                                                    ## the
-                                                                                                    ## framework
-                                                                                                    ## before
-                                                                                                    ## the
-                                                                                                    ## read
-                                                                                                    ## method.
+  HandlePCDM_Reader* = Handle[PCDM_Reader]
+  PCDM_Reader* {.importcpp: "PCDM_Reader", header: "PCDM_Reader.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                   ## !
+                                                                                                   ## this
+                                                                                                   ## method
+                                                                                                   ## is
+                                                                                                   ## called
+                                                                                                   ## by
+                                                                                                   ## the
+                                                                                                   ## framework
+                                                                                                   ## before
+                                                                                                   ## the
+                                                                                                   ## read
+                                                                                                   ## method.
 
 
-proc CreateDocument*(this: var PCDM_Reader): handle[CDM_Document] {.
+proc createDocument*(this: var PCDM_Reader): Handle[CDM_Document] {.
     importcpp: "CreateDocument", header: "PCDM_Reader.hxx".}
-proc Read*(this: var PCDM_Reader; aFileName: TCollection_ExtendedString;
-          aNewDocument: handle[CDM_Document];
-          anApplication: handle[CDM_Application];
-          theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc read*(this: var PCDM_Reader; aFileName: TCollectionExtendedString;
+          aNewDocument: Handle[CDM_Document];
+          anApplication: Handle[CDM_Application];
+          theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Read", header: "PCDM_Reader.hxx".}
-proc Read*(this: var PCDM_Reader; theIStream: var Standard_IStream;
-          theStorageData: handle[Storage_Data]; theDoc: handle[CDM_Document];
-          theApplication: handle[CDM_Application];
-          theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc read*(this: var PCDM_Reader; theIStream: var StandardIStream;
+          theStorageData: Handle[StorageData]; theDoc: Handle[CDM_Document];
+          theApplication: Handle[CDM_Application];
+          theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Read", header: "PCDM_Reader.hxx".}
-proc GetStatus*(this: PCDM_Reader): PCDM_ReaderStatus {.noSideEffect,
+proc getStatus*(this: PCDM_Reader): PCDM_ReaderStatus {.noSideEffect,
     importcpp: "GetStatus", header: "PCDM_Reader.hxx".}
 type
-  PCDM_Readerbase_type* = Standard_Transient
+  PCDM_ReaderbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "PCDM_Reader::get_type_name(@)",
-                              header: "PCDM_Reader.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "PCDM_Reader::get_type_name(@)",
+                            header: "PCDM_Reader.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "PCDM_Reader::get_type_descriptor(@)", header: "PCDM_Reader.hxx".}
-proc DynamicType*(this: PCDM_Reader): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: PCDM_Reader): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "PCDM_Reader.hxx".}

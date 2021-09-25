@@ -14,98 +14,76 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ShapeUpgrade_ShapeDivide
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of ShapeUpgrade_FaceDivide"
 discard "forward decl of Message_Msg"
 type
-  ShapeUpgrade_ShapeConvertToBezier* {.importcpp: "ShapeUpgrade_ShapeConvertToBezier", header: "ShapeUpgrade_ShapeConvertToBezier.hxx",
-                                      bycopy.} = object of ShapeUpgrade_ShapeDivide ## !
-                                                                               ## Empty
-                                                                               ## constructor.
-                                                                               ## !
-                                                                               ## Returns
-                                                                               ## the
-                                                                               ## tool
-                                                                               ## for
-                                                                               ## dividing
-                                                                               ## faces.
+  ShapeUpgradeShapeConvertToBezier* {.importcpp: "ShapeUpgrade_ShapeConvertToBezier", header: "ShapeUpgrade_ShapeConvertToBezier.hxx",
+                                     bycopy.} = object of ShapeUpgradeShapeDivide ## !
+                                                                             ## Empty
+                                                                             ## constructor.
+                                                                             ## !
+                                                                             ## Returns the
+                                                                             ## tool for
+                                                                             ## dividing
+                                                                             ## faces.
 
 
-proc constructShapeUpgrade_ShapeConvertToBezier*(): ShapeUpgrade_ShapeConvertToBezier {.
+proc constructShapeUpgradeShapeConvertToBezier*(): ShapeUpgradeShapeConvertToBezier {.
     constructor, importcpp: "ShapeUpgrade_ShapeConvertToBezier(@)",
     header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
-proc constructShapeUpgrade_ShapeConvertToBezier*(S: TopoDS_Shape): ShapeUpgrade_ShapeConvertToBezier {.
+proc constructShapeUpgradeShapeConvertToBezier*(s: TopoDS_Shape): ShapeUpgradeShapeConvertToBezier {.
     constructor, importcpp: "ShapeUpgrade_ShapeConvertToBezier(@)",
     header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
-proc Set2dConversion*(this: var ShapeUpgrade_ShapeConvertToBezier;
-                     mode: Standard_Boolean) {.importcpp: "Set2dConversion",
-    header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
-proc Get2dConversion*(this: ShapeUpgrade_ShapeConvertToBezier): Standard_Boolean {.
-    noSideEffect, importcpp: "Get2dConversion",
-    header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
-proc Set3dConversion*(this: var ShapeUpgrade_ShapeConvertToBezier;
-                     mode: Standard_Boolean) {.importcpp: "Set3dConversion",
-    header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
-proc Get3dConversion*(this: ShapeUpgrade_ShapeConvertToBezier): Standard_Boolean {.
-    noSideEffect, importcpp: "Get3dConversion",
-    header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
-proc SetSurfaceConversion*(this: var ShapeUpgrade_ShapeConvertToBezier;
-                          mode: Standard_Boolean) {.
+proc set2dConversion*(this: var ShapeUpgradeShapeConvertToBezier; mode: bool) {.
+    importcpp: "Set2dConversion", header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
+proc get2dConversion*(this: ShapeUpgradeShapeConvertToBezier): bool {.noSideEffect,
+    importcpp: "Get2dConversion", header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
+proc set3dConversion*(this: var ShapeUpgradeShapeConvertToBezier; mode: bool) {.
+    importcpp: "Set3dConversion", header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
+proc get3dConversion*(this: ShapeUpgradeShapeConvertToBezier): bool {.noSideEffect,
+    importcpp: "Get3dConversion", header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
+proc setSurfaceConversion*(this: var ShapeUpgradeShapeConvertToBezier; mode: bool) {.
     importcpp: "SetSurfaceConversion",
     header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
-proc GetSurfaceConversion*(this: ShapeUpgrade_ShapeConvertToBezier): Standard_Boolean {.
+proc getSurfaceConversion*(this: ShapeUpgradeShapeConvertToBezier): bool {.
     noSideEffect, importcpp: "GetSurfaceConversion",
     header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
-proc Set3dLineConversion*(this: var ShapeUpgrade_ShapeConvertToBezier;
-                         mode: Standard_Boolean) {.
+proc set3dLineConversion*(this: var ShapeUpgradeShapeConvertToBezier; mode: bool) {.
     importcpp: "Set3dLineConversion",
     header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
-proc Get3dLineConversion*(this: ShapeUpgrade_ShapeConvertToBezier): Standard_Boolean {.
+proc get3dLineConversion*(this: ShapeUpgradeShapeConvertToBezier): bool {.
     noSideEffect, importcpp: "Get3dLineConversion",
     header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
-proc Set3dCircleConversion*(this: var ShapeUpgrade_ShapeConvertToBezier;
-                           mode: Standard_Boolean) {.
+proc set3dCircleConversion*(this: var ShapeUpgradeShapeConvertToBezier; mode: bool) {.
     importcpp: "Set3dCircleConversion",
     header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
-proc Get3dCircleConversion*(this: ShapeUpgrade_ShapeConvertToBezier): Standard_Boolean {.
+proc get3dCircleConversion*(this: ShapeUpgradeShapeConvertToBezier): bool {.
     noSideEffect, importcpp: "Get3dCircleConversion",
     header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
-proc Set3dConicConversion*(this: var ShapeUpgrade_ShapeConvertToBezier;
-                          mode: Standard_Boolean) {.
+proc set3dConicConversion*(this: var ShapeUpgradeShapeConvertToBezier; mode: bool) {.
     importcpp: "Set3dConicConversion",
     header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
-proc Get3dConicConversion*(this: ShapeUpgrade_ShapeConvertToBezier): Standard_Boolean {.
+proc get3dConicConversion*(this: ShapeUpgradeShapeConvertToBezier): bool {.
     noSideEffect, importcpp: "Get3dConicConversion",
     header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
-proc SetPlaneMode*(this: var ShapeUpgrade_ShapeConvertToBezier;
-                  mode: Standard_Boolean) {.importcpp: "SetPlaneMode",
+proc setPlaneMode*(this: var ShapeUpgradeShapeConvertToBezier; mode: bool) {.
+    importcpp: "SetPlaneMode", header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
+proc getPlaneMode*(this: ShapeUpgradeShapeConvertToBezier): bool {.noSideEffect,
+    importcpp: "GetPlaneMode", header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
+proc setRevolutionMode*(this: var ShapeUpgradeShapeConvertToBezier; mode: bool) {.
+    importcpp: "SetRevolutionMode",
     header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
-proc GetPlaneMode*(this: ShapeUpgrade_ShapeConvertToBezier): Standard_Boolean {.
-    noSideEffect, importcpp: "GetPlaneMode",
-    header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
-proc SetRevolutionMode*(this: var ShapeUpgrade_ShapeConvertToBezier;
-                       mode: Standard_Boolean) {.importcpp: "SetRevolutionMode",
-    header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
-proc GetRevolutionMode*(this: ShapeUpgrade_ShapeConvertToBezier): Standard_Boolean {.
+proc getRevolutionMode*(this: ShapeUpgradeShapeConvertToBezier): bool {.
     noSideEffect, importcpp: "GetRevolutionMode",
     header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
-proc SetExtrusionMode*(this: var ShapeUpgrade_ShapeConvertToBezier;
-                      mode: Standard_Boolean) {.importcpp: "SetExtrusionMode",
-    header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
-proc GetExtrusionMode*(this: ShapeUpgrade_ShapeConvertToBezier): Standard_Boolean {.
-    noSideEffect, importcpp: "GetExtrusionMode",
-    header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
-proc SetBSplineMode*(this: var ShapeUpgrade_ShapeConvertToBezier;
-                    mode: Standard_Boolean) {.importcpp: "SetBSplineMode",
-    header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
-proc GetBSplineMode*(this: ShapeUpgrade_ShapeConvertToBezier): Standard_Boolean {.
-    noSideEffect, importcpp: "GetBSplineMode",
-    header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
-proc Perform*(this: var ShapeUpgrade_ShapeConvertToBezier;
-             newContext: Standard_Boolean = Standard_True): Standard_Boolean {.
+proc setExtrusionMode*(this: var ShapeUpgradeShapeConvertToBezier; mode: bool) {.
+    importcpp: "SetExtrusionMode", header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
+proc getExtrusionMode*(this: ShapeUpgradeShapeConvertToBezier): bool {.noSideEffect,
+    importcpp: "GetExtrusionMode", header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
+proc setBSplineMode*(this: var ShapeUpgradeShapeConvertToBezier; mode: bool) {.
+    importcpp: "SetBSplineMode", header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
+proc getBSplineMode*(this: ShapeUpgradeShapeConvertToBezier): bool {.noSideEffect,
+    importcpp: "GetBSplineMode", header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
+proc perform*(this: var ShapeUpgradeShapeConvertToBezier; newContext: bool = true): bool {.
     importcpp: "Perform", header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}

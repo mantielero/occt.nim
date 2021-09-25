@@ -14,38 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepBasic_Person, StepBasic_Array1OfPerson,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepBasic_HArray1OfPerson* {.importcpp: "StepBasic_HArray1OfPerson",
-                              header: "StepBasic_HArray1OfPerson.hxx", bycopy.} = object of StepBasic_Array1OfPerson
+  StepBasicHArray1OfPerson* {.importcpp: "StepBasic_HArray1OfPerson",
+                             header: "StepBasic_HArray1OfPerson.hxx", bycopy.} = object of StepBasicArray1OfPerson
 
 
-proc constructStepBasic_HArray1OfPerson*(theLower: Standard_Integer;
-                                        theUpper: Standard_Integer): StepBasic_HArray1OfPerson {.
+proc constructStepBasicHArray1OfPerson*(theLower: int; theUpper: int): StepBasicHArray1OfPerson {.
     constructor, importcpp: "StepBasic_HArray1OfPerson(@)",
     header: "StepBasic_HArray1OfPerson.hxx".}
-proc constructStepBasic_HArray1OfPerson*(theLower: Standard_Integer;
-                                        theUpper: Standard_Integer;
-                                        theValue: value_type): StepBasic_HArray1OfPerson {.
+proc constructStepBasicHArray1OfPerson*(theLower: int; theUpper: int;
+                                       theValue: ValueType): StepBasicHArray1OfPerson {.
     constructor, importcpp: "StepBasic_HArray1OfPerson(@)",
     header: "StepBasic_HArray1OfPerson.hxx".}
-proc constructStepBasic_HArray1OfPerson*(theOther: StepBasic_Array1OfPerson): StepBasic_HArray1OfPerson {.
+proc constructStepBasicHArray1OfPerson*(theOther: StepBasicArray1OfPerson): StepBasicHArray1OfPerson {.
     constructor, importcpp: "StepBasic_HArray1OfPerson(@)",
     header: "StepBasic_HArray1OfPerson.hxx".}
-proc Array1*(this: StepBasic_HArray1OfPerson): StepBasic_Array1OfPerson {.
+proc array1*(this: StepBasicHArray1OfPerson): StepBasicArray1OfPerson {.
     noSideEffect, importcpp: "Array1", header: "StepBasic_HArray1OfPerson.hxx".}
-proc ChangeArray1*(this: var StepBasic_HArray1OfPerson): var StepBasic_Array1OfPerson {.
+proc changeArray1*(this: var StepBasicHArray1OfPerson): var StepBasicArray1OfPerson {.
     importcpp: "ChangeArray1", header: "StepBasic_HArray1OfPerson.hxx".}
 type
-  StepBasic_HArray1OfPersonbase_type* = MMgt_TShared
+  StepBasicHArray1OfPersonbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_HArray1OfPerson::get_type_name(@)",
-                              header: "StepBasic_HArray1OfPerson.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_HArray1OfPerson::get_type_name(@)",
+                            header: "StepBasic_HArray1OfPerson.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_HArray1OfPerson::get_type_descriptor(@)",
     header: "StepBasic_HArray1OfPerson.hxx".}
-proc DynamicType*(this: StepBasic_HArray1OfPerson): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicHArray1OfPerson): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_HArray1OfPerson.hxx".}

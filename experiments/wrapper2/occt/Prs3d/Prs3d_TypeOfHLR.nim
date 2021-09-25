@@ -22,7 +22,8 @@
 ## ! HLRAlgo package from TKHLR toolkit.
 
 type
-  Prs3d_TypeOfHLR* {.size: sizeof(cint), importcpp: "Prs3d_TypeOfHLR",
-                    header: "Prs3d_TypeOfHLR.hxx".} = enum
-    Prs3d_TOH_NotSet, Prs3d_TOH_PolyAlgo, Prs3d_TOH_Algo
+  Prs3dTypeOfHLR* {.size: sizeof(cint), importcpp: "Prs3d_TypeOfHLR",
+                   header: "Prs3d_TypeOfHLR.hxx".} = enum
+    Prs3dTOH_NotSet, Prs3dTOH_PolyAlgo, Prs3dTOH_Algo
+
 

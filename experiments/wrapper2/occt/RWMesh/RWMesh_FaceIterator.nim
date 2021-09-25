@@ -11,26 +11,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../BRepLProp/BRepLProp_SLProps, ../gp/gp_Trsf,
-  ../NCollection/NCollection_DataMap, ../Poly/Poly_Array1OfTriangle,
-  ../Poly/Poly_Triangulation, ../TopExp/TopExp_Explorer, ../TopoDS/TopoDS_Face,
-  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape, ../XCAFPrs/XCAFPrs_Style
-
 discard "forward decl of TDF_Label"
 type
-  RWMesh_FaceIterator* {.importcpp: "RWMesh_FaceIterator",
-                        header: "RWMesh_FaceIterator.hxx", bycopy.} = object ## ! Main
-                                                                        ## constructor.
-                                                                        ## ! Return face
-                                                                        ## material.
-                                                                        ## ! Return number of elements of specific type for the current face.
-                                                                        ## ! Return true if
-                                                                        ## triangulation has defined normals.
-                                                                        ## ! Return the node with
-                                                                        ## specified index with applied
-                                                                        ## transformation.
-                                                                        ## ! Dispatch face styles.
+  RWMeshFaceIterator* {.importcpp: "RWMesh_FaceIterator",
+                       header: "RWMesh_FaceIterator.hxx", bycopy.} = object ## ! Main
+                                                                       ## constructor.
+                                                                       ## ! Return face material.
+                                                                       ## ! Return number of elements of specific type for the current face.
+                                                                       ## ! Return true if
+                                                                       ## triangulation has defined normals.
+                                                                       ## ! Return the node with specified index with applied
+                                                                       ## transformation.
+                                                                       ## ! Dispatch face styles.
     ## !< Face -> Style map
     ## !< default style for faces without dedicated style
     ## !< flag to dispatch styles
@@ -51,55 +43,54 @@ type
     ## !< flag indicating that current face has assigned color
 
 
-proc constructRWMesh_FaceIterator*(theLabel: TDF_Label;
-                                  theLocation: TopLoc_Location;
-                                  theToMapColors: Standard_Boolean = false;
-                                  theStyle: XCAFPrs_Style = XCAFPrs_Style()): RWMesh_FaceIterator {.
+proc constructRWMeshFaceIterator*(theLabel: TDF_Label; theLocation: TopLocLocation;
+                                 theToMapColors: bool = false;
+                                 theStyle: XCAFPrsStyle = xCAFPrsStyle()): RWMeshFaceIterator {.
     constructor, importcpp: "RWMesh_FaceIterator(@)",
     header: "RWMesh_FaceIterator.hxx".}
-proc More*(this: RWMesh_FaceIterator): bool {.noSideEffect, importcpp: "More",
+proc more*(this: RWMeshFaceIterator): bool {.noSideEffect, importcpp: "More",
     header: "RWMesh_FaceIterator.hxx".}
-proc Next*(this: var RWMesh_FaceIterator) {.importcpp: "Next",
-                                        header: "RWMesh_FaceIterator.hxx".}
-proc Face*(this: RWMesh_FaceIterator): TopoDS_Face {.noSideEffect, importcpp: "Face",
+proc next*(this: var RWMeshFaceIterator) {.importcpp: "Next",
+                                       header: "RWMesh_FaceIterator.hxx".}
+proc face*(this: RWMeshFaceIterator): TopoDS_Face {.noSideEffect, importcpp: "Face",
     header: "RWMesh_FaceIterator.hxx".}
-proc Triangulation*(this: RWMesh_FaceIterator): handle[Poly_Triangulation] {.
+proc triangulation*(this: RWMeshFaceIterator): Handle[PolyTriangulation] {.
     noSideEffect, importcpp: "Triangulation", header: "RWMesh_FaceIterator.hxx".}
-proc IsEmptyMesh*(this: RWMesh_FaceIterator): bool {.noSideEffect,
+proc isEmptyMesh*(this: RWMeshFaceIterator): bool {.noSideEffect,
     importcpp: "IsEmptyMesh", header: "RWMesh_FaceIterator.hxx".}
-proc FaceStyle*(this: RWMesh_FaceIterator): XCAFPrs_Style {.noSideEffect,
+proc faceStyle*(this: RWMeshFaceIterator): XCAFPrsStyle {.noSideEffect,
     importcpp: "FaceStyle", header: "RWMesh_FaceIterator.hxx".}
-proc HasFaceColor*(this: RWMesh_FaceIterator): bool {.noSideEffect,
+proc hasFaceColor*(this: RWMeshFaceIterator): bool {.noSideEffect,
     importcpp: "HasFaceColor", header: "RWMesh_FaceIterator.hxx".}
-proc FaceColor*(this: RWMesh_FaceIterator): Quantity_ColorRGBA {.noSideEffect,
+proc faceColor*(this: RWMeshFaceIterator): QuantityColorRGBA {.noSideEffect,
     importcpp: "FaceColor", header: "RWMesh_FaceIterator.hxx".}
-proc NbTriangles*(this: RWMesh_FaceIterator): Standard_Integer {.noSideEffect,
+proc nbTriangles*(this: RWMeshFaceIterator): int {.noSideEffect,
     importcpp: "NbTriangles", header: "RWMesh_FaceIterator.hxx".}
-proc ElemLower*(this: RWMesh_FaceIterator): Standard_Integer {.noSideEffect,
+proc elemLower*(this: RWMeshFaceIterator): int {.noSideEffect,
     importcpp: "ElemLower", header: "RWMesh_FaceIterator.hxx".}
-proc ElemUpper*(this: RWMesh_FaceIterator): Standard_Integer {.noSideEffect,
+proc elemUpper*(this: RWMeshFaceIterator): int {.noSideEffect,
     importcpp: "ElemUpper", header: "RWMesh_FaceIterator.hxx".}
-proc TriangleOriented*(this: RWMesh_FaceIterator; theElemIndex: Standard_Integer): Poly_Triangle {.
+proc triangleOriented*(this: RWMeshFaceIterator; theElemIndex: int): PolyTriangle {.
     noSideEffect, importcpp: "TriangleOriented", header: "RWMesh_FaceIterator.hxx".}
-proc HasNormals*(this: RWMesh_FaceIterator): bool {.noSideEffect,
+proc hasNormals*(this: RWMeshFaceIterator): bool {.noSideEffect,
     importcpp: "HasNormals", header: "RWMesh_FaceIterator.hxx".}
-proc HasTexCoords*(this: RWMesh_FaceIterator): bool {.noSideEffect,
+proc hasTexCoords*(this: RWMeshFaceIterator): bool {.noSideEffect,
     importcpp: "HasTexCoords", header: "RWMesh_FaceIterator.hxx".}
-proc NormalTransformed*(this: var RWMesh_FaceIterator; theNode: Standard_Integer): gp_Dir {.
+proc normalTransformed*(this: var RWMeshFaceIterator; theNode: int): Dir {.
     importcpp: "NormalTransformed", header: "RWMesh_FaceIterator.hxx".}
-proc NbNodes*(this: RWMesh_FaceIterator): Standard_Integer {.noSideEffect,
-    importcpp: "NbNodes", header: "RWMesh_FaceIterator.hxx".}
-proc NodeLower*(this: RWMesh_FaceIterator): Standard_Integer {.noSideEffect,
+proc nbNodes*(this: RWMeshFaceIterator): int {.noSideEffect, importcpp: "NbNodes",
+    header: "RWMesh_FaceIterator.hxx".}
+proc nodeLower*(this: RWMeshFaceIterator): int {.noSideEffect,
     importcpp: "NodeLower", header: "RWMesh_FaceIterator.hxx".}
-proc NodeUpper*(this: RWMesh_FaceIterator): Standard_Integer {.noSideEffect,
+proc nodeUpper*(this: RWMeshFaceIterator): int {.noSideEffect,
     importcpp: "NodeUpper", header: "RWMesh_FaceIterator.hxx".}
-proc NodeTransformed*(this: RWMesh_FaceIterator; theNode: Standard_Integer): gp_Pnt {.
-    noSideEffect, importcpp: "NodeTransformed", header: "RWMesh_FaceIterator.hxx".}
-proc NodeTexCoord*(this: RWMesh_FaceIterator; theNode: Standard_Integer): gp_Pnt2d {.
-    noSideEffect, importcpp: "NodeTexCoord", header: "RWMesh_FaceIterator.hxx".}
-proc node*(this: RWMesh_FaceIterator; theNode: Standard_Integer): gp_Pnt {.
-    noSideEffect, importcpp: "node", header: "RWMesh_FaceIterator.hxx".}
-proc normal*(this: var RWMesh_FaceIterator; theNode: Standard_Integer): gp_Dir {.
-    importcpp: "normal", header: "RWMesh_FaceIterator.hxx".}
-proc triangle*(this: RWMesh_FaceIterator; theElemIndex: Standard_Integer): Poly_Triangle {.
+proc nodeTransformed*(this: RWMeshFaceIterator; theNode: int): Pnt {.noSideEffect,
+    importcpp: "NodeTransformed", header: "RWMesh_FaceIterator.hxx".}
+proc nodeTexCoord*(this: RWMeshFaceIterator; theNode: int): Pnt2d {.noSideEffect,
+    importcpp: "NodeTexCoord", header: "RWMesh_FaceIterator.hxx".}
+proc node*(this: RWMeshFaceIterator; theNode: int): Pnt {.noSideEffect,
+    importcpp: "node", header: "RWMesh_FaceIterator.hxx".}
+proc normal*(this: var RWMeshFaceIterator; theNode: int): Dir {.importcpp: "normal",
+    header: "RWMesh_FaceIterator.hxx".}
+proc triangle*(this: RWMeshFaceIterator; theElemIndex: int): PolyTriangle {.
     noSideEffect, importcpp: "triangle", header: "RWMesh_FaceIterator.hxx".}

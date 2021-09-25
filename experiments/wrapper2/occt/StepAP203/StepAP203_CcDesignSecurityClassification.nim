@@ -14,48 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP203_HArray1OfClassifiedItem,
-  ../StepBasic/StepBasic_SecurityClassificationAssignment
-
 discard "forward decl of StepBasic_SecurityClassification"
 discard "forward decl of StepAP203_CcDesignSecurityClassification"
 discard "forward decl of StepAP203_CcDesignSecurityClassification"
 type
-  Handle_StepAP203_CcDesignSecurityClassification* = handle[
-      StepAP203_CcDesignSecurityClassification]
+  HandleStepAP203CcDesignSecurityClassification* = Handle[
+      StepAP203CcDesignSecurityClassification]
 
 ## ! Representation of STEP entity CcDesignSecurityClassification
 
 type
-  StepAP203_CcDesignSecurityClassification* {.
+  StepAP203CcDesignSecurityClassification* {.
       importcpp: "StepAP203_CcDesignSecurityClassification",
-      header: "StepAP203_CcDesignSecurityClassification.hxx", bycopy.} = object of StepBasic_SecurityClassificationAssignment ##
-                                                                                                                       ## !
-                                                                                                                       ## Empty
-                                                                                                                       ## constructor
+      header: "StepAP203_CcDesignSecurityClassification.hxx", bycopy.} = object of StepBasicSecurityClassificationAssignment ##
+                                                                                                                      ## !
+                                                                                                                      ## Empty
+                                                                                                                      ## constructor
 
 
-proc constructStepAP203_CcDesignSecurityClassification*(): StepAP203_CcDesignSecurityClassification {.
+proc constructStepAP203CcDesignSecurityClassification*(): StepAP203CcDesignSecurityClassification {.
     constructor, importcpp: "StepAP203_CcDesignSecurityClassification(@)",
     header: "StepAP203_CcDesignSecurityClassification.hxx".}
-proc Init*(this: var StepAP203_CcDesignSecurityClassification;
-    aSecurityClassificationAssignment_AssignedSecurityClassification: handle[
-    StepBasic_SecurityClassification];
-          aItems: handle[StepAP203_HArray1OfClassifiedItem]) {.importcpp: "Init",
+proc init*(this: var StepAP203CcDesignSecurityClassification;
+    aSecurityClassificationAssignmentAssignedSecurityClassification: Handle[
+    StepBasicSecurityClassification];
+          aItems: Handle[StepAP203HArray1OfClassifiedItem]) {.importcpp: "Init",
     header: "StepAP203_CcDesignSecurityClassification.hxx".}
-proc Items*(this: StepAP203_CcDesignSecurityClassification): handle[
-    StepAP203_HArray1OfClassifiedItem] {.noSideEffect, importcpp: "Items", header: "StepAP203_CcDesignSecurityClassification.hxx".}
-proc SetItems*(this: var StepAP203_CcDesignSecurityClassification;
-              Items: handle[StepAP203_HArray1OfClassifiedItem]) {.
+proc items*(this: StepAP203CcDesignSecurityClassification): Handle[
+    StepAP203HArray1OfClassifiedItem] {.noSideEffect, importcpp: "Items", header: "StepAP203_CcDesignSecurityClassification.hxx".}
+proc setItems*(this: var StepAP203CcDesignSecurityClassification;
+              items: Handle[StepAP203HArray1OfClassifiedItem]) {.
     importcpp: "SetItems", header: "StepAP203_CcDesignSecurityClassification.hxx".}
 type
-  StepAP203_CcDesignSecurityClassificationbase_type* = StepBasic_SecurityClassificationAssignment
+  StepAP203CcDesignSecurityClassificationbaseType* = StepBasicSecurityClassificationAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP203_CcDesignSecurityClassification::get_type_name(@)", header: "StepAP203_CcDesignSecurityClassification.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP203_CcDesignSecurityClassification::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP203_CcDesignSecurityClassification::get_type_name(@)", header: "StepAP203_CcDesignSecurityClassification.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP203_CcDesignSecurityClassification::get_type_descriptor(@)",
     header: "StepAP203_CcDesignSecurityClassification.hxx".}
-proc DynamicType*(this: StepAP203_CcDesignSecurityClassification): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepAP203_CcDesignSecurityClassification.hxx".}
+proc dynamicType*(this: StepAP203CcDesignSecurityClassification): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepAP203_CcDesignSecurityClassification.hxx".}

@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # TColGeom_HArray2OfSurface_HeaderFile [NewLine] # TColGeom_HArray2OfSurface_HeaderFile [NewLine] # ../Geom/Geom_Surface.hxx [NewLine] # TColGeom_Array2OfSurface.hxx [NewLine] # ../NCollection/NCollection_DefineHArray2.hxx [NewLine] DEFINE_HARRAY2 ( TColGeom_HArray2OfSurface , TColGeom_Array2OfSurface ) # [NewLine]
+## !!!Ignored construct:  # TColGeom_HArray2OfSurface_HeaderFile [NewLine] # TColGeom_HArray2OfSurface_HeaderFile [NewLine] # < Geom_Surface . hxx > [NewLine] # < TColGeom_Array2OfSurface . hxx > [NewLine] # < NCollection_DefineHArray2 . hxx > [NewLine] DEFINE_HARRAY2 ( TColGeom_HArray2OfSurface , TColGeom_Array2OfSurface ) # [NewLine]
 ## Error: expected ';'!!!
+

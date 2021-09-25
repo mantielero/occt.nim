@@ -13,42 +13,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepFEA_HArray1OfDegreeOfFreedom, ../Standard/Standard_Transient
-
 discard "forward decl of StepFEA_FreedomsList"
 discard "forward decl of StepFEA_FreedomsList"
 type
-  Handle_StepFEA_FreedomsList* = handle[StepFEA_FreedomsList]
+  HandleStepFEA_FreedomsList* = Handle[StepFEA_FreedomsList]
 
 ## ! Representation of STEP entity FreedomsList
 
 type
   StepFEA_FreedomsList* {.importcpp: "StepFEA_FreedomsList",
-                         header: "StepFEA_FreedomsList.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                              ## !
-                                                                                              ## Empty
-                                                                                              ## constructor
+                         header: "StepFEA_FreedomsList.hxx", bycopy.} = object of StandardTransient ##
+                                                                                             ## !
+                                                                                             ## Empty
+                                                                                             ## constructor
 
 
 proc constructStepFEA_FreedomsList*(): StepFEA_FreedomsList {.constructor,
     importcpp: "StepFEA_FreedomsList(@)", header: "StepFEA_FreedomsList.hxx".}
-proc Init*(this: var StepFEA_FreedomsList;
-          aFreedoms: handle[StepFEA_HArray1OfDegreeOfFreedom]) {.
+proc init*(this: var StepFEA_FreedomsList;
+          aFreedoms: Handle[StepFEA_HArray1OfDegreeOfFreedom]) {.
     importcpp: "Init", header: "StepFEA_FreedomsList.hxx".}
-proc Freedoms*(this: StepFEA_FreedomsList): handle[StepFEA_HArray1OfDegreeOfFreedom] {.
+proc freedoms*(this: StepFEA_FreedomsList): Handle[StepFEA_HArray1OfDegreeOfFreedom] {.
     noSideEffect, importcpp: "Freedoms", header: "StepFEA_FreedomsList.hxx".}
-proc SetFreedoms*(this: var StepFEA_FreedomsList;
-                 Freedoms: handle[StepFEA_HArray1OfDegreeOfFreedom]) {.
+proc setFreedoms*(this: var StepFEA_FreedomsList;
+                 freedoms: Handle[StepFEA_HArray1OfDegreeOfFreedom]) {.
     importcpp: "SetFreedoms", header: "StepFEA_FreedomsList.hxx".}
 type
-  StepFEA_FreedomsListbase_type* = Standard_Transient
+  StepFEA_FreedomsListbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_FreedomsList::get_type_name(@)",
-                              header: "StepFEA_FreedomsList.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_FreedomsList::get_type_name(@)",
+                            header: "StepFEA_FreedomsList.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_FreedomsList::get_type_descriptor(@)",
     header: "StepFEA_FreedomsList.hxx".}
-proc DynamicType*(this: StepFEA_FreedomsList): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepFEA_FreedomsList): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepFEA_FreedomsList.hxx".}

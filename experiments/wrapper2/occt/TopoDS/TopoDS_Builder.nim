@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of Standard_NullObject"
 discard "forward decl of TopoDS_FrozenShape"
 discard "forward decl of TopoDS_UnCompatibleShapes"
@@ -54,17 +50,17 @@ type
                                                                                          ## methods.
 
 
-proc MakeWire*(this: TopoDS_Builder; W: var TopoDS_Wire) {.noSideEffect,
+proc makeWire*(this: TopoDS_Builder; w: var TopoDS_Wire) {.noSideEffect,
     importcpp: "MakeWire", header: "TopoDS_Builder.hxx".}
-proc MakeShell*(this: TopoDS_Builder; S: var TopoDS_Shell) {.noSideEffect,
+proc makeShell*(this: TopoDS_Builder; s: var TopoDS_Shell) {.noSideEffect,
     importcpp: "MakeShell", header: "TopoDS_Builder.hxx".}
-proc MakeSolid*(this: TopoDS_Builder; S: var TopoDS_Solid) {.noSideEffect,
+proc makeSolid*(this: TopoDS_Builder; s: var TopoDS_Solid) {.noSideEffect,
     importcpp: "MakeSolid", header: "TopoDS_Builder.hxx".}
-proc MakeCompSolid*(this: TopoDS_Builder; C: var TopoDS_CompSolid) {.noSideEffect,
+proc makeCompSolid*(this: TopoDS_Builder; c: var TopoDS_CompSolid) {.noSideEffect,
     importcpp: "MakeCompSolid", header: "TopoDS_Builder.hxx".}
-proc MakeCompound*(this: TopoDS_Builder; C: var TopoDS_Compound) {.noSideEffect,
+proc makeCompound*(this: TopoDS_Builder; c: var TopoDS_Compound) {.noSideEffect,
     importcpp: "MakeCompound", header: "TopoDS_Builder.hxx".}
-proc Add*(this: TopoDS_Builder; S: var TopoDS_Shape; C: TopoDS_Shape) {.noSideEffect,
+proc add*(this: TopoDS_Builder; s: var TopoDS_Shape; c: TopoDS_Shape) {.noSideEffect,
     importcpp: "Add", header: "TopoDS_Builder.hxx".}
-proc Remove*(this: TopoDS_Builder; S: var TopoDS_Shape; C: TopoDS_Shape) {.noSideEffect,
+proc remove*(this: TopoDS_Builder; s: var TopoDS_Shape; c: TopoDS_Shape) {.noSideEffect,
     importcpp: "Remove", header: "TopoDS_Builder.hxx".}

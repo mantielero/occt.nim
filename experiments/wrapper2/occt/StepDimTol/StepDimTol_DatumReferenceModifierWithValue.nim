@@ -13,55 +13,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineHandle,
-  ../Standard/Standard_Handle, ../Standard/Standard_Transient,
-  ../Standard/Standard_Integer, ../StepBasic/StepBasic_LengthMeasureWithUnit,
-  StepDimTol_DatumReferenceModifierType
-
 discard "forward decl of StepDimTol_DatumReferenceModifierWithValue"
 discard "forward decl of StepDimTol_DatumReferenceModifierWithValue"
 type
-  Handle_StepDimTol_DatumReferenceModifierWithValue* = handle[
-      StepDimTol_DatumReferenceModifierWithValue]
+  HandleStepDimTolDatumReferenceModifierWithValue* = Handle[
+      StepDimTolDatumReferenceModifierWithValue]
 
 ## ! Representation of STEP entity DatumReferenceModifierWithValue
 
 type
-  StepDimTol_DatumReferenceModifierWithValue* {.
+  StepDimTolDatumReferenceModifierWithValue* {.
       importcpp: "StepDimTol_DatumReferenceModifierWithValue",
-      header: "StepDimTol_DatumReferenceModifierWithValue.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                 ## !
-                                                                                                 ## Empty
-                                                                                                 ## constructor
+      header: "StepDimTol_DatumReferenceModifierWithValue.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                ## !
+                                                                                                ## Empty
+                                                                                                ## constructor
 
 
-proc constructStepDimTol_DatumReferenceModifierWithValue*(): StepDimTol_DatumReferenceModifierWithValue {.
+proc constructStepDimTolDatumReferenceModifierWithValue*(): StepDimTolDatumReferenceModifierWithValue {.
     constructor, importcpp: "StepDimTol_DatumReferenceModifierWithValue(@)",
     header: "StepDimTol_DatumReferenceModifierWithValue.hxx".}
-proc Init*(this: var StepDimTol_DatumReferenceModifierWithValue;
-          theModifierType: StepDimTol_DatumReferenceModifierType;
-          theModifierValue: handle[StepBasic_LengthMeasureWithUnit]) {.
+proc init*(this: var StepDimTolDatumReferenceModifierWithValue;
+          theModifierType: StepDimTolDatumReferenceModifierType;
+          theModifierValue: Handle[StepBasicLengthMeasureWithUnit]) {.
     importcpp: "Init", header: "StepDimTol_DatumReferenceModifierWithValue.hxx".}
-proc ModifierType*(this: StepDimTol_DatumReferenceModifierWithValue): StepDimTol_DatumReferenceModifierType {.
+proc modifierType*(this: StepDimTolDatumReferenceModifierWithValue): StepDimTolDatumReferenceModifierType {.
     noSideEffect, importcpp: "ModifierType",
     header: "StepDimTol_DatumReferenceModifierWithValue.hxx".}
-proc SetModifierType*(this: var StepDimTol_DatumReferenceModifierWithValue;
-                     theModifierType: StepDimTol_DatumReferenceModifierType) {.
+proc setModifierType*(this: var StepDimTolDatumReferenceModifierWithValue;
+                     theModifierType: StepDimTolDatumReferenceModifierType) {.
     importcpp: "SetModifierType",
     header: "StepDimTol_DatumReferenceModifierWithValue.hxx".}
-proc ModifierValue*(this: var StepDimTol_DatumReferenceModifierWithValue): handle[
-    StepBasic_LengthMeasureWithUnit] {.importcpp: "ModifierValue", header: "StepDimTol_DatumReferenceModifierWithValue.hxx".}
-proc SetModifierValue*(this: var StepDimTol_DatumReferenceModifierWithValue;
-                      theModifierValue: handle[StepBasic_LengthMeasureWithUnit]) {.
+proc modifierValue*(this: var StepDimTolDatumReferenceModifierWithValue): Handle[
+    StepBasicLengthMeasureWithUnit] {.importcpp: "ModifierValue", header: "StepDimTol_DatumReferenceModifierWithValue.hxx".}
+proc setModifierValue*(this: var StepDimTolDatumReferenceModifierWithValue;
+                      theModifierValue: Handle[StepBasicLengthMeasureWithUnit]) {.
     importcpp: "SetModifierValue",
     header: "StepDimTol_DatumReferenceModifierWithValue.hxx".}
 type
-  StepDimTol_DatumReferenceModifierWithValuebase_type* = Standard_Transient
+  StepDimTolDatumReferenceModifierWithValuebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_DatumReferenceModifierWithValue::get_type_name(@)", header: "StepDimTol_DatumReferenceModifierWithValue.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepDimTol_DatumReferenceModifierWithValue::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_DatumReferenceModifierWithValue::get_type_name(@)", header: "StepDimTol_DatumReferenceModifierWithValue.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepDimTol_DatumReferenceModifierWithValue::get_type_descriptor(@)",
     header: "StepDimTol_DatumReferenceModifierWithValue.hxx".}
-proc DynamicType*(this: StepDimTol_DatumReferenceModifierWithValue): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepDimTol_DatumReferenceModifierWithValue.hxx".}
+proc dynamicType*(this: StepDimTolDatumReferenceModifierWithValue): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepDimTol_DatumReferenceModifierWithValue.hxx".}

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopTools/TopTools_ListOfShape,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 ## ! represent a list of shape
 
 type
@@ -29,16 +24,14 @@ type
 proc constructTopOpeBRepDS_ListOfShapeOn1State*(): TopOpeBRepDS_ListOfShapeOn1State {.
     constructor, importcpp: "TopOpeBRepDS_ListOfShapeOn1State(@)",
     header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
-proc ListOnState*(this: TopOpeBRepDS_ListOfShapeOn1State): TopTools_ListOfShape {.
+proc listOnState*(this: TopOpeBRepDS_ListOfShapeOn1State): TopToolsListOfShape {.
     noSideEffect, importcpp: "ListOnState",
     header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
-proc ChangeListOnState*(this: var TopOpeBRepDS_ListOfShapeOn1State): var TopTools_ListOfShape {.
+proc changeListOnState*(this: var TopOpeBRepDS_ListOfShapeOn1State): var TopToolsListOfShape {.
     importcpp: "ChangeListOnState", header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
-proc IsSplit*(this: TopOpeBRepDS_ListOfShapeOn1State): Standard_Boolean {.
-    noSideEffect, importcpp: "IsSplit",
-    header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
-proc Split*(this: var TopOpeBRepDS_ListOfShapeOn1State;
-           B: Standard_Boolean = Standard_True) {.importcpp: "Split",
-    header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
-proc Clear*(this: var TopOpeBRepDS_ListOfShapeOn1State) {.importcpp: "Clear",
+proc isSplit*(this: TopOpeBRepDS_ListOfShapeOn1State): bool {.noSideEffect,
+    importcpp: "IsSplit", header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
+proc split*(this: var TopOpeBRepDS_ListOfShapeOn1State; b: bool = true) {.
+    importcpp: "Split", header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
+proc clear*(this: var TopOpeBRepDS_ListOfShapeOn1State) {.importcpp: "Clear",
     header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRepDS_ListOfInterference
-
 discard "forward decl of TopOpeBRepDS_Interference"
 type
   TopOpeBRepDS_GeometryData* {.importcpp: "TopOpeBRepDS_GeometryData",
@@ -27,16 +23,16 @@ type
 proc constructTopOpeBRepDS_GeometryData*(): TopOpeBRepDS_GeometryData {.
     constructor, importcpp: "TopOpeBRepDS_GeometryData(@)",
     header: "TopOpeBRepDS_GeometryData.hxx".}
-proc constructTopOpeBRepDS_GeometryData*(Other: TopOpeBRepDS_GeometryData): TopOpeBRepDS_GeometryData {.
+proc constructTopOpeBRepDS_GeometryData*(other: TopOpeBRepDS_GeometryData): TopOpeBRepDS_GeometryData {.
     constructor, importcpp: "TopOpeBRepDS_GeometryData(@)",
     header: "TopOpeBRepDS_GeometryData.hxx".}
-proc Assign*(this: var TopOpeBRepDS_GeometryData; Other: TopOpeBRepDS_GeometryData) {.
+proc assign*(this: var TopOpeBRepDS_GeometryData; other: TopOpeBRepDS_GeometryData) {.
     importcpp: "Assign", header: "TopOpeBRepDS_GeometryData.hxx".}
-proc Interferences*(this: TopOpeBRepDS_GeometryData): TopOpeBRepDS_ListOfInterference {.
+proc interferences*(this: TopOpeBRepDS_GeometryData): TopOpeBRepDS_ListOfInterference {.
     noSideEffect, importcpp: "Interferences",
     header: "TopOpeBRepDS_GeometryData.hxx".}
-proc ChangeInterferences*(this: var TopOpeBRepDS_GeometryData): var TopOpeBRepDS_ListOfInterference {.
+proc changeInterferences*(this: var TopOpeBRepDS_GeometryData): var TopOpeBRepDS_ListOfInterference {.
     importcpp: "ChangeInterferences", header: "TopOpeBRepDS_GeometryData.hxx".}
-proc AddInterference*(this: var TopOpeBRepDS_GeometryData;
-                     I: handle[TopOpeBRepDS_Interference]) {.
+proc addInterference*(this: var TopOpeBRepDS_GeometryData;
+                     i: Handle[TopOpeBRepDS_Interference]) {.
     importcpp: "AddInterference", header: "TopOpeBRepDS_GeometryData.hxx".}

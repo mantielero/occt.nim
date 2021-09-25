@@ -17,8 +17,9 @@ type
   AIS_TrihedronSelectionMode* {.size: sizeof(cint),
                                importcpp: "AIS_TrihedronSelectionMode",
                                header: "AIS_TrihedronSelectionMode.hxx".} = enum
-    AIS_TrihedronSelectionMode_EntireObject = 0, ## !< select trihedron as whole
-    AIS_TrihedronSelectionMode_Origin = 1, ## !< origin
-    AIS_TrihedronSelectionMode_Axes = 2, ## !< axes
-    AIS_TrihedronSelectionMode_MainPlanes = 3
+    AIS_TrihedronSelectionModeEntireObject = 0, ## !< select trihedron as whole
+    AIS_TrihedronSelectionModeOrigin = 1, ## !< origin
+    AIS_TrihedronSelectionModeAxes = 2, ## !< axes
+    AIS_TrihedronSelectionModeMainPlanes = 3
+
 

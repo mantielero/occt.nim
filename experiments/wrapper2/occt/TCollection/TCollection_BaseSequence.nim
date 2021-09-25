@@ -14,67 +14,61 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Address,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_OutOfRange"
 type
-  TCollection_BaseSequence* {.importcpp: "TCollection_BaseSequence",
-                             header: "TCollection_BaseSequence.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## returns
-                                                                                  ## True
-                                                                                  ## if
-                                                                                  ## the
-                                                                                  ## sequence
-                                                                                  ## <me>
-                                                                                  ## contains
-                                                                                  ## no
-                                                                                  ## elements.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Creation
-                                                                                  ## of
-                                                                                  ## an
-                                                                                  ## empty
-                                                                                  ## sequence.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Creation
-                                                                                  ## by
-                                                                                  ## copy
-                                                                                  ## of
-                                                                                  ## existing
-                                                                                  ## Sequence.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Warning:
-                                                                                  ## This
-                                                                                  ## constructor
-                                                                                  ## prints
-                                                                                  ## a
-                                                                                  ## warning
-                                                                                  ## message.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## We
-                                                                                  ## recommand
-                                                                                  ## to
-                                                                                  ## use
-                                                                                  ## the
-                                                                                  ## operator
-                                                                                  ## =.
+  TCollectionBaseSequence* {.importcpp: "TCollection_BaseSequence",
+                            header: "TCollection_BaseSequence.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## returns
+                                                                                 ## True
+                                                                                 ## if
+                                                                                 ## the
+                                                                                 ## sequence
+                                                                                 ## <me>
+                                                                                 ## contains
+                                                                                 ## no
+                                                                                 ## elements.
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## Creation
+                                                                                 ## of
+                                                                                 ## an
+                                                                                 ## empty
+                                                                                 ## sequence.
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## Creation
+                                                                                 ## by
+                                                                                 ## copy
+                                                                                 ## of
+                                                                                 ## existing
+                                                                                 ## Sequence.
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## Warning:
+                                                                                 ## This
+                                                                                 ## constructor
+                                                                                 ## prints
+                                                                                 ## a
+                                                                                 ## warning
+                                                                                 ## message.
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## We
+                                                                                 ## recommand
+                                                                                 ## to
+                                                                                 ## use
+                                                                                 ## the
+                                                                                 ## operator
+                                                                                 ## =.
 
 
-proc IsEmpty*(this: TCollection_BaseSequence): Standard_Boolean {.noSideEffect,
+proc isEmpty*(this: TCollectionBaseSequence): bool {.noSideEffect,
     importcpp: "IsEmpty", header: "TCollection_BaseSequence.hxx".}
-proc Length*(this: TCollection_BaseSequence): Standard_Integer {.noSideEffect,
-    importcpp: "Length", header: "TCollection_BaseSequence.hxx".}
-proc Reverse*(this: var TCollection_BaseSequence) {.importcpp: "Reverse",
+proc length*(this: TCollectionBaseSequence): int {.noSideEffect, importcpp: "Length",
     header: "TCollection_BaseSequence.hxx".}
-proc Exchange*(this: var TCollection_BaseSequence; I: Standard_Integer;
-              J: Standard_Integer) {.importcpp: "Exchange",
-                                   header: "TCollection_BaseSequence.hxx".}
+proc reverse*(this: var TCollectionBaseSequence) {.importcpp: "Reverse",
+    header: "TCollection_BaseSequence.hxx".}
+proc exchange*(this: var TCollectionBaseSequence; i: int; j: int) {.
+    importcpp: "Exchange", header: "TCollection_BaseSequence.hxx".}

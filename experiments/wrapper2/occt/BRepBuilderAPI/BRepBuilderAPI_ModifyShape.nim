@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../BRepTools/BRepTools_Modifier,
-  ../TopoDS/TopoDS_Shape, BRepBuilderAPI_MakeShape,
-  ../TopTools/TopTools_ListOfShape
-
 discard "forward decl of BRepTools_Modification"
 discard "forward decl of Standard_NullObject"
 discard "forward decl of Standard_NoSuchObject"
@@ -46,8 +40,8 @@ type
                                                                                                                 ## constructor.
 
 
-proc Modified*(this: var BRepBuilderAPI_ModifyShape; S: TopoDS_Shape): TopTools_ListOfShape {.
+proc modified*(this: var BRepBuilderAPI_ModifyShape; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Modified", header: "BRepBuilderAPI_ModifyShape.hxx".}
-proc ModifiedShape*(this: BRepBuilderAPI_ModifyShape; S: TopoDS_Shape): TopoDS_Shape {.
+proc modifiedShape*(this: BRepBuilderAPI_ModifyShape; s: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "ModifiedShape",
     header: "BRepBuilderAPI_ModifyShape.hxx".}

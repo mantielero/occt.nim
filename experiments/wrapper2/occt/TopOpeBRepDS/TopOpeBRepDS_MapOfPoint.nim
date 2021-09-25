@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Integer, TopOpeBRepDS_PointData,
-  ../TColStd/TColStd_MapIntegerHasher, ../NCollection/NCollection_DataMap
-
 type
-  TopOpeBRepDS_MapOfPoint* = NCollection_DataMap[Standard_Integer,
-      TopOpeBRepDS_PointData, TColStd_MapIntegerHasher]
-  TopOpeBRepDS_DataMapIteratorOfMapOfPoint* = Iterator[Standard_Integer,
-      TopOpeBRepDS_PointData, TColStd_MapIntegerHasher]
+  TopOpeBRepDS_MapOfPoint* = NCollectionDataMap[int, TopOpeBRepDS_PointData,
+      TColStdMapIntegerHasher]
+  TopOpeBRepDS_DataMapIteratorOfMapOfPoint* = Iterator[int, TopOpeBRepDS_PointData,
+      TColStdMapIntegerHasher]
+

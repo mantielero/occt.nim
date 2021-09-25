@@ -13,43 +13,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepVisual_AnnotationCurveOccurrence"
 discard "forward decl of StepVisual_AnnotationFillAreaOccurrence"
 discard "forward decl of StepVisual_AnnotationTextOccurrence"
 discard "forward decl of StepVisual_TessellatedAnnotationOccurrence"
 type
-  StepVisual_DraughtingCalloutElement* {.importcpp: "StepVisual_DraughtingCalloutElement", header: "StepVisual_DraughtingCalloutElement.hxx",
-                                        bycopy.} = object of StepData_SelectType ## !
-                                                                            ## Returns a
-                                                                            ## DraughtingCalloutElement
-                                                                            ## select type
+  StepVisualDraughtingCalloutElement* {.importcpp: "StepVisual_DraughtingCalloutElement", header: "StepVisual_DraughtingCalloutElement.hxx",
+                                       bycopy.} = object of StepDataSelectType ## !
+                                                                          ## Returns a
+                                                                          ## DraughtingCalloutElement select type
 
 
-proc constructStepVisual_DraughtingCalloutElement*(): StepVisual_DraughtingCalloutElement {.
+proc constructStepVisualDraughtingCalloutElement*(): StepVisualDraughtingCalloutElement {.
     constructor, importcpp: "StepVisual_DraughtingCalloutElement(@)",
     header: "StepVisual_DraughtingCalloutElement.hxx".}
-proc CaseNum*(this: StepVisual_DraughtingCalloutElement;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepVisualDraughtingCalloutElement;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepVisual_DraughtingCalloutElement.hxx".}
-proc AnnotationCurveOccurrence*(this: StepVisual_DraughtingCalloutElement): handle[
-    StepVisual_AnnotationCurveOccurrence] {.noSideEffect,
+proc annotationCurveOccurrence*(this: StepVisualDraughtingCalloutElement): Handle[
+    StepVisualAnnotationCurveOccurrence] {.noSideEffect,
     importcpp: "AnnotationCurveOccurrence",
     header: "StepVisual_DraughtingCalloutElement.hxx".}
-proc AnnotationTextOccurrence*(this: StepVisual_DraughtingCalloutElement): handle[
-    StepVisual_AnnotationTextOccurrence] {.noSideEffect,
+proc annotationTextOccurrence*(this: StepVisualDraughtingCalloutElement): Handle[
+    StepVisualAnnotationTextOccurrence] {.noSideEffect,
     importcpp: "AnnotationTextOccurrence",
     header: "StepVisual_DraughtingCalloutElement.hxx".}
-proc TessellatedAnnotationOccurrence*(this: StepVisual_DraughtingCalloutElement): handle[
-    StepVisual_TessellatedAnnotationOccurrence] {.noSideEffect,
+proc tessellatedAnnotationOccurrence*(this: StepVisualDraughtingCalloutElement): Handle[
+    StepVisualTessellatedAnnotationOccurrence] {.noSideEffect,
     importcpp: "TessellatedAnnotationOccurrence",
     header: "StepVisual_DraughtingCalloutElement.hxx".}
-proc AnnotationFillAreaOccurrence*(this: StepVisual_DraughtingCalloutElement): handle[
-    StepVisual_AnnotationFillAreaOccurrence] {.noSideEffect,
+proc annotationFillAreaOccurrence*(this: StepVisualDraughtingCalloutElement): Handle[
+    StepVisualAnnotationFillAreaOccurrence] {.noSideEffect,
     importcpp: "AnnotationFillAreaOccurrence",
     header: "StepVisual_DraughtingCalloutElement.hxx".}

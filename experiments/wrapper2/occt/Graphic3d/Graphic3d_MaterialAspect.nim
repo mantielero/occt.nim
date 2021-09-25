@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Graphic3d_BSDF, Graphic3d_PBRMaterial, Graphic3d_NameOfMaterial,
-  Graphic3d_TypeOfMaterial, Graphic3d_TypeOfReflection,
-  ../TCollection/TCollection_AsciiString, ../Quantity/Quantity_Color
-
 ## ! This class allows the definition of the type of a surface.
 ## ! Aspect attributes of a 3d face.
 ## ! Keywords: Material, FillArea, Shininess, Ambient, Color, Diffuse,
@@ -25,148 +20,143 @@ import
 ## ! BackFace, FrontFace, Reflection, Absorbtion
 
 type
-  Graphic3d_MaterialAspect* {.importcpp: "Graphic3d_MaterialAspect",
-                             header: "Graphic3d_MaterialAspect.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Returns
-                                                                                  ## the
-                                                                                  ## number
-                                                                                  ## of
-                                                                                  ## predefined
-                                                                                  ## textures.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Creates
-                                                                                  ## a
-                                                                                  ## material
-                                                                                  ## from
-                                                                                  ## default
-                                                                                  ## values.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Deactivates
-                                                                                  ## the
-                                                                                  ## reflective
-                                                                                  ## properties
-                                                                                  ## of
-                                                                                  ## the
-                                                                                  ## surface
-                                                                                  ## with
-                                                                                  ## specified
-                                                                                  ## reflection
-                                                                                  ## type.
+  Graphic3dMaterialAspect* {.importcpp: "Graphic3d_MaterialAspect",
+                            header: "Graphic3d_MaterialAspect.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## Returns
+                                                                                 ## the
+                                                                                 ## number
+                                                                                 ## of
+                                                                                 ## predefined
+                                                                                 ## textures.
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## Creates
+                                                                                 ## a
+                                                                                 ## material
+                                                                                 ## from
+                                                                                 ## default
+                                                                                 ## values.
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## Deactivates
+                                                                                 ## the
+                                                                                 ## reflective
+                                                                                 ## properties
+                                                                                 ## of
+                                                                                 ## the
+                                                                                 ## surface
+                                                                                 ## with
+                                                                                 ## specified
+                                                                                 ## reflection
+                                                                                 ## type.
 
 
-proc NumberOfMaterials*(): Standard_Integer {.
-    importcpp: "Graphic3d_MaterialAspect::NumberOfMaterials(@)",
-    header: "Graphic3d_MaterialAspect.hxx".}
-proc MaterialName*(theRank: Standard_Integer): Standard_CString {.
+proc numberOfMaterials*(): int {.importcpp: "Graphic3d_MaterialAspect::NumberOfMaterials(@)",
+                              header: "Graphic3d_MaterialAspect.hxx".}
+proc materialName*(theRank: int): StandardCString {.
     importcpp: "Graphic3d_MaterialAspect::MaterialName(@)",
     header: "Graphic3d_MaterialAspect.hxx".}
-proc MaterialType*(theRank: Standard_Integer): Graphic3d_TypeOfMaterial {.
+proc materialType*(theRank: int): Graphic3dTypeOfMaterial {.
     importcpp: "Graphic3d_MaterialAspect::MaterialType(@)",
     header: "Graphic3d_MaterialAspect.hxx".}
-proc MaterialFromName*(theName: Standard_CString;
-                      theMat: var Graphic3d_NameOfMaterial): Standard_Boolean {.
+proc materialFromName*(theName: StandardCString;
+                      theMat: var Graphic3dNameOfMaterial): bool {.
     importcpp: "Graphic3d_MaterialAspect::MaterialFromName(@)",
     header: "Graphic3d_MaterialAspect.hxx".}
-proc MaterialFromName*(theName: Standard_CString): Graphic3d_NameOfMaterial {.
+proc materialFromName*(theName: StandardCString): Graphic3dNameOfMaterial {.
     importcpp: "Graphic3d_MaterialAspect::MaterialFromName(@)",
     header: "Graphic3d_MaterialAspect.hxx".}
-proc constructGraphic3d_MaterialAspect*(): Graphic3d_MaterialAspect {.constructor,
+proc constructGraphic3dMaterialAspect*(): Graphic3dMaterialAspect {.constructor,
     importcpp: "Graphic3d_MaterialAspect(@)",
     header: "Graphic3d_MaterialAspect.hxx".}
-proc constructGraphic3d_MaterialAspect*(theName: Graphic3d_NameOfMaterial): Graphic3d_MaterialAspect {.
+proc constructGraphic3dMaterialAspect*(theName: Graphic3dNameOfMaterial): Graphic3dMaterialAspect {.
     constructor, importcpp: "Graphic3d_MaterialAspect(@)",
     header: "Graphic3d_MaterialAspect.hxx".}
-proc Name*(this: Graphic3d_MaterialAspect): Graphic3d_NameOfMaterial {.noSideEffect,
+proc name*(this: Graphic3dMaterialAspect): Graphic3dNameOfMaterial {.noSideEffect,
     importcpp: "Name", header: "Graphic3d_MaterialAspect.hxx".}
-proc RequestedName*(this: Graphic3d_MaterialAspect): Graphic3d_NameOfMaterial {.
+proc requestedName*(this: Graphic3dMaterialAspect): Graphic3dNameOfMaterial {.
     noSideEffect, importcpp: "RequestedName",
     header: "Graphic3d_MaterialAspect.hxx".}
-proc StringName*(this: Graphic3d_MaterialAspect): TCollection_AsciiString {.
+proc stringName*(this: Graphic3dMaterialAspect): TCollectionAsciiString {.
     noSideEffect, importcpp: "StringName", header: "Graphic3d_MaterialAspect.hxx".}
-proc MaterialName*(this: Graphic3d_MaterialAspect): Standard_CString {.noSideEffect,
+proc materialName*(this: Graphic3dMaterialAspect): StandardCString {.noSideEffect,
     importcpp: "MaterialName", header: "Graphic3d_MaterialAspect.hxx".}
-proc SetMaterialName*(this: var Graphic3d_MaterialAspect;
-                     theName: TCollection_AsciiString) {.
+proc setMaterialName*(this: var Graphic3dMaterialAspect;
+                     theName: TCollectionAsciiString) {.
     importcpp: "SetMaterialName", header: "Graphic3d_MaterialAspect.hxx".}
-proc Reset*(this: var Graphic3d_MaterialAspect) {.importcpp: "Reset",
+proc reset*(this: var Graphic3dMaterialAspect) {.importcpp: "Reset",
     header: "Graphic3d_MaterialAspect.hxx".}
-proc Color*(this: Graphic3d_MaterialAspect): Quantity_Color {.noSideEffect,
+proc color*(this: Graphic3dMaterialAspect): QuantityColor {.noSideEffect,
     importcpp: "Color", header: "Graphic3d_MaterialAspect.hxx".}
-proc SetColor*(this: var Graphic3d_MaterialAspect; theColor: Quantity_Color) {.
+proc setColor*(this: var Graphic3dMaterialAspect; theColor: QuantityColor) {.
     importcpp: "SetColor", header: "Graphic3d_MaterialAspect.hxx".}
-proc Transparency*(this: Graphic3d_MaterialAspect): Standard_ShortReal {.
-    noSideEffect, importcpp: "Transparency", header: "Graphic3d_MaterialAspect.hxx".}
-proc Alpha*(this: Graphic3d_MaterialAspect): Standard_ShortReal {.noSideEffect,
+proc transparency*(this: Graphic3dMaterialAspect): StandardShortReal {.noSideEffect,
+    importcpp: "Transparency", header: "Graphic3d_MaterialAspect.hxx".}
+proc alpha*(this: Graphic3dMaterialAspect): StandardShortReal {.noSideEffect,
     importcpp: "Alpha", header: "Graphic3d_MaterialAspect.hxx".}
-proc SetTransparency*(this: var Graphic3d_MaterialAspect;
-                     theValue: Standard_ShortReal) {.importcpp: "SetTransparency",
-    header: "Graphic3d_MaterialAspect.hxx".}
-proc SetAlpha*(this: var Graphic3d_MaterialAspect; theValue: Standard_ShortReal) {.
+proc setTransparency*(this: var Graphic3dMaterialAspect; theValue: StandardShortReal) {.
+    importcpp: "SetTransparency", header: "Graphic3d_MaterialAspect.hxx".}
+proc setAlpha*(this: var Graphic3dMaterialAspect; theValue: StandardShortReal) {.
     importcpp: "SetAlpha", header: "Graphic3d_MaterialAspect.hxx".}
-proc AmbientColor*(this: Graphic3d_MaterialAspect): Quantity_Color {.noSideEffect,
+proc ambientColor*(this: Graphic3dMaterialAspect): QuantityColor {.noSideEffect,
     importcpp: "AmbientColor", header: "Graphic3d_MaterialAspect.hxx".}
-proc SetAmbientColor*(this: var Graphic3d_MaterialAspect; theColor: Quantity_Color) {.
+proc setAmbientColor*(this: var Graphic3dMaterialAspect; theColor: QuantityColor) {.
     importcpp: "SetAmbientColor", header: "Graphic3d_MaterialAspect.hxx".}
-proc DiffuseColor*(this: Graphic3d_MaterialAspect): Quantity_Color {.noSideEffect,
+proc diffuseColor*(this: Graphic3dMaterialAspect): QuantityColor {.noSideEffect,
     importcpp: "DiffuseColor", header: "Graphic3d_MaterialAspect.hxx".}
-proc SetDiffuseColor*(this: var Graphic3d_MaterialAspect; theColor: Quantity_Color) {.
+proc setDiffuseColor*(this: var Graphic3dMaterialAspect; theColor: QuantityColor) {.
     importcpp: "SetDiffuseColor", header: "Graphic3d_MaterialAspect.hxx".}
-proc SpecularColor*(this: Graphic3d_MaterialAspect): Quantity_Color {.noSideEffect,
+proc specularColor*(this: Graphic3dMaterialAspect): QuantityColor {.noSideEffect,
     importcpp: "SpecularColor", header: "Graphic3d_MaterialAspect.hxx".}
-proc SetSpecularColor*(this: var Graphic3d_MaterialAspect; theColor: Quantity_Color) {.
+proc setSpecularColor*(this: var Graphic3dMaterialAspect; theColor: QuantityColor) {.
     importcpp: "SetSpecularColor", header: "Graphic3d_MaterialAspect.hxx".}
-proc EmissiveColor*(this: Graphic3d_MaterialAspect): Quantity_Color {.noSideEffect,
+proc emissiveColor*(this: Graphic3dMaterialAspect): QuantityColor {.noSideEffect,
     importcpp: "EmissiveColor", header: "Graphic3d_MaterialAspect.hxx".}
-proc SetEmissiveColor*(this: var Graphic3d_MaterialAspect; theColor: Quantity_Color) {.
+proc setEmissiveColor*(this: var Graphic3dMaterialAspect; theColor: QuantityColor) {.
     importcpp: "SetEmissiveColor", header: "Graphic3d_MaterialAspect.hxx".}
-proc Shininess*(this: Graphic3d_MaterialAspect): Standard_ShortReal {.noSideEffect,
+proc shininess*(this: Graphic3dMaterialAspect): StandardShortReal {.noSideEffect,
     importcpp: "Shininess", header: "Graphic3d_MaterialAspect.hxx".}
-proc SetShininess*(this: var Graphic3d_MaterialAspect; theValue: Standard_ShortReal) {.
+proc setShininess*(this: var Graphic3dMaterialAspect; theValue: StandardShortReal) {.
     importcpp: "SetShininess", header: "Graphic3d_MaterialAspect.hxx".}
-proc IncreaseShine*(this: var Graphic3d_MaterialAspect; theDelta: Standard_ShortReal) {.
+proc increaseShine*(this: var Graphic3dMaterialAspect; theDelta: StandardShortReal) {.
     importcpp: "IncreaseShine", header: "Graphic3d_MaterialAspect.hxx".}
-proc RefractionIndex*(this: Graphic3d_MaterialAspect): Standard_ShortReal {.
+proc refractionIndex*(this: Graphic3dMaterialAspect): StandardShortReal {.
     noSideEffect, importcpp: "RefractionIndex",
     header: "Graphic3d_MaterialAspect.hxx".}
-proc SetRefractionIndex*(this: var Graphic3d_MaterialAspect;
-                        theValue: Standard_ShortReal) {.
+proc setRefractionIndex*(this: var Graphic3dMaterialAspect;
+                        theValue: StandardShortReal) {.
     importcpp: "SetRefractionIndex", header: "Graphic3d_MaterialAspect.hxx".}
-proc BSDF*(this: Graphic3d_MaterialAspect): Graphic3d_BSDF {.noSideEffect,
+proc bsdf*(this: Graphic3dMaterialAspect): Graphic3dBSDF {.noSideEffect,
     importcpp: "BSDF", header: "Graphic3d_MaterialAspect.hxx".}
-proc SetBSDF*(this: var Graphic3d_MaterialAspect; theBSDF: Graphic3d_BSDF) {.
+proc setBSDF*(this: var Graphic3dMaterialAspect; theBSDF: Graphic3dBSDF) {.
     importcpp: "SetBSDF", header: "Graphic3d_MaterialAspect.hxx".}
-proc PBRMaterial*(this: Graphic3d_MaterialAspect): Graphic3d_PBRMaterial {.
+proc pBRMaterial*(this: Graphic3dMaterialAspect): Graphic3dPBRMaterial {.
     noSideEffect, importcpp: "PBRMaterial", header: "Graphic3d_MaterialAspect.hxx".}
-proc SetPBRMaterial*(this: var Graphic3d_MaterialAspect;
-                    thePBRMaterial: Graphic3d_PBRMaterial) {.
+proc setPBRMaterial*(this: var Graphic3dMaterialAspect;
+                    thePBRMaterial: Graphic3dPBRMaterial) {.
     importcpp: "SetPBRMaterial", header: "Graphic3d_MaterialAspect.hxx".}
-proc ReflectionMode*(this: Graphic3d_MaterialAspect;
-                    theType: Graphic3d_TypeOfReflection): Standard_Boolean {.
-    noSideEffect, importcpp: "ReflectionMode",
-    header: "Graphic3d_MaterialAspect.hxx".}
-proc MaterialType*(this: Graphic3d_MaterialAspect): Graphic3d_TypeOfMaterial {.
+proc reflectionMode*(this: Graphic3dMaterialAspect;
+                    theType: Graphic3dTypeOfReflection): bool {.noSideEffect,
+    importcpp: "ReflectionMode", header: "Graphic3d_MaterialAspect.hxx".}
+proc materialType*(this: Graphic3dMaterialAspect): Graphic3dTypeOfMaterial {.
     noSideEffect, importcpp: "MaterialType", header: "Graphic3d_MaterialAspect.hxx".}
-proc MaterialType*(this: Graphic3d_MaterialAspect;
-                  theType: Graphic3d_TypeOfMaterial): Standard_Boolean {.
+proc materialType*(this: Graphic3dMaterialAspect; theType: Graphic3dTypeOfMaterial): bool {.
     noSideEffect, importcpp: "MaterialType", header: "Graphic3d_MaterialAspect.hxx".}
-proc SetMaterialType*(this: var Graphic3d_MaterialAspect;
-                     theType: Graphic3d_TypeOfMaterial) {.
+proc setMaterialType*(this: var Graphic3dMaterialAspect;
+                     theType: Graphic3dTypeOfMaterial) {.
     importcpp: "SetMaterialType", header: "Graphic3d_MaterialAspect.hxx".}
-proc IsDifferent*(this: Graphic3d_MaterialAspect;
-                 theOther: Graphic3d_MaterialAspect): Standard_Boolean {.
+proc isDifferent*(this: Graphic3dMaterialAspect; theOther: Graphic3dMaterialAspect): bool {.
     noSideEffect, importcpp: "IsDifferent", header: "Graphic3d_MaterialAspect.hxx".}
-proc IsEqual*(this: Graphic3d_MaterialAspect; theOther: Graphic3d_MaterialAspect): Standard_Boolean {.
+proc isEqual*(this: Graphic3dMaterialAspect; theOther: Graphic3dMaterialAspect): bool {.
     noSideEffect, importcpp: "IsEqual", header: "Graphic3d_MaterialAspect.hxx".}
-proc `==`*(this: Graphic3d_MaterialAspect; theOther: Graphic3d_MaterialAspect): Standard_Boolean {.
+proc `==`*(this: Graphic3dMaterialAspect; theOther: Graphic3dMaterialAspect): bool {.
     noSideEffect, importcpp: "(# == #)", header: "Graphic3d_MaterialAspect.hxx".}
-proc DumpJson*(this: Graphic3d_MaterialAspect; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Graphic3d_MaterialAspect.hxx".}
+proc dumpJson*(this: Graphic3dMaterialAspect; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Graphic3d_MaterialAspect.hxx".}
 ## !!!Ignored construct:  public : ! Deactivates the reflective properties of the surface with specified reflection type. Standard_DEPRECATED ( Deprecated method, specific material component should be zerroed instead ) void SetReflectionModeOff ( const Graphic3d_TypeOfReflection theType ) { if ( ! ReflectionMode ( theType ) ) { return ; } switch ( theType ) { case Graphic3d_TOR_AMBIENT : SetAmbientColor ( Quantity_NOC_BLACK ) ; break ; case Graphic3d_TOR_DIFFUSE : SetDiffuseColor ( Quantity_NOC_BLACK ) ; break ; case Graphic3d_TOR_SPECULAR : SetSpecularColor ( Quantity_NOC_BLACK ) ; break ; case Graphic3d_TOR_EMISSION : SetEmissiveColor ( Quantity_NOC_BLACK ) ; break ; } } private : ! Initialize the standard material. void init ( const Graphic3d_NameOfMaterial theName ) ;
 ## Error: identifier expected, but got: Deprecated method, specific material component should be zerroed instead!!!
 
-proc setUserMaterial*(this: var Graphic3d_MaterialAspect) {.
+proc setUserMaterial*(this: var Graphic3dMaterialAspect) {.
     importcpp: "setUserMaterial", header: "Graphic3d_MaterialAspect.hxx".}

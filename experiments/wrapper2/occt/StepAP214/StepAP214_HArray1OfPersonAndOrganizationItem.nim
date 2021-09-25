@@ -14,41 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP214_PersonAndOrganizationItem,
-  StepAP214_Array1OfPersonAndOrganizationItem,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepAP214_HArray1OfPersonAndOrganizationItem* {.
+  StepAP214HArray1OfPersonAndOrganizationItem* {.
       importcpp: "StepAP214_HArray1OfPersonAndOrganizationItem",
-      header: "StepAP214_HArray1OfPersonAndOrganizationItem.hxx", bycopy.} = object of StepAP214_Array1OfPersonAndOrganizationItem
+      header: "StepAP214_HArray1OfPersonAndOrganizationItem.hxx", bycopy.} = object of StepAP214Array1OfPersonAndOrganizationItem
 
 
-proc constructStepAP214_HArray1OfPersonAndOrganizationItem*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepAP214_HArray1OfPersonAndOrganizationItem {.
+proc constructStepAP214HArray1OfPersonAndOrganizationItem*(theLower: int;
+    theUpper: int): StepAP214HArray1OfPersonAndOrganizationItem {.constructor,
+    importcpp: "StepAP214_HArray1OfPersonAndOrganizationItem(@)",
+    header: "StepAP214_HArray1OfPersonAndOrganizationItem.hxx".}
+proc constructStepAP214HArray1OfPersonAndOrganizationItem*(theLower: int;
+    theUpper: int; theValue: ValueType): StepAP214HArray1OfPersonAndOrganizationItem {.
     constructor, importcpp: "StepAP214_HArray1OfPersonAndOrganizationItem(@)",
     header: "StepAP214_HArray1OfPersonAndOrganizationItem.hxx".}
-proc constructStepAP214_HArray1OfPersonAndOrganizationItem*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepAP214_HArray1OfPersonAndOrganizationItem {.
+proc constructStepAP214HArray1OfPersonAndOrganizationItem*(
+    theOther: StepAP214Array1OfPersonAndOrganizationItem): StepAP214HArray1OfPersonAndOrganizationItem {.
     constructor, importcpp: "StepAP214_HArray1OfPersonAndOrganizationItem(@)",
     header: "StepAP214_HArray1OfPersonAndOrganizationItem.hxx".}
-proc constructStepAP214_HArray1OfPersonAndOrganizationItem*(
-    theOther: StepAP214_Array1OfPersonAndOrganizationItem): StepAP214_HArray1OfPersonAndOrganizationItem {.
-    constructor, importcpp: "StepAP214_HArray1OfPersonAndOrganizationItem(@)",
-    header: "StepAP214_HArray1OfPersonAndOrganizationItem.hxx".}
-proc Array1*(this: StepAP214_HArray1OfPersonAndOrganizationItem): StepAP214_Array1OfPersonAndOrganizationItem {.
+proc array1*(this: StepAP214HArray1OfPersonAndOrganizationItem): StepAP214Array1OfPersonAndOrganizationItem {.
     noSideEffect, importcpp: "Array1",
     header: "StepAP214_HArray1OfPersonAndOrganizationItem.hxx".}
-proc ChangeArray1*(this: var StepAP214_HArray1OfPersonAndOrganizationItem): var StepAP214_Array1OfPersonAndOrganizationItem {.
+proc changeArray1*(this: var StepAP214HArray1OfPersonAndOrganizationItem): var StepAP214Array1OfPersonAndOrganizationItem {.
     importcpp: "ChangeArray1",
     header: "StepAP214_HArray1OfPersonAndOrganizationItem.hxx".}
 type
-  StepAP214_HArray1OfPersonAndOrganizationItembase_type* = MMgt_TShared
+  StepAP214HArray1OfPersonAndOrganizationItembaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_HArray1OfPersonAndOrganizationItem::get_type_name(@)", header: "StepAP214_HArray1OfPersonAndOrganizationItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP214_HArray1OfPersonAndOrganizationItem::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP214_HArray1OfPersonAndOrganizationItem::get_type_name(@)", header: "StepAP214_HArray1OfPersonAndOrganizationItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_HArray1OfPersonAndOrganizationItem::get_type_descriptor(@)",
     header: "StepAP214_HArray1OfPersonAndOrganizationItem.hxx".}
-proc DynamicType*(this: StepAP214_HArray1OfPersonAndOrganizationItem): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepAP214_HArray1OfPersonAndOrganizationItem.hxx".}
+proc dynamicType*(this: StepAP214HArray1OfPersonAndOrganizationItem): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepAP214_HArray1OfPersonAndOrganizationItem.hxx".}

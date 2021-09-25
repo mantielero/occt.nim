@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TNaming_NamedShape, ../NCollection/NCollection_DefaultHasher
-
 type
-  TNaming_NamedShapeHasher* = NCollection_DefaultHasher[handle[TNaming_NamedShape]]
+  TNamingNamedShapeHasher* = NCollectionDefaultHasher[Handle[TNamingNamedShape]]
+

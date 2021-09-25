@@ -13,83 +13,75 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Aspect/Aspect_TypeOfHighlightMethod, Graphic3d_AspectFillArea3d,
-  Graphic3d_ZLayerId, ../Standard/Standard_Transient, ../Standard/Standard_Type,
-  ../Quantity/Quantity_ColorRGBA
-
 ## ! Class defines presentation properties.
 
 type
-  Graphic3d_PresentationAttributes* {.importcpp: "Graphic3d_PresentationAttributes", header: "Graphic3d_PresentationAttributes.hxx",
-                                     bycopy.} = object of Standard_Transient ## ! Empty
-                                                                        ## constructor.
+  Graphic3dPresentationAttributes* {.importcpp: "Graphic3d_PresentationAttributes", header: "Graphic3d_PresentationAttributes.hxx",
+                                    bycopy.} = object of StandardTransient ## ! Empty
+                                                                      ## constructor.
     ## !< presentation fill area aspect
     ## !< presentation color
     ## !< box or color highlighting
     ## !< Z-layer
     ## !< display mode
 
-  Graphic3d_PresentationAttributesbase_type* = Standard_Transient
+  Graphic3dPresentationAttributesbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_PresentationAttributes::get_type_name(@)",
-                              header: "Graphic3d_PresentationAttributes.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_PresentationAttributes::get_type_name(@)",
+                            header: "Graphic3d_PresentationAttributes.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_PresentationAttributes::get_type_descriptor(@)",
     header: "Graphic3d_PresentationAttributes.hxx".}
-proc DynamicType*(this: Graphic3d_PresentationAttributes): handle[Standard_Type] {.
+proc dynamicType*(this: Graphic3dPresentationAttributes): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Graphic3d_PresentationAttributes.hxx".}
-proc constructGraphic3d_PresentationAttributes*(): Graphic3d_PresentationAttributes {.
+proc constructGraphic3dPresentationAttributes*(): Graphic3dPresentationAttributes {.
     constructor, importcpp: "Graphic3d_PresentationAttributes(@)",
     header: "Graphic3d_PresentationAttributes.hxx".}
-proc destroyGraphic3d_PresentationAttributes*(
-    this: var Graphic3d_PresentationAttributes) {.
+proc destroyGraphic3dPresentationAttributes*(
+    this: var Graphic3dPresentationAttributes) {.
     importcpp: "#.~Graphic3d_PresentationAttributes()",
     header: "Graphic3d_PresentationAttributes.hxx".}
-proc Method*(this: Graphic3d_PresentationAttributes): Aspect_TypeOfHighlightMethod {.
+proc `method`*(this: Graphic3dPresentationAttributes): AspectTypeOfHighlightMethod {.
     noSideEffect, importcpp: "Method",
     header: "Graphic3d_PresentationAttributes.hxx".}
-proc SetMethod*(this: var Graphic3d_PresentationAttributes;
-               theMethod: Aspect_TypeOfHighlightMethod) {.importcpp: "SetMethod",
+proc setMethod*(this: var Graphic3dPresentationAttributes;
+               theMethod: AspectTypeOfHighlightMethod) {.importcpp: "SetMethod",
     header: "Graphic3d_PresentationAttributes.hxx".}
-proc ColorRGBA*(this: Graphic3d_PresentationAttributes): Quantity_ColorRGBA {.
+proc colorRGBA*(this: Graphic3dPresentationAttributes): QuantityColorRGBA {.
     noSideEffect, importcpp: "ColorRGBA",
     header: "Graphic3d_PresentationAttributes.hxx".}
-proc Color*(this: Graphic3d_PresentationAttributes): Quantity_Color {.noSideEffect,
+proc color*(this: Graphic3dPresentationAttributes): QuantityColor {.noSideEffect,
     importcpp: "Color", header: "Graphic3d_PresentationAttributes.hxx".}
-proc SetColor*(this: var Graphic3d_PresentationAttributes; theColor: Quantity_Color) {.
+proc setColor*(this: var Graphic3dPresentationAttributes; theColor: QuantityColor) {.
     importcpp: "SetColor", header: "Graphic3d_PresentationAttributes.hxx".}
-proc Transparency*(this: Graphic3d_PresentationAttributes): Standard_ShortReal {.
+proc transparency*(this: Graphic3dPresentationAttributes): StandardShortReal {.
     noSideEffect, importcpp: "Transparency",
     header: "Graphic3d_PresentationAttributes.hxx".}
-proc SetTransparency*(this: var Graphic3d_PresentationAttributes;
-                     theTranspCoef: Standard_ShortReal) {.
+proc setTransparency*(this: var Graphic3dPresentationAttributes;
+                     theTranspCoef: StandardShortReal) {.
     importcpp: "SetTransparency", header: "Graphic3d_PresentationAttributes.hxx".}
-proc ZLayer*(this: Graphic3d_PresentationAttributes): Graphic3d_ZLayerId {.
+proc zLayer*(this: Graphic3dPresentationAttributes): Graphic3dZLayerId {.
     noSideEffect, importcpp: "ZLayer",
     header: "Graphic3d_PresentationAttributes.hxx".}
-proc SetZLayer*(this: var Graphic3d_PresentationAttributes;
-               theLayer: Graphic3d_ZLayerId) {.importcpp: "SetZLayer",
+proc setZLayer*(this: var Graphic3dPresentationAttributes;
+               theLayer: Graphic3dZLayerId) {.importcpp: "SetZLayer",
     header: "Graphic3d_PresentationAttributes.hxx".}
-proc DisplayMode*(this: Graphic3d_PresentationAttributes): Standard_Integer {.
-    noSideEffect, importcpp: "DisplayMode",
-    header: "Graphic3d_PresentationAttributes.hxx".}
-proc SetDisplayMode*(this: var Graphic3d_PresentationAttributes;
-                    theMode: Standard_Integer) {.importcpp: "SetDisplayMode",
-    header: "Graphic3d_PresentationAttributes.hxx".}
-proc BasicFillAreaAspect*(this: Graphic3d_PresentationAttributes): handle[
-    Graphic3d_AspectFillArea3d] {.noSideEffect, importcpp: "BasicFillAreaAspect",
-                                 header: "Graphic3d_PresentationAttributes.hxx".}
-proc SetBasicFillAreaAspect*(this: var Graphic3d_PresentationAttributes;
-                            theAspect: handle[Graphic3d_AspectFillArea3d]) {.
+proc displayMode*(this: Graphic3dPresentationAttributes): int {.noSideEffect,
+    importcpp: "DisplayMode", header: "Graphic3d_PresentationAttributes.hxx".}
+proc setDisplayMode*(this: var Graphic3dPresentationAttributes; theMode: int) {.
+    importcpp: "SetDisplayMode", header: "Graphic3d_PresentationAttributes.hxx".}
+proc basicFillAreaAspect*(this: Graphic3dPresentationAttributes): Handle[
+    Graphic3dAspectFillArea3d] {.noSideEffect, importcpp: "BasicFillAreaAspect",
+                                header: "Graphic3d_PresentationAttributes.hxx".}
+proc setBasicFillAreaAspect*(this: var Graphic3dPresentationAttributes;
+                            theAspect: Handle[Graphic3dAspectFillArea3d]) {.
     importcpp: "SetBasicFillAreaAspect",
     header: "Graphic3d_PresentationAttributes.hxx".}
-proc DumpJson*(this: Graphic3d_PresentationAttributes;
-              theOStream: var Standard_OStream; theDepth: Standard_Integer = -1) {.
-    noSideEffect, importcpp: "DumpJson",
-    header: "Graphic3d_PresentationAttributes.hxx".}
+proc dumpJson*(this: Graphic3dPresentationAttributes;
+              theOStream: var StandardOStream; theDepth: int = -1) {.noSideEffect,
+    importcpp: "DumpJson", header: "Graphic3d_PresentationAttributes.hxx".}
 discard "forward decl of Graphic3d_PresentationAttributes"
 type
-  Handle_Graphic3d_PresentationAttributes* = handle[
-      Graphic3d_PresentationAttributes]
+  HandleGraphic3dPresentationAttributes* = Handle[Graphic3dPresentationAttributes]
+

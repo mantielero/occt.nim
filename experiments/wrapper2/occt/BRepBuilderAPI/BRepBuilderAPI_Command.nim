@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean
-
 discard "forward decl of StdFail_NotDone"
 type
   BRepBuilderAPI_Command* {.importcpp: "BRepBuilderAPI_Command",
@@ -29,7 +25,7 @@ type
 
 proc destroyBRepBuilderAPI_Command*(this: var BRepBuilderAPI_Command) {.
     importcpp: "#.~BRepBuilderAPI_Command()", header: "BRepBuilderAPI_Command.hxx".}
-proc IsDone*(this: BRepBuilderAPI_Command): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "BRepBuilderAPI_Command.hxx".}
-proc Check*(this: BRepBuilderAPI_Command) {.noSideEffect, importcpp: "Check",
+proc isDone*(this: BRepBuilderAPI_Command): bool {.noSideEffect, importcpp: "IsDone",
+    header: "BRepBuilderAPI_Command.hxx".}
+proc check*(this: BRepBuilderAPI_Command) {.noSideEffect, importcpp: "Check",
     header: "BRepBuilderAPI_Command.hxx".}

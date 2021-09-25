@@ -13,47 +13,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_GlCore43
-
 ## ! OpenGL 4.4 definition.
 
 type
-  OpenGl_TmplCore44*[theBaseClass_t] {.importcpp: "OpenGl_TmplCore44<\'0>",
-                                      header: "OpenGl_GlCore44.hxx", bycopy.} = object of theBaseClass_t ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## OpenGL
-                                                                                                  ## 4.4
-                                                                                                  ## additives
-                                                                                                  ## to
-                                                                                                  ## 4.3
+  OpenGlTmplCore44*[TheBaseClassT] {.importcpp: "OpenGl_TmplCore44<\'0>",
+                                    header: "OpenGl_GlCore44.hxx", bycopy.} = object of TheBaseClassT ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## OpenGL
+                                                                                               ## 4.4
+                                                                                               ## additives
+                                                                                               ## to
+                                                                                               ## 4.3
 
 
-when not defined(GL_ES_VERSION_2_0):
-  discard
-when not defined(GL_ES_VERSION_2_0):
-  discard
-when not defined(GL_ES_VERSION_2_0):
-  discard
-when not defined(GL_ES_VERSION_2_0):
-  discard
-when not defined(GL_ES_VERSION_2_0):
-  discard
-when not defined(GL_ES_VERSION_2_0):
-  discard
-when not defined(GL_ES_VERSION_2_0):
-  discard
-when not defined(GL_ES_VERSION_2_0):
-  discard
-when not defined(GL_ES_VERSION_2_0):
-  discard
+# when not defined(gl_Es_Version_20):
+#   discard
+# when not defined(gl_Es_Version_20):
+#   discard
+# when not defined(gl_Es_Version_20):
+#   discard
+# when not defined(gl_Es_Version_20):
+#   discard
+# when not defined(gl_Es_Version_20):
+#   discard
+# when not defined(gl_Es_Version_20):
+#   discard
+# when not defined(gl_Es_Version_20):
+#   discard
+# when not defined(gl_Es_Version_20):
+#   discard
+# when not defined(gl_Es_Version_20):
+#   discard
 ## ! OpenGL 4.4 compatibility profile.
 
 type
-  OpenGl_GlCore44Back* = OpenGl_TmplCore44[OpenGl_GlCore43Back]
+  OpenGlGlCore44Back* = OpenGlTmplCore44[OpenGlGlCore43Back]
 
 ## ! OpenGL 4.4 core profile.
 
 type
-  OpenGl_GlCore44* = OpenGl_TmplCore44[OpenGl_GlCore43]
+  OpenGlGlCore44* = OpenGlTmplCore44[OpenGlGlCore43]
+

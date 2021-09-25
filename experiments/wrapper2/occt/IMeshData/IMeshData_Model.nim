@@ -13,48 +13,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IMeshData_Shape, ../Standard/Standard_Type, ../TopoDS/TopoDS_Shape,
-  IMeshData_Types
-
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of IMeshData_Face"
 discard "forward decl of IMeshData_Edge"
 type
-  IMeshData_Model* {.importcpp: "IMeshData_Model", header: "IMeshData_Model.hxx",
-                    bycopy.} = object of IMeshData_Shape ## ! Destructor.
-                                                    ## ! @name discrete faces
-                                                    ## ! Returns number of faces in discrete model.
-                                                    ## ! @name discrete edges
-                                                    ## ! Returns number of edges in discrete model.
-                                                    ## ! Constructor.
-                                                    ## ! Initializes empty model.
+  IMeshDataModel* {.importcpp: "IMeshData_Model", header: "IMeshData_Model.hxx",
+                   bycopy.} = object of IMeshDataShape ## ! Destructor.
+                                                  ## ! @name discrete faces
+                                                  ## ! Returns number of faces in discrete model.
+                                                  ## ! @name discrete edges
+                                                  ## ! Returns number of edges in discrete model.
+                                                  ## ! Constructor.
+                                                  ## ! Initializes empty model.
 
 
-proc destroyIMeshData_Model*(this: var IMeshData_Model) {.
+proc destroyIMeshDataModel*(this: var IMeshDataModel) {.
     importcpp: "#.~IMeshData_Model()", header: "IMeshData_Model.hxx".}
-proc GetMaxSize*(this: IMeshData_Model): Standard_Real {.noSideEffect,
+proc getMaxSize*(this: IMeshDataModel): float {.noSideEffect,
     importcpp: "GetMaxSize", header: "IMeshData_Model.hxx".}
 type
-  IMeshData_Modelbase_type* = IMeshData_Shape
+  IMeshDataModelbaseType* = IMeshDataShape
 
-proc get_type_name*(): cstring {.importcpp: "IMeshData_Model::get_type_name(@)",
-                              header: "IMeshData_Model.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IMeshData_Model::get_type_name(@)",
+                            header: "IMeshData_Model.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IMeshData_Model::get_type_descriptor(@)",
     header: "IMeshData_Model.hxx".}
-proc DynamicType*(this: IMeshData_Model): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IMeshDataModel): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IMeshData_Model.hxx".}
-proc FacesNb*(this: IMeshData_Model): Standard_Integer {.noSideEffect,
-    importcpp: "FacesNb", header: "IMeshData_Model.hxx".}
-proc AddFace*(this: var IMeshData_Model; theFace: TopoDS_Face): IFaceHandle {.
+proc facesNb*(this: IMeshDataModel): int {.noSideEffect, importcpp: "FacesNb",
+                                       header: "IMeshData_Model.hxx".}
+proc addFace*(this: var IMeshDataModel; theFace: TopoDS_Face): IFaceHandle {.
     importcpp: "AddFace", header: "IMeshData_Model.hxx".}
-proc GetFace*(this: IMeshData_Model; theIndex: Standard_Integer): IFaceHandle {.
-    noSideEffect, importcpp: "GetFace", header: "IMeshData_Model.hxx".}
-proc EdgesNb*(this: IMeshData_Model): Standard_Integer {.noSideEffect,
-    importcpp: "EdgesNb", header: "IMeshData_Model.hxx".}
-proc AddEdge*(this: var IMeshData_Model; theEdge: TopoDS_Edge): IEdgeHandle {.
+proc getFace*(this: IMeshDataModel; theIndex: int): IFaceHandle {.noSideEffect,
+    importcpp: "GetFace", header: "IMeshData_Model.hxx".}
+proc edgesNb*(this: IMeshDataModel): int {.noSideEffect, importcpp: "EdgesNb",
+                                       header: "IMeshData_Model.hxx".}
+proc addEdge*(this: var IMeshDataModel; theEdge: TopoDS_Edge): IEdgeHandle {.
     importcpp: "AddEdge", header: "IMeshData_Model.hxx".}
-proc GetEdge*(this: IMeshData_Model; theIndex: Standard_Integer): IEdgeHandle {.
-    noSideEffect, importcpp: "GetEdge", header: "IMeshData_Model.hxx".}
+proc getEdge*(this: IMeshDataModel; theIndex: int): IEdgeHandle {.noSideEffect,
+    importcpp: "GetEdge", header: "IMeshData_Model.hxx".}

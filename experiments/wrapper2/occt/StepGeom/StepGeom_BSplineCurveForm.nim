@@ -15,10 +15,10 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepGeom_BSplineCurveForm* {.size: sizeof(cint),
-                              importcpp: "StepGeom_BSplineCurveForm",
-                              header: "StepGeom_BSplineCurveForm.hxx".} = enum
-    StepGeom_bscfPolylineForm, StepGeom_bscfCircularArc, StepGeom_bscfEllipticArc,
-    StepGeom_bscfParabolicArc, StepGeom_bscfHyperbolicArc,
-    StepGeom_bscfUnspecified
+  StepGeomBSplineCurveForm* {.size: sizeof(cint),
+                             importcpp: "StepGeom_BSplineCurveForm",
+                             header: "StepGeom_BSplineCurveForm.hxx".} = enum
+    StepGeomBscfPolylineForm, StepGeomBscfCircularArc, StepGeomBscfEllipticArc,
+    StepGeomBscfParabolicArc, StepGeomBscfHyperbolicArc, StepGeomBscfUnspecified
+
 

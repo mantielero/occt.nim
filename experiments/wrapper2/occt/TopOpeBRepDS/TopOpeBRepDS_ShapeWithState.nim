@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopTools/TopTools_ListOfShape,
-  ../TopAbs/TopAbs_State, ../Standard/Standard_Boolean
-
 discard "forward decl of TopoDS_Shape"
 type
   TopOpeBRepDS_ShapeWithState* {.importcpp: "TopOpeBRepDS_ShapeWithState",
@@ -28,21 +23,19 @@ type
 proc constructTopOpeBRepDS_ShapeWithState*(): TopOpeBRepDS_ShapeWithState {.
     constructor, importcpp: "TopOpeBRepDS_ShapeWithState(@)",
     header: "TopOpeBRepDS_ShapeWithState.hxx".}
-proc Part*(this: TopOpeBRepDS_ShapeWithState; aState: TopAbs_State): TopTools_ListOfShape {.
+proc part*(this: TopOpeBRepDS_ShapeWithState; aState: TopAbsState): TopToolsListOfShape {.
     noSideEffect, importcpp: "Part", header: "TopOpeBRepDS_ShapeWithState.hxx".}
-proc AddPart*(this: var TopOpeBRepDS_ShapeWithState; aShape: TopoDS_Shape;
-             aState: TopAbs_State) {.importcpp: "AddPart",
-                                   header: "TopOpeBRepDS_ShapeWithState.hxx".}
-proc AddParts*(this: var TopOpeBRepDS_ShapeWithState;
-              aListOfShape: TopTools_ListOfShape; aState: TopAbs_State) {.
+proc addPart*(this: var TopOpeBRepDS_ShapeWithState; aShape: TopoDS_Shape;
+             aState: TopAbsState) {.importcpp: "AddPart",
+                                  header: "TopOpeBRepDS_ShapeWithState.hxx".}
+proc addParts*(this: var TopOpeBRepDS_ShapeWithState;
+              aListOfShape: TopToolsListOfShape; aState: TopAbsState) {.
     importcpp: "AddParts", header: "TopOpeBRepDS_ShapeWithState.hxx".}
-proc SetState*(this: var TopOpeBRepDS_ShapeWithState; aState: TopAbs_State) {.
+proc setState*(this: var TopOpeBRepDS_ShapeWithState; aState: TopAbsState) {.
     importcpp: "SetState", header: "TopOpeBRepDS_ShapeWithState.hxx".}
-proc State*(this: TopOpeBRepDS_ShapeWithState): TopAbs_State {.noSideEffect,
+proc state*(this: TopOpeBRepDS_ShapeWithState): TopAbsState {.noSideEffect,
     importcpp: "State", header: "TopOpeBRepDS_ShapeWithState.hxx".}
-proc SetIsSplitted*(this: var TopOpeBRepDS_ShapeWithState;
-                   anIsSplitted: Standard_Boolean) {.importcpp: "SetIsSplitted",
-    header: "TopOpeBRepDS_ShapeWithState.hxx".}
-proc IsSplitted*(this: TopOpeBRepDS_ShapeWithState): Standard_Boolean {.
-    noSideEffect, importcpp: "IsSplitted",
-    header: "TopOpeBRepDS_ShapeWithState.hxx".}
+proc setIsSplitted*(this: var TopOpeBRepDS_ShapeWithState; anIsSplitted: bool) {.
+    importcpp: "SetIsSplitted", header: "TopOpeBRepDS_ShapeWithState.hxx".}
+proc isSplitted*(this: TopOpeBRepDS_ShapeWithState): bool {.noSideEffect,
+    importcpp: "IsSplitted", header: "TopOpeBRepDS_ShapeWithState.hxx".}

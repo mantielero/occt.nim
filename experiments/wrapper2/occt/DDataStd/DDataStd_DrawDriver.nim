@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Draw/Draw_ColorKind, ../Standard/Standard_Boolean
-
 discard "forward decl of Draw_Drawable3D"
 discard "forward decl of TDF_Label"
 discard "forward decl of TDataXtd_Constraint"
@@ -25,7 +21,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of DDataStd_DrawDriver"
 discard "forward decl of DDataStd_DrawDriver"
 type
-  Handle_DDataStd_DrawDriver* = handle[DDataStd_DrawDriver]
+  HandleDDataStdDrawDriver* = Handle[DDataStdDrawDriver]
 
 ## ! Root class of drivers to build draw variables from TDF_Label.
 ## ! Priority rule to display standard attributes is :
@@ -36,44 +32,43 @@ type
 ## ! * 5 NamedShape
 
 type
-  DDataStd_DrawDriver* {.importcpp: "DDataStd_DrawDriver",
-                        header: "DDataStd_DrawDriver.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                            ## !
-                                                                                            ## access
-                                                                                            ## to
-                                                                                            ## the
-                                                                                            ## current
-                                                                                            ## DrawDriver
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## ================================
+  DDataStdDrawDriver* {.importcpp: "DDataStd_DrawDriver",
+                       header: "DDataStd_DrawDriver.hxx", bycopy.} = object of StandardTransient ##
+                                                                                          ## !
+                                                                                          ## access
+                                                                                          ## to
+                                                                                          ## the
+                                                                                          ## current
+                                                                                          ## DrawDriver
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## ================================
 
 
-proc Set*(DD: handle[DDataStd_DrawDriver]) {.
+proc set*(dd: Handle[DDataStdDrawDriver]) {.
     importcpp: "DDataStd_DrawDriver::Set(@)", header: "DDataStd_DrawDriver.hxx".}
-proc Get*(): handle[DDataStd_DrawDriver] {.importcpp: "DDataStd_DrawDriver::Get(@)",
-                                        header: "DDataStd_DrawDriver.hxx".}
-proc constructDDataStd_DrawDriver*(): DDataStd_DrawDriver {.constructor,
+proc get*(): Handle[DDataStdDrawDriver] {.importcpp: "DDataStd_DrawDriver::Get(@)",
+                                       header: "DDataStd_DrawDriver.hxx".}
+proc constructDDataStdDrawDriver*(): DDataStdDrawDriver {.constructor,
     importcpp: "DDataStd_DrawDriver(@)", header: "DDataStd_DrawDriver.hxx".}
-proc Drawable*(this: DDataStd_DrawDriver; L: TDF_Label): handle[Draw_Drawable3D] {.
+proc drawable*(this: DDataStdDrawDriver; L: TDF_Label): Handle[DrawDrawable3D] {.
     noSideEffect, importcpp: "Drawable", header: "DDataStd_DrawDriver.hxx".}
-proc DrawableConstraint*(this: DDataStd_DrawDriver; C: handle[TDataXtd_Constraint]): handle[
-    Draw_Drawable3D] {.noSideEffect, importcpp: "DrawableConstraint",
-                      header: "DDataStd_DrawDriver.hxx".}
-proc DrawableShape*(this: DDataStd_DrawDriver; L: TDF_Label; color: Draw_ColorKind;
-                   current: Standard_Boolean = Standard_True): handle[
-    Draw_Drawable3D] {.noSideEffect, importcpp: "DrawableShape",
-                      header: "DDataStd_DrawDriver.hxx".}
-proc DrawableShape*(s: TopoDS_Shape; color: Draw_ColorKind): handle[Draw_Drawable3D] {.
+proc drawableConstraint*(this: DDataStdDrawDriver; c: Handle[TDataXtdConstraint]): Handle[
+    DrawDrawable3D] {.noSideEffect, importcpp: "DrawableConstraint",
+                     header: "DDataStd_DrawDriver.hxx".}
+proc drawableShape*(this: DDataStdDrawDriver; L: TDF_Label; color: DrawColorKind;
+                   current: bool = true): Handle[DrawDrawable3D] {.noSideEffect,
+    importcpp: "DrawableShape", header: "DDataStd_DrawDriver.hxx".}
+proc drawableShape*(s: TopoDS_Shape; color: DrawColorKind): Handle[DrawDrawable3D] {.
     importcpp: "DDataStd_DrawDriver::DrawableShape(@)",
     header: "DDataStd_DrawDriver.hxx".}
 type
-  DDataStd_DrawDriverbase_type* = Standard_Transient
+  DDataStdDrawDriverbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "DDataStd_DrawDriver::get_type_name(@)",
-                              header: "DDataStd_DrawDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "DDataStd_DrawDriver::get_type_name(@)",
+                            header: "DDataStd_DrawDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "DDataStd_DrawDriver::get_type_descriptor(@)",
     header: "DDataStd_DrawDriver.hxx".}
-proc DynamicType*(this: DDataStd_DrawDriver): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: DDataStdDrawDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DDataStd_DrawDriver.hxx".}

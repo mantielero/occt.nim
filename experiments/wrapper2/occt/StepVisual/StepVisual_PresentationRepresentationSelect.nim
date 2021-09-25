@@ -14,35 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepVisual_PresentationRepresentation"
 discard "forward decl of StepVisual_PresentationSet"
 type
-  StepVisual_PresentationRepresentationSelect* {.
+  StepVisualPresentationRepresentationSelect* {.
       importcpp: "StepVisual_PresentationRepresentationSelect",
-      header: "StepVisual_PresentationRepresentationSelect.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                   ## !
-                                                                                                   ## Returns
-                                                                                                   ## a
-                                                                                                   ## PresentationRepresentationSelect
-                                                                                                   ## SelectType
+      header: "StepVisual_PresentationRepresentationSelect.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                  ## !
+                                                                                                  ## Returns
+                                                                                                  ## a
+                                                                                                  ## PresentationRepresentationSelect
+                                                                                                  ## SelectType
 
 
-proc constructStepVisual_PresentationRepresentationSelect*(): StepVisual_PresentationRepresentationSelect {.
+proc constructStepVisualPresentationRepresentationSelect*(): StepVisualPresentationRepresentationSelect {.
     constructor, importcpp: "StepVisual_PresentationRepresentationSelect(@)",
     header: "StepVisual_PresentationRepresentationSelect.hxx".}
-proc CaseNum*(this: StepVisual_PresentationRepresentationSelect;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepVisualPresentationRepresentationSelect;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum",
     header: "StepVisual_PresentationRepresentationSelect.hxx".}
-proc PresentationRepresentation*(this: StepVisual_PresentationRepresentationSelect): handle[
-    StepVisual_PresentationRepresentation] {.noSideEffect,
+proc presentationRepresentation*(this: StepVisualPresentationRepresentationSelect): Handle[
+    StepVisualPresentationRepresentation] {.noSideEffect,
     importcpp: "PresentationRepresentation",
     header: "StepVisual_PresentationRepresentationSelect.hxx".}
-proc PresentationSet*(this: StepVisual_PresentationRepresentationSelect): handle[
-    StepVisual_PresentationSet] {.noSideEffect, importcpp: "PresentationSet", header: "StepVisual_PresentationRepresentationSelect.hxx".}
+proc presentationSet*(this: StepVisualPresentationRepresentationSelect): Handle[
+    StepVisualPresentationSet] {.noSideEffect, importcpp: "PresentationSet", header: "StepVisual_PresentationRepresentationSelect.hxx".}

@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, IGESSelect_ModelModifier
-
 discard "forward decl of IFSelect_ContextModif"
 discard "forward decl of IGESData_IGESModel"
 discard "forward decl of Interface_CopyTool"
@@ -24,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_UpdateFileName"
 discard "forward decl of IGESSelect_UpdateFileName"
 type
-  Handle_IGESSelect_UpdateFileName* = handle[IGESSelect_UpdateFileName]
+  HandleIGESSelectUpdateFileName* = Handle[IGESSelectUpdateFileName]
 
 ## ! Sets the File Name in Header to be the actual name of the file
 ## ! If new file name is unknown, the former one is kept
@@ -35,34 +32,34 @@ type
 ## ! a criterium to select IGES Files to touch up
 
 type
-  IGESSelect_UpdateFileName* {.importcpp: "IGESSelect_UpdateFileName",
-                              header: "IGESSelect_UpdateFileName.hxx", bycopy.} = object of IGESSelect_ModelModifier ##
-                                                                                                              ## !
-                                                                                                              ## Creates
-                                                                                                              ## an
-                                                                                                              ## UpdateFileName,
-                                                                                                              ## which
-                                                                                                              ## uses
-                                                                                                              ## the
-                                                                                                              ## system
-                                                                                                              ## Date
+  IGESSelectUpdateFileName* {.importcpp: "IGESSelect_UpdateFileName",
+                             header: "IGESSelect_UpdateFileName.hxx", bycopy.} = object of IGESSelectModelModifier ##
+                                                                                                            ## !
+                                                                                                            ## Creates
+                                                                                                            ## an
+                                                                                                            ## UpdateFileName,
+                                                                                                            ## which
+                                                                                                            ## uses
+                                                                                                            ## the
+                                                                                                            ## system
+                                                                                                            ## Date
 
 
-proc constructIGESSelect_UpdateFileName*(): IGESSelect_UpdateFileName {.
-    constructor, importcpp: "IGESSelect_UpdateFileName(@)",
+proc constructIGESSelectUpdateFileName*(): IGESSelectUpdateFileName {.constructor,
+    importcpp: "IGESSelect_UpdateFileName(@)",
     header: "IGESSelect_UpdateFileName.hxx".}
-proc Performing*(this: IGESSelect_UpdateFileName; ctx: var IFSelect_ContextModif;
-                target: handle[IGESData_IGESModel]; TC: var Interface_CopyTool) {.
+proc performing*(this: IGESSelectUpdateFileName; ctx: var IFSelectContextModif;
+                target: Handle[IGESDataIGESModel]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "Performing", header: "IGESSelect_UpdateFileName.hxx".}
-proc Label*(this: IGESSelect_UpdateFileName): TCollection_AsciiString {.
-    noSideEffect, importcpp: "Label", header: "IGESSelect_UpdateFileName.hxx".}
+proc label*(this: IGESSelectUpdateFileName): TCollectionAsciiString {.noSideEffect,
+    importcpp: "Label", header: "IGESSelect_UpdateFileName.hxx".}
 type
-  IGESSelect_UpdateFileNamebase_type* = IGESSelect_ModelModifier
+  IGESSelectUpdateFileNamebaseType* = IGESSelectModelModifier
 
-proc get_type_name*(): cstring {.importcpp: "IGESSelect_UpdateFileName::get_type_name(@)",
-                              header: "IGESSelect_UpdateFileName.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_UpdateFileName::get_type_name(@)",
+                            header: "IGESSelect_UpdateFileName.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSelect_UpdateFileName::get_type_descriptor(@)",
     header: "IGESSelect_UpdateFileName.hxx".}
-proc DynamicType*(this: IGESSelect_UpdateFileName): handle[Standard_Type] {.
+proc dynamicType*(this: IGESSelectUpdateFileName): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSelect_UpdateFileName.hxx".}

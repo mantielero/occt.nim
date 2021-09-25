@@ -14,18 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  Law_Function, ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_Array1OfReal
-
 discard "forward decl of Law_BSpline"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Law_Function"
 discard "forward decl of Law_BSpFunc"
 discard "forward decl of Law_BSpFunc"
 type
-  Handle_Law_BSpFunc* = handle[Law_BSpFunc]
+  HandleLawBSpFunc* = Handle[LawBSpFunc]
 
 ## ! Law Function based on a BSpline curve 1d.  Package
 ## ! methods and classes are implemented in package Law
@@ -33,42 +28,39 @@ type
 ## ! constraints.
 
 type
-  Law_BSpFunc* {.importcpp: "Law_BSpFunc", header: "Law_BSpFunc.hxx", bycopy.} = object of Law_Function
+  LawBSpFunc* {.importcpp: "Law_BSpFunc", header: "Law_BSpFunc.hxx", bycopy.} = object of LawFunction
 
 
-proc constructLaw_BSpFunc*(): Law_BSpFunc {.constructor,
-    importcpp: "Law_BSpFunc(@)", header: "Law_BSpFunc.hxx".}
-proc constructLaw_BSpFunc*(C: handle[Law_BSpline]; First: Standard_Real;
-                          Last: Standard_Real): Law_BSpFunc {.constructor,
-    importcpp: "Law_BSpFunc(@)", header: "Law_BSpFunc.hxx".}
-proc Continuity*(this: Law_BSpFunc): GeomAbs_Shape {.noSideEffect,
+proc constructLawBSpFunc*(): LawBSpFunc {.constructor, importcpp: "Law_BSpFunc(@)",
+                                       header: "Law_BSpFunc.hxx".}
+proc constructLawBSpFunc*(c: Handle[LawBSpline]; first: float; last: float): LawBSpFunc {.
+    constructor, importcpp: "Law_BSpFunc(@)", header: "Law_BSpFunc.hxx".}
+proc continuity*(this: LawBSpFunc): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Law_BSpFunc.hxx".}
-proc NbIntervals*(this: Law_BSpFunc; S: GeomAbs_Shape): Standard_Integer {.
-    noSideEffect, importcpp: "NbIntervals", header: "Law_BSpFunc.hxx".}
-proc Intervals*(this: Law_BSpFunc; T: var TColStd_Array1OfReal; S: GeomAbs_Shape) {.
+proc nbIntervals*(this: LawBSpFunc; s: GeomAbsShape): int {.noSideEffect,
+    importcpp: "NbIntervals", header: "Law_BSpFunc.hxx".}
+proc intervals*(this: LawBSpFunc; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, importcpp: "Intervals", header: "Law_BSpFunc.hxx".}
-proc Value*(this: var Law_BSpFunc; X: Standard_Real): Standard_Real {.
-    importcpp: "Value", header: "Law_BSpFunc.hxx".}
-proc D1*(this: var Law_BSpFunc; X: Standard_Real; F: var Standard_Real;
-        D: var Standard_Real) {.importcpp: "D1", header: "Law_BSpFunc.hxx".}
-proc D2*(this: var Law_BSpFunc; X: Standard_Real; F: var Standard_Real;
-        D: var Standard_Real; D2: var Standard_Real) {.importcpp: "D2",
+proc value*(this: var LawBSpFunc; x: float): float {.importcpp: "Value",
     header: "Law_BSpFunc.hxx".}
-proc Trim*(this: Law_BSpFunc; PFirst: Standard_Real; PLast: Standard_Real;
-          Tol: Standard_Real): handle[Law_Function] {.noSideEffect,
-    importcpp: "Trim", header: "Law_BSpFunc.hxx".}
-proc Bounds*(this: var Law_BSpFunc; PFirst: var Standard_Real; PLast: var Standard_Real) {.
+proc d1*(this: var LawBSpFunc; x: float; f: var float; d: var float) {.importcpp: "D1",
+    header: "Law_BSpFunc.hxx".}
+proc d2*(this: var LawBSpFunc; x: float; f: var float; d: var float; d2: var float) {.
+    importcpp: "D2", header: "Law_BSpFunc.hxx".}
+proc trim*(this: LawBSpFunc; pFirst: float; pLast: float; tol: float): Handle[LawFunction] {.
+    noSideEffect, importcpp: "Trim", header: "Law_BSpFunc.hxx".}
+proc bounds*(this: var LawBSpFunc; pFirst: var float; pLast: var float) {.
     importcpp: "Bounds", header: "Law_BSpFunc.hxx".}
-proc Curve*(this: Law_BSpFunc): handle[Law_BSpline] {.noSideEffect,
-    importcpp: "Curve", header: "Law_BSpFunc.hxx".}
-proc SetCurve*(this: var Law_BSpFunc; C: handle[Law_BSpline]) {.importcpp: "SetCurve",
+proc curve*(this: LawBSpFunc): Handle[LawBSpline] {.noSideEffect, importcpp: "Curve",
+    header: "Law_BSpFunc.hxx".}
+proc setCurve*(this: var LawBSpFunc; c: Handle[LawBSpline]) {.importcpp: "SetCurve",
     header: "Law_BSpFunc.hxx".}
 type
-  Law_BSpFuncbase_type* = Law_Function
+  LawBSpFuncbaseType* = LawFunction
 
-proc get_type_name*(): cstring {.importcpp: "Law_BSpFunc::get_type_name(@)",
-                              header: "Law_BSpFunc.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Law_BSpFunc::get_type_name(@)",
+                            header: "Law_BSpFunc.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Law_BSpFunc::get_type_descriptor(@)", header: "Law_BSpFunc.hxx".}
-proc DynamicType*(this: Law_BSpFunc): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: LawBSpFunc): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Law_BSpFunc.hxx".}

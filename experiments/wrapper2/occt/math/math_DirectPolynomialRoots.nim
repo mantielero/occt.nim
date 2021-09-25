@@ -14,67 +14,56 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real,
-  ../Standard/Standard_OStream
-
 discard "forward decl of Standard_RangeError"
 discard "forward decl of StdFail_InfiniteSolutions"
 type
-  math_DirectPolynomialRoots* {.importcpp: "math_DirectPolynomialRoots",
-                               header: "math_DirectPolynomialRoots.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## computes
-                                                                                      ## all
-                                                                                      ## the
-                                                                                      ## real
-                                                                                      ## roots
-                                                                                      ## of
-                                                                                      ## the
-                                                                                      ## polynomial
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Ax4
-                                                                                      ## +
-                                                                                      ## Bx3
-                                                                                      ## +
-                                                                                      ## Cx2
-                                                                                      ## +
-                                                                                      ## Dx
-                                                                                      ## +
-                                                                                      ## E
-                                                                                      ## using
-                                                                                      ## a
-                                                                                      ## direct
-                                                                                      ## method.
+  MathDirectPolynomialRoots* {.importcpp: "math_DirectPolynomialRoots",
+                              header: "math_DirectPolynomialRoots.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## computes
+                                                                                     ## all
+                                                                                     ## the
+                                                                                     ## real
+                                                                                     ## roots
+                                                                                     ## of
+                                                                                     ## the
+                                                                                     ## polynomial
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Ax4
+                                                                                     ## +
+                                                                                     ## Bx3
+                                                                                     ## +
+                                                                                     ## Cx2
+                                                                                     ## +
+                                                                                     ## Dx
+                                                                                     ## +
+                                                                                     ## E
+                                                                                     ## using
+                                                                                     ## a
+                                                                                     ## direct
+                                                                                     ## method.
 
 
-proc constructmath_DirectPolynomialRoots*(A: Standard_Real; B: Standard_Real;
-    C: Standard_Real; D: Standard_Real; E: Standard_Real): math_DirectPolynomialRoots {.
+proc constructMathDirectPolynomialRoots*(a: float; b: float; c: float; d: float; e: float): MathDirectPolynomialRoots {.
     constructor, importcpp: "math_DirectPolynomialRoots(@)",
     header: "math_DirectPolynomialRoots.hxx".}
-proc constructmath_DirectPolynomialRoots*(A: Standard_Real; B: Standard_Real;
-    C: Standard_Real; D: Standard_Real): math_DirectPolynomialRoots {.constructor,
-    importcpp: "math_DirectPolynomialRoots(@)",
-    header: "math_DirectPolynomialRoots.hxx".}
-proc constructmath_DirectPolynomialRoots*(A: Standard_Real; B: Standard_Real;
-    C: Standard_Real): math_DirectPolynomialRoots {.constructor,
-    importcpp: "math_DirectPolynomialRoots(@)",
-    header: "math_DirectPolynomialRoots.hxx".}
-proc constructmath_DirectPolynomialRoots*(A: Standard_Real; B: Standard_Real): math_DirectPolynomialRoots {.
+proc constructMathDirectPolynomialRoots*(a: float; b: float; c: float; d: float): MathDirectPolynomialRoots {.
     constructor, importcpp: "math_DirectPolynomialRoots(@)",
     header: "math_DirectPolynomialRoots.hxx".}
-proc IsDone*(this: math_DirectPolynomialRoots): Standard_Boolean {.noSideEffect,
+proc constructMathDirectPolynomialRoots*(a: float; b: float; c: float): MathDirectPolynomialRoots {.
+    constructor, importcpp: "math_DirectPolynomialRoots(@)",
+    header: "math_DirectPolynomialRoots.hxx".}
+proc constructMathDirectPolynomialRoots*(a: float; b: float): MathDirectPolynomialRoots {.
+    constructor, importcpp: "math_DirectPolynomialRoots(@)",
+    header: "math_DirectPolynomialRoots.hxx".}
+proc isDone*(this: MathDirectPolynomialRoots): bool {.noSideEffect,
     importcpp: "IsDone", header: "math_DirectPolynomialRoots.hxx".}
-proc InfiniteRoots*(this: math_DirectPolynomialRoots): Standard_Boolean {.
-    noSideEffect, importcpp: "InfiniteRoots",
-    header: "math_DirectPolynomialRoots.hxx".}
-proc NbSolutions*(this: math_DirectPolynomialRoots): Standard_Integer {.
-    noSideEffect, importcpp: "NbSolutions",
-    header: "math_DirectPolynomialRoots.hxx".}
-proc Value*(this: math_DirectPolynomialRoots; Nieme: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "Value", header: "math_DirectPolynomialRoots.hxx".}
-proc Dump*(this: math_DirectPolynomialRoots; o: var Standard_OStream) {.noSideEffect,
+proc infiniteRoots*(this: MathDirectPolynomialRoots): bool {.noSideEffect,
+    importcpp: "InfiniteRoots", header: "math_DirectPolynomialRoots.hxx".}
+proc nbSolutions*(this: MathDirectPolynomialRoots): int {.noSideEffect,
+    importcpp: "NbSolutions", header: "math_DirectPolynomialRoots.hxx".}
+proc value*(this: MathDirectPolynomialRoots; nieme: int): float {.noSideEffect,
+    importcpp: "Value", header: "math_DirectPolynomialRoots.hxx".}
+proc dump*(this: MathDirectPolynomialRoots; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_DirectPolynomialRoots.hxx".}

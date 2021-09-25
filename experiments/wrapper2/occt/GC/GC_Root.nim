@@ -14,22 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gce/gce_ErrorType, ../Standard/Standard_Boolean
-
 ##  resolve name collisions with X11 headers
 
-when defined(Status):
-  discard
+# when defined(Status):
+#   discard
 ## ! This class implements the common services for
 ## ! all classes of gce which report error.
 
 type
-  GC_Root* {.importcpp: "GC_Root", header: "GC_Root.hxx", bycopy.} = object ## ! Returns true if the construction is successful.
+  GC_Root* {.importcpp: "GC_Root", header: "GC_Root.hxx", bycopy.} = object of RootObj ## ! Returns true if the construction is successful.
 
 
-proc IsDone*(this: GC_Root): Standard_Boolean {.noSideEffect, importcpp: "IsDone",
-    header: "GC_Root.hxx".}
-proc Status*(this: GC_Root): gce_ErrorType {.noSideEffect, importcpp: "Status",
-    header: "GC_Root.hxx".}
+proc isDone*(this: GC_Root): bool {.noSideEffect, importcpp: "IsDone",
+                                header: "GC_Root.hxx".}
+proc status*(this: GC_Root): GceErrorType {.noSideEffect, importcpp: "Status",
+                                        header: "GC_Root.hxx".}

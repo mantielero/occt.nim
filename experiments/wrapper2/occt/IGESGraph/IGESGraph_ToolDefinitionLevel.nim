@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESGraph_DefinitionLevel"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,40 +26,40 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESGraph_ToolDefinitionLevel* {.importcpp: "IGESGraph_ToolDefinitionLevel",
-                                  header: "IGESGraph_ToolDefinitionLevel.hxx",
-                                  bycopy.} = object ## ! Returns a ToolDefinitionLevel, ready to work
+  IGESGraphToolDefinitionLevel* {.importcpp: "IGESGraph_ToolDefinitionLevel",
+                                 header: "IGESGraph_ToolDefinitionLevel.hxx",
+                                 bycopy.} = object ## ! Returns a ToolDefinitionLevel, ready to work
 
 
-proc constructIGESGraph_ToolDefinitionLevel*(): IGESGraph_ToolDefinitionLevel {.
+proc constructIGESGraphToolDefinitionLevel*(): IGESGraphToolDefinitionLevel {.
     constructor, importcpp: "IGESGraph_ToolDefinitionLevel(@)",
     header: "IGESGraph_ToolDefinitionLevel.hxx".}
-proc ReadOwnParams*(this: IGESGraph_ToolDefinitionLevel;
-                   ent: handle[IGESGraph_DefinitionLevel];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESGraph_ToolDefinitionLevel.hxx".}
-proc WriteOwnParams*(this: IGESGraph_ToolDefinitionLevel;
-                    ent: handle[IGESGraph_DefinitionLevel];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESGraphToolDefinitionLevel;
+                   ent: Handle[IGESGraphDefinitionLevel];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESGraph_ToolDefinitionLevel.hxx".}
+proc writeOwnParams*(this: IGESGraphToolDefinitionLevel;
+                    ent: Handle[IGESGraphDefinitionLevel];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESGraph_ToolDefinitionLevel.hxx".}
-proc OwnShared*(this: IGESGraph_ToolDefinitionLevel;
-               ent: handle[IGESGraph_DefinitionLevel];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESGraphToolDefinitionLevel;
+               ent: Handle[IGESGraphDefinitionLevel];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESGraph_ToolDefinitionLevel.hxx".}
-proc DirChecker*(this: IGESGraph_ToolDefinitionLevel;
-                ent: handle[IGESGraph_DefinitionLevel]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESGraphToolDefinitionLevel;
+                ent: Handle[IGESGraphDefinitionLevel]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESGraph_ToolDefinitionLevel.hxx".}
-proc OwnCheck*(this: IGESGraph_ToolDefinitionLevel;
-              ent: handle[IGESGraph_DefinitionLevel]; shares: Interface_ShareTool;
-              ach: var handle[Interface_Check]) {.noSideEffect,
+proc ownCheck*(this: IGESGraphToolDefinitionLevel;
+              ent: Handle[IGESGraphDefinitionLevel]; shares: InterfaceShareTool;
+              ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "OwnCheck", header: "IGESGraph_ToolDefinitionLevel.hxx".}
-proc OwnCopy*(this: IGESGraph_ToolDefinitionLevel;
-             entfrom: handle[IGESGraph_DefinitionLevel];
-             entto: handle[IGESGraph_DefinitionLevel]; TC: var Interface_CopyTool) {.
+proc ownCopy*(this: IGESGraphToolDefinitionLevel;
+             entfrom: Handle[IGESGraphDefinitionLevel];
+             entto: Handle[IGESGraphDefinitionLevel]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGraph_ToolDefinitionLevel.hxx".}
-proc OwnDump*(this: IGESGraph_ToolDefinitionLevel;
-             ent: handle[IGESGraph_DefinitionLevel]; dumper: IGESData_IGESDumper;
-             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
-    importcpp: "OwnDump", header: "IGESGraph_ToolDefinitionLevel.hxx".}
+proc ownDump*(this: IGESGraphToolDefinitionLevel;
+             ent: Handle[IGESGraphDefinitionLevel]; dumper: IGESDataIGESDumper;
+             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+    header: "IGESGraph_ToolDefinitionLevel.hxx".}

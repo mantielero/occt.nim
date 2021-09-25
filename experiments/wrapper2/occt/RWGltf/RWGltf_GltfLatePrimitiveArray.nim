@@ -12,18 +12,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Bnd/Bnd_Box, ../NCollection/NCollection_Sequence, ../Poly/Poly_Triangulation,
-  RWGltf_GltfPrimArrayData, RWGltf_GltfPrimitiveMode,
-  ../Quantity/Quantity_ColorRGBA
-
 discard "forward decl of RWGltf_MaterialMetallicRoughness"
 discard "forward decl of RWGltf_MaterialCommon"
 type
-  RWGltf_GltfLatePrimitiveArray* {.importcpp: "RWGltf_GltfLatePrimitiveArray",
-                                  header: "RWGltf_GltfLatePrimitiveArray.hxx",
-                                  bycopy.} = object of Poly_Triangulation ## !
-                                                                     ## Constructor.
+  RWGltfGltfLatePrimitiveArray* {.importcpp: "RWGltf_GltfLatePrimitiveArray",
+                                 header: "RWGltf_GltfLatePrimitiveArray.hxx",
+                                 bycopy.} = object of PolyTriangulation ## ! Constructor.
     ## !< PBR material
     ## !< common (obsolete) material
     ## !< bounding box
@@ -31,60 +25,59 @@ type
     ## !< entity name
     ## !< type of primitive array
 
-  RWGltf_GltfLatePrimitiveArraybase_type* = Poly_Triangulation
+  RWGltfGltfLatePrimitiveArraybaseType* = PolyTriangulation
 
-proc get_type_name*(): cstring {.importcpp: "RWGltf_GltfLatePrimitiveArray::get_type_name(@)",
-                              header: "RWGltf_GltfLatePrimitiveArray.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "RWGltf_GltfLatePrimitiveArray::get_type_name(@)",
+                            header: "RWGltf_GltfLatePrimitiveArray.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "RWGltf_GltfLatePrimitiveArray::get_type_descriptor(@)",
     header: "RWGltf_GltfLatePrimitiveArray.hxx".}
-proc DynamicType*(this: RWGltf_GltfLatePrimitiveArray): handle[Standard_Type] {.
+proc dynamicType*(this: RWGltfGltfLatePrimitiveArray): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "RWGltf_GltfLatePrimitiveArray.hxx".}
-proc constructRWGltf_GltfLatePrimitiveArray*(theId: TCollection_AsciiString;
-    theName: TCollection_AsciiString): RWGltf_GltfLatePrimitiveArray {.constructor,
+proc constructRWGltfGltfLatePrimitiveArray*(theId: TCollectionAsciiString;
+    theName: TCollectionAsciiString): RWGltfGltfLatePrimitiveArray {.constructor,
     importcpp: "RWGltf_GltfLatePrimitiveArray(@)",
     header: "RWGltf_GltfLatePrimitiveArray.hxx".}
-proc destroyRWGltf_GltfLatePrimitiveArray*(
-    this: var RWGltf_GltfLatePrimitiveArray) {.
+proc destroyRWGltfGltfLatePrimitiveArray*(this: var RWGltfGltfLatePrimitiveArray) {.
     importcpp: "#.~RWGltf_GltfLatePrimitiveArray()",
     header: "RWGltf_GltfLatePrimitiveArray.hxx".}
-proc Id*(this: RWGltf_GltfLatePrimitiveArray): TCollection_AsciiString {.
-    noSideEffect, importcpp: "Id", header: "RWGltf_GltfLatePrimitiveArray.hxx".}
-proc Name*(this: RWGltf_GltfLatePrimitiveArray): TCollection_AsciiString {.
+proc id*(this: RWGltfGltfLatePrimitiveArray): TCollectionAsciiString {.noSideEffect,
+    importcpp: "Id", header: "RWGltf_GltfLatePrimitiveArray.hxx".}
+proc name*(this: RWGltfGltfLatePrimitiveArray): TCollectionAsciiString {.
     noSideEffect, importcpp: "Name", header: "RWGltf_GltfLatePrimitiveArray.hxx".}
-proc SetName*(this: var RWGltf_GltfLatePrimitiveArray;
-             theName: TCollection_AsciiString) {.importcpp: "SetName",
+proc setName*(this: var RWGltfGltfLatePrimitiveArray;
+             theName: TCollectionAsciiString) {.importcpp: "SetName",
     header: "RWGltf_GltfLatePrimitiveArray.hxx".}
-proc PrimitiveMode*(this: RWGltf_GltfLatePrimitiveArray): RWGltf_GltfPrimitiveMode {.
+proc primitiveMode*(this: RWGltfGltfLatePrimitiveArray): RWGltfGltfPrimitiveMode {.
     noSideEffect, importcpp: "PrimitiveMode",
     header: "RWGltf_GltfLatePrimitiveArray.hxx".}
-proc SetPrimitiveMode*(this: var RWGltf_GltfLatePrimitiveArray;
-                      theMode: RWGltf_GltfPrimitiveMode) {.
+proc setPrimitiveMode*(this: var RWGltfGltfLatePrimitiveArray;
+                      theMode: RWGltfGltfPrimitiveMode) {.
     importcpp: "SetPrimitiveMode", header: "RWGltf_GltfLatePrimitiveArray.hxx".}
-proc HasStyle*(this: RWGltf_GltfLatePrimitiveArray): bool {.noSideEffect,
+proc hasStyle*(this: RWGltfGltfLatePrimitiveArray): bool {.noSideEffect,
     importcpp: "HasStyle", header: "RWGltf_GltfLatePrimitiveArray.hxx".}
-proc BaseColor*(this: RWGltf_GltfLatePrimitiveArray): Quantity_ColorRGBA {.
+proc baseColor*(this: RWGltfGltfLatePrimitiveArray): QuantityColorRGBA {.
     noSideEffect, importcpp: "BaseColor",
     header: "RWGltf_GltfLatePrimitiveArray.hxx".}
-proc MaterialPbr*(this: RWGltf_GltfLatePrimitiveArray): handle[
-    RWGltf_MaterialMetallicRoughness] {.noSideEffect, importcpp: "MaterialPbr", header: "RWGltf_GltfLatePrimitiveArray.hxx".}
-proc SetMaterialPbr*(this: var RWGltf_GltfLatePrimitiveArray;
-                    theMat: handle[RWGltf_MaterialMetallicRoughness]) {.
+proc materialPbr*(this: RWGltfGltfLatePrimitiveArray): Handle[
+    RWGltfMaterialMetallicRoughness] {.noSideEffect, importcpp: "MaterialPbr", header: "RWGltf_GltfLatePrimitiveArray.hxx".}
+proc setMaterialPbr*(this: var RWGltfGltfLatePrimitiveArray;
+                    theMat: Handle[RWGltfMaterialMetallicRoughness]) {.
     importcpp: "SetMaterialPbr", header: "RWGltf_GltfLatePrimitiveArray.hxx".}
-proc MaterialCommon*(this: RWGltf_GltfLatePrimitiveArray): handle[
-    RWGltf_MaterialCommon] {.noSideEffect, importcpp: "MaterialCommon",
-                            header: "RWGltf_GltfLatePrimitiveArray.hxx".}
-proc SetMaterialCommon*(this: var RWGltf_GltfLatePrimitiveArray;
-                       theMat: handle[RWGltf_MaterialCommon]) {.
+proc materialCommon*(this: RWGltfGltfLatePrimitiveArray): Handle[
+    RWGltfMaterialCommon] {.noSideEffect, importcpp: "MaterialCommon",
+                           header: "RWGltf_GltfLatePrimitiveArray.hxx".}
+proc setMaterialCommon*(this: var RWGltfGltfLatePrimitiveArray;
+                       theMat: Handle[RWGltfMaterialCommon]) {.
     importcpp: "SetMaterialCommon", header: "RWGltf_GltfLatePrimitiveArray.hxx".}
-proc Data*(this: RWGltf_GltfLatePrimitiveArray): NCollection_Sequence[
-    RWGltf_GltfPrimArrayData] {.noSideEffect, importcpp: "Data",
-                               header: "RWGltf_GltfLatePrimitiveArray.hxx".}
-proc AddPrimArrayData*(this: var RWGltf_GltfLatePrimitiveArray;
-                      theType: RWGltf_GltfArrayType): var RWGltf_GltfPrimArrayData {.
+proc data*(this: RWGltfGltfLatePrimitiveArray): NCollectionSequence[
+    RWGltfGltfPrimArrayData] {.noSideEffect, importcpp: "Data",
+                              header: "RWGltf_GltfLatePrimitiveArray.hxx".}
+proc addPrimArrayData*(this: var RWGltfGltfLatePrimitiveArray;
+                      theType: RWGltfGltfArrayType): var RWGltfGltfPrimArrayData {.
     importcpp: "AddPrimArrayData", header: "RWGltf_GltfLatePrimitiveArray.hxx".}
-proc BoundingBox*(this: RWGltf_GltfLatePrimitiveArray): Bnd_Box {.noSideEffect,
+proc boundingBox*(this: RWGltfGltfLatePrimitiveArray): BndBox {.noSideEffect,
     importcpp: "BoundingBox", header: "RWGltf_GltfLatePrimitiveArray.hxx".}
-proc SetBoundingBox*(this: var RWGltf_GltfLatePrimitiveArray; theBox: Bnd_Box) {.
+proc setBoundingBox*(this: var RWGltfGltfLatePrimitiveArray; theBox: BndBox) {.
     importcpp: "SetBoundingBox", header: "RWGltf_GltfLatePrimitiveArray.hxx".}

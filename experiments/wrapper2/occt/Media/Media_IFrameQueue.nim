@@ -12,17 +12,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Media_Frame
-
 ## ! Interface defining frame queuing.
 
 type
-  Media_IFrameQueue* {.importcpp: "Media_IFrameQueue",
-                      header: "Media_IFrameQueue.hxx", bycopy.} = object ## ! Lock the frame, e.g. take ownership on a single (not currently displayed) frame from the queue to perform decoding into.
+  MediaIFrameQueue* {.importcpp: "Media_IFrameQueue",
+                     header: "Media_IFrameQueue.hxx", bycopy.} = object ## ! Lock the frame, e.g. take ownership on a single (not currently displayed) frame from the queue to perform decoding into.
 
 
-proc LockFrame*(this: var Media_IFrameQueue): handle[Media_Frame] {.
+proc lockFrame*(this: var MediaIFrameQueue): Handle[MediaFrame] {.
     importcpp: "LockFrame", header: "Media_IFrameQueue.hxx".}
-proc ReleaseFrame*(this: var Media_IFrameQueue; theFrame: handle[Media_Frame]) {.
+proc releaseFrame*(this: var MediaIFrameQueue; theFrame: Handle[MediaFrame]) {.
     importcpp: "ReleaseFrame", header: "Media_IFrameQueue.hxx".}

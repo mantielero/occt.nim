@@ -14,39 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepVisual_Colour
-
 discard "forward decl of StepVisual_PreDefinedItem"
 discard "forward decl of StepVisual_PreDefinedColour"
 discard "forward decl of StepVisual_PreDefinedColour"
 type
-  Handle_StepVisual_PreDefinedColour* = handle[StepVisual_PreDefinedColour]
-  StepVisual_PreDefinedColour* {.importcpp: "StepVisual_PreDefinedColour",
-                                header: "StepVisual_PreDefinedColour.hxx", bycopy.} = object of StepVisual_Colour ##
-                                                                                                           ## !
-                                                                                                           ## Returns
-                                                                                                           ## a
-                                                                                                           ## PreDefinedColour
+  HandleStepVisualPreDefinedColour* = Handle[StepVisualPreDefinedColour]
+  StepVisualPreDefinedColour* {.importcpp: "StepVisual_PreDefinedColour",
+                               header: "StepVisual_PreDefinedColour.hxx", bycopy.} = object of StepVisualColour ##
+                                                                                                         ## !
+                                                                                                         ## Returns
+                                                                                                         ## a
+                                                                                                         ## PreDefinedColour
 
 
-proc constructStepVisual_PreDefinedColour*(): StepVisual_PreDefinedColour {.
+proc constructStepVisualPreDefinedColour*(): StepVisualPreDefinedColour {.
     constructor, importcpp: "StepVisual_PreDefinedColour(@)",
     header: "StepVisual_PreDefinedColour.hxx".}
-proc SetPreDefinedItem*(this: var StepVisual_PreDefinedColour;
-                       item: handle[StepVisual_PreDefinedItem]) {.
+proc setPreDefinedItem*(this: var StepVisualPreDefinedColour;
+                       item: Handle[StepVisualPreDefinedItem]) {.
     importcpp: "SetPreDefinedItem", header: "StepVisual_PreDefinedColour.hxx".}
-proc GetPreDefinedItem*(this: StepVisual_PreDefinedColour): handle[
-    StepVisual_PreDefinedItem] {.noSideEffect, importcpp: "GetPreDefinedItem",
-                                header: "StepVisual_PreDefinedColour.hxx".}
+proc getPreDefinedItem*(this: StepVisualPreDefinedColour): Handle[
+    StepVisualPreDefinedItem] {.noSideEffect, importcpp: "GetPreDefinedItem",
+                               header: "StepVisual_PreDefinedColour.hxx".}
 type
-  StepVisual_PreDefinedColourbase_type* = StepVisual_Colour
+  StepVisualPreDefinedColourbaseType* = StepVisualColour
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_PreDefinedColour::get_type_name(@)",
-                              header: "StepVisual_PreDefinedColour.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_PreDefinedColour::get_type_name(@)",
+                            header: "StepVisual_PreDefinedColour.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_PreDefinedColour::get_type_descriptor(@)",
     header: "StepVisual_PreDefinedColour.hxx".}
-proc DynamicType*(this: StepVisual_PreDefinedColour): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualPreDefinedColour): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_PreDefinedColour.hxx".}

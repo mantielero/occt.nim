@@ -14,22 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColStd/TColStd_Array1OfReal, AdvApprox_Cutting,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real
-
 ## ! inherits class Cutting; contains a list of preferential points (di)i
 ## ! if Cutting is necessary in [a,b], we cut at the di nearest from (a+b)/2.
 
 type
-  AdvApprox_PrefCutting* {.importcpp: "AdvApprox_PrefCutting",
-                          header: "AdvApprox_PrefCutting.hxx", bycopy.} = object of AdvApprox_Cutting
+  AdvApproxPrefCutting* {.importcpp: "AdvApprox_PrefCutting",
+                         header: "AdvApprox_PrefCutting.hxx", bycopy.} = object of AdvApproxCutting
 
 
-proc constructAdvApprox_PrefCutting*(CutPnts: TColStd_Array1OfReal): AdvApprox_PrefCutting {.
+proc constructAdvApproxPrefCutting*(cutPnts: TColStdArray1OfReal): AdvApproxPrefCutting {.
     constructor, importcpp: "AdvApprox_PrefCutting(@)",
     header: "AdvApprox_PrefCutting.hxx".}
-proc Value*(this: AdvApprox_PrefCutting; a: Standard_Real; b: Standard_Real;
-           cuttingvalue: var Standard_Real): Standard_Boolean {.noSideEffect,
-    importcpp: "Value", header: "AdvApprox_PrefCutting.hxx".}
+proc value*(this: AdvApproxPrefCutting; a: float; b: float; cuttingvalue: var float): bool {.
+    noSideEffect, importcpp: "Value", header: "AdvApprox_PrefCutting.hxx".}

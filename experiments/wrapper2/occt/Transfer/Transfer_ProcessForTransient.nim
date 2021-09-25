@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TColStd/TColStd_IndexedMapOfInteger,
-  Transfer_TransferMapOfProcessForTransient,
-  ../TColStd/TColStd_MapTransientHasher, ../TColStd/TColStd_HSequenceOfTransient,
-  ../Message/Message_ProgressRange
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of Transfer_Binder"
 discard "forward decl of Transfer_ActorOfProcessForTransient"
@@ -32,7 +26,7 @@ discard "forward decl of Interface_CheckIterator"
 discard "forward decl of Transfer_ProcessForTransient"
 discard "forward decl of Transfer_ProcessForTransient"
 type
-  Handle_Transfer_ProcessForTransient* = handle[Transfer_ProcessForTransient]
+  HandleTransferProcessForTransient* = Handle[TransferProcessForTransient]
 
 ## ! Manages Transfer of Transient Objects. Produces also
 ## ! ActorOfTransientProcess       (deferred class),
@@ -41,235 +35,282 @@ type
 ## ! Normally uses as TransientProcess, which adds some specifics
 
 type
-  Transfer_ProcessForTransient* {.importcpp: "Transfer_ProcessForTransient",
-                                 header: "Transfer_ProcessForTransient.hxx",
-                                 bycopy.} = object of Standard_Transient ## ! Sets
-                                                                    ## TransferProcess at initial state. Gives an Initial size
-                                                                    ## ! (indicative) for the Map when known (default is 10000).
-                                                                    ## ! Sets default trace file as a printer and default trace level
-                                                                    ## ! (see
-                                                                    ## Message_TraceFile).
-                                                                    ## ! Same as Find but stores the last access to the map, for a
-                                                                    ## ! faster access on next calls (as Bind does too)
-                                                                    ## ! Considers a category number, by default 0
-                                                                    ## ! C++ : return const &
+  TransferProcessForTransient* {.importcpp: "Transfer_ProcessForTransient",
+                                header: "Transfer_ProcessForTransient.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                            ## !
+                                                                                                            ## Sets
+                                                                                                            ## TransferProcess
+                                                                                                            ## at
+                                                                                                            ## initial
+                                                                                                            ## state.
+                                                                                                            ## Gives
+                                                                                                            ## an
+                                                                                                            ## Initial
+                                                                                                            ## size
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## (indicative)
+                                                                                                            ## for
+                                                                                                            ## the
+                                                                                                            ## Map
+                                                                                                            ## when
+                                                                                                            ## known
+                                                                                                            ## (default
+                                                                                                            ## is
+                                                                                                            ## 10000).
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## Sets
+                                                                                                            ## default
+                                                                                                            ## trace
+                                                                                                            ## file
+                                                                                                            ## as
+                                                                                                            ## a
+                                                                                                            ## printer
+                                                                                                            ## and
+                                                                                                            ## default
+                                                                                                            ## trace
+                                                                                                            ## level
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## (see
+                                                                                                            ## Message_TraceFile).
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## Same
+                                                                                                            ## as
+                                                                                                            ## Find
+                                                                                                            ## but
+                                                                                                            ## stores
+                                                                                                            ## the
+                                                                                                            ## last
+                                                                                                            ## access
+                                                                                                            ## to
+                                                                                                            ## the
+                                                                                                            ## map,
+                                                                                                            ## for
+                                                                                                            ## a
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## faster
+                                                                                                            ## access
+                                                                                                            ## on
+                                                                                                            ## next
+                                                                                                            ## calls
+                                                                                                            ## (as
+                                                                                                            ## Bind
+                                                                                                            ## does
+                                                                                                            ## too)
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## Considers
+                                                                                                            ## a
+                                                                                                            ## category
+                                                                                                            ## number,
+                                                                                                            ## by
+                                                                                                            ## default
+                                                                                                            ## 0
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## C++
+                                                                                                            ## :
+                                                                                                            ## return
+                                                                                                            ## const
+                                                                                                            ## &
 
 
-proc constructTransfer_ProcessForTransient*(nb: Standard_Integer = 10000): Transfer_ProcessForTransient {.
+proc constructTransferProcessForTransient*(nb: int = 10000): TransferProcessForTransient {.
     constructor, importcpp: "Transfer_ProcessForTransient(@)",
     header: "Transfer_ProcessForTransient.hxx".}
-proc constructTransfer_ProcessForTransient*(printer: handle[Message_Messenger];
-    nb: Standard_Integer = 10000): Transfer_ProcessForTransient {.constructor,
+proc constructTransferProcessForTransient*(printer: Handle[MessageMessenger];
+    nb: int = 10000): TransferProcessForTransient {.constructor,
     importcpp: "Transfer_ProcessForTransient(@)",
     header: "Transfer_ProcessForTransient.hxx".}
-proc Clear*(this: var Transfer_ProcessForTransient) {.importcpp: "Clear",
+proc clear*(this: var TransferProcessForTransient) {.importcpp: "Clear",
     header: "Transfer_ProcessForTransient.hxx".}
-proc Clean*(this: var Transfer_ProcessForTransient) {.importcpp: "Clean",
+proc clean*(this: var TransferProcessForTransient) {.importcpp: "Clean",
     header: "Transfer_ProcessForTransient.hxx".}
-proc Resize*(this: var Transfer_ProcessForTransient; nb: Standard_Integer) {.
-    importcpp: "Resize", header: "Transfer_ProcessForTransient.hxx".}
-proc SetActor*(this: var Transfer_ProcessForTransient;
-              actor: handle[Transfer_ActorOfProcessForTransient]) {.
+proc resize*(this: var TransferProcessForTransient; nb: int) {.importcpp: "Resize",
+    header: "Transfer_ProcessForTransient.hxx".}
+proc setActor*(this: var TransferProcessForTransient;
+              actor: Handle[TransferActorOfProcessForTransient]) {.
     importcpp: "SetActor", header: "Transfer_ProcessForTransient.hxx".}
-proc Actor*(this: Transfer_ProcessForTransient): handle[
-    Transfer_ActorOfProcessForTransient] {.noSideEffect, importcpp: "Actor",
+proc actor*(this: TransferProcessForTransient): Handle[
+    TransferActorOfProcessForTransient] {.noSideEffect, importcpp: "Actor",
     header: "Transfer_ProcessForTransient.hxx".}
-proc Find*(this: Transfer_ProcessForTransient; start: handle[Standard_Transient]): handle[
-    Transfer_Binder] {.noSideEffect, importcpp: "Find",
-                      header: "Transfer_ProcessForTransient.hxx".}
-proc IsBound*(this: Transfer_ProcessForTransient; start: handle[Standard_Transient]): Standard_Boolean {.
+proc find*(this: TransferProcessForTransient; start: Handle[StandardTransient]): Handle[
+    TransferBinder] {.noSideEffect, importcpp: "Find",
+                     header: "Transfer_ProcessForTransient.hxx".}
+proc isBound*(this: TransferProcessForTransient; start: Handle[StandardTransient]): bool {.
     noSideEffect, importcpp: "IsBound", header: "Transfer_ProcessForTransient.hxx".}
-proc IsAlreadyUsed*(this: Transfer_ProcessForTransient;
-                   start: handle[Standard_Transient]): Standard_Boolean {.
-    noSideEffect, importcpp: "IsAlreadyUsed",
-    header: "Transfer_ProcessForTransient.hxx".}
-proc Bind*(this: var Transfer_ProcessForTransient;
-          start: handle[Standard_Transient]; binder: handle[Transfer_Binder]) {.
+proc isAlreadyUsed*(this: TransferProcessForTransient;
+                   start: Handle[StandardTransient]): bool {.noSideEffect,
+    importcpp: "IsAlreadyUsed", header: "Transfer_ProcessForTransient.hxx".}
+proc `bind`*(this: var TransferProcessForTransient;
+            start: Handle[StandardTransient]; binder: Handle[TransferBinder]) {.
     importcpp: "Bind", header: "Transfer_ProcessForTransient.hxx".}
-proc Rebind*(this: var Transfer_ProcessForTransient;
-            start: handle[Standard_Transient]; binder: handle[Transfer_Binder]) {.
+proc rebind*(this: var TransferProcessForTransient;
+            start: Handle[StandardTransient]; binder: Handle[TransferBinder]) {.
     importcpp: "Rebind", header: "Transfer_ProcessForTransient.hxx".}
-proc Unbind*(this: var Transfer_ProcessForTransient;
-            start: handle[Standard_Transient]): Standard_Boolean {.
+proc unbind*(this: var TransferProcessForTransient; start: Handle[StandardTransient]): bool {.
     importcpp: "Unbind", header: "Transfer_ProcessForTransient.hxx".}
-proc FindElseBind*(this: var Transfer_ProcessForTransient;
-                  start: handle[Standard_Transient]): handle[Transfer_Binder] {.
+proc findElseBind*(this: var TransferProcessForTransient;
+                  start: Handle[StandardTransient]): Handle[TransferBinder] {.
     importcpp: "FindElseBind", header: "Transfer_ProcessForTransient.hxx".}
-proc SetMessenger*(this: var Transfer_ProcessForTransient;
-                  messenger: handle[Message_Messenger]) {.
+proc setMessenger*(this: var TransferProcessForTransient;
+                  messenger: Handle[MessageMessenger]) {.
     importcpp: "SetMessenger", header: "Transfer_ProcessForTransient.hxx".}
-proc Messenger*(this: Transfer_ProcessForTransient): handle[Message_Messenger] {.
+proc messenger*(this: TransferProcessForTransient): Handle[MessageMessenger] {.
     noSideEffect, importcpp: "Messenger",
     header: "Transfer_ProcessForTransient.hxx".}
-proc SetTraceLevel*(this: var Transfer_ProcessForTransient;
-                   tracelev: Standard_Integer) {.importcpp: "SetTraceLevel",
-    header: "Transfer_ProcessForTransient.hxx".}
-proc TraceLevel*(this: Transfer_ProcessForTransient): Standard_Integer {.
-    noSideEffect, importcpp: "TraceLevel",
-    header: "Transfer_ProcessForTransient.hxx".}
-proc SendFail*(this: var Transfer_ProcessForTransient;
-              start: handle[Standard_Transient]; amsg: Message_Msg) {.
+proc setTraceLevel*(this: var TransferProcessForTransient; tracelev: int) {.
+    importcpp: "SetTraceLevel", header: "Transfer_ProcessForTransient.hxx".}
+proc traceLevel*(this: TransferProcessForTransient): int {.noSideEffect,
+    importcpp: "TraceLevel", header: "Transfer_ProcessForTransient.hxx".}
+proc sendFail*(this: var TransferProcessForTransient;
+              start: Handle[StandardTransient]; amsg: MessageMsg) {.
     importcpp: "SendFail", header: "Transfer_ProcessForTransient.hxx".}
-proc SendWarning*(this: var Transfer_ProcessForTransient;
-                 start: handle[Standard_Transient]; amsg: Message_Msg) {.
+proc sendWarning*(this: var TransferProcessForTransient;
+                 start: Handle[StandardTransient]; amsg: MessageMsg) {.
     importcpp: "SendWarning", header: "Transfer_ProcessForTransient.hxx".}
-proc SendMsg*(this: var Transfer_ProcessForTransient;
-             start: handle[Standard_Transient]; amsg: Message_Msg) {.
+proc sendMsg*(this: var TransferProcessForTransient;
+             start: Handle[StandardTransient]; amsg: MessageMsg) {.
     importcpp: "SendMsg", header: "Transfer_ProcessForTransient.hxx".}
-proc AddFail*(this: var Transfer_ProcessForTransient;
-             start: handle[Standard_Transient]; mess: Standard_CString;
-             orig: Standard_CString = "") {.importcpp: "AddFail", header: "Transfer_ProcessForTransient.hxx".}
-proc AddError*(this: var Transfer_ProcessForTransient;
-              start: handle[Standard_Transient]; mess: Standard_CString;
-              orig: Standard_CString = "") {.importcpp: "AddError",
-    header: "Transfer_ProcessForTransient.hxx".}
-proc AddFail*(this: var Transfer_ProcessForTransient;
-             start: handle[Standard_Transient]; amsg: Message_Msg) {.
+proc addFail*(this: var TransferProcessForTransient;
+             start: Handle[StandardTransient]; mess: StandardCString;
+             orig: StandardCString = "") {.importcpp: "AddFail", header: "Transfer_ProcessForTransient.hxx".}
+proc addError*(this: var TransferProcessForTransient;
+              start: Handle[StandardTransient]; mess: StandardCString;
+              orig: StandardCString = "") {.importcpp: "AddError", header: "Transfer_ProcessForTransient.hxx".}
+proc addFail*(this: var TransferProcessForTransient;
+             start: Handle[StandardTransient]; amsg: MessageMsg) {.
     importcpp: "AddFail", header: "Transfer_ProcessForTransient.hxx".}
-proc AddWarning*(this: var Transfer_ProcessForTransient;
-                start: handle[Standard_Transient]; mess: Standard_CString;
-                orig: Standard_CString = "") {.importcpp: "AddWarning",
+proc addWarning*(this: var TransferProcessForTransient;
+                start: Handle[StandardTransient]; mess: StandardCString;
+                orig: StandardCString = "") {.importcpp: "AddWarning",
     header: "Transfer_ProcessForTransient.hxx".}
-proc AddWarning*(this: var Transfer_ProcessForTransient;
-                start: handle[Standard_Transient]; amsg: Message_Msg) {.
+proc addWarning*(this: var TransferProcessForTransient;
+                start: Handle[StandardTransient]; amsg: MessageMsg) {.
     importcpp: "AddWarning", header: "Transfer_ProcessForTransient.hxx".}
-proc Mend*(this: var Transfer_ProcessForTransient;
-          start: handle[Standard_Transient]; pref: Standard_CString = "") {.
-    importcpp: "Mend", header: "Transfer_ProcessForTransient.hxx".}
-proc Check*(this: Transfer_ProcessForTransient; start: handle[Standard_Transient]): handle[
-    Interface_Check] {.noSideEffect, importcpp: "Check",
-                      header: "Transfer_ProcessForTransient.hxx".}
-proc BindTransient*(this: var Transfer_ProcessForTransient;
-                   start: handle[Standard_Transient];
-                   res: handle[Standard_Transient]) {.importcpp: "BindTransient",
+proc mend*(this: var TransferProcessForTransient; start: Handle[StandardTransient];
+          pref: StandardCString = "") {.importcpp: "Mend",
+                                    header: "Transfer_ProcessForTransient.hxx".}
+proc check*(this: TransferProcessForTransient; start: Handle[StandardTransient]): Handle[
+    InterfaceCheck] {.noSideEffect, importcpp: "Check",
+                     header: "Transfer_ProcessForTransient.hxx".}
+proc bindTransient*(this: var TransferProcessForTransient;
+                   start: Handle[StandardTransient];
+                   res: Handle[StandardTransient]) {.importcpp: "BindTransient",
     header: "Transfer_ProcessForTransient.hxx".}
-proc FindTransient*(this: Transfer_ProcessForTransient;
-                   start: handle[Standard_Transient]): handle[Standard_Transient] {.
+proc findTransient*(this: TransferProcessForTransient;
+                   start: Handle[StandardTransient]): Handle[StandardTransient] {.
     noSideEffect, importcpp: "FindTransient",
     header: "Transfer_ProcessForTransient.hxx".}
-proc BindMultiple*(this: var Transfer_ProcessForTransient;
-                  start: handle[Standard_Transient]) {.importcpp: "BindMultiple",
+proc bindMultiple*(this: var TransferProcessForTransient;
+                  start: Handle[StandardTransient]) {.importcpp: "BindMultiple",
     header: "Transfer_ProcessForTransient.hxx".}
-proc AddMultiple*(this: var Transfer_ProcessForTransient;
-                 start: handle[Standard_Transient];
-                 res: handle[Standard_Transient]) {.importcpp: "AddMultiple",
-    header: "Transfer_ProcessForTransient.hxx".}
-proc FindTypedTransient*(this: Transfer_ProcessForTransient;
-                        start: handle[Standard_Transient];
-                        atype: handle[Standard_Type];
-                        val: var handle[Standard_Transient]): Standard_Boolean {.
-    noSideEffect, importcpp: "FindTypedTransient",
-    header: "Transfer_ProcessForTransient.hxx".}
-proc GetTypedTransient*(this: Transfer_ProcessForTransient;
-                       binder: handle[Transfer_Binder];
-                       atype: handle[Standard_Type];
-                       val: var handle[Standard_Transient]): Standard_Boolean {.
-    noSideEffect, importcpp: "GetTypedTransient",
-    header: "Transfer_ProcessForTransient.hxx".}
-proc NbMapped*(this: Transfer_ProcessForTransient): Standard_Integer {.noSideEffect,
+proc addMultiple*(this: var TransferProcessForTransient;
+                 start: Handle[StandardTransient]; res: Handle[StandardTransient]) {.
+    importcpp: "AddMultiple", header: "Transfer_ProcessForTransient.hxx".}
+proc findTypedTransient*(this: TransferProcessForTransient;
+                        start: Handle[StandardTransient];
+                        atype: Handle[StandardType];
+                        val: var Handle[StandardTransient]): bool {.noSideEffect,
+    importcpp: "FindTypedTransient", header: "Transfer_ProcessForTransient.hxx".}
+proc getTypedTransient*(this: TransferProcessForTransient;
+                       binder: Handle[TransferBinder];
+                       atype: Handle[StandardType];
+                       val: var Handle[StandardTransient]): bool {.noSideEffect,
+    importcpp: "GetTypedTransient", header: "Transfer_ProcessForTransient.hxx".}
+proc nbMapped*(this: TransferProcessForTransient): int {.noSideEffect,
     importcpp: "NbMapped", header: "Transfer_ProcessForTransient.hxx".}
-proc Mapped*(this: Transfer_ProcessForTransient; num: Standard_Integer): handle[
-    Standard_Transient] {.noSideEffect, importcpp: "Mapped",
-                         header: "Transfer_ProcessForTransient.hxx".}
-proc MapIndex*(this: Transfer_ProcessForTransient;
-              start: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
-    importcpp: "MapIndex", header: "Transfer_ProcessForTransient.hxx".}
-proc MapItem*(this: Transfer_ProcessForTransient; num: Standard_Integer): handle[
-    Transfer_Binder] {.noSideEffect, importcpp: "MapItem",
-                      header: "Transfer_ProcessForTransient.hxx".}
-proc SetRoot*(this: var Transfer_ProcessForTransient;
-             start: handle[Standard_Transient]) {.importcpp: "SetRoot",
+proc mapped*(this: TransferProcessForTransient; num: int): Handle[StandardTransient] {.
+    noSideEffect, importcpp: "Mapped", header: "Transfer_ProcessForTransient.hxx".}
+proc mapIndex*(this: TransferProcessForTransient; start: Handle[StandardTransient]): int {.
+    noSideEffect, importcpp: "MapIndex", header: "Transfer_ProcessForTransient.hxx".}
+proc mapItem*(this: TransferProcessForTransient; num: int): Handle[TransferBinder] {.
+    noSideEffect, importcpp: "MapItem", header: "Transfer_ProcessForTransient.hxx".}
+proc setRoot*(this: var TransferProcessForTransient;
+             start: Handle[StandardTransient]) {.importcpp: "SetRoot",
     header: "Transfer_ProcessForTransient.hxx".}
-proc SetRootManagement*(this: var Transfer_ProcessForTransient;
-                       stat: Standard_Boolean) {.importcpp: "SetRootManagement",
-    header: "Transfer_ProcessForTransient.hxx".}
-proc NbRoots*(this: Transfer_ProcessForTransient): Standard_Integer {.noSideEffect,
+proc setRootManagement*(this: var TransferProcessForTransient; stat: bool) {.
+    importcpp: "SetRootManagement", header: "Transfer_ProcessForTransient.hxx".}
+proc nbRoots*(this: TransferProcessForTransient): int {.noSideEffect,
     importcpp: "NbRoots", header: "Transfer_ProcessForTransient.hxx".}
-proc Root*(this: Transfer_ProcessForTransient; num: Standard_Integer): handle[
-    Standard_Transient] {.noSideEffect, importcpp: "Root",
-                         header: "Transfer_ProcessForTransient.hxx".}
-proc RootItem*(this: Transfer_ProcessForTransient; num: Standard_Integer): handle[
-    Transfer_Binder] {.noSideEffect, importcpp: "RootItem",
-                      header: "Transfer_ProcessForTransient.hxx".}
-proc RootIndex*(this: Transfer_ProcessForTransient;
-               start: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
-    importcpp: "RootIndex", header: "Transfer_ProcessForTransient.hxx".}
-proc NestingLevel*(this: Transfer_ProcessForTransient): Standard_Integer {.
-    noSideEffect, importcpp: "NestingLevel",
+proc root*(this: TransferProcessForTransient; num: int): Handle[StandardTransient] {.
+    noSideEffect, importcpp: "Root", header: "Transfer_ProcessForTransient.hxx".}
+proc rootItem*(this: TransferProcessForTransient; num: int): Handle[TransferBinder] {.
+    noSideEffect, importcpp: "RootItem", header: "Transfer_ProcessForTransient.hxx".}
+proc rootIndex*(this: TransferProcessForTransient; start: Handle[StandardTransient]): int {.
+    noSideEffect, importcpp: "RootIndex",
     header: "Transfer_ProcessForTransient.hxx".}
-proc ResetNestingLevel*(this: var Transfer_ProcessForTransient) {.
+proc nestingLevel*(this: TransferProcessForTransient): int {.noSideEffect,
+    importcpp: "NestingLevel", header: "Transfer_ProcessForTransient.hxx".}
+proc resetNestingLevel*(this: var TransferProcessForTransient) {.
     importcpp: "ResetNestingLevel", header: "Transfer_ProcessForTransient.hxx".}
-proc Recognize*(this: Transfer_ProcessForTransient;
-               start: handle[Standard_Transient]): Standard_Boolean {.noSideEffect,
-    importcpp: "Recognize", header: "Transfer_ProcessForTransient.hxx".}
-proc Transferring*(this: var Transfer_ProcessForTransient;
-                  start: handle[Standard_Transient];
-                  theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
-    Transfer_Binder] {.importcpp: "Transferring",
-                      header: "Transfer_ProcessForTransient.hxx".}
-proc Transfer*(this: var Transfer_ProcessForTransient;
-              start: handle[Standard_Transient];
-              theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
-    importcpp: "Transfer", header: "Transfer_ProcessForTransient.hxx".}
-proc SetErrorHandle*(this: var Transfer_ProcessForTransient; err: Standard_Boolean) {.
-    importcpp: "SetErrorHandle", header: "Transfer_ProcessForTransient.hxx".}
-proc ErrorHandle*(this: Transfer_ProcessForTransient): Standard_Boolean {.
-    noSideEffect, importcpp: "ErrorHandle",
+proc recognize*(this: TransferProcessForTransient; start: Handle[StandardTransient]): bool {.
+    noSideEffect, importcpp: "Recognize",
     header: "Transfer_ProcessForTransient.hxx".}
-proc StartTrace*(this: Transfer_ProcessForTransient;
-                binder: handle[Transfer_Binder];
-                start: handle[Standard_Transient]; level: Standard_Integer;
-                mode: Standard_Integer) {.noSideEffect, importcpp: "StartTrace", header: "Transfer_ProcessForTransient.hxx".}
-proc PrintTrace*(this: Transfer_ProcessForTransient;
-                start: handle[Standard_Transient]; S: var Standard_OStream) {.
+proc transferring*(this: var TransferProcessForTransient;
+                  start: Handle[StandardTransient];
+                  theProgress: MessageProgressRange = messageProgressRange()): Handle[
+    TransferBinder] {.importcpp: "Transferring",
+                     header: "Transfer_ProcessForTransient.hxx".}
+proc transfer*(this: var TransferProcessForTransient;
+              start: Handle[StandardTransient];
+              theProgress: MessageProgressRange = messageProgressRange()): bool {.
+    importcpp: "Transfer", header: "Transfer_ProcessForTransient.hxx".}
+proc setErrorHandle*(this: var TransferProcessForTransient; err: bool) {.
+    importcpp: "SetErrorHandle", header: "Transfer_ProcessForTransient.hxx".}
+proc errorHandle*(this: TransferProcessForTransient): bool {.noSideEffect,
+    importcpp: "ErrorHandle", header: "Transfer_ProcessForTransient.hxx".}
+proc startTrace*(this: TransferProcessForTransient; binder: Handle[TransferBinder];
+                start: Handle[StandardTransient]; level: int; mode: int) {.
+    noSideEffect, importcpp: "StartTrace",
+    header: "Transfer_ProcessForTransient.hxx".}
+proc printTrace*(this: TransferProcessForTransient;
+                start: Handle[StandardTransient]; s: var StandardOStream) {.
     noSideEffect, importcpp: "PrintTrace",
     header: "Transfer_ProcessForTransient.hxx".}
-proc IsLooping*(this: Transfer_ProcessForTransient; alevel: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsLooping",
-    header: "Transfer_ProcessForTransient.hxx".}
-proc RootResult*(this: Transfer_ProcessForTransient;
-                withstart: Standard_Boolean = Standard_False): Transfer_IteratorOfProcessForTransient {.
+proc isLooping*(this: TransferProcessForTransient; alevel: int): bool {.noSideEffect,
+    importcpp: "IsLooping", header: "Transfer_ProcessForTransient.hxx".}
+proc rootResult*(this: TransferProcessForTransient; withstart: bool = false): TransferIteratorOfProcessForTransient {.
     noSideEffect, importcpp: "RootResult",
     header: "Transfer_ProcessForTransient.hxx".}
-proc CompleteResult*(this: Transfer_ProcessForTransient;
-                    withstart: Standard_Boolean = Standard_False): Transfer_IteratorOfProcessForTransient {.
+proc completeResult*(this: TransferProcessForTransient; withstart: bool = false): TransferIteratorOfProcessForTransient {.
     noSideEffect, importcpp: "CompleteResult",
     header: "Transfer_ProcessForTransient.hxx".}
-proc AbnormalResult*(this: Transfer_ProcessForTransient): Transfer_IteratorOfProcessForTransient {.
+proc abnormalResult*(this: TransferProcessForTransient): TransferIteratorOfProcessForTransient {.
     noSideEffect, importcpp: "AbnormalResult",
     header: "Transfer_ProcessForTransient.hxx".}
-proc CheckList*(this: Transfer_ProcessForTransient; erronly: Standard_Boolean): Interface_CheckIterator {.
+proc checkList*(this: TransferProcessForTransient; erronly: bool): InterfaceCheckIterator {.
     noSideEffect, importcpp: "CheckList",
     header: "Transfer_ProcessForTransient.hxx".}
-proc ResultOne*(this: Transfer_ProcessForTransient;
-               start: handle[Standard_Transient]; level: Standard_Integer;
-               withstart: Standard_Boolean = Standard_False): Transfer_IteratorOfProcessForTransient {.
+proc resultOne*(this: TransferProcessForTransient;
+               start: Handle[StandardTransient]; level: int; withstart: bool = false): TransferIteratorOfProcessForTransient {.
     noSideEffect, importcpp: "ResultOne",
     header: "Transfer_ProcessForTransient.hxx".}
-proc CheckListOne*(this: Transfer_ProcessForTransient;
-                  start: handle[Standard_Transient]; level: Standard_Integer;
-                  erronly: Standard_Boolean): Interface_CheckIterator {.
+proc checkListOne*(this: TransferProcessForTransient;
+                  start: Handle[StandardTransient]; level: int; erronly: bool): InterfaceCheckIterator {.
     noSideEffect, importcpp: "CheckListOne",
     header: "Transfer_ProcessForTransient.hxx".}
-proc IsCheckListEmpty*(this: Transfer_ProcessForTransient;
-                      start: handle[Standard_Transient]; level: Standard_Integer;
-                      erronly: Standard_Boolean): Standard_Boolean {.noSideEffect,
-    importcpp: "IsCheckListEmpty", header: "Transfer_ProcessForTransient.hxx".}
-proc RemoveResult*(this: var Transfer_ProcessForTransient;
-                  start: handle[Standard_Transient]; level: Standard_Integer;
-                  compute: Standard_Boolean = Standard_True) {.
+proc isCheckListEmpty*(this: TransferProcessForTransient;
+                      start: Handle[StandardTransient]; level: int; erronly: bool): bool {.
+    noSideEffect, importcpp: "IsCheckListEmpty",
+    header: "Transfer_ProcessForTransient.hxx".}
+proc removeResult*(this: var TransferProcessForTransient;
+                  start: Handle[StandardTransient]; level: int; compute: bool = true) {.
     importcpp: "RemoveResult", header: "Transfer_ProcessForTransient.hxx".}
-proc CheckNum*(this: Transfer_ProcessForTransient;
-              start: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
-    importcpp: "CheckNum", header: "Transfer_ProcessForTransient.hxx".}
+proc checkNum*(this: TransferProcessForTransient; start: Handle[StandardTransient]): int {.
+    noSideEffect, importcpp: "CheckNum", header: "Transfer_ProcessForTransient.hxx".}
 type
-  Transfer_ProcessForTransientbase_type* = Standard_Transient
+  TransferProcessForTransientbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Transfer_ProcessForTransient::get_type_name(@)",
-                              header: "Transfer_ProcessForTransient.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Transfer_ProcessForTransient::get_type_name(@)",
+                            header: "Transfer_ProcessForTransient.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_ProcessForTransient::get_type_descriptor(@)",
     header: "Transfer_ProcessForTransient.hxx".}
-proc DynamicType*(this: Transfer_ProcessForTransient): handle[Standard_Type] {.
+proc dynamicType*(this: TransferProcessForTransient): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Transfer_ProcessForTransient.hxx".}

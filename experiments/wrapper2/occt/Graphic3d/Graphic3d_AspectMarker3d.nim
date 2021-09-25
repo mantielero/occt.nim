@@ -13,97 +13,91 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Graphic3d_Aspects
-
 ## ! Creates and updates an attribute group for marker type primitives.
 ## ! This group contains the type of marker, its color, and its scale factor.
 
 type
-  Graphic3d_AspectMarker3d* {.importcpp: "Graphic3d_AspectMarker3d",
-                             header: "Graphic3d_AspectMarker3d.hxx", bycopy.} = object of Graphic3d_Aspects ##
-                                                                                                     ## !
-                                                                                                     ## Creates
-                                                                                                     ## a
-                                                                                                     ## context
-                                                                                                     ## table
-                                                                                                     ## for
-                                                                                                     ## marker
-                                                                                                     ## primitives
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## defined
-                                                                                                     ## with
-                                                                                                     ## the
-                                                                                                     ## following
-                                                                                                     ## default
-                                                                                                     ## values:
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Marker
-                                                                                                     ## type
-                                                                                                     ## :
-                                                                                                     ## TOM_X
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Color
-                                                                                                     ## :
-                                                                                                     ## YELLOW
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Scale
-                                                                                                     ## factor:
-                                                                                                     ## 1.0
+  Graphic3dAspectMarker3d* {.importcpp: "Graphic3d_AspectMarker3d",
+                            header: "Graphic3d_AspectMarker3d.hxx", bycopy.} = object of Graphic3dAspects ##
+                                                                                                   ## !
+                                                                                                   ## Creates
+                                                                                                   ## a
+                                                                                                   ## context
+                                                                                                   ## table
+                                                                                                   ## for
+                                                                                                   ## marker
+                                                                                                   ## primitives
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## defined
+                                                                                                   ## with
+                                                                                                   ## the
+                                                                                                   ## following
+                                                                                                   ## default
+                                                                                                   ## values:
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## Marker
+                                                                                                   ## type
+                                                                                                   ## :
+                                                                                                   ## TOM_X
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## Color
+                                                                                                   ## :
+                                                                                                   ## YELLOW
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## Scale
+                                                                                                   ## factor:
+                                                                                                   ## 1.0
 
-  Graphic3d_AspectMarker3dbase_type* = Graphic3d_Aspects
+  Graphic3dAspectMarker3dbaseType* = Graphic3dAspects
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_AspectMarker3d::get_type_name(@)",
-                              header: "Graphic3d_AspectMarker3d.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_AspectMarker3d::get_type_name(@)",
+                            header: "Graphic3d_AspectMarker3d.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_AspectMarker3d::get_type_descriptor(@)",
     header: "Graphic3d_AspectMarker3d.hxx".}
-proc DynamicType*(this: Graphic3d_AspectMarker3d): handle[Standard_Type] {.
+proc dynamicType*(this: Graphic3dAspectMarker3d): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Graphic3d_AspectMarker3d.hxx".}
-proc constructGraphic3d_AspectMarker3d*(): Graphic3d_AspectMarker3d {.constructor,
+proc constructGraphic3dAspectMarker3d*(): Graphic3dAspectMarker3d {.constructor,
     importcpp: "Graphic3d_AspectMarker3d(@)",
     header: "Graphic3d_AspectMarker3d.hxx".}
-proc constructGraphic3d_AspectMarker3d*(theType: Aspect_TypeOfMarker;
-                                       theColor: Quantity_Color;
-                                       theScale: Standard_Real): Graphic3d_AspectMarker3d {.
+proc constructGraphic3dAspectMarker3d*(theType: AspectTypeOfMarker;
+                                      theColor: QuantityColor; theScale: float): Graphic3dAspectMarker3d {.
     constructor, importcpp: "Graphic3d_AspectMarker3d(@)",
     header: "Graphic3d_AspectMarker3d.hxx".}
-proc constructGraphic3d_AspectMarker3d*(theColor: Quantity_Color;
-                                       theWidth: Standard_Integer;
-                                       theHeight: Standard_Integer;
-    theTextureBitmap: handle[TColStd_HArray1OfByte]): Graphic3d_AspectMarker3d {.
+proc constructGraphic3dAspectMarker3d*(theColor: QuantityColor; theWidth: int;
+                                      theHeight: int; theTextureBitmap: Handle[
+    TColStdHArray1OfByte]): Graphic3dAspectMarker3d {.constructor,
+    importcpp: "Graphic3d_AspectMarker3d(@)",
+    header: "Graphic3d_AspectMarker3d.hxx".}
+proc constructGraphic3dAspectMarker3d*(theTextureImage: Handle[ImagePixMap]): Graphic3dAspectMarker3d {.
     constructor, importcpp: "Graphic3d_AspectMarker3d(@)",
     header: "Graphic3d_AspectMarker3d.hxx".}
-proc constructGraphic3d_AspectMarker3d*(theTextureImage: handle[Image_PixMap]): Graphic3d_AspectMarker3d {.
-    constructor, importcpp: "Graphic3d_AspectMarker3d(@)",
-    header: "Graphic3d_AspectMarker3d.hxx".}
-proc Scale*(this: Graphic3d_AspectMarker3d): Standard_ShortReal {.noSideEffect,
+proc scale*(this: Graphic3dAspectMarker3d): StandardShortReal {.noSideEffect,
     importcpp: "Scale", header: "Graphic3d_AspectMarker3d.hxx".}
-proc SetScale*(this: var Graphic3d_AspectMarker3d; theScale: Standard_ShortReal) {.
+proc setScale*(this: var Graphic3dAspectMarker3d; theScale: StandardShortReal) {.
     importcpp: "SetScale", header: "Graphic3d_AspectMarker3d.hxx".}
-proc SetScale*(this: var Graphic3d_AspectMarker3d; theScale: Standard_Real) {.
+proc setScale*(this: var Graphic3dAspectMarker3d; theScale: float) {.
     importcpp: "SetScale", header: "Graphic3d_AspectMarker3d.hxx".}
-proc Type*(this: Graphic3d_AspectMarker3d): Aspect_TypeOfMarker {.noSideEffect,
+proc `type`*(this: Graphic3dAspectMarker3d): AspectTypeOfMarker {.noSideEffect,
     importcpp: "Type", header: "Graphic3d_AspectMarker3d.hxx".}
-proc SetType*(this: var Graphic3d_AspectMarker3d; theType: Aspect_TypeOfMarker) {.
+proc setType*(this: var Graphic3dAspectMarker3d; theType: AspectTypeOfMarker) {.
     importcpp: "SetType", header: "Graphic3d_AspectMarker3d.hxx".}
-proc GetTextureSize*(this: Graphic3d_AspectMarker3d;
-                    theWidth: var Standard_Integer; theHeight: var Standard_Integer) {.
-    noSideEffect, importcpp: "GetTextureSize",
-    header: "Graphic3d_AspectMarker3d.hxx".}
-proc GetMarkerImage*(this: Graphic3d_AspectMarker3d): handle[Graphic3d_MarkerImage] {.
+proc getTextureSize*(this: Graphic3dAspectMarker3d; theWidth: var int;
+                    theHeight: var int) {.noSideEffect, importcpp: "GetTextureSize",
+                                       header: "Graphic3d_AspectMarker3d.hxx".}
+proc getMarkerImage*(this: Graphic3dAspectMarker3d): Handle[Graphic3dMarkerImage] {.
     noSideEffect, importcpp: "GetMarkerImage",
     header: "Graphic3d_AspectMarker3d.hxx".}
-proc SetBitMap*(this: var Graphic3d_AspectMarker3d; theWidth: Standard_Integer;
-               theHeight: Standard_Integer;
-               theTexture: handle[TColStd_HArray1OfByte]) {.
-    importcpp: "SetBitMap", header: "Graphic3d_AspectMarker3d.hxx".}
+proc setBitMap*(this: var Graphic3dAspectMarker3d; theWidth: int; theHeight: int;
+               theTexture: Handle[TColStdHArray1OfByte]) {.importcpp: "SetBitMap",
+    header: "Graphic3d_AspectMarker3d.hxx".}
 discard "forward decl of Graphic3d_AspectMarker3d"
 type
-  Handle_Graphic3d_AspectMarker3d* = handle[Graphic3d_AspectMarker3d]
+  HandleGraphic3dAspectMarker3d* = Handle[Graphic3dAspectMarker3d]
+

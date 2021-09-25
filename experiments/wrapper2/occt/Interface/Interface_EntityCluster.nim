@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NullObject"
@@ -26,7 +22,7 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_EntityCluster"
 discard "forward decl of Interface_EntityCluster"
 type
-  Handle_Interface_EntityCluster* = handle[Interface_EntityCluster]
+  HandleInterfaceEntityCluster* = Handle[InterfaceEntityCluster]
 
 ## ! Auxiliary class for EntityList. An EntityList designates an
 ## ! EntityCluster, which brings itself an fixed maximum count of
@@ -40,76 +36,74 @@ type
 ## ! criterium used for "End of List"
 
 type
-  Interface_EntityCluster* {.importcpp: "Interface_EntityCluster",
-                            header: "Interface_EntityCluster.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                    ## !
-                                                                                                    ## Creates
-                                                                                                    ## an
-                                                                                                    ## empty,
-                                                                                                    ## non-chained,
-                                                                                                    ## EntityCluster
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Returns
-                                                                                                    ## True
-                                                                                                    ## if
-                                                                                                    ## all
-                                                                                                    ## the
-                                                                                                    ## set
-                                                                                                    ## of
-                                                                                                    ## entities
-                                                                                                    ## local
-                                                                                                    ## to
-                                                                                                    ## a
-                                                                                                    ## Cluster
-                                                                                                    ## is
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## full.
-                                                                                                    ## Used
-                                                                                                    ## by
-                                                                                                    ## EntityList.
+  InterfaceEntityCluster* {.importcpp: "Interface_EntityCluster",
+                           header: "Interface_EntityCluster.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                  ## !
+                                                                                                  ## Creates
+                                                                                                  ## an
+                                                                                                  ## empty,
+                                                                                                  ## non-chained,
+                                                                                                  ## EntityCluster
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Returns
+                                                                                                  ## True
+                                                                                                  ## if
+                                                                                                  ## all
+                                                                                                  ## the
+                                                                                                  ## set
+                                                                                                  ## of
+                                                                                                  ## entities
+                                                                                                  ## local
+                                                                                                  ## to
+                                                                                                  ## a
+                                                                                                  ## Cluster
+                                                                                                  ## is
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## full.
+                                                                                                  ## Used
+                                                                                                  ## by
+                                                                                                  ## EntityList.
 
 
-proc constructInterface_EntityCluster*(): Interface_EntityCluster {.constructor,
+proc constructInterfaceEntityCluster*(): InterfaceEntityCluster {.constructor,
     importcpp: "Interface_EntityCluster(@)", header: "Interface_EntityCluster.hxx".}
-proc constructInterface_EntityCluster*(ent: handle[Standard_Transient]): Interface_EntityCluster {.
+proc constructInterfaceEntityCluster*(ent: Handle[StandardTransient]): InterfaceEntityCluster {.
     constructor, importcpp: "Interface_EntityCluster(@)",
     header: "Interface_EntityCluster.hxx".}
-proc constructInterface_EntityCluster*(ec: handle[Interface_EntityCluster]): Interface_EntityCluster {.
+proc constructInterfaceEntityCluster*(ec: Handle[InterfaceEntityCluster]): InterfaceEntityCluster {.
     constructor, importcpp: "Interface_EntityCluster(@)",
     header: "Interface_EntityCluster.hxx".}
-proc constructInterface_EntityCluster*(ant: handle[Standard_Transient];
-                                      ec: handle[Interface_EntityCluster]): Interface_EntityCluster {.
+proc constructInterfaceEntityCluster*(ant: Handle[StandardTransient];
+                                     ec: Handle[InterfaceEntityCluster]): InterfaceEntityCluster {.
     constructor, importcpp: "Interface_EntityCluster(@)",
     header: "Interface_EntityCluster.hxx".}
-proc Append*(this: var Interface_EntityCluster; ent: handle[Standard_Transient]) {.
+proc append*(this: var InterfaceEntityCluster; ent: Handle[StandardTransient]) {.
     importcpp: "Append", header: "Interface_EntityCluster.hxx".}
-proc Remove*(this: var Interface_EntityCluster; ent: handle[Standard_Transient]): Standard_Boolean {.
+proc remove*(this: var InterfaceEntityCluster; ent: Handle[StandardTransient]): bool {.
     importcpp: "Remove", header: "Interface_EntityCluster.hxx".}
-proc Remove*(this: var Interface_EntityCluster; num: Standard_Integer): Standard_Boolean {.
-    importcpp: "Remove", header: "Interface_EntityCluster.hxx".}
-proc NbEntities*(this: Interface_EntityCluster): Standard_Integer {.noSideEffect,
-    importcpp: "NbEntities", header: "Interface_EntityCluster.hxx".}
-proc Value*(this: Interface_EntityCluster; num: Standard_Integer): handle[
-    Standard_Transient] {.noSideEffect, importcpp: "Value",
-                         header: "Interface_EntityCluster.hxx".}
-proc SetValue*(this: var Interface_EntityCluster; num: Standard_Integer;
-              ent: handle[Standard_Transient]) {.importcpp: "SetValue",
+proc remove*(this: var InterfaceEntityCluster; num: int): bool {.importcpp: "Remove",
     header: "Interface_EntityCluster.hxx".}
-proc FillIterator*(this: Interface_EntityCluster;
-                  iter: var Interface_EntityIterator) {.noSideEffect,
-    importcpp: "FillIterator", header: "Interface_EntityCluster.hxx".}
-proc destroyInterface_EntityCluster*(this: var Interface_EntityCluster) {.
+proc nbEntities*(this: InterfaceEntityCluster): int {.noSideEffect,
+    importcpp: "NbEntities", header: "Interface_EntityCluster.hxx".}
+proc value*(this: InterfaceEntityCluster; num: int): Handle[StandardTransient] {.
+    noSideEffect, importcpp: "Value", header: "Interface_EntityCluster.hxx".}
+proc setValue*(this: var InterfaceEntityCluster; num: int;
+              ent: Handle[StandardTransient]) {.importcpp: "SetValue",
+    header: "Interface_EntityCluster.hxx".}
+proc fillIterator*(this: InterfaceEntityCluster; iter: var InterfaceEntityIterator) {.
+    noSideEffect, importcpp: "FillIterator", header: "Interface_EntityCluster.hxx".}
+proc destroyInterfaceEntityCluster*(this: var InterfaceEntityCluster) {.
     importcpp: "#.~Interface_EntityCluster()",
     header: "Interface_EntityCluster.hxx".}
 type
-  Interface_EntityClusterbase_type* = Standard_Transient
+  InterfaceEntityClusterbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Interface_EntityCluster::get_type_name(@)",
-                              header: "Interface_EntityCluster.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Interface_EntityCluster::get_type_name(@)",
+                            header: "Interface_EntityCluster.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Interface_EntityCluster::get_type_descriptor(@)",
     header: "Interface_EntityCluster.hxx".}
-proc DynamicType*(this: Interface_EntityCluster): handle[Standard_Type] {.
+proc dynamicType*(this: InterfaceEntityCluster): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Interface_EntityCluster.hxx".}

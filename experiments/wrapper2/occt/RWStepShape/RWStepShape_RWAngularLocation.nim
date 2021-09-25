@@ -13,33 +13,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_AngularLocation"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShape_RWAngularLocation* {.importcpp: "RWStepShape_RWAngularLocation",
-                                  header: "RWStepShape_RWAngularLocation.hxx",
-                                  bycopy.} = object ## ! Empty constructor
+  RWStepShapeRWAngularLocation* {.importcpp: "RWStepShape_RWAngularLocation",
+                                 header: "RWStepShape_RWAngularLocation.hxx",
+                                 bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepShape_RWAngularLocation*(): RWStepShape_RWAngularLocation {.
+proc constructRWStepShapeRWAngularLocation*(): RWStepShapeRWAngularLocation {.
     constructor, importcpp: "RWStepShape_RWAngularLocation(@)",
     header: "RWStepShape_RWAngularLocation.hxx".}
-proc ReadStep*(this: RWStepShape_RWAngularLocation;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepShape_AngularLocation]) {.noSideEffect,
+proc readStep*(this: RWStepShapeRWAngularLocation;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepShapeAngularLocation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWAngularLocation.hxx".}
-proc WriteStep*(this: RWStepShape_RWAngularLocation; SW: var StepData_StepWriter;
-               ent: handle[StepShape_AngularLocation]) {.noSideEffect,
+proc writeStep*(this: RWStepShapeRWAngularLocation; sw: var StepDataStepWriter;
+               ent: Handle[StepShapeAngularLocation]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWAngularLocation.hxx".}
-proc Share*(this: RWStepShape_RWAngularLocation;
-           ent: handle[StepShape_AngularLocation];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepShapeRWAngularLocation;
+           ent: Handle[StepShapeAngularLocation];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWAngularLocation.hxx".}

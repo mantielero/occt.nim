@@ -13,15 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor
-
 discard "forward decl of XSDRAWSTLVRML_DataSource"
 discard "forward decl of XSDRAWSTLVRML_DataSource3D"
 discard "forward decl of XSDRAWSTLVRML_DrawableMesh"
 type
-  XSDRAWSTLVRML* {.importcpp: "XSDRAWSTLVRML", header: "XSDRAWSTLVRML.hxx", bycopy.} = object ##
+  Xsdrawstlvrml* {.importcpp: "XSDRAWSTLVRML", header: "XSDRAWSTLVRML.hxx", bycopy.} = object ##
                                                                                       ## !
                                                                                       ## Inits
                                                                                       ## commands
@@ -34,7 +30,7 @@ type
                                                                                       ## formats
 
 
-proc InitCommands*(theCommands: var Draw_Interpretor) {.
+proc initCommands*(theCommands: var DrawInterpretor) {.
     importcpp: "XSDRAWSTLVRML::InitCommands(@)", header: "XSDRAWSTLVRML.hxx".}
-proc Factory*(theDI: var Draw_Interpretor) {.importcpp: "XSDRAWSTLVRML::Factory(@)",
-    header: "XSDRAWSTLVRML.hxx".}
+proc factory*(theDI: var DrawInterpretor) {.importcpp: "XSDRAWSTLVRML::Factory(@)",
+                                        header: "XSDRAWSTLVRML.hxx".}

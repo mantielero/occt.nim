@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Resistivity_HeaderFile [NewLine] # _Quantity_Resistivity_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the resistance of a conductor of unit
+## !!!Ignored construct:  # _Quantity_Resistivity_HeaderFile [NewLine] # _Quantity_Resistivity_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the resistance of a conductor of unit
 ## ! cross-section per unit length.
 ## ! It is measured in Ohm-metres.
 ## ! It is the reciprocal of the conductivity. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Resistivity ;
 ## Error: expected ';'!!!
+

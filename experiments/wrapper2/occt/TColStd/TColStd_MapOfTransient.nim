@@ -12,12 +12,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Transient, TColStd_MapTransientHasher,
-  ../NCollection/NCollection_Map
-
 type
-  TColStd_MapOfTransient* = NCollection_Map[handle[Standard_Transient],
-      TColStd_MapTransientHasher]
-  TColStd_MapIteratorOfMapOfTransient* = Iterator[handle[Standard_Transient],
-      TColStd_MapTransientHasher]
+  TColStdMapOfTransient* = NCollectionMap[Handle[StandardTransient],
+                                        TColStdMapTransientHasher]
+  TColStdMapIteratorOfMapOfTransient* = Iterator[Handle[StandardTransient],
+      TColStdMapTransientHasher]
+

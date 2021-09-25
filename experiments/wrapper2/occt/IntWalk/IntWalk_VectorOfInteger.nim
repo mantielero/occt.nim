@@ -13,11 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_StdAllocator
-
 ##  Defines a dynamic vector of integer.
 
 type
-  IntWalk_VectorOfInteger* = vector[Standard_Integer,
-                                  NCollection_StdAllocator[Standard_Integer]]
+  IntWalkVectorOfInteger* = Vector[int, NCollectionStdAllocator[int]]
+

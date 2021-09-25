@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_GUID,
-  ../Standard/Standard_Integer, ../TDF/TDF_Attribute,
-  ../Standard/Standard_Boolean, ../Standard/Standard_OStream
-
 discard "forward decl of TDF_Label"
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Attribute"
@@ -27,7 +22,7 @@ discard "forward decl of TDF_DataSet"
 discard "forward decl of TFunction_Function"
 discard "forward decl of TFunction_Function"
 type
-  Handle_TFunction_Function* = handle[TFunction_Function]
+  HandleTFunctionFunction* = Handle[TFunctionFunction]
 
 ## ! Provides the following two services
 ## ! -   a link to an evaluation driver
@@ -35,72 +30,72 @@ type
 ## ! function and an evaluation driver.
 
 type
-  TFunction_Function* {.importcpp: "TFunction_Function",
-                       header: "TFunction_Function.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                     ## !
-                                                                                     ## Static
-                                                                                     ## methods:
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## ==============
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Finds
-                                                                                     ## or
-                                                                                     ## Creates
-                                                                                     ## a
-                                                                                     ## function
-                                                                                     ## attribute
-                                                                                     ## on
-                                                                                     ## the
-                                                                                     ## label
-                                                                                     ## <L>.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Returns
-                                                                                     ## the
-                                                                                     ## function
-                                                                                     ## attribute.
+  TFunctionFunction* {.importcpp: "TFunction_Function",
+                      header: "TFunction_Function.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                    ## !
+                                                                                    ## Static
+                                                                                    ## methods:
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## ==============
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Finds
+                                                                                    ## or
+                                                                                    ## Creates
+                                                                                    ## a
+                                                                                    ## function
+                                                                                    ## attribute
+                                                                                    ## on
+                                                                                    ## the
+                                                                                    ## label
+                                                                                    ## <L>.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Returns
+                                                                                    ## the
+                                                                                    ## function
+                                                                                    ## attribute.
 
 
-proc Set*(L: TDF_Label): handle[TFunction_Function] {.
+proc set*(L: TDF_Label): Handle[TFunctionFunction] {.
     importcpp: "TFunction_Function::Set(@)", header: "TFunction_Function.hxx".}
-proc Set*(L: TDF_Label; DriverID: Standard_GUID): handle[TFunction_Function] {.
+proc set*(L: TDF_Label; driverID: StandardGUID): Handle[TFunctionFunction] {.
     importcpp: "TFunction_Function::Set(@)", header: "TFunction_Function.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "TFunction_Function::GetID(@)",
-                            header: "TFunction_Function.hxx".}
-proc constructTFunction_Function*(): TFunction_Function {.constructor,
+proc getID*(): StandardGUID {.importcpp: "TFunction_Function::GetID(@)",
+                           header: "TFunction_Function.hxx".}
+proc constructTFunctionFunction*(): TFunctionFunction {.constructor,
     importcpp: "TFunction_Function(@)", header: "TFunction_Function.hxx".}
-proc GetDriverGUID*(this: TFunction_Function): Standard_GUID {.noSideEffect,
+proc getDriverGUID*(this: TFunctionFunction): StandardGUID {.noSideEffect,
     importcpp: "GetDriverGUID", header: "TFunction_Function.hxx".}
-proc SetDriverGUID*(this: var TFunction_Function; guid: Standard_GUID) {.
+proc setDriverGUID*(this: var TFunctionFunction; guid: StandardGUID) {.
     importcpp: "SetDriverGUID", header: "TFunction_Function.hxx".}
-proc Failed*(this: TFunction_Function): Standard_Boolean {.noSideEffect,
-    importcpp: "Failed", header: "TFunction_Function.hxx".}
-proc SetFailure*(this: var TFunction_Function; mode: Standard_Integer = 0) {.
-    importcpp: "SetFailure", header: "TFunction_Function.hxx".}
-proc GetFailure*(this: TFunction_Function): Standard_Integer {.noSideEffect,
+proc failed*(this: TFunctionFunction): bool {.noSideEffect, importcpp: "Failed",
+    header: "TFunction_Function.hxx".}
+proc setFailure*(this: var TFunctionFunction; mode: int = 0) {.importcpp: "SetFailure",
+    header: "TFunction_Function.hxx".}
+proc getFailure*(this: TFunctionFunction): int {.noSideEffect,
     importcpp: "GetFailure", header: "TFunction_Function.hxx".}
-proc ID*(this: TFunction_Function): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TFunctionFunction): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TFunction_Function.hxx".}
-proc Restore*(this: var TFunction_Function; with: handle[TDF_Attribute]) {.
+proc restore*(this: var TFunctionFunction; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TFunction_Function.hxx".}
-proc Paste*(this: TFunction_Function; into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TFunctionFunction; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TFunction_Function.hxx".}
-proc NewEmpty*(this: TFunction_Function): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TFunctionFunction): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TFunction_Function.hxx".}
-proc References*(this: TFunction_Function; aDataSet: handle[TDF_DataSet]) {.
+proc references*(this: TFunctionFunction; aDataSet: Handle[TDF_DataSet]) {.
     noSideEffect, importcpp: "References", header: "TFunction_Function.hxx".}
-proc Dump*(this: TFunction_Function; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TFunctionFunction; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TFunction_Function.hxx".}
 type
-  TFunction_Functionbase_type* = TDF_Attribute
+  TFunctionFunctionbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TFunction_Function::get_type_name(@)",
-                              header: "TFunction_Function.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TFunction_Function::get_type_name(@)",
+                            header: "TFunction_Function.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TFunction_Function::get_type_descriptor(@)",
     header: "TFunction_Function.hxx".}
-proc DynamicType*(this: TFunction_Function): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TFunctionFunction): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TFunction_Function.hxx".}

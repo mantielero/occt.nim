@@ -14,40 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_ApprovalStatus"
 discard "forward decl of StepBasic_ApprovalStatus"
 type
-  Handle_StepBasic_ApprovalStatus* = handle[StepBasic_ApprovalStatus]
-  StepBasic_ApprovalStatus* {.importcpp: "StepBasic_ApprovalStatus",
-                             header: "StepBasic_ApprovalStatus.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                      ## !
-                                                                                                      ## Returns
-                                                                                                      ## a
-                                                                                                      ## ApprovalStatus
+  HandleStepBasicApprovalStatus* = Handle[StepBasicApprovalStatus]
+  StepBasicApprovalStatus* {.importcpp: "StepBasic_ApprovalStatus",
+                            header: "StepBasic_ApprovalStatus.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                    ## !
+                                                                                                    ## Returns
+                                                                                                    ## a
+                                                                                                    ## ApprovalStatus
 
 
-proc constructStepBasic_ApprovalStatus*(): StepBasic_ApprovalStatus {.constructor,
+proc constructStepBasicApprovalStatus*(): StepBasicApprovalStatus {.constructor,
     importcpp: "StepBasic_ApprovalStatus(@)",
     header: "StepBasic_ApprovalStatus.hxx".}
-proc Init*(this: var StepBasic_ApprovalStatus;
-          aName: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepBasicApprovalStatus; aName: Handle[TCollectionHAsciiString]) {.
+    importcpp: "Init", header: "StepBasic_ApprovalStatus.hxx".}
+proc setName*(this: var StepBasicApprovalStatus;
+             aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepBasic_ApprovalStatus.hxx".}
-proc SetName*(this: var StepBasic_ApprovalStatus;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
-    header: "StepBasic_ApprovalStatus.hxx".}
-proc Name*(this: StepBasic_ApprovalStatus): handle[TCollection_HAsciiString] {.
+proc name*(this: StepBasicApprovalStatus): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepBasic_ApprovalStatus.hxx".}
 type
-  StepBasic_ApprovalStatusbase_type* = Standard_Transient
+  StepBasicApprovalStatusbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ApprovalStatus::get_type_name(@)",
-                              header: "StepBasic_ApprovalStatus.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ApprovalStatus::get_type_name(@)",
+                            header: "StepBasic_ApprovalStatus.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_ApprovalStatus::get_type_descriptor(@)",
     header: "StepBasic_ApprovalStatus.hxx".}
-proc DynamicType*(this: StepBasic_ApprovalStatus): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicApprovalStatus): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_ApprovalStatus.hxx".}

@@ -13,24 +13,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 ## ! base class for range index management
 
 type
-  IntTools_BaseRangeSample* {.importcpp: "IntTools_BaseRangeSample",
-                             header: "IntTools_BaseRangeSample.hxx", bycopy.} = object
+  IntToolsBaseRangeSample* {.importcpp: "IntTools_BaseRangeSample",
+                            header: "IntTools_BaseRangeSample.hxx", bycopy.} = object
 
 
-proc constructIntTools_BaseRangeSample*(): IntTools_BaseRangeSample {.constructor,
+proc constructIntToolsBaseRangeSample*(): IntToolsBaseRangeSample {.constructor,
     importcpp: "IntTools_BaseRangeSample(@)",
     header: "IntTools_BaseRangeSample.hxx".}
-proc constructIntTools_BaseRangeSample*(theDepth: Standard_Integer): IntTools_BaseRangeSample {.
+proc constructIntToolsBaseRangeSample*(theDepth: int): IntToolsBaseRangeSample {.
     constructor, importcpp: "IntTools_BaseRangeSample(@)",
     header: "IntTools_BaseRangeSample.hxx".}
-proc SetDepth*(this: var IntTools_BaseRangeSample; theDepth: Standard_Integer) {.
+proc setDepth*(this: var IntToolsBaseRangeSample; theDepth: int) {.
     importcpp: "SetDepth", header: "IntTools_BaseRangeSample.hxx".}
-proc GetDepth*(this: IntTools_BaseRangeSample): Standard_Integer {.noSideEffect,
+proc getDepth*(this: IntToolsBaseRangeSample): int {.noSideEffect,
     importcpp: "GetDepth", header: "IntTools_BaseRangeSample.hxx".}

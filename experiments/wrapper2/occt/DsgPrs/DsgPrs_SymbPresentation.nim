@@ -14,52 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Prs3d/Prs3d_Drawer, ../Prs3d/Prs3d_Presentation
-
 discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of gp_Pnt"
 type
-  DsgPrs_SymbPresentation* {.importcpp: "DsgPrs_SymbPresentation",
-                            header: "DsgPrs_SymbPresentation.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Adds
-                                                                                ## the
-                                                                                ## text
-                                                                                ## aText
-                                                                                ## and
-                                                                                ## the
-                                                                                ## point
-                                                                                ## OffsetPoint
-                                                                                ## to
-                                                                                ## the
-                                                                                ##
-                                                                                ## !
-                                                                                ## presentation
-                                                                                ## object
-                                                                                ## aPresentation.
-                                                                                ##
-                                                                                ## !
-                                                                                ## The
-                                                                                ## display
-                                                                                ## attributes
-                                                                                ## of
-                                                                                ## the
-                                                                                ## shaded
-                                                                                ## plane
-                                                                                ## are
-                                                                                ##
-                                                                                ## !
-                                                                                ## defined
-                                                                                ## by
-                                                                                ## the
-                                                                                ## attribute
-                                                                                ## manager
-                                                                                ## aDrawer.
+  DsgPrsSymbPresentation* {.importcpp: "DsgPrs_SymbPresentation",
+                           header: "DsgPrs_SymbPresentation.hxx", bycopy.} = object ## !
+                                                                               ## Adds
+                                                                               ## the
+                                                                               ## text
+                                                                               ## aText
+                                                                               ## and
+                                                                               ## the
+                                                                               ## point
+                                                                               ## OffsetPoint
+                                                                               ## to
+                                                                               ## the
+                                                                               ## !
+                                                                               ## presentation
+                                                                               ## object
+                                                                               ## aPresentation.
+                                                                               ## !
+                                                                               ## The
+                                                                               ## display
+                                                                               ## attributes
+                                                                               ## of
+                                                                               ## the
+                                                                               ## shaded
+                                                                               ## plane
+                                                                               ## are
+                                                                               ## !
+                                                                               ## defined
+                                                                               ## by
+                                                                               ## the
+                                                                               ## attribute
+                                                                               ## manager
+                                                                               ## aDrawer.
 
 
-proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
-         aText: TCollection_ExtendedString; OffsetPoint: gp_Pnt) {.
+proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
+         aText: TCollectionExtendedString; offsetPoint: Pnt) {.
     importcpp: "DsgPrs_SymbPresentation::Add(@)",
     header: "DsgPrs_SymbPresentation.hxx".}

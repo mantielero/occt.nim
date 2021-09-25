@@ -14,14 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../TColStd/TColStd_Array1OfInteger, ../TColStd/TColStd_Array1OfReal,
-  ../TColStd/TColStd_HArray1OfReal
-
 discard "forward decl of Poly_PolygonOnTriangulation"
 type
-  Handle_Poly_PolygonOnTriangulation* = handle[Poly_PolygonOnTriangulation]
+  HandlePolyPolygonOnTriangulation* = Handle[PolyPolygonOnTriangulation]
 
 ## ! This class provides a polygon in 3D space, based on the triangulation
 ## ! of a surface. It may be the approximate representation of a
@@ -37,71 +32,69 @@ type
 ## ! curve.represents a 3d Polygon
 
 type
-  Poly_PolygonOnTriangulation* {.importcpp: "Poly_PolygonOnTriangulation",
-                                header: "Poly_PolygonOnTriangulation.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                            ## !
-                                                                                                            ## Constructs
-                                                                                                            ## a
-                                                                                                            ## 3D
-                                                                                                            ## polygon
-                                                                                                            ## on
-                                                                                                            ## the
-                                                                                                            ## triangulation
-                                                                                                            ## of
-                                                                                                            ## a
-                                                                                                            ## shape
-                                                                                                            ## with
-                                                                                                            ## specified
-                                                                                                            ## size
-                                                                                                            ## of
-                                                                                                            ## nodes.
+  PolyPolygonOnTriangulation* {.importcpp: "Poly_PolygonOnTriangulation",
+                               header: "Poly_PolygonOnTriangulation.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                          ## !
+                                                                                                          ## Constructs
+                                                                                                          ## a
+                                                                                                          ## 3D
+                                                                                                          ## polygon
+                                                                                                          ## on
+                                                                                                          ## the
+                                                                                                          ## triangulation
+                                                                                                          ## of
+                                                                                                          ## a
+                                                                                                          ## shape
+                                                                                                          ## with
+                                                                                                          ## specified
+                                                                                                          ## size
+                                                                                                          ## of
+                                                                                                          ## nodes.
 
 
-proc constructPoly_PolygonOnTriangulation*(theNbNodes: Standard_Integer;
-    theHasParams: Standard_Boolean): Poly_PolygonOnTriangulation {.constructor,
-    importcpp: "Poly_PolygonOnTriangulation(@)",
-    header: "Poly_PolygonOnTriangulation.hxx".}
-proc constructPoly_PolygonOnTriangulation*(Nodes: TColStd_Array1OfInteger): Poly_PolygonOnTriangulation {.
+proc constructPolyPolygonOnTriangulation*(theNbNodes: int; theHasParams: bool): PolyPolygonOnTriangulation {.
     constructor, importcpp: "Poly_PolygonOnTriangulation(@)",
     header: "Poly_PolygonOnTriangulation.hxx".}
-proc constructPoly_PolygonOnTriangulation*(Nodes: TColStd_Array1OfInteger;
-    Parameters: TColStd_Array1OfReal): Poly_PolygonOnTriangulation {.constructor,
+proc constructPolyPolygonOnTriangulation*(nodes: TColStdArray1OfInteger): PolyPolygonOnTriangulation {.
+    constructor, importcpp: "Poly_PolygonOnTriangulation(@)",
+    header: "Poly_PolygonOnTriangulation.hxx".}
+proc constructPolyPolygonOnTriangulation*(nodes: TColStdArray1OfInteger;
+    parameters: TColStdArray1OfReal): PolyPolygonOnTriangulation {.constructor,
     importcpp: "Poly_PolygonOnTriangulation(@)",
     header: "Poly_PolygonOnTriangulation.hxx".}
-proc Copy*(this: Poly_PolygonOnTriangulation): handle[Poly_PolygonOnTriangulation] {.
+proc copy*(this: PolyPolygonOnTriangulation): Handle[PolyPolygonOnTriangulation] {.
     noSideEffect, importcpp: "Copy", header: "Poly_PolygonOnTriangulation.hxx".}
-proc Deflection*(this: Poly_PolygonOnTriangulation): Standard_Real {.noSideEffect,
+proc deflection*(this: PolyPolygonOnTriangulation): float {.noSideEffect,
     importcpp: "Deflection", header: "Poly_PolygonOnTriangulation.hxx".}
-proc Deflection*(this: var Poly_PolygonOnTriangulation; theDefl: Standard_Real) {.
+proc deflection*(this: var PolyPolygonOnTriangulation; theDefl: float) {.
     importcpp: "Deflection", header: "Poly_PolygonOnTriangulation.hxx".}
-proc NbNodes*(this: Poly_PolygonOnTriangulation): Standard_Integer {.noSideEffect,
+proc nbNodes*(this: PolyPolygonOnTriangulation): int {.noSideEffect,
     importcpp: "NbNodes", header: "Poly_PolygonOnTriangulation.hxx".}
-proc Nodes*(this: Poly_PolygonOnTriangulation): TColStd_Array1OfInteger {.
+proc nodes*(this: PolyPolygonOnTriangulation): TColStdArray1OfInteger {.
     noSideEffect, importcpp: "Nodes", header: "Poly_PolygonOnTriangulation.hxx".}
-proc ChangeNodes*(this: var Poly_PolygonOnTriangulation): var TColStd_Array1OfInteger {.
+proc changeNodes*(this: var PolyPolygonOnTriangulation): var TColStdArray1OfInteger {.
     importcpp: "ChangeNodes", header: "Poly_PolygonOnTriangulation.hxx".}
-proc HasParameters*(this: Poly_PolygonOnTriangulation): Standard_Boolean {.
-    noSideEffect, importcpp: "HasParameters",
-    header: "Poly_PolygonOnTriangulation.hxx".}
-proc Parameters*(this: Poly_PolygonOnTriangulation): handle[TColStd_HArray1OfReal] {.
+proc hasParameters*(this: PolyPolygonOnTriangulation): bool {.noSideEffect,
+    importcpp: "HasParameters", header: "Poly_PolygonOnTriangulation.hxx".}
+proc parameters*(this: PolyPolygonOnTriangulation): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "Parameters",
     header: "Poly_PolygonOnTriangulation.hxx".}
-proc ChangeParameters*(this: var Poly_PolygonOnTriangulation): var TColStd_Array1OfReal {.
+proc changeParameters*(this: var PolyPolygonOnTriangulation): var TColStdArray1OfReal {.
     importcpp: "ChangeParameters", header: "Poly_PolygonOnTriangulation.hxx".}
-proc SetParameters*(this: var Poly_PolygonOnTriangulation;
-                   theParameters: handle[TColStd_HArray1OfReal]) {.
+proc setParameters*(this: var PolyPolygonOnTriangulation;
+                   theParameters: Handle[TColStdHArray1OfReal]) {.
     importcpp: "SetParameters", header: "Poly_PolygonOnTriangulation.hxx".}
-proc DumpJson*(this: Poly_PolygonOnTriangulation; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Poly_PolygonOnTriangulation.hxx".}
+proc dumpJson*(this: PolyPolygonOnTriangulation; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Poly_PolygonOnTriangulation.hxx".}
 type
-  Poly_PolygonOnTriangulationbase_type* = Standard_Transient
+  PolyPolygonOnTriangulationbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Poly_PolygonOnTriangulation::get_type_name(@)",
-                              header: "Poly_PolygonOnTriangulation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Poly_PolygonOnTriangulation::get_type_name(@)",
+                            header: "Poly_PolygonOnTriangulation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Poly_PolygonOnTriangulation::get_type_descriptor(@)",
     header: "Poly_PolygonOnTriangulation.hxx".}
-proc DynamicType*(this: Poly_PolygonOnTriangulation): handle[Standard_Type] {.
+proc dynamicType*(this: PolyPolygonOnTriangulation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Poly_PolygonOnTriangulation.hxx".}

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../gp/gp_XYZ, ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Boolean
-
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of gp_XYZ"
 discard "forward decl of gp_Pnt"
@@ -25,7 +21,7 @@ discard "forward decl of gp_Dir"
 discard "forward decl of IGESSolid_SolidOfRevolution"
 discard "forward decl of IGESSolid_SolidOfRevolution"
 type
-  Handle_IGESSolid_SolidOfRevolution* = handle[IGESSolid_SolidOfRevolution]
+  HandleIGESSolidSolidOfRevolution* = Handle[IGESSolidSolidOfRevolution]
 
 ## ! defines SolidOfRevolution, Type <162> Form Number <0,1>
 ## ! in package IGESSolid
@@ -34,43 +30,40 @@ type
 ## ! fraction of full rotation.
 
 type
-  IGESSolid_SolidOfRevolution* {.importcpp: "IGESSolid_SolidOfRevolution",
-                                header: "IGESSolid_SolidOfRevolution.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESSolidSolidOfRevolution* {.importcpp: "IGESSolid_SolidOfRevolution",
+                               header: "IGESSolid_SolidOfRevolution.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESSolid_SolidOfRevolution*(): IGESSolid_SolidOfRevolution {.
+proc constructIGESSolidSolidOfRevolution*(): IGESSolidSolidOfRevolution {.
     constructor, importcpp: "IGESSolid_SolidOfRevolution(@)",
     header: "IGESSolid_SolidOfRevolution.hxx".}
-proc Init*(this: var IGESSolid_SolidOfRevolution;
-          aCurve: handle[IGESData_IGESEntity]; aFract: Standard_Real;
-          aAxisPnt: gp_XYZ; aDirection: gp_XYZ) {.importcpp: "Init",
+proc init*(this: var IGESSolidSolidOfRevolution; aCurve: Handle[IGESDataIGESEntity];
+          aFract: float; aAxisPnt: Xyz; aDirection: Xyz) {.importcpp: "Init",
     header: "IGESSolid_SolidOfRevolution.hxx".}
-proc SetClosedToAxis*(this: var IGESSolid_SolidOfRevolution; mode: Standard_Boolean) {.
+proc setClosedToAxis*(this: var IGESSolidSolidOfRevolution; mode: bool) {.
     importcpp: "SetClosedToAxis", header: "IGESSolid_SolidOfRevolution.hxx".}
-proc IsClosedToAxis*(this: IGESSolid_SolidOfRevolution): Standard_Boolean {.
-    noSideEffect, importcpp: "IsClosedToAxis",
-    header: "IGESSolid_SolidOfRevolution.hxx".}
-proc Curve*(this: IGESSolid_SolidOfRevolution): handle[IGESData_IGESEntity] {.
+proc isClosedToAxis*(this: IGESSolidSolidOfRevolution): bool {.noSideEffect,
+    importcpp: "IsClosedToAxis", header: "IGESSolid_SolidOfRevolution.hxx".}
+proc curve*(this: IGESSolidSolidOfRevolution): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Curve", header: "IGESSolid_SolidOfRevolution.hxx".}
-proc Fraction*(this: IGESSolid_SolidOfRevolution): Standard_Real {.noSideEffect,
+proc fraction*(this: IGESSolidSolidOfRevolution): float {.noSideEffect,
     importcpp: "Fraction", header: "IGESSolid_SolidOfRevolution.hxx".}
-proc AxisPoint*(this: IGESSolid_SolidOfRevolution): gp_Pnt {.noSideEffect,
+proc axisPoint*(this: IGESSolidSolidOfRevolution): Pnt {.noSideEffect,
     importcpp: "AxisPoint", header: "IGESSolid_SolidOfRevolution.hxx".}
-proc TransformedAxisPoint*(this: IGESSolid_SolidOfRevolution): gp_Pnt {.
-    noSideEffect, importcpp: "TransformedAxisPoint",
+proc transformedAxisPoint*(this: IGESSolidSolidOfRevolution): Pnt {.noSideEffect,
+    importcpp: "TransformedAxisPoint", header: "IGESSolid_SolidOfRevolution.hxx".}
+proc axis*(this: IGESSolidSolidOfRevolution): Dir {.noSideEffect, importcpp: "Axis",
     header: "IGESSolid_SolidOfRevolution.hxx".}
-proc Axis*(this: IGESSolid_SolidOfRevolution): gp_Dir {.noSideEffect,
-    importcpp: "Axis", header: "IGESSolid_SolidOfRevolution.hxx".}
-proc TransformedAxis*(this: IGESSolid_SolidOfRevolution): gp_Dir {.noSideEffect,
+proc transformedAxis*(this: IGESSolidSolidOfRevolution): Dir {.noSideEffect,
     importcpp: "TransformedAxis", header: "IGESSolid_SolidOfRevolution.hxx".}
 type
-  IGESSolid_SolidOfRevolutionbase_type* = IGESData_IGESEntity
+  IGESSolidSolidOfRevolutionbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESSolid_SolidOfRevolution::get_type_name(@)",
-                              header: "IGESSolid_SolidOfRevolution.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSolid_SolidOfRevolution::get_type_name(@)",
+                            header: "IGESSolid_SolidOfRevolution.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSolid_SolidOfRevolution::get_type_descriptor(@)",
     header: "IGESSolid_SolidOfRevolution.hxx".}
-proc DynamicType*(this: IGESSolid_SolidOfRevolution): handle[Standard_Type] {.
+proc dynamicType*(this: IGESSolidSolidOfRevolution): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSolid_SolidOfRevolution.hxx".}

@@ -14,30 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_PointStyle"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisual_RWPointStyle* {.importcpp: "RWStepVisual_RWPointStyle",
-                              header: "RWStepVisual_RWPointStyle.hxx", bycopy.} = object
+  RWStepVisualRWPointStyle* {.importcpp: "RWStepVisual_RWPointStyle",
+                             header: "RWStepVisual_RWPointStyle.hxx", bycopy.} = object
 
 
-proc constructRWStepVisual_RWPointStyle*(): RWStepVisual_RWPointStyle {.
-    constructor, importcpp: "RWStepVisual_RWPointStyle(@)",
+proc constructRWStepVisualRWPointStyle*(): RWStepVisualRWPointStyle {.constructor,
+    importcpp: "RWStepVisual_RWPointStyle(@)",
     header: "RWStepVisual_RWPointStyle.hxx".}
-proc ReadStep*(this: RWStepVisual_RWPointStyle;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check]; ent: handle[StepVisual_PointStyle]) {.
+proc readStep*(this: RWStepVisualRWPointStyle;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck]; ent: Handle[StepVisualPointStyle]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWPointStyle.hxx".}
-proc WriteStep*(this: RWStepVisual_RWPointStyle; SW: var StepData_StepWriter;
-               ent: handle[StepVisual_PointStyle]) {.noSideEffect,
+proc writeStep*(this: RWStepVisualRWPointStyle; sw: var StepDataStepWriter;
+               ent: Handle[StepVisualPointStyle]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWPointStyle.hxx".}
-proc Share*(this: RWStepVisual_RWPointStyle; ent: handle[StepVisual_PointStyle];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepVisualRWPointStyle; ent: Handle[StepVisualPointStyle];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWPointStyle.hxx".}

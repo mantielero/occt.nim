@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepData/StepData_GeneralModule, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_ShareTool"
@@ -27,46 +22,46 @@ discard "forward decl of Interface_CopyTool"
 discard "forward decl of RWHeaderSection_GeneralModule"
 discard "forward decl of RWHeaderSection_GeneralModule"
 type
-  Handle_RWHeaderSection_GeneralModule* = handle[RWHeaderSection_GeneralModule]
+  HandleRWHeaderSectionGeneralModule* = Handle[RWHeaderSectionGeneralModule]
 
 ## ! Defines General Services for HeaderSection Entities
 ## ! (Share,Check,Copy; Trace already inherited)
 ## ! Depends (for case numbers) of Protocol from HeaderSection
 
 type
-  RWHeaderSection_GeneralModule* {.importcpp: "RWHeaderSection_GeneralModule",
-                                  header: "RWHeaderSection_GeneralModule.hxx",
-                                  bycopy.} = object of StepData_GeneralModule ## ! Creates a
-                                                                         ## GeneralModule
+  RWHeaderSectionGeneralModule* {.importcpp: "RWHeaderSection_GeneralModule",
+                                 header: "RWHeaderSection_GeneralModule.hxx",
+                                 bycopy.} = object of StepDataGeneralModule ## ! Creates a
+                                                                       ## GeneralModule
 
 
-proc constructRWHeaderSection_GeneralModule*(): RWHeaderSection_GeneralModule {.
+proc constructRWHeaderSectionGeneralModule*(): RWHeaderSectionGeneralModule {.
     constructor, importcpp: "RWHeaderSection_GeneralModule(@)",
     header: "RWHeaderSection_GeneralModule.hxx".}
-proc FillSharedCase*(this: RWHeaderSection_GeneralModule; CN: Standard_Integer;
-                    ent: handle[Standard_Transient];
-                    iter: var Interface_EntityIterator) {.noSideEffect,
+proc fillSharedCase*(this: RWHeaderSectionGeneralModule; cn: int;
+                    ent: Handle[StandardTransient];
+                    iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "FillSharedCase", header: "RWHeaderSection_GeneralModule.hxx".}
-proc CheckCase*(this: RWHeaderSection_GeneralModule; CN: Standard_Integer;
-               ent: handle[Standard_Transient]; shares: Interface_ShareTool;
-               ach: var handle[Interface_Check]) {.noSideEffect,
+proc checkCase*(this: RWHeaderSectionGeneralModule; cn: int;
+               ent: Handle[StandardTransient]; shares: InterfaceShareTool;
+               ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "CheckCase", header: "RWHeaderSection_GeneralModule.hxx".}
-proc CopyCase*(this: RWHeaderSection_GeneralModule; CN: Standard_Integer;
-              entfrom: handle[Standard_Transient];
-              entto: handle[Standard_Transient]; TC: var Interface_CopyTool) {.
+proc copyCase*(this: RWHeaderSectionGeneralModule; cn: int;
+              entfrom: Handle[StandardTransient];
+              entto: Handle[StandardTransient]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "CopyCase",
     header: "RWHeaderSection_GeneralModule.hxx".}
-proc NewVoid*(this: RWHeaderSection_GeneralModule; CN: Standard_Integer;
-             ent: var handle[Standard_Transient]): Standard_Boolean {.noSideEffect,
+proc newVoid*(this: RWHeaderSectionGeneralModule; cn: int;
+             ent: var Handle[StandardTransient]): bool {.noSideEffect,
     importcpp: "NewVoid", header: "RWHeaderSection_GeneralModule.hxx".}
 type
-  RWHeaderSection_GeneralModulebase_type* = StepData_GeneralModule
+  RWHeaderSectionGeneralModulebaseType* = StepDataGeneralModule
 
-proc get_type_name*(): cstring {.importcpp: "RWHeaderSection_GeneralModule::get_type_name(@)",
-                              header: "RWHeaderSection_GeneralModule.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "RWHeaderSection_GeneralModule::get_type_name(@)",
+                            header: "RWHeaderSection_GeneralModule.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "RWHeaderSection_GeneralModule::get_type_descriptor(@)",
     header: "RWHeaderSection_GeneralModule.hxx".}
-proc DynamicType*(this: RWHeaderSection_GeneralModule): handle[Standard_Type] {.
+proc dynamicType*(this: RWHeaderSectionGeneralModule): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "RWHeaderSection_GeneralModule.hxx".}

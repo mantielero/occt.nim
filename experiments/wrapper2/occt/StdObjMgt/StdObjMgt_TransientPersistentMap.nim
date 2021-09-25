@@ -11,11 +11,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_DataMap
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StdObjMgt_Persistent"
 type
-  StdObjMgt_TransientPersistentMap* = NCollection_DataMap[
-      handle[Standard_Transient], handle[StdObjMgt_Persistent]]
+  StdObjMgtTransientPersistentMap* = NCollectionDataMap[Handle[StandardTransient],
+      Handle[StdObjMgtPersistent]]
+

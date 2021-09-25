@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Message/Message_ProgressScope, ../Message/Message_ProgressIndicator
-
 discard "forward decl of TopoDS_Shape"
 type
   StlAPI_Writer* {.importcpp: "StlAPI_Writer", header: "StlAPI_Writer.hxx", bycopy.} = object ##
@@ -32,9 +29,9 @@ type
 
 proc constructStlAPI_Writer*(): StlAPI_Writer {.constructor,
     importcpp: "StlAPI_Writer(@)", header: "StlAPI_Writer.hxx".}
-proc ASCIIMode*(this: var StlAPI_Writer): var Standard_Boolean {.
-    importcpp: "ASCIIMode", header: "StlAPI_Writer.hxx".}
-proc Write*(this: var StlAPI_Writer; theShape: TopoDS_Shape;
-           theFileName: Standard_CString;
-           theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
+proc aSCIIMode*(this: var StlAPI_Writer): var bool {.importcpp: "ASCIIMode",
+    header: "StlAPI_Writer.hxx".}
+proc write*(this: var StlAPI_Writer; theShape: TopoDS_Shape;
+           theFileName: StandardCString;
+           theProgress: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "Write", header: "StlAPI_Writer.hxx".}

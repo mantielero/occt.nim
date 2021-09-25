@@ -12,18 +12,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Standard_Type
-
-when defined(_WIN32):
+when defined windows:
   discard
 else:
   type
-    GUID* {.importcpp: "GUID", header: "Standard_UUID.hxx", bycopy.} = object
-      Data1* {.importc: "Data1".}: culong
-      Data2* {.importc: "Data2".}: cushort
-      Data3* {.importc: "Data3".}: cushort
-      Data4* {.importc: "Data4".}: array[8, cuchar]
+    Guid* {.importcpp: "GUID", header: "Standard_UUID.hxx", bycopy.} = object
+      data1* {.importc: "Data1".}: culong
+      data2* {.importc: "Data2".}: cushort
+      data3* {.importc: "Data3".}: cushort
+      data4* {.importc: "Data4".}: array[8, cuchar]
 
 type
-  Standard_UUID* = GUID
+  StandardUUID* = Guid
+
+

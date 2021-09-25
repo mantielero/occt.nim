@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, XCAFDoc_GraphNodeSequence,
-  ../Standard/Standard_GUID, ../TDF/TDF_Attribute, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../Standard/Standard_OStream
-
 discard "forward decl of TDF_Label"
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Attribute"
@@ -26,7 +21,7 @@ discard "forward decl of TDF_DataSet"
 discard "forward decl of XCAFDoc_GraphNode"
 discard "forward decl of XCAFDoc_GraphNode"
 type
-  Handle_XCAFDoc_GraphNode* = handle[XCAFDoc_GraphNode]
+  HandleXCAFDocGraphNode* = Handle[XCAFDocGraphNode]
 
 ## ! This attribute allow user multirelation tree of labels.
 ## ! This GraphNode is experimental Graph that not control looping and redundance.
@@ -34,113 +29,111 @@ type
 ## ! Provide create and work with Graph in XCAFDocument.
 
 type
-  XCAFDoc_GraphNode* {.importcpp: "XCAFDoc_GraphNode",
-                      header: "XCAFDoc_GraphNode.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                   ## !
-                                                                                   ## class
-                                                                                   ## methods
-                                                                                   ## working
-                                                                                   ## on
-                                                                                   ## the
-                                                                                   ## node
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## ===================================
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Shortcut
-                                                                                   ## to
-                                                                                   ## search
-                                                                                   ## a
-                                                                                   ## Graph
-                                                                                   ## node
-                                                                                   ## attribute
-                                                                                   ## with
-                                                                                   ## default
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## GraphID.
-                                                                                   ## Returns
-                                                                                   ## true
-                                                                                   ## if
-                                                                                   ## found.
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## remove
-                                                                                   ## link
-                                                                                   ## between
-                                                                                   ## father
-                                                                                   ## and
-                                                                                   ## child.
+  XCAFDocGraphNode* {.importcpp: "XCAFDoc_GraphNode",
+                     header: "XCAFDoc_GraphNode.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                  ## !
+                                                                                  ## class
+                                                                                  ## methods
+                                                                                  ## working
+                                                                                  ## on
+                                                                                  ## the
+                                                                                  ## node
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## ===================================
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## Shortcut
+                                                                                  ## to
+                                                                                  ## search
+                                                                                  ## a
+                                                                                  ## Graph
+                                                                                  ## node
+                                                                                  ## attribute
+                                                                                  ## with
+                                                                                  ## default
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## GraphID.
+                                                                                  ## Returns
+                                                                                  ## true
+                                                                                  ## if
+                                                                                  ## found.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## remove
+                                                                                  ## link
+                                                                                  ## between
+                                                                                  ## father
+                                                                                  ## and
+                                                                                  ## child.
 
 
-proc Find*(L: TDF_Label; G: var handle[XCAFDoc_GraphNode]): Standard_Boolean {.
+proc find*(L: TDF_Label; g: var Handle[XCAFDocGraphNode]): bool {.
     importcpp: "XCAFDoc_GraphNode::Find(@)", header: "XCAFDoc_GraphNode.hxx".}
-proc Set*(L: TDF_Label): handle[XCAFDoc_GraphNode] {.
+proc set*(L: TDF_Label): Handle[XCAFDocGraphNode] {.
     importcpp: "XCAFDoc_GraphNode::Set(@)", header: "XCAFDoc_GraphNode.hxx".}
-proc Set*(L: TDF_Label; ExplicitGraphID: Standard_GUID): handle[XCAFDoc_GraphNode] {.
+proc set*(L: TDF_Label; explicitGraphID: StandardGUID): Handle[XCAFDocGraphNode] {.
     importcpp: "XCAFDoc_GraphNode::Set(@)", header: "XCAFDoc_GraphNode.hxx".}
-proc GetDefaultGraphID*(): Standard_GUID {.importcpp: "XCAFDoc_GraphNode::GetDefaultGraphID(@)",
-                                        header: "XCAFDoc_GraphNode.hxx".}
-proc constructXCAFDoc_GraphNode*(): XCAFDoc_GraphNode {.constructor,
+proc getDefaultGraphID*(): StandardGUID {.importcpp: "XCAFDoc_GraphNode::GetDefaultGraphID(@)",
+                                       header: "XCAFDoc_GraphNode.hxx".}
+proc constructXCAFDocGraphNode*(): XCAFDocGraphNode {.constructor,
     importcpp: "XCAFDoc_GraphNode(@)", header: "XCAFDoc_GraphNode.hxx".}
-proc SetGraphID*(this: var XCAFDoc_GraphNode; explicitID: Standard_GUID) {.
+proc setGraphID*(this: var XCAFDocGraphNode; explicitID: StandardGUID) {.
     importcpp: "SetGraphID", header: "XCAFDoc_GraphNode.hxx".}
-proc SetFather*(this: var XCAFDoc_GraphNode; F: handle[XCAFDoc_GraphNode]): Standard_Integer {.
+proc setFather*(this: var XCAFDocGraphNode; f: Handle[XCAFDocGraphNode]): int {.
     importcpp: "SetFather", header: "XCAFDoc_GraphNode.hxx".}
-proc SetChild*(this: var XCAFDoc_GraphNode; Ch: handle[XCAFDoc_GraphNode]): Standard_Integer {.
+proc setChild*(this: var XCAFDocGraphNode; ch: Handle[XCAFDocGraphNode]): int {.
     importcpp: "SetChild", header: "XCAFDoc_GraphNode.hxx".}
-proc UnSetFather*(this: var XCAFDoc_GraphNode; F: handle[XCAFDoc_GraphNode]) {.
+proc unSetFather*(this: var XCAFDocGraphNode; f: Handle[XCAFDocGraphNode]) {.
     importcpp: "UnSetFather", header: "XCAFDoc_GraphNode.hxx".}
-proc UnSetFather*(this: var XCAFDoc_GraphNode; Findex: Standard_Integer) {.
-    importcpp: "UnSetFather", header: "XCAFDoc_GraphNode.hxx".}
-proc UnSetChild*(this: var XCAFDoc_GraphNode; Ch: handle[XCAFDoc_GraphNode]) {.
+proc unSetFather*(this: var XCAFDocGraphNode; findex: int) {.importcpp: "UnSetFather",
+    header: "XCAFDoc_GraphNode.hxx".}
+proc unSetChild*(this: var XCAFDocGraphNode; ch: Handle[XCAFDocGraphNode]) {.
     importcpp: "UnSetChild", header: "XCAFDoc_GraphNode.hxx".}
-proc UnSetChild*(this: var XCAFDoc_GraphNode; Chindex: Standard_Integer) {.
-    importcpp: "UnSetChild", header: "XCAFDoc_GraphNode.hxx".}
-proc GetFather*(this: XCAFDoc_GraphNode; Findex: Standard_Integer): handle[
-    XCAFDoc_GraphNode] {.noSideEffect, importcpp: "GetFather",
-                        header: "XCAFDoc_GraphNode.hxx".}
-proc GetChild*(this: XCAFDoc_GraphNode; Chindex: Standard_Integer): handle[
-    XCAFDoc_GraphNode] {.noSideEffect, importcpp: "GetChild",
-                        header: "XCAFDoc_GraphNode.hxx".}
-proc FatherIndex*(this: XCAFDoc_GraphNode; F: handle[XCAFDoc_GraphNode]): Standard_Integer {.
+proc unSetChild*(this: var XCAFDocGraphNode; chindex: int) {.importcpp: "UnSetChild",
+    header: "XCAFDoc_GraphNode.hxx".}
+proc getFather*(this: XCAFDocGraphNode; findex: int): Handle[XCAFDocGraphNode] {.
+    noSideEffect, importcpp: "GetFather", header: "XCAFDoc_GraphNode.hxx".}
+proc getChild*(this: XCAFDocGraphNode; chindex: int): Handle[XCAFDocGraphNode] {.
+    noSideEffect, importcpp: "GetChild", header: "XCAFDoc_GraphNode.hxx".}
+proc fatherIndex*(this: XCAFDocGraphNode; f: Handle[XCAFDocGraphNode]): int {.
     noSideEffect, importcpp: "FatherIndex", header: "XCAFDoc_GraphNode.hxx".}
-proc ChildIndex*(this: XCAFDoc_GraphNode; Ch: handle[XCAFDoc_GraphNode]): Standard_Integer {.
+proc childIndex*(this: XCAFDocGraphNode; ch: Handle[XCAFDocGraphNode]): int {.
     noSideEffect, importcpp: "ChildIndex", header: "XCAFDoc_GraphNode.hxx".}
-proc IsFather*(this: XCAFDoc_GraphNode; Ch: handle[XCAFDoc_GraphNode]): Standard_Boolean {.
+proc isFather*(this: XCAFDocGraphNode; ch: Handle[XCAFDocGraphNode]): bool {.
     noSideEffect, importcpp: "IsFather", header: "XCAFDoc_GraphNode.hxx".}
-proc IsChild*(this: XCAFDoc_GraphNode; F: handle[XCAFDoc_GraphNode]): Standard_Boolean {.
+proc isChild*(this: XCAFDocGraphNode; f: Handle[XCAFDocGraphNode]): bool {.
     noSideEffect, importcpp: "IsChild", header: "XCAFDoc_GraphNode.hxx".}
-proc NbFathers*(this: XCAFDoc_GraphNode): Standard_Integer {.noSideEffect,
-    importcpp: "NbFathers", header: "XCAFDoc_GraphNode.hxx".}
-proc NbChildren*(this: XCAFDoc_GraphNode): Standard_Integer {.noSideEffect,
+proc nbFathers*(this: XCAFDocGraphNode): int {.noSideEffect, importcpp: "NbFathers",
+    header: "XCAFDoc_GraphNode.hxx".}
+proc nbChildren*(this: XCAFDocGraphNode): int {.noSideEffect,
     importcpp: "NbChildren", header: "XCAFDoc_GraphNode.hxx".}
-proc ID*(this: XCAFDoc_GraphNode): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: XCAFDocGraphNode): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "XCAFDoc_GraphNode.hxx".}
-proc Restore*(this: var XCAFDoc_GraphNode; with: handle[TDF_Attribute]) {.
+proc restore*(this: var XCAFDocGraphNode; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "XCAFDoc_GraphNode.hxx".}
-proc Paste*(this: XCAFDoc_GraphNode; into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: XCAFDocGraphNode; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "XCAFDoc_GraphNode.hxx".}
-proc NewEmpty*(this: XCAFDoc_GraphNode): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: XCAFDocGraphNode): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "XCAFDoc_GraphNode.hxx".}
-proc References*(this: XCAFDoc_GraphNode; aDataSet: handle[TDF_DataSet]) {.
+proc references*(this: XCAFDocGraphNode; aDataSet: Handle[TDF_DataSet]) {.
     noSideEffect, importcpp: "References", header: "XCAFDoc_GraphNode.hxx".}
-proc Dump*(this: XCAFDoc_GraphNode; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: XCAFDocGraphNode; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "XCAFDoc_GraphNode.hxx".}
-proc BeforeForget*(this: var XCAFDoc_GraphNode) {.importcpp: "BeforeForget",
+proc beforeForget*(this: var XCAFDocGraphNode) {.importcpp: "BeforeForget",
     header: "XCAFDoc_GraphNode.hxx".}
-proc DumpJson*(this: XCAFDoc_GraphNode; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "XCAFDoc_GraphNode.hxx".}
+proc dumpJson*(this: XCAFDocGraphNode; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "XCAFDoc_GraphNode.hxx".}
 type
-  XCAFDoc_GraphNodebase_type* = TDF_Attribute
+  XCAFDocGraphNodebaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "XCAFDoc_GraphNode::get_type_name(@)",
-                              header: "XCAFDoc_GraphNode.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XCAFDoc_GraphNode::get_type_name(@)",
+                            header: "XCAFDoc_GraphNode.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XCAFDoc_GraphNode::get_type_descriptor(@)",
     header: "XCAFDoc_GraphNode.hxx".}
-proc DynamicType*(this: XCAFDoc_GraphNode): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: XCAFDocGraphNode): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XCAFDoc_GraphNode.hxx".}

@@ -13,49 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../XmlMDF/XmlMDF_ADriver,
-  ../Standard/Standard_Boolean, ../XmlObjMgt/XmlObjMgt_RRelocationTable,
-  ../XmlObjMgt/XmlObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDataStd_UAttributeDriver"
 discard "forward decl of XmlMDataStd_UAttributeDriver"
 type
-  Handle_XmlMDataStd_UAttributeDriver* = handle[XmlMDataStd_UAttributeDriver]
+  HandleXmlMDataStdUAttributeDriver* = Handle[XmlMDataStdUAttributeDriver]
 
 ## ! Attribute Driver.
 
 type
-  XmlMDataStd_UAttributeDriver* {.importcpp: "XmlMDataStd_UAttributeDriver",
-                                 header: "XmlMDataStd_UAttributeDriver.hxx",
-                                 bycopy.} = object of XmlMDF_ADriver
+  XmlMDataStdUAttributeDriver* {.importcpp: "XmlMDataStd_UAttributeDriver",
+                                header: "XmlMDataStd_UAttributeDriver.hxx", bycopy.} = object of XmlMDF_ADriver
 
 
-proc constructXmlMDataStd_UAttributeDriver*(
-    theMessageDriver: handle[Message_Messenger]): XmlMDataStd_UAttributeDriver {.
+proc constructXmlMDataStdUAttributeDriver*(
+    theMessageDriver: Handle[MessageMessenger]): XmlMDataStdUAttributeDriver {.
     constructor, importcpp: "XmlMDataStd_UAttributeDriver(@)",
     header: "XmlMDataStd_UAttributeDriver.hxx".}
-proc NewEmpty*(this: XmlMDataStd_UAttributeDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: XmlMDataStdUAttributeDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty", header: "XmlMDataStd_UAttributeDriver.hxx".}
-proc Paste*(this: XmlMDataStd_UAttributeDriver; Source: XmlObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var XmlObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "XmlMDataStd_UAttributeDriver.hxx".}
-proc Paste*(this: XmlMDataStd_UAttributeDriver; Source: handle[TDF_Attribute];
-           Target: var XmlObjMgt_Persistent;
-           RelocTable: var XmlObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: XmlMDataStdUAttributeDriver; source: XmlObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var XmlObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "XmlMDataStd_UAttributeDriver.hxx".}
+proc paste*(this: XmlMDataStdUAttributeDriver; source: Handle[TDF_Attribute];
+           target: var XmlObjMgtPersistent;
+           relocTable: var XmlObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "XmlMDataStd_UAttributeDriver.hxx".}
 type
-  XmlMDataStd_UAttributeDriverbase_type* = XmlMDF_ADriver
+  XmlMDataStdUAttributeDriverbaseType* = XmlMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "XmlMDataStd_UAttributeDriver::get_type_name(@)",
-                              header: "XmlMDataStd_UAttributeDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XmlMDataStd_UAttributeDriver::get_type_name(@)",
+                            header: "XmlMDataStd_UAttributeDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XmlMDataStd_UAttributeDriver::get_type_descriptor(@)",
     header: "XmlMDataStd_UAttributeDriver.hxx".}
-proc DynamicType*(this: XmlMDataStd_UAttributeDriver): handle[Standard_Type] {.
+proc dynamicType*(this: XmlMDataStdUAttributeDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMDataStd_UAttributeDriver.hxx".}

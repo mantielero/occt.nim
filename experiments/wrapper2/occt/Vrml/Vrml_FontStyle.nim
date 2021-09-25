@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real, Vrml_FontStyleFamily,
-  Vrml_FontStyleStyle, ../Standard/Standard_OStream
-
 ## ! defines a FontStyle node of VRML of properties of geometry
 ## ! and its appearance.
 ## ! The  size  field  specifies  the  height  (in  object  space  units)
@@ -26,24 +21,24 @@ import
 ## ! adjacent  lines  of  text.
 
 type
-  Vrml_FontStyle* {.importcpp: "Vrml_FontStyle", header: "Vrml_FontStyle.hxx", bycopy.} = object
+  VrmlFontStyle* {.importcpp: "Vrml_FontStyle", header: "Vrml_FontStyle.hxx", bycopy.} = object
 
 
-proc constructVrml_FontStyle*(aSize: Standard_Real = 10;
-                             aFamily: Vrml_FontStyleFamily = Vrml_SERIF;
-                             aStyle: Vrml_FontStyleStyle = Vrml_NONE): Vrml_FontStyle {.
+proc constructVrmlFontStyle*(aSize: float = 10;
+                            aFamily: VrmlFontStyleFamily = vrmlSERIF;
+                            aStyle: VrmlFontStyleStyle = vrmlNONE): VrmlFontStyle {.
     constructor, importcpp: "Vrml_FontStyle(@)", header: "Vrml_FontStyle.hxx".}
-proc SetSize*(this: var Vrml_FontStyle; aSize: Standard_Real) {.importcpp: "SetSize",
+proc setSize*(this: var VrmlFontStyle; aSize: float) {.importcpp: "SetSize",
     header: "Vrml_FontStyle.hxx".}
-proc Size*(this: Vrml_FontStyle): Standard_Real {.noSideEffect, importcpp: "Size",
-    header: "Vrml_FontStyle.hxx".}
-proc SetFamily*(this: var Vrml_FontStyle; aFamily: Vrml_FontStyleFamily) {.
+proc size*(this: VrmlFontStyle): float {.noSideEffect, importcpp: "Size",
+                                     header: "Vrml_FontStyle.hxx".}
+proc setFamily*(this: var VrmlFontStyle; aFamily: VrmlFontStyleFamily) {.
     importcpp: "SetFamily", header: "Vrml_FontStyle.hxx".}
-proc Family*(this: Vrml_FontStyle): Vrml_FontStyleFamily {.noSideEffect,
+proc family*(this: VrmlFontStyle): VrmlFontStyleFamily {.noSideEffect,
     importcpp: "Family", header: "Vrml_FontStyle.hxx".}
-proc SetStyle*(this: var Vrml_FontStyle; aStyle: Vrml_FontStyleStyle) {.
+proc setStyle*(this: var VrmlFontStyle; aStyle: VrmlFontStyleStyle) {.
     importcpp: "SetStyle", header: "Vrml_FontStyle.hxx".}
-proc Style*(this: Vrml_FontStyle): Vrml_FontStyleStyle {.noSideEffect,
+proc style*(this: VrmlFontStyle): VrmlFontStyleStyle {.noSideEffect,
     importcpp: "Style", header: "Vrml_FontStyle.hxx".}
-proc Print*(this: Vrml_FontStyle; anOStream: var Standard_OStream): var Standard_OStream {.
+proc print*(this: VrmlFontStyle; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_FontStyle.hxx".}

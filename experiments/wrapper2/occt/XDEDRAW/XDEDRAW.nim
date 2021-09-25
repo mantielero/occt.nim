@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor
-
 discard "forward decl of XDEDRAW_Shapes"
 discard "forward decl of XDEDRAW_GDTs"
 discard "forward decl of XDEDRAW_Colors"
@@ -25,11 +21,11 @@ discard "forward decl of XDEDRAW_Props"
 discard "forward decl of XDEDRAW_Common"
 discard "forward decl of XDEDRAW_Views"
 type
-  XDEDRAW* {.importcpp: "XDEDRAW", header: "XDEDRAW.hxx", bycopy.} = object ## ! Provides common commands for work XDE
+  Xdedraw* {.importcpp: "XDEDRAW", header: "XDEDRAW.hxx", bycopy.} = object ## ! Provides common commands for work XDE
                                                                     ## ! Initializes all the functions
 
 
-proc Init*(di: var Draw_Interpretor) {.importcpp: "XDEDRAW::Init(@)",
-                                   header: "XDEDRAW.hxx".}
-proc Factory*(theDI: var Draw_Interpretor) {.importcpp: "XDEDRAW::Factory(@)",
-    header: "XDEDRAW.hxx".}
+proc init*(di: var DrawInterpretor) {.importcpp: "XDEDRAW::Init(@)",
+                                  header: "XDEDRAW.hxx".}
+proc factory*(theDI: var DrawInterpretor) {.importcpp: "XDEDRAW::Factory(@)",
+                                        header: "XDEDRAW.hxx".}

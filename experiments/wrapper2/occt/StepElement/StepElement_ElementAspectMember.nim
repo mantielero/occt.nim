@@ -13,45 +13,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../StepData/StepData_SelectNamed, ../Standard/Standard_Boolean,
-  ../Standard/Standard_CString
-
 discard "forward decl of StepElement_ElementAspectMember"
 discard "forward decl of StepElement_ElementAspectMember"
 type
-  Handle_StepElement_ElementAspectMember* = handle[StepElement_ElementAspectMember]
+  HandleStepElementElementAspectMember* = Handle[StepElementElementAspectMember]
 
 ## ! Representation of member for  STEP SELECT type ElementAspect
 
 type
-  StepElement_ElementAspectMember* {.importcpp: "StepElement_ElementAspectMember", header: "StepElement_ElementAspectMember.hxx",
-                                    bycopy.} = object of StepData_SelectNamed ## ! Empty
-                                                                         ## constructor
+  StepElementElementAspectMember* {.importcpp: "StepElement_ElementAspectMember", header: "StepElement_ElementAspectMember.hxx",
+                                   bycopy.} = object of StepDataSelectNamed ## ! Empty
+                                                                       ## constructor
 
 
-proc constructStepElement_ElementAspectMember*(): StepElement_ElementAspectMember {.
+proc constructStepElementElementAspectMember*(): StepElementElementAspectMember {.
     constructor, importcpp: "StepElement_ElementAspectMember(@)",
     header: "StepElement_ElementAspectMember.hxx".}
-proc HasName*(this: StepElement_ElementAspectMember): Standard_Boolean {.
-    noSideEffect, importcpp: "HasName",
-    header: "StepElement_ElementAspectMember.hxx".}
-proc Name*(this: StepElement_ElementAspectMember): Standard_CString {.noSideEffect,
+proc hasName*(this: StepElementElementAspectMember): bool {.noSideEffect,
+    importcpp: "HasName", header: "StepElement_ElementAspectMember.hxx".}
+proc name*(this: StepElementElementAspectMember): StandardCString {.noSideEffect,
     importcpp: "Name", header: "StepElement_ElementAspectMember.hxx".}
-proc SetName*(this: var StepElement_ElementAspectMember; name: Standard_CString): Standard_Boolean {.
+proc setName*(this: var StepElementElementAspectMember; name: StandardCString): bool {.
     importcpp: "SetName", header: "StepElement_ElementAspectMember.hxx".}
-proc Matches*(this: StepElement_ElementAspectMember; name: Standard_CString): Standard_Boolean {.
+proc matches*(this: StepElementElementAspectMember; name: StandardCString): bool {.
     noSideEffect, importcpp: "Matches",
     header: "StepElement_ElementAspectMember.hxx".}
 type
-  StepElement_ElementAspectMemberbase_type* = StepData_SelectNamed
+  StepElementElementAspectMemberbaseType* = StepDataSelectNamed
 
-proc get_type_name*(): cstring {.importcpp: "StepElement_ElementAspectMember::get_type_name(@)",
-                              header: "StepElement_ElementAspectMember.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepElement_ElementAspectMember::get_type_name(@)",
+                            header: "StepElement_ElementAspectMember.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepElement_ElementAspectMember::get_type_descriptor(@)",
     header: "StepElement_ElementAspectMember.hxx".}
-proc DynamicType*(this: StepElement_ElementAspectMember): handle[Standard_Type] {.
+proc dynamicType*(this: StepElementElementAspectMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_ElementAspectMember.hxx".}

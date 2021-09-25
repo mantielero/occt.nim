@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString, IFSelect_SelectExtract,
-  ../Standard/Standard_CString, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of Standard_Transient"
@@ -28,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectFlag"
 discard "forward decl of IFSelect_SelectFlag"
 type
-  Handle_IFSelect_SelectFlag* = handle[IFSelect_SelectFlag]
+  HandleIFSelectSelectFlag* = Handle[IFSelectSelectFlag]
 
 ## ! A SelectFlag queries a flag noted in the bitmap of the Graph.
 ## ! The Flag is designated by its Name. Flag Names are defined
@@ -38,42 +32,42 @@ type
 ## ! Objects which control application running define some others
 
 type
-  IFSelect_SelectFlag* {.importcpp: "IFSelect_SelectFlag",
-                        header: "IFSelect_SelectFlag.hxx", bycopy.} = object of IFSelect_SelectExtract ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## a
-                                                                                                ## Select
-                                                                                                ## Flag,
-                                                                                                ## to
-                                                                                                ## query
-                                                                                                ## a
-                                                                                                ## flag
-                                                                                                ## designated
-                                                                                                ## by
-                                                                                                ## its
-                                                                                                ## name
+  IFSelectSelectFlag* {.importcpp: "IFSelect_SelectFlag",
+                       header: "IFSelect_SelectFlag.hxx", bycopy.} = object of IFSelectSelectExtract ##
+                                                                                              ## !
+                                                                                              ## Creates
+                                                                                              ## a
+                                                                                              ## Select
+                                                                                              ## Flag,
+                                                                                              ## to
+                                                                                              ## query
+                                                                                              ## a
+                                                                                              ## flag
+                                                                                              ## designated
+                                                                                              ## by
+                                                                                              ## its
+                                                                                              ## name
 
 
-proc constructIFSelect_SelectFlag*(flagname: Standard_CString): IFSelect_SelectFlag {.
+proc constructIFSelectSelectFlag*(flagname: StandardCString): IFSelectSelectFlag {.
     constructor, importcpp: "IFSelect_SelectFlag(@)",
     header: "IFSelect_SelectFlag.hxx".}
-proc FlagName*(this: IFSelect_SelectFlag): Standard_CString {.noSideEffect,
+proc flagName*(this: IFSelectSelectFlag): StandardCString {.noSideEffect,
     importcpp: "FlagName", header: "IFSelect_SelectFlag.hxx".}
-proc RootResult*(this: IFSelect_SelectFlag; G: Interface_Graph): Interface_EntityIterator {.
+proc rootResult*(this: IFSelectSelectFlag; g: InterfaceGraph): InterfaceEntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "IFSelect_SelectFlag.hxx".}
-proc Sort*(this: IFSelect_SelectFlag; rank: Standard_Integer;
-          ent: handle[Standard_Transient]; model: handle[Interface_InterfaceModel]): Standard_Boolean {.
-    noSideEffect, importcpp: "Sort", header: "IFSelect_SelectFlag.hxx".}
-proc ExtractLabel*(this: IFSelect_SelectFlag): TCollection_AsciiString {.
-    noSideEffect, importcpp: "ExtractLabel", header: "IFSelect_SelectFlag.hxx".}
+proc sort*(this: IFSelectSelectFlag; rank: int; ent: Handle[StandardTransient];
+          model: Handle[InterfaceInterfaceModel]): bool {.noSideEffect,
+    importcpp: "Sort", header: "IFSelect_SelectFlag.hxx".}
+proc extractLabel*(this: IFSelectSelectFlag): TCollectionAsciiString {.noSideEffect,
+    importcpp: "ExtractLabel", header: "IFSelect_SelectFlag.hxx".}
 type
-  IFSelect_SelectFlagbase_type* = IFSelect_SelectExtract
+  IFSelectSelectFlagbaseType* = IFSelectSelectExtract
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectFlag::get_type_name(@)",
-                              header: "IFSelect_SelectFlag.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectFlag::get_type_name(@)",
+                            header: "IFSelect_SelectFlag.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_SelectFlag::get_type_descriptor(@)",
     header: "IFSelect_SelectFlag.hxx".}
-proc DynamicType*(this: IFSelect_SelectFlag): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IFSelectSelectFlag): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectFlag.hxx".}

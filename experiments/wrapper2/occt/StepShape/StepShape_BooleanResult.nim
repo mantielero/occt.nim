@@ -14,54 +14,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_BooleanOperator,
-  StepShape_BooleanOperand, ../StepGeom/StepGeom_GeometricRepresentationItem
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_BooleanOperand"
 discard "forward decl of StepShape_BooleanResult"
 discard "forward decl of StepShape_BooleanResult"
 type
-  Handle_StepShape_BooleanResult* = handle[StepShape_BooleanResult]
-  StepShape_BooleanResult* {.importcpp: "StepShape_BooleanResult",
-                            header: "StepShape_BooleanResult.hxx", bycopy.} = object of StepGeom_GeometricRepresentationItem ##
-                                                                                                                      ## !
-                                                                                                                      ## Returns
-                                                                                                                      ## a
-                                                                                                                      ## BooleanResult
+  HandleStepShapeBooleanResult* = Handle[StepShapeBooleanResult]
+  StepShapeBooleanResult* {.importcpp: "StepShape_BooleanResult",
+                           header: "StepShape_BooleanResult.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
+                                                                                                                    ## !
+                                                                                                                    ## Returns
+                                                                                                                    ## a
+                                                                                                                    ## BooleanResult
 
 
-proc constructStepShape_BooleanResult*(): StepShape_BooleanResult {.constructor,
+proc constructStepShapeBooleanResult*(): StepShapeBooleanResult {.constructor,
     importcpp: "StepShape_BooleanResult(@)", header: "StepShape_BooleanResult.hxx".}
-proc Init*(this: var StepShape_BooleanResult;
-          aName: handle[TCollection_HAsciiString];
-          aOperator: StepShape_BooleanOperator;
-          aFirstOperand: StepShape_BooleanOperand;
-          aSecondOperand: StepShape_BooleanOperand) {.importcpp: "Init",
+proc init*(this: var StepShapeBooleanResult; aName: Handle[TCollectionHAsciiString];
+          aOperator: StepShapeBooleanOperator;
+          aFirstOperand: StepShapeBooleanOperand;
+          aSecondOperand: StepShapeBooleanOperand) {.importcpp: "Init",
     header: "StepShape_BooleanResult.hxx".}
-proc SetOperator*(this: var StepShape_BooleanResult;
-                 aOperator: StepShape_BooleanOperator) {.importcpp: "SetOperator",
+proc setOperator*(this: var StepShapeBooleanResult;
+                 aOperator: StepShapeBooleanOperator) {.importcpp: "SetOperator",
     header: "StepShape_BooleanResult.hxx".}
-proc Operator*(this: StepShape_BooleanResult): StepShape_BooleanOperator {.
+proc operator*(this: StepShapeBooleanResult): StepShapeBooleanOperator {.
     noSideEffect, importcpp: "Operator", header: "StepShape_BooleanResult.hxx".}
-proc SetFirstOperand*(this: var StepShape_BooleanResult;
-                     aFirstOperand: StepShape_BooleanOperand) {.
+proc setFirstOperand*(this: var StepShapeBooleanResult;
+                     aFirstOperand: StepShapeBooleanOperand) {.
     importcpp: "SetFirstOperand", header: "StepShape_BooleanResult.hxx".}
-proc FirstOperand*(this: StepShape_BooleanResult): StepShape_BooleanOperand {.
+proc firstOperand*(this: StepShapeBooleanResult): StepShapeBooleanOperand {.
     noSideEffect, importcpp: "FirstOperand", header: "StepShape_BooleanResult.hxx".}
-proc SetSecondOperand*(this: var StepShape_BooleanResult;
-                      aSecondOperand: StepShape_BooleanOperand) {.
+proc setSecondOperand*(this: var StepShapeBooleanResult;
+                      aSecondOperand: StepShapeBooleanOperand) {.
     importcpp: "SetSecondOperand", header: "StepShape_BooleanResult.hxx".}
-proc SecondOperand*(this: StepShape_BooleanResult): StepShape_BooleanOperand {.
+proc secondOperand*(this: StepShapeBooleanResult): StepShapeBooleanOperand {.
     noSideEffect, importcpp: "SecondOperand", header: "StepShape_BooleanResult.hxx".}
 type
-  StepShape_BooleanResultbase_type* = StepGeom_GeometricRepresentationItem
+  StepShapeBooleanResultbaseType* = StepGeomGeometricRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_BooleanResult::get_type_name(@)",
-                              header: "StepShape_BooleanResult.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_BooleanResult::get_type_name(@)",
+                            header: "StepShape_BooleanResult.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_BooleanResult::get_type_descriptor(@)",
     header: "StepShape_BooleanResult.hxx".}
-proc DynamicType*(this: StepShape_BooleanResult): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeBooleanResult): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_BooleanResult.hxx".}

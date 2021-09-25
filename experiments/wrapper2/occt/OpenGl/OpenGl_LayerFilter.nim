@@ -17,10 +17,11 @@
 ## ! for intermixed rendering of raytracable and non-raytracable layers.
 
 type
-  OpenGl_LayerFilter* {.size: sizeof(cint), importcpp: "OpenGl_LayerFilter",
-                       header: "OpenGl_LayerFilter.hxx".} = enum
-    OpenGl_LF_All,            ## !< process all layers
-    OpenGl_LF_Upper,          ## !< process only top non-raytracable layers
-    OpenGl_LF_Bottom,         ## !< process only Graphic3d_ZLayerId_BotOSD
-    OpenGl_LF_RayTracable     ## !< process only normal raytracable layers (save the bottom layer)
+  OpenGlLayerFilter* {.size: sizeof(cint), importcpp: "OpenGl_LayerFilter",
+                      header: "OpenGl_LayerFilter.hxx".} = enum
+    OpenGlLF_All,             ## !< process all layers
+    OpenGlLF_Upper,           ## !< process only top non-raytracable layers
+    OpenGlLF_Bottom,          ## !< process only Graphic3d_ZLayerId_BotOSD
+    OpenGlLF_RayTracable      ## !< process only normal raytracable layers (save the bottom layer)
+
 

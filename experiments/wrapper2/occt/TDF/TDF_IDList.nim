@@ -13,9 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_GUID, ../NCollection/NCollection_List
-
 type
-  TDF_IDList* = NCollection_List[Standard_GUID]
-  TDF_ListIteratorOfIDList* = Iterator[Standard_GUID]
+  TDF_IDList* = NCollectionList[StandardGUID]
+  TDF_ListIteratorOfIDList* = Iterator[StandardGUID]
+

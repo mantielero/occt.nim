@@ -14,88 +14,75 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../TopAbs/TopAbs_ShapeEnum, ../TopOpeBRepDS/TopOpeBRepDS_Config,
-  ../Standard/Standard_Integer, ../TopAbs/TopAbs_State,
-  ../Standard/Standard_OStream, ../Standard/Standard_Address
-
 type
-  TopOpeBRepBuild_GTopo* {.importcpp: "TopOpeBRepBuild_GTopo",
-                          header: "TopOpeBRepBuild_GTopo.hxx", bycopy.} = object
+  TopOpeBRepBuildGTopo* {.importcpp: "TopOpeBRepBuild_GTopo",
+                         header: "TopOpeBRepBuild_GTopo.hxx", bycopy.} = object
 
 
-proc constructTopOpeBRepBuild_GTopo*(): TopOpeBRepBuild_GTopo {.constructor,
+proc constructTopOpeBRepBuildGTopo*(): TopOpeBRepBuildGTopo {.constructor,
     importcpp: "TopOpeBRepBuild_GTopo(@)", header: "TopOpeBRepBuild_GTopo.hxx".}
-proc constructTopOpeBRepBuild_GTopo*(II: Standard_Boolean; IN: Standard_Boolean;
-                                    IO: Standard_Boolean; NI: Standard_Boolean;
-                                    NN: Standard_Boolean; NO: Standard_Boolean;
-                                    OI: Standard_Boolean; ON: Standard_Boolean;
-                                    OO: Standard_Boolean; t1: TopAbs_ShapeEnum;
-                                    t2: TopAbs_ShapeEnum; C1: TopOpeBRepDS_Config;
-                                    C2: TopOpeBRepDS_Config): TopOpeBRepBuild_GTopo {.
+proc constructTopOpeBRepBuildGTopo*(ii: bool; `in`: bool; io: bool; ni: bool; nn: bool;
+                                   no: bool; oi: bool; on: bool; oo: bool;
+                                   t1: TopAbsShapeEnum; t2: TopAbsShapeEnum;
+                                   c1: TopOpeBRepDS_Config;
+                                   c2: TopOpeBRepDS_Config): TopOpeBRepBuildGTopo {.
     constructor, importcpp: "TopOpeBRepBuild_GTopo(@)",
     header: "TopOpeBRepBuild_GTopo.hxx".}
-proc Reset*(this: var TopOpeBRepBuild_GTopo) {.importcpp: "Reset",
+proc reset*(this: var TopOpeBRepBuildGTopo) {.importcpp: "Reset",
     header: "TopOpeBRepBuild_GTopo.hxx".}
-proc Set*(this: var TopOpeBRepBuild_GTopo; II: Standard_Boolean; IN: Standard_Boolean;
-         IO: Standard_Boolean; NI: Standard_Boolean; NN: Standard_Boolean;
-         NO: Standard_Boolean; OI: Standard_Boolean; ON: Standard_Boolean;
-         OO: Standard_Boolean) {.importcpp: "Set",
-                               header: "TopOpeBRepBuild_GTopo.hxx".}
-proc Type*(this: TopOpeBRepBuild_GTopo; t1: var TopAbs_ShapeEnum;
-          t2: var TopAbs_ShapeEnum) {.noSideEffect, importcpp: "Type",
-                                   header: "TopOpeBRepBuild_GTopo.hxx".}
-proc ChangeType*(this: var TopOpeBRepBuild_GTopo; t1: TopAbs_ShapeEnum;
-                t2: TopAbs_ShapeEnum) {.importcpp: "ChangeType",
-                                      header: "TopOpeBRepBuild_GTopo.hxx".}
-proc Config1*(this: TopOpeBRepBuild_GTopo): TopOpeBRepDS_Config {.noSideEffect,
+proc set*(this: var TopOpeBRepBuildGTopo; ii: bool; `in`: bool; io: bool; ni: bool;
+         nn: bool; no: bool; oi: bool; on: bool; oo: bool) {.importcpp: "Set",
+    header: "TopOpeBRepBuild_GTopo.hxx".}
+proc `type`*(this: TopOpeBRepBuildGTopo; t1: var TopAbsShapeEnum;
+            t2: var TopAbsShapeEnum) {.noSideEffect, importcpp: "Type",
+                                    header: "TopOpeBRepBuild_GTopo.hxx".}
+proc changeType*(this: var TopOpeBRepBuildGTopo; t1: TopAbsShapeEnum;
+                t2: TopAbsShapeEnum) {.importcpp: "ChangeType",
+                                     header: "TopOpeBRepBuild_GTopo.hxx".}
+proc config1*(this: TopOpeBRepBuildGTopo): TopOpeBRepDS_Config {.noSideEffect,
     importcpp: "Config1", header: "TopOpeBRepBuild_GTopo.hxx".}
-proc Config2*(this: TopOpeBRepBuild_GTopo): TopOpeBRepDS_Config {.noSideEffect,
+proc config2*(this: TopOpeBRepBuildGTopo): TopOpeBRepDS_Config {.noSideEffect,
     importcpp: "Config2", header: "TopOpeBRepBuild_GTopo.hxx".}
-proc ChangeConfig*(this: var TopOpeBRepBuild_GTopo; C1: TopOpeBRepDS_Config;
-                  C2: TopOpeBRepDS_Config) {.importcpp: "ChangeConfig",
+proc changeConfig*(this: var TopOpeBRepBuildGTopo; c1: TopOpeBRepDS_Config;
+                  c2: TopOpeBRepDS_Config) {.importcpp: "ChangeConfig",
     header: "TopOpeBRepBuild_GTopo.hxx".}
-proc Value*(this: TopOpeBRepBuild_GTopo; s1: TopAbs_State; s2: TopAbs_State): Standard_Boolean {.
+proc value*(this: TopOpeBRepBuildGTopo; s1: TopAbsState; s2: TopAbsState): bool {.
     noSideEffect, importcpp: "Value", header: "TopOpeBRepBuild_GTopo.hxx".}
-proc Value*(this: TopOpeBRepBuild_GTopo; I1: Standard_Integer; I2: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "Value", header: "TopOpeBRepBuild_GTopo.hxx".}
-proc Value*(this: TopOpeBRepBuild_GTopo; II: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "Value", header: "TopOpeBRepBuild_GTopo.hxx".}
-proc ChangeValue*(this: var TopOpeBRepBuild_GTopo; i1: Standard_Integer;
-                 i2: Standard_Integer; b: Standard_Boolean) {.
+proc value*(this: TopOpeBRepBuildGTopo; i1: int; i2: int): bool {.noSideEffect,
+    importcpp: "Value", header: "TopOpeBRepBuild_GTopo.hxx".}
+proc value*(this: TopOpeBRepBuildGTopo; ii: int): bool {.noSideEffect,
+    importcpp: "Value", header: "TopOpeBRepBuild_GTopo.hxx".}
+proc changeValue*(this: var TopOpeBRepBuildGTopo; i1: int; i2: int; b: bool) {.
     importcpp: "ChangeValue", header: "TopOpeBRepBuild_GTopo.hxx".}
-proc ChangeValue*(this: var TopOpeBRepBuild_GTopo; s1: TopAbs_State; s2: TopAbs_State;
-                 b: Standard_Boolean) {.importcpp: "ChangeValue",
-                                      header: "TopOpeBRepBuild_GTopo.hxx".}
-proc GIndex*(this: TopOpeBRepBuild_GTopo; S: TopAbs_State): Standard_Integer {.
-    noSideEffect, importcpp: "GIndex", header: "TopOpeBRepBuild_GTopo.hxx".}
-proc GState*(this: TopOpeBRepBuild_GTopo; I: Standard_Integer): TopAbs_State {.
-    noSideEffect, importcpp: "GState", header: "TopOpeBRepBuild_GTopo.hxx".}
-proc Index*(this: TopOpeBRepBuild_GTopo; II: Standard_Integer;
-           i1: var Standard_Integer; i2: var Standard_Integer) {.noSideEffect,
+proc changeValue*(this: var TopOpeBRepBuildGTopo; s1: TopAbsState; s2: TopAbsState;
+                 b: bool) {.importcpp: "ChangeValue",
+                          header: "TopOpeBRepBuild_GTopo.hxx".}
+proc gIndex*(this: TopOpeBRepBuildGTopo; s: TopAbsState): int {.noSideEffect,
+    importcpp: "GIndex", header: "TopOpeBRepBuild_GTopo.hxx".}
+proc gState*(this: TopOpeBRepBuildGTopo; i: int): TopAbsState {.noSideEffect,
+    importcpp: "GState", header: "TopOpeBRepBuild_GTopo.hxx".}
+proc index*(this: TopOpeBRepBuildGTopo; ii: int; i1: var int; i2: var int) {.noSideEffect,
     importcpp: "Index", header: "TopOpeBRepBuild_GTopo.hxx".}
-proc DumpVal*(this: TopOpeBRepBuild_GTopo; OS: var Standard_OStream; s1: TopAbs_State;
-             s2: TopAbs_State) {.noSideEffect, importcpp: "DumpVal",
-                               header: "TopOpeBRepBuild_GTopo.hxx".}
-proc DumpType*(this: TopOpeBRepBuild_GTopo; OS: var Standard_OStream) {.noSideEffect,
+proc dumpVal*(this: TopOpeBRepBuildGTopo; os: var StandardOStream; s1: TopAbsState;
+             s2: TopAbsState) {.noSideEffect, importcpp: "DumpVal",
+                              header: "TopOpeBRepBuild_GTopo.hxx".}
+proc dumpType*(this: TopOpeBRepBuildGTopo; os: var StandardOStream) {.noSideEffect,
     importcpp: "DumpType", header: "TopOpeBRepBuild_GTopo.hxx".}
-proc DumpSSB*(OS: var Standard_OStream; s1: TopAbs_State; s2: TopAbs_State;
-             b: Standard_Boolean) {.importcpp: "TopOpeBRepBuild_GTopo::DumpSSB(@)",
+proc dumpSSB*(os: var StandardOStream; s1: TopAbsState; s2: TopAbsState; b: bool) {.
+    importcpp: "TopOpeBRepBuild_GTopo::DumpSSB(@)",
+    header: "TopOpeBRepBuild_GTopo.hxx".}
+proc dump*(this: TopOpeBRepBuildGTopo; os: var StandardOStream;
+          s: StandardAddress = nil) {.noSideEffect, importcpp: "Dump",
                                   header: "TopOpeBRepBuild_GTopo.hxx".}
-proc Dump*(this: TopOpeBRepBuild_GTopo; OS: var Standard_OStream;
-          s: Standard_Address = nil) {.noSideEffect, importcpp: "Dump",
-                                   header: "TopOpeBRepBuild_GTopo.hxx".}
-proc StatesON*(this: TopOpeBRepBuild_GTopo; s1: var TopAbs_State; s2: var TopAbs_State) {.
+proc statesON*(this: TopOpeBRepBuildGTopo; s1: var TopAbsState; s2: var TopAbsState) {.
     noSideEffect, importcpp: "StatesON", header: "TopOpeBRepBuild_GTopo.hxx".}
-proc IsToReverse1*(this: TopOpeBRepBuild_GTopo): Standard_Boolean {.noSideEffect,
+proc isToReverse1*(this: TopOpeBRepBuildGTopo): bool {.noSideEffect,
     importcpp: "IsToReverse1", header: "TopOpeBRepBuild_GTopo.hxx".}
-proc IsToReverse2*(this: TopOpeBRepBuild_GTopo): Standard_Boolean {.noSideEffect,
+proc isToReverse2*(this: TopOpeBRepBuildGTopo): bool {.noSideEffect,
     importcpp: "IsToReverse2", header: "TopOpeBRepBuild_GTopo.hxx".}
-proc SetReverse*(this: var TopOpeBRepBuild_GTopo; rev: Standard_Boolean) {.
-    importcpp: "SetReverse", header: "TopOpeBRepBuild_GTopo.hxx".}
-proc Reverse*(this: TopOpeBRepBuild_GTopo): Standard_Boolean {.noSideEffect,
-    importcpp: "Reverse", header: "TopOpeBRepBuild_GTopo.hxx".}
-proc CopyPermuted*(this: TopOpeBRepBuild_GTopo): TopOpeBRepBuild_GTopo {.
-    noSideEffect, importcpp: "CopyPermuted", header: "TopOpeBRepBuild_GTopo.hxx".}
+proc setReverse*(this: var TopOpeBRepBuildGTopo; rev: bool) {.importcpp: "SetReverse",
+    header: "TopOpeBRepBuild_GTopo.hxx".}
+proc reverse*(this: TopOpeBRepBuildGTopo): bool {.noSideEffect, importcpp: "Reverse",
+    header: "TopOpeBRepBuild_GTopo.hxx".}
+proc copyPermuted*(this: TopOpeBRepBuildGTopo): TopOpeBRepBuildGTopo {.noSideEffect,
+    importcpp: "CopyPermuted", header: "TopOpeBRepBuild_GTopo.hxx".}

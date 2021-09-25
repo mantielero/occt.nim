@@ -14,67 +14,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Pnt, Intf_PIType,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Pnt2d"
 type
-  Intf_SectionPoint* {.importcpp: "Intf_SectionPoint",
-                      header: "Intf_SectionPoint.hxx", bycopy.} = object ## ! Returns the location of the
-                                                                    ## SectionPoint.
+  IntfSectionPoint* {.importcpp: "Intf_SectionPoint",
+                     header: "Intf_SectionPoint.hxx", bycopy.} = object ## ! Returns the location of the SectionPoint.
 
 
-proc Pnt*(this: Intf_SectionPoint): gp_Pnt {.noSideEffect, importcpp: "Pnt",
-    header: "Intf_SectionPoint.hxx".}
-proc ParamOnFirst*(this: Intf_SectionPoint): Standard_Real {.noSideEffect,
+proc pnt*(this: IntfSectionPoint): Pnt {.noSideEffect, importcpp: "Pnt",
+                                     header: "Intf_SectionPoint.hxx".}
+proc paramOnFirst*(this: IntfSectionPoint): float {.noSideEffect,
     importcpp: "ParamOnFirst", header: "Intf_SectionPoint.hxx".}
-proc ParamOnSecond*(this: Intf_SectionPoint): Standard_Real {.noSideEffect,
+proc paramOnSecond*(this: IntfSectionPoint): float {.noSideEffect,
     importcpp: "ParamOnSecond", header: "Intf_SectionPoint.hxx".}
-proc TypeOnFirst*(this: Intf_SectionPoint): Intf_PIType {.noSideEffect,
+proc typeOnFirst*(this: IntfSectionPoint): IntfPIType {.noSideEffect,
     importcpp: "TypeOnFirst", header: "Intf_SectionPoint.hxx".}
-proc TypeOnSecond*(this: Intf_SectionPoint): Intf_PIType {.noSideEffect,
+proc typeOnSecond*(this: IntfSectionPoint): IntfPIType {.noSideEffect,
     importcpp: "TypeOnSecond", header: "Intf_SectionPoint.hxx".}
-proc InfoFirst*(this: Intf_SectionPoint; Dim: var Intf_PIType;
-               Add1: var Standard_Integer; Add2: var Standard_Integer;
-               Param: var Standard_Real) {.noSideEffect, importcpp: "InfoFirst",
-                                        header: "Intf_SectionPoint.hxx".}
-proc InfoFirst*(this: Intf_SectionPoint; Dim: var Intf_PIType;
-               Addr: var Standard_Integer; Param: var Standard_Real) {.noSideEffect,
-    importcpp: "InfoFirst", header: "Intf_SectionPoint.hxx".}
-proc InfoSecond*(this: Intf_SectionPoint; Dim: var Intf_PIType;
-                Add1: var Standard_Integer; Add2: var Standard_Integer;
-                Param: var Standard_Real) {.noSideEffect, importcpp: "InfoSecond",
+proc infoFirst*(this: IntfSectionPoint; dim: var IntfPIType; add1: var int;
+               add2: var int; param: var float) {.noSideEffect, importcpp: "InfoFirst",
     header: "Intf_SectionPoint.hxx".}
-proc InfoSecond*(this: Intf_SectionPoint; Dim: var Intf_PIType;
-                Addr: var Standard_Integer; Param: var Standard_Real) {.noSideEffect,
+proc infoFirst*(this: IntfSectionPoint; dim: var IntfPIType; `addr`: var int;
+               param: var float) {.noSideEffect, importcpp: "InfoFirst",
+                                header: "Intf_SectionPoint.hxx".}
+proc infoSecond*(this: IntfSectionPoint; dim: var IntfPIType; add1: var int;
+                add2: var int; param: var float) {.noSideEffect,
     importcpp: "InfoSecond", header: "Intf_SectionPoint.hxx".}
-proc Incidence*(this: Intf_SectionPoint): Standard_Real {.noSideEffect,
+proc infoSecond*(this: IntfSectionPoint; dim: var IntfPIType; `addr`: var int;
+                param: var float) {.noSideEffect, importcpp: "InfoSecond",
+                                 header: "Intf_SectionPoint.hxx".}
+proc incidence*(this: IntfSectionPoint): float {.noSideEffect,
     importcpp: "Incidence", header: "Intf_SectionPoint.hxx".}
-proc IsEqual*(this: Intf_SectionPoint; Other: Intf_SectionPoint): Standard_Boolean {.
-    noSideEffect, importcpp: "IsEqual", header: "Intf_SectionPoint.hxx".}
-proc `==`*(this: Intf_SectionPoint; Other: Intf_SectionPoint): Standard_Boolean {.
-    noSideEffect, importcpp: "(# == #)", header: "Intf_SectionPoint.hxx".}
-proc IsOnSameEdge*(this: Intf_SectionPoint; Other: Intf_SectionPoint): Standard_Boolean {.
+proc isEqual*(this: IntfSectionPoint; other: IntfSectionPoint): bool {.noSideEffect,
+    importcpp: "IsEqual", header: "Intf_SectionPoint.hxx".}
+proc `==`*(this: IntfSectionPoint; other: IntfSectionPoint): bool {.noSideEffect,
+    importcpp: "(# == #)", header: "Intf_SectionPoint.hxx".}
+proc isOnSameEdge*(this: IntfSectionPoint; other: IntfSectionPoint): bool {.
     noSideEffect, importcpp: "IsOnSameEdge", header: "Intf_SectionPoint.hxx".}
-proc constructIntf_SectionPoint*(): Intf_SectionPoint {.constructor,
+proc constructIntfSectionPoint*(): IntfSectionPoint {.constructor,
     importcpp: "Intf_SectionPoint(@)", header: "Intf_SectionPoint.hxx".}
-proc constructIntf_SectionPoint*(Where: gp_Pnt; DimeO: Intf_PIType;
-                                AddrO1: Standard_Integer;
-                                AddrO2: Standard_Integer; ParamO: Standard_Real;
-                                DimeT: Intf_PIType; AddrT1: Standard_Integer;
-                                AddrT2: Standard_Integer; ParamT: Standard_Real;
-                                Incid: Standard_Real): Intf_SectionPoint {.
+proc constructIntfSectionPoint*(where: Pnt; dimeO: IntfPIType; addrO1: int;
+                               addrO2: int; paramO: float; dimeT: IntfPIType;
+                               addrT1: int; addrT2: int; paramT: float; incid: float): IntfSectionPoint {.
     constructor, importcpp: "Intf_SectionPoint(@)", header: "Intf_SectionPoint.hxx".}
-proc constructIntf_SectionPoint*(Where: gp_Pnt2d; DimeO: Intf_PIType;
-                                AddrO1: Standard_Integer; ParamO: Standard_Real;
-                                DimeT: Intf_PIType; AddrT1: Standard_Integer;
-                                ParamT: Standard_Real; Incid: Standard_Real): Intf_SectionPoint {.
+proc constructIntfSectionPoint*(where: Pnt2d; dimeO: IntfPIType; addrO1: int;
+                               paramO: float; dimeT: IntfPIType; addrT1: int;
+                               paramT: float; incid: float): IntfSectionPoint {.
     constructor, importcpp: "Intf_SectionPoint(@)", header: "Intf_SectionPoint.hxx".}
-proc Merge*(this: var Intf_SectionPoint; Other: var Intf_SectionPoint) {.
+proc merge*(this: var IntfSectionPoint; other: var IntfSectionPoint) {.
     importcpp: "Merge", header: "Intf_SectionPoint.hxx".}
-proc Dump*(this: Intf_SectionPoint; Indent: Standard_Integer) {.noSideEffect,
-    importcpp: "Dump", header: "Intf_SectionPoint.hxx".}
+proc dump*(this: IntfSectionPoint; indent: int) {.noSideEffect, importcpp: "Dump",
+    header: "Intf_SectionPoint.hxx".}

@@ -11,19 +11,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Graphic3d_TextureUnit
-
 ## ! Standard texture units combination bits.
 
 type
-  Graphic3d_TextureSetBits* {.size: sizeof(cint),
-                             importcpp: "Graphic3d_TextureSetBits",
-                             header: "Graphic3d_TextureSetBits.hxx".} = enum
-    Graphic3d_TextureSetBits_NONE = 0, Graphic3d_TextureSetBits_BaseColor = cast[cuint]((
-        1 shl int(Graphic3d_TextureUnit_BaseColor))), Graphic3d_TextureSetBits_Emissive = cast[cuint]((
-        1 shl int(Graphic3d_TextureUnit_Emissive))), Graphic3d_TextureSetBits_Occlusion = cast[cuint]((
-        1 shl int(Graphic3d_TextureUnit_Occlusion))), Graphic3d_TextureSetBits_Normal = cast[cuint]((
-        1 shl int(Graphic3d_TextureUnit_Normal))), Graphic3d_TextureSetBits_MetallicRoughness = cast[cuint]((
-        1 shl int(Graphic3d_TextureUnit_MetallicRoughness)))
+  Graphic3dTextureSetBits* {.size: sizeof(cint),
+                            importcpp: "Graphic3d_TextureSetBits",
+                            header: "Graphic3d_TextureSetBits.hxx".} = enum
+    Graphic3dTextureSetBitsNONE = 0, Graphic3dTextureSetBitsBaseColor = cast[cuint]((
+        1 shl int(graphic3dTextureUnitBaseColor))), Graphic3dTextureSetBitsEmissive = cast[cuint]((
+        1 shl int(graphic3dTextureUnitEmissive))), Graphic3dTextureSetBitsOcclusion = cast[cuint]((
+        1 shl int(graphic3dTextureUnitOcclusion))), Graphic3dTextureSetBitsNormal = cast[cuint]((
+        1 shl int(graphic3dTextureUnitNormal))), Graphic3dTextureSetBitsMetallicRoughness = cast[cuint]((
+        1 shl int(graphic3dTextureUnitMetallicRoughness)))
+
 

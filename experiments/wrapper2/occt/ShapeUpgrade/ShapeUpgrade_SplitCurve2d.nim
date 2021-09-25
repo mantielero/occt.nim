@@ -14,46 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColGeom2d/TColGeom2d_HArray1OfCurve, ShapeUpgrade_SplitCurve,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean
-
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of ShapeUpgrade_SplitCurve2d"
 discard "forward decl of ShapeUpgrade_SplitCurve2d"
 type
-  Handle_ShapeUpgrade_SplitCurve2d* = handle[ShapeUpgrade_SplitCurve2d]
+  HandleShapeUpgradeSplitCurve2d* = Handle[ShapeUpgradeSplitCurve2d]
 
 ## ! Splits a 2d curve with a criterion.
 
 type
-  ShapeUpgrade_SplitCurve2d* {.importcpp: "ShapeUpgrade_SplitCurve2d",
-                              header: "ShapeUpgrade_SplitCurve2d.hxx", bycopy.} = object of ShapeUpgrade_SplitCurve ##
-                                                                                                             ## !
-                                                                                                             ## Empty
-                                                                                                             ## constructor.
+  ShapeUpgradeSplitCurve2d* {.importcpp: "ShapeUpgrade_SplitCurve2d",
+                             header: "ShapeUpgrade_SplitCurve2d.hxx", bycopy.} = object of ShapeUpgradeSplitCurve ##
+                                                                                                           ## !
+                                                                                                           ## Empty
+                                                                                                           ## constructor.
 
 
-proc constructShapeUpgrade_SplitCurve2d*(): ShapeUpgrade_SplitCurve2d {.
-    constructor, importcpp: "ShapeUpgrade_SplitCurve2d(@)",
+proc constructShapeUpgradeSplitCurve2d*(): ShapeUpgradeSplitCurve2d {.constructor,
+    importcpp: "ShapeUpgrade_SplitCurve2d(@)",
     header: "ShapeUpgrade_SplitCurve2d.hxx".}
-proc Init*(this: var ShapeUpgrade_SplitCurve2d; C: handle[Geom2d_Curve]) {.
+proc init*(this: var ShapeUpgradeSplitCurve2d; c: Handle[Geom2dCurve]) {.
     importcpp: "Init", header: "ShapeUpgrade_SplitCurve2d.hxx".}
-proc Init*(this: var ShapeUpgrade_SplitCurve2d; C: handle[Geom2d_Curve];
-          First: Standard_Real; Last: Standard_Real) {.importcpp: "Init",
+proc init*(this: var ShapeUpgradeSplitCurve2d; c: Handle[Geom2dCurve]; first: float;
+          last: float) {.importcpp: "Init", header: "ShapeUpgrade_SplitCurve2d.hxx".}
+proc build*(this: var ShapeUpgradeSplitCurve2d; segment: bool) {.importcpp: "Build",
     header: "ShapeUpgrade_SplitCurve2d.hxx".}
-proc Build*(this: var ShapeUpgrade_SplitCurve2d; Segment: Standard_Boolean) {.
-    importcpp: "Build", header: "ShapeUpgrade_SplitCurve2d.hxx".}
-proc GetCurves*(this: ShapeUpgrade_SplitCurve2d): handle[TColGeom2d_HArray1OfCurve] {.
+proc getCurves*(this: ShapeUpgradeSplitCurve2d): Handle[TColGeom2dHArray1OfCurve] {.
     noSideEffect, importcpp: "GetCurves", header: "ShapeUpgrade_SplitCurve2d.hxx".}
 type
-  ShapeUpgrade_SplitCurve2dbase_type* = ShapeUpgrade_SplitCurve
+  ShapeUpgradeSplitCurve2dbaseType* = ShapeUpgradeSplitCurve
 
-proc get_type_name*(): cstring {.importcpp: "ShapeUpgrade_SplitCurve2d::get_type_name(@)",
-                              header: "ShapeUpgrade_SplitCurve2d.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeUpgrade_SplitCurve2d::get_type_name(@)",
+                            header: "ShapeUpgrade_SplitCurve2d.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeUpgrade_SplitCurve2d::get_type_descriptor(@)",
     header: "ShapeUpgrade_SplitCurve2d.hxx".}
-proc DynamicType*(this: ShapeUpgrade_SplitCurve2d): handle[Standard_Type] {.
+proc dynamicType*(this: ShapeUpgradeSplitCurve2d): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "ShapeUpgrade_SplitCurve2d.hxx".}

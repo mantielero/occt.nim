@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_PresentationStyleAssignment, ../NCollection/NCollection_Array1
-
 type
-  StepVisual_Array1OfPresentationStyleAssignment* = NCollection_Array1[
-      handle[StepVisual_PresentationStyleAssignment]]
+  StepVisualArray1OfPresentationStyleAssignment* = NCollectionArray1[
+      Handle[StepVisualPresentationStyleAssignment]]
+

@@ -14,7 +14,8 @@
 ## ! Enumeration defining a mode of datum graphic presentation, see Prs3d_Datum.
 
 type
-  Prs3d_DatumMode* {.size: sizeof(cint), importcpp: "Prs3d_DatumMode",
-                    header: "Prs3d_DatumMode.hxx".} = enum
-    Prs3d_DM_WireFrame = 0, Prs3d_DM_Shaded
+  Prs3dDatumMode* {.size: sizeof(cint), importcpp: "Prs3d_DatumMode",
+                   header: "Prs3d_DatumMode.hxx".} = enum
+    Prs3dDM_WireFrame = 0, Prs3dDM_Shaded
+
 

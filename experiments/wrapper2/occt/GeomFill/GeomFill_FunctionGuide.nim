@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, ../gp/gp_XYZ,
-  ../math/math_FunctionSetWithDerivatives, ../Standard/Standard_Integer,
-  ../math/math_Vector
-
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of GeomFill_SectionLaw"
 discard "forward decl of Geom_Curve"
@@ -30,32 +23,32 @@ discard "forward decl of gp_XYZ"
 discard "forward decl of math_Matrix"
 discard "forward decl of gp_Vec"
 type
-  GeomFill_FunctionGuide* {.importcpp: "GeomFill_FunctionGuide",
-                           header: "GeomFill_FunctionGuide.hxx", bycopy.} = object of math_FunctionSetWithDerivatives
+  GeomFillFunctionGuide* {.importcpp: "GeomFill_FunctionGuide",
+                          header: "GeomFill_FunctionGuide.hxx", bycopy.} = object of MathFunctionSetWithDerivatives
 
 
-proc constructGeomFill_FunctionGuide*(S: handle[GeomFill_SectionLaw];
-                                     Guide: handle[Adaptor3d_HCurve];
-                                     ParamOnLaw: Standard_Real = 0.0): GeomFill_FunctionGuide {.
+proc constructGeomFillFunctionGuide*(s: Handle[GeomFillSectionLaw];
+                                    guide: Handle[Adaptor3dHCurve];
+                                    paramOnLaw: float = 0.0): GeomFillFunctionGuide {.
     constructor, importcpp: "GeomFill_FunctionGuide(@)",
     header: "GeomFill_FunctionGuide.hxx".}
-proc SetParam*(this: var GeomFill_FunctionGuide; Param: Standard_Real; Centre: gp_Pnt;
-              Dir: gp_XYZ; XDir: gp_XYZ) {.importcpp: "SetParam",
-                                       header: "GeomFill_FunctionGuide.hxx".}
-proc NbVariables*(this: GeomFill_FunctionGuide): Standard_Integer {.noSideEffect,
+proc setParam*(this: var GeomFillFunctionGuide; param: float; centre: Pnt; dir: Xyz;
+              xDir: Xyz) {.importcpp: "SetParam",
+                         header: "GeomFill_FunctionGuide.hxx".}
+proc nbVariables*(this: GeomFillFunctionGuide): int {.noSideEffect,
     importcpp: "NbVariables", header: "GeomFill_FunctionGuide.hxx".}
-proc NbEquations*(this: GeomFill_FunctionGuide): Standard_Integer {.noSideEffect,
+proc nbEquations*(this: GeomFillFunctionGuide): int {.noSideEffect,
     importcpp: "NbEquations", header: "GeomFill_FunctionGuide.hxx".}
-proc Value*(this: var GeomFill_FunctionGuide; X: math_Vector; F: var math_Vector): Standard_Boolean {.
+proc value*(this: var GeomFillFunctionGuide; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "GeomFill_FunctionGuide.hxx".}
-proc Derivatives*(this: var GeomFill_FunctionGuide; X: math_Vector; D: var math_Matrix): Standard_Boolean {.
+proc derivatives*(this: var GeomFillFunctionGuide; x: MathVector; d: var MathMatrix): bool {.
     importcpp: "Derivatives", header: "GeomFill_FunctionGuide.hxx".}
-proc Values*(this: var GeomFill_FunctionGuide; X: math_Vector; F: var math_Vector;
-            D: var math_Matrix): Standard_Boolean {.importcpp: "Values",
+proc values*(this: var GeomFillFunctionGuide; x: MathVector; f: var MathVector;
+            d: var MathMatrix): bool {.importcpp: "Values",
+                                   header: "GeomFill_FunctionGuide.hxx".}
+proc derivT*(this: var GeomFillFunctionGuide; x: MathVector; dCentre: Xyz; dDir: Xyz;
+            dfdt: var MathVector): bool {.importcpp: "DerivT",
+                                      header: "GeomFill_FunctionGuide.hxx".}
+proc deriv2T*(this: var GeomFillFunctionGuide; dCentre: Xyz; dDir: Xyz;
+             dfdt: var MathVector; d2ft: var MathVector): bool {.importcpp: "Deriv2T",
     header: "GeomFill_FunctionGuide.hxx".}
-proc DerivT*(this: var GeomFill_FunctionGuide; X: math_Vector; DCentre: gp_XYZ;
-            DDir: gp_XYZ; DFDT: var math_Vector): Standard_Boolean {.
-    importcpp: "DerivT", header: "GeomFill_FunctionGuide.hxx".}
-proc Deriv2T*(this: var GeomFill_FunctionGuide; DCentre: gp_XYZ; DDir: gp_XYZ;
-             DFDT: var math_Vector; D2FT: var math_Vector): Standard_Boolean {.
-    importcpp: "Deriv2T", header: "GeomFill_FunctionGuide.hxx".}

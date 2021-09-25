@@ -11,5 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # StepElement_HSequenceOfCurveElementSectionDefinition_HeaderFile [NewLine] # StepElement_HSequenceOfCurveElementSectionDefinition_HeaderFile [NewLine] # StepElement_CurveElementSectionDefinition.hxx [NewLine] # StepElement_SequenceOfCurveElementSectionDefinition.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( StepElement_HSequenceOfCurveElementSectionDefinition , StepElement_SequenceOfCurveElementSectionDefinition ) # [NewLine]
+## !!!Ignored construct:  # StepElement_HSequenceOfCurveElementSectionDefinition_HeaderFile [NewLine] # StepElement_HSequenceOfCurveElementSectionDefinition_HeaderFile [NewLine] # < StepElement_CurveElementSectionDefinition . hxx > [NewLine] # < StepElement_SequenceOfCurveElementSectionDefinition . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( StepElement_HSequenceOfCurveElementSectionDefinition , StepElement_SequenceOfCurveElementSectionDefinition ) # [NewLine]
 ## Error: expected ';'!!!
+

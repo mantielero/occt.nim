@@ -14,33 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Expr_GeneralExpression, Expr_NumericValue, Expr_Sum, Expr_UnaryMinus,
-  Expr_Difference, Expr_Product, Expr_Division
-
-proc `+`*(x: handle[Expr_GeneralExpression]; y: handle[Expr_GeneralExpression]): handle[
-    Expr_Sum] {.importcpp: "(# + #)", header: "Expr_Operators.hxx".}
-proc `+`*(x: Standard_Real; y: handle[Expr_GeneralExpression]): handle[Expr_Sum] {.
+proc `+`*(x: Handle[ExprGeneralExpression]; y: Handle[ExprGeneralExpression]): Handle[
+    ExprSum] {.importcpp: "(# + #)", header: "Expr_Operators.hxx".}
+proc `+`*(x: float; y: Handle[ExprGeneralExpression]): Handle[ExprSum] {.
     importcpp: "(# + #)", header: "Expr_Operators.hxx".}
-proc `+`*(x: handle[Expr_GeneralExpression]; y: Standard_Real): handle[Expr_Sum] {.
+proc `+`*(x: Handle[ExprGeneralExpression]; y: float): Handle[ExprSum] {.
     importcpp: "(# + #)", header: "Expr_Operators.hxx".}
-proc `-`*(x: handle[Expr_GeneralExpression]; y: handle[Expr_GeneralExpression]): handle[
-    Expr_Difference] {.importcpp: "(# - #)", header: "Expr_Operators.hxx".}
-proc `-`*(x: Standard_Real; y: handle[Expr_GeneralExpression]): handle[
-    Expr_Difference] {.importcpp: "(# - #)", header: "Expr_Operators.hxx".}
-proc `-`*(x: handle[Expr_GeneralExpression]; y: Standard_Real): handle[
-    Expr_Difference] {.importcpp: "(# - #)", header: "Expr_Operators.hxx".}
-proc `-`*(x: handle[Expr_GeneralExpression]): handle[Expr_UnaryMinus] {.
+proc `-`*(x: Handle[ExprGeneralExpression]; y: Handle[ExprGeneralExpression]): Handle[
+    ExprDifference] {.importcpp: "(# - #)", header: "Expr_Operators.hxx".}
+proc `-`*(x: float; y: Handle[ExprGeneralExpression]): Handle[ExprDifference] {.
+    importcpp: "(# - #)", header: "Expr_Operators.hxx".}
+proc `-`*(x: Handle[ExprGeneralExpression]; y: float): Handle[ExprDifference] {.
+    importcpp: "(# - #)", header: "Expr_Operators.hxx".}
+proc `-`*(x: Handle[ExprGeneralExpression]): Handle[ExprUnaryMinus] {.
     importcpp: "(- #)", header: "Expr_Operators.hxx".}
-proc `*`*(x: handle[Expr_GeneralExpression]; y: handle[Expr_GeneralExpression]): handle[
-    Expr_Product] {.importcpp: "(# * #)", header: "Expr_Operators.hxx".}
-proc `*`*(x: Standard_Real; y: handle[Expr_GeneralExpression]): handle[Expr_Product] {.
+proc `*`*(x: Handle[ExprGeneralExpression]; y: Handle[ExprGeneralExpression]): Handle[
+    ExprProduct] {.importcpp: "(# * #)", header: "Expr_Operators.hxx".}
+proc `*`*(x: float; y: Handle[ExprGeneralExpression]): Handle[ExprProduct] {.
     importcpp: "(# * #)", header: "Expr_Operators.hxx".}
-proc `*`*(x: handle[Expr_GeneralExpression]; y: Standard_Real): handle[Expr_Product] {.
+proc `*`*(x: Handle[ExprGeneralExpression]; y: float): Handle[ExprProduct] {.
     importcpp: "(# * #)", header: "Expr_Operators.hxx".}
-proc `/`*(x: handle[Expr_GeneralExpression]; y: handle[Expr_GeneralExpression]): handle[
-    Expr_Division] {.importcpp: "(# / #)", header: "Expr_Operators.hxx".}
-proc `/`*(x: Standard_Real; y: handle[Expr_GeneralExpression]): handle[Expr_Division] {.
+proc `/`*(x: Handle[ExprGeneralExpression]; y: Handle[ExprGeneralExpression]): Handle[
+    ExprDivision] {.importcpp: "(# / #)", header: "Expr_Operators.hxx".}
+proc `/`*(x: float; y: Handle[ExprGeneralExpression]): Handle[ExprDivision] {.
     importcpp: "(# / #)", header: "Expr_Operators.hxx".}
-proc `/`*(x: handle[Expr_GeneralExpression]; y: Standard_Real): handle[Expr_Division] {.
+proc `/`*(x: Handle[ExprGeneralExpression]; y: float): Handle[ExprDivision] {.
     importcpp: "(# / #)", header: "Expr_Operators.hxx".}

@@ -14,16 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../Quantity/Quantity_NameOfColor, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../SelectMgr/SelectMgr_Filter
-
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of AIS_AttributeFilter"
 discard "forward decl of AIS_AttributeFilter"
 type
-  Handle_AIS_AttributeFilter* = handle[AIS_AttributeFilter]
+  HandleAIS_AttributeFilter* = Handle[AIS_AttributeFilter]
 
 ## ! Selects Interactive Objects, which have the desired width or color.
 ## ! The filter questions each Interactive Object in local
@@ -38,61 +33,61 @@ type
 
 type
   AIS_AttributeFilter* {.importcpp: "AIS_AttributeFilter",
-                        header: "AIS_AttributeFilter.hxx", bycopy.} = object of SelectMgr_Filter ##
-                                                                                          ## !
-                                                                                          ## Constructs
-                                                                                          ## an
-                                                                                          ## empty
-                                                                                          ## attribute
-                                                                                          ## filter
-                                                                                          ## object.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## This
-                                                                                          ## filter
-                                                                                          ## object
-                                                                                          ## determines
-                                                                                          ## whether
-                                                                                          ## selectable
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## interactive
-                                                                                          ## objects
-                                                                                          ## have
-                                                                                          ## a
-                                                                                          ## non-null
-                                                                                          ## owner.
+                        header: "AIS_AttributeFilter.hxx", bycopy.} = object of SelectMgrFilter ##
+                                                                                         ## !
+                                                                                         ## Constructs
+                                                                                         ## an
+                                                                                         ## empty
+                                                                                         ## attribute
+                                                                                         ## filter
+                                                                                         ## object.
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## This
+                                                                                         ## filter
+                                                                                         ## object
+                                                                                         ## determines
+                                                                                         ## whether
+                                                                                         ## selectable
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## interactive
+                                                                                         ## objects
+                                                                                         ## have
+                                                                                         ## a
+                                                                                         ## non-null
+                                                                                         ## owner.
 
 
 proc constructAIS_AttributeFilter*(): AIS_AttributeFilter {.constructor,
     importcpp: "AIS_AttributeFilter(@)", header: "AIS_AttributeFilter.hxx".}
-proc constructAIS_AttributeFilter*(aCol: Quantity_NameOfColor): AIS_AttributeFilter {.
+proc constructAIS_AttributeFilter*(aCol: QuantityNameOfColor): AIS_AttributeFilter {.
     constructor, importcpp: "AIS_AttributeFilter(@)",
     header: "AIS_AttributeFilter.hxx".}
-proc constructAIS_AttributeFilter*(aWidth: Standard_Real): AIS_AttributeFilter {.
+proc constructAIS_AttributeFilter*(aWidth: float): AIS_AttributeFilter {.
     constructor, importcpp: "AIS_AttributeFilter(@)",
     header: "AIS_AttributeFilter.hxx".}
-proc HasColor*(this: AIS_AttributeFilter): Standard_Boolean {.noSideEffect,
+proc hasColor*(this: AIS_AttributeFilter): bool {.noSideEffect,
     importcpp: "HasColor", header: "AIS_AttributeFilter.hxx".}
-proc HasWidth*(this: AIS_AttributeFilter): Standard_Boolean {.noSideEffect,
+proc hasWidth*(this: AIS_AttributeFilter): bool {.noSideEffect,
     importcpp: "HasWidth", header: "AIS_AttributeFilter.hxx".}
-proc SetColor*(this: var AIS_AttributeFilter; aCol: Quantity_NameOfColor) {.
+proc setColor*(this: var AIS_AttributeFilter; aCol: QuantityNameOfColor) {.
     importcpp: "SetColor", header: "AIS_AttributeFilter.hxx".}
-proc SetWidth*(this: var AIS_AttributeFilter; aWidth: Standard_Real) {.
-    importcpp: "SetWidth", header: "AIS_AttributeFilter.hxx".}
-proc UnsetColor*(this: var AIS_AttributeFilter) {.importcpp: "UnsetColor",
+proc setWidth*(this: var AIS_AttributeFilter; aWidth: float) {.importcpp: "SetWidth",
     header: "AIS_AttributeFilter.hxx".}
-proc UnsetWidth*(this: var AIS_AttributeFilter) {.importcpp: "UnsetWidth",
+proc unsetColor*(this: var AIS_AttributeFilter) {.importcpp: "UnsetColor",
     header: "AIS_AttributeFilter.hxx".}
-proc IsOk*(this: AIS_AttributeFilter; anObj: handle[SelectMgr_EntityOwner]): Standard_Boolean {.
+proc unsetWidth*(this: var AIS_AttributeFilter) {.importcpp: "UnsetWidth",
+    header: "AIS_AttributeFilter.hxx".}
+proc isOk*(this: AIS_AttributeFilter; anObj: Handle[SelectMgrEntityOwner]): bool {.
     noSideEffect, importcpp: "IsOk", header: "AIS_AttributeFilter.hxx".}
 type
-  AIS_AttributeFilterbase_type* = SelectMgr_Filter
+  AIS_AttributeFilterbaseType* = SelectMgrFilter
 
-proc get_type_name*(): cstring {.importcpp: "AIS_AttributeFilter::get_type_name(@)",
-                              header: "AIS_AttributeFilter.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "AIS_AttributeFilter::get_type_name(@)",
+                            header: "AIS_AttributeFilter.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "AIS_AttributeFilter::get_type_descriptor(@)",
     header: "AIS_AttributeFilter.hxx".}
-proc DynamicType*(this: AIS_AttributeFilter): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: AIS_AttributeFilter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_AttributeFilter.hxx".}

@@ -14,34 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepGeom_Pcurve"
 discard "forward decl of StepGeom_SurfaceCurve"
 discard "forward decl of StepGeom_CompositeCurveOnSurface"
 type
-  StepGeom_CurveOnSurface* {.importcpp: "StepGeom_CurveOnSurface",
-                            header: "StepGeom_CurveOnSurface.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                     ## !
-                                                                                                     ## Returns
-                                                                                                     ## a
-                                                                                                     ## CurveOnSurface
-                                                                                                     ## SelectType
+  StepGeomCurveOnSurface* {.importcpp: "StepGeom_CurveOnSurface",
+                           header: "StepGeom_CurveOnSurface.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                   ## !
+                                                                                                   ## Returns
+                                                                                                   ## a
+                                                                                                   ## CurveOnSurface
+                                                                                                   ## SelectType
 
 
-proc constructStepGeom_CurveOnSurface*(): StepGeom_CurveOnSurface {.constructor,
+proc constructStepGeomCurveOnSurface*(): StepGeomCurveOnSurface {.constructor,
     importcpp: "StepGeom_CurveOnSurface(@)", header: "StepGeom_CurveOnSurface.hxx".}
-proc CaseNum*(this: StepGeom_CurveOnSurface; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepGeomCurveOnSurface; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepGeom_CurveOnSurface.hxx".}
-proc Pcurve*(this: StepGeom_CurveOnSurface): handle[StepGeom_Pcurve] {.noSideEffect,
+proc pcurve*(this: StepGeomCurveOnSurface): Handle[StepGeomPcurve] {.noSideEffect,
     importcpp: "Pcurve", header: "StepGeom_CurveOnSurface.hxx".}
-proc SurfaceCurve*(this: StepGeom_CurveOnSurface): handle[StepGeom_SurfaceCurve] {.
+proc surfaceCurve*(this: StepGeomCurveOnSurface): Handle[StepGeomSurfaceCurve] {.
     noSideEffect, importcpp: "SurfaceCurve", header: "StepGeom_CurveOnSurface.hxx".}
-proc CompositeCurveOnSurface*(this: StepGeom_CurveOnSurface): handle[
-    StepGeom_CompositeCurveOnSurface] {.noSideEffect,
-                                       importcpp: "CompositeCurveOnSurface",
-                                       header: "StepGeom_CurveOnSurface.hxx".}
+proc compositeCurveOnSurface*(this: StepGeomCurveOnSurface): Handle[
+    StepGeomCompositeCurveOnSurface] {.noSideEffect,
+                                      importcpp: "CompositeCurveOnSurface",
+                                      header: "StepGeom_CurveOnSurface.hxx".}

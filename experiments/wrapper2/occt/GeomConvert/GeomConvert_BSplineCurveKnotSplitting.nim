@@ -13,16 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColStd/TColStd_HArray1OfInteger,
-  ../Standard/Standard_Integer, ../TColStd/TColStd_Array1OfInteger
-
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of Standard_RangeError"
 discard "forward decl of Geom_BSplineCurve"
 type
-  GeomConvert_BSplineCurveKnotSplitting* {.
+  GeomConvertBSplineCurveKnotSplitting* {.
       importcpp: "GeomConvert_BSplineCurveKnotSplitting",
       header: "GeomConvert_BSplineCurveKnotSplitting.hxx", bycopy.} = object ## !
                                                                         ## Determines points at which the BSpline curve
@@ -52,16 +47,15 @@ type
                                                                         ## ContinuityRange is less than zero.
 
 
-proc constructGeomConvert_BSplineCurveKnotSplitting*(
-    BasisCurve: handle[Geom_BSplineCurve]; ContinuityRange: Standard_Integer): GeomConvert_BSplineCurveKnotSplitting {.
+proc constructGeomConvertBSplineCurveKnotSplitting*(
+    basisCurve: Handle[GeomBSplineCurve]; continuityRange: int): GeomConvertBSplineCurveKnotSplitting {.
     constructor, importcpp: "GeomConvert_BSplineCurveKnotSplitting(@)",
     header: "GeomConvert_BSplineCurveKnotSplitting.hxx".}
-proc NbSplits*(this: GeomConvert_BSplineCurveKnotSplitting): Standard_Integer {.
-    noSideEffect, importcpp: "NbSplits",
-    header: "GeomConvert_BSplineCurveKnotSplitting.hxx".}
-proc Splitting*(this: GeomConvert_BSplineCurveKnotSplitting;
-               SplitValues: var TColStd_Array1OfInteger) {.noSideEffect,
+proc nbSplits*(this: GeomConvertBSplineCurveKnotSplitting): int {.noSideEffect,
+    importcpp: "NbSplits", header: "GeomConvert_BSplineCurveKnotSplitting.hxx".}
+proc splitting*(this: GeomConvertBSplineCurveKnotSplitting;
+               splitValues: var TColStdArray1OfInteger) {.noSideEffect,
     importcpp: "Splitting", header: "GeomConvert_BSplineCurveKnotSplitting.hxx".}
-proc SplitValue*(this: GeomConvert_BSplineCurveKnotSplitting;
-                Index: Standard_Integer): Standard_Integer {.noSideEffect,
-    importcpp: "SplitValue", header: "GeomConvert_BSplineCurveKnotSplitting.hxx".}
+proc splitValue*(this: GeomConvertBSplineCurveKnotSplitting; index: int): int {.
+    noSideEffect, importcpp: "SplitValue",
+    header: "GeomConvert_BSplineCurveKnotSplitting.hxx".}

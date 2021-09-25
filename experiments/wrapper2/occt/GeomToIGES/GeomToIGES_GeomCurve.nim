@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GeomToIGES_GeomEntity, ../Standard/Standard_Real
-
 discard "forward decl of GeomToIGES_GeomEntity"
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of Geom_Curve"
@@ -39,54 +35,42 @@ type
 
 proc constructGeomToIGES_GeomCurve*(): GeomToIGES_GeomCurve {.constructor,
     importcpp: "GeomToIGES_GeomCurve(@)", header: "GeomToIGES_GeomCurve.hxx".}
-proc constructGeomToIGES_GeomCurve*(GE: GeomToIGES_GeomEntity): GeomToIGES_GeomCurve {.
+proc constructGeomToIGES_GeomCurve*(ge: GeomToIGES_GeomEntity): GeomToIGES_GeomCurve {.
     constructor, importcpp: "GeomToIGES_GeomCurve(@)",
     header: "GeomToIGES_GeomCurve.hxx".}
-proc TransferCurve*(this: var GeomToIGES_GeomCurve; start: handle[Geom_Curve];
-                   Udeb: Standard_Real; Ufin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferCurve",
-                          header: "GeomToIGES_GeomCurve.hxx".}
-proc TransferCurve*(this: var GeomToIGES_GeomCurve;
-                   start: handle[Geom_BoundedCurve]; Udeb: Standard_Real;
-                   Ufin: Standard_Real): handle[IGESData_IGESEntity] {.
+proc transferCurve*(this: var GeomToIGES_GeomCurve; start: Handle[GeomCurve];
+                   udeb: float; ufin: float): Handle[IGESDataIGESEntity] {.
     importcpp: "TransferCurve", header: "GeomToIGES_GeomCurve.hxx".}
-proc TransferCurve*(this: var GeomToIGES_GeomCurve;
-                   start: handle[Geom_BSplineCurve]; Udeb: Standard_Real;
-                   Ufin: Standard_Real): handle[IGESData_IGESEntity] {.
+proc transferCurve*(this: var GeomToIGES_GeomCurve; start: Handle[GeomBoundedCurve];
+                   udeb: float; ufin: float): Handle[IGESDataIGESEntity] {.
     importcpp: "TransferCurve", header: "GeomToIGES_GeomCurve.hxx".}
-proc TransferCurve*(this: var GeomToIGES_GeomCurve; start: handle[Geom_BezierCurve];
-                   Udeb: Standard_Real; Ufin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferCurve",
-                          header: "GeomToIGES_GeomCurve.hxx".}
-proc TransferCurve*(this: var GeomToIGES_GeomCurve;
-                   start: handle[Geom_TrimmedCurve]; Udeb: Standard_Real;
-                   Ufin: Standard_Real): handle[IGESData_IGESEntity] {.
+proc transferCurve*(this: var GeomToIGES_GeomCurve; start: Handle[GeomBSplineCurve];
+                   udeb: float; ufin: float): Handle[IGESDataIGESEntity] {.
     importcpp: "TransferCurve", header: "GeomToIGES_GeomCurve.hxx".}
-proc TransferCurve*(this: var GeomToIGES_GeomCurve; start: handle[Geom_Conic];
-                   Udeb: Standard_Real; Ufin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferCurve",
-                          header: "GeomToIGES_GeomCurve.hxx".}
-proc TransferCurve*(this: var GeomToIGES_GeomCurve; start: handle[Geom_Circle];
-                   Udeb: Standard_Real; Ufin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferCurve",
-                          header: "GeomToIGES_GeomCurve.hxx".}
-proc TransferCurve*(this: var GeomToIGES_GeomCurve; start: handle[Geom_Ellipse];
-                   Udeb: Standard_Real; Ufin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferCurve",
-                          header: "GeomToIGES_GeomCurve.hxx".}
-proc TransferCurve*(this: var GeomToIGES_GeomCurve; start: handle[Geom_Hyperbola];
-                   Udeb: Standard_Real; Ufin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferCurve",
-                          header: "GeomToIGES_GeomCurve.hxx".}
-proc TransferCurve*(this: var GeomToIGES_GeomCurve; start: handle[Geom_Line];
-                   Udeb: Standard_Real; Ufin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferCurve",
-                          header: "GeomToIGES_GeomCurve.hxx".}
-proc TransferCurve*(this: var GeomToIGES_GeomCurve; start: handle[Geom_Parabola];
-                   Udeb: Standard_Real; Ufin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferCurve",
-                          header: "GeomToIGES_GeomCurve.hxx".}
-proc TransferCurve*(this: var GeomToIGES_GeomCurve; start: handle[Geom_OffsetCurve];
-                   Udeb: Standard_Real; Ufin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferCurve",
-                          header: "GeomToIGES_GeomCurve.hxx".}
+proc transferCurve*(this: var GeomToIGES_GeomCurve; start: Handle[GeomBezierCurve];
+                   udeb: float; ufin: float): Handle[IGESDataIGESEntity] {.
+    importcpp: "TransferCurve", header: "GeomToIGES_GeomCurve.hxx".}
+proc transferCurve*(this: var GeomToIGES_GeomCurve; start: Handle[GeomTrimmedCurve];
+                   udeb: float; ufin: float): Handle[IGESDataIGESEntity] {.
+    importcpp: "TransferCurve", header: "GeomToIGES_GeomCurve.hxx".}
+proc transferCurve*(this: var GeomToIGES_GeomCurve; start: Handle[GeomConic];
+                   udeb: float; ufin: float): Handle[IGESDataIGESEntity] {.
+    importcpp: "TransferCurve", header: "GeomToIGES_GeomCurve.hxx".}
+proc transferCurve*(this: var GeomToIGES_GeomCurve; start: Handle[GeomCircle];
+                   udeb: float; ufin: float): Handle[IGESDataIGESEntity] {.
+    importcpp: "TransferCurve", header: "GeomToIGES_GeomCurve.hxx".}
+proc transferCurve*(this: var GeomToIGES_GeomCurve; start: Handle[GeomEllipse];
+                   udeb: float; ufin: float): Handle[IGESDataIGESEntity] {.
+    importcpp: "TransferCurve", header: "GeomToIGES_GeomCurve.hxx".}
+proc transferCurve*(this: var GeomToIGES_GeomCurve; start: Handle[GeomHyperbola];
+                   udeb: float; ufin: float): Handle[IGESDataIGESEntity] {.
+    importcpp: "TransferCurve", header: "GeomToIGES_GeomCurve.hxx".}
+proc transferCurve*(this: var GeomToIGES_GeomCurve; start: Handle[GeomLine];
+                   udeb: float; ufin: float): Handle[IGESDataIGESEntity] {.
+    importcpp: "TransferCurve", header: "GeomToIGES_GeomCurve.hxx".}
+proc transferCurve*(this: var GeomToIGES_GeomCurve; start: Handle[GeomParabola];
+                   udeb: float; ufin: float): Handle[IGESDataIGESEntity] {.
+    importcpp: "TransferCurve", header: "GeomToIGES_GeomCurve.hxx".}
+proc transferCurve*(this: var GeomToIGES_GeomCurve; start: Handle[GeomOffsetCurve];
+                   udeb: float; ufin: float): Handle[IGESDataIGESEntity] {.
+    importcpp: "TransferCurve", header: "GeomToIGES_GeomCurve.hxx".}

@@ -14,42 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepVisual_CurveStyle"
 discard "forward decl of StepVisual_SurfaceStyleControlGrid"
 discard "forward decl of StepVisual_SurfaceStyleControlGrid"
 type
-  Handle_StepVisual_SurfaceStyleControlGrid* = handle[
-      StepVisual_SurfaceStyleControlGrid]
-  StepVisual_SurfaceStyleControlGrid* {.importcpp: "StepVisual_SurfaceStyleControlGrid", header: "StepVisual_SurfaceStyleControlGrid.hxx",
-                                       bycopy.} = object of Standard_Transient ## !
-                                                                          ## Returns a
-                                                                          ## SurfaceStyleControlGrid
+  HandleStepVisualSurfaceStyleControlGrid* = Handle[
+      StepVisualSurfaceStyleControlGrid]
+  StepVisualSurfaceStyleControlGrid* {.importcpp: "StepVisual_SurfaceStyleControlGrid", header: "StepVisual_SurfaceStyleControlGrid.hxx",
+                                      bycopy.} = object of StandardTransient ## ! Returns a
+                                                                        ## SurfaceStyleControlGrid
 
 
-proc constructStepVisual_SurfaceStyleControlGrid*(): StepVisual_SurfaceStyleControlGrid {.
+proc constructStepVisualSurfaceStyleControlGrid*(): StepVisualSurfaceStyleControlGrid {.
     constructor, importcpp: "StepVisual_SurfaceStyleControlGrid(@)",
     header: "StepVisual_SurfaceStyleControlGrid.hxx".}
-proc Init*(this: var StepVisual_SurfaceStyleControlGrid;
-          aStyleOfControlGrid: handle[StepVisual_CurveStyle]) {.importcpp: "Init",
+proc init*(this: var StepVisualSurfaceStyleControlGrid;
+          aStyleOfControlGrid: Handle[StepVisualCurveStyle]) {.importcpp: "Init",
     header: "StepVisual_SurfaceStyleControlGrid.hxx".}
-proc SetStyleOfControlGrid*(this: var StepVisual_SurfaceStyleControlGrid;
-                           aStyleOfControlGrid: handle[StepVisual_CurveStyle]) {.
+proc setStyleOfControlGrid*(this: var StepVisualSurfaceStyleControlGrid;
+                           aStyleOfControlGrid: Handle[StepVisualCurveStyle]) {.
     importcpp: "SetStyleOfControlGrid",
     header: "StepVisual_SurfaceStyleControlGrid.hxx".}
-proc StyleOfControlGrid*(this: StepVisual_SurfaceStyleControlGrid): handle[
-    StepVisual_CurveStyle] {.noSideEffect, importcpp: "StyleOfControlGrid",
-                            header: "StepVisual_SurfaceStyleControlGrid.hxx".}
+proc styleOfControlGrid*(this: StepVisualSurfaceStyleControlGrid): Handle[
+    StepVisualCurveStyle] {.noSideEffect, importcpp: "StyleOfControlGrid",
+                           header: "StepVisual_SurfaceStyleControlGrid.hxx".}
 type
-  StepVisual_SurfaceStyleControlGridbase_type* = Standard_Transient
+  StepVisualSurfaceStyleControlGridbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_SurfaceStyleControlGrid::get_type_name(@)",
-                              header: "StepVisual_SurfaceStyleControlGrid.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_SurfaceStyleControlGrid::get_type_name(@)",
+                            header: "StepVisual_SurfaceStyleControlGrid.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_SurfaceStyleControlGrid::get_type_descriptor(@)",
     header: "StepVisual_SurfaceStyleControlGrid.hxx".}
-proc DynamicType*(this: StepVisual_SurfaceStyleControlGrid): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualSurfaceStyleControlGrid): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_SurfaceStyleControlGrid.hxx".}

@@ -11,31 +11,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../StdObjMgt/StdObjMgt_Persistent
-
 discard "forward decl of TDocStd_Document"
 discard "forward decl of StdLPersistent_Data"
 type
-  StdLPersistent_Document* {.importcpp: "StdLPersistent_Document",
-                            header: "StdLPersistent_Document.hxx", bycopy.} = object of StdObjMgt_Persistent ##
-                                                                                                      ## !
-                                                                                                      ## Read
-                                                                                                      ## persistent
-                                                                                                      ## data
-                                                                                                      ## from
-                                                                                                      ## a
-                                                                                                      ## file.
+  StdLPersistentDocument* {.importcpp: "StdLPersistent_Document",
+                           header: "StdLPersistent_Document.hxx", bycopy.} = object of StdObjMgtPersistent ##
+                                                                                                    ## !
+                                                                                                    ## Read
+                                                                                                    ## persistent
+                                                                                                    ## data
+                                                                                                    ## from
+                                                                                                    ## a
+                                                                                                    ## file.
 
 
-proc Read*(this: var StdLPersistent_Document; theReadData: var StdObjMgt_ReadData) {.
+proc read*(this: var StdLPersistentDocument; theReadData: var StdObjMgtReadData) {.
     importcpp: "Read", header: "StdLPersistent_Document.hxx".}
-proc Write*(this: StdLPersistent_Document; theWriteData: var StdObjMgt_WriteData) {.
+proc write*(this: StdLPersistentDocument; theWriteData: var StdObjMgtWriteData) {.
     noSideEffect, importcpp: "Write", header: "StdLPersistent_Document.hxx".}
-proc PChildren*(this: StdLPersistent_Document; a2: var SequenceOfPersistent) {.
+proc pChildren*(this: StdLPersistentDocument; a2: var SequenceOfPersistent) {.
     noSideEffect, importcpp: "PChildren", header: "StdLPersistent_Document.hxx".}
-proc PName*(this: StdLPersistent_Document): Standard_CString {.noSideEffect,
+proc pName*(this: StdLPersistentDocument): StandardCString {.noSideEffect,
     importcpp: "PName", header: "StdLPersistent_Document.hxx".}
-proc ImportDocument*(this: StdLPersistent_Document;
-                    theDocument: handle[TDocStd_Document]) {.noSideEffect,
+proc importDocument*(this: StdLPersistentDocument;
+                    theDocument: Handle[TDocStdDocument]) {.noSideEffect,
     importcpp: "ImportDocument", header: "StdLPersistent_Document.hxx".}

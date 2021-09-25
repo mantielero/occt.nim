@@ -14,16 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of IGESGeom_Line"
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESGeom_SurfaceOfRevolution"
 discard "forward decl of IGESGeom_SurfaceOfRevolution"
 type
-  Handle_IGESGeom_SurfaceOfRevolution* = handle[IGESGeom_SurfaceOfRevolution]
+  HandleIGESGeomSurfaceOfRevolution* = Handle[IGESGeomSurfaceOfRevolution]
 
 ## ! defines IGESSurfaceOfRevolution, Type <120> Form <0>
 ## ! in package IGESGeom
@@ -33,36 +29,35 @@ type
 ## ! of rotation through the start and terminate rotation angles.
 
 type
-  IGESGeom_SurfaceOfRevolution* {.importcpp: "IGESGeom_SurfaceOfRevolution",
-                                 header: "IGESGeom_SurfaceOfRevolution.hxx",
-                                 bycopy.} = object of IGESData_IGESEntity
+  IGESGeomSurfaceOfRevolution* {.importcpp: "IGESGeom_SurfaceOfRevolution",
+                                header: "IGESGeom_SurfaceOfRevolution.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESGeom_SurfaceOfRevolution*(): IGESGeom_SurfaceOfRevolution {.
+proc constructIGESGeomSurfaceOfRevolution*(): IGESGeomSurfaceOfRevolution {.
     constructor, importcpp: "IGESGeom_SurfaceOfRevolution(@)",
     header: "IGESGeom_SurfaceOfRevolution.hxx".}
-proc Init*(this: var IGESGeom_SurfaceOfRevolution; anAxis: handle[IGESGeom_Line];
-          aGeneratrix: handle[IGESData_IGESEntity]; aStartAngle: Standard_Real;
-          anEndAngle: Standard_Real) {.importcpp: "Init",
-                                     header: "IGESGeom_SurfaceOfRevolution.hxx".}
-proc AxisOfRevolution*(this: IGESGeom_SurfaceOfRevolution): handle[IGESGeom_Line] {.
+proc init*(this: var IGESGeomSurfaceOfRevolution; anAxis: Handle[IGESGeomLine];
+          aGeneratrix: Handle[IGESDataIGESEntity]; aStartAngle: float;
+          anEndAngle: float) {.importcpp: "Init",
+                             header: "IGESGeom_SurfaceOfRevolution.hxx".}
+proc axisOfRevolution*(this: IGESGeomSurfaceOfRevolution): Handle[IGESGeomLine] {.
     noSideEffect, importcpp: "AxisOfRevolution",
     header: "IGESGeom_SurfaceOfRevolution.hxx".}
-proc Generatrix*(this: IGESGeom_SurfaceOfRevolution): handle[IGESData_IGESEntity] {.
+proc generatrix*(this: IGESGeomSurfaceOfRevolution): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Generatrix",
     header: "IGESGeom_SurfaceOfRevolution.hxx".}
-proc StartAngle*(this: IGESGeom_SurfaceOfRevolution): Standard_Real {.noSideEffect,
+proc startAngle*(this: IGESGeomSurfaceOfRevolution): float {.noSideEffect,
     importcpp: "StartAngle", header: "IGESGeom_SurfaceOfRevolution.hxx".}
-proc EndAngle*(this: IGESGeom_SurfaceOfRevolution): Standard_Real {.noSideEffect,
+proc endAngle*(this: IGESGeomSurfaceOfRevolution): float {.noSideEffect,
     importcpp: "EndAngle", header: "IGESGeom_SurfaceOfRevolution.hxx".}
 type
-  IGESGeom_SurfaceOfRevolutionbase_type* = IGESData_IGESEntity
+  IGESGeomSurfaceOfRevolutionbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESGeom_SurfaceOfRevolution::get_type_name(@)",
-                              header: "IGESGeom_SurfaceOfRevolution.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESGeom_SurfaceOfRevolution::get_type_name(@)",
+                            header: "IGESGeom_SurfaceOfRevolution.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESGeom_SurfaceOfRevolution::get_type_descriptor(@)",
     header: "IGESGeom_SurfaceOfRevolution.hxx".}
-proc DynamicType*(this: IGESGeom_SurfaceOfRevolution): handle[Standard_Type] {.
+proc dynamicType*(this: IGESGeomSurfaceOfRevolution): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESGeom_SurfaceOfRevolution.hxx".}

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  BRepAlgoAPI_BooleanOperation
-
 discard "forward decl of BOPAlgo_PaveFiller"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of gp_Pln"
@@ -35,58 +30,56 @@ proc constructBRepAlgoAPI_Section*(): BRepAlgoAPI_Section {.constructor,
     importcpp: "BRepAlgoAPI_Section(@)", header: "BRepAlgoAPI_Section.hxx".}
 proc destroyBRepAlgoAPI_Section*(this: var BRepAlgoAPI_Section) {.
     importcpp: "#.~BRepAlgoAPI_Section()", header: "BRepAlgoAPI_Section.hxx".}
-proc constructBRepAlgoAPI_Section*(PF: BOPAlgo_PaveFiller): BRepAlgoAPI_Section {.
+proc constructBRepAlgoAPI_Section*(pf: BOPAlgoPaveFiller): BRepAlgoAPI_Section {.
     constructor, importcpp: "BRepAlgoAPI_Section(@)",
     header: "BRepAlgoAPI_Section.hxx".}
-proc constructBRepAlgoAPI_Section*(S1: TopoDS_Shape; S2: TopoDS_Shape;
-                                  PerformNow: Standard_Boolean = Standard_True): BRepAlgoAPI_Section {.
+proc constructBRepAlgoAPI_Section*(s1: TopoDS_Shape; s2: TopoDS_Shape;
+                                  performNow: bool = true): BRepAlgoAPI_Section {.
     constructor, importcpp: "BRepAlgoAPI_Section(@)",
     header: "BRepAlgoAPI_Section.hxx".}
-proc constructBRepAlgoAPI_Section*(S1: TopoDS_Shape; S2: TopoDS_Shape;
-                                  aDSF: BOPAlgo_PaveFiller;
-                                  PerformNow: Standard_Boolean = Standard_True): BRepAlgoAPI_Section {.
+proc constructBRepAlgoAPI_Section*(s1: TopoDS_Shape; s2: TopoDS_Shape;
+                                  aDSF: BOPAlgoPaveFiller; performNow: bool = true): BRepAlgoAPI_Section {.
     constructor, importcpp: "BRepAlgoAPI_Section(@)",
     header: "BRepAlgoAPI_Section.hxx".}
-proc constructBRepAlgoAPI_Section*(S1: TopoDS_Shape; Pl: gp_Pln;
-                                  PerformNow: Standard_Boolean = Standard_True): BRepAlgoAPI_Section {.
+proc constructBRepAlgoAPI_Section*(s1: TopoDS_Shape; pl: Pln; performNow: bool = true): BRepAlgoAPI_Section {.
     constructor, importcpp: "BRepAlgoAPI_Section(@)",
     header: "BRepAlgoAPI_Section.hxx".}
-proc constructBRepAlgoAPI_Section*(S1: TopoDS_Shape; Sf: handle[Geom_Surface];
-                                  PerformNow: Standard_Boolean = Standard_True): BRepAlgoAPI_Section {.
+proc constructBRepAlgoAPI_Section*(s1: TopoDS_Shape; sf: Handle[GeomSurface];
+                                  performNow: bool = true): BRepAlgoAPI_Section {.
     constructor, importcpp: "BRepAlgoAPI_Section(@)",
     header: "BRepAlgoAPI_Section.hxx".}
-proc constructBRepAlgoAPI_Section*(Sf: handle[Geom_Surface]; S2: TopoDS_Shape;
-                                  PerformNow: Standard_Boolean = Standard_True): BRepAlgoAPI_Section {.
+proc constructBRepAlgoAPI_Section*(sf: Handle[GeomSurface]; s2: TopoDS_Shape;
+                                  performNow: bool = true): BRepAlgoAPI_Section {.
     constructor, importcpp: "BRepAlgoAPI_Section(@)",
     header: "BRepAlgoAPI_Section.hxx".}
-proc constructBRepAlgoAPI_Section*(Sf1: handle[Geom_Surface];
-                                  Sf2: handle[Geom_Surface];
-                                  PerformNow: Standard_Boolean = Standard_True): BRepAlgoAPI_Section {.
+proc constructBRepAlgoAPI_Section*(sf1: Handle[GeomSurface];
+                                  sf2: Handle[GeomSurface];
+                                  performNow: bool = true): BRepAlgoAPI_Section {.
     constructor, importcpp: "BRepAlgoAPI_Section(@)",
     header: "BRepAlgoAPI_Section.hxx".}
-proc Init1*(this: var BRepAlgoAPI_Section; S1: TopoDS_Shape) {.importcpp: "Init1",
+proc init1*(this: var BRepAlgoAPI_Section; s1: TopoDS_Shape) {.importcpp: "Init1",
     header: "BRepAlgoAPI_Section.hxx".}
-proc Init1*(this: var BRepAlgoAPI_Section; Pl: gp_Pln) {.importcpp: "Init1",
+proc init1*(this: var BRepAlgoAPI_Section; pl: Pln) {.importcpp: "Init1",
     header: "BRepAlgoAPI_Section.hxx".}
-proc Init1*(this: var BRepAlgoAPI_Section; Sf: handle[Geom_Surface]) {.
+proc init1*(this: var BRepAlgoAPI_Section; sf: Handle[GeomSurface]) {.
     importcpp: "Init1", header: "BRepAlgoAPI_Section.hxx".}
-proc Init2*(this: var BRepAlgoAPI_Section; S2: TopoDS_Shape) {.importcpp: "Init2",
+proc init2*(this: var BRepAlgoAPI_Section; s2: TopoDS_Shape) {.importcpp: "Init2",
     header: "BRepAlgoAPI_Section.hxx".}
-proc Init2*(this: var BRepAlgoAPI_Section; Pl: gp_Pln) {.importcpp: "Init2",
+proc init2*(this: var BRepAlgoAPI_Section; pl: Pln) {.importcpp: "Init2",
     header: "BRepAlgoAPI_Section.hxx".}
-proc Init2*(this: var BRepAlgoAPI_Section; Sf: handle[Geom_Surface]) {.
+proc init2*(this: var BRepAlgoAPI_Section; sf: Handle[GeomSurface]) {.
     importcpp: "Init2", header: "BRepAlgoAPI_Section.hxx".}
-proc Approximation*(this: var BRepAlgoAPI_Section; B: Standard_Boolean) {.
+proc approximation*(this: var BRepAlgoAPI_Section; b: bool) {.
     importcpp: "Approximation", header: "BRepAlgoAPI_Section.hxx".}
-proc ComputePCurveOn1*(this: var BRepAlgoAPI_Section; B: Standard_Boolean) {.
+proc computePCurveOn1*(this: var BRepAlgoAPI_Section; b: bool) {.
     importcpp: "ComputePCurveOn1", header: "BRepAlgoAPI_Section.hxx".}
-proc ComputePCurveOn2*(this: var BRepAlgoAPI_Section; B: Standard_Boolean) {.
+proc computePCurveOn2*(this: var BRepAlgoAPI_Section; b: bool) {.
     importcpp: "ComputePCurveOn2", header: "BRepAlgoAPI_Section.hxx".}
-proc Build*(this: var BRepAlgoAPI_Section) {.importcpp: "Build",
+proc build*(this: var BRepAlgoAPI_Section) {.importcpp: "Build",
     header: "BRepAlgoAPI_Section.hxx".}
-proc HasAncestorFaceOn1*(this: BRepAlgoAPI_Section; E: TopoDS_Shape;
-                        F: var TopoDS_Shape): Standard_Boolean {.noSideEffect,
+proc hasAncestorFaceOn1*(this: BRepAlgoAPI_Section; e: TopoDS_Shape;
+                        f: var TopoDS_Shape): bool {.noSideEffect,
     importcpp: "HasAncestorFaceOn1", header: "BRepAlgoAPI_Section.hxx".}
-proc HasAncestorFaceOn2*(this: BRepAlgoAPI_Section; E: TopoDS_Shape;
-                        F: var TopoDS_Shape): Standard_Boolean {.noSideEffect,
+proc hasAncestorFaceOn2*(this: BRepAlgoAPI_Section; e: TopoDS_Shape;
+                        f: var TopoDS_Shape): bool {.noSideEffect,
     importcpp: "HasAncestorFaceOn2", header: "BRepAlgoAPI_Section.hxx".}

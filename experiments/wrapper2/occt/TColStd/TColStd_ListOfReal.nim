@@ -12,9 +12,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Real, ../NCollection/NCollection_List
-
 type
-  TColStd_ListOfReal* = NCollection_List[Standard_Real]
-  TColStd_ListIteratorOfListOfReal* = Iterator[Standard_Real]
+  TColStdListOfReal* = NCollectionList[float]
+  TColStdListIteratorOfListOfReal* = Iterator[float]
+

@@ -17,3 +17,4 @@
 discard "forward decl of WNT_Window"
 type
   WNT_WindowPtr* = ptr WNT_Window
+

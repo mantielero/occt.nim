@@ -14,37 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IGESAppli_Node, IGESAppli_Array1OfNode, ../NCollection/NCollection_DefineHArray1
-
 type
-  IGESAppli_HArray1OfNode* {.importcpp: "IGESAppli_HArray1OfNode",
-                            header: "IGESAppli_HArray1OfNode.hxx", bycopy.} = object of IGESAppli_Array1OfNode
+  IGESAppliHArray1OfNode* {.importcpp: "IGESAppli_HArray1OfNode",
+                           header: "IGESAppli_HArray1OfNode.hxx", bycopy.} = object of IGESAppliArray1OfNode
 
 
-proc constructIGESAppli_HArray1OfNode*(theLower: Standard_Integer;
-                                      theUpper: Standard_Integer): IGESAppli_HArray1OfNode {.
+proc constructIGESAppliHArray1OfNode*(theLower: int; theUpper: int): IGESAppliHArray1OfNode {.
     constructor, importcpp: "IGESAppli_HArray1OfNode(@)",
     header: "IGESAppli_HArray1OfNode.hxx".}
-proc constructIGESAppli_HArray1OfNode*(theLower: Standard_Integer;
-                                      theUpper: Standard_Integer;
-                                      theValue: value_type): IGESAppli_HArray1OfNode {.
+proc constructIGESAppliHArray1OfNode*(theLower: int; theUpper: int;
+                                     theValue: ValueType): IGESAppliHArray1OfNode {.
     constructor, importcpp: "IGESAppli_HArray1OfNode(@)",
     header: "IGESAppli_HArray1OfNode.hxx".}
-proc constructIGESAppli_HArray1OfNode*(theOther: IGESAppli_Array1OfNode): IGESAppli_HArray1OfNode {.
+proc constructIGESAppliHArray1OfNode*(theOther: IGESAppliArray1OfNode): IGESAppliHArray1OfNode {.
     constructor, importcpp: "IGESAppli_HArray1OfNode(@)",
     header: "IGESAppli_HArray1OfNode.hxx".}
-proc Array1*(this: IGESAppli_HArray1OfNode): IGESAppli_Array1OfNode {.noSideEffect,
+proc array1*(this: IGESAppliHArray1OfNode): IGESAppliArray1OfNode {.noSideEffect,
     importcpp: "Array1", header: "IGESAppli_HArray1OfNode.hxx".}
-proc ChangeArray1*(this: var IGESAppli_HArray1OfNode): var IGESAppli_Array1OfNode {.
+proc changeArray1*(this: var IGESAppliHArray1OfNode): var IGESAppliArray1OfNode {.
     importcpp: "ChangeArray1", header: "IGESAppli_HArray1OfNode.hxx".}
 type
-  IGESAppli_HArray1OfNodebase_type* = MMgt_TShared
+  IGESAppliHArray1OfNodebaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "IGESAppli_HArray1OfNode::get_type_name(@)",
-                              header: "IGESAppli_HArray1OfNode.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESAppli_HArray1OfNode::get_type_name(@)",
+                            header: "IGESAppli_HArray1OfNode.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESAppli_HArray1OfNode::get_type_descriptor(@)",
     header: "IGESAppli_HArray1OfNode.hxx".}
-proc DynamicType*(this: IGESAppli_HArray1OfNode): handle[Standard_Type] {.
+proc dynamicType*(this: IGESAppliHArray1OfNode): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESAppli_HArray1OfNode.hxx".}

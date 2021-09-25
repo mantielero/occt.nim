@@ -14,13 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Ax3, Geom_Surface
-
 discard "forward decl of Geom_ElementarySurface"
 discard "forward decl of Geom_ElementarySurface"
 type
-  Handle_Geom_ElementarySurface* = handle[Geom_ElementarySurface]
+  HandleGeomElementarySurface* = Handle[GeomElementarySurface]
 
 ## ! Describes the common behavior of surfaces which
 ## ! have a simple parametric equation in a local
@@ -61,82 +58,80 @@ type
 ## ! "main Direction" = - "X Direction" ^ "Y Direction"
 
 type
-  Geom_ElementarySurface* {.importcpp: "Geom_ElementarySurface",
-                           header: "Geom_ElementarySurface.hxx", bycopy.} = object of Geom_Surface ##
-                                                                                            ## !
-                                                                                            ## Changes
-                                                                                            ## the
-                                                                                            ## main
-                                                                                            ## axis
-                                                                                            ## (ZAxis)
-                                                                                            ## of
-                                                                                            ## the
-                                                                                            ## elementary
-                                                                                            ## surface.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Raised
-                                                                                            ## if
-                                                                                            ## the
-                                                                                            ## direction
-                                                                                            ## of
-                                                                                            ## A1
-                                                                                            ## is
-                                                                                            ## parallel
-                                                                                            ## to
-                                                                                            ## the
-                                                                                            ## XAxis
-                                                                                            ## of
-                                                                                            ## the
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## coordinate
-                                                                                            ## system
-                                                                                            ## of
-                                                                                            ## the
-                                                                                            ## surface.
+  GeomElementarySurface* {.importcpp: "Geom_ElementarySurface",
+                          header: "Geom_ElementarySurface.hxx", bycopy.} = object of GeomSurface ##
+                                                                                          ## !
+                                                                                          ## Changes
+                                                                                          ## the
+                                                                                          ## main
+                                                                                          ## axis
+                                                                                          ## (ZAxis)
+                                                                                          ## of
+                                                                                          ## the
+                                                                                          ## elementary
+                                                                                          ## surface.
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## Raised
+                                                                                          ## if
+                                                                                          ## the
+                                                                                          ## direction
+                                                                                          ## of
+                                                                                          ## A1
+                                                                                          ## is
+                                                                                          ## parallel
+                                                                                          ## to
+                                                                                          ## the
+                                                                                          ## XAxis
+                                                                                          ## of
+                                                                                          ## the
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## coordinate
+                                                                                          ## system
+                                                                                          ## of
+                                                                                          ## the
+                                                                                          ## surface.
 
 
-proc SetAxis*(this: var Geom_ElementarySurface; theA1: gp_Ax1) {.importcpp: "SetAxis",
+proc setAxis*(this: var GeomElementarySurface; theA1: Ax1) {.importcpp: "SetAxis",
     header: "Geom_ElementarySurface.hxx".}
-proc SetLocation*(this: var Geom_ElementarySurface; theLoc: gp_Pnt) {.
+proc setLocation*(this: var GeomElementarySurface; theLoc: Pnt) {.
     importcpp: "SetLocation", header: "Geom_ElementarySurface.hxx".}
-proc SetPosition*(this: var Geom_ElementarySurface; theAx3: gp_Ax3) {.
+proc setPosition*(this: var GeomElementarySurface; theAx3: Ax3) {.
     importcpp: "SetPosition", header: "Geom_ElementarySurface.hxx".}
-proc Axis*(this: Geom_ElementarySurface): gp_Ax1 {.noSideEffect, importcpp: "Axis",
+proc axis*(this: GeomElementarySurface): Ax1 {.noSideEffect, importcpp: "Axis",
     header: "Geom_ElementarySurface.hxx".}
-proc Location*(this: Geom_ElementarySurface): gp_Pnt {.noSideEffect,
+proc location*(this: GeomElementarySurface): Pnt {.noSideEffect,
     importcpp: "Location", header: "Geom_ElementarySurface.hxx".}
-proc Position*(this: Geom_ElementarySurface): gp_Ax3 {.noSideEffect,
+proc position*(this: GeomElementarySurface): Ax3 {.noSideEffect,
     importcpp: "Position", header: "Geom_ElementarySurface.hxx".}
-proc UReverse*(this: var Geom_ElementarySurface) {.importcpp: "UReverse",
+proc uReverse*(this: var GeomElementarySurface) {.importcpp: "UReverse",
     header: "Geom_ElementarySurface.hxx".}
-proc UReversedParameter*(this: Geom_ElementarySurface; U: Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "UReversedParameter",
+proc uReversedParameter*(this: GeomElementarySurface; u: float): float {.noSideEffect,
+    importcpp: "UReversedParameter", header: "Geom_ElementarySurface.hxx".}
+proc vReverse*(this: var GeomElementarySurface) {.importcpp: "VReverse",
     header: "Geom_ElementarySurface.hxx".}
-proc VReverse*(this: var Geom_ElementarySurface) {.importcpp: "VReverse",
-    header: "Geom_ElementarySurface.hxx".}
-proc VReversedParameter*(this: Geom_ElementarySurface; V: Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "VReversedParameter",
-    header: "Geom_ElementarySurface.hxx".}
-proc Continuity*(this: Geom_ElementarySurface): GeomAbs_Shape {.noSideEffect,
+proc vReversedParameter*(this: GeomElementarySurface; v: float): float {.noSideEffect,
+    importcpp: "VReversedParameter", header: "Geom_ElementarySurface.hxx".}
+proc continuity*(this: GeomElementarySurface): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Geom_ElementarySurface.hxx".}
-proc IsCNu*(this: Geom_ElementarySurface; N: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsCNu", header: "Geom_ElementarySurface.hxx".}
-proc IsCNv*(this: Geom_ElementarySurface; N: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsCNv", header: "Geom_ElementarySurface.hxx".}
-proc DumpJson*(this: Geom_ElementarySurface; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Geom_ElementarySurface.hxx".}
+proc isCNu*(this: GeomElementarySurface; n: int): bool {.noSideEffect,
+    importcpp: "IsCNu", header: "Geom_ElementarySurface.hxx".}
+proc isCNv*(this: GeomElementarySurface; n: int): bool {.noSideEffect,
+    importcpp: "IsCNv", header: "Geom_ElementarySurface.hxx".}
+proc dumpJson*(this: GeomElementarySurface; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Geom_ElementarySurface.hxx".}
 type
-  Geom_ElementarySurfacebase_type* = Geom_Surface
+  GeomElementarySurfacebaseType* = GeomSurface
 
-proc get_type_name*(): cstring {.importcpp: "Geom_ElementarySurface::get_type_name(@)",
-                              header: "Geom_ElementarySurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Geom_ElementarySurface::get_type_name(@)",
+                            header: "Geom_ElementarySurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_ElementarySurface::get_type_descriptor(@)",
     header: "Geom_ElementarySurface.hxx".}
-proc DynamicType*(this: Geom_ElementarySurface): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Geom_ElementarySurface.hxx".}
+proc dynamicType*(this: GeomElementarySurface): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Geom_ElementarySurface.hxx".}

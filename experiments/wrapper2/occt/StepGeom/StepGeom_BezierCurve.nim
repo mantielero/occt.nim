@@ -14,30 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_BSplineCurve
-
 discard "forward decl of StepGeom_BezierCurve"
 discard "forward decl of StepGeom_BezierCurve"
 type
-  Handle_StepGeom_BezierCurve* = handle[StepGeom_BezierCurve]
-  StepGeom_BezierCurve* {.importcpp: "StepGeom_BezierCurve",
-                         header: "StepGeom_BezierCurve.hxx", bycopy.} = object of StepGeom_BSplineCurve ##
-                                                                                                 ## !
-                                                                                                 ## Returns
-                                                                                                 ## a
-                                                                                                 ## BezierCurve
+  HandleStepGeomBezierCurve* = Handle[StepGeomBezierCurve]
+  StepGeomBezierCurve* {.importcpp: "StepGeom_BezierCurve",
+                        header: "StepGeom_BezierCurve.hxx", bycopy.} = object of StepGeomBSplineCurve ##
+                                                                                               ## !
+                                                                                               ## Returns
+                                                                                               ## a
+                                                                                               ## BezierCurve
 
 
-proc constructStepGeom_BezierCurve*(): StepGeom_BezierCurve {.constructor,
+proc constructStepGeomBezierCurve*(): StepGeomBezierCurve {.constructor,
     importcpp: "StepGeom_BezierCurve(@)", header: "StepGeom_BezierCurve.hxx".}
 type
-  StepGeom_BezierCurvebase_type* = StepGeom_BSplineCurve
+  StepGeomBezierCurvebaseType* = StepGeomBSplineCurve
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_BezierCurve::get_type_name(@)",
-                              header: "StepGeom_BezierCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_BezierCurve::get_type_name(@)",
+                            header: "StepGeom_BezierCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_BezierCurve::get_type_descriptor(@)",
     header: "StepGeom_BezierCurve.hxx".}
-proc DynamicType*(this: StepGeom_BezierCurve): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepGeomBezierCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_BezierCurve.hxx".}

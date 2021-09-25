@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Vrml_MaterialBindingAndNormalBinding,
-  ../Standard/Standard_OStream
-
 ## ! defines a MaterialBinding node of VRML specifying properties of geometry
 ## ! and its appearance.
 ## ! Material nodes may contain more than one material. This node specifies how the current
@@ -29,19 +24,19 @@ import
 ## ! MaterialBinding.
 
 type
-  Vrml_MaterialBinding* {.importcpp: "Vrml_MaterialBinding",
-                         header: "Vrml_MaterialBinding.hxx", bycopy.} = object
+  VrmlMaterialBinding* {.importcpp: "Vrml_MaterialBinding",
+                        header: "Vrml_MaterialBinding.hxx", bycopy.} = object
 
 
-proc constructVrml_MaterialBinding*(aValue: Vrml_MaterialBindingAndNormalBinding): Vrml_MaterialBinding {.
+proc constructVrmlMaterialBinding*(aValue: VrmlMaterialBindingAndNormalBinding): VrmlMaterialBinding {.
     constructor, importcpp: "Vrml_MaterialBinding(@)",
     header: "Vrml_MaterialBinding.hxx".}
-proc constructVrml_MaterialBinding*(): Vrml_MaterialBinding {.constructor,
+proc constructVrmlMaterialBinding*(): VrmlMaterialBinding {.constructor,
     importcpp: "Vrml_MaterialBinding(@)", header: "Vrml_MaterialBinding.hxx".}
-proc SetValue*(this: var Vrml_MaterialBinding;
-              aValue: Vrml_MaterialBindingAndNormalBinding) {.
+proc setValue*(this: var VrmlMaterialBinding;
+              aValue: VrmlMaterialBindingAndNormalBinding) {.
     importcpp: "SetValue", header: "Vrml_MaterialBinding.hxx".}
-proc Value*(this: Vrml_MaterialBinding): Vrml_MaterialBindingAndNormalBinding {.
+proc value*(this: VrmlMaterialBinding): VrmlMaterialBindingAndNormalBinding {.
     noSideEffect, importcpp: "Value", header: "Vrml_MaterialBinding.hxx".}
-proc Print*(this: Vrml_MaterialBinding; anOStream: var Standard_OStream): var Standard_OStream {.
+proc print*(this: VrmlMaterialBinding; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_MaterialBinding.hxx".}

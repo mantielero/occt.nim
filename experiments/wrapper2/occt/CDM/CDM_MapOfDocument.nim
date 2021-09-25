@@ -14,10 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  CDM_Document, CDM_DocumentHasher, ../NCollection/NCollection_Map
-
 type
-  CDM_MapOfDocument* = NCollection_Map[handle[CDM_Document], CDM_DocumentHasher]
-  CDM_MapIteratorOfMapOfDocument* = Iterator[handle[CDM_Document],
+  CDM_MapOfDocument* = NCollectionMap[Handle[CDM_Document], CDM_DocumentHasher]
+  CDM_MapIteratorOfMapOfDocument* = Iterator[Handle[CDM_Document],
       CDM_DocumentHasher]
+

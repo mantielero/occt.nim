@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  IFSelect_RemainMode* {.size: sizeof(cint), importcpp: "IFSelect_RemainMode",
-                        header: "IFSelect_RemainMode.hxx".} = enum
-    IFSelect_RemainForget, IFSelect_RemainCompute, IFSelect_RemainDisplay,
-    IFSelect_RemainUndo
+  IFSelectRemainMode* {.size: sizeof(cint), importcpp: "IFSelect_RemainMode",
+                       header: "IFSelect_RemainMode.hxx".} = enum
+    IFSelectRemainForget, IFSelectRemainCompute, IFSelectRemainDisplay,
+    IFSelectRemainUndo
+
 

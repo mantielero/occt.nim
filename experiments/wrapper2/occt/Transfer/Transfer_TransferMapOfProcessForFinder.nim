@@ -14,10 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_IndexedDataMap, Transfer_Binder, Transfer_Finder,
-  Transfer_FindHasher
-
 type
-  Transfer_TransferMapOfProcessForFinder* = NCollection_IndexedDataMap[
-      handle[Transfer_Finder], handle[Transfer_Binder], Transfer_FindHasher]
+  TransferTransferMapOfProcessForFinder* = NCollectionIndexedDataMap[
+      Handle[TransferFinder], Handle[TransferBinder], TransferFindHasher]
+

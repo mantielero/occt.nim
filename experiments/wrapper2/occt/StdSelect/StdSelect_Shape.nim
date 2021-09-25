@@ -14,39 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, ../Prs3d/Prs3d_Drawer,
-  ../PrsMgr/PrsMgr_PresentableObject
-
 discard "forward decl of TopoDS_Shape"
 type
-  StdSelect_Shape* {.importcpp: "StdSelect_Shape", header: "StdSelect_Shape.hxx",
-                    bycopy.} = object of PrsMgr_PresentableObject
+  StdSelectShape* {.importcpp: "StdSelect_Shape", header: "StdSelect_Shape.hxx",
+                   bycopy.} = object of PrsMgrPresentableObject
 
-  StdSelect_Shapebase_type* = PrsMgr_PresentableObject
+  StdSelectShapebaseType* = PrsMgrPresentableObject
 
-proc get_type_name*(): cstring {.importcpp: "StdSelect_Shape::get_type_name(@)",
-                              header: "StdSelect_Shape.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StdSelect_Shape::get_type_name(@)",
+                            header: "StdSelect_Shape.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StdSelect_Shape::get_type_descriptor(@)",
     header: "StdSelect_Shape.hxx".}
-proc DynamicType*(this: StdSelect_Shape): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StdSelectShape): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StdSelect_Shape.hxx".}
-proc constructStdSelect_Shape*(theShape: TopoDS_Shape; theDrawer: handle[
-    Prs3d_Drawer] = handle[Prs3d_Drawer]()): StdSelect_Shape {.constructor,
-    importcpp: "StdSelect_Shape(@)", header: "StdSelect_Shape.hxx".}
-proc Compute*(this: var StdSelect_Shape;
-             aPresentationManager: handle[PrsMgr_PresentationManager3d];
-             aPresentation: handle[Prs3d_Presentation];
-             aMode: Standard_Integer = 0) {.importcpp: "Compute",
-                                        header: "StdSelect_Shape.hxx".}
-proc Shape*(this: StdSelect_Shape): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
+proc constructStdSelectShape*(theShape: TopoDS_Shape; theDrawer: Handle[Prs3dDrawer] = handle[
+    Prs3dDrawer]()): StdSelectShape {.constructor, importcpp: "StdSelect_Shape(@)",
+                                    header: "StdSelect_Shape.hxx".}
+proc compute*(this: var StdSelectShape;
+             aPresentationManager: Handle[PrsMgrPresentationManager3d];
+             aPresentation: Handle[Prs3dPresentation]; aMode: int = 0) {.
+    importcpp: "Compute", header: "StdSelect_Shape.hxx".}
+proc shape*(this: StdSelectShape): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "StdSelect_Shape.hxx".}
-proc Shape*(this: var StdSelect_Shape; theShape: TopoDS_Shape) {.importcpp: "Shape",
+proc shape*(this: var StdSelectShape; theShape: TopoDS_Shape) {.importcpp: "Shape",
     header: "StdSelect_Shape.hxx".}
-proc DumpJson*(this: StdSelect_Shape; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "StdSelect_Shape.hxx".}
+proc dumpJson*(this: StdSelectShape; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "StdSelect_Shape.hxx".}
 discard "forward decl of StdSelect_Shape"
 type
-  Handle_StdSelect_Shape* = handle[StdSelect_Shape]
+  HandleStdSelectShape* = Handle[StdSelectShape]
+

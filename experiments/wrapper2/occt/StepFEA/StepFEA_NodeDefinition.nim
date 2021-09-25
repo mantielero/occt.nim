@@ -13,34 +13,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepRepr/StepRepr_ShapeAspect
-
 discard "forward decl of StepFEA_NodeDefinition"
 discard "forward decl of StepFEA_NodeDefinition"
 type
-  Handle_StepFEA_NodeDefinition* = handle[StepFEA_NodeDefinition]
+  HandleStepFEA_NodeDefinition* = Handle[StepFEA_NodeDefinition]
 
 ## ! Representation of STEP entity NodeDefinition
 
 type
   StepFEA_NodeDefinition* {.importcpp: "StepFEA_NodeDefinition",
-                           header: "StepFEA_NodeDefinition.hxx", bycopy.} = object of StepRepr_ShapeAspect ##
-                                                                                                    ## !
-                                                                                                    ## Empty
-                                                                                                    ## constructor
+                           header: "StepFEA_NodeDefinition.hxx", bycopy.} = object of StepReprShapeAspect ##
+                                                                                                   ## !
+                                                                                                   ## Empty
+                                                                                                   ## constructor
 
 
 proc constructStepFEA_NodeDefinition*(): StepFEA_NodeDefinition {.constructor,
     importcpp: "StepFEA_NodeDefinition(@)", header: "StepFEA_NodeDefinition.hxx".}
 type
-  StepFEA_NodeDefinitionbase_type* = StepRepr_ShapeAspect
+  StepFEA_NodeDefinitionbaseType* = StepReprShapeAspect
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_NodeDefinition::get_type_name(@)",
-                              header: "StepFEA_NodeDefinition.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_NodeDefinition::get_type_name(@)",
+                            header: "StepFEA_NodeDefinition.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_NodeDefinition::get_type_descriptor(@)",
     header: "StepFEA_NodeDefinition.hxx".}
-proc DynamicType*(this: StepFEA_NodeDefinition): handle[Standard_Type] {.
+proc dynamicType*(this: StepFEA_NodeDefinition): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepFEA_NodeDefinition.hxx".}

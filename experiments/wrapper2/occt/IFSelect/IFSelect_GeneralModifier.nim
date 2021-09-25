@@ -14,17 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Transient
-
 discard "forward decl of IFSelect_Selection"
 discard "forward decl of IFSelect_Dispatch"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_GeneralModifier"
 discard "forward decl of IFSelect_GeneralModifier"
 type
-  Handle_IFSelect_GeneralModifier* = handle[IFSelect_GeneralModifier]
+  HandleIFSelectGeneralModifier* = Handle[IFSelectGeneralModifier]
 
 ## ! This class gives a frame for Actions which modify the effect
 ## ! of a Dispatch, i.e. :
@@ -59,135 +55,132 @@ type
 ## ! package IFAdapt, EntityModifier and EntityCopier
 
 type
-  IFSelect_GeneralModifier* {.importcpp: "IFSelect_GeneralModifier",
-                             header: "IFSelect_GeneralModifier.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                      ## !
-                                                                                                      ## Returns
-                                                                                                      ## True
-                                                                                                      ## if
-                                                                                                      ## this
-                                                                                                      ## modifier
-                                                                                                      ## may
-                                                                                                      ## change
-                                                                                                      ## the
-                                                                                                      ## graph
-                                                                                                      ## of
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## dependences
-                                                                                                      ## (aknowledged
-                                                                                                      ## at
-                                                                                                      ## creation
-                                                                                                      ## time)
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## Sets
-                                                                                                      ## the
-                                                                                                      ## Modifier
-                                                                                                      ## criteria
-                                                                                                      ## to
-                                                                                                      ## default
-                                                                                                      ## Values
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## (i.e.
-                                                                                                      ## "always
-                                                                                                      ## applies")
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## <maychangegraph>
-                                                                                                      ## must
-                                                                                                      ## be
-                                                                                                      ## provided
-                                                                                                      ## at
-                                                                                                      ## creation
-                                                                                                      ## time,
-                                                                                                      ## to
-                                                                                                      ## :
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## -
-                                                                                                      ## False
-                                                                                                      ## if
-                                                                                                      ## this
-                                                                                                      ## GeneralModifier
-                                                                                                      ## surely
-                                                                                                      ## lets
-                                                                                                      ## the
-                                                                                                      ## graph
-                                                                                                      ## of
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## dependencies
-                                                                                                      ## unchanged
-                                                                                                      ## (NO
-                                                                                                      ## edition
-                                                                                                      ## of
-                                                                                                      ## any
-                                                                                                      ## reference,
-                                                                                                      ## BUT
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## also
-                                                                                                      ## NO
-                                                                                                      ## entity
-                                                                                                      ## added
-                                                                                                      ## or
-                                                                                                      ## replaced
-                                                                                                      ## or
-                                                                                                      ## removed)
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## -
-                                                                                                      ## True
-                                                                                                      ## if
-                                                                                                      ## there
-                                                                                                      ## is
-                                                                                                      ## a
-                                                                                                      ## possibility
-                                                                                                      ## of
-                                                                                                      ## changing
-                                                                                                      ## the
-                                                                                                      ## graph
-                                                                                                      ## of
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## dependencies
-                                                                                                      ## when
-                                                                                                      ## this
-                                                                                                      ## modifier
-                                                                                                      ## is
-                                                                                                      ## applied
+  IFSelectGeneralModifier* {.importcpp: "IFSelect_GeneralModifier",
+                            header: "IFSelect_GeneralModifier.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                    ## !
+                                                                                                    ## Returns
+                                                                                                    ## True
+                                                                                                    ## if
+                                                                                                    ## this
+                                                                                                    ## modifier
+                                                                                                    ## may
+                                                                                                    ## change
+                                                                                                    ## the
+                                                                                                    ## graph
+                                                                                                    ## of
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## dependences
+                                                                                                    ## (aknowledged
+                                                                                                    ## at
+                                                                                                    ## creation
+                                                                                                    ## time)
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Sets
+                                                                                                    ## the
+                                                                                                    ## Modifier
+                                                                                                    ## criteria
+                                                                                                    ## to
+                                                                                                    ## default
+                                                                                                    ## Values
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## (i.e.
+                                                                                                    ## "always
+                                                                                                    ## applies")
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## <maychangegraph>
+                                                                                                    ## must
+                                                                                                    ## be
+                                                                                                    ## provided
+                                                                                                    ## at
+                                                                                                    ## creation
+                                                                                                    ## time,
+                                                                                                    ## to
+                                                                                                    ## :
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## -
+                                                                                                    ## False
+                                                                                                    ## if
+                                                                                                    ## this
+                                                                                                    ## GeneralModifier
+                                                                                                    ## surely
+                                                                                                    ## lets
+                                                                                                    ## the
+                                                                                                    ## graph
+                                                                                                    ## of
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## dependencies
+                                                                                                    ## unchanged
+                                                                                                    ## (NO
+                                                                                                    ## edition
+                                                                                                    ## of
+                                                                                                    ## any
+                                                                                                    ## reference,
+                                                                                                    ## BUT
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## also
+                                                                                                    ## NO
+                                                                                                    ## entity
+                                                                                                    ## added
+                                                                                                    ## or
+                                                                                                    ## replaced
+                                                                                                    ## or
+                                                                                                    ## removed)
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## -
+                                                                                                    ## True
+                                                                                                    ## if
+                                                                                                    ## there
+                                                                                                    ## is
+                                                                                                    ## a
+                                                                                                    ## possibility
+                                                                                                    ## of
+                                                                                                    ## changing
+                                                                                                    ## the
+                                                                                                    ## graph
+                                                                                                    ## of
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## dependencies
+                                                                                                    ## when
+                                                                                                    ## this
+                                                                                                    ## modifier
+                                                                                                    ## is
+                                                                                                    ## applied
 
 
-proc MayChangeGraph*(this: IFSelect_GeneralModifier): Standard_Boolean {.
-    noSideEffect, importcpp: "MayChangeGraph",
-    header: "IFSelect_GeneralModifier.hxx".}
-proc SetDispatch*(this: var IFSelect_GeneralModifier;
-                 disp: handle[IFSelect_Dispatch]) {.importcpp: "SetDispatch",
-    header: "IFSelect_GeneralModifier.hxx".}
-proc Dispatch*(this: IFSelect_GeneralModifier): handle[IFSelect_Dispatch] {.
+proc mayChangeGraph*(this: IFSelectGeneralModifier): bool {.noSideEffect,
+    importcpp: "MayChangeGraph", header: "IFSelect_GeneralModifier.hxx".}
+proc setDispatch*(this: var IFSelectGeneralModifier; disp: Handle[IFSelectDispatch]) {.
+    importcpp: "SetDispatch", header: "IFSelect_GeneralModifier.hxx".}
+proc dispatch*(this: IFSelectGeneralModifier): Handle[IFSelectDispatch] {.
     noSideEffect, importcpp: "Dispatch", header: "IFSelect_GeneralModifier.hxx".}
-proc Applies*(this: IFSelect_GeneralModifier; disp: handle[IFSelect_Dispatch]): Standard_Boolean {.
+proc applies*(this: IFSelectGeneralModifier; disp: Handle[IFSelectDispatch]): bool {.
     noSideEffect, importcpp: "Applies", header: "IFSelect_GeneralModifier.hxx".}
-proc SetSelection*(this: var IFSelect_GeneralModifier;
-                  sel: handle[IFSelect_Selection]) {.importcpp: "SetSelection",
-    header: "IFSelect_GeneralModifier.hxx".}
-proc ResetSelection*(this: var IFSelect_GeneralModifier) {.
+proc setSelection*(this: var IFSelectGeneralModifier; sel: Handle[IFSelectSelection]) {.
+    importcpp: "SetSelection", header: "IFSelect_GeneralModifier.hxx".}
+proc resetSelection*(this: var IFSelectGeneralModifier) {.
     importcpp: "ResetSelection", header: "IFSelect_GeneralModifier.hxx".}
-proc HasSelection*(this: IFSelect_GeneralModifier): Standard_Boolean {.noSideEffect,
+proc hasSelection*(this: IFSelectGeneralModifier): bool {.noSideEffect,
     importcpp: "HasSelection", header: "IFSelect_GeneralModifier.hxx".}
-proc Selection*(this: IFSelect_GeneralModifier): handle[IFSelect_Selection] {.
+proc selection*(this: IFSelectGeneralModifier): Handle[IFSelectSelection] {.
     noSideEffect, importcpp: "Selection", header: "IFSelect_GeneralModifier.hxx".}
-proc Label*(this: IFSelect_GeneralModifier): TCollection_AsciiString {.noSideEffect,
+proc label*(this: IFSelectGeneralModifier): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_GeneralModifier.hxx".}
 type
-  IFSelect_GeneralModifierbase_type* = Standard_Transient
+  IFSelectGeneralModifierbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_GeneralModifier::get_type_name(@)",
-                              header: "IFSelect_GeneralModifier.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_GeneralModifier::get_type_name(@)",
+                            header: "IFSelect_GeneralModifier.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_GeneralModifier::get_type_descriptor(@)",
     header: "IFSelect_GeneralModifier.hxx".}
-proc DynamicType*(this: IFSelect_GeneralModifier): handle[Standard_Type] {.
+proc dynamicType*(this: IFSelectGeneralModifier): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IFSelect_GeneralModifier.hxx".}

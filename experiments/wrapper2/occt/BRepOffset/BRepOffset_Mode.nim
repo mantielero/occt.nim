@@ -23,7 +23,8 @@
 ## ! of a given surface shell along both sides of the surface.
 
 type
-  BRepOffset_Mode* {.size: sizeof(cint), importcpp: "BRepOffset_Mode",
-                    header: "BRepOffset_Mode.hxx".} = enum
-    BRepOffset_Skin, BRepOffset_Pipe, BRepOffset_RectoVerso
+  BRepOffsetMode* {.size: sizeof(cint), importcpp: "BRepOffset_Mode",
+                   header: "BRepOffset_Mode.hxx".} = enum
+    BRepOffsetSkin, BRepOffsetPipe, BRepOffsetRectoVerso
+
 

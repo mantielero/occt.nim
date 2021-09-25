@@ -22,7 +22,8 @@
 ## ! for both reading and writing operations.
 
 type
-  Storage_OpenMode* {.size: sizeof(cint), importcpp: "Storage_OpenMode",
-                     header: "Storage_OpenMode.hxx".} = enum
-    Storage_VSNone, Storage_VSRead, Storage_VSWrite, Storage_VSReadWrite
+  StorageOpenMode* {.size: sizeof(cint), importcpp: "Storage_OpenMode",
+                    header: "Storage_OpenMode.hxx".} = enum
+    StorageVSNone, StorageVSRead, StorageVSWrite, StorageVSReadWrite
+
 

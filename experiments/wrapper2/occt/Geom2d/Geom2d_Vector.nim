@@ -14,17 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Vec2d, Geom2d_Geometry,
-  ../Standard/Standard_Real
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_VectorWithNullMagnitude"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of Geom2d_Vector"
 discard "forward decl of Geom2d_Vector"
 type
-  Handle_Geom2d_Vector* = handle[Geom2d_Vector]
+  HandleGeom2dVector* = Handle[Geom2dVector]
 
 ## ! The abstract class Vector describes the common
 ## ! behavior of vectors in 2D space.
@@ -33,45 +29,43 @@ type
 ## ! and Geom2d_VectorWithMagnitude.
 
 type
-  Geom2d_Vector* {.importcpp: "Geom2d_Vector", header: "Geom2d_Vector.hxx", bycopy.} = object of Geom2d_Geometry ##
-                                                                                                       ## !
-                                                                                                       ## Reverses
-                                                                                                       ## the
-                                                                                                       ## vector
-                                                                                                       ## <me>.
-    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
+  Geom2dVector* {.importcpp: "Geom2d_Vector", header: "Geom2d_Vector.hxx", bycopy.} = object of Geom2dGeometry ##
+                                                                                                     ## !
+                                                                                                     ## Reverses
+                                                                                                     ## the
+                                                                                                     ## vector
+                                                                                                     ## <me>.
 
 
-proc Reverse*(this: var Geom2d_Vector) {.importcpp: "Reverse",
-                                     header: "Geom2d_Vector.hxx".}
-## !!!Ignored construct:  :: handle < Geom2d_Vector > [end of template] Reversed ( ) const ;
-## Error: identifier expected, but got: ::!!!
-
-proc Angle*(this: Geom2d_Vector; Other: handle[Geom2d_Vector]): Standard_Real {.
-    noSideEffect, importcpp: "Angle", header: "Geom2d_Vector.hxx".}
-proc Coord*(this: Geom2d_Vector; X: var Standard_Real; Y: var Standard_Real) {.
-    noSideEffect, importcpp: "Coord", header: "Geom2d_Vector.hxx".}
-proc Magnitude*(this: Geom2d_Vector): Standard_Real {.noSideEffect,
-    importcpp: "Magnitude", header: "Geom2d_Vector.hxx".}
-proc SquareMagnitude*(this: Geom2d_Vector): Standard_Real {.noSideEffect,
+proc reverse*(this: var Geom2dVector) {.importcpp: "Reverse",
+                                    header: "Geom2d_Vector.hxx".}
+proc reversed*(this: Geom2dVector): Handle[Geom2dVector] {.noSideEffect,
+    importcpp: "Reversed", header: "Geom2d_Vector.hxx".}
+proc angle*(this: Geom2dVector; other: Handle[Geom2dVector]): float {.noSideEffect,
+    importcpp: "Angle", header: "Geom2d_Vector.hxx".}
+proc coord*(this: Geom2dVector; x: var float; y: var float) {.noSideEffect,
+    importcpp: "Coord", header: "Geom2d_Vector.hxx".}
+proc magnitude*(this: Geom2dVector): float {.noSideEffect, importcpp: "Magnitude",
+    header: "Geom2d_Vector.hxx".}
+proc squareMagnitude*(this: Geom2dVector): float {.noSideEffect,
     importcpp: "SquareMagnitude", header: "Geom2d_Vector.hxx".}
-proc X*(this: Geom2d_Vector): Standard_Real {.noSideEffect, importcpp: "X",
-    header: "Geom2d_Vector.hxx".}
-proc Y*(this: Geom2d_Vector): Standard_Real {.noSideEffect, importcpp: "Y",
-    header: "Geom2d_Vector.hxx".}
-proc Crossed*(this: Geom2d_Vector; Other: handle[Geom2d_Vector]): Standard_Real {.
-    noSideEffect, importcpp: "Crossed", header: "Geom2d_Vector.hxx".}
-proc Dot*(this: Geom2d_Vector; Other: handle[Geom2d_Vector]): Standard_Real {.
-    noSideEffect, importcpp: "Dot", header: "Geom2d_Vector.hxx".}
-proc Vec2d*(this: Geom2d_Vector): gp_Vec2d {.noSideEffect, importcpp: "Vec2d",
-    header: "Geom2d_Vector.hxx".}
+proc x*(this: Geom2dVector): float {.noSideEffect, importcpp: "X",
+                                 header: "Geom2d_Vector.hxx".}
+proc y*(this: Geom2dVector): float {.noSideEffect, importcpp: "Y",
+                                 header: "Geom2d_Vector.hxx".}
+proc crossed*(this: Geom2dVector; other: Handle[Geom2dVector]): float {.noSideEffect,
+    importcpp: "Crossed", header: "Geom2d_Vector.hxx".}
+proc dot*(this: Geom2dVector; other: Handle[Geom2dVector]): float {.noSideEffect,
+    importcpp: "Dot", header: "Geom2d_Vector.hxx".}
+proc vec2d*(this: Geom2dVector): Vec2d {.noSideEffect, importcpp: "Vec2d",
+                                     header: "Geom2d_Vector.hxx".}
 type
-  Geom2d_Vectorbase_type* = Geom2d_Geometry
+  Geom2dVectorbaseType* = Geom2dGeometry
 
-proc get_type_name*(): cstring {.importcpp: "Geom2d_Vector::get_type_name(@)",
-                              header: "Geom2d_Vector.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Geom2d_Vector::get_type_name(@)",
+                            header: "Geom2d_Vector.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom2d_Vector::get_type_descriptor(@)",
     header: "Geom2d_Vector.hxx".}
-proc DynamicType*(this: Geom2d_Vector): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: Geom2dVector): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom2d_Vector.hxx".}

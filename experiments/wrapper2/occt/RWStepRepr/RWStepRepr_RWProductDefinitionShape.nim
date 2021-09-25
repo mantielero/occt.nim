@@ -13,33 +13,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_ProductDefinitionShape"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepRepr_RWProductDefinitionShape* {.importcpp: "RWStepRepr_RWProductDefinitionShape", header: "RWStepRepr_RWProductDefinitionShape.hxx",
-                                        bycopy.} = object ## ! Empty constructor
+  RWStepReprRWProductDefinitionShape* {.importcpp: "RWStepRepr_RWProductDefinitionShape", header: "RWStepRepr_RWProductDefinitionShape.hxx",
+                                       bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepRepr_RWProductDefinitionShape*(): RWStepRepr_RWProductDefinitionShape {.
+proc constructRWStepReprRWProductDefinitionShape*(): RWStepReprRWProductDefinitionShape {.
     constructor, importcpp: "RWStepRepr_RWProductDefinitionShape(@)",
     header: "RWStepRepr_RWProductDefinitionShape.hxx".}
-proc ReadStep*(this: RWStepRepr_RWProductDefinitionShape;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepRepr_ProductDefinitionShape]) {.noSideEffect,
+proc readStep*(this: RWStepReprRWProductDefinitionShape;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepReprProductDefinitionShape]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWProductDefinitionShape.hxx".}
-proc WriteStep*(this: RWStepRepr_RWProductDefinitionShape;
-               SW: var StepData_StepWriter;
-               ent: handle[StepRepr_ProductDefinitionShape]) {.noSideEffect,
+proc writeStep*(this: RWStepReprRWProductDefinitionShape;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepReprProductDefinitionShape]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepRepr_RWProductDefinitionShape.hxx".}
-proc Share*(this: RWStepRepr_RWProductDefinitionShape;
-           ent: handle[StepRepr_ProductDefinitionShape];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepReprRWProductDefinitionShape;
+           ent: Handle[StepReprProductDefinitionShape];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWProductDefinitionShape.hxx".}

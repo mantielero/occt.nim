@@ -14,44 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../HLRAlgo/HLRAlgo_Projector,
-  ../Draw/Draw_Drawable3D, ../Standard/Standard_OStream, ../Draw/Draw_Interpretor
-
 discard "forward decl of HLRAlgo_Projector"
 discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Drawable3D"
 discard "forward decl of HLRTest_Projector"
 discard "forward decl of HLRTest_Projector"
 type
-  Handle_HLRTest_Projector* = handle[HLRTest_Projector]
+  HandleHLRTestProjector* = Handle[HLRTestProjector]
 
 ## ! Draw Variable Projector to test.
 
 type
-  HLRTest_Projector* {.importcpp: "HLRTest_Projector",
-                      header: "HLRTest_Projector.hxx", bycopy.} = object of Draw_Drawable3D
+  HLRTestProjector* {.importcpp: "HLRTest_Projector",
+                     header: "HLRTest_Projector.hxx", bycopy.} = object of DrawDrawable3D
 
 
-proc constructHLRTest_Projector*(P: HLRAlgo_Projector): HLRTest_Projector {.
+proc constructHLRTestProjector*(p: HLRAlgoProjector): HLRTestProjector {.
     constructor, importcpp: "HLRTest_Projector(@)", header: "HLRTest_Projector.hxx".}
-proc Projector*(this: HLRTest_Projector): HLRAlgo_Projector {.noSideEffect,
+proc projector*(this: HLRTestProjector): HLRAlgoProjector {.noSideEffect,
     importcpp: "Projector", header: "HLRTest_Projector.hxx".}
-proc DrawOn*(this: HLRTest_Projector; dis: var Draw_Display) {.noSideEffect,
+proc drawOn*(this: HLRTestProjector; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "HLRTest_Projector.hxx".}
-proc Copy*(this: HLRTest_Projector): handle[Draw_Drawable3D] {.noSideEffect,
+proc copy*(this: HLRTestProjector): Handle[DrawDrawable3D] {.noSideEffect,
     importcpp: "Copy", header: "HLRTest_Projector.hxx".}
-proc Dump*(this: HLRTest_Projector; S: var Standard_OStream) {.noSideEffect,
+proc dump*(this: HLRTestProjector; s: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "HLRTest_Projector.hxx".}
-proc Whatis*(this: HLRTest_Projector; I: var Draw_Interpretor) {.noSideEffect,
+proc whatis*(this: HLRTestProjector; i: var DrawInterpretor) {.noSideEffect,
     importcpp: "Whatis", header: "HLRTest_Projector.hxx".}
 type
-  HLRTest_Projectorbase_type* = Draw_Drawable3D
+  HLRTestProjectorbaseType* = DrawDrawable3D
 
-proc get_type_name*(): cstring {.importcpp: "HLRTest_Projector::get_type_name(@)",
-                              header: "HLRTest_Projector.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "HLRTest_Projector::get_type_name(@)",
+                            header: "HLRTest_Projector.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "HLRTest_Projector::get_type_descriptor(@)",
     header: "HLRTest_Projector.hxx".}
-proc DynamicType*(this: HLRTest_Projector): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: HLRTestProjector): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRTest_Projector.hxx".}

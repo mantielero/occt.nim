@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Geom2dAdaptor/Geom2dAdaptor_Curve,
-  ../gp/gp_Circ2d, Geom2dGcc_Type3, ../math/math_FunctionSetWithDerivatives,
-  ../math/math_Vector, ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Geom2dAdaptor_Curve"
 discard "forward decl of gp_Circ2d"
@@ -27,31 +21,30 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of math_Matrix"
 type
-  Geom2dGcc_FunctionTanCuCu* {.importcpp: "Geom2dGcc_FunctionTanCuCu",
-                              header: "Geom2dGcc_FunctionTanCuCu.hxx", bycopy.} = object of math_FunctionSetWithDerivatives
+  Geom2dGccFunctionTanCuCu* {.importcpp: "Geom2dGcc_FunctionTanCuCu",
+                             header: "Geom2dGcc_FunctionTanCuCu.hxx", bycopy.} = object of MathFunctionSetWithDerivatives
 
 
-proc constructGeom2dGcc_FunctionTanCuCu*(Curv1: Geom2dAdaptor_Curve;
-                                        Curv2: Geom2dAdaptor_Curve): Geom2dGcc_FunctionTanCuCu {.
+proc constructGeom2dGccFunctionTanCuCu*(curv1: Geom2dAdaptorCurve;
+                                       curv2: Geom2dAdaptorCurve): Geom2dGccFunctionTanCuCu {.
     constructor, importcpp: "Geom2dGcc_FunctionTanCuCu(@)",
     header: "Geom2dGcc_FunctionTanCuCu.hxx".}
-proc constructGeom2dGcc_FunctionTanCuCu*(Circ1: gp_Circ2d;
-                                        Curv2: Geom2dAdaptor_Curve): Geom2dGcc_FunctionTanCuCu {.
+proc constructGeom2dGccFunctionTanCuCu*(circ1: Circ2d; curv2: Geom2dAdaptorCurve): Geom2dGccFunctionTanCuCu {.
     constructor, importcpp: "Geom2dGcc_FunctionTanCuCu(@)",
     header: "Geom2dGcc_FunctionTanCuCu.hxx".}
-proc InitDerivative*(this: var Geom2dGcc_FunctionTanCuCu; X: math_Vector;
-                    Point1: var gp_Pnt2d; Point2: var gp_Pnt2d; Tan1: var gp_Vec2d;
-                    Tan2: var gp_Vec2d; D21: var gp_Vec2d; D22: var gp_Vec2d) {.
+proc initDerivative*(this: var Geom2dGccFunctionTanCuCu; x: MathVector;
+                    point1: var Pnt2d; point2: var Pnt2d; tan1: var Vec2d;
+                    tan2: var Vec2d; d21: var Vec2d; d22: var Vec2d) {.
     importcpp: "InitDerivative", header: "Geom2dGcc_FunctionTanCuCu.hxx".}
-proc NbVariables*(this: Geom2dGcc_FunctionTanCuCu): Standard_Integer {.noSideEffect,
+proc nbVariables*(this: Geom2dGccFunctionTanCuCu): int {.noSideEffect,
     importcpp: "NbVariables", header: "Geom2dGcc_FunctionTanCuCu.hxx".}
-proc NbEquations*(this: Geom2dGcc_FunctionTanCuCu): Standard_Integer {.noSideEffect,
+proc nbEquations*(this: Geom2dGccFunctionTanCuCu): int {.noSideEffect,
     importcpp: "NbEquations", header: "Geom2dGcc_FunctionTanCuCu.hxx".}
-proc Value*(this: var Geom2dGcc_FunctionTanCuCu; X: math_Vector; F: var math_Vector): Standard_Boolean {.
+proc value*(this: var Geom2dGccFunctionTanCuCu; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "Geom2dGcc_FunctionTanCuCu.hxx".}
-proc Derivatives*(this: var Geom2dGcc_FunctionTanCuCu; X: math_Vector;
-                 Deriv: var math_Matrix): Standard_Boolean {.
-    importcpp: "Derivatives", header: "Geom2dGcc_FunctionTanCuCu.hxx".}
-proc Values*(this: var Geom2dGcc_FunctionTanCuCu; X: math_Vector; F: var math_Vector;
-            Deriv: var math_Matrix): Standard_Boolean {.importcpp: "Values",
+proc derivatives*(this: var Geom2dGccFunctionTanCuCu; x: MathVector;
+                 deriv: var MathMatrix): bool {.importcpp: "Derivatives",
     header: "Geom2dGcc_FunctionTanCuCu.hxx".}
+proc values*(this: var Geom2dGccFunctionTanCuCu; x: MathVector; f: var MathVector;
+            deriv: var MathMatrix): bool {.importcpp: "Values",
+                                       header: "Geom2dGcc_FunctionTanCuCu.hxx".}

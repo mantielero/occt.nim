@@ -16,4 +16,5 @@
 
 discard "forward decl of TopOpeBRep_FacesFiller"
 type
-  TopOpeBRep_PFacesFiller* = ptr TopOpeBRep_FacesFiller
+  TopOpeBRepPFacesFiller* = ptr TopOpeBRepFacesFiller
+

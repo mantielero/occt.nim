@@ -14,22 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape,
-  ../TopTools/TopTools_ListOfShape
-
 discard "forward decl of TopoDS_Shape"
 type
-  LocOpe_BuildShape* {.importcpp: "LocOpe_BuildShape",
-                      header: "LocOpe_BuildShape.hxx", bycopy.} = object
+  LocOpeBuildShape* {.importcpp: "LocOpe_BuildShape",
+                     header: "LocOpe_BuildShape.hxx", bycopy.} = object
 
 
-proc constructLocOpe_BuildShape*(): LocOpe_BuildShape {.constructor,
+proc constructLocOpeBuildShape*(): LocOpeBuildShape {.constructor,
     importcpp: "LocOpe_BuildShape(@)", header: "LocOpe_BuildShape.hxx".}
-proc constructLocOpe_BuildShape*(L: TopTools_ListOfShape): LocOpe_BuildShape {.
+proc constructLocOpeBuildShape*(L: TopToolsListOfShape): LocOpeBuildShape {.
     constructor, importcpp: "LocOpe_BuildShape(@)", header: "LocOpe_BuildShape.hxx".}
-proc Perform*(this: var LocOpe_BuildShape; L: TopTools_ListOfShape) {.
+proc perform*(this: var LocOpeBuildShape; L: TopToolsListOfShape) {.
     importcpp: "Perform", header: "LocOpe_BuildShape.hxx".}
-proc Shape*(this: LocOpe_BuildShape): TopoDS_Shape {.noSideEffect,
-    importcpp: "Shape", header: "LocOpe_BuildShape.hxx".}
+proc shape*(this: LocOpeBuildShape): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
+    header: "LocOpe_BuildShape.hxx".}

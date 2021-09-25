@@ -11,53 +11,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../Graphic3d/Graphic3d_NMapOfTransient, ../Standard/Standard_Boolean,
-  SelectMgr_CompositionFilter, SelectMgr_FilterType
-
 discard "forward decl of SelectMgr_AndOrFilter"
 type
-  Handle_SelectMgr_AndOrFilter* = handle[SelectMgr_AndOrFilter]
+  HandleSelectMgrAndOrFilter* = Handle[SelectMgrAndOrFilter]
 
 ## ! A framework to define an OR or AND selection filter.
 ## ! To use an AND selection filter call SetUseOrFilter with False parameter.
 ## ! By default the OR selection filter is used.
 
 type
-  SelectMgr_AndOrFilter* {.importcpp: "SelectMgr_AndOrFilter",
-                          header: "SelectMgr_AndOrFilter.hxx", bycopy.} = object of SelectMgr_CompositionFilter ##
-                                                                                                         ## !
-                                                                                                         ## Constructs
-                                                                                                         ## an
-                                                                                                         ## empty
-                                                                                                         ## selection
-                                                                                                         ## filter.
+  SelectMgrAndOrFilter* {.importcpp: "SelectMgr_AndOrFilter",
+                         header: "SelectMgr_AndOrFilter.hxx", bycopy.} = object of SelectMgrCompositionFilter ##
+                                                                                                       ## !
+                                                                                                       ## Constructs
+                                                                                                       ## an
+                                                                                                       ## empty
+                                                                                                       ## selection
+                                                                                                       ## filter.
     ## !< disabled objects.
     ## !  Selection isn't applied to these objects.
     ## !< selection filter type. SelectMgr_TypeFilter_OR by default.
 
 
-proc constructSelectMgr_AndOrFilter*(theFilterType: SelectMgr_FilterType): SelectMgr_AndOrFilter {.
+proc constructSelectMgrAndOrFilter*(theFilterType: SelectMgrFilterType): SelectMgrAndOrFilter {.
     constructor, importcpp: "SelectMgr_AndOrFilter(@)",
     header: "SelectMgr_AndOrFilter.hxx".}
-proc IsOk*(this: SelectMgr_AndOrFilter; theObj: handle[SelectMgr_EntityOwner]): Standard_Boolean {.
+proc isOk*(this: SelectMgrAndOrFilter; theObj: Handle[SelectMgrEntityOwner]): bool {.
     noSideEffect, importcpp: "IsOk", header: "SelectMgr_AndOrFilter.hxx".}
-proc SetDisabledObjects*(this: var SelectMgr_AndOrFilter;
-                        theObjects: handle[Graphic3d_NMapOfTransient]) {.
+proc setDisabledObjects*(this: var SelectMgrAndOrFilter;
+                        theObjects: Handle[Graphic3dNMapOfTransient]) {.
     importcpp: "SetDisabledObjects", header: "SelectMgr_AndOrFilter.hxx".}
-proc FilterType*(this: SelectMgr_AndOrFilter): SelectMgr_FilterType {.noSideEffect,
+proc filterType*(this: SelectMgrAndOrFilter): SelectMgrFilterType {.noSideEffect,
     importcpp: "FilterType", header: "SelectMgr_AndOrFilter.hxx".}
-proc SetFilterType*(this: var SelectMgr_AndOrFilter;
-                   theFilterType: SelectMgr_FilterType) {.
+proc setFilterType*(this: var SelectMgrAndOrFilter;
+                   theFilterType: SelectMgrFilterType) {.
     importcpp: "SetFilterType", header: "SelectMgr_AndOrFilter.hxx".}
 type
-  SelectMgr_AndOrFilterbase_type* = SelectMgr_CompositionFilter
+  SelectMgrAndOrFilterbaseType* = SelectMgrCompositionFilter
 
-proc get_type_name*(): cstring {.importcpp: "SelectMgr_AndOrFilter::get_type_name(@)",
-                              header: "SelectMgr_AndOrFilter.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "SelectMgr_AndOrFilter::get_type_name(@)",
+                            header: "SelectMgr_AndOrFilter.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "SelectMgr_AndOrFilter::get_type_descriptor(@)",
     header: "SelectMgr_AndOrFilter.hxx".}
-proc DynamicType*(this: SelectMgr_AndOrFilter): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "SelectMgr_AndOrFilter.hxx".}
+proc dynamicType*(this: SelectMgrAndOrFilter): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "SelectMgr_AndOrFilter.hxx".}

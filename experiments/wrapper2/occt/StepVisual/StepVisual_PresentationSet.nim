@@ -14,32 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepVisual_PresentationSet"
 discard "forward decl of StepVisual_PresentationSet"
 type
-  Handle_StepVisual_PresentationSet* = handle[StepVisual_PresentationSet]
-  StepVisual_PresentationSet* {.importcpp: "StepVisual_PresentationSet",
-                               header: "StepVisual_PresentationSet.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## a
-                                                                                                          ## PresentationSet
+  HandleStepVisualPresentationSet* = Handle[StepVisualPresentationSet]
+  StepVisualPresentationSet* {.importcpp: "StepVisual_PresentationSet",
+                              header: "StepVisual_PresentationSet.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                        ## !
+                                                                                                        ## Returns
+                                                                                                        ## a
+                                                                                                        ## PresentationSet
 
 
-proc constructStepVisual_PresentationSet*(): StepVisual_PresentationSet {.
+proc constructStepVisualPresentationSet*(): StepVisualPresentationSet {.
     constructor, importcpp: "StepVisual_PresentationSet(@)",
     header: "StepVisual_PresentationSet.hxx".}
 type
-  StepVisual_PresentationSetbase_type* = Standard_Transient
+  StepVisualPresentationSetbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_PresentationSet::get_type_name(@)",
-                              header: "StepVisual_PresentationSet.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_PresentationSet::get_type_name(@)",
+                            header: "StepVisual_PresentationSet.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_PresentationSet::get_type_descriptor(@)",
     header: "StepVisual_PresentationSet.hxx".}
-proc DynamicType*(this: StepVisual_PresentationSet): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualPresentationSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_PresentationSet.hxx".}

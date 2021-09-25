@@ -15,9 +15,10 @@
 ##  commercial license or contractual agreement.
 
 type
-  VrmlConverter_TypeOfCamera* {.size: sizeof(cint),
-                               importcpp: "VrmlConverter_TypeOfCamera",
-                               header: "VrmlConverter_TypeOfCamera.hxx".} = enum
-    VrmlConverter_NoCamera, VrmlConverter_PerspectiveCamera,
-    VrmlConverter_OrthographicCamera
+  VrmlConverterTypeOfCamera* {.size: sizeof(cint),
+                              importcpp: "VrmlConverter_TypeOfCamera",
+                              header: "VrmlConverter_TypeOfCamera.hxx".} = enum
+    VrmlConverterNoCamera, VrmlConverterPerspectiveCamera,
+    VrmlConverterOrthographicCamera
+
 

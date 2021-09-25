@@ -14,28 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, CDM_ListIteratorOfListOfReferences,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of CDM_Document"
 type
   CDM_ReferenceIterator* {.importcpp: "CDM_ReferenceIterator",
                           header: "CDM_ReferenceIterator.hxx", bycopy.} = object
 
 
-proc constructCDM_ReferenceIterator*(aDocument: handle[CDM_Document]): CDM_ReferenceIterator {.
+proc constructCDM_ReferenceIterator*(aDocument: Handle[CDM_Document]): CDM_ReferenceIterator {.
     constructor, importcpp: "CDM_ReferenceIterator(@)",
     header: "CDM_ReferenceIterator.hxx".}
-proc More*(this: CDM_ReferenceIterator): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "CDM_ReferenceIterator.hxx".}
-proc Next*(this: var CDM_ReferenceIterator) {.importcpp: "Next",
+proc more*(this: CDM_ReferenceIterator): bool {.noSideEffect, importcpp: "More",
     header: "CDM_ReferenceIterator.hxx".}
-proc Document*(this: CDM_ReferenceIterator): handle[CDM_Document] {.noSideEffect,
+proc next*(this: var CDM_ReferenceIterator) {.importcpp: "Next",
+    header: "CDM_ReferenceIterator.hxx".}
+proc document*(this: CDM_ReferenceIterator): Handle[CDM_Document] {.noSideEffect,
     importcpp: "Document", header: "CDM_ReferenceIterator.hxx".}
-proc ReferenceIdentifier*(this: CDM_ReferenceIterator): Standard_Integer {.
-    noSideEffect, importcpp: "ReferenceIdentifier",
-    header: "CDM_ReferenceIterator.hxx".}
-proc DocumentVersion*(this: CDM_ReferenceIterator): Standard_Integer {.noSideEffect,
+proc referenceIdentifier*(this: CDM_ReferenceIterator): int {.noSideEffect,
+    importcpp: "ReferenceIdentifier", header: "CDM_ReferenceIterator.hxx".}
+proc documentVersion*(this: CDM_ReferenceIterator): int {.noSideEffect,
     importcpp: "DocumentVersion", header: "CDM_ReferenceIterator.hxx".}

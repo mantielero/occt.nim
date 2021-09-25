@@ -13,23 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Transient, ../Standard/Standard_Type,
-  ../TColStd/TColStd_Array2OfReal, ../NCollection/NCollection_List,
-  ../math/math_BullardGenerator, ../Quantity/Quantity_NameOfColor,
-  ../Aspect/Aspect_FillMethod, ../Aspect/Aspect_GradientFillMethod,
-  ../Graphic3d/Graphic3d_CView, ../Graphic3d/Graphic3d_CullingTool,
-  ../Graphic3d/Graphic3d_GraduatedTrihedron,
-  ../Graphic3d/Graphic3d_SequenceOfHClipPlane,
-  ../Graphic3d/Graphic3d_ToneMappingMethod,
-  ../Graphic3d/Graphic3d_TypeOfShadingModel,
-  ../Graphic3d/Graphic3d_WorldViewProjState,
-  ../Graphic3d/Graphic3d_ZLayerSettings, OpenGl_Aspects, OpenGl_BackgroundArray,
-  OpenGl_Context, OpenGl_FrameBuffer, OpenGl_FrameStatsPrs,
-  OpenGl_GraduatedTrihedron, OpenGl_LayerList, OpenGl_LineAttributes,
-  OpenGl_SceneGeometry, OpenGl_Structure, OpenGl_Window, OpenGl_Workspace,
-  OpenGl_TileSampler
-
 discard "forward decl of OpenGl_Matrix"
 discard "forward decl of Graphic3d_StructureManager"
 discard "forward decl of OpenGl_GraphicDriver"
@@ -40,277 +23,277 @@ discard "forward decl of OpenGl_Workspace"
 discard "forward decl of OpenGl_View"
 discard "forward decl of OpenGl_View"
 type
-  Handle_OpenGl_View* = handle[OpenGl_View]
+  HandleOpenGlView* = Handle[OpenGlView]
 
 ## ! Implementation of OpenGl view.
 
 type
-  OpenGl_View* {.importcpp: "OpenGl_View", header: "OpenGl_View.hxx", bycopy.} = object of Graphic3d_CView ##
-                                                                                                 ## !
-                                                                                                 ## Constructor.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Returns
-                                                                                                 ## gradient
-                                                                                                 ## background
-                                                                                                 ## fill
-                                                                                                 ## colors.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Returns
-                                                                                                 ## background
-                                                                                                 ## color.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## @name
-                                                                                                 ## obsolete
-                                                                                                 ## Graduated
-                                                                                                 ## Trihedron
-                                                                                                 ## functionality
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Displays
-                                                                                                 ## Graduated
-                                                                                                 ## Trihedron.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## @name
-                                                                                                 ## Internal
-                                                                                                 ## methods
-                                                                                                 ## for
-                                                                                                 ## managing
-                                                                                                 ## GL
-                                                                                                 ## resources
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Initializes
-                                                                                                 ## OpenGl
-                                                                                                 ## resource
-                                                                                                 ## for
-                                                                                                 ## environment
-                                                                                                 ## texture.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## @name
-                                                                                                 ## low-level
-                                                                                                 ## redrawing
-                                                                                                 ## sub-routines
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Redraws
-                                                                                                 ## view
-                                                                                                 ## for
-                                                                                                 ## the
-                                                                                                 ## given
-                                                                                                 ## monographic
-                                                                                                 ## camera
-                                                                                                 ## projection,
-                                                                                                 ## or
-                                                                                                 ## left/right
-                                                                                                 ## eye.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## @name
-                                                                                                 ## Rendering
-                                                                                                 ## of
-                                                                                                 ## GL
-                                                                                                 ## graphics
-                                                                                                 ## (with
-                                                                                                 ## prepared
-                                                                                                 ## drawing
-                                                                                                 ## buffer).
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Renders
-                                                                                                 ## the
-                                                                                                 ## graphical
-                                                                                                 ## contents
-                                                                                                 ## of
-                                                                                                 ## the
-                                                                                                 ## view
-                                                                                                 ## into
-                                                                                                 ## the
-                                                                                                 ## preprepared
-                                                                                                 ## window
-                                                                                                 ## or
-                                                                                                 ## framebuffer.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## @param
-                                                                                                 ## theProjection
-                                                                                                 ## [in]
-                                                                                                 ## the
-                                                                                                 ## projection
-                                                                                                 ## that
-                                                                                                 ## should
-                                                                                                 ## be
-                                                                                                 ## used
-                                                                                                 ## for
-                                                                                                 ## rendering.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## @param
-                                                                                                 ## theReadDrawFbo
-                                                                                                 ## [in]
-                                                                                                 ## the
-                                                                                                 ## framebuffer
-                                                                                                 ## for
-                                                                                                 ## rendering
-                                                                                                 ## graphics.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## @param
-                                                                                                 ## theOitAccumFbo
-                                                                                                 ## [in]
-                                                                                                 ## the
-                                                                                                 ## framebuffer
-                                                                                                 ## for
-                                                                                                 ## accumulating
-                                                                                                 ## color
-                                                                                                 ## and
-                                                                                                 ## coverage
-                                                                                                 ## for
-                                                                                                 ## OIT
-                                                                                                 ## process.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## @param
-                                                                                                 ## theToDrawImmediate
-                                                                                                 ## [in]
-                                                                                                 ## the
-                                                                                                 ## flag
-                                                                                                 ## indicates
-                                                                                                 ## whether
-                                                                                                 ## the
-                                                                                                 ## rendering
-                                                                                                 ## performs
-                                                                                                 ## in
-                                                                                                 ## immediate
-                                                                                                 ## mode.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Adds
-                                                                                                 ## the
-                                                                                                 ## structure
-                                                                                                 ## to
-                                                                                                 ## display
-                                                                                                 ## lists
-                                                                                                 ## of
-                                                                                                 ## the
-                                                                                                 ## view.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Release
-                                                                                                 ## sRGB
-                                                                                                 ## resources
-                                                                                                 ## (frame-buffers,
-                                                                                                 ## textures,
-                                                                                                 ## etc.).
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## @name
-                                                                                                 ## Rendering
-                                                                                                 ## properties
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Two
-                                                                                                 ## framebuffers
-                                                                                                 ## (left
-                                                                                                 ## and
-                                                                                                 ## right
-                                                                                                 ## views)
-                                                                                                 ## store
-                                                                                                 ## cached
-                                                                                                 ## main
-                                                                                                 ## presentation
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## of
-                                                                                                 ## the
-                                                                                                 ## view
-                                                                                                 ## (without
-                                                                                                 ## presentation
-                                                                                                 ## of
-                                                                                                 ## immediate
-                                                                                                 ## layers).
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## @name
-                                                                                                 ## Background
-                                                                                                 ## parameters
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## @name
-                                                                                                 ## methods
-                                                                                                 ## related
-                                                                                                 ## to
-                                                                                                 ## PBR
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Checks
-                                                                                                 ## whether
-                                                                                                 ## PBR
-                                                                                                 ## is
-                                                                                                 ## available.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## @name
-                                                                                                 ## fields
-                                                                                                 ## and
-                                                                                                 ## types
-                                                                                                 ## related
-                                                                                                 ## to
-                                                                                                 ## PBR
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## State
-                                                                                                 ## of
-                                                                                                 ## PBR
-                                                                                                 ## environment.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## @name
-                                                                                                 ## data
-                                                                                                 ## types
-                                                                                                 ## related
-                                                                                                 ## to
-                                                                                                 ## ray-tracing
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Result
-                                                                                                 ## of
-                                                                                                 ## OpenGL
-                                                                                                 ## shaders
-                                                                                                 ## initialization.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## @name
-                                                                                                 ## methods
-                                                                                                 ## related
-                                                                                                 ## to
-                                                                                                 ## ray-tracing
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Updates
-                                                                                                 ## 3D
-                                                                                                 ## scene
-                                                                                                 ## geometry
-                                                                                                 ## for
-                                                                                                 ## ray-tracing.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## @name
-                                                                                                 ## fields
-                                                                                                 ## related
-                                                                                                 ## to
-                                                                                                 ## ray-tracing
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Result
-                                                                                                 ## of
-                                                                                                 ## RT/PT
-                                                                                                 ## shaders
-                                                                                                 ## initialization.
+  OpenGlView* {.importcpp: "OpenGl_View", header: "OpenGl_View.hxx", bycopy.} = object of Graphic3dCView ##
+                                                                                               ## !
+                                                                                               ## Constructor.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Returns
+                                                                                               ## gradient
+                                                                                               ## background
+                                                                                               ## fill
+                                                                                               ## colors.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Returns
+                                                                                               ## background
+                                                                                               ## color.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## obsolete
+                                                                                               ## Graduated
+                                                                                               ## Trihedron
+                                                                                               ## functionality
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Displays
+                                                                                               ## Graduated
+                                                                                               ## Trihedron.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## Internal
+                                                                                               ## methods
+                                                                                               ## for
+                                                                                               ## managing
+                                                                                               ## GL
+                                                                                               ## resources
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Initializes
+                                                                                               ## OpenGl
+                                                                                               ## resource
+                                                                                               ## for
+                                                                                               ## environment
+                                                                                               ## texture.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## low-level
+                                                                                               ## redrawing
+                                                                                               ## sub-routines
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Redraws
+                                                                                               ## view
+                                                                                               ## for
+                                                                                               ## the
+                                                                                               ## given
+                                                                                               ## monographic
+                                                                                               ## camera
+                                                                                               ## projection,
+                                                                                               ## or
+                                                                                               ## left/right
+                                                                                               ## eye.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## Rendering
+                                                                                               ## of
+                                                                                               ## GL
+                                                                                               ## graphics
+                                                                                               ## (with
+                                                                                               ## prepared
+                                                                                               ## drawing
+                                                                                               ## buffer).
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Renders
+                                                                                               ## the
+                                                                                               ## graphical
+                                                                                               ## contents
+                                                                                               ## of
+                                                                                               ## the
+                                                                                               ## view
+                                                                                               ## into
+                                                                                               ## the
+                                                                                               ## preprepared
+                                                                                               ## window
+                                                                                               ## or
+                                                                                               ## framebuffer.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @param
+                                                                                               ## theProjection
+                                                                                               ## [in]
+                                                                                               ## the
+                                                                                               ## projection
+                                                                                               ## that
+                                                                                               ## should
+                                                                                               ## be
+                                                                                               ## used
+                                                                                               ## for
+                                                                                               ## rendering.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @param
+                                                                                               ## theReadDrawFbo
+                                                                                               ## [in]
+                                                                                               ## the
+                                                                                               ## framebuffer
+                                                                                               ## for
+                                                                                               ## rendering
+                                                                                               ## graphics.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @param
+                                                                                               ## theOitAccumFbo
+                                                                                               ## [in]
+                                                                                               ## the
+                                                                                               ## framebuffer
+                                                                                               ## for
+                                                                                               ## accumulating
+                                                                                               ## color
+                                                                                               ## and
+                                                                                               ## coverage
+                                                                                               ## for
+                                                                                               ## OIT
+                                                                                               ## process.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @param
+                                                                                               ## theToDrawImmediate
+                                                                                               ## [in]
+                                                                                               ## the
+                                                                                               ## flag
+                                                                                               ## indicates
+                                                                                               ## whether
+                                                                                               ## the
+                                                                                               ## rendering
+                                                                                               ## performs
+                                                                                               ## in
+                                                                                               ## immediate
+                                                                                               ## mode.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Adds
+                                                                                               ## the
+                                                                                               ## structure
+                                                                                               ## to
+                                                                                               ## display
+                                                                                               ## lists
+                                                                                               ## of
+                                                                                               ## the
+                                                                                               ## view.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Release
+                                                                                               ## sRGB
+                                                                                               ## resources
+                                                                                               ## (frame-buffers,
+                                                                                               ## textures,
+                                                                                               ## etc.).
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## Rendering
+                                                                                               ## properties
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Two
+                                                                                               ## framebuffers
+                                                                                               ## (left
+                                                                                               ## and
+                                                                                               ## right
+                                                                                               ## views)
+                                                                                               ## store
+                                                                                               ## cached
+                                                                                               ## main
+                                                                                               ## presentation
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## of
+                                                                                               ## the
+                                                                                               ## view
+                                                                                               ## (without
+                                                                                               ## presentation
+                                                                                               ## of
+                                                                                               ## immediate
+                                                                                               ## layers).
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## Background
+                                                                                               ## parameters
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## methods
+                                                                                               ## related
+                                                                                               ## to
+                                                                                               ## PBR
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Checks
+                                                                                               ## whether
+                                                                                               ## PBR
+                                                                                               ## is
+                                                                                               ## available.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## fields
+                                                                                               ## and
+                                                                                               ## types
+                                                                                               ## related
+                                                                                               ## to
+                                                                                               ## PBR
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## State
+                                                                                               ## of
+                                                                                               ## PBR
+                                                                                               ## environment.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## data
+                                                                                               ## types
+                                                                                               ## related
+                                                                                               ## to
+                                                                                               ## ray-tracing
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Result
+                                                                                               ## of
+                                                                                               ## OpenGL
+                                                                                               ## shaders
+                                                                                               ## initialization.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## methods
+                                                                                               ## related
+                                                                                               ## to
+                                                                                               ## ray-tracing
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Updates
+                                                                                               ## 3D
+                                                                                               ## scene
+                                                                                               ## geometry
+                                                                                               ## for
+                                                                                               ## ray-tracing.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## fields
+                                                                                               ## related
+                                                                                               ## to
+                                                                                               ## ray-tracing
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Result
+                                                                                               ## of
+                                                                                               ## RT/PT
+                                                                                               ## shaders
+                                                                                               ## initialization.
     ## !< main list of displayed structure, sorted by layers
     ## !< camera modification state
     ## ! Is needed for selection of overlapping objects and storage of the current view volume
@@ -398,173 +381,167 @@ type
     ## ! Focal distance of camera on previous frame used for depth-of-field (path tracing)
 
 
-proc constructOpenGl_View*(theMgr: handle[Graphic3d_StructureManager];
-                          theDriver: handle[OpenGl_GraphicDriver];
-                          theCaps: handle[OpenGl_Caps];
-                          theCounter: ptr OpenGl_StateCounter): OpenGl_View {.
+proc constructOpenGlView*(theMgr: Handle[Graphic3dStructureManager];
+                         theDriver: Handle[OpenGlGraphicDriver];
+                         theCaps: Handle[OpenGlCaps];
+                         theCounter: ptr OpenGlStateCounter): OpenGlView {.
     constructor, importcpp: "OpenGl_View(@)", header: "OpenGl_View.hxx".}
-proc destroyOpenGl_View*(this: var OpenGl_View) {.importcpp: "#.~OpenGl_View()",
+proc destroyOpenGlView*(this: var OpenGlView) {.importcpp: "#.~OpenGl_View()",
     header: "OpenGl_View.hxx".}
-proc ReleaseGlResources*(this: var OpenGl_View; theCtx: handle[OpenGl_Context]) {.
+proc releaseGlResources*(this: var OpenGlView; theCtx: Handle[OpenGlContext]) {.
     importcpp: "ReleaseGlResources", header: "OpenGl_View.hxx".}
-proc Remove*(this: var OpenGl_View) {.importcpp: "Remove", header: "OpenGl_View.hxx".}
-proc SetImmediateModeDrawToFront*(this: var OpenGl_View;
-                                 theDrawToFrontBuffer: Standard_Boolean): Standard_Boolean {.
+proc remove*(this: var OpenGlView) {.importcpp: "Remove", header: "OpenGl_View.hxx".}
+proc setImmediateModeDrawToFront*(this: var OpenGlView; theDrawToFrontBuffer: bool): bool {.
     importcpp: "SetImmediateModeDrawToFront", header: "OpenGl_View.hxx".}
-proc SetWindow*(this: var OpenGl_View; theWindow: handle[Aspect_Window];
-               theContext: Aspect_RenderingContext) {.importcpp: "SetWindow",
+proc setWindow*(this: var OpenGlView; theWindow: Handle[AspectWindow];
+               theContext: AspectRenderingContext) {.importcpp: "SetWindow",
     header: "OpenGl_View.hxx".}
-proc Window*(this: OpenGl_View): handle[Aspect_Window] {.noSideEffect,
+proc window*(this: OpenGlView): Handle[AspectWindow] {.noSideEffect,
     importcpp: "Window", header: "OpenGl_View.hxx".}
-proc IsDefined*(this: OpenGl_View): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDefined", header: "OpenGl_View.hxx".}
-proc Resized*(this: var OpenGl_View) {.importcpp: "Resized", header: "OpenGl_View.hxx".}
-proc Redraw*(this: var OpenGl_View) {.importcpp: "Redraw", header: "OpenGl_View.hxx".}
-proc RedrawImmediate*(this: var OpenGl_View) {.importcpp: "RedrawImmediate",
-    header: "OpenGl_View.hxx".}
-proc Invalidate*(this: var OpenGl_View) {.importcpp: "Invalidate",
+proc isDefined*(this: OpenGlView): bool {.noSideEffect, importcpp: "IsDefined",
                                       header: "OpenGl_View.hxx".}
-proc IsInvalidated*(this: var OpenGl_View): Standard_Boolean {.
-    importcpp: "IsInvalidated", header: "OpenGl_View.hxx".}
-proc BufferDump*(this: var OpenGl_View; theImage: var Image_PixMap;
-                theBufferType: Graphic3d_BufferType): Standard_Boolean {.
-    importcpp: "BufferDump", header: "OpenGl_View.hxx".}
-proc InvalidateBVHData*(this: var OpenGl_View; theLayerId: Graphic3d_ZLayerId) {.
-    importcpp: "InvalidateBVHData", header: "OpenGl_View.hxx".}
-proc InsertLayerBefore*(this: var OpenGl_View; theLayerId: Graphic3d_ZLayerId;
-                       theSettings: Graphic3d_ZLayerSettings;
-                       theLayerAfter: Graphic3d_ZLayerId) {.
-    importcpp: "InsertLayerBefore", header: "OpenGl_View.hxx".}
-proc InsertLayerAfter*(this: var OpenGl_View; theNewLayerId: Graphic3d_ZLayerId;
-                      theSettings: Graphic3d_ZLayerSettings;
-                      theLayerBefore: Graphic3d_ZLayerId) {.
-    importcpp: "InsertLayerAfter", header: "OpenGl_View.hxx".}
-proc RemoveZLayer*(this: var OpenGl_View; theLayerId: Graphic3d_ZLayerId) {.
-    importcpp: "RemoveZLayer", header: "OpenGl_View.hxx".}
-proc SetZLayerSettings*(this: var OpenGl_View; theLayerId: Graphic3d_ZLayerId;
-                       theSettings: Graphic3d_ZLayerSettings) {.
-    importcpp: "SetZLayerSettings", header: "OpenGl_View.hxx".}
-proc ZLayerMax*(this: OpenGl_View): Standard_Integer {.noSideEffect,
-    importcpp: "ZLayerMax", header: "OpenGl_View.hxx".}
-proc Layers*(this: OpenGl_View): NCollection_List[handle[Graphic3d_Layer]] {.
-    noSideEffect, importcpp: "Layers", header: "OpenGl_View.hxx".}
-proc Layer*(this: OpenGl_View; theLayerId: Graphic3d_ZLayerId): handle[
-    Graphic3d_Layer] {.noSideEffect, importcpp: "Layer", header: "OpenGl_View.hxx".}
-proc MinMaxValues*(this: OpenGl_View; theToIncludeAuxiliary: Standard_Boolean): Bnd_Box {.
-    noSideEffect, importcpp: "MinMaxValues", header: "OpenGl_View.hxx".}
-proc FBO*(this: OpenGl_View): handle[Standard_Transient] {.noSideEffect,
-    importcpp: "FBO", header: "OpenGl_View.hxx".}
-proc SetFBO*(this: var OpenGl_View; theFbo: handle[Standard_Transient]) {.
-    importcpp: "SetFBO", header: "OpenGl_View.hxx".}
-proc FBOCreate*(this: var OpenGl_View; theWidth: Standard_Integer;
-               theHeight: Standard_Integer): handle[Standard_Transient] {.
-    importcpp: "FBOCreate", header: "OpenGl_View.hxx".}
-proc FBORelease*(this: var OpenGl_View; theFbo: var handle[Standard_Transient]) {.
-    importcpp: "FBORelease", header: "OpenGl_View.hxx".}
-proc FBOGetDimensions*(this: var OpenGl_View; theFbo: handle[Standard_Transient];
-                      theWidth: var Standard_Integer;
-                      theHeight: var Standard_Integer;
-                      theWidthMax: var Standard_Integer;
-                      theHeightMax: var Standard_Integer) {.
-    importcpp: "FBOGetDimensions", header: "OpenGl_View.hxx".}
-proc FBOChangeViewport*(this: var OpenGl_View; theFbo: handle[Standard_Transient];
-                       theWidth: Standard_Integer; theHeight: Standard_Integer) {.
-    importcpp: "FBOChangeViewport", header: "OpenGl_View.hxx".}
-proc GradientBackground*(this: OpenGl_View): Aspect_GradientBackground {.
-    noSideEffect, importcpp: "GradientBackground", header: "OpenGl_View.hxx".}
-proc SetGradientBackground*(this: var OpenGl_View;
-                           theBackground: Aspect_GradientBackground) {.
-    importcpp: "SetGradientBackground", header: "OpenGl_View.hxx".}
-proc BackgroundImage*(this: var OpenGl_View): handle[Graphic3d_TextureMap] {.
-    importcpp: "BackgroundImage", header: "OpenGl_View.hxx".}
-proc SetBackgroundImage*(this: var OpenGl_View;
-                        theTextureMap: handle[Graphic3d_TextureMap];
-                        theToUpdatePBREnv: Standard_Boolean = Standard_True) {.
-    importcpp: "SetBackgroundImage", header: "OpenGl_View.hxx".}
-proc BackgroundImageStyle*(this: OpenGl_View): Aspect_FillMethod {.noSideEffect,
-    importcpp: "BackgroundImageStyle", header: "OpenGl_View.hxx".}
-proc SetBackgroundImageStyle*(this: var OpenGl_View; theFillStyle: Aspect_FillMethod) {.
-    importcpp: "SetBackgroundImageStyle", header: "OpenGl_View.hxx".}
-proc BackgroundCubeMap*(this: OpenGl_View): handle[Graphic3d_CubeMap] {.
-    noSideEffect, importcpp: "BackgroundCubeMap", header: "OpenGl_View.hxx".}
-proc GeneratePBREnvironment*(this: var OpenGl_View) {.
-    importcpp: "GeneratePBREnvironment", header: "OpenGl_View.hxx".}
-proc ClearPBREnvironment*(this: var OpenGl_View) {.importcpp: "ClearPBREnvironment",
+proc resized*(this: var OpenGlView) {.importcpp: "Resized", header: "OpenGl_View.hxx".}
+proc redraw*(this: var OpenGlView) {.importcpp: "Redraw", header: "OpenGl_View.hxx".}
+proc redrawImmediate*(this: var OpenGlView) {.importcpp: "RedrawImmediate",
     header: "OpenGl_View.hxx".}
-proc SpecIBLMapLevels*(this: OpenGl_View): cuint {.noSideEffect,
+proc invalidate*(this: var OpenGlView) {.importcpp: "Invalidate",
+                                     header: "OpenGl_View.hxx".}
+proc isInvalidated*(this: var OpenGlView): bool {.importcpp: "IsInvalidated",
+    header: "OpenGl_View.hxx".}
+proc bufferDump*(this: var OpenGlView; theImage: var ImagePixMap;
+                theBufferType: Graphic3dBufferType): bool {.
+    importcpp: "BufferDump", header: "OpenGl_View.hxx".}
+proc invalidateBVHData*(this: var OpenGlView; theLayerId: Graphic3dZLayerId) {.
+    importcpp: "InvalidateBVHData", header: "OpenGl_View.hxx".}
+proc insertLayerBefore*(this: var OpenGlView; theLayerId: Graphic3dZLayerId;
+                       theSettings: Graphic3dZLayerSettings;
+                       theLayerAfter: Graphic3dZLayerId) {.
+    importcpp: "InsertLayerBefore", header: "OpenGl_View.hxx".}
+proc insertLayerAfter*(this: var OpenGlView; theNewLayerId: Graphic3dZLayerId;
+                      theSettings: Graphic3dZLayerSettings;
+                      theLayerBefore: Graphic3dZLayerId) {.
+    importcpp: "InsertLayerAfter", header: "OpenGl_View.hxx".}
+proc removeZLayer*(this: var OpenGlView; theLayerId: Graphic3dZLayerId) {.
+    importcpp: "RemoveZLayer", header: "OpenGl_View.hxx".}
+proc setZLayerSettings*(this: var OpenGlView; theLayerId: Graphic3dZLayerId;
+                       theSettings: Graphic3dZLayerSettings) {.
+    importcpp: "SetZLayerSettings", header: "OpenGl_View.hxx".}
+proc zLayerMax*(this: OpenGlView): int {.noSideEffect, importcpp: "ZLayerMax",
+                                     header: "OpenGl_View.hxx".}
+proc layers*(this: OpenGlView): NCollectionList[Handle[Graphic3dLayer]] {.
+    noSideEffect, importcpp: "Layers", header: "OpenGl_View.hxx".}
+proc layer*(this: OpenGlView; theLayerId: Graphic3dZLayerId): Handle[Graphic3dLayer] {.
+    noSideEffect, importcpp: "Layer", header: "OpenGl_View.hxx".}
+proc minMaxValues*(this: OpenGlView; theToIncludeAuxiliary: bool): BndBox {.
+    noSideEffect, importcpp: "MinMaxValues", header: "OpenGl_View.hxx".}
+proc fbo*(this: OpenGlView): Handle[StandardTransient] {.noSideEffect,
+    importcpp: "FBO", header: "OpenGl_View.hxx".}
+proc setFBO*(this: var OpenGlView; theFbo: Handle[StandardTransient]) {.
+    importcpp: "SetFBO", header: "OpenGl_View.hxx".}
+proc fBOCreate*(this: var OpenGlView; theWidth: int; theHeight: int): Handle[
+    StandardTransient] {.importcpp: "FBOCreate", header: "OpenGl_View.hxx".}
+proc fBORelease*(this: var OpenGlView; theFbo: var Handle[StandardTransient]) {.
+    importcpp: "FBORelease", header: "OpenGl_View.hxx".}
+proc fBOGetDimensions*(this: var OpenGlView; theFbo: Handle[StandardTransient];
+                      theWidth: var int; theHeight: var int; theWidthMax: var int;
+                      theHeightMax: var int) {.importcpp: "FBOGetDimensions",
+    header: "OpenGl_View.hxx".}
+proc fBOChangeViewport*(this: var OpenGlView; theFbo: Handle[StandardTransient];
+                       theWidth: int; theHeight: int) {.
+    importcpp: "FBOChangeViewport", header: "OpenGl_View.hxx".}
+proc gradientBackground*(this: OpenGlView): AspectGradientBackground {.noSideEffect,
+    importcpp: "GradientBackground", header: "OpenGl_View.hxx".}
+proc setGradientBackground*(this: var OpenGlView;
+                           theBackground: AspectGradientBackground) {.
+    importcpp: "SetGradientBackground", header: "OpenGl_View.hxx".}
+proc backgroundImage*(this: var OpenGlView): Handle[Graphic3dTextureMap] {.
+    importcpp: "BackgroundImage", header: "OpenGl_View.hxx".}
+proc setBackgroundImage*(this: var OpenGlView;
+                        theTextureMap: Handle[Graphic3dTextureMap];
+                        theToUpdatePBREnv: bool = true) {.
+    importcpp: "SetBackgroundImage", header: "OpenGl_View.hxx".}
+proc backgroundImageStyle*(this: OpenGlView): AspectFillMethod {.noSideEffect,
+    importcpp: "BackgroundImageStyle", header: "OpenGl_View.hxx".}
+proc setBackgroundImageStyle*(this: var OpenGlView; theFillStyle: AspectFillMethod) {.
+    importcpp: "SetBackgroundImageStyle", header: "OpenGl_View.hxx".}
+proc backgroundCubeMap*(this: OpenGlView): Handle[Graphic3dCubeMap] {.noSideEffect,
+    importcpp: "BackgroundCubeMap", header: "OpenGl_View.hxx".}
+proc generatePBREnvironment*(this: var OpenGlView) {.
+    importcpp: "GeneratePBREnvironment", header: "OpenGl_View.hxx".}
+proc clearPBREnvironment*(this: var OpenGlView) {.importcpp: "ClearPBREnvironment",
+    header: "OpenGl_View.hxx".}
+proc specIBLMapLevels*(this: OpenGlView): cuint {.noSideEffect,
     importcpp: "SpecIBLMapLevels", header: "OpenGl_View.hxx".}
-proc TextureEnv*(this: OpenGl_View): handle[Graphic3d_TextureEnv] {.noSideEffect,
+proc textureEnv*(this: OpenGlView): Handle[Graphic3dTextureEnv] {.noSideEffect,
     importcpp: "TextureEnv", header: "OpenGl_View.hxx".}
-proc SetTextureEnv*(this: var OpenGl_View;
-                   theTextureEnv: handle[Graphic3d_TextureEnv]) {.
+proc setTextureEnv*(this: var OpenGlView; theTextureEnv: Handle[Graphic3dTextureEnv]) {.
     importcpp: "SetTextureEnv", header: "OpenGl_View.hxx".}
-proc BackfacingModel*(this: OpenGl_View): Graphic3d_TypeOfBackfacingModel {.
+proc backfacingModel*(this: OpenGlView): Graphic3dTypeOfBackfacingModel {.
     noSideEffect, importcpp: "BackfacingModel", header: "OpenGl_View.hxx".}
-proc SetBackfacingModel*(this: var OpenGl_View;
-                        theModel: Graphic3d_TypeOfBackfacingModel) {.
+proc setBackfacingModel*(this: var OpenGlView;
+                        theModel: Graphic3dTypeOfBackfacingModel) {.
     importcpp: "SetBackfacingModel", header: "OpenGl_View.hxx".}
-proc LocalOrigin*(this: OpenGl_View): gp_XYZ {.noSideEffect,
-    importcpp: "LocalOrigin", header: "OpenGl_View.hxx".}
-proc SetLocalOrigin*(this: var OpenGl_View; theOrigin: gp_XYZ) {.
+proc localOrigin*(this: OpenGlView): Xyz {.noSideEffect, importcpp: "LocalOrigin",
+                                       header: "OpenGl_View.hxx".}
+proc setLocalOrigin*(this: var OpenGlView; theOrigin: Xyz) {.
     importcpp: "SetLocalOrigin", header: "OpenGl_View.hxx".}
-proc Lights*(this: OpenGl_View): handle[Graphic3d_LightSet] {.noSideEffect,
+proc lights*(this: OpenGlView): Handle[Graphic3dLightSet] {.noSideEffect,
     importcpp: "Lights", header: "OpenGl_View.hxx".}
-proc SetLights*(this: var OpenGl_View; theLights: handle[Graphic3d_LightSet]) {.
+proc setLights*(this: var OpenGlView; theLights: Handle[Graphic3dLightSet]) {.
     importcpp: "SetLights", header: "OpenGl_View.hxx".}
-proc ClipPlanes*(this: OpenGl_View): handle[Graphic3d_SequenceOfHClipPlane] {.
+proc clipPlanes*(this: OpenGlView): Handle[Graphic3dSequenceOfHClipPlane] {.
     noSideEffect, importcpp: "ClipPlanes", header: "OpenGl_View.hxx".}
-proc SetClipPlanes*(this: var OpenGl_View;
-                   thePlanes: handle[Graphic3d_SequenceOfHClipPlane]) {.
+proc setClipPlanes*(this: var OpenGlView;
+                   thePlanes: Handle[Graphic3dSequenceOfHClipPlane]) {.
     importcpp: "SetClipPlanes", header: "OpenGl_View.hxx".}
-proc DiagnosticInformation*(this: OpenGl_View;
-                           theDict: var TColStd_IndexedDataMapOfStringString;
-                           theFlags: Graphic3d_DiagnosticInfo) {.noSideEffect,
+proc diagnosticInformation*(this: OpenGlView;
+                           theDict: var TColStdIndexedDataMapOfStringString;
+                           theFlags: Graphic3dDiagnosticInfo) {.noSideEffect,
     importcpp: "DiagnosticInformation", header: "OpenGl_View.hxx".}
-proc StatisticInformation*(this: OpenGl_View): TCollection_AsciiString {.
+proc statisticInformation*(this: OpenGlView): TCollectionAsciiString {.noSideEffect,
+    importcpp: "StatisticInformation", header: "OpenGl_View.hxx".}
+proc statisticInformation*(this: OpenGlView;
+                          theDict: var TColStdIndexedDataMapOfStringString) {.
     noSideEffect, importcpp: "StatisticInformation", header: "OpenGl_View.hxx".}
-proc StatisticInformation*(this: OpenGl_View;
-                          theDict: var TColStd_IndexedDataMapOfStringString) {.
-    noSideEffect, importcpp: "StatisticInformation", header: "OpenGl_View.hxx".}
-proc BackgroundColor*(this: OpenGl_View): Quantity_ColorRGBA {.noSideEffect,
+proc backgroundColor*(this: OpenGlView): QuantityColorRGBA {.noSideEffect,
     importcpp: "BackgroundColor", header: "OpenGl_View.hxx".}
-proc ChangeGraduatedTrihedron*(this: var OpenGl_View): var OpenGl_GraduatedTrihedron {.
+proc changeGraduatedTrihedron*(this: var OpenGlView): var OpenGlGraduatedTrihedron {.
     importcpp: "ChangeGraduatedTrihedron", header: "OpenGl_View.hxx".}
-proc SetTextureEnv*(this: var OpenGl_View; theCtx: handle[OpenGl_Context];
-                   theTexture: handle[Graphic3d_TextureEnv]) {.
+proc setTextureEnv*(this: var OpenGlView; theCtx: Handle[OpenGlContext];
+                   theTexture: Handle[Graphic3dTextureEnv]) {.
     importcpp: "SetTextureEnv", header: "OpenGl_View.hxx".}
-proc SetBackgroundTextureStyle*(this: var OpenGl_View; FillStyle: Aspect_FillMethod) {.
+proc setBackgroundTextureStyle*(this: var OpenGlView; fillStyle: AspectFillMethod) {.
     importcpp: "SetBackgroundTextureStyle", header: "OpenGl_View.hxx".}
-proc SetBackgroundGradient*(this: var OpenGl_View; AColor1: Quantity_Color;
-                           AColor2: Quantity_Color;
-                           AType: Aspect_GradientFillMethod) {.
+proc setBackgroundGradient*(this: var OpenGlView; aColor1: QuantityColor;
+                           aColor2: QuantityColor; aType: AspectGradientFillMethod) {.
     importcpp: "SetBackgroundGradient", header: "OpenGl_View.hxx".}
-proc SetBackgroundGradientType*(this: var OpenGl_View;
-                               AType: Aspect_GradientFillMethod) {.
+proc setBackgroundGradientType*(this: var OpenGlView;
+                               aType: AspectGradientFillMethod) {.
     importcpp: "SetBackgroundGradientType", header: "OpenGl_View.hxx".}
-proc LayerList*(this: OpenGl_View): OpenGl_LayerList {.noSideEffect,
+proc layerList*(this: OpenGlView): OpenGlLayerList {.noSideEffect,
     importcpp: "LayerList", header: "OpenGl_View.hxx".}
-proc GlWindow*(this: OpenGl_View): handle[OpenGl_Window] {.noSideEffect,
+proc glWindow*(this: OpenGlView): Handle[OpenGlWindow] {.noSideEffect,
     importcpp: "GlWindow", header: "OpenGl_View.hxx".}
-proc GlTextureEnv*(this: OpenGl_View): handle[OpenGl_TextureSet] {.noSideEffect,
+proc glTextureEnv*(this: OpenGlView): Handle[OpenGlTextureSet] {.noSideEffect,
     importcpp: "GlTextureEnv", header: "OpenGl_View.hxx".}
-proc BVHTreeSelector*(this: OpenGl_View): Graphic3d_CullingTool {.noSideEffect,
+proc bVHTreeSelector*(this: OpenGlView): Graphic3dCullingTool {.noSideEffect,
     importcpp: "BVHTreeSelector", header: "OpenGl_View.hxx".}
-proc HasImmediateStructures*(this: OpenGl_View): bool {.noSideEffect,
+proc hasImmediateStructures*(this: OpenGlView): bool {.noSideEffect,
     importcpp: "HasImmediateStructures", header: "OpenGl_View.hxx".}
-proc GraduatedTrihedronDisplay*(this: var OpenGl_View;
-                               theTrihedronData: Graphic3d_GraduatedTrihedron) {.
+proc graduatedTrihedronDisplay*(this: var OpenGlView;
+                               theTrihedronData: Graphic3dGraduatedTrihedron) {.
     importcpp: "GraduatedTrihedronDisplay", header: "OpenGl_View.hxx".}
-proc GraduatedTrihedronErase*(this: var OpenGl_View) {.
+proc graduatedTrihedronErase*(this: var OpenGlView) {.
     importcpp: "GraduatedTrihedronErase", header: "OpenGl_View.hxx".}
-proc GraduatedTrihedronMinMaxValues*(this: var OpenGl_View; theMin: Graphic3d_Vec3;
-                                    theMax: Graphic3d_Vec3) {.
+proc graduatedTrihedronMinMaxValues*(this: var OpenGlView; theMin: Graphic3dVec3;
+                                    theMax: Graphic3dVec3) {.
     importcpp: "GraduatedTrihedronMinMaxValues", header: "OpenGl_View.hxx".}
 type
-  OpenGl_Viewbase_type* = Graphic3d_CView
+  OpenGlViewbaseType* = Graphic3dCView
 
-proc get_type_name*(): cstring {.importcpp: "OpenGl_View::get_type_name(@)",
-                              header: "OpenGl_View.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "OpenGl_View::get_type_name(@)",
+                            header: "OpenGl_View.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "OpenGl_View::get_type_descriptor(@)", header: "OpenGl_View.hxx".}
-proc DynamicType*(this: OpenGl_View): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: OpenGlView): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "OpenGl_View.hxx".}

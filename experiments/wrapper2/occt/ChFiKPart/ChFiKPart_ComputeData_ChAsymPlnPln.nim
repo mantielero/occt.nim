@@ -14,11 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-proc ChFiKPart_MakeChAsym*(DStr: var TopOpeBRepDS_DataStructure;
-                          Data: handle[ChFiDS_SurfData]; Pl1: gp_Pln; Pl2: gp_Pln;
-                          Or1: TopAbs_Orientation; Or2: TopAbs_Orientation;
-                          Dis: Standard_Real; Angle: Standard_Real; Spine: gp_Lin;
-                          First: Standard_Real; Of1: TopAbs_Orientation;
-                          DisOnP1: Standard_Boolean): Standard_Boolean {.
+proc chFiKPartMakeChAsym*(dStr: var TopOpeBRepDS_DataStructure;
+                         data: Handle[ChFiDS_SurfData]; pl1: Pln; pl2: Pln;
+                         or1: TopAbsOrientation; or2: TopAbsOrientation; dis: float;
+                         angle: float; spine: Lin; first: float;
+                         of1: TopAbsOrientation; disOnP1: bool): bool {.
     importcpp: "ChFiKPart_MakeChAsym(@)",
     header: "ChFiKPart_ComputeData_ChAsymPlnPln.hxx".}

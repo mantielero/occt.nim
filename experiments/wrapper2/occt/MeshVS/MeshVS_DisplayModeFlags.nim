@@ -14,7 +14,7 @@
 ##  commercial license or contractual agreement.
 
 type
-  MeshVS_DisplayModeFlags* = Standard_Integer
+  MeshVS_DisplayModeFlags* = int
 
 const
   MeshVS_DMF_WireFrame* = 0x0001
@@ -35,3 +35,4 @@ const
   MeshVS_DMF_SelectionPrs* = 0x0200
   MeshVS_DMF_HilightPrs* = 0x0400
   MeshVS_DMF_User* = 0x0800
+

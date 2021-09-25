@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of TDF_Data"
@@ -47,16 +43,16 @@ discard "forward decl of TDF_Tool"
 discard "forward decl of TDF_LabelMapHasher"
 discard "forward decl of TDF_IDFilter"
 type
-  TDF* {.importcpp: "TDF", header: "TDF.hxx", bycopy.} = object ## ! Returns ID
+  Tdf* {.importcpp: "TDF", header: "TDF.hxx", bycopy.} = object ## ! Returns ID
                                                         ## "00000000-0000-0000-0000-000000000000",
                                                         ## ! sometimes used as null ID.
 
 
-proc LowestID*(): Standard_GUID {.importcpp: "TDF::LowestID(@)", header: "TDF.hxx".}
-proc UppestID*(): Standard_GUID {.importcpp: "TDF::UppestID(@)", header: "TDF.hxx".}
-proc AddLinkGUIDToProgID*(ID: Standard_GUID; ProgID: TCollection_ExtendedString) {.
+proc lowestID*(): StandardGUID {.importcpp: "TDF::LowestID(@)", header: "TDF.hxx".}
+proc uppestID*(): StandardGUID {.importcpp: "TDF::UppestID(@)", header: "TDF.hxx".}
+proc addLinkGUIDToProgID*(id: StandardGUID; progID: TCollectionExtendedString) {.
     importcpp: "TDF::AddLinkGUIDToProgID(@)", header: "TDF.hxx".}
-proc GUIDFromProgID*(ProgID: TCollection_ExtendedString; ID: var Standard_GUID): Standard_Boolean {.
+proc gUIDFromProgID*(progID: TCollectionExtendedString; id: var StandardGUID): bool {.
     importcpp: "TDF::GUIDFromProgID(@)", header: "TDF.hxx".}
-proc ProgIDFromGUID*(ID: Standard_GUID; ProgID: var TCollection_ExtendedString): Standard_Boolean {.
+proc progIDFromGUID*(id: StandardGUID; progID: var TCollectionExtendedString): bool {.
     importcpp: "TDF::ProgIDFromGUID(@)", header: "TDF.hxx".}

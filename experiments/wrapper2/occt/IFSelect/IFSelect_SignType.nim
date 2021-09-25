@@ -14,16 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  IFSelect_Signature, ../Standard/Standard_CString
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_SignType"
 discard "forward decl of IFSelect_SignType"
 type
-  Handle_IFSelect_SignType* = handle[IFSelect_SignType]
+  HandleIFSelectSignType* = Handle[IFSelectSignType]
 
 ## ! This Signature returns the cdl Type of an entity, under two
 ## ! forms :
@@ -31,52 +27,52 @@ type
 ## ! - class type, without package name
 
 type
-  IFSelect_SignType* {.importcpp: "IFSelect_SignType",
-                      header: "IFSelect_SignType.hxx", bycopy.} = object of IFSelect_Signature ##
-                                                                                        ## !
-                                                                                        ## Returns
-                                                                                        ## a
-                                                                                        ## SignType
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## <nopk>
-                                                                                        ## false
-                                                                                        ## (D)
-                                                                                        ## :
-                                                                                        ## complete
-                                                                                        ## dynamic
-                                                                                        ## type
-                                                                                        ## (name
-                                                                                        ## =
-                                                                                        ## Dynamic
-                                                                                        ## Type)
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## <nopk>
-                                                                                        ## true
-                                                                                        ## :
-                                                                                        ## class
-                                                                                        ## type
-                                                                                        ## without
-                                                                                        ## pk
-                                                                                        ## (name
-                                                                                        ## =
-                                                                                        ## Class
-                                                                                        ## Type)
+  IFSelectSignType* {.importcpp: "IFSelect_SignType",
+                     header: "IFSelect_SignType.hxx", bycopy.} = object of IFSelectSignature ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## a
+                                                                                      ## SignType
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## <nopk>
+                                                                                      ## false
+                                                                                      ## (D)
+                                                                                      ## :
+                                                                                      ## complete
+                                                                                      ## dynamic
+                                                                                      ## type
+                                                                                      ## (name
+                                                                                      ## =
+                                                                                      ## Dynamic
+                                                                                      ## Type)
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## <nopk>
+                                                                                      ## true
+                                                                                      ## :
+                                                                                      ## class
+                                                                                      ## type
+                                                                                      ## without
+                                                                                      ## pk
+                                                                                      ## (name
+                                                                                      ## =
+                                                                                      ## Class
+                                                                                      ## Type)
 
 
-proc constructIFSelect_SignType*(nopk: Standard_Boolean = Standard_False): IFSelect_SignType {.
-    constructor, importcpp: "IFSelect_SignType(@)", header: "IFSelect_SignType.hxx".}
-proc Value*(this: IFSelect_SignType; ent: handle[Standard_Transient];
-           model: handle[Interface_InterfaceModel]): Standard_CString {.
-    noSideEffect, importcpp: "Value", header: "IFSelect_SignType.hxx".}
+proc constructIFSelectSignType*(nopk: bool = false): IFSelectSignType {.constructor,
+    importcpp: "IFSelect_SignType(@)", header: "IFSelect_SignType.hxx".}
+proc value*(this: IFSelectSignType; ent: Handle[StandardTransient];
+           model: Handle[InterfaceInterfaceModel]): StandardCString {.noSideEffect,
+    importcpp: "Value", header: "IFSelect_SignType.hxx".}
 type
-  IFSelect_SignTypebase_type* = IFSelect_Signature
+  IFSelectSignTypebaseType* = IFSelectSignature
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_SignType::get_type_name(@)",
-                              header: "IFSelect_SignType.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_SignType::get_type_name(@)",
+                            header: "IFSelect_SignType.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_SignType::get_type_descriptor(@)",
     header: "IFSelect_SignType.hxx".}
-proc DynamicType*(this: IFSelect_SignType): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IFSelectSignType): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SignType.hxx".}

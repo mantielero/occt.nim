@@ -14,16 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../Resource/Resource_FormatType, ../TColStd/TColStd_Array1OfInteger,
-  ../Interface/Interface_IndexedMapOfAsciiString,
-  ../TColStd/TColStd_DataMapOfIntegerInteger, ../Standard/Standard_Integer,
-  ../Interface/Interface_FileReaderData, ../Standard/Standard_CString,
-  ../Interface/Interface_ParamType, ../Standard/Standard_Boolean,
-  ../TColStd/TColStd_SequenceOfAsciiString, ../Standard/Standard_Real,
-  ../Standard/Standard_Type, StepData_Logical
-
 discard "forward decl of Interface_Check"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of StepData_PDescr"
@@ -38,7 +28,7 @@ discard "forward decl of StepData_EnumTool"
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of StepData_StepReaderData"
 type
-  Handle_StepData_StepReaderData* = handle[StepData_StepReaderData]
+  HandleStepDataStepReaderData* = Handle[StepDataStepReaderData]
 
 ## ! Specific FileReaderData for Step
 ## ! Contains litteral description of entities (for each one : type
@@ -47,249 +37,220 @@ type
 ## ! and specific access methods (Boolean, XY, XYZ)
 
 type
-  StepData_StepReaderData* {.importcpp: "StepData_StepReaderData",
-                            header: "StepData_StepReaderData.hxx", bycopy.} = object of Interface_FileReaderData ##
-                                                                                                          ## !
-                                                                                                          ## creates
-                                                                                                          ## StepReaderData
-                                                                                                          ## correctly
-                                                                                                          ## dimensionned
-                                                                                                          ## (necessary
-                                                                                                          ## at
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## creation
-                                                                                                          ## time,
-                                                                                                          ## because
-                                                                                                          ## it
-                                                                                                          ## contains
-                                                                                                          ## arrays)
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## nbheader
-                                                                                                          ## is
-                                                                                                          ## nb
-                                                                                                          ## of
-                                                                                                          ## records
-                                                                                                          ## for
-                                                                                                          ## Header,
-                                                                                                          ## nbtotal
-                                                                                                          ## for
-                                                                                                          ## Header+Data
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## and
-                                                                                                          ## nbpar
-                                                                                                          ## gives
-                                                                                                          ## the
-                                                                                                          ## total
-                                                                                                          ## count
-                                                                                                          ## of
-                                                                                                          ## parameters
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Searches
-                                                                                                          ## for
-                                                                                                          ## a
-                                                                                                          ## Parameter
-                                                                                                          ## of
-                                                                                                          ## the
-                                                                                                          ## record
-                                                                                                          ## <num>,
-                                                                                                          ## which
-                                                                                                          ## refers
-                                                                                                          ## to
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## the
-                                                                                                          ## Ident
-                                                                                                          ## <id>
-                                                                                                          ## (form
-                                                                                                          ## #nnn).
-                                                                                                          ## [Used
-                                                                                                          ## by
-                                                                                                          ## SetEntityNumbers]
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## If
-                                                                                                          ## found,
-                                                                                                          ## returns
-                                                                                                          ## its
-                                                                                                          ## EntityNumber,
-                                                                                                          ## else
-                                                                                                          ## returns
-                                                                                                          ## Zero.
+  StepDataStepReaderData* {.importcpp: "StepData_StepReaderData",
+                           header: "StepData_StepReaderData.hxx", bycopy.} = object of InterfaceFileReaderData ##
+                                                                                                        ## !
+                                                                                                        ## creates
+                                                                                                        ## StepReaderData
+                                                                                                        ## correctly
+                                                                                                        ## dimensionned
+                                                                                                        ## (necessary
+                                                                                                        ## at
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## creation
+                                                                                                        ## time,
+                                                                                                        ## because
+                                                                                                        ## it
+                                                                                                        ## contains
+                                                                                                        ## arrays)
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## nbheader
+                                                                                                        ## is
+                                                                                                        ## nb
+                                                                                                        ## of
+                                                                                                        ## records
+                                                                                                        ## for
+                                                                                                        ## Header,
+                                                                                                        ## nbtotal
+                                                                                                        ## for
+                                                                                                        ## Header+Data
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## and
+                                                                                                        ## nbpar
+                                                                                                        ## gives
+                                                                                                        ## the
+                                                                                                        ## total
+                                                                                                        ## count
+                                                                                                        ## of
+                                                                                                        ## parameters
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## Searches
+                                                                                                        ## for
+                                                                                                        ## a
+                                                                                                        ## Parameter
+                                                                                                        ## of
+                                                                                                        ## the
+                                                                                                        ## record
+                                                                                                        ## <num>,
+                                                                                                        ## which
+                                                                                                        ## refers
+                                                                                                        ## to
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## the
+                                                                                                        ## Ident
+                                                                                                        ## <id>
+                                                                                                        ## (form
+                                                                                                        ## #nnn).
+                                                                                                        ## [Used
+                                                                                                        ## by
+                                                                                                        ## SetEntityNumbers]
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## If
+                                                                                                        ## found,
+                                                                                                        ## returns
+                                                                                                        ## its
+                                                                                                        ## EntityNumber,
+                                                                                                        ## else
+                                                                                                        ## returns
+                                                                                                        ## Zero.
 
 
-proc constructStepData_StepReaderData*(nbheader: Standard_Integer;
-                                      nbtotal: Standard_Integer;
-                                      nbpar: Standard_Integer; theSourceCodePage: Resource_FormatType = Resource_FormatType_UTF8): StepData_StepReaderData {.
+proc constructStepDataStepReaderData*(nbheader: int; nbtotal: int; nbpar: int;
+    theSourceCodePage: ResourceFormatType = resourceFormatTypeUTF8): StepDataStepReaderData {.
     constructor, importcpp: "StepData_StepReaderData(@)",
     header: "StepData_StepReaderData.hxx".}
-proc SetRecord*(this: var StepData_StepReaderData; num: Standard_Integer;
-               ident: Standard_CString; `type`: Standard_CString;
-               nbpar: Standard_Integer) {.importcpp: "SetRecord",
-                                        header: "StepData_StepReaderData.hxx".}
-proc AddStepParam*(this: var StepData_StepReaderData; num: Standard_Integer;
-                  aval: Standard_CString; atype: Interface_ParamType;
-                  nument: Standard_Integer = 0) {.importcpp: "AddStepParam",
+proc setRecord*(this: var StepDataStepReaderData; num: int; ident: StandardCString;
+               `type`: StandardCString; nbpar: int) {.importcpp: "SetRecord",
     header: "StepData_StepReaderData.hxx".}
-proc RecordType*(this: StepData_StepReaderData; num: Standard_Integer): TCollection_AsciiString {.
+proc addStepParam*(this: var StepDataStepReaderData; num: int; aval: StandardCString;
+                  atype: InterfaceParamType; nument: int = 0) {.
+    importcpp: "AddStepParam", header: "StepData_StepReaderData.hxx".}
+proc recordType*(this: StepDataStepReaderData; num: int): TCollectionAsciiString {.
     noSideEffect, importcpp: "RecordType", header: "StepData_StepReaderData.hxx".}
-proc CType*(this: StepData_StepReaderData; num: Standard_Integer): Standard_CString {.
-    noSideEffect, importcpp: "CType", header: "StepData_StepReaderData.hxx".}
-proc RecordIdent*(this: StepData_StepReaderData; num: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "RecordIdent", header: "StepData_StepReaderData.hxx".}
-proc SubListNumber*(this: StepData_StepReaderData; num: Standard_Integer;
-                   nump: Standard_Integer; aslast: Standard_Boolean): Standard_Integer {.
+proc cType*(this: StepDataStepReaderData; num: int): StandardCString {.noSideEffect,
+    importcpp: "CType", header: "StepData_StepReaderData.hxx".}
+proc recordIdent*(this: StepDataStepReaderData; num: int): int {.noSideEffect,
+    importcpp: "RecordIdent", header: "StepData_StepReaderData.hxx".}
+proc subListNumber*(this: StepDataStepReaderData; num: int; nump: int; aslast: bool): int {.
     noSideEffect, importcpp: "SubListNumber", header: "StepData_StepReaderData.hxx".}
-proc IsComplex*(this: StepData_StepReaderData; num: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsComplex", header: "StepData_StepReaderData.hxx".}
-proc ComplexType*(this: StepData_StepReaderData; num: Standard_Integer;
-                 types: var TColStd_SequenceOfAsciiString) {.noSideEffect,
+proc isComplex*(this: StepDataStepReaderData; num: int): bool {.noSideEffect,
+    importcpp: "IsComplex", header: "StepData_StepReaderData.hxx".}
+proc complexType*(this: StepDataStepReaderData; num: int;
+                 types: var TColStdSequenceOfAsciiString) {.noSideEffect,
     importcpp: "ComplexType", header: "StepData_StepReaderData.hxx".}
-proc NextForComplex*(this: StepData_StepReaderData; num: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "NextForComplex",
-    header: "StepData_StepReaderData.hxx".}
-proc NamedForComplex*(this: StepData_StepReaderData; name: Standard_CString;
-                     num0: Standard_Integer; num: var Standard_Integer;
-                     ach: var handle[Interface_Check]): Standard_Boolean {.
+proc nextForComplex*(this: StepDataStepReaderData; num: int): int {.noSideEffect,
+    importcpp: "NextForComplex", header: "StepData_StepReaderData.hxx".}
+proc namedForComplex*(this: StepDataStepReaderData; name: StandardCString; num0: int;
+                     num: var int; ach: var Handle[InterfaceCheck]): bool {.
     noSideEffect, importcpp: "NamedForComplex",
     header: "StepData_StepReaderData.hxx".}
-proc NamedForComplex*(this: StepData_StepReaderData; theName: Standard_CString;
-                     theShortName: Standard_CString; num0: Standard_Integer;
-                     num: var Standard_Integer; ach: var handle[Interface_Check]): Standard_Boolean {.
-    noSideEffect, importcpp: "NamedForComplex",
-    header: "StepData_StepReaderData.hxx".}
-proc CheckNbParams*(this: StepData_StepReaderData; num: Standard_Integer;
-                   nbreq: Standard_Integer; ach: var handle[Interface_Check];
-                   mess: Standard_CString = ""): Standard_Boolean {.noSideEffect,
-    importcpp: "CheckNbParams", header: "StepData_StepReaderData.hxx".}
-proc ReadSubList*(this: StepData_StepReaderData; num: Standard_Integer;
-                 nump: Standard_Integer; mess: Standard_CString;
-                 ach: var handle[Interface_Check]; numsub: var Standard_Integer;
-                 optional: Standard_Boolean = Standard_False;
-                 lenmin: Standard_Integer = 0; lenmax: Standard_Integer = 0): Standard_Boolean {.
+proc namedForComplex*(this: StepDataStepReaderData; theName: StandardCString;
+                     theShortName: StandardCString; num0: int; num: var int;
+                     ach: var Handle[InterfaceCheck]): bool {.noSideEffect,
+    importcpp: "NamedForComplex", header: "StepData_StepReaderData.hxx".}
+proc checkNbParams*(this: StepDataStepReaderData; num: int; nbreq: int;
+                   ach: var Handle[InterfaceCheck]; mess: StandardCString = ""): bool {.
+    noSideEffect, importcpp: "CheckNbParams", header: "StepData_StepReaderData.hxx".}
+proc readSubList*(this: StepDataStepReaderData; num: int; nump: int;
+                 mess: StandardCString; ach: var Handle[InterfaceCheck];
+                 numsub: var int; optional: bool = false; lenmin: int = 0; lenmax: int = 0): bool {.
     noSideEffect, importcpp: "ReadSubList", header: "StepData_StepReaderData.hxx".}
-proc ReadSub*(this: StepData_StepReaderData; numsub: Standard_Integer;
-             mess: Standard_CString; ach: var handle[Interface_Check];
-             descr: handle[StepData_PDescr]; val: var handle[Standard_Transient]): Standard_Integer {.
-    noSideEffect, importcpp: "ReadSub", header: "StepData_StepReaderData.hxx".}
-proc ReadMember*(this: StepData_StepReaderData; num: Standard_Integer;
-                nump: Standard_Integer; mess: Standard_CString;
-                ach: var handle[Interface_Check];
-                val: var handle[StepData_SelectMember]): Standard_Boolean {.
-    noSideEffect, importcpp: "ReadMember", header: "StepData_StepReaderData.hxx".}
-proc ReadMember*[T](this: StepData_StepReaderData; num: Standard_Integer;
-                   nump: Standard_Integer; mess: Standard_CString;
-                   ach: var handle[Interface_Check]; val: var handle[T]): Standard_Boolean {.
-    noSideEffect, importcpp: "ReadMember", header: "StepData_StepReaderData.hxx".}
-proc ReadField*(this: StepData_StepReaderData; num: Standard_Integer;
-               nump: Standard_Integer; mess: Standard_CString;
-               ach: var handle[Interface_Check]; descr: handle[StepData_PDescr];
-               fild: var StepData_Field): Standard_Boolean {.noSideEffect,
-    importcpp: "ReadField", header: "StepData_StepReaderData.hxx".}
-proc ReadList*(this: StepData_StepReaderData; num: Standard_Integer;
-              ach: var handle[Interface_Check]; descr: handle[StepData_ESDescr];
-              list: var StepData_FieldList): Standard_Boolean {.noSideEffect,
+proc readSub*(this: StepDataStepReaderData; numsub: int; mess: StandardCString;
+             ach: var Handle[InterfaceCheck]; descr: Handle[StepDataPDescr];
+             val: var Handle[StandardTransient]): int {.noSideEffect,
+    importcpp: "ReadSub", header: "StepData_StepReaderData.hxx".}
+proc readMember*(this: StepDataStepReaderData; num: int; nump: int;
+                mess: StandardCString; ach: var Handle[InterfaceCheck];
+                val: var Handle[StepDataSelectMember]): bool {.noSideEffect,
+    importcpp: "ReadMember", header: "StepData_StepReaderData.hxx".}
+proc readMember*[T](this: StepDataStepReaderData; num: int; nump: int;
+                   mess: StandardCString; ach: var Handle[InterfaceCheck];
+                   val: var Handle[T]): bool {.noSideEffect, importcpp: "ReadMember",
+    header: "StepData_StepReaderData.hxx".}
+proc readField*(this: StepDataStepReaderData; num: int; nump: int;
+               mess: StandardCString; ach: var Handle[InterfaceCheck];
+               descr: Handle[StepDataPDescr]; fild: var StepDataField): bool {.
+    noSideEffect, importcpp: "ReadField", header: "StepData_StepReaderData.hxx".}
+proc readList*(this: StepDataStepReaderData; num: int;
+              ach: var Handle[InterfaceCheck]; descr: Handle[StepDataESDescr];
+              list: var StepDataFieldList): bool {.noSideEffect,
     importcpp: "ReadList", header: "StepData_StepReaderData.hxx".}
-proc ReadAny*(this: StepData_StepReaderData; num: Standard_Integer;
-             nump: Standard_Integer; mess: Standard_CString;
-             ach: var handle[Interface_Check]; descr: handle[StepData_PDescr];
-             val: var handle[Standard_Transient]): Standard_Boolean {.noSideEffect,
+proc readAny*(this: StepDataStepReaderData; num: int; nump: int; mess: StandardCString;
+             ach: var Handle[InterfaceCheck]; descr: Handle[StepDataPDescr];
+             val: var Handle[StandardTransient]): bool {.noSideEffect,
     importcpp: "ReadAny", header: "StepData_StepReaderData.hxx".}
-proc ReadXY*(this: StepData_StepReaderData; num: Standard_Integer;
-            nump: Standard_Integer; mess: Standard_CString;
-            ach: var handle[Interface_Check]; X: var Standard_Real;
-            Y: var Standard_Real): Standard_Boolean {.noSideEffect,
-    importcpp: "ReadXY", header: "StepData_StepReaderData.hxx".}
-proc ReadXYZ*(this: StepData_StepReaderData; num: Standard_Integer;
-             nump: Standard_Integer; mess: Standard_CString;
-             ach: var handle[Interface_Check]; X: var Standard_Real;
-             Y: var Standard_Real; Z: var Standard_Real): Standard_Boolean {.
+proc readXY*(this: StepDataStepReaderData; num: int; nump: int; mess: StandardCString;
+            ach: var Handle[InterfaceCheck]; x: var float; y: var float): bool {.
+    noSideEffect, importcpp: "ReadXY", header: "StepData_StepReaderData.hxx".}
+proc readXYZ*(this: StepDataStepReaderData; num: int; nump: int; mess: StandardCString;
+             ach: var Handle[InterfaceCheck]; x: var float; y: var float; z: var float): bool {.
     noSideEffect, importcpp: "ReadXYZ", header: "StepData_StepReaderData.hxx".}
-proc ReadReal*(this: StepData_StepReaderData; num: Standard_Integer;
-              nump: Standard_Integer; mess: Standard_CString;
-              ach: var handle[Interface_Check]; val: var Standard_Real): Standard_Boolean {.
+proc readReal*(this: StepDataStepReaderData; num: int; nump: int;
+              mess: StandardCString; ach: var Handle[InterfaceCheck]; val: var float): bool {.
     noSideEffect, importcpp: "ReadReal", header: "StepData_StepReaderData.hxx".}
-proc ReadEntity*(this: StepData_StepReaderData; num: Standard_Integer;
-                nump: Standard_Integer; mess: Standard_CString;
-                ach: var handle[Interface_Check]; atype: handle[Standard_Type];
-                ent: var handle[Standard_Transient]): Standard_Boolean {.
+proc readEntity*(this: StepDataStepReaderData; num: int; nump: int;
+                mess: StandardCString; ach: var Handle[InterfaceCheck];
+                atype: Handle[StandardType]; ent: var Handle[StandardTransient]): bool {.
     noSideEffect, importcpp: "ReadEntity", header: "StepData_StepReaderData.hxx".}
-proc ReadEntity*[T](this: StepData_StepReaderData; num: Standard_Integer;
-                   nump: Standard_Integer; mess: Standard_CString;
-                   ach: var handle[Interface_Check]; atype: handle[Standard_Type];
-                   ent: var handle[T]): Standard_Boolean {.noSideEffect,
+proc readEntity*[T](this: StepDataStepReaderData; num: int; nump: int;
+                   mess: StandardCString; ach: var Handle[InterfaceCheck];
+                   atype: Handle[StandardType]; ent: var Handle[T]): bool {.
+    noSideEffect, importcpp: "ReadEntity", header: "StepData_StepReaderData.hxx".}
+proc readEntity*(this: StepDataStepReaderData; num: int; nump: int;
+                mess: StandardCString; ach: var Handle[InterfaceCheck];
+                sel: var StepDataSelectType): bool {.noSideEffect,
     importcpp: "ReadEntity", header: "StepData_StepReaderData.hxx".}
-proc ReadEntity*(this: StepData_StepReaderData; num: Standard_Integer;
-                nump: Standard_Integer; mess: Standard_CString;
-                ach: var handle[Interface_Check]; sel: var StepData_SelectType): Standard_Boolean {.
-    noSideEffect, importcpp: "ReadEntity", header: "StepData_StepReaderData.hxx".}
-proc ReadInteger*(this: StepData_StepReaderData; num: Standard_Integer;
-                 nump: Standard_Integer; mess: Standard_CString;
-                 ach: var handle[Interface_Check]; val: var Standard_Integer): Standard_Boolean {.
+proc readInteger*(this: StepDataStepReaderData; num: int; nump: int;
+                 mess: StandardCString; ach: var Handle[InterfaceCheck]; val: var int): bool {.
     noSideEffect, importcpp: "ReadInteger", header: "StepData_StepReaderData.hxx".}
-proc ReadBoolean*(this: StepData_StepReaderData; num: Standard_Integer;
-                 nump: Standard_Integer; mess: Standard_CString;
-                 ach: var handle[Interface_Check]; flag: var Standard_Boolean): Standard_Boolean {.
-    noSideEffect, importcpp: "ReadBoolean", header: "StepData_StepReaderData.hxx".}
-proc ReadLogical*(this: StepData_StepReaderData; num: Standard_Integer;
-                 nump: Standard_Integer; mess: Standard_CString;
-                 ach: var handle[Interface_Check]; flag: var StepData_Logical): Standard_Boolean {.
-    noSideEffect, importcpp: "ReadLogical", header: "StepData_StepReaderData.hxx".}
-proc ReadString*(this: StepData_StepReaderData; num: Standard_Integer;
-                nump: Standard_Integer; mess: Standard_CString;
-                ach: var handle[Interface_Check];
-                val: var handle[TCollection_HAsciiString]): Standard_Boolean {.
-    noSideEffect, importcpp: "ReadString", header: "StepData_StepReaderData.hxx".}
-proc ReadEnumParam*(this: StepData_StepReaderData; num: Standard_Integer;
-                   nump: Standard_Integer; mess: Standard_CString;
-                   ach: var handle[Interface_Check]; text: var Standard_CString): Standard_Boolean {.
-    noSideEffect, importcpp: "ReadEnumParam", header: "StepData_StepReaderData.hxx".}
-proc FailEnumValue*(this: StepData_StepReaderData; num: Standard_Integer;
-                   nump: Standard_Integer; mess: Standard_CString;
-                   ach: var handle[Interface_Check]) {.noSideEffect,
-    importcpp: "FailEnumValue", header: "StepData_StepReaderData.hxx".}
-proc ReadEnum*(this: StepData_StepReaderData; num: Standard_Integer;
-              nump: Standard_Integer; mess: Standard_CString;
-              ach: var handle[Interface_Check]; enumtool: StepData_EnumTool;
-              val: var Standard_Integer): Standard_Boolean {.noSideEffect,
+proc readBoolean*(this: StepDataStepReaderData; num: int; nump: int;
+                 mess: StandardCString; ach: var Handle[InterfaceCheck];
+                 flag: var bool): bool {.noSideEffect, importcpp: "ReadBoolean",
+                                     header: "StepData_StepReaderData.hxx".}
+proc readLogical*(this: StepDataStepReaderData; num: int; nump: int;
+                 mess: StandardCString; ach: var Handle[InterfaceCheck];
+                 flag: var StepDataLogical): bool {.noSideEffect,
+    importcpp: "ReadLogical", header: "StepData_StepReaderData.hxx".}
+proc readString*(this: StepDataStepReaderData; num: int; nump: int;
+                mess: StandardCString; ach: var Handle[InterfaceCheck];
+                val: var Handle[TCollectionHAsciiString]): bool {.noSideEffect,
+    importcpp: "ReadString", header: "StepData_StepReaderData.hxx".}
+proc readEnumParam*(this: StepDataStepReaderData; num: int; nump: int;
+                   mess: StandardCString; ach: var Handle[InterfaceCheck];
+                   text: var StandardCString): bool {.noSideEffect,
+    importcpp: "ReadEnumParam", header: "StepData_StepReaderData.hxx".}
+proc failEnumValue*(this: StepDataStepReaderData; num: int; nump: int;
+                   mess: StandardCString; ach: var Handle[InterfaceCheck]) {.
+    noSideEffect, importcpp: "FailEnumValue", header: "StepData_StepReaderData.hxx".}
+proc readEnum*(this: StepDataStepReaderData; num: int; nump: int;
+              mess: StandardCString; ach: var Handle[InterfaceCheck];
+              enumtool: StepDataEnumTool; val: var int): bool {.noSideEffect,
     importcpp: "ReadEnum", header: "StepData_StepReaderData.hxx".}
-proc ReadTypedParam*(this: StepData_StepReaderData; num: Standard_Integer;
-                    nump: Standard_Integer; mustbetyped: Standard_Boolean;
-                    mess: Standard_CString; ach: var handle[Interface_Check];
-                    numr: var Standard_Integer; numrp: var Standard_Integer;
-                    typ: var TCollection_AsciiString): Standard_Boolean {.
-    noSideEffect, importcpp: "ReadTypedParam",
-    header: "StepData_StepReaderData.hxx".}
-proc CheckDerived*(this: StepData_StepReaderData; num: Standard_Integer;
-                  nump: Standard_Integer; mess: Standard_CString;
-                  ach: var handle[Interface_Check];
-                  errstat: Standard_Boolean = Standard_False): Standard_Boolean {.
-    noSideEffect, importcpp: "CheckDerived", header: "StepData_StepReaderData.hxx".}
-proc NbEntities*(this: StepData_StepReaderData): Standard_Integer {.noSideEffect,
+proc readTypedParam*(this: StepDataStepReaderData; num: int; nump: int;
+                    mustbetyped: bool; mess: StandardCString;
+                    ach: var Handle[InterfaceCheck]; numr: var int; numrp: var int;
+                    typ: var TCollectionAsciiString): bool {.noSideEffect,
+    importcpp: "ReadTypedParam", header: "StepData_StepReaderData.hxx".}
+proc checkDerived*(this: StepDataStepReaderData; num: int; nump: int;
+                  mess: StandardCString; ach: var Handle[InterfaceCheck];
+                  errstat: bool = false): bool {.noSideEffect,
+    importcpp: "CheckDerived", header: "StepData_StepReaderData.hxx".}
+proc nbEntities*(this: StepDataStepReaderData): int {.noSideEffect,
     importcpp: "NbEntities", header: "StepData_StepReaderData.hxx".}
-proc FindNextRecord*(this: StepData_StepReaderData; num: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "FindNextRecord",
-    header: "StepData_StepReaderData.hxx".}
-proc SetEntityNumbers*(this: var StepData_StepReaderData;
-                      withmap: Standard_Boolean = Standard_True) {.
+proc findNextRecord*(this: StepDataStepReaderData; num: int): int {.noSideEffect,
+    importcpp: "FindNextRecord", header: "StepData_StepReaderData.hxx".}
+proc setEntityNumbers*(this: var StepDataStepReaderData; withmap: bool = true) {.
     importcpp: "SetEntityNumbers", header: "StepData_StepReaderData.hxx".}
-proc FindNextHeaderRecord*(this: StepData_StepReaderData; num: Standard_Integer): Standard_Integer {.
+proc findNextHeaderRecord*(this: StepDataStepReaderData; num: int): int {.
     noSideEffect, importcpp: "FindNextHeaderRecord",
     header: "StepData_StepReaderData.hxx".}
-proc PrepareHeader*(this: var StepData_StepReaderData) {.importcpp: "PrepareHeader",
+proc prepareHeader*(this: var StepDataStepReaderData) {.importcpp: "PrepareHeader",
     header: "StepData_StepReaderData.hxx".}
-proc GlobalCheck*(this: StepData_StepReaderData): handle[Interface_Check] {.
+proc globalCheck*(this: StepDataStepReaderData): Handle[InterfaceCheck] {.
     noSideEffect, importcpp: "GlobalCheck", header: "StepData_StepReaderData.hxx".}
 type
-  StepData_StepReaderDatabase_type* = Interface_FileReaderData
+  StepDataStepReaderDatabaseType* = InterfaceFileReaderData
 
-proc get_type_name*(): cstring {.importcpp: "StepData_StepReaderData::get_type_name(@)",
-                              header: "StepData_StepReaderData.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepData_StepReaderData::get_type_name(@)",
+                            header: "StepData_StepReaderData.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepData_StepReaderData::get_type_descriptor(@)",
     header: "StepData_StepReaderData.hxx".}
-proc DynamicType*(this: StepData_StepReaderData): handle[Standard_Type] {.
+proc dynamicType*(this: StepDataStepReaderData): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepData_StepReaderData.hxx".}

@@ -14,51 +14,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, IFGraph_SubPartsIterator,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Interface_Graph"
 type
-  IFGraph_ConnectedComponants* {.importcpp: "IFGraph_ConnectedComponants",
-                                header: "IFGraph_ConnectedComponants.hxx", bycopy.} = object of IFGraph_SubPartsIterator ##
-                                                                                                                  ## !
-                                                                                                                  ## creates
-                                                                                                                  ## with
-                                                                                                                  ## a
-                                                                                                                  ## Graph,
-                                                                                                                  ## and
-                                                                                                                  ## will
-                                                                                                                  ## analyse
-                                                                                                                  ## :
-                                                                                                                  ##
-                                                                                                                  ## !
-                                                                                                                  ## whole
-                                                                                                                  ## True
-                                                                                                                  ## :
-                                                                                                                  ## all
-                                                                                                                  ## the
-                                                                                                                  ## contents
-                                                                                                                  ## of
-                                                                                                                  ## the
-                                                                                                                  ## Model
-                                                                                                                  ##
-                                                                                                                  ## !
-                                                                                                                  ## whole
-                                                                                                                  ## False
-                                                                                                                  ## :
-                                                                                                                  ## sub-parts
-                                                                                                                  ## which
-                                                                                                                  ## will
-                                                                                                                  ## be
-                                                                                                                  ## given
-                                                                                                                  ## later
+  IFGraphConnectedComponants* {.importcpp: "IFGraph_ConnectedComponants",
+                               header: "IFGraph_ConnectedComponants.hxx", bycopy.} = object of IFGraphSubPartsIterator ##
+                                                                                                                ## !
+                                                                                                                ## creates
+                                                                                                                ## with
+                                                                                                                ## a
+                                                                                                                ## Graph,
+                                                                                                                ## and
+                                                                                                                ## will
+                                                                                                                ## analyse
+                                                                                                                ## :
+                                                                                                                ##
+                                                                                                                ## !
+                                                                                                                ## whole
+                                                                                                                ## True
+                                                                                                                ## :
+                                                                                                                ## all
+                                                                                                                ## the
+                                                                                                                ## contents
+                                                                                                                ## of
+                                                                                                                ## the
+                                                                                                                ## Model
+                                                                                                                ##
+                                                                                                                ## !
+                                                                                                                ## whole
+                                                                                                                ## False
+                                                                                                                ## :
+                                                                                                                ## sub-parts
+                                                                                                                ## which
+                                                                                                                ## will
+                                                                                                                ## be
+                                                                                                                ## given
+                                                                                                                ## later
 
 
-proc constructIFGraph_ConnectedComponants*(agraph: Interface_Graph;
-    whole: Standard_Boolean): IFGraph_ConnectedComponants {.constructor,
-    importcpp: "IFGraph_ConnectedComponants(@)",
+proc constructIFGraphConnectedComponants*(agraph: InterfaceGraph; whole: bool): IFGraphConnectedComponants {.
+    constructor, importcpp: "IFGraph_ConnectedComponants(@)",
     header: "IFGraph_ConnectedComponants.hxx".}
-proc Evaluate*(this: var IFGraph_ConnectedComponants) {.importcpp: "Evaluate",
+proc evaluate*(this: var IFGraphConnectedComponants) {.importcpp: "Evaluate",
     header: "IFGraph_ConnectedComponants.hxx".}

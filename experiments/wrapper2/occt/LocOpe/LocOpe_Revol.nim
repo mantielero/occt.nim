@@ -14,44 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape, ../gp/gp_Ax1,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean,
-  ../TopTools/TopTools_DataMapOfShapeListOfShape,
-  ../TopTools/TopTools_ListOfShape, ../TColGeom/TColGeom_SequenceOfCurve
-
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of gp_Ax1"
 discard "forward decl of Geom_Curve"
 type
-  LocOpe_Revol* {.importcpp: "LocOpe_Revol", header: "LocOpe_Revol.hxx", bycopy.} = object
+  LocOpeRevol* {.importcpp: "LocOpe_Revol", header: "LocOpe_Revol.hxx", bycopy.} = object
 
 
-proc constructLocOpe_Revol*(): LocOpe_Revol {.constructor,
+proc constructLocOpeRevol*(): LocOpeRevol {.constructor,
     importcpp: "LocOpe_Revol(@)", header: "LocOpe_Revol.hxx".}
-proc constructLocOpe_Revol*(Base: TopoDS_Shape; Axis: gp_Ax1; Angle: Standard_Real;
-                           angledec: Standard_Real): LocOpe_Revol {.constructor,
-    importcpp: "LocOpe_Revol(@)", header: "LocOpe_Revol.hxx".}
-proc constructLocOpe_Revol*(Base: TopoDS_Shape; Axis: gp_Ax1; Angle: Standard_Real): LocOpe_Revol {.
+proc constructLocOpeRevol*(base: TopoDS_Shape; axis: Ax1; angle: float; angledec: float): LocOpeRevol {.
     constructor, importcpp: "LocOpe_Revol(@)", header: "LocOpe_Revol.hxx".}
-proc Perform*(this: var LocOpe_Revol; Base: TopoDS_Shape; Axis: gp_Ax1;
-             Angle: Standard_Real; angledec: Standard_Real) {.importcpp: "Perform",
-    header: "LocOpe_Revol.hxx".}
-proc Perform*(this: var LocOpe_Revol; Base: TopoDS_Shape; Axis: gp_Ax1;
-             Angle: Standard_Real) {.importcpp: "Perform",
-                                   header: "LocOpe_Revol.hxx".}
-proc FirstShape*(this: LocOpe_Revol): TopoDS_Shape {.noSideEffect,
+proc constructLocOpeRevol*(base: TopoDS_Shape; axis: Ax1; angle: float): LocOpeRevol {.
+    constructor, importcpp: "LocOpe_Revol(@)", header: "LocOpe_Revol.hxx".}
+proc perform*(this: var LocOpeRevol; base: TopoDS_Shape; axis: Ax1; angle: float;
+             angledec: float) {.importcpp: "Perform", header: "LocOpe_Revol.hxx".}
+proc perform*(this: var LocOpeRevol; base: TopoDS_Shape; axis: Ax1; angle: float) {.
+    importcpp: "Perform", header: "LocOpe_Revol.hxx".}
+proc firstShape*(this: LocOpeRevol): TopoDS_Shape {.noSideEffect,
     importcpp: "FirstShape", header: "LocOpe_Revol.hxx".}
-proc LastShape*(this: LocOpe_Revol): TopoDS_Shape {.noSideEffect,
+proc lastShape*(this: LocOpeRevol): TopoDS_Shape {.noSideEffect,
     importcpp: "LastShape", header: "LocOpe_Revol.hxx".}
-proc Shape*(this: LocOpe_Revol): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
+proc shape*(this: LocOpeRevol): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "LocOpe_Revol.hxx".}
-proc Shapes*(this: LocOpe_Revol; S: TopoDS_Shape): TopTools_ListOfShape {.
-    noSideEffect, importcpp: "Shapes", header: "LocOpe_Revol.hxx".}
-proc Curves*(this: LocOpe_Revol; SCurves: var TColGeom_SequenceOfCurve) {.
-    noSideEffect, importcpp: "Curves", header: "LocOpe_Revol.hxx".}
-proc BarycCurve*(this: LocOpe_Revol): handle[Geom_Curve] {.noSideEffect,
+proc shapes*(this: LocOpeRevol; s: TopoDS_Shape): TopToolsListOfShape {.noSideEffect,
+    importcpp: "Shapes", header: "LocOpe_Revol.hxx".}
+proc curves*(this: LocOpeRevol; sCurves: var TColGeomSequenceOfCurve) {.noSideEffect,
+    importcpp: "Curves", header: "LocOpe_Revol.hxx".}
+proc barycCurve*(this: LocOpeRevol): Handle[GeomCurve] {.noSideEffect,
     importcpp: "BarycCurve", header: "LocOpe_Revol.hxx".}

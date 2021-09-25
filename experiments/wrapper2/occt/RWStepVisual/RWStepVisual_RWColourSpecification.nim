@@ -14,28 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_ColourSpecification"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepVisual_RWColourSpecification* {.importcpp: "RWStepVisual_RWColourSpecification", header: "RWStepVisual_RWColourSpecification.hxx",
-                                       bycopy.} = object
+  RWStepVisualRWColourSpecification* {.importcpp: "RWStepVisual_RWColourSpecification", header: "RWStepVisual_RWColourSpecification.hxx",
+                                      bycopy.} = object
 
 
-proc constructRWStepVisual_RWColourSpecification*(): RWStepVisual_RWColourSpecification {.
+proc constructRWStepVisualRWColourSpecification*(): RWStepVisualRWColourSpecification {.
     constructor, importcpp: "RWStepVisual_RWColourSpecification(@)",
     header: "RWStepVisual_RWColourSpecification.hxx".}
-proc ReadStep*(this: RWStepVisual_RWColourSpecification;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepVisual_ColourSpecification]) {.noSideEffect,
+proc readStep*(this: RWStepVisualRWColourSpecification;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepVisualColourSpecification]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWColourSpecification.hxx".}
-proc WriteStep*(this: RWStepVisual_RWColourSpecification;
-               SW: var StepData_StepWriter;
-               ent: handle[StepVisual_ColourSpecification]) {.noSideEffect,
+proc writeStep*(this: RWStepVisualRWColourSpecification;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepVisualColourSpecification]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWColourSpecification.hxx".}

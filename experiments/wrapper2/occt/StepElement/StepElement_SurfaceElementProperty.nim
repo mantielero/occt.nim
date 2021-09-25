@@ -13,58 +13,55 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepElement_SurfaceSectionField"
 discard "forward decl of StepElement_SurfaceElementProperty"
 discard "forward decl of StepElement_SurfaceElementProperty"
 type
-  Handle_StepElement_SurfaceElementProperty* = handle[
-      StepElement_SurfaceElementProperty]
+  HandleStepElementSurfaceElementProperty* = Handle[
+      StepElementSurfaceElementProperty]
 
 ## ! Representation of STEP entity SurfaceElementProperty
 
 type
-  StepElement_SurfaceElementProperty* {.importcpp: "StepElement_SurfaceElementProperty", header: "StepElement_SurfaceElementProperty.hxx",
-                                       bycopy.} = object of Standard_Transient ## ! Empty
-                                                                          ## constructor
+  StepElementSurfaceElementProperty* {.importcpp: "StepElement_SurfaceElementProperty", header: "StepElement_SurfaceElementProperty.hxx",
+                                      bycopy.} = object of StandardTransient ## ! Empty
+                                                                        ## constructor
 
 
-proc constructStepElement_SurfaceElementProperty*(): StepElement_SurfaceElementProperty {.
+proc constructStepElementSurfaceElementProperty*(): StepElementSurfaceElementProperty {.
     constructor, importcpp: "StepElement_SurfaceElementProperty(@)",
     header: "StepElement_SurfaceElementProperty.hxx".}
-proc Init*(this: var StepElement_SurfaceElementProperty;
-          aPropertyId: handle[TCollection_HAsciiString];
-          aDescription: handle[TCollection_HAsciiString];
-          aSection: handle[StepElement_SurfaceSectionField]) {.importcpp: "Init",
+proc init*(this: var StepElementSurfaceElementProperty;
+          aPropertyId: Handle[TCollectionHAsciiString];
+          aDescription: Handle[TCollectionHAsciiString];
+          aSection: Handle[StepElementSurfaceSectionField]) {.importcpp: "Init",
     header: "StepElement_SurfaceElementProperty.hxx".}
-proc PropertyId*(this: StepElement_SurfaceElementProperty): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "PropertyId",
-                               header: "StepElement_SurfaceElementProperty.hxx".}
-proc SetPropertyId*(this: var StepElement_SurfaceElementProperty;
-                   PropertyId: handle[TCollection_HAsciiString]) {.
+proc propertyId*(this: StepElementSurfaceElementProperty): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "PropertyId",
+                              header: "StepElement_SurfaceElementProperty.hxx".}
+proc setPropertyId*(this: var StepElementSurfaceElementProperty;
+                   propertyId: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetPropertyId", header: "StepElement_SurfaceElementProperty.hxx".}
-proc Description*(this: StepElement_SurfaceElementProperty): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description",
-                               header: "StepElement_SurfaceElementProperty.hxx".}
-proc SetDescription*(this: var StepElement_SurfaceElementProperty;
-                    Description: handle[TCollection_HAsciiString]) {.
+proc description*(this: StepElementSurfaceElementProperty): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Description",
+                              header: "StepElement_SurfaceElementProperty.hxx".}
+proc setDescription*(this: var StepElementSurfaceElementProperty;
+                    description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepElement_SurfaceElementProperty.hxx".}
-proc Section*(this: StepElement_SurfaceElementProperty): handle[
-    StepElement_SurfaceSectionField] {.noSideEffect, importcpp: "Section", header: "StepElement_SurfaceElementProperty.hxx".}
-proc SetSection*(this: var StepElement_SurfaceElementProperty;
-                Section: handle[StepElement_SurfaceSectionField]) {.
+proc section*(this: StepElementSurfaceElementProperty): Handle[
+    StepElementSurfaceSectionField] {.noSideEffect, importcpp: "Section", header: "StepElement_SurfaceElementProperty.hxx".}
+proc setSection*(this: var StepElementSurfaceElementProperty;
+                section: Handle[StepElementSurfaceSectionField]) {.
     importcpp: "SetSection", header: "StepElement_SurfaceElementProperty.hxx".}
 type
-  StepElement_SurfaceElementPropertybase_type* = Standard_Transient
+  StepElementSurfaceElementPropertybaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepElement_SurfaceElementProperty::get_type_name(@)",
-                              header: "StepElement_SurfaceElementProperty.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepElement_SurfaceElementProperty::get_type_name(@)",
+                            header: "StepElement_SurfaceElementProperty.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepElement_SurfaceElementProperty::get_type_descriptor(@)",
     header: "StepElement_SurfaceElementProperty.hxx".}
-proc DynamicType*(this: StepElement_SurfaceElementProperty): handle[Standard_Type] {.
+proc dynamicType*(this: StepElementSurfaceElementProperty): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_SurfaceElementProperty.hxx".}

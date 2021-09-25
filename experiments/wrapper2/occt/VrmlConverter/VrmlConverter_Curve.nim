@@ -14,26 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_OStream,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer
-
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of VrmlConverter_Drawer"
 type
-  VrmlConverter_Curve* {.importcpp: "VrmlConverter_Curve",
-                        header: "VrmlConverter_Curve.hxx", bycopy.} = object ## ! adds to the OStream the drawing of the curve aCurve.
-                                                                        ## ! The aspect is defined by
-                                                                        ## LineAspect in aDrawer.
+  VrmlConverterCurve* {.importcpp: "VrmlConverter_Curve",
+                       header: "VrmlConverter_Curve.hxx", bycopy.} = object ## ! adds to the OStream the drawing of the curve aCurve.
+                                                                       ## ! The aspect is defined by
+                                                                       ## LineAspect in aDrawer.
 
 
-proc Add*(aCurve: Adaptor3d_Curve; aDrawer: handle[VrmlConverter_Drawer];
-         anOStream: var Standard_OStream) {.
+proc add*(aCurve: Adaptor3dCurve; aDrawer: Handle[VrmlConverterDrawer];
+         anOStream: var StandardOStream) {.importcpp: "VrmlConverter_Curve::Add(@)",
+                                        header: "VrmlConverter_Curve.hxx".}
+proc add*(aCurve: Adaptor3dCurve; u1: float; u2: float;
+         aDrawer: Handle[VrmlConverterDrawer]; anOStream: var StandardOStream) {.
     importcpp: "VrmlConverter_Curve::Add(@)", header: "VrmlConverter_Curve.hxx".}
-proc Add*(aCurve: Adaptor3d_Curve; U1: Standard_Real; U2: Standard_Real;
-         aDrawer: handle[VrmlConverter_Drawer]; anOStream: var Standard_OStream) {.
-    importcpp: "VrmlConverter_Curve::Add(@)", header: "VrmlConverter_Curve.hxx".}
-proc Add*(aCurve: Adaptor3d_Curve; U1: Standard_Real; U2: Standard_Real;
-         anOStream: var Standard_OStream; aNbPoints: Standard_Integer) {.
-    importcpp: "VrmlConverter_Curve::Add(@)", header: "VrmlConverter_Curve.hxx".}
+proc add*(aCurve: Adaptor3dCurve; u1: float; u2: float; anOStream: var StandardOStream;
+         aNbPoints: int) {.importcpp: "VrmlConverter_Curve::Add(@)",
+                         header: "VrmlConverter_Curve.hxx".}

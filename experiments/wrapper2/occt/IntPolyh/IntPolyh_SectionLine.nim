@@ -14,45 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, IntPolyh_SeqOfStartPoints,
-  ../Standard/Standard_Integer
-
 discard "forward decl of IntPolyh_StartPoint"
 type
-  IntPolyh_SectionLine* {.importcpp: "IntPolyh_SectionLine",
-                         header: "IntPolyh_SectionLine.hxx", bycopy.} = object
+  IntPolyhSectionLine* {.importcpp: "IntPolyh_SectionLine",
+                        header: "IntPolyh_SectionLine.hxx", bycopy.} = object
 
 
-proc constructIntPolyh_SectionLine*(): IntPolyh_SectionLine {.constructor,
+proc constructIntPolyhSectionLine*(): IntPolyhSectionLine {.constructor,
     importcpp: "IntPolyh_SectionLine(@)", header: "IntPolyh_SectionLine.hxx".}
-proc constructIntPolyh_SectionLine*(nn: Standard_Integer): IntPolyh_SectionLine {.
-    constructor, importcpp: "IntPolyh_SectionLine(@)",
+proc constructIntPolyhSectionLine*(nn: int): IntPolyhSectionLine {.constructor,
+    importcpp: "IntPolyh_SectionLine(@)", header: "IntPolyh_SectionLine.hxx".}
+proc init*(this: var IntPolyhSectionLine; nn: int) {.importcpp: "Init",
     header: "IntPolyh_SectionLine.hxx".}
-proc Init*(this: var IntPolyh_SectionLine; nn: Standard_Integer) {.importcpp: "Init",
-    header: "IntPolyh_SectionLine.hxx".}
-proc Value*(this: IntPolyh_SectionLine; nn: Standard_Integer): IntPolyh_StartPoint {.
-    noSideEffect, importcpp: "Value", header: "IntPolyh_SectionLine.hxx".}
-proc `[]`*(this: IntPolyh_SectionLine; nn: Standard_Integer): IntPolyh_StartPoint {.
-    noSideEffect, importcpp: "#[@]", header: "IntPolyh_SectionLine.hxx".}
-proc ChangeValue*(this: var IntPolyh_SectionLine; nn: Standard_Integer): var IntPolyh_StartPoint {.
-    importcpp: "ChangeValue", header: "IntPolyh_SectionLine.hxx".}
-proc `[]`*(this: var IntPolyh_SectionLine; nn: Standard_Integer): var IntPolyh_StartPoint {.
+proc value*(this: IntPolyhSectionLine; nn: int): IntPolyhStartPoint {.noSideEffect,
+    importcpp: "Value", header: "IntPolyh_SectionLine.hxx".}
+proc `[]`*(this: IntPolyhSectionLine; nn: int): IntPolyhStartPoint {.noSideEffect,
     importcpp: "#[@]", header: "IntPolyh_SectionLine.hxx".}
-proc Copy*(this: var IntPolyh_SectionLine; Other: IntPolyh_SectionLine): var IntPolyh_SectionLine {.
+proc changeValue*(this: var IntPolyhSectionLine; nn: int): var IntPolyhStartPoint {.
+    importcpp: "ChangeValue", header: "IntPolyh_SectionLine.hxx".}
+proc `[]`*(this: var IntPolyhSectionLine; nn: int): var IntPolyhStartPoint {.
+    importcpp: "#[@]", header: "IntPolyh_SectionLine.hxx".}
+proc copy*(this: var IntPolyhSectionLine; other: IntPolyhSectionLine): var IntPolyhSectionLine {.
     importcpp: "Copy", header: "IntPolyh_SectionLine.hxx".}
-proc GetN*(this: IntPolyh_SectionLine): Standard_Integer {.noSideEffect,
-    importcpp: "GetN", header: "IntPolyh_SectionLine.hxx".}
-proc NbStartPoints*(this: IntPolyh_SectionLine): Standard_Integer {.noSideEffect,
-    importcpp: "NbStartPoints", header: "IntPolyh_SectionLine.hxx".}
-proc IncrementNbStartPoints*(this: var IntPolyh_SectionLine) {.
-    importcpp: "IncrementNbStartPoints", header: "IntPolyh_SectionLine.hxx".}
-proc Destroy*(this: var IntPolyh_SectionLine) {.importcpp: "Destroy",
+proc getN*(this: IntPolyhSectionLine): int {.noSideEffect, importcpp: "GetN",
     header: "IntPolyh_SectionLine.hxx".}
-proc destroyIntPolyh_SectionLine*(this: var IntPolyh_SectionLine) {.
+proc nbStartPoints*(this: IntPolyhSectionLine): int {.noSideEffect,
+    importcpp: "NbStartPoints", header: "IntPolyh_SectionLine.hxx".}
+proc incrementNbStartPoints*(this: var IntPolyhSectionLine) {.
+    importcpp: "IncrementNbStartPoints", header: "IntPolyh_SectionLine.hxx".}
+proc destroy*(this: var IntPolyhSectionLine) {.importcpp: "Destroy",
+    header: "IntPolyh_SectionLine.hxx".}
+proc destroyIntPolyhSectionLine*(this: var IntPolyhSectionLine) {.
     importcpp: "#.~IntPolyh_SectionLine()", header: "IntPolyh_SectionLine.hxx".}
-proc Dump*(this: IntPolyh_SectionLine) {.noSideEffect, importcpp: "Dump",
-                                      header: "IntPolyh_SectionLine.hxx".}
-proc Prepend*(this: var IntPolyh_SectionLine; SP: IntPolyh_StartPoint) {.
+proc dump*(this: IntPolyhSectionLine) {.noSideEffect, importcpp: "Dump",
+                                     header: "IntPolyh_SectionLine.hxx".}
+proc prepend*(this: var IntPolyhSectionLine; sp: IntPolyhStartPoint) {.
     importcpp: "Prepend", header: "IntPolyh_SectionLine.hxx".}

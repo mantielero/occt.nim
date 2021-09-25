@@ -14,48 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepBasic_ApplicationContextElement
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_ApplicationContext"
 discard "forward decl of StepBasic_ProductDefinitionContext"
 discard "forward decl of StepBasic_ProductDefinitionContext"
 type
-  Handle_StepBasic_ProductDefinitionContext* = handle[
-      StepBasic_ProductDefinitionContext]
-  StepBasic_ProductDefinitionContext* {.importcpp: "StepBasic_ProductDefinitionContext", header: "StepBasic_ProductDefinitionContext.hxx",
-                                       bycopy.} = object of StepBasic_ApplicationContextElement ##
-                                                                                           ## !
-                                                                                           ## Returns
-                                                                                           ## a
-                                                                                           ## ProductDefinitionContext
+  HandleStepBasicProductDefinitionContext* = Handle[
+      StepBasicProductDefinitionContext]
+  StepBasicProductDefinitionContext* {.importcpp: "StepBasic_ProductDefinitionContext", header: "StepBasic_ProductDefinitionContext.hxx",
+                                      bycopy.} = object of StepBasicApplicationContextElement ##
+                                                                                         ## !
+                                                                                         ## Returns
+                                                                                         ## a
+                                                                                         ## ProductDefinitionContext
 
 
-proc constructStepBasic_ProductDefinitionContext*(): StepBasic_ProductDefinitionContext {.
+proc constructStepBasicProductDefinitionContext*(): StepBasicProductDefinitionContext {.
     constructor, importcpp: "StepBasic_ProductDefinitionContext(@)",
     header: "StepBasic_ProductDefinitionContext.hxx".}
-proc Init*(this: var StepBasic_ProductDefinitionContext;
-          aName: handle[TCollection_HAsciiString];
-          aFrameOfReference: handle[StepBasic_ApplicationContext];
-          aLifeCycleStage: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepBasicProductDefinitionContext;
+          aName: Handle[TCollectionHAsciiString];
+          aFrameOfReference: Handle[StepBasicApplicationContext];
+          aLifeCycleStage: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepBasic_ProductDefinitionContext.hxx".}
-proc SetLifeCycleStage*(this: var StepBasic_ProductDefinitionContext;
-                       aLifeCycleStage: handle[TCollection_HAsciiString]) {.
+proc setLifeCycleStage*(this: var StepBasicProductDefinitionContext;
+                       aLifeCycleStage: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetLifeCycleStage",
     header: "StepBasic_ProductDefinitionContext.hxx".}
-proc LifeCycleStage*(this: StepBasic_ProductDefinitionContext): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "LifeCycleStage",
-                               header: "StepBasic_ProductDefinitionContext.hxx".}
-type
-  StepBasic_ProductDefinitionContextbase_type* = StepBasic_ApplicationContextElement
-
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ProductDefinitionContext::get_type_name(@)",
+proc lifeCycleStage*(this: StepBasicProductDefinitionContext): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "LifeCycleStage",
                               header: "StepBasic_ProductDefinitionContext.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+type
+  StepBasicProductDefinitionContextbaseType* = StepBasicApplicationContextElement
+
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ProductDefinitionContext::get_type_name(@)",
+                            header: "StepBasic_ProductDefinitionContext.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_ProductDefinitionContext::get_type_descriptor(@)",
     header: "StepBasic_ProductDefinitionContext.hxx".}
-proc DynamicType*(this: StepBasic_ProductDefinitionContext): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicProductDefinitionContext): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ProductDefinitionContext.hxx".}

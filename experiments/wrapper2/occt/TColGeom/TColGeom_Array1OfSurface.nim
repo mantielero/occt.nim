@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Geom/Geom_Surface, ../NCollection/NCollection_Array1
-
 type
-  TColGeom_Array1OfSurface* = NCollection_Array1[handle[Geom_Surface]]
+  TColGeomArray1OfSurface* = NCollectionArray1[Handle[GeomSurface]]
+

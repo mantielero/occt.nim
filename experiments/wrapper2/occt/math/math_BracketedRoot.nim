@@ -14,40 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer,
-  ../Standard/Standard_OStream
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of math_Function"
 type
-  math_BracketedRoot* {.importcpp: "math_BracketedRoot",
-                       header: "math_BracketedRoot.hxx", bycopy.} = object ## ! The Brent method is used to find the root of the function F between
-                                                                      ## ! the bounds Bound1 and Bound2 on the function F.
-                                                                      ## ! If
-                                                                      ## F(Bound1)*F(Bound2) >0 the Brent method fails.
-                                                                      ## ! The tolerance required for the root is given by Tolerance.
-                                                                      ## ! The solution is found when :
-                                                                      ## ! abs(Xi - Xi-1) <= Tolerance;
-                                                                      ## ! The maximum number of iterations allowed is given by
-                                                                      ## NbIterations.
+  MathBracketedRoot* {.importcpp: "math_BracketedRoot",
+                      header: "math_BracketedRoot.hxx", bycopy.} = object ## ! The Brent method is used to find the root of the function F between
+                                                                     ## ! the bounds Bound1 and Bound2 on the function F.
+                                                                     ## ! If
+                                                                     ## F(Bound1)*F(Bound2) >0 the Brent method fails.
+                                                                     ## ! The tolerance required for the root is given by Tolerance.
+                                                                     ## ! The solution is found when :
+                                                                     ## ! abs(Xi - Xi-1) <= Tolerance;
+                                                                     ## ! The maximum number of iterations allowed is given by
+                                                                     ## NbIterations.
 
 
-proc constructmath_BracketedRoot*(F: var math_Function; Bound1: Standard_Real;
-                                 Bound2: Standard_Real; Tolerance: Standard_Real;
-                                 NbIterations: Standard_Integer = 100;
-                                 ZEPS: Standard_Real = 1.0e-12): math_BracketedRoot {.
+proc constructMathBracketedRoot*(f: var MathFunction; bound1: float; bound2: float;
+                                tolerance: float; nbIterations: int = 100;
+                                zeps: float = 1.0e-12): MathBracketedRoot {.
     constructor, importcpp: "math_BracketedRoot(@)",
     header: "math_BracketedRoot.hxx".}
-proc IsDone*(this: math_BracketedRoot): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "math_BracketedRoot.hxx".}
-proc Root*(this: math_BracketedRoot): Standard_Real {.noSideEffect,
-    importcpp: "Root", header: "math_BracketedRoot.hxx".}
-proc Value*(this: math_BracketedRoot): Standard_Real {.noSideEffect,
-    importcpp: "Value", header: "math_BracketedRoot.hxx".}
-proc NbIterations*(this: math_BracketedRoot): Standard_Integer {.noSideEffect,
+proc isDone*(this: MathBracketedRoot): bool {.noSideEffect, importcpp: "IsDone",
+    header: "math_BracketedRoot.hxx".}
+proc root*(this: MathBracketedRoot): float {.noSideEffect, importcpp: "Root",
+    header: "math_BracketedRoot.hxx".}
+proc value*(this: MathBracketedRoot): float {.noSideEffect, importcpp: "Value",
+    header: "math_BracketedRoot.hxx".}
+proc nbIterations*(this: MathBracketedRoot): int {.noSideEffect,
     importcpp: "NbIterations", header: "math_BracketedRoot.hxx".}
-proc Dump*(this: math_BracketedRoot; o: var Standard_OStream) {.noSideEffect,
+proc dump*(this: MathBracketedRoot; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_BracketedRoot.hxx".}

@@ -13,47 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepAP242_IdAttributeSelect,
-  ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepAP242_IdAttributeSelect"
 discard "forward decl of StepAP242_IdAttribute"
 discard "forward decl of StepAP242_IdAttribute"
 type
-  Handle_StepAP242_IdAttribute* = handle[StepAP242_IdAttribute]
-  StepAP242_IdAttribute* {.importcpp: "StepAP242_IdAttribute",
-                          header: "StepAP242_IdAttribute.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                ## !
-                                                                                                ## Returns
-                                                                                                ## a
-                                                                                                ## IdAttribute
+  HandleStepAP242IdAttribute* = Handle[StepAP242IdAttribute]
+  StepAP242IdAttribute* {.importcpp: "StepAP242_IdAttribute",
+                         header: "StepAP242_IdAttribute.hxx", bycopy.} = object of StandardTransient ##
+                                                                                              ## !
+                                                                                              ## Returns
+                                                                                              ## a
+                                                                                              ## IdAttribute
 
 
-proc constructStepAP242_IdAttribute*(): StepAP242_IdAttribute {.constructor,
+proc constructStepAP242IdAttribute*(): StepAP242IdAttribute {.constructor,
     importcpp: "StepAP242_IdAttribute(@)", header: "StepAP242_IdAttribute.hxx".}
-proc Init*(this: var StepAP242_IdAttribute;
-          theAttributeValue: handle[TCollection_HAsciiString];
-          theIdentifiedItem: StepAP242_IdAttributeSelect) {.importcpp: "Init",
+proc init*(this: var StepAP242IdAttribute;
+          theAttributeValue: Handle[TCollectionHAsciiString];
+          theIdentifiedItem: StepAP242IdAttributeSelect) {.importcpp: "Init",
     header: "StepAP242_IdAttribute.hxx".}
-proc SetAttributeValue*(this: var StepAP242_IdAttribute;
-                       theAttributeValue: handle[TCollection_HAsciiString]) {.
+proc setAttributeValue*(this: var StepAP242IdAttribute;
+                       theAttributeValue: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetAttributeValue", header: "StepAP242_IdAttribute.hxx".}
-proc AttributeValue*(this: StepAP242_IdAttribute): handle[TCollection_HAsciiString] {.
+proc attributeValue*(this: StepAP242IdAttribute): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "AttributeValue", header: "StepAP242_IdAttribute.hxx".}
-proc SetIdentifiedItem*(this: var StepAP242_IdAttribute;
-                       theIdentifiedItem: StepAP242_IdAttributeSelect) {.
+proc setIdentifiedItem*(this: var StepAP242IdAttribute;
+                       theIdentifiedItem: StepAP242IdAttributeSelect) {.
     importcpp: "SetIdentifiedItem", header: "StepAP242_IdAttribute.hxx".}
-proc IdentifiedItem*(this: StepAP242_IdAttribute): StepAP242_IdAttributeSelect {.
+proc identifiedItem*(this: StepAP242IdAttribute): StepAP242IdAttributeSelect {.
     noSideEffect, importcpp: "IdentifiedItem", header: "StepAP242_IdAttribute.hxx".}
 type
-  StepAP242_IdAttributebase_type* = Standard_Transient
+  StepAP242IdAttributebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepAP242_IdAttribute::get_type_name(@)",
-                              header: "StepAP242_IdAttribute.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP242_IdAttribute::get_type_name(@)",
+                            header: "StepAP242_IdAttribute.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP242_IdAttribute::get_type_descriptor(@)",
     header: "StepAP242_IdAttribute.hxx".}
-proc DynamicType*(this: StepAP242_IdAttribute): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepAP242_IdAttribute.hxx".}
+proc dynamicType*(this: StepAP242IdAttribute): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepAP242_IdAttribute.hxx".}

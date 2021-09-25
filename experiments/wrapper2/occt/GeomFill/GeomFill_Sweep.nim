@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../TColGeom2d/TColGeom2d_HArray1OfCurve,
-  ../TColStd/TColStd_HArray2OfReal, GeomFill_ApproxStyle,
-  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Integer
-
 discard "forward decl of GeomFill_LocationLaw"
 discard "forward decl of GeomFill_SectionLaw"
 discard "forward decl of Geom_Surface"
@@ -29,48 +22,45 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Geom2d_Curve"
 type
-  GeomFill_Sweep* {.importcpp: "GeomFill_Sweep", header: "GeomFill_Sweep.hxx", bycopy.} = object
+  GeomFillSweep* {.importcpp: "GeomFill_Sweep", header: "GeomFill_Sweep.hxx", bycopy.} = object
 
 
-proc constructGeomFill_Sweep*(Location: handle[GeomFill_LocationLaw];
-                             WithKpart: Standard_Boolean = Standard_True): GeomFill_Sweep {.
-    constructor, importcpp: "GeomFill_Sweep(@)", header: "GeomFill_Sweep.hxx".}
-proc SetDomain*(this: var GeomFill_Sweep; First: Standard_Real; Last: Standard_Real;
-               SectionFirst: Standard_Real; SectionLast: Standard_Real) {.
-    importcpp: "SetDomain", header: "GeomFill_Sweep.hxx".}
-proc SetTolerance*(this: var GeomFill_Sweep; Tol3d: Standard_Real;
-                  BoundTol: Standard_Real = 1.0; Tol2d: Standard_Real = 1.0e-5;
-                  TolAngular: Standard_Real = 1.0) {.importcpp: "SetTolerance",
-    header: "GeomFill_Sweep.hxx".}
-proc SetForceApproxC1*(this: var GeomFill_Sweep; ForceApproxC1: Standard_Boolean) {.
+proc constructGeomFillSweep*(location: Handle[GeomFillLocationLaw];
+                            withKpart: bool = true): GeomFillSweep {.constructor,
+    importcpp: "GeomFill_Sweep(@)", header: "GeomFill_Sweep.hxx".}
+proc setDomain*(this: var GeomFillSweep; first: float; last: float; sectionFirst: float;
+               sectionLast: float) {.importcpp: "SetDomain",
+                                   header: "GeomFill_Sweep.hxx".}
+proc setTolerance*(this: var GeomFillSweep; tol3d: float; boundTol: float = 1.0;
+                  tol2d: float = 1.0e-5; tolAngular: float = 1.0) {.
+    importcpp: "SetTolerance", header: "GeomFill_Sweep.hxx".}
+proc setForceApproxC1*(this: var GeomFillSweep; forceApproxC1: bool) {.
     importcpp: "SetForceApproxC1", header: "GeomFill_Sweep.hxx".}
-proc ExchangeUV*(this: GeomFill_Sweep): Standard_Boolean {.noSideEffect,
-    importcpp: "ExchangeUV", header: "GeomFill_Sweep.hxx".}
-proc UReversed*(this: GeomFill_Sweep): Standard_Boolean {.noSideEffect,
-    importcpp: "UReversed", header: "GeomFill_Sweep.hxx".}
-proc VReversed*(this: GeomFill_Sweep): Standard_Boolean {.noSideEffect,
-    importcpp: "VReversed", header: "GeomFill_Sweep.hxx".}
-proc Build*(this: var GeomFill_Sweep; Section: handle[GeomFill_SectionLaw];
-           Methode: GeomFill_ApproxStyle = GeomFill_Location;
-           Continuity: GeomAbs_Shape = GeomAbs_C2; Degmax: Standard_Integer = 10;
-           Segmax: Standard_Integer = 30) {.importcpp: "Build",
-                                        header: "GeomFill_Sweep.hxx".}
-proc IsDone*(this: GeomFill_Sweep): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "GeomFill_Sweep.hxx".}
-proc ErrorOnSurface*(this: GeomFill_Sweep): Standard_Real {.noSideEffect,
+proc exchangeUV*(this: GeomFillSweep): bool {.noSideEffect, importcpp: "ExchangeUV",
+    header: "GeomFill_Sweep.hxx".}
+proc uReversed*(this: GeomFillSweep): bool {.noSideEffect, importcpp: "UReversed",
+    header: "GeomFill_Sweep.hxx".}
+proc vReversed*(this: GeomFillSweep): bool {.noSideEffect, importcpp: "VReversed",
+    header: "GeomFill_Sweep.hxx".}
+proc build*(this: var GeomFillSweep; section: Handle[GeomFillSectionLaw];
+           methode: GeomFillApproxStyle = geomFillLocation;
+           continuity: GeomAbsShape = geomAbsC2; degmax: int = 10; segmax: int = 30) {.
+    importcpp: "Build", header: "GeomFill_Sweep.hxx".}
+proc isDone*(this: GeomFillSweep): bool {.noSideEffect, importcpp: "IsDone",
+                                      header: "GeomFill_Sweep.hxx".}
+proc errorOnSurface*(this: GeomFillSweep): float {.noSideEffect,
     importcpp: "ErrorOnSurface", header: "GeomFill_Sweep.hxx".}
-proc ErrorOnRestriction*(this: GeomFill_Sweep; IsFirst: Standard_Boolean;
-                        UError: var Standard_Real; VError: var Standard_Real) {.
-    noSideEffect, importcpp: "ErrorOnRestriction", header: "GeomFill_Sweep.hxx".}
-proc ErrorOnTrace*(this: GeomFill_Sweep; IndexOfTrace: Standard_Integer;
-                  UError: var Standard_Real; VError: var Standard_Real) {.
-    noSideEffect, importcpp: "ErrorOnTrace", header: "GeomFill_Sweep.hxx".}
-proc Surface*(this: GeomFill_Sweep): handle[Geom_Surface] {.noSideEffect,
+proc errorOnRestriction*(this: GeomFillSweep; isFirst: bool; uError: var float;
+                        vError: var float) {.noSideEffect,
+    importcpp: "ErrorOnRestriction", header: "GeomFill_Sweep.hxx".}
+proc errorOnTrace*(this: GeomFillSweep; indexOfTrace: int; uError: var float;
+                  vError: var float) {.noSideEffect, importcpp: "ErrorOnTrace",
+                                    header: "GeomFill_Sweep.hxx".}
+proc surface*(this: GeomFillSweep): Handle[GeomSurface] {.noSideEffect,
     importcpp: "Surface", header: "GeomFill_Sweep.hxx".}
-proc Restriction*(this: GeomFill_Sweep; IsFirst: Standard_Boolean): handle[
-    Geom2d_Curve] {.noSideEffect, importcpp: "Restriction",
-                   header: "GeomFill_Sweep.hxx".}
-proc NumberOfTrace*(this: GeomFill_Sweep): Standard_Integer {.noSideEffect,
+proc restriction*(this: GeomFillSweep; isFirst: bool): Handle[Geom2dCurve] {.
+    noSideEffect, importcpp: "Restriction", header: "GeomFill_Sweep.hxx".}
+proc numberOfTrace*(this: GeomFillSweep): int {.noSideEffect,
     importcpp: "NumberOfTrace", header: "GeomFill_Sweep.hxx".}
-proc Trace*(this: GeomFill_Sweep; IndexOfTrace: Standard_Integer): handle[
-    Geom2d_Curve] {.noSideEffect, importcpp: "Trace", header: "GeomFill_Sweep.hxx".}
+proc trace*(this: GeomFillSweep; indexOfTrace: int): Handle[Geom2dCurve] {.
+    noSideEffect, importcpp: "Trace", header: "GeomFill_Sweep.hxx".}

@@ -14,27 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StepData_Field"
 discard "forward decl of Interface_EntityIterator"
 type
-  StepData_FieldList* {.importcpp: "StepData_FieldList",
-                       header: "StepData_FieldList.hxx", bycopy.} = object ## ! Destructor is virtual
+  StepDataFieldList* {.importcpp: "StepData_FieldList",
+                      header: "StepData_FieldList.hxx", bycopy.} = object ## ! Destructor is virtual
 
 
-proc destroyStepData_FieldList*(this: var StepData_FieldList) {.
+proc destroyStepDataFieldList*(this: var StepDataFieldList) {.
     importcpp: "#.~StepData_FieldList()", header: "StepData_FieldList.hxx".}
-proc constructStepData_FieldList*(): StepData_FieldList {.constructor,
+proc constructStepDataFieldList*(): StepDataFieldList {.constructor,
     importcpp: "StepData_FieldList(@)", header: "StepData_FieldList.hxx".}
-proc NbFields*(this: StepData_FieldList): Standard_Integer {.noSideEffect,
-    importcpp: "NbFields", header: "StepData_FieldList.hxx".}
-proc Field*(this: StepData_FieldList; num: Standard_Integer): StepData_Field {.
-    noSideEffect, importcpp: "Field", header: "StepData_FieldList.hxx".}
-proc CField*(this: var StepData_FieldList; num: Standard_Integer): var StepData_Field {.
+proc nbFields*(this: StepDataFieldList): int {.noSideEffect, importcpp: "NbFields",
+    header: "StepData_FieldList.hxx".}
+proc field*(this: StepDataFieldList; num: int): StepDataField {.noSideEffect,
+    importcpp: "Field", header: "StepData_FieldList.hxx".}
+proc cField*(this: var StepDataFieldList; num: int): var StepDataField {.
     importcpp: "CField", header: "StepData_FieldList.hxx".}
-proc FillShared*(this: StepData_FieldList; iter: var Interface_EntityIterator) {.
+proc fillShared*(this: StepDataFieldList; iter: var InterfaceEntityIterator) {.
     noSideEffect, importcpp: "FillShared", header: "StepData_FieldList.hxx".}

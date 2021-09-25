@@ -11,40 +11,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepFEA_CurveElementEndOffset, StepFEA_Array1OfCurveElementEndOffset,
-  ../NCollection/NCollection_DefineHArray1
-
 type
   StepFEA_HArray1OfCurveElementEndOffset* {.
       importcpp: "StepFEA_HArray1OfCurveElementEndOffset",
       header: "StepFEA_HArray1OfCurveElementEndOffset.hxx", bycopy.} = object of StepFEA_Array1OfCurveElementEndOffset
 
 
-proc constructStepFEA_HArray1OfCurveElementEndOffset*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepFEA_HArray1OfCurveElementEndOffset {.
+proc constructStepFEA_HArray1OfCurveElementEndOffset*(theLower: int; theUpper: int): StepFEA_HArray1OfCurveElementEndOffset {.
     constructor, importcpp: "StepFEA_HArray1OfCurveElementEndOffset(@)",
     header: "StepFEA_HArray1OfCurveElementEndOffset.hxx".}
-proc constructStepFEA_HArray1OfCurveElementEndOffset*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepFEA_HArray1OfCurveElementEndOffset {.
-    constructor, importcpp: "StepFEA_HArray1OfCurveElementEndOffset(@)",
+proc constructStepFEA_HArray1OfCurveElementEndOffset*(theLower: int; theUpper: int;
+    theValue: ValueType): StepFEA_HArray1OfCurveElementEndOffset {.constructor,
+    importcpp: "StepFEA_HArray1OfCurveElementEndOffset(@)",
     header: "StepFEA_HArray1OfCurveElementEndOffset.hxx".}
 proc constructStepFEA_HArray1OfCurveElementEndOffset*(
     theOther: StepFEA_Array1OfCurveElementEndOffset): StepFEA_HArray1OfCurveElementEndOffset {.
     constructor, importcpp: "StepFEA_HArray1OfCurveElementEndOffset(@)",
     header: "StepFEA_HArray1OfCurveElementEndOffset.hxx".}
-proc Array1*(this: StepFEA_HArray1OfCurveElementEndOffset): StepFEA_Array1OfCurveElementEndOffset {.
+proc array1*(this: StepFEA_HArray1OfCurveElementEndOffset): StepFEA_Array1OfCurveElementEndOffset {.
     noSideEffect, importcpp: "Array1",
     header: "StepFEA_HArray1OfCurveElementEndOffset.hxx".}
-proc ChangeArray1*(this: var StepFEA_HArray1OfCurveElementEndOffset): var StepFEA_Array1OfCurveElementEndOffset {.
+proc changeArray1*(this: var StepFEA_HArray1OfCurveElementEndOffset): var StepFEA_Array1OfCurveElementEndOffset {.
     importcpp: "ChangeArray1",
     header: "StepFEA_HArray1OfCurveElementEndOffset.hxx".}
 type
-  StepFEA_HArray1OfCurveElementEndOffsetbase_type* = MMgt_TShared
+  StepFEA_HArray1OfCurveElementEndOffsetbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_HArray1OfCurveElementEndOffset::get_type_name(@)", header: "StepFEA_HArray1OfCurveElementEndOffset.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepFEA_HArray1OfCurveElementEndOffset::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepFEA_HArray1OfCurveElementEndOffset::get_type_name(@)", header: "StepFEA_HArray1OfCurveElementEndOffset.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_HArray1OfCurveElementEndOffset::get_type_descriptor(@)",
     header: "StepFEA_HArray1OfCurveElementEndOffset.hxx".}
-proc DynamicType*(this: StepFEA_HArray1OfCurveElementEndOffset): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepFEA_HArray1OfCurveElementEndOffset.hxx".}
+proc dynamicType*(this: StepFEA_HArray1OfCurveElementEndOffset): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepFEA_HArray1OfCurveElementEndOffset.hxx".}

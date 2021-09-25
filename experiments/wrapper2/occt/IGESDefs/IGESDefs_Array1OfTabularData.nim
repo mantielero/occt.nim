@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IGESDefs_TabularData, ../NCollection/NCollection_Array1
-
 type
-  IGESDefs_Array1OfTabularData* = NCollection_Array1[handle[IGESDefs_TabularData]]
+  IGESDefsArray1OfTabularData* = NCollectionArray1[Handle[IGESDefsTabularData]]
+

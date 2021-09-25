@@ -14,17 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_SignatureList,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of MoniTool_SignText"
 discard "forward decl of Interface_CheckIterator"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_CheckCounter"
 discard "forward decl of IFSelect_CheckCounter"
 type
-  Handle_IFSelect_CheckCounter* = handle[IFSelect_CheckCounter]
+  HandleIFSelectCheckCounter* = Handle[IFSelectCheckCounter]
 
 ## ! A CheckCounter allows to see a CheckList (i.e. CheckIterator)
 ## ! not per entity, its messages, but per message, the entities
@@ -32,37 +28,36 @@ type
 ## ! repeated if they are due to systematic errors
 
 type
-  IFSelect_CheckCounter* {.importcpp: "IFSelect_CheckCounter",
-                          header: "IFSelect_CheckCounter.hxx", bycopy.} = object of IFSelect_SignatureList ##
-                                                                                                    ## !
-                                                                                                    ## Creates
-                                                                                                    ## a
-                                                                                                    ## CheckCounter,
-                                                                                                    ## empty
-                                                                                                    ## ready
-                                                                                                    ## to
-                                                                                                    ## work
+  IFSelectCheckCounter* {.importcpp: "IFSelect_CheckCounter",
+                         header: "IFSelect_CheckCounter.hxx", bycopy.} = object of IFSelectSignatureList ##
+                                                                                                  ## !
+                                                                                                  ## Creates
+                                                                                                  ## a
+                                                                                                  ## CheckCounter,
+                                                                                                  ## empty
+                                                                                                  ## ready
+                                                                                                  ## to
+                                                                                                  ## work
 
 
-proc constructIFSelect_CheckCounter*(withlist: Standard_Boolean = Standard_False): IFSelect_CheckCounter {.
+proc constructIFSelectCheckCounter*(withlist: bool = false): IFSelectCheckCounter {.
     constructor, importcpp: "IFSelect_CheckCounter(@)",
     header: "IFSelect_CheckCounter.hxx".}
-proc SetSignature*(this: var IFSelect_CheckCounter; sign: handle[MoniTool_SignText]) {.
+proc setSignature*(this: var IFSelectCheckCounter; sign: Handle[MoniToolSignText]) {.
     importcpp: "SetSignature", header: "IFSelect_CheckCounter.hxx".}
-proc Signature*(this: IFSelect_CheckCounter): handle[MoniTool_SignText] {.
+proc signature*(this: IFSelectCheckCounter): Handle[MoniToolSignText] {.
     noSideEffect, importcpp: "Signature", header: "IFSelect_CheckCounter.hxx".}
-proc Analyse*(this: var IFSelect_CheckCounter; list: Interface_CheckIterator;
-             model: handle[Interface_InterfaceModel];
-             original: Standard_Boolean = Standard_False;
-             failsonly: Standard_Boolean = Standard_False) {.importcpp: "Analyse",
-    header: "IFSelect_CheckCounter.hxx".}
+proc analyse*(this: var IFSelectCheckCounter; list: InterfaceCheckIterator;
+             model: Handle[InterfaceInterfaceModel]; original: bool = false;
+             failsonly: bool = false) {.importcpp: "Analyse",
+                                    header: "IFSelect_CheckCounter.hxx".}
 type
-  IFSelect_CheckCounterbase_type* = IFSelect_SignatureList
+  IFSelectCheckCounterbaseType* = IFSelectSignatureList
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_CheckCounter::get_type_name(@)",
-                              header: "IFSelect_CheckCounter.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_CheckCounter::get_type_name(@)",
+                            header: "IFSelect_CheckCounter.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_CheckCounter::get_type_descriptor(@)",
     header: "IFSelect_CheckCounter.hxx".}
-proc DynamicType*(this: IFSelect_CheckCounter): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IFSelect_CheckCounter.hxx".}
+proc dynamicType*(this: IFSelectCheckCounter): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IFSelect_CheckCounter.hxx".}

@@ -14,17 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../TColStd/TColStd_HArray1OfInteger, ../TColgp/TColgp_HSequenceOfXYZ,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of gp_XYZ"
 discard "forward decl of gp_XY"
-when defined(Status):
-  discard
+# when defined(Status):
+#   discard
 ## ! This class is intended to control and, if possible, redefine
 ## ! the order of a list of edges which define a wire
 ## ! Edges are not given directly, but as their bounds (start,end)
@@ -41,61 +35,54 @@ when defined(Status):
 ## ! secondly perform then get the result
 
 type
-  ShapeAnalysis_WireOrder* {.importcpp: "ShapeAnalysis_WireOrder",
-                            header: "ShapeAnalysis_WireOrder.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Empty
-                                                                                ## constructor
+  ShapeAnalysisWireOrder* {.importcpp: "ShapeAnalysis_WireOrder",
+                           header: "ShapeAnalysis_WireOrder.hxx", bycopy.} = object ## !
+                                                                               ## Empty
+                                                                               ## constructor
 
 
-proc constructShapeAnalysis_WireOrder*(): ShapeAnalysis_WireOrder {.constructor,
+proc constructShapeAnalysisWireOrder*(): ShapeAnalysisWireOrder {.constructor,
     importcpp: "ShapeAnalysis_WireOrder(@)", header: "ShapeAnalysis_WireOrder.hxx".}
-proc constructShapeAnalysis_WireOrder*(mode3d: Standard_Boolean; tol: Standard_Real): ShapeAnalysis_WireOrder {.
+proc constructShapeAnalysisWireOrder*(mode3d: bool; tol: float): ShapeAnalysisWireOrder {.
     constructor, importcpp: "ShapeAnalysis_WireOrder(@)",
     header: "ShapeAnalysis_WireOrder.hxx".}
-proc SetMode*(this: var ShapeAnalysis_WireOrder; mode3d: Standard_Boolean;
-             tol: Standard_Real) {.importcpp: "SetMode",
-                                 header: "ShapeAnalysis_WireOrder.hxx".}
-proc Tolerance*(this: ShapeAnalysis_WireOrder): Standard_Real {.noSideEffect,
+proc setMode*(this: var ShapeAnalysisWireOrder; mode3d: bool; tol: float) {.
+    importcpp: "SetMode", header: "ShapeAnalysis_WireOrder.hxx".}
+proc tolerance*(this: ShapeAnalysisWireOrder): float {.noSideEffect,
     importcpp: "Tolerance", header: "ShapeAnalysis_WireOrder.hxx".}
-proc Clear*(this: var ShapeAnalysis_WireOrder) {.importcpp: "Clear",
+proc clear*(this: var ShapeAnalysisWireOrder) {.importcpp: "Clear",
     header: "ShapeAnalysis_WireOrder.hxx".}
-proc Add*(this: var ShapeAnalysis_WireOrder; start3d: gp_XYZ; end3d: gp_XYZ) {.
+proc add*(this: var ShapeAnalysisWireOrder; start3d: Xyz; end3d: Xyz) {.
     importcpp: "Add", header: "ShapeAnalysis_WireOrder.hxx".}
-proc Add*(this: var ShapeAnalysis_WireOrder; start2d: gp_XY; end2d: gp_XY) {.
-    importcpp: "Add", header: "ShapeAnalysis_WireOrder.hxx".}
-proc NbEdges*(this: ShapeAnalysis_WireOrder): Standard_Integer {.noSideEffect,
+proc add*(this: var ShapeAnalysisWireOrder; start2d: Xy; end2d: Xy) {.importcpp: "Add",
+    header: "ShapeAnalysis_WireOrder.hxx".}
+proc nbEdges*(this: ShapeAnalysisWireOrder): int {.noSideEffect,
     importcpp: "NbEdges", header: "ShapeAnalysis_WireOrder.hxx".}
-proc KeepLoopsMode*(this: var ShapeAnalysis_WireOrder): var Standard_Boolean {.
+proc keepLoopsMode*(this: var ShapeAnalysisWireOrder): var bool {.
     importcpp: "KeepLoopsMode", header: "ShapeAnalysis_WireOrder.hxx".}
-proc Perform*(this: var ShapeAnalysis_WireOrder;
-             closed: Standard_Boolean = Standard_True) {.importcpp: "Perform",
+proc perform*(this: var ShapeAnalysisWireOrder; closed: bool = true) {.
+    importcpp: "Perform", header: "ShapeAnalysis_WireOrder.hxx".}
+proc isDone*(this: ShapeAnalysisWireOrder): bool {.noSideEffect, importcpp: "IsDone",
     header: "ShapeAnalysis_WireOrder.hxx".}
-proc IsDone*(this: ShapeAnalysis_WireOrder): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "ShapeAnalysis_WireOrder.hxx".}
-proc Status*(this: ShapeAnalysis_WireOrder): Standard_Integer {.noSideEffect,
-    importcpp: "Status", header: "ShapeAnalysis_WireOrder.hxx".}
-proc Ordered*(this: ShapeAnalysis_WireOrder; n: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "Ordered", header: "ShapeAnalysis_WireOrder.hxx".}
-proc XYZ*(this: ShapeAnalysis_WireOrder; num: Standard_Integer; start3d: var gp_XYZ;
-         end3d: var gp_XYZ) {.noSideEffect, importcpp: "XYZ",
-                           header: "ShapeAnalysis_WireOrder.hxx".}
-proc XY*(this: ShapeAnalysis_WireOrder; num: Standard_Integer; start2d: var gp_XY;
-        end2d: var gp_XY) {.noSideEffect, importcpp: "XY",
-                         header: "ShapeAnalysis_WireOrder.hxx".}
-proc Gap*(this: ShapeAnalysis_WireOrder; num: Standard_Integer = 0): Standard_Real {.
-    noSideEffect, importcpp: "Gap", header: "ShapeAnalysis_WireOrder.hxx".}
-proc SetChains*(this: var ShapeAnalysis_WireOrder; gap: Standard_Real) {.
+proc status*(this: ShapeAnalysisWireOrder): int {.noSideEffect, importcpp: "Status",
+    header: "ShapeAnalysis_WireOrder.hxx".}
+proc ordered*(this: ShapeAnalysisWireOrder; n: int): int {.noSideEffect,
+    importcpp: "Ordered", header: "ShapeAnalysis_WireOrder.hxx".}
+proc xyz*(this: ShapeAnalysisWireOrder; num: int; start3d: var Xyz; end3d: var Xyz) {.
+    noSideEffect, importcpp: "XYZ", header: "ShapeAnalysis_WireOrder.hxx".}
+proc xy*(this: ShapeAnalysisWireOrder; num: int; start2d: var Xy; end2d: var Xy) {.
+    noSideEffect, importcpp: "XY", header: "ShapeAnalysis_WireOrder.hxx".}
+proc gap*(this: ShapeAnalysisWireOrder; num: int = 0): float {.noSideEffect,
+    importcpp: "Gap", header: "ShapeAnalysis_WireOrder.hxx".}
+proc setChains*(this: var ShapeAnalysisWireOrder; gap: float) {.
     importcpp: "SetChains", header: "ShapeAnalysis_WireOrder.hxx".}
-proc NbChains*(this: ShapeAnalysis_WireOrder): Standard_Integer {.noSideEffect,
+proc nbChains*(this: ShapeAnalysisWireOrder): int {.noSideEffect,
     importcpp: "NbChains", header: "ShapeAnalysis_WireOrder.hxx".}
-proc Chain*(this: ShapeAnalysis_WireOrder; num: Standard_Integer;
-           n1: var Standard_Integer; n2: var Standard_Integer) {.noSideEffect,
-    importcpp: "Chain", header: "ShapeAnalysis_WireOrder.hxx".}
-proc SetCouples*(this: var ShapeAnalysis_WireOrder; gap: Standard_Real) {.
+proc chain*(this: ShapeAnalysisWireOrder; num: int; n1: var int; n2: var int) {.
+    noSideEffect, importcpp: "Chain", header: "ShapeAnalysis_WireOrder.hxx".}
+proc setCouples*(this: var ShapeAnalysisWireOrder; gap: float) {.
     importcpp: "SetCouples", header: "ShapeAnalysis_WireOrder.hxx".}
-proc NbCouples*(this: ShapeAnalysis_WireOrder): Standard_Integer {.noSideEffect,
+proc nbCouples*(this: ShapeAnalysisWireOrder): int {.noSideEffect,
     importcpp: "NbCouples", header: "ShapeAnalysis_WireOrder.hxx".}
-proc Couple*(this: ShapeAnalysis_WireOrder; num: Standard_Integer;
-            n1: var Standard_Integer; n2: var Standard_Integer) {.noSideEffect,
-    importcpp: "Couple", header: "ShapeAnalysis_WireOrder.hxx".}
+proc couple*(this: ShapeAnalysisWireOrder; num: int; n1: var int; n2: var int) {.
+    noSideEffect, importcpp: "Couple", header: "ShapeAnalysis_WireOrder.hxx".}

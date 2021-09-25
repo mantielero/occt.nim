@@ -14,59 +14,57 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_Document"
 discard "forward decl of StepBasic_DocumentRelationship"
 discard "forward decl of StepBasic_DocumentRelationship"
 type
-  Handle_StepBasic_DocumentRelationship* = handle[StepBasic_DocumentRelationship]
-  StepBasic_DocumentRelationship* {.importcpp: "StepBasic_DocumentRelationship", header: "StepBasic_DocumentRelationship.hxx",
-                                   bycopy.} = object of Standard_Transient
+  HandleStepBasicDocumentRelationship* = Handle[StepBasicDocumentRelationship]
+  StepBasicDocumentRelationship* {.importcpp: "StepBasic_DocumentRelationship",
+                                  header: "StepBasic_DocumentRelationship.hxx",
+                                  bycopy.} = object of StandardTransient
 
 
-proc constructStepBasic_DocumentRelationship*(): StepBasic_DocumentRelationship {.
+proc constructStepBasicDocumentRelationship*(): StepBasicDocumentRelationship {.
     constructor, importcpp: "StepBasic_DocumentRelationship(@)",
     header: "StepBasic_DocumentRelationship.hxx".}
-proc Init*(this: var StepBasic_DocumentRelationship;
-          aName: handle[TCollection_HAsciiString];
-          aDescription: handle[TCollection_HAsciiString];
-          aRelating: handle[StepBasic_Document];
-          aRelated: handle[StepBasic_Document]) {.importcpp: "Init",
+proc init*(this: var StepBasicDocumentRelationship;
+          aName: Handle[TCollectionHAsciiString];
+          aDescription: Handle[TCollectionHAsciiString];
+          aRelating: Handle[StepBasicDocument];
+          aRelated: Handle[StepBasicDocument]) {.importcpp: "Init",
     header: "StepBasic_DocumentRelationship.hxx".}
-proc Name*(this: StepBasic_DocumentRelationship): handle[TCollection_HAsciiString] {.
+proc name*(this: StepBasicDocumentRelationship): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepBasic_DocumentRelationship.hxx".}
-proc SetName*(this: var StepBasic_DocumentRelationship;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepBasicDocumentRelationship;
+             aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepBasic_DocumentRelationship.hxx".}
-proc Description*(this: StepBasic_DocumentRelationship): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description",
-                               header: "StepBasic_DocumentRelationship.hxx".}
-proc SetDescription*(this: var StepBasic_DocumentRelationship;
-                    aDescription: handle[TCollection_HAsciiString]) {.
+proc description*(this: StepBasicDocumentRelationship): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Description",
+                              header: "StepBasic_DocumentRelationship.hxx".}
+proc setDescription*(this: var StepBasicDocumentRelationship;
+                    aDescription: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepBasic_DocumentRelationship.hxx".}
-proc RelatingDocument*(this: StepBasic_DocumentRelationship): handle[
-    StepBasic_Document] {.noSideEffect, importcpp: "RelatingDocument",
-                         header: "StepBasic_DocumentRelationship.hxx".}
-proc SetRelatingDocument*(this: var StepBasic_DocumentRelationship;
-                         aRelating: handle[StepBasic_Document]) {.
+proc relatingDocument*(this: StepBasicDocumentRelationship): Handle[
+    StepBasicDocument] {.noSideEffect, importcpp: "RelatingDocument",
+                        header: "StepBasic_DocumentRelationship.hxx".}
+proc setRelatingDocument*(this: var StepBasicDocumentRelationship;
+                         aRelating: Handle[StepBasicDocument]) {.
     importcpp: "SetRelatingDocument", header: "StepBasic_DocumentRelationship.hxx".}
-proc RelatedDocument*(this: StepBasic_DocumentRelationship): handle[
-    StepBasic_Document] {.noSideEffect, importcpp: "RelatedDocument",
-                         header: "StepBasic_DocumentRelationship.hxx".}
-proc SetRelatedDocument*(this: var StepBasic_DocumentRelationship;
-                        aRelated: handle[StepBasic_Document]) {.
+proc relatedDocument*(this: StepBasicDocumentRelationship): Handle[
+    StepBasicDocument] {.noSideEffect, importcpp: "RelatedDocument",
+                        header: "StepBasic_DocumentRelationship.hxx".}
+proc setRelatedDocument*(this: var StepBasicDocumentRelationship;
+                        aRelated: Handle[StepBasicDocument]) {.
     importcpp: "SetRelatedDocument", header: "StepBasic_DocumentRelationship.hxx".}
 type
-  StepBasic_DocumentRelationshipbase_type* = Standard_Transient
+  StepBasicDocumentRelationshipbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_DocumentRelationship::get_type_name(@)",
-                              header: "StepBasic_DocumentRelationship.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_DocumentRelationship::get_type_name(@)",
+                            header: "StepBasic_DocumentRelationship.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_DocumentRelationship::get_type_descriptor(@)",
     header: "StepBasic_DocumentRelationship.hxx".}
-proc DynamicType*(this: StepBasic_DocumentRelationship): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicDocumentRelationship): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_DocumentRelationship.hxx".}

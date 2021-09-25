@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../IGESData/IGESData_HArray1OfIGESEntity,
-  ../IGESGeom/IGESGeom_HArray1OfTransformationMatrix,
-  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DimensionMismatch"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESData_IGESEntity"
@@ -28,7 +21,7 @@ discard "forward decl of IGESGeom_TransformationMatrix"
 discard "forward decl of IGESSolid_SolidAssembly"
 discard "forward decl of IGESSolid_SolidAssembly"
 type
-  Handle_IGESSolid_SolidAssembly* = handle[IGESSolid_SolidAssembly]
+  HandleIGESSolidSolidAssembly* = Handle[IGESSolidSolidAssembly]
 
 ## ! defines SolidAssembly, Type <184> Form <0>
 ## ! in package IGESSolid
@@ -40,35 +33,34 @@ type
 ## ! other Assemblies
 
 type
-  IGESSolid_SolidAssembly* {.importcpp: "IGESSolid_SolidAssembly",
-                            header: "IGESSolid_SolidAssembly.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESSolidSolidAssembly* {.importcpp: "IGESSolid_SolidAssembly",
+                           header: "IGESSolid_SolidAssembly.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESSolid_SolidAssembly*(): IGESSolid_SolidAssembly {.constructor,
+proc constructIGESSolidSolidAssembly*(): IGESSolidSolidAssembly {.constructor,
     importcpp: "IGESSolid_SolidAssembly(@)", header: "IGESSolid_SolidAssembly.hxx".}
-proc Init*(this: var IGESSolid_SolidAssembly;
-          allItems: handle[IGESData_HArray1OfIGESEntity];
-          allMatrices: handle[IGESGeom_HArray1OfTransformationMatrix]) {.
+proc init*(this: var IGESSolidSolidAssembly;
+          allItems: Handle[IGESDataHArray1OfIGESEntity];
+          allMatrices: Handle[IGESGeomHArray1OfTransformationMatrix]) {.
     importcpp: "Init", header: "IGESSolid_SolidAssembly.hxx".}
-proc HasBrep*(this: IGESSolid_SolidAssembly): Standard_Boolean {.noSideEffect,
+proc hasBrep*(this: IGESSolidSolidAssembly): bool {.noSideEffect,
     importcpp: "HasBrep", header: "IGESSolid_SolidAssembly.hxx".}
-proc SetBrep*(this: var IGESSolid_SolidAssembly; hasbrep: Standard_Boolean) {.
-    importcpp: "SetBrep", header: "IGESSolid_SolidAssembly.hxx".}
-proc NbItems*(this: IGESSolid_SolidAssembly): Standard_Integer {.noSideEffect,
+proc setBrep*(this: var IGESSolidSolidAssembly; hasbrep: bool) {.importcpp: "SetBrep",
+    header: "IGESSolid_SolidAssembly.hxx".}
+proc nbItems*(this: IGESSolidSolidAssembly): int {.noSideEffect,
     importcpp: "NbItems", header: "IGESSolid_SolidAssembly.hxx".}
-proc Item*(this: IGESSolid_SolidAssembly; Index: Standard_Integer): handle[
-    IGESData_IGESEntity] {.noSideEffect, importcpp: "Item",
-                          header: "IGESSolid_SolidAssembly.hxx".}
-proc TransfMatrix*(this: IGESSolid_SolidAssembly; Index: Standard_Integer): handle[
-    IGESGeom_TransformationMatrix] {.noSideEffect, importcpp: "TransfMatrix",
-                                    header: "IGESSolid_SolidAssembly.hxx".}
+proc item*(this: IGESSolidSolidAssembly; index: int): Handle[IGESDataIGESEntity] {.
+    noSideEffect, importcpp: "Item", header: "IGESSolid_SolidAssembly.hxx".}
+proc transfMatrix*(this: IGESSolidSolidAssembly; index: int): Handle[
+    IGESGeomTransformationMatrix] {.noSideEffect, importcpp: "TransfMatrix",
+                                   header: "IGESSolid_SolidAssembly.hxx".}
 type
-  IGESSolid_SolidAssemblybase_type* = IGESData_IGESEntity
+  IGESSolidSolidAssemblybaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESSolid_SolidAssembly::get_type_name(@)",
-                              header: "IGESSolid_SolidAssembly.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSolid_SolidAssembly::get_type_name(@)",
+                            header: "IGESSolid_SolidAssembly.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSolid_SolidAssembly::get_type_descriptor(@)",
     header: "IGESSolid_SolidAssembly.hxx".}
-proc DynamicType*(this: IGESSolid_SolidAssembly): handle[Standard_Type] {.
+proc dynamicType*(this: IGESSolidSolidAssembly): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSolid_SolidAssembly.hxx".}

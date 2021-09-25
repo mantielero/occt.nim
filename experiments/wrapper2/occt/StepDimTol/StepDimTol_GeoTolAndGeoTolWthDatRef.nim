@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepDimTol_GeometricTolerance,
-  StepDimTol_GeometricToleranceType
-
 discard "forward decl of StepDimTol_GeometricToleranceTarget"
 discard "forward decl of StepDimTol_GeometricToleranceWithDatumReference"
 discard "forward decl of TCollection_HAsciiString"
@@ -25,56 +21,56 @@ discard "forward decl of StepRepr_ShapeAspect"
 discard "forward decl of StepDimTol_GeoTolAndGeoTolWthDatRef"
 discard "forward decl of StepDimTol_GeoTolAndGeoTolWthDatRef"
 type
-  Handle_StepDimTol_GeoTolAndGeoTolWthDatRef* = handle[
-      StepDimTol_GeoTolAndGeoTolWthDatRef]
-  StepDimTol_GeoTolAndGeoTolWthDatRef* {.importcpp: "StepDimTol_GeoTolAndGeoTolWthDatRef", header: "StepDimTol_GeoTolAndGeoTolWthDatRef.hxx",
-                                        bycopy.} = object of StepDimTol_GeometricTolerance
+  HandleStepDimTolGeoTolAndGeoTolWthDatRef* = Handle[
+      StepDimTolGeoTolAndGeoTolWthDatRef]
+  StepDimTolGeoTolAndGeoTolWthDatRef* {.importcpp: "StepDimTol_GeoTolAndGeoTolWthDatRef", header: "StepDimTol_GeoTolAndGeoTolWthDatRef.hxx",
+                                       bycopy.} = object of StepDimTolGeometricTolerance
 
 
-proc constructStepDimTol_GeoTolAndGeoTolWthDatRef*(): StepDimTol_GeoTolAndGeoTolWthDatRef {.
+proc constructStepDimTolGeoTolAndGeoTolWthDatRef*(): StepDimTolGeoTolAndGeoTolWthDatRef {.
     constructor, importcpp: "StepDimTol_GeoTolAndGeoTolWthDatRef(@)",
     header: "StepDimTol_GeoTolAndGeoTolWthDatRef.hxx".}
-proc Init*(this: var StepDimTol_GeoTolAndGeoTolWthDatRef;
-          theName: handle[TCollection_HAsciiString];
-          theDescription: handle[TCollection_HAsciiString];
-          theMagnitude: handle[StepBasic_MeasureWithUnit];
-          theTolerancedShapeAspect: handle[StepRepr_ShapeAspect];
-          theGTWDR: handle[StepDimTol_GeometricToleranceWithDatumReference];
-          theType: StepDimTol_GeometricToleranceType) {.importcpp: "Init",
+proc init*(this: var StepDimTolGeoTolAndGeoTolWthDatRef;
+          theName: Handle[TCollectionHAsciiString];
+          theDescription: Handle[TCollectionHAsciiString];
+          theMagnitude: Handle[StepBasicMeasureWithUnit];
+          theTolerancedShapeAspect: Handle[StepReprShapeAspect];
+          theGTWDR: Handle[StepDimTolGeometricToleranceWithDatumReference];
+          theType: StepDimTolGeometricToleranceType) {.importcpp: "Init",
     header: "StepDimTol_GeoTolAndGeoTolWthDatRef.hxx".}
-proc Init*(this: var StepDimTol_GeoTolAndGeoTolWthDatRef;
-          aName: handle[TCollection_HAsciiString];
-          aDescription: handle[TCollection_HAsciiString];
-          aMagnitude: handle[StepBasic_MeasureWithUnit];
-          aTolerancedShapeAspect: StepDimTol_GeometricToleranceTarget;
-          aGTWDR: handle[StepDimTol_GeometricToleranceWithDatumReference];
-          theType: StepDimTol_GeometricToleranceType) {.importcpp: "Init",
+proc init*(this: var StepDimTolGeoTolAndGeoTolWthDatRef;
+          aName: Handle[TCollectionHAsciiString];
+          aDescription: Handle[TCollectionHAsciiString];
+          aMagnitude: Handle[StepBasicMeasureWithUnit];
+          aTolerancedShapeAspect: StepDimTolGeometricToleranceTarget;
+          aGTWDR: Handle[StepDimTolGeometricToleranceWithDatumReference];
+          theType: StepDimTolGeometricToleranceType) {.importcpp: "Init",
     header: "StepDimTol_GeoTolAndGeoTolWthDatRef.hxx".}
-proc SetGeometricToleranceWithDatumReference*(
-    this: var StepDimTol_GeoTolAndGeoTolWthDatRef;
-    theGTWDR: handle[StepDimTol_GeometricToleranceWithDatumReference]) {.
+proc setGeometricToleranceWithDatumReference*(
+    this: var StepDimTolGeoTolAndGeoTolWthDatRef;
+    theGTWDR: Handle[StepDimTolGeometricToleranceWithDatumReference]) {.
     importcpp: "SetGeometricToleranceWithDatumReference",
     header: "StepDimTol_GeoTolAndGeoTolWthDatRef.hxx".}
-proc GetGeometricToleranceWithDatumReference*(
-    this: StepDimTol_GeoTolAndGeoTolWthDatRef): handle[
-    StepDimTol_GeometricToleranceWithDatumReference] {.noSideEffect,
+proc getGeometricToleranceWithDatumReference*(
+    this: StepDimTolGeoTolAndGeoTolWthDatRef): Handle[
+    StepDimTolGeometricToleranceWithDatumReference] {.noSideEffect,
     importcpp: "GetGeometricToleranceWithDatumReference",
     header: "StepDimTol_GeoTolAndGeoTolWthDatRef.hxx".}
-proc SetGeometricToleranceType*(this: var StepDimTol_GeoTolAndGeoTolWthDatRef;
-                               theType: StepDimTol_GeometricToleranceType) {.
+proc setGeometricToleranceType*(this: var StepDimTolGeoTolAndGeoTolWthDatRef;
+                               theType: StepDimTolGeometricToleranceType) {.
     importcpp: "SetGeometricToleranceType",
     header: "StepDimTol_GeoTolAndGeoTolWthDatRef.hxx".}
-proc GetToleranceType*(this: StepDimTol_GeoTolAndGeoTolWthDatRef): StepDimTol_GeometricToleranceType {.
+proc getToleranceType*(this: StepDimTolGeoTolAndGeoTolWthDatRef): StepDimTolGeometricToleranceType {.
     noSideEffect, importcpp: "GetToleranceType",
     header: "StepDimTol_GeoTolAndGeoTolWthDatRef.hxx".}
 type
-  StepDimTol_GeoTolAndGeoTolWthDatRefbase_type* = StepDimTol_GeometricTolerance
+  StepDimTolGeoTolAndGeoTolWthDatRefbaseType* = StepDimTolGeometricTolerance
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_GeoTolAndGeoTolWthDatRef::get_type_name(@)",
-                              header: "StepDimTol_GeoTolAndGeoTolWthDatRef.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_GeoTolAndGeoTolWthDatRef::get_type_name(@)",
+                            header: "StepDimTol_GeoTolAndGeoTolWthDatRef.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_GeoTolAndGeoTolWthDatRef::get_type_descriptor(@)",
     header: "StepDimTol_GeoTolAndGeoTolWthDatRef.hxx".}
-proc DynamicType*(this: StepDimTol_GeoTolAndGeoTolWthDatRef): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolGeoTolAndGeoTolWthDatRef): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_GeoTolAndGeoTolWthDatRef.hxx".}

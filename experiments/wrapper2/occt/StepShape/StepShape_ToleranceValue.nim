@@ -13,46 +13,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_MeasureWithUnit"
 discard "forward decl of StepShape_ToleranceValue"
 discard "forward decl of StepShape_ToleranceValue"
 type
-  Handle_StepShape_ToleranceValue* = handle[StepShape_ToleranceValue]
+  HandleStepShapeToleranceValue* = Handle[StepShapeToleranceValue]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepShape_ToleranceValue* {.importcpp: "StepShape_ToleranceValue",
-                             header: "StepShape_ToleranceValue.hxx", bycopy.} = object of Standard_Transient
+  StepShapeToleranceValue* {.importcpp: "StepShape_ToleranceValue",
+                            header: "StepShape_ToleranceValue.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructStepShape_ToleranceValue*(): StepShape_ToleranceValue {.constructor,
+proc constructStepShapeToleranceValue*(): StepShapeToleranceValue {.constructor,
     importcpp: "StepShape_ToleranceValue(@)",
     header: "StepShape_ToleranceValue.hxx".}
-proc Init*(this: var StepShape_ToleranceValue;
-          lower_bound: handle[Standard_Transient];
-          upper_bound: handle[Standard_Transient]) {.importcpp: "Init",
+proc init*(this: var StepShapeToleranceValue; lowerBound: Handle[StandardTransient];
+          upperBound: Handle[StandardTransient]) {.importcpp: "Init",
     header: "StepShape_ToleranceValue.hxx".}
-proc LowerBound*(this: StepShape_ToleranceValue): handle[Standard_Transient] {.
+proc lowerBound*(this: StepShapeToleranceValue): Handle[StandardTransient] {.
     noSideEffect, importcpp: "LowerBound", header: "StepShape_ToleranceValue.hxx".}
-proc SetLowerBound*(this: var StepShape_ToleranceValue;
-                   lower_bound: handle[Standard_Transient]) {.
+proc setLowerBound*(this: var StepShapeToleranceValue;
+                   lowerBound: Handle[StandardTransient]) {.
     importcpp: "SetLowerBound", header: "StepShape_ToleranceValue.hxx".}
-proc UpperBound*(this: StepShape_ToleranceValue): handle[Standard_Transient] {.
+proc upperBound*(this: StepShapeToleranceValue): Handle[StandardTransient] {.
     noSideEffect, importcpp: "UpperBound", header: "StepShape_ToleranceValue.hxx".}
-proc SetUpperBound*(this: var StepShape_ToleranceValue;
-                   upper_bound: handle[Standard_Transient]) {.
+proc setUpperBound*(this: var StepShapeToleranceValue;
+                   upperBound: Handle[StandardTransient]) {.
     importcpp: "SetUpperBound", header: "StepShape_ToleranceValue.hxx".}
 type
-  StepShape_ToleranceValuebase_type* = Standard_Transient
+  StepShapeToleranceValuebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_ToleranceValue::get_type_name(@)",
-                              header: "StepShape_ToleranceValue.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_ToleranceValue::get_type_name(@)",
+                            header: "StepShape_ToleranceValue.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_ToleranceValue::get_type_descriptor(@)",
     header: "StepShape_ToleranceValue.hxx".}
-proc DynamicType*(this: StepShape_ToleranceValue): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeToleranceValue): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_ToleranceValue.hxx".}

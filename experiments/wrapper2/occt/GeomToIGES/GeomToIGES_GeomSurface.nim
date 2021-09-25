@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, GeomToIGES_GeomEntity
-
 discard "forward decl of GeomToIGES_GeomEntity"
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of Geom_Surface"
@@ -43,119 +38,100 @@ type
 
 proc constructGeomToIGES_GeomSurface*(): GeomToIGES_GeomSurface {.constructor,
     importcpp: "GeomToIGES_GeomSurface(@)", header: "GeomToIGES_GeomSurface.hxx".}
-proc constructGeomToIGES_GeomSurface*(GE: GeomToIGES_GeomEntity): GeomToIGES_GeomSurface {.
+proc constructGeomToIGES_GeomSurface*(ge: GeomToIGES_GeomEntity): GeomToIGES_GeomSurface {.
     constructor, importcpp: "GeomToIGES_GeomSurface(@)",
     header: "GeomToIGES_GeomSurface.hxx".}
-proc TransferSurface*(this: var GeomToIGES_GeomSurface; start: handle[Geom_Surface];
-                     Udeb: Standard_Real; Ufin: Standard_Real; Vdeb: Standard_Real;
-                     Vfin: Standard_Real): handle[IGESData_IGESEntity] {.
+proc transferSurface*(this: var GeomToIGES_GeomSurface; start: Handle[GeomSurface];
+                     udeb: float; ufin: float; vdeb: float; vfin: float): Handle[
+    IGESDataIGESEntity] {.importcpp: "TransferSurface",
+                         header: "GeomToIGES_GeomSurface.hxx".}
+proc transferSurface*(this: var GeomToIGES_GeomSurface;
+                     start: Handle[GeomBoundedSurface]; udeb: float; ufin: float;
+                     vdeb: float; vfin: float): Handle[IGESDataIGESEntity] {.
     importcpp: "TransferSurface", header: "GeomToIGES_GeomSurface.hxx".}
-proc TransferSurface*(this: var GeomToIGES_GeomSurface;
-                     start: handle[Geom_BoundedSurface]; Udeb: Standard_Real;
-                     Ufin: Standard_Real; Vdeb: Standard_Real; Vfin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferSurface",
-                          header: "GeomToIGES_GeomSurface.hxx".}
-proc TransferSurface*(this: var GeomToIGES_GeomSurface;
-                     start: handle[Geom_BSplineSurface]; Udeb: Standard_Real;
-                     Ufin: Standard_Real; Vdeb: Standard_Real; Vfin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferSurface",
-                          header: "GeomToIGES_GeomSurface.hxx".}
-proc TransferSurface*(this: var GeomToIGES_GeomSurface;
-                     start: handle[Geom_BezierSurface]; Udeb: Standard_Real;
-                     Ufin: Standard_Real; Vdeb: Standard_Real; Vfin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferSurface",
-                          header: "GeomToIGES_GeomSurface.hxx".}
-proc TransferSurface*(this: var GeomToIGES_GeomSurface;
-                     start: handle[Geom_RectangularTrimmedSurface];
-                     Udeb: Standard_Real; Ufin: Standard_Real; Vdeb: Standard_Real;
-                     Vfin: Standard_Real): handle[IGESData_IGESEntity] {.
+proc transferSurface*(this: var GeomToIGES_GeomSurface;
+                     start: Handle[GeomBSplineSurface]; udeb: float; ufin: float;
+                     vdeb: float; vfin: float): Handle[IGESDataIGESEntity] {.
     importcpp: "TransferSurface", header: "GeomToIGES_GeomSurface.hxx".}
-proc TransferSurface*(this: var GeomToIGES_GeomSurface;
-                     start: handle[Geom_ElementarySurface]; Udeb: Standard_Real;
-                     Ufin: Standard_Real; Vdeb: Standard_Real; Vfin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferSurface",
-                          header: "GeomToIGES_GeomSurface.hxx".}
-proc TransferSurface*(this: var GeomToIGES_GeomSurface; start: handle[Geom_Plane];
-                     Udeb: Standard_Real; Ufin: Standard_Real; Vdeb: Standard_Real;
-                     Vfin: Standard_Real): handle[IGESData_IGESEntity] {.
+proc transferSurface*(this: var GeomToIGES_GeomSurface;
+                     start: Handle[GeomBezierSurface]; udeb: float; ufin: float;
+                     vdeb: float; vfin: float): Handle[IGESDataIGESEntity] {.
     importcpp: "TransferSurface", header: "GeomToIGES_GeomSurface.hxx".}
-proc TransferSurface*(this: var GeomToIGES_GeomSurface;
-                     start: handle[Geom_CylindricalSurface]; Udeb: Standard_Real;
-                     Ufin: Standard_Real; Vdeb: Standard_Real; Vfin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferSurface",
-                          header: "GeomToIGES_GeomSurface.hxx".}
-proc TransferSurface*(this: var GeomToIGES_GeomSurface;
-                     start: handle[Geom_ConicalSurface]; Udeb: Standard_Real;
-                     Ufin: Standard_Real; Vdeb: Standard_Real; Vfin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferSurface",
-                          header: "GeomToIGES_GeomSurface.hxx".}
-proc TransferSurface*(this: var GeomToIGES_GeomSurface;
-                     start: handle[Geom_SphericalSurface]; Udeb: Standard_Real;
-                     Ufin: Standard_Real; Vdeb: Standard_Real; Vfin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferSurface",
-                          header: "GeomToIGES_GeomSurface.hxx".}
-proc TransferSurface*(this: var GeomToIGES_GeomSurface;
-                     start: handle[Geom_ToroidalSurface]; Udeb: Standard_Real;
-                     Ufin: Standard_Real; Vdeb: Standard_Real; Vfin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferSurface",
-                          header: "GeomToIGES_GeomSurface.hxx".}
-proc TransferSurface*(this: var GeomToIGES_GeomSurface;
-                     start: handle[Geom_SweptSurface]; Udeb: Standard_Real;
-                     Ufin: Standard_Real; Vdeb: Standard_Real; Vfin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferSurface",
-                          header: "GeomToIGES_GeomSurface.hxx".}
-proc TransferSurface*(this: var GeomToIGES_GeomSurface;
-                     start: handle[Geom_SurfaceOfLinearExtrusion];
-                     Udeb: Standard_Real; Ufin: Standard_Real; Vdeb: Standard_Real;
-                     Vfin: Standard_Real): handle[IGESData_IGESEntity] {.
+proc transferSurface*(this: var GeomToIGES_GeomSurface;
+                     start: Handle[GeomRectangularTrimmedSurface]; udeb: float;
+                     ufin: float; vdeb: float; vfin: float): Handle[IGESDataIGESEntity] {.
     importcpp: "TransferSurface", header: "GeomToIGES_GeomSurface.hxx".}
-proc TransferSurface*(this: var GeomToIGES_GeomSurface;
-                     start: handle[Geom_SurfaceOfRevolution]; Udeb: Standard_Real;
-                     Ufin: Standard_Real; Vdeb: Standard_Real; Vfin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferSurface",
-                          header: "GeomToIGES_GeomSurface.hxx".}
-proc TransferSurface*(this: var GeomToIGES_GeomSurface;
-                     start: handle[Geom_OffsetSurface]; Udeb: Standard_Real;
-                     Ufin: Standard_Real; Vdeb: Standard_Real; Vfin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferSurface",
-                          header: "GeomToIGES_GeomSurface.hxx".}
-proc TransferPlaneSurface*(this: var GeomToIGES_GeomSurface;
-                          start: handle[Geom_Plane]; Udeb: Standard_Real;
-                          Ufin: Standard_Real; Vdeb: Standard_Real;
-                          Vfin: Standard_Real): handle[IGESData_IGESEntity] {.
+proc transferSurface*(this: var GeomToIGES_GeomSurface;
+                     start: Handle[GeomElementarySurface]; udeb: float; ufin: float;
+                     vdeb: float; vfin: float): Handle[IGESDataIGESEntity] {.
+    importcpp: "TransferSurface", header: "GeomToIGES_GeomSurface.hxx".}
+proc transferSurface*(this: var GeomToIGES_GeomSurface; start: Handle[GeomPlane];
+                     udeb: float; ufin: float; vdeb: float; vfin: float): Handle[
+    IGESDataIGESEntity] {.importcpp: "TransferSurface",
+                         header: "GeomToIGES_GeomSurface.hxx".}
+proc transferSurface*(this: var GeomToIGES_GeomSurface;
+                     start: Handle[GeomCylindricalSurface]; udeb: float;
+                     ufin: float; vdeb: float; vfin: float): Handle[IGESDataIGESEntity] {.
+    importcpp: "TransferSurface", header: "GeomToIGES_GeomSurface.hxx".}
+proc transferSurface*(this: var GeomToIGES_GeomSurface;
+                     start: Handle[GeomConicalSurface]; udeb: float; ufin: float;
+                     vdeb: float; vfin: float): Handle[IGESDataIGESEntity] {.
+    importcpp: "TransferSurface", header: "GeomToIGES_GeomSurface.hxx".}
+proc transferSurface*(this: var GeomToIGES_GeomSurface;
+                     start: Handle[GeomSphericalSurface]; udeb: float; ufin: float;
+                     vdeb: float; vfin: float): Handle[IGESDataIGESEntity] {.
+    importcpp: "TransferSurface", header: "GeomToIGES_GeomSurface.hxx".}
+proc transferSurface*(this: var GeomToIGES_GeomSurface;
+                     start: Handle[GeomToroidalSurface]; udeb: float; ufin: float;
+                     vdeb: float; vfin: float): Handle[IGESDataIGESEntity] {.
+    importcpp: "TransferSurface", header: "GeomToIGES_GeomSurface.hxx".}
+proc transferSurface*(this: var GeomToIGES_GeomSurface;
+                     start: Handle[GeomSweptSurface]; udeb: float; ufin: float;
+                     vdeb: float; vfin: float): Handle[IGESDataIGESEntity] {.
+    importcpp: "TransferSurface", header: "GeomToIGES_GeomSurface.hxx".}
+proc transferSurface*(this: var GeomToIGES_GeomSurface;
+                     start: Handle[GeomSurfaceOfLinearExtrusion]; udeb: float;
+                     ufin: float; vdeb: float; vfin: float): Handle[IGESDataIGESEntity] {.
+    importcpp: "TransferSurface", header: "GeomToIGES_GeomSurface.hxx".}
+proc transferSurface*(this: var GeomToIGES_GeomSurface;
+                     start: Handle[GeomSurfaceOfRevolution]; udeb: float;
+                     ufin: float; vdeb: float; vfin: float): Handle[IGESDataIGESEntity] {.
+    importcpp: "TransferSurface", header: "GeomToIGES_GeomSurface.hxx".}
+proc transferSurface*(this: var GeomToIGES_GeomSurface;
+                     start: Handle[GeomOffsetSurface]; udeb: float; ufin: float;
+                     vdeb: float; vfin: float): Handle[IGESDataIGESEntity] {.
+    importcpp: "TransferSurface", header: "GeomToIGES_GeomSurface.hxx".}
+proc transferPlaneSurface*(this: var GeomToIGES_GeomSurface;
+                          start: Handle[GeomPlane]; udeb: float; ufin: float;
+                          vdeb: float; vfin: float): Handle[IGESDataIGESEntity] {.
     importcpp: "TransferPlaneSurface", header: "GeomToIGES_GeomSurface.hxx".}
-proc TransferCylindricalSurface*(this: var GeomToIGES_GeomSurface;
-                                start: handle[Geom_CylindricalSurface];
-                                Udeb: Standard_Real; Ufin: Standard_Real;
-                                Vdeb: Standard_Real; Vfin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferCylindricalSurface",
-                          header: "GeomToIGES_GeomSurface.hxx".}
-proc TransferConicalSurface*(this: var GeomToIGES_GeomSurface;
-                            start: handle[Geom_ConicalSurface];
-                            Udeb: Standard_Real; Ufin: Standard_Real;
-                            Vdeb: Standard_Real; Vfin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferConicalSurface",
-                          header: "GeomToIGES_GeomSurface.hxx".}
-proc TransferSphericalSurface*(this: var GeomToIGES_GeomSurface;
-                              start: handle[Geom_SphericalSurface];
-                              Udeb: Standard_Real; Ufin: Standard_Real;
-                              Vdeb: Standard_Real; Vfin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferSphericalSurface",
-                          header: "GeomToIGES_GeomSurface.hxx".}
-proc TransferToroidalSurface*(this: var GeomToIGES_GeomSurface;
-                             start: handle[Geom_ToroidalSurface];
-                             Udeb: Standard_Real; Ufin: Standard_Real;
-                             Vdeb: Standard_Real; Vfin: Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferToroidalSurface",
-                          header: "GeomToIGES_GeomSurface.hxx".}
-proc Length*(this: GeomToIGES_GeomSurface): Standard_Real {.noSideEffect,
+proc transferCylindricalSurface*(this: var GeomToIGES_GeomSurface;
+                                start: Handle[GeomCylindricalSurface];
+                                udeb: float; ufin: float; vdeb: float; vfin: float): Handle[
+    IGESDataIGESEntity] {.importcpp: "TransferCylindricalSurface",
+                         header: "GeomToIGES_GeomSurface.hxx".}
+proc transferConicalSurface*(this: var GeomToIGES_GeomSurface;
+                            start: Handle[GeomConicalSurface]; udeb: float;
+                            ufin: float; vdeb: float; vfin: float): Handle[
+    IGESDataIGESEntity] {.importcpp: "TransferConicalSurface",
+                         header: "GeomToIGES_GeomSurface.hxx".}
+proc transferSphericalSurface*(this: var GeomToIGES_GeomSurface;
+                              start: Handle[GeomSphericalSurface]; udeb: float;
+                              ufin: float; vdeb: float; vfin: float): Handle[
+    IGESDataIGESEntity] {.importcpp: "TransferSphericalSurface",
+                         header: "GeomToIGES_GeomSurface.hxx".}
+proc transferToroidalSurface*(this: var GeomToIGES_GeomSurface;
+                             start: Handle[GeomToroidalSurface]; udeb: float;
+                             ufin: float; vdeb: float; vfin: float): Handle[
+    IGESDataIGESEntity] {.importcpp: "TransferToroidalSurface",
+                         header: "GeomToIGES_GeomSurface.hxx".}
+proc length*(this: GeomToIGES_GeomSurface): float {.noSideEffect,
     importcpp: "Length", header: "GeomToIGES_GeomSurface.hxx".}
-proc GetBRepMode*(this: GeomToIGES_GeomSurface): Standard_Boolean {.noSideEffect,
+proc getBRepMode*(this: GeomToIGES_GeomSurface): bool {.noSideEffect,
     importcpp: "GetBRepMode", header: "GeomToIGES_GeomSurface.hxx".}
-proc SetBRepMode*(this: var GeomToIGES_GeomSurface; flag: Standard_Boolean) {.
+proc setBRepMode*(this: var GeomToIGES_GeomSurface; flag: bool) {.
     importcpp: "SetBRepMode", header: "GeomToIGES_GeomSurface.hxx".}
-proc GetAnalyticMode*(this: GeomToIGES_GeomSurface): Standard_Boolean {.
-    noSideEffect, importcpp: "GetAnalyticMode",
-    header: "GeomToIGES_GeomSurface.hxx".}
-proc SetAnalyticMode*(this: var GeomToIGES_GeomSurface; flag: Standard_Boolean) {.
+proc getAnalyticMode*(this: GeomToIGES_GeomSurface): bool {.noSideEffect,
+    importcpp: "GetAnalyticMode", header: "GeomToIGES_GeomSurface.hxx".}
+proc setAnalyticMode*(this: var GeomToIGES_GeomSurface; flag: bool) {.
     importcpp: "SetAnalyticMode", header: "GeomToIGES_GeomSurface.hxx".}

@@ -16,11 +16,12 @@
 ## ! Defines types of zone
 
 type
-  XCAFDimTolObjects_GeomToleranceZoneModif* {.size: sizeof(cint),
+  XCAFDimTolObjectsGeomToleranceZoneModif* {.size: sizeof(cint),
       importcpp: "XCAFDimTolObjects_GeomToleranceZoneModif",
       header: "XCAFDimTolObjects_GeomToleranceZoneModif.hxx".} = enum
-    XCAFDimTolObjects_GeomToleranceZoneModif_None,
-    XCAFDimTolObjects_GeomToleranceZoneModif_Projected,
-    XCAFDimTolObjects_GeomToleranceZoneModif_Runout,
-    XCAFDimTolObjects_GeomToleranceZoneModif_NonUniform
+    XCAFDimTolObjectsGeomToleranceZoneModifNone,
+    XCAFDimTolObjectsGeomToleranceZoneModifProjected,
+    XCAFDimTolObjectsGeomToleranceZoneModifRunout,
+    XCAFDimTolObjectsGeomToleranceZoneModifNonUniform
+
 

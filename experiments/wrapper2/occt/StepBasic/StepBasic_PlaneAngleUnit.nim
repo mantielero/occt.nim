@@ -14,31 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_NamedUnit
-
 discard "forward decl of StepBasic_PlaneAngleUnit"
 discard "forward decl of StepBasic_PlaneAngleUnit"
 type
-  Handle_StepBasic_PlaneAngleUnit* = handle[StepBasic_PlaneAngleUnit]
-  StepBasic_PlaneAngleUnit* {.importcpp: "StepBasic_PlaneAngleUnit",
-                             header: "StepBasic_PlaneAngleUnit.hxx", bycopy.} = object of StepBasic_NamedUnit ##
-                                                                                                       ## !
-                                                                                                       ## Returns
-                                                                                                       ## a
-                                                                                                       ## PlaneAngleUnit
+  HandleStepBasicPlaneAngleUnit* = Handle[StepBasicPlaneAngleUnit]
+  StepBasicPlaneAngleUnit* {.importcpp: "StepBasic_PlaneAngleUnit",
+                            header: "StepBasic_PlaneAngleUnit.hxx", bycopy.} = object of StepBasicNamedUnit ##
+                                                                                                     ## !
+                                                                                                     ## Returns
+                                                                                                     ## a
+                                                                                                     ## PlaneAngleUnit
 
 
-proc constructStepBasic_PlaneAngleUnit*(): StepBasic_PlaneAngleUnit {.constructor,
+proc constructStepBasicPlaneAngleUnit*(): StepBasicPlaneAngleUnit {.constructor,
     importcpp: "StepBasic_PlaneAngleUnit(@)",
     header: "StepBasic_PlaneAngleUnit.hxx".}
 type
-  StepBasic_PlaneAngleUnitbase_type* = StepBasic_NamedUnit
+  StepBasicPlaneAngleUnitbaseType* = StepBasicNamedUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_PlaneAngleUnit::get_type_name(@)",
-                              header: "StepBasic_PlaneAngleUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_PlaneAngleUnit::get_type_name(@)",
+                            header: "StepBasic_PlaneAngleUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_PlaneAngleUnit::get_type_descriptor(@)",
     header: "StepBasic_PlaneAngleUnit.hxx".}
-proc DynamicType*(this: StepBasic_PlaneAngleUnit): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicPlaneAngleUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_PlaneAngleUnit.hxx".}

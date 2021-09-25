@@ -14,58 +14,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_HArray2OfReal, ../Standard/Standard_Real,
-  ../Standard/Standard_Transient, ../TColStd/TColStd_HArray2OfInteger,
-  ../Standard/Standard_Integer, ../math/math_Vector
-
 discard "forward decl of Standard_NotImplemented"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of math_Matrix"
 discard "forward decl of FEmTool_ElementaryCriterion"
 discard "forward decl of FEmTool_ElementaryCriterion"
 type
-  Handle_FEmTool_ElementaryCriterion* = handle[FEmTool_ElementaryCriterion]
+  HandleFEmToolElementaryCriterion* = Handle[FEmToolElementaryCriterion]
 
 ## ! defined J Criteria to used in minimisation
 
 type
-  FEmTool_ElementaryCriterion* {.importcpp: "FEmTool_ElementaryCriterion",
-                                header: "FEmTool_ElementaryCriterion.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                            ## !
-                                                                                                            ## Empty
-                                                                                                            ## constructor
+  FEmToolElementaryCriterion* {.importcpp: "FEmTool_ElementaryCriterion",
+                               header: "FEmTool_ElementaryCriterion.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                          ## !
+                                                                                                          ## Empty
+                                                                                                          ## constructor
 
 
-proc constructFEmTool_ElementaryCriterion*(): FEmTool_ElementaryCriterion {.
+proc constructFEmToolElementaryCriterion*(): FEmToolElementaryCriterion {.
     constructor, importcpp: "FEmTool_ElementaryCriterion(@)",
     header: "FEmTool_ElementaryCriterion.hxx".}
-proc Set*(this: var FEmTool_ElementaryCriterion;
-         Coeff: handle[TColStd_HArray2OfReal]) {.importcpp: "Set",
-    header: "FEmTool_ElementaryCriterion.hxx".}
-proc Set*(this: var FEmTool_ElementaryCriterion; FirstKnot: Standard_Real;
-         LastKnot: Standard_Real) {.importcpp: "Set",
-                                  header: "FEmTool_ElementaryCriterion.hxx".}
-proc DependenceTable*(this: FEmTool_ElementaryCriterion): handle[
-    TColStd_HArray2OfInteger] {.noSideEffect, importcpp: "DependenceTable",
-                               header: "FEmTool_ElementaryCriterion.hxx".}
-proc Value*(this: var FEmTool_ElementaryCriterion): Standard_Real {.
-    importcpp: "Value", header: "FEmTool_ElementaryCriterion.hxx".}
-proc Hessian*(this: var FEmTool_ElementaryCriterion; Dim1: Standard_Integer;
-             Dim2: Standard_Integer; H: var math_Matrix) {.importcpp: "Hessian",
-    header: "FEmTool_ElementaryCriterion.hxx".}
-proc Gradient*(this: var FEmTool_ElementaryCriterion; Dim: Standard_Integer;
-              G: var math_Vector) {.importcpp: "Gradient",
-                                 header: "FEmTool_ElementaryCriterion.hxx".}
-type
-  FEmTool_ElementaryCriterionbase_type* = Standard_Transient
-
-proc get_type_name*(): cstring {.importcpp: "FEmTool_ElementaryCriterion::get_type_name(@)",
+proc set*(this: var FEmToolElementaryCriterion; coeff: Handle[TColStdHArray2OfReal]) {.
+    importcpp: "Set", header: "FEmTool_ElementaryCriterion.hxx".}
+proc set*(this: var FEmToolElementaryCriterion; firstKnot: float; lastKnot: float) {.
+    importcpp: "Set", header: "FEmTool_ElementaryCriterion.hxx".}
+proc dependenceTable*(this: FEmToolElementaryCriterion): Handle[
+    TColStdHArray2OfInteger] {.noSideEffect, importcpp: "DependenceTable",
                               header: "FEmTool_ElementaryCriterion.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc value*(this: var FEmToolElementaryCriterion): float {.importcpp: "Value",
+    header: "FEmTool_ElementaryCriterion.hxx".}
+proc hessian*(this: var FEmToolElementaryCriterion; dim1: int; dim2: int;
+             h: var MathMatrix) {.importcpp: "Hessian",
+                               header: "FEmTool_ElementaryCriterion.hxx".}
+proc gradient*(this: var FEmToolElementaryCriterion; dim: int; g: var MathVector) {.
+    importcpp: "Gradient", header: "FEmTool_ElementaryCriterion.hxx".}
+type
+  FEmToolElementaryCriterionbaseType* = StandardTransient
+
+proc getTypeName*(): cstring {.importcpp: "FEmTool_ElementaryCriterion::get_type_name(@)",
+                            header: "FEmTool_ElementaryCriterion.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "FEmTool_ElementaryCriterion::get_type_descriptor(@)",
     header: "FEmTool_ElementaryCriterion.hxx".}
-proc DynamicType*(this: FEmTool_ElementaryCriterion): handle[Standard_Type] {.
+proc dynamicType*(this: FEmToolElementaryCriterion): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "FEmTool_ElementaryCriterion.hxx".}

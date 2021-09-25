@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP214_DateAndTimeItem, ../NCollection/NCollection_Array1
-
 type
-  StepAP214_Array1OfDateAndTimeItem* = NCollection_Array1[
-      StepAP214_DateAndTimeItem]
+  StepAP214Array1OfDateAndTimeItem* = NCollectionArray1[StepAP214DateAndTimeItem]
+

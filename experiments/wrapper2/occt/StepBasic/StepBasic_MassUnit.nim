@@ -13,33 +13,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_NamedUnit
-
 discard "forward decl of StepBasic_MassUnit"
 discard "forward decl of StepBasic_MassUnit"
 type
-  Handle_StepBasic_MassUnit* = handle[StepBasic_MassUnit]
+  HandleStepBasicMassUnit* = Handle[StepBasicMassUnit]
 
 ## ! Representation of STEP entity MassUnit
 
 type
-  StepBasic_MassUnit* {.importcpp: "StepBasic_MassUnit",
-                       header: "StepBasic_MassUnit.hxx", bycopy.} = object of StepBasic_NamedUnit ##
-                                                                                           ## !
-                                                                                           ## Empty
-                                                                                           ## constructor
+  StepBasicMassUnit* {.importcpp: "StepBasic_MassUnit",
+                      header: "StepBasic_MassUnit.hxx", bycopy.} = object of StepBasicNamedUnit ##
+                                                                                         ## !
+                                                                                         ## Empty
+                                                                                         ## constructor
 
 
-proc constructStepBasic_MassUnit*(): StepBasic_MassUnit {.constructor,
+proc constructStepBasicMassUnit*(): StepBasicMassUnit {.constructor,
     importcpp: "StepBasic_MassUnit(@)", header: "StepBasic_MassUnit.hxx".}
 type
-  StepBasic_MassUnitbase_type* = StepBasic_NamedUnit
+  StepBasicMassUnitbaseType* = StepBasicNamedUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_MassUnit::get_type_name(@)",
-                              header: "StepBasic_MassUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_MassUnit::get_type_name(@)",
+                            header: "StepBasic_MassUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_MassUnit::get_type_descriptor(@)",
     header: "StepBasic_MassUnit.hxx".}
-proc DynamicType*(this: StepBasic_MassUnit): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepBasicMassUnit): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_MassUnit.hxx".}

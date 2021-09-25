@@ -14,16 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_LicenseNotFound_HeaderFile [NewLine] # _Standard_LicenseNotFound_HeaderFile [NewLine] # Standard_Type.hxx [NewLine] # Standard_DefineException.hxx [NewLine] # Standard_SStream.hxx [NewLine] # Standard_LicenseError.hxx [NewLine] class Standard_LicenseNotFound ;
+## !!!Ignored construct:  # _Standard_LicenseNotFound_HeaderFile [NewLine] # _Standard_LicenseNotFound_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_LicenseError . hxx > [NewLine] class Standard_LicenseNotFound ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Standard_LicenseNotFound"
 type
-  Handle_Standard_LicenseNotFoundStandard_LicenseNotFound* = handle[
-      Standard_LicenseNotFound]
+  HandleStandardLicenseNotFoundStandardLicenseNotFound* = Handle[
+      StandardLicenseNotFound]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_LicenseNotFound [NewLine] # if ( CONDITION ) throw Standard_LicenseNotFound ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_LicenseNotFound , Standard_LicenseError ) #  _Standard_LicenseNotFound_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_LicenseNotFound , Standard_LicenseError ) #  _Standard_LicenseNotFound_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

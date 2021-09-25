@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopTools/TopTools_MapOfShape, ../NCollection/NCollection_List
-
 type
-  TNaming_ListOfMapOfShape* = NCollection_List[TopTools_MapOfShape]
-  TNaming_ListIteratorOfListOfMapOfShape* = Iterator[TopTools_MapOfShape]
+  TNamingListOfMapOfShape* = NCollectionList[TopToolsMapOfShape]
+  TNamingListIteratorOfListOfMapOfShape* = Iterator[TopToolsMapOfShape]
+

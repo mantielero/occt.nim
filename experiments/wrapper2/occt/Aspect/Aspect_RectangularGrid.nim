@@ -14,97 +14,90 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  Aspect_Grid, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_NegativeValue"
 discard "forward decl of Standard_NullValue"
 discard "forward decl of Standard_NumericError"
 type
-  Aspect_RectangularGrid* {.importcpp: "Aspect_RectangularGrid",
-                           header: "Aspect_RectangularGrid.hxx", bycopy.} = object of Aspect_Grid ##
-                                                                                           ## !
-                                                                                           ## creates
-                                                                                           ## a
-                                                                                           ## new
-                                                                                           ## grid.
-                                                                                           ## By
-                                                                                           ## default
-                                                                                           ## this
-                                                                                           ## grid
-                                                                                           ## is
-                                                                                           ## not
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## active.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## The
-                                                                                           ## first
-                                                                                           ## angle
-                                                                                           ## is
-                                                                                           ## given
-                                                                                           ## relatively
-                                                                                           ## to
-                                                                                           ## the
-                                                                                           ## horizontal.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## The
-                                                                                           ## second
-                                                                                           ## angle
-                                                                                           ## is
-                                                                                           ## given
-                                                                                           ## relatively
-                                                                                           ## to
-                                                                                           ## the
-                                                                                           ## vertical.
+  AspectRectangularGrid* {.importcpp: "Aspect_RectangularGrid",
+                          header: "Aspect_RectangularGrid.hxx", bycopy.} = object of AspectGrid ##
+                                                                                         ## !
+                                                                                         ## creates
+                                                                                         ## a
+                                                                                         ## new
+                                                                                         ## grid.
+                                                                                         ## By
+                                                                                         ## default
+                                                                                         ## this
+                                                                                         ## grid
+                                                                                         ## is
+                                                                                         ## not
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## active.
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## The
+                                                                                         ## first
+                                                                                         ## angle
+                                                                                         ## is
+                                                                                         ## given
+                                                                                         ## relatively
+                                                                                         ## to
+                                                                                         ## the
+                                                                                         ## horizontal.
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## The
+                                                                                         ## second
+                                                                                         ## angle
+                                                                                         ## is
+                                                                                         ## given
+                                                                                         ## relatively
+                                                                                         ## to
+                                                                                         ## the
+                                                                                         ## vertical.
 
-  Aspect_RectangularGridbase_type* = Aspect_Grid
+  AspectRectangularGridbaseType* = AspectGrid
 
-proc get_type_name*(): cstring {.importcpp: "Aspect_RectangularGrid::get_type_name(@)",
-                              header: "Aspect_RectangularGrid.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Aspect_RectangularGrid::get_type_name(@)",
+                            header: "Aspect_RectangularGrid.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Aspect_RectangularGrid::get_type_descriptor(@)",
     header: "Aspect_RectangularGrid.hxx".}
-proc DynamicType*(this: Aspect_RectangularGrid): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Aspect_RectangularGrid.hxx".}
-proc constructAspect_RectangularGrid*(aXStep: Standard_Real; aYStep: Standard_Real;
-                                     anXOrigin: Standard_Real = 0;
-                                     anYOrigin: Standard_Real = 0;
-                                     aFirstAngle: Standard_Real = 0;
-                                     aSecondAngle: Standard_Real = 0;
-                                     aRotationAngle: Standard_Real = 0): Aspect_RectangularGrid {.
+proc dynamicType*(this: AspectRectangularGrid): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Aspect_RectangularGrid.hxx".}
+proc constructAspectRectangularGrid*(aXStep: float; aYStep: float;
+                                    anXOrigin: float = 0; anYOrigin: float = 0;
+                                    aFirstAngle: float = 0; aSecondAngle: float = 0;
+                                    aRotationAngle: float = 0): AspectRectangularGrid {.
     constructor, importcpp: "Aspect_RectangularGrid(@)",
     header: "Aspect_RectangularGrid.hxx".}
-proc SetXStep*(this: var Aspect_RectangularGrid; aStep: Standard_Real) {.
-    importcpp: "SetXStep", header: "Aspect_RectangularGrid.hxx".}
-proc SetYStep*(this: var Aspect_RectangularGrid; aStep: Standard_Real) {.
-    importcpp: "SetYStep", header: "Aspect_RectangularGrid.hxx".}
-proc SetAngle*(this: var Aspect_RectangularGrid; anAngle1: Standard_Real;
-              anAngle2: Standard_Real) {.importcpp: "SetAngle",
-                                       header: "Aspect_RectangularGrid.hxx".}
-proc SetGridValues*(this: var Aspect_RectangularGrid; XOrigin: Standard_Real;
-                   YOrigin: Standard_Real; XStep: Standard_Real;
-                   YStep: Standard_Real; RotationAngle: Standard_Real) {.
+proc setXStep*(this: var AspectRectangularGrid; aStep: float) {.importcpp: "SetXStep",
+    header: "Aspect_RectangularGrid.hxx".}
+proc setYStep*(this: var AspectRectangularGrid; aStep: float) {.importcpp: "SetYStep",
+    header: "Aspect_RectangularGrid.hxx".}
+proc setAngle*(this: var AspectRectangularGrid; anAngle1: float; anAngle2: float) {.
+    importcpp: "SetAngle", header: "Aspect_RectangularGrid.hxx".}
+proc setGridValues*(this: var AspectRectangularGrid; xOrigin: float; yOrigin: float;
+                   xStep: float; yStep: float; rotationAngle: float) {.
     importcpp: "SetGridValues", header: "Aspect_RectangularGrid.hxx".}
-proc Compute*(this: Aspect_RectangularGrid; X: Standard_Real; Y: Standard_Real;
-             gridX: var Standard_Real; gridY: var Standard_Real) {.noSideEffect,
-    importcpp: "Compute", header: "Aspect_RectangularGrid.hxx".}
-proc XStep*(this: Aspect_RectangularGrid): Standard_Real {.noSideEffect,
-    importcpp: "XStep", header: "Aspect_RectangularGrid.hxx".}
-proc YStep*(this: Aspect_RectangularGrid): Standard_Real {.noSideEffect,
-    importcpp: "YStep", header: "Aspect_RectangularGrid.hxx".}
-proc FirstAngle*(this: Aspect_RectangularGrid): Standard_Real {.noSideEffect,
+proc compute*(this: AspectRectangularGrid; x: float; y: float; gridX: var float;
+             gridY: var float) {.noSideEffect, importcpp: "Compute",
+                              header: "Aspect_RectangularGrid.hxx".}
+proc xStep*(this: AspectRectangularGrid): float {.noSideEffect, importcpp: "XStep",
+    header: "Aspect_RectangularGrid.hxx".}
+proc yStep*(this: AspectRectangularGrid): float {.noSideEffect, importcpp: "YStep",
+    header: "Aspect_RectangularGrid.hxx".}
+proc firstAngle*(this: AspectRectangularGrid): float {.noSideEffect,
     importcpp: "FirstAngle", header: "Aspect_RectangularGrid.hxx".}
-proc SecondAngle*(this: Aspect_RectangularGrid): Standard_Real {.noSideEffect,
+proc secondAngle*(this: AspectRectangularGrid): float {.noSideEffect,
     importcpp: "SecondAngle", header: "Aspect_RectangularGrid.hxx".}
-proc Init*(this: var Aspect_RectangularGrid) {.importcpp: "Init",
+proc init*(this: var AspectRectangularGrid) {.importcpp: "Init",
     header: "Aspect_RectangularGrid.hxx".}
-proc DumpJson*(this: Aspect_RectangularGrid; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Aspect_RectangularGrid.hxx".}
+proc dumpJson*(this: AspectRectangularGrid; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Aspect_RectangularGrid.hxx".}
 discard "forward decl of Aspect_RectangularGrid"
 type
-  Handle_Aspect_RectangularGrid* = handle[Aspect_RectangularGrid]
+  HandleAspectRectangularGrid* = Handle[AspectRectangularGrid]
+

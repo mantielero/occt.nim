@@ -17,8 +17,9 @@
 ## ! gives successive stages of reading an entity (see ParamReader)
 
 type
-  IGESData_ReadStage* {.size: sizeof(cint), importcpp: "IGESData_ReadStage",
-                       header: "IGESData_ReadStage.hxx".} = enum
-    IGESData_ReadDir, IGESData_ReadOwn, IGESData_ReadAssocs, IGESData_ReadProps,
-    IGESData_ReadEnd
+  IGESDataReadStage* {.size: sizeof(cint), importcpp: "IGESData_ReadStage",
+                      header: "IGESData_ReadStage.hxx".} = enum
+    IGESDataReadDir, IGESDataReadOwn, IGESDataReadAssocs, IGESDataReadProps,
+    IGESDataReadEnd
+
 

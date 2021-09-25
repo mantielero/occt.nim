@@ -13,36 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_AssemblyComponentUsage
-
 discard "forward decl of StepRepr_NextAssemblyUsageOccurrence"
 discard "forward decl of StepRepr_NextAssemblyUsageOccurrence"
 type
-  Handle_StepRepr_NextAssemblyUsageOccurrence* = handle[
-      StepRepr_NextAssemblyUsageOccurrence]
+  HandleStepReprNextAssemblyUsageOccurrence* = Handle[
+      StepReprNextAssemblyUsageOccurrence]
 
 ## ! Representation of STEP entity NextAssemblyUsageOccurrence
 
 type
-  StepRepr_NextAssemblyUsageOccurrence* {.
-      importcpp: "StepRepr_NextAssemblyUsageOccurrence",
-      header: "StepRepr_NextAssemblyUsageOccurrence.hxx", bycopy.} = object of StepRepr_AssemblyComponentUsage ##
-                                                                                                        ## !
-                                                                                                        ## Empty
-                                                                                                        ## constructor
+  StepReprNextAssemblyUsageOccurrence* {.importcpp: "StepRepr_NextAssemblyUsageOccurrence", header: "StepRepr_NextAssemblyUsageOccurrence.hxx",
+                                        bycopy.} = object of StepReprAssemblyComponentUsage ##
+                                                                                       ## !
+                                                                                       ## Empty
+                                                                                       ## constructor
 
 
-proc constructStepRepr_NextAssemblyUsageOccurrence*(): StepRepr_NextAssemblyUsageOccurrence {.
+proc constructStepReprNextAssemblyUsageOccurrence*(): StepReprNextAssemblyUsageOccurrence {.
     constructor, importcpp: "StepRepr_NextAssemblyUsageOccurrence(@)",
     header: "StepRepr_NextAssemblyUsageOccurrence.hxx".}
 type
-  StepRepr_NextAssemblyUsageOccurrencebase_type* = StepRepr_AssemblyComponentUsage
+  StepReprNextAssemblyUsageOccurrencebaseType* = StepReprAssemblyComponentUsage
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_NextAssemblyUsageOccurrence::get_type_name(@)", header: "StepRepr_NextAssemblyUsageOccurrence.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_NextAssemblyUsageOccurrence::get_type_name(@)",
+                            header: "StepRepr_NextAssemblyUsageOccurrence.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_NextAssemblyUsageOccurrence::get_type_descriptor(@)",
     header: "StepRepr_NextAssemblyUsageOccurrence.hxx".}
-proc DynamicType*(this: StepRepr_NextAssemblyUsageOccurrence): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprNextAssemblyUsageOccurrence): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_NextAssemblyUsageOccurrence.hxx".}

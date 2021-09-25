@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepShape_ValueQualifier, ../NCollection/NCollection_Array1
-
 type
-  StepShape_Array1OfValueQualifier* = NCollection_Array1[StepShape_ValueQualifier]
+  StepShapeArray1OfValueQualifier* = NCollectionArray1[StepShapeValueQualifier]
+

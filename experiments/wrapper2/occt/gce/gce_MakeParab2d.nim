@@ -14,39 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Parab2d, gce_Root,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Ax22d"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Parab2d"
 type
-  gce_MakeParab2d* {.importcpp: "gce_MakeParab2d", header: "gce_MakeParab2d.hxx",
-                    bycopy.} = object of gce_Root ## ! Creates a parabola with its axis of symmetry ("MirrorAxis")
-                                             ## ! and its focal length.
-                                             ## ! Warnings : It is possible to have Focal = 0.
-                                             ## ! The status is "NullFocalLength" Raised if Focal < 0.0
+  GceMakeParab2d* {.importcpp: "gce_MakeParab2d", header: "gce_MakeParab2d.hxx",
+                   bycopy.} = object of GceRoot ## ! Creates a parabola with its axis of symmetry ("MirrorAxis")
+                                           ## ! and its focal length.
+                                           ## ! Warnings : It is possible to have Focal = 0.
+                                           ## ! The status is "NullFocalLength" Raised if Focal < 0.0
 
 
-proc constructgce_MakeParab2d*(MirrorAxis: gp_Ax2d; Focal: Standard_Real;
-                              Sense: Standard_Boolean = Standard_True): gce_MakeParab2d {.
+proc constructGceMakeParab2d*(mirrorAxis: Ax2d; focal: float; sense: bool = true): GceMakeParab2d {.
     constructor, importcpp: "gce_MakeParab2d(@)", header: "gce_MakeParab2d.hxx".}
-proc constructgce_MakeParab2d*(A: gp_Ax22d; Focal: Standard_Real): gce_MakeParab2d {.
+proc constructGceMakeParab2d*(a: Ax22d; focal: float): GceMakeParab2d {.constructor,
+    importcpp: "gce_MakeParab2d(@)", header: "gce_MakeParab2d.hxx".}
+proc constructGceMakeParab2d*(d: Ax2d; f: Pnt2d; sense: bool = true): GceMakeParab2d {.
     constructor, importcpp: "gce_MakeParab2d(@)", header: "gce_MakeParab2d.hxx".}
-proc constructgce_MakeParab2d*(D: gp_Ax2d; F: gp_Pnt2d;
-                              Sense: Standard_Boolean = Standard_True): gce_MakeParab2d {.
+proc constructGceMakeParab2d*(s1: Pnt2d; center: Pnt2d; sense: bool = true): GceMakeParab2d {.
     constructor, importcpp: "gce_MakeParab2d(@)", header: "gce_MakeParab2d.hxx".}
-proc constructgce_MakeParab2d*(S1: gp_Pnt2d; Center: gp_Pnt2d;
-                              Sense: Standard_Boolean = Standard_True): gce_MakeParab2d {.
-    constructor, importcpp: "gce_MakeParab2d(@)", header: "gce_MakeParab2d.hxx".}
-proc Value*(this: gce_MakeParab2d): gp_Parab2d {.noSideEffect, importcpp: "Value",
+proc value*(this: GceMakeParab2d): Parab2d {.noSideEffect, importcpp: "Value",
     header: "gce_MakeParab2d.hxx".}
-proc Operator*(this: gce_MakeParab2d): gp_Parab2d {.noSideEffect,
-    importcpp: "Operator", header: "gce_MakeParab2d.hxx".}
-converter `gp_Parab2d`*(this: gce_MakeParab2d): gp_Parab2d {.noSideEffect,
+proc operator*(this: GceMakeParab2d): Parab2d {.noSideEffect, importcpp: "Operator",
+    header: "gce_MakeParab2d.hxx".}
+converter `parab2d`*(this: GceMakeParab2d): Parab2d {.noSideEffect,
     importcpp: "gce_MakeParab2d::operator gp_Parab2d",
     header: "gce_MakeParab2d.hxx".}

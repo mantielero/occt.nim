@@ -14,27 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_Document
-
 discard "forward decl of StepBasic_DigitalDocument"
 discard "forward decl of StepBasic_DigitalDocument"
 type
-  Handle_StepBasic_DigitalDocument* = handle[StepBasic_DigitalDocument]
-  StepBasic_DigitalDocument* {.importcpp: "StepBasic_DigitalDocument",
-                              header: "StepBasic_DigitalDocument.hxx", bycopy.} = object of StepBasic_Document
+  HandleStepBasicDigitalDocument* = Handle[StepBasicDigitalDocument]
+  StepBasicDigitalDocument* {.importcpp: "StepBasic_DigitalDocument",
+                             header: "StepBasic_DigitalDocument.hxx", bycopy.} = object of StepBasicDocument
 
 
-proc constructStepBasic_DigitalDocument*(): StepBasic_DigitalDocument {.
-    constructor, importcpp: "StepBasic_DigitalDocument(@)",
+proc constructStepBasicDigitalDocument*(): StepBasicDigitalDocument {.constructor,
+    importcpp: "StepBasic_DigitalDocument(@)",
     header: "StepBasic_DigitalDocument.hxx".}
 type
-  StepBasic_DigitalDocumentbase_type* = StepBasic_Document
+  StepBasicDigitalDocumentbaseType* = StepBasicDocument
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_DigitalDocument::get_type_name(@)",
-                              header: "StepBasic_DigitalDocument.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_DigitalDocument::get_type_name(@)",
+                            header: "StepBasic_DigitalDocument.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_DigitalDocument::get_type_descriptor(@)",
     header: "StepBasic_DigitalDocument.hxx".}
-proc DynamicType*(this: StepBasic_DigitalDocument): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicDigitalDocument): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_DigitalDocument.hxx".}

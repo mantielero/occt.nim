@@ -14,14 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Trsf, ../Standard/Standard, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real,
-  ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of Geom_Transformation"
 type
-  Handle_Geom_Transformation* = handle[Geom_Transformation]
+  HandleGeomTransformation* = Handle[GeomTransformation]
 
 ## ! Describes how to construct the following elementary transformations
 ## ! - translations,
@@ -59,83 +54,78 @@ type
 ## ! objects contained inside a common data structure.
 
 type
-  Geom_Transformation* {.importcpp: "Geom_Transformation",
-                        header: "Geom_Transformation.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                            ## !
-                                                                                            ## Creates
-                                                                                            ## an
-                                                                                            ## identity
-                                                                                            ## transformation.
-    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
-    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
+  GeomTransformation* {.importcpp: "Geom_Transformation",
+                       header: "Geom_Transformation.hxx", bycopy.} = object of StandardTransient ##
+                                                                                          ## !
+                                                                                          ## Creates
+                                                                                          ## an
+                                                                                          ## identity
+                                                                                          ## transformation.
 
-  Geom_Transformationbase_type* = Standard_Transient
+  GeomTransformationbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Geom_Transformation::get_type_name(@)",
-                              header: "Geom_Transformation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Geom_Transformation::get_type_name(@)",
+                            header: "Geom_Transformation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_Transformation::get_type_descriptor(@)",
     header: "Geom_Transformation.hxx".}
-proc DynamicType*(this: Geom_Transformation): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: GeomTransformation): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom_Transformation.hxx".}
-proc constructGeom_Transformation*(): Geom_Transformation {.constructor,
+proc constructGeomTransformation*(): GeomTransformation {.constructor,
     importcpp: "Geom_Transformation(@)", header: "Geom_Transformation.hxx".}
-proc constructGeom_Transformation*(T: gp_Trsf): Geom_Transformation {.constructor,
+proc constructGeomTransformation*(t: Trsf): GeomTransformation {.constructor,
     importcpp: "Geom_Transformation(@)", header: "Geom_Transformation.hxx".}
-proc SetMirror*(this: var Geom_Transformation; thePnt: gp_Pnt) {.
-    importcpp: "SetMirror", header: "Geom_Transformation.hxx".}
-proc SetMirror*(this: var Geom_Transformation; theA1: gp_Ax1) {.
-    importcpp: "SetMirror", header: "Geom_Transformation.hxx".}
-proc SetMirror*(this: var Geom_Transformation; theA2: gp_Ax2) {.
-    importcpp: "SetMirror", header: "Geom_Transformation.hxx".}
-proc SetRotation*(this: var Geom_Transformation; theA1: gp_Ax1; theAng: Standard_Real) {.
+proc setMirror*(this: var GeomTransformation; thePnt: Pnt) {.importcpp: "SetMirror",
+    header: "Geom_Transformation.hxx".}
+proc setMirror*(this: var GeomTransformation; theA1: Ax1) {.importcpp: "SetMirror",
+    header: "Geom_Transformation.hxx".}
+proc setMirror*(this: var GeomTransformation; theA2: Ax2) {.importcpp: "SetMirror",
+    header: "Geom_Transformation.hxx".}
+proc setRotation*(this: var GeomTransformation; theA1: Ax1; theAng: float) {.
     importcpp: "SetRotation", header: "Geom_Transformation.hxx".}
-proc SetScale*(this: var Geom_Transformation; thePnt: gp_Pnt; theScale: Standard_Real) {.
+proc setScale*(this: var GeomTransformation; thePnt: Pnt; theScale: float) {.
     importcpp: "SetScale", header: "Geom_Transformation.hxx".}
-proc SetTransformation*(this: var Geom_Transformation; theFromSystem1: gp_Ax3;
-                       theToSystem2: gp_Ax3) {.importcpp: "SetTransformation",
+proc setTransformation*(this: var GeomTransformation; theFromSystem1: Ax3;
+                       theToSystem2: Ax3) {.importcpp: "SetTransformation",
     header: "Geom_Transformation.hxx".}
-proc SetTransformation*(this: var Geom_Transformation; theToSystem: gp_Ax3) {.
+proc setTransformation*(this: var GeomTransformation; theToSystem: Ax3) {.
     importcpp: "SetTransformation", header: "Geom_Transformation.hxx".}
-proc SetTranslation*(this: var Geom_Transformation; theVec: gp_Vec) {.
+proc setTranslation*(this: var GeomTransformation; theVec: Vec) {.
     importcpp: "SetTranslation", header: "Geom_Transformation.hxx".}
-proc SetTranslation*(this: var Geom_Transformation; P1: gp_Pnt; P2: gp_Pnt) {.
+proc setTranslation*(this: var GeomTransformation; p1: Pnt; p2: Pnt) {.
     importcpp: "SetTranslation", header: "Geom_Transformation.hxx".}
-proc SetTrsf*(this: var Geom_Transformation; theTrsf: gp_Trsf) {.importcpp: "SetTrsf",
+proc setTrsf*(this: var GeomTransformation; theTrsf: Trsf) {.importcpp: "SetTrsf",
     header: "Geom_Transformation.hxx".}
-proc IsNegative*(this: Geom_Transformation): Standard_Boolean {.noSideEffect,
+proc isNegative*(this: GeomTransformation): bool {.noSideEffect,
     importcpp: "IsNegative", header: "Geom_Transformation.hxx".}
-proc Form*(this: Geom_Transformation): gp_TrsfForm {.noSideEffect, importcpp: "Form",
+proc form*(this: GeomTransformation): TrsfForm {.noSideEffect, importcpp: "Form",
     header: "Geom_Transformation.hxx".}
-proc ScaleFactor*(this: Geom_Transformation): Standard_Real {.noSideEffect,
+proc scaleFactor*(this: GeomTransformation): float {.noSideEffect,
     importcpp: "ScaleFactor", header: "Geom_Transformation.hxx".}
-proc Trsf*(this: Geom_Transformation): gp_Trsf {.noSideEffect, importcpp: "Trsf",
+proc trsf*(this: GeomTransformation): Trsf {.noSideEffect, importcpp: "Trsf",
     header: "Geom_Transformation.hxx".}
-proc Value*(this: Geom_Transformation; theRow: Standard_Integer;
-           theCol: Standard_Integer): Standard_Real {.noSideEffect,
+proc value*(this: GeomTransformation; theRow: int; theCol: int): float {.noSideEffect,
     importcpp: "Value", header: "Geom_Transformation.hxx".}
-proc Invert*(this: var Geom_Transformation) {.importcpp: "Invert",
+proc invert*(this: var GeomTransformation) {.importcpp: "Invert",
     header: "Geom_Transformation.hxx".}
-## !!!Ignored construct:  :: handle < Geom_Transformation > [end of template] Inverted ( ) const ;
-## Error: identifier expected, but got: ::!!!
-
-## !!!Ignored construct:  :: handle < Geom_Transformation > [end of template] Multiplied ( const opencascade :: handle < Geom_Transformation > [end of template] & Other ) const ;
-## Error: identifier expected, but got: ::!!!
-
-proc Multiply*(this: var Geom_Transformation; theOther: handle[Geom_Transformation]) {.
+proc inverted*(this: GeomTransformation): Handle[GeomTransformation] {.noSideEffect,
+    importcpp: "Inverted", header: "Geom_Transformation.hxx".}
+proc multiplied*(this: GeomTransformation; other: Handle[GeomTransformation]): Handle[
+    GeomTransformation] {.noSideEffect, importcpp: "Multiplied",
+                         header: "Geom_Transformation.hxx".}
+proc multiply*(this: var GeomTransformation; theOther: Handle[GeomTransformation]) {.
     importcpp: "Multiply", header: "Geom_Transformation.hxx".}
-proc Power*(this: var Geom_Transformation; N: Standard_Integer) {.importcpp: "Power",
+proc power*(this: var GeomTransformation; n: int) {.importcpp: "Power",
     header: "Geom_Transformation.hxx".}
-proc Powered*(this: Geom_Transformation; N: Standard_Integer): handle[
-    Geom_Transformation] {.noSideEffect, importcpp: "Powered",
-                          header: "Geom_Transformation.hxx".}
-proc PreMultiply*(this: var Geom_Transformation; Other: handle[Geom_Transformation]) {.
+proc powered*(this: GeomTransformation; n: int): Handle[GeomTransformation] {.
+    noSideEffect, importcpp: "Powered", header: "Geom_Transformation.hxx".}
+proc preMultiply*(this: var GeomTransformation; other: Handle[GeomTransformation]) {.
     importcpp: "PreMultiply", header: "Geom_Transformation.hxx".}
-proc Transforms*(this: Geom_Transformation; theX: var Standard_Real;
-                theY: var Standard_Real; theZ: var Standard_Real) {.noSideEffect,
-    importcpp: "Transforms", header: "Geom_Transformation.hxx".}
-proc Copy*(this: Geom_Transformation): handle[Geom_Transformation] {.noSideEffect,
+proc transforms*(this: GeomTransformation; theX: var float; theY: var float;
+                theZ: var float) {.noSideEffect, importcpp: "Transforms",
+                                header: "Geom_Transformation.hxx".}
+proc copy*(this: GeomTransformation): Handle[GeomTransformation] {.noSideEffect,
     importcpp: "Copy", header: "Geom_Transformation.hxx".}
-proc DumpJson*(this: Geom_Transformation; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Geom_Transformation.hxx".}
+proc dumpJson*(this: GeomTransformation; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Geom_Transformation.hxx".}

@@ -13,12 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Type, XmlMDF_ADriver,
-  ../TColStd/TColStd_MapTransientHasher, ../NCollection/NCollection_DataMap
-
 type
-  XmlMDF_TypeADriverMap* = NCollection_DataMap[handle[Standard_Type],
-      handle[XmlMDF_ADriver], TColStd_MapTransientHasher]
-  XmlMDF_DataMapIteratorOfTypeADriverMap* = Iterator[handle[Standard_Type],
-      handle[XmlMDF_ADriver], TColStd_MapTransientHasher]
+  XmlMDF_TypeADriverMap* = NCollectionDataMap[Handle[StandardType],
+      Handle[XmlMDF_ADriver], TColStdMapTransientHasher]
+  XmlMDF_DataMapIteratorOfTypeADriverMap* = Iterator[Handle[StandardType],
+      Handle[XmlMDF_ADriver], TColStdMapTransientHasher]
+

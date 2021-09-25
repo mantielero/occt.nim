@@ -21,7 +21,8 @@
 ## ! -   GeomFill_Curved - the style with the most rounded patches.
 
 type
-  GeomFill_FillingStyle* {.size: sizeof(cint), importcpp: "GeomFill_FillingStyle",
-                          header: "GeomFill_FillingStyle.hxx".} = enum
-    GeomFill_StretchStyle, GeomFill_CoonsStyle, GeomFill_CurvedStyle
+  GeomFillFillingStyle* {.size: sizeof(cint), importcpp: "GeomFill_FillingStyle",
+                         header: "GeomFill_FillingStyle.hxx".} = enum
+    GeomFillStretchStyle, GeomFillCoonsStyle, GeomFillCurvedStyle
+
 

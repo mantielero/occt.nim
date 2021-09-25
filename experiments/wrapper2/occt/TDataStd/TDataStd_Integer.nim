@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../TDF/TDF_Attribute, ../Standard/Standard_Boolean,
-  ../Standard/Standard_OStream, ../Standard/Standard_GUID
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
 discard "forward decl of TDF_Attribute"
@@ -26,68 +21,56 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataStd_Integer"
 discard "forward decl of TDataStd_Integer"
 type
-  Handle_TDataStd_Integer* = handle[TDataStd_Integer]
+  HandleTDataStdInteger* = Handle[TDataStdInteger]
 
 ## ! The basis to define an integer attribute.
 
 type
-  TDataStd_Integer* {.importcpp: "TDataStd_Integer",
-                     header: "TDataStd_Integer.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                 ## !
-                                                                                 ## class
-                                                                                 ## methods
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## =============
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## Returns
-                                                                                 ## the
-                                                                                 ## GUID
-                                                                                 ## for
-                                                                                 ## integers.
+  TDataStdInteger* {.importcpp: "TDataStd_Integer", header: "TDataStd_Integer.hxx",
+                    bycopy.} = object of TDF_Attribute ## ! class methods
+                                                  ## ! =============
+                                                  ## ! Returns the GUID for integers.
 
 
-proc GetID*(): Standard_GUID {.importcpp: "TDataStd_Integer::GetID(@)",
-                            header: "TDataStd_Integer.hxx".}
-proc Set*(label: TDF_Label; value: Standard_Integer): handle[TDataStd_Integer] {.
+proc getID*(): StandardGUID {.importcpp: "TDataStd_Integer::GetID(@)",
+                           header: "TDataStd_Integer.hxx".}
+proc set*(label: TDF_Label; value: int): Handle[TDataStdInteger] {.
     importcpp: "TDataStd_Integer::Set(@)", header: "TDataStd_Integer.hxx".}
-proc Set*(label: TDF_Label; guid: Standard_GUID; value: Standard_Integer): handle[
-    TDataStd_Integer] {.importcpp: "TDataStd_Integer::Set(@)",
-                       header: "TDataStd_Integer.hxx".}
-proc Set*(this: var TDataStd_Integer; V: Standard_Integer) {.importcpp: "Set",
+proc set*(label: TDF_Label; guid: StandardGUID; value: int): Handle[TDataStdInteger] {.
+    importcpp: "TDataStd_Integer::Set(@)", header: "TDataStd_Integer.hxx".}
+proc set*(this: var TDataStdInteger; v: int) {.importcpp: "Set",
     header: "TDataStd_Integer.hxx".}
-proc SetID*(this: var TDataStd_Integer; guid: Standard_GUID) {.importcpp: "SetID",
+proc setID*(this: var TDataStdInteger; guid: StandardGUID) {.importcpp: "SetID",
     header: "TDataStd_Integer.hxx".}
-proc SetID*(this: var TDataStd_Integer) {.importcpp: "SetID",
-                                      header: "TDataStd_Integer.hxx".}
-proc Get*(this: TDataStd_Integer): Standard_Integer {.noSideEffect, importcpp: "Get",
-    header: "TDataStd_Integer.hxx".}
-proc IsCaptured*(this: TDataStd_Integer): Standard_Boolean {.noSideEffect,
+proc setID*(this: var TDataStdInteger) {.importcpp: "SetID",
+                                     header: "TDataStd_Integer.hxx".}
+proc get*(this: TDataStdInteger): int {.noSideEffect, importcpp: "Get",
+                                    header: "TDataStd_Integer.hxx".}
+proc isCaptured*(this: TDataStdInteger): bool {.noSideEffect,
     importcpp: "IsCaptured", header: "TDataStd_Integer.hxx".}
-proc ID*(this: TDataStd_Integer): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TDataStdInteger): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TDataStd_Integer.hxx".}
-proc Restore*(this: var TDataStd_Integer; With: handle[TDF_Attribute]) {.
+proc restore*(this: var TDataStdInteger; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TDataStd_Integer.hxx".}
-proc NewEmpty*(this: TDataStd_Integer): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TDataStdInteger): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TDataStd_Integer.hxx".}
-proc Paste*(this: TDataStd_Integer; Into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TDataStdInteger; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TDataStd_Integer.hxx".}
-proc Dump*(this: TDataStd_Integer; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDataStdInteger; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_Integer.hxx".}
-proc constructTDataStd_Integer*(): TDataStd_Integer {.constructor,
+proc constructTDataStdInteger*(): TDataStdInteger {.constructor,
     importcpp: "TDataStd_Integer(@)", header: "TDataStd_Integer.hxx".}
-proc DumpJson*(this: TDataStd_Integer; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TDataStd_Integer.hxx".}
+proc dumpJson*(this: TDataStdInteger; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TDataStd_Integer.hxx".}
 type
-  TDataStd_Integerbase_type* = TDF_Attribute
+  TDataStdIntegerbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TDataStd_Integer::get_type_name(@)",
-                              header: "TDataStd_Integer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDataStd_Integer::get_type_name(@)",
+                            header: "TDataStd_Integer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDataStd_Integer::get_type_descriptor(@)",
     header: "TDataStd_Integer.hxx".}
-proc DynamicType*(this: TDataStd_Integer): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDataStdInteger): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_Integer.hxx".}

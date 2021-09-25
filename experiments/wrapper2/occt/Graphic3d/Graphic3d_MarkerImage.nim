@@ -13,19 +13,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TColStd/TColStd_HArray1OfByte, ../TCollection/TCollection_AsciiString
-
 discard "forward decl of Image_PixMap"
 type
-  Graphic3d_MarkerImage* {.importcpp: "Graphic3d_MarkerImage",
-                          header: "Graphic3d_MarkerImage.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                ## !
-                                                                                                ## @param
-                                                                                                ## theImage
-                                                                                                ## -
-                                                                                                ## source
-                                                                                                ## image
+  Graphic3dMarkerImage* {.importcpp: "Graphic3d_MarkerImage",
+                         header: "Graphic3d_MarkerImage.hxx", bycopy.} = object of StandardTransient ##
+                                                                                              ## !
+                                                                                              ## @param
+                                                                                              ## theImage
+                                                                                              ## -
+                                                                                              ## source
+                                                                                              ## image
     ## !< resource identifier
     ## !< resource identifier
     ## !< bytes array with bitmap definition (for compatibility with old code)
@@ -36,39 +33,37 @@ type
     ## !< marker height
 
 
-proc constructGraphic3d_MarkerImage*(theImage: handle[Image_PixMap]): Graphic3d_MarkerImage {.
+proc constructGraphic3dMarkerImage*(theImage: Handle[ImagePixMap]): Graphic3dMarkerImage {.
     constructor, importcpp: "Graphic3d_MarkerImage(@)",
     header: "Graphic3d_MarkerImage.hxx".}
-proc constructGraphic3d_MarkerImage*(theBitMap: handle[TColStd_HArray1OfByte];
-                                    theWidth: Standard_Integer;
-                                    theHeight: Standard_Integer): Graphic3d_MarkerImage {.
+proc constructGraphic3dMarkerImage*(theBitMap: Handle[TColStdHArray1OfByte];
+                                   theWidth: int; theHeight: int): Graphic3dMarkerImage {.
     constructor, importcpp: "Graphic3d_MarkerImage(@)",
     header: "Graphic3d_MarkerImage.hxx".}
-proc GetBitMapArray*(this: Graphic3d_MarkerImage;
-                    theAlphaValue: Standard_Real = 0.5): handle[
-    TColStd_HArray1OfByte] {.noSideEffect, importcpp: "GetBitMapArray",
-                            header: "Graphic3d_MarkerImage.hxx".}
-proc GetImage*(this: var Graphic3d_MarkerImage): handle[Image_PixMap] {.
+proc getBitMapArray*(this: Graphic3dMarkerImage; theAlphaValue: float = 0.5): Handle[
+    TColStdHArray1OfByte] {.noSideEffect, importcpp: "GetBitMapArray",
+                           header: "Graphic3d_MarkerImage.hxx".}
+proc getImage*(this: var Graphic3dMarkerImage): Handle[ImagePixMap] {.
     importcpp: "GetImage", header: "Graphic3d_MarkerImage.hxx".}
-proc GetImageAlpha*(this: var Graphic3d_MarkerImage): handle[Image_PixMap] {.
+proc getImageAlpha*(this: var Graphic3dMarkerImage): Handle[ImagePixMap] {.
     importcpp: "GetImageAlpha", header: "Graphic3d_MarkerImage.hxx".}
-proc GetImageId*(this: Graphic3d_MarkerImage): TCollection_AsciiString {.
-    noSideEffect, importcpp: "GetImageId", header: "Graphic3d_MarkerImage.hxx".}
-proc GetImageAlphaId*(this: Graphic3d_MarkerImage): TCollection_AsciiString {.
+proc getImageId*(this: Graphic3dMarkerImage): TCollectionAsciiString {.noSideEffect,
+    importcpp: "GetImageId", header: "Graphic3d_MarkerImage.hxx".}
+proc getImageAlphaId*(this: Graphic3dMarkerImage): TCollectionAsciiString {.
     noSideEffect, importcpp: "GetImageAlphaId", header: "Graphic3d_MarkerImage.hxx".}
-proc GetTextureSize*(this: Graphic3d_MarkerImage; theWidth: var Standard_Integer;
-                    theHeight: var Standard_Integer) {.noSideEffect,
-    importcpp: "GetTextureSize", header: "Graphic3d_MarkerImage.hxx".}
+proc getTextureSize*(this: Graphic3dMarkerImage; theWidth: var int; theHeight: var int) {.
+    noSideEffect, importcpp: "GetTextureSize", header: "Graphic3d_MarkerImage.hxx".}
 type
-  Graphic3d_MarkerImagebase_type* = Standard_Transient
+  Graphic3dMarkerImagebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_MarkerImage::get_type_name(@)",
-                              header: "Graphic3d_MarkerImage.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_MarkerImage::get_type_name(@)",
+                            header: "Graphic3d_MarkerImage.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_MarkerImage::get_type_descriptor(@)",
     header: "Graphic3d_MarkerImage.hxx".}
-proc DynamicType*(this: Graphic3d_MarkerImage): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Graphic3d_MarkerImage.hxx".}
+proc dynamicType*(this: Graphic3dMarkerImage): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Graphic3d_MarkerImage.hxx".}
 discard "forward decl of Graphic3d_MarkerImage"
 type
-  Handle_Graphic3d_MarkerImage* = handle[Graphic3d_MarkerImage]
+  HandleGraphic3dMarkerImage* = Handle[Graphic3dMarkerImage]
+

@@ -14,15 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESBasic_AssocGroupType"
 discard "forward decl of IGESBasic_AssocGroupType"
 type
-  Handle_IGESBasic_AssocGroupType* = handle[IGESBasic_AssocGroupType]
+  HandleIGESBasicAssocGroupType* = Handle[IGESBasicAssocGroupType]
 
 ## ! defines AssocGroupType, Type <406> Form <23>
 ## ! in package IGESBasic
@@ -30,29 +26,29 @@ type
 ## ! Associativity.
 
 type
-  IGESBasic_AssocGroupType* {.importcpp: "IGESBasic_AssocGroupType",
-                             header: "IGESBasic_AssocGroupType.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESBasicAssocGroupType* {.importcpp: "IGESBasic_AssocGroupType",
+                            header: "IGESBasic_AssocGroupType.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESBasic_AssocGroupType*(): IGESBasic_AssocGroupType {.constructor,
+proc constructIGESBasicAssocGroupType*(): IGESBasicAssocGroupType {.constructor,
     importcpp: "IGESBasic_AssocGroupType(@)",
     header: "IGESBasic_AssocGroupType.hxx".}
-proc Init*(this: var IGESBasic_AssocGroupType; nbDataFields: Standard_Integer;
-          aType: Standard_Integer; aName: handle[TCollection_HAsciiString]) {.
-    importcpp: "Init", header: "IGESBasic_AssocGroupType.hxx".}
-proc NbData*(this: IGESBasic_AssocGroupType): Standard_Integer {.noSideEffect,
-    importcpp: "NbData", header: "IGESBasic_AssocGroupType.hxx".}
-proc AssocType*(this: IGESBasic_AssocGroupType): Standard_Integer {.noSideEffect,
+proc init*(this: var IGESBasicAssocGroupType; nbDataFields: int; aType: int;
+          aName: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
+    header: "IGESBasic_AssocGroupType.hxx".}
+proc nbData*(this: IGESBasicAssocGroupType): int {.noSideEffect, importcpp: "NbData",
+    header: "IGESBasic_AssocGroupType.hxx".}
+proc assocType*(this: IGESBasicAssocGroupType): int {.noSideEffect,
     importcpp: "AssocType", header: "IGESBasic_AssocGroupType.hxx".}
-proc Name*(this: IGESBasic_AssocGroupType): handle[TCollection_HAsciiString] {.
+proc name*(this: IGESBasicAssocGroupType): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "IGESBasic_AssocGroupType.hxx".}
 type
-  IGESBasic_AssocGroupTypebase_type* = IGESData_IGESEntity
+  IGESBasicAssocGroupTypebaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESBasic_AssocGroupType::get_type_name(@)",
-                              header: "IGESBasic_AssocGroupType.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESBasic_AssocGroupType::get_type_name(@)",
+                            header: "IGESBasic_AssocGroupType.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESBasic_AssocGroupType::get_type_descriptor(@)",
     header: "IGESBasic_AssocGroupType.hxx".}
-proc DynamicType*(this: IGESBasic_AssocGroupType): handle[Standard_Type] {.
+proc dynamicType*(this: IGESBasicAssocGroupType): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESBasic_AssocGroupType.hxx".}

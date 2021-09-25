@@ -13,44 +13,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../BinMDF/BinMDF_ADriver,
-  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
-  ../BinObjMgt/BinObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataStd_RealListDriver"
 discard "forward decl of BinMDataStd_RealListDriver"
 type
-  Handle_BinMDataStd_RealListDriver* = handle[BinMDataStd_RealListDriver]
-  BinMDataStd_RealListDriver* {.importcpp: "BinMDataStd_RealListDriver",
-                               header: "BinMDataStd_RealListDriver.hxx", bycopy.} = object of BinMDF_ADriver
+  HandleBinMDataStdRealListDriver* = Handle[BinMDataStdRealListDriver]
+  BinMDataStdRealListDriver* {.importcpp: "BinMDataStd_RealListDriver",
+                              header: "BinMDataStd_RealListDriver.hxx", bycopy.} = object of BinMDF_ADriver
 
 
-proc constructBinMDataStd_RealListDriver*(
-    theMessageDriver: handle[Message_Messenger]): BinMDataStd_RealListDriver {.
+proc constructBinMDataStdRealListDriver*(theMessageDriver: Handle[MessageMessenger]): BinMDataStdRealListDriver {.
     constructor, importcpp: "BinMDataStd_RealListDriver(@)",
     header: "BinMDataStd_RealListDriver.hxx".}
-proc NewEmpty*(this: BinMDataStd_RealListDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: BinMDataStdRealListDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty", header: "BinMDataStd_RealListDriver.hxx".}
-proc Paste*(this: BinMDataStd_RealListDriver; Source: BinObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "BinMDataStd_RealListDriver.hxx".}
-proc Paste*(this: BinMDataStd_RealListDriver; Source: handle[TDF_Attribute];
-           Target: var BinObjMgt_Persistent;
-           RelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: BinMDataStdRealListDriver; source: BinObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var BinObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "BinMDataStd_RealListDriver.hxx".}
+proc paste*(this: BinMDataStdRealListDriver; source: Handle[TDF_Attribute];
+           target: var BinObjMgtPersistent;
+           relocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMDataStd_RealListDriver.hxx".}
 type
-  BinMDataStd_RealListDriverbase_type* = BinMDF_ADriver
+  BinMDataStdRealListDriverbaseType* = BinMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "BinMDataStd_RealListDriver::get_type_name(@)",
-                              header: "BinMDataStd_RealListDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BinMDataStd_RealListDriver::get_type_name(@)",
+                            header: "BinMDataStd_RealListDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BinMDataStd_RealListDriver::get_type_descriptor(@)",
     header: "BinMDataStd_RealListDriver.hxx".}
-proc DynamicType*(this: BinMDataStd_RealListDriver): handle[Standard_Type] {.
+proc dynamicType*(this: BinMDataStdRealListDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataStd_RealListDriver.hxx".}

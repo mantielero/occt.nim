@@ -14,49 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_NamedUnit
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_MeasureWithUnit"
 discard "forward decl of StepBasic_DimensionalExponents"
 discard "forward decl of StepBasic_ConversionBasedUnit"
 discard "forward decl of StepBasic_ConversionBasedUnit"
 type
-  Handle_StepBasic_ConversionBasedUnit* = handle[StepBasic_ConversionBasedUnit]
-  StepBasic_ConversionBasedUnit* {.importcpp: "StepBasic_ConversionBasedUnit",
-                                  header: "StepBasic_ConversionBasedUnit.hxx",
-                                  bycopy.} = object of StepBasic_NamedUnit ## ! Returns a
-                                                                      ## ConversionBasedUnit
+  HandleStepBasicConversionBasedUnit* = Handle[StepBasicConversionBasedUnit]
+  StepBasicConversionBasedUnit* {.importcpp: "StepBasic_ConversionBasedUnit",
+                                 header: "StepBasic_ConversionBasedUnit.hxx",
+                                 bycopy.} = object of StepBasicNamedUnit ## ! Returns a
+                                                                    ## ConversionBasedUnit
 
 
-proc constructStepBasic_ConversionBasedUnit*(): StepBasic_ConversionBasedUnit {.
+proc constructStepBasicConversionBasedUnit*(): StepBasicConversionBasedUnit {.
     constructor, importcpp: "StepBasic_ConversionBasedUnit(@)",
     header: "StepBasic_ConversionBasedUnit.hxx".}
-proc Init*(this: var StepBasic_ConversionBasedUnit;
-          aDimensions: handle[StepBasic_DimensionalExponents];
-          aName: handle[TCollection_HAsciiString];
-          aConversionFactor: handle[StepBasic_MeasureWithUnit]) {.
+proc init*(this: var StepBasicConversionBasedUnit;
+          aDimensions: Handle[StepBasicDimensionalExponents];
+          aName: Handle[TCollectionHAsciiString];
+          aConversionFactor: Handle[StepBasicMeasureWithUnit]) {.
     importcpp: "Init", header: "StepBasic_ConversionBasedUnit.hxx".}
-proc SetName*(this: var StepBasic_ConversionBasedUnit;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepBasicConversionBasedUnit;
+             aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepBasic_ConversionBasedUnit.hxx".}
-proc Name*(this: StepBasic_ConversionBasedUnit): handle[TCollection_HAsciiString] {.
+proc name*(this: StepBasicConversionBasedUnit): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepBasic_ConversionBasedUnit.hxx".}
-proc SetConversionFactor*(this: var StepBasic_ConversionBasedUnit;
-                         aConversionFactor: handle[StepBasic_MeasureWithUnit]) {.
+proc setConversionFactor*(this: var StepBasicConversionBasedUnit;
+                         aConversionFactor: Handle[StepBasicMeasureWithUnit]) {.
     importcpp: "SetConversionFactor", header: "StepBasic_ConversionBasedUnit.hxx".}
-proc ConversionFactor*(this: StepBasic_ConversionBasedUnit): handle[
-    StepBasic_MeasureWithUnit] {.noSideEffect, importcpp: "ConversionFactor",
-                                header: "StepBasic_ConversionBasedUnit.hxx".}
+proc conversionFactor*(this: StepBasicConversionBasedUnit): Handle[
+    StepBasicMeasureWithUnit] {.noSideEffect, importcpp: "ConversionFactor",
+                               header: "StepBasic_ConversionBasedUnit.hxx".}
 type
-  StepBasic_ConversionBasedUnitbase_type* = StepBasic_NamedUnit
+  StepBasicConversionBasedUnitbaseType* = StepBasicNamedUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ConversionBasedUnit::get_type_name(@)",
-                              header: "StepBasic_ConversionBasedUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ConversionBasedUnit::get_type_name(@)",
+                            header: "StepBasic_ConversionBasedUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_ConversionBasedUnit::get_type_descriptor(@)",
     header: "StepBasic_ConversionBasedUnit.hxx".}
-proc DynamicType*(this: StepBasic_ConversionBasedUnit): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicConversionBasedUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ConversionBasedUnit.hxx".}

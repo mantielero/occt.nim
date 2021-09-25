@@ -16,7 +16,8 @@
 ## ! Identifies the caller of the algorithm
 
 type
-  XSAlgo_Caller* {.size: sizeof(cint), importcpp: "XSAlgo_Caller",
-                  header: "XSAlgo_Caller.hxx".} = enum
-    XSAlgo_DEFAULT, XSAlgo_IGES, XSAlgo_STEP
+  XSAlgoCaller* {.size: sizeof(cint), importcpp: "XSAlgo_Caller",
+                 header: "XSAlgo_Caller.hxx".} = enum
+    XSAlgoDEFAULT, XSAlgoIGES, XSAlgoSTEP
+
 

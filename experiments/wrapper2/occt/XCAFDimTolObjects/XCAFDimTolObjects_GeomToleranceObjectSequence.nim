@@ -13,10 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Sequence
-
 discard "forward decl of XCAFDimTolObjects_GeomToleranceObject"
 type
-  XCAFDimTolObjects_GeomToleranceObjectSequence* = NCollection_Sequence[
-      handle[XCAFDimTolObjects_GeomToleranceObject]]
+  XCAFDimTolObjectsGeomToleranceObjectSequence* = NCollectionSequence[
+      Handle[XCAFDimTolObjectsGeomToleranceObject]]
+

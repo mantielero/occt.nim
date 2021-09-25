@@ -14,11 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-proc ChFiKPart_Sphere*(DStr: var TopOpeBRepDS_DataStructure;
-                      Data: handle[ChFiDS_SurfData];
-                      S1: handle[Adaptor3d_HSurface];
-                      S2: handle[Adaptor3d_HSurface]; OrFace1: TopAbs_Orientation;
-                      OrFace2: TopAbs_Orientation; Or1: TopAbs_Orientation;
-                      Or2: TopAbs_Orientation; Rad: Standard_Real; PS1: gp_Pnt2d;
-                      P1S2: gp_Pnt2d; P2S2: gp_Pnt2d): Standard_Boolean {.
-    importcpp: "ChFiKPart_Sphere(@)", header: "ChFiKPart_ComputeData_Sphere.hxx".}
+proc chFiKPartSphere*(dStr: var TopOpeBRepDS_DataStructure;
+                     data: Handle[ChFiDS_SurfData]; s1: Handle[Adaptor3dHSurface];
+                     s2: Handle[Adaptor3dHSurface]; orFace1: TopAbsOrientation;
+                     orFace2: TopAbsOrientation; or1: TopAbsOrientation;
+                     or2: TopAbsOrientation; rad: float; ps1: Pnt2d; p1s2: Pnt2d;
+                     p2s2: Pnt2d): bool {.importcpp: "ChFiKPart_Sphere(@)", header: "ChFiKPart_ComputeData_Sphere.hxx".}

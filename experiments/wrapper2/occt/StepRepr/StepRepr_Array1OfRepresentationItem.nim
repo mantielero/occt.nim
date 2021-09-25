@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepRepr_RepresentationItem, ../NCollection/NCollection_Array1
-
 type
-  StepRepr_Array1OfRepresentationItem* = NCollection_Array1[
-      handle[StepRepr_RepresentationItem]]
+  StepReprArray1OfRepresentationItem* = NCollectionArray1[
+      Handle[StepReprRepresentationItem]]
+

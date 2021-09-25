@@ -13,48 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../XmlMDF/XmlMDF_ADriver,
-  ../Standard/Standard_Boolean, ../XmlObjMgt/XmlObjMgt_RRelocationTable,
-  ../XmlObjMgt/XmlObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMFunction_FunctionDriver"
 discard "forward decl of XmlMFunction_FunctionDriver"
 type
-  Handle_XmlMFunction_FunctionDriver* = handle[XmlMFunction_FunctionDriver]
+  HandleXmlMFunctionFunctionDriver* = Handle[XmlMFunctionFunctionDriver]
 
 ## ! Attribute Driver.
 
 type
-  XmlMFunction_FunctionDriver* {.importcpp: "XmlMFunction_FunctionDriver",
-                                header: "XmlMFunction_FunctionDriver.hxx", bycopy.} = object of XmlMDF_ADriver
+  XmlMFunctionFunctionDriver* {.importcpp: "XmlMFunction_FunctionDriver",
+                               header: "XmlMFunction_FunctionDriver.hxx", bycopy.} = object of XmlMDF_ADriver
 
 
-proc constructXmlMFunction_FunctionDriver*(
-    theMessageDriver: handle[Message_Messenger]): XmlMFunction_FunctionDriver {.
+proc constructXmlMFunctionFunctionDriver*(
+    theMessageDriver: Handle[MessageMessenger]): XmlMFunctionFunctionDriver {.
     constructor, importcpp: "XmlMFunction_FunctionDriver(@)",
     header: "XmlMFunction_FunctionDriver.hxx".}
-proc NewEmpty*(this: XmlMFunction_FunctionDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: XmlMFunctionFunctionDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty", header: "XmlMFunction_FunctionDriver.hxx".}
-proc Paste*(this: XmlMFunction_FunctionDriver; Source: XmlObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var XmlObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "XmlMFunction_FunctionDriver.hxx".}
-proc Paste*(this: XmlMFunction_FunctionDriver; Source: handle[TDF_Attribute];
-           Target: var XmlObjMgt_Persistent;
-           RelocTable: var XmlObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: XmlMFunctionFunctionDriver; source: XmlObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var XmlObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "XmlMFunction_FunctionDriver.hxx".}
+proc paste*(this: XmlMFunctionFunctionDriver; source: Handle[TDF_Attribute];
+           target: var XmlObjMgtPersistent;
+           relocTable: var XmlObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "XmlMFunction_FunctionDriver.hxx".}
 type
-  XmlMFunction_FunctionDriverbase_type* = XmlMDF_ADriver
+  XmlMFunctionFunctionDriverbaseType* = XmlMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "XmlMFunction_FunctionDriver::get_type_name(@)",
-                              header: "XmlMFunction_FunctionDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XmlMFunction_FunctionDriver::get_type_name(@)",
+                            header: "XmlMFunction_FunctionDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XmlMFunction_FunctionDriver::get_type_descriptor(@)",
     header: "XmlMFunction_FunctionDriver.hxx".}
-proc DynamicType*(this: XmlMFunction_FunctionDriver): handle[Standard_Type] {.
+proc dynamicType*(this: XmlMFunctionFunctionDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMFunction_FunctionDriver.hxx".}

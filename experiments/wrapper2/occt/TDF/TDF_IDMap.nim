@@ -13,10 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_GUID, ../Standard/Standard_GUID,
-  ../NCollection/NCollection_Map
-
 type
-  TDF_IDMap* = NCollection_Map[Standard_GUID, Standard_GUID]
-  TDF_MapIteratorOfIDMap* = Iterator[Standard_GUID, Standard_GUID]
+  TDF_IDMap* = NCollectionMap[StandardGUID, StandardGUID]
+  TDF_MapIteratorOfIDMap* = Iterator[StandardGUID, StandardGUID]
+

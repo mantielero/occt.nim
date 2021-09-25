@@ -13,31 +13,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../StepData/StepData_SelectType, StepDimTol_DatumReferenceModifierWithValue,
-  StepDimTol_SimpleDatumReferenceModifierMember
-
 discard "forward decl of Standard_Transient"
 type
-  StepDimTol_DatumReferenceModifier* {.importcpp: "StepDimTol_DatumReferenceModifier", header: "StepDimTol_DatumReferenceModifier.hxx",
-                                      bycopy.} = object of StepData_SelectType ## !
-                                                                          ## Returns a
-                                                                          ## DatumReferenceModifier select type
+  StepDimTolDatumReferenceModifier* {.importcpp: "StepDimTol_DatumReferenceModifier", header: "StepDimTol_DatumReferenceModifier.hxx",
+                                     bycopy.} = object of StepDataSelectType ## ! Returns a
+                                                                        ## DatumReferenceModifier select type
 
 
-proc constructStepDimTol_DatumReferenceModifier*(): StepDimTol_DatumReferenceModifier {.
+proc constructStepDimTolDatumReferenceModifier*(): StepDimTolDatumReferenceModifier {.
     constructor, importcpp: "StepDimTol_DatumReferenceModifier(@)",
     header: "StepDimTol_DatumReferenceModifier.hxx".}
-proc CaseNum*(this: StepDimTol_DatumReferenceModifier;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepDimTolDatumReferenceModifier;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepDimTol_DatumReferenceModifier.hxx".}
-proc DatumReferenceModifierWithValue*(this: StepDimTol_DatumReferenceModifier): handle[
-    StepDimTol_DatumReferenceModifierWithValue] {.noSideEffect,
+proc datumReferenceModifierWithValue*(this: StepDimTolDatumReferenceModifier): Handle[
+    StepDimTolDatumReferenceModifierWithValue] {.noSideEffect,
     importcpp: "DatumReferenceModifierWithValue",
     header: "StepDimTol_DatumReferenceModifier.hxx".}
-proc SimpleDatumReferenceModifierMember*(this: StepDimTol_DatumReferenceModifier): handle[
-    StepDimTol_SimpleDatumReferenceModifierMember] {.noSideEffect,
+proc simpleDatumReferenceModifierMember*(this: StepDimTolDatumReferenceModifier): Handle[
+    StepDimTolSimpleDatumReferenceModifierMember] {.noSideEffect,
     importcpp: "SimpleDatumReferenceModifierMember",
     header: "StepDimTol_DatumReferenceModifier.hxx".}

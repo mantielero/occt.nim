@@ -14,33 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_Effectivity"
 discard "forward decl of StepBasic_Effectivity"
 type
-  Handle_StepBasic_Effectivity* = handle[StepBasic_Effectivity]
-  StepBasic_Effectivity* {.importcpp: "StepBasic_Effectivity",
-                          header: "StepBasic_Effectivity.hxx", bycopy.} = object of Standard_Transient
+  HandleStepBasicEffectivity* = Handle[StepBasicEffectivity]
+  StepBasicEffectivity* {.importcpp: "StepBasic_Effectivity",
+                         header: "StepBasic_Effectivity.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructStepBasic_Effectivity*(): StepBasic_Effectivity {.constructor,
+proc constructStepBasicEffectivity*(): StepBasicEffectivity {.constructor,
     importcpp: "StepBasic_Effectivity(@)", header: "StepBasic_Effectivity.hxx".}
-proc Init*(this: var StepBasic_Effectivity; aid: handle[TCollection_HAsciiString]) {.
+proc init*(this: var StepBasicEffectivity; aid: Handle[TCollectionHAsciiString]) {.
     importcpp: "Init", header: "StepBasic_Effectivity.hxx".}
-proc Id*(this: StepBasic_Effectivity): handle[TCollection_HAsciiString] {.
+proc id*(this: StepBasicEffectivity): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Id", header: "StepBasic_Effectivity.hxx".}
-proc SetId*(this: var StepBasic_Effectivity; aid: handle[TCollection_HAsciiString]) {.
+proc setId*(this: var StepBasicEffectivity; aid: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetId", header: "StepBasic_Effectivity.hxx".}
 type
-  StepBasic_Effectivitybase_type* = Standard_Transient
+  StepBasicEffectivitybaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_Effectivity::get_type_name(@)",
-                              header: "StepBasic_Effectivity.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_Effectivity::get_type_name(@)",
+                            header: "StepBasic_Effectivity.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_Effectivity::get_type_descriptor(@)",
     header: "StepBasic_Effectivity.hxx".}
-proc DynamicType*(this: StepBasic_Effectivity): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepBasic_Effectivity.hxx".}
+proc dynamicType*(this: StepBasicEffectivity): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepBasic_Effectivity.hxx".}

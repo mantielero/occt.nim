@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  GccEnt_Position, ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of GccEnt_QualifiedLin"
 discard "forward decl of gp_Lin2d"
 discard "forward decl of GccEnt_QualifiedCirc"
@@ -28,26 +24,26 @@ type
   GccEnt* {.importcpp: "GccEnt", header: "GccEnt.hxx", bycopy.} = object ## ! Prints the name of Position type as a String on the Stream.
 
 
-proc Print*(thePosition: GccEnt_Position; theStream: var Standard_OStream): var Standard_OStream {.
+proc print*(thePosition: GccEntPosition; theStream: var StandardOStream): var StandardOStream {.
     importcpp: "GccEnt::Print(@)", header: "GccEnt.hxx".}
-proc PositionToString*(thePosition: GccEnt_Position): Standard_CString {.
+proc positionToString*(thePosition: GccEntPosition): StandardCString {.
     importcpp: "GccEnt::PositionToString(@)", header: "GccEnt.hxx".}
-proc PositionFromString*(thePositionString: Standard_CString): GccEnt_Position {.
+proc positionFromString*(thePositionString: StandardCString): GccEntPosition {.
     importcpp: "GccEnt::PositionFromString(@)", header: "GccEnt.hxx".}
-proc PositionFromString*(thePositionString: Standard_CString;
-                        thePosition: var GccEnt_Position): Standard_Boolean {.
+proc positionFromString*(thePositionString: StandardCString;
+                        thePosition: var GccEntPosition): bool {.
     importcpp: "GccEnt::PositionFromString(@)", header: "GccEnt.hxx".}
-proc Unqualified*(Obj: gp_Lin2d): GccEnt_QualifiedLin {.
+proc unqualified*(obj: Lin2d): GccEntQualifiedLin {.
     importcpp: "GccEnt::Unqualified(@)", header: "GccEnt.hxx".}
-proc Unqualified*(Obj: gp_Circ2d): GccEnt_QualifiedCirc {.
+proc unqualified*(obj: Circ2d): GccEntQualifiedCirc {.
     importcpp: "GccEnt::Unqualified(@)", header: "GccEnt.hxx".}
-proc Enclosing*(Obj: gp_Circ2d): GccEnt_QualifiedCirc {.
+proc enclosing*(obj: Circ2d): GccEntQualifiedCirc {.
     importcpp: "GccEnt::Enclosing(@)", header: "GccEnt.hxx".}
-proc Enclosed*(Obj: gp_Lin2d): GccEnt_QualifiedLin {.
-    importcpp: "GccEnt::Enclosed(@)", header: "GccEnt.hxx".}
-proc Enclosed*(Obj: gp_Circ2d): GccEnt_QualifiedCirc {.
-    importcpp: "GccEnt::Enclosed(@)", header: "GccEnt.hxx".}
-proc Outside*(Obj: gp_Lin2d): GccEnt_QualifiedLin {.importcpp: "GccEnt::Outside(@)",
+proc enclosed*(obj: Lin2d): GccEntQualifiedLin {.importcpp: "GccEnt::Enclosed(@)",
     header: "GccEnt.hxx".}
-proc Outside*(Obj: gp_Circ2d): GccEnt_QualifiedCirc {.
-    importcpp: "GccEnt::Outside(@)", header: "GccEnt.hxx".}
+proc enclosed*(obj: Circ2d): GccEntQualifiedCirc {.importcpp: "GccEnt::Enclosed(@)",
+    header: "GccEnt.hxx".}
+proc outside*(obj: Lin2d): GccEntQualifiedLin {.importcpp: "GccEnt::Outside(@)",
+    header: "GccEnt.hxx".}
+proc outside*(obj: Circ2d): GccEntQualifiedCirc {.importcpp: "GccEnt::Outside(@)",
+    header: "GccEnt.hxx".}

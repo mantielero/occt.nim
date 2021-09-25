@@ -13,32 +13,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_DataMapOfTransientTransient, ../Standard/Standard_Transient
-
 discard "forward decl of Transfer_MapContainer"
 discard "forward decl of Transfer_MapContainer"
 type
-  Handle_Transfer_MapContainer* = handle[Transfer_MapContainer]
-  Transfer_MapContainer* {.importcpp: "Transfer_MapContainer",
-                          header: "Transfer_MapContainer.hxx", bycopy.} = object of Standard_Transient
+  HandleTransferMapContainer* = Handle[TransferMapContainer]
+  TransferMapContainer* {.importcpp: "Transfer_MapContainer",
+                         header: "Transfer_MapContainer.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructTransfer_MapContainer*(): Transfer_MapContainer {.constructor,
+proc constructTransferMapContainer*(): TransferMapContainer {.constructor,
     importcpp: "Transfer_MapContainer(@)", header: "Transfer_MapContainer.hxx".}
-proc SetMapObjects*(this: var Transfer_MapContainer;
-                   theMapObjects: var TColStd_DataMapOfTransientTransient) {.
+proc setMapObjects*(this: var TransferMapContainer;
+                   theMapObjects: var TColStdDataMapOfTransientTransient) {.
     importcpp: "SetMapObjects", header: "Transfer_MapContainer.hxx".}
-proc GetMapObjects*(this: var Transfer_MapContainer): var TColStd_DataMapOfTransientTransient {.
+proc getMapObjects*(this: var TransferMapContainer): var TColStdDataMapOfTransientTransient {.
     importcpp: "GetMapObjects", header: "Transfer_MapContainer.hxx".}
 type
-  Transfer_MapContainerbase_type* = Standard_Transient
+  TransferMapContainerbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Transfer_MapContainer::get_type_name(@)",
-                              header: "Transfer_MapContainer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Transfer_MapContainer::get_type_name(@)",
+                            header: "Transfer_MapContainer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_MapContainer::get_type_descriptor(@)",
     header: "Transfer_MapContainer.hxx".}
-proc DynamicType*(this: Transfer_MapContainer): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Transfer_MapContainer.hxx".}
+proc dynamicType*(this: TransferMapContainer): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Transfer_MapContainer.hxx".}

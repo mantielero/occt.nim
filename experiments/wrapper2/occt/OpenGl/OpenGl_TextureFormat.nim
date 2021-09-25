@@ -11,13 +11,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _OpenGl_TextureFormat_HeaderFile [NewLine] # _OpenGl_TextureFormat_HeaderFile [NewLine] # ../Image/Image_CompressedFormat.hxx [NewLine] # ../Image/Image_Format.hxx [NewLine] # OpenGl_GlCore13.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] class OpenGl_Context ;
+## !!!Ignored construct:  # _OpenGl_TextureFormat_HeaderFile [NewLine] # _OpenGl_TextureFormat_HeaderFile [NewLine] # < Image_CompressedFormat . hxx > [NewLine] # < Image_Format . hxx > [NewLine] # < OpenGl_GlCore13 . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] class OpenGl_Context ;
 ## Error: identifier expected, but got: <!!!
 
 ## ! Stores parameters of OpenGL texture format.
 
 type
-  OpenGl_TextureFormatSelectorOpenGl_TextureFormat* {.
+  OpenGlTextureFormatSelectorOpenGlTextureFormat* {.
       importcpp: "OpenGl_TextureFormatSelector<\'0>::OpenGl_TextureFormat",
       header: "OpenGl_TextureFormat.hxx", bycopy.} = object ## ! Returns texture format for specified type and number of channels.
                                                        ## ! @tparam theCompType component type
@@ -30,56 +30,56 @@ type
     ## !< number of channels for each pixel (from 1 to 4)
 
 
-proc Create*[theCompType; theNbComps: static[cint]](): OpenGl_TextureFormatSelectorOpenGl_TextureFormat {.
+proc create*[TheCompType; TheNbComps: static[cint]](): OpenGlTextureFormatSelectorOpenGlTextureFormat {.
     importcpp: "OpenGl_TextureFormat::Create(@)",
     header: "OpenGl_TextureFormat.hxx".}
-proc FindFormat*(theCtx: handle[OpenGl_Context]; theFormat: Image_Format;
-                theIsColorMap: bool): OpenGl_TextureFormatSelectorOpenGl_TextureFormat {.
+proc findFormat*(theCtx: Handle[OpenGlContext]; theFormat: ImageFormat;
+                theIsColorMap: bool): OpenGlTextureFormatSelectorOpenGlTextureFormat {.
     importcpp: "OpenGl_TextureFormat::FindFormat(@)",
     header: "OpenGl_TextureFormat.hxx".}
-proc FindSizedFormat*(theCtx: handle[OpenGl_Context]; theSizedFormat: GLint): OpenGl_TextureFormatSelectorOpenGl_TextureFormat {.
+proc findSizedFormat*(theCtx: Handle[OpenGlContext]; theSizedFormat: GLint): OpenGlTextureFormatSelectorOpenGlTextureFormat {.
     importcpp: "OpenGl_TextureFormat::FindSizedFormat(@)",
     header: "OpenGl_TextureFormat.hxx".}
-proc FindCompressedFormat*(theCtx: handle[OpenGl_Context];
-                          theFormat: Image_CompressedFormat; theIsColorMap: bool): OpenGl_TextureFormatSelectorOpenGl_TextureFormat {.
+proc findCompressedFormat*(theCtx: Handle[OpenGlContext];
+                          theFormat: ImageCompressedFormat; theIsColorMap: bool): OpenGlTextureFormatSelectorOpenGlTextureFormat {.
     importcpp: "OpenGl_TextureFormat::FindCompressedFormat(@)",
     header: "OpenGl_TextureFormat.hxx".}
-proc constructOpenGl_TextureFormatSelectorOpenGl_TextureFormat*(): OpenGl_TextureFormatSelectorOpenGl_TextureFormat {.
+proc constructOpenGlTextureFormatSelectorOpenGlTextureFormat*(): OpenGlTextureFormatSelectorOpenGlTextureFormat {.
     constructor,
     importcpp: "OpenGl_TextureFormatSelector<\'*0>::OpenGl_TextureFormat(@)",
     header: "OpenGl_TextureFormat.hxx".}
-proc IsValid*(this: OpenGl_TextureFormatSelectorOpenGl_TextureFormat): bool {.
+proc isValid*(this: OpenGlTextureFormatSelectorOpenGlTextureFormat): bool {.
     noSideEffect, importcpp: "IsValid", header: "OpenGl_TextureFormat.hxx".}
-proc InternalFormat*(this: OpenGl_TextureFormatSelectorOpenGl_TextureFormat): GLint {.
+proc internalFormat*(this: OpenGlTextureFormatSelectorOpenGlTextureFormat): GLint {.
     noSideEffect, importcpp: "InternalFormat", header: "OpenGl_TextureFormat.hxx".}
-proc SetInternalFormat*(this: var OpenGl_TextureFormatSelectorOpenGl_TextureFormat;
+proc setInternalFormat*(this: var OpenGlTextureFormatSelectorOpenGlTextureFormat;
                        theInternal: GLint) {.importcpp: "SetInternalFormat",
     header: "OpenGl_TextureFormat.hxx".}
-proc PixelFormat*(this: OpenGl_TextureFormatSelectorOpenGl_TextureFormat): GLenum {.
+proc pixelFormat*(this: OpenGlTextureFormatSelectorOpenGlTextureFormat): GLenum {.
     noSideEffect, importcpp: "PixelFormat", header: "OpenGl_TextureFormat.hxx".}
-proc SetPixelFormat*(this: var OpenGl_TextureFormatSelectorOpenGl_TextureFormat;
+proc setPixelFormat*(this: var OpenGlTextureFormatSelectorOpenGlTextureFormat;
                     theFormat: GLenum) {.importcpp: "SetPixelFormat",
                                        header: "OpenGl_TextureFormat.hxx".}
-proc DataType*(this: OpenGl_TextureFormatSelectorOpenGl_TextureFormat): GLint {.
+proc dataType*(this: OpenGlTextureFormatSelectorOpenGlTextureFormat): GLint {.
     noSideEffect, importcpp: "DataType", header: "OpenGl_TextureFormat.hxx".}
-proc SetDataType*(this: var OpenGl_TextureFormatSelectorOpenGl_TextureFormat;
+proc setDataType*(this: var OpenGlTextureFormatSelectorOpenGlTextureFormat;
                  theType: GLint) {.importcpp: "SetDataType",
                                  header: "OpenGl_TextureFormat.hxx".}
-proc NbComponents*(this: OpenGl_TextureFormatSelectorOpenGl_TextureFormat): GLint {.
+proc nbComponents*(this: OpenGlTextureFormatSelectorOpenGlTextureFormat): GLint {.
     noSideEffect, importcpp: "NbComponents", header: "OpenGl_TextureFormat.hxx".}
-proc SetNbComponents*(this: var OpenGl_TextureFormatSelectorOpenGl_TextureFormat;
+proc setNbComponents*(this: var OpenGlTextureFormatSelectorOpenGlTextureFormat;
                      theNbComponents: GLint) {.importcpp: "SetNbComponents",
     header: "OpenGl_TextureFormat.hxx".}
-proc IsSRGB*(this: OpenGl_TextureFormatSelectorOpenGl_TextureFormat): bool {.
+proc isSRGB*(this: OpenGlTextureFormatSelectorOpenGlTextureFormat): bool {.
     noSideEffect, importcpp: "IsSRGB", header: "OpenGl_TextureFormat.hxx".}
-proc Internal*(this: OpenGl_TextureFormatSelectorOpenGl_TextureFormat): GLint {.
+proc internal*(this: OpenGlTextureFormatSelectorOpenGlTextureFormat): GLint {.
     noSideEffect, importcpp: "Internal", header: "OpenGl_TextureFormat.hxx".}
-proc Format*(this: OpenGl_TextureFormatSelectorOpenGl_TextureFormat): GLenum {.
+proc format*(this: OpenGlTextureFormatSelectorOpenGlTextureFormat): GLenum {.
     noSideEffect, importcpp: "Format", header: "OpenGl_TextureFormat.hxx".}
 ## ! Selects preferable texture format for specified parameters.
 
 type
-  OpenGl_TextureFormatSelectorOpenGl_TextureFormatSelector*[T] {.importcpp: "OpenGl_TextureFormatSelector<\'0>::OpenGl_TextureFormatSelector<\'1>",
+  OpenGlTextureFormatSelectorOpenGlTextureFormatSelector*[T] {.importcpp: "OpenGl_TextureFormatSelector<\'0>::OpenGl_TextureFormatSelector<\'1>",
       header: "OpenGl_TextureFormat.hxx", bycopy.} = object ##  Not implemented
 
 
@@ -123,5 +123,5 @@ type
 ##  purpose  :
 ##  =======================================================================
 
-proc Create*(this: var OpenGl_TextureFormatSelectorOpenGl_TextureFormat): OpenGl_TextureFormatSelectorOpenGl_TextureFormat {.
+proc create*(this: var OpenGlTextureFormatSelectorOpenGlTextureFormat): OpenGlTextureFormatSelectorOpenGlTextureFormat {.
     importcpp: "Create", header: "OpenGl_TextureFormat.hxx".}

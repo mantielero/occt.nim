@@ -13,12 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TColStd/TColStd_ListOfReal,
-  ../TDF/TDF_Attribute, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real,
-  ../Standard/Standard_OStream, ../Standard/Standard_GUID
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
 discard "forward decl of TDF_Attribute"
@@ -26,97 +20,93 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataStd_RealList"
 discard "forward decl of TDataStd_RealList"
 type
-  Handle_TDataStd_RealList* = handle[TDataStd_RealList]
+  HandleTDataStdRealList* = Handle[TDataStdRealList]
 
 ## ! Contains a list of doubles.
 
 type
-  TDataStd_RealList* {.importcpp: "TDataStd_RealList",
-                      header: "TDataStd_RealList.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                   ## !
-                                                                                   ## Static
-                                                                                   ## methods
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## ==============
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Returns
-                                                                                   ## the
-                                                                                   ## ID
-                                                                                   ## of
-                                                                                   ## the
-                                                                                   ## list
-                                                                                   ## of
-                                                                                   ## doubles
-                                                                                   ## attribute.
+  TDataStdRealList* {.importcpp: "TDataStd_RealList",
+                     header: "TDataStd_RealList.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                  ## !
+                                                                                  ## Static
+                                                                                  ## methods
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## ==============
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## Returns
+                                                                                  ## the
+                                                                                  ## ID
+                                                                                  ## of
+                                                                                  ## the
+                                                                                  ## list
+                                                                                  ## of
+                                                                                  ## doubles
+                                                                                  ## attribute.
 
 
-proc GetID*(): Standard_GUID {.importcpp: "TDataStd_RealList::GetID(@)",
-                            header: "TDataStd_RealList.hxx".}
-proc Set*(label: TDF_Label): handle[TDataStd_RealList] {.
+proc getID*(): StandardGUID {.importcpp: "TDataStd_RealList::GetID(@)",
+                           header: "TDataStd_RealList.hxx".}
+proc set*(label: TDF_Label): Handle[TDataStdRealList] {.
     importcpp: "TDataStd_RealList::Set(@)", header: "TDataStd_RealList.hxx".}
-proc Set*(label: TDF_Label; theGuid: Standard_GUID): handle[TDataStd_RealList] {.
+proc set*(label: TDF_Label; theGuid: StandardGUID): Handle[TDataStdRealList] {.
     importcpp: "TDataStd_RealList::Set(@)", header: "TDataStd_RealList.hxx".}
-proc constructTDataStd_RealList*(): TDataStd_RealList {.constructor,
+proc constructTDataStdRealList*(): TDataStdRealList {.constructor,
     importcpp: "TDataStd_RealList(@)", header: "TDataStd_RealList.hxx".}
-proc IsEmpty*(this: TDataStd_RealList): Standard_Boolean {.noSideEffect,
-    importcpp: "IsEmpty", header: "TDataStd_RealList.hxx".}
-proc Extent*(this: TDataStd_RealList): Standard_Integer {.noSideEffect,
-    importcpp: "Extent", header: "TDataStd_RealList.hxx".}
-proc Prepend*(this: var TDataStd_RealList; value: Standard_Real) {.
-    importcpp: "Prepend", header: "TDataStd_RealList.hxx".}
-proc Append*(this: var TDataStd_RealList; value: Standard_Real) {.importcpp: "Append",
+proc isEmpty*(this: TDataStdRealList): bool {.noSideEffect, importcpp: "IsEmpty",
     header: "TDataStd_RealList.hxx".}
-proc SetID*(this: var TDataStd_RealList; theGuid: Standard_GUID) {.importcpp: "SetID",
+proc extent*(this: TDataStdRealList): int {.noSideEffect, importcpp: "Extent",
+                                        header: "TDataStd_RealList.hxx".}
+proc prepend*(this: var TDataStdRealList; value: float) {.importcpp: "Prepend",
     header: "TDataStd_RealList.hxx".}
-proc SetID*(this: var TDataStd_RealList) {.importcpp: "SetID",
-                                       header: "TDataStd_RealList.hxx".}
-proc InsertBefore*(this: var TDataStd_RealList; value: Standard_Real;
-                  before_value: Standard_Real): Standard_Boolean {.
+proc append*(this: var TDataStdRealList; value: float) {.importcpp: "Append",
+    header: "TDataStd_RealList.hxx".}
+proc setID*(this: var TDataStdRealList; theGuid: StandardGUID) {.importcpp: "SetID",
+    header: "TDataStd_RealList.hxx".}
+proc setID*(this: var TDataStdRealList) {.importcpp: "SetID",
+                                      header: "TDataStd_RealList.hxx".}
+proc insertBefore*(this: var TDataStdRealList; value: float; beforeValue: float): bool {.
     importcpp: "InsertBefore", header: "TDataStd_RealList.hxx".}
-proc InsertBeforeByIndex*(this: var TDataStd_RealList; index: Standard_Integer;
-                         before_value: Standard_Real): Standard_Boolean {.
+proc insertBeforeByIndex*(this: var TDataStdRealList; index: int; beforeValue: float): bool {.
     importcpp: "InsertBeforeByIndex", header: "TDataStd_RealList.hxx".}
-proc InsertAfter*(this: var TDataStd_RealList; value: Standard_Real;
-                 after_value: Standard_Real): Standard_Boolean {.
+proc insertAfter*(this: var TDataStdRealList; value: float; afterValue: float): bool {.
     importcpp: "InsertAfter", header: "TDataStd_RealList.hxx".}
-proc InsertAfterByIndex*(this: var TDataStd_RealList; index: Standard_Integer;
-                        after_value: Standard_Real): Standard_Boolean {.
+proc insertAfterByIndex*(this: var TDataStdRealList; index: int; afterValue: float): bool {.
     importcpp: "InsertAfterByIndex", header: "TDataStd_RealList.hxx".}
-proc Remove*(this: var TDataStd_RealList; value: Standard_Real): Standard_Boolean {.
-    importcpp: "Remove", header: "TDataStd_RealList.hxx".}
-proc RemoveByIndex*(this: var TDataStd_RealList; index: Standard_Integer): Standard_Boolean {.
+proc remove*(this: var TDataStdRealList; value: float): bool {.importcpp: "Remove",
+    header: "TDataStd_RealList.hxx".}
+proc removeByIndex*(this: var TDataStdRealList; index: int): bool {.
     importcpp: "RemoveByIndex", header: "TDataStd_RealList.hxx".}
-proc Clear*(this: var TDataStd_RealList) {.importcpp: "Clear",
-                                       header: "TDataStd_RealList.hxx".}
-proc First*(this: TDataStd_RealList): Standard_Real {.noSideEffect,
-    importcpp: "First", header: "TDataStd_RealList.hxx".}
-proc Last*(this: TDataStd_RealList): Standard_Real {.noSideEffect, importcpp: "Last",
+proc clear*(this: var TDataStdRealList) {.importcpp: "Clear",
+                                      header: "TDataStd_RealList.hxx".}
+proc first*(this: TDataStdRealList): float {.noSideEffect, importcpp: "First",
     header: "TDataStd_RealList.hxx".}
-proc List*(this: TDataStd_RealList): TColStd_ListOfReal {.noSideEffect,
+proc last*(this: TDataStdRealList): float {.noSideEffect, importcpp: "Last",
+                                        header: "TDataStd_RealList.hxx".}
+proc list*(this: TDataStdRealList): TColStdListOfReal {.noSideEffect,
     importcpp: "List", header: "TDataStd_RealList.hxx".}
-proc ID*(this: TDataStd_RealList): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TDataStdRealList): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TDataStd_RealList.hxx".}
-proc Restore*(this: var TDataStd_RealList; With: handle[TDF_Attribute]) {.
+proc restore*(this: var TDataStdRealList; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TDataStd_RealList.hxx".}
-proc NewEmpty*(this: TDataStd_RealList): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TDataStdRealList): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TDataStd_RealList.hxx".}
-proc Paste*(this: TDataStd_RealList; Into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TDataStdRealList; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TDataStd_RealList.hxx".}
-proc Dump*(this: TDataStd_RealList; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDataStdRealList; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_RealList.hxx".}
-proc DumpJson*(this: TDataStd_RealList; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TDataStd_RealList.hxx".}
+proc dumpJson*(this: TDataStdRealList; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TDataStd_RealList.hxx".}
 type
-  TDataStd_RealListbase_type* = TDF_Attribute
+  TDataStdRealListbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TDataStd_RealList::get_type_name(@)",
-                              header: "TDataStd_RealList.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDataStd_RealList::get_type_name(@)",
+                            header: "TDataStd_RealList.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDataStd_RealList::get_type_descriptor(@)",
     header: "TDataStd_RealList.hxx".}
-proc DynamicType*(this: TDataStd_RealList): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDataStdRealList): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_RealList.hxx".}

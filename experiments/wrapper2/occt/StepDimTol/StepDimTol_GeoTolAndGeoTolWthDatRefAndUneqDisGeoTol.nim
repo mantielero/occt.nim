@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepDimTol_GeoTolAndGeoTolWthDatRef
-
 discard "forward decl of StepDimTol_GeometricToleranceTarget"
 discard "forward decl of StepDimTol_GeometricToleranceWithDatumReference"
 discard "forward decl of StepDimTol_UnequallyDisposedGeometricTolerance"
@@ -26,52 +22,52 @@ discard "forward decl of StepRepr_ShapeAspect"
 discard "forward decl of StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol"
 discard "forward decl of StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol"
 type
-  Handle_StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol* = handle[
-      StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol]
-  StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol* {.
+  HandleStepDimTolGeoTolAndGeoTolWthDatRefAndUneqDisGeoTol* = Handle[
+      StepDimTolGeoTolAndGeoTolWthDatRefAndUneqDisGeoTol]
+  StepDimTolGeoTolAndGeoTolWthDatRefAndUneqDisGeoTol* {.
       importcpp: "StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol",
-      header: "StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol.hxx", bycopy.} = object of StepDimTol_GeoTolAndGeoTolWthDatRef
+      header: "StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol.hxx", bycopy.} = object of StepDimTolGeoTolAndGeoTolWthDatRef
 
 
-proc constructStepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol*(): StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol {.
+proc constructStepDimTolGeoTolAndGeoTolWthDatRefAndUneqDisGeoTol*(): StepDimTolGeoTolAndGeoTolWthDatRefAndUneqDisGeoTol {.
     constructor,
     importcpp: "StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol(@)",
     header: "StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol.hxx".}
-proc Init*(this: var StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol;
-          theName: handle[TCollection_HAsciiString];
-          theDescription: handle[TCollection_HAsciiString];
-          theMagnitude: handle[StepBasic_MeasureWithUnit];
-          theTolerancedShapeAspect: handle[StepRepr_ShapeAspect];
-          theGTWDR: handle[StepDimTol_GeometricToleranceWithDatumReference];
-          theType: StepDimTol_GeometricToleranceType;
-          theUDGT: handle[StepDimTol_UnequallyDisposedGeometricTolerance]) {.
+proc init*(this: var StepDimTolGeoTolAndGeoTolWthDatRefAndUneqDisGeoTol;
+          theName: Handle[TCollectionHAsciiString];
+          theDescription: Handle[TCollectionHAsciiString];
+          theMagnitude: Handle[StepBasicMeasureWithUnit];
+          theTolerancedShapeAspect: Handle[StepReprShapeAspect];
+          theGTWDR: Handle[StepDimTolGeometricToleranceWithDatumReference];
+          theType: StepDimTolGeometricToleranceType;
+          theUDGT: Handle[StepDimTolUnequallyDisposedGeometricTolerance]) {.
     importcpp: "Init",
     header: "StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol.hxx".}
-proc Init*(this: var StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol;
-          aName: handle[TCollection_HAsciiString];
-          aDescription: handle[TCollection_HAsciiString];
-          aMagnitude: handle[StepBasic_MeasureWithUnit];
-          aTolerancedShapeAspect: StepDimTol_GeometricToleranceTarget;
-          aGTWDR: handle[StepDimTol_GeometricToleranceWithDatumReference];
-          theType: StepDimTol_GeometricToleranceType;
-          theUDGT: handle[StepDimTol_UnequallyDisposedGeometricTolerance]) {.
+proc init*(this: var StepDimTolGeoTolAndGeoTolWthDatRefAndUneqDisGeoTol;
+          aName: Handle[TCollectionHAsciiString];
+          aDescription: Handle[TCollectionHAsciiString];
+          aMagnitude: Handle[StepBasicMeasureWithUnit];
+          aTolerancedShapeAspect: StepDimTolGeometricToleranceTarget;
+          aGTWDR: Handle[StepDimTolGeometricToleranceWithDatumReference];
+          theType: StepDimTolGeometricToleranceType;
+          theUDGT: Handle[StepDimTolUnequallyDisposedGeometricTolerance]) {.
     importcpp: "Init",
     header: "StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol.hxx".}
-proc SetUnequallyDisposedGeometricTolerance*(
-    this: var StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol;
-    theUDGT: handle[StepDimTol_UnequallyDisposedGeometricTolerance]) {.
+proc setUnequallyDisposedGeometricTolerance*(
+    this: var StepDimTolGeoTolAndGeoTolWthDatRefAndUneqDisGeoTol;
+    theUDGT: Handle[StepDimTolUnequallyDisposedGeometricTolerance]) {.
     importcpp: "SetUnequallyDisposedGeometricTolerance",
     header: "StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol.hxx".}
-proc GetUnequallyDisposedGeometricTolerance*(
-    this: StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol): handle[
-    StepDimTol_UnequallyDisposedGeometricTolerance] {.noSideEffect,
+proc getUnequallyDisposedGeometricTolerance*(
+    this: StepDimTolGeoTolAndGeoTolWthDatRefAndUneqDisGeoTol): Handle[
+    StepDimTolUnequallyDisposedGeometricTolerance] {.noSideEffect,
     importcpp: "GetUnequallyDisposedGeometricTolerance",
     header: "StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol.hxx".}
 type
-  StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTolbase_type* = StepDimTol_GeoTolAndGeoTolWthDatRef
+  StepDimTolGeoTolAndGeoTolWthDatRefAndUneqDisGeoTolbaseType* = StepDimTolGeoTolAndGeoTolWthDatRef
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol::get_type_name(@)", header: "StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol::get_type_name(@)", header: "StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol::get_type_descriptor(@)",
     header: "StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol.hxx".}
-proc DynamicType*(this: StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol.hxx".}
+proc dynamicType*(this: StepDimTolGeoTolAndGeoTolWthDatRefAndUneqDisGeoTol): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol.hxx".}

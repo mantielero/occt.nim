@@ -14,60 +14,58 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_Approval"
 discard "forward decl of StepBasic_ApprovalRelationship"
 discard "forward decl of StepBasic_ApprovalRelationship"
 type
-  Handle_StepBasic_ApprovalRelationship* = handle[StepBasic_ApprovalRelationship]
-  StepBasic_ApprovalRelationship* {.importcpp: "StepBasic_ApprovalRelationship", header: "StepBasic_ApprovalRelationship.hxx",
-                                   bycopy.} = object of Standard_Transient ## ! Returns a
-                                                                      ## ApprovalRelationship
+  HandleStepBasicApprovalRelationship* = Handle[StepBasicApprovalRelationship]
+  StepBasicApprovalRelationship* {.importcpp: "StepBasic_ApprovalRelationship",
+                                  header: "StepBasic_ApprovalRelationship.hxx",
+                                  bycopy.} = object of StandardTransient ## ! Returns a
+                                                                    ## ApprovalRelationship
 
 
-proc constructStepBasic_ApprovalRelationship*(): StepBasic_ApprovalRelationship {.
+proc constructStepBasicApprovalRelationship*(): StepBasicApprovalRelationship {.
     constructor, importcpp: "StepBasic_ApprovalRelationship(@)",
     header: "StepBasic_ApprovalRelationship.hxx".}
-proc Init*(this: var StepBasic_ApprovalRelationship;
-          aName: handle[TCollection_HAsciiString];
-          aDescription: handle[TCollection_HAsciiString];
-          aRelatingApproval: handle[StepBasic_Approval];
-          aRelatedApproval: handle[StepBasic_Approval]) {.importcpp: "Init",
+proc init*(this: var StepBasicApprovalRelationship;
+          aName: Handle[TCollectionHAsciiString];
+          aDescription: Handle[TCollectionHAsciiString];
+          aRelatingApproval: Handle[StepBasicApproval];
+          aRelatedApproval: Handle[StepBasicApproval]) {.importcpp: "Init",
     header: "StepBasic_ApprovalRelationship.hxx".}
-proc SetName*(this: var StepBasic_ApprovalRelationship;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepBasicApprovalRelationship;
+             aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepBasic_ApprovalRelationship.hxx".}
-proc Name*(this: StepBasic_ApprovalRelationship): handle[TCollection_HAsciiString] {.
+proc name*(this: StepBasicApprovalRelationship): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepBasic_ApprovalRelationship.hxx".}
-proc SetDescription*(this: var StepBasic_ApprovalRelationship;
-                    aDescription: handle[TCollection_HAsciiString]) {.
+proc setDescription*(this: var StepBasicApprovalRelationship;
+                    aDescription: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepBasic_ApprovalRelationship.hxx".}
-proc Description*(this: StepBasic_ApprovalRelationship): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description",
-                               header: "StepBasic_ApprovalRelationship.hxx".}
-proc SetRelatingApproval*(this: var StepBasic_ApprovalRelationship;
-                         aRelatingApproval: handle[StepBasic_Approval]) {.
-    importcpp: "SetRelatingApproval", header: "StepBasic_ApprovalRelationship.hxx".}
-proc RelatingApproval*(this: StepBasic_ApprovalRelationship): handle[
-    StepBasic_Approval] {.noSideEffect, importcpp: "RelatingApproval",
-                         header: "StepBasic_ApprovalRelationship.hxx".}
-proc SetRelatedApproval*(this: var StepBasic_ApprovalRelationship;
-                        aRelatedApproval: handle[StepBasic_Approval]) {.
-    importcpp: "SetRelatedApproval", header: "StepBasic_ApprovalRelationship.hxx".}
-proc RelatedApproval*(this: StepBasic_ApprovalRelationship): handle[
-    StepBasic_Approval] {.noSideEffect, importcpp: "RelatedApproval",
-                         header: "StepBasic_ApprovalRelationship.hxx".}
-type
-  StepBasic_ApprovalRelationshipbase_type* = Standard_Transient
-
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ApprovalRelationship::get_type_name(@)",
+proc description*(this: StepBasicApprovalRelationship): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Description",
                               header: "StepBasic_ApprovalRelationship.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc setRelatingApproval*(this: var StepBasicApprovalRelationship;
+                         aRelatingApproval: Handle[StepBasicApproval]) {.
+    importcpp: "SetRelatingApproval", header: "StepBasic_ApprovalRelationship.hxx".}
+proc relatingApproval*(this: StepBasicApprovalRelationship): Handle[
+    StepBasicApproval] {.noSideEffect, importcpp: "RelatingApproval",
+                        header: "StepBasic_ApprovalRelationship.hxx".}
+proc setRelatedApproval*(this: var StepBasicApprovalRelationship;
+                        aRelatedApproval: Handle[StepBasicApproval]) {.
+    importcpp: "SetRelatedApproval", header: "StepBasic_ApprovalRelationship.hxx".}
+proc relatedApproval*(this: StepBasicApprovalRelationship): Handle[
+    StepBasicApproval] {.noSideEffect, importcpp: "RelatedApproval",
+                        header: "StepBasic_ApprovalRelationship.hxx".}
+type
+  StepBasicApprovalRelationshipbaseType* = StandardTransient
+
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ApprovalRelationship::get_type_name(@)",
+                            header: "StepBasic_ApprovalRelationship.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_ApprovalRelationship::get_type_descriptor(@)",
     header: "StepBasic_ApprovalRelationship.hxx".}
-proc DynamicType*(this: StepBasic_ApprovalRelationship): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicApprovalRelationship): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ApprovalRelationship.hxx".}

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../IFSelect/IFSelect_WorkLibrary,
-  ../Standard/Standard_CString
-
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_Protocol"
 discard "forward decl of IFSelect_ContextWrite"
@@ -27,65 +22,64 @@ discard "forward decl of Interface_CopyTool"
 discard "forward decl of StepSelect_WorkLibrary"
 discard "forward decl of StepSelect_WorkLibrary"
 type
-  Handle_StepSelect_WorkLibrary* = handle[StepSelect_WorkLibrary]
+  HandleStepSelectWorkLibrary* = Handle[StepSelectWorkLibrary]
 
 ## ! Performs Read and Write a STEP File with a STEP Model
 ## ! Following the protocols, Copy may be implemented or not
 
 type
-  StepSelect_WorkLibrary* {.importcpp: "StepSelect_WorkLibrary",
-                           header: "StepSelect_WorkLibrary.hxx", bycopy.} = object of IFSelect_WorkLibrary ##
-                                                                                                    ## !
-                                                                                                    ## Creates
-                                                                                                    ## a
-                                                                                                    ## STEP
-                                                                                                    ## WorkLibrary
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## <copymode>
-                                                                                                    ## precises
-                                                                                                    ## whether
-                                                                                                    ## Copy
-                                                                                                    ## is
-                                                                                                    ## implemented
-                                                                                                    ## or
-                                                                                                    ## not
+  StepSelectWorkLibrary* {.importcpp: "StepSelect_WorkLibrary",
+                          header: "StepSelect_WorkLibrary.hxx", bycopy.} = object of IFSelectWorkLibrary ##
+                                                                                                  ## !
+                                                                                                  ## Creates
+                                                                                                  ## a
+                                                                                                  ## STEP
+                                                                                                  ## WorkLibrary
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## <copymode>
+                                                                                                  ## precises
+                                                                                                  ## whether
+                                                                                                  ## Copy
+                                                                                                  ## is
+                                                                                                  ## implemented
+                                                                                                  ## or
+                                                                                                  ## not
 
 
-proc constructStepSelect_WorkLibrary*(copymode: Standard_Boolean = Standard_True): StepSelect_WorkLibrary {.
+proc constructStepSelectWorkLibrary*(copymode: bool = true): StepSelectWorkLibrary {.
     constructor, importcpp: "StepSelect_WorkLibrary(@)",
     header: "StepSelect_WorkLibrary.hxx".}
-proc SetDumpLabel*(this: var StepSelect_WorkLibrary; mode: Standard_Integer) {.
+proc setDumpLabel*(this: var StepSelectWorkLibrary; mode: int) {.
     importcpp: "SetDumpLabel", header: "StepSelect_WorkLibrary.hxx".}
-proc ReadFile*(this: StepSelect_WorkLibrary; name: Standard_CString;
-              model: var handle[Interface_InterfaceModel];
-              protocol: handle[Interface_Protocol]): Standard_Integer {.
-    noSideEffect, importcpp: "ReadFile", header: "StepSelect_WorkLibrary.hxx".}
-proc ReadStream*(this: StepSelect_WorkLibrary; theName: Standard_CString;
-                theIStream: var istream;
-                model: var handle[Interface_InterfaceModel];
-                protocol: handle[Interface_Protocol]): Standard_Integer {.
-    noSideEffect, importcpp: "ReadStream", header: "StepSelect_WorkLibrary.hxx".}
-proc WriteFile*(this: StepSelect_WorkLibrary; ctx: var IFSelect_ContextWrite): Standard_Boolean {.
+proc readFile*(this: StepSelectWorkLibrary; name: StandardCString;
+              model: var Handle[InterfaceInterfaceModel];
+              protocol: Handle[InterfaceProtocol]): int {.noSideEffect,
+    importcpp: "ReadFile", header: "StepSelect_WorkLibrary.hxx".}
+proc readStream*(this: StepSelectWorkLibrary; theName: StandardCString;
+                theIStream: var Istream;
+                model: var Handle[InterfaceInterfaceModel];
+                protocol: Handle[InterfaceProtocol]): int {.noSideEffect,
+    importcpp: "ReadStream", header: "StepSelect_WorkLibrary.hxx".}
+proc writeFile*(this: StepSelectWorkLibrary; ctx: var IFSelectContextWrite): bool {.
     noSideEffect, importcpp: "WriteFile", header: "StepSelect_WorkLibrary.hxx".}
-proc CopyModel*(this: StepSelect_WorkLibrary;
-               original: handle[Interface_InterfaceModel];
-               newmodel: handle[Interface_InterfaceModel];
-               list: Interface_EntityIterator; TC: var Interface_CopyTool): Standard_Boolean {.
+proc copyModel*(this: StepSelectWorkLibrary;
+               original: Handle[InterfaceInterfaceModel];
+               newmodel: Handle[InterfaceInterfaceModel];
+               list: InterfaceEntityIterator; tc: var InterfaceCopyTool): bool {.
     noSideEffect, importcpp: "CopyModel", header: "StepSelect_WorkLibrary.hxx".}
-proc DumpEntity*(this: StepSelect_WorkLibrary;
-                model: handle[Interface_InterfaceModel];
-                protocol: handle[Interface_Protocol];
-                entity: handle[Standard_Transient]; S: var Standard_OStream;
-                level: Standard_Integer) {.noSideEffect, importcpp: "DumpEntity",
-    header: "StepSelect_WorkLibrary.hxx".}
+proc dumpEntity*(this: StepSelectWorkLibrary;
+                model: Handle[InterfaceInterfaceModel];
+                protocol: Handle[InterfaceProtocol];
+                entity: Handle[StandardTransient]; s: var StandardOStream; level: int) {.
+    noSideEffect, importcpp: "DumpEntity", header: "StepSelect_WorkLibrary.hxx".}
 type
-  StepSelect_WorkLibrarybase_type* = IFSelect_WorkLibrary
+  StepSelectWorkLibrarybaseType* = IFSelectWorkLibrary
 
-proc get_type_name*(): cstring {.importcpp: "StepSelect_WorkLibrary::get_type_name(@)",
-                              header: "StepSelect_WorkLibrary.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepSelect_WorkLibrary::get_type_name(@)",
+                            header: "StepSelect_WorkLibrary.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepSelect_WorkLibrary::get_type_descriptor(@)",
     header: "StepSelect_WorkLibrary.hxx".}
-proc DynamicType*(this: StepSelect_WorkLibrary): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepSelect_WorkLibrary.hxx".}
+proc dynamicType*(this: StepSelectWorkLibrary): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepSelect_WorkLibrary.hxx".}

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopoDSToStep_Root, ../Message/Message_ProgressRange
-
 discard "forward decl of StepShape_ShellBasedSurfaceModel"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Face"
@@ -25,25 +21,25 @@ discard "forward decl of Transfer_FinderProcess"
 discard "forward decl of TopoDS_Shell"
 discard "forward decl of TopoDS_Solid"
 type
-  TopoDSToStep_MakeShellBasedSurfaceModel* {.
+  TopoDSToStepMakeShellBasedSurfaceModel* {.
       importcpp: "TopoDSToStep_MakeShellBasedSurfaceModel",
-      header: "TopoDSToStep_MakeShellBasedSurfaceModel.hxx", bycopy.} = object of TopoDSToStep_Root
+      header: "TopoDSToStep_MakeShellBasedSurfaceModel.hxx", bycopy.} = object of TopoDSToStepRoot
 
 
-proc constructTopoDSToStep_MakeShellBasedSurfaceModel*(F: TopoDS_Face;
-    FP: handle[Transfer_FinderProcess];
-    theProgress: Message_ProgressRange = Message_ProgressRange()): TopoDSToStep_MakeShellBasedSurfaceModel {.
+proc constructTopoDSToStepMakeShellBasedSurfaceModel*(f: TopoDS_Face;
+    fp: Handle[TransferFinderProcess];
+    theProgress: MessageProgressRange = messageProgressRange()): TopoDSToStepMakeShellBasedSurfaceModel {.
     constructor, importcpp: "TopoDSToStep_MakeShellBasedSurfaceModel(@)",
     header: "TopoDSToStep_MakeShellBasedSurfaceModel.hxx".}
-proc constructTopoDSToStep_MakeShellBasedSurfaceModel*(S: TopoDS_Shell;
-    FP: handle[Transfer_FinderProcess];
-    theProgress: Message_ProgressRange = Message_ProgressRange()): TopoDSToStep_MakeShellBasedSurfaceModel {.
+proc constructTopoDSToStepMakeShellBasedSurfaceModel*(s: TopoDS_Shell;
+    fp: Handle[TransferFinderProcess];
+    theProgress: MessageProgressRange = messageProgressRange()): TopoDSToStepMakeShellBasedSurfaceModel {.
     constructor, importcpp: "TopoDSToStep_MakeShellBasedSurfaceModel(@)",
     header: "TopoDSToStep_MakeShellBasedSurfaceModel.hxx".}
-proc constructTopoDSToStep_MakeShellBasedSurfaceModel*(S: TopoDS_Solid;
-    FP: handle[Transfer_FinderProcess];
-    theProgress: Message_ProgressRange = Message_ProgressRange()): TopoDSToStep_MakeShellBasedSurfaceModel {.
+proc constructTopoDSToStepMakeShellBasedSurfaceModel*(s: TopoDS_Solid;
+    fp: Handle[TransferFinderProcess];
+    theProgress: MessageProgressRange = messageProgressRange()): TopoDSToStepMakeShellBasedSurfaceModel {.
     constructor, importcpp: "TopoDSToStep_MakeShellBasedSurfaceModel(@)",
     header: "TopoDSToStep_MakeShellBasedSurfaceModel.hxx".}
-proc Value*(this: TopoDSToStep_MakeShellBasedSurfaceModel): handle[
-    StepShape_ShellBasedSurfaceModel] {.noSideEffect, importcpp: "Value", header: "TopoDSToStep_MakeShellBasedSurfaceModel.hxx".}
+proc value*(this: TopoDSToStepMakeShellBasedSurfaceModel): Handle[
+    StepShapeShellBasedSurfaceModel] {.noSideEffect, importcpp: "Value", header: "TopoDSToStep_MakeShellBasedSurfaceModel.hxx".}

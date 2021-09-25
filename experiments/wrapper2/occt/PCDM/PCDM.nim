@@ -14,19 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Storage/Storage_BaseDriver, PCDM_TypeOfFileDriver
-
 discard "forward decl of CDM_Document"
 discard "forward decl of PCDM_StorageDriver"
 discard "forward decl of TCollection_AsciiString"
 type
-  PCDM* {.importcpp: "PCDM", header: "PCDM.hxx", bycopy.} = object
+  Pcdm* {.importcpp: "PCDM", header: "PCDM.hxx", bycopy.} = object
 
 
-proc FileDriverType*(aFileName: TCollection_AsciiString;
-                    aBaseDriver: var handle[Storage_BaseDriver]): PCDM_TypeOfFileDriver {.
+proc fileDriverType*(aFileName: TCollectionAsciiString;
+                    aBaseDriver: var Handle[StorageBaseDriver]): PCDM_TypeOfFileDriver {.
     importcpp: "PCDM::FileDriverType(@)", header: "PCDM.hxx".}
-proc FileDriverType*(theIStream: var Standard_IStream;
-                    theBaseDriver: var handle[Storage_BaseDriver]): PCDM_TypeOfFileDriver {.
+proc fileDriverType*(theIStream: var StandardIStream;
+                    theBaseDriver: var Handle[StorageBaseDriver]): PCDM_TypeOfFileDriver {.
     importcpp: "PCDM::FileDriverType(@)", header: "PCDM.hxx".}

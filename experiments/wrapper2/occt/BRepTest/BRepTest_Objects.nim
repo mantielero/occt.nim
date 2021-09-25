@@ -13,29 +13,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../BRepTools/BRepTools_History
-
 ## ! Provides the access to the useful tools common for the algorithms.
 
 type
-  BRepTest_Objects* {.importcpp: "BRepTest_Objects",
-                     header: "BRepTest_Objects.hxx", bycopy.} = object ## ! Sets the given history into the session.
+  BRepTestObjects* {.importcpp: "BRepTest_Objects", header: "BRepTest_Objects.hxx",
+                    bycopy.} = object ## ! Sets the given history into the session.
 
 
-proc SetHistory*(theHistory: handle[BRepTools_History]) {.
+proc setHistory*(theHistory: Handle[BRepToolsHistory]) {.
     importcpp: "BRepTest_Objects::SetHistory(@)", header: "BRepTest_Objects.hxx".}
-proc AddHistory*(theHistory: handle[BRepTools_History]) {.
+proc addHistory*(theHistory: Handle[BRepToolsHistory]) {.
     importcpp: "BRepTest_Objects::AddHistory(@)", header: "BRepTest_Objects.hxx".}
-proc SetHistory*[TheAlgo](theArguments: TopTools_ListOfShape; theAlgo: var TheAlgo) {.
+proc setHistory*[TheAlgo](theArguments: TopToolsListOfShape; theAlgo: var TheAlgo) {.
     importcpp: "BRepTest_Objects::SetHistory(@)", header: "BRepTest_Objects.hxx".}
-proc AddHistory*[TheAlgo](theArguments: TopTools_ListOfShape; theAlgo: var TheAlgo) {.
+proc addHistory*[TheAlgo](theArguments: TopToolsListOfShape; theAlgo: var TheAlgo) {.
     importcpp: "BRepTest_Objects::AddHistory(@)", header: "BRepTest_Objects.hxx".}
-proc History*(): handle[BRepTools_History] {.
+proc history*(): Handle[BRepToolsHistory] {.
     importcpp: "BRepTest_Objects::History(@)", header: "BRepTest_Objects.hxx".}
-proc SetToFillHistory*(theFillHist: Standard_Boolean) {.
+proc setToFillHistory*(theFillHist: bool) {.
     importcpp: "BRepTest_Objects::SetToFillHistory(@)",
     header: "BRepTest_Objects.hxx".}
-proc IsHistoryNeeded*(): Standard_Boolean {.
-    importcpp: "BRepTest_Objects::IsHistoryNeeded(@)",
-    header: "BRepTest_Objects.hxx".}
+proc isHistoryNeeded*(): bool {.importcpp: "BRepTest_Objects::IsHistoryNeeded(@)",
+                             header: "BRepTest_Objects.hxx".}

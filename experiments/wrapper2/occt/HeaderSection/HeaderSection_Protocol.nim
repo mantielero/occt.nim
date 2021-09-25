@@ -14,37 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../StepData/StepData_Protocol,
-  ../Standard/Standard_Integer, ../Standard/Standard_Type,
-  ../Standard/Standard_CString
-
 discard "forward decl of HeaderSection_Protocol"
 discard "forward decl of HeaderSection_Protocol"
 type
-  Handle_HeaderSection_Protocol* = handle[HeaderSection_Protocol]
+  HandleHeaderSectionProtocol* = Handle[HeaderSectionProtocol]
 
 ## ! Protocol for HeaderSection Entities
 ## ! It requires HeaderSection as a Resource
 
 type
-  HeaderSection_Protocol* {.importcpp: "HeaderSection_Protocol",
-                           header: "HeaderSection_Protocol.hxx", bycopy.} = object of StepData_Protocol
+  HeaderSectionProtocol* {.importcpp: "HeaderSection_Protocol",
+                          header: "HeaderSection_Protocol.hxx", bycopy.} = object of StepDataProtocol
 
 
-proc constructHeaderSection_Protocol*(): HeaderSection_Protocol {.constructor,
+proc constructHeaderSectionProtocol*(): HeaderSectionProtocol {.constructor,
     importcpp: "HeaderSection_Protocol(@)", header: "HeaderSection_Protocol.hxx".}
-proc TypeNumber*(this: HeaderSection_Protocol; atype: handle[Standard_Type]): Standard_Integer {.
+proc typeNumber*(this: HeaderSectionProtocol; atype: Handle[StandardType]): int {.
     noSideEffect, importcpp: "TypeNumber", header: "HeaderSection_Protocol.hxx".}
-proc SchemaName*(this: HeaderSection_Protocol): Standard_CString {.noSideEffect,
+proc schemaName*(this: HeaderSectionProtocol): StandardCString {.noSideEffect,
     importcpp: "SchemaName", header: "HeaderSection_Protocol.hxx".}
 type
-  HeaderSection_Protocolbase_type* = StepData_Protocol
+  HeaderSectionProtocolbaseType* = StepDataProtocol
 
-proc get_type_name*(): cstring {.importcpp: "HeaderSection_Protocol::get_type_name(@)",
-                              header: "HeaderSection_Protocol.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "HeaderSection_Protocol::get_type_name(@)",
+                            header: "HeaderSection_Protocol.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "HeaderSection_Protocol::get_type_descriptor(@)",
     header: "HeaderSection_Protocol.hxx".}
-proc DynamicType*(this: HeaderSection_Protocol): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "HeaderSection_Protocol.hxx".}
+proc dynamicType*(this: HeaderSectionProtocol): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "HeaderSection_Protocol.hxx".}

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../IFSelect/IFSelect_SelectExplore, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_Graph"
 discard "forward decl of Interface_EntityIterator"
@@ -26,7 +22,7 @@ discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESSelect_SelectBasicGeom"
 discard "forward decl of IGESSelect_SelectBasicGeom"
 type
-  Handle_IGESSelect_SelectBasicGeom* = handle[IGESSelect_SelectBasicGeom]
+  HandleIGESSelectSelectBasicGeom* = Handle[IGESSelectSelectBasicGeom]
 
 ## ! This selection returns the basic geometric elements
 ## ! contained in an IGES Entity
@@ -43,94 +39,94 @@ type
 ## ! If <curvesonly> is set, ONLY curves-3d are returned
 
 type
-  IGESSelect_SelectBasicGeom* {.importcpp: "IGESSelect_SelectBasicGeom",
-                               header: "IGESSelect_SelectBasicGeom.hxx", bycopy.} = object of IFSelect_SelectExplore ##
-                                                                                                              ## !
-                                                                                                              ## Creates
-                                                                                                              ## a
-                                                                                                              ## SelectBasicGeom,
-                                                                                                              ## which
-                                                                                                              ## allways
-                                                                                                              ## works
-                                                                                                              ## recursively
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## mode
-                                                                                                              ## =
-                                                                                                              ## -1
-                                                                                                              ## :
-                                                                                                              ## Returns
-                                                                                                              ## Surfaces
-                                                                                                              ## (without
-                                                                                                              ## trimming)
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## mode
-                                                                                                              ## =
-                                                                                                              ## +1
-                                                                                                              ## :
-                                                                                                              ## Returns
-                                                                                                              ## Curves
-                                                                                                              ## 3D
-                                                                                                              ## (free
-                                                                                                              ## or
-                                                                                                              ## bound
-                                                                                                              ## of
-                                                                                                              ## surface)
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## mode
-                                                                                                              ## =
-                                                                                                              ## +2
-                                                                                                              ## :
-                                                                                                              ## Returns
-                                                                                                              ## Basic
-                                                                                                              ## Curves
-                                                                                                              ## 3D
-                                                                                                              ## :
-                                                                                                              ## as
-                                                                                                              ## 1
-                                                                                                              ## but
-                                                                                                              ## CompositeCurves
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## are
-                                                                                                              ## returned
-                                                                                                              ## in
-                                                                                                              ## detail
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## mode
-                                                                                                              ## =
-                                                                                                              ## 0
-                                                                                                              ## :
-                                                                                                              ## both
+  IGESSelectSelectBasicGeom* {.importcpp: "IGESSelect_SelectBasicGeom",
+                              header: "IGESSelect_SelectBasicGeom.hxx", bycopy.} = object of IFSelectSelectExplore ##
+                                                                                                            ## !
+                                                                                                            ## Creates
+                                                                                                            ## a
+                                                                                                            ## SelectBasicGeom,
+                                                                                                            ## which
+                                                                                                            ## allways
+                                                                                                            ## works
+                                                                                                            ## recursively
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## mode
+                                                                                                            ## =
+                                                                                                            ## -1
+                                                                                                            ## :
+                                                                                                            ## Returns
+                                                                                                            ## Surfaces
+                                                                                                            ## (without
+                                                                                                            ## trimming)
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## mode
+                                                                                                            ## =
+                                                                                                            ## +1
+                                                                                                            ## :
+                                                                                                            ## Returns
+                                                                                                            ## Curves
+                                                                                                            ## 3D
+                                                                                                            ## (free
+                                                                                                            ## or
+                                                                                                            ## bound
+                                                                                                            ## of
+                                                                                                            ## surface)
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## mode
+                                                                                                            ## =
+                                                                                                            ## +2
+                                                                                                            ## :
+                                                                                                            ## Returns
+                                                                                                            ## Basic
+                                                                                                            ## Curves
+                                                                                                            ## 3D
+                                                                                                            ## :
+                                                                                                            ## as
+                                                                                                            ## 1
+                                                                                                            ## but
+                                                                                                            ## CompositeCurves
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## are
+                                                                                                            ## returned
+                                                                                                            ## in
+                                                                                                            ## detail
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## mode
+                                                                                                            ## =
+                                                                                                            ## 0
+                                                                                                            ## :
+                                                                                                            ## both
 
 
-proc constructIGESSelect_SelectBasicGeom*(mode: Standard_Integer): IGESSelect_SelectBasicGeom {.
+proc constructIGESSelectSelectBasicGeom*(mode: int): IGESSelectSelectBasicGeom {.
     constructor, importcpp: "IGESSelect_SelectBasicGeom(@)",
     header: "IGESSelect_SelectBasicGeom.hxx".}
-proc CurvesOnly*(this: IGESSelect_SelectBasicGeom): Standard_Boolean {.noSideEffect,
+proc curvesOnly*(this: IGESSelectSelectBasicGeom): bool {.noSideEffect,
     importcpp: "CurvesOnly", header: "IGESSelect_SelectBasicGeom.hxx".}
-proc Explore*(this: IGESSelect_SelectBasicGeom; level: Standard_Integer;
-             ent: handle[Standard_Transient]; G: Interface_Graph;
-             explored: var Interface_EntityIterator): Standard_Boolean {.
-    noSideEffect, importcpp: "Explore", header: "IGESSelect_SelectBasicGeom.hxx".}
-proc ExploreLabel*(this: IGESSelect_SelectBasicGeom): TCollection_AsciiString {.
+proc explore*(this: IGESSelectSelectBasicGeom; level: int;
+             ent: Handle[StandardTransient]; g: InterfaceGraph;
+             explored: var InterfaceEntityIterator): bool {.noSideEffect,
+    importcpp: "Explore", header: "IGESSelect_SelectBasicGeom.hxx".}
+proc exploreLabel*(this: IGESSelectSelectBasicGeom): TCollectionAsciiString {.
     noSideEffect, importcpp: "ExploreLabel",
     header: "IGESSelect_SelectBasicGeom.hxx".}
-proc SubCurves*(ent: handle[IGESData_IGESEntity];
-               explored: var Interface_EntityIterator): Standard_Boolean {.
+proc subCurves*(ent: Handle[IGESDataIGESEntity];
+               explored: var InterfaceEntityIterator): bool {.
     importcpp: "IGESSelect_SelectBasicGeom::SubCurves(@)",
     header: "IGESSelect_SelectBasicGeom.hxx".}
 type
-  IGESSelect_SelectBasicGeombase_type* = IFSelect_SelectExplore
+  IGESSelectSelectBasicGeombaseType* = IFSelectSelectExplore
 
-proc get_type_name*(): cstring {.importcpp: "IGESSelect_SelectBasicGeom::get_type_name(@)",
-                              header: "IGESSelect_SelectBasicGeom.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_SelectBasicGeom::get_type_name(@)",
+                            header: "IGESSelect_SelectBasicGeom.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSelect_SelectBasicGeom::get_type_descriptor(@)",
     header: "IGESSelect_SelectBasicGeom.hxx".}
-proc DynamicType*(this: IGESSelect_SelectBasicGeom): handle[Standard_Type] {.
+proc dynamicType*(this: IGESSelectSelectBasicGeom): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SelectBasicGeom.hxx".}

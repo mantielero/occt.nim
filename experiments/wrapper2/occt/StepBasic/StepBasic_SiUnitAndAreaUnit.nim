@@ -14,39 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_SiUnit
-
 discard "forward decl of StepBasic_AreaUnit"
 discard "forward decl of StepBasic_DimensionalExponents"
 discard "forward decl of StepBasic_SiUnitAndAreaUnit"
 discard "forward decl of StepBasic_SiUnitAndAreaUnit"
 type
-  Handle_StepBasic_SiUnitAndAreaUnit* = handle[StepBasic_SiUnitAndAreaUnit]
-  StepBasic_SiUnitAndAreaUnit* {.importcpp: "StepBasic_SiUnitAndAreaUnit",
-                                header: "StepBasic_SiUnitAndAreaUnit.hxx", bycopy.} = object of StepBasic_SiUnit ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## a
-                                                                                                          ## SiUnitAndAreaUnit
+  HandleStepBasicSiUnitAndAreaUnit* = Handle[StepBasicSiUnitAndAreaUnit]
+  StepBasicSiUnitAndAreaUnit* {.importcpp: "StepBasic_SiUnitAndAreaUnit",
+                               header: "StepBasic_SiUnitAndAreaUnit.hxx", bycopy.} = object of StepBasicSiUnit ##
+                                                                                                        ## !
+                                                                                                        ## Returns
+                                                                                                        ## a
+                                                                                                        ## SiUnitAndAreaUnit
 
 
-proc constructStepBasic_SiUnitAndAreaUnit*(): StepBasic_SiUnitAndAreaUnit {.
+proc constructStepBasicSiUnitAndAreaUnit*(): StepBasicSiUnitAndAreaUnit {.
     constructor, importcpp: "StepBasic_SiUnitAndAreaUnit(@)",
     header: "StepBasic_SiUnitAndAreaUnit.hxx".}
-proc SetAreaUnit*(this: var StepBasic_SiUnitAndAreaUnit;
-                 anAreaUnit: handle[StepBasic_AreaUnit]) {.
+proc setAreaUnit*(this: var StepBasicSiUnitAndAreaUnit;
+                 anAreaUnit: Handle[StepBasicAreaUnit]) {.
     importcpp: "SetAreaUnit", header: "StepBasic_SiUnitAndAreaUnit.hxx".}
-proc AreaUnit*(this: StepBasic_SiUnitAndAreaUnit): handle[StepBasic_AreaUnit] {.
+proc areaUnit*(this: StepBasicSiUnitAndAreaUnit): Handle[StepBasicAreaUnit] {.
     noSideEffect, importcpp: "AreaUnit", header: "StepBasic_SiUnitAndAreaUnit.hxx".}
 type
-  StepBasic_SiUnitAndAreaUnitbase_type* = StepBasic_SiUnit
+  StepBasicSiUnitAndAreaUnitbaseType* = StepBasicSiUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_SiUnitAndAreaUnit::get_type_name(@)",
-                              header: "StepBasic_SiUnitAndAreaUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_SiUnitAndAreaUnit::get_type_name(@)",
+                            header: "StepBasic_SiUnitAndAreaUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_SiUnitAndAreaUnit::get_type_descriptor(@)",
     header: "StepBasic_SiUnitAndAreaUnit.hxx".}
-proc DynamicType*(this: StepBasic_SiUnitAndAreaUnit): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicSiUnitAndAreaUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_SiUnitAndAreaUnit.hxx".}

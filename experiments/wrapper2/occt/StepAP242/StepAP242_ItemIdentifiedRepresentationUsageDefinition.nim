@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepAP214_AppliedApprovalAssignment"
 discard "forward decl of StepAP214_AppliedDateAndTimeAssignment"
@@ -37,81 +32,79 @@ discard "forward decl of StepRepr_PropertyDefinitionRelationship"
 discard "forward decl of StepRepr_ShapeAspect"
 discard "forward decl of StepRepr_ShapeAspectRelationship"
 type
-  StepAP242_ItemIdentifiedRepresentationUsageDefinition* {.
+  StepAP242ItemIdentifiedRepresentationUsageDefinition* {.
       importcpp: "StepAP242_ItemIdentifiedRepresentationUsageDefinition",
-      header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                             ## !
-                                                                                                             ## Returns
-                                                                                                             ## a
-                                                                                                             ## ItemIdentifiedRepresentationUsageDefinition
-                                                                                                             ## select
-                                                                                                             ## type
+      header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                            ## !
+                                                                                                            ## Returns
+                                                                                                            ## a
+                                                                                                            ## ItemIdentifiedRepresentationUsageDefinition
+                                                                                                            ## select
+                                                                                                            ## type
 
 
-proc constructStepAP242_ItemIdentifiedRepresentationUsageDefinition*(): StepAP242_ItemIdentifiedRepresentationUsageDefinition {.
+proc constructStepAP242ItemIdentifiedRepresentationUsageDefinition*(): StepAP242ItemIdentifiedRepresentationUsageDefinition {.
     constructor,
     importcpp: "StepAP242_ItemIdentifiedRepresentationUsageDefinition(@)",
     header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
-proc CaseNum*(this: StepAP242_ItemIdentifiedRepresentationUsageDefinition;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum",
     header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
-proc AppliedApprovalAssignment*(this: StepAP242_ItemIdentifiedRepresentationUsageDefinition): handle[
-    StepAP214_AppliedApprovalAssignment] {.noSideEffect,
+proc appliedApprovalAssignment*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition): Handle[
+    StepAP214AppliedApprovalAssignment] {.noSideEffect,
     importcpp: "AppliedApprovalAssignment",
     header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
-proc AppliedDateAndTimeAssignment*(this: StepAP242_ItemIdentifiedRepresentationUsageDefinition): handle[
-    StepAP214_AppliedDateAndTimeAssignment] {.noSideEffect,
+proc appliedDateAndTimeAssignment*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition): Handle[
+    StepAP214AppliedDateAndTimeAssignment] {.noSideEffect,
     importcpp: "AppliedDateAndTimeAssignment",
     header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
-proc AppliedDateAssignment*(this: StepAP242_ItemIdentifiedRepresentationUsageDefinition): handle[
-    StepAP214_AppliedDateAssignment] {.noSideEffect,
-                                      importcpp: "AppliedDateAssignment", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
-proc AppliedDocumentReference*(this: StepAP242_ItemIdentifiedRepresentationUsageDefinition): handle[
-    StepAP214_AppliedDocumentReference] {.noSideEffect,
-    importcpp: "AppliedDocumentReference",
-    header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
-proc AppliedExternalIdentificationAssignment*(
-    this: StepAP242_ItemIdentifiedRepresentationUsageDefinition): handle[
-    StepAP214_AppliedExternalIdentificationAssignment] {.noSideEffect,
+proc appliedDateAssignment*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition): Handle[
+    StepAP214AppliedDateAssignment] {.noSideEffect,
+                                     importcpp: "AppliedDateAssignment", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
+proc appliedDocumentReference*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition): Handle[
+    StepAP214AppliedDocumentReference] {.noSideEffect,
+                                        importcpp: "AppliedDocumentReference", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
+proc appliedExternalIdentificationAssignment*(
+    this: StepAP242ItemIdentifiedRepresentationUsageDefinition): Handle[
+    StepAP214AppliedExternalIdentificationAssignment] {.noSideEffect,
     importcpp: "AppliedExternalIdentificationAssignment",
     header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
-proc AppliedGroupAssignment*(this: StepAP242_ItemIdentifiedRepresentationUsageDefinition): handle[
-    StepAP214_AppliedGroupAssignment] {.noSideEffect,
-                                       importcpp: "AppliedGroupAssignment", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
-proc AppliedOrganizationAssignment*(this: StepAP242_ItemIdentifiedRepresentationUsageDefinition): handle[
-    StepAP214_AppliedOrganizationAssignment] {.noSideEffect,
+proc appliedGroupAssignment*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition): Handle[
+    StepAP214AppliedGroupAssignment] {.noSideEffect,
+                                      importcpp: "AppliedGroupAssignment", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
+proc appliedOrganizationAssignment*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition): Handle[
+    StepAP214AppliedOrganizationAssignment] {.noSideEffect,
     importcpp: "AppliedOrganizationAssignment",
     header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
-proc AppliedPersonAndOrganizationAssignment*(
-    this: StepAP242_ItemIdentifiedRepresentationUsageDefinition): handle[
-    StepAP214_AppliedPersonAndOrganizationAssignment] {.noSideEffect,
+proc appliedPersonAndOrganizationAssignment*(
+    this: StepAP242ItemIdentifiedRepresentationUsageDefinition): Handle[
+    StepAP214AppliedPersonAndOrganizationAssignment] {.noSideEffect,
     importcpp: "AppliedPersonAndOrganizationAssignment",
     header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
-proc AppliedSecurityClassificationAssignment*(
-    this: StepAP242_ItemIdentifiedRepresentationUsageDefinition): handle[
-    StepAP214_AppliedSecurityClassificationAssignment] {.noSideEffect,
+proc appliedSecurityClassificationAssignment*(
+    this: StepAP242ItemIdentifiedRepresentationUsageDefinition): Handle[
+    StepAP214AppliedSecurityClassificationAssignment] {.noSideEffect,
     importcpp: "AppliedSecurityClassificationAssignment",
     header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
-proc DimensionalSize*(this: StepAP242_ItemIdentifiedRepresentationUsageDefinition): handle[
-    StepShape_DimensionalSize] {.noSideEffect, importcpp: "DimensionalSize", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
-proc GeneralProperty*(this: StepAP242_ItemIdentifiedRepresentationUsageDefinition): handle[
-    StepBasic_GeneralProperty] {.noSideEffect, importcpp: "GeneralProperty", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
-proc GeometricTolerance*(this: StepAP242_ItemIdentifiedRepresentationUsageDefinition): handle[
-    StepDimTol_GeometricTolerance] {.noSideEffect,
-                                    importcpp: "GeometricTolerance", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
-proc ProductDefinitionRelationship*(this: StepAP242_ItemIdentifiedRepresentationUsageDefinition): handle[
-    StepBasic_ProductDefinitionRelationship] {.noSideEffect,
+proc dimensionalSize*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition): Handle[
+    StepShapeDimensionalSize] {.noSideEffect, importcpp: "DimensionalSize", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
+proc generalProperty*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition): Handle[
+    StepBasicGeneralProperty] {.noSideEffect, importcpp: "GeneralProperty", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
+proc geometricTolerance*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition): Handle[
+    StepDimTolGeometricTolerance] {.noSideEffect, importcpp: "GeometricTolerance", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
+proc productDefinitionRelationship*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition): Handle[
+    StepBasicProductDefinitionRelationship] {.noSideEffect,
     importcpp: "ProductDefinitionRelationship",
     header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
-proc PropertyDefinition*(this: StepAP242_ItemIdentifiedRepresentationUsageDefinition): handle[
-    StepRepr_PropertyDefinition] {.noSideEffect, importcpp: "PropertyDefinition", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
-proc PropertyDefinitionRelationship*(this: StepAP242_ItemIdentifiedRepresentationUsageDefinition): handle[
-    StepRepr_PropertyDefinitionRelationship] {.noSideEffect,
+proc propertyDefinition*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition): Handle[
+    StepReprPropertyDefinition] {.noSideEffect, importcpp: "PropertyDefinition", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
+proc propertyDefinitionRelationship*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition): Handle[
+    StepReprPropertyDefinitionRelationship] {.noSideEffect,
     importcpp: "PropertyDefinitionRelationship",
     header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
-proc ShapeAspect*(this: StepAP242_ItemIdentifiedRepresentationUsageDefinition): handle[
-    StepRepr_ShapeAspect] {.noSideEffect, importcpp: "ShapeAspect", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
-proc ShapeAspectRelationship*(this: StepAP242_ItemIdentifiedRepresentationUsageDefinition): handle[
-    StepRepr_ShapeAspectRelationship] {.noSideEffect,
-                                       importcpp: "ShapeAspectRelationship", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
+proc shapeAspect*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition): Handle[
+    StepReprShapeAspect] {.noSideEffect, importcpp: "ShapeAspect", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
+proc shapeAspectRelationship*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition): Handle[
+    StepReprShapeAspectRelationship] {.noSideEffect,
+                                      importcpp: "ShapeAspectRelationship", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}

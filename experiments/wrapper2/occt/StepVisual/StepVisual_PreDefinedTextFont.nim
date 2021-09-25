@@ -14,31 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepVisual_PreDefinedItem
-
 discard "forward decl of StepVisual_PreDefinedTextFont"
 discard "forward decl of StepVisual_PreDefinedTextFont"
 type
-  Handle_StepVisual_PreDefinedTextFont* = handle[StepVisual_PreDefinedTextFont]
-  StepVisual_PreDefinedTextFont* {.importcpp: "StepVisual_PreDefinedTextFont",
-                                  header: "StepVisual_PreDefinedTextFont.hxx",
-                                  bycopy.} = object of StepVisual_PreDefinedItem ## !
-                                                                            ## Returns a
-                                                                            ## PreDefinedTextFont
+  HandleStepVisualPreDefinedTextFont* = Handle[StepVisualPreDefinedTextFont]
+  StepVisualPreDefinedTextFont* {.importcpp: "StepVisual_PreDefinedTextFont",
+                                 header: "StepVisual_PreDefinedTextFont.hxx",
+                                 bycopy.} = object of StepVisualPreDefinedItem ## !
+                                                                          ## Returns a
+                                                                          ## PreDefinedTextFont
 
 
-proc constructStepVisual_PreDefinedTextFont*(): StepVisual_PreDefinedTextFont {.
+proc constructStepVisualPreDefinedTextFont*(): StepVisualPreDefinedTextFont {.
     constructor, importcpp: "StepVisual_PreDefinedTextFont(@)",
     header: "StepVisual_PreDefinedTextFont.hxx".}
 type
-  StepVisual_PreDefinedTextFontbase_type* = StepVisual_PreDefinedItem
+  StepVisualPreDefinedTextFontbaseType* = StepVisualPreDefinedItem
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_PreDefinedTextFont::get_type_name(@)",
-                              header: "StepVisual_PreDefinedTextFont.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_PreDefinedTextFont::get_type_name(@)",
+                            header: "StepVisual_PreDefinedTextFont.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_PreDefinedTextFont::get_type_descriptor(@)",
     header: "StepVisual_PreDefinedTextFont.hxx".}
-proc DynamicType*(this: StepVisual_PreDefinedTextFont): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualPreDefinedTextFont): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_PreDefinedTextFont.hxx".}

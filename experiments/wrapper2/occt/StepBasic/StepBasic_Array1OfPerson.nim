@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepBasic_Person, ../NCollection/NCollection_Array1
-
 type
-  StepBasic_Array1OfPerson* = NCollection_Array1[handle[StepBasic_Person]]
+  StepBasicArray1OfPerson* = NCollectionArray1[Handle[StepBasicPerson]]
+

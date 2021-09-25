@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Vrml_SeparatorRenderCulling,
-  ../Standard/Standard_Boolean, ../Standard/Standard_OStream
-
 ## ! defines a Separator node of VRML specifying group properties.
 ## ! This group node performs a push (save) of the traversal state before traversing its children
 ## ! and a pop (restore) after traversing them. This isolates the separator's children from the
@@ -31,17 +26,17 @@ import
 ## ! decide whether or not to cull.
 
 type
-  Vrml_Separator* {.importcpp: "Vrml_Separator", header: "Vrml_Separator.hxx", bycopy.} = object
+  VrmlSeparator* {.importcpp: "Vrml_Separator", header: "Vrml_Separator.hxx", bycopy.} = object
 
 
-proc constructVrml_Separator*(aRenderCulling: Vrml_SeparatorRenderCulling): Vrml_Separator {.
+proc constructVrmlSeparator*(aRenderCulling: VrmlSeparatorRenderCulling): VrmlSeparator {.
     constructor, importcpp: "Vrml_Separator(@)", header: "Vrml_Separator.hxx".}
-proc constructVrml_Separator*(): Vrml_Separator {.constructor,
+proc constructVrmlSeparator*(): VrmlSeparator {.constructor,
     importcpp: "Vrml_Separator(@)", header: "Vrml_Separator.hxx".}
-proc SetRenderCulling*(this: var Vrml_Separator;
-                      aRenderCulling: Vrml_SeparatorRenderCulling) {.
+proc setRenderCulling*(this: var VrmlSeparator;
+                      aRenderCulling: VrmlSeparatorRenderCulling) {.
     importcpp: "SetRenderCulling", header: "Vrml_Separator.hxx".}
-proc RenderCulling*(this: Vrml_Separator): Vrml_SeparatorRenderCulling {.
-    noSideEffect, importcpp: "RenderCulling", header: "Vrml_Separator.hxx".}
-proc Print*(this: var Vrml_Separator; anOStream: var Standard_OStream): var Standard_OStream {.
+proc renderCulling*(this: VrmlSeparator): VrmlSeparatorRenderCulling {.noSideEffect,
+    importcpp: "RenderCulling", header: "Vrml_Separator.hxx".}
+proc print*(this: var VrmlSeparator; anOStream: var StandardOStream): var StandardOStream {.
     importcpp: "Print", header: "Vrml_Separator.hxx".}

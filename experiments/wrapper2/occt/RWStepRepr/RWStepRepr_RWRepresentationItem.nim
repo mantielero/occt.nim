@@ -14,27 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_RepresentationItem"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepRepr_RWRepresentationItem* {.importcpp: "RWStepRepr_RWRepresentationItem", header: "RWStepRepr_RWRepresentationItem.hxx",
-                                    bycopy.} = object
+  RWStepReprRWRepresentationItem* {.importcpp: "RWStepRepr_RWRepresentationItem", header: "RWStepRepr_RWRepresentationItem.hxx",
+                                   bycopy.} = object
 
 
-proc constructRWStepRepr_RWRepresentationItem*(): RWStepRepr_RWRepresentationItem {.
+proc constructRWStepReprRWRepresentationItem*(): RWStepReprRWRepresentationItem {.
     constructor, importcpp: "RWStepRepr_RWRepresentationItem(@)",
     header: "RWStepRepr_RWRepresentationItem.hxx".}
-proc ReadStep*(this: RWStepRepr_RWRepresentationItem;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepRepr_RepresentationItem]) {.noSideEffect,
+proc readStep*(this: RWStepReprRWRepresentationItem;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepReprRepresentationItem]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWRepresentationItem.hxx".}
-proc WriteStep*(this: RWStepRepr_RWRepresentationItem; SW: var StepData_StepWriter;
-               ent: handle[StepRepr_RepresentationItem]) {.noSideEffect,
+proc writeStep*(this: RWStepReprRWRepresentationItem; sw: var StepDataStepWriter;
+               ent: Handle[StepReprRepresentationItem]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepRepr_RWRepresentationItem.hxx".}

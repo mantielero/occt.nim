@@ -12,82 +12,79 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Graphic3d_CubeMap, ../NCollection/NCollection_Array1, ../OSD/OSD_Path
-
 ## ! Class to manage cubemap located in six different images.
 
 type
-  Graphic3d_CubeMapSeparate* {.importcpp: "Graphic3d_CubeMapSeparate",
-                              header: "Graphic3d_CubeMapSeparate.hxx", bycopy.} = object of Graphic3d_CubeMap ##
-                                                                                                       ## !
-                                                                                                       ## Initializes
-                                                                                                       ## cubemap
-                                                                                                       ## to
-                                                                                                       ## be
-                                                                                                       ## loaded
-                                                                                                       ## from
-                                                                                                       ## file.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## @thePaths
-                                                                                                       ## -
-                                                                                                       ## array
-                                                                                                       ## of
-                                                                                                       ## paths
-                                                                                                       ## to
-                                                                                                       ## separate
-                                                                                                       ## image
-                                                                                                       ## files
-                                                                                                       ## (has
-                                                                                                       ## to
-                                                                                                       ## have
-                                                                                                       ## size
-                                                                                                       ## equal
-                                                                                                       ## 6).
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Nulifies
-                                                                                                       ## whole
-                                                                                                       ## images
-                                                                                                       ## array.
+  Graphic3dCubeMapSeparate* {.importcpp: "Graphic3d_CubeMapSeparate",
+                             header: "Graphic3d_CubeMapSeparate.hxx", bycopy.} = object of Graphic3dCubeMap ##
+                                                                                                     ## !
+                                                                                                     ## Initializes
+                                                                                                     ## cubemap
+                                                                                                     ## to
+                                                                                                     ## be
+                                                                                                     ## loaded
+                                                                                                     ## from
+                                                                                                     ## file.
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## @thePaths
+                                                                                                     ## -
+                                                                                                     ## array
+                                                                                                     ## of
+                                                                                                     ## paths
+                                                                                                     ## to
+                                                                                                     ## separate
+                                                                                                     ## image
+                                                                                                     ## files
+                                                                                                     ## (has
+                                                                                                     ## to
+                                                                                                     ## have
+                                                                                                     ## size
+                                                                                                     ## equal
+                                                                                                     ## 6).
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## Nulifies
+                                                                                                     ## whole
+                                                                                                     ## images
+                                                                                                     ## array.
     ## !< array of paths to cubemap images
     ## !< array of cubemap images
     ## !< size of each side of cubemap
     ## !< format each side of cubemap
 
-  Graphic3d_CubeMapSeparatebase_type* = Graphic3d_CubeMap
+  Graphic3dCubeMapSeparatebaseType* = Graphic3dCubeMap
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_CubeMapSeparate::get_type_name(@)",
-                              header: "Graphic3d_CubeMapSeparate.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_CubeMapSeparate::get_type_name(@)",
+                            header: "Graphic3d_CubeMapSeparate.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_CubeMapSeparate::get_type_descriptor(@)",
     header: "Graphic3d_CubeMapSeparate.hxx".}
-proc DynamicType*(this: Graphic3d_CubeMapSeparate): handle[Standard_Type] {.
+proc dynamicType*(this: Graphic3dCubeMapSeparate): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Graphic3d_CubeMapSeparate.hxx".}
-proc constructGraphic3d_CubeMapSeparate*(thePaths: NCollection_Array1[
-    TCollection_AsciiString]): Graphic3d_CubeMapSeparate {.constructor,
+proc constructGraphic3dCubeMapSeparate*(thePaths: NCollectionArray1[
+    TCollectionAsciiString]): Graphic3dCubeMapSeparate {.constructor,
     importcpp: "Graphic3d_CubeMapSeparate(@)",
     header: "Graphic3d_CubeMapSeparate.hxx".}
-proc constructGraphic3d_CubeMapSeparate*(theImages: NCollection_Array1[
-    handle[Image_PixMap]]): Graphic3d_CubeMapSeparate {.constructor,
+proc constructGraphic3dCubeMapSeparate*(theImages: NCollectionArray1[
+    Handle[ImagePixMap]]): Graphic3dCubeMapSeparate {.constructor,
     importcpp: "Graphic3d_CubeMapSeparate(@)",
     header: "Graphic3d_CubeMapSeparate.hxx".}
-proc CompressedValue*(this: var Graphic3d_CubeMapSeparate;
-                     theSupported: handle[Image_SupportedFormats]): handle[
-    Image_CompressedPixMap] {.importcpp: "CompressedValue",
-                             header: "Graphic3d_CubeMapSeparate.hxx".}
-proc Value*(this: var Graphic3d_CubeMapSeparate;
-           theSupported: handle[Image_SupportedFormats]): handle[Image_PixMap] {.
+proc compressedValue*(this: var Graphic3dCubeMapSeparate;
+                     theSupported: Handle[ImageSupportedFormats]): Handle[
+    ImageCompressedPixMap] {.importcpp: "CompressedValue",
+                            header: "Graphic3d_CubeMapSeparate.hxx".}
+proc value*(this: var Graphic3dCubeMapSeparate;
+           theSupported: Handle[ImageSupportedFormats]): Handle[ImagePixMap] {.
     importcpp: "Value", header: "Graphic3d_CubeMapSeparate.hxx".}
-proc GetImage*(this: var Graphic3d_CubeMapSeparate;
-              a2: handle[Image_SupportedFormats]): handle[Image_PixMap] {.
-    importcpp: "GetImage", header: "Graphic3d_CubeMapSeparate.hxx".}
-proc IsDone*(this: Graphic3d_CubeMapSeparate): Standard_Boolean {.noSideEffect,
+proc getImage*(this: var Graphic3dCubeMapSeparate; a2: Handle[ImageSupportedFormats]): Handle[
+    ImagePixMap] {.importcpp: "GetImage", header: "Graphic3d_CubeMapSeparate.hxx".}
+proc isDone*(this: Graphic3dCubeMapSeparate): bool {.noSideEffect,
     importcpp: "IsDone", header: "Graphic3d_CubeMapSeparate.hxx".}
-proc destroyGraphic3d_CubeMapSeparate*(this: var Graphic3d_CubeMapSeparate) {.
+proc destroyGraphic3dCubeMapSeparate*(this: var Graphic3dCubeMapSeparate) {.
     importcpp: "#.~Graphic3d_CubeMapSeparate()",
     header: "Graphic3d_CubeMapSeparate.hxx".}
 discard "forward decl of Graphic3d_CubeMapSeparate"
 type
-  Handle_Graphic3d_CubeMapSeparate* = handle[Graphic3d_CubeMapSeparate]
+  HandleGraphic3dCubeMapSeparate* = Handle[Graphic3dCubeMapSeparate]
+

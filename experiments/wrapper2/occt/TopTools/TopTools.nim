@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_OStream,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopTools_ShapeMapHasher"
 discard "forward decl of TopTools_OrientedShapeMapHasher"
@@ -31,7 +26,6 @@ type
                                                                        ## ! stream <S>.
 
 
-proc Dump*(Sh: TopoDS_Shape; S: var Standard_OStream) {.
-    importcpp: "TopTools::Dump(@)", header: "TopTools.hxx".}
-proc Dummy*(I: Standard_Integer) {.importcpp: "TopTools::Dummy(@)",
-                                header: "TopTools.hxx".}
+proc dump*(sh: TopoDS_Shape; s: var StandardOStream) {.importcpp: "TopTools::Dump(@)",
+    header: "TopTools.hxx".}
+proc dummy*(i: int) {.importcpp: "TopTools::Dummy(@)", header: "TopTools.hxx".}

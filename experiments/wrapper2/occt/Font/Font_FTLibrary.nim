@@ -13,43 +13,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 ##  forward declarations to avoid including of FreeType headers
 
 type
-  FT_Library* = ptr FT_LibraryRec_
+  FT_Library* = ptr fT_LibraryRec
 
 ## ! Wrapper over FT_Library. Provides access to FreeType library.
 
 type
-  Font_FTLibrary* {.importcpp: "Font_FTLibrary", header: "Font_FTLibrary.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                             ## !
-                                                                                                             ## Initialize
-                                                                                                             ## new
-                                                                                                             ## FT_Library
-                                                                                                             ## instance.
+  FontFTLibrary* {.importcpp: "Font_FTLibrary", header: "Font_FTLibrary.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                           ## !
+                                                                                                           ## Initialize
+                                                                                                           ## new
+                                                                                                           ## FT_Library
+                                                                                                           ## instance.
 
 
-proc constructFont_FTLibrary*(): Font_FTLibrary {.constructor,
+proc constructFontFTLibrary*(): FontFTLibrary {.constructor,
     importcpp: "Font_FTLibrary(@)", header: "Font_FTLibrary.hxx".}
-proc destroyFont_FTLibrary*(this: var Font_FTLibrary) {.
+proc destroyFontFTLibrary*(this: var FontFTLibrary) {.
     importcpp: "#.~Font_FTLibrary()", header: "Font_FTLibrary.hxx".}
-proc IsValid*(this: Font_FTLibrary): bool {.noSideEffect, importcpp: "IsValid",
-                                        header: "Font_FTLibrary.hxx".}
-proc Instance*(this: Font_FTLibrary): FT_Library {.noSideEffect,
+proc isValid*(this: FontFTLibrary): bool {.noSideEffect, importcpp: "IsValid",
+                                       header: "Font_FTLibrary.hxx".}
+proc instance*(this: FontFTLibrary): FT_Library {.noSideEffect,
     importcpp: "Instance", header: "Font_FTLibrary.hxx".}
 type
-  Font_FTLibrarybase_type* = Standard_Transient
+  FontFTLibrarybaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Font_FTLibrary::get_type_name(@)",
-                              header: "Font_FTLibrary.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Font_FTLibrary::get_type_name(@)",
+                            header: "Font_FTLibrary.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Font_FTLibrary::get_type_descriptor(@)",
     header: "Font_FTLibrary.hxx".}
-proc DynamicType*(this: Font_FTLibrary): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: FontFTLibrary): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Font_FTLibrary.hxx".}
 discard "forward decl of Font_FTLibrary"
 type
-  Handle_Font_FTLibrary* = handle[Font_FTLibrary]
+  HandleFontFTLibrary* = Handle[FontFTLibrary]
+

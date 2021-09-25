@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TopOpeBRep_LineInter, ../NCollection/NCollection_Array1
-
 type
-  TopOpeBRep_Array1OfLineInter* = NCollection_Array1[TopOpeBRep_LineInter]
+  TopOpeBRepArray1OfLineInter* = NCollectionArray1[TopOpeBRepLineInter]
+

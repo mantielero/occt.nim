@@ -13,59 +13,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepRepr_HArray1OfRepresentationItem, StepRepr_RepresentationItem,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_RepresentationItem"
 discard "forward decl of StepRepr_CompoundRepresentationItem"
 discard "forward decl of StepRepr_CompoundRepresentationItem"
 type
-  Handle_StepRepr_CompoundRepresentationItem* = handle[
-      StepRepr_CompoundRepresentationItem]
+  HandleStepReprCompoundRepresentationItem* = Handle[
+      StepReprCompoundRepresentationItem]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepRepr_CompoundRepresentationItem* {.importcpp: "StepRepr_CompoundRepresentationItem", header: "StepRepr_CompoundRepresentationItem.hxx",
-                                        bycopy.} = object of StepRepr_RepresentationItem
+  StepReprCompoundRepresentationItem* {.importcpp: "StepRepr_CompoundRepresentationItem", header: "StepRepr_CompoundRepresentationItem.hxx",
+                                       bycopy.} = object of StepReprRepresentationItem
 
 
-proc constructStepRepr_CompoundRepresentationItem*(): StepRepr_CompoundRepresentationItem {.
+proc constructStepReprCompoundRepresentationItem*(): StepReprCompoundRepresentationItem {.
     constructor, importcpp: "StepRepr_CompoundRepresentationItem(@)",
     header: "StepRepr_CompoundRepresentationItem.hxx".}
-proc Init*(this: var StepRepr_CompoundRepresentationItem;
-          aName: handle[TCollection_HAsciiString];
-          item_element: handle[StepRepr_HArray1OfRepresentationItem]) {.
+proc init*(this: var StepReprCompoundRepresentationItem;
+          aName: Handle[TCollectionHAsciiString];
+          itemElement: Handle[StepReprHArray1OfRepresentationItem]) {.
     importcpp: "Init", header: "StepRepr_CompoundRepresentationItem.hxx".}
-proc ItemElement*(this: StepRepr_CompoundRepresentationItem): handle[
-    StepRepr_HArray1OfRepresentationItem] {.noSideEffect,
-    importcpp: "ItemElement", header: "StepRepr_CompoundRepresentationItem.hxx".}
-proc NbItemElement*(this: StepRepr_CompoundRepresentationItem): Standard_Integer {.
-    noSideEffect, importcpp: "NbItemElement",
+proc itemElement*(this: StepReprCompoundRepresentationItem): Handle[
+    StepReprHArray1OfRepresentationItem] {.noSideEffect, importcpp: "ItemElement",
     header: "StepRepr_CompoundRepresentationItem.hxx".}
-proc SetItemElement*(this: var StepRepr_CompoundRepresentationItem;
-                    item_element: handle[StepRepr_HArray1OfRepresentationItem]) {.
+proc nbItemElement*(this: StepReprCompoundRepresentationItem): int {.noSideEffect,
+    importcpp: "NbItemElement", header: "StepRepr_CompoundRepresentationItem.hxx".}
+proc setItemElement*(this: var StepReprCompoundRepresentationItem;
+                    itemElement: Handle[StepReprHArray1OfRepresentationItem]) {.
     importcpp: "SetItemElement", header: "StepRepr_CompoundRepresentationItem.hxx".}
-proc ItemElementValue*(this: StepRepr_CompoundRepresentationItem;
-                      num: Standard_Integer): handle[StepRepr_RepresentationItem] {.
-    noSideEffect, importcpp: "ItemElementValue",
-    header: "StepRepr_CompoundRepresentationItem.hxx".}
-proc SetItemElementValue*(this: var StepRepr_CompoundRepresentationItem;
-                         num: Standard_Integer;
-                         anelement: handle[StepRepr_RepresentationItem]) {.
+proc itemElementValue*(this: StepReprCompoundRepresentationItem; num: int): Handle[
+    StepReprRepresentationItem] {.noSideEffect, importcpp: "ItemElementValue", header: "StepRepr_CompoundRepresentationItem.hxx".}
+proc setItemElementValue*(this: var StepReprCompoundRepresentationItem; num: int;
+                         anelement: Handle[StepReprRepresentationItem]) {.
     importcpp: "SetItemElementValue",
     header: "StepRepr_CompoundRepresentationItem.hxx".}
 type
-  StepRepr_CompoundRepresentationItembase_type* = StepRepr_RepresentationItem
+  StepReprCompoundRepresentationItembaseType* = StepReprRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_CompoundRepresentationItem::get_type_name(@)",
-                              header: "StepRepr_CompoundRepresentationItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_CompoundRepresentationItem::get_type_name(@)",
+                            header: "StepRepr_CompoundRepresentationItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_CompoundRepresentationItem::get_type_descriptor(@)",
     header: "StepRepr_CompoundRepresentationItem.hxx".}
-proc DynamicType*(this: StepRepr_CompoundRepresentationItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprCompoundRepresentationItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_CompoundRepresentationItem.hxx".}

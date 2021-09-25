@@ -13,16 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepFEA_SymmetricTensor42d,
-  StepFEA_FeaMaterialPropertyRepresentationItem
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepFEA_SymmetricTensor42d"
 discard "forward decl of StepFEA_FeaShellMembraneBendingCouplingStiffness"
 discard "forward decl of StepFEA_FeaShellMembraneBendingCouplingStiffness"
 type
-  Handle_StepFEA_FeaShellMembraneBendingCouplingStiffness* = handle[
+  HandleStepFEA_FeaShellMembraneBendingCouplingStiffness* = Handle[
       StepFEA_FeaShellMembraneBendingCouplingStiffness]
 
 ## ! Representation of STEP entity FeaShellMembraneBendingCouplingStiffness
@@ -40,22 +36,22 @@ proc constructStepFEA_FeaShellMembraneBendingCouplingStiffness*(): StepFEA_FeaSh
     constructor,
     importcpp: "StepFEA_FeaShellMembraneBendingCouplingStiffness(@)",
     header: "StepFEA_FeaShellMembraneBendingCouplingStiffness.hxx".}
-proc Init*(this: var StepFEA_FeaShellMembraneBendingCouplingStiffness;
-          aRepresentationItem_Name: handle[TCollection_HAsciiString];
+proc init*(this: var StepFEA_FeaShellMembraneBendingCouplingStiffness;
+          aRepresentationItemName: Handle[TCollectionHAsciiString];
           aFeaConstants: StepFEA_SymmetricTensor42d) {.importcpp: "Init",
     header: "StepFEA_FeaShellMembraneBendingCouplingStiffness.hxx".}
-proc FeaConstants*(this: StepFEA_FeaShellMembraneBendingCouplingStiffness): StepFEA_SymmetricTensor42d {.
+proc feaConstants*(this: StepFEA_FeaShellMembraneBendingCouplingStiffness): StepFEA_SymmetricTensor42d {.
     noSideEffect, importcpp: "FeaConstants",
     header: "StepFEA_FeaShellMembraneBendingCouplingStiffness.hxx".}
-proc SetFeaConstants*(this: var StepFEA_FeaShellMembraneBendingCouplingStiffness;
-                     FeaConstants: StepFEA_SymmetricTensor42d) {.
+proc setFeaConstants*(this: var StepFEA_FeaShellMembraneBendingCouplingStiffness;
+                     feaConstants: StepFEA_SymmetricTensor42d) {.
     importcpp: "SetFeaConstants",
     header: "StepFEA_FeaShellMembraneBendingCouplingStiffness.hxx".}
 type
-  StepFEA_FeaShellMembraneBendingCouplingStiffnessbase_type* = StepFEA_FeaMaterialPropertyRepresentationItem
+  StepFEA_FeaShellMembraneBendingCouplingStiffnessbaseType* = StepFEA_FeaMaterialPropertyRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_FeaShellMembraneBendingCouplingStiffness::get_type_name(@)", header: "StepFEA_FeaShellMembraneBendingCouplingStiffness.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepFEA_FeaShellMembraneBendingCouplingStiffness::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepFEA_FeaShellMembraneBendingCouplingStiffness::get_type_name(@)", header: "StepFEA_FeaShellMembraneBendingCouplingStiffness.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_FeaShellMembraneBendingCouplingStiffness::get_type_descriptor(@)",
     header: "StepFEA_FeaShellMembraneBendingCouplingStiffness.hxx".}
-proc DynamicType*(this: StepFEA_FeaShellMembraneBendingCouplingStiffness): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepFEA_FeaShellMembraneBendingCouplingStiffness.hxx".}
+proc dynamicType*(this: StepFEA_FeaShellMembraneBendingCouplingStiffness): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepFEA_FeaShellMembraneBendingCouplingStiffness.hxx".}

@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_XY, ../NCollection/NCollection_Array1
-
 type
-  TColgp_Array1OfXY* = NCollection_Array1[gp_XY]
+  TColgpArray1OfXY* = NCollectionArray1[Xy]
+

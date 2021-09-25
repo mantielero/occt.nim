@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopAbs/TopAbs_ShapeEnum,
-  ../TopTools/TopTools_IndexedMapOfShape,
-  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape,
-  ../TopTools/TopTools_MapOfShape, ../Standard/Standard_Boolean
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Edge"
@@ -34,29 +27,28 @@ type
                                                                  ## ! Warning: The map is not cleared at first.
 
 
-proc MapShapes*(S: TopoDS_Shape; T: TopAbs_ShapeEnum;
-               M: var TopTools_IndexedMapOfShape) {.
+proc mapShapes*(s: TopoDS_Shape; t: TopAbsShapeEnum; m: var TopToolsIndexedMapOfShape) {.
     importcpp: "TopExp::MapShapes(@)", header: "TopExp.hxx".}
-proc MapShapes*(S: TopoDS_Shape; M: var TopTools_IndexedMapOfShape) {.
+proc mapShapes*(s: TopoDS_Shape; m: var TopToolsIndexedMapOfShape) {.
     importcpp: "TopExp::MapShapes(@)", header: "TopExp.hxx".}
-proc MapShapes*(S: TopoDS_Shape; M: var TopTools_MapOfShape) {.
+proc mapShapes*(s: TopoDS_Shape; m: var TopToolsMapOfShape) {.
     importcpp: "TopExp::MapShapes(@)", header: "TopExp.hxx".}
-proc MapShapesAndAncestors*(S: TopoDS_Shape; TS: TopAbs_ShapeEnum;
-                           TA: TopAbs_ShapeEnum;
-                           M: var TopTools_IndexedDataMapOfShapeListOfShape) {.
+proc mapShapesAndAncestors*(s: TopoDS_Shape; ts: TopAbsShapeEnum;
+                           ta: TopAbsShapeEnum;
+                           m: var TopToolsIndexedDataMapOfShapeListOfShape) {.
     importcpp: "TopExp::MapShapesAndAncestors(@)", header: "TopExp.hxx".}
-proc MapShapesAndUniqueAncestors*(S: TopoDS_Shape; TS: TopAbs_ShapeEnum;
-                                 TA: TopAbs_ShapeEnum; M: var TopTools_IndexedDataMapOfShapeListOfShape;
-    useOrientation: Standard_Boolean = Standard_False) {.
+proc mapShapesAndUniqueAncestors*(s: TopoDS_Shape; ts: TopAbsShapeEnum;
+                                 ta: TopAbsShapeEnum; m: var TopToolsIndexedDataMapOfShapeListOfShape;
+                                 useOrientation: bool = false) {.
     importcpp: "TopExp::MapShapesAndUniqueAncestors(@)", header: "TopExp.hxx".}
-proc FirstVertex*(E: TopoDS_Edge; CumOri: Standard_Boolean = Standard_False): TopoDS_Vertex {.
+proc firstVertex*(e: TopoDS_Edge; cumOri: bool = false): TopoDS_Vertex {.
     importcpp: "TopExp::FirstVertex(@)", header: "TopExp.hxx".}
-proc LastVertex*(E: TopoDS_Edge; CumOri: Standard_Boolean = Standard_False): TopoDS_Vertex {.
+proc lastVertex*(e: TopoDS_Edge; cumOri: bool = false): TopoDS_Vertex {.
     importcpp: "TopExp::LastVertex(@)", header: "TopExp.hxx".}
-proc Vertices*(E: TopoDS_Edge; Vfirst: var TopoDS_Vertex; Vlast: var TopoDS_Vertex;
-              CumOri: Standard_Boolean = Standard_False) {.
+proc vertices*(e: TopoDS_Edge; vfirst: var TopoDS_Vertex; vlast: var TopoDS_Vertex;
+              cumOri: bool = false) {.importcpp: "TopExp::Vertices(@)",
+                                  header: "TopExp.hxx".}
+proc vertices*(w: TopoDS_Wire; vfirst: var TopoDS_Vertex; vlast: var TopoDS_Vertex) {.
     importcpp: "TopExp::Vertices(@)", header: "TopExp.hxx".}
-proc Vertices*(W: TopoDS_Wire; Vfirst: var TopoDS_Vertex; Vlast: var TopoDS_Vertex) {.
-    importcpp: "TopExp::Vertices(@)", header: "TopExp.hxx".}
-proc CommonVertex*(E1: TopoDS_Edge; E2: TopoDS_Edge; V: var TopoDS_Vertex): Standard_Boolean {.
+proc commonVertex*(e1: TopoDS_Edge; e2: TopoDS_Edge; v: var TopoDS_Vertex): bool {.
     importcpp: "TopExp::CommonVertex(@)", header: "TopExp.hxx".}

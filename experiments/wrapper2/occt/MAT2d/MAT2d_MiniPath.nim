@@ -14,39 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, MAT2d_DataMapOfIntegerSequenceOfConnexion,
-  MAT2d_DataMapOfIntegerConnexion, MAT2d_SequenceOfConnexion,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer,
-  MAT2d_SequenceOfSequenceOfGeometry, ../Standard/Standard_Boolean
-
 discard "forward decl of MAT2d_Connexion"
 type
-  MAT2d_MiniPath* {.importcpp: "MAT2d_MiniPath", header: "MAT2d_MiniPath.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Add
-                                                                                         ## a
-                                                                                         ## connexion
-                                                                                         ## to
-                                                                                         ## the
-                                                                                         ## path.
+  MAT2dMiniPath* {.importcpp: "MAT2d_MiniPath", header: "MAT2d_MiniPath.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Add
+                                                                                        ## a
+                                                                                        ## connexion
+                                                                                        ## to
+                                                                                        ## the
+                                                                                        ## path.
 
 
-proc constructMAT2d_MiniPath*(): MAT2d_MiniPath {.constructor,
+proc constructMAT2dMiniPath*(): MAT2dMiniPath {.constructor,
     importcpp: "MAT2d_MiniPath(@)", header: "MAT2d_MiniPath.hxx".}
-proc Perform*(this: var MAT2d_MiniPath; Figure: MAT2d_SequenceOfSequenceOfGeometry;
-             IndStart: Standard_Integer; Sense: Standard_Boolean) {.
-    importcpp: "Perform", header: "MAT2d_MiniPath.hxx".}
-proc RunOnConnexions*(this: var MAT2d_MiniPath) {.importcpp: "RunOnConnexions",
+proc perform*(this: var MAT2dMiniPath; figure: MAT2dSequenceOfSequenceOfGeometry;
+             indStart: int; sense: bool) {.importcpp: "Perform",
+                                       header: "MAT2d_MiniPath.hxx".}
+proc runOnConnexions*(this: var MAT2dMiniPath) {.importcpp: "RunOnConnexions",
     header: "MAT2d_MiniPath.hxx".}
-proc Path*(this: MAT2d_MiniPath): MAT2d_SequenceOfConnexion {.noSideEffect,
+proc path*(this: MAT2dMiniPath): MAT2dSequenceOfConnexion {.noSideEffect,
     importcpp: "Path", header: "MAT2d_MiniPath.hxx".}
-proc IsConnexionsFrom*(this: MAT2d_MiniPath; Index: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsConnexionsFrom", header: "MAT2d_MiniPath.hxx".}
-proc ConnexionsFrom*(this: var MAT2d_MiniPath; Index: Standard_Integer): var MAT2d_SequenceOfConnexion {.
+proc isConnexionsFrom*(this: MAT2dMiniPath; index: int): bool {.noSideEffect,
+    importcpp: "IsConnexionsFrom", header: "MAT2d_MiniPath.hxx".}
+proc connexionsFrom*(this: var MAT2dMiniPath; index: int): var MAT2dSequenceOfConnexion {.
     importcpp: "ConnexionsFrom", header: "MAT2d_MiniPath.hxx".}
-proc IsRoot*(this: MAT2d_MiniPath; Index: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsRoot", header: "MAT2d_MiniPath.hxx".}
-proc Father*(this: var MAT2d_MiniPath; Index: Standard_Integer): handle[
-    MAT2d_Connexion] {.importcpp: "Father", header: "MAT2d_MiniPath.hxx".}
+proc isRoot*(this: MAT2dMiniPath; index: int): bool {.noSideEffect,
+    importcpp: "IsRoot", header: "MAT2d_MiniPath.hxx".}
+proc father*(this: var MAT2dMiniPath; index: int): Handle[MAT2dConnexion] {.
+    importcpp: "Father", header: "MAT2d_MiniPath.hxx".}

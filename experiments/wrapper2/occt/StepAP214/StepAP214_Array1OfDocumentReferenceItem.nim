@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP214_DocumentReferenceItem, ../NCollection/NCollection_Array1
-
 type
-  StepAP214_Array1OfDocumentReferenceItem* = NCollection_Array1[
-      StepAP214_DocumentReferenceItem]
+  StepAP214Array1OfDocumentReferenceItem* = NCollectionArray1[
+      StepAP214DocumentReferenceItem]
+

@@ -11,17 +11,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StdObjMgt_Persistent, ../NCollection/NCollection_DataMap,
-  ../TCollection/TCollection_AsciiString
-
 type
-  StdObjMgt_MapOfInstantiators* {.importcpp: "StdObjMgt_MapOfInstantiators",
-                                 header: "StdObjMgt_MapOfInstantiators.hxx",
-                                 bycopy.} = object of NCollection_DataMap[
-      TCollection_AsciiString, Instantiator, TCollection_AsciiString]
+  StdObjMgtMapOfInstantiators* {.importcpp: "StdObjMgt_MapOfInstantiators",
+                                header: "StdObjMgt_MapOfInstantiators.hxx", bycopy.} = object of NCollectionDataMap[
+      TCollectionAsciiString, Instantiator, TCollectionAsciiString]
 
 
-proc Bind*[Persistent](this: var StdObjMgt_MapOfInstantiators;
-                      theTypeName: TCollection_AsciiString) {.importcpp: "Bind",
+proc `bind`*[Persistent](this: var StdObjMgtMapOfInstantiators;
+                        theTypeName: TCollectionAsciiString) {.importcpp: "Bind",
     header: "StdObjMgt_MapOfInstantiators.hxx".}

@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, HLRTopoBRep_ListOfVData,
-  ../TopTools/TopTools_ShapeMapHasher, ../NCollection/NCollection_DataMap
-
 type
-  HLRTopoBRep_MapOfShapeListOfVData* = NCollection_DataMap[TopoDS_Shape,
-      HLRTopoBRep_ListOfVData, TopTools_ShapeMapHasher]
-  HLRTopoBRep_DataMapIteratorOfMapOfShapeListOfVData* = Iterator[TopoDS_Shape,
-      HLRTopoBRep_ListOfVData, TopTools_ShapeMapHasher]
+  HLRTopoBRepMapOfShapeListOfVData* = NCollectionDataMap[TopoDS_Shape,
+      HLRTopoBRepListOfVData, TopToolsShapeMapHasher]
+  HLRTopoBRepDataMapIteratorOfMapOfShapeListOfVData* = Iterator[TopoDS_Shape,
+      HLRTopoBRepListOfVData, TopToolsShapeMapHasher]
+

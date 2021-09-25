@@ -14,19 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../HLRAlgo/HLRAlgo_Projector,
-  ../Vrml/Vrml_PerspectiveCamera, ../Vrml/Vrml_OrthographicCamera,
-  ../Vrml/Vrml_DirectionalLight, ../Vrml/Vrml_PointLight, ../Vrml/Vrml_SpotLight,
-  VrmlConverter_TypeOfCamera, VrmlConverter_TypeOfLight,
-  ../Vrml/Vrml_MatrixTransform, ../Standard/Standard_Transient,
-  ../TopTools/TopTools_Array1OfShape, ../Standard/Standard_OStream
-
 discard "forward decl of HLRAlgo_Projector"
 discard "forward decl of VrmlConverter_Projector"
 discard "forward decl of VrmlConverter_Projector"
 type
-  Handle_VrmlConverter_Projector* = handle[VrmlConverter_Projector]
+  HandleVrmlConverterProjector* = Handle[VrmlConverterProjector]
 
 ## ! defines projector  and calculates properties of cameras and lights from Vrml
 ## ! ( OrthograpicCamera, PerspectiveCamera, DirectionalLight, PointLight, SpotLight
@@ -35,38 +27,35 @@ type
 ## ! and adds them ( method Add ) to anOSream.
 
 type
-  VrmlConverter_Projector* {.importcpp: "VrmlConverter_Projector",
-                            header: "VrmlConverter_Projector.hxx", bycopy.} = object of Standard_Transient
+  VrmlConverterProjector* {.importcpp: "VrmlConverter_Projector",
+                           header: "VrmlConverter_Projector.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructVrmlConverter_Projector*(Shapes: TopTools_Array1OfShape;
-                                      Focus: Standard_Real; DX: Standard_Real;
-                                      DY: Standard_Real; DZ: Standard_Real;
-                                      XUp: Standard_Real; YUp: Standard_Real;
-                                      ZUp: Standard_Real; Camera: VrmlConverter_TypeOfCamera = VrmlConverter_NoCamera;
-    Light: VrmlConverter_TypeOfLight = VrmlConverter_NoLight): VrmlConverter_Projector {.
+proc constructVrmlConverterProjector*(shapes: TopToolsArray1OfShape; focus: float;
+                                     dx: float; dy: float; dz: float; xUp: float;
+                                     yUp: float; zUp: float; camera: VrmlConverterTypeOfCamera = vrmlConverterNoCamera;
+    light: VrmlConverterTypeOfLight = vrmlConverterNoLight): VrmlConverterProjector {.
     constructor, importcpp: "VrmlConverter_Projector(@)",
     header: "VrmlConverter_Projector.hxx".}
-proc SetCamera*(this: var VrmlConverter_Projector;
-               aCamera: VrmlConverter_TypeOfCamera) {.importcpp: "SetCamera",
-    header: "VrmlConverter_Projector.hxx".}
-proc Camera*(this: VrmlConverter_Projector): VrmlConverter_TypeOfCamera {.
+proc setCamera*(this: var VrmlConverterProjector; aCamera: VrmlConverterTypeOfCamera) {.
+    importcpp: "SetCamera", header: "VrmlConverter_Projector.hxx".}
+proc camera*(this: VrmlConverterProjector): VrmlConverterTypeOfCamera {.
     noSideEffect, importcpp: "Camera", header: "VrmlConverter_Projector.hxx".}
-proc SetLight*(this: var VrmlConverter_Projector; aLight: VrmlConverter_TypeOfLight) {.
+proc setLight*(this: var VrmlConverterProjector; aLight: VrmlConverterTypeOfLight) {.
     importcpp: "SetLight", header: "VrmlConverter_Projector.hxx".}
-proc Light*(this: VrmlConverter_Projector): VrmlConverter_TypeOfLight {.
-    noSideEffect, importcpp: "Light", header: "VrmlConverter_Projector.hxx".}
-proc Add*(this: VrmlConverter_Projector; anOStream: var Standard_OStream) {.
+proc light*(this: VrmlConverterProjector): VrmlConverterTypeOfLight {.noSideEffect,
+    importcpp: "Light", header: "VrmlConverter_Projector.hxx".}
+proc add*(this: VrmlConverterProjector; anOStream: var StandardOStream) {.
     noSideEffect, importcpp: "Add", header: "VrmlConverter_Projector.hxx".}
-proc Projector*(this: VrmlConverter_Projector): HLRAlgo_Projector {.noSideEffect,
+proc projector*(this: VrmlConverterProjector): HLRAlgoProjector {.noSideEffect,
     importcpp: "Projector", header: "VrmlConverter_Projector.hxx".}
 type
-  VrmlConverter_Projectorbase_type* = Standard_Transient
+  VrmlConverterProjectorbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "VrmlConverter_Projector::get_type_name(@)",
-                              header: "VrmlConverter_Projector.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "VrmlConverter_Projector::get_type_name(@)",
+                            header: "VrmlConverter_Projector.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "VrmlConverter_Projector::get_type_descriptor(@)",
     header: "VrmlConverter_Projector.hxx".}
-proc DynamicType*(this: VrmlConverter_Projector): handle[Standard_Type] {.
+proc dynamicType*(this: VrmlConverterProjector): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "VrmlConverter_Projector.hxx".}

@@ -13,40 +13,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_ProductDefinition"
 discard "forward decl of StepBasic_ProductDefinitionReference"
 discard "forward decl of StepBasic_ProductDefinitionReferenceWithLocalRepresentation"
 type
-  StepBasic_ProductDefinitionOrReference* {.
+  StepBasicProductDefinitionOrReference* {.
       importcpp: "StepBasic_ProductDefinitionOrReference",
-      header: "StepBasic_ProductDefinitionOrReference.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## a
-                                                                                              ## ProductDefinitionOrReference
-                                                                                              ## SelectType
+      header: "StepBasic_ProductDefinitionOrReference.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                             ## !
+                                                                                             ## Returns
+                                                                                             ## a
+                                                                                             ## ProductDefinitionOrReference
+                                                                                             ## SelectType
 
 
-proc constructStepBasic_ProductDefinitionOrReference*(): StepBasic_ProductDefinitionOrReference {.
+proc constructStepBasicProductDefinitionOrReference*(): StepBasicProductDefinitionOrReference {.
     constructor, importcpp: "StepBasic_ProductDefinitionOrReference(@)",
     header: "StepBasic_ProductDefinitionOrReference.hxx".}
-proc CaseNum*(this: StepBasic_ProductDefinitionOrReference;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepBasicProductDefinitionOrReference;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepBasic_ProductDefinitionOrReference.hxx".}
-proc ProductDefinition*(this: StepBasic_ProductDefinitionOrReference): handle[
-    StepBasic_ProductDefinition] {.noSideEffect, importcpp: "ProductDefinition", header: "StepBasic_ProductDefinitionOrReference.hxx".}
-proc ProductDefinitionReference*(this: StepBasic_ProductDefinitionOrReference): handle[
-    StepBasic_ProductDefinitionReference] {.noSideEffect,
+proc productDefinition*(this: StepBasicProductDefinitionOrReference): Handle[
+    StepBasicProductDefinition] {.noSideEffect, importcpp: "ProductDefinition", header: "StepBasic_ProductDefinitionOrReference.hxx".}
+proc productDefinitionReference*(this: StepBasicProductDefinitionOrReference): Handle[
+    StepBasicProductDefinitionReference] {.noSideEffect,
     importcpp: "ProductDefinitionReference",
     header: "StepBasic_ProductDefinitionOrReference.hxx".}
-proc ProductDefinitionReferenceWithLocalRepresentation*(
-    this: StepBasic_ProductDefinitionOrReference): handle[
-    StepBasic_ProductDefinitionReferenceWithLocalRepresentation] {.noSideEffect,
+proc productDefinitionReferenceWithLocalRepresentation*(
+    this: StepBasicProductDefinitionOrReference): Handle[
+    StepBasicProductDefinitionReferenceWithLocalRepresentation] {.noSideEffect,
     importcpp: "ProductDefinitionReferenceWithLocalRepresentation",
     header: "StepBasic_ProductDefinitionOrReference.hxx".}

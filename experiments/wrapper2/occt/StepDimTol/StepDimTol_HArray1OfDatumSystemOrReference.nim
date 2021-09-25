@@ -13,40 +13,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepDimTol_DatumSystemOrReference, StepDimTol_Array1OfDatumSystemOrReference,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepDimTol_HArray1OfDatumSystemOrReference* {.
+  StepDimTolHArray1OfDatumSystemOrReference* {.
       importcpp: "StepDimTol_HArray1OfDatumSystemOrReference",
-      header: "StepDimTol_HArray1OfDatumSystemOrReference.hxx", bycopy.} = object of StepDimTol_Array1OfDatumSystemOrReference
+      header: "StepDimTol_HArray1OfDatumSystemOrReference.hxx", bycopy.} = object of StepDimTolArray1OfDatumSystemOrReference
 
 
-proc constructStepDimTol_HArray1OfDatumSystemOrReference*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepDimTol_HArray1OfDatumSystemOrReference {.
+proc constructStepDimTolHArray1OfDatumSystemOrReference*(theLower: int;
+    theUpper: int): StepDimTolHArray1OfDatumSystemOrReference {.constructor,
+    importcpp: "StepDimTol_HArray1OfDatumSystemOrReference(@)",
+    header: "StepDimTol_HArray1OfDatumSystemOrReference.hxx".}
+proc constructStepDimTolHArray1OfDatumSystemOrReference*(theLower: int;
+    theUpper: int; theValue: ValueType): StepDimTolHArray1OfDatumSystemOrReference {.
     constructor, importcpp: "StepDimTol_HArray1OfDatumSystemOrReference(@)",
     header: "StepDimTol_HArray1OfDatumSystemOrReference.hxx".}
-proc constructStepDimTol_HArray1OfDatumSystemOrReference*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepDimTol_HArray1OfDatumSystemOrReference {.
+proc constructStepDimTolHArray1OfDatumSystemOrReference*(
+    theOther: StepDimTolArray1OfDatumSystemOrReference): StepDimTolHArray1OfDatumSystemOrReference {.
     constructor, importcpp: "StepDimTol_HArray1OfDatumSystemOrReference(@)",
     header: "StepDimTol_HArray1OfDatumSystemOrReference.hxx".}
-proc constructStepDimTol_HArray1OfDatumSystemOrReference*(
-    theOther: StepDimTol_Array1OfDatumSystemOrReference): StepDimTol_HArray1OfDatumSystemOrReference {.
-    constructor, importcpp: "StepDimTol_HArray1OfDatumSystemOrReference(@)",
-    header: "StepDimTol_HArray1OfDatumSystemOrReference.hxx".}
-proc Array1*(this: StepDimTol_HArray1OfDatumSystemOrReference): StepDimTol_Array1OfDatumSystemOrReference {.
+proc array1*(this: StepDimTolHArray1OfDatumSystemOrReference): StepDimTolArray1OfDatumSystemOrReference {.
     noSideEffect, importcpp: "Array1",
     header: "StepDimTol_HArray1OfDatumSystemOrReference.hxx".}
-proc ChangeArray1*(this: var StepDimTol_HArray1OfDatumSystemOrReference): var StepDimTol_Array1OfDatumSystemOrReference {.
+proc changeArray1*(this: var StepDimTolHArray1OfDatumSystemOrReference): var StepDimTolArray1OfDatumSystemOrReference {.
     importcpp: "ChangeArray1",
     header: "StepDimTol_HArray1OfDatumSystemOrReference.hxx".}
 type
-  StepDimTol_HArray1OfDatumSystemOrReferencebase_type* = MMgt_TShared
+  StepDimTolHArray1OfDatumSystemOrReferencebaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_HArray1OfDatumSystemOrReference::get_type_name(@)", header: "StepDimTol_HArray1OfDatumSystemOrReference.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepDimTol_HArray1OfDatumSystemOrReference::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_HArray1OfDatumSystemOrReference::get_type_name(@)", header: "StepDimTol_HArray1OfDatumSystemOrReference.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepDimTol_HArray1OfDatumSystemOrReference::get_type_descriptor(@)",
     header: "StepDimTol_HArray1OfDatumSystemOrReference.hxx".}
-proc DynamicType*(this: StepDimTol_HArray1OfDatumSystemOrReference): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepDimTol_HArray1OfDatumSystemOrReference.hxx".}
+proc dynamicType*(this: StepDimTolHArray1OfDatumSystemOrReference): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepDimTol_HArray1OfDatumSystemOrReference.hxx".}

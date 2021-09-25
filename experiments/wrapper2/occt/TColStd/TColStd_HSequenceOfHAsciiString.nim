@@ -12,5 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # TColStd_HSequenceOfHAsciiString_HeaderFile [NewLine] # TColStd_HSequenceOfHAsciiString_HeaderFile [NewLine] # ../TCollection/TCollection_HAsciiString.hxx [NewLine] # TColStd_SequenceOfHAsciiString.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( TColStd_HSequenceOfHAsciiString , TColStd_SequenceOfHAsciiString ) # [NewLine]
+## !!!Ignored construct:  # TColStd_HSequenceOfHAsciiString_HeaderFile [NewLine] # TColStd_HSequenceOfHAsciiString_HeaderFile [NewLine] # < TCollection_HAsciiString . hxx > [NewLine] # < TColStd_SequenceOfHAsciiString . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( TColStd_HSequenceOfHAsciiString , TColStd_SequenceOfHAsciiString ) # [NewLine]
 ## Error: expected ';'!!!
+

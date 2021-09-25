@@ -13,15 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../BRepAdaptor/BRepAdaptor_Curve,
-  ../BRepAdaptor/BRepAdaptor_Surface, ../Standard/Standard_Real,
-  ../Extrema/Extrema_ExtCS, ../GeomAPI/GeomAPI_ProjectPointOnSurf,
-  IntTools_MarkedRangeSet, IntTools_SequenceOfRanges,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
-  IntTools_ListOfCurveRangeSample, IntTools_ListOfSurfaceRangeSample
-
 discard "forward decl of Geom_Surface"
 discard "forward decl of IntTools_Context"
 discard "forward decl of TopoDS_Edge"
@@ -34,69 +25,62 @@ discard "forward decl of IntTools_SurfaceRangeSample"
 discard "forward decl of IntTools_CurveRangeLocalizeData"
 discard "forward decl of IntTools_SurfaceRangeLocalizeData"
 type
-  IntTools_BeanFaceIntersector* {.importcpp: "IntTools_BeanFaceIntersector",
-                                 header: "IntTools_BeanFaceIntersector.hxx",
-                                 bycopy.} = object
+  IntToolsBeanFaceIntersector* {.importcpp: "IntTools_BeanFaceIntersector",
+                                header: "IntTools_BeanFaceIntersector.hxx", bycopy.} = object
 
 
-proc constructIntTools_BeanFaceIntersector*(): IntTools_BeanFaceIntersector {.
+proc constructIntToolsBeanFaceIntersector*(): IntToolsBeanFaceIntersector {.
     constructor, importcpp: "IntTools_BeanFaceIntersector(@)",
     header: "IntTools_BeanFaceIntersector.hxx".}
-proc constructIntTools_BeanFaceIntersector*(theEdge: TopoDS_Edge;
-    theFace: TopoDS_Face): IntTools_BeanFaceIntersector {.constructor,
+proc constructIntToolsBeanFaceIntersector*(theEdge: TopoDS_Edge;
+    theFace: TopoDS_Face): IntToolsBeanFaceIntersector {.constructor,
     importcpp: "IntTools_BeanFaceIntersector(@)",
     header: "IntTools_BeanFaceIntersector.hxx".}
-proc constructIntTools_BeanFaceIntersector*(theCurve: BRepAdaptor_Curve;
-    theSurface: BRepAdaptor_Surface; theBeanTolerance: Standard_Real;
-    theFaceTolerance: Standard_Real): IntTools_BeanFaceIntersector {.constructor,
+proc constructIntToolsBeanFaceIntersector*(theCurve: BRepAdaptorCurve;
+    theSurface: BRepAdaptorSurface; theBeanTolerance: float; theFaceTolerance: float): IntToolsBeanFaceIntersector {.
+    constructor, importcpp: "IntTools_BeanFaceIntersector(@)",
+    header: "IntTools_BeanFaceIntersector.hxx".}
+proc constructIntToolsBeanFaceIntersector*(theCurve: BRepAdaptorCurve;
+    theSurface: BRepAdaptorSurface; theFirstParOnCurve: float;
+    theLastParOnCurve: float; theUMinParameter: float; theUMaxParameter: float;
+    theVMinParameter: float; theVMaxParameter: float; theBeanTolerance: float;
+    theFaceTolerance: float): IntToolsBeanFaceIntersector {.constructor,
     importcpp: "IntTools_BeanFaceIntersector(@)",
     header: "IntTools_BeanFaceIntersector.hxx".}
-proc constructIntTools_BeanFaceIntersector*(theCurve: BRepAdaptor_Curve;
-    theSurface: BRepAdaptor_Surface; theFirstParOnCurve: Standard_Real;
-    theLastParOnCurve: Standard_Real; theUMinParameter: Standard_Real;
-    theUMaxParameter: Standard_Real; theVMinParameter: Standard_Real;
-    theVMaxParameter: Standard_Real; theBeanTolerance: Standard_Real;
-    theFaceTolerance: Standard_Real): IntTools_BeanFaceIntersector {.constructor,
-    importcpp: "IntTools_BeanFaceIntersector(@)",
-    header: "IntTools_BeanFaceIntersector.hxx".}
-proc Init*(this: var IntTools_BeanFaceIntersector; theEdge: TopoDS_Edge;
+proc init*(this: var IntToolsBeanFaceIntersector; theEdge: TopoDS_Edge;
           theFace: TopoDS_Face) {.importcpp: "Init",
                                 header: "IntTools_BeanFaceIntersector.hxx".}
-proc Init*(this: var IntTools_BeanFaceIntersector; theCurve: BRepAdaptor_Curve;
-          theSurface: BRepAdaptor_Surface; theBeanTolerance: Standard_Real;
-          theFaceTolerance: Standard_Real) {.importcpp: "Init",
+proc init*(this: var IntToolsBeanFaceIntersector; theCurve: BRepAdaptorCurve;
+          theSurface: BRepAdaptorSurface; theBeanTolerance: float;
+          theFaceTolerance: float) {.importcpp: "Init",
+                                   header: "IntTools_BeanFaceIntersector.hxx".}
+proc init*(this: var IntToolsBeanFaceIntersector; theCurve: BRepAdaptorCurve;
+          theSurface: BRepAdaptorSurface; theFirstParOnCurve: float;
+          theLastParOnCurve: float; theUMinParameter: float;
+          theUMaxParameter: float; theVMinParameter: float; theVMaxParameter: float;
+          theBeanTolerance: float; theFaceTolerance: float) {.importcpp: "Init",
     header: "IntTools_BeanFaceIntersector.hxx".}
-proc Init*(this: var IntTools_BeanFaceIntersector; theCurve: BRepAdaptor_Curve;
-          theSurface: BRepAdaptor_Surface; theFirstParOnCurve: Standard_Real;
-          theLastParOnCurve: Standard_Real; theUMinParameter: Standard_Real;
-          theUMaxParameter: Standard_Real; theVMinParameter: Standard_Real;
-          theVMaxParameter: Standard_Real; theBeanTolerance: Standard_Real;
-          theFaceTolerance: Standard_Real) {.importcpp: "Init",
+proc setContext*(this: var IntToolsBeanFaceIntersector;
+                theContext: Handle[IntToolsContext]) {.importcpp: "SetContext",
     header: "IntTools_BeanFaceIntersector.hxx".}
-proc SetContext*(this: var IntTools_BeanFaceIntersector;
-                theContext: handle[IntTools_Context]) {.importcpp: "SetContext",
-    header: "IntTools_BeanFaceIntersector.hxx".}
-proc Context*(this: IntTools_BeanFaceIntersector): handle[IntTools_Context] {.
+proc context*(this: IntToolsBeanFaceIntersector): Handle[IntToolsContext] {.
     noSideEffect, importcpp: "Context", header: "IntTools_BeanFaceIntersector.hxx".}
-proc SetBeanParameters*(this: var IntTools_BeanFaceIntersector;
-                       theFirstParOnCurve: Standard_Real;
-                       theLastParOnCurve: Standard_Real) {.
+proc setBeanParameters*(this: var IntToolsBeanFaceIntersector;
+                       theFirstParOnCurve: float; theLastParOnCurve: float) {.
     importcpp: "SetBeanParameters", header: "IntTools_BeanFaceIntersector.hxx".}
-proc SetSurfaceParameters*(this: var IntTools_BeanFaceIntersector;
-                          theUMinParameter: Standard_Real;
-                          theUMaxParameter: Standard_Real;
-                          theVMinParameter: Standard_Real;
-                          theVMaxParameter: Standard_Real) {.
+proc setSurfaceParameters*(this: var IntToolsBeanFaceIntersector;
+                          theUMinParameter: float; theUMaxParameter: float;
+                          theVMinParameter: float; theVMaxParameter: float) {.
     importcpp: "SetSurfaceParameters", header: "IntTools_BeanFaceIntersector.hxx".}
-proc Perform*(this: var IntTools_BeanFaceIntersector) {.importcpp: "Perform",
+proc perform*(this: var IntToolsBeanFaceIntersector) {.importcpp: "Perform",
     header: "IntTools_BeanFaceIntersector.hxx".}
-proc IsDone*(this: IntTools_BeanFaceIntersector): Standard_Boolean {.noSideEffect,
+proc isDone*(this: IntToolsBeanFaceIntersector): bool {.noSideEffect,
     importcpp: "IsDone", header: "IntTools_BeanFaceIntersector.hxx".}
-proc Result*(this: IntTools_BeanFaceIntersector): IntTools_SequenceOfRanges {.
+proc result*(this: IntToolsBeanFaceIntersector): IntToolsSequenceOfRanges {.
     noSideEffect, importcpp: "Result", header: "IntTools_BeanFaceIntersector.hxx".}
-proc Result*(this: IntTools_BeanFaceIntersector;
-            theResults: var IntTools_SequenceOfRanges) {.noSideEffect,
+proc result*(this: IntToolsBeanFaceIntersector;
+            theResults: var IntToolsSequenceOfRanges) {.noSideEffect,
     importcpp: "Result", header: "IntTools_BeanFaceIntersector.hxx".}
-proc MinimalSquareDistance*(this: IntTools_BeanFaceIntersector): Standard_Real {.
+proc minimalSquareDistance*(this: IntToolsBeanFaceIntersector): float {.
     noSideEffect, importcpp: "MinimalSquareDistance",
     header: "IntTools_BeanFaceIntersector.hxx".}

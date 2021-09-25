@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Type
-
 discard "forward decl of Interface_HGraph"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Interface_InterfaceError"
@@ -27,57 +24,55 @@ discard "forward decl of Interface_Protocol"
 discard "forward decl of Interface_Graph"
 discard "forward decl of Interface_EntityIterator"
 type
-  Interface_ShareTool* {.importcpp: "Interface_ShareTool",
-                        header: "Interface_ShareTool.hxx", bycopy.} = object ## ! Creates a
-                                                                        ## ShareTool from a Model and builds all required data,
-                                                                        ## ! by calling the General Service Library and Modules
-                                                                        ## !
-                                                                        ## (GeneralLib given as an
-                                                                        ## argument)
+  InterfaceShareTool* {.importcpp: "Interface_ShareTool",
+                       header: "Interface_ShareTool.hxx", bycopy.} = object ## ! Creates a ShareTool from a Model and builds all required data,
+                                                                       ## ! by calling the General Service Library and Modules
+                                                                       ## !
+                                                                       ## (GeneralLib given as an argument)
 
 
-proc constructInterface_ShareTool*(amodel: handle[Interface_InterfaceModel];
-                                  lib: Interface_GeneralLib): Interface_ShareTool {.
+proc constructInterfaceShareTool*(amodel: Handle[InterfaceInterfaceModel];
+                                 lib: InterfaceGeneralLib): InterfaceShareTool {.
     constructor, importcpp: "Interface_ShareTool(@)",
     header: "Interface_ShareTool.hxx".}
-proc constructInterface_ShareTool*(amodel: handle[Interface_InterfaceModel];
-                                  gtool: handle[Interface_GTool]): Interface_ShareTool {.
+proc constructInterfaceShareTool*(amodel: Handle[InterfaceInterfaceModel];
+                                 gtool: Handle[InterfaceGTool]): InterfaceShareTool {.
     constructor, importcpp: "Interface_ShareTool(@)",
     header: "Interface_ShareTool.hxx".}
-proc constructInterface_ShareTool*(amodel: handle[Interface_InterfaceModel];
-                                  protocol: handle[Interface_Protocol]): Interface_ShareTool {.
+proc constructInterfaceShareTool*(amodel: Handle[InterfaceInterfaceModel];
+                                 protocol: Handle[InterfaceProtocol]): InterfaceShareTool {.
     constructor, importcpp: "Interface_ShareTool(@)",
     header: "Interface_ShareTool.hxx".}
-proc constructInterface_ShareTool*(amodel: handle[Interface_InterfaceModel]): Interface_ShareTool {.
+proc constructInterfaceShareTool*(amodel: Handle[InterfaceInterfaceModel]): InterfaceShareTool {.
     constructor, importcpp: "Interface_ShareTool(@)",
     header: "Interface_ShareTool.hxx".}
-proc constructInterface_ShareTool*(agraph: Interface_Graph): Interface_ShareTool {.
+proc constructInterfaceShareTool*(agraph: InterfaceGraph): InterfaceShareTool {.
     constructor, importcpp: "Interface_ShareTool(@)",
     header: "Interface_ShareTool.hxx".}
-proc constructInterface_ShareTool*(ahgraph: handle[Interface_HGraph]): Interface_ShareTool {.
+proc constructInterfaceShareTool*(ahgraph: Handle[InterfaceHGraph]): InterfaceShareTool {.
     constructor, importcpp: "Interface_ShareTool(@)",
     header: "Interface_ShareTool.hxx".}
-proc Model*(this: Interface_ShareTool): handle[Interface_InterfaceModel] {.
+proc model*(this: InterfaceShareTool): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "Model", header: "Interface_ShareTool.hxx".}
-proc Graph*(this: Interface_ShareTool): Interface_Graph {.noSideEffect,
+proc graph*(this: InterfaceShareTool): InterfaceGraph {.noSideEffect,
     importcpp: "Graph", header: "Interface_ShareTool.hxx".}
-proc RootEntities*(this: Interface_ShareTool): Interface_EntityIterator {.
+proc rootEntities*(this: InterfaceShareTool): InterfaceEntityIterator {.
     noSideEffect, importcpp: "RootEntities", header: "Interface_ShareTool.hxx".}
-proc IsShared*(this: Interface_ShareTool; ent: handle[Standard_Transient]): Standard_Boolean {.
+proc isShared*(this: InterfaceShareTool; ent: Handle[StandardTransient]): bool {.
     noSideEffect, importcpp: "IsShared", header: "Interface_ShareTool.hxx".}
-proc Shareds*(this: Interface_ShareTool; ent: handle[Standard_Transient]): Interface_EntityIterator {.
+proc shareds*(this: InterfaceShareTool; ent: Handle[StandardTransient]): InterfaceEntityIterator {.
     noSideEffect, importcpp: "Shareds", header: "Interface_ShareTool.hxx".}
-proc Sharings*(this: Interface_ShareTool; ent: handle[Standard_Transient]): Interface_EntityIterator {.
+proc sharings*(this: InterfaceShareTool; ent: Handle[StandardTransient]): InterfaceEntityIterator {.
     noSideEffect, importcpp: "Sharings", header: "Interface_ShareTool.hxx".}
-proc NbTypedSharings*(this: Interface_ShareTool; ent: handle[Standard_Transient];
-                     atype: handle[Standard_Type]): Standard_Integer {.
-    noSideEffect, importcpp: "NbTypedSharings", header: "Interface_ShareTool.hxx".}
-proc TypedSharing*(this: Interface_ShareTool; ent: handle[Standard_Transient];
-                  atype: handle[Standard_Type]): handle[Standard_Transient] {.
+proc nbTypedSharings*(this: InterfaceShareTool; ent: Handle[StandardTransient];
+                     atype: Handle[StandardType]): int {.noSideEffect,
+    importcpp: "NbTypedSharings", header: "Interface_ShareTool.hxx".}
+proc typedSharing*(this: InterfaceShareTool; ent: Handle[StandardTransient];
+                  atype: Handle[StandardType]): Handle[StandardTransient] {.
     noSideEffect, importcpp: "TypedSharing", header: "Interface_ShareTool.hxx".}
-proc All*(this: Interface_ShareTool; ent: handle[Standard_Transient];
-         rootlast: Standard_Boolean = Standard_True): Interface_EntityIterator {.
-    noSideEffect, importcpp: "All", header: "Interface_ShareTool.hxx".}
-proc Print*(this: Interface_ShareTool; iter: Interface_EntityIterator;
-           S: var Standard_OStream) {.noSideEffect, importcpp: "Print",
-                                   header: "Interface_ShareTool.hxx".}
+proc all*(this: InterfaceShareTool; ent: Handle[StandardTransient];
+         rootlast: bool = true): InterfaceEntityIterator {.noSideEffect,
+    importcpp: "All", header: "Interface_ShareTool.hxx".}
+proc print*(this: InterfaceShareTool; iter: InterfaceEntityIterator;
+           s: var StandardOStream) {.noSideEffect, importcpp: "Print",
+                                  header: "Interface_ShareTool.hxx".}

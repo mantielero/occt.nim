@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StdPrs_HLRShapeI
-
 ## ! Instantiates Prs3d_PolyHLRShape to define a display of a shape where hidden
 ## ! and visible lines are identified with respect to a given projection.
 ## ! StdPrs_HLRPolyShape works with a polyhedral simplification of the shape whereas
@@ -26,25 +23,25 @@ import
 ## ! The polygonal algorithm is used.
 
 type
-  StdPrs_HLRPolyShape* {.importcpp: "StdPrs_HLRPolyShape",
-                        header: "StdPrs_HLRPolyShape.hxx", bycopy.} = object of StdPrs_HLRShapeI ##
-                                                                                          ## !
-                                                                                          ## Compute
-                                                                                          ## presentation
-                                                                                          ## for
-                                                                                          ## specified
-                                                                                          ## shape.
+  StdPrsHLRPolyShape* {.importcpp: "StdPrs_HLRPolyShape",
+                       header: "StdPrs_HLRPolyShape.hxx", bycopy.} = object of StdPrsHLRShapeI ##
+                                                                                        ## !
+                                                                                        ## Compute
+                                                                                        ## presentation
+                                                                                        ## for
+                                                                                        ## specified
+                                                                                        ## shape.
 
-  StdPrs_HLRPolyShapebase_type* = StdPrs_HLRShapeI
+  StdPrsHLRPolyShapebaseType* = StdPrsHLRShapeI
 
-proc get_type_name*(): cstring {.importcpp: "StdPrs_HLRPolyShape::get_type_name(@)",
-                              header: "StdPrs_HLRPolyShape.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StdPrs_HLRPolyShape::get_type_name(@)",
+                            header: "StdPrs_HLRPolyShape.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StdPrs_HLRPolyShape::get_type_descriptor(@)",
     header: "StdPrs_HLRPolyShape.hxx".}
-proc DynamicType*(this: StdPrs_HLRPolyShape): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StdPrsHLRPolyShape): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StdPrs_HLRPolyShape.hxx".}
-proc ComputeHLR*(this: StdPrs_HLRPolyShape; thePrs: handle[Prs3d_Presentation];
-                theShape: TopoDS_Shape; theDrawer: handle[Prs3d_Drawer];
-                theProjector: handle[Graphic3d_Camera]) {.noSideEffect,
+proc computeHLR*(this: StdPrsHLRPolyShape; thePrs: Handle[Prs3dPresentation];
+                theShape: TopoDS_Shape; theDrawer: Handle[Prs3dDrawer];
+                theProjector: Handle[Graphic3dCamera]) {.noSideEffect,
     importcpp: "ComputeHLR", header: "StdPrs_HLRPolyShape.hxx".}

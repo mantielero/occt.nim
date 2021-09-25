@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_SequenceOfTransient, StepData_Described,
-  ../Standard/Standard_Boolean, ../Standard/Standard_CString,
-  ../Standard/Standard_Integer, ../TColStd/TColStd_HSequenceOfAsciiString
-
 discard "forward decl of Interface_InterfaceMismatch"
 discard "forward decl of StepData_ECDescr"
 discard "forward decl of StepData_Simple"
@@ -29,70 +23,70 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of StepData_Plex"
 discard "forward decl of StepData_Plex"
 type
-  Handle_StepData_Plex* = handle[StepData_Plex]
+  HandleStepDataPlex* = Handle[StepDataPlex]
 
 ## ! A Plex (for Complex) Entity is defined as a list of Simple
 ## ! Members ("external mapping")
 ## ! The types of these members must be in alphabetic order
 
 type
-  StepData_Plex* {.importcpp: "StepData_Plex", header: "StepData_Plex.hxx", bycopy.} = object of StepData_Described ##
-                                                                                                          ## !
-                                                                                                          ## Creates
-                                                                                                          ## a
-                                                                                                          ## Plex
-                                                                                                          ## (empty).
-                                                                                                          ## The
-                                                                                                          ## complete
-                                                                                                          ## creation
-                                                                                                          ## is
-                                                                                                          ## made
-                                                                                                          ## by
-                                                                                                          ## the
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## ECDescr
-                                                                                                          ## itself,
-                                                                                                          ## by
-                                                                                                          ## calling
-                                                                                                          ## Add
+  StepDataPlex* {.importcpp: "StepData_Plex", header: "StepData_Plex.hxx", bycopy.} = object of StepDataDescribed ##
+                                                                                                        ## !
+                                                                                                        ## Creates
+                                                                                                        ## a
+                                                                                                        ## Plex
+                                                                                                        ## (empty).
+                                                                                                        ## The
+                                                                                                        ## complete
+                                                                                                        ## creation
+                                                                                                        ## is
+                                                                                                        ## made
+                                                                                                        ## by
+                                                                                                        ## the
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## ECDescr
+                                                                                                        ## itself,
+                                                                                                        ## by
+                                                                                                        ## calling
+                                                                                                        ## Add
 
 
-proc constructStepData_Plex*(descr: handle[StepData_ECDescr]): StepData_Plex {.
+proc constructStepDataPlex*(descr: Handle[StepDataECDescr]): StepDataPlex {.
     constructor, importcpp: "StepData_Plex(@)", header: "StepData_Plex.hxx".}
-proc Add*(this: var StepData_Plex; member: handle[StepData_Simple]) {.
-    importcpp: "Add", header: "StepData_Plex.hxx".}
-proc ECDescr*(this: StepData_Plex): handle[StepData_ECDescr] {.noSideEffect,
+proc add*(this: var StepDataPlex; member: Handle[StepDataSimple]) {.importcpp: "Add",
+    header: "StepData_Plex.hxx".}
+proc eCDescr*(this: StepDataPlex): Handle[StepDataECDescr] {.noSideEffect,
     importcpp: "ECDescr", header: "StepData_Plex.hxx".}
-proc IsComplex*(this: StepData_Plex): Standard_Boolean {.noSideEffect,
-    importcpp: "IsComplex", header: "StepData_Plex.hxx".}
-proc Matches*(this: StepData_Plex; steptype: Standard_CString): Standard_Boolean {.
-    noSideEffect, importcpp: "Matches", header: "StepData_Plex.hxx".}
-proc As*(this: StepData_Plex; steptype: Standard_CString): handle[StepData_Simple] {.
+proc isComplex*(this: StepDataPlex): bool {.noSideEffect, importcpp: "IsComplex",
+                                        header: "StepData_Plex.hxx".}
+proc matches*(this: StepDataPlex; steptype: StandardCString): bool {.noSideEffect,
+    importcpp: "Matches", header: "StepData_Plex.hxx".}
+proc `as`*(this: StepDataPlex; steptype: StandardCString): Handle[StepDataSimple] {.
     noSideEffect, importcpp: "As", header: "StepData_Plex.hxx".}
-proc HasField*(this: StepData_Plex; name: Standard_CString): Standard_Boolean {.
-    noSideEffect, importcpp: "HasField", header: "StepData_Plex.hxx".}
-proc Field*(this: StepData_Plex; name: Standard_CString): StepData_Field {.
-    noSideEffect, importcpp: "Field", header: "StepData_Plex.hxx".}
-proc CField*(this: var StepData_Plex; name: Standard_CString): var StepData_Field {.
+proc hasField*(this: StepDataPlex; name: StandardCString): bool {.noSideEffect,
+    importcpp: "HasField", header: "StepData_Plex.hxx".}
+proc field*(this: StepDataPlex; name: StandardCString): StepDataField {.noSideEffect,
+    importcpp: "Field", header: "StepData_Plex.hxx".}
+proc cField*(this: var StepDataPlex; name: StandardCString): var StepDataField {.
     importcpp: "CField", header: "StepData_Plex.hxx".}
-proc NbMembers*(this: StepData_Plex): Standard_Integer {.noSideEffect,
-    importcpp: "NbMembers", header: "StepData_Plex.hxx".}
-proc Member*(this: StepData_Plex; num: Standard_Integer): handle[StepData_Simple] {.
-    noSideEffect, importcpp: "Member", header: "StepData_Plex.hxx".}
-proc TypeList*(this: StepData_Plex): handle[TColStd_HSequenceOfAsciiString] {.
+proc nbMembers*(this: StepDataPlex): int {.noSideEffect, importcpp: "NbMembers",
+                                       header: "StepData_Plex.hxx".}
+proc member*(this: StepDataPlex; num: int): Handle[StepDataSimple] {.noSideEffect,
+    importcpp: "Member", header: "StepData_Plex.hxx".}
+proc typeList*(this: StepDataPlex): Handle[TColStdHSequenceOfAsciiString] {.
     noSideEffect, importcpp: "TypeList", header: "StepData_Plex.hxx".}
-proc Check*(this: StepData_Plex; ach: var handle[Interface_Check]) {.noSideEffect,
+proc check*(this: StepDataPlex; ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "Check", header: "StepData_Plex.hxx".}
-proc Shared*(this: StepData_Plex; list: var Interface_EntityIterator) {.noSideEffect,
+proc shared*(this: StepDataPlex; list: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "Shared", header: "StepData_Plex.hxx".}
 type
-  StepData_Plexbase_type* = StepData_Described
+  StepDataPlexbaseType* = StepDataDescribed
 
-proc get_type_name*(): cstring {.importcpp: "StepData_Plex::get_type_name(@)",
-                              header: "StepData_Plex.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepData_Plex::get_type_name(@)",
+                            header: "StepData_Plex.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepData_Plex::get_type_descriptor(@)",
     header: "StepData_Plex.hxx".}
-proc DynamicType*(this: StepData_Plex): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepDataPlex): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_Plex.hxx".}

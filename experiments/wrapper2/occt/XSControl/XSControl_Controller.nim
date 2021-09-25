@@ -14,16 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString, ../TColStd/TColStd_SequenceOfTransient,
-  ../TColStd/TColStd_HSequenceOfHAsciiString,
-  ../TColStd/TColStd_SequenceOfInteger,
-  ../Interface/Interface_HArray1OfHAsciiString, ../Standard/Standard_Transient,
-  ../NCollection/NCollection_Vector, ../IFSelect/IFSelect_ReturnStatus,
-  ../Standard/Standard_Transient, ../NCollection/NCollection_DataMap,
-  ../TCollection/TCollection_AsciiString, ../Message/Message_ProgressRange
-
 discard "forward decl of IFSelect_WorkLibrary"
 discard "forward decl of Interface_Protocol"
 discard "forward decl of IFSelect_Signature"
@@ -38,7 +28,7 @@ discard "forward decl of Interface_CheckIterator"
 discard "forward decl of XSControl_Controller"
 discard "forward decl of XSControl_Controller"
 type
-  Handle_XSControl_Controller* = handle[XSControl_Controller]
+  HandleXSControlController* = Handle[XSControlController]
 
 ## ! This class allows a general X-STEP engine to run generic
 ## ! functions on any interface norm, in the same way. It includes
@@ -57,146 +47,137 @@ type
 ## ! link between the norm and the application
 
 type
-  XSControl_Controller* {.importcpp: "XSControl_Controller",
-                         header: "XSControl_Controller.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                              ## !
-                                                                                              ## Changes
-                                                                                              ## names
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## if
-                                                                                              ## a
-                                                                                              ## name
-                                                                                              ## is
-                                                                                              ## empty,
-                                                                                              ## the
-                                                                                              ## formerly
-                                                                                              ## set
-                                                                                              ## one
-                                                                                              ## remains
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Remark
-                                                                                              ## :
-                                                                                              ## Does
-                                                                                              ## not
-                                                                                              ## call
-                                                                                              ## Record
-                                                                                              ## or
-                                                                                              ## AutoRecord
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Initializing
-                                                                                              ## with
-                                                                                              ## names
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## <theLongName>
-                                                                                              ## is
-                                                                                              ## for
-                                                                                              ## the
-                                                                                              ## complete,
-                                                                                              ## official,
-                                                                                              ## long
-                                                                                              ## name
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## <theShortName>
-                                                                                              ## is
-                                                                                              ## for
-                                                                                              ## the
-                                                                                              ## short
-                                                                                              ## name
-                                                                                              ## used
-                                                                                              ## for
-                                                                                              ## resources
+  XSControlController* {.importcpp: "XSControl_Controller",
+                        header: "XSControl_Controller.hxx", bycopy.} = object of StandardTransient ##
+                                                                                            ## !
+                                                                                            ## Changes
+                                                                                            ## names
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## if
+                                                                                            ## a
+                                                                                            ## name
+                                                                                            ## is
+                                                                                            ## empty,
+                                                                                            ## the
+                                                                                            ## formerly
+                                                                                            ## set
+                                                                                            ## one
+                                                                                            ## remains
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Remark
+                                                                                            ## :
+                                                                                            ## Does
+                                                                                            ## not
+                                                                                            ## call
+                                                                                            ## Record
+                                                                                            ## or
+                                                                                            ## AutoRecord
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Initializing
+                                                                                            ## with
+                                                                                            ## names
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## <theLongName>
+                                                                                            ## is
+                                                                                            ## for
+                                                                                            ## the
+                                                                                            ## complete,
+                                                                                            ## official,
+                                                                                            ## long
+                                                                                            ## name
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## <theShortName>
+                                                                                            ## is
+                                                                                            ## for
+                                                                                            ## the
+                                                                                            ## short
+                                                                                            ## name
+                                                                                            ## used
+                                                                                            ## for
+                                                                                            ## resources
     ## szv:Handle(IFSelect_Signature) mySignType;
 
 
-proc SetNames*(this: var XSControl_Controller; theLongName: Standard_CString;
-              theShortName: Standard_CString) {.importcpp: "SetNames",
+proc setNames*(this: var XSControlController; theLongName: StandardCString;
+              theShortName: StandardCString) {.importcpp: "SetNames",
     header: "XSControl_Controller.hxx".}
-proc AutoRecord*(this: XSControl_Controller) {.noSideEffect,
-    importcpp: "AutoRecord", header: "XSControl_Controller.hxx".}
-proc Record*(this: XSControl_Controller; name: Standard_CString) {.noSideEffect,
+proc autoRecord*(this: XSControlController) {.noSideEffect, importcpp: "AutoRecord",
+    header: "XSControl_Controller.hxx".}
+proc record*(this: XSControlController; name: StandardCString) {.noSideEffect,
     importcpp: "Record", header: "XSControl_Controller.hxx".}
-proc Recorded*(name: Standard_CString): handle[XSControl_Controller] {.
+proc recorded*(name: StandardCString): Handle[XSControlController] {.
     importcpp: "XSControl_Controller::Recorded(@)",
     header: "XSControl_Controller.hxx".}
-proc Name*(this: XSControl_Controller; rsc: Standard_Boolean = Standard_False): Standard_CString {.
+proc name*(this: XSControlController; rsc: bool = false): StandardCString {.
     noSideEffect, importcpp: "Name", header: "XSControl_Controller.hxx".}
-proc Protocol*(this: XSControl_Controller): handle[Interface_Protocol] {.
-    noSideEffect, importcpp: "Protocol", header: "XSControl_Controller.hxx".}
-proc WorkLibrary*(this: XSControl_Controller): handle[IFSelect_WorkLibrary] {.
+proc protocol*(this: XSControlController): Handle[InterfaceProtocol] {.noSideEffect,
+    importcpp: "Protocol", header: "XSControl_Controller.hxx".}
+proc workLibrary*(this: XSControlController): Handle[IFSelectWorkLibrary] {.
     noSideEffect, importcpp: "WorkLibrary", header: "XSControl_Controller.hxx".}
-proc NewModel*(this: XSControl_Controller): handle[Interface_InterfaceModel] {.
+proc newModel*(this: XSControlController): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "NewModel", header: "XSControl_Controller.hxx".}
-proc ActorRead*(this: XSControl_Controller; model: handle[Interface_InterfaceModel]): handle[
-    Transfer_ActorOfTransientProcess] {.noSideEffect, importcpp: "ActorRead",
-                                       header: "XSControl_Controller.hxx".}
-proc ActorWrite*(this: XSControl_Controller): handle[Transfer_ActorOfFinderProcess] {.
+proc actorRead*(this: XSControlController; model: Handle[InterfaceInterfaceModel]): Handle[
+    TransferActorOfTransientProcess] {.noSideEffect, importcpp: "ActorRead",
+                                      header: "XSControl_Controller.hxx".}
+proc actorWrite*(this: XSControlController): Handle[TransferActorOfFinderProcess] {.
     noSideEffect, importcpp: "ActorWrite", header: "XSControl_Controller.hxx".}
-proc SetModeWrite*(this: var XSControl_Controller; modemin: Standard_Integer;
-                  modemax: Standard_Integer;
-                  shape: Standard_Boolean = Standard_True) {.
-    importcpp: "SetModeWrite", header: "XSControl_Controller.hxx".}
-proc SetModeWriteHelp*(this: var XSControl_Controller; modetrans: Standard_Integer;
-                      help: Standard_CString;
-                      shape: Standard_Boolean = Standard_True) {.
+proc setModeWrite*(this: var XSControlController; modemin: int; modemax: int;
+                  shape: bool = true) {.importcpp: "SetModeWrite",
+                                    header: "XSControl_Controller.hxx".}
+proc setModeWriteHelp*(this: var XSControlController; modetrans: int;
+                      help: StandardCString; shape: bool = true) {.
     importcpp: "SetModeWriteHelp", header: "XSControl_Controller.hxx".}
-proc ModeWriteBounds*(this: XSControl_Controller; modemin: var Standard_Integer;
-                     modemax: var Standard_Integer;
-                     shape: Standard_Boolean = Standard_True): Standard_Boolean {.
-    noSideEffect, importcpp: "ModeWriteBounds", header: "XSControl_Controller.hxx".}
-proc IsModeWrite*(this: XSControl_Controller; modetrans: Standard_Integer;
-                 shape: Standard_Boolean = Standard_True): Standard_Boolean {.
+proc modeWriteBounds*(this: XSControlController; modemin: var int; modemax: var int;
+                     shape: bool = true): bool {.noSideEffect,
+    importcpp: "ModeWriteBounds", header: "XSControl_Controller.hxx".}
+proc isModeWrite*(this: XSControlController; modetrans: int; shape: bool = true): bool {.
     noSideEffect, importcpp: "IsModeWrite", header: "XSControl_Controller.hxx".}
-proc ModeWriteHelp*(this: XSControl_Controller; modetrans: Standard_Integer;
-                   shape: Standard_Boolean = Standard_True): Standard_CString {.
+proc modeWriteHelp*(this: XSControlController; modetrans: int; shape: bool = true): StandardCString {.
     noSideEffect, importcpp: "ModeWriteHelp", header: "XSControl_Controller.hxx".}
-proc RecognizeWriteTransient*(this: XSControl_Controller;
-                             obj: handle[Standard_Transient];
-                             modetrans: Standard_Integer = 0): Standard_Boolean {.
+proc recognizeWriteTransient*(this: XSControlController;
+                             obj: Handle[StandardTransient]; modetrans: int = 0): bool {.
     noSideEffect, importcpp: "RecognizeWriteTransient",
     header: "XSControl_Controller.hxx".}
-proc TransferWriteTransient*(this: XSControl_Controller;
-                            obj: handle[Standard_Transient];
-                            FP: handle[Transfer_FinderProcess];
-                            model: handle[Interface_InterfaceModel];
-                            modetrans: Standard_Integer = 0; theProgress: Message_ProgressRange = Message_ProgressRange()): IFSelect_ReturnStatus {.
+proc transferWriteTransient*(this: XSControlController;
+                            obj: Handle[StandardTransient];
+                            fp: Handle[TransferFinderProcess];
+                            model: Handle[InterfaceInterfaceModel];
+                            modetrans: int = 0; theProgress: MessageProgressRange = messageProgressRange()): IFSelectReturnStatus {.
     noSideEffect, importcpp: "TransferWriteTransient",
     header: "XSControl_Controller.hxx".}
-proc RecognizeWriteShape*(this: XSControl_Controller; shape: TopoDS_Shape;
-                         modetrans: Standard_Integer = 0): Standard_Boolean {.
-    noSideEffect, importcpp: "RecognizeWriteShape",
-    header: "XSControl_Controller.hxx".}
-proc TransferWriteShape*(this: XSControl_Controller; shape: TopoDS_Shape;
-                        FP: handle[Transfer_FinderProcess];
-                        model: handle[Interface_InterfaceModel];
-                        modetrans: Standard_Integer = 0; theProgress: Message_ProgressRange = Message_ProgressRange()): IFSelect_ReturnStatus {.
+proc recognizeWriteShape*(this: XSControlController; shape: TopoDS_Shape;
+                         modetrans: int = 0): bool {.noSideEffect,
+    importcpp: "RecognizeWriteShape", header: "XSControl_Controller.hxx".}
+proc transferWriteShape*(this: XSControlController; shape: TopoDS_Shape;
+                        fp: Handle[TransferFinderProcess];
+                        model: Handle[InterfaceInterfaceModel];
+                        modetrans: int = 0; theProgress: MessageProgressRange = messageProgressRange()): IFSelectReturnStatus {.
     noSideEffect, importcpp: "TransferWriteShape",
     header: "XSControl_Controller.hxx".}
-proc AddSessionItem*(this: var XSControl_Controller;
-                    theItem: handle[Standard_Transient];
-                    theName: Standard_CString;
-                    toApply: Standard_Boolean = Standard_False) {.
-    importcpp: "AddSessionItem", header: "XSControl_Controller.hxx".}
-proc SessionItem*(this: XSControl_Controller; theName: Standard_CString): handle[
-    Standard_Transient] {.noSideEffect, importcpp: "SessionItem",
-                         header: "XSControl_Controller.hxx".}
-proc Customise*(this: var XSControl_Controller;
-               WS: var handle[XSControl_WorkSession]) {.importcpp: "Customise",
+proc addSessionItem*(this: var XSControlController;
+                    theItem: Handle[StandardTransient]; theName: StandardCString;
+                    toApply: bool = false) {.importcpp: "AddSessionItem",
     header: "XSControl_Controller.hxx".}
-proc AdaptorSession*(this: XSControl_Controller): NCollection_DataMap[
-    TCollection_AsciiString, handle[Standard_Transient]] {.noSideEffect,
+proc sessionItem*(this: XSControlController; theName: StandardCString): Handle[
+    StandardTransient] {.noSideEffect, importcpp: "SessionItem",
+                        header: "XSControl_Controller.hxx".}
+proc customise*(this: var XSControlController; ws: var Handle[XSControlWorkSession]) {.
+    importcpp: "Customise", header: "XSControl_Controller.hxx".}
+proc adaptorSession*(this: XSControlController): NCollectionDataMap[
+    TCollectionAsciiString, Handle[StandardTransient]] {.noSideEffect,
     importcpp: "AdaptorSession", header: "XSControl_Controller.hxx".}
 type
-  XSControl_Controllerbase_type* = Standard_Transient
+  XSControlControllerbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "XSControl_Controller::get_type_name(@)",
-                              header: "XSControl_Controller.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XSControl_Controller::get_type_name(@)",
+                            header: "XSControl_Controller.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XSControl_Controller::get_type_descriptor(@)",
     header: "XSControl_Controller.hxx".}
-proc DynamicType*(this: XSControl_Controller): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: XSControlController): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XSControl_Controller.hxx".}

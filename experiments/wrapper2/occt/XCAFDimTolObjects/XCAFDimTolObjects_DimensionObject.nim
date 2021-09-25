@@ -13,209 +13,178 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  XCAFDimTolObjects_DimensionObjectSequence, XCAFDimTolObjects_DimensionType,
-  ../TColStd/TColStd_HArray1OfReal, XCAFDimTolObjects_DimensionQualifier,
-  ../Standard/Standard_Boolean, XCAFDimTolObjects_DimensionFormVariance,
-  XCAFDimTolObjects_DimensionGrade, ../Standard/Standard_Integer,
-  XCAFDimTolObjects_DimensionModifiersSequence, ../TopoDS/TopoDS_Edge,
-  ../gp/gp_Dir, ../gp/gp_Ax2, ../TColgp/TColgp_HArray1OfPnt,
-  ../Standard/Standard_Transient, ../Standard/Standard_Real,
-  XCAFDimTolObjects_DimensionModif, ../TCollection/TCollection_HAsciiString,
-  ../NCollection/NCollection_Vector, ../TColStd/TColStd_HArray1OfExtendedString
-
 discard "forward decl of XCAFDimTolObjects_DimensionObject"
 discard "forward decl of XCAFDimTolObjects_DimensionObject"
 type
-  Handle_XCAFDimTolObjects_DimensionObject* = handle[
-      XCAFDimTolObjects_DimensionObject]
+  HandleXCAFDimTolObjectsDimensionObject* = Handle[
+      XCAFDimTolObjectsDimensionObject]
 
 ## ! Access object to store dimension data
 
 type
-  XCAFDimTolObjects_DimensionObject* {.importcpp: "XCAFDimTolObjects_DimensionObject", header: "XCAFDimTolObjects_DimensionObject.hxx",
-                                      bycopy.} = object of Standard_Transient
+  XCAFDimTolObjectsDimensionObject* {.importcpp: "XCAFDimTolObjects_DimensionObject", header: "XCAFDimTolObjects_DimensionObject.hxx",
+                                     bycopy.} = object of StandardTransient
 
 
-proc constructXCAFDimTolObjects_DimensionObject*(): XCAFDimTolObjects_DimensionObject {.
+proc constructXCAFDimTolObjectsDimensionObject*(): XCAFDimTolObjectsDimensionObject {.
     constructor, importcpp: "XCAFDimTolObjects_DimensionObject(@)",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc constructXCAFDimTolObjects_DimensionObject*(
-    theObj: handle[XCAFDimTolObjects_DimensionObject]): XCAFDimTolObjects_DimensionObject {.
+proc constructXCAFDimTolObjectsDimensionObject*(
+    theObj: Handle[XCAFDimTolObjectsDimensionObject]): XCAFDimTolObjectsDimensionObject {.
     constructor, importcpp: "XCAFDimTolObjects_DimensionObject(@)",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc GetSemanticName*(this: XCAFDimTolObjects_DimensionObject): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "GetSemanticName",
-                               header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc SetSemanticName*(this: var XCAFDimTolObjects_DimensionObject;
-                     theName: handle[TCollection_HAsciiString]) {.
+proc getSemanticName*(this: XCAFDimTolObjectsDimensionObject): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "GetSemanticName",
+                              header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc setSemanticName*(this: var XCAFDimTolObjectsDimensionObject;
+                     theName: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetSemanticName", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc SetQualifier*(this: var XCAFDimTolObjects_DimensionObject;
-                  theQualifier: XCAFDimTolObjects_DimensionQualifier) {.
+proc setQualifier*(this: var XCAFDimTolObjectsDimensionObject;
+                  theQualifier: XCAFDimTolObjectsDimensionQualifier) {.
     importcpp: "SetQualifier", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc GetQualifier*(this: XCAFDimTolObjects_DimensionObject): XCAFDimTolObjects_DimensionQualifier {.
+proc getQualifier*(this: XCAFDimTolObjectsDimensionObject): XCAFDimTolObjectsDimensionQualifier {.
     noSideEffect, importcpp: "GetQualifier",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc HasQualifier*(this: XCAFDimTolObjects_DimensionObject): Standard_Boolean {.
-    noSideEffect, importcpp: "HasQualifier",
+proc hasQualifier*(this: XCAFDimTolObjectsDimensionObject): bool {.noSideEffect,
+    importcpp: "HasQualifier", header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc setType*(this: var XCAFDimTolObjectsDimensionObject;
+             theTyupe: XCAFDimTolObjectsDimensionType) {.importcpp: "SetType",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc SetType*(this: var XCAFDimTolObjects_DimensionObject;
-             theTyupe: XCAFDimTolObjects_DimensionType) {.importcpp: "SetType",
-    header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc GetType*(this: XCAFDimTolObjects_DimensionObject): XCAFDimTolObjects_DimensionType {.
+proc getType*(this: XCAFDimTolObjectsDimensionObject): XCAFDimTolObjectsDimensionType {.
     noSideEffect, importcpp: "GetType",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc GetValue*(this: XCAFDimTolObjects_DimensionObject): Standard_Real {.
-    noSideEffect, importcpp: "GetValue",
-    header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc GetValues*(this: XCAFDimTolObjects_DimensionObject): handle[
-    TColStd_HArray1OfReal] {.noSideEffect, importcpp: "GetValues",
-                            header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc SetValue*(this: var XCAFDimTolObjects_DimensionObject; theValue: Standard_Real) {.
+proc getValue*(this: XCAFDimTolObjectsDimensionObject): float {.noSideEffect,
+    importcpp: "GetValue", header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc getValues*(this: XCAFDimTolObjectsDimensionObject): Handle[
+    TColStdHArray1OfReal] {.noSideEffect, importcpp: "GetValues",
+                           header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc setValue*(this: var XCAFDimTolObjectsDimensionObject; theValue: float) {.
     importcpp: "SetValue", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc SetValues*(this: var XCAFDimTolObjects_DimensionObject;
-               theValue: handle[TColStd_HArray1OfReal]) {.importcpp: "SetValues",
+proc setValues*(this: var XCAFDimTolObjectsDimensionObject;
+               theValue: Handle[TColStdHArray1OfReal]) {.importcpp: "SetValues",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc IsDimWithRange*(this: XCAFDimTolObjects_DimensionObject): Standard_Boolean {.
-    noSideEffect, importcpp: "IsDimWithRange",
-    header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc SetUpperBound*(this: var XCAFDimTolObjects_DimensionObject;
-                   theUpperBound: Standard_Real) {.importcpp: "SetUpperBound",
-    header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc SetLowerBound*(this: var XCAFDimTolObjects_DimensionObject;
-                   theLowerBound: Standard_Real) {.importcpp: "SetLowerBound",
-    header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc GetUpperBound*(this: XCAFDimTolObjects_DimensionObject): Standard_Real {.
-    noSideEffect, importcpp: "GetUpperBound",
-    header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc GetLowerBound*(this: XCAFDimTolObjects_DimensionObject): Standard_Real {.
-    noSideEffect, importcpp: "GetLowerBound",
-    header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc IsDimWithPlusMinusTolerance*(this: XCAFDimTolObjects_DimensionObject): Standard_Boolean {.
+proc isDimWithRange*(this: XCAFDimTolObjectsDimensionObject): bool {.noSideEffect,
+    importcpp: "IsDimWithRange", header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc setUpperBound*(this: var XCAFDimTolObjectsDimensionObject; theUpperBound: float) {.
+    importcpp: "SetUpperBound", header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc setLowerBound*(this: var XCAFDimTolObjectsDimensionObject; theLowerBound: float) {.
+    importcpp: "SetLowerBound", header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc getUpperBound*(this: XCAFDimTolObjectsDimensionObject): float {.noSideEffect,
+    importcpp: "GetUpperBound", header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc getLowerBound*(this: XCAFDimTolObjectsDimensionObject): float {.noSideEffect,
+    importcpp: "GetLowerBound", header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc isDimWithPlusMinusTolerance*(this: XCAFDimTolObjectsDimensionObject): bool {.
     noSideEffect, importcpp: "IsDimWithPlusMinusTolerance",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc SetUpperTolValue*(this: var XCAFDimTolObjects_DimensionObject;
-                      theUperTolValue: Standard_Real): Standard_Boolean {.
+proc setUpperTolValue*(this: var XCAFDimTolObjectsDimensionObject;
+                      theUperTolValue: float): bool {.
     importcpp: "SetUpperTolValue", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc SetLowerTolValue*(this: var XCAFDimTolObjects_DimensionObject;
-                      theLowerTolValue: Standard_Real): Standard_Boolean {.
+proc setLowerTolValue*(this: var XCAFDimTolObjectsDimensionObject;
+                      theLowerTolValue: float): bool {.
     importcpp: "SetLowerTolValue", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc GetUpperTolValue*(this: XCAFDimTolObjects_DimensionObject): Standard_Real {.
+proc getUpperTolValue*(this: XCAFDimTolObjectsDimensionObject): float {.
     noSideEffect, importcpp: "GetUpperTolValue",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc GetLowerTolValue*(this: XCAFDimTolObjects_DimensionObject): Standard_Real {.
+proc getLowerTolValue*(this: XCAFDimTolObjectsDimensionObject): float {.
     noSideEffect, importcpp: "GetLowerTolValue",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc IsDimWithClassOfTolerance*(this: XCAFDimTolObjects_DimensionObject): Standard_Boolean {.
+proc isDimWithClassOfTolerance*(this: XCAFDimTolObjectsDimensionObject): bool {.
     noSideEffect, importcpp: "IsDimWithClassOfTolerance",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc SetClassOfTolerance*(this: var XCAFDimTolObjects_DimensionObject;
-                         theHole: Standard_Boolean; theFormVariance: XCAFDimTolObjects_DimensionFormVariance;
-                         theGrade: XCAFDimTolObjects_DimensionGrade) {.
+proc setClassOfTolerance*(this: var XCAFDimTolObjectsDimensionObject; theHole: bool;
+    theFormVariance: XCAFDimTolObjectsDimensionFormVariance;
+                         theGrade: XCAFDimTolObjectsDimensionGrade) {.
     importcpp: "SetClassOfTolerance",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc GetClassOfTolerance*(this: XCAFDimTolObjects_DimensionObject;
-                         theHole: var Standard_Boolean; theFormVariance: var XCAFDimTolObjects_DimensionFormVariance;
-                         theGrade: var XCAFDimTolObjects_DimensionGrade): Standard_Boolean {.
+proc getClassOfTolerance*(this: XCAFDimTolObjectsDimensionObject;
+                         theHole: var bool; theFormVariance: var XCAFDimTolObjectsDimensionFormVariance;
+                         theGrade: var XCAFDimTolObjectsDimensionGrade): bool {.
     noSideEffect, importcpp: "GetClassOfTolerance",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc SetNbOfDecimalPlaces*(this: var XCAFDimTolObjects_DimensionObject;
-                          theL: Standard_Integer; theR: Standard_Integer) {.
-    importcpp: "SetNbOfDecimalPlaces",
-    header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc GetNbOfDecimalPlaces*(this: XCAFDimTolObjects_DimensionObject;
-                          theL: var Standard_Integer; theR: var Standard_Integer) {.
-    noSideEffect, importcpp: "GetNbOfDecimalPlaces",
-    header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc GetModifiers*(this: XCAFDimTolObjects_DimensionObject): XCAFDimTolObjects_DimensionModifiersSequence {.
+proc setNbOfDecimalPlaces*(this: var XCAFDimTolObjectsDimensionObject; theL: int;
+                          theR: int) {.importcpp: "SetNbOfDecimalPlaces", header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc getNbOfDecimalPlaces*(this: XCAFDimTolObjectsDimensionObject; theL: var int;
+                          theR: var int) {.noSideEffect,
+                                        importcpp: "GetNbOfDecimalPlaces", header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc getModifiers*(this: XCAFDimTolObjectsDimensionObject): XCAFDimTolObjectsDimensionModifiersSequence {.
     noSideEffect, importcpp: "GetModifiers",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc SetModifiers*(this: var XCAFDimTolObjects_DimensionObject;
-                  theModifiers: XCAFDimTolObjects_DimensionModifiersSequence) {.
+proc setModifiers*(this: var XCAFDimTolObjectsDimensionObject;
+                  theModifiers: XCAFDimTolObjectsDimensionModifiersSequence) {.
     importcpp: "SetModifiers", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc AddModifier*(this: var XCAFDimTolObjects_DimensionObject;
-                 theModifier: XCAFDimTolObjects_DimensionModif) {.
+proc addModifier*(this: var XCAFDimTolObjectsDimensionObject;
+                 theModifier: XCAFDimTolObjectsDimensionModif) {.
     importcpp: "AddModifier", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc GetPath*(this: XCAFDimTolObjects_DimensionObject): TopoDS_Edge {.noSideEffect,
+proc getPath*(this: XCAFDimTolObjectsDimensionObject): TopoDS_Edge {.noSideEffect,
     importcpp: "GetPath", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc SetPath*(this: var XCAFDimTolObjects_DimensionObject; thePath: TopoDS_Edge) {.
+proc setPath*(this: var XCAFDimTolObjectsDimensionObject; thePath: TopoDS_Edge) {.
     importcpp: "SetPath", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc GetDirection*(this: XCAFDimTolObjects_DimensionObject; theDir: var gp_Dir): Standard_Boolean {.
+proc getDirection*(this: XCAFDimTolObjectsDimensionObject; theDir: var Dir): bool {.
     noSideEffect, importcpp: "GetDirection",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc SetDirection*(this: var XCAFDimTolObjects_DimensionObject; theDir: gp_Dir): Standard_Boolean {.
+proc setDirection*(this: var XCAFDimTolObjectsDimensionObject; theDir: Dir): bool {.
     importcpp: "SetDirection", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc SetPointTextAttach*(this: var XCAFDimTolObjects_DimensionObject;
-                        thePntText: gp_Pnt) {.importcpp: "SetPointTextAttach",
+proc setPointTextAttach*(this: var XCAFDimTolObjectsDimensionObject; thePntText: Pnt) {.
+    importcpp: "SetPointTextAttach",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc GetPointTextAttach*(this: XCAFDimTolObjects_DimensionObject): gp_Pnt {.
+proc getPointTextAttach*(this: XCAFDimTolObjectsDimensionObject): Pnt {.
     noSideEffect, importcpp: "GetPointTextAttach",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc HasTextPoint*(this: XCAFDimTolObjects_DimensionObject): Standard_Boolean {.
-    noSideEffect, importcpp: "HasTextPoint",
-    header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc SetPlane*(this: var XCAFDimTolObjects_DimensionObject; thePlane: gp_Ax2) {.
+proc hasTextPoint*(this: XCAFDimTolObjectsDimensionObject): bool {.noSideEffect,
+    importcpp: "HasTextPoint", header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc setPlane*(this: var XCAFDimTolObjectsDimensionObject; thePlane: Ax2) {.
     importcpp: "SetPlane", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc GetPlane*(this: XCAFDimTolObjects_DimensionObject): gp_Ax2 {.noSideEffect,
+proc getPlane*(this: XCAFDimTolObjectsDimensionObject): Ax2 {.noSideEffect,
     importcpp: "GetPlane", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc HasPlane*(this: XCAFDimTolObjects_DimensionObject): Standard_Boolean {.
-    noSideEffect, importcpp: "HasPlane",
-    header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc HasPoint*(this: XCAFDimTolObjects_DimensionObject): Standard_Boolean {.
-    noSideEffect, importcpp: "HasPoint",
-    header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc HasPoint2*(this: XCAFDimTolObjects_DimensionObject): Standard_Boolean {.
-    noSideEffect, importcpp: "HasPoint2",
-    header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc SetPoint*(this: var XCAFDimTolObjects_DimensionObject; thePnt: gp_Pnt) {.
+proc hasPlane*(this: XCAFDimTolObjectsDimensionObject): bool {.noSideEffect,
+    importcpp: "HasPlane", header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc hasPoint*(this: XCAFDimTolObjectsDimensionObject): bool {.noSideEffect,
+    importcpp: "HasPoint", header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc hasPoint2*(this: XCAFDimTolObjectsDimensionObject): bool {.noSideEffect,
+    importcpp: "HasPoint2", header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc setPoint*(this: var XCAFDimTolObjectsDimensionObject; thePnt: Pnt) {.
     importcpp: "SetPoint", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc SetPoint2*(this: var XCAFDimTolObjects_DimensionObject; thePnt: gp_Pnt) {.
+proc setPoint2*(this: var XCAFDimTolObjectsDimensionObject; thePnt: Pnt) {.
     importcpp: "SetPoint2", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc GetPoint*(this: XCAFDimTolObjects_DimensionObject): gp_Pnt {.noSideEffect,
+proc getPoint*(this: XCAFDimTolObjectsDimensionObject): Pnt {.noSideEffect,
     importcpp: "GetPoint", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc GetPoint2*(this: XCAFDimTolObjects_DimensionObject): gp_Pnt {.noSideEffect,
+proc getPoint2*(this: XCAFDimTolObjectsDimensionObject): Pnt {.noSideEffect,
     importcpp: "GetPoint2", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc SetPresentation*(this: var XCAFDimTolObjects_DimensionObject;
+proc setPresentation*(this: var XCAFDimTolObjectsDimensionObject;
                      thePresentation: TopoDS_Shape;
-                     thePresentationName: handle[TCollection_HAsciiString]) {.
+                     thePresentationName: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetPresentation", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc GetPresentation*(this: XCAFDimTolObjects_DimensionObject): TopoDS_Shape {.
+proc getPresentation*(this: XCAFDimTolObjectsDimensionObject): TopoDS_Shape {.
     noSideEffect, importcpp: "GetPresentation",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc GetPresentationName*(this: XCAFDimTolObjects_DimensionObject): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "GetPresentationName",
-                               header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc HasDescriptions*(this: XCAFDimTolObjects_DimensionObject): Standard_Boolean {.
-    noSideEffect, importcpp: "HasDescriptions",
-    header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc NbDescriptions*(this: XCAFDimTolObjects_DimensionObject): Standard_Integer {.
-    noSideEffect, importcpp: "NbDescriptions",
-    header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc GetDescription*(this: XCAFDimTolObjects_DimensionObject;
-                    theNumber: Standard_Integer): handle[TCollection_HAsciiString] {.
-    noSideEffect, importcpp: "GetDescription",
-    header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc GetDescriptionName*(this: XCAFDimTolObjects_DimensionObject;
-                        theNumber: Standard_Integer): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "GetDescriptionName",
-                               header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc RemoveDescription*(this: var XCAFDimTolObjects_DimensionObject;
-                       theNumber: Standard_Integer) {.
+proc getPresentationName*(this: XCAFDimTolObjectsDimensionObject): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "GetPresentationName",
+                              header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc hasDescriptions*(this: XCAFDimTolObjectsDimensionObject): bool {.noSideEffect,
+    importcpp: "HasDescriptions", header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc nbDescriptions*(this: XCAFDimTolObjectsDimensionObject): int {.noSideEffect,
+    importcpp: "NbDescriptions", header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc getDescription*(this: XCAFDimTolObjectsDimensionObject; theNumber: int): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "GetDescription",
+                              header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc getDescriptionName*(this: XCAFDimTolObjectsDimensionObject; theNumber: int): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "GetDescriptionName",
+                              header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc removeDescription*(this: var XCAFDimTolObjectsDimensionObject; theNumber: int) {.
     importcpp: "RemoveDescription",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc AddDescription*(this: var XCAFDimTolObjects_DimensionObject;
-                    theDescription: handle[TCollection_HAsciiString];
-                    theName: handle[TCollection_HAsciiString]) {.
+proc addDescription*(this: var XCAFDimTolObjectsDimensionObject;
+                    theDescription: Handle[TCollectionHAsciiString];
+                    theName: Handle[TCollectionHAsciiString]) {.
     importcpp: "AddDescription", header: "XCAFDimTolObjects_DimensionObject.hxx".}
 type
-  XCAFDimTolObjects_DimensionObjectbase_type* = Standard_Transient
+  XCAFDimTolObjectsDimensionObjectbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "XCAFDimTolObjects_DimensionObject::get_type_name(@)",
-                              header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XCAFDimTolObjects_DimensionObject::get_type_name(@)",
+                            header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XCAFDimTolObjects_DimensionObject::get_type_descriptor(@)",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc DynamicType*(this: XCAFDimTolObjects_DimensionObject): handle[Standard_Type] {.
+proc dynamicType*(this: XCAFDimTolObjectsDimensionObject): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}

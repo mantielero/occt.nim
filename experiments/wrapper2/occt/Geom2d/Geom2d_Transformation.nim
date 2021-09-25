@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Trsf2d,
-  ../Standard/Standard_Transient, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../gp/gp_TrsfForm, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Trsf2d"
@@ -28,7 +23,7 @@ discard "forward decl of gp_Vec2d"
 discard "forward decl of Geom2d_Transformation"
 discard "forward decl of Geom2d_Transformation"
 type
-  Handle_Geom2d_Transformation* = handle[Geom2d_Transformation]
+  HandleGeom2dTransformation* = Handle[Geom2dTransformation]
 
 ## ! The class Transformation allows to create Translation,
 ## ! Rotation, Symmetry, Scaling and complex transformations
@@ -64,91 +59,80 @@ type
 ## ! several objects contained inside a common data structure.
 
 type
-  Geom2d_Transformation* {.importcpp: "Geom2d_Transformation",
-                          header: "Geom2d_Transformation.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## an
-                                                                                                ## identity
-                                                                                                ## transformation.
-    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
-    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
-    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
+  Geom2dTransformation* {.importcpp: "Geom2d_Transformation",
+                         header: "Geom2d_Transformation.hxx", bycopy.} = object of StandardTransient ##
+                                                                                              ## !
+                                                                                              ## Creates
+                                                                                              ## an
+                                                                                              ## identity
+                                                                                              ## transformation.
 
 
-proc constructGeom2d_Transformation*(): Geom2d_Transformation {.constructor,
+proc constructGeom2dTransformation*(): Geom2dTransformation {.constructor,
     importcpp: "Geom2d_Transformation(@)", header: "Geom2d_Transformation.hxx".}
-proc constructGeom2d_Transformation*(T: gp_Trsf2d): Geom2d_Transformation {.
-    constructor, importcpp: "Geom2d_Transformation(@)",
+proc constructGeom2dTransformation*(t: Trsf2d): Geom2dTransformation {.constructor,
+    importcpp: "Geom2d_Transformation(@)", header: "Geom2d_Transformation.hxx".}
+proc setMirror*(this: var Geom2dTransformation; p: Pnt2d) {.importcpp: "SetMirror",
     header: "Geom2d_Transformation.hxx".}
-proc SetMirror*(this: var Geom2d_Transformation; P: gp_Pnt2d) {.
-    importcpp: "SetMirror", header: "Geom2d_Transformation.hxx".}
-proc SetMirror*(this: var Geom2d_Transformation; A: gp_Ax2d) {.importcpp: "SetMirror",
+proc setMirror*(this: var Geom2dTransformation; a: Ax2d) {.importcpp: "SetMirror",
     header: "Geom2d_Transformation.hxx".}
-proc SetRotation*(this: var Geom2d_Transformation; P: gp_Pnt2d; Ang: Standard_Real) {.
+proc setRotation*(this: var Geom2dTransformation; p: Pnt2d; ang: float) {.
     importcpp: "SetRotation", header: "Geom2d_Transformation.hxx".}
-proc SetScale*(this: var Geom2d_Transformation; P: gp_Pnt2d; S: Standard_Real) {.
+proc setScale*(this: var Geom2dTransformation; p: Pnt2d; s: float) {.
     importcpp: "SetScale", header: "Geom2d_Transformation.hxx".}
-proc SetTransformation*(this: var Geom2d_Transformation; FromSystem1: gp_Ax2d;
-                       ToSystem2: gp_Ax2d) {.importcpp: "SetTransformation",
-    header: "Geom2d_Transformation.hxx".}
-proc SetTransformation*(this: var Geom2d_Transformation; ToSystem: gp_Ax2d) {.
+proc setTransformation*(this: var Geom2dTransformation; fromSystem1: Ax2d;
+                       toSystem2: Ax2d) {.importcpp: "SetTransformation",
+                                        header: "Geom2d_Transformation.hxx".}
+proc setTransformation*(this: var Geom2dTransformation; toSystem: Ax2d) {.
     importcpp: "SetTransformation", header: "Geom2d_Transformation.hxx".}
-proc SetTranslation*(this: var Geom2d_Transformation; V: gp_Vec2d) {.
+proc setTranslation*(this: var Geom2dTransformation; v: Vec2d) {.
     importcpp: "SetTranslation", header: "Geom2d_Transformation.hxx".}
-proc SetTranslation*(this: var Geom2d_Transformation; P1: gp_Pnt2d; P2: gp_Pnt2d) {.
+proc setTranslation*(this: var Geom2dTransformation; p1: Pnt2d; p2: Pnt2d) {.
     importcpp: "SetTranslation", header: "Geom2d_Transformation.hxx".}
-proc SetTrsf2d*(this: var Geom2d_Transformation; T: gp_Trsf2d) {.
-    importcpp: "SetTrsf2d", header: "Geom2d_Transformation.hxx".}
-proc IsNegative*(this: Geom2d_Transformation): Standard_Boolean {.noSideEffect,
+proc setTrsf2d*(this: var Geom2dTransformation; t: Trsf2d) {.importcpp: "SetTrsf2d",
+    header: "Geom2d_Transformation.hxx".}
+proc isNegative*(this: Geom2dTransformation): bool {.noSideEffect,
     importcpp: "IsNegative", header: "Geom2d_Transformation.hxx".}
-proc Form*(this: Geom2d_Transformation): gp_TrsfForm {.noSideEffect,
-    importcpp: "Form", header: "Geom2d_Transformation.hxx".}
-proc ScaleFactor*(this: Geom2d_Transformation): Standard_Real {.noSideEffect,
+proc form*(this: Geom2dTransformation): TrsfForm {.noSideEffect, importcpp: "Form",
+    header: "Geom2d_Transformation.hxx".}
+proc scaleFactor*(this: Geom2dTransformation): float {.noSideEffect,
     importcpp: "ScaleFactor", header: "Geom2d_Transformation.hxx".}
-proc Trsf2d*(this: Geom2d_Transformation): gp_Trsf2d {.noSideEffect,
-    importcpp: "Trsf2d", header: "Geom2d_Transformation.hxx".}
-proc Value*(this: Geom2d_Transformation; Row: Standard_Integer; Col: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "Value", header: "Geom2d_Transformation.hxx".}
-proc Invert*(this: var Geom2d_Transformation) {.importcpp: "Invert",
+proc trsf2d*(this: Geom2dTransformation): Trsf2d {.noSideEffect, importcpp: "Trsf2d",
     header: "Geom2d_Transformation.hxx".}
-## !!!Ignored construct:  :: handle < Geom2d_Transformation > [end of template] Inverted ( ) const ;
-## Error: identifier expected, but got: ::!!!
-
-## !!!Ignored construct:  :: handle < Geom2d_Transformation > [end of template] Multiplied ( const opencascade :: handle < Geom2d_Transformation > [end of template] & Other ) const ;
-## Error: identifier expected, but got: ::!!!
-
-## !!!Ignored construct:  :: handle < Geom2d_Transformation > [end of template] operator * ( const opencascade :: handle < Geom2d_Transformation > [end of template] & Other ) const { return Multiplied ( Other ) ; } ! Computes the transformation composed with Other and <me> .
-## ! <me> = <me> * Other.
-## !
-## ! Computes the following composition of transformations
-## ! if N > 0  <me> * <me> * .......* <me>.
-## ! if N = 0  Identity
-## ! if N < 0  <me>.Invert() * .........* <me>.Invert() void Multiply ( const opencascade :: handle < Geom2d_Transformation > [end of template] & Other ) ;
-## Error: identifier expected, but got: ::!!!
-
-proc `*=`*(this: var Geom2d_Transformation; Other: handle[Geom2d_Transformation]) {.
+proc value*(this: Geom2dTransformation; row: int; col: int): float {.noSideEffect,
+    importcpp: "Value", header: "Geom2d_Transformation.hxx".}
+proc invert*(this: var Geom2dTransformation) {.importcpp: "Invert",
+    header: "Geom2d_Transformation.hxx".}
+proc inverted*(this: Geom2dTransformation): Handle[Geom2dTransformation] {.
+    noSideEffect, importcpp: "Inverted", header: "Geom2d_Transformation.hxx".}
+proc multiplied*(this: Geom2dTransformation; other: Handle[Geom2dTransformation]): Handle[
+    Geom2dTransformation] {.noSideEffect, importcpp: "Multiplied",
+                           header: "Geom2d_Transformation.hxx".}
+proc `*`*(this: Geom2dTransformation; other: Handle[Geom2dTransformation]): Handle[
+    Geom2dTransformation] {.noSideEffect, importcpp: "(# * #)",
+                           header: "Geom2d_Transformation.hxx".}
+proc multiply*(this: var Geom2dTransformation; other: Handle[Geom2dTransformation]) {.
+    importcpp: "Multiply", header: "Geom2d_Transformation.hxx".}
+proc `*=`*(this: var Geom2dTransformation; other: Handle[Geom2dTransformation]) {.
     importcpp: "(# *= #)", header: "Geom2d_Transformation.hxx".}
-proc Power*(this: var Geom2d_Transformation; N: Standard_Integer) {.
-    importcpp: "Power", header: "Geom2d_Transformation.hxx".}
-proc Powered*(this: Geom2d_Transformation; N: Standard_Integer): handle[
-    Geom2d_Transformation] {.noSideEffect, importcpp: "Powered",
-                            header: "Geom2d_Transformation.hxx".}
-proc PreMultiply*(this: var Geom2d_Transformation;
-                 Other: handle[Geom2d_Transformation]) {.importcpp: "PreMultiply",
+proc power*(this: var Geom2dTransformation; n: int) {.importcpp: "Power",
     header: "Geom2d_Transformation.hxx".}
-proc Transforms*(this: Geom2d_Transformation; X: var Standard_Real;
-                Y: var Standard_Real) {.noSideEffect, importcpp: "Transforms",
-                                     header: "Geom2d_Transformation.hxx".}
-proc Copy*(this: Geom2d_Transformation): handle[Geom2d_Transformation] {.
-    noSideEffect, importcpp: "Copy", header: "Geom2d_Transformation.hxx".}
+proc powered*(this: Geom2dTransformation; n: int): Handle[Geom2dTransformation] {.
+    noSideEffect, importcpp: "Powered", header: "Geom2d_Transformation.hxx".}
+proc preMultiply*(this: var Geom2dTransformation;
+                 other: Handle[Geom2dTransformation]) {.importcpp: "PreMultiply",
+    header: "Geom2d_Transformation.hxx".}
+proc transforms*(this: Geom2dTransformation; x: var float; y: var float) {.noSideEffect,
+    importcpp: "Transforms", header: "Geom2d_Transformation.hxx".}
+proc copy*(this: Geom2dTransformation): Handle[Geom2dTransformation] {.noSideEffect,
+    importcpp: "Copy", header: "Geom2d_Transformation.hxx".}
 type
-  Geom2d_Transformationbase_type* = Standard_Transient
+  Geom2dTransformationbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Geom2d_Transformation::get_type_name(@)",
-                              header: "Geom2d_Transformation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Geom2d_Transformation::get_type_name(@)",
+                            header: "Geom2d_Transformation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom2d_Transformation::get_type_descriptor(@)",
     header: "Geom2d_Transformation.hxx".}
-proc DynamicType*(this: Geom2d_Transformation): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Geom2d_Transformation.hxx".}
+proc dynamicType*(this: Geom2dTransformation): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Geom2d_Transformation.hxx".}

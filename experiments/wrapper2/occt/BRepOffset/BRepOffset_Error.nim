@@ -15,10 +15,11 @@
 ##  commercial license or contractual agreement.
 
 type
-  BRepOffset_Error* {.size: sizeof(cint), importcpp: "BRepOffset_Error",
-                     header: "BRepOffset_Error.hxx".} = enum
-    BRepOffset_NoError, BRepOffset_UnknownError, BRepOffset_BadNormalsOnGeometry,
-    BRepOffset_C0Geometry, BRepOffset_NullOffset, BRepOffset_NotConnectedShell, BRepOffset_CannotTrimEdges, ## !< exception while trim edges
-    BRepOffset_CannotFuseVertices, ## !< exception while fuse vertices
-    BRepOffset_CannotExtentEdge ## !< exception while extent edges
+  BRepOffsetError* {.size: sizeof(cint), importcpp: "BRepOffset_Error",
+                    header: "BRepOffset_Error.hxx".} = enum
+    BRepOffsetNoError, BRepOffsetUnknownError, BRepOffsetBadNormalsOnGeometry,
+    BRepOffsetC0Geometry, BRepOffsetNullOffset, BRepOffsetNotConnectedShell, BRepOffsetCannotTrimEdges, ## !< exception while trim edges
+    BRepOffsetCannotFuseVertices, ## !< exception while fuse vertices
+    BRepOffsetCannotExtentEdge ## !< exception while extent edges
+
 

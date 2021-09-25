@@ -12,19 +12,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of TopOpeBRepDS_HDataStructure"
 type
   TopOpeBRepDS_EIR* {.importcpp: "TopOpeBRepDS_EIR",
                      header: "TopOpeBRepDS_EIR.hxx", bycopy.} = object
 
 
-proc constructTopOpeBRepDS_EIR*(HDS: handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_EIR {.
+proc constructTopOpeBRepDS_EIR*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_EIR {.
     constructor, importcpp: "TopOpeBRepDS_EIR(@)", header: "TopOpeBRepDS_EIR.hxx".}
-proc ProcessEdgeInterferences*(this: var TopOpeBRepDS_EIR) {.
+proc processEdgeInterferences*(this: var TopOpeBRepDS_EIR) {.
     importcpp: "ProcessEdgeInterferences", header: "TopOpeBRepDS_EIR.hxx".}
-proc ProcessEdgeInterferences*(this: var TopOpeBRepDS_EIR; I: Standard_Integer) {.
+proc processEdgeInterferences*(this: var TopOpeBRepDS_EIR; i: int) {.
     importcpp: "ProcessEdgeInterferences", header: "TopOpeBRepDS_EIR.hxx".}

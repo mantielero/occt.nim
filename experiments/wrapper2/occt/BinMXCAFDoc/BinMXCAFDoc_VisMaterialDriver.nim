@@ -11,51 +11,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../BinMDF/BinMDF_ADriver, ../Standard/Standard_Boolean,
-  ../BinObjMgt/BinObjMgt_RRelocationTable,
-  ../BinObjMgt/BinObjMgt_SRelocationTable
-
 discard "forward decl of BinMXCAFDoc_VisMaterialDriver"
 type
-  Handle_BinMXCAFDoc_VisMaterialDriver* = handle[BinMXCAFDoc_VisMaterialDriver]
+  HandleBinMXCAFDocVisMaterialDriver* = Handle[BinMXCAFDocVisMaterialDriver]
 
 ## ! Binary persistence driver for XCAFDoc_VisMaterial attribute.
 
 type
-  BinMXCAFDoc_VisMaterialDriver* {.importcpp: "BinMXCAFDoc_VisMaterialDriver",
-                                  header: "BinMXCAFDoc_VisMaterialDriver.hxx",
-                                  bycopy.} = object of BinMDF_ADriver ## ! Main constructor.
+  BinMXCAFDocVisMaterialDriver* {.importcpp: "BinMXCAFDoc_VisMaterialDriver",
+                                 header: "BinMXCAFDoc_VisMaterialDriver.hxx",
+                                 bycopy.} = object of BinMDF_ADriver ## ! Main constructor.
 
-  BinMXCAFDoc_VisMaterialDriverbase_type* = BinMDF_ADriver
+  BinMXCAFDocVisMaterialDriverbaseType* = BinMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "BinMXCAFDoc_VisMaterialDriver::get_type_name(@)",
-                              header: "BinMXCAFDoc_VisMaterialDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BinMXCAFDoc_VisMaterialDriver::get_type_name(@)",
+                            header: "BinMXCAFDoc_VisMaterialDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BinMXCAFDoc_VisMaterialDriver::get_type_descriptor(@)",
     header: "BinMXCAFDoc_VisMaterialDriver.hxx".}
-proc DynamicType*(this: BinMXCAFDoc_VisMaterialDriver): handle[Standard_Type] {.
+proc dynamicType*(this: BinMXCAFDocVisMaterialDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMXCAFDoc_VisMaterialDriver.hxx".}
 const
-  BinMXCAFDoc_VisMaterialDriverMaterialVersionMajor_1* = 1
-  BinMXCAFDoc_VisMaterialDriverMaterialVersionMinor_0* = 0
-  BinMXCAFDoc_VisMaterialDriverMaterialVersionMinor_1* = 1 ## !< added IOR
-  BinMXCAFDoc_VisMaterialDriverMaterialVersionMajor* = BinMXCAFDoc_VisMaterialDriverMaterialVersionMajor_1
-  BinMXCAFDoc_VisMaterialDriverMaterialVersionMinor* = BinMXCAFDoc_VisMaterialDriverMaterialVersionMinor_1
+  BinMXCAFDocVisMaterialDriverMaterialVersionMajor1* = 1
+  BinMXCAFDocVisMaterialDriverMaterialVersionMinor0* = 0
+  BinMXCAFDocVisMaterialDriverMaterialVersionMinor1* = 1 ## !< added IOR
+  BinMXCAFDocVisMaterialDriverMaterialVersionMajor* = BinMXCAFDocVisMaterialDriverMaterialVersionMajor1
+  BinMXCAFDocVisMaterialDriverMaterialVersionMinor* = BinMXCAFDocVisMaterialDriverMaterialVersionMinor1
 
-proc constructBinMXCAFDoc_VisMaterialDriver*(
-    theMsgDriver: handle[Message_Messenger]): BinMXCAFDoc_VisMaterialDriver {.
+proc constructBinMXCAFDocVisMaterialDriver*(
+    theMsgDriver: Handle[MessageMessenger]): BinMXCAFDocVisMaterialDriver {.
     constructor, importcpp: "BinMXCAFDoc_VisMaterialDriver(@)",
     header: "BinMXCAFDoc_VisMaterialDriver.hxx".}
-proc NewEmpty*(this: BinMXCAFDoc_VisMaterialDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: BinMXCAFDocVisMaterialDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty",
     header: "BinMXCAFDoc_VisMaterialDriver.hxx".}
-proc Paste*(this: BinMXCAFDoc_VisMaterialDriver; theSource: BinObjMgt_Persistent;
-           theTarget: handle[TDF_Attribute];
-           theRelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "BinMXCAFDoc_VisMaterialDriver.hxx".}
-proc Paste*(this: BinMXCAFDoc_VisMaterialDriver; theSource: handle[TDF_Attribute];
-           theTarget: var BinObjMgt_Persistent;
-           theRelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: BinMXCAFDocVisMaterialDriver; theSource: BinObjMgtPersistent;
+           theTarget: Handle[TDF_Attribute];
+           theRelocTable: var BinObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "BinMXCAFDoc_VisMaterialDriver.hxx".}
+proc paste*(this: BinMXCAFDocVisMaterialDriver; theSource: Handle[TDF_Attribute];
+           theTarget: var BinObjMgtPersistent;
+           theRelocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMXCAFDoc_VisMaterialDriver.hxx".}

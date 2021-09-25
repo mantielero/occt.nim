@@ -14,49 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Macro, BRepMesh_DegreeOfFreedom
-
 ## ! Light weighted structure representing triangle
 ## ! of mesh consisting of oriented links.
 
 type
-  BRepMesh_Triangle* {.importcpp: "BRepMesh_Triangle",
-                      header: "BRepMesh_Triangle.hxx", bycopy.} = object ## ! Default constructor.
-    myEdges* {.importc: "myEdges".}: array[3, Standard_Integer]
-    myOrientations* {.importc: "myOrientations".}: array[3, Standard_Boolean]
-    myMovability* {.importc: "myMovability".}: BRepMesh_DegreeOfFreedom
+  BRepMeshTriangle* {.importcpp: "BRepMesh_Triangle",
+                     header: "BRepMesh_Triangle.hxx", bycopy.} = object ## ! Default constructor.
+    myEdges* {.importc: "myEdges".}: array[3, int]
+    myOrientations* {.importc: "myOrientations".}: array[3, bool]
+    myMovability* {.importc: "myMovability".}: BRepMeshDegreeOfFreedom
 
 
-proc constructBRepMesh_Triangle*(): BRepMesh_Triangle {.constructor,
+proc constructBRepMeshTriangle*(): BRepMeshTriangle {.constructor,
     importcpp: "BRepMesh_Triangle(@)", header: "BRepMesh_Triangle.hxx".}
-proc constructBRepMesh_Triangle*(theEdges: array[3, Standard_Integer];
-                                theOrientations: array[3, Standard_Boolean];
-                                theMovability: BRepMesh_DegreeOfFreedom): BRepMesh_Triangle {.
+proc constructBRepMeshTriangle*(theEdges: array[3, int];
+                               theOrientations: array[3, bool];
+                               theMovability: BRepMeshDegreeOfFreedom): BRepMeshTriangle {.
     constructor, importcpp: "BRepMesh_Triangle(@)", header: "BRepMesh_Triangle.hxx".}
-proc Initialize*(this: var BRepMesh_Triangle; theEdges: array[3, Standard_Integer];
-                theOrientations: array[3, Standard_Boolean];
-                theMovability: BRepMesh_DegreeOfFreedom) {.
-    importcpp: "Initialize", header: "BRepMesh_Triangle.hxx".}
-proc Edges*(this: BRepMesh_Triangle; theEdges: array[3, Standard_Integer];
-           theOrientations: array[3, Standard_Boolean]) {.noSideEffect,
-    importcpp: "Edges", header: "BRepMesh_Triangle.hxx".}
-proc Movability*(this: BRepMesh_Triangle): BRepMesh_DegreeOfFreedom {.noSideEffect,
+proc initialize*(this: var BRepMeshTriangle; theEdges: array[3, int];
+                theOrientations: array[3, bool];
+                theMovability: BRepMeshDegreeOfFreedom) {.importcpp: "Initialize",
+    header: "BRepMesh_Triangle.hxx".}
+proc edges*(this: BRepMeshTriangle; theEdges: array[3, int];
+           theOrientations: array[3, bool]) {.noSideEffect, importcpp: "Edges",
+    header: "BRepMesh_Triangle.hxx".}
+proc movability*(this: BRepMeshTriangle): BRepMeshDegreeOfFreedom {.noSideEffect,
     importcpp: "Movability", header: "BRepMesh_Triangle.hxx".}
-proc SetMovability*(this: var BRepMesh_Triangle;
-                   theMovability: BRepMesh_DegreeOfFreedom) {.
+proc setMovability*(this: var BRepMeshTriangle;
+                   theMovability: BRepMeshDegreeOfFreedom) {.
     importcpp: "SetMovability", header: "BRepMesh_Triangle.hxx".}
-proc HashCode*(this: BRepMesh_Triangle; theUpperBound: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "HashCode", header: "BRepMesh_Triangle.hxx".}
-proc IsEqual*(this: BRepMesh_Triangle; theOther: BRepMesh_Triangle): Standard_Boolean {.
+proc hashCode*(this: BRepMeshTriangle; theUpperBound: int): int {.noSideEffect,
+    importcpp: "HashCode", header: "BRepMesh_Triangle.hxx".}
+proc isEqual*(this: BRepMeshTriangle; theOther: BRepMeshTriangle): bool {.
     noSideEffect, importcpp: "IsEqual", header: "BRepMesh_Triangle.hxx".}
-proc `==`*(this: BRepMesh_Triangle; theOther: BRepMesh_Triangle): Standard_Boolean {.
-    noSideEffect, importcpp: "(# == #)", header: "BRepMesh_Triangle.hxx".}
+proc `==`*(this: BRepMeshTriangle; theOther: BRepMeshTriangle): bool {.noSideEffect,
+    importcpp: "(# == #)", header: "BRepMesh_Triangle.hxx".}
 ## ! Computes a hash code for the given triangle, in the range [1, theUpperBound]
 ## ! @param theTriangle the triangle which hash code is to be computed
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
-proc HashCode*(theTriangle: BRepMesh_Triangle; theUpperBound: Standard_Integer): Standard_Integer =
+proc hashCode*(theTriangle: BRepMeshTriangle; theUpperBound: int): int =
   discard
+

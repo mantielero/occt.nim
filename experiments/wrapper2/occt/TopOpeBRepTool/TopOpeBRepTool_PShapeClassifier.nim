@@ -16,4 +16,5 @@
 
 discard "forward decl of TopOpeBRepTool_ShapeClassifier"
 type
-  TopOpeBRepTool_PShapeClassifier* = ptr TopOpeBRepTool_ShapeClassifier
+  TopOpeBRepToolPShapeClassifier* = ptr TopOpeBRepToolShapeClassifier
+

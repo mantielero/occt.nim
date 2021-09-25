@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real
-
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of HLRBRep_Curve"
 discard "forward decl of HLRBRep_CurveTool"
@@ -79,10 +75,9 @@ type
   HLRBRep* {.importcpp: "HLRBRep", header: "HLRBRep.hxx", bycopy.} = object
 
 
-proc MakeEdge*(ec: HLRBRep_Curve; U1: Standard_Real; U2: Standard_Real): TopoDS_Edge {.
+proc makeEdge*(ec: HLRBRepCurve; u1: float; u2: float): TopoDS_Edge {.
     importcpp: "HLRBRep::MakeEdge(@)", header: "HLRBRep.hxx".}
-proc MakeEdge3d*(ec: HLRBRep_Curve; U1: Standard_Real; U2: Standard_Real): TopoDS_Edge {.
+proc makeEdge3d*(ec: HLRBRepCurve; u1: float; u2: float): TopoDS_Edge {.
     importcpp: "HLRBRep::MakeEdge3d(@)", header: "HLRBRep.hxx".}
-proc PolyHLRAngleAndDeflection*(InAngl: Standard_Real; OutAngl: var Standard_Real;
-                               OutDefl: var Standard_Real) {.
+proc polyHLRAngleAndDeflection*(inAngl: float; outAngl: var float; outDefl: var float) {.
     importcpp: "HLRBRep::PolyHLRAngleAndDeflection(@)", header: "HLRBRep.hxx".}

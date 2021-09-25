@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of IGESGraph_Protocol"
 discard "forward decl of IGESGraph_LineFontDefTemplate"
 discard "forward decl of IGESGraph_LineFontDefPattern"
@@ -60,6 +56,6 @@ type
                                                                           ## package
 
 
-proc Init*() {.importcpp: "IGESGraph::Init(@)", header: "IGESGraph.hxx".}
-proc Protocol*(): handle[IGESGraph_Protocol] {.importcpp: "IGESGraph::Protocol(@)",
+proc init*() {.importcpp: "IGESGraph::Init(@)", header: "IGESGraph.hxx".}
+proc protocol*(): Handle[IGESGraphProtocol] {.importcpp: "IGESGraph::Protocol(@)",
     header: "IGESGraph.hxx".}

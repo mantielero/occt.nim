@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESDraw_SegmentedViewsVisible"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,40 +26,41 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESDraw_ToolSegmentedViewsVisible* {.importcpp: "IGESDraw_ToolSegmentedViewsVisible", header: "IGESDraw_ToolSegmentedViewsVisible.hxx",
-                                       bycopy.} = object ## ! Returns a ToolSegmentedViewsVisible, ready to work
+  IGESDrawToolSegmentedViewsVisible* {.importcpp: "IGESDraw_ToolSegmentedViewsVisible", header: "IGESDraw_ToolSegmentedViewsVisible.hxx",
+                                      bycopy.} = object ## ! Returns a ToolSegmentedViewsVisible, ready to work
 
 
-proc constructIGESDraw_ToolSegmentedViewsVisible*(): IGESDraw_ToolSegmentedViewsVisible {.
+proc constructIGESDrawToolSegmentedViewsVisible*(): IGESDrawToolSegmentedViewsVisible {.
     constructor, importcpp: "IGESDraw_ToolSegmentedViewsVisible(@)",
     header: "IGESDraw_ToolSegmentedViewsVisible.hxx".}
-proc ReadOwnParams*(this: IGESDraw_ToolSegmentedViewsVisible;
-                   ent: handle[IGESDraw_SegmentedViewsVisible];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESDraw_ToolSegmentedViewsVisible.hxx".}
-proc WriteOwnParams*(this: IGESDraw_ToolSegmentedViewsVisible;
-                    ent: handle[IGESDraw_SegmentedViewsVisible];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESDrawToolSegmentedViewsVisible;
+                   ent: Handle[IGESDrawSegmentedViewsVisible];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESDraw_ToolSegmentedViewsVisible.hxx".}
+proc writeOwnParams*(this: IGESDrawToolSegmentedViewsVisible;
+                    ent: Handle[IGESDrawSegmentedViewsVisible];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESDraw_ToolSegmentedViewsVisible.hxx".}
-proc OwnShared*(this: IGESDraw_ToolSegmentedViewsVisible;
-               ent: handle[IGESDraw_SegmentedViewsVisible];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESDrawToolSegmentedViewsVisible;
+               ent: Handle[IGESDrawSegmentedViewsVisible];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESDraw_ToolSegmentedViewsVisible.hxx".}
-proc DirChecker*(this: IGESDraw_ToolSegmentedViewsVisible;
-                ent: handle[IGESDraw_SegmentedViewsVisible]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESDrawToolSegmentedViewsVisible;
+                ent: Handle[IGESDrawSegmentedViewsVisible]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESDraw_ToolSegmentedViewsVisible.hxx".}
-proc OwnCheck*(this: IGESDraw_ToolSegmentedViewsVisible;
-              ent: handle[IGESDraw_SegmentedViewsVisible];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESDrawToolSegmentedViewsVisible;
+              ent: Handle[IGESDrawSegmentedViewsVisible];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck",
     header: "IGESDraw_ToolSegmentedViewsVisible.hxx".}
-proc OwnCopy*(this: IGESDraw_ToolSegmentedViewsVisible;
-             entfrom: handle[IGESDraw_SegmentedViewsVisible];
-             entto: handle[IGESDraw_SegmentedViewsVisible];
-             TC: var Interface_CopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESDraw_ToolSegmentedViewsVisible.hxx".}
-proc OwnDump*(this: IGESDraw_ToolSegmentedViewsVisible;
-             ent: handle[IGESDraw_SegmentedViewsVisible];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump", header: "IGESDraw_ToolSegmentedViewsVisible.hxx".}
+proc ownCopy*(this: IGESDrawToolSegmentedViewsVisible;
+             entfrom: Handle[IGESDrawSegmentedViewsVisible];
+             entto: Handle[IGESDrawSegmentedViewsVisible];
+             tc: var InterfaceCopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESDraw_ToolSegmentedViewsVisible.hxx".}
+proc ownDump*(this: IGESDrawToolSegmentedViewsVisible;
+             ent: Handle[IGESDrawSegmentedViewsVisible];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump",
+    header: "IGESDraw_ToolSegmentedViewsVisible.hxx".}

@@ -14,15 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _LProp_BadContinuity_HeaderFile [NewLine] # _LProp_BadContinuity_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_Failure.hxx [NewLine] class LProp_BadContinuity ;
+## !!!Ignored construct:  # _LProp_BadContinuity_HeaderFile [NewLine] # _LProp_BadContinuity_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class LProp_BadContinuity ;
 ## Error: expected ';'!!!
 
 discard "forward decl of LProp_BadContinuity"
 type
-  Handle_LProp_BadContinuityLProp_BadContinuity* = handle[LProp_BadContinuity]
+  HandleLPropBadContinuityLPropBadContinuity* = Handle[LPropBadContinuity]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_LProp_BadContinuity [NewLine] # if ( CONDITION ) throw LProp_BadContinuity ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( LProp_BadContinuity , Standard_Failure ) #  _LProp_BadContinuity_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( LProp_BadContinuity , Standard_Failure ) #  _LProp_BadContinuity_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

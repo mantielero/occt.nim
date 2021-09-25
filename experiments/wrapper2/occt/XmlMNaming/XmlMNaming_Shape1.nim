@@ -13,34 +13,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../XmlObjMgt/XmlObjMgt_Element,
-  ../Standard/Standard_Integer, ../TopAbs/TopAbs_Orientation,
-  ../XmlObjMgt/XmlObjMgt_Document
-
 discard "forward decl of TopoDS_Shape"
 type
-  XmlMNaming_Shape1* {.importcpp: "XmlMNaming_Shape1",
-                      header: "XmlMNaming_Shape1.hxx", bycopy.} = object
+  XmlMNamingShape1* {.importcpp: "XmlMNaming_Shape1",
+                     header: "XmlMNaming_Shape1.hxx", bycopy.} = object
 
 
-proc constructXmlMNaming_Shape1*(Doc: var XmlObjMgt_Document): XmlMNaming_Shape1 {.
+proc constructXmlMNamingShape1*(doc: var XmlObjMgtDocument): XmlMNamingShape1 {.
     constructor, importcpp: "XmlMNaming_Shape1(@)", header: "XmlMNaming_Shape1.hxx".}
-proc constructXmlMNaming_Shape1*(E: XmlObjMgt_Element): XmlMNaming_Shape1 {.
+proc constructXmlMNamingShape1*(e: XmlObjMgtElement): XmlMNamingShape1 {.
     constructor, importcpp: "XmlMNaming_Shape1(@)", header: "XmlMNaming_Shape1.hxx".}
-proc Element*(this: XmlMNaming_Shape1): XmlObjMgt_Element {.noSideEffect,
+proc element*(this: XmlMNamingShape1): XmlObjMgtElement {.noSideEffect,
     importcpp: "Element", header: "XmlMNaming_Shape1.hxx".}
-proc Element*(this: var XmlMNaming_Shape1): var XmlObjMgt_Element {.
+proc element*(this: var XmlMNamingShape1): var XmlObjMgtElement {.
     importcpp: "Element", header: "XmlMNaming_Shape1.hxx".}
-proc TShapeId*(this: XmlMNaming_Shape1): Standard_Integer {.noSideEffect,
-    importcpp: "TShapeId", header: "XmlMNaming_Shape1.hxx".}
-proc LocId*(this: XmlMNaming_Shape1): Standard_Integer {.noSideEffect,
-    importcpp: "LocId", header: "XmlMNaming_Shape1.hxx".}
-proc Orientation*(this: XmlMNaming_Shape1): TopAbs_Orientation {.noSideEffect,
+proc tShapeId*(this: XmlMNamingShape1): int {.noSideEffect, importcpp: "TShapeId",
+    header: "XmlMNaming_Shape1.hxx".}
+proc locId*(this: XmlMNamingShape1): int {.noSideEffect, importcpp: "LocId",
+                                       header: "XmlMNaming_Shape1.hxx".}
+proc orientation*(this: XmlMNamingShape1): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "XmlMNaming_Shape1.hxx".}
-proc SetShape*(this: var XmlMNaming_Shape1; ID: Standard_Integer;
-              LocID: Standard_Integer; Orient: TopAbs_Orientation) {.
-    importcpp: "SetShape", header: "XmlMNaming_Shape1.hxx".}
-proc SetVertex*(this: var XmlMNaming_Shape1; theVertex: TopoDS_Shape) {.
+proc setShape*(this: var XmlMNamingShape1; id: int; locID: int;
+              orient: TopAbsOrientation) {.importcpp: "SetShape",
+    header: "XmlMNaming_Shape1.hxx".}
+proc setVertex*(this: var XmlMNamingShape1; theVertex: TopoDS_Shape) {.
     importcpp: "SetVertex", header: "XmlMNaming_Shape1.hxx".}

@@ -17,7 +17,8 @@
 ## ! Defines the type of projection of the view.
 
 type
-  V3d_TypeOfView* {.size: sizeof(cint), importcpp: "V3d_TypeOfView",
-                   header: "V3d_TypeOfView.hxx".} = enum
-    V3d_ORTHOGRAPHIC, V3d_PERSPECTIVE
+  V3dTypeOfView* {.size: sizeof(cint), importcpp: "V3d_TypeOfView",
+                  header: "V3d_TypeOfView.hxx".} = enum
+    V3dORTHOGRAPHIC, V3dPERSPECTIVE
+
 

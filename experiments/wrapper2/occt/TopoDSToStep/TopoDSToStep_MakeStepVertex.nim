@@ -14,32 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopoDSToStep_MakeVertexError, TopoDSToStep_Root
-
 discard "forward decl of StepShape_TopologicalRepresentationItem"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDSToStep_Tool"
 discard "forward decl of Transfer_FinderProcess"
 type
-  TopoDSToStep_MakeStepVertex* {.importcpp: "TopoDSToStep_MakeStepVertex",
-                                header: "TopoDSToStep_MakeStepVertex.hxx", bycopy.} = object of TopoDSToStep_Root
+  TopoDSToStepMakeStepVertex* {.importcpp: "TopoDSToStep_MakeStepVertex",
+                               header: "TopoDSToStep_MakeStepVertex.hxx", bycopy.} = object of TopoDSToStepRoot
 
 
-proc constructTopoDSToStep_MakeStepVertex*(): TopoDSToStep_MakeStepVertex {.
+proc constructTopoDSToStepMakeStepVertex*(): TopoDSToStepMakeStepVertex {.
     constructor, importcpp: "TopoDSToStep_MakeStepVertex(@)",
     header: "TopoDSToStep_MakeStepVertex.hxx".}
-proc constructTopoDSToStep_MakeStepVertex*(V: TopoDS_Vertex;
-    T: var TopoDSToStep_Tool; FP: handle[Transfer_FinderProcess]): TopoDSToStep_MakeStepVertex {.
+proc constructTopoDSToStepMakeStepVertex*(v: TopoDS_Vertex;
+    t: var TopoDSToStepTool; fp: Handle[TransferFinderProcess]): TopoDSToStepMakeStepVertex {.
     constructor, importcpp: "TopoDSToStep_MakeStepVertex(@)",
     header: "TopoDSToStep_MakeStepVertex.hxx".}
-proc Init*(this: var TopoDSToStep_MakeStepVertex; V: TopoDS_Vertex;
-          T: var TopoDSToStep_Tool; FP: handle[Transfer_FinderProcess]) {.
+proc init*(this: var TopoDSToStepMakeStepVertex; v: TopoDS_Vertex;
+          t: var TopoDSToStepTool; fp: Handle[TransferFinderProcess]) {.
     importcpp: "Init", header: "TopoDSToStep_MakeStepVertex.hxx".}
-proc Value*(this: TopoDSToStep_MakeStepVertex): handle[
-    StepShape_TopologicalRepresentationItem] {.noSideEffect, importcpp: "Value",
+proc value*(this: TopoDSToStepMakeStepVertex): Handle[
+    StepShapeTopologicalRepresentationItem] {.noSideEffect, importcpp: "Value",
     header: "TopoDSToStep_MakeStepVertex.hxx".}
-proc Error*(this: TopoDSToStep_MakeStepVertex): TopoDSToStep_MakeVertexError {.
+proc error*(this: TopoDSToStepMakeStepVertex): TopoDSToStepMakeVertexError {.
     noSideEffect, importcpp: "Error", header: "TopoDSToStep_MakeStepVertex.hxx".}

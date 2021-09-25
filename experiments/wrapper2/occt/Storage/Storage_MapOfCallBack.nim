@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_AsciiString, Storage_TypedCallBack,
-  ../TCollection/TCollection_AsciiString, ../NCollection/NCollection_DataMap
-
 type
-  Storage_MapOfCallBack* = NCollection_DataMap[TCollection_AsciiString,
-      handle[Storage_TypedCallBack], TCollection_AsciiString]
-  Storage_DataMapIteratorOfMapOfCallBack* = Iterator[TCollection_AsciiString,
-      handle[Storage_TypedCallBack], TCollection_AsciiString]
+  StorageMapOfCallBack* = NCollectionDataMap[TCollectionAsciiString,
+      Handle[StorageTypedCallBack], TCollectionAsciiString]
+  StorageDataMapIteratorOfMapOfCallBack* = Iterator[TCollectionAsciiString,
+      Handle[StorageTypedCallBack], TCollectionAsciiString]
+

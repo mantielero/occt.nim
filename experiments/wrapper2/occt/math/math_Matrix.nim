@@ -14,16 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer, math_DoubleTab,
-  ../Standard/Standard_Real, ../Standard/Standard_Address, math_Vector,
-  ../Standard/Standard_OStream
-
 ##  resolve name collisions with X11 headers
 
-when defined(Opposite):
-  discard
+# when defined(Opposite):
+#   discard
 ## ! This class implements the real matrix abstract data type.
 ## ! Matrixes can have an arbitrary range which must be defined
 ## ! at the declaration and cannot be changed after this declaration
@@ -58,247 +52,183 @@ when defined(Opposite):
 ## ! math_Matrix B (tab2[0],    1, 10, 1, 20);
 
 type
-  math_Matrix* {.importcpp: "math_Matrix", header: "math_Matrix.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Constructs
-                                                                                ## a
-                                                                                ## non-initialized
-                                                                                ## matrix
-                                                                                ## of
-                                                                                ## range
-                                                                                ## [LowerRow..UpperRow,
-                                                                                ##
-                                                                                ## !
-                                                                                ## LowerCol..UpperCol]
-                                                                                ##
-                                                                                ## !
-                                                                                ## For
-                                                                                ## the
-                                                                                ## constructed
-                                                                                ## matrix:
-                                                                                ##
-                                                                                ## !
-                                                                                ## -
-                                                                                ## LowerRow
-                                                                                ## and
-                                                                                ## UpperRow
-                                                                                ## are
-                                                                                ## the
-                                                                                ## indexes
-                                                                                ## of
-                                                                                ## the
-                                                                                ##
-                                                                                ## !
-                                                                                ## lower
-                                                                                ## and
-                                                                                ## upper
-                                                                                ## bounds
-                                                                                ## of
-                                                                                ## a
-                                                                                ## row,
-                                                                                ## and
-                                                                                ##
-                                                                                ## !
-                                                                                ## -
-                                                                                ## LowerCol
-                                                                                ## and
-                                                                                ## UpperCol
-                                                                                ## are
-                                                                                ## the
-                                                                                ## indexes
-                                                                                ## of
-                                                                                ## the
-                                                                                ##
-                                                                                ## !
-                                                                                ## lower
-                                                                                ## and
-                                                                                ## upper
-                                                                                ## bounds
-                                                                                ## of
-                                                                                ## a
-                                                                                ## column.
-                                                                                ##
-                                                                                ## !
-                                                                                ## The
-                                                                                ## new
-                                                                                ## lower
-                                                                                ## row
-                                                                                ## of
-                                                                                ## the
-                                                                                ## matrix
-                                                                                ## is
-                                                                                ## set
-                                                                                ## to
-                                                                                ## <LowerRow>
-    math_Matrix* {.importc: "math_Matrix".}: Standard_NODISCARD
-    math_Matrix* {.importc: "math_Matrix".}: Standard_NODISCARD
-    math_Matrix* {.importc: "math_Matrix".}: Standard_NODISCARD
-    math_Matrix* {.importc: "math_Matrix".}: Standard_NODISCARD
-    math_Matrix* {.importc: "math_Matrix".}: Standard_NODISCARD
-    math_Matrix* {.importc: "math_Matrix".}: Standard_NODISCARD
-    math_Matrix* {.importc: "math_Matrix".}: Standard_NODISCARD
-    math_Matrix* {.importc: "math_Matrix".}: Standard_NODISCARD
-    math_Matrix* {.importc: "math_Matrix".}: Standard_NODISCARD
-    math_Matrix* {.importc: "math_Matrix".}: Standard_NODISCARD
-    math_Matrix* {.importc: "math_Matrix".}: Standard_NODISCARD
-    math_Vector* {.importc: "math_Vector".}: Standard_NODISCARD
+  MathMatrix* {.importcpp: "math_Matrix", header: "math_Matrix.hxx", bycopy.} = object ## !
+                                                                               ## Constructs a
+                                                                               ## non-initialized
+                                                                               ## matrix
+                                                                               ## of
+                                                                               ## range
+                                                                               ## [LowerRow..UpperRow,
+                                                                               ## !
+                                                                               ## LowerCol..UpperCol]
+                                                                               ## !
+                                                                               ## For
+                                                                               ## the
+                                                                               ## constructed
+                                                                               ## matrix:
+                                                                               ## ! -
+                                                                               ## LowerRow
+                                                                               ## and
+                                                                               ## UpperRow
+                                                                               ## are
+                                                                               ## the
+                                                                               ## indexes
+                                                                               ## of
+                                                                               ## the
+                                                                               ## !
+                                                                               ## lower
+                                                                               ## and
+                                                                               ## upper
+                                                                               ## bounds
+                                                                               ## of a
+                                                                               ## row,
+                                                                               ## and
+                                                                               ## ! -
+                                                                               ## LowerCol
+                                                                               ## and
+                                                                               ## UpperCol
+                                                                               ## are
+                                                                               ## the
+                                                                               ## indexes
+                                                                               ## of
+                                                                               ## the
+                                                                               ## !
+                                                                               ## lower
+                                                                               ## and
+                                                                               ## upper
+                                                                               ## bounds
+                                                                               ## of a
+                                                                               ## column.
+                                                                               ## !
+                                                                               ## The
+                                                                               ## new
+                                                                               ## lower
+                                                                               ## row
+                                                                               ## of
+                                                                               ## the
+                                                                               ## matrix
+                                                                               ## is
+                                                                               ## set
+                                                                               ## to
+                                                                               ## <LowerRow>
 
 
-proc constructmath_Matrix*(LowerRow: Standard_Integer; UpperRow: Standard_Integer;
-                          LowerCol: Standard_Integer; UpperCol: Standard_Integer): math_Matrix {.
+proc constructMathMatrix*(lowerRow: int; upperRow: int; lowerCol: int; upperCol: int): MathMatrix {.
     constructor, importcpp: "math_Matrix(@)", header: "math_Matrix.hxx".}
-proc constructmath_Matrix*(LowerRow: Standard_Integer; UpperRow: Standard_Integer;
-                          LowerCol: Standard_Integer; UpperCol: Standard_Integer;
-                          InitialValue: Standard_Real): math_Matrix {.constructor,
+proc constructMathMatrix*(lowerRow: int; upperRow: int; lowerCol: int; upperCol: int;
+                         initialValue: float): MathMatrix {.constructor,
     importcpp: "math_Matrix(@)", header: "math_Matrix.hxx".}
-proc constructmath_Matrix*(Tab: Standard_Address; LowerRow: Standard_Integer;
-                          UpperRow: Standard_Integer; LowerCol: Standard_Integer;
-                          UpperCol: Standard_Integer): math_Matrix {.constructor,
+proc constructMathMatrix*(tab: StandardAddress; lowerRow: int; upperRow: int;
+                         lowerCol: int; upperCol: int): MathMatrix {.constructor,
     importcpp: "math_Matrix(@)", header: "math_Matrix.hxx".}
-proc constructmath_Matrix*(Other: math_Matrix): math_Matrix {.constructor,
+proc constructMathMatrix*(other: MathMatrix): MathMatrix {.constructor,
     importcpp: "math_Matrix(@)", header: "math_Matrix.hxx".}
-proc Init*(this: var math_Matrix; InitialValue: Standard_Real) {.importcpp: "Init",
+proc init*(this: var MathMatrix; initialValue: float) {.importcpp: "Init",
     header: "math_Matrix.hxx".}
-proc RowNumber*(this: math_Matrix): Standard_Integer {.noSideEffect,
-    importcpp: "RowNumber", header: "math_Matrix.hxx".}
-proc ColNumber*(this: math_Matrix): Standard_Integer {.noSideEffect,
-    importcpp: "ColNumber", header: "math_Matrix.hxx".}
-proc LowerRow*(this: math_Matrix): Standard_Integer {.noSideEffect,
-    importcpp: "LowerRow", header: "math_Matrix.hxx".}
-proc UpperRow*(this: math_Matrix): Standard_Integer {.noSideEffect,
-    importcpp: "UpperRow", header: "math_Matrix.hxx".}
-proc LowerCol*(this: math_Matrix): Standard_Integer {.noSideEffect,
-    importcpp: "LowerCol", header: "math_Matrix.hxx".}
-proc UpperCol*(this: math_Matrix): Standard_Integer {.noSideEffect,
-    importcpp: "UpperCol", header: "math_Matrix.hxx".}
-proc Determinant*(this: math_Matrix): Standard_Real {.noSideEffect,
-    importcpp: "Determinant", header: "math_Matrix.hxx".}
-proc Transpose*(this: var math_Matrix) {.importcpp: "Transpose",
+proc rowNumber*(this: MathMatrix): int {.noSideEffect, importcpp: "RowNumber",
                                      header: "math_Matrix.hxx".}
-proc Invert*(this: var math_Matrix) {.importcpp: "Invert", header: "math_Matrix.hxx".}
-proc Multiply*(this: var math_Matrix; Right: Standard_Real) {.importcpp: "Multiply",
+proc colNumber*(this: MathMatrix): int {.noSideEffect, importcpp: "ColNumber",
+                                     header: "math_Matrix.hxx".}
+proc lowerRow*(this: MathMatrix): int {.noSideEffect, importcpp: "LowerRow",
+                                    header: "math_Matrix.hxx".}
+proc upperRow*(this: MathMatrix): int {.noSideEffect, importcpp: "UpperRow",
+                                    header: "math_Matrix.hxx".}
+proc lowerCol*(this: MathMatrix): int {.noSideEffect, importcpp: "LowerCol",
+                                    header: "math_Matrix.hxx".}
+proc upperCol*(this: MathMatrix): int {.noSideEffect, importcpp: "UpperCol",
+                                    header: "math_Matrix.hxx".}
+proc determinant*(this: MathMatrix): float {.noSideEffect, importcpp: "Determinant",
     header: "math_Matrix.hxx".}
-proc `*=`*(this: var math_Matrix; Right: Standard_Real) {.importcpp: "(# *= #)",
+proc transpose*(this: var MathMatrix) {.importcpp: "Transpose",
+                                    header: "math_Matrix.hxx".}
+proc invert*(this: var MathMatrix) {.importcpp: "Invert", header: "math_Matrix.hxx".}
+proc multiply*(this: var MathMatrix; right: float) {.importcpp: "Multiply",
     header: "math_Matrix.hxx".}
-## !!!Ignored construct:  Multiplied ( const Standard_Real Right ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-## !!!Ignored construct:  operator * ( const Standard_Real Right ) const { return Multiplied ( Right ) ; } ! Sets this matrix to the product of the
-## ! transposed matrix TLeft, and the matrix Right.
-## ! Example
-## ! math_Matrix A (1, 3, 1, 3);
-## ! math_Matrix B (1, 3, 1, 3);
-## ! // A = ... , B = ...
-## ! math_Matrix C (1, 3, 1, 3);
-## ! C.Multiply(A, B);
-## ! Exceptions
-## ! Standard_DimensionError if matrices are of incompatible dimensions, i.e. if:
-## ! -   the number of columns of matrix Left, or the number of
-## ! rows of matrix TLeft is not equal to the number of rows
-## ! of matrix Right, or
-## ! -   the number of rows of matrix Left, or the number of
-## ! columns of matrix TLeft is not equal to the number of
-## ! rows of this matrix, or
-## ! -   the number of columns of matrix Right is not equal to
-## ! the number of columns of this matrix. Standard_NODISCARD math_Matrix TMultiplied ( const Standard_Real Right ) const ;
-## Error: identifier expected, but got: *!!!
-
-proc Divide*(this: var math_Matrix; Right: Standard_Real) {.importcpp: "Divide",
+proc `*=`*(this: var MathMatrix; right: float) {.importcpp: "(# *= #)",
     header: "math_Matrix.hxx".}
-proc `/=`*(this: var math_Matrix; Right: Standard_Real) {.importcpp: "(# /= #)",
+proc multiplied*(this: MathMatrix; right: float): MathMatrix {.noSideEffect,
+    importcpp: "Multiplied", header: "math_Matrix.hxx".}
+proc `*`*(this: MathMatrix; right: float): MathMatrix {.noSideEffect,
+    importcpp: "(# * #)", header: "math_Matrix.hxx".}
+proc tMultiplied*(this: MathMatrix; right: float): MathMatrix {.noSideEffect,
+    importcpp: "TMultiplied", header: "math_Matrix.hxx".}
+proc divide*(this: var MathMatrix; right: float) {.importcpp: "Divide",
     header: "math_Matrix.hxx".}
-## !!!Ignored construct:  Divided ( const Standard_Real Right ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-## !!!Ignored construct:  operator / ( const Standard_Real Right ) const { return Divided ( Right ) ; } ! adds the matrix <Right> to a matrix.
-## ! An exception is raised if the dimensions are different.
-## ! Warning
-## ! In order to save time when copying matrices, it is
-## ! preferable to use operator += or the function Add
-## ! whenever possible. void Add ( const math_Matrix & Right ) ;
-## Error: identifier expected, but got: /!!!
-
-proc `+=`*(this: var math_Matrix; Right: math_Matrix) {.importcpp: "(# += #)",
+proc `/=`*(this: var MathMatrix; right: float) {.importcpp: "(# /= #)",
     header: "math_Matrix.hxx".}
-## !!!Ignored construct:  Added ( const math_Matrix & Right ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-## !!!Ignored construct:  operator + ( const math_Matrix & Right ) const { return Added ( Right ) ; } ! sets a  matrix to the addition of <Left> and <Right>.
-## ! An exception is raised if the dimensions are different. void Add ( const math_Matrix & Left , const math_Matrix & Right ) ;
-## Error: identifier expected, but got: +!!!
-
-proc Subtract*(this: var math_Matrix; Right: math_Matrix) {.importcpp: "Subtract",
+proc divided*(this: MathMatrix; right: float): MathMatrix {.noSideEffect,
+    importcpp: "Divided", header: "math_Matrix.hxx".}
+proc `/`*(this: MathMatrix; right: float): MathMatrix {.noSideEffect,
+    importcpp: "(# / #)", header: "math_Matrix.hxx".}
+proc add*(this: var MathMatrix; right: MathMatrix) {.importcpp: "Add",
     header: "math_Matrix.hxx".}
-proc `-=`*(this: var math_Matrix; Right: math_Matrix) {.importcpp: "(# -= #)",
+proc `+=`*(this: var MathMatrix; right: MathMatrix) {.importcpp: "(# += #)",
     header: "math_Matrix.hxx".}
-## !!!Ignored construct:  Subtracted ( const math_Matrix & Right ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-## !!!Ignored construct:  operator - ( const math_Matrix & Right ) const { return Subtracted ( Right ) ; } ! Sets the values of this matrix,
-## ! -   from index I1 to index I2 on the row dimension, and
-## ! -   from index J1 to index J2 on the column dimension,
-## ! to those of matrix M.
-## ! Exceptions
-## ! Standard_DimensionError if:
-## ! -   I1 is less than the index of the lower row bound of this matrix, or
-## ! -   I2 is greater than the index of the upper row bound of this matrix, or
-## ! -   J1 is less than the index of the lower column bound of this matrix, or
-## ! -   J2 is greater than the index of the upper column bound of this matrix, or
-## ! -   I2 - I1 + 1 is not equal to the number of rows of matrix M, or
-## ! -   J2 - J1 + 1 is not equal to the number of columns of matrix M. void Set ( const Standard_Integer I1 , const Standard_Integer I2 , const Standard_Integer J1 , const Standard_Integer J2 , const math_Matrix & M ) ;
-## Error: identifier expected, but got: -!!!
-
-proc SetRow*(this: var math_Matrix; Row: Standard_Integer; V: math_Vector) {.
-    importcpp: "SetRow", header: "math_Matrix.hxx".}
-proc SetCol*(this: var math_Matrix; Col: Standard_Integer; V: math_Vector) {.
-    importcpp: "SetCol", header: "math_Matrix.hxx".}
-proc SetDiag*(this: var math_Matrix; Value: Standard_Real) {.importcpp: "SetDiag",
+proc added*(this: MathMatrix; right: MathMatrix): MathMatrix {.noSideEffect,
+    importcpp: "Added", header: "math_Matrix.hxx".}
+proc `+`*(this: MathMatrix; right: MathMatrix): MathMatrix {.noSideEffect,
+    importcpp: "(# + #)", header: "math_Matrix.hxx".}
+proc add*(this: var MathMatrix; left: MathMatrix; right: MathMatrix) {.importcpp: "Add",
     header: "math_Matrix.hxx".}
-proc Row*(this: math_Matrix; Row: Standard_Integer): math_Vector {.noSideEffect,
-    importcpp: "Row", header: "math_Matrix.hxx".}
-proc Col*(this: math_Matrix; Col: Standard_Integer): math_Vector {.noSideEffect,
-    importcpp: "Col", header: "math_Matrix.hxx".}
-proc SwapRow*(this: var math_Matrix; Row1: Standard_Integer; Row2: Standard_Integer) {.
-    importcpp: "SwapRow", header: "math_Matrix.hxx".}
-proc SwapCol*(this: var math_Matrix; Col1: Standard_Integer; Col2: Standard_Integer) {.
-    importcpp: "SwapCol", header: "math_Matrix.hxx".}
-## !!!Ignored construct:  Transposed ( ) const ;
-## Error: identifier expected, but got: )!!!
-
-proc Inverse*(this: math_Matrix): math_Matrix {.noSideEffect, importcpp: "Inverse",
+proc subtract*(this: var MathMatrix; right: MathMatrix) {.importcpp: "Subtract",
     header: "math_Matrix.hxx".}
-proc TMultiply*(this: math_Matrix; Right: math_Matrix): math_Matrix {.noSideEffect,
+proc `-=`*(this: var MathMatrix; right: MathMatrix) {.importcpp: "(# -= #)",
+    header: "math_Matrix.hxx".}
+proc subtracted*(this: MathMatrix; right: MathMatrix): MathMatrix {.noSideEffect,
+    importcpp: "Subtracted", header: "math_Matrix.hxx".}
+proc `-`*(this: MathMatrix; right: MathMatrix): MathMatrix {.noSideEffect,
+    importcpp: "(# - #)", header: "math_Matrix.hxx".}
+proc set*(this: var MathMatrix; i1: int; i2: int; j1: int; j2: int; m: MathMatrix) {.
+    importcpp: "Set", header: "math_Matrix.hxx".}
+proc setRow*(this: var MathMatrix; row: int; v: MathVector) {.importcpp: "SetRow",
+    header: "math_Matrix.hxx".}
+proc setCol*(this: var MathMatrix; col: int; v: MathVector) {.importcpp: "SetCol",
+    header: "math_Matrix.hxx".}
+proc setDiag*(this: var MathMatrix; value: float) {.importcpp: "SetDiag",
+    header: "math_Matrix.hxx".}
+proc row*(this: MathMatrix; row: int): MathVector {.noSideEffect, importcpp: "Row",
+    header: "math_Matrix.hxx".}
+proc col*(this: MathMatrix; col: int): MathVector {.noSideEffect, importcpp: "Col",
+    header: "math_Matrix.hxx".}
+proc swapRow*(this: var MathMatrix; row1: int; row2: int) {.importcpp: "SwapRow",
+    header: "math_Matrix.hxx".}
+proc swapCol*(this: var MathMatrix; col1: int; col2: int) {.importcpp: "SwapCol",
+    header: "math_Matrix.hxx".}
+proc transposed*(this: MathMatrix): MathMatrix {.noSideEffect,
+    importcpp: "Transposed", header: "math_Matrix.hxx".}
+proc inverse*(this: MathMatrix): MathMatrix {.noSideEffect, importcpp: "Inverse",
+    header: "math_Matrix.hxx".}
+proc tMultiply*(this: MathMatrix; right: MathMatrix): MathMatrix {.noSideEffect,
     importcpp: "TMultiply", header: "math_Matrix.hxx".}
-proc Multiply*(this: var math_Matrix; Left: math_Vector; Right: math_Vector) {.
+proc multiply*(this: var MathMatrix; left: MathVector; right: MathVector) {.
     importcpp: "Multiply", header: "math_Matrix.hxx".}
-proc Multiply*(this: var math_Matrix; Left: math_Matrix; Right: math_Matrix) {.
+proc multiply*(this: var MathMatrix; left: MathMatrix; right: MathMatrix) {.
     importcpp: "Multiply", header: "math_Matrix.hxx".}
-proc TMultiply*(this: var math_Matrix; TLeft: math_Matrix; Right: math_Matrix) {.
+proc tMultiply*(this: var MathMatrix; tLeft: MathMatrix; right: MathMatrix) {.
     importcpp: "TMultiply", header: "math_Matrix.hxx".}
-proc Subtract*(this: var math_Matrix; Left: math_Matrix; Right: math_Matrix) {.
+proc subtract*(this: var MathMatrix; left: MathMatrix; right: MathMatrix) {.
     importcpp: "Subtract", header: "math_Matrix.hxx".}
-proc Value*(this: math_Matrix; Row: Standard_Integer; Col: Standard_Integer): var Standard_Real {.
-    noSideEffect, importcpp: "Value", header: "math_Matrix.hxx".}
-proc `()`*(this: math_Matrix; Row: Standard_Integer; Col: Standard_Integer): var Standard_Real {.
-    noSideEffect, importcpp: "#(@)", header: "math_Matrix.hxx".}
-proc Initialized*(this: var math_Matrix; Other: math_Matrix): var math_Matrix {.
+proc value*(this: MathMatrix; row: int; col: int): var float {.noSideEffect,
+    importcpp: "Value", header: "math_Matrix.hxx".}
+proc `()`*(this: MathMatrix; row: int; col: int): var float {.noSideEffect,
+    importcpp: "#(@)", header: "math_Matrix.hxx".}
+proc initialized*(this: var MathMatrix; other: MathMatrix): var MathMatrix {.
     importcpp: "Initialized", header: "math_Matrix.hxx".}
-proc Multiply*(this: var math_Matrix; Right: math_Matrix) {.importcpp: "Multiply",
+proc multiply*(this: var MathMatrix; right: MathMatrix) {.importcpp: "Multiply",
     header: "math_Matrix.hxx".}
-proc `*=`*(this: var math_Matrix; Right: math_Matrix) {.importcpp: "(# *= #)",
+proc `*=`*(this: var MathMatrix; right: MathMatrix) {.importcpp: "(# *= #)",
     header: "math_Matrix.hxx".}
-## !!!Ignored construct:  Multiplied ( const math_Matrix & Right ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-## !!!Ignored construct:  operator * ( const math_Matrix & Right ) const { return Multiplied ( Right ) ; } ! Returns the product of a matrix by a vector.
-## ! An exception is raised if the dimensions are different. Standard_NODISCARD math_Vector Multiplied ( const math_Vector & Right ) const ;
-## Error: identifier expected, but got: *!!!
-
-## !!!Ignored construct:  operator * ( const math_Vector & Right ) const { return Multiplied ( Right ) ; } ! Returns the opposite of a matrix.
-## ! An exception is raised if the dimensions are different. math_Matrix Opposite ( ) ;
-## Error: identifier expected, but got: *!!!
-
-proc `-`*(this: var math_Matrix): math_Matrix {.importcpp: "(- #)",
+proc multiplied*(this: MathMatrix; right: MathMatrix): MathMatrix {.noSideEffect,
+    importcpp: "Multiplied", header: "math_Matrix.hxx".}
+proc `*`*(this: MathMatrix; right: MathMatrix): MathMatrix {.noSideEffect,
+    importcpp: "(# * #)", header: "math_Matrix.hxx".}
+proc multiplied*(this: MathMatrix; right: MathVector): MathVector {.noSideEffect,
+    importcpp: "Multiplied", header: "math_Matrix.hxx".}
+proc `*`*(this: MathMatrix; right: MathVector): MathVector {.noSideEffect,
+    importcpp: "(# * #)", header: "math_Matrix.hxx".}
+proc opposite*(this: var MathMatrix): MathMatrix {.importcpp: "Opposite",
     header: "math_Matrix.hxx".}
-proc Dump*(this: math_Matrix; o: var Standard_OStream) {.noSideEffect,
-    importcpp: "Dump", header: "math_Matrix.hxx".}
+proc `-`*(this: var MathMatrix): MathMatrix {.importcpp: "(- #)",
+    header: "math_Matrix.hxx".}
+proc dump*(this: MathMatrix; o: var StandardOStream) {.noSideEffect, importcpp: "Dump",
+    header: "math_Matrix.hxx".}

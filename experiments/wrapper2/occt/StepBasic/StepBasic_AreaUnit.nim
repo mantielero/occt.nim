@@ -14,26 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_NamedUnit
-
 discard "forward decl of StepBasic_AreaUnit"
 discard "forward decl of StepBasic_AreaUnit"
 type
-  Handle_StepBasic_AreaUnit* = handle[StepBasic_AreaUnit]
-  StepBasic_AreaUnit* {.importcpp: "StepBasic_AreaUnit",
-                       header: "StepBasic_AreaUnit.hxx", bycopy.} = object of StepBasic_NamedUnit
+  HandleStepBasicAreaUnit* = Handle[StepBasicAreaUnit]
+  StepBasicAreaUnit* {.importcpp: "StepBasic_AreaUnit",
+                      header: "StepBasic_AreaUnit.hxx", bycopy.} = object of StepBasicNamedUnit
 
 
-proc constructStepBasic_AreaUnit*(): StepBasic_AreaUnit {.constructor,
+proc constructStepBasicAreaUnit*(): StepBasicAreaUnit {.constructor,
     importcpp: "StepBasic_AreaUnit(@)", header: "StepBasic_AreaUnit.hxx".}
 type
-  StepBasic_AreaUnitbase_type* = StepBasic_NamedUnit
+  StepBasicAreaUnitbaseType* = StepBasicNamedUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_AreaUnit::get_type_name(@)",
-                              header: "StepBasic_AreaUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_AreaUnit::get_type_name(@)",
+                            header: "StepBasic_AreaUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_AreaUnit::get_type_descriptor(@)",
     header: "StepBasic_AreaUnit.hxx".}
-proc DynamicType*(this: StepBasic_AreaUnit): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepBasicAreaUnit): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_AreaUnit.hxx".}

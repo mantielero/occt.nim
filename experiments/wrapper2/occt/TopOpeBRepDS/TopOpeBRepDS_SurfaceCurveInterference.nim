@@ -14,18 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TopOpeBRepDS_Interference,
-  TopOpeBRepDS_Kind, ../Standard/Standard_Integer, ../Standard/Standard_OStream,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of TopOpeBRepDS_Transition"
 discard "forward decl of TopOpeBRepDS_Interference"
 discard "forward decl of TopOpeBRepDS_SurfaceCurveInterference"
 discard "forward decl of TopOpeBRepDS_SurfaceCurveInterference"
 type
-  Handle_TopOpeBRepDS_SurfaceCurveInterference* = handle[
+  HandleTopOpeBRepDS_SurfaceCurveInterference* = Handle[
       TopOpeBRepDS_SurfaceCurveInterference]
 
 ## ! an interference with a 2d curve
@@ -40,27 +35,28 @@ proc constructTopOpeBRepDS_SurfaceCurveInterference*(): TopOpeBRepDS_SurfaceCurv
     constructor, importcpp: "TopOpeBRepDS_SurfaceCurveInterference(@)",
     header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}
 proc constructTopOpeBRepDS_SurfaceCurveInterference*(
-    Transition: TopOpeBRepDS_Transition; SupportType: TopOpeBRepDS_Kind;
-    Support: Standard_Integer; GeometryType: TopOpeBRepDS_Kind;
-    Geometry: Standard_Integer; PC: handle[Geom2d_Curve]): TopOpeBRepDS_SurfaceCurveInterference {.
-    constructor, importcpp: "TopOpeBRepDS_SurfaceCurveInterference(@)",
+    transition: TopOpeBRepDS_Transition; supportType: TopOpeBRepDS_Kind;
+    support: int; geometryType: TopOpeBRepDS_Kind; geometry: int;
+    pc: Handle[Geom2dCurve]): TopOpeBRepDS_SurfaceCurveInterference {.constructor,
+    importcpp: "TopOpeBRepDS_SurfaceCurveInterference(@)",
     header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}
 proc constructTopOpeBRepDS_SurfaceCurveInterference*(
-    I: handle[TopOpeBRepDS_Interference]): TopOpeBRepDS_SurfaceCurveInterference {.
+    i: Handle[TopOpeBRepDS_Interference]): TopOpeBRepDS_SurfaceCurveInterference {.
     constructor, importcpp: "TopOpeBRepDS_SurfaceCurveInterference(@)",
     header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}
-proc PCurve*(this: TopOpeBRepDS_SurfaceCurveInterference): handle[Geom2d_Curve] {.
+proc pCurve*(this: TopOpeBRepDS_SurfaceCurveInterference): Handle[Geom2dCurve] {.
     noSideEffect, importcpp: "PCurve",
     header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}
-proc PCurve*(this: var TopOpeBRepDS_SurfaceCurveInterference;
-            PC: handle[Geom2d_Curve]) {.importcpp: "PCurve", header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}
+proc pCurve*(this: var TopOpeBRepDS_SurfaceCurveInterference;
+            pc: Handle[Geom2dCurve]) {.importcpp: "PCurve", header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}
 type
-  TopOpeBRepDS_SurfaceCurveInterferencebase_type* = TopOpeBRepDS_Interference
+  TopOpeBRepDS_SurfaceCurveInterferencebaseType* = TopOpeBRepDS_Interference
 
-proc get_type_name*(): cstring {.importcpp: "TopOpeBRepDS_SurfaceCurveInterference::get_type_name(@)", header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TopOpeBRepDS_SurfaceCurveInterference::get_type_name(@)",
+                            header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopOpeBRepDS_SurfaceCurveInterference::get_type_descriptor(@)",
     header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}
-proc DynamicType*(this: TopOpeBRepDS_SurfaceCurveInterference): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}
+proc dynamicType*(this: TopOpeBRepDS_SurfaceCurveInterference): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}

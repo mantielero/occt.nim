@@ -14,48 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRepBuild_Area1dBuilder,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real
-
 discard "forward decl of TopOpeBRepBuild_PaveSet"
 discard "forward decl of TopOpeBRepBuild_PaveClassifier"
 discard "forward decl of TopOpeBRepBuild_LoopSet"
 discard "forward decl of TopOpeBRepBuild_LoopClassifier"
 discard "forward decl of TopoDS_Shape"
 type
-  TopOpeBRepBuild_EdgeBuilder* {.importcpp: "TopOpeBRepBuild_EdgeBuilder",
-                                header: "TopOpeBRepBuild_EdgeBuilder.hxx", bycopy.} = object of TopOpeBRepBuild_Area1dBuilder
+  TopOpeBRepBuildEdgeBuilder* {.importcpp: "TopOpeBRepBuild_EdgeBuilder",
+                               header: "TopOpeBRepBuild_EdgeBuilder.hxx", bycopy.} = object of TopOpeBRepBuildArea1dBuilder
 
 
-proc constructTopOpeBRepBuild_EdgeBuilder*(): TopOpeBRepBuild_EdgeBuilder {.
+proc constructTopOpeBRepBuildEdgeBuilder*(): TopOpeBRepBuildEdgeBuilder {.
     constructor, importcpp: "TopOpeBRepBuild_EdgeBuilder(@)",
     header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
-proc constructTopOpeBRepBuild_EdgeBuilder*(LS: var TopOpeBRepBuild_PaveSet;
-    LC: var TopOpeBRepBuild_PaveClassifier;
-    ForceClass: Standard_Boolean = Standard_False): TopOpeBRepBuild_EdgeBuilder {.
+proc constructTopOpeBRepBuildEdgeBuilder*(ls: var TopOpeBRepBuildPaveSet;
+    lc: var TopOpeBRepBuildPaveClassifier; forceClass: bool = false): TopOpeBRepBuildEdgeBuilder {.
     constructor, importcpp: "TopOpeBRepBuild_EdgeBuilder(@)",
     header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
-proc InitEdgeBuilder*(this: var TopOpeBRepBuild_EdgeBuilder;
-                     LS: var TopOpeBRepBuild_LoopSet;
-                     LC: var TopOpeBRepBuild_LoopClassifier;
-                     ForceClass: Standard_Boolean = Standard_False) {.
-    importcpp: "InitEdgeBuilder", header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
-proc InitEdge*(this: var TopOpeBRepBuild_EdgeBuilder) {.importcpp: "InitEdge",
+proc initEdgeBuilder*(this: var TopOpeBRepBuildEdgeBuilder;
+                     ls: var TopOpeBRepBuildLoopSet;
+                     lc: var TopOpeBRepBuildLoopClassifier;
+                     forceClass: bool = false) {.importcpp: "InitEdgeBuilder",
     header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
-proc MoreEdge*(this: TopOpeBRepBuild_EdgeBuilder): Standard_Boolean {.noSideEffect,
+proc initEdge*(this: var TopOpeBRepBuildEdgeBuilder) {.importcpp: "InitEdge",
+    header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
+proc moreEdge*(this: TopOpeBRepBuildEdgeBuilder): bool {.noSideEffect,
     importcpp: "MoreEdge", header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
-proc NextEdge*(this: var TopOpeBRepBuild_EdgeBuilder) {.importcpp: "NextEdge",
+proc nextEdge*(this: var TopOpeBRepBuildEdgeBuilder) {.importcpp: "NextEdge",
     header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
-proc InitVertex*(this: var TopOpeBRepBuild_EdgeBuilder) {.importcpp: "InitVertex",
+proc initVertex*(this: var TopOpeBRepBuildEdgeBuilder) {.importcpp: "InitVertex",
     header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
-proc MoreVertex*(this: TopOpeBRepBuild_EdgeBuilder): Standard_Boolean {.
-    noSideEffect, importcpp: "MoreVertex",
+proc moreVertex*(this: TopOpeBRepBuildEdgeBuilder): bool {.noSideEffect,
+    importcpp: "MoreVertex", header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
+proc nextVertex*(this: var TopOpeBRepBuildEdgeBuilder) {.importcpp: "NextVertex",
     header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
-proc NextVertex*(this: var TopOpeBRepBuild_EdgeBuilder) {.importcpp: "NextVertex",
-    header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
-proc Vertex*(this: TopOpeBRepBuild_EdgeBuilder): TopoDS_Shape {.noSideEffect,
+proc vertex*(this: TopOpeBRepBuildEdgeBuilder): TopoDS_Shape {.noSideEffect,
     importcpp: "Vertex", header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
-proc Parameter*(this: TopOpeBRepBuild_EdgeBuilder): Standard_Real {.noSideEffect,
+proc parameter*(this: TopOpeBRepBuildEdgeBuilder): float {.noSideEffect,
     importcpp: "Parameter", header: "TopOpeBRepBuild_EdgeBuilder.hxx".}

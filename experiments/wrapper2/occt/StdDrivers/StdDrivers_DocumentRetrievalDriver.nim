@@ -11,25 +11,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../StdLDrivers/StdLDrivers_DocumentRetrievalDriver
-
 ## ! retrieval driver of a Part document
 
 type
-  StdDrivers_DocumentRetrievalDriver* {.importcpp: "StdDrivers_DocumentRetrievalDriver", header: "StdDrivers_DocumentRetrievalDriver.hxx",
-                                       bycopy.} = object of StdLDrivers_DocumentRetrievalDriver ##
-                                                                                           ## !
-                                                                                           ## Register
-                                                                                           ## types.
+  StdDriversDocumentRetrievalDriver* {.importcpp: "StdDrivers_DocumentRetrievalDriver", header: "StdDrivers_DocumentRetrievalDriver.hxx",
+                                      bycopy.} = object of StdLDriversDocumentRetrievalDriver ##
+                                                                                         ## !
+                                                                                         ## Register
+                                                                                         ## types.
 
-  StdDrivers_DocumentRetrievalDriverbase_type* = StdLDrivers_DocumentRetrievalDriver
+  StdDriversDocumentRetrievalDriverbaseType* = StdLDriversDocumentRetrievalDriver
 
-proc get_type_name*(): cstring {.importcpp: "StdDrivers_DocumentRetrievalDriver::get_type_name(@)",
-                              header: "StdDrivers_DocumentRetrievalDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StdDrivers_DocumentRetrievalDriver::get_type_name(@)",
+                            header: "StdDrivers_DocumentRetrievalDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StdDrivers_DocumentRetrievalDriver::get_type_descriptor(@)",
     header: "StdDrivers_DocumentRetrievalDriver.hxx".}
-proc DynamicType*(this: StdDrivers_DocumentRetrievalDriver): handle[Standard_Type] {.
+proc dynamicType*(this: StdDriversDocumentRetrievalDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StdDrivers_DocumentRetrievalDriver.hxx".}

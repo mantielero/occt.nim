@@ -17,8 +17,9 @@
 ## ! Type of the texture projection plane for both S and T texture coordinate.
 
 type
-  Graphic3d_NameOfTexturePlane* {.size: sizeof(cint),
-                                 importcpp: "Graphic3d_NameOfTexturePlane",
-                                 header: "Graphic3d_NameOfTexturePlane.hxx".} = enum
-    Graphic3d_NOTP_XY, Graphic3d_NOTP_YZ, Graphic3d_NOTP_ZX, Graphic3d_NOTP_UNKNOWN
+  Graphic3dNameOfTexturePlane* {.size: sizeof(cint),
+                                importcpp: "Graphic3d_NameOfTexturePlane",
+                                header: "Graphic3d_NameOfTexturePlane.hxx".} = enum
+    Graphic3dNOTP_XY, Graphic3dNOTP_YZ, Graphic3dNOTP_ZX, Graphic3dNOTP_UNKNOWN
+
 

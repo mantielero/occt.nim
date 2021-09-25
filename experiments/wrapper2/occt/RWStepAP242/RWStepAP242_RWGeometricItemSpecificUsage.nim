@@ -13,34 +13,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepAP242_GeometricItemSpecificUsage"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepAP242_RWGeometricItemSpecificUsage* {.
+  RWStepAP242RWGeometricItemSpecificUsage* {.
       importcpp: "RWStepAP242_RWGeometricItemSpecificUsage",
       header: "RWStepAP242_RWGeometricItemSpecificUsage.hxx", bycopy.} = object
 
 
-proc constructRWStepAP242_RWGeometricItemSpecificUsage*(): RWStepAP242_RWGeometricItemSpecificUsage {.
+proc constructRWStepAP242RWGeometricItemSpecificUsage*(): RWStepAP242RWGeometricItemSpecificUsage {.
     constructor, importcpp: "RWStepAP242_RWGeometricItemSpecificUsage(@)",
     header: "RWStepAP242_RWGeometricItemSpecificUsage.hxx".}
-proc ReadStep*(this: RWStepAP242_RWGeometricItemSpecificUsage;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepAP242_GeometricItemSpecificUsage]) {.noSideEffect,
+proc readStep*(this: RWStepAP242RWGeometricItemSpecificUsage;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepAP242GeometricItemSpecificUsage]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepAP242_RWGeometricItemSpecificUsage.hxx".}
-proc WriteStep*(this: RWStepAP242_RWGeometricItemSpecificUsage;
-               SW: var StepData_StepWriter;
-               ent: handle[StepAP242_GeometricItemSpecificUsage]) {.noSideEffect,
+proc writeStep*(this: RWStepAP242RWGeometricItemSpecificUsage;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepAP242GeometricItemSpecificUsage]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepAP242_RWGeometricItemSpecificUsage.hxx".}
-proc Share*(this: RWStepAP242_RWGeometricItemSpecificUsage;
-           ent: handle[StepAP242_GeometricItemSpecificUsage];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepAP242RWGeometricItemSpecificUsage;
+           ent: Handle[StepAP242GeometricItemSpecificUsage];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP242_RWGeometricItemSpecificUsage.hxx".}

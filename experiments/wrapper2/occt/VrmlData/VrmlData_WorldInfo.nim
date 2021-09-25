@@ -13,59 +13,57 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  VrmlData_Node
-
 ## *
 ##  Data type for WorldInfo node
 ##
 
 type
-  VrmlData_WorldInfo* {.importcpp: "VrmlData_WorldInfo",
-                       header: "VrmlData_WorldInfo.hxx", bycopy.} = object of VrmlData_Node ##  ---------- PUBLIC METHODS ----------
-                                                                                     ## *
-                                                                                     ##  Empty Constructor.
-                                                                                     ##
-                                                                                     ##  ---------- PRIVATE FIELDS ----------
-                                                                                     ##  Declaration of CASCADE RTTI
+  VrmlDataWorldInfo* {.importcpp: "VrmlData_WorldInfo",
+                      header: "VrmlData_WorldInfo.hxx", bycopy.} = object of VrmlDataNode ##  ---------- PUBLIC METHODS ----------
+                                                                                   ## *
+                                                                                   ##  Empty Constructor.
+                                                                                   ##
+                                                                                   ##  ---------- PRIVATE FIELDS ----------
+                                                                                   ##  Declaration of CASCADE RTTI
 
 
-proc constructVrmlData_WorldInfo*(): VrmlData_WorldInfo {.constructor,
+proc constructVrmlDataWorldInfo*(): VrmlDataWorldInfo {.constructor,
     importcpp: "VrmlData_WorldInfo(@)", header: "VrmlData_WorldInfo.hxx".}
-proc constructVrmlData_WorldInfo*(theScene: VrmlData_Scene;
-                                 theName: cstring = 0L'i64;
-                                 theTitle: cstring = 0L'i64): VrmlData_WorldInfo {.
+proc constructVrmlDataWorldInfo*(theScene: VrmlDataScene;
+                                theName: cstring = 0'i64;
+                                theTitle: cstring = 0'i64): VrmlDataWorldInfo {.
     constructor, importcpp: "VrmlData_WorldInfo(@)",
     header: "VrmlData_WorldInfo.hxx".}
-proc SetTitle*(this: var VrmlData_WorldInfo; theString: cstring) {.
+proc setTitle*(this: var VrmlDataWorldInfo; theString: cstring) {.
     importcpp: "SetTitle", header: "VrmlData_WorldInfo.hxx".}
-proc AddInfo*(this: var VrmlData_WorldInfo; theString: cstring) {.
-    importcpp: "AddInfo", header: "VrmlData_WorldInfo.hxx".}
-proc Title*(this: VrmlData_WorldInfo): cstring {.noSideEffect, importcpp: "Title",
+proc addInfo*(this: var VrmlDataWorldInfo; theString: cstring) {.importcpp: "AddInfo",
     header: "VrmlData_WorldInfo.hxx".}
-proc InfoIterator*(this: VrmlData_WorldInfo): Iterator[cstring] {.noSideEffect,
+proc title*(this: VrmlDataWorldInfo): cstring {.noSideEffect, importcpp: "Title",
+    header: "VrmlData_WorldInfo.hxx".}
+proc infoIterator*(this: VrmlDataWorldInfo): Iterator[cstring] {.noSideEffect,
     importcpp: "InfoIterator", header: "VrmlData_WorldInfo.hxx".}
-proc Clone*(this: VrmlData_WorldInfo; theOther: handle[VrmlData_Node]): handle[
-    VrmlData_Node] {.noSideEffect, importcpp: "Clone",
-                    header: "VrmlData_WorldInfo.hxx".}
-proc Read*(this: var VrmlData_WorldInfo; theBuffer: var VrmlData_InBuffer): VrmlData_ErrorStatus {.
+proc clone*(this: VrmlDataWorldInfo; theOther: Handle[VrmlDataNode]): Handle[
+    VrmlDataNode] {.noSideEffect, importcpp: "Clone",
+                   header: "VrmlData_WorldInfo.hxx".}
+proc read*(this: var VrmlDataWorldInfo; theBuffer: var VrmlDataInBuffer): VrmlDataErrorStatus {.
     importcpp: "Read", header: "VrmlData_WorldInfo.hxx".}
-proc Write*(this: VrmlData_WorldInfo; thePrefix: cstring): VrmlData_ErrorStatus {.
+proc write*(this: VrmlDataWorldInfo; thePrefix: cstring): VrmlDataErrorStatus {.
     noSideEffect, importcpp: "Write", header: "VrmlData_WorldInfo.hxx".}
-proc IsDefault*(this: VrmlData_WorldInfo): Standard_Boolean {.noSideEffect,
+proc isDefault*(this: VrmlDataWorldInfo): bool {.noSideEffect,
     importcpp: "IsDefault", header: "VrmlData_WorldInfo.hxx".}
 type
-  VrmlData_WorldInfobase_type* = VrmlData_Node
+  VrmlDataWorldInfobaseType* = VrmlDataNode
 
-proc get_type_name*(): cstring {.importcpp: "VrmlData_WorldInfo::get_type_name(@)",
-                              header: "VrmlData_WorldInfo.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "VrmlData_WorldInfo::get_type_name(@)",
+                            header: "VrmlData_WorldInfo.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "VrmlData_WorldInfo::get_type_descriptor(@)",
     header: "VrmlData_WorldInfo.hxx".}
-proc DynamicType*(this: VrmlData_WorldInfo): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: VrmlDataWorldInfo): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "VrmlData_WorldInfo.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of VrmlData_WorldInfo"
 type
-  Handle_VrmlData_WorldInfo* = handle[VrmlData_WorldInfo]
+  HandleVrmlDataWorldInfo* = Handle[VrmlDataWorldInfo]
+

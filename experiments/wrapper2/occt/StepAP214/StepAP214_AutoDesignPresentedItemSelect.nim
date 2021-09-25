@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_ProductDefinitionRelationship"
 discard "forward decl of StepBasic_ProductDefinition"
@@ -27,37 +22,38 @@ discard "forward decl of StepRepr_RepresentationRelationship"
 discard "forward decl of StepRepr_ShapeAspect"
 discard "forward decl of StepBasic_DocumentRelationship"
 type
-  StepAP214_AutoDesignPresentedItemSelect* {.
+  StepAP214AutoDesignPresentedItemSelect* {.
       importcpp: "StepAP214_AutoDesignPresentedItemSelect",
-      header: "StepAP214_AutoDesignPresentedItemSelect.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                               ## !
-                                                                                               ## Returns
-                                                                                               ## a
-                                                                                               ## AutoDesignPresentedItemSelect
-                                                                                               ## SelectType
+      header: "StepAP214_AutoDesignPresentedItemSelect.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                              ## !
+                                                                                              ## Returns
+                                                                                              ## a
+                                                                                              ## AutoDesignPresentedItemSelect
+                                                                                              ## SelectType
 
 
-proc constructStepAP214_AutoDesignPresentedItemSelect*(): StepAP214_AutoDesignPresentedItemSelect {.
+proc constructStepAP214AutoDesignPresentedItemSelect*(): StepAP214AutoDesignPresentedItemSelect {.
     constructor, importcpp: "StepAP214_AutoDesignPresentedItemSelect(@)",
     header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
-proc CaseNum*(this: StepAP214_AutoDesignPresentedItemSelect;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepAP214AutoDesignPresentedItemSelect;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
-proc ProductDefinitionRelationship*(this: StepAP214_AutoDesignPresentedItemSelect): handle[
-    StepBasic_ProductDefinitionRelationship] {.noSideEffect,
+proc productDefinitionRelationship*(this: StepAP214AutoDesignPresentedItemSelect): Handle[
+    StepBasicProductDefinitionRelationship] {.noSideEffect,
     importcpp: "ProductDefinitionRelationship",
     header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
-proc ProductDefinition*(this: StepAP214_AutoDesignPresentedItemSelect): handle[
-    StepBasic_ProductDefinition] {.noSideEffect, importcpp: "ProductDefinition", header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
-proc ProductDefinitionShape*(this: StepAP214_AutoDesignPresentedItemSelect): handle[
-    StepRepr_ProductDefinitionShape] {.noSideEffect,
-                                      importcpp: "ProductDefinitionShape", header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
-proc RepresentationRelationship*(this: StepAP214_AutoDesignPresentedItemSelect): handle[
-    StepRepr_RepresentationRelationship] {.noSideEffect,
+proc productDefinition*(this: StepAP214AutoDesignPresentedItemSelect): Handle[
+    StepBasicProductDefinition] {.noSideEffect, importcpp: "ProductDefinition", header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
+proc productDefinitionShape*(this: StepAP214AutoDesignPresentedItemSelect): Handle[
+    StepReprProductDefinitionShape] {.noSideEffect,
+                                     importcpp: "ProductDefinitionShape", header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
+proc representationRelationship*(this: StepAP214AutoDesignPresentedItemSelect): Handle[
+    StepReprRepresentationRelationship] {.noSideEffect,
     importcpp: "RepresentationRelationship",
     header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
-proc ShapeAspect*(this: StepAP214_AutoDesignPresentedItemSelect): handle[
-    StepRepr_ShapeAspect] {.noSideEffect, importcpp: "ShapeAspect", header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
-proc DocumentRelationship*(this: StepAP214_AutoDesignPresentedItemSelect): handle[
-    StepBasic_DocumentRelationship] {.noSideEffect,
-                                     importcpp: "DocumentRelationship", header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
+proc shapeAspect*(this: StepAP214AutoDesignPresentedItemSelect): Handle[
+    StepReprShapeAspect] {.noSideEffect, importcpp: "ShapeAspect",
+                          header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
+proc documentRelationship*(this: StepAP214AutoDesignPresentedItemSelect): Handle[
+    StepBasicDocumentRelationship] {.noSideEffect,
+                                    importcpp: "DocumentRelationship", header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}

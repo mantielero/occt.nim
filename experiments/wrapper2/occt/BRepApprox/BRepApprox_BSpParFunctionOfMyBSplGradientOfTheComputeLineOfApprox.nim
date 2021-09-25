@@ -14,76 +14,56 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  BRepApprox_TheMultiLineOfApprox, ../AppParCurves/AppParCurves_MultiBSpCurve,
-  ../Standard/Standard_Integer, ../math/math_Vector, ../Standard/Standard_Real,
-  ../math/math_Matrix,
-  BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox,
-  ../TColStd/TColStd_HArray1OfInteger,
-  ../AppParCurves/AppParCurves_HArray1OfConstraintCouple,
-  ../math/math_MultipleVarFunctionWithGradient, ../TColStd/TColStd_Array1OfReal,
-  ../TColStd/TColStd_Array1OfInteger, ../math/math_IntegerVector,
-  ../AppParCurves/AppParCurves_Constraint
-
 discard "forward decl of BRepApprox_TheMultiLineOfApprox"
 discard "forward decl of BRepApprox_TheMultiLineToolOfApprox"
 discard "forward decl of BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox"
 discard "forward decl of AppParCurves_MultiBSpCurve"
 discard "forward decl of math_Matrix"
 type
-  BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox* {.importcpp: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx",
-      bycopy.} = object of math_MultipleVarFunctionWithGradient ## ! initializes the fields of the function. The approximating
-                                                           ## ! curve has <NbPol> control points.
-                                                           ## ! this method is used each time Value or Gradient is
-                                                           ## ! needed.
+  BRepApproxBSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox* {.importcpp: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx",
+      bycopy.} = object of MathMultipleVarFunctionWithGradient ## ! initializes the fields of the function. The approximating
+                                                          ## ! curve has <NbPol> control points.
+                                                          ## ! this method is used each time Value or Gradient is
+                                                          ## ! needed.
 
 
-proc constructBRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox*(
-    SSP: BRepApprox_TheMultiLineOfApprox; FirstPoint: Standard_Integer;
-    LastPoint: Standard_Integer;
-    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
-    Parameters: math_Vector; Knots: TColStd_Array1OfReal;
-    Mults: TColStd_Array1OfInteger; NbPol: Standard_Integer): BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox {.
+proc constructBRepApproxBSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox*(
+    ssp: BRepApproxTheMultiLineOfApprox; firstPoint: int; lastPoint: int;
+    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
+    parameters: MathVector; knots: TColStdArray1OfReal;
+    mults: TColStdArray1OfInteger; nbPol: int): BRepApproxBSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox {.
     constructor, importcpp: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox(@)", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc NbVariables*(this: BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox): Standard_Integer {.
+proc nbVariables*(this: BRepApproxBSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox): int {.
     noSideEffect, importcpp: "NbVariables", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc Value*(this: var BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox;
-           X: math_Vector; F: var Standard_Real): Standard_Boolean {.
-    importcpp: "Value", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc Gradient*(this: var BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox;
-              X: math_Vector; G: var math_Vector): Standard_Boolean {.
-    importcpp: "Gradient", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc Values*(this: var BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox;
-            X: math_Vector; F: var Standard_Real; G: var math_Vector): Standard_Boolean {.
-    importcpp: "Values", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc NewParameters*(this: BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox): math_Vector {.
+proc value*(this: var BRepApproxBSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox;
+           x: MathVector; f: var float): bool {.importcpp: "Value", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
+proc gradient*(this: var BRepApproxBSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox;
+              x: MathVector; g: var MathVector): bool {.importcpp: "Gradient", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
+proc values*(this: var BRepApproxBSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox;
+            x: MathVector; f: var float; g: var MathVector): bool {.importcpp: "Values", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
+proc newParameters*(this: BRepApproxBSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox): MathVector {.
     noSideEffect, importcpp: "NewParameters", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc CurveValue*(this: var BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox): AppParCurves_MultiBSpCurve {.
+proc curveValue*(this: var BRepApproxBSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox): AppParCurvesMultiBSpCurve {.
     importcpp: "CurveValue", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc Error*(this: var BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox;
-           IPoint: Standard_Integer; CurveIndex: Standard_Integer): Standard_Real {.
-    importcpp: "Error", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc MaxError3d*(this: BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox): Standard_Real {.
+proc error*(this: var BRepApproxBSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox;
+           iPoint: int; curveIndex: int): float {.importcpp: "Error", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
+proc maxError3d*(this: BRepApproxBSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox): float {.
     noSideEffect, importcpp: "MaxError3d", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc MaxError2d*(this: BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox): Standard_Real {.
+proc maxError2d*(this: BRepApproxBSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox): float {.
     noSideEffect, importcpp: "MaxError2d", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc FunctionMatrix*(this: BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox): math_Matrix {.
+proc functionMatrix*(this: BRepApproxBSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox): MathMatrix {.
     noSideEffect, importcpp: "FunctionMatrix", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc DerivativeFunctionMatrix*(this: BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox): math_Matrix {.
+proc derivativeFunctionMatrix*(this: BRepApproxBSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox): MathMatrix {.
     noSideEffect, importcpp: "DerivativeFunctionMatrix", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc Index*(this: BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox): math_IntegerVector {.
+proc index*(this: BRepApproxBSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox): MathIntegerVector {.
     noSideEffect, importcpp: "Index", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc FirstConstraint*(this: BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox;
-    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
-                     FirstPoint: Standard_Integer): AppParCurves_Constraint {.
+proc firstConstraint*(this: BRepApproxBSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox;
+    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple]; firstPoint: int): AppParCurvesConstraint {.
     noSideEffect, importcpp: "FirstConstraint", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc LastConstraint*(this: BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox;
-    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
-                    LastPoint: Standard_Integer): AppParCurves_Constraint {.
+proc lastConstraint*(this: BRepApproxBSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox;
+    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple]; lastPoint: int): AppParCurvesConstraint {.
     noSideEffect, importcpp: "LastConstraint", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc SetFirstLambda*(this: var BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox;
-                    l1: Standard_Real) {.importcpp: "SetFirstLambda", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc SetLastLambda*(this: var BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox;
-                   l2: Standard_Real) {.importcpp: "SetLastLambda", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
+proc setFirstLambda*(this: var BRepApproxBSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox;
+                    l1: float) {.importcpp: "SetFirstLambda", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
+proc setLastLambda*(this: var BRepApproxBSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox;
+                   l2: float) {.importcpp: "SetLastLambda", header: "BRepApprox_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}

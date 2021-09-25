@@ -14,4 +14,5 @@
 
 discard "forward decl of BOPAlgo_PaveFiller"
 type
-  BOPAlgo_PPaveFiller* = ptr BOPAlgo_PaveFiller
+  BOPAlgoPPaveFiller* = ptr BOPAlgoPaveFiller
+

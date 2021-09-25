@@ -14,27 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_ProductDefinitionFormation"
 type
-  StepAP203_ContractedItem* {.importcpp: "StepAP203_ContractedItem",
-                             header: "StepAP203_ContractedItem.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                       ## !
-                                                                                                       ## Empty
-                                                                                                       ## constructor
+  StepAP203ContractedItem* {.importcpp: "StepAP203_ContractedItem",
+                            header: "StepAP203_ContractedItem.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                     ## !
+                                                                                                     ## Empty
+                                                                                                     ## constructor
 
 
-proc constructStepAP203_ContractedItem*(): StepAP203_ContractedItem {.constructor,
+proc constructStepAP203ContractedItem*(): StepAP203ContractedItem {.constructor,
     importcpp: "StepAP203_ContractedItem(@)",
     header: "StepAP203_ContractedItem.hxx".}
-proc CaseNum*(this: StepAP203_ContractedItem; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepAP203ContractedItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP203_ContractedItem.hxx".}
-proc ProductDefinitionFormation*(this: StepAP203_ContractedItem): handle[
-    StepBasic_ProductDefinitionFormation] {.noSideEffect,
+proc productDefinitionFormation*(this: StepAP203ContractedItem): Handle[
+    StepBasicProductDefinitionFormation] {.noSideEffect,
     importcpp: "ProductDefinitionFormation",
     header: "StepAP203_ContractedItem.hxx".}

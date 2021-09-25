@@ -15,51 +15,44 @@
 ##  commercial license or contractual agreement.
 
 # when not defined(_Standard_Integer_HeaderFile):
-#   import
-#     ../Standard/Standard_Integer
-# 
+#   discard
 # when not defined(_Standard_Real_HeaderFile):
-#   import
-    ../Standard/Standard_Real
-
-when not defined(_Standard_PrimitiveTypes_HeaderFile):
-  import
-    ../Standard/Standard_PrimitiveTypes
-
+#   discard
+# when not defined(_Standard_PrimitiveTypes_HeaderFile):
+#   discard
 ##  Histroy - C function pointer converted to a virtual class
 ##  in order to get rid of usage of static functions and static data
 
 type
-  BSplSLib_EvaluatorFunction* {.importcpp: "BSplSLib_EvaluatorFunction",
-                               header: "BSplSLib_EvaluatorFunction.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Empty
-                                                                                      ## constructor
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Copy
-                                                                                      ## constructor
-                                                                                      ## is
-                                                                                      ## declared
-                                                                                      ## private
-                                                                                      ## to
-                                                                                      ## forbid
-                                                                                      ## copying
+  BSplSLibEvaluatorFunction* {.importcpp: "BSplSLib_EvaluatorFunction",
+                              header: "BSplSLib_EvaluatorFunction.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Empty
+                                                                                     ## constructor
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Copy
+                                                                                     ## constructor
+                                                                                     ## is
+                                                                                     ## declared
+                                                                                     ## private
+                                                                                     ## to
+                                                                                     ## forbid
+                                                                                     ## copying
 
 
-proc constructBSplSLib_EvaluatorFunction*(): BSplSLib_EvaluatorFunction {.
+proc constructBSplSLibEvaluatorFunction*(): BSplSLibEvaluatorFunction {.
     constructor, importcpp: "BSplSLib_EvaluatorFunction(@)",
     header: "BSplSLib_EvaluatorFunction.hxx".}
-proc destroyBSplSLib_EvaluatorFunction*(this: var BSplSLib_EvaluatorFunction) {.
+proc destroyBSplSLibEvaluatorFunction*(this: var BSplSLibEvaluatorFunction) {.
     importcpp: "#.~BSplSLib_EvaluatorFunction()",
     header: "BSplSLib_EvaluatorFunction.hxx".}
-proc Evaluate*(this: BSplSLib_EvaluatorFunction;
-              theDerivativeRequest: Standard_Integer;
-              theUParameter: Standard_Real; theVParameter: Standard_Real;
-              theResult: var Standard_Real; theErrorCode: var Standard_Integer) {.
-    noSideEffect, importcpp: "Evaluate", header: "BSplSLib_EvaluatorFunction.hxx".}
-proc `()`*(this: BSplSLib_EvaluatorFunction;
-          theDerivativeRequest: Standard_Integer; theUParameter: Standard_Real;
-          theVParameter: Standard_Real; theResult: var Standard_Real;
-          theErrorCode: var Standard_Integer) {.noSideEffect, importcpp: "#(@)",
-    header: "BSplSLib_EvaluatorFunction.hxx".}
+proc evaluate*(this: BSplSLibEvaluatorFunction; theDerivativeRequest: int;
+              theUParameter: float; theVParameter: float; theResult: var float;
+              theErrorCode: var int) {.noSideEffect, importcpp: "Evaluate",
+                                    header: "BSplSLib_EvaluatorFunction.hxx".}
+proc `()`*(this: BSplSLibEvaluatorFunction; theDerivativeRequest: int;
+          theUParameter: float; theVParameter: float; theResult: var float;
+          theErrorCode: var int) {.noSideEffect, importcpp: "#(@)",
+                                header: "BSplSLib_EvaluatorFunction.hxx".}
+

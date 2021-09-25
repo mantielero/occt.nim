@@ -14,54 +14,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _IntCurveSurface_ThePolyhedronToolOfHInter_HeaderFile [NewLine] # _IntCurveSurface_ThePolyhedronToolOfHInter_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Bnd/Bnd_HArray1OfBox.hxx [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # ../Standard/Standard_Integer.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] class Standard_OutOfRange ;
+## !!!Ignored construct:  # _IntCurveSurface_ThePolyhedronToolOfHInter_HeaderFile [NewLine] # _IntCurveSurface_ThePolyhedronToolOfHInter_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Bnd_HArray1OfBox . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] class Standard_OutOfRange ;
 ## Error: did not expect <!!!
 
 discard "forward decl of IntCurveSurface_ThePolyhedronOfHInter"
 discard "forward decl of Bnd_Box"
 discard "forward decl of gp_Pnt"
 type
-  IntCurveSurface_ThePolyhedronToolOfHInter* {.
+  IntCurveSurfaceThePolyhedronToolOfHInter* {.
       importcpp: "IntCurveSurface_ThePolyhedronToolOfHInter",
       header: "IntCurveSurface_ThePolyhedronToolOfHInter.hxx", bycopy.} = object ## ! Give the
                                                                             ## bounding box of the
                                                                             ## PolyhedronTool.
 
 
-proc Bounding*(thePolyh: IntCurveSurface_ThePolyhedronOfHInter): Bnd_Box {.
+proc bounding*(thePolyh: IntCurveSurfaceThePolyhedronOfHInter): BndBox {.
     importcpp: "IntCurveSurface_ThePolyhedronToolOfHInter::Bounding(@)",
     header: "IntCurveSurface_ThePolyhedronToolOfHInter.hxx".}
-proc ComponentsBounding*(thePolyh: IntCurveSurface_ThePolyhedronOfHInter): handle[
-    Bnd_HArray1OfBox] {.importcpp: "IntCurveSurface_ThePolyhedronToolOfHInter::ComponentsBounding(@)",
-                       header: "IntCurveSurface_ThePolyhedronToolOfHInter.hxx".}
-proc DeflectionOverEstimation*(thePolyh: IntCurveSurface_ThePolyhedronOfHInter): Standard_Real {.importcpp: "IntCurveSurface_ThePolyhedronToolOfHInter::DeflectionOverEstimation(@)",
+proc componentsBounding*(thePolyh: IntCurveSurfaceThePolyhedronOfHInter): Handle[
+    BndHArray1OfBox] {.importcpp: "IntCurveSurface_ThePolyhedronToolOfHInter::ComponentsBounding(@)",
+                      header: "IntCurveSurface_ThePolyhedronToolOfHInter.hxx".}
+proc deflectionOverEstimation*(thePolyh: IntCurveSurfaceThePolyhedronOfHInter): float {.importcpp: "IntCurveSurface_ThePolyhedronToolOfHInter::DeflectionOverEstimation(@)",
     header: "IntCurveSurface_ThePolyhedronToolOfHInter.hxx".}
-proc NbTriangles*(thePolyh: IntCurveSurface_ThePolyhedronOfHInter): Standard_Integer {.
+proc nbTriangles*(thePolyh: IntCurveSurfaceThePolyhedronOfHInter): int {.
     importcpp: "IntCurveSurface_ThePolyhedronToolOfHInter::NbTriangles(@)",
     header: "IntCurveSurface_ThePolyhedronToolOfHInter.hxx".}
-proc Triangle*(thePolyh: IntCurveSurface_ThePolyhedronOfHInter;
-              Index: Standard_Integer; P1: var Standard_Integer;
-              P2: var Standard_Integer; P3: var Standard_Integer) {.
+proc triangle*(thePolyh: IntCurveSurfaceThePolyhedronOfHInter; index: int;
+              p1: var int; p2: var int; p3: var int) {.
     importcpp: "IntCurveSurface_ThePolyhedronToolOfHInter::Triangle(@)",
     header: "IntCurveSurface_ThePolyhedronToolOfHInter.hxx".}
-proc Point*(thePolyh: IntCurveSurface_ThePolyhedronOfHInter;
-           Index: Standard_Integer): gp_Pnt {.
+proc point*(thePolyh: IntCurveSurfaceThePolyhedronOfHInter; index: int): Pnt {.
     importcpp: "IntCurveSurface_ThePolyhedronToolOfHInter::Point(@)",
     header: "IntCurveSurface_ThePolyhedronToolOfHInter.hxx".}
-proc TriConnex*(thePolyh: IntCurveSurface_ThePolyhedronOfHInter;
-               Triang: Standard_Integer; Pivot: Standard_Integer;
-               Pedge: Standard_Integer; TriCon: var Standard_Integer;
-               OtherP: var Standard_Integer): Standard_Integer {.
+proc triConnex*(thePolyh: IntCurveSurfaceThePolyhedronOfHInter; triang: int;
+               pivot: int; pedge: int; triCon: var int; otherP: var int): int {.
     importcpp: "IntCurveSurface_ThePolyhedronToolOfHInter::TriConnex(@)",
     header: "IntCurveSurface_ThePolyhedronToolOfHInter.hxx".}
-proc IsOnBound*(thePolyh: IntCurveSurface_ThePolyhedronOfHInter;
-               Index1: Standard_Integer; Index2: Standard_Integer): Standard_Boolean {.
-    importcpp: "IntCurveSurface_ThePolyhedronToolOfHInter::IsOnBound(@)",
+proc isOnBound*(thePolyh: IntCurveSurfaceThePolyhedronOfHInter; index1: int;
+               index2: int): bool {.importcpp: "IntCurveSurface_ThePolyhedronToolOfHInter::IsOnBound(@)", header: "IntCurveSurface_ThePolyhedronToolOfHInter.hxx".}
+proc getBorderDeflection*(thePolyh: IntCurveSurfaceThePolyhedronOfHInter): float {.importcpp: "IntCurveSurface_ThePolyhedronToolOfHInter::GetBorderDeflection(@)",
     header: "IntCurveSurface_ThePolyhedronToolOfHInter.hxx".}
-proc GetBorderDeflection*(thePolyh: IntCurveSurface_ThePolyhedronOfHInter): Standard_Real {.importcpp: "IntCurveSurface_ThePolyhedronToolOfHInter::GetBorderDeflection(@)",
-    header: "IntCurveSurface_ThePolyhedronToolOfHInter.hxx".}
-proc Dump*(thePolyh: IntCurveSurface_ThePolyhedronOfHInter) {.
+proc dump*(thePolyh: IntCurveSurfaceThePolyhedronOfHInter) {.
     importcpp: "IntCurveSurface_ThePolyhedronToolOfHInter::Dump(@)",
     header: "IntCurveSurface_ThePolyhedronToolOfHInter.hxx".}
-## !!!Ignored construct:  # ThePolyhedron IntCurveSurface_ThePolyhedronOfHInter [NewLine] # ThePolyhedron_hxx < IntCurveSurface_ThePolyhedronOfHInter . hxx > [NewLine] # IntCurveSurface_PolyhedronTool IntCurveSurface_ThePolyhedronToolOfHInter [NewLine] # IntCurveSurface_PolyhedronTool_hxx < IntCurveSurface_ThePolyhedronToolOfHInter . hxx > [NewLine] # < IntCurveSurface_PolyhedronTool . lxx > [NewLine] # ThePolyhedron [NewLine] # ThePolyhedron_hxx [NewLine] # IntCurveSurface_PolyhedronTool [NewLine] # IntCurveSurface_PolyhedronTool_hxx [NewLine] #  _IntCurveSurface_ThePolyhedronToolOfHInter_HeaderFile [NewLine]
+## !!!Ignored construct:  # ThePolyhedron IntCurveSurface_ThePolyhedronOfHInter [NewLine] # ThePolyhedron_hxx < IntCurveSurface_ThePolyhedronOfHInter . hxx > [NewLine] # IntCurveSurface_PolyhedronTool IntCurveSurface_ThePolyhedronToolOfHInter [NewLine] # IntCurveSurface_PolyhedronTool_hxx < IntCurveSurface_ThePolyhedronToolOfHInter . hxx > [NewLine] # < IntCurveSurface_PolyhedronTool . lxx > [NewLine] # ThePolyhedron [NewLine] # ThePolyhedron_hxx [NewLine] # IntCurveSurface_PolyhedronTool [NewLine] # IntCurveSurface_PolyhedronTool_hxx [NewLine] #  _IntCurveSurface_ThePolyhedronToolOfHInter_HeaderFile
 ## Error: did not expect <!!!
+

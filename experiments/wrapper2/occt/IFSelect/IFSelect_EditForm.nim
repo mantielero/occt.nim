@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../TCollection/TCollection_AsciiString, ../TColStd/TColStd_Array1OfInteger,
-  ../TColStd/TColStd_Array1OfTransient, ../Standard/Standard_Integer,
-  ../Standard/Standard_Transient, ../Standard/Standard_CString,
-  ../TColStd/TColStd_SequenceOfInteger,
-  ../TColStd/TColStd_HSequenceOfHAsciiString
-
 discard "forward decl of IFSelect_Editor"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
@@ -30,7 +22,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IFSelect_EditForm"
 discard "forward decl of IFSelect_EditForm"
 type
-  Handle_IFSelect_EditForm* = handle[IFSelect_EditForm]
+  HandleIFSelectEditForm* = Handle[IFSelectEditForm]
 
 ## ! An EditForm is the way to apply an Editor on an Entity or on
 ## ! the Model
@@ -46,150 +38,140 @@ type
 ## ! the Rank in the EditForm : RankFromNumber and NumberFromRank
 
 type
-  IFSelect_EditForm* {.importcpp: "IFSelect_EditForm",
-                      header: "IFSelect_EditForm.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                        ## !
-                                                                                        ## Creates
-                                                                                        ## a
-                                                                                        ## complete
-                                                                                        ## EditForm
-                                                                                        ## from
-                                                                                        ## an
-                                                                                        ## Editor
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## A
-                                                                                        ## specific
-                                                                                        ## Label
-                                                                                        ## can
-                                                                                        ## be
-                                                                                        ## given
+  IFSelectEditForm* {.importcpp: "IFSelect_EditForm",
+                     header: "IFSelect_EditForm.hxx", bycopy.} = object of StandardTransient ##
+                                                                                      ## !
+                                                                                      ## Creates
+                                                                                      ## a
+                                                                                      ## complete
+                                                                                      ## EditForm
+                                                                                      ## from
+                                                                                      ## an
+                                                                                      ## Editor
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## A
+                                                                                      ## specific
+                                                                                      ## Label
+                                                                                      ## can
+                                                                                      ## be
+                                                                                      ## given
 
 
-proc constructIFSelect_EditForm*(editor: handle[IFSelect_Editor];
-                                readonly: Standard_Boolean;
-                                undoable: Standard_Boolean;
-                                label: Standard_CString = ""): IFSelect_EditForm {.
+proc constructIFSelectEditForm*(editor: Handle[IFSelectEditor]; readonly: bool;
+                               undoable: bool; label: StandardCString = ""): IFSelectEditForm {.
     constructor, importcpp: "IFSelect_EditForm(@)", header: "IFSelect_EditForm.hxx".}
-proc constructIFSelect_EditForm*(editor: handle[IFSelect_Editor];
-                                nums: TColStd_SequenceOfInteger;
-                                readonly: Standard_Boolean;
-                                undoable: Standard_Boolean;
-                                label: Standard_CString = ""): IFSelect_EditForm {.
+proc constructIFSelectEditForm*(editor: Handle[IFSelectEditor];
+                               nums: TColStdSequenceOfInteger; readonly: bool;
+                               undoable: bool; label: StandardCString = ""): IFSelectEditForm {.
     constructor, importcpp: "IFSelect_EditForm(@)", header: "IFSelect_EditForm.hxx".}
-proc EditKeepStatus*(this: var IFSelect_EditForm): var Standard_Boolean {.
+proc editKeepStatus*(this: var IFSelectEditForm): var bool {.
     importcpp: "EditKeepStatus", header: "IFSelect_EditForm.hxx".}
-proc Label*(this: IFSelect_EditForm): Standard_CString {.noSideEffect,
+proc label*(this: IFSelectEditForm): StandardCString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_EditForm.hxx".}
-proc IsLoaded*(this: IFSelect_EditForm): Standard_Boolean {.noSideEffect,
-    importcpp: "IsLoaded", header: "IFSelect_EditForm.hxx".}
-proc ClearData*(this: var IFSelect_EditForm) {.importcpp: "ClearData",
+proc isLoaded*(this: IFSelectEditForm): bool {.noSideEffect, importcpp: "IsLoaded",
     header: "IFSelect_EditForm.hxx".}
-proc SetData*(this: var IFSelect_EditForm; ent: handle[Standard_Transient];
-             model: handle[Interface_InterfaceModel]) {.importcpp: "SetData",
+proc clearData*(this: var IFSelectEditForm) {.importcpp: "ClearData",
     header: "IFSelect_EditForm.hxx".}
-proc SetEntity*(this: var IFSelect_EditForm; ent: handle[Standard_Transient]) {.
+proc setData*(this: var IFSelectEditForm; ent: Handle[StandardTransient];
+             model: Handle[InterfaceInterfaceModel]) {.importcpp: "SetData",
+    header: "IFSelect_EditForm.hxx".}
+proc setEntity*(this: var IFSelectEditForm; ent: Handle[StandardTransient]) {.
     importcpp: "SetEntity", header: "IFSelect_EditForm.hxx".}
-proc SetModel*(this: var IFSelect_EditForm; model: handle[Interface_InterfaceModel]) {.
+proc setModel*(this: var IFSelectEditForm; model: Handle[InterfaceInterfaceModel]) {.
     importcpp: "SetModel", header: "IFSelect_EditForm.hxx".}
-proc Entity*(this: IFSelect_EditForm): handle[Standard_Transient] {.noSideEffect,
+proc entity*(this: IFSelectEditForm): Handle[StandardTransient] {.noSideEffect,
     importcpp: "Entity", header: "IFSelect_EditForm.hxx".}
-proc Model*(this: IFSelect_EditForm): handle[Interface_InterfaceModel] {.
-    noSideEffect, importcpp: "Model", header: "IFSelect_EditForm.hxx".}
-proc Editor*(this: IFSelect_EditForm): handle[IFSelect_Editor] {.noSideEffect,
+proc model*(this: IFSelectEditForm): Handle[InterfaceInterfaceModel] {.noSideEffect,
+    importcpp: "Model", header: "IFSelect_EditForm.hxx".}
+proc editor*(this: IFSelectEditForm): Handle[IFSelectEditor] {.noSideEffect,
     importcpp: "Editor", header: "IFSelect_EditForm.hxx".}
-proc IsComplete*(this: IFSelect_EditForm): Standard_Boolean {.noSideEffect,
+proc isComplete*(this: IFSelectEditForm): bool {.noSideEffect,
     importcpp: "IsComplete", header: "IFSelect_EditForm.hxx".}
-proc NbValues*(this: IFSelect_EditForm; editable: Standard_Boolean): Standard_Integer {.
-    noSideEffect, importcpp: "NbValues", header: "IFSelect_EditForm.hxx".}
-proc NumberFromRank*(this: IFSelect_EditForm; rank: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "NumberFromRank", header: "IFSelect_EditForm.hxx".}
-proc RankFromNumber*(this: IFSelect_EditForm; number: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "RankFromNumber", header: "IFSelect_EditForm.hxx".}
-proc NameNumber*(this: IFSelect_EditForm; name: Standard_CString): Standard_Integer {.
-    noSideEffect, importcpp: "NameNumber", header: "IFSelect_EditForm.hxx".}
-proc NameRank*(this: IFSelect_EditForm; name: Standard_CString): Standard_Integer {.
-    noSideEffect, importcpp: "NameRank", header: "IFSelect_EditForm.hxx".}
-proc LoadDefault*(this: var IFSelect_EditForm) {.importcpp: "LoadDefault",
+proc nbValues*(this: IFSelectEditForm; editable: bool): int {.noSideEffect,
+    importcpp: "NbValues", header: "IFSelect_EditForm.hxx".}
+proc numberFromRank*(this: IFSelectEditForm; rank: int): int {.noSideEffect,
+    importcpp: "NumberFromRank", header: "IFSelect_EditForm.hxx".}
+proc rankFromNumber*(this: IFSelectEditForm; number: int): int {.noSideEffect,
+    importcpp: "RankFromNumber", header: "IFSelect_EditForm.hxx".}
+proc nameNumber*(this: IFSelectEditForm; name: StandardCString): int {.noSideEffect,
+    importcpp: "NameNumber", header: "IFSelect_EditForm.hxx".}
+proc nameRank*(this: IFSelectEditForm; name: StandardCString): int {.noSideEffect,
+    importcpp: "NameRank", header: "IFSelect_EditForm.hxx".}
+proc loadDefault*(this: var IFSelectEditForm) {.importcpp: "LoadDefault",
     header: "IFSelect_EditForm.hxx".}
-proc LoadData*(this: var IFSelect_EditForm; ent: handle[Standard_Transient];
-              model: handle[Interface_InterfaceModel]): Standard_Boolean {.
+proc loadData*(this: var IFSelectEditForm; ent: Handle[StandardTransient];
+              model: Handle[InterfaceInterfaceModel]): bool {.
     importcpp: "LoadData", header: "IFSelect_EditForm.hxx".}
-proc LoadEntity*(this: var IFSelect_EditForm; ent: handle[Standard_Transient]): Standard_Boolean {.
+proc loadEntity*(this: var IFSelectEditForm; ent: Handle[StandardTransient]): bool {.
     importcpp: "LoadEntity", header: "IFSelect_EditForm.hxx".}
-proc LoadModel*(this: var IFSelect_EditForm; model: handle[Interface_InterfaceModel]): Standard_Boolean {.
+proc loadModel*(this: var IFSelectEditForm; model: Handle[InterfaceInterfaceModel]): bool {.
     importcpp: "LoadModel", header: "IFSelect_EditForm.hxx".}
-proc LoadData*(this: var IFSelect_EditForm): Standard_Boolean {.
-    importcpp: "LoadData", header: "IFSelect_EditForm.hxx".}
-proc ListEditor*(this: IFSelect_EditForm; num: Standard_Integer): handle[
-    IFSelect_ListEditor] {.noSideEffect, importcpp: "ListEditor",
-                          header: "IFSelect_EditForm.hxx".}
-proc LoadValue*(this: var IFSelect_EditForm; num: Standard_Integer;
-               val: handle[TCollection_HAsciiString]) {.importcpp: "LoadValue",
+proc loadData*(this: var IFSelectEditForm): bool {.importcpp: "LoadData",
     header: "IFSelect_EditForm.hxx".}
-proc LoadList*(this: var IFSelect_EditForm; num: Standard_Integer;
-              list: handle[TColStd_HSequenceOfHAsciiString]) {.
+proc listEditor*(this: IFSelectEditForm; num: int): Handle[IFSelectListEditor] {.
+    noSideEffect, importcpp: "ListEditor", header: "IFSelect_EditForm.hxx".}
+proc loadValue*(this: var IFSelectEditForm; num: int;
+               val: Handle[TCollectionHAsciiString]) {.importcpp: "LoadValue",
+    header: "IFSelect_EditForm.hxx".}
+proc loadList*(this: var IFSelectEditForm; num: int;
+              list: Handle[TColStdHSequenceOfHAsciiString]) {.
     importcpp: "LoadList", header: "IFSelect_EditForm.hxx".}
-proc OriginalValue*(this: IFSelect_EditForm; num: Standard_Integer): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "OriginalValue",
-                               header: "IFSelect_EditForm.hxx".}
-proc OriginalList*(this: IFSelect_EditForm; num: Standard_Integer): handle[
-    TColStd_HSequenceOfHAsciiString] {.noSideEffect, importcpp: "OriginalList",
-                                      header: "IFSelect_EditForm.hxx".}
-proc EditedValue*(this: IFSelect_EditForm; num: Standard_Integer): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "EditedValue",
-                               header: "IFSelect_EditForm.hxx".}
-proc EditedList*(this: IFSelect_EditForm; num: Standard_Integer): handle[
-    TColStd_HSequenceOfHAsciiString] {.noSideEffect, importcpp: "EditedList",
-                                      header: "IFSelect_EditForm.hxx".}
-proc IsModified*(this: IFSelect_EditForm; num: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsModified", header: "IFSelect_EditForm.hxx".}
-proc IsTouched*(this: IFSelect_EditForm; num: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsTouched", header: "IFSelect_EditForm.hxx".}
-proc Modify*(this: var IFSelect_EditForm; num: Standard_Integer;
-            newval: handle[TCollection_HAsciiString];
-            enforce: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc originalValue*(this: IFSelectEditForm; num: int): Handle[TCollectionHAsciiString] {.
+    noSideEffect, importcpp: "OriginalValue", header: "IFSelect_EditForm.hxx".}
+proc originalList*(this: IFSelectEditForm; num: int): Handle[
+    TColStdHSequenceOfHAsciiString] {.noSideEffect, importcpp: "OriginalList",
+                                     header: "IFSelect_EditForm.hxx".}
+proc editedValue*(this: IFSelectEditForm; num: int): Handle[TCollectionHAsciiString] {.
+    noSideEffect, importcpp: "EditedValue", header: "IFSelect_EditForm.hxx".}
+proc editedList*(this: IFSelectEditForm; num: int): Handle[
+    TColStdHSequenceOfHAsciiString] {.noSideEffect, importcpp: "EditedList",
+                                     header: "IFSelect_EditForm.hxx".}
+proc isModified*(this: IFSelectEditForm; num: int): bool {.noSideEffect,
+    importcpp: "IsModified", header: "IFSelect_EditForm.hxx".}
+proc isTouched*(this: IFSelectEditForm; num: int): bool {.noSideEffect,
+    importcpp: "IsTouched", header: "IFSelect_EditForm.hxx".}
+proc modify*(this: var IFSelectEditForm; num: int;
+            newval: Handle[TCollectionHAsciiString]; enforce: bool = false): bool {.
     importcpp: "Modify", header: "IFSelect_EditForm.hxx".}
-proc ModifyList*(this: var IFSelect_EditForm; num: Standard_Integer;
-                edited: handle[IFSelect_ListEditor];
-                enforce: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc modifyList*(this: var IFSelectEditForm; num: int;
+                edited: Handle[IFSelectListEditor]; enforce: bool = false): bool {.
     importcpp: "ModifyList", header: "IFSelect_EditForm.hxx".}
-proc ModifyListValue*(this: var IFSelect_EditForm; num: Standard_Integer;
-                     list: handle[TColStd_HSequenceOfHAsciiString];
-                     enforce: Standard_Boolean = Standard_False): Standard_Boolean {.
-    importcpp: "ModifyListValue", header: "IFSelect_EditForm.hxx".}
-proc Touch*(this: var IFSelect_EditForm; num: Standard_Integer;
-           newval: handle[TCollection_HAsciiString]): Standard_Boolean {.
-    importcpp: "Touch", header: "IFSelect_EditForm.hxx".}
-proc TouchList*(this: var IFSelect_EditForm; num: Standard_Integer;
-               newlist: handle[TColStd_HSequenceOfHAsciiString]): Standard_Boolean {.
-    importcpp: "TouchList", header: "IFSelect_EditForm.hxx".}
-proc NbTouched*(this: IFSelect_EditForm): Standard_Integer {.noSideEffect,
-    importcpp: "NbTouched", header: "IFSelect_EditForm.hxx".}
-proc ClearEdit*(this: var IFSelect_EditForm; num: Standard_Integer = 0) {.
-    importcpp: "ClearEdit", header: "IFSelect_EditForm.hxx".}
-proc PrintDefs*(this: IFSelect_EditForm; S: var Standard_OStream) {.noSideEffect,
-    importcpp: "PrintDefs", header: "IFSelect_EditForm.hxx".}
-proc PrintValues*(this: IFSelect_EditForm; S: var Standard_OStream;
-                 what: Standard_Integer; names: Standard_Boolean;
-                 alsolist: Standard_Boolean = Standard_False) {.noSideEffect,
-    importcpp: "PrintValues", header: "IFSelect_EditForm.hxx".}
-proc Apply*(this: var IFSelect_EditForm): Standard_Boolean {.importcpp: "Apply",
+proc modifyListValue*(this: var IFSelectEditForm; num: int;
+                     list: Handle[TColStdHSequenceOfHAsciiString];
+                     enforce: bool = false): bool {.importcpp: "ModifyListValue",
     header: "IFSelect_EditForm.hxx".}
-proc Recognize*(this: IFSelect_EditForm): Standard_Boolean {.noSideEffect,
-    importcpp: "Recognize", header: "IFSelect_EditForm.hxx".}
-proc ApplyData*(this: var IFSelect_EditForm; ent: handle[Standard_Transient];
-               model: handle[Interface_InterfaceModel]): Standard_Boolean {.
+proc touch*(this: var IFSelectEditForm; num: int;
+           newval: Handle[TCollectionHAsciiString]): bool {.importcpp: "Touch",
+    header: "IFSelect_EditForm.hxx".}
+proc touchList*(this: var IFSelectEditForm; num: int;
+               newlist: Handle[TColStdHSequenceOfHAsciiString]): bool {.
+    importcpp: "TouchList", header: "IFSelect_EditForm.hxx".}
+proc nbTouched*(this: IFSelectEditForm): int {.noSideEffect, importcpp: "NbTouched",
+    header: "IFSelect_EditForm.hxx".}
+proc clearEdit*(this: var IFSelectEditForm; num: int = 0) {.importcpp: "ClearEdit",
+    header: "IFSelect_EditForm.hxx".}
+proc printDefs*(this: IFSelectEditForm; s: var StandardOStream) {.noSideEffect,
+    importcpp: "PrintDefs", header: "IFSelect_EditForm.hxx".}
+proc printValues*(this: IFSelectEditForm; s: var StandardOStream; what: int;
+                 names: bool; alsolist: bool = false) {.noSideEffect,
+    importcpp: "PrintValues", header: "IFSelect_EditForm.hxx".}
+proc apply*(this: var IFSelectEditForm): bool {.importcpp: "Apply",
+    header: "IFSelect_EditForm.hxx".}
+proc recognize*(this: IFSelectEditForm): bool {.noSideEffect, importcpp: "Recognize",
+    header: "IFSelect_EditForm.hxx".}
+proc applyData*(this: var IFSelectEditForm; ent: Handle[StandardTransient];
+               model: Handle[InterfaceInterfaceModel]): bool {.
     importcpp: "ApplyData", header: "IFSelect_EditForm.hxx".}
-proc Undo*(this: var IFSelect_EditForm): Standard_Boolean {.importcpp: "Undo",
+proc undo*(this: var IFSelectEditForm): bool {.importcpp: "Undo",
     header: "IFSelect_EditForm.hxx".}
 type
-  IFSelect_EditFormbase_type* = Standard_Transient
+  IFSelectEditFormbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_EditForm::get_type_name(@)",
-                              header: "IFSelect_EditForm.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_EditForm::get_type_name(@)",
+                            header: "IFSelect_EditForm.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_EditForm::get_type_descriptor(@)",
     header: "IFSelect_EditForm.hxx".}
-proc DynamicType*(this: IFSelect_EditForm): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IFSelectEditForm): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_EditForm.hxx".}

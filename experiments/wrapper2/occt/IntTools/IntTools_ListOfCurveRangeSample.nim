@@ -13,10 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IntTools_CurveRangeSample, ../NCollection/NCollection_List
-
 type
-  IntTools_ListOfCurveRangeSample* = NCollection_List[IntTools_CurveRangeSample]
-  IntTools_ListIteratorOfListOfCurveRangeSample* = Iterator[
-      IntTools_CurveRangeSample]
+  IntToolsListOfCurveRangeSample* = NCollectionList[IntToolsCurveRangeSample]
+  IntToolsListIteratorOfListOfCurveRangeSample* = Iterator[
+      IntToolsCurveRangeSample]
+

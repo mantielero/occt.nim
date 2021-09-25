@@ -26,9 +26,9 @@
 ## ! local operation will be performed.
 
 type
-  BRepFeat_PerfSelection* {.size: sizeof(cint),
-                           importcpp: "BRepFeat_PerfSelection",
-                           header: "BRepFeat_PerfSelection.hxx".} = enum
-    BRepFeat_NoSelection, BRepFeat_SelectionFU, BRepFeat_SelectionU,
-    BRepFeat_SelectionSh, BRepFeat_SelectionShU
+  BRepFeatPerfSelection* {.size: sizeof(cint), importcpp: "BRepFeat_PerfSelection",
+                          header: "BRepFeat_PerfSelection.hxx".} = enum
+    BRepFeatNoSelection, BRepFeatSelectionFU, BRepFeatSelectionU,
+    BRepFeatSelectionSh, BRepFeatSelectionShU
+
 

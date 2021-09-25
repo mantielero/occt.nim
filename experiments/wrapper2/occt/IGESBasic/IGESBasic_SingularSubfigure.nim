@@ -14,17 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_XYZ,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean,
-  ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of IGESBasic_SubfigureDef"
 discard "forward decl of gp_XYZ"
 discard "forward decl of IGESBasic_SingularSubfigure"
 discard "forward decl of IGESBasic_SingularSubfigure"
 type
-  Handle_IGESBasic_SingularSubfigure* = handle[IGESBasic_SingularSubfigure]
+  HandleIGESBasicSingularSubfigure* = Handle[IGESBasicSingularSubfigure]
 
 ## ! defines SingularSubfigure, Type <408> Form <0>
 ## ! in package IGESBasic
@@ -32,37 +27,34 @@ type
 ## ! defined Subfigure.
 
 type
-  IGESBasic_SingularSubfigure* {.importcpp: "IGESBasic_SingularSubfigure",
-                                header: "IGESBasic_SingularSubfigure.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESBasicSingularSubfigure* {.importcpp: "IGESBasic_SingularSubfigure",
+                               header: "IGESBasic_SingularSubfigure.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESBasic_SingularSubfigure*(): IGESBasic_SingularSubfigure {.
+proc constructIGESBasicSingularSubfigure*(): IGESBasicSingularSubfigure {.
     constructor, importcpp: "IGESBasic_SingularSubfigure(@)",
     header: "IGESBasic_SingularSubfigure.hxx".}
-proc Init*(this: var IGESBasic_SingularSubfigure;
-          aSubfigureDef: handle[IGESBasic_SubfigureDef]; aTranslation: gp_XYZ;
-          hasScale: Standard_Boolean; aScale: Standard_Real) {.importcpp: "Init",
-    header: "IGESBasic_SingularSubfigure.hxx".}
-proc Subfigure*(this: IGESBasic_SingularSubfigure): handle[IGESBasic_SubfigureDef] {.
+proc init*(this: var IGESBasicSingularSubfigure;
+          aSubfigureDef: Handle[IGESBasicSubfigureDef]; aTranslation: Xyz;
+          hasScale: bool; aScale: float) {.importcpp: "Init", header: "IGESBasic_SingularSubfigure.hxx".}
+proc subfigure*(this: IGESBasicSingularSubfigure): Handle[IGESBasicSubfigureDef] {.
     noSideEffect, importcpp: "Subfigure", header: "IGESBasic_SingularSubfigure.hxx".}
-proc Translation*(this: IGESBasic_SingularSubfigure): gp_XYZ {.noSideEffect,
+proc translation*(this: IGESBasicSingularSubfigure): Xyz {.noSideEffect,
     importcpp: "Translation", header: "IGESBasic_SingularSubfigure.hxx".}
-proc ScaleFactor*(this: IGESBasic_SingularSubfigure): Standard_Real {.noSideEffect,
+proc scaleFactor*(this: IGESBasicSingularSubfigure): float {.noSideEffect,
     importcpp: "ScaleFactor", header: "IGESBasic_SingularSubfigure.hxx".}
-proc HasScaleFactor*(this: IGESBasic_SingularSubfigure): Standard_Boolean {.
-    noSideEffect, importcpp: "HasScaleFactor",
-    header: "IGESBasic_SingularSubfigure.hxx".}
-proc TransformedTranslation*(this: IGESBasic_SingularSubfigure): gp_XYZ {.
-    noSideEffect, importcpp: "TransformedTranslation",
-    header: "IGESBasic_SingularSubfigure.hxx".}
+proc hasScaleFactor*(this: IGESBasicSingularSubfigure): bool {.noSideEffect,
+    importcpp: "HasScaleFactor", header: "IGESBasic_SingularSubfigure.hxx".}
+proc transformedTranslation*(this: IGESBasicSingularSubfigure): Xyz {.noSideEffect,
+    importcpp: "TransformedTranslation", header: "IGESBasic_SingularSubfigure.hxx".}
 type
-  IGESBasic_SingularSubfigurebase_type* = IGESData_IGESEntity
+  IGESBasicSingularSubfigurebaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESBasic_SingularSubfigure::get_type_name(@)",
-                              header: "IGESBasic_SingularSubfigure.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESBasic_SingularSubfigure::get_type_name(@)",
+                            header: "IGESBasic_SingularSubfigure.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESBasic_SingularSubfigure::get_type_descriptor(@)",
     header: "IGESBasic_SingularSubfigure.hxx".}
-proc DynamicType*(this: IGESBasic_SingularSubfigure): handle[Standard_Type] {.
+proc dynamicType*(this: IGESBasicSingularSubfigure): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESBasic_SingularSubfigure.hxx".}

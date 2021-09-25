@@ -13,27 +13,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle,
-  ../TColStd/TColStd_IndexedDataMapOfTransientTransient
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TNaming_TranslateTool"
 discard "forward decl of TopLoc_Location"
 type
-  TNaming_CopyShape* {.importcpp: "TNaming_CopyShape",
-                      header: "TNaming_CopyShape.hxx", bycopy.} = object ## ! Makes  copy  a  set  of  shape(s),  using the  aMap
+  TNamingCopyShape* {.importcpp: "TNaming_CopyShape",
+                     header: "TNaming_CopyShape.hxx", bycopy.} = object ## ! Makes  copy  a  set  of  shape(s),  using the  aMap
 
 
-proc CopyTool*(aShape: TopoDS_Shape;
-              aMap: var TColStd_IndexedDataMapOfTransientTransient;
+proc copyTool*(aShape: TopoDS_Shape;
+              aMap: var TColStdIndexedDataMapOfTransientTransient;
               aResult: var TopoDS_Shape) {.importcpp: "TNaming_CopyShape::CopyTool(@)",
                                         header: "TNaming_CopyShape.hxx".}
-proc Translate*(aShape: TopoDS_Shape;
-               aMap: var TColStd_IndexedDataMapOfTransientTransient;
-               aResult: var TopoDS_Shape; TrTool: handle[TNaming_TranslateTool]) {.
+proc translate*(aShape: TopoDS_Shape;
+               aMap: var TColStdIndexedDataMapOfTransientTransient;
+               aResult: var TopoDS_Shape; trTool: Handle[TNamingTranslateTool]) {.
     importcpp: "TNaming_CopyShape::Translate(@)", header: "TNaming_CopyShape.hxx".}
-proc Translate*(L: TopLoc_Location;
-               aMap: var TColStd_IndexedDataMapOfTransientTransient): TopLoc_Location {.
+proc translate*(L: TopLocLocation;
+               aMap: var TColStdIndexedDataMapOfTransientTransient): TopLocLocation {.
     importcpp: "TNaming_CopyShape::Translate(@)", header: "TNaming_CopyShape.hxx".}

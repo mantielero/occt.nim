@@ -14,31 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepGeom_GeometricRepresentationItem
-
 discard "forward decl of StepGeom_Surface"
 discard "forward decl of StepGeom_Surface"
 type
-  Handle_StepGeom_Surface* = handle[StepGeom_Surface]
-  StepGeom_Surface* {.importcpp: "StepGeom_Surface",
-                     header: "StepGeom_Surface.hxx", bycopy.} = object of StepGeom_GeometricRepresentationItem ##
-                                                                                                        ## !
-                                                                                                        ## Returns
-                                                                                                        ## a
-                                                                                                        ## Surface
+  HandleStepGeomSurface* = Handle[StepGeomSurface]
+  StepGeomSurface* {.importcpp: "StepGeom_Surface", header: "StepGeom_Surface.hxx",
+                    bycopy.} = object of StepGeomGeometricRepresentationItem ## ! Returns a Surface
 
 
-proc constructStepGeom_Surface*(): StepGeom_Surface {.constructor,
+proc constructStepGeomSurface*(): StepGeomSurface {.constructor,
     importcpp: "StepGeom_Surface(@)", header: "StepGeom_Surface.hxx".}
 type
-  StepGeom_Surfacebase_type* = StepGeom_GeometricRepresentationItem
+  StepGeomSurfacebaseType* = StepGeomGeometricRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_Surface::get_type_name(@)",
-                              header: "StepGeom_Surface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_Surface::get_type_name(@)",
+                            header: "StepGeom_Surface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_Surface::get_type_descriptor(@)",
     header: "StepGeom_Surface.hxx".}
-proc DynamicType*(this: StepGeom_Surface): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepGeomSurface): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Surface.hxx".}

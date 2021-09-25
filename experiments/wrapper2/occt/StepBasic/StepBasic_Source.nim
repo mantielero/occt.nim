@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepBasic_Source* {.size: sizeof(cint), importcpp: "StepBasic_Source",
-                     header: "StepBasic_Source.hxx".} = enum
-    StepBasic_sMade, StepBasic_sBought, StepBasic_sNotKnown
+  StepBasicSource* {.size: sizeof(cint), importcpp: "StepBasic_Source",
+                    header: "StepBasic_Source.hxx".} = enum
+    StepBasicSMade, StepBasicSBought, StepBasicSNotKnown
+
 

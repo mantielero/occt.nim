@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_Approval"
 discard "forward decl of StepBasic_DocumentRelationship"
@@ -35,56 +30,55 @@ discard "forward decl of StepRepr_Representation"
 discard "forward decl of StepRepr_RepresentationRelationship"
 discard "forward decl of StepRepr_ShapeAspect"
 type
-  StepAP214_AutoDesignReferencingItem* {.importcpp: "StepAP214_AutoDesignReferencingItem", header: "StepAP214_AutoDesignReferencingItem.hxx",
-                                        bycopy.} = object of StepData_SelectType ## !
-                                                                            ## Returns a
-                                                                            ## AutoDesignReferencingItem
-                                                                            ## SelectType
+  StepAP214AutoDesignReferencingItem* {.importcpp: "StepAP214_AutoDesignReferencingItem", header: "StepAP214_AutoDesignReferencingItem.hxx",
+                                       bycopy.} = object of StepDataSelectType ## !
+                                                                          ## Returns a
+                                                                          ## AutoDesignReferencingItem
+                                                                          ## SelectType
 
 
-proc constructStepAP214_AutoDesignReferencingItem*(): StepAP214_AutoDesignReferencingItem {.
+proc constructStepAP214AutoDesignReferencingItem*(): StepAP214AutoDesignReferencingItem {.
     constructor, importcpp: "StepAP214_AutoDesignReferencingItem(@)",
     header: "StepAP214_AutoDesignReferencingItem.hxx".}
-proc CaseNum*(this: StepAP214_AutoDesignReferencingItem;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepAP214AutoDesignReferencingItem;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_AutoDesignReferencingItem.hxx".}
-proc Approval*(this: StepAP214_AutoDesignReferencingItem): handle[
-    StepBasic_Approval] {.noSideEffect, importcpp: "Approval",
-                         header: "StepAP214_AutoDesignReferencingItem.hxx".}
-proc DocumentRelationship*(this: StepAP214_AutoDesignReferencingItem): handle[
-    StepBasic_DocumentRelationship] {.noSideEffect,
-                                     importcpp: "DocumentRelationship", header: "StepAP214_AutoDesignReferencingItem.hxx".}
-proc ExternallyDefinedRepresentation*(this: StepAP214_AutoDesignReferencingItem): handle[
-    StepRepr_ExternallyDefinedRepresentation] {.noSideEffect,
+proc approval*(this: StepAP214AutoDesignReferencingItem): Handle[StepBasicApproval] {.
+    noSideEffect, importcpp: "Approval",
+    header: "StepAP214_AutoDesignReferencingItem.hxx".}
+proc documentRelationship*(this: StepAP214AutoDesignReferencingItem): Handle[
+    StepBasicDocumentRelationship] {.noSideEffect,
+                                    importcpp: "DocumentRelationship", header: "StepAP214_AutoDesignReferencingItem.hxx".}
+proc externallyDefinedRepresentation*(this: StepAP214AutoDesignReferencingItem): Handle[
+    StepReprExternallyDefinedRepresentation] {.noSideEffect,
     importcpp: "ExternallyDefinedRepresentation",
     header: "StepAP214_AutoDesignReferencingItem.hxx".}
-proc MappedItem*(this: StepAP214_AutoDesignReferencingItem): handle[
-    StepRepr_MappedItem] {.noSideEffect, importcpp: "MappedItem",
-                          header: "StepAP214_AutoDesignReferencingItem.hxx".}
-proc MaterialDesignation*(this: StepAP214_AutoDesignReferencingItem): handle[
-    StepRepr_MaterialDesignation] {.noSideEffect,
-                                   importcpp: "MaterialDesignation", header: "StepAP214_AutoDesignReferencingItem.hxx".}
-proc PresentationArea*(this: StepAP214_AutoDesignReferencingItem): handle[
-    StepVisual_PresentationArea] {.noSideEffect, importcpp: "PresentationArea", header: "StepAP214_AutoDesignReferencingItem.hxx".}
-proc PresentationView*(this: StepAP214_AutoDesignReferencingItem): handle[
-    StepVisual_PresentationView] {.noSideEffect, importcpp: "PresentationView", header: "StepAP214_AutoDesignReferencingItem.hxx".}
-proc ProductCategory*(this: StepAP214_AutoDesignReferencingItem): handle[
-    StepBasic_ProductCategory] {.noSideEffect, importcpp: "ProductCategory", header: "StepAP214_AutoDesignReferencingItem.hxx".}
-proc ProductDefinition*(this: StepAP214_AutoDesignReferencingItem): handle[
-    StepBasic_ProductDefinition] {.noSideEffect, importcpp: "ProductDefinition", header: "StepAP214_AutoDesignReferencingItem.hxx".}
-proc ProductDefinitionRelationship*(this: StepAP214_AutoDesignReferencingItem): handle[
-    StepBasic_ProductDefinitionRelationship] {.noSideEffect,
+proc mappedItem*(this: StepAP214AutoDesignReferencingItem): Handle[
+    StepReprMappedItem] {.noSideEffect, importcpp: "MappedItem",
+                         header: "StepAP214_AutoDesignReferencingItem.hxx".}
+proc materialDesignation*(this: StepAP214AutoDesignReferencingItem): Handle[
+    StepReprMaterialDesignation] {.noSideEffect, importcpp: "MaterialDesignation", header: "StepAP214_AutoDesignReferencingItem.hxx".}
+proc presentationArea*(this: StepAP214AutoDesignReferencingItem): Handle[
+    StepVisualPresentationArea] {.noSideEffect, importcpp: "PresentationArea", header: "StepAP214_AutoDesignReferencingItem.hxx".}
+proc presentationView*(this: StepAP214AutoDesignReferencingItem): Handle[
+    StepVisualPresentationView] {.noSideEffect, importcpp: "PresentationView", header: "StepAP214_AutoDesignReferencingItem.hxx".}
+proc productCategory*(this: StepAP214AutoDesignReferencingItem): Handle[
+    StepBasicProductCategory] {.noSideEffect, importcpp: "ProductCategory", header: "StepAP214_AutoDesignReferencingItem.hxx".}
+proc productDefinition*(this: StepAP214AutoDesignReferencingItem): Handle[
+    StepBasicProductDefinition] {.noSideEffect, importcpp: "ProductDefinition", header: "StepAP214_AutoDesignReferencingItem.hxx".}
+proc productDefinitionRelationship*(this: StepAP214AutoDesignReferencingItem): Handle[
+    StepBasicProductDefinitionRelationship] {.noSideEffect,
     importcpp: "ProductDefinitionRelationship",
     header: "StepAP214_AutoDesignReferencingItem.hxx".}
-proc PropertyDefinition*(this: StepAP214_AutoDesignReferencingItem): handle[
-    StepRepr_PropertyDefinition] {.noSideEffect, importcpp: "PropertyDefinition", header: "StepAP214_AutoDesignReferencingItem.hxx".}
-proc Representation*(this: StepAP214_AutoDesignReferencingItem): handle[
-    StepRepr_Representation] {.noSideEffect, importcpp: "Representation",
-                              header: "StepAP214_AutoDesignReferencingItem.hxx".}
-proc RepresentationRelationship*(this: StepAP214_AutoDesignReferencingItem): handle[
-    StepRepr_RepresentationRelationship] {.noSideEffect,
+proc propertyDefinition*(this: StepAP214AutoDesignReferencingItem): Handle[
+    StepReprPropertyDefinition] {.noSideEffect, importcpp: "PropertyDefinition", header: "StepAP214_AutoDesignReferencingItem.hxx".}
+proc representation*(this: StepAP214AutoDesignReferencingItem): Handle[
+    StepReprRepresentation] {.noSideEffect, importcpp: "Representation",
+                             header: "StepAP214_AutoDesignReferencingItem.hxx".}
+proc representationRelationship*(this: StepAP214AutoDesignReferencingItem): Handle[
+    StepReprRepresentationRelationship] {.noSideEffect,
     importcpp: "RepresentationRelationship",
     header: "StepAP214_AutoDesignReferencingItem.hxx".}
-proc ShapeAspect*(this: StepAP214_AutoDesignReferencingItem): handle[
-    StepRepr_ShapeAspect] {.noSideEffect, importcpp: "ShapeAspect",
-                           header: "StepAP214_AutoDesignReferencingItem.hxx".}
+proc shapeAspect*(this: StepAP214AutoDesignReferencingItem): Handle[
+    StepReprShapeAspect] {.noSideEffect, importcpp: "ShapeAspect",
+                          header: "StepAP214_AutoDesignReferencingItem.hxx".}

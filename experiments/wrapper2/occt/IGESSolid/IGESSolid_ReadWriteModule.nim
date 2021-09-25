@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../IGESData/IGESData_ReadWriteModule, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,50 +22,49 @@ discard "forward decl of IGESData_IGESWriter"
 discard "forward decl of IGESSolid_ReadWriteModule"
 discard "forward decl of IGESSolid_ReadWriteModule"
 type
-  Handle_IGESSolid_ReadWriteModule* = handle[IGESSolid_ReadWriteModule]
+  HandleIGESSolidReadWriteModule* = Handle[IGESSolidReadWriteModule]
 
 ## ! Defines Solid File Access Module for IGESSolid (specific parts)
 ## ! Specific actions concern : Read and Write Own Parameters of
 ## ! an IGESEntity.
 
 type
-  IGESSolid_ReadWriteModule* {.importcpp: "IGESSolid_ReadWriteModule",
-                              header: "IGESSolid_ReadWriteModule.hxx", bycopy.} = object of IGESData_ReadWriteModule ##
-                                                                                                              ## !
-                                                                                                              ## Creates
-                                                                                                              ## a
-                                                                                                              ## ReadWriteModule
-                                                                                                              ## &
-                                                                                                              ## puts
-                                                                                                              ## it
-                                                                                                              ## into
-                                                                                                              ## ReaderLib
-                                                                                                              ## &
-                                                                                                              ## WriterLib
+  IGESSolidReadWriteModule* {.importcpp: "IGESSolid_ReadWriteModule",
+                             header: "IGESSolid_ReadWriteModule.hxx", bycopy.} = object of IGESDataReadWriteModule ##
+                                                                                                            ## !
+                                                                                                            ## Creates
+                                                                                                            ## a
+                                                                                                            ## ReadWriteModule
+                                                                                                            ## &
+                                                                                                            ## puts
+                                                                                                            ## it
+                                                                                                            ## into
+                                                                                                            ## ReaderLib
+                                                                                                            ## &
+                                                                                                            ## WriterLib
 
 
-proc constructIGESSolid_ReadWriteModule*(): IGESSolid_ReadWriteModule {.
-    constructor, importcpp: "IGESSolid_ReadWriteModule(@)",
+proc constructIGESSolidReadWriteModule*(): IGESSolidReadWriteModule {.constructor,
+    importcpp: "IGESSolid_ReadWriteModule(@)",
     header: "IGESSolid_ReadWriteModule.hxx".}
-proc CaseIGES*(this: IGESSolid_ReadWriteModule; typenum: Standard_Integer;
-              formnum: Standard_Integer): Standard_Integer {.noSideEffect,
-    importcpp: "CaseIGES", header: "IGESSolid_ReadWriteModule.hxx".}
-proc ReadOwnParams*(this: IGESSolid_ReadWriteModule; CN: Standard_Integer;
-                   ent: handle[IGESData_IGESEntity];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESSolid_ReadWriteModule.hxx".}
-proc WriteOwnParams*(this: IGESSolid_ReadWriteModule; CN: Standard_Integer;
-                    ent: handle[IGESData_IGESEntity]; IW: var IGESData_IGESWriter) {.
+proc caseIGES*(this: IGESSolidReadWriteModule; typenum: int; formnum: int): int {.
+    noSideEffect, importcpp: "CaseIGES", header: "IGESSolid_ReadWriteModule.hxx".}
+proc readOwnParams*(this: IGESSolidReadWriteModule; cn: int;
+                   ent: Handle[IGESDataIGESEntity];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESSolid_ReadWriteModule.hxx".}
+proc writeOwnParams*(this: IGESSolidReadWriteModule; cn: int;
+                    ent: Handle[IGESDataIGESEntity]; iw: var IGESDataIGESWriter) {.
     noSideEffect, importcpp: "WriteOwnParams",
     header: "IGESSolid_ReadWriteModule.hxx".}
 type
-  IGESSolid_ReadWriteModulebase_type* = IGESData_ReadWriteModule
+  IGESSolidReadWriteModulebaseType* = IGESDataReadWriteModule
 
-proc get_type_name*(): cstring {.importcpp: "IGESSolid_ReadWriteModule::get_type_name(@)",
-                              header: "IGESSolid_ReadWriteModule.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSolid_ReadWriteModule::get_type_name(@)",
+                            header: "IGESSolid_ReadWriteModule.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSolid_ReadWriteModule::get_type_descriptor(@)",
     header: "IGESSolid_ReadWriteModule.hxx".}
-proc DynamicType*(this: IGESSolid_ReadWriteModule): handle[Standard_Type] {.
+proc dynamicType*(this: IGESSolidReadWriteModule): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSolid_ReadWriteModule.hxx".}

@@ -14,42 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_SurfaceCurve
-
 discard "forward decl of StepGeom_BoundedCurve"
 discard "forward decl of StepGeom_SurfaceCurveAndBoundedCurve"
 discard "forward decl of StepGeom_SurfaceCurveAndBoundedCurve"
 type
-  Handle_StepGeom_SurfaceCurveAndBoundedCurve* = handle[
-      StepGeom_SurfaceCurveAndBoundedCurve]
+  HandleStepGeomSurfaceCurveAndBoundedCurve* = Handle[
+      StepGeomSurfaceCurveAndBoundedCurve]
 
 ## ! complex type: bounded_curve + surface_curve
 ## ! needed for curve_bounded_surfaces (S4132)
 
 type
-  StepGeom_SurfaceCurveAndBoundedCurve* {.
-      importcpp: "StepGeom_SurfaceCurveAndBoundedCurve",
-      header: "StepGeom_SurfaceCurveAndBoundedCurve.hxx", bycopy.} = object of StepGeom_SurfaceCurve ##
-                                                                                              ## !
-                                                                                              ## creates
-                                                                                              ## empty
-                                                                                              ## object
+  StepGeomSurfaceCurveAndBoundedCurve* {.importcpp: "StepGeom_SurfaceCurveAndBoundedCurve", header: "StepGeom_SurfaceCurveAndBoundedCurve.hxx",
+                                        bycopy.} = object of StepGeomSurfaceCurve ## !
+                                                                             ## creates
+                                                                             ## empty
+                                                                             ## object
 
 
-proc constructStepGeom_SurfaceCurveAndBoundedCurve*(): StepGeom_SurfaceCurveAndBoundedCurve {.
+proc constructStepGeomSurfaceCurveAndBoundedCurve*(): StepGeomSurfaceCurveAndBoundedCurve {.
     constructor, importcpp: "StepGeom_SurfaceCurveAndBoundedCurve(@)",
     header: "StepGeom_SurfaceCurveAndBoundedCurve.hxx".}
-proc BoundedCurve*(this: var StepGeom_SurfaceCurveAndBoundedCurve): var handle[
-    StepGeom_BoundedCurve] {.importcpp: "BoundedCurve",
-                            header: "StepGeom_SurfaceCurveAndBoundedCurve.hxx".}
+proc boundedCurve*(this: var StepGeomSurfaceCurveAndBoundedCurve): var Handle[
+    StepGeomBoundedCurve] {.importcpp: "BoundedCurve",
+                           header: "StepGeom_SurfaceCurveAndBoundedCurve.hxx".}
 type
-  StepGeom_SurfaceCurveAndBoundedCurvebase_type* = StepGeom_SurfaceCurve
+  StepGeomSurfaceCurveAndBoundedCurvebaseType* = StepGeomSurfaceCurve
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_SurfaceCurveAndBoundedCurve::get_type_name(@)", header: "StepGeom_SurfaceCurveAndBoundedCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_SurfaceCurveAndBoundedCurve::get_type_name(@)",
+                            header: "StepGeom_SurfaceCurveAndBoundedCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_SurfaceCurveAndBoundedCurve::get_type_descriptor(@)",
     header: "StepGeom_SurfaceCurveAndBoundedCurve.hxx".}
-proc DynamicType*(this: StepGeom_SurfaceCurveAndBoundedCurve): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomSurfaceCurveAndBoundedCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_SurfaceCurveAndBoundedCurve.hxx".}

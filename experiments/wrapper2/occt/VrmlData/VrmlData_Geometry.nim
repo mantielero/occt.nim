@@ -13,46 +13,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  VrmlData_Node, ../TopoDS/TopoDS_TShape
-
 ## *
 ##   Implementation of the Geometry node.
 ##   Contains the topological representation (TopoDS_Shell) of the VRML geometry
 ##
 
 type
-  VrmlData_Geometry* {.importcpp: "VrmlData_Geometry",
-                      header: "VrmlData_Geometry.hxx", bycopy.} = object of VrmlData_Node ##  ---------- PUBLIC METHODS ----------
-                                                                                   ## *
-                                                                                   ##  Empty constructor
-                                                                                   ##
-                                                                                   ##  ---------- PROTECTED METHODS ----------
-                                                                                   ## *
-                                                                                   ##  Set the TShape.
-                                                                                   ##
-                                                                                   ##  ---------- PROTECTED FIELDS ----------
-                                                                                   ##  Declaration of CASCADE RTTI
+  VrmlDataGeometry* {.importcpp: "VrmlData_Geometry",
+                     header: "VrmlData_Geometry.hxx", bycopy.} = object of VrmlDataNode ##  ---------- PUBLIC METHODS ----------
+                                                                                 ## *
+                                                                                 ##  Empty constructor
+                                                                                 ##
+                                                                                 ##  ---------- PROTECTED METHODS ----------
+                                                                                 ## *
+                                                                                 ##  Set the TShape.
+                                                                                 ##
+                                                                                 ##  ---------- PROTECTED FIELDS ----------
+                                                                                 ##  Declaration of CASCADE RTTI
 
 
-proc constructVrmlData_Geometry*(): VrmlData_Geometry {.constructor,
+proc constructVrmlDataGeometry*(): VrmlDataGeometry {.constructor,
     importcpp: "VrmlData_Geometry(@)", header: "VrmlData_Geometry.hxx".}
-proc constructVrmlData_Geometry*(theScene: VrmlData_Scene; theName: cstring): VrmlData_Geometry {.
+proc constructVrmlDataGeometry*(theScene: VrmlDataScene; theName: cstring): VrmlDataGeometry {.
     constructor, importcpp: "VrmlData_Geometry(@)", header: "VrmlData_Geometry.hxx".}
-proc TShape*(this: var VrmlData_Geometry): handle[TopoDS_TShape] {.
+proc tShape*(this: var VrmlDataGeometry): Handle[TopoDS_TShape] {.
     importcpp: "TShape", header: "VrmlData_Geometry.hxx".}
 type
-  VrmlData_Geometrybase_type* = VrmlData_Node
+  VrmlDataGeometrybaseType* = VrmlDataNode
 
-proc get_type_name*(): cstring {.importcpp: "VrmlData_Geometry::get_type_name(@)",
-                              header: "VrmlData_Geometry.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "VrmlData_Geometry::get_type_name(@)",
+                            header: "VrmlData_Geometry.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "VrmlData_Geometry::get_type_descriptor(@)",
     header: "VrmlData_Geometry.hxx".}
-proc DynamicType*(this: VrmlData_Geometry): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: VrmlDataGeometry): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "VrmlData_Geometry.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of VrmlData_Geometry"
 type
-  Handle_VrmlData_Geometry* = handle[VrmlData_Geometry]
+  HandleVrmlDataGeometry* = Handle[VrmlDataGeometry]
+

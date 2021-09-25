@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Trsf, StepToTopoDS_Root,
-  ../Standard/Standard_Boolean, ../Message/Message_ProgressRange
-
 discard "forward decl of StepGeom_Axis2Placement3d"
 discard "forward decl of StepGeom_CartesianTransformationOperator3d"
 discard "forward decl of gp_Trsf"
@@ -34,19 +29,19 @@ type
 proc constructStepToTopoDS_MakeTransformed*(): StepToTopoDS_MakeTransformed {.
     constructor, importcpp: "StepToTopoDS_MakeTransformed(@)",
     header: "StepToTopoDS_MakeTransformed.hxx".}
-proc Compute*(this: var StepToTopoDS_MakeTransformed;
-             Origin: handle[StepGeom_Axis2Placement3d];
-             Target: handle[StepGeom_Axis2Placement3d]): Standard_Boolean {.
+proc compute*(this: var StepToTopoDS_MakeTransformed;
+             origin: Handle[StepGeomAxis2Placement3d];
+             target: Handle[StepGeomAxis2Placement3d]): bool {.
     importcpp: "Compute", header: "StepToTopoDS_MakeTransformed.hxx".}
-proc Compute*(this: var StepToTopoDS_MakeTransformed;
-             Operator: handle[StepGeom_CartesianTransformationOperator3d]): Standard_Boolean {.
+proc compute*(this: var StepToTopoDS_MakeTransformed;
+             operator: Handle[StepGeomCartesianTransformationOperator3d]): bool {.
     importcpp: "Compute", header: "StepToTopoDS_MakeTransformed.hxx".}
-proc Transformation*(this: StepToTopoDS_MakeTransformed): gp_Trsf {.noSideEffect,
+proc transformation*(this: StepToTopoDS_MakeTransformed): Trsf {.noSideEffect,
     importcpp: "Transformation", header: "StepToTopoDS_MakeTransformed.hxx".}
-proc Transform*(this: StepToTopoDS_MakeTransformed; shape: var TopoDS_Shape): Standard_Boolean {.
+proc transform*(this: StepToTopoDS_MakeTransformed; shape: var TopoDS_Shape): bool {.
     noSideEffect, importcpp: "Transform",
     header: "StepToTopoDS_MakeTransformed.hxx".}
-proc TranslateMappedItem*(this: var StepToTopoDS_MakeTransformed;
-                         mapit: handle[StepRepr_MappedItem];
-                         TP: handle[Transfer_TransientProcess]; theProgress: Message_ProgressRange = Message_ProgressRange()): TopoDS_Shape {.
+proc translateMappedItem*(this: var StepToTopoDS_MakeTransformed;
+                         mapit: Handle[StepReprMappedItem];
+                         tp: Handle[TransferTransientProcess]; theProgress: MessageProgressRange = messageProgressRange()): TopoDS_Shape {.
     importcpp: "TranslateMappedItem", header: "StepToTopoDS_MakeTransformed.hxx".}

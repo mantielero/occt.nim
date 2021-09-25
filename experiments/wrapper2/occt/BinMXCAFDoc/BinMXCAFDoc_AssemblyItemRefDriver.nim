@@ -13,47 +13,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../BinMDF/BinMDF_ADriver,
-  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
-  ../BinObjMgt/BinObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMXCAFDoc_AssemblyItemRefDriver"
 discard "forward decl of BinMXCAFDoc_AssemblyItemRefDriver"
 type
-  Handle_BinMXCAFDoc_AssemblyItemRefDriver* = handle[
-      BinMXCAFDoc_AssemblyItemRefDriver]
-  BinMXCAFDoc_AssemblyItemRefDriver* {.importcpp: "BinMXCAFDoc_AssemblyItemRefDriver", header: "BinMXCAFDoc_AssemblyItemRefDriver.hxx",
-                                      bycopy.} = object of BinMDF_ADriver
+  HandleBinMXCAFDocAssemblyItemRefDriver* = Handle[
+      BinMXCAFDocAssemblyItemRefDriver]
+  BinMXCAFDocAssemblyItemRefDriver* {.importcpp: "BinMXCAFDoc_AssemblyItemRefDriver", header: "BinMXCAFDoc_AssemblyItemRefDriver.hxx",
+                                     bycopy.} = object of BinMDF_ADriver
 
 
-proc constructBinMXCAFDoc_AssemblyItemRefDriver*(
-    theMsgDriver: handle[Message_Messenger]): BinMXCAFDoc_AssemblyItemRefDriver {.
+proc constructBinMXCAFDocAssemblyItemRefDriver*(
+    theMsgDriver: Handle[MessageMessenger]): BinMXCAFDocAssemblyItemRefDriver {.
     constructor, importcpp: "BinMXCAFDoc_AssemblyItemRefDriver(@)",
     header: "BinMXCAFDoc_AssemblyItemRefDriver.hxx".}
-proc NewEmpty*(this: BinMXCAFDoc_AssemblyItemRefDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: BinMXCAFDocAssemblyItemRefDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty",
     header: "BinMXCAFDoc_AssemblyItemRefDriver.hxx".}
-proc Paste*(this: BinMXCAFDoc_AssemblyItemRefDriver;
-           theSource: BinObjMgt_Persistent; theTarget: handle[TDF_Attribute];
-           theRelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste",
-    header: "BinMXCAFDoc_AssemblyItemRefDriver.hxx".}
-proc Paste*(this: BinMXCAFDoc_AssemblyItemRefDriver;
-           theSource: handle[TDF_Attribute]; theTarget: var BinObjMgt_Persistent;
-           theRelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: BinMXCAFDocAssemblyItemRefDriver; theSource: BinObjMgtPersistent;
+           theTarget: Handle[TDF_Attribute];
+           theRelocTable: var BinObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "BinMXCAFDoc_AssemblyItemRefDriver.hxx".}
+proc paste*(this: BinMXCAFDocAssemblyItemRefDriver;
+           theSource: Handle[TDF_Attribute]; theTarget: var BinObjMgtPersistent;
+           theRelocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMXCAFDoc_AssemblyItemRefDriver.hxx".}
 type
-  BinMXCAFDoc_AssemblyItemRefDriverbase_type* = BinMDF_ADriver
+  BinMXCAFDocAssemblyItemRefDriverbaseType* = BinMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "BinMXCAFDoc_AssemblyItemRefDriver::get_type_name(@)",
-                              header: "BinMXCAFDoc_AssemblyItemRefDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BinMXCAFDoc_AssemblyItemRefDriver::get_type_name(@)",
+                            header: "BinMXCAFDoc_AssemblyItemRefDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BinMXCAFDoc_AssemblyItemRefDriver::get_type_descriptor(@)",
     header: "BinMXCAFDoc_AssemblyItemRefDriver.hxx".}
-proc DynamicType*(this: BinMXCAFDoc_AssemblyItemRefDriver): handle[Standard_Type] {.
+proc dynamicType*(this: BinMXCAFDocAssemblyItemRefDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMXCAFDoc_AssemblyItemRefDriver.hxx".}

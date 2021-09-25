@@ -20,8 +20,9 @@
 ## ! Any : any status   Message : Warning/Fail  NoFail : Warning/OK
 
 type
-  Interface_CheckStatus* {.size: sizeof(cint), importcpp: "Interface_CheckStatus",
-                          header: "Interface_CheckStatus.hxx".} = enum
-    Interface_CheckOK, Interface_CheckWarning, Interface_CheckFail,
-    Interface_CheckAny, Interface_CheckMessage, Interface_CheckNoFail
+  InterfaceCheckStatus* {.size: sizeof(cint), importcpp: "Interface_CheckStatus",
+                         header: "Interface_CheckStatus.hxx".} = enum
+    InterfaceCheckOK, InterfaceCheckWarning, InterfaceCheckFail, InterfaceCheckAny,
+    InterfaceCheckMessage, InterfaceCheckNoFail
+
 

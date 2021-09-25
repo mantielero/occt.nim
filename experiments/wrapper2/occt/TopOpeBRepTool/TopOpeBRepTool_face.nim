@@ -14,29 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Wire,
-  ../Standard/Standard_Boolean, ../TopoDS/TopoDS_Face
-
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Face"
 type
-  TopOpeBRepTool_face* {.importcpp: "TopOpeBRepTool_face",
-                        header: "TopOpeBRepTool_face.hxx", bycopy.} = object
+  TopOpeBRepToolFace* {.importcpp: "TopOpeBRepTool_face",
+                       header: "TopOpeBRepTool_face.hxx", bycopy.} = object
 
 
-proc constructTopOpeBRepTool_face*(): TopOpeBRepTool_face {.constructor,
+proc constructTopOpeBRepToolFace*(): TopOpeBRepToolFace {.constructor,
     importcpp: "TopOpeBRepTool_face(@)", header: "TopOpeBRepTool_face.hxx".}
-proc Init*(this: var TopOpeBRepTool_face; W: TopoDS_Wire; Fref: TopoDS_Face): Standard_Boolean {.
+proc init*(this: var TopOpeBRepToolFace; w: TopoDS_Wire; fref: TopoDS_Face): bool {.
     importcpp: "Init", header: "TopOpeBRepTool_face.hxx".}
-proc W*(this: TopOpeBRepTool_face): TopoDS_Wire {.noSideEffect, importcpp: "W",
+proc w*(this: TopOpeBRepToolFace): TopoDS_Wire {.noSideEffect, importcpp: "W",
     header: "TopOpeBRepTool_face.hxx".}
-proc IsDone*(this: TopOpeBRepTool_face): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "TopOpeBRepTool_face.hxx".}
-proc Finite*(this: TopOpeBRepTool_face): Standard_Boolean {.noSideEffect,
-    importcpp: "Finite", header: "TopOpeBRepTool_face.hxx".}
-proc Ffinite*(this: TopOpeBRepTool_face): TopoDS_Face {.noSideEffect,
+proc isDone*(this: TopOpeBRepToolFace): bool {.noSideEffect, importcpp: "IsDone",
+    header: "TopOpeBRepTool_face.hxx".}
+proc finite*(this: TopOpeBRepToolFace): bool {.noSideEffect, importcpp: "Finite",
+    header: "TopOpeBRepTool_face.hxx".}
+proc ffinite*(this: TopOpeBRepToolFace): TopoDS_Face {.noSideEffect,
     importcpp: "Ffinite", header: "TopOpeBRepTool_face.hxx".}
-proc RealF*(this: TopOpeBRepTool_face): TopoDS_Face {.noSideEffect,
+proc realF*(this: TopOpeBRepToolFace): TopoDS_Face {.noSideEffect,
     importcpp: "RealF", header: "TopOpeBRepTool_face.hxx".}

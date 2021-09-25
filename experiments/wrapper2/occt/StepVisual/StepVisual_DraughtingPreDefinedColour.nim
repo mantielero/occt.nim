@@ -14,33 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepVisual_PreDefinedColour
-
 discard "forward decl of StepVisual_DraughtingPreDefinedColour"
 discard "forward decl of StepVisual_DraughtingPreDefinedColour"
 type
-  Handle_StepVisual_DraughtingPreDefinedColour* = handle[
-      StepVisual_DraughtingPreDefinedColour]
-  StepVisual_DraughtingPreDefinedColour* {.
+  HandleStepVisualDraughtingPreDefinedColour* = Handle[
+      StepVisualDraughtingPreDefinedColour]
+  StepVisualDraughtingPreDefinedColour* {.
       importcpp: "StepVisual_DraughtingPreDefinedColour",
-      header: "StepVisual_DraughtingPreDefinedColour.hxx", bycopy.} = object of StepVisual_PreDefinedColour ##
-                                                                                                     ## !
-                                                                                                     ## Returns
-                                                                                                     ## a
-                                                                                                     ## DraughtingPreDefinedColour
+      header: "StepVisual_DraughtingPreDefinedColour.hxx", bycopy.} = object of StepVisualPreDefinedColour ##
+                                                                                                    ## !
+                                                                                                    ## Returns
+                                                                                                    ## a
+                                                                                                    ## DraughtingPreDefinedColour
 
 
-proc constructStepVisual_DraughtingPreDefinedColour*(): StepVisual_DraughtingPreDefinedColour {.
+proc constructStepVisualDraughtingPreDefinedColour*(): StepVisualDraughtingPreDefinedColour {.
     constructor, importcpp: "StepVisual_DraughtingPreDefinedColour(@)",
     header: "StepVisual_DraughtingPreDefinedColour.hxx".}
 type
-  StepVisual_DraughtingPreDefinedColourbase_type* = StepVisual_PreDefinedColour
+  StepVisualDraughtingPreDefinedColourbaseType* = StepVisualPreDefinedColour
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_DraughtingPreDefinedColour::get_type_name(@)", header: "StepVisual_DraughtingPreDefinedColour.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_DraughtingPreDefinedColour::get_type_name(@)",
+                            header: "StepVisual_DraughtingPreDefinedColour.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_DraughtingPreDefinedColour::get_type_descriptor(@)",
     header: "StepVisual_DraughtingPreDefinedColour.hxx".}
-proc DynamicType*(this: StepVisual_DraughtingPreDefinedColour): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepVisual_DraughtingPreDefinedColour.hxx".}
+proc dynamicType*(this: StepVisualDraughtingPreDefinedColour): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepVisual_DraughtingPreDefinedColour.hxx".}

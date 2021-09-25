@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_TypeDef
-
 ##   Class LDOM_CharReference: treatment of character reference and internal
 ##      entities in input and output streams
 ##   On output all 256 characters are classified as this:
@@ -43,8 +40,7 @@ type
                                                                       ##  ---------- PRIVATE FIELDS ----------
 
 
-proc Decode*(theSrc: cstring; theLen: var Standard_Integer): cstring {.
+proc decode*(theSrc: cstring; theLen: var int): cstring {.
     importcpp: "LDOM_CharReference::Decode(@)", header: "LDOM_CharReference.hxx".}
-proc Encode*(theSrc: cstring; theLen: var Standard_Integer;
-            isAttribute: Standard_Boolean): cstring {.
+proc encode*(theSrc: cstring; theLen: var int; isAttribute: bool): cstring {.
     importcpp: "LDOM_CharReference::Encode(@)", header: "LDOM_CharReference.hxx".}

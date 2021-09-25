@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TColStd/TColStd_HArray1OfReal, ../TopAbs/TopAbs_State,
-  ../TopAbs/TopAbs_Orientation, ../TColStd/TColStd_Array1OfReal, Adaptor3d_HVertex
-
 discard "forward decl of Adaptor2d_HLine2d"
 discard "forward decl of Adaptor3d_HVertex"
 discard "forward decl of Adaptor3d_HSurface"
@@ -28,7 +24,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of Adaptor3d_TopolTool"
 discard "forward decl of Adaptor3d_TopolTool"
 type
-  Handle_Adaptor3d_TopolTool* = handle[Adaptor3d_TopolTool]
+  HandleAdaptor3dTopolTool* = Handle[Adaptor3dTopolTool]
 
 ## ! This class provides a default topological tool,
 ## ! based on the Umin,Vmin,Umax,Vmax of an HSurface
@@ -39,92 +35,91 @@ type
 ## ! as Intersection, outlines,...
 
 type
-  Adaptor3d_TopolTool* {.importcpp: "Adaptor3d_TopolTool",
-                        header: "Adaptor3d_TopolTool.hxx", bycopy.} = object of Standard_Transient
+  Adaptor3dTopolTool* {.importcpp: "Adaptor3d_TopolTool",
+                       header: "Adaptor3d_TopolTool.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructAdaptor3d_TopolTool*(): Adaptor3d_TopolTool {.constructor,
+proc constructAdaptor3dTopolTool*(): Adaptor3dTopolTool {.constructor,
     importcpp: "Adaptor3d_TopolTool(@)", header: "Adaptor3d_TopolTool.hxx".}
-proc constructAdaptor3d_TopolTool*(Surface: handle[Adaptor3d_HSurface]): Adaptor3d_TopolTool {.
+proc constructAdaptor3dTopolTool*(surface: Handle[Adaptor3dHSurface]): Adaptor3dTopolTool {.
     constructor, importcpp: "Adaptor3d_TopolTool(@)",
     header: "Adaptor3d_TopolTool.hxx".}
-proc Initialize*(this: var Adaptor3d_TopolTool) {.importcpp: "Initialize",
+proc initialize*(this: var Adaptor3dTopolTool) {.importcpp: "Initialize",
     header: "Adaptor3d_TopolTool.hxx".}
-proc Initialize*(this: var Adaptor3d_TopolTool; S: handle[Adaptor3d_HSurface]) {.
+proc initialize*(this: var Adaptor3dTopolTool; s: Handle[Adaptor3dHSurface]) {.
     importcpp: "Initialize", header: "Adaptor3d_TopolTool.hxx".}
-proc Initialize*(this: var Adaptor3d_TopolTool; Curve: handle[Adaptor2d_HCurve2d]) {.
+proc initialize*(this: var Adaptor3dTopolTool; curve: Handle[Adaptor2dHCurve2d]) {.
     importcpp: "Initialize", header: "Adaptor3d_TopolTool.hxx".}
-proc Init*(this: var Adaptor3d_TopolTool) {.importcpp: "Init",
-                                        header: "Adaptor3d_TopolTool.hxx".}
-proc More*(this: var Adaptor3d_TopolTool): Standard_Boolean {.importcpp: "More",
+proc init*(this: var Adaptor3dTopolTool) {.importcpp: "Init",
+                                       header: "Adaptor3d_TopolTool.hxx".}
+proc more*(this: var Adaptor3dTopolTool): bool {.importcpp: "More",
     header: "Adaptor3d_TopolTool.hxx".}
-proc Value*(this: var Adaptor3d_TopolTool): handle[Adaptor2d_HCurve2d] {.
+proc value*(this: var Adaptor3dTopolTool): Handle[Adaptor2dHCurve2d] {.
     importcpp: "Value", header: "Adaptor3d_TopolTool.hxx".}
-proc Next*(this: var Adaptor3d_TopolTool) {.importcpp: "Next",
-                                        header: "Adaptor3d_TopolTool.hxx".}
-proc InitVertexIterator*(this: var Adaptor3d_TopolTool) {.
+proc next*(this: var Adaptor3dTopolTool) {.importcpp: "Next",
+                                       header: "Adaptor3d_TopolTool.hxx".}
+proc initVertexIterator*(this: var Adaptor3dTopolTool) {.
     importcpp: "InitVertexIterator", header: "Adaptor3d_TopolTool.hxx".}
-proc MoreVertex*(this: var Adaptor3d_TopolTool): Standard_Boolean {.
-    importcpp: "MoreVertex", header: "Adaptor3d_TopolTool.hxx".}
-proc Vertex*(this: var Adaptor3d_TopolTool): handle[Adaptor3d_HVertex] {.
+proc moreVertex*(this: var Adaptor3dTopolTool): bool {.importcpp: "MoreVertex",
+    header: "Adaptor3d_TopolTool.hxx".}
+proc vertex*(this: var Adaptor3dTopolTool): Handle[Adaptor3dHVertex] {.
     importcpp: "Vertex", header: "Adaptor3d_TopolTool.hxx".}
-proc NextVertex*(this: var Adaptor3d_TopolTool) {.importcpp: "NextVertex",
+proc nextVertex*(this: var Adaptor3dTopolTool) {.importcpp: "NextVertex",
     header: "Adaptor3d_TopolTool.hxx".}
-proc Classify*(this: var Adaptor3d_TopolTool; P: gp_Pnt2d; Tol: Standard_Real;
-              ReacdreOnPeriodic: Standard_Boolean = Standard_True): TopAbs_State {.
-    importcpp: "Classify", header: "Adaptor3d_TopolTool.hxx".}
-proc IsThePointOn*(this: var Adaptor3d_TopolTool; P: gp_Pnt2d; Tol: Standard_Real;
-                  ReacdreOnPeriodic: Standard_Boolean = Standard_True): Standard_Boolean {.
-    importcpp: "IsThePointOn", header: "Adaptor3d_TopolTool.hxx".}
-proc Orientation*(this: var Adaptor3d_TopolTool; C: handle[Adaptor2d_HCurve2d]): TopAbs_Orientation {.
+proc classify*(this: var Adaptor3dTopolTool; p: Pnt2d; tol: float;
+              reacdreOnPeriodic: bool = true): TopAbsState {.importcpp: "Classify",
+    header: "Adaptor3d_TopolTool.hxx".}
+proc isThePointOn*(this: var Adaptor3dTopolTool; p: Pnt2d; tol: float;
+                  reacdreOnPeriodic: bool = true): bool {.importcpp: "IsThePointOn",
+    header: "Adaptor3d_TopolTool.hxx".}
+proc orientation*(this: var Adaptor3dTopolTool; c: Handle[Adaptor2dHCurve2d]): TopAbsOrientation {.
     importcpp: "Orientation", header: "Adaptor3d_TopolTool.hxx".}
-proc Orientation*(this: var Adaptor3d_TopolTool; V: handle[Adaptor3d_HVertex]): TopAbs_Orientation {.
+proc orientation*(this: var Adaptor3dTopolTool; v: Handle[Adaptor3dHVertex]): TopAbsOrientation {.
     importcpp: "Orientation", header: "Adaptor3d_TopolTool.hxx".}
-proc Identical*(this: var Adaptor3d_TopolTool; V1: handle[Adaptor3d_HVertex];
-               V2: handle[Adaptor3d_HVertex]): Standard_Boolean {.
-    importcpp: "Identical", header: "Adaptor3d_TopolTool.hxx".}
-proc Has3d*(this: Adaptor3d_TopolTool): Standard_Boolean {.noSideEffect,
-    importcpp: "Has3d", header: "Adaptor3d_TopolTool.hxx".}
-proc Tol3d*(this: Adaptor3d_TopolTool; C: handle[Adaptor2d_HCurve2d]): Standard_Real {.
+proc identical*(this: var Adaptor3dTopolTool; v1: Handle[Adaptor3dHVertex];
+               v2: Handle[Adaptor3dHVertex]): bool {.importcpp: "Identical",
+    header: "Adaptor3d_TopolTool.hxx".}
+proc has3d*(this: Adaptor3dTopolTool): bool {.noSideEffect, importcpp: "Has3d",
+    header: "Adaptor3d_TopolTool.hxx".}
+proc tol3d*(this: Adaptor3dTopolTool; c: Handle[Adaptor2dHCurve2d]): float {.
     noSideEffect, importcpp: "Tol3d", header: "Adaptor3d_TopolTool.hxx".}
-proc Tol3d*(this: Adaptor3d_TopolTool; V: handle[Adaptor3d_HVertex]): Standard_Real {.
+proc tol3d*(this: Adaptor3dTopolTool; v: Handle[Adaptor3dHVertex]): float {.
     noSideEffect, importcpp: "Tol3d", header: "Adaptor3d_TopolTool.hxx".}
-proc Pnt*(this: Adaptor3d_TopolTool; V: handle[Adaptor3d_HVertex]): gp_Pnt {.
-    noSideEffect, importcpp: "Pnt", header: "Adaptor3d_TopolTool.hxx".}
-proc ComputeSamplePoints*(this: var Adaptor3d_TopolTool) {.
+proc pnt*(this: Adaptor3dTopolTool; v: Handle[Adaptor3dHVertex]): Pnt {.noSideEffect,
+    importcpp: "Pnt", header: "Adaptor3d_TopolTool.hxx".}
+proc computeSamplePoints*(this: var Adaptor3dTopolTool) {.
     importcpp: "ComputeSamplePoints", header: "Adaptor3d_TopolTool.hxx".}
-proc NbSamplesU*(this: var Adaptor3d_TopolTool): Standard_Integer {.
-    importcpp: "NbSamplesU", header: "Adaptor3d_TopolTool.hxx".}
-proc NbSamplesV*(this: var Adaptor3d_TopolTool): Standard_Integer {.
-    importcpp: "NbSamplesV", header: "Adaptor3d_TopolTool.hxx".}
-proc NbSamples*(this: var Adaptor3d_TopolTool): Standard_Integer {.
-    importcpp: "NbSamples", header: "Adaptor3d_TopolTool.hxx".}
-proc UParameters*(this: Adaptor3d_TopolTool; theArray: var TColStd_Array1OfReal) {.
-    noSideEffect, importcpp: "UParameters", header: "Adaptor3d_TopolTool.hxx".}
-proc VParameters*(this: Adaptor3d_TopolTool; theArray: var TColStd_Array1OfReal) {.
-    noSideEffect, importcpp: "VParameters", header: "Adaptor3d_TopolTool.hxx".}
-proc SamplePoint*(this: var Adaptor3d_TopolTool; Index: Standard_Integer;
-                 P2d: var gp_Pnt2d; P3d: var gp_Pnt) {.importcpp: "SamplePoint",
+proc nbSamplesU*(this: var Adaptor3dTopolTool): int {.importcpp: "NbSamplesU",
     header: "Adaptor3d_TopolTool.hxx".}
-proc DomainIsInfinite*(this: var Adaptor3d_TopolTool): Standard_Boolean {.
+proc nbSamplesV*(this: var Adaptor3dTopolTool): int {.importcpp: "NbSamplesV",
+    header: "Adaptor3d_TopolTool.hxx".}
+proc nbSamples*(this: var Adaptor3dTopolTool): int {.importcpp: "NbSamples",
+    header: "Adaptor3d_TopolTool.hxx".}
+proc uParameters*(this: Adaptor3dTopolTool; theArray: var TColStdArray1OfReal) {.
+    noSideEffect, importcpp: "UParameters", header: "Adaptor3d_TopolTool.hxx".}
+proc vParameters*(this: Adaptor3dTopolTool; theArray: var TColStdArray1OfReal) {.
+    noSideEffect, importcpp: "VParameters", header: "Adaptor3d_TopolTool.hxx".}
+proc samplePoint*(this: var Adaptor3dTopolTool; index: int; p2d: var Pnt2d; p3d: var Pnt) {.
+    importcpp: "SamplePoint", header: "Adaptor3d_TopolTool.hxx".}
+proc domainIsInfinite*(this: var Adaptor3dTopolTool): bool {.
     importcpp: "DomainIsInfinite", header: "Adaptor3d_TopolTool.hxx".}
-proc Edge*(this: Adaptor3d_TopolTool): Standard_Address {.noSideEffect,
+proc edge*(this: Adaptor3dTopolTool): StandardAddress {.noSideEffect,
     importcpp: "Edge", header: "Adaptor3d_TopolTool.hxx".}
-proc SamplePnts*(this: var Adaptor3d_TopolTool; theDefl: Standard_Real;
-                theNUmin: Standard_Integer; theNVmin: Standard_Integer) {.
-    importcpp: "SamplePnts", header: "Adaptor3d_TopolTool.hxx".}
-proc BSplSamplePnts*(this: var Adaptor3d_TopolTool; theDefl: Standard_Real;
-                    theNUmin: Standard_Integer; theNVmin: Standard_Integer) {.
-    importcpp: "BSplSamplePnts", header: "Adaptor3d_TopolTool.hxx".}
-proc IsUniformSampling*(this: Adaptor3d_TopolTool): Standard_Boolean {.noSideEffect,
+proc samplePnts*(this: var Adaptor3dTopolTool; theDefl: float; theNUmin: int;
+                theNVmin: int) {.importcpp: "SamplePnts",
+                               header: "Adaptor3d_TopolTool.hxx".}
+proc bSplSamplePnts*(this: var Adaptor3dTopolTool; theDefl: float; theNUmin: int;
+                    theNVmin: int) {.importcpp: "BSplSamplePnts",
+                                   header: "Adaptor3d_TopolTool.hxx".}
+proc isUniformSampling*(this: Adaptor3dTopolTool): bool {.noSideEffect,
     importcpp: "IsUniformSampling", header: "Adaptor3d_TopolTool.hxx".}
 type
-  Adaptor3d_TopolToolbase_type* = Standard_Transient
+  Adaptor3dTopolToolbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Adaptor3d_TopolTool::get_type_name(@)",
-                              header: "Adaptor3d_TopolTool.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Adaptor3d_TopolTool::get_type_name(@)",
+                            header: "Adaptor3d_TopolTool.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Adaptor3d_TopolTool::get_type_descriptor(@)",
     header: "Adaptor3d_TopolTool.hxx".}
-proc DynamicType*(this: Adaptor3d_TopolTool): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: Adaptor3dTopolTool): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Adaptor3d_TopolTool.hxx".}

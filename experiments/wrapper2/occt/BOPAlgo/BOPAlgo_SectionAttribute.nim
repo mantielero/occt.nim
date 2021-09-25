@@ -13,38 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Boolean
-
 ## ! Class is a container of the flags used
 ## ! by intersection algorithm
 
 type
-  BOPAlgo_SectionAttribute* {.importcpp: "BOPAlgo_SectionAttribute",
-                             header: "BOPAlgo_SectionAttribute.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Default
-                                                                                  ## constructor
+  BOPAlgoSectionAttribute* {.importcpp: "BOPAlgo_SectionAttribute",
+                            header: "BOPAlgo_SectionAttribute.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## Default
+                                                                                 ## constructor
 
 
-proc constructBOPAlgo_SectionAttribute*(): BOPAlgo_SectionAttribute {.constructor,
+proc constructBOPAlgoSectionAttribute*(): BOPAlgoSectionAttribute {.constructor,
     importcpp: "BOPAlgo_SectionAttribute(@)",
     header: "BOPAlgo_SectionAttribute.hxx".}
-proc constructBOPAlgo_SectionAttribute*(theAproximation: Standard_Boolean;
-                                       thePCurveOnS1: Standard_Boolean;
-                                       thePCurveOnS2: Standard_Boolean): BOPAlgo_SectionAttribute {.
+proc constructBOPAlgoSectionAttribute*(theAproximation: bool; thePCurveOnS1: bool;
+                                      thePCurveOnS2: bool): BOPAlgoSectionAttribute {.
     constructor, importcpp: "BOPAlgo_SectionAttribute(@)",
     header: "BOPAlgo_SectionAttribute.hxx".}
-proc Approximation*(this: var BOPAlgo_SectionAttribute; theApprox: Standard_Boolean) {.
+proc approximation*(this: var BOPAlgoSectionAttribute; theApprox: bool) {.
     importcpp: "Approximation", header: "BOPAlgo_SectionAttribute.hxx".}
-proc PCurveOnS1*(this: var BOPAlgo_SectionAttribute; thePCurveOnS1: Standard_Boolean) {.
+proc pCurveOnS1*(this: var BOPAlgoSectionAttribute; thePCurveOnS1: bool) {.
     importcpp: "PCurveOnS1", header: "BOPAlgo_SectionAttribute.hxx".}
-proc PCurveOnS2*(this: var BOPAlgo_SectionAttribute; thePCurveOnS2: Standard_Boolean) {.
+proc pCurveOnS2*(this: var BOPAlgoSectionAttribute; thePCurveOnS2: bool) {.
     importcpp: "PCurveOnS2", header: "BOPAlgo_SectionAttribute.hxx".}
-proc Approximation*(this: BOPAlgo_SectionAttribute): Standard_Boolean {.
-    noSideEffect, importcpp: "Approximation",
-    header: "BOPAlgo_SectionAttribute.hxx".}
-proc PCurveOnS1*(this: BOPAlgo_SectionAttribute): Standard_Boolean {.noSideEffect,
+proc approximation*(this: BOPAlgoSectionAttribute): bool {.noSideEffect,
+    importcpp: "Approximation", header: "BOPAlgo_SectionAttribute.hxx".}
+proc pCurveOnS1*(this: BOPAlgoSectionAttribute): bool {.noSideEffect,
     importcpp: "PCurveOnS1", header: "BOPAlgo_SectionAttribute.hxx".}
-proc PCurveOnS2*(this: BOPAlgo_SectionAttribute): Standard_Boolean {.noSideEffect,
+proc pCurveOnS2*(this: BOPAlgoSectionAttribute): bool {.noSideEffect,
     importcpp: "PCurveOnS2", header: "BOPAlgo_SectionAttribute.hxx".}

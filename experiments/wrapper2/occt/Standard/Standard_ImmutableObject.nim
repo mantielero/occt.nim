@@ -14,16 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_ImmutableObject_HeaderFile [NewLine] # _Standard_ImmutableObject_HeaderFile [NewLine] # Standard_Type.hxx [NewLine] # Standard_DefineException.hxx [NewLine] # Standard_SStream.hxx [NewLine] # Standard_DomainError.hxx [NewLine] class Standard_ImmutableObject ;
+## !!!Ignored construct:  # _Standard_ImmutableObject_HeaderFile [NewLine] # _Standard_ImmutableObject_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class Standard_ImmutableObject ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Standard_ImmutableObject"
 type
-  Handle_Standard_ImmutableObjectStandard_ImmutableObject* = handle[
-      Standard_ImmutableObject]
+  HandleStandardImmutableObjectStandardImmutableObject* = Handle[
+      StandardImmutableObject]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_ImmutableObject [NewLine] # if ( CONDITION ) throw Standard_ImmutableObject ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_ImmutableObject , Standard_DomainError ) #  _Standard_ImmutableObject_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_ImmutableObject , Standard_DomainError ) #  _Standard_ImmutableObject_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

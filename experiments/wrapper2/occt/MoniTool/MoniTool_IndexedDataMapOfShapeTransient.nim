@@ -14,10 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, ../Standard/Standard_Transient,
-  ../TopTools/TopTools_ShapeMapHasher, ../NCollection/NCollection_IndexedDataMap
-
 type
-  MoniTool_IndexedDataMapOfShapeTransient* = NCollection_IndexedDataMap[
-      TopoDS_Shape, handle[Standard_Transient], TopTools_ShapeMapHasher]
+  MoniToolIndexedDataMapOfShapeTransient* = NCollectionIndexedDataMap[
+      TopoDS_Shape, Handle[StandardTransient], TopToolsShapeMapHasher]
+

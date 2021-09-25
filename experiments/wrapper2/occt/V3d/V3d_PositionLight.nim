@@ -14,27 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Graphic3d/Graphic3d_Vertex, V3d_Light, V3d_TypeOfPickLight,
-  V3d_TypeOfRepresentation
-
 ## ! Base class for Positional, Spot and Directional Light classes.
 
 type
-  V3d_PositionLight* {.importcpp: "V3d_PositionLight",
-                      header: "V3d_PositionLight.hxx", bycopy.} = object of Graphic3d_CLight ##
-                                                                                      ## !
-                                                                                      ## Protected
-                                                                                      ## constructor.
+  V3dPositionLight* {.importcpp: "V3d_PositionLight",
+                     header: "V3d_PositionLight.hxx", bycopy.} = object of Graphic3dCLight ##
+                                                                                    ## !
+                                                                                    ## Protected
+                                                                                    ## constructor.
 
-  V3d_PositionLightbase_type* = Graphic3d_CLight
+  V3dPositionLightbaseType* = Graphic3dCLight
 
-proc get_type_name*(): cstring {.importcpp: "V3d_PositionLight::get_type_name(@)",
-                              header: "V3d_PositionLight.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "V3d_PositionLight::get_type_name(@)",
+                            header: "V3d_PositionLight.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "V3d_PositionLight::get_type_descriptor(@)",
     header: "V3d_PositionLight.hxx".}
-proc DynamicType*(this: V3d_PositionLight): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: V3dPositionLight): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "V3d_PositionLight.hxx".}
 ## using statement
 
@@ -42,4 +38,5 @@ proc DynamicType*(this: V3d_PositionLight): handle[Standard_Type] {.noSideEffect
 
 discard "forward decl of V3d_PositionLight"
 type
-  Handle_V3d_PositionLight* = handle[V3d_PositionLight]
+  HandleV3dPositionLight* = Handle[V3dPositionLight]
+

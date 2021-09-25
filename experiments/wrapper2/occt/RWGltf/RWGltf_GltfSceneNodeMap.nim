@@ -11,18 +11,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_IndexedMap, ../XCAFPrs/XCAFPrs_DocumentExplorer
-
 ## ! Indexed map of scene nodes with custom search algorithm.
 
 type
-  RWGltf_GltfSceneNodeMap* {.importcpp: "RWGltf_GltfSceneNodeMap",
-                            header: "RWGltf_GltfSceneNodeMap.hxx", bycopy.} = object of NCollection_IndexedMap[
-      XCAFPrs_DocumentNode, XCAFPrs_DocumentNode] ## ! Empty constructor.
+  RWGltfGltfSceneNodeMap* {.importcpp: "RWGltf_GltfSceneNodeMap",
+                           header: "RWGltf_GltfSceneNodeMap.hxx", bycopy.} = object of NCollectionIndexedMap[
+      XCAFPrsDocumentNode, XCAFPrsDocumentNode] ## ! Empty constructor.
 
 
-proc constructRWGltf_GltfSceneNodeMap*(): RWGltf_GltfSceneNodeMap {.constructor,
+proc constructRWGltfGltfSceneNodeMap*(): RWGltfGltfSceneNodeMap {.constructor,
     importcpp: "RWGltf_GltfSceneNodeMap(@)", header: "RWGltf_GltfSceneNodeMap.hxx".}
-proc FindIndex*(this: RWGltf_GltfSceneNodeMap; theNodeId: TCollection_AsciiString): Standard_Integer {.
+proc findIndex*(this: RWGltfGltfSceneNodeMap; theNodeId: TCollectionAsciiString): int {.
     noSideEffect, importcpp: "FindIndex", header: "RWGltf_GltfSceneNodeMap.hxx".}

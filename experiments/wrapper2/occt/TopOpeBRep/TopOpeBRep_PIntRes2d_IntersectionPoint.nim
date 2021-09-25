@@ -16,4 +16,5 @@
 
 discard "forward decl of IntRes2d_IntersectionPoint"
 type
-  TopOpeBRep_PIntRes2d_IntersectionPoint* = ptr IntRes2d_IntersectionPoint
+  TopOpeBRepPIntRes2dIntersectionPoint* = ptr IntRes2dIntersectionPoint
+

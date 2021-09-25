@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Vrml_ConeParts, ../Standard/Standard_Real,
-  ../Standard/Standard_OStream
-
 ## ! defines a Cone node of VRML specifying geometry shapes.
 ## ! This  node  represents  a  simple  cone,  whose  central  axis  is  aligned
 ## ! with  the  y-axis.  By  default ,  the  cone  is  centred  at  (0,0,0)
@@ -28,23 +23,23 @@ import
 ## ! the  sides  and  the  bottom
 
 type
-  Vrml_Cone* {.importcpp: "Vrml_Cone", header: "Vrml_Cone.hxx", bycopy.} = object
+  VrmlCone* {.importcpp: "Vrml_Cone", header: "Vrml_Cone.hxx", bycopy.} = object
 
 
-proc constructVrml_Cone*(aParts: Vrml_ConeParts = Vrml_ConeALL;
-                        aBottomRadius: Standard_Real = 1; aHeight: Standard_Real = 2): Vrml_Cone {.
+proc constructVrmlCone*(aParts: VrmlConeParts = vrmlConeALL;
+                       aBottomRadius: float = 1; aHeight: float = 2): VrmlCone {.
     constructor, importcpp: "Vrml_Cone(@)", header: "Vrml_Cone.hxx".}
-proc SetParts*(this: var Vrml_Cone; aParts: Vrml_ConeParts) {.importcpp: "SetParts",
+proc setParts*(this: var VrmlCone; aParts: VrmlConeParts) {.importcpp: "SetParts",
     header: "Vrml_Cone.hxx".}
-proc Parts*(this: Vrml_Cone): Vrml_ConeParts {.noSideEffect, importcpp: "Parts",
+proc parts*(this: VrmlCone): VrmlConeParts {.noSideEffect, importcpp: "Parts",
     header: "Vrml_Cone.hxx".}
-proc SetBottomRadius*(this: var Vrml_Cone; aBottomRadius: Standard_Real) {.
+proc setBottomRadius*(this: var VrmlCone; aBottomRadius: float) {.
     importcpp: "SetBottomRadius", header: "Vrml_Cone.hxx".}
-proc BottomRadius*(this: Vrml_Cone): Standard_Real {.noSideEffect,
-    importcpp: "BottomRadius", header: "Vrml_Cone.hxx".}
-proc SetHeight*(this: var Vrml_Cone; aHeight: Standard_Real) {.importcpp: "SetHeight",
+proc bottomRadius*(this: VrmlCone): float {.noSideEffect, importcpp: "BottomRadius",
+                                        header: "Vrml_Cone.hxx".}
+proc setHeight*(this: var VrmlCone; aHeight: float) {.importcpp: "SetHeight",
     header: "Vrml_Cone.hxx".}
-proc Height*(this: Vrml_Cone): Standard_Real {.noSideEffect, importcpp: "Height",
-    header: "Vrml_Cone.hxx".}
-proc Print*(this: Vrml_Cone; anOStream: var Standard_OStream): var Standard_OStream {.
+proc height*(this: VrmlCone): float {.noSideEffect, importcpp: "Height",
+                                  header: "Vrml_Cone.hxx".}
+proc print*(this: VrmlCone; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Cone.hxx".}

@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TDF_LabelNodePtr, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, TDF_Label
-
 discard "forward decl of TDF_Label"
 type
   TDF_ChildIterator* {.importcpp: "TDF_ChildIterator",
@@ -27,17 +22,16 @@ type
 
 proc constructTDF_ChildIterator*(): TDF_ChildIterator {.constructor,
     importcpp: "TDF_ChildIterator(@)", header: "TDF_ChildIterator.hxx".}
-proc constructTDF_ChildIterator*(aLabel: TDF_Label;
-                                allLevels: Standard_Boolean = Standard_False): TDF_ChildIterator {.
+proc constructTDF_ChildIterator*(aLabel: TDF_Label; allLevels: bool = false): TDF_ChildIterator {.
     constructor, importcpp: "TDF_ChildIterator(@)", header: "TDF_ChildIterator.hxx".}
-proc Initialize*(this: var TDF_ChildIterator; aLabel: TDF_Label;
-                allLevels: Standard_Boolean = Standard_False) {.
-    importcpp: "Initialize", header: "TDF_ChildIterator.hxx".}
-proc More*(this: TDF_ChildIterator): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "TDF_ChildIterator.hxx".}
-proc Next*(this: var TDF_ChildIterator) {.importcpp: "Next",
+proc initialize*(this: var TDF_ChildIterator; aLabel: TDF_Label;
+                allLevels: bool = false) {.importcpp: "Initialize",
+                                       header: "TDF_ChildIterator.hxx".}
+proc more*(this: TDF_ChildIterator): bool {.noSideEffect, importcpp: "More",
+                                        header: "TDF_ChildIterator.hxx".}
+proc next*(this: var TDF_ChildIterator) {.importcpp: "Next",
                                       header: "TDF_ChildIterator.hxx".}
-proc NextBrother*(this: var TDF_ChildIterator) {.importcpp: "NextBrother",
+proc nextBrother*(this: var TDF_ChildIterator) {.importcpp: "NextBrother",
     header: "TDF_ChildIterator.hxx".}
-proc Value*(this: TDF_ChildIterator): TDF_Label {.noSideEffect, importcpp: "Value",
+proc value*(this: TDF_ChildIterator): TDF_Label {.noSideEffect, importcpp: "Value",
     header: "TDF_ChildIterator.hxx".}

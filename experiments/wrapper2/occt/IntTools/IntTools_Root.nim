@@ -13,52 +13,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer, ../TopAbs/TopAbs_State,
-  ../Standard/Standard_Boolean
-
 ## ! The class is to describe the root of
 ## ! function of one variable  for  Edge/Edge
 ## ! and  Edge/Surface  algorithms.
 
 type
-  IntTools_Root* {.importcpp: "IntTools_Root", header: "IntTools_Root.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Empty
-                                                                                      ## constructor
+  IntToolsRoot* {.importcpp: "IntTools_Root", header: "IntTools_Root.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Empty
+                                                                                     ## constructor
 
 
-proc constructIntTools_Root*(): IntTools_Root {.constructor,
+proc constructIntToolsRoot*(): IntToolsRoot {.constructor,
     importcpp: "IntTools_Root(@)", header: "IntTools_Root.hxx".}
-proc constructIntTools_Root*(aRoot: Standard_Real; aType: Standard_Integer): IntTools_Root {.
-    constructor, importcpp: "IntTools_Root(@)", header: "IntTools_Root.hxx".}
-proc SetRoot*(this: var IntTools_Root; aRoot: Standard_Real) {.importcpp: "SetRoot",
+proc constructIntToolsRoot*(aRoot: float; aType: int): IntToolsRoot {.constructor,
+    importcpp: "IntTools_Root(@)", header: "IntTools_Root.hxx".}
+proc setRoot*(this: var IntToolsRoot; aRoot: float) {.importcpp: "SetRoot",
     header: "IntTools_Root.hxx".}
-proc SetType*(this: var IntTools_Root; aType: Standard_Integer) {.
-    importcpp: "SetType", header: "IntTools_Root.hxx".}
-proc SetStateBefore*(this: var IntTools_Root; aState: TopAbs_State) {.
+proc setType*(this: var IntToolsRoot; aType: int) {.importcpp: "SetType",
+    header: "IntTools_Root.hxx".}
+proc setStateBefore*(this: var IntToolsRoot; aState: TopAbsState) {.
     importcpp: "SetStateBefore", header: "IntTools_Root.hxx".}
-proc SetStateAfter*(this: var IntTools_Root; aState: TopAbs_State) {.
+proc setStateAfter*(this: var IntToolsRoot; aState: TopAbsState) {.
     importcpp: "SetStateAfter", header: "IntTools_Root.hxx".}
-proc SetLayerHeight*(this: var IntTools_Root; aHeight: Standard_Real) {.
+proc setLayerHeight*(this: var IntToolsRoot; aHeight: float) {.
     importcpp: "SetLayerHeight", header: "IntTools_Root.hxx".}
-proc SetInterval*(this: var IntTools_Root; t1: Standard_Real; t2: Standard_Real;
-                 f1: Standard_Real; f2: Standard_Real) {.importcpp: "SetInterval",
-    header: "IntTools_Root.hxx".}
-proc Root*(this: IntTools_Root): Standard_Real {.noSideEffect, importcpp: "Root",
-    header: "IntTools_Root.hxx".}
-proc Type*(this: IntTools_Root): Standard_Integer {.noSideEffect, importcpp: "Type",
-    header: "IntTools_Root.hxx".}
-proc StateBefore*(this: IntTools_Root): TopAbs_State {.noSideEffect,
+proc setInterval*(this: var IntToolsRoot; t1: float; t2: float; f1: float; f2: float) {.
+    importcpp: "SetInterval", header: "IntTools_Root.hxx".}
+proc root*(this: IntToolsRoot): float {.noSideEffect, importcpp: "Root",
+                                    header: "IntTools_Root.hxx".}
+proc `type`*(this: IntToolsRoot): int {.noSideEffect, importcpp: "Type",
+                                    header: "IntTools_Root.hxx".}
+proc stateBefore*(this: IntToolsRoot): TopAbsState {.noSideEffect,
     importcpp: "StateBefore", header: "IntTools_Root.hxx".}
-proc StateAfter*(this: IntTools_Root): TopAbs_State {.noSideEffect,
+proc stateAfter*(this: IntToolsRoot): TopAbsState {.noSideEffect,
     importcpp: "StateAfter", header: "IntTools_Root.hxx".}
-proc LayerHeight*(this: IntTools_Root): Standard_Real {.noSideEffect,
+proc layerHeight*(this: IntToolsRoot): float {.noSideEffect,
     importcpp: "LayerHeight", header: "IntTools_Root.hxx".}
-proc IsValid*(this: IntTools_Root): Standard_Boolean {.noSideEffect,
-    importcpp: "IsValid", header: "IntTools_Root.hxx".}
-proc Interval*(this: IntTools_Root; t1: var Standard_Real; t2: var Standard_Real;
-              f1: var Standard_Real; f2: var Standard_Real) {.noSideEffect,
-    importcpp: "Interval", header: "IntTools_Root.hxx".}
+proc isValid*(this: IntToolsRoot): bool {.noSideEffect, importcpp: "IsValid",
+                                      header: "IntTools_Root.hxx".}
+proc interval*(this: IntToolsRoot; t1: var float; t2: var float; f1: var float;
+              f2: var float) {.noSideEffect, importcpp: "Interval",
+                            header: "IntTools_Root.hxx".}

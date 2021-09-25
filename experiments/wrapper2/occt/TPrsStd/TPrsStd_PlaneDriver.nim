@@ -14,42 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TPrsStd_Driver,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TDF_Label"
 discard "forward decl of AIS_InteractiveObject"
 discard "forward decl of TPrsStd_PlaneDriver"
 discard "forward decl of TPrsStd_PlaneDriver"
 type
-  Handle_TPrsStd_PlaneDriver* = handle[TPrsStd_PlaneDriver]
+  HandleTPrsStdPlaneDriver* = Handle[TPrsStdPlaneDriver]
 
 ## ! An implementation of TPrsStd_Driver for planes.
 
 type
-  TPrsStd_PlaneDriver* {.importcpp: "TPrsStd_PlaneDriver",
-                        header: "TPrsStd_PlaneDriver.hxx", bycopy.} = object of TPrsStd_Driver ##
-                                                                                        ## !
-                                                                                        ## Constructs
-                                                                                        ## an
-                                                                                        ## empty
-                                                                                        ## plane
-                                                                                        ## driver.
+  TPrsStdPlaneDriver* {.importcpp: "TPrsStd_PlaneDriver",
+                       header: "TPrsStd_PlaneDriver.hxx", bycopy.} = object of TPrsStdDriver ##
+                                                                                      ## !
+                                                                                      ## Constructs
+                                                                                      ## an
+                                                                                      ## empty
+                                                                                      ## plane
+                                                                                      ## driver.
 
 
-proc constructTPrsStd_PlaneDriver*(): TPrsStd_PlaneDriver {.constructor,
+proc constructTPrsStdPlaneDriver*(): TPrsStdPlaneDriver {.constructor,
     importcpp: "TPrsStd_PlaneDriver(@)", header: "TPrsStd_PlaneDriver.hxx".}
-proc Update*(this: var TPrsStd_PlaneDriver; aLabel: TDF_Label;
-            anAISObject: var handle[AIS_InteractiveObject]): Standard_Boolean {.
+proc update*(this: var TPrsStdPlaneDriver; aLabel: TDF_Label;
+            anAISObject: var Handle[AIS_InteractiveObject]): bool {.
     importcpp: "Update", header: "TPrsStd_PlaneDriver.hxx".}
 type
-  TPrsStd_PlaneDriverbase_type* = TPrsStd_Driver
+  TPrsStdPlaneDriverbaseType* = TPrsStdDriver
 
-proc get_type_name*(): cstring {.importcpp: "TPrsStd_PlaneDriver::get_type_name(@)",
-                              header: "TPrsStd_PlaneDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TPrsStd_PlaneDriver::get_type_name(@)",
+                            header: "TPrsStd_PlaneDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TPrsStd_PlaneDriver::get_type_descriptor(@)",
     header: "TPrsStd_PlaneDriver.hxx".}
-proc DynamicType*(this: TPrsStd_PlaneDriver): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TPrsStdPlaneDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TPrsStd_PlaneDriver.hxx".}

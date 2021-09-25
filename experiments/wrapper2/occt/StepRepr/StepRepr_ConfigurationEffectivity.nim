@@ -14,51 +14,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepBasic/StepBasic_ProductDefinitionEffectivity
-
 discard "forward decl of StepRepr_ConfigurationDesign"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_ProductDefinitionRelationship"
 discard "forward decl of StepRepr_ConfigurationEffectivity"
 discard "forward decl of StepRepr_ConfigurationEffectivity"
 type
-  Handle_StepRepr_ConfigurationEffectivity* = handle[
-      StepRepr_ConfigurationEffectivity]
+  HandleStepReprConfigurationEffectivity* = Handle[
+      StepReprConfigurationEffectivity]
 
 ## ! Representation of STEP entity ConfigurationEffectivity
 
 type
-  StepRepr_ConfigurationEffectivity* {.importcpp: "StepRepr_ConfigurationEffectivity", header: "StepRepr_ConfigurationEffectivity.hxx",
-                                      bycopy.} = object of StepBasic_ProductDefinitionEffectivity ##
-                                                                                             ## !
-                                                                                             ## Empty
-                                                                                             ## constructor
+  StepReprConfigurationEffectivity* {.importcpp: "StepRepr_ConfigurationEffectivity", header: "StepRepr_ConfigurationEffectivity.hxx",
+                                     bycopy.} = object of StepBasicProductDefinitionEffectivity ##
+                                                                                           ## !
+                                                                                           ## Empty
+                                                                                           ## constructor
 
 
-proc constructStepRepr_ConfigurationEffectivity*(): StepRepr_ConfigurationEffectivity {.
+proc constructStepReprConfigurationEffectivity*(): StepReprConfigurationEffectivity {.
     constructor, importcpp: "StepRepr_ConfigurationEffectivity(@)",
     header: "StepRepr_ConfigurationEffectivity.hxx".}
-proc Init*(this: var StepRepr_ConfigurationEffectivity;
-          aEffectivity_Id: handle[TCollection_HAsciiString];
-    aProductDefinitionEffectivity_Usage: handle[
-    StepBasic_ProductDefinitionRelationship];
-          aConfiguration: handle[StepRepr_ConfigurationDesign]) {.
+proc init*(this: var StepReprConfigurationEffectivity;
+          aEffectivityId: Handle[TCollectionHAsciiString];
+    aProductDefinitionEffectivityUsage: Handle[
+    StepBasicProductDefinitionRelationship];
+          aConfiguration: Handle[StepReprConfigurationDesign]) {.
     importcpp: "Init", header: "StepRepr_ConfigurationEffectivity.hxx".}
-proc Configuration*(this: StepRepr_ConfigurationEffectivity): handle[
-    StepRepr_ConfigurationDesign] {.noSideEffect, importcpp: "Configuration", header: "StepRepr_ConfigurationEffectivity.hxx".}
-proc SetConfiguration*(this: var StepRepr_ConfigurationEffectivity;
-                      Configuration: handle[StepRepr_ConfigurationDesign]) {.
+proc configuration*(this: StepReprConfigurationEffectivity): Handle[
+    StepReprConfigurationDesign] {.noSideEffect, importcpp: "Configuration", header: "StepRepr_ConfigurationEffectivity.hxx".}
+proc setConfiguration*(this: var StepReprConfigurationEffectivity;
+                      configuration: Handle[StepReprConfigurationDesign]) {.
     importcpp: "SetConfiguration", header: "StepRepr_ConfigurationEffectivity.hxx".}
 type
-  StepRepr_ConfigurationEffectivitybase_type* = StepBasic_ProductDefinitionEffectivity
+  StepReprConfigurationEffectivitybaseType* = StepBasicProductDefinitionEffectivity
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_ConfigurationEffectivity::get_type_name(@)",
-                              header: "StepRepr_ConfigurationEffectivity.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_ConfigurationEffectivity::get_type_name(@)",
+                            header: "StepRepr_ConfigurationEffectivity.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_ConfigurationEffectivity::get_type_descriptor(@)",
     header: "StepRepr_ConfigurationEffectivity.hxx".}
-proc DynamicType*(this: StepRepr_ConfigurationEffectivity): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprConfigurationEffectivity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_ConfigurationEffectivity.hxx".}

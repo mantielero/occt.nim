@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_CString,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real
-
 discard "forward decl of Units_UnitsDictionary"
 discard "forward decl of Units_Quantity"
 discard "forward decl of Units_Lexicon"
@@ -44,35 +39,32 @@ type
                                                               ## ! the units known to the system.
 
 
-proc UnitsFile*(afile: Standard_CString) {.importcpp: "Units::UnitsFile(@)",
-                                        header: "Units.hxx".}
-proc LexiconFile*(afile: Standard_CString) {.importcpp: "Units::LexiconFile(@)",
+proc unitsFile*(afile: StandardCString) {.importcpp: "Units::UnitsFile(@)",
+                                       header: "Units.hxx".}
+proc lexiconFile*(afile: StandardCString) {.importcpp: "Units::LexiconFile(@)",
     header: "Units.hxx".}
-proc DictionaryOfUnits*(amode: Standard_Boolean = Standard_False): handle[
-    Units_UnitsDictionary] {.importcpp: "Units::DictionaryOfUnits(@)",
-                            header: "Units.hxx".}
-proc Quantity*(aquantity: Standard_CString): handle[Units_Quantity] {.
+proc dictionaryOfUnits*(amode: bool = false): Handle[UnitsUnitsDictionary] {.
+    importcpp: "Units::DictionaryOfUnits(@)", header: "Units.hxx".}
+proc quantity*(aquantity: StandardCString): Handle[UnitsQuantity] {.
     importcpp: "Units::Quantity(@)", header: "Units.hxx".}
-proc FirstQuantity*(aunit: Standard_CString): Standard_CString {.
+proc firstQuantity*(aunit: StandardCString): StandardCString {.
     importcpp: "Units::FirstQuantity(@)", header: "Units.hxx".}
-proc LexiconUnits*(amode: Standard_Boolean = Standard_True): handle[Units_Lexicon] {.
+proc lexiconUnits*(amode: bool = true): Handle[UnitsLexicon] {.
     importcpp: "Units::LexiconUnits(@)", header: "Units.hxx".}
-proc LexiconFormula*(): handle[Units_Lexicon] {.
+proc lexiconFormula*(): Handle[UnitsLexicon] {.
     importcpp: "Units::LexiconFormula(@)", header: "Units.hxx".}
-proc NullDimensions*(): handle[Units_Dimensions] {.
+proc nullDimensions*(): Handle[UnitsDimensions] {.
     importcpp: "Units::NullDimensions(@)", header: "Units.hxx".}
-proc Convert*(avalue: Standard_Real; afirstunit: Standard_CString;
-             asecondunit: Standard_CString): Standard_Real {.
-    importcpp: "Units::Convert(@)", header: "Units.hxx".}
-proc ToSI*(aData: Standard_Real; aUnit: Standard_CString): Standard_Real {.
+proc convert*(avalue: float; afirstunit: StandardCString;
+             asecondunit: StandardCString): float {.importcpp: "Units::Convert(@)",
+    header: "Units.hxx".}
+proc toSI*(aData: float; aUnit: StandardCString): float {.importcpp: "Units::ToSI(@)",
+    header: "Units.hxx".}
+proc toSI*(aData: float; aUnit: StandardCString; aDim: var Handle[UnitsDimensions]): float {.
     importcpp: "Units::ToSI(@)", header: "Units.hxx".}
-proc ToSI*(aData: Standard_Real; aUnit: Standard_CString;
-          aDim: var handle[Units_Dimensions]): Standard_Real {.
-    importcpp: "Units::ToSI(@)", header: "Units.hxx".}
-proc FromSI*(aData: Standard_Real; aUnit: Standard_CString): Standard_Real {.
+proc fromSI*(aData: float; aUnit: StandardCString): float {.
     importcpp: "Units::FromSI(@)", header: "Units.hxx".}
-proc FromSI*(aData: Standard_Real; aUnit: Standard_CString;
-            aDim: var handle[Units_Dimensions]): Standard_Real {.
+proc fromSI*(aData: float; aUnit: StandardCString; aDim: var Handle[UnitsDimensions]): float {.
     importcpp: "Units::FromSI(@)", header: "Units.hxx".}
-proc Dimensions*(aType: Standard_CString): handle[Units_Dimensions] {.
+proc dimensions*(aType: StandardCString): Handle[UnitsDimensions] {.
     importcpp: "Units::Dimensions(@)", header: "Units.hxx".}

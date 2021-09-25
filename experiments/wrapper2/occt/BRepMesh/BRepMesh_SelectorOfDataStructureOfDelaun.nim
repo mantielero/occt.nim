@@ -11,93 +11,86 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Transient, BRepMesh_DataStructureOfDelaun,
-  BRepMesh_Triangle, ../IMeshData/IMeshData_Types
-
 discard "forward decl of BRepMesh_Vertex"
 discard "forward decl of BRepMesh_Edge"
 type
-  BRepMesh_SelectorOfDataStructureOfDelaun* {.
+  BRepMeshSelectorOfDataStructureOfDelaun* {.
       importcpp: "BRepMesh_SelectorOfDataStructureOfDelaun",
-      header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                               ## !
-                                                                                               ## Default
-                                                                                               ## constructor.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Collects
-                                                                                               ## elements
-                                                                                               ## connected
-                                                                                               ## to
-                                                                                               ## link
-                                                                                               ## with
-                                                                                               ## the
-                                                                                               ## given
-                                                                                               ## index.
+      header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx", bycopy.} = object of StandardTransient ##
+                                                                                              ## !
+                                                                                              ## Default
+                                                                                              ## constructor.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Collects
+                                                                                              ## elements
+                                                                                              ## connected
+                                                                                              ## to
+                                                                                              ## link
+                                                                                              ## with
+                                                                                              ## the
+                                                                                              ## given
+                                                                                              ## index.
 
 
-proc constructBRepMesh_SelectorOfDataStructureOfDelaun*(): BRepMesh_SelectorOfDataStructureOfDelaun {.
+proc constructBRepMeshSelectorOfDataStructureOfDelaun*(): BRepMeshSelectorOfDataStructureOfDelaun {.
     constructor, importcpp: "BRepMesh_SelectorOfDataStructureOfDelaun(@)",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
-proc constructBRepMesh_SelectorOfDataStructureOfDelaun*(
-    theMesh: handle[BRepMesh_DataStructureOfDelaun]): BRepMesh_SelectorOfDataStructureOfDelaun {.
+proc constructBRepMeshSelectorOfDataStructureOfDelaun*(
+    theMesh: Handle[BRepMeshDataStructureOfDelaun]): BRepMeshSelectorOfDataStructureOfDelaun {.
     constructor, importcpp: "BRepMesh_SelectorOfDataStructureOfDelaun(@)",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
-proc Initialize*(this: var BRepMesh_SelectorOfDataStructureOfDelaun;
-                theMesh: handle[BRepMesh_DataStructureOfDelaun]) {.
+proc initialize*(this: var BRepMeshSelectorOfDataStructureOfDelaun;
+                theMesh: Handle[BRepMeshDataStructureOfDelaun]) {.
     importcpp: "Initialize",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
-proc NeighboursOf*(this: var BRepMesh_SelectorOfDataStructureOfDelaun;
-                  theNode: BRepMesh_Vertex) {.importcpp: "NeighboursOf",
+proc neighboursOf*(this: var BRepMeshSelectorOfDataStructureOfDelaun;
+                  theNode: BRepMeshVertex) {.importcpp: "NeighboursOf",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
-proc NeighboursOfNode*(this: var BRepMesh_SelectorOfDataStructureOfDelaun;
-                      theNodeIndex: Standard_Integer) {.
-    importcpp: "NeighboursOfNode",
+proc neighboursOfNode*(this: var BRepMeshSelectorOfDataStructureOfDelaun;
+                      theNodeIndex: int) {.importcpp: "NeighboursOfNode",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
-proc NeighboursOf*(this: var BRepMesh_SelectorOfDataStructureOfDelaun;
-                  theLink: BRepMesh_Edge) {.importcpp: "NeighboursOf",
+proc neighboursOf*(this: var BRepMeshSelectorOfDataStructureOfDelaun;
+                  theLink: BRepMeshEdge) {.importcpp: "NeighboursOf",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
-proc NeighboursOfLink*(this: var BRepMesh_SelectorOfDataStructureOfDelaun;
-                      theLinkIndex: Standard_Integer) {.
-    importcpp: "NeighboursOfLink",
+proc neighboursOfLink*(this: var BRepMeshSelectorOfDataStructureOfDelaun;
+                      theLinkIndex: int) {.importcpp: "NeighboursOfLink",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
-proc NeighboursOf*(this: var BRepMesh_SelectorOfDataStructureOfDelaun;
-                  theElement: BRepMesh_Triangle) {.importcpp: "NeighboursOf",
+proc neighboursOf*(this: var BRepMeshSelectorOfDataStructureOfDelaun;
+                  theElement: BRepMeshTriangle) {.importcpp: "NeighboursOf",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
-proc NeighboursOfElement*(this: var BRepMesh_SelectorOfDataStructureOfDelaun;
-                         theElementIndex: Standard_Integer) {.
-    importcpp: "NeighboursOfElement",
+proc neighboursOfElement*(this: var BRepMeshSelectorOfDataStructureOfDelaun;
+                         theElementIndex: int) {.importcpp: "NeighboursOfElement",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
-proc NeighboursByEdgeOf*(this: var BRepMesh_SelectorOfDataStructureOfDelaun;
-                        theElement: BRepMesh_Triangle) {.
+proc neighboursByEdgeOf*(this: var BRepMeshSelectorOfDataStructureOfDelaun;
+                        theElement: BRepMeshTriangle) {.
     importcpp: "NeighboursByEdgeOf",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
-proc NeighboursOf*(this: var BRepMesh_SelectorOfDataStructureOfDelaun; a2: BRepMesh_SelectorOfDataStructureOfDelaun) {.
+proc neighboursOf*(this: var BRepMeshSelectorOfDataStructureOfDelaun; a2: BRepMeshSelectorOfDataStructureOfDelaun) {.
     importcpp: "NeighboursOf",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
   ## theSelector
-proc AddNeighbours*(this: var BRepMesh_SelectorOfDataStructureOfDelaun) {.
+proc addNeighbours*(this: var BRepMeshSelectorOfDataStructureOfDelaun) {.
     importcpp: "AddNeighbours",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
-proc Nodes*(this: BRepMesh_SelectorOfDataStructureOfDelaun): MapOfInteger {.
+proc nodes*(this: BRepMeshSelectorOfDataStructureOfDelaun): MapOfInteger {.
     noSideEffect, importcpp: "Nodes",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
-proc Links*(this: BRepMesh_SelectorOfDataStructureOfDelaun): MapOfInteger {.
+proc links*(this: BRepMeshSelectorOfDataStructureOfDelaun): MapOfInteger {.
     noSideEffect, importcpp: "Links",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
-proc Elements*(this: BRepMesh_SelectorOfDataStructureOfDelaun): MapOfInteger {.
+proc elements*(this: BRepMeshSelectorOfDataStructureOfDelaun): MapOfInteger {.
     noSideEffect, importcpp: "Elements",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
-proc FrontierLinks*(this: BRepMesh_SelectorOfDataStructureOfDelaun): MapOfInteger {.
+proc frontierLinks*(this: BRepMeshSelectorOfDataStructureOfDelaun): MapOfInteger {.
     noSideEffect, importcpp: "FrontierLinks",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
 type
-  BRepMesh_SelectorOfDataStructureOfDelaunbase_type* = Standard_Transient
+  BRepMeshSelectorOfDataStructureOfDelaunbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "BRepMesh_SelectorOfDataStructureOfDelaun::get_type_name(@)", header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "BRepMesh_SelectorOfDataStructureOfDelaun::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "BRepMesh_SelectorOfDataStructureOfDelaun::get_type_name(@)", header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "BRepMesh_SelectorOfDataStructureOfDelaun::get_type_descriptor(@)",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
-proc DynamicType*(this: BRepMesh_SelectorOfDataStructureOfDelaun): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
+proc dynamicType*(this: BRepMeshSelectorOfDataStructureOfDelaun): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}

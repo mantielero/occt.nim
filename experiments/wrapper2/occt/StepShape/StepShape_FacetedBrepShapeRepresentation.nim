@@ -14,32 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_ShapeRepresentation
-
 discard "forward decl of StepShape_FacetedBrepShapeRepresentation"
 discard "forward decl of StepShape_FacetedBrepShapeRepresentation"
 type
-  Handle_StepShape_FacetedBrepShapeRepresentation* = handle[
-      StepShape_FacetedBrepShapeRepresentation]
-  StepShape_FacetedBrepShapeRepresentation* {.
+  HandleStepShapeFacetedBrepShapeRepresentation* = Handle[
+      StepShapeFacetedBrepShapeRepresentation]
+  StepShapeFacetedBrepShapeRepresentation* {.
       importcpp: "StepShape_FacetedBrepShapeRepresentation",
-      header: "StepShape_FacetedBrepShapeRepresentation.hxx", bycopy.} = object of StepShape_ShapeRepresentation ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## a
-                                                                                                          ## FacetedBrepShapeRepresentation
+      header: "StepShape_FacetedBrepShapeRepresentation.hxx", bycopy.} = object of StepShapeShapeRepresentation ##
+                                                                                                         ## !
+                                                                                                         ## Returns
+                                                                                                         ## a
+                                                                                                         ## FacetedBrepShapeRepresentation
 
 
-proc constructStepShape_FacetedBrepShapeRepresentation*(): StepShape_FacetedBrepShapeRepresentation {.
+proc constructStepShapeFacetedBrepShapeRepresentation*(): StepShapeFacetedBrepShapeRepresentation {.
     constructor, importcpp: "StepShape_FacetedBrepShapeRepresentation(@)",
     header: "StepShape_FacetedBrepShapeRepresentation.hxx".}
 type
-  StepShape_FacetedBrepShapeRepresentationbase_type* = StepShape_ShapeRepresentation
+  StepShapeFacetedBrepShapeRepresentationbaseType* = StepShapeShapeRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_FacetedBrepShapeRepresentation::get_type_name(@)", header: "StepShape_FacetedBrepShapeRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepShape_FacetedBrepShapeRepresentation::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepShape_FacetedBrepShapeRepresentation::get_type_name(@)", header: "StepShape_FacetedBrepShapeRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_FacetedBrepShapeRepresentation::get_type_descriptor(@)",
     header: "StepShape_FacetedBrepShapeRepresentation.hxx".}
-proc DynamicType*(this: StepShape_FacetedBrepShapeRepresentation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepShape_FacetedBrepShapeRepresentation.hxx".}
+proc dynamicType*(this: StepShapeFacetedBrepShapeRepresentation): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepShape_FacetedBrepShapeRepresentation.hxx".}

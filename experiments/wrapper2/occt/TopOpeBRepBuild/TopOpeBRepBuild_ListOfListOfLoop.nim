@@ -14,10 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TopOpeBRepBuild_ListOfLoop, ../NCollection/NCollection_List
-
 type
-  TopOpeBRepBuild_ListOfListOfLoop* = NCollection_List[TopOpeBRepBuild_ListOfLoop]
-  TopOpeBRepBuild_ListIteratorOfListOfListOfLoop* = Iterator[
-      TopOpeBRepBuild_ListOfLoop]
+  TopOpeBRepBuildListOfListOfLoop* = NCollectionList[TopOpeBRepBuildListOfLoop]
+  TopOpeBRepBuildListIteratorOfListOfListOfLoop* = Iterator[
+      TopOpeBRepBuildListOfLoop]
+

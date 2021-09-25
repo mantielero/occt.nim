@@ -14,22 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Face,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../TopAbs/TopAbs_State
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of BRepClass3d_SolidExplorer"
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Face"
 type
-  BRepClass3d_SClassifier* {.importcpp: "BRepClass3d_SClassifier",
-                            header: "BRepClass3d_SClassifier.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Empty
-                                                                                ## constructor.
+  BRepClass3dSClassifier* {.importcpp: "BRepClass3d_SClassifier",
+                           header: "BRepClass3d_SClassifier.hxx", bycopy.} = object ## !
+                                                                               ## Empty
+                                                                               ## constructor.
     ## ! This variable stores information about algorithm internal state.
     ## ! Type of this variable differs from TopAbs_State since it contains
     ## ! additional information about error status.
@@ -39,23 +32,23 @@ type
     ## ! 4 - OUT.
 
 
-proc constructBRepClass3d_SClassifier*(): BRepClass3d_SClassifier {.constructor,
+proc constructBRepClass3dSClassifier*(): BRepClass3dSClassifier {.constructor,
     importcpp: "BRepClass3d_SClassifier(@)", header: "BRepClass3d_SClassifier.hxx".}
-proc constructBRepClass3d_SClassifier*(S: var BRepClass3d_SolidExplorer; P: gp_Pnt;
-                                      Tol: Standard_Real): BRepClass3d_SClassifier {.
+proc constructBRepClass3dSClassifier*(s: var BRepClass3dSolidExplorer; p: Pnt;
+                                     tol: float): BRepClass3dSClassifier {.
     constructor, importcpp: "BRepClass3d_SClassifier(@)",
     header: "BRepClass3d_SClassifier.hxx".}
-proc Perform*(this: var BRepClass3d_SClassifier; S: var BRepClass3d_SolidExplorer;
-             P: gp_Pnt; Tol: Standard_Real) {.importcpp: "Perform",
-    header: "BRepClass3d_SClassifier.hxx".}
-proc PerformInfinitePoint*(this: var BRepClass3d_SClassifier;
-                          S: var BRepClass3d_SolidExplorer; Tol: Standard_Real) {.
+proc perform*(this: var BRepClass3dSClassifier; s: var BRepClass3dSolidExplorer;
+             p: Pnt; tol: float) {.importcpp: "Perform",
+                               header: "BRepClass3d_SClassifier.hxx".}
+proc performInfinitePoint*(this: var BRepClass3dSClassifier;
+                          s: var BRepClass3dSolidExplorer; tol: float) {.
     importcpp: "PerformInfinitePoint", header: "BRepClass3d_SClassifier.hxx".}
-proc Rejected*(this: BRepClass3d_SClassifier): Standard_Boolean {.noSideEffect,
+proc rejected*(this: BRepClass3dSClassifier): bool {.noSideEffect,
     importcpp: "Rejected", header: "BRepClass3d_SClassifier.hxx".}
-proc State*(this: BRepClass3d_SClassifier): TopAbs_State {.noSideEffect,
+proc state*(this: BRepClass3dSClassifier): TopAbsState {.noSideEffect,
     importcpp: "State", header: "BRepClass3d_SClassifier.hxx".}
-proc IsOnAFace*(this: BRepClass3d_SClassifier): Standard_Boolean {.noSideEffect,
+proc isOnAFace*(this: BRepClass3dSClassifier): bool {.noSideEffect,
     importcpp: "IsOnAFace", header: "BRepClass3d_SClassifier.hxx".}
-proc Face*(this: BRepClass3d_SClassifier): TopoDS_Face {.noSideEffect,
+proc face*(this: BRepClass3dSClassifier): TopoDS_Face {.noSideEffect,
     importcpp: "Face", header: "BRepClass3d_SClassifier.hxx".}

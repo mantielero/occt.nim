@@ -13,38 +13,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_TypeQualifier"
 discard "forward decl of StepShape_TypeQualifier"
 type
-  Handle_StepShape_TypeQualifier* = handle[StepShape_TypeQualifier]
+  HandleStepShapeTypeQualifier* = Handle[StepShapeTypeQualifier]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepShape_TypeQualifier* {.importcpp: "StepShape_TypeQualifier",
-                            header: "StepShape_TypeQualifier.hxx", bycopy.} = object of Standard_Transient
+  StepShapeTypeQualifier* {.importcpp: "StepShape_TypeQualifier",
+                           header: "StepShape_TypeQualifier.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructStepShape_TypeQualifier*(): StepShape_TypeQualifier {.constructor,
+proc constructStepShapeTypeQualifier*(): StepShapeTypeQualifier {.constructor,
     importcpp: "StepShape_TypeQualifier(@)", header: "StepShape_TypeQualifier.hxx".}
-proc Init*(this: var StepShape_TypeQualifier; name: handle[TCollection_HAsciiString]) {.
+proc init*(this: var StepShapeTypeQualifier; name: Handle[TCollectionHAsciiString]) {.
     importcpp: "Init", header: "StepShape_TypeQualifier.hxx".}
-proc Name*(this: StepShape_TypeQualifier): handle[TCollection_HAsciiString] {.
+proc name*(this: StepShapeTypeQualifier): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepShape_TypeQualifier.hxx".}
-proc SetName*(this: var StepShape_TypeQualifier;
-             name: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepShapeTypeQualifier;
+             name: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepShape_TypeQualifier.hxx".}
 type
-  StepShape_TypeQualifierbase_type* = Standard_Transient
+  StepShapeTypeQualifierbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_TypeQualifier::get_type_name(@)",
-                              header: "StepShape_TypeQualifier.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_TypeQualifier::get_type_name(@)",
+                            header: "StepShape_TypeQualifier.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_TypeQualifier::get_type_descriptor(@)",
     header: "StepShape_TypeQualifier.hxx".}
-proc DynamicType*(this: StepShape_TypeQualifier): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeTypeQualifier): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_TypeQualifier.hxx".}

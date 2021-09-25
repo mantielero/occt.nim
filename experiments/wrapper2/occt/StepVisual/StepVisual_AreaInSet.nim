@@ -14,46 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepVisual_PresentationArea"
 discard "forward decl of StepVisual_PresentationSet"
 discard "forward decl of StepVisual_AreaInSet"
 discard "forward decl of StepVisual_AreaInSet"
 type
-  Handle_StepVisual_AreaInSet* = handle[StepVisual_AreaInSet]
-  StepVisual_AreaInSet* {.importcpp: "StepVisual_AreaInSet",
-                         header: "StepVisual_AreaInSet.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## a
-                                                                                              ## AreaInSet
+  HandleStepVisualAreaInSet* = Handle[StepVisualAreaInSet]
+  StepVisualAreaInSet* {.importcpp: "StepVisual_AreaInSet",
+                        header: "StepVisual_AreaInSet.hxx", bycopy.} = object of StandardTransient ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## a
+                                                                                            ## AreaInSet
 
 
-proc constructStepVisual_AreaInSet*(): StepVisual_AreaInSet {.constructor,
+proc constructStepVisualAreaInSet*(): StepVisualAreaInSet {.constructor,
     importcpp: "StepVisual_AreaInSet(@)", header: "StepVisual_AreaInSet.hxx".}
-proc Init*(this: var StepVisual_AreaInSet;
-          aArea: handle[StepVisual_PresentationArea];
-          aInSet: handle[StepVisual_PresentationSet]) {.importcpp: "Init",
+proc init*(this: var StepVisualAreaInSet; aArea: Handle[StepVisualPresentationArea];
+          aInSet: Handle[StepVisualPresentationSet]) {.importcpp: "Init",
     header: "StepVisual_AreaInSet.hxx".}
-proc SetArea*(this: var StepVisual_AreaInSet;
-             aArea: handle[StepVisual_PresentationArea]) {.importcpp: "SetArea",
+proc setArea*(this: var StepVisualAreaInSet;
+             aArea: Handle[StepVisualPresentationArea]) {.importcpp: "SetArea",
     header: "StepVisual_AreaInSet.hxx".}
-proc Area*(this: StepVisual_AreaInSet): handle[StepVisual_PresentationArea] {.
+proc area*(this: StepVisualAreaInSet): Handle[StepVisualPresentationArea] {.
     noSideEffect, importcpp: "Area", header: "StepVisual_AreaInSet.hxx".}
-proc SetInSet*(this: var StepVisual_AreaInSet;
-              aInSet: handle[StepVisual_PresentationSet]) {.importcpp: "SetInSet",
+proc setInSet*(this: var StepVisualAreaInSet;
+              aInSet: Handle[StepVisualPresentationSet]) {.importcpp: "SetInSet",
     header: "StepVisual_AreaInSet.hxx".}
-proc InSet*(this: StepVisual_AreaInSet): handle[StepVisual_PresentationSet] {.
+proc inSet*(this: StepVisualAreaInSet): Handle[StepVisualPresentationSet] {.
     noSideEffect, importcpp: "InSet", header: "StepVisual_AreaInSet.hxx".}
 type
-  StepVisual_AreaInSetbase_type* = Standard_Transient
+  StepVisualAreaInSetbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_AreaInSet::get_type_name(@)",
-                              header: "StepVisual_AreaInSet.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_AreaInSet::get_type_name(@)",
+                            header: "StepVisual_AreaInSet.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_AreaInSet::get_type_descriptor(@)",
     header: "StepVisual_AreaInSet.hxx".}
-proc DynamicType*(this: StepVisual_AreaInSet): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepVisualAreaInSet): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepVisual_AreaInSet.hxx".}

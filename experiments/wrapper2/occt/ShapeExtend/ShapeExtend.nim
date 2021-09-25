@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer, ShapeExtend_Status,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of ShapeExtend_ComplexCurve"
 discard "forward decl of ShapeExtend_CompositeSurface"
 discard "forward decl of ShapeExtend_WireData"
@@ -43,8 +38,8 @@ type
                                                                                 ## algorithms.
 
 
-proc Init*() {.importcpp: "ShapeExtend::Init(@)", header: "ShapeExtend.hxx".}
-proc EncodeStatus*(status: ShapeExtend_Status): Standard_Integer {.
+proc init*() {.importcpp: "ShapeExtend::Init(@)", header: "ShapeExtend.hxx".}
+proc encodeStatus*(status: ShapeExtendStatus): int {.
     importcpp: "ShapeExtend::EncodeStatus(@)", header: "ShapeExtend.hxx".}
-proc DecodeStatus*(flag: Standard_Integer; status: ShapeExtend_Status): Standard_Boolean {.
+proc decodeStatus*(flag: int; status: ShapeExtendStatus): bool {.
     importcpp: "ShapeExtend::DecodeStatus(@)", header: "ShapeExtend.hxx".}

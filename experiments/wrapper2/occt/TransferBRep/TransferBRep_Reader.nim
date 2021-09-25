@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../TopTools/TopTools_HSequenceOfShape,
-  ../TColStd/TColStd_HSequenceOfTransient, ../Message/Message_ProgressRange
-
 discard "forward decl of Interface_Protocol"
 discard "forward decl of Transfer_ActorOfTransientProcess"
 discard "forward decl of Interface_InterfaceModel"
@@ -29,89 +23,85 @@ discard "forward decl of Interface_CheckIterator"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Standard_Transient"
 type
-  TransferBRep_Reader* {.importcpp: "TransferBRep_Reader",
-                        header: "TransferBRep_Reader.hxx", bycopy.} = object ## !
-                                                                        ## Initializes a
-                                                                        ## non-specialised Reader.
-                                                                        ## Typically, for each norm
-                                                                        ## ! or
-                                                                        ## protocol, is will be required to define a specific Create
-                                                                        ## ! to load a file and transfer it
+  TransferBRepReader* {.importcpp: "TransferBRep_Reader",
+                       header: "TransferBRep_Reader.hxx", bycopy.} = object ## !
+                                                                       ## Initializes a
+                                                                       ## non-specialised Reader.
+                                                                       ## Typically, for each norm
+                                                                       ## ! or protocol, is will be required to define a specific Create
+                                                                       ## ! to load a file and transfer it
 
 
-proc constructTransferBRep_Reader*(): TransferBRep_Reader {.constructor,
+proc constructTransferBRepReader*(): TransferBRepReader {.constructor,
     importcpp: "TransferBRep_Reader(@)", header: "TransferBRep_Reader.hxx".}
-proc SetProtocol*(this: var TransferBRep_Reader;
-                 protocol: handle[Interface_Protocol]) {.importcpp: "SetProtocol",
-    header: "TransferBRep_Reader.hxx".}
-proc Protocol*(this: TransferBRep_Reader): handle[Interface_Protocol] {.
-    noSideEffect, importcpp: "Protocol", header: "TransferBRep_Reader.hxx".}
-proc SetActor*(this: var TransferBRep_Reader;
-              actor: handle[Transfer_ActorOfTransientProcess]) {.
+proc setProtocol*(this: var TransferBRepReader; protocol: Handle[InterfaceProtocol]) {.
+    importcpp: "SetProtocol", header: "TransferBRep_Reader.hxx".}
+proc protocol*(this: TransferBRepReader): Handle[InterfaceProtocol] {.noSideEffect,
+    importcpp: "Protocol", header: "TransferBRep_Reader.hxx".}
+proc setActor*(this: var TransferBRepReader;
+              actor: Handle[TransferActorOfTransientProcess]) {.
     importcpp: "SetActor", header: "TransferBRep_Reader.hxx".}
-proc Actor*(this: TransferBRep_Reader): handle[Transfer_ActorOfTransientProcess] {.
+proc actor*(this: TransferBRepReader): Handle[TransferActorOfTransientProcess] {.
     noSideEffect, importcpp: "Actor", header: "TransferBRep_Reader.hxx".}
-proc SetFileStatus*(this: var TransferBRep_Reader; status: Standard_Integer) {.
+proc setFileStatus*(this: var TransferBRepReader; status: int) {.
     importcpp: "SetFileStatus", header: "TransferBRep_Reader.hxx".}
-proc FileStatus*(this: TransferBRep_Reader): Standard_Integer {.noSideEffect,
+proc fileStatus*(this: TransferBRepReader): int {.noSideEffect,
     importcpp: "FileStatus", header: "TransferBRep_Reader.hxx".}
-proc FileNotFound*(this: TransferBRep_Reader): Standard_Boolean {.noSideEffect,
+proc fileNotFound*(this: TransferBRepReader): bool {.noSideEffect,
     importcpp: "FileNotFound", header: "TransferBRep_Reader.hxx".}
-proc SyntaxError*(this: TransferBRep_Reader): Standard_Boolean {.noSideEffect,
+proc syntaxError*(this: TransferBRepReader): bool {.noSideEffect,
     importcpp: "SyntaxError", header: "TransferBRep_Reader.hxx".}
-proc SetModel*(this: var TransferBRep_Reader;
-              model: handle[Interface_InterfaceModel]) {.importcpp: "SetModel",
-    header: "TransferBRep_Reader.hxx".}
-proc Model*(this: TransferBRep_Reader): handle[Interface_InterfaceModel] {.
+proc setModel*(this: var TransferBRepReader; model: Handle[InterfaceInterfaceModel]) {.
+    importcpp: "SetModel", header: "TransferBRep_Reader.hxx".}
+proc model*(this: TransferBRepReader): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "Model", header: "TransferBRep_Reader.hxx".}
-proc Clear*(this: var TransferBRep_Reader) {.importcpp: "Clear",
-    header: "TransferBRep_Reader.hxx".}
-proc CheckStatusModel*(this: TransferBRep_Reader; withprint: Standard_Boolean): Standard_Boolean {.
+proc clear*(this: var TransferBRepReader) {.importcpp: "Clear",
+                                        header: "TransferBRep_Reader.hxx".}
+proc checkStatusModel*(this: TransferBRepReader; withprint: bool): bool {.
     noSideEffect, importcpp: "CheckStatusModel", header: "TransferBRep_Reader.hxx".}
-proc CheckListModel*(this: TransferBRep_Reader): Interface_CheckIterator {.
+proc checkListModel*(this: TransferBRepReader): InterfaceCheckIterator {.
     noSideEffect, importcpp: "CheckListModel", header: "TransferBRep_Reader.hxx".}
-proc ModeNewTransfer*(this: var TransferBRep_Reader): var Standard_Boolean {.
+proc modeNewTransfer*(this: var TransferBRepReader): var bool {.
     importcpp: "ModeNewTransfer", header: "TransferBRep_Reader.hxx".}
-proc BeginTransfer*(this: var TransferBRep_Reader): Standard_Boolean {.
-    importcpp: "BeginTransfer", header: "TransferBRep_Reader.hxx".}
-proc EndTransfer*(this: var TransferBRep_Reader) {.importcpp: "EndTransfer",
+proc beginTransfer*(this: var TransferBRepReader): bool {.importcpp: "BeginTransfer",
     header: "TransferBRep_Reader.hxx".}
-proc PrepareTransfer*(this: var TransferBRep_Reader) {.importcpp: "PrepareTransfer",
+proc endTransfer*(this: var TransferBRepReader) {.importcpp: "EndTransfer",
     header: "TransferBRep_Reader.hxx".}
-proc TransferRoots*(this: var TransferBRep_Reader;
-                   theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc prepareTransfer*(this: var TransferBRepReader) {.importcpp: "PrepareTransfer",
+    header: "TransferBRep_Reader.hxx".}
+proc transferRoots*(this: var TransferBRepReader;
+                   theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "TransferRoots", header: "TransferBRep_Reader.hxx".}
-proc Transfer*(this: var TransferBRep_Reader; num: Standard_Integer;
-              theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
+proc transfer*(this: var TransferBRepReader; num: int;
+              theProgress: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "Transfer", header: "TransferBRep_Reader.hxx".}
-proc TransferList*(this: var TransferBRep_Reader;
-                  list: handle[TColStd_HSequenceOfTransient];
-                  theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc transferList*(this: var TransferBRepReader;
+                  list: Handle[TColStdHSequenceOfTransient];
+                  theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "TransferList", header: "TransferBRep_Reader.hxx".}
-proc IsDone*(this: TransferBRep_Reader): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "TransferBRep_Reader.hxx".}
-proc NbShapes*(this: TransferBRep_Reader): Standard_Integer {.noSideEffect,
-    importcpp: "NbShapes", header: "TransferBRep_Reader.hxx".}
-proc Shapes*(this: TransferBRep_Reader): handle[TopTools_HSequenceOfShape] {.
+proc isDone*(this: TransferBRepReader): bool {.noSideEffect, importcpp: "IsDone",
+    header: "TransferBRep_Reader.hxx".}
+proc nbShapes*(this: TransferBRepReader): int {.noSideEffect, importcpp: "NbShapes",
+    header: "TransferBRep_Reader.hxx".}
+proc shapes*(this: TransferBRepReader): Handle[TopToolsHSequenceOfShape] {.
     noSideEffect, importcpp: "Shapes", header: "TransferBRep_Reader.hxx".}
-proc Shape*(this: TransferBRep_Reader; num: Standard_Integer = 1): TopoDS_Shape {.
-    noSideEffect, importcpp: "Shape", header: "TransferBRep_Reader.hxx".}
-proc ShapeResult*(this: TransferBRep_Reader; ent: handle[Standard_Transient]): TopoDS_Shape {.
+proc shape*(this: TransferBRepReader; num: int = 1): TopoDS_Shape {.noSideEffect,
+    importcpp: "Shape", header: "TransferBRep_Reader.hxx".}
+proc shapeResult*(this: TransferBRepReader; ent: Handle[StandardTransient]): TopoDS_Shape {.
     noSideEffect, importcpp: "ShapeResult", header: "TransferBRep_Reader.hxx".}
-proc OneShape*(this: TransferBRep_Reader): TopoDS_Shape {.noSideEffect,
+proc oneShape*(this: TransferBRepReader): TopoDS_Shape {.noSideEffect,
     importcpp: "OneShape", header: "TransferBRep_Reader.hxx".}
-proc NbTransients*(this: TransferBRep_Reader): Standard_Integer {.noSideEffect,
+proc nbTransients*(this: TransferBRepReader): int {.noSideEffect,
     importcpp: "NbTransients", header: "TransferBRep_Reader.hxx".}
-proc Transients*(this: TransferBRep_Reader): handle[TColStd_HSequenceOfTransient] {.
+proc transients*(this: TransferBRepReader): Handle[TColStdHSequenceOfTransient] {.
     noSideEffect, importcpp: "Transients", header: "TransferBRep_Reader.hxx".}
-proc Transient*(this: TransferBRep_Reader; num: Standard_Integer = 1): handle[
-    Standard_Transient] {.noSideEffect, importcpp: "Transient",
-                         header: "TransferBRep_Reader.hxx".}
-proc CheckStatusResult*(this: TransferBRep_Reader; withprints: Standard_Boolean): Standard_Boolean {.
+proc transient*(this: TransferBRepReader; num: int = 1): Handle[StandardTransient] {.
+    noSideEffect, importcpp: "Transient", header: "TransferBRep_Reader.hxx".}
+proc checkStatusResult*(this: TransferBRepReader; withprints: bool): bool {.
     noSideEffect, importcpp: "CheckStatusResult", header: "TransferBRep_Reader.hxx".}
-proc CheckListResult*(this: TransferBRep_Reader): Interface_CheckIterator {.
+proc checkListResult*(this: TransferBRepReader): InterfaceCheckIterator {.
     noSideEffect, importcpp: "CheckListResult", header: "TransferBRep_Reader.hxx".}
-proc TransientProcess*(this: TransferBRep_Reader): handle[Transfer_TransientProcess] {.
+proc transientProcess*(this: TransferBRepReader): Handle[TransferTransientProcess] {.
     noSideEffect, importcpp: "TransientProcess", header: "TransferBRep_Reader.hxx".}
-proc destroyTransferBRep_Reader*(this: var TransferBRep_Reader) {.
+proc destroyTransferBRepReader*(this: var TransferBRepReader) {.
     importcpp: "#.~TransferBRep_Reader()", header: "TransferBRep_Reader.hxx".}

@@ -14,110 +14,107 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Prs3d/Prs3d_Root, ../Prs3d/Prs3d_Drawer
-
 discard "forward decl of Adaptor3d_HSurface"
 type
-  StdPrs_WFDeflectionSurface* {.importcpp: "StdPrs_WFDeflectionSurface",
-                               header: "StdPrs_WFDeflectionSurface.hxx", bycopy.} = object of Prs3d_Root ##
-                                                                                                  ## !
-                                                                                                  ## Adds
-                                                                                                  ## the
-                                                                                                  ## surface
-                                                                                                  ## aSurface
-                                                                                                  ## to
-                                                                                                  ## the
-                                                                                                  ## presentation
-                                                                                                  ## object
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## aPresentation,
-                                                                                                  ## and
-                                                                                                  ## defines
-                                                                                                  ## its
-                                                                                                  ## boundaries
-                                                                                                  ## and
-                                                                                                  ## isoparameters.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## The
-                                                                                                  ## shape's
-                                                                                                  ## display
-                                                                                                  ## attributes
-                                                                                                  ## are
-                                                                                                  ## set
-                                                                                                  ## in
-                                                                                                  ## the
-                                                                                                  ## attribute
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## manager
-                                                                                                  ## aDrawer.
-                                                                                                  ## These
-                                                                                                  ## include
-                                                                                                  ## whether
-                                                                                                  ## deflection
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## is
-                                                                                                  ## absolute
-                                                                                                  ## or
-                                                                                                  ## relative
-                                                                                                  ## to
-                                                                                                  ## the
-                                                                                                  ## size
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## shape.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## The
-                                                                                                  ## surface
-                                                                                                  ## aSurface
-                                                                                                  ## is
-                                                                                                  ## a
-                                                                                                  ## surface
-                                                                                                  ## object
-                                                                                                  ## from
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Adaptor,
-                                                                                                  ## and
-                                                                                                  ## provides
-                                                                                                  ## data
-                                                                                                  ## from
-                                                                                                  ## a
-                                                                                                  ## Geom
-                                                                                                  ## surface.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## This
-                                                                                                  ## makes
-                                                                                                  ## it
-                                                                                                  ## possible
-                                                                                                  ## to
-                                                                                                  ## use
-                                                                                                  ## the
-                                                                                                  ## surface
-                                                                                                  ## in
-                                                                                                  ## a
-                                                                                                  ## geometric
-                                                                                                  ## algorithm.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Note
-                                                                                                  ## that
-                                                                                                  ## this
-                                                                                                  ## surface
-                                                                                                  ## object
-                                                                                                  ## is
-                                                                                                  ## manipulated
-                                                                                                  ## by
-                                                                                                  ## handles.
+  StdPrsWFDeflectionSurface* {.importcpp: "StdPrs_WFDeflectionSurface",
+                              header: "StdPrs_WFDeflectionSurface.hxx", bycopy.} = object of Prs3dRoot ##
+                                                                                                ## !
+                                                                                                ## Adds
+                                                                                                ## the
+                                                                                                ## surface
+                                                                                                ## aSurface
+                                                                                                ## to
+                                                                                                ## the
+                                                                                                ## presentation
+                                                                                                ## object
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## aPresentation,
+                                                                                                ## and
+                                                                                                ## defines
+                                                                                                ## its
+                                                                                                ## boundaries
+                                                                                                ## and
+                                                                                                ## isoparameters.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## The
+                                                                                                ## shape's
+                                                                                                ## display
+                                                                                                ## attributes
+                                                                                                ## are
+                                                                                                ## set
+                                                                                                ## in
+                                                                                                ## the
+                                                                                                ## attribute
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## manager
+                                                                                                ## aDrawer.
+                                                                                                ## These
+                                                                                                ## include
+                                                                                                ## whether
+                                                                                                ## deflection
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## is
+                                                                                                ## absolute
+                                                                                                ## or
+                                                                                                ## relative
+                                                                                                ## to
+                                                                                                ## the
+                                                                                                ## size
+                                                                                                ## of
+                                                                                                ## the
+                                                                                                ## shape.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## The
+                                                                                                ## surface
+                                                                                                ## aSurface
+                                                                                                ## is
+                                                                                                ## a
+                                                                                                ## surface
+                                                                                                ## object
+                                                                                                ## from
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Adaptor,
+                                                                                                ## and
+                                                                                                ## provides
+                                                                                                ## data
+                                                                                                ## from
+                                                                                                ## a
+                                                                                                ## Geom
+                                                                                                ## surface.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## This
+                                                                                                ## makes
+                                                                                                ## it
+                                                                                                ## possible
+                                                                                                ## to
+                                                                                                ## use
+                                                                                                ## the
+                                                                                                ## surface
+                                                                                                ## in
+                                                                                                ## a
+                                                                                                ## geometric
+                                                                                                ## algorithm.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Note
+                                                                                                ## that
+                                                                                                ## this
+                                                                                                ## surface
+                                                                                                ## object
+                                                                                                ## is
+                                                                                                ## manipulated
+                                                                                                ## by
+                                                                                                ## handles.
 
 
-proc Add*(aPresentation: handle[Prs3d_Presentation];
-         aSurface: handle[Adaptor3d_HSurface]; aDrawer: handle[Prs3d_Drawer]) {.
+proc add*(aPresentation: Handle[Prs3dPresentation];
+         aSurface: Handle[Adaptor3dHSurface]; aDrawer: Handle[Prs3dDrawer]) {.
     importcpp: "StdPrs_WFDeflectionSurface::Add(@)",
     header: "StdPrs_WFDeflectionSurface.hxx".}

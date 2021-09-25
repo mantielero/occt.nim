@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESDraw_ConnectPoint"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,44 +26,41 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESDraw_ToolConnectPoint* {.importcpp: "IGESDraw_ToolConnectPoint",
-                              header: "IGESDraw_ToolConnectPoint.hxx", bycopy.} = object ##
-                                                                                    ## !
-                                                                                    ## Returns
-                                                                                    ## a
-                                                                                    ## ToolConnectPoint,
-                                                                                    ## ready
-                                                                                    ## to
-                                                                                    ## work
+  IGESDrawToolConnectPoint* {.importcpp: "IGESDraw_ToolConnectPoint",
+                             header: "IGESDraw_ToolConnectPoint.hxx", bycopy.} = object ##
+                                                                                   ## !
+                                                                                   ## Returns
+                                                                                   ## a
+                                                                                   ## ToolConnectPoint,
+                                                                                   ## ready
+                                                                                   ## to
+                                                                                   ## work
 
 
-proc constructIGESDraw_ToolConnectPoint*(): IGESDraw_ToolConnectPoint {.
-    constructor, importcpp: "IGESDraw_ToolConnectPoint(@)",
+proc constructIGESDrawToolConnectPoint*(): IGESDrawToolConnectPoint {.constructor,
+    importcpp: "IGESDraw_ToolConnectPoint(@)",
     header: "IGESDraw_ToolConnectPoint.hxx".}
-proc ReadOwnParams*(this: IGESDraw_ToolConnectPoint;
-                   ent: handle[IGESDraw_ConnectPoint];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESDraw_ToolConnectPoint.hxx".}
-proc WriteOwnParams*(this: IGESDraw_ToolConnectPoint;
-                    ent: handle[IGESDraw_ConnectPoint];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
-    importcpp: "WriteOwnParams", header: "IGESDraw_ToolConnectPoint.hxx".}
-proc OwnShared*(this: IGESDraw_ToolConnectPoint;
-               ent: handle[IGESDraw_ConnectPoint];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc readOwnParams*(this: IGESDrawToolConnectPoint;
+                   ent: Handle[IGESDrawConnectPoint];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESDraw_ToolConnectPoint.hxx".}
+proc writeOwnParams*(this: IGESDrawToolConnectPoint;
+                    ent: Handle[IGESDrawConnectPoint]; iw: var IGESDataIGESWriter) {.
+    noSideEffect, importcpp: "WriteOwnParams",
+    header: "IGESDraw_ToolConnectPoint.hxx".}
+proc ownShared*(this: IGESDrawToolConnectPoint; ent: Handle[IGESDrawConnectPoint];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESDraw_ToolConnectPoint.hxx".}
-proc DirChecker*(this: IGESDraw_ToolConnectPoint;
-                ent: handle[IGESDraw_ConnectPoint]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESDrawToolConnectPoint; ent: Handle[IGESDrawConnectPoint]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESDraw_ToolConnectPoint.hxx".}
-proc OwnCheck*(this: IGESDraw_ToolConnectPoint; ent: handle[IGESDraw_ConnectPoint];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESDrawToolConnectPoint; ent: Handle[IGESDrawConnectPoint];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESDraw_ToolConnectPoint.hxx".}
-proc OwnCopy*(this: IGESDraw_ToolConnectPoint;
-             entfrom: handle[IGESDraw_ConnectPoint];
-             entto: handle[IGESDraw_ConnectPoint]; TC: var Interface_CopyTool) {.
+proc ownCopy*(this: IGESDrawToolConnectPoint;
+             entfrom: Handle[IGESDrawConnectPoint];
+             entto: Handle[IGESDrawConnectPoint]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESDraw_ToolConnectPoint.hxx".}
-proc OwnDump*(this: IGESDraw_ToolConnectPoint; ent: handle[IGESDraw_ConnectPoint];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
-                                    header: "IGESDraw_ToolConnectPoint.hxx".}
+proc ownDump*(this: IGESDrawToolConnectPoint; ent: Handle[IGESDrawConnectPoint];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump", header: "IGESDraw_ToolConnectPoint.hxx".}

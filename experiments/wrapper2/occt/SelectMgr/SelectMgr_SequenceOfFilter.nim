@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  SelectMgr_Filter, ../NCollection/NCollection_Sequence
-
 type
-  SelectMgr_SequenceOfFilter* = NCollection_Sequence[handle[SelectMgr_Filter]]
+  SelectMgrSequenceOfFilter* = NCollectionSequence[Handle[SelectMgrFilter]]
+

@@ -14,35 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColStd/TColStd_Array1OfReal,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real, ../math/math_Vector
-
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of Standard_RangeError"
 discard "forward decl of math_Matrix"
 type
-  GeomFill_Tensor* {.importcpp: "GeomFill_Tensor", header: "GeomFill_Tensor.hxx",
-                    bycopy.} = object
+  GeomFillTensor* {.importcpp: "GeomFill_Tensor", header: "GeomFill_Tensor.hxx",
+                   bycopy.} = object
 
 
-proc constructGeomFill_Tensor*(NbRow: Standard_Integer; NbCol: Standard_Integer;
-                              NbMat: Standard_Integer): GeomFill_Tensor {.
+proc constructGeomFillTensor*(nbRow: int; nbCol: int; nbMat: int): GeomFillTensor {.
     constructor, importcpp: "GeomFill_Tensor(@)", header: "GeomFill_Tensor.hxx".}
-proc Init*(this: var GeomFill_Tensor; InitialValue: Standard_Real) {.
-    importcpp: "Init", header: "GeomFill_Tensor.hxx".}
-proc Value*(this: GeomFill_Tensor; Row: Standard_Integer; Col: Standard_Integer;
-           Mat: Standard_Integer): Standard_Real {.noSideEffect, importcpp: "Value",
+proc init*(this: var GeomFillTensor; initialValue: float) {.importcpp: "Init",
     header: "GeomFill_Tensor.hxx".}
-proc `()`*(this: GeomFill_Tensor; Row: Standard_Integer; Col: Standard_Integer;
-          Mat: Standard_Integer): Standard_Real {.noSideEffect, importcpp: "#(@)",
-    header: "GeomFill_Tensor.hxx".}
-proc ChangeValue*(this: var GeomFill_Tensor; Row: Standard_Integer;
-                 Col: Standard_Integer; Mat: Standard_Integer): var Standard_Real {.
+proc value*(this: GeomFillTensor; row: int; col: int; mat: int): float {.noSideEffect,
+    importcpp: "Value", header: "GeomFill_Tensor.hxx".}
+proc `()`*(this: GeomFillTensor; row: int; col: int; mat: int): float {.noSideEffect,
+    importcpp: "#(@)", header: "GeomFill_Tensor.hxx".}
+proc changeValue*(this: var GeomFillTensor; row: int; col: int; mat: int): var float {.
     importcpp: "ChangeValue", header: "GeomFill_Tensor.hxx".}
-proc `()`*(this: var GeomFill_Tensor; Row: Standard_Integer; Col: Standard_Integer;
-          Mat: Standard_Integer): var Standard_Real {.importcpp: "#(@)",
-    header: "GeomFill_Tensor.hxx".}
-proc Multiply*(this: GeomFill_Tensor; Right: math_Vector; Product: var math_Matrix) {.
+proc `()`*(this: var GeomFillTensor; row: int; col: int; mat: int): var float {.
+    importcpp: "#(@)", header: "GeomFill_Tensor.hxx".}
+proc multiply*(this: GeomFillTensor; right: MathVector; product: var MathMatrix) {.
     noSideEffect, importcpp: "Multiply", header: "GeomFill_Tensor.hxx".}

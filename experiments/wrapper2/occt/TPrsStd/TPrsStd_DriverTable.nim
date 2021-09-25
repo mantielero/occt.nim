@@ -14,16 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TPrsStd_DataMapOfGUIDDriver,
-  ../Standard/Standard_Transient, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of TPrsStd_Driver"
 discard "forward decl of TPrsStd_DriverTable"
 discard "forward decl of TPrsStd_DriverTable"
 type
-  Handle_TPrsStd_DriverTable* = handle[TPrsStd_DriverTable]
+  HandleTPrsStdDriverTable* = Handle[TPrsStdDriverTable]
 
 ## ! This class is   a  container to record  (AddDriver)
 ## ! binding between  GUID and  TPrsStd_Driver.
@@ -31,53 +27,53 @@ type
 ## ! and use the method AddDriver to load it into the driver table. the method
 
 type
-  TPrsStd_DriverTable* {.importcpp: "TPrsStd_DriverTable",
-                        header: "TPrsStd_DriverTable.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## the
-                                                                                            ## static
-                                                                                            ## table.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## If
-                                                                                            ## it
-                                                                                            ## does
-                                                                                            ## not
-                                                                                            ## exist,
-                                                                                            ## creates
-                                                                                            ## it
-                                                                                            ## and
-                                                                                            ## fills
-                                                                                            ## it
-                                                                                            ## with
-                                                                                            ## standard
-                                                                                            ## drivers.
+  TPrsStdDriverTable* {.importcpp: "TPrsStd_DriverTable",
+                       header: "TPrsStd_DriverTable.hxx", bycopy.} = object of StandardTransient ##
+                                                                                          ## !
+                                                                                          ## Returns
+                                                                                          ## the
+                                                                                          ## static
+                                                                                          ## table.
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## If
+                                                                                          ## it
+                                                                                          ## does
+                                                                                          ## not
+                                                                                          ## exist,
+                                                                                          ## creates
+                                                                                          ## it
+                                                                                          ## and
+                                                                                          ## fills
+                                                                                          ## it
+                                                                                          ## with
+                                                                                          ## standard
+                                                                                          ## drivers.
 
 
-proc Get*(): handle[TPrsStd_DriverTable] {.importcpp: "TPrsStd_DriverTable::Get(@)",
-                                        header: "TPrsStd_DriverTable.hxx".}
-proc constructTPrsStd_DriverTable*(): TPrsStd_DriverTable {.constructor,
+proc get*(): Handle[TPrsStdDriverTable] {.importcpp: "TPrsStd_DriverTable::Get(@)",
+                                       header: "TPrsStd_DriverTable.hxx".}
+proc constructTPrsStdDriverTable*(): TPrsStdDriverTable {.constructor,
     importcpp: "TPrsStd_DriverTable(@)", header: "TPrsStd_DriverTable.hxx".}
-proc InitStandardDrivers*(this: var TPrsStd_DriverTable) {.
+proc initStandardDrivers*(this: var TPrsStdDriverTable) {.
     importcpp: "InitStandardDrivers", header: "TPrsStd_DriverTable.hxx".}
-proc AddDriver*(this: var TPrsStd_DriverTable; guid: Standard_GUID;
-               driver: handle[TPrsStd_Driver]): Standard_Boolean {.
-    importcpp: "AddDriver", header: "TPrsStd_DriverTable.hxx".}
-proc FindDriver*(this: TPrsStd_DriverTable; guid: Standard_GUID;
-                driver: var handle[TPrsStd_Driver]): Standard_Boolean {.
-    noSideEffect, importcpp: "FindDriver", header: "TPrsStd_DriverTable.hxx".}
-proc RemoveDriver*(this: var TPrsStd_DriverTable; guid: Standard_GUID): Standard_Boolean {.
-    importcpp: "RemoveDriver", header: "TPrsStd_DriverTable.hxx".}
-proc Clear*(this: var TPrsStd_DriverTable) {.importcpp: "Clear",
+proc addDriver*(this: var TPrsStdDriverTable; guid: StandardGUID;
+               driver: Handle[TPrsStdDriver]): bool {.importcpp: "AddDriver",
     header: "TPrsStd_DriverTable.hxx".}
+proc findDriver*(this: TPrsStdDriverTable; guid: StandardGUID;
+                driver: var Handle[TPrsStdDriver]): bool {.noSideEffect,
+    importcpp: "FindDriver", header: "TPrsStd_DriverTable.hxx".}
+proc removeDriver*(this: var TPrsStdDriverTable; guid: StandardGUID): bool {.
+    importcpp: "RemoveDriver", header: "TPrsStd_DriverTable.hxx".}
+proc clear*(this: var TPrsStdDriverTable) {.importcpp: "Clear",
+                                        header: "TPrsStd_DriverTable.hxx".}
 type
-  TPrsStd_DriverTablebase_type* = Standard_Transient
+  TPrsStdDriverTablebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TPrsStd_DriverTable::get_type_name(@)",
-                              header: "TPrsStd_DriverTable.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TPrsStd_DriverTable::get_type_name(@)",
+                            header: "TPrsStd_DriverTable.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TPrsStd_DriverTable::get_type_descriptor(@)",
     header: "TPrsStd_DriverTable.hxx".}
-proc DynamicType*(this: TPrsStd_DriverTable): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TPrsStdDriverTable): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TPrsStd_DriverTable.hxx".}

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TDF_Label, TDF_IDFilter, TDF_AttributeMap,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDF_Label"
 discard "forward decl of TDF_IDFilter"
@@ -34,20 +29,20 @@ proc constructTDF_CopyLabel*(): TDF_CopyLabel {.constructor,
     importcpp: "TDF_CopyLabel(@)", header: "TDF_CopyLabel.hxx".}
 proc constructTDF_CopyLabel*(aSource: TDF_Label; aTarget: TDF_Label): TDF_CopyLabel {.
     constructor, importcpp: "TDF_CopyLabel(@)", header: "TDF_CopyLabel.hxx".}
-proc Load*(this: var TDF_CopyLabel; aSource: TDF_Label; aTarget: TDF_Label) {.
+proc load*(this: var TDF_CopyLabel; aSource: TDF_Label; aTarget: TDF_Label) {.
     importcpp: "Load", header: "TDF_CopyLabel.hxx".}
-proc UseFilter*(this: var TDF_CopyLabel; aFilter: TDF_IDFilter) {.
+proc useFilter*(this: var TDF_CopyLabel; aFilter: TDF_IDFilter) {.
     importcpp: "UseFilter", header: "TDF_CopyLabel.hxx".}
-proc ExternalReferences*(Lab: TDF_Label; aExternals: var TDF_AttributeMap;
-                        aFilter: TDF_IDFilter): Standard_Boolean {.
+proc externalReferences*(lab: TDF_Label; aExternals: var TDF_AttributeMap;
+                        aFilter: TDF_IDFilter): bool {.
     importcpp: "TDF_CopyLabel::ExternalReferences(@)", header: "TDF_CopyLabel.hxx".}
-proc ExternalReferences*(aRefLab: TDF_Label; Lab: TDF_Label;
+proc externalReferences*(aRefLab: TDF_Label; lab: TDF_Label;
                         aExternals: var TDF_AttributeMap; aFilter: TDF_IDFilter;
-                        aDataSet: var handle[TDF_DataSet]) {.
+                        aDataSet: var Handle[TDF_DataSet]) {.
     importcpp: "TDF_CopyLabel::ExternalReferences(@)", header: "TDF_CopyLabel.hxx".}
-proc Perform*(this: var TDF_CopyLabel) {.importcpp: "Perform",
+proc perform*(this: var TDF_CopyLabel) {.importcpp: "Perform",
                                      header: "TDF_CopyLabel.hxx".}
-proc IsDone*(this: TDF_CopyLabel): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "TDF_CopyLabel.hxx".}
-proc RelocationTable*(this: TDF_CopyLabel): handle[TDF_RelocationTable] {.
+proc isDone*(this: TDF_CopyLabel): bool {.noSideEffect, importcpp: "IsDone",
+                                      header: "TDF_CopyLabel.hxx".}
+proc relocationTable*(this: TDF_CopyLabel): Handle[TDF_RelocationTable] {.
     noSideEffect, importcpp: "RelocationTable", header: "TDF_CopyLabel.hxx".}

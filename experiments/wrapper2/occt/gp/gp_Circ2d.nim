@@ -12,11 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, gp_Ax22d, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, gp_Ax2d
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Ax22d"
@@ -24,100 +19,79 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Trsf2d"
 discard "forward decl of gp_Vec2d"
 type
-  gp_Circ2d* {.importcpp: "gp_Circ2d", header: "gp_Circ2d.hxx", bycopy.} = object ## !
-                                                                          ## creates an
-                                                                          ## indefinite
-                                                                          ## circle.
-    gp_Circ2d* {.importc: "gp_Circ2d".}: Standard_NODISCARD
-    gp_Circ2d* {.importc: "gp_Circ2d".}: Standard_NODISCARD
-    gp_Circ2d* {.importc: "gp_Circ2d".}: Standard_NODISCARD
-    gp_Circ2d* {.importc: "gp_Circ2d".}: Standard_NODISCARD
-    gp_Circ2d* {.importc: "gp_Circ2d".}: Standard_NODISCARD
-    gp_Circ2d* {.importc: "gp_Circ2d".}: Standard_NODISCARD
-    gp_Circ2d* {.importc: "gp_Circ2d".}: Standard_NODISCARD
-    gp_Circ2d* {.importc: "gp_Circ2d".}: Standard_NODISCARD
+  Circ2d* {.importcpp: "gp_Circ2d", header: "gp_Circ2d.hxx", bycopy.} = object ## ! creates an
+                                                                       ## indefinite circle.
 
 
-proc constructgp_Circ2d*(): gp_Circ2d {.constructor, importcpp: "gp_Circ2d(@)",
-                                     header: "gp_Circ2d.hxx".}
-proc constructgp_Circ2d*(XAxis: gp_Ax2d; Radius: Standard_Real;
-                        Sense: Standard_Boolean = Standard_True): gp_Circ2d {.
+proc constructCirc2d*(): Circ2d {.constructor, importcpp: "gp_Circ2d(@)",
+                               header: "gp_Circ2d.hxx".}
+proc constructCirc2d*(xAxis: Ax2d; radius: float; sense: bool = true): Circ2d {.
     constructor, importcpp: "gp_Circ2d(@)", header: "gp_Circ2d.hxx".}
-proc constructgp_Circ2d*(Axis: gp_Ax22d; Radius: Standard_Real): gp_Circ2d {.
-    constructor, importcpp: "gp_Circ2d(@)", header: "gp_Circ2d.hxx".}
-proc SetLocation*(this: var gp_Circ2d; P: gp_Pnt2d) {.importcpp: "SetLocation",
+proc constructCirc2d*(axis: Ax22d; radius: float): Circ2d {.constructor,
+    importcpp: "gp_Circ2d(@)", header: "gp_Circ2d.hxx".}
+proc setLocation*(this: var Circ2d; p: Pnt2d) {.importcpp: "SetLocation",
     header: "gp_Circ2d.hxx".}
-proc SetXAxis*(this: var gp_Circ2d; A: gp_Ax2d) {.importcpp: "SetXAxis",
+proc setXAxis*(this: var Circ2d; a: Ax2d) {.importcpp: "SetXAxis",
+                                      header: "gp_Circ2d.hxx".}
+proc setAxis*(this: var Circ2d; a: Ax22d) {.importcpp: "SetAxis",
+                                      header: "gp_Circ2d.hxx".}
+proc setYAxis*(this: var Circ2d; a: Ax2d) {.importcpp: "SetYAxis",
+                                      header: "gp_Circ2d.hxx".}
+proc setRadius*(this: var Circ2d; radius: float) {.importcpp: "SetRadius",
     header: "gp_Circ2d.hxx".}
-proc SetAxis*(this: var gp_Circ2d; A: gp_Ax22d) {.importcpp: "SetAxis",
+proc area*(this: Circ2d): float {.noSideEffect, importcpp: "Area",
+                              header: "gp_Circ2d.hxx".}
+proc coefficients*(this: Circ2d; a: var float; b: var float; c: var float; d: var float;
+                  e: var float; f: var float) {.noSideEffect,
+    importcpp: "Coefficients", header: "gp_Circ2d.hxx".}
+proc contains*(this: Circ2d; p: Pnt2d; linearTolerance: float): bool {.noSideEffect,
+    importcpp: "Contains", header: "gp_Circ2d.hxx".}
+proc distance*(this: Circ2d; p: Pnt2d): float {.noSideEffect, importcpp: "Distance",
     header: "gp_Circ2d.hxx".}
-proc SetYAxis*(this: var gp_Circ2d; A: gp_Ax2d) {.importcpp: "SetYAxis",
-    header: "gp_Circ2d.hxx".}
-proc SetRadius*(this: var gp_Circ2d; Radius: Standard_Real) {.importcpp: "SetRadius",
-    header: "gp_Circ2d.hxx".}
-proc Area*(this: gp_Circ2d): Standard_Real {.noSideEffect, importcpp: "Area",
-    header: "gp_Circ2d.hxx".}
-proc Coefficients*(this: gp_Circ2d; A: var Standard_Real; B: var Standard_Real;
-                  C: var Standard_Real; D: var Standard_Real; E: var Standard_Real;
-                  F: var Standard_Real) {.noSideEffect, importcpp: "Coefficients",
-                                       header: "gp_Circ2d.hxx".}
-proc Contains*(this: gp_Circ2d; P: gp_Pnt2d; LinearTolerance: Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "Contains", header: "gp_Circ2d.hxx".}
-proc Distance*(this: gp_Circ2d; P: gp_Pnt2d): Standard_Real {.noSideEffect,
-    importcpp: "Distance", header: "gp_Circ2d.hxx".}
-proc SquareDistance*(this: gp_Circ2d; P: gp_Pnt2d): Standard_Real {.noSideEffect,
+proc squareDistance*(this: Circ2d; p: Pnt2d): float {.noSideEffect,
     importcpp: "SquareDistance", header: "gp_Circ2d.hxx".}
-proc Length*(this: gp_Circ2d): Standard_Real {.noSideEffect, importcpp: "Length",
+proc length*(this: Circ2d): float {.noSideEffect, importcpp: "Length",
+                                header: "gp_Circ2d.hxx".}
+proc location*(this: Circ2d): Pnt2d {.noSideEffect, importcpp: "Location",
+                                  header: "gp_Circ2d.hxx".}
+proc radius*(this: Circ2d): float {.noSideEffect, importcpp: "Radius",
+                                header: "gp_Circ2d.hxx".}
+proc axis*(this: Circ2d): Ax22d {.noSideEffect, importcpp: "Axis",
+                              header: "gp_Circ2d.hxx".}
+proc position*(this: Circ2d): Ax22d {.noSideEffect, importcpp: "Position",
+                                  header: "gp_Circ2d.hxx".}
+proc xAxis*(this: Circ2d): Ax2d {.noSideEffect, importcpp: "XAxis",
+                              header: "gp_Circ2d.hxx".}
+proc yAxis*(this: Circ2d): Ax2d {.noSideEffect, importcpp: "YAxis",
+                              header: "gp_Circ2d.hxx".}
+proc reverse*(this: var Circ2d) {.importcpp: "Reverse", header: "gp_Circ2d.hxx".}
+proc reversed*(this: Circ2d): Circ2d {.noSideEffect, importcpp: "Reversed",
+                                   header: "gp_Circ2d.hxx".}
+proc isDirect*(this: Circ2d): bool {.noSideEffect, importcpp: "IsDirect",
+                                 header: "gp_Circ2d.hxx".}
+proc mirror*(this: var Circ2d; p: Pnt2d) {.importcpp: "Mirror", header: "gp_Circ2d.hxx".}
+proc mirrored*(this: Circ2d; p: Pnt2d): Circ2d {.noSideEffect, importcpp: "Mirrored",
     header: "gp_Circ2d.hxx".}
-proc Location*(this: gp_Circ2d): gp_Pnt2d {.noSideEffect, importcpp: "Location",
+proc mirror*(this: var Circ2d; a: Ax2d) {.importcpp: "Mirror", header: "gp_Circ2d.hxx".}
+proc mirrored*(this: Circ2d; a: Ax2d): Circ2d {.noSideEffect, importcpp: "Mirrored",
+    header: "gp_Circ2d.hxx".}
+proc rotate*(this: var Circ2d; p: Pnt2d; ang: float) {.importcpp: "Rotate",
+    header: "gp_Circ2d.hxx".}
+proc rotated*(this: Circ2d; p: Pnt2d; ang: float): Circ2d {.noSideEffect,
+    importcpp: "Rotated", header: "gp_Circ2d.hxx".}
+proc scale*(this: var Circ2d; p: Pnt2d; s: float) {.importcpp: "Scale",
+    header: "gp_Circ2d.hxx".}
+proc scaled*(this: Circ2d; p: Pnt2d; s: float): Circ2d {.noSideEffect,
+    importcpp: "Scaled", header: "gp_Circ2d.hxx".}
+proc transform*(this: var Circ2d; t: Trsf2d) {.importcpp: "Transform",
+    header: "gp_Circ2d.hxx".}
+proc transformed*(this: Circ2d; t: Trsf2d): Circ2d {.noSideEffect,
+    importcpp: "Transformed", header: "gp_Circ2d.hxx".}
+proc translate*(this: var Circ2d; v: Vec2d) {.importcpp: "Translate",
                                         header: "gp_Circ2d.hxx".}
-proc Radius*(this: gp_Circ2d): Standard_Real {.noSideEffect, importcpp: "Radius",
+proc translated*(this: Circ2d; v: Vec2d): Circ2d {.noSideEffect,
+    importcpp: "Translated", header: "gp_Circ2d.hxx".}
+proc translate*(this: var Circ2d; p1: Pnt2d; p2: Pnt2d) {.importcpp: "Translate",
     header: "gp_Circ2d.hxx".}
-proc Axis*(this: gp_Circ2d): gp_Ax22d {.noSideEffect, importcpp: "Axis",
-                                    header: "gp_Circ2d.hxx".}
-proc Position*(this: gp_Circ2d): gp_Ax22d {.noSideEffect, importcpp: "Position",
-                                        header: "gp_Circ2d.hxx".}
-proc XAxis*(this: gp_Circ2d): gp_Ax2d {.noSideEffect, importcpp: "XAxis",
-                                    header: "gp_Circ2d.hxx".}
-proc YAxis*(this: gp_Circ2d): gp_Ax2d {.noSideEffect, importcpp: "YAxis",
-                                    header: "gp_Circ2d.hxx".}
-proc Reverse*(this: var gp_Circ2d) {.importcpp: "Reverse", header: "gp_Circ2d.hxx".}
-## !!!Ignored construct:  Reversed ( ) const ;
-## Error: identifier expected, but got: )!!!
-
-proc IsDirect*(this: gp_Circ2d): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDirect", header: "gp_Circ2d.hxx".}
-proc Mirror*(this: var gp_Circ2d; P: gp_Pnt2d) {.importcpp: "Mirror",
-    header: "gp_Circ2d.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Pnt2d & P ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Mirror*(this: var gp_Circ2d; A: gp_Ax2d) {.importcpp: "Mirror",
-    header: "gp_Circ2d.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Ax2d & A ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Rotate*(this: var gp_Circ2d; P: gp_Pnt2d; Ang: Standard_Real) {.
-    importcpp: "Rotate", header: "gp_Circ2d.hxx".}
-## !!!Ignored construct:  Rotated ( const gp_Pnt2d & P , const Standard_Real Ang ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Scale*(this: var gp_Circ2d; P: gp_Pnt2d; S: Standard_Real) {.importcpp: "Scale",
-    header: "gp_Circ2d.hxx".}
-## !!!Ignored construct:  Scaled ( const gp_Pnt2d & P , const Standard_Real S ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Transform*(this: var gp_Circ2d; T: gp_Trsf2d) {.importcpp: "Transform",
-    header: "gp_Circ2d.hxx".}
-## !!!Ignored construct:  Transformed ( const gp_Trsf2d & T ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Translate*(this: var gp_Circ2d; V: gp_Vec2d) {.importcpp: "Translate",
-    header: "gp_Circ2d.hxx".}
-## !!!Ignored construct:  Translated ( const gp_Vec2d & V ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Translate*(this: var gp_Circ2d; P1: gp_Pnt2d; P2: gp_Pnt2d) {.
-    importcpp: "Translate", header: "gp_Circ2d.hxx".}
-## !!!Ignored construct:  Translated ( const gp_Pnt2d & P1 , const gp_Pnt2d & P2 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
+proc translated*(this: Circ2d; p1: Pnt2d; p2: Pnt2d): Circ2d {.noSideEffect,
+    importcpp: "Translated", header: "gp_Circ2d.hxx".}

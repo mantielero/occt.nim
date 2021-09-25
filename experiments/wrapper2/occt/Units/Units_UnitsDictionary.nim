@@ -14,54 +14,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Time,
-  Units_QuantitiesSequence, ../Standard/Standard_Transient,
-  ../Standard/Standard_CString, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Units_Dimensions"
 discard "forward decl of Units_UnitsDictionary"
 discard "forward decl of Units_UnitsDictionary"
 type
-  Handle_Units_UnitsDictionary* = handle[Units_UnitsDictionary]
+  HandleUnitsUnitsDictionary* = Handle[UnitsUnitsDictionary]
 
 ## ! This class creates  a dictionary of all  the units
 ## ! you want to know.
 
 type
-  Units_UnitsDictionary* {.importcpp: "Units_UnitsDictionary",
-                          header: "Units_UnitsDictionary.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                ## !
-                                                                                                ## Returns
-                                                                                                ## an
-                                                                                                ## empty
-                                                                                                ## instance
-                                                                                                ## of
-                                                                                                ## UnitsDictionary.
+  UnitsUnitsDictionary* {.importcpp: "Units_UnitsDictionary",
+                         header: "Units_UnitsDictionary.hxx", bycopy.} = object of StandardTransient ##
+                                                                                              ## !
+                                                                                              ## Returns
+                                                                                              ## an
+                                                                                              ## empty
+                                                                                              ## instance
+                                                                                              ## of
+                                                                                              ## UnitsDictionary.
 
 
-proc constructUnits_UnitsDictionary*(): Units_UnitsDictionary {.constructor,
+proc constructUnitsUnitsDictionary*(): UnitsUnitsDictionary {.constructor,
     importcpp: "Units_UnitsDictionary(@)", header: "Units_UnitsDictionary.hxx".}
-proc Creates*(this: var Units_UnitsDictionary) {.importcpp: "Creates",
+proc creates*(this: var UnitsUnitsDictionary) {.importcpp: "Creates",
     header: "Units_UnitsDictionary.hxx".}
-proc Sequence*(this: Units_UnitsDictionary): handle[Units_QuantitiesSequence] {.
+proc sequence*(this: UnitsUnitsDictionary): Handle[UnitsQuantitiesSequence] {.
     noSideEffect, importcpp: "Sequence", header: "Units_UnitsDictionary.hxx".}
-proc ActiveUnit*(this: Units_UnitsDictionary; aquantity: Standard_CString): TCollection_AsciiString {.
+proc activeUnit*(this: UnitsUnitsDictionary; aquantity: StandardCString): TCollectionAsciiString {.
     noSideEffect, importcpp: "ActiveUnit", header: "Units_UnitsDictionary.hxx".}
-proc Dump*(this: Units_UnitsDictionary; alevel: Standard_Integer) {.noSideEffect,
-    importcpp: "Dump", header: "Units_UnitsDictionary.hxx".}
-proc Dump*(this: Units_UnitsDictionary; adimensions: handle[Units_Dimensions]) {.
+proc dump*(this: UnitsUnitsDictionary; alevel: int) {.noSideEffect, importcpp: "Dump",
+    header: "Units_UnitsDictionary.hxx".}
+proc dump*(this: UnitsUnitsDictionary; adimensions: Handle[UnitsDimensions]) {.
     noSideEffect, importcpp: "Dump", header: "Units_UnitsDictionary.hxx".}
 type
-  Units_UnitsDictionarybase_type* = Standard_Transient
+  UnitsUnitsDictionarybaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Units_UnitsDictionary::get_type_name(@)",
-                              header: "Units_UnitsDictionary.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Units_UnitsDictionary::get_type_name(@)",
+                            header: "Units_UnitsDictionary.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Units_UnitsDictionary::get_type_descriptor(@)",
     header: "Units_UnitsDictionary.hxx".}
-proc DynamicType*(this: Units_UnitsDictionary): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Units_UnitsDictionary.hxx".}
+proc dynamicType*(this: UnitsUnitsDictionary): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Units_UnitsDictionary.hxx".}

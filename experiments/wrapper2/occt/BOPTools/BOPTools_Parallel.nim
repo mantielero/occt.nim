@@ -12,21 +12,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Macro, ../Standard/Standard_NotImplemented,
-  ../OSD/OSD_Parallel, ../OSD/OSD_ThreadPool, ../NCollection/NCollection_DataMap,
-  ../Standard/Standard_Mutex, ../OSD/OSD_Thread
-
 ## ! Implementation of Functors/Starters
 
 type
-  BOPTools_Parallel* {.importcpp: "BOPTools_Parallel",
-                      header: "BOPTools_Parallel.hxx", bycopy.} = object ## ! Pure version
+  BOPToolsParallel* {.importcpp: "BOPTools_Parallel",
+                     header: "BOPTools_Parallel.hxx", bycopy.} = object ## ! Pure version
 
 
-proc Perform*[TypeSolverVector](theIsRunParallel: Standard_Boolean;
+proc perform*[TypeSolverVector](theIsRunParallel: bool;
                                theSolverVector: var TypeSolverVector) {.
     importcpp: "BOPTools_Parallel::Perform(@)", header: "BOPTools_Parallel.hxx".}
-proc Perform*[TypeSolverVector; TypeContext](theIsRunParallel: Standard_Boolean;
-    theSolverVector: var TypeSolverVector; theContext: var handle[TypeContext]) {.
+proc perform*[TypeSolverVector; TypeContext](theIsRunParallel: bool;
+    theSolverVector: var TypeSolverVector; theContext: var Handle[TypeContext]) {.
     importcpp: "BOPTools_Parallel::Perform(@)", header: "BOPTools_Parallel.hxx".}

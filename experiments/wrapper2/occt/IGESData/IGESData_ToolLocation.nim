@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../Interface/Interface_GeneralLib, ../TColStd/TColStd_Array1OfInteger,
-  ../Standard/Standard_Transient, ../Standard/Standard_Boolean
-
 discard "forward decl of IGESData_IGESModel"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESData_Protocol"
@@ -28,7 +23,7 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of IGESData_ToolLocation"
 discard "forward decl of IGESData_ToolLocation"
 type
-  Handle_IGESData_ToolLocation* = handle[IGESData_ToolLocation]
+  HandleIGESDataToolLocation* = Handle[IGESDataToolLocation]
 
 ## ! This Tool determines and gives access to effective Locations
 ## ! of IGES Entities as defined by the IGES Norm. These Locations
@@ -52,98 +47,97 @@ type
 ## ! interactive session
 
 type
-  IGESData_ToolLocation* {.importcpp: "IGESData_ToolLocation",
-                          header: "IGESData_ToolLocation.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## a
-                                                                                                ## ToolLocation
-                                                                                                ## on
-                                                                                                ## a
-                                                                                                ## given
-                                                                                                ## Model,
-                                                                                                ## filled
-                                                                                                ## with
-                                                                                                ## the
-                                                                                                ## help
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## of
-                                                                                                ## a
-                                                                                                ## Protocol
-                                                                                                ## (which
-                                                                                                ## allows
-                                                                                                ## to
-                                                                                                ## known
-                                                                                                ## Entities
-                                                                                                ## referenced
-                                                                                                ## by
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## other
-                                                                                                ## ones)
+  IGESDataToolLocation* {.importcpp: "IGESData_ToolLocation",
+                         header: "IGESData_ToolLocation.hxx", bycopy.} = object of StandardTransient ##
+                                                                                              ## !
+                                                                                              ## Creates
+                                                                                              ## a
+                                                                                              ## ToolLocation
+                                                                                              ## on
+                                                                                              ## a
+                                                                                              ## given
+                                                                                              ## Model,
+                                                                                              ## filled
+                                                                                              ## with
+                                                                                              ## the
+                                                                                              ## help
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## of
+                                                                                              ## a
+                                                                                              ## Protocol
+                                                                                              ## (which
+                                                                                              ## allows
+                                                                                              ## to
+                                                                                              ## known
+                                                                                              ## Entities
+                                                                                              ## referenced
+                                                                                              ## by
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## other
+                                                                                              ## ones)
 
 
-proc constructIGESData_ToolLocation*(amodel: handle[IGESData_IGESModel];
-                                    protocol: handle[IGESData_Protocol]): IGESData_ToolLocation {.
+proc constructIGESDataToolLocation*(amodel: Handle[IGESDataIGESModel];
+                                   protocol: Handle[IGESDataProtocol]): IGESDataToolLocation {.
     constructor, importcpp: "IGESData_ToolLocation(@)",
     header: "IGESData_ToolLocation.hxx".}
-proc Load*(this: var IGESData_ToolLocation) {.importcpp: "Load",
+proc load*(this: var IGESDataToolLocation) {.importcpp: "Load",
     header: "IGESData_ToolLocation.hxx".}
-proc SetPrecision*(this: var IGESData_ToolLocation; prec: Standard_Real) {.
+proc setPrecision*(this: var IGESDataToolLocation; prec: float) {.
     importcpp: "SetPrecision", header: "IGESData_ToolLocation.hxx".}
-proc SetReference*(this: var IGESData_ToolLocation;
-                  parent: handle[IGESData_IGESEntity];
-                  child: handle[IGESData_IGESEntity]) {.importcpp: "SetReference",
+proc setReference*(this: var IGESDataToolLocation;
+                  parent: Handle[IGESDataIGESEntity];
+                  child: Handle[IGESDataIGESEntity]) {.importcpp: "SetReference",
     header: "IGESData_ToolLocation.hxx".}
-proc SetParentAssoc*(this: var IGESData_ToolLocation;
-                    parent: handle[IGESData_IGESEntity];
-                    child: handle[IGESData_IGESEntity]) {.
+proc setParentAssoc*(this: var IGESDataToolLocation;
+                    parent: Handle[IGESDataIGESEntity];
+                    child: Handle[IGESDataIGESEntity]) {.
     importcpp: "SetParentAssoc", header: "IGESData_ToolLocation.hxx".}
-proc ResetDependences*(this: var IGESData_ToolLocation;
-                      child: handle[IGESData_IGESEntity]) {.
+proc resetDependences*(this: var IGESDataToolLocation;
+                      child: Handle[IGESDataIGESEntity]) {.
     importcpp: "ResetDependences", header: "IGESData_ToolLocation.hxx".}
-proc SetOwnAsDependent*(this: var IGESData_ToolLocation;
-                       ent: handle[IGESData_IGESEntity]) {.
+proc setOwnAsDependent*(this: var IGESDataToolLocation;
+                       ent: Handle[IGESDataIGESEntity]) {.
     importcpp: "SetOwnAsDependent", header: "IGESData_ToolLocation.hxx".}
-proc IsTransf*(this: IGESData_ToolLocation; ent: handle[IGESData_IGESEntity]): Standard_Boolean {.
+proc isTransf*(this: IGESDataToolLocation; ent: Handle[IGESDataIGESEntity]): bool {.
     noSideEffect, importcpp: "IsTransf", header: "IGESData_ToolLocation.hxx".}
-proc IsAssociativity*(this: IGESData_ToolLocation; ent: handle[IGESData_IGESEntity]): Standard_Boolean {.
+proc isAssociativity*(this: IGESDataToolLocation; ent: Handle[IGESDataIGESEntity]): bool {.
     noSideEffect, importcpp: "IsAssociativity", header: "IGESData_ToolLocation.hxx".}
-proc HasTransf*(this: IGESData_ToolLocation; ent: handle[IGESData_IGESEntity]): Standard_Boolean {.
+proc hasTransf*(this: IGESDataToolLocation; ent: Handle[IGESDataIGESEntity]): bool {.
     noSideEffect, importcpp: "HasTransf", header: "IGESData_ToolLocation.hxx".}
-proc ExplicitLocation*(this: IGESData_ToolLocation;
-                      ent: handle[IGESData_IGESEntity]): gp_GTrsf {.noSideEffect,
-    importcpp: "ExplicitLocation", header: "IGESData_ToolLocation.hxx".}
-proc IsAmbiguous*(this: IGESData_ToolLocation; ent: handle[IGESData_IGESEntity]): Standard_Boolean {.
+proc explicitLocation*(this: IGESDataToolLocation; ent: Handle[IGESDataIGESEntity]): GTrsf {.
+    noSideEffect, importcpp: "ExplicitLocation",
+    header: "IGESData_ToolLocation.hxx".}
+proc isAmbiguous*(this: IGESDataToolLocation; ent: Handle[IGESDataIGESEntity]): bool {.
     noSideEffect, importcpp: "IsAmbiguous", header: "IGESData_ToolLocation.hxx".}
-proc HasParent*(this: IGESData_ToolLocation; ent: handle[IGESData_IGESEntity]): Standard_Boolean {.
+proc hasParent*(this: IGESDataToolLocation; ent: Handle[IGESDataIGESEntity]): bool {.
     noSideEffect, importcpp: "HasParent", header: "IGESData_ToolLocation.hxx".}
-proc Parent*(this: IGESData_ToolLocation; ent: handle[IGESData_IGESEntity]): handle[
-    IGESData_IGESEntity] {.noSideEffect, importcpp: "Parent",
-                          header: "IGESData_ToolLocation.hxx".}
-proc HasParentByAssociativity*(this: IGESData_ToolLocation;
-                              ent: handle[IGESData_IGESEntity]): Standard_Boolean {.
+proc parent*(this: IGESDataToolLocation; ent: Handle[IGESDataIGESEntity]): Handle[
+    IGESDataIGESEntity] {.noSideEffect, importcpp: "Parent",
+                         header: "IGESData_ToolLocation.hxx".}
+proc hasParentByAssociativity*(this: IGESDataToolLocation;
+                              ent: Handle[IGESDataIGESEntity]): bool {.
     noSideEffect, importcpp: "HasParentByAssociativity",
     header: "IGESData_ToolLocation.hxx".}
-proc ParentLocation*(this: IGESData_ToolLocation; ent: handle[IGESData_IGESEntity]): gp_GTrsf {.
+proc parentLocation*(this: IGESDataToolLocation; ent: Handle[IGESDataIGESEntity]): GTrsf {.
     noSideEffect, importcpp: "ParentLocation", header: "IGESData_ToolLocation.hxx".}
-proc EffectiveLocation*(this: IGESData_ToolLocation;
-                       ent: handle[IGESData_IGESEntity]): gp_GTrsf {.noSideEffect,
-    importcpp: "EffectiveLocation", header: "IGESData_ToolLocation.hxx".}
-proc AnalyseLocation*(this: IGESData_ToolLocation; loc: gp_GTrsf; result: var gp_Trsf): Standard_Boolean {.
+proc effectiveLocation*(this: IGESDataToolLocation; ent: Handle[IGESDataIGESEntity]): GTrsf {.
+    noSideEffect, importcpp: "EffectiveLocation",
+    header: "IGESData_ToolLocation.hxx".}
+proc analyseLocation*(this: IGESDataToolLocation; loc: GTrsf; result: var Trsf): bool {.
     noSideEffect, importcpp: "AnalyseLocation", header: "IGESData_ToolLocation.hxx".}
-proc ConvertLocation*(prec: Standard_Real; loc: gp_GTrsf; result: var gp_Trsf;
-                     uni: Standard_Real = 1): Standard_Boolean {.
+proc convertLocation*(prec: float; loc: GTrsf; result: var Trsf; uni: float = 1): bool {.
     importcpp: "IGESData_ToolLocation::ConvertLocation(@)",
     header: "IGESData_ToolLocation.hxx".}
 type
-  IGESData_ToolLocationbase_type* = Standard_Transient
+  IGESDataToolLocationbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "IGESData_ToolLocation::get_type_name(@)",
-                              header: "IGESData_ToolLocation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESData_ToolLocation::get_type_name(@)",
+                            header: "IGESData_ToolLocation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESData_ToolLocation::get_type_descriptor(@)",
     header: "IGESData_ToolLocation.hxx".}
-proc DynamicType*(this: IGESData_ToolLocation): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IGESData_ToolLocation.hxx".}
+proc dynamicType*(this: IGESDataToolLocation): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IGESData_ToolLocation.hxx".}

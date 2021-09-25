@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepGeom_PreferredSurfaceCurveRepresentation* {.size: sizeof(cint),
+  StepGeomPreferredSurfaceCurveRepresentation* {.size: sizeof(cint),
       importcpp: "StepGeom_PreferredSurfaceCurveRepresentation",
       header: "StepGeom_PreferredSurfaceCurveRepresentation.hxx".} = enum
-    StepGeom_pscrCurve3d, StepGeom_pscrPcurveS1, StepGeom_pscrPcurveS2
+    StepGeomPscrCurve3d, StepGeomPscrPcurveS1, StepGeomPscrPcurveS2
+
 

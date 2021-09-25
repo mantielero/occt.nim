@@ -13,13 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_GlFunctions
-
 ## ! Debug context routines
 
 type
-  OpenGl_ArbDbg* {.importcpp: "OpenGl_ArbDbg", header: "OpenGl_ArbDbg.hxx", bycopy.} = object of OpenGl_GlFunctions
+  OpenGlArbDbg* {.importcpp: "OpenGl_ArbDbg", header: "OpenGl_ArbDbg.hxx", bycopy.} = object of OpenGlGlFunctions
 
 
 ## using statement
@@ -29,3 +26,4 @@ type
 ## using statement
 
 ## using statement
+

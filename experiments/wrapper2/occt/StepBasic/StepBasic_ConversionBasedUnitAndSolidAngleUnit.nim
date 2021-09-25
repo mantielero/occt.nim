@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_ConversionBasedUnit
-
 discard "forward decl of StepBasic_SolidAngleUnit"
 discard "forward decl of StepBasic_DimensionalExponents"
 discard "forward decl of TCollection_HAsciiString"
@@ -24,37 +21,38 @@ discard "forward decl of StepBasic_MeasureWithUnit"
 discard "forward decl of StepBasic_ConversionBasedUnitAndSolidAngleUnit"
 discard "forward decl of StepBasic_ConversionBasedUnitAndSolidAngleUnit"
 type
-  Handle_StepBasic_ConversionBasedUnitAndSolidAngleUnit* = handle[
-      StepBasic_ConversionBasedUnitAndSolidAngleUnit]
-  StepBasic_ConversionBasedUnitAndSolidAngleUnit* {.
+  HandleStepBasicConversionBasedUnitAndSolidAngleUnit* = Handle[
+      StepBasicConversionBasedUnitAndSolidAngleUnit]
+  StepBasicConversionBasedUnitAndSolidAngleUnit* {.
       importcpp: "StepBasic_ConversionBasedUnitAndSolidAngleUnit",
-      header: "StepBasic_ConversionBasedUnitAndSolidAngleUnit.hxx", bycopy.} = object of StepBasic_ConversionBasedUnit ##
-                                                                                                                ## !
-                                                                                                                ## Returns
-                                                                                                                ## a
-                                                                                                                ## ConversionBasedUnitAndSolidAngleUnit
+      header: "StepBasic_ConversionBasedUnitAndSolidAngleUnit.hxx", bycopy.} = object of StepBasicConversionBasedUnit ##
+                                                                                                               ## !
+                                                                                                               ## Returns
+                                                                                                               ## a
+                                                                                                               ## ConversionBasedUnitAndSolidAngleUnit
 
 
-proc constructStepBasic_ConversionBasedUnitAndSolidAngleUnit*(): StepBasic_ConversionBasedUnitAndSolidAngleUnit {.
+proc constructStepBasicConversionBasedUnitAndSolidAngleUnit*(): StepBasicConversionBasedUnitAndSolidAngleUnit {.
     constructor, importcpp: "StepBasic_ConversionBasedUnitAndSolidAngleUnit(@)",
     header: "StepBasic_ConversionBasedUnitAndSolidAngleUnit.hxx".}
-proc Init*(this: var StepBasic_ConversionBasedUnitAndSolidAngleUnit;
-          aDimensions: handle[StepBasic_DimensionalExponents];
-          aName: handle[TCollection_HAsciiString];
-          aConversionFactor: handle[StepBasic_MeasureWithUnit]) {.
+proc init*(this: var StepBasicConversionBasedUnitAndSolidAngleUnit;
+          aDimensions: Handle[StepBasicDimensionalExponents];
+          aName: Handle[TCollectionHAsciiString];
+          aConversionFactor: Handle[StepBasicMeasureWithUnit]) {.
     importcpp: "Init",
     header: "StepBasic_ConversionBasedUnitAndSolidAngleUnit.hxx".}
-proc SetSolidAngleUnit*(this: var StepBasic_ConversionBasedUnitAndSolidAngleUnit;
-                       aSolidAngleUnit: handle[StepBasic_SolidAngleUnit]) {.
+proc setSolidAngleUnit*(this: var StepBasicConversionBasedUnitAndSolidAngleUnit;
+                       aSolidAngleUnit: Handle[StepBasicSolidAngleUnit]) {.
     importcpp: "SetSolidAngleUnit",
     header: "StepBasic_ConversionBasedUnitAndSolidAngleUnit.hxx".}
-proc SolidAngleUnit*(this: StepBasic_ConversionBasedUnitAndSolidAngleUnit): handle[
-    StepBasic_SolidAngleUnit] {.noSideEffect, importcpp: "SolidAngleUnit", header: "StepBasic_ConversionBasedUnitAndSolidAngleUnit.hxx".}
+proc solidAngleUnit*(this: StepBasicConversionBasedUnitAndSolidAngleUnit): Handle[
+    StepBasicSolidAngleUnit] {.noSideEffect, importcpp: "SolidAngleUnit", header: "StepBasic_ConversionBasedUnitAndSolidAngleUnit.hxx".}
 type
-  StepBasic_ConversionBasedUnitAndSolidAngleUnitbase_type* = StepBasic_ConversionBasedUnit
+  StepBasicConversionBasedUnitAndSolidAngleUnitbaseType* = StepBasicConversionBasedUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ConversionBasedUnitAndSolidAngleUnit::get_type_name(@)", header: "StepBasic_ConversionBasedUnitAndSolidAngleUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepBasic_ConversionBasedUnitAndSolidAngleUnit::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ConversionBasedUnitAndSolidAngleUnit::get_type_name(@)", header: "StepBasic_ConversionBasedUnitAndSolidAngleUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_ConversionBasedUnitAndSolidAngleUnit::get_type_descriptor(@)",
     header: "StepBasic_ConversionBasedUnitAndSolidAngleUnit.hxx".}
-proc DynamicType*(this: StepBasic_ConversionBasedUnitAndSolidAngleUnit): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepBasic_ConversionBasedUnitAndSolidAngleUnit.hxx".}
+proc dynamicType*(this: StepBasicConversionBasedUnitAndSolidAngleUnit): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepBasic_ConversionBasedUnitAndSolidAngleUnit.hxx".}

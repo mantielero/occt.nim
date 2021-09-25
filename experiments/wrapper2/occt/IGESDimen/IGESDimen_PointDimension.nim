@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Integer
-
 discard "forward decl of IGESDimen_GeneralNote"
 discard "forward decl of IGESDimen_LeaderArrow"
 discard "forward decl of IGESData_IGESEntity"
@@ -26,7 +22,7 @@ discard "forward decl of IGESGeom_CompositeCurve"
 discard "forward decl of IGESDimen_PointDimension"
 discard "forward decl of IGESDimen_PointDimension"
 type
-  Handle_IGESDimen_PointDimension* = handle[IGESDimen_PointDimension]
+  HandleIGESDimenPointDimension* = Handle[IGESDimenPointDimension]
 
 ## ! defines IGES Point Dimension, Type <220> Form <0>,
 ## ! in package IGESDimen
@@ -38,37 +34,36 @@ type
 ## ! for representing the hexagon or circle enclosing the text.
 
 type
-  IGESDimen_PointDimension* {.importcpp: "IGESDimen_PointDimension",
-                             header: "IGESDimen_PointDimension.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESDimenPointDimension* {.importcpp: "IGESDimen_PointDimension",
+                            header: "IGESDimen_PointDimension.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESDimen_PointDimension*(): IGESDimen_PointDimension {.constructor,
+proc constructIGESDimenPointDimension*(): IGESDimenPointDimension {.constructor,
     importcpp: "IGESDimen_PointDimension(@)",
     header: "IGESDimen_PointDimension.hxx".}
-proc Init*(this: var IGESDimen_PointDimension; aNote: handle[IGESDimen_GeneralNote];
-          anArrow: handle[IGESDimen_LeaderArrow];
-          aGeom: handle[IGESData_IGESEntity]) {.importcpp: "Init",
-    header: "IGESDimen_PointDimension.hxx".}
-proc Note*(this: IGESDimen_PointDimension): handle[IGESDimen_GeneralNote] {.
+proc init*(this: var IGESDimenPointDimension; aNote: Handle[IGESDimenGeneralNote];
+          anArrow: Handle[IGESDimenLeaderArrow]; aGeom: Handle[IGESDataIGESEntity]) {.
+    importcpp: "Init", header: "IGESDimen_PointDimension.hxx".}
+proc note*(this: IGESDimenPointDimension): Handle[IGESDimenGeneralNote] {.
     noSideEffect, importcpp: "Note", header: "IGESDimen_PointDimension.hxx".}
-proc LeaderArrow*(this: IGESDimen_PointDimension): handle[IGESDimen_LeaderArrow] {.
+proc leaderArrow*(this: IGESDimenPointDimension): Handle[IGESDimenLeaderArrow] {.
     noSideEffect, importcpp: "LeaderArrow", header: "IGESDimen_PointDimension.hxx".}
-proc GeomCase*(this: IGESDimen_PointDimension): Standard_Integer {.noSideEffect,
+proc geomCase*(this: IGESDimenPointDimension): int {.noSideEffect,
     importcpp: "GeomCase", header: "IGESDimen_PointDimension.hxx".}
-proc Geom*(this: IGESDimen_PointDimension): handle[IGESData_IGESEntity] {.
+proc geom*(this: IGESDimenPointDimension): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Geom", header: "IGESDimen_PointDimension.hxx".}
-proc CircularArc*(this: IGESDimen_PointDimension): handle[IGESGeom_CircularArc] {.
+proc circularArc*(this: IGESDimenPointDimension): Handle[IGESGeomCircularArc] {.
     noSideEffect, importcpp: "CircularArc", header: "IGESDimen_PointDimension.hxx".}
-proc CompositeCurve*(this: IGESDimen_PointDimension): handle[
-    IGESGeom_CompositeCurve] {.noSideEffect, importcpp: "CompositeCurve",
-                              header: "IGESDimen_PointDimension.hxx".}
+proc compositeCurve*(this: IGESDimenPointDimension): Handle[IGESGeomCompositeCurve] {.
+    noSideEffect, importcpp: "CompositeCurve",
+    header: "IGESDimen_PointDimension.hxx".}
 type
-  IGESDimen_PointDimensionbase_type* = IGESData_IGESEntity
+  IGESDimenPointDimensionbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESDimen_PointDimension::get_type_name(@)",
-                              header: "IGESDimen_PointDimension.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESDimen_PointDimension::get_type_name(@)",
+                            header: "IGESDimen_PointDimension.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESDimen_PointDimension::get_type_descriptor(@)",
     header: "IGESDimen_PointDimension.hxx".}
-proc DynamicType*(this: IGESDimen_PointDimension): handle[Standard_Type] {.
+proc dynamicType*(this: IGESDimenPointDimension): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDimen_PointDimension.hxx".}

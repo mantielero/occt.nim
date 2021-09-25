@@ -14,29 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRep_DataMapOfTopolTool,
-  ../TopAbs/TopAbs_State, ../Standard/Standard_Real
-
 discard "forward decl of BRepTopAdaptor_TopolTool"
 discard "forward decl of BRepAdaptor_HSurface"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Pnt2d"
 type
-  TopOpeBRep_PointClassifier* {.importcpp: "TopOpeBRep_PointClassifier",
-                               header: "TopOpeBRep_PointClassifier.hxx", bycopy.} = object
+  TopOpeBRepPointClassifier* {.importcpp: "TopOpeBRep_PointClassifier",
+                              header: "TopOpeBRep_PointClassifier.hxx", bycopy.} = object
 
 
-proc constructTopOpeBRep_PointClassifier*(): TopOpeBRep_PointClassifier {.
+proc constructTopOpeBRepPointClassifier*(): TopOpeBRepPointClassifier {.
     constructor, importcpp: "TopOpeBRep_PointClassifier(@)",
     header: "TopOpeBRep_PointClassifier.hxx".}
-proc Init*(this: var TopOpeBRep_PointClassifier) {.importcpp: "Init",
+proc init*(this: var TopOpeBRepPointClassifier) {.importcpp: "Init",
     header: "TopOpeBRep_PointClassifier.hxx".}
-proc Load*(this: var TopOpeBRep_PointClassifier; F: TopoDS_Face) {.importcpp: "Load",
+proc load*(this: var TopOpeBRepPointClassifier; f: TopoDS_Face) {.importcpp: "Load",
     header: "TopOpeBRep_PointClassifier.hxx".}
-proc Classify*(this: var TopOpeBRep_PointClassifier; F: TopoDS_Face; P: gp_Pnt2d;
-              Tol: Standard_Real): TopAbs_State {.importcpp: "Classify",
-    header: "TopOpeBRep_PointClassifier.hxx".}
-proc State*(this: TopOpeBRep_PointClassifier): TopAbs_State {.noSideEffect,
+proc classify*(this: var TopOpeBRepPointClassifier; f: TopoDS_Face; p: Pnt2d; tol: float): TopAbsState {.
+    importcpp: "Classify", header: "TopOpeBRep_PointClassifier.hxx".}
+proc state*(this: TopOpeBRepPointClassifier): TopAbsState {.noSideEffect,
     importcpp: "State", header: "TopOpeBRep_PointClassifier.hxx".}

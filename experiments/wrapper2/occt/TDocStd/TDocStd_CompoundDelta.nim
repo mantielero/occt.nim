@@ -12,64 +12,61 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TDF/TDF_Delta
-
 discard "forward decl of TDocStd_Document"
 discard "forward decl of TDocStd_CompoundDelta"
 discard "forward decl of TDocStd_CompoundDelta"
 type
-  Handle_TDocStd_CompoundDelta* = handle[TDocStd_CompoundDelta]
+  HandleTDocStdCompoundDelta* = Handle[TDocStdCompoundDelta]
 
 ## ! A delta set is available at <aSourceTime>. If
 ## ! applied, it restores the TDF_Data in the state it
 ## ! was at <aTargetTime>.
 
 type
-  TDocStd_CompoundDelta* {.importcpp: "TDocStd_CompoundDelta",
-                          header: "TDocStd_CompoundDelta.hxx", bycopy.} = object of TDF_Delta ##
-                                                                                       ## !
-                                                                                       ## Creates
-                                                                                       ## a
-                                                                                       ## compound
-                                                                                       ## delta.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Validates
-                                                                                       ## <me>
-                                                                                       ## at
-                                                                                       ## <aBeginTime>.
-                                                                                       ## If
-                                                                                       ## applied,
-                                                                                       ## it
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## restores
-                                                                                       ## the
-                                                                                       ## TDF_Data
-                                                                                       ## in
-                                                                                       ## the
-                                                                                       ## state
-                                                                                       ## it
-                                                                                       ## was
-                                                                                       ## at
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## <anEndTime>.
-                                                                                       ## Reserved
-                                                                                       ## to
-                                                                                       ## TDF_Data.
+  TDocStdCompoundDelta* {.importcpp: "TDocStd_CompoundDelta",
+                         header: "TDocStd_CompoundDelta.hxx", bycopy.} = object of TDF_Delta ##
+                                                                                      ## !
+                                                                                      ## Creates
+                                                                                      ## a
+                                                                                      ## compound
+                                                                                      ## delta.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Validates
+                                                                                      ## <me>
+                                                                                      ## at
+                                                                                      ## <aBeginTime>.
+                                                                                      ## If
+                                                                                      ## applied,
+                                                                                      ## it
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## restores
+                                                                                      ## the
+                                                                                      ## TDF_Data
+                                                                                      ## in
+                                                                                      ## the
+                                                                                      ## state
+                                                                                      ## it
+                                                                                      ## was
+                                                                                      ## at
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## <anEndTime>.
+                                                                                      ## Reserved
+                                                                                      ## to
+                                                                                      ## TDF_Data.
 
 
-proc constructTDocStd_CompoundDelta*(): TDocStd_CompoundDelta {.constructor,
+proc constructTDocStdCompoundDelta*(): TDocStdCompoundDelta {.constructor,
     importcpp: "TDocStd_CompoundDelta(@)", header: "TDocStd_CompoundDelta.hxx".}
 type
-  TDocStd_CompoundDeltabase_type* = TDF_Delta
+  TDocStdCompoundDeltabaseType* = TDF_Delta
 
-proc get_type_name*(): cstring {.importcpp: "TDocStd_CompoundDelta::get_type_name(@)",
-                              header: "TDocStd_CompoundDelta.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDocStd_CompoundDelta::get_type_name(@)",
+                            header: "TDocStd_CompoundDelta.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDocStd_CompoundDelta::get_type_descriptor(@)",
     header: "TDocStd_CompoundDelta.hxx".}
-proc DynamicType*(this: TDocStd_CompoundDelta): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "TDocStd_CompoundDelta.hxx".}
+proc dynamicType*(this: TDocStdCompoundDelta): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "TDocStd_CompoundDelta.hxx".}

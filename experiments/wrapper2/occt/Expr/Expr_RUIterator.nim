@@ -14,26 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Expr_MapOfNamedUnknown,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_NoMoreObject"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Expr_GeneralRelation"
 discard "forward decl of Expr_NamedUnknown"
 type
-  Expr_RUIterator* {.importcpp: "Expr_RUIterator", header: "Expr_RUIterator.hxx",
-                    bycopy.} = object ## ! Creates an iterator on every NamedUnknown contained in
-                                   ## ! <rel>.
+  ExprRUIterator* {.importcpp: "Expr_RUIterator", header: "Expr_RUIterator.hxx",
+                   bycopy.} = object ## ! Creates an iterator on every NamedUnknown contained in
+                                  ## ! <rel>.
 
 
-proc constructExpr_RUIterator*(rel: handle[Expr_GeneralRelation]): Expr_RUIterator {.
+proc constructExprRUIterator*(rel: Handle[ExprGeneralRelation]): ExprRUIterator {.
     constructor, importcpp: "Expr_RUIterator(@)", header: "Expr_RUIterator.hxx".}
-proc More*(this: Expr_RUIterator): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "Expr_RUIterator.hxx".}
-proc Next*(this: var Expr_RUIterator) {.importcpp: "Next",
-                                    header: "Expr_RUIterator.hxx".}
-proc Value*(this: Expr_RUIterator): handle[Expr_NamedUnknown] {.noSideEffect,
+proc more*(this: ExprRUIterator): bool {.noSideEffect, importcpp: "More",
+                                     header: "Expr_RUIterator.hxx".}
+proc next*(this: var ExprRUIterator) {.importcpp: "Next",
+                                   header: "Expr_RUIterator.hxx".}
+proc value*(this: ExprRUIterator): Handle[ExprNamedUnknown] {.noSideEffect,
     importcpp: "Value", header: "Expr_RUIterator.hxx".}

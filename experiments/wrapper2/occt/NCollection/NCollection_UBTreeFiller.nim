@@ -13,7 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # NCollection_UBTreeFiller_HeaderFile [NewLine] # NCollection_UBTreeFiller_HeaderFile [NewLine] # NCollection_UBTree.hxx [NewLine] # NCollection_Vector.hxx [NewLine] # < random > [NewLine] *
+## !!!Ignored construct:  # NCollection_UBTreeFiller_HeaderFile [NewLine] # NCollection_UBTreeFiller_HeaderFile [NewLine] # < NCollection_UBTree . hxx > [NewLine] # < NCollection_Vector . hxx > [NewLine] # < random > [NewLine] *
 ##  This class is used to fill an UBTree in a random order.
 ##  The quality of a tree is much better (from the point of view of
 ##  the search time) if objects are added to it in a random order to
@@ -66,3 +66,4 @@
 ## purpose  :
 ## ======================================================================= template < class TheObjType , class TheBndType > Standard_Real NCollection_UBTreeFiller < TheObjType , TheBndType > :: checkNode ( const TYPENAME NCollection_UBTree < TheObjType , TheBndType > :: TreeNode & theNode , const Standard_Integer theLength , Standard_Integer & theNumber ) { Standard_Real aLength ; if ( ! theNode . IsLeaf ( ) ) aLength = ( checkNode ( theNode . Child ( 0 ) , theLength + 1 , theNumber ) + checkNode ( theNode . Child ( 1 ) , theLength + 1 , theNumber ) ) ; else { theNumber ++ ; aLength = theLength * theLength ; } return aLength ; } # [NewLine]
 ## Error: token expected: ; but got: <!!!
+

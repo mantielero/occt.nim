@@ -14,66 +14,56 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Precision/Precision,
-  ../Standard/Standard_Boolean, math_Status, math_Vector, math_Matrix,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer,
-  ../Standard/Standard_OStream
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of math_MultipleVarFunctionWithHessian"
 type
-  math_NewtonMinimum* {.importcpp: "math_NewtonMinimum",
-                       header: "math_NewtonMinimum.hxx", bycopy.} = object ## ! The tolerance required on the solution is given by Tolerance.
-                                                                      ## ! Iteration are  stopped if
-                                                                      ## (!WithSingularity) and H(F(Xi)) is not definite
-                                                                      ## ! positive (if the smaller eigenvalue of H < Convexity)
-                                                                      ## ! or
-                                                                      ## IsConverged() returns True for 2
-                                                                      ## successives
-                                                                      ## Iterations.
-                                                                      ## ! Warning: This
-                                                                      ## constructor does not perform
-                                                                      ## computation.
+  MathNewtonMinimum* {.importcpp: "math_NewtonMinimum",
+                      header: "math_NewtonMinimum.hxx", bycopy.} = object ## ! The tolerance required on the solution is given by Tolerance.
+                                                                     ## ! Iteration are  stopped if
+                                                                     ## (!WithSingularity) and H(F(Xi)) is not definite
+                                                                     ## ! positive (if the smaller eigenvalue of H < Convexity)
+                                                                     ## ! or
+                                                                     ## IsConverged() returns True for 2 successives Iterations.
+                                                                     ## ! Warning: This constructor does not perform
+                                                                     ## computation.
 
 
-proc constructmath_NewtonMinimum*(theFunction: math_MultipleVarFunctionWithHessian;
-                                 theTolerance: Standard_Real = Confusion();
-                                 theNbIterations: Standard_Integer = 40;
-                                 theConvexity: Standard_Real = 1.0e-6;
-    theWithSingularity: Standard_Boolean = Standard_True): math_NewtonMinimum {.
+proc constructMathNewtonMinimum*(theFunction: MathMultipleVarFunctionWithHessian;
+                                theTolerance: float = confusion();
+                                theNbIterations: int = 40;
+                                theConvexity: float = 1.0e-6;
+                                theWithSingularity: bool = true): MathNewtonMinimum {.
     constructor, importcpp: "math_NewtonMinimum(@)",
     header: "math_NewtonMinimum.hxx".}
-proc Perform*(this: var math_NewtonMinimum;
-             theFunction: var math_MultipleVarFunctionWithHessian;
-             theStartingPoint: math_Vector) {.importcpp: "Perform",
+proc perform*(this: var MathNewtonMinimum;
+             theFunction: var MathMultipleVarFunctionWithHessian;
+             theStartingPoint: MathVector) {.importcpp: "Perform",
     header: "math_NewtonMinimum.hxx".}
-proc destroymath_NewtonMinimum*(this: var math_NewtonMinimum) {.
+proc destroyMathNewtonMinimum*(this: var MathNewtonMinimum) {.
     importcpp: "#.~math_NewtonMinimum()", header: "math_NewtonMinimum.hxx".}
-proc IsConverged*(this: math_NewtonMinimum): Standard_Boolean {.noSideEffect,
+proc isConverged*(this: MathNewtonMinimum): bool {.noSideEffect,
     importcpp: "IsConverged", header: "math_NewtonMinimum.hxx".}
-proc IsDone*(this: math_NewtonMinimum): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "math_NewtonMinimum.hxx".}
-proc IsConvex*(this: math_NewtonMinimum): Standard_Boolean {.noSideEffect,
-    importcpp: "IsConvex", header: "math_NewtonMinimum.hxx".}
-proc Location*(this: math_NewtonMinimum): math_Vector {.noSideEffect,
-    importcpp: "Location", header: "math_NewtonMinimum.hxx".}
-proc Location*(this: math_NewtonMinimum; Loc: var math_Vector) {.noSideEffect,
-    importcpp: "Location", header: "math_NewtonMinimum.hxx".}
-proc SetBoundary*(this: var math_NewtonMinimum; theLeftBorder: math_Vector;
-                 theRightBorder: math_Vector) {.importcpp: "SetBoundary",
+proc isDone*(this: MathNewtonMinimum): bool {.noSideEffect, importcpp: "IsDone",
     header: "math_NewtonMinimum.hxx".}
-proc Minimum*(this: math_NewtonMinimum): Standard_Real {.noSideEffect,
-    importcpp: "Minimum", header: "math_NewtonMinimum.hxx".}
-proc Gradient*(this: math_NewtonMinimum): math_Vector {.noSideEffect,
+proc isConvex*(this: MathNewtonMinimum): bool {.noSideEffect, importcpp: "IsConvex",
+    header: "math_NewtonMinimum.hxx".}
+proc location*(this: MathNewtonMinimum): MathVector {.noSideEffect,
+    importcpp: "Location", header: "math_NewtonMinimum.hxx".}
+proc location*(this: MathNewtonMinimum; loc: var MathVector) {.noSideEffect,
+    importcpp: "Location", header: "math_NewtonMinimum.hxx".}
+proc setBoundary*(this: var MathNewtonMinimum; theLeftBorder: MathVector;
+                 theRightBorder: MathVector) {.importcpp: "SetBoundary",
+    header: "math_NewtonMinimum.hxx".}
+proc minimum*(this: MathNewtonMinimum): float {.noSideEffect, importcpp: "Minimum",
+    header: "math_NewtonMinimum.hxx".}
+proc gradient*(this: MathNewtonMinimum): MathVector {.noSideEffect,
     importcpp: "Gradient", header: "math_NewtonMinimum.hxx".}
-proc Gradient*(this: math_NewtonMinimum; Grad: var math_Vector) {.noSideEffect,
+proc gradient*(this: MathNewtonMinimum; grad: var MathVector) {.noSideEffect,
     importcpp: "Gradient", header: "math_NewtonMinimum.hxx".}
-proc NbIterations*(this: math_NewtonMinimum): Standard_Integer {.noSideEffect,
+proc nbIterations*(this: MathNewtonMinimum): int {.noSideEffect,
     importcpp: "NbIterations", header: "math_NewtonMinimum.hxx".}
-proc GetStatus*(this: math_NewtonMinimum): math_Status {.noSideEffect,
+proc getStatus*(this: MathNewtonMinimum): MathStatus {.noSideEffect,
     importcpp: "GetStatus", header: "math_NewtonMinimum.hxx".}
-proc Dump*(this: math_NewtonMinimum; o: var Standard_OStream) {.noSideEffect,
+proc dump*(this: MathNewtonMinimum; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_NewtonMinimum.hxx".}

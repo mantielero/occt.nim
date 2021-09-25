@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  FilletSurf_StatusDone* {.size: sizeof(cint), importcpp: "FilletSurf_StatusDone",
-                          header: "FilletSurf_StatusDone.hxx".} = enum
-    FilletSurf_IsOk, FilletSurf_IsNotOk, FilletSurf_IsPartial
+  FilletSurfStatusDone* {.size: sizeof(cint), importcpp: "FilletSurf_StatusDone",
+                         header: "FilletSurf_StatusDone.hxx".} = enum
+    FilletSurfIsOk, FilletSurfIsNotOk, FilletSurfIsPartial
+
 

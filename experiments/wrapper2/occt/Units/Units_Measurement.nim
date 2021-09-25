@@ -14,60 +14,55 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../Standard/Standard_CString
-
 discard "forward decl of Units_Token"
 type
-  Units_Measurement* {.importcpp: "Units_Measurement",
-                      header: "Units_Measurement.hxx", bycopy.} = object ## ! It is the empty constructor of the class.
+  UnitsMeasurement* {.importcpp: "Units_Measurement",
+                     header: "Units_Measurement.hxx", bycopy.} = object ## ! It is the empty constructor of the class.
 
 
-proc constructUnits_Measurement*(): Units_Measurement {.constructor,
+proc constructUnitsMeasurement*(): UnitsMeasurement {.constructor,
     importcpp: "Units_Measurement(@)", header: "Units_Measurement.hxx".}
-proc constructUnits_Measurement*(avalue: Standard_Real; atoken: handle[Units_Token]): Units_Measurement {.
+proc constructUnitsMeasurement*(avalue: float; atoken: Handle[UnitsToken]): UnitsMeasurement {.
     constructor, importcpp: "Units_Measurement(@)", header: "Units_Measurement.hxx".}
-proc constructUnits_Measurement*(avalue: Standard_Real; aunit: Standard_CString): Units_Measurement {.
+proc constructUnitsMeasurement*(avalue: float; aunit: StandardCString): UnitsMeasurement {.
     constructor, importcpp: "Units_Measurement(@)", header: "Units_Measurement.hxx".}
-proc Convert*(this: var Units_Measurement; aunit: Standard_CString) {.
+proc convert*(this: var UnitsMeasurement; aunit: StandardCString) {.
     importcpp: "Convert", header: "Units_Measurement.hxx".}
-proc Integer*(this: Units_Measurement): Units_Measurement {.noSideEffect,
+proc integer*(this: UnitsMeasurement): UnitsMeasurement {.noSideEffect,
     importcpp: "Integer", header: "Units_Measurement.hxx".}
-proc Fractional*(this: Units_Measurement): Units_Measurement {.noSideEffect,
+proc fractional*(this: UnitsMeasurement): UnitsMeasurement {.noSideEffect,
     importcpp: "Fractional", header: "Units_Measurement.hxx".}
-proc Measurement*(this: Units_Measurement): Standard_Real {.noSideEffect,
+proc measurement*(this: UnitsMeasurement): float {.noSideEffect,
     importcpp: "Measurement", header: "Units_Measurement.hxx".}
-proc Token*(this: Units_Measurement): handle[Units_Token] {.noSideEffect,
+proc token*(this: UnitsMeasurement): Handle[UnitsToken] {.noSideEffect,
     importcpp: "Token", header: "Units_Measurement.hxx".}
-proc Add*(this: Units_Measurement; ameasurement: Units_Measurement): Units_Measurement {.
+proc add*(this: UnitsMeasurement; ameasurement: UnitsMeasurement): UnitsMeasurement {.
     noSideEffect, importcpp: "Add", header: "Units_Measurement.hxx".}
-proc `+`*(this: Units_Measurement; ameasurement: Units_Measurement): Units_Measurement {.
+proc `+`*(this: UnitsMeasurement; ameasurement: UnitsMeasurement): UnitsMeasurement {.
     noSideEffect, importcpp: "(# + #)", header: "Units_Measurement.hxx".}
-proc Subtract*(this: Units_Measurement; ameasurement: Units_Measurement): Units_Measurement {.
+proc subtract*(this: UnitsMeasurement; ameasurement: UnitsMeasurement): UnitsMeasurement {.
     noSideEffect, importcpp: "Subtract", header: "Units_Measurement.hxx".}
-proc `-`*(this: Units_Measurement; ameasurement: Units_Measurement): Units_Measurement {.
+proc `-`*(this: UnitsMeasurement; ameasurement: UnitsMeasurement): UnitsMeasurement {.
     noSideEffect, importcpp: "(# - #)", header: "Units_Measurement.hxx".}
-proc Multiply*(this: Units_Measurement; ameasurement: Units_Measurement): Units_Measurement {.
+proc multiply*(this: UnitsMeasurement; ameasurement: UnitsMeasurement): UnitsMeasurement {.
     noSideEffect, importcpp: "Multiply", header: "Units_Measurement.hxx".}
-proc `*`*(this: Units_Measurement; ameasurement: Units_Measurement): Units_Measurement {.
+proc `*`*(this: UnitsMeasurement; ameasurement: UnitsMeasurement): UnitsMeasurement {.
     noSideEffect, importcpp: "(# * #)", header: "Units_Measurement.hxx".}
-proc Multiply*(this: Units_Measurement; avalue: Standard_Real): Units_Measurement {.
+proc multiply*(this: UnitsMeasurement; avalue: float): UnitsMeasurement {.
     noSideEffect, importcpp: "Multiply", header: "Units_Measurement.hxx".}
-proc `*`*(this: Units_Measurement; avalue: Standard_Real): Units_Measurement {.
-    noSideEffect, importcpp: "(# * #)", header: "Units_Measurement.hxx".}
-proc Divide*(this: Units_Measurement; ameasurement: Units_Measurement): Units_Measurement {.
+proc `*`*(this: UnitsMeasurement; avalue: float): UnitsMeasurement {.noSideEffect,
+    importcpp: "(# * #)", header: "Units_Measurement.hxx".}
+proc divide*(this: UnitsMeasurement; ameasurement: UnitsMeasurement): UnitsMeasurement {.
     noSideEffect, importcpp: "Divide", header: "Units_Measurement.hxx".}
-proc `/`*(this: Units_Measurement; ameasurement: Units_Measurement): Units_Measurement {.
+proc `/`*(this: UnitsMeasurement; ameasurement: UnitsMeasurement): UnitsMeasurement {.
     noSideEffect, importcpp: "(# / #)", header: "Units_Measurement.hxx".}
-proc Divide*(this: Units_Measurement; avalue: Standard_Real): Units_Measurement {.
-    noSideEffect, importcpp: "Divide", header: "Units_Measurement.hxx".}
-proc `/`*(this: Units_Measurement; avalue: Standard_Real): Units_Measurement {.
-    noSideEffect, importcpp: "(# / #)", header: "Units_Measurement.hxx".}
-proc Power*(this: Units_Measurement; anexponent: Standard_Real): Units_Measurement {.
+proc divide*(this: UnitsMeasurement; avalue: float): UnitsMeasurement {.noSideEffect,
+    importcpp: "Divide", header: "Units_Measurement.hxx".}
+proc `/`*(this: UnitsMeasurement; avalue: float): UnitsMeasurement {.noSideEffect,
+    importcpp: "(# / #)", header: "Units_Measurement.hxx".}
+proc power*(this: UnitsMeasurement; anexponent: float): UnitsMeasurement {.
     noSideEffect, importcpp: "Power", header: "Units_Measurement.hxx".}
-proc HasToken*(this: Units_Measurement): Standard_Boolean {.noSideEffect,
-    importcpp: "HasToken", header: "Units_Measurement.hxx".}
-proc Dump*(this: Units_Measurement) {.noSideEffect, importcpp: "Dump",
-                                   header: "Units_Measurement.hxx".}
+proc hasToken*(this: UnitsMeasurement): bool {.noSideEffect, importcpp: "HasToken",
+    header: "Units_Measurement.hxx".}
+proc dump*(this: UnitsMeasurement) {.noSideEffect, importcpp: "Dump",
+                                  header: "Units_Measurement.hxx".}

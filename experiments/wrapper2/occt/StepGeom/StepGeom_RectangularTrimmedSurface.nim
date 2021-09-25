@@ -14,74 +14,65 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, StepGeom_BoundedSurface
-
 discard "forward decl of StepGeom_Surface"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_RectangularTrimmedSurface"
 discard "forward decl of StepGeom_RectangularTrimmedSurface"
 type
-  Handle_StepGeom_RectangularTrimmedSurface* = handle[
-      StepGeom_RectangularTrimmedSurface]
-  StepGeom_RectangularTrimmedSurface* {.importcpp: "StepGeom_RectangularTrimmedSurface", header: "StepGeom_RectangularTrimmedSurface.hxx",
-                                       bycopy.} = object of StepGeom_BoundedSurface ## !
-                                                                               ## Returns a
-                                                                               ## RectangularTrimmedSurface
+  HandleStepGeomRectangularTrimmedSurface* = Handle[
+      StepGeomRectangularTrimmedSurface]
+  StepGeomRectangularTrimmedSurface* {.importcpp: "StepGeom_RectangularTrimmedSurface", header: "StepGeom_RectangularTrimmedSurface.hxx",
+                                      bycopy.} = object of StepGeomBoundedSurface ## !
+                                                                             ## Returns a
+                                                                             ## RectangularTrimmedSurface
 
 
-proc constructStepGeom_RectangularTrimmedSurface*(): StepGeom_RectangularTrimmedSurface {.
+proc constructStepGeomRectangularTrimmedSurface*(): StepGeomRectangularTrimmedSurface {.
     constructor, importcpp: "StepGeom_RectangularTrimmedSurface(@)",
     header: "StepGeom_RectangularTrimmedSurface.hxx".}
-proc Init*(this: var StepGeom_RectangularTrimmedSurface;
-          aName: handle[TCollection_HAsciiString];
-          aBasisSurface: handle[StepGeom_Surface]; aU1: Standard_Real;
-          aU2: Standard_Real; aV1: Standard_Real; aV2: Standard_Real;
-          aUsense: Standard_Boolean; aVsense: Standard_Boolean) {.importcpp: "Init",
+proc init*(this: var StepGeomRectangularTrimmedSurface;
+          aName: Handle[TCollectionHAsciiString];
+          aBasisSurface: Handle[StepGeomSurface]; aU1: float; aU2: float; aV1: float;
+          aV2: float; aUsense: bool; aVsense: bool) {.importcpp: "Init",
     header: "StepGeom_RectangularTrimmedSurface.hxx".}
-proc SetBasisSurface*(this: var StepGeom_RectangularTrimmedSurface;
-                     aBasisSurface: handle[StepGeom_Surface]) {.
+proc setBasisSurface*(this: var StepGeomRectangularTrimmedSurface;
+                     aBasisSurface: Handle[StepGeomSurface]) {.
     importcpp: "SetBasisSurface", header: "StepGeom_RectangularTrimmedSurface.hxx".}
-proc BasisSurface*(this: StepGeom_RectangularTrimmedSurface): handle[
-    StepGeom_Surface] {.noSideEffect, importcpp: "BasisSurface",
-                       header: "StepGeom_RectangularTrimmedSurface.hxx".}
-proc SetU1*(this: var StepGeom_RectangularTrimmedSurface; aU1: Standard_Real) {.
+proc basisSurface*(this: StepGeomRectangularTrimmedSurface): Handle[StepGeomSurface] {.
+    noSideEffect, importcpp: "BasisSurface",
+    header: "StepGeom_RectangularTrimmedSurface.hxx".}
+proc setU1*(this: var StepGeomRectangularTrimmedSurface; aU1: float) {.
     importcpp: "SetU1", header: "StepGeom_RectangularTrimmedSurface.hxx".}
-proc U1*(this: StepGeom_RectangularTrimmedSurface): Standard_Real {.noSideEffect,
+proc u1*(this: StepGeomRectangularTrimmedSurface): float {.noSideEffect,
     importcpp: "U1", header: "StepGeom_RectangularTrimmedSurface.hxx".}
-proc SetU2*(this: var StepGeom_RectangularTrimmedSurface; aU2: Standard_Real) {.
+proc setU2*(this: var StepGeomRectangularTrimmedSurface; aU2: float) {.
     importcpp: "SetU2", header: "StepGeom_RectangularTrimmedSurface.hxx".}
-proc U2*(this: StepGeom_RectangularTrimmedSurface): Standard_Real {.noSideEffect,
+proc u2*(this: StepGeomRectangularTrimmedSurface): float {.noSideEffect,
     importcpp: "U2", header: "StepGeom_RectangularTrimmedSurface.hxx".}
-proc SetV1*(this: var StepGeom_RectangularTrimmedSurface; aV1: Standard_Real) {.
+proc setV1*(this: var StepGeomRectangularTrimmedSurface; aV1: float) {.
     importcpp: "SetV1", header: "StepGeom_RectangularTrimmedSurface.hxx".}
-proc V1*(this: StepGeom_RectangularTrimmedSurface): Standard_Real {.noSideEffect,
+proc v1*(this: StepGeomRectangularTrimmedSurface): float {.noSideEffect,
     importcpp: "V1", header: "StepGeom_RectangularTrimmedSurface.hxx".}
-proc SetV2*(this: var StepGeom_RectangularTrimmedSurface; aV2: Standard_Real) {.
+proc setV2*(this: var StepGeomRectangularTrimmedSurface; aV2: float) {.
     importcpp: "SetV2", header: "StepGeom_RectangularTrimmedSurface.hxx".}
-proc V2*(this: StepGeom_RectangularTrimmedSurface): Standard_Real {.noSideEffect,
+proc v2*(this: StepGeomRectangularTrimmedSurface): float {.noSideEffect,
     importcpp: "V2", header: "StepGeom_RectangularTrimmedSurface.hxx".}
-proc SetUsense*(this: var StepGeom_RectangularTrimmedSurface;
-               aUsense: Standard_Boolean) {.importcpp: "SetUsense",
-    header: "StepGeom_RectangularTrimmedSurface.hxx".}
-proc Usense*(this: StepGeom_RectangularTrimmedSurface): Standard_Boolean {.
-    noSideEffect, importcpp: "Usense",
-    header: "StepGeom_RectangularTrimmedSurface.hxx".}
-proc SetVsense*(this: var StepGeom_RectangularTrimmedSurface;
-               aVsense: Standard_Boolean) {.importcpp: "SetVsense",
-    header: "StepGeom_RectangularTrimmedSurface.hxx".}
-proc Vsense*(this: StepGeom_RectangularTrimmedSurface): Standard_Boolean {.
-    noSideEffect, importcpp: "Vsense",
-    header: "StepGeom_RectangularTrimmedSurface.hxx".}
+proc setUsense*(this: var StepGeomRectangularTrimmedSurface; aUsense: bool) {.
+    importcpp: "SetUsense", header: "StepGeom_RectangularTrimmedSurface.hxx".}
+proc usense*(this: StepGeomRectangularTrimmedSurface): bool {.noSideEffect,
+    importcpp: "Usense", header: "StepGeom_RectangularTrimmedSurface.hxx".}
+proc setVsense*(this: var StepGeomRectangularTrimmedSurface; aVsense: bool) {.
+    importcpp: "SetVsense", header: "StepGeom_RectangularTrimmedSurface.hxx".}
+proc vsense*(this: StepGeomRectangularTrimmedSurface): bool {.noSideEffect,
+    importcpp: "Vsense", header: "StepGeom_RectangularTrimmedSurface.hxx".}
 type
-  StepGeom_RectangularTrimmedSurfacebase_type* = StepGeom_BoundedSurface
+  StepGeomRectangularTrimmedSurfacebaseType* = StepGeomBoundedSurface
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_RectangularTrimmedSurface::get_type_name(@)",
-                              header: "StepGeom_RectangularTrimmedSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_RectangularTrimmedSurface::get_type_name(@)",
+                            header: "StepGeom_RectangularTrimmedSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_RectangularTrimmedSurface::get_type_descriptor(@)",
     header: "StepGeom_RectangularTrimmedSurface.hxx".}
-proc DynamicType*(this: StepGeom_RectangularTrimmedSurface): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomRectangularTrimmedSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_RectangularTrimmedSurface.hxx".}

@@ -14,39 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, StepAP214_ApprovalItem,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_ApprovalPersonOrganization"
 discard "forward decl of StepAP214_AppliedPersonAndOrganizationAssignment"
 discard "forward decl of StepAP214_AppliedOrganizationAssignment"
 type
-  StepAP214_DateAndTimeItem* {.importcpp: "StepAP214_DateAndTimeItem",
-                              header: "StepAP214_DateAndTimeItem.hxx", bycopy.} = object of StepAP214_ApprovalItem ##
-                                                                                                            ## !
-                                                                                                            ## Returns
-                                                                                                            ## a
-                                                                                                            ## DateAndTimeItem
-                                                                                                            ## SelectType
+  StepAP214DateAndTimeItem* {.importcpp: "StepAP214_DateAndTimeItem",
+                             header: "StepAP214_DateAndTimeItem.hxx", bycopy.} = object of StepAP214ApprovalItem ##
+                                                                                                          ## !
+                                                                                                          ## Returns
+                                                                                                          ## a
+                                                                                                          ## DateAndTimeItem
+                                                                                                          ## SelectType
 
 
-proc constructStepAP214_DateAndTimeItem*(): StepAP214_DateAndTimeItem {.
-    constructor, importcpp: "StepAP214_DateAndTimeItem(@)",
+proc constructStepAP214DateAndTimeItem*(): StepAP214DateAndTimeItem {.constructor,
+    importcpp: "StepAP214_DateAndTimeItem(@)",
     header: "StepAP214_DateAndTimeItem.hxx".}
-proc CaseNum*(this: StepAP214_DateAndTimeItem; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepAP214DateAndTimeItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP214_DateAndTimeItem.hxx".}
-proc ApprovalPersonOrganization*(this: StepAP214_DateAndTimeItem): handle[
-    StepBasic_ApprovalPersonOrganization] {.noSideEffect,
+proc approvalPersonOrganization*(this: StepAP214DateAndTimeItem): Handle[
+    StepBasicApprovalPersonOrganization] {.noSideEffect,
     importcpp: "ApprovalPersonOrganization",
     header: "StepAP214_DateAndTimeItem.hxx".}
-proc AppliedPersonAndOrganizationAssignment*(this: StepAP214_DateAndTimeItem): handle[
-    StepAP214_AppliedPersonAndOrganizationAssignment] {.noSideEffect,
+proc appliedPersonAndOrganizationAssignment*(this: StepAP214DateAndTimeItem): Handle[
+    StepAP214AppliedPersonAndOrganizationAssignment] {.noSideEffect,
     importcpp: "AppliedPersonAndOrganizationAssignment",
     header: "StepAP214_DateAndTimeItem.hxx".}
-proc AppliedOrganizationAssignment*(this: StepAP214_DateAndTimeItem): handle[
-    StepAP214_AppliedOrganizationAssignment] {.noSideEffect,
+proc appliedOrganizationAssignment*(this: StepAP214DateAndTimeItem): Handle[
+    StepAP214AppliedOrganizationAssignment] {.noSideEffect,
     importcpp: "AppliedOrganizationAssignment",
     header: "StepAP214_DateAndTimeItem.hxx".}

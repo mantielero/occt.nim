@@ -14,38 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, BRep_PointRepresentation,
-  ../Standard/Standard_Real
-
 discard "forward decl of Geom_Surface"
 discard "forward decl of TopLoc_Location"
 discard "forward decl of BRep_PointsOnSurface"
 discard "forward decl of BRep_PointsOnSurface"
 type
-  Handle_BRep_PointsOnSurface* = handle[BRep_PointsOnSurface]
+  HandleBRepPointsOnSurface* = Handle[BRepPointsOnSurface]
 
 ## ! Root for points on surface.
 
 type
-  BRep_PointsOnSurface* {.importcpp: "BRep_PointsOnSurface",
-                         header: "BRep_PointsOnSurface.hxx", bycopy.} = object of BRep_PointRepresentation
+  BRepPointsOnSurface* {.importcpp: "BRep_PointsOnSurface",
+                        header: "BRep_PointsOnSurface.hxx", bycopy.} = object of BRepPointRepresentation
 
 
-proc Surface*(this: BRep_PointsOnSurface): handle[Geom_Surface] {.noSideEffect,
+proc surface*(this: BRepPointsOnSurface): Handle[GeomSurface] {.noSideEffect,
     importcpp: "Surface", header: "BRep_PointsOnSurface.hxx".}
-proc Surface*(this: var BRep_PointsOnSurface; S: handle[Geom_Surface]) {.
+proc surface*(this: var BRepPointsOnSurface; s: Handle[GeomSurface]) {.
     importcpp: "Surface", header: "BRep_PointsOnSurface.hxx".}
-proc DumpJson*(this: BRep_PointsOnSurface; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "BRep_PointsOnSurface.hxx".}
+proc dumpJson*(this: BRepPointsOnSurface; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "BRep_PointsOnSurface.hxx".}
 type
-  BRep_PointsOnSurfacebase_type* = BRep_PointRepresentation
+  BRepPointsOnSurfacebaseType* = BRepPointRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "BRep_PointsOnSurface::get_type_name(@)",
-                              header: "BRep_PointsOnSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRep_PointsOnSurface::get_type_name(@)",
+                            header: "BRep_PointsOnSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRep_PointsOnSurface::get_type_descriptor(@)",
     header: "BRep_PointsOnSurface.hxx".}
-proc DynamicType*(this: BRep_PointsOnSurface): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: BRepPointsOnSurface): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRep_PointsOnSurface.hxx".}

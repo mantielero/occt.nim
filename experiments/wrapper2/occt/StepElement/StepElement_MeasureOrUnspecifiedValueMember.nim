@@ -13,50 +13,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../StepData/StepData_SelectNamed, ../Standard/Standard_Boolean,
-  ../Standard/Standard_CString
-
 discard "forward decl of StepElement_MeasureOrUnspecifiedValueMember"
 discard "forward decl of StepElement_MeasureOrUnspecifiedValueMember"
 type
-  Handle_StepElement_MeasureOrUnspecifiedValueMember* = handle[
-      StepElement_MeasureOrUnspecifiedValueMember]
+  HandleStepElementMeasureOrUnspecifiedValueMember* = Handle[
+      StepElementMeasureOrUnspecifiedValueMember]
 
 ## ! Representation of member for  STEP SELECT type MeasureOrUnspecifiedValue
 
 type
-  StepElement_MeasureOrUnspecifiedValueMember* {.
+  StepElementMeasureOrUnspecifiedValueMember* {.
       importcpp: "StepElement_MeasureOrUnspecifiedValueMember",
-      header: "StepElement_MeasureOrUnspecifiedValueMember.hxx", bycopy.} = object of StepData_SelectNamed ##
-                                                                                                    ## !
-                                                                                                    ## Empty
-                                                                                                    ## constructor
+      header: "StepElement_MeasureOrUnspecifiedValueMember.hxx", bycopy.} = object of StepDataSelectNamed ##
+                                                                                                   ## !
+                                                                                                   ## Empty
+                                                                                                   ## constructor
 
 
-proc constructStepElement_MeasureOrUnspecifiedValueMember*(): StepElement_MeasureOrUnspecifiedValueMember {.
+proc constructStepElementMeasureOrUnspecifiedValueMember*(): StepElementMeasureOrUnspecifiedValueMember {.
     constructor, importcpp: "StepElement_MeasureOrUnspecifiedValueMember(@)",
     header: "StepElement_MeasureOrUnspecifiedValueMember.hxx".}
-proc HasName*(this: StepElement_MeasureOrUnspecifiedValueMember): Standard_Boolean {.
+proc hasName*(this: StepElementMeasureOrUnspecifiedValueMember): bool {.
     noSideEffect, importcpp: "HasName",
     header: "StepElement_MeasureOrUnspecifiedValueMember.hxx".}
-proc Name*(this: StepElement_MeasureOrUnspecifiedValueMember): Standard_CString {.
+proc name*(this: StepElementMeasureOrUnspecifiedValueMember): StandardCString {.
     noSideEffect, importcpp: "Name",
     header: "StepElement_MeasureOrUnspecifiedValueMember.hxx".}
-proc SetName*(this: var StepElement_MeasureOrUnspecifiedValueMember;
-             name: Standard_CString): Standard_Boolean {.importcpp: "SetName",
+proc setName*(this: var StepElementMeasureOrUnspecifiedValueMember;
+             name: StandardCString): bool {.importcpp: "SetName",
     header: "StepElement_MeasureOrUnspecifiedValueMember.hxx".}
-proc Matches*(this: StepElement_MeasureOrUnspecifiedValueMember;
-             name: Standard_CString): Standard_Boolean {.noSideEffect,
-    importcpp: "Matches",
+proc matches*(this: StepElementMeasureOrUnspecifiedValueMember;
+             name: StandardCString): bool {.noSideEffect, importcpp: "Matches",
     header: "StepElement_MeasureOrUnspecifiedValueMember.hxx".}
 type
-  StepElement_MeasureOrUnspecifiedValueMemberbase_type* = StepData_SelectNamed
+  StepElementMeasureOrUnspecifiedValueMemberbaseType* = StepDataSelectNamed
 
-proc get_type_name*(): cstring {.importcpp: "StepElement_MeasureOrUnspecifiedValueMember::get_type_name(@)", header: "StepElement_MeasureOrUnspecifiedValueMember.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepElement_MeasureOrUnspecifiedValueMember::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepElement_MeasureOrUnspecifiedValueMember::get_type_name(@)", header: "StepElement_MeasureOrUnspecifiedValueMember.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_MeasureOrUnspecifiedValueMember::get_type_descriptor(@)",
     header: "StepElement_MeasureOrUnspecifiedValueMember.hxx".}
-proc DynamicType*(this: StepElement_MeasureOrUnspecifiedValueMember): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepElement_MeasureOrUnspecifiedValueMember.hxx".}
+proc dynamicType*(this: StepElementMeasureOrUnspecifiedValueMember): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepElement_MeasureOrUnspecifiedValueMember.hxx".}

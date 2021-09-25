@@ -14,31 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepBasic_ProductDefinitionContext
-
 discard "forward decl of StepBasic_DesignContext"
 discard "forward decl of StepBasic_DesignContext"
 type
-  Handle_StepBasic_DesignContext* = handle[StepBasic_DesignContext]
+  HandleStepBasicDesignContext* = Handle[StepBasicDesignContext]
 
 ## ! class added to Schema AP214 around April 1996
 
 type
-  StepBasic_DesignContext* {.importcpp: "StepBasic_DesignContext",
-                            header: "StepBasic_DesignContext.hxx", bycopy.} = object of StepBasic_ProductDefinitionContext
+  StepBasicDesignContext* {.importcpp: "StepBasic_DesignContext",
+                           header: "StepBasic_DesignContext.hxx", bycopy.} = object of StepBasicProductDefinitionContext
 
 
-proc constructStepBasic_DesignContext*(): StepBasic_DesignContext {.constructor,
+proc constructStepBasicDesignContext*(): StepBasicDesignContext {.constructor,
     importcpp: "StepBasic_DesignContext(@)", header: "StepBasic_DesignContext.hxx".}
 type
-  StepBasic_DesignContextbase_type* = StepBasic_ProductDefinitionContext
+  StepBasicDesignContextbaseType* = StepBasicProductDefinitionContext
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_DesignContext::get_type_name(@)",
-                              header: "StepBasic_DesignContext.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_DesignContext::get_type_name(@)",
+                            header: "StepBasic_DesignContext.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_DesignContext::get_type_descriptor(@)",
     header: "StepBasic_DesignContext.hxx".}
-proc DynamicType*(this: StepBasic_DesignContext): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicDesignContext): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_DesignContext.hxx".}

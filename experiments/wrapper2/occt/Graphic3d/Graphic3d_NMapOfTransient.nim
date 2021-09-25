@@ -12,10 +12,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Transient, ../NCollection/NCollection_Map,
-  ../NCollection/NCollection_Shared
-
 type
-  Graphic3d_NMapOfTransient* = NCollection_Shared[
-      NCollection_Map[ptr Standard_Transient]]
+  Graphic3dNMapOfTransient* = NCollectionShared[
+      NCollectionMap[ptr StandardTransient]]
+

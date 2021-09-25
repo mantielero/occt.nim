@@ -14,46 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_HArray1OfReal, StepGeom_GeometricRepresentationItem,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_Direction"
 discard "forward decl of StepGeom_Direction"
 type
-  Handle_StepGeom_Direction* = handle[StepGeom_Direction]
-  StepGeom_Direction* {.importcpp: "StepGeom_Direction",
-                       header: "StepGeom_Direction.hxx", bycopy.} = object of StepGeom_GeometricRepresentationItem ##
-                                                                                                            ## !
-                                                                                                            ## Returns
-                                                                                                            ## a
-                                                                                                            ## Direction
+  HandleStepGeomDirection* = Handle[StepGeomDirection]
+  StepGeomDirection* {.importcpp: "StepGeom_Direction",
+                      header: "StepGeom_Direction.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
+                                                                                                          ## !
+                                                                                                          ## Returns
+                                                                                                          ## a
+                                                                                                          ## Direction
 
 
-proc constructStepGeom_Direction*(): StepGeom_Direction {.constructor,
+proc constructStepGeomDirection*(): StepGeomDirection {.constructor,
     importcpp: "StepGeom_Direction(@)", header: "StepGeom_Direction.hxx".}
-proc Init*(this: var StepGeom_Direction; aName: handle[TCollection_HAsciiString];
-          aDirectionRatios: handle[TColStd_HArray1OfReal]) {.importcpp: "Init",
+proc init*(this: var StepGeomDirection; aName: Handle[TCollectionHAsciiString];
+          aDirectionRatios: Handle[TColStdHArray1OfReal]) {.importcpp: "Init",
     header: "StepGeom_Direction.hxx".}
-proc SetDirectionRatios*(this: var StepGeom_Direction;
-                        aDirectionRatios: handle[TColStd_HArray1OfReal]) {.
+proc setDirectionRatios*(this: var StepGeomDirection;
+                        aDirectionRatios: Handle[TColStdHArray1OfReal]) {.
     importcpp: "SetDirectionRatios", header: "StepGeom_Direction.hxx".}
-proc DirectionRatios*(this: StepGeom_Direction): handle[TColStd_HArray1OfReal] {.
+proc directionRatios*(this: StepGeomDirection): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "DirectionRatios", header: "StepGeom_Direction.hxx".}
-proc DirectionRatiosValue*(this: StepGeom_Direction; num: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "DirectionRatiosValue",
-    header: "StepGeom_Direction.hxx".}
-proc NbDirectionRatios*(this: StepGeom_Direction): Standard_Integer {.noSideEffect,
+proc directionRatiosValue*(this: StepGeomDirection; num: int): float {.noSideEffect,
+    importcpp: "DirectionRatiosValue", header: "StepGeom_Direction.hxx".}
+proc nbDirectionRatios*(this: StepGeomDirection): int {.noSideEffect,
     importcpp: "NbDirectionRatios", header: "StepGeom_Direction.hxx".}
 type
-  StepGeom_Directionbase_type* = StepGeom_GeometricRepresentationItem
+  StepGeomDirectionbaseType* = StepGeomGeometricRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_Direction::get_type_name(@)",
-                              header: "StepGeom_Direction.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_Direction::get_type_name(@)",
+                            header: "StepGeom_Direction.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_Direction::get_type_descriptor(@)",
     header: "StepGeom_Direction.hxx".}
-proc DynamicType*(this: StepGeom_Direction): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepGeomDirection): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Direction.hxx".}

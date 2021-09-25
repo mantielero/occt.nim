@@ -23,8 +23,9 @@
 ## ! RetStop  : indicates end or stop (such as Raise)
 
 type
-  IFSelect_ReturnStatus* {.size: sizeof(cint), importcpp: "IFSelect_ReturnStatus",
-                          header: "IFSelect_ReturnStatus.hxx".} = enum
-    IFSelect_RetVoid, IFSelect_RetDone, IFSelect_RetError, IFSelect_RetFail,
-    IFSelect_RetStop
+  IFSelectReturnStatus* {.size: sizeof(cint), importcpp: "IFSelect_ReturnStatus",
+                         header: "IFSelect_ReturnStatus.hxx".} = enum
+    IFSelectRetVoid, IFSelectRetDone, IFSelectRetError, IFSelectRetFail,
+    IFSelectRetStop
+
 

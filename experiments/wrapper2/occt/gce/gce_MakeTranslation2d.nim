@@ -14,33 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Trsf2d
-
 discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Trsf2d"
 type
-  gce_MakeTranslation2d* {.importcpp: "gce_MakeTranslation2d",
-                          header: "gce_MakeTranslation2d.hxx", bycopy.} = object ## !
-                                                                            ## Constructs a
-                                                                            ## translation
-                                                                            ## along the
-                                                                            ## vector
-                                                                            ## Vect.
+  GceMakeTranslation2d* {.importcpp: "gce_MakeTranslation2d",
+                         header: "gce_MakeTranslation2d.hxx", bycopy.} = object ## !
+                                                                           ## Constructs a
+                                                                           ## translation along the
+                                                                           ## vector Vect.
 
 
-proc constructgce_MakeTranslation2d*(Vect: gp_Vec2d): gce_MakeTranslation2d {.
+proc constructGceMakeTranslation2d*(vect: Vec2d): GceMakeTranslation2d {.
     constructor, importcpp: "gce_MakeTranslation2d(@)",
     header: "gce_MakeTranslation2d.hxx".}
-proc constructgce_MakeTranslation2d*(Point1: gp_Pnt2d; Point2: gp_Pnt2d): gce_MakeTranslation2d {.
+proc constructGceMakeTranslation2d*(point1: Pnt2d; point2: Pnt2d): GceMakeTranslation2d {.
     constructor, importcpp: "gce_MakeTranslation2d(@)",
     header: "gce_MakeTranslation2d.hxx".}
-proc Value*(this: gce_MakeTranslation2d): gp_Trsf2d {.noSideEffect,
-    importcpp: "Value", header: "gce_MakeTranslation2d.hxx".}
-proc Operator*(this: gce_MakeTranslation2d): gp_Trsf2d {.noSideEffect,
+proc value*(this: GceMakeTranslation2d): Trsf2d {.noSideEffect, importcpp: "Value",
+    header: "gce_MakeTranslation2d.hxx".}
+proc operator*(this: GceMakeTranslation2d): Trsf2d {.noSideEffect,
     importcpp: "Operator", header: "gce_MakeTranslation2d.hxx".}
-converter `gp_Trsf2d`*(this: gce_MakeTranslation2d): gp_Trsf2d {.noSideEffect,
+converter `trsf2d`*(this: GceMakeTranslation2d): Trsf2d {.noSideEffect,
     importcpp: "gce_MakeTranslation2d::operator gp_Trsf2d",
     header: "gce_MakeTranslation2d.hxx".}

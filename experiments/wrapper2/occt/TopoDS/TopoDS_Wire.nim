@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopoDS_Shape
-
 ## ! Describes a wire which
 ## ! - references an underlying wire with the potential to
 ## ! be given a location and an orientation

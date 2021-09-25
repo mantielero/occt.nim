@@ -13,51 +13,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepFEA_DegreeOfFreedom,
-  ../StepElement/StepElement_MeasureOrUnspecifiedValue,
-  ../Standard/Standard_Transient
-
 discard "forward decl of StepFEA_DegreeOfFreedom"
 discard "forward decl of StepElement_MeasureOrUnspecifiedValue"
 discard "forward decl of StepFEA_FreedomAndCoefficient"
 discard "forward decl of StepFEA_FreedomAndCoefficient"
 type
-  Handle_StepFEA_FreedomAndCoefficient* = handle[StepFEA_FreedomAndCoefficient]
+  HandleStepFEA_FreedomAndCoefficient* = Handle[StepFEA_FreedomAndCoefficient]
 
 ## ! Representation of STEP entity FreedomAndCoefficient
 
 type
   StepFEA_FreedomAndCoefficient* {.importcpp: "StepFEA_FreedomAndCoefficient",
                                   header: "StepFEA_FreedomAndCoefficient.hxx",
-                                  bycopy.} = object of Standard_Transient ## ! Empty constructor
+                                  bycopy.} = object of StandardTransient ## ! Empty constructor
 
 
 proc constructStepFEA_FreedomAndCoefficient*(): StepFEA_FreedomAndCoefficient {.
     constructor, importcpp: "StepFEA_FreedomAndCoefficient(@)",
     header: "StepFEA_FreedomAndCoefficient.hxx".}
-proc Init*(this: var StepFEA_FreedomAndCoefficient;
+proc init*(this: var StepFEA_FreedomAndCoefficient;
           aFreedom: StepFEA_DegreeOfFreedom;
-          aA: StepElement_MeasureOrUnspecifiedValue) {.importcpp: "Init",
+          aA: StepElementMeasureOrUnspecifiedValue) {.importcpp: "Init",
     header: "StepFEA_FreedomAndCoefficient.hxx".}
-proc Freedom*(this: StepFEA_FreedomAndCoefficient): StepFEA_DegreeOfFreedom {.
+proc freedom*(this: StepFEA_FreedomAndCoefficient): StepFEA_DegreeOfFreedom {.
     noSideEffect, importcpp: "Freedom", header: "StepFEA_FreedomAndCoefficient.hxx".}
-proc SetFreedom*(this: var StepFEA_FreedomAndCoefficient;
-                Freedom: StepFEA_DegreeOfFreedom) {.importcpp: "SetFreedom",
+proc setFreedom*(this: var StepFEA_FreedomAndCoefficient;
+                freedom: StepFEA_DegreeOfFreedom) {.importcpp: "SetFreedom",
     header: "StepFEA_FreedomAndCoefficient.hxx".}
-proc A*(this: StepFEA_FreedomAndCoefficient): StepElement_MeasureOrUnspecifiedValue {.
+proc a*(this: StepFEA_FreedomAndCoefficient): StepElementMeasureOrUnspecifiedValue {.
     noSideEffect, importcpp: "A", header: "StepFEA_FreedomAndCoefficient.hxx".}
-proc SetA*(this: var StepFEA_FreedomAndCoefficient;
-          A: StepElement_MeasureOrUnspecifiedValue) {.importcpp: "SetA",
+proc setA*(this: var StepFEA_FreedomAndCoefficient;
+          a: StepElementMeasureOrUnspecifiedValue) {.importcpp: "SetA",
     header: "StepFEA_FreedomAndCoefficient.hxx".}
 type
-  StepFEA_FreedomAndCoefficientbase_type* = Standard_Transient
+  StepFEA_FreedomAndCoefficientbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_FreedomAndCoefficient::get_type_name(@)",
-                              header: "StepFEA_FreedomAndCoefficient.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_FreedomAndCoefficient::get_type_name(@)",
+                            header: "StepFEA_FreedomAndCoefficient.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_FreedomAndCoefficient::get_type_descriptor(@)",
     header: "StepFEA_FreedomAndCoefficient.hxx".}
-proc DynamicType*(this: StepFEA_FreedomAndCoefficient): handle[Standard_Type] {.
+proc dynamicType*(this: StepFEA_FreedomAndCoefficient): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_FreedomAndCoefficient.hxx".}

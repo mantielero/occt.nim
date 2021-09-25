@@ -14,26 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Expr_MapOfNamedUnknown,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_NoMoreObject"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Expr_GeneralExpression"
 discard "forward decl of Expr_NamedUnknown"
 type
-  Expr_UnknownIterator* {.importcpp: "Expr_UnknownIterator",
-                         header: "Expr_UnknownIterator.hxx", bycopy.} = object
+  ExprUnknownIterator* {.importcpp: "Expr_UnknownIterator",
+                        header: "Expr_UnknownIterator.hxx", bycopy.} = object
 
 
-proc constructExpr_UnknownIterator*(exp: handle[Expr_GeneralExpression]): Expr_UnknownIterator {.
+proc constructExprUnknownIterator*(exp: Handle[ExprGeneralExpression]): ExprUnknownIterator {.
     constructor, importcpp: "Expr_UnknownIterator(@)",
     header: "Expr_UnknownIterator.hxx".}
-proc More*(this: Expr_UnknownIterator): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "Expr_UnknownIterator.hxx".}
-proc Next*(this: var Expr_UnknownIterator) {.importcpp: "Next",
+proc more*(this: ExprUnknownIterator): bool {.noSideEffect, importcpp: "More",
     header: "Expr_UnknownIterator.hxx".}
-proc Value*(this: Expr_UnknownIterator): handle[Expr_NamedUnknown] {.noSideEffect,
+proc next*(this: var ExprUnknownIterator) {.importcpp: "Next",
+                                        header: "Expr_UnknownIterator.hxx".}
+proc value*(this: ExprUnknownIterator): Handle[ExprNamedUnknown] {.noSideEffect,
     importcpp: "Value", header: "Expr_UnknownIterator.hxx".}

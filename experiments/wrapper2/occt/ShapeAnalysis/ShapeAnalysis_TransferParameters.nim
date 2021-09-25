@@ -14,18 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../TopoDS/TopoDS_Edge, ../TopoDS/TopoDS_Face, ../Standard/Standard_Transient,
-  ../TColStd/TColStd_HSequenceOfReal, ../Standard/Standard_Boolean
-
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of ShapeAnalysis_TransferParameters"
 discard "forward decl of ShapeAnalysis_TransferParameters"
 type
-  Handle_ShapeAnalysis_TransferParameters* = handle[
-      ShapeAnalysis_TransferParameters]
+  HandleShapeAnalysisTransferParameters* = Handle[ShapeAnalysisTransferParameters]
 
 ## ! This tool is used for transferring parameters
 ## ! from 3d curve of the edge to pcurve and vice versa.
@@ -44,43 +38,39 @@ type
 ## ! using projection.
 
 type
-  ShapeAnalysis_TransferParameters* {.importcpp: "ShapeAnalysis_TransferParameters", header: "ShapeAnalysis_TransferParameters.hxx",
-                                     bycopy.} = object of Standard_Transient ## ! Creates empty tool with myShift = 0 and myScale = 1
+  ShapeAnalysisTransferParameters* {.importcpp: "ShapeAnalysis_TransferParameters", header: "ShapeAnalysis_TransferParameters.hxx",
+                                    bycopy.} = object of StandardTransient ## ! Creates empty tool with myShift = 0 and myScale = 1
 
 
-proc constructShapeAnalysis_TransferParameters*(): ShapeAnalysis_TransferParameters {.
+proc constructShapeAnalysisTransferParameters*(): ShapeAnalysisTransferParameters {.
     constructor, importcpp: "ShapeAnalysis_TransferParameters(@)",
     header: "ShapeAnalysis_TransferParameters.hxx".}
-proc constructShapeAnalysis_TransferParameters*(E: TopoDS_Edge; F: TopoDS_Face): ShapeAnalysis_TransferParameters {.
+proc constructShapeAnalysisTransferParameters*(e: TopoDS_Edge; f: TopoDS_Face): ShapeAnalysisTransferParameters {.
     constructor, importcpp: "ShapeAnalysis_TransferParameters(@)",
     header: "ShapeAnalysis_TransferParameters.hxx".}
-proc Init*(this: var ShapeAnalysis_TransferParameters; E: TopoDS_Edge; F: TopoDS_Face) {.
+proc init*(this: var ShapeAnalysisTransferParameters; e: TopoDS_Edge; f: TopoDS_Face) {.
     importcpp: "Init", header: "ShapeAnalysis_TransferParameters.hxx".}
-proc SetMaxTolerance*(this: var ShapeAnalysis_TransferParameters;
-                     maxtol: Standard_Real) {.importcpp: "SetMaxTolerance",
-    header: "ShapeAnalysis_TransferParameters.hxx".}
-proc Perform*(this: var ShapeAnalysis_TransferParameters;
-             Params: handle[TColStd_HSequenceOfReal]; To2d: Standard_Boolean): handle[
-    TColStd_HSequenceOfReal] {.importcpp: "Perform",
-                              header: "ShapeAnalysis_TransferParameters.hxx".}
-proc Perform*(this: var ShapeAnalysis_TransferParameters; Param: Standard_Real;
-             To2d: Standard_Boolean): Standard_Real {.importcpp: "Perform",
-    header: "ShapeAnalysis_TransferParameters.hxx".}
-proc TransferRange*(this: var ShapeAnalysis_TransferParameters;
-                   newEdge: var TopoDS_Edge; prevPar: Standard_Real;
-                   currPar: Standard_Real; To2d: Standard_Boolean) {.
+proc setMaxTolerance*(this: var ShapeAnalysisTransferParameters; maxtol: float) {.
+    importcpp: "SetMaxTolerance", header: "ShapeAnalysis_TransferParameters.hxx".}
+proc perform*(this: var ShapeAnalysisTransferParameters;
+             params: Handle[TColStdHSequenceOfReal]; to2d: bool): Handle[
+    TColStdHSequenceOfReal] {.importcpp: "Perform",
+                             header: "ShapeAnalysis_TransferParameters.hxx".}
+proc perform*(this: var ShapeAnalysisTransferParameters; param: float; to2d: bool): float {.
+    importcpp: "Perform", header: "ShapeAnalysis_TransferParameters.hxx".}
+proc transferRange*(this: var ShapeAnalysisTransferParameters;
+                   newEdge: var TopoDS_Edge; prevPar: float; currPar: float; to2d: bool) {.
     importcpp: "TransferRange", header: "ShapeAnalysis_TransferParameters.hxx".}
-proc IsSameRange*(this: ShapeAnalysis_TransferParameters): Standard_Boolean {.
-    noSideEffect, importcpp: "IsSameRange",
-    header: "ShapeAnalysis_TransferParameters.hxx".}
+proc isSameRange*(this: ShapeAnalysisTransferParameters): bool {.noSideEffect,
+    importcpp: "IsSameRange", header: "ShapeAnalysis_TransferParameters.hxx".}
 type
-  ShapeAnalysis_TransferParametersbase_type* = Standard_Transient
+  ShapeAnalysisTransferParametersbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "ShapeAnalysis_TransferParameters::get_type_name(@)",
-                              header: "ShapeAnalysis_TransferParameters.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeAnalysis_TransferParameters::get_type_name(@)",
+                            header: "ShapeAnalysis_TransferParameters.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeAnalysis_TransferParameters::get_type_descriptor(@)",
     header: "ShapeAnalysis_TransferParameters.hxx".}
-proc DynamicType*(this: ShapeAnalysis_TransferParameters): handle[Standard_Type] {.
+proc dynamicType*(this: ShapeAnalysisTransferParameters): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeAnalysis_TransferParameters.hxx".}

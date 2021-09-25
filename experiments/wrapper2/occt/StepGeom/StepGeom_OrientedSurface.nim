@@ -13,45 +13,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  StepGeom_Surface
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_OrientedSurface"
 discard "forward decl of StepGeom_OrientedSurface"
 type
-  Handle_StepGeom_OrientedSurface* = handle[StepGeom_OrientedSurface]
+  HandleStepGeomOrientedSurface* = Handle[StepGeomOrientedSurface]
 
 ## ! Representation of STEP entity OrientedSurface
 
 type
-  StepGeom_OrientedSurface* {.importcpp: "StepGeom_OrientedSurface",
-                             header: "StepGeom_OrientedSurface.hxx", bycopy.} = object of StepGeom_Surface ##
-                                                                                                    ## !
-                                                                                                    ## Empty
-                                                                                                    ## constructor
+  StepGeomOrientedSurface* {.importcpp: "StepGeom_OrientedSurface",
+                            header: "StepGeom_OrientedSurface.hxx", bycopy.} = object of StepGeomSurface ##
+                                                                                                  ## !
+                                                                                                  ## Empty
+                                                                                                  ## constructor
 
 
-proc constructStepGeom_OrientedSurface*(): StepGeom_OrientedSurface {.constructor,
+proc constructStepGeomOrientedSurface*(): StepGeomOrientedSurface {.constructor,
     importcpp: "StepGeom_OrientedSurface(@)",
     header: "StepGeom_OrientedSurface.hxx".}
-proc Init*(this: var StepGeom_OrientedSurface;
-          aRepresentationItem_Name: handle[TCollection_HAsciiString];
-          aOrientation: Standard_Boolean) {.importcpp: "Init",
-    header: "StepGeom_OrientedSurface.hxx".}
-proc Orientation*(this: StepGeom_OrientedSurface): Standard_Boolean {.noSideEffect,
-    importcpp: "Orientation", header: "StepGeom_OrientedSurface.hxx".}
-proc SetOrientation*(this: var StepGeom_OrientedSurface;
-                    Orientation: Standard_Boolean) {.importcpp: "SetOrientation",
-    header: "StepGeom_OrientedSurface.hxx".}
-type
-  StepGeom_OrientedSurfacebase_type* = StepGeom_Surface
-
-proc get_type_name*(): cstring {.importcpp: "StepGeom_OrientedSurface::get_type_name(@)",
+proc init*(this: var StepGeomOrientedSurface;
+          aRepresentationItemName: Handle[TCollectionHAsciiString];
+          aOrientation: bool) {.importcpp: "Init",
                               header: "StepGeom_OrientedSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc orientation*(this: StepGeomOrientedSurface): bool {.noSideEffect,
+    importcpp: "Orientation", header: "StepGeom_OrientedSurface.hxx".}
+proc setOrientation*(this: var StepGeomOrientedSurface; orientation: bool) {.
+    importcpp: "SetOrientation", header: "StepGeom_OrientedSurface.hxx".}
+type
+  StepGeomOrientedSurfacebaseType* = StepGeomSurface
+
+proc getTypeName*(): cstring {.importcpp: "StepGeom_OrientedSurface::get_type_name(@)",
+                            header: "StepGeom_OrientedSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_OrientedSurface::get_type_descriptor(@)",
     header: "StepGeom_OrientedSurface.hxx".}
-proc DynamicType*(this: StepGeom_OrientedSurface): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomOrientedSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_OrientedSurface.hxx".}

@@ -13,33 +13,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepElement_SurfaceSectionField"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepElement_RWSurfaceSectionField* {.importcpp: "RWStepElement_RWSurfaceSectionField", header: "RWStepElement_RWSurfaceSectionField.hxx",
-                                        bycopy.} = object ## ! Empty constructor
+  RWStepElementRWSurfaceSectionField* {.importcpp: "RWStepElement_RWSurfaceSectionField", header: "RWStepElement_RWSurfaceSectionField.hxx",
+                                       bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepElement_RWSurfaceSectionField*(): RWStepElement_RWSurfaceSectionField {.
+proc constructRWStepElementRWSurfaceSectionField*(): RWStepElementRWSurfaceSectionField {.
     constructor, importcpp: "RWStepElement_RWSurfaceSectionField(@)",
     header: "RWStepElement_RWSurfaceSectionField.hxx".}
-proc ReadStep*(this: RWStepElement_RWSurfaceSectionField;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepElement_SurfaceSectionField]) {.noSideEffect,
+proc readStep*(this: RWStepElementRWSurfaceSectionField;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepElementSurfaceSectionField]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepElement_RWSurfaceSectionField.hxx".}
-proc WriteStep*(this: RWStepElement_RWSurfaceSectionField;
-               SW: var StepData_StepWriter;
-               ent: handle[StepElement_SurfaceSectionField]) {.noSideEffect,
+proc writeStep*(this: RWStepElementRWSurfaceSectionField;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepElementSurfaceSectionField]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepElement_RWSurfaceSectionField.hxx".}
-proc Share*(this: RWStepElement_RWSurfaceSectionField;
-           ent: handle[StepElement_SurfaceSectionField];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepElementRWSurfaceSectionField;
+           ent: Handle[StepElementSurfaceSectionField];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepElement_RWSurfaceSectionField.hxx".}

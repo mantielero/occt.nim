@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  math_Status* {.size: sizeof(cint), importcpp: "math_Status",
-                header: "math_Status.hxx".} = enum
-    math_OK, math_TooManyIterations, math_FunctionError, math_DirectionSearchError,
-    math_NotBracketed
+  MathStatus* {.size: sizeof(cint), importcpp: "math_Status",
+               header: "math_Status.hxx".} = enum
+    mathOK, mathTooManyIterations, mathFunctionError, mathDirectionSearchError,
+    mathNotBracketed
+
 

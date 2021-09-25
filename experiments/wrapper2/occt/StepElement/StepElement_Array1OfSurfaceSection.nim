@@ -11,9 +11,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepElement_SurfaceSection, ../NCollection/NCollection_Array1
-
 type
-  StepElement_Array1OfSurfaceSection* = NCollection_Array1[
-      handle[StepElement_SurfaceSection]]
+  StepElementArray1OfSurfaceSection* = NCollectionArray1[
+      Handle[StepElementSurfaceSection]]
+

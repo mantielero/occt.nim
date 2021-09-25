@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  BRepFill_OffsetWire, ../NCollection/NCollection_List
-
 type
-  BRepFill_ListOfOffsetWire* = NCollection_List[BRepFill_OffsetWire]
-  BRepFill_ListIteratorOfListOfOffsetWire* = Iterator[BRepFill_OffsetWire]
+  BRepFillListOfOffsetWire* = NCollectionList[BRepFillOffsetWire]
+  BRepFillListIteratorOfListOfOffsetWire* = Iterator[BRepFillOffsetWire]
+

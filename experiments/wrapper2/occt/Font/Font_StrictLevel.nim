@@ -14,9 +14,10 @@
 ## ! Enumeration defining font search restrictions.
 
 type
-  Font_StrictLevel* {.size: sizeof(cint), importcpp: "Font_StrictLevel",
-                     header: "Font_StrictLevel.hxx".} = enum
-    Font_StrictLevel_Strict,  ## !< search only for exact font
-    Font_StrictLevel_Aliases, ## !< search for exact font match and for aliases (ignore global fallback)
-    Font_StrictLevel_Any      ## !< search for any font, including global fallback
+  FontStrictLevel* {.size: sizeof(cint), importcpp: "Font_StrictLevel",
+                    header: "Font_StrictLevel.hxx".} = enum
+    FontStrictLevelStrict,    ## !< search only for exact font
+    FontStrictLevelAliases,   ## !< search for exact font match and for aliases (ignore global fallback)
+    FontStrictLevelAny        ## !< search for any font, including global fallback
+
 

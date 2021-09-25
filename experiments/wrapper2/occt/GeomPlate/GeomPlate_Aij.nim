@@ -14,18 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer, ../gp/gp_Vec
-
 discard "forward decl of GeomPlate_BuildAveragePlane"
 discard "forward decl of gp_Vec"
 type
-  GeomPlate_Aij* {.importcpp: "GeomPlate_Aij", header: "GeomPlate_Aij.hxx", bycopy.} = object
+  GeomPlateAij* {.importcpp: "GeomPlate_Aij", header: "GeomPlate_Aij.hxx", bycopy.} = object
 
 
-proc constructGeomPlate_Aij*(): GeomPlate_Aij {.constructor,
+proc constructGeomPlateAij*(): GeomPlateAij {.constructor,
     importcpp: "GeomPlate_Aij(@)", header: "GeomPlate_Aij.hxx".}
-proc constructGeomPlate_Aij*(anInd1: Standard_Integer; anInd2: Standard_Integer;
-                            aVec: gp_Vec): GeomPlate_Aij {.constructor,
-    importcpp: "GeomPlate_Aij(@)", header: "GeomPlate_Aij.hxx".}
+proc constructGeomPlateAij*(anInd1: int; anInd2: int; aVec: Vec): GeomPlateAij {.
+    constructor, importcpp: "GeomPlate_Aij(@)", header: "GeomPlate_Aij.hxx".}

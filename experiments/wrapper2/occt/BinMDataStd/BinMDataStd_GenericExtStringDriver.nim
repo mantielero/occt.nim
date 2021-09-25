@@ -11,54 +11,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../BinMDF/BinMDF_ADriver,
-  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
-  ../BinObjMgt/BinObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataStd_GenericExtStringDriver"
 discard "forward decl of BinMDataStd_GenericExtStringDriver"
 type
-  Handle_BinMDataStd_GenericExtStringDriver* = handle[
-      BinMDataStd_GenericExtStringDriver]
+  HandleBinMDataStdGenericExtStringDriver* = Handle[
+      BinMDataStdGenericExtStringDriver]
 
 ## ! TDataStd_Name attribute Driver.
 
 type
-  BinMDataStd_GenericExtStringDriver* {.importcpp: "BinMDataStd_GenericExtStringDriver", header: "BinMDataStd_GenericExtStringDriver.hxx",
-                                       bycopy.} = object of BinMDF_ADriver
+  BinMDataStdGenericExtStringDriver* {.importcpp: "BinMDataStd_GenericExtStringDriver", header: "BinMDataStd_GenericExtStringDriver.hxx",
+                                      bycopy.} = object of BinMDF_ADriver
 
 
-proc constructBinMDataStd_GenericExtStringDriver*(
-    theMessageDriver: handle[Message_Messenger]): BinMDataStd_GenericExtStringDriver {.
+proc constructBinMDataStdGenericExtStringDriver*(
+    theMessageDriver: Handle[MessageMessenger]): BinMDataStdGenericExtStringDriver {.
     constructor, importcpp: "BinMDataStd_GenericExtStringDriver(@)",
     header: "BinMDataStd_GenericExtStringDriver.hxx".}
-proc NewEmpty*(this: BinMDataStd_GenericExtStringDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: BinMDataStdGenericExtStringDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty",
     header: "BinMDataStd_GenericExtStringDriver.hxx".}
-proc SourceType*(this: BinMDataStd_GenericExtStringDriver): var handle[Standard_Type] {.
+proc sourceType*(this: BinMDataStdGenericExtStringDriver): var Handle[StandardType] {.
     noSideEffect, importcpp: "SourceType",
     header: "BinMDataStd_GenericExtStringDriver.hxx".}
-proc Paste*(this: BinMDataStd_GenericExtStringDriver; Source: BinObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste",
-    header: "BinMDataStd_GenericExtStringDriver.hxx".}
-proc Paste*(this: BinMDataStd_GenericExtStringDriver;
-           Source: handle[TDF_Attribute]; Target: var BinObjMgt_Persistent;
-           RelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: BinMDataStdGenericExtStringDriver; source: BinObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var BinObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "BinMDataStd_GenericExtStringDriver.hxx".}
+proc paste*(this: BinMDataStdGenericExtStringDriver; source: Handle[TDF_Attribute];
+           target: var BinObjMgtPersistent;
+           relocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMDataStd_GenericExtStringDriver.hxx".}
 type
-  BinMDataStd_GenericExtStringDriverbase_type* = BinMDF_ADriver
+  BinMDataStdGenericExtStringDriverbaseType* = BinMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "BinMDataStd_GenericExtStringDriver::get_type_name(@)",
-                              header: "BinMDataStd_GenericExtStringDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BinMDataStd_GenericExtStringDriver::get_type_name(@)",
+                            header: "BinMDataStd_GenericExtStringDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BinMDataStd_GenericExtStringDriver::get_type_descriptor(@)",
     header: "BinMDataStd_GenericExtStringDriver.hxx".}
-proc DynamicType*(this: BinMDataStd_GenericExtStringDriver): handle[Standard_Type] {.
+proc dynamicType*(this: BinMDataStdGenericExtStringDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataStd_GenericExtStringDriver.hxx".}

@@ -13,66 +13,63 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_GlCore33
-
 ## ! OpenGL 4.0 definition.
 
 type
-  OpenGl_TmplCore40*[theBaseClass_t] {.importcpp: "OpenGl_TmplCore40<\'0>",
-                                      header: "OpenGl_GlCore40.hxx", bycopy.} = object of theBaseClass_t ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## GL_ARB_gpu_shader_fp64
-                                                                                                  ## (added
-                                                                                                  ## to
-                                                                                                  ## OpenGL
-                                                                                                  ## 4.0
-                                                                                                  ## core)
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## GL_ARB_shader_subroutine
-                                                                                                  ## (added
-                                                                                                  ## to
-                                                                                                  ## OpenGL
-                                                                                                  ## 4.0
-                                                                                                  ## core)
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## GL_ARB_tessellation_shader
-                                                                                                  ## (added
-                                                                                                  ## to
-                                                                                                  ## OpenGL
-                                                                                                  ## 4.0
-                                                                                                  ## core)
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## GL_ARB_transform_feedback2
-                                                                                                  ## (added
-                                                                                                  ## to
-                                                                                                  ## OpenGL
-                                                                                                  ## 4.0
-                                                                                                  ## core)
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## GL_ARB_transform_feedback3
-                                                                                                  ## (added
-                                                                                                  ## to
-                                                                                                  ## OpenGL
-                                                                                                  ## 4.0
-                                                                                                  ## core)
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## OpenGL
-                                                                                                  ## 4.0
-                                                                                                  ## additives
-                                                                                                  ## to
-                                                                                                  ## 3.3
+  OpenGlTmplCore40*[TheBaseClassT] {.importcpp: "OpenGl_TmplCore40<\'0>",
+                                    header: "OpenGl_GlCore40.hxx", bycopy.} = object of TheBaseClassT ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## GL_ARB_gpu_shader_fp64
+                                                                                               ## (added
+                                                                                               ## to
+                                                                                               ## OpenGL
+                                                                                               ## 4.0
+                                                                                               ## core)
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## GL_ARB_shader_subroutine
+                                                                                               ## (added
+                                                                                               ## to
+                                                                                               ## OpenGL
+                                                                                               ## 4.0
+                                                                                               ## core)
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## GL_ARB_tessellation_shader
+                                                                                               ## (added
+                                                                                               ## to
+                                                                                               ## OpenGL
+                                                                                               ## 4.0
+                                                                                               ## core)
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## GL_ARB_transform_feedback2
+                                                                                               ## (added
+                                                                                               ## to
+                                                                                               ## OpenGL
+                                                                                               ## 4.0
+                                                                                               ## core)
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## GL_ARB_transform_feedback3
+                                                                                               ## (added
+                                                                                               ## to
+                                                                                               ## OpenGL
+                                                                                               ## 4.0
+                                                                                               ## core)
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## OpenGL
+                                                                                               ## 4.0
+                                                                                               ## additives
+                                                                                               ## to
+                                                                                               ## 3.3
 
 
 ## !!!Ignored construct:  # ! defined ( GL_ES_VERSION_2_0 ) [NewLine] public : ! @name GL_ARB_draw_indirect (added to OpenGL 4.0 core) using theBaseClass_t :: glDrawArraysIndirect ;
@@ -171,9 +168,10 @@ type
 ## ! OpenGL 4.0 compatibility profile.
 
 type
-  OpenGl_GlCore40Back* = OpenGl_TmplCore40[OpenGl_GlCore33Back]
+  OpenGlGlCore40Back* = OpenGlTmplCore40[OpenGlGlCore33Back]
 
 ## ! OpenGL 4.0 core profile.
 
 type
-  OpenGl_GlCore40* = OpenGl_TmplCore40[OpenGl_GlCore33]
+  OpenGlGlCore40* = OpenGlTmplCore40[OpenGlGlCore33]
+

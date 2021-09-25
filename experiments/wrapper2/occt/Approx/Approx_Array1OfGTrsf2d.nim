@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_GTrsf2d, ../NCollection/NCollection_Array1
-
 type
-  Approx_Array1OfGTrsf2d* = NCollection_Array1[gp_GTrsf2d]
+  ApproxArray1OfGTrsf2d* = NCollectionArray1[GTrsf2d]
+

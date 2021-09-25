@@ -14,49 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepRepr_ShapeRepresentationRelationship"
 discard "forward decl of StepRepr_ProductDefinitionShape"
 discard "forward decl of StepShape_ContextDependentShapeRepresentation"
 discard "forward decl of StepShape_ContextDependentShapeRepresentation"
 type
-  Handle_StepShape_ContextDependentShapeRepresentation* = handle[
-      StepShape_ContextDependentShapeRepresentation]
-  StepShape_ContextDependentShapeRepresentation* {.
+  HandleStepShapeContextDependentShapeRepresentation* = Handle[
+      StepShapeContextDependentShapeRepresentation]
+  StepShapeContextDependentShapeRepresentation* {.
       importcpp: "StepShape_ContextDependentShapeRepresentation",
-      header: "StepShape_ContextDependentShapeRepresentation.hxx", bycopy.} = object of Standard_Transient
+      header: "StepShape_ContextDependentShapeRepresentation.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructStepShape_ContextDependentShapeRepresentation*(): StepShape_ContextDependentShapeRepresentation {.
+proc constructStepShapeContextDependentShapeRepresentation*(): StepShapeContextDependentShapeRepresentation {.
     constructor, importcpp: "StepShape_ContextDependentShapeRepresentation(@)",
     header: "StepShape_ContextDependentShapeRepresentation.hxx".}
-proc Init*(this: var StepShape_ContextDependentShapeRepresentation;
-          aRepRel: handle[StepRepr_ShapeRepresentationRelationship];
-          aProRel: handle[StepRepr_ProductDefinitionShape]) {.importcpp: "Init",
+proc init*(this: var StepShapeContextDependentShapeRepresentation;
+          aRepRel: Handle[StepReprShapeRepresentationRelationship];
+          aProRel: Handle[StepReprProductDefinitionShape]) {.importcpp: "Init",
     header: "StepShape_ContextDependentShapeRepresentation.hxx".}
-proc RepresentationRelation*(this: StepShape_ContextDependentShapeRepresentation): handle[
-    StepRepr_ShapeRepresentationRelationship] {.noSideEffect,
+proc representationRelation*(this: StepShapeContextDependentShapeRepresentation): Handle[
+    StepReprShapeRepresentationRelationship] {.noSideEffect,
     importcpp: "RepresentationRelation",
     header: "StepShape_ContextDependentShapeRepresentation.hxx".}
-proc SetRepresentationRelation*(this: var StepShape_ContextDependentShapeRepresentation;
-    aRepRel: handle[StepRepr_ShapeRepresentationRelationship]) {.
+proc setRepresentationRelation*(this: var StepShapeContextDependentShapeRepresentation;
+    aRepRel: Handle[StepReprShapeRepresentationRelationship]) {.
     importcpp: "SetRepresentationRelation",
     header: "StepShape_ContextDependentShapeRepresentation.hxx".}
-proc RepresentedProductRelation*(this: StepShape_ContextDependentShapeRepresentation): handle[
-    StepRepr_ProductDefinitionShape] {.noSideEffect,
-                                      importcpp: "RepresentedProductRelation", header: "StepShape_ContextDependentShapeRepresentation.hxx".}
-proc SetRepresentedProductRelation*(this: var StepShape_ContextDependentShapeRepresentation;
-    aProRel: handle[StepRepr_ProductDefinitionShape]) {.
+proc representedProductRelation*(this: StepShapeContextDependentShapeRepresentation): Handle[
+    StepReprProductDefinitionShape] {.noSideEffect,
+                                     importcpp: "RepresentedProductRelation", header: "StepShape_ContextDependentShapeRepresentation.hxx".}
+proc setRepresentedProductRelation*(this: var StepShapeContextDependentShapeRepresentation;
+    aProRel: Handle[StepReprProductDefinitionShape]) {.
     importcpp: "SetRepresentedProductRelation",
     header: "StepShape_ContextDependentShapeRepresentation.hxx".}
 type
-  StepShape_ContextDependentShapeRepresentationbase_type* = Standard_Transient
+  StepShapeContextDependentShapeRepresentationbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_ContextDependentShapeRepresentation::get_type_name(@)", header: "StepShape_ContextDependentShapeRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepShape_ContextDependentShapeRepresentation::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepShape_ContextDependentShapeRepresentation::get_type_name(@)", header: "StepShape_ContextDependentShapeRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_ContextDependentShapeRepresentation::get_type_descriptor(@)",
     header: "StepShape_ContextDependentShapeRepresentation.hxx".}
-proc DynamicType*(this: StepShape_ContextDependentShapeRepresentation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepShape_ContextDependentShapeRepresentation.hxx".}
+proc dynamicType*(this: StepShapeContextDependentShapeRepresentation): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepShape_ContextDependentShapeRepresentation.hxx".}

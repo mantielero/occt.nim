@@ -14,45 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../BRepTopAdaptor/BRepTopAdaptor_MapOfShapeTool
-
 discard "forward decl of HLRBRep_Data"
 type
-  HLRBRep_Hider* {.importcpp: "HLRBRep_Hider", header: "HLRBRep_Hider.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Creates
-                                                                                      ## a
-                                                                                      ## Hider
-                                                                                      ## processing
-                                                                                      ## the
-                                                                                      ## set
-                                                                                      ## of
-                                                                                      ## Edges
-                                                                                      ## and
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## hiding
-                                                                                      ## faces
-                                                                                      ## described
-                                                                                      ## by
-                                                                                      ## <DS>.
-                                                                                      ## Stores
-                                                                                      ## the
-                                                                                      ## hidden
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## parts
-                                                                                      ## in
-                                                                                      ## <DS>.
+  HLRBRepHider* {.importcpp: "HLRBRep_Hider", header: "HLRBRep_Hider.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Creates
+                                                                                     ## a
+                                                                                     ## Hider
+                                                                                     ## processing
+                                                                                     ## the
+                                                                                     ## set
+                                                                                     ## of
+                                                                                     ## Edges
+                                                                                     ## and
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## hiding
+                                                                                     ## faces
+                                                                                     ## described
+                                                                                     ## by
+                                                                                     ## <DS>.
+                                                                                     ## Stores
+                                                                                     ## the
+                                                                                     ## hidden
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## parts
+                                                                                     ## in
+                                                                                     ## <DS>.
 
 
-proc constructHLRBRep_Hider*(DS: handle[HLRBRep_Data]): HLRBRep_Hider {.constructor,
+proc constructHLRBRepHider*(ds: Handle[HLRBRepData]): HLRBRepHider {.constructor,
     importcpp: "HLRBRep_Hider(@)", header: "HLRBRep_Hider.hxx".}
-proc OwnHiding*(this: var HLRBRep_Hider; FI: Standard_Integer) {.
-    importcpp: "OwnHiding", header: "HLRBRep_Hider.hxx".}
-proc Hide*(this: var HLRBRep_Hider; FI: Standard_Integer;
-          MST: var BRepTopAdaptor_MapOfShapeTool) {.importcpp: "Hide",
+proc ownHiding*(this: var HLRBRepHider; fi: int) {.importcpp: "OwnHiding",
     header: "HLRBRep_Hider.hxx".}
+proc hide*(this: var HLRBRepHider; fi: int; mst: var BRepTopAdaptorMapOfShapeTool) {.
+    importcpp: "Hide", header: "HLRBRep_Hider.hxx".}

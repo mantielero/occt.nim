@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_TextOrCharacter, StepVisual_Array1OfTextOrCharacter,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepVisual_HArray1OfTextOrCharacter* {.importcpp: "StepVisual_HArray1OfTextOrCharacter", header: "StepVisual_HArray1OfTextOrCharacter.hxx",
-                                        bycopy.} = object of StepVisual_Array1OfTextOrCharacter
+  StepVisualHArray1OfTextOrCharacter* {.importcpp: "StepVisual_HArray1OfTextOrCharacter", header: "StepVisual_HArray1OfTextOrCharacter.hxx",
+                                       bycopy.} = object of StepVisualArray1OfTextOrCharacter
 
 
-proc constructStepVisual_HArray1OfTextOrCharacter*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepVisual_HArray1OfTextOrCharacter {.constructor,
+proc constructStepVisualHArray1OfTextOrCharacter*(theLower: int; theUpper: int): StepVisualHArray1OfTextOrCharacter {.
+    constructor, importcpp: "StepVisual_HArray1OfTextOrCharacter(@)",
+    header: "StepVisual_HArray1OfTextOrCharacter.hxx".}
+proc constructStepVisualHArray1OfTextOrCharacter*(theLower: int; theUpper: int;
+    theValue: ValueType): StepVisualHArray1OfTextOrCharacter {.constructor,
     importcpp: "StepVisual_HArray1OfTextOrCharacter(@)",
     header: "StepVisual_HArray1OfTextOrCharacter.hxx".}
-proc constructStepVisual_HArray1OfTextOrCharacter*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepVisual_HArray1OfTextOrCharacter {.
+proc constructStepVisualHArray1OfTextOrCharacter*(
+    theOther: StepVisualArray1OfTextOrCharacter): StepVisualHArray1OfTextOrCharacter {.
     constructor, importcpp: "StepVisual_HArray1OfTextOrCharacter(@)",
     header: "StepVisual_HArray1OfTextOrCharacter.hxx".}
-proc constructStepVisual_HArray1OfTextOrCharacter*(
-    theOther: StepVisual_Array1OfTextOrCharacter): StepVisual_HArray1OfTextOrCharacter {.
-    constructor, importcpp: "StepVisual_HArray1OfTextOrCharacter(@)",
-    header: "StepVisual_HArray1OfTextOrCharacter.hxx".}
-proc Array1*(this: StepVisual_HArray1OfTextOrCharacter): StepVisual_Array1OfTextOrCharacter {.
+proc array1*(this: StepVisualHArray1OfTextOrCharacter): StepVisualArray1OfTextOrCharacter {.
     noSideEffect, importcpp: "Array1",
     header: "StepVisual_HArray1OfTextOrCharacter.hxx".}
-proc ChangeArray1*(this: var StepVisual_HArray1OfTextOrCharacter): var StepVisual_Array1OfTextOrCharacter {.
+proc changeArray1*(this: var StepVisualHArray1OfTextOrCharacter): var StepVisualArray1OfTextOrCharacter {.
     importcpp: "ChangeArray1", header: "StepVisual_HArray1OfTextOrCharacter.hxx".}
 type
-  StepVisual_HArray1OfTextOrCharacterbase_type* = MMgt_TShared
+  StepVisualHArray1OfTextOrCharacterbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_HArray1OfTextOrCharacter::get_type_name(@)",
-                              header: "StepVisual_HArray1OfTextOrCharacter.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_HArray1OfTextOrCharacter::get_type_name(@)",
+                            header: "StepVisual_HArray1OfTextOrCharacter.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_HArray1OfTextOrCharacter::get_type_descriptor(@)",
     header: "StepVisual_HArray1OfTextOrCharacter.hxx".}
-proc DynamicType*(this: StepVisual_HArray1OfTextOrCharacter): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualHArray1OfTextOrCharacter): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_HArray1OfTextOrCharacter.hxx".}

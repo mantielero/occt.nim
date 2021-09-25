@@ -13,9 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Sequence, XCAFDimTolObjects_DatumSingleModif
-
 type
-  XCAFDimTolObjects_DatumModifiersSequence* = NCollection_Sequence[
-      XCAFDimTolObjects_DatumSingleModif]
+  XCAFDimTolObjectsDatumModifiersSequence* = NCollectionSequence[
+      XCAFDimTolObjectsDatumSingleModif]
+

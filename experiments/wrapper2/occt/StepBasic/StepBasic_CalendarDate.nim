@@ -14,44 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  StepBasic_Date
-
 discard "forward decl of StepBasic_CalendarDate"
 discard "forward decl of StepBasic_CalendarDate"
 type
-  Handle_StepBasic_CalendarDate* = handle[StepBasic_CalendarDate]
-  StepBasic_CalendarDate* {.importcpp: "StepBasic_CalendarDate",
-                           header: "StepBasic_CalendarDate.hxx", bycopy.} = object of StepBasic_Date ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## a
-                                                                                              ## CalendarDate
+  HandleStepBasicCalendarDate* = Handle[StepBasicCalendarDate]
+  StepBasicCalendarDate* {.importcpp: "StepBasic_CalendarDate",
+                          header: "StepBasic_CalendarDate.hxx", bycopy.} = object of StepBasicDate ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## a
+                                                                                            ## CalendarDate
 
 
-proc constructStepBasic_CalendarDate*(): StepBasic_CalendarDate {.constructor,
+proc constructStepBasicCalendarDate*(): StepBasicCalendarDate {.constructor,
     importcpp: "StepBasic_CalendarDate(@)", header: "StepBasic_CalendarDate.hxx".}
-proc Init*(this: var StepBasic_CalendarDate; aYearComponent: Standard_Integer;
-          aDayComponent: Standard_Integer; aMonthComponent: Standard_Integer) {.
-    importcpp: "Init", header: "StepBasic_CalendarDate.hxx".}
-proc SetDayComponent*(this: var StepBasic_CalendarDate;
-                     aDayComponent: Standard_Integer) {.
+proc init*(this: var StepBasicCalendarDate; aYearComponent: int; aDayComponent: int;
+          aMonthComponent: int) {.importcpp: "Init",
+                                header: "StepBasic_CalendarDate.hxx".}
+proc setDayComponent*(this: var StepBasicCalendarDate; aDayComponent: int) {.
     importcpp: "SetDayComponent", header: "StepBasic_CalendarDate.hxx".}
-proc DayComponent*(this: StepBasic_CalendarDate): Standard_Integer {.noSideEffect,
+proc dayComponent*(this: StepBasicCalendarDate): int {.noSideEffect,
     importcpp: "DayComponent", header: "StepBasic_CalendarDate.hxx".}
-proc SetMonthComponent*(this: var StepBasic_CalendarDate;
-                       aMonthComponent: Standard_Integer) {.
+proc setMonthComponent*(this: var StepBasicCalendarDate; aMonthComponent: int) {.
     importcpp: "SetMonthComponent", header: "StepBasic_CalendarDate.hxx".}
-proc MonthComponent*(this: StepBasic_CalendarDate): Standard_Integer {.noSideEffect,
+proc monthComponent*(this: StepBasicCalendarDate): int {.noSideEffect,
     importcpp: "MonthComponent", header: "StepBasic_CalendarDate.hxx".}
 type
-  StepBasic_CalendarDatebase_type* = StepBasic_Date
+  StepBasicCalendarDatebaseType* = StepBasicDate
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_CalendarDate::get_type_name(@)",
-                              header: "StepBasic_CalendarDate.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_CalendarDate::get_type_name(@)",
+                            header: "StepBasic_CalendarDate.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_CalendarDate::get_type_descriptor(@)",
     header: "StepBasic_CalendarDate.hxx".}
-proc DynamicType*(this: StepBasic_CalendarDate): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepBasic_CalendarDate.hxx".}
+proc dynamicType*(this: StepBasicCalendarDate): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepBasic_CalendarDate.hxx".}

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, StepToTopoDS_TranslateVertexLoopError,
-  ../TopoDS/TopoDS_Shape, StepToTopoDS_Root
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of StepShape_VertexLoop"
 discard "forward decl of StepToTopoDS_Tool"
@@ -32,16 +27,16 @@ type
 proc constructStepToTopoDS_TranslateVertexLoop*(): StepToTopoDS_TranslateVertexLoop {.
     constructor, importcpp: "StepToTopoDS_TranslateVertexLoop(@)",
     header: "StepToTopoDS_TranslateVertexLoop.hxx".}
-proc constructStepToTopoDS_TranslateVertexLoop*(VL: handle[StepShape_VertexLoop];
-    T: var StepToTopoDS_Tool; NMTool: var StepToTopoDS_NMTool): StepToTopoDS_TranslateVertexLoop {.
+proc constructStepToTopoDS_TranslateVertexLoop*(vl: Handle[StepShapeVertexLoop];
+    t: var StepToTopoDS_Tool; nMTool: var StepToTopoDS_NMTool): StepToTopoDS_TranslateVertexLoop {.
     constructor, importcpp: "StepToTopoDS_TranslateVertexLoop(@)",
     header: "StepToTopoDS_TranslateVertexLoop.hxx".}
-proc Init*(this: var StepToTopoDS_TranslateVertexLoop;
-          VL: handle[StepShape_VertexLoop]; T: var StepToTopoDS_Tool;
-          NMTool: var StepToTopoDS_NMTool) {.importcpp: "Init",
+proc init*(this: var StepToTopoDS_TranslateVertexLoop;
+          vl: Handle[StepShapeVertexLoop]; t: var StepToTopoDS_Tool;
+          nMTool: var StepToTopoDS_NMTool) {.importcpp: "Init",
     header: "StepToTopoDS_TranslateVertexLoop.hxx".}
-proc Value*(this: StepToTopoDS_TranslateVertexLoop): TopoDS_Shape {.noSideEffect,
+proc value*(this: StepToTopoDS_TranslateVertexLoop): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "StepToTopoDS_TranslateVertexLoop.hxx".}
-proc Error*(this: StepToTopoDS_TranslateVertexLoop): StepToTopoDS_TranslateVertexLoopError {.
+proc error*(this: StepToTopoDS_TranslateVertexLoop): StepToTopoDS_TranslateVertexLoopError {.
     noSideEffect, importcpp: "Error",
     header: "StepToTopoDS_TranslateVertexLoop.hxx".}

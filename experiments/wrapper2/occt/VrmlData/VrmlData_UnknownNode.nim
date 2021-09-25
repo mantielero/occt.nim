@@ -13,49 +13,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  VrmlData_Node, ../TCollection/TCollection_AsciiString
-
 ## *
 ##  Definition of UnknownNode -- placeholder for node types that
 ##  are not processed now.
 ##
 
 type
-  VrmlData_UnknownNode* {.importcpp: "VrmlData_UnknownNode",
-                         header: "VrmlData_UnknownNode.hxx", bycopy.} = object of VrmlData_Node ##  ---------- PUBLIC METHODS ----------
-                                                                                         ## *
-                                                                                         ##  Empty Constructor.
-                                                                                         ##
-                                                                                         ##  ---------- PRIVATE FIELDS ----------
-                                                                                         ##  Declaration of CASCADE RTTI
+  VrmlDataUnknownNode* {.importcpp: "VrmlData_UnknownNode",
+                        header: "VrmlData_UnknownNode.hxx", bycopy.} = object of VrmlDataNode ##  ---------- PUBLIC METHODS ----------
+                                                                                       ## *
+                                                                                       ##  Empty Constructor.
+                                                                                       ##
+                                                                                       ##  ---------- PRIVATE FIELDS ----------
+                                                                                       ##  Declaration of CASCADE RTTI
 
 
-proc constructVrmlData_UnknownNode*(): VrmlData_UnknownNode {.constructor,
+proc constructVrmlDataUnknownNode*(): VrmlDataUnknownNode {.constructor,
     importcpp: "VrmlData_UnknownNode(@)", header: "VrmlData_UnknownNode.hxx".}
-proc constructVrmlData_UnknownNode*(theScene: VrmlData_Scene;
-                                   theName: cstring = 0L'i64;
-                                   theTitle: cstring = 0L'i64): VrmlData_UnknownNode {.
+proc constructVrmlDataUnknownNode*(theScene: VrmlDataScene;
+                                  theName: cstring = 0'i64;
+                                  theTitle: cstring = 0'i64): VrmlDataUnknownNode {.
     constructor, importcpp: "VrmlData_UnknownNode(@)",
     header: "VrmlData_UnknownNode.hxx".}
-proc Read*(this: var VrmlData_UnknownNode; theBuffer: var VrmlData_InBuffer): VrmlData_ErrorStatus {.
+proc read*(this: var VrmlDataUnknownNode; theBuffer: var VrmlDataInBuffer): VrmlDataErrorStatus {.
     importcpp: "Read", header: "VrmlData_UnknownNode.hxx".}
-proc GetTitle*(this: VrmlData_UnknownNode): TCollection_AsciiString {.noSideEffect,
+proc getTitle*(this: VrmlDataUnknownNode): TCollectionAsciiString {.noSideEffect,
     importcpp: "GetTitle", header: "VrmlData_UnknownNode.hxx".}
-proc IsDefault*(this: VrmlData_UnknownNode): Standard_Boolean {.noSideEffect,
+proc isDefault*(this: VrmlDataUnknownNode): bool {.noSideEffect,
     importcpp: "IsDefault", header: "VrmlData_UnknownNode.hxx".}
 type
-  VrmlData_UnknownNodebase_type* = VrmlData_Node
+  VrmlDataUnknownNodebaseType* = VrmlDataNode
 
-proc get_type_name*(): cstring {.importcpp: "VrmlData_UnknownNode::get_type_name(@)",
-                              header: "VrmlData_UnknownNode.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "VrmlData_UnknownNode::get_type_name(@)",
+                            header: "VrmlData_UnknownNode.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "VrmlData_UnknownNode::get_type_descriptor(@)",
     header: "VrmlData_UnknownNode.hxx".}
-proc DynamicType*(this: VrmlData_UnknownNode): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: VrmlDataUnknownNode): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "VrmlData_UnknownNode.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of VrmlData_UnknownNode"
 type
-  Handle_VrmlData_UnknownNode* = handle[VrmlData_UnknownNode]
+  HandleVrmlDataUnknownNode* = Handle[VrmlDataUnknownNode]
+

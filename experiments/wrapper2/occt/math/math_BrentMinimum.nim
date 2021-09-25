@@ -14,42 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer,
-  ../Standard/Standard_OStream
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of math_Function"
 type
-  math_BrentMinimum* {.importcpp: "math_BrentMinimum",
-                      header: "math_BrentMinimum.hxx", bycopy.} = object ## ! This constructor should be used in a sub-class to initialize
-                                                                    ## ! correctly all the fields of this class.
+  MathBrentMinimum* {.importcpp: "math_BrentMinimum",
+                     header: "math_BrentMinimum.hxx", bycopy.} = object ## ! This constructor should be used in a sub-class to initialize
+                                                                   ## ! correctly all the fields of this class.
 
 
-proc constructmath_BrentMinimum*(TolX: Standard_Real;
-                                NbIterations: Standard_Integer = 100;
-                                ZEPS: Standard_Real = 1.0e-12): math_BrentMinimum {.
+proc constructMathBrentMinimum*(tolX: float; nbIterations: int = 100;
+                               zeps: float = 1.0e-12): MathBrentMinimum {.
     constructor, importcpp: "math_BrentMinimum(@)", header: "math_BrentMinimum.hxx".}
-proc constructmath_BrentMinimum*(TolX: Standard_Real; Fbx: Standard_Real;
-                                NbIterations: Standard_Integer = 100;
-                                ZEPS: Standard_Real = 1.0e-12): math_BrentMinimum {.
+proc constructMathBrentMinimum*(tolX: float; fbx: float; nbIterations: int = 100;
+                               zeps: float = 1.0e-12): MathBrentMinimum {.
     constructor, importcpp: "math_BrentMinimum(@)", header: "math_BrentMinimum.hxx".}
-proc destroymath_BrentMinimum*(this: var math_BrentMinimum) {.
+proc destroyMathBrentMinimum*(this: var MathBrentMinimum) {.
     importcpp: "#.~math_BrentMinimum()", header: "math_BrentMinimum.hxx".}
-proc Perform*(this: var math_BrentMinimum; F: var math_Function; Ax: Standard_Real;
-             Bx: Standard_Real; Cx: Standard_Real) {.importcpp: "Perform",
-    header: "math_BrentMinimum.hxx".}
-proc IsSolutionReached*(this: var math_BrentMinimum; theFunction: var math_Function): Standard_Boolean {.
+proc perform*(this: var MathBrentMinimum; f: var MathFunction; ax: float; bx: float;
+             cx: float) {.importcpp: "Perform", header: "math_BrentMinimum.hxx".}
+proc isSolutionReached*(this: var MathBrentMinimum; theFunction: var MathFunction): bool {.
     importcpp: "IsSolutionReached", header: "math_BrentMinimum.hxx".}
-proc IsDone*(this: math_BrentMinimum): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "math_BrentMinimum.hxx".}
-proc Location*(this: math_BrentMinimum): Standard_Real {.noSideEffect,
-    importcpp: "Location", header: "math_BrentMinimum.hxx".}
-proc Minimum*(this: math_BrentMinimum): Standard_Real {.noSideEffect,
-    importcpp: "Minimum", header: "math_BrentMinimum.hxx".}
-proc NbIterations*(this: math_BrentMinimum): Standard_Integer {.noSideEffect,
+proc isDone*(this: MathBrentMinimum): bool {.noSideEffect, importcpp: "IsDone",
+    header: "math_BrentMinimum.hxx".}
+proc location*(this: MathBrentMinimum): float {.noSideEffect, importcpp: "Location",
+    header: "math_BrentMinimum.hxx".}
+proc minimum*(this: MathBrentMinimum): float {.noSideEffect, importcpp: "Minimum",
+    header: "math_BrentMinimum.hxx".}
+proc nbIterations*(this: MathBrentMinimum): int {.noSideEffect,
     importcpp: "NbIterations", header: "math_BrentMinimum.hxx".}
-proc Dump*(this: math_BrentMinimum; o: var Standard_OStream) {.noSideEffect,
+proc dump*(this: MathBrentMinimum; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_BrentMinimum.hxx".}

@@ -14,15 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_ShortReal,
-  Graphic3d_Texture1D, Graphic3d_NameOfTexture1D
-
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Graphic3d_Texture1Dsegment"
 discard "forward decl of Graphic3d_Texture1Dsegment"
 type
-  Handle_Graphic3d_Texture1Dsegment* = handle[Graphic3d_Texture1Dsegment]
+  HandleGraphic3dTexture1Dsegment* = Handle[Graphic3dTexture1Dsegment]
 
 ## ! This class provides the implementation
 ## ! of a 1D texture applyable along a segment.
@@ -30,44 +26,44 @@ type
 ## ! to set the way the texture is "streched" on facets.
 
 type
-  Graphic3d_Texture1Dsegment* {.importcpp: "Graphic3d_Texture1Dsegment",
-                               header: "Graphic3d_Texture1Dsegment.hxx", bycopy.} = object of Graphic3d_Texture1D ##
-                                                                                                           ## !
-                                                                                                           ## Creates
-                                                                                                           ## a
-                                                                                                           ## texture
-                                                                                                           ## from
-                                                                                                           ## a
-                                                                                                           ## file
+  Graphic3dTexture1Dsegment* {.importcpp: "Graphic3d_Texture1Dsegment",
+                              header: "Graphic3d_Texture1Dsegment.hxx", bycopy.} = object of Graphic3dTexture1D ##
+                                                                                                         ## !
+                                                                                                         ## Creates
+                                                                                                         ## a
+                                                                                                         ## texture
+                                                                                                         ## from
+                                                                                                         ## a
+                                                                                                         ## file
 
 
-proc constructGraphic3d_Texture1Dsegment*(theFileName: TCollection_AsciiString): Graphic3d_Texture1Dsegment {.
+proc constructGraphic3dTexture1Dsegment*(theFileName: TCollectionAsciiString): Graphic3dTexture1Dsegment {.
     constructor, importcpp: "Graphic3d_Texture1Dsegment(@)",
     header: "Graphic3d_Texture1Dsegment.hxx".}
-proc constructGraphic3d_Texture1Dsegment*(theNOT: Graphic3d_NameOfTexture1D): Graphic3d_Texture1Dsegment {.
+proc constructGraphic3dTexture1Dsegment*(theNOT: Graphic3dNameOfTexture1D): Graphic3dTexture1Dsegment {.
     constructor, importcpp: "Graphic3d_Texture1Dsegment(@)",
     header: "Graphic3d_Texture1Dsegment.hxx".}
-proc constructGraphic3d_Texture1Dsegment*(thePixMap: handle[Image_PixMap]): Graphic3d_Texture1Dsegment {.
+proc constructGraphic3dTexture1Dsegment*(thePixMap: Handle[ImagePixMap]): Graphic3dTexture1Dsegment {.
     constructor, importcpp: "Graphic3d_Texture1Dsegment(@)",
     header: "Graphic3d_Texture1Dsegment.hxx".}
-proc SetSegment*(this: var Graphic3d_Texture1Dsegment; theX1: Standard_ShortReal;
-                theY1: Standard_ShortReal; theZ1: Standard_ShortReal;
-                theX2: Standard_ShortReal; theY2: Standard_ShortReal;
-                theZ2: Standard_ShortReal) {.importcpp: "SetSegment",
+proc setSegment*(this: var Graphic3dTexture1Dsegment; theX1: StandardShortReal;
+                theY1: StandardShortReal; theZ1: StandardShortReal;
+                theX2: StandardShortReal; theY2: StandardShortReal;
+                theZ2: StandardShortReal) {.importcpp: "SetSegment",
     header: "Graphic3d_Texture1Dsegment.hxx".}
-proc Segment*(this: Graphic3d_Texture1Dsegment; theX1: var Standard_ShortReal;
-             theY1: var Standard_ShortReal; theZ1: var Standard_ShortReal;
-             theX2: var Standard_ShortReal; theY2: var Standard_ShortReal;
-             theZ2: var Standard_ShortReal) {.noSideEffect, importcpp: "Segment",
+proc segment*(this: Graphic3dTexture1Dsegment; theX1: var StandardShortReal;
+             theY1: var StandardShortReal; theZ1: var StandardShortReal;
+             theX2: var StandardShortReal; theY2: var StandardShortReal;
+             theZ2: var StandardShortReal) {.noSideEffect, importcpp: "Segment",
     header: "Graphic3d_Texture1Dsegment.hxx".}
 type
-  Graphic3d_Texture1Dsegmentbase_type* = Graphic3d_Texture1D
+  Graphic3dTexture1DsegmentbaseType* = Graphic3dTexture1D
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_Texture1Dsegment::get_type_name(@)",
-                              header: "Graphic3d_Texture1Dsegment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_Texture1Dsegment::get_type_name(@)",
+                            header: "Graphic3d_Texture1Dsegment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_Texture1Dsegment::get_type_descriptor(@)",
     header: "Graphic3d_Texture1Dsegment.hxx".}
-proc DynamicType*(this: Graphic3d_Texture1Dsegment): handle[Standard_Type] {.
+proc dynamicType*(this: Graphic3dTexture1Dsegment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Graphic3d_Texture1Dsegment.hxx".}

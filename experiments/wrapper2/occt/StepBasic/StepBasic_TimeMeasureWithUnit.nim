@@ -14,31 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_MeasureWithUnit
-
 discard "forward decl of StepBasic_TimeMeasureWithUnit"
 discard "forward decl of StepBasic_TimeMeasureWithUnit"
 type
-  Handle_StepBasic_TimeMeasureWithUnit* = handle[StepBasic_TimeMeasureWithUnit]
-  StepBasic_TimeMeasureWithUnit* {.importcpp: "StepBasic_TimeMeasureWithUnit",
-                                  header: "StepBasic_TimeMeasureWithUnit.hxx",
-                                  bycopy.} = object of StepBasic_MeasureWithUnit ## !
-                                                                            ## Returns a
-                                                                            ## TimeMeasureWithUnit
+  HandleStepBasicTimeMeasureWithUnit* = Handle[StepBasicTimeMeasureWithUnit]
+  StepBasicTimeMeasureWithUnit* {.importcpp: "StepBasic_TimeMeasureWithUnit",
+                                 header: "StepBasic_TimeMeasureWithUnit.hxx",
+                                 bycopy.} = object of StepBasicMeasureWithUnit ## !
+                                                                          ## Returns a
+                                                                          ## TimeMeasureWithUnit
 
 
-proc constructStepBasic_TimeMeasureWithUnit*(): StepBasic_TimeMeasureWithUnit {.
+proc constructStepBasicTimeMeasureWithUnit*(): StepBasicTimeMeasureWithUnit {.
     constructor, importcpp: "StepBasic_TimeMeasureWithUnit(@)",
     header: "StepBasic_TimeMeasureWithUnit.hxx".}
 type
-  StepBasic_TimeMeasureWithUnitbase_type* = StepBasic_MeasureWithUnit
+  StepBasicTimeMeasureWithUnitbaseType* = StepBasicMeasureWithUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_TimeMeasureWithUnit::get_type_name(@)",
-                              header: "StepBasic_TimeMeasureWithUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_TimeMeasureWithUnit::get_type_name(@)",
+                            header: "StepBasic_TimeMeasureWithUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_TimeMeasureWithUnit::get_type_descriptor(@)",
     header: "StepBasic_TimeMeasureWithUnit.hxx".}
-proc DynamicType*(this: StepBasic_TimeMeasureWithUnit): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicTimeMeasureWithUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_TimeMeasureWithUnit.hxx".}

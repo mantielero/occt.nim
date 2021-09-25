@@ -14,16 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _TopoDS_FrozenShape_HeaderFile [NewLine] # _TopoDS_FrozenShape_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_DomainError.hxx [NewLine] ! An  attempt was  made to   modify  a Shape  already
+## !!!Ignored construct:  # _TopoDS_FrozenShape_HeaderFile [NewLine] # _TopoDS_FrozenShape_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] ! An  attempt was  made to   modify  a Shape  already
 ## ! shared or protected. class TopoDS_FrozenShape ;
 ## Error: expected ';'!!!
 
 discard "forward decl of TopoDS_FrozenShape"
 type
-  Handle_TopoDS_FrozenShapeTopoDS_FrozenShape* = handle[TopoDS_FrozenShape]
+  HandleTopoDS_FrozenShapeTopoDS_FrozenShape* = Handle[TopoDS_FrozenShape]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_TopoDS_FrozenShape [NewLine] # if ( CONDITION ) throw TopoDS_FrozenShape ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( TopoDS_FrozenShape , Standard_DomainError ) #  _TopoDS_FrozenShape_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( TopoDS_FrozenShape , Standard_DomainError ) #  _TopoDS_FrozenShape_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

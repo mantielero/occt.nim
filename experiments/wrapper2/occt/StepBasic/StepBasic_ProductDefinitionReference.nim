@@ -13,85 +13,79 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_ExternalSource"
 discard "forward decl of StepBasic_ProductDefinitionReference"
 discard "forward decl of StepBasic_ProductDefinitionReference"
 type
-  Handle_StepBasic_ProductDefinitionReference* = handle[
-      StepBasic_ProductDefinitionReference]
+  HandleStepBasicProductDefinitionReference* = Handle[
+      StepBasicProductDefinitionReference]
 
 ## ! Representation of STEP entity Product_Definition_Reference
 
 type
-  StepBasic_ProductDefinitionReference* {.
-      importcpp: "StepBasic_ProductDefinitionReference",
-      header: "StepBasic_ProductDefinitionReference.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                           ## !
-                                                                                           ## Empty
-                                                                                           ## constructor
+  StepBasicProductDefinitionReference* {.importcpp: "StepBasic_ProductDefinitionReference", header: "StepBasic_ProductDefinitionReference.hxx",
+                                        bycopy.} = object of StandardTransient ## ! Empty
+                                                                          ## constructor
 
 
-proc constructStepBasic_ProductDefinitionReference*(): StepBasic_ProductDefinitionReference {.
+proc constructStepBasicProductDefinitionReference*(): StepBasicProductDefinitionReference {.
     constructor, importcpp: "StepBasic_ProductDefinitionReference(@)",
     header: "StepBasic_ProductDefinitionReference.hxx".}
-proc Init*(this: var StepBasic_ProductDefinitionReference;
-          theSource: handle[StepBasic_ExternalSource];
-          theProductId: handle[TCollection_HAsciiString];
-          theProductDefinitionFormationId: handle[TCollection_HAsciiString];
-          theProductDefinitionId: handle[TCollection_HAsciiString];
-          theIdOwningOrganizationName: handle[TCollection_HAsciiString]) {.
+proc init*(this: var StepBasicProductDefinitionReference;
+          theSource: Handle[StepBasicExternalSource];
+          theProductId: Handle[TCollectionHAsciiString];
+          theProductDefinitionFormationId: Handle[TCollectionHAsciiString];
+          theProductDefinitionId: Handle[TCollectionHAsciiString];
+          theIdOwningOrganizationName: Handle[TCollectionHAsciiString]) {.
     importcpp: "Init", header: "StepBasic_ProductDefinitionReference.hxx".}
-proc Init*(this: var StepBasic_ProductDefinitionReference;
-          theSource: handle[StepBasic_ExternalSource];
-          theProductId: handle[TCollection_HAsciiString];
-          theProductDefinitionFormationId: handle[TCollection_HAsciiString];
-          theProductDefinitionId: handle[TCollection_HAsciiString]) {.
+proc init*(this: var StepBasicProductDefinitionReference;
+          theSource: Handle[StepBasicExternalSource];
+          theProductId: Handle[TCollectionHAsciiString];
+          theProductDefinitionFormationId: Handle[TCollectionHAsciiString];
+          theProductDefinitionId: Handle[TCollectionHAsciiString]) {.
     importcpp: "Init", header: "StepBasic_ProductDefinitionReference.hxx".}
-proc Source*(this: StepBasic_ProductDefinitionReference): handle[
-    StepBasic_ExternalSource] {.noSideEffect, importcpp: "Source", header: "StepBasic_ProductDefinitionReference.hxx".}
-proc SetSource*(this: var StepBasic_ProductDefinitionReference;
-               theSource: handle[StepBasic_ExternalSource]) {.
+proc source*(this: StepBasicProductDefinitionReference): Handle[
+    StepBasicExternalSource] {.noSideEffect, importcpp: "Source", header: "StepBasic_ProductDefinitionReference.hxx".}
+proc setSource*(this: var StepBasicProductDefinitionReference;
+               theSource: Handle[StepBasicExternalSource]) {.
     importcpp: "SetSource", header: "StepBasic_ProductDefinitionReference.hxx".}
-proc ProductId*(this: StepBasic_ProductDefinitionReference): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "ProductId", header: "StepBasic_ProductDefinitionReference.hxx".}
-proc SetProductId*(this: var StepBasic_ProductDefinitionReference;
-                  theProductId: handle[TCollection_HAsciiString]) {.
+proc productId*(this: StepBasicProductDefinitionReference): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "ProductId", header: "StepBasic_ProductDefinitionReference.hxx".}
+proc setProductId*(this: var StepBasicProductDefinitionReference;
+                  theProductId: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetProductId", header: "StepBasic_ProductDefinitionReference.hxx".}
-proc ProductDefinitionFormationId*(this: StepBasic_ProductDefinitionReference): handle[
-    TCollection_HAsciiString] {.noSideEffect,
-                               importcpp: "ProductDefinitionFormationId", header: "StepBasic_ProductDefinitionReference.hxx".}
-proc SetProductDefinitionFormationId*(this: var StepBasic_ProductDefinitionReference;
-    theProductDefinitionFormationId: handle[TCollection_HAsciiString]) {.
+proc productDefinitionFormationId*(this: StepBasicProductDefinitionReference): Handle[
+    TCollectionHAsciiString] {.noSideEffect,
+                              importcpp: "ProductDefinitionFormationId", header: "StepBasic_ProductDefinitionReference.hxx".}
+proc setProductDefinitionFormationId*(this: var StepBasicProductDefinitionReference;
+    theProductDefinitionFormationId: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetProductDefinitionFormationId",
     header: "StepBasic_ProductDefinitionReference.hxx".}
-proc ProductDefinitionId*(this: StepBasic_ProductDefinitionReference): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "ProductDefinitionId", header: "StepBasic_ProductDefinitionReference.hxx".}
-proc SetProductDefinitionId*(this: var StepBasic_ProductDefinitionReference;
-    theProductDefinitionId: handle[TCollection_HAsciiString]) {.
+proc productDefinitionId*(this: StepBasicProductDefinitionReference): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "ProductDefinitionId", header: "StepBasic_ProductDefinitionReference.hxx".}
+proc setProductDefinitionId*(this: var StepBasicProductDefinitionReference;
+    theProductDefinitionId: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetProductDefinitionId",
     header: "StepBasic_ProductDefinitionReference.hxx".}
-proc IdOwningOrganizationName*(this: StepBasic_ProductDefinitionReference): handle[
-    TCollection_HAsciiString] {.noSideEffect,
-                               importcpp: "IdOwningOrganizationName", header: "StepBasic_ProductDefinitionReference.hxx".}
-proc SetIdOwningOrganizationName*(this: var StepBasic_ProductDefinitionReference;
-    theIdOwningOrganizationName: handle[TCollection_HAsciiString]) {.
+proc idOwningOrganizationName*(this: StepBasicProductDefinitionReference): Handle[
+    TCollectionHAsciiString] {.noSideEffect,
+                              importcpp: "IdOwningOrganizationName", header: "StepBasic_ProductDefinitionReference.hxx".}
+proc setIdOwningOrganizationName*(this: var StepBasicProductDefinitionReference;
+    theIdOwningOrganizationName: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetIdOwningOrganizationName",
     header: "StepBasic_ProductDefinitionReference.hxx".}
-proc HasIdOwningOrganizationName*(this: StepBasic_ProductDefinitionReference): Standard_Boolean {.
+proc hasIdOwningOrganizationName*(this: StepBasicProductDefinitionReference): bool {.
     noSideEffect, importcpp: "HasIdOwningOrganizationName",
     header: "StepBasic_ProductDefinitionReference.hxx".}
 type
-  StepBasic_ProductDefinitionReferencebase_type* = Standard_Transient
+  StepBasicProductDefinitionReferencebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ProductDefinitionReference::get_type_name(@)", header: "StepBasic_ProductDefinitionReference.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ProductDefinitionReference::get_type_name(@)",
+                            header: "StepBasic_ProductDefinitionReference.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_ProductDefinitionReference::get_type_descriptor(@)",
     header: "StepBasic_ProductDefinitionReference.hxx".}
-proc DynamicType*(this: StepBasic_ProductDefinitionReference): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicProductDefinitionReference): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ProductDefinitionReference.hxx".}

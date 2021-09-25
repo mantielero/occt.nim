@@ -13,62 +13,56 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../StepData/StepData_SelectInt,
-  ../Standard/Standard_Boolean, ../Standard/Standard_CString,
-  ../Standard/Standard_Integer, StepDimTol_SimpleDatumReferenceModifier
-
 discard "forward decl of StepDimTol_SimpleDatumReferenceModifierMember"
 discard "forward decl of StepDimTol_SimpleDatumReferenceModifierMember"
 type
-  Handle_StepDimTol_SimpleDatumReferenceModifierMember* = handle[
-      StepDimTol_SimpleDatumReferenceModifierMember]
+  HandleStepDimTolSimpleDatumReferenceModifierMember* = Handle[
+      StepDimTolSimpleDatumReferenceModifierMember]
 
 ## ! Defines SimpleDatumReferenceModifier as unique member of DatumReferenceModifier
 ## ! Works with an EnumTool
 
 type
-  StepDimTol_SimpleDatumReferenceModifierMember* {.
+  StepDimTolSimpleDatumReferenceModifierMember* {.
       importcpp: "StepDimTol_SimpleDatumReferenceModifierMember",
-      header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx", bycopy.} = object of StepData_SelectInt
+      header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx", bycopy.} = object of StepDataSelectInt
 
 
-proc constructStepDimTol_SimpleDatumReferenceModifierMember*(): StepDimTol_SimpleDatumReferenceModifierMember {.
+proc constructStepDimTolSimpleDatumReferenceModifierMember*(): StepDimTolSimpleDatumReferenceModifierMember {.
     constructor, importcpp: "StepDimTol_SimpleDatumReferenceModifierMember(@)",
     header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
-proc HasName*(this: StepDimTol_SimpleDatumReferenceModifierMember): Standard_Boolean {.
+proc hasName*(this: StepDimTolSimpleDatumReferenceModifierMember): bool {.
     noSideEffect, importcpp: "HasName",
     header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
-proc Name*(this: StepDimTol_SimpleDatumReferenceModifierMember): Standard_CString {.
+proc name*(this: StepDimTolSimpleDatumReferenceModifierMember): StandardCString {.
     noSideEffect, importcpp: "Name",
     header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
-proc SetName*(this: var StepDimTol_SimpleDatumReferenceModifierMember; a2: Standard_CString): Standard_Boolean {.
+proc setName*(this: var StepDimTolSimpleDatumReferenceModifierMember; a2: StandardCString): bool {.
     importcpp: "SetName",
     header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
   ## theName
-proc Kind*(this: StepDimTol_SimpleDatumReferenceModifierMember): Standard_Integer {.
-    noSideEffect, importcpp: "Kind",
-    header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
-proc EnumText*(this: StepDimTol_SimpleDatumReferenceModifierMember): Standard_CString {.
+proc kind*(this: StepDimTolSimpleDatumReferenceModifierMember): int {.noSideEffect,
+    importcpp: "Kind", header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
+proc enumText*(this: StepDimTolSimpleDatumReferenceModifierMember): StandardCString {.
     noSideEffect, importcpp: "EnumText",
     header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
-proc SetEnumText*(this: var StepDimTol_SimpleDatumReferenceModifierMember;
-                 theValue: Standard_Integer; theText: Standard_CString) {.
+proc setEnumText*(this: var StepDimTolSimpleDatumReferenceModifierMember;
+                 theValue: int; theText: StandardCString) {.
     importcpp: "SetEnumText",
     header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
-proc SetValue*(this: var StepDimTol_SimpleDatumReferenceModifierMember;
-              theValue: StepDimTol_SimpleDatumReferenceModifier) {.
+proc setValue*(this: var StepDimTolSimpleDatumReferenceModifierMember;
+              theValue: StepDimTolSimpleDatumReferenceModifier) {.
     importcpp: "SetValue",
     header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
-proc Value*(this: StepDimTol_SimpleDatumReferenceModifierMember): StepDimTol_SimpleDatumReferenceModifier {.
+proc value*(this: StepDimTolSimpleDatumReferenceModifierMember): StepDimTolSimpleDatumReferenceModifier {.
     noSideEffect, importcpp: "Value",
     header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
 type
-  StepDimTol_SimpleDatumReferenceModifierMemberbase_type* = StepData_SelectInt
+  StepDimTolSimpleDatumReferenceModifierMemberbaseType* = StepDataSelectInt
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_SimpleDatumReferenceModifierMember::get_type_name(@)", header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepDimTol_SimpleDatumReferenceModifierMember::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_SimpleDatumReferenceModifierMember::get_type_name(@)", header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepDimTol_SimpleDatumReferenceModifierMember::get_type_descriptor(@)",
     header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
-proc DynamicType*(this: StepDimTol_SimpleDatumReferenceModifierMember): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
+proc dynamicType*(this: StepDimTolSimpleDatumReferenceModifierMember): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}

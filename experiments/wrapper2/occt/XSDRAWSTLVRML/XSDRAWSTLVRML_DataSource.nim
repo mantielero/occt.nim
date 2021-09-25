@@ -13,19 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_PackedMapOfInteger, ../TColStd/TColStd_HArray2OfInteger,
-  ../TColStd/TColStd_HArray2OfReal, ../MeshVS/MeshVS_DataSource,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_Array1OfReal, ../MeshVS/MeshVS_EntityType,
-  ../Standard/Standard_Address, ../TColStd/TColStd_Array1OfInteger,
-  ../Standard/Standard_Real, ../Poly/Poly_Triangulation
-
 discard "forward decl of XSDRAWSTLVRML_DataSource"
 discard "forward decl of XSDRAWSTLVRML_DataSource"
 type
-  Handle_XSDRAWSTLVRML_DataSource* = handle[XSDRAWSTLVRML_DataSource]
+  HandleXSDRAWSTLVRML_DataSource* = Handle[XSDRAWSTLVRML_DataSource]
 
 ## ! The sample DataSource for working with STLMesh_Mesh
 
@@ -36,40 +27,37 @@ type
                                                                                                      ## Constructor
 
 
-proc constructXSDRAWSTLVRML_DataSource*(aMesh: handle[Poly_Triangulation]): XSDRAWSTLVRML_DataSource {.
+proc constructXSDRAWSTLVRML_DataSource*(aMesh: Handle[PolyTriangulation]): XSDRAWSTLVRML_DataSource {.
     constructor, importcpp: "XSDRAWSTLVRML_DataSource(@)",
     header: "XSDRAWSTLVRML_DataSource.hxx".}
-proc GetGeom*(this: XSDRAWSTLVRML_DataSource; ID: Standard_Integer;
-             IsElement: Standard_Boolean; Coords: var TColStd_Array1OfReal;
-             NbNodes: var Standard_Integer; Type: var MeshVS_EntityType): Standard_Boolean {.
-    noSideEffect, importcpp: "GetGeom", header: "XSDRAWSTLVRML_DataSource.hxx".}
-proc GetGeomType*(this: XSDRAWSTLVRML_DataSource; ID: Standard_Integer;
-                 IsElement: Standard_Boolean; Type: var MeshVS_EntityType): Standard_Boolean {.
-    noSideEffect, importcpp: "GetGeomType", header: "XSDRAWSTLVRML_DataSource.hxx".}
-proc GetAddr*(this: XSDRAWSTLVRML_DataSource; ID: Standard_Integer;
-             IsElement: Standard_Boolean): Standard_Address {.noSideEffect,
-    importcpp: "GetAddr", header: "XSDRAWSTLVRML_DataSource.hxx".}
-proc GetNodesByElement*(this: XSDRAWSTLVRML_DataSource; ID: Standard_Integer;
-                       NodeIDs: var TColStd_Array1OfInteger;
-                       NbNodes: var Standard_Integer): Standard_Boolean {.
+proc getGeom*(this: XSDRAWSTLVRML_DataSource; id: int; isElement: bool;
+             coords: var TColStdArray1OfReal; nbNodes: var int;
+             `type`: var MeshVS_EntityType): bool {.noSideEffect,
+    importcpp: "GetGeom", header: "XSDRAWSTLVRML_DataSource.hxx".}
+proc getGeomType*(this: XSDRAWSTLVRML_DataSource; id: int; isElement: bool;
+                 `type`: var MeshVS_EntityType): bool {.noSideEffect,
+    importcpp: "GetGeomType", header: "XSDRAWSTLVRML_DataSource.hxx".}
+proc getAddr*(this: XSDRAWSTLVRML_DataSource; id: int; isElement: bool): StandardAddress {.
+    noSideEffect, importcpp: "GetAddr", header: "XSDRAWSTLVRML_DataSource.hxx".}
+proc getNodesByElement*(this: XSDRAWSTLVRML_DataSource; id: int;
+                       nodeIDs: var TColStdArray1OfInteger; nbNodes: var int): bool {.
     noSideEffect, importcpp: "GetNodesByElement",
     header: "XSDRAWSTLVRML_DataSource.hxx".}
-proc GetAllNodes*(this: XSDRAWSTLVRML_DataSource): TColStd_PackedMapOfInteger {.
+proc getAllNodes*(this: XSDRAWSTLVRML_DataSource): TColStdPackedMapOfInteger {.
     noSideEffect, importcpp: "GetAllNodes", header: "XSDRAWSTLVRML_DataSource.hxx".}
-proc GetAllElements*(this: XSDRAWSTLVRML_DataSource): TColStd_PackedMapOfInteger {.
+proc getAllElements*(this: XSDRAWSTLVRML_DataSource): TColStdPackedMapOfInteger {.
     noSideEffect, importcpp: "GetAllElements",
     header: "XSDRAWSTLVRML_DataSource.hxx".}
-proc GetNormal*(this: XSDRAWSTLVRML_DataSource; Id: Standard_Integer;
-               Max: Standard_Integer; nx: var Standard_Real; ny: var Standard_Real;
-               nz: var Standard_Real): Standard_Boolean {.noSideEffect,
+proc getNormal*(this: XSDRAWSTLVRML_DataSource; id: int; max: int; nx: var float;
+               ny: var float; nz: var float): bool {.noSideEffect,
     importcpp: "GetNormal", header: "XSDRAWSTLVRML_DataSource.hxx".}
 type
-  XSDRAWSTLVRML_DataSourcebase_type* = MeshVS_DataSource
+  XSDRAWSTLVRML_DataSourcebaseType* = MeshVS_DataSource
 
-proc get_type_name*(): cstring {.importcpp: "XSDRAWSTLVRML_DataSource::get_type_name(@)",
-                              header: "XSDRAWSTLVRML_DataSource.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XSDRAWSTLVRML_DataSource::get_type_name(@)",
+                            header: "XSDRAWSTLVRML_DataSource.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XSDRAWSTLVRML_DataSource::get_type_descriptor(@)",
     header: "XSDRAWSTLVRML_DataSource.hxx".}
-proc DynamicType*(this: XSDRAWSTLVRML_DataSource): handle[Standard_Type] {.
+proc dynamicType*(this: XSDRAWSTLVRML_DataSource): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "XSDRAWSTLVRML_DataSource.hxx".}

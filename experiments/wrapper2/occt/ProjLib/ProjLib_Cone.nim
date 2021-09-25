@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Cone, ProjLib_Projector
-
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of gp_Cone"
 discard "forward decl of gp_Lin"
@@ -26,29 +22,29 @@ discard "forward decl of gp_Elips"
 discard "forward decl of gp_Parab"
 discard "forward decl of gp_Hypr"
 type
-  ProjLib_Cone* {.importcpp: "ProjLib_Cone", header: "ProjLib_Cone.hxx", bycopy.} = object of ProjLib_Projector ##
-                                                                                                      ## !
-                                                                                                      ## Undefined
-                                                                                                      ## projection.
+  ProjLibCone* {.importcpp: "ProjLib_Cone", header: "ProjLib_Cone.hxx", bycopy.} = object of ProjLibProjector ##
+                                                                                                    ## !
+                                                                                                    ## Undefined
+                                                                                                    ## projection.
 
 
-proc constructProjLib_Cone*(): ProjLib_Cone {.constructor,
+proc constructProjLibCone*(): ProjLibCone {.constructor,
     importcpp: "ProjLib_Cone(@)", header: "ProjLib_Cone.hxx".}
-proc constructProjLib_Cone*(Co: gp_Cone): ProjLib_Cone {.constructor,
+proc constructProjLibCone*(co: Cone): ProjLibCone {.constructor,
     importcpp: "ProjLib_Cone(@)", header: "ProjLib_Cone.hxx".}
-proc constructProjLib_Cone*(Co: gp_Cone; L: gp_Lin): ProjLib_Cone {.constructor,
+proc constructProjLibCone*(co: Cone; L: Lin): ProjLibCone {.constructor,
     importcpp: "ProjLib_Cone(@)", header: "ProjLib_Cone.hxx".}
-proc constructProjLib_Cone*(Co: gp_Cone; C: gp_Circ): ProjLib_Cone {.constructor,
+proc constructProjLibCone*(co: Cone; c: Circ): ProjLibCone {.constructor,
     importcpp: "ProjLib_Cone(@)", header: "ProjLib_Cone.hxx".}
-proc Init*(this: var ProjLib_Cone; Co: gp_Cone) {.importcpp: "Init",
+proc init*(this: var ProjLibCone; co: Cone) {.importcpp: "Init",
+                                        header: "ProjLib_Cone.hxx".}
+proc project*(this: var ProjLibCone; L: Lin) {.importcpp: "Project",
     header: "ProjLib_Cone.hxx".}
-proc Project*(this: var ProjLib_Cone; L: gp_Lin) {.importcpp: "Project",
+proc project*(this: var ProjLibCone; c: Circ) {.importcpp: "Project",
     header: "ProjLib_Cone.hxx".}
-proc Project*(this: var ProjLib_Cone; C: gp_Circ) {.importcpp: "Project",
+proc project*(this: var ProjLibCone; e: Elips) {.importcpp: "Project",
     header: "ProjLib_Cone.hxx".}
-proc Project*(this: var ProjLib_Cone; E: gp_Elips) {.importcpp: "Project",
+proc project*(this: var ProjLibCone; p: Parab) {.importcpp: "Project",
     header: "ProjLib_Cone.hxx".}
-proc Project*(this: var ProjLib_Cone; P: gp_Parab) {.importcpp: "Project",
-    header: "ProjLib_Cone.hxx".}
-proc Project*(this: var ProjLib_Cone; H: gp_Hypr) {.importcpp: "Project",
+proc project*(this: var ProjLibCone; h: Hypr) {.importcpp: "Project",
     header: "ProjLib_Cone.hxx".}

@@ -13,12 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_ListOfInteger, ../TDF/TDF_Attribute,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
-  ../Standard/Standard_OStream, ../Standard/Standard_GUID
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
 discard "forward decl of TDF_Attribute"
@@ -26,97 +20,93 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataStd_IntegerList"
 discard "forward decl of TDataStd_IntegerList"
 type
-  Handle_TDataStd_IntegerList* = handle[TDataStd_IntegerList]
+  HandleTDataStdIntegerList* = Handle[TDataStdIntegerList]
 
 ## ! Contains a list of integers.
 
 type
-  TDataStd_IntegerList* {.importcpp: "TDataStd_IntegerList",
-                         header: "TDataStd_IntegerList.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                         ## !
-                                                                                         ## Static
-                                                                                         ## methods
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## ==============
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Returns
-                                                                                         ## the
-                                                                                         ## ID
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## list
-                                                                                         ## of
-                                                                                         ## integer
-                                                                                         ## attribute.
+  TDataStdIntegerList* {.importcpp: "TDataStd_IntegerList",
+                        header: "TDataStd_IntegerList.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                        ## !
+                                                                                        ## Static
+                                                                                        ## methods
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## ==============
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Returns
+                                                                                        ## the
+                                                                                        ## ID
+                                                                                        ## of
+                                                                                        ## the
+                                                                                        ## list
+                                                                                        ## of
+                                                                                        ## integer
+                                                                                        ## attribute.
 
 
-proc GetID*(): Standard_GUID {.importcpp: "TDataStd_IntegerList::GetID(@)",
-                            header: "TDataStd_IntegerList.hxx".}
-proc Set*(label: TDF_Label): handle[TDataStd_IntegerList] {.
+proc getID*(): StandardGUID {.importcpp: "TDataStd_IntegerList::GetID(@)",
+                           header: "TDataStd_IntegerList.hxx".}
+proc set*(label: TDF_Label): Handle[TDataStdIntegerList] {.
     importcpp: "TDataStd_IntegerList::Set(@)", header: "TDataStd_IntegerList.hxx".}
-proc Set*(label: TDF_Label; theGuid: Standard_GUID): handle[TDataStd_IntegerList] {.
+proc set*(label: TDF_Label; theGuid: StandardGUID): Handle[TDataStdIntegerList] {.
     importcpp: "TDataStd_IntegerList::Set(@)", header: "TDataStd_IntegerList.hxx".}
-proc constructTDataStd_IntegerList*(): TDataStd_IntegerList {.constructor,
+proc constructTDataStdIntegerList*(): TDataStdIntegerList {.constructor,
     importcpp: "TDataStd_IntegerList(@)", header: "TDataStd_IntegerList.hxx".}
-proc IsEmpty*(this: TDataStd_IntegerList): Standard_Boolean {.noSideEffect,
-    importcpp: "IsEmpty", header: "TDataStd_IntegerList.hxx".}
-proc Extent*(this: TDataStd_IntegerList): Standard_Integer {.noSideEffect,
-    importcpp: "Extent", header: "TDataStd_IntegerList.hxx".}
-proc Prepend*(this: var TDataStd_IntegerList; value: Standard_Integer) {.
-    importcpp: "Prepend", header: "TDataStd_IntegerList.hxx".}
-proc Append*(this: var TDataStd_IntegerList; value: Standard_Integer) {.
-    importcpp: "Append", header: "TDataStd_IntegerList.hxx".}
-proc SetID*(this: var TDataStd_IntegerList; theGuid: Standard_GUID) {.
+proc isEmpty*(this: TDataStdIntegerList): bool {.noSideEffect, importcpp: "IsEmpty",
+    header: "TDataStd_IntegerList.hxx".}
+proc extent*(this: TDataStdIntegerList): int {.noSideEffect, importcpp: "Extent",
+    header: "TDataStd_IntegerList.hxx".}
+proc prepend*(this: var TDataStdIntegerList; value: int) {.importcpp: "Prepend",
+    header: "TDataStd_IntegerList.hxx".}
+proc append*(this: var TDataStdIntegerList; value: int) {.importcpp: "Append",
+    header: "TDataStd_IntegerList.hxx".}
+proc setID*(this: var TDataStdIntegerList; theGuid: StandardGUID) {.
     importcpp: "SetID", header: "TDataStd_IntegerList.hxx".}
-proc SetID*(this: var TDataStd_IntegerList) {.importcpp: "SetID",
+proc setID*(this: var TDataStdIntegerList) {.importcpp: "SetID",
     header: "TDataStd_IntegerList.hxx".}
-proc InsertBefore*(this: var TDataStd_IntegerList; value: Standard_Integer;
-                  before_value: Standard_Integer): Standard_Boolean {.
+proc insertBefore*(this: var TDataStdIntegerList; value: int; beforeValue: int): bool {.
     importcpp: "InsertBefore", header: "TDataStd_IntegerList.hxx".}
-proc InsertBeforeByIndex*(this: var TDataStd_IntegerList; index: Standard_Integer;
-                         before_value: Standard_Integer): Standard_Boolean {.
+proc insertBeforeByIndex*(this: var TDataStdIntegerList; index: int; beforeValue: int): bool {.
     importcpp: "InsertBeforeByIndex", header: "TDataStd_IntegerList.hxx".}
-proc InsertAfter*(this: var TDataStd_IntegerList; value: Standard_Integer;
-                 after_value: Standard_Integer): Standard_Boolean {.
+proc insertAfter*(this: var TDataStdIntegerList; value: int; afterValue: int): bool {.
     importcpp: "InsertAfter", header: "TDataStd_IntegerList.hxx".}
-proc InsertAfterByIndex*(this: var TDataStd_IntegerList; index: Standard_Integer;
-                        after_value: Standard_Integer): Standard_Boolean {.
+proc insertAfterByIndex*(this: var TDataStdIntegerList; index: int; afterValue: int): bool {.
     importcpp: "InsertAfterByIndex", header: "TDataStd_IntegerList.hxx".}
-proc Remove*(this: var TDataStd_IntegerList; value: Standard_Integer): Standard_Boolean {.
-    importcpp: "Remove", header: "TDataStd_IntegerList.hxx".}
-proc RemoveByIndex*(this: var TDataStd_IntegerList; index: Standard_Integer): Standard_Boolean {.
+proc remove*(this: var TDataStdIntegerList; value: int): bool {.importcpp: "Remove",
+    header: "TDataStd_IntegerList.hxx".}
+proc removeByIndex*(this: var TDataStdIntegerList; index: int): bool {.
     importcpp: "RemoveByIndex", header: "TDataStd_IntegerList.hxx".}
-proc Clear*(this: var TDataStd_IntegerList) {.importcpp: "Clear",
+proc clear*(this: var TDataStdIntegerList) {.importcpp: "Clear",
     header: "TDataStd_IntegerList.hxx".}
-proc First*(this: TDataStd_IntegerList): Standard_Integer {.noSideEffect,
-    importcpp: "First", header: "TDataStd_IntegerList.hxx".}
-proc Last*(this: TDataStd_IntegerList): Standard_Integer {.noSideEffect,
-    importcpp: "Last", header: "TDataStd_IntegerList.hxx".}
-proc List*(this: TDataStd_IntegerList): TColStd_ListOfInteger {.noSideEffect,
+proc first*(this: TDataStdIntegerList): int {.noSideEffect, importcpp: "First",
+    header: "TDataStd_IntegerList.hxx".}
+proc last*(this: TDataStdIntegerList): int {.noSideEffect, importcpp: "Last",
+    header: "TDataStd_IntegerList.hxx".}
+proc list*(this: TDataStdIntegerList): TColStdListOfInteger {.noSideEffect,
     importcpp: "List", header: "TDataStd_IntegerList.hxx".}
-proc ID*(this: TDataStd_IntegerList): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TDataStdIntegerList): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TDataStd_IntegerList.hxx".}
-proc Restore*(this: var TDataStd_IntegerList; With: handle[TDF_Attribute]) {.
+proc restore*(this: var TDataStdIntegerList; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TDataStd_IntegerList.hxx".}
-proc NewEmpty*(this: TDataStd_IntegerList): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TDataStdIntegerList): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TDataStd_IntegerList.hxx".}
-proc Paste*(this: TDataStd_IntegerList; Into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TDataStdIntegerList; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TDataStd_IntegerList.hxx".}
-proc Dump*(this: TDataStd_IntegerList; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDataStdIntegerList; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_IntegerList.hxx".}
-proc DumpJson*(this: TDataStd_IntegerList; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TDataStd_IntegerList.hxx".}
+proc dumpJson*(this: TDataStdIntegerList; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TDataStd_IntegerList.hxx".}
 type
-  TDataStd_IntegerListbase_type* = TDF_Attribute
+  TDataStdIntegerListbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TDataStd_IntegerList::get_type_name(@)",
-                              header: "TDataStd_IntegerList.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDataStd_IntegerList::get_type_name(@)",
+                            header: "TDataStd_IntegerList.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDataStd_IntegerList::get_type_descriptor(@)",
     header: "TDataStd_IntegerList.hxx".}
-proc DynamicType*(this: TDataStd_IntegerList): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDataStdIntegerList): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_IntegerList.hxx".}

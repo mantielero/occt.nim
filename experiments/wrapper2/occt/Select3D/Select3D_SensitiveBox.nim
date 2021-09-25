@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Bnd/Bnd_Box, Select3D_SensitiveEntity
-
 ## ! A framework to define selection by a sensitive box.
 
 type
@@ -42,46 +39,44 @@ type
     ## !< 3d coordinates of box corners
     ## !< 3d coordinate of box's center
 
-  Select3D_SensitiveBoxbase_type* = Select3D_SensitiveEntity
+  Select3D_SensitiveBoxbaseType* = Select3D_SensitiveEntity
 
-proc get_type_name*(): cstring {.importcpp: "Select3D_SensitiveBox::get_type_name(@)",
-                              header: "Select3D_SensitiveBox.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Select3D_SensitiveBox::get_type_name(@)",
+                            header: "Select3D_SensitiveBox.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Select3D_SensitiveBox::get_type_descriptor(@)",
     header: "Select3D_SensitiveBox.hxx".}
-proc DynamicType*(this: Select3D_SensitiveBox): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Select3D_SensitiveBox.hxx".}
-proc constructSelect3D_SensitiveBox*(theOwnerId: handle[SelectMgr_EntityOwner];
-                                    theBox: Bnd_Box): Select3D_SensitiveBox {.
+proc dynamicType*(this: Select3D_SensitiveBox): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Select3D_SensitiveBox.hxx".}
+proc constructSelect3D_SensitiveBox*(theOwnerId: Handle[SelectMgrEntityOwner];
+                                    theBox: BndBox): Select3D_SensitiveBox {.
     constructor, importcpp: "Select3D_SensitiveBox(@)",
     header: "Select3D_SensitiveBox.hxx".}
-proc constructSelect3D_SensitiveBox*(theOwnerId: handle[SelectMgr_EntityOwner];
-                                    theXMin: Standard_Real;
-                                    theYMin: Standard_Real;
-                                    theZMin: Standard_Real;
-                                    theXMax: Standard_Real;
-                                    theYMax: Standard_Real; theZMax: Standard_Real): Select3D_SensitiveBox {.
+proc constructSelect3D_SensitiveBox*(theOwnerId: Handle[SelectMgrEntityOwner];
+                                    theXMin: float; theYMin: float; theZMin: float;
+                                    theXMax: float; theYMax: float; theZMax: float): Select3D_SensitiveBox {.
     constructor, importcpp: "Select3D_SensitiveBox(@)",
     header: "Select3D_SensitiveBox.hxx".}
-proc NbSubElements*(this: Select3D_SensitiveBox): Standard_Integer {.noSideEffect,
+proc nbSubElements*(this: Select3D_SensitiveBox): int {.noSideEffect,
     importcpp: "NbSubElements", header: "Select3D_SensitiveBox.hxx".}
-proc GetConnected*(this: var Select3D_SensitiveBox): handle[Select3D_SensitiveEntity] {.
+proc getConnected*(this: var Select3D_SensitiveBox): Handle[Select3D_SensitiveEntity] {.
     importcpp: "GetConnected", header: "Select3D_SensitiveBox.hxx".}
-proc Matches*(this: var Select3D_SensitiveBox;
-             theMgr: var SelectBasics_SelectingVolumeManager;
-             thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
+proc matches*(this: var Select3D_SensitiveBox;
+             theMgr: var SelectBasicsSelectingVolumeManager;
+             thePickResult: var SelectBasicsPickResult): bool {.
     importcpp: "Matches", header: "Select3D_SensitiveBox.hxx".}
-proc Box*(this: Select3D_SensitiveBox): Bnd_Box {.noSideEffect, importcpp: "Box",
+proc box*(this: Select3D_SensitiveBox): BndBox {.noSideEffect, importcpp: "Box",
     header: "Select3D_SensitiveBox.hxx".}
-proc CenterOfGeometry*(this: Select3D_SensitiveBox): gp_Pnt {.noSideEffect,
+proc centerOfGeometry*(this: Select3D_SensitiveBox): Pnt {.noSideEffect,
     importcpp: "CenterOfGeometry", header: "Select3D_SensitiveBox.hxx".}
-proc BoundingBox*(this: var Select3D_SensitiveBox): Select3D_BndBox3d {.
+proc boundingBox*(this: var Select3D_SensitiveBox): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "Select3D_SensitiveBox.hxx".}
-proc ToBuildBVH*(this: Select3D_SensitiveBox): Standard_Boolean {.noSideEffect,
+proc toBuildBVH*(this: Select3D_SensitiveBox): bool {.noSideEffect,
     importcpp: "ToBuildBVH", header: "Select3D_SensitiveBox.hxx".}
-proc DumpJson*(this: Select3D_SensitiveBox; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Select3D_SensitiveBox.hxx".}
+proc dumpJson*(this: Select3D_SensitiveBox; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Select3D_SensitiveBox.hxx".}
 discard "forward decl of Select3D_SensitiveBox"
 type
-  Handle_Select3D_SensitiveBox* = handle[Select3D_SensitiveBox]
+  HandleSelect3D_SensitiveBox* = Handle[Select3D_SensitiveBox]
+

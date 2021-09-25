@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, BRepSweep_Builder, ../TopoDS/TopoDS_Shape,
-  ../Sweep/Sweep_NumShape, BRepSweep_Tool, ../Sweep/Sweep_NumShapeTool,
-  ../TopTools/TopTools_Array2OfShape, ../TColStd/TColStd_Array2OfBoolean,
-  ../TopAbs/TopAbs_Orientation, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_NoMoreObject"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_RangeError"
@@ -29,113 +22,112 @@ discard "forward decl of BRepSweep_Builder"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Sweep_NumShape"
 type
-  BRepSweep_NumLinearRegularSweep* {.importcpp: "BRepSweep_NumLinearRegularSweep", header: "BRepSweep_NumLinearRegularSweep.hxx",
-                                    bycopy.} = object ## ! Builds the vertex addressed by [aGenV,aDirV], with its
-                                                   ## ! geometric part, but without subcomponents.
-                                                   ## ! Creates a NumLinearRegularSweep.    <aBuilder>  gives
-                                                   ## ! basic topological services.
+  BRepSweepNumLinearRegularSweep* {.importcpp: "BRepSweep_NumLinearRegularSweep", header: "BRepSweep_NumLinearRegularSweep.hxx",
+                                   bycopy.} = object ## ! Builds the vertex addressed by [aGenV,aDirV], with its
+                                                  ## ! geometric part, but without subcomponents.
+                                                  ## ! Creates a NumLinearRegularSweep.    <aBuilder>  gives
+                                                  ## ! basic topological services.
 
 
-proc MakeEmptyVertex*(this: var BRepSweep_NumLinearRegularSweep;
-                     aGenV: TopoDS_Shape; aDirV: Sweep_NumShape): TopoDS_Shape {.
+proc makeEmptyVertex*(this: var BRepSweepNumLinearRegularSweep; aGenV: TopoDS_Shape;
+                     aDirV: SweepNumShape): TopoDS_Shape {.
     importcpp: "MakeEmptyVertex", header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc destroyBRepSweep_NumLinearRegularSweep*(
-    this: var BRepSweep_NumLinearRegularSweep) {.
+proc destroyBRepSweepNumLinearRegularSweep*(
+    this: var BRepSweepNumLinearRegularSweep) {.
     importcpp: "#.~BRepSweep_NumLinearRegularSweep()",
     header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc MakeEmptyDirectingEdge*(this: var BRepSweep_NumLinearRegularSweep;
-                            aGenV: TopoDS_Shape; aDirE: Sweep_NumShape): TopoDS_Shape {.
+proc makeEmptyDirectingEdge*(this: var BRepSweepNumLinearRegularSweep;
+                            aGenV: TopoDS_Shape; aDirE: SweepNumShape): TopoDS_Shape {.
     importcpp: "MakeEmptyDirectingEdge",
     header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc MakeEmptyGeneratingEdge*(this: var BRepSweep_NumLinearRegularSweep;
-                             aGenE: TopoDS_Shape; aDirV: Sweep_NumShape): TopoDS_Shape {.
+proc makeEmptyGeneratingEdge*(this: var BRepSweepNumLinearRegularSweep;
+                             aGenE: TopoDS_Shape; aDirV: SweepNumShape): TopoDS_Shape {.
     importcpp: "MakeEmptyGeneratingEdge",
     header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc SetParameters*(this: var BRepSweep_NumLinearRegularSweep;
+proc setParameters*(this: var BRepSweepNumLinearRegularSweep;
                    aNewFace: TopoDS_Shape; aNewVertex: var TopoDS_Shape;
-                   aGenF: TopoDS_Shape; aGenV: TopoDS_Shape; aDirV: Sweep_NumShape) {.
+                   aGenF: TopoDS_Shape; aGenV: TopoDS_Shape; aDirV: SweepNumShape) {.
     importcpp: "SetParameters", header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc SetDirectingParameter*(this: var BRepSweep_NumLinearRegularSweep;
+proc setDirectingParameter*(this: var BRepSweepNumLinearRegularSweep;
                            aNewEdge: TopoDS_Shape; aNewVertex: var TopoDS_Shape;
-                           aGenV: TopoDS_Shape; aDirE: Sweep_NumShape;
-                           aDirV: Sweep_NumShape) {.
+                           aGenV: TopoDS_Shape; aDirE: SweepNumShape;
+                           aDirV: SweepNumShape) {.
     importcpp: "SetDirectingParameter",
     header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc SetGeneratingParameter*(this: var BRepSweep_NumLinearRegularSweep;
+proc setGeneratingParameter*(this: var BRepSweepNumLinearRegularSweep;
                             aNewEdge: TopoDS_Shape; aNewVertex: var TopoDS_Shape;
                             aGenE: TopoDS_Shape; aGenV: TopoDS_Shape;
-                            aDirV: Sweep_NumShape) {.
+                            aDirV: SweepNumShape) {.
     importcpp: "SetGeneratingParameter",
     header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc MakeEmptyFace*(this: var BRepSweep_NumLinearRegularSweep; aGenS: TopoDS_Shape;
-                   aDirS: Sweep_NumShape): TopoDS_Shape {.
+proc makeEmptyFace*(this: var BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shape;
+                   aDirS: SweepNumShape): TopoDS_Shape {.
     importcpp: "MakeEmptyFace", header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc SetPCurve*(this: var BRepSweep_NumLinearRegularSweep; aNewFace: TopoDS_Shape;
+proc setPCurve*(this: var BRepSweepNumLinearRegularSweep; aNewFace: TopoDS_Shape;
                aNewEdge: var TopoDS_Shape; aGenF: TopoDS_Shape; aGenE: TopoDS_Shape;
-               aDirV: Sweep_NumShape; orien: TopAbs_Orientation) {.
+               aDirV: SweepNumShape; orien: TopAbsOrientation) {.
     importcpp: "SetPCurve", header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc SetGeneratingPCurve*(this: var BRepSweep_NumLinearRegularSweep;
+proc setGeneratingPCurve*(this: var BRepSweepNumLinearRegularSweep;
                          aNewFace: TopoDS_Shape; aNewEdge: var TopoDS_Shape;
-                         aGenE: TopoDS_Shape; aDirE: Sweep_NumShape;
-                         aDirV: Sweep_NumShape; orien: TopAbs_Orientation) {.
+                         aGenE: TopoDS_Shape; aDirE: SweepNumShape;
+                         aDirV: SweepNumShape; orien: TopAbsOrientation) {.
     importcpp: "SetGeneratingPCurve",
     header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc SetDirectingPCurve*(this: var BRepSweep_NumLinearRegularSweep;
+proc setDirectingPCurve*(this: var BRepSweepNumLinearRegularSweep;
                         aNewFace: TopoDS_Shape; aNewEdge: var TopoDS_Shape;
                         aGenE: TopoDS_Shape; aGenV: TopoDS_Shape;
-                        aDirE: Sweep_NumShape; orien: TopAbs_Orientation) {.
+                        aDirE: SweepNumShape; orien: TopAbsOrientation) {.
     importcpp: "SetDirectingPCurve", header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc DirectSolid*(this: var BRepSweep_NumLinearRegularSweep; aGenS: TopoDS_Shape;
-                 aDirS: Sweep_NumShape): TopAbs_Orientation {.
+proc directSolid*(this: var BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shape;
+                 aDirS: SweepNumShape): TopAbsOrientation {.
     importcpp: "DirectSolid", header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc GGDShapeIsToAdd*(this: BRepSweep_NumLinearRegularSweep;
+proc gGDShapeIsToAdd*(this: BRepSweepNumLinearRegularSweep;
                      aNewShape: TopoDS_Shape; aNewSubShape: TopoDS_Shape;
                      aGenS: TopoDS_Shape; aSubGenS: TopoDS_Shape;
-                     aDirS: Sweep_NumShape): Standard_Boolean {.noSideEffect,
+                     aDirS: SweepNumShape): bool {.noSideEffect,
     importcpp: "GGDShapeIsToAdd", header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc GDDShapeIsToAdd*(this: BRepSweep_NumLinearRegularSweep;
+proc gDDShapeIsToAdd*(this: BRepSweepNumLinearRegularSweep;
                      aNewShape: TopoDS_Shape; aNewSubShape: TopoDS_Shape;
-                     aGenS: TopoDS_Shape; aDirS: Sweep_NumShape;
-                     aSubDirS: Sweep_NumShape): Standard_Boolean {.noSideEffect,
+                     aGenS: TopoDS_Shape; aDirS: SweepNumShape;
+                     aSubDirS: SweepNumShape): bool {.noSideEffect,
     importcpp: "GDDShapeIsToAdd", header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc SeparatedWires*(this: BRepSweep_NumLinearRegularSweep;
-                    aNewShape: TopoDS_Shape; aNewSubShape: TopoDS_Shape;
-                    aGenS: TopoDS_Shape; aSubGenS: TopoDS_Shape;
-                    aDirS: Sweep_NumShape): Standard_Boolean {.noSideEffect,
-    importcpp: "SeparatedWires", header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc SplitShell*(this: BRepSweep_NumLinearRegularSweep; aNewShape: TopoDS_Shape): TopoDS_Shape {.
+proc separatedWires*(this: BRepSweepNumLinearRegularSweep; aNewShape: TopoDS_Shape;
+                    aNewSubShape: TopoDS_Shape; aGenS: TopoDS_Shape;
+                    aSubGenS: TopoDS_Shape; aDirS: SweepNumShape): bool {.
+    noSideEffect, importcpp: "SeparatedWires",
+    header: "BRepSweep_NumLinearRegularSweep.hxx".}
+proc splitShell*(this: BRepSweepNumLinearRegularSweep; aNewShape: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "SplitShell",
     header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc SetContinuity*(this: var BRepSweep_NumLinearRegularSweep; aGenS: TopoDS_Shape;
-                   aDirS: Sweep_NumShape) {.importcpp: "SetContinuity",
+proc setContinuity*(this: var BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shape;
+                   aDirS: SweepNumShape) {.importcpp: "SetContinuity",
     header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc HasShape*(this: BRepSweep_NumLinearRegularSweep; aGenS: TopoDS_Shape;
-              aDirS: Sweep_NumShape): Standard_Boolean {.noSideEffect,
-    importcpp: "HasShape", header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc IsInvariant*(this: BRepSweep_NumLinearRegularSweep; aGenS: TopoDS_Shape): Standard_Boolean {.
+proc hasShape*(this: BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shape;
+              aDirS: SweepNumShape): bool {.noSideEffect, importcpp: "HasShape",
+    header: "BRepSweep_NumLinearRegularSweep.hxx".}
+proc isInvariant*(this: BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shape): bool {.
     noSideEffect, importcpp: "IsInvariant",
     header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc Shape*(this: var BRepSweep_NumLinearRegularSweep; aGenS: TopoDS_Shape;
-           aDirS: Sweep_NumShape): TopoDS_Shape {.importcpp: "Shape",
+proc shape*(this: var BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shape;
+           aDirS: SweepNumShape): TopoDS_Shape {.importcpp: "Shape",
     header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc Shape*(this: var BRepSweep_NumLinearRegularSweep; aGenS: TopoDS_Shape): TopoDS_Shape {.
+proc shape*(this: var BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "Shape", header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc IsUsed*(this: BRepSweep_NumLinearRegularSweep; aGenS: TopoDS_Shape): Standard_Boolean {.
+proc isUsed*(this: BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shape): bool {.
     noSideEffect, importcpp: "IsUsed",
     header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc GenIsUsed*(this: BRepSweep_NumLinearRegularSweep; theS: TopoDS_Shape): Standard_Boolean {.
+proc genIsUsed*(this: BRepSweepNumLinearRegularSweep; theS: TopoDS_Shape): bool {.
     noSideEffect, importcpp: "GenIsUsed",
     header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc Shape*(this: var BRepSweep_NumLinearRegularSweep): TopoDS_Shape {.
+proc shape*(this: var BRepSweepNumLinearRegularSweep): TopoDS_Shape {.
     importcpp: "Shape", header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc FirstShape*(this: var BRepSweep_NumLinearRegularSweep): TopoDS_Shape {.
+proc firstShape*(this: var BRepSweepNumLinearRegularSweep): TopoDS_Shape {.
     importcpp: "FirstShape", header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc LastShape*(this: var BRepSweep_NumLinearRegularSweep): TopoDS_Shape {.
+proc lastShape*(this: var BRepSweepNumLinearRegularSweep): TopoDS_Shape {.
     importcpp: "LastShape", header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc FirstShape*(this: var BRepSweep_NumLinearRegularSweep; aGenS: TopoDS_Shape): TopoDS_Shape {.
+proc firstShape*(this: var BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "FirstShape", header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc LastShape*(this: var BRepSweep_NumLinearRegularSweep; aGenS: TopoDS_Shape): TopoDS_Shape {.
+proc lastShape*(this: var BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "LastShape", header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc Closed*(this: BRepSweep_NumLinearRegularSweep): Standard_Boolean {.
-    noSideEffect, importcpp: "Closed",
-    header: "BRepSweep_NumLinearRegularSweep.hxx".}
+proc closed*(this: BRepSweepNumLinearRegularSweep): bool {.noSideEffect,
+    importcpp: "Closed", header: "BRepSweep_NumLinearRegularSweep.hxx".}

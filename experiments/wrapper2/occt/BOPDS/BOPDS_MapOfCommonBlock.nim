@@ -12,11 +12,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Map, ../TColStd/TColStd_MapTransientHasher,
-  BOPDS_CommonBlock
-
 type
-  BOPDS_MapOfCommonBlock* = NCollection_Map[handle[BOPDS_CommonBlock],
-      TColStd_MapTransientHasher]
+  BOPDS_MapOfCommonBlock* = NCollectionMap[Handle[BOPDS_CommonBlock],
+      TColStdMapTransientHasher]
   BOPDS_MapIteratorOfMapOfCommonBlock* = Iterator
+

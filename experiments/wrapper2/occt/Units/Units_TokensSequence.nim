@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # Units_TokensSequence_HeaderFile [NewLine] # Units_TokensSequence_HeaderFile [NewLine] # Units_Token.hxx [NewLine] # Units_TksSequence.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( Units_TokensSequence , Units_TksSequence ) # [NewLine]
+## !!!Ignored construct:  # Units_TokensSequence_HeaderFile [NewLine] # Units_TokensSequence_HeaderFile [NewLine] # < Units_Token . hxx > [NewLine] # < Units_TksSequence . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( Units_TokensSequence , Units_TksSequence ) # [NewLine]
 ## Error: expected ';'!!!
+

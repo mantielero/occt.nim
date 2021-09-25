@@ -14,32 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepVisual_AnnotationOccurrence
-
 discard "forward decl of StepVisual_DraughtingAnnotationOccurrence"
 discard "forward decl of StepVisual_DraughtingAnnotationOccurrence"
 type
-  Handle_StepVisual_DraughtingAnnotationOccurrence* = handle[
-      StepVisual_DraughtingAnnotationOccurrence]
-  StepVisual_DraughtingAnnotationOccurrence* {.
+  HandleStepVisualDraughtingAnnotationOccurrence* = Handle[
+      StepVisualDraughtingAnnotationOccurrence]
+  StepVisualDraughtingAnnotationOccurrence* {.
       importcpp: "StepVisual_DraughtingAnnotationOccurrence",
-      header: "StepVisual_DraughtingAnnotationOccurrence.hxx", bycopy.} = object of StepVisual_AnnotationOccurrence ##
-                                                                                                             ## !
-                                                                                                             ## Returns
-                                                                                                             ## a
-                                                                                                             ## DraughtingAnnotationOccurrence
+      header: "StepVisual_DraughtingAnnotationOccurrence.hxx", bycopy.} = object of StepVisualAnnotationOccurrence ##
+                                                                                                            ## !
+                                                                                                            ## Returns
+                                                                                                            ## a
+                                                                                                            ## DraughtingAnnotationOccurrence
 
 
-proc constructStepVisual_DraughtingAnnotationOccurrence*(): StepVisual_DraughtingAnnotationOccurrence {.
+proc constructStepVisualDraughtingAnnotationOccurrence*(): StepVisualDraughtingAnnotationOccurrence {.
     constructor, importcpp: "StepVisual_DraughtingAnnotationOccurrence(@)",
     header: "StepVisual_DraughtingAnnotationOccurrence.hxx".}
 type
-  StepVisual_DraughtingAnnotationOccurrencebase_type* = StepVisual_AnnotationOccurrence
+  StepVisualDraughtingAnnotationOccurrencebaseType* = StepVisualAnnotationOccurrence
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_DraughtingAnnotationOccurrence::get_type_name(@)", header: "StepVisual_DraughtingAnnotationOccurrence.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_DraughtingAnnotationOccurrence::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepVisual_DraughtingAnnotationOccurrence::get_type_name(@)", header: "StepVisual_DraughtingAnnotationOccurrence.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_DraughtingAnnotationOccurrence::get_type_descriptor(@)",
     header: "StepVisual_DraughtingAnnotationOccurrence.hxx".}
-proc DynamicType*(this: StepVisual_DraughtingAnnotationOccurrence): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepVisual_DraughtingAnnotationOccurrence.hxx".}
+proc dynamicType*(this: StepVisualDraughtingAnnotationOccurrence): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepVisual_DraughtingAnnotationOccurrence.hxx".}

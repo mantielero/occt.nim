@@ -14,40 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  StepGeom_Conic
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_Axis2Placement"
 discard "forward decl of StepGeom_Parabola"
 discard "forward decl of StepGeom_Parabola"
 type
-  Handle_StepGeom_Parabola* = handle[StepGeom_Parabola]
-  StepGeom_Parabola* {.importcpp: "StepGeom_Parabola",
-                      header: "StepGeom_Parabola.hxx", bycopy.} = object of StepGeom_Conic ##
-                                                                                    ## !
-                                                                                    ## Returns
-                                                                                    ## a
-                                                                                    ## Parabola
+  HandleStepGeomParabola* = Handle[StepGeomParabola]
+  StepGeomParabola* {.importcpp: "StepGeom_Parabola",
+                     header: "StepGeom_Parabola.hxx", bycopy.} = object of StepGeomConic ##
+                                                                                  ## !
+                                                                                  ## Returns
+                                                                                  ## a
+                                                                                  ## Parabola
 
 
-proc constructStepGeom_Parabola*(): StepGeom_Parabola {.constructor,
+proc constructStepGeomParabola*(): StepGeomParabola {.constructor,
     importcpp: "StepGeom_Parabola(@)", header: "StepGeom_Parabola.hxx".}
-proc Init*(this: var StepGeom_Parabola; aName: handle[TCollection_HAsciiString];
-          aPosition: StepGeom_Axis2Placement; aFocalDist: Standard_Real) {.
-    importcpp: "Init", header: "StepGeom_Parabola.hxx".}
-proc SetFocalDist*(this: var StepGeom_Parabola; aFocalDist: Standard_Real) {.
+proc init*(this: var StepGeomParabola; aName: Handle[TCollectionHAsciiString];
+          aPosition: StepGeomAxis2Placement; aFocalDist: float) {.importcpp: "Init",
+    header: "StepGeom_Parabola.hxx".}
+proc setFocalDist*(this: var StepGeomParabola; aFocalDist: float) {.
     importcpp: "SetFocalDist", header: "StepGeom_Parabola.hxx".}
-proc FocalDist*(this: StepGeom_Parabola): Standard_Real {.noSideEffect,
+proc focalDist*(this: StepGeomParabola): float {.noSideEffect,
     importcpp: "FocalDist", header: "StepGeom_Parabola.hxx".}
 type
-  StepGeom_Parabolabase_type* = StepGeom_Conic
+  StepGeomParabolabaseType* = StepGeomConic
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_Parabola::get_type_name(@)",
-                              header: "StepGeom_Parabola.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_Parabola::get_type_name(@)",
+                            header: "StepGeom_Parabola.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_Parabola::get_type_descriptor(@)",
     header: "StepGeom_Parabola.hxx".}
-proc DynamicType*(this: StepGeom_Parabola): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepGeomParabola): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Parabola.hxx".}

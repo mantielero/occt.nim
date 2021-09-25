@@ -14,17 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Shape,
-  ../Transfer/Transfer_Binder, ../Standard/Standard_Type,
-  ../Standard/Standard_CString
-
 discard "forward decl of Transfer_TransferFailure"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TransferBRep_BinderOfShape"
 discard "forward decl of TransferBRep_BinderOfShape"
 type
-  Handle_TransferBRep_BinderOfShape* = handle[TransferBRep_BinderOfShape]
+  HandleTransferBRepBinderOfShape* = Handle[TransferBRepBinderOfShape]
 
 ## ! Allows direct binding between a starting Object and the Result
 ## ! of its transfer when it is Unique.
@@ -38,43 +33,43 @@ type
 ## ! is adapted (reads DynamicType of the Result)
 
 type
-  TransferBRep_BinderOfShape* {.importcpp: "TransferBRep_BinderOfShape",
-                               header: "TransferBRep_BinderOfShape.hxx", bycopy.} = object of Transfer_Binder ##
-                                                                                                       ## !
-                                                                                                       ## normal
-                                                                                                       ## standard
-                                                                                                       ## constructor,
-                                                                                                       ## creates
-                                                                                                       ## an
-                                                                                                       ## empty
-                                                                                                       ## BinderOfShape
+  TransferBRepBinderOfShape* {.importcpp: "TransferBRep_BinderOfShape",
+                              header: "TransferBRep_BinderOfShape.hxx", bycopy.} = object of TransferBinder ##
+                                                                                                     ## !
+                                                                                                     ## normal
+                                                                                                     ## standard
+                                                                                                     ## constructor,
+                                                                                                     ## creates
+                                                                                                     ## an
+                                                                                                     ## empty
+                                                                                                     ## BinderOfShape
 
 
-proc constructTransferBRep_BinderOfShape*(): TransferBRep_BinderOfShape {.
+proc constructTransferBRepBinderOfShape*(): TransferBRepBinderOfShape {.
     constructor, importcpp: "TransferBRep_BinderOfShape(@)",
     header: "TransferBRep_BinderOfShape.hxx".}
-proc constructTransferBRep_BinderOfShape*(res: TopoDS_Shape): TransferBRep_BinderOfShape {.
+proc constructTransferBRepBinderOfShape*(res: TopoDS_Shape): TransferBRepBinderOfShape {.
     constructor, importcpp: "TransferBRep_BinderOfShape(@)",
     header: "TransferBRep_BinderOfShape.hxx".}
-proc ResultType*(this: TransferBRep_BinderOfShape): handle[Standard_Type] {.
+proc resultType*(this: TransferBRepBinderOfShape): Handle[StandardType] {.
     noSideEffect, importcpp: "ResultType", header: "TransferBRep_BinderOfShape.hxx".}
-proc ResultTypeName*(this: TransferBRep_BinderOfShape): Standard_CString {.
+proc resultTypeName*(this: TransferBRepBinderOfShape): StandardCString {.
     noSideEffect, importcpp: "ResultTypeName",
     header: "TransferBRep_BinderOfShape.hxx".}
-proc SetResult*(this: var TransferBRep_BinderOfShape; res: TopoDS_Shape) {.
+proc setResult*(this: var TransferBRepBinderOfShape; res: TopoDS_Shape) {.
     importcpp: "SetResult", header: "TransferBRep_BinderOfShape.hxx".}
-proc Result*(this: TransferBRep_BinderOfShape): TopoDS_Shape {.noSideEffect,
+proc result*(this: TransferBRepBinderOfShape): TopoDS_Shape {.noSideEffect,
     importcpp: "Result", header: "TransferBRep_BinderOfShape.hxx".}
-proc CResult*(this: var TransferBRep_BinderOfShape): var TopoDS_Shape {.
+proc cResult*(this: var TransferBRepBinderOfShape): var TopoDS_Shape {.
     importcpp: "CResult", header: "TransferBRep_BinderOfShape.hxx".}
 type
-  TransferBRep_BinderOfShapebase_type* = Transfer_Binder
+  TransferBRepBinderOfShapebaseType* = TransferBinder
 
-proc get_type_name*(): cstring {.importcpp: "TransferBRep_BinderOfShape::get_type_name(@)",
-                              header: "TransferBRep_BinderOfShape.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TransferBRep_BinderOfShape::get_type_name(@)",
+                            header: "TransferBRep_BinderOfShape.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TransferBRep_BinderOfShape::get_type_descriptor(@)",
     header: "TransferBRep_BinderOfShape.hxx".}
-proc DynamicType*(this: TransferBRep_BinderOfShape): handle[Standard_Type] {.
+proc dynamicType*(this: TransferBRepBinderOfShape): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TransferBRep_BinderOfShape.hxx".}

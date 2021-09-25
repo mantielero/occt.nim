@@ -13,36 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepRepr_ShapeAspectRelationship
-
 discard "forward decl of StepRepr_FeatureForDatumTargetRelationship"
 discard "forward decl of StepRepr_FeatureForDatumTargetRelationship"
 type
-  Handle_StepRepr_FeatureForDatumTargetRelationship* = handle[
-      StepRepr_FeatureForDatumTargetRelationship]
+  HandleStepReprFeatureForDatumTargetRelationship* = Handle[
+      StepReprFeatureForDatumTargetRelationship]
 
 ## ! Representation of STEP entity DimensionalLocation
 
 type
-  StepRepr_FeatureForDatumTargetRelationship* {.
+  StepReprFeatureForDatumTargetRelationship* {.
       importcpp: "StepRepr_FeatureForDatumTargetRelationship",
-      header: "StepRepr_FeatureForDatumTargetRelationship.hxx", bycopy.} = object of StepRepr_ShapeAspectRelationship ##
-                                                                                                               ## !
-                                                                                                               ## Empty
-                                                                                                               ## constructor
+      header: "StepRepr_FeatureForDatumTargetRelationship.hxx", bycopy.} = object of StepReprShapeAspectRelationship ##
+                                                                                                              ## !
+                                                                                                              ## Empty
+                                                                                                              ## constructor
 
 
-proc constructStepRepr_FeatureForDatumTargetRelationship*(): StepRepr_FeatureForDatumTargetRelationship {.
+proc constructStepReprFeatureForDatumTargetRelationship*(): StepReprFeatureForDatumTargetRelationship {.
     constructor, importcpp: "StepRepr_FeatureForDatumTargetRelationship(@)",
     header: "StepRepr_FeatureForDatumTargetRelationship.hxx".}
 type
-  StepRepr_FeatureForDatumTargetRelationshipbase_type* = StepRepr_ShapeAspectRelationship
+  StepReprFeatureForDatumTargetRelationshipbaseType* = StepReprShapeAspectRelationship
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_FeatureForDatumTargetRelationship::get_type_name(@)", header: "StepRepr_FeatureForDatumTargetRelationship.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepRepr_FeatureForDatumTargetRelationship::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepRepr_FeatureForDatumTargetRelationship::get_type_name(@)", header: "StepRepr_FeatureForDatumTargetRelationship.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_FeatureForDatumTargetRelationship::get_type_descriptor(@)",
     header: "StepRepr_FeatureForDatumTargetRelationship.hxx".}
-proc DynamicType*(this: StepRepr_FeatureForDatumTargetRelationship): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepRepr_FeatureForDatumTargetRelationship.hxx".}
+proc dynamicType*(this: StepReprFeatureForDatumTargetRelationship): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepRepr_FeatureForDatumTargetRelationship.hxx".}

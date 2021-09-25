@@ -20,7 +20,8 @@
 ## ! Volume_Opened as Open volumes (shells or solids with holes)
 
 type
-  StdPrs_Volume* {.size: sizeof(cint), importcpp: "StdPrs_Volume",
-                  header: "StdPrs_Volume.hxx".} = enum
-    StdPrs_Volume_Autodetection, StdPrs_Volume_Closed, StdPrs_Volume_Opened
+  StdPrsVolume* {.size: sizeof(cint), importcpp: "StdPrs_Volume",
+                 header: "StdPrs_Volume.hxx".} = enum
+    StdPrsVolumeAutodetection, StdPrsVolumeClosed, StdPrsVolumeOpened
+
 

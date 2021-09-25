@@ -13,72 +13,69 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TDF/TDF_Attribute
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of TDF_RelocationTable"
 discard "forward decl of XCAFDimTolObjects_DatumObject"
-when defined(GetObject):
-  discard
+# when defined(GetObject):
+#   discard
 discard "forward decl of XCAFDoc_Datum"
 discard "forward decl of XCAFDoc_Datum"
 type
-  Handle_XCAFDoc_Datum* = handle[XCAFDoc_Datum]
+  HandleXCAFDocDatum* = Handle[XCAFDocDatum]
 
 ## ! attribute to store datum
 
 type
-  XCAFDoc_Datum* {.importcpp: "XCAFDoc_Datum", header: "XCAFDoc_Datum.hxx", bycopy.} = object of TDF_Attribute
+  XCAFDocDatum* {.importcpp: "XCAFDoc_Datum", header: "XCAFDoc_Datum.hxx", bycopy.} = object of TDF_Attribute
 
 
-proc constructXCAFDoc_Datum*(): XCAFDoc_Datum {.constructor,
+proc constructXCAFDocDatum*(): XCAFDocDatum {.constructor,
     importcpp: "XCAFDoc_Datum(@)", header: "XCAFDoc_Datum.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "XCAFDoc_Datum::GetID(@)",
-                            header: "XCAFDoc_Datum.hxx".}
-proc Set*(label: TDF_Label; aName: handle[TCollection_HAsciiString];
-         aDescription: handle[TCollection_HAsciiString];
-         anIdentification: handle[TCollection_HAsciiString]): handle[XCAFDoc_Datum] {.
+proc getID*(): StandardGUID {.importcpp: "XCAFDoc_Datum::GetID(@)",
+                           header: "XCAFDoc_Datum.hxx".}
+proc set*(label: TDF_Label; aName: Handle[TCollectionHAsciiString];
+         aDescription: Handle[TCollectionHAsciiString];
+         anIdentification: Handle[TCollectionHAsciiString]): Handle[XCAFDocDatum] {.
     importcpp: "XCAFDoc_Datum::Set(@)", header: "XCAFDoc_Datum.hxx".}
-proc Set*(theLabel: TDF_Label): handle[XCAFDoc_Datum] {.
+proc set*(theLabel: TDF_Label): Handle[XCAFDocDatum] {.
     importcpp: "XCAFDoc_Datum::Set(@)", header: "XCAFDoc_Datum.hxx".}
-proc Set*(this: var XCAFDoc_Datum; aName: handle[TCollection_HAsciiString];
-         aDescription: handle[TCollection_HAsciiString];
-         anIdentification: handle[TCollection_HAsciiString]) {.importcpp: "Set",
+proc set*(this: var XCAFDocDatum; aName: Handle[TCollectionHAsciiString];
+         aDescription: Handle[TCollectionHAsciiString];
+         anIdentification: Handle[TCollectionHAsciiString]) {.importcpp: "Set",
     header: "XCAFDoc_Datum.hxx".}
-proc GetName*(this: XCAFDoc_Datum): handle[TCollection_HAsciiString] {.noSideEffect,
+proc getName*(this: XCAFDocDatum): Handle[TCollectionHAsciiString] {.noSideEffect,
     importcpp: "GetName", header: "XCAFDoc_Datum.hxx".}
-proc GetDescription*(this: XCAFDoc_Datum): handle[TCollection_HAsciiString] {.
+proc getDescription*(this: XCAFDocDatum): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "GetDescription", header: "XCAFDoc_Datum.hxx".}
-proc GetIdentification*(this: XCAFDoc_Datum): handle[TCollection_HAsciiString] {.
+proc getIdentification*(this: XCAFDocDatum): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "GetIdentification", header: "XCAFDoc_Datum.hxx".}
-proc GetObject*(this: XCAFDoc_Datum): handle[XCAFDimTolObjects_DatumObject] {.
+proc getObject*(this: XCAFDocDatum): Handle[XCAFDimTolObjectsDatumObject] {.
     noSideEffect, importcpp: "GetObject", header: "XCAFDoc_Datum.hxx".}
-proc SetObject*(this: var XCAFDoc_Datum;
-               theDatumObject: handle[XCAFDimTolObjects_DatumObject]) {.
+proc setObject*(this: var XCAFDocDatum;
+               theDatumObject: Handle[XCAFDimTolObjectsDatumObject]) {.
     importcpp: "SetObject", header: "XCAFDoc_Datum.hxx".}
-proc ID*(this: XCAFDoc_Datum): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: XCAFDocDatum): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "XCAFDoc_Datum.hxx".}
-proc Restore*(this: var XCAFDoc_Datum; With: handle[TDF_Attribute]) {.
+proc restore*(this: var XCAFDocDatum; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "XCAFDoc_Datum.hxx".}
-proc NewEmpty*(this: XCAFDoc_Datum): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: XCAFDocDatum): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "XCAFDoc_Datum.hxx".}
-proc Paste*(this: XCAFDoc_Datum; Into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: XCAFDocDatum; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "XCAFDoc_Datum.hxx".}
-proc DumpJson*(this: XCAFDoc_Datum; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "XCAFDoc_Datum.hxx".}
+proc dumpJson*(this: XCAFDocDatum; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "XCAFDoc_Datum.hxx".}
 type
-  XCAFDoc_Datumbase_type* = TDF_Attribute
+  XCAFDocDatumbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "XCAFDoc_Datum::get_type_name(@)",
-                              header: "XCAFDoc_Datum.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XCAFDoc_Datum::get_type_name(@)",
+                            header: "XCAFDoc_Datum.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XCAFDoc_Datum::get_type_descriptor(@)",
     header: "XCAFDoc_Datum.hxx".}
-proc DynamicType*(this: XCAFDoc_Datum): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: XCAFDocDatum): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XCAFDoc_Datum.hxx".}

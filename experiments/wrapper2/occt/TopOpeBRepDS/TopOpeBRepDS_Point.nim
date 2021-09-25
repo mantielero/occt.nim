@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Pnt, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Shape"
 type
@@ -28,23 +23,22 @@ type
 
 proc constructTopOpeBRepDS_Point*(): TopOpeBRepDS_Point {.constructor,
     importcpp: "TopOpeBRepDS_Point(@)", header: "TopOpeBRepDS_Point.hxx".}
-proc constructTopOpeBRepDS_Point*(P: gp_Pnt; T: Standard_Real): TopOpeBRepDS_Point {.
+proc constructTopOpeBRepDS_Point*(p: Pnt; t: float): TopOpeBRepDS_Point {.constructor,
+    importcpp: "TopOpeBRepDS_Point(@)", header: "TopOpeBRepDS_Point.hxx".}
+proc constructTopOpeBRepDS_Point*(s: TopoDS_Shape): TopOpeBRepDS_Point {.
     constructor, importcpp: "TopOpeBRepDS_Point(@)",
     header: "TopOpeBRepDS_Point.hxx".}
-proc constructTopOpeBRepDS_Point*(S: TopoDS_Shape): TopOpeBRepDS_Point {.
-    constructor, importcpp: "TopOpeBRepDS_Point(@)",
-    header: "TopOpeBRepDS_Point.hxx".}
-proc IsEqual*(this: TopOpeBRepDS_Point; other: TopOpeBRepDS_Point): Standard_Boolean {.
+proc isEqual*(this: TopOpeBRepDS_Point; other: TopOpeBRepDS_Point): bool {.
     noSideEffect, importcpp: "IsEqual", header: "TopOpeBRepDS_Point.hxx".}
-proc Point*(this: TopOpeBRepDS_Point): gp_Pnt {.noSideEffect, importcpp: "Point",
+proc point*(this: TopOpeBRepDS_Point): Pnt {.noSideEffect, importcpp: "Point",
     header: "TopOpeBRepDS_Point.hxx".}
-proc ChangePoint*(this: var TopOpeBRepDS_Point): var gp_Pnt {.
-    importcpp: "ChangePoint", header: "TopOpeBRepDS_Point.hxx".}
-proc Tolerance*(this: TopOpeBRepDS_Point): Standard_Real {.noSideEffect,
+proc changePoint*(this: var TopOpeBRepDS_Point): var Pnt {.importcpp: "ChangePoint",
+    header: "TopOpeBRepDS_Point.hxx".}
+proc tolerance*(this: TopOpeBRepDS_Point): float {.noSideEffect,
     importcpp: "Tolerance", header: "TopOpeBRepDS_Point.hxx".}
-proc Tolerance*(this: var TopOpeBRepDS_Point; Tol: Standard_Real) {.
-    importcpp: "Tolerance", header: "TopOpeBRepDS_Point.hxx".}
-proc Keep*(this: TopOpeBRepDS_Point): Standard_Boolean {.noSideEffect,
-    importcpp: "Keep", header: "TopOpeBRepDS_Point.hxx".}
-proc ChangeKeep*(this: var TopOpeBRepDS_Point; B: Standard_Boolean) {.
-    importcpp: "ChangeKeep", header: "TopOpeBRepDS_Point.hxx".}
+proc tolerance*(this: var TopOpeBRepDS_Point; tol: float) {.importcpp: "Tolerance",
+    header: "TopOpeBRepDS_Point.hxx".}
+proc keep*(this: TopOpeBRepDS_Point): bool {.noSideEffect, importcpp: "Keep",
+    header: "TopOpeBRepDS_Point.hxx".}
+proc changeKeep*(this: var TopOpeBRepDS_Point; b: bool) {.importcpp: "ChangeKeep",
+    header: "TopOpeBRepDS_Point.hxx".}

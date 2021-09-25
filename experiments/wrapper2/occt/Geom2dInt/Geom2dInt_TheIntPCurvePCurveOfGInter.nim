@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../IntRes2d/IntRes2d_Domain,
-  ../IntRes2d/IntRes2d_Intersection, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of Geom2dInt_Geom2dCurveTool"
 discard "forward decl of Geom2dInt_TheProjPCurOfGInter"
@@ -28,90 +22,62 @@ discard "forward decl of Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGI
 discard "forward decl of Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter"
 discard "forward decl of IntRes2d_Domain"
 type
-  Geom2dInt_TheIntPCurvePCurveOfGInter* {.
-      importcpp: "Geom2dInt_TheIntPCurvePCurveOfGInter",
-      header: "Geom2dInt_TheIntPCurvePCurveOfGInter.hxx", bycopy.} = object of IntRes2d_Intersection ##
-                                                                                              ## !
-                                                                                              ## Method
-                                                                                              ## to
-                                                                                              ## find
-                                                                                              ## intersection
-                                                                                              ## between
-                                                                                              ## two
-                                                                                              ## curves
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## :
-                                                                                              ## returns
-                                                                                              ## false
-                                                                                              ## for
-                                                                                              ## case
-                                                                                              ## when
-                                                                                              ## some
-                                                                                              ## points
-                                                                                              ## of
-                                                                                              ## polygon
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## :
-                                                                                              ## were
-                                                                                              ## replaced
-                                                                                              ## on
-                                                                                              ## line
-                                                                                              ## and
-                                                                                              ## exact
-                                                                                              ## point
-                                                                                              ## of
-                                                                                              ## intersection
-                                                                                              ## was
-                                                                                              ## not
-                                                                                              ## found
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## :
-                                                                                              ## for
-                                                                                              ## case
-                                                                                              ## when
-                                                                                              ## point
-                                                                                              ## of
-                                                                                              ## intersection
-                                                                                              ## was
-                                                                                              ## found
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## :
-                                                                                              ## during
-                                                                                              ## prelimanary
-                                                                                              ## search
-                                                                                              ## for
-                                                                                              ## line
-                                                                                              ## (case
-                                                                                              ## of
-                                                                                              ## bad
-                                                                                              ## paramerization
-                                                                                              ## of
-                                                                                              ## Bspline
-                                                                                              ## for
-                                                                                              ## example).
+  Geom2dIntTheIntPCurvePCurveOfGInter* {.importcpp: "Geom2dInt_TheIntPCurvePCurveOfGInter", header: "Geom2dInt_TheIntPCurvePCurveOfGInter.hxx",
+                                        bycopy.} = object of IntRes2dIntersection ## !
+                                                                             ## Method to
+                                                                             ## find
+                                                                             ## intersection
+                                                                             ## between two
+                                                                             ## curves
+                                                                             ## ! :
+                                                                             ## returns
+                                                                             ## false for
+                                                                             ## case
+                                                                             ## when
+                                                                             ## some
+                                                                             ## points of
+                                                                             ## polygon
+                                                                             ## ! :
+                                                                             ## were
+                                                                             ## replaced on
+                                                                             ## line and
+                                                                             ## exact
+                                                                             ## point of
+                                                                             ## intersection was not
+                                                                             ## found
+                                                                             ## ! : for
+                                                                             ## case
+                                                                             ## when
+                                                                             ## point of
+                                                                             ## intersection was
+                                                                             ## found
+                                                                             ## ! :
+                                                                             ## during
+                                                                             ## prelimanary
+                                                                             ## search for
+                                                                             ## line
+                                                                             ## (case of bad
+                                                                             ## paramerization of
+                                                                             ## Bspline for
+                                                                             ## example).
     ## ! Minimal number of sample points
 
 
-proc constructGeom2dInt_TheIntPCurvePCurveOfGInter*(): Geom2dInt_TheIntPCurvePCurveOfGInter {.
+proc constructGeom2dIntTheIntPCurvePCurveOfGInter*(): Geom2dIntTheIntPCurvePCurveOfGInter {.
     constructor, importcpp: "Geom2dInt_TheIntPCurvePCurveOfGInter(@)",
     header: "Geom2dInt_TheIntPCurvePCurveOfGInter.hxx".}
-proc Perform*(this: var Geom2dInt_TheIntPCurvePCurveOfGInter;
-             Curve1: Adaptor2d_Curve2d; Domain1: IntRes2d_Domain;
-             Curve2: Adaptor2d_Curve2d; Domain2: IntRes2d_Domain;
-             TolConf: Standard_Real; Tol: Standard_Real) {.importcpp: "Perform",
+proc perform*(this: var Geom2dIntTheIntPCurvePCurveOfGInter;
+             curve1: Adaptor2dCurve2d; domain1: IntRes2dDomain;
+             curve2: Adaptor2dCurve2d; domain2: IntRes2dDomain; tolConf: float;
+             tol: float) {.importcpp: "Perform",
+                         header: "Geom2dInt_TheIntPCurvePCurveOfGInter.hxx".}
+proc perform*(this: var Geom2dIntTheIntPCurvePCurveOfGInter;
+             curve1: Adaptor2dCurve2d; domain1: IntRes2dDomain; tolConf: float;
+             tol: float) {.importcpp: "Perform",
+                         header: "Geom2dInt_TheIntPCurvePCurveOfGInter.hxx".}
+proc setMinNbSamples*(this: var Geom2dIntTheIntPCurvePCurveOfGInter;
+                     theMinNbSamples: int) {.importcpp: "SetMinNbSamples",
     header: "Geom2dInt_TheIntPCurvePCurveOfGInter.hxx".}
-proc Perform*(this: var Geom2dInt_TheIntPCurvePCurveOfGInter;
-             Curve1: Adaptor2d_Curve2d; Domain1: IntRes2d_Domain;
-             TolConf: Standard_Real; Tol: Standard_Real) {.importcpp: "Perform",
-    header: "Geom2dInt_TheIntPCurvePCurveOfGInter.hxx".}
-proc SetMinNbSamples*(this: var Geom2dInt_TheIntPCurvePCurveOfGInter;
-                     theMinNbSamples: Standard_Integer) {.
-    importcpp: "SetMinNbSamples",
-    header: "Geom2dInt_TheIntPCurvePCurveOfGInter.hxx".}
-proc GetMinNbSamples*(this: Geom2dInt_TheIntPCurvePCurveOfGInter): Standard_Integer {.
+proc getMinNbSamples*(this: Geom2dIntTheIntPCurvePCurveOfGInter): int {.
     noSideEffect, importcpp: "GetMinNbSamples",
     header: "Geom2dInt_TheIntPCurvePCurveOfGInter.hxx".}

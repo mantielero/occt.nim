@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP203_ChangeRequestItem, StepAP203_Array1OfChangeRequestItem,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepAP203_HArray1OfChangeRequestItem* {.
-      importcpp: "StepAP203_HArray1OfChangeRequestItem",
-      header: "StepAP203_HArray1OfChangeRequestItem.hxx", bycopy.} = object of StepAP203_Array1OfChangeRequestItem
+  StepAP203HArray1OfChangeRequestItem* {.importcpp: "StepAP203_HArray1OfChangeRequestItem", header: "StepAP203_HArray1OfChangeRequestItem.hxx",
+                                        bycopy.} = object of StepAP203Array1OfChangeRequestItem
 
 
-proc constructStepAP203_HArray1OfChangeRequestItem*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepAP203_HArray1OfChangeRequestItem {.
+proc constructStepAP203HArray1OfChangeRequestItem*(theLower: int; theUpper: int): StepAP203HArray1OfChangeRequestItem {.
     constructor, importcpp: "StepAP203_HArray1OfChangeRequestItem(@)",
     header: "StepAP203_HArray1OfChangeRequestItem.hxx".}
-proc constructStepAP203_HArray1OfChangeRequestItem*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepAP203_HArray1OfChangeRequestItem {.
+proc constructStepAP203HArray1OfChangeRequestItem*(theLower: int; theUpper: int;
+    theValue: ValueType): StepAP203HArray1OfChangeRequestItem {.constructor,
+    importcpp: "StepAP203_HArray1OfChangeRequestItem(@)",
+    header: "StepAP203_HArray1OfChangeRequestItem.hxx".}
+proc constructStepAP203HArray1OfChangeRequestItem*(
+    theOther: StepAP203Array1OfChangeRequestItem): StepAP203HArray1OfChangeRequestItem {.
     constructor, importcpp: "StepAP203_HArray1OfChangeRequestItem(@)",
     header: "StepAP203_HArray1OfChangeRequestItem.hxx".}
-proc constructStepAP203_HArray1OfChangeRequestItem*(
-    theOther: StepAP203_Array1OfChangeRequestItem): StepAP203_HArray1OfChangeRequestItem {.
-    constructor, importcpp: "StepAP203_HArray1OfChangeRequestItem(@)",
-    header: "StepAP203_HArray1OfChangeRequestItem.hxx".}
-proc Array1*(this: StepAP203_HArray1OfChangeRequestItem): StepAP203_Array1OfChangeRequestItem {.
+proc array1*(this: StepAP203HArray1OfChangeRequestItem): StepAP203Array1OfChangeRequestItem {.
     noSideEffect, importcpp: "Array1",
     header: "StepAP203_HArray1OfChangeRequestItem.hxx".}
-proc ChangeArray1*(this: var StepAP203_HArray1OfChangeRequestItem): var StepAP203_Array1OfChangeRequestItem {.
+proc changeArray1*(this: var StepAP203HArray1OfChangeRequestItem): var StepAP203Array1OfChangeRequestItem {.
     importcpp: "ChangeArray1", header: "StepAP203_HArray1OfChangeRequestItem.hxx".}
 type
-  StepAP203_HArray1OfChangeRequestItembase_type* = MMgt_TShared
+  StepAP203HArray1OfChangeRequestItembaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepAP203_HArray1OfChangeRequestItem::get_type_name(@)", header: "StepAP203_HArray1OfChangeRequestItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP203_HArray1OfChangeRequestItem::get_type_name(@)",
+                            header: "StepAP203_HArray1OfChangeRequestItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP203_HArray1OfChangeRequestItem::get_type_descriptor(@)",
     header: "StepAP203_HArray1OfChangeRequestItem.hxx".}
-proc DynamicType*(this: StepAP203_HArray1OfChangeRequestItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepAP203HArray1OfChangeRequestItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP203_HArray1OfChangeRequestItem.hxx".}

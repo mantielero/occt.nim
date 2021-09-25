@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Wire,
-  ../Standard/Standard_Boolean, StepToTopoDS_Root
-
 discard "forward decl of StepGeom_CompositeCurve"
 discard "forward decl of Transfer_TransientProcess"
 discard "forward decl of StepGeom_Surface"
@@ -37,25 +32,24 @@ proc constructStepToTopoDS_TranslateCompositeCurve*(): StepToTopoDS_TranslateCom
     constructor, importcpp: "StepToTopoDS_TranslateCompositeCurve(@)",
     header: "StepToTopoDS_TranslateCompositeCurve.hxx".}
 proc constructStepToTopoDS_TranslateCompositeCurve*(
-    CC: handle[StepGeom_CompositeCurve]; TP: handle[Transfer_TransientProcess]): StepToTopoDS_TranslateCompositeCurve {.
+    cc: Handle[StepGeomCompositeCurve]; tp: Handle[TransferTransientProcess]): StepToTopoDS_TranslateCompositeCurve {.
     constructor, importcpp: "StepToTopoDS_TranslateCompositeCurve(@)",
     header: "StepToTopoDS_TranslateCompositeCurve.hxx".}
 proc constructStepToTopoDS_TranslateCompositeCurve*(
-    CC: handle[StepGeom_CompositeCurve]; TP: handle[Transfer_TransientProcess];
-    S: handle[StepGeom_Surface]; Surf: handle[Geom_Surface]): StepToTopoDS_TranslateCompositeCurve {.
+    cc: Handle[StepGeomCompositeCurve]; tp: Handle[TransferTransientProcess];
+    s: Handle[StepGeomSurface]; surf: Handle[GeomSurface]): StepToTopoDS_TranslateCompositeCurve {.
     constructor, importcpp: "StepToTopoDS_TranslateCompositeCurve(@)",
     header: "StepToTopoDS_TranslateCompositeCurve.hxx".}
-proc Init*(this: var StepToTopoDS_TranslateCompositeCurve;
-          CC: handle[StepGeom_CompositeCurve];
-          TP: handle[Transfer_TransientProcess]): Standard_Boolean {.
+proc init*(this: var StepToTopoDS_TranslateCompositeCurve;
+          cc: Handle[StepGeomCompositeCurve]; tp: Handle[TransferTransientProcess]): bool {.
     importcpp: "Init", header: "StepToTopoDS_TranslateCompositeCurve.hxx".}
-proc Init*(this: var StepToTopoDS_TranslateCompositeCurve;
-          CC: handle[StepGeom_CompositeCurve];
-          TP: handle[Transfer_TransientProcess]; S: handle[StepGeom_Surface];
-          Surf: handle[Geom_Surface]): Standard_Boolean {.importcpp: "Init",
+proc init*(this: var StepToTopoDS_TranslateCompositeCurve;
+          cc: Handle[StepGeomCompositeCurve];
+          tp: Handle[TransferTransientProcess]; s: Handle[StepGeomSurface];
+          surf: Handle[GeomSurface]): bool {.importcpp: "Init",
     header: "StepToTopoDS_TranslateCompositeCurve.hxx".}
-proc Value*(this: StepToTopoDS_TranslateCompositeCurve): TopoDS_Wire {.noSideEffect,
+proc value*(this: StepToTopoDS_TranslateCompositeCurve): TopoDS_Wire {.noSideEffect,
     importcpp: "Value", header: "StepToTopoDS_TranslateCompositeCurve.hxx".}
-proc IsInfiniteSegment*(this: StepToTopoDS_TranslateCompositeCurve): Standard_Boolean {.
+proc isInfiniteSegment*(this: StepToTopoDS_TranslateCompositeCurve): bool {.
     noSideEffect, importcpp: "IsInfiniteSegment",
     header: "StepToTopoDS_TranslateCompositeCurve.hxx".}

@@ -14,32 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_ShapeRepresentation
-
 discard "forward decl of StepShape_TransitionalShapeRepresentation"
 discard "forward decl of StepShape_TransitionalShapeRepresentation"
 type
-  Handle_StepShape_TransitionalShapeRepresentation* = handle[
-      StepShape_TransitionalShapeRepresentation]
-  StepShape_TransitionalShapeRepresentation* {.
+  HandleStepShapeTransitionalShapeRepresentation* = Handle[
+      StepShapeTransitionalShapeRepresentation]
+  StepShapeTransitionalShapeRepresentation* {.
       importcpp: "StepShape_TransitionalShapeRepresentation",
-      header: "StepShape_TransitionalShapeRepresentation.hxx", bycopy.} = object of StepShape_ShapeRepresentation ##
-                                                                                                           ## !
-                                                                                                           ## Returns
-                                                                                                           ## a
-                                                                                                           ## TransitionalShapeRepresentation
+      header: "StepShape_TransitionalShapeRepresentation.hxx", bycopy.} = object of StepShapeShapeRepresentation ##
+                                                                                                          ## !
+                                                                                                          ## Returns
+                                                                                                          ## a
+                                                                                                          ## TransitionalShapeRepresentation
 
 
-proc constructStepShape_TransitionalShapeRepresentation*(): StepShape_TransitionalShapeRepresentation {.
+proc constructStepShapeTransitionalShapeRepresentation*(): StepShapeTransitionalShapeRepresentation {.
     constructor, importcpp: "StepShape_TransitionalShapeRepresentation(@)",
     header: "StepShape_TransitionalShapeRepresentation.hxx".}
 type
-  StepShape_TransitionalShapeRepresentationbase_type* = StepShape_ShapeRepresentation
+  StepShapeTransitionalShapeRepresentationbaseType* = StepShapeShapeRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_TransitionalShapeRepresentation::get_type_name(@)", header: "StepShape_TransitionalShapeRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepShape_TransitionalShapeRepresentation::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepShape_TransitionalShapeRepresentation::get_type_name(@)", header: "StepShape_TransitionalShapeRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_TransitionalShapeRepresentation::get_type_descriptor(@)",
     header: "StepShape_TransitionalShapeRepresentation.hxx".}
-proc DynamicType*(this: StepShape_TransitionalShapeRepresentation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepShape_TransitionalShapeRepresentation.hxx".}
+proc dynamicType*(this: StepShapeTransitionalShapeRepresentation): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepShape_TransitionalShapeRepresentation.hxx".}

@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real, ../gp/gp_Trsf,
-  ../gp/gp_Vec2d
-
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Trsf"
@@ -29,51 +23,46 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Lin"
 type
-  HLRAlgo_Projector* {.importcpp: "HLRAlgo_Projector",
-                      header: "HLRAlgo_Projector.hxx", bycopy.} = object
+  HLRAlgoProjector* {.importcpp: "HLRAlgo_Projector",
+                     header: "HLRAlgo_Projector.hxx", bycopy.} = object
 
 
-proc constructHLRAlgo_Projector*(): HLRAlgo_Projector {.constructor,
+proc constructHLRAlgoProjector*(): HLRAlgoProjector {.constructor,
     importcpp: "HLRAlgo_Projector(@)", header: "HLRAlgo_Projector.hxx".}
-proc constructHLRAlgo_Projector*(CS: gp_Ax2): HLRAlgo_Projector {.constructor,
+proc constructHLRAlgoProjector*(cs: Ax2): HLRAlgoProjector {.constructor,
     importcpp: "HLRAlgo_Projector(@)", header: "HLRAlgo_Projector.hxx".}
-proc constructHLRAlgo_Projector*(CS: gp_Ax2; Focus: Standard_Real): HLRAlgo_Projector {.
+proc constructHLRAlgoProjector*(cs: Ax2; focus: float): HLRAlgoProjector {.
     constructor, importcpp: "HLRAlgo_Projector(@)", header: "HLRAlgo_Projector.hxx".}
-proc constructHLRAlgo_Projector*(T: gp_Trsf; Persp: Standard_Boolean;
-                                Focus: Standard_Real): HLRAlgo_Projector {.
+proc constructHLRAlgoProjector*(t: Trsf; persp: bool; focus: float): HLRAlgoProjector {.
     constructor, importcpp: "HLRAlgo_Projector(@)", header: "HLRAlgo_Projector.hxx".}
-proc constructHLRAlgo_Projector*(T: gp_Trsf; Persp: Standard_Boolean;
-                                Focus: Standard_Real; v1: gp_Vec2d; v2: gp_Vec2d;
-                                v3: gp_Vec2d): HLRAlgo_Projector {.constructor,
+proc constructHLRAlgoProjector*(t: Trsf; persp: bool; focus: float; v1: Vec2d; v2: Vec2d;
+                               v3: Vec2d): HLRAlgoProjector {.constructor,
     importcpp: "HLRAlgo_Projector(@)", header: "HLRAlgo_Projector.hxx".}
-proc Set*(this: var HLRAlgo_Projector; T: gp_Trsf; Persp: Standard_Boolean;
-         Focus: Standard_Real) {.importcpp: "Set", header: "HLRAlgo_Projector.hxx".}
-proc Directions*(this: HLRAlgo_Projector; D1: var gp_Vec2d; D2: var gp_Vec2d;
-                D3: var gp_Vec2d) {.noSideEffect, importcpp: "Directions",
-                                 header: "HLRAlgo_Projector.hxx".}
-proc Scaled*(this: var HLRAlgo_Projector; On: Standard_Boolean = Standard_False) {.
-    importcpp: "Scaled", header: "HLRAlgo_Projector.hxx".}
-proc Perspective*(this: HLRAlgo_Projector): Standard_Boolean {.noSideEffect,
+proc set*(this: var HLRAlgoProjector; t: Trsf; persp: bool; focus: float) {.
+    importcpp: "Set", header: "HLRAlgo_Projector.hxx".}
+proc directions*(this: HLRAlgoProjector; d1: var Vec2d; d2: var Vec2d; d3: var Vec2d) {.
+    noSideEffect, importcpp: "Directions", header: "HLRAlgo_Projector.hxx".}
+proc scaled*(this: var HLRAlgoProjector; on: bool = false) {.importcpp: "Scaled",
+    header: "HLRAlgo_Projector.hxx".}
+proc perspective*(this: HLRAlgoProjector): bool {.noSideEffect,
     importcpp: "Perspective", header: "HLRAlgo_Projector.hxx".}
-proc Transformation*(this: HLRAlgo_Projector): gp_Trsf {.noSideEffect,
+proc transformation*(this: HLRAlgoProjector): Trsf {.noSideEffect,
     importcpp: "Transformation", header: "HLRAlgo_Projector.hxx".}
-proc InvertedTransformation*(this: HLRAlgo_Projector): gp_Trsf {.noSideEffect,
+proc invertedTransformation*(this: HLRAlgoProjector): Trsf {.noSideEffect,
     importcpp: "InvertedTransformation", header: "HLRAlgo_Projector.hxx".}
-proc FullTransformation*(this: HLRAlgo_Projector): gp_Trsf {.noSideEffect,
+proc fullTransformation*(this: HLRAlgoProjector): Trsf {.noSideEffect,
     importcpp: "FullTransformation", header: "HLRAlgo_Projector.hxx".}
-proc Focus*(this: HLRAlgo_Projector): Standard_Real {.noSideEffect,
-    importcpp: "Focus", header: "HLRAlgo_Projector.hxx".}
-proc Transform*(this: HLRAlgo_Projector; D: var gp_Vec) {.noSideEffect,
+proc focus*(this: HLRAlgoProjector): float {.noSideEffect, importcpp: "Focus",
+    header: "HLRAlgo_Projector.hxx".}
+proc transform*(this: HLRAlgoProjector; d: var Vec) {.noSideEffect,
     importcpp: "Transform", header: "HLRAlgo_Projector.hxx".}
-proc Transform*(this: HLRAlgo_Projector; Pnt: var gp_Pnt) {.noSideEffect,
+proc transform*(this: HLRAlgoProjector; pnt: var Pnt) {.noSideEffect,
     importcpp: "Transform", header: "HLRAlgo_Projector.hxx".}
-proc Project*(this: HLRAlgo_Projector; P: gp_Pnt; Pout: var gp_Pnt2d) {.noSideEffect,
+proc project*(this: HLRAlgoProjector; p: Pnt; pout: var Pnt2d) {.noSideEffect,
     importcpp: "Project", header: "HLRAlgo_Projector.hxx".}
-proc Project*(this: HLRAlgo_Projector; P: gp_Pnt; X: var Standard_Real;
-             Y: var Standard_Real; Z: var Standard_Real) {.noSideEffect,
-    importcpp: "Project", header: "HLRAlgo_Projector.hxx".}
-proc Project*(this: HLRAlgo_Projector; P: gp_Pnt; D1: gp_Vec; Pout: var gp_Pnt2d;
-             D1out: var gp_Vec2d) {.noSideEffect, importcpp: "Project",
-                                 header: "HLRAlgo_Projector.hxx".}
-proc Shoot*(this: HLRAlgo_Projector; X: Standard_Real; Y: Standard_Real): gp_Lin {.
-    noSideEffect, importcpp: "Shoot", header: "HLRAlgo_Projector.hxx".}
+proc project*(this: HLRAlgoProjector; p: Pnt; x: var float; y: var float; z: var float) {.
+    noSideEffect, importcpp: "Project", header: "HLRAlgo_Projector.hxx".}
+proc project*(this: HLRAlgoProjector; p: Pnt; d1: Vec; pout: var Pnt2d; d1out: var Vec2d) {.
+    noSideEffect, importcpp: "Project", header: "HLRAlgo_Projector.hxx".}
+proc shoot*(this: HLRAlgoProjector; x: float; y: float): Lin {.noSideEffect,
+    importcpp: "Shoot", header: "HLRAlgo_Projector.hxx".}

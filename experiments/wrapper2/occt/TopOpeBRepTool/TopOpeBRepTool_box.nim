@@ -14,15 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, TopOpeBRepTool_HBoxTool
-
 when defined(OCCT_DEBUG):
-  proc TopOpeBRepTool_GettraceBOX*(): Standard_Boolean {.
+  proc topOpeBRepToolGettraceBOX*(): bool {.
       importcpp: "TopOpeBRepTool_GettraceBOX(@)", header: "TopOpeBRepTool_box.hxx".}
-proc FBOX_Prepare*() {.importcpp: "FBOX_Prepare(@)",
+proc fBOX_Prepare*() {.importcpp: "FBOX_Prepare(@)",
                      header: "TopOpeBRepTool_box.hxx".}
-proc FBOX_GetHBoxTool*(): handle[TopOpeBRepTool_HBoxTool] {.
+proc fBOX_GetHBoxTool*(): Handle[TopOpeBRepToolHBoxTool] {.
     importcpp: "FBOX_GetHBoxTool(@)", header: "TopOpeBRepTool_box.hxx".}
-proc FBOX_Box*(S: TopoDS_Shape): var Bnd_Box {.importcpp: "FBOX_Box(@)",
+proc fBOX_Box*(s: TopoDS_Shape): var BndBox {.importcpp: "FBOX_Box(@)",
     header: "TopOpeBRepTool_box.hxx".}

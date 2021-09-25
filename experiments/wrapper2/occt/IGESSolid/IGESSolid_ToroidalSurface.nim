@@ -14,17 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Boolean
-
 discard "forward decl of IGESGeom_Point"
 discard "forward decl of IGESGeom_Direction"
 discard "forward decl of gp_Pnt"
 discard "forward decl of IGESSolid_ToroidalSurface"
 discard "forward decl of IGESSolid_ToroidalSurface"
 type
-  Handle_IGESSolid_ToroidalSurface* = handle[IGESSolid_ToroidalSurface]
+  HandleIGESSolidToroidalSurface* = Handle[IGESSolidToroidalSurface]
 
 ## ! defines ToroidalSurface, Type <198> Form Number <0,1>
 ## ! in package IGESSolid
@@ -33,40 +29,39 @@ type
 ## ! parametrised surface a reference direction is provided.
 
 type
-  IGESSolid_ToroidalSurface* {.importcpp: "IGESSolid_ToroidalSurface",
-                              header: "IGESSolid_ToroidalSurface.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESSolidToroidalSurface* {.importcpp: "IGESSolid_ToroidalSurface",
+                             header: "IGESSolid_ToroidalSurface.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESSolid_ToroidalSurface*(): IGESSolid_ToroidalSurface {.
-    constructor, importcpp: "IGESSolid_ToroidalSurface(@)",
+proc constructIGESSolidToroidalSurface*(): IGESSolidToroidalSurface {.constructor,
+    importcpp: "IGESSolid_ToroidalSurface(@)",
     header: "IGESSolid_ToroidalSurface.hxx".}
-proc Init*(this: var IGESSolid_ToroidalSurface; aCenter: handle[IGESGeom_Point];
-          anAxis: handle[IGESGeom_Direction]; majRadius: Standard_Real;
-          minRadius: Standard_Real; Refdir: handle[IGESGeom_Direction]) {.
-    importcpp: "Init", header: "IGESSolid_ToroidalSurface.hxx".}
-proc Center*(this: IGESSolid_ToroidalSurface): handle[IGESGeom_Point] {.
-    noSideEffect, importcpp: "Center", header: "IGESSolid_ToroidalSurface.hxx".}
-proc TransformedCenter*(this: IGESSolid_ToroidalSurface): gp_Pnt {.noSideEffect,
+proc init*(this: var IGESSolidToroidalSurface; aCenter: Handle[IGESGeomPoint];
+          anAxis: Handle[IGESGeomDirection]; majRadius: float; minRadius: float;
+          refdir: Handle[IGESGeomDirection]) {.importcpp: "Init",
+    header: "IGESSolid_ToroidalSurface.hxx".}
+proc center*(this: IGESSolidToroidalSurface): Handle[IGESGeomPoint] {.noSideEffect,
+    importcpp: "Center", header: "IGESSolid_ToroidalSurface.hxx".}
+proc transformedCenter*(this: IGESSolidToroidalSurface): Pnt {.noSideEffect,
     importcpp: "TransformedCenter", header: "IGESSolid_ToroidalSurface.hxx".}
-proc Axis*(this: IGESSolid_ToroidalSurface): handle[IGESGeom_Direction] {.
+proc axis*(this: IGESSolidToroidalSurface): Handle[IGESGeomDirection] {.
     noSideEffect, importcpp: "Axis", header: "IGESSolid_ToroidalSurface.hxx".}
-proc MajorRadius*(this: IGESSolid_ToroidalSurface): Standard_Real {.noSideEffect,
+proc majorRadius*(this: IGESSolidToroidalSurface): float {.noSideEffect,
     importcpp: "MajorRadius", header: "IGESSolid_ToroidalSurface.hxx".}
-proc MinorRadius*(this: IGESSolid_ToroidalSurface): Standard_Real {.noSideEffect,
+proc minorRadius*(this: IGESSolidToroidalSurface): float {.noSideEffect,
     importcpp: "MinorRadius", header: "IGESSolid_ToroidalSurface.hxx".}
-proc ReferenceDir*(this: IGESSolid_ToroidalSurface): handle[IGESGeom_Direction] {.
+proc referenceDir*(this: IGESSolidToroidalSurface): Handle[IGESGeomDirection] {.
     noSideEffect, importcpp: "ReferenceDir",
     header: "IGESSolid_ToroidalSurface.hxx".}
-proc IsParametrised*(this: IGESSolid_ToroidalSurface): Standard_Boolean {.
-    noSideEffect, importcpp: "IsParametrised",
-    header: "IGESSolid_ToroidalSurface.hxx".}
+proc isParametrised*(this: IGESSolidToroidalSurface): bool {.noSideEffect,
+    importcpp: "IsParametrised", header: "IGESSolid_ToroidalSurface.hxx".}
 type
-  IGESSolid_ToroidalSurfacebase_type* = IGESData_IGESEntity
+  IGESSolidToroidalSurfacebaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESSolid_ToroidalSurface::get_type_name(@)",
-                              header: "IGESSolid_ToroidalSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSolid_ToroidalSurface::get_type_name(@)",
+                            header: "IGESSolid_ToroidalSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSolid_ToroidalSurface::get_type_descriptor(@)",
     header: "IGESSolid_ToroidalSurface.hxx".}
-proc DynamicType*(this: IGESSolid_ToroidalSurface): handle[Standard_Type] {.
+proc dynamicType*(this: IGESSolidToroidalSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSolid_ToroidalSurface.hxx".}

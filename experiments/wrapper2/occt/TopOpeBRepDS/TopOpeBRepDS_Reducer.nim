@@ -12,21 +12,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State
-
 discard "forward decl of TopOpeBRepDS_HDataStructure"
 type
   TopOpeBRepDS_Reducer* {.importcpp: "TopOpeBRepDS_Reducer",
                          header: "TopOpeBRepDS_Reducer.hxx", bycopy.} = object
 
 
-proc constructTopOpeBRepDS_Reducer*(HDS: handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_Reducer {.
+proc constructTopOpeBRepDS_Reducer*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_Reducer {.
     constructor, importcpp: "TopOpeBRepDS_Reducer(@)",
     header: "TopOpeBRepDS_Reducer.hxx".}
-proc ProcessFaceInterferences*(this: var TopOpeBRepDS_Reducer;
-                              M: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State) {.
+proc processFaceInterferences*(this: var TopOpeBRepDS_Reducer;
+                              m: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State) {.
     importcpp: "ProcessFaceInterferences", header: "TopOpeBRepDS_Reducer.hxx".}
-proc ProcessEdgeInterferences*(this: var TopOpeBRepDS_Reducer) {.
+proc processEdgeInterferences*(this: var TopOpeBRepDS_Reducer) {.
     importcpp: "ProcessEdgeInterferences", header: "TopOpeBRepDS_Reducer.hxx".}

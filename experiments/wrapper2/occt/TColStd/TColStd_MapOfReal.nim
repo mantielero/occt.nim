@@ -12,9 +12,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Real, TColStd_MapRealHasher, ../NCollection/NCollection_Map
-
 type
-  TColStd_MapOfReal* = NCollection_Map[Standard_Real, TColStd_MapRealHasher]
-  TColStd_MapIteratorOfMapOfReal* = Iterator[Standard_Real, TColStd_MapRealHasher]
+  TColStdMapOfReal* = NCollectionMap[float, TColStdMapRealHasher]
+  TColStdMapIteratorOfMapOfReal* = Iterator[float, TColStdMapRealHasher]
+

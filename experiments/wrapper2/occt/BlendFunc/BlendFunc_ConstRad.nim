@@ -14,18 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Pnt, ../Standard/Standard_Boolean,
-  ../gp/gp_Vec, ../gp/gp_Vec2d, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer, ../math/math_Vector, ../math/math_Matrix,
-  BlendFunc_Tensor, BlendFunc_SectionShape,
-  ../Convert/Convert_ParameterisationType, ../Blend/Blend_Function,
-  ../TColStd/TColStd_Array1OfReal, ../GeomAbs/GeomAbs_Shape,
-  ../TColStd/TColStd_Array1OfInteger, ../TColgp/TColgp_Array1OfPnt,
-  ../TColgp/TColgp_Array1OfVec, ../TColgp/TColgp_Array1OfPnt2d,
-  ../TColgp/TColgp_Array1OfVec2d
-
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of math_Matrix"
@@ -36,110 +24,103 @@ discard "forward decl of gp_Circ"
 discard "forward decl of Blend_Point"
 discard "forward decl of gp_Ax1"
 type
-  BlendFunc_ConstRad* {.importcpp: "BlendFunc_ConstRad",
-                       header: "BlendFunc_ConstRad.hxx", bycopy.} = object of Blend_Function
+  BlendFuncConstRad* {.importcpp: "BlendFunc_ConstRad",
+                      header: "BlendFunc_ConstRad.hxx", bycopy.} = object of BlendFunction
 
 
-proc constructBlendFunc_ConstRad*(S1: handle[Adaptor3d_HSurface];
-                                 S2: handle[Adaptor3d_HSurface];
-                                 C: handle[Adaptor3d_HCurve]): BlendFunc_ConstRad {.
+proc constructBlendFuncConstRad*(s1: Handle[Adaptor3dHSurface];
+                                s2: Handle[Adaptor3dHSurface];
+                                c: Handle[Adaptor3dHCurve]): BlendFuncConstRad {.
     constructor, importcpp: "BlendFunc_ConstRad(@)",
     header: "BlendFunc_ConstRad.hxx".}
-proc NbEquations*(this: BlendFunc_ConstRad): Standard_Integer {.noSideEffect,
+proc nbEquations*(this: BlendFuncConstRad): int {.noSideEffect,
     importcpp: "NbEquations", header: "BlendFunc_ConstRad.hxx".}
-proc Value*(this: var BlendFunc_ConstRad; X: math_Vector; F: var math_Vector): Standard_Boolean {.
+proc value*(this: var BlendFuncConstRad; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "BlendFunc_ConstRad.hxx".}
-proc Derivatives*(this: var BlendFunc_ConstRad; X: math_Vector; D: var math_Matrix): Standard_Boolean {.
+proc derivatives*(this: var BlendFuncConstRad; x: MathVector; d: var MathMatrix): bool {.
     importcpp: "Derivatives", header: "BlendFunc_ConstRad.hxx".}
-proc Values*(this: var BlendFunc_ConstRad; X: math_Vector; F: var math_Vector;
-            D: var math_Matrix): Standard_Boolean {.importcpp: "Values",
+proc values*(this: var BlendFuncConstRad; x: MathVector; f: var MathVector;
+            d: var MathMatrix): bool {.importcpp: "Values",
+                                   header: "BlendFunc_ConstRad.hxx".}
+proc set*(this: var BlendFuncConstRad; param: float) {.importcpp: "Set",
     header: "BlendFunc_ConstRad.hxx".}
-proc Set*(this: var BlendFunc_ConstRad; Param: Standard_Real) {.importcpp: "Set",
+proc set*(this: var BlendFuncConstRad; first: float; last: float) {.importcpp: "Set",
     header: "BlendFunc_ConstRad.hxx".}
-proc Set*(this: var BlendFunc_ConstRad; First: Standard_Real; Last: Standard_Real) {.
-    importcpp: "Set", header: "BlendFunc_ConstRad.hxx".}
-proc GetTolerance*(this: BlendFunc_ConstRad; Tolerance: var math_Vector;
-                  Tol: Standard_Real) {.noSideEffect, importcpp: "GetTolerance",
-                                      header: "BlendFunc_ConstRad.hxx".}
-proc GetBounds*(this: BlendFunc_ConstRad; InfBound: var math_Vector;
-               SupBound: var math_Vector) {.noSideEffect, importcpp: "GetBounds",
-    header: "BlendFunc_ConstRad.hxx".}
-proc IsSolution*(this: var BlendFunc_ConstRad; Sol: math_Vector; Tol: Standard_Real): Standard_Boolean {.
+proc getTolerance*(this: BlendFuncConstRad; tolerance: var MathVector; tol: float) {.
+    noSideEffect, importcpp: "GetTolerance", header: "BlendFunc_ConstRad.hxx".}
+proc getBounds*(this: BlendFuncConstRad; infBound: var MathVector;
+               supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds",
+                                        header: "BlendFunc_ConstRad.hxx".}
+proc isSolution*(this: var BlendFuncConstRad; sol: MathVector; tol: float): bool {.
     importcpp: "IsSolution", header: "BlendFunc_ConstRad.hxx".}
-proc GetMinimalDistance*(this: BlendFunc_ConstRad): Standard_Real {.noSideEffect,
+proc getMinimalDistance*(this: BlendFuncConstRad): float {.noSideEffect,
     importcpp: "GetMinimalDistance", header: "BlendFunc_ConstRad.hxx".}
-proc PointOnS1*(this: BlendFunc_ConstRad): gp_Pnt {.noSideEffect,
-    importcpp: "PointOnS1", header: "BlendFunc_ConstRad.hxx".}
-proc PointOnS2*(this: BlendFunc_ConstRad): gp_Pnt {.noSideEffect,
-    importcpp: "PointOnS2", header: "BlendFunc_ConstRad.hxx".}
-proc IsTangencyPoint*(this: BlendFunc_ConstRad): Standard_Boolean {.noSideEffect,
+proc pointOnS1*(this: BlendFuncConstRad): Pnt {.noSideEffect, importcpp: "PointOnS1",
+    header: "BlendFunc_ConstRad.hxx".}
+proc pointOnS2*(this: BlendFuncConstRad): Pnt {.noSideEffect, importcpp: "PointOnS2",
+    header: "BlendFunc_ConstRad.hxx".}
+proc isTangencyPoint*(this: BlendFuncConstRad): bool {.noSideEffect,
     importcpp: "IsTangencyPoint", header: "BlendFunc_ConstRad.hxx".}
-proc TangentOnS1*(this: BlendFunc_ConstRad): gp_Vec {.noSideEffect,
+proc tangentOnS1*(this: BlendFuncConstRad): Vec {.noSideEffect,
     importcpp: "TangentOnS1", header: "BlendFunc_ConstRad.hxx".}
-proc Tangent2dOnS1*(this: BlendFunc_ConstRad): gp_Vec2d {.noSideEffect,
+proc tangent2dOnS1*(this: BlendFuncConstRad): Vec2d {.noSideEffect,
     importcpp: "Tangent2dOnS1", header: "BlendFunc_ConstRad.hxx".}
-proc TangentOnS2*(this: BlendFunc_ConstRad): gp_Vec {.noSideEffect,
+proc tangentOnS2*(this: BlendFuncConstRad): Vec {.noSideEffect,
     importcpp: "TangentOnS2", header: "BlendFunc_ConstRad.hxx".}
-proc Tangent2dOnS2*(this: BlendFunc_ConstRad): gp_Vec2d {.noSideEffect,
+proc tangent2dOnS2*(this: BlendFuncConstRad): Vec2d {.noSideEffect,
     importcpp: "Tangent2dOnS2", header: "BlendFunc_ConstRad.hxx".}
-proc Tangent*(this: BlendFunc_ConstRad; U1: Standard_Real; V1: Standard_Real;
-             U2: Standard_Real; V2: Standard_Real; TgFirst: var gp_Vec;
-             TgLast: var gp_Vec; NormFirst: var gp_Vec; NormLast: var gp_Vec) {.
+proc tangent*(this: BlendFuncConstRad; u1: float; v1: float; u2: float; v2: float;
+             tgFirst: var Vec; tgLast: var Vec; normFirst: var Vec; normLast: var Vec) {.
     noSideEffect, importcpp: "Tangent", header: "BlendFunc_ConstRad.hxx".}
-proc TwistOnS1*(this: BlendFunc_ConstRad): Standard_Boolean {.noSideEffect,
+proc twistOnS1*(this: BlendFuncConstRad): bool {.noSideEffect,
     importcpp: "TwistOnS1", header: "BlendFunc_ConstRad.hxx".}
-proc TwistOnS2*(this: BlendFunc_ConstRad): Standard_Boolean {.noSideEffect,
+proc twistOnS2*(this: BlendFuncConstRad): bool {.noSideEffect,
     importcpp: "TwistOnS2", header: "BlendFunc_ConstRad.hxx".}
-proc Set*(this: var BlendFunc_ConstRad; Radius: Standard_Real; Choix: Standard_Integer) {.
+proc set*(this: var BlendFuncConstRad; radius: float; choix: int) {.importcpp: "Set",
+    header: "BlendFunc_ConstRad.hxx".}
+proc set*(this: var BlendFuncConstRad; typeSection: BlendFuncSectionShape) {.
     importcpp: "Set", header: "BlendFunc_ConstRad.hxx".}
-proc Set*(this: var BlendFunc_ConstRad; TypeSection: BlendFunc_SectionShape) {.
-    importcpp: "Set", header: "BlendFunc_ConstRad.hxx".}
-proc Section*(this: var BlendFunc_ConstRad; Param: Standard_Real; U1: Standard_Real;
-             V1: Standard_Real; U2: Standard_Real; V2: Standard_Real;
-             Pdeb: var Standard_Real; Pfin: var Standard_Real; C: var gp_Circ) {.
+proc section*(this: var BlendFuncConstRad; param: float; u1: float; v1: float; u2: float;
+             v2: float; pdeb: var float; pfin: var float; c: var Circ) {.
     importcpp: "Section", header: "BlendFunc_ConstRad.hxx".}
-proc IsRational*(this: BlendFunc_ConstRad): Standard_Boolean {.noSideEffect,
+proc isRational*(this: BlendFuncConstRad): bool {.noSideEffect,
     importcpp: "IsRational", header: "BlendFunc_ConstRad.hxx".}
-proc GetSectionSize*(this: BlendFunc_ConstRad): Standard_Real {.noSideEffect,
+proc getSectionSize*(this: BlendFuncConstRad): float {.noSideEffect,
     importcpp: "GetSectionSize", header: "BlendFunc_ConstRad.hxx".}
-proc GetMinimalWeight*(this: BlendFunc_ConstRad; Weigths: var TColStd_Array1OfReal) {.
+proc getMinimalWeight*(this: BlendFuncConstRad; weigths: var TColStdArray1OfReal) {.
     noSideEffect, importcpp: "GetMinimalWeight", header: "BlendFunc_ConstRad.hxx".}
-proc NbIntervals*(this: BlendFunc_ConstRad; S: GeomAbs_Shape): Standard_Integer {.
-    noSideEffect, importcpp: "NbIntervals", header: "BlendFunc_ConstRad.hxx".}
-proc Intervals*(this: BlendFunc_ConstRad; T: var TColStd_Array1OfReal;
-               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
-                                 header: "BlendFunc_ConstRad.hxx".}
-proc GetShape*(this: var BlendFunc_ConstRad; NbPoles: var Standard_Integer;
-              NbKnots: var Standard_Integer; Degree: var Standard_Integer;
-              NbPoles2d: var Standard_Integer) {.importcpp: "GetShape",
+proc nbIntervals*(this: BlendFuncConstRad; s: GeomAbsShape): int {.noSideEffect,
+    importcpp: "NbIntervals", header: "BlendFunc_ConstRad.hxx".}
+proc intervals*(this: BlendFuncConstRad; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+    noSideEffect, importcpp: "Intervals", header: "BlendFunc_ConstRad.hxx".}
+proc getShape*(this: var BlendFuncConstRad; nbPoles: var int; nbKnots: var int;
+              degree: var int; nbPoles2d: var int) {.importcpp: "GetShape",
     header: "BlendFunc_ConstRad.hxx".}
-proc GetTolerance*(this: BlendFunc_ConstRad; BoundTol: Standard_Real;
-                  SurfTol: Standard_Real; AngleTol: Standard_Real;
-                  Tol3d: var math_Vector; Tol1D: var math_Vector) {.noSideEffect,
-    importcpp: "GetTolerance", header: "BlendFunc_ConstRad.hxx".}
-proc Knots*(this: var BlendFunc_ConstRad; TKnots: var TColStd_Array1OfReal) {.
+proc getTolerance*(this: BlendFuncConstRad; boundTol: float; surfTol: float;
+                  angleTol: float; tol3d: var MathVector; tol1D: var MathVector) {.
+    noSideEffect, importcpp: "GetTolerance", header: "BlendFunc_ConstRad.hxx".}
+proc knots*(this: var BlendFuncConstRad; tKnots: var TColStdArray1OfReal) {.
     importcpp: "Knots", header: "BlendFunc_ConstRad.hxx".}
-proc Mults*(this: var BlendFunc_ConstRad; TMults: var TColStd_Array1OfInteger) {.
+proc mults*(this: var BlendFuncConstRad; tMults: var TColStdArray1OfInteger) {.
     importcpp: "Mults", header: "BlendFunc_ConstRad.hxx".}
-proc Section*(this: var BlendFunc_ConstRad; P: Blend_Point;
-             Poles: var TColgp_Array1OfPnt; DPoles: var TColgp_Array1OfVec;
-             D2Poles: var TColgp_Array1OfVec; Poles2d: var TColgp_Array1OfPnt2d;
-             DPoles2d: var TColgp_Array1OfVec2d;
-             D2Poles2d: var TColgp_Array1OfVec2d;
-             Weigths: var TColStd_Array1OfReal; DWeigths: var TColStd_Array1OfReal;
-             D2Weigths: var TColStd_Array1OfReal): Standard_Boolean {.
-    importcpp: "Section", header: "BlendFunc_ConstRad.hxx".}
-proc Section*(this: var BlendFunc_ConstRad; P: Blend_Point;
-             Poles: var TColgp_Array1OfPnt; DPoles: var TColgp_Array1OfVec;
-             Poles2d: var TColgp_Array1OfPnt2d; DPoles2d: var TColgp_Array1OfVec2d;
-             Weigths: var TColStd_Array1OfReal; DWeigths: var TColStd_Array1OfReal): Standard_Boolean {.
-    importcpp: "Section", header: "BlendFunc_ConstRad.hxx".}
-proc Section*(this: var BlendFunc_ConstRad; P: Blend_Point;
-             Poles: var TColgp_Array1OfPnt; Poles2d: var TColgp_Array1OfPnt2d;
-             Weigths: var TColStd_Array1OfReal) {.importcpp: "Section",
+proc section*(this: var BlendFuncConstRad; p: BlendPoint;
+             poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
+             d2Poles: var TColgpArray1OfVec; poles2d: var TColgpArray1OfPnt2d;
+             dPoles2d: var TColgpArray1OfVec2d; d2Poles2d: var TColgpArray1OfVec2d;
+             weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal;
+             d2Weigths: var TColStdArray1OfReal): bool {.importcpp: "Section",
     header: "BlendFunc_ConstRad.hxx".}
-proc AxeRot*(this: var BlendFunc_ConstRad; Prm: Standard_Real): gp_Ax1 {.
-    importcpp: "AxeRot", header: "BlendFunc_ConstRad.hxx".}
-proc Resolution*(this: BlendFunc_ConstRad; IC2d: Standard_Integer;
-                Tol: Standard_Real; TolU: var Standard_Real; TolV: var Standard_Real) {.
-    noSideEffect, importcpp: "Resolution", header: "BlendFunc_ConstRad.hxx".}
+proc section*(this: var BlendFuncConstRad; p: BlendPoint;
+             poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
+             poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
+             weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal): bool {.
+    importcpp: "Section", header: "BlendFunc_ConstRad.hxx".}
+proc section*(this: var BlendFuncConstRad; p: BlendPoint;
+             poles: var TColgpArray1OfPnt; poles2d: var TColgpArray1OfPnt2d;
+             weigths: var TColStdArray1OfReal) {.importcpp: "Section",
+    header: "BlendFunc_ConstRad.hxx".}
+proc axeRot*(this: var BlendFuncConstRad; prm: float): Ax1 {.importcpp: "AxeRot",
+    header: "BlendFunc_ConstRad.hxx".}
+proc resolution*(this: BlendFuncConstRad; iC2d: int; tol: float; tolU: var float;
+                tolV: var float) {.noSideEffect, importcpp: "Resolution",
+                                header: "BlendFunc_ConstRad.hxx".}

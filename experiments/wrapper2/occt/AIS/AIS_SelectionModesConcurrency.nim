@@ -17,7 +17,8 @@ type
   AIS_SelectionModesConcurrency* {.size: sizeof(cint),
                                   importcpp: "AIS_SelectionModesConcurrency",
                                   header: "AIS_SelectionModesConcurrency.hxx".} = enum
-    AIS_SelectionModesConcurrency_Single, ## !< only one selection mode can be activated at the same moment - previously activated should be deactivated
-    AIS_SelectionModesConcurrency_GlobalOrLocal, ## !< either Global (AIS_InteractiveObject::GlobalSelectionMode() or Local (multiple) selection modes can be active at the same moment
-    AIS_SelectionModesConcurrency_Multiple ## !< any combination of selection modes can be activated
+    AIS_SelectionModesConcurrencySingle, ## !< only one selection mode can be activated at the same moment - previously activated should be deactivated
+    AIS_SelectionModesConcurrencyGlobalOrLocal, ## !< either Global (AIS_InteractiveObject::GlobalSelectionMode() or Local (multiple) selection modes can be active at the same moment
+    AIS_SelectionModesConcurrencyMultiple ## !< any combination of selection modes can be activated
+
 

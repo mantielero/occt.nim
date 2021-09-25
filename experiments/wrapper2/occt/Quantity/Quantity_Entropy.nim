@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Entropy_HeaderFile [NewLine] # _Quantity_Entropy_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as a property which changes as a system undergoes
+## !!!Ignored construct:  # _Quantity_Entropy_HeaderFile [NewLine] # _Quantity_Entropy_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as a property which changes as a system undergoes
 ## ! reversible change. The change in entropy is quantified as
 ## ! the change in energy per degree of temperature. All real
 ## ! changes are at least partially irreversible so entropy
@@ -24,3 +24,4 @@
 ## ! cyclical process.
 ## ! A change in entropy is measured in joules per degree kelvin. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Entropy ;
 ## Error: expected ';'!!!
+

@@ -14,35 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TopTools/TopTools_MapOfShape, ../SelectMgr/SelectMgr_Filter,
-  ../Standard/Standard_Boolean, ../TopAbs/TopAbs_ShapeEnum
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of AIS_C0RegularityFilter"
 discard "forward decl of AIS_C0RegularityFilter"
 type
-  Handle_AIS_C0RegularityFilter* = handle[AIS_C0RegularityFilter]
+  HandleAIS_C0RegularityFilter* = Handle[AIS_C0RegularityFilter]
   AIS_C0RegularityFilter* {.importcpp: "AIS_C0RegularityFilter",
-                           header: "AIS_C0RegularityFilter.hxx", bycopy.} = object of SelectMgr_Filter
+                           header: "AIS_C0RegularityFilter.hxx", bycopy.} = object of SelectMgrFilter
 
 
 proc constructAIS_C0RegularityFilter*(aShape: TopoDS_Shape): AIS_C0RegularityFilter {.
     constructor, importcpp: "AIS_C0RegularityFilter(@)",
     header: "AIS_C0RegularityFilter.hxx".}
-proc ActsOn*(this: AIS_C0RegularityFilter; aType: TopAbs_ShapeEnum): Standard_Boolean {.
+proc actsOn*(this: AIS_C0RegularityFilter; aType: TopAbsShapeEnum): bool {.
     noSideEffect, importcpp: "ActsOn", header: "AIS_C0RegularityFilter.hxx".}
-proc IsOk*(this: AIS_C0RegularityFilter; EO: handle[SelectMgr_EntityOwner]): Standard_Boolean {.
+proc isOk*(this: AIS_C0RegularityFilter; eo: Handle[SelectMgrEntityOwner]): bool {.
     noSideEffect, importcpp: "IsOk", header: "AIS_C0RegularityFilter.hxx".}
 type
-  AIS_C0RegularityFilterbase_type* = SelectMgr_Filter
+  AIS_C0RegularityFilterbaseType* = SelectMgrFilter
 
-proc get_type_name*(): cstring {.importcpp: "AIS_C0RegularityFilter::get_type_name(@)",
-                              header: "AIS_C0RegularityFilter.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "AIS_C0RegularityFilter::get_type_name(@)",
+                            header: "AIS_C0RegularityFilter.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "AIS_C0RegularityFilter::get_type_descriptor(@)",
     header: "AIS_C0RegularityFilter.hxx".}
-proc DynamicType*(this: AIS_C0RegularityFilter): handle[Standard_Type] {.
+proc dynamicType*(this: AIS_C0RegularityFilter): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "AIS_C0RegularityFilter.hxx".}

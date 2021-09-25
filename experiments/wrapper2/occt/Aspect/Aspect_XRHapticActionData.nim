@@ -14,17 +14,17 @@
 ## ! Haptic output XR action data.
 
 type
-  Aspect_XRHapticActionData* {.importcpp: "Aspect_XRHapticActionData",
-                              header: "Aspect_XRHapticActionData.hxx", bycopy.} = object
-    Delay* {.importc: "Delay".}: cfloat ## !< delay in seconds before start
-    Duration* {.importc: "Duration".}: cfloat ## !< duration in seconds
-    Frequency* {.importc: "Frequency".}: cfloat ## !< vibration frequency
-    Amplitude* {.importc: "Amplitude".}: cfloat ## !< vibration amplitude
+  AspectXRHapticActionData* {.importcpp: "Aspect_XRHapticActionData",
+                             header: "Aspect_XRHapticActionData.hxx", bycopy.} = object
+    delay* {.importc: "Delay".}: cfloat ## !< delay in seconds before start
+    duration* {.importc: "Duration".}: cfloat ## !< duration in seconds
+    frequency* {.importc: "Frequency".}: cfloat ## !< vibration frequency
+    amplitude* {.importc: "Amplitude".}: cfloat ## !< vibration amplitude
                                             ## ! Return TRUE if data is not empty.
 
 
-proc IsValid*(this: Aspect_XRHapticActionData): bool {.noSideEffect,
+proc isValid*(this: AspectXRHapticActionData): bool {.noSideEffect,
     importcpp: "IsValid", header: "Aspect_XRHapticActionData.hxx".}
-proc constructAspect_XRHapticActionData*(): Aspect_XRHapticActionData {.
-    constructor, importcpp: "Aspect_XRHapticActionData(@)",
+proc constructAspectXRHapticActionData*(): AspectXRHapticActionData {.constructor,
+    importcpp: "Aspect_XRHapticActionData(@)",
     header: "Aspect_XRHapticActionData.hxx".}

@@ -11,31 +11,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Graphic3d/Graphic3d_ShaderProgram
-
 discard "forward decl of Graphic3d_Aspects"
 discard "forward decl of OpenGl_Context"
 discard "forward decl of OpenGl_ShaderProgram"
 type
-  OpenGl_AspectsProgram* {.importcpp: "OpenGl_AspectsProgram",
-                          header: "OpenGl_AspectsProgram.hxx", bycopy.} = object ## !
-                                                                            ## Empty
-                                                                            ## constructor.
-                                                                            ## !
-                                                                            ## Build
-                                                                            ## shader
-                                                                            ## resource.
+  OpenGlAspectsProgram* {.importcpp: "OpenGl_AspectsProgram",
+                         header: "OpenGl_AspectsProgram.hxx", bycopy.} = object ## ! Empty
+                                                                           ## constructor.
+                                                                           ## ! Build
+                                                                           ## shader
+                                                                           ## resource.
 
 
-proc constructOpenGl_AspectsProgram*(): OpenGl_AspectsProgram {.constructor,
+proc constructOpenGlAspectsProgram*(): OpenGlAspectsProgram {.constructor,
     importcpp: "OpenGl_AspectsProgram(@)", header: "OpenGl_AspectsProgram.hxx".}
-proc ShaderProgram*(this: var OpenGl_AspectsProgram; theCtx: handle[OpenGl_Context];
-                   theShader: handle[Graphic3d_ShaderProgram]): handle[
-    OpenGl_ShaderProgram] {.importcpp: "ShaderProgram",
-                           header: "OpenGl_AspectsProgram.hxx".}
-proc UpdateRediness*(this: var OpenGl_AspectsProgram;
-                    theAspect: handle[Graphic3d_Aspects]) {.
+proc shaderProgram*(this: var OpenGlAspectsProgram; theCtx: Handle[OpenGlContext];
+                   theShader: Handle[Graphic3dShaderProgram]): Handle[
+    OpenGlShaderProgram] {.importcpp: "ShaderProgram",
+                          header: "OpenGl_AspectsProgram.hxx".}
+proc updateRediness*(this: var OpenGlAspectsProgram;
+                    theAspect: Handle[Graphic3dAspects]) {.
     importcpp: "UpdateRediness", header: "OpenGl_AspectsProgram.hxx".}
-proc Release*(this: var OpenGl_AspectsProgram; theCtx: ptr OpenGl_Context) {.
+proc release*(this: var OpenGlAspectsProgram; theCtx: ptr OpenGlContext) {.
     importcpp: "Release", header: "OpenGl_AspectsProgram.hxx".}

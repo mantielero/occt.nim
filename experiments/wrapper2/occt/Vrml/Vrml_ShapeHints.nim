@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Vrml_VertexOrdering, Vrml_ShapeType, Vrml_FaceType,
-  ../Standard/Standard_Real, ../Standard/Standard_OStream
-
 ## ! defines a ShapeHints node of VRML specifying properties of geometry and its appearance.
 ## ! The ShapeHints node indicates that IndexedFaceSets are solid, contain ordered vertices, or
 ## ! contain convex faces.
@@ -41,31 +36,31 @@ import
 ## ! less than .5 radians (about 30 degrees). Otherwise, it will be faceted.
 
 type
-  Vrml_ShapeHints* {.importcpp: "Vrml_ShapeHints", header: "Vrml_ShapeHints.hxx",
-                    bycopy.} = object
+  VrmlShapeHints* {.importcpp: "Vrml_ShapeHints", header: "Vrml_ShapeHints.hxx",
+                   bycopy.} = object
 
 
-proc constructVrml_ShapeHints*(aVertexOrdering: Vrml_VertexOrdering = Vrml_UNKNOWN_ORDERING;
-    aShapeType: Vrml_ShapeType = Vrml_UNKNOWN_SHAPE_TYPE;
-                              aFaceType: Vrml_FaceType = Vrml_CONVEX;
-                              aAngle: Standard_Real = 0.5): Vrml_ShapeHints {.
-    constructor, importcpp: "Vrml_ShapeHints(@)", header: "Vrml_ShapeHints.hxx".}
-proc SetVertexOrdering*(this: var Vrml_ShapeHints;
-                       aVertexOrdering: Vrml_VertexOrdering) {.
+proc constructVrmlShapeHints*(aVertexOrdering: VrmlVertexOrdering = vrmlUNKNOWN_ORDERING;
+    aShapeType: VrmlShapeType = vrmlUNKNOWN_SHAPE_TYPE;
+                             aFaceType: VrmlFaceType = vrmlCONVEX;
+                             aAngle: float = 0.5): VrmlShapeHints {.constructor,
+    importcpp: "Vrml_ShapeHints(@)", header: "Vrml_ShapeHints.hxx".}
+proc setVertexOrdering*(this: var VrmlShapeHints;
+                       aVertexOrdering: VrmlVertexOrdering) {.
     importcpp: "SetVertexOrdering", header: "Vrml_ShapeHints.hxx".}
-proc VertexOrdering*(this: Vrml_ShapeHints): Vrml_VertexOrdering {.noSideEffect,
+proc vertexOrdering*(this: VrmlShapeHints): VrmlVertexOrdering {.noSideEffect,
     importcpp: "VertexOrdering", header: "Vrml_ShapeHints.hxx".}
-proc SetShapeType*(this: var Vrml_ShapeHints; aShapeType: Vrml_ShapeType) {.
+proc setShapeType*(this: var VrmlShapeHints; aShapeType: VrmlShapeType) {.
     importcpp: "SetShapeType", header: "Vrml_ShapeHints.hxx".}
-proc ShapeType*(this: Vrml_ShapeHints): Vrml_ShapeType {.noSideEffect,
+proc shapeType*(this: VrmlShapeHints): VrmlShapeType {.noSideEffect,
     importcpp: "ShapeType", header: "Vrml_ShapeHints.hxx".}
-proc SetFaceType*(this: var Vrml_ShapeHints; aFaceType: Vrml_FaceType) {.
+proc setFaceType*(this: var VrmlShapeHints; aFaceType: VrmlFaceType) {.
     importcpp: "SetFaceType", header: "Vrml_ShapeHints.hxx".}
-proc FaceType*(this: Vrml_ShapeHints): Vrml_FaceType {.noSideEffect,
+proc faceType*(this: VrmlShapeHints): VrmlFaceType {.noSideEffect,
     importcpp: "FaceType", header: "Vrml_ShapeHints.hxx".}
-proc SetAngle*(this: var Vrml_ShapeHints; aAngle: Standard_Real) {.
-    importcpp: "SetAngle", header: "Vrml_ShapeHints.hxx".}
-proc Angle*(this: Vrml_ShapeHints): Standard_Real {.noSideEffect, importcpp: "Angle",
+proc setAngle*(this: var VrmlShapeHints; aAngle: float) {.importcpp: "SetAngle",
     header: "Vrml_ShapeHints.hxx".}
-proc Print*(this: Vrml_ShapeHints; anOStream: var Standard_OStream): var Standard_OStream {.
+proc angle*(this: VrmlShapeHints): float {.noSideEffect, importcpp: "Angle",
+                                       header: "Vrml_ShapeHints.hxx".}
+proc print*(this: VrmlShapeHints; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_ShapeHints.hxx".}

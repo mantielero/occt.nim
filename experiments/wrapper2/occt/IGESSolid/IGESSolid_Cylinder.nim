@@ -14,51 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../gp/gp_XYZ, ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of gp_XYZ"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
 discard "forward decl of IGESSolid_Cylinder"
 discard "forward decl of IGESSolid_Cylinder"
 type
-  Handle_IGESSolid_Cylinder* = handle[IGESSolid_Cylinder]
+  HandleIGESSolidCylinder* = Handle[IGESSolidCylinder]
 
 ## ! defines Cylinder, Type <154> Form Number <0>
 ## ! in package IGESSolid
 ## ! This defines a solid cylinder
 
 type
-  IGESSolid_Cylinder* {.importcpp: "IGESSolid_Cylinder",
-                       header: "IGESSolid_Cylinder.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESSolidCylinder* {.importcpp: "IGESSolid_Cylinder",
+                      header: "IGESSolid_Cylinder.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESSolid_Cylinder*(): IGESSolid_Cylinder {.constructor,
+proc constructIGESSolidCylinder*(): IGESSolidCylinder {.constructor,
     importcpp: "IGESSolid_Cylinder(@)", header: "IGESSolid_Cylinder.hxx".}
-proc Init*(this: var IGESSolid_Cylinder; aHeight: Standard_Real;
-          aRadius: Standard_Real; aCenter: gp_XYZ; anAxis: gp_XYZ) {.
-    importcpp: "Init", header: "IGESSolid_Cylinder.hxx".}
-proc Height*(this: IGESSolid_Cylinder): Standard_Real {.noSideEffect,
-    importcpp: "Height", header: "IGESSolid_Cylinder.hxx".}
-proc Radius*(this: IGESSolid_Cylinder): Standard_Real {.noSideEffect,
-    importcpp: "Radius", header: "IGESSolid_Cylinder.hxx".}
-proc FaceCenter*(this: IGESSolid_Cylinder): gp_Pnt {.noSideEffect,
-    importcpp: "FaceCenter", header: "IGESSolid_Cylinder.hxx".}
-proc TransformedFaceCenter*(this: IGESSolid_Cylinder): gp_Pnt {.noSideEffect,
-    importcpp: "TransformedFaceCenter", header: "IGESSolid_Cylinder.hxx".}
-proc Axis*(this: IGESSolid_Cylinder): gp_Dir {.noSideEffect, importcpp: "Axis",
+proc init*(this: var IGESSolidCylinder; aHeight: float; aRadius: float; aCenter: Xyz;
+          anAxis: Xyz) {.importcpp: "Init", header: "IGESSolid_Cylinder.hxx".}
+proc height*(this: IGESSolidCylinder): float {.noSideEffect, importcpp: "Height",
     header: "IGESSolid_Cylinder.hxx".}
-proc TransformedAxis*(this: IGESSolid_Cylinder): gp_Dir {.noSideEffect,
+proc radius*(this: IGESSolidCylinder): float {.noSideEffect, importcpp: "Radius",
+    header: "IGESSolid_Cylinder.hxx".}
+proc faceCenter*(this: IGESSolidCylinder): Pnt {.noSideEffect,
+    importcpp: "FaceCenter", header: "IGESSolid_Cylinder.hxx".}
+proc transformedFaceCenter*(this: IGESSolidCylinder): Pnt {.noSideEffect,
+    importcpp: "TransformedFaceCenter", header: "IGESSolid_Cylinder.hxx".}
+proc axis*(this: IGESSolidCylinder): Dir {.noSideEffect, importcpp: "Axis",
+                                       header: "IGESSolid_Cylinder.hxx".}
+proc transformedAxis*(this: IGESSolidCylinder): Dir {.noSideEffect,
     importcpp: "TransformedAxis", header: "IGESSolid_Cylinder.hxx".}
 type
-  IGESSolid_Cylinderbase_type* = IGESData_IGESEntity
+  IGESSolidCylinderbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESSolid_Cylinder::get_type_name(@)",
-                              header: "IGESSolid_Cylinder.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSolid_Cylinder::get_type_name(@)",
+                            header: "IGESSolid_Cylinder.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSolid_Cylinder::get_type_descriptor(@)",
     header: "IGESSolid_Cylinder.hxx".}
-proc DynamicType*(this: IGESSolid_Cylinder): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IGESSolidCylinder): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSolid_Cylinder.hxx".}

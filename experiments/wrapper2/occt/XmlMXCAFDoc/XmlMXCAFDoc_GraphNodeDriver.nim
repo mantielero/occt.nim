@@ -13,48 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../XmlMDF/XmlMDF_ADriver,
-  ../Standard/Standard_Boolean, ../XmlObjMgt/XmlObjMgt_RRelocationTable,
-  ../XmlObjMgt/XmlObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMXCAFDoc_GraphNodeDriver"
 discard "forward decl of XmlMXCAFDoc_GraphNodeDriver"
 type
-  Handle_XmlMXCAFDoc_GraphNodeDriver* = handle[XmlMXCAFDoc_GraphNodeDriver]
+  HandleXmlMXCAFDocGraphNodeDriver* = Handle[XmlMXCAFDocGraphNodeDriver]
 
 ## ! Attribute Driver.
 
 type
-  XmlMXCAFDoc_GraphNodeDriver* {.importcpp: "XmlMXCAFDoc_GraphNodeDriver",
-                                header: "XmlMXCAFDoc_GraphNodeDriver.hxx", bycopy.} = object of XmlMDF_ADriver
+  XmlMXCAFDocGraphNodeDriver* {.importcpp: "XmlMXCAFDoc_GraphNodeDriver",
+                               header: "XmlMXCAFDoc_GraphNodeDriver.hxx", bycopy.} = object of XmlMDF_ADriver
 
 
-proc constructXmlMXCAFDoc_GraphNodeDriver*(
-    theMessageDriver: handle[Message_Messenger]): XmlMXCAFDoc_GraphNodeDriver {.
+proc constructXmlMXCAFDocGraphNodeDriver*(
+    theMessageDriver: Handle[MessageMessenger]): XmlMXCAFDocGraphNodeDriver {.
     constructor, importcpp: "XmlMXCAFDoc_GraphNodeDriver(@)",
     header: "XmlMXCAFDoc_GraphNodeDriver.hxx".}
-proc NewEmpty*(this: XmlMXCAFDoc_GraphNodeDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: XmlMXCAFDocGraphNodeDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty", header: "XmlMXCAFDoc_GraphNodeDriver.hxx".}
-proc Paste*(this: XmlMXCAFDoc_GraphNodeDriver; Source: XmlObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var XmlObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "XmlMXCAFDoc_GraphNodeDriver.hxx".}
-proc Paste*(this: XmlMXCAFDoc_GraphNodeDriver; Source: handle[TDF_Attribute];
-           Target: var XmlObjMgt_Persistent;
-           RelocTable: var XmlObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: XmlMXCAFDocGraphNodeDriver; source: XmlObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var XmlObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "XmlMXCAFDoc_GraphNodeDriver.hxx".}
+proc paste*(this: XmlMXCAFDocGraphNodeDriver; source: Handle[TDF_Attribute];
+           target: var XmlObjMgtPersistent;
+           relocTable: var XmlObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "XmlMXCAFDoc_GraphNodeDriver.hxx".}
 type
-  XmlMXCAFDoc_GraphNodeDriverbase_type* = XmlMDF_ADriver
+  XmlMXCAFDocGraphNodeDriverbaseType* = XmlMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "XmlMXCAFDoc_GraphNodeDriver::get_type_name(@)",
-                              header: "XmlMXCAFDoc_GraphNodeDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XmlMXCAFDoc_GraphNodeDriver::get_type_name(@)",
+                            header: "XmlMXCAFDoc_GraphNodeDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XmlMXCAFDoc_GraphNodeDriver::get_type_descriptor(@)",
     header: "XmlMXCAFDoc_GraphNodeDriver.hxx".}
-proc DynamicType*(this: XmlMXCAFDoc_GraphNodeDriver): handle[Standard_Type] {.
+proc dynamicType*(this: XmlMXCAFDocGraphNodeDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMXCAFDoc_GraphNodeDriver.hxx".}

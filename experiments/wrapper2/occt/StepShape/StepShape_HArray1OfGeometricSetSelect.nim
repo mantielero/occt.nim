@@ -14,40 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepShape_GeometricSetSelect, StepShape_Array1OfGeometricSetSelect,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepShape_HArray1OfGeometricSetSelect* {.
+  StepShapeHArray1OfGeometricSetSelect* {.
       importcpp: "StepShape_HArray1OfGeometricSetSelect",
-      header: "StepShape_HArray1OfGeometricSetSelect.hxx", bycopy.} = object of StepShape_Array1OfGeometricSetSelect
+      header: "StepShape_HArray1OfGeometricSetSelect.hxx", bycopy.} = object of StepShapeArray1OfGeometricSetSelect
 
 
-proc constructStepShape_HArray1OfGeometricSetSelect*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepShape_HArray1OfGeometricSetSelect {.
+proc constructStepShapeHArray1OfGeometricSetSelect*(theLower: int; theUpper: int): StepShapeHArray1OfGeometricSetSelect {.
     constructor, importcpp: "StepShape_HArray1OfGeometricSetSelect(@)",
     header: "StepShape_HArray1OfGeometricSetSelect.hxx".}
-proc constructStepShape_HArray1OfGeometricSetSelect*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepShape_HArray1OfGeometricSetSelect {.
+proc constructStepShapeHArray1OfGeometricSetSelect*(theLower: int; theUpper: int;
+    theValue: ValueType): StepShapeHArray1OfGeometricSetSelect {.constructor,
+    importcpp: "StepShape_HArray1OfGeometricSetSelect(@)",
+    header: "StepShape_HArray1OfGeometricSetSelect.hxx".}
+proc constructStepShapeHArray1OfGeometricSetSelect*(
+    theOther: StepShapeArray1OfGeometricSetSelect): StepShapeHArray1OfGeometricSetSelect {.
     constructor, importcpp: "StepShape_HArray1OfGeometricSetSelect(@)",
     header: "StepShape_HArray1OfGeometricSetSelect.hxx".}
-proc constructStepShape_HArray1OfGeometricSetSelect*(
-    theOther: StepShape_Array1OfGeometricSetSelect): StepShape_HArray1OfGeometricSetSelect {.
-    constructor, importcpp: "StepShape_HArray1OfGeometricSetSelect(@)",
-    header: "StepShape_HArray1OfGeometricSetSelect.hxx".}
-proc Array1*(this: StepShape_HArray1OfGeometricSetSelect): StepShape_Array1OfGeometricSetSelect {.
+proc array1*(this: StepShapeHArray1OfGeometricSetSelect): StepShapeArray1OfGeometricSetSelect {.
     noSideEffect, importcpp: "Array1",
     header: "StepShape_HArray1OfGeometricSetSelect.hxx".}
-proc ChangeArray1*(this: var StepShape_HArray1OfGeometricSetSelect): var StepShape_Array1OfGeometricSetSelect {.
+proc changeArray1*(this: var StepShapeHArray1OfGeometricSetSelect): var StepShapeArray1OfGeometricSetSelect {.
     importcpp: "ChangeArray1", header: "StepShape_HArray1OfGeometricSetSelect.hxx".}
 type
-  StepShape_HArray1OfGeometricSetSelectbase_type* = MMgt_TShared
+  StepShapeHArray1OfGeometricSetSelectbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_HArray1OfGeometricSetSelect::get_type_name(@)", header: "StepShape_HArray1OfGeometricSetSelect.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_HArray1OfGeometricSetSelect::get_type_name(@)",
+                            header: "StepShape_HArray1OfGeometricSetSelect.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_HArray1OfGeometricSetSelect::get_type_descriptor(@)",
     header: "StepShape_HArray1OfGeometricSetSelect.hxx".}
-proc DynamicType*(this: StepShape_HArray1OfGeometricSetSelect): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepShape_HArray1OfGeometricSetSelect.hxx".}
+proc dynamicType*(this: StepShapeHArray1OfGeometricSetSelect): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepShape_HArray1OfGeometricSetSelect.hxx".}

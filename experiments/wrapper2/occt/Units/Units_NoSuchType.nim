@@ -14,15 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Units_NoSuchType_HeaderFile [NewLine] # _Units_NoSuchType_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_NoSuchObject.hxx [NewLine] class Units_NoSuchType ;
+## !!!Ignored construct:  # _Units_NoSuchType_HeaderFile [NewLine] # _Units_NoSuchType_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_NoSuchObject . hxx > [NewLine] class Units_NoSuchType ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Units_NoSuchType"
 type
-  Handle_Units_NoSuchTypeUnits_NoSuchType* = handle[Units_NoSuchType]
+  HandleUnitsNoSuchTypeUnitsNoSuchType* = Handle[UnitsNoSuchType]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Units_NoSuchType [NewLine] # if ( CONDITION ) throw Units_NoSuchType ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Units_NoSuchType , Standard_NoSuchObject ) #  _Units_NoSuchType_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Units_NoSuchType , Standard_NoSuchObject ) #  _Units_NoSuchType_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

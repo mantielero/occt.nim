@@ -13,30 +13,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepDimTol_DatumSystem"
 discard "forward decl of StepDimTol_DatumReference"
 type
-  StepDimTol_DatumSystemOrReference* {.importcpp: "StepDimTol_DatumSystemOrReference", header: "StepDimTol_DatumSystemOrReference.hxx",
-                                      bycopy.} = object of StepData_SelectType ## !
-                                                                          ## Returns a
-                                                                          ## DatumSystemOrReference select type
+  StepDimTolDatumSystemOrReference* {.importcpp: "StepDimTol_DatumSystemOrReference", header: "StepDimTol_DatumSystemOrReference.hxx",
+                                     bycopy.} = object of StepDataSelectType ## ! Returns a
+                                                                        ## DatumSystemOrReference select type
 
 
-proc constructStepDimTol_DatumSystemOrReference*(): StepDimTol_DatumSystemOrReference {.
+proc constructStepDimTolDatumSystemOrReference*(): StepDimTolDatumSystemOrReference {.
     constructor, importcpp: "StepDimTol_DatumSystemOrReference(@)",
     header: "StepDimTol_DatumSystemOrReference.hxx".}
-proc CaseNum*(this: StepDimTol_DatumSystemOrReference;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepDimTolDatumSystemOrReference;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepDimTol_DatumSystemOrReference.hxx".}
-proc DatumSystem*(this: StepDimTol_DatumSystemOrReference): handle[
-    StepDimTol_DatumSystem] {.noSideEffect, importcpp: "DatumSystem",
-                             header: "StepDimTol_DatumSystemOrReference.hxx".}
-proc DatumReference*(this: StepDimTol_DatumSystemOrReference): handle[
-    StepDimTol_DatumReference] {.noSideEffect, importcpp: "DatumReference",
-                                header: "StepDimTol_DatumSystemOrReference.hxx".}
+proc datumSystem*(this: StepDimTolDatumSystemOrReference): Handle[
+    StepDimTolDatumSystem] {.noSideEffect, importcpp: "DatumSystem",
+                            header: "StepDimTol_DatumSystemOrReference.hxx".}
+proc datumReference*(this: StepDimTolDatumSystemOrReference): Handle[
+    StepDimTolDatumReference] {.noSideEffect, importcpp: "DatumReference",
+                               header: "StepDimTol_DatumSystemOrReference.hxx".}

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Pnt, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
@@ -26,106 +21,98 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Lin"
 discard "forward decl of gp_Pln"
 type
-  Bnd_Box* {.importcpp: "Bnd_Box", header: "Bnd_Box.hxx", bycopy.} = object ## ! Creates an empty Box.
-                                                                    ## ! The constructed box is qualified Void. Its gap is null.
-                                                                    ## ! Bit flags.
-    Bnd_Box* {.importc: "Bnd_Box".}: Standard_NODISCARD
+  BndBox* {.importcpp: "Bnd_Box", header: "Bnd_Box.hxx", bycopy.} = object ## ! Creates an empty Box.
+                                                                   ## ! The constructed box is qualified Void. Its gap is null.
+                                                                   ## ! Bit flags.
 
 
-proc constructBnd_Box*(): Bnd_Box {.constructor, importcpp: "Bnd_Box(@)",
-                                 header: "Bnd_Box.hxx".}
-proc constructBnd_Box*(theMin: gp_Pnt; theMax: gp_Pnt): Bnd_Box {.constructor,
+proc constructBndBox*(): BndBox {.constructor, importcpp: "Bnd_Box(@)",
+                               header: "Bnd_Box.hxx".}
+proc constructBndBox*(theMin: Pnt; theMax: Pnt): BndBox {.constructor,
     importcpp: "Bnd_Box(@)", header: "Bnd_Box.hxx".}
-proc SetWhole*(this: var Bnd_Box) {.importcpp: "SetWhole", header: "Bnd_Box.hxx".}
-proc SetVoid*(this: var Bnd_Box) {.importcpp: "SetVoid", header: "Bnd_Box.hxx".}
-proc Set*(this: var Bnd_Box; P: gp_Pnt) {.importcpp: "Set", header: "Bnd_Box.hxx".}
-proc Set*(this: var Bnd_Box; P: gp_Pnt; D: gp_Dir) {.importcpp: "Set",
+proc setWhole*(this: var BndBox) {.importcpp: "SetWhole", header: "Bnd_Box.hxx".}
+proc setVoid*(this: var BndBox) {.importcpp: "SetVoid", header: "Bnd_Box.hxx".}
+proc set*(this: var BndBox; p: Pnt) {.importcpp: "Set", header: "Bnd_Box.hxx".}
+proc set*(this: var BndBox; p: Pnt; d: Dir) {.importcpp: "Set", header: "Bnd_Box.hxx".}
+proc update*(this: var BndBox; aXmin: float; aYmin: float; aZmin: float; aXmax: float;
+            aYmax: float; aZmax: float) {.importcpp: "Update", header: "Bnd_Box.hxx".}
+proc update*(this: var BndBox; x: float; y: float; z: float) {.importcpp: "Update",
     header: "Bnd_Box.hxx".}
-proc Update*(this: var Bnd_Box; aXmin: Standard_Real; aYmin: Standard_Real;
-            aZmin: Standard_Real; aXmax: Standard_Real; aYmax: Standard_Real;
-            aZmax: Standard_Real) {.importcpp: "Update", header: "Bnd_Box.hxx".}
-proc Update*(this: var Bnd_Box; X: Standard_Real; Y: Standard_Real; Z: Standard_Real) {.
-    importcpp: "Update", header: "Bnd_Box.hxx".}
-proc GetGap*(this: Bnd_Box): Standard_Real {.noSideEffect, importcpp: "GetGap",
-    header: "Bnd_Box.hxx".}
-proc SetGap*(this: var Bnd_Box; Tol: Standard_Real) {.importcpp: "SetGap",
-    header: "Bnd_Box.hxx".}
-proc Enlarge*(this: var Bnd_Box; Tol: Standard_Real) {.importcpp: "Enlarge",
-    header: "Bnd_Box.hxx".}
-proc Get*(this: Bnd_Box; theXmin: var Standard_Real; theYmin: var Standard_Real;
-         theZmin: var Standard_Real; theXmax: var Standard_Real;
-         theYmax: var Standard_Real; theZmax: var Standard_Real) {.noSideEffect,
+proc getGap*(this: BndBox): float {.noSideEffect, importcpp: "GetGap",
+                                header: "Bnd_Box.hxx".}
+proc setGap*(this: var BndBox; tol: float) {.importcpp: "SetGap", header: "Bnd_Box.hxx".}
+proc enlarge*(this: var BndBox; tol: float) {.importcpp: "Enlarge",
+                                        header: "Bnd_Box.hxx".}
+proc get*(this: BndBox; theXmin: var float; theYmin: var float; theZmin: var float;
+         theXmax: var float; theYmax: var float; theZmax: var float) {.noSideEffect,
     importcpp: "Get", header: "Bnd_Box.hxx".}
-proc CornerMin*(this: Bnd_Box): gp_Pnt {.noSideEffect, importcpp: "CornerMin",
-                                     header: "Bnd_Box.hxx".}
-proc CornerMax*(this: Bnd_Box): gp_Pnt {.noSideEffect, importcpp: "CornerMax",
-                                     header: "Bnd_Box.hxx".}
-proc OpenXmin*(this: var Bnd_Box) {.importcpp: "OpenXmin", header: "Bnd_Box.hxx".}
-proc OpenXmax*(this: var Bnd_Box) {.importcpp: "OpenXmax", header: "Bnd_Box.hxx".}
-proc OpenYmin*(this: var Bnd_Box) {.importcpp: "OpenYmin", header: "Bnd_Box.hxx".}
-proc OpenYmax*(this: var Bnd_Box) {.importcpp: "OpenYmax", header: "Bnd_Box.hxx".}
-proc OpenZmin*(this: var Bnd_Box) {.importcpp: "OpenZmin", header: "Bnd_Box.hxx".}
-proc OpenZmax*(this: var Bnd_Box) {.importcpp: "OpenZmax", header: "Bnd_Box.hxx".}
-proc IsOpen*(this: Bnd_Box): Standard_Boolean {.noSideEffect, importcpp: "IsOpen",
+proc cornerMin*(this: BndBox): Pnt {.noSideEffect, importcpp: "CornerMin",
+                                 header: "Bnd_Box.hxx".}
+proc cornerMax*(this: BndBox): Pnt {.noSideEffect, importcpp: "CornerMax",
+                                 header: "Bnd_Box.hxx".}
+proc openXmin*(this: var BndBox) {.importcpp: "OpenXmin", header: "Bnd_Box.hxx".}
+proc openXmax*(this: var BndBox) {.importcpp: "OpenXmax", header: "Bnd_Box.hxx".}
+proc openYmin*(this: var BndBox) {.importcpp: "OpenYmin", header: "Bnd_Box.hxx".}
+proc openYmax*(this: var BndBox) {.importcpp: "OpenYmax", header: "Bnd_Box.hxx".}
+proc openZmin*(this: var BndBox) {.importcpp: "OpenZmin", header: "Bnd_Box.hxx".}
+proc openZmax*(this: var BndBox) {.importcpp: "OpenZmax", header: "Bnd_Box.hxx".}
+proc isOpen*(this: BndBox): bool {.noSideEffect, importcpp: "IsOpen",
+                               header: "Bnd_Box.hxx".}
+proc isOpenXmin*(this: BndBox): bool {.noSideEffect, importcpp: "IsOpenXmin",
+                                   header: "Bnd_Box.hxx".}
+proc isOpenXmax*(this: BndBox): bool {.noSideEffect, importcpp: "IsOpenXmax",
+                                   header: "Bnd_Box.hxx".}
+proc isOpenYmin*(this: BndBox): bool {.noSideEffect, importcpp: "IsOpenYmin",
+                                   header: "Bnd_Box.hxx".}
+proc isOpenYmax*(this: BndBox): bool {.noSideEffect, importcpp: "IsOpenYmax",
+                                   header: "Bnd_Box.hxx".}
+proc isOpenZmin*(this: BndBox): bool {.noSideEffect, importcpp: "IsOpenZmin",
+                                   header: "Bnd_Box.hxx".}
+proc isOpenZmax*(this: BndBox): bool {.noSideEffect, importcpp: "IsOpenZmax",
+                                   header: "Bnd_Box.hxx".}
+proc isWhole*(this: BndBox): bool {.noSideEffect, importcpp: "IsWhole",
+                                header: "Bnd_Box.hxx".}
+proc isVoid*(this: BndBox): bool {.noSideEffect, importcpp: "IsVoid",
+                               header: "Bnd_Box.hxx".}
+proc isXThin*(this: BndBox; tol: float): bool {.noSideEffect, importcpp: "IsXThin",
     header: "Bnd_Box.hxx".}
-proc IsOpenXmin*(this: Bnd_Box): Standard_Boolean {.noSideEffect,
-    importcpp: "IsOpenXmin", header: "Bnd_Box.hxx".}
-proc IsOpenXmax*(this: Bnd_Box): Standard_Boolean {.noSideEffect,
-    importcpp: "IsOpenXmax", header: "Bnd_Box.hxx".}
-proc IsOpenYmin*(this: Bnd_Box): Standard_Boolean {.noSideEffect,
-    importcpp: "IsOpenYmin", header: "Bnd_Box.hxx".}
-proc IsOpenYmax*(this: Bnd_Box): Standard_Boolean {.noSideEffect,
-    importcpp: "IsOpenYmax", header: "Bnd_Box.hxx".}
-proc IsOpenZmin*(this: Bnd_Box): Standard_Boolean {.noSideEffect,
-    importcpp: "IsOpenZmin", header: "Bnd_Box.hxx".}
-proc IsOpenZmax*(this: Bnd_Box): Standard_Boolean {.noSideEffect,
-    importcpp: "IsOpenZmax", header: "Bnd_Box.hxx".}
-proc IsWhole*(this: Bnd_Box): Standard_Boolean {.noSideEffect, importcpp: "IsWhole",
+proc isYThin*(this: BndBox; tol: float): bool {.noSideEffect, importcpp: "IsYThin",
     header: "Bnd_Box.hxx".}
-proc IsVoid*(this: Bnd_Box): Standard_Boolean {.noSideEffect, importcpp: "IsVoid",
+proc isZThin*(this: BndBox; tol: float): bool {.noSideEffect, importcpp: "IsZThin",
     header: "Bnd_Box.hxx".}
-proc IsXThin*(this: Bnd_Box; tol: Standard_Real): Standard_Boolean {.noSideEffect,
-    importcpp: "IsXThin", header: "Bnd_Box.hxx".}
-proc IsYThin*(this: Bnd_Box; tol: Standard_Real): Standard_Boolean {.noSideEffect,
-    importcpp: "IsYThin", header: "Bnd_Box.hxx".}
-proc IsZThin*(this: Bnd_Box; tol: Standard_Real): Standard_Boolean {.noSideEffect,
-    importcpp: "IsZThin", header: "Bnd_Box.hxx".}
-proc IsThin*(this: Bnd_Box; tol: Standard_Real): Standard_Boolean {.noSideEffect,
-    importcpp: "IsThin", header: "Bnd_Box.hxx".}
-## !!!Ignored construct:  Transformed ( const gp_Trsf & T ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Add*(this: var Bnd_Box; Other: Bnd_Box) {.importcpp: "Add", header: "Bnd_Box.hxx".}
-proc Add*(this: var Bnd_Box; P: gp_Pnt) {.importcpp: "Add", header: "Bnd_Box.hxx".}
-proc Add*(this: var Bnd_Box; P: gp_Pnt; D: gp_Dir) {.importcpp: "Add",
+proc isThin*(this: BndBox; tol: float): bool {.noSideEffect, importcpp: "IsThin",
     header: "Bnd_Box.hxx".}
-proc Add*(this: var Bnd_Box; D: gp_Dir) {.importcpp: "Add", header: "Bnd_Box.hxx".}
-proc IsOut*(this: Bnd_Box; P: gp_Pnt): Standard_Boolean {.noSideEffect,
+proc transformed*(this: BndBox; t: Trsf): BndBox {.noSideEffect,
+    importcpp: "Transformed", header: "Bnd_Box.hxx".}
+proc add*(this: var BndBox; other: BndBox) {.importcpp: "Add", header: "Bnd_Box.hxx".}
+proc add*(this: var BndBox; p: Pnt) {.importcpp: "Add", header: "Bnd_Box.hxx".}
+proc add*(this: var BndBox; p: Pnt; d: Dir) {.importcpp: "Add", header: "Bnd_Box.hxx".}
+proc add*(this: var BndBox; d: Dir) {.importcpp: "Add", header: "Bnd_Box.hxx".}
+proc isOut*(this: BndBox; p: Pnt): bool {.noSideEffect, importcpp: "IsOut",
+                                    header: "Bnd_Box.hxx".}
+proc isOut*(this: BndBox; L: Lin): bool {.noSideEffect, importcpp: "IsOut",
+                                    header: "Bnd_Box.hxx".}
+proc isOut*(this: BndBox; p: Pln): bool {.noSideEffect, importcpp: "IsOut",
+                                    header: "Bnd_Box.hxx".}
+proc isOut*(this: BndBox; other: BndBox): bool {.noSideEffect, importcpp: "IsOut",
+    header: "Bnd_Box.hxx".}
+proc isOut*(this: BndBox; other: BndBox; t: Trsf): bool {.noSideEffect,
     importcpp: "IsOut", header: "Bnd_Box.hxx".}
-proc IsOut*(this: Bnd_Box; L: gp_Lin): Standard_Boolean {.noSideEffect,
+proc isOut*(this: BndBox; t1: Trsf; other: BndBox; t2: Trsf): bool {.noSideEffect,
     importcpp: "IsOut", header: "Bnd_Box.hxx".}
-proc IsOut*(this: Bnd_Box; P: gp_Pln): Standard_Boolean {.noSideEffect,
+proc isOut*(this: BndBox; p1: Pnt; p2: Pnt; d: Dir): bool {.noSideEffect,
     importcpp: "IsOut", header: "Bnd_Box.hxx".}
-proc IsOut*(this: Bnd_Box; Other: Bnd_Box): Standard_Boolean {.noSideEffect,
-    importcpp: "IsOut", header: "Bnd_Box.hxx".}
-proc IsOut*(this: Bnd_Box; Other: Bnd_Box; T: gp_Trsf): Standard_Boolean {.noSideEffect,
-    importcpp: "IsOut", header: "Bnd_Box.hxx".}
-proc IsOut*(this: Bnd_Box; T1: gp_Trsf; Other: Bnd_Box; T2: gp_Trsf): Standard_Boolean {.
-    noSideEffect, importcpp: "IsOut", header: "Bnd_Box.hxx".}
-proc IsOut*(this: Bnd_Box; P1: gp_Pnt; P2: gp_Pnt; D: gp_Dir): Standard_Boolean {.
-    noSideEffect, importcpp: "IsOut", header: "Bnd_Box.hxx".}
-proc Distance*(this: Bnd_Box; Other: Bnd_Box): Standard_Real {.noSideEffect,
+proc distance*(this: BndBox; other: BndBox): float {.noSideEffect,
     importcpp: "Distance", header: "Bnd_Box.hxx".}
-proc Dump*(this: Bnd_Box) {.noSideEffect, importcpp: "Dump", header: "Bnd_Box.hxx".}
-proc SquareExtent*(this: Bnd_Box): Standard_Real {.noSideEffect,
-    importcpp: "SquareExtent", header: "Bnd_Box.hxx".}
-proc FinitePart*(this: Bnd_Box): Bnd_Box {.noSideEffect, importcpp: "FinitePart",
-                                       header: "Bnd_Box.hxx".}
-proc HasFinitePart*(this: Bnd_Box): Standard_Boolean {.noSideEffect,
-    importcpp: "HasFinitePart", header: "Bnd_Box.hxx".}
-proc DumpJson*(this: Bnd_Box; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
+proc dump*(this: BndBox) {.noSideEffect, importcpp: "Dump", header: "Bnd_Box.hxx".}
+proc squareExtent*(this: BndBox): float {.noSideEffect, importcpp: "SquareExtent",
+                                      header: "Bnd_Box.hxx".}
+proc finitePart*(this: BndBox): BndBox {.noSideEffect, importcpp: "FinitePart",
+                                     header: "Bnd_Box.hxx".}
+proc hasFinitePart*(this: BndBox): bool {.noSideEffect, importcpp: "HasFinitePart",
+                                      header: "Bnd_Box.hxx".}
+proc dumpJson*(this: BndBox; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "Bnd_Box.hxx".}
+proc initFromJson*(this: var BndBox; theSStream: StandardSStream;
+                  theStreamPos: var int): bool {.importcpp: "InitFromJson",
     header: "Bnd_Box.hxx".}
-proc InitFromJson*(this: var Bnd_Box; theSStream: Standard_SStream;
-                  theStreamPos: var Standard_Integer): Standard_Boolean {.
-    importcpp: "InitFromJson", header: "Bnd_Box.hxx".}

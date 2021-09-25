@@ -13,12 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Integer, ../TCollection/TCollection_AsciiString,
-  ../TColStd/TColStd_MapIntegerHasher, ../NCollection/NCollection_DataMap
-
 type
-  MeshVS_DataMapOfIntegerAsciiString* = NCollection_DataMap[Standard_Integer,
-      TCollection_AsciiString, TColStd_MapIntegerHasher]
-  MeshVS_DataMapIteratorOfDataMapOfIntegerAsciiString* = Iterator[
-      Standard_Integer, TCollection_AsciiString, TColStd_MapIntegerHasher]
+  MeshVS_DataMapOfIntegerAsciiString* = NCollectionDataMap[int,
+      TCollectionAsciiString, TColStdMapIntegerHasher]
+  MeshVS_DataMapIteratorOfDataMapOfIntegerAsciiString* = Iterator[int,
+      TCollectionAsciiString, TColStdMapIntegerHasher]
+

@@ -13,47 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_HArray1OfReal, ../StepGeom/StepGeom_Point
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepFEA_FeaParametricPoint"
 discard "forward decl of StepFEA_FeaParametricPoint"
 type
-  Handle_StepFEA_FeaParametricPoint* = handle[StepFEA_FeaParametricPoint]
+  HandleStepFEA_FeaParametricPoint* = Handle[StepFEA_FeaParametricPoint]
 
 ## ! Representation of STEP entity FeaParametricPoint
 
 type
   StepFEA_FeaParametricPoint* {.importcpp: "StepFEA_FeaParametricPoint",
-                               header: "StepFEA_FeaParametricPoint.hxx", bycopy.} = object of StepGeom_Point ##
-                                                                                                      ## !
-                                                                                                      ## Empty
-                                                                                                      ## constructor
+                               header: "StepFEA_FeaParametricPoint.hxx", bycopy.} = object of StepGeomPoint ##
+                                                                                                     ## !
+                                                                                                     ## Empty
+                                                                                                     ## constructor
 
 
 proc constructStepFEA_FeaParametricPoint*(): StepFEA_FeaParametricPoint {.
     constructor, importcpp: "StepFEA_FeaParametricPoint(@)",
     header: "StepFEA_FeaParametricPoint.hxx".}
-proc Init*(this: var StepFEA_FeaParametricPoint;
-          aRepresentationItem_Name: handle[TCollection_HAsciiString];
-          aCoordinates: handle[TColStd_HArray1OfReal]) {.importcpp: "Init",
+proc init*(this: var StepFEA_FeaParametricPoint;
+          aRepresentationItemName: Handle[TCollectionHAsciiString];
+          aCoordinates: Handle[TColStdHArray1OfReal]) {.importcpp: "Init",
     header: "StepFEA_FeaParametricPoint.hxx".}
-proc Coordinates*(this: StepFEA_FeaParametricPoint): handle[TColStd_HArray1OfReal] {.
+proc coordinates*(this: StepFEA_FeaParametricPoint): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "Coordinates",
     header: "StepFEA_FeaParametricPoint.hxx".}
-proc SetCoordinates*(this: var StepFEA_FeaParametricPoint;
-                    Coordinates: handle[TColStd_HArray1OfReal]) {.
+proc setCoordinates*(this: var StepFEA_FeaParametricPoint;
+                    coordinates: Handle[TColStdHArray1OfReal]) {.
     importcpp: "SetCoordinates", header: "StepFEA_FeaParametricPoint.hxx".}
 type
-  StepFEA_FeaParametricPointbase_type* = StepGeom_Point
+  StepFEA_FeaParametricPointbaseType* = StepGeomPoint
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_FeaParametricPoint::get_type_name(@)",
-                              header: "StepFEA_FeaParametricPoint.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_FeaParametricPoint::get_type_name(@)",
+                            header: "StepFEA_FeaParametricPoint.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_FeaParametricPoint::get_type_descriptor(@)",
     header: "StepFEA_FeaParametricPoint.hxx".}
-proc DynamicType*(this: StepFEA_FeaParametricPoint): handle[Standard_Type] {.
+proc dynamicType*(this: StepFEA_FeaParametricPoint): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_FeaParametricPoint.hxx".}

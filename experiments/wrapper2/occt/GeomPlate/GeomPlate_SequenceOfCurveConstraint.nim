@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  GeomPlate_CurveConstraint, ../NCollection/NCollection_Sequence
-
 type
-  GeomPlate_SequenceOfCurveConstraint* = NCollection_Sequence[
-      handle[GeomPlate_CurveConstraint]]
+  GeomPlateSequenceOfCurveConstraint* = NCollectionSequence[
+      Handle[GeomPlateCurveConstraint]]
+

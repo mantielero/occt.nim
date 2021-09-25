@@ -14,4 +14,5 @@
 ##  commercial license or contractual agreement.
 
 type
-  Storage_Position* = clong
+  StoragePosition* = clong
+

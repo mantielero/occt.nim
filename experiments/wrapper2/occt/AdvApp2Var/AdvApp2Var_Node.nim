@@ -14,46 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_XY, ../Standard/Standard, ../Standard/Standard_Handle,
-  ../Standard/Standard_Type, ../TColgp/TColgp_Array2OfPnt,
-  ../TColStd/TColStd_Array2OfReal
-
 ## ! used to store constraints on a (Ui,Vj) point
 
 type
-  AdvApp2Var_Node* {.importcpp: "AdvApp2Var_Node", header: "AdvApp2Var_Node.hxx",
-                    bycopy.} = object of Standard_Transient
+  AdvApp2VarNode* {.importcpp: "AdvApp2Var_Node", header: "AdvApp2Var_Node.hxx",
+                   bycopy.} = object of StandardTransient
 
-  AdvApp2Var_Nodebase_type* = Standard_Transient
+  AdvApp2VarNodebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "AdvApp2Var_Node::get_type_name(@)",
-                              header: "AdvApp2Var_Node.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "AdvApp2Var_Node::get_type_name(@)",
+                            header: "AdvApp2Var_Node.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "AdvApp2Var_Node::get_type_descriptor(@)",
     header: "AdvApp2Var_Node.hxx".}
-proc DynamicType*(this: AdvApp2Var_Node): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: AdvApp2VarNode): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AdvApp2Var_Node.hxx".}
-proc constructAdvApp2Var_Node*(): AdvApp2Var_Node {.constructor,
+proc constructAdvApp2VarNode*(): AdvApp2VarNode {.constructor,
     importcpp: "AdvApp2Var_Node(@)", header: "AdvApp2Var_Node.hxx".}
-proc constructAdvApp2Var_Node*(iu: Standard_Integer; iv: Standard_Integer): AdvApp2Var_Node {.
-    constructor, importcpp: "AdvApp2Var_Node(@)", header: "AdvApp2Var_Node.hxx".}
-proc constructAdvApp2Var_Node*(UV: gp_XY; iu: Standard_Integer; iv: Standard_Integer): AdvApp2Var_Node {.
-    constructor, importcpp: "AdvApp2Var_Node(@)", header: "AdvApp2Var_Node.hxx".}
-proc Coord*(this: AdvApp2Var_Node): gp_XY {.noSideEffect, importcpp: "Coord",
-                                        header: "AdvApp2Var_Node.hxx".}
-proc SetCoord*(this: var AdvApp2Var_Node; x1: Standard_Real; x2: Standard_Real) {.
-    importcpp: "SetCoord", header: "AdvApp2Var_Node.hxx".}
-proc UOrder*(this: AdvApp2Var_Node): Standard_Integer {.noSideEffect,
-    importcpp: "UOrder", header: "AdvApp2Var_Node.hxx".}
-proc VOrder*(this: AdvApp2Var_Node): Standard_Integer {.noSideEffect,
-    importcpp: "VOrder", header: "AdvApp2Var_Node.hxx".}
-proc SetPoint*(this: var AdvApp2Var_Node; iu: Standard_Integer; iv: Standard_Integer;
-              Pt: gp_Pnt) {.importcpp: "SetPoint", header: "AdvApp2Var_Node.hxx".}
-proc Point*(this: AdvApp2Var_Node; iu: Standard_Integer; iv: Standard_Integer): gp_Pnt {.
-    noSideEffect, importcpp: "Point", header: "AdvApp2Var_Node.hxx".}
-proc SetError*(this: var AdvApp2Var_Node; iu: Standard_Integer; iv: Standard_Integer;
-              error: Standard_Real) {.importcpp: "SetError",
+proc constructAdvApp2VarNode*(iu: int; iv: int): AdvApp2VarNode {.constructor,
+    importcpp: "AdvApp2Var_Node(@)", header: "AdvApp2Var_Node.hxx".}
+proc constructAdvApp2VarNode*(uv: Xy; iu: int; iv: int): AdvApp2VarNode {.constructor,
+    importcpp: "AdvApp2Var_Node(@)", header: "AdvApp2Var_Node.hxx".}
+proc coord*(this: AdvApp2VarNode): Xy {.noSideEffect, importcpp: "Coord",
                                     header: "AdvApp2Var_Node.hxx".}
-proc Error*(this: AdvApp2Var_Node; iu: Standard_Integer; iv: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "Error", header: "AdvApp2Var_Node.hxx".}
+proc setCoord*(this: var AdvApp2VarNode; x1: float; x2: float) {.importcpp: "SetCoord",
+    header: "AdvApp2Var_Node.hxx".}
+proc uOrder*(this: AdvApp2VarNode): int {.noSideEffect, importcpp: "UOrder",
+                                      header: "AdvApp2Var_Node.hxx".}
+proc vOrder*(this: AdvApp2VarNode): int {.noSideEffect, importcpp: "VOrder",
+                                      header: "AdvApp2Var_Node.hxx".}
+proc setPoint*(this: var AdvApp2VarNode; iu: int; iv: int; pt: Pnt) {.
+    importcpp: "SetPoint", header: "AdvApp2Var_Node.hxx".}
+proc point*(this: AdvApp2VarNode; iu: int; iv: int): Pnt {.noSideEffect,
+    importcpp: "Point", header: "AdvApp2Var_Node.hxx".}
+proc setError*(this: var AdvApp2VarNode; iu: int; iv: int; error: float) {.
+    importcpp: "SetError", header: "AdvApp2Var_Node.hxx".}
+proc error*(this: AdvApp2VarNode; iu: int; iv: int): float {.noSideEffect,
+    importcpp: "Error", header: "AdvApp2Var_Node.hxx".}

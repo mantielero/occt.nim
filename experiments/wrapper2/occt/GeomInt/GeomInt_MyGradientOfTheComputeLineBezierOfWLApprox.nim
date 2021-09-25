@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../AppParCurves/AppParCurves_MultiCurve,
-  ../math/math_Vector, ../Standard/Standard_Real, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer,
-  ../AppParCurves/AppParCurves_HArray1OfConstraintCouple
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of GeomInt_TheMultiLineOfWLApprox"
@@ -31,7 +24,7 @@ discard "forward decl of GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOf
 discard "forward decl of GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox"
 discard "forward decl of AppParCurves_MultiCurve"
 type
-  GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox* {.
+  GeomIntMyGradientOfTheComputeLineBezierOfWLApprox* {.
       importcpp: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox",
       header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx", bycopy.} = object ##
                                                                                      ## !
@@ -99,31 +92,29 @@ type
                                                                                      ## Deg.
 
 
-proc constructGeomInt_MyGradientOfTheComputeLineBezierOfWLApprox*(
-    SSP: GeomInt_TheMultiLineOfWLApprox; FirstPoint: Standard_Integer;
-    LastPoint: Standard_Integer;
-    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
-    Parameters: var math_Vector; Deg: Standard_Integer; Tol3d: Standard_Real;
-    Tol2d: Standard_Real; NbIterations: Standard_Integer = 200): GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox {.
+proc constructGeomIntMyGradientOfTheComputeLineBezierOfWLApprox*(
+    ssp: GeomIntTheMultiLineOfWLApprox; firstPoint: int; lastPoint: int;
+    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
+    parameters: var MathVector; deg: int; tol3d: float; tol2d: float;
+    nbIterations: int = 200): GeomIntMyGradientOfTheComputeLineBezierOfWLApprox {.
     constructor,
     importcpp: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox(@)",
     header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
-proc IsDone*(this: GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox): Standard_Boolean {.
+proc isDone*(this: GeomIntMyGradientOfTheComputeLineBezierOfWLApprox): bool {.
     noSideEffect, importcpp: "IsDone",
     header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
-proc Value*(this: GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox): AppParCurves_MultiCurve {.
+proc value*(this: GeomIntMyGradientOfTheComputeLineBezierOfWLApprox): AppParCurvesMultiCurve {.
     noSideEffect, importcpp: "Value",
     header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
-proc Error*(this: GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox;
-           Index: Standard_Integer): Standard_Real {.noSideEffect,
-    importcpp: "Error",
+proc error*(this: GeomIntMyGradientOfTheComputeLineBezierOfWLApprox; index: int): float {.
+    noSideEffect, importcpp: "Error",
     header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
-proc MaxError3d*(this: GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox): Standard_Real {.
+proc maxError3d*(this: GeomIntMyGradientOfTheComputeLineBezierOfWLApprox): float {.
     noSideEffect, importcpp: "MaxError3d",
     header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
-proc MaxError2d*(this: GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox): Standard_Real {.
+proc maxError2d*(this: GeomIntMyGradientOfTheComputeLineBezierOfWLApprox): float {.
     noSideEffect, importcpp: "MaxError2d",
     header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
-proc AverageError*(this: GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox): Standard_Real {.
+proc averageError*(this: GeomIntMyGradientOfTheComputeLineBezierOfWLApprox): float {.
     noSideEffect, importcpp: "AverageError",
     header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx".}

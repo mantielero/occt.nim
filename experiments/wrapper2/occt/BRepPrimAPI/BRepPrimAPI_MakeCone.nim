@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../BRepPrim/BRepPrim_Cone, BRepPrimAPI_MakeOneAxis,
-  ../Standard/Standard_Real, ../Standard/Standard_Address
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Ax2"
 discard "forward decl of BRepPrim_Cone"
@@ -66,24 +61,20 @@ type
                                                                                                    ## height
 
 
-proc constructBRepPrimAPI_MakeCone*(R1: Standard_Real; R2: Standard_Real;
-                                   H: Standard_Real): BRepPrimAPI_MakeCone {.
+proc constructBRepPrimAPI_MakeCone*(r1: float; r2: float; h: float): BRepPrimAPI_MakeCone {.
     constructor, importcpp: "BRepPrimAPI_MakeCone(@)",
     header: "BRepPrimAPI_MakeCone.hxx".}
-proc constructBRepPrimAPI_MakeCone*(R1: Standard_Real; R2: Standard_Real;
-                                   H: Standard_Real; angle: Standard_Real): BRepPrimAPI_MakeCone {.
+proc constructBRepPrimAPI_MakeCone*(r1: float; r2: float; h: float; angle: float): BRepPrimAPI_MakeCone {.
     constructor, importcpp: "BRepPrimAPI_MakeCone(@)",
     header: "BRepPrimAPI_MakeCone.hxx".}
-proc constructBRepPrimAPI_MakeCone*(Axes: gp_Ax2; R1: Standard_Real;
-                                   R2: Standard_Real; H: Standard_Real): BRepPrimAPI_MakeCone {.
+proc constructBRepPrimAPI_MakeCone*(axes: Ax2; r1: float; r2: float; h: float): BRepPrimAPI_MakeCone {.
     constructor, importcpp: "BRepPrimAPI_MakeCone(@)",
     header: "BRepPrimAPI_MakeCone.hxx".}
-proc constructBRepPrimAPI_MakeCone*(Axes: gp_Ax2; R1: Standard_Real;
-                                   R2: Standard_Real; H: Standard_Real;
-                                   angle: Standard_Real): BRepPrimAPI_MakeCone {.
+proc constructBRepPrimAPI_MakeCone*(axes: Ax2; r1: float; r2: float; h: float;
+                                   angle: float): BRepPrimAPI_MakeCone {.
     constructor, importcpp: "BRepPrimAPI_MakeCone(@)",
     header: "BRepPrimAPI_MakeCone.hxx".}
-proc OneAxis*(this: var BRepPrimAPI_MakeCone): Standard_Address {.
+proc oneAxis*(this: var BRepPrimAPI_MakeCone): StandardAddress {.
     importcpp: "OneAxis", header: "BRepPrimAPI_MakeCone.hxx".}
-proc Cone*(this: var BRepPrimAPI_MakeCone): var BRepPrim_Cone {.importcpp: "Cone",
+proc cone*(this: var BRepPrimAPI_MakeCone): var BRepPrimCone {.importcpp: "Cone",
     header: "BRepPrimAPI_MakeCone.hxx".}

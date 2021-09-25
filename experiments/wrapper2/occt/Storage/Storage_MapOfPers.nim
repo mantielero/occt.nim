@@ -14,12 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_AsciiString, Storage_Root,
-  ../TCollection/TCollection_AsciiString, ../NCollection/NCollection_DataMap
-
 type
-  Storage_MapOfPers* = NCollection_DataMap[TCollection_AsciiString,
-      handle[Storage_Root], TCollection_AsciiString]
-  Storage_DataMapIteratorOfMapOfPers* = Iterator[TCollection_AsciiString,
-      handle[Storage_Root], TCollection_AsciiString]
+  StorageMapOfPers* = NCollectionDataMap[TCollectionAsciiString,
+                                       Handle[StorageRoot],
+                                       TCollectionAsciiString]
+  StorageDataMapIteratorOfMapOfPers* = Iterator[TCollectionAsciiString,
+      Handle[StorageRoot], TCollectionAsciiString]
+

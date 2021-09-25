@@ -14,24 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopTools/TopTools_ListOfShape
-
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Face"
 type
-  TopOpeBRepBuild_WireToFace* {.importcpp: "TopOpeBRepBuild_WireToFace",
-                               header: "TopOpeBRepBuild_WireToFace.hxx", bycopy.} = object
+  TopOpeBRepBuildWireToFace* {.importcpp: "TopOpeBRepBuild_WireToFace",
+                              header: "TopOpeBRepBuild_WireToFace.hxx", bycopy.} = object
 
 
-proc constructTopOpeBRepBuild_WireToFace*(): TopOpeBRepBuild_WireToFace {.
+proc constructTopOpeBRepBuildWireToFace*(): TopOpeBRepBuildWireToFace {.
     constructor, importcpp: "TopOpeBRepBuild_WireToFace(@)",
     header: "TopOpeBRepBuild_WireToFace.hxx".}
-proc Init*(this: var TopOpeBRepBuild_WireToFace) {.importcpp: "Init",
+proc init*(this: var TopOpeBRepBuildWireToFace) {.importcpp: "Init",
     header: "TopOpeBRepBuild_WireToFace.hxx".}
-proc AddWire*(this: var TopOpeBRepBuild_WireToFace; W: TopoDS_Wire) {.
+proc addWire*(this: var TopOpeBRepBuildWireToFace; w: TopoDS_Wire) {.
     importcpp: "AddWire", header: "TopOpeBRepBuild_WireToFace.hxx".}
-proc MakeFaces*(this: var TopOpeBRepBuild_WireToFace; F: TopoDS_Face;
-               LF: var TopTools_ListOfShape) {.importcpp: "MakeFaces",
+proc makeFaces*(this: var TopOpeBRepBuildWireToFace; f: TopoDS_Face;
+               lf: var TopToolsListOfShape) {.importcpp: "MakeFaces",
     header: "TopOpeBRepBuild_WireToFace.hxx".}

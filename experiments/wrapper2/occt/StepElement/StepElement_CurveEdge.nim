@@ -12,7 +12,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepElement_CurveEdge* {.size: sizeof(cint), importcpp: "StepElement_CurveEdge",
-                          header: "StepElement_CurveEdge.hxx".} = enum
-    StepElement_ElementEdge
+  StepElementCurveEdge* {.size: sizeof(cint), importcpp: "StepElement_CurveEdge",
+                         header: "StepElement_CurveEdge.hxx".} = enum
+    StepElementElementEdge
+
 

@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Boolean
-
 discard "forward decl of TDF_Data"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_NullObject"
@@ -30,29 +25,29 @@ type
                                    ## ! Private to avoid copy.
 
 
-proc constructTDF_Transaction*(aName: TCollection_AsciiString = ""): TDF_Transaction {.
+proc constructTDF_Transaction*(aName: TCollectionAsciiString = ""): TDF_Transaction {.
     constructor, importcpp: "TDF_Transaction(@)", header: "TDF_Transaction.hxx".}
-proc constructTDF_Transaction*(aDF: handle[TDF_Data];
-                              aName: TCollection_AsciiString = ""): TDF_Transaction {.
+proc constructTDF_Transaction*(aDF: Handle[TDF_Data];
+                              aName: TCollectionAsciiString = ""): TDF_Transaction {.
     constructor, importcpp: "TDF_Transaction(@)", header: "TDF_Transaction.hxx".}
-proc Initialize*(this: var TDF_Transaction; aDF: handle[TDF_Data]) {.
+proc initialize*(this: var TDF_Transaction; aDF: Handle[TDF_Data]) {.
     importcpp: "Initialize", header: "TDF_Transaction.hxx".}
-proc Open*(this: var TDF_Transaction): Standard_Integer {.importcpp: "Open",
-    header: "TDF_Transaction.hxx".}
-proc Commit*(this: var TDF_Transaction; withDelta: Standard_Boolean = Standard_False): handle[
-    TDF_Delta] {.importcpp: "Commit", header: "TDF_Transaction.hxx".}
-proc Abort*(this: var TDF_Transaction) {.importcpp: "Abort",
+proc open*(this: var TDF_Transaction): int {.importcpp: "Open",
+                                        header: "TDF_Transaction.hxx".}
+proc commit*(this: var TDF_Transaction; withDelta: bool = false): Handle[TDF_Delta] {.
+    importcpp: "Commit", header: "TDF_Transaction.hxx".}
+proc abort*(this: var TDF_Transaction) {.importcpp: "Abort",
                                      header: "TDF_Transaction.hxx".}
 proc destroyTDF_Transaction*(this: var TDF_Transaction) {.
     importcpp: "#.~TDF_Transaction()", header: "TDF_Transaction.hxx".}
-proc Data*(this: TDF_Transaction): handle[TDF_Data] {.noSideEffect,
+proc data*(this: TDF_Transaction): Handle[TDF_Data] {.noSideEffect,
     importcpp: "Data", header: "TDF_Transaction.hxx".}
-proc Transaction*(this: TDF_Transaction): Standard_Integer {.noSideEffect,
+proc transaction*(this: TDF_Transaction): int {.noSideEffect,
     importcpp: "Transaction", header: "TDF_Transaction.hxx".}
-proc Name*(this: TDF_Transaction): TCollection_AsciiString {.noSideEffect,
+proc name*(this: TDF_Transaction): TCollectionAsciiString {.noSideEffect,
     importcpp: "Name", header: "TDF_Transaction.hxx".}
-proc IsOpen*(this: TDF_Transaction): Standard_Boolean {.noSideEffect,
-    importcpp: "IsOpen", header: "TDF_Transaction.hxx".}
-proc DumpJson*(this: TDF_Transaction; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TDF_Transaction.hxx".}
+proc isOpen*(this: TDF_Transaction): bool {.noSideEffect, importcpp: "IsOpen",
+                                        header: "TDF_Transaction.hxx".}
+proc dumpJson*(this: TDF_Transaction; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TDF_Transaction.hxx".}

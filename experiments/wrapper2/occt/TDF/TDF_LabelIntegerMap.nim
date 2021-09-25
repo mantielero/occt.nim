@@ -13,12 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TDF_Label, ../Standard/Standard_Integer, TDF_LabelMapHasher,
-  ../NCollection/NCollection_DataMap
-
 type
-  TDF_LabelIntegerMap* = NCollection_DataMap[TDF_Label, Standard_Integer,
+  TDF_LabelIntegerMap* = NCollectionDataMap[TDF_Label, int, TDF_LabelMapHasher]
+  TDF_DataMapIteratorOfLabelIntegerMap* = Iterator[TDF_Label, int,
       TDF_LabelMapHasher]
-  TDF_DataMapIteratorOfLabelIntegerMap* = Iterator[TDF_Label, Standard_Integer,
-      TDF_LabelMapHasher]
+

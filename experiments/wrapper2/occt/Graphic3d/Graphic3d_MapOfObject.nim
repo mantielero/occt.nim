@@ -13,9 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Graphic3d_ViewAffinity, ../NCollection/NCollection_DataMap
-
 type
-  Graphic3d_MapOfObject* = NCollection_DataMap[ptr Standard_Transient,
-      handle[Graphic3d_ViewAffinity]]
+  Graphic3dMapOfObject* = NCollectionDataMap[ptr StandardTransient,
+      Handle[Graphic3dViewAffinity]]
+

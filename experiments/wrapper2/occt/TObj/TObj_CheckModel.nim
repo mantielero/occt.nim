@@ -14,9 +14,6 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation Copyright: (C) RINA S.p.A
 
-import
-  TObj_Common, TObj_Model, ../Message/Message_Algorithm
-
 ## *
 ##  This class provides consistency check of the TObj model.
 ##  It collects all inconsistencies in the status bits and prepaires
@@ -26,42 +23,42 @@ import
 ##
 
 type
-  TObj_CheckModel* {.importcpp: "TObj_CheckModel", header: "TObj_CheckModel.hxx",
-                    bycopy.} = object of Message_Algorithm ## ! Initialize checker by model
-                                                      ## ! Check References (and back references in model).
-                                                      ## ! This method just tries to find object to that this reference is indicate and
-                                                      ## ! test if that object is not null or not deleted. Also it test if that object has back
-                                                      ## ! reference to correct object (object that has forward reference).
-                                                      ## ! Declaration of CASCADE RTTI
+  TObjCheckModel* {.importcpp: "TObj_CheckModel", header: "TObj_CheckModel.hxx",
+                   bycopy.} = object of MessageAlgorithm ## ! Initialize checker by model
+                                                    ## ! Check References (and back references in model).
+                                                    ## ! This method just tries to find object to that this reference is indicate and
+                                                    ## ! test if that object is not null or not deleted. Also it test if that object has back
+                                                    ## ! reference to correct object (object that has forward reference).
+                                                    ## ! Declaration of CASCADE RTTI
 
 
-proc constructTObj_CheckModel*(theModel: handle[TObj_Model]): TObj_CheckModel {.
+proc constructTObjCheckModel*(theModel: Handle[TObjModel]): TObjCheckModel {.
     constructor, importcpp: "TObj_CheckModel(@)", header: "TObj_CheckModel.hxx".}
-proc SetToFix*(this: var TObj_CheckModel; theToFix: Standard_Boolean) {.
-    importcpp: "SetToFix", header: "TObj_CheckModel.hxx".}
-proc IsToFix*(this: TObj_CheckModel): Standard_Boolean {.noSideEffect,
-    importcpp: "IsToFix", header: "TObj_CheckModel.hxx".}
-proc GetModel*(this: TObj_CheckModel): handle[TObj_Model] {.noSideEffect,
+proc setToFix*(this: var TObjCheckModel; theToFix: bool) {.importcpp: "SetToFix",
+    header: "TObj_CheckModel.hxx".}
+proc isToFix*(this: TObjCheckModel): bool {.noSideEffect, importcpp: "IsToFix",
+                                        header: "TObj_CheckModel.hxx".}
+proc getModel*(this: TObjCheckModel): Handle[TObjModel] {.noSideEffect,
     importcpp: "GetModel", header: "TObj_CheckModel.hxx".}
-proc destroyTObj_CheckModel*(this: var TObj_CheckModel) {.
+proc destroyTObjCheckModel*(this: var TObjCheckModel) {.
     importcpp: "#.~TObj_CheckModel()", header: "TObj_CheckModel.hxx".}
-proc Perform*(this: var TObj_CheckModel): Standard_Boolean {.importcpp: "Perform",
+proc perform*(this: var TObjCheckModel): bool {.importcpp: "Perform",
     header: "TObj_CheckModel.hxx".}
 type
-  TObj_CheckModelbase_type* = Message_Algorithm
+  TObjCheckModelbaseType* = MessageAlgorithm
 
-proc get_type_name*(): cstring {.importcpp: "TObj_CheckModel::get_type_name(@)",
-                              header: "TObj_CheckModel.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TObj_CheckModel::get_type_name(@)",
+                            header: "TObj_CheckModel.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TObj_CheckModel::get_type_descriptor(@)",
     header: "TObj_CheckModel.hxx".}
-proc DynamicType*(this: TObj_CheckModel): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TObjCheckModel): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TObj_CheckModel.hxx".}
 ## ! Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of TObj_CheckModel"
 type
-  Handle_TObj_CheckModel* = handle[TObj_CheckModel]
+  HandleTObjCheckModel* = Handle[TObjCheckModel]
 
-when defined(_MSC_VER):
-  discard
+# when defined(_MSC_VER):
+#   discard

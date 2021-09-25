@@ -19,3 +19,4 @@ type
                  header: "OSD_OpenMode.hxx".} = enum
     OSD_ReadOnly, OSD_WriteOnly, OSD_ReadWrite
 
+

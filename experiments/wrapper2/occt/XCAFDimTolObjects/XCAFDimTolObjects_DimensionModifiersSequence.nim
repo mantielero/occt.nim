@@ -13,9 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Sequence, XCAFDimTolObjects_DimensionModif
-
 type
-  XCAFDimTolObjects_DimensionModifiersSequence* = NCollection_Sequence[
-      XCAFDimTolObjects_DimensionModif]
+  XCAFDimTolObjectsDimensionModifiersSequence* = NCollectionSequence[
+      XCAFDimTolObjectsDimensionModif]
+

@@ -14,32 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Circ2d,
-  ../Standard/Standard_Real, Draw_Color, Draw_Drawable2D
-
 discard "forward decl of gp_Circ2d"
 discard "forward decl of Draw_Color"
 discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Circle2D"
 discard "forward decl of Draw_Circle2D"
 type
-  Handle_Draw_Circle2D* = handle[Draw_Circle2D]
-  Draw_Circle2D* {.importcpp: "Draw_Circle2D", header: "Draw_Circle2D.hxx", bycopy.} = object of Draw_Drawable2D
+  HandleDrawCircle2D* = Handle[DrawCircle2D]
+  DrawCircle2D* {.importcpp: "Draw_Circle2D", header: "Draw_Circle2D.hxx", bycopy.} = object of DrawDrawable2D
 
 
-proc constructDraw_Circle2D*(C: gp_Circ2d; A1: Standard_Real; A2: Standard_Real;
-                            col: Draw_Color): Draw_Circle2D {.constructor,
-    importcpp: "Draw_Circle2D(@)", header: "Draw_Circle2D.hxx".}
-proc DrawOn*(this: Draw_Circle2D; dis: var Draw_Display) {.noSideEffect,
+proc constructDrawCircle2D*(c: Circ2d; a1: float; a2: float; col: DrawColor): DrawCircle2D {.
+    constructor, importcpp: "Draw_Circle2D(@)", header: "Draw_Circle2D.hxx".}
+proc drawOn*(this: DrawCircle2D; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "Draw_Circle2D.hxx".}
 type
-  Draw_Circle2Dbase_type* = Draw_Drawable2D
+  DrawCircle2DbaseType* = DrawDrawable2D
 
-proc get_type_name*(): cstring {.importcpp: "Draw_Circle2D::get_type_name(@)",
-                              header: "Draw_Circle2D.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Draw_Circle2D::get_type_name(@)",
+                            header: "Draw_Circle2D.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Draw_Circle2D::get_type_descriptor(@)",
     header: "Draw_Circle2D.hxx".}
-proc DynamicType*(this: Draw_Circle2D): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: DrawCircle2D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Circle2D.hxx".}

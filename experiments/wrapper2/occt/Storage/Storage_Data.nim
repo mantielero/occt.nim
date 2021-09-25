@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Storage_Error,
-  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Transient,
-  ../TColStd/TColStd_SequenceOfAsciiString,
-  ../TColStd/TColStd_SequenceOfExtendedString, ../Standard/Standard_Integer,
-  Storage_HSeqOfRoot, ../Standard/Standard_Boolean,
-  ../TColStd/TColStd_HSequenceOfAsciiString
-
 discard "forward decl of Storage_HeaderData"
 discard "forward decl of Storage_RootData"
 discard "forward decl of Storage_TypeData"
@@ -34,7 +26,7 @@ discard "forward decl of Storage_Root"
 discard "forward decl of Storage_Data"
 discard "forward decl of Storage_Data"
 type
-  Handle_Storage_Data* = handle[Storage_Data]
+  HandleStorageData* = Handle[StorageData]
 
 ## ! A picture memorizing the data stored in a
 ## ! container (for example, in a file).
@@ -68,182 +60,181 @@ type
 ## ! supported by Storage_Schema algorithm
 
 type
-  Storage_Data* {.importcpp: "Storage_Data", header: "Storage_Data.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                       ## !
-                                                                                                       ## Creates
-                                                                                                       ## an
-                                                                                                       ## empty
-                                                                                                       ## set
-                                                                                                       ## of
-                                                                                                       ## data.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## You
-                                                                                                       ## explicitly
-                                                                                                       ## create
-                                                                                                       ## a
-                                                                                                       ## Storage_Data
-                                                                                                       ## object
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## when
-                                                                                                       ## preparing
-                                                                                                       ## the
-                                                                                                       ## set
-                                                                                                       ## of
-                                                                                                       ## objects
-                                                                                                       ## to
-                                                                                                       ## be
-                                                                                                       ## stored
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## together
-                                                                                                       ## in
-                                                                                                       ## a
-                                                                                                       ## container
-                                                                                                       ## (for
-                                                                                                       ## example,
-                                                                                                       ## in
-                                                                                                       ## a
-                                                                                                       ## file).
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Then
-                                                                                                       ## use
-                                                                                                       ## the
-                                                                                                       ## function
-                                                                                                       ## AddRoot
-                                                                                                       ## to
-                                                                                                       ## add
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## persistent
-                                                                                                       ## objects
-                                                                                                       ## to
-                                                                                                       ## the
-                                                                                                       ## set
-                                                                                                       ## of
-                                                                                                       ## data.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## A
-                                                                                                       ## Storage_Data
-                                                                                                       ## object
-                                                                                                       ## is
-                                                                                                       ## also
-                                                                                                       ## returned
-                                                                                                       ## by
-                                                                                                       ## the
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Read
-                                                                                                       ## function
-                                                                                                       ## of
-                                                                                                       ## a
-                                                                                                       ## Storage_Schema
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## storage/retrieval
-                                                                                                       ## algorithm.
-                                                                                                       ## Use
-                                                                                                       ## the
-                                                                                                       ## functions
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## NumberOfRoots
-                                                                                                       ## and
-                                                                                                       ## Roots
-                                                                                                       ## to
-                                                                                                       ## find
-                                                                                                       ## the
-                                                                                                       ## roots
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## which
-                                                                                                       ## were
-                                                                                                       ## stored
-                                                                                                       ## in
-                                                                                                       ## the
-                                                                                                       ## read
-                                                                                                       ## container.
+  StorageData* {.importcpp: "Storage_Data", header: "Storage_Data.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                     ## !
+                                                                                                     ## Creates
+                                                                                                     ## an
+                                                                                                     ## empty
+                                                                                                     ## set
+                                                                                                     ## of
+                                                                                                     ## data.
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## You
+                                                                                                     ## explicitly
+                                                                                                     ## create
+                                                                                                     ## a
+                                                                                                     ## Storage_Data
+                                                                                                     ## object
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## when
+                                                                                                     ## preparing
+                                                                                                     ## the
+                                                                                                     ## set
+                                                                                                     ## of
+                                                                                                     ## objects
+                                                                                                     ## to
+                                                                                                     ## be
+                                                                                                     ## stored
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## together
+                                                                                                     ## in
+                                                                                                     ## a
+                                                                                                     ## container
+                                                                                                     ## (for
+                                                                                                     ## example,
+                                                                                                     ## in
+                                                                                                     ## a
+                                                                                                     ## file).
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## Then
+                                                                                                     ## use
+                                                                                                     ## the
+                                                                                                     ## function
+                                                                                                     ## AddRoot
+                                                                                                     ## to
+                                                                                                     ## add
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## persistent
+                                                                                                     ## objects
+                                                                                                     ## to
+                                                                                                     ## the
+                                                                                                     ## set
+                                                                                                     ## of
+                                                                                                     ## data.
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## A
+                                                                                                     ## Storage_Data
+                                                                                                     ## object
+                                                                                                     ## is
+                                                                                                     ## also
+                                                                                                     ## returned
+                                                                                                     ## by
+                                                                                                     ## the
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## Read
+                                                                                                     ## function
+                                                                                                     ## of
+                                                                                                     ## a
+                                                                                                     ## Storage_Schema
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## storage/retrieval
+                                                                                                     ## algorithm.
+                                                                                                     ## Use
+                                                                                                     ## the
+                                                                                                     ## functions
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## NumberOfRoots
+                                                                                                     ## and
+                                                                                                     ## Roots
+                                                                                                     ## to
+                                                                                                     ## find
+                                                                                                     ## the
+                                                                                                     ## roots
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## which
+                                                                                                     ## were
+                                                                                                     ## stored
+                                                                                                     ## in
+                                                                                                     ## the
+                                                                                                     ## read
+                                                                                                     ## container.
 
 
-proc constructStorage_Data*(): Storage_Data {.constructor,
+proc constructStorageData*(): StorageData {.constructor,
     importcpp: "Storage_Data(@)", header: "Storage_Data.hxx".}
-proc ErrorStatus*(this: Storage_Data): Storage_Error {.noSideEffect,
+proc errorStatus*(this: StorageData): StorageError {.noSideEffect,
     importcpp: "ErrorStatus", header: "Storage_Data.hxx".}
-proc ClearErrorStatus*(this: var Storage_Data) {.importcpp: "ClearErrorStatus",
+proc clearErrorStatus*(this: var StorageData) {.importcpp: "ClearErrorStatus",
     header: "Storage_Data.hxx".}
-proc ErrorStatusExtension*(this: Storage_Data): TCollection_AsciiString {.
+proc errorStatusExtension*(this: StorageData): TCollectionAsciiString {.
     noSideEffect, importcpp: "ErrorStatusExtension", header: "Storage_Data.hxx".}
-proc CreationDate*(this: Storage_Data): TCollection_AsciiString {.noSideEffect,
+proc creationDate*(this: StorageData): TCollectionAsciiString {.noSideEffect,
     importcpp: "CreationDate", header: "Storage_Data.hxx".}
-proc StorageVersion*(this: Storage_Data): TCollection_AsciiString {.noSideEffect,
+proc storageVersion*(this: StorageData): TCollectionAsciiString {.noSideEffect,
     importcpp: "StorageVersion", header: "Storage_Data.hxx".}
-proc SchemaVersion*(this: Storage_Data): TCollection_AsciiString {.noSideEffect,
+proc schemaVersion*(this: StorageData): TCollectionAsciiString {.noSideEffect,
     importcpp: "SchemaVersion", header: "Storage_Data.hxx".}
-proc SchemaName*(this: Storage_Data): TCollection_AsciiString {.noSideEffect,
+proc schemaName*(this: StorageData): TCollectionAsciiString {.noSideEffect,
     importcpp: "SchemaName", header: "Storage_Data.hxx".}
-proc SetApplicationVersion*(this: var Storage_Data;
-                           aVersion: TCollection_AsciiString) {.
+proc setApplicationVersion*(this: var StorageData; aVersion: TCollectionAsciiString) {.
     importcpp: "SetApplicationVersion", header: "Storage_Data.hxx".}
-proc ApplicationVersion*(this: Storage_Data): TCollection_AsciiString {.
-    noSideEffect, importcpp: "ApplicationVersion", header: "Storage_Data.hxx".}
-proc SetApplicationName*(this: var Storage_Data; aName: TCollection_ExtendedString) {.
+proc applicationVersion*(this: StorageData): TCollectionAsciiString {.noSideEffect,
+    importcpp: "ApplicationVersion", header: "Storage_Data.hxx".}
+proc setApplicationName*(this: var StorageData; aName: TCollectionExtendedString) {.
     importcpp: "SetApplicationName", header: "Storage_Data.hxx".}
-proc ApplicationName*(this: Storage_Data): TCollection_ExtendedString {.
-    noSideEffect, importcpp: "ApplicationName", header: "Storage_Data.hxx".}
-proc SetDataType*(this: var Storage_Data; aType: TCollection_ExtendedString) {.
+proc applicationName*(this: StorageData): TCollectionExtendedString {.noSideEffect,
+    importcpp: "ApplicationName", header: "Storage_Data.hxx".}
+proc setDataType*(this: var StorageData; aType: TCollectionExtendedString) {.
     importcpp: "SetDataType", header: "Storage_Data.hxx".}
-proc DataType*(this: Storage_Data): TCollection_ExtendedString {.noSideEffect,
+proc dataType*(this: StorageData): TCollectionExtendedString {.noSideEffect,
     importcpp: "DataType", header: "Storage_Data.hxx".}
-proc AddToUserInfo*(this: var Storage_Data; anInfo: TCollection_AsciiString) {.
+proc addToUserInfo*(this: var StorageData; anInfo: TCollectionAsciiString) {.
     importcpp: "AddToUserInfo", header: "Storage_Data.hxx".}
-proc UserInfo*(this: Storage_Data): TColStd_SequenceOfAsciiString {.noSideEffect,
+proc userInfo*(this: StorageData): TColStdSequenceOfAsciiString {.noSideEffect,
     importcpp: "UserInfo", header: "Storage_Data.hxx".}
-proc AddToComments*(this: var Storage_Data; aComment: TCollection_ExtendedString) {.
+proc addToComments*(this: var StorageData; aComment: TCollectionExtendedString) {.
     importcpp: "AddToComments", header: "Storage_Data.hxx".}
-proc Comments*(this: Storage_Data): TColStd_SequenceOfExtendedString {.noSideEffect,
+proc comments*(this: StorageData): TColStdSequenceOfExtendedString {.noSideEffect,
     importcpp: "Comments", header: "Storage_Data.hxx".}
-proc NumberOfObjects*(this: Storage_Data): Standard_Integer {.noSideEffect,
+proc numberOfObjects*(this: StorageData): int {.noSideEffect,
     importcpp: "NumberOfObjects", header: "Storage_Data.hxx".}
-proc NumberOfRoots*(this: Storage_Data): Standard_Integer {.noSideEffect,
+proc numberOfRoots*(this: StorageData): int {.noSideEffect,
     importcpp: "NumberOfRoots", header: "Storage_Data.hxx".}
-proc AddRoot*(this: Storage_Data; anObject: handle[Standard_Persistent]) {.
+proc addRoot*(this: StorageData; anObject: Handle[StandardPersistent]) {.
     noSideEffect, importcpp: "AddRoot", header: "Storage_Data.hxx".}
-proc AddRoot*(this: Storage_Data; aName: TCollection_AsciiString;
-             anObject: handle[Standard_Persistent]) {.noSideEffect,
+proc addRoot*(this: StorageData; aName: TCollectionAsciiString;
+             anObject: Handle[StandardPersistent]) {.noSideEffect,
     importcpp: "AddRoot", header: "Storage_Data.hxx".}
-proc RemoveRoot*(this: var Storage_Data; aName: TCollection_AsciiString) {.
+proc removeRoot*(this: var StorageData; aName: TCollectionAsciiString) {.
     importcpp: "RemoveRoot", header: "Storage_Data.hxx".}
-proc Roots*(this: Storage_Data): handle[Storage_HSeqOfRoot] {.noSideEffect,
+proc roots*(this: StorageData): Handle[StorageHSeqOfRoot] {.noSideEffect,
     importcpp: "Roots", header: "Storage_Data.hxx".}
-proc Find*(this: Storage_Data; aName: TCollection_AsciiString): handle[Storage_Root] {.
+proc find*(this: StorageData; aName: TCollectionAsciiString): Handle[StorageRoot] {.
     noSideEffect, importcpp: "Find", header: "Storage_Data.hxx".}
-proc IsRoot*(this: Storage_Data; aName: TCollection_AsciiString): Standard_Boolean {.
-    noSideEffect, importcpp: "IsRoot", header: "Storage_Data.hxx".}
-proc NumberOfTypes*(this: Storage_Data): Standard_Integer {.noSideEffect,
+proc isRoot*(this: StorageData; aName: TCollectionAsciiString): bool {.noSideEffect,
+    importcpp: "IsRoot", header: "Storage_Data.hxx".}
+proc numberOfTypes*(this: StorageData): int {.noSideEffect,
     importcpp: "NumberOfTypes", header: "Storage_Data.hxx".}
-proc IsType*(this: Storage_Data; aName: TCollection_AsciiString): Standard_Boolean {.
-    noSideEffect, importcpp: "IsType", header: "Storage_Data.hxx".}
-proc Types*(this: Storage_Data): handle[TColStd_HSequenceOfAsciiString] {.
+proc isType*(this: StorageData; aName: TCollectionAsciiString): bool {.noSideEffect,
+    importcpp: "IsType", header: "Storage_Data.hxx".}
+proc types*(this: StorageData): Handle[TColStdHSequenceOfAsciiString] {.
     noSideEffect, importcpp: "Types", header: "Storage_Data.hxx".}
 type
-  Storage_Database_type* = Standard_Transient
+  StorageDatabaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Storage_Data::get_type_name(@)",
-                              header: "Storage_Data.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Storage_Data::get_type_name(@)",
+                            header: "Storage_Data.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Storage_Data::get_type_descriptor(@)", header: "Storage_Data.hxx".}
-proc DynamicType*(this: Storage_Data): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StorageData): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Storage_Data.hxx".}
-proc HeaderData*(this: Storage_Data): handle[Storage_HeaderData] {.noSideEffect,
+proc headerData*(this: StorageData): Handle[StorageHeaderData] {.noSideEffect,
     importcpp: "HeaderData", header: "Storage_Data.hxx".}
-proc RootData*(this: Storage_Data): handle[Storage_RootData] {.noSideEffect,
+proc rootData*(this: StorageData): Handle[StorageRootData] {.noSideEffect,
     importcpp: "RootData", header: "Storage_Data.hxx".}
-proc TypeData*(this: Storage_Data): handle[Storage_TypeData] {.noSideEffect,
+proc typeData*(this: StorageData): Handle[StorageTypeData] {.noSideEffect,
     importcpp: "TypeData", header: "Storage_Data.hxx".}
-proc InternalData*(this: Storage_Data): handle[Storage_InternalData] {.noSideEffect,
+proc internalData*(this: StorageData): Handle[StorageInternalData] {.noSideEffect,
     importcpp: "InternalData", header: "Storage_Data.hxx".}
-proc Clear*(this: Storage_Data) {.noSideEffect, importcpp: "Clear",
-                               header: "Storage_Data.hxx".}
+proc clear*(this: StorageData) {.noSideEffect, importcpp: "Clear",
+                              header: "Storage_Data.hxx".}

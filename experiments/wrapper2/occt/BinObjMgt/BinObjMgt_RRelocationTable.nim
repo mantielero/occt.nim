@@ -13,40 +13,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TColStd/TColStd_DataMapOfIntegerTransient, ../Storage/Storage_HeaderData
-
 ## ! Retrieval relocation table is modeled as a child class of
 ## ! TColStd_DataMapOfIntegerTransient that stores a handle to the file
 ## ! header section. With that attribute drivers have access to the file header
 ## ! section.
 
 type
-  BinObjMgt_RRelocationTable* {.importcpp: "BinObjMgt_RRelocationTable",
-                               header: "BinObjMgt_RRelocationTable.hxx", bycopy.} = object of TColStd_DataMapOfIntegerTransient ##
-                                                                                                                         ## !
-                                                                                                                         ## Returns
-                                                                                                                         ## a
-                                                                                                                         ## handle
-                                                                                                                         ## to
-                                                                                                                         ## the
-                                                                                                                         ## header
-                                                                                                                         ## data
-                                                                                                                         ## of
-                                                                                                                         ## the
-                                                                                                                         ## file
-                                                                                                                         ## that
-                                                                                                                         ## is
-                                                                                                                         ## begin
-                                                                                                                         ## read
+  BinObjMgtRRelocationTable* {.importcpp: "BinObjMgt_RRelocationTable",
+                              header: "BinObjMgt_RRelocationTable.hxx", bycopy.} = object of TColStdDataMapOfIntegerTransient ##
+                                                                                                                       ## !
+                                                                                                                       ## Returns
+                                                                                                                       ## a
+                                                                                                                       ## handle
+                                                                                                                       ## to
+                                                                                                                       ## the
+                                                                                                                       ## header
+                                                                                                                       ## data
+                                                                                                                       ## of
+                                                                                                                       ## the
+                                                                                                                       ## file
+                                                                                                                       ## that
+                                                                                                                       ## is
+                                                                                                                       ## begin
+                                                                                                                       ## read
 
 
-proc GetHeaderData*(this: BinObjMgt_RRelocationTable): handle[Storage_HeaderData] {.
+proc getHeaderData*(this: BinObjMgtRRelocationTable): Handle[StorageHeaderData] {.
     noSideEffect, importcpp: "GetHeaderData",
     header: "BinObjMgt_RRelocationTable.hxx".}
-proc SetHeaderData*(this: var BinObjMgt_RRelocationTable;
-                   theHeaderData: handle[Storage_HeaderData]) {.
+proc setHeaderData*(this: var BinObjMgtRRelocationTable;
+                   theHeaderData: Handle[StorageHeaderData]) {.
     importcpp: "SetHeaderData", header: "BinObjMgt_RRelocationTable.hxx".}
-proc Clear*(this: var BinObjMgt_RRelocationTable;
-           doReleaseMemory: Standard_Boolean = Standard_True) {.importcpp: "Clear",
-    header: "BinObjMgt_RRelocationTable.hxx".}
+proc clear*(this: var BinObjMgtRRelocationTable; doReleaseMemory: bool = true) {.
+    importcpp: "Clear", header: "BinObjMgt_RRelocationTable.hxx".}

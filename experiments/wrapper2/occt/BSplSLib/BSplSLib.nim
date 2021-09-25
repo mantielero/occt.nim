@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean,
-  ../TColgp/TColgp_Array2OfPnt, ../TColStd/TColStd_Array2OfReal,
-  ../TColStd/TColStd_Array1OfReal, ../TColStd/TColStd_Array1OfInteger,
-  ../TColgp/TColgp_Array1OfPnt, BSplSLib_EvaluatorFunction
-
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 type
@@ -145,251 +137,198 @@ type
                                                                        ## dimensionned properly.
 
 
-proc RationalDerivative*(UDeg: Standard_Integer; VDeg: Standard_Integer;
-                        N: Standard_Integer; M: Standard_Integer;
-                        Ders: var Standard_Real; RDers: var Standard_Real;
-                        All: Standard_Boolean = Standard_True) {.
+proc rationalDerivative*(uDeg: int; vDeg: int; n: int; m: int; ders: var float;
+                        rDers: var float; all: bool = true) {.
     importcpp: "BSplSLib::RationalDerivative(@)", header: "BSplSLib.hxx".}
-proc D0*(U: Standard_Real; V: Standard_Real; UIndex: Standard_Integer;
-        VIndex: Standard_Integer; Poles: TColgp_Array2OfPnt;
-        Weights: ptr TColStd_Array2OfReal; UKnots: TColStd_Array1OfReal;
-        VKnots: TColStd_Array1OfReal; UMults: ptr TColStd_Array1OfInteger;
-        VMults: ptr TColStd_Array1OfInteger; UDegree: Standard_Integer;
-        VDegree: Standard_Integer; URat: Standard_Boolean; VRat: Standard_Boolean;
-        UPer: Standard_Boolean; VPer: Standard_Boolean; P: var gp_Pnt) {.
-    importcpp: "BSplSLib::D0(@)", header: "BSplSLib.hxx".}
-proc D1*(U: Standard_Real; V: Standard_Real; UIndex: Standard_Integer;
-        VIndex: Standard_Integer; Poles: TColgp_Array2OfPnt;
-        Weights: ptr TColStd_Array2OfReal; UKnots: TColStd_Array1OfReal;
-        VKnots: TColStd_Array1OfReal; UMults: ptr TColStd_Array1OfInteger;
-        VMults: ptr TColStd_Array1OfInteger; Degree: Standard_Integer;
-        VDegree: Standard_Integer; URat: Standard_Boolean; VRat: Standard_Boolean;
-        UPer: Standard_Boolean; VPer: Standard_Boolean; P: var gp_Pnt; Vu: var gp_Vec;
-        Vv: var gp_Vec) {.importcpp: "BSplSLib::D1(@)", header: "BSplSLib.hxx".}
-proc D2*(U: Standard_Real; V: Standard_Real; UIndex: Standard_Integer;
-        VIndex: Standard_Integer; Poles: TColgp_Array2OfPnt;
-        Weights: ptr TColStd_Array2OfReal; UKnots: TColStd_Array1OfReal;
-        VKnots: TColStd_Array1OfReal; UMults: ptr TColStd_Array1OfInteger;
-        VMults: ptr TColStd_Array1OfInteger; UDegree: Standard_Integer;
-        VDegree: Standard_Integer; URat: Standard_Boolean; VRat: Standard_Boolean;
-        UPer: Standard_Boolean; VPer: Standard_Boolean; P: var gp_Pnt; Vu: var gp_Vec;
-        Vv: var gp_Vec; Vuu: var gp_Vec; Vvv: var gp_Vec; Vuv: var gp_Vec) {.
-    importcpp: "BSplSLib::D2(@)", header: "BSplSLib.hxx".}
-proc D3*(U: Standard_Real; V: Standard_Real; UIndex: Standard_Integer;
-        VIndex: Standard_Integer; Poles: TColgp_Array2OfPnt;
-        Weights: ptr TColStd_Array2OfReal; UKnots: TColStd_Array1OfReal;
-        VKnots: TColStd_Array1OfReal; UMults: ptr TColStd_Array1OfInteger;
-        VMults: ptr TColStd_Array1OfInteger; UDegree: Standard_Integer;
-        VDegree: Standard_Integer; URat: Standard_Boolean; VRat: Standard_Boolean;
-        UPer: Standard_Boolean; VPer: Standard_Boolean; P: var gp_Pnt; Vu: var gp_Vec;
-        Vv: var gp_Vec; Vuu: var gp_Vec; Vvv: var gp_Vec; Vuv: var gp_Vec; Vuuu: var gp_Vec;
-        Vvvv: var gp_Vec; Vuuv: var gp_Vec; Vuvv: var gp_Vec) {.
+proc d0*(u: float; v: float; uIndex: int; vIndex: int; poles: TColgpArray2OfPnt;
+        weights: ptr TColStdArray2OfReal; uKnots: TColStdArray1OfReal;
+        vKnots: TColStdArray1OfReal; uMults: ptr TColStdArray1OfInteger;
+        vMults: ptr TColStdArray1OfInteger; uDegree: int; vDegree: int; uRat: bool;
+        vRat: bool; uPer: bool; vPer: bool; p: var Pnt) {.importcpp: "BSplSLib::D0(@)",
+    header: "BSplSLib.hxx".}
+proc d1*(u: float; v: float; uIndex: int; vIndex: int; poles: TColgpArray2OfPnt;
+        weights: ptr TColStdArray2OfReal; uKnots: TColStdArray1OfReal;
+        vKnots: TColStdArray1OfReal; uMults: ptr TColStdArray1OfInteger;
+        vMults: ptr TColStdArray1OfInteger; degree: int; vDegree: int; uRat: bool;
+        vRat: bool; uPer: bool; vPer: bool; p: var Pnt; vu: var Vec; vv: var Vec) {.
+    importcpp: "BSplSLib::D1(@)", header: "BSplSLib.hxx".}
+proc d2*(u: float; v: float; uIndex: int; vIndex: int; poles: TColgpArray2OfPnt;
+        weights: ptr TColStdArray2OfReal; uKnots: TColStdArray1OfReal;
+        vKnots: TColStdArray1OfReal; uMults: ptr TColStdArray1OfInteger;
+        vMults: ptr TColStdArray1OfInteger; uDegree: int; vDegree: int; uRat: bool;
+        vRat: bool; uPer: bool; vPer: bool; p: var Pnt; vu: var Vec; vv: var Vec; vuu: var Vec;
+        vvv: var Vec; vuv: var Vec) {.importcpp: "BSplSLib::D2(@)",
+                                header: "BSplSLib.hxx".}
+proc d3*(u: float; v: float; uIndex: int; vIndex: int; poles: TColgpArray2OfPnt;
+        weights: ptr TColStdArray2OfReal; uKnots: TColStdArray1OfReal;
+        vKnots: TColStdArray1OfReal; uMults: ptr TColStdArray1OfInteger;
+        vMults: ptr TColStdArray1OfInteger; uDegree: int; vDegree: int; uRat: bool;
+        vRat: bool; uPer: bool; vPer: bool; p: var Pnt; vu: var Vec; vv: var Vec; vuu: var Vec;
+        vvv: var Vec; vuv: var Vec; vuuu: var Vec; vvvv: var Vec; vuuv: var Vec; vuvv: var Vec) {.
     importcpp: "BSplSLib::D3(@)", header: "BSplSLib.hxx".}
-proc DN*(U: Standard_Real; V: Standard_Real; Nu: Standard_Integer;
-        Nv: Standard_Integer; UIndex: Standard_Integer; VIndex: Standard_Integer;
-        Poles: TColgp_Array2OfPnt; Weights: ptr TColStd_Array2OfReal;
-        UKnots: TColStd_Array1OfReal; VKnots: TColStd_Array1OfReal;
-        UMults: ptr TColStd_Array1OfInteger; VMults: ptr TColStd_Array1OfInteger;
-        UDegree: Standard_Integer; VDegree: Standard_Integer;
-        URat: Standard_Boolean; VRat: Standard_Boolean; UPer: Standard_Boolean;
-        VPer: Standard_Boolean; Vn: var gp_Vec) {.importcpp: "BSplSLib::DN(@)",
-    header: "BSplSLib.hxx".}
-proc Iso*(Param: Standard_Real; IsU: Standard_Boolean; Poles: TColgp_Array2OfPnt;
-         Weights: ptr TColStd_Array2OfReal; Knots: TColStd_Array1OfReal;
-         Mults: ptr TColStd_Array1OfInteger; Degree: Standard_Integer;
-         Periodic: Standard_Boolean; CPoles: var TColgp_Array1OfPnt;
-         CWeights: ptr TColStd_Array1OfReal) {.importcpp: "BSplSLib::Iso(@)",
-    header: "BSplSLib.hxx".}
-proc Reverse*(Poles: var TColgp_Array2OfPnt; Last: Standard_Integer;
-             UDirection: Standard_Boolean) {.importcpp: "BSplSLib::Reverse(@)",
-    header: "BSplSLib.hxx".}
-proc HomogeneousD0*(U: Standard_Real; V: Standard_Real; UIndex: Standard_Integer;
-                   VIndex: Standard_Integer; Poles: TColgp_Array2OfPnt;
-                   Weights: ptr TColStd_Array2OfReal; UKnots: TColStd_Array1OfReal;
-                   VKnots: TColStd_Array1OfReal;
-                   UMults: ptr TColStd_Array1OfInteger;
-                   VMults: ptr TColStd_Array1OfInteger; UDegree: Standard_Integer;
-                   VDegree: Standard_Integer; URat: Standard_Boolean;
-                   VRat: Standard_Boolean; UPer: Standard_Boolean;
-                   VPer: Standard_Boolean; W: var Standard_Real; P: var gp_Pnt) {.
+proc dn*(u: float; v: float; nu: int; nv: int; uIndex: int; vIndex: int;
+        poles: TColgpArray2OfPnt; weights: ptr TColStdArray2OfReal;
+        uKnots: TColStdArray1OfReal; vKnots: TColStdArray1OfReal;
+        uMults: ptr TColStdArray1OfInteger; vMults: ptr TColStdArray1OfInteger;
+        uDegree: int; vDegree: int; uRat: bool; vRat: bool; uPer: bool; vPer: bool;
+        vn: var Vec) {.importcpp: "BSplSLib::DN(@)", header: "BSplSLib.hxx".}
+proc iso*(param: float; isU: bool; poles: TColgpArray2OfPnt;
+         weights: ptr TColStdArray2OfReal; knots: TColStdArray1OfReal;
+         mults: ptr TColStdArray1OfInteger; degree: int; periodic: bool;
+         cPoles: var TColgpArray1OfPnt; cWeights: ptr TColStdArray1OfReal) {.
+    importcpp: "BSplSLib::Iso(@)", header: "BSplSLib.hxx".}
+proc reverse*(poles: var TColgpArray2OfPnt; last: int; uDirection: bool) {.
+    importcpp: "BSplSLib::Reverse(@)", header: "BSplSLib.hxx".}
+proc homogeneousD0*(u: float; v: float; uIndex: int; vIndex: int;
+                   poles: TColgpArray2OfPnt; weights: ptr TColStdArray2OfReal;
+                   uKnots: TColStdArray1OfReal; vKnots: TColStdArray1OfReal;
+                   uMults: ptr TColStdArray1OfInteger;
+                   vMults: ptr TColStdArray1OfInteger; uDegree: int; vDegree: int;
+                   uRat: bool; vRat: bool; uPer: bool; vPer: bool; w: var float; p: var Pnt) {.
     importcpp: "BSplSLib::HomogeneousD0(@)", header: "BSplSLib.hxx".}
-proc HomogeneousD1*(U: Standard_Real; V: Standard_Real; UIndex: Standard_Integer;
-                   VIndex: Standard_Integer; Poles: TColgp_Array2OfPnt;
-                   Weights: ptr TColStd_Array2OfReal; UKnots: TColStd_Array1OfReal;
-                   VKnots: TColStd_Array1OfReal;
-                   UMults: ptr TColStd_Array1OfInteger;
-                   VMults: ptr TColStd_Array1OfInteger; UDegree: Standard_Integer;
-                   VDegree: Standard_Integer; URat: Standard_Boolean;
-                   VRat: Standard_Boolean; UPer: Standard_Boolean;
-                   VPer: Standard_Boolean; N: var gp_Pnt; Nu: var gp_Vec;
-                   Nv: var gp_Vec; D: var Standard_Real; Du: var Standard_Real;
-                   Dv: var Standard_Real) {.
+proc homogeneousD1*(u: float; v: float; uIndex: int; vIndex: int;
+                   poles: TColgpArray2OfPnt; weights: ptr TColStdArray2OfReal;
+                   uKnots: TColStdArray1OfReal; vKnots: TColStdArray1OfReal;
+                   uMults: ptr TColStdArray1OfInteger;
+                   vMults: ptr TColStdArray1OfInteger; uDegree: int; vDegree: int;
+                   uRat: bool; vRat: bool; uPer: bool; vPer: bool; n: var Pnt; nu: var Vec;
+                   nv: var Vec; d: var float; du: var float; dv: var float) {.
     importcpp: "BSplSLib::HomogeneousD1(@)", header: "BSplSLib.hxx".}
-proc Reverse*(Weights: var TColStd_Array2OfReal; Last: Standard_Integer;
-             UDirection: Standard_Boolean) {.importcpp: "BSplSLib::Reverse(@)",
+proc reverse*(weights: var TColStdArray2OfReal; last: int; uDirection: bool) {.
+    importcpp: "BSplSLib::Reverse(@)", header: "BSplSLib.hxx".}
+proc isRational*(weights: TColStdArray2OfReal; i1: int; i2: int; j1: int; j2: int;
+                epsilon: float = 0.0): bool {.importcpp: "BSplSLib::IsRational(@)",
     header: "BSplSLib.hxx".}
-proc IsRational*(Weights: TColStd_Array2OfReal; I1: Standard_Integer;
-                I2: Standard_Integer; J1: Standard_Integer; J2: Standard_Integer;
-                Epsilon: Standard_Real = 0.0): Standard_Boolean {.
-    importcpp: "BSplSLib::IsRational(@)", header: "BSplSLib.hxx".}
-proc SetPoles*(Poles: TColgp_Array2OfPnt; FP: var TColStd_Array1OfReal;
-              UDirection: Standard_Boolean) {.importcpp: "BSplSLib::SetPoles(@)",
-    header: "BSplSLib.hxx".}
-proc SetPoles*(Poles: TColgp_Array2OfPnt; Weights: TColStd_Array2OfReal;
-              FP: var TColStd_Array1OfReal; UDirection: Standard_Boolean) {.
+proc setPoles*(poles: TColgpArray2OfPnt; fp: var TColStdArray1OfReal; uDirection: bool) {.
     importcpp: "BSplSLib::SetPoles(@)", header: "BSplSLib.hxx".}
-proc GetPoles*(FP: TColStd_Array1OfReal; Poles: var TColgp_Array2OfPnt;
-              UDirection: Standard_Boolean) {.importcpp: "BSplSLib::GetPoles(@)",
-    header: "BSplSLib.hxx".}
-proc GetPoles*(FP: TColStd_Array1OfReal; Poles: var TColgp_Array2OfPnt;
-              Weights: var TColStd_Array2OfReal; UDirection: Standard_Boolean) {.
+proc setPoles*(poles: TColgpArray2OfPnt; weights: TColStdArray2OfReal;
+              fp: var TColStdArray1OfReal; uDirection: bool) {.
+    importcpp: "BSplSLib::SetPoles(@)", header: "BSplSLib.hxx".}
+proc getPoles*(fp: TColStdArray1OfReal; poles: var TColgpArray2OfPnt; uDirection: bool) {.
     importcpp: "BSplSLib::GetPoles(@)", header: "BSplSLib.hxx".}
-proc MovePoint*(U: Standard_Real; V: Standard_Real; Displ: gp_Vec;
-               UIndex1: Standard_Integer; UIndex2: Standard_Integer;
-               VIndex1: Standard_Integer; VIndex2: Standard_Integer;
-               UDegree: Standard_Integer; VDegree: Standard_Integer;
-               Rational: Standard_Boolean; Poles: TColgp_Array2OfPnt;
-               Weights: TColStd_Array2OfReal; UFlatKnots: TColStd_Array1OfReal;
-               VFlatKnots: TColStd_Array1OfReal;
-               UFirstIndex: var Standard_Integer; ULastIndex: var Standard_Integer;
-               VFirstIndex: var Standard_Integer; VLastIndex: var Standard_Integer;
-               NewPoles: var TColgp_Array2OfPnt) {.
+proc getPoles*(fp: TColStdArray1OfReal; poles: var TColgpArray2OfPnt;
+              weights: var TColStdArray2OfReal; uDirection: bool) {.
+    importcpp: "BSplSLib::GetPoles(@)", header: "BSplSLib.hxx".}
+proc movePoint*(u: float; v: float; displ: Vec; uIndex1: int; uIndex2: int; vIndex1: int;
+               vIndex2: int; uDegree: int; vDegree: int; rational: bool;
+               poles: TColgpArray2OfPnt; weights: TColStdArray2OfReal;
+               uFlatKnots: TColStdArray1OfReal; vFlatKnots: TColStdArray1OfReal;
+               uFirstIndex: var int; uLastIndex: var int; vFirstIndex: var int;
+               vLastIndex: var int; newPoles: var TColgpArray2OfPnt) {.
     importcpp: "BSplSLib::MovePoint(@)", header: "BSplSLib.hxx".}
-proc InsertKnots*(UDirection: Standard_Boolean; Degree: Standard_Integer;
-                 Periodic: Standard_Boolean; Poles: TColgp_Array2OfPnt;
-                 Weights: ptr TColStd_Array2OfReal; Knots: TColStd_Array1OfReal;
-                 Mults: TColStd_Array1OfInteger; AddKnots: TColStd_Array1OfReal;
-                 AddMults: ptr TColStd_Array1OfInteger;
-                 NewPoles: var TColgp_Array2OfPnt;
-                 NewWeights: ptr TColStd_Array2OfReal;
-                 NewKnots: var TColStd_Array1OfReal;
-                 NewMults: var TColStd_Array1OfInteger; Epsilon: Standard_Real;
-                 Add: Standard_Boolean = Standard_True) {.
-    importcpp: "BSplSLib::InsertKnots(@)", header: "BSplSLib.hxx".}
-proc RemoveKnot*(UDirection: Standard_Boolean; Index: Standard_Integer;
-                Mult: Standard_Integer; Degree: Standard_Integer;
-                Periodic: Standard_Boolean; Poles: TColgp_Array2OfPnt;
-                Weights: ptr TColStd_Array2OfReal; Knots: TColStd_Array1OfReal;
-                Mults: TColStd_Array1OfInteger; NewPoles: var TColgp_Array2OfPnt;
-                NewWeights: ptr TColStd_Array2OfReal;
-                NewKnots: var TColStd_Array1OfReal;
-                NewMults: var TColStd_Array1OfInteger; Tolerance: Standard_Real): Standard_Boolean {.
+proc insertKnots*(uDirection: bool; degree: int; periodic: bool;
+                 poles: TColgpArray2OfPnt; weights: ptr TColStdArray2OfReal;
+                 knots: TColStdArray1OfReal; mults: TColStdArray1OfInteger;
+                 addKnots: TColStdArray1OfReal;
+                 addMults: ptr TColStdArray1OfInteger;
+                 newPoles: var TColgpArray2OfPnt;
+                 newWeights: ptr TColStdArray2OfReal;
+                 newKnots: var TColStdArray1OfReal;
+                 newMults: var TColStdArray1OfInteger; epsilon: float;
+                 add: bool = true) {.importcpp: "BSplSLib::InsertKnots(@)",
+                                 header: "BSplSLib.hxx".}
+proc removeKnot*(uDirection: bool; index: int; mult: int; degree: int; periodic: bool;
+                poles: TColgpArray2OfPnt; weights: ptr TColStdArray2OfReal;
+                knots: TColStdArray1OfReal; mults: TColStdArray1OfInteger;
+                newPoles: var TColgpArray2OfPnt;
+                newWeights: ptr TColStdArray2OfReal;
+                newKnots: var TColStdArray1OfReal;
+                newMults: var TColStdArray1OfInteger; tolerance: float): bool {.
     importcpp: "BSplSLib::RemoveKnot(@)", header: "BSplSLib.hxx".}
-proc IncreaseDegree*(UDirection: Standard_Boolean; Degree: Standard_Integer;
-                    NewDegree: Standard_Integer; Periodic: Standard_Boolean;
-                    Poles: TColgp_Array2OfPnt; Weights: ptr TColStd_Array2OfReal;
-                    Knots: TColStd_Array1OfReal; Mults: TColStd_Array1OfInteger;
-                    NewPoles: var TColgp_Array2OfPnt;
-                    NewWeights: ptr TColStd_Array2OfReal;
-                    NewKnots: var TColStd_Array1OfReal;
-                    NewMults: var TColStd_Array1OfInteger) {.
+proc increaseDegree*(uDirection: bool; degree: int; newDegree: int; periodic: bool;
+                    poles: TColgpArray2OfPnt; weights: ptr TColStdArray2OfReal;
+                    knots: TColStdArray1OfReal; mults: TColStdArray1OfInteger;
+                    newPoles: var TColgpArray2OfPnt;
+                    newWeights: ptr TColStdArray2OfReal;
+                    newKnots: var TColStdArray1OfReal;
+                    newMults: var TColStdArray1OfInteger) {.
     importcpp: "BSplSLib::IncreaseDegree(@)", header: "BSplSLib.hxx".}
-proc Unperiodize*(UDirection: Standard_Boolean; Degree: Standard_Integer;
-                 Mults: TColStd_Array1OfInteger; Knots: TColStd_Array1OfReal;
-                 Poles: TColgp_Array2OfPnt; Weights: ptr TColStd_Array2OfReal;
-                 NewMults: var TColStd_Array1OfInteger;
-                 NewKnots: var TColStd_Array1OfReal;
-                 NewPoles: var TColgp_Array2OfPnt;
-                 NewWeights: ptr TColStd_Array2OfReal) {.
+proc unperiodize*(uDirection: bool; degree: int; mults: TColStdArray1OfInteger;
+                 knots: TColStdArray1OfReal; poles: TColgpArray2OfPnt;
+                 weights: ptr TColStdArray2OfReal;
+                 newMults: var TColStdArray1OfInteger;
+                 newKnots: var TColStdArray1OfReal;
+                 newPoles: var TColgpArray2OfPnt;
+                 newWeights: ptr TColStdArray2OfReal) {.
     importcpp: "BSplSLib::Unperiodize(@)", header: "BSplSLib.hxx".}
-proc NoWeights*(): ptr TColStd_Array2OfReal {.importcpp: "BSplSLib::NoWeights(@)",
+proc noWeights*(): ptr TColStdArray2OfReal {.importcpp: "BSplSLib::NoWeights(@)",
     header: "BSplSLib.hxx".}
-proc BuildCache*(U: Standard_Real; V: Standard_Real; USpanDomain: Standard_Real;
-                VSpanDomain: Standard_Real; UPeriodicFlag: Standard_Boolean;
-                VPeriodicFlag: Standard_Boolean; UDegree: Standard_Integer;
-                VDegree: Standard_Integer; UIndex: Standard_Integer;
-                VIndex: Standard_Integer; UFlatKnots: TColStd_Array1OfReal;
-                VFlatKnots: TColStd_Array1OfReal; Poles: TColgp_Array2OfPnt;
-                Weights: ptr TColStd_Array2OfReal;
-                CachePoles: var TColgp_Array2OfPnt;
-                CacheWeights: ptr TColStd_Array2OfReal) {.
+proc buildCache*(u: float; v: float; uSpanDomain: float; vSpanDomain: float;
+                uPeriodicFlag: bool; vPeriodicFlag: bool; uDegree: int; vDegree: int;
+                uIndex: int; vIndex: int; uFlatKnots: TColStdArray1OfReal;
+                vFlatKnots: TColStdArray1OfReal; poles: TColgpArray2OfPnt;
+                weights: ptr TColStdArray2OfReal;
+                cachePoles: var TColgpArray2OfPnt;
+                cacheWeights: ptr TColStdArray2OfReal) {.
     importcpp: "BSplSLib::BuildCache(@)", header: "BSplSLib.hxx".}
-proc BuildCache*(theU: Standard_Real; theV: Standard_Real;
-                theUSpanDomain: Standard_Real; theVSpanDomain: Standard_Real;
-                theUPeriodic: Standard_Boolean; theVPeriodic: Standard_Boolean;
-                theUDegree: Standard_Integer; theVDegree: Standard_Integer;
-                theUIndex: Standard_Integer; theVIndex: Standard_Integer;
-                theUFlatKnots: TColStd_Array1OfReal;
-                theVFlatKnots: TColStd_Array1OfReal; thePoles: TColgp_Array2OfPnt;
-                theWeights: ptr TColStd_Array2OfReal;
-                theCacheArray: var TColStd_Array2OfReal) {.
+proc buildCache*(theU: float; theV: float; theUSpanDomain: float;
+                theVSpanDomain: float; theUPeriodic: bool; theVPeriodic: bool;
+                theUDegree: int; theVDegree: int; theUIndex: int; theVIndex: int;
+                theUFlatKnots: TColStdArray1OfReal;
+                theVFlatKnots: TColStdArray1OfReal; thePoles: TColgpArray2OfPnt;
+                theWeights: ptr TColStdArray2OfReal;
+                theCacheArray: var TColStdArray2OfReal) {.
     importcpp: "BSplSLib::BuildCache(@)", header: "BSplSLib.hxx".}
-proc CacheD0*(U: Standard_Real; V: Standard_Real; UDegree: Standard_Integer;
-             VDegree: Standard_Integer; UCacheParameter: Standard_Real;
-             VCacheParameter: Standard_Real; USpanLenght: Standard_Real;
-             VSpanLength: Standard_Real; Poles: TColgp_Array2OfPnt;
-             Weights: ptr TColStd_Array2OfReal; Point: var gp_Pnt) {.
-    importcpp: "BSplSLib::CacheD0(@)", header: "BSplSLib.hxx".}
-proc CoefsD0*(U: Standard_Real; V: Standard_Real; Poles: TColgp_Array2OfPnt;
-             Weights: ptr TColStd_Array2OfReal; Point: var gp_Pnt) {.
+proc cacheD0*(u: float; v: float; uDegree: int; vDegree: int; uCacheParameter: float;
+             vCacheParameter: float; uSpanLenght: float; vSpanLength: float;
+             poles: TColgpArray2OfPnt; weights: ptr TColStdArray2OfReal;
+             point: var Pnt) {.importcpp: "BSplSLib::CacheD0(@)",
+                            header: "BSplSLib.hxx".}
+proc coefsD0*(u: float; v: float; poles: TColgpArray2OfPnt;
+             weights: ptr TColStdArray2OfReal; point: var Pnt) {.
     importcpp: "BSplSLib::CoefsD0(@)", header: "BSplSLib.hxx".}
-proc CacheD1*(U: Standard_Real; V: Standard_Real; UDegree: Standard_Integer;
-             VDegree: Standard_Integer; UCacheParameter: Standard_Real;
-             VCacheParameter: Standard_Real; USpanLenght: Standard_Real;
-             VSpanLength: Standard_Real; Poles: TColgp_Array2OfPnt;
-             Weights: ptr TColStd_Array2OfReal; Point: var gp_Pnt; VecU: var gp_Vec;
-             VecV: var gp_Vec) {.importcpp: "BSplSLib::CacheD1(@)",
-                              header: "BSplSLib.hxx".}
-proc CoefsD1*(U: Standard_Real; V: Standard_Real; Poles: TColgp_Array2OfPnt;
-             Weights: ptr TColStd_Array2OfReal; Point: var gp_Pnt; VecU: var gp_Vec;
-             VecV: var gp_Vec) {.importcpp: "BSplSLib::CoefsD1(@)",
-                              header: "BSplSLib.hxx".}
-proc CacheD2*(U: Standard_Real; V: Standard_Real; UDegree: Standard_Integer;
-             VDegree: Standard_Integer; UCacheParameter: Standard_Real;
-             VCacheParameter: Standard_Real; USpanLenght: Standard_Real;
-             VSpanLength: Standard_Real; Poles: TColgp_Array2OfPnt;
-             Weights: ptr TColStd_Array2OfReal; Point: var gp_Pnt; VecU: var gp_Vec;
-             VecV: var gp_Vec; VecUU: var gp_Vec; VecUV: var gp_Vec; VecVV: var gp_Vec) {.
-    importcpp: "BSplSLib::CacheD2(@)", header: "BSplSLib.hxx".}
-proc CoefsD2*(U: Standard_Real; V: Standard_Real; Poles: TColgp_Array2OfPnt;
-             Weights: ptr TColStd_Array2OfReal; Point: var gp_Pnt; VecU: var gp_Vec;
-             VecV: var gp_Vec; VecUU: var gp_Vec; VecUV: var gp_Vec; VecVV: var gp_Vec) {.
+proc cacheD1*(u: float; v: float; uDegree: int; vDegree: int; uCacheParameter: float;
+             vCacheParameter: float; uSpanLenght: float; vSpanLength: float;
+             poles: TColgpArray2OfPnt; weights: ptr TColStdArray2OfReal;
+             point: var Pnt; vecU: var Vec; vecV: var Vec) {.
+    importcpp: "BSplSLib::CacheD1(@)", header: "BSplSLib.hxx".}
+proc coefsD1*(u: float; v: float; poles: TColgpArray2OfPnt;
+             weights: ptr TColStdArray2OfReal; point: var Pnt; vecU: var Vec;
+             vecV: var Vec) {.importcpp: "BSplSLib::CoefsD1(@)",
+                           header: "BSplSLib.hxx".}
+proc cacheD2*(u: float; v: float; uDegree: int; vDegree: int; uCacheParameter: float;
+             vCacheParameter: float; uSpanLenght: float; vSpanLength: float;
+             poles: TColgpArray2OfPnt; weights: ptr TColStdArray2OfReal;
+             point: var Pnt; vecU: var Vec; vecV: var Vec; vecUU: var Vec; vecUV: var Vec;
+             vecVV: var Vec) {.importcpp: "BSplSLib::CacheD2(@)",
+                            header: "BSplSLib.hxx".}
+proc coefsD2*(u: float; v: float; poles: TColgpArray2OfPnt;
+             weights: ptr TColStdArray2OfReal; point: var Pnt; vecU: var Vec;
+             vecV: var Vec; vecUU: var Vec; vecUV: var Vec; vecVV: var Vec) {.
     importcpp: "BSplSLib::CoefsD2(@)", header: "BSplSLib.hxx".}
-proc PolesCoefficients*(Poles: TColgp_Array2OfPnt;
-                       CachePoles: var TColgp_Array2OfPnt) {.
+proc polesCoefficients*(poles: TColgpArray2OfPnt; cachePoles: var TColgpArray2OfPnt) {.
     importcpp: "BSplSLib::PolesCoefficients(@)", header: "BSplSLib.hxx".}
-proc PolesCoefficients*(Poles: TColgp_Array2OfPnt;
-                       Weights: ptr TColStd_Array2OfReal;
-                       CachePoles: var TColgp_Array2OfPnt;
-                       CacheWeights: ptr TColStd_Array2OfReal) {.
+proc polesCoefficients*(poles: TColgpArray2OfPnt; weights: ptr TColStdArray2OfReal;
+                       cachePoles: var TColgpArray2OfPnt;
+                       cacheWeights: ptr TColStdArray2OfReal) {.
     importcpp: "BSplSLib::PolesCoefficients(@)", header: "BSplSLib.hxx".}
-proc Resolution*(Poles: TColgp_Array2OfPnt; Weights: ptr TColStd_Array2OfReal;
-                UKnots: TColStd_Array1OfReal; VKnots: TColStd_Array1OfReal;
-                UMults: TColStd_Array1OfInteger; VMults: TColStd_Array1OfInteger;
-                UDegree: Standard_Integer; VDegree: Standard_Integer;
-                URat: Standard_Boolean; VRat: Standard_Boolean;
-                UPer: Standard_Boolean; VPer: Standard_Boolean;
-                Tolerance3D: Standard_Real; UTolerance: var Standard_Real;
-                VTolerance: var Standard_Real) {.
-    importcpp: "BSplSLib::Resolution(@)", header: "BSplSLib.hxx".}
-proc Interpolate*(UDegree: Standard_Integer; VDegree: Standard_Integer;
-                 UFlatKnots: TColStd_Array1OfReal;
-                 VFlatKnots: TColStd_Array1OfReal;
-                 UParameters: TColStd_Array1OfReal;
-                 VParameters: TColStd_Array1OfReal; Poles: var TColgp_Array2OfPnt;
-                 Weights: var TColStd_Array2OfReal;
-                 InversionProblem: var Standard_Integer) {.
+proc resolution*(poles: TColgpArray2OfPnt; weights: ptr TColStdArray2OfReal;
+                uKnots: TColStdArray1OfReal; vKnots: TColStdArray1OfReal;
+                uMults: TColStdArray1OfInteger; vMults: TColStdArray1OfInteger;
+                uDegree: int; vDegree: int; uRat: bool; vRat: bool; uPer: bool;
+                vPer: bool; tolerance3D: float; uTolerance: var float;
+                vTolerance: var float) {.importcpp: "BSplSLib::Resolution(@)",
+                                      header: "BSplSLib.hxx".}
+proc interpolate*(uDegree: int; vDegree: int; uFlatKnots: TColStdArray1OfReal;
+                 vFlatKnots: TColStdArray1OfReal;
+                 uParameters: TColStdArray1OfReal;
+                 vParameters: TColStdArray1OfReal; poles: var TColgpArray2OfPnt;
+                 weights: var TColStdArray2OfReal; inversionProblem: var int) {.
     importcpp: "BSplSLib::Interpolate(@)", header: "BSplSLib.hxx".}
-proc Interpolate*(UDegree: Standard_Integer; VDegree: Standard_Integer;
-                 UFlatKnots: TColStd_Array1OfReal;
-                 VFlatKnots: TColStd_Array1OfReal;
-                 UParameters: TColStd_Array1OfReal;
-                 VParameters: TColStd_Array1OfReal; Poles: var TColgp_Array2OfPnt;
-                 InversionProblem: var Standard_Integer) {.
+proc interpolate*(uDegree: int; vDegree: int; uFlatKnots: TColStdArray1OfReal;
+                 vFlatKnots: TColStdArray1OfReal;
+                 uParameters: TColStdArray1OfReal;
+                 vParameters: TColStdArray1OfReal; poles: var TColgpArray2OfPnt;
+                 inversionProblem: var int) {.
     importcpp: "BSplSLib::Interpolate(@)", header: "BSplSLib.hxx".}
-proc FunctionMultiply*(Function: BSplSLib_EvaluatorFunction;
-                      UBSplineDegree: Standard_Integer;
-                      VBSplineDegree: Standard_Integer;
-                      UBSplineKnots: TColStd_Array1OfReal;
-                      VBSplineKnots: TColStd_Array1OfReal;
-                      UMults: ptr TColStd_Array1OfInteger;
-                      VMults: ptr TColStd_Array1OfInteger;
-                      Poles: TColgp_Array2OfPnt;
-                      Weights: ptr TColStd_Array2OfReal;
-                      UFlatKnots: TColStd_Array1OfReal;
-                      VFlatKnots: TColStd_Array1OfReal;
-                      UNewDegree: Standard_Integer; VNewDegree: Standard_Integer;
-                      NewNumerator: var TColgp_Array2OfPnt;
-                      NewDenominator: var TColStd_Array2OfReal;
-                      theStatus: var Standard_Integer) {.
+proc functionMultiply*(function: BSplSLibEvaluatorFunction; uBSplineDegree: int;
+                      vBSplineDegree: int; uBSplineKnots: TColStdArray1OfReal;
+                      vBSplineKnots: TColStdArray1OfReal;
+                      uMults: ptr TColStdArray1OfInteger;
+                      vMults: ptr TColStdArray1OfInteger; poles: TColgpArray2OfPnt;
+                      weights: ptr TColStdArray2OfReal;
+                      uFlatKnots: TColStdArray1OfReal;
+                      vFlatKnots: TColStdArray1OfReal; uNewDegree: int;
+                      vNewDegree: int; newNumerator: var TColgpArray2OfPnt;
+                      newDenominator: var TColStdArray2OfReal; theStatus: var int) {.
     importcpp: "BSplSLib::FunctionMultiply(@)", header: "BSplSLib.hxx".}

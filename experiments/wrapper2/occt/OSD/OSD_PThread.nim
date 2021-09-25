@@ -15,9 +15,9 @@
 
 ##  Platform-dependent definition of the thread handle type
 
-when defined(_WIN32):
+when defined windows:
   type
-    OSD_PThread* = HANDLE
+    OSD_PThread* = Handle
 else:
   type
-    OSD_PThread* = pthread_t
+    OSD_PThread* = PthreadT

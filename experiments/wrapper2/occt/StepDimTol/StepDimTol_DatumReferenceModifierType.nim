@@ -13,13 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_PrimitiveTypes
-
 type
-  StepDimTol_DatumReferenceModifierType* {.size: sizeof(cint),
+  StepDimTolDatumReferenceModifierType* {.size: sizeof(cint),
       importcpp: "StepDimTol_DatumReferenceModifierType",
       header: "StepDimTol_DatumReferenceModifierType.hxx".} = enum
-    StepDimTol_CircularOrCylindrical, StepDimTol_Distance, StepDimTol_Projected,
-    StepDimTol_Spherical
+    StepDimTolCircularOrCylindrical, StepDimTolDistance, StepDimTolProjected,
+    StepDimTolSpherical
+
 

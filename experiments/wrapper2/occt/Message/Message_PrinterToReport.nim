@@ -11,67 +11,64 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Message_Printer, ../Standard/Standard_Address, ../Standard/Standard_OStream,
-  ../TCollection/TCollection_AsciiString
-
 discard "forward decl of Message_Report"
 type
-  Message_PrinterToReport* {.importcpp: "Message_PrinterToReport",
-                            header: "Message_PrinterToReport.hxx", bycopy.} = object of Message_Printer ##
-                                                                                                 ## !
-                                                                                                 ## Create
-                                                                                                 ## printer
-                                                                                                 ## for
-                                                                                                 ## redirecting
-                                                                                                 ## messages
-                                                                                                 ## into
-                                                                                                 ## report.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Send
-                                                                                                 ## a
-                                                                                                 ## string
-                                                                                                 ## message
-                                                                                                 ## with
-                                                                                                 ## specified
-                                                                                                 ## trace
-                                                                                                 ## level.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## This
-                                                                                                 ## method
-                                                                                                 ## must
-                                                                                                 ## be
-                                                                                                 ## redefined
-                                                                                                 ## in
-                                                                                                 ## descendant.
+  MessagePrinterToReport* {.importcpp: "Message_PrinterToReport",
+                           header: "Message_PrinterToReport.hxx", bycopy.} = object of MessagePrinter ##
+                                                                                               ## !
+                                                                                               ## Create
+                                                                                               ## printer
+                                                                                               ## for
+                                                                                               ## redirecting
+                                                                                               ## messages
+                                                                                               ## into
+                                                                                               ## report.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Send
+                                                                                               ## a
+                                                                                               ## string
+                                                                                               ## message
+                                                                                               ## with
+                                                                                               ## specified
+                                                                                               ## trace
+                                                                                               ## level.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## This
+                                                                                               ## method
+                                                                                               ## must
+                                                                                               ## be
+                                                                                               ## redefined
+                                                                                               ## in
+                                                                                               ## descendant.
     ## !< the report for sending alerts
 
-  Message_PrinterToReportbase_type* = Message_Printer
+  MessagePrinterToReportbaseType* = MessagePrinter
 
-proc get_type_name*(): cstring {.importcpp: "Message_PrinterToReport::get_type_name(@)",
-                              header: "Message_PrinterToReport.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Message_PrinterToReport::get_type_name(@)",
+                            header: "Message_PrinterToReport.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Message_PrinterToReport::get_type_descriptor(@)",
     header: "Message_PrinterToReport.hxx".}
-proc DynamicType*(this: Message_PrinterToReport): handle[Standard_Type] {.
+proc dynamicType*(this: MessagePrinterToReport): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Message_PrinterToReport.hxx".}
-proc constructMessage_PrinterToReport*(): Message_PrinterToReport {.constructor,
+proc constructMessagePrinterToReport*(): MessagePrinterToReport {.constructor,
     importcpp: "Message_PrinterToReport(@)", header: "Message_PrinterToReport.hxx".}
-proc destroyMessage_PrinterToReport*(this: var Message_PrinterToReport) {.
+proc destroyMessagePrinterToReport*(this: var MessagePrinterToReport) {.
     importcpp: "#.~Message_PrinterToReport()",
     header: "Message_PrinterToReport.hxx".}
-proc Report*(this: Message_PrinterToReport): handle[Message_Report] {.noSideEffect,
+proc report*(this: MessagePrinterToReport): Handle[MessageReport] {.noSideEffect,
     importcpp: "Report", header: "Message_PrinterToReport.hxx".}
-proc SetReport*(this: var Message_PrinterToReport; theReport: handle[Message_Report]) {.
+proc setReport*(this: var MessagePrinterToReport; theReport: Handle[MessageReport]) {.
     importcpp: "SetReport", header: "Message_PrinterToReport.hxx".}
-proc SendStringStream*(this: Message_PrinterToReport; theStream: Standard_SStream;
-                      theGravity: Message_Gravity) {.noSideEffect,
+proc sendStringStream*(this: MessagePrinterToReport; theStream: StandardSStream;
+                      theGravity: MessageGravity) {.noSideEffect,
     importcpp: "SendStringStream", header: "Message_PrinterToReport.hxx".}
-proc SendObject*(this: Message_PrinterToReport;
-                theObject: handle[Standard_Transient]; theGravity: Message_Gravity) {.
+proc sendObject*(this: MessagePrinterToReport;
+                theObject: Handle[StandardTransient]; theGravity: MessageGravity) {.
     noSideEffect, importcpp: "SendObject", header: "Message_PrinterToReport.hxx".}
 discard "forward decl of Message_PrinterToReport"
 type
-  Handle_Message_PrinterToReport* = handle[Message_PrinterToReport]
+  HandleMessagePrinterToReport* = Handle[MessagePrinterToReport]
+

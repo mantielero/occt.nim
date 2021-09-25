@@ -14,9 +14,6 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation Copyright: (C) RINA S.p.A
 
-import
-  ../TObj/TObj_Common, ../Standard/Standard_GUID
-
 discard "forward decl of XmlMDF_ADriverTable"
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDocStd_Application"
@@ -34,12 +31,12 @@ type
                                                                                          ## plugin.
 
 
-proc Factory*(aGUID: Standard_GUID): handle[Standard_Transient] {.
+proc factory*(aGUID: StandardGUID): Handle[StandardTransient] {.
     importcpp: "XmlTObjDrivers::Factory(@)", header: "XmlTObjDrivers.hxx".}
-proc DefineFormat*(theApp: handle[TDocStd_Application]) {.
+proc defineFormat*(theApp: Handle[TDocStdApplication]) {.
     importcpp: "XmlTObjDrivers::DefineFormat(@)", header: "XmlTObjDrivers.hxx".}
-proc AddDrivers*(aDriverTable: handle[XmlMDF_ADriverTable];
-                anMsgDrv: handle[Message_Messenger]) {.
+proc addDrivers*(aDriverTable: Handle[XmlMDF_ADriverTable];
+                anMsgDrv: Handle[MessageMessenger]) {.
     importcpp: "XmlTObjDrivers::AddDrivers(@)", header: "XmlTObjDrivers.hxx".}
-when defined(_MSC_VER):
-  discard
+# when defined(_MSC_VER):
+#   discard

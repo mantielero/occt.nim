@@ -14,52 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP214_HArray1OfApprovalItem, ../StepBasic/StepBasic_ApprovalAssignment,
-  ../Standard/Standard_Integer
-
 discard "forward decl of StepBasic_Approval"
 discard "forward decl of StepAP214_ApprovalItem"
 discard "forward decl of StepAP214_AppliedApprovalAssignment"
 discard "forward decl of StepAP214_AppliedApprovalAssignment"
 type
-  Handle_StepAP214_AppliedApprovalAssignment* = handle[
-      StepAP214_AppliedApprovalAssignment]
-  StepAP214_AppliedApprovalAssignment* {.importcpp: "StepAP214_AppliedApprovalAssignment", header: "StepAP214_AppliedApprovalAssignment.hxx",
-                                        bycopy.} = object of StepBasic_ApprovalAssignment ##
-                                                                                     ## !
-                                                                                     ## Returns
-                                                                                     ## a
-                                                                                     ## AppliedApprovalAssignment
+  HandleStepAP214AppliedApprovalAssignment* = Handle[
+      StepAP214AppliedApprovalAssignment]
+  StepAP214AppliedApprovalAssignment* {.importcpp: "StepAP214_AppliedApprovalAssignment", header: "StepAP214_AppliedApprovalAssignment.hxx",
+                                       bycopy.} = object of StepBasicApprovalAssignment ##
+                                                                                   ## !
+                                                                                   ## Returns
+                                                                                   ## a
+                                                                                   ## AppliedApprovalAssignment
 
 
-proc constructStepAP214_AppliedApprovalAssignment*(): StepAP214_AppliedApprovalAssignment {.
+proc constructStepAP214AppliedApprovalAssignment*(): StepAP214AppliedApprovalAssignment {.
     constructor, importcpp: "StepAP214_AppliedApprovalAssignment(@)",
     header: "StepAP214_AppliedApprovalAssignment.hxx".}
-proc Init*(this: var StepAP214_AppliedApprovalAssignment;
-          aAssignedApproval: handle[StepBasic_Approval];
-          aItems: handle[StepAP214_HArray1OfApprovalItem]) {.importcpp: "Init",
+proc init*(this: var StepAP214AppliedApprovalAssignment;
+          aAssignedApproval: Handle[StepBasicApproval];
+          aItems: Handle[StepAP214HArray1OfApprovalItem]) {.importcpp: "Init",
     header: "StepAP214_AppliedApprovalAssignment.hxx".}
-proc SetItems*(this: var StepAP214_AppliedApprovalAssignment;
-              aItems: handle[StepAP214_HArray1OfApprovalItem]) {.
+proc setItems*(this: var StepAP214AppliedApprovalAssignment;
+              aItems: Handle[StepAP214HArray1OfApprovalItem]) {.
     importcpp: "SetItems", header: "StepAP214_AppliedApprovalAssignment.hxx".}
-proc Items*(this: StepAP214_AppliedApprovalAssignment): handle[
-    StepAP214_HArray1OfApprovalItem] {.noSideEffect, importcpp: "Items", header: "StepAP214_AppliedApprovalAssignment.hxx".}
-proc ItemsValue*(this: StepAP214_AppliedApprovalAssignment; num: Standard_Integer): StepAP214_ApprovalItem {.
+proc items*(this: StepAP214AppliedApprovalAssignment): Handle[
+    StepAP214HArray1OfApprovalItem] {.noSideEffect, importcpp: "Items", header: "StepAP214_AppliedApprovalAssignment.hxx".}
+proc itemsValue*(this: StepAP214AppliedApprovalAssignment; num: int): StepAP214ApprovalItem {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AppliedApprovalAssignment.hxx".}
-proc NbItems*(this: StepAP214_AppliedApprovalAssignment): Standard_Integer {.
-    noSideEffect, importcpp: "NbItems",
-    header: "StepAP214_AppliedApprovalAssignment.hxx".}
+proc nbItems*(this: StepAP214AppliedApprovalAssignment): int {.noSideEffect,
+    importcpp: "NbItems", header: "StepAP214_AppliedApprovalAssignment.hxx".}
 type
-  StepAP214_AppliedApprovalAssignmentbase_type* = StepBasic_ApprovalAssignment
+  StepAP214AppliedApprovalAssignmentbaseType* = StepBasicApprovalAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_AppliedApprovalAssignment::get_type_name(@)",
-                              header: "StepAP214_AppliedApprovalAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP214_AppliedApprovalAssignment::get_type_name(@)",
+                            header: "StepAP214_AppliedApprovalAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP214_AppliedApprovalAssignment::get_type_descriptor(@)",
     header: "StepAP214_AppliedApprovalAssignment.hxx".}
-proc DynamicType*(this: StepAP214_AppliedApprovalAssignment): handle[Standard_Type] {.
+proc dynamicType*(this: StepAP214AppliedApprovalAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_AppliedApprovalAssignment.hxx".}

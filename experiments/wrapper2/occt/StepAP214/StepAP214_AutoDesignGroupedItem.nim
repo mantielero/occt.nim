@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepShape_AdvancedBrepShapeRepresentation"
 discard "forward decl of StepShape_CsgShapeRepresentation"
@@ -32,55 +27,54 @@ discard "forward decl of StepRepr_ShapeAspect"
 discard "forward decl of StepShape_ShapeRepresentation"
 discard "forward decl of StepVisual_TemplateInstance"
 type
-  StepAP214_AutoDesignGroupedItem* {.importcpp: "StepAP214_AutoDesignGroupedItem", header: "StepAP214_AutoDesignGroupedItem.hxx",
-                                    bycopy.} = object of StepData_SelectType ## ! Returns a
-                                                                        ## AutoDesignGroupedItem
-                                                                        ## SelectType
+  StepAP214AutoDesignGroupedItem* {.importcpp: "StepAP214_AutoDesignGroupedItem", header: "StepAP214_AutoDesignGroupedItem.hxx",
+                                   bycopy.} = object of StepDataSelectType ## ! Returns a
+                                                                      ## AutoDesignGroupedItem SelectType
 
 
-proc constructStepAP214_AutoDesignGroupedItem*(): StepAP214_AutoDesignGroupedItem {.
+proc constructStepAP214AutoDesignGroupedItem*(): StepAP214AutoDesignGroupedItem {.
     constructor, importcpp: "StepAP214_AutoDesignGroupedItem(@)",
     header: "StepAP214_AutoDesignGroupedItem.hxx".}
-proc CaseNum*(this: StepAP214_AutoDesignGroupedItem;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
-    importcpp: "CaseNum", header: "StepAP214_AutoDesignGroupedItem.hxx".}
-proc AdvancedBrepShapeRepresentation*(this: StepAP214_AutoDesignGroupedItem): handle[
-    StepShape_AdvancedBrepShapeRepresentation] {.noSideEffect,
+proc caseNum*(this: StepAP214AutoDesignGroupedItem; ent: Handle[StandardTransient]): int {.
+    noSideEffect, importcpp: "CaseNum",
+    header: "StepAP214_AutoDesignGroupedItem.hxx".}
+proc advancedBrepShapeRepresentation*(this: StepAP214AutoDesignGroupedItem): Handle[
+    StepShapeAdvancedBrepShapeRepresentation] {.noSideEffect,
     importcpp: "AdvancedBrepShapeRepresentation",
     header: "StepAP214_AutoDesignGroupedItem.hxx".}
-proc CsgShapeRepresentation*(this: StepAP214_AutoDesignGroupedItem): handle[
-    StepShape_CsgShapeRepresentation] {.noSideEffect,
-                                       importcpp: "CsgShapeRepresentation", header: "StepAP214_AutoDesignGroupedItem.hxx".}
-proc FacetedBrepShapeRepresentation*(this: StepAP214_AutoDesignGroupedItem): handle[
-    StepShape_FacetedBrepShapeRepresentation] {.noSideEffect,
+proc csgShapeRepresentation*(this: StepAP214AutoDesignGroupedItem): Handle[
+    StepShapeCsgShapeRepresentation] {.noSideEffect,
+                                      importcpp: "CsgShapeRepresentation", header: "StepAP214_AutoDesignGroupedItem.hxx".}
+proc facetedBrepShapeRepresentation*(this: StepAP214AutoDesignGroupedItem): Handle[
+    StepShapeFacetedBrepShapeRepresentation] {.noSideEffect,
     importcpp: "FacetedBrepShapeRepresentation",
     header: "StepAP214_AutoDesignGroupedItem.hxx".}
-proc GeometricallyBoundedSurfaceShapeRepresentation*(
-    this: StepAP214_AutoDesignGroupedItem): handle[
-    StepShape_GeometricallyBoundedSurfaceShapeRepresentation] {.noSideEffect,
+proc geometricallyBoundedSurfaceShapeRepresentation*(
+    this: StepAP214AutoDesignGroupedItem): Handle[
+    StepShapeGeometricallyBoundedSurfaceShapeRepresentation] {.noSideEffect,
     importcpp: "GeometricallyBoundedSurfaceShapeRepresentation",
     header: "StepAP214_AutoDesignGroupedItem.hxx".}
-proc GeometricallyBoundedWireframeShapeRepresentation*(
-    this: StepAP214_AutoDesignGroupedItem): handle[
-    StepShape_GeometricallyBoundedWireframeShapeRepresentation] {.noSideEffect,
+proc geometricallyBoundedWireframeShapeRepresentation*(
+    this: StepAP214AutoDesignGroupedItem): Handle[
+    StepShapeGeometricallyBoundedWireframeShapeRepresentation] {.noSideEffect,
     importcpp: "GeometricallyBoundedWireframeShapeRepresentation",
     header: "StepAP214_AutoDesignGroupedItem.hxx".}
-proc ManifoldSurfaceShapeRepresentation*(this: StepAP214_AutoDesignGroupedItem): handle[
-    StepShape_ManifoldSurfaceShapeRepresentation] {.noSideEffect,
+proc manifoldSurfaceShapeRepresentation*(this: StepAP214AutoDesignGroupedItem): Handle[
+    StepShapeManifoldSurfaceShapeRepresentation] {.noSideEffect,
     importcpp: "ManifoldSurfaceShapeRepresentation",
     header: "StepAP214_AutoDesignGroupedItem.hxx".}
-proc Representation*(this: StepAP214_AutoDesignGroupedItem): handle[
-    StepRepr_Representation] {.noSideEffect, importcpp: "Representation",
-                              header: "StepAP214_AutoDesignGroupedItem.hxx".}
-proc RepresentationItem*(this: StepAP214_AutoDesignGroupedItem): handle[
-    StepRepr_RepresentationItem] {.noSideEffect, importcpp: "RepresentationItem",
-                                  header: "StepAP214_AutoDesignGroupedItem.hxx".}
-proc ShapeAspect*(this: StepAP214_AutoDesignGroupedItem): handle[
-    StepRepr_ShapeAspect] {.noSideEffect, importcpp: "ShapeAspect",
-                           header: "StepAP214_AutoDesignGroupedItem.hxx".}
-proc ShapeRepresentation*(this: StepAP214_AutoDesignGroupedItem): handle[
-    StepShape_ShapeRepresentation] {.noSideEffect,
-                                    importcpp: "ShapeRepresentation", header: "StepAP214_AutoDesignGroupedItem.hxx".}
-proc TemplateInstance*(this: StepAP214_AutoDesignGroupedItem): handle[
-    StepVisual_TemplateInstance] {.noSideEffect, importcpp: "TemplateInstance",
-                                  header: "StepAP214_AutoDesignGroupedItem.hxx".}
+proc representation*(this: StepAP214AutoDesignGroupedItem): Handle[
+    StepReprRepresentation] {.noSideEffect, importcpp: "Representation",
+                             header: "StepAP214_AutoDesignGroupedItem.hxx".}
+proc representationItem*(this: StepAP214AutoDesignGroupedItem): Handle[
+    StepReprRepresentationItem] {.noSideEffect, importcpp: "RepresentationItem",
+                                 header: "StepAP214_AutoDesignGroupedItem.hxx".}
+proc shapeAspect*(this: StepAP214AutoDesignGroupedItem): Handle[StepReprShapeAspect] {.
+    noSideEffect, importcpp: "ShapeAspect",
+    header: "StepAP214_AutoDesignGroupedItem.hxx".}
+proc shapeRepresentation*(this: StepAP214AutoDesignGroupedItem): Handle[
+    StepShapeShapeRepresentation] {.noSideEffect,
+                                   importcpp: "ShapeRepresentation", header: "StepAP214_AutoDesignGroupedItem.hxx".}
+proc templateInstance*(this: StepAP214AutoDesignGroupedItem): Handle[
+    StepVisualTemplateInstance] {.noSideEffect, importcpp: "TemplateInstance",
+                                 header: "StepAP214_AutoDesignGroupedItem.hxx".}

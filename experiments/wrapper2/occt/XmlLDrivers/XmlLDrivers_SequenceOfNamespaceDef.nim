@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  XmlLDrivers_NamespaceDef, ../NCollection/NCollection_Sequence
-
 type
-  XmlLDrivers_SequenceOfNamespaceDef* = NCollection_Sequence[
-      XmlLDrivers_NamespaceDef]
+  XmlLDriversSequenceOfNamespaceDef* = NCollectionSequence[XmlLDriversNamespaceDef]
+

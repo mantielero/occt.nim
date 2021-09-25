@@ -11,11 +11,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_HAsciiString
-
 type
-  Interface_ValueInterpret* = proc (typval: handle[Interface_TypedValue];
-                                 val: handle[TCollection_HAsciiString];
-                                 native: Standard_Boolean): handle[
-      TCollection_HAsciiString]
+  InterfaceValueInterpret* = proc (typval: Handle[InterfaceTypedValue];
+                                val: Handle[TCollectionHAsciiString]; native: bool): Handle[
+      TCollectionHAsciiString]
+

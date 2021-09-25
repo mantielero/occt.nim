@@ -14,54 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_SequenceOfTransient, StepData_EDescr,
-  ../Standard/Standard_Integer, ../TColStd/TColStd_HSequenceOfAsciiString,
-  ../Standard/Standard_Boolean, ../Standard/Standard_CString
-
 discard "forward decl of StepData_ESDescr"
 discard "forward decl of StepData_Described"
 discard "forward decl of StepData_ECDescr"
 discard "forward decl of StepData_ECDescr"
 type
-  Handle_StepData_ECDescr* = handle[StepData_ECDescr]
+  HandleStepDataECDescr* = Handle[StepDataECDescr]
 
 ## ! Describes a Complex Entity (Plex) as a list of Simple ones
 
 type
-  StepData_ECDescr* {.importcpp: "StepData_ECDescr",
-                     header: "StepData_ECDescr.hxx", bycopy.} = object of StepData_EDescr ##
-                                                                                   ## !
-                                                                                   ## Creates
-                                                                                   ## an
-                                                                                   ## ECDescr,
-                                                                                   ## empty
+  StepDataECDescr* {.importcpp: "StepData_ECDescr", header: "StepData_ECDescr.hxx",
+                    bycopy.} = object of StepDataEDescr ## ! Creates an ECDescr, empty
 
 
-proc constructStepData_ECDescr*(): StepData_ECDescr {.constructor,
+proc constructStepDataECDescr*(): StepDataECDescr {.constructor,
     importcpp: "StepData_ECDescr(@)", header: "StepData_ECDescr.hxx".}
-proc Add*(this: var StepData_ECDescr; member: handle[StepData_ESDescr]) {.
+proc add*(this: var StepDataECDescr; member: Handle[StepDataESDescr]) {.
     importcpp: "Add", header: "StepData_ECDescr.hxx".}
-proc NbMembers*(this: StepData_ECDescr): Standard_Integer {.noSideEffect,
-    importcpp: "NbMembers", header: "StepData_ECDescr.hxx".}
-proc Member*(this: StepData_ECDescr; num: Standard_Integer): handle[StepData_ESDescr] {.
-    noSideEffect, importcpp: "Member", header: "StepData_ECDescr.hxx".}
-proc TypeList*(this: StepData_ECDescr): handle[TColStd_HSequenceOfAsciiString] {.
+proc nbMembers*(this: StepDataECDescr): int {.noSideEffect, importcpp: "NbMembers",
+    header: "StepData_ECDescr.hxx".}
+proc member*(this: StepDataECDescr; num: int): Handle[StepDataESDescr] {.noSideEffect,
+    importcpp: "Member", header: "StepData_ECDescr.hxx".}
+proc typeList*(this: StepDataECDescr): Handle[TColStdHSequenceOfAsciiString] {.
     noSideEffect, importcpp: "TypeList", header: "StepData_ECDescr.hxx".}
-proc Matches*(this: StepData_ECDescr; steptype: Standard_CString): Standard_Boolean {.
-    noSideEffect, importcpp: "Matches", header: "StepData_ECDescr.hxx".}
-proc IsComplex*(this: StepData_ECDescr): Standard_Boolean {.noSideEffect,
-    importcpp: "IsComplex", header: "StepData_ECDescr.hxx".}
-proc NewEntity*(this: StepData_ECDescr): handle[StepData_Described] {.noSideEffect,
+proc matches*(this: StepDataECDescr; steptype: StandardCString): bool {.noSideEffect,
+    importcpp: "Matches", header: "StepData_ECDescr.hxx".}
+proc isComplex*(this: StepDataECDescr): bool {.noSideEffect, importcpp: "IsComplex",
+    header: "StepData_ECDescr.hxx".}
+proc newEntity*(this: StepDataECDescr): Handle[StepDataDescribed] {.noSideEffect,
     importcpp: "NewEntity", header: "StepData_ECDescr.hxx".}
 type
-  StepData_ECDescrbase_type* = StepData_EDescr
+  StepDataECDescrbaseType* = StepDataEDescr
 
-proc get_type_name*(): cstring {.importcpp: "StepData_ECDescr::get_type_name(@)",
-                              header: "StepData_ECDescr.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepData_ECDescr::get_type_name(@)",
+                            header: "StepData_ECDescr.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepData_ECDescr::get_type_descriptor(@)",
     header: "StepData_ECDescr.hxx".}
-proc DynamicType*(this: StepData_ECDescr): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepDataECDescr): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_ECDescr.hxx".}

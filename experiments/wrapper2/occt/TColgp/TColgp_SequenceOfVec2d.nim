@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Vec2d, ../NCollection/NCollection_Sequence
-
 type
-  TColgp_SequenceOfVec2d* = NCollection_Sequence[gp_Vec2d]
+  TColgpSequenceOfVec2d* = NCollectionSequence[Vec2d]
+

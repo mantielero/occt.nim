@@ -13,59 +13,53 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Type, ../gp/gp_Pnt2d, ../BRepAdaptor/BRepAdaptor_HSurface,
-  ../IMeshData/IMeshData_Types, ../IMeshData/IMeshData_Face
-
 discard "forward decl of IMeshTools_Parameters"
 type
-  BRepMesh_DefaultRangeSplitter* {.importcpp: "BRepMesh_DefaultRangeSplitter",
-                                  header: "BRepMesh_DefaultRangeSplitter.hxx",
-                                  bycopy.} = object ## ! Constructor.
-                                                 ## ! Computes parametric tolerance taking length along U and V into account.
-                                                 ## ! Returns face model.
-                                                 ## ! Computes length along U direction.
+  BRepMeshDefaultRangeSplitter* {.importcpp: "BRepMesh_DefaultRangeSplitter",
+                                 header: "BRepMesh_DefaultRangeSplitter.hxx",
+                                 bycopy.} = object ## ! Constructor.
+                                                ## ! Computes parametric tolerance taking length along U and V into account.
+                                                ## ! Returns face model.
+                                                ## ! Computes length along U direction.
 
 
-proc constructBRepMesh_DefaultRangeSplitter*(): BRepMesh_DefaultRangeSplitter {.
+proc constructBRepMeshDefaultRangeSplitter*(): BRepMeshDefaultRangeSplitter {.
     constructor, importcpp: "BRepMesh_DefaultRangeSplitter(@)",
     header: "BRepMesh_DefaultRangeSplitter.hxx".}
-proc destroyBRepMesh_DefaultRangeSplitter*(
-    this: var BRepMesh_DefaultRangeSplitter) {.
+proc destroyBRepMeshDefaultRangeSplitter*(this: var BRepMeshDefaultRangeSplitter) {.
     importcpp: "#.~BRepMesh_DefaultRangeSplitter()",
     header: "BRepMesh_DefaultRangeSplitter.hxx".}
-proc Reset*(this: var BRepMesh_DefaultRangeSplitter; theDFace: IFaceHandle;
-           theParameters: IMeshTools_Parameters) {.importcpp: "Reset",
+proc reset*(this: var BRepMeshDefaultRangeSplitter; theDFace: IFaceHandle;
+           theParameters: IMeshToolsParameters) {.importcpp: "Reset",
     header: "BRepMesh_DefaultRangeSplitter.hxx".}
-proc AddPoint*(this: var BRepMesh_DefaultRangeSplitter; thePoint: gp_Pnt2d) {.
+proc addPoint*(this: var BRepMeshDefaultRangeSplitter; thePoint: Pnt2d) {.
     importcpp: "AddPoint", header: "BRepMesh_DefaultRangeSplitter.hxx".}
-proc AdjustRange*(this: var BRepMesh_DefaultRangeSplitter) {.
+proc adjustRange*(this: var BRepMeshDefaultRangeSplitter) {.
     importcpp: "AdjustRange", header: "BRepMesh_DefaultRangeSplitter.hxx".}
-proc IsValid*(this: var BRepMesh_DefaultRangeSplitter): Standard_Boolean {.
-    importcpp: "IsValid", header: "BRepMesh_DefaultRangeSplitter.hxx".}
-proc Scale*(this: BRepMesh_DefaultRangeSplitter; thePoint: gp_Pnt2d;
-           isToFaceBasis: Standard_Boolean): gp_Pnt2d {.noSideEffect,
-    importcpp: "Scale", header: "BRepMesh_DefaultRangeSplitter.hxx".}
-proc GenerateSurfaceNodes*(this: BRepMesh_DefaultRangeSplitter;
-                          theParameters: IMeshTools_Parameters): handle[
-    ListOfPnt2d] {.noSideEffect, importcpp: "GenerateSurfaceNodes",
-                  header: "BRepMesh_DefaultRangeSplitter.hxx".}
-proc Point*(this: BRepMesh_DefaultRangeSplitter; thePoint2d: gp_Pnt2d): gp_Pnt {.
+proc isValid*(this: var BRepMeshDefaultRangeSplitter): bool {.importcpp: "IsValid",
+    header: "BRepMesh_DefaultRangeSplitter.hxx".}
+proc scale*(this: BRepMeshDefaultRangeSplitter; thePoint: Pnt2d; isToFaceBasis: bool): Pnt2d {.
+    noSideEffect, importcpp: "Scale", header: "BRepMesh_DefaultRangeSplitter.hxx".}
+proc generateSurfaceNodes*(this: BRepMeshDefaultRangeSplitter;
+                          theParameters: IMeshToolsParameters): Handle[ListOfPnt2d] {.
+    noSideEffect, importcpp: "GenerateSurfaceNodes",
+    header: "BRepMesh_DefaultRangeSplitter.hxx".}
+proc point*(this: BRepMeshDefaultRangeSplitter; thePoint2d: Pnt2d): Pnt {.
     noSideEffect, importcpp: "Point", header: "BRepMesh_DefaultRangeSplitter.hxx".}
-proc GetDFace*(this: BRepMesh_DefaultRangeSplitter): IFaceHandle {.noSideEffect,
+proc getDFace*(this: BRepMeshDefaultRangeSplitter): IFaceHandle {.noSideEffect,
     importcpp: "GetDFace", header: "BRepMesh_DefaultRangeSplitter.hxx".}
-proc GetSurface*(this: BRepMesh_DefaultRangeSplitter): handle[BRepAdaptor_HSurface] {.
+proc getSurface*(this: BRepMeshDefaultRangeSplitter): Handle[BRepAdaptorHSurface] {.
     noSideEffect, importcpp: "GetSurface",
     header: "BRepMesh_DefaultRangeSplitter.hxx".}
-proc GetRangeU*(this: BRepMesh_DefaultRangeSplitter): pair[Standard_Real,
-    Standard_Real] {.noSideEffect, importcpp: "GetRangeU",
-                    header: "BRepMesh_DefaultRangeSplitter.hxx".}
-proc GetRangeV*(this: BRepMesh_DefaultRangeSplitter): pair[Standard_Real,
-    Standard_Real] {.noSideEffect, importcpp: "GetRangeV",
-                    header: "BRepMesh_DefaultRangeSplitter.hxx".}
-proc GetDelta*(this: BRepMesh_DefaultRangeSplitter): pair[Standard_Real,
-    Standard_Real] {.noSideEffect, importcpp: "GetDelta",
-                    header: "BRepMesh_DefaultRangeSplitter.hxx".}
-proc GetToleranceUV*(this: BRepMesh_DefaultRangeSplitter): pair[Standard_Real,
-    Standard_Real] {.noSideEffect, importcpp: "GetToleranceUV",
-                    header: "BRepMesh_DefaultRangeSplitter.hxx".}
+proc getRangeU*(this: BRepMeshDefaultRangeSplitter): Pair[float, float] {.
+    noSideEffect, importcpp: "GetRangeU",
+    header: "BRepMesh_DefaultRangeSplitter.hxx".}
+proc getRangeV*(this: BRepMeshDefaultRangeSplitter): Pair[float, float] {.
+    noSideEffect, importcpp: "GetRangeV",
+    header: "BRepMesh_DefaultRangeSplitter.hxx".}
+proc getDelta*(this: BRepMeshDefaultRangeSplitter): Pair[float, float] {.
+    noSideEffect, importcpp: "GetDelta",
+    header: "BRepMesh_DefaultRangeSplitter.hxx".}
+proc getToleranceUV*(this: BRepMeshDefaultRangeSplitter): Pair[float, float] {.
+    noSideEffect, importcpp: "GetToleranceUV",
+    header: "BRepMesh_DefaultRangeSplitter.hxx".}

@@ -13,35 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepRepr/StepRepr_DefinitionalRepresentation
-
 discard "forward decl of StepShape_DefinitionalRepresentationAndShapeRepresentation"
 discard "forward decl of StepShape_DefinitionalRepresentationAndShapeRepresentation"
 type
-  Handle_StepShape_DefinitionalRepresentationAndShapeRepresentation* = handle[
-      StepShape_DefinitionalRepresentationAndShapeRepresentation]
+  HandleStepShapeDefinitionalRepresentationAndShapeRepresentation* = Handle[
+      StepShapeDefinitionalRepresentationAndShapeRepresentation]
 
 ## ! Implements complex type
 ## ! (DEFINITIONAL_REPRESENTATION,REPRESENTATION,SHAPE_REPRESENTATION)
 
 type
-  StepShape_DefinitionalRepresentationAndShapeRepresentation* {.
+  StepShapeDefinitionalRepresentationAndShapeRepresentation* {.
       importcpp: "StepShape_DefinitionalRepresentationAndShapeRepresentation",
       header: "StepShape_DefinitionalRepresentationAndShapeRepresentation.hxx",
-      bycopy.} = object of StepRepr_DefinitionalRepresentation
+      bycopy.} = object of StepReprDefinitionalRepresentation
 
 
-proc constructStepShape_DefinitionalRepresentationAndShapeRepresentation*(): StepShape_DefinitionalRepresentationAndShapeRepresentation {.
+proc constructStepShapeDefinitionalRepresentationAndShapeRepresentation*(): StepShapeDefinitionalRepresentationAndShapeRepresentation {.
     constructor,
     importcpp: "StepShape_DefinitionalRepresentationAndShapeRepresentation(@)",
     header: "StepShape_DefinitionalRepresentationAndShapeRepresentation.hxx".}
 type
-  StepShape_DefinitionalRepresentationAndShapeRepresentationbase_type* = StepRepr_DefinitionalRepresentation
+  StepShapeDefinitionalRepresentationAndShapeRepresentationbaseType* = StepReprDefinitionalRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_DefinitionalRepresentationAndShapeRepresentation::get_type_name(@)", header: "StepShape_DefinitionalRepresentationAndShapeRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepShape_DefinitionalRepresentationAndShapeRepresentation::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepShape_DefinitionalRepresentationAndShapeRepresentation::get_type_name(@)", header: "StepShape_DefinitionalRepresentationAndShapeRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_DefinitionalRepresentationAndShapeRepresentation::get_type_descriptor(@)",
     header: "StepShape_DefinitionalRepresentationAndShapeRepresentation.hxx".}
-proc DynamicType*(this: StepShape_DefinitionalRepresentationAndShapeRepresentation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_DefinitionalRepresentationAndShapeRepresentation.hxx".}
+proc dynamicType*(this: StepShapeDefinitionalRepresentationAndShapeRepresentation): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_DefinitionalRepresentationAndShapeRepresentation.hxx".}

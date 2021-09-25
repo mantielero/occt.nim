@@ -12,13 +12,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_PCharacter, OSD_SignalMode
-
 ## ! Set of Operating Sytem Dependent (OSD) Tools
 
 type
-  OSD* {.importcpp: "OSD", header: "OSD.hxx", bycopy.} = object ## ! Sets or removes signal and FPE (floating-point exception) handlers.
+  Osd* {.importcpp: "OSD", header: "OSD.hxx", bycopy.} = object ## ! Sets or removes signal and FPE (floating-point exception) handlers.
                                                         ## ! OCCT signal handlers translate signals raised by C subsystem to C++
                                                         ## ! exceptions inheriting Standard_Failure.
                                                         ## !
@@ -78,25 +75,23 @@ type
                                                         ## Standard_ErrorHandler.hxx for details.
 
 
-proc SetSignal*(theSignalMode: OSD_SignalMode; theFloatingSignal: Standard_Boolean) {.
+proc setSignal*(theSignalMode: OSD_SignalMode; theFloatingSignal: bool) {.
     importcpp: "OSD::SetSignal(@)", header: "OSD.hxx".}
-proc SetSignal*(theFloatingSignal: Standard_Boolean = Standard_True) {.
-    importcpp: "OSD::SetSignal(@)", header: "OSD.hxx".}
-proc SetThreadLocalSignal*(theSignalMode: OSD_SignalMode;
-                          theFloatingSignal: Standard_Boolean) {.
-    importcpp: "OSD::SetThreadLocalSignal(@)", header: "OSD.hxx".}
-proc SetFloatingSignal*(theFloatingSignal: Standard_Boolean) {.
-    importcpp: "OSD::SetFloatingSignal(@)", header: "OSD.hxx".}
-proc SignalMode*(): OSD_SignalMode {.importcpp: "OSD::SignalMode(@)",
-                                  header: "OSD.hxx".}
-proc ToCatchFloatingSignals*(): Standard_Boolean {.
-    importcpp: "OSD::ToCatchFloatingSignals(@)", header: "OSD.hxx".}
-proc SecSleep*(theSeconds: Standard_Integer) {.importcpp: "OSD::SecSleep(@)",
+proc setSignal*(theFloatingSignal: bool = true) {.importcpp: "OSD::SetSignal(@)",
     header: "OSD.hxx".}
-proc MilliSecSleep*(theMilliseconds: Standard_Integer) {.
-    importcpp: "OSD::MilliSecSleep(@)", header: "OSD.hxx".}
-proc RealToCString*(aReal: Standard_Real; aString: var Standard_PCharacter): Standard_Boolean {.
+proc setThreadLocalSignal*(theSignalMode: OSD_SignalMode; theFloatingSignal: bool) {.
+    importcpp: "OSD::SetThreadLocalSignal(@)", header: "OSD.hxx".}
+proc setFloatingSignal*(theFloatingSignal: bool) {.
+    importcpp: "OSD::SetFloatingSignal(@)", header: "OSD.hxx".}
+proc signalMode*(): OSD_SignalMode {.importcpp: "OSD::SignalMode(@)",
+                                  header: "OSD.hxx".}
+proc toCatchFloatingSignals*(): bool {.importcpp: "OSD::ToCatchFloatingSignals(@)",
+                                    header: "OSD.hxx".}
+proc secSleep*(theSeconds: int) {.importcpp: "OSD::SecSleep(@)", header: "OSD.hxx".}
+proc milliSecSleep*(theMilliseconds: int) {.importcpp: "OSD::MilliSecSleep(@)",
+    header: "OSD.hxx".}
+proc realToCString*(aReal: float; aString: var StandardPCharacter): bool {.
     importcpp: "OSD::RealToCString(@)", header: "OSD.hxx".}
-proc CStringToReal*(aString: Standard_CString; aReal: var Standard_Real): Standard_Boolean {.
+proc cStringToReal*(aString: StandardCString; aReal: var float): bool {.
     importcpp: "OSD::CStringToReal(@)", header: "OSD.hxx".}
-proc ControlBreak*() {.importcpp: "OSD::ControlBreak(@)", header: "OSD.hxx".}
+proc controlBreak*() {.importcpp: "OSD::ControlBreak(@)", header: "OSD.hxx".}

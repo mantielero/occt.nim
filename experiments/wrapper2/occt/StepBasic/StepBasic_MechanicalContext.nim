@@ -14,32 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_ProductContext
-
 discard "forward decl of StepBasic_MechanicalContext"
 discard "forward decl of StepBasic_MechanicalContext"
 type
-  Handle_StepBasic_MechanicalContext* = handle[StepBasic_MechanicalContext]
-  StepBasic_MechanicalContext* {.importcpp: "StepBasic_MechanicalContext",
-                                header: "StepBasic_MechanicalContext.hxx", bycopy.} = object of StepBasic_ProductContext ##
-                                                                                                                  ## !
-                                                                                                                  ## Returns
-                                                                                                                  ## a
-                                                                                                                  ## MechanicalContext
+  HandleStepBasicMechanicalContext* = Handle[StepBasicMechanicalContext]
+  StepBasicMechanicalContext* {.importcpp: "StepBasic_MechanicalContext",
+                               header: "StepBasic_MechanicalContext.hxx", bycopy.} = object of StepBasicProductContext ##
+                                                                                                                ## !
+                                                                                                                ## Returns
+                                                                                                                ## a
+                                                                                                                ## MechanicalContext
 
 
-proc constructStepBasic_MechanicalContext*(): StepBasic_MechanicalContext {.
+proc constructStepBasicMechanicalContext*(): StepBasicMechanicalContext {.
     constructor, importcpp: "StepBasic_MechanicalContext(@)",
     header: "StepBasic_MechanicalContext.hxx".}
 type
-  StepBasic_MechanicalContextbase_type* = StepBasic_ProductContext
+  StepBasicMechanicalContextbaseType* = StepBasicProductContext
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_MechanicalContext::get_type_name(@)",
-                              header: "StepBasic_MechanicalContext.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_MechanicalContext::get_type_name(@)",
+                            header: "StepBasic_MechanicalContext.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_MechanicalContext::get_type_descriptor(@)",
     header: "StepBasic_MechanicalContext.hxx".}
-proc DynamicType*(this: StepBasic_MechanicalContext): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicMechanicalContext): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_MechanicalContext.hxx".}

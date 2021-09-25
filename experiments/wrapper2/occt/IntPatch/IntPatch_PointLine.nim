@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IntPatch_Line, ../Standard/Standard_Type
-
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of IntSurf_PntOn2S"
@@ -25,7 +22,7 @@ discard "forward decl of IntPatch_Point"
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of IntPatch_PointLine"
 type
-  Handle_IntPatch_PointLine* = handle[IntPatch_PointLine]
+  HandleIntPatchPointLine* = Handle[IntPatchPointLine]
 
 ## ! Definition of an intersection line between two
 ## ! surfaces.
@@ -34,97 +31,97 @@ type
 ## ! defined in the class WLine or RLine (Restriction line).
 
 type
-  IntPatch_PointLine* {.importcpp: "IntPatch_PointLine",
-                       header: "IntPatch_PointLine.hxx", bycopy.} = object of IntPatch_Line ##
-                                                                                     ## !
-                                                                                     ## Adds
-                                                                                     ## a
-                                                                                     ## vertex
-                                                                                     ## in
-                                                                                     ## the
-                                                                                     ## list.
-                                                                                     ## If
-                                                                                     ## theIsPrepend
-                                                                                     ## ==
-                                                                                     ## TRUE
-                                                                                     ## the
-                                                                                     ## new
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## vertex
-                                                                                     ## will
-                                                                                     ## be
-                                                                                     ## added
-                                                                                     ## before
-                                                                                     ## the
-                                                                                     ## first
-                                                                                     ## element
-                                                                                     ## of
-                                                                                     ## vertices
-                                                                                     ## sequence.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Otherwise,
-                                                                                     ## to
-                                                                                     ## the
-                                                                                     ## end
-                                                                                     ## of
-                                                                                     ## the
-                                                                                     ## sequence
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## To
-                                                                                     ## initialize
-                                                                                     ## the
-                                                                                     ## fields,
-                                                                                     ## when
-                                                                                     ## the
-                                                                                     ## transitions
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## are
-                                                                                     ## In
-                                                                                     ## or
-                                                                                     ## Out.
+  IntPatchPointLine* {.importcpp: "IntPatch_PointLine",
+                      header: "IntPatch_PointLine.hxx", bycopy.} = object of IntPatchLine ##
+                                                                                   ## !
+                                                                                   ## Adds
+                                                                                   ## a
+                                                                                   ## vertex
+                                                                                   ## in
+                                                                                   ## the
+                                                                                   ## list.
+                                                                                   ## If
+                                                                                   ## theIsPrepend
+                                                                                   ## ==
+                                                                                   ## TRUE
+                                                                                   ## the
+                                                                                   ## new
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## vertex
+                                                                                   ## will
+                                                                                   ## be
+                                                                                   ## added
+                                                                                   ## before
+                                                                                   ## the
+                                                                                   ## first
+                                                                                   ## element
+                                                                                   ## of
+                                                                                   ## vertices
+                                                                                   ## sequence.
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## Otherwise,
+                                                                                   ## to
+                                                                                   ## the
+                                                                                   ## end
+                                                                                   ## of
+                                                                                   ## the
+                                                                                   ## sequence
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## To
+                                                                                   ## initialize
+                                                                                   ## the
+                                                                                   ## fields,
+                                                                                   ## when
+                                                                                   ## the
+                                                                                   ## transitions
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## are
+                                                                                   ## In
+                                                                                   ## or
+                                                                                   ## Out.
 
 
-proc AddVertex*(this: var IntPatch_PointLine; Pnt: IntPatch_Point;
-               theIsPrepend: Standard_Boolean = Standard_False) {.
-    importcpp: "AddVertex", header: "IntPatch_PointLine.hxx".}
-proc NbPnts*(this: IntPatch_PointLine): Standard_Integer {.noSideEffect,
-    importcpp: "NbPnts", header: "IntPatch_PointLine.hxx".}
-proc NbVertex*(this: IntPatch_PointLine): Standard_Integer {.noSideEffect,
-    importcpp: "NbVertex", header: "IntPatch_PointLine.hxx".}
-proc Point*(this: IntPatch_PointLine; Index: Standard_Integer): IntSurf_PntOn2S {.
-    noSideEffect, importcpp: "Point", header: "IntPatch_PointLine.hxx".}
-proc Vertex*(this: IntPatch_PointLine; Index: Standard_Integer): IntPatch_Point {.
-    noSideEffect, importcpp: "Vertex", header: "IntPatch_PointLine.hxx".}
-proc ChangeVertex*(this: var IntPatch_PointLine; Index: Standard_Integer): var IntPatch_Point {.
-    importcpp: "ChangeVertex", header: "IntPatch_PointLine.hxx".}
-proc ClearVertexes*(this: var IntPatch_PointLine) {.importcpp: "ClearVertexes",
+proc addVertex*(this: var IntPatchPointLine; pnt: IntPatchPoint;
+               theIsPrepend: bool = false) {.importcpp: "AddVertex",
     header: "IntPatch_PointLine.hxx".}
-proc RemoveVertex*(this: var IntPatch_PointLine; theIndex: Standard_Integer) {.
+proc nbPnts*(this: IntPatchPointLine): int {.noSideEffect, importcpp: "NbPnts",
+    header: "IntPatch_PointLine.hxx".}
+proc nbVertex*(this: IntPatchPointLine): int {.noSideEffect, importcpp: "NbVertex",
+    header: "IntPatch_PointLine.hxx".}
+proc point*(this: IntPatchPointLine; index: int): IntSurfPntOn2S {.noSideEffect,
+    importcpp: "Point", header: "IntPatch_PointLine.hxx".}
+proc vertex*(this: IntPatchPointLine; index: int): IntPatchPoint {.noSideEffect,
+    importcpp: "Vertex", header: "IntPatch_PointLine.hxx".}
+proc changeVertex*(this: var IntPatchPointLine; index: int): var IntPatchPoint {.
+    importcpp: "ChangeVertex", header: "IntPatch_PointLine.hxx".}
+proc clearVertexes*(this: var IntPatchPointLine) {.importcpp: "ClearVertexes",
+    header: "IntPatch_PointLine.hxx".}
+proc removeVertex*(this: var IntPatchPointLine; theIndex: int) {.
     importcpp: "RemoveVertex", header: "IntPatch_PointLine.hxx".}
-proc Curve*(this: IntPatch_PointLine): handle[IntSurf_LineOn2S] {.noSideEffect,
+proc curve*(this: IntPatchPointLine): Handle[IntSurfLineOn2S] {.noSideEffect,
     importcpp: "Curve", header: "IntPatch_PointLine.hxx".}
-proc IsOutSurf1Box*(this: IntPatch_PointLine; P1: gp_Pnt2d): Standard_Boolean {.
-    noSideEffect, importcpp: "IsOutSurf1Box", header: "IntPatch_PointLine.hxx".}
-proc IsOutSurf2Box*(this: IntPatch_PointLine; P2: gp_Pnt2d): Standard_Boolean {.
-    noSideEffect, importcpp: "IsOutSurf2Box", header: "IntPatch_PointLine.hxx".}
-proc IsOutBox*(this: IntPatch_PointLine; P: gp_Pnt): Standard_Boolean {.noSideEffect,
+proc isOutSurf1Box*(this: IntPatchPointLine; p1: Pnt2d): bool {.noSideEffect,
+    importcpp: "IsOutSurf1Box", header: "IntPatch_PointLine.hxx".}
+proc isOutSurf2Box*(this: IntPatchPointLine; p2: Pnt2d): bool {.noSideEffect,
+    importcpp: "IsOutSurf2Box", header: "IntPatch_PointLine.hxx".}
+proc isOutBox*(this: IntPatchPointLine; p: Pnt): bool {.noSideEffect,
     importcpp: "IsOutBox", header: "IntPatch_PointLine.hxx".}
-proc CurvatureRadiusOfIntersLine*(theS1: handle[Adaptor3d_HSurface];
-                                 theS2: handle[Adaptor3d_HSurface];
-                                 theUVPoint: IntSurf_PntOn2S): Standard_Real {.
+proc curvatureRadiusOfIntersLine*(theS1: Handle[Adaptor3dHSurface];
+                                 theS2: Handle[Adaptor3dHSurface];
+                                 theUVPoint: IntSurfPntOn2S): float {.
     importcpp: "IntPatch_PointLine::CurvatureRadiusOfIntersLine(@)",
     header: "IntPatch_PointLine.hxx".}
 type
-  IntPatch_PointLinebase_type* = IntPatch_Line
+  IntPatchPointLinebaseType* = IntPatchLine
 
-proc get_type_name*(): cstring {.importcpp: "IntPatch_PointLine::get_type_name(@)",
-                              header: "IntPatch_PointLine.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IntPatch_PointLine::get_type_name(@)",
+                            header: "IntPatch_PointLine.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IntPatch_PointLine::get_type_descriptor(@)",
     header: "IntPatch_PointLine.hxx".}
-proc DynamicType*(this: IntPatch_PointLine): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IntPatchPointLine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IntPatch_PointLine.hxx".}

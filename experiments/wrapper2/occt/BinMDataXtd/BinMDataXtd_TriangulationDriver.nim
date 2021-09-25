@@ -13,48 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../BinMDF/BinMDF_ADriver,
-  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
-  ../BinObjMgt/BinObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataXtd_TriangulationDriver"
 type
-  Handle_BinMDataXtd_TriangulationDriver* = handle[BinMDataXtd_TriangulationDriver]
+  HandleBinMDataXtdTriangulationDriver* = Handle[BinMDataXtdTriangulationDriver]
 
 ## ! TDataXtd_Triangulation attribute bin Driver.
 
 type
-  BinMDataXtd_TriangulationDriver* {.importcpp: "BinMDataXtd_TriangulationDriver", header: "BinMDataXtd_TriangulationDriver.hxx",
-                                    bycopy.} = object of BinMDF_ADriver
+  BinMDataXtdTriangulationDriver* {.importcpp: "BinMDataXtd_TriangulationDriver", header: "BinMDataXtd_TriangulationDriver.hxx",
+                                   bycopy.} = object of BinMDF_ADriver
 
 
-proc constructBinMDataXtd_TriangulationDriver*(
-    theMessageDriver: handle[Message_Messenger]): BinMDataXtd_TriangulationDriver {.
+proc constructBinMDataXtdTriangulationDriver*(
+    theMessageDriver: Handle[MessageMessenger]): BinMDataXtdTriangulationDriver {.
     constructor, importcpp: "BinMDataXtd_TriangulationDriver(@)",
     header: "BinMDataXtd_TriangulationDriver.hxx".}
-proc NewEmpty*(this: BinMDataXtd_TriangulationDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: BinMDataXtdTriangulationDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty",
     header: "BinMDataXtd_TriangulationDriver.hxx".}
-proc Paste*(this: BinMDataXtd_TriangulationDriver; Source: BinObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "BinMDataXtd_TriangulationDriver.hxx".}
-proc Paste*(this: BinMDataXtd_TriangulationDriver; Source: handle[TDF_Attribute];
-           Target: var BinObjMgt_Persistent;
-           RelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: BinMDataXtdTriangulationDriver; source: BinObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var BinObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "BinMDataXtd_TriangulationDriver.hxx".}
+proc paste*(this: BinMDataXtdTriangulationDriver; source: Handle[TDF_Attribute];
+           target: var BinObjMgtPersistent;
+           relocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMDataXtd_TriangulationDriver.hxx".}
 type
-  BinMDataXtd_TriangulationDriverbase_type* = BinMDF_ADriver
+  BinMDataXtdTriangulationDriverbaseType* = BinMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "BinMDataXtd_TriangulationDriver::get_type_name(@)",
-                              header: "BinMDataXtd_TriangulationDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BinMDataXtd_TriangulationDriver::get_type_name(@)",
+                            header: "BinMDataXtd_TriangulationDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BinMDataXtd_TriangulationDriver::get_type_descriptor(@)",
     header: "BinMDataXtd_TriangulationDriver.hxx".}
-proc DynamicType*(this: BinMDataXtd_TriangulationDriver): handle[Standard_Type] {.
+proc dynamicType*(this: BinMDataXtdTriangulationDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataXtd_TriangulationDriver.hxx".}

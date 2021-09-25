@@ -11,13 +11,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_AsciiString, StdStorage_Root,
-  ../TCollection/TCollection_AsciiString, ../NCollection/NCollection_DataMap,
-  ../NCollection/NCollection_IndexedDataMap
-
 type
-  StdStorage_MapOfRoots* = NCollection_IndexedDataMap[TCollection_AsciiString,
-      handle[StdStorage_Root], TCollection_AsciiString]
-  StdStorage_DataMapIteratorOfMapOfRoots* = Iterator[TCollection_AsciiString,
-      handle[StdStorage_Root], TCollection_AsciiString]
+  StdStorageMapOfRoots* = NCollectionIndexedDataMap[TCollectionAsciiString,
+      Handle[StdStorageRoot], TCollectionAsciiString]
+  StdStorageDataMapIteratorOfMapOfRoots* = Iterator[TCollectionAsciiString,
+      Handle[StdStorageRoot], TCollectionAsciiString]
+

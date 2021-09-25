@@ -14,15 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _math_SingularMatrix_HeaderFile [NewLine] # _math_SingularMatrix_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_Failure.hxx [NewLine] class math_SingularMatrix ;
+## !!!Ignored construct:  # _math_SingularMatrix_HeaderFile [NewLine] # _math_SingularMatrix_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class math_SingularMatrix ;
 ## Error: expected ';'!!!
 
 discard "forward decl of math_SingularMatrix"
 type
-  Handle_math_SingularMatrixmath_SingularMatrix* = handle[math_SingularMatrix]
+  HandleMathSingularMatrixmathSingularMatrix* = Handle[MathSingularMatrix]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_math_SingularMatrix [NewLine] # if ( CONDITION ) throw math_SingularMatrix ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( math_SingularMatrix , Standard_Failure ) #  _math_SingularMatrix_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( math_SingularMatrix , Standard_Failure ) #  _math_SingularMatrix_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

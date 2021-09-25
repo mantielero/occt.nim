@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepShape_HArray1OfValueQualifier, ../StepRepr/StepRepr_RepresentationItem,
-  ../Standard/Standard_Integer
-
 discard "forward decl of StepBasic_MeasureWithUnit"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_MeasureValueMember"
@@ -26,49 +21,48 @@ discard "forward decl of StepShape_ValueQualifier"
 discard "forward decl of StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem"
 discard "forward decl of StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem"
 type
-  Handle_StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem* = handle[
-      StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem]
+  HandleStepShapeMeasureRepresentationItemAndQualifiedRepresentationItem* = Handle[
+      StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem]
 
 ## ! Added for Dimensional Tolerances
 ## ! Complex Type between MeasureRepresentationItem and
 ## ! QualifiedRepresentationItem
 
 type
-  StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem* {.importcpp: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx",
-      bycopy.} = object of StepRepr_RepresentationItem
+  StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem* {.importcpp: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx",
+      bycopy.} = object of StepReprRepresentationItem
 
 
-proc constructStepShape_MeasureRepresentationItemAndQualifiedRepresentationItem*(): StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem {.
+proc constructStepShapeMeasureRepresentationItemAndQualifiedRepresentationItem*(): StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem {.
     constructor, importcpp: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem(@)", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
-proc Init*(this: var StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem;
-          aName: handle[TCollection_HAsciiString];
-          aValueComponent: handle[StepBasic_MeasureValueMember];
-          aUnitComponent: StepBasic_Unit;
-          qualifiers: handle[StepShape_HArray1OfValueQualifier]) {.
+proc init*(this: var StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem;
+          aName: Handle[TCollectionHAsciiString];
+          aValueComponent: Handle[StepBasicMeasureValueMember];
+          aUnitComponent: StepBasicUnit;
+          qualifiers: Handle[StepShapeHArray1OfValueQualifier]) {.
     importcpp: "Init", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
-proc SetMeasure*(this: var StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem;
-                Measure: handle[StepBasic_MeasureWithUnit]) {.
+proc setMeasure*(this: var StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem;
+                measure: Handle[StepBasicMeasureWithUnit]) {.
     importcpp: "SetMeasure", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
-proc Measure*(this: StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem): handle[
-    StepBasic_MeasureWithUnit] {.noSideEffect, importcpp: "Measure", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
-proc Qualifiers*(this: StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem): handle[
-    StepShape_HArray1OfValueQualifier] {.noSideEffect, importcpp: "Qualifiers", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
-proc NbQualifiers*(this: StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem): Standard_Integer {.
+proc measure*(this: StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem): Handle[
+    StepBasicMeasureWithUnit] {.noSideEffect, importcpp: "Measure", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
+proc qualifiers*(this: StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem): Handle[
+    StepShapeHArray1OfValueQualifier] {.noSideEffect, importcpp: "Qualifiers", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
+proc nbQualifiers*(this: StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem): int {.
     noSideEffect, importcpp: "NbQualifiers", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
-proc SetQualifiers*(this: var StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem;
-                   qualifiers: handle[StepShape_HArray1OfValueQualifier]) {.
+proc setQualifiers*(this: var StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem;
+                   qualifiers: Handle[StepShapeHArray1OfValueQualifier]) {.
     importcpp: "SetQualifiers", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
-proc QualifiersValue*(this: StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem;
-                     num: Standard_Integer): StepShape_ValueQualifier {.
-    noSideEffect, importcpp: "QualifiersValue", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
-proc SetQualifiersValue*(this: var StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem;
-                        num: Standard_Integer;
-                        aqualifier: StepShape_ValueQualifier) {.
+proc qualifiersValue*(this: StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem;
+                     num: int): StepShapeValueQualifier {.noSideEffect,
+    importcpp: "QualifiersValue", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
+proc setQualifiersValue*(this: var StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem;
+                        num: int; aqualifier: StepShapeValueQualifier) {.
     importcpp: "SetQualifiersValue", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
 type
-  StepShape_MeasureRepresentationItemAndQualifiedRepresentationItembase_type* = StepRepr_RepresentationItem
+  StepShapeMeasureRepresentationItemAndQualifiedRepresentationItembaseType* = StepReprRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem::get_type_name(@)", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem::get_type_descriptor(@)", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
-proc DynamicType*(this: StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
+proc getTypeName*(): cstring {.importcpp: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem::get_type_name(@)", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem::get_type_descriptor(@)", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
+proc dynamicType*(this: StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}

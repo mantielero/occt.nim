@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TopTools_ListOfShape, ../NCollection/NCollection_Array1
-
 type
-  TopTools_Array1OfListOfShape* = NCollection_Array1[TopTools_ListOfShape]
+  TopToolsArray1OfListOfShape* = NCollectionArray1[TopToolsListOfShape]
+

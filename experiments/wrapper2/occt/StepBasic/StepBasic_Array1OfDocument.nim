@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepBasic_Document, ../NCollection/NCollection_Array1
-
 type
-  StepBasic_Array1OfDocument* = NCollection_Array1[handle[StepBasic_Document]]
+  StepBasicArray1OfDocument* = NCollectionArray1[Handle[StepBasicDocument]]
+

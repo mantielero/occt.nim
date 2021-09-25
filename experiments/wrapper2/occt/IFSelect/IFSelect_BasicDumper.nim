@@ -14,54 +14,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_SessionDumper,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of IFSelect_SessionFile"
 discard "forward decl of Standard_Transient"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_BasicDumper"
 discard "forward decl of IFSelect_BasicDumper"
 type
-  Handle_IFSelect_BasicDumper* = handle[IFSelect_BasicDumper]
+  HandleIFSelectBasicDumper* = Handle[IFSelectBasicDumper]
 
 ## ! BasicDumper takes into account, for SessionFile, all the
 ## ! classes defined in the package IFSelect : Selections,
 ## ! Dispatches (there is no Modifier)
 
 type
-  IFSelect_BasicDumper* {.importcpp: "IFSelect_BasicDumper",
-                         header: "IFSelect_BasicDumper.hxx", bycopy.} = object of IFSelect_SessionDumper ##
-                                                                                                  ## !
-                                                                                                  ## Creates
-                                                                                                  ## a
-                                                                                                  ## BasicDumper
-                                                                                                  ## and
-                                                                                                  ## puts
-                                                                                                  ## it
-                                                                                                  ## into
-                                                                                                  ## the
-                                                                                                  ## Library
-                                                                                                  ## of
-                                                                                                  ## Dumper
+  IFSelectBasicDumper* {.importcpp: "IFSelect_BasicDumper",
+                        header: "IFSelect_BasicDumper.hxx", bycopy.} = object of IFSelectSessionDumper ##
+                                                                                                ## !
+                                                                                                ## Creates
+                                                                                                ## a
+                                                                                                ## BasicDumper
+                                                                                                ## and
+                                                                                                ## puts
+                                                                                                ## it
+                                                                                                ## into
+                                                                                                ## the
+                                                                                                ## Library
+                                                                                                ## of
+                                                                                                ## Dumper
 
 
-proc constructIFSelect_BasicDumper*(): IFSelect_BasicDumper {.constructor,
+proc constructIFSelectBasicDumper*(): IFSelectBasicDumper {.constructor,
     importcpp: "IFSelect_BasicDumper(@)", header: "IFSelect_BasicDumper.hxx".}
-proc WriteOwn*(this: IFSelect_BasicDumper; file: var IFSelect_SessionFile;
-              item: handle[Standard_Transient]): Standard_Boolean {.noSideEffect,
+proc writeOwn*(this: IFSelectBasicDumper; file: var IFSelectSessionFile;
+              item: Handle[StandardTransient]): bool {.noSideEffect,
     importcpp: "WriteOwn", header: "IFSelect_BasicDumper.hxx".}
-proc ReadOwn*(this: IFSelect_BasicDumper; file: var IFSelect_SessionFile;
-             `type`: TCollection_AsciiString; item: var handle[Standard_Transient]): Standard_Boolean {.
+proc readOwn*(this: IFSelectBasicDumper; file: var IFSelectSessionFile;
+             `type`: TCollectionAsciiString; item: var Handle[StandardTransient]): bool {.
     noSideEffect, importcpp: "ReadOwn", header: "IFSelect_BasicDumper.hxx".}
 type
-  IFSelect_BasicDumperbase_type* = IFSelect_SessionDumper
+  IFSelectBasicDumperbaseType* = IFSelectSessionDumper
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_BasicDumper::get_type_name(@)",
-                              header: "IFSelect_BasicDumper.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_BasicDumper::get_type_name(@)",
+                            header: "IFSelect_BasicDumper.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_BasicDumper::get_type_descriptor(@)",
     header: "IFSelect_BasicDumper.hxx".}
-proc DynamicType*(this: IFSelect_BasicDumper): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IFSelectBasicDumper): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_BasicDumper.hxx".}

@@ -13,51 +13,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_SourceItem,
-  ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_ExternalSource"
 discard "forward decl of StepBasic_SourceItem"
 discard "forward decl of StepBasic_ExternallyDefinedItem"
 discard "forward decl of StepBasic_ExternallyDefinedItem"
 type
-  Handle_StepBasic_ExternallyDefinedItem* = handle[StepBasic_ExternallyDefinedItem]
+  HandleStepBasicExternallyDefinedItem* = Handle[StepBasicExternallyDefinedItem]
 
 ## ! Representation of STEP entity ExternallyDefinedItem
 
 type
-  StepBasic_ExternallyDefinedItem* {.importcpp: "StepBasic_ExternallyDefinedItem", header: "StepBasic_ExternallyDefinedItem.hxx",
-                                    bycopy.} = object of Standard_Transient ## ! Empty
-                                                                       ## constructor
+  StepBasicExternallyDefinedItem* {.importcpp: "StepBasic_ExternallyDefinedItem", header: "StepBasic_ExternallyDefinedItem.hxx",
+                                   bycopy.} = object of StandardTransient ## ! Empty constructor
 
 
-proc constructStepBasic_ExternallyDefinedItem*(): StepBasic_ExternallyDefinedItem {.
+proc constructStepBasicExternallyDefinedItem*(): StepBasicExternallyDefinedItem {.
     constructor, importcpp: "StepBasic_ExternallyDefinedItem(@)",
     header: "StepBasic_ExternallyDefinedItem.hxx".}
-proc Init*(this: var StepBasic_ExternallyDefinedItem; aItemId: StepBasic_SourceItem;
-          aSource: handle[StepBasic_ExternalSource]) {.importcpp: "Init",
+proc init*(this: var StepBasicExternallyDefinedItem; aItemId: StepBasicSourceItem;
+          aSource: Handle[StepBasicExternalSource]) {.importcpp: "Init",
     header: "StepBasic_ExternallyDefinedItem.hxx".}
-proc ItemId*(this: StepBasic_ExternallyDefinedItem): StepBasic_SourceItem {.
+proc itemId*(this: StepBasicExternallyDefinedItem): StepBasicSourceItem {.
     noSideEffect, importcpp: "ItemId",
     header: "StepBasic_ExternallyDefinedItem.hxx".}
-proc SetItemId*(this: var StepBasic_ExternallyDefinedItem;
-               ItemId: StepBasic_SourceItem) {.importcpp: "SetItemId",
+proc setItemId*(this: var StepBasicExternallyDefinedItem;
+               itemId: StepBasicSourceItem) {.importcpp: "SetItemId",
     header: "StepBasic_ExternallyDefinedItem.hxx".}
-proc Source*(this: StepBasic_ExternallyDefinedItem): handle[
-    StepBasic_ExternalSource] {.noSideEffect, importcpp: "Source",
-                               header: "StepBasic_ExternallyDefinedItem.hxx".}
-proc SetSource*(this: var StepBasic_ExternallyDefinedItem;
-               Source: handle[StepBasic_ExternalSource]) {.importcpp: "SetSource",
+proc source*(this: StepBasicExternallyDefinedItem): Handle[StepBasicExternalSource] {.
+    noSideEffect, importcpp: "Source",
+    header: "StepBasic_ExternallyDefinedItem.hxx".}
+proc setSource*(this: var StepBasicExternallyDefinedItem;
+               source: Handle[StepBasicExternalSource]) {.importcpp: "SetSource",
     header: "StepBasic_ExternallyDefinedItem.hxx".}
 type
-  StepBasic_ExternallyDefinedItembase_type* = Standard_Transient
+  StepBasicExternallyDefinedItembaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ExternallyDefinedItem::get_type_name(@)",
-                              header: "StepBasic_ExternallyDefinedItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ExternallyDefinedItem::get_type_name(@)",
+                            header: "StepBasic_ExternallyDefinedItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_ExternallyDefinedItem::get_type_descriptor(@)",
     header: "StepBasic_ExternallyDefinedItem.hxx".}
-proc DynamicType*(this: StepBasic_ExternallyDefinedItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicExternallyDefinedItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ExternallyDefinedItem.hxx".}

@@ -14,103 +14,93 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  HLRAlgo_BiPoint, ../Standard/Standard, ../Standard/Standard_Type,
-  ../Standard/Standard_Integer, ../TColgp/TColgp_HArray1OfXYZ,
-  HLRAlgo_HArray1OfTData, HLRAlgo_HArray1OfPHDat, ../Standard/Standard_Transient,
-  ../TColgp/TColgp_Array1OfXYZ, HLRAlgo_Array1OfTData, HLRAlgo_Array1OfPHDat,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of HLRAlgo_EdgeStatus"
 discard "forward decl of HLRAlgo_PolyData"
 discard "forward decl of HLRAlgo_PolyData"
 type
-  Handle_HLRAlgo_PolyData* = handle[HLRAlgo_PolyData]
+  HandleHLRAlgoPolyData* = Handle[HLRAlgoPolyData]
 
 ## ! Data structure of a set of Triangles.
 
 type
-  HLRAlgo_PolyData* {.importcpp: "HLRAlgo_PolyData",
-                     header: "HLRAlgo_PolyData.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                      ## !
-                                                                                      ## evident.
+  HLRAlgoPolyData* {.importcpp: "HLRAlgo_PolyData", header: "HLRAlgo_PolyData.hxx",
+                    bycopy.} = object of StandardTransient ## ! evident.
 
-  HLRAlgo_PolyDataFaceIndices* {.importcpp: "HLRAlgo_PolyData::FaceIndices",
-                                header: "HLRAlgo_PolyData.hxx", bycopy.} = object ## ! The
-                                                                             ## default
-                                                                             ## constructor.
-    Index* {.importc: "Index".}: Standard_Integer
-    Min* {.importc: "Min".}: Standard_Integer
-    Max* {.importc: "Max".}: Standard_Integer
+  HLRAlgoPolyDataFaceIndices* {.importcpp: "HLRAlgo_PolyData::FaceIndices",
+                               header: "HLRAlgo_PolyData.hxx", bycopy.} = object ## ! The
+                                                                            ## default
+                                                                            ## constructor.
+    index* {.importc: "Index".}: int
+    min* {.importc: "Min".}: int
+    max* {.importc: "Max".}: int
 
 
-proc constructHLRAlgo_PolyDataFaceIndices*(): HLRAlgo_PolyDataFaceIndices {.
+proc constructHLRAlgoPolyDataFaceIndices*(): HLRAlgoPolyDataFaceIndices {.
     constructor, importcpp: "HLRAlgo_PolyData::FaceIndices(@)",
     header: "HLRAlgo_PolyData.hxx".}
 type
-  HLRAlgo_PolyDataTriangle* {.importcpp: "HLRAlgo_PolyData::Triangle",
-                             header: "HLRAlgo_PolyData.hxx", bycopy.} = object
-    V1* {.importc: "V1".}: gp_XY
-    V2* {.importc: "V2".}: gp_XY
-    V3* {.importc: "V3".}: gp_XY
-    Param* {.importc: "Param".}: Standard_Real
-    TolParam* {.importc: "TolParam".}: Standard_Real
-    TolAng* {.importc: "TolAng".}: Standard_Real
-    Tolerance* {.importc: "Tolerance".}: Standard_Real
+  HLRAlgoPolyDataTriangle* {.importcpp: "HLRAlgo_PolyData::Triangle",
+                            header: "HLRAlgo_PolyData.hxx", bycopy.} = object
+    v1* {.importc: "V1".}: Xy
+    v2* {.importc: "V2".}: Xy
+    v3* {.importc: "V3".}: Xy
+    param* {.importc: "Param".}: float
+    tolParam* {.importc: "TolParam".}: float
+    tolAng* {.importc: "TolAng".}: float
+    tolerance* {.importc: "Tolerance".}: float
 
-  HLRAlgo_PolyDataBox* {.importcpp: "HLRAlgo_PolyData::Box",
-                        header: "HLRAlgo_PolyData.hxx", bycopy.} = object
-    XMin* {.importc: "XMin".}: Standard_Real
-    YMin* {.importc: "YMin".}: Standard_Real
-    ZMin* {.importc: "ZMin".}: Standard_Real
-    XMax* {.importc: "XMax".}: Standard_Real
-    YMax* {.importc: "YMax".}: Standard_Real
-    ZMax* {.importc: "ZMax".}: Standard_Real ## ! The default constructor.
+  HLRAlgoPolyDataBox* {.importcpp: "HLRAlgo_PolyData::Box",
+                       header: "HLRAlgo_PolyData.hxx", bycopy.} = object
+    xMin* {.importc: "XMin".}: float
+    yMin* {.importc: "YMin".}: float
+    zMin* {.importc: "ZMin".}: float
+    xMax* {.importc: "XMax".}: float
+    yMax* {.importc: "YMax".}: float
+    zMax* {.importc: "ZMax".}: float ## ! The default constructor.
 
 
-proc constructHLRAlgo_PolyDataBox*(): HLRAlgo_PolyDataBox {.constructor,
+proc constructHLRAlgoPolyDataBox*(): HLRAlgoPolyDataBox {.constructor,
     importcpp: "HLRAlgo_PolyData::Box(@)", header: "HLRAlgo_PolyData.hxx".}
-proc constructHLRAlgo_PolyDataBox*(theXMin: Standard_Real; theYMin: Standard_Real;
-                                  theZMin: Standard_Real; theXMax: Standard_Real;
-                                  theYMax: Standard_Real; theZMax: Standard_Real): HLRAlgo_PolyDataBox {.
+proc constructHLRAlgoPolyDataBox*(theXMin: float; theYMin: float; theZMin: float;
+                                 theXMax: float; theYMax: float; theZMax: float): HLRAlgoPolyDataBox {.
     constructor, importcpp: "HLRAlgo_PolyData::Box(@)",
     header: "HLRAlgo_PolyData.hxx".}
-proc constructHLRAlgo_PolyData*(): HLRAlgo_PolyData {.constructor,
+proc constructHLRAlgoPolyData*(): HLRAlgoPolyData {.constructor,
     importcpp: "HLRAlgo_PolyData(@)", header: "HLRAlgo_PolyData.hxx".}
-proc HNodes*(this: var HLRAlgo_PolyData; HNodes: handle[TColgp_HArray1OfXYZ]) {.
+proc hNodes*(this: var HLRAlgoPolyData; hNodes: Handle[TColgpHArray1OfXYZ]) {.
     importcpp: "HNodes", header: "HLRAlgo_PolyData.hxx".}
-proc HTData*(this: var HLRAlgo_PolyData; HTData: handle[HLRAlgo_HArray1OfTData]) {.
+proc hTData*(this: var HLRAlgoPolyData; hTData: Handle[HLRAlgoHArray1OfTData]) {.
     importcpp: "HTData", header: "HLRAlgo_PolyData.hxx".}
-proc HPHDat*(this: var HLRAlgo_PolyData; HPHDat: handle[HLRAlgo_HArray1OfPHDat]) {.
+proc hPHDat*(this: var HLRAlgoPolyData; hPHDat: Handle[HLRAlgoHArray1OfPHDat]) {.
     importcpp: "HPHDat", header: "HLRAlgo_PolyData.hxx".}
-proc FaceIndex*(this: var HLRAlgo_PolyData; I: Standard_Integer) {.
-    importcpp: "FaceIndex", header: "HLRAlgo_PolyData.hxx".}
-proc FaceIndex*(this: HLRAlgo_PolyData): Standard_Integer {.noSideEffect,
-    importcpp: "FaceIndex", header: "HLRAlgo_PolyData.hxx".}
-proc Nodes*(this: HLRAlgo_PolyData): var TColgp_Array1OfXYZ {.noSideEffect,
-    importcpp: "Nodes", header: "HLRAlgo_PolyData.hxx".}
-proc TData*(this: HLRAlgo_PolyData): var HLRAlgo_Array1OfTData {.noSideEffect,
-    importcpp: "TData", header: "HLRAlgo_PolyData.hxx".}
-proc PHDat*(this: HLRAlgo_PolyData): var HLRAlgo_Array1OfPHDat {.noSideEffect,
-    importcpp: "PHDat", header: "HLRAlgo_PolyData.hxx".}
-proc UpdateGlobalMinMax*(this: var HLRAlgo_PolyData; theBox: var HLRAlgo_PolyDataBox) {.
-    importcpp: "UpdateGlobalMinMax", header: "HLRAlgo_PolyData.hxx".}
-proc Hiding*(this: HLRAlgo_PolyData): Standard_Boolean {.noSideEffect,
-    importcpp: "Hiding", header: "HLRAlgo_PolyData.hxx".}
-proc HideByPolyData*(this: var HLRAlgo_PolyData; thePoints: PointsT;
-                    theTriangle: var HLRAlgo_PolyDataTriangle;
-                    theIndices: var IndicesT; HidingShell: Standard_Boolean;
-                    status: var HLRAlgo_EdgeStatus) {.importcpp: "HideByPolyData",
+proc faceIndex*(this: var HLRAlgoPolyData; i: int) {.importcpp: "FaceIndex",
     header: "HLRAlgo_PolyData.hxx".}
-proc Indices*(this: var HLRAlgo_PolyData): var HLRAlgo_PolyDataFaceIndices {.
+proc faceIndex*(this: HLRAlgoPolyData): int {.noSideEffect, importcpp: "FaceIndex",
+    header: "HLRAlgo_PolyData.hxx".}
+proc nodes*(this: HLRAlgoPolyData): var TColgpArray1OfXYZ {.noSideEffect,
+    importcpp: "Nodes", header: "HLRAlgo_PolyData.hxx".}
+proc tData*(this: HLRAlgoPolyData): var HLRAlgoArray1OfTData {.noSideEffect,
+    importcpp: "TData", header: "HLRAlgo_PolyData.hxx".}
+proc pHDat*(this: HLRAlgoPolyData): var HLRAlgoArray1OfPHDat {.noSideEffect,
+    importcpp: "PHDat", header: "HLRAlgo_PolyData.hxx".}
+proc updateGlobalMinMax*(this: var HLRAlgoPolyData; theBox: var HLRAlgoPolyDataBox) {.
+    importcpp: "UpdateGlobalMinMax", header: "HLRAlgo_PolyData.hxx".}
+proc hiding*(this: HLRAlgoPolyData): bool {.noSideEffect, importcpp: "Hiding",
+                                        header: "HLRAlgo_PolyData.hxx".}
+proc hideByPolyData*(this: var HLRAlgoPolyData; thePoints: PointsT;
+                    theTriangle: var HLRAlgoPolyDataTriangle;
+                    theIndices: var IndicesT; hidingShell: bool;
+                    status: var HLRAlgoEdgeStatus) {.importcpp: "HideByPolyData",
+    header: "HLRAlgo_PolyData.hxx".}
+proc indices*(this: var HLRAlgoPolyData): var HLRAlgoPolyDataFaceIndices {.
     importcpp: "Indices", header: "HLRAlgo_PolyData.hxx".}
 type
-  HLRAlgo_PolyDatabase_type* = Standard_Transient
+  HLRAlgoPolyDatabaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "HLRAlgo_PolyData::get_type_name(@)",
-                              header: "HLRAlgo_PolyData.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "HLRAlgo_PolyData::get_type_name(@)",
+                            header: "HLRAlgo_PolyData.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "HLRAlgo_PolyData::get_type_descriptor(@)",
     header: "HLRAlgo_PolyData.hxx".}
-proc DynamicType*(this: HLRAlgo_PolyData): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: HLRAlgoPolyData): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRAlgo_PolyData.hxx".}

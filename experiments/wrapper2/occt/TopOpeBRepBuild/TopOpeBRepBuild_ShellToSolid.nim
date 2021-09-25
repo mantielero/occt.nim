@@ -14,25 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopTools/TopTools_ListOfShape
-
 discard "forward decl of TopoDS_Shell"
 discard "forward decl of TopoDS_Solid"
 type
-  TopOpeBRepBuild_ShellToSolid* {.importcpp: "TopOpeBRepBuild_ShellToSolid",
-                                 header: "TopOpeBRepBuild_ShellToSolid.hxx",
-                                 bycopy.} = object
+  TopOpeBRepBuildShellToSolid* {.importcpp: "TopOpeBRepBuild_ShellToSolid",
+                                header: "TopOpeBRepBuild_ShellToSolid.hxx", bycopy.} = object
 
 
-proc constructTopOpeBRepBuild_ShellToSolid*(): TopOpeBRepBuild_ShellToSolid {.
+proc constructTopOpeBRepBuildShellToSolid*(): TopOpeBRepBuildShellToSolid {.
     constructor, importcpp: "TopOpeBRepBuild_ShellToSolid(@)",
     header: "TopOpeBRepBuild_ShellToSolid.hxx".}
-proc Init*(this: var TopOpeBRepBuild_ShellToSolid) {.importcpp: "Init",
+proc init*(this: var TopOpeBRepBuildShellToSolid) {.importcpp: "Init",
     header: "TopOpeBRepBuild_ShellToSolid.hxx".}
-proc AddShell*(this: var TopOpeBRepBuild_ShellToSolid; Sh: TopoDS_Shell) {.
+proc addShell*(this: var TopOpeBRepBuildShellToSolid; sh: TopoDS_Shell) {.
     importcpp: "AddShell", header: "TopOpeBRepBuild_ShellToSolid.hxx".}
-proc MakeSolids*(this: var TopOpeBRepBuild_ShellToSolid; So: TopoDS_Solid;
-                LSo: var TopTools_ListOfShape) {.importcpp: "MakeSolids",
+proc makeSolids*(this: var TopOpeBRepBuildShellToSolid; so: TopoDS_Solid;
+                lSo: var TopToolsListOfShape) {.importcpp: "MakeSolids",
     header: "TopOpeBRepBuild_ShellToSolid.hxx".}

@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_PresentationStyleAssignment,
-  StepVisual_Array1OfPresentationStyleAssignment,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepVisual_HArray1OfPresentationStyleAssignment* {.
+  StepVisualHArray1OfPresentationStyleAssignment* {.
       importcpp: "StepVisual_HArray1OfPresentationStyleAssignment",
-      header: "StepVisual_HArray1OfPresentationStyleAssignment.hxx", bycopy.} = object of StepVisual_Array1OfPresentationStyleAssignment
+      header: "StepVisual_HArray1OfPresentationStyleAssignment.hxx", bycopy.} = object of StepVisualArray1OfPresentationStyleAssignment
 
 
-proc constructStepVisual_HArray1OfPresentationStyleAssignment*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepVisual_HArray1OfPresentationStyleAssignment {.
+proc constructStepVisualHArray1OfPresentationStyleAssignment*(theLower: int;
+    theUpper: int): StepVisualHArray1OfPresentationStyleAssignment {.constructor,
+    importcpp: "StepVisual_HArray1OfPresentationStyleAssignment(@)",
+    header: "StepVisual_HArray1OfPresentationStyleAssignment.hxx".}
+proc constructStepVisualHArray1OfPresentationStyleAssignment*(theLower: int;
+    theUpper: int; theValue: ValueType): StepVisualHArray1OfPresentationStyleAssignment {.
     constructor, importcpp: "StepVisual_HArray1OfPresentationStyleAssignment(@)",
     header: "StepVisual_HArray1OfPresentationStyleAssignment.hxx".}
-proc constructStepVisual_HArray1OfPresentationStyleAssignment*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepVisual_HArray1OfPresentationStyleAssignment {.
+proc constructStepVisualHArray1OfPresentationStyleAssignment*(
+    theOther: StepVisualArray1OfPresentationStyleAssignment): StepVisualHArray1OfPresentationStyleAssignment {.
     constructor, importcpp: "StepVisual_HArray1OfPresentationStyleAssignment(@)",
     header: "StepVisual_HArray1OfPresentationStyleAssignment.hxx".}
-proc constructStepVisual_HArray1OfPresentationStyleAssignment*(
-    theOther: StepVisual_Array1OfPresentationStyleAssignment): StepVisual_HArray1OfPresentationStyleAssignment {.
-    constructor, importcpp: "StepVisual_HArray1OfPresentationStyleAssignment(@)",
-    header: "StepVisual_HArray1OfPresentationStyleAssignment.hxx".}
-proc Array1*(this: StepVisual_HArray1OfPresentationStyleAssignment): StepVisual_Array1OfPresentationStyleAssignment {.
+proc array1*(this: StepVisualHArray1OfPresentationStyleAssignment): StepVisualArray1OfPresentationStyleAssignment {.
     noSideEffect, importcpp: "Array1",
     header: "StepVisual_HArray1OfPresentationStyleAssignment.hxx".}
-proc ChangeArray1*(this: var StepVisual_HArray1OfPresentationStyleAssignment): var StepVisual_Array1OfPresentationStyleAssignment {.
+proc changeArray1*(this: var StepVisualHArray1OfPresentationStyleAssignment): var StepVisualArray1OfPresentationStyleAssignment {.
     importcpp: "ChangeArray1",
     header: "StepVisual_HArray1OfPresentationStyleAssignment.hxx".}
 type
-  StepVisual_HArray1OfPresentationStyleAssignmentbase_type* = MMgt_TShared
+  StepVisualHArray1OfPresentationStyleAssignmentbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_HArray1OfPresentationStyleAssignment::get_type_name(@)", header: "StepVisual_HArray1OfPresentationStyleAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_HArray1OfPresentationStyleAssignment::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepVisual_HArray1OfPresentationStyleAssignment::get_type_name(@)", header: "StepVisual_HArray1OfPresentationStyleAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_HArray1OfPresentationStyleAssignment::get_type_descriptor(@)",
     header: "StepVisual_HArray1OfPresentationStyleAssignment.hxx".}
-proc DynamicType*(this: StepVisual_HArray1OfPresentationStyleAssignment): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepVisual_HArray1OfPresentationStyleAssignment.hxx".}
+proc dynamicType*(this: StepVisualHArray1OfPresentationStyleAssignment): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepVisual_HArray1OfPresentationStyleAssignment.hxx".}

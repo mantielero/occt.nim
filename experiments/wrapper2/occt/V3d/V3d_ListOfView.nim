@@ -12,9 +12,7 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of V3d_View"
-import
-  ../NCollection/NCollection_List, ../Standard/Standard_Transient
-
 type
-  V3d_ListOfView* = NCollection_List[handle[V3d_View]]
-  V3d_ListOfViewIterator* = Iterator
+  V3dListOfView* = NCollectionList[Handle[V3dView]]
+  V3dListOfViewIterator* = Iterator
+

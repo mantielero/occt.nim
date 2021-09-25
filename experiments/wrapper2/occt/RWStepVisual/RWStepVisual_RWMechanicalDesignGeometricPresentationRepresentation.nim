@@ -14,31 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_MechanicalDesignGeometricPresentationRepresentation"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisual_RWMechanicalDesignGeometricPresentationRepresentation* {.importcpp: "RWStepVisual_RWMechanicalDesignGeometricPresentationRepresentation", header: "RWStepVisual_RWMechanicalDesignGeometricPresentationRepresentation.hxx",
+  RWStepVisualRWMechanicalDesignGeometricPresentationRepresentation* {.importcpp: "RWStepVisual_RWMechanicalDesignGeometricPresentationRepresentation", header: "RWStepVisual_RWMechanicalDesignGeometricPresentationRepresentation.hxx",
       bycopy.} = object
 
 
-proc constructRWStepVisual_RWMechanicalDesignGeometricPresentationRepresentation*(): RWStepVisual_RWMechanicalDesignGeometricPresentationRepresentation {.
+proc constructRWStepVisualRWMechanicalDesignGeometricPresentationRepresentation*(): RWStepVisualRWMechanicalDesignGeometricPresentationRepresentation {.
     constructor, importcpp: "RWStepVisual_RWMechanicalDesignGeometricPresentationRepresentation(@)", header: "RWStepVisual_RWMechanicalDesignGeometricPresentationRepresentation.hxx".}
-proc ReadStep*(this: RWStepVisual_RWMechanicalDesignGeometricPresentationRepresentation;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check]; ent: handle[
-    StepVisual_MechanicalDesignGeometricPresentationRepresentation]) {.
+proc readStep*(this: RWStepVisualRWMechanicalDesignGeometricPresentationRepresentation;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck]; ent: Handle[
+    StepVisualMechanicalDesignGeometricPresentationRepresentation]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWMechanicalDesignGeometricPresentationRepresentation.hxx".}
-proc WriteStep*(this: RWStepVisual_RWMechanicalDesignGeometricPresentationRepresentation;
-               SW: var StepData_StepWriter; ent: handle[
-    StepVisual_MechanicalDesignGeometricPresentationRepresentation]) {.
+proc writeStep*(this: RWStepVisualRWMechanicalDesignGeometricPresentationRepresentation;
+               sw: var StepDataStepWriter; ent: Handle[
+    StepVisualMechanicalDesignGeometricPresentationRepresentation]) {.
     noSideEffect, importcpp: "WriteStep", header: "RWStepVisual_RWMechanicalDesignGeometricPresentationRepresentation.hxx".}
-proc Share*(this: RWStepVisual_RWMechanicalDesignGeometricPresentationRepresentation;
-    ent: handle[StepVisual_MechanicalDesignGeometricPresentationRepresentation];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share", header: "RWStepVisual_RWMechanicalDesignGeometricPresentationRepresentation.hxx".}
+proc share*(this: RWStepVisualRWMechanicalDesignGeometricPresentationRepresentation;
+    ent: Handle[StepVisualMechanicalDesignGeometricPresentationRepresentation];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share", header: "RWStepVisual_RWMechanicalDesignGeometricPresentationRepresentation.hxx".}

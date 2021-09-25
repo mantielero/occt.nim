@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESAppli_FlowLineSpec"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,45 +26,43 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESAppli_ToolFlowLineSpec* {.importcpp: "IGESAppli_ToolFlowLineSpec",
-                               header: "IGESAppli_ToolFlowLineSpec.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## a
-                                                                                      ## ToolFlowLineSpec,
-                                                                                      ## ready
-                                                                                      ## to
-                                                                                      ## work
+  IGESAppliToolFlowLineSpec* {.importcpp: "IGESAppli_ToolFlowLineSpec",
+                              header: "IGESAppli_ToolFlowLineSpec.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Returns
+                                                                                     ## a
+                                                                                     ## ToolFlowLineSpec,
+                                                                                     ## ready
+                                                                                     ## to
+                                                                                     ## work
 
 
-proc constructIGESAppli_ToolFlowLineSpec*(): IGESAppli_ToolFlowLineSpec {.
+proc constructIGESAppliToolFlowLineSpec*(): IGESAppliToolFlowLineSpec {.
     constructor, importcpp: "IGESAppli_ToolFlowLineSpec(@)",
     header: "IGESAppli_ToolFlowLineSpec.hxx".}
-proc ReadOwnParams*(this: IGESAppli_ToolFlowLineSpec;
-                   ent: handle[IGESAppli_FlowLineSpec];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESAppli_ToolFlowLineSpec.hxx".}
-proc WriteOwnParams*(this: IGESAppli_ToolFlowLineSpec;
-                    ent: handle[IGESAppli_FlowLineSpec];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
-    importcpp: "WriteOwnParams", header: "IGESAppli_ToolFlowLineSpec.hxx".}
-proc OwnShared*(this: IGESAppli_ToolFlowLineSpec;
-               ent: handle[IGESAppli_FlowLineSpec];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc readOwnParams*(this: IGESAppliToolFlowLineSpec;
+                   ent: Handle[IGESAppliFlowLineSpec];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESAppli_ToolFlowLineSpec.hxx".}
+proc writeOwnParams*(this: IGESAppliToolFlowLineSpec;
+                    ent: Handle[IGESAppliFlowLineSpec]; iw: var IGESDataIGESWriter) {.
+    noSideEffect, importcpp: "WriteOwnParams",
+    header: "IGESAppli_ToolFlowLineSpec.hxx".}
+proc ownShared*(this: IGESAppliToolFlowLineSpec;
+               ent: Handle[IGESAppliFlowLineSpec];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESAppli_ToolFlowLineSpec.hxx".}
-proc DirChecker*(this: IGESAppli_ToolFlowLineSpec;
-                ent: handle[IGESAppli_FlowLineSpec]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESAppliToolFlowLineSpec;
+                ent: Handle[IGESAppliFlowLineSpec]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESAppli_ToolFlowLineSpec.hxx".}
-proc OwnCheck*(this: IGESAppli_ToolFlowLineSpec;
-              ent: handle[IGESAppli_FlowLineSpec]; shares: Interface_ShareTool;
-              ach: var handle[Interface_Check]) {.noSideEffect,
-    importcpp: "OwnCheck", header: "IGESAppli_ToolFlowLineSpec.hxx".}
-proc OwnCopy*(this: IGESAppli_ToolFlowLineSpec;
-             entfrom: handle[IGESAppli_FlowLineSpec];
-             entto: handle[IGESAppli_FlowLineSpec]; TC: var Interface_CopyTool) {.
+proc ownCheck*(this: IGESAppliToolFlowLineSpec; ent: Handle[IGESAppliFlowLineSpec];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
+    noSideEffect, importcpp: "OwnCheck", header: "IGESAppli_ToolFlowLineSpec.hxx".}
+proc ownCopy*(this: IGESAppliToolFlowLineSpec;
+             entfrom: Handle[IGESAppliFlowLineSpec];
+             entto: Handle[IGESAppliFlowLineSpec]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESAppli_ToolFlowLineSpec.hxx".}
-proc OwnDump*(this: IGESAppli_ToolFlowLineSpec;
-             ent: handle[IGESAppli_FlowLineSpec]; dumper: IGESData_IGESDumper;
-             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
-    importcpp: "OwnDump", header: "IGESAppli_ToolFlowLineSpec.hxx".}
+proc ownDump*(this: IGESAppliToolFlowLineSpec; ent: Handle[IGESAppliFlowLineSpec];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump", header: "IGESAppli_ToolFlowLineSpec.hxx".}

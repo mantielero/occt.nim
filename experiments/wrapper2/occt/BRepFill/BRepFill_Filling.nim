@@ -14,16 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../GeomPlate/GeomPlate_BuildPlateSurface,
-  BRepFill_SequenceOfEdgeFaceAndOrder, BRepFill_SequenceOfFaceAndOrder,
-  ../GeomPlate/GeomPlate_SequenceOfPointConstraint,
-  ../TopTools/TopTools_DataMapOfShapeShape, ../TopTools/TopTools_ListOfShape,
-  ../TopoDS/TopoDS_Face, ../Standard/Standard_Real, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../GeomAbs/GeomAbs_Shape,
-  ../TopTools/TopTools_SequenceOfShape
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_ConstructionError"
@@ -32,65 +22,55 @@ discard "forward decl of TopoDS_Edge"
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Shape"
 type
-  BRepFill_Filling* {.importcpp: "BRepFill_Filling",
-                     header: "BRepFill_Filling.hxx", bycopy.} = object ## ! Constructor
-                                                                  ## ! Adds constraints to builder
+  BRepFillFilling* {.importcpp: "BRepFill_Filling", header: "BRepFill_Filling.hxx",
+                    bycopy.} = object ## ! Constructor
+                                   ## ! Adds constraints to builder
 
 
-proc constructBRepFill_Filling*(Degree: Standard_Integer = 3;
-                               NbPtsOnCur: Standard_Integer = 15;
-                               NbIter: Standard_Integer = 2;
-                               Anisotropie: Standard_Boolean = Standard_False;
-                               Tol2d: Standard_Real = 0.00001;
-                               Tol3d: Standard_Real = 0.0001;
-                               TolAng: Standard_Real = 0.01;
-                               TolCurv: Standard_Real = 0.1;
-                               MaxDeg: Standard_Integer = 8;
-                               MaxSegments: Standard_Integer = 9): BRepFill_Filling {.
-    constructor, importcpp: "BRepFill_Filling(@)", header: "BRepFill_Filling.hxx".}
-proc SetConstrParam*(this: var BRepFill_Filling; Tol2d: Standard_Real = 0.00001;
-                    Tol3d: Standard_Real = 0.0001; TolAng: Standard_Real = 0.01;
-                    TolCurv: Standard_Real = 0.1) {.importcpp: "SetConstrParam",
-    header: "BRepFill_Filling.hxx".}
-proc SetResolParam*(this: var BRepFill_Filling; Degree: Standard_Integer = 3;
-                   NbPtsOnCur: Standard_Integer = 15; NbIter: Standard_Integer = 2;
-                   Anisotropie: Standard_Boolean = Standard_False) {.
+proc constructBRepFillFilling*(degree: int = 3; nbPtsOnCur: int = 15; nbIter: int = 2;
+                              anisotropie: bool = false; tol2d: float = 0.00001;
+                              tol3d: float = 0.0001; tolAng: float = 0.01;
+                              tolCurv: float = 0.1; maxDeg: int = 8;
+                              maxSegments: int = 9): BRepFillFilling {.constructor,
+    importcpp: "BRepFill_Filling(@)", header: "BRepFill_Filling.hxx".}
+proc setConstrParam*(this: var BRepFillFilling; tol2d: float = 0.00001;
+                    tol3d: float = 0.0001; tolAng: float = 0.01; tolCurv: float = 0.1) {.
+    importcpp: "SetConstrParam", header: "BRepFill_Filling.hxx".}
+proc setResolParam*(this: var BRepFillFilling; degree: int = 3; nbPtsOnCur: int = 15;
+                   nbIter: int = 2; anisotropie: bool = false) {.
     importcpp: "SetResolParam", header: "BRepFill_Filling.hxx".}
-proc SetApproxParam*(this: var BRepFill_Filling; MaxDeg: Standard_Integer = 8;
-                    MaxSegments: Standard_Integer = 9) {.
+proc setApproxParam*(this: var BRepFillFilling; maxDeg: int = 8; maxSegments: int = 9) {.
     importcpp: "SetApproxParam", header: "BRepFill_Filling.hxx".}
-proc LoadInitSurface*(this: var BRepFill_Filling; aFace: TopoDS_Face) {.
+proc loadInitSurface*(this: var BRepFillFilling; aFace: TopoDS_Face) {.
     importcpp: "LoadInitSurface", header: "BRepFill_Filling.hxx".}
-proc Add*(this: var BRepFill_Filling; anEdge: TopoDS_Edge; Order: GeomAbs_Shape;
-         IsBound: Standard_Boolean = Standard_True): Standard_Integer {.
-    importcpp: "Add", header: "BRepFill_Filling.hxx".}
-proc Add*(this: var BRepFill_Filling; anEdge: TopoDS_Edge; Support: TopoDS_Face;
-         Order: GeomAbs_Shape; IsBound: Standard_Boolean = Standard_True): Standard_Integer {.
-    importcpp: "Add", header: "BRepFill_Filling.hxx".}
-proc Add*(this: var BRepFill_Filling; Support: TopoDS_Face; Order: GeomAbs_Shape): Standard_Integer {.
-    importcpp: "Add", header: "BRepFill_Filling.hxx".}
-proc Add*(this: var BRepFill_Filling; Point: gp_Pnt): Standard_Integer {.
-    importcpp: "Add", header: "BRepFill_Filling.hxx".}
-proc Add*(this: var BRepFill_Filling; U: Standard_Real; V: Standard_Real;
-         Support: TopoDS_Face; Order: GeomAbs_Shape): Standard_Integer {.
-    importcpp: "Add", header: "BRepFill_Filling.hxx".}
-proc Build*(this: var BRepFill_Filling) {.importcpp: "Build",
-                                      header: "BRepFill_Filling.hxx".}
-proc IsDone*(this: BRepFill_Filling): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "BRepFill_Filling.hxx".}
-proc Face*(this: BRepFill_Filling): TopoDS_Face {.noSideEffect, importcpp: "Face",
+proc add*(this: var BRepFillFilling; anEdge: TopoDS_Edge; order: GeomAbsShape;
+         isBound: bool = true): int {.importcpp: "Add", header: "BRepFill_Filling.hxx".}
+proc add*(this: var BRepFillFilling; anEdge: TopoDS_Edge; support: TopoDS_Face;
+         order: GeomAbsShape; isBound: bool = true): int {.importcpp: "Add",
     header: "BRepFill_Filling.hxx".}
-proc Generated*(this: var BRepFill_Filling; S: TopoDS_Shape): TopTools_ListOfShape {.
+proc add*(this: var BRepFillFilling; support: TopoDS_Face; order: GeomAbsShape): int {.
+    importcpp: "Add", header: "BRepFill_Filling.hxx".}
+proc add*(this: var BRepFillFilling; point: Pnt): int {.importcpp: "Add",
+    header: "BRepFill_Filling.hxx".}
+proc add*(this: var BRepFillFilling; u: float; v: float; support: TopoDS_Face;
+         order: GeomAbsShape): int {.importcpp: "Add", header: "BRepFill_Filling.hxx".}
+proc build*(this: var BRepFillFilling) {.importcpp: "Build",
+                                     header: "BRepFill_Filling.hxx".}
+proc isDone*(this: BRepFillFilling): bool {.noSideEffect, importcpp: "IsDone",
+                                        header: "BRepFill_Filling.hxx".}
+proc face*(this: BRepFillFilling): TopoDS_Face {.noSideEffect, importcpp: "Face",
+    header: "BRepFill_Filling.hxx".}
+proc generated*(this: var BRepFillFilling; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Generated", header: "BRepFill_Filling.hxx".}
-proc G0Error*(this: BRepFill_Filling): Standard_Real {.noSideEffect,
-    importcpp: "G0Error", header: "BRepFill_Filling.hxx".}
-proc G1Error*(this: BRepFill_Filling): Standard_Real {.noSideEffect,
-    importcpp: "G1Error", header: "BRepFill_Filling.hxx".}
-proc G2Error*(this: BRepFill_Filling): Standard_Real {.noSideEffect,
-    importcpp: "G2Error", header: "BRepFill_Filling.hxx".}
-proc G0Error*(this: var BRepFill_Filling; Index: Standard_Integer): Standard_Real {.
-    importcpp: "G0Error", header: "BRepFill_Filling.hxx".}
-proc G1Error*(this: var BRepFill_Filling; Index: Standard_Integer): Standard_Real {.
-    importcpp: "G1Error", header: "BRepFill_Filling.hxx".}
-proc G2Error*(this: var BRepFill_Filling; Index: Standard_Integer): Standard_Real {.
-    importcpp: "G2Error", header: "BRepFill_Filling.hxx".}
+proc g0Error*(this: BRepFillFilling): float {.noSideEffect, importcpp: "G0Error",
+    header: "BRepFill_Filling.hxx".}
+proc g1Error*(this: BRepFillFilling): float {.noSideEffect, importcpp: "G1Error",
+    header: "BRepFill_Filling.hxx".}
+proc g2Error*(this: BRepFillFilling): float {.noSideEffect, importcpp: "G2Error",
+    header: "BRepFill_Filling.hxx".}
+proc g0Error*(this: var BRepFillFilling; index: int): float {.importcpp: "G0Error",
+    header: "BRepFill_Filling.hxx".}
+proc g1Error*(this: var BRepFillFilling; index: int): float {.importcpp: "G1Error",
+    header: "BRepFill_Filling.hxx".}
+proc g2Error*(this: var BRepFillFilling; index: int): float {.importcpp: "G2Error",
+    header: "BRepFill_Filling.hxx".}

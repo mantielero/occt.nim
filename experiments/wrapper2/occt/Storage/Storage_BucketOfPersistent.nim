@@ -12,62 +12,57 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Integer, ../Standard/Standard_Persistent
-
 discard "forward decl of Storage_Schema"
 discard "forward decl of Storage_BucketOfPersistent"
 discard "forward decl of Storage_BucketIterator"
 type
-  Storage_Bucket* {.importcpp: "Storage_Bucket",
-                   header: "Storage_BucketOfPersistent.hxx", bycopy.} = object
+  StorageBucket* {.importcpp: "Storage_Bucket",
+                  header: "Storage_BucketOfPersistent.hxx", bycopy.} = object
 
 
-proc constructStorage_Bucket*(): Storage_Bucket {.constructor,
+proc constructStorageBucket*(): StorageBucket {.constructor,
     importcpp: "Storage_Bucket(@)", header: "Storage_BucketOfPersistent.hxx".}
-proc constructStorage_Bucket*(theSpaceSize: Standard_Integer): Storage_Bucket {.
-    constructor, importcpp: "Storage_Bucket(@)",
-    header: "Storage_BucketOfPersistent.hxx".}
-proc Clear*(this: var Storage_Bucket) {.importcpp: "Clear",
-                                    header: "Storage_BucketOfPersistent.hxx".}
-proc destroyStorage_Bucket*(this: var Storage_Bucket) {.
+proc constructStorageBucket*(theSpaceSize: int): StorageBucket {.constructor,
+    importcpp: "Storage_Bucket(@)", header: "Storage_BucketOfPersistent.hxx".}
+proc clear*(this: var StorageBucket) {.importcpp: "Clear",
+                                   header: "Storage_BucketOfPersistent.hxx".}
+proc destroyStorageBucket*(this: var StorageBucket) {.
     importcpp: "#.~Storage_Bucket()", header: "Storage_BucketOfPersistent.hxx".}
 type
-  Storage_BucketOfPersistent* {.importcpp: "Storage_BucketOfPersistent",
-                               header: "Storage_BucketOfPersistent.hxx", bycopy.} = object
+  StorageBucketOfPersistent* {.importcpp: "Storage_BucketOfPersistent",
+                              header: "Storage_BucketOfPersistent.hxx", bycopy.} = object
 
 
-proc constructStorage_BucketOfPersistent*(
-    theBucketSize: Standard_Integer = 300000;
-    theBucketNumber: Standard_Integer = 100): Storage_BucketOfPersistent {.
+proc constructStorageBucketOfPersistent*(theBucketSize: int = 300000;
+                                        theBucketNumber: int = 100): StorageBucketOfPersistent {.
     constructor, importcpp: "Storage_BucketOfPersistent(@)",
     header: "Storage_BucketOfPersistent.hxx".}
-proc Length*(this: Storage_BucketOfPersistent): Standard_Integer {.noSideEffect,
+proc length*(this: StorageBucketOfPersistent): int {.noSideEffect,
     importcpp: "Length", header: "Storage_BucketOfPersistent.hxx".}
-proc Append*(this: var Storage_BucketOfPersistent; sp: handle[Standard_Persistent]) {.
+proc append*(this: var StorageBucketOfPersistent; sp: Handle[StandardPersistent]) {.
     importcpp: "Append", header: "Storage_BucketOfPersistent.hxx".}
-proc Value*(this: var Storage_BucketOfPersistent; theIndex: Standard_Integer): ptr Standard_Persistent {.
+proc value*(this: var StorageBucketOfPersistent; theIndex: int): ptr StandardPersistent {.
     importcpp: "Value", header: "Storage_BucketOfPersistent.hxx".}
-proc Clear*(this: var Storage_BucketOfPersistent) {.importcpp: "Clear",
+proc clear*(this: var StorageBucketOfPersistent) {.importcpp: "Clear",
     header: "Storage_BucketOfPersistent.hxx".}
-proc destroyStorage_BucketOfPersistent*(this: var Storage_BucketOfPersistent) {.
+proc destroyStorageBucketOfPersistent*(this: var StorageBucketOfPersistent) {.
     importcpp: "#.~Storage_BucketOfPersistent()",
     header: "Storage_BucketOfPersistent.hxx".}
 type
-  Storage_BucketIterator* {.importcpp: "Storage_BucketIterator",
-                           header: "Storage_BucketOfPersistent.hxx", bycopy.} = object
+  StorageBucketIterator* {.importcpp: "Storage_BucketIterator",
+                          header: "Storage_BucketOfPersistent.hxx", bycopy.} = object
 
 
-proc constructStorage_BucketIterator*(a1: ptr Storage_BucketOfPersistent): Storage_BucketIterator {.
+proc constructStorageBucketIterator*(a1: ptr StorageBucketOfPersistent): StorageBucketIterator {.
     constructor, importcpp: "Storage_BucketIterator(@)",
     header: "Storage_BucketOfPersistent.hxx".}
-proc Init*(this: var Storage_BucketIterator; a2: ptr Storage_BucketOfPersistent) {.
+proc init*(this: var StorageBucketIterator; a2: ptr StorageBucketOfPersistent) {.
     importcpp: "Init", header: "Storage_BucketOfPersistent.hxx".}
-proc Reset*(this: var Storage_BucketIterator) {.importcpp: "Reset",
+proc reset*(this: var StorageBucketIterator) {.importcpp: "Reset",
     header: "Storage_BucketOfPersistent.hxx".}
-proc Value*(this: Storage_BucketIterator): ptr Standard_Persistent {.noSideEffect,
+proc value*(this: StorageBucketIterator): ptr StandardPersistent {.noSideEffect,
     importcpp: "Value", header: "Storage_BucketOfPersistent.hxx".}
-proc More*(this: Storage_BucketIterator): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "Storage_BucketOfPersistent.hxx".}
-proc Next*(this: var Storage_BucketIterator) {.importcpp: "Next",
+proc more*(this: StorageBucketIterator): bool {.noSideEffect, importcpp: "More",
+    header: "Storage_BucketOfPersistent.hxx".}
+proc next*(this: var StorageBucketIterator) {.importcpp: "Next",
     header: "Storage_BucketOfPersistent.hxx".}

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, IGESSelect_ModelModifier
-
 discard "forward decl of IFSelect_ContextModif"
 discard "forward decl of IGESData_IGESModel"
 discard "forward decl of Interface_CopyTool"
@@ -25,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SetLabel"
 discard "forward decl of IGESSelect_SetLabel"
 type
-  Handle_IGESSelect_SetLabel* = handle[IGESSelect_SetLabel]
+  HandleIGESSelectSetLabel* = Handle[IGESSelectSetLabel]
 
 ## ! Sets/Clears Short Label of Entities, those designated by the
 ## ! Selection. No Selection means all the file
@@ -35,41 +31,40 @@ type
 ## ! 1 to set label to DE number (changes it if already set)
 
 type
-  IGESSelect_SetLabel* {.importcpp: "IGESSelect_SetLabel",
-                        header: "IGESSelect_SetLabel.hxx", bycopy.} = object of IGESSelect_ModelModifier ##
-                                                                                                  ## !
-                                                                                                  ## Creates
-                                                                                                  ## a
-                                                                                                  ## SetLabel
-                                                                                                  ## for
-                                                                                                  ## IGESEntity
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Mode
-                                                                                                  ## :
-                                                                                                  ## see
-                                                                                                  ## Purpose
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## class
+  IGESSelectSetLabel* {.importcpp: "IGESSelect_SetLabel",
+                       header: "IGESSelect_SetLabel.hxx", bycopy.} = object of IGESSelectModelModifier ##
+                                                                                                ## !
+                                                                                                ## Creates
+                                                                                                ## a
+                                                                                                ## SetLabel
+                                                                                                ## for
+                                                                                                ## IGESEntity
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Mode
+                                                                                                ## :
+                                                                                                ## see
+                                                                                                ## Purpose
+                                                                                                ## of
+                                                                                                ## the
+                                                                                                ## class
 
 
-proc constructIGESSelect_SetLabel*(mode: Standard_Integer;
-                                  enforce: Standard_Boolean): IGESSelect_SetLabel {.
+proc constructIGESSelectSetLabel*(mode: int; enforce: bool): IGESSelectSetLabel {.
     constructor, importcpp: "IGESSelect_SetLabel(@)",
     header: "IGESSelect_SetLabel.hxx".}
-proc Performing*(this: IGESSelect_SetLabel; ctx: var IFSelect_ContextModif;
-                target: handle[IGESData_IGESModel]; TC: var Interface_CopyTool) {.
+proc performing*(this: IGESSelectSetLabel; ctx: var IFSelectContextModif;
+                target: Handle[IGESDataIGESModel]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "Performing", header: "IGESSelect_SetLabel.hxx".}
-proc Label*(this: IGESSelect_SetLabel): TCollection_AsciiString {.noSideEffect,
+proc label*(this: IGESSelectSetLabel): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "IGESSelect_SetLabel.hxx".}
 type
-  IGESSelect_SetLabelbase_type* = IGESSelect_ModelModifier
+  IGESSelectSetLabelbaseType* = IGESSelectModelModifier
 
-proc get_type_name*(): cstring {.importcpp: "IGESSelect_SetLabel::get_type_name(@)",
-                              header: "IGESSelect_SetLabel.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_SetLabel::get_type_name(@)",
+                            header: "IGESSelect_SetLabel.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSelect_SetLabel::get_type_descriptor(@)",
     header: "IGESSelect_SetLabel.hxx".}
-proc DynamicType*(this: IGESSelect_SetLabel): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IGESSelectSetLabel): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSelect_SetLabel.hxx".}

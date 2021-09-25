@@ -12,22 +12,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Graphic3d/Graphic3d_Vec3, RWObj_Material, ../NCollection/NCollection_DataMap
-
 ## ! Reader of mtl files.
 
 type
-  RWObj_MtlReader* {.importcpp: "RWObj_MtlReader", header: "RWObj_MtlReader.hxx",
-                    bycopy.} = object ## ! Main constructor.
-                                   ## ! Validate scalar value
+  RWObjMtlReader* {.importcpp: "RWObj_MtlReader", header: "RWObj_MtlReader.hxx",
+                   bycopy.} = object ## ! Main constructor.
+                                  ## ! Validate scalar value
 
 
-proc constructRWObj_MtlReader*(theMaterials: var NCollection_DataMap[
-    TCollection_AsciiString, RWObj_Material]): RWObj_MtlReader {.constructor,
+proc constructRWObjMtlReader*(theMaterials: var NCollectionDataMap[
+    TCollectionAsciiString, RWObjMaterial]): RWObjMtlReader {.constructor,
     importcpp: "RWObj_MtlReader(@)", header: "RWObj_MtlReader.hxx".}
-proc destroyRWObj_MtlReader*(this: var RWObj_MtlReader) {.
+proc destroyRWObjMtlReader*(this: var RWObjMtlReader) {.
     importcpp: "#.~RWObj_MtlReader()", header: "RWObj_MtlReader.hxx".}
-proc Read*(this: var RWObj_MtlReader; theFolder: TCollection_AsciiString;
-          theFile: TCollection_AsciiString): bool {.importcpp: "Read",
+proc read*(this: var RWObjMtlReader; theFolder: TCollectionAsciiString;
+          theFile: TCollectionAsciiString): bool {.importcpp: "Read",
     header: "RWObj_MtlReader.hxx".}

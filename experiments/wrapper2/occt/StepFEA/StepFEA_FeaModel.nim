@@ -13,68 +13,63 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_HArray1OfAsciiString, ../StepRepr/StepRepr_Representation,
-  ../StepRepr/StepRepr_HArray1OfRepresentationItem
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_RepresentationContext"
 discard "forward decl of StepFEA_FeaModel"
 discard "forward decl of StepFEA_FeaModel"
 type
-  Handle_StepFEA_FeaModel* = handle[StepFEA_FeaModel]
+  HandleStepFEA_FeaModel* = Handle[StepFEA_FeaModel]
 
 ## ! Representation of STEP entity FeaModel
 
 type
   StepFEA_FeaModel* {.importcpp: "StepFEA_FeaModel",
-                     header: "StepFEA_FeaModel.hxx", bycopy.} = object of StepRepr_Representation ##
-                                                                                           ## !
-                                                                                           ## Empty
-                                                                                           ## constructor
+                     header: "StepFEA_FeaModel.hxx", bycopy.} = object of StepReprRepresentation ##
+                                                                                          ## !
+                                                                                          ## Empty
+                                                                                          ## constructor
 
 
 proc constructStepFEA_FeaModel*(): StepFEA_FeaModel {.constructor,
     importcpp: "StepFEA_FeaModel(@)", header: "StepFEA_FeaModel.hxx".}
-proc Init*(this: var StepFEA_FeaModel;
-          aRepresentation_Name: handle[TCollection_HAsciiString];
-          aRepresentation_Items: handle[StepRepr_HArray1OfRepresentationItem];
-    aRepresentation_ContextOfItems: handle[StepRepr_RepresentationContext];
-          aCreatingSoftware: handle[TCollection_HAsciiString];
-          aIntendedAnalysisCode: handle[TColStd_HArray1OfAsciiString];
-          aDescription: handle[TCollection_HAsciiString];
-          aAnalysisType: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepFEA_FeaModel;
+          aRepresentationName: Handle[TCollectionHAsciiString];
+          aRepresentationItems: Handle[StepReprHArray1OfRepresentationItem];
+          aRepresentationContextOfItems: Handle[StepReprRepresentationContext];
+          aCreatingSoftware: Handle[TCollectionHAsciiString];
+          aIntendedAnalysisCode: Handle[TColStdHArray1OfAsciiString];
+          aDescription: Handle[TCollectionHAsciiString];
+          aAnalysisType: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepFEA_FeaModel.hxx".}
-proc CreatingSoftware*(this: StepFEA_FeaModel): handle[TCollection_HAsciiString] {.
+proc creatingSoftware*(this: StepFEA_FeaModel): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "CreatingSoftware", header: "StepFEA_FeaModel.hxx".}
-proc SetCreatingSoftware*(this: var StepFEA_FeaModel;
-                         CreatingSoftware: handle[TCollection_HAsciiString]) {.
+proc setCreatingSoftware*(this: var StepFEA_FeaModel;
+                         creatingSoftware: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetCreatingSoftware", header: "StepFEA_FeaModel.hxx".}
-proc IntendedAnalysisCode*(this: StepFEA_FeaModel): handle[
-    TColStd_HArray1OfAsciiString] {.noSideEffect,
-                                   importcpp: "IntendedAnalysisCode",
+proc intendedAnalysisCode*(this: StepFEA_FeaModel): Handle[
+    TColStdHArray1OfAsciiString] {.noSideEffect,
+                                  importcpp: "IntendedAnalysisCode",
+                                  header: "StepFEA_FeaModel.hxx".}
+proc setIntendedAnalysisCode*(this: var StepFEA_FeaModel; intendedAnalysisCode: Handle[
+    TColStdHArray1OfAsciiString]) {.importcpp: "SetIntendedAnalysisCode",
                                    header: "StepFEA_FeaModel.hxx".}
-proc SetIntendedAnalysisCode*(this: var StepFEA_FeaModel; IntendedAnalysisCode: handle[
-    TColStd_HArray1OfAsciiString]) {.importcpp: "SetIntendedAnalysisCode",
-                                    header: "StepFEA_FeaModel.hxx".}
-proc Description*(this: StepFEA_FeaModel): handle[TCollection_HAsciiString] {.
+proc description*(this: StepFEA_FeaModel): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Description", header: "StepFEA_FeaModel.hxx".}
-proc SetDescription*(this: var StepFEA_FeaModel;
-                    Description: handle[TCollection_HAsciiString]) {.
+proc setDescription*(this: var StepFEA_FeaModel;
+                    description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepFEA_FeaModel.hxx".}
-proc AnalysisType*(this: StepFEA_FeaModel): handle[TCollection_HAsciiString] {.
+proc analysisType*(this: StepFEA_FeaModel): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "AnalysisType", header: "StepFEA_FeaModel.hxx".}
-proc SetAnalysisType*(this: var StepFEA_FeaModel;
-                     AnalysisType: handle[TCollection_HAsciiString]) {.
+proc setAnalysisType*(this: var StepFEA_FeaModel;
+                     analysisType: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetAnalysisType", header: "StepFEA_FeaModel.hxx".}
 type
-  StepFEA_FeaModelbase_type* = StepRepr_Representation
+  StepFEA_FeaModelbaseType* = StepReprRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_FeaModel::get_type_name(@)",
-                              header: "StepFEA_FeaModel.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_FeaModel::get_type_name(@)",
+                            header: "StepFEA_FeaModel.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_FeaModel::get_type_descriptor(@)",
     header: "StepFEA_FeaModel.hxx".}
-proc DynamicType*(this: StepFEA_FeaModel): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepFEA_FeaModel): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepFEA_FeaModel.hxx".}

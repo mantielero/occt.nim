@@ -11,41 +11,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Transient, ../TCollection/TCollection_AsciiString
-
 discard "forward decl of Message_Attribute"
 type
-  Handle_Message_Attribute* = handle[Message_Attribute]
+  HandleMessageAttribute* = Handle[MessageAttribute]
 
 ## ! Additional information of extended alert attribute
 ## ! To provide other custom attribute container, it might be redefined.
 
 type
-  Message_Attribute* {.importcpp: "Message_Attribute",
-                      header: "Message_Attribute.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                        ## !
-                                                                                        ## Empty
-                                                                                        ## constructor
+  MessageAttribute* {.importcpp: "Message_Attribute",
+                     header: "Message_Attribute.hxx", bycopy.} = object of StandardTransient ##
+                                                                                      ## !
+                                                                                      ## Empty
+                                                                                      ## constructor
     ## !< alert name, if defined is used in GetMessageKey
 
-  Message_Attributebase_type* = Standard_Transient
+  MessageAttributebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Message_Attribute::get_type_name(@)",
-                              header: "Message_Attribute.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Message_Attribute::get_type_name(@)",
+                            header: "Message_Attribute.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Message_Attribute::get_type_descriptor(@)",
     header: "Message_Attribute.hxx".}
-proc DynamicType*(this: Message_Attribute): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: MessageAttribute): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Message_Attribute.hxx".}
-proc constructMessage_Attribute*(theName: TCollection_AsciiString = TCollection_AsciiString()): Message_Attribute {.
+proc constructMessageAttribute*(theName: TCollectionAsciiString = tCollectionAsciiString()): MessageAttribute {.
     constructor, importcpp: "Message_Attribute(@)", header: "Message_Attribute.hxx".}
-proc GetMessageKey*(this: Message_Attribute): Standard_CString {.noSideEffect,
+proc getMessageKey*(this: MessageAttribute): StandardCString {.noSideEffect,
     importcpp: "GetMessageKey", header: "Message_Attribute.hxx".}
-proc GetName*(this: Message_Attribute): TCollection_AsciiString {.noSideEffect,
+proc getName*(this: MessageAttribute): TCollectionAsciiString {.noSideEffect,
     importcpp: "GetName", header: "Message_Attribute.hxx".}
-proc SetName*(this: var Message_Attribute; theName: TCollection_AsciiString) {.
+proc setName*(this: var MessageAttribute; theName: TCollectionAsciiString) {.
     importcpp: "SetName", header: "Message_Attribute.hxx".}
-proc DumpJson*(this: Message_Attribute; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Message_Attribute.hxx".}
+proc dumpJson*(this: MessageAttribute; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Message_Attribute.hxx".}

@@ -13,12 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
-  ShapeFix_DataMapOfShapeBox2d
-
 discard "forward decl of ShapeBuild_ReShape"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
@@ -27,34 +21,30 @@ discard "forward decl of ShapeExtend_WireData"
 discard "forward decl of Bnd_Box2d"
 discard "forward decl of Geom2d_Curve"
 type
-  ShapeFix_IntersectionTool* {.importcpp: "ShapeFix_IntersectionTool",
-                              header: "ShapeFix_IntersectionTool.hxx", bycopy.} = object ##
-                                                                                    ## !
-                                                                                    ## Constructor
+  ShapeFixIntersectionTool* {.importcpp: "ShapeFix_IntersectionTool",
+                             header: "ShapeFix_IntersectionTool.hxx", bycopy.} = object ##
+                                                                                   ## !
+                                                                                   ## Constructor
 
 
-proc constructShapeFix_IntersectionTool*(context: handle[ShapeBuild_ReShape];
-                                        preci: Standard_Real;
-                                        maxtol: Standard_Real = 1.0): ShapeFix_IntersectionTool {.
+proc constructShapeFixIntersectionTool*(context: Handle[ShapeBuildReShape];
+                                       preci: float; maxtol: float = 1.0): ShapeFixIntersectionTool {.
     constructor, importcpp: "ShapeFix_IntersectionTool(@)",
     header: "ShapeFix_IntersectionTool.hxx".}
-proc Context*(this: ShapeFix_IntersectionTool): handle[ShapeBuild_ReShape] {.
+proc context*(this: ShapeFixIntersectionTool): Handle[ShapeBuildReShape] {.
     noSideEffect, importcpp: "Context", header: "ShapeFix_IntersectionTool.hxx".}
-proc SplitEdge*(this: ShapeFix_IntersectionTool; edge: TopoDS_Edge;
-               param: Standard_Real; vert: TopoDS_Vertex; face: TopoDS_Face;
-               newE1: var TopoDS_Edge; newE2: var TopoDS_Edge; preci: Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "SplitEdge", header: "ShapeFix_IntersectionTool.hxx".}
-proc CutEdge*(this: ShapeFix_IntersectionTool; edge: TopoDS_Edge;
-             pend: Standard_Real; cut: Standard_Real; face: TopoDS_Face;
-             iscutline: var Standard_Boolean): Standard_Boolean {.noSideEffect,
+proc splitEdge*(this: ShapeFixIntersectionTool; edge: TopoDS_Edge; param: float;
+               vert: TopoDS_Vertex; face: TopoDS_Face; newE1: var TopoDS_Edge;
+               newE2: var TopoDS_Edge; preci: float): bool {.noSideEffect,
+    importcpp: "SplitEdge", header: "ShapeFix_IntersectionTool.hxx".}
+proc cutEdge*(this: ShapeFixIntersectionTool; edge: TopoDS_Edge; pend: float;
+             cut: float; face: TopoDS_Face; iscutline: var bool): bool {.noSideEffect,
     importcpp: "CutEdge", header: "ShapeFix_IntersectionTool.hxx".}
-proc FixSelfIntersectWire*(this: ShapeFix_IntersectionTool;
-                          sewd: var handle[ShapeExtend_WireData];
-                          face: TopoDS_Face; NbSplit: var Standard_Integer;
-                          NbCut: var Standard_Integer;
-                          NbRemoved: var Standard_Integer): Standard_Boolean {.
+proc fixSelfIntersectWire*(this: ShapeFixIntersectionTool;
+                          sewd: var Handle[ShapeExtendWireData]; face: TopoDS_Face;
+                          nbSplit: var int; nbCut: var int; nbRemoved: var int): bool {.
     noSideEffect, importcpp: "FixSelfIntersectWire",
     header: "ShapeFix_IntersectionTool.hxx".}
-proc FixIntersectingWires*(this: ShapeFix_IntersectionTool; face: var TopoDS_Face): Standard_Boolean {.
+proc fixIntersectingWires*(this: ShapeFixIntersectionTool; face: var TopoDS_Face): bool {.
     noSideEffect, importcpp: "FixIntersectingWires",
     header: "ShapeFix_IntersectionTool.hxx".}

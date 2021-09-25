@@ -14,53 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_MapOfTransient
-
 discard "forward decl of Interface_Graph"
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepShape_ConnectedFaceSet"
 discard "forward decl of StepGeom_CompositeCurve"
 type
-  STEPSelections_Counter* {.importcpp: "STEPSelections_Counter",
-                           header: "STEPSelections_Counter.hxx", bycopy.} = object
+  STEPSelectionsCounter* {.importcpp: "STEPSelections_Counter",
+                          header: "STEPSelections_Counter.hxx", bycopy.} = object
 
 
-proc constructSTEPSelections_Counter*(): STEPSelections_Counter {.constructor,
+proc constructSTEPSelectionsCounter*(): STEPSelectionsCounter {.constructor,
     importcpp: "STEPSelections_Counter(@)", header: "STEPSelections_Counter.hxx".}
-proc Count*(this: var STEPSelections_Counter; graph: Interface_Graph;
-           start: handle[Standard_Transient]) {.importcpp: "Count",
+proc count*(this: var STEPSelectionsCounter; graph: InterfaceGraph;
+           start: Handle[StandardTransient]) {.importcpp: "Count",
     header: "STEPSelections_Counter.hxx".}
-proc Clear*(this: var STEPSelections_Counter) {.importcpp: "Clear",
+proc clear*(this: var STEPSelectionsCounter) {.importcpp: "Clear",
     header: "STEPSelections_Counter.hxx".}
-proc NbInstancesOfFaces*(this: STEPSelections_Counter): Standard_Integer {.
-    noSideEffect, importcpp: "NbInstancesOfFaces",
+proc nbInstancesOfFaces*(this: STEPSelectionsCounter): int {.noSideEffect,
+    importcpp: "NbInstancesOfFaces", header: "STEPSelections_Counter.hxx".}
+proc pop*(this: STEPSelectionsCounter): int {.noSideEffect, importcpp: "POP",
     header: "STEPSelections_Counter.hxx".}
-proc POP*(this: STEPSelections_Counter): Standard_Integer {.noSideEffect,
-    importcpp: "POP", header: "STEPSelections_Counter.hxx".}
-proc POP2*(this: STEPSelections_Counter): Standard_Integer {.noSideEffect,
-    importcpp: "POP2", header: "STEPSelections_Counter.hxx".}
-proc NbInstancesOfShells*(this: STEPSelections_Counter): Standard_Integer {.
-    noSideEffect, importcpp: "NbInstancesOfShells",
+proc pop2*(this: STEPSelectionsCounter): int {.noSideEffect, importcpp: "POP2",
     header: "STEPSelections_Counter.hxx".}
-proc NbInstancesOfSolids*(this: STEPSelections_Counter): Standard_Integer {.
-    noSideEffect, importcpp: "NbInstancesOfSolids",
-    header: "STEPSelections_Counter.hxx".}
-proc NbInstancesOfEdges*(this: STEPSelections_Counter): Standard_Integer {.
-    noSideEffect, importcpp: "NbInstancesOfEdges",
-    header: "STEPSelections_Counter.hxx".}
-proc NbInstancesOfWires*(this: STEPSelections_Counter): Standard_Integer {.
-    noSideEffect, importcpp: "NbInstancesOfWires",
-    header: "STEPSelections_Counter.hxx".}
-proc NbSourceFaces*(this: STEPSelections_Counter): Standard_Integer {.noSideEffect,
+proc nbInstancesOfShells*(this: STEPSelectionsCounter): int {.noSideEffect,
+    importcpp: "NbInstancesOfShells", header: "STEPSelections_Counter.hxx".}
+proc nbInstancesOfSolids*(this: STEPSelectionsCounter): int {.noSideEffect,
+    importcpp: "NbInstancesOfSolids", header: "STEPSelections_Counter.hxx".}
+proc nbInstancesOfEdges*(this: STEPSelectionsCounter): int {.noSideEffect,
+    importcpp: "NbInstancesOfEdges", header: "STEPSelections_Counter.hxx".}
+proc nbInstancesOfWires*(this: STEPSelectionsCounter): int {.noSideEffect,
+    importcpp: "NbInstancesOfWires", header: "STEPSelections_Counter.hxx".}
+proc nbSourceFaces*(this: STEPSelectionsCounter): int {.noSideEffect,
     importcpp: "NbSourceFaces", header: "STEPSelections_Counter.hxx".}
-proc NbSourceShells*(this: STEPSelections_Counter): Standard_Integer {.noSideEffect,
+proc nbSourceShells*(this: STEPSelectionsCounter): int {.noSideEffect,
     importcpp: "NbSourceShells", header: "STEPSelections_Counter.hxx".}
-proc NbSourceSolids*(this: STEPSelections_Counter): Standard_Integer {.noSideEffect,
+proc nbSourceSolids*(this: STEPSelectionsCounter): int {.noSideEffect,
     importcpp: "NbSourceSolids", header: "STEPSelections_Counter.hxx".}
-proc NbSourceEdges*(this: STEPSelections_Counter): Standard_Integer {.noSideEffect,
+proc nbSourceEdges*(this: STEPSelectionsCounter): int {.noSideEffect,
     importcpp: "NbSourceEdges", header: "STEPSelections_Counter.hxx".}
-proc NbSourceWires*(this: STEPSelections_Counter): Standard_Integer {.noSideEffect,
+proc nbSourceWires*(this: STEPSelectionsCounter): int {.noSideEffect,
     importcpp: "NbSourceWires", header: "STEPSelections_Counter.hxx".}

@@ -14,39 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepData/StepData_SelectReal, ../Standard/Standard_Boolean,
-  ../Standard/Standard_CString
-
 discard "forward decl of StepGeom_TrimmingMember"
 discard "forward decl of StepGeom_TrimmingMember"
 type
-  Handle_StepGeom_TrimmingMember* = handle[StepGeom_TrimmingMember]
+  HandleStepGeomTrimmingMember* = Handle[StepGeomTrimmingMember]
 
 ## ! For immediate members of TrimmingSelect, i.e. :
 ## ! ParameterValue (a Real)
 
 type
-  StepGeom_TrimmingMember* {.importcpp: "StepGeom_TrimmingMember",
-                            header: "StepGeom_TrimmingMember.hxx", bycopy.} = object of StepData_SelectReal
+  StepGeomTrimmingMember* {.importcpp: "StepGeom_TrimmingMember",
+                           header: "StepGeom_TrimmingMember.hxx", bycopy.} = object of StepDataSelectReal
 
 
-proc constructStepGeom_TrimmingMember*(): StepGeom_TrimmingMember {.constructor,
+proc constructStepGeomTrimmingMember*(): StepGeomTrimmingMember {.constructor,
     importcpp: "StepGeom_TrimmingMember(@)", header: "StepGeom_TrimmingMember.hxx".}
-proc HasName*(this: StepGeom_TrimmingMember): Standard_Boolean {.noSideEffect,
+proc hasName*(this: StepGeomTrimmingMember): bool {.noSideEffect,
     importcpp: "HasName", header: "StepGeom_TrimmingMember.hxx".}
-proc Name*(this: StepGeom_TrimmingMember): Standard_CString {.noSideEffect,
+proc name*(this: StepGeomTrimmingMember): StandardCString {.noSideEffect,
     importcpp: "Name", header: "StepGeom_TrimmingMember.hxx".}
-proc SetName*(this: var StepGeom_TrimmingMember; name: Standard_CString): Standard_Boolean {.
+proc setName*(this: var StepGeomTrimmingMember; name: StandardCString): bool {.
     importcpp: "SetName", header: "StepGeom_TrimmingMember.hxx".}
 type
-  StepGeom_TrimmingMemberbase_type* = StepData_SelectReal
+  StepGeomTrimmingMemberbaseType* = StepDataSelectReal
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_TrimmingMember::get_type_name(@)",
-                              header: "StepGeom_TrimmingMember.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_TrimmingMember::get_type_name(@)",
+                            header: "StepGeom_TrimmingMember.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_TrimmingMember::get_type_descriptor(@)",
     header: "StepGeom_TrimmingMember.hxx".}
-proc DynamicType*(this: StepGeom_TrimmingMember): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomTrimmingMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_TrimmingMember.hxx".}

@@ -14,15 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_Overflow_HeaderFile [NewLine] # _Standard_Overflow_HeaderFile [NewLine] # Standard_Type.hxx [NewLine] # Standard_DefineException.hxx [NewLine] # Standard_SStream.hxx [NewLine] # Standard_NumericError.hxx [NewLine] class Standard_Overflow ;
+## !!!Ignored construct:  # _Standard_Overflow_HeaderFile [NewLine] # _Standard_Overflow_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_NumericError . hxx > [NewLine] class Standard_Overflow ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Standard_Overflow"
 type
-  Handle_Standard_OverflowStandard_Overflow* = handle[Standard_Overflow]
+  HandleStandardOverflowStandardOverflow* = Handle[StandardOverflow]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_Overflow [NewLine] # if ( CONDITION ) throw Standard_Overflow ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_Overflow , Standard_NumericError ) #  _Standard_Overflow_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_Overflow , Standard_NumericError ) #  _Standard_Overflow_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

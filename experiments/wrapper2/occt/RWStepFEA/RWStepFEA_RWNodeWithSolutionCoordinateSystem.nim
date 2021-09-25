@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepFEA_NodeWithSolutionCoordinateSystem"
@@ -33,18 +29,18 @@ type
 proc constructRWStepFEA_RWNodeWithSolutionCoordinateSystem*(): RWStepFEA_RWNodeWithSolutionCoordinateSystem {.
     constructor, importcpp: "RWStepFEA_RWNodeWithSolutionCoordinateSystem(@)",
     header: "RWStepFEA_RWNodeWithSolutionCoordinateSystem.hxx".}
-proc ReadStep*(this: RWStepFEA_RWNodeWithSolutionCoordinateSystem;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepFEA_NodeWithSolutionCoordinateSystem]) {.
+proc readStep*(this: RWStepFEA_RWNodeWithSolutionCoordinateSystem;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepFEA_NodeWithSolutionCoordinateSystem]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepFEA_RWNodeWithSolutionCoordinateSystem.hxx".}
-proc WriteStep*(this: RWStepFEA_RWNodeWithSolutionCoordinateSystem;
-               SW: var StepData_StepWriter;
-               ent: handle[StepFEA_NodeWithSolutionCoordinateSystem]) {.
+proc writeStep*(this: RWStepFEA_RWNodeWithSolutionCoordinateSystem;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepFEA_NodeWithSolutionCoordinateSystem]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepFEA_RWNodeWithSolutionCoordinateSystem.hxx".}
-proc Share*(this: RWStepFEA_RWNodeWithSolutionCoordinateSystem;
-           ent: handle[StepFEA_NodeWithSolutionCoordinateSystem];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepFEA_RWNodeWithSolutionCoordinateSystem;
+           ent: Handle[StepFEA_NodeWithSolutionCoordinateSystem];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWNodeWithSolutionCoordinateSystem.hxx".}

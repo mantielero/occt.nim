@@ -14,15 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../BRepPrimAPI/BRepPrimAPI_MakeSweep,
-  ../Standard/Standard_Boolean, ../BRepFill/BRepFill_PipeShell,
-  ../BRepFill/BRepFill_TypeOfContact, ../BRepBuilderAPI/BRepBuilderAPI_PipeError,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer,
-  ../BRepBuilderAPI/BRepBuilderAPI_TransitionMode,
-  ../TopTools/TopTools_ListOfShape
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Wire"
@@ -66,81 +57,71 @@ type
                                                                                                                ## used
 
 
-proc constructBRepOffsetAPI_MakePipeShell*(Spine: TopoDS_Wire): BRepOffsetAPI_MakePipeShell {.
+proc constructBRepOffsetAPI_MakePipeShell*(spine: TopoDS_Wire): BRepOffsetAPI_MakePipeShell {.
     constructor, importcpp: "BRepOffsetAPI_MakePipeShell(@)",
     header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc SetMode*(this: var BRepOffsetAPI_MakePipeShell;
-             IsFrenet: Standard_Boolean = Standard_False) {.importcpp: "SetMode",
-    header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc SetDiscreteMode*(this: var BRepOffsetAPI_MakePipeShell) {.
+proc setMode*(this: var BRepOffsetAPI_MakePipeShell; isFrenet: bool = false) {.
+    importcpp: "SetMode", header: "BRepOffsetAPI_MakePipeShell.hxx".}
+proc setDiscreteMode*(this: var BRepOffsetAPI_MakePipeShell) {.
     importcpp: "SetDiscreteMode", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc SetMode*(this: var BRepOffsetAPI_MakePipeShell; Axe: gp_Ax2) {.
-    importcpp: "SetMode", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc SetMode*(this: var BRepOffsetAPI_MakePipeShell; BiNormal: gp_Dir) {.
-    importcpp: "SetMode", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc SetMode*(this: var BRepOffsetAPI_MakePipeShell; SpineSupport: TopoDS_Shape): Standard_Boolean {.
-    importcpp: "SetMode", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc SetMode*(this: var BRepOffsetAPI_MakePipeShell; AuxiliarySpine: TopoDS_Wire;
-             CurvilinearEquivalence: Standard_Boolean;
-             KeepContact: BRepFill_TypeOfContact = BRepFill_NoContact) {.
-    importcpp: "SetMode", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc Add*(this: var BRepOffsetAPI_MakePipeShell; Profile: TopoDS_Shape;
-         WithContact: Standard_Boolean = Standard_False;
-         WithCorrection: Standard_Boolean = Standard_False) {.importcpp: "Add",
+proc setMode*(this: var BRepOffsetAPI_MakePipeShell; axe: Ax2) {.importcpp: "SetMode",
     header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc Add*(this: var BRepOffsetAPI_MakePipeShell; Profile: TopoDS_Shape;
-         Location: TopoDS_Vertex; WithContact: Standard_Boolean = Standard_False;
-         WithCorrection: Standard_Boolean = Standard_False) {.importcpp: "Add",
+proc setMode*(this: var BRepOffsetAPI_MakePipeShell; biNormal: Dir) {.
+    importcpp: "SetMode", header: "BRepOffsetAPI_MakePipeShell.hxx".}
+proc setMode*(this: var BRepOffsetAPI_MakePipeShell; spineSupport: TopoDS_Shape): bool {.
+    importcpp: "SetMode", header: "BRepOffsetAPI_MakePipeShell.hxx".}
+proc setMode*(this: var BRepOffsetAPI_MakePipeShell; auxiliarySpine: TopoDS_Wire;
+             curvilinearEquivalence: bool;
+             keepContact: BRepFillTypeOfContact = bRepFillNoContact) {.
+    importcpp: "SetMode", header: "BRepOffsetAPI_MakePipeShell.hxx".}
+proc add*(this: var BRepOffsetAPI_MakePipeShell; profile: TopoDS_Shape;
+         withContact: bool = false; withCorrection: bool = false) {.importcpp: "Add",
     header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc SetLaw*(this: var BRepOffsetAPI_MakePipeShell; Profile: TopoDS_Shape;
-            L: handle[Law_Function];
-            WithContact: Standard_Boolean = Standard_False;
-            WithCorrection: Standard_Boolean = Standard_False) {.
+proc add*(this: var BRepOffsetAPI_MakePipeShell; profile: TopoDS_Shape;
+         location: TopoDS_Vertex; withContact: bool = false;
+         withCorrection: bool = false) {.importcpp: "Add",
+                                     header: "BRepOffsetAPI_MakePipeShell.hxx".}
+proc setLaw*(this: var BRepOffsetAPI_MakePipeShell; profile: TopoDS_Shape;
+            L: Handle[LawFunction]; withContact: bool = false;
+            withCorrection: bool = false) {.importcpp: "SetLaw", header: "BRepOffsetAPI_MakePipeShell.hxx".}
+proc setLaw*(this: var BRepOffsetAPI_MakePipeShell; profile: TopoDS_Shape;
+            L: Handle[LawFunction]; location: TopoDS_Vertex;
+            withContact: bool = false; withCorrection: bool = false) {.
     importcpp: "SetLaw", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc SetLaw*(this: var BRepOffsetAPI_MakePipeShell; Profile: TopoDS_Shape;
-            L: handle[Law_Function]; Location: TopoDS_Vertex;
-            WithContact: Standard_Boolean = Standard_False;
-            WithCorrection: Standard_Boolean = Standard_False) {.
-    importcpp: "SetLaw", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc Delete*(this: var BRepOffsetAPI_MakePipeShell; Profile: TopoDS_Shape) {.
+proc delete*(this: var BRepOffsetAPI_MakePipeShell; profile: TopoDS_Shape) {.
     importcpp: "Delete", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc IsReady*(this: BRepOffsetAPI_MakePipeShell): Standard_Boolean {.noSideEffect,
+proc isReady*(this: BRepOffsetAPI_MakePipeShell): bool {.noSideEffect,
     importcpp: "IsReady", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc GetStatus*(this: BRepOffsetAPI_MakePipeShell): BRepBuilderAPI_PipeError {.
+proc getStatus*(this: BRepOffsetAPI_MakePipeShell): BRepBuilderAPI_PipeError {.
     noSideEffect, importcpp: "GetStatus", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc SetTolerance*(this: var BRepOffsetAPI_MakePipeShell;
-                  Tol3d: Standard_Real = 1.0e-4; BoundTol: Standard_Real = 1.0e-4;
-                  TolAngular: Standard_Real = 1.0e-2) {.importcpp: "SetTolerance",
-    header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc SetMaxDegree*(this: var BRepOffsetAPI_MakePipeShell;
-                  NewMaxDegree: Standard_Integer) {.importcpp: "SetMaxDegree",
-    header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc SetMaxSegments*(this: var BRepOffsetAPI_MakePipeShell;
-                    NewMaxSegments: Standard_Integer) {.
+proc setTolerance*(this: var BRepOffsetAPI_MakePipeShell; tol3d: float = 1.0e-4;
+                  boundTol: float = 1.0e-4; tolAngular: float = 1.0e-2) {.
+    importcpp: "SetTolerance", header: "BRepOffsetAPI_MakePipeShell.hxx".}
+proc setMaxDegree*(this: var BRepOffsetAPI_MakePipeShell; newMaxDegree: int) {.
+    importcpp: "SetMaxDegree", header: "BRepOffsetAPI_MakePipeShell.hxx".}
+proc setMaxSegments*(this: var BRepOffsetAPI_MakePipeShell; newMaxSegments: int) {.
     importcpp: "SetMaxSegments", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc SetForceApproxC1*(this: var BRepOffsetAPI_MakePipeShell;
-                      ForceApproxC1: Standard_Boolean) {.
+proc setForceApproxC1*(this: var BRepOffsetAPI_MakePipeShell; forceApproxC1: bool) {.
     importcpp: "SetForceApproxC1", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc SetTransitionMode*(this: var BRepOffsetAPI_MakePipeShell; Mode: BRepBuilderAPI_TransitionMode = BRepBuilderAPI_Transformed) {.
+proc setTransitionMode*(this: var BRepOffsetAPI_MakePipeShell; mode: BRepBuilderAPI_TransitionMode = bRepBuilderAPI_Transformed) {.
     importcpp: "SetTransitionMode", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc Simulate*(this: var BRepOffsetAPI_MakePipeShell;
-              NumberOfSection: Standard_Integer; Result: var TopTools_ListOfShape) {.
-    importcpp: "Simulate", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc Build*(this: var BRepOffsetAPI_MakePipeShell) {.importcpp: "Build",
+proc simulate*(this: var BRepOffsetAPI_MakePipeShell; numberOfSection: int;
+              result: var TopToolsListOfShape) {.importcpp: "Simulate",
     header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc MakeSolid*(this: var BRepOffsetAPI_MakePipeShell): Standard_Boolean {.
+proc build*(this: var BRepOffsetAPI_MakePipeShell) {.importcpp: "Build",
+    header: "BRepOffsetAPI_MakePipeShell.hxx".}
+proc makeSolid*(this: var BRepOffsetAPI_MakePipeShell): bool {.
     importcpp: "MakeSolid", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc FirstShape*(this: var BRepOffsetAPI_MakePipeShell): TopoDS_Shape {.
+proc firstShape*(this: var BRepOffsetAPI_MakePipeShell): TopoDS_Shape {.
     importcpp: "FirstShape", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc LastShape*(this: var BRepOffsetAPI_MakePipeShell): TopoDS_Shape {.
+proc lastShape*(this: var BRepOffsetAPI_MakePipeShell): TopoDS_Shape {.
     importcpp: "LastShape", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc Generated*(this: var BRepOffsetAPI_MakePipeShell; S: TopoDS_Shape): TopTools_ListOfShape {.
+proc generated*(this: var BRepOffsetAPI_MakePipeShell; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Generated", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc ErrorOnSurface*(this: BRepOffsetAPI_MakePipeShell): Standard_Real {.
-    noSideEffect, importcpp: "ErrorOnSurface",
+proc errorOnSurface*(this: BRepOffsetAPI_MakePipeShell): float {.noSideEffect,
+    importcpp: "ErrorOnSurface", header: "BRepOffsetAPI_MakePipeShell.hxx".}
+proc profiles*(this: var BRepOffsetAPI_MakePipeShell;
+              theProfiles: var TopToolsListOfShape) {.importcpp: "Profiles",
     header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc Profiles*(this: var BRepOffsetAPI_MakePipeShell;
-              theProfiles: var TopTools_ListOfShape) {.importcpp: "Profiles",
-    header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc Spine*(this: var BRepOffsetAPI_MakePipeShell): TopoDS_Wire {.importcpp: "Spine",
+proc spine*(this: var BRepOffsetAPI_MakePipeShell): TopoDS_Wire {.importcpp: "Spine",
     header: "BRepOffsetAPI_MakePipeShell.hxx".}

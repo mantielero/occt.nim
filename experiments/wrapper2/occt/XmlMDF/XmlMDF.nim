@@ -13,13 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../XmlObjMgt/XmlObjMgt_Element,
-  ../XmlObjMgt/XmlObjMgt_SRelocationTable, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../XmlObjMgt/XmlObjMgt_RRelocationTable,
-  XmlMDF_MapOfDriver, ../Message/Message_ProgressRange
-
 discard "forward decl of TDF_Data"
 discard "forward decl of XmlMDF_ADriverTable"
 discard "forward decl of TDF_Label"
@@ -33,16 +26,16 @@ type
                                                                  ## ! <aTarget>.
 
 
-proc FromTo*(aSource: handle[TDF_Data]; aTarget: var XmlObjMgt_Element;
-            aReloc: var XmlObjMgt_SRelocationTable;
-            aDrivers: handle[XmlMDF_ADriverTable];
-            theRange: Message_ProgressRange = Message_ProgressRange()) {.
+proc fromTo*(aSource: Handle[TDF_Data]; aTarget: var XmlObjMgtElement;
+            aReloc: var XmlObjMgtSRelocationTable;
+            aDrivers: Handle[XmlMDF_ADriverTable];
+            theRange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "XmlMDF::FromTo(@)", header: "XmlMDF.hxx".}
-proc FromTo*(aSource: XmlObjMgt_Element; aTarget: var handle[TDF_Data];
-            aReloc: var XmlObjMgt_RRelocationTable;
-            aDrivers: handle[XmlMDF_ADriverTable];
-            theRange: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
+proc fromTo*(aSource: XmlObjMgtElement; aTarget: var Handle[TDF_Data];
+            aReloc: var XmlObjMgtRRelocationTable;
+            aDrivers: Handle[XmlMDF_ADriverTable];
+            theRange: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "XmlMDF::FromTo(@)", header: "XmlMDF.hxx".}
-proc AddDrivers*(aDriverTable: handle[XmlMDF_ADriverTable];
-                theMessageDriver: handle[Message_Messenger]) {.
+proc addDrivers*(aDriverTable: Handle[XmlMDF_ADriverTable];
+                theMessageDriver: Handle[MessageMessenger]) {.
     importcpp: "XmlMDF::AddDrivers(@)", header: "XmlMDF.hxx".}

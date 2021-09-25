@@ -15,12 +15,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, BOPDS_IndexedMapOfPaveBlock,
-  ../NCollection/NCollection_BaseAllocator, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_MapOfInteger
-
 ## ! The class BOPDS_FaceInfo is to store
 ## ! handy information about state of face
 
@@ -35,35 +29,35 @@ proc constructBOPDS_FaceInfo*(): BOPDS_FaceInfo {.constructor,
     importcpp: "BOPDS_FaceInfo(@)", header: "BOPDS_FaceInfo.hxx".}
 proc destroyBOPDS_FaceInfo*(this: var BOPDS_FaceInfo) {.
     importcpp: "#.~BOPDS_FaceInfo()", header: "BOPDS_FaceInfo.hxx".}
-proc constructBOPDS_FaceInfo*(theAllocator: handle[NCollection_BaseAllocator]): BOPDS_FaceInfo {.
+proc constructBOPDS_FaceInfo*(theAllocator: Handle[NCollectionBaseAllocator]): BOPDS_FaceInfo {.
     constructor, importcpp: "BOPDS_FaceInfo(@)", header: "BOPDS_FaceInfo.hxx".}
-proc Clear*(this: var BOPDS_FaceInfo) {.importcpp: "Clear",
+proc clear*(this: var BOPDS_FaceInfo) {.importcpp: "Clear",
                                     header: "BOPDS_FaceInfo.hxx".}
-proc SetIndex*(this: var BOPDS_FaceInfo; theI: Standard_Integer) {.
-    importcpp: "SetIndex", header: "BOPDS_FaceInfo.hxx".}
-proc Index*(this: BOPDS_FaceInfo): Standard_Integer {.noSideEffect,
-    importcpp: "Index", header: "BOPDS_FaceInfo.hxx".}
-proc PaveBlocksIn*(this: BOPDS_FaceInfo): BOPDS_IndexedMapOfPaveBlock {.
+proc setIndex*(this: var BOPDS_FaceInfo; theI: int) {.importcpp: "SetIndex",
+    header: "BOPDS_FaceInfo.hxx".}
+proc index*(this: BOPDS_FaceInfo): int {.noSideEffect, importcpp: "Index",
+                                     header: "BOPDS_FaceInfo.hxx".}
+proc paveBlocksIn*(this: BOPDS_FaceInfo): BOPDS_IndexedMapOfPaveBlock {.
     noSideEffect, importcpp: "PaveBlocksIn", header: "BOPDS_FaceInfo.hxx".}
-proc ChangePaveBlocksIn*(this: var BOPDS_FaceInfo): var BOPDS_IndexedMapOfPaveBlock {.
+proc changePaveBlocksIn*(this: var BOPDS_FaceInfo): var BOPDS_IndexedMapOfPaveBlock {.
     importcpp: "ChangePaveBlocksIn", header: "BOPDS_FaceInfo.hxx".}
-proc VerticesIn*(this: BOPDS_FaceInfo): TColStd_MapOfInteger {.noSideEffect,
+proc verticesIn*(this: BOPDS_FaceInfo): TColStdMapOfInteger {.noSideEffect,
     importcpp: "VerticesIn", header: "BOPDS_FaceInfo.hxx".}
-proc ChangeVerticesIn*(this: var BOPDS_FaceInfo): var TColStd_MapOfInteger {.
+proc changeVerticesIn*(this: var BOPDS_FaceInfo): var TColStdMapOfInteger {.
     importcpp: "ChangeVerticesIn", header: "BOPDS_FaceInfo.hxx".}
-proc PaveBlocksOn*(this: BOPDS_FaceInfo): BOPDS_IndexedMapOfPaveBlock {.
+proc paveBlocksOn*(this: BOPDS_FaceInfo): BOPDS_IndexedMapOfPaveBlock {.
     noSideEffect, importcpp: "PaveBlocksOn", header: "BOPDS_FaceInfo.hxx".}
-proc ChangePaveBlocksOn*(this: var BOPDS_FaceInfo): var BOPDS_IndexedMapOfPaveBlock {.
+proc changePaveBlocksOn*(this: var BOPDS_FaceInfo): var BOPDS_IndexedMapOfPaveBlock {.
     importcpp: "ChangePaveBlocksOn", header: "BOPDS_FaceInfo.hxx".}
-proc VerticesOn*(this: BOPDS_FaceInfo): TColStd_MapOfInteger {.noSideEffect,
+proc verticesOn*(this: BOPDS_FaceInfo): TColStdMapOfInteger {.noSideEffect,
     importcpp: "VerticesOn", header: "BOPDS_FaceInfo.hxx".}
-proc ChangeVerticesOn*(this: var BOPDS_FaceInfo): var TColStd_MapOfInteger {.
+proc changeVerticesOn*(this: var BOPDS_FaceInfo): var TColStdMapOfInteger {.
     importcpp: "ChangeVerticesOn", header: "BOPDS_FaceInfo.hxx".}
-proc PaveBlocksSc*(this: BOPDS_FaceInfo): BOPDS_IndexedMapOfPaveBlock {.
+proc paveBlocksSc*(this: BOPDS_FaceInfo): BOPDS_IndexedMapOfPaveBlock {.
     noSideEffect, importcpp: "PaveBlocksSc", header: "BOPDS_FaceInfo.hxx".}
-proc ChangePaveBlocksSc*(this: var BOPDS_FaceInfo): var BOPDS_IndexedMapOfPaveBlock {.
+proc changePaveBlocksSc*(this: var BOPDS_FaceInfo): var BOPDS_IndexedMapOfPaveBlock {.
     importcpp: "ChangePaveBlocksSc", header: "BOPDS_FaceInfo.hxx".}
-proc VerticesSc*(this: BOPDS_FaceInfo): TColStd_MapOfInteger {.noSideEffect,
+proc verticesSc*(this: BOPDS_FaceInfo): TColStdMapOfInteger {.noSideEffect,
     importcpp: "VerticesSc", header: "BOPDS_FaceInfo.hxx".}
-proc ChangeVerticesSc*(this: var BOPDS_FaceInfo): var TColStd_MapOfInteger {.
+proc changeVerticesSc*(this: var BOPDS_FaceInfo): var TColStdMapOfInteger {.
     importcpp: "ChangeVerticesSc", header: "BOPDS_FaceInfo.hxx".}

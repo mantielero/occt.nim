@@ -16,7 +16,8 @@
 ##  The markers used in binary file
 
 type
-  BinDrivers_Marker* {.size: sizeof(cint), importcpp: "BinDrivers_Marker",
-                      header: "BinDrivers_Marker.hxx".} = enum
-    BinDrivers_ENDLABEL = -2, BinDrivers_ENDATTRLIST = -1 ##  the end of attributes list
+  BinDriversMarker* {.size: sizeof(cint), importcpp: "BinDrivers_Marker",
+                     header: "BinDrivers_Marker.hxx".} = enum
+    BinDriversENDLABEL = -2, BinDriversENDATTRLIST = -1 ##  the end of attributes list
+
 

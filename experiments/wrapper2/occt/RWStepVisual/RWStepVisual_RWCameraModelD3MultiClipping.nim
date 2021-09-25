@@ -13,35 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_CameraModelD3MultiClipping"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisual_RWCameraModelD3MultiClipping* {.
+  RWStepVisualRWCameraModelD3MultiClipping* {.
       importcpp: "RWStepVisual_RWCameraModelD3MultiClipping",
       header: "RWStepVisual_RWCameraModelD3MultiClipping.hxx", bycopy.} = object
 
 
-proc constructRWStepVisual_RWCameraModelD3MultiClipping*(): RWStepVisual_RWCameraModelD3MultiClipping {.
+proc constructRWStepVisualRWCameraModelD3MultiClipping*(): RWStepVisualRWCameraModelD3MultiClipping {.
     constructor, importcpp: "RWStepVisual_RWCameraModelD3MultiClipping(@)",
     header: "RWStepVisual_RWCameraModelD3MultiClipping.hxx".}
-proc ReadStep*(this: RWStepVisual_RWCameraModelD3MultiClipping;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepVisual_CameraModelD3MultiClipping]) {.noSideEffect,
+proc readStep*(this: RWStepVisualRWCameraModelD3MultiClipping;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepVisualCameraModelD3MultiClipping]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWCameraModelD3MultiClipping.hxx".}
-proc WriteStep*(this: RWStepVisual_RWCameraModelD3MultiClipping;
-               SW: var StepData_StepWriter;
-               ent: handle[StepVisual_CameraModelD3MultiClipping]) {.noSideEffect,
+proc writeStep*(this: RWStepVisualRWCameraModelD3MultiClipping;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepVisualCameraModelD3MultiClipping]) {.noSideEffect,
     importcpp: "WriteStep",
     header: "RWStepVisual_RWCameraModelD3MultiClipping.hxx".}
-proc Share*(this: RWStepVisual_RWCameraModelD3MultiClipping;
-           ent: handle[StepVisual_CameraModelD3MultiClipping];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepVisualRWCameraModelD3MultiClipping;
+           ent: Handle[StepVisualCameraModelD3MultiClipping];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWCameraModelD3MultiClipping.hxx".}

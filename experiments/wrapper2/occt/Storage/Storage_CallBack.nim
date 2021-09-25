@@ -14,38 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of Standard_Persistent"
 discard "forward decl of Storage_Schema"
 discard "forward decl of Storage_BaseDriver"
 discard "forward decl of Storage_CallBack"
 discard "forward decl of Storage_CallBack"
 type
-  Handle_Storage_CallBack* = handle[Storage_CallBack]
-  Storage_CallBack* {.importcpp: "Storage_CallBack",
-                     header: "Storage_CallBack.hxx", bycopy.} = object of Standard_Transient
+  HandleStorageCallBack* = Handle[StorageCallBack]
+  StorageCallBack* {.importcpp: "Storage_CallBack", header: "Storage_CallBack.hxx",
+                    bycopy.} = object of StandardTransient
 
 
-proc New*(this: Storage_CallBack): handle[Standard_Persistent] {.noSideEffect,
+proc new*(this: StorageCallBack): Handle[StandardPersistent] {.noSideEffect,
     importcpp: "New", header: "Storage_CallBack.hxx".}
-proc Add*(this: Storage_CallBack; aPers: handle[Standard_Persistent];
-         aSchema: handle[Storage_Schema]) {.noSideEffect, importcpp: "Add",
+proc add*(this: StorageCallBack; aPers: Handle[StandardPersistent];
+         aSchema: Handle[StorageSchema]) {.noSideEffect, importcpp: "Add",
     header: "Storage_CallBack.hxx".}
-proc Write*(this: Storage_CallBack; aPers: handle[Standard_Persistent];
-           aDriver: handle[Storage_BaseDriver]; aSchema: handle[Storage_Schema]) {.
+proc write*(this: StorageCallBack; aPers: Handle[StandardPersistent];
+           aDriver: Handle[StorageBaseDriver]; aSchema: Handle[StorageSchema]) {.
     noSideEffect, importcpp: "Write", header: "Storage_CallBack.hxx".}
-proc Read*(this: Storage_CallBack; aPers: handle[Standard_Persistent];
-          aDriver: handle[Storage_BaseDriver]; aSchema: handle[Storage_Schema]) {.
+proc read*(this: StorageCallBack; aPers: Handle[StandardPersistent];
+          aDriver: Handle[StorageBaseDriver]; aSchema: Handle[StorageSchema]) {.
     noSideEffect, importcpp: "Read", header: "Storage_CallBack.hxx".}
 type
-  Storage_CallBackbase_type* = Standard_Transient
+  StorageCallBackbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Storage_CallBack::get_type_name(@)",
-                              header: "Storage_CallBack.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Storage_CallBack::get_type_name(@)",
+                            header: "Storage_CallBack.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Storage_CallBack::get_type_descriptor(@)",
     header: "Storage_CallBack.hxx".}
-proc DynamicType*(this: Storage_CallBack): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StorageCallBack): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Storage_CallBack.hxx".}

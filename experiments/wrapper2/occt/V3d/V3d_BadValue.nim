@@ -14,15 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _V3d_BadValue_HeaderFile [NewLine] # _V3d_BadValue_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_OutOfRange.hxx [NewLine] class V3d_BadValue ;
+## !!!Ignored construct:  # _V3d_BadValue_HeaderFile [NewLine] # _V3d_BadValue_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_OutOfRange . hxx > [NewLine] class V3d_BadValue ;
 ## Error: expected ';'!!!
 
 discard "forward decl of V3d_BadValue"
 type
-  Handle_V3d_BadValueV3d_BadValue* = handle[V3d_BadValue]
+  HandleV3dBadValueV3dBadValue* = Handle[V3dBadValue]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_V3d_BadValue [NewLine] # if ( CONDITION ) throw V3d_BadValue ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( V3d_BadValue , Standard_OutOfRange ) #  _V3d_BadValue_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( V3d_BadValue , Standard_OutOfRange ) #  _V3d_BadValue_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

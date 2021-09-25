@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Plate_PinpointConstraint, Plate_Array1OfPinpointConstraint,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  Plate_HArray1OfPinpointConstraint* {.importcpp: "Plate_HArray1OfPinpointConstraint", header: "Plate_HArray1OfPinpointConstraint.hxx",
-                                      bycopy.} = object of Plate_Array1OfPinpointConstraint
+  PlateHArray1OfPinpointConstraint* {.importcpp: "Plate_HArray1OfPinpointConstraint", header: "Plate_HArray1OfPinpointConstraint.hxx",
+                                     bycopy.} = object of PlateArray1OfPinpointConstraint
 
 
-proc constructPlate_HArray1OfPinpointConstraint*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): Plate_HArray1OfPinpointConstraint {.constructor,
+proc constructPlateHArray1OfPinpointConstraint*(theLower: int; theUpper: int): PlateHArray1OfPinpointConstraint {.
+    constructor, importcpp: "Plate_HArray1OfPinpointConstraint(@)",
+    header: "Plate_HArray1OfPinpointConstraint.hxx".}
+proc constructPlateHArray1OfPinpointConstraint*(theLower: int; theUpper: int;
+    theValue: ValueType): PlateHArray1OfPinpointConstraint {.constructor,
     importcpp: "Plate_HArray1OfPinpointConstraint(@)",
     header: "Plate_HArray1OfPinpointConstraint.hxx".}
-proc constructPlate_HArray1OfPinpointConstraint*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): Plate_HArray1OfPinpointConstraint {.
+proc constructPlateHArray1OfPinpointConstraint*(
+    theOther: PlateArray1OfPinpointConstraint): PlateHArray1OfPinpointConstraint {.
     constructor, importcpp: "Plate_HArray1OfPinpointConstraint(@)",
     header: "Plate_HArray1OfPinpointConstraint.hxx".}
-proc constructPlate_HArray1OfPinpointConstraint*(
-    theOther: Plate_Array1OfPinpointConstraint): Plate_HArray1OfPinpointConstraint {.
-    constructor, importcpp: "Plate_HArray1OfPinpointConstraint(@)",
-    header: "Plate_HArray1OfPinpointConstraint.hxx".}
-proc Array1*(this: Plate_HArray1OfPinpointConstraint): Plate_Array1OfPinpointConstraint {.
+proc array1*(this: PlateHArray1OfPinpointConstraint): PlateArray1OfPinpointConstraint {.
     noSideEffect, importcpp: "Array1",
     header: "Plate_HArray1OfPinpointConstraint.hxx".}
-proc ChangeArray1*(this: var Plate_HArray1OfPinpointConstraint): var Plate_Array1OfPinpointConstraint {.
+proc changeArray1*(this: var PlateHArray1OfPinpointConstraint): var PlateArray1OfPinpointConstraint {.
     importcpp: "ChangeArray1", header: "Plate_HArray1OfPinpointConstraint.hxx".}
 type
-  Plate_HArray1OfPinpointConstraintbase_type* = MMgt_TShared
+  PlateHArray1OfPinpointConstraintbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "Plate_HArray1OfPinpointConstraint::get_type_name(@)",
-                              header: "Plate_HArray1OfPinpointConstraint.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Plate_HArray1OfPinpointConstraint::get_type_name(@)",
+                            header: "Plate_HArray1OfPinpointConstraint.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Plate_HArray1OfPinpointConstraint::get_type_descriptor(@)",
     header: "Plate_HArray1OfPinpointConstraint.hxx".}
-proc DynamicType*(this: Plate_HArray1OfPinpointConstraint): handle[Standard_Type] {.
+proc dynamicType*(this: PlateHArray1OfPinpointConstraint): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Plate_HArray1OfPinpointConstraint.hxx".}

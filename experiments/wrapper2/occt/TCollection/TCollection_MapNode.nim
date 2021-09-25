@@ -14,34 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TCollection_MapNodePtr,
-  ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_MapNode"
 discard "forward decl of TCollection_MapNode"
 type
-  Handle_TCollection_MapNode* = handle[TCollection_MapNode]
+  HandleTCollectionMapNode* = Handle[TCollectionMapNode]
 
 ## ! Basic class root of all the Maps.
 
 type
-  TCollection_MapNode* {.importcpp: "TCollection_MapNode",
-                        header: "TCollection_MapNode.hxx", bycopy.} = object of Standard_Transient
+  TCollectionMapNode* {.importcpp: "TCollection_MapNode",
+                       header: "TCollection_MapNode.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructTCollection_MapNode*(n: TCollection_MapNodePtr): TCollection_MapNode {.
+proc constructTCollectionMapNode*(n: TCollectionMapNodePtr): TCollectionMapNode {.
     constructor, importcpp: "TCollection_MapNode(@)",
     header: "TCollection_MapNode.hxx".}
-proc Next*(this: TCollection_MapNode): var TCollection_MapNodePtr {.noSideEffect,
+proc next*(this: TCollectionMapNode): var TCollectionMapNodePtr {.noSideEffect,
     importcpp: "Next", header: "TCollection_MapNode.hxx".}
 type
-  TCollection_MapNodebase_type* = Standard_Transient
+  TCollectionMapNodebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TCollection_MapNode::get_type_name(@)",
-                              header: "TCollection_MapNode.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TCollection_MapNode::get_type_name(@)",
+                            header: "TCollection_MapNode.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TCollection_MapNode::get_type_descriptor(@)",
     header: "TCollection_MapNode.hxx".}
-proc DynamicType*(this: TCollection_MapNode): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TCollectionMapNode): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TCollection_MapNode.hxx".}

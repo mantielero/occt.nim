@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopAbs/TopAbs_State,
-  ../Standard/Standard_OStream, TopOpeBRepDS_Kind, ../Standard/Standard_Integer,
-  ../TCollection/TCollection_AsciiString, ../TopAbs/TopAbs_ShapeEnum,
-  ../TopAbs/TopAbs_Orientation, TopOpeBRepDS_Config, ../Standard/Standard_Boolean
-
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of TopOpeBRepDS_Interference"
 discard "forward decl of TopOpeBRepDS_InterferenceIterator"
@@ -77,37 +70,37 @@ type
                                                                                    ## UN
 
 
-proc SPrint*(S: TopAbs_State): TCollection_AsciiString {.
+proc sPrint*(s: TopAbsState): TCollectionAsciiString {.
     importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
-proc Print*(S: TopAbs_State; OS: var Standard_OStream): var Standard_OStream {.
+proc print*(s: TopAbsState; os: var StandardOStream): var StandardOStream {.
     importcpp: "TopOpeBRepDS::Print(@)", header: "TopOpeBRepDS.hxx".}
-proc SPrint*(K: TopOpeBRepDS_Kind): TCollection_AsciiString {.
+proc sPrint*(k: TopOpeBRepDS_Kind): TCollectionAsciiString {.
     importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
-proc SPrint*(K: TopOpeBRepDS_Kind; I: Standard_Integer;
-            B: TCollection_AsciiString = ""; A: TCollection_AsciiString = ""): TCollection_AsciiString {.
+proc sPrint*(k: TopOpeBRepDS_Kind; i: int; b: TCollectionAsciiString = "";
+            a: TCollectionAsciiString = ""): TCollectionAsciiString {.
     importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
-proc Print*(K: TopOpeBRepDS_Kind; S: var Standard_OStream): var Standard_OStream {.
+proc print*(k: TopOpeBRepDS_Kind; s: var StandardOStream): var StandardOStream {.
     importcpp: "TopOpeBRepDS::Print(@)", header: "TopOpeBRepDS.hxx".}
-proc Print*(K: TopOpeBRepDS_Kind; I: Standard_Integer; S: var Standard_OStream;
-           B: TCollection_AsciiString = ""; A: TCollection_AsciiString = ""): var Standard_OStream {.
+proc print*(k: TopOpeBRepDS_Kind; i: int; s: var StandardOStream;
+           b: TCollectionAsciiString = ""; a: TCollectionAsciiString = ""): var StandardOStream {.
     importcpp: "TopOpeBRepDS::Print(@)", header: "TopOpeBRepDS.hxx".}
-proc SPrint*(T: TopAbs_ShapeEnum): TCollection_AsciiString {.
+proc sPrint*(t: TopAbsShapeEnum): TCollectionAsciiString {.
     importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
-proc SPrint*(T: TopAbs_ShapeEnum; I: Standard_Integer): TCollection_AsciiString {.
+proc sPrint*(t: TopAbsShapeEnum; i: int): TCollectionAsciiString {.
     importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
-proc Print*(T: TopAbs_ShapeEnum; I: Standard_Integer; S: var Standard_OStream): var Standard_OStream {.
+proc print*(t: TopAbsShapeEnum; i: int; s: var StandardOStream): var StandardOStream {.
     importcpp: "TopOpeBRepDS::Print(@)", header: "TopOpeBRepDS.hxx".}
-proc SPrint*(O: TopAbs_Orientation): TCollection_AsciiString {.
+proc sPrint*(o: TopAbsOrientation): TCollectionAsciiString {.
     importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
-proc SPrint*(C: TopOpeBRepDS_Config): TCollection_AsciiString {.
+proc sPrint*(c: TopOpeBRepDS_Config): TCollectionAsciiString {.
     importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
-proc Print*(C: TopOpeBRepDS_Config; S: var Standard_OStream): var Standard_OStream {.
+proc print*(c: TopOpeBRepDS_Config; s: var StandardOStream): var StandardOStream {.
     importcpp: "TopOpeBRepDS::Print(@)", header: "TopOpeBRepDS.hxx".}
-proc IsGeometry*(K: TopOpeBRepDS_Kind): Standard_Boolean {.
+proc isGeometry*(k: TopOpeBRepDS_Kind): bool {.
     importcpp: "TopOpeBRepDS::IsGeometry(@)", header: "TopOpeBRepDS.hxx".}
-proc IsTopology*(K: TopOpeBRepDS_Kind): Standard_Boolean {.
+proc isTopology*(k: TopOpeBRepDS_Kind): bool {.
     importcpp: "TopOpeBRepDS::IsTopology(@)", header: "TopOpeBRepDS.hxx".}
-proc KindToShape*(K: TopOpeBRepDS_Kind): TopAbs_ShapeEnum {.
+proc kindToShape*(k: TopOpeBRepDS_Kind): TopAbsShapeEnum {.
     importcpp: "TopOpeBRepDS::KindToShape(@)", header: "TopOpeBRepDS.hxx".}
-proc ShapeToKind*(S: TopAbs_ShapeEnum): TopOpeBRepDS_Kind {.
+proc shapeToKind*(s: TopAbsShapeEnum): TopOpeBRepDS_Kind {.
     importcpp: "TopOpeBRepDS::ShapeToKind(@)", header: "TopOpeBRepDS.hxx".}

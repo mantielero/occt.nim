@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # Transfer_HSequenceOfBinder_HeaderFile [NewLine] # Transfer_HSequenceOfBinder_HeaderFile [NewLine] # Transfer_Binder.hxx [NewLine] # Transfer_SequenceOfBinder.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( Transfer_HSequenceOfBinder , Transfer_SequenceOfBinder ) # [NewLine]
+## !!!Ignored construct:  # Transfer_HSequenceOfBinder_HeaderFile [NewLine] # Transfer_HSequenceOfBinder_HeaderFile [NewLine] # < Transfer_Binder . hxx > [NewLine] # < Transfer_SequenceOfBinder . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( Transfer_HSequenceOfBinder , Transfer_SequenceOfBinder ) # [NewLine]
 ## Error: expected ';'!!!
+

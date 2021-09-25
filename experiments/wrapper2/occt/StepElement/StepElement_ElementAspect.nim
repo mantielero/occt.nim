@@ -13,77 +13,64 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer, StepElement_ElementVolume, StepElement_CurveEdge
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepData_SelectMember"
 type
-  StepElement_ElementAspect* {.importcpp: "StepElement_ElementAspect",
-                              header: "StepElement_ElementAspect.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                         ## !
-                                                                                                         ## Empty
-                                                                                                         ## constructor
+  StepElementElementAspect* {.importcpp: "StepElement_ElementAspect",
+                             header: "StepElement_ElementAspect.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                       ## !
+                                                                                                       ## Empty
+                                                                                                       ## constructor
 
 
-proc constructStepElement_ElementAspect*(): StepElement_ElementAspect {.
-    constructor, importcpp: "StepElement_ElementAspect(@)",
+proc constructStepElementElementAspect*(): StepElementElementAspect {.constructor,
+    importcpp: "StepElement_ElementAspect(@)",
     header: "StepElement_ElementAspect.hxx".}
-proc CaseNum*(this: StepElement_ElementAspect; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepElementElementAspect; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepElement_ElementAspect.hxx".}
-proc CaseMem*(this: StepElement_ElementAspect; ent: handle[StepData_SelectMember]): Standard_Integer {.
+proc caseMem*(this: StepElementElementAspect; ent: Handle[StepDataSelectMember]): int {.
     noSideEffect, importcpp: "CaseMem", header: "StepElement_ElementAspect.hxx".}
-proc NewMember*(this: StepElement_ElementAspect): handle[StepData_SelectMember] {.
+proc newMember*(this: StepElementElementAspect): Handle[StepDataSelectMember] {.
     noSideEffect, importcpp: "NewMember", header: "StepElement_ElementAspect.hxx".}
-proc SetElementVolume*(this: var StepElement_ElementAspect;
-                      aVal: StepElement_ElementVolume) {.
+proc setElementVolume*(this: var StepElementElementAspect;
+                      aVal: StepElementElementVolume) {.
     importcpp: "SetElementVolume", header: "StepElement_ElementAspect.hxx".}
-proc ElementVolume*(this: StepElement_ElementAspect): StepElement_ElementVolume {.
+proc elementVolume*(this: StepElementElementAspect): StepElementElementVolume {.
     noSideEffect, importcpp: "ElementVolume",
     header: "StepElement_ElementAspect.hxx".}
-proc SetVolume3dFace*(this: var StepElement_ElementAspect; aVal: Standard_Integer) {.
+proc setVolume3dFace*(this: var StepElementElementAspect; aVal: int) {.
     importcpp: "SetVolume3dFace", header: "StepElement_ElementAspect.hxx".}
-proc Volume3dFace*(this: StepElement_ElementAspect): Standard_Integer {.
-    noSideEffect, importcpp: "Volume3dFace",
-    header: "StepElement_ElementAspect.hxx".}
-proc SetVolume2dFace*(this: var StepElement_ElementAspect; aVal: Standard_Integer) {.
+proc volume3dFace*(this: StepElementElementAspect): int {.noSideEffect,
+    importcpp: "Volume3dFace", header: "StepElement_ElementAspect.hxx".}
+proc setVolume2dFace*(this: var StepElementElementAspect; aVal: int) {.
     importcpp: "SetVolume2dFace", header: "StepElement_ElementAspect.hxx".}
-proc Volume2dFace*(this: StepElement_ElementAspect): Standard_Integer {.
-    noSideEffect, importcpp: "Volume2dFace",
-    header: "StepElement_ElementAspect.hxx".}
-proc SetVolume3dEdge*(this: var StepElement_ElementAspect; aVal: Standard_Integer) {.
+proc volume2dFace*(this: StepElementElementAspect): int {.noSideEffect,
+    importcpp: "Volume2dFace", header: "StepElement_ElementAspect.hxx".}
+proc setVolume3dEdge*(this: var StepElementElementAspect; aVal: int) {.
     importcpp: "SetVolume3dEdge", header: "StepElement_ElementAspect.hxx".}
-proc Volume3dEdge*(this: StepElement_ElementAspect): Standard_Integer {.
-    noSideEffect, importcpp: "Volume3dEdge",
-    header: "StepElement_ElementAspect.hxx".}
-proc SetVolume2dEdge*(this: var StepElement_ElementAspect; aVal: Standard_Integer) {.
+proc volume3dEdge*(this: StepElementElementAspect): int {.noSideEffect,
+    importcpp: "Volume3dEdge", header: "StepElement_ElementAspect.hxx".}
+proc setVolume2dEdge*(this: var StepElementElementAspect; aVal: int) {.
     importcpp: "SetVolume2dEdge", header: "StepElement_ElementAspect.hxx".}
-proc Volume2dEdge*(this: StepElement_ElementAspect): Standard_Integer {.
-    noSideEffect, importcpp: "Volume2dEdge",
-    header: "StepElement_ElementAspect.hxx".}
-proc SetSurface3dFace*(this: var StepElement_ElementAspect; aVal: Standard_Integer) {.
+proc volume2dEdge*(this: StepElementElementAspect): int {.noSideEffect,
+    importcpp: "Volume2dEdge", header: "StepElement_ElementAspect.hxx".}
+proc setSurface3dFace*(this: var StepElementElementAspect; aVal: int) {.
     importcpp: "SetSurface3dFace", header: "StepElement_ElementAspect.hxx".}
-proc Surface3dFace*(this: StepElement_ElementAspect): Standard_Integer {.
-    noSideEffect, importcpp: "Surface3dFace",
-    header: "StepElement_ElementAspect.hxx".}
-proc SetSurface2dFace*(this: var StepElement_ElementAspect; aVal: Standard_Integer) {.
+proc surface3dFace*(this: StepElementElementAspect): int {.noSideEffect,
+    importcpp: "Surface3dFace", header: "StepElement_ElementAspect.hxx".}
+proc setSurface2dFace*(this: var StepElementElementAspect; aVal: int) {.
     importcpp: "SetSurface2dFace", header: "StepElement_ElementAspect.hxx".}
-proc Surface2dFace*(this: StepElement_ElementAspect): Standard_Integer {.
-    noSideEffect, importcpp: "Surface2dFace",
-    header: "StepElement_ElementAspect.hxx".}
-proc SetSurface3dEdge*(this: var StepElement_ElementAspect; aVal: Standard_Integer) {.
+proc surface2dFace*(this: StepElementElementAspect): int {.noSideEffect,
+    importcpp: "Surface2dFace", header: "StepElement_ElementAspect.hxx".}
+proc setSurface3dEdge*(this: var StepElementElementAspect; aVal: int) {.
     importcpp: "SetSurface3dEdge", header: "StepElement_ElementAspect.hxx".}
-proc Surface3dEdge*(this: StepElement_ElementAspect): Standard_Integer {.
-    noSideEffect, importcpp: "Surface3dEdge",
-    header: "StepElement_ElementAspect.hxx".}
-proc SetSurface2dEdge*(this: var StepElement_ElementAspect; aVal: Standard_Integer) {.
+proc surface3dEdge*(this: StepElementElementAspect): int {.noSideEffect,
+    importcpp: "Surface3dEdge", header: "StepElement_ElementAspect.hxx".}
+proc setSurface2dEdge*(this: var StepElementElementAspect; aVal: int) {.
     importcpp: "SetSurface2dEdge", header: "StepElement_ElementAspect.hxx".}
-proc Surface2dEdge*(this: StepElement_ElementAspect): Standard_Integer {.
-    noSideEffect, importcpp: "Surface2dEdge",
-    header: "StepElement_ElementAspect.hxx".}
-proc SetCurveEdge*(this: var StepElement_ElementAspect; aVal: StepElement_CurveEdge) {.
+proc surface2dEdge*(this: StepElementElementAspect): int {.noSideEffect,
+    importcpp: "Surface2dEdge", header: "StepElement_ElementAspect.hxx".}
+proc setCurveEdge*(this: var StepElementElementAspect; aVal: StepElementCurveEdge) {.
     importcpp: "SetCurveEdge", header: "StepElement_ElementAspect.hxx".}
-proc CurveEdge*(this: StepElement_ElementAspect): StepElement_CurveEdge {.
+proc curveEdge*(this: StepElementElementAspect): StepElementCurveEdge {.
     noSideEffect, importcpp: "CurveEdge", header: "StepElement_ElementAspect.hxx".}

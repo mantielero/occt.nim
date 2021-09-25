@@ -14,11 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  BRep_CurveRepresentation, ../NCollection/NCollection_List
-
 type
-  BRep_ListOfCurveRepresentation* = NCollection_List[
-      handle[BRep_CurveRepresentation]]
-  BRep_ListIteratorOfListOfCurveRepresentation* = Iterator[
-      handle[BRep_CurveRepresentation]]
+  BRepListOfCurveRepresentation* = NCollectionList[Handle[BRepCurveRepresentation]]
+  BRepListIteratorOfListOfCurveRepresentation* = Iterator[
+      Handle[BRepCurveRepresentation]]
+

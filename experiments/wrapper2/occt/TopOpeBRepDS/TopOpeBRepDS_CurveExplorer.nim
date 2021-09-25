@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Address, ../Standard/Standard_Boolean
-
 discard "forward decl of TopOpeBRepDS_DataStructure"
 discard "forward decl of TopOpeBRepDS_Curve"
 type
@@ -29,27 +24,26 @@ type
 proc constructTopOpeBRepDS_CurveExplorer*(): TopOpeBRepDS_CurveExplorer {.
     constructor, importcpp: "TopOpeBRepDS_CurveExplorer(@)",
     header: "TopOpeBRepDS_CurveExplorer.hxx".}
-proc constructTopOpeBRepDS_CurveExplorer*(DS: TopOpeBRepDS_DataStructure;
-    FindOnlyKeep: Standard_Boolean = Standard_True): TopOpeBRepDS_CurveExplorer {.
-    constructor, importcpp: "TopOpeBRepDS_CurveExplorer(@)",
+proc constructTopOpeBRepDS_CurveExplorer*(ds: TopOpeBRepDS_DataStructure;
+    findOnlyKeep: bool = true): TopOpeBRepDS_CurveExplorer {.constructor,
+    importcpp: "TopOpeBRepDS_CurveExplorer(@)",
     header: "TopOpeBRepDS_CurveExplorer.hxx".}
-proc Init*(this: var TopOpeBRepDS_CurveExplorer; DS: TopOpeBRepDS_DataStructure;
-          FindOnlyKeep: Standard_Boolean = Standard_True) {.importcpp: "Init",
+proc init*(this: var TopOpeBRepDS_CurveExplorer; ds: TopOpeBRepDS_DataStructure;
+          findOnlyKeep: bool = true) {.importcpp: "Init",
+                                   header: "TopOpeBRepDS_CurveExplorer.hxx".}
+proc more*(this: TopOpeBRepDS_CurveExplorer): bool {.noSideEffect, importcpp: "More",
     header: "TopOpeBRepDS_CurveExplorer.hxx".}
-proc More*(this: TopOpeBRepDS_CurveExplorer): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "TopOpeBRepDS_CurveExplorer.hxx".}
-proc Next*(this: var TopOpeBRepDS_CurveExplorer) {.importcpp: "Next",
+proc next*(this: var TopOpeBRepDS_CurveExplorer) {.importcpp: "Next",
     header: "TopOpeBRepDS_CurveExplorer.hxx".}
-proc Curve*(this: TopOpeBRepDS_CurveExplorer): TopOpeBRepDS_Curve {.noSideEffect,
+proc curve*(this: TopOpeBRepDS_CurveExplorer): TopOpeBRepDS_Curve {.noSideEffect,
     importcpp: "Curve", header: "TopOpeBRepDS_CurveExplorer.hxx".}
-proc IsCurve*(this: TopOpeBRepDS_CurveExplorer; I: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsCurve", header: "TopOpeBRepDS_CurveExplorer.hxx".}
-proc IsCurveKeep*(this: TopOpeBRepDS_CurveExplorer; I: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsCurveKeep",
-    header: "TopOpeBRepDS_CurveExplorer.hxx".}
-proc Curve*(this: TopOpeBRepDS_CurveExplorer; I: Standard_Integer): TopOpeBRepDS_Curve {.
+proc isCurve*(this: TopOpeBRepDS_CurveExplorer; i: int): bool {.noSideEffect,
+    importcpp: "IsCurve", header: "TopOpeBRepDS_CurveExplorer.hxx".}
+proc isCurveKeep*(this: TopOpeBRepDS_CurveExplorer; i: int): bool {.noSideEffect,
+    importcpp: "IsCurveKeep", header: "TopOpeBRepDS_CurveExplorer.hxx".}
+proc curve*(this: TopOpeBRepDS_CurveExplorer; i: int): TopOpeBRepDS_Curve {.
     noSideEffect, importcpp: "Curve", header: "TopOpeBRepDS_CurveExplorer.hxx".}
-proc NbCurve*(this: var TopOpeBRepDS_CurveExplorer): Standard_Integer {.
-    importcpp: "NbCurve", header: "TopOpeBRepDS_CurveExplorer.hxx".}
-proc Index*(this: TopOpeBRepDS_CurveExplorer): Standard_Integer {.noSideEffect,
+proc nbCurve*(this: var TopOpeBRepDS_CurveExplorer): int {.importcpp: "NbCurve",
+    header: "TopOpeBRepDS_CurveExplorer.hxx".}
+proc index*(this: TopOpeBRepDS_CurveExplorer): int {.noSideEffect,
     importcpp: "Index", header: "TopOpeBRepDS_CurveExplorer.hxx".}

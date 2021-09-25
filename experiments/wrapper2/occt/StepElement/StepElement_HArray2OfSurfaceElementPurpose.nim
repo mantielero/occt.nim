@@ -11,5 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # StepElement_HArray2OfSurfaceElementPurpose_HeaderFile [NewLine] # StepElement_HArray2OfSurfaceElementPurpose_HeaderFile [NewLine] # StepElement_SurfaceElementPurpose.hxx [NewLine] # StepElement_Array2OfSurfaceElementPurpose.hxx [NewLine] # ../NCollection/NCollection_DefineHArray2.hxx [NewLine] DEFINE_HARRAY2 ( StepElement_HArray2OfSurfaceElementPurpose , StepElement_Array2OfSurfaceElementPurpose ) # [NewLine]
+## !!!Ignored construct:  # StepElement_HArray2OfSurfaceElementPurpose_HeaderFile [NewLine] # StepElement_HArray2OfSurfaceElementPurpose_HeaderFile [NewLine] # < StepElement_SurfaceElementPurpose . hxx > [NewLine] # < StepElement_Array2OfSurfaceElementPurpose . hxx > [NewLine] # < NCollection_DefineHArray2 . hxx > [NewLine] DEFINE_HARRAY2 ( StepElement_HArray2OfSurfaceElementPurpose , StepElement_Array2OfSurfaceElementPurpose ) # [NewLine]
 ## Error: expected ';'!!!
+

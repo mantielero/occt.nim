@@ -14,36 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Vec, TColgp_Array1OfVec, ../NCollection/NCollection_DefineHArray1
-
 type
-  TColgp_HArray1OfVec* {.importcpp: "TColgp_HArray1OfVec",
-                        header: "TColgp_HArray1OfVec.hxx", bycopy.} = object of TColgp_Array1OfVec
+  TColgpHArray1OfVec* {.importcpp: "TColgp_HArray1OfVec",
+                       header: "TColgp_HArray1OfVec.hxx", bycopy.} = object of TColgpArray1OfVec
 
 
-proc constructTColgp_HArray1OfVec*(theLower: Standard_Integer;
-                                  theUpper: Standard_Integer): TColgp_HArray1OfVec {.
+proc constructTColgpHArray1OfVec*(theLower: int; theUpper: int): TColgpHArray1OfVec {.
     constructor, importcpp: "TColgp_HArray1OfVec(@)",
     header: "TColgp_HArray1OfVec.hxx".}
-proc constructTColgp_HArray1OfVec*(theLower: Standard_Integer;
-                                  theUpper: Standard_Integer; theValue: value_type): TColgp_HArray1OfVec {.
+proc constructTColgpHArray1OfVec*(theLower: int; theUpper: int; theValue: ValueType): TColgpHArray1OfVec {.
     constructor, importcpp: "TColgp_HArray1OfVec(@)",
     header: "TColgp_HArray1OfVec.hxx".}
-proc constructTColgp_HArray1OfVec*(theOther: TColgp_Array1OfVec): TColgp_HArray1OfVec {.
+proc constructTColgpHArray1OfVec*(theOther: TColgpArray1OfVec): TColgpHArray1OfVec {.
     constructor, importcpp: "TColgp_HArray1OfVec(@)",
     header: "TColgp_HArray1OfVec.hxx".}
-proc Array1*(this: TColgp_HArray1OfVec): TColgp_Array1OfVec {.noSideEffect,
+proc array1*(this: TColgpHArray1OfVec): TColgpArray1OfVec {.noSideEffect,
     importcpp: "Array1", header: "TColgp_HArray1OfVec.hxx".}
-proc ChangeArray1*(this: var TColgp_HArray1OfVec): var TColgp_Array1OfVec {.
+proc changeArray1*(this: var TColgpHArray1OfVec): var TColgpArray1OfVec {.
     importcpp: "ChangeArray1", header: "TColgp_HArray1OfVec.hxx".}
 type
-  TColgp_HArray1OfVecbase_type* = MMgt_TShared
+  TColgpHArray1OfVecbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TColgp_HArray1OfVec::get_type_name(@)",
-                              header: "TColgp_HArray1OfVec.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TColgp_HArray1OfVec::get_type_name(@)",
+                            header: "TColgp_HArray1OfVec.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TColgp_HArray1OfVec::get_type_descriptor(@)",
     header: "TColgp_HArray1OfVec.hxx".}
-proc DynamicType*(this: TColgp_HArray1OfVec): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TColgpHArray1OfVec): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TColgp_HArray1OfVec.hxx".}

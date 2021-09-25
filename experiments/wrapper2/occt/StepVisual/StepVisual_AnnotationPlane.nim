@@ -13,54 +13,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepVisual_AnnotationOccurrence, StepVisual_HArray1OfAnnotationPlaneElement
-
 discard "forward decl of StepVisual_AnnotationPlane"
 discard "forward decl of StepVisual_AnnotationPlane"
 type
-  Handle_StepVisual_AnnotationPlane* = handle[StepVisual_AnnotationPlane]
-  StepVisual_AnnotationPlane* {.importcpp: "StepVisual_AnnotationPlane",
-                               header: "StepVisual_AnnotationPlane.hxx", bycopy.} = object of StepVisual_AnnotationOccurrence ##
-                                                                                                                       ## !
-                                                                                                                       ## Returns
-                                                                                                                       ## a
-                                                                                                                       ## AnnotationPlane
+  HandleStepVisualAnnotationPlane* = Handle[StepVisualAnnotationPlane]
+  StepVisualAnnotationPlane* {.importcpp: "StepVisual_AnnotationPlane",
+                              header: "StepVisual_AnnotationPlane.hxx", bycopy.} = object of StepVisualAnnotationOccurrence ##
+                                                                                                                     ## !
+                                                                                                                     ## Returns
+                                                                                                                     ## a
+                                                                                                                     ## AnnotationPlane
 
 
-proc constructStepVisual_AnnotationPlane*(): StepVisual_AnnotationPlane {.
+proc constructStepVisualAnnotationPlane*(): StepVisualAnnotationPlane {.
     constructor, importcpp: "StepVisual_AnnotationPlane(@)",
     header: "StepVisual_AnnotationPlane.hxx".}
-proc Init*(this: var StepVisual_AnnotationPlane;
-          theName: handle[TCollection_HAsciiString];
-          theStyles: handle[StepVisual_HArray1OfPresentationStyleAssignment];
-          theItem: handle[Standard_Transient];
-          theElements: handle[StepVisual_HArray1OfAnnotationPlaneElement]) {.
+proc init*(this: var StepVisualAnnotationPlane;
+          theName: Handle[TCollectionHAsciiString];
+          theStyles: Handle[StepVisualHArray1OfPresentationStyleAssignment];
+          theItem: Handle[StandardTransient];
+          theElements: Handle[StepVisualHArray1OfAnnotationPlaneElement]) {.
     importcpp: "Init", header: "StepVisual_AnnotationPlane.hxx".}
-proc Elements*(this: StepVisual_AnnotationPlane): handle[
-    StepVisual_HArray1OfAnnotationPlaneElement] {.noSideEffect,
+proc elements*(this: StepVisualAnnotationPlane): Handle[
+    StepVisualHArray1OfAnnotationPlaneElement] {.noSideEffect,
     importcpp: "Elements", header: "StepVisual_AnnotationPlane.hxx".}
-proc SetElements*(this: var StepVisual_AnnotationPlane; theElements: handle[
-    StepVisual_HArray1OfAnnotationPlaneElement]) {.importcpp: "SetElements",
-    header: "StepVisual_AnnotationPlane.hxx".}
-proc NbElements*(this: StepVisual_AnnotationPlane): Standard_Integer {.noSideEffect,
+proc setElements*(this: var StepVisualAnnotationPlane;
+                 theElements: Handle[StepVisualHArray1OfAnnotationPlaneElement]) {.
+    importcpp: "SetElements", header: "StepVisual_AnnotationPlane.hxx".}
+proc nbElements*(this: StepVisualAnnotationPlane): int {.noSideEffect,
     importcpp: "NbElements", header: "StepVisual_AnnotationPlane.hxx".}
-proc ElementsValue*(this: StepVisual_AnnotationPlane; theNum: Standard_Integer): StepVisual_AnnotationPlaneElement {.
+proc elementsValue*(this: StepVisualAnnotationPlane; theNum: int): StepVisualAnnotationPlaneElement {.
     noSideEffect, importcpp: "ElementsValue",
     header: "StepVisual_AnnotationPlane.hxx".}
-proc SetElementsValue*(this: var StepVisual_AnnotationPlane;
-                      theNum: Standard_Integer;
-                      theItem: StepVisual_AnnotationPlaneElement) {.
+proc setElementsValue*(this: var StepVisualAnnotationPlane; theNum: int;
+                      theItem: StepVisualAnnotationPlaneElement) {.
     importcpp: "SetElementsValue", header: "StepVisual_AnnotationPlane.hxx".}
 type
-  StepVisual_AnnotationPlanebase_type* = StepVisual_AnnotationOccurrence
+  StepVisualAnnotationPlanebaseType* = StepVisualAnnotationOccurrence
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_AnnotationPlane::get_type_name(@)",
-                              header: "StepVisual_AnnotationPlane.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_AnnotationPlane::get_type_name(@)",
+                            header: "StepVisual_AnnotationPlane.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_AnnotationPlane::get_type_descriptor(@)",
     header: "StepVisual_AnnotationPlane.hxx".}
-proc DynamicType*(this: StepVisual_AnnotationPlane): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualAnnotationPlane): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_AnnotationPlane.hxx".}

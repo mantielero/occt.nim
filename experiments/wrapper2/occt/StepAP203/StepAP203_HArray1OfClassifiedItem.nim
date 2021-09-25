@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP203_ClassifiedItem, StepAP203_Array1OfClassifiedItem,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepAP203_HArray1OfClassifiedItem* {.importcpp: "StepAP203_HArray1OfClassifiedItem", header: "StepAP203_HArray1OfClassifiedItem.hxx",
-                                      bycopy.} = object of StepAP203_Array1OfClassifiedItem
+  StepAP203HArray1OfClassifiedItem* {.importcpp: "StepAP203_HArray1OfClassifiedItem", header: "StepAP203_HArray1OfClassifiedItem.hxx",
+                                     bycopy.} = object of StepAP203Array1OfClassifiedItem
 
 
-proc constructStepAP203_HArray1OfClassifiedItem*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepAP203_HArray1OfClassifiedItem {.constructor,
+proc constructStepAP203HArray1OfClassifiedItem*(theLower: int; theUpper: int): StepAP203HArray1OfClassifiedItem {.
+    constructor, importcpp: "StepAP203_HArray1OfClassifiedItem(@)",
+    header: "StepAP203_HArray1OfClassifiedItem.hxx".}
+proc constructStepAP203HArray1OfClassifiedItem*(theLower: int; theUpper: int;
+    theValue: ValueType): StepAP203HArray1OfClassifiedItem {.constructor,
     importcpp: "StepAP203_HArray1OfClassifiedItem(@)",
     header: "StepAP203_HArray1OfClassifiedItem.hxx".}
-proc constructStepAP203_HArray1OfClassifiedItem*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepAP203_HArray1OfClassifiedItem {.
+proc constructStepAP203HArray1OfClassifiedItem*(
+    theOther: StepAP203Array1OfClassifiedItem): StepAP203HArray1OfClassifiedItem {.
     constructor, importcpp: "StepAP203_HArray1OfClassifiedItem(@)",
     header: "StepAP203_HArray1OfClassifiedItem.hxx".}
-proc constructStepAP203_HArray1OfClassifiedItem*(
-    theOther: StepAP203_Array1OfClassifiedItem): StepAP203_HArray1OfClassifiedItem {.
-    constructor, importcpp: "StepAP203_HArray1OfClassifiedItem(@)",
-    header: "StepAP203_HArray1OfClassifiedItem.hxx".}
-proc Array1*(this: StepAP203_HArray1OfClassifiedItem): StepAP203_Array1OfClassifiedItem {.
+proc array1*(this: StepAP203HArray1OfClassifiedItem): StepAP203Array1OfClassifiedItem {.
     noSideEffect, importcpp: "Array1",
     header: "StepAP203_HArray1OfClassifiedItem.hxx".}
-proc ChangeArray1*(this: var StepAP203_HArray1OfClassifiedItem): var StepAP203_Array1OfClassifiedItem {.
+proc changeArray1*(this: var StepAP203HArray1OfClassifiedItem): var StepAP203Array1OfClassifiedItem {.
     importcpp: "ChangeArray1", header: "StepAP203_HArray1OfClassifiedItem.hxx".}
 type
-  StepAP203_HArray1OfClassifiedItembase_type* = MMgt_TShared
+  StepAP203HArray1OfClassifiedItembaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepAP203_HArray1OfClassifiedItem::get_type_name(@)",
-                              header: "StepAP203_HArray1OfClassifiedItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP203_HArray1OfClassifiedItem::get_type_name(@)",
+                            header: "StepAP203_HArray1OfClassifiedItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP203_HArray1OfClassifiedItem::get_type_descriptor(@)",
     header: "StepAP203_HArray1OfClassifiedItem.hxx".}
-proc DynamicType*(this: StepAP203_HArray1OfClassifiedItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepAP203HArray1OfClassifiedItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP203_HArray1OfClassifiedItem.hxx".}

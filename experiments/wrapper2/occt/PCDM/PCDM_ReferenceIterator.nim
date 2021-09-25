@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, PCDM_SequenceOfReference,
-  ../CDM/CDM_MetaDataLookUpTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of CDM_Document"
 discard "forward decl of CDM_MetaData"
@@ -25,36 +21,36 @@ discard "forward decl of CDM_Application"
 discard "forward decl of PCDM_ReferenceIterator"
 discard "forward decl of PCDM_ReferenceIterator"
 type
-  Handle_PCDM_ReferenceIterator* = handle[PCDM_ReferenceIterator]
+  HandlePCDM_ReferenceIterator* = Handle[PCDM_ReferenceIterator]
   PCDM_ReferenceIterator* {.importcpp: "PCDM_ReferenceIterator",
-                           header: "PCDM_ReferenceIterator.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                  ## !
-                                                                                                  ## Warning!
-                                                                                                  ## The
-                                                                                                  ## constructor
-                                                                                                  ## does
-                                                                                                  ## not
-                                                                                                  ## initialization.
+                           header: "PCDM_ReferenceIterator.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                 ## !
+                                                                                                 ## Warning!
+                                                                                                 ## The
+                                                                                                 ## constructor
+                                                                                                 ## does
+                                                                                                 ## not
+                                                                                                 ## initialization.
 
 
-proc constructPCDM_ReferenceIterator*(theMessageDriver: handle[Message_Messenger]): PCDM_ReferenceIterator {.
+proc constructPCDM_ReferenceIterator*(theMessageDriver: Handle[MessageMessenger]): PCDM_ReferenceIterator {.
     constructor, importcpp: "PCDM_ReferenceIterator(@)",
     header: "PCDM_ReferenceIterator.hxx".}
-proc LoadReferences*(this: var PCDM_ReferenceIterator;
-                    aDocument: handle[CDM_Document];
-                    aMetaData: handle[CDM_MetaData];
-                    anApplication: handle[CDM_Application];
-                    UseStorageConfiguration: Standard_Boolean) {.
-    importcpp: "LoadReferences", header: "PCDM_ReferenceIterator.hxx".}
-proc Init*(this: var PCDM_ReferenceIterator; aMetaData: handle[CDM_MetaData]) {.
+proc loadReferences*(this: var PCDM_ReferenceIterator;
+                    aDocument: Handle[CDM_Document];
+                    aMetaData: Handle[CDM_MetaData];
+                    anApplication: Handle[CDM_Application];
+                    useStorageConfiguration: bool) {.importcpp: "LoadReferences",
+    header: "PCDM_ReferenceIterator.hxx".}
+proc init*(this: var PCDM_ReferenceIterator; aMetaData: Handle[CDM_MetaData]) {.
     importcpp: "Init", header: "PCDM_ReferenceIterator.hxx".}
 type
-  PCDM_ReferenceIteratorbase_type* = Standard_Transient
+  PCDM_ReferenceIteratorbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "PCDM_ReferenceIterator::get_type_name(@)",
-                              header: "PCDM_ReferenceIterator.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "PCDM_ReferenceIterator::get_type_name(@)",
+                            header: "PCDM_ReferenceIterator.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "PCDM_ReferenceIterator::get_type_descriptor(@)",
     header: "PCDM_ReferenceIterator.hxx".}
-proc DynamicType*(this: PCDM_ReferenceIterator): handle[Standard_Type] {.
+proc dynamicType*(this: PCDM_ReferenceIterator): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "PCDM_ReferenceIterator.hxx".}

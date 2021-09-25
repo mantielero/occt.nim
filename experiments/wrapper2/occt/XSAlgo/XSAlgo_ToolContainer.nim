@@ -13,33 +13,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of XSAlgo_ToolContainer"
 discard "forward decl of XSAlgo_ToolContainer"
 type
-  Handle_XSAlgo_ToolContainer* = handle[XSAlgo_ToolContainer]
+  HandleXSAlgoToolContainer* = Handle[XSAlgoToolContainer]
 
 ## ! Returns tools used by AlgoContainer
 
 type
-  XSAlgo_ToolContainer* {.importcpp: "XSAlgo_ToolContainer",
-                         header: "XSAlgo_ToolContainer.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                              ## !
-                                                                                              ## Empty
-                                                                                              ## constructor
+  XSAlgoToolContainer* {.importcpp: "XSAlgo_ToolContainer",
+                        header: "XSAlgo_ToolContainer.hxx", bycopy.} = object of StandardTransient ##
+                                                                                            ## !
+                                                                                            ## Empty
+                                                                                            ## constructor
 
 
-proc constructXSAlgo_ToolContainer*(): XSAlgo_ToolContainer {.constructor,
+proc constructXSAlgoToolContainer*(): XSAlgoToolContainer {.constructor,
     importcpp: "XSAlgo_ToolContainer(@)", header: "XSAlgo_ToolContainer.hxx".}
 type
-  XSAlgo_ToolContainerbase_type* = Standard_Transient
+  XSAlgoToolContainerbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "XSAlgo_ToolContainer::get_type_name(@)",
-                              header: "XSAlgo_ToolContainer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XSAlgo_ToolContainer::get_type_name(@)",
+                            header: "XSAlgo_ToolContainer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XSAlgo_ToolContainer::get_type_descriptor(@)",
     header: "XSAlgo_ToolContainer.hxx".}
-proc DynamicType*(this: XSAlgo_ToolContainer): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: XSAlgoToolContainer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XSAlgo_ToolContainer.hxx".}

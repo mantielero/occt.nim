@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Ax2,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, IntPatch_SequenceOfPoint, IntPatch_Line,
-  ../IntSurf/IntSurf_TypeTrans, ../IntSurf/IntSurf_Situation, ../gp/gp_Lin,
-  ../gp/gp_Circ, ../gp/gp_Elips, ../gp/gp_Parab, ../gp/gp_Hypr
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Lin"
@@ -32,110 +25,110 @@ discard "forward decl of IntPatch_Point"
 discard "forward decl of IntPatch_GLine"
 discard "forward decl of IntPatch_GLine"
 type
-  Handle_IntPatch_GLine* = handle[IntPatch_GLine]
+  HandleIntPatchGLine* = Handle[IntPatchGLine]
 
 ## ! Implementation of an intersection line represented
 ## ! by a conic.
 
 type
-  IntPatch_GLine* {.importcpp: "IntPatch_GLine", header: "IntPatch_GLine.hxx", bycopy.} = object of IntPatch_Line ##
-                                                                                                        ## !
-                                                                                                        ## Creates
-                                                                                                        ## a
-                                                                                                        ## Line
-                                                                                                        ## as
-                                                                                                        ## intersection
-                                                                                                        ## line
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## when
-                                                                                                        ## the
-                                                                                                        ## transitions
-                                                                                                        ## are
-                                                                                                        ## In
-                                                                                                        ## or
-                                                                                                        ## Out.
+  IntPatchGLine* {.importcpp: "IntPatch_GLine", header: "IntPatch_GLine.hxx", bycopy.} = object of IntPatchLine ##
+                                                                                                      ## !
+                                                                                                      ## Creates
+                                                                                                      ## a
+                                                                                                      ## Line
+                                                                                                      ## as
+                                                                                                      ## intersection
+                                                                                                      ## line
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## when
+                                                                                                      ## the
+                                                                                                      ## transitions
+                                                                                                      ## are
+                                                                                                      ## In
+                                                                                                      ## or
+                                                                                                      ## Out.
 
 
-proc constructIntPatch_GLine*(L: gp_Lin; Tang: Standard_Boolean;
-                             Trans1: IntSurf_TypeTrans; Trans2: IntSurf_TypeTrans): IntPatch_GLine {.
-    constructor, importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
-proc constructIntPatch_GLine*(L: gp_Lin; Tang: Standard_Boolean;
-                             Situ1: IntSurf_Situation; Situ2: IntSurf_Situation): IntPatch_GLine {.
-    constructor, importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
-proc constructIntPatch_GLine*(L: gp_Lin; Tang: Standard_Boolean): IntPatch_GLine {.
-    constructor, importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
-proc constructIntPatch_GLine*(C: gp_Circ; Tang: Standard_Boolean;
-                             Trans1: IntSurf_TypeTrans; Trans2: IntSurf_TypeTrans): IntPatch_GLine {.
-    constructor, importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
-proc constructIntPatch_GLine*(C: gp_Circ; Tang: Standard_Boolean;
-                             Situ1: IntSurf_Situation; Situ2: IntSurf_Situation): IntPatch_GLine {.
-    constructor, importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
-proc constructIntPatch_GLine*(C: gp_Circ; Tang: Standard_Boolean): IntPatch_GLine {.
-    constructor, importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
-proc constructIntPatch_GLine*(E: gp_Elips; Tang: Standard_Boolean;
-                             Trans1: IntSurf_TypeTrans; Trans2: IntSurf_TypeTrans): IntPatch_GLine {.
-    constructor, importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
-proc constructIntPatch_GLine*(E: gp_Elips; Tang: Standard_Boolean;
-                             Situ1: IntSurf_Situation; Situ2: IntSurf_Situation): IntPatch_GLine {.
-    constructor, importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
-proc constructIntPatch_GLine*(E: gp_Elips; Tang: Standard_Boolean): IntPatch_GLine {.
-    constructor, importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
-proc constructIntPatch_GLine*(P: gp_Parab; Tang: Standard_Boolean;
-                             Trans1: IntSurf_TypeTrans; Trans2: IntSurf_TypeTrans): IntPatch_GLine {.
-    constructor, importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
-proc constructIntPatch_GLine*(P: gp_Parab; Tang: Standard_Boolean;
-                             Situ1: IntSurf_Situation; Situ2: IntSurf_Situation): IntPatch_GLine {.
-    constructor, importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
-proc constructIntPatch_GLine*(P: gp_Parab; Tang: Standard_Boolean): IntPatch_GLine {.
-    constructor, importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
-proc constructIntPatch_GLine*(H: gp_Hypr; Tang: Standard_Boolean;
-                             Trans1: IntSurf_TypeTrans; Trans2: IntSurf_TypeTrans): IntPatch_GLine {.
-    constructor, importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
-proc constructIntPatch_GLine*(H: gp_Hypr; Tang: Standard_Boolean;
-                             Situ1: IntSurf_Situation; Situ2: IntSurf_Situation): IntPatch_GLine {.
-    constructor, importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
-proc constructIntPatch_GLine*(H: gp_Hypr; Tang: Standard_Boolean): IntPatch_GLine {.
-    constructor, importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
-proc AddVertex*(this: var IntPatch_GLine; Pnt: IntPatch_Point) {.
-    importcpp: "AddVertex", header: "IntPatch_GLine.hxx".}
-proc Replace*(this: var IntPatch_GLine; Index: Standard_Integer; Pnt: IntPatch_Point) {.
+proc constructIntPatchGLine*(L: Lin; tang: bool; trans1: IntSurfTypeTrans;
+                            trans2: IntSurfTypeTrans): IntPatchGLine {.constructor,
+    importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
+proc constructIntPatchGLine*(L: Lin; tang: bool; situ1: IntSurfSituation;
+                            situ2: IntSurfSituation): IntPatchGLine {.constructor,
+    importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
+proc constructIntPatchGLine*(L: Lin; tang: bool): IntPatchGLine {.constructor,
+    importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
+proc constructIntPatchGLine*(c: Circ; tang: bool; trans1: IntSurfTypeTrans;
+                            trans2: IntSurfTypeTrans): IntPatchGLine {.constructor,
+    importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
+proc constructIntPatchGLine*(c: Circ; tang: bool; situ1: IntSurfSituation;
+                            situ2: IntSurfSituation): IntPatchGLine {.constructor,
+    importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
+proc constructIntPatchGLine*(c: Circ; tang: bool): IntPatchGLine {.constructor,
+    importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
+proc constructIntPatchGLine*(e: Elips; tang: bool; trans1: IntSurfTypeTrans;
+                            trans2: IntSurfTypeTrans): IntPatchGLine {.constructor,
+    importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
+proc constructIntPatchGLine*(e: Elips; tang: bool; situ1: IntSurfSituation;
+                            situ2: IntSurfSituation): IntPatchGLine {.constructor,
+    importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
+proc constructIntPatchGLine*(e: Elips; tang: bool): IntPatchGLine {.constructor,
+    importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
+proc constructIntPatchGLine*(p: Parab; tang: bool; trans1: IntSurfTypeTrans;
+                            trans2: IntSurfTypeTrans): IntPatchGLine {.constructor,
+    importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
+proc constructIntPatchGLine*(p: Parab; tang: bool; situ1: IntSurfSituation;
+                            situ2: IntSurfSituation): IntPatchGLine {.constructor,
+    importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
+proc constructIntPatchGLine*(p: Parab; tang: bool): IntPatchGLine {.constructor,
+    importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
+proc constructIntPatchGLine*(h: Hypr; tang: bool; trans1: IntSurfTypeTrans;
+                            trans2: IntSurfTypeTrans): IntPatchGLine {.constructor,
+    importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
+proc constructIntPatchGLine*(h: Hypr; tang: bool; situ1: IntSurfSituation;
+                            situ2: IntSurfSituation): IntPatchGLine {.constructor,
+    importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
+proc constructIntPatchGLine*(h: Hypr; tang: bool): IntPatchGLine {.constructor,
+    importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
+proc addVertex*(this: var IntPatchGLine; pnt: IntPatchPoint) {.importcpp: "AddVertex",
+    header: "IntPatch_GLine.hxx".}
+proc replace*(this: var IntPatchGLine; index: int; pnt: IntPatchPoint) {.
     importcpp: "Replace", header: "IntPatch_GLine.hxx".}
-proc SetFirstPoint*(this: var IntPatch_GLine; IndFirst: Standard_Integer) {.
+proc setFirstPoint*(this: var IntPatchGLine; indFirst: int) {.
     importcpp: "SetFirstPoint", header: "IntPatch_GLine.hxx".}
-proc SetLastPoint*(this: var IntPatch_GLine; IndLast: Standard_Integer) {.
-    importcpp: "SetLastPoint", header: "IntPatch_GLine.hxx".}
-proc Line*(this: IntPatch_GLine): gp_Lin {.noSideEffect, importcpp: "Line",
-                                       header: "IntPatch_GLine.hxx".}
-proc Circle*(this: IntPatch_GLine): gp_Circ {.noSideEffect, importcpp: "Circle",
+proc setLastPoint*(this: var IntPatchGLine; indLast: int) {.importcpp: "SetLastPoint",
     header: "IntPatch_GLine.hxx".}
-proc Ellipse*(this: IntPatch_GLine): gp_Elips {.noSideEffect, importcpp: "Ellipse",
+proc line*(this: IntPatchGLine): Lin {.noSideEffect, importcpp: "Line",
+                                   header: "IntPatch_GLine.hxx".}
+proc circle*(this: IntPatchGLine): Circ {.noSideEffect, importcpp: "Circle",
+                                      header: "IntPatch_GLine.hxx".}
+proc ellipse*(this: IntPatchGLine): Elips {.noSideEffect, importcpp: "Ellipse",
+                                        header: "IntPatch_GLine.hxx".}
+proc parabola*(this: IntPatchGLine): Parab {.noSideEffect, importcpp: "Parabola",
     header: "IntPatch_GLine.hxx".}
-proc Parabola*(this: IntPatch_GLine): gp_Parab {.noSideEffect, importcpp: "Parabola",
+proc hyperbola*(this: IntPatchGLine): Hypr {.noSideEffect, importcpp: "Hyperbola",
     header: "IntPatch_GLine.hxx".}
-proc Hyperbola*(this: IntPatch_GLine): gp_Hypr {.noSideEffect,
-    importcpp: "Hyperbola", header: "IntPatch_GLine.hxx".}
-proc HasFirstPoint*(this: IntPatch_GLine): Standard_Boolean {.noSideEffect,
+proc hasFirstPoint*(this: IntPatchGLine): bool {.noSideEffect,
     importcpp: "HasFirstPoint", header: "IntPatch_GLine.hxx".}
-proc HasLastPoint*(this: IntPatch_GLine): Standard_Boolean {.noSideEffect,
+proc hasLastPoint*(this: IntPatchGLine): bool {.noSideEffect,
     importcpp: "HasLastPoint", header: "IntPatch_GLine.hxx".}
-proc FirstPoint*(this: IntPatch_GLine): IntPatch_Point {.noSideEffect,
+proc firstPoint*(this: IntPatchGLine): IntPatchPoint {.noSideEffect,
     importcpp: "FirstPoint", header: "IntPatch_GLine.hxx".}
-proc LastPoint*(this: IntPatch_GLine): IntPatch_Point {.noSideEffect,
+proc lastPoint*(this: IntPatchGLine): IntPatchPoint {.noSideEffect,
     importcpp: "LastPoint", header: "IntPatch_GLine.hxx".}
-proc NbVertex*(this: IntPatch_GLine): Standard_Integer {.noSideEffect,
-    importcpp: "NbVertex", header: "IntPatch_GLine.hxx".}
-proc Vertex*(this: IntPatch_GLine; Index: Standard_Integer): IntPatch_Point {.
-    noSideEffect, importcpp: "Vertex", header: "IntPatch_GLine.hxx".}
-proc ComputeVertexParameters*(this: var IntPatch_GLine; Tol: Standard_Real) {.
+proc nbVertex*(this: IntPatchGLine): int {.noSideEffect, importcpp: "NbVertex",
+                                       header: "IntPatch_GLine.hxx".}
+proc vertex*(this: IntPatchGLine; index: int): IntPatchPoint {.noSideEffect,
+    importcpp: "Vertex", header: "IntPatch_GLine.hxx".}
+proc computeVertexParameters*(this: var IntPatchGLine; tol: float) {.
     importcpp: "ComputeVertexParameters", header: "IntPatch_GLine.hxx".}
 type
-  IntPatch_GLinebase_type* = IntPatch_Line
+  IntPatchGLinebaseType* = IntPatchLine
 
-proc get_type_name*(): cstring {.importcpp: "IntPatch_GLine::get_type_name(@)",
-                              header: "IntPatch_GLine.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IntPatch_GLine::get_type_name(@)",
+                            header: "IntPatch_GLine.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IntPatch_GLine::get_type_descriptor(@)",
     header: "IntPatch_GLine.hxx".}
-proc DynamicType*(this: IntPatch_GLine): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IntPatchGLine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IntPatch_GLine.hxx".}

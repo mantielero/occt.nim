@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Bnd/Bnd_Box, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, IntPolyh_ArrayOfPoints, IntPolyh_ArrayOfEdges,
-  IntPolyh_ArrayOfTriangles, IntPolyh_ListOfCouples, ../Standard/Standard_Boolean,
-  ../TColStd/TColStd_Array1OfReal, IntPolyh_ArrayOfPointNormal,
-  IntPolyh_ArrayOfSectionLines, IntPolyh_ArrayOfTangentZones
-
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Bnd_Box"
 discard "forward decl of IntPolyh_Point"
@@ -29,8 +21,8 @@ discard "forward decl of IntPolyh_StartPoint"
 discard "forward decl of IntPolyh_Triangle"
 discard "forward decl of IntPolyh_SectionLine"
 type
-  IntPolyh_MaillageAffinage* {.importcpp: "IntPolyh_MaillageAffinage",
-                              header: "IntPolyh_MaillageAffinage.hxx", bycopy.} = object
+  IntPolyhMaillageAffinage* {.importcpp: "IntPolyh_MaillageAffinage",
+                             header: "IntPolyh_MaillageAffinage.hxx", bycopy.} = object
     ##  For the arrays of Points, Edges and Triangles we need instant access to the items.
     ##  Moreover, we might add new items during refinement process in case the deflection
     ##  is too big, thus the vectors should be used.
@@ -38,132 +30,114 @@ type
     ##  sequentially analyzed, thus we might use the list.
 
 
-proc constructIntPolyh_MaillageAffinage*(S1: handle[Adaptor3d_HSurface];
-                                        NbSU1: Standard_Integer;
-                                        NbSV1: Standard_Integer;
-                                        S2: handle[Adaptor3d_HSurface];
-                                        NbSU2: Standard_Integer;
-                                        NbSV2: Standard_Integer;
-                                        PRINT: Standard_Integer): IntPolyh_MaillageAffinage {.
+proc constructIntPolyhMaillageAffinage*(s1: Handle[Adaptor3dHSurface]; nbSU1: int;
+                                       nbSV1: int; s2: Handle[Adaptor3dHSurface];
+                                       nbSU2: int; nbSV2: int; print: int): IntPolyhMaillageAffinage {.
     constructor, importcpp: "IntPolyh_MaillageAffinage(@)",
     header: "IntPolyh_MaillageAffinage.hxx".}
-proc constructIntPolyh_MaillageAffinage*(S1: handle[Adaptor3d_HSurface];
-                                        S2: handle[Adaptor3d_HSurface];
-                                        PRINT: Standard_Integer): IntPolyh_MaillageAffinage {.
+proc constructIntPolyhMaillageAffinage*(s1: Handle[Adaptor3dHSurface];
+                                       s2: Handle[Adaptor3dHSurface]; print: int): IntPolyhMaillageAffinage {.
     constructor, importcpp: "IntPolyh_MaillageAffinage(@)",
     header: "IntPolyh_MaillageAffinage.hxx".}
-proc MakeSampling*(this: var IntPolyh_MaillageAffinage; SurfID: Standard_Integer;
-                  theUPars: var TColStd_Array1OfReal;
-                  theVPars: var TColStd_Array1OfReal) {.importcpp: "MakeSampling",
+proc makeSampling*(this: var IntPolyhMaillageAffinage; surfID: int;
+                  theUPars: var TColStdArray1OfReal;
+                  theVPars: var TColStdArray1OfReal) {.importcpp: "MakeSampling",
     header: "IntPolyh_MaillageAffinage.hxx".}
-proc FillArrayOfPnt*(this: var IntPolyh_MaillageAffinage; SurfID: Standard_Integer) {.
+proc fillArrayOfPnt*(this: var IntPolyhMaillageAffinage; surfID: int) {.
     importcpp: "FillArrayOfPnt", header: "IntPolyh_MaillageAffinage.hxx".}
-proc FillArrayOfPnt*(this: var IntPolyh_MaillageAffinage; SurfID: Standard_Integer;
-                    isShiftFwd: Standard_Boolean) {.importcpp: "FillArrayOfPnt",
+proc fillArrayOfPnt*(this: var IntPolyhMaillageAffinage; surfID: int; isShiftFwd: bool) {.
+    importcpp: "FillArrayOfPnt", header: "IntPolyh_MaillageAffinage.hxx".}
+proc fillArrayOfPnt*(this: var IntPolyhMaillageAffinage; surfID: int;
+                    upars: TColStdArray1OfReal; vpars: TColStdArray1OfReal;
+                    theDeflTol: ptr float = nil) {.importcpp: "FillArrayOfPnt",
     header: "IntPolyh_MaillageAffinage.hxx".}
-proc FillArrayOfPnt*(this: var IntPolyh_MaillageAffinage; SurfID: Standard_Integer;
-                    Upars: TColStd_Array1OfReal; Vpars: TColStd_Array1OfReal;
-                    theDeflTol: ptr Standard_Real = nil) {.
+proc fillArrayOfPnt*(this: var IntPolyhMaillageAffinage; surfID: int;
+                    isShiftFwd: bool; upars: TColStdArray1OfReal;
+                    vpars: TColStdArray1OfReal; theDeflTol: ptr float = nil) {.
     importcpp: "FillArrayOfPnt", header: "IntPolyh_MaillageAffinage.hxx".}
-proc FillArrayOfPnt*(this: var IntPolyh_MaillageAffinage; SurfID: Standard_Integer;
-                    isShiftFwd: Standard_Boolean; Upars: TColStd_Array1OfReal;
-                    Vpars: TColStd_Array1OfReal;
-                    theDeflTol: ptr Standard_Real = nil) {.
-    importcpp: "FillArrayOfPnt", header: "IntPolyh_MaillageAffinage.hxx".}
-proc FillArrayOfPnt*(this: var IntPolyh_MaillageAffinage; SurfID: Standard_Integer;
-                    isShiftFwd: Standard_Boolean;
-                    thePoints: IntPolyh_ArrayOfPointNormal;
-                    theUPars: TColStd_Array1OfReal;
-                    theVPars: TColStd_Array1OfReal; theDeflTol: Standard_Real) {.
-    importcpp: "FillArrayOfPnt", header: "IntPolyh_MaillageAffinage.hxx".}
-proc CommonBox*(this: var IntPolyh_MaillageAffinage) {.importcpp: "CommonBox",
+proc fillArrayOfPnt*(this: var IntPolyhMaillageAffinage; surfID: int;
+                    isShiftFwd: bool; thePoints: IntPolyhArrayOfPointNormal;
+                    theUPars: TColStdArray1OfReal; theVPars: TColStdArray1OfReal;
+                    theDeflTol: float) {.importcpp: "FillArrayOfPnt",
+                                       header: "IntPolyh_MaillageAffinage.hxx".}
+proc commonBox*(this: var IntPolyhMaillageAffinage) {.importcpp: "CommonBox",
     header: "IntPolyh_MaillageAffinage.hxx".}
-proc CommonBox*(this: var IntPolyh_MaillageAffinage; B1: Bnd_Box; B2: Bnd_Box;
-               xMin: var Standard_Real; yMin: var Standard_Real;
-               zMin: var Standard_Real; xMax: var Standard_Real;
-               yMax: var Standard_Real; zMax: var Standard_Real) {.
-    importcpp: "CommonBox", header: "IntPolyh_MaillageAffinage.hxx".}
-proc FillArrayOfEdges*(this: var IntPolyh_MaillageAffinage; SurfID: Standard_Integer) {.
+proc commonBox*(this: var IntPolyhMaillageAffinage; b1: BndBox; b2: BndBox;
+               xMin: var float; yMin: var float; zMin: var float; xMax: var float;
+               yMax: var float; zMax: var float) {.importcpp: "CommonBox",
+    header: "IntPolyh_MaillageAffinage.hxx".}
+proc fillArrayOfEdges*(this: var IntPolyhMaillageAffinage; surfID: int) {.
     importcpp: "FillArrayOfEdges", header: "IntPolyh_MaillageAffinage.hxx".}
-proc FillArrayOfTriangles*(this: var IntPolyh_MaillageAffinage;
-                          SurfID: Standard_Integer) {.
+proc fillArrayOfTriangles*(this: var IntPolyhMaillageAffinage; surfID: int) {.
     importcpp: "FillArrayOfTriangles", header: "IntPolyh_MaillageAffinage.hxx".}
-proc CommonPartRefinement*(this: var IntPolyh_MaillageAffinage) {.
+proc commonPartRefinement*(this: var IntPolyhMaillageAffinage) {.
     importcpp: "CommonPartRefinement", header: "IntPolyh_MaillageAffinage.hxx".}
-proc LocalSurfaceRefinement*(this: var IntPolyh_MaillageAffinage;
-                            SurfId: Standard_Integer) {.
+proc localSurfaceRefinement*(this: var IntPolyhMaillageAffinage; surfId: int) {.
     importcpp: "LocalSurfaceRefinement", header: "IntPolyh_MaillageAffinage.hxx".}
-proc ComputeDeflections*(this: var IntPolyh_MaillageAffinage;
-                        SurfID: Standard_Integer) {.
+proc computeDeflections*(this: var IntPolyhMaillageAffinage; surfID: int) {.
     importcpp: "ComputeDeflections", header: "IntPolyh_MaillageAffinage.hxx".}
-proc TrianglesDeflectionsRefinementBSB*(this: var IntPolyh_MaillageAffinage) {.
+proc trianglesDeflectionsRefinementBSB*(this: var IntPolyhMaillageAffinage) {.
     importcpp: "TrianglesDeflectionsRefinementBSB",
     header: "IntPolyh_MaillageAffinage.hxx".}
-proc TriContact*(this: IntPolyh_MaillageAffinage; P1: IntPolyh_Point;
-                P2: IntPolyh_Point; P3: IntPolyh_Point; Q1: IntPolyh_Point;
-                Q2: IntPolyh_Point; Q3: IntPolyh_Point; Angle: var Standard_Real): Standard_Integer {.
+proc triContact*(this: IntPolyhMaillageAffinage; p1: IntPolyhPoint;
+                p2: IntPolyhPoint; p3: IntPolyhPoint; q1: IntPolyhPoint;
+                q2: IntPolyhPoint; q3: IntPolyhPoint; angle: var float): int {.
     noSideEffect, importcpp: "TriContact", header: "IntPolyh_MaillageAffinage.hxx".}
-proc TriangleEdgeContact*(this: IntPolyh_MaillageAffinage;
-                         TriSurfID: Standard_Integer;
-                         EdgeIndice: Standard_Integer; Tri1: IntPolyh_Triangle;
-                         Tri2: IntPolyh_Triangle; P1: IntPolyh_Point;
-                         P2: IntPolyh_Point; P3: IntPolyh_Point; C1: IntPolyh_Point;
-                         C2: IntPolyh_Point; C3: IntPolyh_Point;
-                         Pe1: IntPolyh_Point; Pe2: IntPolyh_Point;
-                         E: IntPolyh_Point; N: IntPolyh_Point;
-                         SP1: var IntPolyh_StartPoint; SP2: var IntPolyh_StartPoint): Standard_Integer {.
+proc triangleEdgeContact*(this: IntPolyhMaillageAffinage; triSurfID: int;
+                         edgeIndice: int; tri1: IntPolyhTriangle;
+                         tri2: IntPolyhTriangle; p1: IntPolyhPoint;
+                         p2: IntPolyhPoint; p3: IntPolyhPoint; c1: IntPolyhPoint;
+                         c2: IntPolyhPoint; c3: IntPolyhPoint; pe1: IntPolyhPoint;
+                         pe2: IntPolyhPoint; e: IntPolyhPoint; n: IntPolyhPoint;
+                         sp1: var IntPolyhStartPoint; sp2: var IntPolyhStartPoint): int {.
     noSideEffect, importcpp: "TriangleEdgeContact",
     header: "IntPolyh_MaillageAffinage.hxx".}
-proc StartingPointsResearch*(this: IntPolyh_MaillageAffinage; T1: Standard_Integer;
-                            T2: Standard_Integer; SP1: var IntPolyh_StartPoint;
-                            SP2: var IntPolyh_StartPoint): Standard_Integer {.
-    noSideEffect, importcpp: "StartingPointsResearch",
+proc startingPointsResearch*(this: IntPolyhMaillageAffinage; t1: int; t2: int;
+                            sp1: var IntPolyhStartPoint;
+                            sp2: var IntPolyhStartPoint): int {.noSideEffect,
+    importcpp: "StartingPointsResearch", header: "IntPolyh_MaillageAffinage.hxx".}
+proc nextStartingPointsResearch*(this: IntPolyhMaillageAffinage; t1: int; t2: int;
+                                sPInit: IntPolyhStartPoint;
+                                sPNext: var IntPolyhStartPoint): int {.noSideEffect,
+    importcpp: "NextStartingPointsResearch",
     header: "IntPolyh_MaillageAffinage.hxx".}
-proc NextStartingPointsResearch*(this: IntPolyh_MaillageAffinage;
-                                T1: Standard_Integer; T2: Standard_Integer;
-                                SPInit: IntPolyh_StartPoint;
-                                SPNext: var IntPolyh_StartPoint): Standard_Integer {.
-    noSideEffect, importcpp: "NextStartingPointsResearch",
-    header: "IntPolyh_MaillageAffinage.hxx".}
-proc TriangleCompare*(this: var IntPolyh_MaillageAffinage): Standard_Integer {.
+proc triangleCompare*(this: var IntPolyhMaillageAffinage): int {.
     importcpp: "TriangleCompare", header: "IntPolyh_MaillageAffinage.hxx".}
-proc StartPointsChain*(this: var IntPolyh_MaillageAffinage;
-                      TSectionLines: var IntPolyh_ArrayOfSectionLines;
-                      TTangentZones: var IntPolyh_ArrayOfTangentZones): Standard_Integer {.
+proc startPointsChain*(this: var IntPolyhMaillageAffinage;
+                      tSectionLines: var IntPolyhArrayOfSectionLines;
+                      tTangentZones: var IntPolyhArrayOfTangentZones): int {.
     importcpp: "StartPointsChain", header: "IntPolyh_MaillageAffinage.hxx".}
-proc GetNextChainStartPoint*(this: var IntPolyh_MaillageAffinage;
-                            SPInit: IntPolyh_StartPoint;
-                            SPNext: var IntPolyh_StartPoint;
-                            MySectionLine: var IntPolyh_SectionLine;
-                            TTangentZones: var IntPolyh_ArrayOfTangentZones;
-                            Prepend: Standard_Boolean = Standard_False): Standard_Integer {.
+proc getNextChainStartPoint*(this: var IntPolyhMaillageAffinage;
+                            sPInit: IntPolyhStartPoint;
+                            sPNext: var IntPolyhStartPoint;
+                            mySectionLine: var IntPolyhSectionLine;
+                            tTangentZones: var IntPolyhArrayOfTangentZones;
+                            prepend: bool = false): int {.
     importcpp: "GetNextChainStartPoint", header: "IntPolyh_MaillageAffinage.hxx".}
-proc GetArrayOfPoints*(this: IntPolyh_MaillageAffinage; SurfID: Standard_Integer): IntPolyh_ArrayOfPoints {.
+proc getArrayOfPoints*(this: IntPolyhMaillageAffinage; surfID: int): IntPolyhArrayOfPoints {.
     noSideEffect, importcpp: "GetArrayOfPoints",
     header: "IntPolyh_MaillageAffinage.hxx".}
-proc GetArrayOfEdges*(this: IntPolyh_MaillageAffinage; SurfID: Standard_Integer): IntPolyh_ArrayOfEdges {.
+proc getArrayOfEdges*(this: IntPolyhMaillageAffinage; surfID: int): IntPolyhArrayOfEdges {.
     noSideEffect, importcpp: "GetArrayOfEdges",
     header: "IntPolyh_MaillageAffinage.hxx".}
-proc GetArrayOfTriangles*(this: IntPolyh_MaillageAffinage; SurfID: Standard_Integer): IntPolyh_ArrayOfTriangles {.
+proc getArrayOfTriangles*(this: IntPolyhMaillageAffinage; surfID: int): IntPolyhArrayOfTriangles {.
     noSideEffect, importcpp: "GetArrayOfTriangles",
     header: "IntPolyh_MaillageAffinage.hxx".}
-proc GetFinTE*(this: IntPolyh_MaillageAffinage; SurfID: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "GetFinTE", header: "IntPolyh_MaillageAffinage.hxx".}
-proc GetFinTT*(this: IntPolyh_MaillageAffinage; SurfID: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "GetFinTT", header: "IntPolyh_MaillageAffinage.hxx".}
-proc GetBox*(this: IntPolyh_MaillageAffinage; SurfID: Standard_Integer): Bnd_Box {.
-    noSideEffect, importcpp: "GetBox", header: "IntPolyh_MaillageAffinage.hxx".}
-proc GetCouples*(this: var IntPolyh_MaillageAffinage): var IntPolyh_ListOfCouples {.
+proc getFinTE*(this: IntPolyhMaillageAffinage; surfID: int): int {.noSideEffect,
+    importcpp: "GetFinTE", header: "IntPolyh_MaillageAffinage.hxx".}
+proc getFinTT*(this: IntPolyhMaillageAffinage; surfID: int): int {.noSideEffect,
+    importcpp: "GetFinTT", header: "IntPolyh_MaillageAffinage.hxx".}
+proc getBox*(this: IntPolyhMaillageAffinage; surfID: int): BndBox {.noSideEffect,
+    importcpp: "GetBox", header: "IntPolyh_MaillageAffinage.hxx".}
+proc getCouples*(this: var IntPolyhMaillageAffinage): var IntPolyhListOfCouples {.
     importcpp: "GetCouples", header: "IntPolyh_MaillageAffinage.hxx".}
-proc SetEnlargeZone*(this: var IntPolyh_MaillageAffinage;
-                    EnlargeZone: Standard_Boolean) {.importcpp: "SetEnlargeZone",
-    header: "IntPolyh_MaillageAffinage.hxx".}
-proc GetEnlargeZone*(this: IntPolyh_MaillageAffinage): Standard_Boolean {.
-    noSideEffect, importcpp: "GetEnlargeZone",
-    header: "IntPolyh_MaillageAffinage.hxx".}
-proc GetMinDeflection*(this: IntPolyh_MaillageAffinage; SurfID: Standard_Integer): Standard_Real {.
+proc setEnlargeZone*(this: var IntPolyhMaillageAffinage; enlargeZone: bool) {.
+    importcpp: "SetEnlargeZone", header: "IntPolyh_MaillageAffinage.hxx".}
+proc getEnlargeZone*(this: IntPolyhMaillageAffinage): bool {.noSideEffect,
+    importcpp: "GetEnlargeZone", header: "IntPolyh_MaillageAffinage.hxx".}
+proc getMinDeflection*(this: IntPolyhMaillageAffinage; surfID: int): float {.
     noSideEffect, importcpp: "GetMinDeflection",
     header: "IntPolyh_MaillageAffinage.hxx".}
-proc GetMaxDeflection*(this: IntPolyh_MaillageAffinage; SurfID: Standard_Integer): Standard_Real {.
+proc getMaxDeflection*(this: IntPolyhMaillageAffinage; surfID: int): float {.
     noSideEffect, importcpp: "GetMaxDeflection",
     header: "IntPolyh_MaillageAffinage.hxx".}

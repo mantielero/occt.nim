@@ -14,28 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  math_FunctionWithDerivative
-
 ## ! This is function, which corresponds trigonometric equation
 ## ! a*Cos(x)*Cos(x) + 2*b*Cos(x)*Sin(x) + c*Cos(x) + d*Sin(x) + e = 0
 ## ! See class math_TrigonometricFunctionRoots
 
 type
-  math_TrigonometricEquationFunction* {.importcpp: "math_TrigonometricEquationFunction", header: "math_TrigonometricEquationFunction.hxx",
-                                       bycopy.} = object of math_FunctionWithDerivative
+  MathTrigonometricEquationFunction* {.importcpp: "math_TrigonometricEquationFunction", header: "math_TrigonometricEquationFunction.hxx",
+                                      bycopy.} = object of MathFunctionWithDerivative
 
 
-proc constructmath_TrigonometricEquationFunction*(A: Standard_Real;
-    B: Standard_Real; C: Standard_Real; D: Standard_Real; E: Standard_Real): math_TrigonometricEquationFunction {.
-    constructor, importcpp: "math_TrigonometricEquationFunction(@)",
+proc constructMathTrigonometricEquationFunction*(a: float; b: float; c: float;
+    d: float; e: float): MathTrigonometricEquationFunction {.constructor,
+    importcpp: "math_TrigonometricEquationFunction(@)",
     header: "math_TrigonometricEquationFunction.hxx".}
-proc Value*(this: var math_TrigonometricEquationFunction; X: Standard_Real;
-           F: var Standard_Real): Standard_Boolean {.importcpp: "Value",
-    header: "math_TrigonometricEquationFunction.hxx".}
-proc Derivative*(this: var math_TrigonometricEquationFunction; X: Standard_Real;
-                D: var Standard_Real): Standard_Boolean {.importcpp: "Derivative",
-    header: "math_TrigonometricEquationFunction.hxx".}
-proc Values*(this: var math_TrigonometricEquationFunction; X: Standard_Real;
-            F: var Standard_Real; D: var Standard_Real): Standard_Boolean {.
-    importcpp: "Values", header: "math_TrigonometricEquationFunction.hxx".}
+proc value*(this: var MathTrigonometricEquationFunction; x: float; f: var float): bool {.
+    importcpp: "Value", header: "math_TrigonometricEquationFunction.hxx".}
+proc derivative*(this: var MathTrigonometricEquationFunction; x: float; d: var float): bool {.
+    importcpp: "Derivative", header: "math_TrigonometricEquationFunction.hxx".}
+proc values*(this: var MathTrigonometricEquationFunction; x: float; f: var float;
+            d: var float): bool {.importcpp: "Values",
+                              header: "math_TrigonometricEquationFunction.hxx".}

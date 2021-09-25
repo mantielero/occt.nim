@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IntPatch_ThePathPointOfTheSOnBounds, ../NCollection/NCollection_Sequence
-
 type
-  IntPatch_SequenceOfPathPointOfTheSOnBounds* = NCollection_Sequence[
-      IntPatch_ThePathPointOfTheSOnBounds]
+  IntPatchSequenceOfPathPointOfTheSOnBounds* = NCollectionSequence[
+      IntPatchThePathPointOfTheSOnBounds]
+

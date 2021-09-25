@@ -14,28 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../TColgp/TColgp_HArray2OfPnt, ../TColStd/TColStd_HArray2OfReal,
-  ../Standard/Standard_Integer, ../TColgp/TColgp_Array2OfPnt,
-  ../TColStd/TColStd_Array2OfReal
-
 discard "forward decl of Standard_NoSuchObject"
 type
-  GeomFill_Filling* {.importcpp: "GeomFill_Filling",
-                     header: "GeomFill_Filling.hxx", bycopy.} = object
+  GeomFillFilling* {.importcpp: "GeomFill_Filling", header: "GeomFill_Filling.hxx",
+                    bycopy.} = object
 
 
-proc constructGeomFill_Filling*(): GeomFill_Filling {.constructor,
+proc constructGeomFillFilling*(): GeomFillFilling {.constructor,
     importcpp: "GeomFill_Filling(@)", header: "GeomFill_Filling.hxx".}
-proc NbUPoles*(this: GeomFill_Filling): Standard_Integer {.noSideEffect,
-    importcpp: "NbUPoles", header: "GeomFill_Filling.hxx".}
-proc NbVPoles*(this: GeomFill_Filling): Standard_Integer {.noSideEffect,
-    importcpp: "NbVPoles", header: "GeomFill_Filling.hxx".}
-proc Poles*(this: GeomFill_Filling; Poles: var TColgp_Array2OfPnt) {.noSideEffect,
+proc nbUPoles*(this: GeomFillFilling): int {.noSideEffect, importcpp: "NbUPoles",
+    header: "GeomFill_Filling.hxx".}
+proc nbVPoles*(this: GeomFillFilling): int {.noSideEffect, importcpp: "NbVPoles",
+    header: "GeomFill_Filling.hxx".}
+proc poles*(this: GeomFillFilling; poles: var TColgpArray2OfPnt) {.noSideEffect,
     importcpp: "Poles", header: "GeomFill_Filling.hxx".}
-proc isRational*(this: GeomFill_Filling): Standard_Boolean {.noSideEffect,
+proc isRational*(this: GeomFillFilling): bool {.noSideEffect,
     importcpp: "isRational", header: "GeomFill_Filling.hxx".}
-proc Weights*(this: GeomFill_Filling; Weights: var TColStd_Array2OfReal) {.
-    noSideEffect, importcpp: "Weights", header: "GeomFill_Filling.hxx".}
+proc weights*(this: GeomFillFilling; weights: var TColStdArray2OfReal) {.noSideEffect,
+    importcpp: "Weights", header: "GeomFill_Filling.hxx".}

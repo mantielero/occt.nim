@@ -14,40 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP214_AutoDesignGeneralOrgItem, StepAP214_Array1OfAutoDesignGeneralOrgItem,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepAP214_HArray1OfAutoDesignGeneralOrgItem* {.
+  StepAP214HArray1OfAutoDesignGeneralOrgItem* {.
       importcpp: "StepAP214_HArray1OfAutoDesignGeneralOrgItem",
-      header: "StepAP214_HArray1OfAutoDesignGeneralOrgItem.hxx", bycopy.} = object of StepAP214_Array1OfAutoDesignGeneralOrgItem
+      header: "StepAP214_HArray1OfAutoDesignGeneralOrgItem.hxx", bycopy.} = object of StepAP214Array1OfAutoDesignGeneralOrgItem
 
 
-proc constructStepAP214_HArray1OfAutoDesignGeneralOrgItem*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepAP214_HArray1OfAutoDesignGeneralOrgItem {.
+proc constructStepAP214HArray1OfAutoDesignGeneralOrgItem*(theLower: int;
+    theUpper: int): StepAP214HArray1OfAutoDesignGeneralOrgItem {.constructor,
+    importcpp: "StepAP214_HArray1OfAutoDesignGeneralOrgItem(@)",
+    header: "StepAP214_HArray1OfAutoDesignGeneralOrgItem.hxx".}
+proc constructStepAP214HArray1OfAutoDesignGeneralOrgItem*(theLower: int;
+    theUpper: int; theValue: ValueType): StepAP214HArray1OfAutoDesignGeneralOrgItem {.
     constructor, importcpp: "StepAP214_HArray1OfAutoDesignGeneralOrgItem(@)",
     header: "StepAP214_HArray1OfAutoDesignGeneralOrgItem.hxx".}
-proc constructStepAP214_HArray1OfAutoDesignGeneralOrgItem*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepAP214_HArray1OfAutoDesignGeneralOrgItem {.
+proc constructStepAP214HArray1OfAutoDesignGeneralOrgItem*(
+    theOther: StepAP214Array1OfAutoDesignGeneralOrgItem): StepAP214HArray1OfAutoDesignGeneralOrgItem {.
     constructor, importcpp: "StepAP214_HArray1OfAutoDesignGeneralOrgItem(@)",
     header: "StepAP214_HArray1OfAutoDesignGeneralOrgItem.hxx".}
-proc constructStepAP214_HArray1OfAutoDesignGeneralOrgItem*(
-    theOther: StepAP214_Array1OfAutoDesignGeneralOrgItem): StepAP214_HArray1OfAutoDesignGeneralOrgItem {.
-    constructor, importcpp: "StepAP214_HArray1OfAutoDesignGeneralOrgItem(@)",
-    header: "StepAP214_HArray1OfAutoDesignGeneralOrgItem.hxx".}
-proc Array1*(this: StepAP214_HArray1OfAutoDesignGeneralOrgItem): StepAP214_Array1OfAutoDesignGeneralOrgItem {.
+proc array1*(this: StepAP214HArray1OfAutoDesignGeneralOrgItem): StepAP214Array1OfAutoDesignGeneralOrgItem {.
     noSideEffect, importcpp: "Array1",
     header: "StepAP214_HArray1OfAutoDesignGeneralOrgItem.hxx".}
-proc ChangeArray1*(this: var StepAP214_HArray1OfAutoDesignGeneralOrgItem): var StepAP214_Array1OfAutoDesignGeneralOrgItem {.
+proc changeArray1*(this: var StepAP214HArray1OfAutoDesignGeneralOrgItem): var StepAP214Array1OfAutoDesignGeneralOrgItem {.
     importcpp: "ChangeArray1",
     header: "StepAP214_HArray1OfAutoDesignGeneralOrgItem.hxx".}
 type
-  StepAP214_HArray1OfAutoDesignGeneralOrgItembase_type* = MMgt_TShared
+  StepAP214HArray1OfAutoDesignGeneralOrgItembaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_HArray1OfAutoDesignGeneralOrgItem::get_type_name(@)", header: "StepAP214_HArray1OfAutoDesignGeneralOrgItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP214_HArray1OfAutoDesignGeneralOrgItem::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP214_HArray1OfAutoDesignGeneralOrgItem::get_type_name(@)", header: "StepAP214_HArray1OfAutoDesignGeneralOrgItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_HArray1OfAutoDesignGeneralOrgItem::get_type_descriptor(@)",
     header: "StepAP214_HArray1OfAutoDesignGeneralOrgItem.hxx".}
-proc DynamicType*(this: StepAP214_HArray1OfAutoDesignGeneralOrgItem): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepAP214_HArray1OfAutoDesignGeneralOrgItem.hxx".}
+proc dynamicType*(this: StepAP214HArray1OfAutoDesignGeneralOrgItem): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepAP214_HArray1OfAutoDesignGeneralOrgItem.hxx".}

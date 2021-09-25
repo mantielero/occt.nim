@@ -12,11 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean
-
 ## ! The class BOPDS_Pave is to store
 ## ! information about vertex on an edge
 
@@ -28,24 +23,23 @@ type
 
 proc constructBOPDS_Pave*(): BOPDS_Pave {.constructor, importcpp: "BOPDS_Pave(@)",
                                        header: "BOPDS_Pave.hxx".}
-proc SetIndex*(this: var BOPDS_Pave; theIndex: Standard_Integer) {.
-    importcpp: "SetIndex", header: "BOPDS_Pave.hxx".}
-proc Index*(this: BOPDS_Pave): Standard_Integer {.noSideEffect, importcpp: "Index",
+proc setIndex*(this: var BOPDS_Pave; theIndex: int) {.importcpp: "SetIndex",
     header: "BOPDS_Pave.hxx".}
-proc SetParameter*(this: var BOPDS_Pave; theParameter: Standard_Real) {.
+proc index*(this: BOPDS_Pave): int {.noSideEffect, importcpp: "Index",
+                                 header: "BOPDS_Pave.hxx".}
+proc setParameter*(this: var BOPDS_Pave; theParameter: float) {.
     importcpp: "SetParameter", header: "BOPDS_Pave.hxx".}
-proc Parameter*(this: BOPDS_Pave): Standard_Real {.noSideEffect,
-    importcpp: "Parameter", header: "BOPDS_Pave.hxx".}
-proc Contents*(this: BOPDS_Pave; theIndex: var Standard_Integer;
-              theParameter: var Standard_Real) {.noSideEffect,
-    importcpp: "Contents", header: "BOPDS_Pave.hxx".}
-proc IsLess*(this: BOPDS_Pave; theOther: BOPDS_Pave): Standard_Boolean {.noSideEffect,
+proc parameter*(this: BOPDS_Pave): float {.noSideEffect, importcpp: "Parameter",
+                                       header: "BOPDS_Pave.hxx".}
+proc contents*(this: BOPDS_Pave; theIndex: var int; theParameter: var float) {.
+    noSideEffect, importcpp: "Contents", header: "BOPDS_Pave.hxx".}
+proc isLess*(this: BOPDS_Pave; theOther: BOPDS_Pave): bool {.noSideEffect,
     importcpp: "IsLess", header: "BOPDS_Pave.hxx".}
-proc `<`*(this: BOPDS_Pave; theOther: BOPDS_Pave): Standard_Boolean {.noSideEffect,
+proc `<`*(this: BOPDS_Pave; theOther: BOPDS_Pave): bool {.noSideEffect,
     importcpp: "(# < #)", header: "BOPDS_Pave.hxx".}
-proc IsEqual*(this: BOPDS_Pave; theOther: BOPDS_Pave): Standard_Boolean {.
-    noSideEffect, importcpp: "IsEqual", header: "BOPDS_Pave.hxx".}
-proc `==`*(this: BOPDS_Pave; theOther: BOPDS_Pave): Standard_Boolean {.noSideEffect,
+proc isEqual*(this: BOPDS_Pave; theOther: BOPDS_Pave): bool {.noSideEffect,
+    importcpp: "IsEqual", header: "BOPDS_Pave.hxx".}
+proc `==`*(this: BOPDS_Pave; theOther: BOPDS_Pave): bool {.noSideEffect,
     importcpp: "(# == #)", header: "BOPDS_Pave.hxx".}
-proc Dump*(this: BOPDS_Pave) {.noSideEffect, importcpp: "Dump",
+proc dump*(this: BOPDS_Pave) {.noSideEffect, importcpp: "Dump",
                             header: "BOPDS_Pave.hxx".}

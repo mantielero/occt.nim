@@ -14,25 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_DateRole"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepBasic_RWDateRole* {.importcpp: "RWStepBasic_RWDateRole",
-                           header: "RWStepBasic_RWDateRole.hxx", bycopy.} = object
+  RWStepBasicRWDateRole* {.importcpp: "RWStepBasic_RWDateRole",
+                          header: "RWStepBasic_RWDateRole.hxx", bycopy.} = object
 
 
-proc constructRWStepBasic_RWDateRole*(): RWStepBasic_RWDateRole {.constructor,
+proc constructRWStepBasicRWDateRole*(): RWStepBasicRWDateRole {.constructor,
     importcpp: "RWStepBasic_RWDateRole(@)", header: "RWStepBasic_RWDateRole.hxx".}
-proc ReadStep*(this: RWStepBasic_RWDateRole; data: handle[StepData_StepReaderData];
-              num: Standard_Integer; ach: var handle[Interface_Check];
-              ent: handle[StepBasic_DateRole]) {.noSideEffect,
+proc readStep*(this: RWStepBasicRWDateRole; data: Handle[StepDataStepReaderData];
+              num: int; ach: var Handle[InterfaceCheck];
+              ent: Handle[StepBasicDateRole]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWDateRole.hxx".}
-proc WriteStep*(this: RWStepBasic_RWDateRole; SW: var StepData_StepWriter;
-               ent: handle[StepBasic_DateRole]) {.noSideEffect,
+proc writeStep*(this: RWStepBasicRWDateRole; sw: var StepDataStepWriter;
+               ent: Handle[StepBasicDateRole]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWDateRole.hxx".}

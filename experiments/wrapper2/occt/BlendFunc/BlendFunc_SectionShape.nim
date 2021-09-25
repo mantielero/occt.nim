@@ -15,9 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  BlendFunc_SectionShape* {.size: sizeof(cint),
-                           importcpp: "BlendFunc_SectionShape",
-                           header: "BlendFunc_SectionShape.hxx".} = enum
-    BlendFunc_Rational, BlendFunc_QuasiAngular, BlendFunc_Polynomial,
-    BlendFunc_Linear
+  BlendFuncSectionShape* {.size: sizeof(cint), importcpp: "BlendFunc_SectionShape",
+                          header: "BlendFunc_SectionShape.hxx".} = enum
+    BlendFuncRational, BlendFuncQuasiAngular, BlendFuncPolynomial, BlendFuncLinear
+
 

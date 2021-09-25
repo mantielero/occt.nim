@@ -14,30 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IntCurve_IntImpConicParConic, IntCurve_IConicTool, IntCurve_PConic
-
 ##  #include <IntCurve_IConicPConicTool.hxx>
 
-import
-  ../IntRes2d/IntRes2d_Domain, ../IntRes2d/IntRes2d_Transition,
-  ../IntRes2d/IntRes2d_Position, ../gp/gp_Vec2d, ../gp/gp
-
-var PIpPI* {.importcpp: "PIpPI", header: "IntCurve_IntConicConic_Tool.hxx".}: Standard_Real
+var pIpPI* {.importcpp: "PIpPI", header: "IntCurve_IntConicConic_Tool.hxx".}: float
 
 ## ======================================================================
 ## ==========          P R O T O T Y P E S                   ============
 ## ======================================================================
 
-proc Determine_Transition_LC*(a1: IntRes2d_Position; a2: var gp_Vec2d; a3: gp_Vec2d;
-                             a4: var IntRes2d_Transition; a5: IntRes2d_Position;
-                             a6: var gp_Vec2d; a7: gp_Vec2d;
-                             a8: var IntRes2d_Transition; a9: Standard_Real) {.
-    importcpp: "Determine_Transition_LC(@)",
-    header: "IntCurve_IntConicConic_Tool.hxx".}
+proc determineTransitionLC*(a1: IntRes2dPosition; a2: var Vec2d; a3: Vec2d;
+                           a4: var IntRes2dTransition; a5: IntRes2dPosition;
+                           a6: var Vec2d; a7: Vec2d; a8: var IntRes2dTransition;
+                           a9: float) {.importcpp: "Determine_Transition_LC(@)",
+                                      header: "IntCurve_IntConicConic_Tool.hxx".}
 ## ======================================================================
 
-proc NormalizeOnCircleDomain*(Param: Standard_Real; Domain: IntRes2d_Domain): Standard_Real {.
+proc normalizeOnCircleDomain*(param: float; domain: IntRes2dDomain): float {.
     importcpp: "NormalizeOnCircleDomain(@)",
     header: "IntCurve_IntConicConic_Tool.hxx".}
 ## =====================================================================
@@ -47,25 +39,24 @@ proc NormalizeOnCircleDomain*(Param: Standard_Real; Domain: IntRes2d_Domain): St
 type
   Interval* {.importcpp: "Interval", header: "IntCurve_IntConicConic_Tool.hxx",
              bycopy.} = object
-    Binf* {.importc: "Binf".}: Standard_Real
-    Bsup* {.importc: "Bsup".}: Standard_Real
-    HasFirstBound* {.importc: "HasFirstBound".}: Standard_Boolean
-    HasLastBound* {.importc: "HasLastBound".}: Standard_Boolean
-    IsNull* {.importc: "IsNull".}: Standard_Boolean
+    binf* {.importc: "Binf".}: float
+    bsup* {.importc: "Bsup".}: float
+    hasFirstBound* {.importc: "HasFirstBound".}: bool
+    hasLastBound* {.importc: "HasLastBound".}: bool
+    isNull* {.importc: "IsNull".}: bool
 
 
 proc constructInterval*(): Interval {.constructor, importcpp: "Interval(@)",
                                    header: "IntCurve_IntConicConic_Tool.hxx".}
-proc constructInterval*(a: Standard_Real; b: Standard_Real): Interval {.constructor,
+proc constructInterval*(a: float; b: float): Interval {.constructor,
     importcpp: "Interval(@)", header: "IntCurve_IntConicConic_Tool.hxx".}
-proc constructInterval*(Domain: IntRes2d_Domain): Interval {.constructor,
+proc constructInterval*(domain: IntRes2dDomain): Interval {.constructor,
     importcpp: "Interval(@)", header: "IntCurve_IntConicConic_Tool.hxx".}
-proc constructInterval*(a: Standard_Real; hf: Standard_Boolean; b: Standard_Real;
-                       hl: Standard_Boolean): Interval {.constructor,
+proc constructInterval*(a: float; hf: bool; b: float; hl: bool): Interval {.constructor,
     importcpp: "Interval(@)", header: "IntCurve_IntConicConic_Tool.hxx".}
-proc Length*(this: var Interval): Standard_Real {.importcpp: "Length",
-    header: "IntCurve_IntConicConic_Tool.hxx".}
-proc IntersectionWithBounded*(this: var Interval; Inter: Interval): Interval {.
+proc length*(this: var Interval): float {.importcpp: "Length",
+                                     header: "IntCurve_IntConicConic_Tool.hxx".}
+proc intersectionWithBounded*(this: var Interval; inter: Interval): Interval {.
     importcpp: "IntersectionWithBounded",
     header: "IntCurve_IntConicConic_Tool.hxx".}
 ## ======================================================================
@@ -75,31 +66,30 @@ proc IntersectionWithBounded*(this: var Interval; Inter: Interval): Interval {.
 type
   PeriodicInterval* {.importcpp: "PeriodicInterval",
                      header: "IntCurve_IntConicConic_Tool.hxx", bycopy.} = object
-    Binf* {.importc: "Binf".}: Standard_Real
-    Bsup* {.importc: "Bsup".}: Standard_Real
-    isnull* {.importc: "isnull".}: Standard_Boolean
+    binf* {.importc: "Binf".}: float
+    bsup* {.importc: "Bsup".}: float
+    isnull* {.importc: "isnull".}: bool
 
 
-proc SetNull*(this: var PeriodicInterval) {.importcpp: "SetNull", header: "IntCurve_IntConicConic_Tool.hxx".}
-proc IsNull*(this: var PeriodicInterval): Standard_Boolean {.importcpp: "IsNull",
+proc setNull*(this: var PeriodicInterval) {.importcpp: "SetNull", header: "IntCurve_IntConicConic_Tool.hxx".}
+proc isNull*(this: var PeriodicInterval): bool {.importcpp: "IsNull",
     header: "IntCurve_IntConicConic_Tool.hxx".}
-proc Complement*(this: var PeriodicInterval) {.importcpp: "Complement",
+proc complement*(this: var PeriodicInterval) {.importcpp: "Complement",
     header: "IntCurve_IntConicConic_Tool.hxx".}
-proc Length*(this: var PeriodicInterval): Standard_Real {.importcpp: "Length",
+proc length*(this: var PeriodicInterval): float {.importcpp: "Length",
     header: "IntCurve_IntConicConic_Tool.hxx".}
-proc constructPeriodicInterval*(Domain: IntRes2d_Domain): PeriodicInterval {.
+proc constructPeriodicInterval*(domain: IntRes2dDomain): PeriodicInterval {.
     constructor, importcpp: "PeriodicInterval(@)",
     header: "IntCurve_IntConicConic_Tool.hxx".}
 proc constructPeriodicInterval*(): PeriodicInterval {.constructor,
     importcpp: "PeriodicInterval(@)", header: "IntCurve_IntConicConic_Tool.hxx".}
-proc constructPeriodicInterval*(a: Standard_Real; b: Standard_Real): PeriodicInterval {.
-    constructor, importcpp: "PeriodicInterval(@)",
-    header: "IntCurve_IntConicConic_Tool.hxx".}
-proc SetValues*(this: var PeriodicInterval; a: Standard_Real; b: Standard_Real) {.
+proc constructPeriodicInterval*(a: float; b: float): PeriodicInterval {.constructor,
+    importcpp: "PeriodicInterval(@)", header: "IntCurve_IntConicConic_Tool.hxx".}
+proc setValues*(this: var PeriodicInterval; a: float; b: float) {.
     importcpp: "SetValues", header: "IntCurve_IntConicConic_Tool.hxx".}
-proc Normalize*(this: var PeriodicInterval) {.importcpp: "Normalize",
+proc normalize*(this: var PeriodicInterval) {.importcpp: "Normalize",
     header: "IntCurve_IntConicConic_Tool.hxx".}
-proc FirstIntersection*(this: var PeriodicInterval; I1: var PeriodicInterval): PeriodicInterval {.
+proc firstIntersection*(this: var PeriodicInterval; i1: var PeriodicInterval): PeriodicInterval {.
     importcpp: "FirstIntersection", header: "IntCurve_IntConicConic_Tool.hxx".}
-proc SecondIntersection*(this: var PeriodicInterval; I2: var PeriodicInterval): PeriodicInterval {.
+proc secondIntersection*(this: var PeriodicInterval; i2: var PeriodicInterval): PeriodicInterval {.
     importcpp: "SecondIntersection", header: "IntCurve_IntConicConic_Tool.hxx".}

@@ -11,140 +11,135 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Prs3d/Prs3d_Root, ../Prs3d/Prs3d_Drawer, ../Prs3d/Prs3d_Presentation,
-  ../Prs3d/Prs3d_PointAspect, ../Prs3d/Prs3d_LineAspect,
-  ../Prs3d/Prs3d_NListOfSequenceOfPnt, ../TColgp/TColgp_SequenceOfPnt,
-  ../TopoDS/TopoDS_Shape, ../TopTools/TopTools_ListOfShape
-
 discard "forward decl of Graphic3d_ArrayOfPoints"
 type
-  StdPrs_WFShape* {.importcpp: "StdPrs_WFShape", header: "StdPrs_WFShape.hxx", bycopy.} = object of Prs3d_Root ##
-                                                                                                     ## !
-                                                                                                     ## Computes
-                                                                                                     ## wireframe
-                                                                                                     ## presentation
-                                                                                                     ## of
-                                                                                                     ## a
-                                                                                                     ## shape.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## @param
-                                                                                                     ## thePresentation
-                                                                                                     ## [in]
-                                                                                                     ## the
-                                                                                                     ## presentation.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## @param
-                                                                                                     ## theShape
-                                                                                                     ## [in]
-                                                                                                     ## the
-                                                                                                     ## shape.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## @param
-                                                                                                     ## theDrawer
-                                                                                                     ## [in]
-                                                                                                     ## the
-                                                                                                     ## draw
-                                                                                                     ## settings.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## @param
-                                                                                                     ## theIsParallel
-                                                                                                     ## [in]
-                                                                                                     ## perform
-                                                                                                     ## algorithm
-                                                                                                     ## using
-                                                                                                     ## multiple
-                                                                                                     ## threads
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Compute
-                                                                                                     ## edge
-                                                                                                     ## presentations
-                                                                                                     ## for
-                                                                                                     ## a
-                                                                                                     ## shape.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## @param
-                                                                                                     ## theShape
-                                                                                                     ## [in]
-                                                                                                     ## the
-                                                                                                     ## shape
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## @param
-                                                                                                     ## theDrawer
-                                                                                                     ## [in]
-                                                                                                     ## the
-                                                                                                     ## drawer
-                                                                                                     ## settings
-                                                                                                     ## (deviation
-                                                                                                     ## angle
-                                                                                                     ## and
-                                                                                                     ## maximal
-                                                                                                     ## parameter
-                                                                                                     ## value)
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## @param
-                                                                                                     ## theShapeDeflection
-                                                                                                     ## [in]
-                                                                                                     ## the
-                                                                                                     ## deflection
-                                                                                                     ## for
-                                                                                                     ## the
-                                                                                                     ## wireframe
-                                                                                                     ## shape
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## @param
-                                                                                                     ## theWire
-                                                                                                     ## [out]
-                                                                                                     ## output
-                                                                                                     ## polylines
-                                                                                                     ## for
-                                                                                                     ## lonely
-                                                                                                     ## wires
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## @param
-                                                                                                     ## theFree
-                                                                                                     ## [out]
-                                                                                                     ## output
-                                                                                                     ## polylines
-                                                                                                     ## for
-                                                                                                     ## free
-                                                                                                     ## edges
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## @param
-                                                                                                     ## theUnFree
-                                                                                                     ## [out]
-                                                                                                     ## output
-                                                                                                     ## polylines
-                                                                                                     ## for
-                                                                                                     ## non-free
-                                                                                                     ## edges
+  StdPrsWFShape* {.importcpp: "StdPrs_WFShape", header: "StdPrs_WFShape.hxx", bycopy.} = object of Prs3dRoot ##
+                                                                                                   ## !
+                                                                                                   ## Computes
+                                                                                                   ## wireframe
+                                                                                                   ## presentation
+                                                                                                   ## of
+                                                                                                   ## a
+                                                                                                   ## shape.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## @param
+                                                                                                   ## thePresentation
+                                                                                                   ## [in]
+                                                                                                   ## the
+                                                                                                   ## presentation.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## @param
+                                                                                                   ## theShape
+                                                                                                   ## [in]
+                                                                                                   ## the
+                                                                                                   ## shape.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## @param
+                                                                                                   ## theDrawer
+                                                                                                   ## [in]
+                                                                                                   ## the
+                                                                                                   ## draw
+                                                                                                   ## settings.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## @param
+                                                                                                   ## theIsParallel
+                                                                                                   ## [in]
+                                                                                                   ## perform
+                                                                                                   ## algorithm
+                                                                                                   ## using
+                                                                                                   ## multiple
+                                                                                                   ## threads
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## Compute
+                                                                                                   ## edge
+                                                                                                   ## presentations
+                                                                                                   ## for
+                                                                                                   ## a
+                                                                                                   ## shape.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## @param
+                                                                                                   ## theShape
+                                                                                                   ## [in]
+                                                                                                   ## the
+                                                                                                   ## shape
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## @param
+                                                                                                   ## theDrawer
+                                                                                                   ## [in]
+                                                                                                   ## the
+                                                                                                   ## drawer
+                                                                                                   ## settings
+                                                                                                   ## (deviation
+                                                                                                   ## angle
+                                                                                                   ## and
+                                                                                                   ## maximal
+                                                                                                   ## parameter
+                                                                                                   ## value)
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## @param
+                                                                                                   ## theShapeDeflection
+                                                                                                   ## [in]
+                                                                                                   ## the
+                                                                                                   ## deflection
+                                                                                                   ## for
+                                                                                                   ## the
+                                                                                                   ## wireframe
+                                                                                                   ## shape
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## @param
+                                                                                                   ## theWire
+                                                                                                   ## [out]
+                                                                                                   ## output
+                                                                                                   ## polylines
+                                                                                                   ## for
+                                                                                                   ## lonely
+                                                                                                   ## wires
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## @param
+                                                                                                   ## theFree
+                                                                                                   ## [out]
+                                                                                                   ## output
+                                                                                                   ## polylines
+                                                                                                   ## for
+                                                                                                   ## free
+                                                                                                   ## edges
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## @param
+                                                                                                   ## theUnFree
+                                                                                                   ## [out]
+                                                                                                   ## output
+                                                                                                   ## polylines
+                                                                                                   ## for
+                                                                                                   ## non-free
+                                                                                                   ## edges
 
 
-proc Add*(thePresentation: handle[Prs3d_Presentation]; theShape: TopoDS_Shape;
-         theDrawer: handle[Prs3d_Drawer];
-         theIsParallel: Standard_Boolean = Standard_False) {.
+proc add*(thePresentation: Handle[Prs3dPresentation]; theShape: TopoDS_Shape;
+         theDrawer: Handle[Prs3dDrawer]; theIsParallel: bool = false) {.
     importcpp: "StdPrs_WFShape::Add(@)", header: "StdPrs_WFShape.hxx".}
-proc AddEdgesOnTriangulation*(theShape: TopoDS_Shape; theToExcludeGeometric: Standard_Boolean = Standard_True): handle[
-    Graphic3d_ArrayOfPrimitives] {.importcpp: "StdPrs_WFShape::AddEdgesOnTriangulation(@)",
-                                  header: "StdPrs_WFShape.hxx".}
-proc AddEdgesOnTriangulation*(theSegments: var TColgp_SequenceOfPnt;
-                             theShape: TopoDS_Shape; theToExcludeGeometric: Standard_Boolean = Standard_True) {.
+proc addEdgesOnTriangulation*(theShape: TopoDS_Shape;
+                             theToExcludeGeometric: bool = true): Handle[
+    Graphic3dArrayOfPrimitives] {.importcpp: "StdPrs_WFShape::AddEdgesOnTriangulation(@)",
+                                 header: "StdPrs_WFShape.hxx".}
+proc addEdgesOnTriangulation*(theSegments: var TColgpSequenceOfPnt;
+                             theShape: TopoDS_Shape;
+                             theToExcludeGeometric: bool = true) {.
     importcpp: "StdPrs_WFShape::AddEdgesOnTriangulation(@)",
     header: "StdPrs_WFShape.hxx".}
-proc AddAllEdges*(theShape: TopoDS_Shape; theDrawer: handle[Prs3d_Drawer]): handle[
-    Graphic3d_ArrayOfPrimitives] {.importcpp: "StdPrs_WFShape::AddAllEdges(@)",
-                                  header: "StdPrs_WFShape.hxx".}
-proc AddVertexes*(theShape: TopoDS_Shape; theVertexMode: Prs3d_VertexDrawMode): handle[
-    Graphic3d_ArrayOfPoints] {.importcpp: "StdPrs_WFShape::AddVertexes(@)",
-                              header: "StdPrs_WFShape.hxx".}
+proc addAllEdges*(theShape: TopoDS_Shape; theDrawer: Handle[Prs3dDrawer]): Handle[
+    Graphic3dArrayOfPrimitives] {.importcpp: "StdPrs_WFShape::AddAllEdges(@)",
+                                 header: "StdPrs_WFShape.hxx".}
+proc addVertexes*(theShape: TopoDS_Shape; theVertexMode: Prs3dVertexDrawMode): Handle[
+    Graphic3dArrayOfPoints] {.importcpp: "StdPrs_WFShape::AddVertexes(@)",
+                             header: "StdPrs_WFShape.hxx".}

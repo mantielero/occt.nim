@@ -14,33 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_SurfaceOfRevolution"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeom_RWSurfaceOfRevolution* {.importcpp: "RWStepGeom_RWSurfaceOfRevolution", header: "RWStepGeom_RWSurfaceOfRevolution.hxx",
-                                     bycopy.} = object
+  RWStepGeomRWSurfaceOfRevolution* {.importcpp: "RWStepGeom_RWSurfaceOfRevolution", header: "RWStepGeom_RWSurfaceOfRevolution.hxx",
+                                    bycopy.} = object
 
 
-proc constructRWStepGeom_RWSurfaceOfRevolution*(): RWStepGeom_RWSurfaceOfRevolution {.
+proc constructRWStepGeomRWSurfaceOfRevolution*(): RWStepGeomRWSurfaceOfRevolution {.
     constructor, importcpp: "RWStepGeom_RWSurfaceOfRevolution(@)",
     header: "RWStepGeom_RWSurfaceOfRevolution.hxx".}
-proc ReadStep*(this: RWStepGeom_RWSurfaceOfRevolution;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepGeom_SurfaceOfRevolution]) {.noSideEffect,
+proc readStep*(this: RWStepGeomRWSurfaceOfRevolution;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepGeomSurfaceOfRevolution]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWSurfaceOfRevolution.hxx".}
-proc WriteStep*(this: RWStepGeom_RWSurfaceOfRevolution;
-               SW: var StepData_StepWriter;
-               ent: handle[StepGeom_SurfaceOfRevolution]) {.noSideEffect,
+proc writeStep*(this: RWStepGeomRWSurfaceOfRevolution; sw: var StepDataStepWriter;
+               ent: Handle[StepGeomSurfaceOfRevolution]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWSurfaceOfRevolution.hxx".}
-proc Share*(this: RWStepGeom_RWSurfaceOfRevolution;
-           ent: handle[StepGeom_SurfaceOfRevolution];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepGeomRWSurfaceOfRevolution;
+           ent: Handle[StepGeomSurfaceOfRevolution];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWSurfaceOfRevolution.hxx".}

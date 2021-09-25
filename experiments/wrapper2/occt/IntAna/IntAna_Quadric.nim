@@ -14,50 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_DefineAlloc, ../NCollection/NCollection_List
-
 ## ! This class provides a description of Quadrics by their
 ## ! Coefficients in natural coordinate system.
 
 type
-  IntAna_Quadric* {.importcpp: "IntAna_Quadric", header: "IntAna_Quadric.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Empty
-                                                                                         ## Constructor
+  IntAnaQuadric* {.importcpp: "IntAna_Quadric", header: "IntAna_Quadric.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Empty
+                                                                                        ## Constructor
 
 
-proc constructIntAna_Quadric*(): IntAna_Quadric {.constructor,
+proc constructIntAnaQuadric*(): IntAnaQuadric {.constructor,
     importcpp: "IntAna_Quadric(@)", header: "IntAna_Quadric.hxx".}
-proc constructIntAna_Quadric*(P: gp_Pln): IntAna_Quadric {.constructor,
+proc constructIntAnaQuadric*(p: Pln): IntAnaQuadric {.constructor,
     importcpp: "IntAna_Quadric(@)", header: "IntAna_Quadric.hxx".}
-proc constructIntAna_Quadric*(Sph: gp_Sphere): IntAna_Quadric {.constructor,
+proc constructIntAnaQuadric*(sph: Sphere): IntAnaQuadric {.constructor,
     importcpp: "IntAna_Quadric(@)", header: "IntAna_Quadric.hxx".}
-proc constructIntAna_Quadric*(Cyl: gp_Cylinder): IntAna_Quadric {.constructor,
+proc constructIntAnaQuadric*(cyl: Cylinder): IntAnaQuadric {.constructor,
     importcpp: "IntAna_Quadric(@)", header: "IntAna_Quadric.hxx".}
-proc constructIntAna_Quadric*(Cone: gp_Cone): IntAna_Quadric {.constructor,
+proc constructIntAnaQuadric*(cone: Cone): IntAnaQuadric {.constructor,
     importcpp: "IntAna_Quadric(@)", header: "IntAna_Quadric.hxx".}
-proc SetQuadric*(this: var IntAna_Quadric; P: gp_Pln) {.importcpp: "SetQuadric",
+proc setQuadric*(this: var IntAnaQuadric; p: Pln) {.importcpp: "SetQuadric",
     header: "IntAna_Quadric.hxx".}
-proc SetQuadric*(this: var IntAna_Quadric; Sph: gp_Sphere) {.importcpp: "SetQuadric",
+proc setQuadric*(this: var IntAnaQuadric; sph: Sphere) {.importcpp: "SetQuadric",
     header: "IntAna_Quadric.hxx".}
-proc SetQuadric*(this: var IntAna_Quadric; Con: gp_Cone) {.importcpp: "SetQuadric",
+proc setQuadric*(this: var IntAnaQuadric; con: Cone) {.importcpp: "SetQuadric",
     header: "IntAna_Quadric.hxx".}
-proc SetQuadric*(this: var IntAna_Quadric; Cyl: gp_Cylinder) {.
-    importcpp: "SetQuadric", header: "IntAna_Quadric.hxx".}
-proc Coefficients*(this: IntAna_Quadric; xCXX: var Standard_Real;
-                  xCYY: var Standard_Real; xCZZ: var Standard_Real;
-                  xCXY: var Standard_Real; xCXZ: var Standard_Real;
-                  xCYZ: var Standard_Real; xCX: var Standard_Real;
-                  xCY: var Standard_Real; xCZ: var Standard_Real;
-                  xCCte: var Standard_Real) {.noSideEffect,
-    importcpp: "Coefficients", header: "IntAna_Quadric.hxx".}
-proc NewCoefficients*(this: IntAna_Quadric; xCXX: var Standard_Real;
-                     xCYY: var Standard_Real; xCZZ: var Standard_Real;
-                     xCXY: var Standard_Real; xCXZ: var Standard_Real;
-                     xCYZ: var Standard_Real; xCX: var Standard_Real;
-                     xCY: var Standard_Real; xCZ: var Standard_Real;
-                     xCCte: var Standard_Real; Axis: gp_Ax3) {.noSideEffect,
-    importcpp: "NewCoefficients", header: "IntAna_Quadric.hxx".}
-proc SpecialPoints*(this: IntAna_Quadric): NCollection_List[gp_Pnt] {.noSideEffect,
+proc setQuadric*(this: var IntAnaQuadric; cyl: Cylinder) {.importcpp: "SetQuadric",
+    header: "IntAna_Quadric.hxx".}
+proc coefficients*(this: IntAnaQuadric; xCXX: var float; xCYY: var float;
+                  xCZZ: var float; xCXY: var float; xCXZ: var float; xCYZ: var float;
+                  xCX: var float; xCY: var float; xCZ: var float; xCCte: var float) {.
+    noSideEffect, importcpp: "Coefficients", header: "IntAna_Quadric.hxx".}
+proc newCoefficients*(this: IntAnaQuadric; xCXX: var float; xCYY: var float;
+                     xCZZ: var float; xCXY: var float; xCXZ: var float; xCYZ: var float;
+                     xCX: var float; xCY: var float; xCZ: var float; xCCte: var float;
+                     axis: Ax3) {.noSideEffect, importcpp: "NewCoefficients",
+                                header: "IntAna_Quadric.hxx".}
+proc specialPoints*(this: IntAnaQuadric): NCollectionList[Pnt] {.noSideEffect,
     importcpp: "SpecialPoints", header: "IntAna_Quadric.hxx".}

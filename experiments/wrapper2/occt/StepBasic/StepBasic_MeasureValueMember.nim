@@ -14,15 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../StepData/StepData_SelectReal, ../Standard/Standard_Boolean,
-  ../Standard/Standard_CString
-
 discard "forward decl of StepBasic_MeasureValueMember"
 discard "forward decl of StepBasic_MeasureValueMember"
 type
-  Handle_StepBasic_MeasureValueMember* = handle[StepBasic_MeasureValueMember]
+  HandleStepBasicMeasureValueMember* = Handle[StepBasicMeasureValueMember]
 
 ## ! for Select MeasureValue, i.e. :
 ## ! length_measure,time_measure,plane_angle_measure,
@@ -32,28 +27,27 @@ type
 ## ! area_measure,volume_measure, count_measure
 
 type
-  StepBasic_MeasureValueMember* {.importcpp: "StepBasic_MeasureValueMember",
-                                 header: "StepBasic_MeasureValueMember.hxx",
-                                 bycopy.} = object of StepData_SelectReal
+  StepBasicMeasureValueMember* {.importcpp: "StepBasic_MeasureValueMember",
+                                header: "StepBasic_MeasureValueMember.hxx", bycopy.} = object of StepDataSelectReal
 
 
-proc constructStepBasic_MeasureValueMember*(): StepBasic_MeasureValueMember {.
+proc constructStepBasicMeasureValueMember*(): StepBasicMeasureValueMember {.
     constructor, importcpp: "StepBasic_MeasureValueMember(@)",
     header: "StepBasic_MeasureValueMember.hxx".}
-proc HasName*(this: StepBasic_MeasureValueMember): Standard_Boolean {.noSideEffect,
+proc hasName*(this: StepBasicMeasureValueMember): bool {.noSideEffect,
     importcpp: "HasName", header: "StepBasic_MeasureValueMember.hxx".}
-proc Name*(this: StepBasic_MeasureValueMember): Standard_CString {.noSideEffect,
+proc name*(this: StepBasicMeasureValueMember): StandardCString {.noSideEffect,
     importcpp: "Name", header: "StepBasic_MeasureValueMember.hxx".}
-proc SetName*(this: var StepBasic_MeasureValueMember; name: Standard_CString): Standard_Boolean {.
+proc setName*(this: var StepBasicMeasureValueMember; name: StandardCString): bool {.
     importcpp: "SetName", header: "StepBasic_MeasureValueMember.hxx".}
 type
-  StepBasic_MeasureValueMemberbase_type* = StepData_SelectReal
+  StepBasicMeasureValueMemberbaseType* = StepDataSelectReal
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_MeasureValueMember::get_type_name(@)",
-                              header: "StepBasic_MeasureValueMember.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_MeasureValueMember::get_type_name(@)",
+                            header: "StepBasic_MeasureValueMember.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_MeasureValueMember::get_type_descriptor(@)",
     header: "StepBasic_MeasureValueMember.hxx".}
-proc DynamicType*(this: StepBasic_MeasureValueMember): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicMeasureValueMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_MeasureValueMember.hxx".}

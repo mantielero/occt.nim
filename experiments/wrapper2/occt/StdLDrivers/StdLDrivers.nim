@@ -11,9 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Handle
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Standard_GUID"
 discard "forward decl of StdObjMgt_MapOfInstantiators"
@@ -41,9 +38,9 @@ type
                                                                                 ## plugin
 
 
-proc Factory*(aGUID: Standard_GUID): handle[Standard_Transient] {.
+proc factory*(aGUID: StandardGUID): Handle[StandardTransient] {.
     importcpp: "StdLDrivers::Factory(@)", header: "StdLDrivers.hxx".}
-proc DefineFormat*(theApp: handle[TDocStd_Application]) {.
+proc defineFormat*(theApp: Handle[TDocStdApplication]) {.
     importcpp: "StdLDrivers::DefineFormat(@)", header: "StdLDrivers.hxx".}
-proc BindTypes*(theMap: var StdObjMgt_MapOfInstantiators) {.
+proc bindTypes*(theMap: var StdObjMgtMapOfInstantiators) {.
     importcpp: "StdLDrivers::BindTypes(@)", header: "StdLDrivers.hxx".}

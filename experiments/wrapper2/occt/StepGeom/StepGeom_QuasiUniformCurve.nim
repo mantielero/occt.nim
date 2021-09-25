@@ -14,32 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_BSplineCurve
-
 discard "forward decl of StepGeom_QuasiUniformCurve"
 discard "forward decl of StepGeom_QuasiUniformCurve"
 type
-  Handle_StepGeom_QuasiUniformCurve* = handle[StepGeom_QuasiUniformCurve]
-  StepGeom_QuasiUniformCurve* {.importcpp: "StepGeom_QuasiUniformCurve",
-                               header: "StepGeom_QuasiUniformCurve.hxx", bycopy.} = object of StepGeom_BSplineCurve ##
-                                                                                                             ## !
-                                                                                                             ## Returns
-                                                                                                             ## a
-                                                                                                             ## QuasiUniformCurve
+  HandleStepGeomQuasiUniformCurve* = Handle[StepGeomQuasiUniformCurve]
+  StepGeomQuasiUniformCurve* {.importcpp: "StepGeom_QuasiUniformCurve",
+                              header: "StepGeom_QuasiUniformCurve.hxx", bycopy.} = object of StepGeomBSplineCurve ##
+                                                                                                           ## !
+                                                                                                           ## Returns
+                                                                                                           ## a
+                                                                                                           ## QuasiUniformCurve
 
 
-proc constructStepGeom_QuasiUniformCurve*(): StepGeom_QuasiUniformCurve {.
+proc constructStepGeomQuasiUniformCurve*(): StepGeomQuasiUniformCurve {.
     constructor, importcpp: "StepGeom_QuasiUniformCurve(@)",
     header: "StepGeom_QuasiUniformCurve.hxx".}
 type
-  StepGeom_QuasiUniformCurvebase_type* = StepGeom_BSplineCurve
+  StepGeomQuasiUniformCurvebaseType* = StepGeomBSplineCurve
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_QuasiUniformCurve::get_type_name(@)",
-                              header: "StepGeom_QuasiUniformCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_QuasiUniformCurve::get_type_name(@)",
+                            header: "StepGeom_QuasiUniformCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_QuasiUniformCurve::get_type_descriptor(@)",
     header: "StepGeom_QuasiUniformCurve.hxx".}
-proc DynamicType*(this: StepGeom_QuasiUniformCurve): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomQuasiUniformCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_QuasiUniformCurve.hxx".}

@@ -13,57 +13,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_LimitsAndFits"
 discard "forward decl of StepShape_LimitsAndFits"
 type
-  Handle_StepShape_LimitsAndFits* = handle[StepShape_LimitsAndFits]
+  HandleStepShapeLimitsAndFits* = Handle[StepShapeLimitsAndFits]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepShape_LimitsAndFits* {.importcpp: "StepShape_LimitsAndFits",
-                            header: "StepShape_LimitsAndFits.hxx", bycopy.} = object of Standard_Transient
+  StepShapeLimitsAndFits* {.importcpp: "StepShape_LimitsAndFits",
+                           header: "StepShape_LimitsAndFits.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructStepShape_LimitsAndFits*(): StepShape_LimitsAndFits {.constructor,
+proc constructStepShapeLimitsAndFits*(): StepShapeLimitsAndFits {.constructor,
     importcpp: "StepShape_LimitsAndFits(@)", header: "StepShape_LimitsAndFits.hxx".}
-proc Init*(this: var StepShape_LimitsAndFits;
-          form_variance: handle[TCollection_HAsciiString];
-          zone_variance: handle[TCollection_HAsciiString];
-          grade: handle[TCollection_HAsciiString];
-          source: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepShapeLimitsAndFits;
+          formVariance: Handle[TCollectionHAsciiString];
+          zoneVariance: Handle[TCollectionHAsciiString];
+          grade: Handle[TCollectionHAsciiString];
+          source: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepShape_LimitsAndFits.hxx".}
-proc FormVariance*(this: StepShape_LimitsAndFits): handle[TCollection_HAsciiString] {.
+proc formVariance*(this: StepShapeLimitsAndFits): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "FormVariance", header: "StepShape_LimitsAndFits.hxx".}
-proc SetFormVariance*(this: var StepShape_LimitsAndFits;
-                     form_variance: handle[TCollection_HAsciiString]) {.
+proc setFormVariance*(this: var StepShapeLimitsAndFits;
+                     formVariance: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetFormVariance", header: "StepShape_LimitsAndFits.hxx".}
-proc ZoneVariance*(this: StepShape_LimitsAndFits): handle[TCollection_HAsciiString] {.
+proc zoneVariance*(this: StepShapeLimitsAndFits): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "ZoneVariance", header: "StepShape_LimitsAndFits.hxx".}
-proc SetZoneVariance*(this: var StepShape_LimitsAndFits;
-                     zone_variance: handle[TCollection_HAsciiString]) {.
+proc setZoneVariance*(this: var StepShapeLimitsAndFits;
+                     zoneVariance: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetZoneVariance", header: "StepShape_LimitsAndFits.hxx".}
-proc Grade*(this: StepShape_LimitsAndFits): handle[TCollection_HAsciiString] {.
+proc grade*(this: StepShapeLimitsAndFits): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Grade", header: "StepShape_LimitsAndFits.hxx".}
-proc SetGrade*(this: var StepShape_LimitsAndFits;
-              grade: handle[TCollection_HAsciiString]) {.importcpp: "SetGrade",
+proc setGrade*(this: var StepShapeLimitsAndFits;
+              grade: Handle[TCollectionHAsciiString]) {.importcpp: "SetGrade",
     header: "StepShape_LimitsAndFits.hxx".}
-proc Source*(this: StepShape_LimitsAndFits): handle[TCollection_HAsciiString] {.
+proc source*(this: StepShapeLimitsAndFits): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Source", header: "StepShape_LimitsAndFits.hxx".}
-proc SetSource*(this: var StepShape_LimitsAndFits;
-               source: handle[TCollection_HAsciiString]) {.importcpp: "SetSource",
+proc setSource*(this: var StepShapeLimitsAndFits;
+               source: Handle[TCollectionHAsciiString]) {.importcpp: "SetSource",
     header: "StepShape_LimitsAndFits.hxx".}
 type
-  StepShape_LimitsAndFitsbase_type* = Standard_Transient
+  StepShapeLimitsAndFitsbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_LimitsAndFits::get_type_name(@)",
-                              header: "StepShape_LimitsAndFits.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_LimitsAndFits::get_type_name(@)",
+                            header: "StepShape_LimitsAndFits.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_LimitsAndFits::get_type_descriptor(@)",
     header: "StepShape_LimitsAndFits.hxx".}
-proc DynamicType*(this: StepShape_LimitsAndFits): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeLimitsAndFits): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_LimitsAndFits.hxx".}

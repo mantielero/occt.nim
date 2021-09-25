@@ -17,16 +17,16 @@
 ## ! Types of standard textures.
 
 type
-  Graphic3d_NameOfTexture2D* {.size: sizeof(cint),
-                              importcpp: "Graphic3d_NameOfTexture2D",
-                              header: "Graphic3d_NameOfTexture2D.hxx".} = enum
-    Graphic3d_NOT_2D_MATRA, Graphic3d_NOT_2D_ALIENSKIN,
-    Graphic3d_NOT_2D_BLUE_ROCK, Graphic3d_NOT_2D_BLUEWHITE_PAPER,
-    Graphic3d_NOT_2D_BRUSHED, Graphic3d_NOT_2D_BUBBLES, Graphic3d_NOT_2D_BUMP,
-    Graphic3d_NOT_2D_CAST, Graphic3d_NOT_2D_CHIPBD, Graphic3d_NOT_2D_CLOUDS,
-    Graphic3d_NOT_2D_FLESH, Graphic3d_NOT_2D_FLOOR, Graphic3d_NOT_2D_GALVNISD,
-    Graphic3d_NOT_2D_GRASS, Graphic3d_NOT_2D_ALUMINUM, Graphic3d_NOT_2D_ROCK,
-    Graphic3d_NOT_2D_KNURL, Graphic3d_NOT_2D_MAPLE, Graphic3d_NOT_2D_MARBLE,
-    Graphic3d_NOT_2D_MOTTLED, Graphic3d_NOT_2D_RAIN, Graphic3d_NOT_2D_CHESS,
-    Graphic3d_NOT_2D_UNKNOWN
+  Graphic3dNameOfTexture2D* {.size: sizeof(cint),
+                             importcpp: "Graphic3d_NameOfTexture2D",
+                             header: "Graphic3d_NameOfTexture2D.hxx".} = enum
+    Graphic3dNOT_2D_MATRA, Graphic3dNOT_2D_ALIENSKIN, Graphic3dNOT_2D_BLUE_ROCK,
+    Graphic3dNOT_2D_BLUEWHITE_PAPER, Graphic3dNOT_2D_BRUSHED,
+    Graphic3dNOT_2D_BUBBLES, Graphic3dNOT_2D_BUMP, Graphic3dNOT_2D_CAST,
+    Graphic3dNOT_2D_CHIPBD, Graphic3dNOT_2D_CLOUDS, Graphic3dNOT_2D_FLESH,
+    Graphic3dNOT_2D_FLOOR, Graphic3dNOT_2D_GALVNISD, Graphic3dNOT_2D_GRASS,
+    Graphic3dNOT_2D_ALUMINUM, Graphic3dNOT_2D_ROCK, Graphic3dNOT_2D_KNURL,
+    Graphic3dNOT_2D_MAPLE, Graphic3dNOT_2D_MARBLE, Graphic3dNOT_2D_MOTTLED,
+    Graphic3dNOT_2D_RAIN, Graphic3dNOT_2D_CHESS, Graphic3dNOT_2D_UNKNOWN
+
 

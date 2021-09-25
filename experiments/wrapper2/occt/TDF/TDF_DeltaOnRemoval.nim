@@ -13,14 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TDF_AttributeDelta
-
 discard "forward decl of TDF_Attribute"
 discard "forward decl of TDF_DeltaOnRemoval"
 discard "forward decl of TDF_DeltaOnRemoval"
 type
-  Handle_TDF_DeltaOnRemoval* = handle[TDF_DeltaOnRemoval]
+  HandleTDF_DeltaOnRemoval* = Handle[TDF_DeltaOnRemoval]
 
 ## ! This class provides default services for an
 ## ! AttributeDelta on a REMOVAL action.
@@ -36,12 +33,12 @@ type
                                                                                           ## a
                                                                                           ## TDF_DeltaOnRemoval.
 
-  TDF_DeltaOnRemovalbase_type* = TDF_AttributeDelta
+  TDF_DeltaOnRemovalbaseType* = TDF_AttributeDelta
 
-proc get_type_name*(): cstring {.importcpp: "TDF_DeltaOnRemoval::get_type_name(@)",
-                              header: "TDF_DeltaOnRemoval.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDF_DeltaOnRemoval::get_type_name(@)",
+                            header: "TDF_DeltaOnRemoval.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDF_DeltaOnRemoval::get_type_descriptor(@)",
     header: "TDF_DeltaOnRemoval.hxx".}
-proc DynamicType*(this: TDF_DeltaOnRemoval): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDF_DeltaOnRemoval): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDF_DeltaOnRemoval.hxx".}

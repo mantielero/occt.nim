@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  IGESData_Status* {.size: sizeof(cint), importcpp: "IGESData_Status",
-                    header: "IGESData_Status.hxx".} = enum
-    IGESData_EntityOK, IGESData_EntityError, IGESData_ReferenceError,
-    IGESData_TypeError
+  IGESDataStatus* {.size: sizeof(cint), importcpp: "IGESData_Status",
+                   header: "IGESData_Status.hxx".} = enum
+    IGESDataEntityOK, IGESDataEntityError, IGESDataReferenceError,
+    IGESDataTypeError
+
 

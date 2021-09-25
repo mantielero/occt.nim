@@ -14,24 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GeomToStep_Root
-
 discard "forward decl of StepGeom_Conic"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom_Conic"
 discard "forward decl of Geom2d_Conic"
 type
-  GeomToStep_MakeConic* {.importcpp: "GeomToStep_MakeConic",
-                         header: "GeomToStep_MakeConic.hxx", bycopy.} = object of GeomToStep_Root
+  GeomToStepMakeConic* {.importcpp: "GeomToStep_MakeConic",
+                        header: "GeomToStep_MakeConic.hxx", bycopy.} = object of GeomToStepRoot
 
 
-proc constructGeomToStep_MakeConic*(C: handle[Geom_Conic]): GeomToStep_MakeConic {.
+proc constructGeomToStepMakeConic*(c: Handle[GeomConic]): GeomToStepMakeConic {.
     constructor, importcpp: "GeomToStep_MakeConic(@)",
     header: "GeomToStep_MakeConic.hxx".}
-proc constructGeomToStep_MakeConic*(C: handle[Geom2d_Conic]): GeomToStep_MakeConic {.
+proc constructGeomToStepMakeConic*(c: Handle[Geom2dConic]): GeomToStepMakeConic {.
     constructor, importcpp: "GeomToStep_MakeConic(@)",
     header: "GeomToStep_MakeConic.hxx".}
-proc Value*(this: GeomToStep_MakeConic): handle[StepGeom_Conic] {.noSideEffect,
+proc value*(this: GeomToStepMakeConic): Handle[StepGeomConic] {.noSideEffect,
     importcpp: "Value", header: "GeomToStep_MakeConic.hxx".}

@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # Storage_HSeqOfRoot_HeaderFile [NewLine] # Storage_HSeqOfRoot_HeaderFile [NewLine] # Storage_Root.hxx [NewLine] # Storage_SeqOfRoot.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( Storage_HSeqOfRoot , Storage_SeqOfRoot ) # [NewLine]
+## !!!Ignored construct:  # Storage_HSeqOfRoot_HeaderFile [NewLine] # Storage_HSeqOfRoot_HeaderFile [NewLine] # < Storage_Root . hxx > [NewLine] # < Storage_SeqOfRoot . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( Storage_HSeqOfRoot , Storage_SeqOfRoot ) # [NewLine]
 ## Error: expected ';'!!!
+

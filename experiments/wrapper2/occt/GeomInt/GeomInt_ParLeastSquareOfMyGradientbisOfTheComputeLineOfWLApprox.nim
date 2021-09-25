@@ -14,15 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../AppParCurves/AppParCurves_Constraint,
-  ../AppParCurves/AppParCurves_MultiBSpCurve, ../TColStd/TColStd_HArray1OfReal,
-  ../TColStd/TColStd_HArray1OfInteger, ../math/math_Matrix, ../math/math_Vector,
-  ../math/math_IntegerVector, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
-  ../TColStd/TColStd_Array1OfReal, ../TColStd/TColStd_Array1OfInteger
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_DimensionError"
@@ -33,7 +24,7 @@ discard "forward decl of AppParCurves_MultiCurve"
 discard "forward decl of AppParCurves_MultiBSpCurve"
 discard "forward decl of math_Matrix"
 type
-  GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox* {.importcpp: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx",
+  GeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox* {.importcpp: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx",
       bycopy.} = object ## ! given a MultiLine, this algorithm computes the least
                      ## ! square resolution using the Householder-QR method.
                      ## ! If the first and/or the last point is a constraint
@@ -53,68 +44,61 @@ type
                      ## ! is used by the constuctors above.
 
 
-proc constructGeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox*(
-    SSP: GeomInt_TheMultiLineOfWLApprox; FirstPoint: Standard_Integer;
-    LastPoint: Standard_Integer; FirstCons: AppParCurves_Constraint;
-    LastCons: AppParCurves_Constraint; Parameters: math_Vector;
-    NbPol: Standard_Integer): GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox {.
+proc constructGeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox*(
+    ssp: GeomIntTheMultiLineOfWLApprox; firstPoint: int; lastPoint: int;
+    firstCons: AppParCurvesConstraint; lastCons: AppParCurvesConstraint;
+    parameters: MathVector; nbPol: int): GeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox {.
     constructor, importcpp: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox(@)", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
-proc constructGeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox*(
-    SSP: GeomInt_TheMultiLineOfWLApprox; FirstPoint: Standard_Integer;
-    LastPoint: Standard_Integer; FirstCons: AppParCurves_Constraint;
-    LastCons: AppParCurves_Constraint; NbPol: Standard_Integer): GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox {.
+proc constructGeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox*(
+    ssp: GeomIntTheMultiLineOfWLApprox; firstPoint: int; lastPoint: int;
+    firstCons: AppParCurvesConstraint; lastCons: AppParCurvesConstraint; nbPol: int): GeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox {.
     constructor, importcpp: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox(@)", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
-proc constructGeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox*(
-    SSP: GeomInt_TheMultiLineOfWLApprox; Knots: TColStd_Array1OfReal;
-    Mults: TColStd_Array1OfInteger; FirstPoint: Standard_Integer;
-    LastPoint: Standard_Integer; FirstCons: AppParCurves_Constraint;
-    LastCons: AppParCurves_Constraint; Parameters: math_Vector;
-    NbPol: Standard_Integer): GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox {.
+proc constructGeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox*(
+    ssp: GeomIntTheMultiLineOfWLApprox; knots: TColStdArray1OfReal;
+    mults: TColStdArray1OfInteger; firstPoint: int; lastPoint: int;
+    firstCons: AppParCurvesConstraint; lastCons: AppParCurvesConstraint;
+    parameters: MathVector; nbPol: int): GeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox {.
     constructor, importcpp: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox(@)", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
-proc constructGeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox*(
-    SSP: GeomInt_TheMultiLineOfWLApprox; Knots: TColStd_Array1OfReal;
-    Mults: TColStd_Array1OfInteger; FirstPoint: Standard_Integer;
-    LastPoint: Standard_Integer; FirstCons: AppParCurves_Constraint;
-    LastCons: AppParCurves_Constraint; NbPol: Standard_Integer): GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox {.
+proc constructGeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox*(
+    ssp: GeomIntTheMultiLineOfWLApprox; knots: TColStdArray1OfReal;
+    mults: TColStdArray1OfInteger; firstPoint: int; lastPoint: int;
+    firstCons: AppParCurvesConstraint; lastCons: AppParCurvesConstraint; nbPol: int): GeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox {.
     constructor, importcpp: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox(@)", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
-proc Perform*(this: var GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox;
-             Parameters: math_Vector) {.importcpp: "Perform", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
-proc Perform*(this: var GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox;
-             Parameters: math_Vector; l1: Standard_Real; l2: Standard_Real) {.
+proc perform*(this: var GeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox;
+             parameters: MathVector) {.importcpp: "Perform", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
+proc perform*(this: var GeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox;
+             parameters: MathVector; l1: float; l2: float) {.importcpp: "Perform", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
+proc perform*(this: var GeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox;
+             parameters: MathVector; v1t: MathVector; v2t: MathVector; l1: float;
+             l2: float) {.importcpp: "Perform", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
+proc perform*(this: var GeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox;
+             parameters: MathVector; v1t: MathVector; v2t: MathVector;
+             v1c: MathVector; v2c: MathVector; l1: float; l2: float) {.
     importcpp: "Perform", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
-proc Perform*(this: var GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox;
-             Parameters: math_Vector; V1t: math_Vector; V2t: math_Vector;
-             l1: Standard_Real; l2: Standard_Real) {.importcpp: "Perform", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
-proc Perform*(this: var GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox;
-             Parameters: math_Vector; V1t: math_Vector; V2t: math_Vector;
-             V1c: math_Vector; V2c: math_Vector; l1: Standard_Real; l2: Standard_Real) {.
-    importcpp: "Perform", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
-proc IsDone*(this: GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox): Standard_Boolean {.
+proc isDone*(this: GeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox): bool {.
     noSideEffect, importcpp: "IsDone", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
-proc BezierValue*(this: var GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox): AppParCurves_MultiCurve {.
+proc bezierValue*(this: var GeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox): AppParCurvesMultiCurve {.
     importcpp: "BezierValue", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
-proc BSplineValue*(this: var GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox): AppParCurves_MultiBSpCurve {.
+proc bSplineValue*(this: var GeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox): AppParCurvesMultiBSpCurve {.
     importcpp: "BSplineValue", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
-proc FunctionMatrix*(this: GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox): math_Matrix {.
+proc functionMatrix*(this: GeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox): MathMatrix {.
     noSideEffect, importcpp: "FunctionMatrix", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
-proc DerivativeFunctionMatrix*(this: GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox): math_Matrix {.
+proc derivativeFunctionMatrix*(this: GeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox): MathMatrix {.
     noSideEffect, importcpp: "DerivativeFunctionMatrix", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
-proc ErrorGradient*(this: var GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox;
-                   Grad: var math_Vector; F: var Standard_Real;
-                   MaxE3d: var Standard_Real; MaxE2d: var Standard_Real) {.
-    importcpp: "ErrorGradient", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
-proc Distance*(this: var GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox): math_Matrix {.
+proc errorGradient*(this: var GeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox;
+                   grad: var MathVector; f: var float; maxE3d: var float;
+                   maxE2d: var float) {.importcpp: "ErrorGradient", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
+proc distance*(this: var GeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox): MathMatrix {.
     importcpp: "Distance", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
-proc Error*(this: var GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox;
-           F: var Standard_Real; MaxE3d: var Standard_Real; MaxE2d: var Standard_Real) {.
-    importcpp: "Error", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
-proc FirstLambda*(this: GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox): Standard_Real {.
+proc error*(this: var GeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox;
+           f: var float; maxE3d: var float; maxE2d: var float) {.importcpp: "Error", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
+proc firstLambda*(this: GeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox): float {.
     noSideEffect, importcpp: "FirstLambda", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
-proc LastLambda*(this: GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox): Standard_Real {.
+proc lastLambda*(this: GeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox): float {.
     noSideEffect, importcpp: "LastLambda", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
-proc Points*(this: GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox): math_Matrix {.
+proc points*(this: GeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox): MathMatrix {.
     noSideEffect, importcpp: "Points", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
-proc Poles*(this: GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox): math_Matrix {.
+proc poles*(this: GeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox): MathMatrix {.
     noSideEffect, importcpp: "Poles", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
-proc KIndex*(this: GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox): math_IntegerVector {.
+proc kIndex*(this: GeomIntParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox): MathIntegerVector {.
     noSideEffect, importcpp: "KIndex", header: "GeomInt_ParLeastSquareOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}

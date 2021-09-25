@@ -14,30 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepGeom_Point"
 discard "forward decl of StepGeom_Curve"
 discard "forward decl of StepGeom_Surface"
 type
-  StepShape_GeometricSetSelect* {.importcpp: "StepShape_GeometricSetSelect",
-                                 header: "StepShape_GeometricSetSelect.hxx",
-                                 bycopy.} = object of StepData_SelectType ## ! Returns a
-                                                                     ## GeometricSetSelect SelectType
+  StepShapeGeometricSetSelect* {.importcpp: "StepShape_GeometricSetSelect",
+                                header: "StepShape_GeometricSetSelect.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                             ## !
+                                                                                                             ## Returns
+                                                                                                             ## a
+                                                                                                             ## GeometricSetSelect
+                                                                                                             ## SelectType
 
 
-proc constructStepShape_GeometricSetSelect*(): StepShape_GeometricSetSelect {.
+proc constructStepShapeGeometricSetSelect*(): StepShapeGeometricSetSelect {.
     constructor, importcpp: "StepShape_GeometricSetSelect(@)",
     header: "StepShape_GeometricSetSelect.hxx".}
-proc CaseNum*(this: StepShape_GeometricSetSelect; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepShapeGeometricSetSelect; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepShape_GeometricSetSelect.hxx".}
-proc Point*(this: StepShape_GeometricSetSelect): handle[StepGeom_Point] {.
+proc point*(this: StepShapeGeometricSetSelect): Handle[StepGeomPoint] {.
     noSideEffect, importcpp: "Point", header: "StepShape_GeometricSetSelect.hxx".}
-proc Curve*(this: StepShape_GeometricSetSelect): handle[StepGeom_Curve] {.
+proc curve*(this: StepShapeGeometricSetSelect): Handle[StepGeomCurve] {.
     noSideEffect, importcpp: "Curve", header: "StepShape_GeometricSetSelect.hxx".}
-proc Surface*(this: StepShape_GeometricSetSelect): handle[StepGeom_Surface] {.
+proc surface*(this: StepShapeGeometricSetSelect): Handle[StepGeomSurface] {.
     noSideEffect, importcpp: "Surface", header: "StepShape_GeometricSetSelect.hxx".}

@@ -14,145 +14,120 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRepTool_OutCurveType,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer
-
 type
-  TopOpeBRepTool_GeomTool* {.importcpp: "TopOpeBRepTool_GeomTool",
-                            header: "TopOpeBRepTool_GeomTool.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Boolean
-                                                                                ## flags
-                                                                                ## <CompC3D>,
-                                                                                ## <CompPC1>,
-                                                                                ## <CompPC2>
-                                                                                ##
-                                                                                ## !
-                                                                                ## indicate
-                                                                                ## whether
-                                                                                ## the
-                                                                                ## corresponding
-                                                                                ## result
-                                                                                ## curves
-                                                                                ##
-                                                                                ## !
-                                                                                ## <C3D>,
-                                                                                ## <PC1>,
-                                                                                ## <PC2>
-                                                                                ## of
-                                                                                ## MakeCurves
-                                                                                ## method
-                                                                                ## must
-                                                                                ## or
-                                                                                ## not
-                                                                                ##
-                                                                                ## !
-                                                                                ## be
-                                                                                ## computed
-                                                                                ## from
-                                                                                ## an
-                                                                                ## intersection
-                                                                                ## line
-                                                                                ## <L>.
-                                                                                ##
-                                                                                ## !
-                                                                                ## When
-                                                                                ## the
-                                                                                ## line
-                                                                                ## <L>
-                                                                                ## is
-                                                                                ## a
-                                                                                ## walking
-                                                                                ## one,
-                                                                                ## <TypeC3D>
-                                                                                ## is
-                                                                                ## the
-                                                                                ##
-                                                                                ## !
-                                                                                ## kind
-                                                                                ## of
-                                                                                ## the
-                                                                                ## 3D
-                                                                                ## curve
-                                                                                ## <C3D>
-                                                                                ## to
-                                                                                ## compute
-                                                                                ## :
-                                                                                ##
-                                                                                ## !
-                                                                                ## -
-                                                                                ## BSPLINE1
-                                                                                ## to
-                                                                                ## compute
-                                                                                ## a
-                                                                                ## BSpline
-                                                                                ## of
-                                                                                ## degree
-                                                                                ## 1
-                                                                                ## on
-                                                                                ## the
-                                                                                ##
-                                                                                ## !
-                                                                                ## walking
-                                                                                ## points
-                                                                                ## of
-                                                                                ## <L>,
-                                                                                ##
-                                                                                ## !
-                                                                                ## -
-                                                                                ## APPROX
-                                                                                ## to
-                                                                                ## build
-                                                                                ## an
-                                                                                ## approximation
-                                                                                ## curve
-                                                                                ## on
-                                                                                ## the
-                                                                                ##
-                                                                                ## !
-                                                                                ## walking
-                                                                                ## points
-                                                                                ## of
-                                                                                ## <L>.
+  TopOpeBRepToolGeomTool* {.importcpp: "TopOpeBRepTool_GeomTool",
+                           header: "TopOpeBRepTool_GeomTool.hxx", bycopy.} = object ## !
+                                                                               ## Boolean
+                                                                               ## flags
+                                                                               ## <CompC3D>,
+                                                                               ## <CompPC1>,
+                                                                               ## <CompPC2>
+                                                                               ## !
+                                                                               ## indicate
+                                                                               ## whether
+                                                                               ## the
+                                                                               ## corresponding
+                                                                               ## result
+                                                                               ## curves
+                                                                               ## !
+                                                                               ## <C3D>,
+                                                                               ## <PC1>,
+                                                                               ## <PC2>
+                                                                               ## of
+                                                                               ## MakeCurves
+                                                                               ## method
+                                                                               ## must
+                                                                               ## or
+                                                                               ## not
+                                                                               ## !
+                                                                               ## be
+                                                                               ## computed
+                                                                               ## from
+                                                                               ## an
+                                                                               ## intersection
+                                                                               ## line
+                                                                               ## <L>.
+                                                                               ## !
+                                                                               ## When
+                                                                               ## the
+                                                                               ## line
+                                                                               ## <L>
+                                                                               ## is a
+                                                                               ## walking
+                                                                               ## one,
+                                                                               ## <TypeC3D>
+                                                                               ## is
+                                                                               ## the
+                                                                               ## !
+                                                                               ## kind
+                                                                               ## of
+                                                                               ## the
+                                                                               ## 3D
+                                                                               ## curve
+                                                                               ## <C3D>
+                                                                               ## to
+                                                                               ## compute  :
+                                                                               ## ! -
+                                                                               ## BSPLINE1
+                                                                               ## to
+                                                                               ## compute  a
+                                                                               ## BSpline
+                                                                               ## of
+                                                                               ## degree 1
+                                                                               ## on
+                                                                               ## the
+                                                                               ## !
+                                                                               ## walking
+                                                                               ## points
+                                                                               ## of
+                                                                               ## <L>,
+                                                                               ## ! -
+                                                                               ## APPROX
+                                                                               ## to
+                                                                               ## build
+                                                                               ## an
+                                                                               ## approximation
+                                                                               ## curve
+                                                                               ## on
+                                                                               ## the
+                                                                               ## !
+                                                                               ## walking
+                                                                               ## points
+                                                                               ## of
+                                                                               ## <L>.
 
 
-proc constructTopOpeBRepTool_GeomTool*(TypeC3D: TopOpeBRepTool_OutCurveType = TopOpeBRepTool_BSPLINE1;
-    CompC3D: Standard_Boolean = Standard_True; CompPC1: Standard_Boolean = Standard_True;
-                                      CompPC2: Standard_Boolean = Standard_True): TopOpeBRepTool_GeomTool {.
+proc constructTopOpeBRepToolGeomTool*(typeC3D: TopOpeBRepToolOutCurveType = topOpeBRepToolBSPLINE1;
+                                     compC3D: bool = true; compPC1: bool = true;
+                                     compPC2: bool = true): TopOpeBRepToolGeomTool {.
     constructor, importcpp: "TopOpeBRepTool_GeomTool(@)",
     header: "TopOpeBRepTool_GeomTool.hxx".}
-proc Define*(this: var TopOpeBRepTool_GeomTool;
-            TypeC3D: TopOpeBRepTool_OutCurveType; CompC3D: Standard_Boolean;
-            CompPC1: Standard_Boolean; CompPC2: Standard_Boolean) {.
-    importcpp: "Define", header: "TopOpeBRepTool_GeomTool.hxx".}
-proc Define*(this: var TopOpeBRepTool_GeomTool; TypeC3D: TopOpeBRepTool_OutCurveType) {.
-    importcpp: "Define", header: "TopOpeBRepTool_GeomTool.hxx".}
-proc DefineCurves*(this: var TopOpeBRepTool_GeomTool; CompC3D: Standard_Boolean) {.
-    importcpp: "DefineCurves", header: "TopOpeBRepTool_GeomTool.hxx".}
-proc DefinePCurves1*(this: var TopOpeBRepTool_GeomTool; CompPC1: Standard_Boolean) {.
-    importcpp: "DefinePCurves1", header: "TopOpeBRepTool_GeomTool.hxx".}
-proc DefinePCurves2*(this: var TopOpeBRepTool_GeomTool; CompPC2: Standard_Boolean) {.
-    importcpp: "DefinePCurves2", header: "TopOpeBRepTool_GeomTool.hxx".}
-proc Define*(this: var TopOpeBRepTool_GeomTool; GT: TopOpeBRepTool_GeomTool) {.
-    importcpp: "Define", header: "TopOpeBRepTool_GeomTool.hxx".}
-proc GetTolerances*(this: TopOpeBRepTool_GeomTool; tol3d: var Standard_Real;
-                   tol2d: var Standard_Real) {.noSideEffect,
-    importcpp: "GetTolerances", header: "TopOpeBRepTool_GeomTool.hxx".}
-proc SetTolerances*(this: var TopOpeBRepTool_GeomTool; tol3d: Standard_Real;
-                   tol2d: Standard_Real) {.importcpp: "SetTolerances",
+proc define*(this: var TopOpeBRepToolGeomTool; typeC3D: TopOpeBRepToolOutCurveType;
+            compC3D: bool; compPC1: bool; compPC2: bool) {.importcpp: "Define",
     header: "TopOpeBRepTool_GeomTool.hxx".}
-proc NbPntMax*(this: TopOpeBRepTool_GeomTool): Standard_Integer {.noSideEffect,
+proc define*(this: var TopOpeBRepToolGeomTool; typeC3D: TopOpeBRepToolOutCurveType) {.
+    importcpp: "Define", header: "TopOpeBRepTool_GeomTool.hxx".}
+proc defineCurves*(this: var TopOpeBRepToolGeomTool; compC3D: bool) {.
+    importcpp: "DefineCurves", header: "TopOpeBRepTool_GeomTool.hxx".}
+proc definePCurves1*(this: var TopOpeBRepToolGeomTool; compPC1: bool) {.
+    importcpp: "DefinePCurves1", header: "TopOpeBRepTool_GeomTool.hxx".}
+proc definePCurves2*(this: var TopOpeBRepToolGeomTool; compPC2: bool) {.
+    importcpp: "DefinePCurves2", header: "TopOpeBRepTool_GeomTool.hxx".}
+proc define*(this: var TopOpeBRepToolGeomTool; gt: TopOpeBRepToolGeomTool) {.
+    importcpp: "Define", header: "TopOpeBRepTool_GeomTool.hxx".}
+proc getTolerances*(this: TopOpeBRepToolGeomTool; tol3d: var float; tol2d: var float) {.
+    noSideEffect, importcpp: "GetTolerances", header: "TopOpeBRepTool_GeomTool.hxx".}
+proc setTolerances*(this: var TopOpeBRepToolGeomTool; tol3d: float; tol2d: float) {.
+    importcpp: "SetTolerances", header: "TopOpeBRepTool_GeomTool.hxx".}
+proc nbPntMax*(this: TopOpeBRepToolGeomTool): int {.noSideEffect,
     importcpp: "NbPntMax", header: "TopOpeBRepTool_GeomTool.hxx".}
-proc SetNbPntMax*(this: var TopOpeBRepTool_GeomTool; NbPntMax: Standard_Integer) {.
+proc setNbPntMax*(this: var TopOpeBRepToolGeomTool; nbPntMax: int) {.
     importcpp: "SetNbPntMax", header: "TopOpeBRepTool_GeomTool.hxx".}
-proc TypeC3D*(this: TopOpeBRepTool_GeomTool): TopOpeBRepTool_OutCurveType {.
+proc typeC3D*(this: TopOpeBRepToolGeomTool): TopOpeBRepToolOutCurveType {.
     noSideEffect, importcpp: "TypeC3D", header: "TopOpeBRepTool_GeomTool.hxx".}
-proc CompC3D*(this: TopOpeBRepTool_GeomTool): Standard_Boolean {.noSideEffect,
+proc compC3D*(this: TopOpeBRepToolGeomTool): bool {.noSideEffect,
     importcpp: "CompC3D", header: "TopOpeBRepTool_GeomTool.hxx".}
-proc CompPC1*(this: TopOpeBRepTool_GeomTool): Standard_Boolean {.noSideEffect,
+proc compPC1*(this: TopOpeBRepToolGeomTool): bool {.noSideEffect,
     importcpp: "CompPC1", header: "TopOpeBRepTool_GeomTool.hxx".}
-proc CompPC2*(this: TopOpeBRepTool_GeomTool): Standard_Boolean {.noSideEffect,
+proc compPC2*(this: TopOpeBRepToolGeomTool): bool {.noSideEffect,
     importcpp: "CompPC2", header: "TopOpeBRepTool_GeomTool.hxx".}

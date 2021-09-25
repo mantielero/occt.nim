@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real
-
 discard "forward decl of gp_Lin"
 discard "forward decl of Bnd_Box"
 discard "forward decl of gp_Lin2d"
@@ -50,51 +46,47 @@ type
                                                                  ## ! infinite real numbers, or two positive infinite real numbers.
 
 
-proc Add*(L: gp_Lin; P1: Standard_Real; P2: Standard_Real; Tol: Standard_Real;
-         B: var Bnd_Box) {.importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc Add*(L: gp_Lin2d; P1: Standard_Real; P2: Standard_Real; Tol: Standard_Real;
-         B: var Bnd_Box2d) {.importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc Add*(C: gp_Circ; Tol: Standard_Real; B: var Bnd_Box) {.importcpp: "BndLib::Add(@)",
+proc add*(L: Lin; p1: float; p2: float; tol: float; b: var BndBox) {.
+    importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
+proc add*(L: Lin2d; p1: float; p2: float; tol: float; b: var BndBox2d) {.
+    importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
+proc add*(c: Circ; tol: float; b: var BndBox) {.importcpp: "BndLib::Add(@)",
+                                        header: "BndLib.hxx".}
+proc add*(c: Circ; p1: float; p2: float; tol: float; b: var BndBox) {.
+    importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
+proc add*(c: Circ2d; tol: float; b: var BndBox2d) {.importcpp: "BndLib::Add(@)",
     header: "BndLib.hxx".}
-proc Add*(C: gp_Circ; P1: Standard_Real; P2: Standard_Real; Tol: Standard_Real;
-         B: var Bnd_Box) {.importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc Add*(C: gp_Circ2d; Tol: Standard_Real; B: var Bnd_Box2d) {.
+proc add*(c: Circ2d; p1: float; p2: float; tol: float; b: var BndBox2d) {.
     importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc Add*(C: gp_Circ2d; P1: Standard_Real; P2: Standard_Real; Tol: Standard_Real;
-         B: var Bnd_Box2d) {.importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc Add*(C: gp_Elips; Tol: Standard_Real; B: var Bnd_Box) {.
+proc add*(c: Elips; tol: float; b: var BndBox) {.importcpp: "BndLib::Add(@)",
+    header: "BndLib.hxx".}
+proc add*(c: Elips; p1: float; p2: float; tol: float; b: var BndBox) {.
     importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc Add*(C: gp_Elips; P1: Standard_Real; P2: Standard_Real; Tol: Standard_Real;
-         B: var Bnd_Box) {.importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc Add*(C: gp_Elips2d; Tol: Standard_Real; B: var Bnd_Box2d) {.
+proc add*(c: Elips2d; tol: float; b: var BndBox2d) {.importcpp: "BndLib::Add(@)",
+    header: "BndLib.hxx".}
+proc add*(c: Elips2d; p1: float; p2: float; tol: float; b: var BndBox2d) {.
     importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc Add*(C: gp_Elips2d; P1: Standard_Real; P2: Standard_Real; Tol: Standard_Real;
-         B: var Bnd_Box2d) {.importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc Add*(P: gp_Parab; P1: Standard_Real; P2: Standard_Real; Tol: Standard_Real;
-         B: var Bnd_Box) {.importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc Add*(P: gp_Parab2d; P1: Standard_Real; P2: Standard_Real; Tol: Standard_Real;
-         B: var Bnd_Box2d) {.importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc Add*(H: gp_Hypr; P1: Standard_Real; P2: Standard_Real; Tol: Standard_Real;
-         B: var Bnd_Box) {.importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc Add*(H: gp_Hypr2d; P1: Standard_Real; P2: Standard_Real; Tol: Standard_Real;
-         B: var Bnd_Box2d) {.importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc Add*(S: gp_Cylinder; UMin: Standard_Real; UMax: Standard_Real;
-         VMin: Standard_Real; VMax: Standard_Real; Tol: Standard_Real; B: var Bnd_Box) {.
+proc add*(p: Parab; p1: float; p2: float; tol: float; b: var BndBox) {.
     importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc Add*(S: gp_Cylinder; VMin: Standard_Real; VMax: Standard_Real; Tol: Standard_Real;
-         B: var Bnd_Box) {.importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc Add*(S: gp_Cone; UMin: Standard_Real; UMax: Standard_Real; VMin: Standard_Real;
-         VMax: Standard_Real; Tol: Standard_Real; B: var Bnd_Box) {.
+proc add*(p: Parab2d; p1: float; p2: float; tol: float; b: var BndBox2d) {.
     importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc Add*(S: gp_Cone; VMin: Standard_Real; VMax: Standard_Real; Tol: Standard_Real;
-         B: var Bnd_Box) {.importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc Add*(S: gp_Sphere; Tol: Standard_Real; B: var Bnd_Box) {.
+proc add*(h: Hypr; p1: float; p2: float; tol: float; b: var BndBox) {.
     importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc Add*(S: gp_Sphere; UMin: Standard_Real; UMax: Standard_Real; VMin: Standard_Real;
-         VMax: Standard_Real; Tol: Standard_Real; B: var Bnd_Box) {.
+proc add*(h: Hypr2d; p1: float; p2: float; tol: float; b: var BndBox2d) {.
     importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc Add*(P: gp_Torus; Tol: Standard_Real; B: var Bnd_Box) {.
+proc add*(s: Cylinder; uMin: float; uMax: float; vMin: float; vMax: float; tol: float;
+         b: var BndBox) {.importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
+proc add*(s: Cylinder; vMin: float; vMax: float; tol: float; b: var BndBox) {.
     importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc Add*(P: gp_Torus; UMin: Standard_Real; UMax: Standard_Real; VMin: Standard_Real;
-         VMax: Standard_Real; Tol: Standard_Real; B: var Bnd_Box) {.
+proc add*(s: Cone; uMin: float; uMax: float; vMin: float; vMax: float; tol: float;
+         b: var BndBox) {.importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
+proc add*(s: Cone; vMin: float; vMax: float; tol: float; b: var BndBox) {.
     importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
+proc add*(s: Sphere; tol: float; b: var BndBox) {.importcpp: "BndLib::Add(@)",
+    header: "BndLib.hxx".}
+proc add*(s: Sphere; uMin: float; uMax: float; vMin: float; vMax: float; tol: float;
+         b: var BndBox) {.importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
+proc add*(p: Torus; tol: float; b: var BndBox) {.importcpp: "BndLib::Add(@)",
+    header: "BndLib.hxx".}
+proc add*(p: Torus; uMin: float; uMax: float; vMin: float; vMax: float; tol: float;
+         b: var BndBox) {.importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}

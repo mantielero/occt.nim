@@ -14,51 +14,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Solid, TopOpeBRepBuild_ShapeSet,
-  ../Standard/Standard_Address, ../TCollection/TCollection_AsciiString,
-  ../TopTools/TopTools_ListOfShape
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Solid"
 discard "forward decl of TCollection_AsciiString"
 type
-  TopOpeBRepBuild_ShellFaceSet* {.importcpp: "TopOpeBRepBuild_ShellFaceSet",
-                                 header: "TopOpeBRepBuild_ShellFaceSet.hxx",
-                                 bycopy.} = object of TopOpeBRepBuild_ShapeSet ## !
-                                                                          ## Creates a
-                                                                          ## ShellFaceSet to build blocks of faces
-                                                                          ## !
-                                                                          ## connected by edges.
+  TopOpeBRepBuildShellFaceSet* {.importcpp: "TopOpeBRepBuild_ShellFaceSet",
+                                header: "TopOpeBRepBuild_ShellFaceSet.hxx", bycopy.} = object of TopOpeBRepBuildShapeSet ##
+                                                                                                                  ## !
+                                                                                                                  ## Creates
+                                                                                                                  ## a
+                                                                                                                  ## ShellFaceSet
+                                                                                                                  ## to
+                                                                                                                  ## build
+                                                                                                                  ## blocks
+                                                                                                                  ## of
+                                                                                                                  ## faces
+                                                                                                                  ##
+                                                                                                                  ## !
+                                                                                                                  ## connected
+                                                                                                                  ## by
+                                                                                                                  ## edges.
 
 
-proc constructTopOpeBRepBuild_ShellFaceSet*(): TopOpeBRepBuild_ShellFaceSet {.
+proc constructTopOpeBRepBuildShellFaceSet*(): TopOpeBRepBuildShellFaceSet {.
     constructor, importcpp: "TopOpeBRepBuild_ShellFaceSet(@)",
     header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
-proc constructTopOpeBRepBuild_ShellFaceSet*(S: TopoDS_Shape;
-    Addr: Standard_Address = nil): TopOpeBRepBuild_ShellFaceSet {.constructor,
+proc constructTopOpeBRepBuildShellFaceSet*(s: TopoDS_Shape;
+    `addr`: StandardAddress = nil): TopOpeBRepBuildShellFaceSet {.constructor,
     importcpp: "TopOpeBRepBuild_ShellFaceSet(@)",
     header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
-proc Solid*(this: TopOpeBRepBuild_ShellFaceSet): TopoDS_Solid {.noSideEffect,
+proc solid*(this: TopOpeBRepBuildShellFaceSet): TopoDS_Solid {.noSideEffect,
     importcpp: "Solid", header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
-proc AddShape*(this: var TopOpeBRepBuild_ShellFaceSet; S: TopoDS_Shape) {.
+proc addShape*(this: var TopOpeBRepBuildShellFaceSet; s: TopoDS_Shape) {.
     importcpp: "AddShape", header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
-proc AddStartElement*(this: var TopOpeBRepBuild_ShellFaceSet; S: TopoDS_Shape) {.
+proc addStartElement*(this: var TopOpeBRepBuildShellFaceSet; s: TopoDS_Shape) {.
     importcpp: "AddStartElement", header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
-proc AddElement*(this: var TopOpeBRepBuild_ShellFaceSet; S: TopoDS_Shape) {.
+proc addElement*(this: var TopOpeBRepBuildShellFaceSet; s: TopoDS_Shape) {.
     importcpp: "AddElement", header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
-proc DumpSS*(this: var TopOpeBRepBuild_ShellFaceSet) {.importcpp: "DumpSS",
+proc dumpSS*(this: var TopOpeBRepBuildShellFaceSet) {.importcpp: "DumpSS",
     header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
-proc SName*(this: TopOpeBRepBuild_ShellFaceSet; S: TopoDS_Shape;
-           sb: TCollection_AsciiString = ""; sa: TCollection_AsciiString = ""): TCollection_AsciiString {.
+proc sName*(this: TopOpeBRepBuildShellFaceSet; s: TopoDS_Shape;
+           sb: TCollectionAsciiString = ""; sa: TCollectionAsciiString = ""): TCollectionAsciiString {.
     noSideEffect, importcpp: "SName", header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
-proc SName*(this: TopOpeBRepBuild_ShellFaceSet; S: TopTools_ListOfShape;
-           sb: TCollection_AsciiString = ""; sa: TCollection_AsciiString = ""): TCollection_AsciiString {.
+proc sName*(this: TopOpeBRepBuildShellFaceSet; s: TopToolsListOfShape;
+           sb: TCollectionAsciiString = ""; sa: TCollectionAsciiString = ""): TCollectionAsciiString {.
     noSideEffect, importcpp: "SName", header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
-proc SNameori*(this: TopOpeBRepBuild_ShellFaceSet; S: TopoDS_Shape;
-              sb: TCollection_AsciiString = ""; sa: TCollection_AsciiString = ""): TCollection_AsciiString {.
+proc sNameori*(this: TopOpeBRepBuildShellFaceSet; s: TopoDS_Shape;
+              sb: TCollectionAsciiString = ""; sa: TCollectionAsciiString = ""): TCollectionAsciiString {.
     noSideEffect, importcpp: "SNameori", header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
-proc SNameori*(this: TopOpeBRepBuild_ShellFaceSet; S: TopTools_ListOfShape;
-              sb: TCollection_AsciiString = ""; sa: TCollection_AsciiString = ""): TCollection_AsciiString {.
+proc sNameori*(this: TopOpeBRepBuildShellFaceSet; s: TopToolsListOfShape;
+              sb: TCollectionAsciiString = ""; sa: TCollectionAsciiString = ""): TCollectionAsciiString {.
     noSideEffect, importcpp: "SNameori", header: "TopOpeBRepBuild_ShellFaceSet.hxx".}

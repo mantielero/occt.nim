@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, TopOpeBRepTool_C2DF,
-  ../TopTools/TopTools_OrientedShapeMapHasher, ../NCollection/NCollection_DataMap
-
 type
-  TopOpeBRepTool_DataMapOfOrientedShapeC2DF* = NCollection_DataMap[TopoDS_Shape,
-      TopOpeBRepTool_C2DF, TopTools_OrientedShapeMapHasher]
-  TopOpeBRepTool_DataMapIteratorOfDataMapOfOrientedShapeC2DF* = Iterator[
-      TopoDS_Shape, TopOpeBRepTool_C2DF, TopTools_OrientedShapeMapHasher]
+  TopOpeBRepToolDataMapOfOrientedShapeC2DF* = NCollectionDataMap[TopoDS_Shape,
+      TopOpeBRepToolC2DF, TopToolsOrientedShapeMapHasher]
+  TopOpeBRepToolDataMapIteratorOfDataMapOfOrientedShapeC2DF* = Iterator[
+      TopoDS_Shape, TopOpeBRepToolC2DF, TopToolsOrientedShapeMapHasher]
+

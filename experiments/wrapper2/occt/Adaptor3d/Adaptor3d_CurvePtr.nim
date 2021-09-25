@@ -16,4 +16,5 @@
 
 discard "forward decl of Adaptor3d_Curve"
 type
-  Adaptor3d_CurvePtr* = ptr Adaptor3d_Curve
+  Adaptor3dCurvePtr* = ptr Adaptor3dCurve
+

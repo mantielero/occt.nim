@@ -11,5 +11,3 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  MeshVS_DataMapOfIntegerColor

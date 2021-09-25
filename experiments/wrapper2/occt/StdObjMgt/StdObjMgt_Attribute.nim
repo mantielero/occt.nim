@@ -11,54 +11,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StdObjMgt_Persistent, StdObjMgt_ReadData, StdObjMgt_WriteData
-
 ## ! Root class for a temporary persistent object corresponding to an attribute.
 
 type
-  StdObjMgt_Attribute*[Transient] {.importcpp: "StdObjMgt_Attribute<\'0>",
-                                   header: "StdObjMgt_Attribute.hxx", bycopy.} = object of Standard_Transient
+  StdObjMgtAttribute*[Transient] {.importcpp: "StdObjMgt_Attribute<\'0>",
+                                  header: "StdObjMgt_Attribute.hxx", bycopy.} = object of StandardTransient
 
-  StdObjMgt_AttributeStatic*[Transient] {.
-      importcpp: "StdObjMgt_Attribute<\'0>::Static",
-      header: "StdObjMgt_Attribute.hxx", bycopy.} = object of StdObjMgt_Attributebase
+  StdObjMgtAttributeStatic*[Transient] {.importcpp: "StdObjMgt_Attribute<\'0>::Static",
+                                        header: "StdObjMgt_Attribute.hxx", bycopy.} = object of StdObjMgtAttributebase
 
-  StdObjMgt_AttributeSimple*[Transient; DataType] {.
+  StdObjMgtAttributeSimple*[Transient; DataType] {.
       importcpp: "StdObjMgt_Attribute<\'0>::Simple<\'1>",
-      header: "StdObjMgt_Attribute.hxx", bycopy.} = object of StdObjMgt_AttributeStatic ##
-                                                                                 ## !
-                                                                                 ## Read
-                                                                                 ## persistent
-                                                                                 ## data
-                                                                                 ## from
-                                                                                 ## a
-                                                                                 ## file.
+      header: "StdObjMgt_Attribute.hxx", bycopy.} = object of StdObjMgtAttributeStatic ##
+                                                                                ## !
+                                                                                ## Read
+                                                                                ## persistent
+                                                                                ## data
+                                                                                ## from
+                                                                                ## a
+                                                                                ## file.
 
 
-proc Read*[Transient; DataType](this: var StdObjMgt_AttributeSimple[Transient,
-    DataType]; theReadData: var StdObjMgt_ReadData) {.importcpp: "Read",
+proc read*[Transient; DataType](this: var StdObjMgtAttributeSimple[Transient,
+    DataType]; theReadData: var StdObjMgtReadData) {.importcpp: "Read",
     header: "StdObjMgt_Attribute.hxx".}
-proc Write*[Transient; DataType](this: StdObjMgt_AttributeSimple[Transient, DataType];
-                               theWriteData: var StdObjMgt_WriteData) {.
+proc write*[Transient; DataType](this: StdObjMgtAttributeSimple[Transient, DataType];
+                               theWriteData: var StdObjMgtWriteData) {.
     noSideEffect, importcpp: "Write", header: "StdObjMgt_Attribute.hxx".}
-proc PChildren*[Transient; DataType](this: StdObjMgt_AttributeSimple[Transient,
+proc pChildren*[Transient; DataType](this: StdObjMgtAttributeSimple[Transient,
     DataType]; a2: var SequenceOfPersistent) {.noSideEffect, importcpp: "PChildren",
     header: "StdObjMgt_Attribute.hxx".}
-proc PName*[Transient; DataType](this: StdObjMgt_AttributeSimple[Transient, DataType]): Standard_CString {.
+proc pName*[Transient; DataType](this: StdObjMgtAttributeSimple[Transient, DataType]): StandardCString {.
     noSideEffect, importcpp: "PName", header: "StdObjMgt_Attribute.hxx".}
 type
-  StdObjMgt_AttributeSingleInt*[Transient] {.
+  StdObjMgtAttributeSingleInt*[Transient] {.
       importcpp: "StdObjMgt_Attribute<\'0>::SingleInt",
-      header: "StdObjMgt_Attribute.hxx", bycopy.} = object of StdObjMgt_AttributeSimple[
-      Standard_Integer]
+      header: "StdObjMgt_Attribute.hxx", bycopy.} = object of StdObjMgtAttributeSimple[
+      int]
 
-  StdObjMgt_AttributeSingleRef*[Transient] {.
+  StdObjMgtAttributeSingleRef*[Transient] {.
       importcpp: "StdObjMgt_Attribute<\'0>::SingleRef",
-      header: "StdObjMgt_Attribute.hxx", bycopy.} = object of StdObjMgt_AttributeSimple[
-      handle[StdObjMgt_Persistent]]
+      header: "StdObjMgt_Attribute.hxx", bycopy.} = object of StdObjMgtAttributeSimple[
+      Handle[StdObjMgtPersistent]]
 
 
-proc Instantiate*[Transient; Persistent](): handle[StdObjMgt_Persistent] {.
+proc instantiate*[Transient; Persistent](): Handle[StdObjMgtPersistent] {.
     importcpp: "StdObjMgt_Attribute::Instantiate(@)",
     header: "StdObjMgt_Attribute.hxx".}

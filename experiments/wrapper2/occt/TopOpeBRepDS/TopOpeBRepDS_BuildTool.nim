@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../BRep/BRep_Builder,
-  ../TopOpeBRepTool/TopOpeBRepTool_CurveTool, ../Standard/Standard_Boolean,
-  ../TopOpeBRepTool/TopOpeBRepTool_OutCurveType, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer, ../TopAbs/TopAbs_Orientation
-
 discard "forward decl of TopOpeBRepTool_GeomTool"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRepDS_Point"
@@ -41,128 +34,122 @@ type
 
 proc constructTopOpeBRepDS_BuildTool*(): TopOpeBRepDS_BuildTool {.constructor,
     importcpp: "TopOpeBRepDS_BuildTool(@)", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc constructTopOpeBRepDS_BuildTool*(OutCurveType: TopOpeBRepTool_OutCurveType): TopOpeBRepDS_BuildTool {.
+proc constructTopOpeBRepDS_BuildTool*(outCurveType: TopOpeBRepToolOutCurveType): TopOpeBRepDS_BuildTool {.
     constructor, importcpp: "TopOpeBRepDS_BuildTool(@)",
     header: "TopOpeBRepDS_BuildTool.hxx".}
-proc constructTopOpeBRepDS_BuildTool*(GT: TopOpeBRepTool_GeomTool): TopOpeBRepDS_BuildTool {.
+proc constructTopOpeBRepDS_BuildTool*(gt: TopOpeBRepToolGeomTool): TopOpeBRepDS_BuildTool {.
     constructor, importcpp: "TopOpeBRepDS_BuildTool(@)",
     header: "TopOpeBRepDS_BuildTool.hxx".}
-proc GetGeomTool*(this: TopOpeBRepDS_BuildTool): TopOpeBRepTool_GeomTool {.
+proc getGeomTool*(this: TopOpeBRepDS_BuildTool): TopOpeBRepToolGeomTool {.
     noSideEffect, importcpp: "GetGeomTool", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc ChangeGeomTool*(this: var TopOpeBRepDS_BuildTool): var TopOpeBRepTool_GeomTool {.
+proc changeGeomTool*(this: var TopOpeBRepDS_BuildTool): var TopOpeBRepToolGeomTool {.
     importcpp: "ChangeGeomTool", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc MakeVertex*(this: TopOpeBRepDS_BuildTool; V: var TopoDS_Shape;
-                P: TopOpeBRepDS_Point) {.noSideEffect, importcpp: "MakeVertex",
+proc makeVertex*(this: TopOpeBRepDS_BuildTool; v: var TopoDS_Shape;
+                p: TopOpeBRepDS_Point) {.noSideEffect, importcpp: "MakeVertex",
                                        header: "TopOpeBRepDS_BuildTool.hxx".}
-proc MakeEdge*(this: TopOpeBRepDS_BuildTool; E: var TopoDS_Shape;
-              C: TopOpeBRepDS_Curve) {.noSideEffect, importcpp: "MakeEdge",
+proc makeEdge*(this: TopOpeBRepDS_BuildTool; e: var TopoDS_Shape;
+              c: TopOpeBRepDS_Curve) {.noSideEffect, importcpp: "MakeEdge",
                                      header: "TopOpeBRepDS_BuildTool.hxx".}
-proc MakeEdge*(this: TopOpeBRepDS_BuildTool; E: var TopoDS_Shape;
-              C: TopOpeBRepDS_Curve; DS: TopOpeBRepDS_DataStructure) {.noSideEffect,
+proc makeEdge*(this: TopOpeBRepDS_BuildTool; e: var TopoDS_Shape;
+              c: TopOpeBRepDS_Curve; ds: TopOpeBRepDS_DataStructure) {.noSideEffect,
     importcpp: "MakeEdge", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc MakeEdge*(this: TopOpeBRepDS_BuildTool; E: var TopoDS_Shape;
-              C: handle[Geom_Curve]; Tol: Standard_Real) {.noSideEffect,
+proc makeEdge*(this: TopOpeBRepDS_BuildTool; e: var TopoDS_Shape;
+              c: Handle[GeomCurve]; tol: float) {.noSideEffect,
     importcpp: "MakeEdge", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc MakeEdge*(this: TopOpeBRepDS_BuildTool; E: var TopoDS_Shape) {.noSideEffect,
+proc makeEdge*(this: TopOpeBRepDS_BuildTool; e: var TopoDS_Shape) {.noSideEffect,
     importcpp: "MakeEdge", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc MakeWire*(this: TopOpeBRepDS_BuildTool; W: var TopoDS_Shape) {.noSideEffect,
+proc makeWire*(this: TopOpeBRepDS_BuildTool; w: var TopoDS_Shape) {.noSideEffect,
     importcpp: "MakeWire", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc MakeFace*(this: TopOpeBRepDS_BuildTool; F: var TopoDS_Shape;
-              S: TopOpeBRepDS_Surface) {.noSideEffect, importcpp: "MakeFace",
+proc makeFace*(this: TopOpeBRepDS_BuildTool; f: var TopoDS_Shape;
+              s: TopOpeBRepDS_Surface) {.noSideEffect, importcpp: "MakeFace",
                                        header: "TopOpeBRepDS_BuildTool.hxx".}
-proc MakeShell*(this: TopOpeBRepDS_BuildTool; Sh: var TopoDS_Shape) {.noSideEffect,
+proc makeShell*(this: TopOpeBRepDS_BuildTool; sh: var TopoDS_Shape) {.noSideEffect,
     importcpp: "MakeShell", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc MakeSolid*(this: TopOpeBRepDS_BuildTool; S: var TopoDS_Shape) {.noSideEffect,
+proc makeSolid*(this: TopOpeBRepDS_BuildTool; s: var TopoDS_Shape) {.noSideEffect,
     importcpp: "MakeSolid", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc CopyEdge*(this: TopOpeBRepDS_BuildTool; Ein: TopoDS_Shape; Eou: var TopoDS_Shape) {.
+proc copyEdge*(this: TopOpeBRepDS_BuildTool; ein: TopoDS_Shape; eou: var TopoDS_Shape) {.
     noSideEffect, importcpp: "CopyEdge", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc GetOrientedEdgeVertices*(this: TopOpeBRepDS_BuildTool; E: var TopoDS_Edge;
-                             Vmin: var TopoDS_Vertex; Vmax: var TopoDS_Vertex;
-                             Parmin: var Standard_Real; Parmax: var Standard_Real) {.
-    noSideEffect, importcpp: "GetOrientedEdgeVertices",
-    header: "TopOpeBRepDS_BuildTool.hxx".}
-proc UpdateEdgeCurveTol*(this: TopOpeBRepDS_BuildTool; F1: TopoDS_Face;
-                        F2: TopoDS_Face; E: var TopoDS_Edge;
-                        C3Dnew: handle[Geom_Curve]; tol3d: Standard_Real;
-                        tol2d1: Standard_Real; tol2d2: Standard_Real;
-                        newtol: var Standard_Real; newparmin: var Standard_Real;
-                        newparmax: var Standard_Real) {.noSideEffect,
+proc getOrientedEdgeVertices*(this: TopOpeBRepDS_BuildTool; e: var TopoDS_Edge;
+                             vmin: var TopoDS_Vertex; vmax: var TopoDS_Vertex;
+                             parmin: var float; parmax: var float) {.noSideEffect,
+    importcpp: "GetOrientedEdgeVertices", header: "TopOpeBRepDS_BuildTool.hxx".}
+proc updateEdgeCurveTol*(this: TopOpeBRepDS_BuildTool; f1: TopoDS_Face;
+                        f2: TopoDS_Face; e: var TopoDS_Edge;
+                        c3Dnew: Handle[GeomCurve]; tol3d: float; tol2d1: float;
+                        tol2d2: float; newtol: var float; newparmin: var float;
+                        newparmax: var float) {.noSideEffect,
     importcpp: "UpdateEdgeCurveTol", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc ApproxCurves*(this: TopOpeBRepDS_BuildTool; C: TopOpeBRepDS_Curve;
-                  E: var TopoDS_Edge; inewC: var Standard_Integer;
-                  HDS: handle[TopOpeBRepDS_HDataStructure]) {.noSideEffect,
+proc approxCurves*(this: TopOpeBRepDS_BuildTool; c: TopOpeBRepDS_Curve;
+                  e: var TopoDS_Edge; inewC: var int;
+                  hds: Handle[TopOpeBRepDS_HDataStructure]) {.noSideEffect,
     importcpp: "ApproxCurves", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc ComputePCurves*(this: TopOpeBRepDS_BuildTool; C: TopOpeBRepDS_Curve;
-                    E: var TopoDS_Edge; newC: var TopOpeBRepDS_Curve;
-                    CompPC1: Standard_Boolean; CompPC2: Standard_Boolean;
-                    CompC3D: Standard_Boolean) {.noSideEffect,
+proc computePCurves*(this: TopOpeBRepDS_BuildTool; c: TopOpeBRepDS_Curve;
+                    e: var TopoDS_Edge; newC: var TopOpeBRepDS_Curve; compPC1: bool;
+                    compPC2: bool; compC3D: bool) {.noSideEffect,
     importcpp: "ComputePCurves", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc PutPCurves*(this: TopOpeBRepDS_BuildTool; newC: TopOpeBRepDS_Curve;
-                E: var TopoDS_Edge; CompPC1: Standard_Boolean;
-                CompPC2: Standard_Boolean) {.noSideEffect, importcpp: "PutPCurves",
-    header: "TopOpeBRepDS_BuildTool.hxx".}
-proc RecomputeCurves*(this: TopOpeBRepDS_BuildTool; C: TopOpeBRepDS_Curve;
-                     oldE: TopoDS_Edge; E: var TopoDS_Edge;
-                     inewC: var Standard_Integer;
-                     HDS: handle[TopOpeBRepDS_HDataStructure]) {.noSideEffect,
+proc putPCurves*(this: TopOpeBRepDS_BuildTool; newC: TopOpeBRepDS_Curve;
+                e: var TopoDS_Edge; compPC1: bool; compPC2: bool) {.noSideEffect,
+    importcpp: "PutPCurves", header: "TopOpeBRepDS_BuildTool.hxx".}
+proc recomputeCurves*(this: TopOpeBRepDS_BuildTool; c: TopOpeBRepDS_Curve;
+                     oldE: TopoDS_Edge; e: var TopoDS_Edge; inewC: var int;
+                     hds: Handle[TopOpeBRepDS_HDataStructure]) {.noSideEffect,
     importcpp: "RecomputeCurves", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc CopyFace*(this: TopOpeBRepDS_BuildTool; Fin: TopoDS_Shape; Fou: var TopoDS_Shape) {.
+proc copyFace*(this: TopOpeBRepDS_BuildTool; fin: TopoDS_Shape; fou: var TopoDS_Shape) {.
     noSideEffect, importcpp: "CopyFace", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc AddEdgeVertex*(this: TopOpeBRepDS_BuildTool; Ein: TopoDS_Shape;
-                   Eou: var TopoDS_Shape; V: TopoDS_Shape) {.noSideEffect,
+proc addEdgeVertex*(this: TopOpeBRepDS_BuildTool; ein: TopoDS_Shape;
+                   eou: var TopoDS_Shape; v: TopoDS_Shape) {.noSideEffect,
     importcpp: "AddEdgeVertex", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc AddEdgeVertex*(this: TopOpeBRepDS_BuildTool; E: var TopoDS_Shape; V: TopoDS_Shape) {.
+proc addEdgeVertex*(this: TopOpeBRepDS_BuildTool; e: var TopoDS_Shape; v: TopoDS_Shape) {.
     noSideEffect, importcpp: "AddEdgeVertex", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc AddWireEdge*(this: TopOpeBRepDS_BuildTool; W: var TopoDS_Shape; E: TopoDS_Shape) {.
+proc addWireEdge*(this: TopOpeBRepDS_BuildTool; w: var TopoDS_Shape; e: TopoDS_Shape) {.
     noSideEffect, importcpp: "AddWireEdge", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc AddFaceWire*(this: TopOpeBRepDS_BuildTool; F: var TopoDS_Shape; W: TopoDS_Shape) {.
+proc addFaceWire*(this: TopOpeBRepDS_BuildTool; f: var TopoDS_Shape; w: TopoDS_Shape) {.
     noSideEffect, importcpp: "AddFaceWire", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc AddShellFace*(this: TopOpeBRepDS_BuildTool; Sh: var TopoDS_Shape; F: TopoDS_Shape) {.
+proc addShellFace*(this: TopOpeBRepDS_BuildTool; sh: var TopoDS_Shape; f: TopoDS_Shape) {.
     noSideEffect, importcpp: "AddShellFace", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc AddSolidShell*(this: TopOpeBRepDS_BuildTool; S: var TopoDS_Shape;
-                   Sh: TopoDS_Shape) {.noSideEffect, importcpp: "AddSolidShell",
+proc addSolidShell*(this: TopOpeBRepDS_BuildTool; s: var TopoDS_Shape;
+                   sh: TopoDS_Shape) {.noSideEffect, importcpp: "AddSolidShell",
                                      header: "TopOpeBRepDS_BuildTool.hxx".}
-proc Parameter*(this: TopOpeBRepDS_BuildTool; E: TopoDS_Shape; V: TopoDS_Shape;
-               P: Standard_Real) {.noSideEffect, importcpp: "Parameter",
-                                 header: "TopOpeBRepDS_BuildTool.hxx".}
-proc Range*(this: TopOpeBRepDS_BuildTool; E: TopoDS_Shape; first: Standard_Real;
-           last: Standard_Real) {.noSideEffect, importcpp: "Range",
-                                header: "TopOpeBRepDS_BuildTool.hxx".}
-proc UpdateEdge*(this: TopOpeBRepDS_BuildTool; Ein: TopoDS_Shape;
-                Eou: var TopoDS_Shape) {.noSideEffect, importcpp: "UpdateEdge",
+proc parameter*(this: TopOpeBRepDS_BuildTool; e: TopoDS_Shape; v: TopoDS_Shape;
+               p: float) {.noSideEffect, importcpp: "Parameter",
+                         header: "TopOpeBRepDS_BuildTool.hxx".}
+proc range*(this: TopOpeBRepDS_BuildTool; e: TopoDS_Shape; first: float; last: float) {.
+    noSideEffect, importcpp: "Range", header: "TopOpeBRepDS_BuildTool.hxx".}
+proc updateEdge*(this: TopOpeBRepDS_BuildTool; ein: TopoDS_Shape;
+                eou: var TopoDS_Shape) {.noSideEffect, importcpp: "UpdateEdge",
                                       header: "TopOpeBRepDS_BuildTool.hxx".}
-proc Parameter*(this: TopOpeBRepDS_BuildTool; C: TopOpeBRepDS_Curve;
-               E: var TopoDS_Shape; V: var TopoDS_Shape) {.noSideEffect,
+proc parameter*(this: TopOpeBRepDS_BuildTool; c: TopOpeBRepDS_Curve;
+               e: var TopoDS_Shape; v: var TopoDS_Shape) {.noSideEffect,
     importcpp: "Parameter", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc Curve3D*(this: TopOpeBRepDS_BuildTool; E: var TopoDS_Shape;
-             C: handle[Geom_Curve]; Tol: Standard_Real) {.noSideEffect,
-    importcpp: "Curve3D", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc PCurve*(this: TopOpeBRepDS_BuildTool; F: var TopoDS_Shape; E: var TopoDS_Shape;
-            C: handle[Geom2d_Curve]) {.noSideEffect, importcpp: "PCurve",
-                                     header: "TopOpeBRepDS_BuildTool.hxx".}
-proc PCurve*(this: TopOpeBRepDS_BuildTool; F: var TopoDS_Shape; E: var TopoDS_Shape;
-            CDS: TopOpeBRepDS_Curve; C: handle[Geom2d_Curve]) {.noSideEffect,
+proc curve3D*(this: TopOpeBRepDS_BuildTool; e: var TopoDS_Shape; c: Handle[GeomCurve];
+             tol: float) {.noSideEffect, importcpp: "Curve3D",
+                         header: "TopOpeBRepDS_BuildTool.hxx".}
+proc pCurve*(this: TopOpeBRepDS_BuildTool; f: var TopoDS_Shape; e: var TopoDS_Shape;
+            c: Handle[Geom2dCurve]) {.noSideEffect, importcpp: "PCurve",
+                                    header: "TopOpeBRepDS_BuildTool.hxx".}
+proc pCurve*(this: TopOpeBRepDS_BuildTool; f: var TopoDS_Shape; e: var TopoDS_Shape;
+            cds: TopOpeBRepDS_Curve; c: Handle[Geom2dCurve]) {.noSideEffect,
     importcpp: "PCurve", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc Orientation*(this: TopOpeBRepDS_BuildTool; S: var TopoDS_Shape;
-                 O: TopAbs_Orientation) {.noSideEffect, importcpp: "Orientation",
-                                        header: "TopOpeBRepDS_BuildTool.hxx".}
-proc Orientation*(this: TopOpeBRepDS_BuildTool; S: TopoDS_Shape): TopAbs_Orientation {.
+proc orientation*(this: TopOpeBRepDS_BuildTool; s: var TopoDS_Shape;
+                 o: TopAbsOrientation) {.noSideEffect, importcpp: "Orientation",
+                                       header: "TopOpeBRepDS_BuildTool.hxx".}
+proc orientation*(this: TopOpeBRepDS_BuildTool; s: TopoDS_Shape): TopAbsOrientation {.
     noSideEffect, importcpp: "Orientation", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc Closed*(this: TopOpeBRepDS_BuildTool; S: var TopoDS_Shape; B: Standard_Boolean) {.
-    noSideEffect, importcpp: "Closed", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc Approximation*(this: TopOpeBRepDS_BuildTool): Standard_Boolean {.noSideEffect,
+proc closed*(this: TopOpeBRepDS_BuildTool; s: var TopoDS_Shape; b: bool) {.noSideEffect,
+    importcpp: "Closed", header: "TopOpeBRepDS_BuildTool.hxx".}
+proc approximation*(this: TopOpeBRepDS_BuildTool): bool {.noSideEffect,
     importcpp: "Approximation", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc UpdateSurface*(this: TopOpeBRepDS_BuildTool; F: TopoDS_Shape;
-                   SU: handle[Geom_Surface]) {.noSideEffect,
+proc updateSurface*(this: TopOpeBRepDS_BuildTool; f: TopoDS_Shape;
+                   su: Handle[GeomSurface]) {.noSideEffect,
     importcpp: "UpdateSurface", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc UpdateSurface*(this: TopOpeBRepDS_BuildTool; E: TopoDS_Shape;
+proc updateSurface*(this: TopOpeBRepDS_BuildTool; e: TopoDS_Shape;
                    oldF: TopoDS_Shape; newF: TopoDS_Shape) {.noSideEffect,
     importcpp: "UpdateSurface", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc OverWrite*(this: TopOpeBRepDS_BuildTool): Standard_Boolean {.noSideEffect,
+proc overWrite*(this: TopOpeBRepDS_BuildTool): bool {.noSideEffect,
     importcpp: "OverWrite", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc OverWrite*(this: var TopOpeBRepDS_BuildTool; O: Standard_Boolean) {.
-    importcpp: "OverWrite", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc Translate*(this: TopOpeBRepDS_BuildTool): Standard_Boolean {.noSideEffect,
+proc overWrite*(this: var TopOpeBRepDS_BuildTool; o: bool) {.importcpp: "OverWrite",
+    header: "TopOpeBRepDS_BuildTool.hxx".}
+proc translate*(this: TopOpeBRepDS_BuildTool): bool {.noSideEffect,
     importcpp: "Translate", header: "TopOpeBRepDS_BuildTool.hxx".}
-proc Translate*(this: var TopOpeBRepDS_BuildTool; T: Standard_Boolean) {.
-    importcpp: "Translate", header: "TopOpeBRepDS_BuildTool.hxx".}
+proc translate*(this: var TopOpeBRepDS_BuildTool; t: bool) {.importcpp: "Translate",
+    header: "TopOpeBRepDS_BuildTool.hxx".}

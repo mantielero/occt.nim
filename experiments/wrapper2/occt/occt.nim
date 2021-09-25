@@ -10604,8 +10604,8 @@ import Standard/Standard_TooManyUsers
 export Standard_TooManyUsers
 import Standard/Standard_Transient
 export Standard_Transient
-# include Standard/Standard_Type
-# export Standard_Type
+import Standard/Standard_Type
+export Standard_Type
 import Standard/Standard_TypeDef
 export Standard_TypeDef
 import Standard/Standard_TypeMismatch
@@ -16074,5 +16074,6 @@ export math_Vector
 
 import step.tab/step.tab
 export step.tab
+
 
 

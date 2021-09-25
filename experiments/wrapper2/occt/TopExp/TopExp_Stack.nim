@@ -16,4 +16,5 @@
 
 discard "forward decl of TopoDS_Iterator"
 type
-  TopExp_Stack* = ptr TopoDS_Iterator
+  TopExpStack* = ptr TopoDS_Iterator
+

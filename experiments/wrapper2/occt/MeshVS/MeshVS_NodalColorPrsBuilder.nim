@@ -13,13 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  MeshVS_DataMapOfIntegerColor, ../Aspect/Aspect_SequenceOfColor,
-  ../TColStd/TColStd_DataMapOfIntegerReal, ../Quantity/Quantity_Color,
-  MeshVS_PrsBuilder, MeshVS_DisplayModeFlags, MeshVS_BuilderPriority,
-  ../TColStd/TColStd_PackedMapOfInteger, MeshVS_HArray1OfSequenceOfInteger,
-  ../TColStd/TColStd_Array1OfInteger, ../TColStd/TColStd_Array1OfReal
-
 discard "forward decl of MeshVS_Mesh"
 discard "forward decl of MeshVS_DataSource"
 discard "forward decl of Quantity_Color"
@@ -27,7 +20,7 @@ discard "forward decl of Graphic3d_Texture2D"
 discard "forward decl of Graphic3d_ArrayOfPrimitives"
 discard "forward decl of MeshVS_NodalColorPrsBuilder"
 type
-  Handle_MeshVS_NodalColorPrsBuilder* = handle[MeshVS_NodalColorPrsBuilder]
+  HandleMeshVS_NodalColorPrsBuilder* = Handle[MeshVS_NodalColorPrsBuilder]
 
 ## ! This class provides methods to create presentation of nodes with assigned color.
 ## ! There are two ways of presentation building
@@ -55,74 +48,72 @@ type
                                                                                                            ## myTextureColorMap
 
 
-proc constructMeshVS_NodalColorPrsBuilder*(Parent: handle[MeshVS_Mesh];
-    Flags: MeshVS_DisplayModeFlags = MeshVS_DMF_NodalColorDataPrs;
-    DS: handle[MeshVS_DataSource] = 0; Id: Standard_Integer = -1;
-    Priority: MeshVS_BuilderPriority = MeshVS_BP_NodalColor): MeshVS_NodalColorPrsBuilder {.
+proc constructMeshVS_NodalColorPrsBuilder*(parent: Handle[MeshVS_Mesh];
+    flags: MeshVS_DisplayModeFlags = meshVS_DMF_NodalColorDataPrs;
+    ds: Handle[MeshVS_DataSource] = 0; id: int = -1;
+    priority: MeshVS_BuilderPriority = meshVS_BP_NodalColor): MeshVS_NodalColorPrsBuilder {.
     constructor, importcpp: "MeshVS_NodalColorPrsBuilder(@)",
     header: "MeshVS_NodalColorPrsBuilder.hxx".}
-proc Build*(this: MeshVS_NodalColorPrsBuilder; Prs: handle[Prs3d_Presentation];
-           IDs: TColStd_PackedMapOfInteger;
-           IDsToExclude: var TColStd_PackedMapOfInteger;
-           IsElement: Standard_Boolean; DisplayMode: Standard_Integer) {.
-    noSideEffect, importcpp: "Build", header: "MeshVS_NodalColorPrsBuilder.hxx".}
-proc GetColors*(this: MeshVS_NodalColorPrsBuilder): MeshVS_DataMapOfIntegerColor {.
+proc build*(this: MeshVS_NodalColorPrsBuilder; prs: Handle[Prs3dPresentation];
+           iDs: TColStdPackedMapOfInteger;
+           iDsToExclude: var TColStdPackedMapOfInteger; isElement: bool;
+           displayMode: int) {.noSideEffect, importcpp: "Build",
+                             header: "MeshVS_NodalColorPrsBuilder.hxx".}
+proc getColors*(this: MeshVS_NodalColorPrsBuilder): MeshVS_DataMapOfIntegerColor {.
     noSideEffect, importcpp: "GetColors", header: "MeshVS_NodalColorPrsBuilder.hxx".}
-proc SetColors*(this: var MeshVS_NodalColorPrsBuilder;
-               Map: MeshVS_DataMapOfIntegerColor) {.importcpp: "SetColors",
+proc setColors*(this: var MeshVS_NodalColorPrsBuilder;
+               map: MeshVS_DataMapOfIntegerColor) {.importcpp: "SetColors",
     header: "MeshVS_NodalColorPrsBuilder.hxx".}
-proc HasColors*(this: MeshVS_NodalColorPrsBuilder): Standard_Boolean {.noSideEffect,
+proc hasColors*(this: MeshVS_NodalColorPrsBuilder): bool {.noSideEffect,
     importcpp: "HasColors", header: "MeshVS_NodalColorPrsBuilder.hxx".}
-proc GetColor*(this: MeshVS_NodalColorPrsBuilder; ID: Standard_Integer;
-              theColor: var Quantity_Color): Standard_Boolean {.noSideEffect,
+proc getColor*(this: MeshVS_NodalColorPrsBuilder; id: int;
+              theColor: var QuantityColor): bool {.noSideEffect,
     importcpp: "GetColor", header: "MeshVS_NodalColorPrsBuilder.hxx".}
-proc SetColor*(this: var MeshVS_NodalColorPrsBuilder; ID: Standard_Integer;
-              theColor: Quantity_Color) {.importcpp: "SetColor", header: "MeshVS_NodalColorPrsBuilder.hxx".}
-proc UseTexture*(this: var MeshVS_NodalColorPrsBuilder; theToUse: Standard_Boolean) {.
+proc setColor*(this: var MeshVS_NodalColorPrsBuilder; id: int; theColor: QuantityColor) {.
+    importcpp: "SetColor", header: "MeshVS_NodalColorPrsBuilder.hxx".}
+proc useTexture*(this: var MeshVS_NodalColorPrsBuilder; theToUse: bool) {.
     importcpp: "UseTexture", header: "MeshVS_NodalColorPrsBuilder.hxx".}
-proc IsUseTexture*(this: MeshVS_NodalColorPrsBuilder): Standard_Boolean {.
-    noSideEffect, importcpp: "IsUseTexture",
+proc isUseTexture*(this: MeshVS_NodalColorPrsBuilder): bool {.noSideEffect,
+    importcpp: "IsUseTexture", header: "MeshVS_NodalColorPrsBuilder.hxx".}
+proc setColorMap*(this: var MeshVS_NodalColorPrsBuilder;
+                 theColors: AspectSequenceOfColor) {.importcpp: "SetColorMap",
     header: "MeshVS_NodalColorPrsBuilder.hxx".}
-proc SetColorMap*(this: var MeshVS_NodalColorPrsBuilder;
-                 theColors: Aspect_SequenceOfColor) {.importcpp: "SetColorMap",
-    header: "MeshVS_NodalColorPrsBuilder.hxx".}
-proc GetColorMap*(this: MeshVS_NodalColorPrsBuilder): Aspect_SequenceOfColor {.
+proc getColorMap*(this: MeshVS_NodalColorPrsBuilder): AspectSequenceOfColor {.
     noSideEffect, importcpp: "GetColorMap",
     header: "MeshVS_NodalColorPrsBuilder.hxx".}
-proc SetInvalidColor*(this: var MeshVS_NodalColorPrsBuilder;
-                     theInvalidColor: Quantity_Color) {.
+proc setInvalidColor*(this: var MeshVS_NodalColorPrsBuilder;
+                     theInvalidColor: QuantityColor) {.
     importcpp: "SetInvalidColor", header: "MeshVS_NodalColorPrsBuilder.hxx".}
-proc GetInvalidColor*(this: MeshVS_NodalColorPrsBuilder): Quantity_Color {.
+proc getInvalidColor*(this: MeshVS_NodalColorPrsBuilder): QuantityColor {.
     noSideEffect, importcpp: "GetInvalidColor",
     header: "MeshVS_NodalColorPrsBuilder.hxx".}
-proc SetTextureCoords*(this: var MeshVS_NodalColorPrsBuilder;
-                      theMap: TColStd_DataMapOfIntegerReal) {.
+proc setTextureCoords*(this: var MeshVS_NodalColorPrsBuilder;
+                      theMap: TColStdDataMapOfIntegerReal) {.
     importcpp: "SetTextureCoords", header: "MeshVS_NodalColorPrsBuilder.hxx".}
-proc GetTextureCoords*(this: MeshVS_NodalColorPrsBuilder): TColStd_DataMapOfIntegerReal {.
+proc getTextureCoords*(this: MeshVS_NodalColorPrsBuilder): TColStdDataMapOfIntegerReal {.
     noSideEffect, importcpp: "GetTextureCoords",
     header: "MeshVS_NodalColorPrsBuilder.hxx".}
-proc SetTextureCoord*(this: var MeshVS_NodalColorPrsBuilder;
-                     theID: Standard_Integer; theCoord: Standard_Real) {.
-    importcpp: "SetTextureCoord", header: "MeshVS_NodalColorPrsBuilder.hxx".}
-proc GetTextureCoord*(this: var MeshVS_NodalColorPrsBuilder; theID: Standard_Integer): Standard_Real {.
+proc setTextureCoord*(this: var MeshVS_NodalColorPrsBuilder; theID: int;
+                     theCoord: float) {.importcpp: "SetTextureCoord",
+                                      header: "MeshVS_NodalColorPrsBuilder.hxx".}
+proc getTextureCoord*(this: var MeshVS_NodalColorPrsBuilder; theID: int): float {.
     importcpp: "GetTextureCoord", header: "MeshVS_NodalColorPrsBuilder.hxx".}
-proc AddVolumePrs*(this: MeshVS_NodalColorPrsBuilder;
-                  theTopo: handle[MeshVS_HArray1OfSequenceOfInteger];
-                  theNodes: TColStd_Array1OfInteger;
-                  theCoords: TColStd_Array1OfReal;
-                  theArray: handle[Graphic3d_ArrayOfPrimitives];
-                  theIsShaded: Standard_Boolean; theNbColors: Standard_Integer;
-                  theNbTexColors: Standard_Integer; theColorRatio: Standard_Real) {.
+proc addVolumePrs*(this: MeshVS_NodalColorPrsBuilder;
+                  theTopo: Handle[MeshVS_HArray1OfSequenceOfInteger];
+                  theNodes: TColStdArray1OfInteger;
+                  theCoords: TColStdArray1OfReal;
+                  theArray: Handle[Graphic3dArrayOfPrimitives]; theIsShaded: bool;
+                  theNbColors: int; theNbTexColors: int; theColorRatio: float) {.
     noSideEffect, importcpp: "AddVolumePrs",
     header: "MeshVS_NodalColorPrsBuilder.hxx".}
 type
-  MeshVS_NodalColorPrsBuilderbase_type* = MeshVS_PrsBuilder
+  MeshVS_NodalColorPrsBuilderbaseType* = MeshVS_PrsBuilder
 
-proc get_type_name*(): cstring {.importcpp: "MeshVS_NodalColorPrsBuilder::get_type_name(@)",
-                              header: "MeshVS_NodalColorPrsBuilder.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "MeshVS_NodalColorPrsBuilder::get_type_name(@)",
+                            header: "MeshVS_NodalColorPrsBuilder.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "MeshVS_NodalColorPrsBuilder::get_type_descriptor(@)",
     header: "MeshVS_NodalColorPrsBuilder.hxx".}
-proc DynamicType*(this: MeshVS_NodalColorPrsBuilder): handle[Standard_Type] {.
+proc dynamicType*(this: MeshVS_NodalColorPrsBuilder): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "MeshVS_NodalColorPrsBuilder.hxx".}

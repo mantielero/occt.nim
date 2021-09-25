@@ -12,7 +12,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_Integer_HeaderFile [NewLine] # _Standard_Integer_HeaderFile [NewLine] # Standard_Std.hxx [NewLine] # Standard_TypeDef.hxx [NewLine] # < Standard_values . h > [NewLine]  ===============
+## !!!Ignored construct:  # _Standard_Integer_HeaderFile [NewLine] # _Standard_Integer_HeaderFile [NewLine] # < Standard_Std . hxx > [NewLine] # < Standard_TypeDef . hxx > [NewLine] # < Standard_values . h > [NewLine]  ===============
 ##  Inline methods
 ##  ===============  ------------------------------------------------------------------
 ##  Abs : Returns the absolute value of an Integer
@@ -60,3 +60,4 @@
 ##  IsEqual : Returns Standard_True if two integers are equal
 ##  ------------------------------------------------------------------ inline Standard_Boolean IsEqual ( const Standard_Utf32Char theOne , const Standard_Utf32Char theTwo ) { return theOne == theTwo ; } # [NewLine] # [NewLine]
 ## Error: token expected: ( but got: ::!!!
+

@@ -14,12 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../SelectMgr/SelectMgr_EntityOwner, ../Prs3d/Prs3d_Presentation,
-  ../TColStd/TColStd_MapTransientHasher,
-  ../NCollection/NCollection_IndexedDataMap
-
 type
-  AIS_IndexedDataMapOfOwnerPrs* = NCollection_IndexedDataMap[
-      handle[SelectMgr_EntityOwner], handle[Prs3d_Presentation],
-      TColStd_MapTransientHasher]
+  AIS_IndexedDataMapOfOwnerPrs* = NCollectionIndexedDataMap[
+      Handle[SelectMgrEntityOwner], Handle[Prs3dPresentation],
+      TColStdMapTransientHasher]
+

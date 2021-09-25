@@ -14,14 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../StepShape/StepShape_TopologicalRepresentationItem, ../TopoDS/TopoDS_Shape,
-  ../TColStd/TColStd_MapTransientHasher, ../NCollection/NCollection_DataMap
-
 type
-  StepToTopoDS_DataMapOfTRI* = NCollection_DataMap[
-      handle[StepShape_TopologicalRepresentationItem], TopoDS_Shape,
-      TColStd_MapTransientHasher]
+  StepToTopoDS_DataMapOfTRI* = NCollectionDataMap[
+      Handle[StepShapeTopologicalRepresentationItem], TopoDS_Shape,
+      TColStdMapTransientHasher]
   StepToTopoDS_DataMapIteratorOfDataMapOfTRI* = Iterator[
-      handle[StepShape_TopologicalRepresentationItem], TopoDS_Shape,
-      TColStd_MapTransientHasher]
+      Handle[StepShapeTopologicalRepresentationItem], TopoDS_Shape,
+      TColStdMapTransientHasher]
+

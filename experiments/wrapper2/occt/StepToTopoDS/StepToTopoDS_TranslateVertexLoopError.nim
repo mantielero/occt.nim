@@ -20,3 +20,4 @@ type
       header: "StepToTopoDS_TranslateVertexLoopError.hxx".} = enum
     StepToTopoDS_TranslateVertexLoopDone, StepToTopoDS_TranslateVertexLoopOther
 
+

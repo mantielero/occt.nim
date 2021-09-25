@@ -14,43 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_Array1OfTransient, ../Standard/Standard_Transient,
-  ../TColgp/TColgp_HArray1OfXY, ../Standard/Standard_Integer
-
 discard "forward decl of IGESBasic_HArray1OfHArray1OfXY"
 discard "forward decl of IGESBasic_HArray1OfHArray1OfXY"
 type
-  Handle_IGESBasic_HArray1OfHArray1OfXY* = handle[IGESBasic_HArray1OfHArray1OfXY]
-  IGESBasic_HArray1OfHArray1OfXY* {.importcpp: "IGESBasic_HArray1OfHArray1OfXY", header: "IGESBasic_HArray1OfHArray1OfXY.hxx",
-                                   bycopy.} = object of Standard_Transient
+  HandleIGESBasicHArray1OfHArray1OfXY* = Handle[IGESBasicHArray1OfHArray1OfXY]
+  IGESBasicHArray1OfHArray1OfXY* {.importcpp: "IGESBasic_HArray1OfHArray1OfXY",
+                                  header: "IGESBasic_HArray1OfHArray1OfXY.hxx",
+                                  bycopy.} = object of StandardTransient
 
 
-proc constructIGESBasic_HArray1OfHArray1OfXY*(low: Standard_Integer;
-    up: Standard_Integer): IGESBasic_HArray1OfHArray1OfXY {.constructor,
-    importcpp: "IGESBasic_HArray1OfHArray1OfXY(@)",
+proc constructIGESBasicHArray1OfHArray1OfXY*(low: int; up: int): IGESBasicHArray1OfHArray1OfXY {.
+    constructor, importcpp: "IGESBasic_HArray1OfHArray1OfXY(@)",
     header: "IGESBasic_HArray1OfHArray1OfXY.hxx".}
-proc Lower*(this: IGESBasic_HArray1OfHArray1OfXY): Standard_Integer {.noSideEffect,
+proc lower*(this: IGESBasicHArray1OfHArray1OfXY): int {.noSideEffect,
     importcpp: "Lower", header: "IGESBasic_HArray1OfHArray1OfXY.hxx".}
-proc Upper*(this: IGESBasic_HArray1OfHArray1OfXY): Standard_Integer {.noSideEffect,
+proc upper*(this: IGESBasicHArray1OfHArray1OfXY): int {.noSideEffect,
     importcpp: "Upper", header: "IGESBasic_HArray1OfHArray1OfXY.hxx".}
-proc Length*(this: IGESBasic_HArray1OfHArray1OfXY): Standard_Integer {.noSideEffect,
+proc length*(this: IGESBasicHArray1OfHArray1OfXY): int {.noSideEffect,
     importcpp: "Length", header: "IGESBasic_HArray1OfHArray1OfXY.hxx".}
-proc SetValue*(this: var IGESBasic_HArray1OfHArray1OfXY; num: Standard_Integer;
-              val: handle[TColgp_HArray1OfXY]) {.importcpp: "SetValue",
+proc setValue*(this: var IGESBasicHArray1OfHArray1OfXY; num: int;
+              val: Handle[TColgpHArray1OfXY]) {.importcpp: "SetValue",
     header: "IGESBasic_HArray1OfHArray1OfXY.hxx".}
-proc Value*(this: IGESBasic_HArray1OfHArray1OfXY; num: Standard_Integer): handle[
-    TColgp_HArray1OfXY] {.noSideEffect, importcpp: "Value",
-                         header: "IGESBasic_HArray1OfHArray1OfXY.hxx".}
+proc value*(this: IGESBasicHArray1OfHArray1OfXY; num: int): Handle[TColgpHArray1OfXY] {.
+    noSideEffect, importcpp: "Value", header: "IGESBasic_HArray1OfHArray1OfXY.hxx".}
 type
-  IGESBasic_HArray1OfHArray1OfXYbase_type* = Standard_Transient
+  IGESBasicHArray1OfHArray1OfXYbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "IGESBasic_HArray1OfHArray1OfXY::get_type_name(@)",
-                              header: "IGESBasic_HArray1OfHArray1OfXY.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESBasic_HArray1OfHArray1OfXY::get_type_name(@)",
+                            header: "IGESBasic_HArray1OfHArray1OfXY.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESBasic_HArray1OfHArray1OfXY::get_type_descriptor(@)",
     header: "IGESBasic_HArray1OfHArray1OfXY.hxx".}
-proc DynamicType*(this: IGESBasic_HArray1OfHArray1OfXY): handle[Standard_Type] {.
+proc dynamicType*(this: IGESBasicHArray1OfHArray1OfXY): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESBasic_HArray1OfHArray1OfXY.hxx".}

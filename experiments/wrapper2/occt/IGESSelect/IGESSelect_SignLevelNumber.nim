@@ -14,16 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../IFSelect/IFSelect_Signature, ../Standard/Standard_CString
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IGESSelect_SignLevelNumber"
 discard "forward decl of IGESSelect_SignLevelNumber"
 type
-  Handle_IGESSelect_SignLevelNumber* = handle[IGESSelect_SignLevelNumber]
+  HandleIGESSelectSignLevelNumber* = Handle[IGESSelectSignLevelNumber]
 
 ## ! Gives D.E. Level Number under two possible forms :
 ## ! * for counter : "LEVEL nnnnnnn", " NO LEVEL", " LEVEL LIST"
@@ -33,59 +29,59 @@ type
 ## ! whatever simple or in a level list
 
 type
-  IGESSelect_SignLevelNumber* {.importcpp: "IGESSelect_SignLevelNumber",
-                               header: "IGESSelect_SignLevelNumber.hxx", bycopy.} = object of IFSelect_Signature ##
-                                                                                                          ## !
-                                                                                                          ## Creates
-                                                                                                          ## a
-                                                                                                          ## SignLevelNumber
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## <countmode>
-                                                                                                          ## True
-                                                                                                          ## :
-                                                                                                          ## values
-                                                                                                          ## are
-                                                                                                          ## naturally
-                                                                                                          ## displayed
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## <countmode>
-                                                                                                          ## False:
-                                                                                                          ## values
-                                                                                                          ## are
-                                                                                                          ## separated
-                                                                                                          ## by
-                                                                                                          ## slashes
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## in
-                                                                                                          ## order
-                                                                                                          ## to
-                                                                                                          ## allow
-                                                                                                          ## selection
-                                                                                                          ## by
-                                                                                                          ## signature
-                                                                                                          ## by
-                                                                                                          ## Draw
-                                                                                                          ## or
-                                                                                                          ## C++
+  IGESSelectSignLevelNumber* {.importcpp: "IGESSelect_SignLevelNumber",
+                              header: "IGESSelect_SignLevelNumber.hxx", bycopy.} = object of IFSelectSignature ##
+                                                                                                        ## !
+                                                                                                        ## Creates
+                                                                                                        ## a
+                                                                                                        ## SignLevelNumber
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## <countmode>
+                                                                                                        ## True
+                                                                                                        ## :
+                                                                                                        ## values
+                                                                                                        ## are
+                                                                                                        ## naturally
+                                                                                                        ## displayed
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## <countmode>
+                                                                                                        ## False:
+                                                                                                        ## values
+                                                                                                        ## are
+                                                                                                        ## separated
+                                                                                                        ## by
+                                                                                                        ## slashes
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## in
+                                                                                                        ## order
+                                                                                                        ## to
+                                                                                                        ## allow
+                                                                                                        ## selection
+                                                                                                        ## by
+                                                                                                        ## signature
+                                                                                                        ## by
+                                                                                                        ## Draw
+                                                                                                        ## or
+                                                                                                        ## C++
 
 
-proc constructIGESSelect_SignLevelNumber*(countmode: Standard_Boolean): IGESSelect_SignLevelNumber {.
+proc constructIGESSelectSignLevelNumber*(countmode: bool): IGESSelectSignLevelNumber {.
     constructor, importcpp: "IGESSelect_SignLevelNumber(@)",
     header: "IGESSelect_SignLevelNumber.hxx".}
-proc Value*(this: IGESSelect_SignLevelNumber; ent: handle[Standard_Transient];
-           model: handle[Interface_InterfaceModel]): Standard_CString {.
-    noSideEffect, importcpp: "Value", header: "IGESSelect_SignLevelNumber.hxx".}
+proc value*(this: IGESSelectSignLevelNumber; ent: Handle[StandardTransient];
+           model: Handle[InterfaceInterfaceModel]): StandardCString {.noSideEffect,
+    importcpp: "Value", header: "IGESSelect_SignLevelNumber.hxx".}
 type
-  IGESSelect_SignLevelNumberbase_type* = IFSelect_Signature
+  IGESSelectSignLevelNumberbaseType* = IFSelectSignature
 
-proc get_type_name*(): cstring {.importcpp: "IGESSelect_SignLevelNumber::get_type_name(@)",
-                              header: "IGESSelect_SignLevelNumber.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_SignLevelNumber::get_type_name(@)",
+                            header: "IGESSelect_SignLevelNumber.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSelect_SignLevelNumber::get_type_descriptor(@)",
     header: "IGESSelect_SignLevelNumber.hxx".}
-proc DynamicType*(this: IGESSelect_SignLevelNumber): handle[Standard_Type] {.
+proc dynamicType*(this: IGESSelectSignLevelNumber): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SignLevelNumber.hxx".}

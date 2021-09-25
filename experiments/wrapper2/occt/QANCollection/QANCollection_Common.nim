@@ -13,21 +13,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Pnt
-
 ##  ===================== Methods for accessing items/keys =====================
 ##  To print other type of items define PrintItem for it
 
-proc PrintItem*(thePnt: gp_Pnt) {.importcpp: "PrintItem(@)",
-                               header: "QANCollection_Common.hxx".}
-proc PrintItem*(theDbl: Standard_Real) {.importcpp: "PrintItem(@)",
-                                      header: "QANCollection_Common.hxx".}
+proc printItem*(thePnt: Pnt) {.importcpp: "PrintItem(@)",
+                            header: "QANCollection_Common.hxx".}
+proc printItem*(theDbl: float) {.importcpp: "PrintItem(@)",
+                              header: "QANCollection_Common.hxx".}
 ##  So do for the pseudo-random generation
 
-proc Random*(theValue: var Standard_Real) {.importcpp: "Random(@)",
-                                        header: "QANCollection_Common.hxx".}
-proc Random*(theValue: var Standard_Integer; theMax: Standard_Integer = RAND_MAX) {.
-    importcpp: "Random(@)", header: "QANCollection_Common.hxx".}
-proc Random*(thePnt: var gp_Pnt) {.importcpp: "Random(@)",
-                               header: "QANCollection_Common.hxx".}
+proc random*(theValue: var float) {.importcpp: "Random(@)",
+                                header: "QANCollection_Common.hxx".}
+proc random*(theValue: var int; theMax: int = rand_Max) {.importcpp: "Random(@)",
+    header: "QANCollection_Common.hxx".}
+proc random*(thePnt: var Pnt) {.importcpp: "Random(@)",
+                            header: "QANCollection_Common.hxx".}

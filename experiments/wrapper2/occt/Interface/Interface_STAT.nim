@@ -14,105 +14,94 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../TColStd/TColStd_HSequenceOfAsciiString, ../TColStd/TColStd_HSequenceOfReal,
-  ../TColStd/TColStd_HSequenceOfInteger, ../Standard/Standard_CString,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of TCollection_HAsciiString"
 type
-  Interface_STAT* {.importcpp: "Interface_STAT", header: "Interface_STAT.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## a
-                                                                                         ## STAT
-                                                                                         ## form.
-                                                                                         ## At
-                                                                                         ## start,
-                                                                                         ## one
-                                                                                         ## default
-                                                                                         ## phase
-                                                                                         ## is
-                                                                                         ## defined,
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## with
-                                                                                         ## one
-                                                                                         ## default
-                                                                                         ## step.
-                                                                                         ## Then,
-                                                                                         ## it
-                                                                                         ## suffises
-                                                                                         ## to
-                                                                                         ## start
-                                                                                         ## with
-                                                                                         ## a
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## count
-                                                                                         ## of
-                                                                                         ## items
-                                                                                         ## (and
-                                                                                         ## cycles
-                                                                                         ## if
-                                                                                         ## several)
-                                                                                         ## then
-                                                                                         ## record
-                                                                                         ## items,
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## to
-                                                                                         ## have
-                                                                                         ## a
-                                                                                         ## queryable
-                                                                                         ## report.
+  InterfaceSTAT* {.importcpp: "Interface_STAT", header: "Interface_STAT.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Creates
+                                                                                        ## a
+                                                                                        ## STAT
+                                                                                        ## form.
+                                                                                        ## At
+                                                                                        ## start,
+                                                                                        ## one
+                                                                                        ## default
+                                                                                        ## phase
+                                                                                        ## is
+                                                                                        ## defined,
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## with
+                                                                                        ## one
+                                                                                        ## default
+                                                                                        ## step.
+                                                                                        ## Then,
+                                                                                        ## it
+                                                                                        ## suffises
+                                                                                        ## to
+                                                                                        ## start
+                                                                                        ## with
+                                                                                        ## a
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## count
+                                                                                        ## of
+                                                                                        ## items
+                                                                                        ## (and
+                                                                                        ## cycles
+                                                                                        ## if
+                                                                                        ## several)
+                                                                                        ## then
+                                                                                        ## record
+                                                                                        ## items,
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## to
+                                                                                        ## have
+                                                                                        ## a
+                                                                                        ## queryable
+                                                                                        ## report.
 
 
-proc constructInterface_STAT*(title: Standard_CString = ""): Interface_STAT {.
+proc constructInterfaceSTAT*(title: StandardCString = ""): InterfaceSTAT {.
     constructor, importcpp: "Interface_STAT(@)", header: "Interface_STAT.hxx".}
-proc constructInterface_STAT*(other: Interface_STAT): Interface_STAT {.constructor,
+proc constructInterfaceSTAT*(other: InterfaceSTAT): InterfaceSTAT {.constructor,
     importcpp: "Interface_STAT(@)", header: "Interface_STAT.hxx".}
-proc Internals*(this: Interface_STAT; tit: var handle[TCollection_HAsciiString];
-               total: var Standard_Real;
-               phn: var handle[TColStd_HSequenceOfAsciiString];
-               phw: var handle[TColStd_HSequenceOfReal];
-               phdeb: var handle[TColStd_HSequenceOfInteger];
-               phfin: var handle[TColStd_HSequenceOfInteger];
-               stw: var handle[TColStd_HSequenceOfReal]) {.noSideEffect,
+proc internals*(this: InterfaceSTAT; tit: var Handle[TCollectionHAsciiString];
+               total: var float; phn: var Handle[TColStdHSequenceOfAsciiString];
+               phw: var Handle[TColStdHSequenceOfReal];
+               phdeb: var Handle[TColStdHSequenceOfInteger];
+               phfin: var Handle[TColStdHSequenceOfInteger];
+               stw: var Handle[TColStdHSequenceOfReal]) {.noSideEffect,
     importcpp: "Internals", header: "Interface_STAT.hxx".}
-proc AddPhase*(this: var Interface_STAT; weight: Standard_Real;
-              name: Standard_CString = "") {.importcpp: "AddPhase",
+proc addPhase*(this: var InterfaceSTAT; weight: float; name: StandardCString = "") {.
+    importcpp: "AddPhase", header: "Interface_STAT.hxx".}
+proc addStep*(this: var InterfaceSTAT; weight: float = 1) {.importcpp: "AddStep",
     header: "Interface_STAT.hxx".}
-proc AddStep*(this: var Interface_STAT; weight: Standard_Real = 1) {.
-    importcpp: "AddStep", header: "Interface_STAT.hxx".}
-proc Description*(this: Interface_STAT; nbphases: var Standard_Integer;
-                 total: var Standard_Real; title: var Standard_CString) {.
-    noSideEffect, importcpp: "Description", header: "Interface_STAT.hxx".}
-proc Phase*(this: Interface_STAT; num: Standard_Integer;
-           n0step: var Standard_Integer; nbstep: var Standard_Integer;
-           weight: var Standard_Real; name: var Standard_CString) {.noSideEffect,
+proc description*(this: InterfaceSTAT; nbphases: var int; total: var float;
+                 title: var StandardCString) {.noSideEffect,
+    importcpp: "Description", header: "Interface_STAT.hxx".}
+proc phase*(this: InterfaceSTAT; num: int; n0step: var int; nbstep: var int;
+           weight: var float; name: var StandardCString) {.noSideEffect,
     importcpp: "Phase", header: "Interface_STAT.hxx".}
-proc Step*(this: Interface_STAT; num: Standard_Integer): Standard_Real {.noSideEffect,
-    importcpp: "Step", header: "Interface_STAT.hxx".}
-proc Start*(this: Interface_STAT; items: Standard_Integer;
-           cycles: Standard_Integer = 1) {.noSideEffect, importcpp: "Start",
-                                       header: "Interface_STAT.hxx".}
-proc StartCount*(items: Standard_Integer; title: Standard_CString = "") {.
+proc step*(this: InterfaceSTAT; num: int): float {.noSideEffect, importcpp: "Step",
+    header: "Interface_STAT.hxx".}
+proc start*(this: InterfaceSTAT; items: int; cycles: int = 1) {.noSideEffect,
+    importcpp: "Start", header: "Interface_STAT.hxx".}
+proc startCount*(items: int; title: StandardCString = "") {.
     importcpp: "Interface_STAT::StartCount(@)", header: "Interface_STAT.hxx".}
-proc NextPhase*(items: Standard_Integer; cycles: Standard_Integer = 1) {.
-    importcpp: "Interface_STAT::NextPhase(@)", header: "Interface_STAT.hxx".}
-proc SetPhase*(items: Standard_Integer; cycles: Standard_Integer = 1) {.
-    importcpp: "Interface_STAT::SetPhase(@)", header: "Interface_STAT.hxx".}
-proc NextCycle*(items: Standard_Integer) {.importcpp: "Interface_STAT::NextCycle(@)",
+proc nextPhase*(items: int; cycles: int = 1) {.importcpp: "Interface_STAT::NextPhase(@)",
                                         header: "Interface_STAT.hxx".}
-proc NextStep*() {.importcpp: "Interface_STAT::NextStep(@)",
+proc setPhase*(items: int; cycles: int = 1) {.importcpp: "Interface_STAT::SetPhase(@)",
+                                       header: "Interface_STAT.hxx".}
+proc nextCycle*(items: int) {.importcpp: "Interface_STAT::NextCycle(@)",
+                           header: "Interface_STAT.hxx".}
+proc nextStep*() {.importcpp: "Interface_STAT::NextStep(@)",
                  header: "Interface_STAT.hxx".}
-proc NextItem*(nbitems: Standard_Integer = 1) {.
-    importcpp: "Interface_STAT::NextItem(@)", header: "Interface_STAT.hxx".}
-proc End*() {.importcpp: "Interface_STAT::End(@)", header: "Interface_STAT.hxx".}
-proc Where*(phase: Standard_Boolean = Standard_True): Standard_CString {.
+proc nextItem*(nbitems: int = 1) {.importcpp: "Interface_STAT::NextItem(@)",
+                              header: "Interface_STAT.hxx".}
+proc `end`*() {.importcpp: "Interface_STAT::End(@)", header: "Interface_STAT.hxx".}
+proc where*(phase: bool = true): StandardCString {.
     importcpp: "Interface_STAT::Where(@)", header: "Interface_STAT.hxx".}
-proc Percent*(phase: Standard_Boolean = Standard_False): Standard_Integer {.
-    importcpp: "Interface_STAT::Percent(@)", header: "Interface_STAT.hxx".}
+proc percent*(phase: bool = false): int {.importcpp: "Interface_STAT::Percent(@)",
+                                    header: "Interface_STAT.hxx".}

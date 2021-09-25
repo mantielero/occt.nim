@@ -14,100 +14,86 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Quantity_DateDefinitionError"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Quantity_Period"
 type
-  Quantity_Date* {.importcpp: "Quantity_Date", header: "Quantity_Date.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Constructs
-                                                                                      ## a
-                                                                                      ## default
-                                                                                      ## date
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## (00:00
-                                                                                      ## GMT,
-                                                                                      ## January
-                                                                                      ## 1,
-                                                                                      ## 1979
-                                                                                      ## (zero
-                                                                                      ## hour));
-                                                                                      ## use
-                                                                                      ## the
-                                                                                      ## function
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## SetValues
-                                                                                      ## to
-                                                                                      ## define
-                                                                                      ## the
-                                                                                      ## required
-                                                                                      ## date;
-                                                                                      ## or
+  QuantityDate* {.importcpp: "Quantity_Date", header: "Quantity_Date.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Constructs
+                                                                                     ## a
+                                                                                     ## default
+                                                                                     ## date
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## (00:00
+                                                                                     ## GMT,
+                                                                                     ## January
+                                                                                     ## 1,
+                                                                                     ## 1979
+                                                                                     ## (zero
+                                                                                     ## hour));
+                                                                                     ## use
+                                                                                     ## the
+                                                                                     ## function
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## SetValues
+                                                                                     ## to
+                                                                                     ## define
+                                                                                     ## the
+                                                                                     ## required
+                                                                                     ## date;
+                                                                                     ## or
 
 
-proc constructQuantity_Date*(): Quantity_Date {.constructor,
+proc constructQuantityDate*(): QuantityDate {.constructor,
     importcpp: "Quantity_Date(@)", header: "Quantity_Date.hxx".}
-proc constructQuantity_Date*(mm: Standard_Integer; dd: Standard_Integer;
-                            yyyy: Standard_Integer; hh: Standard_Integer;
-                            mn: Standard_Integer; ss: Standard_Integer;
-                            mis: Standard_Integer = 0; mics: Standard_Integer = 0): Quantity_Date {.
-    constructor, importcpp: "Quantity_Date(@)", header: "Quantity_Date.hxx".}
-proc Values*(this: Quantity_Date; mm: var Standard_Integer; dd: var Standard_Integer;
-            yy: var Standard_Integer; hh: var Standard_Integer;
-            mn: var Standard_Integer; ss: var Standard_Integer;
-            mis: var Standard_Integer; mics: var Standard_Integer) {.noSideEffect,
+proc constructQuantityDate*(mm: int; dd: int; yyyy: int; hh: int; mn: int; ss: int;
+                           mis: int = 0; mics: int = 0): QuantityDate {.constructor,
+    importcpp: "Quantity_Date(@)", header: "Quantity_Date.hxx".}
+proc values*(this: QuantityDate; mm: var int; dd: var int; yy: var int; hh: var int;
+            mn: var int; ss: var int; mis: var int; mics: var int) {.noSideEffect,
     importcpp: "Values", header: "Quantity_Date.hxx".}
-proc SetValues*(this: var Quantity_Date; mm: Standard_Integer; dd: Standard_Integer;
-               yy: Standard_Integer; hh: Standard_Integer; mn: Standard_Integer;
-               ss: Standard_Integer; mis: Standard_Integer = 0;
-               mics: Standard_Integer = 0) {.importcpp: "SetValues",
-    header: "Quantity_Date.hxx".}
-proc Difference*(this: var Quantity_Date; anOther: Quantity_Date): Quantity_Period {.
+proc setValues*(this: var QuantityDate; mm: int; dd: int; yy: int; hh: int; mn: int; ss: int;
+               mis: int = 0; mics: int = 0) {.importcpp: "SetValues",
+                                      header: "Quantity_Date.hxx".}
+proc difference*(this: var QuantityDate; anOther: QuantityDate): QuantityPeriod {.
     importcpp: "Difference", header: "Quantity_Date.hxx".}
-proc Subtract*(this: var Quantity_Date; aPeriod: Quantity_Period): Quantity_Date {.
+proc subtract*(this: var QuantityDate; aPeriod: QuantityPeriod): QuantityDate {.
     importcpp: "Subtract", header: "Quantity_Date.hxx".}
-proc `-`*(this: var Quantity_Date; aPeriod: Quantity_Period): Quantity_Date {.
+proc `-`*(this: var QuantityDate; aPeriod: QuantityPeriod): QuantityDate {.
     importcpp: "(# - #)", header: "Quantity_Date.hxx".}
-proc Add*(this: var Quantity_Date; aPeriod: Quantity_Period): Quantity_Date {.
+proc add*(this: var QuantityDate; aPeriod: QuantityPeriod): QuantityDate {.
     importcpp: "Add", header: "Quantity_Date.hxx".}
-proc `+`*(this: var Quantity_Date; aPeriod: Quantity_Period): Quantity_Date {.
+proc `+`*(this: var QuantityDate; aPeriod: QuantityPeriod): QuantityDate {.
     importcpp: "(# + #)", header: "Quantity_Date.hxx".}
-proc Year*(this: var Quantity_Date): Standard_Integer {.importcpp: "Year",
+proc year*(this: var QuantityDate): int {.importcpp: "Year",
+                                     header: "Quantity_Date.hxx".}
+proc month*(this: var QuantityDate): int {.importcpp: "Month",
+                                      header: "Quantity_Date.hxx".}
+proc day*(this: var QuantityDate): int {.importcpp: "Day", header: "Quantity_Date.hxx".}
+proc hour*(this: var QuantityDate): int {.importcpp: "Hour",
+                                     header: "Quantity_Date.hxx".}
+proc minute*(this: var QuantityDate): int {.importcpp: "Minute",
+                                       header: "Quantity_Date.hxx".}
+proc second*(this: var QuantityDate): int {.importcpp: "Second",
+                                       header: "Quantity_Date.hxx".}
+proc milliSecond*(this: var QuantityDate): int {.importcpp: "MilliSecond",
     header: "Quantity_Date.hxx".}
-proc Month*(this: var Quantity_Date): Standard_Integer {.importcpp: "Month",
+proc microSecond*(this: var QuantityDate): int {.importcpp: "MicroSecond",
     header: "Quantity_Date.hxx".}
-proc Day*(this: var Quantity_Date): Standard_Integer {.importcpp: "Day",
-    header: "Quantity_Date.hxx".}
-proc Hour*(this: var Quantity_Date): Standard_Integer {.importcpp: "Hour",
-    header: "Quantity_Date.hxx".}
-proc Minute*(this: var Quantity_Date): Standard_Integer {.importcpp: "Minute",
-    header: "Quantity_Date.hxx".}
-proc Second*(this: var Quantity_Date): Standard_Integer {.importcpp: "Second",
-    header: "Quantity_Date.hxx".}
-proc MilliSecond*(this: var Quantity_Date): Standard_Integer {.
-    importcpp: "MilliSecond", header: "Quantity_Date.hxx".}
-proc MicroSecond*(this: var Quantity_Date): Standard_Integer {.
-    importcpp: "MicroSecond", header: "Quantity_Date.hxx".}
-proc IsEqual*(this: Quantity_Date; anOther: Quantity_Date): Standard_Boolean {.
-    noSideEffect, importcpp: "IsEqual", header: "Quantity_Date.hxx".}
-proc `==`*(this: Quantity_Date; anOther: Quantity_Date): Standard_Boolean {.
-    noSideEffect, importcpp: "(# == #)", header: "Quantity_Date.hxx".}
-proc IsEarlier*(this: Quantity_Date; anOther: Quantity_Date): Standard_Boolean {.
-    noSideEffect, importcpp: "IsEarlier", header: "Quantity_Date.hxx".}
-proc `<`*(this: Quantity_Date; anOther: Quantity_Date): Standard_Boolean {.
-    noSideEffect, importcpp: "(# < #)", header: "Quantity_Date.hxx".}
-proc IsLater*(this: Quantity_Date; anOther: Quantity_Date): Standard_Boolean {.
-    noSideEffect, importcpp: "IsLater", header: "Quantity_Date.hxx".}
-proc IsValid*(mm: Standard_Integer; dd: Standard_Integer; yy: Standard_Integer;
-             hh: Standard_Integer; mn: Standard_Integer; ss: Standard_Integer;
-             mis: Standard_Integer = 0; mics: Standard_Integer = 0): Standard_Boolean {.
+proc isEqual*(this: QuantityDate; anOther: QuantityDate): bool {.noSideEffect,
+    importcpp: "IsEqual", header: "Quantity_Date.hxx".}
+proc `==`*(this: QuantityDate; anOther: QuantityDate): bool {.noSideEffect,
+    importcpp: "(# == #)", header: "Quantity_Date.hxx".}
+proc isEarlier*(this: QuantityDate; anOther: QuantityDate): bool {.noSideEffect,
+    importcpp: "IsEarlier", header: "Quantity_Date.hxx".}
+proc `<`*(this: QuantityDate; anOther: QuantityDate): bool {.noSideEffect,
+    importcpp: "(# < #)", header: "Quantity_Date.hxx".}
+proc isLater*(this: QuantityDate; anOther: QuantityDate): bool {.noSideEffect,
+    importcpp: "IsLater", header: "Quantity_Date.hxx".}
+proc isValid*(mm: int; dd: int; yy: int; hh: int; mn: int; ss: int; mis: int = 0; mics: int = 0): bool {.
     importcpp: "Quantity_Date::IsValid(@)", header: "Quantity_Date.hxx".}
-proc IsLeap*(yy: Standard_Integer): Standard_Boolean {.
-    importcpp: "Quantity_Date::IsLeap(@)", header: "Quantity_Date.hxx".}
+proc isLeap*(yy: int): bool {.importcpp: "Quantity_Date::IsLeap(@)",
+                          header: "Quantity_Date.hxx".}

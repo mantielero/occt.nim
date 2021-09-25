@@ -14,37 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, StepAP214_ApprovalItem,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepAP214_AppliedOrganizationAssignment"
 discard "forward decl of StepBasic_Approval"
 discard "forward decl of StepAP214_AppliedSecurityClassificationAssignment"
 type
-  StepAP214_OrganizationItem* {.importcpp: "StepAP214_OrganizationItem",
-                               header: "StepAP214_OrganizationItem.hxx", bycopy.} = object of StepAP214_ApprovalItem ##
-                                                                                                              ## !
-                                                                                                              ## Returns
-                                                                                                              ## a
-                                                                                                              ## OrganizationItem
-                                                                                                              ## SelectType
+  StepAP214OrganizationItem* {.importcpp: "StepAP214_OrganizationItem",
+                              header: "StepAP214_OrganizationItem.hxx", bycopy.} = object of StepAP214ApprovalItem ##
+                                                                                                            ## !
+                                                                                                            ## Returns
+                                                                                                            ## a
+                                                                                                            ## OrganizationItem
+                                                                                                            ## SelectType
 
 
-proc constructStepAP214_OrganizationItem*(): StepAP214_OrganizationItem {.
+proc constructStepAP214OrganizationItem*(): StepAP214OrganizationItem {.
     constructor, importcpp: "StepAP214_OrganizationItem(@)",
     header: "StepAP214_OrganizationItem.hxx".}
-proc CaseNum*(this: StepAP214_OrganizationItem; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepAP214OrganizationItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP214_OrganizationItem.hxx".}
-proc AppliedOrganizationAssignment*(this: StepAP214_OrganizationItem): handle[
-    StepAP214_AppliedOrganizationAssignment] {.noSideEffect,
+proc appliedOrganizationAssignment*(this: StepAP214OrganizationItem): Handle[
+    StepAP214AppliedOrganizationAssignment] {.noSideEffect,
     importcpp: "AppliedOrganizationAssignment",
     header: "StepAP214_OrganizationItem.hxx".}
-proc Approval*(this: StepAP214_OrganizationItem): handle[StepBasic_Approval] {.
+proc approval*(this: StepAP214OrganizationItem): Handle[StepBasicApproval] {.
     noSideEffect, importcpp: "Approval", header: "StepAP214_OrganizationItem.hxx".}
-proc AppliedSecurityClassificationAssignment*(this: StepAP214_OrganizationItem): handle[
-    StepAP214_AppliedSecurityClassificationAssignment] {.noSideEffect,
+proc appliedSecurityClassificationAssignment*(this: StepAP214OrganizationItem): Handle[
+    StepAP214AppliedSecurityClassificationAssignment] {.noSideEffect,
     importcpp: "AppliedSecurityClassificationAssignment",
     header: "StepAP214_OrganizationItem.hxx".}

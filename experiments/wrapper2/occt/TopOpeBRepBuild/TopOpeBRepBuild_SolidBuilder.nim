@@ -14,57 +14,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRepBuild_LoopSet,
-  TopOpeBRepBuild_BlockIterator, TopOpeBRepBuild_BlockBuilder,
-  TopOpeBRepBuild_SolidAreaBuilder, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TopOpeBRepBuild_ShellFaceSet"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRepBuild_ShapeSet"
 type
-  TopOpeBRepBuild_SolidBuilder* {.importcpp: "TopOpeBRepBuild_SolidBuilder",
-                                 header: "TopOpeBRepBuild_SolidBuilder.hxx",
-                                 bycopy.} = object
+  TopOpeBRepBuildSolidBuilder* {.importcpp: "TopOpeBRepBuild_SolidBuilder",
+                                header: "TopOpeBRepBuild_SolidBuilder.hxx", bycopy.} = object
 
 
-proc constructTopOpeBRepBuild_SolidBuilder*(): TopOpeBRepBuild_SolidBuilder {.
+proc constructTopOpeBRepBuildSolidBuilder*(): TopOpeBRepBuildSolidBuilder {.
     constructor, importcpp: "TopOpeBRepBuild_SolidBuilder(@)",
     header: "TopOpeBRepBuild_SolidBuilder.hxx".}
-proc constructTopOpeBRepBuild_SolidBuilder*(FS: var TopOpeBRepBuild_ShellFaceSet;
-    ForceClass: Standard_Boolean = Standard_False): TopOpeBRepBuild_SolidBuilder {.
-    constructor, importcpp: "TopOpeBRepBuild_SolidBuilder(@)",
+proc constructTopOpeBRepBuildSolidBuilder*(fs: var TopOpeBRepBuildShellFaceSet;
+    forceClass: bool = false): TopOpeBRepBuildSolidBuilder {.constructor,
+    importcpp: "TopOpeBRepBuild_SolidBuilder(@)",
     header: "TopOpeBRepBuild_SolidBuilder.hxx".}
-proc InitSolidBuilder*(this: var TopOpeBRepBuild_SolidBuilder;
-                      FS: var TopOpeBRepBuild_ShellFaceSet;
-                      ForceClass: Standard_Boolean) {.
+proc initSolidBuilder*(this: var TopOpeBRepBuildSolidBuilder;
+                      fs: var TopOpeBRepBuildShellFaceSet; forceClass: bool) {.
     importcpp: "InitSolidBuilder", header: "TopOpeBRepBuild_SolidBuilder.hxx".}
-proc InitSolid*(this: var TopOpeBRepBuild_SolidBuilder): Standard_Integer {.
-    importcpp: "InitSolid", header: "TopOpeBRepBuild_SolidBuilder.hxx".}
-proc MoreSolid*(this: TopOpeBRepBuild_SolidBuilder): Standard_Boolean {.
-    noSideEffect, importcpp: "MoreSolid",
+proc initSolid*(this: var TopOpeBRepBuildSolidBuilder): int {.importcpp: "InitSolid",
     header: "TopOpeBRepBuild_SolidBuilder.hxx".}
-proc NextSolid*(this: var TopOpeBRepBuild_SolidBuilder) {.importcpp: "NextSolid",
+proc moreSolid*(this: TopOpeBRepBuildSolidBuilder): bool {.noSideEffect,
+    importcpp: "MoreSolid", header: "TopOpeBRepBuild_SolidBuilder.hxx".}
+proc nextSolid*(this: var TopOpeBRepBuildSolidBuilder) {.importcpp: "NextSolid",
     header: "TopOpeBRepBuild_SolidBuilder.hxx".}
-proc InitShell*(this: var TopOpeBRepBuild_SolidBuilder): Standard_Integer {.
-    importcpp: "InitShell", header: "TopOpeBRepBuild_SolidBuilder.hxx".}
-proc MoreShell*(this: TopOpeBRepBuild_SolidBuilder): Standard_Boolean {.
-    noSideEffect, importcpp: "MoreShell",
+proc initShell*(this: var TopOpeBRepBuildSolidBuilder): int {.importcpp: "InitShell",
     header: "TopOpeBRepBuild_SolidBuilder.hxx".}
-proc NextShell*(this: var TopOpeBRepBuild_SolidBuilder) {.importcpp: "NextShell",
+proc moreShell*(this: TopOpeBRepBuildSolidBuilder): bool {.noSideEffect,
+    importcpp: "MoreShell", header: "TopOpeBRepBuild_SolidBuilder.hxx".}
+proc nextShell*(this: var TopOpeBRepBuildSolidBuilder) {.importcpp: "NextShell",
     header: "TopOpeBRepBuild_SolidBuilder.hxx".}
-proc IsOldShell*(this: TopOpeBRepBuild_SolidBuilder): Standard_Boolean {.
-    noSideEffect, importcpp: "IsOldShell",
-    header: "TopOpeBRepBuild_SolidBuilder.hxx".}
-proc OldShell*(this: TopOpeBRepBuild_SolidBuilder): TopoDS_Shape {.noSideEffect,
+proc isOldShell*(this: TopOpeBRepBuildSolidBuilder): bool {.noSideEffect,
+    importcpp: "IsOldShell", header: "TopOpeBRepBuild_SolidBuilder.hxx".}
+proc oldShell*(this: TopOpeBRepBuildSolidBuilder): TopoDS_Shape {.noSideEffect,
     importcpp: "OldShell", header: "TopOpeBRepBuild_SolidBuilder.hxx".}
-proc InitFace*(this: var TopOpeBRepBuild_SolidBuilder): Standard_Integer {.
-    importcpp: "InitFace", header: "TopOpeBRepBuild_SolidBuilder.hxx".}
-proc MoreFace*(this: TopOpeBRepBuild_SolidBuilder): Standard_Boolean {.noSideEffect,
-    importcpp: "MoreFace", header: "TopOpeBRepBuild_SolidBuilder.hxx".}
-proc NextFace*(this: var TopOpeBRepBuild_SolidBuilder) {.importcpp: "NextFace",
+proc initFace*(this: var TopOpeBRepBuildSolidBuilder): int {.importcpp: "InitFace",
     header: "TopOpeBRepBuild_SolidBuilder.hxx".}
-proc Face*(this: TopOpeBRepBuild_SolidBuilder): TopoDS_Shape {.noSideEffect,
+proc moreFace*(this: TopOpeBRepBuildSolidBuilder): bool {.noSideEffect,
+    importcpp: "MoreFace", header: "TopOpeBRepBuild_SolidBuilder.hxx".}
+proc nextFace*(this: var TopOpeBRepBuildSolidBuilder) {.importcpp: "NextFace",
+    header: "TopOpeBRepBuild_SolidBuilder.hxx".}
+proc face*(this: TopOpeBRepBuildSolidBuilder): TopoDS_Shape {.noSideEffect,
     importcpp: "Face", header: "TopOpeBRepBuild_SolidBuilder.hxx".}

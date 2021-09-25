@@ -13,11 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../BVH/BVH_Box
-
 ## ! Redefines BVH_Box<Standard_ShortReal, 4> for AABB representation
 ## ! Describes rendering parameters and effects.
 
 type
-  Graphic3d_BndBox4f* = BVH_Box[Standard_ShortReal, 4]
+  Graphic3dBndBox4f* = BVH_Box[StandardShortReal, 4]
+

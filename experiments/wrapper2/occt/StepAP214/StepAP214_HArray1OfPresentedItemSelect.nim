@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP214_PresentedItemSelect, StepAP214_Array1OfPresentedItemSelect,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepAP214_HArray1OfPresentedItemSelect* {.
+  StepAP214HArray1OfPresentedItemSelect* {.
       importcpp: "StepAP214_HArray1OfPresentedItemSelect",
-      header: "StepAP214_HArray1OfPresentedItemSelect.hxx", bycopy.} = object of StepAP214_Array1OfPresentedItemSelect
+      header: "StepAP214_HArray1OfPresentedItemSelect.hxx", bycopy.} = object of StepAP214Array1OfPresentedItemSelect
 
 
-proc constructStepAP214_HArray1OfPresentedItemSelect*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepAP214_HArray1OfPresentedItemSelect {.
+proc constructStepAP214HArray1OfPresentedItemSelect*(theLower: int; theUpper: int): StepAP214HArray1OfPresentedItemSelect {.
     constructor, importcpp: "StepAP214_HArray1OfPresentedItemSelect(@)",
     header: "StepAP214_HArray1OfPresentedItemSelect.hxx".}
-proc constructStepAP214_HArray1OfPresentedItemSelect*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepAP214_HArray1OfPresentedItemSelect {.
+proc constructStepAP214HArray1OfPresentedItemSelect*(theLower: int; theUpper: int;
+    theValue: ValueType): StepAP214HArray1OfPresentedItemSelect {.constructor,
+    importcpp: "StepAP214_HArray1OfPresentedItemSelect(@)",
+    header: "StepAP214_HArray1OfPresentedItemSelect.hxx".}
+proc constructStepAP214HArray1OfPresentedItemSelect*(
+    theOther: StepAP214Array1OfPresentedItemSelect): StepAP214HArray1OfPresentedItemSelect {.
     constructor, importcpp: "StepAP214_HArray1OfPresentedItemSelect(@)",
     header: "StepAP214_HArray1OfPresentedItemSelect.hxx".}
-proc constructStepAP214_HArray1OfPresentedItemSelect*(
-    theOther: StepAP214_Array1OfPresentedItemSelect): StepAP214_HArray1OfPresentedItemSelect {.
-    constructor, importcpp: "StepAP214_HArray1OfPresentedItemSelect(@)",
-    header: "StepAP214_HArray1OfPresentedItemSelect.hxx".}
-proc Array1*(this: StepAP214_HArray1OfPresentedItemSelect): StepAP214_Array1OfPresentedItemSelect {.
+proc array1*(this: StepAP214HArray1OfPresentedItemSelect): StepAP214Array1OfPresentedItemSelect {.
     noSideEffect, importcpp: "Array1",
     header: "StepAP214_HArray1OfPresentedItemSelect.hxx".}
-proc ChangeArray1*(this: var StepAP214_HArray1OfPresentedItemSelect): var StepAP214_Array1OfPresentedItemSelect {.
+proc changeArray1*(this: var StepAP214HArray1OfPresentedItemSelect): var StepAP214Array1OfPresentedItemSelect {.
     importcpp: "ChangeArray1",
     header: "StepAP214_HArray1OfPresentedItemSelect.hxx".}
 type
-  StepAP214_HArray1OfPresentedItemSelectbase_type* = MMgt_TShared
+  StepAP214HArray1OfPresentedItemSelectbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_HArray1OfPresentedItemSelect::get_type_name(@)", header: "StepAP214_HArray1OfPresentedItemSelect.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP214_HArray1OfPresentedItemSelect::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP214_HArray1OfPresentedItemSelect::get_type_name(@)", header: "StepAP214_HArray1OfPresentedItemSelect.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_HArray1OfPresentedItemSelect::get_type_descriptor(@)",
     header: "StepAP214_HArray1OfPresentedItemSelect.hxx".}
-proc DynamicType*(this: StepAP214_HArray1OfPresentedItemSelect): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepAP214_HArray1OfPresentedItemSelect.hxx".}
+proc dynamicType*(this: StepAP214HArray1OfPresentedItemSelect): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepAP214_HArray1OfPresentedItemSelect.hxx".}

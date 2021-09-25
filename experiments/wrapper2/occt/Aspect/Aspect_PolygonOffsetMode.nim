@@ -16,13 +16,14 @@
 ##  Enumeration for polygon offset modes
 
 type
-  Aspect_PolygonOffsetMode* {.size: sizeof(cint),
-                             importcpp: "Aspect_PolygonOffsetMode",
-                             header: "Aspect_PolygonOffsetMode.hxx".} = enum
-    Aspect_POM_Off = 0x00,      ##  all polygon offset modes disabled
-    Aspect_POM_Fill = 0x01,     ##  GL_POLYGON_OFFSET_FILL enabled (shaded polygons)
-    Aspect_POM_Line = 0x02,     ##  GL_POLYGON_OFFSET_LINE enabled (polygons as outlines)
-    Aspect_POM_Point = 0x04,    ##  GL_POLYGON_OFFSET_POINT enabled (polygons as vertices)
-    Aspect_POM_All = Aspect_POM_Fill or Aspect_POM_Line or Aspect_POM_Point, Aspect_POM_None = 0x08, ##  do not change current polygon offset mode
-    Aspect_POM_Mask = Aspect_POM_All or Aspect_POM_None
+  AspectPolygonOffsetMode* {.size: sizeof(cint),
+                            importcpp: "Aspect_PolygonOffsetMode",
+                            header: "Aspect_PolygonOffsetMode.hxx".} = enum
+    AspectPOM_Off = 0x00,       ##  all polygon offset modes disabled
+    AspectPOM_Fill = 0x01,      ##  GL_POLYGON_OFFSET_FILL enabled (shaded polygons)
+    AspectPOM_Line = 0x02,      ##  GL_POLYGON_OFFSET_LINE enabled (polygons as outlines)
+    AspectPOM_Point = 0x04,     ##  GL_POLYGON_OFFSET_POINT enabled (polygons as vertices)
+    AspectPOM_All = aspectPOM_Fill or aspectPOM_Line or aspectPOM_Point, AspectPOM_None = 0x08, ##  do not change current polygon offset mode
+    AspectPOM_Mask = aspectPOM_All or aspectPOM_None
+
 

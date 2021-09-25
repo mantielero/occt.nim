@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../Draw/Draw_Drawable3D, ../GeomAbs/GeomAbs_IsoType
-
 discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of Draw_Display"
 discard "forward decl of Adaptor3d_Curve"
@@ -25,7 +21,7 @@ discard "forward decl of Adaptor3d_IsoCurve"
 discard "forward decl of DrawTrSurf_Drawable"
 discard "forward decl of DrawTrSurf_Drawable"
 type
-  Handle_DrawTrSurf_Drawable* = handle[DrawTrSurf_Drawable]
+  HandleDrawTrSurfDrawable* = Handle[DrawTrSurfDrawable]
 
 ## ! this  class adds   to   the Drawable3D methods  to
 ## ! display Curves and Curves on Surface.
@@ -34,63 +30,61 @@ type
 ## ! is stored in this class.
 
 type
-  DrawTrSurf_Drawable* {.importcpp: "DrawTrSurf_Drawable",
-                        header: "DrawTrSurf_Drawable.hxx", bycopy.} = object of Draw_Drawable3D ##
-                                                                                         ## !
-                                                                                         ## Draw
-                                                                                         ## a
-                                                                                         ## polygon
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## curve
-                                                                                         ## on
-                                                                                         ## the
-                                                                                         ## Display
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## set
-                                                                                         ## the
-                                                                                         ## number
-                                                                                         ## of
-                                                                                         ## points
-                                                                                         ## on
-                                                                                         ## a
-                                                                                         ## curve
-                                                                                         ## at
-                                                                                         ## creation.
+  DrawTrSurfDrawable* {.importcpp: "DrawTrSurf_Drawable",
+                       header: "DrawTrSurf_Drawable.hxx", bycopy.} = object of DrawDrawable3D ##
+                                                                                       ## !
+                                                                                       ## Draw
+                                                                                       ## a
+                                                                                       ## polygon
+                                                                                       ## of
+                                                                                       ## the
+                                                                                       ## curve
+                                                                                       ## on
+                                                                                       ## the
+                                                                                       ## Display
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## set
+                                                                                       ## the
+                                                                                       ## number
+                                                                                       ## of
+                                                                                       ## points
+                                                                                       ## on
+                                                                                       ## a
+                                                                                       ## curve
+                                                                                       ## at
+                                                                                       ## creation.
 
 
-proc DrawCurve2dOn*(this: DrawTrSurf_Drawable; C: var Adaptor2d_Curve2d;
-                   D: var Draw_Display) {.noSideEffect, importcpp: "DrawCurve2dOn",
-                                       header: "DrawTrSurf_Drawable.hxx".}
-proc DrawCurveOn*(this: DrawTrSurf_Drawable; C: var Adaptor3d_Curve;
-                 D: var Draw_Display) {.noSideEffect, importcpp: "DrawCurveOn",
-                                     header: "DrawTrSurf_Drawable.hxx".}
-proc DrawIsoCurveOn*(this: DrawTrSurf_Drawable; C: var Adaptor3d_IsoCurve;
-                    T: GeomAbs_IsoType; P: Standard_Real; F: Standard_Real;
-                    L: Standard_Real; D: var Draw_Display) {.noSideEffect,
-    importcpp: "DrawIsoCurveOn", header: "DrawTrSurf_Drawable.hxx".}
-proc DrawOn*(this: DrawTrSurf_Drawable; dis: var Draw_Display) {.noSideEffect,
+proc drawCurve2dOn*(this: DrawTrSurfDrawable; c: var Adaptor2dCurve2d;
+                   d: var DrawDisplay) {.noSideEffect, importcpp: "DrawCurve2dOn",
+                                      header: "DrawTrSurf_Drawable.hxx".}
+proc drawCurveOn*(this: DrawTrSurfDrawable; c: var Adaptor3dCurve; d: var DrawDisplay) {.
+    noSideEffect, importcpp: "DrawCurveOn", header: "DrawTrSurf_Drawable.hxx".}
+proc drawIsoCurveOn*(this: DrawTrSurfDrawable; c: var Adaptor3dIsoCurve;
+                    t: GeomAbsIsoType; p: float; f: float; L: float; d: var DrawDisplay) {.
+    noSideEffect, importcpp: "DrawIsoCurveOn", header: "DrawTrSurf_Drawable.hxx".}
+proc drawOn*(this: DrawTrSurfDrawable; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "DrawTrSurf_Drawable.hxx".}
-proc SetDiscretisation*(this: var DrawTrSurf_Drawable; Discret: Standard_Integer) {.
+proc setDiscretisation*(this: var DrawTrSurfDrawable; discret: int) {.
     importcpp: "SetDiscretisation", header: "DrawTrSurf_Drawable.hxx".}
-proc GetDiscretisation*(this: DrawTrSurf_Drawable): Standard_Integer {.noSideEffect,
+proc getDiscretisation*(this: DrawTrSurfDrawable): int {.noSideEffect,
     importcpp: "GetDiscretisation", header: "DrawTrSurf_Drawable.hxx".}
-proc SetDeflection*(this: var DrawTrSurf_Drawable; Deflection: Standard_Real) {.
+proc setDeflection*(this: var DrawTrSurfDrawable; deflection: float) {.
     importcpp: "SetDeflection", header: "DrawTrSurf_Drawable.hxx".}
-proc GetDeflection*(this: DrawTrSurf_Drawable): Standard_Real {.noSideEffect,
+proc getDeflection*(this: DrawTrSurfDrawable): float {.noSideEffect,
     importcpp: "GetDeflection", header: "DrawTrSurf_Drawable.hxx".}
-proc SetDrawMode*(this: var DrawTrSurf_Drawable; DrawMode: Standard_Integer) {.
+proc setDrawMode*(this: var DrawTrSurfDrawable; drawMode: int) {.
     importcpp: "SetDrawMode", header: "DrawTrSurf_Drawable.hxx".}
-proc GetDrawMode*(this: DrawTrSurf_Drawable): Standard_Integer {.noSideEffect,
+proc getDrawMode*(this: DrawTrSurfDrawable): int {.noSideEffect,
     importcpp: "GetDrawMode", header: "DrawTrSurf_Drawable.hxx".}
 type
-  DrawTrSurf_Drawablebase_type* = Draw_Drawable3D
+  DrawTrSurfDrawablebaseType* = DrawDrawable3D
 
-proc get_type_name*(): cstring {.importcpp: "DrawTrSurf_Drawable::get_type_name(@)",
-                              header: "DrawTrSurf_Drawable.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "DrawTrSurf_Drawable::get_type_name(@)",
+                            header: "DrawTrSurf_Drawable.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "DrawTrSurf_Drawable::get_type_descriptor(@)",
     header: "DrawTrSurf_Drawable.hxx".}
-proc DynamicType*(this: DrawTrSurf_Drawable): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: DrawTrSurfDrawable): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawTrSurf_Drawable.hxx".}

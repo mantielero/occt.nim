@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Integer
-
 ## ! interface class for dynamic selection
 
 type
@@ -39,7 +35,7 @@ type
                                                                                    ## Select3D_SensitiveEntity.
 
 
-proc MaxOwnerPriority*(): Standard_Integer {.
-    importcpp: "SelectBasics::MaxOwnerPriority(@)", header: "SelectBasics.hxx".}
-proc MinOwnerPriority*(): Standard_Integer {.
-    importcpp: "SelectBasics::MinOwnerPriority(@)", header: "SelectBasics.hxx".}
+proc maxOwnerPriority*(): int {.importcpp: "SelectBasics::MaxOwnerPriority(@)",
+                             header: "SelectBasics.hxx".}
+proc minOwnerPriority*(): int {.importcpp: "SelectBasics::MinOwnerPriority(@)",
+                             header: "SelectBasics.hxx".}

@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _HLRBRep_ThePolygonOfInterCSurf_HeaderFile [NewLine] # _HLRBRep_ThePolygonOfInterCSurf_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Bnd/Bnd_Box.hxx [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # ../Standard/Standard_Integer.hxx [NewLine] # ../TColgp/TColgp_Array1OfPnt.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # ../TColStd/TColStd_HArray1OfReal.hxx [NewLine] # ../TColStd/TColStd_Array1OfReal.hxx [NewLine] class Standard_OutOfRange ;
+## !!!Ignored construct:  # _HLRBRep_ThePolygonOfInterCSurf_HeaderFile [NewLine] # _HLRBRep_ThePolygonOfInterCSurf_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Bnd_Box . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] # < TColgp_Array1OfPnt . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < TColStd_HArray1OfReal . hxx > [NewLine] # < TColStd_Array1OfReal . hxx > [NewLine] class Standard_OutOfRange ;
 ## Error: did not expect <!!!
 
 discard "forward decl of gp_Lin"
@@ -22,55 +22,48 @@ discard "forward decl of HLRBRep_LineTool"
 discard "forward decl of Bnd_Box"
 discard "forward decl of gp_Pnt"
 type
-  HLRBRep_ThePolygonOfInterCSurf* {.importcpp: "HLRBRep_ThePolygonOfInterCSurf", header: "HLRBRep_ThePolygonOfInterCSurf.hxx",
-                                   bycopy.} = object
+  HLRBRepThePolygonOfInterCSurf* {.importcpp: "HLRBRep_ThePolygonOfInterCSurf",
+                                  header: "HLRBRep_ThePolygonOfInterCSurf.hxx",
+                                  bycopy.} = object
 
 
-proc constructHLRBRep_ThePolygonOfInterCSurf*(Curve: gp_Lin;
-    NbPnt: Standard_Integer): HLRBRep_ThePolygonOfInterCSurf {.constructor,
-    importcpp: "HLRBRep_ThePolygonOfInterCSurf(@)",
-    header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
-proc constructHLRBRep_ThePolygonOfInterCSurf*(Curve: gp_Lin; U1: Standard_Real;
-    U2: Standard_Real; NbPnt: Standard_Integer): HLRBRep_ThePolygonOfInterCSurf {.
+proc constructHLRBRepThePolygonOfInterCSurf*(curve: Lin; nbPnt: int): HLRBRepThePolygonOfInterCSurf {.
     constructor, importcpp: "HLRBRep_ThePolygonOfInterCSurf(@)",
     header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
-proc constructHLRBRep_ThePolygonOfInterCSurf*(Curve: gp_Lin;
-    Upars: TColStd_Array1OfReal): HLRBRep_ThePolygonOfInterCSurf {.constructor,
+proc constructHLRBRepThePolygonOfInterCSurf*(curve: Lin; u1: float; u2: float;
+    nbPnt: int): HLRBRepThePolygonOfInterCSurf {.constructor,
     importcpp: "HLRBRep_ThePolygonOfInterCSurf(@)",
     header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
-proc Bounding*(this: HLRBRep_ThePolygonOfInterCSurf): Bnd_Box {.noSideEffect,
+proc constructHLRBRepThePolygonOfInterCSurf*(curve: Lin; upars: TColStdArray1OfReal): HLRBRepThePolygonOfInterCSurf {.
+    constructor, importcpp: "HLRBRep_ThePolygonOfInterCSurf(@)",
+    header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
+proc bounding*(this: HLRBRepThePolygonOfInterCSurf): BndBox {.noSideEffect,
     importcpp: "Bounding", header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
-proc DeflectionOverEstimation*(this: HLRBRep_ThePolygonOfInterCSurf): Standard_Real {.
+proc deflectionOverEstimation*(this: HLRBRepThePolygonOfInterCSurf): float {.
     noSideEffect, importcpp: "DeflectionOverEstimation",
     header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
-proc SetDeflectionOverEstimation*(this: var HLRBRep_ThePolygonOfInterCSurf;
-                                 x: Standard_Real) {.
+proc setDeflectionOverEstimation*(this: var HLRBRepThePolygonOfInterCSurf; x: float) {.
     importcpp: "SetDeflectionOverEstimation",
     header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
-proc Closed*(this: var HLRBRep_ThePolygonOfInterCSurf; clos: Standard_Boolean) {.
+proc closed*(this: var HLRBRepThePolygonOfInterCSurf; clos: bool) {.
     importcpp: "Closed", header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
-proc Closed*(this: HLRBRep_ThePolygonOfInterCSurf): Standard_Boolean {.noSideEffect,
+proc closed*(this: HLRBRepThePolygonOfInterCSurf): bool {.noSideEffect,
     importcpp: "Closed", header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
-proc NbSegments*(this: HLRBRep_ThePolygonOfInterCSurf): Standard_Integer {.
-    noSideEffect, importcpp: "NbSegments",
+proc nbSegments*(this: HLRBRepThePolygonOfInterCSurf): int {.noSideEffect,
+    importcpp: "NbSegments", header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
+proc beginOfSeg*(this: HLRBRepThePolygonOfInterCSurf; index: int): Pnt {.noSideEffect,
+    importcpp: "BeginOfSeg", header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
+proc endOfSeg*(this: HLRBRepThePolygonOfInterCSurf; index: int): Pnt {.noSideEffect,
+    importcpp: "EndOfSeg", header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
+proc infParameter*(this: HLRBRepThePolygonOfInterCSurf): float {.noSideEffect,
+    importcpp: "InfParameter", header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
+proc supParameter*(this: HLRBRepThePolygonOfInterCSurf): float {.noSideEffect,
+    importcpp: "SupParameter", header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
+proc approxParamOnCurve*(this: HLRBRepThePolygonOfInterCSurf; index: int;
+                        paramOnLine: float): float {.noSideEffect,
+    importcpp: "ApproxParamOnCurve", header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
+proc dump*(this: HLRBRepThePolygonOfInterCSurf) {.noSideEffect, importcpp: "Dump",
     header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
-proc BeginOfSeg*(this: HLRBRep_ThePolygonOfInterCSurf; Index: Standard_Integer): gp_Pnt {.
-    noSideEffect, importcpp: "BeginOfSeg",
-    header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
-proc EndOfSeg*(this: HLRBRep_ThePolygonOfInterCSurf; Index: Standard_Integer): gp_Pnt {.
-    noSideEffect, importcpp: "EndOfSeg",
-    header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
-proc InfParameter*(this: HLRBRep_ThePolygonOfInterCSurf): Standard_Real {.
-    noSideEffect, importcpp: "InfParameter",
-    header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
-proc SupParameter*(this: HLRBRep_ThePolygonOfInterCSurf): Standard_Real {.
-    noSideEffect, importcpp: "SupParameter",
-    header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
-proc ApproxParamOnCurve*(this: HLRBRep_ThePolygonOfInterCSurf;
-                        Index: Standard_Integer; ParamOnLine: Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "ApproxParamOnCurve",
-    header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
-proc Dump*(this: HLRBRep_ThePolygonOfInterCSurf) {.noSideEffect, importcpp: "Dump",
-    header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
-## !!!Ignored construct:  # TheCurve gp_Lin [NewLine] # TheCurve_hxx < gp_Lin . hxx > [NewLine] # TheCurveTool HLRBRep_LineTool [NewLine] # TheCurveTool_hxx < HLRBRep_LineTool . hxx > [NewLine] # IntCurveSurface_Polygon HLRBRep_ThePolygonOfInterCSurf [NewLine] # IntCurveSurface_Polygon_hxx < HLRBRep_ThePolygonOfInterCSurf . hxx > [NewLine] # < IntCurveSurface_Polygon . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # TheCurveTool [NewLine] # TheCurveTool_hxx [NewLine] # IntCurveSurface_Polygon [NewLine] # IntCurveSurface_Polygon_hxx [NewLine] #  _HLRBRep_ThePolygonOfInterCSurf_HeaderFile [NewLine]
+## !!!Ignored construct:  # TheCurve gp_Lin [NewLine] # TheCurve_hxx < gp_Lin . hxx > [NewLine] # TheCurveTool HLRBRep_LineTool [NewLine] # TheCurveTool_hxx < HLRBRep_LineTool . hxx > [NewLine] # IntCurveSurface_Polygon HLRBRep_ThePolygonOfInterCSurf [NewLine] # IntCurveSurface_Polygon_hxx < HLRBRep_ThePolygonOfInterCSurf . hxx > [NewLine] # < IntCurveSurface_Polygon . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # TheCurveTool [NewLine] # TheCurveTool_hxx [NewLine] # IntCurveSurface_Polygon [NewLine] # IntCurveSurface_Polygon_hxx [NewLine] #  _HLRBRep_ThePolygonOfInterCSurf_HeaderFile
 ## Error: did not expect <!!!
+

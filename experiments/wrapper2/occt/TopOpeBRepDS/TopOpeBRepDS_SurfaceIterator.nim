@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRepDS_InterferenceIterator,
-  TopOpeBRepDS_ListOfInterference, ../Standard/Standard_Integer,
-  ../TopAbs/TopAbs_Orientation, ../TopAbs/TopAbs_State
-
 type
   TopOpeBRepDS_SurfaceIterator* {.importcpp: "TopOpeBRepDS_SurfaceIterator",
                                  header: "TopOpeBRepDS_SurfaceIterator.hxx",
@@ -46,8 +40,8 @@ type
 proc constructTopOpeBRepDS_SurfaceIterator*(L: TopOpeBRepDS_ListOfInterference): TopOpeBRepDS_SurfaceIterator {.
     constructor, importcpp: "TopOpeBRepDS_SurfaceIterator(@)",
     header: "TopOpeBRepDS_SurfaceIterator.hxx".}
-proc Current*(this: TopOpeBRepDS_SurfaceIterator): Standard_Integer {.noSideEffect,
+proc current*(this: TopOpeBRepDS_SurfaceIterator): int {.noSideEffect,
     importcpp: "Current", header: "TopOpeBRepDS_SurfaceIterator.hxx".}
-proc Orientation*(this: TopOpeBRepDS_SurfaceIterator; S: TopAbs_State): TopAbs_Orientation {.
+proc orientation*(this: TopOpeBRepDS_SurfaceIterator; s: TopAbsState): TopAbsOrientation {.
     noSideEffect, importcpp: "Orientation",
     header: "TopOpeBRepDS_SurfaceIterator.hxx".}

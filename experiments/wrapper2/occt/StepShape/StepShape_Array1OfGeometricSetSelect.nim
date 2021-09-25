@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepShape_GeometricSetSelect, ../NCollection/NCollection_Array1
-
 type
-  StepShape_Array1OfGeometricSetSelect* = NCollection_Array1[
-      StepShape_GeometricSetSelect]
+  StepShapeArray1OfGeometricSetSelect* = NCollectionArray1[
+      StepShapeGeometricSetSelect]
+

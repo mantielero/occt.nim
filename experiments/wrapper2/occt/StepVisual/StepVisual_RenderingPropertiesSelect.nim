@@ -14,34 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepVisual_SurfaceStyleReflectanceAmbient"
 discard "forward decl of StepVisual_SurfaceStyleTransparent"
 type
-  StepVisual_RenderingPropertiesSelect* {.
-      importcpp: "StepVisual_RenderingPropertiesSelect",
-      header: "StepVisual_RenderingPropertiesSelect.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                            ## !
-                                                                                            ## Empty
-                                                                                            ## constructor
+  StepVisualRenderingPropertiesSelect* {.importcpp: "StepVisual_RenderingPropertiesSelect", header: "StepVisual_RenderingPropertiesSelect.hxx",
+                                        bycopy.} = object of StepDataSelectType ## ! Empty
+                                                                           ## constructor
 
 
-proc constructStepVisual_RenderingPropertiesSelect*(): StepVisual_RenderingPropertiesSelect {.
+proc constructStepVisualRenderingPropertiesSelect*(): StepVisualRenderingPropertiesSelect {.
     constructor, importcpp: "StepVisual_RenderingPropertiesSelect(@)",
     header: "StepVisual_RenderingPropertiesSelect.hxx".}
-proc CaseNum*(this: StepVisual_RenderingPropertiesSelect;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepVisualRenderingPropertiesSelect;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepVisual_RenderingPropertiesSelect.hxx".}
-proc SurfaceStyleReflectanceAmbient*(this: StepVisual_RenderingPropertiesSelect): handle[
-    StepVisual_SurfaceStyleReflectanceAmbient] {.noSideEffect,
+proc surfaceStyleReflectanceAmbient*(this: StepVisualRenderingPropertiesSelect): Handle[
+    StepVisualSurfaceStyleReflectanceAmbient] {.noSideEffect,
     importcpp: "SurfaceStyleReflectanceAmbient",
     header: "StepVisual_RenderingPropertiesSelect.hxx".}
-proc SurfaceStyleTransparent*(this: StepVisual_RenderingPropertiesSelect): handle[
-    StepVisual_SurfaceStyleTransparent] {.noSideEffect,
-    importcpp: "SurfaceStyleTransparent",
-    header: "StepVisual_RenderingPropertiesSelect.hxx".}
+proc surfaceStyleTransparent*(this: StepVisualRenderingPropertiesSelect): Handle[
+    StepVisualSurfaceStyleTransparent] {.noSideEffect,
+                                        importcpp: "SurfaceStyleTransparent", header: "StepVisual_RenderingPropertiesSelect.hxx".}

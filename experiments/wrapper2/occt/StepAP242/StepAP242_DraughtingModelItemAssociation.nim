@@ -13,33 +13,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP242_ItemIdentifiedRepresentationUsage
-
 discard "forward decl of StepAP242_DraughtingModelItemAssociation"
 discard "forward decl of StepAP242_DraughtingModelItemAssociation"
 type
-  Handle_StepAP242_DraughtingModelItemAssociation* = handle[
-      StepAP242_DraughtingModelItemAssociation]
+  HandleStepAP242DraughtingModelItemAssociation* = Handle[
+      StepAP242DraughtingModelItemAssociation]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepAP242_DraughtingModelItemAssociation* {.
+  StepAP242DraughtingModelItemAssociation* {.
       importcpp: "StepAP242_DraughtingModelItemAssociation",
-      header: "StepAP242_DraughtingModelItemAssociation.hxx", bycopy.} = object of StepAP242_ItemIdentifiedRepresentationUsage
+      header: "StepAP242_DraughtingModelItemAssociation.hxx", bycopy.} = object of StepAP242ItemIdentifiedRepresentationUsage
 
 
-proc constructStepAP242_DraughtingModelItemAssociation*(): StepAP242_DraughtingModelItemAssociation {.
+proc constructStepAP242DraughtingModelItemAssociation*(): StepAP242DraughtingModelItemAssociation {.
     constructor, importcpp: "StepAP242_DraughtingModelItemAssociation(@)",
     header: "StepAP242_DraughtingModelItemAssociation.hxx".}
 type
-  StepAP242_DraughtingModelItemAssociationbase_type* = StepAP242_ItemIdentifiedRepresentationUsage
+  StepAP242DraughtingModelItemAssociationbaseType* = StepAP242ItemIdentifiedRepresentationUsage
 
-proc get_type_name*(): cstring {.importcpp: "StepAP242_DraughtingModelItemAssociation::get_type_name(@)", header: "StepAP242_DraughtingModelItemAssociation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP242_DraughtingModelItemAssociation::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP242_DraughtingModelItemAssociation::get_type_name(@)", header: "StepAP242_DraughtingModelItemAssociation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP242_DraughtingModelItemAssociation::get_type_descriptor(@)",
     header: "StepAP242_DraughtingModelItemAssociation.hxx".}
-proc DynamicType*(this: StepAP242_DraughtingModelItemAssociation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepAP242_DraughtingModelItemAssociation.hxx".}
+proc dynamicType*(this: StepAP242DraughtingModelItemAssociation): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepAP242_DraughtingModelItemAssociation.hxx".}

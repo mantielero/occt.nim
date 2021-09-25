@@ -14,29 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_AssemblyComponentUsage
-
 discard "forward decl of StepRepr_PromissoryUsageOccurrence"
 discard "forward decl of StepRepr_PromissoryUsageOccurrence"
 type
-  Handle_StepRepr_PromissoryUsageOccurrence* = handle[
-      StepRepr_PromissoryUsageOccurrence]
-  StepRepr_PromissoryUsageOccurrence* {.importcpp: "StepRepr_PromissoryUsageOccurrence", header: "StepRepr_PromissoryUsageOccurrence.hxx",
-                                       bycopy.} = object of StepRepr_AssemblyComponentUsage
+  HandleStepReprPromissoryUsageOccurrence* = Handle[
+      StepReprPromissoryUsageOccurrence]
+  StepReprPromissoryUsageOccurrence* {.importcpp: "StepRepr_PromissoryUsageOccurrence", header: "StepRepr_PromissoryUsageOccurrence.hxx",
+                                      bycopy.} = object of StepReprAssemblyComponentUsage
 
 
-proc constructStepRepr_PromissoryUsageOccurrence*(): StepRepr_PromissoryUsageOccurrence {.
+proc constructStepReprPromissoryUsageOccurrence*(): StepReprPromissoryUsageOccurrence {.
     constructor, importcpp: "StepRepr_PromissoryUsageOccurrence(@)",
     header: "StepRepr_PromissoryUsageOccurrence.hxx".}
 type
-  StepRepr_PromissoryUsageOccurrencebase_type* = StepRepr_AssemblyComponentUsage
+  StepReprPromissoryUsageOccurrencebaseType* = StepReprAssemblyComponentUsage
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_PromissoryUsageOccurrence::get_type_name(@)",
-                              header: "StepRepr_PromissoryUsageOccurrence.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_PromissoryUsageOccurrence::get_type_name(@)",
+                            header: "StepRepr_PromissoryUsageOccurrence.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_PromissoryUsageOccurrence::get_type_descriptor(@)",
     header: "StepRepr_PromissoryUsageOccurrence.hxx".}
-proc DynamicType*(this: StepRepr_PromissoryUsageOccurrence): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprPromissoryUsageOccurrence): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_PromissoryUsageOccurrence.hxx".}

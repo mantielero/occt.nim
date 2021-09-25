@@ -14,35 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Graphic3d/Graphic3d_Vec3, ../Graphic3d/Graphic3d_ZLayerId,
-  ../Precision/Precision, ../Select3D/Select3D_SensitiveEntity
-
 ## ! This class provides data and criterion for sorting candidate
 ## ! entities in the process of interactive selection by mouse click
 
 type
-  SelectMgr_SortCriterion* {.importcpp: "SelectMgr_SortCriterion",
-                            header: "SelectMgr_SortCriterion.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Empty
-                                                                                ## constructor.
-    Entity* {.importc: "Entity".}: handle[Select3D_SensitiveEntity] ## !< detected entity
-    Point* {.importc: "Point".}: gp_Pnt ## !< 3D point
-    Normal* {.importc: "Normal".}: Graphic3d_Vec3 ## !< surface normal or 0 vector if undefined
-    Depth* {.importc: "Depth".}: Standard_Real ## !< distance from the view plane to the entity
-    MinDist* {.importc: "MinDist".}: Standard_Real ## !< distance from the clicked point to the entity on the view plane
-    Tolerance* {.importc: "Tolerance".}: Standard_Real ## !< tolerance used for selecting candidates
-    Priority* {.importc: "Priority".}: Standard_Integer ## !< selection priority
-    ZLayerPosition* {.importc: "ZLayerPosition".}: Standard_Integer ## !< ZLayer rendering order index, stronger than a depth
-    NbOwnerMatches* {.importc: "NbOwnerMatches".}: Standard_Integer ## !< overall number of entities collected for the same owner
+  SelectMgrSortCriterion* {.importcpp: "SelectMgr_SortCriterion",
+                           header: "SelectMgr_SortCriterion.hxx", bycopy.} = object ## !
+                                                                               ## Empty
+                                                                               ## constructor.
+    entity* {.importc: "Entity".}: Handle[Select3D_SensitiveEntity] ## !< detected entity
+    point* {.importc: "Point".}: Pnt ## !< 3D point
+    normal* {.importc: "Normal".}: Graphic3dVec3 ## !< surface normal or 0 vector if undefined
+    depth* {.importc: "Depth".}: float ## !< distance from the view plane to the entity
+    minDist* {.importc: "MinDist".}: float ## !< distance from the clicked point to the entity on the view plane
+    tolerance* {.importc: "Tolerance".}: float ## !< tolerance used for selecting candidates
+    priority* {.importc: "Priority".}: int ## !< selection priority
+    zLayerPosition* {.importc: "ZLayerPosition".}: int ## !< ZLayer rendering order index, stronger than a depth
+    nbOwnerMatches* {.importc: "NbOwnerMatches".}: int ## !< overall number of entities collected for the same owner
 
 
-proc constructSelectMgr_SortCriterion*(): SelectMgr_SortCriterion {.constructor,
+proc constructSelectMgrSortCriterion*(): SelectMgrSortCriterion {.constructor,
     importcpp: "SelectMgr_SortCriterion(@)", header: "SelectMgr_SortCriterion.hxx".}
-proc IsCloserDepth*(this: SelectMgr_SortCriterion;
-                   theOther: SelectMgr_SortCriterion): bool {.noSideEffect,
-    importcpp: "IsCloserDepth", header: "SelectMgr_SortCriterion.hxx".}
-proc IsHigherPriority*(this: SelectMgr_SortCriterion;
-                      theOther: SelectMgr_SortCriterion): bool {.noSideEffect,
+proc isCloserDepth*(this: SelectMgrSortCriterion; theOther: SelectMgrSortCriterion): bool {.
+    noSideEffect, importcpp: "IsCloserDepth", header: "SelectMgr_SortCriterion.hxx".}
+proc isHigherPriority*(this: SelectMgrSortCriterion;
+                      theOther: SelectMgrSortCriterion): bool {.noSideEffect,
     importcpp: "IsHigherPriority", header: "SelectMgr_SortCriterion.hxx".}

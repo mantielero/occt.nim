@@ -14,36 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepVisual_AnnotationText"
 discard "forward decl of StepVisual_CompositeText"
 discard "forward decl of StepVisual_TextLiteral"
 type
-  StepVisual_TextOrCharacter* {.importcpp: "StepVisual_TextOrCharacter",
-                               header: "StepVisual_TextOrCharacter.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                           ## !
-                                                                                                           ## Returns
-                                                                                                           ## a
-                                                                                                           ## TextOrCharacter
-                                                                                                           ## SelectType
+  StepVisualTextOrCharacter* {.importcpp: "StepVisual_TextOrCharacter",
+                              header: "StepVisual_TextOrCharacter.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                         ## !
+                                                                                                         ## Returns
+                                                                                                         ## a
+                                                                                                         ## TextOrCharacter
+                                                                                                         ## SelectType
 
 
-proc constructStepVisual_TextOrCharacter*(): StepVisual_TextOrCharacter {.
+proc constructStepVisualTextOrCharacter*(): StepVisualTextOrCharacter {.
     constructor, importcpp: "StepVisual_TextOrCharacter(@)",
     header: "StepVisual_TextOrCharacter.hxx".}
-proc CaseNum*(this: StepVisual_TextOrCharacter; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepVisualTextOrCharacter; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_TextOrCharacter.hxx".}
-proc AnnotationText*(this: StepVisual_TextOrCharacter): handle[
-    StepVisual_AnnotationText] {.noSideEffect, importcpp: "AnnotationText",
-                                header: "StepVisual_TextOrCharacter.hxx".}
-proc CompositeText*(this: StepVisual_TextOrCharacter): handle[
-    StepVisual_CompositeText] {.noSideEffect, importcpp: "CompositeText",
+proc annotationText*(this: StepVisualTextOrCharacter): Handle[
+    StepVisualAnnotationText] {.noSideEffect, importcpp: "AnnotationText",
                                header: "StepVisual_TextOrCharacter.hxx".}
-proc TextLiteral*(this: StepVisual_TextOrCharacter): handle[StepVisual_TextLiteral] {.
+proc compositeText*(this: StepVisualTextOrCharacter): Handle[
+    StepVisualCompositeText] {.noSideEffect, importcpp: "CompositeText",
+                              header: "StepVisual_TextOrCharacter.hxx".}
+proc textLiteral*(this: StepVisualTextOrCharacter): Handle[StepVisualTextLiteral] {.
     noSideEffect, importcpp: "TextLiteral",
     header: "StepVisual_TextOrCharacter.hxx".}

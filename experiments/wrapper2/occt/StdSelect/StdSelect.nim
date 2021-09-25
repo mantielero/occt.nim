@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../SelectMgr/SelectMgr_Selection, ../Prs3d/Prs3d_Drawer
-
 ## ! The StdSelect package provides the following services
 ## ! -   the definition of selection modes for topological shapes
 ## ! -   the definition of several concrete filtertandard
@@ -47,6 +44,6 @@ type
                                                                           ## BRepOwner...
 
 
-proc SetDrawerForBRepOwner*(aSelection: handle[SelectMgr_Selection];
-                           aDrawer: handle[Prs3d_Drawer]) {.
+proc setDrawerForBRepOwner*(aSelection: Handle[SelectMgrSelection];
+                           aDrawer: Handle[Prs3dDrawer]) {.
     importcpp: "StdSelect::SetDrawerForBRepOwner(@)", header: "StdSelect.hxx".}

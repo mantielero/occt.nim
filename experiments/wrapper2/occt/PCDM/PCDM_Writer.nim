@@ -14,34 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Message/Message_ProgressIndicator
-
 discard "forward decl of PCDM_DriverError"
 discard "forward decl of CDM_Document"
 discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of PCDM_Writer"
 discard "forward decl of PCDM_Writer"
 type
-  Handle_PCDM_Writer* = handle[PCDM_Writer]
-  PCDM_Writer* {.importcpp: "PCDM_Writer", header: "PCDM_Writer.hxx", bycopy.} = object of Standard_Transient
+  HandlePCDM_Writer* = Handle[PCDM_Writer]
+  PCDM_Writer* {.importcpp: "PCDM_Writer", header: "PCDM_Writer.hxx", bycopy.} = object of StandardTransient
 
 
-proc Write*(this: var PCDM_Writer; aDocument: handle[CDM_Document];
-           aFileName: TCollection_ExtendedString;
-           theRange: Message_ProgressRange = Message_ProgressRange()) {.
+proc write*(this: var PCDM_Writer; aDocument: Handle[CDM_Document];
+           aFileName: TCollectionExtendedString;
+           theRange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Write", header: "PCDM_Writer.hxx".}
-proc Write*(this: var PCDM_Writer; theDocument: handle[CDM_Document];
-           theOStream: var Standard_OStream;
-           theRange: Message_ProgressRange = Message_ProgressRange()) {.
+proc write*(this: var PCDM_Writer; theDocument: Handle[CDM_Document];
+           theOStream: var StandardOStream;
+           theRange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Write", header: "PCDM_Writer.hxx".}
 type
-  PCDM_Writerbase_type* = Standard_Transient
+  PCDM_WriterbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "PCDM_Writer::get_type_name(@)",
-                              header: "PCDM_Writer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "PCDM_Writer::get_type_name(@)",
+                            header: "PCDM_Writer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "PCDM_Writer::get_type_descriptor(@)", header: "PCDM_Writer.hxx".}
-proc DynamicType*(this: PCDM_Writer): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: PCDM_Writer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "PCDM_Writer.hxx".}

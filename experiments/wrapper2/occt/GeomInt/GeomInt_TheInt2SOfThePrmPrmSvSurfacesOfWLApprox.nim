@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox_HeaderFile [NewLine] # _GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # ../IntSurf/IntSurf_PntOn2S.hxx [NewLine] # ../gp/gp_Dir.hxx [NewLine] # ../gp/gp_Dir2d.hxx [NewLine] # GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # ../TColStd/TColStd_Array1OfReal.hxx [NewLine] # ../IntImp/IntImp_ConstIsoparametric.hxx [NewLine] class StdFail_NotDone ;
+## !!!Ignored construct:  # _GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox_HeaderFile [NewLine] # _GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < IntSurf_PntOn2S . hxx > [NewLine] # < gp_Dir . hxx > [NewLine] # < gp_Dir2d . hxx > [NewLine] # < GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] # < TColStd_Array1OfReal . hxx > [NewLine] # < IntImp_ConstIsoparametric . hxx > [NewLine] class StdFail_NotDone ;
 ## Error: did not expect <!!!
 
 discard "forward decl of Standard_DomainError"
@@ -28,7 +28,7 @@ discard "forward decl of IntSurf_PntOn2S"
 discard "forward decl of gp_Dir"
 discard "forward decl of gp_Dir2d"
 type
-  GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox* {.
+  GeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox* {.
       importcpp: "GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox",
       header: "GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx", bycopy.} = object ##
                                                                                   ## !
@@ -42,51 +42,51 @@ type
                                                                                   ## point
 
 
-proc constructGeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox*(
-    Param: TColStd_Array1OfReal; S1: handle[Adaptor3d_HSurface];
-    S2: handle[Adaptor3d_HSurface]; TolTangency: Standard_Real): GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox {.
+proc constructGeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox*(
+    param: TColStdArray1OfReal; s1: Handle[Adaptor3dHSurface];
+    s2: Handle[Adaptor3dHSurface]; tolTangency: float): GeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox {.
     constructor, importcpp: "GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox(@)",
     header: "GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx".}
-proc constructGeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox*(
-    S1: handle[Adaptor3d_HSurface]; S2: handle[Adaptor3d_HSurface];
-    TolTangency: Standard_Real): GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox {.
+proc constructGeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox*(
+    s1: Handle[Adaptor3dHSurface]; s2: Handle[Adaptor3dHSurface]; tolTangency: float): GeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox {.
     constructor, importcpp: "GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox(@)",
     header: "GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx".}
-proc Perform*(this: var GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox;
-             Param: TColStd_Array1OfReal; Rsnld: var math_FunctionSetRoot): IntImp_ConstIsoparametric {.
+proc perform*(this: var GeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox;
+             param: TColStdArray1OfReal; rsnld: var MathFunctionSetRoot): IntImpConstIsoparametric {.
     importcpp: "Perform",
     header: "GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx".}
-proc Perform*(this: var GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox;
-             Param: TColStd_Array1OfReal; Rsnld: var math_FunctionSetRoot;
-             ChoixIso: IntImp_ConstIsoparametric): IntImp_ConstIsoparametric {.
+proc perform*(this: var GeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox;
+             param: TColStdArray1OfReal; rsnld: var MathFunctionSetRoot;
+             choixIso: IntImpConstIsoparametric): IntImpConstIsoparametric {.
     importcpp: "Perform",
     header: "GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx".}
-proc IsDone*(this: GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox): Standard_Boolean {.
+proc isDone*(this: GeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox): bool {.
     noSideEffect, importcpp: "IsDone",
     header: "GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx".}
-proc IsEmpty*(this: GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox): Standard_Boolean {.
+proc isEmpty*(this: GeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox): bool {.
     noSideEffect, importcpp: "IsEmpty",
     header: "GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx".}
-proc Point*(this: GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox): IntSurf_PntOn2S {.
+proc point*(this: GeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox): IntSurfPntOn2S {.
     noSideEffect, importcpp: "Point",
     header: "GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx".}
-proc IsTangent*(this: GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox): Standard_Boolean {.
+proc isTangent*(this: GeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox): bool {.
     noSideEffect, importcpp: "IsTangent",
     header: "GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx".}
-proc Direction*(this: GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox): gp_Dir {.
+proc direction*(this: GeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox): Dir {.
     noSideEffect, importcpp: "Direction",
     header: "GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx".}
-proc DirectionOnS1*(this: GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox): gp_Dir2d {.
+proc directionOnS1*(this: GeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox): Dir2d {.
     noSideEffect, importcpp: "DirectionOnS1",
     header: "GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx".}
-proc DirectionOnS2*(this: GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox): gp_Dir2d {.
+proc directionOnS2*(this: GeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox): Dir2d {.
     noSideEffect, importcpp: "DirectionOnS2",
     header: "GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx".}
-proc Function*(this: var GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox): var GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox {.
+proc function*(this: var GeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox): var GeomIntTheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox {.
     importcpp: "Function",
     header: "GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx".}
-proc ChangePoint*(this: var GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox): var IntSurf_PntOn2S {.
+proc changePoint*(this: var GeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox): var IntSurfPntOn2S {.
     importcpp: "ChangePoint",
     header: "GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx".}
-## !!!Ignored construct:  # ThePSurface opencascade :: handle < Adaptor3d_HSurface > [end of template] [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # IntImp_TheFunction GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox [NewLine] # IntImp_TheFunction_hxx < GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox . hxx > [NewLine] # IntImp_Int2S GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox [NewLine] # IntImp_Int2S_hxx < GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox . hxx > [NewLine] # < IntImp_Int2S . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # IntImp_TheFunction [NewLine] # IntImp_TheFunction_hxx [NewLine] # IntImp_Int2S [NewLine] # IntImp_Int2S_hxx [NewLine] #  _GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox_HeaderFile [NewLine]
+## !!!Ignored construct:  # ThePSurface opencascade :: handle < Adaptor3d_HSurface > [end of template] [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # IntImp_TheFunction GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox [NewLine] # IntImp_TheFunction_hxx < GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox . hxx > [NewLine] # IntImp_Int2S GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox [NewLine] # IntImp_Int2S_hxx < GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox . hxx > [NewLine] # < IntImp_Int2S . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # IntImp_TheFunction [NewLine] # IntImp_TheFunction_hxx [NewLine] # IntImp_Int2S [NewLine] # IntImp_Int2S_hxx [NewLine] #  _GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox_HeaderFile
 ## Error: did not expect <!!!
+

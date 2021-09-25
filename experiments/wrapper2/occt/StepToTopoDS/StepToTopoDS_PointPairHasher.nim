@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of StepToTopoDS_PointPair"
 type
   StepToTopoDS_PointPairHasher* {.importcpp: "StepToTopoDS_PointPairHasher",
@@ -29,10 +24,9 @@ type
                                                 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
 
-proc HashCode*(thePointPair: StepToTopoDS_PointPair;
-              theUpperBound: Standard_Integer): Standard_Integer {.
+proc hashCode*(thePointPair: StepToTopoDS_PointPair; theUpperBound: int): int {.
     importcpp: "StepToTopoDS_PointPairHasher::HashCode(@)",
     header: "StepToTopoDS_PointPairHasher.hxx".}
-proc IsEqual*(K1: StepToTopoDS_PointPair; K2: StepToTopoDS_PointPair): Standard_Boolean {.
+proc isEqual*(k1: StepToTopoDS_PointPair; k2: StepToTopoDS_PointPair): bool {.
     importcpp: "StepToTopoDS_PointPairHasher::IsEqual(@)",
     header: "StepToTopoDS_PointPairHasher.hxx".}

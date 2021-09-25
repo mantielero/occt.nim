@@ -13,24 +13,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TCollection/TCollection_AsciiString
-
 discard "forward decl of TCollection_AsciiString"
 type
-  XmlLDrivers_NamespaceDef* {.importcpp: "XmlLDrivers_NamespaceDef",
-                             header: "XmlLDrivers_NamespaceDef.hxx", bycopy.} = object
+  XmlLDriversNamespaceDef* {.importcpp: "XmlLDrivers_NamespaceDef",
+                            header: "XmlLDrivers_NamespaceDef.hxx", bycopy.} = object
 
 
-proc constructXmlLDrivers_NamespaceDef*(): XmlLDrivers_NamespaceDef {.constructor,
+proc constructXmlLDriversNamespaceDef*(): XmlLDriversNamespaceDef {.constructor,
     importcpp: "XmlLDrivers_NamespaceDef(@)",
     header: "XmlLDrivers_NamespaceDef.hxx".}
-proc constructXmlLDrivers_NamespaceDef*(thePrefix: TCollection_AsciiString;
-                                       theURI: TCollection_AsciiString): XmlLDrivers_NamespaceDef {.
+proc constructXmlLDriversNamespaceDef*(thePrefix: TCollectionAsciiString;
+                                      theURI: TCollectionAsciiString): XmlLDriversNamespaceDef {.
     constructor, importcpp: "XmlLDrivers_NamespaceDef(@)",
     header: "XmlLDrivers_NamespaceDef.hxx".}
-proc Prefix*(this: XmlLDrivers_NamespaceDef): TCollection_AsciiString {.
-    noSideEffect, importcpp: "Prefix", header: "XmlLDrivers_NamespaceDef.hxx".}
-proc URI*(this: XmlLDrivers_NamespaceDef): TCollection_AsciiString {.noSideEffect,
+proc prefix*(this: XmlLDriversNamespaceDef): TCollectionAsciiString {.noSideEffect,
+    importcpp: "Prefix", header: "XmlLDrivers_NamespaceDef.hxx".}
+proc uri*(this: XmlLDriversNamespaceDef): TCollectionAsciiString {.noSideEffect,
     importcpp: "URI", header: "XmlLDrivers_NamespaceDef.hxx".}

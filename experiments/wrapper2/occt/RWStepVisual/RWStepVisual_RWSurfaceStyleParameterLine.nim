@@ -14,34 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_SurfaceStyleParameterLine"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisual_RWSurfaceStyleParameterLine* {.
+  RWStepVisualRWSurfaceStyleParameterLine* {.
       importcpp: "RWStepVisual_RWSurfaceStyleParameterLine",
       header: "RWStepVisual_RWSurfaceStyleParameterLine.hxx", bycopy.} = object
 
 
-proc constructRWStepVisual_RWSurfaceStyleParameterLine*(): RWStepVisual_RWSurfaceStyleParameterLine {.
+proc constructRWStepVisualRWSurfaceStyleParameterLine*(): RWStepVisualRWSurfaceStyleParameterLine {.
     constructor, importcpp: "RWStepVisual_RWSurfaceStyleParameterLine(@)",
     header: "RWStepVisual_RWSurfaceStyleParameterLine.hxx".}
-proc ReadStep*(this: RWStepVisual_RWSurfaceStyleParameterLine;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepVisual_SurfaceStyleParameterLine]) {.noSideEffect,
+proc readStep*(this: RWStepVisualRWSurfaceStyleParameterLine;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepVisualSurfaceStyleParameterLine]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWSurfaceStyleParameterLine.hxx".}
-proc WriteStep*(this: RWStepVisual_RWSurfaceStyleParameterLine;
-               SW: var StepData_StepWriter;
-               ent: handle[StepVisual_SurfaceStyleParameterLine]) {.noSideEffect,
+proc writeStep*(this: RWStepVisualRWSurfaceStyleParameterLine;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepVisualSurfaceStyleParameterLine]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWSurfaceStyleParameterLine.hxx".}
-proc Share*(this: RWStepVisual_RWSurfaceStyleParameterLine;
-           ent: handle[StepVisual_SurfaceStyleParameterLine];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepVisualRWSurfaceStyleParameterLine;
+           ent: Handle[StepVisualSurfaceStyleParameterLine];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWSurfaceStyleParameterLine.hxx".}

@@ -14,51 +14,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Graphic3d_TextureRoot, Graphic3d_TypeOfTexture,
-  Graphic3d_LevelOfTextureAnisotropy
-
 discard "forward decl of TCollection_AsciiString"
 type
-  Graphic3d_TextureMap* {.importcpp: "Graphic3d_TextureMap",
-                         header: "Graphic3d_TextureMap.hxx", bycopy.} = object of Graphic3d_TextureRoot ##
-                                                                                                 ## !
-                                                                                                 ## enable
-                                                                                                 ## texture
-                                                                                                 ## smoothing
+  Graphic3dTextureMap* {.importcpp: "Graphic3d_TextureMap",
+                        header: "Graphic3d_TextureMap.hxx", bycopy.} = object of Graphic3dTextureRoot ##
+                                                                                               ## !
+                                                                                               ## enable
+                                                                                               ## texture
+                                                                                               ## smoothing
 
-  Graphic3d_TextureMapbase_type* = Graphic3d_TextureRoot
+  Graphic3dTextureMapbaseType* = Graphic3dTextureRoot
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_TextureMap::get_type_name(@)",
-                              header: "Graphic3d_TextureMap.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_TextureMap::get_type_name(@)",
+                            header: "Graphic3d_TextureMap.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_TextureMap::get_type_descriptor(@)",
     header: "Graphic3d_TextureMap.hxx".}
-proc DynamicType*(this: Graphic3d_TextureMap): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: Graphic3dTextureMap): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Graphic3d_TextureMap.hxx".}
-proc EnableSmooth*(this: var Graphic3d_TextureMap) {.importcpp: "EnableSmooth",
+proc enableSmooth*(this: var Graphic3dTextureMap) {.importcpp: "EnableSmooth",
     header: "Graphic3d_TextureMap.hxx".}
-proc IsSmoothed*(this: Graphic3d_TextureMap): Standard_Boolean {.noSideEffect,
+proc isSmoothed*(this: Graphic3dTextureMap): bool {.noSideEffect,
     importcpp: "IsSmoothed", header: "Graphic3d_TextureMap.hxx".}
-proc DisableSmooth*(this: var Graphic3d_TextureMap) {.importcpp: "DisableSmooth",
+proc disableSmooth*(this: var Graphic3dTextureMap) {.importcpp: "DisableSmooth",
     header: "Graphic3d_TextureMap.hxx".}
-proc EnableModulate*(this: var Graphic3d_TextureMap) {.importcpp: "EnableModulate",
+proc enableModulate*(this: var Graphic3dTextureMap) {.importcpp: "EnableModulate",
     header: "Graphic3d_TextureMap.hxx".}
-proc DisableModulate*(this: var Graphic3d_TextureMap) {.
-    importcpp: "DisableModulate", header: "Graphic3d_TextureMap.hxx".}
-proc IsModulate*(this: Graphic3d_TextureMap): Standard_Boolean {.noSideEffect,
+proc disableModulate*(this: var Graphic3dTextureMap) {.importcpp: "DisableModulate",
+    header: "Graphic3d_TextureMap.hxx".}
+proc isModulate*(this: Graphic3dTextureMap): bool {.noSideEffect,
     importcpp: "IsModulate", header: "Graphic3d_TextureMap.hxx".}
-proc EnableRepeat*(this: var Graphic3d_TextureMap) {.importcpp: "EnableRepeat",
+proc enableRepeat*(this: var Graphic3dTextureMap) {.importcpp: "EnableRepeat",
     header: "Graphic3d_TextureMap.hxx".}
-proc DisableRepeat*(this: var Graphic3d_TextureMap) {.importcpp: "DisableRepeat",
+proc disableRepeat*(this: var Graphic3dTextureMap) {.importcpp: "DisableRepeat",
     header: "Graphic3d_TextureMap.hxx".}
-proc IsRepeat*(this: Graphic3d_TextureMap): Standard_Boolean {.noSideEffect,
+proc isRepeat*(this: Graphic3dTextureMap): bool {.noSideEffect,
     importcpp: "IsRepeat", header: "Graphic3d_TextureMap.hxx".}
-proc AnisoFilter*(this: Graphic3d_TextureMap): Graphic3d_LevelOfTextureAnisotropy {.
+proc anisoFilter*(this: Graphic3dTextureMap): Graphic3dLevelOfTextureAnisotropy {.
     noSideEffect, importcpp: "AnisoFilter", header: "Graphic3d_TextureMap.hxx".}
-proc SetAnisoFilter*(this: var Graphic3d_TextureMap;
-                    theLevel: Graphic3d_LevelOfTextureAnisotropy) {.
+proc setAnisoFilter*(this: var Graphic3dTextureMap;
+                    theLevel: Graphic3dLevelOfTextureAnisotropy) {.
     importcpp: "SetAnisoFilter", header: "Graphic3d_TextureMap.hxx".}
 discard "forward decl of Graphic3d_TextureMap"
 type
-  Handle_Graphic3d_TextureMap* = handle[Graphic3d_TextureMap]
+  HandleGraphic3dTextureMap* = Handle[Graphic3dTextureMap]
+

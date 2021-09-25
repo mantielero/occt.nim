@@ -14,73 +14,66 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Interface/Interface_Graph,
-  ../Standard/Standard_Integer, ../TColStd/TColStd_HSequenceOfInteger,
-  ../Interface/Interface_GraphContent, ../Standard/Standard_Boolean
-
 discard "forward decl of Interface_Graph"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_EntityIterator"
 type
-  IFGraph_Articulations* {.importcpp: "IFGraph_Articulations",
-                          header: "IFGraph_Articulations.hxx", bycopy.} = object of Interface_GraphContent ##
-                                                                                                    ## !
-                                                                                                    ## creates
-                                                                                                    ## Articulations
-                                                                                                    ## to
-                                                                                                    ## evaluate
-                                                                                                    ## a
-                                                                                                    ## Graph
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## whole
-                                                                                                    ## True
-                                                                                                    ## :
-                                                                                                    ## works
-                                                                                                    ## on
-                                                                                                    ## the
-                                                                                                    ## whole
-                                                                                                    ## Model
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## whole
-                                                                                                    ## False
-                                                                                                    ## :
-                                                                                                    ## remains
-                                                                                                    ## empty,
-                                                                                                    ## ready
-                                                                                                    ## to
-                                                                                                    ## work
-                                                                                                    ## on
-                                                                                                    ## a
-                                                                                                    ## sub-part
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## basic
-                                                                                                    ## routine
-                                                                                                    ## of
-                                                                                                    ## computation
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## (see
-                                                                                                    ## book
-                                                                                                    ## Sedgewick
-                                                                                                    ## "Algorithms",
-                                                                                                    ## p
-                                                                                                    ## 392)
+  IFGraphArticulations* {.importcpp: "IFGraph_Articulations",
+                         header: "IFGraph_Articulations.hxx", bycopy.} = object of InterfaceGraphContent ##
+                                                                                                  ## !
+                                                                                                  ## creates
+                                                                                                  ## Articulations
+                                                                                                  ## to
+                                                                                                  ## evaluate
+                                                                                                  ## a
+                                                                                                  ## Graph
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## whole
+                                                                                                  ## True
+                                                                                                  ## :
+                                                                                                  ## works
+                                                                                                  ## on
+                                                                                                  ## the
+                                                                                                  ## whole
+                                                                                                  ## Model
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## whole
+                                                                                                  ## False
+                                                                                                  ## :
+                                                                                                  ## remains
+                                                                                                  ## empty,
+                                                                                                  ## ready
+                                                                                                  ## to
+                                                                                                  ## work
+                                                                                                  ## on
+                                                                                                  ## a
+                                                                                                  ## sub-part
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## basic
+                                                                                                  ## routine
+                                                                                                  ## of
+                                                                                                  ## computation
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## (see
+                                                                                                  ## book
+                                                                                                  ## Sedgewick
+                                                                                                  ## "Algorithms",
+                                                                                                  ## p
+                                                                                                  ## 392)
 
 
-proc constructIFGraph_Articulations*(agraph: Interface_Graph;
-                                    whole: Standard_Boolean): IFGraph_Articulations {.
+proc constructIFGraphArticulations*(agraph: InterfaceGraph; whole: bool): IFGraphArticulations {.
     constructor, importcpp: "IFGraph_Articulations(@)",
     header: "IFGraph_Articulations.hxx".}
-proc GetFromEntity*(this: var IFGraph_Articulations; ent: handle[Standard_Transient]) {.
+proc getFromEntity*(this: var IFGraphArticulations; ent: Handle[StandardTransient]) {.
     importcpp: "GetFromEntity", header: "IFGraph_Articulations.hxx".}
-proc GetFromIter*(this: var IFGraph_Articulations; iter: Interface_EntityIterator) {.
+proc getFromIter*(this: var IFGraphArticulations; iter: InterfaceEntityIterator) {.
     importcpp: "GetFromIter", header: "IFGraph_Articulations.hxx".}
-proc ResetData*(this: var IFGraph_Articulations) {.importcpp: "ResetData",
+proc resetData*(this: var IFGraphArticulations) {.importcpp: "ResetData",
     header: "IFGraph_Articulations.hxx".}
-proc Evaluate*(this: var IFGraph_Articulations) {.importcpp: "Evaluate",
+proc evaluate*(this: var IFGraphArticulations) {.importcpp: "Evaluate",
     header: "IFGraph_Articulations.hxx".}

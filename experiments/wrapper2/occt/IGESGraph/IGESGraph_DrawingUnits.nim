@@ -14,15 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Real
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESGraph_DrawingUnits"
 discard "forward decl of IGESGraph_DrawingUnits"
 type
-  Handle_IGESGraph_DrawingUnits* = handle[IGESGraph_DrawingUnits]
+  HandleIGESGraphDrawingUnits* = Handle[IGESGraphDrawingUnits]
 
 ## ! defines IGESDrawingUnits, Type <406> Form <17>
 ## ! in package IGESGraph
@@ -31,31 +27,30 @@ type
 ## ! in the Drawing entity
 
 type
-  IGESGraph_DrawingUnits* {.importcpp: "IGESGraph_DrawingUnits",
-                           header: "IGESGraph_DrawingUnits.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESGraphDrawingUnits* {.importcpp: "IGESGraph_DrawingUnits",
+                          header: "IGESGraph_DrawingUnits.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESGraph_DrawingUnits*(): IGESGraph_DrawingUnits {.constructor,
+proc constructIGESGraphDrawingUnits*(): IGESGraphDrawingUnits {.constructor,
     importcpp: "IGESGraph_DrawingUnits(@)", header: "IGESGraph_DrawingUnits.hxx".}
-proc Init*(this: var IGESGraph_DrawingUnits; nbProps: Standard_Integer;
-          aFlag: Standard_Integer; aUnit: handle[TCollection_HAsciiString]) {.
-    importcpp: "Init", header: "IGESGraph_DrawingUnits.hxx".}
-proc NbPropertyValues*(this: IGESGraph_DrawingUnits): Standard_Integer {.
-    noSideEffect, importcpp: "NbPropertyValues",
+proc init*(this: var IGESGraphDrawingUnits; nbProps: int; aFlag: int;
+          aUnit: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "IGESGraph_DrawingUnits.hxx".}
-proc Flag*(this: IGESGraph_DrawingUnits): Standard_Integer {.noSideEffect,
-    importcpp: "Flag", header: "IGESGraph_DrawingUnits.hxx".}
-proc Unit*(this: IGESGraph_DrawingUnits): handle[TCollection_HAsciiString] {.
+proc nbPropertyValues*(this: IGESGraphDrawingUnits): int {.noSideEffect,
+    importcpp: "NbPropertyValues", header: "IGESGraph_DrawingUnits.hxx".}
+proc flag*(this: IGESGraphDrawingUnits): int {.noSideEffect, importcpp: "Flag",
+    header: "IGESGraph_DrawingUnits.hxx".}
+proc unit*(this: IGESGraphDrawingUnits): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Unit", header: "IGESGraph_DrawingUnits.hxx".}
-proc UnitValue*(this: IGESGraph_DrawingUnits): Standard_Real {.noSideEffect,
+proc unitValue*(this: IGESGraphDrawingUnits): float {.noSideEffect,
     importcpp: "UnitValue", header: "IGESGraph_DrawingUnits.hxx".}
 type
-  IGESGraph_DrawingUnitsbase_type* = IGESData_IGESEntity
+  IGESGraphDrawingUnitsbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESGraph_DrawingUnits::get_type_name(@)",
-                              header: "IGESGraph_DrawingUnits.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESGraph_DrawingUnits::get_type_name(@)",
+                            header: "IGESGraph_DrawingUnits.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESGraph_DrawingUnits::get_type_descriptor(@)",
     header: "IGESGraph_DrawingUnits.hxx".}
-proc DynamicType*(this: IGESGraph_DrawingUnits): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IGESGraph_DrawingUnits.hxx".}
+proc dynamicType*(this: IGESGraphDrawingUnits): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IGESGraph_DrawingUnits.hxx".}

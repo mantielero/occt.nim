@@ -14,16 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../GeomAbs/GeomAbs_Shape,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real,
-  ShapeUpgrade_SplitCurve2d
-
 discard "forward decl of ShapeUpgrade_SplitCurve2dContinuity"
 discard "forward decl of ShapeUpgrade_SplitCurve2dContinuity"
 type
-  Handle_ShapeUpgrade_SplitCurve2dContinuity* = handle[
-      ShapeUpgrade_SplitCurve2dContinuity]
+  HandleShapeUpgradeSplitCurve2dContinuity* = Handle[
+      ShapeUpgradeSplitCurve2dContinuity]
 
 ## ! Corrects/splits a 2d curve with a continuity criterion.
 ## ! Tolerance is used to correct the curve at a knot that respects
@@ -31,31 +26,31 @@ type
 ## ! multiplicity of the knot.
 
 type
-  ShapeUpgrade_SplitCurve2dContinuity* {.importcpp: "ShapeUpgrade_SplitCurve2dContinuity", header: "ShapeUpgrade_SplitCurve2dContinuity.hxx",
-                                        bycopy.} = object of ShapeUpgrade_SplitCurve2d ##
-                                                                                  ## !
-                                                                                  ## Empty
-                                                                                  ## constructor.
+  ShapeUpgradeSplitCurve2dContinuity* {.importcpp: "ShapeUpgrade_SplitCurve2dContinuity", header: "ShapeUpgrade_SplitCurve2dContinuity.hxx",
+                                       bycopy.} = object of ShapeUpgradeSplitCurve2d ##
+                                                                                ## !
+                                                                                ## Empty
+                                                                                ## constructor.
 
 
-proc constructShapeUpgrade_SplitCurve2dContinuity*(): ShapeUpgrade_SplitCurve2dContinuity {.
+proc constructShapeUpgradeSplitCurve2dContinuity*(): ShapeUpgradeSplitCurve2dContinuity {.
     constructor, importcpp: "ShapeUpgrade_SplitCurve2dContinuity(@)",
     header: "ShapeUpgrade_SplitCurve2dContinuity.hxx".}
-proc SetCriterion*(this: var ShapeUpgrade_SplitCurve2dContinuity;
-                  Criterion: GeomAbs_Shape) {.importcpp: "SetCriterion",
+proc setCriterion*(this: var ShapeUpgradeSplitCurve2dContinuity;
+                  criterion: GeomAbsShape) {.importcpp: "SetCriterion",
     header: "ShapeUpgrade_SplitCurve2dContinuity.hxx".}
-proc SetTolerance*(this: var ShapeUpgrade_SplitCurve2dContinuity; Tol: Standard_Real) {.
+proc setTolerance*(this: var ShapeUpgradeSplitCurve2dContinuity; tol: float) {.
     importcpp: "SetTolerance", header: "ShapeUpgrade_SplitCurve2dContinuity.hxx".}
-proc Compute*(this: var ShapeUpgrade_SplitCurve2dContinuity) {.importcpp: "Compute",
+proc compute*(this: var ShapeUpgradeSplitCurve2dContinuity) {.importcpp: "Compute",
     header: "ShapeUpgrade_SplitCurve2dContinuity.hxx".}
 type
-  ShapeUpgrade_SplitCurve2dContinuitybase_type* = ShapeUpgrade_SplitCurve2d
+  ShapeUpgradeSplitCurve2dContinuitybaseType* = ShapeUpgradeSplitCurve2d
 
-proc get_type_name*(): cstring {.importcpp: "ShapeUpgrade_SplitCurve2dContinuity::get_type_name(@)",
-                              header: "ShapeUpgrade_SplitCurve2dContinuity.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeUpgrade_SplitCurve2dContinuity::get_type_name(@)",
+                            header: "ShapeUpgrade_SplitCurve2dContinuity.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeUpgrade_SplitCurve2dContinuity::get_type_descriptor(@)",
     header: "ShapeUpgrade_SplitCurve2dContinuity.hxx".}
-proc DynamicType*(this: ShapeUpgrade_SplitCurve2dContinuity): handle[Standard_Type] {.
+proc dynamicType*(this: ShapeUpgradeSplitCurve2dContinuity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_SplitCurve2dContinuity.hxx".}

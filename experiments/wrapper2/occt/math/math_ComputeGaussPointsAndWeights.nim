@@ -13,23 +13,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColStd/TColStd_HArray1OfReal,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer, math_Vector
-
 type
-  math_ComputeGaussPointsAndWeights* {.importcpp: "math_ComputeGaussPointsAndWeights", header: "math_ComputeGaussPointsAndWeights.hxx",
-                                      bycopy.} = object
+  MathComputeGaussPointsAndWeights* {.importcpp: "math_ComputeGaussPointsAndWeights", header: "math_ComputeGaussPointsAndWeights.hxx",
+                                     bycopy.} = object
 
 
-proc constructmath_ComputeGaussPointsAndWeights*(Number: Standard_Integer): math_ComputeGaussPointsAndWeights {.
+proc constructMathComputeGaussPointsAndWeights*(number: int): MathComputeGaussPointsAndWeights {.
     constructor, importcpp: "math_ComputeGaussPointsAndWeights(@)",
     header: "math_ComputeGaussPointsAndWeights.hxx".}
-proc IsDone*(this: math_ComputeGaussPointsAndWeights): Standard_Boolean {.
-    noSideEffect, importcpp: "IsDone",
-    header: "math_ComputeGaussPointsAndWeights.hxx".}
-proc Points*(this: math_ComputeGaussPointsAndWeights): math_Vector {.noSideEffect,
+proc isDone*(this: MathComputeGaussPointsAndWeights): bool {.noSideEffect,
+    importcpp: "IsDone", header: "math_ComputeGaussPointsAndWeights.hxx".}
+proc points*(this: MathComputeGaussPointsAndWeights): MathVector {.noSideEffect,
     importcpp: "Points", header: "math_ComputeGaussPointsAndWeights.hxx".}
-proc Weights*(this: math_ComputeGaussPointsAndWeights): math_Vector {.noSideEffect,
+proc weights*(this: MathComputeGaussPointsAndWeights): MathVector {.noSideEffect,
     importcpp: "Weights", header: "math_ComputeGaussPointsAndWeights.hxx".}

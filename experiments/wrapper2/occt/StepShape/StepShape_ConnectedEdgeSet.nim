@@ -13,46 +13,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_HArray1OfEdge,
-  StepShape_TopologicalRepresentationItem
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_ConnectedEdgeSet"
 discard "forward decl of StepShape_ConnectedEdgeSet"
 type
-  Handle_StepShape_ConnectedEdgeSet* = handle[StepShape_ConnectedEdgeSet]
+  HandleStepShapeConnectedEdgeSet* = Handle[StepShapeConnectedEdgeSet]
 
 ## ! Representation of STEP entity ConnectedEdgeSet
 
 type
-  StepShape_ConnectedEdgeSet* {.importcpp: "StepShape_ConnectedEdgeSet",
-                               header: "StepShape_ConnectedEdgeSet.hxx", bycopy.} = object of StepShape_TopologicalRepresentationItem ##
-                                                                                                                               ## !
-                                                                                                                               ## Empty
-                                                                                                                               ## constructor
+  StepShapeConnectedEdgeSet* {.importcpp: "StepShape_ConnectedEdgeSet",
+                              header: "StepShape_ConnectedEdgeSet.hxx", bycopy.} = object of StepShapeTopologicalRepresentationItem ##
+                                                                                                                             ## !
+                                                                                                                             ## Empty
+                                                                                                                             ## constructor
 
 
-proc constructStepShape_ConnectedEdgeSet*(): StepShape_ConnectedEdgeSet {.
+proc constructStepShapeConnectedEdgeSet*(): StepShapeConnectedEdgeSet {.
     constructor, importcpp: "StepShape_ConnectedEdgeSet(@)",
     header: "StepShape_ConnectedEdgeSet.hxx".}
-proc Init*(this: var StepShape_ConnectedEdgeSet;
-          aRepresentationItem_Name: handle[TCollection_HAsciiString];
-          aCesEdges: handle[StepShape_HArray1OfEdge]) {.importcpp: "Init",
+proc init*(this: var StepShapeConnectedEdgeSet;
+          aRepresentationItemName: Handle[TCollectionHAsciiString];
+          aCesEdges: Handle[StepShapeHArray1OfEdge]) {.importcpp: "Init",
     header: "StepShape_ConnectedEdgeSet.hxx".}
-proc CesEdges*(this: StepShape_ConnectedEdgeSet): handle[StepShape_HArray1OfEdge] {.
+proc cesEdges*(this: StepShapeConnectedEdgeSet): Handle[StepShapeHArray1OfEdge] {.
     noSideEffect, importcpp: "CesEdges", header: "StepShape_ConnectedEdgeSet.hxx".}
-proc SetCesEdges*(this: var StepShape_ConnectedEdgeSet;
-                 CesEdges: handle[StepShape_HArray1OfEdge]) {.
+proc setCesEdges*(this: var StepShapeConnectedEdgeSet;
+                 cesEdges: Handle[StepShapeHArray1OfEdge]) {.
     importcpp: "SetCesEdges", header: "StepShape_ConnectedEdgeSet.hxx".}
 type
-  StepShape_ConnectedEdgeSetbase_type* = StepShape_TopologicalRepresentationItem
+  StepShapeConnectedEdgeSetbaseType* = StepShapeTopologicalRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_ConnectedEdgeSet::get_type_name(@)",
-                              header: "StepShape_ConnectedEdgeSet.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_ConnectedEdgeSet::get_type_name(@)",
+                            header: "StepShape_ConnectedEdgeSet.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_ConnectedEdgeSet::get_type_descriptor(@)",
     header: "StepShape_ConnectedEdgeSet.hxx".}
-proc DynamicType*(this: StepShape_ConnectedEdgeSet): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeConnectedEdgeSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_ConnectedEdgeSet.hxx".}

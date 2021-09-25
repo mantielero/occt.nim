@@ -17,7 +17,8 @@
 ## ! It is an auxiliary flag being used in inner computations
 
 type
-  Approx_Status* {.size: sizeof(cint), importcpp: "Approx_Status",
-                  header: "Approx_Status.hxx".} = enum
-    Approx_PointsAdded, Approx_NoPointsAdded, Approx_NoApproximation
+  ApproxStatus* {.size: sizeof(cint), importcpp: "Approx_Status",
+                 header: "Approx_Status.hxx".} = enum
+    ApproxPointsAdded, ApproxNoPointsAdded, ApproxNoApproximation
+
 

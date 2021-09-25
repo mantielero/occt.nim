@@ -12,11 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, gp_XY, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_VectorWithNullMagnitude"
@@ -26,157 +21,123 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Trsf2d"
 type
-  gp_Vec2d* {.importcpp: "gp_Vec2d", header: "gp_Vec2d.hxx", bycopy.} = object ## ! Creates a zero vector.
-    gp_Vec2d* {.importc: "gp_Vec2d".}: Standard_NODISCARD
-    gp_Vec2d* {.importc: "gp_Vec2d".}: Standard_NODISCARD
-    Standard_Real* {.importc: "Standard_Real".}: Standard_NODISCARD
-    gp_Vec2d* {.importc: "gp_Vec2d".}: Standard_NODISCARD
-    gp_Vec2d* {.importc: "gp_Vec2d".}: Standard_NODISCARD
-    gp_Vec2d* {.importc: "gp_Vec2d".}: Standard_NODISCARD
-    gp_Vec2d* {.importc: "gp_Vec2d".}: Standard_NODISCARD
-    gp_Vec2d* {.importc: "gp_Vec2d".}: Standard_NODISCARD
-    gp_Vec2d* {.importc: "gp_Vec2d".}: Standard_NODISCARD
-    gp_Vec2d* {.importc: "gp_Vec2d".}: Standard_NODISCARD
-    gp_Vec2d* {.importc: "gp_Vec2d".}: Standard_NODISCARD
-    gp_Vec2d* {.importc: "gp_Vec2d".}: Standard_NODISCARD
-    gp_Vec2d* {.importc: "gp_Vec2d".}: Standard_NODISCARD
-    gp_Vec2d* {.importc: "gp_Vec2d".}: Standard_NODISCARD
-    gp_Vec2d* {.importc: "gp_Vec2d".}: Standard_NODISCARD
-    gp_Vec2d* {.importc: "gp_Vec2d".}: Standard_NODISCARD
-    gp_Vec2d* {.importc: "gp_Vec2d".}: Standard_NODISCARD
+  Vec2d* {.importcpp: "gp_Vec2d", header: "gp_Vec2d.hxx", bycopy.} = object ## ! Creates a zero vector.
 
 
-proc constructgp_Vec2d*(): gp_Vec2d {.constructor, importcpp: "gp_Vec2d(@)",
-                                   header: "gp_Vec2d.hxx".}
-proc constructgp_Vec2d*(V: gp_Dir2d): gp_Vec2d {.constructor,
-    importcpp: "gp_Vec2d(@)", header: "gp_Vec2d.hxx".}
-proc constructgp_Vec2d*(Coord: gp_XY): gp_Vec2d {.constructor,
-    importcpp: "gp_Vec2d(@)", header: "gp_Vec2d.hxx".}
-proc constructgp_Vec2d*(Xv: Standard_Real; Yv: Standard_Real): gp_Vec2d {.constructor,
-    importcpp: "gp_Vec2d(@)", header: "gp_Vec2d.hxx".}
-proc constructgp_Vec2d*(P1: gp_Pnt2d; P2: gp_Pnt2d): gp_Vec2d {.constructor,
-    importcpp: "gp_Vec2d(@)", header: "gp_Vec2d.hxx".}
-proc SetCoord*(this: var gp_Vec2d; Index: Standard_Integer; Xi: Standard_Real) {.
-    importcpp: "SetCoord", header: "gp_Vec2d.hxx".}
-proc SetCoord*(this: var gp_Vec2d; Xv: Standard_Real; Yv: Standard_Real) {.
-    importcpp: "SetCoord", header: "gp_Vec2d.hxx".}
-proc SetX*(this: var gp_Vec2d; X: Standard_Real) {.importcpp: "SetX",
-    header: "gp_Vec2d.hxx".}
-proc SetY*(this: var gp_Vec2d; Y: Standard_Real) {.importcpp: "SetY",
-    header: "gp_Vec2d.hxx".}
-proc SetXY*(this: var gp_Vec2d; Coord: gp_XY) {.importcpp: "SetXY",
-    header: "gp_Vec2d.hxx".}
-proc Coord*(this: gp_Vec2d; Index: Standard_Integer): Standard_Real {.noSideEffect,
-    importcpp: "Coord", header: "gp_Vec2d.hxx".}
-proc Coord*(this: gp_Vec2d; Xv: var Standard_Real; Yv: var Standard_Real) {.noSideEffect,
-    importcpp: "Coord", header: "gp_Vec2d.hxx".}
-proc X*(this: gp_Vec2d): Standard_Real {.noSideEffect, importcpp: "X",
+proc constructVec2d*(): Vec2d {.constructor, importcpp: "gp_Vec2d(@)",
+                             header: "gp_Vec2d.hxx".}
+proc constructVec2d*(v: Dir2d): Vec2d {.constructor, importcpp: "gp_Vec2d(@)",
+                                    header: "gp_Vec2d.hxx".}
+proc constructVec2d*(coord: Xy): Vec2d {.constructor, importcpp: "gp_Vec2d(@)",
                                      header: "gp_Vec2d.hxx".}
-proc Y*(this: gp_Vec2d): Standard_Real {.noSideEffect, importcpp: "Y",
-                                     header: "gp_Vec2d.hxx".}
-proc XY*(this: gp_Vec2d): gp_XY {.noSideEffect, importcpp: "XY", header: "gp_Vec2d.hxx".}
-proc IsEqual*(this: gp_Vec2d; Other: gp_Vec2d; LinearTolerance: Standard_Real;
-             AngularTolerance: Standard_Real): Standard_Boolean {.noSideEffect,
-    importcpp: "IsEqual", header: "gp_Vec2d.hxx".}
-proc IsNormal*(this: gp_Vec2d; Other: gp_Vec2d; AngularTolerance: Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "IsNormal", header: "gp_Vec2d.hxx".}
-proc IsOpposite*(this: gp_Vec2d; Other: gp_Vec2d; AngularTolerance: Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "IsOpposite", header: "gp_Vec2d.hxx".}
-proc IsParallel*(this: gp_Vec2d; Other: gp_Vec2d; AngularTolerance: Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "IsParallel", header: "gp_Vec2d.hxx".}
-proc Angle*(this: gp_Vec2d; Other: gp_Vec2d): Standard_Real {.noSideEffect,
-    importcpp: "Angle", header: "gp_Vec2d.hxx".}
-proc Magnitude*(this: gp_Vec2d): Standard_Real {.noSideEffect,
-    importcpp: "Magnitude", header: "gp_Vec2d.hxx".}
-proc SquareMagnitude*(this: gp_Vec2d): Standard_Real {.noSideEffect,
-    importcpp: "SquareMagnitude", header: "gp_Vec2d.hxx".}
-proc Add*(this: var gp_Vec2d; Other: gp_Vec2d) {.importcpp: "Add",
+proc constructVec2d*(xv: float; yv: float): Vec2d {.constructor,
+    importcpp: "gp_Vec2d(@)", header: "gp_Vec2d.hxx".}
+proc constructVec2d*(p1: Pnt2d; p2: Pnt2d): Vec2d {.constructor,
+    importcpp: "gp_Vec2d(@)", header: "gp_Vec2d.hxx".}
+proc setCoord*(this: var Vec2d; index: int; xi: float) {.importcpp: "SetCoord",
     header: "gp_Vec2d.hxx".}
-proc `+=`*(this: var gp_Vec2d; Other: gp_Vec2d) {.importcpp: "(# += #)",
+proc setCoord*(this: var Vec2d; xv: float; yv: float) {.importcpp: "SetCoord",
     header: "gp_Vec2d.hxx".}
-## !!!Ignored construct:  Added ( const gp_Vec2d & Other ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-## !!!Ignored construct:  operator + ( const gp_Vec2d & Other ) const { return Added ( Other ) ; } ! Computes the crossing product between two vectors Standard_NODISCARD Standard_Real Crossed ( const gp_Vec2d & Right ) const ;
-## Error: identifier expected, but got: +!!!
-
-## !!!Ignored construct:  operator ^ ( const gp_Vec2d & Right ) const { return Crossed ( Right ) ; } ! Computes the magnitude of the cross product between <me> and
-## ! Right. Returns || <me> ^ Right || Standard_Real CrossMagnitude ( const gp_Vec2d & Right ) const ;
-## Error: identifier expected, but got: ^!!!
-
-proc CrossSquareMagnitude*(this: gp_Vec2d; Right: gp_Vec2d): Standard_Real {.
-    noSideEffect, importcpp: "CrossSquareMagnitude", header: "gp_Vec2d.hxx".}
-proc Divide*(this: var gp_Vec2d; Scalar: Standard_Real) {.importcpp: "Divide",
-    header: "gp_Vec2d.hxx".}
-proc `/=`*(this: var gp_Vec2d; Scalar: Standard_Real) {.importcpp: "(# /= #)",
-    header: "gp_Vec2d.hxx".}
-## !!!Ignored construct:  Divided ( const Standard_Real Scalar ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-## !!!Ignored construct:  operator / ( const Standard_Real Scalar ) const { return Divided ( Scalar ) ; } ! Computes the scalar product Standard_Real Dot ( const gp_Vec2d & Other ) const ;
-## Error: identifier expected, but got: /!!!
-
-proc `*`*(this: gp_Vec2d; Other: gp_Vec2d): Standard_Real {.noSideEffect,
-    importcpp: "(# * #)", header: "gp_Vec2d.hxx".}
-proc GetNormal*(this: gp_Vec2d): gp_Vec2d {.noSideEffect, importcpp: "GetNormal",
+proc setX*(this: var Vec2d; x: float) {.importcpp: "SetX", header: "gp_Vec2d.hxx".}
+proc setY*(this: var Vec2d; y: float) {.importcpp: "SetY", header: "gp_Vec2d.hxx".}
+proc setXY*(this: var Vec2d; coord: Xy) {.importcpp: "SetXY", header: "gp_Vec2d.hxx".}
+proc coord*(this: Vec2d; index: int): float {.noSideEffect, importcpp: "Coord",
                                         header: "gp_Vec2d.hxx".}
-proc Multiply*(this: var gp_Vec2d; Scalar: Standard_Real) {.importcpp: "Multiply",
+proc coord*(this: Vec2d; xv: var float; yv: var float) {.noSideEffect, importcpp: "Coord",
     header: "gp_Vec2d.hxx".}
-proc `*=`*(this: var gp_Vec2d; Scalar: Standard_Real) {.importcpp: "(# *= #)",
+proc x*(this: Vec2d): float {.noSideEffect, importcpp: "X", header: "gp_Vec2d.hxx".}
+proc y*(this: Vec2d): float {.noSideEffect, importcpp: "Y", header: "gp_Vec2d.hxx".}
+proc xy*(this: Vec2d): Xy {.noSideEffect, importcpp: "XY", header: "gp_Vec2d.hxx".}
+proc isEqual*(this: Vec2d; other: Vec2d; linearTolerance: float;
+             angularTolerance: float): bool {.noSideEffect, importcpp: "IsEqual",
     header: "gp_Vec2d.hxx".}
-## !!!Ignored construct:  Multiplied ( const Standard_Real Scalar ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-## !!!Ignored construct:  operator * ( const Standard_Real Scalar ) const { return Multiplied ( Scalar ) ; } void Normalize ( ) ;
-## Error: identifier expected, but got: *!!!
-
-## !!!Ignored construct:  Normalized ( ) const ;
-## Error: identifier expected, but got: )!!!
-
-proc Reverse*(this: var gp_Vec2d) {.importcpp: "Reverse", header: "gp_Vec2d.hxx".}
-## !!!Ignored construct:  Reversed ( ) const ;
-## Error: identifier expected, but got: )!!!
-
-## !!!Ignored construct:  operator - ( ) const { return Reversed ( ) ; } ! Subtracts two vectors void Subtract ( const gp_Vec2d & Right ) ;
-## Error: identifier expected, but got: -!!!
-
-proc `-=`*(this: var gp_Vec2d; Right: gp_Vec2d) {.importcpp: "(# -= #)",
+proc isNormal*(this: Vec2d; other: Vec2d; angularTolerance: float): bool {.noSideEffect,
+    importcpp: "IsNormal", header: "gp_Vec2d.hxx".}
+proc isOpposite*(this: Vec2d; other: Vec2d; angularTolerance: float): bool {.
+    noSideEffect, importcpp: "IsOpposite", header: "gp_Vec2d.hxx".}
+proc isParallel*(this: Vec2d; other: Vec2d; angularTolerance: float): bool {.
+    noSideEffect, importcpp: "IsParallel", header: "gp_Vec2d.hxx".}
+proc angle*(this: Vec2d; other: Vec2d): float {.noSideEffect, importcpp: "Angle",
     header: "gp_Vec2d.hxx".}
-## !!!Ignored construct:  Subtracted ( const gp_Vec2d & Right ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-## !!!Ignored construct:  operator - ( const gp_Vec2d & Right ) const { return Subtracted ( Right ) ; } ! <me> is set to the following linear form :
-## ! A1 * V1 + A2 * V2 + V3 void SetLinearForm ( const Standard_Real A1 , const gp_Vec2d & V1 , const Standard_Real A2 , const gp_Vec2d & V2 , const gp_Vec2d & V3 ) ;
-## Error: identifier expected, but got: -!!!
-
-proc SetLinearForm*(this: var gp_Vec2d; A1: Standard_Real; V1: gp_Vec2d;
-                   A2: Standard_Real; V2: gp_Vec2d) {.importcpp: "SetLinearForm",
+proc magnitude*(this: Vec2d): float {.noSideEffect, importcpp: "Magnitude",
+                                  header: "gp_Vec2d.hxx".}
+proc squareMagnitude*(this: Vec2d): float {.noSideEffect,
+                                        importcpp: "SquareMagnitude",
+                                        header: "gp_Vec2d.hxx".}
+proc add*(this: var Vec2d; other: Vec2d) {.importcpp: "Add", header: "gp_Vec2d.hxx".}
+proc `+=`*(this: var Vec2d; other: Vec2d) {.importcpp: "(# += #)",
+                                      header: "gp_Vec2d.hxx".}
+proc added*(this: Vec2d; other: Vec2d): Vec2d {.noSideEffect, importcpp: "Added",
     header: "gp_Vec2d.hxx".}
-proc SetLinearForm*(this: var gp_Vec2d; A1: Standard_Real; V1: gp_Vec2d; V2: gp_Vec2d) {.
+proc `+`*(this: Vec2d; other: Vec2d): Vec2d {.noSideEffect, importcpp: "(# + #)",
+                                        header: "gp_Vec2d.hxx".}
+proc crossed*(this: Vec2d; right: Vec2d): float {.noSideEffect, importcpp: "Crossed",
+    header: "gp_Vec2d.hxx".}
+proc `^`*(this: Vec2d; right: Vec2d): float {.noSideEffect, importcpp: "(# ^ #)",
+                                        header: "gp_Vec2d.hxx".}
+proc crossMagnitude*(this: Vec2d; right: Vec2d): float {.noSideEffect,
+    importcpp: "CrossMagnitude", header: "gp_Vec2d.hxx".}
+proc crossSquareMagnitude*(this: Vec2d; right: Vec2d): float {.noSideEffect,
+    importcpp: "CrossSquareMagnitude", header: "gp_Vec2d.hxx".}
+proc divide*(this: var Vec2d; scalar: float) {.importcpp: "Divide",
+    header: "gp_Vec2d.hxx".}
+proc `/=`*(this: var Vec2d; scalar: float) {.importcpp: "(# /= #)",
+                                       header: "gp_Vec2d.hxx".}
+proc divided*(this: Vec2d; scalar: float): Vec2d {.noSideEffect, importcpp: "Divided",
+    header: "gp_Vec2d.hxx".}
+proc `/`*(this: Vec2d; scalar: float): Vec2d {.noSideEffect, importcpp: "(# / #)",
+    header: "gp_Vec2d.hxx".}
+proc dot*(this: Vec2d; other: Vec2d): float {.noSideEffect, importcpp: "Dot",
+                                        header: "gp_Vec2d.hxx".}
+proc `*`*(this: Vec2d; other: Vec2d): float {.noSideEffect, importcpp: "(# * #)",
+                                        header: "gp_Vec2d.hxx".}
+proc getNormal*(this: Vec2d): Vec2d {.noSideEffect, importcpp: "GetNormal",
+                                  header: "gp_Vec2d.hxx".}
+proc multiply*(this: var Vec2d; scalar: float) {.importcpp: "Multiply",
+    header: "gp_Vec2d.hxx".}
+proc `*=`*(this: var Vec2d; scalar: float) {.importcpp: "(# *= #)",
+                                       header: "gp_Vec2d.hxx".}
+proc multiplied*(this: Vec2d; scalar: float): Vec2d {.noSideEffect,
+    importcpp: "Multiplied", header: "gp_Vec2d.hxx".}
+proc `*`*(this: Vec2d; scalar: float): Vec2d {.noSideEffect, importcpp: "(# * #)",
+    header: "gp_Vec2d.hxx".}
+proc normalize*(this: var Vec2d) {.importcpp: "Normalize", header: "gp_Vec2d.hxx".}
+proc normalized*(this: Vec2d): Vec2d {.noSideEffect, importcpp: "Normalized",
+                                   header: "gp_Vec2d.hxx".}
+proc reverse*(this: var Vec2d) {.importcpp: "Reverse", header: "gp_Vec2d.hxx".}
+proc reversed*(this: Vec2d): Vec2d {.noSideEffect, importcpp: "Reversed",
+                                 header: "gp_Vec2d.hxx".}
+proc `-`*(this: Vec2d): Vec2d {.noSideEffect, importcpp: "(- #)",
+                            header: "gp_Vec2d.hxx".}
+proc subtract*(this: var Vec2d; right: Vec2d) {.importcpp: "Subtract",
+    header: "gp_Vec2d.hxx".}
+proc `-=`*(this: var Vec2d; right: Vec2d) {.importcpp: "(# -= #)",
+                                      header: "gp_Vec2d.hxx".}
+proc subtracted*(this: Vec2d; right: Vec2d): Vec2d {.noSideEffect,
+    importcpp: "Subtracted", header: "gp_Vec2d.hxx".}
+proc `-`*(this: Vec2d; right: Vec2d): Vec2d {.noSideEffect, importcpp: "(# - #)",
+                                        header: "gp_Vec2d.hxx".}
+proc setLinearForm*(this: var Vec2d; a1: float; v1: Vec2d; a2: float; v2: Vec2d; v3: Vec2d) {.
     importcpp: "SetLinearForm", header: "gp_Vec2d.hxx".}
-proc SetLinearForm*(this: var gp_Vec2d; Left: gp_Vec2d; Right: gp_Vec2d) {.
+proc setLinearForm*(this: var Vec2d; a1: float; v1: Vec2d; a2: float; v2: Vec2d) {.
     importcpp: "SetLinearForm", header: "gp_Vec2d.hxx".}
-proc Mirror*(this: var gp_Vec2d; V: gp_Vec2d) {.importcpp: "Mirror",
+proc setLinearForm*(this: var Vec2d; a1: float; v1: Vec2d; v2: Vec2d) {.
+    importcpp: "SetLinearForm", header: "gp_Vec2d.hxx".}
+proc setLinearForm*(this: var Vec2d; left: Vec2d; right: Vec2d) {.
+    importcpp: "SetLinearForm", header: "gp_Vec2d.hxx".}
+proc mirror*(this: var Vec2d; v: Vec2d) {.importcpp: "Mirror", header: "gp_Vec2d.hxx".}
+proc mirrored*(this: Vec2d; v: Vec2d): Vec2d {.noSideEffect, importcpp: "Mirrored",
     header: "gp_Vec2d.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Vec2d & V ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Mirror*(this: var gp_Vec2d; A1: gp_Ax2d) {.importcpp: "Mirror",
+proc mirror*(this: var Vec2d; a1: Ax2d) {.importcpp: "Mirror", header: "gp_Vec2d.hxx".}
+proc mirrored*(this: Vec2d; a1: Ax2d): Vec2d {.noSideEffect, importcpp: "Mirrored",
     header: "gp_Vec2d.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Ax2d & A1 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Rotate*(this: var gp_Vec2d; Ang: Standard_Real) {.importcpp: "Rotate",
+proc rotate*(this: var Vec2d; ang: float) {.importcpp: "Rotate", header: "gp_Vec2d.hxx".}
+proc rotated*(this: Vec2d; ang: float): Vec2d {.noSideEffect, importcpp: "Rotated",
     header: "gp_Vec2d.hxx".}
-## !!!Ignored construct:  Rotated ( const Standard_Real Ang ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Scale*(this: var gp_Vec2d; S: Standard_Real) {.importcpp: "Scale",
-    header: "gp_Vec2d.hxx".}
-## !!!Ignored construct:  Scaled ( const Standard_Real S ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Transform*(this: var gp_Vec2d; T: gp_Trsf2d) {.importcpp: "Transform",
-    header: "gp_Vec2d.hxx".}
-## !!!Ignored construct:  Transformed ( const gp_Trsf2d & T ) const ;
-## Error: token expected: ) but got: [identifier]!!!
+proc scale*(this: var Vec2d; s: float) {.importcpp: "Scale", header: "gp_Vec2d.hxx".}
+proc scaled*(this: Vec2d; s: float): Vec2d {.noSideEffect, importcpp: "Scaled",
+                                       header: "gp_Vec2d.hxx".}
+proc transform*(this: var Vec2d; t: Trsf2d) {.importcpp: "Transform",
+                                        header: "gp_Vec2d.hxx".}
+proc transformed*(this: Vec2d; t: Trsf2d): Vec2d {.noSideEffect,
+    importcpp: "Transformed", header: "gp_Vec2d.hxx".}

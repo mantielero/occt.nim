@@ -13,14 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, XCAFDoc_DataMapOfShapeLabel,
-  ../Standard/Standard_Boolean, ../TDataStd/TDataStd_NamedData,
-  ../TDataStd/TDataStd_GenericEmpty, ../TDF/TDF_LabelMap,
-  ../TDF/TDF_LabelSequence, ../Standard/Standard_Integer,
-  ../Standard/Standard_OStream, ../TColStd/TColStd_SequenceOfHAsciiString,
-  ../TDF/TDF_AttributeSequence, ../TopTools/TopTools_SequenceOfShape
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
 discard "forward decl of TopoDS_Shape"
@@ -31,7 +23,7 @@ discard "forward decl of XCAFDoc_GraphNode"
 discard "forward decl of XCAFDoc_ShapeTool"
 discard "forward decl of XCAFDoc_ShapeTool"
 type
-  Handle_XCAFDoc_ShapeTool* = handle[XCAFDoc_ShapeTool]
+  HandleXCAFDocShapeTool* = Handle[XCAFDocShapeTool]
 
 ## ! A tool to store shapes in an XDE
 ## ! document in the form of assembly structure, and to maintain this structure.
@@ -96,209 +88,193 @@ type
 ## ! { ... no label found for this shape ... }
 
 type
-  XCAFDoc_ShapeTool* {.importcpp: "XCAFDoc_ShapeTool",
-                      header: "XCAFDoc_ShapeTool.hxx", bycopy.} = object of TDataStd_GenericEmpty
-    myShapeLabels* {.importc: "myShapeLabels".}: XCAFDoc_DataMapOfShapeLabel
-    mySubShapes* {.importc: "mySubShapes".}: XCAFDoc_DataMapOfShapeLabel
-    mySimpleShapes* {.importc: "mySimpleShapes".}: XCAFDoc_DataMapOfShapeLabel
-    hasSimpleShapes* {.importc: "hasSimpleShapes".}: Standard_Boolean
+  XCAFDocShapeTool* {.importcpp: "XCAFDoc_ShapeTool",
+                     header: "XCAFDoc_ShapeTool.hxx", bycopy.} = object of TDataStdGenericEmpty
+    myShapeLabels* {.importc: "myShapeLabels".}: XCAFDocDataMapOfShapeLabel
+    mySubShapes* {.importc: "mySubShapes".}: XCAFDocDataMapOfShapeLabel
+    mySimpleShapes* {.importc: "mySimpleShapes".}: XCAFDocDataMapOfShapeLabel
+    hasSimpleShapes* {.importc: "hasSimpleShapes".}: bool
 
 
-proc GetID*(): Standard_GUID {.importcpp: "XCAFDoc_ShapeTool::GetID(@)",
-                            header: "XCAFDoc_ShapeTool.hxx".}
-proc Set*(L: TDF_Label): handle[XCAFDoc_ShapeTool] {.
+proc getID*(): StandardGUID {.importcpp: "XCAFDoc_ShapeTool::GetID(@)",
+                           header: "XCAFDoc_ShapeTool.hxx".}
+proc set*(L: TDF_Label): Handle[XCAFDocShapeTool] {.
     importcpp: "XCAFDoc_ShapeTool::Set(@)", header: "XCAFDoc_ShapeTool.hxx".}
-proc constructXCAFDoc_ShapeTool*(): XCAFDoc_ShapeTool {.constructor,
+proc constructXCAFDocShapeTool*(): XCAFDocShapeTool {.constructor,
     importcpp: "XCAFDoc_ShapeTool(@)", header: "XCAFDoc_ShapeTool.hxx".}
-proc IsTopLevel*(this: XCAFDoc_ShapeTool; L: TDF_Label): Standard_Boolean {.
-    noSideEffect, importcpp: "IsTopLevel", header: "XCAFDoc_ShapeTool.hxx".}
-proc IsFree*(L: TDF_Label): Standard_Boolean {.
-    importcpp: "XCAFDoc_ShapeTool::IsFree(@)", header: "XCAFDoc_ShapeTool.hxx".}
-proc IsShape*(L: TDF_Label): Standard_Boolean {.
-    importcpp: "XCAFDoc_ShapeTool::IsShape(@)", header: "XCAFDoc_ShapeTool.hxx".}
-proc IsSimpleShape*(L: TDF_Label): Standard_Boolean {.
-    importcpp: "XCAFDoc_ShapeTool::IsSimpleShape(@)",
-    header: "XCAFDoc_ShapeTool.hxx".}
-proc IsReference*(L: TDF_Label): Standard_Boolean {.
-    importcpp: "XCAFDoc_ShapeTool::IsReference(@)",
-    header: "XCAFDoc_ShapeTool.hxx".}
-proc IsAssembly*(L: TDF_Label): Standard_Boolean {.
-    importcpp: "XCAFDoc_ShapeTool::IsAssembly(@)", header: "XCAFDoc_ShapeTool.hxx".}
-proc IsComponent*(L: TDF_Label): Standard_Boolean {.
-    importcpp: "XCAFDoc_ShapeTool::IsComponent(@)",
-    header: "XCAFDoc_ShapeTool.hxx".}
-proc IsCompound*(L: TDF_Label): Standard_Boolean {.
-    importcpp: "XCAFDoc_ShapeTool::IsCompound(@)", header: "XCAFDoc_ShapeTool.hxx".}
-proc IsSubShape*(L: TDF_Label): Standard_Boolean {.
-    importcpp: "XCAFDoc_ShapeTool::IsSubShape(@)", header: "XCAFDoc_ShapeTool.hxx".}
-proc IsSubShape*(this: XCAFDoc_ShapeTool; shapeL: TDF_Label; sub: TopoDS_Shape): Standard_Boolean {.
-    noSideEffect, importcpp: "IsSubShape", header: "XCAFDoc_ShapeTool.hxx".}
-proc SearchUsingMap*(this: XCAFDoc_ShapeTool; S: TopoDS_Shape; L: var TDF_Label;
-                    findWithoutLoc: Standard_Boolean;
-                    findSubshape: Standard_Boolean): Standard_Boolean {.
-    noSideEffect, importcpp: "SearchUsingMap", header: "XCAFDoc_ShapeTool.hxx".}
-proc Search*(this: XCAFDoc_ShapeTool; S: TopoDS_Shape; L: var TDF_Label;
-            findInstance: Standard_Boolean = Standard_True;
-            findComponent: Standard_Boolean = Standard_True;
-            findSubshape: Standard_Boolean = Standard_True): Standard_Boolean {.
-    noSideEffect, importcpp: "Search", header: "XCAFDoc_ShapeTool.hxx".}
-proc FindShape*(this: XCAFDoc_ShapeTool; S: TopoDS_Shape; L: var TDF_Label;
-               findInstance: Standard_Boolean = Standard_False): Standard_Boolean {.
-    noSideEffect, importcpp: "FindShape", header: "XCAFDoc_ShapeTool.hxx".}
-proc FindShape*(this: XCAFDoc_ShapeTool; S: TopoDS_Shape;
-               findInstance: Standard_Boolean = Standard_False): TDF_Label {.
-    noSideEffect, importcpp: "FindShape", header: "XCAFDoc_ShapeTool.hxx".}
-proc GetShape*(L: TDF_Label; S: var TopoDS_Shape): Standard_Boolean {.
-    importcpp: "XCAFDoc_ShapeTool::GetShape(@)", header: "XCAFDoc_ShapeTool.hxx".}
-proc GetShape*(L: TDF_Label): TopoDS_Shape {.
-    importcpp: "XCAFDoc_ShapeTool::GetShape(@)", header: "XCAFDoc_ShapeTool.hxx".}
-proc NewShape*(this: XCAFDoc_ShapeTool): TDF_Label {.noSideEffect,
-    importcpp: "NewShape", header: "XCAFDoc_ShapeTool.hxx".}
-proc SetShape*(this: var XCAFDoc_ShapeTool; L: TDF_Label; S: TopoDS_Shape) {.
-    importcpp: "SetShape", header: "XCAFDoc_ShapeTool.hxx".}
-proc AddShape*(this: var XCAFDoc_ShapeTool; S: TopoDS_Shape;
-              makeAssembly: Standard_Boolean = Standard_True;
-              makePrepare: Standard_Boolean = Standard_True): TDF_Label {.
-    importcpp: "AddShape", header: "XCAFDoc_ShapeTool.hxx".}
-proc RemoveShape*(this: XCAFDoc_ShapeTool; L: TDF_Label;
-                 removeCompletely: Standard_Boolean = Standard_True): Standard_Boolean {.
-    noSideEffect, importcpp: "RemoveShape", header: "XCAFDoc_ShapeTool.hxx".}
-proc Init*(this: var XCAFDoc_ShapeTool) {.importcpp: "Init",
+proc isTopLevel*(this: XCAFDocShapeTool; L: TDF_Label): bool {.noSideEffect,
+    importcpp: "IsTopLevel", header: "XCAFDoc_ShapeTool.hxx".}
+proc isFree*(L: TDF_Label): bool {.importcpp: "XCAFDoc_ShapeTool::IsFree(@)",
+                               header: "XCAFDoc_ShapeTool.hxx".}
+proc isShape*(L: TDF_Label): bool {.importcpp: "XCAFDoc_ShapeTool::IsShape(@)",
+                                header: "XCAFDoc_ShapeTool.hxx".}
+proc isSimpleShape*(L: TDF_Label): bool {.importcpp: "XCAFDoc_ShapeTool::IsSimpleShape(@)",
                                       header: "XCAFDoc_ShapeTool.hxx".}
-proc SetAutoNaming*(V: Standard_Boolean) {.importcpp: "XCAFDoc_ShapeTool::SetAutoNaming(@)",
-                                        header: "XCAFDoc_ShapeTool.hxx".}
-proc AutoNaming*(): Standard_Boolean {.importcpp: "XCAFDoc_ShapeTool::AutoNaming(@)",
+proc isReference*(L: TDF_Label): bool {.importcpp: "XCAFDoc_ShapeTool::IsReference(@)",
                                     header: "XCAFDoc_ShapeTool.hxx".}
-proc ComputeShapes*(this: var XCAFDoc_ShapeTool; L: TDF_Label) {.
+proc isAssembly*(L: TDF_Label): bool {.importcpp: "XCAFDoc_ShapeTool::IsAssembly(@)",
+                                   header: "XCAFDoc_ShapeTool.hxx".}
+proc isComponent*(L: TDF_Label): bool {.importcpp: "XCAFDoc_ShapeTool::IsComponent(@)",
+                                    header: "XCAFDoc_ShapeTool.hxx".}
+proc isCompound*(L: TDF_Label): bool {.importcpp: "XCAFDoc_ShapeTool::IsCompound(@)",
+                                   header: "XCAFDoc_ShapeTool.hxx".}
+proc isSubShape*(L: TDF_Label): bool {.importcpp: "XCAFDoc_ShapeTool::IsSubShape(@)",
+                                   header: "XCAFDoc_ShapeTool.hxx".}
+proc isSubShape*(this: XCAFDocShapeTool; shapeL: TDF_Label; sub: TopoDS_Shape): bool {.
+    noSideEffect, importcpp: "IsSubShape", header: "XCAFDoc_ShapeTool.hxx".}
+proc searchUsingMap*(this: XCAFDocShapeTool; s: TopoDS_Shape; L: var TDF_Label;
+                    findWithoutLoc: bool; findSubshape: bool): bool {.noSideEffect,
+    importcpp: "SearchUsingMap", header: "XCAFDoc_ShapeTool.hxx".}
+proc search*(this: XCAFDocShapeTool; s: TopoDS_Shape; L: var TDF_Label;
+            findInstance: bool = true; findComponent: bool = true;
+            findSubshape: bool = true): bool {.noSideEffect, importcpp: "Search",
+    header: "XCAFDoc_ShapeTool.hxx".}
+proc findShape*(this: XCAFDocShapeTool; s: TopoDS_Shape; L: var TDF_Label;
+               findInstance: bool = false): bool {.noSideEffect,
+    importcpp: "FindShape", header: "XCAFDoc_ShapeTool.hxx".}
+proc findShape*(this: XCAFDocShapeTool; s: TopoDS_Shape; findInstance: bool = false): TDF_Label {.
+    noSideEffect, importcpp: "FindShape", header: "XCAFDoc_ShapeTool.hxx".}
+proc getShape*(L: TDF_Label; s: var TopoDS_Shape): bool {.
+    importcpp: "XCAFDoc_ShapeTool::GetShape(@)", header: "XCAFDoc_ShapeTool.hxx".}
+proc getShape*(L: TDF_Label): TopoDS_Shape {.
+    importcpp: "XCAFDoc_ShapeTool::GetShape(@)", header: "XCAFDoc_ShapeTool.hxx".}
+proc newShape*(this: XCAFDocShapeTool): TDF_Label {.noSideEffect,
+    importcpp: "NewShape", header: "XCAFDoc_ShapeTool.hxx".}
+proc setShape*(this: var XCAFDocShapeTool; L: TDF_Label; s: TopoDS_Shape) {.
+    importcpp: "SetShape", header: "XCAFDoc_ShapeTool.hxx".}
+proc addShape*(this: var XCAFDocShapeTool; s: TopoDS_Shape; makeAssembly: bool = true;
+              makePrepare: bool = true): TDF_Label {.importcpp: "AddShape",
+    header: "XCAFDoc_ShapeTool.hxx".}
+proc removeShape*(this: XCAFDocShapeTool; L: TDF_Label; removeCompletely: bool = true): bool {.
+    noSideEffect, importcpp: "RemoveShape", header: "XCAFDoc_ShapeTool.hxx".}
+proc init*(this: var XCAFDocShapeTool) {.importcpp: "Init",
+                                     header: "XCAFDoc_ShapeTool.hxx".}
+proc setAutoNaming*(v: bool) {.importcpp: "XCAFDoc_ShapeTool::SetAutoNaming(@)",
+                            header: "XCAFDoc_ShapeTool.hxx".}
+proc autoNaming*(): bool {.importcpp: "XCAFDoc_ShapeTool::AutoNaming(@)",
+                        header: "XCAFDoc_ShapeTool.hxx".}
+proc computeShapes*(this: var XCAFDocShapeTool; L: TDF_Label) {.
     importcpp: "ComputeShapes", header: "XCAFDoc_ShapeTool.hxx".}
-proc ComputeSimpleShapes*(this: var XCAFDoc_ShapeTool) {.
+proc computeSimpleShapes*(this: var XCAFDocShapeTool) {.
     importcpp: "ComputeSimpleShapes", header: "XCAFDoc_ShapeTool.hxx".}
-proc GetShapes*(this: XCAFDoc_ShapeTool; Labels: var TDF_LabelSequence) {.
-    noSideEffect, importcpp: "GetShapes", header: "XCAFDoc_ShapeTool.hxx".}
-proc GetFreeShapes*(this: XCAFDoc_ShapeTool; FreeLabels: var TDF_LabelSequence) {.
+proc getShapes*(this: XCAFDocShapeTool; labels: var TDF_LabelSequence) {.noSideEffect,
+    importcpp: "GetShapes", header: "XCAFDoc_ShapeTool.hxx".}
+proc getFreeShapes*(this: XCAFDocShapeTool; freeLabels: var TDF_LabelSequence) {.
     noSideEffect, importcpp: "GetFreeShapes", header: "XCAFDoc_ShapeTool.hxx".}
-proc GetUsers*(L: TDF_Label; Labels: var TDF_LabelSequence;
-              getsubchilds: Standard_Boolean = Standard_False): Standard_Integer {.
+proc getUsers*(L: TDF_Label; labels: var TDF_LabelSequence; getsubchilds: bool = false): int {.
     importcpp: "XCAFDoc_ShapeTool::GetUsers(@)", header: "XCAFDoc_ShapeTool.hxx".}
-proc GetLocation*(L: TDF_Label): TopLoc_Location {.
+proc getLocation*(L: TDF_Label): TopLocLocation {.
     importcpp: "XCAFDoc_ShapeTool::GetLocation(@)",
     header: "XCAFDoc_ShapeTool.hxx".}
-proc GetReferredShape*(L: TDF_Label; Label: var TDF_Label): Standard_Boolean {.
+proc getReferredShape*(L: TDF_Label; label: var TDF_Label): bool {.
     importcpp: "XCAFDoc_ShapeTool::GetReferredShape(@)",
     header: "XCAFDoc_ShapeTool.hxx".}
-proc NbComponents*(L: TDF_Label; getsubchilds: Standard_Boolean = Standard_False): Standard_Integer {.
+proc nbComponents*(L: TDF_Label; getsubchilds: bool = false): int {.
     importcpp: "XCAFDoc_ShapeTool::NbComponents(@)",
     header: "XCAFDoc_ShapeTool.hxx".}
-proc GetComponents*(L: TDF_Label; Labels: var TDF_LabelSequence;
-                   getsubchilds: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc getComponents*(L: TDF_Label; labels: var TDF_LabelSequence;
+                   getsubchilds: bool = false): bool {.
     importcpp: "XCAFDoc_ShapeTool::GetComponents(@)",
     header: "XCAFDoc_ShapeTool.hxx".}
-proc AddComponent*(this: var XCAFDoc_ShapeTool; assembly: TDF_Label; comp: TDF_Label;
-                  Loc: TopLoc_Location): TDF_Label {.importcpp: "AddComponent",
+proc addComponent*(this: var XCAFDocShapeTool; assembly: TDF_Label; comp: TDF_Label;
+                  loc: TopLocLocation): TDF_Label {.importcpp: "AddComponent",
     header: "XCAFDoc_ShapeTool.hxx".}
-proc AddComponent*(this: var XCAFDoc_ShapeTool; assembly: TDF_Label;
-                  comp: TopoDS_Shape; expand: Standard_Boolean = Standard_False): TDF_Label {.
+proc addComponent*(this: var XCAFDocShapeTool; assembly: TDF_Label;
+                  comp: TopoDS_Shape; expand: bool = false): TDF_Label {.
     importcpp: "AddComponent", header: "XCAFDoc_ShapeTool.hxx".}
-proc RemoveComponent*(this: XCAFDoc_ShapeTool; comp: TDF_Label) {.noSideEffect,
+proc removeComponent*(this: XCAFDocShapeTool; comp: TDF_Label) {.noSideEffect,
     importcpp: "RemoveComponent", header: "XCAFDoc_ShapeTool.hxx".}
-proc UpdateAssemblies*(this: var XCAFDoc_ShapeTool) {.importcpp: "UpdateAssemblies",
+proc updateAssemblies*(this: var XCAFDocShapeTool) {.importcpp: "UpdateAssemblies",
     header: "XCAFDoc_ShapeTool.hxx".}
-proc FindSubShape*(this: XCAFDoc_ShapeTool; shapeL: TDF_Label; sub: TopoDS_Shape;
-                  L: var TDF_Label): Standard_Boolean {.noSideEffect,
-    importcpp: "FindSubShape", header: "XCAFDoc_ShapeTool.hxx".}
-proc AddSubShape*(this: XCAFDoc_ShapeTool; shapeL: TDF_Label; sub: TopoDS_Shape): TDF_Label {.
+proc findSubShape*(this: XCAFDocShapeTool; shapeL: TDF_Label; sub: TopoDS_Shape;
+                  L: var TDF_Label): bool {.noSideEffect, importcpp: "FindSubShape",
+                                        header: "XCAFDoc_ShapeTool.hxx".}
+proc addSubShape*(this: XCAFDocShapeTool; shapeL: TDF_Label; sub: TopoDS_Shape): TDF_Label {.
     noSideEffect, importcpp: "AddSubShape", header: "XCAFDoc_ShapeTool.hxx".}
-proc AddSubShape*(this: XCAFDoc_ShapeTool; shapeL: TDF_Label; sub: TopoDS_Shape;
-                 addedSubShapeL: var TDF_Label): Standard_Boolean {.noSideEffect,
+proc addSubShape*(this: XCAFDocShapeTool; shapeL: TDF_Label; sub: TopoDS_Shape;
+                 addedSubShapeL: var TDF_Label): bool {.noSideEffect,
     importcpp: "AddSubShape", header: "XCAFDoc_ShapeTool.hxx".}
-proc FindMainShapeUsingMap*(this: XCAFDoc_ShapeTool; sub: TopoDS_Shape): TDF_Label {.
+proc findMainShapeUsingMap*(this: XCAFDocShapeTool; sub: TopoDS_Shape): TDF_Label {.
     noSideEffect, importcpp: "FindMainShapeUsingMap",
     header: "XCAFDoc_ShapeTool.hxx".}
-proc FindMainShape*(this: XCAFDoc_ShapeTool; sub: TopoDS_Shape): TDF_Label {.
+proc findMainShape*(this: XCAFDocShapeTool; sub: TopoDS_Shape): TDF_Label {.
     noSideEffect, importcpp: "FindMainShape", header: "XCAFDoc_ShapeTool.hxx".}
-proc GetSubShapes*(L: TDF_Label; Labels: var TDF_LabelSequence): Standard_Boolean {.
+proc getSubShapes*(L: TDF_Label; labels: var TDF_LabelSequence): bool {.
     importcpp: "XCAFDoc_ShapeTool::GetSubShapes(@)",
     header: "XCAFDoc_ShapeTool.hxx".}
-proc BaseLabel*(this: XCAFDoc_ShapeTool): TDF_Label {.noSideEffect,
+proc baseLabel*(this: XCAFDocShapeTool): TDF_Label {.noSideEffect,
     importcpp: "BaseLabel", header: "XCAFDoc_ShapeTool.hxx".}
-proc Dump*(this: XCAFDoc_ShapeTool; theDumpLog: var Standard_OStream;
-          deep: Standard_Boolean): var Standard_OStream {.noSideEffect,
-    importcpp: "Dump", header: "XCAFDoc_ShapeTool.hxx".}
-proc Dump*(this: XCAFDoc_ShapeTool; theDumpLog: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: XCAFDocShapeTool; theDumpLog: var StandardOStream; deep: bool): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "XCAFDoc_ShapeTool.hxx".}
-proc DumpShape*(theDumpLog: var Standard_OStream; L: TDF_Label;
-               level: Standard_Integer = 0; deep: Standard_Boolean = Standard_False) {.
-    importcpp: "XCAFDoc_ShapeTool::DumpShape(@)", header: "XCAFDoc_ShapeTool.hxx".}
-proc ID*(this: XCAFDoc_ShapeTool): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc dump*(this: XCAFDocShapeTool; theDumpLog: var StandardOStream): var StandardOStream {.
+    noSideEffect, importcpp: "Dump", header: "XCAFDoc_ShapeTool.hxx".}
+proc dumpShape*(theDumpLog: var StandardOStream; L: TDF_Label; level: int = 0;
+               deep: bool = false) {.importcpp: "XCAFDoc_ShapeTool::DumpShape(@)",
+                                 header: "XCAFDoc_ShapeTool.hxx".}
+proc id*(this: XCAFDocShapeTool): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "XCAFDoc_ShapeTool.hxx".}
-proc IsExternRef*(L: TDF_Label): Standard_Boolean {.
-    importcpp: "XCAFDoc_ShapeTool::IsExternRef(@)",
-    header: "XCAFDoc_ShapeTool.hxx".}
-proc SetExternRefs*(this: XCAFDoc_ShapeTool; SHAS: TColStd_SequenceOfHAsciiString): TDF_Label {.
+proc isExternRef*(L: TDF_Label): bool {.importcpp: "XCAFDoc_ShapeTool::IsExternRef(@)",
+                                    header: "XCAFDoc_ShapeTool.hxx".}
+proc setExternRefs*(this: XCAFDocShapeTool; shas: TColStdSequenceOfHAsciiString): TDF_Label {.
     noSideEffect, importcpp: "SetExternRefs", header: "XCAFDoc_ShapeTool.hxx".}
-proc SetExternRefs*(this: XCAFDoc_ShapeTool; L: TDF_Label;
-                   SHAS: TColStd_SequenceOfHAsciiString) {.noSideEffect,
+proc setExternRefs*(this: XCAFDocShapeTool; L: TDF_Label;
+                   shas: TColStdSequenceOfHAsciiString) {.noSideEffect,
     importcpp: "SetExternRefs", header: "XCAFDoc_ShapeTool.hxx".}
-proc GetExternRefs*(L: TDF_Label; SHAS: var TColStd_SequenceOfHAsciiString) {.
+proc getExternRefs*(L: TDF_Label; shas: var TColStdSequenceOfHAsciiString) {.
     importcpp: "XCAFDoc_ShapeTool::GetExternRefs(@)",
     header: "XCAFDoc_ShapeTool.hxx".}
-proc SetSHUO*(this: XCAFDoc_ShapeTool; Labels: TDF_LabelSequence;
-             MainSHUOAttr: var handle[XCAFDoc_GraphNode]): Standard_Boolean {.
-    noSideEffect, importcpp: "SetSHUO", header: "XCAFDoc_ShapeTool.hxx".}
-proc GetSHUO*(SHUOLabel: TDF_Label; aSHUOAttr: var handle[XCAFDoc_GraphNode]): Standard_Boolean {.
+proc setSHUO*(this: XCAFDocShapeTool; labels: TDF_LabelSequence;
+             mainSHUOAttr: var Handle[XCAFDocGraphNode]): bool {.noSideEffect,
+    importcpp: "SetSHUO", header: "XCAFDoc_ShapeTool.hxx".}
+proc getSHUO*(sHUOLabel: TDF_Label; aSHUOAttr: var Handle[XCAFDocGraphNode]): bool {.
     importcpp: "XCAFDoc_ShapeTool::GetSHUO(@)", header: "XCAFDoc_ShapeTool.hxx".}
-proc GetAllComponentSHUO*(CompLabel: TDF_Label;
-                         SHUOAttrs: var TDF_AttributeSequence): Standard_Boolean {.
+proc getAllComponentSHUO*(compLabel: TDF_Label;
+                         sHUOAttrs: var TDF_AttributeSequence): bool {.
     importcpp: "XCAFDoc_ShapeTool::GetAllComponentSHUO(@)",
     header: "XCAFDoc_ShapeTool.hxx".}
-proc GetSHUOUpperUsage*(NextUsageL: TDF_Label; Labels: var TDF_LabelSequence): Standard_Boolean {.
+proc getSHUOUpperUsage*(nextUsageL: TDF_Label; labels: var TDF_LabelSequence): bool {.
     importcpp: "XCAFDoc_ShapeTool::GetSHUOUpperUsage(@)",
     header: "XCAFDoc_ShapeTool.hxx".}
-proc GetSHUONextUsage*(UpperUsageL: TDF_Label; Labels: var TDF_LabelSequence): Standard_Boolean {.
+proc getSHUONextUsage*(upperUsageL: TDF_Label; labels: var TDF_LabelSequence): bool {.
     importcpp: "XCAFDoc_ShapeTool::GetSHUONextUsage(@)",
     header: "XCAFDoc_ShapeTool.hxx".}
-proc RemoveSHUO*(this: XCAFDoc_ShapeTool; SHUOLabel: TDF_Label): Standard_Boolean {.
-    noSideEffect, importcpp: "RemoveSHUO", header: "XCAFDoc_ShapeTool.hxx".}
-proc FindComponent*(this: XCAFDoc_ShapeTool; theShape: TopoDS_Shape;
-                   Labels: var TDF_LabelSequence): Standard_Boolean {.noSideEffect,
+proc removeSHUO*(this: XCAFDocShapeTool; sHUOLabel: TDF_Label): bool {.noSideEffect,
+    importcpp: "RemoveSHUO", header: "XCAFDoc_ShapeTool.hxx".}
+proc findComponent*(this: XCAFDocShapeTool; theShape: TopoDS_Shape;
+                   labels: var TDF_LabelSequence): bool {.noSideEffect,
     importcpp: "FindComponent", header: "XCAFDoc_ShapeTool.hxx".}
-proc GetSHUOInstance*(this: XCAFDoc_ShapeTool; theSHUO: handle[XCAFDoc_GraphNode]): TopoDS_Shape {.
+proc getSHUOInstance*(this: XCAFDocShapeTool; theSHUO: Handle[XCAFDocGraphNode]): TopoDS_Shape {.
     noSideEffect, importcpp: "GetSHUOInstance", header: "XCAFDoc_ShapeTool.hxx".}
-proc SetInstanceSHUO*(this: XCAFDoc_ShapeTool; theShape: TopoDS_Shape): handle[
-    XCAFDoc_GraphNode] {.noSideEffect, importcpp: "SetInstanceSHUO",
-                        header: "XCAFDoc_ShapeTool.hxx".}
-proc GetAllSHUOInstances*(this: XCAFDoc_ShapeTool;
-                         theSHUO: handle[XCAFDoc_GraphNode];
-                         theSHUOShapeSeq: var TopTools_SequenceOfShape): Standard_Boolean {.
+proc setInstanceSHUO*(this: XCAFDocShapeTool; theShape: TopoDS_Shape): Handle[
+    XCAFDocGraphNode] {.noSideEffect, importcpp: "SetInstanceSHUO",
+                       header: "XCAFDoc_ShapeTool.hxx".}
+proc getAllSHUOInstances*(this: XCAFDocShapeTool;
+                         theSHUO: Handle[XCAFDocGraphNode];
+                         theSHUOShapeSeq: var TopToolsSequenceOfShape): bool {.
     noSideEffect, importcpp: "GetAllSHUOInstances", header: "XCAFDoc_ShapeTool.hxx".}
-proc FindSHUO*(Labels: TDF_LabelSequence;
-              theSHUOAttr: var handle[XCAFDoc_GraphNode]): Standard_Boolean {.
+proc findSHUO*(labels: TDF_LabelSequence; theSHUOAttr: var Handle[XCAFDocGraphNode]): bool {.
     importcpp: "XCAFDoc_ShapeTool::FindSHUO(@)", header: "XCAFDoc_ShapeTool.hxx".}
-proc Expand*(this: var XCAFDoc_ShapeTool; Shape: TDF_Label): Standard_Boolean {.
-    importcpp: "Expand", header: "XCAFDoc_ShapeTool.hxx".}
-proc GetNamedProperties*(this: XCAFDoc_ShapeTool; theLabel: TDF_Label;
-                        theToCreate: Standard_Boolean = Standard_False): handle[
-    TDataStd_NamedData] {.noSideEffect, importcpp: "GetNamedProperties",
-                         header: "XCAFDoc_ShapeTool.hxx".}
-proc GetNamedProperties*(this: XCAFDoc_ShapeTool; theShape: TopoDS_Shape;
-                        theToCreate: Standard_Boolean = Standard_False): handle[
-    TDataStd_NamedData] {.noSideEffect, importcpp: "GetNamedProperties",
-                         header: "XCAFDoc_ShapeTool.hxx".}
-proc DumpJson*(this: XCAFDoc_ShapeTool; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
+proc expand*(this: var XCAFDocShapeTool; shape: TDF_Label): bool {.importcpp: "Expand",
     header: "XCAFDoc_ShapeTool.hxx".}
+proc getNamedProperties*(this: XCAFDocShapeTool; theLabel: TDF_Label;
+                        theToCreate: bool = false): Handle[TDataStdNamedData] {.
+    noSideEffect, importcpp: "GetNamedProperties", header: "XCAFDoc_ShapeTool.hxx".}
+proc getNamedProperties*(this: XCAFDocShapeTool; theShape: TopoDS_Shape;
+                        theToCreate: bool = false): Handle[TDataStdNamedData] {.
+    noSideEffect, importcpp: "GetNamedProperties", header: "XCAFDoc_ShapeTool.hxx".}
+proc dumpJson*(this: XCAFDocShapeTool; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "XCAFDoc_ShapeTool.hxx".}
 ## !!!Ignored construct:  DEFINE_DERIVED_ATTRIBUTE ( XCAFDoc_ShapeTool , TDataStd_GenericEmpty ) private : ! Checks recursively if the given assembly item is modified. If so, its
 ## ! associated compound is updated. Returns true if the assembly item is
 ## ! modified, false -- otherwise. Standard_Boolean updateComponent ( const TDF_Label & theAssmLabel , TopoDS_Shape & theUpdatedShape , TDF_LabelMap & theUpdated ) const ;
 ## Error: token expected: ) but got: ,!!!
 
-proc addShape*(this: var XCAFDoc_ShapeTool; S: TopoDS_Shape;
-              makeAssembly: Standard_Boolean = Standard_True): TDF_Label {.
+proc addShape*(this: var XCAFDocShapeTool; s: TopoDS_Shape; makeAssembly: bool = true): TDF_Label {.
     importcpp: "addShape", header: "XCAFDoc_ShapeTool.hxx".}
-proc MakeReference*(L: TDF_Label; refL: TDF_Label; loc: TopLoc_Location) {.
+proc makeReference*(L: TDF_Label; refL: TDF_Label; loc: TopLocLocation) {.
     importcpp: "XCAFDoc_ShapeTool::MakeReference(@)",
     header: "XCAFDoc_ShapeTool.hxx".}
-proc makeSubShape*(this: var XCAFDoc_ShapeTool; theMainShapeL: TDF_Label;
-                  thePart: TDF_Label; theShape: TopoDS_Shape;
-                  theLoc: TopLoc_Location) {.importcpp: "makeSubShape",
-    header: "XCAFDoc_ShapeTool.hxx".}
+proc makeSubShape*(this: var XCAFDocShapeTool; theMainShapeL: TDF_Label;
+                  thePart: TDF_Label; theShape: TopoDS_Shape; theLoc: TopLocLocation) {.
+    importcpp: "makeSubShape", header: "XCAFDoc_ShapeTool.hxx".}

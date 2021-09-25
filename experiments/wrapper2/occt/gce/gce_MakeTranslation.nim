@@ -14,29 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Trsf
-
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Trsf"
 type
-  gce_MakeTranslation* {.importcpp: "gce_MakeTranslation",
-                        header: "gce_MakeTranslation.hxx", bycopy.} = object ## !
-                                                                        ## Constructs a
-                                                                        ## translation along the vector " Vect"
+  GceMakeTranslation* {.importcpp: "gce_MakeTranslation",
+                       header: "gce_MakeTranslation.hxx", bycopy.} = object ## !
+                                                                       ## Constructs a
+                                                                       ## translation along the vector " Vect"
 
 
-proc constructgce_MakeTranslation*(Vect: gp_Vec): gce_MakeTranslation {.constructor,
+proc constructGceMakeTranslation*(vect: Vec): GceMakeTranslation {.constructor,
     importcpp: "gce_MakeTranslation(@)", header: "gce_MakeTranslation.hxx".}
-proc constructgce_MakeTranslation*(Point1: gp_Pnt; Point2: gp_Pnt): gce_MakeTranslation {.
+proc constructGceMakeTranslation*(point1: Pnt; point2: Pnt): GceMakeTranslation {.
     constructor, importcpp: "gce_MakeTranslation(@)",
     header: "gce_MakeTranslation.hxx".}
-proc Value*(this: gce_MakeTranslation): gp_Trsf {.noSideEffect, importcpp: "Value",
+proc value*(this: GceMakeTranslation): Trsf {.noSideEffect, importcpp: "Value",
     header: "gce_MakeTranslation.hxx".}
-proc Operator*(this: gce_MakeTranslation): gp_Trsf {.noSideEffect,
-    importcpp: "Operator", header: "gce_MakeTranslation.hxx".}
-converter `gp_Trsf`*(this: gce_MakeTranslation): gp_Trsf {.noSideEffect,
+proc operator*(this: GceMakeTranslation): Trsf {.noSideEffect, importcpp: "Operator",
+    header: "gce_MakeTranslation.hxx".}
+converter `trsf`*(this: GceMakeTranslation): Trsf {.noSideEffect,
     importcpp: "gce_MakeTranslation::operator gp_Trsf",
     header: "gce_MakeTranslation.hxx".}

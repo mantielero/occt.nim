@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  Blend_Status* {.size: sizeof(cint), importcpp: "Blend_Status",
-                 header: "Blend_Status.hxx".} = enum
-    Blend_StepTooLarge, Blend_StepTooSmall, Blend_Backward, Blend_SamePoints,
-    Blend_OnRst1, Blend_OnRst2, Blend_OnRst12, Blend_OK
+  BlendStatus* {.size: sizeof(cint), importcpp: "Blend_Status",
+                header: "Blend_Status.hxx".} = enum
+    BlendStepTooLarge, BlendStepTooSmall, BlendBackward, BlendSamePoints,
+    BlendOnRst1, BlendOnRst2, BlendOnRst12, BlendOK
+
 

@@ -14,32 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_SurfaceCurve
-
 discard "forward decl of StepGeom_IntersectionCurve"
 discard "forward decl of StepGeom_IntersectionCurve"
 type
-  Handle_StepGeom_IntersectionCurve* = handle[StepGeom_IntersectionCurve]
-  StepGeom_IntersectionCurve* {.importcpp: "StepGeom_IntersectionCurve",
-                               header: "StepGeom_IntersectionCurve.hxx", bycopy.} = object of StepGeom_SurfaceCurve ##
-                                                                                                             ## !
-                                                                                                             ## Returns
-                                                                                                             ## a
-                                                                                                             ## IntersectionCurve
+  HandleStepGeomIntersectionCurve* = Handle[StepGeomIntersectionCurve]
+  StepGeomIntersectionCurve* {.importcpp: "StepGeom_IntersectionCurve",
+                              header: "StepGeom_IntersectionCurve.hxx", bycopy.} = object of StepGeomSurfaceCurve ##
+                                                                                                           ## !
+                                                                                                           ## Returns
+                                                                                                           ## a
+                                                                                                           ## IntersectionCurve
 
 
-proc constructStepGeom_IntersectionCurve*(): StepGeom_IntersectionCurve {.
+proc constructStepGeomIntersectionCurve*(): StepGeomIntersectionCurve {.
     constructor, importcpp: "StepGeom_IntersectionCurve(@)",
     header: "StepGeom_IntersectionCurve.hxx".}
 type
-  StepGeom_IntersectionCurvebase_type* = StepGeom_SurfaceCurve
+  StepGeomIntersectionCurvebaseType* = StepGeomSurfaceCurve
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_IntersectionCurve::get_type_name(@)",
-                              header: "StepGeom_IntersectionCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_IntersectionCurve::get_type_name(@)",
+                            header: "StepGeom_IntersectionCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_IntersectionCurve::get_type_descriptor(@)",
     header: "StepGeom_IntersectionCurve.hxx".}
-proc DynamicType*(this: StepGeom_IntersectionCurve): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomIntersectionCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_IntersectionCurve.hxx".}

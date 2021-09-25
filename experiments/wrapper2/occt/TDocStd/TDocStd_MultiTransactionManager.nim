@@ -13,18 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TDocStd_SequenceOfDocument,
-  TDocStd_SequenceOfApplicationDelta, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Transient,
-  ../Standard/Standard_OStream
-
 discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of TDocStd_Document"
 discard "forward decl of TDocStd_MultiTransactionManager"
 discard "forward decl of TDocStd_MultiTransactionManager"
 type
-  Handle_TDocStd_MultiTransactionManager* = handle[TDocStd_MultiTransactionManager]
+  HandleTDocStdMultiTransactionManager* = Handle[TDocStdMultiTransactionManager]
 
 ## ! Class for synchronization of transactions within multiple documents.
 ## ! Each transaction of this class involvess one transaction in each modified document.
@@ -43,82 +37,77 @@ type
 ## ! manager, all nested transaction of its documents will be closed (commited).
 
 type
-  TDocStd_MultiTransactionManager* {.importcpp: "TDocStd_MultiTransactionManager", header: "TDocStd_MultiTransactionManager.hxx",
-                                    bycopy.} = object of Standard_Transient ## !
-                                                                       ## Constructor
+  TDocStdMultiTransactionManager* {.importcpp: "TDocStd_MultiTransactionManager", header: "TDocStd_MultiTransactionManager.hxx",
+                                   bycopy.} = object of StandardTransient ## ! Constructor
 
 
-proc constructTDocStd_MultiTransactionManager*(): TDocStd_MultiTransactionManager {.
+proc constructTDocStdMultiTransactionManager*(): TDocStdMultiTransactionManager {.
     constructor, importcpp: "TDocStd_MultiTransactionManager(@)",
     header: "TDocStd_MultiTransactionManager.hxx".}
-proc SetUndoLimit*(this: var TDocStd_MultiTransactionManager;
-                  theLimit: Standard_Integer) {.importcpp: "SetUndoLimit",
+proc setUndoLimit*(this: var TDocStdMultiTransactionManager; theLimit: int) {.
+    importcpp: "SetUndoLimit", header: "TDocStd_MultiTransactionManager.hxx".}
+proc getUndoLimit*(this: TDocStdMultiTransactionManager): int {.noSideEffect,
+    importcpp: "GetUndoLimit", header: "TDocStd_MultiTransactionManager.hxx".}
+proc undo*(this: var TDocStdMultiTransactionManager) {.importcpp: "Undo",
     header: "TDocStd_MultiTransactionManager.hxx".}
-proc GetUndoLimit*(this: TDocStd_MultiTransactionManager): Standard_Integer {.
-    noSideEffect, importcpp: "GetUndoLimit",
+proc redo*(this: var TDocStdMultiTransactionManager) {.importcpp: "Redo",
     header: "TDocStd_MultiTransactionManager.hxx".}
-proc Undo*(this: var TDocStd_MultiTransactionManager) {.importcpp: "Undo",
-    header: "TDocStd_MultiTransactionManager.hxx".}
-proc Redo*(this: var TDocStd_MultiTransactionManager) {.importcpp: "Redo",
-    header: "TDocStd_MultiTransactionManager.hxx".}
-proc GetAvailableUndos*(this: TDocStd_MultiTransactionManager): TDocStd_SequenceOfApplicationDelta {.
+proc getAvailableUndos*(this: TDocStdMultiTransactionManager): TDocStdSequenceOfApplicationDelta {.
     noSideEffect, importcpp: "GetAvailableUndos",
     header: "TDocStd_MultiTransactionManager.hxx".}
-proc GetAvailableRedos*(this: TDocStd_MultiTransactionManager): TDocStd_SequenceOfApplicationDelta {.
+proc getAvailableRedos*(this: TDocStdMultiTransactionManager): TDocStdSequenceOfApplicationDelta {.
     noSideEffect, importcpp: "GetAvailableRedos",
     header: "TDocStd_MultiTransactionManager.hxx".}
-proc OpenCommand*(this: var TDocStd_MultiTransactionManager) {.
+proc openCommand*(this: var TDocStdMultiTransactionManager) {.
     importcpp: "OpenCommand", header: "TDocStd_MultiTransactionManager.hxx".}
-proc AbortCommand*(this: var TDocStd_MultiTransactionManager) {.
+proc abortCommand*(this: var TDocStdMultiTransactionManager) {.
     importcpp: "AbortCommand", header: "TDocStd_MultiTransactionManager.hxx".}
-proc CommitCommand*(this: var TDocStd_MultiTransactionManager): Standard_Boolean {.
+proc commitCommand*(this: var TDocStdMultiTransactionManager): bool {.
     importcpp: "CommitCommand", header: "TDocStd_MultiTransactionManager.hxx".}
-proc CommitCommand*(this: var TDocStd_MultiTransactionManager;
-                   theName: TCollection_ExtendedString): Standard_Boolean {.
+proc commitCommand*(this: var TDocStdMultiTransactionManager;
+                   theName: TCollectionExtendedString): bool {.
     importcpp: "CommitCommand", header: "TDocStd_MultiTransactionManager.hxx".}
-proc HasOpenCommand*(this: TDocStd_MultiTransactionManager): Standard_Boolean {.
-    noSideEffect, importcpp: "HasOpenCommand",
-    header: "TDocStd_MultiTransactionManager.hxx".}
-proc RemoveLastUndo*(this: var TDocStd_MultiTransactionManager) {.
+proc hasOpenCommand*(this: TDocStdMultiTransactionManager): bool {.noSideEffect,
+    importcpp: "HasOpenCommand", header: "TDocStd_MultiTransactionManager.hxx".}
+proc removeLastUndo*(this: var TDocStdMultiTransactionManager) {.
     importcpp: "RemoveLastUndo", header: "TDocStd_MultiTransactionManager.hxx".}
-proc DumpTransaction*(this: TDocStd_MultiTransactionManager;
-                     theOS: var Standard_OStream) {.noSideEffect,
+proc dumpTransaction*(this: TDocStdMultiTransactionManager;
+                     theOS: var StandardOStream) {.noSideEffect,
     importcpp: "DumpTransaction", header: "TDocStd_MultiTransactionManager.hxx".}
-proc AddDocument*(this: var TDocStd_MultiTransactionManager;
-                 theDoc: handle[TDocStd_Document]) {.importcpp: "AddDocument",
+proc addDocument*(this: var TDocStdMultiTransactionManager;
+                 theDoc: Handle[TDocStdDocument]) {.importcpp: "AddDocument",
     header: "TDocStd_MultiTransactionManager.hxx".}
-proc RemoveDocument*(this: var TDocStd_MultiTransactionManager;
-                    theDoc: handle[TDocStd_Document]) {.
+proc removeDocument*(this: var TDocStdMultiTransactionManager;
+                    theDoc: Handle[TDocStdDocument]) {.
     importcpp: "RemoveDocument", header: "TDocStd_MultiTransactionManager.hxx".}
-proc Documents*(this: TDocStd_MultiTransactionManager): TDocStd_SequenceOfDocument {.
+proc documents*(this: TDocStdMultiTransactionManager): TDocStdSequenceOfDocument {.
     noSideEffect, importcpp: "Documents",
     header: "TDocStd_MultiTransactionManager.hxx".}
-proc SetNestedTransactionMode*(this: var TDocStd_MultiTransactionManager;
-                              isAllowed: Standard_Boolean = Standard_True) {.
+proc setNestedTransactionMode*(this: var TDocStdMultiTransactionManager;
+                              isAllowed: bool = true) {.
     importcpp: "SetNestedTransactionMode",
     header: "TDocStd_MultiTransactionManager.hxx".}
-proc IsNestedTransactionMode*(this: TDocStd_MultiTransactionManager): Standard_Boolean {.
+proc isNestedTransactionMode*(this: TDocStdMultiTransactionManager): bool {.
     noSideEffect, importcpp: "IsNestedTransactionMode",
     header: "TDocStd_MultiTransactionManager.hxx".}
-proc SetModificationMode*(this: var TDocStd_MultiTransactionManager;
-                         theTransactionOnly: Standard_Boolean) {.
+proc setModificationMode*(this: var TDocStdMultiTransactionManager;
+                         theTransactionOnly: bool) {.
     importcpp: "SetModificationMode",
     header: "TDocStd_MultiTransactionManager.hxx".}
-proc ModificationMode*(this: TDocStd_MultiTransactionManager): Standard_Boolean {.
-    noSideEffect, importcpp: "ModificationMode",
-    header: "TDocStd_MultiTransactionManager.hxx".}
-proc ClearUndos*(this: var TDocStd_MultiTransactionManager) {.
+proc modificationMode*(this: TDocStdMultiTransactionManager): bool {.noSideEffect,
+    importcpp: "ModificationMode", header: "TDocStd_MultiTransactionManager.hxx".}
+proc clearUndos*(this: var TDocStdMultiTransactionManager) {.
     importcpp: "ClearUndos", header: "TDocStd_MultiTransactionManager.hxx".}
-proc ClearRedos*(this: var TDocStd_MultiTransactionManager) {.
+proc clearRedos*(this: var TDocStdMultiTransactionManager) {.
     importcpp: "ClearRedos", header: "TDocStd_MultiTransactionManager.hxx".}
 type
-  TDocStd_MultiTransactionManagerbase_type* = Standard_Transient
+  TDocStdMultiTransactionManagerbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TDocStd_MultiTransactionManager::get_type_name(@)",
-                              header: "TDocStd_MultiTransactionManager.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDocStd_MultiTransactionManager::get_type_name(@)",
+                            header: "TDocStd_MultiTransactionManager.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDocStd_MultiTransactionManager::get_type_descriptor(@)",
     header: "TDocStd_MultiTransactionManager.hxx".}
-proc DynamicType*(this: TDocStd_MultiTransactionManager): handle[Standard_Type] {.
+proc dynamicType*(this: TDocStdMultiTransactionManager): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TDocStd_MultiTransactionManager.hxx".}

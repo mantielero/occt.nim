@@ -14,45 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_SweptSurface
-
 discard "forward decl of StepGeom_Vector"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_Curve"
 discard "forward decl of StepGeom_SurfaceOfLinearExtrusion"
 discard "forward decl of StepGeom_SurfaceOfLinearExtrusion"
 type
-  Handle_StepGeom_SurfaceOfLinearExtrusion* = handle[
-      StepGeom_SurfaceOfLinearExtrusion]
-  StepGeom_SurfaceOfLinearExtrusion* {.importcpp: "StepGeom_SurfaceOfLinearExtrusion", header: "StepGeom_SurfaceOfLinearExtrusion.hxx",
-                                      bycopy.} = object of StepGeom_SweptSurface ## !
-                                                                            ## Returns a
-                                                                            ## SurfaceOfLinearExtrusion
+  HandleStepGeomSurfaceOfLinearExtrusion* = Handle[
+      StepGeomSurfaceOfLinearExtrusion]
+  StepGeomSurfaceOfLinearExtrusion* {.importcpp: "StepGeom_SurfaceOfLinearExtrusion", header: "StepGeom_SurfaceOfLinearExtrusion.hxx",
+                                     bycopy.} = object of StepGeomSweptSurface ## !
+                                                                          ## Returns a
+                                                                          ## SurfaceOfLinearExtrusion
 
 
-proc constructStepGeom_SurfaceOfLinearExtrusion*(): StepGeom_SurfaceOfLinearExtrusion {.
+proc constructStepGeomSurfaceOfLinearExtrusion*(): StepGeomSurfaceOfLinearExtrusion {.
     constructor, importcpp: "StepGeom_SurfaceOfLinearExtrusion(@)",
     header: "StepGeom_SurfaceOfLinearExtrusion.hxx".}
-proc Init*(this: var StepGeom_SurfaceOfLinearExtrusion;
-          aName: handle[TCollection_HAsciiString];
-          aSweptCurve: handle[StepGeom_Curve];
-          aExtrusionAxis: handle[StepGeom_Vector]) {.importcpp: "Init",
+proc init*(this: var StepGeomSurfaceOfLinearExtrusion;
+          aName: Handle[TCollectionHAsciiString];
+          aSweptCurve: Handle[StepGeomCurve];
+          aExtrusionAxis: Handle[StepGeomVector]) {.importcpp: "Init",
     header: "StepGeom_SurfaceOfLinearExtrusion.hxx".}
-proc SetExtrusionAxis*(this: var StepGeom_SurfaceOfLinearExtrusion;
-                      aExtrusionAxis: handle[StepGeom_Vector]) {.
+proc setExtrusionAxis*(this: var StepGeomSurfaceOfLinearExtrusion;
+                      aExtrusionAxis: Handle[StepGeomVector]) {.
     importcpp: "SetExtrusionAxis", header: "StepGeom_SurfaceOfLinearExtrusion.hxx".}
-proc ExtrusionAxis*(this: StepGeom_SurfaceOfLinearExtrusion): handle[
-    StepGeom_Vector] {.noSideEffect, importcpp: "ExtrusionAxis",
-                      header: "StepGeom_SurfaceOfLinearExtrusion.hxx".}
+proc extrusionAxis*(this: StepGeomSurfaceOfLinearExtrusion): Handle[StepGeomVector] {.
+    noSideEffect, importcpp: "ExtrusionAxis",
+    header: "StepGeom_SurfaceOfLinearExtrusion.hxx".}
 type
-  StepGeom_SurfaceOfLinearExtrusionbase_type* = StepGeom_SweptSurface
+  StepGeomSurfaceOfLinearExtrusionbaseType* = StepGeomSweptSurface
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_SurfaceOfLinearExtrusion::get_type_name(@)",
-                              header: "StepGeom_SurfaceOfLinearExtrusion.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_SurfaceOfLinearExtrusion::get_type_name(@)",
+                            header: "StepGeom_SurfaceOfLinearExtrusion.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_SurfaceOfLinearExtrusion::get_type_descriptor(@)",
     header: "StepGeom_SurfaceOfLinearExtrusion.hxx".}
-proc DynamicType*(this: StepGeom_SurfaceOfLinearExtrusion): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomSurfaceOfLinearExtrusion): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_SurfaceOfLinearExtrusion.hxx".}

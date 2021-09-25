@@ -14,15 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _V3d_UnMapped_HeaderFile [NewLine] # _V3d_UnMapped_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_DomainError.hxx [NewLine] class V3d_UnMapped ;
+## !!!Ignored construct:  # _V3d_UnMapped_HeaderFile [NewLine] # _V3d_UnMapped_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class V3d_UnMapped ;
 ## Error: expected ';'!!!
 
 discard "forward decl of V3d_UnMapped"
 type
-  Handle_V3d_UnMappedV3d_UnMapped* = handle[V3d_UnMapped]
+  HandleV3dUnMappedV3dUnMapped* = Handle[V3dUnMapped]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_V3d_UnMapped [NewLine] # if ( CONDITION ) throw V3d_UnMapped ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( V3d_UnMapped , Standard_DomainError ) #  _V3d_UnMapped_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( V3d_UnMapped , Standard_DomainError ) #  _V3d_UnMapped_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

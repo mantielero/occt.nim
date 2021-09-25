@@ -14,21 +14,21 @@
 ## ! Diagnostic info categories bit flags.
 
 type
-  Graphic3d_DiagnosticInfo* {.size: sizeof(cint),
-                             importcpp: "Graphic3d_DiagnosticInfo",
-                             header: "Graphic3d_DiagnosticInfo.hxx".} = enum
-    Graphic3d_DiagnosticInfo_Device = 0x001, ## !< device / vendor / version information
-    Graphic3d_DiagnosticInfo_FrameBuffer = 0x002, ## !< framebuffer information
-    Graphic3d_DiagnosticInfo_Limits = 0x004, ## !< hardware limits
-    Graphic3d_DiagnosticInfo_Memory = 0x008, ## !< memory counters
-    Graphic3d_DiagnosticInfo_NativePlatform = 0x010, ## !< native platform API information (e.g. WGL / GLX / EGL)
-    Graphic3d_DiagnosticInfo_Extensions = 0x020, ## !< vendor extension list (usually very long)
-                                              ##  groups
-    Graphic3d_DiagnosticInfo_Short = Graphic3d_DiagnosticInfo_Device or
-        Graphic3d_DiagnosticInfo_FrameBuffer or Graphic3d_DiagnosticInfo_Limits, ## !< minimal information
-    Graphic3d_DiagnosticInfo_Basic = Graphic3d_DiagnosticInfo_Short or
-        Graphic3d_DiagnosticInfo_NativePlatform or
-        Graphic3d_DiagnosticInfo_Memory, ## !< basic information, without extension list
-    Graphic3d_DiagnosticInfo_Complete = Graphic3d_DiagnosticInfo_Basic or
-        Graphic3d_DiagnosticInfo_Extensions
+  Graphic3dDiagnosticInfo* {.size: sizeof(cint),
+                            importcpp: "Graphic3d_DiagnosticInfo",
+                            header: "Graphic3d_DiagnosticInfo.hxx".} = enum
+    Graphic3dDiagnosticInfoDevice = 0x001, ## !< device / vendor / version information
+    Graphic3dDiagnosticInfoFrameBuffer = 0x002, ## !< framebuffer information
+    Graphic3dDiagnosticInfoLimits = 0x004, ## !< hardware limits
+    Graphic3dDiagnosticInfoMemory = 0x008, ## !< memory counters
+    Graphic3dDiagnosticInfoNativePlatform = 0x010, ## !< native platform API information (e.g. WGL / GLX / EGL)
+    Graphic3dDiagnosticInfoExtensions = 0x020, ## !< vendor extension list (usually very long)
+                                            ##  groups
+    Graphic3dDiagnosticInfoShort = graphic3dDiagnosticInfoDevice or
+        graphic3dDiagnosticInfoFrameBuffer or graphic3dDiagnosticInfoLimits, ## !< minimal information
+    Graphic3dDiagnosticInfoBasic = graphic3dDiagnosticInfoShort or
+        graphic3dDiagnosticInfoNativePlatform or graphic3dDiagnosticInfoMemory, ## !< basic information, without extension list
+    Graphic3dDiagnosticInfoComplete = graphic3dDiagnosticInfoBasic or
+        graphic3dDiagnosticInfoExtensions
+
 

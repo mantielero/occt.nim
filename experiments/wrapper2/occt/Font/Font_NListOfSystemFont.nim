@@ -13,12 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_List, Font_SystemFont
-
 type
-  Font_NListOfSystemFont* = NCollection_List[handle[Font_SystemFont]]
+  FontNListOfSystemFont* = NCollectionList[Handle[FontSystemFont]]
 
-proc IsEqual*(theFirstFont: handle[Font_SystemFont];
-             theSecondFont: handle[Font_SystemFont]): Standard_Boolean =
+proc isEqual*(theFirstFont: Handle[FontSystemFont];
+             theSecondFont: Handle[FontSystemFont]): bool =
   discard
+

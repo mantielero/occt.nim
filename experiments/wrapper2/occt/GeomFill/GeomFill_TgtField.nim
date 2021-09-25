@@ -14,42 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real
-
 discard "forward decl of Law_BSpline"
 discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_TgtField"
 discard "forward decl of GeomFill_TgtField"
 type
-  Handle_GeomFill_TgtField* = handle[GeomFill_TgtField]
+  HandleGeomFillTgtField* = Handle[GeomFillTgtField]
 
 ## ! Root class defining the methods we need to make an
 ## ! algorithmic tangents field.
 
 type
-  GeomFill_TgtField* {.importcpp: "GeomFill_TgtField",
-                      header: "GeomFill_TgtField.hxx", bycopy.} = object of Standard_Transient
+  GeomFillTgtField* {.importcpp: "GeomFill_TgtField",
+                     header: "GeomFill_TgtField.hxx", bycopy.} = object of StandardTransient
 
 
-proc IsScalable*(this: GeomFill_TgtField): Standard_Boolean {.noSideEffect,
+proc isScalable*(this: GeomFillTgtField): bool {.noSideEffect,
     importcpp: "IsScalable", header: "GeomFill_TgtField.hxx".}
-proc Scale*(this: var GeomFill_TgtField; Func: handle[Law_BSpline]) {.
+proc scale*(this: var GeomFillTgtField; `func`: Handle[LawBSpline]) {.
     importcpp: "Scale", header: "GeomFill_TgtField.hxx".}
-proc Value*(this: GeomFill_TgtField; W: Standard_Real): gp_Vec {.noSideEffect,
-    importcpp: "Value", header: "GeomFill_TgtField.hxx".}
-proc D1*(this: GeomFill_TgtField; W: Standard_Real): gp_Vec {.noSideEffect,
+proc value*(this: GeomFillTgtField; w: float): Vec {.noSideEffect, importcpp: "Value",
+    header: "GeomFill_TgtField.hxx".}
+proc d1*(this: GeomFillTgtField; w: float): Vec {.noSideEffect, importcpp: "D1",
+    header: "GeomFill_TgtField.hxx".}
+proc d1*(this: GeomFillTgtField; w: float; v: var Vec; dv: var Vec) {.noSideEffect,
     importcpp: "D1", header: "GeomFill_TgtField.hxx".}
-proc D1*(this: GeomFill_TgtField; W: Standard_Real; V: var gp_Vec; DV: var gp_Vec) {.
-    noSideEffect, importcpp: "D1", header: "GeomFill_TgtField.hxx".}
 type
-  GeomFill_TgtFieldbase_type* = Standard_Transient
+  GeomFillTgtFieldbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "GeomFill_TgtField::get_type_name(@)",
-                              header: "GeomFill_TgtField.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "GeomFill_TgtField::get_type_name(@)",
+                            header: "GeomFill_TgtField.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GeomFill_TgtField::get_type_descriptor(@)",
     header: "GeomFill_TgtField.hxx".}
-proc DynamicType*(this: GeomFill_TgtField): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: GeomFillTgtField): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "GeomFill_TgtField.hxx".}

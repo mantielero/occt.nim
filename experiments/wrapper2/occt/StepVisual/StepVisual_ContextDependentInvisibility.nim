@@ -14,45 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepVisual_InvisibilityContext,
-  StepVisual_Invisibility, StepVisual_HArray1OfInvisibleItem
-
 discard "forward decl of StepVisual_InvisibilityContext"
 discard "forward decl of StepVisual_ContextDependentInvisibility"
 discard "forward decl of StepVisual_ContextDependentInvisibility"
 type
-  Handle_StepVisual_ContextDependentInvisibility* = handle[
-      StepVisual_ContextDependentInvisibility]
-  StepVisual_ContextDependentInvisibility* {.
+  HandleStepVisualContextDependentInvisibility* = Handle[
+      StepVisualContextDependentInvisibility]
+  StepVisualContextDependentInvisibility* {.
       importcpp: "StepVisual_ContextDependentInvisibility",
-      header: "StepVisual_ContextDependentInvisibility.hxx", bycopy.} = object of StepVisual_Invisibility ##
-                                                                                                   ## !
-                                                                                                   ## Returns
-                                                                                                   ## a
-                                                                                                   ## ContextDependentInvisibility
+      header: "StepVisual_ContextDependentInvisibility.hxx", bycopy.} = object of StepVisualInvisibility ##
+                                                                                                  ## !
+                                                                                                  ## Returns
+                                                                                                  ## a
+                                                                                                  ## ContextDependentInvisibility
 
 
-proc constructStepVisual_ContextDependentInvisibility*(): StepVisual_ContextDependentInvisibility {.
+proc constructStepVisualContextDependentInvisibility*(): StepVisualContextDependentInvisibility {.
     constructor, importcpp: "StepVisual_ContextDependentInvisibility(@)",
     header: "StepVisual_ContextDependentInvisibility.hxx".}
-proc Init*(this: var StepVisual_ContextDependentInvisibility;
-          aInvisibleItems: handle[StepVisual_HArray1OfInvisibleItem];
-          aPresentationContext: StepVisual_InvisibilityContext) {.
+proc init*(this: var StepVisualContextDependentInvisibility;
+          aInvisibleItems: Handle[StepVisualHArray1OfInvisibleItem];
+          aPresentationContext: StepVisualInvisibilityContext) {.
     importcpp: "Init", header: "StepVisual_ContextDependentInvisibility.hxx".}
-proc SetPresentationContext*(this: var StepVisual_ContextDependentInvisibility;
-    aPresentationContext: StepVisual_InvisibilityContext) {.
+proc setPresentationContext*(this: var StepVisualContextDependentInvisibility;
+                            aPresentationContext: StepVisualInvisibilityContext) {.
     importcpp: "SetPresentationContext",
     header: "StepVisual_ContextDependentInvisibility.hxx".}
-proc PresentationContext*(this: StepVisual_ContextDependentInvisibility): StepVisual_InvisibilityContext {.
+proc presentationContext*(this: StepVisualContextDependentInvisibility): StepVisualInvisibilityContext {.
     noSideEffect, importcpp: "PresentationContext",
     header: "StepVisual_ContextDependentInvisibility.hxx".}
 type
-  StepVisual_ContextDependentInvisibilitybase_type* = StepVisual_Invisibility
+  StepVisualContextDependentInvisibilitybaseType* = StepVisualInvisibility
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_ContextDependentInvisibility::get_type_name(@)", header: "StepVisual_ContextDependentInvisibility.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_ContextDependentInvisibility::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepVisual_ContextDependentInvisibility::get_type_name(@)", header: "StepVisual_ContextDependentInvisibility.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_ContextDependentInvisibility::get_type_descriptor(@)",
     header: "StepVisual_ContextDependentInvisibility.hxx".}
-proc DynamicType*(this: StepVisual_ContextDependentInvisibility): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepVisual_ContextDependentInvisibility.hxx".}
+proc dynamicType*(this: StepVisualContextDependentInvisibility): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepVisual_ContextDependentInvisibility.hxx".}

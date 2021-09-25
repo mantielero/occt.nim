@@ -14,34 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_OStream,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of BRepAdaptor_HSurface"
 discard "forward decl of VrmlConverter_Drawer"
 type
-  VrmlConverter_WFDeflectionRestrictedFace* {.
+  VrmlConverterWFDeflectionRestrictedFace* {.
       importcpp: "VrmlConverter_WFDeflectionRestrictedFace",
       header: "VrmlConverter_WFDeflectionRestrictedFace.hxx", bycopy.} = object
 
 
-proc Add*(anOStream: var Standard_OStream; aFace: handle[BRepAdaptor_HSurface];
-         aDrawer: handle[VrmlConverter_Drawer]) {.
+proc add*(anOStream: var StandardOStream; aFace: Handle[BRepAdaptorHSurface];
+         aDrawer: Handle[VrmlConverterDrawer]) {.
     importcpp: "VrmlConverter_WFDeflectionRestrictedFace::Add(@)",
     header: "VrmlConverter_WFDeflectionRestrictedFace.hxx".}
-proc AddUIso*(anOStream: var Standard_OStream; aFace: handle[BRepAdaptor_HSurface];
-             aDrawer: handle[VrmlConverter_Drawer]) {.
+proc addUIso*(anOStream: var StandardOStream; aFace: Handle[BRepAdaptorHSurface];
+             aDrawer: Handle[VrmlConverterDrawer]) {.
     importcpp: "VrmlConverter_WFDeflectionRestrictedFace::AddUIso(@)",
     header: "VrmlConverter_WFDeflectionRestrictedFace.hxx".}
-proc AddVIso*(anOStream: var Standard_OStream; aFace: handle[BRepAdaptor_HSurface];
-             aDrawer: handle[VrmlConverter_Drawer]) {.
+proc addVIso*(anOStream: var StandardOStream; aFace: Handle[BRepAdaptorHSurface];
+             aDrawer: Handle[VrmlConverterDrawer]) {.
     importcpp: "VrmlConverter_WFDeflectionRestrictedFace::AddVIso(@)",
     header: "VrmlConverter_WFDeflectionRestrictedFace.hxx".}
-proc Add*(anOStream: var Standard_OStream; aFace: handle[BRepAdaptor_HSurface];
-         DrawUIso: Standard_Boolean; DrawVIso: Standard_Boolean;
-         Deflection: Standard_Real; NBUiso: Standard_Integer;
-         NBViso: Standard_Integer; aDrawer: handle[VrmlConverter_Drawer]) {.
+proc add*(anOStream: var StandardOStream; aFace: Handle[BRepAdaptorHSurface];
+         drawUIso: bool; drawVIso: bool; deflection: float; nBUiso: int; nBViso: int;
+         aDrawer: Handle[VrmlConverterDrawer]) {.
     importcpp: "VrmlConverter_WFDeflectionRestrictedFace::Add(@)",
     header: "VrmlConverter_WFDeflectionRestrictedFace.hxx".}

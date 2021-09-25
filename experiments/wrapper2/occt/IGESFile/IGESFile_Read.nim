@@ -12,18 +12,13 @@
 ##  commercial license or contractual agreement.
 ##   Include a utiliser pour appeler IGESFile_Read
 
-import
-  ../IGESData/IGESData_IGESModel, ../IGESData/IGESData_Protocol,
-  ../IGESData/IGESData_FileRecognizer
-
-proc IGESFile_Read*(nomfic: cstring; amodel: handle[IGESData_IGESModel];
-                   protocol: handle[IGESData_Protocol]): Standard_Integer {.
+proc iGESFileRead*(nomfic: cstring; amodel: Handle[IGESDataIGESModel];
+                  protocol: Handle[IGESDataProtocol]): int {.
     importcpp: "IGESFile_Read(@)", header: "IGESFile_Read.hxx".}
-proc IGESFile_ReadFNES*(nomfic: cstring; amodel: handle[IGESData_IGESModel];
-                       protocol: handle[IGESData_Protocol]): Standard_Integer {.
+proc iGESFileReadFNES*(nomfic: cstring; amodel: Handle[IGESDataIGESModel];
+                      protocol: Handle[IGESDataProtocol]): int {.
     importcpp: "IGESFile_ReadFNES(@)", header: "IGESFile_Read.hxx".}
-proc IGESFile_Read*(nomfic: cstring; amodel: handle[IGESData_IGESModel];
-                   protocol: handle[IGESData_Protocol];
-                   reco: handle[IGESData_FileRecognizer];
-                   modefnes: Standard_Boolean = Standard_False): Standard_Integer {.
+proc iGESFileRead*(nomfic: cstring; amodel: Handle[IGESDataIGESModel];
+                  protocol: Handle[IGESDataProtocol];
+                  reco: Handle[IGESDataFileRecognizer]; modefnes: bool = false): int {.
     importcpp: "IGESFile_Read(@)", header: "IGESFile_Read.hxx".}

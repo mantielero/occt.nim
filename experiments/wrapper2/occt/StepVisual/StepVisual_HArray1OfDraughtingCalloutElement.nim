@@ -13,41 +13,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_DraughtingCalloutElement,
-  StepVisual_Array1OfDraughtingCalloutElement,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepVisual_HArray1OfDraughtingCalloutElement* {.
+  StepVisualHArray1OfDraughtingCalloutElement* {.
       importcpp: "StepVisual_HArray1OfDraughtingCalloutElement",
-      header: "StepVisual_HArray1OfDraughtingCalloutElement.hxx", bycopy.} = object of StepVisual_Array1OfDraughtingCalloutElement
+      header: "StepVisual_HArray1OfDraughtingCalloutElement.hxx", bycopy.} = object of StepVisualArray1OfDraughtingCalloutElement
 
 
-proc constructStepVisual_HArray1OfDraughtingCalloutElement*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepVisual_HArray1OfDraughtingCalloutElement {.
+proc constructStepVisualHArray1OfDraughtingCalloutElement*(theLower: int;
+    theUpper: int): StepVisualHArray1OfDraughtingCalloutElement {.constructor,
+    importcpp: "StepVisual_HArray1OfDraughtingCalloutElement(@)",
+    header: "StepVisual_HArray1OfDraughtingCalloutElement.hxx".}
+proc constructStepVisualHArray1OfDraughtingCalloutElement*(theLower: int;
+    theUpper: int; theValue: ValueType): StepVisualHArray1OfDraughtingCalloutElement {.
     constructor, importcpp: "StepVisual_HArray1OfDraughtingCalloutElement(@)",
     header: "StepVisual_HArray1OfDraughtingCalloutElement.hxx".}
-proc constructStepVisual_HArray1OfDraughtingCalloutElement*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepVisual_HArray1OfDraughtingCalloutElement {.
+proc constructStepVisualHArray1OfDraughtingCalloutElement*(
+    theOther: StepVisualArray1OfDraughtingCalloutElement): StepVisualHArray1OfDraughtingCalloutElement {.
     constructor, importcpp: "StepVisual_HArray1OfDraughtingCalloutElement(@)",
     header: "StepVisual_HArray1OfDraughtingCalloutElement.hxx".}
-proc constructStepVisual_HArray1OfDraughtingCalloutElement*(
-    theOther: StepVisual_Array1OfDraughtingCalloutElement): StepVisual_HArray1OfDraughtingCalloutElement {.
-    constructor, importcpp: "StepVisual_HArray1OfDraughtingCalloutElement(@)",
-    header: "StepVisual_HArray1OfDraughtingCalloutElement.hxx".}
-proc Array1*(this: StepVisual_HArray1OfDraughtingCalloutElement): StepVisual_Array1OfDraughtingCalloutElement {.
+proc array1*(this: StepVisualHArray1OfDraughtingCalloutElement): StepVisualArray1OfDraughtingCalloutElement {.
     noSideEffect, importcpp: "Array1",
     header: "StepVisual_HArray1OfDraughtingCalloutElement.hxx".}
-proc ChangeArray1*(this: var StepVisual_HArray1OfDraughtingCalloutElement): var StepVisual_Array1OfDraughtingCalloutElement {.
+proc changeArray1*(this: var StepVisualHArray1OfDraughtingCalloutElement): var StepVisualArray1OfDraughtingCalloutElement {.
     importcpp: "ChangeArray1",
     header: "StepVisual_HArray1OfDraughtingCalloutElement.hxx".}
 type
-  StepVisual_HArray1OfDraughtingCalloutElementbase_type* = MMgt_TShared
+  StepVisualHArray1OfDraughtingCalloutElementbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_HArray1OfDraughtingCalloutElement::get_type_name(@)", header: "StepVisual_HArray1OfDraughtingCalloutElement.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_HArray1OfDraughtingCalloutElement::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepVisual_HArray1OfDraughtingCalloutElement::get_type_name(@)", header: "StepVisual_HArray1OfDraughtingCalloutElement.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_HArray1OfDraughtingCalloutElement::get_type_descriptor(@)",
     header: "StepVisual_HArray1OfDraughtingCalloutElement.hxx".}
-proc DynamicType*(this: StepVisual_HArray1OfDraughtingCalloutElement): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepVisual_HArray1OfDraughtingCalloutElement.hxx".}
+proc dynamicType*(this: StepVisualHArray1OfDraughtingCalloutElement): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepVisual_HArray1OfDraughtingCalloutElement.hxx".}

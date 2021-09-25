@@ -13,37 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepElement_Volume3dElementDescriptor"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepElement_RWVolume3dElementDescriptor* {.
+  RWStepElementRWVolume3dElementDescriptor* {.
       importcpp: "RWStepElement_RWVolume3dElementDescriptor",
       header: "RWStepElement_RWVolume3dElementDescriptor.hxx", bycopy.} = object ## !
                                                                             ## Empty
                                                                             ## constructor
 
 
-proc constructRWStepElement_RWVolume3dElementDescriptor*(): RWStepElement_RWVolume3dElementDescriptor {.
+proc constructRWStepElementRWVolume3dElementDescriptor*(): RWStepElementRWVolume3dElementDescriptor {.
     constructor, importcpp: "RWStepElement_RWVolume3dElementDescriptor(@)",
     header: "RWStepElement_RWVolume3dElementDescriptor.hxx".}
-proc ReadStep*(this: RWStepElement_RWVolume3dElementDescriptor;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepElement_Volume3dElementDescriptor]) {.noSideEffect,
+proc readStep*(this: RWStepElementRWVolume3dElementDescriptor;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepElementVolume3dElementDescriptor]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepElement_RWVolume3dElementDescriptor.hxx".}
-proc WriteStep*(this: RWStepElement_RWVolume3dElementDescriptor;
-               SW: var StepData_StepWriter;
-               ent: handle[StepElement_Volume3dElementDescriptor]) {.noSideEffect,
+proc writeStep*(this: RWStepElementRWVolume3dElementDescriptor;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepElementVolume3dElementDescriptor]) {.noSideEffect,
     importcpp: "WriteStep",
     header: "RWStepElement_RWVolume3dElementDescriptor.hxx".}
-proc Share*(this: RWStepElement_RWVolume3dElementDescriptor;
-           ent: handle[StepElement_Volume3dElementDescriptor];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepElementRWVolume3dElementDescriptor;
+           ent: Handle[StepElementVolume3dElementDescriptor];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepElement_RWVolume3dElementDescriptor.hxx".}

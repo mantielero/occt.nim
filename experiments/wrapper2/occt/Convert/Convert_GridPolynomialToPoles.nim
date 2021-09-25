@@ -14,84 +14,70 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColStd/TColStd_HArray1OfReal,
-  ../TColStd/TColStd_HArray1OfInteger, ../TColgp/TColgp_HArray2OfPnt,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
-  ../TColStd/TColStd_HArray2OfInteger
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of StdFail_NotDone"
 type
-  Convert_GridPolynomialToPoles* {.importcpp: "Convert_GridPolynomialToPoles",
-                                  header: "Convert_GridPolynomialToPoles.hxx",
-                                  bycopy.} = object ## ! To    only  one   polynomial  Surface.
-                                                 ## ! The  Length  of  <PolynomialUIntervals> and <PolynomialVIntervals>
-                                                 ## ! have to be 2.
-                                                 ## ! This values defined the parametric domain of the Polynomial Equation.
-                                                 ## !
-                                                 ## ! Coefficients :
-                                                 ## ! The <Coefficients> have to be formated than an "C array"
-                                                 ## ! [MaxUDegree+1] [MaxVDegree+1] [3]
+  ConvertGridPolynomialToPoles* {.importcpp: "Convert_GridPolynomialToPoles",
+                                 header: "Convert_GridPolynomialToPoles.hxx",
+                                 bycopy.} = object ## ! To    only  one   polynomial  Surface.
+                                                ## ! The  Length  of  <PolynomialUIntervals> and <PolynomialVIntervals>
+                                                ## ! have to be 2.
+                                                ## ! This values defined the parametric domain of the Polynomial Equation.
+                                                ## !
+                                                ## ! Coefficients :
+                                                ## ! The <Coefficients> have to be formated than an "C array"
+                                                ## ! [MaxUDegree+1] [MaxVDegree+1] [3]
 
 
-proc constructConvert_GridPolynomialToPoles*(MaxUDegree: Standard_Integer;
-    MaxVDegree: Standard_Integer; NumCoeff: handle[TColStd_HArray1OfInteger];
-    Coefficients: handle[TColStd_HArray1OfReal];
-    PolynomialUIntervals: handle[TColStd_HArray1OfReal];
-    PolynomialVIntervals: handle[TColStd_HArray1OfReal]): Convert_GridPolynomialToPoles {.
+proc constructConvertGridPolynomialToPoles*(maxUDegree: int; maxVDegree: int;
+    numCoeff: Handle[TColStdHArray1OfInteger];
+    coefficients: Handle[TColStdHArray1OfReal];
+    polynomialUIntervals: Handle[TColStdHArray1OfReal];
+    polynomialVIntervals: Handle[TColStdHArray1OfReal]): ConvertGridPolynomialToPoles {.
     constructor, importcpp: "Convert_GridPolynomialToPoles(@)",
     header: "Convert_GridPolynomialToPoles.hxx".}
-proc constructConvert_GridPolynomialToPoles*(NbUSurfaces: Standard_Integer;
-    NBVSurfaces: Standard_Integer; UContinuity: Standard_Integer;
-    VContinuity: Standard_Integer; MaxUDegree: Standard_Integer;
-    MaxVDegree: Standard_Integer;
-    NumCoeffPerSurface: handle[TColStd_HArray2OfInteger];
-    Coefficients: handle[TColStd_HArray1OfReal];
-    PolynomialUIntervals: handle[TColStd_HArray1OfReal];
-    PolynomialVIntervals: handle[TColStd_HArray1OfReal];
-    TrueUIntervals: handle[TColStd_HArray1OfReal];
-    TrueVIntervals: handle[TColStd_HArray1OfReal]): Convert_GridPolynomialToPoles {.
+proc constructConvertGridPolynomialToPoles*(nbUSurfaces: int; nBVSurfaces: int;
+    uContinuity: int; vContinuity: int; maxUDegree: int; maxVDegree: int;
+    numCoeffPerSurface: Handle[TColStdHArray2OfInteger];
+    coefficients: Handle[TColStdHArray1OfReal];
+    polynomialUIntervals: Handle[TColStdHArray1OfReal];
+    polynomialVIntervals: Handle[TColStdHArray1OfReal];
+    trueUIntervals: Handle[TColStdHArray1OfReal];
+    trueVIntervals: Handle[TColStdHArray1OfReal]): ConvertGridPolynomialToPoles {.
     constructor, importcpp: "Convert_GridPolynomialToPoles(@)",
     header: "Convert_GridPolynomialToPoles.hxx".}
-proc Perform*(this: var Convert_GridPolynomialToPoles;
-             UContinuity: Standard_Integer; VContinuity: Standard_Integer;
-             MaxUDegree: Standard_Integer; MaxVDegree: Standard_Integer;
-             NumCoeffPerSurface: handle[TColStd_HArray2OfInteger];
-             Coefficients: handle[TColStd_HArray1OfReal];
-             PolynomialUIntervals: handle[TColStd_HArray1OfReal];
-             PolynomialVIntervals: handle[TColStd_HArray1OfReal];
-             TrueUIntervals: handle[TColStd_HArray1OfReal];
-             TrueVIntervals: handle[TColStd_HArray1OfReal]) {.
-    importcpp: "Perform", header: "Convert_GridPolynomialToPoles.hxx".}
-proc NbUPoles*(this: Convert_GridPolynomialToPoles): Standard_Integer {.
-    noSideEffect, importcpp: "NbUPoles",
+proc perform*(this: var ConvertGridPolynomialToPoles; uContinuity: int;
+             vContinuity: int; maxUDegree: int; maxVDegree: int;
+             numCoeffPerSurface: Handle[TColStdHArray2OfInteger];
+             coefficients: Handle[TColStdHArray1OfReal];
+             polynomialUIntervals: Handle[TColStdHArray1OfReal];
+             polynomialVIntervals: Handle[TColStdHArray1OfReal];
+             trueUIntervals: Handle[TColStdHArray1OfReal];
+             trueVIntervals: Handle[TColStdHArray1OfReal]) {.importcpp: "Perform",
     header: "Convert_GridPolynomialToPoles.hxx".}
-proc NbVPoles*(this: Convert_GridPolynomialToPoles): Standard_Integer {.
-    noSideEffect, importcpp: "NbVPoles",
-    header: "Convert_GridPolynomialToPoles.hxx".}
-proc Poles*(this: Convert_GridPolynomialToPoles): handle[TColgp_HArray2OfPnt] {.
+proc nbUPoles*(this: ConvertGridPolynomialToPoles): int {.noSideEffect,
+    importcpp: "NbUPoles", header: "Convert_GridPolynomialToPoles.hxx".}
+proc nbVPoles*(this: ConvertGridPolynomialToPoles): int {.noSideEffect,
+    importcpp: "NbVPoles", header: "Convert_GridPolynomialToPoles.hxx".}
+proc poles*(this: ConvertGridPolynomialToPoles): Handle[TColgpHArray2OfPnt] {.
     noSideEffect, importcpp: "Poles", header: "Convert_GridPolynomialToPoles.hxx".}
-proc UDegree*(this: Convert_GridPolynomialToPoles): Standard_Integer {.noSideEffect,
+proc uDegree*(this: ConvertGridPolynomialToPoles): int {.noSideEffect,
     importcpp: "UDegree", header: "Convert_GridPolynomialToPoles.hxx".}
-proc VDegree*(this: Convert_GridPolynomialToPoles): Standard_Integer {.noSideEffect,
+proc vDegree*(this: ConvertGridPolynomialToPoles): int {.noSideEffect,
     importcpp: "VDegree", header: "Convert_GridPolynomialToPoles.hxx".}
-proc NbUKnots*(this: Convert_GridPolynomialToPoles): Standard_Integer {.
-    noSideEffect, importcpp: "NbUKnots",
-    header: "Convert_GridPolynomialToPoles.hxx".}
-proc NbVKnots*(this: Convert_GridPolynomialToPoles): Standard_Integer {.
-    noSideEffect, importcpp: "NbVKnots",
-    header: "Convert_GridPolynomialToPoles.hxx".}
-proc UKnots*(this: Convert_GridPolynomialToPoles): handle[TColStd_HArray1OfReal] {.
+proc nbUKnots*(this: ConvertGridPolynomialToPoles): int {.noSideEffect,
+    importcpp: "NbUKnots", header: "Convert_GridPolynomialToPoles.hxx".}
+proc nbVKnots*(this: ConvertGridPolynomialToPoles): int {.noSideEffect,
+    importcpp: "NbVKnots", header: "Convert_GridPolynomialToPoles.hxx".}
+proc uKnots*(this: ConvertGridPolynomialToPoles): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "UKnots", header: "Convert_GridPolynomialToPoles.hxx".}
-proc VKnots*(this: Convert_GridPolynomialToPoles): handle[TColStd_HArray1OfReal] {.
+proc vKnots*(this: ConvertGridPolynomialToPoles): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "VKnots", header: "Convert_GridPolynomialToPoles.hxx".}
-proc UMultiplicities*(this: Convert_GridPolynomialToPoles): handle[
-    TColStd_HArray1OfInteger] {.noSideEffect, importcpp: "UMultiplicities",
-                               header: "Convert_GridPolynomialToPoles.hxx".}
-proc VMultiplicities*(this: Convert_GridPolynomialToPoles): handle[
-    TColStd_HArray1OfInteger] {.noSideEffect, importcpp: "VMultiplicities",
-                               header: "Convert_GridPolynomialToPoles.hxx".}
-proc IsDone*(this: Convert_GridPolynomialToPoles): Standard_Boolean {.noSideEffect,
+proc uMultiplicities*(this: ConvertGridPolynomialToPoles): Handle[
+    TColStdHArray1OfInteger] {.noSideEffect, importcpp: "UMultiplicities",
+                              header: "Convert_GridPolynomialToPoles.hxx".}
+proc vMultiplicities*(this: ConvertGridPolynomialToPoles): Handle[
+    TColStdHArray1OfInteger] {.noSideEffect, importcpp: "VMultiplicities",
+                              header: "Convert_GridPolynomialToPoles.hxx".}
+proc isDone*(this: ConvertGridPolynomialToPoles): bool {.noSideEffect,
     importcpp: "IsDone", header: "Convert_GridPolynomialToPoles.hxx".}

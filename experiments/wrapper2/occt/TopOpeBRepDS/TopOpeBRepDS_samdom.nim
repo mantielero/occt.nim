@@ -14,28 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TopOpeBRepDS_define
-
-proc FDSSDM_prepare*(a1: handle[TopOpeBRepDS_HDataStructure]) {.
+proc fDSSDM_prepare*(a1: Handle[TopOpeBRepDS_HDataStructure]) {.
     importcpp: "FDSSDM_prepare(@)", header: "TopOpeBRepDS_samdom.hxx".}
-proc FDSSDM_makes1s2*(S: TopoDS_Shape; L1: var TopTools_ListOfShape;
-                     L2: var TopTools_ListOfShape) {.
+proc fDSSDM_makes1s2*(s: TopoDS_Shape; l1: var TopToolsListOfShape;
+                     l2: var TopToolsListOfShape) {.
     importcpp: "FDSSDM_makes1s2(@)", header: "TopOpeBRepDS_samdom.hxx".}
-proc FDSSDM_s1s2makesordor*(L1: TopTools_ListOfShape; L2: TopTools_ListOfShape;
-                           S: TopoDS_Shape; LSO: var TopTools_ListOfShape;
-                           LDO: var TopTools_ListOfShape) {.
+proc fDSSDM_s1s2makesordor*(l1: TopToolsListOfShape; l2: TopToolsListOfShape;
+                           s: TopoDS_Shape; lso: var TopToolsListOfShape;
+                           ldo: var TopToolsListOfShape) {.
     importcpp: "FDSSDM_s1s2makesordor(@)", header: "TopOpeBRepDS_samdom.hxx".}
-proc FDSSDM_s1s2*(S: TopoDS_Shape; LS1: var TopTools_ListOfShape;
-                 LS2: var TopTools_ListOfShape) {.importcpp: "FDSSDM_s1s2(@)",
+proc fDSSDM_s1s2*(s: TopoDS_Shape; ls1: var TopToolsListOfShape;
+                 ls2: var TopToolsListOfShape) {.importcpp: "FDSSDM_s1s2(@)",
     header: "TopOpeBRepDS_samdom.hxx".}
-proc FDSSDM_sordor*(S: TopoDS_Shape; LSO: var TopTools_ListOfShape;
-                   LDO: var TopTools_ListOfShape) {.importcpp: "FDSSDM_sordor(@)",
+proc fDSSDM_sordor*(s: TopoDS_Shape; lso: var TopToolsListOfShape;
+                   ldo: var TopToolsListOfShape) {.importcpp: "FDSSDM_sordor(@)",
     header: "TopOpeBRepDS_samdom.hxx".}
-proc FDSSDM_contains*(S: TopoDS_Shape; L: TopTools_ListOfShape): Standard_Boolean {.
+proc fDSSDM_contains*(s: TopoDS_Shape; L: TopToolsListOfShape): bool {.
     importcpp: "FDSSDM_contains(@)", header: "TopOpeBRepDS_samdom.hxx".}
-proc FDSSDM_copylist*(Lin: TopTools_ListOfShape; I1: Standard_Integer;
-                     I2: Standard_Integer; Lou: var TopTools_ListOfShape) {.
+proc fDSSDM_copylist*(lin: TopToolsListOfShape; i1: int; i2: int;
+                     lou: var TopToolsListOfShape) {.
     importcpp: "FDSSDM_copylist(@)", header: "TopOpeBRepDS_samdom.hxx".}
-proc FDSSDM_copylist*(Lin: TopTools_ListOfShape; Lou: var TopTools_ListOfShape) {.
+proc fDSSDM_copylist*(lin: TopToolsListOfShape; lou: var TopToolsListOfShape) {.
     importcpp: "FDSSDM_copylist(@)", header: "TopOpeBRepDS_samdom.hxx".}

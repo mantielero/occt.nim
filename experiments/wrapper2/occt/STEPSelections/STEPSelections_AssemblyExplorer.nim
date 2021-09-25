@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, STEPSelections_SequenceOfAssemblyComponent,
-  ../Interface/Interface_Graph,
-  ../TColStd/TColStd_IndexedDataMapOfTransientTransient,
-  ../Standard/Standard_OStream, ../Standard/Standard_Integer
-
 discard "forward decl of Interface_Graph"
 discard "forward decl of StepShape_ShapeDefinitionRepresentation"
 discard "forward decl of StepBasic_ProductDefinition"
@@ -28,30 +21,29 @@ discard "forward decl of STEPSelections_AssemblyComponent"
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepRepr_NextAssemblyUsageOccurrence"
 type
-  STEPSelections_AssemblyExplorer* {.importcpp: "STEPSelections_AssemblyExplorer", header: "STEPSelections_AssemblyExplorer.hxx",
-                                    bycopy.} = object
+  STEPSelectionsAssemblyExplorer* {.importcpp: "STEPSelections_AssemblyExplorer", header: "STEPSelections_AssemblyExplorer.hxx",
+                                   bycopy.} = object
 
 
-proc constructSTEPSelections_AssemblyExplorer*(G: Interface_Graph): STEPSelections_AssemblyExplorer {.
+proc constructSTEPSelectionsAssemblyExplorer*(g: InterfaceGraph): STEPSelectionsAssemblyExplorer {.
     constructor, importcpp: "STEPSelections_AssemblyExplorer(@)",
     header: "STEPSelections_AssemblyExplorer.hxx".}
-proc Init*(this: var STEPSelections_AssemblyExplorer; G: Interface_Graph) {.
+proc init*(this: var STEPSelectionsAssemblyExplorer; g: InterfaceGraph) {.
     importcpp: "Init", header: "STEPSelections_AssemblyExplorer.hxx".}
-proc Dump*(this: STEPSelections_AssemblyExplorer; os: var Standard_OStream) {.
+proc dump*(this: STEPSelectionsAssemblyExplorer; os: var StandardOStream) {.
     noSideEffect, importcpp: "Dump", header: "STEPSelections_AssemblyExplorer.hxx".}
-proc FindSDRWithProduct*(this: STEPSelections_AssemblyExplorer;
-                        product: handle[StepBasic_ProductDefinition]): handle[
-    StepShape_ShapeDefinitionRepresentation] {.noSideEffect,
+proc findSDRWithProduct*(this: STEPSelectionsAssemblyExplorer;
+                        product: Handle[StepBasicProductDefinition]): Handle[
+    StepShapeShapeDefinitionRepresentation] {.noSideEffect,
     importcpp: "FindSDRWithProduct", header: "STEPSelections_AssemblyExplorer.hxx".}
-proc FillListWithGraph*(this: var STEPSelections_AssemblyExplorer;
-                       cmp: handle[STEPSelections_AssemblyComponent]) {.
+proc fillListWithGraph*(this: var STEPSelectionsAssemblyExplorer;
+                       cmp: Handle[STEPSelectionsAssemblyComponent]) {.
     importcpp: "FillListWithGraph", header: "STEPSelections_AssemblyExplorer.hxx".}
-proc FindItemWithNAUO*(this: STEPSelections_AssemblyExplorer;
-                      nauo: handle[StepRepr_NextAssemblyUsageOccurrence]): handle[
-    Standard_Transient] {.noSideEffect, importcpp: "FindItemWithNAUO",
-                         header: "STEPSelections_AssemblyExplorer.hxx".}
-proc NbAssemblies*(this: STEPSelections_AssemblyExplorer): Standard_Integer {.
-    noSideEffect, importcpp: "NbAssemblies",
-    header: "STEPSelections_AssemblyExplorer.hxx".}
-proc Root*(this: STEPSelections_AssemblyExplorer; rank: Standard_Integer = 1): handle[
-    STEPSelections_AssemblyComponent] {.noSideEffect, importcpp: "Root", header: "STEPSelections_AssemblyExplorer.hxx".}
+proc findItemWithNAUO*(this: STEPSelectionsAssemblyExplorer;
+                      nauo: Handle[StepReprNextAssemblyUsageOccurrence]): Handle[
+    StandardTransient] {.noSideEffect, importcpp: "FindItemWithNAUO",
+                        header: "STEPSelections_AssemblyExplorer.hxx".}
+proc nbAssemblies*(this: STEPSelectionsAssemblyExplorer): int {.noSideEffect,
+    importcpp: "NbAssemblies", header: "STEPSelections_AssemblyExplorer.hxx".}
+proc root*(this: STEPSelectionsAssemblyExplorer; rank: int = 1): Handle[
+    STEPSelectionsAssemblyComponent] {.noSideEffect, importcpp: "Root", header: "STEPSelections_AssemblyExplorer.hxx".}

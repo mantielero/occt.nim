@@ -13,18 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, XmlMDF_ADriver,
-  ../Standard/Standard_Boolean, ../XmlObjMgt/XmlObjMgt_RRelocationTable,
-  ../XmlObjMgt/XmlObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDF_ReferenceDriver"
 discard "forward decl of XmlMDF_ReferenceDriver"
 type
-  Handle_XmlMDF_ReferenceDriver* = handle[XmlMDF_ReferenceDriver]
+  HandleXmlMDF_ReferenceDriver* = Handle[XmlMDF_ReferenceDriver]
 
 ## ! Attribute Driver.
 
@@ -33,26 +28,26 @@ type
                            header: "XmlMDF_ReferenceDriver.hxx", bycopy.} = object of XmlMDF_ADriver
 
 
-proc constructXmlMDF_ReferenceDriver*(theMessageDriver: handle[Message_Messenger]): XmlMDF_ReferenceDriver {.
+proc constructXmlMDF_ReferenceDriver*(theMessageDriver: Handle[MessageMessenger]): XmlMDF_ReferenceDriver {.
     constructor, importcpp: "XmlMDF_ReferenceDriver(@)",
     header: "XmlMDF_ReferenceDriver.hxx".}
-proc NewEmpty*(this: XmlMDF_ReferenceDriver): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: XmlMDF_ReferenceDriver): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "XmlMDF_ReferenceDriver.hxx".}
-proc Paste*(this: XmlMDF_ReferenceDriver; Source: XmlObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var XmlObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "XmlMDF_ReferenceDriver.hxx".}
-proc Paste*(this: XmlMDF_ReferenceDriver; Source: handle[TDF_Attribute];
-           Target: var XmlObjMgt_Persistent;
-           RelocTable: var XmlObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: XmlMDF_ReferenceDriver; source: XmlObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var XmlObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "XmlMDF_ReferenceDriver.hxx".}
+proc paste*(this: XmlMDF_ReferenceDriver; source: Handle[TDF_Attribute];
+           target: var XmlObjMgtPersistent;
+           relocTable: var XmlObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "XmlMDF_ReferenceDriver.hxx".}
 type
-  XmlMDF_ReferenceDriverbase_type* = XmlMDF_ADriver
+  XmlMDF_ReferenceDriverbaseType* = XmlMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "XmlMDF_ReferenceDriver::get_type_name(@)",
-                              header: "XmlMDF_ReferenceDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XmlMDF_ReferenceDriver::get_type_name(@)",
+                            header: "XmlMDF_ReferenceDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XmlMDF_ReferenceDriver::get_type_descriptor(@)",
     header: "XmlMDF_ReferenceDriver.hxx".}
-proc DynamicType*(this: XmlMDF_ReferenceDriver): handle[Standard_Type] {.
+proc dynamicType*(this: XmlMDF_ReferenceDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "XmlMDF_ReferenceDriver.hxx".}

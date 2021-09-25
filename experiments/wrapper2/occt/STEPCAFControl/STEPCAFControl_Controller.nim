@@ -13,14 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../STEPControl/STEPControl_Controller, ../Standard/Standard_Boolean
-
 discard "forward decl of STEPCAFControl_Controller"
 discard "forward decl of STEPCAFControl_Controller"
 type
-  Handle_STEPCAFControl_Controller* = handle[STEPCAFControl_Controller]
+  HandleSTEPCAFControlController* = Handle[STEPCAFControlController]
 
 ## ! Extends Controller from STEPControl in order to provide
 ## ! ActorWrite adapted for writing assemblies from DECAF
@@ -28,32 +24,32 @@ type
 ## ! (inherited automatically)
 
 type
-  STEPCAFControl_Controller* {.importcpp: "STEPCAFControl_Controller",
-                              header: "STEPCAFControl_Controller.hxx", bycopy.} = object of STEPControl_Controller ##
-                                                                                                            ## !
-                                                                                                            ## Initializes
-                                                                                                            ## the
-                                                                                                            ## use
-                                                                                                            ## of
-                                                                                                            ## STEP
-                                                                                                            ## Norm
-                                                                                                            ## (the
-                                                                                                            ## first
-                                                                                                            ## time)
+  STEPCAFControlController* {.importcpp: "STEPCAFControl_Controller",
+                             header: "STEPCAFControl_Controller.hxx", bycopy.} = object of STEPControlController ##
+                                                                                                          ## !
+                                                                                                          ## Initializes
+                                                                                                          ## the
+                                                                                                          ## use
+                                                                                                          ## of
+                                                                                                          ## STEP
+                                                                                                          ## Norm
+                                                                                                          ## (the
+                                                                                                          ## first
+                                                                                                          ## time)
 
 
-proc constructSTEPCAFControl_Controller*(): STEPCAFControl_Controller {.
-    constructor, importcpp: "STEPCAFControl_Controller(@)",
+proc constructSTEPCAFControlController*(): STEPCAFControlController {.constructor,
+    importcpp: "STEPCAFControl_Controller(@)",
     header: "STEPCAFControl_Controller.hxx".}
-proc Init*(): Standard_Boolean {.importcpp: "STEPCAFControl_Controller::Init(@)",
-                              header: "STEPCAFControl_Controller.hxx".}
+proc init*(): bool {.importcpp: "STEPCAFControl_Controller::Init(@)",
+                  header: "STEPCAFControl_Controller.hxx".}
 type
-  STEPCAFControl_Controllerbase_type* = STEPControl_Controller
+  STEPCAFControlControllerbaseType* = STEPControlController
 
-proc get_type_name*(): cstring {.importcpp: "STEPCAFControl_Controller::get_type_name(@)",
-                              header: "STEPCAFControl_Controller.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "STEPCAFControl_Controller::get_type_name(@)",
+                            header: "STEPCAFControl_Controller.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "STEPCAFControl_Controller::get_type_descriptor(@)",
     header: "STEPCAFControl_Controller.hxx".}
-proc DynamicType*(this: STEPCAFControl_Controller): handle[Standard_Type] {.
+proc dynamicType*(this: STEPCAFControlController): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "STEPCAFControl_Controller.hxx".}

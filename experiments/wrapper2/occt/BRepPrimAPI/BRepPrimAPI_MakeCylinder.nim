@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../BRepPrim/BRepPrim_Cylinder,
-  BRepPrimAPI_MakeOneAxis, ../Standard/Standard_Real, ../Standard/Standard_Address
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Ax2"
 discard "forward decl of BRepPrim_Cylinder"
@@ -45,22 +40,19 @@ type
                                                                                                            ## height
 
 
-proc constructBRepPrimAPI_MakeCylinder*(R: Standard_Real; H: Standard_Real): BRepPrimAPI_MakeCylinder {.
+proc constructBRepPrimAPI_MakeCylinder*(r: float; h: float): BRepPrimAPI_MakeCylinder {.
     constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)",
     header: "BRepPrimAPI_MakeCylinder.hxx".}
-proc constructBRepPrimAPI_MakeCylinder*(R: Standard_Real; H: Standard_Real;
-                                       Angle: Standard_Real): BRepPrimAPI_MakeCylinder {.
+proc constructBRepPrimAPI_MakeCylinder*(r: float; h: float; angle: float): BRepPrimAPI_MakeCylinder {.
     constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)",
     header: "BRepPrimAPI_MakeCylinder.hxx".}
-proc constructBRepPrimAPI_MakeCylinder*(Axes: gp_Ax2; R: Standard_Real;
-                                       H: Standard_Real): BRepPrimAPI_MakeCylinder {.
+proc constructBRepPrimAPI_MakeCylinder*(axes: Ax2; r: float; h: float): BRepPrimAPI_MakeCylinder {.
     constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)",
     header: "BRepPrimAPI_MakeCylinder.hxx".}
-proc constructBRepPrimAPI_MakeCylinder*(Axes: gp_Ax2; R: Standard_Real;
-                                       H: Standard_Real; Angle: Standard_Real): BRepPrimAPI_MakeCylinder {.
+proc constructBRepPrimAPI_MakeCylinder*(axes: Ax2; r: float; h: float; angle: float): BRepPrimAPI_MakeCylinder {.
     constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)",
     header: "BRepPrimAPI_MakeCylinder.hxx".}
-proc OneAxis*(this: var BRepPrimAPI_MakeCylinder): Standard_Address {.
+proc oneAxis*(this: var BRepPrimAPI_MakeCylinder): StandardAddress {.
     importcpp: "OneAxis", header: "BRepPrimAPI_MakeCylinder.hxx".}
-proc Cylinder*(this: var BRepPrimAPI_MakeCylinder): var BRepPrim_Cylinder {.
+proc cylinder*(this: var BRepPrimAPI_MakeCylinder): var BRepPrimCylinder {.
     importcpp: "Cylinder", header: "BRepPrimAPI_MakeCylinder.hxx".}

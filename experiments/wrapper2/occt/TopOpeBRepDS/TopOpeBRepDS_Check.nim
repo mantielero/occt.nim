@@ -14,68 +14,58 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  TopOpeBRepDS_DataMapOfCheckStatus, ../Standard/Standard_Transient,
-  ../Standard/Standard_Boolean, TopOpeBRepDS_ListOfInterference,
-  ../Standard/Standard_Integer, TopOpeBRepDS_Kind,
-  ../TopTools/TopTools_ListOfShape, ../Standard/Standard_OStream,
-  ../Standard/Standard_CString, TopOpeBRepDS_CheckStatus,
-  ../TopAbs/TopAbs_ShapeEnum
-
 discard "forward decl of TopOpeBRepDS_HDataStructure"
 discard "forward decl of TopOpeBRepDS_Check"
 discard "forward decl of TopOpeBRepDS_Check"
 type
-  Handle_TopOpeBRepDS_Check* = handle[TopOpeBRepDS_Check]
+  HandleTopOpeBRepDS_Check* = Handle[TopOpeBRepDS_Check]
 
 ## ! a tool verifing integrity and structure of DS
 
 type
   TopOpeBRepDS_Check* {.importcpp: "TopOpeBRepDS_Check",
-                       header: "TopOpeBRepDS_Check.hxx", bycopy.} = object of Standard_Transient
+                       header: "TopOpeBRepDS_Check.hxx", bycopy.} = object of StandardTransient
 
 
 proc constructTopOpeBRepDS_Check*(): TopOpeBRepDS_Check {.constructor,
     importcpp: "TopOpeBRepDS_Check(@)", header: "TopOpeBRepDS_Check.hxx".}
-proc constructTopOpeBRepDS_Check*(HDS: handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_Check {.
+proc constructTopOpeBRepDS_Check*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_Check {.
     constructor, importcpp: "TopOpeBRepDS_Check(@)",
     header: "TopOpeBRepDS_Check.hxx".}
-proc ChkIntg*(this: var TopOpeBRepDS_Check): Standard_Boolean {.importcpp: "ChkIntg",
+proc chkIntg*(this: var TopOpeBRepDS_Check): bool {.importcpp: "ChkIntg",
     header: "TopOpeBRepDS_Check.hxx".}
-proc ChkIntgInterf*(this: var TopOpeBRepDS_Check;
-                   LI: TopOpeBRepDS_ListOfInterference): Standard_Boolean {.
+proc chkIntgInterf*(this: var TopOpeBRepDS_Check;
+                   li: TopOpeBRepDS_ListOfInterference): bool {.
     importcpp: "ChkIntgInterf", header: "TopOpeBRepDS_Check.hxx".}
-proc CheckDS*(this: var TopOpeBRepDS_Check; i: Standard_Integer; K: TopOpeBRepDS_Kind): Standard_Boolean {.
+proc checkDS*(this: var TopOpeBRepDS_Check; i: int; k: TopOpeBRepDS_Kind): bool {.
     importcpp: "CheckDS", header: "TopOpeBRepDS_Check.hxx".}
-proc ChkIntgSamDom*(this: var TopOpeBRepDS_Check): Standard_Boolean {.
-    importcpp: "ChkIntgSamDom", header: "TopOpeBRepDS_Check.hxx".}
-proc CheckShapes*(this: TopOpeBRepDS_Check; LS: TopTools_ListOfShape): Standard_Boolean {.
-    noSideEffect, importcpp: "CheckShapes", header: "TopOpeBRepDS_Check.hxx".}
-proc OneVertexOnPnt*(this: var TopOpeBRepDS_Check): Standard_Boolean {.
-    importcpp: "OneVertexOnPnt", header: "TopOpeBRepDS_Check.hxx".}
-proc HDS*(this: TopOpeBRepDS_Check): handle[TopOpeBRepDS_HDataStructure] {.
-    noSideEffect, importcpp: "HDS", header: "TopOpeBRepDS_Check.hxx".}
-proc ChangeHDS*(this: var TopOpeBRepDS_Check): var handle[TopOpeBRepDS_HDataStructure] {.
-    importcpp: "ChangeHDS", header: "TopOpeBRepDS_Check.hxx".}
-proc PrintIntg*(this: var TopOpeBRepDS_Check; S: var Standard_OStream): var Standard_OStream {.
-    importcpp: "PrintIntg", header: "TopOpeBRepDS_Check.hxx".}
-proc Print*(this: var TopOpeBRepDS_Check; stat: TopOpeBRepDS_CheckStatus;
-           S: var Standard_OStream): var Standard_OStream {.importcpp: "Print",
+proc chkIntgSamDom*(this: var TopOpeBRepDS_Check): bool {.importcpp: "ChkIntgSamDom",
     header: "TopOpeBRepDS_Check.hxx".}
-proc PrintShape*(this: var TopOpeBRepDS_Check; SE: TopAbs_ShapeEnum;
-                S: var Standard_OStream): var Standard_OStream {.
+proc checkShapes*(this: TopOpeBRepDS_Check; ls: TopToolsListOfShape): bool {.
+    noSideEffect, importcpp: "CheckShapes", header: "TopOpeBRepDS_Check.hxx".}
+proc oneVertexOnPnt*(this: var TopOpeBRepDS_Check): bool {.
+    importcpp: "OneVertexOnPnt", header: "TopOpeBRepDS_Check.hxx".}
+proc hds*(this: TopOpeBRepDS_Check): Handle[TopOpeBRepDS_HDataStructure] {.
+    noSideEffect, importcpp: "HDS", header: "TopOpeBRepDS_Check.hxx".}
+proc changeHDS*(this: var TopOpeBRepDS_Check): var Handle[TopOpeBRepDS_HDataStructure] {.
+    importcpp: "ChangeHDS", header: "TopOpeBRepDS_Check.hxx".}
+proc printIntg*(this: var TopOpeBRepDS_Check; s: var StandardOStream): var StandardOStream {.
+    importcpp: "PrintIntg", header: "TopOpeBRepDS_Check.hxx".}
+proc print*(this: var TopOpeBRepDS_Check; stat: TopOpeBRepDS_CheckStatus;
+           s: var StandardOStream): var StandardOStream {.importcpp: "Print",
+    header: "TopOpeBRepDS_Check.hxx".}
+proc printShape*(this: var TopOpeBRepDS_Check; se: TopAbsShapeEnum;
+                s: var StandardOStream): var StandardOStream {.
     importcpp: "PrintShape", header: "TopOpeBRepDS_Check.hxx".}
-proc PrintShape*(this: var TopOpeBRepDS_Check; index: Standard_Integer;
-                S: var Standard_OStream): var Standard_OStream {.
+proc printShape*(this: var TopOpeBRepDS_Check; index: int; s: var StandardOStream): var StandardOStream {.
     importcpp: "PrintShape", header: "TopOpeBRepDS_Check.hxx".}
 type
-  TopOpeBRepDS_Checkbase_type* = Standard_Transient
+  TopOpeBRepDS_CheckbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TopOpeBRepDS_Check::get_type_name(@)",
-                              header: "TopOpeBRepDS_Check.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TopOpeBRepDS_Check::get_type_name(@)",
+                            header: "TopOpeBRepDS_Check.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopOpeBRepDS_Check::get_type_descriptor(@)",
     header: "TopOpeBRepDS_Check.hxx".}
-proc DynamicType*(this: TopOpeBRepDS_Check): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TopOpeBRepDS_Check): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopOpeBRepDS_Check.hxx".}

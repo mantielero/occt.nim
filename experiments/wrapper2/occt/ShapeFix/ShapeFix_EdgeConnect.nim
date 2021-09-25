@@ -14,25 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopTools/TopTools_DataMapOfShapeShape,
-  ../TopTools/TopTools_DataMapOfShapeListOfShape
-
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Shape"
 type
-  ShapeFix_EdgeConnect* {.importcpp: "ShapeFix_EdgeConnect",
-                         header: "ShapeFix_EdgeConnect.hxx", bycopy.} = object
+  ShapeFixEdgeConnect* {.importcpp: "ShapeFix_EdgeConnect",
+                        header: "ShapeFix_EdgeConnect.hxx", bycopy.} = object
 
 
-proc constructShapeFix_EdgeConnect*(): ShapeFix_EdgeConnect {.constructor,
+proc constructShapeFixEdgeConnect*(): ShapeFixEdgeConnect {.constructor,
     importcpp: "ShapeFix_EdgeConnect(@)", header: "ShapeFix_EdgeConnect.hxx".}
-proc Add*(this: var ShapeFix_EdgeConnect; aFirst: TopoDS_Edge; aSecond: TopoDS_Edge) {.
+proc add*(this: var ShapeFixEdgeConnect; aFirst: TopoDS_Edge; aSecond: TopoDS_Edge) {.
     importcpp: "Add", header: "ShapeFix_EdgeConnect.hxx".}
-proc Add*(this: var ShapeFix_EdgeConnect; aShape: TopoDS_Shape) {.importcpp: "Add",
+proc add*(this: var ShapeFixEdgeConnect; aShape: TopoDS_Shape) {.importcpp: "Add",
     header: "ShapeFix_EdgeConnect.hxx".}
-proc Build*(this: var ShapeFix_EdgeConnect) {.importcpp: "Build",
+proc build*(this: var ShapeFixEdgeConnect) {.importcpp: "Build",
     header: "ShapeFix_EdgeConnect.hxx".}
-proc Clear*(this: var ShapeFix_EdgeConnect) {.importcpp: "Clear",
+proc clear*(this: var ShapeFixEdgeConnect) {.importcpp: "Clear",
     header: "ShapeFix_EdgeConnect.hxx".}

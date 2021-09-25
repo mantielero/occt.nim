@@ -14,45 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Plate/Plate_D1,
-  ../Standard/Standard_Integer, NLPlate_HPG0Constraint
-
 discard "forward decl of gp_XY"
 discard "forward decl of gp_XYZ"
 discard "forward decl of Plate_D1"
 discard "forward decl of NLPlate_HPG0G1Constraint"
 discard "forward decl of NLPlate_HPG0G1Constraint"
 type
-  Handle_NLPlate_HPG0G1Constraint* = handle[NLPlate_HPG0G1Constraint]
+  HandleNLPlateHPG0G1Constraint* = Handle[NLPlateHPG0G1Constraint]
 
 ## ! define a PinPoint G0+G1  Constraint  used to load a Non Linear
 ## ! Plate
 
 type
-  NLPlate_HPG0G1Constraint* {.importcpp: "NLPlate_HPG0G1Constraint",
-                             header: "NLPlate_HPG0G1Constraint.hxx", bycopy.} = object of NLPlate_HPG0Constraint
+  NLPlateHPG0G1Constraint* {.importcpp: "NLPlate_HPG0G1Constraint",
+                            header: "NLPlate_HPG0G1Constraint.hxx", bycopy.} = object of NLPlateHPG0Constraint
 
 
-proc constructNLPlate_HPG0G1Constraint*(UV: gp_XY; Value: gp_XYZ; D1T: Plate_D1): NLPlate_HPG0G1Constraint {.
+proc constructNLPlateHPG0G1Constraint*(uv: Xy; value: Xyz; d1t: PlateD1): NLPlateHPG0G1Constraint {.
     constructor, importcpp: "NLPlate_HPG0G1Constraint(@)",
     header: "NLPlate_HPG0G1Constraint.hxx".}
-proc SetOrientation*(this: var NLPlate_HPG0G1Constraint;
-                    Orient: Standard_Integer = 0) {.importcpp: "SetOrientation",
-    header: "NLPlate_HPG0G1Constraint.hxx".}
-proc ActiveOrder*(this: NLPlate_HPG0G1Constraint): Standard_Integer {.noSideEffect,
+proc setOrientation*(this: var NLPlateHPG0G1Constraint; orient: int = 0) {.
+    importcpp: "SetOrientation", header: "NLPlate_HPG0G1Constraint.hxx".}
+proc activeOrder*(this: NLPlateHPG0G1Constraint): int {.noSideEffect,
     importcpp: "ActiveOrder", header: "NLPlate_HPG0G1Constraint.hxx".}
-proc Orientation*(this: var NLPlate_HPG0G1Constraint): Standard_Integer {.
-    importcpp: "Orientation", header: "NLPlate_HPG0G1Constraint.hxx".}
-proc G1Target*(this: NLPlate_HPG0G1Constraint): Plate_D1 {.noSideEffect,
+proc orientation*(this: var NLPlateHPG0G1Constraint): int {.importcpp: "Orientation",
+    header: "NLPlate_HPG0G1Constraint.hxx".}
+proc g1Target*(this: NLPlateHPG0G1Constraint): PlateD1 {.noSideEffect,
     importcpp: "G1Target", header: "NLPlate_HPG0G1Constraint.hxx".}
 type
-  NLPlate_HPG0G1Constraintbase_type* = NLPlate_HPG0Constraint
+  NLPlateHPG0G1ConstraintbaseType* = NLPlateHPG0Constraint
 
-proc get_type_name*(): cstring {.importcpp: "NLPlate_HPG0G1Constraint::get_type_name(@)",
-                              header: "NLPlate_HPG0G1Constraint.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "NLPlate_HPG0G1Constraint::get_type_name(@)",
+                            header: "NLPlate_HPG0G1Constraint.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "NLPlate_HPG0G1Constraint::get_type_descriptor(@)",
     header: "NLPlate_HPG0G1Constraint.hxx".}
-proc DynamicType*(this: NLPlate_HPG0G1Constraint): handle[Standard_Type] {.
+proc dynamicType*(this: NLPlateHPG0G1Constraint): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "NLPlate_HPG0G1Constraint.hxx".}

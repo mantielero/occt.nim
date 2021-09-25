@@ -17,9 +17,9 @@
 ## ! Identifies the type of a curve.
 
 type
-  GeomAbs_CurveType* {.size: sizeof(cint), importcpp: "GeomAbs_CurveType",
-                      header: "GeomAbs_CurveType.hxx".} = enum
-    GeomAbs_Line, GeomAbs_Circle, GeomAbs_Ellipse, GeomAbs_Hyperbola,
-    GeomAbs_Parabola, GeomAbs_BezierCurve, GeomAbs_BSplineCurve,
-    GeomAbs_OffsetCurve, GeomAbs_OtherCurve
+  GeomAbsCurveType* {.size: sizeof(cint), importcpp: "GeomAbs_CurveType",
+                     header: "GeomAbs_CurveType.hxx".} = enum
+    GeomAbsLine, GeomAbsCircle, GeomAbsEllipse, GeomAbsHyperbola, GeomAbsParabola,
+    GeomAbsBezierCurve, GeomAbsBSplineCurve, GeomAbsOffsetCurve, GeomAbsOtherCurve
+
 

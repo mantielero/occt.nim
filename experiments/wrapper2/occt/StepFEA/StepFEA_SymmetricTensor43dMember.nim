@@ -13,47 +13,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../StepData/StepData_SelectArrReal, ../Standard/Standard_Boolean,
-  ../Standard/Standard_CString
-
 discard "forward decl of StepFEA_SymmetricTensor43dMember"
 discard "forward decl of StepFEA_SymmetricTensor43dMember"
 type
-  Handle_StepFEA_SymmetricTensor43dMember* = handle[
+  HandleStepFEA_SymmetricTensor43dMember* = Handle[
       StepFEA_SymmetricTensor43dMember]
 
 ## ! Representation of member for  STEP SELECT type SymmetricTensor43d
 
 type
   StepFEA_SymmetricTensor43dMember* {.importcpp: "StepFEA_SymmetricTensor43dMember", header: "StepFEA_SymmetricTensor43dMember.hxx",
-                                     bycopy.} = object of StepData_SelectArrReal ## !
-                                                                            ## Empty
-                                                                            ## constructor
+                                     bycopy.} = object of StepDataSelectArrReal ## ! Empty
+                                                                           ## constructor
 
 
 proc constructStepFEA_SymmetricTensor43dMember*(): StepFEA_SymmetricTensor43dMember {.
     constructor, importcpp: "StepFEA_SymmetricTensor43dMember(@)",
     header: "StepFEA_SymmetricTensor43dMember.hxx".}
-proc HasName*(this: StepFEA_SymmetricTensor43dMember): Standard_Boolean {.
-    noSideEffect, importcpp: "HasName",
-    header: "StepFEA_SymmetricTensor43dMember.hxx".}
-proc Name*(this: StepFEA_SymmetricTensor43dMember): Standard_CString {.noSideEffect,
+proc hasName*(this: StepFEA_SymmetricTensor43dMember): bool {.noSideEffect,
+    importcpp: "HasName", header: "StepFEA_SymmetricTensor43dMember.hxx".}
+proc name*(this: StepFEA_SymmetricTensor43dMember): StandardCString {.noSideEffect,
     importcpp: "Name", header: "StepFEA_SymmetricTensor43dMember.hxx".}
-proc SetName*(this: var StepFEA_SymmetricTensor43dMember; name: Standard_CString): Standard_Boolean {.
+proc setName*(this: var StepFEA_SymmetricTensor43dMember; name: StandardCString): bool {.
     importcpp: "SetName", header: "StepFEA_SymmetricTensor43dMember.hxx".}
-proc Matches*(this: StepFEA_SymmetricTensor43dMember; name: Standard_CString): Standard_Boolean {.
+proc matches*(this: StepFEA_SymmetricTensor43dMember; name: StandardCString): bool {.
     noSideEffect, importcpp: "Matches",
     header: "StepFEA_SymmetricTensor43dMember.hxx".}
 type
-  StepFEA_SymmetricTensor43dMemberbase_type* = StepData_SelectArrReal
+  StepFEA_SymmetricTensor43dMemberbaseType* = StepDataSelectArrReal
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_SymmetricTensor43dMember::get_type_name(@)",
-                              header: "StepFEA_SymmetricTensor43dMember.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_SymmetricTensor43dMember::get_type_name(@)",
+                            header: "StepFEA_SymmetricTensor43dMember.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_SymmetricTensor43dMember::get_type_descriptor(@)",
     header: "StepFEA_SymmetricTensor43dMember.hxx".}
-proc DynamicType*(this: StepFEA_SymmetricTensor43dMember): handle[Standard_Type] {.
+proc dynamicType*(this: StepFEA_SymmetricTensor43dMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_SymmetricTensor43dMember.hxx".}

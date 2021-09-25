@@ -19,3 +19,4 @@ type
                  header: "OSD_LoadMode.hxx".} = enum
     OSD_RTLD_LAZY, OSD_RTLD_NOW
 
+

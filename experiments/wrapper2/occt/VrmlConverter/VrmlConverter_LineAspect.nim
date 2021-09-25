@@ -14,66 +14,60 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Transient
-
 discard "forward decl of Vrml_Material"
 discard "forward decl of VrmlConverter_LineAspect"
 discard "forward decl of VrmlConverter_LineAspect"
 type
-  Handle_VrmlConverter_LineAspect* = handle[VrmlConverter_LineAspect]
+  HandleVrmlConverterLineAspect* = Handle[VrmlConverterLineAspect]
 
 ## ! qualifies the aspect properties for
 ## ! the VRML conversation of a Curve and  a  DeflectionCurve .
 
 type
-  VrmlConverter_LineAspect* {.importcpp: "VrmlConverter_LineAspect",
-                             header: "VrmlConverter_LineAspect.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                      ## !
-                                                                                                      ## create
-                                                                                                      ## a
-                                                                                                      ## default
-                                                                                                      ## LineAspect.
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## Default
-                                                                                                      ## value:
-                                                                                                      ## HasMaterial
-                                                                                                      ## =
-                                                                                                      ## False
-                                                                                                      ## -
-                                                                                                      ## a
-                                                                                                      ## line
-                                                                                                      ## hasn't
-                                                                                                      ## own
-                                                                                                      ## material
-                                                                                                      ## (color)
+  VrmlConverterLineAspect* {.importcpp: "VrmlConverter_LineAspect",
+                            header: "VrmlConverter_LineAspect.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                    ## !
+                                                                                                    ## create
+                                                                                                    ## a
+                                                                                                    ## default
+                                                                                                    ## LineAspect.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Default
+                                                                                                    ## value:
+                                                                                                    ## HasMaterial
+                                                                                                    ## =
+                                                                                                    ## False
+                                                                                                    ## -
+                                                                                                    ## a
+                                                                                                    ## line
+                                                                                                    ## hasn't
+                                                                                                    ## own
+                                                                                                    ## material
+                                                                                                    ## (color)
 
 
-proc constructVrmlConverter_LineAspect*(): VrmlConverter_LineAspect {.constructor,
+proc constructVrmlConverterLineAspect*(): VrmlConverterLineAspect {.constructor,
     importcpp: "VrmlConverter_LineAspect(@)",
     header: "VrmlConverter_LineAspect.hxx".}
-proc constructVrmlConverter_LineAspect*(aMaterial: handle[Vrml_Material];
-                                       OnOff: Standard_Boolean): VrmlConverter_LineAspect {.
+proc constructVrmlConverterLineAspect*(aMaterial: Handle[VrmlMaterial]; onOff: bool): VrmlConverterLineAspect {.
     constructor, importcpp: "VrmlConverter_LineAspect(@)",
     header: "VrmlConverter_LineAspect.hxx".}
-proc SetMaterial*(this: var VrmlConverter_LineAspect;
-                 aMaterial: handle[Vrml_Material]) {.importcpp: "SetMaterial",
-    header: "VrmlConverter_LineAspect.hxx".}
-proc Material*(this: VrmlConverter_LineAspect): handle[Vrml_Material] {.
-    noSideEffect, importcpp: "Material", header: "VrmlConverter_LineAspect.hxx".}
-proc SetHasMaterial*(this: var VrmlConverter_LineAspect; OnOff: Standard_Boolean) {.
+proc setMaterial*(this: var VrmlConverterLineAspect; aMaterial: Handle[VrmlMaterial]) {.
+    importcpp: "SetMaterial", header: "VrmlConverter_LineAspect.hxx".}
+proc material*(this: VrmlConverterLineAspect): Handle[VrmlMaterial] {.noSideEffect,
+    importcpp: "Material", header: "VrmlConverter_LineAspect.hxx".}
+proc setHasMaterial*(this: var VrmlConverterLineAspect; onOff: bool) {.
     importcpp: "SetHasMaterial", header: "VrmlConverter_LineAspect.hxx".}
-proc HasMaterial*(this: VrmlConverter_LineAspect): Standard_Boolean {.noSideEffect,
+proc hasMaterial*(this: VrmlConverterLineAspect): bool {.noSideEffect,
     importcpp: "HasMaterial", header: "VrmlConverter_LineAspect.hxx".}
 type
-  VrmlConverter_LineAspectbase_type* = Standard_Transient
+  VrmlConverterLineAspectbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "VrmlConverter_LineAspect::get_type_name(@)",
-                              header: "VrmlConverter_LineAspect.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "VrmlConverter_LineAspect::get_type_name(@)",
+                            header: "VrmlConverter_LineAspect.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "VrmlConverter_LineAspect::get_type_descriptor(@)",
     header: "VrmlConverter_LineAspect.hxx".}
-proc DynamicType*(this: VrmlConverter_LineAspect): handle[Standard_Type] {.
+proc dynamicType*(this: VrmlConverterLineAspect): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "VrmlConverter_LineAspect.hxx".}

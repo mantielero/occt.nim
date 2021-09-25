@@ -12,53 +12,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  RWGltf_PrimitiveArrayReader
-
 ## ! RWGltf_PrimitiveArrayReader implementation creating Poly_Triangulation.
 
 type
-  RWGltf_TriangulationReader* {.importcpp: "RWGltf_TriangulationReader",
-                               header: "RWGltf_TriangulationReader.hxx", bycopy.} = object of RWGltf_PrimitiveArrayReader ##
-                                                                                                                   ## !
-                                                                                                                   ## Empty
-                                                                                                                   ## constructor.
-                                                                                                                   ##
-                                                                                                                   ## !
-                                                                                                                   ## Create
-                                                                                                                   ## Poly_Triangulation
-                                                                                                                   ## from
-                                                                                                                   ## collected
-                                                                                                                   ## data
-                                                                                                                   ##
-                                                                                                                   ## !
-                                                                                                                   ## @name
-                                                                                                                   ## interface
-                                                                                                                   ## for
-                                                                                                                   ## filling
-                                                                                                                   ## triangulation
-                                                                                                                   ## data
-                                                                                                                   ##
-                                                                                                                   ## !
-                                                                                                                   ## Resize
-                                                                                                                   ## array
-                                                                                                                   ## of
-                                                                                                                   ## position
-                                                                                                                   ## nodes
-                                                                                                                   ## to
-                                                                                                                   ## specified
-                                                                                                                   ## size.
+  RWGltfTriangulationReader* {.importcpp: "RWGltf_TriangulationReader",
+                              header: "RWGltf_TriangulationReader.hxx", bycopy.} = object of RWGltfPrimitiveArrayReader ##
+                                                                                                                 ## !
+                                                                                                                 ## Empty
+                                                                                                                 ## constructor.
+                                                                                                                 ##
+                                                                                                                 ## !
+                                                                                                                 ## Create
+                                                                                                                 ## Poly_Triangulation
+                                                                                                                 ## from
+                                                                                                                 ## collected
+                                                                                                                 ## data
+                                                                                                                 ##
+                                                                                                                 ## !
+                                                                                                                 ## @name
+                                                                                                                 ## interface
+                                                                                                                 ## for
+                                                                                                                 ## filling
+                                                                                                                 ## triangulation
+                                                                                                                 ## data
+                                                                                                                 ##
+                                                                                                                 ## !
+                                                                                                                 ## Resize
+                                                                                                                 ## array
+                                                                                                                 ## of
+                                                                                                                 ## position
+                                                                                                                 ## nodes
+                                                                                                                 ## to
+                                                                                                                 ## specified
+                                                                                                                 ## size.
 
-  RWGltf_TriangulationReaderbase_type* = RWGltf_PrimitiveArrayReader
+  RWGltfTriangulationReaderbaseType* = RWGltfPrimitiveArrayReader
 
-proc get_type_name*(): cstring {.importcpp: "RWGltf_TriangulationReader::get_type_name(@)",
-                              header: "RWGltf_TriangulationReader.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "RWGltf_TriangulationReader::get_type_name(@)",
+                            header: "RWGltf_TriangulationReader.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "RWGltf_TriangulationReader::get_type_descriptor(@)",
     header: "RWGltf_TriangulationReader.hxx".}
-proc DynamicType*(this: RWGltf_TriangulationReader): handle[Standard_Type] {.
+proc dynamicType*(this: RWGltfTriangulationReader): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "RWGltf_TriangulationReader.hxx".}
-proc constructRWGltf_TriangulationReader*(): RWGltf_TriangulationReader {.
+proc constructRWGltfTriangulationReader*(): RWGltfTriangulationReader {.
     constructor, importcpp: "RWGltf_TriangulationReader(@)",
     header: "RWGltf_TriangulationReader.hxx".}

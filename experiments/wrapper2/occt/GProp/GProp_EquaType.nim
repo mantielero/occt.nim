@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  GProp_EquaType* {.size: sizeof(cint), importcpp: "GProp_EquaType",
-                   header: "GProp_EquaType.hxx".} = enum
-    GProp_Plane, GProp_Line, GProp_Point, GProp_Space, GProp_None
+  GPropEquaType* {.size: sizeof(cint), importcpp: "GProp_EquaType",
+                  header: "GProp_EquaType.hxx".} = enum
+    GPropPlane, GPropLine, GPropPoint, GPropSpace, GPropNone
+
 

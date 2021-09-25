@@ -13,51 +13,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepRepr_PropertyDefinitionRepresentation
-
 discard "forward decl of StepRepr_DataEnvironment"
 discard "forward decl of StepRepr_RepresentedDefinition"
 discard "forward decl of StepRepr_Representation"
 discard "forward decl of StepRepr_MaterialPropertyRepresentation"
 discard "forward decl of StepRepr_MaterialPropertyRepresentation"
 type
-  Handle_StepRepr_MaterialPropertyRepresentation* = handle[
-      StepRepr_MaterialPropertyRepresentation]
+  HandleStepReprMaterialPropertyRepresentation* = Handle[
+      StepReprMaterialPropertyRepresentation]
 
 ## ! Representation of STEP entity MaterialPropertyRepresentation
 
 type
-  StepRepr_MaterialPropertyRepresentation* {.
+  StepReprMaterialPropertyRepresentation* {.
       importcpp: "StepRepr_MaterialPropertyRepresentation",
-      header: "StepRepr_MaterialPropertyRepresentation.hxx", bycopy.} = object of StepRepr_PropertyDefinitionRepresentation ##
-                                                                                                                     ## !
-                                                                                                                     ## Empty
-                                                                                                                     ## constructor
+      header: "StepRepr_MaterialPropertyRepresentation.hxx", bycopy.} = object of StepReprPropertyDefinitionRepresentation ##
+                                                                                                                    ## !
+                                                                                                                    ## Empty
+                                                                                                                    ## constructor
 
 
-proc constructStepRepr_MaterialPropertyRepresentation*(): StepRepr_MaterialPropertyRepresentation {.
+proc constructStepReprMaterialPropertyRepresentation*(): StepReprMaterialPropertyRepresentation {.
     constructor, importcpp: "StepRepr_MaterialPropertyRepresentation(@)",
     header: "StepRepr_MaterialPropertyRepresentation.hxx".}
-proc Init*(this: var StepRepr_MaterialPropertyRepresentation;
-    aPropertyDefinitionRepresentation_Definition: StepRepr_RepresentedDefinition;
-    aPropertyDefinitionRepresentation_UsedRepresentation: handle[
-    StepRepr_Representation];
-          aDependentEnvironment: handle[StepRepr_DataEnvironment]) {.
+proc init*(this: var StepReprMaterialPropertyRepresentation;
+    aPropertyDefinitionRepresentationDefinition: StepReprRepresentedDefinition;
+    aPropertyDefinitionRepresentationUsedRepresentation: Handle[
+    StepReprRepresentation];
+          aDependentEnvironment: Handle[StepReprDataEnvironment]) {.
     importcpp: "Init", header: "StepRepr_MaterialPropertyRepresentation.hxx".}
-proc DependentEnvironment*(this: StepRepr_MaterialPropertyRepresentation): handle[
-    StepRepr_DataEnvironment] {.noSideEffect, importcpp: "DependentEnvironment", header: "StepRepr_MaterialPropertyRepresentation.hxx".}
-proc SetDependentEnvironment*(this: var StepRepr_MaterialPropertyRepresentation;
-    DependentEnvironment: handle[StepRepr_DataEnvironment]) {.
+proc dependentEnvironment*(this: StepReprMaterialPropertyRepresentation): Handle[
+    StepReprDataEnvironment] {.noSideEffect, importcpp: "DependentEnvironment", header: "StepRepr_MaterialPropertyRepresentation.hxx".}
+proc setDependentEnvironment*(this: var StepReprMaterialPropertyRepresentation;
+    dependentEnvironment: Handle[StepReprDataEnvironment]) {.
     importcpp: "SetDependentEnvironment",
     header: "StepRepr_MaterialPropertyRepresentation.hxx".}
 type
-  StepRepr_MaterialPropertyRepresentationbase_type* = StepRepr_PropertyDefinitionRepresentation
+  StepReprMaterialPropertyRepresentationbaseType* = StepReprPropertyDefinitionRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_MaterialPropertyRepresentation::get_type_name(@)", header: "StepRepr_MaterialPropertyRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepRepr_MaterialPropertyRepresentation::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepRepr_MaterialPropertyRepresentation::get_type_name(@)", header: "StepRepr_MaterialPropertyRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_MaterialPropertyRepresentation::get_type_descriptor(@)",
     header: "StepRepr_MaterialPropertyRepresentation.hxx".}
-proc DynamicType*(this: StepRepr_MaterialPropertyRepresentation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepRepr_MaterialPropertyRepresentation.hxx".}
+proc dynamicType*(this: StepReprMaterialPropertyRepresentation): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepRepr_MaterialPropertyRepresentation.hxx".}

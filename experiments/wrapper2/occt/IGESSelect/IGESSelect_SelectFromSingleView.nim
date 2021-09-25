@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../IFSelect/IFSelect_SelectDeduct
-
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
@@ -25,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SelectFromSingleView"
 discard "forward decl of IGESSelect_SelectFromSingleView"
 type
-  Handle_IGESSelect_SelectFromSingleView* = handle[IGESSelect_SelectFromSingleView]
+  HandleIGESSelectSelectFromSingleView* = Handle[IGESSelectSelectFromSingleView]
 
 ## ! This selection gets in all the model, the entities which are
 ## ! attached to the views given as input. Only Single Views are
@@ -33,28 +29,27 @@ type
 ## ! (View Item).
 
 type
-  IGESSelect_SelectFromSingleView* {.importcpp: "IGESSelect_SelectFromSingleView", header: "IGESSelect_SelectFromSingleView.hxx",
-                                    bycopy.} = object of IFSelect_SelectDeduct ## !
-                                                                          ## Creates a
-                                                                          ## SelectFromSingleView
+  IGESSelectSelectFromSingleView* {.importcpp: "IGESSelect_SelectFromSingleView", header: "IGESSelect_SelectFromSingleView.hxx",
+                                   bycopy.} = object of IFSelectSelectDeduct ## ! Creates a
+                                                                        ## SelectFromSingleView
 
 
-proc constructIGESSelect_SelectFromSingleView*(): IGESSelect_SelectFromSingleView {.
+proc constructIGESSelectSelectFromSingleView*(): IGESSelectSelectFromSingleView {.
     constructor, importcpp: "IGESSelect_SelectFromSingleView(@)",
     header: "IGESSelect_SelectFromSingleView.hxx".}
-proc RootResult*(this: IGESSelect_SelectFromSingleView; G: Interface_Graph): Interface_EntityIterator {.
+proc rootResult*(this: IGESSelectSelectFromSingleView; g: InterfaceGraph): InterfaceEntityIterator {.
     noSideEffect, importcpp: "RootResult",
     header: "IGESSelect_SelectFromSingleView.hxx".}
-proc Label*(this: IGESSelect_SelectFromSingleView): TCollection_AsciiString {.
+proc label*(this: IGESSelectSelectFromSingleView): TCollectionAsciiString {.
     noSideEffect, importcpp: "Label", header: "IGESSelect_SelectFromSingleView.hxx".}
 type
-  IGESSelect_SelectFromSingleViewbase_type* = IFSelect_SelectDeduct
+  IGESSelectSelectFromSingleViewbaseType* = IFSelectSelectDeduct
 
-proc get_type_name*(): cstring {.importcpp: "IGESSelect_SelectFromSingleView::get_type_name(@)",
-                              header: "IGESSelect_SelectFromSingleView.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_SelectFromSingleView::get_type_name(@)",
+                            header: "IGESSelect_SelectFromSingleView.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSelect_SelectFromSingleView::get_type_descriptor(@)",
     header: "IGESSelect_SelectFromSingleView.hxx".}
-proc DynamicType*(this: IGESSelect_SelectFromSingleView): handle[Standard_Type] {.
+proc dynamicType*(this: IGESSelectSelectFromSingleView): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SelectFromSingleView.hxx".}

@@ -14,18 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer, ../gp/gp_XYZ, ../IGESData/IGESData_IGESEntity,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of IGESGraph_TextFontDef"
 discard "forward decl of gp_XYZ"
 discard "forward decl of gp_Pnt"
 discard "forward decl of IGESGraph_TextDisplayTemplate"
 discard "forward decl of IGESGraph_TextDisplayTemplate"
 type
-  Handle_IGESGraph_TextDisplayTemplate* = handle[IGESGraph_TextDisplayTemplate]
+  HandleIGESGraphTextDisplayTemplate* = Handle[IGESGraphTextDisplayTemplate]
 
 ## ! defines IGES TextDisplayTemplate Entity,
 ## ! Type <312>, form <0, 1> in package IGESGraph
@@ -35,62 +30,55 @@ type
 ## ! as a parameter value
 
 type
-  IGESGraph_TextDisplayTemplate* {.importcpp: "IGESGraph_TextDisplayTemplate",
-                                  header: "IGESGraph_TextDisplayTemplate.hxx",
-                                  bycopy.} = object of IGESData_IGESEntity
+  IGESGraphTextDisplayTemplate* {.importcpp: "IGESGraph_TextDisplayTemplate",
+                                 header: "IGESGraph_TextDisplayTemplate.hxx",
+                                 bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESGraph_TextDisplayTemplate*(): IGESGraph_TextDisplayTemplate {.
+proc constructIGESGraphTextDisplayTemplate*(): IGESGraphTextDisplayTemplate {.
     constructor, importcpp: "IGESGraph_TextDisplayTemplate(@)",
     header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc Init*(this: var IGESGraph_TextDisplayTemplate; aWidth: Standard_Real;
-          aHeight: Standard_Real; aFontCode: Standard_Integer;
-          aFontEntity: handle[IGESGraph_TextFontDef]; aSlantAngle: Standard_Real;
-          aRotationAngle: Standard_Real; aMirrorFlag: Standard_Integer;
-          aRotationFlag: Standard_Integer; aCorner: gp_XYZ) {.importcpp: "Init",
+proc init*(this: var IGESGraphTextDisplayTemplate; aWidth: float; aHeight: float;
+          aFontCode: int; aFontEntity: Handle[IGESGraphTextFontDef];
+          aSlantAngle: float; aRotationAngle: float; aMirrorFlag: int;
+          aRotationFlag: int; aCorner: Xyz) {.importcpp: "Init",
     header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc SetIncremental*(this: var IGESGraph_TextDisplayTemplate; mode: Standard_Boolean) {.
+proc setIncremental*(this: var IGESGraphTextDisplayTemplate; mode: bool) {.
     importcpp: "SetIncremental", header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc IsIncremental*(this: IGESGraph_TextDisplayTemplate): Standard_Boolean {.
-    noSideEffect, importcpp: "IsIncremental",
-    header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc BoxWidth*(this: IGESGraph_TextDisplayTemplate): Standard_Real {.noSideEffect,
+proc isIncremental*(this: IGESGraphTextDisplayTemplate): bool {.noSideEffect,
+    importcpp: "IsIncremental", header: "IGESGraph_TextDisplayTemplate.hxx".}
+proc boxWidth*(this: IGESGraphTextDisplayTemplate): float {.noSideEffect,
     importcpp: "BoxWidth", header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc BoxHeight*(this: IGESGraph_TextDisplayTemplate): Standard_Real {.noSideEffect,
+proc boxHeight*(this: IGESGraphTextDisplayTemplate): float {.noSideEffect,
     importcpp: "BoxHeight", header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc IsFontEntity*(this: IGESGraph_TextDisplayTemplate): Standard_Boolean {.
-    noSideEffect, importcpp: "IsFontEntity",
-    header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc FontCode*(this: IGESGraph_TextDisplayTemplate): Standard_Integer {.
-    noSideEffect, importcpp: "FontCode",
-    header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc FontEntity*(this: IGESGraph_TextDisplayTemplate): handle[IGESGraph_TextFontDef] {.
+proc isFontEntity*(this: IGESGraphTextDisplayTemplate): bool {.noSideEffect,
+    importcpp: "IsFontEntity", header: "IGESGraph_TextDisplayTemplate.hxx".}
+proc fontCode*(this: IGESGraphTextDisplayTemplate): int {.noSideEffect,
+    importcpp: "FontCode", header: "IGESGraph_TextDisplayTemplate.hxx".}
+proc fontEntity*(this: IGESGraphTextDisplayTemplate): Handle[IGESGraphTextFontDef] {.
     noSideEffect, importcpp: "FontEntity",
     header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc SlantAngle*(this: IGESGraph_TextDisplayTemplate): Standard_Real {.noSideEffect,
+proc slantAngle*(this: IGESGraphTextDisplayTemplate): float {.noSideEffect,
     importcpp: "SlantAngle", header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc RotationAngle*(this: IGESGraph_TextDisplayTemplate): Standard_Real {.
-    noSideEffect, importcpp: "RotationAngle",
-    header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc MirrorFlag*(this: IGESGraph_TextDisplayTemplate): Standard_Integer {.
-    noSideEffect, importcpp: "MirrorFlag",
-    header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc RotateFlag*(this: IGESGraph_TextDisplayTemplate): Standard_Integer {.
-    noSideEffect, importcpp: "RotateFlag",
-    header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc StartingCorner*(this: IGESGraph_TextDisplayTemplate): gp_Pnt {.noSideEffect,
+proc rotationAngle*(this: IGESGraphTextDisplayTemplate): float {.noSideEffect,
+    importcpp: "RotationAngle", header: "IGESGraph_TextDisplayTemplate.hxx".}
+proc mirrorFlag*(this: IGESGraphTextDisplayTemplate): int {.noSideEffect,
+    importcpp: "MirrorFlag", header: "IGESGraph_TextDisplayTemplate.hxx".}
+proc rotateFlag*(this: IGESGraphTextDisplayTemplate): int {.noSideEffect,
+    importcpp: "RotateFlag", header: "IGESGraph_TextDisplayTemplate.hxx".}
+proc startingCorner*(this: IGESGraphTextDisplayTemplate): Pnt {.noSideEffect,
     importcpp: "StartingCorner", header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc TransformedStartingCorner*(this: IGESGraph_TextDisplayTemplate): gp_Pnt {.
+proc transformedStartingCorner*(this: IGESGraphTextDisplayTemplate): Pnt {.
     noSideEffect, importcpp: "TransformedStartingCorner",
     header: "IGESGraph_TextDisplayTemplate.hxx".}
 type
-  IGESGraph_TextDisplayTemplatebase_type* = IGESData_IGESEntity
+  IGESGraphTextDisplayTemplatebaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESGraph_TextDisplayTemplate::get_type_name(@)",
-                              header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESGraph_TextDisplayTemplate::get_type_name(@)",
+                            header: "IGESGraph_TextDisplayTemplate.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESGraph_TextDisplayTemplate::get_type_descriptor(@)",
     header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc DynamicType*(this: IGESGraph_TextDisplayTemplate): handle[Standard_Type] {.
+proc dynamicType*(this: IGESGraphTextDisplayTemplate): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESGraph_TextDisplayTemplate.hxx".}

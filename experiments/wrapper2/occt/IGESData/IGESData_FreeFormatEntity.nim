@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_HSequenceOfInteger, IGESData_UndefinedEntity,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
-  ../Interface/Interface_ParamType, ../Standard/Standard_CString,
-  IGESData_HArray1OfIGESEntity
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of IGESData_IGESEntity"
@@ -29,7 +22,7 @@ discard "forward decl of IGESData_IGESWriter"
 discard "forward decl of IGESData_FreeFormatEntity"
 discard "forward decl of IGESData_FreeFormatEntity"
 type
-  Handle_IGESData_FreeFormatEntity* = handle[IGESData_FreeFormatEntity]
+  HandleIGESDataFreeFormatEntity* = Handle[IGESDataFreeFormatEntity]
 
 ## ! This class allows to create IGES Entities in a literal form :
 ## ! their definition is free, but they are not recognized as
@@ -44,75 +37,72 @@ type
 ## ! it gives way to act on its content
 
 type
-  IGESData_FreeFormatEntity* {.importcpp: "IGESData_FreeFormatEntity",
-                              header: "IGESData_FreeFormatEntity.hxx", bycopy.} = object of IGESData_UndefinedEntity ##
-                                                                                                              ## !
-                                                                                                              ## Creates
-                                                                                                              ## a
-                                                                                                              ## completely
-                                                                                                              ## empty
-                                                                                                              ## FreeFormatEntity
+  IGESDataFreeFormatEntity* {.importcpp: "IGESData_FreeFormatEntity",
+                             header: "IGESData_FreeFormatEntity.hxx", bycopy.} = object of IGESDataUndefinedEntity ##
+                                                                                                            ## !
+                                                                                                            ## Creates
+                                                                                                            ## a
+                                                                                                            ## completely
+                                                                                                            ## empty
+                                                                                                            ## FreeFormatEntity
 
 
-proc constructIGESData_FreeFormatEntity*(): IGESData_FreeFormatEntity {.
-    constructor, importcpp: "IGESData_FreeFormatEntity(@)",
+proc constructIGESDataFreeFormatEntity*(): IGESDataFreeFormatEntity {.constructor,
+    importcpp: "IGESData_FreeFormatEntity(@)",
     header: "IGESData_FreeFormatEntity.hxx".}
-proc SetTypeNumber*(this: var IGESData_FreeFormatEntity; typenum: Standard_Integer) {.
+proc setTypeNumber*(this: var IGESDataFreeFormatEntity; typenum: int) {.
     importcpp: "SetTypeNumber", header: "IGESData_FreeFormatEntity.hxx".}
-proc SetFormNumber*(this: var IGESData_FreeFormatEntity; formnum: Standard_Integer) {.
+proc setFormNumber*(this: var IGESDataFreeFormatEntity; formnum: int) {.
     importcpp: "SetFormNumber", header: "IGESData_FreeFormatEntity.hxx".}
-proc NbParams*(this: IGESData_FreeFormatEntity): Standard_Integer {.noSideEffect,
+proc nbParams*(this: IGESDataFreeFormatEntity): int {.noSideEffect,
     importcpp: "NbParams", header: "IGESData_FreeFormatEntity.hxx".}
-proc ParamData*(this: IGESData_FreeFormatEntity; num: Standard_Integer;
-               ptype: var Interface_ParamType;
-               ent: var handle[IGESData_IGESEntity];
-               val: var handle[TCollection_HAsciiString]): Standard_Boolean {.
-    noSideEffect, importcpp: "ParamData", header: "IGESData_FreeFormatEntity.hxx".}
-proc ParamType*(this: IGESData_FreeFormatEntity; num: Standard_Integer): Interface_ParamType {.
+proc paramData*(this: IGESDataFreeFormatEntity; num: int;
+               ptype: var InterfaceParamType; ent: var Handle[IGESDataIGESEntity];
+               val: var Handle[TCollectionHAsciiString]): bool {.noSideEffect,
+    importcpp: "ParamData", header: "IGESData_FreeFormatEntity.hxx".}
+proc paramType*(this: IGESDataFreeFormatEntity; num: int): InterfaceParamType {.
     noSideEffect, importcpp: "ParamType", header: "IGESData_FreeFormatEntity.hxx".}
-proc IsParamEntity*(this: IGESData_FreeFormatEntity; num: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsParamEntity",
-    header: "IGESData_FreeFormatEntity.hxx".}
-proc ParamEntity*(this: IGESData_FreeFormatEntity; num: Standard_Integer): handle[
-    IGESData_IGESEntity] {.noSideEffect, importcpp: "ParamEntity",
-                          header: "IGESData_FreeFormatEntity.hxx".}
-proc IsNegativePointer*(this: IGESData_FreeFormatEntity; num: Standard_Integer): Standard_Boolean {.
+proc isParamEntity*(this: IGESDataFreeFormatEntity; num: int): bool {.noSideEffect,
+    importcpp: "IsParamEntity", header: "IGESData_FreeFormatEntity.hxx".}
+proc paramEntity*(this: IGESDataFreeFormatEntity; num: int): Handle[
+    IGESDataIGESEntity] {.noSideEffect, importcpp: "ParamEntity",
+                         header: "IGESData_FreeFormatEntity.hxx".}
+proc isNegativePointer*(this: IGESDataFreeFormatEntity; num: int): bool {.
     noSideEffect, importcpp: "IsNegativePointer",
     header: "IGESData_FreeFormatEntity.hxx".}
-proc ParamValue*(this: IGESData_FreeFormatEntity; num: Standard_Integer): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "ParamValue",
-                               header: "IGESData_FreeFormatEntity.hxx".}
-proc NegativePointers*(this: IGESData_FreeFormatEntity): handle[
-    TColStd_HSequenceOfInteger] {.noSideEffect, importcpp: "NegativePointers",
-                                 header: "IGESData_FreeFormatEntity.hxx".}
-proc AddLiteral*(this: var IGESData_FreeFormatEntity; ptype: Interface_ParamType;
-                val: handle[TCollection_HAsciiString]) {.importcpp: "AddLiteral",
+proc paramValue*(this: IGESDataFreeFormatEntity; num: int): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "ParamValue",
+                              header: "IGESData_FreeFormatEntity.hxx".}
+proc negativePointers*(this: IGESDataFreeFormatEntity): Handle[
+    TColStdHSequenceOfInteger] {.noSideEffect, importcpp: "NegativePointers",
+                                header: "IGESData_FreeFormatEntity.hxx".}
+proc addLiteral*(this: var IGESDataFreeFormatEntity; ptype: InterfaceParamType;
+                val: Handle[TCollectionHAsciiString]) {.importcpp: "AddLiteral",
     header: "IGESData_FreeFormatEntity.hxx".}
-proc AddLiteral*(this: var IGESData_FreeFormatEntity; ptype: Interface_ParamType;
-                val: Standard_CString) {.importcpp: "AddLiteral",
-                                       header: "IGESData_FreeFormatEntity.hxx".}
-proc AddEntity*(this: var IGESData_FreeFormatEntity; ptype: Interface_ParamType;
-               ent: handle[IGESData_IGESEntity];
-               negative: Standard_Boolean = Standard_False) {.
+proc addLiteral*(this: var IGESDataFreeFormatEntity; ptype: InterfaceParamType;
+                val: StandardCString) {.importcpp: "AddLiteral",
+                                      header: "IGESData_FreeFormatEntity.hxx".}
+proc addEntity*(this: var IGESDataFreeFormatEntity; ptype: InterfaceParamType;
+               ent: Handle[IGESDataIGESEntity]; negative: bool = false) {.
     importcpp: "AddEntity", header: "IGESData_FreeFormatEntity.hxx".}
-proc AddEntities*(this: var IGESData_FreeFormatEntity;
-                 ents: handle[IGESData_HArray1OfIGESEntity]) {.
+proc addEntities*(this: var IGESDataFreeFormatEntity;
+                 ents: Handle[IGESDataHArray1OfIGESEntity]) {.
     importcpp: "AddEntities", header: "IGESData_FreeFormatEntity.hxx".}
-proc AddNegativePointers*(this: var IGESData_FreeFormatEntity;
-                         list: handle[TColStd_HSequenceOfInteger]) {.
+proc addNegativePointers*(this: var IGESDataFreeFormatEntity;
+                         list: Handle[TColStdHSequenceOfInteger]) {.
     importcpp: "AddNegativePointers", header: "IGESData_FreeFormatEntity.hxx".}
-proc ClearNegativePointers*(this: var IGESData_FreeFormatEntity) {.
+proc clearNegativePointers*(this: var IGESDataFreeFormatEntity) {.
     importcpp: "ClearNegativePointers", header: "IGESData_FreeFormatEntity.hxx".}
-proc WriteOwnParams*(this: IGESData_FreeFormatEntity; IW: var IGESData_IGESWriter) {.
+proc writeOwnParams*(this: IGESDataFreeFormatEntity; iw: var IGESDataIGESWriter) {.
     noSideEffect, importcpp: "WriteOwnParams",
     header: "IGESData_FreeFormatEntity.hxx".}
 type
-  IGESData_FreeFormatEntitybase_type* = IGESData_UndefinedEntity
+  IGESDataFreeFormatEntitybaseType* = IGESDataUndefinedEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESData_FreeFormatEntity::get_type_name(@)",
-                              header: "IGESData_FreeFormatEntity.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESData_FreeFormatEntity::get_type_name(@)",
+                            header: "IGESData_FreeFormatEntity.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESData_FreeFormatEntity::get_type_descriptor(@)",
     header: "IGESData_FreeFormatEntity.hxx".}
-proc DynamicType*(this: IGESData_FreeFormatEntity): handle[Standard_Type] {.
+proc dynamicType*(this: IGESDataFreeFormatEntity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESData_FreeFormatEntity.hxx".}

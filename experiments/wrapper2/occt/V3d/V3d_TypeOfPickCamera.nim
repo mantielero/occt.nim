@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  V3d_TypeOfPickCamera* {.size: sizeof(cint), importcpp: "V3d_TypeOfPickCamera",
-                         header: "V3d_TypeOfPickCamera.hxx".} = enum
-    V3d_POSITIONCAMERA, V3d_SPACECAMERA, V3d_RADIUSTEXTCAMERA, V3d_ExtRADIUSCAMERA,
-    V3d_IntRADIUSCAMERA, V3d_NOTHINGCAMERA
+  V3dTypeOfPickCamera* {.size: sizeof(cint), importcpp: "V3d_TypeOfPickCamera",
+                        header: "V3d_TypeOfPickCamera.hxx".} = enum
+    V3dPOSITIONCAMERA, V3dSPACECAMERA, V3dRADIUSTEXTCAMERA, V3dExtRADIUSCAMERA,
+    V3dIntRADIUSCAMERA, V3dNOTHINGCAMERA
+
 

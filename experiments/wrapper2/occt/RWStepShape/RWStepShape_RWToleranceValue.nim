@@ -14,33 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_ToleranceValue"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShape_RWToleranceValue* {.importcpp: "RWStepShape_RWToleranceValue",
-                                 header: "RWStepShape_RWToleranceValue.hxx",
-                                 bycopy.} = object
+  RWStepShapeRWToleranceValue* {.importcpp: "RWStepShape_RWToleranceValue",
+                                header: "RWStepShape_RWToleranceValue.hxx", bycopy.} = object
 
 
-proc constructRWStepShape_RWToleranceValue*(): RWStepShape_RWToleranceValue {.
+proc constructRWStepShapeRWToleranceValue*(): RWStepShapeRWToleranceValue {.
     constructor, importcpp: "RWStepShape_RWToleranceValue(@)",
     header: "RWStepShape_RWToleranceValue.hxx".}
-proc ReadStep*(this: RWStepShape_RWToleranceValue;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepShape_ToleranceValue]) {.noSideEffect,
-    importcpp: "ReadStep", header: "RWStepShape_RWToleranceValue.hxx".}
-proc WriteStep*(this: RWStepShape_RWToleranceValue; SW: var StepData_StepWriter;
-               ent: handle[StepShape_ToleranceValue]) {.noSideEffect,
+proc readStep*(this: RWStepShapeRWToleranceValue;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck]; ent: Handle[StepShapeToleranceValue]) {.
+    noSideEffect, importcpp: "ReadStep", header: "RWStepShape_RWToleranceValue.hxx".}
+proc writeStep*(this: RWStepShapeRWToleranceValue; sw: var StepDataStepWriter;
+               ent: Handle[StepShapeToleranceValue]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWToleranceValue.hxx".}
-proc Share*(this: RWStepShape_RWToleranceValue;
-           ent: handle[StepShape_ToleranceValue];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
-    header: "RWStepShape_RWToleranceValue.hxx".}
+proc share*(this: RWStepShapeRWToleranceValue;
+           ent: Handle[StepShapeToleranceValue]; iter: var InterfaceEntityIterator) {.
+    noSideEffect, importcpp: "Share", header: "RWStepShape_RWToleranceValue.hxx".}

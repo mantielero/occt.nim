@@ -14,135 +14,112 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Pnt, ../gp/gp_Vec,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean, ../gp/gp_Vec2d
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Vec2d"
 type
-  Blend_Point* {.importcpp: "Blend_Point", header: "Blend_Point.hxx", bycopy.} = object
+  BlendPoint* {.importcpp: "Blend_Point", header: "Blend_Point.hxx", bycopy.} = object
 
 
-proc constructBlend_Point*(): Blend_Point {.constructor,
+proc constructBlendPoint*(): BlendPoint {.constructor, importcpp: "Blend_Point(@)",
+                                       header: "Blend_Point.hxx".}
+proc constructBlendPoint*(pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
+                         u2: float; v2: float; tg1: Vec; tg2: Vec; tg12d: Vec2d;
+                         tg22d: Vec2d): BlendPoint {.constructor,
     importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
-proc constructBlend_Point*(Pt1: gp_Pnt; Pt2: gp_Pnt; Param: Standard_Real;
-                          U1: Standard_Real; V1: Standard_Real; U2: Standard_Real;
-                          V2: Standard_Real; Tg1: gp_Vec; Tg2: gp_Vec;
-                          Tg12d: gp_Vec2d; Tg22d: gp_Vec2d): Blend_Point {.
-    constructor, importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
-proc constructBlend_Point*(Pt1: gp_Pnt; Pt2: gp_Pnt; Param: Standard_Real;
-                          U1: Standard_Real; V1: Standard_Real; U2: Standard_Real;
-                          V2: Standard_Real): Blend_Point {.constructor,
+proc constructBlendPoint*(pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
+                         u2: float; v2: float): BlendPoint {.constructor,
     importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
-proc constructBlend_Point*(Pts: gp_Pnt; Ptc: gp_Pnt; Param: Standard_Real;
-                          U: Standard_Real; V: Standard_Real; W: Standard_Real;
-                          Tgs: gp_Vec; Tgc: gp_Vec; Tg2d: gp_Vec2d): Blend_Point {.
+proc constructBlendPoint*(pts: Pnt; ptc: Pnt; param: float; u: float; v: float; w: float;
+                         tgs: Vec; tgc: Vec; tg2d: Vec2d): BlendPoint {.constructor,
+    importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
+proc constructBlendPoint*(pts: Pnt; ptc: Pnt; param: float; u: float; v: float; w: float): BlendPoint {.
     constructor, importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
-proc constructBlend_Point*(Pts: gp_Pnt; Ptc: gp_Pnt; Param: Standard_Real;
-                          U: Standard_Real; V: Standard_Real; W: Standard_Real): Blend_Point {.
+proc constructBlendPoint*(pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
+                         u2: float; v2: float; pc: float; tg1: Vec; tg2: Vec;
+                         tg12d: Vec2d; tg22d: Vec2d): BlendPoint {.constructor,
+    importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
+proc constructBlendPoint*(pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
+                         u2: float; v2: float; pc: float): BlendPoint {.constructor,
+    importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
+proc constructBlendPoint*(pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
+                         u2: float; v2: float; pc1: float; pc2: float; tg1: Vec; tg2: Vec;
+                         tg12d: Vec2d; tg22d: Vec2d): BlendPoint {.constructor,
+    importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
+proc constructBlendPoint*(pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
+                         u2: float; v2: float; pc1: float; pc2: float): BlendPoint {.
     constructor, importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
-proc constructBlend_Point*(Pt1: gp_Pnt; Pt2: gp_Pnt; Param: Standard_Real;
-                          U1: Standard_Real; V1: Standard_Real; U2: Standard_Real;
-                          V2: Standard_Real; PC: Standard_Real; Tg1: gp_Vec;
-                          Tg2: gp_Vec; Tg12d: gp_Vec2d; Tg22d: gp_Vec2d): Blend_Point {.
-    constructor, importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
-proc constructBlend_Point*(Pt1: gp_Pnt; Pt2: gp_Pnt; Param: Standard_Real;
-                          U1: Standard_Real; V1: Standard_Real; U2: Standard_Real;
-                          V2: Standard_Real; PC: Standard_Real): Blend_Point {.
-    constructor, importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
-proc constructBlend_Point*(Pt1: gp_Pnt; Pt2: gp_Pnt; Param: Standard_Real;
-                          U1: Standard_Real; V1: Standard_Real; U2: Standard_Real;
-                          V2: Standard_Real; PC1: Standard_Real; PC2: Standard_Real;
-                          Tg1: gp_Vec; Tg2: gp_Vec; Tg12d: gp_Vec2d; Tg22d: gp_Vec2d): Blend_Point {.
-    constructor, importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
-proc constructBlend_Point*(Pt1: gp_Pnt; Pt2: gp_Pnt; Param: Standard_Real;
-                          U1: Standard_Real; V1: Standard_Real; U2: Standard_Real;
-                          V2: Standard_Real; PC1: Standard_Real; PC2: Standard_Real): Blend_Point {.
-    constructor, importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
-proc SetValue*(this: var Blend_Point; Pt1: gp_Pnt; Pt2: gp_Pnt; Param: Standard_Real;
-              U1: Standard_Real; V1: Standard_Real; U2: Standard_Real;
-              V2: Standard_Real; Tg1: gp_Vec; Tg2: gp_Vec; Tg12d: gp_Vec2d;
-              Tg22d: gp_Vec2d) {.importcpp: "SetValue", header: "Blend_Point.hxx".}
-proc SetValue*(this: var Blend_Point; Pt1: gp_Pnt; Pt2: gp_Pnt; Param: Standard_Real;
-              U1: Standard_Real; V1: Standard_Real; U2: Standard_Real;
-              V2: Standard_Real) {.importcpp: "SetValue", header: "Blend_Point.hxx".}
-proc SetValue*(this: var Blend_Point; Pts: gp_Pnt; Ptc: gp_Pnt; Param: Standard_Real;
-              U: Standard_Real; V: Standard_Real; W: Standard_Real; Tgs: gp_Vec;
-              Tgc: gp_Vec; Tg2d: gp_Vec2d) {.importcpp: "SetValue",
-    header: "Blend_Point.hxx".}
-proc SetValue*(this: var Blend_Point; Pts: gp_Pnt; Ptc: gp_Pnt; Param: Standard_Real;
-              U: Standard_Real; V: Standard_Real; W: Standard_Real) {.
+proc setValue*(this: var BlendPoint; pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
+              u2: float; v2: float; tg1: Vec; tg2: Vec; tg12d: Vec2d; tg22d: Vec2d) {.
     importcpp: "SetValue", header: "Blend_Point.hxx".}
-proc SetValue*(this: var Blend_Point; Pt1: gp_Pnt; Pt2: gp_Pnt; Param: Standard_Real;
-              U1: Standard_Real; V1: Standard_Real; U2: Standard_Real;
-              V2: Standard_Real; PC: Standard_Real; Tg1: gp_Vec; Tg2: gp_Vec;
-              Tg12d: gp_Vec2d; Tg22d: gp_Vec2d) {.importcpp: "SetValue",
+proc setValue*(this: var BlendPoint; pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
+              u2: float; v2: float) {.importcpp: "SetValue", header: "Blend_Point.hxx".}
+proc setValue*(this: var BlendPoint; pts: Pnt; ptc: Pnt; param: float; u: float; v: float;
+              w: float; tgs: Vec; tgc: Vec; tg2d: Vec2d) {.importcpp: "SetValue",
     header: "Blend_Point.hxx".}
-proc SetValue*(this: var Blend_Point; Pt1: gp_Pnt; Pt2: gp_Pnt; Param: Standard_Real;
-              U1: Standard_Real; V1: Standard_Real; U2: Standard_Real;
-              V2: Standard_Real; PC: Standard_Real) {.importcpp: "SetValue",
+proc setValue*(this: var BlendPoint; pts: Pnt; ptc: Pnt; param: float; u: float; v: float;
+              w: float) {.importcpp: "SetValue", header: "Blend_Point.hxx".}
+proc setValue*(this: var BlendPoint; pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
+              u2: float; v2: float; pc: float; tg1: Vec; tg2: Vec; tg12d: Vec2d;
+              tg22d: Vec2d) {.importcpp: "SetValue", header: "Blend_Point.hxx".}
+proc setValue*(this: var BlendPoint; pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
+              u2: float; v2: float; pc: float) {.importcpp: "SetValue",
     header: "Blend_Point.hxx".}
-proc SetValue*(this: var Blend_Point; Pt1: gp_Pnt; Pt2: gp_Pnt; Param: Standard_Real;
-              U1: Standard_Real; V1: Standard_Real; U2: Standard_Real;
-              V2: Standard_Real; PC1: Standard_Real; PC2: Standard_Real; Tg1: gp_Vec;
-              Tg2: gp_Vec; Tg12d: gp_Vec2d; Tg22d: gp_Vec2d) {.importcpp: "SetValue",
+proc setValue*(this: var BlendPoint; pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
+              u2: float; v2: float; pc1: float; pc2: float; tg1: Vec; tg2: Vec;
+              tg12d: Vec2d; tg22d: Vec2d) {.importcpp: "SetValue",
+                                        header: "Blend_Point.hxx".}
+proc setValue*(this: var BlendPoint; pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
+              u2: float; v2: float; pc1: float; pc2: float) {.importcpp: "SetValue",
     header: "Blend_Point.hxx".}
-proc SetValue*(this: var Blend_Point; Pt1: gp_Pnt; Pt2: gp_Pnt; Param: Standard_Real;
-              U1: Standard_Real; V1: Standard_Real; U2: Standard_Real;
-              V2: Standard_Real; PC1: Standard_Real; PC2: Standard_Real) {.
-    importcpp: "SetValue", header: "Blend_Point.hxx".}
-proc SetValue*(this: var Blend_Point; Pt1: gp_Pnt; Pt2: gp_Pnt; Param: Standard_Real;
-              PC1: Standard_Real; PC2: Standard_Real) {.importcpp: "SetValue",
+proc setValue*(this: var BlendPoint; pt1: Pnt; pt2: Pnt; param: float; pc1: float;
+              pc2: float) {.importcpp: "SetValue", header: "Blend_Point.hxx".}
+proc setParameter*(this: var BlendPoint; param: float) {.importcpp: "SetParameter",
     header: "Blend_Point.hxx".}
-proc SetParameter*(this: var Blend_Point; Param: Standard_Real) {.
-    importcpp: "SetParameter", header: "Blend_Point.hxx".}
-proc Parameter*(this: Blend_Point): Standard_Real {.noSideEffect,
-    importcpp: "Parameter", header: "Blend_Point.hxx".}
-proc IsTangencyPoint*(this: Blend_Point): Standard_Boolean {.noSideEffect,
+proc parameter*(this: BlendPoint): float {.noSideEffect, importcpp: "Parameter",
+                                       header: "Blend_Point.hxx".}
+proc isTangencyPoint*(this: BlendPoint): bool {.noSideEffect,
     importcpp: "IsTangencyPoint", header: "Blend_Point.hxx".}
-proc PointOnS1*(this: Blend_Point): gp_Pnt {.noSideEffect, importcpp: "PointOnS1",
-    header: "Blend_Point.hxx".}
-proc PointOnS2*(this: Blend_Point): gp_Pnt {.noSideEffect, importcpp: "PointOnS2",
-    header: "Blend_Point.hxx".}
-proc ParametersOnS1*(this: Blend_Point; U: var Standard_Real; V: var Standard_Real) {.
-    noSideEffect, importcpp: "ParametersOnS1", header: "Blend_Point.hxx".}
-proc ParametersOnS2*(this: Blend_Point; U: var Standard_Real; V: var Standard_Real) {.
-    noSideEffect, importcpp: "ParametersOnS2", header: "Blend_Point.hxx".}
-proc TangentOnS1*(this: Blend_Point): gp_Vec {.noSideEffect,
-    importcpp: "TangentOnS1", header: "Blend_Point.hxx".}
-proc TangentOnS2*(this: Blend_Point): gp_Vec {.noSideEffect,
-    importcpp: "TangentOnS2", header: "Blend_Point.hxx".}
-proc Tangent2dOnS1*(this: Blend_Point): gp_Vec2d {.noSideEffect,
+proc pointOnS1*(this: BlendPoint): Pnt {.noSideEffect, importcpp: "PointOnS1",
+                                     header: "Blend_Point.hxx".}
+proc pointOnS2*(this: BlendPoint): Pnt {.noSideEffect, importcpp: "PointOnS2",
+                                     header: "Blend_Point.hxx".}
+proc parametersOnS1*(this: BlendPoint; u: var float; v: var float) {.noSideEffect,
+    importcpp: "ParametersOnS1", header: "Blend_Point.hxx".}
+proc parametersOnS2*(this: BlendPoint; u: var float; v: var float) {.noSideEffect,
+    importcpp: "ParametersOnS2", header: "Blend_Point.hxx".}
+proc tangentOnS1*(this: BlendPoint): Vec {.noSideEffect, importcpp: "TangentOnS1",
+                                       header: "Blend_Point.hxx".}
+proc tangentOnS2*(this: BlendPoint): Vec {.noSideEffect, importcpp: "TangentOnS2",
+                                       header: "Blend_Point.hxx".}
+proc tangent2dOnS1*(this: BlendPoint): Vec2d {.noSideEffect,
     importcpp: "Tangent2dOnS1", header: "Blend_Point.hxx".}
-proc Tangent2dOnS2*(this: Blend_Point): gp_Vec2d {.noSideEffect,
+proc tangent2dOnS2*(this: BlendPoint): Vec2d {.noSideEffect,
     importcpp: "Tangent2dOnS2", header: "Blend_Point.hxx".}
-proc PointOnS*(this: Blend_Point): gp_Pnt {.noSideEffect, importcpp: "PointOnS",
-                                        header: "Blend_Point.hxx".}
-proc PointOnC*(this: Blend_Point): gp_Pnt {.noSideEffect, importcpp: "PointOnC",
-                                        header: "Blend_Point.hxx".}
-proc ParametersOnS*(this: Blend_Point; U: var Standard_Real; V: var Standard_Real) {.
-    noSideEffect, importcpp: "ParametersOnS", header: "Blend_Point.hxx".}
-proc ParameterOnC*(this: Blend_Point): Standard_Real {.noSideEffect,
+proc pointOnS*(this: BlendPoint): Pnt {.noSideEffect, importcpp: "PointOnS",
+                                    header: "Blend_Point.hxx".}
+proc pointOnC*(this: BlendPoint): Pnt {.noSideEffect, importcpp: "PointOnC",
+                                    header: "Blend_Point.hxx".}
+proc parametersOnS*(this: BlendPoint; u: var float; v: var float) {.noSideEffect,
+    importcpp: "ParametersOnS", header: "Blend_Point.hxx".}
+proc parameterOnC*(this: BlendPoint): float {.noSideEffect,
     importcpp: "ParameterOnC", header: "Blend_Point.hxx".}
-proc TangentOnS*(this: Blend_Point): gp_Vec {.noSideEffect, importcpp: "TangentOnS",
-    header: "Blend_Point.hxx".}
-proc TangentOnC*(this: Blend_Point): gp_Vec {.noSideEffect, importcpp: "TangentOnC",
-    header: "Blend_Point.hxx".}
-proc Tangent2d*(this: Blend_Point): gp_Vec2d {.noSideEffect, importcpp: "Tangent2d",
-    header: "Blend_Point.hxx".}
-proc PointOnC1*(this: Blend_Point): gp_Pnt {.noSideEffect, importcpp: "PointOnC1",
-    header: "Blend_Point.hxx".}
-proc PointOnC2*(this: Blend_Point): gp_Pnt {.noSideEffect, importcpp: "PointOnC2",
-    header: "Blend_Point.hxx".}
-proc ParameterOnC1*(this: Blend_Point): Standard_Real {.noSideEffect,
+proc tangentOnS*(this: BlendPoint): Vec {.noSideEffect, importcpp: "TangentOnS",
+                                      header: "Blend_Point.hxx".}
+proc tangentOnC*(this: BlendPoint): Vec {.noSideEffect, importcpp: "TangentOnC",
+                                      header: "Blend_Point.hxx".}
+proc tangent2d*(this: BlendPoint): Vec2d {.noSideEffect, importcpp: "Tangent2d",
+                                       header: "Blend_Point.hxx".}
+proc pointOnC1*(this: BlendPoint): Pnt {.noSideEffect, importcpp: "PointOnC1",
+                                     header: "Blend_Point.hxx".}
+proc pointOnC2*(this: BlendPoint): Pnt {.noSideEffect, importcpp: "PointOnC2",
+                                     header: "Blend_Point.hxx".}
+proc parameterOnC1*(this: BlendPoint): float {.noSideEffect,
     importcpp: "ParameterOnC1", header: "Blend_Point.hxx".}
-proc ParameterOnC2*(this: Blend_Point): Standard_Real {.noSideEffect,
+proc parameterOnC2*(this: BlendPoint): float {.noSideEffect,
     importcpp: "ParameterOnC2", header: "Blend_Point.hxx".}
-proc TangentOnC1*(this: Blend_Point): gp_Vec {.noSideEffect,
-    importcpp: "TangentOnC1", header: "Blend_Point.hxx".}
-proc TangentOnC2*(this: Blend_Point): gp_Vec {.noSideEffect,
-    importcpp: "TangentOnC2", header: "Blend_Point.hxx".}
+proc tangentOnC1*(this: BlendPoint): Vec {.noSideEffect, importcpp: "TangentOnC1",
+                                       header: "Blend_Point.hxx".}
+proc tangentOnC2*(this: BlendPoint): Vec {.noSideEffect, importcpp: "TangentOnC2",
+                                       header: "Blend_Point.hxx".}

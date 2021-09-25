@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../IntPatch/IntPatch_Intersection,
-  GeomInt_LineConstructor, ../Standard/Standard_Integer,
-  ../TColGeom/TColGeom_SequenceOfCurve, ../TColGeom2d/TColGeom2d_SequenceOfCurve,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean, ../gp/gp_Pnt,
-  GeomInt_VectorOfReal
-
 discard "forward decl of GeomAdaptor_HSurface"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
@@ -34,97 +26,82 @@ discard "forward decl of Bnd_Box2d"
 discard "forward decl of Adaptor3d_TopolTool"
 discard "forward decl of IntPatch_WLine"
 type
-  GeomInt_IntSS* {.importcpp: "GeomInt_IntSS", header: "GeomInt_IntSS.hxx", bycopy.} = object
+  GeomIntIntSS* {.importcpp: "GeomInt_IntSS", header: "GeomInt_IntSS.hxx", bycopy.} = object
 
 
-proc constructGeomInt_IntSS*(): GeomInt_IntSS {.constructor,
+proc constructGeomIntIntSS*(): GeomIntIntSS {.constructor,
     importcpp: "GeomInt_IntSS(@)", header: "GeomInt_IntSS.hxx".}
-proc constructGeomInt_IntSS*(S1: handle[Geom_Surface]; S2: handle[Geom_Surface];
-                            Tol: Standard_Real;
-                            Approx: Standard_Boolean = Standard_True;
-                            ApproxS1: Standard_Boolean = Standard_False;
-                            ApproxS2: Standard_Boolean = Standard_False): GeomInt_IntSS {.
-    constructor, importcpp: "GeomInt_IntSS(@)", header: "GeomInt_IntSS.hxx".}
-proc Perform*(this: var GeomInt_IntSS; S1: handle[Geom_Surface];
-             S2: handle[Geom_Surface]; Tol: Standard_Real;
-             Approx: Standard_Boolean = Standard_True;
-             ApproxS1: Standard_Boolean = Standard_False;
-             ApproxS2: Standard_Boolean = Standard_False) {.importcpp: "Perform",
+proc constructGeomIntIntSS*(s1: Handle[GeomSurface]; s2: Handle[GeomSurface];
+                           tol: float; approx: bool = true; approxS1: bool = false;
+                           approxS2: bool = false): GeomIntIntSS {.constructor,
+    importcpp: "GeomInt_IntSS(@)", header: "GeomInt_IntSS.hxx".}
+proc perform*(this: var GeomIntIntSS; s1: Handle[GeomSurface];
+             s2: Handle[GeomSurface]; tol: float; approx: bool = true;
+             approxS1: bool = false; approxS2: bool = false) {.importcpp: "Perform",
     header: "GeomInt_IntSS.hxx".}
-proc Perform*(this: var GeomInt_IntSS; HS1: handle[GeomAdaptor_HSurface];
-             HS2: handle[GeomAdaptor_HSurface]; Tol: Standard_Real;
-             Approx: Standard_Boolean = Standard_True;
-             ApproxS1: Standard_Boolean = Standard_False;
-             ApproxS2: Standard_Boolean = Standard_False) {.importcpp: "Perform",
+proc perform*(this: var GeomIntIntSS; hs1: Handle[GeomAdaptorHSurface];
+             hs2: Handle[GeomAdaptorHSurface]; tol: float; approx: bool = true;
+             approxS1: bool = false; approxS2: bool = false) {.importcpp: "Perform",
     header: "GeomInt_IntSS.hxx".}
-proc Perform*(this: var GeomInt_IntSS; S1: handle[Geom_Surface];
-             S2: handle[Geom_Surface]; Tol: Standard_Real; U1: Standard_Real;
-             V1: Standard_Real; U2: Standard_Real; V2: Standard_Real;
-             Approx: Standard_Boolean = Standard_True;
-             ApproxS1: Standard_Boolean = Standard_False;
-             ApproxS2: Standard_Boolean = Standard_False) {.importcpp: "Perform",
-    header: "GeomInt_IntSS.hxx".}
-proc Perform*(this: var GeomInt_IntSS; HS1: handle[GeomAdaptor_HSurface];
-             HS2: handle[GeomAdaptor_HSurface]; Tol: Standard_Real;
-             U1: Standard_Real; V1: Standard_Real; U2: Standard_Real;
-             V2: Standard_Real; Approx: Standard_Boolean = Standard_True;
-             ApproxS1: Standard_Boolean = Standard_False;
-             ApproxS2: Standard_Boolean = Standard_False) {.importcpp: "Perform",
-    header: "GeomInt_IntSS.hxx".}
-proc IsDone*(this: GeomInt_IntSS): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "GeomInt_IntSS.hxx".}
-proc TolReached3d*(this: GeomInt_IntSS): Standard_Real {.noSideEffect,
+proc perform*(this: var GeomIntIntSS; s1: Handle[GeomSurface];
+             s2: Handle[GeomSurface]; tol: float; u1: float; v1: float; u2: float;
+             v2: float; approx: bool = true; approxS1: bool = false;
+             approxS2: bool = false) {.importcpp: "Perform",
+                                   header: "GeomInt_IntSS.hxx".}
+proc perform*(this: var GeomIntIntSS; hs1: Handle[GeomAdaptorHSurface];
+             hs2: Handle[GeomAdaptorHSurface]; tol: float; u1: float; v1: float;
+             u2: float; v2: float; approx: bool = true; approxS1: bool = false;
+             approxS2: bool = false) {.importcpp: "Perform",
+                                   header: "GeomInt_IntSS.hxx".}
+proc isDone*(this: GeomIntIntSS): bool {.noSideEffect, importcpp: "IsDone",
+                                     header: "GeomInt_IntSS.hxx".}
+proc tolReached3d*(this: GeomIntIntSS): float {.noSideEffect,
     importcpp: "TolReached3d", header: "GeomInt_IntSS.hxx".}
-proc TolReached2d*(this: GeomInt_IntSS): Standard_Real {.noSideEffect,
+proc tolReached2d*(this: GeomIntIntSS): float {.noSideEffect,
     importcpp: "TolReached2d", header: "GeomInt_IntSS.hxx".}
-proc NbLines*(this: GeomInt_IntSS): Standard_Integer {.noSideEffect,
-    importcpp: "NbLines", header: "GeomInt_IntSS.hxx".}
-proc Line*(this: GeomInt_IntSS; Index: Standard_Integer): handle[Geom_Curve] {.
-    noSideEffect, importcpp: "Line", header: "GeomInt_IntSS.hxx".}
-proc HasLineOnS1*(this: GeomInt_IntSS; Index: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "HasLineOnS1", header: "GeomInt_IntSS.hxx".}
-proc LineOnS1*(this: GeomInt_IntSS; Index: Standard_Integer): handle[Geom2d_Curve] {.
-    noSideEffect, importcpp: "LineOnS1", header: "GeomInt_IntSS.hxx".}
-proc HasLineOnS2*(this: GeomInt_IntSS; Index: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "HasLineOnS2", header: "GeomInt_IntSS.hxx".}
-proc LineOnS2*(this: GeomInt_IntSS; Index: Standard_Integer): handle[Geom2d_Curve] {.
-    noSideEffect, importcpp: "LineOnS2", header: "GeomInt_IntSS.hxx".}
-proc NbBoundaries*(this: GeomInt_IntSS): Standard_Integer {.noSideEffect,
+proc nbLines*(this: GeomIntIntSS): int {.noSideEffect, importcpp: "NbLines",
+                                     header: "GeomInt_IntSS.hxx".}
+proc line*(this: GeomIntIntSS; index: int): Handle[GeomCurve] {.noSideEffect,
+    importcpp: "Line", header: "GeomInt_IntSS.hxx".}
+proc hasLineOnS1*(this: GeomIntIntSS; index: int): bool {.noSideEffect,
+    importcpp: "HasLineOnS1", header: "GeomInt_IntSS.hxx".}
+proc lineOnS1*(this: GeomIntIntSS; index: int): Handle[Geom2dCurve] {.noSideEffect,
+    importcpp: "LineOnS1", header: "GeomInt_IntSS.hxx".}
+proc hasLineOnS2*(this: GeomIntIntSS; index: int): bool {.noSideEffect,
+    importcpp: "HasLineOnS2", header: "GeomInt_IntSS.hxx".}
+proc lineOnS2*(this: GeomIntIntSS; index: int): Handle[Geom2dCurve] {.noSideEffect,
+    importcpp: "LineOnS2", header: "GeomInt_IntSS.hxx".}
+proc nbBoundaries*(this: GeomIntIntSS): int {.noSideEffect,
     importcpp: "NbBoundaries", header: "GeomInt_IntSS.hxx".}
-proc Boundary*(this: GeomInt_IntSS; Index: Standard_Integer): handle[Geom_Curve] {.
-    noSideEffect, importcpp: "Boundary", header: "GeomInt_IntSS.hxx".}
-proc NbPoints*(this: GeomInt_IntSS): Standard_Integer {.noSideEffect,
-    importcpp: "NbPoints", header: "GeomInt_IntSS.hxx".}
-proc Point*(this: GeomInt_IntSS; Index: Standard_Integer): gp_Pnt {.noSideEffect,
-    importcpp: "Point", header: "GeomInt_IntSS.hxx".}
-proc Pnt2d*(this: GeomInt_IntSS; Index: Standard_Integer; OnFirst: Standard_Boolean): gp_Pnt2d {.
-    noSideEffect, importcpp: "Pnt2d", header: "GeomInt_IntSS.hxx".}
-proc SetTolFixTangents*(this: var GeomInt_IntSS; aTolCheck: Standard_Real;
-                       aTolAngCheck: Standard_Real) {.
-    importcpp: "SetTolFixTangents", header: "GeomInt_IntSS.hxx".}
-proc TolFixTangents*(this: var GeomInt_IntSS; aTolCheck: var Standard_Real;
-                    aTolAngCheck: var Standard_Real) {.importcpp: "TolFixTangents",
+proc boundary*(this: GeomIntIntSS; index: int): Handle[GeomCurve] {.noSideEffect,
+    importcpp: "Boundary", header: "GeomInt_IntSS.hxx".}
+proc nbPoints*(this: GeomIntIntSS): int {.noSideEffect, importcpp: "NbPoints",
+                                      header: "GeomInt_IntSS.hxx".}
+proc point*(this: GeomIntIntSS; index: int): Pnt {.noSideEffect, importcpp: "Point",
     header: "GeomInt_IntSS.hxx".}
-proc TreatRLine*(theRL: handle[IntPatch_RLine];
-                theHS1: handle[GeomAdaptor_HSurface];
-                theHS2: handle[GeomAdaptor_HSurface];
-                theC3d: var handle[Geom_Curve]; theC2d1: var handle[Geom2d_Curve];
-                theC2d2: var handle[Geom2d_Curve]; theTolReached: var Standard_Real) {.
+proc pnt2d*(this: GeomIntIntSS; index: int; onFirst: bool): Pnt2d {.noSideEffect,
+    importcpp: "Pnt2d", header: "GeomInt_IntSS.hxx".}
+proc setTolFixTangents*(this: var GeomIntIntSS; aTolCheck: float; aTolAngCheck: float) {.
+    importcpp: "SetTolFixTangents", header: "GeomInt_IntSS.hxx".}
+proc tolFixTangents*(this: var GeomIntIntSS; aTolCheck: var float;
+                    aTolAngCheck: var float) {.importcpp: "TolFixTangents",
+    header: "GeomInt_IntSS.hxx".}
+proc treatRLine*(theRL: Handle[IntPatchRLine]; theHS1: Handle[GeomAdaptorHSurface];
+                theHS2: Handle[GeomAdaptorHSurface];
+                theC3d: var Handle[GeomCurve]; theC2d1: var Handle[Geom2dCurve];
+                theC2d2: var Handle[Geom2dCurve]; theTolReached: var float) {.
     importcpp: "GeomInt_IntSS::TreatRLine(@)", header: "GeomInt_IntSS.hxx".}
-proc BuildPCurves*(f: Standard_Real; l: Standard_Real; Tol: var Standard_Real;
-                  S: handle[Geom_Surface]; C: handle[Geom_Curve];
-                  C2d: var handle[Geom2d_Curve]) {.
+proc buildPCurves*(f: float; l: float; tol: var float; s: Handle[GeomSurface];
+                  c: Handle[GeomCurve]; c2d: var Handle[Geom2dCurve]) {.
     importcpp: "GeomInt_IntSS::BuildPCurves(@)", header: "GeomInt_IntSS.hxx".}
-proc TrimILineOnSurfBoundaries*(theC2d1: handle[Geom2d_Curve];
-                               theC2d2: handle[Geom2d_Curve];
-                               theBound1: Bnd_Box2d; theBound2: Bnd_Box2d;
-                               theArrayOfParameters: var GeomInt_VectorOfReal) {.
+proc trimILineOnSurfBoundaries*(theC2d1: Handle[Geom2dCurve];
+                               theC2d2: Handle[Geom2dCurve]; theBound1: BndBox2d;
+                               theBound2: BndBox2d;
+                               theArrayOfParameters: var GeomIntVectorOfReal) {.
     importcpp: "GeomInt_IntSS::TrimILineOnSurfBoundaries(@)",
     header: "GeomInt_IntSS.hxx".}
-proc MakeBSpline*(WL: handle[IntPatch_WLine]; ideb: Standard_Integer;
-                 ifin: Standard_Integer): handle[Geom_Curve] {.
+proc makeBSpline*(wl: Handle[IntPatchWLine]; ideb: int; ifin: int): Handle[GeomCurve] {.
     importcpp: "GeomInt_IntSS::MakeBSpline(@)", header: "GeomInt_IntSS.hxx".}
-proc MakeBSpline2d*(theWLine: handle[IntPatch_WLine]; ideb: Standard_Integer;
-                   ifin: Standard_Integer; onFirst: Standard_Boolean): handle[
-    Geom2d_BSplineCurve] {.importcpp: "GeomInt_IntSS::MakeBSpline2d(@)",
-                          header: "GeomInt_IntSS.hxx".}
+proc makeBSpline2d*(theWLine: Handle[IntPatchWLine]; ideb: int; ifin: int;
+                   onFirst: bool): Handle[Geom2dBSplineCurve] {.
+    importcpp: "GeomInt_IntSS::MakeBSpline2d(@)", header: "GeomInt_IntSS.hxx".}

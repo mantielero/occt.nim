@@ -14,72 +14,67 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Address, ../Standard/Standard_Transient,
-  ../Standard/Standard_Boolean, MAT_Side
-
 discard "forward decl of MAT_BasicElt"
 discard "forward decl of MAT_Node"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of MAT_Arc"
 discard "forward decl of MAT_Arc"
 type
-  Handle_MAT_Arc* = handle[MAT_Arc]
+  HandleMAT_Arc* = Handle[MAT_Arc]
 
 ## ! An Arc is associated to each Bisecting of the mat.
 
 type
-  MAT_Arc* {.importcpp: "MAT_Arc", header: "MAT_Arc.hxx", bycopy.} = object of Standard_Transient
+  MAT_Arc* {.importcpp: "MAT_Arc", header: "MAT_Arc.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructMAT_Arc*(ArcIndex: Standard_Integer; GeomIndex: Standard_Integer;
-                      FirstElement: handle[MAT_BasicElt];
-                      SecondElement: handle[MAT_BasicElt]): MAT_Arc {.constructor,
+proc constructMAT_Arc*(arcIndex: int; geomIndex: int;
+                      firstElement: Handle[MAT_BasicElt];
+                      secondElement: Handle[MAT_BasicElt]): MAT_Arc {.constructor,
     importcpp: "MAT_Arc(@)", header: "MAT_Arc.hxx".}
-proc Index*(this: MAT_Arc): Standard_Integer {.noSideEffect, importcpp: "Index",
-    header: "MAT_Arc.hxx".}
-proc GeomIndex*(this: MAT_Arc): Standard_Integer {.noSideEffect,
-    importcpp: "GeomIndex", header: "MAT_Arc.hxx".}
-proc FirstElement*(this: MAT_Arc): handle[MAT_BasicElt] {.noSideEffect,
+proc index*(this: MAT_Arc): int {.noSideEffect, importcpp: "Index",
+                              header: "MAT_Arc.hxx".}
+proc geomIndex*(this: MAT_Arc): int {.noSideEffect, importcpp: "GeomIndex",
+                                  header: "MAT_Arc.hxx".}
+proc firstElement*(this: MAT_Arc): Handle[MAT_BasicElt] {.noSideEffect,
     importcpp: "FirstElement", header: "MAT_Arc.hxx".}
-proc SecondElement*(this: MAT_Arc): handle[MAT_BasicElt] {.noSideEffect,
+proc secondElement*(this: MAT_Arc): Handle[MAT_BasicElt] {.noSideEffect,
     importcpp: "SecondElement", header: "MAT_Arc.hxx".}
-proc FirstNode*(this: MAT_Arc): handle[MAT_Node] {.noSideEffect,
+proc firstNode*(this: MAT_Arc): Handle[MAT_Node] {.noSideEffect,
     importcpp: "FirstNode", header: "MAT_Arc.hxx".}
-proc SecondNode*(this: MAT_Arc): handle[MAT_Node] {.noSideEffect,
+proc secondNode*(this: MAT_Arc): Handle[MAT_Node] {.noSideEffect,
     importcpp: "SecondNode", header: "MAT_Arc.hxx".}
-proc TheOtherNode*(this: MAT_Arc; aNode: handle[MAT_Node]): handle[MAT_Node] {.
+proc theOtherNode*(this: MAT_Arc; aNode: Handle[MAT_Node]): Handle[MAT_Node] {.
     noSideEffect, importcpp: "TheOtherNode", header: "MAT_Arc.hxx".}
-proc HasNeighbour*(this: MAT_Arc; aNode: handle[MAT_Node]; aSide: MAT_Side): Standard_Boolean {.
+proc hasNeighbour*(this: MAT_Arc; aNode: Handle[MAT_Node]; aSide: MAT_Side): bool {.
     noSideEffect, importcpp: "HasNeighbour", header: "MAT_Arc.hxx".}
-proc Neighbour*(this: MAT_Arc; aNode: handle[MAT_Node]; aSide: MAT_Side): handle[
+proc neighbour*(this: MAT_Arc; aNode: Handle[MAT_Node]; aSide: MAT_Side): Handle[
     MAT_Arc] {.noSideEffect, importcpp: "Neighbour", header: "MAT_Arc.hxx".}
-proc SetIndex*(this: var MAT_Arc; anInteger: Standard_Integer) {.
-    importcpp: "SetIndex", header: "MAT_Arc.hxx".}
-proc SetGeomIndex*(this: var MAT_Arc; anInteger: Standard_Integer) {.
-    importcpp: "SetGeomIndex", header: "MAT_Arc.hxx".}
-proc SetFirstElement*(this: var MAT_Arc; aBasicElt: handle[MAT_BasicElt]) {.
+proc setIndex*(this: var MAT_Arc; anInteger: int) {.importcpp: "SetIndex",
+    header: "MAT_Arc.hxx".}
+proc setGeomIndex*(this: var MAT_Arc; anInteger: int) {.importcpp: "SetGeomIndex",
+    header: "MAT_Arc.hxx".}
+proc setFirstElement*(this: var MAT_Arc; aBasicElt: Handle[MAT_BasicElt]) {.
     importcpp: "SetFirstElement", header: "MAT_Arc.hxx".}
-proc SetSecondElement*(this: var MAT_Arc; aBasicElt: handle[MAT_BasicElt]) {.
+proc setSecondElement*(this: var MAT_Arc; aBasicElt: Handle[MAT_BasicElt]) {.
     importcpp: "SetSecondElement", header: "MAT_Arc.hxx".}
-proc SetFirstNode*(this: var MAT_Arc; aNode: handle[MAT_Node]) {.
+proc setFirstNode*(this: var MAT_Arc; aNode: Handle[MAT_Node]) {.
     importcpp: "SetFirstNode", header: "MAT_Arc.hxx".}
-proc SetSecondNode*(this: var MAT_Arc; aNode: handle[MAT_Node]) {.
+proc setSecondNode*(this: var MAT_Arc; aNode: Handle[MAT_Node]) {.
     importcpp: "SetSecondNode", header: "MAT_Arc.hxx".}
-proc SetFirstArc*(this: var MAT_Arc; aSide: MAT_Side; anArc: handle[MAT_Arc]) {.
+proc setFirstArc*(this: var MAT_Arc; aSide: MAT_Side; anArc: Handle[MAT_Arc]) {.
     importcpp: "SetFirstArc", header: "MAT_Arc.hxx".}
-proc SetSecondArc*(this: var MAT_Arc; aSide: MAT_Side; anArc: handle[MAT_Arc]) {.
+proc setSecondArc*(this: var MAT_Arc; aSide: MAT_Side; anArc: Handle[MAT_Arc]) {.
     importcpp: "SetSecondArc", header: "MAT_Arc.hxx".}
-proc SetNeighbour*(this: var MAT_Arc; aSide: MAT_Side; aNode: handle[MAT_Node];
-                  anArc: handle[MAT_Arc]) {.importcpp: "SetNeighbour",
+proc setNeighbour*(this: var MAT_Arc; aSide: MAT_Side; aNode: Handle[MAT_Node];
+                  anArc: Handle[MAT_Arc]) {.importcpp: "SetNeighbour",
     header: "MAT_Arc.hxx".}
 type
-  MAT_Arcbase_type* = Standard_Transient
+  MAT_ArcbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "MAT_Arc::get_type_name(@)",
-                              header: "MAT_Arc.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "MAT_Arc::get_type_name(@)",
+                            header: "MAT_Arc.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "MAT_Arc::get_type_descriptor(@)", header: "MAT_Arc.hxx".}
-proc DynamicType*(this: MAT_Arc): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: MAT_Arc): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MAT_Arc.hxx".}

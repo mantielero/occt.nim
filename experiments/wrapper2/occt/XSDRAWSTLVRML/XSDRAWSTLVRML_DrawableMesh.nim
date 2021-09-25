@@ -13,34 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Draw/Draw_Drawable3D
-
 discard "forward decl of MeshVS_Mesh"
 discard "forward decl of Draw_Display"
 discard "forward decl of XSDRAWSTLVRML_DrawableMesh"
 discard "forward decl of XSDRAWSTLVRML_DrawableMesh"
 type
-  Handle_XSDRAWSTLVRML_DrawableMesh* = handle[XSDRAWSTLVRML_DrawableMesh]
+  HandleXSDRAWSTLVRML_DrawableMesh* = Handle[XSDRAWSTLVRML_DrawableMesh]
   XSDRAWSTLVRML_DrawableMesh* {.importcpp: "XSDRAWSTLVRML_DrawableMesh",
-                               header: "XSDRAWSTLVRML_DrawableMesh.hxx", bycopy.} = object of Draw_Drawable3D
+                               header: "XSDRAWSTLVRML_DrawableMesh.hxx", bycopy.} = object of DrawDrawable3D
 
 
-proc constructXSDRAWSTLVRML_DrawableMesh*(aMesh: handle[MeshVS_Mesh]): XSDRAWSTLVRML_DrawableMesh {.
+proc constructXSDRAWSTLVRML_DrawableMesh*(aMesh: Handle[MeshVS_Mesh]): XSDRAWSTLVRML_DrawableMesh {.
     constructor, importcpp: "XSDRAWSTLVRML_DrawableMesh(@)",
     header: "XSDRAWSTLVRML_DrawableMesh.hxx".}
-proc DrawOn*(this: XSDRAWSTLVRML_DrawableMesh; dis: var Draw_Display) {.noSideEffect,
+proc drawOn*(this: XSDRAWSTLVRML_DrawableMesh; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "XSDRAWSTLVRML_DrawableMesh.hxx".}
-proc GetMesh*(this: XSDRAWSTLVRML_DrawableMesh): handle[MeshVS_Mesh] {.noSideEffect,
+proc getMesh*(this: XSDRAWSTLVRML_DrawableMesh): Handle[MeshVS_Mesh] {.noSideEffect,
     importcpp: "GetMesh", header: "XSDRAWSTLVRML_DrawableMesh.hxx".}
 type
-  XSDRAWSTLVRML_DrawableMeshbase_type* = Draw_Drawable3D
+  XSDRAWSTLVRML_DrawableMeshbaseType* = DrawDrawable3D
 
-proc get_type_name*(): cstring {.importcpp: "XSDRAWSTLVRML_DrawableMesh::get_type_name(@)",
-                              header: "XSDRAWSTLVRML_DrawableMesh.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XSDRAWSTLVRML_DrawableMesh::get_type_name(@)",
+                            header: "XSDRAWSTLVRML_DrawableMesh.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XSDRAWSTLVRML_DrawableMesh::get_type_descriptor(@)",
     header: "XSDRAWSTLVRML_DrawableMesh.hxx".}
-proc DynamicType*(this: XSDRAWSTLVRML_DrawableMesh): handle[Standard_Type] {.
+proc dynamicType*(this: XSDRAWSTLVRML_DrawableMesh): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XSDRAWSTLVRML_DrawableMesh.hxx".}

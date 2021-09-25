@@ -14,78 +14,74 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _GeomInt_TheMultiLineToolOfWLApprox_HeaderFile [NewLine] # _GeomInt_TheMultiLineToolOfWLApprox_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Standard/Standard_Integer.hxx [NewLine] # ../TColgp/TColgp_Array1OfPnt.hxx [NewLine] # ../TColgp/TColgp_Array1OfPnt2d.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # ../TColgp/TColgp_Array1OfVec.hxx [NewLine] # ../TColgp/TColgp_Array1OfVec2d.hxx [NewLine] # GeomInt_TheMultiLineOfWLApprox.hxx [NewLine] # ../Approx/Approx_Status.hxx [NewLine] class GeomInt_TheMultiLineOfWLApprox ;
+## !!!Ignored construct:  # _GeomInt_TheMultiLineToolOfWLApprox_HeaderFile [NewLine] # _GeomInt_TheMultiLineToolOfWLApprox_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] # < TColgp_Array1OfPnt . hxx > [NewLine] # < TColgp_Array1OfPnt2d . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < TColgp_Array1OfVec . hxx > [NewLine] # < TColgp_Array1OfVec2d . hxx > [NewLine] # < GeomInt_TheMultiLineOfWLApprox . hxx > [NewLine] # < Approx_Status . hxx > [NewLine] class GeomInt_TheMultiLineOfWLApprox ;
 ## Error: did not expect <!!!
 
 discard "forward decl of ApproxInt_SvSurfaces"
 type
-  GeomInt_TheMultiLineToolOfWLApprox* {.importcpp: "GeomInt_TheMultiLineToolOfWLApprox", header: "GeomInt_TheMultiLineToolOfWLApprox.hxx",
-                                       bycopy.} = object ## ! Returns the number of multipoints of the TheMultiLine.
+  GeomIntTheMultiLineToolOfWLApprox* {.importcpp: "GeomInt_TheMultiLineToolOfWLApprox", header: "GeomInt_TheMultiLineToolOfWLApprox.hxx",
+                                      bycopy.} = object ## ! Returns the number of multipoints of the TheMultiLine.
 
 
-proc FirstPoint*(ML: GeomInt_TheMultiLineOfWLApprox): Standard_Integer {.
+proc firstPoint*(ml: GeomIntTheMultiLineOfWLApprox): int {.
     importcpp: "GeomInt_TheMultiLineToolOfWLApprox::FirstPoint(@)",
     header: "GeomInt_TheMultiLineToolOfWLApprox.hxx".}
-proc LastPoint*(ML: GeomInt_TheMultiLineOfWLApprox): Standard_Integer {.
+proc lastPoint*(ml: GeomIntTheMultiLineOfWLApprox): int {.
     importcpp: "GeomInt_TheMultiLineToolOfWLApprox::LastPoint(@)",
     header: "GeomInt_TheMultiLineToolOfWLApprox.hxx".}
-proc NbP2d*(ML: GeomInt_TheMultiLineOfWLApprox): Standard_Integer {.
+proc nbP2d*(ml: GeomIntTheMultiLineOfWLApprox): int {.
     importcpp: "GeomInt_TheMultiLineToolOfWLApprox::NbP2d(@)",
     header: "GeomInt_TheMultiLineToolOfWLApprox.hxx".}
-proc NbP3d*(ML: GeomInt_TheMultiLineOfWLApprox): Standard_Integer {.
+proc nbP3d*(ml: GeomIntTheMultiLineOfWLApprox): int {.
     importcpp: "GeomInt_TheMultiLineToolOfWLApprox::NbP3d(@)",
     header: "GeomInt_TheMultiLineToolOfWLApprox.hxx".}
-proc Value*(ML: GeomInt_TheMultiLineOfWLApprox; MPointIndex: Standard_Integer;
-           tabPt: var TColgp_Array1OfPnt) {.
+proc value*(ml: GeomIntTheMultiLineOfWLApprox; mPointIndex: int;
+           tabPt: var TColgpArray1OfPnt) {.importcpp: "GeomInt_TheMultiLineToolOfWLApprox::Value(@)", header: "GeomInt_TheMultiLineToolOfWLApprox.hxx".}
+proc value*(ml: GeomIntTheMultiLineOfWLApprox; mPointIndex: int;
+           tabPt2d: var TColgpArray1OfPnt2d) {.
     importcpp: "GeomInt_TheMultiLineToolOfWLApprox::Value(@)",
     header: "GeomInt_TheMultiLineToolOfWLApprox.hxx".}
-proc Value*(ML: GeomInt_TheMultiLineOfWLApprox; MPointIndex: Standard_Integer;
-           tabPt2d: var TColgp_Array1OfPnt2d) {.
+proc value*(ml: GeomIntTheMultiLineOfWLApprox; mPointIndex: int;
+           tabPt: var TColgpArray1OfPnt; tabPt2d: var TColgpArray1OfPnt2d) {.
     importcpp: "GeomInt_TheMultiLineToolOfWLApprox::Value(@)",
     header: "GeomInt_TheMultiLineToolOfWLApprox.hxx".}
-proc Value*(ML: GeomInt_TheMultiLineOfWLApprox; MPointIndex: Standard_Integer;
-           tabPt: var TColgp_Array1OfPnt; tabPt2d: var TColgp_Array1OfPnt2d) {.
-    importcpp: "GeomInt_TheMultiLineToolOfWLApprox::Value(@)",
-    header: "GeomInt_TheMultiLineToolOfWLApprox.hxx".}
-proc Tangency*(ML: GeomInt_TheMultiLineOfWLApprox; MPointIndex: Standard_Integer;
-              tabV: var TColgp_Array1OfVec): Standard_Boolean {.
+proc tangency*(ml: GeomIntTheMultiLineOfWLApprox; mPointIndex: int;
+              tabV: var TColgpArray1OfVec): bool {.
     importcpp: "GeomInt_TheMultiLineToolOfWLApprox::Tangency(@)",
     header: "GeomInt_TheMultiLineToolOfWLApprox.hxx".}
-proc Tangency*(ML: GeomInt_TheMultiLineOfWLApprox; MPointIndex: Standard_Integer;
-              tabV2d: var TColgp_Array1OfVec2d): Standard_Boolean {.
+proc tangency*(ml: GeomIntTheMultiLineOfWLApprox; mPointIndex: int;
+              tabV2d: var TColgpArray1OfVec2d): bool {.
     importcpp: "GeomInt_TheMultiLineToolOfWLApprox::Tangency(@)",
     header: "GeomInt_TheMultiLineToolOfWLApprox.hxx".}
-proc Tangency*(ML: GeomInt_TheMultiLineOfWLApprox; MPointIndex: Standard_Integer;
-              tabV: var TColgp_Array1OfVec; tabV2d: var TColgp_Array1OfVec2d): Standard_Boolean {.
+proc tangency*(ml: GeomIntTheMultiLineOfWLApprox; mPointIndex: int;
+              tabV: var TColgpArray1OfVec; tabV2d: var TColgpArray1OfVec2d): bool {.
     importcpp: "GeomInt_TheMultiLineToolOfWLApprox::Tangency(@)",
     header: "GeomInt_TheMultiLineToolOfWLApprox.hxx".}
-proc Curvature*(ML: GeomInt_TheMultiLineOfWLApprox; MPointIndex: Standard_Integer;
-               tabV: var TColgp_Array1OfVec): Standard_Boolean {.
+proc curvature*(ml: GeomIntTheMultiLineOfWLApprox; mPointIndex: int;
+               tabV: var TColgpArray1OfVec): bool {.
     importcpp: "GeomInt_TheMultiLineToolOfWLApprox::Curvature(@)",
     header: "GeomInt_TheMultiLineToolOfWLApprox.hxx".}
-proc Curvature*(ML: GeomInt_TheMultiLineOfWLApprox; MPointIndex: Standard_Integer;
-               tabV2d: var TColgp_Array1OfVec2d): Standard_Boolean {.
+proc curvature*(ml: GeomIntTheMultiLineOfWLApprox; mPointIndex: int;
+               tabV2d: var TColgpArray1OfVec2d): bool {.
     importcpp: "GeomInt_TheMultiLineToolOfWLApprox::Curvature(@)",
     header: "GeomInt_TheMultiLineToolOfWLApprox.hxx".}
-proc Curvature*(ML: GeomInt_TheMultiLineOfWLApprox; MPointIndex: Standard_Integer;
-               tabV: var TColgp_Array1OfVec; tabV2d: var TColgp_Array1OfVec2d): Standard_Boolean {.
+proc curvature*(ml: GeomIntTheMultiLineOfWLApprox; mPointIndex: int;
+               tabV: var TColgpArray1OfVec; tabV2d: var TColgpArray1OfVec2d): bool {.
     importcpp: "GeomInt_TheMultiLineToolOfWLApprox::Curvature(@)",
     header: "GeomInt_TheMultiLineToolOfWLApprox.hxx".}
-proc MakeMLBetween*(ML: GeomInt_TheMultiLineOfWLApprox; I1: Standard_Integer;
-                   I2: Standard_Integer; NbPMin: Standard_Integer): GeomInt_TheMultiLineOfWLApprox {.
+proc makeMLBetween*(ml: GeomIntTheMultiLineOfWLApprox; i1: int; i2: int; nbPMin: int): GeomIntTheMultiLineOfWLApprox {.
     importcpp: "GeomInt_TheMultiLineToolOfWLApprox::MakeMLBetween(@)",
     header: "GeomInt_TheMultiLineToolOfWLApprox.hxx".}
-proc MakeMLOneMorePoint*(ML: GeomInt_TheMultiLineOfWLApprox; I1: Standard_Integer;
-                        I2: Standard_Integer; indbad: Standard_Integer;
-                        OtherLine: var GeomInt_TheMultiLineOfWLApprox): Standard_Boolean {.
+proc makeMLOneMorePoint*(ml: GeomIntTheMultiLineOfWLApprox; i1: int; i2: int;
+                        indbad: int; otherLine: var GeomIntTheMultiLineOfWLApprox): bool {.
     importcpp: "GeomInt_TheMultiLineToolOfWLApprox::MakeMLOneMorePoint(@)",
     header: "GeomInt_TheMultiLineToolOfWLApprox.hxx".}
-proc WhatStatus*(ML: GeomInt_TheMultiLineOfWLApprox; I1: Standard_Integer;
-                I2: Standard_Integer): Approx_Status {.
+proc whatStatus*(ml: GeomIntTheMultiLineOfWLApprox; i1: int; i2: int): ApproxStatus {.
     importcpp: "GeomInt_TheMultiLineToolOfWLApprox::WhatStatus(@)",
     header: "GeomInt_TheMultiLineToolOfWLApprox.hxx".}
-proc Dump*(ML: GeomInt_TheMultiLineOfWLApprox) {.
+proc dump*(ml: GeomIntTheMultiLineOfWLApprox) {.
     importcpp: "GeomInt_TheMultiLineToolOfWLApprox::Dump(@)",
     header: "GeomInt_TheMultiLineToolOfWLApprox.hxx".}
-## !!!Ignored construct:  # TheMultiLine GeomInt_TheMultiLineOfWLApprox [NewLine] # TheMultiLine_hxx < GeomInt_TheMultiLineOfWLApprox . hxx > [NewLine] # TheMultiMPoint ApproxInt_SvSurfaces [NewLine] # TheMultiMPoint_hxx < ApproxInt_SvSurfaces . hxx > [NewLine] # ApproxInt_MultiLineTool GeomInt_TheMultiLineToolOfWLApprox [NewLine] # ApproxInt_MultiLineTool_hxx < GeomInt_TheMultiLineToolOfWLApprox . hxx > [NewLine] # < ApproxInt_MultiLineTool . lxx > [NewLine] # TheMultiLine [NewLine] # TheMultiLine_hxx [NewLine] # TheMultiMPoint [NewLine] # TheMultiMPoint_hxx [NewLine] # ApproxInt_MultiLineTool [NewLine] # ApproxInt_MultiLineTool_hxx [NewLine] #  _GeomInt_TheMultiLineToolOfWLApprox_HeaderFile [NewLine]
+## !!!Ignored construct:  # TheMultiLine GeomInt_TheMultiLineOfWLApprox [NewLine] # TheMultiLine_hxx < GeomInt_TheMultiLineOfWLApprox . hxx > [NewLine] # TheMultiMPoint ApproxInt_SvSurfaces [NewLine] # TheMultiMPoint_hxx < ApproxInt_SvSurfaces . hxx > [NewLine] # ApproxInt_MultiLineTool GeomInt_TheMultiLineToolOfWLApprox [NewLine] # ApproxInt_MultiLineTool_hxx < GeomInt_TheMultiLineToolOfWLApprox . hxx > [NewLine] # < ApproxInt_MultiLineTool . lxx > [NewLine] # TheMultiLine [NewLine] # TheMultiLine_hxx [NewLine] # TheMultiMPoint [NewLine] # TheMultiMPoint_hxx [NewLine] # ApproxInt_MultiLineTool [NewLine] # ApproxInt_MultiLineTool_hxx [NewLine] #  _GeomInt_TheMultiLineToolOfWLApprox_HeaderFile
 ## Error: did not expect <!!!
+

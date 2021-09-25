@@ -13,36 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepDimTol_GeometricToleranceWithDatumReference
-
 discard "forward decl of StepDimTol_CoaxialityTolerance"
 discard "forward decl of StepDimTol_CoaxialityTolerance"
 type
-  Handle_StepDimTol_CoaxialityTolerance* = handle[StepDimTol_CoaxialityTolerance]
+  HandleStepDimTolCoaxialityTolerance* = Handle[StepDimTolCoaxialityTolerance]
 
 ## ! Representation of STEP entity CoaxialityTolerance
 
 type
-  StepDimTol_CoaxialityTolerance* {.importcpp: "StepDimTol_CoaxialityTolerance", header: "StepDimTol_CoaxialityTolerance.hxx",
-                                   bycopy.} = object of StepDimTol_GeometricToleranceWithDatumReference ##
-                                                                                                   ## !
-                                                                                                   ## Empty
-                                                                                                   ## constructor
+  StepDimTolCoaxialityTolerance* {.importcpp: "StepDimTol_CoaxialityTolerance",
+                                  header: "StepDimTol_CoaxialityTolerance.hxx",
+                                  bycopy.} = object of StepDimTolGeometricToleranceWithDatumReference ##
+                                                                                                 ## !
+                                                                                                 ## Empty
+                                                                                                 ## constructor
 
 
-proc constructStepDimTol_CoaxialityTolerance*(): StepDimTol_CoaxialityTolerance {.
+proc constructStepDimTolCoaxialityTolerance*(): StepDimTolCoaxialityTolerance {.
     constructor, importcpp: "StepDimTol_CoaxialityTolerance(@)",
     header: "StepDimTol_CoaxialityTolerance.hxx".}
 type
-  StepDimTol_CoaxialityTolerancebase_type* = StepDimTol_GeometricToleranceWithDatumReference
+  StepDimTolCoaxialityTolerancebaseType* = StepDimTolGeometricToleranceWithDatumReference
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_CoaxialityTolerance::get_type_name(@)",
-                              header: "StepDimTol_CoaxialityTolerance.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_CoaxialityTolerance::get_type_name(@)",
+                            header: "StepDimTol_CoaxialityTolerance.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_CoaxialityTolerance::get_type_descriptor(@)",
     header: "StepDimTol_CoaxialityTolerance.hxx".}
-proc DynamicType*(this: StepDimTol_CoaxialityTolerance): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolCoaxialityTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_CoaxialityTolerance.hxx".}

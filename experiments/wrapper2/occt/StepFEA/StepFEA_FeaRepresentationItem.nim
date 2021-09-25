@@ -13,36 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepRepr/StepRepr_RepresentationItem
-
 discard "forward decl of StepFEA_FeaRepresentationItem"
 discard "forward decl of StepFEA_FeaRepresentationItem"
 type
-  Handle_StepFEA_FeaRepresentationItem* = handle[StepFEA_FeaRepresentationItem]
+  HandleStepFEA_FeaRepresentationItem* = Handle[StepFEA_FeaRepresentationItem]
 
 ## ! Representation of STEP entity FeaRepresentationItem
 
 type
   StepFEA_FeaRepresentationItem* {.importcpp: "StepFEA_FeaRepresentationItem",
                                   header: "StepFEA_FeaRepresentationItem.hxx",
-                                  bycopy.} = object of StepRepr_RepresentationItem ## !
-                                                                              ## Empty
-                                                                              ## constructor
+                                  bycopy.} = object of StepReprRepresentationItem ## !
+                                                                             ## Empty
+                                                                             ## constructor
 
 
 proc constructStepFEA_FeaRepresentationItem*(): StepFEA_FeaRepresentationItem {.
     constructor, importcpp: "StepFEA_FeaRepresentationItem(@)",
     header: "StepFEA_FeaRepresentationItem.hxx".}
 type
-  StepFEA_FeaRepresentationItembase_type* = StepRepr_RepresentationItem
+  StepFEA_FeaRepresentationItembaseType* = StepReprRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_FeaRepresentationItem::get_type_name(@)",
-                              header: "StepFEA_FeaRepresentationItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_FeaRepresentationItem::get_type_name(@)",
+                            header: "StepFEA_FeaRepresentationItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_FeaRepresentationItem::get_type_descriptor(@)",
     header: "StepFEA_FeaRepresentationItem.hxx".}
-proc DynamicType*(this: StepFEA_FeaRepresentationItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepFEA_FeaRepresentationItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_FeaRepresentationItem.hxx".}

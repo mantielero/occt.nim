@@ -14,38 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_DateTimeRole"
 discard "forward decl of StepBasic_DateTimeRole"
 type
-  Handle_StepBasic_DateTimeRole* = handle[StepBasic_DateTimeRole]
-  StepBasic_DateTimeRole* {.importcpp: "StepBasic_DateTimeRole",
-                           header: "StepBasic_DateTimeRole.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                  ## !
-                                                                                                  ## Returns
-                                                                                                  ## a
-                                                                                                  ## DateTimeRole
+  HandleStepBasicDateTimeRole* = Handle[StepBasicDateTimeRole]
+  StepBasicDateTimeRole* {.importcpp: "StepBasic_DateTimeRole",
+                          header: "StepBasic_DateTimeRole.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                ## !
+                                                                                                ## Returns
+                                                                                                ## a
+                                                                                                ## DateTimeRole
 
 
-proc constructStepBasic_DateTimeRole*(): StepBasic_DateTimeRole {.constructor,
+proc constructStepBasicDateTimeRole*(): StepBasicDateTimeRole {.constructor,
     importcpp: "StepBasic_DateTimeRole(@)", header: "StepBasic_DateTimeRole.hxx".}
-proc Init*(this: var StepBasic_DateTimeRole; aName: handle[TCollection_HAsciiString]) {.
+proc init*(this: var StepBasicDateTimeRole; aName: Handle[TCollectionHAsciiString]) {.
     importcpp: "Init", header: "StepBasic_DateTimeRole.hxx".}
-proc SetName*(this: var StepBasic_DateTimeRole;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepBasicDateTimeRole;
+             aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepBasic_DateTimeRole.hxx".}
-proc Name*(this: StepBasic_DateTimeRole): handle[TCollection_HAsciiString] {.
+proc name*(this: StepBasicDateTimeRole): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepBasic_DateTimeRole.hxx".}
 type
-  StepBasic_DateTimeRolebase_type* = Standard_Transient
+  StepBasicDateTimeRolebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_DateTimeRole::get_type_name(@)",
-                              header: "StepBasic_DateTimeRole.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_DateTimeRole::get_type_name(@)",
+                            header: "StepBasic_DateTimeRole.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_DateTimeRole::get_type_descriptor(@)",
     header: "StepBasic_DateTimeRole.hxx".}
-proc DynamicType*(this: StepBasic_DateTimeRole): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepBasic_DateTimeRole.hxx".}
+proc dynamicType*(this: StepBasicDateTimeRole): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepBasic_DateTimeRole.hxx".}

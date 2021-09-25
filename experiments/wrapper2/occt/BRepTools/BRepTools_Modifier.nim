@@ -14,16 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopTools/TopTools_DataMapOfShapeShape,
-  ../TopTools/TopTools_MapOfShape,
-  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape, ../TopoDS/TopoDS_Edge,
-  ../TopoDS/TopoDS_Face, ../TopoDS/TopoDS_Vertex, ../Standard/Standard_Boolean,
-  ../NCollection/NCollection_DataMap, ../TopoDS/TopoDS_Shape,
-  ../TopTools/TopTools_ShapeMapHasher, ../TopLoc/TopLoc_Location,
-  ../Message/Message_ProgressRange
-
 discard "forward decl of Standard_NullObject"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopoDS_Shape"
@@ -31,31 +21,28 @@ discard "forward decl of BRepTools_Modification"
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom_Surface"
 type
-  BRepTools_Modifier* {.importcpp: "BRepTools_Modifier",
-                       header: "BRepTools_Modifier.hxx", bycopy.} = object ## ! Creates an empty Modifier.
+  BRepToolsModifier* {.importcpp: "BRepTools_Modifier",
+                      header: "BRepTools_Modifier.hxx", bycopy.} = object ## ! Creates an empty Modifier.
 
 
-proc constructBRepTools_Modifier*(theMutableInput: Standard_Boolean = Standard_False): BRepTools_Modifier {.
+proc constructBRepToolsModifier*(theMutableInput: bool = false): BRepToolsModifier {.
     constructor, importcpp: "BRepTools_Modifier(@)",
     header: "BRepTools_Modifier.hxx".}
-proc constructBRepTools_Modifier*(S: TopoDS_Shape): BRepTools_Modifier {.
+proc constructBRepToolsModifier*(s: TopoDS_Shape): BRepToolsModifier {.constructor,
+    importcpp: "BRepTools_Modifier(@)", header: "BRepTools_Modifier.hxx".}
+proc constructBRepToolsModifier*(s: TopoDS_Shape; m: Handle[BRepToolsModification]): BRepToolsModifier {.
     constructor, importcpp: "BRepTools_Modifier(@)",
     header: "BRepTools_Modifier.hxx".}
-proc constructBRepTools_Modifier*(S: TopoDS_Shape;
-                                 M: handle[BRepTools_Modification]): BRepTools_Modifier {.
-    constructor, importcpp: "BRepTools_Modifier(@)",
+proc init*(this: var BRepToolsModifier; s: TopoDS_Shape) {.importcpp: "Init",
     header: "BRepTools_Modifier.hxx".}
-proc Init*(this: var BRepTools_Modifier; S: TopoDS_Shape) {.importcpp: "Init",
-    header: "BRepTools_Modifier.hxx".}
-proc Perform*(this: var BRepTools_Modifier; M: handle[BRepTools_Modification];
-             theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc perform*(this: var BRepToolsModifier; m: Handle[BRepToolsModification];
+             theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Perform", header: "BRepTools_Modifier.hxx".}
-proc IsDone*(this: BRepTools_Modifier): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "BRepTools_Modifier.hxx".}
-proc IsMutableInput*(this: BRepTools_Modifier): Standard_Boolean {.noSideEffect,
+proc isDone*(this: BRepToolsModifier): bool {.noSideEffect, importcpp: "IsDone",
+    header: "BRepTools_Modifier.hxx".}
+proc isMutableInput*(this: BRepToolsModifier): bool {.noSideEffect,
     importcpp: "IsMutableInput", header: "BRepTools_Modifier.hxx".}
-proc SetMutableInput*(this: var BRepTools_Modifier;
-                     theMutableInput: Standard_Boolean) {.
+proc setMutableInput*(this: var BRepToolsModifier; theMutableInput: bool) {.
     importcpp: "SetMutableInput", header: "BRepTools_Modifier.hxx".}
-proc ModifiedShape*(this: BRepTools_Modifier; S: TopoDS_Shape): TopoDS_Shape {.
+proc modifiedShape*(this: BRepToolsModifier; s: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "ModifiedShape", header: "BRepTools_Modifier.hxx".}

@@ -13,17 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepDimTol_GeometricToleranceWithModifiers"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepDimTol_RWGeometricToleranceWithModifiers* {.
+  RWStepDimTolRWGeometricToleranceWithModifiers* {.
       importcpp: "RWStepDimTol_RWGeometricToleranceWithModifiers",
       header: "RWStepDimTol_RWGeometricToleranceWithModifiers.hxx", bycopy.} = object ##
                                                                                  ## !
@@ -31,21 +27,21 @@ type
                                                                                  ## constructor
 
 
-proc constructRWStepDimTol_RWGeometricToleranceWithModifiers*(): RWStepDimTol_RWGeometricToleranceWithModifiers {.
+proc constructRWStepDimTolRWGeometricToleranceWithModifiers*(): RWStepDimTolRWGeometricToleranceWithModifiers {.
     constructor, importcpp: "RWStepDimTol_RWGeometricToleranceWithModifiers(@)",
     header: "RWStepDimTol_RWGeometricToleranceWithModifiers.hxx".}
-proc ReadStep*(this: RWStepDimTol_RWGeometricToleranceWithModifiers;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepDimTol_GeometricToleranceWithModifiers]) {.
+proc readStep*(this: RWStepDimTolRWGeometricToleranceWithModifiers;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepDimTolGeometricToleranceWithModifiers]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepDimTol_RWGeometricToleranceWithModifiers.hxx".}
-proc WriteStep*(this: RWStepDimTol_RWGeometricToleranceWithModifiers;
-               SW: var StepData_StepWriter;
-               ent: handle[StepDimTol_GeometricToleranceWithModifiers]) {.
+proc writeStep*(this: RWStepDimTolRWGeometricToleranceWithModifiers;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepDimTolGeometricToleranceWithModifiers]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepDimTol_RWGeometricToleranceWithModifiers.hxx".}
-proc Share*(this: RWStepDimTol_RWGeometricToleranceWithModifiers;
-           ent: handle[StepDimTol_GeometricToleranceWithModifiers];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepDimTolRWGeometricToleranceWithModifiers;
+           ent: Handle[StepDimTolGeometricToleranceWithModifiers];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWGeometricToleranceWithModifiers.hxx".}

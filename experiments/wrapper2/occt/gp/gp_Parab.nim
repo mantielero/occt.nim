@@ -12,10 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, gp_Ax2, ../Standard/Standard_Real, gp_Ax1, gp_Pnt
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Ax1"
@@ -23,86 +19,65 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Vec"
 type
-  gp_Parab* {.importcpp: "gp_Parab", header: "gp_Parab.hxx", bycopy.} = object ## ! Creates an
-                                                                       ## indefinite Parabola.
-    gp_Parab* {.importc: "gp_Parab".}: Standard_NODISCARD
-    gp_Parab* {.importc: "gp_Parab".}: Standard_NODISCARD
-    gp_Parab* {.importc: "gp_Parab".}: Standard_NODISCARD
-    gp_Parab* {.importc: "gp_Parab".}: Standard_NODISCARD
-    gp_Parab* {.importc: "gp_Parab".}: Standard_NODISCARD
-    gp_Parab* {.importc: "gp_Parab".}: Standard_NODISCARD
-    gp_Parab* {.importc: "gp_Parab".}: Standard_NODISCARD
-    gp_Parab* {.importc: "gp_Parab".}: Standard_NODISCARD
+  Parab* {.importcpp: "gp_Parab", header: "gp_Parab.hxx", bycopy.} = object ## ! Creates an indefinite Parabola.
 
 
-proc constructgp_Parab*(): gp_Parab {.constructor, importcpp: "gp_Parab(@)",
-                                   header: "gp_Parab.hxx".}
-proc constructgp_Parab*(A2: gp_Ax2; Focal: Standard_Real): gp_Parab {.constructor,
+proc constructParab*(): Parab {.constructor, importcpp: "gp_Parab(@)",
+                             header: "gp_Parab.hxx".}
+proc constructParab*(a2: Ax2; focal: float): Parab {.constructor,
     importcpp: "gp_Parab(@)", header: "gp_Parab.hxx".}
-proc constructgp_Parab*(D: gp_Ax1; F: gp_Pnt): gp_Parab {.constructor,
-    importcpp: "gp_Parab(@)", header: "gp_Parab.hxx".}
-proc SetAxis*(this: var gp_Parab; A1: gp_Ax1) {.importcpp: "SetAxis",
-    header: "gp_Parab.hxx".}
-proc SetFocal*(this: var gp_Parab; Focal: Standard_Real) {.importcpp: "SetFocal",
-    header: "gp_Parab.hxx".}
-proc SetLocation*(this: var gp_Parab; P: gp_Pnt) {.importcpp: "SetLocation",
-    header: "gp_Parab.hxx".}
-proc SetPosition*(this: var gp_Parab; A2: gp_Ax2) {.importcpp: "SetPosition",
-    header: "gp_Parab.hxx".}
-proc Axis*(this: gp_Parab): gp_Ax1 {.noSideEffect, importcpp: "Axis",
-                                 header: "gp_Parab.hxx".}
-proc Directrix*(this: gp_Parab): gp_Ax1 {.noSideEffect, importcpp: "Directrix",
-                                      header: "gp_Parab.hxx".}
-proc Focal*(this: gp_Parab): Standard_Real {.noSideEffect, importcpp: "Focal",
-    header: "gp_Parab.hxx".}
-proc Focus*(this: gp_Parab): gp_Pnt {.noSideEffect, importcpp: "Focus",
-                                  header: "gp_Parab.hxx".}
-proc Location*(this: gp_Parab): gp_Pnt {.noSideEffect, importcpp: "Location",
-                                     header: "gp_Parab.hxx".}
-proc Parameter*(this: gp_Parab): Standard_Real {.noSideEffect,
-    importcpp: "Parameter", header: "gp_Parab.hxx".}
-proc Position*(this: gp_Parab): gp_Ax2 {.noSideEffect, importcpp: "Position",
-                                     header: "gp_Parab.hxx".}
-proc XAxis*(this: gp_Parab): gp_Ax1 {.noSideEffect, importcpp: "XAxis",
-                                  header: "gp_Parab.hxx".}
-proc YAxis*(this: gp_Parab): gp_Ax1 {.noSideEffect, importcpp: "YAxis",
-                                  header: "gp_Parab.hxx".}
-proc Mirror*(this: var gp_Parab; P: gp_Pnt) {.importcpp: "Mirror",
+proc constructParab*(d: Ax1; f: Pnt): Parab {.constructor, importcpp: "gp_Parab(@)",
                                         header: "gp_Parab.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Pnt & P ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Mirror*(this: var gp_Parab; A1: gp_Ax1) {.importcpp: "Mirror",
+proc setAxis*(this: var Parab; a1: Ax1) {.importcpp: "SetAxis", header: "gp_Parab.hxx".}
+proc setFocal*(this: var Parab; focal: float) {.importcpp: "SetFocal",
     header: "gp_Parab.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Ax1 & A1 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Mirror*(this: var gp_Parab; A2: gp_Ax2) {.importcpp: "Mirror",
+proc setLocation*(this: var Parab; p: Pnt) {.importcpp: "SetLocation",
+                                       header: "gp_Parab.hxx".}
+proc setPosition*(this: var Parab; a2: Ax2) {.importcpp: "SetPosition",
+                                        header: "gp_Parab.hxx".}
+proc axis*(this: Parab): Ax1 {.noSideEffect, importcpp: "Axis", header: "gp_Parab.hxx".}
+proc directrix*(this: Parab): Ax1 {.noSideEffect, importcpp: "Directrix",
+                                header: "gp_Parab.hxx".}
+proc focal*(this: Parab): float {.noSideEffect, importcpp: "Focal",
+                              header: "gp_Parab.hxx".}
+proc focus*(this: Parab): Pnt {.noSideEffect, importcpp: "Focus",
+                            header: "gp_Parab.hxx".}
+proc location*(this: Parab): Pnt {.noSideEffect, importcpp: "Location",
+                               header: "gp_Parab.hxx".}
+proc parameter*(this: Parab): float {.noSideEffect, importcpp: "Parameter",
+                                  header: "gp_Parab.hxx".}
+proc position*(this: Parab): Ax2 {.noSideEffect, importcpp: "Position",
+                               header: "gp_Parab.hxx".}
+proc xAxis*(this: Parab): Ax1 {.noSideEffect, importcpp: "XAxis",
+                            header: "gp_Parab.hxx".}
+proc yAxis*(this: Parab): Ax1 {.noSideEffect, importcpp: "YAxis",
+                            header: "gp_Parab.hxx".}
+proc mirror*(this: var Parab; p: Pnt) {.importcpp: "Mirror", header: "gp_Parab.hxx".}
+proc mirrored*(this: Parab; p: Pnt): Parab {.noSideEffect, importcpp: "Mirrored",
+                                       header: "gp_Parab.hxx".}
+proc mirror*(this: var Parab; a1: Ax1) {.importcpp: "Mirror", header: "gp_Parab.hxx".}
+proc mirrored*(this: Parab; a1: Ax1): Parab {.noSideEffect, importcpp: "Mirrored",
+                                        header: "gp_Parab.hxx".}
+proc mirror*(this: var Parab; a2: Ax2) {.importcpp: "Mirror", header: "gp_Parab.hxx".}
+proc mirrored*(this: Parab; a2: Ax2): Parab {.noSideEffect, importcpp: "Mirrored",
+                                        header: "gp_Parab.hxx".}
+proc rotate*(this: var Parab; a1: Ax1; ang: float) {.importcpp: "Rotate",
     header: "gp_Parab.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Ax2 & A2 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Rotate*(this: var gp_Parab; A1: gp_Ax1; Ang: Standard_Real) {.importcpp: "Rotate",
+proc rotated*(this: Parab; a1: Ax1; ang: float): Parab {.noSideEffect,
+    importcpp: "Rotated", header: "gp_Parab.hxx".}
+proc scale*(this: var Parab; p: Pnt; s: float) {.importcpp: "Scale",
     header: "gp_Parab.hxx".}
-## !!!Ignored construct:  Rotated ( const gp_Ax1 & A1 , const Standard_Real Ang ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Scale*(this: var gp_Parab; P: gp_Pnt; S: Standard_Real) {.importcpp: "Scale",
+proc scaled*(this: Parab; p: Pnt; s: float): Parab {.noSideEffect, importcpp: "Scaled",
     header: "gp_Parab.hxx".}
-## !!!Ignored construct:  Scaled ( const gp_Pnt & P , const Standard_Real S ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Transform*(this: var gp_Parab; T: gp_Trsf) {.importcpp: "Transform",
+proc transform*(this: var Parab; t: Trsf) {.importcpp: "Transform",
+                                      header: "gp_Parab.hxx".}
+proc transformed*(this: Parab; t: Trsf): Parab {.noSideEffect,
+    importcpp: "Transformed", header: "gp_Parab.hxx".}
+proc translate*(this: var Parab; v: Vec) {.importcpp: "Translate",
+                                     header: "gp_Parab.hxx".}
+proc translated*(this: Parab; v: Vec): Parab {.noSideEffect, importcpp: "Translated",
     header: "gp_Parab.hxx".}
-## !!!Ignored construct:  Transformed ( const gp_Trsf & T ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Translate*(this: var gp_Parab; V: gp_Vec) {.importcpp: "Translate",
+proc translate*(this: var Parab; p1: Pnt; p2: Pnt) {.importcpp: "Translate",
     header: "gp_Parab.hxx".}
-## !!!Ignored construct:  Translated ( const gp_Vec & V ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Translate*(this: var gp_Parab; P1: gp_Pnt; P2: gp_Pnt) {.importcpp: "Translate",
-    header: "gp_Parab.hxx".}
-## !!!Ignored construct:  Translated ( const gp_Pnt & P1 , const gp_Pnt & P2 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
+proc translated*(this: Parab; p1: Pnt; p2: Pnt): Parab {.noSideEffect,
+    importcpp: "Translated", header: "gp_Parab.hxx".}

@@ -14,31 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepRepr/StepRepr_Representation
-
 discard "forward decl of StepVisual_Template"
 discard "forward decl of StepVisual_Template"
 type
-  Handle_StepVisual_Template* = handle[StepVisual_Template]
-  StepVisual_Template* {.importcpp: "StepVisual_Template",
-                        header: "StepVisual_Template.hxx", bycopy.} = object of StepRepr_Representation ##
-                                                                                                 ## !
-                                                                                                 ## Returns
-                                                                                                 ## a
-                                                                                                 ## Template
+  HandleStepVisualTemplate* = Handle[StepVisualTemplate]
+  StepVisualTemplate* {.importcpp: "StepVisual_Template",
+                       header: "StepVisual_Template.hxx", bycopy.} = object of StepReprRepresentation ##
+                                                                                               ## !
+                                                                                               ## Returns
+                                                                                               ## a
+                                                                                               ## Template
 
 
-proc constructStepVisual_Template*(): StepVisual_Template {.constructor,
+proc constructStepVisualTemplate*(): StepVisualTemplate {.constructor,
     importcpp: "StepVisual_Template(@)", header: "StepVisual_Template.hxx".}
 type
-  StepVisual_Templatebase_type* = StepRepr_Representation
+  StepVisualTemplatebaseType* = StepReprRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_Template::get_type_name(@)",
-                              header: "StepVisual_Template.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_Template::get_type_name(@)",
+                            header: "StepVisual_Template.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_Template::get_type_descriptor(@)",
     header: "StepVisual_Template.hxx".}
-proc DynamicType*(this: StepVisual_Template): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepVisualTemplate): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepVisual_Template.hxx".}

@@ -14,40 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Sweep_NumShape, ../Standard/Standard_Integer,
-  ../TopAbs/TopAbs_ShapeEnum, ../TopAbs/TopAbs_Orientation,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Sweep_NumShape"
 type
-  Sweep_NumShapeTool* {.importcpp: "Sweep_NumShapeTool",
-                       header: "Sweep_NumShapeTool.hxx", bycopy.} = object ## ! Create a new
-                                                                      ## NumShapeTool with <aShape>.  The Tool
-                                                                      ## ! must prepare an indexation  for  all the subshapes
-                                                                      ## ! of this shape.
+  SweepNumShapeTool* {.importcpp: "Sweep_NumShapeTool",
+                      header: "Sweep_NumShapeTool.hxx", bycopy.} = object ## ! Create a new
+                                                                     ## NumShapeTool with <aShape>.  The Tool
+                                                                     ## ! must prepare an indexation  for  all the subshapes
+                                                                     ## ! of this shape.
 
 
-proc constructSweep_NumShapeTool*(aShape: Sweep_NumShape): Sweep_NumShapeTool {.
+proc constructSweepNumShapeTool*(aShape: SweepNumShape): SweepNumShapeTool {.
     constructor, importcpp: "Sweep_NumShapeTool(@)",
     header: "Sweep_NumShapeTool.hxx".}
-proc NbShapes*(this: Sweep_NumShapeTool): Standard_Integer {.noSideEffect,
-    importcpp: "NbShapes", header: "Sweep_NumShapeTool.hxx".}
-proc Index*(this: Sweep_NumShapeTool; aShape: Sweep_NumShape): Standard_Integer {.
-    noSideEffect, importcpp: "Index", header: "Sweep_NumShapeTool.hxx".}
-proc Shape*(this: Sweep_NumShapeTool; anIndex: Standard_Integer): Sweep_NumShape {.
-    noSideEffect, importcpp: "Shape", header: "Sweep_NumShapeTool.hxx".}
-proc Type*(this: Sweep_NumShapeTool; aShape: Sweep_NumShape): TopAbs_ShapeEnum {.
+proc nbShapes*(this: SweepNumShapeTool): int {.noSideEffect, importcpp: "NbShapes",
+    header: "Sweep_NumShapeTool.hxx".}
+proc index*(this: SweepNumShapeTool; aShape: SweepNumShape): int {.noSideEffect,
+    importcpp: "Index", header: "Sweep_NumShapeTool.hxx".}
+proc shape*(this: SweepNumShapeTool; anIndex: int): SweepNumShape {.noSideEffect,
+    importcpp: "Shape", header: "Sweep_NumShapeTool.hxx".}
+proc `type`*(this: SweepNumShapeTool; aShape: SweepNumShape): TopAbsShapeEnum {.
     noSideEffect, importcpp: "Type", header: "Sweep_NumShapeTool.hxx".}
-proc Orientation*(this: Sweep_NumShapeTool; aShape: Sweep_NumShape): TopAbs_Orientation {.
+proc orientation*(this: SweepNumShapeTool; aShape: SweepNumShape): TopAbsOrientation {.
     noSideEffect, importcpp: "Orientation", header: "Sweep_NumShapeTool.hxx".}
-proc HasFirstVertex*(this: Sweep_NumShapeTool): Standard_Boolean {.noSideEffect,
+proc hasFirstVertex*(this: SweepNumShapeTool): bool {.noSideEffect,
     importcpp: "HasFirstVertex", header: "Sweep_NumShapeTool.hxx".}
-proc HasLastVertex*(this: Sweep_NumShapeTool): Standard_Boolean {.noSideEffect,
+proc hasLastVertex*(this: SweepNumShapeTool): bool {.noSideEffect,
     importcpp: "HasLastVertex", header: "Sweep_NumShapeTool.hxx".}
-proc FirstVertex*(this: Sweep_NumShapeTool): Sweep_NumShape {.noSideEffect,
+proc firstVertex*(this: SweepNumShapeTool): SweepNumShape {.noSideEffect,
     importcpp: "FirstVertex", header: "Sweep_NumShapeTool.hxx".}
-proc LastVertex*(this: Sweep_NumShapeTool): Sweep_NumShape {.noSideEffect,
+proc lastVertex*(this: SweepNumShapeTool): SweepNumShape {.noSideEffect,
     importcpp: "LastVertex", header: "Sweep_NumShapeTool.hxx".}

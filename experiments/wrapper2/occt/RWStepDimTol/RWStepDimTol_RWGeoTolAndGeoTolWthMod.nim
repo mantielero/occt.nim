@@ -13,34 +13,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepDimTol_GeoTolAndGeoTolWthMod"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepDimTol_RWGeoTolAndGeoTolWthMod* {.
-      importcpp: "RWStepDimTol_RWGeoTolAndGeoTolWthMod",
-      header: "RWStepDimTol_RWGeoTolAndGeoTolWthMod.hxx", bycopy.} = object
+  RWStepDimTolRWGeoTolAndGeoTolWthMod* {.importcpp: "RWStepDimTol_RWGeoTolAndGeoTolWthMod", header: "RWStepDimTol_RWGeoTolAndGeoTolWthMod.hxx",
+                                        bycopy.} = object
 
 
-proc constructRWStepDimTol_RWGeoTolAndGeoTolWthMod*(): RWStepDimTol_RWGeoTolAndGeoTolWthMod {.
+proc constructRWStepDimTolRWGeoTolAndGeoTolWthMod*(): RWStepDimTolRWGeoTolAndGeoTolWthMod {.
     constructor, importcpp: "RWStepDimTol_RWGeoTolAndGeoTolWthMod(@)",
     header: "RWStepDimTol_RWGeoTolAndGeoTolWthMod.hxx".}
-proc ReadStep*(this: RWStepDimTol_RWGeoTolAndGeoTolWthMod;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepDimTol_GeoTolAndGeoTolWthMod]) {.noSideEffect,
+proc readStep*(this: RWStepDimTolRWGeoTolAndGeoTolWthMod;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepDimTolGeoTolAndGeoTolWthMod]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepDimTol_RWGeoTolAndGeoTolWthMod.hxx".}
-proc WriteStep*(this: RWStepDimTol_RWGeoTolAndGeoTolWthMod;
-               SW: var StepData_StepWriter;
-               ent: handle[StepDimTol_GeoTolAndGeoTolWthMod]) {.noSideEffect,
+proc writeStep*(this: RWStepDimTolRWGeoTolAndGeoTolWthMod;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepDimTolGeoTolAndGeoTolWthMod]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepDimTol_RWGeoTolAndGeoTolWthMod.hxx".}
-proc Share*(this: RWStepDimTol_RWGeoTolAndGeoTolWthMod;
-           ent: handle[StepDimTol_GeoTolAndGeoTolWthMod];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepDimTolRWGeoTolAndGeoTolWthMod;
+           ent: Handle[StepDimTolGeoTolAndGeoTolWthMod];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWGeoTolAndGeoTolWthMod.hxx".}

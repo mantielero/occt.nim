@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, Extrema_POnCurv, Extrema_POnSurf
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Adaptor3d_Curve"
@@ -26,27 +21,25 @@ discard "forward decl of Adaptor3d_Surface"
 discard "forward decl of Extrema_POnCurv"
 discard "forward decl of Extrema_POnSurf"
 type
-  Extrema_GenLocateExtCS* {.importcpp: "Extrema_GenLocateExtCS",
-                           header: "Extrema_GenLocateExtCS.hxx", bycopy.} = object
+  ExtremaGenLocateExtCS* {.importcpp: "Extrema_GenLocateExtCS",
+                          header: "Extrema_GenLocateExtCS.hxx", bycopy.} = object
 
 
-proc constructExtrema_GenLocateExtCS*(): Extrema_GenLocateExtCS {.constructor,
+proc constructExtremaGenLocateExtCS*(): ExtremaGenLocateExtCS {.constructor,
     importcpp: "Extrema_GenLocateExtCS(@)", header: "Extrema_GenLocateExtCS.hxx".}
-proc constructExtrema_GenLocateExtCS*(C: Adaptor3d_Curve; S: Adaptor3d_Surface;
-                                     T: Standard_Real; U: Standard_Real;
-                                     V: Standard_Real; Tol1: Standard_Real;
-                                     Tol2: Standard_Real): Extrema_GenLocateExtCS {.
+proc constructExtremaGenLocateExtCS*(c: Adaptor3dCurve; s: Adaptor3dSurface;
+                                    t: float; u: float; v: float; tol1: float;
+                                    tol2: float): ExtremaGenLocateExtCS {.
     constructor, importcpp: "Extrema_GenLocateExtCS(@)",
     header: "Extrema_GenLocateExtCS.hxx".}
-proc Perform*(this: var Extrema_GenLocateExtCS; C: Adaptor3d_Curve;
-             S: Adaptor3d_Surface; T: Standard_Real; U: Standard_Real;
-             V: Standard_Real; Tol1: Standard_Real; Tol2: Standard_Real) {.
+proc perform*(this: var ExtremaGenLocateExtCS; c: Adaptor3dCurve; s: Adaptor3dSurface;
+             t: float; u: float; v: float; tol1: float; tol2: float) {.
     importcpp: "Perform", header: "Extrema_GenLocateExtCS.hxx".}
-proc IsDone*(this: Extrema_GenLocateExtCS): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "Extrema_GenLocateExtCS.hxx".}
-proc SquareDistance*(this: Extrema_GenLocateExtCS): Standard_Real {.noSideEffect,
+proc isDone*(this: ExtremaGenLocateExtCS): bool {.noSideEffect, importcpp: "IsDone",
+    header: "Extrema_GenLocateExtCS.hxx".}
+proc squareDistance*(this: ExtremaGenLocateExtCS): float {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_GenLocateExtCS.hxx".}
-proc PointOnCurve*(this: Extrema_GenLocateExtCS): Extrema_POnCurv {.noSideEffect,
+proc pointOnCurve*(this: ExtremaGenLocateExtCS): ExtremaPOnCurv {.noSideEffect,
     importcpp: "PointOnCurve", header: "Extrema_GenLocateExtCS.hxx".}
-proc PointOnSurface*(this: Extrema_GenLocateExtCS): Extrema_POnSurf {.noSideEffect,
+proc pointOnSurface*(this: ExtremaGenLocateExtCS): ExtremaPOnSurf {.noSideEffect,
     importcpp: "PointOnSurface", header: "Extrema_GenLocateExtCS.hxx".}

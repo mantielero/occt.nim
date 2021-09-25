@@ -14,14 +14,15 @@
 ## ! Predefined tracked devices.
 
 type
-  Aspect_XRTrackedDeviceRole* {.size: sizeof(cint),
-                               importcpp: "Aspect_XRTrackedDeviceRole",
-                               header: "Aspect_XRTrackedDeviceRole.hxx".} = enum
-    Aspect_XRTrackedDeviceRole_Head, ## !< head
-    Aspect_XRTrackedDeviceRole_LeftHand, ## !< left hand
-    Aspect_XRTrackedDeviceRole_RightHand, ## !< right hand
-    Aspect_XRTrackedDeviceRole_Other ## !< other devices
+  AspectXRTrackedDeviceRole* {.size: sizeof(cint),
+                              importcpp: "Aspect_XRTrackedDeviceRole",
+                              header: "Aspect_XRTrackedDeviceRole.hxx".} = enum
+    AspectXRTrackedDeviceRoleHead, ## !< head
+    AspectXRTrackedDeviceRoleLeftHand, ## !< left hand
+    AspectXRTrackedDeviceRoleRightHand, ## !< right hand
+    AspectXRTrackedDeviceRoleOther ## !< other devices
 
 
 const
-  Aspect_XRTrackedDeviceRole_NB* = Aspect_XRTrackedDeviceRole_Other + 1
+  AspectXRTrackedDeviceRoleNB* = aspectXRTrackedDeviceRoleOther + 1
+

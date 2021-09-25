@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Handle
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Standard_GUID"
 discard "forward decl of XmlXCAFDrivers_DocumentRetrievalDriver"
@@ -86,7 +83,7 @@ type
                                                                                          ## XCAFSchema
 
 
-proc Factory*(aGUID: Standard_GUID): handle[Standard_Transient] {.
+proc factory*(aGUID: StandardGUID): Handle[StandardTransient] {.
     importcpp: "XmlXCAFDrivers::Factory(@)", header: "XmlXCAFDrivers.hxx".}
-proc DefineFormat*(theApp: handle[TDocStd_Application]) {.
+proc defineFormat*(theApp: Handle[TDocStdApplication]) {.
     importcpp: "XmlXCAFDrivers::DefineFormat(@)", header: "XmlXCAFDrivers.hxx".}

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESGeom_TransformationMatrix"
 discard "forward decl of IGESData_IGESReaderData"
@@ -31,44 +26,44 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESGeom_ToolTransformationMatrix* {.importcpp: "IGESGeom_ToolTransformationMatrix", header: "IGESGeom_ToolTransformationMatrix.hxx",
-                                      bycopy.} = object ## ! Returns a ToolTransformationMatrix, ready to work
+  IGESGeomToolTransformationMatrix* {.importcpp: "IGESGeom_ToolTransformationMatrix", header: "IGESGeom_ToolTransformationMatrix.hxx",
+                                     bycopy.} = object ## ! Returns a ToolTransformationMatrix, ready to work
 
 
-proc constructIGESGeom_ToolTransformationMatrix*(): IGESGeom_ToolTransformationMatrix {.
+proc constructIGESGeomToolTransformationMatrix*(): IGESGeomToolTransformationMatrix {.
     constructor, importcpp: "IGESGeom_ToolTransformationMatrix(@)",
     header: "IGESGeom_ToolTransformationMatrix.hxx".}
-proc ReadOwnParams*(this: IGESGeom_ToolTransformationMatrix;
-                   ent: handle[IGESGeom_TransformationMatrix];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESGeom_ToolTransformationMatrix.hxx".}
-proc WriteOwnParams*(this: IGESGeom_ToolTransformationMatrix;
-                    ent: handle[IGESGeom_TransformationMatrix];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
-    importcpp: "WriteOwnParams", header: "IGESGeom_ToolTransformationMatrix.hxx".}
-proc OwnShared*(this: IGESGeom_ToolTransformationMatrix;
-               ent: handle[IGESGeom_TransformationMatrix];
-               iter: var Interface_EntityIterator) {.noSideEffect,
-    importcpp: "OwnShared", header: "IGESGeom_ToolTransformationMatrix.hxx".}
-proc OwnCorrect*(this: IGESGeom_ToolTransformationMatrix;
-                ent: handle[IGESGeom_TransformationMatrix]): Standard_Boolean {.
-    noSideEffect, importcpp: "OwnCorrect",
+proc readOwnParams*(this: IGESGeomToolTransformationMatrix;
+                   ent: Handle[IGESGeomTransformationMatrix];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
     header: "IGESGeom_ToolTransformationMatrix.hxx".}
-proc DirChecker*(this: IGESGeom_ToolTransformationMatrix;
-                ent: handle[IGESGeom_TransformationMatrix]): IGESData_DirChecker {.
+proc writeOwnParams*(this: IGESGeomToolTransformationMatrix;
+                    ent: Handle[IGESGeomTransformationMatrix];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
+    importcpp: "WriteOwnParams", header: "IGESGeom_ToolTransformationMatrix.hxx".}
+proc ownShared*(this: IGESGeomToolTransformationMatrix;
+               ent: Handle[IGESGeomTransformationMatrix];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
+    importcpp: "OwnShared", header: "IGESGeom_ToolTransformationMatrix.hxx".}
+proc ownCorrect*(this: IGESGeomToolTransformationMatrix;
+                ent: Handle[IGESGeomTransformationMatrix]): bool {.noSideEffect,
+    importcpp: "OwnCorrect", header: "IGESGeom_ToolTransformationMatrix.hxx".}
+proc dirChecker*(this: IGESGeomToolTransformationMatrix;
+                ent: Handle[IGESGeomTransformationMatrix]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESGeom_ToolTransformationMatrix.hxx".}
-proc OwnCheck*(this: IGESGeom_ToolTransformationMatrix;
-              ent: handle[IGESGeom_TransformationMatrix];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESGeomToolTransformationMatrix;
+              ent: Handle[IGESGeomTransformationMatrix];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck",
     header: "IGESGeom_ToolTransformationMatrix.hxx".}
-proc OwnCopy*(this: IGESGeom_ToolTransformationMatrix;
-             entfrom: handle[IGESGeom_TransformationMatrix];
-             entto: handle[IGESGeom_TransformationMatrix];
-             TC: var Interface_CopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESGeom_ToolTransformationMatrix.hxx".}
-proc OwnDump*(this: IGESGeom_ToolTransformationMatrix;
-             ent: handle[IGESGeom_TransformationMatrix];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump", header: "IGESGeom_ToolTransformationMatrix.hxx".}
+proc ownCopy*(this: IGESGeomToolTransformationMatrix;
+             entfrom: Handle[IGESGeomTransformationMatrix];
+             entto: Handle[IGESGeomTransformationMatrix];
+             tc: var InterfaceCopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESGeom_ToolTransformationMatrix.hxx".}
+proc ownDump*(this: IGESGeomToolTransformationMatrix;
+             ent: Handle[IGESGeomTransformationMatrix];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump",
+    header: "IGESGeom_ToolTransformationMatrix.hxx".}

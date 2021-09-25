@@ -11,40 +11,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../StdObjMgt/StdObjMgt_ReadData, ../StdObjMgt/StdObjMgt_WriteData,
-  ../gp/gp_Pnt2d, ../gp/gp_Vec2d, ../gp/gp_Dir2d, ../gp/gp_Pnt, ../gp/gp_Vec,
-  ../gp/gp_Dir
-
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theXY: var gp_XY): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theXY: var Xy): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Vectors.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theXY: gp_XY): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theXY: Xy): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Vectors.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; thePnt: var gp_Pnt2d): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; thePnt: var Pnt2d): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Vectors.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; thePnt: gp_Pnt2d): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; thePnt: Pnt2d): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Vectors.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theVec: var gp_Vec2d): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theVec: var Vec2d): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Vectors.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theVec: gp_Vec2d): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theVec: Vec2d): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Vectors.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theDir: var gp_Dir2d): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theDir: var Dir2d): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Vectors.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theDir: gp_Dir2d): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theDir: Dir2d): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Vectors.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theXYZ: var gp_XYZ): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theXYZ: var Xyz): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Vectors.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theXYZ: gp_XYZ): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theXYZ: Xyz): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Vectors.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; thePnt: var gp_Pnt): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; thePnt: var Pnt): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Vectors.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; thePnt: gp_Pnt): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; thePnt: Pnt): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Vectors.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theVec: var gp_Vec): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theVec: var Vec): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Vectors.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theVec: gp_Vec): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theVec: Vec): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Vectors.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theDir: var gp_Dir): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theDir: var Dir): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Vectors.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theDir: gp_Dir): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theDir: Dir): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Vectors.hxx".}

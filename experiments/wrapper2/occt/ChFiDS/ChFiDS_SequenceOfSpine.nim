@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ChFiDS_Spine, ../NCollection/NCollection_Sequence
-
 type
-  ChFiDS_SequenceOfSpine* = NCollection_Sequence[handle[ChFiDS_Spine]]
+  ChFiDS_SequenceOfSpine* = NCollectionSequence[Handle[ChFiDS_Spine]]
+

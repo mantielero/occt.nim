@@ -14,18 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../TColStd/TColStd_HArray1OfInteger,
-  ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of Standard_DimensionMismatch"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESDimen_DimensionDisplayData"
 discard "forward decl of IGESDimen_DimensionDisplayData"
 type
-  Handle_IGESDimen_DimensionDisplayData* = handle[IGESDimen_DimensionDisplayData]
+  HandleIGESDimenDimensionDisplayData* = Handle[IGESDimenDimensionDisplayData]
 
 ## ! Defines IGES Dimension Display Data, Type <406> Form <30>,
 ## ! in package IGESDimen
@@ -35,79 +30,65 @@ type
 ## ! leader and witness line data with difficulty.
 
 type
-  IGESDimen_DimensionDisplayData* {.importcpp: "IGESDimen_DimensionDisplayData", header: "IGESDimen_DimensionDisplayData.hxx",
-                                   bycopy.} = object of IGESData_IGESEntity
+  IGESDimenDimensionDisplayData* {.importcpp: "IGESDimen_DimensionDisplayData",
+                                  header: "IGESDimen_DimensionDisplayData.hxx",
+                                  bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESDimen_DimensionDisplayData*(): IGESDimen_DimensionDisplayData {.
+proc constructIGESDimenDimensionDisplayData*(): IGESDimenDimensionDisplayData {.
     constructor, importcpp: "IGESDimen_DimensionDisplayData(@)",
     header: "IGESDimen_DimensionDisplayData.hxx".}
-proc Init*(this: var IGESDimen_DimensionDisplayData; numProps: Standard_Integer;
-          aDimType: Standard_Integer; aLabelPos: Standard_Integer;
-          aCharSet: Standard_Integer; aString: handle[TCollection_HAsciiString];
-          aSymbol: Standard_Integer; anAng: Standard_Real;
-          anAlign: Standard_Integer; aLevel: Standard_Integer;
-          aPlace: Standard_Integer; anOrient: Standard_Integer;
-          initVal: Standard_Real; notes: handle[TColStd_HArray1OfInteger];
-          startInd: handle[TColStd_HArray1OfInteger];
-          endInd: handle[TColStd_HArray1OfInteger]) {.importcpp: "Init",
+proc init*(this: var IGESDimenDimensionDisplayData; numProps: int; aDimType: int;
+          aLabelPos: int; aCharSet: int; aString: Handle[TCollectionHAsciiString];
+          aSymbol: int; anAng: float; anAlign: int; aLevel: int; aPlace: int;
+          anOrient: int; initVal: float; notes: Handle[TColStdHArray1OfInteger];
+          startInd: Handle[TColStdHArray1OfInteger];
+          endInd: Handle[TColStdHArray1OfInteger]) {.importcpp: "Init",
     header: "IGESDimen_DimensionDisplayData.hxx".}
-proc NbPropertyValues*(this: IGESDimen_DimensionDisplayData): Standard_Integer {.
-    noSideEffect, importcpp: "NbPropertyValues",
+proc nbPropertyValues*(this: IGESDimenDimensionDisplayData): int {.noSideEffect,
+    importcpp: "NbPropertyValues", header: "IGESDimen_DimensionDisplayData.hxx".}
+proc dimensionType*(this: IGESDimenDimensionDisplayData): int {.noSideEffect,
+    importcpp: "DimensionType", header: "IGESDimen_DimensionDisplayData.hxx".}
+proc labelPosition*(this: IGESDimenDimensionDisplayData): int {.noSideEffect,
+    importcpp: "LabelPosition", header: "IGESDimen_DimensionDisplayData.hxx".}
+proc characterSet*(this: IGESDimenDimensionDisplayData): int {.noSideEffect,
+    importcpp: "CharacterSet", header: "IGESDimen_DimensionDisplayData.hxx".}
+proc lString*(this: IGESDimenDimensionDisplayData): Handle[TCollectionHAsciiString] {.
+    noSideEffect, importcpp: "LString",
     header: "IGESDimen_DimensionDisplayData.hxx".}
-proc DimensionType*(this: IGESDimen_DimensionDisplayData): Standard_Integer {.
-    noSideEffect, importcpp: "DimensionType",
+proc decimalSymbol*(this: IGESDimenDimensionDisplayData): int {.noSideEffect,
+    importcpp: "DecimalSymbol", header: "IGESDimen_DimensionDisplayData.hxx".}
+proc witnessLineAngle*(this: IGESDimenDimensionDisplayData): float {.noSideEffect,
+    importcpp: "WitnessLineAngle", header: "IGESDimen_DimensionDisplayData.hxx".}
+proc textAlignment*(this: IGESDimenDimensionDisplayData): int {.noSideEffect,
+    importcpp: "TextAlignment", header: "IGESDimen_DimensionDisplayData.hxx".}
+proc textLevel*(this: IGESDimenDimensionDisplayData): int {.noSideEffect,
+    importcpp: "TextLevel", header: "IGESDimen_DimensionDisplayData.hxx".}
+proc textPlacement*(this: IGESDimenDimensionDisplayData): int {.noSideEffect,
+    importcpp: "TextPlacement", header: "IGESDimen_DimensionDisplayData.hxx".}
+proc arrowHeadOrientation*(this: IGESDimenDimensionDisplayData): int {.noSideEffect,
+    importcpp: "ArrowHeadOrientation",
     header: "IGESDimen_DimensionDisplayData.hxx".}
-proc LabelPosition*(this: IGESDimen_DimensionDisplayData): Standard_Integer {.
-    noSideEffect, importcpp: "LabelPosition",
+proc initialValue*(this: IGESDimenDimensionDisplayData): float {.noSideEffect,
+    importcpp: "InitialValue", header: "IGESDimen_DimensionDisplayData.hxx".}
+proc nbSupplementaryNotes*(this: IGESDimenDimensionDisplayData): int {.noSideEffect,
+    importcpp: "NbSupplementaryNotes",
     header: "IGESDimen_DimensionDisplayData.hxx".}
-proc CharacterSet*(this: IGESDimen_DimensionDisplayData): Standard_Integer {.
-    noSideEffect, importcpp: "CharacterSet",
+proc supplementaryNote*(this: IGESDimenDimensionDisplayData; index: int): int {.
+    noSideEffect, importcpp: "SupplementaryNote",
     header: "IGESDimen_DimensionDisplayData.hxx".}
-proc LString*(this: IGESDimen_DimensionDisplayData): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "LString",
-                               header: "IGESDimen_DimensionDisplayData.hxx".}
-proc DecimalSymbol*(this: IGESDimen_DimensionDisplayData): Standard_Integer {.
-    noSideEffect, importcpp: "DecimalSymbol",
-    header: "IGESDimen_DimensionDisplayData.hxx".}
-proc WitnessLineAngle*(this: IGESDimen_DimensionDisplayData): Standard_Real {.
-    noSideEffect, importcpp: "WitnessLineAngle",
-    header: "IGESDimen_DimensionDisplayData.hxx".}
-proc TextAlignment*(this: IGESDimen_DimensionDisplayData): Standard_Integer {.
-    noSideEffect, importcpp: "TextAlignment",
-    header: "IGESDimen_DimensionDisplayData.hxx".}
-proc TextLevel*(this: IGESDimen_DimensionDisplayData): Standard_Integer {.
-    noSideEffect, importcpp: "TextLevel",
-    header: "IGESDimen_DimensionDisplayData.hxx".}
-proc TextPlacement*(this: IGESDimen_DimensionDisplayData): Standard_Integer {.
-    noSideEffect, importcpp: "TextPlacement",
-    header: "IGESDimen_DimensionDisplayData.hxx".}
-proc ArrowHeadOrientation*(this: IGESDimen_DimensionDisplayData): Standard_Integer {.
-    noSideEffect, importcpp: "ArrowHeadOrientation",
-    header: "IGESDimen_DimensionDisplayData.hxx".}
-proc InitialValue*(this: IGESDimen_DimensionDisplayData): Standard_Real {.
-    noSideEffect, importcpp: "InitialValue",
-    header: "IGESDimen_DimensionDisplayData.hxx".}
-proc NbSupplementaryNotes*(this: IGESDimen_DimensionDisplayData): Standard_Integer {.
-    noSideEffect, importcpp: "NbSupplementaryNotes",
-    header: "IGESDimen_DimensionDisplayData.hxx".}
-proc SupplementaryNote*(this: IGESDimen_DimensionDisplayData;
-                       Index: Standard_Integer): Standard_Integer {.noSideEffect,
-    importcpp: "SupplementaryNote", header: "IGESDimen_DimensionDisplayData.hxx".}
-proc StartIndex*(this: IGESDimen_DimensionDisplayData; Index: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "StartIndex",
-    header: "IGESDimen_DimensionDisplayData.hxx".}
-proc EndIndex*(this: IGESDimen_DimensionDisplayData; Index: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "EndIndex",
-    header: "IGESDimen_DimensionDisplayData.hxx".}
+proc startIndex*(this: IGESDimenDimensionDisplayData; index: int): int {.noSideEffect,
+    importcpp: "StartIndex", header: "IGESDimen_DimensionDisplayData.hxx".}
+proc endIndex*(this: IGESDimenDimensionDisplayData; index: int): int {.noSideEffect,
+    importcpp: "EndIndex", header: "IGESDimen_DimensionDisplayData.hxx".}
 type
-  IGESDimen_DimensionDisplayDatabase_type* = IGESData_IGESEntity
+  IGESDimenDimensionDisplayDatabaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESDimen_DimensionDisplayData::get_type_name(@)",
-                              header: "IGESDimen_DimensionDisplayData.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESDimen_DimensionDisplayData::get_type_name(@)",
+                            header: "IGESDimen_DimensionDisplayData.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESDimen_DimensionDisplayData::get_type_descriptor(@)",
     header: "IGESDimen_DimensionDisplayData.hxx".}
-proc DynamicType*(this: IGESDimen_DimensionDisplayData): handle[Standard_Type] {.
+proc dynamicType*(this: IGESDimenDimensionDisplayData): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESDimen_DimensionDisplayData.hxx".}

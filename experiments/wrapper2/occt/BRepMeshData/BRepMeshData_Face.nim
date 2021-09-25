@@ -13,37 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../IMeshData/IMeshData_Types, ../IMeshData/IMeshData_Face,
-  ../IMeshData/IMeshData_Wire
-
 ## ! Default implementation of face data model entity.
 
 type
-  BRepMeshData_Face* {.importcpp: "BRepMeshData_Face",
-                      header: "BRepMeshData_Face.hxx", bycopy.} = object of IMeshData_Face
+  BRepMeshDataFace* {.importcpp: "BRepMeshData_Face",
+                     header: "BRepMeshData_Face.hxx", bycopy.} = object of IMeshDataFace
 
 
-proc BRepMeshData_Face*(this: var BRepMeshData_Face; theFace: TopoDS_Face;
-                       theAllocator: handle[NCollection_IncAllocator]): DEFINE_INC_ALLOC {.
+proc bRepMeshDataFace*(this: var BRepMeshDataFace; theFace: TopoDS_Face;
+                      theAllocator: Handle[NCollectionIncAllocator]): Define_Inc_Alloc {.
     importcpp: "BRepMeshData_Face", header: "BRepMeshData_Face.hxx".}
   ## ! Constructor.
-proc destroyBRepMeshData_Face*(this: var BRepMeshData_Face) {.
+proc destroyBRepMeshDataFace*(this: var BRepMeshDataFace) {.
     importcpp: "#.~BRepMeshData_Face()", header: "BRepMeshData_Face.hxx".}
-proc WiresNb*(this: BRepMeshData_Face): Standard_Integer {.noSideEffect,
-    importcpp: "WiresNb", header: "BRepMeshData_Face.hxx".}
-proc GetWire*(this: BRepMeshData_Face; theIndex: Standard_Integer): IWireHandle {.
-    noSideEffect, importcpp: "GetWire", header: "BRepMeshData_Face.hxx".}
-proc AddWire*(this: var BRepMeshData_Face; theWire: TopoDS_Wire;
-             theEdgeNb: Standard_Integer = 0): IWireHandle {.importcpp: "AddWire",
+proc wiresNb*(this: BRepMeshDataFace): int {.noSideEffect, importcpp: "WiresNb",
     header: "BRepMeshData_Face.hxx".}
+proc getWire*(this: BRepMeshDataFace; theIndex: int): IWireHandle {.noSideEffect,
+    importcpp: "GetWire", header: "BRepMeshData_Face.hxx".}
+proc addWire*(this: var BRepMeshDataFace; theWire: TopoDS_Wire; theEdgeNb: int = 0): IWireHandle {.
+    importcpp: "AddWire", header: "BRepMeshData_Face.hxx".}
 type
-  BRepMeshData_Facebase_type* = IMeshData_Face
+  BRepMeshDataFacebaseType* = IMeshDataFace
 
-proc get_type_name*(): cstring {.importcpp: "BRepMeshData_Face::get_type_name(@)",
-                              header: "BRepMeshData_Face.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepMeshData_Face::get_type_name(@)",
+                            header: "BRepMeshData_Face.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepMeshData_Face::get_type_descriptor(@)",
     header: "BRepMeshData_Face.hxx".}
-proc DynamicType*(this: BRepMeshData_Face): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: BRepMeshDataFace): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMeshData_Face.hxx".}

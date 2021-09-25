@@ -11,33 +11,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StdObject_gp_Vectors, ../gp/gp_Ax2d, ../gp/gp_Ax22d, ../gp/gp_Ax1, ../gp/gp_Ax2,
-  ../gp/gp_Ax3
-
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theAx: var gp_Ax2d): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theAx: var Ax2d): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Axes.hxx".}
-proc write*(theWriteData: var StdObjMgt_WriteData; theAx: gp_Ax2d): var StdObjMgt_WriteData =
+proc write*(theWriteData: var StdObjMgtWriteData; theAx: Ax2d): var StdObjMgtWriteData =
   discard
 
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theAx: gp_Ax2d): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theAx: Ax2d): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Axes.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theAx: var gp_Ax22d): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theAx: var Ax22d): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Axes.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theAx: gp_Ax22d): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theAx: Ax22d): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Axes.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theAx: var gp_Ax1): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theAx: var Ax1): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Axes.hxx".}
-proc write*(theWriteData: var StdObjMgt_WriteData; theAx: gp_Ax1): var StdObjMgt_WriteData =
+proc write*(theWriteData: var StdObjMgtWriteData; theAx: Ax1): var StdObjMgtWriteData =
   discard
 
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theAx: gp_Ax1): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theAx: Ax1): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Axes.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theAx: var gp_Ax2): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theAx: var Ax2): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Axes.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theAx: gp_Ax2): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theAx: Ax2): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Axes.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theAx: var gp_Ax3): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theAx: var Ax3): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Axes.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theAx: gp_Ax3): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theAx: Ax3): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Axes.hxx".}

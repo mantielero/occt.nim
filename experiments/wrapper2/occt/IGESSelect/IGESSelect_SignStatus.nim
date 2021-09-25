@@ -14,17 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../IFSelect/IFSelect_Signature,
-  ../Standard/Standard_CString, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SignStatus"
 discard "forward decl of IGESSelect_SignStatus"
 type
-  Handle_IGESSelect_SignStatus* = handle[IGESSelect_SignStatus]
+  HandleIGESSelectSignStatus* = Handle[IGESSelectSignStatus]
 
 ## ! Gives D.E. Status under the form i,j,k,l (4 figures)
 ## ! i for BlankStatus
@@ -42,26 +38,26 @@ type
 ## ! nothing or a star between commas : this status is OK
 
 type
-  IGESSelect_SignStatus* {.importcpp: "IGESSelect_SignStatus",
-                          header: "IGESSelect_SignStatus.hxx", bycopy.} = object of IFSelect_Signature
+  IGESSelectSignStatus* {.importcpp: "IGESSelect_SignStatus",
+                         header: "IGESSelect_SignStatus.hxx", bycopy.} = object of IFSelectSignature
 
 
-proc constructIGESSelect_SignStatus*(): IGESSelect_SignStatus {.constructor,
+proc constructIGESSelectSignStatus*(): IGESSelectSignStatus {.constructor,
     importcpp: "IGESSelect_SignStatus(@)", header: "IGESSelect_SignStatus.hxx".}
-proc Value*(this: IGESSelect_SignStatus; ent: handle[Standard_Transient];
-           model: handle[Interface_InterfaceModel]): Standard_CString {.
-    noSideEffect, importcpp: "Value", header: "IGESSelect_SignStatus.hxx".}
-proc Matches*(this: IGESSelect_SignStatus; ent: handle[Standard_Transient];
-             model: handle[Interface_InterfaceModel];
-             text: TCollection_AsciiString; exact: Standard_Boolean): Standard_Boolean {.
-    noSideEffect, importcpp: "Matches", header: "IGESSelect_SignStatus.hxx".}
+proc value*(this: IGESSelectSignStatus; ent: Handle[StandardTransient];
+           model: Handle[InterfaceInterfaceModel]): StandardCString {.noSideEffect,
+    importcpp: "Value", header: "IGESSelect_SignStatus.hxx".}
+proc matches*(this: IGESSelectSignStatus; ent: Handle[StandardTransient];
+             model: Handle[InterfaceInterfaceModel]; text: TCollectionAsciiString;
+             exact: bool): bool {.noSideEffect, importcpp: "Matches",
+                               header: "IGESSelect_SignStatus.hxx".}
 type
-  IGESSelect_SignStatusbase_type* = IFSelect_Signature
+  IGESSelectSignStatusbaseType* = IFSelectSignature
 
-proc get_type_name*(): cstring {.importcpp: "IGESSelect_SignStatus::get_type_name(@)",
-                              header: "IGESSelect_SignStatus.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_SignStatus::get_type_name(@)",
+                            header: "IGESSelect_SignStatus.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSelect_SignStatus::get_type_descriptor(@)",
     header: "IGESSelect_SignStatus.hxx".}
-proc DynamicType*(this: IGESSelect_SignStatus): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IGESSelect_SignStatus.hxx".}
+proc dynamicType*(this: IGESSelectSignStatus): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IGESSelect_SignStatus.hxx".}

@@ -11,5 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # StepFEA_HSequenceOfNodeRepresentation_HeaderFile [NewLine] # StepFEA_HSequenceOfNodeRepresentation_HeaderFile [NewLine] # StepFEA_NodeRepresentation.hxx [NewLine] # StepFEA_SequenceOfNodeRepresentation.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( StepFEA_HSequenceOfNodeRepresentation , StepFEA_SequenceOfNodeRepresentation ) # [NewLine]
+## !!!Ignored construct:  # StepFEA_HSequenceOfNodeRepresentation_HeaderFile [NewLine] # StepFEA_HSequenceOfNodeRepresentation_HeaderFile [NewLine] # < StepFEA_NodeRepresentation . hxx > [NewLine] # < StepFEA_SequenceOfNodeRepresentation . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( StepFEA_HSequenceOfNodeRepresentation , StepFEA_SequenceOfNodeRepresentation ) # [NewLine]
 ## Error: expected ';'!!!
+

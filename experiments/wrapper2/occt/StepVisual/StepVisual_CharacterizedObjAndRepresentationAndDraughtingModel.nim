@@ -13,29 +13,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepVisual_DraughtingModel
-
 discard "forward decl of StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel"
 discard "forward decl of StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel"
 type
-  Handle_StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel* = handle[
-      StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel]
+  HandleStepVisualCharacterizedObjAndRepresentationAndDraughtingModel* = Handle[
+      StepVisualCharacterizedObjAndRepresentationAndDraughtingModel]
 
 ## ! Added for Dimensional Tolerances
 ## ! Complex STEP entity Characterized_Object & Characterized_Representation & Draughting_Model & Representation
 
 type
-  StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel* {.importcpp: "StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel", header: "StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel.hxx",
-      bycopy.} = object of StepVisual_DraughtingModel
+  StepVisualCharacterizedObjAndRepresentationAndDraughtingModel* {.importcpp: "StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel", header: "StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel.hxx",
+      bycopy.} = object of StepVisualDraughtingModel
 
 
-proc constructStepVisual_CharacterizedObjAndRepresentationAndDraughtingModel*(): StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel {.
+proc constructStepVisualCharacterizedObjAndRepresentationAndDraughtingModel*(): StepVisualCharacterizedObjAndRepresentationAndDraughtingModel {.
     constructor, importcpp: "StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel(@)", header: "StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel.hxx".}
 type
-  StepVisual_CharacterizedObjAndRepresentationAndDraughtingModelbase_type* = StepVisual_DraughtingModel
+  StepVisualCharacterizedObjAndRepresentationAndDraughtingModelbaseType* = StepVisualDraughtingModel
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel::get_type_name(@)", header: "StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel::get_type_descriptor(@)", header: "StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel.hxx".}
-proc DynamicType*(this: StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel.hxx".}
+proc getTypeName*(): cstring {.importcpp: "StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel::get_type_name(@)", header: "StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel::get_type_descriptor(@)", header: "StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel.hxx".}
+proc dynamicType*(this: StepVisualCharacterizedObjAndRepresentationAndDraughtingModel): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel.hxx".}

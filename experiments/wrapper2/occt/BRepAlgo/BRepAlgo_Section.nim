@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _BRepAlgo_Section_HeaderFile [NewLine] # _BRepAlgo_Section_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # BRepAlgo_BooleanOperation.hxx [NewLine] class TopoDS_Shape ;
+## !!!Ignored construct:  # _BRepAlgo_Section_HeaderFile [NewLine] # _BRepAlgo_Section_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < BRepAlgo_BooleanOperation . hxx > [NewLine] class TopoDS_Shape ;
 ## Error: token expected: ; but got: [identifier]!!!
 
 discard "forward decl of gp_Pln"
@@ -233,3 +233,4 @@ discard "forward decl of Geom_Surface"
 ## ! ancestor face: F is significant only if the returned
 ## ! Boolean value equals true. Standard_Boolean HasAncestorFaceOn2 ( const TopoDS_Shape & E , TopoDS_Shape & F ) const ; protected : private : virtual void InitParameters ( ) ; Standard_Boolean myS1Changed ; Standard_Boolean myS2Changed ; Standard_Boolean myApproxChanged ; Standard_Boolean myPCurve1Changed ; Standard_Boolean myPCurve2Changed ; Standard_Boolean myshapeisnull ; } ;
 ## Error: token expected: ; but got: [identifier]!!!
+

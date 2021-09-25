@@ -13,35 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepDimTol_ToleranceZoneDefinition"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepDimTol_RWToleranceZoneDefinition* {.
+  RWStepDimTolRWToleranceZoneDefinition* {.
       importcpp: "RWStepDimTol_RWToleranceZoneDefinition",
       header: "RWStepDimTol_RWToleranceZoneDefinition.hxx", bycopy.} = object ## ! Empty
                                                                          ## constructor
 
 
-proc constructRWStepDimTol_RWToleranceZoneDefinition*(): RWStepDimTol_RWToleranceZoneDefinition {.
+proc constructRWStepDimTolRWToleranceZoneDefinition*(): RWStepDimTolRWToleranceZoneDefinition {.
     constructor, importcpp: "RWStepDimTol_RWToleranceZoneDefinition(@)",
     header: "RWStepDimTol_RWToleranceZoneDefinition.hxx".}
-proc ReadStep*(this: RWStepDimTol_RWToleranceZoneDefinition;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepDimTol_ToleranceZoneDefinition]) {.noSideEffect,
+proc readStep*(this: RWStepDimTolRWToleranceZoneDefinition;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepDimTolToleranceZoneDefinition]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepDimTol_RWToleranceZoneDefinition.hxx".}
-proc WriteStep*(this: RWStepDimTol_RWToleranceZoneDefinition;
-               SW: var StepData_StepWriter;
-               ent: handle[StepDimTol_ToleranceZoneDefinition]) {.noSideEffect,
+proc writeStep*(this: RWStepDimTolRWToleranceZoneDefinition;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepDimTolToleranceZoneDefinition]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepDimTol_RWToleranceZoneDefinition.hxx".}
-proc Share*(this: RWStepDimTol_RWToleranceZoneDefinition;
-           ent: handle[StepDimTol_ToleranceZoneDefinition];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepDimTolRWToleranceZoneDefinition;
+           ent: Handle[StepDimTolToleranceZoneDefinition];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWToleranceZoneDefinition.hxx".}

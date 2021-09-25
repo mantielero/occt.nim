@@ -14,16 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_NegativeValue_HeaderFile [NewLine] # _Standard_NegativeValue_HeaderFile [NewLine] # Standard_Type.hxx [NewLine] # Standard_DefineException.hxx [NewLine] # Standard_SStream.hxx [NewLine] # Standard_RangeError.hxx [NewLine] class Standard_NegativeValue ;
+## !!!Ignored construct:  # _Standard_NegativeValue_HeaderFile [NewLine] # _Standard_NegativeValue_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_RangeError . hxx > [NewLine] class Standard_NegativeValue ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Standard_NegativeValue"
 type
-  Handle_Standard_NegativeValueStandard_NegativeValue* = handle[
-      Standard_NegativeValue]
+  HandleStandardNegativeValueStandardNegativeValue* = Handle[StandardNegativeValue]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_NegativeValue [NewLine] # if ( CONDITION ) throw Standard_NegativeValue ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_NegativeValue , Standard_RangeError ) #  _Standard_NegativeValue_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_NegativeValue , Standard_RangeError ) #  _Standard_NegativeValue_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

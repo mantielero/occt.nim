@@ -14,35 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_SecurityClassification"
 discard "forward decl of StepBasic_SecurityClassificationAssignment"
 discard "forward decl of StepBasic_SecurityClassificationAssignment"
 type
-  Handle_StepBasic_SecurityClassificationAssignment* = handle[
-      StepBasic_SecurityClassificationAssignment]
-  StepBasic_SecurityClassificationAssignment* {.
+  HandleStepBasicSecurityClassificationAssignment* = Handle[
+      StepBasicSecurityClassificationAssignment]
+  StepBasicSecurityClassificationAssignment* {.
       importcpp: "StepBasic_SecurityClassificationAssignment",
-      header: "StepBasic_SecurityClassificationAssignment.hxx", bycopy.} = object of Standard_Transient
+      header: "StepBasic_SecurityClassificationAssignment.hxx", bycopy.} = object of StandardTransient
 
 
-proc Init*(this: var StepBasic_SecurityClassificationAssignment;
-    aAssignedSecurityClassification: handle[StepBasic_SecurityClassification]) {.
+proc init*(this: var StepBasicSecurityClassificationAssignment;
+    aAssignedSecurityClassification: Handle[StepBasicSecurityClassification]) {.
     importcpp: "Init", header: "StepBasic_SecurityClassificationAssignment.hxx".}
-proc SetAssignedSecurityClassification*(this: var StepBasic_SecurityClassificationAssignment;
-    aAssignedSecurityClassification: handle[StepBasic_SecurityClassification]) {.
+proc setAssignedSecurityClassification*(this: var StepBasicSecurityClassificationAssignment;
+    aAssignedSecurityClassification: Handle[StepBasicSecurityClassification]) {.
     importcpp: "SetAssignedSecurityClassification",
     header: "StepBasic_SecurityClassificationAssignment.hxx".}
-proc AssignedSecurityClassification*(this: StepBasic_SecurityClassificationAssignment): handle[
-    StepBasic_SecurityClassification] {.noSideEffect, importcpp: "AssignedSecurityClassification", header: "StepBasic_SecurityClassificationAssignment.hxx".}
+proc assignedSecurityClassification*(this: StepBasicSecurityClassificationAssignment): Handle[
+    StepBasicSecurityClassification] {.noSideEffect, importcpp: "AssignedSecurityClassification", header: "StepBasic_SecurityClassificationAssignment.hxx".}
 type
-  StepBasic_SecurityClassificationAssignmentbase_type* = Standard_Transient
+  StepBasicSecurityClassificationAssignmentbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_SecurityClassificationAssignment::get_type_name(@)", header: "StepBasic_SecurityClassificationAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepBasic_SecurityClassificationAssignment::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepBasic_SecurityClassificationAssignment::get_type_name(@)", header: "StepBasic_SecurityClassificationAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_SecurityClassificationAssignment::get_type_descriptor(@)",
     header: "StepBasic_SecurityClassificationAssignment.hxx".}
-proc DynamicType*(this: StepBasic_SecurityClassificationAssignment): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepBasic_SecurityClassificationAssignment.hxx".}
+proc dynamicType*(this: StepBasicSecurityClassificationAssignment): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepBasic_SecurityClassificationAssignment.hxx".}

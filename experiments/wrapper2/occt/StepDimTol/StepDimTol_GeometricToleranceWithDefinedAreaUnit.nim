@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  StepDimTol_AreaUnitType, StepDimTol_GeometricToleranceWithDefinedUnit
-
 discard "forward decl of StepBasic_LengthMeasureWithUnit"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_MeasureWithUnit"
@@ -24,55 +20,54 @@ discard "forward decl of StepDimTol_GeometricToleranceTarget"
 discard "forward decl of StepDimTol_GeometricToleranceWithDefinedAreaUnit"
 discard "forward decl of StepDimTol_GeometricToleranceWithDefinedAreaUnit"
 type
-  Handle_StepDimTol_GeometricToleranceWithDefinedAreaUnit* = handle[
-      StepDimTol_GeometricToleranceWithDefinedAreaUnit]
+  HandleStepDimTolGeometricToleranceWithDefinedAreaUnit* = Handle[
+      StepDimTolGeometricToleranceWithDefinedAreaUnit]
 
 ## ! Representation of STEP entity GeometricToleranceWithDefinedAreaUnit
 
 type
-  StepDimTol_GeometricToleranceWithDefinedAreaUnit* {.
+  StepDimTolGeometricToleranceWithDefinedAreaUnit* {.
       importcpp: "StepDimTol_GeometricToleranceWithDefinedAreaUnit",
-      header: "StepDimTol_GeometricToleranceWithDefinedAreaUnit.hxx", bycopy.} = object of StepDimTol_GeometricToleranceWithDefinedUnit ##
-                                                                                                                                 ## !
-                                                                                                                                 ## Empty
-                                                                                                                                 ## constructor
+      header: "StepDimTol_GeometricToleranceWithDefinedAreaUnit.hxx", bycopy.} = object of StepDimTolGeometricToleranceWithDefinedUnit ##
+                                                                                                                                ## !
+                                                                                                                                ## Empty
+                                                                                                                                ## constructor
 
 
-proc constructStepDimTol_GeometricToleranceWithDefinedAreaUnit*(): StepDimTol_GeometricToleranceWithDefinedAreaUnit {.
+proc constructStepDimTolGeometricToleranceWithDefinedAreaUnit*(): StepDimTolGeometricToleranceWithDefinedAreaUnit {.
     constructor,
     importcpp: "StepDimTol_GeometricToleranceWithDefinedAreaUnit(@)",
     header: "StepDimTol_GeometricToleranceWithDefinedAreaUnit.hxx".}
-proc Init*(this: var StepDimTol_GeometricToleranceWithDefinedAreaUnit;
-          theName: handle[TCollection_HAsciiString];
-          theDescription: handle[TCollection_HAsciiString];
-          theMagnitude: handle[StepBasic_MeasureWithUnit];
-          theTolerancedShapeAspect: StepDimTol_GeometricToleranceTarget;
-          theUnitSize: handle[StepBasic_LengthMeasureWithUnit];
-          theAreaType: StepDimTol_AreaUnitType;
-          theHasSecondUnitSize: Standard_Boolean;
-          theSecondUnitSize: handle[StepBasic_LengthMeasureWithUnit]) {.
+proc init*(this: var StepDimTolGeometricToleranceWithDefinedAreaUnit;
+          theName: Handle[TCollectionHAsciiString];
+          theDescription: Handle[TCollectionHAsciiString];
+          theMagnitude: Handle[StepBasicMeasureWithUnit];
+          theTolerancedShapeAspect: StepDimTolGeometricToleranceTarget;
+          theUnitSize: Handle[StepBasicLengthMeasureWithUnit];
+          theAreaType: StepDimTolAreaUnitType; theHasSecondUnitSize: bool;
+          theSecondUnitSize: Handle[StepBasicLengthMeasureWithUnit]) {.
     importcpp: "Init",
     header: "StepDimTol_GeometricToleranceWithDefinedAreaUnit.hxx".}
-proc AreaType*(this: StepDimTol_GeometricToleranceWithDefinedAreaUnit): StepDimTol_AreaUnitType {.
+proc areaType*(this: StepDimTolGeometricToleranceWithDefinedAreaUnit): StepDimTolAreaUnitType {.
     noSideEffect, importcpp: "AreaType",
     header: "StepDimTol_GeometricToleranceWithDefinedAreaUnit.hxx".}
-proc SetAreaType*(this: var StepDimTol_GeometricToleranceWithDefinedAreaUnit;
-                 theAreaType: StepDimTol_AreaUnitType) {.importcpp: "SetAreaType",
+proc setAreaType*(this: var StepDimTolGeometricToleranceWithDefinedAreaUnit;
+                 theAreaType: StepDimTolAreaUnitType) {.importcpp: "SetAreaType",
     header: "StepDimTol_GeometricToleranceWithDefinedAreaUnit.hxx".}
-proc SecondUnitSize*(this: StepDimTol_GeometricToleranceWithDefinedAreaUnit): handle[
-    StepBasic_LengthMeasureWithUnit] {.noSideEffect, importcpp: "SecondUnitSize", header: "StepDimTol_GeometricToleranceWithDefinedAreaUnit.hxx".}
-proc SetSecondUnitSize*(this: var StepDimTol_GeometricToleranceWithDefinedAreaUnit;
-    theSecondUnitSize: handle[StepBasic_LengthMeasureWithUnit]) {.
+proc secondUnitSize*(this: StepDimTolGeometricToleranceWithDefinedAreaUnit): Handle[
+    StepBasicLengthMeasureWithUnit] {.noSideEffect, importcpp: "SecondUnitSize", header: "StepDimTol_GeometricToleranceWithDefinedAreaUnit.hxx".}
+proc setSecondUnitSize*(this: var StepDimTolGeometricToleranceWithDefinedAreaUnit;
+    theSecondUnitSize: Handle[StepBasicLengthMeasureWithUnit]) {.
     importcpp: "SetSecondUnitSize",
     header: "StepDimTol_GeometricToleranceWithDefinedAreaUnit.hxx".}
-proc HasSecondUnitSize*(this: StepDimTol_GeometricToleranceWithDefinedAreaUnit): Standard_Boolean {.
+proc hasSecondUnitSize*(this: StepDimTolGeometricToleranceWithDefinedAreaUnit): bool {.
     noSideEffect, importcpp: "HasSecondUnitSize",
     header: "StepDimTol_GeometricToleranceWithDefinedAreaUnit.hxx".}
 type
-  StepDimTol_GeometricToleranceWithDefinedAreaUnitbase_type* = StepDimTol_GeometricToleranceWithDefinedUnit
+  StepDimTolGeometricToleranceWithDefinedAreaUnitbaseType* = StepDimTolGeometricToleranceWithDefinedUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_GeometricToleranceWithDefinedAreaUnit::get_type_name(@)", header: "StepDimTol_GeometricToleranceWithDefinedAreaUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepDimTol_GeometricToleranceWithDefinedAreaUnit::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_GeometricToleranceWithDefinedAreaUnit::get_type_name(@)", header: "StepDimTol_GeometricToleranceWithDefinedAreaUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepDimTol_GeometricToleranceWithDefinedAreaUnit::get_type_descriptor(@)",
     header: "StepDimTol_GeometricToleranceWithDefinedAreaUnit.hxx".}
-proc DynamicType*(this: StepDimTol_GeometricToleranceWithDefinedAreaUnit): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepDimTol_GeometricToleranceWithDefinedAreaUnit.hxx".}
+proc dynamicType*(this: StepDimTolGeometricToleranceWithDefinedAreaUnit): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepDimTol_GeometricToleranceWithDefinedAreaUnit.hxx".}

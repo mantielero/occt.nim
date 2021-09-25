@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  Geom_ElementarySurface, ../TColStd/TColStd_Array1OfReal,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of Standard_RangeError"
@@ -32,7 +27,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_ToroidalSurface"
 discard "forward decl of Geom_ToroidalSurface"
 type
-  Handle_Geom_ToroidalSurface* = handle[Geom_ToroidalSurface]
+  HandleGeomToroidalSurface* = Handle[GeomToroidalSurface]
 
 ## ! Describes a torus.
 ## ! A torus is defined by its major and minor radii, and
@@ -80,194 +75,188 @@ type
 ## ! - [ 0, 2.*Pi ] for v
 
 type
-  Geom_ToroidalSurface* {.importcpp: "Geom_ToroidalSurface",
-                         header: "Geom_ToroidalSurface.hxx", bycopy.} = object of Geom_ElementarySurface ##
-                                                                                                  ## !
-                                                                                                  ## A3
-                                                                                                  ## is
-                                                                                                  ## the
-                                                                                                  ## local
-                                                                                                  ## coordinate
-                                                                                                  ## system
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## surface.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## The
-                                                                                                  ## orientation
-                                                                                                  ## of
-                                                                                                  ## increasing
-                                                                                                  ## V
-                                                                                                  ## parametric
-                                                                                                  ## value
-                                                                                                  ## is
-                                                                                                  ## defined
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## by
-                                                                                                  ## the
-                                                                                                  ## rotation
-                                                                                                  ## around
-                                                                                                  ## the
-                                                                                                  ## main
-                                                                                                  ## axis
-                                                                                                  ## (ZAxis)
-                                                                                                  ## in
-                                                                                                  ## the
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## trigonometric
-                                                                                                  ## sense.
-                                                                                                  ## The
-                                                                                                  ## parametrization
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## surface
-                                                                                                  ## in
-                                                                                                  ## the
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## U
-                                                                                                  ## direction
-                                                                                                  ## is
-                                                                                                  ## defined
-                                                                                                  ## such
-                                                                                                  ## as
-                                                                                                  ## the
-                                                                                                  ## normal
-                                                                                                  ## Vector
-                                                                                                  ## (N
-                                                                                                  ## =
-                                                                                                  ## D1U
-                                                                                                  ## ^
-                                                                                                  ## D1V)
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## is
-                                                                                                  ## oriented
-                                                                                                  ## towards
-                                                                                                  ## the
-                                                                                                  ## "outside
-                                                                                                  ## region"
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## surface.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Warnings
-                                                                                                  ## :
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## It
-                                                                                                  ## is
-                                                                                                  ## not
-                                                                                                  ## forbidden
-                                                                                                  ## to
-                                                                                                  ## create
-                                                                                                  ## a
-                                                                                                  ## toroidal
-                                                                                                  ## surface
-                                                                                                  ## with
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## MajorRadius
-                                                                                                  ## =
-                                                                                                  ## MinorRadius
-                                                                                                  ## =
-                                                                                                  ## 0.0
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Raised
-                                                                                                  ## if
-                                                                                                  ## MinorRadius
-                                                                                                  ## <
-                                                                                                  ## 0.0
-                                                                                                  ## or
-                                                                                                  ## if
-                                                                                                  ## MajorRadius
-                                                                                                  ## <
-                                                                                                  ## 0.0
+  GeomToroidalSurface* {.importcpp: "Geom_ToroidalSurface",
+                        header: "Geom_ToroidalSurface.hxx", bycopy.} = object of GeomElementarySurface ##
+                                                                                                ## !
+                                                                                                ## A3
+                                                                                                ## is
+                                                                                                ## the
+                                                                                                ## local
+                                                                                                ## coordinate
+                                                                                                ## system
+                                                                                                ## of
+                                                                                                ## the
+                                                                                                ## surface.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## The
+                                                                                                ## orientation
+                                                                                                ## of
+                                                                                                ## increasing
+                                                                                                ## V
+                                                                                                ## parametric
+                                                                                                ## value
+                                                                                                ## is
+                                                                                                ## defined
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## by
+                                                                                                ## the
+                                                                                                ## rotation
+                                                                                                ## around
+                                                                                                ## the
+                                                                                                ## main
+                                                                                                ## axis
+                                                                                                ## (ZAxis)
+                                                                                                ## in
+                                                                                                ## the
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## trigonometric
+                                                                                                ## sense.
+                                                                                                ## The
+                                                                                                ## parametrization
+                                                                                                ## of
+                                                                                                ## the
+                                                                                                ## surface
+                                                                                                ## in
+                                                                                                ## the
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## U
+                                                                                                ## direction
+                                                                                                ## is
+                                                                                                ## defined
+                                                                                                ## such
+                                                                                                ## as
+                                                                                                ## the
+                                                                                                ## normal
+                                                                                                ## Vector
+                                                                                                ## (N
+                                                                                                ## =
+                                                                                                ## D1U
+                                                                                                ## ^
+                                                                                                ## D1V)
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## is
+                                                                                                ## oriented
+                                                                                                ## towards
+                                                                                                ## the
+                                                                                                ## "outside
+                                                                                                ## region"
+                                                                                                ## of
+                                                                                                ## the
+                                                                                                ## surface.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Warnings
+                                                                                                ## :
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## It
+                                                                                                ## is
+                                                                                                ## not
+                                                                                                ## forbidden
+                                                                                                ## to
+                                                                                                ## create
+                                                                                                ## a
+                                                                                                ## toroidal
+                                                                                                ## surface
+                                                                                                ## with
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## MajorRadius
+                                                                                                ## =
+                                                                                                ## MinorRadius
+                                                                                                ## =
+                                                                                                ## 0.0
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Raised
+                                                                                                ## if
+                                                                                                ## MinorRadius
+                                                                                                ## <
+                                                                                                ## 0.0
+                                                                                                ## or
+                                                                                                ## if
+                                                                                                ## MajorRadius
+                                                                                                ## <
+                                                                                                ## 0.0
 
 
-proc constructGeom_ToroidalSurface*(A3: gp_Ax3; MajorRadius: Standard_Real;
-                                   MinorRadius: Standard_Real): Geom_ToroidalSurface {.
+proc constructGeomToroidalSurface*(a3: Ax3; majorRadius: float; minorRadius: float): GeomToroidalSurface {.
     constructor, importcpp: "Geom_ToroidalSurface(@)",
     header: "Geom_ToroidalSurface.hxx".}
-proc constructGeom_ToroidalSurface*(T: gp_Torus): Geom_ToroidalSurface {.
-    constructor, importcpp: "Geom_ToroidalSurface(@)",
-    header: "Geom_ToroidalSurface.hxx".}
-proc SetMajorRadius*(this: var Geom_ToroidalSurface; MajorRadius: Standard_Real) {.
+proc constructGeomToroidalSurface*(t: Torus): GeomToroidalSurface {.constructor,
+    importcpp: "Geom_ToroidalSurface(@)", header: "Geom_ToroidalSurface.hxx".}
+proc setMajorRadius*(this: var GeomToroidalSurface; majorRadius: float) {.
     importcpp: "SetMajorRadius", header: "Geom_ToroidalSurface.hxx".}
-proc SetMinorRadius*(this: var Geom_ToroidalSurface; MinorRadius: Standard_Real) {.
+proc setMinorRadius*(this: var GeomToroidalSurface; minorRadius: float) {.
     importcpp: "SetMinorRadius", header: "Geom_ToroidalSurface.hxx".}
-proc SetTorus*(this: var Geom_ToroidalSurface; T: gp_Torus) {.importcpp: "SetTorus",
+proc setTorus*(this: var GeomToroidalSurface; t: Torus) {.importcpp: "SetTorus",
     header: "Geom_ToroidalSurface.hxx".}
-proc Torus*(this: Geom_ToroidalSurface): gp_Torus {.noSideEffect, importcpp: "Torus",
+proc torus*(this: GeomToroidalSurface): Torus {.noSideEffect, importcpp: "Torus",
     header: "Geom_ToroidalSurface.hxx".}
-proc UReversedParameter*(this: Geom_ToroidalSurface; U: Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "UReversedParameter",
+proc uReversedParameter*(this: GeomToroidalSurface; u: float): float {.noSideEffect,
+    importcpp: "UReversedParameter", header: "Geom_ToroidalSurface.hxx".}
+proc vReversedParameter*(this: GeomToroidalSurface; u: float): float {.noSideEffect,
+    importcpp: "VReversedParameter", header: "Geom_ToroidalSurface.hxx".}
+proc area*(this: GeomToroidalSurface): float {.noSideEffect, importcpp: "Area",
     header: "Geom_ToroidalSurface.hxx".}
-proc VReversedParameter*(this: Geom_ToroidalSurface; U: Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "VReversedParameter",
-    header: "Geom_ToroidalSurface.hxx".}
-proc Area*(this: Geom_ToroidalSurface): Standard_Real {.noSideEffect,
-    importcpp: "Area", header: "Geom_ToroidalSurface.hxx".}
-proc Bounds*(this: Geom_ToroidalSurface; U1: var Standard_Real; U2: var Standard_Real;
-            V1: var Standard_Real; V2: var Standard_Real) {.noSideEffect,
-    importcpp: "Bounds", header: "Geom_ToroidalSurface.hxx".}
-proc Coefficients*(this: Geom_ToroidalSurface; Coef: var TColStd_Array1OfReal) {.
-    noSideEffect, importcpp: "Coefficients", header: "Geom_ToroidalSurface.hxx".}
-proc MajorRadius*(this: Geom_ToroidalSurface): Standard_Real {.noSideEffect,
-    importcpp: "MajorRadius", header: "Geom_ToroidalSurface.hxx".}
-proc MinorRadius*(this: Geom_ToroidalSurface): Standard_Real {.noSideEffect,
-    importcpp: "MinorRadius", header: "Geom_ToroidalSurface.hxx".}
-proc Volume*(this: Geom_ToroidalSurface): Standard_Real {.noSideEffect,
-    importcpp: "Volume", header: "Geom_ToroidalSurface.hxx".}
-proc IsUClosed*(this: Geom_ToroidalSurface): Standard_Boolean {.noSideEffect,
-    importcpp: "IsUClosed", header: "Geom_ToroidalSurface.hxx".}
-proc IsVClosed*(this: Geom_ToroidalSurface): Standard_Boolean {.noSideEffect,
-    importcpp: "IsVClosed", header: "Geom_ToroidalSurface.hxx".}
-proc IsUPeriodic*(this: Geom_ToroidalSurface): Standard_Boolean {.noSideEffect,
-    importcpp: "IsUPeriodic", header: "Geom_ToroidalSurface.hxx".}
-proc IsVPeriodic*(this: Geom_ToroidalSurface): Standard_Boolean {.noSideEffect,
-    importcpp: "IsVPeriodic", header: "Geom_ToroidalSurface.hxx".}
-proc UIso*(this: Geom_ToroidalSurface; U: Standard_Real): handle[Geom_Curve] {.
-    noSideEffect, importcpp: "UIso", header: "Geom_ToroidalSurface.hxx".}
-proc VIso*(this: Geom_ToroidalSurface; V: Standard_Real): handle[Geom_Curve] {.
-    noSideEffect, importcpp: "VIso", header: "Geom_ToroidalSurface.hxx".}
-proc D0*(this: Geom_ToroidalSurface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt) {.
-    noSideEffect, importcpp: "D0", header: "Geom_ToroidalSurface.hxx".}
-proc D1*(this: Geom_ToroidalSurface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
-        D1U: var gp_Vec; D1V: var gp_Vec) {.noSideEffect, importcpp: "D1",
-                                      header: "Geom_ToroidalSurface.hxx".}
-proc D2*(this: Geom_ToroidalSurface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
-        D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec; D2UV: var gp_Vec) {.
-    noSideEffect, importcpp: "D2", header: "Geom_ToroidalSurface.hxx".}
-proc D3*(this: Geom_ToroidalSurface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
-        D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec;
-        D2UV: var gp_Vec; D3U: var gp_Vec; D3V: var gp_Vec; D3UUV: var gp_Vec;
-        D3UVV: var gp_Vec) {.noSideEffect, importcpp: "D3",
+proc bounds*(this: GeomToroidalSurface; u1: var float; u2: var float; v1: var float;
+            v2: var float) {.noSideEffect, importcpp: "Bounds",
                           header: "Geom_ToroidalSurface.hxx".}
-proc DN*(this: Geom_ToroidalSurface; U: Standard_Real; V: Standard_Real;
-        Nu: Standard_Integer; Nv: Standard_Integer): gp_Vec {.noSideEffect,
-    importcpp: "DN", header: "Geom_ToroidalSurface.hxx".}
-proc Transform*(this: var Geom_ToroidalSurface; T: gp_Trsf) {.importcpp: "Transform",
+proc coefficients*(this: GeomToroidalSurface; coef: var TColStdArray1OfReal) {.
+    noSideEffect, importcpp: "Coefficients", header: "Geom_ToroidalSurface.hxx".}
+proc majorRadius*(this: GeomToroidalSurface): float {.noSideEffect,
+    importcpp: "MajorRadius", header: "Geom_ToroidalSurface.hxx".}
+proc minorRadius*(this: GeomToroidalSurface): float {.noSideEffect,
+    importcpp: "MinorRadius", header: "Geom_ToroidalSurface.hxx".}
+proc volume*(this: GeomToroidalSurface): float {.noSideEffect, importcpp: "Volume",
     header: "Geom_ToroidalSurface.hxx".}
-proc Copy*(this: Geom_ToroidalSurface): handle[Geom_Geometry] {.noSideEffect,
+proc isUClosed*(this: GeomToroidalSurface): bool {.noSideEffect,
+    importcpp: "IsUClosed", header: "Geom_ToroidalSurface.hxx".}
+proc isVClosed*(this: GeomToroidalSurface): bool {.noSideEffect,
+    importcpp: "IsVClosed", header: "Geom_ToroidalSurface.hxx".}
+proc isUPeriodic*(this: GeomToroidalSurface): bool {.noSideEffect,
+    importcpp: "IsUPeriodic", header: "Geom_ToroidalSurface.hxx".}
+proc isVPeriodic*(this: GeomToroidalSurface): bool {.noSideEffect,
+    importcpp: "IsVPeriodic", header: "Geom_ToroidalSurface.hxx".}
+proc uIso*(this: GeomToroidalSurface; u: float): Handle[GeomCurve] {.noSideEffect,
+    importcpp: "UIso", header: "Geom_ToroidalSurface.hxx".}
+proc vIso*(this: GeomToroidalSurface; v: float): Handle[GeomCurve] {.noSideEffect,
+    importcpp: "VIso", header: "Geom_ToroidalSurface.hxx".}
+proc d0*(this: GeomToroidalSurface; u: float; v: float; p: var Pnt) {.noSideEffect,
+    importcpp: "D0", header: "Geom_ToroidalSurface.hxx".}
+proc d1*(this: GeomToroidalSurface; u: float; v: float; p: var Pnt; d1u: var Vec;
+        d1v: var Vec) {.noSideEffect, importcpp: "D1",
+                     header: "Geom_ToroidalSurface.hxx".}
+proc d2*(this: GeomToroidalSurface; u: float; v: float; p: var Pnt; d1u: var Vec;
+        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
+    importcpp: "D2", header: "Geom_ToroidalSurface.hxx".}
+proc d3*(this: GeomToroidalSurface; u: float; v: float; p: var Pnt; d1u: var Vec;
+        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
+        d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
+                                    header: "Geom_ToroidalSurface.hxx".}
+proc dn*(this: GeomToroidalSurface; u: float; v: float; nu: int; nv: int): Vec {.
+    noSideEffect, importcpp: "DN", header: "Geom_ToroidalSurface.hxx".}
+proc transform*(this: var GeomToroidalSurface; t: Trsf) {.importcpp: "Transform",
+    header: "Geom_ToroidalSurface.hxx".}
+proc copy*(this: GeomToroidalSurface): Handle[GeomGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_ToroidalSurface.hxx".}
-proc DumpJson*(this: Geom_ToroidalSurface; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Geom_ToroidalSurface.hxx".}
+proc dumpJson*(this: GeomToroidalSurface; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Geom_ToroidalSurface.hxx".}
 type
-  Geom_ToroidalSurfacebase_type* = Geom_ElementarySurface
+  GeomToroidalSurfacebaseType* = GeomElementarySurface
 
-proc get_type_name*(): cstring {.importcpp: "Geom_ToroidalSurface::get_type_name(@)",
-                              header: "Geom_ToroidalSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Geom_ToroidalSurface::get_type_name(@)",
+                            header: "Geom_ToroidalSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_ToroidalSurface::get_type_descriptor(@)",
     header: "Geom_ToroidalSurface.hxx".}
-proc DynamicType*(this: Geom_ToroidalSurface): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: GeomToroidalSurface): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom_ToroidalSurface.hxx".}

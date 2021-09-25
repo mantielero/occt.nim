@@ -14,33 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_Representation
-
 discard "forward decl of StepRepr_DefinitionalRepresentation"
 discard "forward decl of StepRepr_DefinitionalRepresentation"
 type
-  Handle_StepRepr_DefinitionalRepresentation* = handle[
-      StepRepr_DefinitionalRepresentation]
-  StepRepr_DefinitionalRepresentation* {.importcpp: "StepRepr_DefinitionalRepresentation", header: "StepRepr_DefinitionalRepresentation.hxx",
-                                        bycopy.} = object of StepRepr_Representation ##
-                                                                                ## !
-                                                                                ## Returns
-                                                                                ## a
-                                                                                ## DefinitionalRepresentation
+  HandleStepReprDefinitionalRepresentation* = Handle[
+      StepReprDefinitionalRepresentation]
+  StepReprDefinitionalRepresentation* {.importcpp: "StepRepr_DefinitionalRepresentation", header: "StepRepr_DefinitionalRepresentation.hxx",
+                                       bycopy.} = object of StepReprRepresentation ## !
+                                                                              ## Returns a
+                                                                              ## DefinitionalRepresentation
 
 
-proc constructStepRepr_DefinitionalRepresentation*(): StepRepr_DefinitionalRepresentation {.
+proc constructStepReprDefinitionalRepresentation*(): StepReprDefinitionalRepresentation {.
     constructor, importcpp: "StepRepr_DefinitionalRepresentation(@)",
     header: "StepRepr_DefinitionalRepresentation.hxx".}
 type
-  StepRepr_DefinitionalRepresentationbase_type* = StepRepr_Representation
+  StepReprDefinitionalRepresentationbaseType* = StepReprRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_DefinitionalRepresentation::get_type_name(@)",
-                              header: "StepRepr_DefinitionalRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_DefinitionalRepresentation::get_type_name(@)",
+                            header: "StepRepr_DefinitionalRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_DefinitionalRepresentation::get_type_descriptor(@)",
     header: "StepRepr_DefinitionalRepresentation.hxx".}
-proc DynamicType*(this: StepRepr_DefinitionalRepresentation): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprDefinitionalRepresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_DefinitionalRepresentation.hxx".}

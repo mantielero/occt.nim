@@ -14,67 +14,58 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_Array2OfInteger, ../TColStd/TColStd_HArray1OfReal,
-  ../TColStd/TColStd_HArray1OfInteger, ../Standard/Standard_Boolean,
-  FEmTool_SparseMatrix, ../TColStd/TColStd_Array1OfInteger,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer, ../math/math_Vector
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_NotImplemented"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of FEmTool_ProfileMatrix"
 discard "forward decl of FEmTool_ProfileMatrix"
 type
-  Handle_FEmTool_ProfileMatrix* = handle[FEmTool_ProfileMatrix]
+  HandleFEmToolProfileMatrix* = Handle[FEmToolProfileMatrix]
 
 ## ! Symmetric Sparse ProfileMatrix useful  for 1D Finite
 ## ! Element methods
 
 type
-  FEmTool_ProfileMatrix* {.importcpp: "FEmTool_ProfileMatrix",
-                          header: "FEmTool_ProfileMatrix.hxx", bycopy.} = object of FEmTool_SparseMatrix
+  FEmToolProfileMatrix* {.importcpp: "FEmTool_ProfileMatrix",
+                         header: "FEmTool_ProfileMatrix.hxx", bycopy.} = object of FEmToolSparseMatrix
 
 
-proc constructFEmTool_ProfileMatrix*(FirstIndexes: TColStd_Array1OfInteger): FEmTool_ProfileMatrix {.
+proc constructFEmToolProfileMatrix*(firstIndexes: TColStdArray1OfInteger): FEmToolProfileMatrix {.
     constructor, importcpp: "FEmTool_ProfileMatrix(@)",
     header: "FEmTool_ProfileMatrix.hxx".}
-proc Init*(this: var FEmTool_ProfileMatrix; Value: Standard_Real) {.importcpp: "Init",
+proc init*(this: var FEmToolProfileMatrix; value: float) {.importcpp: "Init",
     header: "FEmTool_ProfileMatrix.hxx".}
-proc ChangeValue*(this: var FEmTool_ProfileMatrix; I: Standard_Integer;
-                 J: Standard_Integer): var Standard_Real {.importcpp: "ChangeValue",
+proc changeValue*(this: var FEmToolProfileMatrix; i: int; j: int): var float {.
+    importcpp: "ChangeValue", header: "FEmTool_ProfileMatrix.hxx".}
+proc decompose*(this: var FEmToolProfileMatrix): bool {.importcpp: "Decompose",
     header: "FEmTool_ProfileMatrix.hxx".}
-proc Decompose*(this: var FEmTool_ProfileMatrix): Standard_Boolean {.
-    importcpp: "Decompose", header: "FEmTool_ProfileMatrix.hxx".}
-proc Solve*(this: FEmTool_ProfileMatrix; B: math_Vector; X: var math_Vector) {.
+proc solve*(this: FEmToolProfileMatrix; b: MathVector; x: var MathVector) {.
     noSideEffect, importcpp: "Solve", header: "FEmTool_ProfileMatrix.hxx".}
-proc Prepare*(this: var FEmTool_ProfileMatrix): Standard_Boolean {.
-    importcpp: "Prepare", header: "FEmTool_ProfileMatrix.hxx".}
-proc Solve*(this: FEmTool_ProfileMatrix; B: math_Vector; Init: math_Vector;
-           X: var math_Vector; Residual: var math_Vector;
-           Tolerance: Standard_Real = 1.0e-8; NbIterations: Standard_Integer = 50) {.
-    noSideEffect, importcpp: "Solve", header: "FEmTool_ProfileMatrix.hxx".}
-proc Multiplied*(this: FEmTool_ProfileMatrix; X: math_Vector; MX: var math_Vector) {.
+proc prepare*(this: var FEmToolProfileMatrix): bool {.importcpp: "Prepare",
+    header: "FEmTool_ProfileMatrix.hxx".}
+proc solve*(this: FEmToolProfileMatrix; b: MathVector; init: MathVector;
+           x: var MathVector; residual: var MathVector; tolerance: float = 1.0e-8;
+           nbIterations: int = 50) {.noSideEffect, importcpp: "Solve",
+                                 header: "FEmTool_ProfileMatrix.hxx".}
+proc multiplied*(this: FEmToolProfileMatrix; x: MathVector; mx: var MathVector) {.
     noSideEffect, importcpp: "Multiplied", header: "FEmTool_ProfileMatrix.hxx".}
-proc RowNumber*(this: FEmTool_ProfileMatrix): Standard_Integer {.noSideEffect,
+proc rowNumber*(this: FEmToolProfileMatrix): int {.noSideEffect,
     importcpp: "RowNumber", header: "FEmTool_ProfileMatrix.hxx".}
-proc ColNumber*(this: FEmTool_ProfileMatrix): Standard_Integer {.noSideEffect,
+proc colNumber*(this: FEmToolProfileMatrix): int {.noSideEffect,
     importcpp: "ColNumber", header: "FEmTool_ProfileMatrix.hxx".}
-proc IsInProfile*(this: FEmTool_ProfileMatrix; i: Standard_Integer;
-                 j: Standard_Integer): Standard_Boolean {.noSideEffect,
+proc isInProfile*(this: FEmToolProfileMatrix; i: int; j: int): bool {.noSideEffect,
     importcpp: "IsInProfile", header: "FEmTool_ProfileMatrix.hxx".}
-proc OutM*(this: FEmTool_ProfileMatrix) {.noSideEffect, importcpp: "OutM",
-                                       header: "FEmTool_ProfileMatrix.hxx".}
-proc OutS*(this: FEmTool_ProfileMatrix) {.noSideEffect, importcpp: "OutS",
-                                       header: "FEmTool_ProfileMatrix.hxx".}
+proc outM*(this: FEmToolProfileMatrix) {.noSideEffect, importcpp: "OutM",
+                                      header: "FEmTool_ProfileMatrix.hxx".}
+proc outS*(this: FEmToolProfileMatrix) {.noSideEffect, importcpp: "OutS",
+                                      header: "FEmTool_ProfileMatrix.hxx".}
 type
-  FEmTool_ProfileMatrixbase_type* = FEmTool_SparseMatrix
+  FEmToolProfileMatrixbaseType* = FEmToolSparseMatrix
 
-proc get_type_name*(): cstring {.importcpp: "FEmTool_ProfileMatrix::get_type_name(@)",
-                              header: "FEmTool_ProfileMatrix.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "FEmTool_ProfileMatrix::get_type_name(@)",
+                            header: "FEmTool_ProfileMatrix.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "FEmTool_ProfileMatrix::get_type_descriptor(@)",
     header: "FEmTool_ProfileMatrix.hxx".}
-proc DynamicType*(this: FEmTool_ProfileMatrix): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "FEmTool_ProfileMatrix.hxx".}
+proc dynamicType*(this: FEmToolProfileMatrix): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "FEmTool_ProfileMatrix.hxx".}

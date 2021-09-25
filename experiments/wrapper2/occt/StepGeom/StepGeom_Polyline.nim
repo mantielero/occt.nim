@@ -14,47 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepGeom_HArray1OfCartesianPoint, StepGeom_BoundedCurve,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_CartesianPoint"
 discard "forward decl of StepGeom_Polyline"
 discard "forward decl of StepGeom_Polyline"
 type
-  Handle_StepGeom_Polyline* = handle[StepGeom_Polyline]
-  StepGeom_Polyline* {.importcpp: "StepGeom_Polyline",
-                      header: "StepGeom_Polyline.hxx", bycopy.} = object of StepGeom_BoundedCurve ##
-                                                                                           ## !
-                                                                                           ## Returns
-                                                                                           ## a
-                                                                                           ## Polyline
+  HandleStepGeomPolyline* = Handle[StepGeomPolyline]
+  StepGeomPolyline* {.importcpp: "StepGeom_Polyline",
+                     header: "StepGeom_Polyline.hxx", bycopy.} = object of StepGeomBoundedCurve ##
+                                                                                         ## !
+                                                                                         ## Returns
+                                                                                         ## a
+                                                                                         ## Polyline
 
 
-proc constructStepGeom_Polyline*(): StepGeom_Polyline {.constructor,
+proc constructStepGeomPolyline*(): StepGeomPolyline {.constructor,
     importcpp: "StepGeom_Polyline(@)", header: "StepGeom_Polyline.hxx".}
-proc Init*(this: var StepGeom_Polyline; aName: handle[TCollection_HAsciiString];
-          aPoints: handle[StepGeom_HArray1OfCartesianPoint]) {.importcpp: "Init",
+proc init*(this: var StepGeomPolyline; aName: Handle[TCollectionHAsciiString];
+          aPoints: Handle[StepGeomHArray1OfCartesianPoint]) {.importcpp: "Init",
     header: "StepGeom_Polyline.hxx".}
-proc SetPoints*(this: var StepGeom_Polyline;
-               aPoints: handle[StepGeom_HArray1OfCartesianPoint]) {.
+proc setPoints*(this: var StepGeomPolyline;
+               aPoints: Handle[StepGeomHArray1OfCartesianPoint]) {.
     importcpp: "SetPoints", header: "StepGeom_Polyline.hxx".}
-proc Points*(this: StepGeom_Polyline): handle[StepGeom_HArray1OfCartesianPoint] {.
+proc points*(this: StepGeomPolyline): Handle[StepGeomHArray1OfCartesianPoint] {.
     noSideEffect, importcpp: "Points", header: "StepGeom_Polyline.hxx".}
-proc PointsValue*(this: StepGeom_Polyline; num: Standard_Integer): handle[
-    StepGeom_CartesianPoint] {.noSideEffect, importcpp: "PointsValue",
-                              header: "StepGeom_Polyline.hxx".}
-proc NbPoints*(this: StepGeom_Polyline): Standard_Integer {.noSideEffect,
-    importcpp: "NbPoints", header: "StepGeom_Polyline.hxx".}
+proc pointsValue*(this: StepGeomPolyline; num: int): Handle[StepGeomCartesianPoint] {.
+    noSideEffect, importcpp: "PointsValue", header: "StepGeom_Polyline.hxx".}
+proc nbPoints*(this: StepGeomPolyline): int {.noSideEffect, importcpp: "NbPoints",
+    header: "StepGeom_Polyline.hxx".}
 type
-  StepGeom_Polylinebase_type* = StepGeom_BoundedCurve
+  StepGeomPolylinebaseType* = StepGeomBoundedCurve
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_Polyline::get_type_name(@)",
-                              header: "StepGeom_Polyline.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_Polyline::get_type_name(@)",
+                            header: "StepGeom_Polyline.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_Polyline::get_type_descriptor(@)",
     header: "StepGeom_Polyline.hxx".}
-proc DynamicType*(this: StepGeom_Polyline): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepGeomPolyline): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Polyline.hxx".}

@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_DefineAlloc, ../Standard/Standard_Handle
-
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of IntSurf_Transition"
 discard "forward decl of gp_Dir"
@@ -33,10 +30,10 @@ type
                                                                     ## ! TSecond is the transition of the point on the second line.
 
 
-proc MakeTransition*(TgFirst: gp_Vec; TgSecond: gp_Vec; Normal: gp_Dir;
-                    TFirst: var IntSurf_Transition; TSecond: var IntSurf_Transition) {.
+proc makeTransition*(tgFirst: Vec; tgSecond: Vec; normal: Dir;
+                    tFirst: var IntSurfTransition; tSecond: var IntSurfTransition) {.
     importcpp: "IntSurf::MakeTransition(@)", header: "IntSurf.hxx".}
-proc SetPeriod*(theFirstSurf: handle[Adaptor3d_HSurface];
-               theSecondSurf: handle[Adaptor3d_HSurface];
-               theArrOfPeriod: array[4, Standard_Real]) {.
+proc setPeriod*(theFirstSurf: Handle[Adaptor3dHSurface];
+               theSecondSurf: Handle[Adaptor3dHSurface];
+               theArrOfPeriod: array[4, float]) {.
     importcpp: "IntSurf::SetPeriod(@)", header: "IntSurf.hxx".}

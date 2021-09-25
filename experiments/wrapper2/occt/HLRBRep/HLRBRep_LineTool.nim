@@ -14,15 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_Array1OfReal, ../Standard/Standard_Boolean, ../gp/gp_Pnt,
-  ../gp/gp_Vec, ../GeomAbs/GeomAbs_CurveType, ../gp/gp_Lin, ../gp/gp_Circ,
-  ../gp/gp_Elips, ../gp/gp_Hypr, ../gp/gp_Parab, ../TColgp/TColgp_Array1OfPnt,
-  ../TColStd/TColStd_Array1OfInteger, ../TColStd/TColStd_HArray1OfReal
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_DomainError"
@@ -32,87 +23,82 @@ discard "forward decl of gp_Vec"
 discard "forward decl of Geom_BezierCurve"
 discard "forward decl of Geom_BSplineCurve"
 type
-  HLRBRep_LineTool* {.importcpp: "HLRBRep_LineTool",
-                     header: "HLRBRep_LineTool.hxx", bycopy.} = object
+  HLRBRepLineTool* {.importcpp: "HLRBRep_LineTool", header: "HLRBRep_LineTool.hxx",
+                    bycopy.} = object
 
 
-proc FirstParameter*(C: gp_Lin): Standard_Real {.
-    importcpp: "HLRBRep_LineTool::FirstParameter(@)",
-    header: "HLRBRep_LineTool.hxx".}
-proc LastParameter*(C: gp_Lin): Standard_Real {.
-    importcpp: "HLRBRep_LineTool::LastParameter(@)",
-    header: "HLRBRep_LineTool.hxx".}
-proc Continuity*(C: gp_Lin): GeomAbs_Shape {.
-    importcpp: "HLRBRep_LineTool::Continuity(@)", header: "HLRBRep_LineTool.hxx".}
-proc NbIntervals*(C: gp_Lin; S: GeomAbs_Shape): Standard_Integer {.
+proc firstParameter*(c: Lin): float {.importcpp: "HLRBRep_LineTool::FirstParameter(@)",
+                                  header: "HLRBRep_LineTool.hxx".}
+proc lastParameter*(c: Lin): float {.importcpp: "HLRBRep_LineTool::LastParameter(@)",
+                                 header: "HLRBRep_LineTool.hxx".}
+proc continuity*(c: Lin): GeomAbsShape {.importcpp: "HLRBRep_LineTool::Continuity(@)",
+                                     header: "HLRBRep_LineTool.hxx".}
+proc nbIntervals*(c: Lin; s: GeomAbsShape): int {.
     importcpp: "HLRBRep_LineTool::NbIntervals(@)", header: "HLRBRep_LineTool.hxx".}
-proc Intervals*(C: gp_Lin; T: var TColStd_Array1OfReal; Sh: GeomAbs_Shape) {.
+proc intervals*(c: Lin; t: var TColStdArray1OfReal; sh: GeomAbsShape) {.
     importcpp: "HLRBRep_LineTool::Intervals(@)", header: "HLRBRep_LineTool.hxx".}
-proc IntervalFirst*(C: gp_Lin): Standard_Real {.
-    importcpp: "HLRBRep_LineTool::IntervalFirst(@)",
-    header: "HLRBRep_LineTool.hxx".}
-proc IntervalLast*(C: gp_Lin): Standard_Real {.
-    importcpp: "HLRBRep_LineTool::IntervalLast(@)", header: "HLRBRep_LineTool.hxx".}
-proc IntervalContinuity*(C: gp_Lin): GeomAbs_Shape {.
+proc intervalFirst*(c: Lin): float {.importcpp: "HLRBRep_LineTool::IntervalFirst(@)",
+                                 header: "HLRBRep_LineTool.hxx".}
+proc intervalLast*(c: Lin): float {.importcpp: "HLRBRep_LineTool::IntervalLast(@)",
+                                header: "HLRBRep_LineTool.hxx".}
+proc intervalContinuity*(c: Lin): GeomAbsShape {.
     importcpp: "HLRBRep_LineTool::IntervalContinuity(@)",
     header: "HLRBRep_LineTool.hxx".}
-proc IsClosed*(C: gp_Lin): Standard_Boolean {.
-    importcpp: "HLRBRep_LineTool::IsClosed(@)", header: "HLRBRep_LineTool.hxx".}
-proc IsPeriodic*(C: gp_Lin): Standard_Boolean {.
-    importcpp: "HLRBRep_LineTool::IsPeriodic(@)", header: "HLRBRep_LineTool.hxx".}
-proc Period*(C: gp_Lin): Standard_Real {.importcpp: "HLRBRep_LineTool::Period(@)",
-                                     header: "HLRBRep_LineTool.hxx".}
-proc Value*(C: gp_Lin; U: Standard_Real): gp_Pnt {.
-    importcpp: "HLRBRep_LineTool::Value(@)", header: "HLRBRep_LineTool.hxx".}
-proc D0*(C: gp_Lin; U: Standard_Real; P: var gp_Pnt) {.
-    importcpp: "HLRBRep_LineTool::D0(@)", header: "HLRBRep_LineTool.hxx".}
-proc D1*(C: gp_Lin; U: Standard_Real; P: var gp_Pnt; V: var gp_Vec) {.
-    importcpp: "HLRBRep_LineTool::D1(@)", header: "HLRBRep_LineTool.hxx".}
-proc D2*(C: gp_Lin; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec; V2: var gp_Vec) {.
-    importcpp: "HLRBRep_LineTool::D2(@)", header: "HLRBRep_LineTool.hxx".}
-proc D3*(C: gp_Lin; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec; V2: var gp_Vec;
-        V3: var gp_Vec) {.importcpp: "HLRBRep_LineTool::D3(@)",
-                       header: "HLRBRep_LineTool.hxx".}
-proc DN*(C: gp_Lin; U: Standard_Real; N: Standard_Integer): gp_Vec {.
-    importcpp: "HLRBRep_LineTool::DN(@)", header: "HLRBRep_LineTool.hxx".}
-proc Resolution*(C: gp_Lin; R3d: Standard_Real): Standard_Real {.
-    importcpp: "HLRBRep_LineTool::Resolution(@)", header: "HLRBRep_LineTool.hxx".}
-proc GetType*(C: gp_Lin): GeomAbs_CurveType {.
-    importcpp: "HLRBRep_LineTool::GetType(@)", header: "HLRBRep_LineTool.hxx".}
-proc Line*(C: gp_Lin): gp_Lin {.importcpp: "HLRBRep_LineTool::Line(@)",
-                            header: "HLRBRep_LineTool.hxx".}
-proc Circle*(C: gp_Lin): gp_Circ {.importcpp: "HLRBRep_LineTool::Circle(@)",
+proc isClosed*(c: Lin): bool {.importcpp: "HLRBRep_LineTool::IsClosed(@)",
+                           header: "HLRBRep_LineTool.hxx".}
+proc isPeriodic*(c: Lin): bool {.importcpp: "HLRBRep_LineTool::IsPeriodic(@)",
+                             header: "HLRBRep_LineTool.hxx".}
+proc period*(c: Lin): float {.importcpp: "HLRBRep_LineTool::Period(@)",
+                          header: "HLRBRep_LineTool.hxx".}
+proc value*(c: Lin; u: float): Pnt {.importcpp: "HLRBRep_LineTool::Value(@)",
                                header: "HLRBRep_LineTool.hxx".}
-proc Ellipse*(C: gp_Lin): gp_Elips {.importcpp: "HLRBRep_LineTool::Ellipse(@)",
+proc d0*(c: Lin; u: float; p: var Pnt) {.importcpp: "HLRBRep_LineTool::D0(@)",
                                  header: "HLRBRep_LineTool.hxx".}
-proc Hyperbola*(C: gp_Lin): gp_Hypr {.importcpp: "HLRBRep_LineTool::Hyperbola(@)",
+proc d1*(c: Lin; u: float; p: var Pnt; v: var Vec) {.importcpp: "HLRBRep_LineTool::D1(@)",
+    header: "HLRBRep_LineTool.hxx".}
+proc d2*(c: Lin; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.
+    importcpp: "HLRBRep_LineTool::D2(@)", header: "HLRBRep_LineTool.hxx".}
+proc d3*(c: Lin; u: float; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+    importcpp: "HLRBRep_LineTool::D3(@)", header: "HLRBRep_LineTool.hxx".}
+proc dn*(c: Lin; u: float; n: int): Vec {.importcpp: "HLRBRep_LineTool::DN(@)",
                                   header: "HLRBRep_LineTool.hxx".}
-proc Parabola*(C: gp_Lin): gp_Parab {.importcpp: "HLRBRep_LineTool::Parabola(@)",
-                                  header: "HLRBRep_LineTool.hxx".}
-proc Bezier*(C: gp_Lin): handle[Geom_BezierCurve] {.
-    importcpp: "HLRBRep_LineTool::Bezier(@)", header: "HLRBRep_LineTool.hxx".}
-proc BSpline*(C: gp_Lin): handle[Geom_BSplineCurve] {.
-    importcpp: "HLRBRep_LineTool::BSpline(@)", header: "HLRBRep_LineTool.hxx".}
-proc Degree*(C: gp_Lin): Standard_Integer {.importcpp: "HLRBRep_LineTool::Degree(@)",
+proc resolution*(c: Lin; r3d: float): float {.importcpp: "HLRBRep_LineTool::Resolution(@)",
                                         header: "HLRBRep_LineTool.hxx".}
-proc NbPoles*(C: gp_Lin): Standard_Integer {.
-    importcpp: "HLRBRep_LineTool::NbPoles(@)", header: "HLRBRep_LineTool.hxx".}
-proc Poles*(C: gp_Lin; TP: var TColgp_Array1OfPnt) {.
+proc getType*(c: Lin): GeomAbsCurveType {.importcpp: "HLRBRep_LineTool::GetType(@)",
+                                      header: "HLRBRep_LineTool.hxx".}
+proc line*(c: Lin): Lin {.importcpp: "HLRBRep_LineTool::Line(@)",
+                      header: "HLRBRep_LineTool.hxx".}
+proc circle*(c: Lin): Circ {.importcpp: "HLRBRep_LineTool::Circle(@)",
+                         header: "HLRBRep_LineTool.hxx".}
+proc ellipse*(c: Lin): Elips {.importcpp: "HLRBRep_LineTool::Ellipse(@)",
+                           header: "HLRBRep_LineTool.hxx".}
+proc hyperbola*(c: Lin): Hypr {.importcpp: "HLRBRep_LineTool::Hyperbola(@)",
+                            header: "HLRBRep_LineTool.hxx".}
+proc parabola*(c: Lin): Parab {.importcpp: "HLRBRep_LineTool::Parabola(@)",
+                            header: "HLRBRep_LineTool.hxx".}
+proc bezier*(c: Lin): Handle[GeomBezierCurve] {.
+    importcpp: "HLRBRep_LineTool::Bezier(@)", header: "HLRBRep_LineTool.hxx".}
+proc bSpline*(c: Lin): Handle[GeomBSplineCurve] {.
+    importcpp: "HLRBRep_LineTool::BSpline(@)", header: "HLRBRep_LineTool.hxx".}
+proc degree*(c: Lin): int {.importcpp: "HLRBRep_LineTool::Degree(@)",
+                        header: "HLRBRep_LineTool.hxx".}
+proc nbPoles*(c: Lin): int {.importcpp: "HLRBRep_LineTool::NbPoles(@)",
+                         header: "HLRBRep_LineTool.hxx".}
+proc poles*(c: Lin; tp: var TColgpArray1OfPnt) {.
     importcpp: "HLRBRep_LineTool::Poles(@)", header: "HLRBRep_LineTool.hxx".}
-proc IsRational*(C: gp_Lin): Standard_Boolean {.
-    importcpp: "HLRBRep_LineTool::IsRational(@)", header: "HLRBRep_LineTool.hxx".}
-proc PolesAndWeights*(C: gp_Lin; TP: var TColgp_Array1OfPnt;
-                     TW: var TColStd_Array1OfReal) {.
+proc isRational*(c: Lin): bool {.importcpp: "HLRBRep_LineTool::IsRational(@)",
+                             header: "HLRBRep_LineTool.hxx".}
+proc polesAndWeights*(c: Lin; tp: var TColgpArray1OfPnt; tw: var TColStdArray1OfReal) {.
     importcpp: "HLRBRep_LineTool::PolesAndWeights(@)",
     header: "HLRBRep_LineTool.hxx".}
-proc NbKnots*(C: gp_Lin): Standard_Integer {.
-    importcpp: "HLRBRep_LineTool::NbKnots(@)", header: "HLRBRep_LineTool.hxx".}
-proc KnotsAndMultiplicities*(C: gp_Lin; TK: var TColStd_Array1OfReal;
-                            TM: var TColStd_Array1OfInteger) {.
+proc nbKnots*(c: Lin): int {.importcpp: "HLRBRep_LineTool::NbKnots(@)",
+                         header: "HLRBRep_LineTool.hxx".}
+proc knotsAndMultiplicities*(c: Lin; tk: var TColStdArray1OfReal;
+                            tm: var TColStdArray1OfInteger) {.
     importcpp: "HLRBRep_LineTool::KnotsAndMultiplicities(@)",
     header: "HLRBRep_LineTool.hxx".}
-proc NbSamples*(C: gp_Lin; U0: Standard_Real; U1: Standard_Real): Standard_Integer {.
+proc nbSamples*(c: Lin; u0: float; u1: float): int {.
     importcpp: "HLRBRep_LineTool::NbSamples(@)", header: "HLRBRep_LineTool.hxx".}
-proc SamplePars*(C: gp_Lin; U0: Standard_Real; U1: Standard_Real; Defl: Standard_Real;
-                NbMin: Standard_Integer; Pars: var handle[TColStd_HArray1OfReal]) {.
+proc samplePars*(c: Lin; u0: float; u1: float; defl: float; nbMin: int;
+                pars: var Handle[TColStdHArray1OfReal]) {.
     importcpp: "HLRBRep_LineTool::SamplePars(@)", header: "HLRBRep_LineTool.hxx".}

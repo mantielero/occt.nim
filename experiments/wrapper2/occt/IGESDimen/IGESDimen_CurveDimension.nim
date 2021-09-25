@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Boolean
-
 discard "forward decl of IGESDimen_GeneralNote"
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESDimen_LeaderArrow"
@@ -25,7 +21,7 @@ discard "forward decl of IGESDimen_WitnessLine"
 discard "forward decl of IGESDimen_CurveDimension"
 discard "forward decl of IGESDimen_CurveDimension"
 type
-  Handle_IGESDimen_CurveDimension* = handle[IGESDimen_CurveDimension]
+  HandleIGESDimenCurveDimension* = Handle[IGESDimenCurveDimension]
 
 ## ! defines CurveDimension, Type <204> Form <0>
 ## ! in package IGESDimen
@@ -35,53 +31,50 @@ type
 ## ! the orientation
 
 type
-  IGESDimen_CurveDimension* {.importcpp: "IGESDimen_CurveDimension",
-                             header: "IGESDimen_CurveDimension.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESDimenCurveDimension* {.importcpp: "IGESDimen_CurveDimension",
+                            header: "IGESDimen_CurveDimension.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESDimen_CurveDimension*(): IGESDimen_CurveDimension {.constructor,
+proc constructIGESDimenCurveDimension*(): IGESDimenCurveDimension {.constructor,
     importcpp: "IGESDimen_CurveDimension(@)",
     header: "IGESDimen_CurveDimension.hxx".}
-proc Init*(this: var IGESDimen_CurveDimension; aNote: handle[IGESDimen_GeneralNote];
-          aCurve: handle[IGESData_IGESEntity];
-          anotherCurve: handle[IGESData_IGESEntity];
-          aLeader: handle[IGESDimen_LeaderArrow];
-          anotherLeader: handle[IGESDimen_LeaderArrow];
-          aLine: handle[IGESDimen_WitnessLine];
-          anotherLine: handle[IGESDimen_WitnessLine]) {.importcpp: "Init",
+proc init*(this: var IGESDimenCurveDimension; aNote: Handle[IGESDimenGeneralNote];
+          aCurve: Handle[IGESDataIGESEntity];
+          anotherCurve: Handle[IGESDataIGESEntity];
+          aLeader: Handle[IGESDimenLeaderArrow];
+          anotherLeader: Handle[IGESDimenLeaderArrow];
+          aLine: Handle[IGESDimenWitnessLine];
+          anotherLine: Handle[IGESDimenWitnessLine]) {.importcpp: "Init",
     header: "IGESDimen_CurveDimension.hxx".}
-proc Note*(this: IGESDimen_CurveDimension): handle[IGESDimen_GeneralNote] {.
+proc note*(this: IGESDimenCurveDimension): Handle[IGESDimenGeneralNote] {.
     noSideEffect, importcpp: "Note", header: "IGESDimen_CurveDimension.hxx".}
-proc FirstCurve*(this: IGESDimen_CurveDimension): handle[IGESData_IGESEntity] {.
+proc firstCurve*(this: IGESDimenCurveDimension): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "FirstCurve", header: "IGESDimen_CurveDimension.hxx".}
-proc HasSecondCurve*(this: IGESDimen_CurveDimension): Standard_Boolean {.
-    noSideEffect, importcpp: "HasSecondCurve",
-    header: "IGESDimen_CurveDimension.hxx".}
-proc SecondCurve*(this: IGESDimen_CurveDimension): handle[IGESData_IGESEntity] {.
+proc hasSecondCurve*(this: IGESDimenCurveDimension): bool {.noSideEffect,
+    importcpp: "HasSecondCurve", header: "IGESDimen_CurveDimension.hxx".}
+proc secondCurve*(this: IGESDimenCurveDimension): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "SecondCurve", header: "IGESDimen_CurveDimension.hxx".}
-proc FirstLeader*(this: IGESDimen_CurveDimension): handle[IGESDimen_LeaderArrow] {.
+proc firstLeader*(this: IGESDimenCurveDimension): Handle[IGESDimenLeaderArrow] {.
     noSideEffect, importcpp: "FirstLeader", header: "IGESDimen_CurveDimension.hxx".}
-proc SecondLeader*(this: IGESDimen_CurveDimension): handle[IGESDimen_LeaderArrow] {.
+proc secondLeader*(this: IGESDimenCurveDimension): Handle[IGESDimenLeaderArrow] {.
     noSideEffect, importcpp: "SecondLeader", header: "IGESDimen_CurveDimension.hxx".}
-proc HasFirstWitnessLine*(this: IGESDimen_CurveDimension): Standard_Boolean {.
-    noSideEffect, importcpp: "HasFirstWitnessLine",
+proc hasFirstWitnessLine*(this: IGESDimenCurveDimension): bool {.noSideEffect,
+    importcpp: "HasFirstWitnessLine", header: "IGESDimen_CurveDimension.hxx".}
+proc firstWitnessLine*(this: IGESDimenCurveDimension): Handle[IGESDimenWitnessLine] {.
+    noSideEffect, importcpp: "FirstWitnessLine",
     header: "IGESDimen_CurveDimension.hxx".}
-proc FirstWitnessLine*(this: IGESDimen_CurveDimension): handle[
-    IGESDimen_WitnessLine] {.noSideEffect, importcpp: "FirstWitnessLine",
-                            header: "IGESDimen_CurveDimension.hxx".}
-proc HasSecondWitnessLine*(this: IGESDimen_CurveDimension): Standard_Boolean {.
-    noSideEffect, importcpp: "HasSecondWitnessLine",
+proc hasSecondWitnessLine*(this: IGESDimenCurveDimension): bool {.noSideEffect,
+    importcpp: "HasSecondWitnessLine", header: "IGESDimen_CurveDimension.hxx".}
+proc secondWitnessLine*(this: IGESDimenCurveDimension): Handle[IGESDimenWitnessLine] {.
+    noSideEffect, importcpp: "SecondWitnessLine",
     header: "IGESDimen_CurveDimension.hxx".}
-proc SecondWitnessLine*(this: IGESDimen_CurveDimension): handle[
-    IGESDimen_WitnessLine] {.noSideEffect, importcpp: "SecondWitnessLine",
-                            header: "IGESDimen_CurveDimension.hxx".}
 type
-  IGESDimen_CurveDimensionbase_type* = IGESData_IGESEntity
+  IGESDimenCurveDimensionbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESDimen_CurveDimension::get_type_name(@)",
-                              header: "IGESDimen_CurveDimension.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESDimen_CurveDimension::get_type_name(@)",
+                            header: "IGESDimen_CurveDimension.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESDimen_CurveDimension::get_type_descriptor(@)",
     header: "IGESDimen_CurveDimension.hxx".}
-proc DynamicType*(this: IGESDimen_CurveDimension): handle[Standard_Type] {.
+proc dynamicType*(this: IGESDimenCurveDimension): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDimen_CurveDimension.hxx".}

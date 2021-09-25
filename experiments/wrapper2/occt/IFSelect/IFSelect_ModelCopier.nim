@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  IFSelect_SequenceOfInterfaceModel, ../TColStd/TColStd_SequenceOfAsciiString,
-  IFSelect_SequenceOfAppliedModifiers, ../TColStd/TColStd_HArray1OfInteger,
-  ../TColStd/TColStd_HSequenceOfHAsciiString, ../Standard/Standard_Transient,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
-  ../Standard/Standard_CString
-
 discard "forward decl of IFSelect_ShareOut"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Interface_InterfaceModel"
@@ -36,7 +28,7 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of IFSelect_ModelCopier"
 discard "forward decl of IFSelect_ModelCopier"
 type
-  Handle_IFSelect_ModelCopier* = handle[IFSelect_ModelCopier]
+  HandleIFSelectModelCopier* = Handle[IFSelectModelCopier]
 
 ## ! This class performs the Copy operations involved by the
 ## ! description of a ShareOut (evaluated by a ShareOutResult)
@@ -76,118 +68,117 @@ type
 ## ! which still applies to a whole copied Model.
 
 type
-  IFSelect_ModelCopier* {.importcpp: "IFSelect_ModelCopier",
-                         header: "IFSelect_ModelCopier.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                              ## !
-                                                                                              ## Creates
-                                                                                              ## an
-                                                                                              ## empty
-                                                                                              ## ModelCopier
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Internal
-                                                                                              ## routine
-                                                                                              ## which
-                                                                                              ## does
-                                                                                              ## the
-                                                                                              ## effective
-                                                                                              ## Copy.
-                                                                                              ## It
-                                                                                              ## allows
-                                                                                              ## to
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## work,
-                                                                                              ## either
-                                                                                              ## with
-                                                                                              ## a
-                                                                                              ## standard
-                                                                                              ## CopyTool,
-                                                                                              ## or
-                                                                                              ## a
-                                                                                              ## specialised
-                                                                                              ## one
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Copying
-                                                                                              ## itself
-                                                                                              ## is
-                                                                                              ## done
-                                                                                              ## by
-                                                                                              ## <WL>
-                                                                                              ## which
-                                                                                              ## uses
-                                                                                              ## a
-                                                                                              ## CopyTool
+  IFSelectModelCopier* {.importcpp: "IFSelect_ModelCopier",
+                        header: "IFSelect_ModelCopier.hxx", bycopy.} = object of StandardTransient ##
+                                                                                            ## !
+                                                                                            ## Creates
+                                                                                            ## an
+                                                                                            ## empty
+                                                                                            ## ModelCopier
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Internal
+                                                                                            ## routine
+                                                                                            ## which
+                                                                                            ## does
+                                                                                            ## the
+                                                                                            ## effective
+                                                                                            ## Copy.
+                                                                                            ## It
+                                                                                            ## allows
+                                                                                            ## to
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## work,
+                                                                                            ## either
+                                                                                            ## with
+                                                                                            ## a
+                                                                                            ## standard
+                                                                                            ## CopyTool,
+                                                                                            ## or
+                                                                                            ## a
+                                                                                            ## specialised
+                                                                                            ## one
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Copying
+                                                                                            ## itself
+                                                                                            ## is
+                                                                                            ## done
+                                                                                            ## by
+                                                                                            ## <WL>
+                                                                                            ## which
+                                                                                            ## uses
+                                                                                            ## a
+                                                                                            ## CopyTool
 
 
-proc constructIFSelect_ModelCopier*(): IFSelect_ModelCopier {.constructor,
+proc constructIFSelectModelCopier*(): IFSelectModelCopier {.constructor,
     importcpp: "IFSelect_ModelCopier(@)", header: "IFSelect_ModelCopier.hxx".}
-proc SetShareOut*(this: var IFSelect_ModelCopier; sho: handle[IFSelect_ShareOut]) {.
+proc setShareOut*(this: var IFSelectModelCopier; sho: Handle[IFSelectShareOut]) {.
     importcpp: "SetShareOut", header: "IFSelect_ModelCopier.hxx".}
-proc ClearResult*(this: var IFSelect_ModelCopier) {.importcpp: "ClearResult",
+proc clearResult*(this: var IFSelectModelCopier) {.importcpp: "ClearResult",
     header: "IFSelect_ModelCopier.hxx".}
-proc AddFile*(this: var IFSelect_ModelCopier; filename: TCollection_AsciiString;
-             content: handle[Interface_InterfaceModel]): Standard_Boolean {.
+proc addFile*(this: var IFSelectModelCopier; filename: TCollectionAsciiString;
+             content: Handle[InterfaceInterfaceModel]): bool {.
     importcpp: "AddFile", header: "IFSelect_ModelCopier.hxx".}
-proc NameFile*(this: var IFSelect_ModelCopier; num: Standard_Integer;
-              filename: TCollection_AsciiString): Standard_Boolean {.
-    importcpp: "NameFile", header: "IFSelect_ModelCopier.hxx".}
-proc ClearFile*(this: var IFSelect_ModelCopier; num: Standard_Integer): Standard_Boolean {.
-    importcpp: "ClearFile", header: "IFSelect_ModelCopier.hxx".}
-proc SetAppliedModifiers*(this: var IFSelect_ModelCopier; num: Standard_Integer;
-                         applied: handle[IFSelect_AppliedModifiers]): Standard_Boolean {.
-    importcpp: "SetAppliedModifiers", header: "IFSelect_ModelCopier.hxx".}
-proc ClearAppliedModifiers*(this: var IFSelect_ModelCopier; num: Standard_Integer): Standard_Boolean {.
-    importcpp: "ClearAppliedModifiers", header: "IFSelect_ModelCopier.hxx".}
-proc Copy*(this: var IFSelect_ModelCopier; eval: var IFSelect_ShareOutResult;
-          WL: handle[IFSelect_WorkLibrary]; protocol: handle[Interface_Protocol]): Interface_CheckIterator {.
-    importcpp: "Copy", header: "IFSelect_ModelCopier.hxx".}
-proc SendCopied*(this: var IFSelect_ModelCopier; WL: handle[IFSelect_WorkLibrary];
-                protocol: handle[Interface_Protocol]): Interface_CheckIterator {.
-    importcpp: "SendCopied", header: "IFSelect_ModelCopier.hxx".}
-proc Send*(this: var IFSelect_ModelCopier; eval: var IFSelect_ShareOutResult;
-          WL: handle[IFSelect_WorkLibrary]; protocol: handle[Interface_Protocol]): Interface_CheckIterator {.
-    importcpp: "Send", header: "IFSelect_ModelCopier.hxx".}
-proc SendAll*(this: var IFSelect_ModelCopier; filename: Standard_CString;
-             G: Interface_Graph; WL: handle[IFSelect_WorkLibrary];
-             protocol: handle[Interface_Protocol]): Interface_CheckIterator {.
-    importcpp: "SendAll", header: "IFSelect_ModelCopier.hxx".}
-proc SendSelected*(this: var IFSelect_ModelCopier; filename: Standard_CString;
-                  G: Interface_Graph; WL: handle[IFSelect_WorkLibrary];
-                  protocol: handle[Interface_Protocol];
-                  iter: Interface_EntityIterator): Interface_CheckIterator {.
-    importcpp: "SendSelected", header: "IFSelect_ModelCopier.hxx".}
-proc CopiedRemaining*(this: var IFSelect_ModelCopier; G: Interface_Graph;
-                     WL: handle[IFSelect_WorkLibrary]; TC: var Interface_CopyTool;
-                     newmod: var handle[Interface_InterfaceModel]) {.
-    importcpp: "CopiedRemaining", header: "IFSelect_ModelCopier.hxx".}
-proc SetRemaining*(this: IFSelect_ModelCopier; CG: var Interface_Graph): Standard_Boolean {.
-    noSideEffect, importcpp: "SetRemaining", header: "IFSelect_ModelCopier.hxx".}
-proc NbFiles*(this: IFSelect_ModelCopier): Standard_Integer {.noSideEffect,
-    importcpp: "NbFiles", header: "IFSelect_ModelCopier.hxx".}
-proc FileName*(this: IFSelect_ModelCopier; num: Standard_Integer): TCollection_AsciiString {.
-    noSideEffect, importcpp: "FileName", header: "IFSelect_ModelCopier.hxx".}
-proc FileModel*(this: IFSelect_ModelCopier; num: Standard_Integer): handle[
-    Interface_InterfaceModel] {.noSideEffect, importcpp: "FileModel",
-                               header: "IFSelect_ModelCopier.hxx".}
-proc AppliedModifiers*(this: IFSelect_ModelCopier; num: Standard_Integer): handle[
-    IFSelect_AppliedModifiers] {.noSideEffect, importcpp: "AppliedModifiers",
-                                header: "IFSelect_ModelCopier.hxx".}
-proc BeginSentFiles*(this: var IFSelect_ModelCopier; sho: handle[IFSelect_ShareOut];
-                    record: Standard_Boolean) {.importcpp: "BeginSentFiles",
+proc nameFile*(this: var IFSelectModelCopier; num: int;
+              filename: TCollectionAsciiString): bool {.importcpp: "NameFile",
     header: "IFSelect_ModelCopier.hxx".}
-proc AddSentFile*(this: var IFSelect_ModelCopier; filename: Standard_CString) {.
+proc clearFile*(this: var IFSelectModelCopier; num: int): bool {.
+    importcpp: "ClearFile", header: "IFSelect_ModelCopier.hxx".}
+proc setAppliedModifiers*(this: var IFSelectModelCopier; num: int;
+                         applied: Handle[IFSelectAppliedModifiers]): bool {.
+    importcpp: "SetAppliedModifiers", header: "IFSelect_ModelCopier.hxx".}
+proc clearAppliedModifiers*(this: var IFSelectModelCopier; num: int): bool {.
+    importcpp: "ClearAppliedModifiers", header: "IFSelect_ModelCopier.hxx".}
+proc copy*(this: var IFSelectModelCopier; eval: var IFSelectShareOutResult;
+          wl: Handle[IFSelectWorkLibrary]; protocol: Handle[InterfaceProtocol]): InterfaceCheckIterator {.
+    importcpp: "Copy", header: "IFSelect_ModelCopier.hxx".}
+proc sendCopied*(this: var IFSelectModelCopier; wl: Handle[IFSelectWorkLibrary];
+                protocol: Handle[InterfaceProtocol]): InterfaceCheckIterator {.
+    importcpp: "SendCopied", header: "IFSelect_ModelCopier.hxx".}
+proc send*(this: var IFSelectModelCopier; eval: var IFSelectShareOutResult;
+          wl: Handle[IFSelectWorkLibrary]; protocol: Handle[InterfaceProtocol]): InterfaceCheckIterator {.
+    importcpp: "Send", header: "IFSelect_ModelCopier.hxx".}
+proc sendAll*(this: var IFSelectModelCopier; filename: StandardCString;
+             g: InterfaceGraph; wl: Handle[IFSelectWorkLibrary];
+             protocol: Handle[InterfaceProtocol]): InterfaceCheckIterator {.
+    importcpp: "SendAll", header: "IFSelect_ModelCopier.hxx".}
+proc sendSelected*(this: var IFSelectModelCopier; filename: StandardCString;
+                  g: InterfaceGraph; wl: Handle[IFSelectWorkLibrary];
+                  protocol: Handle[InterfaceProtocol];
+                  iter: InterfaceEntityIterator): InterfaceCheckIterator {.
+    importcpp: "SendSelected", header: "IFSelect_ModelCopier.hxx".}
+proc copiedRemaining*(this: var IFSelectModelCopier; g: InterfaceGraph;
+                     wl: Handle[IFSelectWorkLibrary]; tc: var InterfaceCopyTool;
+                     newmod: var Handle[InterfaceInterfaceModel]) {.
+    importcpp: "CopiedRemaining", header: "IFSelect_ModelCopier.hxx".}
+proc setRemaining*(this: IFSelectModelCopier; cg: var InterfaceGraph): bool {.
+    noSideEffect, importcpp: "SetRemaining", header: "IFSelect_ModelCopier.hxx".}
+proc nbFiles*(this: IFSelectModelCopier): int {.noSideEffect, importcpp: "NbFiles",
+    header: "IFSelect_ModelCopier.hxx".}
+proc fileName*(this: IFSelectModelCopier; num: int): TCollectionAsciiString {.
+    noSideEffect, importcpp: "FileName", header: "IFSelect_ModelCopier.hxx".}
+proc fileModel*(this: IFSelectModelCopier; num: int): Handle[InterfaceInterfaceModel] {.
+    noSideEffect, importcpp: "FileModel", header: "IFSelect_ModelCopier.hxx".}
+proc appliedModifiers*(this: IFSelectModelCopier; num: int): Handle[
+    IFSelectAppliedModifiers] {.noSideEffect, importcpp: "AppliedModifiers",
+                               header: "IFSelect_ModelCopier.hxx".}
+proc beginSentFiles*(this: var IFSelectModelCopier; sho: Handle[IFSelectShareOut];
+                    record: bool) {.importcpp: "BeginSentFiles",
+                                  header: "IFSelect_ModelCopier.hxx".}
+proc addSentFile*(this: var IFSelectModelCopier; filename: StandardCString) {.
     importcpp: "AddSentFile", header: "IFSelect_ModelCopier.hxx".}
-proc SentFiles*(this: IFSelect_ModelCopier): handle[TColStd_HSequenceOfHAsciiString] {.
+proc sentFiles*(this: IFSelectModelCopier): Handle[TColStdHSequenceOfHAsciiString] {.
     noSideEffect, importcpp: "SentFiles", header: "IFSelect_ModelCopier.hxx".}
 type
-  IFSelect_ModelCopierbase_type* = Standard_Transient
+  IFSelectModelCopierbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_ModelCopier::get_type_name(@)",
-                              header: "IFSelect_ModelCopier.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_ModelCopier::get_type_name(@)",
+                            header: "IFSelect_ModelCopier.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_ModelCopier::get_type_descriptor(@)",
     header: "IFSelect_ModelCopier.hxx".}
-proc DynamicType*(this: IFSelect_ModelCopier): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IFSelectModelCopier): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_ModelCopier.hxx".}

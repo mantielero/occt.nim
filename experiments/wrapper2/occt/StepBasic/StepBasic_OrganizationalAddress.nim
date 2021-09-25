@@ -14,76 +14,62 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepBasic_HArray1OfOrganization, StepBasic_Address,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_Organization"
 discard "forward decl of StepBasic_OrganizationalAddress"
 discard "forward decl of StepBasic_OrganizationalAddress"
 type
-  Handle_StepBasic_OrganizationalAddress* = handle[StepBasic_OrganizationalAddress]
-  StepBasic_OrganizationalAddress* {.importcpp: "StepBasic_OrganizationalAddress", header: "StepBasic_OrganizationalAddress.hxx",
-                                    bycopy.} = object of StepBasic_Address ## ! Returns a
-                                                                      ## OrganizationalAddress
+  HandleStepBasicOrganizationalAddress* = Handle[StepBasicOrganizationalAddress]
+  StepBasicOrganizationalAddress* {.importcpp: "StepBasic_OrganizationalAddress", header: "StepBasic_OrganizationalAddress.hxx",
+                                   bycopy.} = object of StepBasicAddress ## ! Returns a
+                                                                    ## OrganizationalAddress
 
 
-proc constructStepBasic_OrganizationalAddress*(): StepBasic_OrganizationalAddress {.
+proc constructStepBasicOrganizationalAddress*(): StepBasicOrganizationalAddress {.
     constructor, importcpp: "StepBasic_OrganizationalAddress(@)",
     header: "StepBasic_OrganizationalAddress.hxx".}
-proc Init*(this: var StepBasic_OrganizationalAddress;
-          hasAinternalLocation: Standard_Boolean;
-          aInternalLocation: handle[TCollection_HAsciiString];
-          hasAstreetNumber: Standard_Boolean;
-          aStreetNumber: handle[TCollection_HAsciiString];
-          hasAstreet: Standard_Boolean; aStreet: handle[TCollection_HAsciiString];
-          hasApostalBox: Standard_Boolean;
-          aPostalBox: handle[TCollection_HAsciiString];
-          hasAtown: Standard_Boolean; aTown: handle[TCollection_HAsciiString];
-          hasAregion: Standard_Boolean; aRegion: handle[TCollection_HAsciiString];
-          hasApostalCode: Standard_Boolean;
-          aPostalCode: handle[TCollection_HAsciiString];
-          hasAcountry: Standard_Boolean;
-          aCountry: handle[TCollection_HAsciiString];
-          hasAfacsimileNumber: Standard_Boolean;
-          aFacsimileNumber: handle[TCollection_HAsciiString];
-          hasAtelephoneNumber: Standard_Boolean;
-          aTelephoneNumber: handle[TCollection_HAsciiString];
-          hasAelectronicMailAddress: Standard_Boolean;
-          aElectronicMailAddress: handle[TCollection_HAsciiString];
-          hasAtelexNumber: Standard_Boolean;
-          aTelexNumber: handle[TCollection_HAsciiString];
-          aOrganizations: handle[StepBasic_HArray1OfOrganization];
-          aDescription: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepBasicOrganizationalAddress; hasAinternalLocation: bool;
+          aInternalLocation: Handle[TCollectionHAsciiString];
+          hasAstreetNumber: bool; aStreetNumber: Handle[TCollectionHAsciiString];
+          hasAstreet: bool; aStreet: Handle[TCollectionHAsciiString];
+          hasApostalBox: bool; aPostalBox: Handle[TCollectionHAsciiString];
+          hasAtown: bool; aTown: Handle[TCollectionHAsciiString]; hasAregion: bool;
+          aRegion: Handle[TCollectionHAsciiString]; hasApostalCode: bool;
+          aPostalCode: Handle[TCollectionHAsciiString]; hasAcountry: bool;
+          aCountry: Handle[TCollectionHAsciiString]; hasAfacsimileNumber: bool;
+          aFacsimileNumber: Handle[TCollectionHAsciiString];
+          hasAtelephoneNumber: bool;
+          aTelephoneNumber: Handle[TCollectionHAsciiString];
+          hasAelectronicMailAddress: bool;
+          aElectronicMailAddress: Handle[TCollectionHAsciiString];
+          hasAtelexNumber: bool; aTelexNumber: Handle[TCollectionHAsciiString];
+          aOrganizations: Handle[StepBasicHArray1OfOrganization];
+          aDescription: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepBasic_OrganizationalAddress.hxx".}
-proc SetOrganizations*(this: var StepBasic_OrganizationalAddress;
-                      aOrganizations: handle[StepBasic_HArray1OfOrganization]) {.
+proc setOrganizations*(this: var StepBasicOrganizationalAddress;
+                      aOrganizations: Handle[StepBasicHArray1OfOrganization]) {.
     importcpp: "SetOrganizations", header: "StepBasic_OrganizationalAddress.hxx".}
-proc Organizations*(this: StepBasic_OrganizationalAddress): handle[
-    StepBasic_HArray1OfOrganization] {.noSideEffect, importcpp: "Organizations", header: "StepBasic_OrganizationalAddress.hxx".}
-proc OrganizationsValue*(this: StepBasic_OrganizationalAddress;
-                        num: Standard_Integer): handle[StepBasic_Organization] {.
-    noSideEffect, importcpp: "OrganizationsValue",
-    header: "StepBasic_OrganizationalAddress.hxx".}
-proc NbOrganizations*(this: StepBasic_OrganizationalAddress): Standard_Integer {.
-    noSideEffect, importcpp: "NbOrganizations",
-    header: "StepBasic_OrganizationalAddress.hxx".}
-proc SetDescription*(this: var StepBasic_OrganizationalAddress;
-                    aDescription: handle[TCollection_HAsciiString]) {.
+proc organizations*(this: StepBasicOrganizationalAddress): Handle[
+    StepBasicHArray1OfOrganization] {.noSideEffect, importcpp: "Organizations", header: "StepBasic_OrganizationalAddress.hxx".}
+proc organizationsValue*(this: StepBasicOrganizationalAddress; num: int): Handle[
+    StepBasicOrganization] {.noSideEffect, importcpp: "OrganizationsValue",
+                            header: "StepBasic_OrganizationalAddress.hxx".}
+proc nbOrganizations*(this: StepBasicOrganizationalAddress): int {.noSideEffect,
+    importcpp: "NbOrganizations", header: "StepBasic_OrganizationalAddress.hxx".}
+proc setDescription*(this: var StepBasicOrganizationalAddress;
+                    aDescription: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepBasic_OrganizationalAddress.hxx".}
-proc Description*(this: StepBasic_OrganizationalAddress): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description",
-                               header: "StepBasic_OrganizationalAddress.hxx".}
-type
-  StepBasic_OrganizationalAddressbase_type* = StepBasic_Address
-
-proc get_type_name*(): cstring {.importcpp: "StepBasic_OrganizationalAddress::get_type_name(@)",
+proc description*(this: StepBasicOrganizationalAddress): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Description",
                               header: "StepBasic_OrganizationalAddress.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+type
+  StepBasicOrganizationalAddressbaseType* = StepBasicAddress
+
+proc getTypeName*(): cstring {.importcpp: "StepBasic_OrganizationalAddress::get_type_name(@)",
+                            header: "StepBasic_OrganizationalAddress.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_OrganizationalAddress::get_type_descriptor(@)",
     header: "StepBasic_OrganizationalAddress.hxx".}
-proc DynamicType*(this: StepBasic_OrganizationalAddress): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicOrganizationalAddress): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_OrganizationalAddress.hxx".}

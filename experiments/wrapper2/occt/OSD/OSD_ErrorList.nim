@@ -12,9 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OSD_WhoAmI
-
 ##  List of OSD error codes
 
 const
@@ -90,3 +87,4 @@ const
 
 const
   ERR_PPERM* = 50
+

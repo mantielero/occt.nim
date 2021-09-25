@@ -14,39 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepBasic_NamedUnit, StepBasic_Array1OfNamedUnit,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepBasic_HArray1OfNamedUnit* {.importcpp: "StepBasic_HArray1OfNamedUnit",
-                                 header: "StepBasic_HArray1OfNamedUnit.hxx",
-                                 bycopy.} = object of StepBasic_Array1OfNamedUnit
+  StepBasicHArray1OfNamedUnit* {.importcpp: "StepBasic_HArray1OfNamedUnit",
+                                header: "StepBasic_HArray1OfNamedUnit.hxx", bycopy.} = object of StepBasicArray1OfNamedUnit
 
 
-proc constructStepBasic_HArray1OfNamedUnit*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepBasic_HArray1OfNamedUnit {.constructor,
+proc constructStepBasicHArray1OfNamedUnit*(theLower: int; theUpper: int): StepBasicHArray1OfNamedUnit {.
+    constructor, importcpp: "StepBasic_HArray1OfNamedUnit(@)",
+    header: "StepBasic_HArray1OfNamedUnit.hxx".}
+proc constructStepBasicHArray1OfNamedUnit*(theLower: int; theUpper: int;
+    theValue: ValueType): StepBasicHArray1OfNamedUnit {.constructor,
     importcpp: "StepBasic_HArray1OfNamedUnit(@)",
     header: "StepBasic_HArray1OfNamedUnit.hxx".}
-proc constructStepBasic_HArray1OfNamedUnit*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepBasic_HArray1OfNamedUnit {.
+proc constructStepBasicHArray1OfNamedUnit*(theOther: StepBasicArray1OfNamedUnit): StepBasicHArray1OfNamedUnit {.
     constructor, importcpp: "StepBasic_HArray1OfNamedUnit(@)",
     header: "StepBasic_HArray1OfNamedUnit.hxx".}
-proc constructStepBasic_HArray1OfNamedUnit*(theOther: StepBasic_Array1OfNamedUnit): StepBasic_HArray1OfNamedUnit {.
-    constructor, importcpp: "StepBasic_HArray1OfNamedUnit(@)",
-    header: "StepBasic_HArray1OfNamedUnit.hxx".}
-proc Array1*(this: StepBasic_HArray1OfNamedUnit): StepBasic_Array1OfNamedUnit {.
+proc array1*(this: StepBasicHArray1OfNamedUnit): StepBasicArray1OfNamedUnit {.
     noSideEffect, importcpp: "Array1", header: "StepBasic_HArray1OfNamedUnit.hxx".}
-proc ChangeArray1*(this: var StepBasic_HArray1OfNamedUnit): var StepBasic_Array1OfNamedUnit {.
+proc changeArray1*(this: var StepBasicHArray1OfNamedUnit): var StepBasicArray1OfNamedUnit {.
     importcpp: "ChangeArray1", header: "StepBasic_HArray1OfNamedUnit.hxx".}
 type
-  StepBasic_HArray1OfNamedUnitbase_type* = MMgt_TShared
+  StepBasicHArray1OfNamedUnitbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_HArray1OfNamedUnit::get_type_name(@)",
-                              header: "StepBasic_HArray1OfNamedUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_HArray1OfNamedUnit::get_type_name(@)",
+                            header: "StepBasic_HArray1OfNamedUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_HArray1OfNamedUnit::get_type_descriptor(@)",
     header: "StepBasic_HArray1OfNamedUnit.hxx".}
-proc DynamicType*(this: StepBasic_HArray1OfNamedUnit): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicHArray1OfNamedUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_HArray1OfNamedUnit.hxx".}

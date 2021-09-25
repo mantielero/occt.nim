@@ -23,8 +23,9 @@
 ## ! EditDynamic   : not a field, only to be displayed
 
 type
-  IFSelect_EditValue* {.size: sizeof(cint), importcpp: "IFSelect_EditValue",
-                       header: "IFSelect_EditValue.hxx".} = enum
-    IFSelect_Optional, IFSelect_Editable, IFSelect_EditProtected,
-    IFSelect_EditComputed, IFSelect_EditRead, IFSelect_EditDynamic
+  IFSelectEditValue* {.size: sizeof(cint), importcpp: "IFSelect_EditValue",
+                      header: "IFSelect_EditValue.hxx".} = enum
+    IFSelectOptional, IFSelectEditable, IFSelectEditProtected,
+    IFSelectEditComputed, IFSelectEditRead, IFSelectEditDynamic
+
 

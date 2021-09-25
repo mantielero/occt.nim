@@ -14,35 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real, Extrema_POnSurf
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Pnt"
 discard "forward decl of Adaptor3d_Surface"
 discard "forward decl of Extrema_POnSurf"
 type
-  Extrema_GenLocateExtPS* {.importcpp: "Extrema_GenLocateExtPS",
-                           header: "Extrema_GenLocateExtPS.hxx", bycopy.} = object ## !
-                                                                              ## Constructor.
+  ExtremaGenLocateExtPS* {.importcpp: "Extrema_GenLocateExtPS",
+                          header: "Extrema_GenLocateExtPS.hxx", bycopy.} = object ## !
+                                                                             ## Constructor.
     ##  State.
     ##  Result.
 
 
-proc constructExtrema_GenLocateExtPS*(theS: Adaptor3d_Surface;
-                                     theTolU: Standard_Real = PConfusion();
-                                     theTolV: Standard_Real = PConfusion()): Extrema_GenLocateExtPS {.
+proc constructExtremaGenLocateExtPS*(theS: Adaptor3dSurface;
+                                    theTolU: float = pConfusion();
+                                    theTolV: float = pConfusion()): ExtremaGenLocateExtPS {.
     constructor, importcpp: "Extrema_GenLocateExtPS(@)",
     header: "Extrema_GenLocateExtPS.hxx".}
-proc Perform*(this: var Extrema_GenLocateExtPS; theP: gp_Pnt; theU0: Standard_Real;
-             theV0: Standard_Real;
-             isDistanceCriteria: Standard_Boolean = Standard_False) {.
-    importcpp: "Perform", header: "Extrema_GenLocateExtPS.hxx".}
-proc IsDone*(this: Extrema_GenLocateExtPS): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "Extrema_GenLocateExtPS.hxx".}
-proc SquareDistance*(this: Extrema_GenLocateExtPS): Standard_Real {.noSideEffect,
+proc perform*(this: var ExtremaGenLocateExtPS; theP: Pnt; theU0: float; theV0: float;
+             isDistanceCriteria: bool = false) {.importcpp: "Perform",
+    header: "Extrema_GenLocateExtPS.hxx".}
+proc isDone*(this: ExtremaGenLocateExtPS): bool {.noSideEffect, importcpp: "IsDone",
+    header: "Extrema_GenLocateExtPS.hxx".}
+proc squareDistance*(this: ExtremaGenLocateExtPS): float {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_GenLocateExtPS.hxx".}
-proc Point*(this: Extrema_GenLocateExtPS): Extrema_POnSurf {.noSideEffect,
+proc point*(this: ExtremaGenLocateExtPS): ExtremaPOnSurf {.noSideEffect,
     importcpp: "Point", header: "Extrema_GenLocateExtPS.hxx".}

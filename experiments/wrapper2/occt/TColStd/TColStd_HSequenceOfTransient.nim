@@ -12,5 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # TColStd_HSequenceOfTransient_HeaderFile [NewLine] # TColStd_HSequenceOfTransient_HeaderFile [NewLine] # ../Standard/Standard_Transient.hxx [NewLine] # TColStd_SequenceOfTransient.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( TColStd_HSequenceOfTransient , TColStd_SequenceOfTransient ) # [NewLine]
+## !!!Ignored construct:  # TColStd_HSequenceOfTransient_HeaderFile [NewLine] # TColStd_HSequenceOfTransient_HeaderFile [NewLine] # < Standard_Transient . hxx > [NewLine] # < TColStd_SequenceOfTransient . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( TColStd_HSequenceOfTransient , TColStd_SequenceOfTransient ) # [NewLine]
 ## Error: expected ';'!!!
+

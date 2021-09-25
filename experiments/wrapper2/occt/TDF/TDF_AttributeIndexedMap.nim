@@ -13,10 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TColStd/TColStd_MapTransientHasher, ../NCollection/NCollection_IndexedMap
-
 discard "forward decl of TDF_Attribute"
 type
-  TDF_AttributeIndexedMap* = NCollection_IndexedMap[handle[TDF_Attribute],
-      TColStd_MapTransientHasher]
+  TDF_AttributeIndexedMap* = NCollectionIndexedMap[Handle[TDF_Attribute],
+      TColStdMapTransientHasher]
+

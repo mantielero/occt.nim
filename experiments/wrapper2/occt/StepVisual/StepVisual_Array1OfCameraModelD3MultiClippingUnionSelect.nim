@@ -13,10 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_CameraModelD3MultiClippingUnionSelect,
-  ../NCollection/NCollection_Array1
-
 type
-  StepVisual_Array1OfCameraModelD3MultiClippingUnionSelect* = NCollection_Array1[
-      StepVisual_CameraModelD3MultiClippingUnionSelect]
+  StepVisualArray1OfCameraModelD3MultiClippingUnionSelect* = NCollectionArray1[
+      StepVisualCameraModelD3MultiClippingUnionSelect]
+

@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  TopoDSToStep_MakeEdgeError* {.size: sizeof(cint),
-                               importcpp: "TopoDSToStep_MakeEdgeError",
-                               header: "TopoDSToStep_MakeEdgeError.hxx".} = enum
-    TopoDSToStep_EdgeDone, TopoDSToStep_NonManifoldEdge, TopoDSToStep_EdgeOther
+  TopoDSToStepMakeEdgeError* {.size: sizeof(cint),
+                              importcpp: "TopoDSToStep_MakeEdgeError",
+                              header: "TopoDSToStep_MakeEdgeError.hxx".} = enum
+    TopoDSToStepEdgeDone, TopoDSToStepNonManifoldEdge, TopoDSToStepEdgeOther
+
 

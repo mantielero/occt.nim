@@ -15,8 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepVisual_SurfaceSide* {.size: sizeof(cint),
-                           importcpp: "StepVisual_SurfaceSide",
-                           header: "StepVisual_SurfaceSide.hxx".} = enum
-    StepVisual_ssNegative, StepVisual_ssPositive, StepVisual_ssBoth
+  StepVisualSurfaceSide* {.size: sizeof(cint), importcpp: "StepVisual_SurfaceSide",
+                          header: "StepVisual_SurfaceSide.hxx".} = enum
+    StepVisualSsNegative, StepVisualSsPositive, StepVisualSsBoth
+
 

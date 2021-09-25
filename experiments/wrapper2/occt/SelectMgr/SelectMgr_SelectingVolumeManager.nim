@@ -13,184 +13,158 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Handle, ../Graphic3d/Graphic3d_Camera,
-  ../Graphic3d/Graphic3d_SequenceOfHClipPlane,
-  ../Graphic3d/Graphic3d_WorldViewProjState, SelectMgr_BaseFrustum,
-  SelectMgr_RectangularFrustum, SelectMgr_TriangularFrustumSet,
-  ../SelectBasics/SelectBasics_SelectingVolumeManager
-
 ## ! This class is used to switch between active selecting volumes depending
 ## ! on selection type chosen by the user
 
 type
-  SelectMgr_SelectingVolumeManager* {.importcpp: "SelectMgr_SelectingVolumeManager", header: "SelectMgr_SelectingVolumeManager.hxx",
-                                     bycopy.} = object of SelectBasics_SelectingVolumeManager ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## instances
-                                                                                         ## of
-                                                                                         ## all
-                                                                                         ## available
-                                                                                         ## selecting
-                                                                                         ## volume
-                                                                                         ## types
+  SelectMgrSelectingVolumeManager* {.importcpp: "SelectMgr_SelectingVolumeManager", header: "SelectMgr_SelectingVolumeManager.hxx",
+                                    bycopy.} = object of SelectBasicsSelectingVolumeManager ##
+                                                                                       ## !
+                                                                                       ## Creates
+                                                                                       ## instances
+                                                                                       ## of
+                                                                                       ## all
+                                                                                       ## available
+                                                                                       ## selecting
+                                                                                       ## volume
+                                                                                       ## types
     ## !< Array of selecting volumes
     ## !< view clipping planes
     ## !< object clipping planes
     ## !< Defines if partially overlapped entities will me detected or not
 
 
-proc constructSelectMgr_SelectingVolumeManager*(
-    theToAllocateFrustums: Standard_Boolean = Standard_True): SelectMgr_SelectingVolumeManager {.
+proc constructSelectMgrSelectingVolumeManager*(theToAllocateFrustums: bool = true): SelectMgrSelectingVolumeManager {.
     constructor, importcpp: "SelectMgr_SelectingVolumeManager(@)",
     header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc destroySelectMgr_SelectingVolumeManager*(
-    this: var SelectMgr_SelectingVolumeManager) {.
+proc destroySelectMgrSelectingVolumeManager*(
+    this: var SelectMgrSelectingVolumeManager) {.
     importcpp: "#.~SelectMgr_SelectingVolumeManager()",
     header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc ScaleAndTransform*(this: SelectMgr_SelectingVolumeManager;
-                       theScaleFactor: Standard_Integer; theTrsf: gp_GTrsf;
-                       theBuilder: handle[SelectMgr_FrustumBuilder] = nil): SelectMgr_SelectingVolumeManager {.
+proc scaleAndTransform*(this: SelectMgrSelectingVolumeManager; theScaleFactor: int;
+                       theTrsf: GTrsf;
+                       theBuilder: Handle[SelectMgrFrustumBuilder] = nil): SelectMgrSelectingVolumeManager {.
     noSideEffect, importcpp: "ScaleAndTransform",
     header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc GetActiveSelectionType*(this: SelectMgr_SelectingVolumeManager): Standard_Integer {.
+proc getActiveSelectionType*(this: SelectMgrSelectingVolumeManager): int {.
     noSideEffect, importcpp: "GetActiveSelectionType",
     header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc SetActiveSelectionType*(this: var SelectMgr_SelectingVolumeManager;
+proc setActiveSelectionType*(this: var SelectMgrSelectingVolumeManager;
                             theType: SelectionType) {.
     importcpp: "SetActiveSelectionType",
     header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc Camera*(this: SelectMgr_SelectingVolumeManager): handle[Graphic3d_Camera] {.
+proc camera*(this: SelectMgrSelectingVolumeManager): Handle[Graphic3dCamera] {.
     noSideEffect, importcpp: "Camera",
     header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc SetCamera*(this: var SelectMgr_SelectingVolumeManager;
-               theCamera: handle[Graphic3d_Camera]) {.importcpp: "SetCamera",
+proc setCamera*(this: var SelectMgrSelectingVolumeManager;
+               theCamera: Handle[Graphic3dCamera]) {.importcpp: "SetCamera",
     header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc SetCamera*(this: var SelectMgr_SelectingVolumeManager;
-               theProjection: Graphic3d_Mat4d; theWorldView: Graphic3d_Mat4d;
-               theIsOrthographic: Standard_Boolean; theWVPState: Graphic3d_WorldViewProjState = Graphic3d_WorldViewProjState()) {.
+proc setCamera*(this: var SelectMgrSelectingVolumeManager;
+               theProjection: Graphic3dMat4d; theWorldView: Graphic3dMat4d;
+               theIsOrthographic: bool; theWVPState: Graphic3dWorldViewProjState = graphic3dWorldViewProjState()) {.
     importcpp: "SetCamera", header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc ProjectionMatrix*(this: SelectMgr_SelectingVolumeManager): Graphic3d_Mat4d {.
+proc projectionMatrix*(this: SelectMgrSelectingVolumeManager): Graphic3dMat4d {.
     noSideEffect, importcpp: "ProjectionMatrix",
     header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc WorldViewMatrix*(this: SelectMgr_SelectingVolumeManager): Graphic3d_Mat4d {.
+proc worldViewMatrix*(this: SelectMgrSelectingVolumeManager): Graphic3dMat4d {.
     noSideEffect, importcpp: "WorldViewMatrix",
     header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc WindowSize*(this: SelectMgr_SelectingVolumeManager;
-                theWidth: var Standard_Integer; theHeight: var Standard_Integer) {.
-    noSideEffect, importcpp: "WindowSize",
-    header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc WorldViewProjState*(this: SelectMgr_SelectingVolumeManager): Graphic3d_WorldViewProjState {.
+proc windowSize*(this: SelectMgrSelectingVolumeManager; theWidth: var int;
+                theHeight: var int) {.noSideEffect, importcpp: "WindowSize", header: "SelectMgr_SelectingVolumeManager.hxx".}
+proc worldViewProjState*(this: SelectMgrSelectingVolumeManager): Graphic3dWorldViewProjState {.
     noSideEffect, importcpp: "WorldViewProjState",
     header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc SetViewport*(this: var SelectMgr_SelectingVolumeManager; theX: Standard_Real;
-                 theY: Standard_Real; theWidth: Standard_Real;
-                 theHeight: Standard_Real) {.importcpp: "SetViewport",
+proc setViewport*(this: var SelectMgrSelectingVolumeManager; theX: float; theY: float;
+                 theWidth: float; theHeight: float) {.importcpp: "SetViewport",
     header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc SetPixelTolerance*(this: var SelectMgr_SelectingVolumeManager;
-                       theTolerance: Standard_Integer) {.
+proc setPixelTolerance*(this: var SelectMgrSelectingVolumeManager; theTolerance: int) {.
     importcpp: "SetPixelTolerance", header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc SetWindowSize*(this: var SelectMgr_SelectingVolumeManager;
-                   theWidth: Standard_Integer; theHeight: Standard_Integer) {.
-    importcpp: "SetWindowSize", header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc BuildSelectingVolume*(this: var SelectMgr_SelectingVolumeManager;
-                          thePoint: gp_Pnt2d) {.importcpp: "BuildSelectingVolume",
+proc setWindowSize*(this: var SelectMgrSelectingVolumeManager; theWidth: int;
+                   theHeight: int) {.importcpp: "SetWindowSize", header: "SelectMgr_SelectingVolumeManager.hxx".}
+proc buildSelectingVolume*(this: var SelectMgrSelectingVolumeManager;
+                          thePoint: Pnt2d) {.importcpp: "BuildSelectingVolume",
     header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc BuildSelectingVolume*(this: var SelectMgr_SelectingVolumeManager;
-                          theMinPt: gp_Pnt2d; theMaxPt: gp_Pnt2d) {.
+proc buildSelectingVolume*(this: var SelectMgrSelectingVolumeManager;
+                          theMinPt: Pnt2d; theMaxPt: Pnt2d) {.
     importcpp: "BuildSelectingVolume",
     header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc BuildSelectingVolume*(this: var SelectMgr_SelectingVolumeManager;
-                          thePoints: TColgp_Array1OfPnt2d) {.
+proc buildSelectingVolume*(this: var SelectMgrSelectingVolumeManager;
+                          thePoints: TColgpArray1OfPnt2d) {.
     importcpp: "BuildSelectingVolume",
     header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc Overlaps*(this: SelectMgr_SelectingVolumeManager; theBoxMin: SelectMgr_Vec3;
-              theBoxMax: SelectMgr_Vec3;
-              thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
+proc overlaps*(this: SelectMgrSelectingVolumeManager; theBoxMin: SelectMgrVec3;
+              theBoxMax: SelectMgrVec3; thePickResult: var SelectBasicsPickResult): bool {.
     noSideEffect, importcpp: "Overlaps",
     header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc Overlaps*(this: SelectMgr_SelectingVolumeManager; theBoxMin: SelectMgr_Vec3;
-              theBoxMax: SelectMgr_Vec3; theInside: ptr Standard_Boolean = nil): Standard_Boolean {.
+proc overlaps*(this: SelectMgrSelectingVolumeManager; theBoxMin: SelectMgrVec3;
+              theBoxMax: SelectMgrVec3; theInside: ptr bool = nil): bool {.noSideEffect,
+    importcpp: "Overlaps", header: "SelectMgr_SelectingVolumeManager.hxx".}
+proc overlaps*(this: SelectMgrSelectingVolumeManager; thePnt: Pnt;
+              thePickResult: var SelectBasicsPickResult): bool {.noSideEffect,
+    importcpp: "Overlaps", header: "SelectMgr_SelectingVolumeManager.hxx".}
+proc overlaps*(this: SelectMgrSelectingVolumeManager; thePnt: Pnt): bool {.
     noSideEffect, importcpp: "Overlaps",
     header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc Overlaps*(this: SelectMgr_SelectingVolumeManager; thePnt: gp_Pnt;
-              thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
-    noSideEffect, importcpp: "Overlaps",
-    header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc Overlaps*(this: SelectMgr_SelectingVolumeManager; thePnt: gp_Pnt): Standard_Boolean {.
-    noSideEffect, importcpp: "Overlaps",
-    header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc Overlaps*(this: SelectMgr_SelectingVolumeManager;
-              theArrayOfPts: handle[TColgp_HArray1OfPnt];
-              theSensType: Standard_Integer;
-              thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
-    noSideEffect, importcpp: "Overlaps",
-    header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc Overlaps*(this: SelectMgr_SelectingVolumeManager;
-              theArrayOfPts: TColgp_Array1OfPnt; theSensType: Standard_Integer;
-              thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
-    noSideEffect, importcpp: "Overlaps",
-    header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc Overlaps*(this: SelectMgr_SelectingVolumeManager; thePnt1: gp_Pnt;
-              thePnt2: gp_Pnt; thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
-    noSideEffect, importcpp: "Overlaps",
-    header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc Overlaps*(this: SelectMgr_SelectingVolumeManager; thePnt1: gp_Pnt;
-              thePnt2: gp_Pnt; thePnt3: gp_Pnt; theSensType: Standard_Integer;
-              thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
-    noSideEffect, importcpp: "Overlaps",
-    header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc DistToGeometryCenter*(this: SelectMgr_SelectingVolumeManager; theCOG: gp_Pnt): Standard_Real {.
+proc overlaps*(this: SelectMgrSelectingVolumeManager;
+              theArrayOfPts: Handle[TColgpHArray1OfPnt]; theSensType: int;
+              thePickResult: var SelectBasicsPickResult): bool {.noSideEffect,
+    importcpp: "Overlaps", header: "SelectMgr_SelectingVolumeManager.hxx".}
+proc overlaps*(this: SelectMgrSelectingVolumeManager;
+              theArrayOfPts: TColgpArray1OfPnt; theSensType: int;
+              thePickResult: var SelectBasicsPickResult): bool {.noSideEffect,
+    importcpp: "Overlaps", header: "SelectMgr_SelectingVolumeManager.hxx".}
+proc overlaps*(this: SelectMgrSelectingVolumeManager; thePnt1: Pnt; thePnt2: Pnt;
+              thePickResult: var SelectBasicsPickResult): bool {.noSideEffect,
+    importcpp: "Overlaps", header: "SelectMgr_SelectingVolumeManager.hxx".}
+proc overlaps*(this: SelectMgrSelectingVolumeManager; thePnt1: Pnt; thePnt2: Pnt;
+              thePnt3: Pnt; theSensType: int;
+              thePickResult: var SelectBasicsPickResult): bool {.noSideEffect,
+    importcpp: "Overlaps", header: "SelectMgr_SelectingVolumeManager.hxx".}
+proc distToGeometryCenter*(this: SelectMgrSelectingVolumeManager; theCOG: Pnt): float {.
     noSideEffect, importcpp: "DistToGeometryCenter",
     header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc DetectedPoint*(this: SelectMgr_SelectingVolumeManager; theDepth: Standard_Real): gp_Pnt {.
+proc detectedPoint*(this: SelectMgrSelectingVolumeManager; theDepth: float): Pnt {.
     noSideEffect, importcpp: "DetectedPoint",
     header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc AllowOverlapDetection*(this: var SelectMgr_SelectingVolumeManager;
-                           theIsToAllow: Standard_Boolean) {.
+proc allowOverlapDetection*(this: var SelectMgrSelectingVolumeManager;
+                           theIsToAllow: bool) {.
     importcpp: "AllowOverlapDetection",
     header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc IsOverlapAllowed*(this: SelectMgr_SelectingVolumeManager): Standard_Boolean {.
-    noSideEffect, importcpp: "IsOverlapAllowed",
-    header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc ViewClipping*(this: SelectMgr_SelectingVolumeManager): handle[
-    Graphic3d_SequenceOfHClipPlane] {.noSideEffect, importcpp: "ViewClipping", header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc ObjectClipping*(this: SelectMgr_SelectingVolumeManager): handle[
-    Graphic3d_SequenceOfHClipPlane] {.noSideEffect, importcpp: "ObjectClipping", header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc SetViewClipping*(this: var SelectMgr_SelectingVolumeManager;
-                     theViewPlanes: handle[Graphic3d_SequenceOfHClipPlane];
-                     theObjPlanes: handle[Graphic3d_SequenceOfHClipPlane];
-                     theWorldSelMgr: ptr SelectMgr_SelectingVolumeManager) {.
+proc isOverlapAllowed*(this: SelectMgrSelectingVolumeManager): bool {.noSideEffect,
+    importcpp: "IsOverlapAllowed", header: "SelectMgr_SelectingVolumeManager.hxx".}
+proc viewClipping*(this: SelectMgrSelectingVolumeManager): Handle[
+    Graphic3dSequenceOfHClipPlane] {.noSideEffect, importcpp: "ViewClipping", header: "SelectMgr_SelectingVolumeManager.hxx".}
+proc objectClipping*(this: SelectMgrSelectingVolumeManager): Handle[
+    Graphic3dSequenceOfHClipPlane] {.noSideEffect, importcpp: "ObjectClipping", header: "SelectMgr_SelectingVolumeManager.hxx".}
+proc setViewClipping*(this: var SelectMgrSelectingVolumeManager;
+                     theViewPlanes: Handle[Graphic3dSequenceOfHClipPlane];
+                     theObjPlanes: Handle[Graphic3dSequenceOfHClipPlane];
+                     theWorldSelMgr: ptr SelectMgrSelectingVolumeManager) {.
     importcpp: "SetViewClipping", header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc SetViewClipping*(this: var SelectMgr_SelectingVolumeManager;
-                     theOther: SelectMgr_SelectingVolumeManager) {.
+proc setViewClipping*(this: var SelectMgrSelectingVolumeManager;
+                     theOther: SelectMgrSelectingVolumeManager) {.
     importcpp: "SetViewClipping", header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc ViewClipRanges*(this: SelectMgr_SelectingVolumeManager): SelectMgr_ViewClipRange {.
+proc viewClipRanges*(this: SelectMgrSelectingVolumeManager): SelectMgrViewClipRange {.
     noSideEffect, importcpp: "ViewClipRanges",
     header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc SetViewClipRanges*(this: var SelectMgr_SelectingVolumeManager;
-                       theRange: SelectMgr_ViewClipRange) {.
+proc setViewClipRanges*(this: var SelectMgrSelectingVolumeManager;
+                       theRange: SelectMgrViewClipRange) {.
     importcpp: "SetViewClipRanges", header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc GetVertices*(this: SelectMgr_SelectingVolumeManager): ptr gp_Pnt {.noSideEffect,
+proc getVertices*(this: SelectMgrSelectingVolumeManager): ptr Pnt {.noSideEffect,
     importcpp: "GetVertices", header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc GetNearPickedPnt*(this: SelectMgr_SelectingVolumeManager): gp_Pnt {.
-    noSideEffect, importcpp: "GetNearPickedPnt",
-    header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc GetFarPickedPnt*(this: SelectMgr_SelectingVolumeManager): gp_Pnt {.
-    noSideEffect, importcpp: "GetFarPickedPnt",
-    header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc GetMousePosition*(this: SelectMgr_SelectingVolumeManager): gp_Pnt2d {.
-    noSideEffect, importcpp: "GetMousePosition",
-    header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc ActiveVolume*(this: SelectMgr_SelectingVolumeManager): handle[
-    SelectMgr_BaseFrustum] {.noSideEffect, importcpp: "ActiveVolume",
-                            header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc GetPlanes*(this: SelectMgr_SelectingVolumeManager;
-               thePlaneEquations: var NCollection_Vector[SelectMgr_Vec4]) {.
+proc getNearPickedPnt*(this: SelectMgrSelectingVolumeManager): Pnt {.noSideEffect,
+    importcpp: "GetNearPickedPnt", header: "SelectMgr_SelectingVolumeManager.hxx".}
+proc getFarPickedPnt*(this: SelectMgrSelectingVolumeManager): Pnt {.noSideEffect,
+    importcpp: "GetFarPickedPnt", header: "SelectMgr_SelectingVolumeManager.hxx".}
+proc getMousePosition*(this: SelectMgrSelectingVolumeManager): Pnt2d {.noSideEffect,
+    importcpp: "GetMousePosition", header: "SelectMgr_SelectingVolumeManager.hxx".}
+proc activeVolume*(this: SelectMgrSelectingVolumeManager): Handle[
+    SelectMgrBaseFrustum] {.noSideEffect, importcpp: "ActiveVolume",
+                           header: "SelectMgr_SelectingVolumeManager.hxx".}
+proc getPlanes*(this: SelectMgrSelectingVolumeManager;
+               thePlaneEquations: var NCollectionVector[SelectMgrVec4]) {.
     noSideEffect, importcpp: "GetPlanes",
     header: "SelectMgr_SelectingVolumeManager.hxx".}
-proc DumpJson*(this: SelectMgr_SelectingVolumeManager;
-              theOStream: var Standard_OStream; theDepth: Standard_Integer = -1) {.
-    noSideEffect, importcpp: "DumpJson",
-    header: "SelectMgr_SelectingVolumeManager.hxx".}
+proc dumpJson*(this: SelectMgrSelectingVolumeManager;
+              theOStream: var StandardOStream; theDepth: int = -1) {.noSideEffect,
+    importcpp: "DumpJson", header: "SelectMgr_SelectingVolumeManager.hxx".}

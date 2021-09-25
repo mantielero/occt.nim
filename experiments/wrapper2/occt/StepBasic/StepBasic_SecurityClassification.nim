@@ -14,54 +14,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_SecurityClassificationLevel"
 discard "forward decl of StepBasic_SecurityClassification"
 discard "forward decl of StepBasic_SecurityClassification"
 type
-  Handle_StepBasic_SecurityClassification* = handle[
-      StepBasic_SecurityClassification]
-  StepBasic_SecurityClassification* {.importcpp: "StepBasic_SecurityClassification", header: "StepBasic_SecurityClassification.hxx",
-                                     bycopy.} = object of Standard_Transient ## ! Returns a
-                                                                        ## SecurityClassification
+  HandleStepBasicSecurityClassification* = Handle[StepBasicSecurityClassification]
+  StepBasicSecurityClassification* {.importcpp: "StepBasic_SecurityClassification", header: "StepBasic_SecurityClassification.hxx",
+                                    bycopy.} = object of StandardTransient ## ! Returns a
+                                                                      ## SecurityClassification
 
 
-proc constructStepBasic_SecurityClassification*(): StepBasic_SecurityClassification {.
+proc constructStepBasicSecurityClassification*(): StepBasicSecurityClassification {.
     constructor, importcpp: "StepBasic_SecurityClassification(@)",
     header: "StepBasic_SecurityClassification.hxx".}
-proc Init*(this: var StepBasic_SecurityClassification;
-          aName: handle[TCollection_HAsciiString];
-          aPurpose: handle[TCollection_HAsciiString];
-          aSecurityLevel: handle[StepBasic_SecurityClassificationLevel]) {.
+proc init*(this: var StepBasicSecurityClassification;
+          aName: Handle[TCollectionHAsciiString];
+          aPurpose: Handle[TCollectionHAsciiString];
+          aSecurityLevel: Handle[StepBasicSecurityClassificationLevel]) {.
     importcpp: "Init", header: "StepBasic_SecurityClassification.hxx".}
-proc SetName*(this: var StepBasic_SecurityClassification;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepBasicSecurityClassification;
+             aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepBasic_SecurityClassification.hxx".}
-proc Name*(this: StepBasic_SecurityClassification): handle[TCollection_HAsciiString] {.
+proc name*(this: StepBasicSecurityClassification): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepBasic_SecurityClassification.hxx".}
-proc SetPurpose*(this: var StepBasic_SecurityClassification;
-                aPurpose: handle[TCollection_HAsciiString]) {.
+proc setPurpose*(this: var StepBasicSecurityClassification;
+                aPurpose: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetPurpose", header: "StepBasic_SecurityClassification.hxx".}
-proc Purpose*(this: StepBasic_SecurityClassification): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Purpose",
-                               header: "StepBasic_SecurityClassification.hxx".}
-proc SetSecurityLevel*(this: var StepBasic_SecurityClassification; aSecurityLevel: handle[
-    StepBasic_SecurityClassificationLevel]) {.importcpp: "SetSecurityLevel",
+proc purpose*(this: StepBasicSecurityClassification): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Purpose",
+                              header: "StepBasic_SecurityClassification.hxx".}
+proc setSecurityLevel*(this: var StepBasicSecurityClassification; aSecurityLevel: Handle[
+    StepBasicSecurityClassificationLevel]) {.importcpp: "SetSecurityLevel",
     header: "StepBasic_SecurityClassification.hxx".}
-proc SecurityLevel*(this: StepBasic_SecurityClassification): handle[
-    StepBasic_SecurityClassificationLevel] {.noSideEffect,
+proc securityLevel*(this: StepBasicSecurityClassification): Handle[
+    StepBasicSecurityClassificationLevel] {.noSideEffect,
     importcpp: "SecurityLevel", header: "StepBasic_SecurityClassification.hxx".}
 type
-  StepBasic_SecurityClassificationbase_type* = Standard_Transient
+  StepBasicSecurityClassificationbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_SecurityClassification::get_type_name(@)",
-                              header: "StepBasic_SecurityClassification.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_SecurityClassification::get_type_name(@)",
+                            header: "StepBasic_SecurityClassification.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_SecurityClassification::get_type_descriptor(@)",
     header: "StepBasic_SecurityClassification.hxx".}
-proc DynamicType*(this: StepBasic_SecurityClassification): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicSecurityClassification): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_SecurityClassification.hxx".}

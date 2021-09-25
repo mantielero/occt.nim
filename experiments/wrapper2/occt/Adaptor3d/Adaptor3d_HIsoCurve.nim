@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Adaptor3d_HIsoCurve_HeaderFile [NewLine] # _Adaptor3d_HIsoCurve_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # Adaptor3d_IsoCurve.hxx [NewLine] # Adaptor3d_HCurve.hxx [NewLine] class Standard_OutOfRange ;
+## !!!Ignored construct:  # _Adaptor3d_HIsoCurve_HeaderFile [NewLine] # _Adaptor3d_HIsoCurve_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < Adaptor3d_IsoCurve . hxx > [NewLine] # < Adaptor3d_HCurve . hxx > [NewLine] class Standard_OutOfRange ;
 ## Error: did not expect <!!!
 
 discard "forward decl of Standard_NoSuchObject"
@@ -24,38 +24,39 @@ discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Adaptor3d_HIsoCurve"
 discard "forward decl of Adaptor3d_HIsoCurve"
 type
-  Handle_Adaptor3d_HIsoCurveAdaptor3d_HIsoCurve* = handle[Adaptor3d_HIsoCurve]
-  Adaptor3d_HIsoCurve* {.importcpp: "Adaptor3d_HIsoCurve",
-                        header: "Adaptor3d_HIsoCurve.hxx", bycopy.} = object of Adaptor3d_HCurve ##
-                                                                                          ## !
-                                                                                          ## Creates
-                                                                                          ## an
-                                                                                          ## empty
-                                                                                          ## GenHCurve.
+  HandleAdaptor3dHIsoCurveAdaptor3dHIsoCurve* = Handle[Adaptor3dHIsoCurve]
+  Adaptor3dHIsoCurve* {.importcpp: "Adaptor3d_HIsoCurve",
+                       header: "Adaptor3d_HIsoCurve.hxx", bycopy.} = object of Adaptor3dHCurve ##
+                                                                                        ## !
+                                                                                        ## Creates
+                                                                                        ## an
+                                                                                        ## empty
+                                                                                        ## GenHCurve.
 
 
-proc constructAdaptor3d_HIsoCurve*(): Adaptor3d_HIsoCurve {.constructor,
+proc constructAdaptor3dHIsoCurve*(): Adaptor3dHIsoCurve {.constructor,
     importcpp: "Adaptor3d_HIsoCurve(@)", header: "Adaptor3d_HIsoCurve.hxx".}
-proc constructAdaptor3d_HIsoCurve*(C: Adaptor3d_IsoCurve): Adaptor3d_HIsoCurve {.
+proc constructAdaptor3dHIsoCurve*(c: Adaptor3dIsoCurve): Adaptor3dHIsoCurve {.
     constructor, importcpp: "Adaptor3d_HIsoCurve(@)",
     header: "Adaptor3d_HIsoCurve.hxx".}
-proc Set*(this: var Adaptor3d_HIsoCurve; C: Adaptor3d_IsoCurve) {.importcpp: "Set",
+proc set*(this: var Adaptor3dHIsoCurve; c: Adaptor3dIsoCurve) {.importcpp: "Set",
     header: "Adaptor3d_HIsoCurve.hxx".}
-proc Curve*(this: Adaptor3d_HIsoCurve): Adaptor3d_Curve {.noSideEffect,
+proc curve*(this: Adaptor3dHIsoCurve): Adaptor3dCurve {.noSideEffect,
     importcpp: "Curve", header: "Adaptor3d_HIsoCurve.hxx".}
-proc GetCurve*(this: var Adaptor3d_HIsoCurve): var Adaptor3d_Curve {.
+proc getCurve*(this: var Adaptor3dHIsoCurve): var Adaptor3dCurve {.
     importcpp: "GetCurve", header: "Adaptor3d_HIsoCurve.hxx".}
-proc ChangeCurve*(this: var Adaptor3d_HIsoCurve): var Adaptor3d_IsoCurve {.
+proc changeCurve*(this: var Adaptor3dHIsoCurve): var Adaptor3dIsoCurve {.
     importcpp: "ChangeCurve", header: "Adaptor3d_HIsoCurve.hxx".}
 type
-  Adaptor3d_HIsoCurvebase_type* = Adaptor3d_HCurve
+  Adaptor3dHIsoCurvebaseType* = Adaptor3dHCurve
 
-proc get_type_name*(): cstring {.importcpp: "Adaptor3d_HIsoCurve::get_type_name(@)",
-                              header: "Adaptor3d_HIsoCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Adaptor3d_HIsoCurve::get_type_name(@)",
+                            header: "Adaptor3d_HIsoCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Adaptor3d_HIsoCurve::get_type_descriptor(@)",
     header: "Adaptor3d_HIsoCurve.hxx".}
-proc DynamicType*(this: Adaptor3d_HIsoCurve): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: Adaptor3dHIsoCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Adaptor3d_HIsoCurve.hxx".}
-## !!!Ignored construct:  # TheCurve Adaptor3d_IsoCurve [NewLine] # TheCurve_hxx < Adaptor3d_IsoCurve . hxx > [NewLine] # Adaptor3d_GenHCurve Adaptor3d_HIsoCurve [NewLine] # Adaptor3d_GenHCurve_hxx < Adaptor3d_HIsoCurve . hxx > [NewLine] # Handle_Adaptor3d_GenHCurve opencascade :: handle < Adaptor3d_HIsoCurve > [end of template] [NewLine] # < Adaptor3d_GenHCurve . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # Adaptor3d_GenHCurve [NewLine] # Adaptor3d_GenHCurve_hxx [NewLine] # Handle_Adaptor3d_GenHCurve [NewLine] #  _Adaptor3d_HIsoCurve_HeaderFile [NewLine]
+## !!!Ignored construct:  # TheCurve Adaptor3d_IsoCurve [NewLine] # TheCurve_hxx < Adaptor3d_IsoCurve . hxx > [NewLine] # Adaptor3d_GenHCurve Adaptor3d_HIsoCurve [NewLine] # Adaptor3d_GenHCurve_hxx < Adaptor3d_HIsoCurve . hxx > [NewLine] # Handle_Adaptor3d_GenHCurve opencascade :: handle < Adaptor3d_HIsoCurve > [end of template] [NewLine] # < Adaptor3d_GenHCurve . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # Adaptor3d_GenHCurve [NewLine] # Adaptor3d_GenHCurve_hxx [NewLine] # Handle_Adaptor3d_GenHCurve [NewLine] #  _Adaptor3d_HIsoCurve_HeaderFile
 ## Error: did not expect <!!!
+

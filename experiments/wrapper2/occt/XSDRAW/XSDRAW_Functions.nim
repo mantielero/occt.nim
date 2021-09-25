@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard
-
 ## ! Defines additionnal commands for XSDRAW to :
 ## ! - control of initialisation (xinit, xnorm, newmodel)
 ## ! - analyse of the result of a transfer (recorded in a
@@ -33,5 +30,5 @@ type
                      header: "XSDRAW_Functions.hxx", bycopy.} = object ## ! Defines and loads all basic functions for XSDRAW (as ActFunc)
 
 
-proc Init*() {.importcpp: "XSDRAW_Functions::Init(@)",
+proc init*() {.importcpp: "XSDRAW_Functions::Init(@)",
              header: "XSDRAW_Functions.hxx".}

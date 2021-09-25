@@ -14,15 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Draw_Failure_HeaderFile [NewLine] # _Draw_Failure_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_Failure.hxx [NewLine] class Draw_Failure ;
+## !!!Ignored construct:  # _Draw_Failure_HeaderFile [NewLine] # _Draw_Failure_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class Draw_Failure ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Draw_Failure"
 type
-  Handle_Draw_FailureDraw_Failure* = handle[Draw_Failure]
+  HandleDrawFailureDrawFailure* = Handle[DrawFailure]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Draw_Failure [NewLine] # if ( CONDITION ) throw Draw_Failure ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Draw_Failure , Standard_Failure ) #  _Draw_Failure_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Draw_Failure , Standard_Failure ) #  _Draw_Failure_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

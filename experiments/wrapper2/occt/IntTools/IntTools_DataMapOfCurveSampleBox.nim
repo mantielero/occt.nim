@@ -13,12 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IntTools_CurveRangeSample, ../Bnd/Bnd_Box, IntTools_CurveRangeSampleMapHasher,
-  ../NCollection/NCollection_DataMap
-
 type
-  IntTools_DataMapOfCurveSampleBox* = NCollection_DataMap[
-      IntTools_CurveRangeSample, Bnd_Box, IntTools_CurveRangeSampleMapHasher]
-  IntTools_DataMapIteratorOfDataMapOfCurveSampleBox* = Iterator[
-      IntTools_CurveRangeSample, Bnd_Box, IntTools_CurveRangeSampleMapHasher]
+  IntToolsDataMapOfCurveSampleBox* = NCollectionDataMap[IntToolsCurveRangeSample,
+      BndBox, IntToolsCurveRangeSampleMapHasher]
+  IntToolsDataMapIteratorOfDataMapOfCurveSampleBox* = Iterator[
+      IntToolsCurveRangeSample, BndBox, IntToolsCurveRangeSampleMapHasher]
+

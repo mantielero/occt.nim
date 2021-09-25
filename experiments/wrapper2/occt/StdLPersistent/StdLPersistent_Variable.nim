@@ -11,26 +11,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../StdObjMgt/StdObjMgt_Attribute, StdLPersistent_HString,
-  ../TDataStd/TDataStd_Variable
-
 type
-  StdLPersistent_Variable* {.importcpp: "StdLPersistent_Variable",
-                            header: "StdLPersistent_Variable.hxx", bycopy.} = object of StdObjMgt_Attribute[
-      TDataStd_Variable]      ## ! Empty constructor.
+  StdLPersistentVariable* {.importcpp: "StdLPersistent_Variable",
+                           header: "StdLPersistent_Variable.hxx", bycopy.} = object of StdObjMgtAttribute[
+      TDataStdVariable]       ## ! Empty constructor.
 
 
-proc constructStdLPersistent_Variable*(): StdLPersistent_Variable {.constructor,
+proc constructStdLPersistentVariable*(): StdLPersistentVariable {.constructor,
     importcpp: "StdLPersistent_Variable(@)", header: "StdLPersistent_Variable.hxx".}
-proc Read*(this: var StdLPersistent_Variable; theReadData: var StdObjMgt_ReadData) {.
+proc read*(this: var StdLPersistentVariable; theReadData: var StdObjMgtReadData) {.
     importcpp: "Read", header: "StdLPersistent_Variable.hxx".}
-proc Write*(this: StdLPersistent_Variable; theWriteData: var StdObjMgt_WriteData) {.
+proc write*(this: StdLPersistentVariable; theWriteData: var StdObjMgtWriteData) {.
     noSideEffect, importcpp: "Write", header: "StdLPersistent_Variable.hxx".}
-proc PChildren*(this: StdLPersistent_Variable;
-               theChildren: var SequenceOfPersistent) {.noSideEffect,
-    importcpp: "PChildren", header: "StdLPersistent_Variable.hxx".}
-proc PName*(this: StdLPersistent_Variable): Standard_CString {.noSideEffect,
+proc pChildren*(this: StdLPersistentVariable; theChildren: var SequenceOfPersistent) {.
+    noSideEffect, importcpp: "PChildren", header: "StdLPersistent_Variable.hxx".}
+proc pName*(this: StdLPersistentVariable): StandardCString {.noSideEffect,
     importcpp: "PName", header: "StdLPersistent_Variable.hxx".}
-proc Import*(this: StdLPersistent_Variable; theAttribute: handle[TDataStd_Variable]) {.
+proc `import`*(this: StdLPersistentVariable; theAttribute: Handle[TDataStdVariable]) {.
     noSideEffect, importcpp: "Import", header: "StdLPersistent_Variable.hxx".}

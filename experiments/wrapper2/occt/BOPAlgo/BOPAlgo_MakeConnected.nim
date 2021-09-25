@@ -13,12 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, BOPAlgo_Options, BOPAlgo_MakePeriodic,
-  ../BRepTools/BRepTools_History, ../NCollection/NCollection_DataMap,
-  ../TopTools/TopTools_OrientedShapeMapHasher
-
 ## ! BOPAlgo_MakeConnected is the algorithm for making the touching
 ## ! shapes connected or glued, i.e. for making the coinciding geometries
 ## ! be topologically shared among the shapes.
@@ -122,211 +116,211 @@ import
 ## !
 
 type
-  BOPAlgo_MakeConnected* {.importcpp: "BOPAlgo_MakeConnected",
-                          header: "BOPAlgo_MakeConnected.hxx", bycopy.} = object of BOPAlgo_Options ##
-                                                                                             ## !
-                                                                                             ## @name
-                                                                                             ## Constructor
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Empty
-                                                                                             ## constructor
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## @name
-                                                                                             ## Setters
-                                                                                             ## for
-                                                                                             ## the
-                                                                                             ## shapes
-                                                                                             ## to
-                                                                                             ## make
-                                                                                             ## connected
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Sets
-                                                                                             ## the
-                                                                                             ## shape
-                                                                                             ## for
-                                                                                             ## making
-                                                                                             ## them
-                                                                                             ## connected.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## @param
-                                                                                             ## theArgs
-                                                                                             ## [in]
-                                                                                             ## The
-                                                                                             ## arguments
-                                                                                             ## for
-                                                                                             ## the
-                                                                                             ## operation.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## @name
-                                                                                             ## Performing
-                                                                                             ## the
-                                                                                             ## operations
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Performs
-                                                                                             ## the
-                                                                                             ## operation,
-                                                                                             ## i.e.
-                                                                                             ## makes
-                                                                                             ## the
-                                                                                             ## input
-                                                                                             ## shapes
-                                                                                             ## connected.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## @name
-                                                                                             ## Shape
-                                                                                             ## periodicity
-                                                                                             ## &
-                                                                                             ## repetition
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Makes
-                                                                                             ## the
-                                                                                             ## connected
-                                                                                             ## shape
-                                                                                             ## periodic.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Repeated
-                                                                                             ## calls
-                                                                                             ## of
-                                                                                             ## this
-                                                                                             ## method
-                                                                                             ## overwrite
-                                                                                             ## the
-                                                                                             ## previous
-                                                                                             ## calls
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## working
-                                                                                             ## with
-                                                                                             ## the
-                                                                                             ## basis
-                                                                                             ## connected
-                                                                                             ## shape.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## @param
-                                                                                             ## theParams
-                                                                                             ## [in]
-                                                                                             ## Periodic
-                                                                                             ## options.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## @name
-                                                                                             ## Material
-                                                                                             ## transitions
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Returns
-                                                                                             ## the
-                                                                                             ## original
-                                                                                             ## shapes
-                                                                                             ## which
-                                                                                             ## images
-                                                                                             ## contain
-                                                                                             ## the
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## the
-                                                                                             ## given
-                                                                                             ## shape
-                                                                                             ## with
-                                                                                             ## FORWARD
-                                                                                             ## orientation.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## @param
-                                                                                             ## theS
-                                                                                             ## [in]
-                                                                                             ## The
-                                                                                             ## shape
-                                                                                             ## for
-                                                                                             ## which
-                                                                                             ## the
-                                                                                             ## materials
-                                                                                             ## are
-                                                                                             ## necessary.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## @name
-                                                                                             ## History
-                                                                                             ## methods
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Returns
-                                                                                             ## the
-                                                                                             ## history
-                                                                                             ## of
-                                                                                             ## operations
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## @name
-                                                                                             ## Getting
-                                                                                             ## the
-                                                                                             ## result
-                                                                                             ## shapes
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Returns
-                                                                                             ## the
-                                                                                             ## resulting
-                                                                                             ## connected
-                                                                                             ## shape
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## @name
-                                                                                             ## Clearing
-                                                                                             ## the
-                                                                                             ## contents
-                                                                                             ## of
-                                                                                             ## the
-                                                                                             ## algorithm
-                                                                                             ## from
-                                                                                             ## previous
-                                                                                             ## runs
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Clears
-                                                                                             ## the
-                                                                                             ## contents
-                                                                                             ## of
-                                                                                             ## the
-                                                                                             ## algorithm.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## @name
-                                                                                             ## Protected
-                                                                                             ## methods
-                                                                                             ## performing
-                                                                                             ## the
-                                                                                             ## operation
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Checks
-                                                                                             ## the
-                                                                                             ## validity
-                                                                                             ## of
-                                                                                             ## input
-                                                                                             ## data.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Returns
-                                                                                             ## an
-                                                                                             ## empty
-                                                                                             ## list.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## @name
-                                                                                             ## Fields
-                                                                                             ##
-                                                                                             ## Inputs
+  BOPAlgoMakeConnected* {.importcpp: "BOPAlgo_MakeConnected",
+                         header: "BOPAlgo_MakeConnected.hxx", bycopy.} = object of BOPAlgoOptions ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Constructor
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Empty
+                                                                                           ## constructor
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Setters
+                                                                                           ## for
+                                                                                           ## the
+                                                                                           ## shapes
+                                                                                           ## to
+                                                                                           ## make
+                                                                                           ## connected
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Sets
+                                                                                           ## the
+                                                                                           ## shape
+                                                                                           ## for
+                                                                                           ## making
+                                                                                           ## them
+                                                                                           ## connected.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @param
+                                                                                           ## theArgs
+                                                                                           ## [in]
+                                                                                           ## The
+                                                                                           ## arguments
+                                                                                           ## for
+                                                                                           ## the
+                                                                                           ## operation.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Performing
+                                                                                           ## the
+                                                                                           ## operations
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Performs
+                                                                                           ## the
+                                                                                           ## operation,
+                                                                                           ## i.e.
+                                                                                           ## makes
+                                                                                           ## the
+                                                                                           ## input
+                                                                                           ## shapes
+                                                                                           ## connected.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Shape
+                                                                                           ## periodicity
+                                                                                           ## &
+                                                                                           ## repetition
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Makes
+                                                                                           ## the
+                                                                                           ## connected
+                                                                                           ## shape
+                                                                                           ## periodic.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Repeated
+                                                                                           ## calls
+                                                                                           ## of
+                                                                                           ## this
+                                                                                           ## method
+                                                                                           ## overwrite
+                                                                                           ## the
+                                                                                           ## previous
+                                                                                           ## calls
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## working
+                                                                                           ## with
+                                                                                           ## the
+                                                                                           ## basis
+                                                                                           ## connected
+                                                                                           ## shape.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @param
+                                                                                           ## theParams
+                                                                                           ## [in]
+                                                                                           ## Periodic
+                                                                                           ## options.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Material
+                                                                                           ## transitions
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Returns
+                                                                                           ## the
+                                                                                           ## original
+                                                                                           ## shapes
+                                                                                           ## which
+                                                                                           ## images
+                                                                                           ## contain
+                                                                                           ## the
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## the
+                                                                                           ## given
+                                                                                           ## shape
+                                                                                           ## with
+                                                                                           ## FORWARD
+                                                                                           ## orientation.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @param
+                                                                                           ## theS
+                                                                                           ## [in]
+                                                                                           ## The
+                                                                                           ## shape
+                                                                                           ## for
+                                                                                           ## which
+                                                                                           ## the
+                                                                                           ## materials
+                                                                                           ## are
+                                                                                           ## necessary.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## History
+                                                                                           ## methods
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Returns
+                                                                                           ## the
+                                                                                           ## history
+                                                                                           ## of
+                                                                                           ## operations
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Getting
+                                                                                           ## the
+                                                                                           ## result
+                                                                                           ## shapes
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Returns
+                                                                                           ## the
+                                                                                           ## resulting
+                                                                                           ## connected
+                                                                                           ## shape
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Clearing
+                                                                                           ## the
+                                                                                           ## contents
+                                                                                           ## of
+                                                                                           ## the
+                                                                                           ## algorithm
+                                                                                           ## from
+                                                                                           ## previous
+                                                                                           ## runs
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Clears
+                                                                                           ## the
+                                                                                           ## contents
+                                                                                           ## of
+                                                                                           ## the
+                                                                                           ## algorithm.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Protected
+                                                                                           ## methods
+                                                                                           ## performing
+                                                                                           ## the
+                                                                                           ## operation
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Checks
+                                                                                           ## the
+                                                                                           ## validity
+                                                                                           ## of
+                                                                                           ## input
+                                                                                           ## data.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Returns
+                                                                                           ## an
+                                                                                           ## empty
+                                                                                           ## list.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Fields
+                                                                                           ##
+                                                                                           ## Inputs
     ## !< Input shapes for making them connected
     ## !< Map of all BRep sub-elements of the input shapes
     ##  Tools
@@ -343,38 +337,37 @@ type
     ## !< The resulting shape
 
 
-proc constructBOPAlgo_MakeConnected*(): BOPAlgo_MakeConnected {.constructor,
+proc constructBOPAlgoMakeConnected*(): BOPAlgoMakeConnected {.constructor,
     importcpp: "BOPAlgo_MakeConnected(@)", header: "BOPAlgo_MakeConnected.hxx".}
-proc SetArguments*(this: var BOPAlgo_MakeConnected; theArgs: TopTools_ListOfShape) {.
+proc setArguments*(this: var BOPAlgoMakeConnected; theArgs: TopToolsListOfShape) {.
     importcpp: "SetArguments", header: "BOPAlgo_MakeConnected.hxx".}
-proc AddArgument*(this: var BOPAlgo_MakeConnected; theS: TopoDS_Shape) {.
+proc addArgument*(this: var BOPAlgoMakeConnected; theS: TopoDS_Shape) {.
     importcpp: "AddArgument", header: "BOPAlgo_MakeConnected.hxx".}
-proc Arguments*(this: BOPAlgo_MakeConnected): TopTools_ListOfShape {.noSideEffect,
+proc arguments*(this: BOPAlgoMakeConnected): TopToolsListOfShape {.noSideEffect,
     importcpp: "Arguments", header: "BOPAlgo_MakeConnected.hxx".}
-proc Perform*(this: var BOPAlgo_MakeConnected) {.importcpp: "Perform",
+proc perform*(this: var BOPAlgoMakeConnected) {.importcpp: "Perform",
     header: "BOPAlgo_MakeConnected.hxx".}
-proc MakePeriodic*(this: var BOPAlgo_MakeConnected; theParams: PeriodicityParams) {.
+proc makePeriodic*(this: var BOPAlgoMakeConnected; theParams: PeriodicityParams) {.
     importcpp: "MakePeriodic", header: "BOPAlgo_MakeConnected.hxx".}
-proc RepeatShape*(this: var BOPAlgo_MakeConnected; theDirectionID: Standard_Integer;
-                 theTimes: Standard_Integer) {.importcpp: "RepeatShape",
-    header: "BOPAlgo_MakeConnected.hxx".}
-proc ClearRepetitions*(this: var BOPAlgo_MakeConnected) {.
+proc repeatShape*(this: var BOPAlgoMakeConnected; theDirectionID: int; theTimes: int) {.
+    importcpp: "RepeatShape", header: "BOPAlgo_MakeConnected.hxx".}
+proc clearRepetitions*(this: var BOPAlgoMakeConnected) {.
     importcpp: "ClearRepetitions", header: "BOPAlgo_MakeConnected.hxx".}
-proc PeriodicityTool*(this: BOPAlgo_MakeConnected): BOPAlgo_MakePeriodic {.
+proc periodicityTool*(this: BOPAlgoMakeConnected): BOPAlgoMakePeriodic {.
     noSideEffect, importcpp: "PeriodicityTool", header: "BOPAlgo_MakeConnected.hxx".}
-proc MaterialsOnPositiveSide*(this: var BOPAlgo_MakeConnected; theS: TopoDS_Shape): TopTools_ListOfShape {.
+proc materialsOnPositiveSide*(this: var BOPAlgoMakeConnected; theS: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "MaterialsOnPositiveSide", header: "BOPAlgo_MakeConnected.hxx".}
-proc MaterialsOnNegativeSide*(this: var BOPAlgo_MakeConnected; theS: TopoDS_Shape): TopTools_ListOfShape {.
+proc materialsOnNegativeSide*(this: var BOPAlgoMakeConnected; theS: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "MaterialsOnNegativeSide", header: "BOPAlgo_MakeConnected.hxx".}
-proc History*(this: BOPAlgo_MakeConnected): handle[BRepTools_History] {.
-    noSideEffect, importcpp: "History", header: "BOPAlgo_MakeConnected.hxx".}
-proc GetModified*(this: var BOPAlgo_MakeConnected; theS: TopoDS_Shape): TopTools_ListOfShape {.
+proc history*(this: BOPAlgoMakeConnected): Handle[BRepToolsHistory] {.noSideEffect,
+    importcpp: "History", header: "BOPAlgo_MakeConnected.hxx".}
+proc getModified*(this: var BOPAlgoMakeConnected; theS: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "GetModified", header: "BOPAlgo_MakeConnected.hxx".}
-proc GetOrigins*(this: var BOPAlgo_MakeConnected; theS: TopoDS_Shape): TopTools_ListOfShape {.
+proc getOrigins*(this: var BOPAlgoMakeConnected; theS: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "GetOrigins", header: "BOPAlgo_MakeConnected.hxx".}
-proc Shape*(this: BOPAlgo_MakeConnected): TopoDS_Shape {.noSideEffect,
+proc shape*(this: BOPAlgoMakeConnected): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "BOPAlgo_MakeConnected.hxx".}
-proc PeriodicShape*(this: BOPAlgo_MakeConnected): TopoDS_Shape {.noSideEffect,
+proc periodicShape*(this: BOPAlgoMakeConnected): TopoDS_Shape {.noSideEffect,
     importcpp: "PeriodicShape", header: "BOPAlgo_MakeConnected.hxx".}
-proc Clear*(this: var BOPAlgo_MakeConnected) {.importcpp: "Clear",
+proc clear*(this: var BOPAlgoMakeConnected) {.importcpp: "Clear",
     header: "BOPAlgo_MakeConnected.hxx".}

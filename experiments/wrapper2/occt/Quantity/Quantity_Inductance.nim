@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Inductance_HeaderFile [NewLine] # _Quantity_Inductance_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as numerically equal to the electromotive force
+## !!!Ignored construct:  # _Quantity_Inductance_HeaderFile [NewLine] # _Quantity_Inductance_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as numerically equal to the electromotive force
 ## ! induced when the current in a circuit changes at
 ## ! unit rate.
 ## ! It is measured in henrys (webers per ampere). Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Inductance ;
 ## Error: expected ';'!!!
+

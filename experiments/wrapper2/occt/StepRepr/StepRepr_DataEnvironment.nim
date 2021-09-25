@@ -13,58 +13,53 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepRepr_HArray1OfPropertyDefinitionRepresentation,
-  ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_DataEnvironment"
 discard "forward decl of StepRepr_DataEnvironment"
 type
-  Handle_StepRepr_DataEnvironment* = handle[StepRepr_DataEnvironment]
+  HandleStepReprDataEnvironment* = Handle[StepReprDataEnvironment]
 
 ## ! Representation of STEP entity DataEnvironment
 
 type
-  StepRepr_DataEnvironment* {.importcpp: "StepRepr_DataEnvironment",
-                             header: "StepRepr_DataEnvironment.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                      ## !
-                                                                                                      ## Empty
-                                                                                                      ## constructor
+  StepReprDataEnvironment* {.importcpp: "StepRepr_DataEnvironment",
+                            header: "StepRepr_DataEnvironment.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                    ## !
+                                                                                                    ## Empty
+                                                                                                    ## constructor
 
 
-proc constructStepRepr_DataEnvironment*(): StepRepr_DataEnvironment {.constructor,
+proc constructStepReprDataEnvironment*(): StepReprDataEnvironment {.constructor,
     importcpp: "StepRepr_DataEnvironment(@)",
     header: "StepRepr_DataEnvironment.hxx".}
-proc Init*(this: var StepRepr_DataEnvironment;
-          aName: handle[TCollection_HAsciiString];
-          aDescription: handle[TCollection_HAsciiString];
-          aElements: handle[StepRepr_HArray1OfPropertyDefinitionRepresentation]) {.
+proc init*(this: var StepReprDataEnvironment;
+          aName: Handle[TCollectionHAsciiString];
+          aDescription: Handle[TCollectionHAsciiString];
+          aElements: Handle[StepReprHArray1OfPropertyDefinitionRepresentation]) {.
     importcpp: "Init", header: "StepRepr_DataEnvironment.hxx".}
-proc Name*(this: StepRepr_DataEnvironment): handle[TCollection_HAsciiString] {.
+proc name*(this: StepReprDataEnvironment): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepRepr_DataEnvironment.hxx".}
-proc SetName*(this: var StepRepr_DataEnvironment;
-             Name: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepReprDataEnvironment;
+             name: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepRepr_DataEnvironment.hxx".}
-proc Description*(this: StepRepr_DataEnvironment): handle[TCollection_HAsciiString] {.
+proc description*(this: StepReprDataEnvironment): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Description", header: "StepRepr_DataEnvironment.hxx".}
-proc SetDescription*(this: var StepRepr_DataEnvironment;
-                    Description: handle[TCollection_HAsciiString]) {.
+proc setDescription*(this: var StepReprDataEnvironment;
+                    description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepRepr_DataEnvironment.hxx".}
-proc Elements*(this: StepRepr_DataEnvironment): handle[
-    StepRepr_HArray1OfPropertyDefinitionRepresentation] {.noSideEffect,
+proc elements*(this: StepReprDataEnvironment): Handle[
+    StepReprHArray1OfPropertyDefinitionRepresentation] {.noSideEffect,
     importcpp: "Elements", header: "StepRepr_DataEnvironment.hxx".}
-proc SetElements*(this: var StepRepr_DataEnvironment; Elements: handle[
-    StepRepr_HArray1OfPropertyDefinitionRepresentation]) {.
+proc setElements*(this: var StepReprDataEnvironment; elements: Handle[
+    StepReprHArray1OfPropertyDefinitionRepresentation]) {.
     importcpp: "SetElements", header: "StepRepr_DataEnvironment.hxx".}
 type
-  StepRepr_DataEnvironmentbase_type* = Standard_Transient
+  StepReprDataEnvironmentbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_DataEnvironment::get_type_name(@)",
-                              header: "StepRepr_DataEnvironment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_DataEnvironment::get_type_name(@)",
+                            header: "StepRepr_DataEnvironment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_DataEnvironment::get_type_descriptor(@)",
     header: "StepRepr_DataEnvironment.hxx".}
-proc DynamicType*(this: StepRepr_DataEnvironment): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprDataEnvironment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepRepr_DataEnvironment.hxx".}

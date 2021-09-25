@@ -11,9 +11,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  V3d_Light
-
 type
-  V3d_ListOfLight* = NCollection_List[handle[Graphic3d_CLight]]
-  V3d_ListOfLightIterator* = Iterator
+  V3dListOfLight* = NCollectionList[Handle[Graphic3dCLight]]
+  V3dListOfLightIterator* = Iterator
+

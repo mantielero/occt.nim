@@ -14,45 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_XYZ,
-  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Boolean
-
 discard "forward decl of IGESBasic_SubfigureDef"
 discard "forward decl of gp_XYZ"
 discard "forward decl of gp_Pnt"
 discard "forward decl of IGESGeom_Point"
 discard "forward decl of IGESGeom_Point"
 type
-  Handle_IGESGeom_Point* = handle[IGESGeom_Point]
+  HandleIGESGeomPoint* = Handle[IGESGeomPoint]
 
 ## ! defines IGESPoint, Type <116> Form <0>
 ## ! in package IGESGeom
 
 type
-  IGESGeom_Point* {.importcpp: "IGESGeom_Point", header: "IGESGeom_Point.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESGeomPoint* {.importcpp: "IGESGeom_Point", header: "IGESGeom_Point.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESGeom_Point*(): IGESGeom_Point {.constructor,
+proc constructIGESGeomPoint*(): IGESGeomPoint {.constructor,
     importcpp: "IGESGeom_Point(@)", header: "IGESGeom_Point.hxx".}
-proc Init*(this: var IGESGeom_Point; aPoint: gp_XYZ;
-          aSymbol: handle[IGESBasic_SubfigureDef]) {.importcpp: "Init",
+proc init*(this: var IGESGeomPoint; aPoint: Xyz;
+          aSymbol: Handle[IGESBasicSubfigureDef]) {.importcpp: "Init",
     header: "IGESGeom_Point.hxx".}
-proc Value*(this: IGESGeom_Point): gp_Pnt {.noSideEffect, importcpp: "Value",
-                                        header: "IGESGeom_Point.hxx".}
-proc TransformedValue*(this: IGESGeom_Point): gp_Pnt {.noSideEffect,
+proc value*(this: IGESGeomPoint): Pnt {.noSideEffect, importcpp: "Value",
+                                    header: "IGESGeom_Point.hxx".}
+proc transformedValue*(this: IGESGeomPoint): Pnt {.noSideEffect,
     importcpp: "TransformedValue", header: "IGESGeom_Point.hxx".}
-proc HasDisplaySymbol*(this: IGESGeom_Point): Standard_Boolean {.noSideEffect,
+proc hasDisplaySymbol*(this: IGESGeomPoint): bool {.noSideEffect,
     importcpp: "HasDisplaySymbol", header: "IGESGeom_Point.hxx".}
-proc DisplaySymbol*(this: IGESGeom_Point): handle[IGESBasic_SubfigureDef] {.
+proc displaySymbol*(this: IGESGeomPoint): Handle[IGESBasicSubfigureDef] {.
     noSideEffect, importcpp: "DisplaySymbol", header: "IGESGeom_Point.hxx".}
 type
-  IGESGeom_Pointbase_type* = IGESData_IGESEntity
+  IGESGeomPointbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESGeom_Point::get_type_name(@)",
-                              header: "IGESGeom_Point.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESGeom_Point::get_type_name(@)",
+                            header: "IGESGeom_Point.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESGeom_Point::get_type_descriptor(@)",
     header: "IGESGeom_Point.hxx".}
-proc DynamicType*(this: IGESGeom_Point): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IGESGeomPoint): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_Point.hxx".}

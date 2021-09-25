@@ -11,5 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # StepElement_HSequenceOfSurfaceElementPurposeMember_HeaderFile [NewLine] # StepElement_HSequenceOfSurfaceElementPurposeMember_HeaderFile [NewLine] # StepElement_SurfaceElementPurposeMember.hxx [NewLine] # StepElement_SequenceOfSurfaceElementPurposeMember.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( StepElement_HSequenceOfSurfaceElementPurposeMember , StepElement_SequenceOfSurfaceElementPurposeMember ) # [NewLine]
+## !!!Ignored construct:  # StepElement_HSequenceOfSurfaceElementPurposeMember_HeaderFile [NewLine] # StepElement_HSequenceOfSurfaceElementPurposeMember_HeaderFile [NewLine] # < StepElement_SurfaceElementPurposeMember . hxx > [NewLine] # < StepElement_SequenceOfSurfaceElementPurposeMember . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( StepElement_HSequenceOfSurfaceElementPurposeMember , StepElement_SequenceOfSurfaceElementPurposeMember ) # [NewLine]
 ## Error: expected ';'!!!
+

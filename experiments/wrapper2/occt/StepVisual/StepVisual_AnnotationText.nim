@@ -14,31 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../StepRepr/StepRepr_MappedItem
-
 discard "forward decl of StepVisual_AnnotationText"
 discard "forward decl of StepVisual_AnnotationText"
 type
-  Handle_StepVisual_AnnotationText* = handle[StepVisual_AnnotationText]
-  StepVisual_AnnotationText* {.importcpp: "StepVisual_AnnotationText",
-                              header: "StepVisual_AnnotationText.hxx", bycopy.} = object of StepRepr_MappedItem ##
-                                                                                                         ## !
-                                                                                                         ## Returns
-                                                                                                         ## a
-                                                                                                         ## AnnotationText
+  HandleStepVisualAnnotationText* = Handle[StepVisualAnnotationText]
+  StepVisualAnnotationText* {.importcpp: "StepVisual_AnnotationText",
+                             header: "StepVisual_AnnotationText.hxx", bycopy.} = object of StepReprMappedItem ##
+                                                                                                       ## !
+                                                                                                       ## Returns
+                                                                                                       ## a
+                                                                                                       ## AnnotationText
 
 
-proc constructStepVisual_AnnotationText*(): StepVisual_AnnotationText {.
-    constructor, importcpp: "StepVisual_AnnotationText(@)",
+proc constructStepVisualAnnotationText*(): StepVisualAnnotationText {.constructor,
+    importcpp: "StepVisual_AnnotationText(@)",
     header: "StepVisual_AnnotationText.hxx".}
 type
-  StepVisual_AnnotationTextbase_type* = StepRepr_MappedItem
+  StepVisualAnnotationTextbaseType* = StepReprMappedItem
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_AnnotationText::get_type_name(@)",
-                              header: "StepVisual_AnnotationText.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_AnnotationText::get_type_name(@)",
+                            header: "StepVisual_AnnotationText.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_AnnotationText::get_type_descriptor(@)",
     header: "StepVisual_AnnotationText.hxx".}
-proc DynamicType*(this: StepVisual_AnnotationText): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualAnnotationText): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepVisual_AnnotationText.hxx".}

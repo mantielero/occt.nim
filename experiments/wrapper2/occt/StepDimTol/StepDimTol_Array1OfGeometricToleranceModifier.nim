@@ -13,9 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepDimTol_GeometricToleranceModifier, ../NCollection/NCollection_Array1
-
 type
-  StepDimTol_Array1OfGeometricToleranceModifier* = NCollection_Array1[
-      StepDimTol_GeometricToleranceModifier]
+  StepDimTolArray1OfGeometricToleranceModifier* = NCollectionArray1[
+      StepDimTolGeometricToleranceModifier]
+

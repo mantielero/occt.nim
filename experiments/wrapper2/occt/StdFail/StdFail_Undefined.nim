@@ -14,15 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _StdFail_Undefined_HeaderFile [NewLine] # _StdFail_Undefined_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_Failure.hxx [NewLine] class StdFail_Undefined ;
+## !!!Ignored construct:  # _StdFail_Undefined_HeaderFile [NewLine] # _StdFail_Undefined_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class StdFail_Undefined ;
 ## Error: expected ';'!!!
 
 discard "forward decl of StdFail_Undefined"
 type
-  Handle_StdFail_UndefinedStdFail_Undefined* = handle[StdFail_Undefined]
+  HandleStdFailUndefinedStdFailUndefined* = Handle[StdFailUndefined]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_StdFail_Undefined [NewLine] # if ( CONDITION ) throw StdFail_Undefined ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( StdFail_Undefined , Standard_Failure ) #  _StdFail_Undefined_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( StdFail_Undefined , Standard_Failure ) #  _StdFail_Undefined_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

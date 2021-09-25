@@ -13,30 +13,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepDimTol_RunoutZoneOrientation"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepDimTol_RWRunoutZoneOrientation* {.
-      importcpp: "RWStepDimTol_RWRunoutZoneOrientation",
-      header: "RWStepDimTol_RWRunoutZoneOrientation.hxx", bycopy.} = object ## ! Empty
-                                                                       ## constructor
+  RWStepDimTolRWRunoutZoneOrientation* {.importcpp: "RWStepDimTol_RWRunoutZoneOrientation", header: "RWStepDimTol_RWRunoutZoneOrientation.hxx",
+                                        bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepDimTol_RWRunoutZoneOrientation*(): RWStepDimTol_RWRunoutZoneOrientation {.
+proc constructRWStepDimTolRWRunoutZoneOrientation*(): RWStepDimTolRWRunoutZoneOrientation {.
     constructor, importcpp: "RWStepDimTol_RWRunoutZoneOrientation(@)",
     header: "RWStepDimTol_RWRunoutZoneOrientation.hxx".}
-proc ReadStep*(this: RWStepDimTol_RWRunoutZoneOrientation;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepDimTol_RunoutZoneOrientation]) {.noSideEffect,
+proc readStep*(this: RWStepDimTolRWRunoutZoneOrientation;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepDimTolRunoutZoneOrientation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepDimTol_RWRunoutZoneOrientation.hxx".}
-proc WriteStep*(this: RWStepDimTol_RWRunoutZoneOrientation;
-               SW: var StepData_StepWriter;
-               ent: handle[StepDimTol_RunoutZoneOrientation]) {.noSideEffect,
+proc writeStep*(this: RWStepDimTolRWRunoutZoneOrientation;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepDimTolRunoutZoneOrientation]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepDimTol_RWRunoutZoneOrientation.hxx".}

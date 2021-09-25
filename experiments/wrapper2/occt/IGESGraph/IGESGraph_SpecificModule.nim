@@ -14,54 +14,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../IGESData/IGESData_SpecificModule, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESData_IGESDumper"
 discard "forward decl of IGESGraph_SpecificModule"
 discard "forward decl of IGESGraph_SpecificModule"
 type
-  Handle_IGESGraph_SpecificModule* = handle[IGESGraph_SpecificModule]
+  HandleIGESGraphSpecificModule* = Handle[IGESGraphSpecificModule]
 
 ## ! Defines Services attached to IGES Entities :
 ## ! Dump & OwnCorrect, for IGESGraph
 
 type
-  IGESGraph_SpecificModule* {.importcpp: "IGESGraph_SpecificModule",
-                             header: "IGESGraph_SpecificModule.hxx", bycopy.} = object of IGESData_SpecificModule ##
-                                                                                                           ## !
-                                                                                                           ## Creates
-                                                                                                           ## a
-                                                                                                           ## SpecificModule
-                                                                                                           ## from
-                                                                                                           ## IGESGraph
-                                                                                                           ## &
-                                                                                                           ## puts
-                                                                                                           ## it
-                                                                                                           ## into
-                                                                                                           ## SpecificLib
+  IGESGraphSpecificModule* {.importcpp: "IGESGraph_SpecificModule",
+                            header: "IGESGraph_SpecificModule.hxx", bycopy.} = object of IGESDataSpecificModule ##
+                                                                                                         ## !
+                                                                                                         ## Creates
+                                                                                                         ## a
+                                                                                                         ## SpecificModule
+                                                                                                         ## from
+                                                                                                         ## IGESGraph
+                                                                                                         ## &
+                                                                                                         ## puts
+                                                                                                         ## it
+                                                                                                         ## into
+                                                                                                         ## SpecificLib
 
 
-proc constructIGESGraph_SpecificModule*(): IGESGraph_SpecificModule {.constructor,
+proc constructIGESGraphSpecificModule*(): IGESGraphSpecificModule {.constructor,
     importcpp: "IGESGraph_SpecificModule(@)",
     header: "IGESGraph_SpecificModule.hxx".}
-proc OwnDump*(this: IGESGraph_SpecificModule; CN: Standard_Integer;
-             ent: handle[IGESData_IGESEntity]; dumper: IGESData_IGESDumper;
-             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
-    importcpp: "OwnDump", header: "IGESGraph_SpecificModule.hxx".}
-proc OwnCorrect*(this: IGESGraph_SpecificModule; CN: Standard_Integer;
-                ent: handle[IGESData_IGESEntity]): Standard_Boolean {.noSideEffect,
+proc ownDump*(this: IGESGraphSpecificModule; cn: int;
+             ent: Handle[IGESDataIGESEntity]; dumper: IGESDataIGESDumper;
+             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+    header: "IGESGraph_SpecificModule.hxx".}
+proc ownCorrect*(this: IGESGraphSpecificModule; cn: int;
+                ent: Handle[IGESDataIGESEntity]): bool {.noSideEffect,
     importcpp: "OwnCorrect", header: "IGESGraph_SpecificModule.hxx".}
 type
-  IGESGraph_SpecificModulebase_type* = IGESData_SpecificModule
+  IGESGraphSpecificModulebaseType* = IGESDataSpecificModule
 
-proc get_type_name*(): cstring {.importcpp: "IGESGraph_SpecificModule::get_type_name(@)",
-                              header: "IGESGraph_SpecificModule.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESGraph_SpecificModule::get_type_name(@)",
+                            header: "IGESGraph_SpecificModule.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESGraph_SpecificModule::get_type_descriptor(@)",
     header: "IGESGraph_SpecificModule.hxx".}
-proc DynamicType*(this: IGESGraph_SpecificModule): handle[Standard_Type] {.
+proc dynamicType*(this: IGESGraphSpecificModule): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESGraph_SpecificModule.hxx".}

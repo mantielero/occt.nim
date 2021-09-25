@@ -11,8 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../LDOM/LDOM_Document
-
 type
-  XmlObjMgt_Document* = LDOM_Document
+  XmlObjMgtDocument* = LDOM_Document
+

@@ -12,16 +12,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _OSD_Exception_FLT_OVERFLOW_HeaderFile [NewLine] # _OSD_Exception_FLT_OVERFLOW_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # OSD_Exception.hxx [NewLine] class OSD_Exception_FLT_OVERFLOW ;
+## !!!Ignored construct:  # _OSD_Exception_FLT_OVERFLOW_HeaderFile [NewLine] # _OSD_Exception_FLT_OVERFLOW_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < OSD_Exception . hxx > [NewLine] class OSD_Exception_FLT_OVERFLOW ;
 ## Error: expected ';'!!!
 
 discard "forward decl of OSD_Exception_FLT_OVERFLOW"
 type
-  Handle_OSD_Exception_FLT_OVERFLOWOSD_Exception_FLT_OVERFLOW* = handle[
-      OSD_Exception_FLT_OVERFLOW]
+  HandleOSD_ExceptionFLT_OVERFLOWOSD_ExceptionFLT_OVERFLOW* = Handle[
+      OSD_ExceptionFLT_OVERFLOW]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_Exception_FLT_OVERFLOW [NewLine] # if ( CONDITION ) throw OSD_Exception_FLT_OVERFLOW ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception_FLT_OVERFLOW , OSD_Exception ) #  _OSD_Exception_FLT_OVERFLOW_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception_FLT_OVERFLOW , OSD_Exception ) #  _OSD_Exception_FLT_OVERFLOW_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

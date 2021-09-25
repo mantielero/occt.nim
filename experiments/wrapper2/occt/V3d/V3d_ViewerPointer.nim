@@ -16,4 +16,5 @@
 
 discard "forward decl of V3d_Viewer"
 type
-  V3d_ViewerPointer* = ptr V3d_Viewer
+  V3dViewerPointer* = ptr V3dViewer
+

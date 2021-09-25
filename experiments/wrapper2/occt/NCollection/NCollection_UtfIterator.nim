@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Handle
-
 ## ! Template class for Unicode strings support.
 ## !
 ## ! It defines an iterator and provide correct way to read multi-byte text (UTF-8 and UTF-16)
@@ -26,147 +23,147 @@ import
 ## ! synonym of "Unicode code point".
 
 type
-  NCollection_UtfIterator*[Type] {.importcpp: "NCollection_UtfIterator<\'0>::CharTypeChooser<\'1>",
-                                  header: "NCollection_UtfIterator.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Constructor.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @param
-                                                                                      ## theString
-                                                                                      ## buffer
-                                                                                      ## to
-                                                                                      ## iterate
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Helper
-                                                                                      ## template
-                                                                                      ## class
-                                                                                      ## dispatching
-                                                                                      ## its
-                                                                                      ## argument
-                                                                                      ## class
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## to
-                                                                                      ## the
-                                                                                      ## equivalent
-                                                                                      ## (by
-                                                                                      ## size)
-                                                                                      ## character
-                                                                                      ## (Unicode
-                                                                                      ## code
-                                                                                      ## unit)
-                                                                                      ## type.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## The
-                                                                                      ## code
-                                                                                      ## unit
-                                                                                      ## type
-                                                                                      ## is
-                                                                                      ## defined
-                                                                                      ## as
-                                                                                      ## nested
-                                                                                      ## typedef
-                                                                                      ## "type".
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## In
-                                                                                      ## practice
-                                                                                      ## this
-                                                                                      ## is
-                                                                                      ## relevant
-                                                                                      ## for
-                                                                                      ## wchar_t
-                                                                                      ## type:
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## typename
-                                                                                      ## CharTypeChooser<wchar_t>::type
-                                                                                      ## resolves
-                                                                                      ## to
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Standard_Utf16Char
-                                                                                      ## on
-                                                                                      ## Windows
-                                                                                      ## and
-                                                                                      ## to
-                                                                                      ## Standard_Utf32Char
-                                                                                      ## on
-                                                                                      ## Linux.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @name
-                                                                                      ## unicode
-                                                                                      ## magic
-                                                                                      ## numbers
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @name
-                                                                                      ## private
-                                                                                      ## fields
+  NCollectionUtfIterator*[Type] {.importcpp: "NCollection_UtfIterator<\'0>::CharTypeChooser<\'1>",
+                                 header: "NCollection_UtfIterator.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Constructor.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @param
+                                                                                     ## theString
+                                                                                     ## buffer
+                                                                                     ## to
+                                                                                     ## iterate
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Helper
+                                                                                     ## template
+                                                                                     ## class
+                                                                                     ## dispatching
+                                                                                     ## its
+                                                                                     ## argument
+                                                                                     ## class
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## to
+                                                                                     ## the
+                                                                                     ## equivalent
+                                                                                     ## (by
+                                                                                     ## size)
+                                                                                     ## character
+                                                                                     ## (Unicode
+                                                                                     ## code
+                                                                                     ## unit)
+                                                                                     ## type.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## The
+                                                                                     ## code
+                                                                                     ## unit
+                                                                                     ## type
+                                                                                     ## is
+                                                                                     ## defined
+                                                                                     ## as
+                                                                                     ## nested
+                                                                                     ## typedef
+                                                                                     ## "type".
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## In
+                                                                                     ## practice
+                                                                                     ## this
+                                                                                     ## is
+                                                                                     ## relevant
+                                                                                     ## for
+                                                                                     ## wchar_t
+                                                                                     ## type:
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## typename
+                                                                                     ## CharTypeChooser<wchar_t>::type
+                                                                                     ## resolves
+                                                                                     ## to
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Standard_Utf16Char
+                                                                                     ## on
+                                                                                     ## Windows
+                                                                                     ## and
+                                                                                     ## to
+                                                                                     ## Standard_Utf32Char
+                                                                                     ## on
+                                                                                     ## Linux.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @name
+                                                                                     ## unicode
+                                                                                     ## magic
+                                                                                     ## numbers
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @name
+                                                                                     ## private
+                                                                                     ## fields
     ## !< buffer position of the first element in the current symbol
     ## !< buffer position of the first element in the next symbol
     ## !< index displacement from iterator intialization
     ## !< Unicode symbol stored at the current buffer position
 
 
-proc constructNCollection_UtfIterator*[Type](theString: ptr Type): NCollection_UtfIterator[
+proc constructNCollectionUtfIterator*[Type](theString: ptr Type): NCollectionUtfIterator[
     Type] {.constructor, importcpp: "NCollection_UtfIterator<\'*0>(@)",
            header: "NCollection_UtfIterator.hxx".}
-proc Init*[Type](this: var NCollection_UtfIterator[Type]; theString: ptr Type) {.
+proc init*[Type](this: var NCollectionUtfIterator[Type]; theString: ptr Type) {.
     importcpp: "Init", header: "NCollection_UtfIterator.hxx".}
-proc `++`*[Type](this: var NCollection_UtfIterator[Type]): var NCollection_UtfIterator {.
+proc `++`*[Type](this: var NCollectionUtfIterator[Type]): var NCollectionUtfIterator {.
     importcpp: "(++ #)", header: "NCollection_UtfIterator.hxx".}
-proc `++`*[Type](this: var NCollection_UtfIterator[Type]; a2: cint): NCollection_UtfIterator {.
+proc `++`*[Type](this: var NCollectionUtfIterator[Type]; a2: cint): NCollectionUtfIterator {.
     importcpp: "(++ #)", header: "NCollection_UtfIterator.hxx".}
-proc `==`*[Type](this: NCollection_UtfIterator[Type];
-                theRight: NCollection_UtfIterator): bool {.noSideEffect,
+proc `==`*[Type](this: NCollectionUtfIterator[Type];
+                theRight: NCollectionUtfIterator): bool {.noSideEffect,
     importcpp: "(# == #)", header: "NCollection_UtfIterator.hxx".}
-proc IsValid*[Type](this: NCollection_UtfIterator[Type]): bool {.noSideEffect,
+proc isValid*[Type](this: NCollectionUtfIterator[Type]): bool {.noSideEffect,
     importcpp: "IsValid", header: "NCollection_UtfIterator.hxx".}
-proc `*`*[Type](this: NCollection_UtfIterator[Type]): Standard_Utf32Char {.
+proc `*`*[Type](this: NCollectionUtfIterator[Type]): StandardUtf32Char {.
     noSideEffect, importcpp: "(* #)", header: "NCollection_UtfIterator.hxx".}
-proc BufferHere*[Type](this: NCollection_UtfIterator[Type]): ptr Type {.noSideEffect,
+proc bufferHere*[Type](this: NCollectionUtfIterator[Type]): ptr Type {.noSideEffect,
     importcpp: "BufferHere", header: "NCollection_UtfIterator.hxx".}
-proc ChangeBufferHere*[Type](this: var NCollection_UtfIterator[Type]): ptr Type {.
+proc changeBufferHere*[Type](this: var NCollectionUtfIterator[Type]): ptr Type {.
     importcpp: "ChangeBufferHere", header: "NCollection_UtfIterator.hxx".}
-proc BufferNext*[Type](this: NCollection_UtfIterator[Type]): ptr Type {.noSideEffect,
+proc bufferNext*[Type](this: NCollectionUtfIterator[Type]): ptr Type {.noSideEffect,
     importcpp: "BufferNext", header: "NCollection_UtfIterator.hxx".}
-proc Index*[Type](this: NCollection_UtfIterator[Type]): Standard_Integer {.
-    noSideEffect, importcpp: "Index", header: "NCollection_UtfIterator.hxx".}
-proc AdvanceBytesUtf8*[Type](this: NCollection_UtfIterator[Type]): Standard_Integer {.
+proc index*[Type](this: NCollectionUtfIterator[Type]): int {.noSideEffect,
+    importcpp: "Index", header: "NCollection_UtfIterator.hxx".}
+proc advanceBytesUtf8*[Type](this: NCollectionUtfIterator[Type]): int {.
     noSideEffect, importcpp: "AdvanceBytesUtf8",
     header: "NCollection_UtfIterator.hxx".}
-proc AdvanceBytesUtf16*[Type](this: NCollection_UtfIterator[Type]): Standard_Integer {.
+proc advanceBytesUtf16*[Type](this: NCollectionUtfIterator[Type]): int {.
     noSideEffect, importcpp: "AdvanceBytesUtf16",
     header: "NCollection_UtfIterator.hxx".}
-proc AdvanceCodeUnitsUtf16*[Type](this: NCollection_UtfIterator[Type]): Standard_Integer {.
+proc advanceCodeUnitsUtf16*[Type](this: NCollectionUtfIterator[Type]): int {.
     noSideEffect, importcpp: "AdvanceCodeUnitsUtf16",
     header: "NCollection_UtfIterator.hxx".}
-proc AdvanceBytesUtf32*[Type](this: NCollection_UtfIterator[Type]): Standard_Integer {.
+proc advanceBytesUtf32*[Type](this: NCollectionUtfIterator[Type]): int {.
     noSideEffect, importcpp: "AdvanceBytesUtf32",
     header: "NCollection_UtfIterator.hxx".}
-proc GetUtf8*[Type](this: NCollection_UtfIterator[Type];
-                   theBuffer: ptr Standard_Utf8Char): ptr Standard_Utf8Char {.
+proc getUtf8*[Type](this: NCollectionUtfIterator[Type];
+                   theBuffer: ptr StandardUtf8Char): ptr StandardUtf8Char {.
     noSideEffect, importcpp: "GetUtf8", header: "NCollection_UtfIterator.hxx".}
-proc GetUtf8*[Type](this: NCollection_UtfIterator[Type];
-                   theBuffer: ptr Standard_Utf8UChar): ptr Standard_Utf8UChar {.
+proc getUtf8*[Type](this: NCollectionUtfIterator[Type];
+                   theBuffer: ptr StandardUtf8UChar): ptr StandardUtf8UChar {.
     noSideEffect, importcpp: "GetUtf8", header: "NCollection_UtfIterator.hxx".}
-proc GetUtf16*[Type](this: NCollection_UtfIterator[Type];
-                    theBuffer: ptr Standard_Utf16Char): ptr Standard_Utf16Char {.
+proc getUtf16*[Type](this: NCollectionUtfIterator[Type];
+                    theBuffer: ptr StandardUtf16Char): ptr StandardUtf16Char {.
     noSideEffect, importcpp: "GetUtf16", header: "NCollection_UtfIterator.hxx".}
-proc GetUtf32*[Type](this: NCollection_UtfIterator[Type];
-                    theBuffer: ptr Standard_Utf32Char): ptr Standard_Utf32Char {.
+proc getUtf32*[Type](this: NCollectionUtfIterator[Type];
+                    theBuffer: ptr StandardUtf32Char): ptr StandardUtf32Char {.
     noSideEffect, importcpp: "GetUtf32", header: "NCollection_UtfIterator.hxx".}
-proc AdvanceBytesUtf*[Type; TypeWrite](this: NCollection_UtfIterator[Type]): Standard_Integer {.
+proc advanceBytesUtf*[Type; TypeWrite](this: NCollectionUtfIterator[Type]): int {.
     noSideEffect, importcpp: "AdvanceBytesUtf",
     header: "NCollection_UtfIterator.hxx".}
-proc GetUtf*[Type; TypeWrite](this: NCollection_UtfIterator[Type];
+proc getUtf*[Type; TypeWrite](this: NCollectionUtfIterator[Type];
                             theBuffer: ptr TypeWrite): ptr TypeWrite {.noSideEffect,
     importcpp: "GetUtf", header: "NCollection_UtfIterator.hxx".}
 ## !!!Ignored construct:  private : ! Helper template class dispatching its argument class
@@ -179,12 +176,10 @@ proc GetUtf*[Type; TypeWrite](this: NCollection_UtfIterator[Type];
 ## Error: token expected: > [end of template] but got: ==!!!
 
 type
-  NCollection_Utf8Iter* = NCollection_UtfIterator[Standard_Utf8Char]
-  NCollection_Utf16Iter* = NCollection_UtfIterator[Standard_Utf16Char]
-  NCollection_Utf32Iter* = NCollection_UtfIterator[Standard_Utf32Char]
-  NCollection_UtfWideIter* = NCollection_UtfIterator[Standard_WideChar]
+  NCollectionUtf8Iter* = NCollectionUtfIterator[StandardUtf8Char]
+  NCollectionUtf16Iter* = NCollectionUtfIterator[StandardUtf16Char]
+  NCollectionUtf32Iter* = NCollectionUtfIterator[StandardUtf32Char]
+  NCollectionUtfWideIter* = NCollectionUtfIterator[StandardWideChar]
 
 ##  template implementation
 
-import
-  NCollection_UtfIterator

@@ -14,30 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_BSplineSurface
-
 discard "forward decl of StepGeom_UniformSurface"
 discard "forward decl of StepGeom_UniformSurface"
 type
-  Handle_StepGeom_UniformSurface* = handle[StepGeom_UniformSurface]
-  StepGeom_UniformSurface* {.importcpp: "StepGeom_UniformSurface",
-                            header: "StepGeom_UniformSurface.hxx", bycopy.} = object of StepGeom_BSplineSurface ##
-                                                                                                         ## !
-                                                                                                         ## Returns
-                                                                                                         ## a
-                                                                                                         ## UniformSurface
+  HandleStepGeomUniformSurface* = Handle[StepGeomUniformSurface]
+  StepGeomUniformSurface* {.importcpp: "StepGeom_UniformSurface",
+                           header: "StepGeom_UniformSurface.hxx", bycopy.} = object of StepGeomBSplineSurface ##
+                                                                                                       ## !
+                                                                                                       ## Returns
+                                                                                                       ## a
+                                                                                                       ## UniformSurface
 
 
-proc constructStepGeom_UniformSurface*(): StepGeom_UniformSurface {.constructor,
+proc constructStepGeomUniformSurface*(): StepGeomUniformSurface {.constructor,
     importcpp: "StepGeom_UniformSurface(@)", header: "StepGeom_UniformSurface.hxx".}
 type
-  StepGeom_UniformSurfacebase_type* = StepGeom_BSplineSurface
+  StepGeomUniformSurfacebaseType* = StepGeomBSplineSurface
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_UniformSurface::get_type_name(@)",
-                              header: "StepGeom_UniformSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_UniformSurface::get_type_name(@)",
+                            header: "StepGeom_UniformSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_UniformSurface::get_type_descriptor(@)",
     header: "StepGeom_UniformSurface.hxx".}
-proc DynamicType*(this: StepGeom_UniformSurface): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomUniformSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_UniformSurface.hxx".}

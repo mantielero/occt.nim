@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of BinMDF_ADriverTable"
 discard "forward decl of Message_Messenger"
 discard "forward decl of BinMNaming_NamedShapeDriver"
@@ -29,6 +25,6 @@ type
                                                                              ## <theDriverTable>.
 
 
-proc AddDrivers*(theDriverTable: handle[BinMDF_ADriverTable];
-                aMsgDrv: handle[Message_Messenger]) {.
+proc addDrivers*(theDriverTable: Handle[BinMDF_ADriverTable];
+                aMsgDrv: Handle[MessageMessenger]) {.
     importcpp: "BinMNaming::AddDrivers(@)", header: "BinMNaming.hxx".}

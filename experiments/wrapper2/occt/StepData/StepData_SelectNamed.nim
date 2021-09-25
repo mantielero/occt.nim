@@ -14,62 +14,56 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString, StepData_Field, StepData_SelectMember,
-  ../Standard/Standard_Boolean, ../Standard/Standard_CString,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real
-
 discard "forward decl of StepData_Field"
 discard "forward decl of StepData_SelectNamed"
 discard "forward decl of StepData_SelectNamed"
 type
-  Handle_StepData_SelectNamed* = handle[StepData_SelectNamed]
+  HandleStepDataSelectNamed* = Handle[StepDataSelectNamed]
 
 ## ! This select member can be of any kind, and be named
 ## ! But its takes more memory than some specialised ones
 ## ! This class allows one name for the instance
 
 type
-  StepData_SelectNamed* {.importcpp: "StepData_SelectNamed",
-                         header: "StepData_SelectNamed.hxx", bycopy.} = object of StepData_SelectMember
+  StepDataSelectNamed* {.importcpp: "StepData_SelectNamed",
+                        header: "StepData_SelectNamed.hxx", bycopy.} = object of StepDataSelectMember
 
 
-proc constructStepData_SelectNamed*(): StepData_SelectNamed {.constructor,
+proc constructStepDataSelectNamed*(): StepDataSelectNamed {.constructor,
     importcpp: "StepData_SelectNamed(@)", header: "StepData_SelectNamed.hxx".}
-proc HasName*(this: StepData_SelectNamed): Standard_Boolean {.noSideEffect,
-    importcpp: "HasName", header: "StepData_SelectNamed.hxx".}
-proc Name*(this: StepData_SelectNamed): Standard_CString {.noSideEffect,
+proc hasName*(this: StepDataSelectNamed): bool {.noSideEffect, importcpp: "HasName",
+    header: "StepData_SelectNamed.hxx".}
+proc name*(this: StepDataSelectNamed): StandardCString {.noSideEffect,
     importcpp: "Name", header: "StepData_SelectNamed.hxx".}
-proc SetName*(this: var StepData_SelectNamed; name: Standard_CString): Standard_Boolean {.
+proc setName*(this: var StepDataSelectNamed; name: StandardCString): bool {.
     importcpp: "SetName", header: "StepData_SelectNamed.hxx".}
-proc Field*(this: StepData_SelectNamed): StepData_Field {.noSideEffect,
+proc field*(this: StepDataSelectNamed): StepDataField {.noSideEffect,
     importcpp: "Field", header: "StepData_SelectNamed.hxx".}
-proc CField*(this: var StepData_SelectNamed): var StepData_Field {.
-    importcpp: "CField", header: "StepData_SelectNamed.hxx".}
-proc Kind*(this: StepData_SelectNamed): Standard_Integer {.noSideEffect,
-    importcpp: "Kind", header: "StepData_SelectNamed.hxx".}
-proc SetKind*(this: var StepData_SelectNamed; kind: Standard_Integer) {.
-    importcpp: "SetKind", header: "StepData_SelectNamed.hxx".}
-proc Int*(this: StepData_SelectNamed): Standard_Integer {.noSideEffect,
-    importcpp: "Int", header: "StepData_SelectNamed.hxx".}
-proc SetInt*(this: var StepData_SelectNamed; val: Standard_Integer) {.
-    importcpp: "SetInt", header: "StepData_SelectNamed.hxx".}
-proc Real*(this: StepData_SelectNamed): Standard_Real {.noSideEffect,
-    importcpp: "Real", header: "StepData_SelectNamed.hxx".}
-proc SetReal*(this: var StepData_SelectNamed; val: Standard_Real) {.
-    importcpp: "SetReal", header: "StepData_SelectNamed.hxx".}
-proc String*(this: StepData_SelectNamed): Standard_CString {.noSideEffect,
+proc cField*(this: var StepDataSelectNamed): var StepDataField {.importcpp: "CField",
+    header: "StepData_SelectNamed.hxx".}
+proc kind*(this: StepDataSelectNamed): int {.noSideEffect, importcpp: "Kind",
+    header: "StepData_SelectNamed.hxx".}
+proc setKind*(this: var StepDataSelectNamed; kind: int) {.importcpp: "SetKind",
+    header: "StepData_SelectNamed.hxx".}
+proc int*(this: StepDataSelectNamed): int {.noSideEffect, importcpp: "Int",
+                                        header: "StepData_SelectNamed.hxx".}
+proc setInt*(this: var StepDataSelectNamed; val: int) {.importcpp: "SetInt",
+    header: "StepData_SelectNamed.hxx".}
+proc real*(this: StepDataSelectNamed): float {.noSideEffect, importcpp: "Real",
+    header: "StepData_SelectNamed.hxx".}
+proc setReal*(this: var StepDataSelectNamed; val: float) {.importcpp: "SetReal",
+    header: "StepData_SelectNamed.hxx".}
+proc string*(this: StepDataSelectNamed): StandardCString {.noSideEffect,
     importcpp: "String", header: "StepData_SelectNamed.hxx".}
-proc SetString*(this: var StepData_SelectNamed; val: Standard_CString) {.
+proc setString*(this: var StepDataSelectNamed; val: StandardCString) {.
     importcpp: "SetString", header: "StepData_SelectNamed.hxx".}
 type
-  StepData_SelectNamedbase_type* = StepData_SelectMember
+  StepDataSelectNamedbaseType* = StepDataSelectMember
 
-proc get_type_name*(): cstring {.importcpp: "StepData_SelectNamed::get_type_name(@)",
-                              header: "StepData_SelectNamed.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepData_SelectNamed::get_type_name(@)",
+                            header: "StepData_SelectNamed.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepData_SelectNamed::get_type_descriptor(@)",
     header: "StepData_SelectNamed.hxx".}
-proc DynamicType*(this: StepData_SelectNamed): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepDataSelectNamed): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_SelectNamed.hxx".}

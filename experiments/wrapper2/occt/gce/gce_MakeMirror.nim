@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Trsf
-
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Lin"
@@ -26,24 +22,24 @@ discard "forward decl of gp_Pln"
 discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Trsf"
 type
-  gce_MakeMirror* {.importcpp: "gce_MakeMirror", header: "gce_MakeMirror.hxx", bycopy.} = object
+  GceMakeMirror* {.importcpp: "gce_MakeMirror", header: "gce_MakeMirror.hxx", bycopy.} = object
 
 
-proc constructgce_MakeMirror*(Point: gp_Pnt): gce_MakeMirror {.constructor,
+proc constructGceMakeMirror*(point: Pnt): GceMakeMirror {.constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
-proc constructgce_MakeMirror*(Axis: gp_Ax1): gce_MakeMirror {.constructor,
+proc constructGceMakeMirror*(axis: Ax1): GceMakeMirror {.constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
-proc constructgce_MakeMirror*(Line: gp_Lin): gce_MakeMirror {.constructor,
+proc constructGceMakeMirror*(line: Lin): GceMakeMirror {.constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
-proc constructgce_MakeMirror*(Point: gp_Pnt; Direc: gp_Dir): gce_MakeMirror {.
-    constructor, importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
-proc constructgce_MakeMirror*(Plane: gp_Pln): gce_MakeMirror {.constructor,
+proc constructGceMakeMirror*(point: Pnt; direc: Dir): GceMakeMirror {.constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
-proc constructgce_MakeMirror*(Plane: gp_Ax2): gce_MakeMirror {.constructor,
+proc constructGceMakeMirror*(plane: Pln): GceMakeMirror {.constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
-proc Value*(this: gce_MakeMirror): gp_Trsf {.noSideEffect, importcpp: "Value",
-    header: "gce_MakeMirror.hxx".}
-proc Operator*(this: gce_MakeMirror): gp_Trsf {.noSideEffect, importcpp: "Operator",
-    header: "gce_MakeMirror.hxx".}
-converter `gp_Trsf`*(this: gce_MakeMirror): gp_Trsf {.noSideEffect,
+proc constructGceMakeMirror*(plane: Ax2): GceMakeMirror {.constructor,
+    importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
+proc value*(this: GceMakeMirror): Trsf {.noSideEffect, importcpp: "Value",
+                                     header: "gce_MakeMirror.hxx".}
+proc operator*(this: GceMakeMirror): Trsf {.noSideEffect, importcpp: "Operator",
+                                        header: "gce_MakeMirror.hxx".}
+converter `trsf`*(this: GceMakeMirror): Trsf {.noSideEffect,
     importcpp: "gce_MakeMirror::operator gp_Trsf", header: "gce_MakeMirror.hxx".}

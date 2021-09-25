@@ -13,49 +13,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepBasic_IdentificationAssignment
-
 discard "forward decl of StepBasic_ExternalSource"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_IdentificationRole"
 discard "forward decl of StepBasic_ExternalIdentificationAssignment"
 discard "forward decl of StepBasic_ExternalIdentificationAssignment"
 type
-  Handle_StepBasic_ExternalIdentificationAssignment* = handle[
-      StepBasic_ExternalIdentificationAssignment]
+  HandleStepBasicExternalIdentificationAssignment* = Handle[
+      StepBasicExternalIdentificationAssignment]
 
 ## ! Representation of STEP entity ExternalIdentificationAssignment
 
 type
-  StepBasic_ExternalIdentificationAssignment* {.
+  StepBasicExternalIdentificationAssignment* {.
       importcpp: "StepBasic_ExternalIdentificationAssignment",
-      header: "StepBasic_ExternalIdentificationAssignment.hxx", bycopy.} = object of StepBasic_IdentificationAssignment ##
-                                                                                                                 ## !
-                                                                                                                 ## Empty
-                                                                                                                 ## constructor
+      header: "StepBasic_ExternalIdentificationAssignment.hxx", bycopy.} = object of StepBasicIdentificationAssignment ##
+                                                                                                                ## !
+                                                                                                                ## Empty
+                                                                                                                ## constructor
 
 
-proc constructStepBasic_ExternalIdentificationAssignment*(): StepBasic_ExternalIdentificationAssignment {.
+proc constructStepBasicExternalIdentificationAssignment*(): StepBasicExternalIdentificationAssignment {.
     constructor, importcpp: "StepBasic_ExternalIdentificationAssignment(@)",
     header: "StepBasic_ExternalIdentificationAssignment.hxx".}
-proc Init*(this: var StepBasic_ExternalIdentificationAssignment;
-    aIdentificationAssignment_AssignedId: handle[TCollection_HAsciiString];
-          aIdentificationAssignment_Role: handle[StepBasic_IdentificationRole];
-          aSource: handle[StepBasic_ExternalSource]) {.importcpp: "Init",
+proc init*(this: var StepBasicExternalIdentificationAssignment;
+          aIdentificationAssignmentAssignedId: Handle[TCollectionHAsciiString];
+          aIdentificationAssignmentRole: Handle[StepBasicIdentificationRole];
+          aSource: Handle[StepBasicExternalSource]) {.importcpp: "Init",
     header: "StepBasic_ExternalIdentificationAssignment.hxx".}
-proc Source*(this: StepBasic_ExternalIdentificationAssignment): handle[
-    StepBasic_ExternalSource] {.noSideEffect, importcpp: "Source", header: "StepBasic_ExternalIdentificationAssignment.hxx".}
-proc SetSource*(this: var StepBasic_ExternalIdentificationAssignment;
-               Source: handle[StepBasic_ExternalSource]) {.importcpp: "SetSource",
+proc source*(this: StepBasicExternalIdentificationAssignment): Handle[
+    StepBasicExternalSource] {.noSideEffect, importcpp: "Source", header: "StepBasic_ExternalIdentificationAssignment.hxx".}
+proc setSource*(this: var StepBasicExternalIdentificationAssignment;
+               source: Handle[StepBasicExternalSource]) {.importcpp: "SetSource",
     header: "StepBasic_ExternalIdentificationAssignment.hxx".}
 type
-  StepBasic_ExternalIdentificationAssignmentbase_type* = StepBasic_IdentificationAssignment
+  StepBasicExternalIdentificationAssignmentbaseType* = StepBasicIdentificationAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ExternalIdentificationAssignment::get_type_name(@)", header: "StepBasic_ExternalIdentificationAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepBasic_ExternalIdentificationAssignment::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ExternalIdentificationAssignment::get_type_name(@)", header: "StepBasic_ExternalIdentificationAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_ExternalIdentificationAssignment::get_type_descriptor(@)",
     header: "StepBasic_ExternalIdentificationAssignment.hxx".}
-proc DynamicType*(this: StepBasic_ExternalIdentificationAssignment): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepBasic_ExternalIdentificationAssignment.hxx".}
+proc dynamicType*(this: StepBasicExternalIdentificationAssignment): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepBasic_ExternalIdentificationAssignment.hxx".}

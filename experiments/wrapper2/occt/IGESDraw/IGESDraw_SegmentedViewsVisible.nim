@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  IGESDraw_HArray1OfViewKindEntity, ../TColStd/TColStd_HArray1OfReal,
-  ../TColStd/TColStd_HArray1OfInteger, ../IGESGraph/IGESGraph_HArray1OfColor,
-  ../IGESBasic/IGESBasic_HArray1OfLineFontEntity,
-  ../IGESData/IGESData_ViewKindEntity, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real
-
 discard "forward decl of Standard_DimensionMismatch"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESData_ViewKindEntity"
@@ -30,7 +22,7 @@ discard "forward decl of IGESData_LineFontEntity"
 discard "forward decl of IGESDraw_SegmentedViewsVisible"
 discard "forward decl of IGESDraw_SegmentedViewsVisible"
 type
-  Handle_IGESDraw_SegmentedViewsVisible* = handle[IGESDraw_SegmentedViewsVisible]
+  HandleIGESDrawSegmentedViewsVisible* = Handle[IGESDrawSegmentedViewsVisible]
 
 ## ! defines IGESSegmentedViewsVisible, Type <402> Form <19>
 ## ! in package IGESDraw
@@ -39,76 +31,68 @@ type
 ## ! segments of curves in a given view
 
 type
-  IGESDraw_SegmentedViewsVisible* {.importcpp: "IGESDraw_SegmentedViewsVisible", header: "IGESDraw_SegmentedViewsVisible.hxx",
-                                   bycopy.} = object of IGESData_ViewKindEntity
+  IGESDrawSegmentedViewsVisible* {.importcpp: "IGESDraw_SegmentedViewsVisible",
+                                  header: "IGESDraw_SegmentedViewsVisible.hxx",
+                                  bycopy.} = object of IGESDataViewKindEntity
 
 
-proc constructIGESDraw_SegmentedViewsVisible*(): IGESDraw_SegmentedViewsVisible {.
+proc constructIGESDrawSegmentedViewsVisible*(): IGESDrawSegmentedViewsVisible {.
     constructor, importcpp: "IGESDraw_SegmentedViewsVisible(@)",
     header: "IGESDraw_SegmentedViewsVisible.hxx".}
-proc Init*(this: var IGESDraw_SegmentedViewsVisible;
-          allViews: handle[IGESDraw_HArray1OfViewKindEntity];
-          allBreakpointParameters: handle[TColStd_HArray1OfReal];
-          allDisplayFlags: handle[TColStd_HArray1OfInteger];
-          allColorValues: handle[TColStd_HArray1OfInteger];
-          allColorDefinitions: handle[IGESGraph_HArray1OfColor];
-          allLineFontValues: handle[TColStd_HArray1OfInteger];
-          allLineFontDefinitions: handle[IGESBasic_HArray1OfLineFontEntity];
-          allLineWeights: handle[TColStd_HArray1OfInteger]) {.importcpp: "Init",
+proc init*(this: var IGESDrawSegmentedViewsVisible;
+          allViews: Handle[IGESDrawHArray1OfViewKindEntity];
+          allBreakpointParameters: Handle[TColStdHArray1OfReal];
+          allDisplayFlags: Handle[TColStdHArray1OfInteger];
+          allColorValues: Handle[TColStdHArray1OfInteger];
+          allColorDefinitions: Handle[IGESGraphHArray1OfColor];
+          allLineFontValues: Handle[TColStdHArray1OfInteger];
+          allLineFontDefinitions: Handle[IGESBasicHArray1OfLineFontEntity];
+          allLineWeights: Handle[TColStdHArray1OfInteger]) {.importcpp: "Init",
     header: "IGESDraw_SegmentedViewsVisible.hxx".}
-proc IsSingle*(this: IGESDraw_SegmentedViewsVisible): Standard_Boolean {.
-    noSideEffect, importcpp: "IsSingle",
-    header: "IGESDraw_SegmentedViewsVisible.hxx".}
-proc NbViews*(this: IGESDraw_SegmentedViewsVisible): Standard_Integer {.
-    noSideEffect, importcpp: "NbViews",
-    header: "IGESDraw_SegmentedViewsVisible.hxx".}
-proc NbSegmentBlocks*(this: IGESDraw_SegmentedViewsVisible): Standard_Integer {.
-    noSideEffect, importcpp: "NbSegmentBlocks",
-    header: "IGESDraw_SegmentedViewsVisible.hxx".}
-proc ViewItem*(this: IGESDraw_SegmentedViewsVisible; ViewIndex: Standard_Integer): handle[
-    IGESData_ViewKindEntity] {.noSideEffect, importcpp: "ViewItem",
-                              header: "IGESDraw_SegmentedViewsVisible.hxx".}
-proc BreakpointParameter*(this: IGESDraw_SegmentedViewsVisible;
-                         BreakpointIndex: Standard_Integer): Standard_Real {.
+proc isSingle*(this: IGESDrawSegmentedViewsVisible): bool {.noSideEffect,
+    importcpp: "IsSingle", header: "IGESDraw_SegmentedViewsVisible.hxx".}
+proc nbViews*(this: IGESDrawSegmentedViewsVisible): int {.noSideEffect,
+    importcpp: "NbViews", header: "IGESDraw_SegmentedViewsVisible.hxx".}
+proc nbSegmentBlocks*(this: IGESDrawSegmentedViewsVisible): int {.noSideEffect,
+    importcpp: "NbSegmentBlocks", header: "IGESDraw_SegmentedViewsVisible.hxx".}
+proc viewItem*(this: IGESDrawSegmentedViewsVisible; viewIndex: int): Handle[
+    IGESDataViewKindEntity] {.noSideEffect, importcpp: "ViewItem",
+                             header: "IGESDraw_SegmentedViewsVisible.hxx".}
+proc breakpointParameter*(this: IGESDrawSegmentedViewsVisible; breakpointIndex: int): float {.
     noSideEffect, importcpp: "BreakpointParameter",
     header: "IGESDraw_SegmentedViewsVisible.hxx".}
-proc DisplayFlag*(this: IGESDraw_SegmentedViewsVisible; FlagIndex: Standard_Integer): Standard_Integer {.
+proc displayFlag*(this: IGESDrawSegmentedViewsVisible; flagIndex: int): int {.
     noSideEffect, importcpp: "DisplayFlag",
     header: "IGESDraw_SegmentedViewsVisible.hxx".}
-proc IsColorDefinition*(this: IGESDraw_SegmentedViewsVisible;
-                       ColorIndex: Standard_Integer): Standard_Boolean {.
+proc isColorDefinition*(this: IGESDrawSegmentedViewsVisible; colorIndex: int): bool {.
     noSideEffect, importcpp: "IsColorDefinition",
     header: "IGESDraw_SegmentedViewsVisible.hxx".}
-proc ColorValue*(this: IGESDraw_SegmentedViewsVisible; ColorIndex: Standard_Integer): Standard_Integer {.
+proc colorValue*(this: IGESDrawSegmentedViewsVisible; colorIndex: int): int {.
     noSideEffect, importcpp: "ColorValue",
     header: "IGESDraw_SegmentedViewsVisible.hxx".}
-proc ColorDefinition*(this: IGESDraw_SegmentedViewsVisible;
-                     ColorIndex: Standard_Integer): handle[IGESGraph_Color] {.
-    noSideEffect, importcpp: "ColorDefinition",
-    header: "IGESDraw_SegmentedViewsVisible.hxx".}
-proc IsFontDefinition*(this: IGESDraw_SegmentedViewsVisible;
-                      FontIndex: Standard_Integer): Standard_Boolean {.
+proc colorDefinition*(this: IGESDrawSegmentedViewsVisible; colorIndex: int): Handle[
+    IGESGraphColor] {.noSideEffect, importcpp: "ColorDefinition",
+                     header: "IGESDraw_SegmentedViewsVisible.hxx".}
+proc isFontDefinition*(this: IGESDrawSegmentedViewsVisible; fontIndex: int): bool {.
     noSideEffect, importcpp: "IsFontDefinition",
     header: "IGESDraw_SegmentedViewsVisible.hxx".}
-proc LineFontValue*(this: IGESDraw_SegmentedViewsVisible;
-                   FontIndex: Standard_Integer): Standard_Integer {.noSideEffect,
-    importcpp: "LineFontValue", header: "IGESDraw_SegmentedViewsVisible.hxx".}
-proc LineFontDefinition*(this: IGESDraw_SegmentedViewsVisible;
-                        FontIndex: Standard_Integer): handle[
-    IGESData_LineFontEntity] {.noSideEffect, importcpp: "LineFontDefinition",
-                              header: "IGESDraw_SegmentedViewsVisible.hxx".}
-proc LineWeightItem*(this: IGESDraw_SegmentedViewsVisible;
-                    WeightIndex: Standard_Integer): Standard_Integer {.
+proc lineFontValue*(this: IGESDrawSegmentedViewsVisible; fontIndex: int): int {.
+    noSideEffect, importcpp: "LineFontValue",
+    header: "IGESDraw_SegmentedViewsVisible.hxx".}
+proc lineFontDefinition*(this: IGESDrawSegmentedViewsVisible; fontIndex: int): Handle[
+    IGESDataLineFontEntity] {.noSideEffect, importcpp: "LineFontDefinition",
+                             header: "IGESDraw_SegmentedViewsVisible.hxx".}
+proc lineWeightItem*(this: IGESDrawSegmentedViewsVisible; weightIndex: int): int {.
     noSideEffect, importcpp: "LineWeightItem",
     header: "IGESDraw_SegmentedViewsVisible.hxx".}
 type
-  IGESDraw_SegmentedViewsVisiblebase_type* = IGESData_ViewKindEntity
+  IGESDrawSegmentedViewsVisiblebaseType* = IGESDataViewKindEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESDraw_SegmentedViewsVisible::get_type_name(@)",
-                              header: "IGESDraw_SegmentedViewsVisible.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESDraw_SegmentedViewsVisible::get_type_name(@)",
+                            header: "IGESDraw_SegmentedViewsVisible.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESDraw_SegmentedViewsVisible::get_type_descriptor(@)",
     header: "IGESDraw_SegmentedViewsVisible.hxx".}
-proc DynamicType*(this: IGESDraw_SegmentedViewsVisible): handle[Standard_Type] {.
+proc dynamicType*(this: IGESDrawSegmentedViewsVisible): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESDraw_SegmentedViewsVisible.hxx".}

@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TDF/TDF_Label, ../NCollection/NCollection_Array1
-
 type
-  TDataStd_LabelArray1* = NCollection_Array1[TDF_Label]
+  TDataStdLabelArray1* = NCollectionArray1[TDF_Label]
+

@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TFunction_DataMapOfGUIDDriver, TFunction_Array1OfDataMapOfGUIDDriver,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  TFunction_HArray1OfDataMapOfGUIDDriver* {.
+  TFunctionHArray1OfDataMapOfGUIDDriver* {.
       importcpp: "TFunction_HArray1OfDataMapOfGUIDDriver",
-      header: "TFunction_HArray1OfDataMapOfGUIDDriver.hxx", bycopy.} = object of TFunction_Array1OfDataMapOfGUIDDriver
+      header: "TFunction_HArray1OfDataMapOfGUIDDriver.hxx", bycopy.} = object of TFunctionArray1OfDataMapOfGUIDDriver
 
 
-proc constructTFunction_HArray1OfDataMapOfGUIDDriver*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): TFunction_HArray1OfDataMapOfGUIDDriver {.
+proc constructTFunctionHArray1OfDataMapOfGUIDDriver*(theLower: int; theUpper: int): TFunctionHArray1OfDataMapOfGUIDDriver {.
     constructor, importcpp: "TFunction_HArray1OfDataMapOfGUIDDriver(@)",
     header: "TFunction_HArray1OfDataMapOfGUIDDriver.hxx".}
-proc constructTFunction_HArray1OfDataMapOfGUIDDriver*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): TFunction_HArray1OfDataMapOfGUIDDriver {.
+proc constructTFunctionHArray1OfDataMapOfGUIDDriver*(theLower: int; theUpper: int;
+    theValue: ValueType): TFunctionHArray1OfDataMapOfGUIDDriver {.constructor,
+    importcpp: "TFunction_HArray1OfDataMapOfGUIDDriver(@)",
+    header: "TFunction_HArray1OfDataMapOfGUIDDriver.hxx".}
+proc constructTFunctionHArray1OfDataMapOfGUIDDriver*(
+    theOther: TFunctionArray1OfDataMapOfGUIDDriver): TFunctionHArray1OfDataMapOfGUIDDriver {.
     constructor, importcpp: "TFunction_HArray1OfDataMapOfGUIDDriver(@)",
     header: "TFunction_HArray1OfDataMapOfGUIDDriver.hxx".}
-proc constructTFunction_HArray1OfDataMapOfGUIDDriver*(
-    theOther: TFunction_Array1OfDataMapOfGUIDDriver): TFunction_HArray1OfDataMapOfGUIDDriver {.
-    constructor, importcpp: "TFunction_HArray1OfDataMapOfGUIDDriver(@)",
-    header: "TFunction_HArray1OfDataMapOfGUIDDriver.hxx".}
-proc Array1*(this: TFunction_HArray1OfDataMapOfGUIDDriver): TFunction_Array1OfDataMapOfGUIDDriver {.
+proc array1*(this: TFunctionHArray1OfDataMapOfGUIDDriver): TFunctionArray1OfDataMapOfGUIDDriver {.
     noSideEffect, importcpp: "Array1",
     header: "TFunction_HArray1OfDataMapOfGUIDDriver.hxx".}
-proc ChangeArray1*(this: var TFunction_HArray1OfDataMapOfGUIDDriver): var TFunction_Array1OfDataMapOfGUIDDriver {.
+proc changeArray1*(this: var TFunctionHArray1OfDataMapOfGUIDDriver): var TFunctionArray1OfDataMapOfGUIDDriver {.
     importcpp: "ChangeArray1",
     header: "TFunction_HArray1OfDataMapOfGUIDDriver.hxx".}
 type
-  TFunction_HArray1OfDataMapOfGUIDDriverbase_type* = MMgt_TShared
+  TFunctionHArray1OfDataMapOfGUIDDriverbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TFunction_HArray1OfDataMapOfGUIDDriver::get_type_name(@)", header: "TFunction_HArray1OfDataMapOfGUIDDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "TFunction_HArray1OfDataMapOfGUIDDriver::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "TFunction_HArray1OfDataMapOfGUIDDriver::get_type_name(@)", header: "TFunction_HArray1OfDataMapOfGUIDDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "TFunction_HArray1OfDataMapOfGUIDDriver::get_type_descriptor(@)",
     header: "TFunction_HArray1OfDataMapOfGUIDDriver.hxx".}
-proc DynamicType*(this: TFunction_HArray1OfDataMapOfGUIDDriver): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "TFunction_HArray1OfDataMapOfGUIDDriver.hxx".}
+proc dynamicType*(this: TFunctionHArray1OfDataMapOfGUIDDriver): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "TFunction_HArray1OfDataMapOfGUIDDriver.hxx".}

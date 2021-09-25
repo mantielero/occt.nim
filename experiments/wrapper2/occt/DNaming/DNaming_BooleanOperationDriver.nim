@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TFunction/TFunction_Driver,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of TFunction_Logbook"
 discard "forward decl of TDF_Label"
 discard "forward decl of BRepAlgoAPI_BooleanOperation"
@@ -24,39 +20,38 @@ discard "forward decl of TFunction_Function"
 discard "forward decl of DNaming_BooleanOperationDriver"
 discard "forward decl of DNaming_BooleanOperationDriver"
 type
-  Handle_DNaming_BooleanOperationDriver* = handle[DNaming_BooleanOperationDriver]
+  HandleDNamingBooleanOperationDriver* = Handle[DNamingBooleanOperationDriver]
 
 ## ! Driver  for Fuse,  Cut,  Common
 
 type
-  DNaming_BooleanOperationDriver* {.importcpp: "DNaming_BooleanOperationDriver", header: "DNaming_BooleanOperationDriver.hxx",
-                                   bycopy.} = object of TFunction_Driver ## ! Constructor
-                                                                    ## ! validation
-                                                                    ## ! ==========
+  DNamingBooleanOperationDriver* {.importcpp: "DNaming_BooleanOperationDriver",
+                                  header: "DNaming_BooleanOperationDriver.hxx",
+                                  bycopy.} = object of TFunctionDriver ## ! Constructor
+                                                                  ## ! validation
+                                                                  ## ! ==========
 
 
-proc constructDNaming_BooleanOperationDriver*(): DNaming_BooleanOperationDriver {.
+proc constructDNamingBooleanOperationDriver*(): DNamingBooleanOperationDriver {.
     constructor, importcpp: "DNaming_BooleanOperationDriver(@)",
     header: "DNaming_BooleanOperationDriver.hxx".}
-proc Validate*(this: DNaming_BooleanOperationDriver;
-              theLog: var handle[TFunction_Logbook]) {.noSideEffect,
+proc validate*(this: DNamingBooleanOperationDriver;
+              theLog: var Handle[TFunctionLogbook]) {.noSideEffect,
     importcpp: "Validate", header: "DNaming_BooleanOperationDriver.hxx".}
-proc MustExecute*(this: DNaming_BooleanOperationDriver;
-                 theLog: handle[TFunction_Logbook]): Standard_Boolean {.
-    noSideEffect, importcpp: "MustExecute",
-    header: "DNaming_BooleanOperationDriver.hxx".}
-proc Execute*(this: DNaming_BooleanOperationDriver;
-             theLog: var handle[TFunction_Logbook]): Standard_Integer {.
-    noSideEffect, importcpp: "Execute",
-    header: "DNaming_BooleanOperationDriver.hxx".}
+proc mustExecute*(this: DNamingBooleanOperationDriver;
+                 theLog: Handle[TFunctionLogbook]): bool {.noSideEffect,
+    importcpp: "MustExecute", header: "DNaming_BooleanOperationDriver.hxx".}
+proc execute*(this: DNamingBooleanOperationDriver;
+             theLog: var Handle[TFunctionLogbook]): int {.noSideEffect,
+    importcpp: "Execute", header: "DNaming_BooleanOperationDriver.hxx".}
 type
-  DNaming_BooleanOperationDriverbase_type* = TFunction_Driver
+  DNamingBooleanOperationDriverbaseType* = TFunctionDriver
 
-proc get_type_name*(): cstring {.importcpp: "DNaming_BooleanOperationDriver::get_type_name(@)",
-                              header: "DNaming_BooleanOperationDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "DNaming_BooleanOperationDriver::get_type_name(@)",
+                            header: "DNaming_BooleanOperationDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "DNaming_BooleanOperationDriver::get_type_descriptor(@)",
     header: "DNaming_BooleanOperationDriver.hxx".}
-proc DynamicType*(this: DNaming_BooleanOperationDriver): handle[Standard_Type] {.
+proc dynamicType*(this: DNamingBooleanOperationDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "DNaming_BooleanOperationDriver.hxx".}

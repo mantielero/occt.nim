@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepShape_OrientedEdge, ../NCollection/NCollection_Array1
-
 type
-  StepShape_Array1OfOrientedEdge* = NCollection_Array1[
-      handle[StepShape_OrientedEdge]]
+  StepShapeArray1OfOrientedEdge* = NCollectionArray1[Handle[StepShapeOrientedEdge]]
+

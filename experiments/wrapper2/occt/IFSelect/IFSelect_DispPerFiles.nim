@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_Dispatch,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of IFSelect_IntParam"
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of TCollection_AsciiString"
@@ -26,7 +22,7 @@ discard "forward decl of IFGraph_SubPartsIterator"
 discard "forward decl of IFSelect_DispPerFiles"
 discard "forward decl of IFSelect_DispPerFiles"
 type
-  Handle_IFSelect_DispPerFiles* = handle[IFSelect_DispPerFiles]
+  HandleIFSelectDispPerFiles* = Handle[IFSelectDispPerFiles]
 
 ## ! A DispPerFiles produces a determined count of Packets from the
 ## ! input Entities. It divides, as equally as possible, the input
@@ -37,44 +33,43 @@ type
 ## ! IntParam, thus allowing external control of its Value
 
 type
-  IFSelect_DispPerFiles* {.importcpp: "IFSelect_DispPerFiles",
-                          header: "IFSelect_DispPerFiles.hxx", bycopy.} = object of IFSelect_Dispatch ##
-                                                                                               ## !
-                                                                                               ## Creates
-                                                                                               ## a
-                                                                                               ## DispPerFiles
-                                                                                               ## with
-                                                                                               ## no
-                                                                                               ## Count
-                                                                                               ## (default
-                                                                                               ## value
-                                                                                               ## 1
-                                                                                               ## file)
+  IFSelectDispPerFiles* {.importcpp: "IFSelect_DispPerFiles",
+                         header: "IFSelect_DispPerFiles.hxx", bycopy.} = object of IFSelectDispatch ##
+                                                                                             ## !
+                                                                                             ## Creates
+                                                                                             ## a
+                                                                                             ## DispPerFiles
+                                                                                             ## with
+                                                                                             ## no
+                                                                                             ## Count
+                                                                                             ## (default
+                                                                                             ## value
+                                                                                             ## 1
+                                                                                             ## file)
 
 
-proc constructIFSelect_DispPerFiles*(): IFSelect_DispPerFiles {.constructor,
+proc constructIFSelectDispPerFiles*(): IFSelectDispPerFiles {.constructor,
     importcpp: "IFSelect_DispPerFiles(@)", header: "IFSelect_DispPerFiles.hxx".}
-proc Count*(this: IFSelect_DispPerFiles): handle[IFSelect_IntParam] {.noSideEffect,
+proc count*(this: IFSelectDispPerFiles): Handle[IFSelectIntParam] {.noSideEffect,
     importcpp: "Count", header: "IFSelect_DispPerFiles.hxx".}
-proc SetCount*(this: var IFSelect_DispPerFiles; count: handle[IFSelect_IntParam]) {.
+proc setCount*(this: var IFSelectDispPerFiles; count: Handle[IFSelectIntParam]) {.
     importcpp: "SetCount", header: "IFSelect_DispPerFiles.hxx".}
-proc CountValue*(this: IFSelect_DispPerFiles): Standard_Integer {.noSideEffect,
+proc countValue*(this: IFSelectDispPerFiles): int {.noSideEffect,
     importcpp: "CountValue", header: "IFSelect_DispPerFiles.hxx".}
-proc Label*(this: IFSelect_DispPerFiles): TCollection_AsciiString {.noSideEffect,
+proc label*(this: IFSelectDispPerFiles): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_DispPerFiles.hxx".}
-proc LimitedMax*(this: IFSelect_DispPerFiles; nbent: Standard_Integer;
-                max: var Standard_Integer): Standard_Boolean {.noSideEffect,
-    importcpp: "LimitedMax", header: "IFSelect_DispPerFiles.hxx".}
-proc Packets*(this: IFSelect_DispPerFiles; G: Interface_Graph;
-             packs: var IFGraph_SubPartsIterator) {.noSideEffect,
+proc limitedMax*(this: IFSelectDispPerFiles; nbent: int; max: var int): bool {.
+    noSideEffect, importcpp: "LimitedMax", header: "IFSelect_DispPerFiles.hxx".}
+proc packets*(this: IFSelectDispPerFiles; g: InterfaceGraph;
+             packs: var IFGraphSubPartsIterator) {.noSideEffect,
     importcpp: "Packets", header: "IFSelect_DispPerFiles.hxx".}
 type
-  IFSelect_DispPerFilesbase_type* = IFSelect_Dispatch
+  IFSelectDispPerFilesbaseType* = IFSelectDispatch
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_DispPerFiles::get_type_name(@)",
-                              header: "IFSelect_DispPerFiles.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_DispPerFiles::get_type_name(@)",
+                            header: "IFSelect_DispPerFiles.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_DispPerFiles::get_type_descriptor(@)",
     header: "IFSelect_DispPerFiles.hxx".}
-proc DynamicType*(this: IFSelect_DispPerFiles): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IFSelect_DispPerFiles.hxx".}
+proc dynamicType*(this: IFSelectDispPerFiles): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IFSelect_DispPerFiles.hxx".}

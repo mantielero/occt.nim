@@ -14,55 +14,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP214_HArray1OfAutoDesignDatedItem, ../StepBasic/StepBasic_DateAssignment,
-  ../Standard/Standard_Integer
-
 discard "forward decl of StepBasic_Date"
 discard "forward decl of StepBasic_DateRole"
 discard "forward decl of StepAP214_AutoDesignDatedItem"
 discard "forward decl of StepAP214_AutoDesignNominalDateAssignment"
 discard "forward decl of StepAP214_AutoDesignNominalDateAssignment"
 type
-  Handle_StepAP214_AutoDesignNominalDateAssignment* = handle[
-      StepAP214_AutoDesignNominalDateAssignment]
-  StepAP214_AutoDesignNominalDateAssignment* {.
+  HandleStepAP214AutoDesignNominalDateAssignment* = Handle[
+      StepAP214AutoDesignNominalDateAssignment]
+  StepAP214AutoDesignNominalDateAssignment* {.
       importcpp: "StepAP214_AutoDesignNominalDateAssignment",
-      header: "StepAP214_AutoDesignNominalDateAssignment.hxx", bycopy.} = object of StepBasic_DateAssignment ##
-                                                                                                      ## !
-                                                                                                      ## Returns
-                                                                                                      ## a
-                                                                                                      ## AutoDesignNominalDateAssignment
+      header: "StepAP214_AutoDesignNominalDateAssignment.hxx", bycopy.} = object of StepBasicDateAssignment ##
+                                                                                                     ## !
+                                                                                                     ## Returns
+                                                                                                     ## a
+                                                                                                     ## AutoDesignNominalDateAssignment
 
 
-proc constructStepAP214_AutoDesignNominalDateAssignment*(): StepAP214_AutoDesignNominalDateAssignment {.
+proc constructStepAP214AutoDesignNominalDateAssignment*(): StepAP214AutoDesignNominalDateAssignment {.
     constructor, importcpp: "StepAP214_AutoDesignNominalDateAssignment(@)",
     header: "StepAP214_AutoDesignNominalDateAssignment.hxx".}
-proc Init*(this: var StepAP214_AutoDesignNominalDateAssignment;
-          aAssignedDate: handle[StepBasic_Date];
-          aRole: handle[StepBasic_DateRole];
-          aItems: handle[StepAP214_HArray1OfAutoDesignDatedItem]) {.
+proc init*(this: var StepAP214AutoDesignNominalDateAssignment;
+          aAssignedDate: Handle[StepBasicDate]; aRole: Handle[StepBasicDateRole];
+          aItems: Handle[StepAP214HArray1OfAutoDesignDatedItem]) {.
     importcpp: "Init", header: "StepAP214_AutoDesignNominalDateAssignment.hxx".}
-proc SetItems*(this: var StepAP214_AutoDesignNominalDateAssignment;
-              aItems: handle[StepAP214_HArray1OfAutoDesignDatedItem]) {.
+proc setItems*(this: var StepAP214AutoDesignNominalDateAssignment;
+              aItems: Handle[StepAP214HArray1OfAutoDesignDatedItem]) {.
     importcpp: "SetItems", header: "StepAP214_AutoDesignNominalDateAssignment.hxx".}
-proc Items*(this: StepAP214_AutoDesignNominalDateAssignment): handle[
-    StepAP214_HArray1OfAutoDesignDatedItem] {.noSideEffect, importcpp: "Items",
+proc items*(this: StepAP214AutoDesignNominalDateAssignment): Handle[
+    StepAP214HArray1OfAutoDesignDatedItem] {.noSideEffect, importcpp: "Items",
     header: "StepAP214_AutoDesignNominalDateAssignment.hxx".}
-proc ItemsValue*(this: StepAP214_AutoDesignNominalDateAssignment;
-                num: Standard_Integer): StepAP214_AutoDesignDatedItem {.
+proc itemsValue*(this: StepAP214AutoDesignNominalDateAssignment; num: int): StepAP214AutoDesignDatedItem {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AutoDesignNominalDateAssignment.hxx".}
-proc NbItems*(this: StepAP214_AutoDesignNominalDateAssignment): Standard_Integer {.
-    noSideEffect, importcpp: "NbItems",
-    header: "StepAP214_AutoDesignNominalDateAssignment.hxx".}
+proc nbItems*(this: StepAP214AutoDesignNominalDateAssignment): int {.noSideEffect,
+    importcpp: "NbItems", header: "StepAP214_AutoDesignNominalDateAssignment.hxx".}
 type
-  StepAP214_AutoDesignNominalDateAssignmentbase_type* = StepBasic_DateAssignment
+  StepAP214AutoDesignNominalDateAssignmentbaseType* = StepBasicDateAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_AutoDesignNominalDateAssignment::get_type_name(@)", header: "StepAP214_AutoDesignNominalDateAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP214_AutoDesignNominalDateAssignment::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP214_AutoDesignNominalDateAssignment::get_type_name(@)", header: "StepAP214_AutoDesignNominalDateAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_AutoDesignNominalDateAssignment::get_type_descriptor(@)",
     header: "StepAP214_AutoDesignNominalDateAssignment.hxx".}
-proc DynamicType*(this: StepAP214_AutoDesignNominalDateAssignment): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepAP214_AutoDesignNominalDateAssignment.hxx".}
+proc dynamicType*(this: StepAP214AutoDesignNominalDateAssignment): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepAP214_AutoDesignNominalDateAssignment.hxx".}

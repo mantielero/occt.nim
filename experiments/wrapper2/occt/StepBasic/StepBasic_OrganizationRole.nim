@@ -14,41 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_OrganizationRole"
 discard "forward decl of StepBasic_OrganizationRole"
 type
-  Handle_StepBasic_OrganizationRole* = handle[StepBasic_OrganizationRole]
-  StepBasic_OrganizationRole* {.importcpp: "StepBasic_OrganizationRole",
-                               header: "StepBasic_OrganizationRole.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## a
-                                                                                                          ## OrganizationRole
+  HandleStepBasicOrganizationRole* = Handle[StepBasicOrganizationRole]
+  StepBasicOrganizationRole* {.importcpp: "StepBasic_OrganizationRole",
+                              header: "StepBasic_OrganizationRole.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                        ## !
+                                                                                                        ## Returns
+                                                                                                        ## a
+                                                                                                        ## OrganizationRole
 
 
-proc constructStepBasic_OrganizationRole*(): StepBasic_OrganizationRole {.
+proc constructStepBasicOrganizationRole*(): StepBasicOrganizationRole {.
     constructor, importcpp: "StepBasic_OrganizationRole(@)",
     header: "StepBasic_OrganizationRole.hxx".}
-proc Init*(this: var StepBasic_OrganizationRole;
-          aName: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepBasicOrganizationRole;
+          aName: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepBasic_OrganizationRole.hxx".}
-proc SetName*(this: var StepBasic_OrganizationRole;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepBasicOrganizationRole;
+             aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepBasic_OrganizationRole.hxx".}
-proc Name*(this: StepBasic_OrganizationRole): handle[TCollection_HAsciiString] {.
+proc name*(this: StepBasicOrganizationRole): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepBasic_OrganizationRole.hxx".}
 type
-  StepBasic_OrganizationRolebase_type* = Standard_Transient
+  StepBasicOrganizationRolebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_OrganizationRole::get_type_name(@)",
-                              header: "StepBasic_OrganizationRole.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_OrganizationRole::get_type_name(@)",
+                            header: "StepBasic_OrganizationRole.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_OrganizationRole::get_type_descriptor(@)",
     header: "StepBasic_OrganizationRole.hxx".}
-proc DynamicType*(this: StepBasic_OrganizationRole): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicOrganizationRole): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_OrganizationRole.hxx".}

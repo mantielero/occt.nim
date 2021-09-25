@@ -11,192 +11,176 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TDataStd/TDataStd_GenericEmpty, ../TDF/TDF_LabelSequence
-
 discard "forward decl of OSD_File"
 discard "forward decl of Standard_GUID"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of TCollection_ExtendedString"
-import
-  ../TColStd/TColStd_HArray1OfByte
-
 discard "forward decl of TDF_RelocationTable"
 discard "forward decl of XCAFDoc_Note"
 discard "forward decl of XCAFDoc_AssemblyItemId"
 discard "forward decl of XCAFDoc_AssemblyItemRef"
 type
-  XCAFDoc_NotesTool* {.importcpp: "XCAFDoc_NotesTool",
-                      header: "XCAFDoc_NotesTool.hxx", bycopy.} = object of TDataStd_GenericEmpty ##  Overrides TDF_Attribute virtuals
+  XCAFDocNotesTool* {.importcpp: "XCAFDoc_NotesTool",
+                     header: "XCAFDoc_NotesTool.hxx", bycopy.} = object of TDataStdGenericEmpty ##  Overrides TDF_Attribute virtuals
 
 
 ## !!!Ignored construct:  public : DEFINE_DERIVED_ATTRIBUTE ( XCAFDoc_NotesTool , TDataStd_GenericEmpty ) ! Returns default attribute GUID static const Standard_GUID & GetID ( ) ;
 ## Error: token expected: ) but got: ,!!!
 
-proc Set*(theLabel: TDF_Label): handle[XCAFDoc_NotesTool] {.
+proc set*(theLabel: TDF_Label): Handle[XCAFDocNotesTool] {.
     importcpp: "XCAFDoc_NotesTool::Set(@)", header: "XCAFDoc_NotesTool.hxx".}
-proc constructXCAFDoc_NotesTool*(): XCAFDoc_NotesTool {.constructor,
+proc constructXCAFDocNotesTool*(): XCAFDocNotesTool {.constructor,
     importcpp: "XCAFDoc_NotesTool(@)", header: "XCAFDoc_NotesTool.hxx".}
-proc GetNotesLabel*(this: XCAFDoc_NotesTool): TDF_Label {.noSideEffect,
+proc getNotesLabel*(this: XCAFDocNotesTool): TDF_Label {.noSideEffect,
     importcpp: "GetNotesLabel", header: "XCAFDoc_NotesTool.hxx".}
-proc GetAnnotatedItemsLabel*(this: XCAFDoc_NotesTool): TDF_Label {.noSideEffect,
+proc getAnnotatedItemsLabel*(this: XCAFDocNotesTool): TDF_Label {.noSideEffect,
     importcpp: "GetAnnotatedItemsLabel", header: "XCAFDoc_NotesTool.hxx".}
-proc NbNotes*(this: XCAFDoc_NotesTool): Standard_Integer {.noSideEffect,
-    importcpp: "NbNotes", header: "XCAFDoc_NotesTool.hxx".}
-proc NbAnnotatedItems*(this: XCAFDoc_NotesTool): Standard_Integer {.noSideEffect,
+proc nbNotes*(this: XCAFDocNotesTool): int {.noSideEffect, importcpp: "NbNotes",
+    header: "XCAFDoc_NotesTool.hxx".}
+proc nbAnnotatedItems*(this: XCAFDocNotesTool): int {.noSideEffect,
     importcpp: "NbAnnotatedItems", header: "XCAFDoc_NotesTool.hxx".}
-proc GetNotes*(this: XCAFDoc_NotesTool; theNoteLabels: var TDF_LabelSequence) {.
+proc getNotes*(this: XCAFDocNotesTool; theNoteLabels: var TDF_LabelSequence) {.
     noSideEffect, importcpp: "GetNotes", header: "XCAFDoc_NotesTool.hxx".}
-proc GetAnnotatedItems*(this: XCAFDoc_NotesTool; theLabels: var TDF_LabelSequence) {.
+proc getAnnotatedItems*(this: XCAFDocNotesTool; theLabels: var TDF_LabelSequence) {.
     noSideEffect, importcpp: "GetAnnotatedItems", header: "XCAFDoc_NotesTool.hxx".}
-proc IsAnnotatedItem*(this: XCAFDoc_NotesTool; theItemId: XCAFDoc_AssemblyItemId): Standard_Boolean {.
+proc isAnnotatedItem*(this: XCAFDocNotesTool; theItemId: XCAFDocAssemblyItemId): bool {.
     noSideEffect, importcpp: "IsAnnotatedItem", header: "XCAFDoc_NotesTool.hxx".}
-proc IsAnnotatedItem*(this: XCAFDoc_NotesTool; theItemLabel: TDF_Label): Standard_Boolean {.
+proc isAnnotatedItem*(this: XCAFDocNotesTool; theItemLabel: TDF_Label): bool {.
     noSideEffect, importcpp: "IsAnnotatedItem", header: "XCAFDoc_NotesTool.hxx".}
-proc FindAnnotatedItem*(this: XCAFDoc_NotesTool; theItemId: XCAFDoc_AssemblyItemId): TDF_Label {.
+proc findAnnotatedItem*(this: XCAFDocNotesTool; theItemId: XCAFDocAssemblyItemId): TDF_Label {.
     noSideEffect, importcpp: "FindAnnotatedItem", header: "XCAFDoc_NotesTool.hxx".}
-proc FindAnnotatedItem*(this: XCAFDoc_NotesTool; theItemLabel: TDF_Label): TDF_Label {.
+proc findAnnotatedItem*(this: XCAFDocNotesTool; theItemLabel: TDF_Label): TDF_Label {.
     noSideEffect, importcpp: "FindAnnotatedItem", header: "XCAFDoc_NotesTool.hxx".}
-proc FindAnnotatedItemAttr*(this: XCAFDoc_NotesTool;
-                           theItemId: XCAFDoc_AssemblyItemId;
-                           theGUID: Standard_GUID): TDF_Label {.noSideEffect,
-    importcpp: "FindAnnotatedItemAttr", header: "XCAFDoc_NotesTool.hxx".}
-proc FindAnnotatedItemAttr*(this: XCAFDoc_NotesTool; theItemLabel: TDF_Label;
-                           theGUID: Standard_GUID): TDF_Label {.noSideEffect,
-    importcpp: "FindAnnotatedItemAttr", header: "XCAFDoc_NotesTool.hxx".}
-proc FindAnnotatedItemSubshape*(this: XCAFDoc_NotesTool;
-                               theItemId: XCAFDoc_AssemblyItemId;
-                               theSubshapeIndex: Standard_Integer): TDF_Label {.
-    noSideEffect, importcpp: "FindAnnotatedItemSubshape",
+proc findAnnotatedItemAttr*(this: XCAFDocNotesTool;
+                           theItemId: XCAFDocAssemblyItemId; theGUID: StandardGUID): TDF_Label {.
+    noSideEffect, importcpp: "FindAnnotatedItemAttr",
     header: "XCAFDoc_NotesTool.hxx".}
-proc FindAnnotatedItemSubshape*(this: XCAFDoc_NotesTool; theItemLabel: TDF_Label;
-                               theSubshapeIndex: Standard_Integer): TDF_Label {.
-    noSideEffect, importcpp: "FindAnnotatedItemSubshape",
-    header: "XCAFDoc_NotesTool.hxx".}
-proc CreateComment*(this: var XCAFDoc_NotesTool;
-                   theUserName: TCollection_ExtendedString;
-                   theTimeStamp: TCollection_ExtendedString;
-                   theComment: TCollection_ExtendedString): handle[XCAFDoc_Note] {.
+proc findAnnotatedItemAttr*(this: XCAFDocNotesTool; theItemLabel: TDF_Label;
+                           theGUID: StandardGUID): TDF_Label {.noSideEffect,
+    importcpp: "FindAnnotatedItemAttr", header: "XCAFDoc_NotesTool.hxx".}
+proc findAnnotatedItemSubshape*(this: XCAFDocNotesTool;
+                               theItemId: XCAFDocAssemblyItemId;
+                               theSubshapeIndex: int): TDF_Label {.noSideEffect,
+    importcpp: "FindAnnotatedItemSubshape", header: "XCAFDoc_NotesTool.hxx".}
+proc findAnnotatedItemSubshape*(this: XCAFDocNotesTool; theItemLabel: TDF_Label;
+                               theSubshapeIndex: int): TDF_Label {.noSideEffect,
+    importcpp: "FindAnnotatedItemSubshape", header: "XCAFDoc_NotesTool.hxx".}
+proc createComment*(this: var XCAFDocNotesTool;
+                   theUserName: TCollectionExtendedString;
+                   theTimeStamp: TCollectionExtendedString;
+                   theComment: TCollectionExtendedString): Handle[XCAFDocNote] {.
     importcpp: "CreateComment", header: "XCAFDoc_NotesTool.hxx".}
-proc CreateBalloon*(this: var XCAFDoc_NotesTool;
-                   theUserName: TCollection_ExtendedString;
-                   theTimeStamp: TCollection_ExtendedString;
-                   theComment: TCollection_ExtendedString): handle[XCAFDoc_Note] {.
+proc createBalloon*(this: var XCAFDocNotesTool;
+                   theUserName: TCollectionExtendedString;
+                   theTimeStamp: TCollectionExtendedString;
+                   theComment: TCollectionExtendedString): Handle[XCAFDocNote] {.
     importcpp: "CreateBalloon", header: "XCAFDoc_NotesTool.hxx".}
-proc CreateBinData*(this: var XCAFDoc_NotesTool;
-                   theUserName: TCollection_ExtendedString;
-                   theTimeStamp: TCollection_ExtendedString;
-                   theTitle: TCollection_ExtendedString;
-                   theMIMEtype: TCollection_AsciiString; theFile: var OSD_File): handle[
-    XCAFDoc_Note] {.importcpp: "CreateBinData", header: "XCAFDoc_NotesTool.hxx".}
-proc CreateBinData*(this: var XCAFDoc_NotesTool;
-                   theUserName: TCollection_ExtendedString;
-                   theTimeStamp: TCollection_ExtendedString;
-                   theTitle: TCollection_ExtendedString;
-                   theMIMEtype: TCollection_AsciiString;
-                   theData: handle[TColStd_HArray1OfByte]): handle[XCAFDoc_Note] {.
+proc createBinData*(this: var XCAFDocNotesTool;
+                   theUserName: TCollectionExtendedString;
+                   theTimeStamp: TCollectionExtendedString;
+                   theTitle: TCollectionExtendedString;
+                   theMIMEtype: TCollectionAsciiString; theFile: var OSD_File): Handle[
+    XCAFDocNote] {.importcpp: "CreateBinData", header: "XCAFDoc_NotesTool.hxx".}
+proc createBinData*(this: var XCAFDocNotesTool;
+                   theUserName: TCollectionExtendedString;
+                   theTimeStamp: TCollectionExtendedString;
+                   theTitle: TCollectionExtendedString;
+                   theMIMEtype: TCollectionAsciiString;
+                   theData: Handle[TColStdHArray1OfByte]): Handle[XCAFDocNote] {.
     importcpp: "CreateBinData", header: "XCAFDoc_NotesTool.hxx".}
-proc GetNotes*(this: XCAFDoc_NotesTool; theItemId: XCAFDoc_AssemblyItemId;
-              theNoteLabels: var TDF_LabelSequence): Standard_Integer {.
-    noSideEffect, importcpp: "GetNotes", header: "XCAFDoc_NotesTool.hxx".}
-proc GetNotes*(this: XCAFDoc_NotesTool; theItemLabel: TDF_Label;
-              theNoteLabels: var TDF_LabelSequence): Standard_Integer {.
-    noSideEffect, importcpp: "GetNotes", header: "XCAFDoc_NotesTool.hxx".}
-proc GetAttrNotes*(this: XCAFDoc_NotesTool; theItemId: XCAFDoc_AssemblyItemId;
-                  theGUID: Standard_GUID; theNoteLabels: var TDF_LabelSequence): Standard_Integer {.
+proc getNotes*(this: XCAFDocNotesTool; theItemId: XCAFDocAssemblyItemId;
+              theNoteLabels: var TDF_LabelSequence): int {.noSideEffect,
+    importcpp: "GetNotes", header: "XCAFDoc_NotesTool.hxx".}
+proc getNotes*(this: XCAFDocNotesTool; theItemLabel: TDF_Label;
+              theNoteLabels: var TDF_LabelSequence): int {.noSideEffect,
+    importcpp: "GetNotes", header: "XCAFDoc_NotesTool.hxx".}
+proc getAttrNotes*(this: XCAFDocNotesTool; theItemId: XCAFDocAssemblyItemId;
+                  theGUID: StandardGUID; theNoteLabels: var TDF_LabelSequence): int {.
     noSideEffect, importcpp: "GetAttrNotes", header: "XCAFDoc_NotesTool.hxx".}
-proc GetAttrNotes*(this: XCAFDoc_NotesTool; theItemLabel: TDF_Label;
-                  theGUID: Standard_GUID; theNoteLabels: var TDF_LabelSequence): Standard_Integer {.
+proc getAttrNotes*(this: XCAFDocNotesTool; theItemLabel: TDF_Label;
+                  theGUID: StandardGUID; theNoteLabels: var TDF_LabelSequence): int {.
     noSideEffect, importcpp: "GetAttrNotes", header: "XCAFDoc_NotesTool.hxx".}
-proc GetSubshapeNotes*(this: XCAFDoc_NotesTool; theItemId: XCAFDoc_AssemblyItemId;
-                      theSubshapeIndex: Standard_Integer;
-                      theNoteLabels: var TDF_LabelSequence): Standard_Integer {.
+proc getSubshapeNotes*(this: XCAFDocNotesTool; theItemId: XCAFDocAssemblyItemId;
+                      theSubshapeIndex: int; theNoteLabels: var TDF_LabelSequence): int {.
     noSideEffect, importcpp: "GetSubshapeNotes", header: "XCAFDoc_NotesTool.hxx".}
-proc AddNote*(this: var XCAFDoc_NotesTool; theNoteLabel: TDF_Label;
-             theItemId: XCAFDoc_AssemblyItemId): handle[XCAFDoc_AssemblyItemRef] {.
+proc addNote*(this: var XCAFDocNotesTool; theNoteLabel: TDF_Label;
+             theItemId: XCAFDocAssemblyItemId): Handle[XCAFDocAssemblyItemRef] {.
     importcpp: "AddNote", header: "XCAFDoc_NotesTool.hxx".}
-proc AddNote*(this: var XCAFDoc_NotesTool; theNoteLabel: TDF_Label;
-             theItemLabel: TDF_Label): handle[XCAFDoc_AssemblyItemRef] {.
+proc addNote*(this: var XCAFDocNotesTool; theNoteLabel: TDF_Label;
+             theItemLabel: TDF_Label): Handle[XCAFDocAssemblyItemRef] {.
     importcpp: "AddNote", header: "XCAFDoc_NotesTool.hxx".}
-proc AddNoteToAttr*(this: var XCAFDoc_NotesTool; theNoteLabel: TDF_Label;
-                   theItemId: XCAFDoc_AssemblyItemId; theGUID: Standard_GUID): handle[
-    XCAFDoc_AssemblyItemRef] {.importcpp: "AddNoteToAttr",
-                              header: "XCAFDoc_NotesTool.hxx".}
-proc AddNoteToAttr*(this: var XCAFDoc_NotesTool; theNoteLabel: TDF_Label;
-                   theItemLabel: TDF_Label; theGUID: Standard_GUID): handle[
-    XCAFDoc_AssemblyItemRef] {.importcpp: "AddNoteToAttr",
-                              header: "XCAFDoc_NotesTool.hxx".}
-proc AddNoteToSubshape*(this: var XCAFDoc_NotesTool; theNoteLabel: TDF_Label;
-                       theItemId: XCAFDoc_AssemblyItemId;
-                       theSubshapeIndex: Standard_Integer): handle[
-    XCAFDoc_AssemblyItemRef] {.importcpp: "AddNoteToSubshape",
-                              header: "XCAFDoc_NotesTool.hxx".}
-proc AddNoteToSubshape*(this: var XCAFDoc_NotesTool; theNoteLabel: TDF_Label;
-                       theItemLabel: TDF_Label; theSubshapeIndex: Standard_Integer): handle[
-    XCAFDoc_AssemblyItemRef] {.importcpp: "AddNoteToSubshape",
-                              header: "XCAFDoc_NotesTool.hxx".}
-proc RemoveNote*(this: var XCAFDoc_NotesTool; theNoteLabel: TDF_Label;
-                theItemId: XCAFDoc_AssemblyItemId;
-                theDelIfOrphan: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc addNoteToAttr*(this: var XCAFDocNotesTool; theNoteLabel: TDF_Label;
+                   theItemId: XCAFDocAssemblyItemId; theGUID: StandardGUID): Handle[
+    XCAFDocAssemblyItemRef] {.importcpp: "AddNoteToAttr",
+                             header: "XCAFDoc_NotesTool.hxx".}
+proc addNoteToAttr*(this: var XCAFDocNotesTool; theNoteLabel: TDF_Label;
+                   theItemLabel: TDF_Label; theGUID: StandardGUID): Handle[
+    XCAFDocAssemblyItemRef] {.importcpp: "AddNoteToAttr",
+                             header: "XCAFDoc_NotesTool.hxx".}
+proc addNoteToSubshape*(this: var XCAFDocNotesTool; theNoteLabel: TDF_Label;
+                       theItemId: XCAFDocAssemblyItemId; theSubshapeIndex: int): Handle[
+    XCAFDocAssemblyItemRef] {.importcpp: "AddNoteToSubshape",
+                             header: "XCAFDoc_NotesTool.hxx".}
+proc addNoteToSubshape*(this: var XCAFDocNotesTool; theNoteLabel: TDF_Label;
+                       theItemLabel: TDF_Label; theSubshapeIndex: int): Handle[
+    XCAFDocAssemblyItemRef] {.importcpp: "AddNoteToSubshape",
+                             header: "XCAFDoc_NotesTool.hxx".}
+proc removeNote*(this: var XCAFDocNotesTool; theNoteLabel: TDF_Label;
+                theItemId: XCAFDocAssemblyItemId; theDelIfOrphan: bool = false): bool {.
     importcpp: "RemoveNote", header: "XCAFDoc_NotesTool.hxx".}
-proc RemoveNote*(this: var XCAFDoc_NotesTool; theNoteLabel: TDF_Label;
-                theItemLabel: TDF_Label;
-                theDelIfOrphan: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc removeNote*(this: var XCAFDocNotesTool; theNoteLabel: TDF_Label;
+                theItemLabel: TDF_Label; theDelIfOrphan: bool = false): bool {.
     importcpp: "RemoveNote", header: "XCAFDoc_NotesTool.hxx".}
-proc RemoveSubshapeNote*(this: var XCAFDoc_NotesTool; theNoteLabel: TDF_Label;
-                        theItemId: XCAFDoc_AssemblyItemId;
-                        theSubshapeIndex: Standard_Integer;
-                        theDelIfOrphan: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc removeSubshapeNote*(this: var XCAFDocNotesTool; theNoteLabel: TDF_Label;
+                        theItemId: XCAFDocAssemblyItemId; theSubshapeIndex: int;
+                        theDelIfOrphan: bool = false): bool {.
     importcpp: "RemoveSubshapeNote", header: "XCAFDoc_NotesTool.hxx".}
-proc RemoveSubshapeNote*(this: var XCAFDoc_NotesTool; theNoteLabel: TDF_Label;
-                        theItemLabel: TDF_Label;
-                        theSubshapeIndex: Standard_Integer;
-                        theDelIfOrphan: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc removeSubshapeNote*(this: var XCAFDocNotesTool; theNoteLabel: TDF_Label;
+                        theItemLabel: TDF_Label; theSubshapeIndex: int;
+                        theDelIfOrphan: bool = false): bool {.
     importcpp: "RemoveSubshapeNote", header: "XCAFDoc_NotesTool.hxx".}
-proc RemoveAttrNote*(this: var XCAFDoc_NotesTool; theNoteLabel: TDF_Label;
-                    theItemId: XCAFDoc_AssemblyItemId; theGUID: Standard_GUID;
-                    theDelIfOrphan: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc removeAttrNote*(this: var XCAFDocNotesTool; theNoteLabel: TDF_Label;
+                    theItemId: XCAFDocAssemblyItemId; theGUID: StandardGUID;
+                    theDelIfOrphan: bool = false): bool {.
     importcpp: "RemoveAttrNote", header: "XCAFDoc_NotesTool.hxx".}
-proc RemoveAttrNote*(this: var XCAFDoc_NotesTool; theNoteLabel: TDF_Label;
-                    theItemLabel: TDF_Label; theGUID: Standard_GUID;
-                    theDelIfOrphan: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc removeAttrNote*(this: var XCAFDocNotesTool; theNoteLabel: TDF_Label;
+                    theItemLabel: TDF_Label; theGUID: StandardGUID;
+                    theDelIfOrphan: bool = false): bool {.
     importcpp: "RemoveAttrNote", header: "XCAFDoc_NotesTool.hxx".}
-proc RemoveAllNotes*(this: var XCAFDoc_NotesTool; theItemId: XCAFDoc_AssemblyItemId;
-                    theDelIfOrphan: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc removeAllNotes*(this: var XCAFDocNotesTool; theItemId: XCAFDocAssemblyItemId;
+                    theDelIfOrphan: bool = false): bool {.
     importcpp: "RemoveAllNotes", header: "XCAFDoc_NotesTool.hxx".}
-proc RemoveAllNotes*(this: var XCAFDoc_NotesTool; theItemLabel: TDF_Label;
-                    theDelIfOrphan: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc removeAllNotes*(this: var XCAFDocNotesTool; theItemLabel: TDF_Label;
+                    theDelIfOrphan: bool = false): bool {.
     importcpp: "RemoveAllNotes", header: "XCAFDoc_NotesTool.hxx".}
-proc RemoveAllSubshapeNotes*(this: var XCAFDoc_NotesTool;
-                            theItemId: XCAFDoc_AssemblyItemId;
-                            theSubshapeIndex: Standard_Integer;
-                            theDelIfOrphan: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc removeAllSubshapeNotes*(this: var XCAFDocNotesTool;
+                            theItemId: XCAFDocAssemblyItemId;
+                            theSubshapeIndex: int; theDelIfOrphan: bool = false): bool {.
     importcpp: "RemoveAllSubshapeNotes", header: "XCAFDoc_NotesTool.hxx".}
-proc RemoveAllAttrNotes*(this: var XCAFDoc_NotesTool;
-                        theItemId: XCAFDoc_AssemblyItemId; theGUID: Standard_GUID;
-                        theDelIfOrphan: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc removeAllAttrNotes*(this: var XCAFDocNotesTool;
+                        theItemId: XCAFDocAssemblyItemId; theGUID: StandardGUID;
+                        theDelIfOrphan: bool = false): bool {.
     importcpp: "RemoveAllAttrNotes", header: "XCAFDoc_NotesTool.hxx".}
-proc RemoveAllAttrNotes*(this: var XCAFDoc_NotesTool; theItemLabel: TDF_Label;
-                        theGUID: Standard_GUID;
-                        theDelIfOrphan: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc removeAllAttrNotes*(this: var XCAFDocNotesTool; theItemLabel: TDF_Label;
+                        theGUID: StandardGUID; theDelIfOrphan: bool = false): bool {.
     importcpp: "RemoveAllAttrNotes", header: "XCAFDoc_NotesTool.hxx".}
-proc DeleteNote*(this: var XCAFDoc_NotesTool; theNoteLabel: TDF_Label): Standard_Boolean {.
+proc deleteNote*(this: var XCAFDocNotesTool; theNoteLabel: TDF_Label): bool {.
     importcpp: "DeleteNote", header: "XCAFDoc_NotesTool.hxx".}
-proc DeleteNotes*(this: var XCAFDoc_NotesTool; theNoteLabels: var TDF_LabelSequence): Standard_Integer {.
+proc deleteNotes*(this: var XCAFDocNotesTool; theNoteLabels: var TDF_LabelSequence): int {.
     importcpp: "DeleteNotes", header: "XCAFDoc_NotesTool.hxx".}
-proc DeleteAllNotes*(this: var XCAFDoc_NotesTool): Standard_Integer {.
-    importcpp: "DeleteAllNotes", header: "XCAFDoc_NotesTool.hxx".}
-proc NbOrphanNotes*(this: XCAFDoc_NotesTool): Standard_Integer {.noSideEffect,
-    importcpp: "NbOrphanNotes", header: "XCAFDoc_NotesTool.hxx".}
-proc GetOrphanNotes*(this: XCAFDoc_NotesTool; theNoteLabels: var TDF_LabelSequence) {.
-    noSideEffect, importcpp: "GetOrphanNotes", header: "XCAFDoc_NotesTool.hxx".}
-proc DeleteOrphanNotes*(this: var XCAFDoc_NotesTool): Standard_Integer {.
-    importcpp: "DeleteOrphanNotes", header: "XCAFDoc_NotesTool.hxx".}
-proc ID*(this: XCAFDoc_NotesTool): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc deleteAllNotes*(this: var XCAFDocNotesTool): int {.importcpp: "DeleteAllNotes",
     header: "XCAFDoc_NotesTool.hxx".}
-proc Dump*(this: XCAFDoc_NotesTool; theOS: var Standard_OStream): var Standard_OStream {.
+proc nbOrphanNotes*(this: XCAFDocNotesTool): int {.noSideEffect,
+    importcpp: "NbOrphanNotes", header: "XCAFDoc_NotesTool.hxx".}
+proc getOrphanNotes*(this: XCAFDocNotesTool; theNoteLabels: var TDF_LabelSequence) {.
+    noSideEffect, importcpp: "GetOrphanNotes", header: "XCAFDoc_NotesTool.hxx".}
+proc deleteOrphanNotes*(this: var XCAFDocNotesTool): int {.
+    importcpp: "DeleteOrphanNotes", header: "XCAFDoc_NotesTool.hxx".}
+proc id*(this: XCAFDocNotesTool): StandardGUID {.noSideEffect, importcpp: "ID",
+    header: "XCAFDoc_NotesTool.hxx".}
+proc dump*(this: XCAFDocNotesTool; theOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "XCAFDoc_NotesTool.hxx".}
 discard "forward decl of XCAFDoc_NotesTool"
 type
-  Handle_XCAFDoc_NotesTool* = handle[XCAFDoc_NotesTool]
+  HandleXCAFDocNotesTool* = Handle[XCAFDocNotesTool]
+

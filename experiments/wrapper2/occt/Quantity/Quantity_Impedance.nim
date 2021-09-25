@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Impedance_HeaderFile [NewLine] # _Quantity_Impedance_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the total opposition to the flow of current
+## !!!Ignored construct:  # _Quantity_Impedance_HeaderFile [NewLine] # _Quantity_Impedance_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the total opposition to the flow of current
 ## ! in a circuit. Includes the contributions of resistance,
 ## ! inductance, and capacitance.
 ## ! It is measured in Ohms. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Impedance ;
 ## Error: expected ';'!!!
+

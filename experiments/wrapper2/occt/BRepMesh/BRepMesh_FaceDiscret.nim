@@ -13,57 +13,52 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../IMeshTools/IMeshTools_ModelAlgo, ../IMeshTools/IMeshTools_Parameters,
-  ../IMeshData/IMeshData_Types, ../IMeshTools/IMeshTools_MeshAlgoFactory,
-  ../NCollection/NCollection_Array1
-
 ## ! Class implements functionality starting triangulation of model's faces.
 ## ! Each face is processed separately and can be executed in parallel mode.
 ## ! Uses mesh algo factory passed as initializer to create instance of triangulation
 ## ! algorithm according to type of surface of target face.
 
 type
-  BRepMesh_FaceDiscret* {.importcpp: "BRepMesh_FaceDiscret",
-                         header: "BRepMesh_FaceDiscret.hxx", bycopy.} = object of IMeshTools_ModelAlgo ##
-                                                                                                ## !
-                                                                                                ## Constructor.
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Performs
-                                                                                                ## processing
-                                                                                                ## of
-                                                                                                ## faces
-                                                                                                ## of
-                                                                                                ## the
-                                                                                                ## given
-                                                                                                ## model.
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Checks
-                                                                                                ## existing
-                                                                                                ## discretization
-                                                                                                ## of
-                                                                                                ## the
-                                                                                                ## face
-                                                                                                ## and
-                                                                                                ## updates
-                                                                                                ## data
-                                                                                                ## model.
+  BRepMeshFaceDiscret* {.importcpp: "BRepMesh_FaceDiscret",
+                        header: "BRepMesh_FaceDiscret.hxx", bycopy.} = object of IMeshToolsModelAlgo ##
+                                                                                              ## !
+                                                                                              ## Constructor.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Performs
+                                                                                              ## processing
+                                                                                              ## of
+                                                                                              ## faces
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ## given
+                                                                                              ## model.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Checks
+                                                                                              ## existing
+                                                                                              ## discretization
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ## face
+                                                                                              ## and
+                                                                                              ## updates
+                                                                                              ## data
+                                                                                              ## model.
 
 
-proc constructBRepMesh_FaceDiscret*(theAlgoFactory: handle[
-    IMeshTools_MeshAlgoFactory]): BRepMesh_FaceDiscret {.constructor,
+proc constructBRepMeshFaceDiscret*(theAlgoFactory: Handle[
+    IMeshToolsMeshAlgoFactory]): BRepMeshFaceDiscret {.constructor,
     importcpp: "BRepMesh_FaceDiscret(@)", header: "BRepMesh_FaceDiscret.hxx".}
-proc destroyBRepMesh_FaceDiscret*(this: var BRepMesh_FaceDiscret) {.
+proc destroyBRepMeshFaceDiscret*(this: var BRepMeshFaceDiscret) {.
     importcpp: "#.~BRepMesh_FaceDiscret()", header: "BRepMesh_FaceDiscret.hxx".}
 type
-  BRepMesh_FaceDiscretbase_type* = IMeshTools_ModelAlgo
+  BRepMeshFaceDiscretbaseType* = IMeshToolsModelAlgo
 
-proc get_type_name*(): cstring {.importcpp: "BRepMesh_FaceDiscret::get_type_name(@)",
-                              header: "BRepMesh_FaceDiscret.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepMesh_FaceDiscret::get_type_name(@)",
+                            header: "BRepMesh_FaceDiscret.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepMesh_FaceDiscret::get_type_descriptor(@)",
     header: "BRepMesh_FaceDiscret.hxx".}
-proc DynamicType*(this: BRepMesh_FaceDiscret): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: BRepMeshFaceDiscret): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMesh_FaceDiscret.hxx".}

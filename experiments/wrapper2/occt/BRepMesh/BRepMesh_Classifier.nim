@@ -13,38 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Macro, ../TopAbs/TopAbs_State,
-  ../IMeshData/IMeshData_Types, ../NCollection/NCollection_Handle
-
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of CSLib_Class2d"
 type
-  BRepMesh_Classifier* {.importcpp: "BRepMesh_Classifier",
-                        header: "BRepMesh_Classifier.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                            ## !
-                                                                                            ## Constructor.
+  BRepMeshClassifier* {.importcpp: "BRepMesh_Classifier",
+                       header: "BRepMesh_Classifier.hxx", bycopy.} = object of StandardTransient ##
+                                                                                          ## !
+                                                                                          ## Constructor.
 
 
-proc constructBRepMesh_Classifier*(): BRepMesh_Classifier {.constructor,
+proc constructBRepMeshClassifier*(): BRepMeshClassifier {.constructor,
     importcpp: "BRepMesh_Classifier(@)", header: "BRepMesh_Classifier.hxx".}
-proc destroyBRepMesh_Classifier*(this: var BRepMesh_Classifier) {.
+proc destroyBRepMeshClassifier*(this: var BRepMeshClassifier) {.
     importcpp: "#.~BRepMesh_Classifier()", header: "BRepMesh_Classifier.hxx".}
-proc Perform*(this: BRepMesh_Classifier; thePoint: gp_Pnt2d): TopAbs_State {.
-    noSideEffect, importcpp: "Perform", header: "BRepMesh_Classifier.hxx".}
-proc RegisterWire*(this: var BRepMesh_Classifier;
-                  theWire: NCollection_Sequence[ptr gp_Pnt2d];
-                  theTolUV: pair[Standard_Real, Standard_Real];
-                  theRangeU: pair[Standard_Real, Standard_Real];
-                  theRangeV: pair[Standard_Real, Standard_Real]) {.
-    importcpp: "RegisterWire", header: "BRepMesh_Classifier.hxx".}
+proc perform*(this: BRepMeshClassifier; thePoint: Pnt2d): TopAbsState {.noSideEffect,
+    importcpp: "Perform", header: "BRepMesh_Classifier.hxx".}
+proc registerWire*(this: var BRepMeshClassifier;
+                  theWire: NCollectionSequence[ptr Pnt2d];
+                  theTolUV: Pair[float, float]; theRangeU: Pair[float, float];
+                  theRangeV: Pair[float, float]) {.importcpp: "RegisterWire",
+    header: "BRepMesh_Classifier.hxx".}
 type
-  BRepMesh_Classifierbase_type* = Standard_Transient
+  BRepMeshClassifierbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "BRepMesh_Classifier::get_type_name(@)",
-                              header: "BRepMesh_Classifier.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepMesh_Classifier::get_type_name(@)",
+                            header: "BRepMesh_Classifier.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepMesh_Classifier::get_type_descriptor(@)",
     header: "BRepMesh_Classifier.hxx".}
-proc DynamicType*(this: BRepMesh_Classifier): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: BRepMeshClassifier): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMesh_Classifier.hxx".}

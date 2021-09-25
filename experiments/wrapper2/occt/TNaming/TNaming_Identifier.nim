@@ -14,66 +14,59 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TDF/TDF_Label, ../TopoDS/TopoDS_Shape,
-  ../Standard/Standard_Boolean, TNaming_NameType, TNaming_ListOfNamedShape,
-  ../TopTools/TopTools_ListOfShape
-
 discard "forward decl of TNaming_NamedShape"
 discard "forward decl of TDF_Label"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TNaming_Localizer"
 type
-  TNaming_Identifier* {.importcpp: "TNaming_Identifier",
-                       header: "TNaming_Identifier.hxx", bycopy.} = object
+  TNamingIdentifier* {.importcpp: "TNaming_Identifier",
+                      header: "TNaming_Identifier.hxx", bycopy.} = object
 
 
-proc constructTNaming_Identifier*(Lab: TDF_Label; S: TopoDS_Shape;
-                                 Context: TopoDS_Shape; Geom: Standard_Boolean): TNaming_Identifier {.
+proc constructTNamingIdentifier*(lab: TDF_Label; s: TopoDS_Shape;
+                                context: TopoDS_Shape; geom: bool): TNamingIdentifier {.
     constructor, importcpp: "TNaming_Identifier(@)",
     header: "TNaming_Identifier.hxx".}
-proc constructTNaming_Identifier*(Lab: TDF_Label; S: TopoDS_Shape;
-                                 ContextNS: handle[TNaming_NamedShape];
-                                 Geom: Standard_Boolean): TNaming_Identifier {.
+proc constructTNamingIdentifier*(lab: TDF_Label; s: TopoDS_Shape;
+                                contextNS: Handle[TNamingNamedShape]; geom: bool): TNamingIdentifier {.
     constructor, importcpp: "TNaming_Identifier(@)",
     header: "TNaming_Identifier.hxx".}
-proc IsDone*(this: TNaming_Identifier): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "TNaming_Identifier.hxx".}
-proc Type*(this: TNaming_Identifier): TNaming_NameType {.noSideEffect,
+proc isDone*(this: TNamingIdentifier): bool {.noSideEffect, importcpp: "IsDone",
+    header: "TNaming_Identifier.hxx".}
+proc `type`*(this: TNamingIdentifier): TNamingNameType {.noSideEffect,
     importcpp: "Type", header: "TNaming_Identifier.hxx".}
-proc IsFeature*(this: var TNaming_Identifier): Standard_Boolean {.
-    importcpp: "IsFeature", header: "TNaming_Identifier.hxx".}
-proc Feature*(this: TNaming_Identifier): handle[TNaming_NamedShape] {.noSideEffect,
+proc isFeature*(this: var TNamingIdentifier): bool {.importcpp: "IsFeature",
+    header: "TNaming_Identifier.hxx".}
+proc feature*(this: TNamingIdentifier): Handle[TNamingNamedShape] {.noSideEffect,
     importcpp: "Feature", header: "TNaming_Identifier.hxx".}
-proc InitArgs*(this: var TNaming_Identifier) {.importcpp: "InitArgs",
+proc initArgs*(this: var TNamingIdentifier) {.importcpp: "InitArgs",
     header: "TNaming_Identifier.hxx".}
-proc MoreArgs*(this: TNaming_Identifier): Standard_Boolean {.noSideEffect,
-    importcpp: "MoreArgs", header: "TNaming_Identifier.hxx".}
-proc NextArg*(this: var TNaming_Identifier) {.importcpp: "NextArg",
+proc moreArgs*(this: TNamingIdentifier): bool {.noSideEffect, importcpp: "MoreArgs",
     header: "TNaming_Identifier.hxx".}
-proc ArgIsFeature*(this: TNaming_Identifier): Standard_Boolean {.noSideEffect,
+proc nextArg*(this: var TNamingIdentifier) {.importcpp: "NextArg",
+    header: "TNaming_Identifier.hxx".}
+proc argIsFeature*(this: TNamingIdentifier): bool {.noSideEffect,
     importcpp: "ArgIsFeature", header: "TNaming_Identifier.hxx".}
-proc FeatureArg*(this: var TNaming_Identifier): handle[TNaming_NamedShape] {.
+proc featureArg*(this: var TNamingIdentifier): Handle[TNamingNamedShape] {.
     importcpp: "FeatureArg", header: "TNaming_Identifier.hxx".}
-proc ShapeArg*(this: var TNaming_Identifier): TopoDS_Shape {.importcpp: "ShapeArg",
+proc shapeArg*(this: var TNamingIdentifier): TopoDS_Shape {.importcpp: "ShapeArg",
     header: "TNaming_Identifier.hxx".}
-proc ShapeContext*(this: TNaming_Identifier): TopoDS_Shape {.noSideEffect,
+proc shapeContext*(this: TNamingIdentifier): TopoDS_Shape {.noSideEffect,
     importcpp: "ShapeContext", header: "TNaming_Identifier.hxx".}
-proc NamedShapeOfGeneration*(this: TNaming_Identifier): handle[TNaming_NamedShape] {.
+proc namedShapeOfGeneration*(this: TNamingIdentifier): Handle[TNamingNamedShape] {.
     noSideEffect, importcpp: "NamedShapeOfGeneration",
     header: "TNaming_Identifier.hxx".}
-proc AncestorIdentification*(this: var TNaming_Identifier;
-                            Localizer: var TNaming_Localizer; Context: TopoDS_Shape) {.
+proc ancestorIdentification*(this: var TNamingIdentifier;
+                            localizer: var TNamingLocalizer; context: TopoDS_Shape) {.
     importcpp: "AncestorIdentification", header: "TNaming_Identifier.hxx".}
-proc PrimitiveIdentification*(this: var TNaming_Identifier;
-                             Localizer: var TNaming_Localizer;
-                             NS: handle[TNaming_NamedShape]) {.
+proc primitiveIdentification*(this: var TNamingIdentifier;
+                             localizer: var TNamingLocalizer;
+                             ns: Handle[TNamingNamedShape]) {.
     importcpp: "PrimitiveIdentification", header: "TNaming_Identifier.hxx".}
-proc GeneratedIdentification*(this: var TNaming_Identifier;
-                             Localizer: var TNaming_Localizer;
-                             NS: handle[TNaming_NamedShape]) {.
+proc generatedIdentification*(this: var TNamingIdentifier;
+                             localizer: var TNamingLocalizer;
+                             ns: Handle[TNamingNamedShape]) {.
     importcpp: "GeneratedIdentification", header: "TNaming_Identifier.hxx".}
-proc Identification*(this: var TNaming_Identifier; Localizer: var TNaming_Localizer;
-                    NS: handle[TNaming_NamedShape]) {.importcpp: "Identification",
+proc identification*(this: var TNamingIdentifier; localizer: var TNamingLocalizer;
+                    ns: Handle[TNamingNamedShape]) {.importcpp: "Identification",
     header: "TNaming_Identifier.hxx".}

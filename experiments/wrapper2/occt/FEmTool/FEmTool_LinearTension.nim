@@ -14,48 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../math/math_Matrix,
-  ../Standard/Standard_Integer, FEmTool_ElementaryCriterion,
-  ../GeomAbs/GeomAbs_Shape, ../TColStd/TColStd_HArray2OfInteger,
-  ../Standard/Standard_Real, ../math/math_Vector
-
 discard "forward decl of Standard_NotImplemented"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of math_Matrix"
 discard "forward decl of FEmTool_LinearTension"
 discard "forward decl of FEmTool_LinearTension"
 type
-  Handle_FEmTool_LinearTension* = handle[FEmTool_LinearTension]
+  HandleFEmToolLinearTension* = Handle[FEmToolLinearTension]
 
 ## ! Criterium of LinearTension To Hermit-Jacobi  elements
 
 type
-  FEmTool_LinearTension* {.importcpp: "FEmTool_LinearTension",
-                          header: "FEmTool_LinearTension.hxx", bycopy.} = object of FEmTool_ElementaryCriterion
+  FEmToolLinearTension* {.importcpp: "FEmTool_LinearTension",
+                         header: "FEmTool_LinearTension.hxx", bycopy.} = object of FEmToolElementaryCriterion
 
 
-proc constructFEmTool_LinearTension*(WorkDegree: Standard_Integer;
-                                    ConstraintOrder: GeomAbs_Shape): FEmTool_LinearTension {.
+proc constructFEmToolLinearTension*(workDegree: int; constraintOrder: GeomAbsShape): FEmToolLinearTension {.
     constructor, importcpp: "FEmTool_LinearTension(@)",
     header: "FEmTool_LinearTension.hxx".}
-proc DependenceTable*(this: FEmTool_LinearTension): handle[TColStd_HArray2OfInteger] {.
+proc dependenceTable*(this: FEmToolLinearTension): Handle[TColStdHArray2OfInteger] {.
     noSideEffect, importcpp: "DependenceTable", header: "FEmTool_LinearTension.hxx".}
-proc Value*(this: var FEmTool_LinearTension): Standard_Real {.importcpp: "Value",
+proc value*(this: var FEmToolLinearTension): float {.importcpp: "Value",
     header: "FEmTool_LinearTension.hxx".}
-proc Hessian*(this: var FEmTool_LinearTension; Dimension1: Standard_Integer;
-             Dimension2: Standard_Integer; H: var math_Matrix) {.
-    importcpp: "Hessian", header: "FEmTool_LinearTension.hxx".}
-proc Gradient*(this: var FEmTool_LinearTension; Dimension: Standard_Integer;
-              G: var math_Vector) {.importcpp: "Gradient",
-                                 header: "FEmTool_LinearTension.hxx".}
+proc hessian*(this: var FEmToolLinearTension; dimension1: int; dimension2: int;
+             h: var MathMatrix) {.importcpp: "Hessian",
+                               header: "FEmTool_LinearTension.hxx".}
+proc gradient*(this: var FEmToolLinearTension; dimension: int; g: var MathVector) {.
+    importcpp: "Gradient", header: "FEmTool_LinearTension.hxx".}
 type
-  FEmTool_LinearTensionbase_type* = FEmTool_ElementaryCriterion
+  FEmToolLinearTensionbaseType* = FEmToolElementaryCriterion
 
-proc get_type_name*(): cstring {.importcpp: "FEmTool_LinearTension::get_type_name(@)",
-                              header: "FEmTool_LinearTension.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "FEmTool_LinearTension::get_type_name(@)",
+                            header: "FEmTool_LinearTension.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "FEmTool_LinearTension::get_type_descriptor(@)",
     header: "FEmTool_LinearTension.hxx".}
-proc DynamicType*(this: FEmTool_LinearTension): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "FEmTool_LinearTension.hxx".}
+proc dynamicType*(this: FEmToolLinearTension): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "FEmTool_LinearTension.hxx".}

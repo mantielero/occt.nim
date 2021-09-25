@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, ../NCollection/NCollection_Sequence
-
 type
-  TopTools_SequenceOfShape* = NCollection_Sequence[TopoDS_Shape]
+  TopToolsSequenceOfShape* = NCollectionSequence[TopoDS_Shape]
+

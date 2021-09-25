@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../BlendFunc/BlendFunc_Ruled
-
 type
-  BRepBlend_Ruled* = BlendFunc_Ruled
+  BRepBlendRuled* = BlendFuncRuled
+

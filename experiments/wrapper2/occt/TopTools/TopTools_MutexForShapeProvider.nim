@@ -13,34 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_TShape, ../NCollection/NCollection_DataMap,
-  ../TopAbs/TopAbs_ShapeEnum
-
 discard "forward decl of Standard_Mutex"
 discard "forward decl of TopoDS_Shape"
 type
-  TopTools_MutexForShapeProvider* {.importcpp: "TopTools_MutexForShapeProvider", header: "TopTools_MutexForShapeProvider.hxx",
-                                   bycopy.} = object ## ! Constructor
-                                                  ## ! This method should not be called (prohibited).
+  TopToolsMutexForShapeProvider* {.importcpp: "TopTools_MutexForShapeProvider",
+                                  header: "TopTools_MutexForShapeProvider.hxx",
+                                  bycopy.} = object ## ! Constructor
+                                                 ## ! This method should not be called (prohibited).
 
 
-proc constructTopTools_MutexForShapeProvider*(): TopTools_MutexForShapeProvider {.
+proc constructTopToolsMutexForShapeProvider*(): TopToolsMutexForShapeProvider {.
     constructor, importcpp: "TopTools_MutexForShapeProvider(@)",
     header: "TopTools_MutexForShapeProvider.hxx".}
-proc destroyTopTools_MutexForShapeProvider*(
-    this: var TopTools_MutexForShapeProvider) {.
+proc destroyTopToolsMutexForShapeProvider*(
+    this: var TopToolsMutexForShapeProvider) {.
     importcpp: "#.~TopTools_MutexForShapeProvider()",
     header: "TopTools_MutexForShapeProvider.hxx".}
-proc CreateMutexesForSubShapes*(this: var TopTools_MutexForShapeProvider;
-                               theShape: TopoDS_Shape; theType: TopAbs_ShapeEnum) {.
+proc createMutexesForSubShapes*(this: var TopToolsMutexForShapeProvider;
+                               theShape: TopoDS_Shape; theType: TopAbsShapeEnum) {.
     importcpp: "CreateMutexesForSubShapes",
     header: "TopTools_MutexForShapeProvider.hxx".}
-proc CreateMutexForShape*(this: var TopTools_MutexForShapeProvider;
+proc createMutexForShape*(this: var TopToolsMutexForShapeProvider;
                          theShape: TopoDS_Shape) {.
     importcpp: "CreateMutexForShape", header: "TopTools_MutexForShapeProvider.hxx".}
-proc GetMutex*(this: TopTools_MutexForShapeProvider; theShape: TopoDS_Shape): ptr Standard_Mutex {.
+proc getMutex*(this: TopToolsMutexForShapeProvider; theShape: TopoDS_Shape): ptr StandardMutex {.
     noSideEffect, importcpp: "GetMutex",
     header: "TopTools_MutexForShapeProvider.hxx".}
-proc RemoveAllMutexes*(this: var TopTools_MutexForShapeProvider) {.
+proc removeAllMutexes*(this: var TopToolsMutexForShapeProvider) {.
     importcpp: "RemoveAllMutexes", header: "TopTools_MutexForShapeProvider.hxx".}

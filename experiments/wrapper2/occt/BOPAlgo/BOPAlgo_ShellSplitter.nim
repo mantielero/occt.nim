@@ -12,36 +12,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../BOPTools/BOPTools_ListOfConnexityBlock,
-  BOPAlgo_Algo, ../BOPTools/BOPTools_ConnexityBlock,
-  ../NCollection/NCollection_BaseAllocator, ../TopTools/TopTools_ListOfShape
-
 discard "forward decl of TopoDS_Shape"
 type
-  BOPAlgo_ShellSplitter* {.importcpp: "BOPAlgo_ShellSplitter",
-                          header: "BOPAlgo_ShellSplitter.hxx", bycopy.} = object of BOPAlgo_Algo ##
-                                                                                          ## !
-                                                                                          ## empty
-                                                                                          ## constructor
+  BOPAlgoShellSplitter* {.importcpp: "BOPAlgo_ShellSplitter",
+                         header: "BOPAlgo_ShellSplitter.hxx", bycopy.} = object of BOPAlgoAlgo ##
+                                                                                        ## !
+                                                                                        ## empty
+                                                                                        ## constructor
 
 
-proc constructBOPAlgo_ShellSplitter*(): BOPAlgo_ShellSplitter {.constructor,
+proc constructBOPAlgoShellSplitter*(): BOPAlgoShellSplitter {.constructor,
     importcpp: "BOPAlgo_ShellSplitter(@)", header: "BOPAlgo_ShellSplitter.hxx".}
-proc destroyBOPAlgo_ShellSplitter*(this: var BOPAlgo_ShellSplitter) {.
+proc destroyBOPAlgoShellSplitter*(this: var BOPAlgoShellSplitter) {.
     importcpp: "#.~BOPAlgo_ShellSplitter()", header: "BOPAlgo_ShellSplitter.hxx".}
-proc constructBOPAlgo_ShellSplitter*(theAllocator: handle[
-    NCollection_BaseAllocator]): BOPAlgo_ShellSplitter {.constructor,
-    importcpp: "BOPAlgo_ShellSplitter(@)", header: "BOPAlgo_ShellSplitter.hxx".}
-proc AddStartElement*(this: var BOPAlgo_ShellSplitter; theS: TopoDS_Shape) {.
-    importcpp: "AddStartElement", header: "BOPAlgo_ShellSplitter.hxx".}
-proc StartElements*(this: BOPAlgo_ShellSplitter): TopTools_ListOfShape {.
-    noSideEffect, importcpp: "StartElements", header: "BOPAlgo_ShellSplitter.hxx".}
-proc Perform*(this: var BOPAlgo_ShellSplitter) {.importcpp: "Perform",
+proc constructBOPAlgoShellSplitter*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoShellSplitter {.
+    constructor, importcpp: "BOPAlgo_ShellSplitter(@)",
     header: "BOPAlgo_ShellSplitter.hxx".}
-proc Shells*(this: BOPAlgo_ShellSplitter): TopTools_ListOfShape {.noSideEffect,
+proc addStartElement*(this: var BOPAlgoShellSplitter; theS: TopoDS_Shape) {.
+    importcpp: "AddStartElement", header: "BOPAlgo_ShellSplitter.hxx".}
+proc startElements*(this: BOPAlgoShellSplitter): TopToolsListOfShape {.noSideEffect,
+    importcpp: "StartElements", header: "BOPAlgo_ShellSplitter.hxx".}
+proc perform*(this: var BOPAlgoShellSplitter) {.importcpp: "Perform",
+    header: "BOPAlgo_ShellSplitter.hxx".}
+proc shells*(this: BOPAlgoShellSplitter): TopToolsListOfShape {.noSideEffect,
     importcpp: "Shells", header: "BOPAlgo_ShellSplitter.hxx".}
-proc SplitBlock*(theCB: var BOPTools_ConnexityBlock) {.
+proc splitBlock*(theCB: var BOPToolsConnexityBlock) {.
     importcpp: "BOPAlgo_ShellSplitter::SplitBlock(@)",
     header: "BOPAlgo_ShellSplitter.hxx".}

@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../BRepFill/BRepFill_Draft,
-  ../BRepBuilderAPI/BRepBuilderAPI_MakeShape, ../Standard/Standard_Real,
-  ../BRepBuilderAPI/BRepBuilderAPI_TransitionMode, ../Standard/Standard_Boolean,
-  ../TopTools/TopTools_ListOfShape
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopoDS_Shape"
@@ -87,25 +80,23 @@ type
                                                                                                           ## boundaries.
 
 
-proc constructBRepOffsetAPI_MakeDraft*(Shape: TopoDS_Shape; Dir: gp_Dir;
-                                      Angle: Standard_Real): BRepOffsetAPI_MakeDraft {.
+proc constructBRepOffsetAPI_MakeDraft*(shape: TopoDS_Shape; dir: Dir; angle: float): BRepOffsetAPI_MakeDraft {.
     constructor, importcpp: "BRepOffsetAPI_MakeDraft(@)",
     header: "BRepOffsetAPI_MakeDraft.hxx".}
-proc SetOptions*(this: var BRepOffsetAPI_MakeDraft; Style: BRepBuilderAPI_TransitionMode = BRepBuilderAPI_RightCorner;
-                AngleMin: Standard_Real = 0.01; AngleMax: Standard_Real = 3.0) {.
+proc setOptions*(this: var BRepOffsetAPI_MakeDraft; style: BRepBuilderAPI_TransitionMode = bRepBuilderAPI_RightCorner;
+                angleMin: float = 0.01; angleMax: float = 3.0) {.
     importcpp: "SetOptions", header: "BRepOffsetAPI_MakeDraft.hxx".}
-proc SetDraft*(this: var BRepOffsetAPI_MakeDraft;
-              IsInternal: Standard_Boolean = Standard_False) {.
+proc setDraft*(this: var BRepOffsetAPI_MakeDraft; isInternal: bool = false) {.
     importcpp: "SetDraft", header: "BRepOffsetAPI_MakeDraft.hxx".}
-proc Perform*(this: var BRepOffsetAPI_MakeDraft; LengthMax: Standard_Real) {.
+proc perform*(this: var BRepOffsetAPI_MakeDraft; lengthMax: float) {.
     importcpp: "Perform", header: "BRepOffsetAPI_MakeDraft.hxx".}
-proc Perform*(this: var BRepOffsetAPI_MakeDraft; Surface: handle[Geom_Surface];
-             KeepInsideSurface: Standard_Boolean = Standard_True) {.
-    importcpp: "Perform", header: "BRepOffsetAPI_MakeDraft.hxx".}
-proc Perform*(this: var BRepOffsetAPI_MakeDraft; StopShape: TopoDS_Shape;
-             KeepOutSide: Standard_Boolean = Standard_True) {.importcpp: "Perform",
+proc perform*(this: var BRepOffsetAPI_MakeDraft; surface: Handle[GeomSurface];
+             keepInsideSurface: bool = true) {.importcpp: "Perform",
     header: "BRepOffsetAPI_MakeDraft.hxx".}
-proc Shell*(this: BRepOffsetAPI_MakeDraft): TopoDS_Shell {.noSideEffect,
+proc perform*(this: var BRepOffsetAPI_MakeDraft; stopShape: TopoDS_Shape;
+             keepOutSide: bool = true) {.importcpp: "Perform",
+                                     header: "BRepOffsetAPI_MakeDraft.hxx".}
+proc shell*(this: BRepOffsetAPI_MakeDraft): TopoDS_Shell {.noSideEffect,
     importcpp: "Shell", header: "BRepOffsetAPI_MakeDraft.hxx".}
-proc Generated*(this: var BRepOffsetAPI_MakeDraft; S: TopoDS_Shape): TopTools_ListOfShape {.
+proc generated*(this: var BRepOffsetAPI_MakeDraft; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Generated", header: "BRepOffsetAPI_MakeDraft.hxx".}

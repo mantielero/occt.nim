@@ -14,15 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, AIS_KindOfInteractive,
-  ../SelectMgr/SelectMgr_Filter, ../Standard/Standard_Boolean
-
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of AIS_TypeFilter"
 discard "forward decl of AIS_TypeFilter"
 type
-  Handle_AIS_TypeFilter* = handle[AIS_TypeFilter]
+  HandleAIS_TypeFilter* = Handle[AIS_TypeFilter]
 
 ## ! Selects Interactive Objects through their types. The
 ## ! filter questions each Interactive Object in local context
@@ -49,26 +45,26 @@ type
 ## ! filters are emptied.
 
 type
-  AIS_TypeFilter* {.importcpp: "AIS_TypeFilter", header: "AIS_TypeFilter.hxx", bycopy.} = object of SelectMgr_Filter ##
-                                                                                                           ## !
-                                                                                                           ## Initializes
-                                                                                                           ## filter
-                                                                                                           ## for
-                                                                                                           ## type,
-                                                                                                           ## aGivenKind.
+  AIS_TypeFilter* {.importcpp: "AIS_TypeFilter", header: "AIS_TypeFilter.hxx", bycopy.} = object of SelectMgrFilter ##
+                                                                                                          ## !
+                                                                                                          ## Initializes
+                                                                                                          ## filter
+                                                                                                          ## for
+                                                                                                          ## type,
+                                                                                                          ## aGivenKind.
 
 
 proc constructAIS_TypeFilter*(aGivenKind: AIS_KindOfInteractive): AIS_TypeFilter {.
     constructor, importcpp: "AIS_TypeFilter(@)", header: "AIS_TypeFilter.hxx".}
-proc IsOk*(this: AIS_TypeFilter; anobj: handle[SelectMgr_EntityOwner]): Standard_Boolean {.
+proc isOk*(this: AIS_TypeFilter; anobj: Handle[SelectMgrEntityOwner]): bool {.
     noSideEffect, importcpp: "IsOk", header: "AIS_TypeFilter.hxx".}
 type
-  AIS_TypeFilterbase_type* = SelectMgr_Filter
+  AIS_TypeFilterbaseType* = SelectMgrFilter
 
-proc get_type_name*(): cstring {.importcpp: "AIS_TypeFilter::get_type_name(@)",
-                              header: "AIS_TypeFilter.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "AIS_TypeFilter::get_type_name(@)",
+                            header: "AIS_TypeFilter.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "AIS_TypeFilter::get_type_descriptor(@)",
     header: "AIS_TypeFilter.hxx".}
-proc DynamicType*(this: AIS_TypeFilter): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: AIS_TypeFilter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_TypeFilter.hxx".}

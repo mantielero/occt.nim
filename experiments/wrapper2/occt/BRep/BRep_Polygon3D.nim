@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, BRep_CurveRepresentation,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Poly_Polygon3D"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of TopLoc_Location"
@@ -25,34 +21,34 @@ discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of BRep_Polygon3D"
 discard "forward decl of BRep_Polygon3D"
 type
-  Handle_BRep_Polygon3D* = handle[BRep_Polygon3D]
+  HandleBRepPolygon3D* = Handle[BRepPolygon3D]
 
 ## ! Representation by a 3D polygon.
 
 type
-  BRep_Polygon3D* {.importcpp: "BRep_Polygon3D", header: "BRep_Polygon3D.hxx", bycopy.} = object of BRep_CurveRepresentation
+  BRepPolygon3D* {.importcpp: "BRep_Polygon3D", header: "BRep_Polygon3D.hxx", bycopy.} = object of BRepCurveRepresentation
 
 
-proc constructBRep_Polygon3D*(P: handle[Poly_Polygon3D]; L: TopLoc_Location): BRep_Polygon3D {.
+proc constructBRepPolygon3D*(p: Handle[PolyPolygon3D]; L: TopLocLocation): BRepPolygon3D {.
     constructor, importcpp: "BRep_Polygon3D(@)", header: "BRep_Polygon3D.hxx".}
-proc IsPolygon3D*(this: BRep_Polygon3D): Standard_Boolean {.noSideEffect,
+proc isPolygon3D*(this: BRepPolygon3D): bool {.noSideEffect,
     importcpp: "IsPolygon3D", header: "BRep_Polygon3D.hxx".}
-proc Polygon3D*(this: BRep_Polygon3D): handle[Poly_Polygon3D] {.noSideEffect,
+proc polygon3D*(this: BRepPolygon3D): Handle[PolyPolygon3D] {.noSideEffect,
     importcpp: "Polygon3D", header: "BRep_Polygon3D.hxx".}
-proc Polygon3D*(this: var BRep_Polygon3D; P: handle[Poly_Polygon3D]) {.
+proc polygon3D*(this: var BRepPolygon3D; p: Handle[PolyPolygon3D]) {.
     importcpp: "Polygon3D", header: "BRep_Polygon3D.hxx".}
-proc Copy*(this: BRep_Polygon3D): handle[BRep_CurveRepresentation] {.noSideEffect,
+proc copy*(this: BRepPolygon3D): Handle[BRepCurveRepresentation] {.noSideEffect,
     importcpp: "Copy", header: "BRep_Polygon3D.hxx".}
-proc DumpJson*(this: BRep_Polygon3D; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "BRep_Polygon3D.hxx".}
+proc dumpJson*(this: BRepPolygon3D; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "BRep_Polygon3D.hxx".}
 type
-  BRep_Polygon3Dbase_type* = BRep_CurveRepresentation
+  BRepPolygon3DbaseType* = BRepCurveRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "BRep_Polygon3D::get_type_name(@)",
-                              header: "BRep_Polygon3D.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRep_Polygon3D::get_type_name(@)",
+                            header: "BRep_Polygon3D.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRep_Polygon3D::get_type_descriptor(@)",
     header: "BRep_Polygon3D.hxx".}
-proc DynamicType*(this: BRep_Polygon3D): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: BRepPolygon3D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRep_Polygon3D.hxx".}

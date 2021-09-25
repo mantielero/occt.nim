@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../Transfer/Transfer_ActorOfTransientProcess,
-  ../Standard/Standard_Boolean, ../Message/Message_ProgressRange
-
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_Binder"
@@ -26,7 +21,7 @@ discard "forward decl of Transfer_TransientProcess"
 discard "forward decl of IGESToBRep_Actor"
 discard "forward decl of IGESToBRep_Actor"
 type
-  Handle_IGESToBRep_Actor* = handle[IGESToBRep_Actor]
+  HandleIGESToBRepActor* = Handle[IGESToBRepActor]
 
 ## ! This class performs the transfer of an Entity from
 ## ! IGESToBRep
@@ -35,33 +30,33 @@ type
 ## ! then returns the Binder which contains the Result
 
 type
-  IGESToBRep_Actor* {.importcpp: "IGESToBRep_Actor",
-                     header: "IGESToBRep_Actor.hxx", bycopy.} = object of Transfer_ActorOfTransientProcess
+  IGESToBRepActor* {.importcpp: "IGESToBRep_Actor", header: "IGESToBRep_Actor.hxx",
+                    bycopy.} = object of TransferActorOfTransientProcess
 
 
-proc constructIGESToBRep_Actor*(): IGESToBRep_Actor {.constructor,
+proc constructIGESToBRepActor*(): IGESToBRepActor {.constructor,
     importcpp: "IGESToBRep_Actor(@)", header: "IGESToBRep_Actor.hxx".}
-proc SetModel*(this: var IGESToBRep_Actor; model: handle[Interface_InterfaceModel]) {.
+proc setModel*(this: var IGESToBRepActor; model: Handle[InterfaceInterfaceModel]) {.
     importcpp: "SetModel", header: "IGESToBRep_Actor.hxx".}
-proc SetContinuity*(this: var IGESToBRep_Actor; continuity: Standard_Integer = 0) {.
+proc setContinuity*(this: var IGESToBRepActor; continuity: int = 0) {.
     importcpp: "SetContinuity", header: "IGESToBRep_Actor.hxx".}
-proc GetContinuity*(this: IGESToBRep_Actor): Standard_Integer {.noSideEffect,
+proc getContinuity*(this: IGESToBRepActor): int {.noSideEffect,
     importcpp: "GetContinuity", header: "IGESToBRep_Actor.hxx".}
-proc Recognize*(this: var IGESToBRep_Actor; start: handle[Standard_Transient]): Standard_Boolean {.
+proc recognize*(this: var IGESToBRepActor; start: Handle[StandardTransient]): bool {.
     importcpp: "Recognize", header: "IGESToBRep_Actor.hxx".}
-proc Transfer*(this: var IGESToBRep_Actor; start: handle[Standard_Transient];
-              TP: handle[Transfer_TransientProcess];
-              theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
-    Transfer_Binder] {.importcpp: "Transfer", header: "IGESToBRep_Actor.hxx".}
-proc UsedTolerance*(this: IGESToBRep_Actor): Standard_Real {.noSideEffect,
+proc transfer*(this: var IGESToBRepActor; start: Handle[StandardTransient];
+              tp: Handle[TransferTransientProcess];
+              theProgress: MessageProgressRange = messageProgressRange()): Handle[
+    TransferBinder] {.importcpp: "Transfer", header: "IGESToBRep_Actor.hxx".}
+proc usedTolerance*(this: IGESToBRepActor): float {.noSideEffect,
     importcpp: "UsedTolerance", header: "IGESToBRep_Actor.hxx".}
 type
-  IGESToBRep_Actorbase_type* = Transfer_ActorOfTransientProcess
+  IGESToBRepActorbaseType* = TransferActorOfTransientProcess
 
-proc get_type_name*(): cstring {.importcpp: "IGESToBRep_Actor::get_type_name(@)",
-                              header: "IGESToBRep_Actor.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESToBRep_Actor::get_type_name(@)",
+                            header: "IGESToBRep_Actor.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESToBRep_Actor::get_type_descriptor(@)",
     header: "IGESToBRep_Actor.hxx".}
-proc DynamicType*(this: IGESToBRep_Actor): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IGESToBRepActor): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESToBRep_Actor.hxx".}

@@ -15,9 +15,10 @@
 ##  commercial license or contractual agreement.
 
 type
-  IntImp_ConstIsoparametric* {.size: sizeof(cint),
-                              importcpp: "IntImp_ConstIsoparametric",
-                              header: "IntImp_ConstIsoparametric.hxx".} = enum
-    IntImp_UIsoparametricOnCaro1, IntImp_VIsoparametricOnCaro1,
-    IntImp_UIsoparametricOnCaro2, IntImp_VIsoparametricOnCaro2
+  IntImpConstIsoparametric* {.size: sizeof(cint),
+                             importcpp: "IntImp_ConstIsoparametric",
+                             header: "IntImp_ConstIsoparametric.hxx".} = enum
+    IntImpUIsoparametricOnCaro1, IntImpVIsoparametricOnCaro1,
+    IntImpUIsoparametricOnCaro2, IntImpVIsoparametricOnCaro2
+
 

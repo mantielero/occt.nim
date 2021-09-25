@@ -14,33 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Pnt2d, IntPatch_IType,
-  ../Standard/Standard_Boolean, IntPatch_Polygo, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer
-
 discard "forward decl of IntPatch_WLine"
 discard "forward decl of IntPatch_RLine"
 discard "forward decl of gp_Pnt2d"
 type
-  IntPatch_PolyLine* {.importcpp: "IntPatch_PolyLine",
-                      header: "IntPatch_PolyLine.hxx", bycopy.} = object of IntPatch_Polygo
+  IntPatchPolyLine* {.importcpp: "IntPatch_PolyLine",
+                     header: "IntPatch_PolyLine.hxx", bycopy.} = object of IntPatchPolygo
 
 
-proc constructIntPatch_PolyLine*(): IntPatch_PolyLine {.constructor,
+proc constructIntPatchPolyLine*(): IntPatchPolyLine {.constructor,
     importcpp: "IntPatch_PolyLine(@)", header: "IntPatch_PolyLine.hxx".}
-proc constructIntPatch_PolyLine*(InitDefle: Standard_Real): IntPatch_PolyLine {.
-    constructor, importcpp: "IntPatch_PolyLine(@)", header: "IntPatch_PolyLine.hxx".}
-proc SetWLine*(this: var IntPatch_PolyLine; OnFirst: Standard_Boolean;
-              Line: handle[IntPatch_WLine]) {.importcpp: "SetWLine",
+proc constructIntPatchPolyLine*(initDefle: float): IntPatchPolyLine {.constructor,
+    importcpp: "IntPatch_PolyLine(@)", header: "IntPatch_PolyLine.hxx".}
+proc setWLine*(this: var IntPatchPolyLine; onFirst: bool; line: Handle[IntPatchWLine]) {.
+    importcpp: "SetWLine", header: "IntPatch_PolyLine.hxx".}
+proc setRLine*(this: var IntPatchPolyLine; onFirst: bool; line: Handle[IntPatchRLine]) {.
+    importcpp: "SetRLine", header: "IntPatch_PolyLine.hxx".}
+proc resetError*(this: var IntPatchPolyLine) {.importcpp: "ResetError",
     header: "IntPatch_PolyLine.hxx".}
-proc SetRLine*(this: var IntPatch_PolyLine; OnFirst: Standard_Boolean;
-              Line: handle[IntPatch_RLine]) {.importcpp: "SetRLine",
+proc nbPoints*(this: IntPatchPolyLine): int {.noSideEffect, importcpp: "NbPoints",
     header: "IntPatch_PolyLine.hxx".}
-proc ResetError*(this: var IntPatch_PolyLine) {.importcpp: "ResetError",
-    header: "IntPatch_PolyLine.hxx".}
-proc NbPoints*(this: IntPatch_PolyLine): Standard_Integer {.noSideEffect,
-    importcpp: "NbPoints", header: "IntPatch_PolyLine.hxx".}
-proc Point*(this: IntPatch_PolyLine; Index: Standard_Integer): gp_Pnt2d {.
-    noSideEffect, importcpp: "Point", header: "IntPatch_PolyLine.hxx".}
+proc point*(this: IntPatchPolyLine; index: int): Pnt2d {.noSideEffect,
+    importcpp: "Point", header: "IntPatch_PolyLine.hxx".}

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopoDS_Shape
-
 ## ! Describes an edge which
 ## ! - references an underlying edge with the potential to
 ## ! be given a location and an orientation

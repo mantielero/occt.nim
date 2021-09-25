@@ -14,29 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_Conic"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeom_RWConic* {.importcpp: "RWStepGeom_RWConic",
-                       header: "RWStepGeom_RWConic.hxx", bycopy.} = object
+  RWStepGeomRWConic* {.importcpp: "RWStepGeom_RWConic",
+                      header: "RWStepGeom_RWConic.hxx", bycopy.} = object
 
 
-proc constructRWStepGeom_RWConic*(): RWStepGeom_RWConic {.constructor,
+proc constructRWStepGeomRWConic*(): RWStepGeomRWConic {.constructor,
     importcpp: "RWStepGeom_RWConic(@)", header: "RWStepGeom_RWConic.hxx".}
-proc ReadStep*(this: RWStepGeom_RWConic; data: handle[StepData_StepReaderData];
-              num: Standard_Integer; ach: var handle[Interface_Check];
-              ent: handle[StepGeom_Conic]) {.noSideEffect, importcpp: "ReadStep",
+proc readStep*(this: RWStepGeomRWConic; data: Handle[StepDataStepReaderData];
+              num: int; ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomConic]) {.
+    noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWConic.hxx".}
+proc writeStep*(this: RWStepGeomRWConic; sw: var StepDataStepWriter;
+               ent: Handle[StepGeomConic]) {.noSideEffect, importcpp: "WriteStep",
     header: "RWStepGeom_RWConic.hxx".}
-proc WriteStep*(this: RWStepGeom_RWConic; SW: var StepData_StepWriter;
-               ent: handle[StepGeom_Conic]) {.noSideEffect, importcpp: "WriteStep",
-    header: "RWStepGeom_RWConic.hxx".}
-proc Share*(this: RWStepGeom_RWConic; ent: handle[StepGeom_Conic];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepGeomRWConic; ent: Handle[StepGeomConic];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWConic.hxx".}

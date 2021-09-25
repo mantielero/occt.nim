@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _IntCurveSurface_TheHCurveTool_HeaderFile [NewLine] # _IntCurveSurface_TheHCurveTool_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # ../GeomAbs/GeomAbs_Shape.hxx [NewLine] # ../Standard/Standard_Integer.hxx [NewLine] # ../TColStd/TColStd_Array1OfReal.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # ../gp/gp_Pnt.hxx [NewLine] # ../gp/gp_Vec.hxx [NewLine] # ../GeomAbs/GeomAbs_CurveType.hxx [NewLine] # ../gp/gp_Lin.hxx [NewLine] # ../gp/gp_Circ.hxx [NewLine] # ../gp/gp_Elips.hxx [NewLine] # ../gp/gp_Hypr.hxx [NewLine] # ../gp/gp_Parab.hxx [NewLine] # ../TColStd/TColStd_HArray1OfReal.hxx [NewLine] class Standard_OutOfRange ;
+## !!!Ignored construct:  # _IntCurveSurface_TheHCurveTool_HeaderFile [NewLine] # _IntCurveSurface_TheHCurveTool_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] # < GeomAbs_Shape . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] # < TColStd_Array1OfReal . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < gp_Pnt . hxx > [NewLine] # < gp_Vec . hxx > [NewLine] # < GeomAbs_CurveType . hxx > [NewLine] # < gp_Lin . hxx > [NewLine] # < gp_Circ . hxx > [NewLine] # < gp_Elips . hxx > [NewLine] # < gp_Hypr . hxx > [NewLine] # < gp_Parab . hxx > [NewLine] # < TColStd_HArray1OfReal . hxx > [NewLine] class Standard_OutOfRange ;
 ## Error: did not expect <!!!
 
 discard "forward decl of Standard_NoSuchObject"
@@ -25,87 +25,87 @@ discard "forward decl of gp_Vec"
 discard "forward decl of Geom_BezierCurve"
 discard "forward decl of Geom_BSplineCurve"
 type
-  IntCurveSurface_TheHCurveTool* {.importcpp: "IntCurveSurface_TheHCurveTool",
-                                  header: "IntCurveSurface_TheHCurveTool.hxx",
-                                  bycopy.} = object
+  IntCurveSurfaceTheHCurveTool* {.importcpp: "IntCurveSurface_TheHCurveTool",
+                                 header: "IntCurveSurface_TheHCurveTool.hxx",
+                                 bycopy.} = object
 
 
-proc FirstParameter*(C: handle[Adaptor3d_HCurve]): Standard_Real {.
+proc firstParameter*(c: Handle[Adaptor3dHCurve]): float {.
     importcpp: "IntCurveSurface_TheHCurveTool::FirstParameter(@)",
     header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc LastParameter*(C: handle[Adaptor3d_HCurve]): Standard_Real {.
+proc lastParameter*(c: Handle[Adaptor3dHCurve]): float {.
     importcpp: "IntCurveSurface_TheHCurveTool::LastParameter(@)",
     header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc Continuity*(C: handle[Adaptor3d_HCurve]): GeomAbs_Shape {.
+proc continuity*(c: Handle[Adaptor3dHCurve]): GeomAbsShape {.
     importcpp: "IntCurveSurface_TheHCurveTool::Continuity(@)",
     header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc NbIntervals*(C: handle[Adaptor3d_HCurve]; S: GeomAbs_Shape): Standard_Integer {.
+proc nbIntervals*(c: Handle[Adaptor3dHCurve]; s: GeomAbsShape): int {.
     importcpp: "IntCurveSurface_TheHCurveTool::NbIntervals(@)",
     header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc Intervals*(C: handle[Adaptor3d_HCurve]; T: var TColStd_Array1OfReal;
-               S: GeomAbs_Shape) {.importcpp: "IntCurveSurface_TheHCurveTool::Intervals(@)",
-                                 header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc IsClosed*(C: handle[Adaptor3d_HCurve]): Standard_Boolean {.
+proc intervals*(c: Handle[Adaptor3dHCurve]; t: var TColStdArray1OfReal;
+               s: GeomAbsShape) {.importcpp: "IntCurveSurface_TheHCurveTool::Intervals(@)",
+                                header: "IntCurveSurface_TheHCurveTool.hxx".}
+proc isClosed*(c: Handle[Adaptor3dHCurve]): bool {.
     importcpp: "IntCurveSurface_TheHCurveTool::IsClosed(@)",
     header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc IsPeriodic*(C: handle[Adaptor3d_HCurve]): Standard_Boolean {.
+proc isPeriodic*(c: Handle[Adaptor3dHCurve]): bool {.
     importcpp: "IntCurveSurface_TheHCurveTool::IsPeriodic(@)",
     header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc Period*(C: handle[Adaptor3d_HCurve]): Standard_Real {.
+proc period*(c: Handle[Adaptor3dHCurve]): float {.
     importcpp: "IntCurveSurface_TheHCurveTool::Period(@)",
     header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc Value*(C: handle[Adaptor3d_HCurve]; U: Standard_Real): gp_Pnt {.
+proc value*(c: Handle[Adaptor3dHCurve]; u: float): Pnt {.
     importcpp: "IntCurveSurface_TheHCurveTool::Value(@)",
     header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc D0*(C: handle[Adaptor3d_HCurve]; U: Standard_Real; P: var gp_Pnt) {.
+proc d0*(c: Handle[Adaptor3dHCurve]; u: float; p: var Pnt) {.
     importcpp: "IntCurveSurface_TheHCurveTool::D0(@)",
     header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc D1*(C: handle[Adaptor3d_HCurve]; U: Standard_Real; P: var gp_Pnt; V: var gp_Vec) {.
+proc d1*(c: Handle[Adaptor3dHCurve]; u: float; p: var Pnt; v: var Vec) {.
     importcpp: "IntCurveSurface_TheHCurveTool::D1(@)",
     header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc D2*(C: handle[Adaptor3d_HCurve]; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
-        V2: var gp_Vec) {.importcpp: "IntCurveSurface_TheHCurveTool::D2(@)",
-                       header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc D3*(C: handle[Adaptor3d_HCurve]; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
-        V2: var gp_Vec; V3: var gp_Vec) {.importcpp: "IntCurveSurface_TheHCurveTool::D3(@)",
-                                    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc DN*(C: handle[Adaptor3d_HCurve]; U: Standard_Real; N: Standard_Integer): gp_Vec {.
+proc d2*(c: Handle[Adaptor3dHCurve]; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.
+    importcpp: "IntCurveSurface_TheHCurveTool::D2(@)",
+    header: "IntCurveSurface_TheHCurveTool.hxx".}
+proc d3*(c: Handle[Adaptor3dHCurve]; u: float; p: var Pnt; v1: var Vec; v2: var Vec;
+        v3: var Vec) {.importcpp: "IntCurveSurface_TheHCurveTool::D3(@)",
+                    header: "IntCurveSurface_TheHCurveTool.hxx".}
+proc dn*(c: Handle[Adaptor3dHCurve]; u: float; n: int): Vec {.
     importcpp: "IntCurveSurface_TheHCurveTool::DN(@)",
     header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc Resolution*(C: handle[Adaptor3d_HCurve]; R3d: Standard_Real): Standard_Real {.
+proc resolution*(c: Handle[Adaptor3dHCurve]; r3d: float): float {.
     importcpp: "IntCurveSurface_TheHCurveTool::Resolution(@)",
     header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc GetType*(C: handle[Adaptor3d_HCurve]): GeomAbs_CurveType {.
+proc getType*(c: Handle[Adaptor3dHCurve]): GeomAbsCurveType {.
     importcpp: "IntCurveSurface_TheHCurveTool::GetType(@)",
     header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc Line*(C: handle[Adaptor3d_HCurve]): gp_Lin {.
+proc line*(c: Handle[Adaptor3dHCurve]): Lin {.
     importcpp: "IntCurveSurface_TheHCurveTool::Line(@)",
     header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc Circle*(C: handle[Adaptor3d_HCurve]): gp_Circ {.
+proc circle*(c: Handle[Adaptor3dHCurve]): Circ {.
     importcpp: "IntCurveSurface_TheHCurveTool::Circle(@)",
     header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc Ellipse*(C: handle[Adaptor3d_HCurve]): gp_Elips {.
+proc ellipse*(c: Handle[Adaptor3dHCurve]): Elips {.
     importcpp: "IntCurveSurface_TheHCurveTool::Ellipse(@)",
     header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc Hyperbola*(C: handle[Adaptor3d_HCurve]): gp_Hypr {.
+proc hyperbola*(c: Handle[Adaptor3dHCurve]): Hypr {.
     importcpp: "IntCurveSurface_TheHCurveTool::Hyperbola(@)",
     header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc Parabola*(C: handle[Adaptor3d_HCurve]): gp_Parab {.
+proc parabola*(c: Handle[Adaptor3dHCurve]): Parab {.
     importcpp: "IntCurveSurface_TheHCurveTool::Parabola(@)",
     header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc Bezier*(C: handle[Adaptor3d_HCurve]): handle[Geom_BezierCurve] {.
+proc bezier*(c: Handle[Adaptor3dHCurve]): Handle[GeomBezierCurve] {.
     importcpp: "IntCurveSurface_TheHCurveTool::Bezier(@)",
     header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc BSpline*(C: handle[Adaptor3d_HCurve]): handle[Geom_BSplineCurve] {.
+proc bSpline*(c: Handle[Adaptor3dHCurve]): Handle[GeomBSplineCurve] {.
     importcpp: "IntCurveSurface_TheHCurveTool::BSpline(@)",
     header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc NbSamples*(C: handle[Adaptor3d_HCurve]; U0: Standard_Real; U1: Standard_Real): Standard_Integer {.
+proc nbSamples*(c: Handle[Adaptor3dHCurve]; u0: float; u1: float): int {.
     importcpp: "IntCurveSurface_TheHCurveTool::NbSamples(@)",
     header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc SamplePars*(C: handle[Adaptor3d_HCurve]; U0: Standard_Real; U1: Standard_Real;
-                Defl: Standard_Real; NbMin: Standard_Integer;
-                Pars: var handle[TColStd_HArray1OfReal]) {.
+proc samplePars*(c: Handle[Adaptor3dHCurve]; u0: float; u1: float; defl: float;
+                nbMin: int; pars: var Handle[TColStdHArray1OfReal]) {.
     importcpp: "IntCurveSurface_TheHCurveTool::SamplePars(@)",
     header: "IntCurveSurface_TheHCurveTool.hxx".}
-## !!!Ignored construct:  # CurveGen opencascade :: handle < Adaptor3d_HCurve > [end of template] [NewLine] # CurveGen_hxx < Adaptor3d_HCurve . hxx > [NewLine] # IntCurveSurface_HCurveTool IntCurveSurface_TheHCurveTool [NewLine] # IntCurveSurface_HCurveTool_hxx < IntCurveSurface_TheHCurveTool . hxx > [NewLine] # < IntCurveSurface_HCurveTool . lxx > [NewLine] # CurveGen [NewLine] # CurveGen_hxx [NewLine] # IntCurveSurface_HCurveTool [NewLine] # IntCurveSurface_HCurveTool_hxx [NewLine] #  _IntCurveSurface_TheHCurveTool_HeaderFile [NewLine]
+## !!!Ignored construct:  # CurveGen opencascade :: handle < Adaptor3d_HCurve > [end of template] [NewLine] # CurveGen_hxx < Adaptor3d_HCurve . hxx > [NewLine] # IntCurveSurface_HCurveTool IntCurveSurface_TheHCurveTool [NewLine] # IntCurveSurface_HCurveTool_hxx < IntCurveSurface_TheHCurveTool . hxx > [NewLine] # < IntCurveSurface_HCurveTool . lxx > [NewLine] # CurveGen [NewLine] # CurveGen_hxx [NewLine] # IntCurveSurface_HCurveTool [NewLine] # IntCurveSurface_HCurveTool_hxx [NewLine] #  _IntCurveSurface_TheHCurveTool_HeaderFile
 ## Error: did not expect <!!!
+

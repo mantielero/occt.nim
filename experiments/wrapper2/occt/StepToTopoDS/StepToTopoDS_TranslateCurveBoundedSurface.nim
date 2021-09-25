@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Face, StepToTopoDS_Root,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of StepGeom_CurveBoundedSurface"
 discard "forward decl of Transfer_TransientProcess"
 discard "forward decl of TopoDS_Face"
@@ -36,14 +31,13 @@ proc constructStepToTopoDS_TranslateCurveBoundedSurface*(): StepToTopoDS_Transla
     constructor, importcpp: "StepToTopoDS_TranslateCurveBoundedSurface(@)",
     header: "StepToTopoDS_TranslateCurveBoundedSurface.hxx".}
 proc constructStepToTopoDS_TranslateCurveBoundedSurface*(
-    CBS: handle[StepGeom_CurveBoundedSurface];
-    TP: handle[Transfer_TransientProcess]): StepToTopoDS_TranslateCurveBoundedSurface {.
+    cbs: Handle[StepGeomCurveBoundedSurface]; tp: Handle[TransferTransientProcess]): StepToTopoDS_TranslateCurveBoundedSurface {.
     constructor, importcpp: "StepToTopoDS_TranslateCurveBoundedSurface(@)",
     header: "StepToTopoDS_TranslateCurveBoundedSurface.hxx".}
-proc Init*(this: var StepToTopoDS_TranslateCurveBoundedSurface;
-          CBS: handle[StepGeom_CurveBoundedSurface];
-          TP: handle[Transfer_TransientProcess]): Standard_Boolean {.
-    importcpp: "Init", header: "StepToTopoDS_TranslateCurveBoundedSurface.hxx".}
-proc Value*(this: StepToTopoDS_TranslateCurveBoundedSurface): TopoDS_Face {.
+proc init*(this: var StepToTopoDS_TranslateCurveBoundedSurface;
+          cbs: Handle[StepGeomCurveBoundedSurface];
+          tp: Handle[TransferTransientProcess]): bool {.importcpp: "Init",
+    header: "StepToTopoDS_TranslateCurveBoundedSurface.hxx".}
+proc value*(this: StepToTopoDS_TranslateCurveBoundedSurface): TopoDS_Face {.
     noSideEffect, importcpp: "Value",
     header: "StepToTopoDS_TranslateCurveBoundedSurface.hxx".}

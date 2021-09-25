@@ -13,8 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TDF_Label, TDF_LabelMapHasher, ../NCollection/NCollection_IndexedMap
-
 type
-  TDF_LabelIndexedMap* = NCollection_IndexedMap[TDF_Label, TDF_LabelMapHasher]
+  TDF_LabelIndexedMap* = NCollectionIndexedMap[TDF_Label, TDF_LabelMapHasher]
+

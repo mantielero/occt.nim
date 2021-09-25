@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Interface/Interface_Graph,
-  ../Interface/Interface_GraphContent
-
 discard "forward decl of Interface_Graph"
 discard "forward decl of Standard_Transient"
 type
-  IFGraph_AllConnected* {.importcpp: "IFGraph_AllConnected",
-                         header: "IFGraph_AllConnected.hxx", bycopy.} = object of Interface_GraphContent ##
-                                                                                                  ## !
-                                                                                                  ## creates
-                                                                                                  ## an
-                                                                                                  ## AllConnected
-                                                                                                  ## from
-                                                                                                  ## a
-                                                                                                  ## graph,
-                                                                                                  ## empty
-                                                                                                  ## ready
-                                                                                                  ## to
-                                                                                                  ## be
-                                                                                                  ## filled
+  IFGraphAllConnected* {.importcpp: "IFGraph_AllConnected",
+                        header: "IFGraph_AllConnected.hxx", bycopy.} = object of InterfaceGraphContent ##
+                                                                                                ## !
+                                                                                                ## creates
+                                                                                                ## an
+                                                                                                ## AllConnected
+                                                                                                ## from
+                                                                                                ## a
+                                                                                                ## graph,
+                                                                                                ## empty
+                                                                                                ## ready
+                                                                                                ## to
+                                                                                                ## be
+                                                                                                ## filled
 
 
-proc constructIFGraph_AllConnected*(agraph: Interface_Graph): IFGraph_AllConnected {.
+proc constructIFGraphAllConnected*(agraph: InterfaceGraph): IFGraphAllConnected {.
     constructor, importcpp: "IFGraph_AllConnected(@)",
     header: "IFGraph_AllConnected.hxx".}
-proc constructIFGraph_AllConnected*(agraph: Interface_Graph;
-                                   ent: handle[Standard_Transient]): IFGraph_AllConnected {.
+proc constructIFGraphAllConnected*(agraph: InterfaceGraph;
+                                  ent: Handle[StandardTransient]): IFGraphAllConnected {.
     constructor, importcpp: "IFGraph_AllConnected(@)",
     header: "IFGraph_AllConnected.hxx".}
-proc GetFromEntity*(this: var IFGraph_AllConnected; ent: handle[Standard_Transient]) {.
+proc getFromEntity*(this: var IFGraphAllConnected; ent: Handle[StandardTransient]) {.
     importcpp: "GetFromEntity", header: "IFGraph_AllConnected.hxx".}
-proc ResetData*(this: var IFGraph_AllConnected) {.importcpp: "ResetData",
+proc resetData*(this: var IFGraphAllConnected) {.importcpp: "ResetData",
     header: "IFGraph_AllConnected.hxx".}
-proc Evaluate*(this: var IFGraph_AllConnected) {.importcpp: "Evaluate",
+proc evaluate*(this: var IFGraphAllConnected) {.importcpp: "Evaluate",
     header: "IFGraph_AllConnected.hxx".}

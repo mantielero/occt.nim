@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TDataStd/TDataStd_GenericEmpty, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
 discard "forward decl of TDocStd_Document"
@@ -34,90 +30,89 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of XCAFDoc_DocumentTool"
 discard "forward decl of XCAFDoc_DocumentTool"
 type
-  Handle_XCAFDoc_DocumentTool* = handle[XCAFDoc_DocumentTool]
+  HandleXCAFDocDocumentTool* = Handle[XCAFDocDocumentTool]
 
 ## ! Defines sections structure of an XDE document.
 ## ! attribute marking CAF document as being DECAF document.
 ## ! Creates the sections structure of the document.
 
 type
-  XCAFDoc_DocumentTool* {.importcpp: "XCAFDoc_DocumentTool",
-                         header: "XCAFDoc_DocumentTool.hxx", bycopy.} = object of TDataStd_GenericEmpty
+  XCAFDocDocumentTool* {.importcpp: "XCAFDoc_DocumentTool",
+                        header: "XCAFDoc_DocumentTool.hxx", bycopy.} = object of TDataStdGenericEmpty
 
 
-proc GetID*(): Standard_GUID {.importcpp: "XCAFDoc_DocumentTool::GetID(@)",
-                            header: "XCAFDoc_DocumentTool.hxx".}
-proc Set*(L: TDF_Label; IsAcces: Standard_Boolean = Standard_True): handle[
-    XCAFDoc_DocumentTool] {.importcpp: "XCAFDoc_DocumentTool::Set(@)",
+proc getID*(): StandardGUID {.importcpp: "XCAFDoc_DocumentTool::GetID(@)",
                            header: "XCAFDoc_DocumentTool.hxx".}
-proc IsXCAFDocument*(Doc: handle[TDocStd_Document]): Standard_Boolean {.
+proc set*(L: TDF_Label; isAcces: bool = true): Handle[XCAFDocDocumentTool] {.
+    importcpp: "XCAFDoc_DocumentTool::Set(@)", header: "XCAFDoc_DocumentTool.hxx".}
+proc isXCAFDocument*(doc: Handle[TDocStdDocument]): bool {.
     importcpp: "XCAFDoc_DocumentTool::IsXCAFDocument(@)",
     header: "XCAFDoc_DocumentTool.hxx".}
-proc DocLabel*(acces: TDF_Label): TDF_Label {.
+proc docLabel*(acces: TDF_Label): TDF_Label {.
     importcpp: "XCAFDoc_DocumentTool::DocLabel(@)",
     header: "XCAFDoc_DocumentTool.hxx".}
-proc ShapesLabel*(acces: TDF_Label): TDF_Label {.
+proc shapesLabel*(acces: TDF_Label): TDF_Label {.
     importcpp: "XCAFDoc_DocumentTool::ShapesLabel(@)",
     header: "XCAFDoc_DocumentTool.hxx".}
-proc ColorsLabel*(acces: TDF_Label): TDF_Label {.
+proc colorsLabel*(acces: TDF_Label): TDF_Label {.
     importcpp: "XCAFDoc_DocumentTool::ColorsLabel(@)",
     header: "XCAFDoc_DocumentTool.hxx".}
-proc LayersLabel*(acces: TDF_Label): TDF_Label {.
+proc layersLabel*(acces: TDF_Label): TDF_Label {.
     importcpp: "XCAFDoc_DocumentTool::LayersLabel(@)",
     header: "XCAFDoc_DocumentTool.hxx".}
-proc DGTsLabel*(acces: TDF_Label): TDF_Label {.
+proc dGTsLabel*(acces: TDF_Label): TDF_Label {.
     importcpp: "XCAFDoc_DocumentTool::DGTsLabel(@)",
     header: "XCAFDoc_DocumentTool.hxx".}
-proc MaterialsLabel*(acces: TDF_Label): TDF_Label {.
+proc materialsLabel*(acces: TDF_Label): TDF_Label {.
     importcpp: "XCAFDoc_DocumentTool::MaterialsLabel(@)",
     header: "XCAFDoc_DocumentTool.hxx".}
-proc ViewsLabel*(acces: TDF_Label): TDF_Label {.
+proc viewsLabel*(acces: TDF_Label): TDF_Label {.
     importcpp: "XCAFDoc_DocumentTool::ViewsLabel(@)",
     header: "XCAFDoc_DocumentTool.hxx".}
-proc ClippingPlanesLabel*(acces: TDF_Label): TDF_Label {.
+proc clippingPlanesLabel*(acces: TDF_Label): TDF_Label {.
     importcpp: "XCAFDoc_DocumentTool::ClippingPlanesLabel(@)",
     header: "XCAFDoc_DocumentTool.hxx".}
-proc NotesLabel*(acces: TDF_Label): TDF_Label {.
+proc notesLabel*(acces: TDF_Label): TDF_Label {.
     importcpp: "XCAFDoc_DocumentTool::NotesLabel(@)",
     header: "XCAFDoc_DocumentTool.hxx".}
-proc VisMaterialLabel*(theLabel: TDF_Label): TDF_Label {.
+proc visMaterialLabel*(theLabel: TDF_Label): TDF_Label {.
     importcpp: "XCAFDoc_DocumentTool::VisMaterialLabel(@)",
     header: "XCAFDoc_DocumentTool.hxx".}
-proc ShapeTool*(acces: TDF_Label): handle[XCAFDoc_ShapeTool] {.
+proc shapeTool*(acces: TDF_Label): Handle[XCAFDocShapeTool] {.
     importcpp: "XCAFDoc_DocumentTool::ShapeTool(@)",
     header: "XCAFDoc_DocumentTool.hxx".}
-proc ColorTool*(acces: TDF_Label): handle[XCAFDoc_ColorTool] {.
+proc colorTool*(acces: TDF_Label): Handle[XCAFDocColorTool] {.
     importcpp: "XCAFDoc_DocumentTool::ColorTool(@)",
     header: "XCAFDoc_DocumentTool.hxx".}
-proc VisMaterialTool*(theLabel: TDF_Label): handle[XCAFDoc_VisMaterialTool] {.
+proc visMaterialTool*(theLabel: TDF_Label): Handle[XCAFDocVisMaterialTool] {.
     importcpp: "XCAFDoc_DocumentTool::VisMaterialTool(@)",
     header: "XCAFDoc_DocumentTool.hxx".}
-proc LayerTool*(acces: TDF_Label): handle[XCAFDoc_LayerTool] {.
+proc layerTool*(acces: TDF_Label): Handle[XCAFDocLayerTool] {.
     importcpp: "XCAFDoc_DocumentTool::LayerTool(@)",
     header: "XCAFDoc_DocumentTool.hxx".}
-proc DimTolTool*(acces: TDF_Label): handle[XCAFDoc_DimTolTool] {.
+proc dimTolTool*(acces: TDF_Label): Handle[XCAFDocDimTolTool] {.
     importcpp: "XCAFDoc_DocumentTool::DimTolTool(@)",
     header: "XCAFDoc_DocumentTool.hxx".}
-proc MaterialTool*(acces: TDF_Label): handle[XCAFDoc_MaterialTool] {.
+proc materialTool*(acces: TDF_Label): Handle[XCAFDocMaterialTool] {.
     importcpp: "XCAFDoc_DocumentTool::MaterialTool(@)",
     header: "XCAFDoc_DocumentTool.hxx".}
-proc ViewTool*(acces: TDF_Label): handle[XCAFDoc_ViewTool] {.
+proc viewTool*(acces: TDF_Label): Handle[XCAFDocViewTool] {.
     importcpp: "XCAFDoc_DocumentTool::ViewTool(@)",
     header: "XCAFDoc_DocumentTool.hxx".}
-proc ClippingPlaneTool*(acces: TDF_Label): handle[XCAFDoc_ClippingPlaneTool] {.
+proc clippingPlaneTool*(acces: TDF_Label): Handle[XCAFDocClippingPlaneTool] {.
     importcpp: "XCAFDoc_DocumentTool::ClippingPlaneTool(@)",
     header: "XCAFDoc_DocumentTool.hxx".}
-proc NotesTool*(acces: TDF_Label): handle[XCAFDoc_NotesTool] {.
+proc notesTool*(acces: TDF_Label): Handle[XCAFDocNotesTool] {.
     importcpp: "XCAFDoc_DocumentTool::NotesTool(@)",
     header: "XCAFDoc_DocumentTool.hxx".}
-proc constructXCAFDoc_DocumentTool*(): XCAFDoc_DocumentTool {.constructor,
+proc constructXCAFDocDocumentTool*(): XCAFDocDocumentTool {.constructor,
     importcpp: "XCAFDoc_DocumentTool(@)", header: "XCAFDoc_DocumentTool.hxx".}
-proc Init*(this: XCAFDoc_DocumentTool) {.noSideEffect, importcpp: "Init",
-                                      header: "XCAFDoc_DocumentTool.hxx".}
-proc ID*(this: XCAFDoc_DocumentTool): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc init*(this: XCAFDocDocumentTool) {.noSideEffect, importcpp: "Init",
+                                     header: "XCAFDoc_DocumentTool.hxx".}
+proc id*(this: XCAFDocDocumentTool): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "XCAFDoc_DocumentTool.hxx".}
-proc AfterRetrieval*(this: var XCAFDoc_DocumentTool;
-                    forceIt: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc afterRetrieval*(this: var XCAFDocDocumentTool; forceIt: bool = false): bool {.
     importcpp: "AfterRetrieval", header: "XCAFDoc_DocumentTool.hxx".}
 ## !!!Ignored construct:  DEFINE_DERIVED_ATTRIBUTE ( XCAFDoc_DocumentTool , TDataStd_GenericEmpty ) }
 ## Error: token expected: ) but got: ,!!!
+

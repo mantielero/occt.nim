@@ -16,4 +16,5 @@
 
 discard "forward decl of TopOpeBRep_FacesIntersector"
 type
-  TopOpeBRep_PFacesIntersector* = ptr TopOpeBRep_FacesIntersector
+  TopOpeBRepPFacesIntersector* = ptr TopOpeBRepFacesIntersector
+

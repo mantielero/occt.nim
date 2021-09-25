@@ -11,44 +11,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Shape,
-  ../Standard/Standard_Transient, ../Message/Message_ProgressRange
-
 ## ! This is a common interface for meshing algorithms
 ## ! instantiated by Mesh Factory and implemented by plugins.
 
 type
-  BRepMesh_DiscretRoot* {.importcpp: "BRepMesh_DiscretRoot",
-                         header: "BRepMesh_DiscretRoot.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                              ## !
-                                                                                              ## Destructor
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Constructor
+  BRepMeshDiscretRoot* {.importcpp: "BRepMesh_DiscretRoot",
+                        header: "BRepMesh_DiscretRoot.hxx", bycopy.} = object of StandardTransient ##
+                                                                                            ## !
+                                                                                            ## Destructor
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Constructor
 
 
-proc destroyBRepMesh_DiscretRoot*(this: var BRepMesh_DiscretRoot) {.
+proc destroyBRepMeshDiscretRoot*(this: var BRepMeshDiscretRoot) {.
     importcpp: "#.~BRepMesh_DiscretRoot()", header: "BRepMesh_DiscretRoot.hxx".}
-proc SetShape*(this: var BRepMesh_DiscretRoot; theShape: TopoDS_Shape) {.
+proc setShape*(this: var BRepMeshDiscretRoot; theShape: TopoDS_Shape) {.
     importcpp: "SetShape", header: "BRepMesh_DiscretRoot.hxx".}
-proc Shape*(this: BRepMesh_DiscretRoot): TopoDS_Shape {.noSideEffect,
+proc shape*(this: BRepMeshDiscretRoot): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "BRepMesh_DiscretRoot.hxx".}
-proc IsDone*(this: BRepMesh_DiscretRoot): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "BRepMesh_DiscretRoot.hxx".}
-proc Perform*(this: var BRepMesh_DiscretRoot;
-             theRange: Message_ProgressRange = Message_ProgressRange()) {.
+proc isDone*(this: BRepMeshDiscretRoot): bool {.noSideEffect, importcpp: "IsDone",
+    header: "BRepMesh_DiscretRoot.hxx".}
+proc perform*(this: var BRepMeshDiscretRoot;
+             theRange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Perform", header: "BRepMesh_DiscretRoot.hxx".}
 type
-  BRepMesh_DiscretRootbase_type* = Standard_Transient
+  BRepMeshDiscretRootbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "BRepMesh_DiscretRoot::get_type_name(@)",
-                              header: "BRepMesh_DiscretRoot.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepMesh_DiscretRoot::get_type_name(@)",
+                            header: "BRepMesh_DiscretRoot.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepMesh_DiscretRoot::get_type_descriptor(@)",
     header: "BRepMesh_DiscretRoot.hxx".}
-proc DynamicType*(this: BRepMesh_DiscretRoot): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: BRepMeshDiscretRoot): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMesh_DiscretRoot.hxx".}
 discard "forward decl of BRepMesh_DiscretRoot"
 type
-  Handle_BRepMesh_DiscretRoot* = handle[BRepMesh_DiscretRoot]
+  HandleBRepMeshDiscretRoot* = Handle[BRepMeshDiscretRoot]
+

@@ -11,11 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../BRepAdaptor/BRepAdaptor_HSurface, ../Prs3d/Prs3d_Drawer,
-  ../Prs3d/Prs3d_Presentation, ../Prs3d/Prs3d_Root,
-  ../Prs3d/Prs3d_NListOfSequenceOfPnt
-
 ##  Computes the wireframe presentation of faces with
 ##  restrictions by displaying a given number of U and/or
 ##  V isoparametric curves. The isoparametric curves are
@@ -23,50 +18,45 @@ import
 ##  The presentation includes the restriction curves.
 
 type
-  StdPrs_WFRestrictedFace* {.importcpp: "StdPrs_WFRestrictedFace",
-                            header: "StdPrs_WFRestrictedFace.hxx", bycopy.} = object of Prs3d_Root
+  StdPrsWFRestrictedFace* {.importcpp: "StdPrs_WFRestrictedFace",
+                           header: "StdPrs_WFRestrictedFace.hxx", bycopy.} = object of Prs3dRoot
 
 
-proc Add*(thePresentation: handle[Prs3d_Presentation];
-         theFace: handle[BRepAdaptor_HSurface]; theDrawUIso: Standard_Boolean;
-         theDrawVIso: Standard_Boolean; theNbUIso: Standard_Integer;
-         theNbVIso: Standard_Integer; theDrawer: handle[Prs3d_Drawer];
-         theCurves: var Prs3d_NListOfSequenceOfPnt) {.
+proc add*(thePresentation: Handle[Prs3dPresentation];
+         theFace: Handle[BRepAdaptorHSurface]; theDrawUIso: bool; theDrawVIso: bool;
+         theNbUIso: int; theNbVIso: int; theDrawer: Handle[Prs3dDrawer];
+         theCurves: var Prs3dNListOfSequenceOfPnt) {.
     importcpp: "StdPrs_WFRestrictedFace::Add(@)",
     header: "StdPrs_WFRestrictedFace.hxx".}
-proc Add*(thePresentation: handle[Prs3d_Presentation];
-         theFace: handle[BRepAdaptor_HSurface]; theDrawer: handle[Prs3d_Drawer]) {.
+proc add*(thePresentation: Handle[Prs3dPresentation];
+         theFace: Handle[BRepAdaptorHSurface]; theDrawer: Handle[Prs3dDrawer]) {.
     importcpp: "StdPrs_WFRestrictedFace::Add(@)",
     header: "StdPrs_WFRestrictedFace.hxx".}
-proc Match*(theX: Standard_Real; theY: Standard_Real; theZ: Standard_Real;
-           theDistance: Standard_Real; theFace: handle[BRepAdaptor_HSurface];
-           theDrawUIso: Standard_Boolean; theDrawVIso: Standard_Boolean;
-           theDeflection: Standard_Real; theNbUIso: Standard_Integer;
-           theNbVIso: Standard_Integer; theDrawer: handle[Prs3d_Drawer]): Standard_Boolean {.
+proc match*(theX: float; theY: float; theZ: float; theDistance: float;
+           theFace: Handle[BRepAdaptorHSurface]; theDrawUIso: bool;
+           theDrawVIso: bool; theDeflection: float; theNbUIso: int; theNbVIso: int;
+           theDrawer: Handle[Prs3dDrawer]): bool {.
     importcpp: "StdPrs_WFRestrictedFace::Match(@)",
     header: "StdPrs_WFRestrictedFace.hxx".}
-proc Match*(theX: Standard_Real; theY: Standard_Real; theZ: Standard_Real;
-           theDistance: Standard_Real; theFace: handle[BRepAdaptor_HSurface];
-           theDrawer: handle[Prs3d_Drawer]): Standard_Boolean {.
+proc match*(theX: float; theY: float; theZ: float; theDistance: float;
+           theFace: Handle[BRepAdaptorHSurface]; theDrawer: Handle[Prs3dDrawer]): bool {.
     importcpp: "StdPrs_WFRestrictedFace::Match(@)",
     header: "StdPrs_WFRestrictedFace.hxx".}
-proc MatchUIso*(theX: Standard_Real; theY: Standard_Real; theZ: Standard_Real;
-               theDistance: Standard_Real; theFace: handle[BRepAdaptor_HSurface];
-               theDrawer: handle[Prs3d_Drawer]): Standard_Boolean {.
+proc matchUIso*(theX: float; theY: float; theZ: float; theDistance: float;
+               theFace: Handle[BRepAdaptorHSurface];
+               theDrawer: Handle[Prs3dDrawer]): bool {.
     importcpp: "StdPrs_WFRestrictedFace::MatchUIso(@)",
     header: "StdPrs_WFRestrictedFace.hxx".}
-proc MatchVIso*(theX: Standard_Real; theY: Standard_Real; theZ: Standard_Real;
-               theDistance: Standard_Real; theFace: handle[BRepAdaptor_HSurface];
-               theDrawer: handle[Prs3d_Drawer]): Standard_Boolean {.
+proc matchVIso*(theX: float; theY: float; theZ: float; theDistance: float;
+               theFace: Handle[BRepAdaptorHSurface];
+               theDrawer: Handle[Prs3dDrawer]): bool {.
     importcpp: "StdPrs_WFRestrictedFace::MatchVIso(@)",
     header: "StdPrs_WFRestrictedFace.hxx".}
-proc AddUIso*(thePresentation: handle[Prs3d_Presentation];
-             theFace: handle[BRepAdaptor_HSurface];
-             theDrawer: handle[Prs3d_Drawer]) {.
+proc addUIso*(thePresentation: Handle[Prs3dPresentation];
+             theFace: Handle[BRepAdaptorHSurface]; theDrawer: Handle[Prs3dDrawer]) {.
     importcpp: "StdPrs_WFRestrictedFace::AddUIso(@)",
     header: "StdPrs_WFRestrictedFace.hxx".}
-proc AddVIso*(thePresentation: handle[Prs3d_Presentation];
-             theFace: handle[BRepAdaptor_HSurface];
-             theDrawer: handle[Prs3d_Drawer]) {.
+proc addVIso*(thePresentation: Handle[Prs3dPresentation];
+             theFace: Handle[BRepAdaptorHSurface]; theDrawer: Handle[Prs3dDrawer]) {.
     importcpp: "StdPrs_WFRestrictedFace::AddVIso(@)",
     header: "StdPrs_WFRestrictedFace.hxx".}

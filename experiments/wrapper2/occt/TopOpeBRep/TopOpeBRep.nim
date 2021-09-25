@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_OStream,
-  TopOpeBRep_TypeLineCurve
-
 discard "forward decl of TopOpeBRep_VPointInter"
 discard "forward decl of TopOpeBRep_VPointInterIterator"
 discard "forward decl of TopOpeBRep_WPointInter"
@@ -56,5 +51,5 @@ type
                                                                              ## <S>.
 
 
-proc Print*(TLC: TopOpeBRep_TypeLineCurve; OS: var Standard_OStream): var Standard_OStream {.
+proc print*(tlc: TopOpeBRepTypeLineCurve; os: var StandardOStream): var StandardOStream {.
     importcpp: "TopOpeBRep::Print(@)", header: "TopOpeBRep.hxx".}

@@ -15,16 +15,10 @@
 
 ##  Use this macro to switch between STL and OCCT vector types
 
-import
-  ../Bnd/Bnd_Box, ../NCollection/NCollection_Mat4,
-  ../NCollection/NCollection_Vec2, ../NCollection/NCollection_Vec3,
-  ../NCollection/NCollection_Vector, ../Standard/Standard_OStream,
-  ../Standard/Standard_Type
-
 ##  GCC supports shrink function only in C++11 mode
 
-when defined(_BVH_USE_STD_VECTOR_) and defined(_MSC_VER) and
-    not defined(__INTEL_COMPILER):
+when defined(bvh_Use_Std_Vector) and defined(msc_Ver) and
+    not defined(intel_Compiler):
   discard
 ## ! Tool class for selecting appropriate vector type (Eigen or NCollection).
 ## ! \tparam T Numeric data type
@@ -44,16 +38,16 @@ type
 ## !!!Ignored construct:  template < class T > [end of template] struct VectorType < T , 3 > { typedef NCollection_Vec3 < T > Type ; } ;
 ## Error: identifier expected, but got: <!!!
 
-proc ToBndBox*[T](theMin: T; theMax: T): Bnd_Box =
+proc toBndBox*[T](theMin: T; theMax: T): BndBox =
   discard
 
-proc ToBndBox*[T](theMin: NCollection_Vec2[T]; theMax: NCollection_Vec2[T]): Bnd_Box =
+proc toBndBox*[T](theMin: NCollectionVec2[T]; theMax: NCollectionVec2[T]): BndBox =
   discard
 
-proc ToBndBox*[T](theMin: NCollection_Vec3[T]; theMax: NCollection_Vec3[T]): Bnd_Box =
+proc toBndBox*[T](theMin: NCollectionVec3[T]; theMax: NCollectionVec3[T]): BndBox =
   discard
 
-proc ToBndBox*[T](theMin: NCollection_Vec4[T]; theMax: NCollection_Vec4[T]): Bnd_Box =
+proc toBndBox*[T](theMin: NCollectionVec4[T]; theMax: NCollectionVec4[T]): BndBox =
   discard
 
 ## !!!Ignored construct:  template < class T > [end of template] struct VectorType < T , 4 > { typedef NCollection_Vec4 < T > Type ; } ;
@@ -81,122 +75,110 @@ type
 ## ! 2D vector of integers.
 
 type
-  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec2i* = Type[
-      Standard_Integer, 2]
+  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec2i* = Type[int, 2]
 
 ## ! 3D vector of integers.
 
 type
-  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec3i* = Type[
-      Standard_Integer, 3]
+  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec3i* = Type[int, 3]
 
 ## ! 4D vector of integers.
 
 type
-  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec4i* = Type[
-      Standard_Integer, 4]
+  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec4i* = Type[int, 4]
 
 ## ! Array of 2D vectors of integers.
 
 type
-  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array2i* = Type[
-      Standard_Integer, 2]
+  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array2i* = Type[int, 2]
 
 ## ! Array of 3D vectors of integers.
 
 type
-  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array3i* = Type[
-      Standard_Integer, 3]
+  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array3i* = Type[int, 3]
 
 ## ! Array of 4D vectors of integers.
 
 type
-  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array4i* = Type[
-      Standard_Integer, 4]
+  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array4i* = Type[int, 4]
 
 ## ! 2D vector of single precision reals.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec2f* = Type[
-      Standard_ShortReal, 2]
+      StandardShortReal, 2]
 
 ## ! 3D vector of single precision reals.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec3f* = Type[
-      Standard_ShortReal, 3]
+      StandardShortReal, 3]
 
 ## ! 4D vector of single precision reals.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec4f* = Type[
-      Standard_ShortReal, 4]
+      StandardShortReal, 4]
 
 ## ! Array of 2D vectors of single precision reals.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array2f* = Type[
-      Standard_ShortReal, 2]
+      StandardShortReal, 2]
 
 ## ! Array of 3D vectors of single precision reals.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array3f* = Type[
-      Standard_ShortReal, 3]
+      StandardShortReal, 3]
 
 ## ! Array of 4D vectors of single precision reals.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array4f* = Type[
-      Standard_ShortReal, 4]
+      StandardShortReal, 4]
 
 ## ! 2D vector of double precision reals.
 
 type
-  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec2d* = Type[
-      Standard_Real, 2]
+  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec2d* = Type[float, 2]
 
 ## ! 3D vector of double precision reals.
 
 type
-  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec3d* = Type[
-      Standard_Real, 3]
+  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec3d* = Type[float, 3]
 
 ## ! 4D vector of double precision reals.
 
 type
-  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec4d* = Type[
-      Standard_Real, 4]
+  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec4d* = Type[float, 4]
 
 ## ! Array of 2D vectors of double precision reals.
 
 type
-  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array2d* = Type[
-      Standard_Real, 2]
+  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array2d* = Type[float, 2]
 
 ## ! Array of 3D vectors of double precision reals.
 
 type
-  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array3d* = Type[
-      Standard_Real, 3]
+  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array3d* = Type[float, 3]
 
 ## ! Array of 4D vectors of double precision reals.
 
 type
-  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array4d* = Type[
-      Standard_Real, 4]
+  VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array4d* = Type[float, 4]
 
 ## ! 4x4 matrix of single precision reals.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Mat4f* = VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeType[
-      Standard_ShortReal, 4]
+      StandardShortReal, 4]
 
 ## ! 4x4 matrix of double precision reals.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Mat4d* = VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeType[
-      Standard_Real, 4]
+      float, 4]
 
 ## ! Tool class for accessing specific vector component (by index).
 ## ! \tparam T Numeric data type
@@ -226,5 +208,6 @@ type
 ## ! effect in case of NCollection based array. static inline void Reserve ( BVH_ArrayNt & theArray , const Standard_Integer theCount ) { # [NewLine] if ( Size ( theArray ) == theCount ) { # [NewLine] # ( defined ( _MSC_VER ) && ( _MSC_VER < 1600 ) ) [NewLine] BVH_ArrayNt aTmpArray ( theArray ) ; theArray . swap ( aTmpArray ) ; # [NewLine] theArray . shrink_to_fit ( ) ; # [NewLine] # [NewLine] } else { theArray . reserve ( theCount ) ; } # [NewLine]  do nothing # [NewLine] } } ;
 ## Error: token expected: > [end of template] but got: =!!!
 
-proc IntFloor*[T](theValue: T): Standard_Integer =
+proc intFloor*[T](theValue: T): int =
   discard
+

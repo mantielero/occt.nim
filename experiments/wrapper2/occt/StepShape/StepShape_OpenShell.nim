@@ -14,30 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_ConnectedFaceSet
-
 discard "forward decl of StepShape_OpenShell"
 discard "forward decl of StepShape_OpenShell"
 type
-  Handle_StepShape_OpenShell* = handle[StepShape_OpenShell]
-  StepShape_OpenShell* {.importcpp: "StepShape_OpenShell",
-                        header: "StepShape_OpenShell.hxx", bycopy.} = object of StepShape_ConnectedFaceSet ##
-                                                                                                    ## !
-                                                                                                    ## Returns
-                                                                                                    ## a
-                                                                                                    ## OpenShell
+  HandleStepShapeOpenShell* = Handle[StepShapeOpenShell]
+  StepShapeOpenShell* {.importcpp: "StepShape_OpenShell",
+                       header: "StepShape_OpenShell.hxx", bycopy.} = object of StepShapeConnectedFaceSet ##
+                                                                                                  ## !
+                                                                                                  ## Returns
+                                                                                                  ## a
+                                                                                                  ## OpenShell
 
 
-proc constructStepShape_OpenShell*(): StepShape_OpenShell {.constructor,
+proc constructStepShapeOpenShell*(): StepShapeOpenShell {.constructor,
     importcpp: "StepShape_OpenShell(@)", header: "StepShape_OpenShell.hxx".}
 type
-  StepShape_OpenShellbase_type* = StepShape_ConnectedFaceSet
+  StepShapeOpenShellbaseType* = StepShapeConnectedFaceSet
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_OpenShell::get_type_name(@)",
-                              header: "StepShape_OpenShell.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_OpenShell::get_type_name(@)",
+                            header: "StepShape_OpenShell.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_OpenShell::get_type_descriptor(@)",
     header: "StepShape_OpenShell.hxx".}
-proc DynamicType*(this: StepShape_OpenShell): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepShapeOpenShell): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_OpenShell.hxx".}

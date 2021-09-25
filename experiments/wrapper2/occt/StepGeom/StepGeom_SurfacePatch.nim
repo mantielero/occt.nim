@@ -14,61 +14,56 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_TransitionCode,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Transient
-
 discard "forward decl of StepGeom_BoundedSurface"
 discard "forward decl of StepGeom_SurfacePatch"
 discard "forward decl of StepGeom_SurfacePatch"
 type
-  Handle_StepGeom_SurfacePatch* = handle[StepGeom_SurfacePatch]
-  StepGeom_SurfacePatch* {.importcpp: "StepGeom_SurfacePatch",
-                          header: "StepGeom_SurfacePatch.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                ## !
-                                                                                                ## Returns
-                                                                                                ## a
-                                                                                                ## SurfacePatch
+  HandleStepGeomSurfacePatch* = Handle[StepGeomSurfacePatch]
+  StepGeomSurfacePatch* {.importcpp: "StepGeom_SurfacePatch",
+                         header: "StepGeom_SurfacePatch.hxx", bycopy.} = object of StandardTransient ##
+                                                                                              ## !
+                                                                                              ## Returns
+                                                                                              ## a
+                                                                                              ## SurfacePatch
 
 
-proc constructStepGeom_SurfacePatch*(): StepGeom_SurfacePatch {.constructor,
+proc constructStepGeomSurfacePatch*(): StepGeomSurfacePatch {.constructor,
     importcpp: "StepGeom_SurfacePatch(@)", header: "StepGeom_SurfacePatch.hxx".}
-proc Init*(this: var StepGeom_SurfacePatch;
-          aParentSurface: handle[StepGeom_BoundedSurface];
-          aUTransition: StepGeom_TransitionCode;
-          aVTransition: StepGeom_TransitionCode; aUSense: Standard_Boolean;
-          aVSense: Standard_Boolean) {.importcpp: "Init",
-                                     header: "StepGeom_SurfacePatch.hxx".}
-proc SetParentSurface*(this: var StepGeom_SurfacePatch;
-                      aParentSurface: handle[StepGeom_BoundedSurface]) {.
+proc init*(this: var StepGeomSurfacePatch;
+          aParentSurface: Handle[StepGeomBoundedSurface];
+          aUTransition: StepGeomTransitionCode;
+          aVTransition: StepGeomTransitionCode; aUSense: bool; aVSense: bool) {.
+    importcpp: "Init", header: "StepGeom_SurfacePatch.hxx".}
+proc setParentSurface*(this: var StepGeomSurfacePatch;
+                      aParentSurface: Handle[StepGeomBoundedSurface]) {.
     importcpp: "SetParentSurface", header: "StepGeom_SurfacePatch.hxx".}
-proc ParentSurface*(this: StepGeom_SurfacePatch): handle[StepGeom_BoundedSurface] {.
+proc parentSurface*(this: StepGeomSurfacePatch): Handle[StepGeomBoundedSurface] {.
     noSideEffect, importcpp: "ParentSurface", header: "StepGeom_SurfacePatch.hxx".}
-proc SetUTransition*(this: var StepGeom_SurfacePatch;
-                    aUTransition: StepGeom_TransitionCode) {.
+proc setUTransition*(this: var StepGeomSurfacePatch;
+                    aUTransition: StepGeomTransitionCode) {.
     importcpp: "SetUTransition", header: "StepGeom_SurfacePatch.hxx".}
-proc UTransition*(this: StepGeom_SurfacePatch): StepGeom_TransitionCode {.
+proc uTransition*(this: StepGeomSurfacePatch): StepGeomTransitionCode {.
     noSideEffect, importcpp: "UTransition", header: "StepGeom_SurfacePatch.hxx".}
-proc SetVTransition*(this: var StepGeom_SurfacePatch;
-                    aVTransition: StepGeom_TransitionCode) {.
+proc setVTransition*(this: var StepGeomSurfacePatch;
+                    aVTransition: StepGeomTransitionCode) {.
     importcpp: "SetVTransition", header: "StepGeom_SurfacePatch.hxx".}
-proc VTransition*(this: StepGeom_SurfacePatch): StepGeom_TransitionCode {.
+proc vTransition*(this: StepGeomSurfacePatch): StepGeomTransitionCode {.
     noSideEffect, importcpp: "VTransition", header: "StepGeom_SurfacePatch.hxx".}
-proc SetUSense*(this: var StepGeom_SurfacePatch; aUSense: Standard_Boolean) {.
+proc setUSense*(this: var StepGeomSurfacePatch; aUSense: bool) {.
     importcpp: "SetUSense", header: "StepGeom_SurfacePatch.hxx".}
-proc USense*(this: StepGeom_SurfacePatch): Standard_Boolean {.noSideEffect,
-    importcpp: "USense", header: "StepGeom_SurfacePatch.hxx".}
-proc SetVSense*(this: var StepGeom_SurfacePatch; aVSense: Standard_Boolean) {.
+proc uSense*(this: StepGeomSurfacePatch): bool {.noSideEffect, importcpp: "USense",
+    header: "StepGeom_SurfacePatch.hxx".}
+proc setVSense*(this: var StepGeomSurfacePatch; aVSense: bool) {.
     importcpp: "SetVSense", header: "StepGeom_SurfacePatch.hxx".}
-proc VSense*(this: StepGeom_SurfacePatch): Standard_Boolean {.noSideEffect,
-    importcpp: "VSense", header: "StepGeom_SurfacePatch.hxx".}
+proc vSense*(this: StepGeomSurfacePatch): bool {.noSideEffect, importcpp: "VSense",
+    header: "StepGeom_SurfacePatch.hxx".}
 type
-  StepGeom_SurfacePatchbase_type* = Standard_Transient
+  StepGeomSurfacePatchbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_SurfacePatch::get_type_name(@)",
-                              header: "StepGeom_SurfacePatch.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_SurfacePatch::get_type_name(@)",
+                            header: "StepGeom_SurfacePatch.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_SurfacePatch::get_type_descriptor(@)",
     header: "StepGeom_SurfacePatch.hxx".}
-proc DynamicType*(this: StepGeom_SurfacePatch): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepGeom_SurfacePatch.hxx".}
+proc dynamicType*(this: StepGeomSurfacePatch): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepGeom_SurfacePatch.hxx".}

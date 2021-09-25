@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GC_Root, ../Geom/Geom_ConicalSurface
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Cone"
@@ -172,22 +168,19 @@ type
                                                                                      ## Resolution
 
 
-proc constructGC_MakeConicalSurface*(A2: gp_Ax2; Ang: Standard_Real;
-                                    Radius: Standard_Real): GC_MakeConicalSurface {.
+proc constructGC_MakeConicalSurface*(a2: Ax2; ang: float; radius: float): GC_MakeConicalSurface {.
     constructor, importcpp: "GC_MakeConicalSurface(@)",
     header: "GC_MakeConicalSurface.hxx".}
-proc constructGC_MakeConicalSurface*(C: gp_Cone): GC_MakeConicalSurface {.
+proc constructGC_MakeConicalSurface*(c: Cone): GC_MakeConicalSurface {.constructor,
+    importcpp: "GC_MakeConicalSurface(@)", header: "GC_MakeConicalSurface.hxx".}
+proc constructGC_MakeConicalSurface*(p1: Pnt; p2: Pnt; p3: Pnt; p4: Pnt): GC_MakeConicalSurface {.
     constructor, importcpp: "GC_MakeConicalSurface(@)",
     header: "GC_MakeConicalSurface.hxx".}
-proc constructGC_MakeConicalSurface*(P1: gp_Pnt; P2: gp_Pnt; P3: gp_Pnt; P4: gp_Pnt): GC_MakeConicalSurface {.
+proc constructGC_MakeConicalSurface*(p1: Pnt; p2: Pnt; r1: float; r2: float): GC_MakeConicalSurface {.
     constructor, importcpp: "GC_MakeConicalSurface(@)",
     header: "GC_MakeConicalSurface.hxx".}
-proc constructGC_MakeConicalSurface*(P1: gp_Pnt; P2: gp_Pnt; R1: Standard_Real;
-                                    R2: Standard_Real): GC_MakeConicalSurface {.
-    constructor, importcpp: "GC_MakeConicalSurface(@)",
-    header: "GC_MakeConicalSurface.hxx".}
-proc Value*(this: GC_MakeConicalSurface): handle[Geom_ConicalSurface] {.
-    noSideEffect, importcpp: "Value", header: "GC_MakeConicalSurface.hxx".}
-converter `constopencascade`*(this: GC_MakeConicalSurface): handle[
-    Geom_ConicalSurface] {.noSideEffect, importcpp: "GC_MakeConicalSurface::operator constopencascade",
-                          header: "GC_MakeConicalSurface.hxx".}
+proc value*(this: GC_MakeConicalSurface): Handle[GeomConicalSurface] {.noSideEffect,
+    importcpp: "Value", header: "GC_MakeConicalSurface.hxx".}
+converter `constopencascade`*(this: GC_MakeConicalSurface): Handle[
+    GeomConicalSurface] {.noSideEffect, importcpp: "GC_MakeConicalSurface::operator constopencascade",
+                         header: "GC_MakeConicalSurface.hxx".}

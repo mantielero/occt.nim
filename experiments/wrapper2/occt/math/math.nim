@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer, math_Vector,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of math_Matrix"
 discard "forward decl of math_Function"
 discard "forward decl of math_FunctionWithDerivative"
@@ -60,20 +55,20 @@ discard "forward decl of math_ComputeGaussPointsAndWeights"
 discard "forward decl of math_ComputeKronrodPointsAndWeights"
 discard "forward decl of math_DoubleTab"
 type
-  math* {.importcpp: "math", header: "math.hxx", bycopy.} = object
+  Math* {.importcpp: "math", header: "math.hxx", bycopy.} = object
 
 
-proc GaussPointsMax*(): Standard_Integer {.importcpp: "math::GaussPointsMax(@)",
-                                        header: "math.hxx".}
-proc GaussPoints*(Index: Standard_Integer; Points: var math_Vector) {.
+proc gaussPointsMax*(): int {.importcpp: "math::GaussPointsMax(@)",
+                           header: "math.hxx".}
+proc gaussPoints*(index: int; points: var MathVector) {.
     importcpp: "math::GaussPoints(@)", header: "math.hxx".}
-proc GaussWeights*(Index: Standard_Integer; Weights: var math_Vector) {.
+proc gaussWeights*(index: int; weights: var MathVector) {.
     importcpp: "math::GaussWeights(@)", header: "math.hxx".}
-proc KronrodPointsMax*(): Standard_Integer {.
-    importcpp: "math::KronrodPointsMax(@)", header: "math.hxx".}
-proc OrderedGaussPointsAndWeights*(Index: Standard_Integer;
-                                  Points: var math_Vector; Weights: var math_Vector): Standard_Boolean {.
+proc kronrodPointsMax*(): int {.importcpp: "math::KronrodPointsMax(@)",
+                             header: "math.hxx".}
+proc orderedGaussPointsAndWeights*(index: int; points: var MathVector;
+                                  weights: var MathVector): bool {.
     importcpp: "math::OrderedGaussPointsAndWeights(@)", header: "math.hxx".}
-proc KronrodPointsAndWeights*(Index: Standard_Integer; Points: var math_Vector;
-                             Weights: var math_Vector): Standard_Boolean {.
+proc kronrodPointsAndWeights*(index: int; points: var MathVector;
+                             weights: var MathVector): bool {.
     importcpp: "math::KronrodPointsAndWeights(@)", header: "math.hxx".}

@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Adaptor2d_HOffsetCurve_HeaderFile [NewLine] # _Adaptor2d_HOffsetCurve_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # Adaptor2d_OffsetCurve.hxx [NewLine] # Adaptor2d_HCurve2d.hxx [NewLine] class Standard_OutOfRange ;
+## !!!Ignored construct:  # _Adaptor2d_HOffsetCurve_HeaderFile [NewLine] # _Adaptor2d_HOffsetCurve_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < Adaptor2d_OffsetCurve . hxx > [NewLine] # < Adaptor2d_HCurve2d . hxx > [NewLine] class Standard_OutOfRange ;
 ## Error: did not expect <!!!
 
 discard "forward decl of Standard_NoSuchObject"
@@ -24,37 +24,37 @@ discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of Adaptor2d_HOffsetCurve"
 discard "forward decl of Adaptor2d_HOffsetCurve"
 type
-  Handle_Adaptor2d_HOffsetCurveAdaptor2d_HOffsetCurve* = handle[
-      Adaptor2d_HOffsetCurve]
-  Adaptor2d_HOffsetCurve* {.importcpp: "Adaptor2d_HOffsetCurve",
-                           header: "Adaptor2d_HOffsetCurve.hxx", bycopy.} = object of Adaptor2d_HCurve2d ##
-                                                                                                  ## !
-                                                                                                  ## Creates
-                                                                                                  ## an
-                                                                                                  ## empty
-                                                                                                  ## GenHCurve2d.
+  HandleAdaptor2dHOffsetCurveAdaptor2dHOffsetCurve* = Handle[Adaptor2dHOffsetCurve]
+  Adaptor2dHOffsetCurve* {.importcpp: "Adaptor2d_HOffsetCurve",
+                          header: "Adaptor2d_HOffsetCurve.hxx", bycopy.} = object of Adaptor2dHCurve2d ##
+                                                                                                ## !
+                                                                                                ## Creates
+                                                                                                ## an
+                                                                                                ## empty
+                                                                                                ## GenHCurve2d.
 
 
-proc constructAdaptor2d_HOffsetCurve*(): Adaptor2d_HOffsetCurve {.constructor,
+proc constructAdaptor2dHOffsetCurve*(): Adaptor2dHOffsetCurve {.constructor,
     importcpp: "Adaptor2d_HOffsetCurve(@)", header: "Adaptor2d_HOffsetCurve.hxx".}
-proc constructAdaptor2d_HOffsetCurve*(C: Adaptor2d_OffsetCurve): Adaptor2d_HOffsetCurve {.
+proc constructAdaptor2dHOffsetCurve*(c: Adaptor2dOffsetCurve): Adaptor2dHOffsetCurve {.
     constructor, importcpp: "Adaptor2d_HOffsetCurve(@)",
     header: "Adaptor2d_HOffsetCurve.hxx".}
-proc Set*(this: var Adaptor2d_HOffsetCurve; C: Adaptor2d_OffsetCurve) {.
+proc set*(this: var Adaptor2dHOffsetCurve; c: Adaptor2dOffsetCurve) {.
     importcpp: "Set", header: "Adaptor2d_HOffsetCurve.hxx".}
-proc Curve2d*(this: Adaptor2d_HOffsetCurve): Adaptor2d_Curve2d {.noSideEffect,
+proc curve2d*(this: Adaptor2dHOffsetCurve): Adaptor2dCurve2d {.noSideEffect,
     importcpp: "Curve2d", header: "Adaptor2d_HOffsetCurve.hxx".}
-proc ChangeCurve2d*(this: var Adaptor2d_HOffsetCurve): var Adaptor2d_OffsetCurve {.
+proc changeCurve2d*(this: var Adaptor2dHOffsetCurve): var Adaptor2dOffsetCurve {.
     importcpp: "ChangeCurve2d", header: "Adaptor2d_HOffsetCurve.hxx".}
 type
-  Adaptor2d_HOffsetCurvebase_type* = Adaptor2d_HCurve2d
+  Adaptor2dHOffsetCurvebaseType* = Adaptor2dHCurve2d
 
-proc get_type_name*(): cstring {.importcpp: "Adaptor2d_HOffsetCurve::get_type_name(@)",
-                              header: "Adaptor2d_HOffsetCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Adaptor2d_HOffsetCurve::get_type_name(@)",
+                            header: "Adaptor2d_HOffsetCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Adaptor2d_HOffsetCurve::get_type_descriptor(@)",
     header: "Adaptor2d_HOffsetCurve.hxx".}
-proc DynamicType*(this: Adaptor2d_HOffsetCurve): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Adaptor2d_HOffsetCurve.hxx".}
-## !!!Ignored construct:  # TheCurve Adaptor2d_OffsetCurve [NewLine] # TheCurve_hxx < Adaptor2d_OffsetCurve . hxx > [NewLine] # Adaptor2d_GenHCurve2d Adaptor2d_HOffsetCurve [NewLine] # Adaptor2d_GenHCurve2d_hxx < Adaptor2d_HOffsetCurve . hxx > [NewLine] # Handle_Adaptor2d_GenHCurve2d opencascade :: handle < Adaptor2d_HOffsetCurve > [end of template] [NewLine] # < Adaptor2d_GenHCurve2d . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # Adaptor2d_GenHCurve2d [NewLine] # Adaptor2d_GenHCurve2d_hxx [NewLine] # Handle_Adaptor2d_GenHCurve2d [NewLine] #  _Adaptor2d_HOffsetCurve_HeaderFile [NewLine]
+proc dynamicType*(this: Adaptor2dHOffsetCurve): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Adaptor2d_HOffsetCurve.hxx".}
+## !!!Ignored construct:  # TheCurve Adaptor2d_OffsetCurve [NewLine] # TheCurve_hxx < Adaptor2d_OffsetCurve . hxx > [NewLine] # Adaptor2d_GenHCurve2d Adaptor2d_HOffsetCurve [NewLine] # Adaptor2d_GenHCurve2d_hxx < Adaptor2d_HOffsetCurve . hxx > [NewLine] # Handle_Adaptor2d_GenHCurve2d opencascade :: handle < Adaptor2d_HOffsetCurve > [end of template] [NewLine] # < Adaptor2d_GenHCurve2d . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # Adaptor2d_GenHCurve2d [NewLine] # Adaptor2d_GenHCurve2d_hxx [NewLine] # Handle_Adaptor2d_GenHCurve2d [NewLine] #  _Adaptor2d_HOffsetCurve_HeaderFile
 ## Error: did not expect <!!!
+

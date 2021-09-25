@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, StepToTopoDS_TranslateEdgeError,
-  ../TopoDS/TopoDS_Shape, StepToTopoDS_Root, ../Standard/Standard_Real
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of StepShape_Edge"
 discard "forward decl of StepToTopoDS_Tool"
@@ -40,23 +35,23 @@ type
 proc constructStepToTopoDS_TranslateEdge*(): StepToTopoDS_TranslateEdge {.
     constructor, importcpp: "StepToTopoDS_TranslateEdge(@)",
     header: "StepToTopoDS_TranslateEdge.hxx".}
-proc constructStepToTopoDS_TranslateEdge*(E: handle[StepShape_Edge];
-    T: var StepToTopoDS_Tool; NMTool: var StepToTopoDS_NMTool): StepToTopoDS_TranslateEdge {.
+proc constructStepToTopoDS_TranslateEdge*(e: Handle[StepShapeEdge];
+    t: var StepToTopoDS_Tool; nMTool: var StepToTopoDS_NMTool): StepToTopoDS_TranslateEdge {.
     constructor, importcpp: "StepToTopoDS_TranslateEdge(@)",
     header: "StepToTopoDS_TranslateEdge.hxx".}
-proc Init*(this: var StepToTopoDS_TranslateEdge; E: handle[StepShape_Edge];
-          T: var StepToTopoDS_Tool; NMTool: var StepToTopoDS_NMTool) {.
+proc init*(this: var StepToTopoDS_TranslateEdge; e: Handle[StepShapeEdge];
+          t: var StepToTopoDS_Tool; nMTool: var StepToTopoDS_NMTool) {.
     importcpp: "Init", header: "StepToTopoDS_TranslateEdge.hxx".}
-proc MakeFromCurve3D*(this: var StepToTopoDS_TranslateEdge;
-                     C3D: handle[StepGeom_Curve]; EC: handle[StepShape_EdgeCurve];
-                     Vend: handle[StepShape_Vertex]; preci: Standard_Real;
-                     E: var TopoDS_Edge; V1: var TopoDS_Vertex; V2: var TopoDS_Vertex;
-                     T: var StepToTopoDS_Tool) {.importcpp: "MakeFromCurve3D",
+proc makeFromCurve3D*(this: var StepToTopoDS_TranslateEdge;
+                     c3d: Handle[StepGeomCurve]; ec: Handle[StepShapeEdgeCurve];
+                     vend: Handle[StepShapeVertex]; preci: float;
+                     e: var TopoDS_Edge; v1: var TopoDS_Vertex; v2: var TopoDS_Vertex;
+                     t: var StepToTopoDS_Tool) {.importcpp: "MakeFromCurve3D",
     header: "StepToTopoDS_TranslateEdge.hxx".}
-proc MakePCurve*(this: StepToTopoDS_TranslateEdge; PCU: handle[StepGeom_Pcurve];
-                ConvSurf: handle[Geom_Surface]): handle[Geom2d_Curve] {.
-    noSideEffect, importcpp: "MakePCurve", header: "StepToTopoDS_TranslateEdge.hxx".}
-proc Value*(this: StepToTopoDS_TranslateEdge): TopoDS_Shape {.noSideEffect,
+proc makePCurve*(this: StepToTopoDS_TranslateEdge; pcu: Handle[StepGeomPcurve];
+                convSurf: Handle[GeomSurface]): Handle[Geom2dCurve] {.noSideEffect,
+    importcpp: "MakePCurve", header: "StepToTopoDS_TranslateEdge.hxx".}
+proc value*(this: StepToTopoDS_TranslateEdge): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "StepToTopoDS_TranslateEdge.hxx".}
-proc Error*(this: StepToTopoDS_TranslateEdge): StepToTopoDS_TranslateEdgeError {.
+proc error*(this: StepToTopoDS_TranslateEdge): StepToTopoDS_TranslateEdgeError {.
     noSideEffect, importcpp: "Error", header: "StepToTopoDS_TranslateEdge.hxx".}

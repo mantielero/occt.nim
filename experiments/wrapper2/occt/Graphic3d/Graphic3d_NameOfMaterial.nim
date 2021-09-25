@@ -18,63 +18,63 @@
 ## ! Each preset defines either physical (having natural color) or generic (mutable color) material (@sa Graphic3d_TypeOfMaterial).
 
 type
-  Graphic3d_NameOfMaterial* {.size: sizeof(cint),
-                             importcpp: "Graphic3d_NameOfMaterial",
-                             header: "Graphic3d_NameOfMaterial.hxx".} = enum
-    Graphic3d_NameOfMaterial_Brass, ## !< Brass        (Physic)
-    Graphic3d_NameOfMaterial_Bronze, ## !< Bronze       (Physic)
-    Graphic3d_NameOfMaterial_Copper, ## !< Copper       (Physic)
-    Graphic3d_NameOfMaterial_Gold, ## !< Gold         (Physic)
-    Graphic3d_NameOfMaterial_Pewter, ## !< Pewter       (Physic)
-    Graphic3d_NameOfMaterial_Plastered, ## !< Plastered    (Generic)
-    Graphic3d_NameOfMaterial_Plastified, ## !< Plastified   (Generic)
-    Graphic3d_NameOfMaterial_Silver, ## !< Silver       (Physic)
-    Graphic3d_NameOfMaterial_Steel, ## !< Steel        (Physic)
-    Graphic3d_NameOfMaterial_Stone, ## !< Stone        (Physic)
-    Graphic3d_NameOfMaterial_ShinyPlastified, ## !< Shiny Plastified (Generic)
-    Graphic3d_NameOfMaterial_Satin, ## !< Satin        (Generic)
-    Graphic3d_NameOfMaterial_Metalized, ## !< Metalized    (Generic)
-    Graphic3d_NameOfMaterial_Ionized, ## !< Ionized      (Generic)
-    Graphic3d_NameOfMaterial_Chrome, ## !< Chrome       (Physic)
-    Graphic3d_NameOfMaterial_Aluminum, ## !< Aluminum     (Physic)
-    Graphic3d_NameOfMaterial_Obsidian, ## !< Obsidian     (Physic)
-    Graphic3d_NameOfMaterial_Neon, ## !< Neon         (Physic)
-    Graphic3d_NameOfMaterial_Jade, ## !< Jade         (Physic)
-    Graphic3d_NameOfMaterial_Charcoal, ## !< Charcoal     (Physic)
-    Graphic3d_NameOfMaterial_Water, ## !< Water        (Physic)
-    Graphic3d_NameOfMaterial_Glass, ## !< Glass        (Physic)
-    Graphic3d_NameOfMaterial_Diamond, ## !< Diamond      (Physic)
-    Graphic3d_NameOfMaterial_Transparent, ## !< Transparent  (Physic)
-    Graphic3d_NameOfMaterial_DEFAULT, ## !< Default      (Generic);
-                                     ## !  normally used as out-of-range value pointing to some application default
-    Graphic3d_NameOfMaterial_UserDefined ## !< User-defined (Physic);
-                                        ## !  used for any material with non-standard definition
-                                        ##  old aliases
+  Graphic3dNameOfMaterial* {.size: sizeof(cint),
+                            importcpp: "Graphic3d_NameOfMaterial",
+                            header: "Graphic3d_NameOfMaterial.hxx".} = enum
+    Graphic3dNameOfMaterialBrass, ## !< Brass        (Physic)
+    Graphic3dNameOfMaterialBronze, ## !< Bronze       (Physic)
+    Graphic3dNameOfMaterialCopper, ## !< Copper       (Physic)
+    Graphic3dNameOfMaterialGold, ## !< Gold         (Physic)
+    Graphic3dNameOfMaterialPewter, ## !< Pewter       (Physic)
+    Graphic3dNameOfMaterialPlastered, ## !< Plastered    (Generic)
+    Graphic3dNameOfMaterialPlastified, ## !< Plastified   (Generic)
+    Graphic3dNameOfMaterialSilver, ## !< Silver       (Physic)
+    Graphic3dNameOfMaterialSteel, ## !< Steel        (Physic)
+    Graphic3dNameOfMaterialStone, ## !< Stone        (Physic)
+    Graphic3dNameOfMaterialShinyPlastified, ## !< Shiny Plastified (Generic)
+    Graphic3dNameOfMaterialSatin, ## !< Satin        (Generic)
+    Graphic3dNameOfMaterialMetalized, ## !< Metalized    (Generic)
+    Graphic3dNameOfMaterialIonized, ## !< Ionized      (Generic)
+    Graphic3dNameOfMaterialChrome, ## !< Chrome       (Physic)
+    Graphic3dNameOfMaterialAluminum, ## !< Aluminum     (Physic)
+    Graphic3dNameOfMaterialObsidian, ## !< Obsidian     (Physic)
+    Graphic3dNameOfMaterialNeon, ## !< Neon         (Physic)
+    Graphic3dNameOfMaterialJade, ## !< Jade         (Physic)
+    Graphic3dNameOfMaterialCharcoal, ## !< Charcoal     (Physic)
+    Graphic3dNameOfMaterialWater, ## !< Water        (Physic)
+    Graphic3dNameOfMaterialGlass, ## !< Glass        (Physic)
+    Graphic3dNameOfMaterialDiamond, ## !< Diamond      (Physic)
+    Graphic3dNameOfMaterialTransparent, ## !< Transparent  (Physic)
+    Graphic3dNameOfMaterialDEFAULT, ## !< Default      (Generic);
+                                   ## !  normally used as out-of-range value pointing to some application default
+    Graphic3dNameOfMaterialUserDefined, ## !< User-defined (Physic);
+                                       ## !  used for any material with non-standard definition
+                                       ##  old aliases
+    Graphic3dNOM_BRASS = graphic3dNameOfMaterialBrass,
+    Graphic3dNOM_BRONZE = graphic3dNameOfMaterialBronze,
+    Graphic3dNOM_COPPER = graphic3dNameOfMaterialCopper,
+    Graphic3dNOM_GOLD = graphic3dNameOfMaterialGold,
+    Graphic3dNOM_PEWTER = graphic3dNameOfMaterialPewter,
+    Graphic3dNOM_PLASTER = graphic3dNameOfMaterialPlastered,
+    Graphic3dNOM_PLASTIC = graphic3dNameOfMaterialPlastified,
+    Graphic3dNOM_SILVER = graphic3dNameOfMaterialSilver,
+    Graphic3dNOM_STEEL = graphic3dNameOfMaterialSteel,
+    Graphic3dNOM_STONE = graphic3dNameOfMaterialStone,
+    Graphic3dNOM_SHINY_PLASTIC = graphic3dNameOfMaterialShinyPlastified,
+    Graphic3dNOM_SATIN = graphic3dNameOfMaterialSatin,
+    Graphic3dNOM_METALIZED = graphic3dNameOfMaterialMetalized,
+    Graphic3dNOM_NEON_GNC = graphic3dNameOfMaterialIonized,
+    Graphic3dNOM_CHROME = graphic3dNameOfMaterialChrome,
+    Graphic3dNOM_ALUMINIUM = graphic3dNameOfMaterialAluminum,
+    Graphic3dNOM_OBSIDIAN = graphic3dNameOfMaterialObsidian,
+    Graphic3dNOM_NEON_PHC = graphic3dNameOfMaterialNeon,
+    Graphic3dNOM_JADE = graphic3dNameOfMaterialJade,
+    Graphic3dNOM_CHARCOAL = graphic3dNameOfMaterialCharcoal,
+    Graphic3dNOM_WATER = graphic3dNameOfMaterialWater,
+    Graphic3dNOM_GLASS = graphic3dNameOfMaterialGlass,
+    Graphic3dNOM_DIAMOND = graphic3dNameOfMaterialDiamond,
+    Graphic3dNOM_TRANSPARENT = graphic3dNameOfMaterialTransparent,
+    Graphic3dNOM_DEFAULT = graphic3dNameOfMaterialDEFAULT,
+    Graphic3dNOM_UserDefined = graphic3dNameOfMaterialUserDefined
 
-const
-  Graphic3d_NOM_BRASS* = Graphic3d_NameOfMaterial_Brass
-  Graphic3d_NOM_BRONZE* = Graphic3d_NameOfMaterial_Bronze
-  Graphic3d_NOM_COPPER* = Graphic3d_NameOfMaterial_Copper
-  Graphic3d_NOM_GOLD* = Graphic3d_NameOfMaterial_Gold
-  Graphic3d_NOM_PEWTER* = Graphic3d_NameOfMaterial_Pewter
-  Graphic3d_NOM_PLASTER* = Graphic3d_NameOfMaterial_Plastered
-  Graphic3d_NOM_PLASTIC* = Graphic3d_NameOfMaterial_Plastified
-  Graphic3d_NOM_SILVER* = Graphic3d_NameOfMaterial_Silver
-  Graphic3d_NOM_STEEL* = Graphic3d_NameOfMaterial_Steel
-  Graphic3d_NOM_STONE* = Graphic3d_NameOfMaterial_Stone
-  Graphic3d_NOM_SHINY_PLASTIC* = Graphic3d_NameOfMaterial_ShinyPlastified
-  Graphic3d_NOM_SATIN* = Graphic3d_NameOfMaterial_Satin
-  Graphic3d_NOM_METALIZED* = Graphic3d_NameOfMaterial_Metalized
-  Graphic3d_NOM_NEON_GNC* = Graphic3d_NameOfMaterial_Ionized
-  Graphic3d_NOM_CHROME* = Graphic3d_NameOfMaterial_Chrome
-  Graphic3d_NOM_ALUMINIUM* = Graphic3d_NameOfMaterial_Aluminum
-  Graphic3d_NOM_OBSIDIAN* = Graphic3d_NameOfMaterial_Obsidian
-  Graphic3d_NOM_NEON_PHC* = Graphic3d_NameOfMaterial_Neon
-  Graphic3d_NOM_JADE* = Graphic3d_NameOfMaterial_Jade
-  Graphic3d_NOM_CHARCOAL* = Graphic3d_NameOfMaterial_Charcoal
-  Graphic3d_NOM_WATER* = Graphic3d_NameOfMaterial_Water
-  Graphic3d_NOM_GLASS* = Graphic3d_NameOfMaterial_Glass
-  Graphic3d_NOM_DIAMOND* = Graphic3d_NameOfMaterial_Diamond
-  Graphic3d_NOM_TRANSPARENT* = Graphic3d_NameOfMaterial_Transparent
-  Graphic3d_NOM_DEFAULT* = Graphic3d_NameOfMaterial_DEFAULT
-  Graphic3d_NOM_UserDefined* = Graphic3d_NameOfMaterial_UserDefined
+

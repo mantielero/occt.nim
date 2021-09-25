@@ -33,6 +33,7 @@
 ## ! Crb and Surf are  C1
 
 type
-  IntCurveSurface_TransitionOnCurve* {.size: sizeof(cint), importcpp: "IntCurveSurface_TransitionOnCurve", header: "IntCurveSurface_TransitionOnCurve.hxx".} = enum
-    IntCurveSurface_Tangent, IntCurveSurface_In, IntCurveSurface_Out
+  IntCurveSurfaceTransitionOnCurve* {.size: sizeof(cint), importcpp: "IntCurveSurface_TransitionOnCurve", header: "IntCurveSurface_TransitionOnCurve.hxx".} = enum
+    IntCurveSurfaceTangent, IntCurveSurfaceIn, IntCurveSurfaceOut
+
 

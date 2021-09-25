@@ -14,36 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepAP214_AutoDesignOrganizationAssignment"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepAP214_RWAutoDesignOrganizationAssignment* {.
+  RWStepAP214RWAutoDesignOrganizationAssignment* {.
       importcpp: "RWStepAP214_RWAutoDesignOrganizationAssignment",
       header: "RWStepAP214_RWAutoDesignOrganizationAssignment.hxx", bycopy.} = object
 
 
-proc constructRWStepAP214_RWAutoDesignOrganizationAssignment*(): RWStepAP214_RWAutoDesignOrganizationAssignment {.
+proc constructRWStepAP214RWAutoDesignOrganizationAssignment*(): RWStepAP214RWAutoDesignOrganizationAssignment {.
     constructor, importcpp: "RWStepAP214_RWAutoDesignOrganizationAssignment(@)",
     header: "RWStepAP214_RWAutoDesignOrganizationAssignment.hxx".}
-proc ReadStep*(this: RWStepAP214_RWAutoDesignOrganizationAssignment;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepAP214_AutoDesignOrganizationAssignment]) {.
+proc readStep*(this: RWStepAP214RWAutoDesignOrganizationAssignment;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepAP214AutoDesignOrganizationAssignment]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepAP214_RWAutoDesignOrganizationAssignment.hxx".}
-proc WriteStep*(this: RWStepAP214_RWAutoDesignOrganizationAssignment;
-               SW: var StepData_StepWriter;
-               ent: handle[StepAP214_AutoDesignOrganizationAssignment]) {.
+proc writeStep*(this: RWStepAP214RWAutoDesignOrganizationAssignment;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepAP214AutoDesignOrganizationAssignment]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepAP214_RWAutoDesignOrganizationAssignment.hxx".}
-proc Share*(this: RWStepAP214_RWAutoDesignOrganizationAssignment;
-           ent: handle[StepAP214_AutoDesignOrganizationAssignment];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepAP214RWAutoDesignOrganizationAssignment;
+           ent: Handle[StepAP214AutoDesignOrganizationAssignment];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWAutoDesignOrganizationAssignment.hxx".}

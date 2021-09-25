@@ -13,40 +13,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_AnnotationPlaneElement, StepVisual_Array1OfAnnotationPlaneElement,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepVisual_HArray1OfAnnotationPlaneElement* {.
+  StepVisualHArray1OfAnnotationPlaneElement* {.
       importcpp: "StepVisual_HArray1OfAnnotationPlaneElement",
-      header: "StepVisual_HArray1OfAnnotationPlaneElement.hxx", bycopy.} = object of StepVisual_Array1OfAnnotationPlaneElement
+      header: "StepVisual_HArray1OfAnnotationPlaneElement.hxx", bycopy.} = object of StepVisualArray1OfAnnotationPlaneElement
 
 
-proc constructStepVisual_HArray1OfAnnotationPlaneElement*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepVisual_HArray1OfAnnotationPlaneElement {.
+proc constructStepVisualHArray1OfAnnotationPlaneElement*(theLower: int;
+    theUpper: int): StepVisualHArray1OfAnnotationPlaneElement {.constructor,
+    importcpp: "StepVisual_HArray1OfAnnotationPlaneElement(@)",
+    header: "StepVisual_HArray1OfAnnotationPlaneElement.hxx".}
+proc constructStepVisualHArray1OfAnnotationPlaneElement*(theLower: int;
+    theUpper: int; theValue: ValueType): StepVisualHArray1OfAnnotationPlaneElement {.
     constructor, importcpp: "StepVisual_HArray1OfAnnotationPlaneElement(@)",
     header: "StepVisual_HArray1OfAnnotationPlaneElement.hxx".}
-proc constructStepVisual_HArray1OfAnnotationPlaneElement*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepVisual_HArray1OfAnnotationPlaneElement {.
+proc constructStepVisualHArray1OfAnnotationPlaneElement*(
+    theOther: StepVisualArray1OfAnnotationPlaneElement): StepVisualHArray1OfAnnotationPlaneElement {.
     constructor, importcpp: "StepVisual_HArray1OfAnnotationPlaneElement(@)",
     header: "StepVisual_HArray1OfAnnotationPlaneElement.hxx".}
-proc constructStepVisual_HArray1OfAnnotationPlaneElement*(
-    theOther: StepVisual_Array1OfAnnotationPlaneElement): StepVisual_HArray1OfAnnotationPlaneElement {.
-    constructor, importcpp: "StepVisual_HArray1OfAnnotationPlaneElement(@)",
-    header: "StepVisual_HArray1OfAnnotationPlaneElement.hxx".}
-proc Array1*(this: StepVisual_HArray1OfAnnotationPlaneElement): StepVisual_Array1OfAnnotationPlaneElement {.
+proc array1*(this: StepVisualHArray1OfAnnotationPlaneElement): StepVisualArray1OfAnnotationPlaneElement {.
     noSideEffect, importcpp: "Array1",
     header: "StepVisual_HArray1OfAnnotationPlaneElement.hxx".}
-proc ChangeArray1*(this: var StepVisual_HArray1OfAnnotationPlaneElement): var StepVisual_Array1OfAnnotationPlaneElement {.
+proc changeArray1*(this: var StepVisualHArray1OfAnnotationPlaneElement): var StepVisualArray1OfAnnotationPlaneElement {.
     importcpp: "ChangeArray1",
     header: "StepVisual_HArray1OfAnnotationPlaneElement.hxx".}
 type
-  StepVisual_HArray1OfAnnotationPlaneElementbase_type* = MMgt_TShared
+  StepVisualHArray1OfAnnotationPlaneElementbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_HArray1OfAnnotationPlaneElement::get_type_name(@)", header: "StepVisual_HArray1OfAnnotationPlaneElement.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_HArray1OfAnnotationPlaneElement::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepVisual_HArray1OfAnnotationPlaneElement::get_type_name(@)", header: "StepVisual_HArray1OfAnnotationPlaneElement.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_HArray1OfAnnotationPlaneElement::get_type_descriptor(@)",
     header: "StepVisual_HArray1OfAnnotationPlaneElement.hxx".}
-proc DynamicType*(this: StepVisual_HArray1OfAnnotationPlaneElement): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepVisual_HArray1OfAnnotationPlaneElement.hxx".}
+proc dynamicType*(this: StepVisualHArray1OfAnnotationPlaneElement): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepVisual_HArray1OfAnnotationPlaneElement.hxx".}

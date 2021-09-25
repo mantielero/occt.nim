@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../TColStd/TColStd_SequenceOfTransient, IFSelect_SelectBase,
-  ../TColStd/TColStd_HSequenceOfTransient, ../Standard/Standard_Integer
-
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_CopyControl"
@@ -29,7 +24,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectPointed"
 discard "forward decl of IFSelect_SelectPointed"
 type
-  Handle_IFSelect_SelectPointed* = handle[IFSelect_SelectPointed]
+  HandleIFSelectSelectPointed* = Handle[IFSelectSelectPointed]
 
 ## ! This type of Selection is intended to describe a direct
 ## ! selection without an explicit criterium, for instance the
@@ -39,63 +34,61 @@ type
 ## ! input : this use implies to clear the list once queried
 
 type
-  IFSelect_SelectPointed* {.importcpp: "IFSelect_SelectPointed",
-                           header: "IFSelect_SelectPointed.hxx", bycopy.} = object of IFSelect_SelectBase ##
-                                                                                                   ## !
-                                                                                                   ## Creates
-                                                                                                   ## a
-                                                                                                   ## SelectPointed
+  IFSelectSelectPointed* {.importcpp: "IFSelect_SelectPointed",
+                          header: "IFSelect_SelectPointed.hxx", bycopy.} = object of IFSelectSelectBase ##
+                                                                                                 ## !
+                                                                                                 ## Creates
+                                                                                                 ## a
+                                                                                                 ## SelectPointed
 
 
-proc constructIFSelect_SelectPointed*(): IFSelect_SelectPointed {.constructor,
+proc constructIFSelectSelectPointed*(): IFSelectSelectPointed {.constructor,
     importcpp: "IFSelect_SelectPointed(@)", header: "IFSelect_SelectPointed.hxx".}
-proc Clear*(this: var IFSelect_SelectPointed) {.importcpp: "Clear",
+proc clear*(this: var IFSelectSelectPointed) {.importcpp: "Clear",
     header: "IFSelect_SelectPointed.hxx".}
-proc IsSet*(this: IFSelect_SelectPointed): Standard_Boolean {.noSideEffect,
-    importcpp: "IsSet", header: "IFSelect_SelectPointed.hxx".}
-proc SetEntity*(this: var IFSelect_SelectPointed; item: handle[Standard_Transient]) {.
+proc isSet*(this: IFSelectSelectPointed): bool {.noSideEffect, importcpp: "IsSet",
+    header: "IFSelect_SelectPointed.hxx".}
+proc setEntity*(this: var IFSelectSelectPointed; item: Handle[StandardTransient]) {.
     importcpp: "SetEntity", header: "IFSelect_SelectPointed.hxx".}
-proc SetList*(this: var IFSelect_SelectPointed;
-             list: handle[TColStd_HSequenceOfTransient]) {.importcpp: "SetList",
+proc setList*(this: var IFSelectSelectPointed;
+             list: Handle[TColStdHSequenceOfTransient]) {.importcpp: "SetList",
     header: "IFSelect_SelectPointed.hxx".}
-proc Add*(this: var IFSelect_SelectPointed; item: handle[Standard_Transient]): Standard_Boolean {.
+proc add*(this: var IFSelectSelectPointed; item: Handle[StandardTransient]): bool {.
     importcpp: "Add", header: "IFSelect_SelectPointed.hxx".}
-proc Remove*(this: var IFSelect_SelectPointed; item: handle[Standard_Transient]): Standard_Boolean {.
+proc remove*(this: var IFSelectSelectPointed; item: Handle[StandardTransient]): bool {.
     importcpp: "Remove", header: "IFSelect_SelectPointed.hxx".}
-proc Toggle*(this: var IFSelect_SelectPointed; item: handle[Standard_Transient]): Standard_Boolean {.
+proc toggle*(this: var IFSelectSelectPointed; item: Handle[StandardTransient]): bool {.
     importcpp: "Toggle", header: "IFSelect_SelectPointed.hxx".}
-proc AddList*(this: var IFSelect_SelectPointed;
-             list: handle[TColStd_HSequenceOfTransient]): Standard_Boolean {.
+proc addList*(this: var IFSelectSelectPointed;
+             list: Handle[TColStdHSequenceOfTransient]): bool {.
     importcpp: "AddList", header: "IFSelect_SelectPointed.hxx".}
-proc RemoveList*(this: var IFSelect_SelectPointed;
-                list: handle[TColStd_HSequenceOfTransient]): Standard_Boolean {.
+proc removeList*(this: var IFSelectSelectPointed;
+                list: Handle[TColStdHSequenceOfTransient]): bool {.
     importcpp: "RemoveList", header: "IFSelect_SelectPointed.hxx".}
-proc ToggleList*(this: var IFSelect_SelectPointed;
-                list: handle[TColStd_HSequenceOfTransient]): Standard_Boolean {.
+proc toggleList*(this: var IFSelectSelectPointed;
+                list: Handle[TColStdHSequenceOfTransient]): bool {.
     importcpp: "ToggleList", header: "IFSelect_SelectPointed.hxx".}
-proc Rank*(this: IFSelect_SelectPointed; item: handle[Standard_Transient]): Standard_Integer {.
+proc rank*(this: IFSelectSelectPointed; item: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "Rank", header: "IFSelect_SelectPointed.hxx".}
-proc NbItems*(this: IFSelect_SelectPointed): Standard_Integer {.noSideEffect,
-    importcpp: "NbItems", header: "IFSelect_SelectPointed.hxx".}
-proc Item*(this: IFSelect_SelectPointed; num: Standard_Integer): handle[
-    Standard_Transient] {.noSideEffect, importcpp: "Item",
-                         header: "IFSelect_SelectPointed.hxx".}
-proc Update*(this: var IFSelect_SelectPointed;
-            control: handle[Interface_CopyControl]) {.importcpp: "Update",
+proc nbItems*(this: IFSelectSelectPointed): int {.noSideEffect, importcpp: "NbItems",
     header: "IFSelect_SelectPointed.hxx".}
-proc Update*(this: var IFSelect_SelectPointed; trf: handle[IFSelect_Transformer]) {.
+proc item*(this: IFSelectSelectPointed; num: int): Handle[StandardTransient] {.
+    noSideEffect, importcpp: "Item", header: "IFSelect_SelectPointed.hxx".}
+proc update*(this: var IFSelectSelectPointed; control: Handle[InterfaceCopyControl]) {.
     importcpp: "Update", header: "IFSelect_SelectPointed.hxx".}
-proc RootResult*(this: IFSelect_SelectPointed; G: Interface_Graph): Interface_EntityIterator {.
+proc update*(this: var IFSelectSelectPointed; trf: Handle[IFSelectTransformer]) {.
+    importcpp: "Update", header: "IFSelect_SelectPointed.hxx".}
+proc rootResult*(this: IFSelectSelectPointed; g: InterfaceGraph): InterfaceEntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "IFSelect_SelectPointed.hxx".}
-proc Label*(this: IFSelect_SelectPointed): TCollection_AsciiString {.noSideEffect,
+proc label*(this: IFSelectSelectPointed): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_SelectPointed.hxx".}
 type
-  IFSelect_SelectPointedbase_type* = IFSelect_SelectBase
+  IFSelectSelectPointedbaseType* = IFSelectSelectBase
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectPointed::get_type_name(@)",
-                              header: "IFSelect_SelectPointed.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectPointed::get_type_name(@)",
+                            header: "IFSelect_SelectPointed.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_SelectPointed::get_type_descriptor(@)",
     header: "IFSelect_SelectPointed.hxx".}
-proc DynamicType*(this: IFSelect_SelectPointed): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IFSelect_SelectPointed.hxx".}
+proc dynamicType*(this: IFSelectSelectPointed): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IFSelect_SelectPointed.hxx".}

@@ -13,22 +13,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  math_BullardGenerator, math_MultipleVarFunction, math_Vector
-
 discard "forward decl of math_PSOParticlesPool"
 type
-  math_PSO* {.importcpp: "math_PSO", header: "math_PSO.hxx", bycopy.} = object ## *
-                                                                       ##  Constructor.
-                                                                       ##
-                                                                       ##  @param theFunc defines the objective function. It should exist during all lifetime of class instance.
-                                                                       ##  @param theLowBorder defines lower border of search space.
-                                                                       ##  @param theUppBorder defines upper border of search space.
-                                                                       ##  @param theSteps defines steps of regular grid, used for particle generation.
-                                                                       ##                     This parameter used to define stop condition (TerminalVelocity).
-                                                                       ##  @param theNbParticles defines number of particles.
-                                                                       ##  @param theNbIter defines maximum number of iterations.
-                                                                       ##
+  MathPSO* {.importcpp: "math_PSO", header: "math_PSO.hxx", bycopy.} = object ## *
+                                                                      ##  Constructor.
+                                                                      ##
+                                                                      ##  @param theFunc defines the objective function. It should exist during all lifetime of class instance.
+                                                                      ##  @param theLowBorder defines lower border of search space.
+                                                                      ##  @param theUppBorder defines upper border of search space.
+                                                                      ##  @param theSteps defines steps of regular grid, used for particle generation.
+                                                                      ##                     This parameter used to define stop condition (TerminalVelocity).
+                                                                      ##  @param theNbParticles defines number of particles.
+                                                                      ##  @param theNbIter defines maximum number of iterations.
+                                                                      ##
     ##  Lower border.
     ##  Upper border.
     ##  steps used in PSO algorithm.
@@ -36,16 +33,14 @@ type
     ##  Particles number.
 
 
-proc constructmath_PSO*(theFunc: ptr math_MultipleVarFunction;
-                       theLowBorder: math_Vector; theUppBorder: math_Vector;
-                       theSteps: math_Vector;
-                       theNbParticles: Standard_Integer = 32;
-                       theNbIter: Standard_Integer = 100): math_PSO {.constructor,
+proc constructMathPSO*(theFunc: ptr MathMultipleVarFunction;
+                      theLowBorder: MathVector; theUppBorder: MathVector;
+                      theSteps: MathVector; theNbParticles: int = 32;
+                      theNbIter: int = 100): MathPSO {.constructor,
     importcpp: "math_PSO(@)", header: "math_PSO.hxx".}
-proc Perform*(this: var math_PSO; theSteps: math_Vector; theValue: var Standard_Real;
-             theOutPnt: var math_Vector; theNbIter: Standard_Integer = 100) {.
-    importcpp: "Perform", header: "math_PSO.hxx".}
-proc Perform*(this: var math_PSO; theParticles: var math_PSOParticlesPool;
-             theNbParticles: Standard_Integer; theValue: var Standard_Real;
-             theOutPnt: var math_Vector; theNbIter: Standard_Integer = 100) {.
-    importcpp: "Perform", header: "math_PSO.hxx".}
+proc perform*(this: var MathPSO; theSteps: MathVector; theValue: var float;
+             theOutPnt: var MathVector; theNbIter: int = 100) {.importcpp: "Perform",
+    header: "math_PSO.hxx".}
+proc perform*(this: var MathPSO; theParticles: var MathPSOParticlesPool;
+             theNbParticles: int; theValue: var float; theOutPnt: var MathVector;
+             theNbIter: int = 100) {.importcpp: "Perform", header: "math_PSO.hxx".}

@@ -14,27 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_LimitsAndFits"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepShape_RWLimitsAndFits* {.importcpp: "RWStepShape_RWLimitsAndFits",
-                                header: "RWStepShape_RWLimitsAndFits.hxx", bycopy.} = object
+  RWStepShapeRWLimitsAndFits* {.importcpp: "RWStepShape_RWLimitsAndFits",
+                               header: "RWStepShape_RWLimitsAndFits.hxx", bycopy.} = object
 
 
-proc constructRWStepShape_RWLimitsAndFits*(): RWStepShape_RWLimitsAndFits {.
+proc constructRWStepShapeRWLimitsAndFits*(): RWStepShapeRWLimitsAndFits {.
     constructor, importcpp: "RWStepShape_RWLimitsAndFits(@)",
     header: "RWStepShape_RWLimitsAndFits.hxx".}
-proc ReadStep*(this: RWStepShape_RWLimitsAndFits;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepShape_LimitsAndFits]) {.noSideEffect,
-    importcpp: "ReadStep", header: "RWStepShape_RWLimitsAndFits.hxx".}
-proc WriteStep*(this: RWStepShape_RWLimitsAndFits; SW: var StepData_StepWriter;
-               ent: handle[StepShape_LimitsAndFits]) {.noSideEffect,
+proc readStep*(this: RWStepShapeRWLimitsAndFits;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck]; ent: Handle[StepShapeLimitsAndFits]) {.
+    noSideEffect, importcpp: "ReadStep", header: "RWStepShape_RWLimitsAndFits.hxx".}
+proc writeStep*(this: RWStepShapeRWLimitsAndFits; sw: var StepDataStepWriter;
+               ent: Handle[StepShapeLimitsAndFits]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWLimitsAndFits.hxx".}

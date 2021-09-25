@@ -14,47 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_Dispatch,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Interface_Graph"
 discard "forward decl of IFGraph_SubPartsIterator"
 discard "forward decl of IFSelect_DispGlobal"
 discard "forward decl of IFSelect_DispGlobal"
 type
-  Handle_IFSelect_DispGlobal* = handle[IFSelect_DispGlobal]
+  HandleIFSelectDispGlobal* = Handle[IFSelectDispGlobal]
 
 ## ! A DispGlobal gathers all the input Entities into only one
 ## ! global Packet
 
 type
-  IFSelect_DispGlobal* {.importcpp: "IFSelect_DispGlobal",
-                        header: "IFSelect_DispGlobal.hxx", bycopy.} = object of IFSelect_Dispatch ##
-                                                                                           ## !
-                                                                                           ## Creates
-                                                                                           ## a
-                                                                                           ## DispGlobal
+  IFSelectDispGlobal* {.importcpp: "IFSelect_DispGlobal",
+                       header: "IFSelect_DispGlobal.hxx", bycopy.} = object of IFSelectDispatch ##
+                                                                                         ## !
+                                                                                         ## Creates
+                                                                                         ## a
+                                                                                         ## DispGlobal
 
 
-proc constructIFSelect_DispGlobal*(): IFSelect_DispGlobal {.constructor,
+proc constructIFSelectDispGlobal*(): IFSelectDispGlobal {.constructor,
     importcpp: "IFSelect_DispGlobal(@)", header: "IFSelect_DispGlobal.hxx".}
-proc Label*(this: IFSelect_DispGlobal): TCollection_AsciiString {.noSideEffect,
+proc label*(this: IFSelectDispGlobal): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_DispGlobal.hxx".}
-proc LimitedMax*(this: IFSelect_DispGlobal; nbent: Standard_Integer;
-                max: var Standard_Integer): Standard_Boolean {.noSideEffect,
-    importcpp: "LimitedMax", header: "IFSelect_DispGlobal.hxx".}
-proc Packets*(this: IFSelect_DispGlobal; G: Interface_Graph;
-             packs: var IFGraph_SubPartsIterator) {.noSideEffect,
+proc limitedMax*(this: IFSelectDispGlobal; nbent: int; max: var int): bool {.
+    noSideEffect, importcpp: "LimitedMax", header: "IFSelect_DispGlobal.hxx".}
+proc packets*(this: IFSelectDispGlobal; g: InterfaceGraph;
+             packs: var IFGraphSubPartsIterator) {.noSideEffect,
     importcpp: "Packets", header: "IFSelect_DispGlobal.hxx".}
 type
-  IFSelect_DispGlobalbase_type* = IFSelect_Dispatch
+  IFSelectDispGlobalbaseType* = IFSelectDispatch
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_DispGlobal::get_type_name(@)",
-                              header: "IFSelect_DispGlobal.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_DispGlobal::get_type_name(@)",
+                            header: "IFSelect_DispGlobal.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_DispGlobal::get_type_descriptor(@)",
     header: "IFSelect_DispGlobal.hxx".}
-proc DynamicType*(this: IFSelect_DispGlobal): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IFSelectDispGlobal): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_DispGlobal.hxx".}

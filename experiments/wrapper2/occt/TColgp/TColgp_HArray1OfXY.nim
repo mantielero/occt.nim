@@ -14,36 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_XY, TColgp_Array1OfXY, ../NCollection/NCollection_DefineHArray1
-
 type
-  TColgp_HArray1OfXY* {.importcpp: "TColgp_HArray1OfXY",
-                       header: "TColgp_HArray1OfXY.hxx", bycopy.} = object of TColgp_Array1OfXY
+  TColgpHArray1OfXY* {.importcpp: "TColgp_HArray1OfXY",
+                      header: "TColgp_HArray1OfXY.hxx", bycopy.} = object of TColgpArray1OfXY
 
 
-proc constructTColgp_HArray1OfXY*(theLower: Standard_Integer;
-                                 theUpper: Standard_Integer): TColgp_HArray1OfXY {.
+proc constructTColgpHArray1OfXY*(theLower: int; theUpper: int): TColgpHArray1OfXY {.
     constructor, importcpp: "TColgp_HArray1OfXY(@)",
     header: "TColgp_HArray1OfXY.hxx".}
-proc constructTColgp_HArray1OfXY*(theLower: Standard_Integer;
-                                 theUpper: Standard_Integer; theValue: value_type): TColgp_HArray1OfXY {.
+proc constructTColgpHArray1OfXY*(theLower: int; theUpper: int; theValue: ValueType): TColgpHArray1OfXY {.
     constructor, importcpp: "TColgp_HArray1OfXY(@)",
     header: "TColgp_HArray1OfXY.hxx".}
-proc constructTColgp_HArray1OfXY*(theOther: TColgp_Array1OfXY): TColgp_HArray1OfXY {.
+proc constructTColgpHArray1OfXY*(theOther: TColgpArray1OfXY): TColgpHArray1OfXY {.
     constructor, importcpp: "TColgp_HArray1OfXY(@)",
     header: "TColgp_HArray1OfXY.hxx".}
-proc Array1*(this: TColgp_HArray1OfXY): TColgp_Array1OfXY {.noSideEffect,
+proc array1*(this: TColgpHArray1OfXY): TColgpArray1OfXY {.noSideEffect,
     importcpp: "Array1", header: "TColgp_HArray1OfXY.hxx".}
-proc ChangeArray1*(this: var TColgp_HArray1OfXY): var TColgp_Array1OfXY {.
+proc changeArray1*(this: var TColgpHArray1OfXY): var TColgpArray1OfXY {.
     importcpp: "ChangeArray1", header: "TColgp_HArray1OfXY.hxx".}
 type
-  TColgp_HArray1OfXYbase_type* = MMgt_TShared
+  TColgpHArray1OfXYbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TColgp_HArray1OfXY::get_type_name(@)",
-                              header: "TColgp_HArray1OfXY.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TColgp_HArray1OfXY::get_type_name(@)",
+                            header: "TColgp_HArray1OfXY.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TColgp_HArray1OfXY::get_type_descriptor(@)",
     header: "TColgp_HArray1OfXY.hxx".}
-proc DynamicType*(this: TColgp_HArray1OfXY): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TColgpHArray1OfXY): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TColgp_HArray1OfXY.hxx".}

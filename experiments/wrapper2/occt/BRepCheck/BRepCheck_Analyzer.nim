@@ -14,60 +14,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape,
-  BRepCheck_DataMapOfShapeResult, ../Standard/Standard_Boolean,
-  ../TopAbs/TopAbs_ShapeEnum
-
 discard "forward decl of Standard_NullObject"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepCheck_Result"
 type
-  BRepCheck_Analyzer* {.importcpp: "BRepCheck_Analyzer",
-                       header: "BRepCheck_Analyzer.hxx", bycopy.} = object ## ! Constructs a shape validation object defined by the shape S.
-                                                                      ## ! <S> is the  shape  to control.
-                                                                      ## <GeomControls>  If
-                                                                      ## ! False   only
-                                                                      ## topological
-                                                                      ## informaions  are checked.
-                                                                      ## ! The
-                                                                      ## geometricals controls are
-                                                                      ## ! For a Vertex :
-                                                                      ## !
-                                                                      ## BRepCheck_InvalidToleranceValue  NYI
-                                                                      ## ! For an Edge :
-                                                                      ## !
-                                                                      ## BRepCheck_InvalidCurveOnClosedSurface,
-                                                                      ## !
-                                                                      ## BRepCheck_InvalidCurveOnSurface,
-                                                                      ## !
-                                                                      ## BRepCheck_InvalidSameParameterFlag,
-                                                                      ## !
-                                                                      ## BRepCheck_InvalidToleranceValue  NYI
-                                                                      ## ! For a face :
-                                                                      ## !
-                                                                      ## BRepCheck_UnorientableShape,
-                                                                      ## !
-                                                                      ## BRepCheck_IntersectingWires,
-                                                                      ## !
-                                                                      ## BRepCheck_InvalidToleranceValue  NYI
-                                                                      ## ! For a wire :
-                                                                      ## !
-                                                                      ## BRepCheck_SelfIntersectingWire
+  BRepCheckAnalyzer* {.importcpp: "BRepCheck_Analyzer",
+                      header: "BRepCheck_Analyzer.hxx", bycopy.} = object ## ! Constructs a shape validation object defined by the shape S.
+                                                                     ## ! <S> is the  shape  to control.
+                                                                     ## <GeomControls>  If
+                                                                     ## ! False   only topological informaions  are checked.
+                                                                     ## ! The
+                                                                     ## geometricals controls are
+                                                                     ## ! For a Vertex :
+                                                                     ## !
+                                                                     ## BRepCheck_InvalidToleranceValue  NYI
+                                                                     ## ! For an Edge :
+                                                                     ## !
+                                                                     ## BRepCheck_InvalidCurveOnClosedSurface,
+                                                                     ## !
+                                                                     ## BRepCheck_InvalidCurveOnSurface,
+                                                                     ## !
+                                                                     ## BRepCheck_InvalidSameParameterFlag,
+                                                                     ## !
+                                                                     ## BRepCheck_InvalidToleranceValue  NYI
+                                                                     ## ! For a face :
+                                                                     ## !
+                                                                     ## BRepCheck_UnorientableShape,
+                                                                     ## !
+                                                                     ## BRepCheck_IntersectingWires,
+                                                                     ## !
+                                                                     ## BRepCheck_InvalidToleranceValue  NYI
+                                                                     ## ! For a wire :
+                                                                     ## !
+                                                                     ## BRepCheck_SelfIntersectingWire
 
 
-proc constructBRepCheck_Analyzer*(S: TopoDS_Shape;
-                                 GeomControls: Standard_Boolean = Standard_True): BRepCheck_Analyzer {.
+proc constructBRepCheckAnalyzer*(s: TopoDS_Shape; geomControls: bool = true): BRepCheckAnalyzer {.
     constructor, importcpp: "BRepCheck_Analyzer(@)",
     header: "BRepCheck_Analyzer.hxx".}
-proc Init*(this: var BRepCheck_Analyzer; S: TopoDS_Shape;
-          GeomControls: Standard_Boolean = Standard_True) {.importcpp: "Init",
-    header: "BRepCheck_Analyzer.hxx".}
-proc IsValid*(this: BRepCheck_Analyzer; S: TopoDS_Shape): Standard_Boolean {.
-    noSideEffect, importcpp: "IsValid", header: "BRepCheck_Analyzer.hxx".}
-proc IsValid*(this: BRepCheck_Analyzer): Standard_Boolean {.noSideEffect,
+proc init*(this: var BRepCheckAnalyzer; s: TopoDS_Shape; geomControls: bool = true) {.
+    importcpp: "Init", header: "BRepCheck_Analyzer.hxx".}
+proc isValid*(this: BRepCheckAnalyzer; s: TopoDS_Shape): bool {.noSideEffect,
     importcpp: "IsValid", header: "BRepCheck_Analyzer.hxx".}
-proc Result*(this: BRepCheck_Analyzer; SubS: TopoDS_Shape): handle[BRepCheck_Result] {.
+proc isValid*(this: BRepCheckAnalyzer): bool {.noSideEffect, importcpp: "IsValid",
+    header: "BRepCheck_Analyzer.hxx".}
+proc result*(this: BRepCheckAnalyzer; subS: TopoDS_Shape): Handle[BRepCheckResult] {.
     noSideEffect, importcpp: "Result", header: "BRepCheck_Analyzer.hxx".}

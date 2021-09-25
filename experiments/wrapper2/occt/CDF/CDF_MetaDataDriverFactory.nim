@@ -14,27 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of CDF_MetaDataDriver"
 discard "forward decl of CDF_MetaDataDriverFactory"
 discard "forward decl of CDF_MetaDataDriverFactory"
 type
-  Handle_CDF_MetaDataDriverFactory* = handle[CDF_MetaDataDriverFactory]
+  HandleCDF_MetaDataDriverFactory* = Handle[CDF_MetaDataDriverFactory]
   CDF_MetaDataDriverFactory* {.importcpp: "CDF_MetaDataDriverFactory",
-                              header: "CDF_MetaDataDriverFactory.hxx", bycopy.} = object of Standard_Transient
+                              header: "CDF_MetaDataDriverFactory.hxx", bycopy.} = object of StandardTransient
 
 
-proc Build*(this: CDF_MetaDataDriverFactory): handle[CDF_MetaDataDriver] {.
+proc build*(this: CDF_MetaDataDriverFactory): Handle[CDF_MetaDataDriver] {.
     noSideEffect, importcpp: "Build", header: "CDF_MetaDataDriverFactory.hxx".}
 type
-  CDF_MetaDataDriverFactorybase_type* = Standard_Transient
+  CDF_MetaDataDriverFactorybaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "CDF_MetaDataDriverFactory::get_type_name(@)",
-                              header: "CDF_MetaDataDriverFactory.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "CDF_MetaDataDriverFactory::get_type_name(@)",
+                            header: "CDF_MetaDataDriverFactory.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "CDF_MetaDataDriverFactory::get_type_descriptor(@)",
     header: "CDF_MetaDataDriverFactory.hxx".}
-proc DynamicType*(this: CDF_MetaDataDriverFactory): handle[Standard_Type] {.
+proc dynamicType*(this: CDF_MetaDataDriverFactory): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "CDF_MetaDataDriverFactory.hxx".}

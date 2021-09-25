@@ -11,69 +11,69 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _StdLPersistent_HArray1_HeaderFile [NewLine] # _StdLPersistent_HArray1_HeaderFile [NewLine] # ../Standard/Standard_NotImplemented.hxx [NewLine] # ../Standard/Standard_NullValue.hxx [NewLine] # ../StdObjMgt/StdObjMgt_Persistent.hxx [NewLine] # ../StdObjMgt/StdObjMgt_ReadData.hxx [NewLine] # ../StdObjMgt/StdObjMgt_WriteData.hxx [NewLine] # ../NCollection/NCollection_DefineHArray1.hxx [NewLine] # ../TColStd/TColStd_HArray1OfInteger.hxx [NewLine] # ../TColStd/TColStd_HArray1OfReal.hxx [NewLine] # ../TColStd/TColStd_HArray1OfByte.hxx [NewLine] class TCollection_HExtendedString ;
+## !!!Ignored construct:  # _StdLPersistent_HArray1_HeaderFile [NewLine] # _StdLPersistent_HArray1_HeaderFile [NewLine] # < Standard_NotImplemented . hxx > [NewLine] # < Standard_NullValue . hxx > [NewLine] # < StdObjMgt_Persistent . hxx > [NewLine] # < StdObjMgt_ReadData . hxx > [NewLine] # < StdObjMgt_WriteData . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] # < TColStd_HArray1OfInteger . hxx > [NewLine] # < TColStd_HArray1OfReal . hxx > [NewLine] # < TColStd_HArray1OfByte . hxx > [NewLine] class TCollection_HExtendedString ;
 ## Error: token expected: ( but got: <!!!
 
 discard "forward decl of TDF_Label"
 discard "forward decl of TDF_Data"
 type
-  StdLPersistent_HArray1StdLPersistent_HArray1OfPersistent* {.
+  StdLPersistentHArray1StdLPersistentHArray1OfPersistent* {.
       importcpp: "StdLPersistent_HArray1OfPersistent",
-      header: "StdLPersistent_HArray1.hxx", bycopy.} = object of NCollection_Array1[
-      handle[StdObjMgt_Persistent]]
+      header: "StdLPersistent_HArray1.hxx", bycopy.} = object of NCollectionArray1[
+      Handle[StdObjMgtPersistent]]
 
 
-proc constructStdLPersistent_HArray1StdLPersistent_HArray1OfPersistent*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StdLPersistent_HArray1StdLPersistent_HArray1OfPersistent {.
+proc constructStdLPersistentHArray1StdLPersistentHArray1OfPersistent*(
+    theLower: int; theUpper: int): StdLPersistentHArray1StdLPersistentHArray1OfPersistent {.
     constructor, importcpp: "StdLPersistent_HArray1OfPersistent(@)",
     header: "StdLPersistent_HArray1.hxx".}
-proc constructStdLPersistent_HArray1StdLPersistent_HArray1OfPersistent*(
-    theLower: Standard_Integer; theUpper: Standard_Integer;
-    theValue: value_type[handle[StdObjMgt_Persistent]]): StdLPersistent_HArray1StdLPersistent_HArray1OfPersistent {.
+proc constructStdLPersistentHArray1StdLPersistentHArray1OfPersistent*(
+    theLower: int; theUpper: int; theValue: ValueType[Handle[StdObjMgtPersistent]]): StdLPersistentHArray1StdLPersistentHArray1OfPersistent {.
     constructor, importcpp: "StdLPersistent_HArray1OfPersistent(@)",
     header: "StdLPersistent_HArray1.hxx".}
-proc constructStdLPersistent_HArray1StdLPersistent_HArray1OfPersistent*(
-    theOther: NCollection_Array1[handle[StdObjMgt_Persistent]]): StdLPersistent_HArray1StdLPersistent_HArray1OfPersistent {.
+proc constructStdLPersistentHArray1StdLPersistentHArray1OfPersistent*(
+    theOther: NCollectionArray1[Handle[StdObjMgtPersistent]]): StdLPersistentHArray1StdLPersistentHArray1OfPersistent {.
     constructor, importcpp: "StdLPersistent_HArray1OfPersistent(@)",
     header: "StdLPersistent_HArray1.hxx".}
-proc Array1*(this: StdLPersistent_HArray1StdLPersistent_HArray1OfPersistent): NCollection_Array1[
-    handle[StdObjMgt_Persistent]] {.noSideEffect, importcpp: "Array1",
-                                   header: "StdLPersistent_HArray1.hxx".}
-proc ChangeArray1*(this: var StdLPersistent_HArray1StdLPersistent_HArray1OfPersistent): var NCollection_Array1[
-    handle[StdObjMgt_Persistent]] {.importcpp: "ChangeArray1",
-                                   header: "StdLPersistent_HArray1.hxx".}
+proc array1*(this: StdLPersistentHArray1StdLPersistentHArray1OfPersistent): NCollectionArray1[
+    Handle[StdObjMgtPersistent]] {.noSideEffect, importcpp: "Array1",
+                                  header: "StdLPersistent_HArray1.hxx".}
+proc changeArray1*(this: var StdLPersistentHArray1StdLPersistentHArray1OfPersistent): var NCollectionArray1[
+    Handle[StdObjMgtPersistent]] {.importcpp: "ChangeArray1",
+                                  header: "StdLPersistent_HArray1.hxx".}
 type
-  StdLPersistent_HArray1StdLPersistent_HArray1OfPersistentbase_type* = MMgt_TShared
+  StdLPersistentHArray1StdLPersistentHArray1OfPersistentbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StdLPersistent_HArray1OfPersistent::get_type_name(@)",
-                              header: "StdLPersistent_HArray1.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StdLPersistent_HArray1OfPersistent::get_type_name(@)",
+                            header: "StdLPersistent_HArray1.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StdLPersistent_HArray1OfPersistent::get_type_descriptor(@)",
     header: "StdLPersistent_HArray1.hxx".}
-proc DynamicType*(this: StdLPersistent_HArray1StdLPersistent_HArray1OfPersistent): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StdLPersistent_HArray1.hxx".}
+proc dynamicType*(this: StdLPersistentHArray1StdLPersistentHArray1OfPersistent): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StdLPersistent_HArray1.hxx".}
 type
-  StdLPersistent_HArray1StdLPersistent_HArray1* {.
+  StdLPersistentHArray1StdLPersistentHArray1* {.
       importcpp: "StdLPersistent_HArray1", header: "StdLPersistent_HArray1.hxx",
       bycopy.} = object
 
-  StdLPersistent_HArray1StdLPersistent_HArray1Integer* = StdLPersistent_HArray1StdLPersistent_HArray1instance[
-      TColStd_HArray1OfInteger]
-  StdLPersistent_HArray1StdLPersistent_HArray1Real* = StdLPersistent_HArray1StdLPersistent_HArray1instance[
-      TColStd_HArray1OfReal]
-  StdLPersistent_HArray1StdLPersistent_HArray1Byte* = StdLPersistent_HArray1StdLPersistent_HArray1instance[
-      TColStd_HArray1OfByte]
-  StdLPersistent_HArray1StdLPersistent_HArray1Persistent* = StdLPersistent_HArray1StdLPersistent_HArray1instance[
-      StdLPersistent_HArray1StdLPersistent_HArray1OfPersistent]
+  StdLPersistentHArray1StdLPersistentHArray1Integer* = StdLPersistentHArray1StdLPersistentHArray1instance[
+      TColStdHArray1OfInteger]
+  StdLPersistentHArray1StdLPersistentHArray1Real* = StdLPersistentHArray1StdLPersistentHArray1instance[
+      TColStdHArray1OfReal]
+  StdLPersistentHArray1StdLPersistentHArray1Byte* = StdLPersistentHArray1StdLPersistentHArray1instance[
+      TColStdHArray1OfByte]
+  StdLPersistentHArray1StdLPersistentHArray1Persistent* = StdLPersistentHArray1StdLPersistentHArray1instance[
+      StdLPersistentHArray1StdLPersistentHArray1OfPersistent]
 
-proc Translate*[ArrayClass](theArray: ArrayClass): handle[
-    StdLPersistent_HArray1StdLPersistent_HArray1instance[ArrayClass]] {.
+proc translate*[ArrayClass](theArray: ArrayClass): Handle[
+    StdLPersistentHArray1StdLPersistentHArray1instance[ArrayClass]] {.
     importcpp: "StdLPersistent_HArray1::Translate(@)",
     header: "StdLPersistent_HArray1.hxx".}
-proc Translate*[ArrayClass](thePName: Standard_CString; theArray: ArrayClass): handle[
-    StdLPersistent_HArray1StdLPersistent_HArray1instance[ArrayClass]] {.
+proc translate*[ArrayClass](thePName: StandardCString; theArray: ArrayClass): Handle[
+    StdLPersistentHArray1StdLPersistentHArray1instance[ArrayClass]] {.
     importcpp: "StdLPersistent_HArray1::Translate(@)",
     header: "StdLPersistent_HArray1.hxx".}
 ## !!!Ignored construct:  template < > [end of template] inline Standard_CString StdLPersistent_HArray1 :: instance < TColStd_HArray1OfInteger > :: PNameT ( ) const { return PColStd_HArray1OfInteger ; } template < > inline Standard_CString StdLPersistent_HArray1 :: instance < TColStd_HArray1OfReal > :: PNameT ( ) const { return PColStd_HArray1OfReal ; } template < > inline Standard_CString StdLPersistent_HArray1 :: instance < TColStd_HArray1OfByte > :: PNameT ( ) const { return PColStd_HArray1OfByte ; } inline StdObjMgt_ReadData & operator >> ( StdObjMgt_ReadData & theReadData , Standard_Byte & theByte ) { return theReadData >> reinterpret_cast < Standard_Character & > ( theByte ) ; } inline StdObjMgt_WriteData & operator >> ( StdObjMgt_WriteData & theWriteData , const Standard_Byte & theByte ) { return theWriteData << reinterpret_cast < const Standard_Character & > ( theByte ) ; } template < > inline void StdLPersistent_HArray1 :: instance < StdLPersistent_HArray1OfPersistent > :: PChildrenT ( StdObjMgt_Persistent :: SequenceOfPersistent & theChildren ) const { for ( Standard_Integer i = myArray -> Lower ( ) ; i <= myArray -> Upper ( ) ; ++ i ) theChildren . Append ( myArray -> Value ( i ) ) ; } # [NewLine]
 ## Error: token expected: ( but got: <!!!
+

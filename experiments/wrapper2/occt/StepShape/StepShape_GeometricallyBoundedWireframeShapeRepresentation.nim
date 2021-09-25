@@ -14,30 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_ShapeRepresentation
-
 discard "forward decl of StepShape_GeometricallyBoundedWireframeShapeRepresentation"
 discard "forward decl of StepShape_GeometricallyBoundedWireframeShapeRepresentation"
 type
-  Handle_StepShape_GeometricallyBoundedWireframeShapeRepresentation* = handle[
-      StepShape_GeometricallyBoundedWireframeShapeRepresentation]
-  StepShape_GeometricallyBoundedWireframeShapeRepresentation* {.
+  HandleStepShapeGeometricallyBoundedWireframeShapeRepresentation* = Handle[
+      StepShapeGeometricallyBoundedWireframeShapeRepresentation]
+  StepShapeGeometricallyBoundedWireframeShapeRepresentation* {.
       importcpp: "StepShape_GeometricallyBoundedWireframeShapeRepresentation",
       header: "StepShape_GeometricallyBoundedWireframeShapeRepresentation.hxx",
-      bycopy.} = object of StepShape_ShapeRepresentation ## ! Returns a
-                                                    ## GeometricallyBoundedWireframeShapeRepresentation
+      bycopy.} = object of StepShapeShapeRepresentation ## ! Returns a
+                                                   ## GeometricallyBoundedWireframeShapeRepresentation
 
 
-proc constructStepShape_GeometricallyBoundedWireframeShapeRepresentation*(): StepShape_GeometricallyBoundedWireframeShapeRepresentation {.
+proc constructStepShapeGeometricallyBoundedWireframeShapeRepresentation*(): StepShapeGeometricallyBoundedWireframeShapeRepresentation {.
     constructor,
     importcpp: "StepShape_GeometricallyBoundedWireframeShapeRepresentation(@)",
     header: "StepShape_GeometricallyBoundedWireframeShapeRepresentation.hxx".}
 type
-  StepShape_GeometricallyBoundedWireframeShapeRepresentationbase_type* = StepShape_ShapeRepresentation
+  StepShapeGeometricallyBoundedWireframeShapeRepresentationbaseType* = StepShapeShapeRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_GeometricallyBoundedWireframeShapeRepresentation::get_type_name(@)", header: "StepShape_GeometricallyBoundedWireframeShapeRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepShape_GeometricallyBoundedWireframeShapeRepresentation::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepShape_GeometricallyBoundedWireframeShapeRepresentation::get_type_name(@)", header: "StepShape_GeometricallyBoundedWireframeShapeRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_GeometricallyBoundedWireframeShapeRepresentation::get_type_descriptor(@)",
     header: "StepShape_GeometricallyBoundedWireframeShapeRepresentation.hxx".}
-proc DynamicType*(this: StepShape_GeometricallyBoundedWireframeShapeRepresentation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_GeometricallyBoundedWireframeShapeRepresentation.hxx".}
+proc dynamicType*(this: StepShapeGeometricallyBoundedWireframeShapeRepresentation): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_GeometricallyBoundedWireframeShapeRepresentation.hxx".}

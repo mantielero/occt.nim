@@ -11,108 +11,105 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Type, ../TDF/TDF_Attribute, ../TDF/TDF_LabelSequence
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Quantity_ColorRGBA"
 discard "forward decl of XCAFDoc_ShapeTool"
 discard "forward decl of XCAFDoc_VisMaterial"
 type
-  XCAFDoc_VisMaterialTool* {.importcpp: "XCAFDoc_VisMaterialTool",
-                            header: "XCAFDoc_VisMaterialTool.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                               ## !
-                                                                                               ## Creates
-                                                                                               ## (if
-                                                                                               ## not
-                                                                                               ## exist)
-                                                                                               ## ColorTool.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Empty
-                                                                                               ## constructor.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Returns
-                                                                                               ## GUID
-                                                                                               ## of
-                                                                                               ## this
-                                                                                               ## attribute
-                                                                                               ## type.
+  XCAFDocVisMaterialTool* {.importcpp: "XCAFDoc_VisMaterialTool",
+                           header: "XCAFDoc_VisMaterialTool.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                              ## !
+                                                                                              ## Creates
+                                                                                              ## (if
+                                                                                              ## not
+                                                                                              ## exist)
+                                                                                              ## ColorTool.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Empty
+                                                                                              ## constructor.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Returns
+                                                                                              ## GUID
+                                                                                              ## of
+                                                                                              ## this
+                                                                                              ## attribute
+                                                                                              ## type.
 
-  XCAFDoc_VisMaterialToolbase_type* = TDF_Attribute
+  XCAFDocVisMaterialToolbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "XCAFDoc_VisMaterialTool::get_type_name(@)",
-                              header: "XCAFDoc_VisMaterialTool.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XCAFDoc_VisMaterialTool::get_type_name(@)",
+                            header: "XCAFDoc_VisMaterialTool.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XCAFDoc_VisMaterialTool::get_type_descriptor(@)",
     header: "XCAFDoc_VisMaterialTool.hxx".}
-proc DynamicType*(this: XCAFDoc_VisMaterialTool): handle[Standard_Type] {.
+proc dynamicType*(this: XCAFDocVisMaterialTool): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "XCAFDoc_VisMaterialTool.hxx".}
-proc Set*(L: TDF_Label): handle[XCAFDoc_VisMaterialTool] {.
+proc set*(L: TDF_Label): Handle[XCAFDocVisMaterialTool] {.
     importcpp: "XCAFDoc_VisMaterialTool::Set(@)",
     header: "XCAFDoc_VisMaterialTool.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "XCAFDoc_VisMaterialTool::GetID(@)",
-                            header: "XCAFDoc_VisMaterialTool.hxx".}
-proc constructXCAFDoc_VisMaterialTool*(): XCAFDoc_VisMaterialTool {.constructor,
+proc getID*(): StandardGUID {.importcpp: "XCAFDoc_VisMaterialTool::GetID(@)",
+                           header: "XCAFDoc_VisMaterialTool.hxx".}
+proc constructXCAFDocVisMaterialTool*(): XCAFDocVisMaterialTool {.constructor,
     importcpp: "XCAFDoc_VisMaterialTool(@)", header: "XCAFDoc_VisMaterialTool.hxx".}
-proc BaseLabel*(this: XCAFDoc_VisMaterialTool): TDF_Label {.noSideEffect,
+proc baseLabel*(this: XCAFDocVisMaterialTool): TDF_Label {.noSideEffect,
     importcpp: "BaseLabel", header: "XCAFDoc_VisMaterialTool.hxx".}
-proc ShapeTool*(this: var XCAFDoc_VisMaterialTool): handle[XCAFDoc_ShapeTool] {.
+proc shapeTool*(this: var XCAFDocVisMaterialTool): Handle[XCAFDocShapeTool] {.
     importcpp: "ShapeTool", header: "XCAFDoc_VisMaterialTool.hxx".}
-proc IsMaterial*(this: XCAFDoc_VisMaterialTool; theLabel: TDF_Label): Standard_Boolean {.
+proc isMaterial*(this: XCAFDocVisMaterialTool; theLabel: TDF_Label): bool {.
     noSideEffect, importcpp: "IsMaterial", header: "XCAFDoc_VisMaterialTool.hxx".}
-proc GetMaterial*(this: XCAFDoc_VisMaterialTool; theMatLabel: TDF_Label): handle[
-    XCAFDoc_VisMaterial] {.noSideEffect, importcpp: "GetMaterial",
-                          header: "XCAFDoc_VisMaterialTool.hxx".}
-proc AddMaterial*(this: XCAFDoc_VisMaterialTool;
-                 theMat: handle[XCAFDoc_VisMaterial];
-                 theName: TCollection_AsciiString): TDF_Label {.noSideEffect,
+proc getMaterial*(this: XCAFDocVisMaterialTool; theMatLabel: TDF_Label): Handle[
+    XCAFDocVisMaterial] {.noSideEffect, importcpp: "GetMaterial",
+                         header: "XCAFDoc_VisMaterialTool.hxx".}
+proc addMaterial*(this: XCAFDocVisMaterialTool; theMat: Handle[XCAFDocVisMaterial];
+                 theName: TCollectionAsciiString): TDF_Label {.noSideEffect,
     importcpp: "AddMaterial", header: "XCAFDoc_VisMaterialTool.hxx".}
-proc AddMaterial*(this: XCAFDoc_VisMaterialTool; theName: TCollection_AsciiString): TDF_Label {.
+proc addMaterial*(this: XCAFDocVisMaterialTool; theName: TCollectionAsciiString): TDF_Label {.
     noSideEffect, importcpp: "AddMaterial", header: "XCAFDoc_VisMaterialTool.hxx".}
-proc RemoveMaterial*(this: XCAFDoc_VisMaterialTool; theLabel: TDF_Label) {.
+proc removeMaterial*(this: XCAFDocVisMaterialTool; theLabel: TDF_Label) {.
     noSideEffect, importcpp: "RemoveMaterial",
     header: "XCAFDoc_VisMaterialTool.hxx".}
-proc GetMaterials*(this: XCAFDoc_VisMaterialTool; Labels: var TDF_LabelSequence) {.
+proc getMaterials*(this: XCAFDocVisMaterialTool; labels: var TDF_LabelSequence) {.
     noSideEffect, importcpp: "GetMaterials", header: "XCAFDoc_VisMaterialTool.hxx".}
-proc SetShapeMaterial*(this: XCAFDoc_VisMaterialTool; theShapeLabel: TDF_Label;
+proc setShapeMaterial*(this: XCAFDocVisMaterialTool; theShapeLabel: TDF_Label;
                       theMaterialLabel: TDF_Label) {.noSideEffect,
     importcpp: "SetShapeMaterial", header: "XCAFDoc_VisMaterialTool.hxx".}
-proc UnSetShapeMaterial*(this: XCAFDoc_VisMaterialTool; theShapeLabel: TDF_Label) {.
+proc unSetShapeMaterial*(this: XCAFDocVisMaterialTool; theShapeLabel: TDF_Label) {.
     noSideEffect, importcpp: "UnSetShapeMaterial",
     header: "XCAFDoc_VisMaterialTool.hxx".}
-proc IsSetShapeMaterial*(this: XCAFDoc_VisMaterialTool; theLabel: TDF_Label): Standard_Boolean {.
+proc isSetShapeMaterial*(this: XCAFDocVisMaterialTool; theLabel: TDF_Label): bool {.
     noSideEffect, importcpp: "IsSetShapeMaterial",
     header: "XCAFDoc_VisMaterialTool.hxx".}
-proc GetShapeMaterial*(theShapeLabel: TDF_Label; theMaterialLabel: var TDF_Label): Standard_Boolean {.
+proc getShapeMaterial*(theShapeLabel: TDF_Label; theMaterialLabel: var TDF_Label): bool {.
     importcpp: "XCAFDoc_VisMaterialTool::GetShapeMaterial(@)",
     header: "XCAFDoc_VisMaterialTool.hxx".}
-proc GetShapeMaterial*(this: var XCAFDoc_VisMaterialTool; theShapeLabel: TDF_Label): handle[
-    XCAFDoc_VisMaterial] {.importcpp: "GetShapeMaterial",
-                          header: "XCAFDoc_VisMaterialTool.hxx".}
-proc SetShapeMaterial*(this: var XCAFDoc_VisMaterialTool; theShape: TopoDS_Shape;
-                      theMaterialLabel: TDF_Label): Standard_Boolean {.
+proc getShapeMaterial*(this: var XCAFDocVisMaterialTool; theShapeLabel: TDF_Label): Handle[
+    XCAFDocVisMaterial] {.importcpp: "GetShapeMaterial",
+                         header: "XCAFDoc_VisMaterialTool.hxx".}
+proc setShapeMaterial*(this: var XCAFDocVisMaterialTool; theShape: TopoDS_Shape;
+                      theMaterialLabel: TDF_Label): bool {.
     importcpp: "SetShapeMaterial", header: "XCAFDoc_VisMaterialTool.hxx".}
-proc UnSetShapeMaterial*(this: var XCAFDoc_VisMaterialTool; theShape: TopoDS_Shape): Standard_Boolean {.
+proc unSetShapeMaterial*(this: var XCAFDocVisMaterialTool; theShape: TopoDS_Shape): bool {.
     importcpp: "UnSetShapeMaterial", header: "XCAFDoc_VisMaterialTool.hxx".}
-proc IsSetShapeMaterial*(this: var XCAFDoc_VisMaterialTool; theShape: TopoDS_Shape): Standard_Boolean {.
+proc isSetShapeMaterial*(this: var XCAFDocVisMaterialTool; theShape: TopoDS_Shape): bool {.
     importcpp: "IsSetShapeMaterial", header: "XCAFDoc_VisMaterialTool.hxx".}
-proc GetShapeMaterial*(this: var XCAFDoc_VisMaterialTool; theShape: TopoDS_Shape;
-                      theMaterialLabel: var TDF_Label): Standard_Boolean {.
+proc getShapeMaterial*(this: var XCAFDocVisMaterialTool; theShape: TopoDS_Shape;
+                      theMaterialLabel: var TDF_Label): bool {.
     importcpp: "GetShapeMaterial", header: "XCAFDoc_VisMaterialTool.hxx".}
-proc GetShapeMaterial*(this: var XCAFDoc_VisMaterialTool; theShape: TopoDS_Shape): handle[
-    XCAFDoc_VisMaterial] {.importcpp: "GetShapeMaterial",
-                          header: "XCAFDoc_VisMaterialTool.hxx".}
-proc ID*(this: XCAFDoc_VisMaterialTool): Standard_GUID {.noSideEffect,
-    importcpp: "ID", header: "XCAFDoc_VisMaterialTool.hxx".}
-proc Restore*(this: var XCAFDoc_VisMaterialTool; a2: handle[TDF_Attribute]) {.
+proc getShapeMaterial*(this: var XCAFDocVisMaterialTool; theShape: TopoDS_Shape): Handle[
+    XCAFDocVisMaterial] {.importcpp: "GetShapeMaterial",
+                         header: "XCAFDoc_VisMaterialTool.hxx".}
+proc id*(this: XCAFDocVisMaterialTool): StandardGUID {.noSideEffect, importcpp: "ID",
+    header: "XCAFDoc_VisMaterialTool.hxx".}
+proc restore*(this: var XCAFDocVisMaterialTool; a2: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "XCAFDoc_VisMaterialTool.hxx".}
-proc NewEmpty*(this: XCAFDoc_VisMaterialTool): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: XCAFDocVisMaterialTool): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "XCAFDoc_VisMaterialTool.hxx".}
-proc Paste*(this: XCAFDoc_VisMaterialTool; a2: handle[TDF_Attribute];
-           a3: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: XCAFDocVisMaterialTool; a2: Handle[TDF_Attribute];
+           a3: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "XCAFDoc_VisMaterialTool.hxx".}
 discard "forward decl of XCAFDoc_VisMaterialTool"
 type
-  Handle_XCAFDoc_VisMaterialTool* = handle[XCAFDoc_VisMaterialTool]
+  HandleXCAFDocVisMaterialTool* = Handle[XCAFDocVisMaterialTool]
+

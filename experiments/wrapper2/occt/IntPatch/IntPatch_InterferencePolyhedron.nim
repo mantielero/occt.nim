@@ -14,33 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../gp/gp_XYZ, ../Intf/Intf_Interference,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of IntPatch_Polyhedron"
 discard "forward decl of Intf_TangentZone"
 type
-  IntPatch_InterferencePolyhedron* {.importcpp: "IntPatch_InterferencePolyhedron", header: "IntPatch_InterferencePolyhedron.hxx",
-                                    bycopy.} = object of Intf_Interference ## ! Constructs an empty
-                                                                      ## interference of
-                                                                      ## Polyhedron.
+  IntPatchInterferencePolyhedron* {.importcpp: "IntPatch_InterferencePolyhedron", header: "IntPatch_InterferencePolyhedron.hxx",
+                                   bycopy.} = object of IntfInterference ## ! Constructs an empty interference of Polyhedron.
 
 
-proc constructIntPatch_InterferencePolyhedron*(): IntPatch_InterferencePolyhedron {.
+proc constructIntPatchInterferencePolyhedron*(): IntPatchInterferencePolyhedron {.
     constructor, importcpp: "IntPatch_InterferencePolyhedron(@)",
     header: "IntPatch_InterferencePolyhedron.hxx".}
-proc constructIntPatch_InterferencePolyhedron*(Obje1: IntPatch_Polyhedron;
-    Obje2: IntPatch_Polyhedron): IntPatch_InterferencePolyhedron {.constructor,
+proc constructIntPatchInterferencePolyhedron*(obje1: IntPatchPolyhedron;
+    obje2: IntPatchPolyhedron): IntPatchInterferencePolyhedron {.constructor,
     importcpp: "IntPatch_InterferencePolyhedron(@)",
     header: "IntPatch_InterferencePolyhedron.hxx".}
-proc constructIntPatch_InterferencePolyhedron*(Obje: IntPatch_Polyhedron): IntPatch_InterferencePolyhedron {.
+proc constructIntPatchInterferencePolyhedron*(obje: IntPatchPolyhedron): IntPatchInterferencePolyhedron {.
     constructor, importcpp: "IntPatch_InterferencePolyhedron(@)",
     header: "IntPatch_InterferencePolyhedron.hxx".}
-proc Perform*(this: var IntPatch_InterferencePolyhedron; Obje1: IntPatch_Polyhedron;
-             Obje2: IntPatch_Polyhedron) {.importcpp: "Perform",
-    header: "IntPatch_InterferencePolyhedron.hxx".}
-proc Perform*(this: var IntPatch_InterferencePolyhedron; Obje: IntPatch_Polyhedron) {.
+proc perform*(this: var IntPatchInterferencePolyhedron; obje1: IntPatchPolyhedron;
+             obje2: IntPatchPolyhedron) {.importcpp: "Perform", header: "IntPatch_InterferencePolyhedron.hxx".}
+proc perform*(this: var IntPatchInterferencePolyhedron; obje: IntPatchPolyhedron) {.
     importcpp: "Perform", header: "IntPatch_InterferencePolyhedron.hxx".}

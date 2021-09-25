@@ -12,8 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Transient, ../NCollection/NCollection_Sequence
-
 type
-  TColStd_SequenceOfTransient* = NCollection_Sequence[handle[Standard_Transient]]
+  TColStdSequenceOfTransient* = NCollectionSequence[Handle[StandardTransient]]
+

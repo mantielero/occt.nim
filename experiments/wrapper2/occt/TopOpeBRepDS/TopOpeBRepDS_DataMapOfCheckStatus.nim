@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Integer, TopOpeBRepDS_CheckStatus,
-  ../TColStd/TColStd_MapIntegerHasher, ../NCollection/NCollection_DataMap
-
 type
-  TopOpeBRepDS_DataMapOfCheckStatus* = NCollection_DataMap[Standard_Integer,
-      TopOpeBRepDS_CheckStatus, TColStd_MapIntegerHasher]
-  TopOpeBRepDS_DataMapIteratorOfDataMapOfCheckStatus* = Iterator[Standard_Integer,
-      TopOpeBRepDS_CheckStatus, TColStd_MapIntegerHasher]
+  TopOpeBRepDS_DataMapOfCheckStatus* = NCollectionDataMap[int,
+      TopOpeBRepDS_CheckStatus, TColStdMapIntegerHasher]
+  TopOpeBRepDS_DataMapIteratorOfDataMapOfCheckStatus* = Iterator[int,
+      TopOpeBRepDS_CheckStatus, TColStdMapIntegerHasher]
+

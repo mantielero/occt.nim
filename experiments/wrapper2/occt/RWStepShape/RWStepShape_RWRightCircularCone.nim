@@ -14,32 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_RightCircularCone"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShape_RWRightCircularCone* {.importcpp: "RWStepShape_RWRightCircularCone", header: "RWStepShape_RWRightCircularCone.hxx",
-                                    bycopy.} = object
+  RWStepShapeRWRightCircularCone* {.importcpp: "RWStepShape_RWRightCircularCone", header: "RWStepShape_RWRightCircularCone.hxx",
+                                   bycopy.} = object
 
 
-proc constructRWStepShape_RWRightCircularCone*(): RWStepShape_RWRightCircularCone {.
+proc constructRWStepShapeRWRightCircularCone*(): RWStepShapeRWRightCircularCone {.
     constructor, importcpp: "RWStepShape_RWRightCircularCone(@)",
     header: "RWStepShape_RWRightCircularCone.hxx".}
-proc ReadStep*(this: RWStepShape_RWRightCircularCone;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepShape_RightCircularCone]) {.noSideEffect,
+proc readStep*(this: RWStepShapeRWRightCircularCone;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepShapeRightCircularCone]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWRightCircularCone.hxx".}
-proc WriteStep*(this: RWStepShape_RWRightCircularCone; SW: var StepData_StepWriter;
-               ent: handle[StepShape_RightCircularCone]) {.noSideEffect,
+proc writeStep*(this: RWStepShapeRWRightCircularCone; sw: var StepDataStepWriter;
+               ent: Handle[StepShapeRightCircularCone]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWRightCircularCone.hxx".}
-proc Share*(this: RWStepShape_RWRightCircularCone;
-           ent: handle[StepShape_RightCircularCone];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepShapeRWRightCircularCone;
+           ent: Handle[StepShapeRightCircularCone];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWRightCircularCone.hxx".}

@@ -14,17 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TDF/TDF_Label,
-  ../Standard/Standard_Transient, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../TDF/TDF_LabelList
-
 discard "forward decl of TDF_Label"
 discard "forward decl of TFunction_Logbook"
 discard "forward decl of TFunction_Driver"
 discard "forward decl of TFunction_Driver"
 type
-  Handle_TFunction_Driver* = handle[TFunction_Driver]
+  HandleTFunctionDriver* = Handle[TFunctionDriver]
 
 ## ! This  driver  class provide  services  around function
 ## ! execution.   One instance of  this class is  built for
@@ -39,52 +34,34 @@ type
 ## ! subclasses is built for the whole session.
 
 type
-  TFunction_Driver* {.importcpp: "TFunction_Driver",
-                     header: "TFunction_Driver.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                      ## !
-                                                                                      ## Initializes
-                                                                                      ## the
-                                                                                      ## label
-                                                                                      ## L
-                                                                                      ## for
-                                                                                      ## this
-                                                                                      ## function
-                                                                                      ## prior
-                                                                                      ## to
-                                                                                      ## its
-                                                                                      ## execution.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## initialisation
-                                                                                      ## of
-                                                                                      ## the
-                                                                                      ## driver
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## ============================
+  TFunctionDriver* {.importcpp: "TFunction_Driver", header: "TFunction_Driver.hxx",
+                    bycopy.} = object of StandardTransient ## ! Initializes the label L for this function prior to its  execution.
+                                                      ## ! initialisation of the driver
+                                                      ## !
+                                                      ## ============================
 
 
-proc Init*(this: var TFunction_Driver; L: TDF_Label) {.importcpp: "Init",
+proc init*(this: var TFunctionDriver; L: TDF_Label) {.importcpp: "Init",
     header: "TFunction_Driver.hxx".}
-proc Label*(this: TFunction_Driver): TDF_Label {.noSideEffect, importcpp: "Label",
+proc label*(this: TFunctionDriver): TDF_Label {.noSideEffect, importcpp: "Label",
     header: "TFunction_Driver.hxx".}
-proc Validate*(this: TFunction_Driver; log: var handle[TFunction_Logbook]) {.
+proc validate*(this: TFunctionDriver; log: var Handle[TFunctionLogbook]) {.
     noSideEffect, importcpp: "Validate", header: "TFunction_Driver.hxx".}
-proc MustExecute*(this: TFunction_Driver; log: handle[TFunction_Logbook]): Standard_Boolean {.
+proc mustExecute*(this: TFunctionDriver; log: Handle[TFunctionLogbook]): bool {.
     noSideEffect, importcpp: "MustExecute", header: "TFunction_Driver.hxx".}
-proc Execute*(this: TFunction_Driver; log: var handle[TFunction_Logbook]): Standard_Integer {.
+proc execute*(this: TFunctionDriver; log: var Handle[TFunctionLogbook]): int {.
     noSideEffect, importcpp: "Execute", header: "TFunction_Driver.hxx".}
-proc Arguments*(this: TFunction_Driver; args: var TDF_LabelList) {.noSideEffect,
+proc arguments*(this: TFunctionDriver; args: var TDF_LabelList) {.noSideEffect,
     importcpp: "Arguments", header: "TFunction_Driver.hxx".}
-proc Results*(this: TFunction_Driver; res: var TDF_LabelList) {.noSideEffect,
+proc results*(this: TFunctionDriver; res: var TDF_LabelList) {.noSideEffect,
     importcpp: "Results", header: "TFunction_Driver.hxx".}
 type
-  TFunction_Driverbase_type* = Standard_Transient
+  TFunctionDriverbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TFunction_Driver::get_type_name(@)",
-                              header: "TFunction_Driver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TFunction_Driver::get_type_name(@)",
+                            header: "TFunction_Driver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TFunction_Driver::get_type_descriptor(@)",
     header: "TFunction_Driver.hxx".}
-proc DynamicType*(this: TFunction_Driver): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TFunctionDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TFunction_Driver.hxx".}

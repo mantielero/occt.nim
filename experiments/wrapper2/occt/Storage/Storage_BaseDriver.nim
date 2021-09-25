@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Type, Storage_OpenMode, Storage_Error, Storage_Data,
-  Storage_Position, ../TCollection/TCollection_AsciiString,
-  ../TColStd/TColStd_SequenceOfAsciiString,
-  ../TColStd/TColStd_SequenceOfExtendedString
-
 discard "forward decl of Storage_StreamTypeMismatchError"
 discard "forward decl of Storage_StreamFormatError"
 discard "forward decl of Storage_StreamWriteError"
@@ -28,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of Storage_BaseDriver"
 type
-  Handle_Storage_BaseDriver* = handle[Storage_BaseDriver]
+  HandleStorageBaseDriver* = Handle[StorageBaseDriver]
 
 ## ! Root class for drivers. A driver assigns a physical container
 ## ! to data to be stored or retrieved, for instance a file.
@@ -37,222 +31,215 @@ type
 ## ! file as the container of data.
 
 type
-  Storage_BaseDriver* {.importcpp: "Storage_BaseDriver",
-                       header: "Storage_BaseDriver.hxx", bycopy.} = object of Standard_Transient ## !@name Virtual methods, to be provided by descendants
-                                                                                          ## !@name Ouput methods
-                                                                                          ## !@name Input methods
+  StorageBaseDriver* {.importcpp: "Storage_BaseDriver",
+                      header: "Storage_BaseDriver.hxx", bycopy.} = object of StandardTransient ## !@name Virtual methods, to be provided by descendants
+                                                                                        ## !@name Ouput methods
+                                                                                        ## !@name Input methods
 
-  Storage_BaseDriverbase_type* = Standard_Transient
+  StorageBaseDriverbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Storage_BaseDriver::get_type_name(@)",
-                              header: "Storage_BaseDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Storage_BaseDriver::get_type_name(@)",
+                            header: "Storage_BaseDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Storage_BaseDriver::get_type_descriptor(@)",
     header: "Storage_BaseDriver.hxx".}
-proc DynamicType*(this: Storage_BaseDriver): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StorageBaseDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Storage_BaseDriver.hxx".}
-proc destroyStorage_BaseDriver*(this: var Storage_BaseDriver) {.
+proc destroyStorageBaseDriver*(this: var StorageBaseDriver) {.
     importcpp: "#.~Storage_BaseDriver()", header: "Storage_BaseDriver.hxx".}
-proc Name*(this: Storage_BaseDriver): TCollection_AsciiString {.noSideEffect,
+proc name*(this: StorageBaseDriver): TCollectionAsciiString {.noSideEffect,
     importcpp: "Name", header: "Storage_BaseDriver.hxx".}
-proc OpenMode*(this: Storage_BaseDriver): Storage_OpenMode {.noSideEffect,
+proc openMode*(this: StorageBaseDriver): StorageOpenMode {.noSideEffect,
     importcpp: "OpenMode", header: "Storage_BaseDriver.hxx".}
-proc ReadMagicNumber*(theIStream: var Standard_IStream): TCollection_AsciiString {.
+proc readMagicNumber*(theIStream: var StandardIStream): TCollectionAsciiString {.
     importcpp: "Storage_BaseDriver::ReadMagicNumber(@)",
     header: "Storage_BaseDriver.hxx".}
-proc Open*(this: var Storage_BaseDriver; aName: TCollection_AsciiString;
-          aMode: Storage_OpenMode): Storage_Error {.importcpp: "Open",
+proc open*(this: var StorageBaseDriver; aName: TCollectionAsciiString;
+          aMode: StorageOpenMode): StorageError {.importcpp: "Open",
     header: "Storage_BaseDriver.hxx".}
-proc IsEnd*(this: var Storage_BaseDriver): Standard_Boolean {.importcpp: "IsEnd",
+proc isEnd*(this: var StorageBaseDriver): bool {.importcpp: "IsEnd",
     header: "Storage_BaseDriver.hxx".}
-proc Tell*(this: var Storage_BaseDriver): Storage_Position {.importcpp: "Tell",
+proc tell*(this: var StorageBaseDriver): StoragePosition {.importcpp: "Tell",
     header: "Storage_BaseDriver.hxx".}
-proc BeginWriteInfoSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc beginWriteInfoSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "BeginWriteInfoSection", header: "Storage_BaseDriver.hxx".}
-proc WriteInfo*(this: var Storage_BaseDriver; nbObj: Standard_Integer;
-               dbVersion: TCollection_AsciiString; date: TCollection_AsciiString;
-               schemaName: TCollection_AsciiString;
-               schemaVersion: TCollection_AsciiString;
-               appName: TCollection_ExtendedString;
-               appVersion: TCollection_AsciiString;
-               objectType: TCollection_ExtendedString;
-               userInfo: TColStd_SequenceOfAsciiString) {.importcpp: "WriteInfo",
+proc writeInfo*(this: var StorageBaseDriver; nbObj: int;
+               dbVersion: TCollectionAsciiString; date: TCollectionAsciiString;
+               schemaName: TCollectionAsciiString;
+               schemaVersion: TCollectionAsciiString;
+               appName: TCollectionExtendedString;
+               appVersion: TCollectionAsciiString;
+               objectType: TCollectionExtendedString;
+               userInfo: TColStdSequenceOfAsciiString) {.importcpp: "WriteInfo",
     header: "Storage_BaseDriver.hxx".}
-proc EndWriteInfoSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc endWriteInfoSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "EndWriteInfoSection", header: "Storage_BaseDriver.hxx".}
-proc BeginReadInfoSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc beginReadInfoSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "BeginReadInfoSection", header: "Storage_BaseDriver.hxx".}
-proc ReadInfo*(this: var Storage_BaseDriver; nbObj: var Standard_Integer;
-              dbVersion: var TCollection_AsciiString;
-              date: var TCollection_AsciiString;
-              schemaName: var TCollection_AsciiString;
-              schemaVersion: var TCollection_AsciiString;
-              appName: var TCollection_ExtendedString;
-              appVersion: var TCollection_AsciiString;
-              objectType: var TCollection_ExtendedString;
-              userInfo: var TColStd_SequenceOfAsciiString) {.importcpp: "ReadInfo",
+proc readInfo*(this: var StorageBaseDriver; nbObj: var int;
+              dbVersion: var TCollectionAsciiString;
+              date: var TCollectionAsciiString;
+              schemaName: var TCollectionAsciiString;
+              schemaVersion: var TCollectionAsciiString;
+              appName: var TCollectionExtendedString;
+              appVersion: var TCollectionAsciiString;
+              objectType: var TCollectionExtendedString;
+              userInfo: var TColStdSequenceOfAsciiString) {.importcpp: "ReadInfo",
     header: "Storage_BaseDriver.hxx".}
-proc ReadCompleteInfo*(this: var Storage_BaseDriver;
-                      theIStream: var Standard_IStream;
-                      theData: var handle[Storage_Data]) {.
+proc readCompleteInfo*(this: var StorageBaseDriver; theIStream: var StandardIStream;
+                      theData: var Handle[StorageData]) {.
     importcpp: "ReadCompleteInfo", header: "Storage_BaseDriver.hxx".}
-proc EndReadInfoSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc endReadInfoSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "EndReadInfoSection", header: "Storage_BaseDriver.hxx".}
-proc BeginWriteCommentSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc beginWriteCommentSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "BeginWriteCommentSection", header: "Storage_BaseDriver.hxx".}
-proc WriteComment*(this: var Storage_BaseDriver;
-                  userComments: TColStd_SequenceOfExtendedString) {.
+proc writeComment*(this: var StorageBaseDriver;
+                  userComments: TColStdSequenceOfExtendedString) {.
     importcpp: "WriteComment", header: "Storage_BaseDriver.hxx".}
-proc EndWriteCommentSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc endWriteCommentSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "EndWriteCommentSection", header: "Storage_BaseDriver.hxx".}
-proc BeginReadCommentSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc beginReadCommentSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "BeginReadCommentSection", header: "Storage_BaseDriver.hxx".}
-proc ReadComment*(this: var Storage_BaseDriver;
-                 userComments: var TColStd_SequenceOfExtendedString) {.
+proc readComment*(this: var StorageBaseDriver;
+                 userComments: var TColStdSequenceOfExtendedString) {.
     importcpp: "ReadComment", header: "Storage_BaseDriver.hxx".}
-proc EndReadCommentSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc endReadCommentSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "EndReadCommentSection", header: "Storage_BaseDriver.hxx".}
-proc BeginWriteTypeSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc beginWriteTypeSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "BeginWriteTypeSection", header: "Storage_BaseDriver.hxx".}
-proc SetTypeSectionSize*(this: var Storage_BaseDriver; aSize: Standard_Integer) {.
+proc setTypeSectionSize*(this: var StorageBaseDriver; aSize: int) {.
     importcpp: "SetTypeSectionSize", header: "Storage_BaseDriver.hxx".}
-proc WriteTypeInformations*(this: var Storage_BaseDriver; typeNum: Standard_Integer;
-                           typeName: TCollection_AsciiString) {.
+proc writeTypeInformations*(this: var StorageBaseDriver; typeNum: int;
+                           typeName: TCollectionAsciiString) {.
     importcpp: "WriteTypeInformations", header: "Storage_BaseDriver.hxx".}
-proc EndWriteTypeSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc endWriteTypeSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "EndWriteTypeSection", header: "Storage_BaseDriver.hxx".}
-proc BeginReadTypeSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc beginReadTypeSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "BeginReadTypeSection", header: "Storage_BaseDriver.hxx".}
-proc TypeSectionSize*(this: var Storage_BaseDriver): Standard_Integer {.
+proc typeSectionSize*(this: var StorageBaseDriver): int {.
     importcpp: "TypeSectionSize", header: "Storage_BaseDriver.hxx".}
-proc ReadTypeInformations*(this: var Storage_BaseDriver;
-                          typeNum: var Standard_Integer;
-                          typeName: var TCollection_AsciiString) {.
+proc readTypeInformations*(this: var StorageBaseDriver; typeNum: var int;
+                          typeName: var TCollectionAsciiString) {.
     importcpp: "ReadTypeInformations", header: "Storage_BaseDriver.hxx".}
-proc EndReadTypeSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc endReadTypeSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "EndReadTypeSection", header: "Storage_BaseDriver.hxx".}
-proc BeginWriteRootSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc beginWriteRootSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "BeginWriteRootSection", header: "Storage_BaseDriver.hxx".}
-proc SetRootSectionSize*(this: var Storage_BaseDriver; aSize: Standard_Integer) {.
+proc setRootSectionSize*(this: var StorageBaseDriver; aSize: int) {.
     importcpp: "SetRootSectionSize", header: "Storage_BaseDriver.hxx".}
-proc WriteRoot*(this: var Storage_BaseDriver; rootName: TCollection_AsciiString;
-               aRef: Standard_Integer; aType: TCollection_AsciiString) {.
-    importcpp: "WriteRoot", header: "Storage_BaseDriver.hxx".}
-proc EndWriteRootSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc writeRoot*(this: var StorageBaseDriver; rootName: TCollectionAsciiString;
+               aRef: int; aType: TCollectionAsciiString) {.importcpp: "WriteRoot",
+    header: "Storage_BaseDriver.hxx".}
+proc endWriteRootSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "EndWriteRootSection", header: "Storage_BaseDriver.hxx".}
-proc BeginReadRootSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc beginReadRootSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "BeginReadRootSection", header: "Storage_BaseDriver.hxx".}
-proc RootSectionSize*(this: var Storage_BaseDriver): Standard_Integer {.
+proc rootSectionSize*(this: var StorageBaseDriver): int {.
     importcpp: "RootSectionSize", header: "Storage_BaseDriver.hxx".}
-proc ReadRoot*(this: var Storage_BaseDriver; rootName: var TCollection_AsciiString;
-              aRef: var Standard_Integer; aType: var TCollection_AsciiString) {.
+proc readRoot*(this: var StorageBaseDriver; rootName: var TCollectionAsciiString;
+              aRef: var int; aType: var TCollectionAsciiString) {.
     importcpp: "ReadRoot", header: "Storage_BaseDriver.hxx".}
-proc EndReadRootSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc endReadRootSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "EndReadRootSection", header: "Storage_BaseDriver.hxx".}
-proc BeginWriteRefSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc beginWriteRefSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "BeginWriteRefSection", header: "Storage_BaseDriver.hxx".}
-proc SetRefSectionSize*(this: var Storage_BaseDriver; aSize: Standard_Integer) {.
+proc setRefSectionSize*(this: var StorageBaseDriver; aSize: int) {.
     importcpp: "SetRefSectionSize", header: "Storage_BaseDriver.hxx".}
-proc WriteReferenceType*(this: var Storage_BaseDriver; reference: Standard_Integer;
-                        typeNum: Standard_Integer) {.
+proc writeReferenceType*(this: var StorageBaseDriver; reference: int; typeNum: int) {.
     importcpp: "WriteReferenceType", header: "Storage_BaseDriver.hxx".}
-proc EndWriteRefSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc endWriteRefSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "EndWriteRefSection", header: "Storage_BaseDriver.hxx".}
-proc BeginReadRefSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc beginReadRefSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "BeginReadRefSection", header: "Storage_BaseDriver.hxx".}
-proc RefSectionSize*(this: var Storage_BaseDriver): Standard_Integer {.
-    importcpp: "RefSectionSize", header: "Storage_BaseDriver.hxx".}
-proc ReadReferenceType*(this: var Storage_BaseDriver;
-                       reference: var Standard_Integer;
-                       typeNum: var Standard_Integer) {.
-    importcpp: "ReadReferenceType", header: "Storage_BaseDriver.hxx".}
-proc EndReadRefSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc refSectionSize*(this: var StorageBaseDriver): int {.importcpp: "RefSectionSize",
+    header: "Storage_BaseDriver.hxx".}
+proc readReferenceType*(this: var StorageBaseDriver; reference: var int;
+                       typeNum: var int) {.importcpp: "ReadReferenceType",
+                                        header: "Storage_BaseDriver.hxx".}
+proc endReadRefSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "EndReadRefSection", header: "Storage_BaseDriver.hxx".}
-proc BeginWriteDataSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc beginWriteDataSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "BeginWriteDataSection", header: "Storage_BaseDriver.hxx".}
-proc WritePersistentObjectHeader*(this: var Storage_BaseDriver;
-                                 aRef: Standard_Integer; aType: Standard_Integer) {.
+proc writePersistentObjectHeader*(this: var StorageBaseDriver; aRef: int; aType: int) {.
     importcpp: "WritePersistentObjectHeader", header: "Storage_BaseDriver.hxx".}
-proc BeginWritePersistentObjectData*(this: var Storage_BaseDriver) {.
+proc beginWritePersistentObjectData*(this: var StorageBaseDriver) {.
     importcpp: "BeginWritePersistentObjectData", header: "Storage_BaseDriver.hxx".}
-proc BeginWriteObjectData*(this: var Storage_BaseDriver) {.
+proc beginWriteObjectData*(this: var StorageBaseDriver) {.
     importcpp: "BeginWriteObjectData", header: "Storage_BaseDriver.hxx".}
-proc EndWriteObjectData*(this: var Storage_BaseDriver) {.
+proc endWriteObjectData*(this: var StorageBaseDriver) {.
     importcpp: "EndWriteObjectData", header: "Storage_BaseDriver.hxx".}
-proc EndWritePersistentObjectData*(this: var Storage_BaseDriver) {.
+proc endWritePersistentObjectData*(this: var StorageBaseDriver) {.
     importcpp: "EndWritePersistentObjectData", header: "Storage_BaseDriver.hxx".}
-proc EndWriteDataSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc endWriteDataSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "EndWriteDataSection", header: "Storage_BaseDriver.hxx".}
-proc BeginReadDataSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc beginReadDataSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "BeginReadDataSection", header: "Storage_BaseDriver.hxx".}
-proc ReadPersistentObjectHeader*(this: var Storage_BaseDriver;
-                                aRef: var Standard_Integer;
-                                aType: var Standard_Integer) {.
+proc readPersistentObjectHeader*(this: var StorageBaseDriver; aRef: var int;
+                                aType: var int) {.
     importcpp: "ReadPersistentObjectHeader", header: "Storage_BaseDriver.hxx".}
-proc BeginReadPersistentObjectData*(this: var Storage_BaseDriver) {.
+proc beginReadPersistentObjectData*(this: var StorageBaseDriver) {.
     importcpp: "BeginReadPersistentObjectData", header: "Storage_BaseDriver.hxx".}
-proc BeginReadObjectData*(this: var Storage_BaseDriver) {.
+proc beginReadObjectData*(this: var StorageBaseDriver) {.
     importcpp: "BeginReadObjectData", header: "Storage_BaseDriver.hxx".}
-proc EndReadObjectData*(this: var Storage_BaseDriver) {.
+proc endReadObjectData*(this: var StorageBaseDriver) {.
     importcpp: "EndReadObjectData", header: "Storage_BaseDriver.hxx".}
-proc EndReadPersistentObjectData*(this: var Storage_BaseDriver) {.
+proc endReadPersistentObjectData*(this: var StorageBaseDriver) {.
     importcpp: "EndReadPersistentObjectData", header: "Storage_BaseDriver.hxx".}
-proc EndReadDataSection*(this: var Storage_BaseDriver): Storage_Error {.
+proc endReadDataSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "EndReadDataSection", header: "Storage_BaseDriver.hxx".}
-proc SkipObject*(this: var Storage_BaseDriver) {.importcpp: "SkipObject",
+proc skipObject*(this: var StorageBaseDriver) {.importcpp: "SkipObject",
     header: "Storage_BaseDriver.hxx".}
-proc Close*(this: var Storage_BaseDriver): Storage_Error {.importcpp: "Close",
+proc close*(this: var StorageBaseDriver): StorageError {.importcpp: "Close",
     header: "Storage_BaseDriver.hxx".}
-proc PutReference*(this: var Storage_BaseDriver; aValue: Standard_Integer): var Storage_BaseDriver {.
+proc putReference*(this: var StorageBaseDriver; aValue: int): var StorageBaseDriver {.
     importcpp: "PutReference", header: "Storage_BaseDriver.hxx".}
-proc PutCharacter*(this: var Storage_BaseDriver; aValue: Standard_Character): var Storage_BaseDriver {.
+proc putCharacter*(this: var StorageBaseDriver; aValue: StandardCharacter): var StorageBaseDriver {.
     importcpp: "PutCharacter", header: "Storage_BaseDriver.hxx".}
-proc `<<`*(this: var Storage_BaseDriver; aValue: Standard_Character): var Storage_BaseDriver {.
+proc `<<`*(this: var StorageBaseDriver; aValue: StandardCharacter): var StorageBaseDriver {.
     importcpp: "(# << #)", header: "Storage_BaseDriver.hxx".}
-proc PutExtCharacter*(this: var Storage_BaseDriver; aValue: Standard_ExtCharacter): var Storage_BaseDriver {.
+proc putExtCharacter*(this: var StorageBaseDriver; aValue: StandardExtCharacter): var StorageBaseDriver {.
     importcpp: "PutExtCharacter", header: "Storage_BaseDriver.hxx".}
-proc `<<`*(this: var Storage_BaseDriver; aValue: Standard_ExtCharacter): var Storage_BaseDriver {.
+proc `<<`*(this: var StorageBaseDriver; aValue: StandardExtCharacter): var StorageBaseDriver {.
     importcpp: "(# << #)", header: "Storage_BaseDriver.hxx".}
-proc PutInteger*(this: var Storage_BaseDriver; aValue: Standard_Integer): var Storage_BaseDriver {.
+proc putInteger*(this: var StorageBaseDriver; aValue: int): var StorageBaseDriver {.
     importcpp: "PutInteger", header: "Storage_BaseDriver.hxx".}
-proc `<<`*(this: var Storage_BaseDriver; aValue: Standard_Integer): var Storage_BaseDriver {.
+proc `<<`*(this: var StorageBaseDriver; aValue: int): var StorageBaseDriver {.
     importcpp: "(# << #)", header: "Storage_BaseDriver.hxx".}
-proc PutBoolean*(this: var Storage_BaseDriver; aValue: Standard_Boolean): var Storage_BaseDriver {.
+proc putBoolean*(this: var StorageBaseDriver; aValue: bool): var StorageBaseDriver {.
     importcpp: "PutBoolean", header: "Storage_BaseDriver.hxx".}
-proc `<<`*(this: var Storage_BaseDriver; aValue: Standard_Boolean): var Storage_BaseDriver {.
+proc `<<`*(this: var StorageBaseDriver; aValue: bool): var StorageBaseDriver {.
     importcpp: "(# << #)", header: "Storage_BaseDriver.hxx".}
-proc PutReal*(this: var Storage_BaseDriver; aValue: Standard_Real): var Storage_BaseDriver {.
+proc putReal*(this: var StorageBaseDriver; aValue: float): var StorageBaseDriver {.
     importcpp: "PutReal", header: "Storage_BaseDriver.hxx".}
-proc `<<`*(this: var Storage_BaseDriver; aValue: Standard_Real): var Storage_BaseDriver {.
+proc `<<`*(this: var StorageBaseDriver; aValue: float): var StorageBaseDriver {.
     importcpp: "(# << #)", header: "Storage_BaseDriver.hxx".}
-proc PutShortReal*(this: var Storage_BaseDriver; aValue: Standard_ShortReal): var Storage_BaseDriver {.
+proc putShortReal*(this: var StorageBaseDriver; aValue: StandardShortReal): var StorageBaseDriver {.
     importcpp: "PutShortReal", header: "Storage_BaseDriver.hxx".}
-proc `<<`*(this: var Storage_BaseDriver; aValue: Standard_ShortReal): var Storage_BaseDriver {.
+proc `<<`*(this: var StorageBaseDriver; aValue: StandardShortReal): var StorageBaseDriver {.
     importcpp: "(# << #)", header: "Storage_BaseDriver.hxx".}
-proc GetReference*(this: var Storage_BaseDriver; aValue: var Standard_Integer): var Storage_BaseDriver {.
+proc getReference*(this: var StorageBaseDriver; aValue: var int): var StorageBaseDriver {.
     importcpp: "GetReference", header: "Storage_BaseDriver.hxx".}
-proc GetCharacter*(this: var Storage_BaseDriver; aValue: var Standard_Character): var Storage_BaseDriver {.
+proc getCharacter*(this: var StorageBaseDriver; aValue: var StandardCharacter): var StorageBaseDriver {.
     importcpp: "GetCharacter", header: "Storage_BaseDriver.hxx".}
-proc `>>`*(this: var Storage_BaseDriver; aValue: var Standard_Character): var Storage_BaseDriver {.
+proc `>>`*(this: var StorageBaseDriver; aValue: var StandardCharacter): var StorageBaseDriver {.
     importcpp: "(# >> #)", header: "Storage_BaseDriver.hxx".}
-proc GetExtCharacter*(this: var Storage_BaseDriver;
-                     aValue: var Standard_ExtCharacter): var Storage_BaseDriver {.
+proc getExtCharacter*(this: var StorageBaseDriver; aValue: var StandardExtCharacter): var StorageBaseDriver {.
     importcpp: "GetExtCharacter", header: "Storage_BaseDriver.hxx".}
-proc `>>`*(this: var Storage_BaseDriver; aValue: var Standard_ExtCharacter): var Storage_BaseDriver {.
+proc `>>`*(this: var StorageBaseDriver; aValue: var StandardExtCharacter): var StorageBaseDriver {.
     importcpp: "(# >> #)", header: "Storage_BaseDriver.hxx".}
-proc GetInteger*(this: var Storage_BaseDriver; aValue: var Standard_Integer): var Storage_BaseDriver {.
+proc getInteger*(this: var StorageBaseDriver; aValue: var int): var StorageBaseDriver {.
     importcpp: "GetInteger", header: "Storage_BaseDriver.hxx".}
-proc `>>`*(this: var Storage_BaseDriver; aValue: var Standard_Integer): var Storage_BaseDriver {.
+proc `>>`*(this: var StorageBaseDriver; aValue: var int): var StorageBaseDriver {.
     importcpp: "(# >> #)", header: "Storage_BaseDriver.hxx".}
-proc GetBoolean*(this: var Storage_BaseDriver; aValue: var Standard_Boolean): var Storage_BaseDriver {.
+proc getBoolean*(this: var StorageBaseDriver; aValue: var bool): var StorageBaseDriver {.
     importcpp: "GetBoolean", header: "Storage_BaseDriver.hxx".}
-proc `>>`*(this: var Storage_BaseDriver; aValue: var Standard_Boolean): var Storage_BaseDriver {.
+proc `>>`*(this: var StorageBaseDriver; aValue: var bool): var StorageBaseDriver {.
     importcpp: "(# >> #)", header: "Storage_BaseDriver.hxx".}
-proc GetReal*(this: var Storage_BaseDriver; aValue: var Standard_Real): var Storage_BaseDriver {.
+proc getReal*(this: var StorageBaseDriver; aValue: var float): var StorageBaseDriver {.
     importcpp: "GetReal", header: "Storage_BaseDriver.hxx".}
-proc `>>`*(this: var Storage_BaseDriver; aValue: var Standard_Real): var Storage_BaseDriver {.
+proc `>>`*(this: var StorageBaseDriver; aValue: var float): var StorageBaseDriver {.
     importcpp: "(# >> #)", header: "Storage_BaseDriver.hxx".}
-proc GetShortReal*(this: var Storage_BaseDriver; aValue: var Standard_ShortReal): var Storage_BaseDriver {.
+proc getShortReal*(this: var StorageBaseDriver; aValue: var StandardShortReal): var StorageBaseDriver {.
     importcpp: "GetShortReal", header: "Storage_BaseDriver.hxx".}
-proc `>>`*(this: var Storage_BaseDriver; aValue: var Standard_ShortReal): var Storage_BaseDriver {.
+proc `>>`*(this: var StorageBaseDriver; aValue: var StandardShortReal): var StorageBaseDriver {.
     importcpp: "(# >> #)", header: "Storage_BaseDriver.hxx".}

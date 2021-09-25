@@ -15,8 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepShape_AngleRelator* {.size: sizeof(cint),
-                           importcpp: "StepShape_AngleRelator",
-                           header: "StepShape_AngleRelator.hxx".} = enum
-    StepShape_Equal, StepShape_Large, StepShape_Small
+  StepShapeAngleRelator* {.size: sizeof(cint), importcpp: "StepShape_AngleRelator",
+                          header: "StepShape_AngleRelator.hxx".} = enum
+    StepShapeEqual, StepShapeLarge, StepShapeSmall
+
 

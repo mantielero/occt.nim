@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP203_ClassifiedItem, ../NCollection/NCollection_Array1
-
 type
-  StepAP203_Array1OfClassifiedItem* = NCollection_Array1[StepAP203_ClassifiedItem]
+  StepAP203Array1OfClassifiedItem* = NCollectionArray1[StepAP203ClassifiedItem]
+

@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  Vrml_ShapeType* {.size: sizeof(cint), importcpp: "Vrml_ShapeType",
-                   header: "Vrml_ShapeType.hxx".} = enum
-    Vrml_UNKNOWN_SHAPE_TYPE, Vrml_SOLID
+  VrmlShapeType* {.size: sizeof(cint), importcpp: "Vrml_ShapeType",
+                  header: "Vrml_ShapeType.hxx".} = enum
+    VrmlUNKNOWN_SHAPE_TYPE, VrmlSOLID
+
 

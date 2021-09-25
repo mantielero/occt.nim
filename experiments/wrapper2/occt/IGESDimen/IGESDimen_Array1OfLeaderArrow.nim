@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IGESDimen_LeaderArrow, ../NCollection/NCollection_Array1
-
 type
-  IGESDimen_Array1OfLeaderArrow* = NCollection_Array1[
-      handle[IGESDimen_LeaderArrow]]
+  IGESDimenArray1OfLeaderArrow* = NCollectionArray1[Handle[IGESDimenLeaderArrow]]
+

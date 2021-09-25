@@ -13,34 +13,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Graphic3d/Graphic3d_Texture2Dmanual, ../Graphic3d/Graphic3d_TextureUnit,
-  ../Image/Image_Texture
-
 ## ! Texture holder.
 
 type
-  XCAFPrs_Texture* {.importcpp: "XCAFPrs_Texture", header: "XCAFPrs_Texture.hxx",
-                    bycopy.} = object of Graphic3d_Texture2Dmanual ## ! Constructor.
+  XCAFPrsTexture* {.importcpp: "XCAFPrs_Texture", header: "XCAFPrs_Texture.hxx",
+                   bycopy.} = object of Graphic3dTexture2Dmanual ## ! Constructor.
 
-  XCAFPrs_Texturebase_type* = Graphic3d_Texture2Dmanual
+  XCAFPrsTexturebaseType* = Graphic3dTexture2Dmanual
 
-proc get_type_name*(): cstring {.importcpp: "XCAFPrs_Texture::get_type_name(@)",
-                              header: "XCAFPrs_Texture.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XCAFPrs_Texture::get_type_name(@)",
+                            header: "XCAFPrs_Texture.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XCAFPrs_Texture::get_type_descriptor(@)",
     header: "XCAFPrs_Texture.hxx".}
-proc DynamicType*(this: XCAFPrs_Texture): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: XCAFPrsTexture): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XCAFPrs_Texture.hxx".}
-proc constructXCAFPrs_Texture*(theImageSource: Image_Texture;
-                              theUnit: Graphic3d_TextureUnit): XCAFPrs_Texture {.
+proc constructXCAFPrsTexture*(theImageSource: ImageTexture;
+                             theUnit: Graphic3dTextureUnit): XCAFPrsTexture {.
     constructor, importcpp: "XCAFPrs_Texture(@)", header: "XCAFPrs_Texture.hxx".}
-proc GetCompressedImage*(this: var XCAFPrs_Texture;
-                        theSupported: handle[Image_SupportedFormats]): handle[
-    Image_CompressedPixMap] {.importcpp: "GetCompressedImage",
-                             header: "XCAFPrs_Texture.hxx".}
-proc GetImage*(this: var XCAFPrs_Texture;
-              theSupported: handle[Image_SupportedFormats]): handle[Image_PixMap] {.
-    importcpp: "GetImage", header: "XCAFPrs_Texture.hxx".}
-proc GetImageSource*(this: XCAFPrs_Texture): Image_Texture {.noSideEffect,
+proc getCompressedImage*(this: var XCAFPrsTexture;
+                        theSupported: Handle[ImageSupportedFormats]): Handle[
+    ImageCompressedPixMap] {.importcpp: "GetCompressedImage",
+                            header: "XCAFPrs_Texture.hxx".}
+proc getImage*(this: var XCAFPrsTexture; theSupported: Handle[ImageSupportedFormats]): Handle[
+    ImagePixMap] {.importcpp: "GetImage", header: "XCAFPrs_Texture.hxx".}
+proc getImageSource*(this: XCAFPrsTexture): ImageTexture {.noSideEffect,
     importcpp: "GetImageSource", header: "XCAFPrs_Texture.hxx".}

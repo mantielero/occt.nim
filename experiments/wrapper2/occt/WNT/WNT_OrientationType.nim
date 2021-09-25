@@ -21,3 +21,4 @@ type
                         header: "WNT_OrientationType.hxx".} = enum
     WNT_OT_PORTRAIT, WNT_OT_LANDSCAPE
 
+

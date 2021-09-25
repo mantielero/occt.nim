@@ -14,27 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_NamedUnit"
 discard "forward decl of StepBasic_DerivedUnit"
 type
-  StepBasic_Unit* {.importcpp: "StepBasic_Unit", header: "StepBasic_Unit.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                              ## !
-                                                                                                              ## Creates
-                                                                                                              ## empty
-                                                                                                              ## object
+  StepBasicUnit* {.importcpp: "StepBasic_Unit", header: "StepBasic_Unit.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                            ## !
+                                                                                                            ## Creates
+                                                                                                            ## empty
+                                                                                                            ## object
 
 
-proc constructStepBasic_Unit*(): StepBasic_Unit {.constructor,
+proc constructStepBasicUnit*(): StepBasicUnit {.constructor,
     importcpp: "StepBasic_Unit(@)", header: "StepBasic_Unit.hxx".}
-proc CaseNum*(this: StepBasic_Unit; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepBasicUnit; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepBasic_Unit.hxx".}
-proc NamedUnit*(this: StepBasic_Unit): handle[StepBasic_NamedUnit] {.noSideEffect,
+proc namedUnit*(this: StepBasicUnit): Handle[StepBasicNamedUnit] {.noSideEffect,
     importcpp: "NamedUnit", header: "StepBasic_Unit.hxx".}
-proc DerivedUnit*(this: StepBasic_Unit): handle[StepBasic_DerivedUnit] {.
-    noSideEffect, importcpp: "DerivedUnit", header: "StepBasic_Unit.hxx".}
+proc derivedUnit*(this: StepBasicUnit): Handle[StepBasicDerivedUnit] {.noSideEffect,
+    importcpp: "DerivedUnit", header: "StepBasic_Unit.hxx".}

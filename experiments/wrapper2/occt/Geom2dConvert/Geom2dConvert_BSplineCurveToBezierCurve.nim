@@ -14,19 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer, ../TColGeom2d/TColGeom2d_Array1OfBezierCurve,
-  ../TColStd/TColStd_Array1OfReal
-
 discard "forward decl of Geom2d_BSplineCurve"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Geom2d_BezierCurve"
 type
-  Geom2dConvert_BSplineCurveToBezierCurve* {.
+  Geom2dConvertBSplineCurveToBezierCurve* {.
       importcpp: "Geom2dConvert_BSplineCurveToBezierCurve",
       header: "Geom2dConvert_BSplineCurveToBezierCurve.hxx", bycopy.} = object ## !
                                                                           ## Computes all the data needed to
@@ -56,24 +50,23 @@ type
                                                                           ## ParametricTolerance is not used.
 
 
-proc constructGeom2dConvert_BSplineCurveToBezierCurve*(
-    BasisCurve: handle[Geom2d_BSplineCurve]): Geom2dConvert_BSplineCurveToBezierCurve {.
+proc constructGeom2dConvertBSplineCurveToBezierCurve*(
+    basisCurve: Handle[Geom2dBSplineCurve]): Geom2dConvertBSplineCurveToBezierCurve {.
     constructor, importcpp: "Geom2dConvert_BSplineCurveToBezierCurve(@)",
     header: "Geom2dConvert_BSplineCurveToBezierCurve.hxx".}
-proc constructGeom2dConvert_BSplineCurveToBezierCurve*(
-    BasisCurve: handle[Geom2d_BSplineCurve]; U1: Standard_Real; U2: Standard_Real;
-    ParametricTolerance: Standard_Real): Geom2dConvert_BSplineCurveToBezierCurve {.
+proc constructGeom2dConvertBSplineCurveToBezierCurve*(
+    basisCurve: Handle[Geom2dBSplineCurve]; u1: float; u2: float;
+    parametricTolerance: float): Geom2dConvertBSplineCurveToBezierCurve {.
     constructor, importcpp: "Geom2dConvert_BSplineCurveToBezierCurve(@)",
     header: "Geom2dConvert_BSplineCurveToBezierCurve.hxx".}
-proc Arc*(this: var Geom2dConvert_BSplineCurveToBezierCurve; Index: Standard_Integer): handle[
-    Geom2d_BezierCurve] {.importcpp: "Arc",
-                         header: "Geom2dConvert_BSplineCurveToBezierCurve.hxx".}
-proc Arcs*(this: var Geom2dConvert_BSplineCurveToBezierCurve;
-          Curves: var TColGeom2d_Array1OfBezierCurve) {.importcpp: "Arcs",
+proc arc*(this: var Geom2dConvertBSplineCurveToBezierCurve; index: int): Handle[
+    Geom2dBezierCurve] {.importcpp: "Arc",
+                        header: "Geom2dConvert_BSplineCurveToBezierCurve.hxx".}
+proc arcs*(this: var Geom2dConvertBSplineCurveToBezierCurve;
+          curves: var TColGeom2dArray1OfBezierCurve) {.importcpp: "Arcs",
     header: "Geom2dConvert_BSplineCurveToBezierCurve.hxx".}
-proc Knots*(this: Geom2dConvert_BSplineCurveToBezierCurve;
-           TKnots: var TColStd_Array1OfReal) {.noSideEffect, importcpp: "Knots",
+proc knots*(this: Geom2dConvertBSplineCurveToBezierCurve;
+           tKnots: var TColStdArray1OfReal) {.noSideEffect, importcpp: "Knots",
     header: "Geom2dConvert_BSplineCurveToBezierCurve.hxx".}
-proc NbArcs*(this: Geom2dConvert_BSplineCurveToBezierCurve): Standard_Integer {.
-    noSideEffect, importcpp: "NbArcs",
-    header: "Geom2dConvert_BSplineCurveToBezierCurve.hxx".}
+proc nbArcs*(this: Geom2dConvertBSplineCurveToBezierCurve): int {.noSideEffect,
+    importcpp: "NbArcs", header: "Geom2dConvert_BSplineCurveToBezierCurve.hxx".}

@@ -15,38 +15,29 @@
 ## ======================================================= IntAna2d_Outils.hxx
 ## ============================================================================
 
-import
-  ../math/math_DirectPolynomialRoots, ../math/math_TrigonometricFunctionRoots,
-  IntAna2d_IntPoint, ../gp/gp_Ax2d
-
 type
   MyDirectPolynomialRoots* {.importcpp: "MyDirectPolynomialRoots",
                             header: "IntAna2d_Outils.hxx", bycopy.} = object
 
 
-proc constructMyDirectPolynomialRoots*(A4: Standard_Real; A3: Standard_Real;
-                                      A2: Standard_Real; A1: Standard_Real;
-                                      A0: Standard_Real): MyDirectPolynomialRoots {.
+proc constructMyDirectPolynomialRoots*(a4: float; a3: float; a2: float; a1: float;
+                                      a0: float): MyDirectPolynomialRoots {.
     constructor, importcpp: "MyDirectPolynomialRoots(@)",
     header: "IntAna2d_Outils.hxx".}
-proc constructMyDirectPolynomialRoots*(A2: Standard_Real; A1: Standard_Real;
-                                      A0: Standard_Real): MyDirectPolynomialRoots {.
+proc constructMyDirectPolynomialRoots*(a2: float; a1: float; a0: float): MyDirectPolynomialRoots {.
     constructor, importcpp: "MyDirectPolynomialRoots(@)",
     header: "IntAna2d_Outils.hxx".}
-proc NbSolutions*(this: MyDirectPolynomialRoots): Standard_Integer {.noSideEffect,
+proc nbSolutions*(this: MyDirectPolynomialRoots): int {.noSideEffect,
     importcpp: "NbSolutions", header: "IntAna2d_Outils.hxx".}
-proc Value*(this: MyDirectPolynomialRoots; i: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "Value", header: "IntAna2d_Outils.hxx".}
-proc IsDone*(this: MyDirectPolynomialRoots): Standard_Real {.noSideEffect,
+proc value*(this: MyDirectPolynomialRoots; i: int): float {.noSideEffect,
+    importcpp: "Value", header: "IntAna2d_Outils.hxx".}
+proc isDone*(this: MyDirectPolynomialRoots): float {.noSideEffect,
     importcpp: "IsDone", header: "IntAna2d_Outils.hxx".}
-proc InfiniteRoots*(this: MyDirectPolynomialRoots): Standard_Boolean {.noSideEffect,
+proc infiniteRoots*(this: MyDirectPolynomialRoots): bool {.noSideEffect,
     importcpp: "InfiniteRoots", header: "IntAna2d_Outils.hxx".}
-proc Points_Confondus*(xa: Standard_Real; ya: Standard_Real; xb: Standard_Real;
-                      yb: Standard_Real): Standard_Boolean {.
+proc pointsConfondus*(xa: float; ya: float; xb: float; yb: float): bool {.
     importcpp: "Points_Confondus(@)", header: "IntAna2d_Outils.hxx".}
-proc Traitement_Points_Confondus*(nb_pts: var Standard_Integer;
-                                 pts: ptr IntAna2d_IntPoint) {.
+proc traitementPointsConfondus*(nbPts: var int; pts: ptr IntAna2dIntPoint) {.
     importcpp: "Traitement_Points_Confondus(@)", header: "IntAna2d_Outils.hxx".}
-proc Coord_Ancien_Repere*(Ancien_X: var Standard_Real; Ancien_Y: var Standard_Real;
-                         Axe_Nouveau_Repere: gp_Ax2d) {.
+proc coordAncienRepere*(ancienX: var float; ancienY: var float; axeNouveauRepere: Ax2d) {.
     importcpp: "Coord_Ancien_Repere(@)", header: "IntAna2d_Outils.hxx".}

@@ -13,114 +13,108 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Message/Message_ProgressIndicator, Draw_Interpretor
-
 discard "forward decl of Draw_ProgressIndicator"
 discard "forward decl of Draw_ProgressIndicator"
 type
-  Handle_Draw_ProgressIndicator* = handle[Draw_ProgressIndicator]
+  HandleDrawProgressIndicator* = Handle[DrawProgressIndicator]
 
 ## ! Implements ProgressIndicator (interface provided by Message)
 ## ! for DRAW, with possibility to output to TCL window
 ## ! and/or trace file
 
 type
-  Draw_ProgressIndicator* {.importcpp: "Draw_ProgressIndicator",
-                           header: "Draw_ProgressIndicator.hxx", bycopy.} = object of Message_ProgressIndicator ##
-                                                                                                         ## !
-                                                                                                         ## Creates
-                                                                                                         ## a
-                                                                                                         ## progress
-                                                                                                         ## indicator
-                                                                                                         ## and
-                                                                                                         ## remembers
-                                                                                                         ## pointer
-                                                                                                         ## to
-                                                                                                         ## Draw_Interpretor
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## @param
-                                                                                                         ## theUpdateThreshold
-                                                                                                         ## defines
-                                                                                                         ## minimal
-                                                                                                         ## progress
-                                                                                                         ## (in
-                                                                                                         ## percents)
-                                                                                                         ## between
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## updates
-                                                                                                         ## of
-                                                                                                         ## the
-                                                                                                         ## indicator
-                                                                                                         ## (non-forced
-                                                                                                         ## updates
-                                                                                                         ## of
-                                                                                                         ## the
-                                                                                                         ## progress
-                                                                                                         ## bar
-                                                                                                         ## will
-                                                                                                         ## be
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## disabled
-                                                                                                         ## until
-                                                                                                         ## that
-                                                                                                         ## progress
-                                                                                                         ## is
-                                                                                                         ## reached
-                                                                                                         ## since
-                                                                                                         ## last
-                                                                                                         ## update).
+  DrawProgressIndicator* {.importcpp: "Draw_ProgressIndicator",
+                          header: "Draw_ProgressIndicator.hxx", bycopy.} = object of MessageProgressIndicator ##
+                                                                                                       ## !
+                                                                                                       ## Creates
+                                                                                                       ## a
+                                                                                                       ## progress
+                                                                                                       ## indicator
+                                                                                                       ## and
+                                                                                                       ## remembers
+                                                                                                       ## pointer
+                                                                                                       ## to
+                                                                                                       ## Draw_Interpretor
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## @param
+                                                                                                       ## theUpdateThreshold
+                                                                                                       ## defines
+                                                                                                       ## minimal
+                                                                                                       ## progress
+                                                                                                       ## (in
+                                                                                                       ## percents)
+                                                                                                       ## between
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## updates
+                                                                                                       ## of
+                                                                                                       ## the
+                                                                                                       ## indicator
+                                                                                                       ## (non-forced
+                                                                                                       ## updates
+                                                                                                       ## of
+                                                                                                       ## the
+                                                                                                       ## progress
+                                                                                                       ## bar
+                                                                                                       ## will
+                                                                                                       ## be
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## disabled
+                                                                                                       ## until
+                                                                                                       ## that
+                                                                                                       ## progress
+                                                                                                       ## is
+                                                                                                       ## reached
+                                                                                                       ## since
+                                                                                                       ## last
+                                                                                                       ## update).
 
 
-proc constructDraw_ProgressIndicator*(di: Draw_Interpretor;
-                                     theUpdateThreshold: Standard_Real = 1.0): Draw_ProgressIndicator {.
+proc constructDrawProgressIndicator*(di: DrawInterpretor;
+                                    theUpdateThreshold: float = 1.0): DrawProgressIndicator {.
     constructor, importcpp: "Draw_ProgressIndicator(@)",
     header: "Draw_ProgressIndicator.hxx".}
-proc destroyDraw_ProgressIndicator*(this: var Draw_ProgressIndicator) {.
+proc destroyDrawProgressIndicator*(this: var DrawProgressIndicator) {.
     importcpp: "#.~Draw_ProgressIndicator()", header: "Draw_ProgressIndicator.hxx".}
-proc SetTclMode*(this: var Draw_ProgressIndicator; theTclMode: Standard_Boolean) {.
+proc setTclMode*(this: var DrawProgressIndicator; theTclMode: bool) {.
     importcpp: "SetTclMode", header: "Draw_ProgressIndicator.hxx".}
-proc GetTclMode*(this: Draw_ProgressIndicator): Standard_Boolean {.noSideEffect,
+proc getTclMode*(this: DrawProgressIndicator): bool {.noSideEffect,
     importcpp: "GetTclMode", header: "Draw_ProgressIndicator.hxx".}
-proc SetConsoleMode*(this: var Draw_ProgressIndicator; theMode: Standard_Boolean) {.
+proc setConsoleMode*(this: var DrawProgressIndicator; theMode: bool) {.
     importcpp: "SetConsoleMode", header: "Draw_ProgressIndicator.hxx".}
-proc GetConsoleMode*(this: Draw_ProgressIndicator): Standard_Boolean {.noSideEffect,
+proc getConsoleMode*(this: DrawProgressIndicator): bool {.noSideEffect,
     importcpp: "GetConsoleMode", header: "Draw_ProgressIndicator.hxx".}
-proc SetGraphMode*(this: var Draw_ProgressIndicator; theGraphMode: Standard_Boolean) {.
+proc setGraphMode*(this: var DrawProgressIndicator; theGraphMode: bool) {.
     importcpp: "SetGraphMode", header: "Draw_ProgressIndicator.hxx".}
-proc GetGraphMode*(this: Draw_ProgressIndicator): Standard_Boolean {.noSideEffect,
+proc getGraphMode*(this: DrawProgressIndicator): bool {.noSideEffect,
     importcpp: "GetGraphMode", header: "Draw_ProgressIndicator.hxx".}
-proc Reset*(this: var Draw_ProgressIndicator) {.importcpp: "Reset",
+proc reset*(this: var DrawProgressIndicator) {.importcpp: "Reset",
     header: "Draw_ProgressIndicator.hxx".}
-proc Show*(this: var Draw_ProgressIndicator; theScope: Message_ProgressScope;
-          force: Standard_Boolean = Standard_True) {.importcpp: "Show",
+proc show*(this: var DrawProgressIndicator; theScope: MessageProgressScope;
+          force: bool = true) {.importcpp: "Show",
+                            header: "Draw_ProgressIndicator.hxx".}
+proc userBreak*(this: var DrawProgressIndicator): bool {.importcpp: "UserBreak",
     header: "Draw_ProgressIndicator.hxx".}
-proc UserBreak*(this: var Draw_ProgressIndicator): Standard_Boolean {.
-    importcpp: "UserBreak", header: "Draw_ProgressIndicator.hxx".}
-proc DefaultTclMode*(): var Standard_Boolean {.
-    importcpp: "Draw_ProgressIndicator::DefaultTclMode(@)",
-    header: "Draw_ProgressIndicator.hxx".}
-proc DefaultConsoleMode*(): var Standard_Boolean {.
-    importcpp: "Draw_ProgressIndicator::DefaultConsoleMode(@)",
-    header: "Draw_ProgressIndicator.hxx".}
-proc DefaultGraphMode*(): var Standard_Boolean {.
-    importcpp: "Draw_ProgressIndicator::DefaultGraphMode(@)",
-    header: "Draw_ProgressIndicator.hxx".}
-proc StopIndicator*(): var Standard_Address {.
+proc defaultTclMode*(): var bool {.importcpp: "Draw_ProgressIndicator::DefaultTclMode(@)",
+                               header: "Draw_ProgressIndicator.hxx".}
+proc defaultConsoleMode*(): var bool {.importcpp: "Draw_ProgressIndicator::DefaultConsoleMode(@)",
+                                   header: "Draw_ProgressIndicator.hxx".}
+proc defaultGraphMode*(): var bool {.importcpp: "Draw_ProgressIndicator::DefaultGraphMode(@)",
+                                 header: "Draw_ProgressIndicator.hxx".}
+proc stopIndicator*(): var StandardAddress {.
     importcpp: "Draw_ProgressIndicator::StopIndicator(@)",
     header: "Draw_ProgressIndicator.hxx".}
 type
-  Draw_ProgressIndicatorbase_type* = Message_ProgressIndicator
+  DrawProgressIndicatorbaseType* = MessageProgressIndicator
 
-proc get_type_name*(): cstring {.importcpp: "Draw_ProgressIndicator::get_type_name(@)",
-                              header: "Draw_ProgressIndicator.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Draw_ProgressIndicator::get_type_name(@)",
+                            header: "Draw_ProgressIndicator.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Draw_ProgressIndicator::get_type_descriptor(@)",
     header: "Draw_ProgressIndicator.hxx".}
-proc DynamicType*(this: Draw_ProgressIndicator): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Draw_ProgressIndicator.hxx".}
+proc dynamicType*(this: DrawProgressIndicator): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Draw_ProgressIndicator.hxx".}

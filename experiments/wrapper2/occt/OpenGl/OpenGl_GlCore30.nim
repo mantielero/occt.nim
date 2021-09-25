@@ -13,51 +13,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_GlCore21
-
 ## ! OpenGL 3.0 core.
 ## ! This is first version with deprecation model introduced
 ## ! - a lot of functionality regarding to fixed pipeline were marked deprecated.
 ## ! Notice that nothing were actually removed in this version (unless Forward context loaded)!
 
 type
-  OpenGl_TmplCore30*[theBaseClass_t] {.importcpp: "OpenGl_TmplCore30<\'0>",
-                                      header: "OpenGl_GlCore30.hxx", bycopy.} = object of theBaseClass_t ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## GL_ARB_framebuffer_object
-                                                                                                  ## (added
-                                                                                                  ## to
-                                                                                                  ## OpenGL
-                                                                                                  ## 3.0
-                                                                                                  ## core)
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## GL_ARB_vertex_array_object
-                                                                                                  ## (added
-                                                                                                  ## to
-                                                                                                  ## OpenGL
-                                                                                                  ## 3.0
-                                                                                                  ## core)
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## GL_ARB_map_buffer_range
-                                                                                                  ## (added
-                                                                                                  ## to
-                                                                                                  ## OpenGL
-                                                                                                  ## 3.0
-                                                                                                  ## core)
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## OpenGL
-                                                                                                  ## 3.0
-                                                                                                  ## additives
-                                                                                                  ## to
-                                                                                                  ## 2.1
+  OpenGlTmplCore30*[TheBaseClassT] {.importcpp: "OpenGl_TmplCore30<\'0>",
+                                    header: "OpenGl_GlCore30.hxx", bycopy.} = object of TheBaseClassT ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## GL_ARB_framebuffer_object
+                                                                                               ## (added
+                                                                                               ## to
+                                                                                               ## OpenGL
+                                                                                               ## 3.0
+                                                                                               ## core)
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## GL_ARB_vertex_array_object
+                                                                                               ## (added
+                                                                                               ## to
+                                                                                               ## OpenGL
+                                                                                               ## 3.0
+                                                                                               ## core)
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## GL_ARB_map_buffer_range
+                                                                                               ## (added
+                                                                                               ## to
+                                                                                               ## OpenGL
+                                                                                               ## 3.0
+                                                                                               ## core)
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## OpenGL
+                                                                                               ## 3.0
+                                                                                               ## additives
+                                                                                               ## to
+                                                                                               ## 2.1
 
 
 ## using statement
@@ -96,10 +93,10 @@ type
 
 ## using statement
 
-when not defined(GL_ES_VERSION_2_0):
-  discard
-when not defined(GL_ES_VERSION_2_0):
-  discard
+# when not defined(gl_Es_Version_20):
+#   discard
+# when not defined(gl_Es_Version_20):
+#   discard
 ## using statement
 
 ## using statement
@@ -108,10 +105,10 @@ when not defined(GL_ES_VERSION_2_0):
 
 ## using statement
 
-when not defined(__EMSCRIPTEN__):
-  discard
-when not defined(__EMSCRIPTEN__):
-  discard
+# when not defined(__EMSCRIPTEN__):
+#   discard
+# when not defined(__EMSCRIPTEN__):
+#   discard
 ## using statement
 
 ## using statement
@@ -245,15 +242,16 @@ when not defined(__EMSCRIPTEN__):
 
 ## using statement
 
-when not defined(__EMSCRIPTEN__):
-  discard
+# when not defined(__EMSCRIPTEN__):
+#   discard
 ## ! OpenGL 3.0 core based on 2.1 version.
 
 type
-  OpenGl_GlCore30* = OpenGl_TmplCore30[OpenGl_GlCore21]
+  OpenGlGlCore30* = OpenGlTmplCore30[OpenGlGlCore21]
 
 ## ! OpenGL 3.0 without deprecated entry points.
 ## ! Notice that this doesn't actually corresponds to GL3.0 forward profile!
 
 type
-  OpenGl_GlCore30Fwd* = OpenGl_TmplCore30[OpenGl_GlCore21Fwd]
+  OpenGlGlCore30Fwd* = OpenGlTmplCore30[OpenGlGlCore21Fwd]
+

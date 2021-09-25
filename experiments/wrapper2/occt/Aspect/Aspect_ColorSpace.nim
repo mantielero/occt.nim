@@ -11,14 +11,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Aspect_GraphicsLibrary
-
 ## ! Texture color spaces accepted by XR composer.
 
 type
-  Aspect_ColorSpace* {.size: sizeof(cint), importcpp: "Aspect_ColorSpace",
-                      header: "Aspect_ColorSpace.hxx".} = enum
-    Aspect_ColorSpace_sRGB = 0, ## !< non-linear sRGB color space
-    Aspect_ColorSpace_Linear = 1 ## !< linear RGB color space
+  AspectColorSpace* {.size: sizeof(cint), importcpp: "Aspect_ColorSpace",
+                     header: "Aspect_ColorSpace.hxx".} = enum
+    AspectColorSpaceSRGB = 0,   ## !< non-linear sRGB color space
+    AspectColorSpaceLinear = 1  ## !< linear RGB color space
+
 

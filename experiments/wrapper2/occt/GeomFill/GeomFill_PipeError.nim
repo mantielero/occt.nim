@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  GeomFill_PipeError* {.size: sizeof(cint), importcpp: "GeomFill_PipeError",
-                       header: "GeomFill_PipeError.hxx".} = enum
-    GeomFill_PipeOk, GeomFill_PipeNotOk, GeomFill_PlaneNotIntersectGuide,
-    GeomFill_ImpossibleContact
+  GeomFillPipeError* {.size: sizeof(cint), importcpp: "GeomFill_PipeError",
+                      header: "GeomFill_PipeError.hxx".} = enum
+    GeomFillPipeOk, GeomFillPipeNotOk, GeomFillPlaneNotIntersectGuide,
+    GeomFillImpossibleContact
+
 

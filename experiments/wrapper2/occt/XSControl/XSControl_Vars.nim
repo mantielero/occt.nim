@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_CString, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Transient, ../NCollection/NCollection_DataMap,
-  ../TCollection/TCollection_AsciiString
-
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Geom_Curve"
@@ -30,7 +24,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of XSControl_Vars"
 discard "forward decl of XSControl_Vars"
 type
-  Handle_XSControl_Vars* = handle[XSControl_Vars]
+  HandleXSControlVars* = Handle[XSControlVars]
 
 ## ! Defines a receptacle for externally defined variables, each
 ## ! one has a name
@@ -44,45 +38,43 @@ type
 ## ! dictionary), but which is aimed to be redefined
 
 type
-  XSControl_Vars* {.importcpp: "XSControl_Vars", header: "XSControl_Vars.hxx", bycopy.} = object of Standard_Transient
+  XSControlVars* {.importcpp: "XSControl_Vars", header: "XSControl_Vars.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructXSControl_Vars*(): XSControl_Vars {.constructor,
+proc constructXSControlVars*(): XSControlVars {.constructor,
     importcpp: "XSControl_Vars(@)", header: "XSControl_Vars.hxx".}
-proc Set*(this: var XSControl_Vars; name: Standard_CString;
-         val: handle[Standard_Transient]) {.importcpp: "Set",
+proc set*(this: var XSControlVars; name: StandardCString;
+         val: Handle[StandardTransient]) {.importcpp: "Set",
     header: "XSControl_Vars.hxx".}
-proc Get*(this: XSControl_Vars; name: var Standard_CString): handle[Standard_Transient] {.
+proc get*(this: XSControlVars; name: var StandardCString): Handle[StandardTransient] {.
     noSideEffect, importcpp: "Get", header: "XSControl_Vars.hxx".}
-proc GetGeom*(this: XSControl_Vars; name: var Standard_CString): handle[Geom_Geometry] {.
+proc getGeom*(this: XSControlVars; name: var StandardCString): Handle[GeomGeometry] {.
     noSideEffect, importcpp: "GetGeom", header: "XSControl_Vars.hxx".}
-proc GetCurve2d*(this: XSControl_Vars; name: var Standard_CString): handle[
-    Geom2d_Curve] {.noSideEffect, importcpp: "GetCurve2d",
-                   header: "XSControl_Vars.hxx".}
-proc GetCurve*(this: XSControl_Vars; name: var Standard_CString): handle[Geom_Curve] {.
+proc getCurve2d*(this: XSControlVars; name: var StandardCString): Handle[Geom2dCurve] {.
+    noSideEffect, importcpp: "GetCurve2d", header: "XSControl_Vars.hxx".}
+proc getCurve*(this: XSControlVars; name: var StandardCString): Handle[GeomCurve] {.
     noSideEffect, importcpp: "GetCurve", header: "XSControl_Vars.hxx".}
-proc GetSurface*(this: XSControl_Vars; name: var Standard_CString): handle[
-    Geom_Surface] {.noSideEffect, importcpp: "GetSurface",
-                   header: "XSControl_Vars.hxx".}
-proc SetPoint*(this: var XSControl_Vars; name: Standard_CString; val: gp_Pnt) {.
+proc getSurface*(this: XSControlVars; name: var StandardCString): Handle[GeomSurface] {.
+    noSideEffect, importcpp: "GetSurface", header: "XSControl_Vars.hxx".}
+proc setPoint*(this: var XSControlVars; name: StandardCString; val: Pnt) {.
     importcpp: "SetPoint", header: "XSControl_Vars.hxx".}
-proc SetPoint2d*(this: var XSControl_Vars; name: Standard_CString; val: gp_Pnt2d) {.
+proc setPoint2d*(this: var XSControlVars; name: StandardCString; val: Pnt2d) {.
     importcpp: "SetPoint2d", header: "XSControl_Vars.hxx".}
-proc GetPoint*(this: XSControl_Vars; name: var Standard_CString; pnt: var gp_Pnt): Standard_Boolean {.
+proc getPoint*(this: XSControlVars; name: var StandardCString; pnt: var Pnt): bool {.
     noSideEffect, importcpp: "GetPoint", header: "XSControl_Vars.hxx".}
-proc GetPoint2d*(this: XSControl_Vars; name: var Standard_CString; pnt: var gp_Pnt2d): Standard_Boolean {.
+proc getPoint2d*(this: XSControlVars; name: var StandardCString; pnt: var Pnt2d): bool {.
     noSideEffect, importcpp: "GetPoint2d", header: "XSControl_Vars.hxx".}
-proc SetShape*(this: var XSControl_Vars; name: Standard_CString; val: TopoDS_Shape) {.
+proc setShape*(this: var XSControlVars; name: StandardCString; val: TopoDS_Shape) {.
     importcpp: "SetShape", header: "XSControl_Vars.hxx".}
-proc GetShape*(this: XSControl_Vars; name: var Standard_CString): TopoDS_Shape {.
+proc getShape*(this: XSControlVars; name: var StandardCString): TopoDS_Shape {.
     noSideEffect, importcpp: "GetShape", header: "XSControl_Vars.hxx".}
 type
-  XSControl_Varsbase_type* = Standard_Transient
+  XSControlVarsbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "XSControl_Vars::get_type_name(@)",
-                              header: "XSControl_Vars.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XSControl_Vars::get_type_name(@)",
+                            header: "XSControl_Vars.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XSControl_Vars::get_type_descriptor(@)",
     header: "XSControl_Vars.hxx".}
-proc DynamicType*(this: XSControl_Vars): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: XSControlVars): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XSControl_Vars.hxx".}

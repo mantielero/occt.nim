@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../AppParCurves/AppParCurves_MultiCurve,
-  ../math/math_Vector, ../Standard/Standard_Real, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer,
-  ../AppParCurves/AppParCurves_HArray1OfConstraintCouple
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of BRepApprox_TheMultiLineOfApprox"
@@ -31,7 +24,7 @@ discard "forward decl of BRepApprox_ParFunctionOfMyGradientbisOfTheComputeLineOf
 discard "forward decl of BRepApprox_Gradient_BFGSOfMyGradientbisOfTheComputeLineOfApprox"
 discard "forward decl of AppParCurves_MultiCurve"
 type
-  BRepApprox_MyGradientbisOfTheComputeLineOfApprox* {.
+  BRepApproxMyGradientbisOfTheComputeLineOfApprox* {.
       importcpp: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox",
       header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx", bycopy.} = object ##
                                                                                    ## !
@@ -99,31 +92,29 @@ type
                                                                                    ## Deg.
 
 
-proc constructBRepApprox_MyGradientbisOfTheComputeLineOfApprox*(
-    SSP: BRepApprox_TheMultiLineOfApprox; FirstPoint: Standard_Integer;
-    LastPoint: Standard_Integer;
-    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
-    Parameters: var math_Vector; Deg: Standard_Integer; Tol3d: Standard_Real;
-    Tol2d: Standard_Real; NbIterations: Standard_Integer = 200): BRepApprox_MyGradientbisOfTheComputeLineOfApprox {.
+proc constructBRepApproxMyGradientbisOfTheComputeLineOfApprox*(
+    ssp: BRepApproxTheMultiLineOfApprox; firstPoint: int; lastPoint: int;
+    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
+    parameters: var MathVector; deg: int; tol3d: float; tol2d: float;
+    nbIterations: int = 200): BRepApproxMyGradientbisOfTheComputeLineOfApprox {.
     constructor,
     importcpp: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox(@)",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc IsDone*(this: BRepApprox_MyGradientbisOfTheComputeLineOfApprox): Standard_Boolean {.
+proc isDone*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): bool {.
     noSideEffect, importcpp: "IsDone",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc Value*(this: BRepApprox_MyGradientbisOfTheComputeLineOfApprox): AppParCurves_MultiCurve {.
+proc value*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): AppParCurvesMultiCurve {.
     noSideEffect, importcpp: "Value",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc Error*(this: BRepApprox_MyGradientbisOfTheComputeLineOfApprox;
-           Index: Standard_Integer): Standard_Real {.noSideEffect,
-    importcpp: "Error",
+proc error*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox; index: int): float {.
+    noSideEffect, importcpp: "Error",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc MaxError3d*(this: BRepApprox_MyGradientbisOfTheComputeLineOfApprox): Standard_Real {.
+proc maxError3d*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): float {.
     noSideEffect, importcpp: "MaxError3d",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc MaxError2d*(this: BRepApprox_MyGradientbisOfTheComputeLineOfApprox): Standard_Real {.
+proc maxError2d*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): float {.
     noSideEffect, importcpp: "MaxError2d",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc AverageError*(this: BRepApprox_MyGradientbisOfTheComputeLineOfApprox): Standard_Real {.
+proc averageError*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): float {.
     noSideEffect, importcpp: "AverageError",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}

@@ -14,42 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Vec, Vrml_SFRotation,
-  ../Standard/Standard_Real, ../Standard/Standard_OStream
-
 discard "forward decl of gp_Vec"
 discard "forward decl of Vrml_SFRotation"
 type
-  Vrml_PerspectiveCamera* {.importcpp: "Vrml_PerspectiveCamera",
-                           header: "Vrml_PerspectiveCamera.hxx", bycopy.} = object
+  VrmlPerspectiveCamera* {.importcpp: "Vrml_PerspectiveCamera",
+                          header: "Vrml_PerspectiveCamera.hxx", bycopy.} = object
 
 
-proc constructVrml_PerspectiveCamera*(): Vrml_PerspectiveCamera {.constructor,
+proc constructVrmlPerspectiveCamera*(): VrmlPerspectiveCamera {.constructor,
     importcpp: "Vrml_PerspectiveCamera(@)", header: "Vrml_PerspectiveCamera.hxx".}
-proc constructVrml_PerspectiveCamera*(aPosition: gp_Vec;
-                                     aOrientation: Vrml_SFRotation;
-                                     aFocalDistance: Standard_Real;
-                                     aHeightAngle: Standard_Real): Vrml_PerspectiveCamera {.
+proc constructVrmlPerspectiveCamera*(aPosition: Vec; aOrientation: VrmlSFRotation;
+                                    aFocalDistance: float; aHeightAngle: float): VrmlPerspectiveCamera {.
     constructor, importcpp: "Vrml_PerspectiveCamera(@)",
     header: "Vrml_PerspectiveCamera.hxx".}
-proc SetPosition*(this: var Vrml_PerspectiveCamera; aPosition: gp_Vec) {.
+proc setPosition*(this: var VrmlPerspectiveCamera; aPosition: Vec) {.
     importcpp: "SetPosition", header: "Vrml_PerspectiveCamera.hxx".}
-proc Position*(this: Vrml_PerspectiveCamera): gp_Vec {.noSideEffect,
+proc position*(this: VrmlPerspectiveCamera): Vec {.noSideEffect,
     importcpp: "Position", header: "Vrml_PerspectiveCamera.hxx".}
-proc SetOrientation*(this: var Vrml_PerspectiveCamera; aOrientation: Vrml_SFRotation) {.
+proc setOrientation*(this: var VrmlPerspectiveCamera; aOrientation: VrmlSFRotation) {.
     importcpp: "SetOrientation", header: "Vrml_PerspectiveCamera.hxx".}
-proc Orientation*(this: Vrml_PerspectiveCamera): Vrml_SFRotation {.noSideEffect,
+proc orientation*(this: VrmlPerspectiveCamera): VrmlSFRotation {.noSideEffect,
     importcpp: "Orientation", header: "Vrml_PerspectiveCamera.hxx".}
-proc SetFocalDistance*(this: var Vrml_PerspectiveCamera;
-                      aFocalDistance: Standard_Real) {.
+proc setFocalDistance*(this: var VrmlPerspectiveCamera; aFocalDistance: float) {.
     importcpp: "SetFocalDistance", header: "Vrml_PerspectiveCamera.hxx".}
-proc FocalDistance*(this: Vrml_PerspectiveCamera): Standard_Real {.noSideEffect,
+proc focalDistance*(this: VrmlPerspectiveCamera): float {.noSideEffect,
     importcpp: "FocalDistance", header: "Vrml_PerspectiveCamera.hxx".}
-proc SetAngle*(this: var Vrml_PerspectiveCamera; aHeightAngle: Standard_Real) {.
+proc setAngle*(this: var VrmlPerspectiveCamera; aHeightAngle: float) {.
     importcpp: "SetAngle", header: "Vrml_PerspectiveCamera.hxx".}
-proc Angle*(this: Vrml_PerspectiveCamera): Standard_Real {.noSideEffect,
-    importcpp: "Angle", header: "Vrml_PerspectiveCamera.hxx".}
-proc Print*(this: Vrml_PerspectiveCamera; anOStream: var Standard_OStream): var Standard_OStream {.
+proc angle*(this: VrmlPerspectiveCamera): float {.noSideEffect, importcpp: "Angle",
+    header: "Vrml_PerspectiveCamera.hxx".}
+proc print*(this: VrmlPerspectiveCamera; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_PerspectiveCamera.hxx".}

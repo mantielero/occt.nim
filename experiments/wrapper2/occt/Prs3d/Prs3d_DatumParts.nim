@@ -14,9 +14,10 @@
 ## ! Enumeration defining a part of datum aspect, see Prs3d_Datum.
 
 type
-  Prs3d_DatumParts* {.size: sizeof(cint), importcpp: "Prs3d_DatumParts",
-                     header: "Prs3d_DatumParts.hxx".} = enum
-    Prs3d_DP_Origin = 0, Prs3d_DP_XAxis, Prs3d_DP_YAxis, Prs3d_DP_ZAxis,
-    Prs3d_DP_XArrow, Prs3d_DP_YArrow, Prs3d_DP_ZArrow, Prs3d_DP_XOYAxis,
-    Prs3d_DP_YOZAxis, Prs3d_DP_XOZAxis, Prs3d_DP_None
+  Prs3dDatumParts* {.size: sizeof(cint), importcpp: "Prs3d_DatumParts",
+                    header: "Prs3d_DatumParts.hxx".} = enum
+    Prs3dDP_Origin = 0, Prs3dDP_XAxis, Prs3dDP_YAxis, Prs3dDP_ZAxis, Prs3dDP_XArrow,
+    Prs3dDP_YArrow, Prs3dDP_ZArrow, Prs3dDP_XOYAxis, Prs3dDP_YOZAxis,
+    Prs3dDP_XOZAxis, Prs3dDP_None
+
 

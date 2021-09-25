@@ -14,8 +14,9 @@
 ## ! Enumeration defines the filter type.
 
 type
-  SelectMgr_FilterType* {.size: sizeof(cint), importcpp: "SelectMgr_FilterType",
-                         header: "SelectMgr_FilterType.hxx".} = enum
-    SelectMgr_FilterType_AND, ## !< an object should be suitable for all filters.
-    SelectMgr_FilterType_OR   ## !< an object should be suitable at least one filter.
+  SelectMgrFilterType* {.size: sizeof(cint), importcpp: "SelectMgr_FilterType",
+                        header: "SelectMgr_FilterType.hxx".} = enum
+    SelectMgrFilterTypeAND,   ## !< an object should be suitable for all filters.
+    SelectMgrFilterTypeOR     ## !< an object should be suitable at least one filter.
+
 

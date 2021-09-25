@@ -14,44 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Pnt, ../Standard/Standard_Real,
-  IntCurveSurface_TransitionOnCurve
-
 discard "forward decl of gp_Pnt"
 type
-  IntCurveSurface_IntersectionPoint* {.importcpp: "IntCurveSurface_IntersectionPoint", header: "IntCurveSurface_IntersectionPoint.hxx",
-                                      bycopy.} = object ## ! Empty Constructor.
+  IntCurveSurfaceIntersectionPoint* {.importcpp: "IntCurveSurface_IntersectionPoint", header: "IntCurveSurface_IntersectionPoint.hxx",
+                                     bycopy.} = object ## ! Empty Constructor.
 
 
-proc constructIntCurveSurface_IntersectionPoint*(): IntCurveSurface_IntersectionPoint {.
+proc constructIntCurveSurfaceIntersectionPoint*(): IntCurveSurfaceIntersectionPoint {.
     constructor, importcpp: "IntCurveSurface_IntersectionPoint(@)",
     header: "IntCurveSurface_IntersectionPoint.hxx".}
-proc constructIntCurveSurface_IntersectionPoint*(P: gp_Pnt; USurf: Standard_Real;
-    VSurf: Standard_Real; UCurv: Standard_Real;
-    TrCurv: IntCurveSurface_TransitionOnCurve): IntCurveSurface_IntersectionPoint {.
+proc constructIntCurveSurfaceIntersectionPoint*(p: Pnt; uSurf: float; vSurf: float;
+    uCurv: float; trCurv: IntCurveSurfaceTransitionOnCurve): IntCurveSurfaceIntersectionPoint {.
     constructor, importcpp: "IntCurveSurface_IntersectionPoint(@)",
     header: "IntCurveSurface_IntersectionPoint.hxx".}
-proc SetValues*(this: var IntCurveSurface_IntersectionPoint; P: gp_Pnt;
-               USurf: Standard_Real; VSurf: Standard_Real; UCurv: Standard_Real;
-               TrCurv: IntCurveSurface_TransitionOnCurve) {.
+proc setValues*(this: var IntCurveSurfaceIntersectionPoint; p: Pnt; uSurf: float;
+               vSurf: float; uCurv: float; trCurv: IntCurveSurfaceTransitionOnCurve) {.
     importcpp: "SetValues", header: "IntCurveSurface_IntersectionPoint.hxx".}
-proc Values*(this: IntCurveSurface_IntersectionPoint; P: var gp_Pnt;
-            USurf: var Standard_Real; VSurf: var Standard_Real;
-            UCurv: var Standard_Real; TrCurv: var IntCurveSurface_TransitionOnCurve) {.
-    noSideEffect, importcpp: "Values",
-    header: "IntCurveSurface_IntersectionPoint.hxx".}
-proc Pnt*(this: IntCurveSurface_IntersectionPoint): gp_Pnt {.noSideEffect,
+proc values*(this: IntCurveSurfaceIntersectionPoint; p: var Pnt; uSurf: var float;
+            vSurf: var float; uCurv: var float;
+            trCurv: var IntCurveSurfaceTransitionOnCurve) {.noSideEffect,
+    importcpp: "Values", header: "IntCurveSurface_IntersectionPoint.hxx".}
+proc pnt*(this: IntCurveSurfaceIntersectionPoint): Pnt {.noSideEffect,
     importcpp: "Pnt", header: "IntCurveSurface_IntersectionPoint.hxx".}
-proc U*(this: IntCurveSurface_IntersectionPoint): Standard_Real {.noSideEffect,
+proc u*(this: IntCurveSurfaceIntersectionPoint): float {.noSideEffect,
     importcpp: "U", header: "IntCurveSurface_IntersectionPoint.hxx".}
-proc V*(this: IntCurveSurface_IntersectionPoint): Standard_Real {.noSideEffect,
+proc v*(this: IntCurveSurfaceIntersectionPoint): float {.noSideEffect,
     importcpp: "V", header: "IntCurveSurface_IntersectionPoint.hxx".}
-proc W*(this: IntCurveSurface_IntersectionPoint): Standard_Real {.noSideEffect,
+proc w*(this: IntCurveSurfaceIntersectionPoint): float {.noSideEffect,
     importcpp: "W", header: "IntCurveSurface_IntersectionPoint.hxx".}
-proc Transition*(this: IntCurveSurface_IntersectionPoint): IntCurveSurface_TransitionOnCurve {.
+proc transition*(this: IntCurveSurfaceIntersectionPoint): IntCurveSurfaceTransitionOnCurve {.
     noSideEffect, importcpp: "Transition",
     header: "IntCurveSurface_IntersectionPoint.hxx".}
-proc Dump*(this: IntCurveSurface_IntersectionPoint) {.noSideEffect,
+proc dump*(this: IntCurveSurfaceIntersectionPoint) {.noSideEffect,
     importcpp: "Dump", header: "IntCurveSurface_IntersectionPoint.hxx".}

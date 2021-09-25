@@ -13,50 +13,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Transient
-
 discard "forward decl of StepDimTol_Datum"
 discard "forward decl of StepDimTol_DatumReference"
 discard "forward decl of StepDimTol_DatumReference"
 type
-  Handle_StepDimTol_DatumReference* = handle[StepDimTol_DatumReference]
+  HandleStepDimTolDatumReference* = Handle[StepDimTolDatumReference]
 
 ## ! Representation of STEP entity DatumReference
 
 type
-  StepDimTol_DatumReference* {.importcpp: "StepDimTol_DatumReference",
-                              header: "StepDimTol_DatumReference.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                        ## !
-                                                                                                        ## Empty
-                                                                                                        ## constructor
+  StepDimTolDatumReference* {.importcpp: "StepDimTol_DatumReference",
+                             header: "StepDimTol_DatumReference.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                      ## !
+                                                                                                      ## Empty
+                                                                                                      ## constructor
 
 
-proc constructStepDimTol_DatumReference*(): StepDimTol_DatumReference {.
-    constructor, importcpp: "StepDimTol_DatumReference(@)",
+proc constructStepDimTolDatumReference*(): StepDimTolDatumReference {.constructor,
+    importcpp: "StepDimTol_DatumReference(@)",
     header: "StepDimTol_DatumReference.hxx".}
-proc Init*(this: var StepDimTol_DatumReference; thePrecedence: Standard_Integer;
-          theReferencedDatum: handle[StepDimTol_Datum]) {.importcpp: "Init",
+proc init*(this: var StepDimTolDatumReference; thePrecedence: int;
+          theReferencedDatum: Handle[StepDimTolDatum]) {.importcpp: "Init",
     header: "StepDimTol_DatumReference.hxx".}
-proc Precedence*(this: StepDimTol_DatumReference): Standard_Integer {.noSideEffect,
+proc precedence*(this: StepDimTolDatumReference): int {.noSideEffect,
     importcpp: "Precedence", header: "StepDimTol_DatumReference.hxx".}
-proc SetPrecedence*(this: var StepDimTol_DatumReference;
-                   thePrecedence: Standard_Integer) {.importcpp: "SetPrecedence",
-    header: "StepDimTol_DatumReference.hxx".}
-proc ReferencedDatum*(this: StepDimTol_DatumReference): handle[StepDimTol_Datum] {.
+proc setPrecedence*(this: var StepDimTolDatumReference; thePrecedence: int) {.
+    importcpp: "SetPrecedence", header: "StepDimTol_DatumReference.hxx".}
+proc referencedDatum*(this: StepDimTolDatumReference): Handle[StepDimTolDatum] {.
     noSideEffect, importcpp: "ReferencedDatum",
     header: "StepDimTol_DatumReference.hxx".}
-proc SetReferencedDatum*(this: var StepDimTol_DatumReference;
-                        theReferencedDatum: handle[StepDimTol_Datum]) {.
+proc setReferencedDatum*(this: var StepDimTolDatumReference;
+                        theReferencedDatum: Handle[StepDimTolDatum]) {.
     importcpp: "SetReferencedDatum", header: "StepDimTol_DatumReference.hxx".}
 type
-  StepDimTol_DatumReferencebase_type* = Standard_Transient
+  StepDimTolDatumReferencebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_DatumReference::get_type_name(@)",
-                              header: "StepDimTol_DatumReference.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_DatumReference::get_type_name(@)",
+                            header: "StepDimTol_DatumReference.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_DatumReference::get_type_descriptor(@)",
     header: "StepDimTol_DatumReference.hxx".}
-proc DynamicType*(this: StepDimTol_DatumReference): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolDatumReference): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepDimTol_DatumReference.hxx".}

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  Geom_Conic, ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_RangeError"
 discard "forward decl of gp_Circ"
@@ -29,7 +25,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Circle"
 discard "forward decl of Geom_Circle"
 type
-  Handle_Geom_Circle* = handle[Geom_Circle]
+  HandleGeomCircle* = Handle[GeomCircle]
 
 ## ! Describes a circle in 3D space.
 ## ! A circle is defined by its radius and, as with any conic
@@ -62,68 +58,66 @@ type
 ## ! 2.*Pi and the parameter range is [ 0, 2.*Pi [.
 
 type
-  Geom_Circle* {.importcpp: "Geom_Circle", header: "Geom_Circle.hxx", bycopy.} = object of Geom_Conic ##
-                                                                                            ## !
-                                                                                            ## Constructs
-                                                                                            ## a
-                                                                                            ## circle
-                                                                                            ## by
-                                                                                            ## conversion
-                                                                                            ## of
-                                                                                            ## the
-                                                                                            ## gp_Circ
-                                                                                            ## circle
-                                                                                            ## C.
+  GeomCircle* {.importcpp: "Geom_Circle", header: "Geom_Circle.hxx", bycopy.} = object of GeomConic ##
+                                                                                          ## !
+                                                                                          ## Constructs
+                                                                                          ## a
+                                                                                          ## circle
+                                                                                          ## by
+                                                                                          ## conversion
+                                                                                          ## of
+                                                                                          ## the
+                                                                                          ## gp_Circ
+                                                                                          ## circle
+                                                                                          ## C.
 
 
-proc constructGeom_Circle*(C: gp_Circ): Geom_Circle {.constructor,
+proc constructGeomCircle*(c: Circ): GeomCircle {.constructor,
     importcpp: "Geom_Circle(@)", header: "Geom_Circle.hxx".}
-proc constructGeom_Circle*(A2: gp_Ax2; Radius: Standard_Real): Geom_Circle {.
-    constructor, importcpp: "Geom_Circle(@)", header: "Geom_Circle.hxx".}
-proc SetCirc*(this: var Geom_Circle; C: gp_Circ) {.importcpp: "SetCirc",
+proc constructGeomCircle*(a2: Ax2; radius: float): GeomCircle {.constructor,
+    importcpp: "Geom_Circle(@)", header: "Geom_Circle.hxx".}
+proc setCirc*(this: var GeomCircle; c: Circ) {.importcpp: "SetCirc",
     header: "Geom_Circle.hxx".}
-proc SetRadius*(this: var Geom_Circle; R: Standard_Real) {.importcpp: "SetRadius",
+proc setRadius*(this: var GeomCircle; r: float) {.importcpp: "SetRadius",
     header: "Geom_Circle.hxx".}
-proc Circ*(this: Geom_Circle): gp_Circ {.noSideEffect, importcpp: "Circ",
-                                     header: "Geom_Circle.hxx".}
-proc Radius*(this: Geom_Circle): Standard_Real {.noSideEffect, importcpp: "Radius",
-    header: "Geom_Circle.hxx".}
-proc ReversedParameter*(this: Geom_Circle; U: Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "ReversedParameter", header: "Geom_Circle.hxx".}
-proc Eccentricity*(this: Geom_Circle): Standard_Real {.noSideEffect,
-    importcpp: "Eccentricity", header: "Geom_Circle.hxx".}
-proc FirstParameter*(this: Geom_Circle): Standard_Real {.noSideEffect,
-    importcpp: "FirstParameter", header: "Geom_Circle.hxx".}
-proc LastParameter*(this: Geom_Circle): Standard_Real {.noSideEffect,
-    importcpp: "LastParameter", header: "Geom_Circle.hxx".}
-proc IsClosed*(this: Geom_Circle): Standard_Boolean {.noSideEffect,
-    importcpp: "IsClosed", header: "Geom_Circle.hxx".}
-proc IsPeriodic*(this: Geom_Circle): Standard_Boolean {.noSideEffect,
-    importcpp: "IsPeriodic", header: "Geom_Circle.hxx".}
-proc D0*(this: Geom_Circle; U: Standard_Real; P: var gp_Pnt) {.noSideEffect,
-    importcpp: "D0", header: "Geom_Circle.hxx".}
-proc D1*(this: Geom_Circle; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec) {.
-    noSideEffect, importcpp: "D1", header: "Geom_Circle.hxx".}
-proc D2*(this: Geom_Circle; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec; V2: var gp_Vec) {.
-    noSideEffect, importcpp: "D2", header: "Geom_Circle.hxx".}
-proc D3*(this: Geom_Circle; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
-        V2: var gp_Vec; V3: var gp_Vec) {.noSideEffect, importcpp: "D3",
+proc circ*(this: GeomCircle): Circ {.noSideEffect, importcpp: "Circ",
+                                 header: "Geom_Circle.hxx".}
+proc radius*(this: GeomCircle): float {.noSideEffect, importcpp: "Radius",
                                     header: "Geom_Circle.hxx".}
-proc DN*(this: Geom_Circle; U: Standard_Real; N: Standard_Integer): gp_Vec {.
-    noSideEffect, importcpp: "DN", header: "Geom_Circle.hxx".}
-proc Transform*(this: var Geom_Circle; T: gp_Trsf) {.importcpp: "Transform",
+proc reversedParameter*(this: GeomCircle; u: float): float {.noSideEffect,
+    importcpp: "ReversedParameter", header: "Geom_Circle.hxx".}
+proc eccentricity*(this: GeomCircle): float {.noSideEffect,
+    importcpp: "Eccentricity", header: "Geom_Circle.hxx".}
+proc firstParameter*(this: GeomCircle): float {.noSideEffect,
+    importcpp: "FirstParameter", header: "Geom_Circle.hxx".}
+proc lastParameter*(this: GeomCircle): float {.noSideEffect,
+    importcpp: "LastParameter", header: "Geom_Circle.hxx".}
+proc isClosed*(this: GeomCircle): bool {.noSideEffect, importcpp: "IsClosed",
+                                     header: "Geom_Circle.hxx".}
+proc isPeriodic*(this: GeomCircle): bool {.noSideEffect, importcpp: "IsPeriodic",
+                                       header: "Geom_Circle.hxx".}
+proc d0*(this: GeomCircle; u: float; p: var Pnt) {.noSideEffect, importcpp: "D0",
     header: "Geom_Circle.hxx".}
-proc Copy*(this: Geom_Circle): handle[Geom_Geometry] {.noSideEffect,
-    importcpp: "Copy", header: "Geom_Circle.hxx".}
-proc DumpJson*(this: Geom_Circle; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
+proc d1*(this: GeomCircle; u: float; p: var Pnt; v1: var Vec) {.noSideEffect,
+    importcpp: "D1", header: "Geom_Circle.hxx".}
+proc d2*(this: GeomCircle; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.noSideEffect,
+    importcpp: "D2", header: "Geom_Circle.hxx".}
+proc d3*(this: GeomCircle; u: float; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+    noSideEffect, importcpp: "D3", header: "Geom_Circle.hxx".}
+proc dn*(this: GeomCircle; u: float; n: int): Vec {.noSideEffect, importcpp: "DN",
     header: "Geom_Circle.hxx".}
+proc transform*(this: var GeomCircle; t: Trsf) {.importcpp: "Transform",
+    header: "Geom_Circle.hxx".}
+proc copy*(this: GeomCircle): Handle[GeomGeometry] {.noSideEffect, importcpp: "Copy",
+    header: "Geom_Circle.hxx".}
+proc dumpJson*(this: GeomCircle; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "Geom_Circle.hxx".}
 type
-  Geom_Circlebase_type* = Geom_Conic
+  GeomCirclebaseType* = GeomConic
 
-proc get_type_name*(): cstring {.importcpp: "Geom_Circle::get_type_name(@)",
-                              header: "Geom_Circle.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Geom_Circle::get_type_name(@)",
+                            header: "Geom_Circle.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_Circle::get_type_descriptor(@)", header: "Geom_Circle.hxx".}
-proc DynamicType*(this: Geom_Circle): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: GeomCircle): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom_Circle.hxx".}

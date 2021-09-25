@@ -14,81 +14,74 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopTools_IndexedMapOfShape, TopTools_LocationSet,
-  ../Standard/Standard_Integer, ../Standard/Standard_OStream,
-  ../Standard/Standard_IStream, ../TopAbs/TopAbs_ShapeEnum
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopTools_LocationSet"
 discard "forward decl of TCollection_AsciiString"
 type
-  TopTools_ShapeSet* {.importcpp: "TopTools_ShapeSet",
-                      header: "TopTools_ShapeSet.hxx", bycopy.} = object ## ! Builds an empty ShapeSet.
-                                                                    ## ! Reads  from <IS>  a shape  and  returns  it in  S.
-                                                                    ## ! <NbShapes> is the number of tshapes in the set.
+  TopToolsShapeSet* {.importcpp: "TopTools_ShapeSet",
+                     header: "TopTools_ShapeSet.hxx", bycopy.} = object ## ! Builds an empty ShapeSet.
+                                                                   ## ! Reads  from <IS>  a shape  and  returns  it in  S.
+                                                                   ## ! <NbShapes> is the number of tshapes in the set.
 
 
-proc constructTopTools_ShapeSet*(): TopTools_ShapeSet {.constructor,
+proc constructTopToolsShapeSet*(): TopToolsShapeSet {.constructor,
     importcpp: "TopTools_ShapeSet(@)", header: "TopTools_ShapeSet.hxx".}
-proc destroyTopTools_ShapeSet*(this: var TopTools_ShapeSet) {.
+proc destroyTopToolsShapeSet*(this: var TopToolsShapeSet) {.
     importcpp: "#.~TopTools_ShapeSet()", header: "TopTools_ShapeSet.hxx".}
-proc SetFormatNb*(this: var TopTools_ShapeSet; theFormatNb: Standard_Integer) {.
+proc setFormatNb*(this: var TopToolsShapeSet; theFormatNb: int) {.
     importcpp: "SetFormatNb", header: "TopTools_ShapeSet.hxx".}
-proc FormatNb*(this: TopTools_ShapeSet): Standard_Integer {.noSideEffect,
-    importcpp: "FormatNb", header: "TopTools_ShapeSet.hxx".}
-proc Clear*(this: var TopTools_ShapeSet) {.importcpp: "Clear",
-                                       header: "TopTools_ShapeSet.hxx".}
-proc Add*(this: var TopTools_ShapeSet; S: TopoDS_Shape): Standard_Integer {.
-    importcpp: "Add", header: "TopTools_ShapeSet.hxx".}
-proc Shape*(this: TopTools_ShapeSet; I: Standard_Integer): TopoDS_Shape {.
-    noSideEffect, importcpp: "Shape", header: "TopTools_ShapeSet.hxx".}
-proc Index*(this: TopTools_ShapeSet; S: TopoDS_Shape): Standard_Integer {.
-    noSideEffect, importcpp: "Index", header: "TopTools_ShapeSet.hxx".}
-proc Locations*(this: TopTools_ShapeSet): TopTools_LocationSet {.noSideEffect,
+proc formatNb*(this: TopToolsShapeSet): int {.noSideEffect, importcpp: "FormatNb",
+    header: "TopTools_ShapeSet.hxx".}
+proc clear*(this: var TopToolsShapeSet) {.importcpp: "Clear",
+                                      header: "TopTools_ShapeSet.hxx".}
+proc add*(this: var TopToolsShapeSet; s: TopoDS_Shape): int {.importcpp: "Add",
+    header: "TopTools_ShapeSet.hxx".}
+proc shape*(this: TopToolsShapeSet; i: int): TopoDS_Shape {.noSideEffect,
+    importcpp: "Shape", header: "TopTools_ShapeSet.hxx".}
+proc index*(this: TopToolsShapeSet; s: TopoDS_Shape): int {.noSideEffect,
+    importcpp: "Index", header: "TopTools_ShapeSet.hxx".}
+proc locations*(this: TopToolsShapeSet): TopToolsLocationSet {.noSideEffect,
     importcpp: "Locations", header: "TopTools_ShapeSet.hxx".}
-proc ChangeLocations*(this: var TopTools_ShapeSet): var TopTools_LocationSet {.
+proc changeLocations*(this: var TopToolsShapeSet): var TopToolsLocationSet {.
     importcpp: "ChangeLocations", header: "TopTools_ShapeSet.hxx".}
-proc DumpExtent*(this: TopTools_ShapeSet; OS: var Standard_OStream): var Standard_OStream {.
+proc dumpExtent*(this: TopToolsShapeSet; os: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "DumpExtent", header: "TopTools_ShapeSet.hxx".}
-proc DumpExtent*(this: TopTools_ShapeSet; S: var TCollection_AsciiString) {.
+proc dumpExtent*(this: TopToolsShapeSet; s: var TCollectionAsciiString) {.
     noSideEffect, importcpp: "DumpExtent", header: "TopTools_ShapeSet.hxx".}
-proc Dump*(this: TopTools_ShapeSet; OS: var Standard_OStream) {.noSideEffect,
+proc dump*(this: TopToolsShapeSet; os: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "TopTools_ShapeSet.hxx".}
-proc Write*(this: var TopTools_ShapeSet; OS: var Standard_OStream;
-           theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc write*(this: var TopToolsShapeSet; os: var StandardOStream;
+           theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Write", header: "TopTools_ShapeSet.hxx".}
-proc Read*(this: var TopTools_ShapeSet; IS: var Standard_IStream;
-          theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc read*(this: var TopToolsShapeSet; `is`: var StandardIStream;
+          theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Read", header: "TopTools_ShapeSet.hxx".}
-proc Dump*(this: TopTools_ShapeSet; S: TopoDS_Shape; OS: var Standard_OStream) {.
+proc dump*(this: TopToolsShapeSet; s: TopoDS_Shape; os: var StandardOStream) {.
     noSideEffect, importcpp: "Dump", header: "TopTools_ShapeSet.hxx".}
-proc Write*(this: TopTools_ShapeSet; S: TopoDS_Shape; OS: var Standard_OStream) {.
+proc write*(this: TopToolsShapeSet; s: TopoDS_Shape; os: var StandardOStream) {.
     noSideEffect, importcpp: "Write", header: "TopTools_ShapeSet.hxx".}
-proc Read*(this: TopTools_ShapeSet; S: var TopoDS_Shape; IS: var Standard_IStream) {.
+proc read*(this: TopToolsShapeSet; s: var TopoDS_Shape; `is`: var StandardIStream) {.
     noSideEffect, importcpp: "Read", header: "TopTools_ShapeSet.hxx".}
-proc AddGeometry*(this: var TopTools_ShapeSet; S: TopoDS_Shape) {.
+proc addGeometry*(this: var TopToolsShapeSet; s: TopoDS_Shape) {.
     importcpp: "AddGeometry", header: "TopTools_ShapeSet.hxx".}
-proc DumpGeometry*(this: TopTools_ShapeSet; OS: var Standard_OStream) {.noSideEffect,
+proc dumpGeometry*(this: TopToolsShapeSet; os: var StandardOStream) {.noSideEffect,
     importcpp: "DumpGeometry", header: "TopTools_ShapeSet.hxx".}
-proc WriteGeometry*(this: var TopTools_ShapeSet; OS: var Standard_OStream;
-                   theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc writeGeometry*(this: var TopToolsShapeSet; os: var StandardOStream;
+                   theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "WriteGeometry", header: "TopTools_ShapeSet.hxx".}
-proc ReadGeometry*(this: var TopTools_ShapeSet; IS: var Standard_IStream;
-                  theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc readGeometry*(this: var TopToolsShapeSet; `is`: var StandardIStream;
+                  theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "ReadGeometry", header: "TopTools_ShapeSet.hxx".}
-proc DumpGeometry*(this: TopTools_ShapeSet; S: TopoDS_Shape; OS: var Standard_OStream) {.
+proc dumpGeometry*(this: TopToolsShapeSet; s: TopoDS_Shape; os: var StandardOStream) {.
     noSideEffect, importcpp: "DumpGeometry", header: "TopTools_ShapeSet.hxx".}
-proc WriteGeometry*(this: TopTools_ShapeSet; S: TopoDS_Shape;
-                   OS: var Standard_OStream) {.noSideEffect,
-    importcpp: "WriteGeometry", header: "TopTools_ShapeSet.hxx".}
-proc ReadGeometry*(this: var TopTools_ShapeSet; T: TopAbs_ShapeEnum;
-                  IS: var Standard_IStream; S: var TopoDS_Shape) {.
+proc writeGeometry*(this: TopToolsShapeSet; s: TopoDS_Shape; os: var StandardOStream) {.
+    noSideEffect, importcpp: "WriteGeometry", header: "TopTools_ShapeSet.hxx".}
+proc readGeometry*(this: var TopToolsShapeSet; t: TopAbsShapeEnum;
+                  `is`: var StandardIStream; s: var TopoDS_Shape) {.
     importcpp: "ReadGeometry", header: "TopTools_ShapeSet.hxx".}
-proc AddShapes*(this: var TopTools_ShapeSet; S1: var TopoDS_Shape; S2: TopoDS_Shape) {.
+proc addShapes*(this: var TopToolsShapeSet; s1: var TopoDS_Shape; s2: TopoDS_Shape) {.
     importcpp: "AddShapes", header: "TopTools_ShapeSet.hxx".}
-proc Check*(this: var TopTools_ShapeSet; T: TopAbs_ShapeEnum; S: var TopoDS_Shape) {.
+proc check*(this: var TopToolsShapeSet; t: TopAbsShapeEnum; s: var TopoDS_Shape) {.
     importcpp: "Check", header: "TopTools_ShapeSet.hxx".}
-proc NbShapes*(this: TopTools_ShapeSet): Standard_Integer {.noSideEffect,
-    importcpp: "NbShapes", header: "TopTools_ShapeSet.hxx".}
+proc nbShapes*(this: TopToolsShapeSet): int {.noSideEffect, importcpp: "NbShapes",
+    header: "TopTools_ShapeSet.hxx".}

@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  AIS_InteractiveObject, AIS_KindOfInteractive
-
 discard "forward decl of Geom_Line"
 discard "forward decl of Geom_Point"
 type
@@ -27,39 +24,40 @@ type
                                                                                               ## line
                                                                                               ## aLine.
 
-  AIS_Linebase_type* = AIS_InteractiveObject
+  AIS_LinebaseType* = AIS_InteractiveObject
 
-proc get_type_name*(): cstring {.importcpp: "AIS_Line::get_type_name(@)",
-                              header: "AIS_Line.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "AIS_Line::get_type_name(@)",
+                            header: "AIS_Line.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "AIS_Line::get_type_descriptor(@)", header: "AIS_Line.hxx".}
-proc DynamicType*(this: AIS_Line): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: AIS_Line): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_Line.hxx".}
-proc constructAIS_Line*(aLine: handle[Geom_Line]): AIS_Line {.constructor,
+proc constructAIS_Line*(aLine: Handle[GeomLine]): AIS_Line {.constructor,
     importcpp: "AIS_Line(@)", header: "AIS_Line.hxx".}
-proc constructAIS_Line*(aStartPoint: handle[Geom_Point];
-                       aEndPoint: handle[Geom_Point]): AIS_Line {.constructor,
+proc constructAIS_Line*(aStartPoint: Handle[GeomPoint];
+                       aEndPoint: Handle[GeomPoint]): AIS_Line {.constructor,
     importcpp: "AIS_Line(@)", header: "AIS_Line.hxx".}
-proc Signature*(this: AIS_Line): Standard_Integer {.noSideEffect,
-    importcpp: "Signature", header: "AIS_Line.hxx".}
-proc Type*(this: AIS_Line): AIS_KindOfInteractive {.noSideEffect, importcpp: "Type",
+proc signature*(this: AIS_Line): int {.noSideEffect, importcpp: "Signature",
+                                   header: "AIS_Line.hxx".}
+proc `type`*(this: AIS_Line): AIS_KindOfInteractive {.noSideEffect,
+    importcpp: "Type", header: "AIS_Line.hxx".}
+proc line*(this: AIS_Line): Handle[GeomLine] {.noSideEffect, importcpp: "Line",
     header: "AIS_Line.hxx".}
-proc Line*(this: AIS_Line): handle[Geom_Line] {.noSideEffect, importcpp: "Line",
+proc points*(this: AIS_Line; thePStart: var Handle[GeomPoint];
+            thePEnd: var Handle[GeomPoint]) {.noSideEffect, importcpp: "Points",
     header: "AIS_Line.hxx".}
-proc Points*(this: AIS_Line; thePStart: var handle[Geom_Point];
-            thePEnd: var handle[Geom_Point]) {.noSideEffect, importcpp: "Points",
+proc setLine*(this: var AIS_Line; theLine: Handle[GeomLine]) {.importcpp: "SetLine",
     header: "AIS_Line.hxx".}
-proc SetLine*(this: var AIS_Line; theLine: handle[Geom_Line]) {.importcpp: "SetLine",
+proc setPoints*(this: var AIS_Line; thePStart: Handle[GeomPoint];
+               thePEnd: Handle[GeomPoint]) {.importcpp: "SetPoints",
     header: "AIS_Line.hxx".}
-proc SetPoints*(this: var AIS_Line; thePStart: handle[Geom_Point];
-               thePEnd: handle[Geom_Point]) {.importcpp: "SetPoints",
+proc setColor*(this: var AIS_Line; aColor: QuantityColor) {.importcpp: "SetColor",
     header: "AIS_Line.hxx".}
-proc SetColor*(this: var AIS_Line; aColor: Quantity_Color) {.importcpp: "SetColor",
+proc setWidth*(this: var AIS_Line; aValue: float) {.importcpp: "SetWidth",
     header: "AIS_Line.hxx".}
-proc SetWidth*(this: var AIS_Line; aValue: Standard_Real) {.importcpp: "SetWidth",
-    header: "AIS_Line.hxx".}
-proc UnsetColor*(this: var AIS_Line) {.importcpp: "UnsetColor", header: "AIS_Line.hxx".}
-proc UnsetWidth*(this: var AIS_Line) {.importcpp: "UnsetWidth", header: "AIS_Line.hxx".}
+proc unsetColor*(this: var AIS_Line) {.importcpp: "UnsetColor", header: "AIS_Line.hxx".}
+proc unsetWidth*(this: var AIS_Line) {.importcpp: "UnsetWidth", header: "AIS_Line.hxx".}
 discard "forward decl of AIS_Line"
 type
-  Handle_AIS_Line* = handle[AIS_Line]
+  HandleAIS_Line* = Handle[AIS_Line]
+

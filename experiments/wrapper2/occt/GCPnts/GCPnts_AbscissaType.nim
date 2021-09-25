@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  GCPnts_AbscissaType* {.size: sizeof(cint), importcpp: "GCPnts_AbscissaType",
-                        header: "GCPnts_AbscissaType.hxx".} = enum
-    GCPnts_LengthParametrized, GCPnts_Parametrized, GCPnts_AbsComposite
+  GCPntsAbscissaType* {.size: sizeof(cint), importcpp: "GCPnts_AbscissaType",
+                       header: "GCPnts_AbscissaType.hxx".} = enum
+    GCPntsLengthParametrized, GCPntsParametrized, GCPntsAbsComposite
+
 

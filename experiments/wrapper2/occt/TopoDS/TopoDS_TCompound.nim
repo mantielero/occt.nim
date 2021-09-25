@@ -14,15 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TopoDS_TShape,
-  ../TopAbs/TopAbs_ShapeEnum
-
 discard "forward decl of TopoDS_TShape"
 discard "forward decl of TopoDS_TCompound"
 discard "forward decl of TopoDS_TCompound"
 type
-  Handle_TopoDS_TCompound* = handle[TopoDS_TCompound]
+  HandleTopoDS_TCompound* = Handle[TopoDS_TCompound]
 
 ## ! A TCompound is an all-purpose set of Shapes.
 
@@ -38,17 +34,17 @@ type
 
 proc constructTopoDS_TCompound*(): TopoDS_TCompound {.constructor,
     importcpp: "TopoDS_TCompound(@)", header: "TopoDS_TCompound.hxx".}
-proc ShapeType*(this: TopoDS_TCompound): TopAbs_ShapeEnum {.noSideEffect,
+proc shapeType*(this: TopoDS_TCompound): TopAbsShapeEnum {.noSideEffect,
     importcpp: "ShapeType", header: "TopoDS_TCompound.hxx".}
-proc EmptyCopy*(this: TopoDS_TCompound): handle[TopoDS_TShape] {.noSideEffect,
+proc emptyCopy*(this: TopoDS_TCompound): Handle[TopoDS_TShape] {.noSideEffect,
     importcpp: "EmptyCopy", header: "TopoDS_TCompound.hxx".}
 type
-  TopoDS_TCompoundbase_type* = TopoDS_TShape
+  TopoDS_TCompoundbaseType* = TopoDS_TShape
 
-proc get_type_name*(): cstring {.importcpp: "TopoDS_TCompound::get_type_name(@)",
-                              header: "TopoDS_TCompound.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TopoDS_TCompound::get_type_name(@)",
+                            header: "TopoDS_TCompound.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopoDS_TCompound::get_type_descriptor(@)",
     header: "TopoDS_TCompound.hxx".}
-proc DynamicType*(this: TopoDS_TCompound): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TopoDS_TCompound): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopoDS_TCompound.hxx".}

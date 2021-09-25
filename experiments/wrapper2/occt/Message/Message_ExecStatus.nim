@@ -14,9 +14,6 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation copyright (c) RINA S.p.A.
 
-import
-  Message_StatusType, Message_Status
-
 ## *
 ##  Tiny class for extended handling of error / execution
 ##  status of algorithm in universal way.
@@ -36,79 +33,78 @@ import
 ##
 
 type
-  Message_ExecStatus* {.importcpp: "Message_ExecStatus",
-                       header: "Message_ExecStatus.hxx", bycopy.} = object ## ! Mask to separate bits indicating status type and index within the type
-                                                                      ## !@name Creation and simple operations with statuses
-                                                                      ## !@{
-                                                                      ## ! Create empty execution status
-                                                                      ## !@name Advanced: Iteration and analysis of status flags
-                                                                      ## !@{
-                                                                      ## !
-                                                                      ## Definitions of range of available statuses
-                                                                      ##  ---------- PRIVATE FIELDS ----------
+  MessageExecStatus* {.importcpp: "Message_ExecStatus",
+                      header: "Message_ExecStatus.hxx", bycopy.} = object ## ! Mask to separate bits indicating status type and index within the type
+                                                                     ## !@name Creation and simple operations with statuses
+                                                                     ## !@{
+                                                                     ## ! Create empty execution status
+                                                                     ## !@name Advanced: Iteration and analysis of status flags
+                                                                     ## !@{
+                                                                     ## ! Definitions of range of available statuses
+                                                                     ##  ---------- PRIVATE FIELDS ----------
 
 
-proc constructMessage_ExecStatus*(): Message_ExecStatus {.constructor,
+proc constructMessageExecStatus*(): MessageExecStatus {.constructor,
     importcpp: "Message_ExecStatus(@)", header: "Message_ExecStatus.hxx".}
-proc constructMessage_ExecStatus*(status: Message_Status): Message_ExecStatus {.
+proc constructMessageExecStatus*(status: MessageStatus): MessageExecStatus {.
     constructor, importcpp: "Message_ExecStatus(@)",
     header: "Message_ExecStatus.hxx".}
-proc Set*(this: var Message_ExecStatus; status: Message_Status) {.importcpp: "Set",
+proc set*(this: var MessageExecStatus; status: MessageStatus) {.importcpp: "Set",
     header: "Message_ExecStatus.hxx".}
-proc IsSet*(this: Message_ExecStatus; status: Message_Status): Standard_Boolean {.
-    noSideEffect, importcpp: "IsSet", header: "Message_ExecStatus.hxx".}
-proc Clear*(this: var Message_ExecStatus; status: Message_Status) {.
-    importcpp: "Clear", header: "Message_ExecStatus.hxx".}
-proc IsDone*(this: Message_ExecStatus): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "Message_ExecStatus.hxx".}
-proc IsFail*(this: Message_ExecStatus): Standard_Boolean {.noSideEffect,
-    importcpp: "IsFail", header: "Message_ExecStatus.hxx".}
-proc IsWarn*(this: Message_ExecStatus): Standard_Boolean {.noSideEffect,
-    importcpp: "IsWarn", header: "Message_ExecStatus.hxx".}
-proc IsAlarm*(this: Message_ExecStatus): Standard_Boolean {.noSideEffect,
-    importcpp: "IsAlarm", header: "Message_ExecStatus.hxx".}
-proc SetAllDone*(this: var Message_ExecStatus) {.importcpp: "SetAllDone",
+proc isSet*(this: MessageExecStatus; status: MessageStatus): bool {.noSideEffect,
+    importcpp: "IsSet", header: "Message_ExecStatus.hxx".}
+proc clear*(this: var MessageExecStatus; status: MessageStatus) {.importcpp: "Clear",
     header: "Message_ExecStatus.hxx".}
-proc SetAllWarn*(this: var Message_ExecStatus) {.importcpp: "SetAllWarn",
+proc isDone*(this: MessageExecStatus): bool {.noSideEffect, importcpp: "IsDone",
     header: "Message_ExecStatus.hxx".}
-proc SetAllAlarm*(this: var Message_ExecStatus) {.importcpp: "SetAllAlarm",
+proc isFail*(this: MessageExecStatus): bool {.noSideEffect, importcpp: "IsFail",
     header: "Message_ExecStatus.hxx".}
-proc SetAllFail*(this: var Message_ExecStatus) {.importcpp: "SetAllFail",
+proc isWarn*(this: MessageExecStatus): bool {.noSideEffect, importcpp: "IsWarn",
     header: "Message_ExecStatus.hxx".}
-proc ClearAllDone*(this: var Message_ExecStatus) {.importcpp: "ClearAllDone",
+proc isAlarm*(this: MessageExecStatus): bool {.noSideEffect, importcpp: "IsAlarm",
     header: "Message_ExecStatus.hxx".}
-proc ClearAllWarn*(this: var Message_ExecStatus) {.importcpp: "ClearAllWarn",
+proc setAllDone*(this: var MessageExecStatus) {.importcpp: "SetAllDone",
     header: "Message_ExecStatus.hxx".}
-proc ClearAllAlarm*(this: var Message_ExecStatus) {.importcpp: "ClearAllAlarm",
+proc setAllWarn*(this: var MessageExecStatus) {.importcpp: "SetAllWarn",
     header: "Message_ExecStatus.hxx".}
-proc ClearAllFail*(this: var Message_ExecStatus) {.importcpp: "ClearAllFail",
+proc setAllAlarm*(this: var MessageExecStatus) {.importcpp: "SetAllAlarm",
     header: "Message_ExecStatus.hxx".}
-proc Clear*(this: var Message_ExecStatus) {.importcpp: "Clear",
-                                        header: "Message_ExecStatus.hxx".}
-proc Add*(this: var Message_ExecStatus; theOther: Message_ExecStatus) {.
+proc setAllFail*(this: var MessageExecStatus) {.importcpp: "SetAllFail",
+    header: "Message_ExecStatus.hxx".}
+proc clearAllDone*(this: var MessageExecStatus) {.importcpp: "ClearAllDone",
+    header: "Message_ExecStatus.hxx".}
+proc clearAllWarn*(this: var MessageExecStatus) {.importcpp: "ClearAllWarn",
+    header: "Message_ExecStatus.hxx".}
+proc clearAllAlarm*(this: var MessageExecStatus) {.importcpp: "ClearAllAlarm",
+    header: "Message_ExecStatus.hxx".}
+proc clearAllFail*(this: var MessageExecStatus) {.importcpp: "ClearAllFail",
+    header: "Message_ExecStatus.hxx".}
+proc clear*(this: var MessageExecStatus) {.importcpp: "Clear",
+                                       header: "Message_ExecStatus.hxx".}
+proc add*(this: var MessageExecStatus; theOther: MessageExecStatus) {.
     importcpp: "Add", header: "Message_ExecStatus.hxx".}
-proc `|=`*(this: var Message_ExecStatus; theOther: Message_ExecStatus) {.
+proc `|=`*(this: var MessageExecStatus; theOther: MessageExecStatus) {.
     importcpp: "(# |= #)", header: "Message_ExecStatus.hxx".}
-proc And*(this: var Message_ExecStatus; theOther: Message_ExecStatus) {.
+proc `and`*(this: var MessageExecStatus; theOther: MessageExecStatus) {.
     importcpp: "And", header: "Message_ExecStatus.hxx".}
-proc `&=`*(this: var Message_ExecStatus; theOther: Message_ExecStatus) {.
+proc `&=`*(this: var MessageExecStatus; theOther: MessageExecStatus) {.
     importcpp: "(# &= #)", header: "Message_ExecStatus.hxx".}
 type
-  Message_ExecStatusStatusRange* {.size: sizeof(cint),
-                                  importcpp: "Message_ExecStatus::StatusRange",
-                                  header: "Message_ExecStatus.hxx".} = enum
+  MessageExecStatusStatusRange* {.size: sizeof(cint),
+                                 importcpp: "Message_ExecStatus::StatusRange",
+                                 header: "Message_ExecStatus.hxx".} = enum
     FirstStatus = 1, StatusesPerType = 32, NbStatuses = 128, LastStatus = 129
 
 
-proc StatusIndex*(status: Message_Status): Standard_Integer {.
+proc statusIndex*(status: MessageStatus): int {.
     importcpp: "Message_ExecStatus::StatusIndex(@)",
     header: "Message_ExecStatus.hxx".}
-proc LocalStatusIndex*(status: Message_Status): Standard_Integer {.
+proc localStatusIndex*(status: MessageStatus): int {.
     importcpp: "Message_ExecStatus::LocalStatusIndex(@)",
     header: "Message_ExecStatus.hxx".}
-proc TypeOfStatus*(status: Message_Status): Message_StatusType {.
+proc typeOfStatus*(status: MessageStatus): MessageStatusType {.
     importcpp: "Message_ExecStatus::TypeOfStatus(@)",
     header: "Message_ExecStatus.hxx".}
-proc StatusByIndex*(theIndex: Standard_Integer): Message_Status {.
+proc statusByIndex*(theIndex: int): MessageStatus {.
     importcpp: "Message_ExecStatus::StatusByIndex(@)",
     header: "Message_ExecStatus.hxx".}

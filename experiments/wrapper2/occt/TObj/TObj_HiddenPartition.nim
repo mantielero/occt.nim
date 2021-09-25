@@ -14,30 +14,27 @@
 ##  Autho:     Pavel TELKOV
 ##  The original implementation Copyright: (C) RINA S.p.A
 
-import
-  TObj_Partition
-
 ## *
 ##  This class is partition is predefined hidden flag
 ##
 
 type
-  TObj_HiddenPartition* {.importcpp: "TObj_HiddenPartition",
-                         header: "TObj_HiddenPartition.hxx", bycopy.} = object of TObj_Partition ##
-                                                                                          ## !
-                                                                                          ## constructor
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Persistence
-                                                                                          ## of
-                                                                                          ## TObj
-                                                                                          ## object
+  TObjHiddenPartition* {.importcpp: "TObj_HiddenPartition",
+                        header: "TObj_HiddenPartition.hxx", bycopy.} = object of TObjPartition ##
+                                                                                        ## !
+                                                                                        ## constructor
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Persistence
+                                                                                        ## of
+                                                                                        ## TObj
+                                                                                        ## object
 
 
-proc constructTObj_HiddenPartition*(theLabel: TDF_Label): TObj_HiddenPartition {.
+proc constructTObjHiddenPartition*(theLabel: TDF_Label): TObjHiddenPartition {.
     constructor, importcpp: "TObj_HiddenPartition(@)",
     header: "TObj_HiddenPartition.hxx".}
-proc GetTypeFlags*(this: TObj_HiddenPartition): Standard_Integer {.noSideEffect,
+proc getTypeFlags*(this: TObjHiddenPartition): int {.noSideEffect,
     importcpp: "GetTypeFlags", header: "TObj_HiddenPartition.hxx".}
 ## !!!Ignored construct:  protected : ! Persistence of TObj object DECLARE_TOBJOCAF_PERSISTENCE ( TObj_HiddenPartition , TObj_Partition ) public : ! CASCADE RTTI public : typedef TObj_Partition base_type ;
 ## Error: token expected: ) but got: ,!!!
@@ -46,7 +43,7 @@ proc GetTypeFlags*(this: TObj_HiddenPartition): Standard_Integer {.noSideEffect,
 
 discard "forward decl of TObj_HiddenPartition"
 type
-  Handle_TObj_HiddenPartition* = handle[TObj_HiddenPartition]
+  HandleTObjHiddenPartition* = Handle[TObjHiddenPartition]
 
-when defined(_MSC_VER):
-  discard
+# when defined(_MSC_VER):
+#   discard

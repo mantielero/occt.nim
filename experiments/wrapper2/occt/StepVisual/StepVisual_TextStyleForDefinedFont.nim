@@ -14,41 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepVisual_Colour"
 discard "forward decl of StepVisual_TextStyleForDefinedFont"
 discard "forward decl of StepVisual_TextStyleForDefinedFont"
 type
-  Handle_StepVisual_TextStyleForDefinedFont* = handle[
-      StepVisual_TextStyleForDefinedFont]
-  StepVisual_TextStyleForDefinedFont* {.importcpp: "StepVisual_TextStyleForDefinedFont", header: "StepVisual_TextStyleForDefinedFont.hxx",
-                                       bycopy.} = object of Standard_Transient ## !
-                                                                          ## Returns a
-                                                                          ## TextStyleForDefinedFont
+  HandleStepVisualTextStyleForDefinedFont* = Handle[
+      StepVisualTextStyleForDefinedFont]
+  StepVisualTextStyleForDefinedFont* {.importcpp: "StepVisual_TextStyleForDefinedFont", header: "StepVisual_TextStyleForDefinedFont.hxx",
+                                      bycopy.} = object of StandardTransient ## ! Returns a
+                                                                        ## TextStyleForDefinedFont
 
 
-proc constructStepVisual_TextStyleForDefinedFont*(): StepVisual_TextStyleForDefinedFont {.
+proc constructStepVisualTextStyleForDefinedFont*(): StepVisualTextStyleForDefinedFont {.
     constructor, importcpp: "StepVisual_TextStyleForDefinedFont(@)",
     header: "StepVisual_TextStyleForDefinedFont.hxx".}
-proc Init*(this: var StepVisual_TextStyleForDefinedFont;
-          aTextColour: handle[StepVisual_Colour]) {.importcpp: "Init",
+proc init*(this: var StepVisualTextStyleForDefinedFont;
+          aTextColour: Handle[StepVisualColour]) {.importcpp: "Init",
     header: "StepVisual_TextStyleForDefinedFont.hxx".}
-proc SetTextColour*(this: var StepVisual_TextStyleForDefinedFont;
-                   aTextColour: handle[StepVisual_Colour]) {.
+proc setTextColour*(this: var StepVisualTextStyleForDefinedFont;
+                   aTextColour: Handle[StepVisualColour]) {.
     importcpp: "SetTextColour", header: "StepVisual_TextStyleForDefinedFont.hxx".}
-proc TextColour*(this: StepVisual_TextStyleForDefinedFont): handle[
-    StepVisual_Colour] {.noSideEffect, importcpp: "TextColour",
-                        header: "StepVisual_TextStyleForDefinedFont.hxx".}
+proc textColour*(this: StepVisualTextStyleForDefinedFont): Handle[StepVisualColour] {.
+    noSideEffect, importcpp: "TextColour",
+    header: "StepVisual_TextStyleForDefinedFont.hxx".}
 type
-  StepVisual_TextStyleForDefinedFontbase_type* = Standard_Transient
+  StepVisualTextStyleForDefinedFontbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_TextStyleForDefinedFont::get_type_name(@)",
-                              header: "StepVisual_TextStyleForDefinedFont.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_TextStyleForDefinedFont::get_type_name(@)",
+                            header: "StepVisual_TextStyleForDefinedFont.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_TextStyleForDefinedFont::get_type_descriptor(@)",
     header: "StepVisual_TextStyleForDefinedFont.hxx".}
-proc DynamicType*(this: StepVisual_TextStyleForDefinedFont): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualTextStyleForDefinedFont): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_TextStyleForDefinedFont.hxx".}

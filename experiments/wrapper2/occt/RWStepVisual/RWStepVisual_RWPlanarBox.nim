@@ -14,30 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_PlanarBox"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisual_RWPlanarBox* {.importcpp: "RWStepVisual_RWPlanarBox",
-                             header: "RWStepVisual_RWPlanarBox.hxx", bycopy.} = object
+  RWStepVisualRWPlanarBox* {.importcpp: "RWStepVisual_RWPlanarBox",
+                            header: "RWStepVisual_RWPlanarBox.hxx", bycopy.} = object
 
 
-proc constructRWStepVisual_RWPlanarBox*(): RWStepVisual_RWPlanarBox {.constructor,
+proc constructRWStepVisualRWPlanarBox*(): RWStepVisualRWPlanarBox {.constructor,
     importcpp: "RWStepVisual_RWPlanarBox(@)",
     header: "RWStepVisual_RWPlanarBox.hxx".}
-proc ReadStep*(this: RWStepVisual_RWPlanarBox;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check]; ent: handle[StepVisual_PlanarBox]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWPlanarBox.hxx".}
-proc WriteStep*(this: RWStepVisual_RWPlanarBox; SW: var StepData_StepWriter;
-               ent: handle[StepVisual_PlanarBox]) {.noSideEffect,
+proc readStep*(this: RWStepVisualRWPlanarBox; data: Handle[StepDataStepReaderData];
+              num: int; ach: var Handle[InterfaceCheck];
+              ent: Handle[StepVisualPlanarBox]) {.noSideEffect,
+    importcpp: "ReadStep", header: "RWStepVisual_RWPlanarBox.hxx".}
+proc writeStep*(this: RWStepVisualRWPlanarBox; sw: var StepDataStepWriter;
+               ent: Handle[StepVisualPlanarBox]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWPlanarBox.hxx".}
-proc Share*(this: RWStepVisual_RWPlanarBox; ent: handle[StepVisual_PlanarBox];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepVisualRWPlanarBox; ent: Handle[StepVisualPlanarBox];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWPlanarBox.hxx".}

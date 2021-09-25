@@ -16,4 +16,5 @@
 
 discard "forward decl of TDataStd_TreeNode"
 type
-  TDataStd_PtrTreeNode* = ptr TDataStd_TreeNode
+  TDataStdPtrTreeNode* = ptr TDataStdTreeNode
+

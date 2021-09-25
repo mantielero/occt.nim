@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TopOpeBRep_Point2d, ../NCollection/NCollection_Sequence
-
 type
-  TopOpeBRep_SequenceOfPoint2d* = NCollection_Sequence[TopOpeBRep_Point2d]
+  TopOpeBRepSequenceOfPoint2d* = NCollectionSequence[TopOpeBRepPoint2d]
+

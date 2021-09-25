@@ -15,13 +15,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer, BOPDS_PDS,
-  BOPDS_VectorOfPair, BOPDS_VectorOfVectorOfPair, ../BOPTools/BOPTools_BoxTree,
-  ../NCollection/NCollection_BaseAllocator, ../Precision/Precision,
-  ../Standard/Standard_Boolean, ../TopAbs/TopAbs_ShapeEnum
-
 discard "forward decl of BOPDS_DS"
 discard "forward decl of IntTools_Context"
 type
@@ -113,35 +106,33 @@ proc constructBOPDS_Iterator*(): BOPDS_Iterator {.constructor,
     importcpp: "BOPDS_Iterator(@)", header: "BOPDS_Iterator.hxx".}
 proc destroyBOPDS_Iterator*(this: var BOPDS_Iterator) {.
     importcpp: "#.~BOPDS_Iterator()", header: "BOPDS_Iterator.hxx".}
-proc constructBOPDS_Iterator*(theAllocator: handle[NCollection_BaseAllocator]): BOPDS_Iterator {.
+proc constructBOPDS_Iterator*(theAllocator: Handle[NCollectionBaseAllocator]): BOPDS_Iterator {.
     constructor, importcpp: "BOPDS_Iterator(@)", header: "BOPDS_Iterator.hxx".}
-proc SetDS*(this: var BOPDS_Iterator; pDS: BOPDS_PDS) {.importcpp: "SetDS",
+proc setDS*(this: var BOPDS_Iterator; pDS: Bopds_Pds) {.importcpp: "SetDS",
     header: "BOPDS_Iterator.hxx".}
-proc DS*(this: BOPDS_Iterator): BOPDS_DS {.noSideEffect, importcpp: "DS",
+proc ds*(this: BOPDS_Iterator): Bopds_Ds {.noSideEffect, importcpp: "DS",
                                        header: "BOPDS_Iterator.hxx".}
-proc Initialize*(this: var BOPDS_Iterator; theType1: TopAbs_ShapeEnum;
-                theType2: TopAbs_ShapeEnum) {.importcpp: "Initialize",
+proc initialize*(this: var BOPDS_Iterator; theType1: TopAbsShapeEnum;
+                theType2: TopAbsShapeEnum) {.importcpp: "Initialize",
     header: "BOPDS_Iterator.hxx".}
-proc More*(this: BOPDS_Iterator): Standard_Boolean {.noSideEffect, importcpp: "More",
-    header: "BOPDS_Iterator.hxx".}
-proc Next*(this: var BOPDS_Iterator) {.importcpp: "Next", header: "BOPDS_Iterator.hxx".}
-proc Value*(this: BOPDS_Iterator; theIndex1: var Standard_Integer;
-           theIndex2: var Standard_Integer) {.noSideEffect, importcpp: "Value",
-    header: "BOPDS_Iterator.hxx".}
-proc Prepare*(this: var BOPDS_Iterator;
-             theCtx: handle[IntTools_Context] = handle[IntTools_Context]();
-             theCheckOBB: Standard_Boolean = Standard_False;
-             theFuzzyValue: Standard_Real = Confusion()) {.importcpp: "Prepare",
-    header: "BOPDS_Iterator.hxx".}
-proc IntersectExt*(this: var BOPDS_Iterator; theIndicies: TColStd_MapOfInteger) {.
+proc more*(this: BOPDS_Iterator): bool {.noSideEffect, importcpp: "More",
+                                     header: "BOPDS_Iterator.hxx".}
+proc next*(this: var BOPDS_Iterator) {.importcpp: "Next", header: "BOPDS_Iterator.hxx".}
+proc value*(this: BOPDS_Iterator; theIndex1: var int; theIndex2: var int) {.noSideEffect,
+    importcpp: "Value", header: "BOPDS_Iterator.hxx".}
+proc prepare*(this: var BOPDS_Iterator;
+             theCtx: Handle[IntToolsContext] = handle[IntToolsContext]();
+             theCheckOBB: bool = false; theFuzzyValue: float = confusion()) {.
+    importcpp: "Prepare", header: "BOPDS_Iterator.hxx".}
+proc intersectExt*(this: var BOPDS_Iterator; theIndicies: TColStdMapOfInteger) {.
     importcpp: "IntersectExt", header: "BOPDS_Iterator.hxx".}
-proc ExpectedLength*(this: BOPDS_Iterator): Standard_Integer {.noSideEffect,
+proc expectedLength*(this: BOPDS_Iterator): int {.noSideEffect,
     importcpp: "ExpectedLength", header: "BOPDS_Iterator.hxx".}
-proc BlockLength*(this: BOPDS_Iterator): Standard_Integer {.noSideEffect,
+proc blockLength*(this: BOPDS_Iterator): int {.noSideEffect,
     importcpp: "BlockLength", header: "BOPDS_Iterator.hxx".}
-proc SetRunParallel*(this: var BOPDS_Iterator; theFlag: Standard_Boolean) {.
+proc setRunParallel*(this: var BOPDS_Iterator; theFlag: bool) {.
     importcpp: "SetRunParallel", header: "BOPDS_Iterator.hxx".}
-proc RunParallel*(this: BOPDS_Iterator): Standard_Boolean {.noSideEffect,
+proc runParallel*(this: BOPDS_Iterator): bool {.noSideEffect,
     importcpp: "RunParallel", header: "BOPDS_Iterator.hxx".}
-proc NbExtInterfs*(): Standard_Integer {.importcpp: "BOPDS_Iterator::NbExtInterfs(@)",
-                                      header: "BOPDS_Iterator.hxx".}
+proc nbExtInterfs*(): int {.importcpp: "BOPDS_Iterator::NbExtInterfs(@)",
+                         header: "BOPDS_Iterator.hxx".}

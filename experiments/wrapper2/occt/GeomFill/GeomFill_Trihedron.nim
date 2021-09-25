@@ -15,10 +15,11 @@
 ##  commercial license or contractual agreement.
 
 type
-  GeomFill_Trihedron* {.size: sizeof(cint), importcpp: "GeomFill_Trihedron",
-                       header: "GeomFill_Trihedron.hxx".} = enum
-    GeomFill_IsCorrectedFrenet, GeomFill_IsFixed, GeomFill_IsFrenet,
-    GeomFill_IsConstantNormal, GeomFill_IsDarboux, GeomFill_IsGuideAC,
-    GeomFill_IsGuidePlan, GeomFill_IsGuideACWithContact,
-    GeomFill_IsGuidePlanWithContact, GeomFill_IsDiscreteTrihedron
+  GeomFillTrihedron* {.size: sizeof(cint), importcpp: "GeomFill_Trihedron",
+                      header: "GeomFill_Trihedron.hxx".} = enum
+    GeomFillIsCorrectedFrenet, GeomFillIsFixed, GeomFillIsFrenet,
+    GeomFillIsConstantNormal, GeomFillIsDarboux, GeomFillIsGuideAC,
+    GeomFillIsGuidePlan, GeomFillIsGuideACWithContact,
+    GeomFillIsGuidePlanWithContact, GeomFillIsDiscreteTrihedron
+
 

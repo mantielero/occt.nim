@@ -16,4 +16,5 @@
 
 discard "forward decl of TDocStd_XLink"
 type
-  TDocStd_XLinkPtr* = ptr TDocStd_XLink
+  TDocStdXLinkPtr* = ptr TDocStdXLink
+

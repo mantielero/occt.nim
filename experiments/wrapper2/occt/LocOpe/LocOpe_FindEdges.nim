@@ -14,35 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape,
-  ../TopTools/TopTools_ListOfShape,
-  ../TopTools/TopTools_ListIteratorOfListOfShape, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_NoMoreObject"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Edge"
 type
-  LocOpe_FindEdges* {.importcpp: "LocOpe_FindEdges",
-                     header: "LocOpe_FindEdges.hxx", bycopy.} = object
+  LocOpeFindEdges* {.importcpp: "LocOpe_FindEdges", header: "LocOpe_FindEdges.hxx",
+                    bycopy.} = object
 
 
-proc constructLocOpe_FindEdges*(): LocOpe_FindEdges {.constructor,
+proc constructLocOpeFindEdges*(): LocOpeFindEdges {.constructor,
     importcpp: "LocOpe_FindEdges(@)", header: "LocOpe_FindEdges.hxx".}
-proc constructLocOpe_FindEdges*(FFrom: TopoDS_Shape; FTo: TopoDS_Shape): LocOpe_FindEdges {.
+proc constructLocOpeFindEdges*(fFrom: TopoDS_Shape; fTo: TopoDS_Shape): LocOpeFindEdges {.
     constructor, importcpp: "LocOpe_FindEdges(@)", header: "LocOpe_FindEdges.hxx".}
-proc Set*(this: var LocOpe_FindEdges; FFrom: TopoDS_Shape; FTo: TopoDS_Shape) {.
+proc set*(this: var LocOpeFindEdges; fFrom: TopoDS_Shape; fTo: TopoDS_Shape) {.
     importcpp: "Set", header: "LocOpe_FindEdges.hxx".}
-proc InitIterator*(this: var LocOpe_FindEdges) {.importcpp: "InitIterator",
+proc initIterator*(this: var LocOpeFindEdges) {.importcpp: "InitIterator",
     header: "LocOpe_FindEdges.hxx".}
-proc More*(this: LocOpe_FindEdges): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "LocOpe_FindEdges.hxx".}
-proc EdgeFrom*(this: LocOpe_FindEdges): TopoDS_Edge {.noSideEffect,
+proc more*(this: LocOpeFindEdges): bool {.noSideEffect, importcpp: "More",
+                                      header: "LocOpe_FindEdges.hxx".}
+proc edgeFrom*(this: LocOpeFindEdges): TopoDS_Edge {.noSideEffect,
     importcpp: "EdgeFrom", header: "LocOpe_FindEdges.hxx".}
-proc EdgeTo*(this: LocOpe_FindEdges): TopoDS_Edge {.noSideEffect,
-    importcpp: "EdgeTo", header: "LocOpe_FindEdges.hxx".}
-proc Next*(this: var LocOpe_FindEdges) {.importcpp: "Next",
-                                     header: "LocOpe_FindEdges.hxx".}
+proc edgeTo*(this: LocOpeFindEdges): TopoDS_Edge {.noSideEffect, importcpp: "EdgeTo",
+    header: "LocOpe_FindEdges.hxx".}
+proc next*(this: var LocOpeFindEdges) {.importcpp: "Next",
+                                    header: "LocOpe_FindEdges.hxx".}

@@ -14,36 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_PresentationLayerAssignment"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisual_RWPresentationLayerAssignment* {.
+  RWStepVisualRWPresentationLayerAssignment* {.
       importcpp: "RWStepVisual_RWPresentationLayerAssignment",
       header: "RWStepVisual_RWPresentationLayerAssignment.hxx", bycopy.} = object
 
 
-proc constructRWStepVisual_RWPresentationLayerAssignment*(): RWStepVisual_RWPresentationLayerAssignment {.
+proc constructRWStepVisualRWPresentationLayerAssignment*(): RWStepVisualRWPresentationLayerAssignment {.
     constructor, importcpp: "RWStepVisual_RWPresentationLayerAssignment(@)",
     header: "RWStepVisual_RWPresentationLayerAssignment.hxx".}
-proc ReadStep*(this: RWStepVisual_RWPresentationLayerAssignment;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepVisual_PresentationLayerAssignment]) {.noSideEffect,
+proc readStep*(this: RWStepVisualRWPresentationLayerAssignment;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepVisualPresentationLayerAssignment]) {.noSideEffect,
     importcpp: "ReadStep",
     header: "RWStepVisual_RWPresentationLayerAssignment.hxx".}
-proc WriteStep*(this: RWStepVisual_RWPresentationLayerAssignment;
-               SW: var StepData_StepWriter;
-               ent: handle[StepVisual_PresentationLayerAssignment]) {.
-    noSideEffect, importcpp: "WriteStep",
+proc writeStep*(this: RWStepVisualRWPresentationLayerAssignment;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepVisualPresentationLayerAssignment]) {.noSideEffect,
+    importcpp: "WriteStep",
     header: "RWStepVisual_RWPresentationLayerAssignment.hxx".}
-proc Share*(this: RWStepVisual_RWPresentationLayerAssignment;
-           ent: handle[StepVisual_PresentationLayerAssignment];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepVisualRWPresentationLayerAssignment;
+           ent: Handle[StepVisualPresentationLayerAssignment];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWPresentationLayerAssignment.hxx".}

@@ -14,43 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  StepGeom_ElementarySurface
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_Axis2Placement3d"
 discard "forward decl of StepGeom_CylindricalSurface"
 discard "forward decl of StepGeom_CylindricalSurface"
 type
-  Handle_StepGeom_CylindricalSurface* = handle[StepGeom_CylindricalSurface]
-  StepGeom_CylindricalSurface* {.importcpp: "StepGeom_CylindricalSurface",
-                                header: "StepGeom_CylindricalSurface.hxx", bycopy.} = object of StepGeom_ElementarySurface ##
-                                                                                                                    ## !
-                                                                                                                    ## Returns
-                                                                                                                    ## a
-                                                                                                                    ## CylindricalSurface
+  HandleStepGeomCylindricalSurface* = Handle[StepGeomCylindricalSurface]
+  StepGeomCylindricalSurface* {.importcpp: "StepGeom_CylindricalSurface",
+                               header: "StepGeom_CylindricalSurface.hxx", bycopy.} = object of StepGeomElementarySurface ##
+                                                                                                                  ## !
+                                                                                                                  ## Returns
+                                                                                                                  ## a
+                                                                                                                  ## CylindricalSurface
 
 
-proc constructStepGeom_CylindricalSurface*(): StepGeom_CylindricalSurface {.
+proc constructStepGeomCylindricalSurface*(): StepGeomCylindricalSurface {.
     constructor, importcpp: "StepGeom_CylindricalSurface(@)",
     header: "StepGeom_CylindricalSurface.hxx".}
-proc Init*(this: var StepGeom_CylindricalSurface;
-          aName: handle[TCollection_HAsciiString];
-          aPosition: handle[StepGeom_Axis2Placement3d]; aRadius: Standard_Real) {.
+proc init*(this: var StepGeomCylindricalSurface;
+          aName: Handle[TCollectionHAsciiString];
+          aPosition: Handle[StepGeomAxis2Placement3d]; aRadius: float) {.
     importcpp: "Init", header: "StepGeom_CylindricalSurface.hxx".}
-proc SetRadius*(this: var StepGeom_CylindricalSurface; aRadius: Standard_Real) {.
+proc setRadius*(this: var StepGeomCylindricalSurface; aRadius: float) {.
     importcpp: "SetRadius", header: "StepGeom_CylindricalSurface.hxx".}
-proc Radius*(this: StepGeom_CylindricalSurface): Standard_Real {.noSideEffect,
+proc radius*(this: StepGeomCylindricalSurface): float {.noSideEffect,
     importcpp: "Radius", header: "StepGeom_CylindricalSurface.hxx".}
 type
-  StepGeom_CylindricalSurfacebase_type* = StepGeom_ElementarySurface
+  StepGeomCylindricalSurfacebaseType* = StepGeomElementarySurface
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_CylindricalSurface::get_type_name(@)",
-                              header: "StepGeom_CylindricalSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_CylindricalSurface::get_type_name(@)",
+                            header: "StepGeom_CylindricalSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_CylindricalSurface::get_type_descriptor(@)",
     header: "StepGeom_CylindricalSurface.hxx".}
-proc DynamicType*(this: StepGeom_CylindricalSurface): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomCylindricalSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_CylindricalSurface.hxx".}

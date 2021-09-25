@@ -14,58 +14,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../TopAbs/TopAbs_Orientation, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real
-
 discard "forward decl of TopOpeBRepDS_DataStructure"
 discard "forward decl of ChFiDS_SurfData"
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of ChFiDS_Spine"
 discard "forward decl of gp_Pnt2d"
 type
-  ChFiKPart_ComputeData* {.importcpp: "ChFiKPart_ComputeData",
-                          header: "ChFiKPart_ComputeData.hxx", bycopy.} = object ## !
-                                                                            ## Computes a
-                                                                            ## simple
-                                                                            ## fillet in
-                                                                            ## several
-                                                                            ## particular
-                                                                            ## !
-                                                                            ## cases.
+  ChFiKPartComputeData* {.importcpp: "ChFiKPart_ComputeData",
+                         header: "ChFiKPart_ComputeData.hxx", bycopy.} = object ## !
+                                                                           ## Computes a
+                                                                           ## simple
+                                                                           ## fillet in
+                                                                           ## several
+                                                                           ## particular
+                                                                           ## !
+                                                                           ## cases.
 
 
-proc Compute*(DStr: var TopOpeBRepDS_DataStructure;
-             Data: var handle[ChFiDS_SurfData]; S1: handle[Adaptor3d_HSurface];
-             S2: handle[Adaptor3d_HSurface]; Or1: TopAbs_Orientation;
-             Or2: TopAbs_Orientation; Sp: handle[ChFiDS_Spine];
-             Iedge: Standard_Integer): Standard_Boolean {.
+proc compute*(dStr: var TopOpeBRepDS_DataStructure;
+             data: var Handle[ChFiDS_SurfData]; s1: Handle[Adaptor3dHSurface];
+             s2: Handle[Adaptor3dHSurface]; or1: TopAbsOrientation;
+             or2: TopAbsOrientation; sp: Handle[ChFiDS_Spine]; iedge: int): bool {.
     importcpp: "ChFiKPart_ComputeData::Compute(@)",
     header: "ChFiKPart_ComputeData.hxx".}
-proc ComputeCorner*(DStr: var TopOpeBRepDS_DataStructure;
-                   Data: handle[ChFiDS_SurfData]; S1: handle[Adaptor3d_HSurface];
-                   S2: handle[Adaptor3d_HSurface]; OrFace1: TopAbs_Orientation;
-                   OrFace2: TopAbs_Orientation; Or1: TopAbs_Orientation;
-                   Or2: TopAbs_Orientation; minRad: Standard_Real;
-                   majRad: Standard_Real; P1S1: gp_Pnt2d; P2S1: gp_Pnt2d;
-                   P1S2: gp_Pnt2d; P2S2: gp_Pnt2d): Standard_Boolean {.
+proc computeCorner*(dStr: var TopOpeBRepDS_DataStructure;
+                   data: Handle[ChFiDS_SurfData]; s1: Handle[Adaptor3dHSurface];
+                   s2: Handle[Adaptor3dHSurface]; orFace1: TopAbsOrientation;
+                   orFace2: TopAbsOrientation; or1: TopAbsOrientation;
+                   or2: TopAbsOrientation; minRad: float; majRad: float; p1s1: Pnt2d;
+                   p2s1: Pnt2d; p1s2: Pnt2d; p2s2: Pnt2d): bool {.
     importcpp: "ChFiKPart_ComputeData::ComputeCorner(@)",
     header: "ChFiKPart_ComputeData.hxx".}
-proc ComputeCorner*(DStr: var TopOpeBRepDS_DataStructure;
-                   Data: handle[ChFiDS_SurfData]; S1: handle[Adaptor3d_HSurface];
-                   S2: handle[Adaptor3d_HSurface]; OrFace1: TopAbs_Orientation;
-                   OrFace2: TopAbs_Orientation; Or1: TopAbs_Orientation;
-                   Or2: TopAbs_Orientation; Rad: Standard_Real; PS1: gp_Pnt2d;
-                   P1S2: gp_Pnt2d; P2S2: gp_Pnt2d): Standard_Boolean {.
-    importcpp: "ChFiKPart_ComputeData::ComputeCorner(@)",
-    header: "ChFiKPart_ComputeData.hxx".}
-proc ComputeCorner*(DStr: var TopOpeBRepDS_DataStructure;
-                   Data: handle[ChFiDS_SurfData]; S: handle[Adaptor3d_HSurface];
-                   S1: handle[Adaptor3d_HSurface]; S2: handle[Adaptor3d_HSurface];
-                   OfS: TopAbs_Orientation; OS: TopAbs_Orientation;
-                   OS1: TopAbs_Orientation; OS2: TopAbs_Orientation;
-                   Radius: Standard_Real): Standard_Boolean {.
+proc computeCorner*(dStr: var TopOpeBRepDS_DataStructure;
+                   data: Handle[ChFiDS_SurfData]; s1: Handle[Adaptor3dHSurface];
+                   s2: Handle[Adaptor3dHSurface]; orFace1: TopAbsOrientation;
+                   orFace2: TopAbsOrientation; or1: TopAbsOrientation;
+                   or2: TopAbsOrientation; rad: float; ps1: Pnt2d; p1s2: Pnt2d;
+                   p2s2: Pnt2d): bool {.importcpp: "ChFiKPart_ComputeData::ComputeCorner(@)",
+                                     header: "ChFiKPart_ComputeData.hxx".}
+proc computeCorner*(dStr: var TopOpeBRepDS_DataStructure;
+                   data: Handle[ChFiDS_SurfData]; s: Handle[Adaptor3dHSurface];
+                   s1: Handle[Adaptor3dHSurface]; s2: Handle[Adaptor3dHSurface];
+                   ofS: TopAbsOrientation; os: TopAbsOrientation;
+                   os1: TopAbsOrientation; os2: TopAbsOrientation; radius: float): bool {.
     importcpp: "ChFiKPart_ComputeData::ComputeCorner(@)",
     header: "ChFiKPart_ComputeData.hxx".}

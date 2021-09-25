@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../TColgp/TColgp_Array1OfCirc2d,
-  ../GccEnt/GccEnt_Array1OfPosition, ../TColStd/TColStd_Array1OfInteger,
-  ../TColgp/TColgp_Array1OfPnt2d, ../TColStd/TColStd_Array1OfReal,
-  ../Standard/Standard_Real, ../GccEnt/GccEnt_Position
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of GccEnt_BadQualifier"
 discard "forward decl of Standard_OutOfRange"
@@ -31,95 +23,91 @@ discard "forward decl of GccEnt_QualifiedLin"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Circ2d"
 type
-  Geom2dGcc_Circ2d2TanOnGeo* {.importcpp: "Geom2dGcc_Circ2d2TanOnGeo",
-                              header: "Geom2dGcc_Circ2d2TanOnGeo.hxx", bycopy.} = object ##
-                                                                                    ## !
-                                                                                    ## This
-                                                                                    ## method
-                                                                                    ## implements
-                                                                                    ## the
-                                                                                    ## algorithms
-                                                                                    ## used
-                                                                                    ## to
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## create
-                                                                                    ## 2d
-                                                                                    ## circles
-                                                                                    ## TANgent
-                                                                                    ## to
-                                                                                    ## two
-                                                                                    ## 2d
-                                                                                    ## circles
-                                                                                    ## and
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## having
-                                                                                    ## the
-                                                                                    ## center
-                                                                                    ## ON
-                                                                                    ## a
-                                                                                    ## curve.
+  Geom2dGccCirc2d2TanOnGeo* {.importcpp: "Geom2dGcc_Circ2d2TanOnGeo",
+                             header: "Geom2dGcc_Circ2d2TanOnGeo.hxx", bycopy.} = object ##
+                                                                                   ## !
+                                                                                   ## This
+                                                                                   ## method
+                                                                                   ## implements
+                                                                                   ## the
+                                                                                   ## algorithms
+                                                                                   ## used
+                                                                                   ## to
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## create
+                                                                                   ## 2d
+                                                                                   ## circles
+                                                                                   ## TANgent
+                                                                                   ## to
+                                                                                   ## two
+                                                                                   ## 2d
+                                                                                   ## circles
+                                                                                   ## and
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## having
+                                                                                   ## the
+                                                                                   ## center
+                                                                                   ## ON
+                                                                                   ## a
+                                                                                   ## curve.
 
 
-proc constructGeom2dGcc_Circ2d2TanOnGeo*(Qualified1: GccEnt_QualifiedCirc;
-                                        Qualified2: GccEnt_QualifiedCirc;
-                                        OnCurv: Geom2dAdaptor_Curve;
-                                        Tolerance: Standard_Real): Geom2dGcc_Circ2d2TanOnGeo {.
+proc constructGeom2dGccCirc2d2TanOnGeo*(qualified1: GccEntQualifiedCirc;
+                                       qualified2: GccEntQualifiedCirc;
+                                       onCurv: Geom2dAdaptorCurve;
+                                       tolerance: float): Geom2dGccCirc2d2TanOnGeo {.
     constructor, importcpp: "Geom2dGcc_Circ2d2TanOnGeo(@)",
     header: "Geom2dGcc_Circ2d2TanOnGeo.hxx".}
-proc constructGeom2dGcc_Circ2d2TanOnGeo*(Qualified1: GccEnt_QualifiedCirc;
-                                        Qualified2: GccEnt_QualifiedLin;
-                                        OnCurv: Geom2dAdaptor_Curve;
-                                        Tolerance: Standard_Real): Geom2dGcc_Circ2d2TanOnGeo {.
+proc constructGeom2dGccCirc2d2TanOnGeo*(qualified1: GccEntQualifiedCirc;
+                                       qualified2: GccEntQualifiedLin;
+                                       onCurv: Geom2dAdaptorCurve;
+                                       tolerance: float): Geom2dGccCirc2d2TanOnGeo {.
     constructor, importcpp: "Geom2dGcc_Circ2d2TanOnGeo(@)",
     header: "Geom2dGcc_Circ2d2TanOnGeo.hxx".}
-proc constructGeom2dGcc_Circ2d2TanOnGeo*(Qualified1: GccEnt_QualifiedCirc;
-                                        Point2: gp_Pnt2d;
-                                        OnCurv: Geom2dAdaptor_Curve;
-                                        Tolerance: Standard_Real): Geom2dGcc_Circ2d2TanOnGeo {.
+proc constructGeom2dGccCirc2d2TanOnGeo*(qualified1: GccEntQualifiedCirc;
+                                       point2: Pnt2d; onCurv: Geom2dAdaptorCurve;
+                                       tolerance: float): Geom2dGccCirc2d2TanOnGeo {.
     constructor, importcpp: "Geom2dGcc_Circ2d2TanOnGeo(@)",
     header: "Geom2dGcc_Circ2d2TanOnGeo.hxx".}
-proc constructGeom2dGcc_Circ2d2TanOnGeo*(Qualified1: GccEnt_QualifiedLin;
-                                        Qualified2: GccEnt_QualifiedLin;
-                                        OnCurv: Geom2dAdaptor_Curve;
-                                        Tolerance: Standard_Real): Geom2dGcc_Circ2d2TanOnGeo {.
+proc constructGeom2dGccCirc2d2TanOnGeo*(qualified1: GccEntQualifiedLin;
+                                       qualified2: GccEntQualifiedLin;
+                                       onCurv: Geom2dAdaptorCurve;
+                                       tolerance: float): Geom2dGccCirc2d2TanOnGeo {.
     constructor, importcpp: "Geom2dGcc_Circ2d2TanOnGeo(@)",
     header: "Geom2dGcc_Circ2d2TanOnGeo.hxx".}
-proc constructGeom2dGcc_Circ2d2TanOnGeo*(Qualified1: GccEnt_QualifiedLin;
-                                        Qualified2: gp_Pnt2d;
-                                        OnCurv: Geom2dAdaptor_Curve;
-                                        Tolerance: Standard_Real): Geom2dGcc_Circ2d2TanOnGeo {.
+proc constructGeom2dGccCirc2d2TanOnGeo*(qualified1: GccEntQualifiedLin;
+                                       qualified2: Pnt2d;
+                                       onCurv: Geom2dAdaptorCurve;
+                                       tolerance: float): Geom2dGccCirc2d2TanOnGeo {.
     constructor, importcpp: "Geom2dGcc_Circ2d2TanOnGeo(@)",
     header: "Geom2dGcc_Circ2d2TanOnGeo.hxx".}
-proc constructGeom2dGcc_Circ2d2TanOnGeo*(Point1: gp_Pnt2d; Point2: gp_Pnt2d;
-                                        OnCurv: Geom2dAdaptor_Curve;
-                                        Tolerance: Standard_Real): Geom2dGcc_Circ2d2TanOnGeo {.
+proc constructGeom2dGccCirc2d2TanOnGeo*(point1: Pnt2d; point2: Pnt2d;
+                                       onCurv: Geom2dAdaptorCurve;
+                                       tolerance: float): Geom2dGccCirc2d2TanOnGeo {.
     constructor, importcpp: "Geom2dGcc_Circ2d2TanOnGeo(@)",
     header: "Geom2dGcc_Circ2d2TanOnGeo.hxx".}
-proc IsDone*(this: Geom2dGcc_Circ2d2TanOnGeo): Standard_Boolean {.noSideEffect,
+proc isDone*(this: Geom2dGccCirc2d2TanOnGeo): bool {.noSideEffect,
     importcpp: "IsDone", header: "Geom2dGcc_Circ2d2TanOnGeo.hxx".}
-proc NbSolutions*(this: Geom2dGcc_Circ2d2TanOnGeo): Standard_Integer {.noSideEffect,
+proc nbSolutions*(this: Geom2dGccCirc2d2TanOnGeo): int {.noSideEffect,
     importcpp: "NbSolutions", header: "Geom2dGcc_Circ2d2TanOnGeo.hxx".}
-proc ThisSolution*(this: Geom2dGcc_Circ2d2TanOnGeo; Index: Standard_Integer): gp_Circ2d {.
-    noSideEffect, importcpp: "ThisSolution",
-    header: "Geom2dGcc_Circ2d2TanOnGeo.hxx".}
-proc WhichQualifier*(this: Geom2dGcc_Circ2d2TanOnGeo; Index: Standard_Integer;
-                    Qualif1: var GccEnt_Position; Qualif2: var GccEnt_Position) {.
+proc thisSolution*(this: Geom2dGccCirc2d2TanOnGeo; index: int): Circ2d {.noSideEffect,
+    importcpp: "ThisSolution", header: "Geom2dGcc_Circ2d2TanOnGeo.hxx".}
+proc whichQualifier*(this: Geom2dGccCirc2d2TanOnGeo; index: int;
+                    qualif1: var GccEntPosition; qualif2: var GccEntPosition) {.
     noSideEffect, importcpp: "WhichQualifier",
     header: "Geom2dGcc_Circ2d2TanOnGeo.hxx".}
-proc Tangency1*(this: Geom2dGcc_Circ2d2TanOnGeo; Index: Standard_Integer;
-               ParSol: var Standard_Real; ParArg: var Standard_Real;
-               PntSol: var gp_Pnt2d) {.noSideEffect, importcpp: "Tangency1",
-                                    header: "Geom2dGcc_Circ2d2TanOnGeo.hxx".}
-proc Tangency2*(this: Geom2dGcc_Circ2d2TanOnGeo; Index: Standard_Integer;
-               ParSol: var Standard_Real; ParArg: var Standard_Real;
-               PntSol: var gp_Pnt2d) {.noSideEffect, importcpp: "Tangency2",
-                                    header: "Geom2dGcc_Circ2d2TanOnGeo.hxx".}
-proc CenterOn3*(this: Geom2dGcc_Circ2d2TanOnGeo; Index: Standard_Integer;
-               ParArg: var Standard_Real; PntSol: var gp_Pnt2d) {.noSideEffect,
-    importcpp: "CenterOn3", header: "Geom2dGcc_Circ2d2TanOnGeo.hxx".}
-proc IsTheSame1*(this: Geom2dGcc_Circ2d2TanOnGeo; Index: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsTheSame1", header: "Geom2dGcc_Circ2d2TanOnGeo.hxx".}
-proc IsTheSame2*(this: Geom2dGcc_Circ2d2TanOnGeo; Index: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsTheSame2", header: "Geom2dGcc_Circ2d2TanOnGeo.hxx".}
+proc tangency1*(this: Geom2dGccCirc2d2TanOnGeo; index: int; parSol: var float;
+               parArg: var float; pntSol: var Pnt2d) {.noSideEffect,
+    importcpp: "Tangency1", header: "Geom2dGcc_Circ2d2TanOnGeo.hxx".}
+proc tangency2*(this: Geom2dGccCirc2d2TanOnGeo; index: int; parSol: var float;
+               parArg: var float; pntSol: var Pnt2d) {.noSideEffect,
+    importcpp: "Tangency2", header: "Geom2dGcc_Circ2d2TanOnGeo.hxx".}
+proc centerOn3*(this: Geom2dGccCirc2d2TanOnGeo; index: int; parArg: var float;
+               pntSol: var Pnt2d) {.noSideEffect, importcpp: "CenterOn3",
+                                 header: "Geom2dGcc_Circ2d2TanOnGeo.hxx".}
+proc isTheSame1*(this: Geom2dGccCirc2d2TanOnGeo; index: int): bool {.noSideEffect,
+    importcpp: "IsTheSame1", header: "Geom2dGcc_Circ2d2TanOnGeo.hxx".}
+proc isTheSame2*(this: Geom2dGccCirc2d2TanOnGeo; index: int): bool {.noSideEffect,
+    importcpp: "IsTheSame2", header: "Geom2dGcc_Circ2d2TanOnGeo.hxx".}

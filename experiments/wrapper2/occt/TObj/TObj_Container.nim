@@ -14,15 +14,11 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation Copyright: (C) RINA S.p.A
 
-import
-  ../NCollection/NCollection_DataMap, ../TCollection/TCollection_AsciiString,
-  ../TCollection/TCollection_HExtendedString, ../TDF/TDF_Label, TObj_Common,
-  TObj_SequenceOfObject
-
 type
-  TObj_DataMapOfNameLabel* = NCollection_DataMap[
-      handle[TCollection_HExtendedString], TDF_Label]
-  TObj_DataMapOfObjectHSequenceOcafObjects* = NCollection_DataMap[
-      handle[TObj_Object], handle[TObj_HSequenceOfObject]]
-  TObj_DataMapOfStringPointer* = NCollection_DataMap[TCollection_AsciiString,
-      Standard_Address]
+  TObjDataMapOfNameLabel* = NCollectionDataMap[Handle[TCollectionHExtendedString],
+      TDF_Label]
+  TObjDataMapOfObjectHSequenceOcafObjects* = NCollectionDataMap[
+      Handle[TObjObject], Handle[TObjHSequenceOfObject]]
+  TObjDataMapOfStringPointer* = NCollectionDataMap[TCollectionAsciiString,
+      StandardAddress]
+

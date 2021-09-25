@@ -11,40 +11,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Extrema/Extrema_ExtPC, ../BRepAdaptor/BRepAdaptor_HCurve,
-  ../Standard/Standard_DefineAlloc
-
 discard "forward decl of BRepAdaptor_HCurve"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of gp_Pnt"
 type
-  BRepExtrema_ExtPC* {.importcpp: "BRepExtrema_ExtPC",
-                      header: "BRepExtrema_ExtPC.hxx", bycopy.} = object
+  BRepExtremaExtPC* {.importcpp: "BRepExtrema_ExtPC",
+                     header: "BRepExtrema_ExtPC.hxx", bycopy.} = object
 
 
-proc constructBRepExtrema_ExtPC*(): BRepExtrema_ExtPC {.constructor,
+proc constructBRepExtremaExtPC*(): BRepExtremaExtPC {.constructor,
     importcpp: "BRepExtrema_ExtPC(@)", header: "BRepExtrema_ExtPC.hxx".}
-proc constructBRepExtrema_ExtPC*(V: TopoDS_Vertex; E: TopoDS_Edge): BRepExtrema_ExtPC {.
+proc constructBRepExtremaExtPC*(v: TopoDS_Vertex; e: TopoDS_Edge): BRepExtremaExtPC {.
     constructor, importcpp: "BRepExtrema_ExtPC(@)", header: "BRepExtrema_ExtPC.hxx".}
-proc Initialize*(this: var BRepExtrema_ExtPC; E: TopoDS_Edge) {.
+proc initialize*(this: var BRepExtremaExtPC; e: TopoDS_Edge) {.
     importcpp: "Initialize", header: "BRepExtrema_ExtPC.hxx".}
-proc Perform*(this: var BRepExtrema_ExtPC; V: TopoDS_Vertex) {.importcpp: "Perform",
+proc perform*(this: var BRepExtremaExtPC; v: TopoDS_Vertex) {.importcpp: "Perform",
     header: "BRepExtrema_ExtPC.hxx".}
-proc IsDone*(this: BRepExtrema_ExtPC): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "BRepExtrema_ExtPC.hxx".}
-proc NbExt*(this: BRepExtrema_ExtPC): Standard_Integer {.noSideEffect,
-    importcpp: "NbExt", header: "BRepExtrema_ExtPC.hxx".}
-proc IsMin*(this: BRepExtrema_ExtPC; N: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsMin", header: "BRepExtrema_ExtPC.hxx".}
-proc SquareDistance*(this: BRepExtrema_ExtPC; N: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "SquareDistance", header: "BRepExtrema_ExtPC.hxx".}
-proc Parameter*(this: BRepExtrema_ExtPC; N: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "Parameter", header: "BRepExtrema_ExtPC.hxx".}
-proc Point*(this: BRepExtrema_ExtPC; N: Standard_Integer): gp_Pnt {.noSideEffect,
-    importcpp: "Point", header: "BRepExtrema_ExtPC.hxx".}
-proc TrimmedSquareDistances*(this: BRepExtrema_ExtPC; dist1: var Standard_Real;
-                            dist2: var Standard_Real; pnt1: var gp_Pnt;
-                            pnt2: var gp_Pnt) {.noSideEffect,
-    importcpp: "TrimmedSquareDistances", header: "BRepExtrema_ExtPC.hxx".}
+proc isDone*(this: BRepExtremaExtPC): bool {.noSideEffect, importcpp: "IsDone",
+    header: "BRepExtrema_ExtPC.hxx".}
+proc nbExt*(this: BRepExtremaExtPC): int {.noSideEffect, importcpp: "NbExt",
+                                       header: "BRepExtrema_ExtPC.hxx".}
+proc isMin*(this: BRepExtremaExtPC; n: int): bool {.noSideEffect, importcpp: "IsMin",
+    header: "BRepExtrema_ExtPC.hxx".}
+proc squareDistance*(this: BRepExtremaExtPC; n: int): float {.noSideEffect,
+    importcpp: "SquareDistance", header: "BRepExtrema_ExtPC.hxx".}
+proc parameter*(this: BRepExtremaExtPC; n: int): float {.noSideEffect,
+    importcpp: "Parameter", header: "BRepExtrema_ExtPC.hxx".}
+proc point*(this: BRepExtremaExtPC; n: int): Pnt {.noSideEffect, importcpp: "Point",
+    header: "BRepExtrema_ExtPC.hxx".}
+proc trimmedSquareDistances*(this: BRepExtremaExtPC; dist1: var float;
+                            dist2: var float; pnt1: var Pnt; pnt2: var Pnt) {.
+    noSideEffect, importcpp: "TrimmedSquareDistances",
+    header: "BRepExtrema_ExtPC.hxx".}

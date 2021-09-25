@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  TopOpeBRepTool_OutCurveType* {.size: sizeof(cint),
-                                importcpp: "TopOpeBRepTool_OutCurveType",
-                                header: "TopOpeBRepTool_OutCurveType.hxx".} = enum
-    TopOpeBRepTool_BSPLINE1, TopOpeBRepTool_APPROX, TopOpeBRepTool_INTERPOL
+  TopOpeBRepToolOutCurveType* {.size: sizeof(cint),
+                               importcpp: "TopOpeBRepTool_OutCurveType",
+                               header: "TopOpeBRepTool_OutCurveType.hxx".} = enum
+    TopOpeBRepToolBSPLINE1, TopOpeBRepToolAPPROX, TopOpeBRepToolINTERPOL
+
 

@@ -14,37 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_Boolean, ../Standard/Standard_CString
-
 discard "forward decl of StepData_Described"
 discard "forward decl of StepData_EDescr"
 discard "forward decl of StepData_EDescr"
 type
-  Handle_StepData_EDescr* = handle[StepData_EDescr]
+  HandleStepDataEDescr* = Handle[StepDataEDescr]
 
 ## ! This class is intended to describe the authorized form for an
 ## ! entity, either Simple or Plex
 
 type
-  StepData_EDescr* {.importcpp: "StepData_EDescr", header: "StepData_EDescr.hxx",
-                    bycopy.} = object of Standard_Transient ## ! Tells if a ESDescr matches a step type : exact or super type
+  StepDataEDescr* {.importcpp: "StepData_EDescr", header: "StepData_EDescr.hxx",
+                   bycopy.} = object of StandardTransient ## ! Tells if a ESDescr matches a step type : exact or super type
 
 
-proc Matches*(this: StepData_EDescr; steptype: Standard_CString): Standard_Boolean {.
-    noSideEffect, importcpp: "Matches", header: "StepData_EDescr.hxx".}
-proc IsComplex*(this: StepData_EDescr): Standard_Boolean {.noSideEffect,
-    importcpp: "IsComplex", header: "StepData_EDescr.hxx".}
-proc NewEntity*(this: StepData_EDescr): handle[StepData_Described] {.noSideEffect,
+proc matches*(this: StepDataEDescr; steptype: StandardCString): bool {.noSideEffect,
+    importcpp: "Matches", header: "StepData_EDescr.hxx".}
+proc isComplex*(this: StepDataEDescr): bool {.noSideEffect, importcpp: "IsComplex",
+    header: "StepData_EDescr.hxx".}
+proc newEntity*(this: StepDataEDescr): Handle[StepDataDescribed] {.noSideEffect,
     importcpp: "NewEntity", header: "StepData_EDescr.hxx".}
 type
-  StepData_EDescrbase_type* = Standard_Transient
+  StepDataEDescrbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepData_EDescr::get_type_name(@)",
-                              header: "StepData_EDescr.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepData_EDescr::get_type_name(@)",
+                            header: "StepData_EDescr.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepData_EDescr::get_type_descriptor(@)",
     header: "StepData_EDescr.hxx".}
-proc DynamicType*(this: StepData_EDescr): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepDataEDescr): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_EDescr.hxx".}

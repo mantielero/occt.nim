@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESSolid_Cylinder"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,35 +26,33 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESSolid_ToolCylinder* {.importcpp: "IGESSolid_ToolCylinder",
-                           header: "IGESSolid_ToolCylinder.hxx", bycopy.} = object ## !
-                                                                              ## Returns a
-                                                                              ## ToolCylinder,
-                                                                              ## ready to
-                                                                              ## work
+  IGESSolidToolCylinder* {.importcpp: "IGESSolid_ToolCylinder",
+                          header: "IGESSolid_ToolCylinder.hxx", bycopy.} = object ## !
+                                                                             ## Returns a
+                                                                             ## ToolCylinder,
+                                                                             ## ready to
+                                                                             ## work
 
 
-proc constructIGESSolid_ToolCylinder*(): IGESSolid_ToolCylinder {.constructor,
+proc constructIGESSolidToolCylinder*(): IGESSolidToolCylinder {.constructor,
     importcpp: "IGESSolid_ToolCylinder(@)", header: "IGESSolid_ToolCylinder.hxx".}
-proc ReadOwnParams*(this: IGESSolid_ToolCylinder; ent: handle[IGESSolid_Cylinder];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESSolid_ToolCylinder.hxx".}
-proc WriteOwnParams*(this: IGESSolid_ToolCylinder; ent: handle[IGESSolid_Cylinder];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESSolidToolCylinder; ent: Handle[IGESSolidCylinder];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams", header: "IGESSolid_ToolCylinder.hxx".}
+proc writeOwnParams*(this: IGESSolidToolCylinder; ent: Handle[IGESSolidCylinder];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESSolid_ToolCylinder.hxx".}
-proc OwnShared*(this: IGESSolid_ToolCylinder; ent: handle[IGESSolid_Cylinder];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESSolidToolCylinder; ent: Handle[IGESSolidCylinder];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESSolid_ToolCylinder.hxx".}
-proc DirChecker*(this: IGESSolid_ToolCylinder; ent: handle[IGESSolid_Cylinder]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESSolidToolCylinder; ent: Handle[IGESSolidCylinder]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESSolid_ToolCylinder.hxx".}
-proc OwnCheck*(this: IGESSolid_ToolCylinder; ent: handle[IGESSolid_Cylinder];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESSolidToolCylinder; ent: Handle[IGESSolidCylinder];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESSolid_ToolCylinder.hxx".}
-proc OwnCopy*(this: IGESSolid_ToolCylinder; entfrom: handle[IGESSolid_Cylinder];
-             entto: handle[IGESSolid_Cylinder]; TC: var Interface_CopyTool) {.
+proc ownCopy*(this: IGESSolidToolCylinder; entfrom: Handle[IGESSolidCylinder];
+             entto: Handle[IGESSolidCylinder]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESSolid_ToolCylinder.hxx".}
-proc OwnDump*(this: IGESSolid_ToolCylinder; ent: handle[IGESSolid_Cylinder];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
-                                    header: "IGESSolid_ToolCylinder.hxx".}
+proc ownDump*(this: IGESSolidToolCylinder; ent: Handle[IGESSolidCylinder];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump", header: "IGESSolid_ToolCylinder.hxx".}

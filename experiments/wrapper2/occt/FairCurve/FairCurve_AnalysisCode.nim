@@ -29,9 +29,9 @@
 ## ! change (increase or reduce) the slope value by increasing or decreasing it.
 
 type
-  FairCurve_AnalysisCode* {.size: sizeof(cint),
-                           importcpp: "FairCurve_AnalysisCode",
-                           header: "FairCurve_AnalysisCode.hxx".} = enum
-    FairCurve_OK, FairCurve_NotConverged, FairCurve_InfiniteSliding,
-    FairCurve_NullHeight
+  FairCurveAnalysisCode* {.size: sizeof(cint), importcpp: "FairCurve_AnalysisCode",
+                          header: "FairCurve_AnalysisCode.hxx".} = enum
+    FairCurveOK, FairCurveNotConverged, FairCurveInfiniteSliding,
+    FairCurveNullHeight
+
 

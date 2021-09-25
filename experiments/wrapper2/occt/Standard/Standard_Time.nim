@@ -11,18 +11,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Standard_TypeDef
-
 ##  ===============================================
 ##  Methods from Standard_Entity class which are redefined:
 ##     - IsEqual
 ##  ===============================================
 
-when not defined(__QNX__):      ##  same as Standard_Size
+when not defined(QNX):      ##  same as Standard_Size
   ##  ------------------------------------------------------------------
   ##  IsEqual : Returns Standard_True if two time values are equal
   ##  ------------------------------------------------------------------
-  proc IsEqual*(theOne: Standard_Time; theTwo: Standard_Time): Standard_Boolean =
+  proc isEqual*(theOne: StandardTime; theTwo: StandardTime): bool =
     discard
   

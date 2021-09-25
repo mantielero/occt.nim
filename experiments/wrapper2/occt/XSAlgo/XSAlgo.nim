@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of XSAlgo_AlgoContainer"
 discard "forward decl of XSAlgo_ToolContainer"
 discard "forward decl of XSAlgo_AlgoContainer"
@@ -26,8 +22,8 @@ type
                                                                  ## ! Creates and initializes default AlgoContainer.
 
 
-proc Init*() {.importcpp: "XSAlgo::Init(@)", header: "XSAlgo.hxx".}
-proc SetAlgoContainer*(aContainer: handle[XSAlgo_AlgoContainer]) {.
+proc init*() {.importcpp: "XSAlgo::Init(@)", header: "XSAlgo.hxx".}
+proc setAlgoContainer*(aContainer: Handle[XSAlgoAlgoContainer]) {.
     importcpp: "XSAlgo::SetAlgoContainer(@)", header: "XSAlgo.hxx".}
-proc AlgoContainer*(): handle[XSAlgo_AlgoContainer] {.
+proc algoContainer*(): Handle[XSAlgoAlgoContainer] {.
     importcpp: "XSAlgo::AlgoContainer(@)", header: "XSAlgo.hxx".}

@@ -14,63 +14,58 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GeomFill_FillingStyle
-
 discard "forward decl of Geom_BezierSurface"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Geom_BezierCurve"
 type
-  GeomFill_BezierCurves* {.importcpp: "GeomFill_BezierCurves",
-                          header: "GeomFill_BezierCurves.hxx", bycopy.} = object ## !
-                                                                            ## Constructs an
-                                                                            ## empty
-                                                                            ## framework for
-                                                                            ## building a
-                                                                            ## Bezier
-                                                                            ## !
-                                                                            ## surface from
-                                                                            ## contiguous
-                                                                            ## Bezier
-                                                                            ## curves.
-                                                                            ## ! You use the Init
-                                                                            ## function to
-                                                                            ## define the
-                                                                            ## boundaries of the
-                                                                            ## surface.
+  GeomFillBezierCurves* {.importcpp: "GeomFill_BezierCurves",
+                         header: "GeomFill_BezierCurves.hxx", bycopy.} = object ## !
+                                                                           ## Constructs an empty
+                                                                           ## framework for
+                                                                           ## building a
+                                                                           ## Bezier
+                                                                           ## !
+                                                                           ## surface from
+                                                                           ## contiguous
+                                                                           ## Bezier
+                                                                           ## curves.
+                                                                           ## ! You use the Init
+                                                                           ## function to
+                                                                           ## define the
+                                                                           ## boundaries of the
+                                                                           ## surface.
 
 
-proc constructGeomFill_BezierCurves*(): GeomFill_BezierCurves {.constructor,
+proc constructGeomFillBezierCurves*(): GeomFillBezierCurves {.constructor,
     importcpp: "GeomFill_BezierCurves(@)", header: "GeomFill_BezierCurves.hxx".}
-proc constructGeomFill_BezierCurves*(C1: handle[Geom_BezierCurve];
-                                    C2: handle[Geom_BezierCurve];
-                                    C3: handle[Geom_BezierCurve];
-                                    C4: handle[Geom_BezierCurve];
-                                    Type: GeomFill_FillingStyle): GeomFill_BezierCurves {.
+proc constructGeomFillBezierCurves*(c1: Handle[GeomBezierCurve];
+                                   c2: Handle[GeomBezierCurve];
+                                   c3: Handle[GeomBezierCurve];
+                                   c4: Handle[GeomBezierCurve];
+                                   `type`: GeomFillFillingStyle): GeomFillBezierCurves {.
     constructor, importcpp: "GeomFill_BezierCurves(@)",
     header: "GeomFill_BezierCurves.hxx".}
-proc constructGeomFill_BezierCurves*(C1: handle[Geom_BezierCurve];
-                                    C2: handle[Geom_BezierCurve];
-                                    C3: handle[Geom_BezierCurve];
-                                    Type: GeomFill_FillingStyle): GeomFill_BezierCurves {.
+proc constructGeomFillBezierCurves*(c1: Handle[GeomBezierCurve];
+                                   c2: Handle[GeomBezierCurve];
+                                   c3: Handle[GeomBezierCurve];
+                                   `type`: GeomFillFillingStyle): GeomFillBezierCurves {.
     constructor, importcpp: "GeomFill_BezierCurves(@)",
     header: "GeomFill_BezierCurves.hxx".}
-proc constructGeomFill_BezierCurves*(C1: handle[Geom_BezierCurve];
-                                    C2: handle[Geom_BezierCurve];
-                                    Type: GeomFill_FillingStyle): GeomFill_BezierCurves {.
+proc constructGeomFillBezierCurves*(c1: Handle[GeomBezierCurve];
+                                   c2: Handle[GeomBezierCurve];
+                                   `type`: GeomFillFillingStyle): GeomFillBezierCurves {.
     constructor, importcpp: "GeomFill_BezierCurves(@)",
     header: "GeomFill_BezierCurves.hxx".}
-proc Init*(this: var GeomFill_BezierCurves; C1: handle[Geom_BezierCurve];
-          C2: handle[Geom_BezierCurve]; C3: handle[Geom_BezierCurve];
-          C4: handle[Geom_BezierCurve]; Type: GeomFill_FillingStyle) {.
+proc init*(this: var GeomFillBezierCurves; c1: Handle[GeomBezierCurve];
+          c2: Handle[GeomBezierCurve]; c3: Handle[GeomBezierCurve];
+          c4: Handle[GeomBezierCurve]; `type`: GeomFillFillingStyle) {.
     importcpp: "Init", header: "GeomFill_BezierCurves.hxx".}
-proc Init*(this: var GeomFill_BezierCurves; C1: handle[Geom_BezierCurve];
-          C2: handle[Geom_BezierCurve]; C3: handle[Geom_BezierCurve];
-          Type: GeomFill_FillingStyle) {.importcpp: "Init",
-                                       header: "GeomFill_BezierCurves.hxx".}
-proc Init*(this: var GeomFill_BezierCurves; C1: handle[Geom_BezierCurve];
-          C2: handle[Geom_BezierCurve]; Type: GeomFill_FillingStyle) {.
+proc init*(this: var GeomFillBezierCurves; c1: Handle[GeomBezierCurve];
+          c2: Handle[GeomBezierCurve]; c3: Handle[GeomBezierCurve];
+          `type`: GeomFillFillingStyle) {.importcpp: "Init",
+                                        header: "GeomFill_BezierCurves.hxx".}
+proc init*(this: var GeomFillBezierCurves; c1: Handle[GeomBezierCurve];
+          c2: Handle[GeomBezierCurve]; `type`: GeomFillFillingStyle) {.
     importcpp: "Init", header: "GeomFill_BezierCurves.hxx".}
-proc Surface*(this: GeomFill_BezierCurves): handle[Geom_BezierSurface] {.
-    noSideEffect, importcpp: "Surface", header: "GeomFill_BezierCurves.hxx".}
+proc surface*(this: GeomFillBezierCurves): Handle[GeomBezierSurface] {.noSideEffect,
+    importcpp: "Surface", header: "GeomFill_BezierCurves.hxx".}

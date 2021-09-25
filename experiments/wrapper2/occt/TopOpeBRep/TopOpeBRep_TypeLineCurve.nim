@@ -15,10 +15,11 @@
 ##  commercial license or contractual agreement.
 
 type
-  TopOpeBRep_TypeLineCurve* {.size: sizeof(cint),
-                             importcpp: "TopOpeBRep_TypeLineCurve",
-                             header: "TopOpeBRep_TypeLineCurve.hxx".} = enum
-    TopOpeBRep_ANALYTIC, TopOpeBRep_RESTRICTION, TopOpeBRep_WALKING,
-    TopOpeBRep_LINE, TopOpeBRep_CIRCLE, TopOpeBRep_ELLIPSE, TopOpeBRep_PARABOLA,
-    TopOpeBRep_HYPERBOLA, TopOpeBRep_OTHERTYPE
+  TopOpeBRepTypeLineCurve* {.size: sizeof(cint),
+                            importcpp: "TopOpeBRep_TypeLineCurve",
+                            header: "TopOpeBRep_TypeLineCurve.hxx".} = enum
+    TopOpeBRepANALYTIC, TopOpeBRepRESTRICTION, TopOpeBRepWALKING, TopOpeBRepLINE,
+    TopOpeBRepCIRCLE, TopOpeBRepELLIPSE, TopOpeBRepPARABOLA, TopOpeBRepHYPERBOLA,
+    TopOpeBRepOTHERTYPE
+
 

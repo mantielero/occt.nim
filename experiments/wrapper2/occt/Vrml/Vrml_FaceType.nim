@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  Vrml_FaceType* {.size: sizeof(cint), importcpp: "Vrml_FaceType",
-                  header: "Vrml_FaceType.hxx".} = enum
-    Vrml_UNKNOWN_FACE_TYPE, Vrml_CONVEX
+  VrmlFaceType* {.size: sizeof(cint), importcpp: "Vrml_FaceType",
+                 header: "Vrml_FaceType.hxx".} = enum
+    VrmlUNKNOWN_FACE_TYPE, VrmlCONVEX
+
 

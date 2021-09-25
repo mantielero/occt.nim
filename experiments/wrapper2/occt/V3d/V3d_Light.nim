@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Graphic3d/Graphic3d_CLight, V3d_TypeOfLight
-
 type
-  V3d_Light* = Graphic3d_CLight
-  Handle_V3d_Light* = Handle_Graphic3d_CLight
+  V3dLight* = Graphic3dCLight
+  HandleV3dLight* = HandleGraphic3dCLight
+

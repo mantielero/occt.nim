@@ -14,14 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  StepData_SelectMember, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_SelectReal"
 discard "forward decl of StepData_SelectReal"
 type
-  Handle_StepData_SelectReal* = handle[StepData_SelectReal]
+  HandleStepDataSelectReal* = Handle[StepDataSelectReal]
 
 ## ! A SelectReal is a SelectMember specialised for a basic real
 ## ! type in a select which also accepts entities : this one has
@@ -29,25 +25,25 @@ type
 ## ! For a named select, see SelectNamed
 
 type
-  StepData_SelectReal* {.importcpp: "StepData_SelectReal",
-                        header: "StepData_SelectReal.hxx", bycopy.} = object of StepData_SelectMember
+  StepDataSelectReal* {.importcpp: "StepData_SelectReal",
+                       header: "StepData_SelectReal.hxx", bycopy.} = object of StepDataSelectMember
 
 
-proc constructStepData_SelectReal*(): StepData_SelectReal {.constructor,
+proc constructStepDataSelectReal*(): StepDataSelectReal {.constructor,
     importcpp: "StepData_SelectReal(@)", header: "StepData_SelectReal.hxx".}
-proc Kind*(this: StepData_SelectReal): Standard_Integer {.noSideEffect,
-    importcpp: "Kind", header: "StepData_SelectReal.hxx".}
-proc Real*(this: StepData_SelectReal): Standard_Real {.noSideEffect,
-    importcpp: "Real", header: "StepData_SelectReal.hxx".}
-proc SetReal*(this: var StepData_SelectReal; val: Standard_Real) {.
-    importcpp: "SetReal", header: "StepData_SelectReal.hxx".}
+proc kind*(this: StepDataSelectReal): int {.noSideEffect, importcpp: "Kind",
+                                        header: "StepData_SelectReal.hxx".}
+proc real*(this: StepDataSelectReal): float {.noSideEffect, importcpp: "Real",
+    header: "StepData_SelectReal.hxx".}
+proc setReal*(this: var StepDataSelectReal; val: float) {.importcpp: "SetReal",
+    header: "StepData_SelectReal.hxx".}
 type
-  StepData_SelectRealbase_type* = StepData_SelectMember
+  StepDataSelectRealbaseType* = StepDataSelectMember
 
-proc get_type_name*(): cstring {.importcpp: "StepData_SelectReal::get_type_name(@)",
-                              header: "StepData_SelectReal.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepData_SelectReal::get_type_name(@)",
+                            header: "StepData_SelectReal.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepData_SelectReal::get_type_descriptor(@)",
     header: "StepData_SelectReal.hxx".}
-proc DynamicType*(this: StepData_SelectReal): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepDataSelectReal): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_SelectReal.hxx".}

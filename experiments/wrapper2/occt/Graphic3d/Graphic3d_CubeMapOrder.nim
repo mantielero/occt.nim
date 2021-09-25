@@ -12,107 +12,102 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Graphic3d_CubeMapSide, ../Standard/Standard_Macro
-
 discard "forward decl of Graphic3d_ValidatedCubeMapOrder"
 type
-  Graphic3d_CubeMapOrder* {.importcpp: "Graphic3d_CubeMapOrder",
-                           header: "Graphic3d_CubeMapOrder.hxx", bycopy.} = object ## !
-                                                                              ## Default
-                                                                              ## constructor.
-                                                                              ## !
-                                                                              ## Creates
-                                                                              ## empty
-                                                                              ## order
-                                                                              ## with
-                                                                              ## zero
-                                                                              ## convolution.
-                                                                              ## !
-                                                                              ## Sets
-                                                                              ## number of
-                                                                              ## tile in
-                                                                              ## packed
-                                                                              ## cubemap
-                                                                              ## image
-                                                                              ## according
-                                                                              ## passed
-                                                                              ## cubemap
-                                                                              ## side.
-                                                                              ## !
-                                                                              ## Returns
-                                                                              ## default
-                                                                              ## order in
-                                                                              ## protector
-                                                                              ## container
-                                                                              ## class.
-                                                                              ## ! It is
-                                                                              ## guaranteed to be
-                                                                              ## valid.
-                                                                              ## !
-                                                                              ## Alias of
-                                                                              ## 'Get'
-                                                                              ## with
-                                                                              ## other
-                                                                              ## parameter's
-                                                                              ## type
-                                                                              ## for
-                                                                              ## more
-                                                                              ## handful
-                                                                              ## iteration.
+  Graphic3dCubeMapOrder* {.importcpp: "Graphic3d_CubeMapOrder",
+                          header: "Graphic3d_CubeMapOrder.hxx", bycopy.} = object ## !
+                                                                             ## Default
+                                                                             ## constructor.
+                                                                             ## !
+                                                                             ## Creates
+                                                                             ## empty
+                                                                             ## order
+                                                                             ## with
+                                                                             ## zero
+                                                                             ## convolution.
+                                                                             ## !
+                                                                             ## Sets
+                                                                             ## number of
+                                                                             ## tile in
+                                                                             ## packed
+                                                                             ## cubemap
+                                                                             ## image
+                                                                             ## according
+                                                                             ## passed
+                                                                             ## cubemap
+                                                                             ## side.
+                                                                             ## !
+                                                                             ## Returns
+                                                                             ## default
+                                                                             ## order in
+                                                                             ## protector
+                                                                             ## container
+                                                                             ## class.
+                                                                             ## ! It is
+                                                                             ## guaranteed to be
+                                                                             ## valid.
+                                                                             ## !
+                                                                             ## Alias of
+                                                                             ## 'Get'
+                                                                             ## with
+                                                                             ## other
+                                                                             ## parameter's
+                                                                             ## type for
+                                                                             ## more
+                                                                             ## handful
+                                                                             ## iteration.
     ## !< Contains all values of permutation as power convolution
     ## !< Indicates if there are attempts to assign index greater than 5
 
 
-proc constructGraphic3d_CubeMapOrder*(): Graphic3d_CubeMapOrder {.constructor,
+proc constructGraphic3dCubeMapOrder*(): Graphic3dCubeMapOrder {.constructor,
     importcpp: "Graphic3d_CubeMapOrder(@)", header: "Graphic3d_CubeMapOrder.hxx".}
-proc constructGraphic3d_CubeMapOrder*(thePosXLocation: cuchar;
-                                     theNegXLocation: cuchar;
-                                     thePosYLocation: cuchar;
-                                     theNegYLocation: cuchar;
-                                     thePosZLocation: cuchar;
-                                     theNegZLocation: cuchar): Graphic3d_CubeMapOrder {.
+proc constructGraphic3dCubeMapOrder*(thePosXLocation: cuchar;
+                                    theNegXLocation: cuchar;
+                                    thePosYLocation: cuchar;
+                                    theNegYLocation: cuchar;
+                                    thePosZLocation: cuchar;
+                                    theNegZLocation: cuchar): Graphic3dCubeMapOrder {.
     constructor, importcpp: "Graphic3d_CubeMapOrder(@)",
     header: "Graphic3d_CubeMapOrder.hxx".}
-proc constructGraphic3d_CubeMapOrder*(theOrder: Graphic3d_ValidatedCubeMapOrder): Graphic3d_CubeMapOrder {.
+proc constructGraphic3dCubeMapOrder*(theOrder: Graphic3dValidatedCubeMapOrder): Graphic3dCubeMapOrder {.
     constructor, importcpp: "Graphic3d_CubeMapOrder(@)",
     header: "Graphic3d_CubeMapOrder.hxx".}
-proc Set*(this: var Graphic3d_CubeMapOrder; theOrder: Graphic3d_CubeMapOrder): var Graphic3d_CubeMapOrder {.
+proc set*(this: var Graphic3dCubeMapOrder; theOrder: Graphic3dCubeMapOrder): var Graphic3dCubeMapOrder {.
     importcpp: "Set", header: "Graphic3d_CubeMapOrder.hxx".}
-proc Validated*(this: Graphic3d_CubeMapOrder): Graphic3d_ValidatedCubeMapOrder {.
+proc validated*(this: Graphic3dCubeMapOrder): Graphic3dValidatedCubeMapOrder {.
     noSideEffect, importcpp: "Validated", header: "Graphic3d_CubeMapOrder.hxx".}
-proc Set*(this: var Graphic3d_CubeMapOrder; theCubeMapSide: Graphic3d_CubeMapSide;
-         theValue: cuchar): var Graphic3d_CubeMapOrder {.importcpp: "Set",
+proc set*(this: var Graphic3dCubeMapOrder; theCubeMapSide: Graphic3dCubeMapSide;
+         theValue: cuchar): var Graphic3dCubeMapOrder {.importcpp: "Set",
     header: "Graphic3d_CubeMapOrder.hxx".}
-proc SetDefault*(this: var Graphic3d_CubeMapOrder): var Graphic3d_CubeMapOrder {.
+proc setDefault*(this: var Graphic3dCubeMapOrder): var Graphic3dCubeMapOrder {.
     importcpp: "SetDefault", header: "Graphic3d_CubeMapOrder.hxx".}
-proc Permute*(this: var Graphic3d_CubeMapOrder;
-             anOrder: Graphic3d_ValidatedCubeMapOrder): var Graphic3d_CubeMapOrder {.
+proc permute*(this: var Graphic3dCubeMapOrder;
+             anOrder: Graphic3dValidatedCubeMapOrder): var Graphic3dCubeMapOrder {.
     importcpp: "Permute", header: "Graphic3d_CubeMapOrder.hxx".}
-proc Permuted*(this: Graphic3d_CubeMapOrder;
-              anOrder: Graphic3d_ValidatedCubeMapOrder): Graphic3d_CubeMapOrder {.
+proc permuted*(this: Graphic3dCubeMapOrder; anOrder: Graphic3dValidatedCubeMapOrder): Graphic3dCubeMapOrder {.
     noSideEffect, importcpp: "Permuted", header: "Graphic3d_CubeMapOrder.hxx".}
-proc Swap*(this: var Graphic3d_CubeMapOrder; theFirstSide: Graphic3d_CubeMapSide;
-          theSecondSide: Graphic3d_CubeMapSide): var Graphic3d_CubeMapOrder {.
+proc swap*(this: var Graphic3dCubeMapOrder; theFirstSide: Graphic3dCubeMapSide;
+          theSecondSide: Graphic3dCubeMapSide): var Graphic3dCubeMapOrder {.
     importcpp: "Swap", header: "Graphic3d_CubeMapOrder.hxx".}
-proc Swapped*(this: Graphic3d_CubeMapOrder; theFirstSide: Graphic3d_CubeMapSide;
-             theSecondSide: Graphic3d_CubeMapSide): Graphic3d_CubeMapOrder {.
+proc swapped*(this: Graphic3dCubeMapOrder; theFirstSide: Graphic3dCubeMapSide;
+             theSecondSide: Graphic3dCubeMapSide): Graphic3dCubeMapOrder {.
     noSideEffect, importcpp: "Swapped", header: "Graphic3d_CubeMapOrder.hxx".}
-proc Get*(this: Graphic3d_CubeMapOrder; theCubeMapSide: Graphic3d_CubeMapSide): cuchar {.
+proc get*(this: Graphic3dCubeMapOrder; theCubeMapSide: Graphic3dCubeMapSide): cuchar {.
     noSideEffect, importcpp: "Get", header: "Graphic3d_CubeMapOrder.hxx".}
-proc `[]`*(this: Graphic3d_CubeMapOrder; theCubeMapSide: Graphic3d_CubeMapSide): cuchar {.
+proc `[]`*(this: Graphic3dCubeMapOrder; theCubeMapSide: Graphic3dCubeMapSide): cuchar {.
     noSideEffect, importcpp: "#[@]", header: "Graphic3d_CubeMapOrder.hxx".}
-proc Clear*(this: var Graphic3d_CubeMapOrder): var Graphic3d_CubeMapOrder {.
+proc clear*(this: var Graphic3dCubeMapOrder): var Graphic3dCubeMapOrder {.
     importcpp: "Clear", header: "Graphic3d_CubeMapOrder.hxx".}
-proc IsEmpty*(this: Graphic3d_CubeMapOrder): bool {.noSideEffect,
+proc isEmpty*(this: Graphic3dCubeMapOrder): bool {.noSideEffect,
     importcpp: "IsEmpty", header: "Graphic3d_CubeMapOrder.hxx".}
-proc HasRepetitions*(this: Graphic3d_CubeMapOrder): bool {.noSideEffect,
+proc hasRepetitions*(this: Graphic3dCubeMapOrder): bool {.noSideEffect,
     importcpp: "HasRepetitions", header: "Graphic3d_CubeMapOrder.hxx".}
-proc HasOverflows*(this: Graphic3d_CubeMapOrder): bool {.noSideEffect,
+proc hasOverflows*(this: Graphic3dCubeMapOrder): bool {.noSideEffect,
     importcpp: "HasOverflows", header: "Graphic3d_CubeMapOrder.hxx".}
-proc IsValid*(this: Graphic3d_CubeMapOrder): bool {.noSideEffect,
+proc isValid*(this: Graphic3dCubeMapOrder): bool {.noSideEffect,
     importcpp: "IsValid", header: "Graphic3d_CubeMapOrder.hxx".}
-proc Default*(): Graphic3d_ValidatedCubeMapOrder {.
+proc default*(): Graphic3dValidatedCubeMapOrder {.
     importcpp: "Graphic3d_CubeMapOrder::Default(@)",
     header: "Graphic3d_CubeMapOrder.hxx".}
 ## ! Graphic3d_ValidatedCubeMapOrder contains completely valid order object.
@@ -122,23 +117,23 @@ proc Default*(): Graphic3d_ValidatedCubeMapOrder {.
 ## ! It helps to automate order's valid checks.
 
 type
-  Graphic3d_ValidatedCubeMapOrder* {.importcpp: "Graphic3d_ValidatedCubeMapOrder",
-                                    header: "Graphic3d_CubeMapOrder.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## Only
-                                                                                       ## Graphic3d_CubeMapOrder
-                                                                                       ## can
-                                                                                       ## generate
-                                                                                       ## Graphic3d_ValidatedCubeMapOrder
-                                                                                       ## in
-                                                                                       ## 'Validated'
-                                                                                       ## method.
-    Order* {.importc: "Order".}: Graphic3d_CubeMapOrder ## !< Completely valid order
+  Graphic3dValidatedCubeMapOrder* {.importcpp: "Graphic3d_ValidatedCubeMapOrder",
+                                   header: "Graphic3d_CubeMapOrder.hxx", bycopy.} = object ##
+                                                                                      ## !
+                                                                                      ## Only
+                                                                                      ## Graphic3d_CubeMapOrder
+                                                                                      ## can
+                                                                                      ## generate
+                                                                                      ## Graphic3d_ValidatedCubeMapOrder
+                                                                                      ## in
+                                                                                      ## 'Validated'
+                                                                                      ## method.
+    order* {.importc: "Order".}: Graphic3dCubeMapOrder ## !< Completely valid order
 
 
-proc `->`*(this: Graphic3d_ValidatedCubeMapOrder): ptr Graphic3d_CubeMapOrder {.
+proc `->`*(this: Graphic3dValidatedCubeMapOrder): ptr Graphic3dCubeMapOrder {.
     noSideEffect, importcpp: "(# -> #)", header: "Graphic3d_CubeMapOrder.hxx".}
-proc constructGraphic3d_ValidatedCubeMapOrder*(
-    theOther: Graphic3d_ValidatedCubeMapOrder): Graphic3d_ValidatedCubeMapOrder {.
+proc constructGraphic3dValidatedCubeMapOrder*(
+    theOther: Graphic3dValidatedCubeMapOrder): Graphic3dValidatedCubeMapOrder {.
     constructor, importcpp: "Graphic3d_ValidatedCubeMapOrder(@)",
     header: "Graphic3d_CubeMapOrder.hxx".}

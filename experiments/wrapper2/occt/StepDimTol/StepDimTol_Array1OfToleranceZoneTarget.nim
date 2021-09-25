@@ -13,9 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepDimTol_ToleranceZoneTarget, ../NCollection/NCollection_Array1
-
 type
-  StepDimTol_Array1OfToleranceZoneTarget* = NCollection_Array1[
-      StepDimTol_ToleranceZoneTarget]
+  StepDimTolArray1OfToleranceZoneTarget* = NCollectionArray1[
+      StepDimTolToleranceZoneTarget]
+

@@ -14,114 +14,89 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, ../GeomAbs/GeomAbs_Shape,
-  ../Standard/Standard_Integer, ../Standard/Standard_OStream
-
 discard "forward decl of Geom_BSplineCurve"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Geom_Curve"
 discard "forward decl of Adaptor3d_HCurve"
 type
-  GeomConvert_ApproxCurve* {.importcpp: "GeomConvert_ApproxCurve",
-                            header: "GeomConvert_ApproxCurve.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Constructs
-                                                                                ## a
-                                                                                ## curve
-                                                                                ## approximation
-                                                                                ## framework
-                                                                                ## defined
-                                                                                ## by
-                                                                                ## -
-                                                                                ##
-                                                                                ## !
-                                                                                ## -
-                                                                                ## the
-                                                                                ## conic
-                                                                                ## Curve,
-                                                                                ##
-                                                                                ## !
-                                                                                ## -
-                                                                                ## the
-                                                                                ## tolerance
-                                                                                ## value
-                                                                                ## Tol3d,
-                                                                                ##
-                                                                                ## !
-                                                                                ## -
-                                                                                ## the
-                                                                                ## degree
-                                                                                ## of
-                                                                                ## continuity
-                                                                                ## Order,
-                                                                                ##
-                                                                                ## !
-                                                                                ## -
-                                                                                ## the
-                                                                                ## maximum
-                                                                                ## number
-                                                                                ## of
-                                                                                ## segments
-                                                                                ##
-                                                                                ## !
-                                                                                ## MaxSegments
-                                                                                ## allowed
-                                                                                ## in
-                                                                                ## the
-                                                                                ## resulting
-                                                                                ## BSpline
-                                                                                ## curve,
-                                                                                ## and
-                                                                                ##
-                                                                                ## !
-                                                                                ## -
-                                                                                ## the
-                                                                                ## highest
-                                                                                ## degree
-                                                                                ## MaxDeg
-                                                                                ## which
-                                                                                ## the
-                                                                                ##
-                                                                                ## !
-                                                                                ## polynomial
-                                                                                ## defining
-                                                                                ## the
-                                                                                ## BSpline
-                                                                                ## curve
-                                                                                ## may
-                                                                                ## have.
-                                                                                ##
-                                                                                ## !
-                                                                                ## Converts
-                                                                                ## a
-                                                                                ## curve
-                                                                                ## to
-                                                                                ## B-spline
+  GeomConvertApproxCurve* {.importcpp: "GeomConvert_ApproxCurve",
+                           header: "GeomConvert_ApproxCurve.hxx", bycopy.} = object ## !
+                                                                               ## Constructs a
+                                                                               ## curve
+                                                                               ## approximation
+                                                                               ## framework
+                                                                               ## defined
+                                                                               ## by -
+                                                                               ## ! -
+                                                                               ## the
+                                                                               ## conic
+                                                                               ## Curve,
+                                                                               ## ! -
+                                                                               ## the
+                                                                               ## tolerance
+                                                                               ## value
+                                                                               ## Tol3d,
+                                                                               ## ! -
+                                                                               ## the
+                                                                               ## degree
+                                                                               ## of
+                                                                               ## continuity
+                                                                               ## Order,
+                                                                               ## ! -
+                                                                               ## the
+                                                                               ## maximum
+                                                                               ## number
+                                                                               ## of
+                                                                               ## segments
+                                                                               ## !
+                                                                               ## MaxSegments
+                                                                               ## allowed
+                                                                               ## in
+                                                                               ## the
+                                                                               ## resulting
+                                                                               ## BSpline
+                                                                               ## curve,
+                                                                               ## and
+                                                                               ## ! -
+                                                                               ## the
+                                                                               ## highest
+                                                                               ## degree
+                                                                               ## MaxDeg
+                                                                               ## which
+                                                                               ## the
+                                                                               ## !
+                                                                               ## polynomial
+                                                                               ## defining
+                                                                               ## the
+                                                                               ## BSpline
+                                                                               ## curve
+                                                                               ## may
+                                                                               ## have.
+                                                                               ## !
+                                                                               ## Converts a
+                                                                               ## curve
+                                                                               ## to
+                                                                               ## B-spline
 
 
-proc constructGeomConvert_ApproxCurve*(Curve: handle[Geom_Curve];
-                                      Tol3d: Standard_Real; Order: GeomAbs_Shape;
-                                      MaxSegments: Standard_Integer;
-                                      MaxDegree: Standard_Integer): GeomConvert_ApproxCurve {.
+proc constructGeomConvertApproxCurve*(curve: Handle[GeomCurve]; tol3d: float;
+                                     order: GeomAbsShape; maxSegments: int;
+                                     maxDegree: int): GeomConvertApproxCurve {.
     constructor, importcpp: "GeomConvert_ApproxCurve(@)",
     header: "GeomConvert_ApproxCurve.hxx".}
-proc constructGeomConvert_ApproxCurve*(Curve: handle[Adaptor3d_HCurve];
-                                      Tol3d: Standard_Real; Order: GeomAbs_Shape;
-                                      MaxSegments: Standard_Integer;
-                                      MaxDegree: Standard_Integer): GeomConvert_ApproxCurve {.
+proc constructGeomConvertApproxCurve*(curve: Handle[Adaptor3dHCurve]; tol3d: float;
+                                     order: GeomAbsShape; maxSegments: int;
+                                     maxDegree: int): GeomConvertApproxCurve {.
     constructor, importcpp: "GeomConvert_ApproxCurve(@)",
     header: "GeomConvert_ApproxCurve.hxx".}
-proc Curve*(this: GeomConvert_ApproxCurve): handle[Geom_BSplineCurve] {.
-    noSideEffect, importcpp: "Curve", header: "GeomConvert_ApproxCurve.hxx".}
-proc IsDone*(this: GeomConvert_ApproxCurve): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "GeomConvert_ApproxCurve.hxx".}
-proc HasResult*(this: GeomConvert_ApproxCurve): Standard_Boolean {.noSideEffect,
+proc curve*(this: GeomConvertApproxCurve): Handle[GeomBSplineCurve] {.noSideEffect,
+    importcpp: "Curve", header: "GeomConvert_ApproxCurve.hxx".}
+proc isDone*(this: GeomConvertApproxCurve): bool {.noSideEffect, importcpp: "IsDone",
+    header: "GeomConvert_ApproxCurve.hxx".}
+proc hasResult*(this: GeomConvertApproxCurve): bool {.noSideEffect,
     importcpp: "HasResult", header: "GeomConvert_ApproxCurve.hxx".}
-proc MaxError*(this: GeomConvert_ApproxCurve): Standard_Real {.noSideEffect,
+proc maxError*(this: GeomConvertApproxCurve): float {.noSideEffect,
     importcpp: "MaxError", header: "GeomConvert_ApproxCurve.hxx".}
-proc Dump*(this: GeomConvert_ApproxCurve; o: var Standard_OStream) {.noSideEffect,
+proc dump*(this: GeomConvertApproxCurve; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "GeomConvert_ApproxCurve.hxx".}

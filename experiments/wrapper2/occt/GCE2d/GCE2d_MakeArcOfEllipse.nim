@@ -14,54 +14,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GCE2d_Root, ../Geom2d/Geom2d_TrimmedCurve
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Elips2d"
 discard "forward decl of gp_Pnt2d"
 type
-  GCE2d_MakeArcOfEllipse* {.importcpp: "GCE2d_MakeArcOfEllipse",
-                           header: "GCE2d_MakeArcOfEllipse.hxx", bycopy.} = object of GCE2d_Root ##
-                                                                                          ## !
-                                                                                          ## Make
-                                                                                          ## an
-                                                                                          ## arc
-                                                                                          ## of
-                                                                                          ## Ellipse
-                                                                                          ## (TrimmedCurve
-                                                                                          ## from
-                                                                                          ## Geom2d)
-                                                                                          ## from
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## a
-                                                                                          ## Ellipse
-                                                                                          ## between
-                                                                                          ## two
-                                                                                          ## parameters
-                                                                                          ## Alpha1
-                                                                                          ## and
-                                                                                          ## Alpha2.
+  GCE2dMakeArcOfEllipse* {.importcpp: "GCE2d_MakeArcOfEllipse",
+                          header: "GCE2d_MakeArcOfEllipse.hxx", bycopy.} = object of GCE2dRoot ##
+                                                                                        ## !
+                                                                                        ## Make
+                                                                                        ## an
+                                                                                        ## arc
+                                                                                        ## of
+                                                                                        ## Ellipse
+                                                                                        ## (TrimmedCurve
+                                                                                        ## from
+                                                                                        ## Geom2d)
+                                                                                        ## from
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## a
+                                                                                        ## Ellipse
+                                                                                        ## between
+                                                                                        ## two
+                                                                                        ## parameters
+                                                                                        ## Alpha1
+                                                                                        ## and
+                                                                                        ## Alpha2.
 
 
-proc constructGCE2d_MakeArcOfEllipse*(Elips: gp_Elips2d; Alpha1: Standard_Real;
-                                     Alpha2: Standard_Real;
-                                     Sense: Standard_Boolean = Standard_True): GCE2d_MakeArcOfEllipse {.
+proc constructGCE2dMakeArcOfEllipse*(elips: Elips2d; alpha1: float; alpha2: float;
+                                    sense: bool = true): GCE2dMakeArcOfEllipse {.
     constructor, importcpp: "GCE2d_MakeArcOfEllipse(@)",
     header: "GCE2d_MakeArcOfEllipse.hxx".}
-proc constructGCE2d_MakeArcOfEllipse*(Elips: gp_Elips2d; P: gp_Pnt2d;
-                                     Alpha: Standard_Real;
-                                     Sense: Standard_Boolean = Standard_True): GCE2d_MakeArcOfEllipse {.
+proc constructGCE2dMakeArcOfEllipse*(elips: Elips2d; p: Pnt2d; alpha: float;
+                                    sense: bool = true): GCE2dMakeArcOfEllipse {.
     constructor, importcpp: "GCE2d_MakeArcOfEllipse(@)",
     header: "GCE2d_MakeArcOfEllipse.hxx".}
-proc constructGCE2d_MakeArcOfEllipse*(Elips: gp_Elips2d; P1: gp_Pnt2d; P2: gp_Pnt2d;
-                                     Sense: Standard_Boolean = Standard_True): GCE2d_MakeArcOfEllipse {.
+proc constructGCE2dMakeArcOfEllipse*(elips: Elips2d; p1: Pnt2d; p2: Pnt2d;
+                                    sense: bool = true): GCE2dMakeArcOfEllipse {.
     constructor, importcpp: "GCE2d_MakeArcOfEllipse(@)",
     header: "GCE2d_MakeArcOfEllipse.hxx".}
-proc Value*(this: GCE2d_MakeArcOfEllipse): handle[Geom2d_TrimmedCurve] {.
-    noSideEffect, importcpp: "Value", header: "GCE2d_MakeArcOfEllipse.hxx".}
-converter `constopencascade`*(this: GCE2d_MakeArcOfEllipse): handle[
-    Geom2d_TrimmedCurve] {.noSideEffect, importcpp: "GCE2d_MakeArcOfEllipse::operator constopencascade",
-                          header: "GCE2d_MakeArcOfEllipse.hxx".}
+proc value*(this: GCE2dMakeArcOfEllipse): Handle[Geom2dTrimmedCurve] {.noSideEffect,
+    importcpp: "Value", header: "GCE2d_MakeArcOfEllipse.hxx".}
+converter `constopencascade`*(this: GCE2dMakeArcOfEllipse): Handle[
+    Geom2dTrimmedCurve] {.noSideEffect, importcpp: "GCE2d_MakeArcOfEllipse::operator constopencascade",
+                         header: "GCE2d_MakeArcOfEllipse.hxx".}

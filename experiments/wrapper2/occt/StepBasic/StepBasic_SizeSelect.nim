@@ -14,32 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepData_SelectMember"
 type
-  StepBasic_SizeSelect* {.importcpp: "StepBasic_SizeSelect",
-                         header: "StepBasic_SizeSelect.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                               ## !
-                                                                                               ## Returns
-                                                                                               ## a
-                                                                                               ## SizeSelect
-                                                                                               ## SelectType
+  StepBasicSizeSelect* {.importcpp: "StepBasic_SizeSelect",
+                        header: "StepBasic_SizeSelect.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                             ## !
+                                                                                             ## Returns
+                                                                                             ## a
+                                                                                             ## SizeSelect
+                                                                                             ## SelectType
 
 
-proc constructStepBasic_SizeSelect*(): StepBasic_SizeSelect {.constructor,
+proc constructStepBasicSizeSelect*(): StepBasicSizeSelect {.constructor,
     importcpp: "StepBasic_SizeSelect(@)", header: "StepBasic_SizeSelect.hxx".}
-proc CaseNum*(this: StepBasic_SizeSelect; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepBasicSizeSelect; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepBasic_SizeSelect.hxx".}
-proc NewMember*(this: StepBasic_SizeSelect): handle[StepData_SelectMember] {.
+proc newMember*(this: StepBasicSizeSelect): Handle[StepDataSelectMember] {.
     noSideEffect, importcpp: "NewMember", header: "StepBasic_SizeSelect.hxx".}
-proc CaseMem*(this: StepBasic_SizeSelect; ent: handle[StepData_SelectMember]): Standard_Integer {.
+proc caseMem*(this: StepBasicSizeSelect; ent: Handle[StepDataSelectMember]): int {.
     noSideEffect, importcpp: "CaseMem", header: "StepBasic_SizeSelect.hxx".}
-proc SetRealValue*(this: var StepBasic_SizeSelect; aReal: Standard_Real) {.
+proc setRealValue*(this: var StepBasicSizeSelect; aReal: float) {.
     importcpp: "SetRealValue", header: "StepBasic_SizeSelect.hxx".}
-proc RealValue*(this: StepBasic_SizeSelect): Standard_Real {.noSideEffect,
+proc realValue*(this: StepBasicSizeSelect): float {.noSideEffect,
     importcpp: "RealValue", header: "StepBasic_SizeSelect.hxx".}

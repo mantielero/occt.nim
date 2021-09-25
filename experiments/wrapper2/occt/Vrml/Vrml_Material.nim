@@ -14,15 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../Quantity/Quantity_HArray1OfColor, ../TColStd/TColStd_HArray1OfReal,
-  ../Standard/Standard_Transient, ../Standard/Standard_OStream
-
 discard "forward decl of Vrml_Material"
 discard "forward decl of Vrml_Material"
 type
-  Handle_Vrml_Material* = handle[Vrml_Material]
+  HandleVrmlMaterial* = Handle[VrmlMaterial]
 
 ## ! defines a Material node of VRML specifying properties of geometry
 ## ! and its appearance.
@@ -32,57 +27,56 @@ type
 ## ! MaterialBinding node.
 
 type
-  Vrml_Material* {.importcpp: "Vrml_Material", header: "Vrml_Material.hxx", bycopy.} = object of Standard_Transient
+  VrmlMaterial* {.importcpp: "Vrml_Material", header: "Vrml_Material.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructVrml_Material*(aAmbientColor: handle[Quantity_HArray1OfColor];
-                            aDiffuseColor: handle[Quantity_HArray1OfColor];
-                            aSpecularColor: handle[Quantity_HArray1OfColor];
-                            aEmissiveColor: handle[Quantity_HArray1OfColor];
-                            aShininess: handle[TColStd_HArray1OfReal];
-                            aTransparency: handle[TColStd_HArray1OfReal]): Vrml_Material {.
+proc constructVrmlMaterial*(aAmbientColor: Handle[QuantityHArray1OfColor];
+                           aDiffuseColor: Handle[QuantityHArray1OfColor];
+                           aSpecularColor: Handle[QuantityHArray1OfColor];
+                           aEmissiveColor: Handle[QuantityHArray1OfColor];
+                           aShininess: Handle[TColStdHArray1OfReal];
+                           aTransparency: Handle[TColStdHArray1OfReal]): VrmlMaterial {.
     constructor, importcpp: "Vrml_Material(@)", header: "Vrml_Material.hxx".}
-proc constructVrml_Material*(): Vrml_Material {.constructor,
+proc constructVrmlMaterial*(): VrmlMaterial {.constructor,
     importcpp: "Vrml_Material(@)", header: "Vrml_Material.hxx".}
-proc SetAmbientColor*(this: var Vrml_Material;
-                     aAmbientColor: handle[Quantity_HArray1OfColor]) {.
+proc setAmbientColor*(this: var VrmlMaterial;
+                     aAmbientColor: Handle[QuantityHArray1OfColor]) {.
     importcpp: "SetAmbientColor", header: "Vrml_Material.hxx".}
-proc AmbientColor*(this: Vrml_Material): handle[Quantity_HArray1OfColor] {.
+proc ambientColor*(this: VrmlMaterial): Handle[QuantityHArray1OfColor] {.
     noSideEffect, importcpp: "AmbientColor", header: "Vrml_Material.hxx".}
-proc SetDiffuseColor*(this: var Vrml_Material;
-                     aDiffuseColor: handle[Quantity_HArray1OfColor]) {.
+proc setDiffuseColor*(this: var VrmlMaterial;
+                     aDiffuseColor: Handle[QuantityHArray1OfColor]) {.
     importcpp: "SetDiffuseColor", header: "Vrml_Material.hxx".}
-proc DiffuseColor*(this: Vrml_Material): handle[Quantity_HArray1OfColor] {.
+proc diffuseColor*(this: VrmlMaterial): Handle[QuantityHArray1OfColor] {.
     noSideEffect, importcpp: "DiffuseColor", header: "Vrml_Material.hxx".}
-proc SetSpecularColor*(this: var Vrml_Material;
-                      aSpecularColor: handle[Quantity_HArray1OfColor]) {.
+proc setSpecularColor*(this: var VrmlMaterial;
+                      aSpecularColor: Handle[QuantityHArray1OfColor]) {.
     importcpp: "SetSpecularColor", header: "Vrml_Material.hxx".}
-proc SpecularColor*(this: Vrml_Material): handle[Quantity_HArray1OfColor] {.
+proc specularColor*(this: VrmlMaterial): Handle[QuantityHArray1OfColor] {.
     noSideEffect, importcpp: "SpecularColor", header: "Vrml_Material.hxx".}
-proc SetEmissiveColor*(this: var Vrml_Material;
-                      aEmissiveColor: handle[Quantity_HArray1OfColor]) {.
+proc setEmissiveColor*(this: var VrmlMaterial;
+                      aEmissiveColor: Handle[QuantityHArray1OfColor]) {.
     importcpp: "SetEmissiveColor", header: "Vrml_Material.hxx".}
-proc EmissiveColor*(this: Vrml_Material): handle[Quantity_HArray1OfColor] {.
+proc emissiveColor*(this: VrmlMaterial): Handle[QuantityHArray1OfColor] {.
     noSideEffect, importcpp: "EmissiveColor", header: "Vrml_Material.hxx".}
-proc SetShininess*(this: var Vrml_Material;
-                  aShininess: handle[TColStd_HArray1OfReal]) {.
+proc setShininess*(this: var VrmlMaterial; aShininess: Handle[TColStdHArray1OfReal]) {.
     importcpp: "SetShininess", header: "Vrml_Material.hxx".}
-proc Shininess*(this: Vrml_Material): handle[TColStd_HArray1OfReal] {.noSideEffect,
+proc shininess*(this: VrmlMaterial): Handle[TColStdHArray1OfReal] {.noSideEffect,
     importcpp: "Shininess", header: "Vrml_Material.hxx".}
-proc SetTransparency*(this: var Vrml_Material;
-                     aTransparency: handle[TColStd_HArray1OfReal]) {.
+proc setTransparency*(this: var VrmlMaterial;
+                     aTransparency: Handle[TColStdHArray1OfReal]) {.
     importcpp: "SetTransparency", header: "Vrml_Material.hxx".}
-proc Transparency*(this: Vrml_Material): handle[TColStd_HArray1OfReal] {.
-    noSideEffect, importcpp: "Transparency", header: "Vrml_Material.hxx".}
-proc Print*(this: Vrml_Material; anOStream: var Standard_OStream): var Standard_OStream {.
+proc transparency*(this: VrmlMaterial): Handle[TColStdHArray1OfReal] {.noSideEffect,
+    importcpp: "Transparency", header: "Vrml_Material.hxx".}
+proc print*(this: VrmlMaterial; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Material.hxx".}
 type
-  Vrml_Materialbase_type* = Standard_Transient
+  VrmlMaterialbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Vrml_Material::get_type_name(@)",
-                              header: "Vrml_Material.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Vrml_Material::get_type_name(@)",
+                            header: "Vrml_Material.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Vrml_Material::get_type_descriptor(@)",
     header: "Vrml_Material.hxx".}
-proc DynamicType*(this: Vrml_Material): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: VrmlMaterial): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Vrml_Material.hxx".}

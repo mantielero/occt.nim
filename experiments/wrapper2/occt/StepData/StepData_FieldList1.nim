@@ -14,30 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, StepData_Field, StepData_FieldList,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StepData_Field"
 type
-  StepData_FieldList1* {.importcpp: "StepData_FieldList1",
-                        header: "StepData_FieldList1.hxx", bycopy.} = object of StepData_FieldList ##
-                                                                                            ## !
-                                                                                            ## Creates
-                                                                                            ## a
-                                                                                            ## FieldList
-                                                                                            ## of
-                                                                                            ## 1
-                                                                                            ## Field
+  StepDataFieldList1* {.importcpp: "StepData_FieldList1",
+                       header: "StepData_FieldList1.hxx", bycopy.} = object of StepDataFieldList ##
+                                                                                          ## !
+                                                                                          ## Creates
+                                                                                          ## a
+                                                                                          ## FieldList
+                                                                                          ## of
+                                                                                          ## 1
+                                                                                          ## Field
 
 
-proc constructStepData_FieldList1*(): StepData_FieldList1 {.constructor,
+proc constructStepDataFieldList1*(): StepDataFieldList1 {.constructor,
     importcpp: "StepData_FieldList1(@)", header: "StepData_FieldList1.hxx".}
-proc NbFields*(this: StepData_FieldList1): Standard_Integer {.noSideEffect,
-    importcpp: "NbFields", header: "StepData_FieldList1.hxx".}
-proc Field*(this: StepData_FieldList1; num: Standard_Integer): StepData_Field {.
-    noSideEffect, importcpp: "Field", header: "StepData_FieldList1.hxx".}
-proc CField*(this: var StepData_FieldList1; num: Standard_Integer): var StepData_Field {.
+proc nbFields*(this: StepDataFieldList1): int {.noSideEffect, importcpp: "NbFields",
+    header: "StepData_FieldList1.hxx".}
+proc field*(this: StepDataFieldList1; num: int): StepDataField {.noSideEffect,
+    importcpp: "Field", header: "StepData_FieldList1.hxx".}
+proc cField*(this: var StepDataFieldList1; num: int): var StepDataField {.
     importcpp: "CField", header: "StepData_FieldList1.hxx".}

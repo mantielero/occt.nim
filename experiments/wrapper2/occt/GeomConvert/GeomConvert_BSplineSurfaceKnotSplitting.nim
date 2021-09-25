@@ -13,16 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColStd/TColStd_HArray1OfInteger,
-  ../Standard/Standard_Integer, ../TColStd/TColStd_Array1OfInteger
-
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of Standard_RangeError"
 discard "forward decl of Geom_BSplineSurface"
 type
-  GeomConvert_BSplineSurfaceKnotSplitting* {.
+  GeomConvertBSplineSurfaceKnotSplitting* {.
       importcpp: "GeomConvert_BSplineSurfaceKnotSplitting",
       header: "GeomConvert_BSplineSurfaceKnotSplitting.hxx", bycopy.} = object ## !
                                                                           ## Determines the u- and
@@ -85,26 +80,22 @@ type
                                                                           ## VContinuityRange is less than zero.
 
 
-proc constructGeomConvert_BSplineSurfaceKnotSplitting*(
-    BasisSurface: handle[Geom_BSplineSurface]; UContinuityRange: Standard_Integer;
-    VContinuityRange: Standard_Integer): GeomConvert_BSplineSurfaceKnotSplitting {.
-    constructor, importcpp: "GeomConvert_BSplineSurfaceKnotSplitting(@)",
+proc constructGeomConvertBSplineSurfaceKnotSplitting*(
+    basisSurface: Handle[GeomBSplineSurface]; uContinuityRange: int;
+    vContinuityRange: int): GeomConvertBSplineSurfaceKnotSplitting {.constructor,
+    importcpp: "GeomConvert_BSplineSurfaceKnotSplitting(@)",
     header: "GeomConvert_BSplineSurfaceKnotSplitting.hxx".}
-proc NbUSplits*(this: GeomConvert_BSplineSurfaceKnotSplitting): Standard_Integer {.
-    noSideEffect, importcpp: "NbUSplits",
-    header: "GeomConvert_BSplineSurfaceKnotSplitting.hxx".}
-proc NbVSplits*(this: GeomConvert_BSplineSurfaceKnotSplitting): Standard_Integer {.
-    noSideEffect, importcpp: "NbVSplits",
-    header: "GeomConvert_BSplineSurfaceKnotSplitting.hxx".}
-proc Splitting*(this: GeomConvert_BSplineSurfaceKnotSplitting;
-               USplit: var TColStd_Array1OfInteger;
-               VSplit: var TColStd_Array1OfInteger) {.noSideEffect,
+proc nbUSplits*(this: GeomConvertBSplineSurfaceKnotSplitting): int {.noSideEffect,
+    importcpp: "NbUSplits", header: "GeomConvert_BSplineSurfaceKnotSplitting.hxx".}
+proc nbVSplits*(this: GeomConvertBSplineSurfaceKnotSplitting): int {.noSideEffect,
+    importcpp: "NbVSplits", header: "GeomConvert_BSplineSurfaceKnotSplitting.hxx".}
+proc splitting*(this: GeomConvertBSplineSurfaceKnotSplitting;
+               uSplit: var TColStdArray1OfInteger;
+               vSplit: var TColStdArray1OfInteger) {.noSideEffect,
     importcpp: "Splitting", header: "GeomConvert_BSplineSurfaceKnotSplitting.hxx".}
-proc USplitValue*(this: GeomConvert_BSplineSurfaceKnotSplitting;
-                 UIndex: Standard_Integer): Standard_Integer {.noSideEffect,
-    importcpp: "USplitValue",
+proc uSplitValue*(this: GeomConvertBSplineSurfaceKnotSplitting; uIndex: int): int {.
+    noSideEffect, importcpp: "USplitValue",
     header: "GeomConvert_BSplineSurfaceKnotSplitting.hxx".}
-proc VSplitValue*(this: GeomConvert_BSplineSurfaceKnotSplitting;
-                 VIndex: Standard_Integer): Standard_Integer {.noSideEffect,
-    importcpp: "VSplitValue",
+proc vSplitValue*(this: GeomConvertBSplineSurfaceKnotSplitting; vIndex: int): int {.
+    noSideEffect, importcpp: "VSplitValue",
     header: "GeomConvert_BSplineSurfaceKnotSplitting.hxx".}

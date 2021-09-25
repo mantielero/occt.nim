@@ -14,19 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean
-
 discard "forward decl of StdFail_NotDone"
 type
-  BRepLib_Command* {.importcpp: "BRepLib_Command", header: "BRepLib_Command.hxx",
-                    bycopy.} = object ## ! Set done to False.
+  BRepLibCommand* {.importcpp: "BRepLib_Command", header: "BRepLib_Command.hxx",
+                   bycopy.} = object ## ! Set done to False.
 
 
-proc destroyBRepLib_Command*(this: var BRepLib_Command) {.
+proc destroyBRepLibCommand*(this: var BRepLibCommand) {.
     importcpp: "#.~BRepLib_Command()", header: "BRepLib_Command.hxx".}
-proc IsDone*(this: BRepLib_Command): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "BRepLib_Command.hxx".}
-proc Check*(this: BRepLib_Command) {.noSideEffect, importcpp: "Check",
-                                  header: "BRepLib_Command.hxx".}
+proc isDone*(this: BRepLibCommand): bool {.noSideEffect, importcpp: "IsDone",
+                                       header: "BRepLib_Command.hxx".}
+proc check*(this: BRepLibCommand) {.noSideEffect, importcpp: "Check",
+                                 header: "BRepLib_Command.hxx".}

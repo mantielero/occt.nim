@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESGraph_NominalSize"
 discard "forward decl of IGESData_IGESReaderData"
@@ -31,47 +26,43 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESGraph_ToolNominalSize* {.importcpp: "IGESGraph_ToolNominalSize",
-                              header: "IGESGraph_ToolNominalSize.hxx", bycopy.} = object ##
-                                                                                    ## !
-                                                                                    ## Returns
-                                                                                    ## a
-                                                                                    ## ToolNominalSize,
-                                                                                    ## ready
-                                                                                    ## to
-                                                                                    ## work
+  IGESGraphToolNominalSize* {.importcpp: "IGESGraph_ToolNominalSize",
+                             header: "IGESGraph_ToolNominalSize.hxx", bycopy.} = object ##
+                                                                                   ## !
+                                                                                   ## Returns
+                                                                                   ## a
+                                                                                   ## ToolNominalSize,
+                                                                                   ## ready
+                                                                                   ## to
+                                                                                   ## work
 
 
-proc constructIGESGraph_ToolNominalSize*(): IGESGraph_ToolNominalSize {.
-    constructor, importcpp: "IGESGraph_ToolNominalSize(@)",
+proc constructIGESGraphToolNominalSize*(): IGESGraphToolNominalSize {.constructor,
+    importcpp: "IGESGraph_ToolNominalSize(@)",
     header: "IGESGraph_ToolNominalSize.hxx".}
-proc ReadOwnParams*(this: IGESGraph_ToolNominalSize;
-                   ent: handle[IGESGraph_NominalSize];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESGraph_ToolNominalSize.hxx".}
-proc WriteOwnParams*(this: IGESGraph_ToolNominalSize;
-                    ent: handle[IGESGraph_NominalSize];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
-    importcpp: "WriteOwnParams", header: "IGESGraph_ToolNominalSize.hxx".}
-proc OwnShared*(this: IGESGraph_ToolNominalSize;
-               ent: handle[IGESGraph_NominalSize];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc readOwnParams*(this: IGESGraphToolNominalSize;
+                   ent: Handle[IGESGraphNominalSize];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESGraph_ToolNominalSize.hxx".}
+proc writeOwnParams*(this: IGESGraphToolNominalSize;
+                    ent: Handle[IGESGraphNominalSize]; iw: var IGESDataIGESWriter) {.
+    noSideEffect, importcpp: "WriteOwnParams",
+    header: "IGESGraph_ToolNominalSize.hxx".}
+proc ownShared*(this: IGESGraphToolNominalSize; ent: Handle[IGESGraphNominalSize];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESGraph_ToolNominalSize.hxx".}
-proc OwnCorrect*(this: IGESGraph_ToolNominalSize;
-                ent: handle[IGESGraph_NominalSize]): Standard_Boolean {.
+proc ownCorrect*(this: IGESGraphToolNominalSize; ent: Handle[IGESGraphNominalSize]): bool {.
     noSideEffect, importcpp: "OwnCorrect", header: "IGESGraph_ToolNominalSize.hxx".}
-proc DirChecker*(this: IGESGraph_ToolNominalSize;
-                ent: handle[IGESGraph_NominalSize]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESGraphToolNominalSize; ent: Handle[IGESGraphNominalSize]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESGraph_ToolNominalSize.hxx".}
-proc OwnCheck*(this: IGESGraph_ToolNominalSize; ent: handle[IGESGraph_NominalSize];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESGraphToolNominalSize; ent: Handle[IGESGraphNominalSize];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESGraph_ToolNominalSize.hxx".}
-proc OwnCopy*(this: IGESGraph_ToolNominalSize;
-             entfrom: handle[IGESGraph_NominalSize];
-             entto: handle[IGESGraph_NominalSize]; TC: var Interface_CopyTool) {.
+proc ownCopy*(this: IGESGraphToolNominalSize;
+             entfrom: Handle[IGESGraphNominalSize];
+             entto: Handle[IGESGraphNominalSize]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGraph_ToolNominalSize.hxx".}
-proc OwnDump*(this: IGESGraph_ToolNominalSize; ent: handle[IGESGraph_NominalSize];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
-                                    header: "IGESGraph_ToolNominalSize.hxx".}
+proc ownDump*(this: IGESGraphToolNominalSize; ent: Handle[IGESGraphNominalSize];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump", header: "IGESGraph_ToolNominalSize.hxx".}

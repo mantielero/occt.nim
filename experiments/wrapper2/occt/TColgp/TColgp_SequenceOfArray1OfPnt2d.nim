@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TColgp_HArray1OfPnt2d, ../NCollection/NCollection_Sequence
-
 type
-  TColgp_SequenceOfArray1OfPnt2d* = NCollection_Sequence[
-      handle[TColgp_HArray1OfPnt2d]]
+  TColgpSequenceOfArray1OfPnt2d* = NCollectionSequence[
+      Handle[TColgpHArray1OfPnt2d]]
+

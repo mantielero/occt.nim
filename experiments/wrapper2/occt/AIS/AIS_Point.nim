@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Aspect/Aspect_TypeOfMarker, AIS_InteractiveObject
-
 discard "forward decl of Geom_Point"
 discard "forward decl of TopoDS_Vertex"
 type
@@ -37,38 +34,39 @@ type
                                                                                                  ## be
                                                                                                  ## built.
 
-  AIS_Pointbase_type* = AIS_InteractiveObject
+  AIS_PointbaseType* = AIS_InteractiveObject
 
-proc get_type_name*(): cstring {.importcpp: "AIS_Point::get_type_name(@)",
-                              header: "AIS_Point.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "AIS_Point::get_type_name(@)",
+                            header: "AIS_Point.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "AIS_Point::get_type_descriptor(@)", header: "AIS_Point.hxx".}
-proc DynamicType*(this: AIS_Point): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: AIS_Point): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_Point.hxx".}
-proc constructAIS_Point*(aComponent: handle[Geom_Point]): AIS_Point {.constructor,
+proc constructAIS_Point*(aComponent: Handle[GeomPoint]): AIS_Point {.constructor,
     importcpp: "AIS_Point(@)", header: "AIS_Point.hxx".}
-proc Signature*(this: AIS_Point): Standard_Integer {.noSideEffect,
-    importcpp: "Signature", header: "AIS_Point.hxx".}
-proc Type*(this: AIS_Point): AIS_KindOfInteractive {.noSideEffect, importcpp: "Type",
-    header: "AIS_Point.hxx".}
-proc Component*(this: var AIS_Point): handle[Geom_Point] {.importcpp: "Component",
-    header: "AIS_Point.hxx".}
-proc SetComponent*(this: var AIS_Point; aComponent: handle[Geom_Point]) {.
-    importcpp: "SetComponent", header: "AIS_Point.hxx".}
-proc AcceptDisplayMode*(this: AIS_Point; aMode: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "AcceptDisplayMode", header: "AIS_Point.hxx".}
-proc SetColor*(this: var AIS_Point; theColor: Quantity_Color) {.importcpp: "SetColor",
-    header: "AIS_Point.hxx".}
-proc UnsetColor*(this: var AIS_Point) {.importcpp: "UnsetColor",
+proc signature*(this: AIS_Point): int {.noSideEffect, importcpp: "Signature",
                                     header: "AIS_Point.hxx".}
-proc SetMarker*(this: var AIS_Point; aType: Aspect_TypeOfMarker) {.
+proc `type`*(this: AIS_Point): AIS_KindOfInteractive {.noSideEffect,
+    importcpp: "Type", header: "AIS_Point.hxx".}
+proc component*(this: var AIS_Point): Handle[GeomPoint] {.importcpp: "Component",
+    header: "AIS_Point.hxx".}
+proc setComponent*(this: var AIS_Point; aComponent: Handle[GeomPoint]) {.
+    importcpp: "SetComponent", header: "AIS_Point.hxx".}
+proc acceptDisplayMode*(this: AIS_Point; aMode: int): bool {.noSideEffect,
+    importcpp: "AcceptDisplayMode", header: "AIS_Point.hxx".}
+proc setColor*(this: var AIS_Point; theColor: QuantityColor) {.importcpp: "SetColor",
+    header: "AIS_Point.hxx".}
+proc unsetColor*(this: var AIS_Point) {.importcpp: "UnsetColor",
+                                    header: "AIS_Point.hxx".}
+proc setMarker*(this: var AIS_Point; aType: AspectTypeOfMarker) {.
     importcpp: "SetMarker", header: "AIS_Point.hxx".}
-proc UnsetMarker*(this: var AIS_Point) {.importcpp: "UnsetMarker",
+proc unsetMarker*(this: var AIS_Point) {.importcpp: "UnsetMarker",
                                      header: "AIS_Point.hxx".}
-proc HasMarker*(this: AIS_Point): Standard_Boolean {.noSideEffect,
-    importcpp: "HasMarker", header: "AIS_Point.hxx".}
-proc Vertex*(this: AIS_Point): TopoDS_Vertex {.noSideEffect, importcpp: "Vertex",
+proc hasMarker*(this: AIS_Point): bool {.noSideEffect, importcpp: "HasMarker",
+                                     header: "AIS_Point.hxx".}
+proc vertex*(this: AIS_Point): TopoDS_Vertex {.noSideEffect, importcpp: "Vertex",
     header: "AIS_Point.hxx".}
 discard "forward decl of AIS_Point"
 type
-  Handle_AIS_Point* = handle[AIS_Point]
+  HandleAIS_Point* = Handle[AIS_Point]
+

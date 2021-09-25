@@ -14,36 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Bnd_Sphere, Bnd_Array1OfSphere, ../NCollection/NCollection_DefineHArray1
-
 type
-  Bnd_HArray1OfSphere* {.importcpp: "Bnd_HArray1OfSphere",
-                        header: "Bnd_HArray1OfSphere.hxx", bycopy.} = object of Bnd_Array1OfSphere
+  BndHArray1OfSphere* {.importcpp: "Bnd_HArray1OfSphere",
+                       header: "Bnd_HArray1OfSphere.hxx", bycopy.} = object of BndArray1OfSphere
 
 
-proc constructBnd_HArray1OfSphere*(theLower: Standard_Integer;
-                                  theUpper: Standard_Integer): Bnd_HArray1OfSphere {.
+proc constructBndHArray1OfSphere*(theLower: int; theUpper: int): BndHArray1OfSphere {.
     constructor, importcpp: "Bnd_HArray1OfSphere(@)",
     header: "Bnd_HArray1OfSphere.hxx".}
-proc constructBnd_HArray1OfSphere*(theLower: Standard_Integer;
-                                  theUpper: Standard_Integer; theValue: value_type): Bnd_HArray1OfSphere {.
+proc constructBndHArray1OfSphere*(theLower: int; theUpper: int; theValue: ValueType): BndHArray1OfSphere {.
     constructor, importcpp: "Bnd_HArray1OfSphere(@)",
     header: "Bnd_HArray1OfSphere.hxx".}
-proc constructBnd_HArray1OfSphere*(theOther: Bnd_Array1OfSphere): Bnd_HArray1OfSphere {.
+proc constructBndHArray1OfSphere*(theOther: BndArray1OfSphere): BndHArray1OfSphere {.
     constructor, importcpp: "Bnd_HArray1OfSphere(@)",
     header: "Bnd_HArray1OfSphere.hxx".}
-proc Array1*(this: Bnd_HArray1OfSphere): Bnd_Array1OfSphere {.noSideEffect,
+proc array1*(this: BndHArray1OfSphere): BndArray1OfSphere {.noSideEffect,
     importcpp: "Array1", header: "Bnd_HArray1OfSphere.hxx".}
-proc ChangeArray1*(this: var Bnd_HArray1OfSphere): var Bnd_Array1OfSphere {.
+proc changeArray1*(this: var BndHArray1OfSphere): var BndArray1OfSphere {.
     importcpp: "ChangeArray1", header: "Bnd_HArray1OfSphere.hxx".}
 type
-  Bnd_HArray1OfSpherebase_type* = MMgt_TShared
+  BndHArray1OfSpherebaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "Bnd_HArray1OfSphere::get_type_name(@)",
-                              header: "Bnd_HArray1OfSphere.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Bnd_HArray1OfSphere::get_type_name(@)",
+                            header: "Bnd_HArray1OfSphere.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Bnd_HArray1OfSphere::get_type_descriptor(@)",
     header: "Bnd_HArray1OfSphere.hxx".}
-proc DynamicType*(this: Bnd_HArray1OfSphere): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: BndHArray1OfSphere): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Bnd_HArray1OfSphere.hxx".}

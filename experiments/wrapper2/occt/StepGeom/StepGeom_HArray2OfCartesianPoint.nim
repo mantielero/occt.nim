@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # StepGeom_HArray2OfCartesianPoint_HeaderFile [NewLine] # StepGeom_HArray2OfCartesianPoint_HeaderFile [NewLine] # StepGeom_CartesianPoint.hxx [NewLine] # StepGeom_Array2OfCartesianPoint.hxx [NewLine] # ../NCollection/NCollection_DefineHArray2.hxx [NewLine] DEFINE_HARRAY2 ( StepGeom_HArray2OfCartesianPoint , StepGeom_Array2OfCartesianPoint ) # [NewLine]
+## !!!Ignored construct:  # StepGeom_HArray2OfCartesianPoint_HeaderFile [NewLine] # StepGeom_HArray2OfCartesianPoint_HeaderFile [NewLine] # < StepGeom_CartesianPoint . hxx > [NewLine] # < StepGeom_Array2OfCartesianPoint . hxx > [NewLine] # < NCollection_DefineHArray2 . hxx > [NewLine] DEFINE_HARRAY2 ( StepGeom_HArray2OfCartesianPoint , StepGeom_Array2OfCartesianPoint ) # [NewLine]
 ## Error: expected ';'!!!
+

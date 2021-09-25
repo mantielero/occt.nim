@@ -14,61 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColgp/TColgp_HArray1OfPnt2d,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
-  ../TColgp/TColgp_Array1OfXY, ../math/math_Vector,
-  ../math/math_MultipleVarFunctionWithHessian, ../Standard/Standard_Real
-
 discard "forward decl of math_Matrix"
 discard "forward decl of gp_Pnt2d"
 type
-  FairCurve_Energy* {.importcpp: "FairCurve_Energy",
-                     header: "FairCurve_Energy.hxx", bycopy.} = object of math_MultipleVarFunctionWithHessian ##
-                                                                                                       ## !
-                                                                                                       ## returns
-                                                                                                       ## the
-                                                                                                       ## number
-                                                                                                       ## of
-                                                                                                       ## variables
-                                                                                                       ## of
-                                                                                                       ## the
-                                                                                                       ## energy.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Angles
-                                                                                                       ## corresspond
-                                                                                                       ## to
-                                                                                                       ## the
-                                                                                                       ## Ox
-                                                                                                       ## axis
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## ConstrOrder1(2)
-                                                                                                       ## can
-                                                                                                       ## be
-                                                                                                       ## equal
-                                                                                                       ## to
-                                                                                                       ## 0,
-                                                                                                       ## 1
-                                                                                                       ## or
-                                                                                                       ## 2
+  FairCurveEnergy* {.importcpp: "FairCurve_Energy", header: "FairCurve_Energy.hxx",
+                    bycopy.} = object of MathMultipleVarFunctionWithHessian ## ! returns the number of variables of the energy.
+                                                                       ## ! Angles
+                                                                       ## corresspond to the Ox axis
+                                                                       ## !
+                                                                       ## ConstrOrder1(2) can be equal to 0, 1 or 2
 
 
-proc NbVariables*(this: FairCurve_Energy): Standard_Integer {.noSideEffect,
+proc nbVariables*(this: FairCurveEnergy): int {.noSideEffect,
     importcpp: "NbVariables", header: "FairCurve_Energy.hxx".}
-proc Value*(this: var FairCurve_Energy; X: math_Vector; E: var Standard_Real): Standard_Boolean {.
+proc value*(this: var FairCurveEnergy; x: MathVector; e: var float): bool {.
     importcpp: "Value", header: "FairCurve_Energy.hxx".}
-proc Gradient*(this: var FairCurve_Energy; X: math_Vector; G: var math_Vector): Standard_Boolean {.
+proc gradient*(this: var FairCurveEnergy; x: MathVector; g: var MathVector): bool {.
     importcpp: "Gradient", header: "FairCurve_Energy.hxx".}
-proc Values*(this: var FairCurve_Energy; X: math_Vector; E: var Standard_Real;
-            G: var math_Vector): Standard_Boolean {.importcpp: "Values",
-    header: "FairCurve_Energy.hxx".}
-proc Values*(this: var FairCurve_Energy; X: math_Vector; E: var Standard_Real;
-            G: var math_Vector; H: var math_Matrix): Standard_Boolean {.
+proc values*(this: var FairCurveEnergy; x: MathVector; e: var float; g: var MathVector): bool {.
     importcpp: "Values", header: "FairCurve_Energy.hxx".}
-proc Variable*(this: FairCurve_Energy; X: var math_Vector): Standard_Boolean {.
-    noSideEffect, importcpp: "Variable", header: "FairCurve_Energy.hxx".}
-proc Poles*(this: FairCurve_Energy): handle[TColgp_HArray1OfPnt2d] {.noSideEffect,
+proc values*(this: var FairCurveEnergy; x: MathVector; e: var float; g: var MathVector;
+            h: var MathMatrix): bool {.importcpp: "Values",
+                                   header: "FairCurve_Energy.hxx".}
+proc variable*(this: FairCurveEnergy; x: var MathVector): bool {.noSideEffect,
+    importcpp: "Variable", header: "FairCurve_Energy.hxx".}
+proc poles*(this: FairCurveEnergy): Handle[TColgpHArray1OfPnt2d] {.noSideEffect,
     importcpp: "Poles", header: "FairCurve_Energy.hxx".}

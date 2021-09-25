@@ -13,55 +13,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepElement_HArray1OfSurfaceSection, ../Standard/Standard_Boolean,
-  StepElement_SurfaceSectionField
-
 discard "forward decl of StepElement_SurfaceSectionFieldVarying"
 discard "forward decl of StepElement_SurfaceSectionFieldVarying"
 type
-  Handle_StepElement_SurfaceSectionFieldVarying* = handle[
-      StepElement_SurfaceSectionFieldVarying]
+  HandleStepElementSurfaceSectionFieldVarying* = Handle[
+      StepElementSurfaceSectionFieldVarying]
 
 ## ! Representation of STEP entity SurfaceSectionFieldVarying
 
 type
-  StepElement_SurfaceSectionFieldVarying* {.
+  StepElementSurfaceSectionFieldVarying* {.
       importcpp: "StepElement_SurfaceSectionFieldVarying",
-      header: "StepElement_SurfaceSectionFieldVarying.hxx", bycopy.} = object of StepElement_SurfaceSectionField ##
-                                                                                                          ## !
-                                                                                                          ## Empty
-                                                                                                          ## constructor
+      header: "StepElement_SurfaceSectionFieldVarying.hxx", bycopy.} = object of StepElementSurfaceSectionField ##
+                                                                                                         ## !
+                                                                                                         ## Empty
+                                                                                                         ## constructor
 
 
-proc constructStepElement_SurfaceSectionFieldVarying*(): StepElement_SurfaceSectionFieldVarying {.
+proc constructStepElementSurfaceSectionFieldVarying*(): StepElementSurfaceSectionFieldVarying {.
     constructor, importcpp: "StepElement_SurfaceSectionFieldVarying(@)",
     header: "StepElement_SurfaceSectionFieldVarying.hxx".}
-proc Init*(this: var StepElement_SurfaceSectionFieldVarying;
-          aDefinitions: handle[StepElement_HArray1OfSurfaceSection];
-          aAdditionalNodeValues: Standard_Boolean) {.importcpp: "Init",
+proc init*(this: var StepElementSurfaceSectionFieldVarying;
+          aDefinitions: Handle[StepElementHArray1OfSurfaceSection];
+          aAdditionalNodeValues: bool) {.importcpp: "Init", header: "StepElement_SurfaceSectionFieldVarying.hxx".}
+proc definitions*(this: StepElementSurfaceSectionFieldVarying): Handle[
+    StepElementHArray1OfSurfaceSection] {.noSideEffect, importcpp: "Definitions",
     header: "StepElement_SurfaceSectionFieldVarying.hxx".}
-proc Definitions*(this: StepElement_SurfaceSectionFieldVarying): handle[
-    StepElement_HArray1OfSurfaceSection] {.noSideEffect, importcpp: "Definitions",
-    header: "StepElement_SurfaceSectionFieldVarying.hxx".}
-proc SetDefinitions*(this: var StepElement_SurfaceSectionFieldVarying;
-                    Definitions: handle[StepElement_HArray1OfSurfaceSection]) {.
+proc setDefinitions*(this: var StepElementSurfaceSectionFieldVarying;
+                    definitions: Handle[StepElementHArray1OfSurfaceSection]) {.
     importcpp: "SetDefinitions",
     header: "StepElement_SurfaceSectionFieldVarying.hxx".}
-proc AdditionalNodeValues*(this: StepElement_SurfaceSectionFieldVarying): Standard_Boolean {.
+proc additionalNodeValues*(this: StepElementSurfaceSectionFieldVarying): bool {.
     noSideEffect, importcpp: "AdditionalNodeValues",
     header: "StepElement_SurfaceSectionFieldVarying.hxx".}
-proc SetAdditionalNodeValues*(this: var StepElement_SurfaceSectionFieldVarying;
-                             AdditionalNodeValues: Standard_Boolean) {.
+proc setAdditionalNodeValues*(this: var StepElementSurfaceSectionFieldVarying;
+                             additionalNodeValues: bool) {.
     importcpp: "SetAdditionalNodeValues",
     header: "StepElement_SurfaceSectionFieldVarying.hxx".}
 type
-  StepElement_SurfaceSectionFieldVaryingbase_type* = StepElement_SurfaceSectionField
+  StepElementSurfaceSectionFieldVaryingbaseType* = StepElementSurfaceSectionField
 
-proc get_type_name*(): cstring {.importcpp: "StepElement_SurfaceSectionFieldVarying::get_type_name(@)", header: "StepElement_SurfaceSectionFieldVarying.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepElement_SurfaceSectionFieldVarying::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepElement_SurfaceSectionFieldVarying::get_type_name(@)", header: "StepElement_SurfaceSectionFieldVarying.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_SurfaceSectionFieldVarying::get_type_descriptor(@)",
     header: "StepElement_SurfaceSectionFieldVarying.hxx".}
-proc DynamicType*(this: StepElement_SurfaceSectionFieldVarying): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepElement_SurfaceSectionFieldVarying.hxx".}
+proc dynamicType*(this: StepElementSurfaceSectionFieldVarying): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepElement_SurfaceSectionFieldVarying.hxx".}

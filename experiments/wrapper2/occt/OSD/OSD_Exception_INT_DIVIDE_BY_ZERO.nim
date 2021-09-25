@@ -12,16 +12,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _OSD_Exception_INT_DIVIDE_BY_ZERO_HeaderFile [NewLine] # _OSD_Exception_INT_DIVIDE_BY_ZERO_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # OSD_Exception.hxx [NewLine] class OSD_Exception_INT_DIVIDE_BY_ZERO ;
+## !!!Ignored construct:  # _OSD_Exception_INT_DIVIDE_BY_ZERO_HeaderFile [NewLine] # _OSD_Exception_INT_DIVIDE_BY_ZERO_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < OSD_Exception . hxx > [NewLine] class OSD_Exception_INT_DIVIDE_BY_ZERO ;
 ## Error: expected ';'!!!
 
 discard "forward decl of OSD_Exception_INT_DIVIDE_BY_ZERO"
 type
-  Handle_OSD_Exception_INT_DIVIDE_BY_ZEROOSD_Exception_INT_DIVIDE_BY_ZERO* = handle[
-      OSD_Exception_INT_DIVIDE_BY_ZERO]
+  HandleOSD_ExceptionINT_DIVIDE_BY_ZEROOSD_ExceptionINT_DIVIDE_BY_ZERO* = Handle[
+      OSD_ExceptionINT_DIVIDE_BY_ZERO]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_Exception_INT_DIVIDE_BY_ZERO [NewLine] # if ( CONDITION ) throw OSD_Exception_INT_DIVIDE_BY_ZERO ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception_INT_DIVIDE_BY_ZERO , OSD_Exception ) #  _OSD_Exception_INT_DIVIDE_BY_ZERO_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception_INT_DIVIDE_BY_ZERO , OSD_Exception ) #  _OSD_Exception_INT_DIVIDE_BY_ZERO_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

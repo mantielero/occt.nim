@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_AsciiString, ../OSD/OSD_Function,
-  ../TCollection/TCollection_AsciiString, ../NCollection/NCollection_DataMap
-
 type
-  Plugin_MapOfFunctions* = NCollection_DataMap[TCollection_AsciiString,
-      OSD_Function, TCollection_AsciiString]
-  Plugin_DataMapIteratorOfMapOfFunctions* = Iterator[TCollection_AsciiString,
-      OSD_Function, TCollection_AsciiString]
+  PluginMapOfFunctions* = NCollectionDataMap[TCollectionAsciiString, OSD_Function,
+      TCollectionAsciiString]
+  PluginDataMapIteratorOfMapOfFunctions* = Iterator[TCollectionAsciiString,
+      OSD_Function, TCollectionAsciiString]
+

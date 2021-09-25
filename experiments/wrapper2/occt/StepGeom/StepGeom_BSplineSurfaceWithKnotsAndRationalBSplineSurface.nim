@@ -14,145 +14,130 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_BSplineSurface,
-  ../Standard/Standard_Integer, StepGeom_HArray2OfCartesianPoint,
-  StepGeom_BSplineSurfaceForm, ../StepData/StepData_Logical,
-  ../TColStd/TColStd_HArray1OfInteger, ../TColStd/TColStd_HArray1OfReal,
-  StepGeom_KnotType, ../TColStd/TColStd_HArray2OfReal, ../Standard/Standard_Real
-
 discard "forward decl of StepGeom_BSplineSurfaceWithKnots"
 discard "forward decl of StepGeom_RationalBSplineSurface"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface"
 discard "forward decl of StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface"
 type
-  Handle_StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface* = handle[
-      StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface]
-  StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface* {.
+  HandleStepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface* = Handle[
+      StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface]
+  StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface* {.
       importcpp: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface",
       header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx",
-      bycopy.} = object of StepGeom_BSplineSurface ## ! Returns a
-                                              ## BSplineSurfaceWithKnotsAndRationalBSplineSurface
+      bycopy.} = object of StepGeomBSplineSurface ## ! Returns a
+                                             ## BSplineSurfaceWithKnotsAndRationalBSplineSurface
 
 
-proc constructStepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface*(): StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface {.
+proc constructStepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface*(): StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface {.
     constructor,
     importcpp: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface(@)",
     header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc Init*(this: var StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface;
-          aName: handle[TCollection_HAsciiString]; aUDegree: Standard_Integer;
-          aVDegree: Standard_Integer;
-          aControlPointsList: handle[StepGeom_HArray2OfCartesianPoint];
-          aSurfaceForm: StepGeom_BSplineSurfaceForm; aUClosed: StepData_Logical;
-          aVClosed: StepData_Logical; aSelfIntersect: StepData_Logical;
-          aBSplineSurfaceWithKnots: handle[StepGeom_BSplineSurfaceWithKnots];
-          aRationalBSplineSurface: handle[StepGeom_RationalBSplineSurface]) {.
+proc init*(this: var StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+          aName: Handle[TCollectionHAsciiString]; aUDegree: int; aVDegree: int;
+          aControlPointsList: Handle[StepGeomHArray2OfCartesianPoint];
+          aSurfaceForm: StepGeomBSplineSurfaceForm; aUClosed: StepDataLogical;
+          aVClosed: StepDataLogical; aSelfIntersect: StepDataLogical;
+          aBSplineSurfaceWithKnots: Handle[StepGeomBSplineSurfaceWithKnots];
+          aRationalBSplineSurface: Handle[StepGeomRationalBSplineSurface]) {.
     importcpp: "Init",
     header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc Init*(this: var StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface;
-          aName: handle[TCollection_HAsciiString]; aUDegree: Standard_Integer;
-          aVDegree: Standard_Integer;
-          aControlPointsList: handle[StepGeom_HArray2OfCartesianPoint];
-          aSurfaceForm: StepGeom_BSplineSurfaceForm; aUClosed: StepData_Logical;
-          aVClosed: StepData_Logical; aSelfIntersect: StepData_Logical;
-          aUMultiplicities: handle[TColStd_HArray1OfInteger];
-          aVMultiplicities: handle[TColStd_HArray1OfInteger];
-          aUKnots: handle[TColStd_HArray1OfReal];
-          aVKnots: handle[TColStd_HArray1OfReal]; aKnotSpec: StepGeom_KnotType;
-          aWeightsData: handle[TColStd_HArray2OfReal]) {.importcpp: "Init",
+proc init*(this: var StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+          aName: Handle[TCollectionHAsciiString]; aUDegree: int; aVDegree: int;
+          aControlPointsList: Handle[StepGeomHArray2OfCartesianPoint];
+          aSurfaceForm: StepGeomBSplineSurfaceForm; aUClosed: StepDataLogical;
+          aVClosed: StepDataLogical; aSelfIntersect: StepDataLogical;
+          aUMultiplicities: Handle[TColStdHArray1OfInteger];
+          aVMultiplicities: Handle[TColStdHArray1OfInteger];
+          aUKnots: Handle[TColStdHArray1OfReal];
+          aVKnots: Handle[TColStdHArray1OfReal]; aKnotSpec: StepGeomKnotType;
+          aWeightsData: Handle[TColStdHArray2OfReal]) {.importcpp: "Init",
     header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc SetBSplineSurfaceWithKnots*(this: var StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface;
-    aBSplineSurfaceWithKnots: handle[StepGeom_BSplineSurfaceWithKnots]) {.
+proc setBSplineSurfaceWithKnots*(this: var StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+    aBSplineSurfaceWithKnots: Handle[StepGeomBSplineSurfaceWithKnots]) {.
     importcpp: "SetBSplineSurfaceWithKnots",
     header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc BSplineSurfaceWithKnots*(this: StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface): handle[
-    StepGeom_BSplineSurfaceWithKnots] {.noSideEffect,
-                                       importcpp: "BSplineSurfaceWithKnots", header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc SetRationalBSplineSurface*(this: var StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface;
-    aRationalBSplineSurface: handle[StepGeom_RationalBSplineSurface]) {.
+proc bSplineSurfaceWithKnots*(this: StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface): Handle[
+    StepGeomBSplineSurfaceWithKnots] {.noSideEffect,
+                                      importcpp: "BSplineSurfaceWithKnots", header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
+proc setRationalBSplineSurface*(this: var StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+    aRationalBSplineSurface: Handle[StepGeomRationalBSplineSurface]) {.
     importcpp: "SetRationalBSplineSurface",
     header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc RationalBSplineSurface*(this: StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface): handle[
-    StepGeom_RationalBSplineSurface] {.noSideEffect,
-                                      importcpp: "RationalBSplineSurface", header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc SetUMultiplicities*(this: var StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface;
-                        aUMultiplicities: handle[TColStd_HArray1OfInteger]) {.
+proc rationalBSplineSurface*(this: StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface): Handle[
+    StepGeomRationalBSplineSurface] {.noSideEffect,
+                                     importcpp: "RationalBSplineSurface", header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
+proc setUMultiplicities*(this: var StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+                        aUMultiplicities: Handle[TColStdHArray1OfInteger]) {.
     importcpp: "SetUMultiplicities",
     header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc UMultiplicities*(this: StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface): handle[
-    TColStd_HArray1OfInteger] {.noSideEffect, importcpp: "UMultiplicities", header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc UMultiplicitiesValue*(this: StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface;
-                          num: Standard_Integer): Standard_Integer {.noSideEffect,
-    importcpp: "UMultiplicitiesValue",
-    header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc NbUMultiplicities*(this: StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface): Standard_Integer {.
+proc uMultiplicities*(this: StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface): Handle[
+    TColStdHArray1OfInteger] {.noSideEffect, importcpp: "UMultiplicities", header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
+proc uMultiplicitiesValue*(this: StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+                          num: int): int {.noSideEffect,
+                                        importcpp: "UMultiplicitiesValue", header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
+proc nbUMultiplicities*(this: StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface): int {.
     noSideEffect, importcpp: "NbUMultiplicities",
     header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc SetVMultiplicities*(this: var StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface;
-                        aVMultiplicities: handle[TColStd_HArray1OfInteger]) {.
+proc setVMultiplicities*(this: var StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+                        aVMultiplicities: Handle[TColStdHArray1OfInteger]) {.
     importcpp: "SetVMultiplicities",
     header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc VMultiplicities*(this: StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface): handle[
-    TColStd_HArray1OfInteger] {.noSideEffect, importcpp: "VMultiplicities", header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc VMultiplicitiesValue*(this: StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface;
-                          num: Standard_Integer): Standard_Integer {.noSideEffect,
-    importcpp: "VMultiplicitiesValue",
-    header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc NbVMultiplicities*(this: StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface): Standard_Integer {.
+proc vMultiplicities*(this: StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface): Handle[
+    TColStdHArray1OfInteger] {.noSideEffect, importcpp: "VMultiplicities", header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
+proc vMultiplicitiesValue*(this: StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+                          num: int): int {.noSideEffect,
+                                        importcpp: "VMultiplicitiesValue", header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
+proc nbVMultiplicities*(this: StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface): int {.
     noSideEffect, importcpp: "NbVMultiplicities",
     header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc SetUKnots*(this: var StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface;
-               aUKnots: handle[TColStd_HArray1OfReal]) {.importcpp: "SetUKnots",
+proc setUKnots*(this: var StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+               aUKnots: Handle[TColStdHArray1OfReal]) {.importcpp: "SetUKnots",
     header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc UKnots*(this: StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface): handle[
-    TColStd_HArray1OfReal] {.noSideEffect, importcpp: "UKnots", header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc UKnotsValue*(this: StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface;
-                 num: Standard_Integer): Standard_Real {.noSideEffect,
-    importcpp: "UKnotsValue",
-    header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc NbUKnots*(this: StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface): Standard_Integer {.
+proc uKnots*(this: StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface): Handle[
+    TColStdHArray1OfReal] {.noSideEffect, importcpp: "UKnots", header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
+proc uKnotsValue*(this: StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+                 num: int): float {.noSideEffect, importcpp: "UKnotsValue", header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
+proc nbUKnots*(this: StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface): int {.
     noSideEffect, importcpp: "NbUKnots",
     header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc SetVKnots*(this: var StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface;
-               aVKnots: handle[TColStd_HArray1OfReal]) {.importcpp: "SetVKnots",
+proc setVKnots*(this: var StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+               aVKnots: Handle[TColStdHArray1OfReal]) {.importcpp: "SetVKnots",
     header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc VKnots*(this: StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface): handle[
-    TColStd_HArray1OfReal] {.noSideEffect, importcpp: "VKnots", header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc VKnotsValue*(this: StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface;
-                 num: Standard_Integer): Standard_Real {.noSideEffect,
-    importcpp: "VKnotsValue",
-    header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc NbVKnots*(this: StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface): Standard_Integer {.
+proc vKnots*(this: StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface): Handle[
+    TColStdHArray1OfReal] {.noSideEffect, importcpp: "VKnots", header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
+proc vKnotsValue*(this: StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+                 num: int): float {.noSideEffect, importcpp: "VKnotsValue", header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
+proc nbVKnots*(this: StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface): int {.
     noSideEffect, importcpp: "NbVKnots",
     header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc SetKnotSpec*(this: var StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface;
-                 aKnotSpec: StepGeom_KnotType) {.importcpp: "SetKnotSpec",
+proc setKnotSpec*(this: var StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+                 aKnotSpec: StepGeomKnotType) {.importcpp: "SetKnotSpec",
     header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc KnotSpec*(this: StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface): StepGeom_KnotType {.
+proc knotSpec*(this: StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface): StepGeomKnotType {.
     noSideEffect, importcpp: "KnotSpec",
     header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc SetWeightsData*(this: var StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface;
-                    aWeightsData: handle[TColStd_HArray2OfReal]) {.
+proc setWeightsData*(this: var StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+                    aWeightsData: Handle[TColStdHArray2OfReal]) {.
     importcpp: "SetWeightsData",
     header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc WeightsData*(this: StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface): handle[
-    TColStd_HArray2OfReal] {.noSideEffect, importcpp: "WeightsData", header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc WeightsDataValue*(this: StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface;
-                      num1: Standard_Integer; num2: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "WeightsDataValue",
+proc weightsData*(this: StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface): Handle[
+    TColStdHArray2OfReal] {.noSideEffect, importcpp: "WeightsData", header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
+proc weightsDataValue*(this: StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+                      num1: int; num2: int): float {.noSideEffect,
+    importcpp: "WeightsDataValue",
     header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc NbWeightsDataI*(this: StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface): Standard_Integer {.
+proc nbWeightsDataI*(this: StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface): int {.
     noSideEffect, importcpp: "NbWeightsDataI",
     header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc NbWeightsDataJ*(this: StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface): Standard_Integer {.
+proc nbWeightsDataJ*(this: StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface): int {.
     noSideEffect, importcpp: "NbWeightsDataJ",
     header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
 type
-  StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurfacebase_type* = StepGeom_BSplineSurface
+  StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurfacebaseType* = StepGeomBSplineSurface
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface::get_type_name(@)", header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface::get_type_name(@)", header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface::get_type_descriptor(@)",
     header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc DynamicType*(this: StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
+proc dynamicType*(this: StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}

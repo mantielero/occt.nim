@@ -13,11 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_DataMap, XCAFDimTolObjects_GeomToleranceObject,
-  XCAFDimTolObjects_DatumObject, ../TColStd/TColStd_MapTransientHasher
-
 type
-  XCAFDimTolObjects_DataMapOfToleranceDatum* = NCollection_DataMap[
-      handle[XCAFDimTolObjects_GeomToleranceObject],
-      handle[XCAFDimTolObjects_DatumObject], TColStd_MapTransientHasher]
+  XCAFDimTolObjectsDataMapOfToleranceDatum* = NCollectionDataMap[
+      Handle[XCAFDimTolObjectsGeomToleranceObject],
+      Handle[XCAFDimTolObjectsDatumObject], TColStdMapTransientHasher]
+

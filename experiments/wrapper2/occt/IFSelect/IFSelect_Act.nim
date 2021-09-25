@@ -14,18 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString, IFSelect_ActFunc, IFSelect_Activator,
-  ../Standard/Standard_CString, IFSelect_ReturnStatus,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IFSelect_SessionPilot"
 discard "forward decl of IFSelect_Act"
 discard "forward decl of IFSelect_Act"
 type
-  Handle_IFSelect_Act* = handle[IFSelect_Act]
+  HandleIFSelectAct* = Handle[IFSelectAct]
 
 ## ! Act gives a simple way to define and add functions to be ran
 ## ! from a SessionPilot, as follows :
@@ -48,52 +42,49 @@ type
 ## ! Then, it is available for run
 
 type
-  IFSelect_Act* {.importcpp: "IFSelect_Act", header: "IFSelect_Act.hxx", bycopy.} = object of IFSelect_Activator ##
-                                                                                                       ## !
-                                                                                                       ## Creates
-                                                                                                       ## an
-                                                                                                       ## Act
-                                                                                                       ## with
-                                                                                                       ## a
-                                                                                                       ## name,
-                                                                                                       ## help
-                                                                                                       ## and
-                                                                                                       ## a
-                                                                                                       ## function
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## mode
-                                                                                                       ## (Add
-                                                                                                       ## or
-                                                                                                       ## AddSet)
-                                                                                                       ## is
-                                                                                                       ## given
-                                                                                                       ## when
-                                                                                                       ## recording
+  IFSelectAct* {.importcpp: "IFSelect_Act", header: "IFSelect_Act.hxx", bycopy.} = object of IFSelectActivator ##
+                                                                                                     ## !
+                                                                                                     ## Creates
+                                                                                                     ## an
+                                                                                                     ## Act
+                                                                                                     ## with
+                                                                                                     ## a
+                                                                                                     ## name,
+                                                                                                     ## help
+                                                                                                     ## and
+                                                                                                     ## a
+                                                                                                     ## function
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## mode
+                                                                                                     ## (Add
+                                                                                                     ## or
+                                                                                                     ## AddSet)
+                                                                                                     ## is
+                                                                                                     ## given
+                                                                                                     ## when
+                                                                                                     ## recording
 
 
-proc constructIFSelect_Act*(name: Standard_CString; help: Standard_CString;
-                           `func`: IFSelect_ActFunc): IFSelect_Act {.constructor,
+proc constructIFSelectAct*(name: StandardCString; help: StandardCString;
+                          `func`: IFSelectActFunc): IFSelectAct {.constructor,
     importcpp: "IFSelect_Act(@)", header: "IFSelect_Act.hxx".}
-proc Do*(this: var IFSelect_Act; number: Standard_Integer;
-        pilot: handle[IFSelect_SessionPilot]): IFSelect_ReturnStatus {.
+proc `do`*(this: var IFSelectAct; number: int; pilot: Handle[IFSelectSessionPilot]): IFSelectReturnStatus {.
     importcpp: "Do", header: "IFSelect_Act.hxx".}
-proc Help*(this: IFSelect_Act; number: Standard_Integer): Standard_CString {.
-    noSideEffect, importcpp: "Help", header: "IFSelect_Act.hxx".}
-proc SetGroup*(group: Standard_CString; file: Standard_CString = "") {.
+proc help*(this: IFSelectAct; number: int): StandardCString {.noSideEffect,
+    importcpp: "Help", header: "IFSelect_Act.hxx".}
+proc setGroup*(group: StandardCString; file: StandardCString = "") {.
     importcpp: "IFSelect_Act::SetGroup(@)", header: "IFSelect_Act.hxx".}
-proc AddFunc*(name: Standard_CString; help: Standard_CString;
-             `func`: IFSelect_ActFunc) {.importcpp: "IFSelect_Act::AddFunc(@)",
-                                       header: "IFSelect_Act.hxx".}
-proc AddFSet*(name: Standard_CString; help: Standard_CString;
-             `func`: IFSelect_ActFunc) {.importcpp: "IFSelect_Act::AddFSet(@)",
-                                       header: "IFSelect_Act.hxx".}
+proc addFunc*(name: StandardCString; help: StandardCString; `func`: IFSelectActFunc) {.
+    importcpp: "IFSelect_Act::AddFunc(@)", header: "IFSelect_Act.hxx".}
+proc addFSet*(name: StandardCString; help: StandardCString; `func`: IFSelectActFunc) {.
+    importcpp: "IFSelect_Act::AddFSet(@)", header: "IFSelect_Act.hxx".}
 type
-  IFSelect_Actbase_type* = IFSelect_Activator
+  IFSelectActbaseType* = IFSelectActivator
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_Act::get_type_name(@)",
-                              header: "IFSelect_Act.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_Act::get_type_name(@)",
+                            header: "IFSelect_Act.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_Act::get_type_descriptor(@)", header: "IFSelect_Act.hxx".}
-proc DynamicType*(this: IFSelect_Act): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IFSelectAct): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_Act.hxx".}

@@ -18,7 +18,8 @@
 ## ! other MarkerShape, contrarily to CircleZoom
 
 type
-  Draw_MarkerShape* {.size: sizeof(cint), importcpp: "Draw_MarkerShape",
-                     header: "Draw_MarkerShape.hxx".} = enum
-    Draw_Square, Draw_Losange, Draw_X, Draw_Plus, Draw_Circle, Draw_CircleZoom
+  DrawMarkerShape* {.size: sizeof(cint), importcpp: "Draw_MarkerShape",
+                    header: "Draw_MarkerShape.hxx".} = enum
+    DrawSquare, DrawLosange, DrawX, DrawPlus, DrawCircle, DrawCircleZoom
+
 

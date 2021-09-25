@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_DegeneratePcurve
-
 discard "forward decl of StepGeom_CartesianPoint"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_Surface"
@@ -24,40 +21,38 @@ discard "forward decl of StepRepr_DefinitionalRepresentation"
 discard "forward decl of StepGeom_EvaluatedDegeneratePcurve"
 discard "forward decl of StepGeom_EvaluatedDegeneratePcurve"
 type
-  Handle_StepGeom_EvaluatedDegeneratePcurve* = handle[
-      StepGeom_EvaluatedDegeneratePcurve]
-  StepGeom_EvaluatedDegeneratePcurve* {.importcpp: "StepGeom_EvaluatedDegeneratePcurve", header: "StepGeom_EvaluatedDegeneratePcurve.hxx",
-                                       bycopy.} = object of StepGeom_DegeneratePcurve ##
-                                                                                 ## !
-                                                                                 ## Returns
-                                                                                 ## a
-                                                                                 ## EvaluatedDegeneratePcurve
+  HandleStepGeomEvaluatedDegeneratePcurve* = Handle[
+      StepGeomEvaluatedDegeneratePcurve]
+  StepGeomEvaluatedDegeneratePcurve* {.importcpp: "StepGeom_EvaluatedDegeneratePcurve", header: "StepGeom_EvaluatedDegeneratePcurve.hxx",
+                                      bycopy.} = object of StepGeomDegeneratePcurve ## !
+                                                                               ## Returns a
+                                                                               ## EvaluatedDegeneratePcurve
 
 
-proc constructStepGeom_EvaluatedDegeneratePcurve*(): StepGeom_EvaluatedDegeneratePcurve {.
+proc constructStepGeomEvaluatedDegeneratePcurve*(): StepGeomEvaluatedDegeneratePcurve {.
     constructor, importcpp: "StepGeom_EvaluatedDegeneratePcurve(@)",
     header: "StepGeom_EvaluatedDegeneratePcurve.hxx".}
-proc Init*(this: var StepGeom_EvaluatedDegeneratePcurve;
-          aName: handle[TCollection_HAsciiString];
-          aBasisSurface: handle[StepGeom_Surface];
-          aReferenceToCurve: handle[StepRepr_DefinitionalRepresentation];
-          aEquivalentPoint: handle[StepGeom_CartesianPoint]) {.importcpp: "Init",
+proc init*(this: var StepGeomEvaluatedDegeneratePcurve;
+          aName: Handle[TCollectionHAsciiString];
+          aBasisSurface: Handle[StepGeomSurface];
+          aReferenceToCurve: Handle[StepReprDefinitionalRepresentation];
+          aEquivalentPoint: Handle[StepGeomCartesianPoint]) {.importcpp: "Init",
     header: "StepGeom_EvaluatedDegeneratePcurve.hxx".}
-proc SetEquivalentPoint*(this: var StepGeom_EvaluatedDegeneratePcurve;
-                        aEquivalentPoint: handle[StepGeom_CartesianPoint]) {.
+proc setEquivalentPoint*(this: var StepGeomEvaluatedDegeneratePcurve;
+                        aEquivalentPoint: Handle[StepGeomCartesianPoint]) {.
     importcpp: "SetEquivalentPoint",
     header: "StepGeom_EvaluatedDegeneratePcurve.hxx".}
-proc EquivalentPoint*(this: StepGeom_EvaluatedDegeneratePcurve): handle[
-    StepGeom_CartesianPoint] {.noSideEffect, importcpp: "EquivalentPoint",
-                              header: "StepGeom_EvaluatedDegeneratePcurve.hxx".}
+proc equivalentPoint*(this: StepGeomEvaluatedDegeneratePcurve): Handle[
+    StepGeomCartesianPoint] {.noSideEffect, importcpp: "EquivalentPoint",
+                             header: "StepGeom_EvaluatedDegeneratePcurve.hxx".}
 type
-  StepGeom_EvaluatedDegeneratePcurvebase_type* = StepGeom_DegeneratePcurve
+  StepGeomEvaluatedDegeneratePcurvebaseType* = StepGeomDegeneratePcurve
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_EvaluatedDegeneratePcurve::get_type_name(@)",
-                              header: "StepGeom_EvaluatedDegeneratePcurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_EvaluatedDegeneratePcurve::get_type_name(@)",
+                            header: "StepGeom_EvaluatedDegeneratePcurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_EvaluatedDegeneratePcurve::get_type_descriptor(@)",
     header: "StepGeom_EvaluatedDegeneratePcurve.hxx".}
-proc DynamicType*(this: StepGeom_EvaluatedDegeneratePcurve): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomEvaluatedDegeneratePcurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_EvaluatedDegeneratePcurve.hxx".}

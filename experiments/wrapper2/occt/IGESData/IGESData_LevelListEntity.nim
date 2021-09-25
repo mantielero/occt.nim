@@ -14,46 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, IGESData_IGESEntity,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESData_LevelListEntity"
 discard "forward decl of IGESData_LevelListEntity"
 type
-  Handle_IGESData_LevelListEntity* = handle[IGESData_LevelListEntity]
+  HandleIGESDataLevelListEntity* = Handle[IGESDataLevelListEntity]
 
 ## ! defines required type for LevelList in directory part
 ## ! an effective LevelList entity must inherits it
 
 type
-  IGESData_LevelListEntity* {.importcpp: "IGESData_LevelListEntity",
-                             header: "IGESData_LevelListEntity.hxx", bycopy.} = object of IGESData_IGESEntity ##
-                                                                                                       ## !
-                                                                                                       ## Must
-                                                                                                       ## return
-                                                                                                       ## the
-                                                                                                       ## count
-                                                                                                       ## of
-                                                                                                       ## levels
+  IGESDataLevelListEntity* {.importcpp: "IGESData_LevelListEntity",
+                            header: "IGESData_LevelListEntity.hxx", bycopy.} = object of IGESDataIGESEntity ##
+                                                                                                     ## !
+                                                                                                     ## Must
+                                                                                                     ## return
+                                                                                                     ## the
+                                                                                                     ## count
+                                                                                                     ## of
+                                                                                                     ## levels
 
 
-proc NbLevelNumbers*(this: IGESData_LevelListEntity): Standard_Integer {.
-    noSideEffect, importcpp: "NbLevelNumbers",
-    header: "IGESData_LevelListEntity.hxx".}
-proc LevelNumber*(this: IGESData_LevelListEntity; num: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "LevelNumber", header: "IGESData_LevelListEntity.hxx".}
-proc HasLevelNumber*(this: IGESData_LevelListEntity; level: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "HasLevelNumber",
-    header: "IGESData_LevelListEntity.hxx".}
+proc nbLevelNumbers*(this: IGESDataLevelListEntity): int {.noSideEffect,
+    importcpp: "NbLevelNumbers", header: "IGESData_LevelListEntity.hxx".}
+proc levelNumber*(this: IGESDataLevelListEntity; num: int): int {.noSideEffect,
+    importcpp: "LevelNumber", header: "IGESData_LevelListEntity.hxx".}
+proc hasLevelNumber*(this: IGESDataLevelListEntity; level: int): bool {.noSideEffect,
+    importcpp: "HasLevelNumber", header: "IGESData_LevelListEntity.hxx".}
 type
-  IGESData_LevelListEntitybase_type* = IGESData_IGESEntity
+  IGESDataLevelListEntitybaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESData_LevelListEntity::get_type_name(@)",
-                              header: "IGESData_LevelListEntity.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESData_LevelListEntity::get_type_name(@)",
+                            header: "IGESData_LevelListEntity.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESData_LevelListEntity::get_type_descriptor(@)",
     header: "IGESData_LevelListEntity.hxx".}
-proc DynamicType*(this: IGESData_LevelListEntity): handle[Standard_Type] {.
+proc dynamicType*(this: IGESDataLevelListEntity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESData_LevelListEntity.hxx".}

@@ -13,37 +13,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepDimTol_GeometricTolerance"
 discard "forward decl of StepDimTol_GeneralDatumReference"
 discard "forward decl of StepShape_DimensionalLocation"
 discard "forward decl of StepShape_DimensionalSize"
 type
-  StepDimTol_ToleranceZoneTarget* {.importcpp: "StepDimTol_ToleranceZoneTarget", header: "StepDimTol_ToleranceZoneTarget.hxx",
-                                   bycopy.} = object of StepData_SelectType ## ! Returns a
-                                                                       ## ToleranceZoneTarget select type
+  StepDimTolToleranceZoneTarget* {.importcpp: "StepDimTol_ToleranceZoneTarget",
+                                  header: "StepDimTol_ToleranceZoneTarget.hxx",
+                                  bycopy.} = object of StepDataSelectType ## ! Returns a
+                                                                     ## ToleranceZoneTarget select type
 
 
-proc constructStepDimTol_ToleranceZoneTarget*(): StepDimTol_ToleranceZoneTarget {.
+proc constructStepDimTolToleranceZoneTarget*(): StepDimTolToleranceZoneTarget {.
     constructor, importcpp: "StepDimTol_ToleranceZoneTarget(@)",
     header: "StepDimTol_ToleranceZoneTarget.hxx".}
-proc CaseNum*(this: StepDimTol_ToleranceZoneTarget; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepDimTolToleranceZoneTarget; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepDimTol_ToleranceZoneTarget.hxx".}
-proc DimensionalLocation*(this: StepDimTol_ToleranceZoneTarget): handle[
-    StepShape_DimensionalLocation] {.noSideEffect,
-                                    importcpp: "DimensionalLocation", header: "StepDimTol_ToleranceZoneTarget.hxx".}
-proc DimensionalSize*(this: StepDimTol_ToleranceZoneTarget): handle[
-    StepShape_DimensionalSize] {.noSideEffect, importcpp: "DimensionalSize",
-                                header: "StepDimTol_ToleranceZoneTarget.hxx".}
-proc GeometricTolerance*(this: StepDimTol_ToleranceZoneTarget): handle[
-    StepDimTol_GeometricTolerance] {.noSideEffect,
-                                    importcpp: "GeometricTolerance", header: "StepDimTol_ToleranceZoneTarget.hxx".}
-proc GeneralDatumReference*(this: StepDimTol_ToleranceZoneTarget): handle[
-    StepDimTol_GeneralDatumReference] {.noSideEffect,
-                                       importcpp: "GeneralDatumReference", header: "StepDimTol_ToleranceZoneTarget.hxx".}
+proc dimensionalLocation*(this: StepDimTolToleranceZoneTarget): Handle[
+    StepShapeDimensionalLocation] {.noSideEffect,
+                                   importcpp: "DimensionalLocation",
+                                   header: "StepDimTol_ToleranceZoneTarget.hxx".}
+proc dimensionalSize*(this: StepDimTolToleranceZoneTarget): Handle[
+    StepShapeDimensionalSize] {.noSideEffect, importcpp: "DimensionalSize",
+                               header: "StepDimTol_ToleranceZoneTarget.hxx".}
+proc geometricTolerance*(this: StepDimTolToleranceZoneTarget): Handle[
+    StepDimTolGeometricTolerance] {.noSideEffect, importcpp: "GeometricTolerance",
+                                   header: "StepDimTol_ToleranceZoneTarget.hxx".}
+proc generalDatumReference*(this: StepDimTolToleranceZoneTarget): Handle[
+    StepDimTolGeneralDatumReference] {.noSideEffect,
+                                      importcpp: "GeneralDatumReference", header: "StepDimTol_ToleranceZoneTarget.hxx".}

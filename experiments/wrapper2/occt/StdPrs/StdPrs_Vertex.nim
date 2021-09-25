@@ -11,9 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Prs3d/Prs3d_Point, ../Prs3d/Prs3d_Drawer, ../TopoDS/TopoDS_Vertex,
-  StdPrs_ToolVertex, ../Prs3d/Prs3d_Presentation
-
 type
-  StdPrs_Vertex* = Prs3d_Point[TopoDS_Vertex, StdPrs_ToolVertex]
+  StdPrsVertex* = Prs3dPoint[TopoDS_Vertex, StdPrsToolVertex]
+

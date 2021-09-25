@@ -11,10 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of XmlMDF_ADriverTable"
 discard "forward decl of Message_Messenger"
 discard "forward decl of XmlMDataXtd_GeometryDriver"
@@ -32,10 +28,10 @@ type
                                                                                 ## <aDriverTable>.
 
 
-proc AddDrivers*(aDriverTable: handle[XmlMDF_ADriverTable];
-                anMsgDrv: handle[Message_Messenger]) {.
+proc addDrivers*(aDriverTable: Handle[XmlMDF_ADriverTable];
+                anMsgDrv: Handle[MessageMessenger]) {.
     importcpp: "XmlMDataXtd::AddDrivers(@)", header: "XmlMDataXtd.hxx".}
-proc SetDocumentVersion*(DocVersion: Standard_Integer) {.
+proc setDocumentVersion*(docVersion: int) {.
     importcpp: "XmlMDataXtd::SetDocumentVersion(@)", header: "XmlMDataXtd.hxx".}
-proc DocumentVersion*(): Standard_Integer {.
-    importcpp: "XmlMDataXtd::DocumentVersion(@)", header: "XmlMDataXtd.hxx".}
+proc documentVersion*(): int {.importcpp: "XmlMDataXtd::DocumentVersion(@)",
+                            header: "XmlMDataXtd.hxx".}

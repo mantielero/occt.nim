@@ -16,10 +16,11 @@
 ## ! Defines types of tolerance zone affected plane
 
 type
-  XCAFDimTolObjects_ToleranceZoneAffectedPlane* {.size: sizeof(cint),
+  XCAFDimTolObjectsToleranceZoneAffectedPlane* {.size: sizeof(cint),
       importcpp: "XCAFDimTolObjects_ToleranceZoneAffectedPlane",
       header: "XCAFDimTolObjects_ToleranceZoneAffectedPlane.hxx".} = enum
-    XCAFDimTolObjects_ToleranceZoneAffectedPlane_None,
-    XCAFDimTolObjects_ToleranceZoneAffectedPlane_Intersection,
-    XCAFDimTolObjects_ToleranceZoneAffectedPlane_Orientation
+    XCAFDimTolObjectsToleranceZoneAffectedPlaneNone,
+    XCAFDimTolObjectsToleranceZoneAffectedPlaneIntersection,
+    XCAFDimTolObjectsToleranceZoneAffectedPlaneOrientation
+
 

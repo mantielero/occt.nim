@@ -14,14 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TopOpeBRepDS_define
-
-proc FDS_repvg*(BDS: TopOpeBRepDS_DataStructure; EIX: Standard_Integer;
-               GT: TopOpeBRepDS_Kind; LI: var TopOpeBRepDS_ListOfInterference;
+proc fDS_repvg*(bds: TopOpeBRepDS_DataStructure; eix: int; gt: TopOpeBRepDS_Kind;
+               li: var TopOpeBRepDS_ListOfInterference;
                reducedLI: var TopOpeBRepDS_ListOfInterference) {.
     importcpp: "FDS_repvg(@)", header: "TopOpeBRepDS_repvg.hxx".}
-proc FDS_repvg2*(BDS: TopOpeBRepDS_DataStructure; EIX: Standard_Integer;
-                GT: TopOpeBRepDS_Kind; LI: var TopOpeBRepDS_ListOfInterference;
+proc fDS_repvg2*(bds: TopOpeBRepDS_DataStructure; eix: int; gt: TopOpeBRepDS_Kind;
+                li: var TopOpeBRepDS_ListOfInterference;
                 reducedLI: var TopOpeBRepDS_ListOfInterference) {.
     importcpp: "FDS_repvg2(@)", header: "TopOpeBRepDS_repvg.hxx".}

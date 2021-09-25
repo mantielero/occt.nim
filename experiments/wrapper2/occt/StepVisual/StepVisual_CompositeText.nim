@@ -14,51 +14,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepVisual_HArray1OfTextOrCharacter,
-  ../StepGeom/StepGeom_GeometricRepresentationItem, ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepVisual_TextOrCharacter"
 discard "forward decl of StepVisual_CompositeText"
 discard "forward decl of StepVisual_CompositeText"
 type
-  Handle_StepVisual_CompositeText* = handle[StepVisual_CompositeText]
-  StepVisual_CompositeText* {.importcpp: "StepVisual_CompositeText",
-                             header: "StepVisual_CompositeText.hxx", bycopy.} = object of StepGeom_GeometricRepresentationItem ##
-                                                                                                                        ## !
-                                                                                                                        ## Returns
-                                                                                                                        ## a
-                                                                                                                        ## CompositeText
+  HandleStepVisualCompositeText* = Handle[StepVisualCompositeText]
+  StepVisualCompositeText* {.importcpp: "StepVisual_CompositeText",
+                            header: "StepVisual_CompositeText.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
+                                                                                                                      ## !
+                                                                                                                      ## Returns
+                                                                                                                      ## a
+                                                                                                                      ## CompositeText
 
 
-proc constructStepVisual_CompositeText*(): StepVisual_CompositeText {.constructor,
+proc constructStepVisualCompositeText*(): StepVisualCompositeText {.constructor,
     importcpp: "StepVisual_CompositeText(@)",
     header: "StepVisual_CompositeText.hxx".}
-proc Init*(this: var StepVisual_CompositeText;
-          aName: handle[TCollection_HAsciiString];
-          aCollectedText: handle[StepVisual_HArray1OfTextOrCharacter]) {.
+proc init*(this: var StepVisualCompositeText;
+          aName: Handle[TCollectionHAsciiString];
+          aCollectedText: Handle[StepVisualHArray1OfTextOrCharacter]) {.
     importcpp: "Init", header: "StepVisual_CompositeText.hxx".}
-proc SetCollectedText*(this: var StepVisual_CompositeText; aCollectedText: handle[
-    StepVisual_HArray1OfTextOrCharacter]) {.importcpp: "SetCollectedText",
+proc setCollectedText*(this: var StepVisualCompositeText; aCollectedText: Handle[
+    StepVisualHArray1OfTextOrCharacter]) {.importcpp: "SetCollectedText",
     header: "StepVisual_CompositeText.hxx".}
-proc CollectedText*(this: StepVisual_CompositeText): handle[
-    StepVisual_HArray1OfTextOrCharacter] {.noSideEffect,
+proc collectedText*(this: StepVisualCompositeText): Handle[
+    StepVisualHArray1OfTextOrCharacter] {.noSideEffect,
     importcpp: "CollectedText", header: "StepVisual_CompositeText.hxx".}
-proc CollectedTextValue*(this: StepVisual_CompositeText; num: Standard_Integer): StepVisual_TextOrCharacter {.
+proc collectedTextValue*(this: StepVisualCompositeText; num: int): StepVisualTextOrCharacter {.
     noSideEffect, importcpp: "CollectedTextValue",
     header: "StepVisual_CompositeText.hxx".}
-proc NbCollectedText*(this: StepVisual_CompositeText): Standard_Integer {.
-    noSideEffect, importcpp: "NbCollectedText",
-    header: "StepVisual_CompositeText.hxx".}
+proc nbCollectedText*(this: StepVisualCompositeText): int {.noSideEffect,
+    importcpp: "NbCollectedText", header: "StepVisual_CompositeText.hxx".}
 type
-  StepVisual_CompositeTextbase_type* = StepGeom_GeometricRepresentationItem
+  StepVisualCompositeTextbaseType* = StepGeomGeometricRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_CompositeText::get_type_name(@)",
-                              header: "StepVisual_CompositeText.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_CompositeText::get_type_name(@)",
+                            header: "StepVisual_CompositeText.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_CompositeText::get_type_descriptor(@)",
     header: "StepVisual_CompositeText.hxx".}
-proc DynamicType*(this: StepVisual_CompositeText): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualCompositeText): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepVisual_CompositeText.hxx".}

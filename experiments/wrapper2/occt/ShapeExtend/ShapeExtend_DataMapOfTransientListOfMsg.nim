@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Transient, ../Message/Message_ListOfMsg,
-  ../TColStd/TColStd_MapTransientHasher, ../NCollection/NCollection_DataMap
-
 type
-  ShapeExtend_DataMapOfTransientListOfMsg* = NCollection_DataMap[
-      handle[Standard_Transient], Message_ListOfMsg, TColStd_MapTransientHasher]
-  ShapeExtend_DataMapIteratorOfDataMapOfTransientListOfMsg* = Iterator[
-      handle[Standard_Transient], Message_ListOfMsg, TColStd_MapTransientHasher]
+  ShapeExtendDataMapOfTransientListOfMsg* = NCollectionDataMap[
+      Handle[StandardTransient], MessageListOfMsg, TColStdMapTransientHasher]
+  ShapeExtendDataMapIteratorOfDataMapOfTransientListOfMsg* = Iterator[
+      Handle[StandardTransient], MessageListOfMsg, TColStdMapTransientHasher]
+

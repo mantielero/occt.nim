@@ -11,30 +11,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Graphic3d_Vec, ../Standard/Standard_Integer
-
 ## ! Range of values defined as Start + Length pair.
 
 type
-  Graphic3d_BufferRange* {.importcpp: "Graphic3d_BufferRange",
-                          header: "Graphic3d_BufferRange.hxx", bycopy.} = object
-    Start* {.importc: "Start".}: Standard_Integer ## !< first element within the range
-    Length* {.importc: "Length".}: Standard_Integer ## !< number of elements within the range
-                                                ## ! Empty constructor.
+  Graphic3dBufferRange* {.importcpp: "Graphic3d_BufferRange",
+                         header: "Graphic3d_BufferRange.hxx", bycopy.} = object
+    start* {.importc: "Start".}: int ## !< first element within the range
+    length* {.importc: "Length".}: int ## !< number of elements within the range
+                                   ## ! Empty constructor.
 
 
-proc constructGraphic3d_BufferRange*(): Graphic3d_BufferRange {.constructor,
+proc constructGraphic3dBufferRange*(): Graphic3dBufferRange {.constructor,
     importcpp: "Graphic3d_BufferRange(@)", header: "Graphic3d_BufferRange.hxx".}
-proc constructGraphic3d_BufferRange*(theStart: Standard_Integer;
-                                    theLength: Standard_Integer): Graphic3d_BufferRange {.
+proc constructGraphic3dBufferRange*(theStart: int; theLength: int): Graphic3dBufferRange {.
     constructor, importcpp: "Graphic3d_BufferRange(@)",
     header: "Graphic3d_BufferRange.hxx".}
-proc IsEmpty*(this: Graphic3d_BufferRange): Standard_Boolean {.noSideEffect,
-    importcpp: "IsEmpty", header: "Graphic3d_BufferRange.hxx".}
-proc Upper*(this: Graphic3d_BufferRange): Standard_Integer {.noSideEffect,
-    importcpp: "Upper", header: "Graphic3d_BufferRange.hxx".}
-proc Clear*(this: var Graphic3d_BufferRange) {.importcpp: "Clear",
+proc isEmpty*(this: Graphic3dBufferRange): bool {.noSideEffect, importcpp: "IsEmpty",
     header: "Graphic3d_BufferRange.hxx".}
-proc Unite*(this: var Graphic3d_BufferRange; theRange: Graphic3d_BufferRange) {.
+proc upper*(this: Graphic3dBufferRange): int {.noSideEffect, importcpp: "Upper",
+    header: "Graphic3d_BufferRange.hxx".}
+proc clear*(this: var Graphic3dBufferRange) {.importcpp: "Clear",
+    header: "Graphic3d_BufferRange.hxx".}
+proc unite*(this: var Graphic3dBufferRange; theRange: Graphic3dBufferRange) {.
     importcpp: "Unite", header: "Graphic3d_BufferRange.hxx".}

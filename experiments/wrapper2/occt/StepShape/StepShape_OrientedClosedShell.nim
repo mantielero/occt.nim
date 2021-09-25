@@ -14,64 +14,56 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  StepShape_ClosedShell, StepShape_HArray1OfFace, ../Standard/Standard_Integer
-
 discard "forward decl of StepShape_ClosedShell"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_Face"
 discard "forward decl of StepShape_OrientedClosedShell"
 discard "forward decl of StepShape_OrientedClosedShell"
 type
-  Handle_StepShape_OrientedClosedShell* = handle[StepShape_OrientedClosedShell]
-  StepShape_OrientedClosedShell* {.importcpp: "StepShape_OrientedClosedShell",
-                                  header: "StepShape_OrientedClosedShell.hxx",
-                                  bycopy.} = object of StepShape_ClosedShell ## ! Returns a
-                                                                        ## OrientedClosedShell
+  HandleStepShapeOrientedClosedShell* = Handle[StepShapeOrientedClosedShell]
+  StepShapeOrientedClosedShell* {.importcpp: "StepShape_OrientedClosedShell",
+                                 header: "StepShape_OrientedClosedShell.hxx",
+                                 bycopy.} = object of StepShapeClosedShell ## ! Returns a
+                                                                      ## OrientedClosedShell
 
 
-proc constructStepShape_OrientedClosedShell*(): StepShape_OrientedClosedShell {.
+proc constructStepShapeOrientedClosedShell*(): StepShapeOrientedClosedShell {.
     constructor, importcpp: "StepShape_OrientedClosedShell(@)",
     header: "StepShape_OrientedClosedShell.hxx".}
-proc Init*(this: var StepShape_OrientedClosedShell;
-          aName: handle[TCollection_HAsciiString];
-          aClosedShellElement: handle[StepShape_ClosedShell];
-          aOrientation: Standard_Boolean) {.importcpp: "Init",
-    header: "StepShape_OrientedClosedShell.hxx".}
-proc SetClosedShellElement*(this: var StepShape_OrientedClosedShell;
-                           aClosedShellElement: handle[StepShape_ClosedShell]) {.
+proc init*(this: var StepShapeOrientedClosedShell;
+          aName: Handle[TCollectionHAsciiString];
+          aClosedShellElement: Handle[StepShapeClosedShell]; aOrientation: bool) {.
+    importcpp: "Init", header: "StepShape_OrientedClosedShell.hxx".}
+proc setClosedShellElement*(this: var StepShapeOrientedClosedShell;
+                           aClosedShellElement: Handle[StepShapeClosedShell]) {.
     importcpp: "SetClosedShellElement",
     header: "StepShape_OrientedClosedShell.hxx".}
-proc ClosedShellElement*(this: StepShape_OrientedClosedShell): handle[
-    StepShape_ClosedShell] {.noSideEffect, importcpp: "ClosedShellElement",
-                            header: "StepShape_OrientedClosedShell.hxx".}
-proc SetOrientation*(this: var StepShape_OrientedClosedShell;
-                    aOrientation: Standard_Boolean) {.importcpp: "SetOrientation",
-    header: "StepShape_OrientedClosedShell.hxx".}
-proc Orientation*(this: StepShape_OrientedClosedShell): Standard_Boolean {.
-    noSideEffect, importcpp: "Orientation",
-    header: "StepShape_OrientedClosedShell.hxx".}
-proc SetCfsFaces*(this: var StepShape_OrientedClosedShell;
-                 aCfsFaces: handle[StepShape_HArray1OfFace]) {.
+proc closedShellElement*(this: StepShapeOrientedClosedShell): Handle[
+    StepShapeClosedShell] {.noSideEffect, importcpp: "ClosedShellElement",
+                           header: "StepShape_OrientedClosedShell.hxx".}
+proc setOrientation*(this: var StepShapeOrientedClosedShell; aOrientation: bool) {.
+    importcpp: "SetOrientation", header: "StepShape_OrientedClosedShell.hxx".}
+proc orientation*(this: StepShapeOrientedClosedShell): bool {.noSideEffect,
+    importcpp: "Orientation", header: "StepShape_OrientedClosedShell.hxx".}
+proc setCfsFaces*(this: var StepShapeOrientedClosedShell;
+                 aCfsFaces: Handle[StepShapeHArray1OfFace]) {.
     importcpp: "SetCfsFaces", header: "StepShape_OrientedClosedShell.hxx".}
-proc CfsFaces*(this: StepShape_OrientedClosedShell): handle[StepShape_HArray1OfFace] {.
+proc cfsFaces*(this: StepShapeOrientedClosedShell): Handle[StepShapeHArray1OfFace] {.
     noSideEffect, importcpp: "CfsFaces",
     header: "StepShape_OrientedClosedShell.hxx".}
-proc CfsFacesValue*(this: StepShape_OrientedClosedShell; num: Standard_Integer): handle[
-    StepShape_Face] {.noSideEffect, importcpp: "CfsFacesValue",
-                     header: "StepShape_OrientedClosedShell.hxx".}
-proc NbCfsFaces*(this: StepShape_OrientedClosedShell): Standard_Integer {.
-    noSideEffect, importcpp: "NbCfsFaces",
-    header: "StepShape_OrientedClosedShell.hxx".}
+proc cfsFacesValue*(this: StepShapeOrientedClosedShell; num: int): Handle[
+    StepShapeFace] {.noSideEffect, importcpp: "CfsFacesValue",
+                    header: "StepShape_OrientedClosedShell.hxx".}
+proc nbCfsFaces*(this: StepShapeOrientedClosedShell): int {.noSideEffect,
+    importcpp: "NbCfsFaces", header: "StepShape_OrientedClosedShell.hxx".}
 type
-  StepShape_OrientedClosedShellbase_type* = StepShape_ClosedShell
+  StepShapeOrientedClosedShellbaseType* = StepShapeClosedShell
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_OrientedClosedShell::get_type_name(@)",
-                              header: "StepShape_OrientedClosedShell.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_OrientedClosedShell::get_type_name(@)",
+                            header: "StepShape_OrientedClosedShell.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_OrientedClosedShell::get_type_descriptor(@)",
     header: "StepShape_OrientedClosedShell.hxx".}
-proc DynamicType*(this: StepShape_OrientedClosedShell): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeOrientedClosedShell): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_OrientedClosedShell.hxx".}

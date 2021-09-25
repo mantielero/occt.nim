@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Type, ../Standard/Standard_Macro,
-  ../TCollection/TCollection_AsciiString,
-  ../TCollection/TCollection_ExtendedString
-
 discard "forward decl of LDOM_MemManager"
 discard "forward decl of LDOM_NullPtr"
 discard "forward decl of TCollection_AsciiString"
@@ -39,22 +34,22 @@ type
 
 proc destroyLDOMBasicString*(this: var LDOMBasicString) {.
     importcpp: "#.~LDOMBasicString()", header: "LDOMBasicString.hxx".}
-proc Type*(this: LDOMBasicString): LDOMBasicStringStringType {.noSideEffect,
+proc `type`*(this: LDOMBasicString): LDOMBasicStringStringType {.noSideEffect,
     importcpp: "Type", header: "LDOMBasicString.hxx".}
-proc GetInteger*(this: LDOMBasicString; aResult: var Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "GetInteger", header: "LDOMBasicString.hxx".}
-proc GetString*(this: LDOMBasicString): cstring {.noSideEffect,
+proc getInteger*(this: LDOMBasicString; aResult: var int): bool {.noSideEffect,
+    importcpp: "GetInteger", header: "LDOMBasicString.hxx".}
+proc getString*(this: LDOMBasicString): cstring {.noSideEffect,
     importcpp: "GetString", header: "LDOMBasicString.hxx".}
-proc equals*(this: LDOMBasicString; anOther: LDOMBasicString): Standard_Boolean {.
-    noSideEffect, importcpp: "equals", header: "LDOMBasicString.hxx".}
-proc `==`*(this: LDOMBasicString; a2: ptr LDOM_NullPtr): Standard_Boolean {.
-    noSideEffect, importcpp: "(# == #)", header: "LDOMBasicString.hxx".}
-proc `==`*(this: LDOMBasicString; anOther: LDOMBasicString): Standard_Boolean {.
-    noSideEffect, importcpp: "(# == #)", header: "LDOMBasicString.hxx".}
-converter `TCollection_AsciiString`*(this: LDOMBasicString): TCollection_AsciiString {.
+proc equals*(this: LDOMBasicString; anOther: LDOMBasicString): bool {.noSideEffect,
+    importcpp: "equals", header: "LDOMBasicString.hxx".}
+proc `==`*(this: LDOMBasicString; a2: ptr LDOM_NullPtr): bool {.noSideEffect,
+    importcpp: "(# == #)", header: "LDOMBasicString.hxx".}
+proc `==`*(this: LDOMBasicString; anOther: LDOMBasicString): bool {.noSideEffect,
+    importcpp: "(# == #)", header: "LDOMBasicString.hxx".}
+converter `tCollectionAsciiString`*(this: LDOMBasicString): TCollectionAsciiString {.
     noSideEffect, importcpp: "LDOMBasicString::operator TCollection_AsciiString",
     header: "LDOMBasicString.hxx".}
-converter `TCollection_ExtendedString`*(this: LDOMBasicString): TCollection_ExtendedString {.
+converter `tCollectionExtendedString`*(this: LDOMBasicString): TCollectionExtendedString {.
     noSideEffect,
     importcpp: "LDOMBasicString::operator TCollection_ExtendedString",
     header: "LDOMBasicString.hxx".}
@@ -62,12 +57,12 @@ proc constructLDOMBasicString*(): LDOMBasicString {.constructor,
     importcpp: "LDOMBasicString(@)", header: "LDOMBasicString.hxx".}
 proc constructLDOMBasicString*(anOther: LDOMBasicString): LDOMBasicString {.
     constructor, importcpp: "LDOMBasicString(@)", header: "LDOMBasicString.hxx".}
-proc constructLDOMBasicString*(aValue: Standard_Integer): LDOMBasicString {.
-    constructor, importcpp: "LDOMBasicString(@)", header: "LDOMBasicString.hxx".}
+proc constructLDOMBasicString*(aValue: int): LDOMBasicString {.constructor,
+    importcpp: "LDOMBasicString(@)", header: "LDOMBasicString.hxx".}
 proc constructLDOMBasicString*(aValue: cstring): LDOMBasicString {.constructor,
     importcpp: "LDOMBasicString(@)", header: "LDOMBasicString.hxx".}
-proc constructLDOMBasicString*(aValue: cstring; aDoc: handle[LDOM_MemManager]): LDOMBasicString {.
+proc constructLDOMBasicString*(aValue: cstring; aDoc: Handle[LDOM_MemManager]): LDOMBasicString {.
     constructor, importcpp: "LDOMBasicString(@)", header: "LDOMBasicString.hxx".}
-proc constructLDOMBasicString*(aValue: cstring; aLen: Standard_Integer;
-                              aDoc: handle[LDOM_MemManager]): LDOMBasicString {.
+proc constructLDOMBasicString*(aValue: cstring; aLen: int;
+                              aDoc: Handle[LDOM_MemManager]): LDOMBasicString {.
     constructor, importcpp: "LDOMBasicString(@)", header: "LDOMBasicString.hxx".}

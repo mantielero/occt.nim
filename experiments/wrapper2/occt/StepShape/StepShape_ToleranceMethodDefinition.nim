@@ -13,27 +13,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepShape_ToleranceValue"
 discard "forward decl of StepShape_LimitsAndFits"
 type
-  StepShape_ToleranceMethodDefinition* {.importcpp: "StepShape_ToleranceMethodDefinition", header: "StepShape_ToleranceMethodDefinition.hxx",
-                                        bycopy.} = object of StepData_SelectType
+  StepShapeToleranceMethodDefinition* {.importcpp: "StepShape_ToleranceMethodDefinition", header: "StepShape_ToleranceMethodDefinition.hxx",
+                                       bycopy.} = object of StepDataSelectType
 
 
-proc constructStepShape_ToleranceMethodDefinition*(): StepShape_ToleranceMethodDefinition {.
+proc constructStepShapeToleranceMethodDefinition*(): StepShapeToleranceMethodDefinition {.
     constructor, importcpp: "StepShape_ToleranceMethodDefinition(@)",
     header: "StepShape_ToleranceMethodDefinition.hxx".}
-proc CaseNum*(this: StepShape_ToleranceMethodDefinition;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepShapeToleranceMethodDefinition;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepShape_ToleranceMethodDefinition.hxx".}
-proc ToleranceValue*(this: StepShape_ToleranceMethodDefinition): handle[
-    StepShape_ToleranceValue] {.noSideEffect, importcpp: "ToleranceValue", header: "StepShape_ToleranceMethodDefinition.hxx".}
-proc LimitsAndFits*(this: StepShape_ToleranceMethodDefinition): handle[
-    StepShape_LimitsAndFits] {.noSideEffect, importcpp: "LimitsAndFits",
+proc toleranceValue*(this: StepShapeToleranceMethodDefinition): Handle[
+    StepShapeToleranceValue] {.noSideEffect, importcpp: "ToleranceValue",
                               header: "StepShape_ToleranceMethodDefinition.hxx".}
+proc limitsAndFits*(this: StepShapeToleranceMethodDefinition): Handle[
+    StepShapeLimitsAndFits] {.noSideEffect, importcpp: "LimitsAndFits",
+                             header: "StepShape_ToleranceMethodDefinition.hxx".}

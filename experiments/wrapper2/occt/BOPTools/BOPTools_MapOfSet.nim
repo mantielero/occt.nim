@@ -12,9 +12,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  BOPTools_Set, BOPTools_SetMapHasher, ../NCollection/NCollection_Map
-
 type
-  BOPTools_MapOfSet* = NCollection_Map[BOPTools_Set, BOPTools_SetMapHasher]
-  BOPTools_MapIteratorOfMapOfSet* = Iterator
+  BOPToolsMapOfSet* = NCollectionMap[BOPToolsSet, BOPToolsSetMapHasher]
+  BOPToolsMapIteratorOfMapOfSet* = Iterator
+

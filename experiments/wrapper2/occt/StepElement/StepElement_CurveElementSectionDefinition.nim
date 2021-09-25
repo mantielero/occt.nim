@@ -13,52 +13,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepElement_CurveElementSectionDefinition"
 discard "forward decl of StepElement_CurveElementSectionDefinition"
 type
-  Handle_StepElement_CurveElementSectionDefinition* = handle[
-      StepElement_CurveElementSectionDefinition]
+  HandleStepElementCurveElementSectionDefinition* = Handle[
+      StepElementCurveElementSectionDefinition]
 
 ## ! Representation of STEP entity CurveElementSectionDefinition
 
 type
-  StepElement_CurveElementSectionDefinition* {.
+  StepElementCurveElementSectionDefinition* {.
       importcpp: "StepElement_CurveElementSectionDefinition",
-      header: "StepElement_CurveElementSectionDefinition.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                ## !
-                                                                                                ## Empty
-                                                                                                ## constructor
+      header: "StepElement_CurveElementSectionDefinition.hxx", bycopy.} = object of StandardTransient ##
+                                                                                               ## !
+                                                                                               ## Empty
+                                                                                               ## constructor
 
 
-proc constructStepElement_CurveElementSectionDefinition*(): StepElement_CurveElementSectionDefinition {.
+proc constructStepElementCurveElementSectionDefinition*(): StepElementCurveElementSectionDefinition {.
     constructor, importcpp: "StepElement_CurveElementSectionDefinition(@)",
     header: "StepElement_CurveElementSectionDefinition.hxx".}
-proc Init*(this: var StepElement_CurveElementSectionDefinition;
-          aDescription: handle[TCollection_HAsciiString];
-          aSectionAngle: Standard_Real) {.importcpp: "Init", header: "StepElement_CurveElementSectionDefinition.hxx".}
-proc Description*(this: StepElement_CurveElementSectionDefinition): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description", header: "StepElement_CurveElementSectionDefinition.hxx".}
-proc SetDescription*(this: var StepElement_CurveElementSectionDefinition;
-                    Description: handle[TCollection_HAsciiString]) {.
+proc init*(this: var StepElementCurveElementSectionDefinition;
+          aDescription: Handle[TCollectionHAsciiString]; aSectionAngle: float) {.
+    importcpp: "Init", header: "StepElement_CurveElementSectionDefinition.hxx".}
+proc description*(this: StepElementCurveElementSectionDefinition): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Description", header: "StepElement_CurveElementSectionDefinition.hxx".}
+proc setDescription*(this: var StepElementCurveElementSectionDefinition;
+                    description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription",
     header: "StepElement_CurveElementSectionDefinition.hxx".}
-proc SectionAngle*(this: StepElement_CurveElementSectionDefinition): Standard_Real {.
+proc sectionAngle*(this: StepElementCurveElementSectionDefinition): float {.
     noSideEffect, importcpp: "SectionAngle",
     header: "StepElement_CurveElementSectionDefinition.hxx".}
-proc SetSectionAngle*(this: var StepElement_CurveElementSectionDefinition;
-                     SectionAngle: Standard_Real) {.importcpp: "SetSectionAngle",
+proc setSectionAngle*(this: var StepElementCurveElementSectionDefinition;
+                     sectionAngle: float) {.importcpp: "SetSectionAngle",
     header: "StepElement_CurveElementSectionDefinition.hxx".}
 type
-  StepElement_CurveElementSectionDefinitionbase_type* = Standard_Transient
+  StepElementCurveElementSectionDefinitionbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepElement_CurveElementSectionDefinition::get_type_name(@)", header: "StepElement_CurveElementSectionDefinition.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepElement_CurveElementSectionDefinition::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepElement_CurveElementSectionDefinition::get_type_name(@)", header: "StepElement_CurveElementSectionDefinition.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_CurveElementSectionDefinition::get_type_descriptor(@)",
     header: "StepElement_CurveElementSectionDefinition.hxx".}
-proc DynamicType*(this: StepElement_CurveElementSectionDefinition): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepElement_CurveElementSectionDefinition.hxx".}
+proc dynamicType*(this: StepElementCurveElementSectionDefinition): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepElement_CurveElementSectionDefinition.hxx".}

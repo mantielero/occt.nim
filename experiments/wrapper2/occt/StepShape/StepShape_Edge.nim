@@ -14,42 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepShape_TopologicalRepresentationItem, StepShape_Vertex
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_Edge"
 discard "forward decl of StepShape_Edge"
 type
-  Handle_StepShape_Edge* = handle[StepShape_Edge]
-  StepShape_Edge* {.importcpp: "StepShape_Edge", header: "StepShape_Edge.hxx", bycopy.} = object of StepShape_TopologicalRepresentationItem ##
-                                                                                                                                  ## !
-                                                                                                                                  ## Returns
-                                                                                                                                  ## a
-                                                                                                                                  ## Edge
+  HandleStepShapeEdge* = Handle[StepShapeEdge]
+  StepShapeEdge* {.importcpp: "StepShape_Edge", header: "StepShape_Edge.hxx", bycopy.} = object of StepShapeTopologicalRepresentationItem ##
+                                                                                                                                ## !
+                                                                                                                                ## Returns
+                                                                                                                                ## a
+                                                                                                                                ## Edge
 
 
-proc constructStepShape_Edge*(): StepShape_Edge {.constructor,
+proc constructStepShapeEdge*(): StepShapeEdge {.constructor,
     importcpp: "StepShape_Edge(@)", header: "StepShape_Edge.hxx".}
-proc Init*(this: var StepShape_Edge; aName: handle[TCollection_HAsciiString];
-          aEdgeStart: handle[StepShape_Vertex]; aEdgeEnd: handle[StepShape_Vertex]) {.
+proc init*(this: var StepShapeEdge; aName: Handle[TCollectionHAsciiString];
+          aEdgeStart: Handle[StepShapeVertex]; aEdgeEnd: Handle[StepShapeVertex]) {.
     importcpp: "Init", header: "StepShape_Edge.hxx".}
-proc SetEdgeStart*(this: var StepShape_Edge; aEdgeStart: handle[StepShape_Vertex]) {.
+proc setEdgeStart*(this: var StepShapeEdge; aEdgeStart: Handle[StepShapeVertex]) {.
     importcpp: "SetEdgeStart", header: "StepShape_Edge.hxx".}
-proc EdgeStart*(this: StepShape_Edge): handle[StepShape_Vertex] {.noSideEffect,
+proc edgeStart*(this: StepShapeEdge): Handle[StepShapeVertex] {.noSideEffect,
     importcpp: "EdgeStart", header: "StepShape_Edge.hxx".}
-proc SetEdgeEnd*(this: var StepShape_Edge; aEdgeEnd: handle[StepShape_Vertex]) {.
+proc setEdgeEnd*(this: var StepShapeEdge; aEdgeEnd: Handle[StepShapeVertex]) {.
     importcpp: "SetEdgeEnd", header: "StepShape_Edge.hxx".}
-proc EdgeEnd*(this: StepShape_Edge): handle[StepShape_Vertex] {.noSideEffect,
+proc edgeEnd*(this: StepShapeEdge): Handle[StepShapeVertex] {.noSideEffect,
     importcpp: "EdgeEnd", header: "StepShape_Edge.hxx".}
 type
-  StepShape_Edgebase_type* = StepShape_TopologicalRepresentationItem
+  StepShapeEdgebaseType* = StepShapeTopologicalRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_Edge::get_type_name(@)",
-                              header: "StepShape_Edge.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_Edge::get_type_name(@)",
+                            header: "StepShape_Edge.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_Edge::get_type_descriptor(@)",
     header: "StepShape_Edge.hxx".}
-proc DynamicType*(this: StepShape_Edge): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepShapeEdge): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_Edge.hxx".}

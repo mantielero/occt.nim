@@ -13,7 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _BVH_Traverse_Header [NewLine] # _BVH_Traverse_Header [NewLine] # BVH_Box.hxx [NewLine] # BVH_Tree.hxx [NewLine] ! The classes implement the traverse of the BVH tree.
+## !!!Ignored construct:  # _BVH_Traverse_Header [NewLine] # _BVH_Traverse_Header [NewLine] # < BVH_Box . hxx > [NewLine] # < BVH_Tree . hxx > [NewLine] ! The classes implement the traverse of the BVH tree.
 ## !
 ## ! There are two traverse methods implemented:
 ## ! - Traverse of the single tree
@@ -172,3 +172,4 @@
 ## ! rules defined in Accept/Reject methods.
 ## ! Returns the number of accepted pairs of elements. Standard_Integer Select ( const opencascade :: handle < BVH_Tree < NumType , Dimension >> & theBVH1 , const opencascade :: handle < BVH_Tree < NumType , Dimension >> & theBVH2 ) ; protected : ! @name Fields BVHSetType * myBVHSet1 ; BVHSetType * myBVHSet2 ; } ;
 ## Error: token expected: > [end of template] but got: =!!!
+

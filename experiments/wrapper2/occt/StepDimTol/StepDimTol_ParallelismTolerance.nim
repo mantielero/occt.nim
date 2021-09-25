@@ -13,36 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepDimTol_GeometricToleranceWithDatumReference
-
 discard "forward decl of StepDimTol_ParallelismTolerance"
 discard "forward decl of StepDimTol_ParallelismTolerance"
 type
-  Handle_StepDimTol_ParallelismTolerance* = handle[StepDimTol_ParallelismTolerance]
+  HandleStepDimTolParallelismTolerance* = Handle[StepDimTolParallelismTolerance]
 
 ## ! Representation of STEP entity ParallelismTolerance
 
 type
-  StepDimTol_ParallelismTolerance* {.importcpp: "StepDimTol_ParallelismTolerance", header: "StepDimTol_ParallelismTolerance.hxx",
-                                    bycopy.} = object of StepDimTol_GeometricToleranceWithDatumReference ##
-                                                                                                    ## !
-                                                                                                    ## Empty
-                                                                                                    ## constructor
+  StepDimTolParallelismTolerance* {.importcpp: "StepDimTol_ParallelismTolerance", header: "StepDimTol_ParallelismTolerance.hxx",
+                                   bycopy.} = object of StepDimTolGeometricToleranceWithDatumReference ##
+                                                                                                  ## !
+                                                                                                  ## Empty
+                                                                                                  ## constructor
 
 
-proc constructStepDimTol_ParallelismTolerance*(): StepDimTol_ParallelismTolerance {.
+proc constructStepDimTolParallelismTolerance*(): StepDimTolParallelismTolerance {.
     constructor, importcpp: "StepDimTol_ParallelismTolerance(@)",
     header: "StepDimTol_ParallelismTolerance.hxx".}
 type
-  StepDimTol_ParallelismTolerancebase_type* = StepDimTol_GeometricToleranceWithDatumReference
+  StepDimTolParallelismTolerancebaseType* = StepDimTolGeometricToleranceWithDatumReference
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_ParallelismTolerance::get_type_name(@)",
-                              header: "StepDimTol_ParallelismTolerance.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_ParallelismTolerance::get_type_name(@)",
+                            header: "StepDimTol_ParallelismTolerance.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_ParallelismTolerance::get_type_descriptor(@)",
     header: "StepDimTol_ParallelismTolerance.hxx".}
-proc DynamicType*(this: StepDimTol_ParallelismTolerance): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolParallelismTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_ParallelismTolerance.hxx".}

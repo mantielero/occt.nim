@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Interface_BitMap, Interface_GeneralLib,
-  ../Standard/Standard_Integer, ../TColStd/TColStd_SequenceOfInteger,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_CopyControl"
 discard "forward decl of Interface_CopyMap"
@@ -30,73 +24,65 @@ discard "forward decl of Interface_GeneralLib"
 discard "forward decl of Interface_Protocol"
 discard "forward decl of Interface_EntityIterator"
 type
-  Interface_CopyTool* {.importcpp: "Interface_CopyTool",
-                       header: "Interface_CopyTool.hxx", bycopy.} = object ## ! Creates a CopyTool adapted to work from a Model. Works
-                                                                      ## ! with a General Service Library, given as an argument
-                                                                      ## ! Creates a new void instance (just created) of the same class
-                                                                      ## ! as <entfrom>. Uses the general service
-                                                                      ## GeneralModule:NewVoid
-                                                                      ## ! Returns True if OK (Recognize has
-                                                                      ## succeeded), False else
-                                                                      ## ! (in such a case, the standard method
-                                                                      ## ShallowCopy is called
-                                                                      ## ! to produce <ento> from <entfrom> : hence it is not void)
-                                                                      ## !
-                                                                      ## ! No mapping is managed by this method
-                                                                      ## ! Renews the Implied References of one already Copied Entity
+  InterfaceCopyTool* {.importcpp: "Interface_CopyTool",
+                      header: "Interface_CopyTool.hxx", bycopy.} = object ## ! Creates a CopyTool adapted to work from a Model. Works
+                                                                     ## ! with a General Service Library, given as an argument
+                                                                     ## ! Creates a new void instance (just created) of the same class
+                                                                     ## ! as <entfrom>. Uses the general service
+                                                                     ## GeneralModule:NewVoid
+                                                                     ## ! Returns True if OK (Recognize has succeeded), False else
+                                                                     ## ! (in such a case, the standard method ShallowCopy is called
+                                                                     ## ! to produce <ento> from <entfrom> : hence it is not void)
+                                                                     ## !
+                                                                     ## ! No mapping is managed by this method
+                                                                     ## ! Renews the Implied References of one already Copied Entity
 
 
-proc constructInterface_CopyTool*(amodel: handle[Interface_InterfaceModel];
-                                 lib: Interface_GeneralLib): Interface_CopyTool {.
+proc constructInterfaceCopyTool*(amodel: Handle[InterfaceInterfaceModel];
+                                lib: InterfaceGeneralLib): InterfaceCopyTool {.
     constructor, importcpp: "Interface_CopyTool(@)",
     header: "Interface_CopyTool.hxx".}
-proc constructInterface_CopyTool*(amodel: handle[Interface_InterfaceModel];
-                                 protocol: handle[Interface_Protocol]): Interface_CopyTool {.
+proc constructInterfaceCopyTool*(amodel: Handle[InterfaceInterfaceModel];
+                                protocol: Handle[InterfaceProtocol]): InterfaceCopyTool {.
     constructor, importcpp: "Interface_CopyTool(@)",
     header: "Interface_CopyTool.hxx".}
-proc constructInterface_CopyTool*(amodel: handle[Interface_InterfaceModel]): Interface_CopyTool {.
+proc constructInterfaceCopyTool*(amodel: Handle[InterfaceInterfaceModel]): InterfaceCopyTool {.
     constructor, importcpp: "Interface_CopyTool(@)",
     header: "Interface_CopyTool.hxx".}
-proc Model*(this: Interface_CopyTool): handle[Interface_InterfaceModel] {.
+proc model*(this: InterfaceCopyTool): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "Model", header: "Interface_CopyTool.hxx".}
-proc SetControl*(this: var Interface_CopyTool;
-                othermap: handle[Interface_CopyControl]) {.
+proc setControl*(this: var InterfaceCopyTool; othermap: Handle[InterfaceCopyControl]) {.
     importcpp: "SetControl", header: "Interface_CopyTool.hxx".}
-proc Control*(this: Interface_CopyTool): handle[Interface_CopyControl] {.
-    noSideEffect, importcpp: "Control", header: "Interface_CopyTool.hxx".}
-proc Clear*(this: var Interface_CopyTool) {.importcpp: "Clear",
-                                        header: "Interface_CopyTool.hxx".}
-proc Copy*(this: var Interface_CopyTool; entfrom: handle[Standard_Transient];
-          entto: var handle[Standard_Transient]; mapped: Standard_Boolean;
-          errstat: Standard_Boolean): Standard_Boolean {.importcpp: "Copy",
+proc control*(this: InterfaceCopyTool): Handle[InterfaceCopyControl] {.noSideEffect,
+    importcpp: "Control", header: "Interface_CopyTool.hxx".}
+proc clear*(this: var InterfaceCopyTool) {.importcpp: "Clear",
+                                       header: "Interface_CopyTool.hxx".}
+proc copy*(this: var InterfaceCopyTool; entfrom: Handle[StandardTransient];
+          entto: var Handle[StandardTransient]; mapped: bool; errstat: bool): bool {.
+    importcpp: "Copy", header: "Interface_CopyTool.hxx".}
+proc transferred*(this: var InterfaceCopyTool; ent: Handle[StandardTransient]): Handle[
+    StandardTransient] {.importcpp: "Transferred", header: "Interface_CopyTool.hxx".}
+proc `bind`*(this: var InterfaceCopyTool; ent: Handle[StandardTransient];
+            res: Handle[StandardTransient]) {.importcpp: "Bind",
     header: "Interface_CopyTool.hxx".}
-proc Transferred*(this: var Interface_CopyTool; ent: handle[Standard_Transient]): handle[
-    Standard_Transient] {.importcpp: "Transferred",
-                         header: "Interface_CopyTool.hxx".}
-proc Bind*(this: var Interface_CopyTool; ent: handle[Standard_Transient];
-          res: handle[Standard_Transient]) {.importcpp: "Bind",
-    header: "Interface_CopyTool.hxx".}
-proc Search*(this: Interface_CopyTool; ent: handle[Standard_Transient];
-            res: var handle[Standard_Transient]): Standard_Boolean {.noSideEffect,
+proc search*(this: InterfaceCopyTool; ent: Handle[StandardTransient];
+            res: var Handle[StandardTransient]): bool {.noSideEffect,
     importcpp: "Search", header: "Interface_CopyTool.hxx".}
-proc ClearLastFlags*(this: var Interface_CopyTool) {.importcpp: "ClearLastFlags",
+proc clearLastFlags*(this: var InterfaceCopyTool) {.importcpp: "ClearLastFlags",
     header: "Interface_CopyTool.hxx".}
-proc LastCopiedAfter*(this: Interface_CopyTool; numfrom: Standard_Integer;
-                     ent: var handle[Standard_Transient];
-                     res: var handle[Standard_Transient]): Standard_Integer {.
-    noSideEffect, importcpp: "LastCopiedAfter", header: "Interface_CopyTool.hxx".}
-proc TransferEntity*(this: var Interface_CopyTool; ent: handle[Standard_Transient]) {.
+proc lastCopiedAfter*(this: InterfaceCopyTool; numfrom: int;
+                     ent: var Handle[StandardTransient];
+                     res: var Handle[StandardTransient]): int {.noSideEffect,
+    importcpp: "LastCopiedAfter", header: "Interface_CopyTool.hxx".}
+proc transferEntity*(this: var InterfaceCopyTool; ent: Handle[StandardTransient]) {.
     importcpp: "TransferEntity", header: "Interface_CopyTool.hxx".}
-proc RenewImpliedRefs*(this: var Interface_CopyTool) {.
-    importcpp: "RenewImpliedRefs", header: "Interface_CopyTool.hxx".}
-proc FillModel*(this: var Interface_CopyTool;
-               bmodel: handle[Interface_InterfaceModel]) {.importcpp: "FillModel",
+proc renewImpliedRefs*(this: var InterfaceCopyTool) {.importcpp: "RenewImpliedRefs",
     header: "Interface_CopyTool.hxx".}
-proc CompleteResult*(this: Interface_CopyTool;
-                    withreports: Standard_Boolean = Standard_False): Interface_EntityIterator {.
+proc fillModel*(this: var InterfaceCopyTool; bmodel: Handle[InterfaceInterfaceModel]) {.
+    importcpp: "FillModel", header: "Interface_CopyTool.hxx".}
+proc completeResult*(this: InterfaceCopyTool; withreports: bool = false): InterfaceEntityIterator {.
     noSideEffect, importcpp: "CompleteResult", header: "Interface_CopyTool.hxx".}
-proc RootResult*(this: Interface_CopyTool;
-                withreports: Standard_Boolean = Standard_False): Interface_EntityIterator {.
+proc rootResult*(this: InterfaceCopyTool; withreports: bool = false): InterfaceEntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "Interface_CopyTool.hxx".}
-proc destroyInterface_CopyTool*(this: var Interface_CopyTool) {.
+proc destroyInterfaceCopyTool*(this: var InterfaceCopyTool) {.
     importcpp: "#.~Interface_CopyTool()", header: "Interface_CopyTool.hxx".}

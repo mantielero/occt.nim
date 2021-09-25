@@ -14,44 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Intf_SeqOfSectionPoint, Intf_SeqOfSectionLine,
-  Intf_SeqOfTangentZone, ../Standard/Standard_Boolean, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Intf_SectionPoint"
 discard "forward decl of Intf_SectionLine"
 discard "forward decl of Intf_TangentZone"
 type
-  Intf_Interference* {.importcpp: "Intf_Interference",
-                      header: "Intf_Interference.hxx", bycopy.} = object ## ! Gives the number   of  points of  intersection  in the
-                                                                    ## !
-                                                                    ## interference.
-                                                                    ## ! Empty constructor
+  IntfInterference* {.importcpp: "Intf_Interference",
+                     header: "Intf_Interference.hxx", bycopy.} = object ## ! Gives the number   of  points of  intersection  in the
+                                                                   ## ! interference.
+                                                                   ## ! Empty constructor
 
 
-proc NbSectionPoints*(this: Intf_Interference): Standard_Integer {.noSideEffect,
+proc nbSectionPoints*(this: IntfInterference): int {.noSideEffect,
     importcpp: "NbSectionPoints", header: "Intf_Interference.hxx".}
-proc PntValue*(this: Intf_Interference; Index: Standard_Integer): Intf_SectionPoint {.
-    noSideEffect, importcpp: "PntValue", header: "Intf_Interference.hxx".}
-proc NbSectionLines*(this: Intf_Interference): Standard_Integer {.noSideEffect,
+proc pntValue*(this: IntfInterference; index: int): IntfSectionPoint {.noSideEffect,
+    importcpp: "PntValue", header: "Intf_Interference.hxx".}
+proc nbSectionLines*(this: IntfInterference): int {.noSideEffect,
     importcpp: "NbSectionLines", header: "Intf_Interference.hxx".}
-proc LineValue*(this: Intf_Interference; Index: Standard_Integer): Intf_SectionLine {.
-    noSideEffect, importcpp: "LineValue", header: "Intf_Interference.hxx".}
-proc NbTangentZones*(this: Intf_Interference): Standard_Integer {.noSideEffect,
+proc lineValue*(this: IntfInterference; index: int): IntfSectionLine {.noSideEffect,
+    importcpp: "LineValue", header: "Intf_Interference.hxx".}
+proc nbTangentZones*(this: IntfInterference): int {.noSideEffect,
     importcpp: "NbTangentZones", header: "Intf_Interference.hxx".}
-proc ZoneValue*(this: Intf_Interference; Index: Standard_Integer): Intf_TangentZone {.
-    noSideEffect, importcpp: "ZoneValue", header: "Intf_Interference.hxx".}
-proc GetTolerance*(this: Intf_Interference): Standard_Real {.noSideEffect,
+proc zoneValue*(this: IntfInterference; index: int): IntfTangentZone {.noSideEffect,
+    importcpp: "ZoneValue", header: "Intf_Interference.hxx".}
+proc getTolerance*(this: IntfInterference): float {.noSideEffect,
     importcpp: "GetTolerance", header: "Intf_Interference.hxx".}
-proc Contains*(this: Intf_Interference; ThePnt: Intf_SectionPoint): Standard_Boolean {.
-    noSideEffect, importcpp: "Contains", header: "Intf_Interference.hxx".}
-proc Insert*(this: var Intf_Interference; TheZone: Intf_TangentZone): Standard_Boolean {.
+proc contains*(this: IntfInterference; thePnt: IntfSectionPoint): bool {.noSideEffect,
+    importcpp: "Contains", header: "Intf_Interference.hxx".}
+proc insert*(this: var IntfInterference; theZone: IntfTangentZone): bool {.
     importcpp: "Insert", header: "Intf_Interference.hxx".}
-proc Insert*(this: var Intf_Interference; pdeb: Intf_SectionPoint;
-            pfin: Intf_SectionPoint) {.importcpp: "Insert",
-                                     header: "Intf_Interference.hxx".}
-proc Dump*(this: Intf_Interference) {.noSideEffect, importcpp: "Dump",
-                                   header: "Intf_Interference.hxx".}
+proc insert*(this: var IntfInterference; pdeb: IntfSectionPoint;
+            pfin: IntfSectionPoint) {.importcpp: "Insert",
+                                    header: "Intf_Interference.hxx".}
+proc dump*(this: IntfInterference) {.noSideEffect, importcpp: "Dump",
+                                  header: "Intf_Interference.hxx".}

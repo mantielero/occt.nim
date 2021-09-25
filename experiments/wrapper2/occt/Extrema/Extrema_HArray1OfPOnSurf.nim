@@ -14,38 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Extrema_POnSurf, Extrema_Array1OfPOnSurf,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  Extrema_HArray1OfPOnSurf* {.importcpp: "Extrema_HArray1OfPOnSurf",
-                             header: "Extrema_HArray1OfPOnSurf.hxx", bycopy.} = object of Extrema_Array1OfPOnSurf
+  ExtremaHArray1OfPOnSurf* {.importcpp: "Extrema_HArray1OfPOnSurf",
+                            header: "Extrema_HArray1OfPOnSurf.hxx", bycopy.} = object of ExtremaArray1OfPOnSurf
 
 
-proc constructExtrema_HArray1OfPOnSurf*(theLower: Standard_Integer;
-                                       theUpper: Standard_Integer): Extrema_HArray1OfPOnSurf {.
+proc constructExtremaHArray1OfPOnSurf*(theLower: int; theUpper: int): ExtremaHArray1OfPOnSurf {.
     constructor, importcpp: "Extrema_HArray1OfPOnSurf(@)",
     header: "Extrema_HArray1OfPOnSurf.hxx".}
-proc constructExtrema_HArray1OfPOnSurf*(theLower: Standard_Integer;
-                                       theUpper: Standard_Integer;
-                                       theValue: value_type): Extrema_HArray1OfPOnSurf {.
+proc constructExtremaHArray1OfPOnSurf*(theLower: int; theUpper: int;
+                                      theValue: ValueType): ExtremaHArray1OfPOnSurf {.
     constructor, importcpp: "Extrema_HArray1OfPOnSurf(@)",
     header: "Extrema_HArray1OfPOnSurf.hxx".}
-proc constructExtrema_HArray1OfPOnSurf*(theOther: Extrema_Array1OfPOnSurf): Extrema_HArray1OfPOnSurf {.
+proc constructExtremaHArray1OfPOnSurf*(theOther: ExtremaArray1OfPOnSurf): ExtremaHArray1OfPOnSurf {.
     constructor, importcpp: "Extrema_HArray1OfPOnSurf(@)",
     header: "Extrema_HArray1OfPOnSurf.hxx".}
-proc Array1*(this: Extrema_HArray1OfPOnSurf): Extrema_Array1OfPOnSurf {.
-    noSideEffect, importcpp: "Array1", header: "Extrema_HArray1OfPOnSurf.hxx".}
-proc ChangeArray1*(this: var Extrema_HArray1OfPOnSurf): var Extrema_Array1OfPOnSurf {.
+proc array1*(this: ExtremaHArray1OfPOnSurf): ExtremaArray1OfPOnSurf {.noSideEffect,
+    importcpp: "Array1", header: "Extrema_HArray1OfPOnSurf.hxx".}
+proc changeArray1*(this: var ExtremaHArray1OfPOnSurf): var ExtremaArray1OfPOnSurf {.
     importcpp: "ChangeArray1", header: "Extrema_HArray1OfPOnSurf.hxx".}
 type
-  Extrema_HArray1OfPOnSurfbase_type* = MMgt_TShared
+  ExtremaHArray1OfPOnSurfbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "Extrema_HArray1OfPOnSurf::get_type_name(@)",
-                              header: "Extrema_HArray1OfPOnSurf.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Extrema_HArray1OfPOnSurf::get_type_name(@)",
+                            header: "Extrema_HArray1OfPOnSurf.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Extrema_HArray1OfPOnSurf::get_type_descriptor(@)",
     header: "Extrema_HArray1OfPOnSurf.hxx".}
-proc DynamicType*(this: Extrema_HArray1OfPOnSurf): handle[Standard_Type] {.
+proc dynamicType*(this: ExtremaHArray1OfPOnSurf): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Extrema_HArray1OfPOnSurf.hxx".}

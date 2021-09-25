@@ -14,218 +14,205 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Aspect/Aspect_GenId, ../Aspect/Aspect_TypeOfHighlightMethod, Graphic3d_CView,
-  Graphic3d_MapOfObject, Graphic3d_MapOfStructure, Graphic3d_ViewAffinity,
-  Graphic3d_ZLayerId, Graphic3d_ZLayerSettings, ../Standard/Standard_Transient,
-  ../NCollection/NCollection_IndexedMap, ../Standard/Standard,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
-  ../Standard/Standard_Type, ../TColStd/TColStd_Array2OfReal
-
 type
-  Graphic3d_IndexedMapOfView* = NCollection_IndexedMap[ptr Graphic3d_CView]
+  Graphic3dIndexedMapOfView* = NCollectionIndexedMap[ptr Graphic3dCView]
 
 discard "forward decl of Graphic3d_GraphicDriver"
 discard "forward decl of Graphic3d_Structure"
 discard "forward decl of Graphic3d_DataStructureManager"
 type
-  Graphic3d_StructureManager* {.importcpp: "Graphic3d_StructureManager",
-                               header: "Graphic3d_StructureManager.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                          ## !
-                                                                                                          ## Initializes
-                                                                                                          ## the
-                                                                                                          ## ViewManager.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Currently
-                                                                                                          ## creating
-                                                                                                          ## of
-                                                                                                          ## more
-                                                                                                          ## than
-                                                                                                          ## 100
-                                                                                                          ## viewer
-                                                                                                          ## instances
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## is
-                                                                                                          ## not
-                                                                                                          ## supported
-                                                                                                          ## and
-                                                                                                          ## leads
-                                                                                                          ## to
-                                                                                                          ## InitializationError
-                                                                                                          ## and
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## initialization
-                                                                                                          ## failure.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## This
-                                                                                                          ## limitation
-                                                                                                          ## might
-                                                                                                          ## be
-                                                                                                          ## addressed
-                                                                                                          ## in
-                                                                                                          ## some
-                                                                                                          ## future
-                                                                                                          ## OCCT
-                                                                                                          ## releases.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Warning:
-                                                                                                          ## Raises
-                                                                                                          ## InitialisationError
-                                                                                                          ## if
-                                                                                                          ## the
-                                                                                                          ## initialization
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## of
-                                                                                                          ## the
-                                                                                                          ## ViewManager
-                                                                                                          ## failed.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## the
-                                                                                                          ## number
-                                                                                                          ## of
-                                                                                                          ## structures
-                                                                                                          ## displayed
-                                                                                                          ## in
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## visualizer
-                                                                                                          ## <me>.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## the
-                                                                                                          ## structure
-                                                                                                          ## displayed
-                                                                                                          ## in
-                                                                                                          ## visualizer
-                                                                                                          ## <me>.
+  Graphic3dStructureManager* {.importcpp: "Graphic3d_StructureManager",
+                              header: "Graphic3d_StructureManager.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                        ## !
+                                                                                                        ## Initializes
+                                                                                                        ## the
+                                                                                                        ## ViewManager.
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## Currently
+                                                                                                        ## creating
+                                                                                                        ## of
+                                                                                                        ## more
+                                                                                                        ## than
+                                                                                                        ## 100
+                                                                                                        ## viewer
+                                                                                                        ## instances
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## is
+                                                                                                        ## not
+                                                                                                        ## supported
+                                                                                                        ## and
+                                                                                                        ## leads
+                                                                                                        ## to
+                                                                                                        ## InitializationError
+                                                                                                        ## and
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## initialization
+                                                                                                        ## failure.
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## This
+                                                                                                        ## limitation
+                                                                                                        ## might
+                                                                                                        ## be
+                                                                                                        ## addressed
+                                                                                                        ## in
+                                                                                                        ## some
+                                                                                                        ## future
+                                                                                                        ## OCCT
+                                                                                                        ## releases.
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## Warning:
+                                                                                                        ## Raises
+                                                                                                        ## InitialisationError
+                                                                                                        ## if
+                                                                                                        ## the
+                                                                                                        ## initialization
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## of
+                                                                                                        ## the
+                                                                                                        ## ViewManager
+                                                                                                        ## failed.
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## Returns
+                                                                                                        ## the
+                                                                                                        ## number
+                                                                                                        ## of
+                                                                                                        ## structures
+                                                                                                        ## displayed
+                                                                                                        ## in
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## visualizer
+                                                                                                        ## <me>.
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## Returns
+                                                                                                        ## the
+                                                                                                        ## structure
+                                                                                                        ## displayed
+                                                                                                        ## in
+                                                                                                        ## visualizer
+                                                                                                        ## <me>.
 
-  Graphic3d_StructureManagerbase_type* = Standard_Transient
+  Graphic3dStructureManagerbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_StructureManager::get_type_name(@)",
-                              header: "Graphic3d_StructureManager.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_StructureManager::get_type_name(@)",
+                            header: "Graphic3d_StructureManager.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_StructureManager::get_type_descriptor(@)",
     header: "Graphic3d_StructureManager.hxx".}
-proc DynamicType*(this: Graphic3d_StructureManager): handle[Standard_Type] {.
+proc dynamicType*(this: Graphic3dStructureManager): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Graphic3d_StructureManager.hxx".}
-proc constructGraphic3d_StructureManager*(
-    theDriver: handle[Graphic3d_GraphicDriver]): Graphic3d_StructureManager {.
+proc constructGraphic3dStructureManager*(theDriver: Handle[Graphic3dGraphicDriver]): Graphic3dStructureManager {.
     constructor, importcpp: "Graphic3d_StructureManager(@)",
     header: "Graphic3d_StructureManager.hxx".}
-proc destroyGraphic3d_StructureManager*(this: var Graphic3d_StructureManager) {.
+proc destroyGraphic3dStructureManager*(this: var Graphic3dStructureManager) {.
     importcpp: "#.~Graphic3d_StructureManager()",
     header: "Graphic3d_StructureManager.hxx".}
-proc Update*(this: Graphic3d_StructureManager;
-            theLayerId: Graphic3d_ZLayerId = Graphic3d_ZLayerId_UNKNOWN) {.
+proc update*(this: Graphic3dStructureManager;
+            theLayerId: Graphic3dZLayerId = graphic3dZLayerIdUNKNOWN) {.
     noSideEffect, importcpp: "Update", header: "Graphic3d_StructureManager.hxx".}
-proc Remove*(this: var Graphic3d_StructureManager) {.importcpp: "Remove",
+proc remove*(this: var Graphic3dStructureManager) {.importcpp: "Remove",
     header: "Graphic3d_StructureManager.hxx".}
-proc Erase*(this: var Graphic3d_StructureManager) {.importcpp: "Erase",
+proc erase*(this: var Graphic3dStructureManager) {.importcpp: "Erase",
     header: "Graphic3d_StructureManager.hxx".}
-proc DisplayedStructures*(this: Graphic3d_StructureManager;
-                         SG: var Graphic3d_MapOfStructure) {.noSideEffect,
+proc displayedStructures*(this: Graphic3dStructureManager;
+                         sg: var Graphic3dMapOfStructure) {.noSideEffect,
     importcpp: "DisplayedStructures", header: "Graphic3d_StructureManager.hxx".}
-proc HighlightedStructures*(this: Graphic3d_StructureManager;
-                           SG: var Graphic3d_MapOfStructure) {.noSideEffect,
+proc highlightedStructures*(this: Graphic3dStructureManager;
+                           sg: var Graphic3dMapOfStructure) {.noSideEffect,
     importcpp: "HighlightedStructures", header: "Graphic3d_StructureManager.hxx".}
-proc ReCompute*(this: var Graphic3d_StructureManager;
-               theStructure: handle[Graphic3d_Structure]) {.
+proc reCompute*(this: var Graphic3dStructureManager;
+               theStructure: Handle[Graphic3dStructure]) {.importcpp: "ReCompute",
+    header: "Graphic3d_StructureManager.hxx".}
+proc reCompute*(this: var Graphic3dStructureManager;
+               theStructure: Handle[Graphic3dStructure];
+               theProjector: Handle[Graphic3dDataStructureManager]) {.
     importcpp: "ReCompute", header: "Graphic3d_StructureManager.hxx".}
-proc ReCompute*(this: var Graphic3d_StructureManager;
-               theStructure: handle[Graphic3d_Structure];
-               theProjector: handle[Graphic3d_DataStructureManager]) {.
-    importcpp: "ReCompute", header: "Graphic3d_StructureManager.hxx".}
-proc Clear*(this: var Graphic3d_StructureManager;
-           theStructure: ptr Graphic3d_Structure;
-           theWithDestruction: Standard_Boolean) {.importcpp: "Clear",
+proc clear*(this: var Graphic3dStructureManager;
+           theStructure: ptr Graphic3dStructure; theWithDestruction: bool) {.
+    importcpp: "Clear", header: "Graphic3d_StructureManager.hxx".}
+proc connect*(this: var Graphic3dStructureManager;
+             theMother: ptr Graphic3dStructure; theDaughter: ptr Graphic3dStructure) {.
+    importcpp: "Connect", header: "Graphic3d_StructureManager.hxx".}
+proc disconnect*(this: var Graphic3dStructureManager;
+                theMother: ptr Graphic3dStructure;
+                theDaughter: ptr Graphic3dStructure) {.importcpp: "Disconnect",
     header: "Graphic3d_StructureManager.hxx".}
-proc Connect*(this: var Graphic3d_StructureManager;
-             theMother: ptr Graphic3d_Structure;
-             theDaughter: ptr Graphic3d_Structure) {.importcpp: "Connect",
+proc display*(this: var Graphic3dStructureManager;
+             theStructure: Handle[Graphic3dStructure]) {.importcpp: "Display",
     header: "Graphic3d_StructureManager.hxx".}
-proc Disconnect*(this: var Graphic3d_StructureManager;
-                theMother: ptr Graphic3d_Structure;
-                theDaughter: ptr Graphic3d_Structure) {.importcpp: "Disconnect",
+proc erase*(this: var Graphic3dStructureManager;
+           theStructure: Handle[Graphic3dStructure]) {.importcpp: "Erase",
     header: "Graphic3d_StructureManager.hxx".}
-proc Display*(this: var Graphic3d_StructureManager;
-             theStructure: handle[Graphic3d_Structure]) {.importcpp: "Display",
+proc highlight*(this: var Graphic3dStructureManager;
+               theStructure: Handle[Graphic3dStructure]) {.importcpp: "Highlight",
     header: "Graphic3d_StructureManager.hxx".}
-proc Erase*(this: var Graphic3d_StructureManager;
-           theStructure: handle[Graphic3d_Structure]) {.importcpp: "Erase",
+proc setTransform*(this: var Graphic3dStructureManager;
+                  theStructure: Handle[Graphic3dStructure];
+                  theTrsf: Handle[TopLocDatum3D]) {.importcpp: "SetTransform",
     header: "Graphic3d_StructureManager.hxx".}
-proc Highlight*(this: var Graphic3d_StructureManager;
-               theStructure: handle[Graphic3d_Structure]) {.
-    importcpp: "Highlight", header: "Graphic3d_StructureManager.hxx".}
-proc SetTransform*(this: var Graphic3d_StructureManager;
-                  theStructure: handle[Graphic3d_Structure];
-                  theTrsf: handle[TopLoc_Datum3D]) {.importcpp: "SetTransform",
-    header: "Graphic3d_StructureManager.hxx".}
-proc ChangeDisplayPriority*(this: var Graphic3d_StructureManager;
-                           theStructure: handle[Graphic3d_Structure];
-                           theOldPriority: Standard_Integer;
-                           theNewPriority: Standard_Integer) {.
+proc changeDisplayPriority*(this: var Graphic3dStructureManager;
+                           theStructure: Handle[Graphic3dStructure];
+                           theOldPriority: int; theNewPriority: int) {.
     importcpp: "ChangeDisplayPriority", header: "Graphic3d_StructureManager.hxx".}
-proc ChangeZLayer*(this: var Graphic3d_StructureManager;
-                  theStructure: handle[Graphic3d_Structure];
-                  theLayerId: Graphic3d_ZLayerId) {.importcpp: "ChangeZLayer",
+proc changeZLayer*(this: var Graphic3dStructureManager;
+                  theStructure: Handle[Graphic3dStructure];
+                  theLayerId: Graphic3dZLayerId) {.importcpp: "ChangeZLayer",
     header: "Graphic3d_StructureManager.hxx".}
-proc GraphicDriver*(this: Graphic3d_StructureManager): handle[
-    Graphic3d_GraphicDriver] {.noSideEffect, importcpp: "GraphicDriver",
-                              header: "Graphic3d_StructureManager.hxx".}
-proc Identification*(this: var Graphic3d_StructureManager;
-                    theView: ptr Graphic3d_CView): Standard_Integer {.
-    importcpp: "Identification", header: "Graphic3d_StructureManager.hxx".}
-proc UnIdentification*(this: var Graphic3d_StructureManager;
-                      theView: ptr Graphic3d_CView) {.
-    importcpp: "UnIdentification", header: "Graphic3d_StructureManager.hxx".}
-proc DefinedViews*(this: Graphic3d_StructureManager): Graphic3d_IndexedMapOfView {.
+proc graphicDriver*(this: Graphic3dStructureManager): Handle[Graphic3dGraphicDriver] {.
+    noSideEffect, importcpp: "GraphicDriver",
+    header: "Graphic3d_StructureManager.hxx".}
+proc identification*(this: var Graphic3dStructureManager;
+                    theView: ptr Graphic3dCView): int {.importcpp: "Identification",
+    header: "Graphic3d_StructureManager.hxx".}
+proc unIdentification*(this: var Graphic3dStructureManager;
+                      theView: ptr Graphic3dCView) {.importcpp: "UnIdentification",
+    header: "Graphic3d_StructureManager.hxx".}
+proc definedViews*(this: Graphic3dStructureManager): Graphic3dIndexedMapOfView {.
     noSideEffect, importcpp: "DefinedViews",
     header: "Graphic3d_StructureManager.hxx".}
-proc MaxNumOfViews*(this: Graphic3d_StructureManager): Standard_Integer {.
-    noSideEffect, importcpp: "MaxNumOfViews",
-    header: "Graphic3d_StructureManager.hxx".}
-proc Identification*(this: Graphic3d_StructureManager; AId: Standard_Integer): handle[
-    Graphic3d_Structure] {.noSideEffect, importcpp: "Identification",
-                          header: "Graphic3d_StructureManager.hxx".}
-proc UnHighlight*(this: var Graphic3d_StructureManager;
-                 AStructure: handle[Graphic3d_Structure]) {.
+proc maxNumOfViews*(this: Graphic3dStructureManager): int {.noSideEffect,
+    importcpp: "MaxNumOfViews", header: "Graphic3d_StructureManager.hxx".}
+proc identification*(this: Graphic3dStructureManager; aId: int): Handle[
+    Graphic3dStructure] {.noSideEffect, importcpp: "Identification",
+                         header: "Graphic3d_StructureManager.hxx".}
+proc unHighlight*(this: var Graphic3dStructureManager;
+                 aStructure: Handle[Graphic3dStructure]) {.
     importcpp: "UnHighlight", header: "Graphic3d_StructureManager.hxx".}
-proc UnHighlight*(this: var Graphic3d_StructureManager) {.importcpp: "UnHighlight",
+proc unHighlight*(this: var Graphic3dStructureManager) {.importcpp: "UnHighlight",
     header: "Graphic3d_StructureManager.hxx".}
-proc RecomputeStructures*(this: var Graphic3d_StructureManager) {.
+proc recomputeStructures*(this: var Graphic3dStructureManager) {.
     importcpp: "RecomputeStructures", header: "Graphic3d_StructureManager.hxx".}
-proc RecomputeStructures*(this: var Graphic3d_StructureManager; theStructures: NCollection_Map[
-    ptr Graphic3d_Structure]) {.importcpp: "RecomputeStructures",
-                              header: "Graphic3d_StructureManager.hxx".}
-proc RegisterObject*(this: var Graphic3d_StructureManager;
-                    theObject: handle[Standard_Transient]): handle[
-    Graphic3d_ViewAffinity] {.importcpp: "RegisterObject",
-                             header: "Graphic3d_StructureManager.hxx".}
-proc UnregisterObject*(this: var Graphic3d_StructureManager;
-                      theObject: handle[Standard_Transient]) {.
+proc recomputeStructures*(this: var Graphic3dStructureManager;
+                         theStructures: NCollectionMap[ptr Graphic3dStructure]) {.
+    importcpp: "RecomputeStructures", header: "Graphic3d_StructureManager.hxx".}
+proc registerObject*(this: var Graphic3dStructureManager;
+                    theObject: Handle[StandardTransient]): Handle[
+    Graphic3dViewAffinity] {.importcpp: "RegisterObject",
+                            header: "Graphic3d_StructureManager.hxx".}
+proc unregisterObject*(this: var Graphic3dStructureManager;
+                      theObject: Handle[StandardTransient]) {.
     importcpp: "UnregisterObject", header: "Graphic3d_StructureManager.hxx".}
-proc ObjectAffinity*(this: Graphic3d_StructureManager;
-                    theObject: handle[Standard_Transient]): handle[
-    Graphic3d_ViewAffinity] {.noSideEffect, importcpp: "ObjectAffinity",
-                             header: "Graphic3d_StructureManager.hxx".}
-proc IsDeviceLost*(this: Graphic3d_StructureManager): Standard_Boolean {.
-    noSideEffect, importcpp: "IsDeviceLost",
-    header: "Graphic3d_StructureManager.hxx".}
-proc SetDeviceLost*(this: var Graphic3d_StructureManager) {.
+proc objectAffinity*(this: Graphic3dStructureManager;
+                    theObject: Handle[StandardTransient]): Handle[
+    Graphic3dViewAffinity] {.noSideEffect, importcpp: "ObjectAffinity",
+                            header: "Graphic3d_StructureManager.hxx".}
+proc isDeviceLost*(this: Graphic3dStructureManager): bool {.noSideEffect,
+    importcpp: "IsDeviceLost", header: "Graphic3d_StructureManager.hxx".}
+proc setDeviceLost*(this: var Graphic3dStructureManager) {.
     importcpp: "SetDeviceLost", header: "Graphic3d_StructureManager.hxx".}
-proc DumpJson*(this: Graphic3d_StructureManager; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Graphic3d_StructureManager.hxx".}
+proc dumpJson*(this: Graphic3dStructureManager; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Graphic3d_StructureManager.hxx".}
 discard "forward decl of Graphic3d_StructureManager"
 type
-  Handle_Graphic3d_StructureManager* = handle[Graphic3d_StructureManager]
+  HandleGraphic3dStructureManager* = Handle[Graphic3dStructureManager]
+

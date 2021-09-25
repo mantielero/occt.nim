@@ -14,58 +14,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Face,
-  ../Draw/Draw_Color, ../TColStd/TColStd_Array1OfInteger,
-  ../TColStd/TColStd_Array1OfReal, ../Standard/Standard_Transient,
-  ../Standard/Standard_Integer, ../GeomAbs/GeomAbs_IsoType,
-  ../Standard/Standard_Real
-
 discard "forward decl of TopoDS_Face"
 discard "forward decl of Draw_Color"
 discard "forward decl of DBRep_Face"
 discard "forward decl of DBRep_Face"
 type
-  Handle_DBRep_Face* = handle[DBRep_Face]
+  HandleDBRepFace* = Handle[DBRepFace]
 
 ## ! Display of a face. Face + Array of iso + color.
 
 type
-  DBRep_Face* {.importcpp: "DBRep_Face", header: "DBRep_Face.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                 ## !
-                                                                                                 ## N
-                                                                                                 ## is
-                                                                                                 ## the
-                                                                                                 ## number
-                                                                                                 ## of
-                                                                                                 ## iso
-                                                                                                 ## intervals.
+  DBRepFace* {.importcpp: "DBRep_Face", header: "DBRep_Face.hxx", bycopy.} = object of StandardTransient ##
+                                                                                               ## !
+                                                                                               ## N
+                                                                                               ## is
+                                                                                               ## the
+                                                                                               ## number
+                                                                                               ## of
+                                                                                               ## iso
+                                                                                               ## intervals.
 
 
-proc constructDBRep_Face*(F: TopoDS_Face; N: Standard_Integer; C: Draw_Color): DBRep_Face {.
-    constructor, importcpp: "DBRep_Face(@)", header: "DBRep_Face.hxx".}
-proc Face*(this: DBRep_Face): TopoDS_Face {.noSideEffect, importcpp: "Face",
-                                        header: "DBRep_Face.hxx".}
-proc Face*(this: var DBRep_Face; F: TopoDS_Face) {.importcpp: "Face",
+proc constructDBRepFace*(f: TopoDS_Face; n: int; c: DrawColor): DBRepFace {.constructor,
+    importcpp: "DBRep_Face(@)", header: "DBRep_Face.hxx".}
+proc face*(this: DBRepFace): TopoDS_Face {.noSideEffect, importcpp: "Face",
+                                       header: "DBRep_Face.hxx".}
+proc face*(this: var DBRepFace; f: TopoDS_Face) {.importcpp: "Face",
     header: "DBRep_Face.hxx".}
-proc NbIsos*(this: DBRep_Face): Standard_Integer {.noSideEffect, importcpp: "NbIsos",
-    header: "DBRep_Face.hxx".}
-proc Iso*(this: var DBRep_Face; I: Standard_Integer; T: GeomAbs_IsoType;
-         Par: Standard_Real; T1: Standard_Real; T2: Standard_Real) {.importcpp: "Iso",
-    header: "DBRep_Face.hxx".}
-proc GetIso*(this: DBRep_Face; I: Standard_Integer; T: var GeomAbs_IsoType;
-            Par: var Standard_Real; T1: var Standard_Real; T2: var Standard_Real) {.
-    noSideEffect, importcpp: "GetIso", header: "DBRep_Face.hxx".}
-proc Color*(this: DBRep_Face): Draw_Color {.noSideEffect, importcpp: "Color",
-                                        header: "DBRep_Face.hxx".}
-proc Color*(this: var DBRep_Face; C: Draw_Color) {.importcpp: "Color",
+proc nbIsos*(this: DBRepFace): int {.noSideEffect, importcpp: "NbIsos",
+                                 header: "DBRep_Face.hxx".}
+proc iso*(this: var DBRepFace; i: int; t: GeomAbsIsoType; par: float; t1: float; t2: float) {.
+    importcpp: "Iso", header: "DBRep_Face.hxx".}
+proc getIso*(this: DBRepFace; i: int; t: var GeomAbsIsoType; par: var float; t1: var float;
+            t2: var float) {.noSideEffect, importcpp: "GetIso",
+                          header: "DBRep_Face.hxx".}
+proc color*(this: DBRepFace): DrawColor {.noSideEffect, importcpp: "Color",
+                                      header: "DBRep_Face.hxx".}
+proc color*(this: var DBRepFace; c: DrawColor) {.importcpp: "Color",
     header: "DBRep_Face.hxx".}
 type
-  DBRep_Facebase_type* = Standard_Transient
+  DBRepFacebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "DBRep_Face::get_type_name(@)",
-                              header: "DBRep_Face.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "DBRep_Face::get_type_name(@)",
+                            header: "DBRep_Face.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "DBRep_Face::get_type_descriptor(@)", header: "DBRep_Face.hxx".}
-proc DynamicType*(this: DBRep_Face): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: DBRepFace): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DBRep_Face.hxx".}

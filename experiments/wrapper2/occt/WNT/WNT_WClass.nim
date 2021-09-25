@@ -14,16 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard
-
-when defined(_WIN32) and not defined(OCCT_UWP):
-  import
-    ../Aspect/Aspect_Handle, ../Standard/Standard_Address,
-    ../Standard/Standard_CString, ../Standard/Standard_Integer,
-    ../Standard/Standard_Transient, ../Standard/Standard_Type,
-    ../TCollection/TCollection_AsciiString
-
+when defined(win32) and not defined(occt_Uwp):
   ## ! This class defines a Windows NT window class.
   ## ! A window in Windows NT is always created based on a
   ## ! window class. The window class identifies the window
@@ -44,41 +35,40 @@ when defined(_WIN32) and not defined(OCCT_UWP):
   ## ! We implemented this class for sake of flexibility of
   ## ! event processing.
   type
-    WNT_WClass* {.importcpp: "WNT_WClass", header: "WNT_WClass.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                   ## !
-                                                                                                   ## Creates
-                                                                                                   ## a
-                                                                                                   ## Windows
-                                                                                                   ## NT
-                                                                                                   ## window
-                                                                                                   ## class
-                                                                                                   ## and
-                                                                                                   ## registers
-                                                                                                   ## it.
+    WNT_WClass* {.importcpp: "WNT_WClass", header: "WNT_WClass.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                  ## !
+                                                                                                  ## Creates
+                                                                                                  ## a
+                                                                                                  ## Windows
+                                                                                                  ## NT
+                                                                                                  ## window
+                                                                                                  ## class
+                                                                                                  ## and
+                                                                                                  ## registers
+                                                                                                  ## it.
 
   type
-    WNT_WClassbase_type* = Standard_Transient
-  proc get_type_name*(): cstring {.importcpp: "WNT_WClass::get_type_name(@)",
-                                header: "WNT_WClass.hxx".}
-  proc get_type_descriptor*(): handle[Standard_Type] {.
+    WNT_WClassbaseType* = StandardTransient
+  proc getTypeName*(): cstring {.importcpp: "WNT_WClass::get_type_name(@)",
+                              header: "WNT_WClass.hxx".}
+  proc getTypeDescriptor*(): Handle[StandardType] {.
       importcpp: "WNT_WClass::get_type_descriptor(@)", header: "WNT_WClass.hxx".}
-  proc DynamicType*(this: WNT_WClass): handle[Standard_Type] {.noSideEffect,
+  proc dynamicType*(this: WNT_WClass): Handle[StandardType] {.noSideEffect,
       importcpp: "DynamicType", header: "WNT_WClass.hxx".}
-  proc constructWNT_WClass*(theClassName: TCollection_AsciiString;
-                           theWndProc: Standard_Address; theStyle: cuint;
-                           theClassExtra: Standard_Integer = 0;
-                           theWindowExtra: Standard_Integer = 0;
-                           theCursor: Aspect_Handle = nil;
-                           theIcon: Aspect_Handle = nil; theMenuName: TCollection_AsciiString = TCollection_AsciiString()): WNT_WClass {.
+  proc constructWNT_WClass*(theClassName: TCollectionAsciiString;
+                           theWndProc: StandardAddress; theStyle: cuint;
+                           theClassExtra: int = 0; theWindowExtra: int = 0;
+                           theCursor: AspectHandle = nil;
+                           theIcon: AspectHandle = nil; theMenuName: TCollectionAsciiString = tCollectionAsciiString()): WNT_WClass {.
       constructor, importcpp: "WNT_WClass(@)", header: "WNT_WClass.hxx".}
   proc destroyWNT_WClass*(this: var WNT_WClass) {.importcpp: "#.~WNT_WClass()",
       header: "WNT_WClass.hxx".}
-  proc WndProc*(this: WNT_WClass): Standard_Address {.noSideEffect,
+  proc wndProc*(this: WNT_WClass): StandardAddress {.noSideEffect,
       importcpp: "WndProc", header: "WNT_WClass.hxx".}
-  proc Name*(this: WNT_WClass): TCollection_AsciiString {.noSideEffect,
+  proc name*(this: WNT_WClass): TCollectionAsciiString {.noSideEffect,
       importcpp: "Name", header: "WNT_WClass.hxx".}
-  proc Instance*(this: WNT_WClass): Aspect_Handle {.noSideEffect,
+  proc instance*(this: WNT_WClass): AspectHandle {.noSideEffect,
       importcpp: "Instance", header: "WNT_WClass.hxx".}
   discard "forward decl of WNT_WClass"
   type
-    Handle_WNT_WClass* = handle[WNT_WClass]
+    HandleWNT_WClass* = Handle[WNT_WClass]

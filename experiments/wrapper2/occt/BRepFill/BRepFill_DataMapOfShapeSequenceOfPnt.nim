@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, ../TColgp/TColgp_SequenceOfPnt,
-  ../TopTools/TopTools_ShapeMapHasher, ../NCollection/NCollection_DataMap
-
 type
-  BRepFill_DataMapOfShapeSequenceOfPnt* = NCollection_DataMap[TopoDS_Shape,
-      TColgp_SequenceOfPnt, TopTools_ShapeMapHasher]
-  BRepFill_DataMapIteratorOfDataMapOfShapeSequenceOfPnt* = Iterator[TopoDS_Shape,
-      TColgp_SequenceOfPnt, TopTools_ShapeMapHasher]
+  BRepFillDataMapOfShapeSequenceOfPnt* = NCollectionDataMap[TopoDS_Shape,
+      TColgpSequenceOfPnt, TopToolsShapeMapHasher]
+  BRepFillDataMapIteratorOfDataMapOfShapeSequenceOfPnt* = Iterator[TopoDS_Shape,
+      TColgpSequenceOfPnt, TopToolsShapeMapHasher]
+

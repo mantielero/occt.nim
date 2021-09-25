@@ -14,22 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_Real, ../GeomAbs/GeomAbs_Shape,
-  ../Standard/Standard_Integer, ../TColStd/TColStd_Array1OfReal,
-  ../Standard/Standard_Boolean, ../gp/gp_Pnt2d, ../gp/gp_Vec2d,
-  ../GeomAbs/GeomAbs_CurveType, ../gp/gp_Lin2d, ../gp/gp_Circ2d, ../gp/gp_Elips2d,
-  ../gp/gp_Hypr2d, ../gp/gp_Parab2d, ../Geom2d/Geom2d_BezierCurve,
-  ../Geom2d/Geom2d_BSplineCurve
-
 discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Adaptor2d_HCurve2d"
 type
-  Handle_Adaptor2d_HCurve2d* = handle[Adaptor2d_HCurve2d]
+  HandleAdaptor2dHCurve2d* = Handle[Adaptor2dHCurve2d]
 
 ## ! Root class for 2D curves manipulated by handles, on
 ## ! which geometric algorithms work.
@@ -40,89 +31,87 @@ type
 ## ! Geom2dAdaptor_HCurve for a curve from the Geom2d package.
 
 type
-  Adaptor2d_HCurve2d* {.importcpp: "Adaptor2d_HCurve2d",
-                       header: "Adaptor2d_HCurve2d.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                          ## !
-                                                                                          ## Returns
-                                                                                          ## a
-                                                                                          ## reference
-                                                                                          ## to
-                                                                                          ## the
-                                                                                          ## Curve2d
-                                                                                          ## inside
-                                                                                          ## the
-                                                                                          ## HCurve2d.
+  Adaptor2dHCurve2d* {.importcpp: "Adaptor2d_HCurve2d",
+                      header: "Adaptor2d_HCurve2d.hxx", bycopy.} = object of StandardTransient ##
+                                                                                        ## !
+                                                                                        ## Returns
+                                                                                        ## a
+                                                                                        ## reference
+                                                                                        ## to
+                                                                                        ## the
+                                                                                        ## Curve2d
+                                                                                        ## inside
+                                                                                        ## the
+                                                                                        ## HCurve2d.
 
 
-proc Curve2d*(this: Adaptor2d_HCurve2d): Adaptor2d_Curve2d {.noSideEffect,
+proc curve2d*(this: Adaptor2dHCurve2d): Adaptor2dCurve2d {.noSideEffect,
     importcpp: "Curve2d", header: "Adaptor2d_HCurve2d.hxx".}
-proc FirstParameter*(this: Adaptor2d_HCurve2d): Standard_Real {.noSideEffect,
+proc firstParameter*(this: Adaptor2dHCurve2d): float {.noSideEffect,
     importcpp: "FirstParameter", header: "Adaptor2d_HCurve2d.hxx".}
-proc LastParameter*(this: Adaptor2d_HCurve2d): Standard_Real {.noSideEffect,
+proc lastParameter*(this: Adaptor2dHCurve2d): float {.noSideEffect,
     importcpp: "LastParameter", header: "Adaptor2d_HCurve2d.hxx".}
-proc Continuity*(this: Adaptor2d_HCurve2d): GeomAbs_Shape {.noSideEffect,
+proc continuity*(this: Adaptor2dHCurve2d): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Adaptor2d_HCurve2d.hxx".}
-proc NbIntervals*(this: Adaptor2d_HCurve2d; S: GeomAbs_Shape): Standard_Integer {.
-    noSideEffect, importcpp: "NbIntervals", header: "Adaptor2d_HCurve2d.hxx".}
-proc Intervals*(this: Adaptor2d_HCurve2d; T: var TColStd_Array1OfReal;
-               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
-                                 header: "Adaptor2d_HCurve2d.hxx".}
-proc Trim*(this: Adaptor2d_HCurve2d; First: Standard_Real; Last: Standard_Real;
-          Tol: Standard_Real): handle[Adaptor2d_HCurve2d] {.noSideEffect,
-    importcpp: "Trim", header: "Adaptor2d_HCurve2d.hxx".}
-proc IsClosed*(this: Adaptor2d_HCurve2d): Standard_Boolean {.noSideEffect,
-    importcpp: "IsClosed", header: "Adaptor2d_HCurve2d.hxx".}
-proc IsPeriodic*(this: Adaptor2d_HCurve2d): Standard_Boolean {.noSideEffect,
-    importcpp: "IsPeriodic", header: "Adaptor2d_HCurve2d.hxx".}
-proc Period*(this: Adaptor2d_HCurve2d): Standard_Real {.noSideEffect,
-    importcpp: "Period", header: "Adaptor2d_HCurve2d.hxx".}
-proc Value*(this: Adaptor2d_HCurve2d; U: Standard_Real): gp_Pnt2d {.noSideEffect,
-    importcpp: "Value", header: "Adaptor2d_HCurve2d.hxx".}
-proc D0*(this: Adaptor2d_HCurve2d; U: Standard_Real; P: var gp_Pnt2d) {.noSideEffect,
-    importcpp: "D0", header: "Adaptor2d_HCurve2d.hxx".}
-proc D1*(this: Adaptor2d_HCurve2d; U: Standard_Real; P: var gp_Pnt2d; V: var gp_Vec2d) {.
-    noSideEffect, importcpp: "D1", header: "Adaptor2d_HCurve2d.hxx".}
-proc D2*(this: Adaptor2d_HCurve2d; U: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d;
-        V2: var gp_Vec2d) {.noSideEffect, importcpp: "D2",
-                         header: "Adaptor2d_HCurve2d.hxx".}
-proc D3*(this: Adaptor2d_HCurve2d; U: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d;
-        V2: var gp_Vec2d; V3: var gp_Vec2d) {.noSideEffect, importcpp: "D3",
-                                        header: "Adaptor2d_HCurve2d.hxx".}
-proc DN*(this: Adaptor2d_HCurve2d; U: Standard_Real; N: Standard_Integer): gp_Vec2d {.
-    noSideEffect, importcpp: "DN", header: "Adaptor2d_HCurve2d.hxx".}
-proc Resolution*(this: Adaptor2d_HCurve2d; R3d: Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "Resolution", header: "Adaptor2d_HCurve2d.hxx".}
-proc GetType*(this: Adaptor2d_HCurve2d): GeomAbs_CurveType {.noSideEffect,
-    importcpp: "GetType", header: "Adaptor2d_HCurve2d.hxx".}
-proc Line*(this: Adaptor2d_HCurve2d): gp_Lin2d {.noSideEffect, importcpp: "Line",
+proc nbIntervals*(this: Adaptor2dHCurve2d; s: GeomAbsShape): int {.noSideEffect,
+    importcpp: "NbIntervals", header: "Adaptor2d_HCurve2d.hxx".}
+proc intervals*(this: Adaptor2dHCurve2d; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+    noSideEffect, importcpp: "Intervals", header: "Adaptor2d_HCurve2d.hxx".}
+proc trim*(this: Adaptor2dHCurve2d; first: float; last: float; tol: float): Handle[
+    Adaptor2dHCurve2d] {.noSideEffect, importcpp: "Trim",
+                        header: "Adaptor2d_HCurve2d.hxx".}
+proc isClosed*(this: Adaptor2dHCurve2d): bool {.noSideEffect, importcpp: "IsClosed",
     header: "Adaptor2d_HCurve2d.hxx".}
-proc Circle*(this: Adaptor2d_HCurve2d): gp_Circ2d {.noSideEffect,
-    importcpp: "Circle", header: "Adaptor2d_HCurve2d.hxx".}
-proc Ellipse*(this: Adaptor2d_HCurve2d): gp_Elips2d {.noSideEffect,
-    importcpp: "Ellipse", header: "Adaptor2d_HCurve2d.hxx".}
-proc Hyperbola*(this: Adaptor2d_HCurve2d): gp_Hypr2d {.noSideEffect,
+proc isPeriodic*(this: Adaptor2dHCurve2d): bool {.noSideEffect,
+    importcpp: "IsPeriodic", header: "Adaptor2d_HCurve2d.hxx".}
+proc period*(this: Adaptor2dHCurve2d): float {.noSideEffect, importcpp: "Period",
+    header: "Adaptor2d_HCurve2d.hxx".}
+proc value*(this: Adaptor2dHCurve2d; u: float): Pnt2d {.noSideEffect,
+    importcpp: "Value", header: "Adaptor2d_HCurve2d.hxx".}
+proc d0*(this: Adaptor2dHCurve2d; u: float; p: var Pnt2d) {.noSideEffect,
+    importcpp: "D0", header: "Adaptor2d_HCurve2d.hxx".}
+proc d1*(this: Adaptor2dHCurve2d; u: float; p: var Pnt2d; v: var Vec2d) {.noSideEffect,
+    importcpp: "D1", header: "Adaptor2d_HCurve2d.hxx".}
+proc d2*(this: Adaptor2dHCurve2d; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
+    noSideEffect, importcpp: "D2", header: "Adaptor2d_HCurve2d.hxx".}
+proc d3*(this: Adaptor2dHCurve2d; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
+        v3: var Vec2d) {.noSideEffect, importcpp: "D3",
+                      header: "Adaptor2d_HCurve2d.hxx".}
+proc dn*(this: Adaptor2dHCurve2d; u: float; n: int): Vec2d {.noSideEffect,
+    importcpp: "DN", header: "Adaptor2d_HCurve2d.hxx".}
+proc resolution*(this: Adaptor2dHCurve2d; r3d: float): float {.noSideEffect,
+    importcpp: "Resolution", header: "Adaptor2d_HCurve2d.hxx".}
+proc getType*(this: Adaptor2dHCurve2d): GeomAbsCurveType {.noSideEffect,
+    importcpp: "GetType", header: "Adaptor2d_HCurve2d.hxx".}
+proc line*(this: Adaptor2dHCurve2d): Lin2d {.noSideEffect, importcpp: "Line",
+    header: "Adaptor2d_HCurve2d.hxx".}
+proc circle*(this: Adaptor2dHCurve2d): Circ2d {.noSideEffect, importcpp: "Circle",
+    header: "Adaptor2d_HCurve2d.hxx".}
+proc ellipse*(this: Adaptor2dHCurve2d): Elips2d {.noSideEffect, importcpp: "Ellipse",
+    header: "Adaptor2d_HCurve2d.hxx".}
+proc hyperbola*(this: Adaptor2dHCurve2d): Hypr2d {.noSideEffect,
     importcpp: "Hyperbola", header: "Adaptor2d_HCurve2d.hxx".}
-proc Parabola*(this: Adaptor2d_HCurve2d): gp_Parab2d {.noSideEffect,
+proc parabola*(this: Adaptor2dHCurve2d): Parab2d {.noSideEffect,
     importcpp: "Parabola", header: "Adaptor2d_HCurve2d.hxx".}
-proc Degree*(this: Adaptor2d_HCurve2d): Standard_Integer {.noSideEffect,
-    importcpp: "Degree", header: "Adaptor2d_HCurve2d.hxx".}
-proc IsRational*(this: Adaptor2d_HCurve2d): Standard_Boolean {.noSideEffect,
+proc degree*(this: Adaptor2dHCurve2d): int {.noSideEffect, importcpp: "Degree",
+    header: "Adaptor2d_HCurve2d.hxx".}
+proc isRational*(this: Adaptor2dHCurve2d): bool {.noSideEffect,
     importcpp: "IsRational", header: "Adaptor2d_HCurve2d.hxx".}
-proc NbPoles*(this: Adaptor2d_HCurve2d): Standard_Integer {.noSideEffect,
-    importcpp: "NbPoles", header: "Adaptor2d_HCurve2d.hxx".}
-proc NbKnots*(this: Adaptor2d_HCurve2d): Standard_Integer {.noSideEffect,
-    importcpp: "NbKnots", header: "Adaptor2d_HCurve2d.hxx".}
-proc Bezier*(this: Adaptor2d_HCurve2d): handle[Geom2d_BezierCurve] {.noSideEffect,
+proc nbPoles*(this: Adaptor2dHCurve2d): int {.noSideEffect, importcpp: "NbPoles",
+    header: "Adaptor2d_HCurve2d.hxx".}
+proc nbKnots*(this: Adaptor2dHCurve2d): int {.noSideEffect, importcpp: "NbKnots",
+    header: "Adaptor2d_HCurve2d.hxx".}
+proc bezier*(this: Adaptor2dHCurve2d): Handle[Geom2dBezierCurve] {.noSideEffect,
     importcpp: "Bezier", header: "Adaptor2d_HCurve2d.hxx".}
-proc BSpline*(this: Adaptor2d_HCurve2d): handle[Geom2d_BSplineCurve] {.noSideEffect,
+proc bSpline*(this: Adaptor2dHCurve2d): Handle[Geom2dBSplineCurve] {.noSideEffect,
     importcpp: "BSpline", header: "Adaptor2d_HCurve2d.hxx".}
 type
-  Adaptor2d_HCurve2dbase_type* = Standard_Transient
+  Adaptor2dHCurve2dbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Adaptor2d_HCurve2d::get_type_name(@)",
-                              header: "Adaptor2d_HCurve2d.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Adaptor2d_HCurve2d::get_type_name(@)",
+                            header: "Adaptor2d_HCurve2d.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Adaptor2d_HCurve2d::get_type_descriptor(@)",
     header: "Adaptor2d_HCurve2d.hxx".}
-proc DynamicType*(this: Adaptor2d_HCurve2d): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: Adaptor2dHCurve2d): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Adaptor2d_HCurve2d.hxx".}

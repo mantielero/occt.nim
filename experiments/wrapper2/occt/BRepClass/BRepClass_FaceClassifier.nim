@@ -14,41 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, BRepClass_FClassifier, ../Standard/Standard_Real
-
 discard "forward decl of BRepClass_FaceExplorer"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Pnt"
 type
-  BRepClass_FaceClassifier* {.importcpp: "BRepClass_FaceClassifier",
-                             header: "BRepClass_FaceClassifier.hxx", bycopy.} = object of BRepClass_FClassifier ##
-                                                                                                         ## !
-                                                                                                         ## Empty
-                                                                                                         ## constructor,
-                                                                                                         ## undefined
-                                                                                                         ## algorithm.
+  BRepClassFaceClassifier* {.importcpp: "BRepClass_FaceClassifier",
+                            header: "BRepClass_FaceClassifier.hxx", bycopy.} = object of BRepClassFClassifier ##
+                                                                                                       ## !
+                                                                                                       ## Empty
+                                                                                                       ## constructor,
+                                                                                                       ## undefined
+                                                                                                       ## algorithm.
 
 
-proc constructBRepClass_FaceClassifier*(): BRepClass_FaceClassifier {.constructor,
+proc constructBRepClassFaceClassifier*(): BRepClassFaceClassifier {.constructor,
     importcpp: "BRepClass_FaceClassifier(@)",
     header: "BRepClass_FaceClassifier.hxx".}
-proc constructBRepClass_FaceClassifier*(F: var BRepClass_FaceExplorer; P: gp_Pnt2d;
-                                       Tol: Standard_Real): BRepClass_FaceClassifier {.
+proc constructBRepClassFaceClassifier*(f: var BRepClassFaceExplorer; p: Pnt2d;
+                                      tol: float): BRepClassFaceClassifier {.
     constructor, importcpp: "BRepClass_FaceClassifier(@)",
     header: "BRepClass_FaceClassifier.hxx".}
-proc constructBRepClass_FaceClassifier*(F: TopoDS_Face; P: gp_Pnt2d;
-                                       Tol: Standard_Real): BRepClass_FaceClassifier {.
+proc constructBRepClassFaceClassifier*(f: TopoDS_Face; p: Pnt2d; tol: float): BRepClassFaceClassifier {.
     constructor, importcpp: "BRepClass_FaceClassifier(@)",
     header: "BRepClass_FaceClassifier.hxx".}
-proc Perform*(this: var BRepClass_FaceClassifier; F: TopoDS_Face; P: gp_Pnt2d;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "BRepClass_FaceClassifier.hxx".}
-proc constructBRepClass_FaceClassifier*(F: TopoDS_Face; P: gp_Pnt; Tol: Standard_Real): BRepClass_FaceClassifier {.
+proc perform*(this: var BRepClassFaceClassifier; f: TopoDS_Face; p: Pnt2d; tol: float) {.
+    importcpp: "Perform", header: "BRepClass_FaceClassifier.hxx".}
+proc constructBRepClassFaceClassifier*(f: TopoDS_Face; p: Pnt; tol: float): BRepClassFaceClassifier {.
     constructor, importcpp: "BRepClass_FaceClassifier(@)",
     header: "BRepClass_FaceClassifier.hxx".}
-proc Perform*(this: var BRepClass_FaceClassifier; F: TopoDS_Face; P: gp_Pnt;
-             Tol: Standard_Real) {.importcpp: "Perform",
-                                 header: "BRepClass_FaceClassifier.hxx".}
+proc perform*(this: var BRepClassFaceClassifier; f: TopoDS_Face; p: Pnt; tol: float) {.
+    importcpp: "Perform", header: "BRepClass_FaceClassifier.hxx".}

@@ -13,55 +13,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP214_HArray1OfExternalIdentificationItem,
-  ../StepBasic/StepBasic_ExternalIdentificationAssignment
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_IdentificationRole"
 discard "forward decl of StepBasic_ExternalSource"
 discard "forward decl of StepAP214_AppliedExternalIdentificationAssignment"
 discard "forward decl of StepAP214_AppliedExternalIdentificationAssignment"
 type
-  Handle_StepAP214_AppliedExternalIdentificationAssignment* = handle[
-      StepAP214_AppliedExternalIdentificationAssignment]
+  HandleStepAP214AppliedExternalIdentificationAssignment* = Handle[
+      StepAP214AppliedExternalIdentificationAssignment]
 
 ## ! Representation of STEP entity AppliedExternalIdentificationAssignment
 
 type
-  StepAP214_AppliedExternalIdentificationAssignment* {.
+  StepAP214AppliedExternalIdentificationAssignment* {.
       importcpp: "StepAP214_AppliedExternalIdentificationAssignment",
-      header: "StepAP214_AppliedExternalIdentificationAssignment.hxx", bycopy.} = object of StepBasic_ExternalIdentificationAssignment ##
-                                                                                                                                ## !
-                                                                                                                                ## Empty
-                                                                                                                                ## constructor
+      header: "StepAP214_AppliedExternalIdentificationAssignment.hxx", bycopy.} = object of StepBasicExternalIdentificationAssignment ##
+                                                                                                                               ## !
+                                                                                                                               ## Empty
+                                                                                                                               ## constructor
 
 
-proc constructStepAP214_AppliedExternalIdentificationAssignment*(): StepAP214_AppliedExternalIdentificationAssignment {.
+proc constructStepAP214AppliedExternalIdentificationAssignment*(): StepAP214AppliedExternalIdentificationAssignment {.
     constructor,
     importcpp: "StepAP214_AppliedExternalIdentificationAssignment(@)",
     header: "StepAP214_AppliedExternalIdentificationAssignment.hxx".}
-proc Init*(this: var StepAP214_AppliedExternalIdentificationAssignment;
-    aIdentificationAssignment_AssignedId: handle[TCollection_HAsciiString];
-          aIdentificationAssignment_Role: handle[StepBasic_IdentificationRole];
-    aExternalIdentificationAssignment_Source: handle[StepBasic_ExternalSource];
-          aItems: handle[StepAP214_HArray1OfExternalIdentificationItem]) {.
+proc init*(this: var StepAP214AppliedExternalIdentificationAssignment;
+          aIdentificationAssignmentAssignedId: Handle[TCollectionHAsciiString];
+          aIdentificationAssignmentRole: Handle[StepBasicIdentificationRole];
+    aExternalIdentificationAssignmentSource: Handle[StepBasicExternalSource];
+          aItems: Handle[StepAP214HArray1OfExternalIdentificationItem]) {.
     importcpp: "Init",
     header: "StepAP214_AppliedExternalIdentificationAssignment.hxx".}
-proc Items*(this: StepAP214_AppliedExternalIdentificationAssignment): handle[
-    StepAP214_HArray1OfExternalIdentificationItem] {.noSideEffect,
+proc items*(this: StepAP214AppliedExternalIdentificationAssignment): Handle[
+    StepAP214HArray1OfExternalIdentificationItem] {.noSideEffect,
     importcpp: "Items",
     header: "StepAP214_AppliedExternalIdentificationAssignment.hxx".}
-proc SetItems*(this: var StepAP214_AppliedExternalIdentificationAssignment;
-              Items: handle[StepAP214_HArray1OfExternalIdentificationItem]) {.
+proc setItems*(this: var StepAP214AppliedExternalIdentificationAssignment;
+              items: Handle[StepAP214HArray1OfExternalIdentificationItem]) {.
     importcpp: "SetItems",
     header: "StepAP214_AppliedExternalIdentificationAssignment.hxx".}
 type
-  StepAP214_AppliedExternalIdentificationAssignmentbase_type* = StepBasic_ExternalIdentificationAssignment
+  StepAP214AppliedExternalIdentificationAssignmentbaseType* = StepBasicExternalIdentificationAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_AppliedExternalIdentificationAssignment::get_type_name(@)", header: "StepAP214_AppliedExternalIdentificationAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP214_AppliedExternalIdentificationAssignment::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP214_AppliedExternalIdentificationAssignment::get_type_name(@)", header: "StepAP214_AppliedExternalIdentificationAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_AppliedExternalIdentificationAssignment::get_type_descriptor(@)",
     header: "StepAP214_AppliedExternalIdentificationAssignment.hxx".}
-proc DynamicType*(this: StepAP214_AppliedExternalIdentificationAssignment): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepAP214_AppliedExternalIdentificationAssignment.hxx".}
+proc dynamicType*(this: StepAP214AppliedExternalIdentificationAssignment): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepAP214_AppliedExternalIdentificationAssignment.hxx".}

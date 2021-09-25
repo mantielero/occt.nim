@@ -14,25 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../math/math_Vector,
-  ../math/math_FunctionWithDerivative, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real
-
 ## ! Polynomial  Function
 
 type
-  GeomLib_PolyFunc* {.importcpp: "GeomLib_PolyFunc",
-                     header: "GeomLib_PolyFunc.hxx", bycopy.} = object of math_FunctionWithDerivative
+  GeomLibPolyFunc* {.importcpp: "GeomLib_PolyFunc", header: "GeomLib_PolyFunc.hxx",
+                    bycopy.} = object of MathFunctionWithDerivative
 
 
-proc constructGeomLib_PolyFunc*(Coeffs: math_Vector): GeomLib_PolyFunc {.
-    constructor, importcpp: "GeomLib_PolyFunc(@)", header: "GeomLib_PolyFunc.hxx".}
-proc Value*(this: var GeomLib_PolyFunc; X: Standard_Real; F: var Standard_Real): Standard_Boolean {.
-    importcpp: "Value", header: "GeomLib_PolyFunc.hxx".}
-proc Derivative*(this: var GeomLib_PolyFunc; X: Standard_Real; D: var Standard_Real): Standard_Boolean {.
-    importcpp: "Derivative", header: "GeomLib_PolyFunc.hxx".}
-proc Values*(this: var GeomLib_PolyFunc; X: Standard_Real; F: var Standard_Real;
-            D: var Standard_Real): Standard_Boolean {.importcpp: "Values",
+proc constructGeomLibPolyFunc*(coeffs: MathVector): GeomLibPolyFunc {.constructor,
+    importcpp: "GeomLib_PolyFunc(@)", header: "GeomLib_PolyFunc.hxx".}
+proc value*(this: var GeomLibPolyFunc; x: float; f: var float): bool {.importcpp: "Value",
     header: "GeomLib_PolyFunc.hxx".}
+proc derivative*(this: var GeomLibPolyFunc; x: float; d: var float): bool {.
+    importcpp: "Derivative", header: "GeomLib_PolyFunc.hxx".}
+proc values*(this: var GeomLibPolyFunc; x: float; f: var float; d: var float): bool {.
+    importcpp: "Values", header: "GeomLib_PolyFunc.hxx".}

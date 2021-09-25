@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../IFSelect/IFSelect_SelectExtract, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of IFSelect_IntParam"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
@@ -26,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SelectLevelNumber"
 discard "forward decl of IGESSelect_SelectLevelNumber"
 type
-  Handle_IGESSelect_SelectLevelNumber* = handle[IGESSelect_SelectLevelNumber]
+  HandleIGESSelectSelectLevelNumber* = Handle[IGESSelectSelectLevelNumber]
 
 ## ! This selection looks at Level Number of IGES Entities :
 ## ! it considers items attached, either to a single level with a
@@ -38,39 +33,51 @@ type
 ## ! about present levels in a file.
 
 type
-  IGESSelect_SelectLevelNumber* {.importcpp: "IGESSelect_SelectLevelNumber",
-                                 header: "IGESSelect_SelectLevelNumber.hxx",
-                                 bycopy.} = object of IFSelect_SelectExtract ## ! Creates a
-                                                                        ## SelectLevelNumber, with no Level
-                                                                        ## criterium : see
-                                                                        ## !
-                                                                        ## SetLevelNumber. Empty, this
-                                                                        ## selection filters nothing.
+  IGESSelectSelectLevelNumber* {.importcpp: "IGESSelect_SelectLevelNumber",
+                                header: "IGESSelect_SelectLevelNumber.hxx", bycopy.} = object of IFSelectSelectExtract ##
+                                                                                                                ## !
+                                                                                                                ## Creates
+                                                                                                                ## a
+                                                                                                                ## SelectLevelNumber,
+                                                                                                                ## with
+                                                                                                                ## no
+                                                                                                                ## Level
+                                                                                                                ## criterium
+                                                                                                                ## :
+                                                                                                                ## see
+                                                                                                                ##
+                                                                                                                ## !
+                                                                                                                ## SetLevelNumber.
+                                                                                                                ## Empty,
+                                                                                                                ## this
+                                                                                                                ## selection
+                                                                                                                ## filters
+                                                                                                                ## nothing.
 
 
-proc constructIGESSelect_SelectLevelNumber*(): IGESSelect_SelectLevelNumber {.
+proc constructIGESSelectSelectLevelNumber*(): IGESSelectSelectLevelNumber {.
     constructor, importcpp: "IGESSelect_SelectLevelNumber(@)",
     header: "IGESSelect_SelectLevelNumber.hxx".}
-proc SetLevelNumber*(this: var IGESSelect_SelectLevelNumber;
-                    levnum: handle[IFSelect_IntParam]) {.
+proc setLevelNumber*(this: var IGESSelectSelectLevelNumber;
+                    levnum: Handle[IFSelectIntParam]) {.
     importcpp: "SetLevelNumber", header: "IGESSelect_SelectLevelNumber.hxx".}
-proc LevelNumber*(this: IGESSelect_SelectLevelNumber): handle[IFSelect_IntParam] {.
+proc levelNumber*(this: IGESSelectSelectLevelNumber): Handle[IFSelectIntParam] {.
     noSideEffect, importcpp: "LevelNumber",
     header: "IGESSelect_SelectLevelNumber.hxx".}
-proc Sort*(this: IGESSelect_SelectLevelNumber; rank: Standard_Integer;
-          ent: handle[Standard_Transient]; model: handle[Interface_InterfaceModel]): Standard_Boolean {.
+proc sort*(this: IGESSelectSelectLevelNumber; rank: int;
+          ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, importcpp: "Sort", header: "IGESSelect_SelectLevelNumber.hxx".}
-proc ExtractLabel*(this: IGESSelect_SelectLevelNumber): TCollection_AsciiString {.
+proc extractLabel*(this: IGESSelectSelectLevelNumber): TCollectionAsciiString {.
     noSideEffect, importcpp: "ExtractLabel",
     header: "IGESSelect_SelectLevelNumber.hxx".}
 type
-  IGESSelect_SelectLevelNumberbase_type* = IFSelect_SelectExtract
+  IGESSelectSelectLevelNumberbaseType* = IFSelectSelectExtract
 
-proc get_type_name*(): cstring {.importcpp: "IGESSelect_SelectLevelNumber::get_type_name(@)",
-                              header: "IGESSelect_SelectLevelNumber.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_SelectLevelNumber::get_type_name(@)",
+                            header: "IGESSelect_SelectLevelNumber.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSelect_SelectLevelNumber::get_type_descriptor(@)",
     header: "IGESSelect_SelectLevelNumber.hxx".}
-proc DynamicType*(this: IGESSelect_SelectLevelNumber): handle[Standard_Type] {.
+proc dynamicType*(this: IGESSelectSelectLevelNumber): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SelectLevelNumber.hxx".}

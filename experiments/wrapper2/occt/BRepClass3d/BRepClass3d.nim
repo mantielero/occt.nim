@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of TopoDS_Shell"
 discard "forward decl of TopoDS_Solid"
 discard "forward decl of BRepClass3d_Intersector3d"
@@ -64,5 +60,5 @@ type
                                                                                 ## orientation.
 
 
-proc OuterShell*(S: TopoDS_Solid): TopoDS_Shell {.
+proc outerShell*(s: TopoDS_Solid): TopoDS_Shell {.
     importcpp: "BRepClass3d::OuterShell(@)", header: "BRepClass3d.hxx".}

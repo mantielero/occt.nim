@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Storage_MapOfPers,
-  Storage_Error, ../TCollection/TCollection_AsciiString,
-  ../Standard/Standard_Transient, ../Standard/Standard_Integer,
-  Storage_HSeqOfRoot, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Storage_Schema"
 discard "forward decl of Storage_BaseDriver"
@@ -29,43 +23,43 @@ discard "forward decl of Standard_Persistent"
 discard "forward decl of Storage_RootData"
 discard "forward decl of Storage_RootData"
 type
-  Handle_Storage_RootData* = handle[Storage_RootData]
-  Storage_RootData* {.importcpp: "Storage_RootData",
-                     header: "Storage_RootData.hxx", bycopy.} = object of Standard_Transient
+  HandleStorageRootData* = Handle[StorageRootData]
+  StorageRootData* {.importcpp: "Storage_RootData", header: "Storage_RootData.hxx",
+                    bycopy.} = object of StandardTransient
 
 
-proc constructStorage_RootData*(): Storage_RootData {.constructor,
+proc constructStorageRootData*(): StorageRootData {.constructor,
     importcpp: "Storage_RootData(@)", header: "Storage_RootData.hxx".}
-proc Read*(this: var Storage_RootData; theDriver: handle[Storage_BaseDriver]): Standard_Boolean {.
+proc read*(this: var StorageRootData; theDriver: Handle[StorageBaseDriver]): bool {.
     importcpp: "Read", header: "Storage_RootData.hxx".}
-proc NumberOfRoots*(this: Storage_RootData): Standard_Integer {.noSideEffect,
+proc numberOfRoots*(this: StorageRootData): int {.noSideEffect,
     importcpp: "NumberOfRoots", header: "Storage_RootData.hxx".}
-proc AddRoot*(this: var Storage_RootData; aRoot: handle[Storage_Root]) {.
+proc addRoot*(this: var StorageRootData; aRoot: Handle[StorageRoot]) {.
     importcpp: "AddRoot", header: "Storage_RootData.hxx".}
-proc Roots*(this: Storage_RootData): handle[Storage_HSeqOfRoot] {.noSideEffect,
+proc roots*(this: StorageRootData): Handle[StorageHSeqOfRoot] {.noSideEffect,
     importcpp: "Roots", header: "Storage_RootData.hxx".}
-proc Find*(this: Storage_RootData; aName: TCollection_AsciiString): handle[
-    Storage_Root] {.noSideEffect, importcpp: "Find", header: "Storage_RootData.hxx".}
-proc IsRoot*(this: Storage_RootData; aName: TCollection_AsciiString): Standard_Boolean {.
+proc find*(this: StorageRootData; aName: TCollectionAsciiString): Handle[StorageRoot] {.
+    noSideEffect, importcpp: "Find", header: "Storage_RootData.hxx".}
+proc isRoot*(this: StorageRootData; aName: TCollectionAsciiString): bool {.
     noSideEffect, importcpp: "IsRoot", header: "Storage_RootData.hxx".}
-proc RemoveRoot*(this: var Storage_RootData; aName: TCollection_AsciiString) {.
+proc removeRoot*(this: var StorageRootData; aName: TCollectionAsciiString) {.
     importcpp: "RemoveRoot", header: "Storage_RootData.hxx".}
-proc ErrorStatus*(this: Storage_RootData): Storage_Error {.noSideEffect,
+proc errorStatus*(this: StorageRootData): StorageError {.noSideEffect,
     importcpp: "ErrorStatus", header: "Storage_RootData.hxx".}
-proc ErrorStatusExtension*(this: Storage_RootData): TCollection_AsciiString {.
+proc errorStatusExtension*(this: StorageRootData): TCollectionAsciiString {.
     noSideEffect, importcpp: "ErrorStatusExtension", header: "Storage_RootData.hxx".}
-proc ClearErrorStatus*(this: var Storage_RootData) {.importcpp: "ClearErrorStatus",
+proc clearErrorStatus*(this: var StorageRootData) {.importcpp: "ClearErrorStatus",
     header: "Storage_RootData.hxx".}
-proc UpdateRoot*(this: var Storage_RootData; aName: TCollection_AsciiString;
-                aPers: handle[Standard_Persistent]) {.importcpp: "UpdateRoot",
+proc updateRoot*(this: var StorageRootData; aName: TCollectionAsciiString;
+                aPers: Handle[StandardPersistent]) {.importcpp: "UpdateRoot",
     header: "Storage_RootData.hxx".}
 type
-  Storage_RootDatabase_type* = Standard_Transient
+  StorageRootDatabaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Storage_RootData::get_type_name(@)",
-                              header: "Storage_RootData.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Storage_RootData::get_type_name(@)",
+                            header: "Storage_RootData.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Storage_RootData::get_type_descriptor(@)",
     header: "Storage_RootData.hxx".}
-proc DynamicType*(this: Storage_RootData): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StorageRootData): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Storage_RootData.hxx".}

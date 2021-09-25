@@ -14,16 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor
-
 ## ! XSDRAW for STEP AP214 and AP203
 
 type
-  XSDRAWSTEP* {.importcpp: "XSDRAWSTEP", header: "XSDRAWSTEP.hxx", bycopy.} = object
+  Xsdrawstep* {.importcpp: "XSDRAWSTEP", header: "XSDRAWSTEP.hxx", bycopy.} = object
 
 
-proc Init*() {.importcpp: "XSDRAWSTEP::Init(@)", header: "XSDRAWSTEP.hxx".}
-proc InitCommands*(theCommands: var Draw_Interpretor) {.
+proc init*() {.importcpp: "XSDRAWSTEP::Init(@)", header: "XSDRAWSTEP.hxx".}
+proc initCommands*(theCommands: var DrawInterpretor) {.
     importcpp: "XSDRAWSTEP::InitCommands(@)", header: "XSDRAWSTEP.hxx".}

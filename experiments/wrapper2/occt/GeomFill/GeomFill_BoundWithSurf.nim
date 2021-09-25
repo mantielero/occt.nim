@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../Adaptor3d/Adaptor3d_CurveOnSurface, GeomFill_Boundary,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean
-
 discard "forward decl of Law_Function"
 discard "forward decl of Adaptor3d_CurveOnSurface"
 discard "forward decl of gp_Pnt"
@@ -26,7 +21,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_BoundWithSurf"
 discard "forward decl of GeomFill_BoundWithSurf"
 type
-  Handle_GeomFill_BoundWithSurf* = handle[GeomFill_BoundWithSurf]
+  HandleGeomFillBoundWithSurf* = Handle[GeomFillBoundWithSurf]
 
 ## ! Defines a 3d curve as a boundary for a
 ## ! GeomFill_ConstrainedFilling algorithm.
@@ -39,296 +34,292 @@ type
 ## ! and normals field.
 
 type
-  GeomFill_BoundWithSurf* {.importcpp: "GeomFill_BoundWithSurf",
-                           header: "GeomFill_BoundWithSurf.hxx", bycopy.} = object of GeomFill_Boundary ##
-                                                                                                 ## !
-                                                                                                 ## Constructs
-                                                                                                 ## a
-                                                                                                 ## boundary
-                                                                                                 ## object
-                                                                                                 ## defined
-                                                                                                 ## by
-                                                                                                 ## the
-                                                                                                 ## 3d
-                                                                                                 ## curve
-                                                                                                 ## CurveOnSurf.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## The
-                                                                                                 ## surface
-                                                                                                 ## to
-                                                                                                 ## be
-                                                                                                 ## filled
-                                                                                                 ## along
-                                                                                                 ## this
-                                                                                                 ## boundary
-                                                                                                 ## will
-                                                                                                 ## be
-                                                                                                 ## in
-                                                                                                 ## the
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## tolerance
-                                                                                                 ## range
-                                                                                                 ## defined
-                                                                                                 ## by
-                                                                                                 ## Tol3d.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## What's
-                                                                                                 ## more,
-                                                                                                 ## at
-                                                                                                 ## each
-                                                                                                 ## point
-                                                                                                 ## of
-                                                                                                 ## CurveOnSurf,
-                                                                                                 ## the
-                                                                                                 ## angle
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## between
-                                                                                                 ## the
-                                                                                                 ## normal
-                                                                                                 ## to
-                                                                                                 ## the
-                                                                                                 ## surface
-                                                                                                 ## to
-                                                                                                 ## be
-                                                                                                 ## filled
-                                                                                                 ## along
-                                                                                                 ## this
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## boundary,
-                                                                                                 ## and
-                                                                                                 ## the
-                                                                                                 ## normal
-                                                                                                 ## to
-                                                                                                 ## the
-                                                                                                 ## surface
-                                                                                                 ## on
-                                                                                                 ## which
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## CurveOnSurf
-                                                                                                 ## lies,
-                                                                                                 ## must
-                                                                                                 ## not
-                                                                                                 ## be
-                                                                                                 ## greater
-                                                                                                 ## than
-                                                                                                 ## TolAng.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## This
-                                                                                                 ## object
-                                                                                                 ## is
-                                                                                                 ## to
-                                                                                                 ## be
-                                                                                                 ## used
-                                                                                                 ## as
-                                                                                                 ## a
-                                                                                                 ## boundary
-                                                                                                 ## for
-                                                                                                 ## a
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## GeomFill_ConstrainedFilling
-                                                                                                 ## framework.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Warning
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## CurveOnSurf
-                                                                                                 ## is
-                                                                                                 ## an
-                                                                                                 ## adapted
-                                                                                                 ## curve,
-                                                                                                 ## that
-                                                                                                 ## is,
-                                                                                                 ## an
-                                                                                                 ## object
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## which
-                                                                                                 ## is
-                                                                                                 ## an
-                                                                                                 ## interface
-                                                                                                 ## between:
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## -
-                                                                                                 ## the
-                                                                                                 ## services
-                                                                                                 ## provided
-                                                                                                 ## by
-                                                                                                 ## a
-                                                                                                 ## curve
-                                                                                                 ## lying
-                                                                                                 ## on
-                                                                                                 ## a
-                                                                                                 ## surface
-                                                                                                 ## from
-                                                                                                 ## the
-                                                                                                 ## package
-                                                                                                 ## Geom
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## -
-                                                                                                 ## and
-                                                                                                 ## those
-                                                                                                 ## required
-                                                                                                 ## of
-                                                                                                 ## the
-                                                                                                 ## curve
-                                                                                                 ## by
-                                                                                                 ## the
-                                                                                                 ## computation
-                                                                                                 ## algorithm
-                                                                                                 ## which
-                                                                                                 ## uses
-                                                                                                 ## it.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## The
-                                                                                                 ## adapted
-                                                                                                 ## curve
-                                                                                                 ## is
-                                                                                                 ## created
-                                                                                                 ## in
-                                                                                                 ## the
-                                                                                                 ## following
-                                                                                                 ## way:
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Handle(Geom_Surface)
-                                                                                                 ## mySurface
-                                                                                                 ## =
-                                                                                                 ## ...
-                                                                                                 ## ;
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Handle(Geom2d_Curve)
-                                                                                                 ## myParamCurve
-                                                                                                 ## =
-                                                                                                 ## ...
-                                                                                                 ## ;
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## //
-                                                                                                 ## where
-                                                                                                 ## myParamCurve
-                                                                                                 ## is
-                                                                                                 ## a
-                                                                                                 ## 2D
-                                                                                                 ## curve
-                                                                                                 ## in
-                                                                                                 ## the
-                                                                                                 ## parametric
-                                                                                                 ## space
-                                                                                                 ## of
-                                                                                                 ## the
-                                                                                                 ## surface
-                                                                                                 ## mySurface
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Handle(GeomAdaptor_HSurface)
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Surface
-                                                                                                 ## =
-                                                                                                 ## new
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## GeomAdaptor_HSurface(mySurface);
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Handle(Geom2dAdaptor_HCurve)
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## ParamCurve
-                                                                                                 ## =
-                                                                                                 ## new
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Geom2dAdaptor_HCurve(myParamCurve);
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## CurveOnSurf
-                                                                                                 ## =
-                                                                                                 ## Adaptor3d_CurveOnSurface(ParamCurve,Surface);
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## The
-                                                                                                 ## boundary
-                                                                                                 ## is
-                                                                                                 ## then
-                                                                                                 ## constructed
-                                                                                                 ## with
-                                                                                                 ## the
-                                                                                                 ## CurveOnSurf
-                                                                                                 ## object:
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Standard_Real
-                                                                                                 ## Tol
-                                                                                                 ## =
-                                                                                                 ## ...
-                                                                                                 ## ;
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Standard_Real
-                                                                                                 ## TolAng
-                                                                                                 ## =
-                                                                                                 ## ...
-                                                                                                 ## ;
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## myBoundary
-                                                                                                 ## =
-                                                                                                 ## GeomFill_BoundWithSurf
-                                                                                                 ## (
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## CurveOnSurf,
-                                                                                                 ## Tol,
-                                                                                                 ## TolAng
-                                                                                                 ## );
+  GeomFillBoundWithSurf* {.importcpp: "GeomFill_BoundWithSurf",
+                          header: "GeomFill_BoundWithSurf.hxx", bycopy.} = object of GeomFillBoundary ##
+                                                                                               ## !
+                                                                                               ## Constructs
+                                                                                               ## a
+                                                                                               ## boundary
+                                                                                               ## object
+                                                                                               ## defined
+                                                                                               ## by
+                                                                                               ## the
+                                                                                               ## 3d
+                                                                                               ## curve
+                                                                                               ## CurveOnSurf.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## The
+                                                                                               ## surface
+                                                                                               ## to
+                                                                                               ## be
+                                                                                               ## filled
+                                                                                               ## along
+                                                                                               ## this
+                                                                                               ## boundary
+                                                                                               ## will
+                                                                                               ## be
+                                                                                               ## in
+                                                                                               ## the
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## tolerance
+                                                                                               ## range
+                                                                                               ## defined
+                                                                                               ## by
+                                                                                               ## Tol3d.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## What's
+                                                                                               ## more,
+                                                                                               ## at
+                                                                                               ## each
+                                                                                               ## point
+                                                                                               ## of
+                                                                                               ## CurveOnSurf,
+                                                                                               ## the
+                                                                                               ## angle
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## between
+                                                                                               ## the
+                                                                                               ## normal
+                                                                                               ## to
+                                                                                               ## the
+                                                                                               ## surface
+                                                                                               ## to
+                                                                                               ## be
+                                                                                               ## filled
+                                                                                               ## along
+                                                                                               ## this
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## boundary,
+                                                                                               ## and
+                                                                                               ## the
+                                                                                               ## normal
+                                                                                               ## to
+                                                                                               ## the
+                                                                                               ## surface
+                                                                                               ## on
+                                                                                               ## which
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## CurveOnSurf
+                                                                                               ## lies,
+                                                                                               ## must
+                                                                                               ## not
+                                                                                               ## be
+                                                                                               ## greater
+                                                                                               ## than
+                                                                                               ## TolAng.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## This
+                                                                                               ## object
+                                                                                               ## is
+                                                                                               ## to
+                                                                                               ## be
+                                                                                               ## used
+                                                                                               ## as
+                                                                                               ## a
+                                                                                               ## boundary
+                                                                                               ## for
+                                                                                               ## a
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## GeomFill_ConstrainedFilling
+                                                                                               ## framework.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Warning
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## CurveOnSurf
+                                                                                               ## is
+                                                                                               ## an
+                                                                                               ## adapted
+                                                                                               ## curve,
+                                                                                               ## that
+                                                                                               ## is,
+                                                                                               ## an
+                                                                                               ## object
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## which
+                                                                                               ## is
+                                                                                               ## an
+                                                                                               ## interface
+                                                                                               ## between:
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## -
+                                                                                               ## the
+                                                                                               ## services
+                                                                                               ## provided
+                                                                                               ## by
+                                                                                               ## a
+                                                                                               ## curve
+                                                                                               ## lying
+                                                                                               ## on
+                                                                                               ## a
+                                                                                               ## surface
+                                                                                               ## from
+                                                                                               ## the
+                                                                                               ## package
+                                                                                               ## Geom
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## -
+                                                                                               ## and
+                                                                                               ## those
+                                                                                               ## required
+                                                                                               ## of
+                                                                                               ## the
+                                                                                               ## curve
+                                                                                               ## by
+                                                                                               ## the
+                                                                                               ## computation
+                                                                                               ## algorithm
+                                                                                               ## which
+                                                                                               ## uses
+                                                                                               ## it.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## The
+                                                                                               ## adapted
+                                                                                               ## curve
+                                                                                               ## is
+                                                                                               ## created
+                                                                                               ## in
+                                                                                               ## the
+                                                                                               ## following
+                                                                                               ## way:
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Handle(Geom_Surface)
+                                                                                               ## mySurface
+                                                                                               ## =
+                                                                                               ## ...
+                                                                                               ## ;
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Handle(Geom2d_Curve)
+                                                                                               ## myParamCurve
+                                                                                               ## =
+                                                                                               ## ...
+                                                                                               ## ;
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## //
+                                                                                               ## where
+                                                                                               ## myParamCurve
+                                                                                               ## is
+                                                                                               ## a
+                                                                                               ## 2D
+                                                                                               ## curve
+                                                                                               ## in
+                                                                                               ## the
+                                                                                               ## parametric
+                                                                                               ## space
+                                                                                               ## of
+                                                                                               ## the
+                                                                                               ## surface
+                                                                                               ## mySurface
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Handle(GeomAdaptor_HSurface)
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Surface
+                                                                                               ## =
+                                                                                               ## new
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## GeomAdaptor_HSurface(mySurface);
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Handle(Geom2dAdaptor_HCurve)
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## ParamCurve
+                                                                                               ## =
+                                                                                               ## new
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Geom2dAdaptor_HCurve(myParamCurve);
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## CurveOnSurf
+                                                                                               ## =
+                                                                                               ## Adaptor3d_CurveOnSurface(ParamCurve,Surface);
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## The
+                                                                                               ## boundary
+                                                                                               ## is
+                                                                                               ## then
+                                                                                               ## constructed
+                                                                                               ## with
+                                                                                               ## the
+                                                                                               ## CurveOnSurf
+                                                                                               ## object:
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Standard_Real
+                                                                                               ## Tol
+                                                                                               ## =
+                                                                                               ## ...
+                                                                                               ## ;
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Standard_Real
+                                                                                               ## TolAng
+                                                                                               ## =
+                                                                                               ## ...
+                                                                                               ## ;
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## myBoundary
+                                                                                               ## =
+                                                                                               ## GeomFill_BoundWithSurf
+                                                                                               ## (
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## CurveOnSurf,
+                                                                                               ## Tol,
+                                                                                               ## TolAng
+                                                                                               ## );
 
 
-proc constructGeomFill_BoundWithSurf*(CurveOnSurf: Adaptor3d_CurveOnSurface;
-                                     Tol3d: Standard_Real; Tolang: Standard_Real): GeomFill_BoundWithSurf {.
+proc constructGeomFillBoundWithSurf*(curveOnSurf: Adaptor3dCurveOnSurface;
+                                    tol3d: float; tolang: float): GeomFillBoundWithSurf {.
     constructor, importcpp: "GeomFill_BoundWithSurf(@)",
     header: "GeomFill_BoundWithSurf.hxx".}
-proc Value*(this: GeomFill_BoundWithSurf; U: Standard_Real): gp_Pnt {.noSideEffect,
+proc value*(this: GeomFillBoundWithSurf; u: float): Pnt {.noSideEffect,
     importcpp: "Value", header: "GeomFill_BoundWithSurf.hxx".}
-proc D1*(this: GeomFill_BoundWithSurf; U: Standard_Real; P: var gp_Pnt; V: var gp_Vec) {.
-    noSideEffect, importcpp: "D1", header: "GeomFill_BoundWithSurf.hxx".}
-proc HasNormals*(this: GeomFill_BoundWithSurf): Standard_Boolean {.noSideEffect,
+proc d1*(this: GeomFillBoundWithSurf; u: float; p: var Pnt; v: var Vec) {.noSideEffect,
+    importcpp: "D1", header: "GeomFill_BoundWithSurf.hxx".}
+proc hasNormals*(this: GeomFillBoundWithSurf): bool {.noSideEffect,
     importcpp: "HasNormals", header: "GeomFill_BoundWithSurf.hxx".}
-proc Norm*(this: GeomFill_BoundWithSurf; U: Standard_Real): gp_Vec {.noSideEffect,
+proc norm*(this: GeomFillBoundWithSurf; u: float): Vec {.noSideEffect,
     importcpp: "Norm", header: "GeomFill_BoundWithSurf.hxx".}
-proc D1Norm*(this: GeomFill_BoundWithSurf; U: Standard_Real; N: var gp_Vec;
-            DN: var gp_Vec) {.noSideEffect, importcpp: "D1Norm",
-                           header: "GeomFill_BoundWithSurf.hxx".}
-proc Reparametrize*(this: var GeomFill_BoundWithSurf; First: Standard_Real;
-                   Last: Standard_Real; HasDF: Standard_Boolean;
-                   HasDL: Standard_Boolean; DF: Standard_Real; DL: Standard_Real;
-                   Rev: Standard_Boolean) {.importcpp: "Reparametrize",
-    header: "GeomFill_BoundWithSurf.hxx".}
-proc Bounds*(this: GeomFill_BoundWithSurf; First: var Standard_Real;
-            Last: var Standard_Real) {.noSideEffect, importcpp: "Bounds",
-                                    header: "GeomFill_BoundWithSurf.hxx".}
-proc IsDegenerated*(this: GeomFill_BoundWithSurf): Standard_Boolean {.noSideEffect,
+proc d1Norm*(this: GeomFillBoundWithSurf; u: float; n: var Vec; dn: var Vec) {.
+    noSideEffect, importcpp: "D1Norm", header: "GeomFill_BoundWithSurf.hxx".}
+proc reparametrize*(this: var GeomFillBoundWithSurf; first: float; last: float;
+                   hasDF: bool; hasDL: bool; df: float; dl: float; rev: bool) {.
+    importcpp: "Reparametrize", header: "GeomFill_BoundWithSurf.hxx".}
+proc bounds*(this: GeomFillBoundWithSurf; first: var float; last: var float) {.
+    noSideEffect, importcpp: "Bounds", header: "GeomFill_BoundWithSurf.hxx".}
+proc isDegenerated*(this: GeomFillBoundWithSurf): bool {.noSideEffect,
     importcpp: "IsDegenerated", header: "GeomFill_BoundWithSurf.hxx".}
 type
-  GeomFill_BoundWithSurfbase_type* = GeomFill_Boundary
+  GeomFillBoundWithSurfbaseType* = GeomFillBoundary
 
-proc get_type_name*(): cstring {.importcpp: "GeomFill_BoundWithSurf::get_type_name(@)",
-                              header: "GeomFill_BoundWithSurf.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "GeomFill_BoundWithSurf::get_type_name(@)",
+                            header: "GeomFill_BoundWithSurf.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GeomFill_BoundWithSurf::get_type_descriptor(@)",
     header: "GeomFill_BoundWithSurf.hxx".}
-proc DynamicType*(this: GeomFill_BoundWithSurf): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "GeomFill_BoundWithSurf.hxx".}
+proc dynamicType*(this: GeomFillBoundWithSurf): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "GeomFill_BoundWithSurf.hxx".}

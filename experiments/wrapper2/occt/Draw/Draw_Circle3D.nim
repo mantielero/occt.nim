@@ -14,32 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Circ,
-  ../Standard/Standard_Real, Draw_Color, Draw_Drawable3D
-
 discard "forward decl of gp_Circ"
 discard "forward decl of Draw_Color"
 discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Circle3D"
 discard "forward decl of Draw_Circle3D"
 type
-  Handle_Draw_Circle3D* = handle[Draw_Circle3D]
-  Draw_Circle3D* {.importcpp: "Draw_Circle3D", header: "Draw_Circle3D.hxx", bycopy.} = object of Draw_Drawable3D
+  HandleDrawCircle3D* = Handle[DrawCircle3D]
+  DrawCircle3D* {.importcpp: "Draw_Circle3D", header: "Draw_Circle3D.hxx", bycopy.} = object of DrawDrawable3D
 
 
-proc constructDraw_Circle3D*(C: gp_Circ; A1: Standard_Real; A2: Standard_Real;
-                            col: Draw_Color): Draw_Circle3D {.constructor,
-    importcpp: "Draw_Circle3D(@)", header: "Draw_Circle3D.hxx".}
-proc DrawOn*(this: Draw_Circle3D; dis: var Draw_Display) {.noSideEffect,
+proc constructDrawCircle3D*(c: Circ; a1: float; a2: float; col: DrawColor): DrawCircle3D {.
+    constructor, importcpp: "Draw_Circle3D(@)", header: "Draw_Circle3D.hxx".}
+proc drawOn*(this: DrawCircle3D; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "Draw_Circle3D.hxx".}
 type
-  Draw_Circle3Dbase_type* = Draw_Drawable3D
+  DrawCircle3DbaseType* = DrawDrawable3D
 
-proc get_type_name*(): cstring {.importcpp: "Draw_Circle3D::get_type_name(@)",
-                              header: "Draw_Circle3D.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Draw_Circle3D::get_type_name(@)",
+                            header: "Draw_Circle3D.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Draw_Circle3D::get_type_descriptor(@)",
     header: "Draw_Circle3D.hxx".}
-proc DynamicType*(this: Draw_Circle3D): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: DrawCircle3D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Circle3D.hxx".}

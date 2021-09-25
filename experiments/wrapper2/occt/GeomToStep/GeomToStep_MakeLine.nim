@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GeomToStep_Root
-
 discard "forward decl of StepGeom_Line"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Lin"
@@ -25,19 +21,19 @@ discard "forward decl of gp_Lin2d"
 discard "forward decl of Geom_Line"
 discard "forward decl of Geom2d_Line"
 type
-  GeomToStep_MakeLine* {.importcpp: "GeomToStep_MakeLine",
-                        header: "GeomToStep_MakeLine.hxx", bycopy.} = object of GeomToStep_Root
+  GeomToStepMakeLine* {.importcpp: "GeomToStep_MakeLine",
+                       header: "GeomToStep_MakeLine.hxx", bycopy.} = object of GeomToStepRoot
 
 
-proc constructGeomToStep_MakeLine*(L: gp_Lin): GeomToStep_MakeLine {.constructor,
+proc constructGeomToStepMakeLine*(L: Lin): GeomToStepMakeLine {.constructor,
     importcpp: "GeomToStep_MakeLine(@)", header: "GeomToStep_MakeLine.hxx".}
-proc constructGeomToStep_MakeLine*(L: gp_Lin2d): GeomToStep_MakeLine {.constructor,
+proc constructGeomToStepMakeLine*(L: Lin2d): GeomToStepMakeLine {.constructor,
     importcpp: "GeomToStep_MakeLine(@)", header: "GeomToStep_MakeLine.hxx".}
-proc constructGeomToStep_MakeLine*(C: handle[Geom_Line]): GeomToStep_MakeLine {.
+proc constructGeomToStepMakeLine*(c: Handle[GeomLine]): GeomToStepMakeLine {.
     constructor, importcpp: "GeomToStep_MakeLine(@)",
     header: "GeomToStep_MakeLine.hxx".}
-proc constructGeomToStep_MakeLine*(C: handle[Geom2d_Line]): GeomToStep_MakeLine {.
+proc constructGeomToStepMakeLine*(c: Handle[Geom2dLine]): GeomToStepMakeLine {.
     constructor, importcpp: "GeomToStep_MakeLine(@)",
     header: "GeomToStep_MakeLine.hxx".}
-proc Value*(this: GeomToStep_MakeLine): handle[StepGeom_Line] {.noSideEffect,
+proc value*(this: GeomToStepMakeLine): Handle[StepGeomLine] {.noSideEffect,
     importcpp: "Value", header: "GeomToStep_MakeLine.hxx".}

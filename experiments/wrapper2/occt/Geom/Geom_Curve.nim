@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Geom_Geometry,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean,
-  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_RangeError"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Geom_UndefinedDerivative"
@@ -29,7 +24,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom_Curve"
 type
-  Handle_Geom_Curve* = handle[Geom_Curve]
+  HandleGeomCurve* = Handle[GeomCurve]
 
 ## ! The abstract class Curve describes the common
 ## ! behavior of curves in 3D space. The Geom package
@@ -58,121 +53,118 @@ type
 ## ! self-intersect.
 
 type
-  Geom_Curve* {.importcpp: "Geom_Curve", header: "Geom_Curve.hxx", bycopy.} = object of Geom_Geometry ##
-                                                                                            ## !
-                                                                                            ## Changes
-                                                                                            ## the
-                                                                                            ## direction
-                                                                                            ## of
-                                                                                            ## parametrization
-                                                                                            ## of
-                                                                                            ## <me>.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## The
-                                                                                            ## "FirstParameter"
-                                                                                            ## and
-                                                                                            ## the
-                                                                                            ## "LastParameter"
-                                                                                            ## are
-                                                                                            ## not
-                                                                                            ## changed
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## but
-                                                                                            ## the
-                                                                                            ## orientation
-                                                                                            ## of
-                                                                                            ## the
-                                                                                            ## curve
-                                                                                            ## is
-                                                                                            ## modified.
-                                                                                            ## If
-                                                                                            ## the
-                                                                                            ## curve
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## is
-                                                                                            ## bounded
-                                                                                            ## the
-                                                                                            ## StartPoint
-                                                                                            ## of
-                                                                                            ## the
-                                                                                            ## initial
-                                                                                            ## curve
-                                                                                            ## becomes
-                                                                                            ## the
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## EndPoint
-                                                                                            ## of
-                                                                                            ## the
-                                                                                            ## reversed
-                                                                                            ## curve
-                                                                                            ## and
-                                                                                            ## the
-                                                                                            ## EndPoint
-                                                                                            ## of
-                                                                                            ## the
-                                                                                            ## initial
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## curve
-                                                                                            ## becomes
-                                                                                            ## the
-                                                                                            ## StartPoint
-                                                                                            ## of
-                                                                                            ## the
-                                                                                            ## reversed
-                                                                                            ## curve.
-    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
+  GeomCurve* {.importcpp: "Geom_Curve", header: "Geom_Curve.hxx", bycopy.} = object of GeomGeometry ##
+                                                                                          ## !
+                                                                                          ## Changes
+                                                                                          ## the
+                                                                                          ## direction
+                                                                                          ## of
+                                                                                          ## parametrization
+                                                                                          ## of
+                                                                                          ## <me>.
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## The
+                                                                                          ## "FirstParameter"
+                                                                                          ## and
+                                                                                          ## the
+                                                                                          ## "LastParameter"
+                                                                                          ## are
+                                                                                          ## not
+                                                                                          ## changed
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## but
+                                                                                          ## the
+                                                                                          ## orientation
+                                                                                          ## of
+                                                                                          ## the
+                                                                                          ## curve
+                                                                                          ## is
+                                                                                          ## modified.
+                                                                                          ## If
+                                                                                          ## the
+                                                                                          ## curve
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## is
+                                                                                          ## bounded
+                                                                                          ## the
+                                                                                          ## StartPoint
+                                                                                          ## of
+                                                                                          ## the
+                                                                                          ## initial
+                                                                                          ## curve
+                                                                                          ## becomes
+                                                                                          ## the
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## EndPoint
+                                                                                          ## of
+                                                                                          ## the
+                                                                                          ## reversed
+                                                                                          ## curve
+                                                                                          ## and
+                                                                                          ## the
+                                                                                          ## EndPoint
+                                                                                          ## of
+                                                                                          ## the
+                                                                                          ## initial
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## curve
+                                                                                          ## becomes
+                                                                                          ## the
+                                                                                          ## StartPoint
+                                                                                          ## of
+                                                                                          ## the
+                                                                                          ## reversed
+                                                                                          ## curve.
 
 
-proc Reverse*(this: var Geom_Curve) {.importcpp: "Reverse", header: "Geom_Curve.hxx".}
-proc ReversedParameter*(this: Geom_Curve; U: Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "ReversedParameter", header: "Geom_Curve.hxx".}
-proc TransformedParameter*(this: Geom_Curve; U: Standard_Real; T: gp_Trsf): Standard_Real {.
-    noSideEffect, importcpp: "TransformedParameter", header: "Geom_Curve.hxx".}
-proc ParametricTransformation*(this: Geom_Curve; T: gp_Trsf): Standard_Real {.
-    noSideEffect, importcpp: "ParametricTransformation", header: "Geom_Curve.hxx".}
-## !!!Ignored construct:  :: handle < Geom_Curve > [end of template] Reversed ( ) const ;
-## Error: identifier expected, but got: ::!!!
-
-proc FirstParameter*(this: Geom_Curve): Standard_Real {.noSideEffect,
+proc reverse*(this: var GeomCurve) {.importcpp: "Reverse", header: "Geom_Curve.hxx".}
+proc reversedParameter*(this: GeomCurve; u: float): float {.noSideEffect,
+    importcpp: "ReversedParameter", header: "Geom_Curve.hxx".}
+proc transformedParameter*(this: GeomCurve; u: float; t: Trsf): float {.noSideEffect,
+    importcpp: "TransformedParameter", header: "Geom_Curve.hxx".}
+proc parametricTransformation*(this: GeomCurve; t: Trsf): float {.noSideEffect,
+    importcpp: "ParametricTransformation", header: "Geom_Curve.hxx".}
+proc reversed*(this: GeomCurve): Handle[GeomCurve] {.noSideEffect,
+    importcpp: "Reversed", header: "Geom_Curve.hxx".}
+proc firstParameter*(this: GeomCurve): float {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom_Curve.hxx".}
-proc LastParameter*(this: Geom_Curve): Standard_Real {.noSideEffect,
+proc lastParameter*(this: GeomCurve): float {.noSideEffect,
     importcpp: "LastParameter", header: "Geom_Curve.hxx".}
-proc IsClosed*(this: Geom_Curve): Standard_Boolean {.noSideEffect,
-    importcpp: "IsClosed", header: "Geom_Curve.hxx".}
-proc IsPeriodic*(this: Geom_Curve): Standard_Boolean {.noSideEffect,
-    importcpp: "IsPeriodic", header: "Geom_Curve.hxx".}
-proc Period*(this: Geom_Curve): Standard_Real {.noSideEffect, importcpp: "Period",
-    header: "Geom_Curve.hxx".}
-proc Continuity*(this: Geom_Curve): GeomAbs_Shape {.noSideEffect,
+proc isClosed*(this: GeomCurve): bool {.noSideEffect, importcpp: "IsClosed",
+                                    header: "Geom_Curve.hxx".}
+proc isPeriodic*(this: GeomCurve): bool {.noSideEffect, importcpp: "IsPeriodic",
+                                      header: "Geom_Curve.hxx".}
+proc period*(this: GeomCurve): float {.noSideEffect, importcpp: "Period",
+                                   header: "Geom_Curve.hxx".}
+proc continuity*(this: GeomCurve): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Geom_Curve.hxx".}
-proc IsCN*(this: Geom_Curve; N: Standard_Integer): Standard_Boolean {.noSideEffect,
-    importcpp: "IsCN", header: "Geom_Curve.hxx".}
-proc D0*(this: Geom_Curve; U: Standard_Real; P: var gp_Pnt) {.noSideEffect,
-    importcpp: "D0", header: "Geom_Curve.hxx".}
-proc D1*(this: Geom_Curve; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec) {.noSideEffect,
-    importcpp: "D1", header: "Geom_Curve.hxx".}
-proc D2*(this: Geom_Curve; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec; V2: var gp_Vec) {.
-    noSideEffect, importcpp: "D2", header: "Geom_Curve.hxx".}
-proc D3*(this: Geom_Curve; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec; V2: var gp_Vec;
-        V3: var gp_Vec) {.noSideEffect, importcpp: "D3", header: "Geom_Curve.hxx".}
-proc DN*(this: Geom_Curve; U: Standard_Real; N: Standard_Integer): gp_Vec {.
-    noSideEffect, importcpp: "DN", header: "Geom_Curve.hxx".}
-proc Value*(this: Geom_Curve; U: Standard_Real): gp_Pnt {.noSideEffect,
-    importcpp: "Value", header: "Geom_Curve.hxx".}
-proc DumpJson*(this: Geom_Curve; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
+proc isCN*(this: GeomCurve; n: int): bool {.noSideEffect, importcpp: "IsCN",
+                                      header: "Geom_Curve.hxx".}
+proc d0*(this: GeomCurve; u: float; p: var Pnt) {.noSideEffect, importcpp: "D0",
     header: "Geom_Curve.hxx".}
+proc d1*(this: GeomCurve; u: float; p: var Pnt; v1: var Vec) {.noSideEffect,
+    importcpp: "D1", header: "Geom_Curve.hxx".}
+proc d2*(this: GeomCurve; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.noSideEffect,
+    importcpp: "D2", header: "Geom_Curve.hxx".}
+proc d3*(this: GeomCurve; u: float; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+    noSideEffect, importcpp: "D3", header: "Geom_Curve.hxx".}
+proc dn*(this: GeomCurve; u: float; n: int): Vec {.noSideEffect, importcpp: "DN",
+    header: "Geom_Curve.hxx".}
+proc value*(this: GeomCurve; u: float): Pnt {.noSideEffect, importcpp: "Value",
+                                        header: "Geom_Curve.hxx".}
+proc dumpJson*(this: GeomCurve; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "Geom_Curve.hxx".}
 type
-  Geom_Curvebase_type* = Geom_Geometry
+  GeomCurvebaseType* = GeomGeometry
 
-proc get_type_name*(): cstring {.importcpp: "Geom_Curve::get_type_name(@)",
-                              header: "Geom_Curve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Geom_Curve::get_type_name(@)",
+                            header: "Geom_Curve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_Curve::get_type_descriptor(@)", header: "Geom_Curve.hxx".}
-proc DynamicType*(this: Geom_Curve): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: GeomCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom_Curve.hxx".}

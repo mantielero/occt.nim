@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Pnt2d, ../NCollection/NCollection_Array2
-
 type
-  TColgp_Array2OfPnt2d* = NCollection_Array2[gp_Pnt2d]
+  TColgpArray2OfPnt2d* = NCollectionArray2[Pnt2d]
+

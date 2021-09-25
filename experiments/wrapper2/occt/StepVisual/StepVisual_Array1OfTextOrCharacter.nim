@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_TextOrCharacter, ../NCollection/NCollection_Array1
-
 type
-  StepVisual_Array1OfTextOrCharacter* = NCollection_Array1[
-      StepVisual_TextOrCharacter]
+  StepVisualArray1OfTextOrCharacter* = NCollectionArray1[StepVisualTextOrCharacter]
+

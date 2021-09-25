@@ -11,38 +11,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Lin, ../math/math_Function, ../math/math_MultipleVarFunction,
-  ../Adaptor3d/Adaptor3d_Curve
-
 discard "forward decl of gp_Pnt"
 type
-  GCPnts_DistFunction* {.importcpp: "GCPnts_DistFunction",
-                        header: "GCPnts_DistFunction.hxx", bycopy.} = object of math_Function
+  GCPntsDistFunction* {.importcpp: "GCPnts_DistFunction",
+                       header: "GCPnts_DistFunction.hxx", bycopy.} = object of MathFunction
 
 
-proc constructGCPnts_DistFunction*(theCurve: Adaptor3d_Curve; U1: Standard_Real;
-                                  U2: Standard_Real): GCPnts_DistFunction {.
+proc constructGCPntsDistFunction*(theCurve: Adaptor3dCurve; u1: float; u2: float): GCPntsDistFunction {.
     constructor, importcpp: "GCPnts_DistFunction(@)",
     header: "GCPnts_DistFunction.hxx".}
-proc constructGCPnts_DistFunction*(theOther: GCPnts_DistFunction): GCPnts_DistFunction {.
+proc constructGCPntsDistFunction*(theOther: GCPntsDistFunction): GCPntsDistFunction {.
     constructor, importcpp: "GCPnts_DistFunction(@)",
     header: "GCPnts_DistFunction.hxx".}
-proc Value*(this: var GCPnts_DistFunction; X: Standard_Real; F: var Standard_Real): Standard_Boolean {.
+proc value*(this: var GCPntsDistFunction; x: float; f: var float): bool {.
     importcpp: "Value", header: "GCPnts_DistFunction.hxx".}
 ##
 ## ! The same as class GCPnts_DistFunction, but it can be used in minimization algorithms that
 ## ! requires multi variable function
 
 type
-  GCPnts_DistFunctionMV* {.importcpp: "GCPnts_DistFunctionMV",
-                          header: "GCPnts_DistFunction.hxx", bycopy.} = object of math_MultipleVarFunction
+  GCPntsDistFunctionMV* {.importcpp: "GCPnts_DistFunctionMV",
+                         header: "GCPnts_DistFunction.hxx", bycopy.} = object of MathMultipleVarFunction
 
 
-proc constructGCPnts_DistFunctionMV*(theCurvLinDist: var GCPnts_DistFunction): GCPnts_DistFunctionMV {.
+proc constructGCPntsDistFunctionMV*(theCurvLinDist: var GCPntsDistFunction): GCPntsDistFunctionMV {.
     constructor, importcpp: "GCPnts_DistFunctionMV(@)",
     header: "GCPnts_DistFunction.hxx".}
-proc Value*(this: var GCPnts_DistFunctionMV; X: math_Vector; F: var Standard_Real): Standard_Boolean {.
+proc value*(this: var GCPntsDistFunctionMV; x: MathVector; f: var float): bool {.
     importcpp: "Value", header: "GCPnts_DistFunction.hxx".}
-proc NbVariables*(this: GCPnts_DistFunctionMV): Standard_Integer {.noSideEffect,
+proc nbVariables*(this: GCPntsDistFunctionMV): int {.noSideEffect,
     importcpp: "NbVariables", header: "GCPnts_DistFunction.hxx".}
+

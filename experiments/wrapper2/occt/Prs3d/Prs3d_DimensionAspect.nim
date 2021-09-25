@@ -12,109 +12,102 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Prs3d_ArrowAspect, Prs3d_DimensionArrowOrientation,
-  Prs3d_DimensionTextHorizontalPosition, Prs3d_DimensionTextVerticalPosition,
-  Prs3d_LineAspect, Prs3d_TextAspect, ../TCollection/TCollection_AsciiString
-
 ## ! defines the attributes when drawing a Length Presentation.
 
 type
-  Prs3d_DimensionAspect* {.importcpp: "Prs3d_DimensionAspect",
-                          header: "Prs3d_DimensionAspect.hxx", bycopy.} = object of Prs3d_BasicAspect ##
-                                                                                               ## !
-                                                                                               ## Constructs
-                                                                                               ## an
-                                                                                               ## empty
-                                                                                               ## framework
-                                                                                               ## to
-                                                                                               ## define
-                                                                                               ## the
-                                                                                               ## display
-                                                                                               ## of
-                                                                                               ## dimensions.
+  Prs3dDimensionAspect* {.importcpp: "Prs3d_DimensionAspect",
+                         header: "Prs3d_DimensionAspect.hxx", bycopy.} = object of Prs3dBasicAspect ##
+                                                                                             ## !
+                                                                                             ## Constructs
+                                                                                             ## an
+                                                                                             ## empty
+                                                                                             ## framework
+                                                                                             ## to
+                                                                                             ## define
+                                                                                             ## the
+                                                                                             ## display
+                                                                                             ## of
+                                                                                             ## dimensions.
 
-  Prs3d_DimensionAspectbase_type* = Prs3d_BasicAspect
+  Prs3dDimensionAspectbaseType* = Prs3dBasicAspect
 
-proc get_type_name*(): cstring {.importcpp: "Prs3d_DimensionAspect::get_type_name(@)",
-                              header: "Prs3d_DimensionAspect.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Prs3d_DimensionAspect::get_type_name(@)",
+                            header: "Prs3d_DimensionAspect.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Prs3d_DimensionAspect::get_type_descriptor(@)",
     header: "Prs3d_DimensionAspect.hxx".}
-proc DynamicType*(this: Prs3d_DimensionAspect): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Prs3d_DimensionAspect.hxx".}
-proc constructPrs3d_DimensionAspect*(): Prs3d_DimensionAspect {.constructor,
+proc dynamicType*(this: Prs3dDimensionAspect): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Prs3d_DimensionAspect.hxx".}
+proc constructPrs3dDimensionAspect*(): Prs3dDimensionAspect {.constructor,
     importcpp: "Prs3d_DimensionAspect(@)", header: "Prs3d_DimensionAspect.hxx".}
-proc LineAspect*(this: Prs3d_DimensionAspect): handle[Prs3d_LineAspect] {.
+proc lineAspect*(this: Prs3dDimensionAspect): Handle[Prs3dLineAspect] {.
     noSideEffect, importcpp: "LineAspect", header: "Prs3d_DimensionAspect.hxx".}
-proc SetLineAspect*(this: var Prs3d_DimensionAspect;
-                   theAspect: handle[Prs3d_LineAspect]) {.
+proc setLineAspect*(this: var Prs3dDimensionAspect;
+                   theAspect: Handle[Prs3dLineAspect]) {.
     importcpp: "SetLineAspect", header: "Prs3d_DimensionAspect.hxx".}
-proc TextAspect*(this: Prs3d_DimensionAspect): handle[Prs3d_TextAspect] {.
+proc textAspect*(this: Prs3dDimensionAspect): Handle[Prs3dTextAspect] {.
     noSideEffect, importcpp: "TextAspect", header: "Prs3d_DimensionAspect.hxx".}
-proc SetTextAspect*(this: var Prs3d_DimensionAspect;
-                   theAspect: handle[Prs3d_TextAspect]) {.
+proc setTextAspect*(this: var Prs3dDimensionAspect;
+                   theAspect: Handle[Prs3dTextAspect]) {.
     importcpp: "SetTextAspect", header: "Prs3d_DimensionAspect.hxx".}
-proc IsText3d*(this: Prs3d_DimensionAspect): Standard_Boolean {.noSideEffect,
+proc isText3d*(this: Prs3dDimensionAspect): bool {.noSideEffect,
     importcpp: "IsText3d", header: "Prs3d_DimensionAspect.hxx".}
-proc MakeText3d*(this: var Prs3d_DimensionAspect; isText3d: Standard_Boolean) {.
+proc makeText3d*(this: var Prs3dDimensionAspect; isText3d: bool) {.
     importcpp: "MakeText3d", header: "Prs3d_DimensionAspect.hxx".}
-proc IsTextShaded*(this: Prs3d_DimensionAspect): Standard_Boolean {.noSideEffect,
+proc isTextShaded*(this: Prs3dDimensionAspect): bool {.noSideEffect,
     importcpp: "IsTextShaded", header: "Prs3d_DimensionAspect.hxx".}
-proc MakeTextShaded*(this: var Prs3d_DimensionAspect;
-                    theIsTextShaded: Standard_Boolean) {.
+proc makeTextShaded*(this: var Prs3dDimensionAspect; theIsTextShaded: bool) {.
     importcpp: "MakeTextShaded", header: "Prs3d_DimensionAspect.hxx".}
-proc IsArrows3d*(this: Prs3d_DimensionAspect): Standard_Boolean {.noSideEffect,
+proc isArrows3d*(this: Prs3dDimensionAspect): bool {.noSideEffect,
     importcpp: "IsArrows3d", header: "Prs3d_DimensionAspect.hxx".}
-proc MakeArrows3d*(this: var Prs3d_DimensionAspect; theIsArrows3d: Standard_Boolean) {.
+proc makeArrows3d*(this: var Prs3dDimensionAspect; theIsArrows3d: bool) {.
     importcpp: "MakeArrows3d", header: "Prs3d_DimensionAspect.hxx".}
-proc IsUnitsDisplayed*(this: Prs3d_DimensionAspect): Standard_Boolean {.
-    noSideEffect, importcpp: "IsUnitsDisplayed",
-    header: "Prs3d_DimensionAspect.hxx".}
-proc MakeUnitsDisplayed*(this: var Prs3d_DimensionAspect;
-                        theIsDisplayed: Standard_Boolean) {.
+proc isUnitsDisplayed*(this: Prs3dDimensionAspect): bool {.noSideEffect,
+    importcpp: "IsUnitsDisplayed", header: "Prs3d_DimensionAspect.hxx".}
+proc makeUnitsDisplayed*(this: var Prs3dDimensionAspect; theIsDisplayed: bool) {.
     importcpp: "MakeUnitsDisplayed", header: "Prs3d_DimensionAspect.hxx".}
-proc SetArrowOrientation*(this: var Prs3d_DimensionAspect;
-                         theArrowOrient: Prs3d_DimensionArrowOrientation) {.
+proc setArrowOrientation*(this: var Prs3dDimensionAspect;
+                         theArrowOrient: Prs3dDimensionArrowOrientation) {.
     importcpp: "SetArrowOrientation", header: "Prs3d_DimensionAspect.hxx".}
-proc ArrowOrientation*(this: Prs3d_DimensionAspect): Prs3d_DimensionArrowOrientation {.
+proc arrowOrientation*(this: Prs3dDimensionAspect): Prs3dDimensionArrowOrientation {.
     noSideEffect, importcpp: "ArrowOrientation",
     header: "Prs3d_DimensionAspect.hxx".}
-proc SetTextVerticalPosition*(this: var Prs3d_DimensionAspect;
-                             thePosition: Prs3d_DimensionTextVerticalPosition) {.
+proc setTextVerticalPosition*(this: var Prs3dDimensionAspect;
+                             thePosition: Prs3dDimensionTextVerticalPosition) {.
     importcpp: "SetTextVerticalPosition", header: "Prs3d_DimensionAspect.hxx".}
-proc TextVerticalPosition*(this: Prs3d_DimensionAspect): Prs3d_DimensionTextVerticalPosition {.
+proc textVerticalPosition*(this: Prs3dDimensionAspect): Prs3dDimensionTextVerticalPosition {.
     noSideEffect, importcpp: "TextVerticalPosition",
     header: "Prs3d_DimensionAspect.hxx".}
-proc SetTextHorizontalPosition*(this: var Prs3d_DimensionAspect; thePosition: Prs3d_DimensionTextHorizontalPosition) {.
+proc setTextHorizontalPosition*(this: var Prs3dDimensionAspect; thePosition: Prs3dDimensionTextHorizontalPosition) {.
     importcpp: "SetTextHorizontalPosition", header: "Prs3d_DimensionAspect.hxx".}
-proc TextHorizontalPosition*(this: Prs3d_DimensionAspect): Prs3d_DimensionTextHorizontalPosition {.
+proc textHorizontalPosition*(this: Prs3dDimensionAspect): Prs3dDimensionTextHorizontalPosition {.
     noSideEffect, importcpp: "TextHorizontalPosition",
     header: "Prs3d_DimensionAspect.hxx".}
-proc ArrowAspect*(this: Prs3d_DimensionAspect): handle[Prs3d_ArrowAspect] {.
+proc arrowAspect*(this: Prs3dDimensionAspect): Handle[Prs3dArrowAspect] {.
     noSideEffect, importcpp: "ArrowAspect", header: "Prs3d_DimensionAspect.hxx".}
-proc SetArrowAspect*(this: var Prs3d_DimensionAspect;
-                    theAspect: handle[Prs3d_ArrowAspect]) {.
+proc setArrowAspect*(this: var Prs3dDimensionAspect;
+                    theAspect: Handle[Prs3dArrowAspect]) {.
     importcpp: "SetArrowAspect", header: "Prs3d_DimensionAspect.hxx".}
-proc SetCommonColor*(this: var Prs3d_DimensionAspect; theColor: Quantity_Color) {.
+proc setCommonColor*(this: var Prs3dDimensionAspect; theColor: QuantityColor) {.
     importcpp: "SetCommonColor", header: "Prs3d_DimensionAspect.hxx".}
-proc SetExtensionSize*(this: var Prs3d_DimensionAspect; theSize: Standard_Real) {.
+proc setExtensionSize*(this: var Prs3dDimensionAspect; theSize: float) {.
     importcpp: "SetExtensionSize", header: "Prs3d_DimensionAspect.hxx".}
-proc ExtensionSize*(this: Prs3d_DimensionAspect): Standard_Real {.noSideEffect,
+proc extensionSize*(this: Prs3dDimensionAspect): float {.noSideEffect,
     importcpp: "ExtensionSize", header: "Prs3d_DimensionAspect.hxx".}
-proc SetArrowTailSize*(this: var Prs3d_DimensionAspect; theSize: Standard_Real) {.
+proc setArrowTailSize*(this: var Prs3dDimensionAspect; theSize: float) {.
     importcpp: "SetArrowTailSize", header: "Prs3d_DimensionAspect.hxx".}
-proc ArrowTailSize*(this: Prs3d_DimensionAspect): Standard_Real {.noSideEffect,
+proc arrowTailSize*(this: Prs3dDimensionAspect): float {.noSideEffect,
     importcpp: "ArrowTailSize", header: "Prs3d_DimensionAspect.hxx".}
-proc SetValueStringFormat*(this: var Prs3d_DimensionAspect;
-                          theFormat: TCollection_AsciiString) {.
+proc setValueStringFormat*(this: var Prs3dDimensionAspect;
+                          theFormat: TCollectionAsciiString) {.
     importcpp: "SetValueStringFormat", header: "Prs3d_DimensionAspect.hxx".}
-proc ValueStringFormat*(this: Prs3d_DimensionAspect): TCollection_AsciiString {.
+proc valueStringFormat*(this: Prs3dDimensionAspect): TCollectionAsciiString {.
     noSideEffect, importcpp: "ValueStringFormat",
     header: "Prs3d_DimensionAspect.hxx".}
-proc DumpJson*(this: Prs3d_DimensionAspect; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Prs3d_DimensionAspect.hxx".}
+proc dumpJson*(this: Prs3dDimensionAspect; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Prs3d_DimensionAspect.hxx".}
 discard "forward decl of Prs3d_DimensionAspect"
 type
-  Handle_Prs3d_DimensionAspect* = handle[Prs3d_DimensionAspect]
+  HandlePrs3dDimensionAspect* = Handle[Prs3dDimensionAspect]
+

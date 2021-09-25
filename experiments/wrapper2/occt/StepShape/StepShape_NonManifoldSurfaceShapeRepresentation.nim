@@ -13,34 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_ShapeRepresentation
-
 discard "forward decl of StepShape_NonManifoldSurfaceShapeRepresentation"
 discard "forward decl of StepShape_NonManifoldSurfaceShapeRepresentation"
 type
-  Handle_StepShape_NonManifoldSurfaceShapeRepresentation* = handle[
-      StepShape_NonManifoldSurfaceShapeRepresentation]
+  HandleStepShapeNonManifoldSurfaceShapeRepresentation* = Handle[
+      StepShapeNonManifoldSurfaceShapeRepresentation]
 
 ## ! Representation of STEP entity NonManifoldSurfaceShapeRepresentation
 
 type
-  StepShape_NonManifoldSurfaceShapeRepresentation* {.
+  StepShapeNonManifoldSurfaceShapeRepresentation* {.
       importcpp: "StepShape_NonManifoldSurfaceShapeRepresentation",
-      header: "StepShape_NonManifoldSurfaceShapeRepresentation.hxx", bycopy.} = object of StepShape_ShapeRepresentation ##
-                                                                                                                 ## !
-                                                                                                                 ## Empty
-                                                                                                                 ## constructor
+      header: "StepShape_NonManifoldSurfaceShapeRepresentation.hxx", bycopy.} = object of StepShapeShapeRepresentation ##
+                                                                                                                ## !
+                                                                                                                ## Empty
+                                                                                                                ## constructor
 
 
-proc constructStepShape_NonManifoldSurfaceShapeRepresentation*(): StepShape_NonManifoldSurfaceShapeRepresentation {.
+proc constructStepShapeNonManifoldSurfaceShapeRepresentation*(): StepShapeNonManifoldSurfaceShapeRepresentation {.
     constructor, importcpp: "StepShape_NonManifoldSurfaceShapeRepresentation(@)",
     header: "StepShape_NonManifoldSurfaceShapeRepresentation.hxx".}
 type
-  StepShape_NonManifoldSurfaceShapeRepresentationbase_type* = StepShape_ShapeRepresentation
+  StepShapeNonManifoldSurfaceShapeRepresentationbaseType* = StepShapeShapeRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_NonManifoldSurfaceShapeRepresentation::get_type_name(@)", header: "StepShape_NonManifoldSurfaceShapeRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepShape_NonManifoldSurfaceShapeRepresentation::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepShape_NonManifoldSurfaceShapeRepresentation::get_type_name(@)", header: "StepShape_NonManifoldSurfaceShapeRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_NonManifoldSurfaceShapeRepresentation::get_type_descriptor(@)",
     header: "StepShape_NonManifoldSurfaceShapeRepresentation.hxx".}
-proc DynamicType*(this: StepShape_NonManifoldSurfaceShapeRepresentation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_NonManifoldSurfaceShapeRepresentation.hxx".}
+proc dynamicType*(this: StepShapeNonManifoldSurfaceShapeRepresentation): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_NonManifoldSurfaceShapeRepresentation.hxx".}

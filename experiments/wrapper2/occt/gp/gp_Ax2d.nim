@@ -12,89 +12,66 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, gp_Pnt2d, gp_Dir2d, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real
-
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Dir2d"
 discard "forward decl of gp_Trsf2d"
 discard "forward decl of gp_Vec2d"
 type
-  gp_Ax2d* {.importcpp: "gp_Ax2d", header: "gp_Ax2d.hxx", bycopy.} = object ## ! Creates an axis object representing X axis of
-                                                                    ## ! the reference co-ordinate system.
-    gp_Ax2d* {.importc: "gp_Ax2d".}: Standard_NODISCARD
-    gp_Ax2d* {.importc: "gp_Ax2d".}: Standard_NODISCARD
-    gp_Ax2d* {.importc: "gp_Ax2d".}: Standard_NODISCARD
-    gp_Ax2d* {.importc: "gp_Ax2d".}: Standard_NODISCARD
-    gp_Ax2d* {.importc: "gp_Ax2d".}: Standard_NODISCARD
-    gp_Ax2d* {.importc: "gp_Ax2d".}: Standard_NODISCARD
-    gp_Ax2d* {.importc: "gp_Ax2d".}: Standard_NODISCARD
-    gp_Ax2d* {.importc: "gp_Ax2d".}: Standard_NODISCARD
+  Ax2d* {.importcpp: "gp_Ax2d", header: "gp_Ax2d.hxx", bycopy.} = object ## ! Creates an axis object representing X axis of
+                                                                 ## ! the reference co-ordinate system.
 
 
-proc constructgp_Ax2d*(): gp_Ax2d {.constructor, importcpp: "gp_Ax2d(@)",
+proc constructAx2d*(): Ax2d {.constructor, importcpp: "gp_Ax2d(@)",
+                           header: "gp_Ax2d.hxx".}
+proc constructAx2d*(p: Pnt2d; v: Dir2d): Ax2d {.constructor, importcpp: "gp_Ax2d(@)",
+    header: "gp_Ax2d.hxx".}
+proc setLocation*(this: var Ax2d; locat: Pnt2d) {.importcpp: "SetLocation",
+    header: "gp_Ax2d.hxx".}
+proc setDirection*(this: var Ax2d; v: Dir2d) {.importcpp: "SetDirection",
+    header: "gp_Ax2d.hxx".}
+proc location*(this: Ax2d): Pnt2d {.noSideEffect, importcpp: "Location",
+                                header: "gp_Ax2d.hxx".}
+proc direction*(this: Ax2d): Dir2d {.noSideEffect, importcpp: "Direction",
                                  header: "gp_Ax2d.hxx".}
-proc constructgp_Ax2d*(P: gp_Pnt2d; V: gp_Dir2d): gp_Ax2d {.constructor,
-    importcpp: "gp_Ax2d(@)", header: "gp_Ax2d.hxx".}
-proc SetLocation*(this: var gp_Ax2d; Locat: gp_Pnt2d) {.importcpp: "SetLocation",
+proc isCoaxial*(this: Ax2d; other: Ax2d; angularTolerance: float;
+               linearTolerance: float): bool {.noSideEffect, importcpp: "IsCoaxial",
     header: "gp_Ax2d.hxx".}
-proc SetDirection*(this: var gp_Ax2d; V: gp_Dir2d) {.importcpp: "SetDirection",
-    header: "gp_Ax2d.hxx".}
-proc Location*(this: gp_Ax2d): gp_Pnt2d {.noSideEffect, importcpp: "Location",
-                                      header: "gp_Ax2d.hxx".}
-proc Direction*(this: gp_Ax2d): gp_Dir2d {.noSideEffect, importcpp: "Direction",
+proc isNormal*(this: Ax2d; other: Ax2d; angularTolerance: float): bool {.noSideEffect,
+    importcpp: "IsNormal", header: "gp_Ax2d.hxx".}
+proc isOpposite*(this: Ax2d; other: Ax2d; angularTolerance: float): bool {.noSideEffect,
+    importcpp: "IsOpposite", header: "gp_Ax2d.hxx".}
+proc isParallel*(this: Ax2d; other: Ax2d; angularTolerance: float): bool {.noSideEffect,
+    importcpp: "IsParallel", header: "gp_Ax2d.hxx".}
+proc angle*(this: Ax2d; other: Ax2d): float {.noSideEffect, importcpp: "Angle",
+                                        header: "gp_Ax2d.hxx".}
+proc reverse*(this: var Ax2d) {.importcpp: "Reverse", header: "gp_Ax2d.hxx".}
+proc reversed*(this: Ax2d): Ax2d {.noSideEffect, importcpp: "Reversed",
+                               header: "gp_Ax2d.hxx".}
+proc mirror*(this: var Ax2d; p: Pnt2d) {.importcpp: "Mirror", header: "gp_Ax2d.hxx".}
+proc mirrored*(this: Ax2d; p: Pnt2d): Ax2d {.noSideEffect, importcpp: "Mirrored",
                                        header: "gp_Ax2d.hxx".}
-proc IsCoaxial*(this: gp_Ax2d; Other: gp_Ax2d; AngularTolerance: Standard_Real;
-               LinearTolerance: Standard_Real): Standard_Boolean {.noSideEffect,
-    importcpp: "IsCoaxial", header: "gp_Ax2d.hxx".}
-proc IsNormal*(this: gp_Ax2d; Other: gp_Ax2d; AngularTolerance: Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "IsNormal", header: "gp_Ax2d.hxx".}
-proc IsOpposite*(this: gp_Ax2d; Other: gp_Ax2d; AngularTolerance: Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "IsOpposite", header: "gp_Ax2d.hxx".}
-proc IsParallel*(this: gp_Ax2d; Other: gp_Ax2d; AngularTolerance: Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "IsParallel", header: "gp_Ax2d.hxx".}
-proc Angle*(this: gp_Ax2d; Other: gp_Ax2d): Standard_Real {.noSideEffect,
-    importcpp: "Angle", header: "gp_Ax2d.hxx".}
-proc Reverse*(this: var gp_Ax2d) {.importcpp: "Reverse", header: "gp_Ax2d.hxx".}
-## !!!Ignored construct:  Reversed ( ) const ;
-## Error: identifier expected, but got: )!!!
-
-proc Mirror*(this: var gp_Ax2d; P: gp_Pnt2d) {.importcpp: "Mirror",
+proc mirror*(this: var Ax2d; a: Ax2d) {.importcpp: "Mirror", header: "gp_Ax2d.hxx".}
+proc mirrored*(this: Ax2d; a: Ax2d): Ax2d {.noSideEffect, importcpp: "Mirrored",
+                                      header: "gp_Ax2d.hxx".}
+proc rotate*(this: var Ax2d; p: Pnt2d; ang: float) {.importcpp: "Rotate",
     header: "gp_Ax2d.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Pnt2d & P ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Mirror*(this: var gp_Ax2d; A: gp_Ax2d) {.importcpp: "Mirror", header: "gp_Ax2d.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Ax2d & A ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Rotate*(this: var gp_Ax2d; P: gp_Pnt2d; Ang: Standard_Real) {.importcpp: "Rotate",
+proc rotated*(this: Ax2d; p: Pnt2d; ang: float): Ax2d {.noSideEffect,
+    importcpp: "Rotated", header: "gp_Ax2d.hxx".}
+proc scale*(this: var Ax2d; p: Pnt2d; s: float) {.importcpp: "Scale",
     header: "gp_Ax2d.hxx".}
-## !!!Ignored construct:  Rotated ( const gp_Pnt2d & P , const Standard_Real Ang ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Scale*(this: var gp_Ax2d; P: gp_Pnt2d; S: Standard_Real) {.importcpp: "Scale",
+proc scaled*(this: Ax2d; p: Pnt2d; s: float): Ax2d {.noSideEffect, importcpp: "Scaled",
     header: "gp_Ax2d.hxx".}
-## !!!Ignored construct:  Scaled ( const gp_Pnt2d & P , const Standard_Real S ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Transform*(this: var gp_Ax2d; T: gp_Trsf2d) {.importcpp: "Transform",
+proc transform*(this: var Ax2d; t: Trsf2d) {.importcpp: "Transform",
+                                       header: "gp_Ax2d.hxx".}
+proc transformed*(this: Ax2d; t: Trsf2d): Ax2d {.noSideEffect,
+    importcpp: "Transformed", header: "gp_Ax2d.hxx".}
+proc translate*(this: var Ax2d; v: Vec2d) {.importcpp: "Translate",
+                                      header: "gp_Ax2d.hxx".}
+proc translated*(this: Ax2d; v: Vec2d): Ax2d {.noSideEffect, importcpp: "Translated",
     header: "gp_Ax2d.hxx".}
-## !!!Ignored construct:  Transformed ( const gp_Trsf2d & T ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Translate*(this: var gp_Ax2d; V: gp_Vec2d) {.importcpp: "Translate",
+proc translate*(this: var Ax2d; p1: Pnt2d; p2: Pnt2d) {.importcpp: "Translate",
     header: "gp_Ax2d.hxx".}
-## !!!Ignored construct:  Translated ( const gp_Vec2d & V ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Translate*(this: var gp_Ax2d; P1: gp_Pnt2d; P2: gp_Pnt2d) {.importcpp: "Translate",
-    header: "gp_Ax2d.hxx".}
-## !!!Ignored construct:  Translated ( const gp_Pnt2d & P1 , const gp_Pnt2d & P2 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc DumpJson*(this: gp_Ax2d; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "gp_Ax2d.hxx".}
+proc translated*(this: Ax2d; p1: Pnt2d; p2: Pnt2d): Ax2d {.noSideEffect,
+    importcpp: "Translated", header: "gp_Ax2d.hxx".}
+proc dumpJson*(this: Ax2d; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "gp_Ax2d.hxx".}

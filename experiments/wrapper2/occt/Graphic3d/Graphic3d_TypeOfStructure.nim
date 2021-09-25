@@ -18,9 +18,10 @@
 ## ! in wireframe, shadow mode, or both.
 
 type
-  Graphic3d_TypeOfStructure* {.size: sizeof(cint),
-                              importcpp: "Graphic3d_TypeOfStructure",
-                              header: "Graphic3d_TypeOfStructure.hxx".} = enum
-    Graphic3d_TOS_WIREFRAME, Graphic3d_TOS_SHADING, Graphic3d_TOS_COMPUTED,
-    Graphic3d_TOS_ALL
+  Graphic3dTypeOfStructure* {.size: sizeof(cint),
+                             importcpp: "Graphic3d_TypeOfStructure",
+                             header: "Graphic3d_TypeOfStructure.hxx".} = enum
+    Graphic3dTOS_WIREFRAME, Graphic3dTOS_SHADING, Graphic3dTOS_COMPUTED,
+    Graphic3dTOS_ALL
+
 

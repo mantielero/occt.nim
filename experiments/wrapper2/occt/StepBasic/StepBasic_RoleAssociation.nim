@@ -13,51 +13,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_RoleSelect,
-  ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_ObjectRole"
 discard "forward decl of StepBasic_RoleSelect"
 discard "forward decl of StepBasic_RoleAssociation"
 discard "forward decl of StepBasic_RoleAssociation"
 type
-  Handle_StepBasic_RoleAssociation* = handle[StepBasic_RoleAssociation]
+  HandleStepBasicRoleAssociation* = Handle[StepBasicRoleAssociation]
 
 ## ! Representation of STEP entity RoleAssociation
 
 type
-  StepBasic_RoleAssociation* {.importcpp: "StepBasic_RoleAssociation",
-                              header: "StepBasic_RoleAssociation.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                        ## !
-                                                                                                        ## Empty
-                                                                                                        ## constructor
+  StepBasicRoleAssociation* {.importcpp: "StepBasic_RoleAssociation",
+                             header: "StepBasic_RoleAssociation.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                      ## !
+                                                                                                      ## Empty
+                                                                                                      ## constructor
 
 
-proc constructStepBasic_RoleAssociation*(): StepBasic_RoleAssociation {.
-    constructor, importcpp: "StepBasic_RoleAssociation(@)",
+proc constructStepBasicRoleAssociation*(): StepBasicRoleAssociation {.constructor,
+    importcpp: "StepBasic_RoleAssociation(@)",
     header: "StepBasic_RoleAssociation.hxx".}
-proc Init*(this: var StepBasic_RoleAssociation; aRole: handle[StepBasic_ObjectRole];
-          aItemWithRole: StepBasic_RoleSelect) {.importcpp: "Init",
+proc init*(this: var StepBasicRoleAssociation; aRole: Handle[StepBasicObjectRole];
+          aItemWithRole: StepBasicRoleSelect) {.importcpp: "Init",
     header: "StepBasic_RoleAssociation.hxx".}
-proc Role*(this: StepBasic_RoleAssociation): handle[StepBasic_ObjectRole] {.
+proc role*(this: StepBasicRoleAssociation): Handle[StepBasicObjectRole] {.
     noSideEffect, importcpp: "Role", header: "StepBasic_RoleAssociation.hxx".}
-proc SetRole*(this: var StepBasic_RoleAssociation;
-             Role: handle[StepBasic_ObjectRole]) {.importcpp: "SetRole",
-    header: "StepBasic_RoleAssociation.hxx".}
-proc ItemWithRole*(this: StepBasic_RoleAssociation): StepBasic_RoleSelect {.
+proc setRole*(this: var StepBasicRoleAssociation; role: Handle[StepBasicObjectRole]) {.
+    importcpp: "SetRole", header: "StepBasic_RoleAssociation.hxx".}
+proc itemWithRole*(this: StepBasicRoleAssociation): StepBasicRoleSelect {.
     noSideEffect, importcpp: "ItemWithRole",
     header: "StepBasic_RoleAssociation.hxx".}
-proc SetItemWithRole*(this: var StepBasic_RoleAssociation;
-                     ItemWithRole: StepBasic_RoleSelect) {.
+proc setItemWithRole*(this: var StepBasicRoleAssociation;
+                     itemWithRole: StepBasicRoleSelect) {.
     importcpp: "SetItemWithRole", header: "StepBasic_RoleAssociation.hxx".}
 type
-  StepBasic_RoleAssociationbase_type* = Standard_Transient
+  StepBasicRoleAssociationbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_RoleAssociation::get_type_name(@)",
-                              header: "StepBasic_RoleAssociation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_RoleAssociation::get_type_name(@)",
+                            header: "StepBasic_RoleAssociation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_RoleAssociation::get_type_descriptor(@)",
     header: "StepBasic_RoleAssociation.hxx".}
-proc DynamicType*(this: StepBasic_RoleAssociation): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicRoleAssociation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_RoleAssociation.hxx".}

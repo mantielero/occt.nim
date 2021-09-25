@@ -14,14 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of IGESAppli_RegionRestriction"
 discard "forward decl of IGESAppli_RegionRestriction"
 type
-  Handle_IGESAppli_RegionRestriction* = handle[IGESAppli_RegionRestriction]
+  HandleIGESAppliRegionRestriction* = Handle[IGESAppliRegionRestriction]
 
 ## ! defines RegionRestriction, Type <406> Form <2>
 ## ! in package IGESAppli
@@ -29,37 +25,34 @@ type
 ## ! over a region.
 
 type
-  IGESAppli_RegionRestriction* {.importcpp: "IGESAppli_RegionRestriction",
-                                header: "IGESAppli_RegionRestriction.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESAppliRegionRestriction* {.importcpp: "IGESAppli_RegionRestriction",
+                               header: "IGESAppli_RegionRestriction.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESAppli_RegionRestriction*(): IGESAppli_RegionRestriction {.
+proc constructIGESAppliRegionRestriction*(): IGESAppliRegionRestriction {.
     constructor, importcpp: "IGESAppli_RegionRestriction(@)",
     header: "IGESAppli_RegionRestriction.hxx".}
-proc Init*(this: var IGESAppli_RegionRestriction; nbPropVal: Standard_Integer;
-          aViasRest: Standard_Integer; aCompoRest: Standard_Integer;
-          aCktRest: Standard_Integer) {.importcpp: "Init",
-                                      header: "IGESAppli_RegionRestriction.hxx".}
-proc NbPropertyValues*(this: IGESAppli_RegionRestriction): Standard_Integer {.
-    noSideEffect, importcpp: "NbPropertyValues",
-    header: "IGESAppli_RegionRestriction.hxx".}
-proc ElectricalViasRestriction*(this: IGESAppli_RegionRestriction): Standard_Integer {.
+proc init*(this: var IGESAppliRegionRestriction; nbPropVal: int; aViasRest: int;
+          aCompoRest: int; aCktRest: int) {.importcpp: "Init", header: "IGESAppli_RegionRestriction.hxx".}
+proc nbPropertyValues*(this: IGESAppliRegionRestriction): int {.noSideEffect,
+    importcpp: "NbPropertyValues", header: "IGESAppli_RegionRestriction.hxx".}
+proc electricalViasRestriction*(this: IGESAppliRegionRestriction): int {.
     noSideEffect, importcpp: "ElectricalViasRestriction",
     header: "IGESAppli_RegionRestriction.hxx".}
-proc ElectricalComponentRestriction*(this: IGESAppli_RegionRestriction): Standard_Integer {.
+proc electricalComponentRestriction*(this: IGESAppliRegionRestriction): int {.
     noSideEffect, importcpp: "ElectricalComponentRestriction",
     header: "IGESAppli_RegionRestriction.hxx".}
-proc ElectricalCktRestriction*(this: IGESAppli_RegionRestriction): Standard_Integer {.
+proc electricalCktRestriction*(this: IGESAppliRegionRestriction): int {.
     noSideEffect, importcpp: "ElectricalCktRestriction",
     header: "IGESAppli_RegionRestriction.hxx".}
 type
-  IGESAppli_RegionRestrictionbase_type* = IGESData_IGESEntity
+  IGESAppliRegionRestrictionbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESAppli_RegionRestriction::get_type_name(@)",
-                              header: "IGESAppli_RegionRestriction.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESAppli_RegionRestriction::get_type_name(@)",
+                            header: "IGESAppli_RegionRestriction.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESAppli_RegionRestriction::get_type_descriptor(@)",
     header: "IGESAppli_RegionRestriction.hxx".}
-proc DynamicType*(this: IGESAppli_RegionRestriction): handle[Standard_Type] {.
+proc dynamicType*(this: IGESAppliRegionRestriction): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESAppli_RegionRestriction.hxx".}

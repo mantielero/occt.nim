@@ -13,36 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepDimTol_GeometricTolerance
-
 discard "forward decl of StepDimTol_SurfaceProfileTolerance"
 discard "forward decl of StepDimTol_SurfaceProfileTolerance"
 type
-  Handle_StepDimTol_SurfaceProfileTolerance* = handle[
-      StepDimTol_SurfaceProfileTolerance]
+  HandleStepDimTolSurfaceProfileTolerance* = Handle[
+      StepDimTolSurfaceProfileTolerance]
 
 ## ! Representation of STEP entity SurfaceProfileTolerance
 
 type
-  StepDimTol_SurfaceProfileTolerance* {.importcpp: "StepDimTol_SurfaceProfileTolerance", header: "StepDimTol_SurfaceProfileTolerance.hxx",
-                                       bycopy.} = object of StepDimTol_GeometricTolerance ##
-                                                                                     ## !
-                                                                                     ## Empty
-                                                                                     ## constructor
+  StepDimTolSurfaceProfileTolerance* {.importcpp: "StepDimTol_SurfaceProfileTolerance", header: "StepDimTol_SurfaceProfileTolerance.hxx",
+                                      bycopy.} = object of StepDimTolGeometricTolerance ##
+                                                                                   ## !
+                                                                                   ## Empty
+                                                                                   ## constructor
 
 
-proc constructStepDimTol_SurfaceProfileTolerance*(): StepDimTol_SurfaceProfileTolerance {.
+proc constructStepDimTolSurfaceProfileTolerance*(): StepDimTolSurfaceProfileTolerance {.
     constructor, importcpp: "StepDimTol_SurfaceProfileTolerance(@)",
     header: "StepDimTol_SurfaceProfileTolerance.hxx".}
 type
-  StepDimTol_SurfaceProfileTolerancebase_type* = StepDimTol_GeometricTolerance
+  StepDimTolSurfaceProfileTolerancebaseType* = StepDimTolGeometricTolerance
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_SurfaceProfileTolerance::get_type_name(@)",
-                              header: "StepDimTol_SurfaceProfileTolerance.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_SurfaceProfileTolerance::get_type_name(@)",
+                            header: "StepDimTol_SurfaceProfileTolerance.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_SurfaceProfileTolerance::get_type_descriptor(@)",
     header: "StepDimTol_SurfaceProfileTolerance.hxx".}
-proc DynamicType*(this: StepDimTol_SurfaceProfileTolerance): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolSurfaceProfileTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_SurfaceProfileTolerance.hxx".}

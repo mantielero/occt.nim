@@ -13,38 +13,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # Units_Operators_HeaderFile [NewLine] # Units_Operators_HeaderFile [NewLine] # Units_Token.hxx [NewLine] # Units_Unit.hxx [NewLine] # Units_Quantity.hxx [NewLine] Standard_Boolean operator == ( const opencascade :: handle < Units_Quantity > [end of template] & , const Standard_CString ) ;
+## !!!Ignored construct:  # Units_Operators_HeaderFile [NewLine] # Units_Operators_HeaderFile [NewLine] # < Units_Token . hxx > [NewLine] # < Units_Unit . hxx > [NewLine] # < Units_Quantity . hxx > [NewLine] Standard_Boolean operator == ( const opencascade :: handle < Units_Quantity > [end of template] & , const Standard_CString ) ;
 ## Error: token expected: ; but got: [identifier]!!!
 
-proc `==`*(a1: handle[Units_Token]; a2: Standard_CString): Standard_Boolean {.
-    importcpp: "(# == #)", header: "Units_Operators.hxx".}
-proc `==`*(a1: handle[Units_Unit]; a2: Standard_CString): Standard_Boolean {.
-    importcpp: "(# == #)", header: "Units_Operators.hxx".}
-proc `*`*(a1: handle[Units_Dimensions]; a2: handle[Units_Dimensions]): handle[
-    Units_Dimensions] {.importcpp: "(# * #)", header: "Units_Operators.hxx".}
-proc `/`*(a1: handle[Units_Dimensions]; a2: handle[Units_Dimensions]): handle[
-    Units_Dimensions] {.importcpp: "(# / #)", header: "Units_Operators.hxx".}
-proc pow*(a1: handle[Units_Dimensions]; a2: Standard_Real): handle[Units_Dimensions] {.
+proc `==`*(a1: Handle[UnitsToken]; a2: StandardCString): bool {.importcpp: "(# == #)",
+    header: "Units_Operators.hxx".}
+proc `==`*(a1: Handle[UnitsUnit]; a2: StandardCString): bool {.importcpp: "(# == #)",
+    header: "Units_Operators.hxx".}
+proc `*`*(a1: Handle[UnitsDimensions]; a2: Handle[UnitsDimensions]): Handle[
+    UnitsDimensions] {.importcpp: "(# * #)", header: "Units_Operators.hxx".}
+proc `/`*(a1: Handle[UnitsDimensions]; a2: Handle[UnitsDimensions]): Handle[
+    UnitsDimensions] {.importcpp: "(# / #)", header: "Units_Operators.hxx".}
+proc pow*(a1: Handle[UnitsDimensions]; a2: float): Handle[UnitsDimensions] {.
     importcpp: "pow(@)", header: "Units_Operators.hxx".}
-proc pow*(a1: handle[Units_Token]; a2: handle[Units_Token]): handle[Units_Token] {.
+proc pow*(a1: Handle[UnitsToken]; a2: Handle[UnitsToken]): Handle[UnitsToken] {.
     importcpp: "pow(@)", header: "Units_Operators.hxx".}
-proc pow*(a1: handle[Units_Token]; a2: Standard_Real): handle[Units_Token] {.
+proc pow*(a1: Handle[UnitsToken]; a2: float): Handle[UnitsToken] {.
     importcpp: "pow(@)", header: "Units_Operators.hxx".}
-proc `+`*(a1: handle[Units_Token]; a2: Standard_Integer): handle[Units_Token] {.
+proc `+`*(a1: Handle[UnitsToken]; a2: int): Handle[UnitsToken] {.importcpp: "(# + #)",
+    header: "Units_Operators.hxx".}
+proc `+`*(a1: Handle[UnitsToken]; a2: Handle[UnitsToken]): Handle[UnitsToken] {.
     importcpp: "(# + #)", header: "Units_Operators.hxx".}
-proc `+`*(a1: handle[Units_Token]; a2: handle[Units_Token]): handle[Units_Token] {.
-    importcpp: "(# + #)", header: "Units_Operators.hxx".}
-proc `-`*(a1: handle[Units_Token]; a2: handle[Units_Token]): handle[Units_Token] {.
+proc `-`*(a1: Handle[UnitsToken]; a2: Handle[UnitsToken]): Handle[UnitsToken] {.
     importcpp: "(# - #)", header: "Units_Operators.hxx".}
-proc `*`*(a1: handle[Units_Token]; a2: handle[Units_Token]): handle[Units_Token] {.
+proc `*`*(a1: Handle[UnitsToken]; a2: Handle[UnitsToken]): Handle[UnitsToken] {.
     importcpp: "(# * #)", header: "Units_Operators.hxx".}
-proc `/`*(a1: handle[Units_Token]; a2: handle[Units_Token]): handle[Units_Token] {.
+proc `/`*(a1: Handle[UnitsToken]; a2: Handle[UnitsToken]): Handle[UnitsToken] {.
     importcpp: "(# / #)", header: "Units_Operators.hxx".}
 ## !!!Ignored construct:  Standard_Boolean operator != ( const opencascade :: handle < Units_Token > [end of template] & , const Standard_CString ) ;
 ## Error: token expected: ; but got: [identifier]!!!
 
-proc `<=`*(a1: handle[Units_Token]; a2: Standard_CString): Standard_Boolean {.
-    importcpp: "(# <= #)", header: "Units_Operators.hxx".}
+proc `<=`*(a1: Handle[UnitsToken]; a2: StandardCString): bool {.importcpp: "(# <= #)",
+    header: "Units_Operators.hxx".}
 ## !!!Ignored construct:  Standard_Boolean operator > ( const opencascade :: handle < Units_Token > [end of template] & , const Standard_CString ) ;
 ## Error: token expected: ; but got: [identifier]!!!
 
@@ -53,3 +53,4 @@ proc `<=`*(a1: handle[Units_Token]; a2: Standard_CString): Standard_Boolean {.
 
 ## !!!Ignored construct:  Standard_Boolean operator >= ( const opencascade :: handle < Units_Token > [end of template] & , const opencascade :: handle < Units_Token > [end of template] & ) ;
 ## Error: token expected: ; but got: #!!!
+

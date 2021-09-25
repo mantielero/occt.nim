@@ -13,358 +13,55 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Graphic3d_Camera_HeaderFile [NewLine] # _Graphic3d_Camera_HeaderFile [NewLine] # ../Aspect/Aspect_Eye.hxx [NewLine] # ../Aspect/Aspect_FrustumLRBT.hxx [NewLine] # Graphic3d_CameraTile.hxx [NewLine] # Graphic3d_Mat4d.hxx [NewLine] # Graphic3d_Mat4.hxx [NewLine] # Graphic3d_Vec3.hxx [NewLine] # Graphic3d_WorldViewProjState.hxx [NewLine] # ../NCollection/NCollection_Lerp.hxx [NewLine] # ../NCollection/NCollection_Array1.hxx [NewLine] # ../gp/gp_Dir.hxx [NewLine] # ../gp/gp_Pnt.hxx [NewLine] # ../Standard/Standard_Macro.hxx [NewLine] # ../Standard/Standard_TypeDef.hxx [NewLine] # ../Bnd/Bnd_Box.hxx [NewLine] ! Forward declaration class Graphic3d_WorldViewProjState ;
+## !!!Ignored construct:  # _Graphic3d_Camera_HeaderFile [NewLine] # _Graphic3d_Camera_HeaderFile [NewLine] # < Aspect_Eye . hxx > [NewLine] # < Aspect_FrustumLRBT . hxx > [NewLine] # < Graphic3d_CameraTile . hxx > [NewLine] # < Graphic3d_Mat4d . hxx > [NewLine] # < Graphic3d_Mat4 . hxx > [NewLine] # < Graphic3d_Vec3 . hxx > [NewLine] # < Graphic3d_WorldViewProjState . hxx > [NewLine] # < NCollection_Lerp . hxx > [NewLine] # < NCollection_Array1 . hxx > [NewLine] # < gp_Dir . hxx > [NewLine] # < gp_Pnt . hxx > [NewLine] # < Standard_Macro . hxx > [NewLine] # < Standard_TypeDef . hxx > [NewLine] # < Bnd_Box . hxx > [NewLine] ! Forward declaration class Graphic3d_WorldViewProjState ;
 ## Error: token expected: ; but got: <!!!
 
 ## ! Camera class provides object-oriented approach to setting up projection
 ## ! and orientation properties of 3D view.
 
 type
-  Graphic3d_Camera* {.importcpp: "Graphic3d_Camera",
-                     header: "Graphic3d_Camera.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                      ## !
-                                                                                      ## Template
-                                                                                      ## container
-                                                                                      ## for
-                                                                                      ## cached
-                                                                                      ## matrices
-                                                                                      ## or
-                                                                                      ## Real/ShortReal
-                                                                                      ## types.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Enumerates
-                                                                                      ## supported
-                                                                                      ## monographic
-                                                                                      ## projections.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## -
-                                                                                      ## Projection_Orthographic
-                                                                                      ## :
-                                                                                      ## orthographic
-                                                                                      ## projection.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## -
-                                                                                      ## Projection_Perspective
-                                                                                      ## :
-                                                                                      ## perspective
-                                                                                      ## projection.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## -
-                                                                                      ## Projection_Stereo
-                                                                                      ## :
-                                                                                      ## stereographic
-                                                                                      ## projection.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## -
-                                                                                      ## Projection_MonoLeftEye
-                                                                                      ## :
-                                                                                      ## mono
-                                                                                      ## projection
-                                                                                      ## for
-                                                                                      ## stereo
-                                                                                      ## left
-                                                                                      ## eye.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## -
-                                                                                      ## Projection_MonoRightEye
-                                                                                      ## :
-                                                                                      ## mono
-                                                                                      ## projection
-                                                                                      ## for
-                                                                                      ## stereo
-                                                                                      ## right
-                                                                                      ## eye.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Default
-                                                                                      ## constructor.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Initializes
-                                                                                      ## camera
-                                                                                      ## with
-                                                                                      ## the
-                                                                                      ## following
-                                                                                      ## properties:
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Eye
-                                                                                      ## (0,
-                                                                                      ## 0,
-                                                                                      ## -2);
-                                                                                      ## Center
-                                                                                      ## (0,
-                                                                                      ## 0,
-                                                                                      ## 0);
-                                                                                      ## Up
-                                                                                      ## (0,
-                                                                                      ## 1,
-                                                                                      ## 0);
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Type
-                                                                                      ## (Orthographic);
-                                                                                      ## FOVy
-                                                                                      ## (45);
-                                                                                      ## Scale
-                                                                                      ## (1000);
-                                                                                      ## IsStereo(false);
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## ZNear
-                                                                                      ## (0.001);
-                                                                                      ## ZFar
-                                                                                      ## (3000.0);
-                                                                                      ## Aspect(1);
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## ZFocus(1.0);
-                                                                                      ## ZFocusType(Relative);
-                                                                                      ## IOD(0.05);
-                                                                                      ## IODType(Relative)
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Get
-                                                                                      ## camera
-                                                                                      ## look
-                                                                                      ## direction.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @return
-                                                                                      ## camera
-                                                                                      ## look
-                                                                                      ## direction.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Transform
-                                                                                      ## orientation
-                                                                                      ## components
-                                                                                      ## of
-                                                                                      ## the
-                                                                                      ## camera:
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Eye,
-                                                                                      ## Up
-                                                                                      ## and
-                                                                                      ## Center
-                                                                                      ## points.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @param
-                                                                                      ## theTrsf
-                                                                                      ## [in]
-                                                                                      ## the
-                                                                                      ## transformation
-                                                                                      ## to
-                                                                                      ## apply.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Project
-                                                                                      ## point
-                                                                                      ## from
-                                                                                      ## world
-                                                                                      ## coordinate
-                                                                                      ## space
-                                                                                      ## to
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## normalized
-                                                                                      ## device
-                                                                                      ## coordinates
-                                                                                      ## (mapping).
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @param
-                                                                                      ## thePnt
-                                                                                      ## [in]
-                                                                                      ## the
-                                                                                      ## 3D
-                                                                                      ## point
-                                                                                      ## in
-                                                                                      ## WCS.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @return
-                                                                                      ## mapped
-                                                                                      ## point
-                                                                                      ## in
-                                                                                      ## NDC.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @return
-                                                                                      ## projection
-                                                                                      ## modification
-                                                                                      ## state
-                                                                                      ## of
-                                                                                      ## the
-                                                                                      ## camera.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Get
-                                                                                      ## orientation
-                                                                                      ## matrix.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @return
-                                                                                      ## camera
-                                                                                      ## orientation
-                                                                                      ## matrix.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Get
-                                                                                      ## stereo
-                                                                                      ## projection
-                                                                                      ## matrices.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @param
-                                                                                      ## theProjL
-                                                                                      ## [out]
-                                                                                      ## left
-                                                                                      ## eye
-                                                                                      ## projection
-                                                                                      ## matrix
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @param
-                                                                                      ## theHeadToEyeL
-                                                                                      ## [out]
-                                                                                      ## left
-                                                                                      ## head
-                                                                                      ## to
-                                                                                      ## eye
-                                                                                      ## translation
-                                                                                      ## matrix
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @param
-                                                                                      ## theProjR
-                                                                                      ## [out]
-                                                                                      ## right
-                                                                                      ## eye
-                                                                                      ## projection
-                                                                                      ## matrix
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @param
-                                                                                      ## theHeadToEyeR
-                                                                                      ## [out]
-                                                                                      ## right
-                                                                                      ## head
-                                                                                      ## to
-                                                                                      ## eye
-                                                                                      ## translation
-                                                                                      ## matrix
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Get
-                                                                                      ## stereo
-                                                                                      ## projection
-                                                                                      ## matrices.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @param
-                                                                                      ## theProjL
-                                                                                      ## [out]
-                                                                                      ## left
-                                                                                      ## eye
-                                                                                      ## projection
-                                                                                      ## matrix
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @param
-                                                                                      ## theHeadToEyeL
-                                                                                      ## [out]
-                                                                                      ## left
-                                                                                      ## head
-                                                                                      ## to
-                                                                                      ## eye
-                                                                                      ## translation
-                                                                                      ## matrix
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @param
-                                                                                      ## theProjR
-                                                                                      ## [out]
-                                                                                      ## right
-                                                                                      ## eye
-                                                                                      ## projection
-                                                                                      ## matrix
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @param
-                                                                                      ## theHeadToEyeR
-                                                                                      ## [out]
-                                                                                      ## right
-                                                                                      ## head
-                                                                                      ## to
-                                                                                      ## eye
-                                                                                      ## translation
-                                                                                      ## matrix
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Compose
-                                                                                      ## orthographic
-                                                                                      ## projection
-                                                                                      ## matrix
-                                                                                      ## for
-                                                                                      ## the
-                                                                                      ## passed
-                                                                                      ## camera
-                                                                                      ## volume
-                                                                                      ## mapping.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @param
-                                                                                      ## theOutMx
-                                                                                      ## [out]
-                                                                                      ## the
-                                                                                      ## projection
-                                                                                      ## matrix
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @param
-                                                                                      ## theLRBT
-                                                                                      ## [in]
-                                                                                      ## the
-                                                                                      ## left/right/bottom/top
-                                                                                      ## mapping
-                                                                                      ## (clipping)
-                                                                                      ## coordinates
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @param
-                                                                                      ## theNear
-                                                                                      ## [in]
-                                                                                      ## the
-                                                                                      ## near
-                                                                                      ## mapping
-                                                                                      ## (clipping)
-                                                                                      ## coordinate
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @param
-                                                                                      ## theFar
-                                                                                      ## [in]
-                                                                                      ## the
-                                                                                      ## far
-                                                                                      ## mapping
-                                                                                      ## (clipping)
-                                                                                      ## coordinate
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Enumerates
-                                                                                      ## vertices
-                                                                                      ## of
-                                                                                      ## view
-                                                                                      ## volume.
+  Graphic3dCamera* {.importcpp: "Graphic3d_Camera", header: "Graphic3d_Camera.hxx",
+                    bycopy.} = object of StandardTransient ## ! Template container for cached matrices or Real/ShortReal types.
+                                                      ## ! Enumerates supported monographic projections.
+                                                      ## ! - Projection_Orthographic : orthographic projection.
+                                                      ## ! - Projection_Perspective  : perspective projection.
+                                                      ## ! - Projection_Stereo       : stereographic projection.
+                                                      ## ! - Projection_MonoLeftEye  : mono projection for stereo left eye.
+                                                      ## ! - Projection_MonoRightEye : mono projection for stereo right eye.
+                                                      ## ! Default constructor.
+                                                      ## ! Initializes camera with the following properties:
+                                                      ## ! Eye (0, 0, -2); Center (0, 0, 0); Up (0, 1, 0);
+                                                      ## ! Type (Orthographic); FOVy (45); Scale (1000); IsStereo(false);
+                                                      ## ! ZNear (0.001); ZFar (3000.0); Aspect(1);
+                                                      ## ! ZFocus(1.0); ZFocusType(Relative); IOD(0.05); IODType(Relative)
+                                                      ## ! Get camera look direction.
+                                                      ## ! @return camera look direction.
+                                                      ## ! Transform orientation components of the camera:
+                                                      ## ! Eye, Up and Center points.
+                                                      ## ! @param theTrsf [in] the transformation to apply.
+                                                      ## ! Project point from world coordinate space to
+                                                      ## ! normalized device coordinates (mapping).
+                                                      ## ! @param thePnt [in] the 3D point in WCS.
+                                                      ## ! @return mapped point in NDC.
+                                                      ## ! @return projection modification state of the camera.
+                                                      ## ! Get orientation matrix.
+                                                      ## ! @return camera orientation matrix.
+                                                      ## ! Get stereo projection matrices.
+                                                      ## ! @param theProjL      [out] left  eye projection matrix
+                                                      ## ! @param theHeadToEyeL [out] left  head to eye translation matrix
+                                                      ## ! @param theProjR      [out] right eye projection matrix
+                                                      ## ! @param theHeadToEyeR [out] right head to eye translation matrix
+                                                      ## ! Get stereo projection matrices.
+                                                      ## ! @param theProjL      [out] left  eye projection matrix
+                                                      ## ! @param theHeadToEyeL [out] left  head to eye translation matrix
+                                                      ## ! @param theProjR      [out] right eye projection matrix
+                                                      ## ! @param theHeadToEyeR [out] right head to eye translation matrix
+                                                      ## ! Compose orthographic projection matrix for the passed camera volume mapping.
+                                                      ## ! @param theOutMx [out] the projection matrix
+                                                      ## ! @param theLRBT [in] the left/right/bottom/top mapping (clipping) coordinates
+                                                      ## ! @param theNear [in] the near mapping (clipping) coordinate
+                                                      ## ! @param theFar [in] the far mapping (clipping) coordinate
+                                                      ## ! Enumerates vertices of view volume.
     ## !< Camera up direction vector
     ## !< Camera view direction (from eye)
     ## !< Camera eye position
@@ -390,247 +87,242 @@ type
     ## !< flag indicating usage of custom stereo projection matrices
     ## !< flag indicating usage of custom stereo frustums
 
-  Graphic3d_CameraProjection* {.size: sizeof(cint),
-                               importcpp: "Graphic3d_Camera::Projection",
-                               header: "Graphic3d_Camera.hxx".} = enum
-    Projection_Orthographic, Projection_Perspective, Projection_Stereo,
-    Projection_MonoLeftEye, Projection_MonoRightEye
-
-
-type
-  Graphic3d_CameraFocusType* {.size: sizeof(cint),
-                              importcpp: "Graphic3d_Camera::FocusType",
+  Graphic3dCameraProjection* {.size: sizeof(cint),
+                              importcpp: "Graphic3d_Camera::Projection",
                               header: "Graphic3d_Camera.hxx".} = enum
-    FocusType_Absolute, FocusType_Relative
+    ProjectionOrthographic, ProjectionPerspective, ProjectionStereo,
+    ProjectionMonoLeftEye, ProjectionMonoRightEye
 
 
 type
-  Graphic3d_CameraIODType* {.size: sizeof(cint),
-                            importcpp: "Graphic3d_Camera::IODType",
-                            header: "Graphic3d_Camera.hxx".} = enum
-    IODType_Absolute, IODType_Relative
+  Graphic3dCameraFocusType* {.size: sizeof(cint),
+                             importcpp: "Graphic3d_Camera::FocusType",
+                             header: "Graphic3d_Camera.hxx".} = enum
+    FocusTypeAbsolute, FocusTypeRelative
 
 
-proc constructGraphic3d_Camera*(): Graphic3d_Camera {.constructor,
+type
+  Graphic3dCameraIODType* {.size: sizeof(cint),
+                           importcpp: "Graphic3d_Camera::IODType",
+                           header: "Graphic3d_Camera.hxx".} = enum
+    IODTypeAbsolute, IODTypeRelative
+
+
+proc constructGraphic3dCamera*(): Graphic3dCamera {.constructor,
     importcpp: "Graphic3d_Camera(@)", header: "Graphic3d_Camera.hxx".}
-proc constructGraphic3d_Camera*(theOther: handle[Graphic3d_Camera]): Graphic3d_Camera {.
+proc constructGraphic3dCamera*(theOther: Handle[Graphic3dCamera]): Graphic3dCamera {.
     constructor, importcpp: "Graphic3d_Camera(@)", header: "Graphic3d_Camera.hxx".}
-proc CopyMappingData*(this: var Graphic3d_Camera;
-                     theOtherCamera: handle[Graphic3d_Camera]) {.
+proc copyMappingData*(this: var Graphic3dCamera;
+                     theOtherCamera: Handle[Graphic3dCamera]) {.
     importcpp: "CopyMappingData", header: "Graphic3d_Camera.hxx".}
-proc CopyOrientationData*(this: var Graphic3d_Camera;
-                         theOtherCamera: handle[Graphic3d_Camera]) {.
+proc copyOrientationData*(this: var Graphic3dCamera;
+                         theOtherCamera: Handle[Graphic3dCamera]) {.
     importcpp: "CopyOrientationData", header: "Graphic3d_Camera.hxx".}
-proc Copy*(this: var Graphic3d_Camera; theOther: handle[Graphic3d_Camera]) {.
+proc copy*(this: var Graphic3dCamera; theOther: Handle[Graphic3dCamera]) {.
     importcpp: "Copy", header: "Graphic3d_Camera.hxx".}
-proc Direction*(this: Graphic3d_Camera): gp_Dir {.noSideEffect,
-    importcpp: "Direction", header: "Graphic3d_Camera.hxx".}
-proc SetDirectionFromEye*(this: var Graphic3d_Camera; theDir: gp_Dir) {.
+proc direction*(this: Graphic3dCamera): Dir {.noSideEffect, importcpp: "Direction",
+    header: "Graphic3d_Camera.hxx".}
+proc setDirectionFromEye*(this: var Graphic3dCamera; theDir: Dir) {.
     importcpp: "SetDirectionFromEye", header: "Graphic3d_Camera.hxx".}
-proc SetDirection*(this: var Graphic3d_Camera; theDir: gp_Dir) {.
+proc setDirection*(this: var Graphic3dCamera; theDir: Dir) {.
     importcpp: "SetDirection", header: "Graphic3d_Camera.hxx".}
-proc Up*(this: Graphic3d_Camera): gp_Dir {.noSideEffect, importcpp: "Up",
-                                       header: "Graphic3d_Camera.hxx".}
-proc SetUp*(this: var Graphic3d_Camera; theUp: gp_Dir) {.importcpp: "SetUp",
-    header: "Graphic3d_Camera.hxx".}
-proc OrthogonalizeUp*(this: var Graphic3d_Camera) {.importcpp: "OrthogonalizeUp",
-    header: "Graphic3d_Camera.hxx".}
-proc OrthogonalizedUp*(this: Graphic3d_Camera): gp_Dir {.noSideEffect,
-    importcpp: "OrthogonalizedUp", header: "Graphic3d_Camera.hxx".}
-proc SideRight*(this: Graphic3d_Camera): gp_Dir {.noSideEffect,
-    importcpp: "SideRight", header: "Graphic3d_Camera.hxx".}
-proc Eye*(this: Graphic3d_Camera): gp_Pnt {.noSideEffect, importcpp: "Eye",
-                                        header: "Graphic3d_Camera.hxx".}
-proc MoveEyeTo*(this: var Graphic3d_Camera; theEye: gp_Pnt) {.importcpp: "MoveEyeTo",
-    header: "Graphic3d_Camera.hxx".}
-proc SetEyeAndCenter*(this: var Graphic3d_Camera; theEye: gp_Pnt; theCenter: gp_Pnt) {.
-    importcpp: "SetEyeAndCenter", header: "Graphic3d_Camera.hxx".}
-proc SetEye*(this: var Graphic3d_Camera; theEye: gp_Pnt) {.importcpp: "SetEye",
-    header: "Graphic3d_Camera.hxx".}
-proc Center*(this: Graphic3d_Camera): gp_Pnt {.noSideEffect, importcpp: "Center",
-    header: "Graphic3d_Camera.hxx".}
-proc SetCenter*(this: var Graphic3d_Camera; theCenter: gp_Pnt) {.
-    importcpp: "SetCenter", header: "Graphic3d_Camera.hxx".}
-proc Distance*(this: Graphic3d_Camera): Standard_Real {.noSideEffect,
-    importcpp: "Distance", header: "Graphic3d_Camera.hxx".}
-proc SetDistance*(this: var Graphic3d_Camera; theDistance: Standard_Real) {.
-    importcpp: "SetDistance", header: "Graphic3d_Camera.hxx".}
-proc Scale*(this: Graphic3d_Camera): Standard_Real {.noSideEffect,
-    importcpp: "Scale", header: "Graphic3d_Camera.hxx".}
-proc SetScale*(this: var Graphic3d_Camera; theScale: Standard_Real) {.
-    importcpp: "SetScale", header: "Graphic3d_Camera.hxx".}
-proc AxialScale*(this: Graphic3d_Camera): gp_XYZ {.noSideEffect,
-    importcpp: "AxialScale", header: "Graphic3d_Camera.hxx".}
-proc SetAxialScale*(this: var Graphic3d_Camera; theAxialScale: gp_XYZ) {.
-    importcpp: "SetAxialScale", header: "Graphic3d_Camera.hxx".}
-proc SetProjectionType*(this: var Graphic3d_Camera;
-                       theProjection: Graphic3d_CameraProjection) {.
-    importcpp: "SetProjectionType", header: "Graphic3d_Camera.hxx".}
-proc ProjectionType*(this: Graphic3d_Camera): Graphic3d_CameraProjection {.
-    noSideEffect, importcpp: "ProjectionType", header: "Graphic3d_Camera.hxx".}
-proc IsOrthographic*(this: Graphic3d_Camera): Standard_Boolean {.noSideEffect,
-    importcpp: "IsOrthographic", header: "Graphic3d_Camera.hxx".}
-proc IsStereo*(this: Graphic3d_Camera): Standard_Boolean {.noSideEffect,
-    importcpp: "IsStereo", header: "Graphic3d_Camera.hxx".}
-proc SetFOVy*(this: var Graphic3d_Camera; theFOVy: Standard_Real) {.
-    importcpp: "SetFOVy", header: "Graphic3d_Camera.hxx".}
-proc FOVy*(this: Graphic3d_Camera): Standard_Real {.noSideEffect, importcpp: "FOVy",
-    header: "Graphic3d_Camera.hxx".}
-proc FOVx*(this: Graphic3d_Camera): Standard_Real {.noSideEffect, importcpp: "FOVx",
-    header: "Graphic3d_Camera.hxx".}
-proc FOV2d*(this: Graphic3d_Camera): Standard_Real {.noSideEffect,
-    importcpp: "FOV2d", header: "Graphic3d_Camera.hxx".}
-proc SetFOV2d*(this: var Graphic3d_Camera; theFOV: Standard_Real) {.
-    importcpp: "SetFOV2d", header: "Graphic3d_Camera.hxx".}
-proc ZFitAll*(this: Graphic3d_Camera; theScaleFactor: Standard_Real;
-             theMinMax: Bnd_Box; theGraphicBB: Bnd_Box; theZNear: var Standard_Real;
-             theZFar: var Standard_Real): bool {.noSideEffect, importcpp: "ZFitAll",
-    header: "Graphic3d_Camera.hxx".}
-proc ZFitAll*(this: var Graphic3d_Camera; theScaleFactor: Standard_Real;
-             theMinMax: Bnd_Box; theGraphicBB: Bnd_Box) {.importcpp: "ZFitAll",
-    header: "Graphic3d_Camera.hxx".}
-proc SetZRange*(this: var Graphic3d_Camera; theZNear: Standard_Real;
-               theZFar: Standard_Real) {.importcpp: "SetZRange",
-                                       header: "Graphic3d_Camera.hxx".}
-proc ZNear*(this: Graphic3d_Camera): Standard_Real {.noSideEffect,
-    importcpp: "ZNear", header: "Graphic3d_Camera.hxx".}
-proc ZFar*(this: Graphic3d_Camera): Standard_Real {.noSideEffect, importcpp: "ZFar",
-    header: "Graphic3d_Camera.hxx".}
-proc SetAspect*(this: var Graphic3d_Camera; theAspect: Standard_Real) {.
-    importcpp: "SetAspect", header: "Graphic3d_Camera.hxx".}
-proc Aspect*(this: Graphic3d_Camera): Standard_Real {.noSideEffect,
-    importcpp: "Aspect", header: "Graphic3d_Camera.hxx".}
-proc SetZFocus*(this: var Graphic3d_Camera; theType: Graphic3d_CameraFocusType;
-               theZFocus: Standard_Real) {.importcpp: "SetZFocus",
-    header: "Graphic3d_Camera.hxx".}
-proc ZFocus*(this: Graphic3d_Camera): Standard_Real {.noSideEffect,
-    importcpp: "ZFocus", header: "Graphic3d_Camera.hxx".}
-proc ZFocusType*(this: Graphic3d_Camera): Graphic3d_CameraFocusType {.noSideEffect,
-    importcpp: "ZFocusType", header: "Graphic3d_Camera.hxx".}
-proc SetIOD*(this: var Graphic3d_Camera; theType: Graphic3d_CameraIODType;
-            theIOD: Standard_Real) {.importcpp: "SetIOD",
+proc up*(this: Graphic3dCamera): Dir {.noSideEffect, importcpp: "Up",
                                    header: "Graphic3d_Camera.hxx".}
-proc IOD*(this: Graphic3d_Camera): Standard_Real {.noSideEffect, importcpp: "IOD",
+proc setUp*(this: var Graphic3dCamera; theUp: Dir) {.importcpp: "SetUp",
     header: "Graphic3d_Camera.hxx".}
-proc GetIODType*(this: Graphic3d_Camera): Graphic3d_CameraIODType {.noSideEffect,
+proc orthogonalizeUp*(this: var Graphic3dCamera) {.importcpp: "OrthogonalizeUp",
+    header: "Graphic3d_Camera.hxx".}
+proc orthogonalizedUp*(this: Graphic3dCamera): Dir {.noSideEffect,
+    importcpp: "OrthogonalizedUp", header: "Graphic3d_Camera.hxx".}
+proc sideRight*(this: Graphic3dCamera): Dir {.noSideEffect, importcpp: "SideRight",
+    header: "Graphic3d_Camera.hxx".}
+proc eye*(this: Graphic3dCamera): Pnt {.noSideEffect, importcpp: "Eye",
+                                    header: "Graphic3d_Camera.hxx".}
+proc moveEyeTo*(this: var Graphic3dCamera; theEye: Pnt) {.importcpp: "MoveEyeTo",
+    header: "Graphic3d_Camera.hxx".}
+proc setEyeAndCenter*(this: var Graphic3dCamera; theEye: Pnt; theCenter: Pnt) {.
+    importcpp: "SetEyeAndCenter", header: "Graphic3d_Camera.hxx".}
+proc setEye*(this: var Graphic3dCamera; theEye: Pnt) {.importcpp: "SetEye",
+    header: "Graphic3d_Camera.hxx".}
+proc center*(this: Graphic3dCamera): Pnt {.noSideEffect, importcpp: "Center",
+                                       header: "Graphic3d_Camera.hxx".}
+proc setCenter*(this: var Graphic3dCamera; theCenter: Pnt) {.importcpp: "SetCenter",
+    header: "Graphic3d_Camera.hxx".}
+proc distance*(this: Graphic3dCamera): float {.noSideEffect, importcpp: "Distance",
+    header: "Graphic3d_Camera.hxx".}
+proc setDistance*(this: var Graphic3dCamera; theDistance: float) {.
+    importcpp: "SetDistance", header: "Graphic3d_Camera.hxx".}
+proc scale*(this: Graphic3dCamera): float {.noSideEffect, importcpp: "Scale",
+                                        header: "Graphic3d_Camera.hxx".}
+proc setScale*(this: var Graphic3dCamera; theScale: float) {.importcpp: "SetScale",
+    header: "Graphic3d_Camera.hxx".}
+proc axialScale*(this: Graphic3dCamera): Xyz {.noSideEffect, importcpp: "AxialScale",
+    header: "Graphic3d_Camera.hxx".}
+proc setAxialScale*(this: var Graphic3dCamera; theAxialScale: Xyz) {.
+    importcpp: "SetAxialScale", header: "Graphic3d_Camera.hxx".}
+proc setProjectionType*(this: var Graphic3dCamera;
+                       theProjection: Graphic3dCameraProjection) {.
+    importcpp: "SetProjectionType", header: "Graphic3d_Camera.hxx".}
+proc projectionType*(this: Graphic3dCamera): Graphic3dCameraProjection {.
+    noSideEffect, importcpp: "ProjectionType", header: "Graphic3d_Camera.hxx".}
+proc isOrthographic*(this: Graphic3dCamera): bool {.noSideEffect,
+    importcpp: "IsOrthographic", header: "Graphic3d_Camera.hxx".}
+proc isStereo*(this: Graphic3dCamera): bool {.noSideEffect, importcpp: "IsStereo",
+    header: "Graphic3d_Camera.hxx".}
+proc setFOVy*(this: var Graphic3dCamera; theFOVy: float) {.importcpp: "SetFOVy",
+    header: "Graphic3d_Camera.hxx".}
+proc fOVy*(this: Graphic3dCamera): float {.noSideEffect, importcpp: "FOVy",
+                                       header: "Graphic3d_Camera.hxx".}
+proc fOVx*(this: Graphic3dCamera): float {.noSideEffect, importcpp: "FOVx",
+                                       header: "Graphic3d_Camera.hxx".}
+proc fOV2d*(this: Graphic3dCamera): float {.noSideEffect, importcpp: "FOV2d",
+                                        header: "Graphic3d_Camera.hxx".}
+proc setFOV2d*(this: var Graphic3dCamera; theFOV: float) {.importcpp: "SetFOV2d",
+    header: "Graphic3d_Camera.hxx".}
+proc zFitAll*(this: Graphic3dCamera; theScaleFactor: float; theMinMax: BndBox;
+             theGraphicBB: BndBox; theZNear: var float; theZFar: var float): bool {.
+    noSideEffect, importcpp: "ZFitAll", header: "Graphic3d_Camera.hxx".}
+proc zFitAll*(this: var Graphic3dCamera; theScaleFactor: float; theMinMax: BndBox;
+             theGraphicBB: BndBox) {.importcpp: "ZFitAll",
+                                   header: "Graphic3d_Camera.hxx".}
+proc setZRange*(this: var Graphic3dCamera; theZNear: float; theZFar: float) {.
+    importcpp: "SetZRange", header: "Graphic3d_Camera.hxx".}
+proc zNear*(this: Graphic3dCamera): float {.noSideEffect, importcpp: "ZNear",
+                                        header: "Graphic3d_Camera.hxx".}
+proc zFar*(this: Graphic3dCamera): float {.noSideEffect, importcpp: "ZFar",
+                                       header: "Graphic3d_Camera.hxx".}
+proc setAspect*(this: var Graphic3dCamera; theAspect: float) {.importcpp: "SetAspect",
+    header: "Graphic3d_Camera.hxx".}
+proc aspect*(this: Graphic3dCamera): float {.noSideEffect, importcpp: "Aspect",
+    header: "Graphic3d_Camera.hxx".}
+proc setZFocus*(this: var Graphic3dCamera; theType: Graphic3dCameraFocusType;
+               theZFocus: float) {.importcpp: "SetZFocus",
+                                 header: "Graphic3d_Camera.hxx".}
+proc zFocus*(this: Graphic3dCamera): float {.noSideEffect, importcpp: "ZFocus",
+    header: "Graphic3d_Camera.hxx".}
+proc zFocusType*(this: Graphic3dCamera): Graphic3dCameraFocusType {.noSideEffect,
+    importcpp: "ZFocusType", header: "Graphic3d_Camera.hxx".}
+proc setIOD*(this: var Graphic3dCamera; theType: Graphic3dCameraIODType; theIOD: float) {.
+    importcpp: "SetIOD", header: "Graphic3d_Camera.hxx".}
+proc iod*(this: Graphic3dCamera): float {.noSideEffect, importcpp: "IOD",
+                                      header: "Graphic3d_Camera.hxx".}
+proc getIODType*(this: Graphic3dCamera): Graphic3dCameraIODType {.noSideEffect,
     importcpp: "GetIODType", header: "Graphic3d_Camera.hxx".}
-proc Tile*(this: Graphic3d_Camera): Graphic3d_CameraTile {.noSideEffect,
+proc tile*(this: Graphic3dCamera): Graphic3dCameraTile {.noSideEffect,
     importcpp: "Tile", header: "Graphic3d_Camera.hxx".}
-proc SetTile*(this: var Graphic3d_Camera; theTile: Graphic3d_CameraTile) {.
+proc setTile*(this: var Graphic3dCamera; theTile: Graphic3dCameraTile) {.
     importcpp: "SetTile", header: "Graphic3d_Camera.hxx".}
-proc Transform*(this: var Graphic3d_Camera; theTrsf: gp_Trsf) {.
-    importcpp: "Transform", header: "Graphic3d_Camera.hxx".}
-proc ViewDimensions*(this: Graphic3d_Camera): gp_XYZ {.noSideEffect,
-    importcpp: "ViewDimensions", header: "Graphic3d_Camera.hxx".}
-proc ViewDimensions*(this: Graphic3d_Camera; theZValue: Standard_Real): gp_XYZ {.
-    noSideEffect, importcpp: "ViewDimensions", header: "Graphic3d_Camera.hxx".}
-proc NDC2dOffsetX*(this: Graphic3d_Camera): Standard_Real {.noSideEffect,
-    importcpp: "NDC2dOffsetX", header: "Graphic3d_Camera.hxx".}
-proc NDC2dOffsetY*(this: Graphic3d_Camera): Standard_Real {.noSideEffect,
-    importcpp: "NDC2dOffsetY", header: "Graphic3d_Camera.hxx".}
-proc Frustum*(this: Graphic3d_Camera; theLeft: var gp_Pln; theRight: var gp_Pln;
-             theBottom: var gp_Pln; theTop: var gp_Pln; theNear: var gp_Pln;
-             theFar: var gp_Pln) {.noSideEffect, importcpp: "Frustum",
-                                header: "Graphic3d_Camera.hxx".}
-proc Project*(this: Graphic3d_Camera; thePnt: gp_Pnt): gp_Pnt {.noSideEffect,
-    importcpp: "Project", header: "Graphic3d_Camera.hxx".}
-proc UnProject*(this: Graphic3d_Camera; thePnt: gp_Pnt): gp_Pnt {.noSideEffect,
-    importcpp: "UnProject", header: "Graphic3d_Camera.hxx".}
-proc ConvertView2Proj*(this: Graphic3d_Camera; thePnt: gp_Pnt): gp_Pnt {.noSideEffect,
-    importcpp: "ConvertView2Proj", header: "Graphic3d_Camera.hxx".}
-proc ConvertProj2View*(this: Graphic3d_Camera; thePnt: gp_Pnt): gp_Pnt {.noSideEffect,
-    importcpp: "ConvertProj2View", header: "Graphic3d_Camera.hxx".}
-proc ConvertWorld2View*(this: Graphic3d_Camera; thePnt: gp_Pnt): gp_Pnt {.
-    noSideEffect, importcpp: "ConvertWorld2View", header: "Graphic3d_Camera.hxx".}
-proc ConvertView2World*(this: Graphic3d_Camera; thePnt: gp_Pnt): gp_Pnt {.
-    noSideEffect, importcpp: "ConvertView2World", header: "Graphic3d_Camera.hxx".}
-proc WorldViewProjState*(this: Graphic3d_Camera): Graphic3d_WorldViewProjState {.
-    noSideEffect, importcpp: "WorldViewProjState", header: "Graphic3d_Camera.hxx".}
-proc ProjectionState*(this: Graphic3d_Camera): Standard_Size {.noSideEffect,
-    importcpp: "ProjectionState", header: "Graphic3d_Camera.hxx".}
-proc WorldViewState*(this: Graphic3d_Camera): Standard_Size {.noSideEffect,
-    importcpp: "WorldViewState", header: "Graphic3d_Camera.hxx".}
-proc OrientationMatrix*(this: Graphic3d_Camera): Graphic3d_Mat4d {.noSideEffect,
-    importcpp: "OrientationMatrix", header: "Graphic3d_Camera.hxx".}
-proc OrientationMatrixF*(this: Graphic3d_Camera): Graphic3d_Mat4 {.noSideEffect,
-    importcpp: "OrientationMatrixF", header: "Graphic3d_Camera.hxx".}
-proc ProjectionMatrix*(this: Graphic3d_Camera): Graphic3d_Mat4d {.noSideEffect,
-    importcpp: "ProjectionMatrix", header: "Graphic3d_Camera.hxx".}
-proc ProjectionMatrixF*(this: Graphic3d_Camera): Graphic3d_Mat4 {.noSideEffect,
-    importcpp: "ProjectionMatrixF", header: "Graphic3d_Camera.hxx".}
-proc ProjectionStereoLeft*(this: Graphic3d_Camera): Graphic3d_Mat4d {.noSideEffect,
-    importcpp: "ProjectionStereoLeft", header: "Graphic3d_Camera.hxx".}
-proc ProjectionStereoLeftF*(this: Graphic3d_Camera): Graphic3d_Mat4 {.noSideEffect,
-    importcpp: "ProjectionStereoLeftF", header: "Graphic3d_Camera.hxx".}
-proc ProjectionStereoRight*(this: Graphic3d_Camera): Graphic3d_Mat4d {.noSideEffect,
-    importcpp: "ProjectionStereoRight", header: "Graphic3d_Camera.hxx".}
-proc ProjectionStereoRightF*(this: Graphic3d_Camera): Graphic3d_Mat4 {.noSideEffect,
-    importcpp: "ProjectionStereoRightF", header: "Graphic3d_Camera.hxx".}
-proc InvalidateProjection*(this: var Graphic3d_Camera) {.
-    importcpp: "InvalidateProjection", header: "Graphic3d_Camera.hxx".}
-proc InvalidateOrientation*(this: var Graphic3d_Camera) {.
-    importcpp: "InvalidateOrientation", header: "Graphic3d_Camera.hxx".}
-proc StereoProjection*(this: Graphic3d_Camera; theProjL: var Graphic3d_Mat4d;
-                      theHeadToEyeL: var Graphic3d_Mat4d;
-                      theProjR: var Graphic3d_Mat4d;
-                      theHeadToEyeR: var Graphic3d_Mat4d) {.noSideEffect,
-    importcpp: "StereoProjection", header: "Graphic3d_Camera.hxx".}
-proc StereoProjectionF*(this: Graphic3d_Camera; theProjL: var Graphic3d_Mat4;
-                       theHeadToEyeL: var Graphic3d_Mat4;
-                       theProjR: var Graphic3d_Mat4;
-                       theHeadToEyeR: var Graphic3d_Mat4) {.noSideEffect,
-    importcpp: "StereoProjectionF", header: "Graphic3d_Camera.hxx".}
-proc ResetCustomProjection*(this: var Graphic3d_Camera) {.
-    importcpp: "ResetCustomProjection", header: "Graphic3d_Camera.hxx".}
-proc IsCustomStereoFrustum*(this: Graphic3d_Camera): bool {.noSideEffect,
-    importcpp: "IsCustomStereoFrustum", header: "Graphic3d_Camera.hxx".}
-proc SetCustomStereoFrustums*(this: var Graphic3d_Camera;
-                             theFrustumL: Aspect_FrustumLRBT[Standard_Real];
-                             theFrustumR: Aspect_FrustumLRBT[Standard_Real]) {.
-    importcpp: "SetCustomStereoFrustums", header: "Graphic3d_Camera.hxx".}
-proc IsCustomStereoProjection*(this: Graphic3d_Camera): bool {.noSideEffect,
-    importcpp: "IsCustomStereoProjection", header: "Graphic3d_Camera.hxx".}
-proc SetCustomStereoProjection*(this: var Graphic3d_Camera;
-                               theProjL: Graphic3d_Mat4d;
-                               theHeadToEyeL: Graphic3d_Mat4d;
-                               theProjR: Graphic3d_Mat4d;
-                               theHeadToEyeR: Graphic3d_Mat4d) {.
-    importcpp: "SetCustomStereoProjection", header: "Graphic3d_Camera.hxx".}
-proc IsCustomMonoProjection*(this: Graphic3d_Camera): bool {.noSideEffect,
-    importcpp: "IsCustomMonoProjection", header: "Graphic3d_Camera.hxx".}
-proc SetCustomMonoProjection*(this: var Graphic3d_Camera; theProj: Graphic3d_Mat4d) {.
-    importcpp: "SetCustomMonoProjection", header: "Graphic3d_Camera.hxx".}
-proc DumpJson*(this: Graphic3d_Camera; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
+proc transform*(this: var Graphic3dCamera; theTrsf: Trsf) {.importcpp: "Transform",
     header: "Graphic3d_Camera.hxx".}
+proc viewDimensions*(this: Graphic3dCamera): Xyz {.noSideEffect,
+    importcpp: "ViewDimensions", header: "Graphic3d_Camera.hxx".}
+proc viewDimensions*(this: Graphic3dCamera; theZValue: float): Xyz {.noSideEffect,
+    importcpp: "ViewDimensions", header: "Graphic3d_Camera.hxx".}
+proc nDC2dOffsetX*(this: Graphic3dCamera): float {.noSideEffect,
+    importcpp: "NDC2dOffsetX", header: "Graphic3d_Camera.hxx".}
+proc nDC2dOffsetY*(this: Graphic3dCamera): float {.noSideEffect,
+    importcpp: "NDC2dOffsetY", header: "Graphic3d_Camera.hxx".}
+proc frustum*(this: Graphic3dCamera; theLeft: var Pln; theRight: var Pln;
+             theBottom: var Pln; theTop: var Pln; theNear: var Pln; theFar: var Pln) {.
+    noSideEffect, importcpp: "Frustum", header: "Graphic3d_Camera.hxx".}
+proc project*(this: Graphic3dCamera; thePnt: Pnt): Pnt {.noSideEffect,
+    importcpp: "Project", header: "Graphic3d_Camera.hxx".}
+proc unProject*(this: Graphic3dCamera; thePnt: Pnt): Pnt {.noSideEffect,
+    importcpp: "UnProject", header: "Graphic3d_Camera.hxx".}
+proc convertView2Proj*(this: Graphic3dCamera; thePnt: Pnt): Pnt {.noSideEffect,
+    importcpp: "ConvertView2Proj", header: "Graphic3d_Camera.hxx".}
+proc convertProj2View*(this: Graphic3dCamera; thePnt: Pnt): Pnt {.noSideEffect,
+    importcpp: "ConvertProj2View", header: "Graphic3d_Camera.hxx".}
+proc convertWorld2View*(this: Graphic3dCamera; thePnt: Pnt): Pnt {.noSideEffect,
+    importcpp: "ConvertWorld2View", header: "Graphic3d_Camera.hxx".}
+proc convertView2World*(this: Graphic3dCamera; thePnt: Pnt): Pnt {.noSideEffect,
+    importcpp: "ConvertView2World", header: "Graphic3d_Camera.hxx".}
+proc worldViewProjState*(this: Graphic3dCamera): Graphic3dWorldViewProjState {.
+    noSideEffect, importcpp: "WorldViewProjState", header: "Graphic3d_Camera.hxx".}
+proc projectionState*(this: Graphic3dCamera): StandardSize {.noSideEffect,
+    importcpp: "ProjectionState", header: "Graphic3d_Camera.hxx".}
+proc worldViewState*(this: Graphic3dCamera): StandardSize {.noSideEffect,
+    importcpp: "WorldViewState", header: "Graphic3d_Camera.hxx".}
+proc orientationMatrix*(this: Graphic3dCamera): Graphic3dMat4d {.noSideEffect,
+    importcpp: "OrientationMatrix", header: "Graphic3d_Camera.hxx".}
+proc orientationMatrixF*(this: Graphic3dCamera): Graphic3dMat4 {.noSideEffect,
+    importcpp: "OrientationMatrixF", header: "Graphic3d_Camera.hxx".}
+proc projectionMatrix*(this: Graphic3dCamera): Graphic3dMat4d {.noSideEffect,
+    importcpp: "ProjectionMatrix", header: "Graphic3d_Camera.hxx".}
+proc projectionMatrixF*(this: Graphic3dCamera): Graphic3dMat4 {.noSideEffect,
+    importcpp: "ProjectionMatrixF", header: "Graphic3d_Camera.hxx".}
+proc projectionStereoLeft*(this: Graphic3dCamera): Graphic3dMat4d {.noSideEffect,
+    importcpp: "ProjectionStereoLeft", header: "Graphic3d_Camera.hxx".}
+proc projectionStereoLeftF*(this: Graphic3dCamera): Graphic3dMat4 {.noSideEffect,
+    importcpp: "ProjectionStereoLeftF", header: "Graphic3d_Camera.hxx".}
+proc projectionStereoRight*(this: Graphic3dCamera): Graphic3dMat4d {.noSideEffect,
+    importcpp: "ProjectionStereoRight", header: "Graphic3d_Camera.hxx".}
+proc projectionStereoRightF*(this: Graphic3dCamera): Graphic3dMat4 {.noSideEffect,
+    importcpp: "ProjectionStereoRightF", header: "Graphic3d_Camera.hxx".}
+proc invalidateProjection*(this: var Graphic3dCamera) {.
+    importcpp: "InvalidateProjection", header: "Graphic3d_Camera.hxx".}
+proc invalidateOrientation*(this: var Graphic3dCamera) {.
+    importcpp: "InvalidateOrientation", header: "Graphic3d_Camera.hxx".}
+proc stereoProjection*(this: Graphic3dCamera; theProjL: var Graphic3dMat4d;
+                      theHeadToEyeL: var Graphic3dMat4d;
+                      theProjR: var Graphic3dMat4d;
+                      theHeadToEyeR: var Graphic3dMat4d) {.noSideEffect,
+    importcpp: "StereoProjection", header: "Graphic3d_Camera.hxx".}
+proc stereoProjectionF*(this: Graphic3dCamera; theProjL: var Graphic3dMat4;
+                       theHeadToEyeL: var Graphic3dMat4;
+                       theProjR: var Graphic3dMat4;
+                       theHeadToEyeR: var Graphic3dMat4) {.noSideEffect,
+    importcpp: "StereoProjectionF", header: "Graphic3d_Camera.hxx".}
+proc resetCustomProjection*(this: var Graphic3dCamera) {.
+    importcpp: "ResetCustomProjection", header: "Graphic3d_Camera.hxx".}
+proc isCustomStereoFrustum*(this: Graphic3dCamera): bool {.noSideEffect,
+    importcpp: "IsCustomStereoFrustum", header: "Graphic3d_Camera.hxx".}
+proc setCustomStereoFrustums*(this: var Graphic3dCamera;
+                             theFrustumL: AspectFrustumLRBT[float];
+                             theFrustumR: AspectFrustumLRBT[float]) {.
+    importcpp: "SetCustomStereoFrustums", header: "Graphic3d_Camera.hxx".}
+proc isCustomStereoProjection*(this: Graphic3dCamera): bool {.noSideEffect,
+    importcpp: "IsCustomStereoProjection", header: "Graphic3d_Camera.hxx".}
+proc setCustomStereoProjection*(this: var Graphic3dCamera; theProjL: Graphic3dMat4d;
+                               theHeadToEyeL: Graphic3dMat4d;
+                               theProjR: Graphic3dMat4d;
+                               theHeadToEyeR: Graphic3dMat4d) {.
+    importcpp: "SetCustomStereoProjection", header: "Graphic3d_Camera.hxx".}
+proc isCustomMonoProjection*(this: Graphic3dCamera): bool {.noSideEffect,
+    importcpp: "IsCustomMonoProjection", header: "Graphic3d_Camera.hxx".}
+proc setCustomMonoProjection*(this: var Graphic3dCamera; theProj: Graphic3dMat4d) {.
+    importcpp: "SetCustomMonoProjection", header: "Graphic3d_Camera.hxx".}
+proc dumpJson*(this: Graphic3dCamera; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Graphic3d_Camera.hxx".}
 const
-  Graphic3d_CameraFrustumVert_LeftBottomNear* = 0
-  Graphic3d_CameraFrustumVert_LeftBottomFar* = 1
-  Graphic3d_CameraFrustumVert_LeftTopNear* = 2
-  Graphic3d_CameraFrustumVert_LeftTopFar* = 3
-  Graphic3d_CameraFrustumVert_RightBottomNear* = 4
-  Graphic3d_CameraFrustumVert_RightBottomFar* = 5
-  Graphic3d_CameraFrustumVert_RightTopNear* = 6
-  Graphic3d_CameraFrustumVert_RightTopFar* = 7
-  Graphic3d_CameraFrustumVerticesNB* = 8
+  Graphic3dCameraFrustumVertLeftBottomNear* = 0
+  Graphic3dCameraFrustumVertLeftBottomFar* = 1
+  Graphic3dCameraFrustumVertLeftTopNear* = 2
+  Graphic3dCameraFrustumVertLeftTopFar* = 3
+  Graphic3dCameraFrustumVertRightBottomNear* = 4
+  Graphic3dCameraFrustumVertRightBottomFar* = 5
+  Graphic3dCameraFrustumVertRightTopNear* = 6
+  Graphic3dCameraFrustumVertRightTopFar* = 7
+  Graphic3dCameraFrustumVerticesNB* = 8
 
-proc FrustumPoints*(this: Graphic3d_Camera;
-                   thePoints: var NCollection_Array1[Graphic3d_Vec3d];
-                   theModelWorld: Graphic3d_Mat4d = Graphic3d_Mat4d()) {.
-    noSideEffect, importcpp: "FrustumPoints", header: "Graphic3d_Camera.hxx".}
+proc frustumPoints*(this: Graphic3dCamera;
+                   thePoints: var NCollectionArray1[Graphic3dVec3d];
+                   theModelWorld: Graphic3dMat4d = graphic3dMat4d()) {.noSideEffect,
+    importcpp: "FrustumPoints", header: "Graphic3d_Camera.hxx".}
 type
-  Graphic3d_Camerabase_type* = Standard_Transient
+  Graphic3dCamerabaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_Camera::get_type_name(@)",
-                              header: "Graphic3d_Camera.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_Camera::get_type_name(@)",
+                            header: "Graphic3d_Camera.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_Camera::get_type_descriptor(@)",
     header: "Graphic3d_Camera.hxx".}
-proc DynamicType*(this: Graphic3d_Camera): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: Graphic3dCamera): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Graphic3d_Camera.hxx".}
 discard "forward decl of Graphic3d_Camera"
 type
-  Handle_Graphic3d_CameraGraphic3d_Camera* = handle[Graphic3d_Camera]
+  HandleGraphic3dCameraGraphic3dCamera* = Handle[Graphic3dCamera]
 
 ## ! Linear interpolation tool for camera orientation and position.
 ## ! This tool interpolates camera parameters scale, eye, center, rotation (up and direction vectors) independently.
@@ -654,4 +346,5 @@ type
 ## Error: token expected: ; but got: <!!!
 
 type
-  Graphic3d_CameraLerp* = NCollection_Lerp[handle[Graphic3d_Camera]]
+  Graphic3dCameraLerp* = NCollectionLerp[Handle[Graphic3dCamera]]
+

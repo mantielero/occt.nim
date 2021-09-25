@@ -14,44 +14,40 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation Copyright: (C) RINA S.p.A
 
-import
-  ../TObj/TObj_Common, ../BinMDF/BinMDF_ADriver
-
 type
-  BinTObjDrivers_ModelDriver* {.importcpp: "BinTObjDrivers_ModelDriver",
-                               header: "BinTObjDrivers_ModelDriver.hxx", bycopy.} = object of BinMDF_ADriver ##  CASCADE RTTI
+  BinTObjDriversModelDriver* {.importcpp: "BinTObjDrivers_ModelDriver",
+                              header: "BinTObjDrivers_ModelDriver.hxx", bycopy.} = object of BinMDF_ADriver ##  CASCADE RTTI
 
 
-proc constructBinTObjDrivers_ModelDriver*(
-    theMessageDriver: handle[Message_Messenger]): BinTObjDrivers_ModelDriver {.
+proc constructBinTObjDriversModelDriver*(theMessageDriver: Handle[MessageMessenger]): BinTObjDriversModelDriver {.
     constructor, importcpp: "BinTObjDrivers_ModelDriver(@)",
     header: "BinTObjDrivers_ModelDriver.hxx".}
-proc NewEmpty*(this: BinTObjDrivers_ModelDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: BinTObjDriversModelDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty", header: "BinTObjDrivers_ModelDriver.hxx".}
-proc Paste*(this: BinTObjDrivers_ModelDriver; Source: BinObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "BinTObjDrivers_ModelDriver.hxx".}
-proc Paste*(this: BinTObjDrivers_ModelDriver; Source: handle[TDF_Attribute];
-           Target: var BinObjMgt_Persistent;
-           RelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: BinTObjDriversModelDriver; source: BinObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var BinObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "BinTObjDrivers_ModelDriver.hxx".}
+proc paste*(this: BinTObjDriversModelDriver; source: Handle[TDF_Attribute];
+           target: var BinObjMgtPersistent;
+           relocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinTObjDrivers_ModelDriver.hxx".}
 type
-  BinTObjDrivers_ModelDriverbase_type* = BinMDF_ADriver
+  BinTObjDriversModelDriverbaseType* = BinMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "BinTObjDrivers_ModelDriver::get_type_name(@)",
-                              header: "BinTObjDrivers_ModelDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BinTObjDrivers_ModelDriver::get_type_name(@)",
+                            header: "BinTObjDrivers_ModelDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BinTObjDrivers_ModelDriver::get_type_descriptor(@)",
     header: "BinTObjDrivers_ModelDriver.hxx".}
-proc DynamicType*(this: BinTObjDrivers_ModelDriver): handle[Standard_Type] {.
+proc dynamicType*(this: BinTObjDriversModelDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinTObjDrivers_ModelDriver.hxx".}
 ##  Define handle class
 
 discard "forward decl of BinTObjDrivers_ModelDriver"
 type
-  Handle_BinTObjDrivers_ModelDriver* = handle[BinTObjDrivers_ModelDriver]
+  HandleBinTObjDriversModelDriver* = Handle[BinTObjDriversModelDriver]
 
-when defined(_MSC_VER):
-  discard
+# when defined(_MSC_VER):
+#   discard

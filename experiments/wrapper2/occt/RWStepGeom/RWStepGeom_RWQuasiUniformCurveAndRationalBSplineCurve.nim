@@ -14,37 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_QuasiUniformCurveAndRationalBSplineCurve"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeom_RWQuasiUniformCurveAndRationalBSplineCurve* {.
+  RWStepGeomRWQuasiUniformCurveAndRationalBSplineCurve* {.
       importcpp: "RWStepGeom_RWQuasiUniformCurveAndRationalBSplineCurve",
       header: "RWStepGeom_RWQuasiUniformCurveAndRationalBSplineCurve.hxx", bycopy.} = object
 
 
-proc constructRWStepGeom_RWQuasiUniformCurveAndRationalBSplineCurve*(): RWStepGeom_RWQuasiUniformCurveAndRationalBSplineCurve {.
+proc constructRWStepGeomRWQuasiUniformCurveAndRationalBSplineCurve*(): RWStepGeomRWQuasiUniformCurveAndRationalBSplineCurve {.
     constructor,
     importcpp: "RWStepGeom_RWQuasiUniformCurveAndRationalBSplineCurve(@)",
     header: "RWStepGeom_RWQuasiUniformCurveAndRationalBSplineCurve.hxx".}
-proc ReadStep*(this: RWStepGeom_RWQuasiUniformCurveAndRationalBSplineCurve;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepGeom_QuasiUniformCurveAndRationalBSplineCurve]) {.
+proc readStep*(this: RWStepGeomRWQuasiUniformCurveAndRationalBSplineCurve;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepGeomQuasiUniformCurveAndRationalBSplineCurve]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepGeom_RWQuasiUniformCurveAndRationalBSplineCurve.hxx".}
-proc WriteStep*(this: RWStepGeom_RWQuasiUniformCurveAndRationalBSplineCurve;
-               SW: var StepData_StepWriter;
-               ent: handle[StepGeom_QuasiUniformCurveAndRationalBSplineCurve]) {.
+proc writeStep*(this: RWStepGeomRWQuasiUniformCurveAndRationalBSplineCurve;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepGeomQuasiUniformCurveAndRationalBSplineCurve]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepGeom_RWQuasiUniformCurveAndRationalBSplineCurve.hxx".}
-proc Share*(this: RWStepGeom_RWQuasiUniformCurveAndRationalBSplineCurve;
-           ent: handle[StepGeom_QuasiUniformCurveAndRationalBSplineCurve];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepGeomRWQuasiUniformCurveAndRationalBSplineCurve;
+           ent: Handle[StepGeomQuasiUniformCurveAndRationalBSplineCurve];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWQuasiUniformCurveAndRationalBSplineCurve.hxx".}

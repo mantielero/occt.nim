@@ -16,10 +16,11 @@
 ## ! Defines types of material requirement
 
 type
-  XCAFDimTolObjects_GeomToleranceMatReqModif* {.size: sizeof(cint),
+  XCAFDimTolObjectsGeomToleranceMatReqModif* {.size: sizeof(cint),
       importcpp: "XCAFDimTolObjects_GeomToleranceMatReqModif",
       header: "XCAFDimTolObjects_GeomToleranceMatReqModif.hxx".} = enum
-    XCAFDimTolObjects_GeomToleranceMatReqModif_None,
-    XCAFDimTolObjects_GeomToleranceMatReqModif_M,
-    XCAFDimTolObjects_GeomToleranceMatReqModif_L
+    XCAFDimTolObjectsGeomToleranceMatReqModifNone,
+    XCAFDimTolObjectsGeomToleranceMatReqModifM,
+    XCAFDimTolObjectsGeomToleranceMatReqModifL
+
 

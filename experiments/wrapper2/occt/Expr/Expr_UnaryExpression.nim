@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Expr_GeneralExpression,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of Expr_GeneralExpression"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NumericError"
@@ -26,49 +22,48 @@ discard "forward decl of Expr_NamedUnknown"
 discard "forward decl of Expr_UnaryExpression"
 discard "forward decl of Expr_UnaryExpression"
 type
-  Handle_Expr_UnaryExpression* = handle[Expr_UnaryExpression]
-  Expr_UnaryExpression* {.importcpp: "Expr_UnaryExpression",
-                         header: "Expr_UnaryExpression.hxx", bycopy.} = object of Expr_GeneralExpression ##
-                                                                                                  ## !
-                                                                                                  ## Returns
-                                                                                                  ## the
-                                                                                                  ## operand
-                                                                                                  ## used
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Sets
-                                                                                                  ## the
-                                                                                                  ## operand
-                                                                                                  ## used
-                                                                                                  ## during
-                                                                                                  ## creation
+  HandleExprUnaryExpression* = Handle[ExprUnaryExpression]
+  ExprUnaryExpression* {.importcpp: "Expr_UnaryExpression",
+                        header: "Expr_UnaryExpression.hxx", bycopy.} = object of ExprGeneralExpression ##
+                                                                                                ## !
+                                                                                                ## Returns
+                                                                                                ## the
+                                                                                                ## operand
+                                                                                                ## used
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Sets
+                                                                                                ## the
+                                                                                                ## operand
+                                                                                                ## used
+                                                                                                ## during
+                                                                                                ## creation
 
 
-proc Operand*(this: Expr_UnaryExpression): handle[Expr_GeneralExpression] {.
+proc operand*(this: ExprUnaryExpression): Handle[ExprGeneralExpression] {.
     noSideEffect, importcpp: "Operand", header: "Expr_UnaryExpression.hxx".}
-proc SetOperand*(this: var Expr_UnaryExpression; exp: handle[Expr_GeneralExpression]) {.
+proc setOperand*(this: var ExprUnaryExpression; exp: Handle[ExprGeneralExpression]) {.
     importcpp: "SetOperand", header: "Expr_UnaryExpression.hxx".}
-proc NbSubExpressions*(this: Expr_UnaryExpression): Standard_Integer {.noSideEffect,
+proc nbSubExpressions*(this: ExprUnaryExpression): int {.noSideEffect,
     importcpp: "NbSubExpressions", header: "Expr_UnaryExpression.hxx".}
-proc SubExpression*(this: Expr_UnaryExpression; I: Standard_Integer): handle[
-    Expr_GeneralExpression] {.noSideEffect, importcpp: "SubExpression",
-                             header: "Expr_UnaryExpression.hxx".}
-proc ContainsUnknowns*(this: Expr_UnaryExpression): Standard_Boolean {.noSideEffect,
+proc subExpression*(this: ExprUnaryExpression; i: int): Handle[ExprGeneralExpression] {.
+    noSideEffect, importcpp: "SubExpression", header: "Expr_UnaryExpression.hxx".}
+proc containsUnknowns*(this: ExprUnaryExpression): bool {.noSideEffect,
     importcpp: "ContainsUnknowns", header: "Expr_UnaryExpression.hxx".}
-proc Contains*(this: Expr_UnaryExpression; exp: handle[Expr_GeneralExpression]): Standard_Boolean {.
+proc contains*(this: ExprUnaryExpression; exp: Handle[ExprGeneralExpression]): bool {.
     noSideEffect, importcpp: "Contains", header: "Expr_UnaryExpression.hxx".}
-proc Replace*(this: var Expr_UnaryExpression; `var`: handle[Expr_NamedUnknown];
-             with: handle[Expr_GeneralExpression]) {.importcpp: "Replace",
+proc replace*(this: var ExprUnaryExpression; `var`: Handle[ExprNamedUnknown];
+             with: Handle[ExprGeneralExpression]) {.importcpp: "Replace",
     header: "Expr_UnaryExpression.hxx".}
-proc Simplified*(this: Expr_UnaryExpression): handle[Expr_GeneralExpression] {.
+proc simplified*(this: ExprUnaryExpression): Handle[ExprGeneralExpression] {.
     noSideEffect, importcpp: "Simplified", header: "Expr_UnaryExpression.hxx".}
 type
-  Expr_UnaryExpressionbase_type* = Expr_GeneralExpression
+  ExprUnaryExpressionbaseType* = ExprGeneralExpression
 
-proc get_type_name*(): cstring {.importcpp: "Expr_UnaryExpression::get_type_name(@)",
-                              header: "Expr_UnaryExpression.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Expr_UnaryExpression::get_type_name(@)",
+                            header: "Expr_UnaryExpression.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Expr_UnaryExpression::get_type_descriptor(@)",
     header: "Expr_UnaryExpression.hxx".}
-proc DynamicType*(this: Expr_UnaryExpression): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: ExprUnaryExpression): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_UnaryExpression.hxx".}

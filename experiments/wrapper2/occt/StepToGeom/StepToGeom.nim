@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of Geom_Axis1Placement"
 discard "forward decl of Geom_Axis2Placement"
 discard "forward decl of Geom_BoundedCurve"
@@ -97,117 +93,117 @@ type
   StepToGeom* {.importcpp: "StepToGeom", header: "StepToGeom.hxx", bycopy.} = object
 
 
-proc MakeAxis1Placement*(SA: handle[StepGeom_Axis1Placement]): handle[
-    Geom_Axis1Placement] {.importcpp: "StepToGeom::MakeAxis1Placement(@)",
+proc makeAxis1Placement*(sa: Handle[StepGeomAxis1Placement]): Handle[
+    GeomAxis1Placement] {.importcpp: "StepToGeom::MakeAxis1Placement(@)",
+                         header: "StepToGeom.hxx".}
+proc makeAxis2Placement*(sa: Handle[StepGeomAxis2Placement3d]): Handle[
+    GeomAxis2Placement] {.importcpp: "StepToGeom::MakeAxis2Placement(@)",
+                         header: "StepToGeom.hxx".}
+proc makeAxisPlacement*(sa: Handle[StepGeomAxis2Placement2d]): Handle[
+    Geom2dAxisPlacement] {.importcpp: "StepToGeom::MakeAxisPlacement(@)",
                           header: "StepToGeom.hxx".}
-proc MakeAxis2Placement*(SA: handle[StepGeom_Axis2Placement3d]): handle[
-    Geom_Axis2Placement] {.importcpp: "StepToGeom::MakeAxis2Placement(@)",
-                          header: "StepToGeom.hxx".}
-proc MakeAxisPlacement*(SA: handle[StepGeom_Axis2Placement2d]): handle[
-    Geom2d_AxisPlacement] {.importcpp: "StepToGeom::MakeAxisPlacement(@)",
-                           header: "StepToGeom.hxx".}
-proc MakeBoundedCurve*(SC: handle[StepGeom_BoundedCurve]): handle[Geom_BoundedCurve] {.
+proc makeBoundedCurve*(sc: Handle[StepGeomBoundedCurve]): Handle[GeomBoundedCurve] {.
     importcpp: "StepToGeom::MakeBoundedCurve(@)", header: "StepToGeom.hxx".}
-proc MakeBoundedCurve2d*(SC: handle[StepGeom_BoundedCurve]): handle[
-    Geom2d_BoundedCurve] {.importcpp: "StepToGeom::MakeBoundedCurve2d(@)",
-                          header: "StepToGeom.hxx".}
-proc MakeBoundedSurface*(SS: handle[StepGeom_BoundedSurface]): handle[
-    Geom_BoundedSurface] {.importcpp: "StepToGeom::MakeBoundedSurface(@)",
-                          header: "StepToGeom.hxx".}
-proc MakeBSplineCurve*(SC: handle[StepGeom_BSplineCurve]): handle[Geom_BSplineCurve] {.
+proc makeBoundedCurve2d*(sc: Handle[StepGeomBoundedCurve]): Handle[
+    Geom2dBoundedCurve] {.importcpp: "StepToGeom::MakeBoundedCurve2d(@)",
+                         header: "StepToGeom.hxx".}
+proc makeBoundedSurface*(ss: Handle[StepGeomBoundedSurface]): Handle[
+    GeomBoundedSurface] {.importcpp: "StepToGeom::MakeBoundedSurface(@)",
+                         header: "StepToGeom.hxx".}
+proc makeBSplineCurve*(sc: Handle[StepGeomBSplineCurve]): Handle[GeomBSplineCurve] {.
     importcpp: "StepToGeom::MakeBSplineCurve(@)", header: "StepToGeom.hxx".}
-proc MakeBSplineCurve2d*(SC: handle[StepGeom_BSplineCurve]): handle[
-    Geom2d_BSplineCurve] {.importcpp: "StepToGeom::MakeBSplineCurve2d(@)",
-                          header: "StepToGeom.hxx".}
-proc MakeBSplineSurface*(SS: handle[StepGeom_BSplineSurface]): handle[
-    Geom_BSplineSurface] {.importcpp: "StepToGeom::MakeBSplineSurface(@)",
-                          header: "StepToGeom.hxx".}
-proc MakeCartesianPoint*(SP: handle[StepGeom_CartesianPoint]): handle[
-    Geom_CartesianPoint] {.importcpp: "StepToGeom::MakeCartesianPoint(@)",
-                          header: "StepToGeom.hxx".}
-proc MakeCartesianPoint2d*(SP: handle[StepGeom_CartesianPoint]): handle[
-    Geom2d_CartesianPoint] {.importcpp: "StepToGeom::MakeCartesianPoint2d(@)",
-                            header: "StepToGeom.hxx".}
-proc MakeCircle*(SC: handle[StepGeom_Circle]): handle[Geom_Circle] {.
-    importcpp: "StepToGeom::MakeCircle(@)", header: "StepToGeom.hxx".}
-proc MakeCircle2d*(SC: handle[StepGeom_Circle]): handle[Geom2d_Circle] {.
-    importcpp: "StepToGeom::MakeCircle2d(@)", header: "StepToGeom.hxx".}
-proc MakeConic*(SC: handle[StepGeom_Conic]): handle[Geom_Conic] {.
-    importcpp: "StepToGeom::MakeConic(@)", header: "StepToGeom.hxx".}
-proc MakeConic2d*(SC: handle[StepGeom_Conic]): handle[Geom2d_Conic] {.
-    importcpp: "StepToGeom::MakeConic2d(@)", header: "StepToGeom.hxx".}
-proc MakeConicalSurface*(SS: handle[StepGeom_ConicalSurface]): handle[
-    Geom_ConicalSurface] {.importcpp: "StepToGeom::MakeConicalSurface(@)",
-                          header: "StepToGeom.hxx".}
-proc MakeCurve*(SC: handle[StepGeom_Curve]): handle[Geom_Curve] {.
-    importcpp: "StepToGeom::MakeCurve(@)", header: "StepToGeom.hxx".}
-proc MakeCurve2d*(SC: handle[StepGeom_Curve]): handle[Geom2d_Curve] {.
-    importcpp: "StepToGeom::MakeCurve2d(@)", header: "StepToGeom.hxx".}
-proc MakeCylindricalSurface*(SS: handle[StepGeom_CylindricalSurface]): handle[
-    Geom_CylindricalSurface] {.importcpp: "StepToGeom::MakeCylindricalSurface(@)",
-                              header: "StepToGeom.hxx".}
-proc MakeDirection*(SD: handle[StepGeom_Direction]): handle[Geom_Direction] {.
-    importcpp: "StepToGeom::MakeDirection(@)", header: "StepToGeom.hxx".}
-proc MakeDirection2d*(SD: handle[StepGeom_Direction]): handle[Geom2d_Direction] {.
-    importcpp: "StepToGeom::MakeDirection2d(@)", header: "StepToGeom.hxx".}
-proc MakeElementarySurface*(SS: handle[StepGeom_ElementarySurface]): handle[
-    Geom_ElementarySurface] {.importcpp: "StepToGeom::MakeElementarySurface(@)",
-                             header: "StepToGeom.hxx".}
-proc MakeEllipse*(SC: handle[StepGeom_Ellipse]): handle[Geom_Ellipse] {.
-    importcpp: "StepToGeom::MakeEllipse(@)", header: "StepToGeom.hxx".}
-proc MakeEllipse2d*(SC: handle[StepGeom_Ellipse]): handle[Geom2d_Ellipse] {.
-    importcpp: "StepToGeom::MakeEllipse2d(@)", header: "StepToGeom.hxx".}
-proc MakeHyperbola*(SC: handle[StepGeom_Hyperbola]): handle[Geom_Hyperbola] {.
-    importcpp: "StepToGeom::MakeHyperbola(@)", header: "StepToGeom.hxx".}
-proc MakeHyperbola2d*(SC: handle[StepGeom_Hyperbola]): handle[Geom2d_Hyperbola] {.
-    importcpp: "StepToGeom::MakeHyperbola2d(@)", header: "StepToGeom.hxx".}
-proc MakeLine*(SC: handle[StepGeom_Line]): handle[Geom_Line] {.
-    importcpp: "StepToGeom::MakeLine(@)", header: "StepToGeom.hxx".}
-proc MakeLine2d*(SC: handle[StepGeom_Line]): handle[Geom2d_Line] {.
-    importcpp: "StepToGeom::MakeLine2d(@)", header: "StepToGeom.hxx".}
-proc MakeParabola*(SC: handle[StepGeom_Parabola]): handle[Geom_Parabola] {.
-    importcpp: "StepToGeom::MakeParabola(@)", header: "StepToGeom.hxx".}
-proc MakeParabola2d*(SC: handle[StepGeom_Parabola]): handle[Geom2d_Parabola] {.
-    importcpp: "StepToGeom::MakeParabola2d(@)", header: "StepToGeom.hxx".}
-proc MakePlane*(SP: handle[StepGeom_Plane]): handle[Geom_Plane] {.
-    importcpp: "StepToGeom::MakePlane(@)", header: "StepToGeom.hxx".}
-proc MakePolyline*(SPL: handle[StepGeom_Polyline]): handle[Geom_BSplineCurve] {.
-    importcpp: "StepToGeom::MakePolyline(@)", header: "StepToGeom.hxx".}
-proc MakePolyline2d*(SPL: handle[StepGeom_Polyline]): handle[Geom2d_BSplineCurve] {.
-    importcpp: "StepToGeom::MakePolyline2d(@)", header: "StepToGeom.hxx".}
-proc MakeRectangularTrimmedSurface*(SS: handle[StepGeom_RectangularTrimmedSurface]): handle[
-    Geom_RectangularTrimmedSurface] {.importcpp: "StepToGeom::MakeRectangularTrimmedSurface(@)",
-                                     header: "StepToGeom.hxx".}
-proc MakeSphericalSurface*(SS: handle[StepGeom_SphericalSurface]): handle[
-    Geom_SphericalSurface] {.importcpp: "StepToGeom::MakeSphericalSurface(@)",
-                            header: "StepToGeom.hxx".}
-proc MakeSurface*(SS: handle[StepGeom_Surface]): handle[Geom_Surface] {.
-    importcpp: "StepToGeom::MakeSurface(@)", header: "StepToGeom.hxx".}
-proc MakeSurfaceOfLinearExtrusion*(SS: handle[StepGeom_SurfaceOfLinearExtrusion]): handle[
-    Geom_SurfaceOfLinearExtrusion] {.importcpp: "StepToGeom::MakeSurfaceOfLinearExtrusion(@)",
-                                    header: "StepToGeom.hxx".}
-proc MakeSurfaceOfRevolution*(SS: handle[StepGeom_SurfaceOfRevolution]): handle[
-    Geom_SurfaceOfRevolution] {.importcpp: "StepToGeom::MakeSurfaceOfRevolution(@)",
-                               header: "StepToGeom.hxx".}
-proc MakeSweptSurface*(SS: handle[StepGeom_SweptSurface]): handle[Geom_SweptSurface] {.
-    importcpp: "StepToGeom::MakeSweptSurface(@)", header: "StepToGeom.hxx".}
-proc MakeToroidalSurface*(SS: handle[StepGeom_ToroidalSurface]): handle[
-    Geom_ToroidalSurface] {.importcpp: "StepToGeom::MakeToroidalSurface(@)",
+proc makeBSplineCurve2d*(sc: Handle[StepGeomBSplineCurve]): Handle[
+    Geom2dBSplineCurve] {.importcpp: "StepToGeom::MakeBSplineCurve2d(@)",
+                         header: "StepToGeom.hxx".}
+proc makeBSplineSurface*(ss: Handle[StepGeomBSplineSurface]): Handle[
+    GeomBSplineSurface] {.importcpp: "StepToGeom::MakeBSplineSurface(@)",
+                         header: "StepToGeom.hxx".}
+proc makeCartesianPoint*(sp: Handle[StepGeomCartesianPoint]): Handle[
+    GeomCartesianPoint] {.importcpp: "StepToGeom::MakeCartesianPoint(@)",
+                         header: "StepToGeom.hxx".}
+proc makeCartesianPoint2d*(sp: Handle[StepGeomCartesianPoint]): Handle[
+    Geom2dCartesianPoint] {.importcpp: "StepToGeom::MakeCartesianPoint2d(@)",
                            header: "StepToGeom.hxx".}
-proc MakeTransformation2d*(SCTO: handle[StepGeom_CartesianTransformationOperator2d];
-                          CT: var gp_Trsf2d): Standard_Boolean {.
-    importcpp: "StepToGeom::MakeTransformation2d(@)", header: "StepToGeom.hxx".}
-proc MakeTransformation3d*(SCTO: handle[StepGeom_CartesianTransformationOperator3d];
-                          CT: var gp_Trsf): Standard_Boolean {.
-    importcpp: "StepToGeom::MakeTransformation3d(@)", header: "StepToGeom.hxx".}
-proc MakeTrimmedCurve*(SC: handle[StepGeom_TrimmedCurve]): handle[Geom_TrimmedCurve] {.
-    importcpp: "StepToGeom::MakeTrimmedCurve(@)", header: "StepToGeom.hxx".}
-proc MakeTrimmedCurve2d*(SC: handle[StepGeom_TrimmedCurve]): handle[
-    Geom2d_BSplineCurve] {.importcpp: "StepToGeom::MakeTrimmedCurve2d(@)",
+proc makeCircle*(sc: Handle[StepGeomCircle]): Handle[GeomCircle] {.
+    importcpp: "StepToGeom::MakeCircle(@)", header: "StepToGeom.hxx".}
+proc makeCircle2d*(sc: Handle[StepGeomCircle]): Handle[Geom2dCircle] {.
+    importcpp: "StepToGeom::MakeCircle2d(@)", header: "StepToGeom.hxx".}
+proc makeConic*(sc: Handle[StepGeomConic]): Handle[GeomConic] {.
+    importcpp: "StepToGeom::MakeConic(@)", header: "StepToGeom.hxx".}
+proc makeConic2d*(sc: Handle[StepGeomConic]): Handle[Geom2dConic] {.
+    importcpp: "StepToGeom::MakeConic2d(@)", header: "StepToGeom.hxx".}
+proc makeConicalSurface*(ss: Handle[StepGeomConicalSurface]): Handle[
+    GeomConicalSurface] {.importcpp: "StepToGeom::MakeConicalSurface(@)",
+                         header: "StepToGeom.hxx".}
+proc makeCurve*(sc: Handle[StepGeomCurve]): Handle[GeomCurve] {.
+    importcpp: "StepToGeom::MakeCurve(@)", header: "StepToGeom.hxx".}
+proc makeCurve2d*(sc: Handle[StepGeomCurve]): Handle[Geom2dCurve] {.
+    importcpp: "StepToGeom::MakeCurve2d(@)", header: "StepToGeom.hxx".}
+proc makeCylindricalSurface*(ss: Handle[StepGeomCylindricalSurface]): Handle[
+    GeomCylindricalSurface] {.importcpp: "StepToGeom::MakeCylindricalSurface(@)",
+                             header: "StepToGeom.hxx".}
+proc makeDirection*(sd: Handle[StepGeomDirection]): Handle[GeomDirection] {.
+    importcpp: "StepToGeom::MakeDirection(@)", header: "StepToGeom.hxx".}
+proc makeDirection2d*(sd: Handle[StepGeomDirection]): Handle[Geom2dDirection] {.
+    importcpp: "StepToGeom::MakeDirection2d(@)", header: "StepToGeom.hxx".}
+proc makeElementarySurface*(ss: Handle[StepGeomElementarySurface]): Handle[
+    GeomElementarySurface] {.importcpp: "StepToGeom::MakeElementarySurface(@)",
+                            header: "StepToGeom.hxx".}
+proc makeEllipse*(sc: Handle[StepGeomEllipse]): Handle[GeomEllipse] {.
+    importcpp: "StepToGeom::MakeEllipse(@)", header: "StepToGeom.hxx".}
+proc makeEllipse2d*(sc: Handle[StepGeomEllipse]): Handle[Geom2dEllipse] {.
+    importcpp: "StepToGeom::MakeEllipse2d(@)", header: "StepToGeom.hxx".}
+proc makeHyperbola*(sc: Handle[StepGeomHyperbola]): Handle[GeomHyperbola] {.
+    importcpp: "StepToGeom::MakeHyperbola(@)", header: "StepToGeom.hxx".}
+proc makeHyperbola2d*(sc: Handle[StepGeomHyperbola]): Handle[Geom2dHyperbola] {.
+    importcpp: "StepToGeom::MakeHyperbola2d(@)", header: "StepToGeom.hxx".}
+proc makeLine*(sc: Handle[StepGeomLine]): Handle[GeomLine] {.
+    importcpp: "StepToGeom::MakeLine(@)", header: "StepToGeom.hxx".}
+proc makeLine2d*(sc: Handle[StepGeomLine]): Handle[Geom2dLine] {.
+    importcpp: "StepToGeom::MakeLine2d(@)", header: "StepToGeom.hxx".}
+proc makeParabola*(sc: Handle[StepGeomParabola]): Handle[GeomParabola] {.
+    importcpp: "StepToGeom::MakeParabola(@)", header: "StepToGeom.hxx".}
+proc makeParabola2d*(sc: Handle[StepGeomParabola]): Handle[Geom2dParabola] {.
+    importcpp: "StepToGeom::MakeParabola2d(@)", header: "StepToGeom.hxx".}
+proc makePlane*(sp: Handle[StepGeomPlane]): Handle[GeomPlane] {.
+    importcpp: "StepToGeom::MakePlane(@)", header: "StepToGeom.hxx".}
+proc makePolyline*(spl: Handle[StepGeomPolyline]): Handle[GeomBSplineCurve] {.
+    importcpp: "StepToGeom::MakePolyline(@)", header: "StepToGeom.hxx".}
+proc makePolyline2d*(spl: Handle[StepGeomPolyline]): Handle[Geom2dBSplineCurve] {.
+    importcpp: "StepToGeom::MakePolyline2d(@)", header: "StepToGeom.hxx".}
+proc makeRectangularTrimmedSurface*(ss: Handle[StepGeomRectangularTrimmedSurface]): Handle[
+    GeomRectangularTrimmedSurface] {.importcpp: "StepToGeom::MakeRectangularTrimmedSurface(@)",
+                                    header: "StepToGeom.hxx".}
+proc makeSphericalSurface*(ss: Handle[StepGeomSphericalSurface]): Handle[
+    GeomSphericalSurface] {.importcpp: "StepToGeom::MakeSphericalSurface(@)",
+                           header: "StepToGeom.hxx".}
+proc makeSurface*(ss: Handle[StepGeomSurface]): Handle[GeomSurface] {.
+    importcpp: "StepToGeom::MakeSurface(@)", header: "StepToGeom.hxx".}
+proc makeSurfaceOfLinearExtrusion*(ss: Handle[StepGeomSurfaceOfLinearExtrusion]): Handle[
+    GeomSurfaceOfLinearExtrusion] {.importcpp: "StepToGeom::MakeSurfaceOfLinearExtrusion(@)",
+                                   header: "StepToGeom.hxx".}
+proc makeSurfaceOfRevolution*(ss: Handle[StepGeomSurfaceOfRevolution]): Handle[
+    GeomSurfaceOfRevolution] {.importcpp: "StepToGeom::MakeSurfaceOfRevolution(@)",
+                              header: "StepToGeom.hxx".}
+proc makeSweptSurface*(ss: Handle[StepGeomSweptSurface]): Handle[GeomSweptSurface] {.
+    importcpp: "StepToGeom::MakeSweptSurface(@)", header: "StepToGeom.hxx".}
+proc makeToroidalSurface*(ss: Handle[StepGeomToroidalSurface]): Handle[
+    GeomToroidalSurface] {.importcpp: "StepToGeom::MakeToroidalSurface(@)",
                           header: "StepToGeom.hxx".}
-proc MakeVectorWithMagnitude*(SV: handle[StepGeom_Vector]): handle[
-    Geom_VectorWithMagnitude] {.importcpp: "StepToGeom::MakeVectorWithMagnitude(@)",
-                               header: "StepToGeom.hxx".}
-proc MakeVectorWithMagnitude2d*(SV: handle[StepGeom_Vector]): handle[
-    Geom2d_VectorWithMagnitude] {.importcpp: "StepToGeom::MakeVectorWithMagnitude2d(@)",
-                                 header: "StepToGeom.hxx".}
+proc makeTransformation2d*(scto: Handle[StepGeomCartesianTransformationOperator2d];
+                          ct: var Trsf2d): bool {.
+    importcpp: "StepToGeom::MakeTransformation2d(@)", header: "StepToGeom.hxx".}
+proc makeTransformation3d*(scto: Handle[StepGeomCartesianTransformationOperator3d];
+                          ct: var Trsf): bool {.
+    importcpp: "StepToGeom::MakeTransformation3d(@)", header: "StepToGeom.hxx".}
+proc makeTrimmedCurve*(sc: Handle[StepGeomTrimmedCurve]): Handle[GeomTrimmedCurve] {.
+    importcpp: "StepToGeom::MakeTrimmedCurve(@)", header: "StepToGeom.hxx".}
+proc makeTrimmedCurve2d*(sc: Handle[StepGeomTrimmedCurve]): Handle[
+    Geom2dBSplineCurve] {.importcpp: "StepToGeom::MakeTrimmedCurve2d(@)",
+                         header: "StepToGeom.hxx".}
+proc makeVectorWithMagnitude*(sv: Handle[StepGeomVector]): Handle[
+    GeomVectorWithMagnitude] {.importcpp: "StepToGeom::MakeVectorWithMagnitude(@)",
+                              header: "StepToGeom.hxx".}
+proc makeVectorWithMagnitude2d*(sv: Handle[StepGeomVector]): Handle[
+    Geom2dVectorWithMagnitude] {.importcpp: "StepToGeom::MakeVectorWithMagnitude2d(@)",
+                                header: "StepToGeom.hxx".}

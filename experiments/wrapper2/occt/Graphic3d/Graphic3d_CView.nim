@@ -11,21 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Aspect/Aspect_Handle, ../Aspect/Aspect_RenderingContext,
-  ../Aspect/Aspect_Window, Graphic3d_BufferType, Graphic3d_Camera,
-  Graphic3d_CubeMap, Graphic3d_CLight, Graphic3d_CStructure,
-  Graphic3d_DataStructureManager, Graphic3d_DiagnosticInfo,
-  Graphic3d_GraduatedTrihedron, Graphic3d_MapOfStructure,
-  Graphic3d_NMapOfTransient, Graphic3d_RenderingParams,
-  Graphic3d_SequenceOfHClipPlane, Graphic3d_SequenceOfStructure,
-  Graphic3d_Structure, Graphic3d_Texture2Dmanual, Graphic3d_TextureEnv,
-  Graphic3d_TypeOfAnswer, Graphic3d_TypeOfBackfacingModel,
-  Graphic3d_TypeOfShadingModel, Graphic3d_TypeOfVisualization, Graphic3d_Vec3,
-  Graphic3d_ZLayerId, Graphic3d_ZLayerSettings, ../Image/Image_PixMap,
-  ../Quantity/Quantity_NameOfColor, ../Standard/Standard_Address,
-  ../Standard/Standard_Transient, ../TColStd/TColStd_IndexedDataMapOfStringString
-
 discard "forward decl of Aspect_XRSession"
 discard "forward decl of Graphic3d_CView"
 discard "forward decl of Graphic3d_GraphicDriver"
@@ -33,7 +18,7 @@ discard "forward decl of Graphic3d_Layer"
 discard "forward decl of Graphic3d_StructureManager"
 discard "forward decl of Graphic3d_CView"
 type
-  Handle_Graphic3d_CView* = handle[Graphic3d_CView]
+  HandleGraphic3dCView* = Handle[Graphic3dCView]
 
 ## ! Base class of a graphical view that carries out rendering process for a concrete
 ## ! implementation of graphical driver. Provides virtual interfaces for redrawing its
@@ -42,288 +27,278 @@ type
 ## ! computed (HLR or "view-dependent") structures.
 
 type
-  Graphic3d_CView* {.importcpp: "Graphic3d_CView", header: "Graphic3d_CView.hxx",
-                    bycopy.} = object of Graphic3d_DataStructureManager ## ! Constructor.
-                                                                   ## ! Returns default Shading Model of the view;
-                                                                   ## Graphic3d_TOSM_FRAGMENT by default.
-                                                                   ## ! Is it possible to display the structure in the view?
-                                                                   ## ! Redraw content of the view.
-                                                                   ## ! Copy visualization settings from another view.
-                                                                   ## ! Method is used for cloning views in viewer when its required to create view
-                                                                   ## ! with same view properties.
-                                                                   ## ! Return unit scale factor defined as scale factor for m (meters); 1.0 by default.
-                                                                   ## ! Normally, view definition is unitless, however some operations like VR input requires proper units mapping.
-                                                                   ## ! @name obsolete Graduated Trihedron functionality
-                                                                   ## ! Returns data of a graduated trihedron
-                                                                   ## ! Adds the structure to display lists of the view.
+  Graphic3dCView* {.importcpp: "Graphic3d_CView", header: "Graphic3d_CView.hxx",
+                   bycopy.} = object of Graphic3dDataStructureManager ## ! Constructor.
+                                                                 ## ! Returns default Shading Model of the view;
+                                                                 ## Graphic3d_TOSM_FRAGMENT by default.
+                                                                 ## ! Is it possible to display the structure in the view?
+                                                                 ## ! Redraw content of the view.
+                                                                 ## ! Copy visualization settings from another view.
+                                                                 ## ! Method is used for cloning views in viewer when its required to create view
+                                                                 ## ! with same view properties.
+                                                                 ## ! Return unit scale factor defined as scale factor for m (meters); 1.0 by default.
+                                                                 ## ! Normally, view definition is unitless, however some operations like VR input requires proper units mapping.
+                                                                 ## ! @name obsolete Graduated Trihedron functionality
+                                                                 ## ! Returns data of a graduated trihedron
+                                                                 ## ! Adds the structure to display lists of the view.
     ## !< camera projection parameters to restore after closing XR session (FOV, aspect and similar)
     ## !< neutral camera orientation defining coordinate system in which head tracking is defined
     ## !< transient XR camera orientation with tracked head orientation applied (based on myBaseXRCamera)
     ## !< neutral camera orientation copy at the beginning of processing input
     ## !< unit scale factor defined as scale factor for m (meters)
 
-  Graphic3d_CViewbase_type* = Graphic3d_DataStructureManager
+  Graphic3dCViewbaseType* = Graphic3dDataStructureManager
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_CView::get_type_name(@)",
-                              header: "Graphic3d_CView.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_CView::get_type_name(@)",
+                            header: "Graphic3d_CView.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_CView::get_type_descriptor(@)",
     header: "Graphic3d_CView.hxx".}
-proc DynamicType*(this: Graphic3d_CView): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: Graphic3dCView): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Graphic3d_CView.hxx".}
-proc constructGraphic3d_CView*(theMgr: handle[Graphic3d_StructureManager]): Graphic3d_CView {.
+proc constructGraphic3dCView*(theMgr: Handle[Graphic3dStructureManager]): Graphic3dCView {.
     constructor, importcpp: "Graphic3d_CView(@)", header: "Graphic3d_CView.hxx".}
-proc destroyGraphic3d_CView*(this: var Graphic3d_CView) {.
+proc destroyGraphic3dCView*(this: var Graphic3dCView) {.
     importcpp: "#.~Graphic3d_CView()", header: "Graphic3d_CView.hxx".}
-proc Identification*(this: Graphic3d_CView): Standard_Integer {.noSideEffect,
+proc identification*(this: Graphic3dCView): int {.noSideEffect,
     importcpp: "Identification", header: "Graphic3d_CView.hxx".}
-proc Activate*(this: var Graphic3d_CView) {.importcpp: "Activate",
-                                        header: "Graphic3d_CView.hxx".}
-proc Deactivate*(this: var Graphic3d_CView) {.importcpp: "Deactivate",
+proc activate*(this: var Graphic3dCView) {.importcpp: "Activate",
+                                       header: "Graphic3d_CView.hxx".}
+proc deactivate*(this: var Graphic3dCView) {.importcpp: "Deactivate",
     header: "Graphic3d_CView.hxx".}
-proc IsActive*(this: Graphic3d_CView): Standard_Boolean {.noSideEffect,
-    importcpp: "IsActive", header: "Graphic3d_CView.hxx".}
-proc Remove*(this: var Graphic3d_CView) {.importcpp: "Remove",
-                                      header: "Graphic3d_CView.hxx".}
-proc IsRemoved*(this: Graphic3d_CView): Standard_Boolean {.noSideEffect,
-    importcpp: "IsRemoved", header: "Graphic3d_CView.hxx".}
-proc Camera*(this: Graphic3d_CView): handle[Graphic3d_Camera] {.noSideEffect,
+proc isActive*(this: Graphic3dCView): bool {.noSideEffect, importcpp: "IsActive",
+    header: "Graphic3d_CView.hxx".}
+proc remove*(this: var Graphic3dCView) {.importcpp: "Remove",
+                                     header: "Graphic3d_CView.hxx".}
+proc isRemoved*(this: Graphic3dCView): bool {.noSideEffect, importcpp: "IsRemoved",
+    header: "Graphic3d_CView.hxx".}
+proc camera*(this: Graphic3dCView): Handle[Graphic3dCamera] {.noSideEffect,
     importcpp: "Camera", header: "Graphic3d_CView.hxx".}
-proc SetCamera*(this: var Graphic3d_CView; theCamera: handle[Graphic3d_Camera]) {.
+proc setCamera*(this: var Graphic3dCView; theCamera: Handle[Graphic3dCamera]) {.
     importcpp: "SetCamera", header: "Graphic3d_CView.hxx".}
-proc ShadingModel*(this: Graphic3d_CView): Graphic3d_TypeOfShadingModel {.
+proc shadingModel*(this: Graphic3dCView): Graphic3dTypeOfShadingModel {.
     noSideEffect, importcpp: "ShadingModel", header: "Graphic3d_CView.hxx".}
-proc SetShadingModel*(this: var Graphic3d_CView;
-                     theModel: Graphic3d_TypeOfShadingModel) {.
+proc setShadingModel*(this: var Graphic3dCView;
+                     theModel: Graphic3dTypeOfShadingModel) {.
     importcpp: "SetShadingModel", header: "Graphic3d_CView.hxx".}
-proc VisualizationType*(this: Graphic3d_CView): Graphic3d_TypeOfVisualization {.
+proc visualizationType*(this: Graphic3dCView): Graphic3dTypeOfVisualization {.
     noSideEffect, importcpp: "VisualizationType", header: "Graphic3d_CView.hxx".}
-proc SetVisualizationType*(this: var Graphic3d_CView;
-                          theType: Graphic3d_TypeOfVisualization) {.
+proc setVisualizationType*(this: var Graphic3dCView;
+                          theType: Graphic3dTypeOfVisualization) {.
     importcpp: "SetVisualizationType", header: "Graphic3d_CView.hxx".}
-proc SetComputedMode*(this: var Graphic3d_CView; theMode: Standard_Boolean) {.
+proc setComputedMode*(this: var Graphic3dCView; theMode: bool) {.
     importcpp: "SetComputedMode", header: "Graphic3d_CView.hxx".}
-proc ComputedMode*(this: Graphic3d_CView): Standard_Boolean {.noSideEffect,
+proc computedMode*(this: Graphic3dCView): bool {.noSideEffect,
     importcpp: "ComputedMode", header: "Graphic3d_CView.hxx".}
-proc ReCompute*(this: var Graphic3d_CView; theStructure: handle[Graphic3d_Structure]) {.
+proc reCompute*(this: var Graphic3dCView; theStructure: Handle[Graphic3dStructure]) {.
     importcpp: "ReCompute", header: "Graphic3d_CView.hxx".}
-proc Update*(this: var Graphic3d_CView;
-            theLayerId: Graphic3d_ZLayerId = Graphic3d_ZLayerId_UNKNOWN) {.
+proc update*(this: var Graphic3dCView;
+            theLayerId: Graphic3dZLayerId = graphic3dZLayerIdUNKNOWN) {.
     importcpp: "Update", header: "Graphic3d_CView.hxx".}
-proc Compute*(this: var Graphic3d_CView) {.importcpp: "Compute",
-                                       header: "Graphic3d_CView.hxx".}
-proc ContainsFacet*(this: Graphic3d_CView): Standard_Boolean {.noSideEffect,
-    importcpp: "ContainsFacet", header: "Graphic3d_CView.hxx".}
-proc ContainsFacet*(this: Graphic3d_CView; theSet: Graphic3d_MapOfStructure): Standard_Boolean {.
-    noSideEffect, importcpp: "ContainsFacet", header: "Graphic3d_CView.hxx".}
-proc DisplayedStructures*(this: Graphic3d_CView;
-                         theStructures: var Graphic3d_MapOfStructure) {.
-    noSideEffect, importcpp: "DisplayedStructures", header: "Graphic3d_CView.hxx".}
-proc NumberOfDisplayedStructures*(this: Graphic3d_CView): Standard_Integer {.
-    noSideEffect, importcpp: "NumberOfDisplayedStructures",
-    header: "Graphic3d_CView.hxx".}
-proc HiddenObjects*(this: Graphic3d_CView): handle[Graphic3d_NMapOfTransient] {.
-    noSideEffect, importcpp: "HiddenObjects", header: "Graphic3d_CView.hxx".}
-proc ChangeHiddenObjects*(this: var Graphic3d_CView): var handle[
-    Graphic3d_NMapOfTransient] {.importcpp: "ChangeHiddenObjects",
-                                header: "Graphic3d_CView.hxx".}
-proc IsComputed*(this: Graphic3d_CView; theStructId: Standard_Integer;
-                theComputedStruct: var handle[Graphic3d_Structure]): Standard_Boolean {.
-    noSideEffect, importcpp: "IsComputed", header: "Graphic3d_CView.hxx".}
-proc MinMaxValues*(this: Graphic3d_CView;
-                  theToIncludeAuxiliary: Standard_Boolean = Standard_False): Bnd_Box {.
-    noSideEffect, importcpp: "MinMaxValues", header: "Graphic3d_CView.hxx".}
-proc MinMaxValues*(this: Graphic3d_CView; theSet: Graphic3d_MapOfStructure;
-                  theToIncludeAuxiliary: Standard_Boolean = Standard_False): Bnd_Box {.
-    noSideEffect, importcpp: "MinMaxValues", header: "Graphic3d_CView.hxx".}
-proc StructureManager*(this: Graphic3d_CView): handle[Graphic3d_StructureManager] {.
-    noSideEffect, importcpp: "StructureManager", header: "Graphic3d_CView.hxx".}
-proc Redraw*(this: var Graphic3d_CView) {.importcpp: "Redraw",
+proc compute*(this: var Graphic3dCView) {.importcpp: "Compute",
                                       header: "Graphic3d_CView.hxx".}
-proc RedrawImmediate*(this: var Graphic3d_CView) {.importcpp: "RedrawImmediate",
+proc containsFacet*(this: Graphic3dCView): bool {.noSideEffect,
+    importcpp: "ContainsFacet", header: "Graphic3d_CView.hxx".}
+proc containsFacet*(this: Graphic3dCView; theSet: Graphic3dMapOfStructure): bool {.
+    noSideEffect, importcpp: "ContainsFacet", header: "Graphic3d_CView.hxx".}
+proc displayedStructures*(this: Graphic3dCView;
+                         theStructures: var Graphic3dMapOfStructure) {.
+    noSideEffect, importcpp: "DisplayedStructures", header: "Graphic3d_CView.hxx".}
+proc numberOfDisplayedStructures*(this: Graphic3dCView): int {.noSideEffect,
+    importcpp: "NumberOfDisplayedStructures", header: "Graphic3d_CView.hxx".}
+proc hiddenObjects*(this: Graphic3dCView): Handle[Graphic3dNMapOfTransient] {.
+    noSideEffect, importcpp: "HiddenObjects", header: "Graphic3d_CView.hxx".}
+proc changeHiddenObjects*(this: var Graphic3dCView): var Handle[
+    Graphic3dNMapOfTransient] {.importcpp: "ChangeHiddenObjects",
+                               header: "Graphic3d_CView.hxx".}
+proc isComputed*(this: Graphic3dCView; theStructId: int;
+                theComputedStruct: var Handle[Graphic3dStructure]): bool {.
+    noSideEffect, importcpp: "IsComputed", header: "Graphic3d_CView.hxx".}
+proc minMaxValues*(this: Graphic3dCView; theToIncludeAuxiliary: bool = false): BndBox {.
+    noSideEffect, importcpp: "MinMaxValues", header: "Graphic3d_CView.hxx".}
+proc minMaxValues*(this: Graphic3dCView; theSet: Graphic3dMapOfStructure;
+                  theToIncludeAuxiliary: bool = false): BndBox {.noSideEffect,
+    importcpp: "MinMaxValues", header: "Graphic3d_CView.hxx".}
+proc structureManager*(this: Graphic3dCView): Handle[Graphic3dStructureManager] {.
+    noSideEffect, importcpp: "StructureManager", header: "Graphic3d_CView.hxx".}
+proc redraw*(this: var Graphic3dCView) {.importcpp: "Redraw",
+                                     header: "Graphic3d_CView.hxx".}
+proc redrawImmediate*(this: var Graphic3dCView) {.importcpp: "RedrawImmediate",
     header: "Graphic3d_CView.hxx".}
-proc Invalidate*(this: var Graphic3d_CView) {.importcpp: "Invalidate",
+proc invalidate*(this: var Graphic3dCView) {.importcpp: "Invalidate",
     header: "Graphic3d_CView.hxx".}
-proc IsInvalidated*(this: var Graphic3d_CView): Standard_Boolean {.
-    importcpp: "IsInvalidated", header: "Graphic3d_CView.hxx".}
-proc Resized*(this: var Graphic3d_CView) {.importcpp: "Resized",
-                                       header: "Graphic3d_CView.hxx".}
-proc SetImmediateModeDrawToFront*(this: var Graphic3d_CView;
-                                 theDrawToFrontBuffer: Standard_Boolean): Standard_Boolean {.
+proc isInvalidated*(this: var Graphic3dCView): bool {.importcpp: "IsInvalidated",
+    header: "Graphic3d_CView.hxx".}
+proc resized*(this: var Graphic3dCView) {.importcpp: "Resized",
+                                      header: "Graphic3d_CView.hxx".}
+proc setImmediateModeDrawToFront*(this: var Graphic3dCView;
+                                 theDrawToFrontBuffer: bool): bool {.
     importcpp: "SetImmediateModeDrawToFront", header: "Graphic3d_CView.hxx".}
-proc SetWindow*(this: var Graphic3d_CView; theWindow: handle[Aspect_Window];
-               theContext: Aspect_RenderingContext = nil) {.importcpp: "SetWindow",
+proc setWindow*(this: var Graphic3dCView; theWindow: Handle[AspectWindow];
+               theContext: AspectRenderingContext = nil) {.importcpp: "SetWindow",
     header: "Graphic3d_CView.hxx".}
-proc Window*(this: Graphic3d_CView): handle[Aspect_Window] {.noSideEffect,
+proc window*(this: Graphic3dCView): Handle[AspectWindow] {.noSideEffect,
     importcpp: "Window", header: "Graphic3d_CView.hxx".}
-proc IsDefined*(this: Graphic3d_CView): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDefined", header: "Graphic3d_CView.hxx".}
-proc BufferDump*(this: var Graphic3d_CView; theImage: var Image_PixMap;
-                theBufferType: Graphic3d_BufferType): Standard_Boolean {.
+proc isDefined*(this: Graphic3dCView): bool {.noSideEffect, importcpp: "IsDefined",
+    header: "Graphic3d_CView.hxx".}
+proc bufferDump*(this: var Graphic3dCView; theImage: var ImagePixMap;
+                theBufferType: Graphic3dBufferType): bool {.
     importcpp: "BufferDump", header: "Graphic3d_CView.hxx".}
-proc InvalidateBVHData*(this: var Graphic3d_CView; theLayerId: Graphic3d_ZLayerId) {.
+proc invalidateBVHData*(this: var Graphic3dCView; theLayerId: Graphic3dZLayerId) {.
     importcpp: "InvalidateBVHData", header: "Graphic3d_CView.hxx".}
-proc InsertLayerBefore*(this: var Graphic3d_CView;
-                       theNewLayerId: Graphic3d_ZLayerId;
-                       theSettings: Graphic3d_ZLayerSettings;
-                       theLayerAfter: Graphic3d_ZLayerId) {.
+proc insertLayerBefore*(this: var Graphic3dCView; theNewLayerId: Graphic3dZLayerId;
+                       theSettings: Graphic3dZLayerSettings;
+                       theLayerAfter: Graphic3dZLayerId) {.
     importcpp: "InsertLayerBefore", header: "Graphic3d_CView.hxx".}
-proc InsertLayerAfter*(this: var Graphic3d_CView; theNewLayerId: Graphic3d_ZLayerId;
-                      theSettings: Graphic3d_ZLayerSettings;
-                      theLayerBefore: Graphic3d_ZLayerId) {.
+proc insertLayerAfter*(this: var Graphic3dCView; theNewLayerId: Graphic3dZLayerId;
+                      theSettings: Graphic3dZLayerSettings;
+                      theLayerBefore: Graphic3dZLayerId) {.
     importcpp: "InsertLayerAfter", header: "Graphic3d_CView.hxx".}
-proc ZLayerMax*(this: Graphic3d_CView): Standard_Integer {.noSideEffect,
-    importcpp: "ZLayerMax", header: "Graphic3d_CView.hxx".}
-proc Layers*(this: Graphic3d_CView): NCollection_List[handle[Graphic3d_Layer]] {.
+proc zLayerMax*(this: Graphic3dCView): int {.noSideEffect, importcpp: "ZLayerMax",
+    header: "Graphic3d_CView.hxx".}
+proc layers*(this: Graphic3dCView): NCollectionList[Handle[Graphic3dLayer]] {.
     noSideEffect, importcpp: "Layers", header: "Graphic3d_CView.hxx".}
-proc Layer*(this: Graphic3d_CView; theLayerId: Graphic3d_ZLayerId): handle[
-    Graphic3d_Layer] {.noSideEffect, importcpp: "Layer",
-                      header: "Graphic3d_CView.hxx".}
-proc InvalidateZLayerBoundingBox*(this: var Graphic3d_CView;
-                                 theLayerId: Graphic3d_ZLayerId) {.
+proc layer*(this: Graphic3dCView; theLayerId: Graphic3dZLayerId): Handle[
+    Graphic3dLayer] {.noSideEffect, importcpp: "Layer",
+                     header: "Graphic3d_CView.hxx".}
+proc invalidateZLayerBoundingBox*(this: var Graphic3dCView;
+                                 theLayerId: Graphic3dZLayerId) {.
     importcpp: "InvalidateZLayerBoundingBox", header: "Graphic3d_CView.hxx".}
-proc RemoveZLayer*(this: var Graphic3d_CView; theLayerId: Graphic3d_ZLayerId) {.
+proc removeZLayer*(this: var Graphic3dCView; theLayerId: Graphic3dZLayerId) {.
     importcpp: "RemoveZLayer", header: "Graphic3d_CView.hxx".}
-proc SetZLayerSettings*(this: var Graphic3d_CView; theLayerId: Graphic3d_ZLayerId;
-                       theSettings: Graphic3d_ZLayerSettings) {.
+proc setZLayerSettings*(this: var Graphic3dCView; theLayerId: Graphic3dZLayerId;
+                       theSettings: Graphic3dZLayerSettings) {.
     importcpp: "SetZLayerSettings", header: "Graphic3d_CView.hxx".}
-proc ConsiderZoomPersistenceObjects*(this: var Graphic3d_CView): Standard_Real {.
+proc considerZoomPersistenceObjects*(this: var Graphic3dCView): float {.
     importcpp: "ConsiderZoomPersistenceObjects", header: "Graphic3d_CView.hxx".}
-proc FBO*(this: Graphic3d_CView): handle[Standard_Transient] {.noSideEffect,
+proc fbo*(this: Graphic3dCView): Handle[StandardTransient] {.noSideEffect,
     importcpp: "FBO", header: "Graphic3d_CView.hxx".}
-proc SetFBO*(this: var Graphic3d_CView; theFbo: handle[Standard_Transient]) {.
+proc setFBO*(this: var Graphic3dCView; theFbo: Handle[StandardTransient]) {.
     importcpp: "SetFBO", header: "Graphic3d_CView.hxx".}
-proc FBOCreate*(this: var Graphic3d_CView; theWidth: Standard_Integer;
-               theHeight: Standard_Integer): handle[Standard_Transient] {.
-    importcpp: "FBOCreate", header: "Graphic3d_CView.hxx".}
-proc FBORelease*(this: var Graphic3d_CView; theFbo: var handle[Standard_Transient]) {.
+proc fBOCreate*(this: var Graphic3dCView; theWidth: int; theHeight: int): Handle[
+    StandardTransient] {.importcpp: "FBOCreate", header: "Graphic3d_CView.hxx".}
+proc fBORelease*(this: var Graphic3dCView; theFbo: var Handle[StandardTransient]) {.
     importcpp: "FBORelease", header: "Graphic3d_CView.hxx".}
-proc FBOGetDimensions*(this: var Graphic3d_CView;
-                      theFbo: handle[Standard_Transient];
-                      theWidth: var Standard_Integer;
-                      theHeight: var Standard_Integer;
-                      theWidthMax: var Standard_Integer;
-                      theHeightMax: var Standard_Integer) {.
-    importcpp: "FBOGetDimensions", header: "Graphic3d_CView.hxx".}
-proc FBOChangeViewport*(this: var Graphic3d_CView;
-                       theFbo: handle[Standard_Transient];
-                       theWidth: Standard_Integer; theHeight: Standard_Integer) {.
+proc fBOGetDimensions*(this: var Graphic3dCView; theFbo: Handle[StandardTransient];
+                      theWidth: var int; theHeight: var int; theWidthMax: var int;
+                      theHeightMax: var int) {.importcpp: "FBOGetDimensions",
+    header: "Graphic3d_CView.hxx".}
+proc fBOChangeViewport*(this: var Graphic3dCView; theFbo: Handle[StandardTransient];
+                       theWidth: int; theHeight: int) {.
     importcpp: "FBOChangeViewport", header: "Graphic3d_CView.hxx".}
-proc CopySettings*(this: var Graphic3d_CView; theOther: handle[Graphic3d_CView]) {.
+proc copySettings*(this: var Graphic3dCView; theOther: Handle[Graphic3dCView]) {.
     importcpp: "CopySettings", header: "Graphic3d_CView.hxx".}
-proc RenderingParams*(this: Graphic3d_CView): Graphic3d_RenderingParams {.
+proc renderingParams*(this: Graphic3dCView): Graphic3dRenderingParams {.
     noSideEffect, importcpp: "RenderingParams", header: "Graphic3d_CView.hxx".}
-proc ChangeRenderingParams*(this: var Graphic3d_CView): var Graphic3d_RenderingParams {.
+proc changeRenderingParams*(this: var Graphic3dCView): var Graphic3dRenderingParams {.
     importcpp: "ChangeRenderingParams", header: "Graphic3d_CView.hxx".}
-proc Background*(this: Graphic3d_CView): Aspect_Background {.noSideEffect,
+proc background*(this: Graphic3dCView): AspectBackground {.noSideEffect,
     importcpp: "Background", header: "Graphic3d_CView.hxx".}
-proc SetBackground*(this: var Graphic3d_CView; theBackground: Aspect_Background) {.
+proc setBackground*(this: var Graphic3dCView; theBackground: AspectBackground) {.
     importcpp: "SetBackground", header: "Graphic3d_CView.hxx".}
-proc GradientBackground*(this: Graphic3d_CView): Aspect_GradientBackground {.
+proc gradientBackground*(this: Graphic3dCView): AspectGradientBackground {.
     noSideEffect, importcpp: "GradientBackground", header: "Graphic3d_CView.hxx".}
-proc SetGradientBackground*(this: var Graphic3d_CView;
-                           theBackground: Aspect_GradientBackground) {.
+proc setGradientBackground*(this: var Graphic3dCView;
+                           theBackground: AspectGradientBackground) {.
     importcpp: "SetGradientBackground", header: "Graphic3d_CView.hxx".}
-proc BackgroundImage*(this: var Graphic3d_CView): handle[Graphic3d_TextureMap] {.
+proc backgroundImage*(this: var Graphic3dCView): Handle[Graphic3dTextureMap] {.
     importcpp: "BackgroundImage", header: "Graphic3d_CView.hxx".}
-proc SetBackgroundImage*(this: var Graphic3d_CView;
-                        theTextureMap: handle[Graphic3d_TextureMap];
-                        theToUpdatePBREnv: Standard_Boolean = Standard_True) {.
+proc setBackgroundImage*(this: var Graphic3dCView;
+                        theTextureMap: Handle[Graphic3dTextureMap];
+                        theToUpdatePBREnv: bool = true) {.
     importcpp: "SetBackgroundImage", header: "Graphic3d_CView.hxx".}
-proc BackgroundImageStyle*(this: Graphic3d_CView): Aspect_FillMethod {.noSideEffect,
+proc backgroundImageStyle*(this: Graphic3dCView): AspectFillMethod {.noSideEffect,
     importcpp: "BackgroundImageStyle", header: "Graphic3d_CView.hxx".}
-proc SetBackgroundImageStyle*(this: var Graphic3d_CView;
-                             theFillStyle: Aspect_FillMethod) {.
+proc setBackgroundImageStyle*(this: var Graphic3dCView;
+                             theFillStyle: AspectFillMethod) {.
     importcpp: "SetBackgroundImageStyle", header: "Graphic3d_CView.hxx".}
-proc BackgroundCubeMap*(this: Graphic3d_CView): handle[Graphic3d_CubeMap] {.
+proc backgroundCubeMap*(this: Graphic3dCView): Handle[Graphic3dCubeMap] {.
     noSideEffect, importcpp: "BackgroundCubeMap", header: "Graphic3d_CView.hxx".}
-proc GeneratePBREnvironment*(this: var Graphic3d_CView) {.
+proc generatePBREnvironment*(this: var Graphic3dCView) {.
     importcpp: "GeneratePBREnvironment", header: "Graphic3d_CView.hxx".}
-proc ClearPBREnvironment*(this: var Graphic3d_CView) {.
+proc clearPBREnvironment*(this: var Graphic3dCView) {.
     importcpp: "ClearPBREnvironment", header: "Graphic3d_CView.hxx".}
-proc TextureEnv*(this: Graphic3d_CView): handle[Graphic3d_TextureEnv] {.
-    noSideEffect, importcpp: "TextureEnv", header: "Graphic3d_CView.hxx".}
-proc SetTextureEnv*(this: var Graphic3d_CView;
-                   theTextureEnv: handle[Graphic3d_TextureEnv]) {.
+proc textureEnv*(this: Graphic3dCView): Handle[Graphic3dTextureEnv] {.noSideEffect,
+    importcpp: "TextureEnv", header: "Graphic3d_CView.hxx".}
+proc setTextureEnv*(this: var Graphic3dCView;
+                   theTextureEnv: Handle[Graphic3dTextureEnv]) {.
     importcpp: "SetTextureEnv", header: "Graphic3d_CView.hxx".}
-proc BackfacingModel*(this: Graphic3d_CView): Graphic3d_TypeOfBackfacingModel {.
+proc backfacingModel*(this: Graphic3dCView): Graphic3dTypeOfBackfacingModel {.
     noSideEffect, importcpp: "BackfacingModel", header: "Graphic3d_CView.hxx".}
-proc SetBackfacingModel*(this: var Graphic3d_CView;
-                        theModel: Graphic3d_TypeOfBackfacingModel) {.
+proc setBackfacingModel*(this: var Graphic3dCView;
+                        theModel: Graphic3dTypeOfBackfacingModel) {.
     importcpp: "SetBackfacingModel", header: "Graphic3d_CView.hxx".}
-proc Lights*(this: Graphic3d_CView): handle[Graphic3d_LightSet] {.noSideEffect,
+proc lights*(this: Graphic3dCView): Handle[Graphic3dLightSet] {.noSideEffect,
     importcpp: "Lights", header: "Graphic3d_CView.hxx".}
-proc SetLights*(this: var Graphic3d_CView; theLights: handle[Graphic3d_LightSet]) {.
+proc setLights*(this: var Graphic3dCView; theLights: Handle[Graphic3dLightSet]) {.
     importcpp: "SetLights", header: "Graphic3d_CView.hxx".}
-proc ClipPlanes*(this: Graphic3d_CView): handle[Graphic3d_SequenceOfHClipPlane] {.
+proc clipPlanes*(this: Graphic3dCView): Handle[Graphic3dSequenceOfHClipPlane] {.
     noSideEffect, importcpp: "ClipPlanes", header: "Graphic3d_CView.hxx".}
-proc SetClipPlanes*(this: var Graphic3d_CView;
-                   thePlanes: handle[Graphic3d_SequenceOfHClipPlane]) {.
+proc setClipPlanes*(this: var Graphic3dCView;
+                   thePlanes: Handle[Graphic3dSequenceOfHClipPlane]) {.
     importcpp: "SetClipPlanes", header: "Graphic3d_CView.hxx".}
-proc DiagnosticInformation*(this: Graphic3d_CView;
-                           theDict: var TColStd_IndexedDataMapOfStringString;
-                           theFlags: Graphic3d_DiagnosticInfo) {.noSideEffect,
+proc diagnosticInformation*(this: Graphic3dCView;
+                           theDict: var TColStdIndexedDataMapOfStringString;
+                           theFlags: Graphic3dDiagnosticInfo) {.noSideEffect,
     importcpp: "DiagnosticInformation", header: "Graphic3d_CView.hxx".}
-proc StatisticInformation*(this: Graphic3d_CView): TCollection_AsciiString {.
+proc statisticInformation*(this: Graphic3dCView): TCollectionAsciiString {.
     noSideEffect, importcpp: "StatisticInformation", header: "Graphic3d_CView.hxx".}
-proc StatisticInformation*(this: Graphic3d_CView;
-                          theDict: var TColStd_IndexedDataMapOfStringString) {.
+proc statisticInformation*(this: Graphic3dCView;
+                          theDict: var TColStdIndexedDataMapOfStringString) {.
     noSideEffect, importcpp: "StatisticInformation", header: "Graphic3d_CView.hxx".}
-proc UnitFactor*(this: Graphic3d_CView): Standard_Real {.noSideEffect,
+proc unitFactor*(this: Graphic3dCView): float {.noSideEffect,
     importcpp: "UnitFactor", header: "Graphic3d_CView.hxx".}
-proc SetUnitFactor*(this: var Graphic3d_CView; theFactor: Standard_Real) {.
+proc setUnitFactor*(this: var Graphic3dCView; theFactor: float) {.
     importcpp: "SetUnitFactor", header: "Graphic3d_CView.hxx".}
-proc XRSession*(this: Graphic3d_CView): handle[Aspect_XRSession] {.noSideEffect,
+proc xRSession*(this: Graphic3dCView): Handle[AspectXRSession] {.noSideEffect,
     importcpp: "XRSession", header: "Graphic3d_CView.hxx".}
-proc SetXRSession*(this: var Graphic3d_CView; theSession: handle[Aspect_XRSession]) {.
+proc setXRSession*(this: var Graphic3dCView; theSession: Handle[AspectXRSession]) {.
     importcpp: "SetXRSession", header: "Graphic3d_CView.hxx".}
-proc IsActiveXR*(this: Graphic3d_CView): bool {.noSideEffect,
-    importcpp: "IsActiveXR", header: "Graphic3d_CView.hxx".}
-proc InitXR*(this: var Graphic3d_CView): bool {.importcpp: "InitXR",
+proc isActiveXR*(this: Graphic3dCView): bool {.noSideEffect, importcpp: "IsActiveXR",
     header: "Graphic3d_CView.hxx".}
-proc ReleaseXR*(this: var Graphic3d_CView) {.importcpp: "ReleaseXR",
+proc initXR*(this: var Graphic3dCView): bool {.importcpp: "InitXR",
     header: "Graphic3d_CView.hxx".}
-proc ProcessXRInput*(this: var Graphic3d_CView) {.importcpp: "ProcessXRInput",
+proc releaseXR*(this: var Graphic3dCView) {.importcpp: "ReleaseXR",
+                                        header: "Graphic3d_CView.hxx".}
+proc processXRInput*(this: var Graphic3dCView) {.importcpp: "ProcessXRInput",
     header: "Graphic3d_CView.hxx".}
-proc SetupXRPosedCamera*(this: var Graphic3d_CView) {.
+proc setupXRPosedCamera*(this: var Graphic3dCView) {.
     importcpp: "SetupXRPosedCamera", header: "Graphic3d_CView.hxx".}
-proc UnsetXRPosedCamera*(this: var Graphic3d_CView) {.
+proc unsetXRPosedCamera*(this: var Graphic3dCView) {.
     importcpp: "UnsetXRPosedCamera", header: "Graphic3d_CView.hxx".}
-proc PosedXRCamera*(this: Graphic3d_CView): handle[Graphic3d_Camera] {.noSideEffect,
+proc posedXRCamera*(this: Graphic3dCView): Handle[Graphic3dCamera] {.noSideEffect,
     importcpp: "PosedXRCamera", header: "Graphic3d_CView.hxx".}
-proc SetPosedXRCamera*(this: var Graphic3d_CView;
-                      theCamera: handle[Graphic3d_Camera]) {.
+proc setPosedXRCamera*(this: var Graphic3dCView; theCamera: Handle[Graphic3dCamera]) {.
     importcpp: "SetPosedXRCamera", header: "Graphic3d_CView.hxx".}
-proc BaseXRCamera*(this: Graphic3d_CView): handle[Graphic3d_Camera] {.noSideEffect,
+proc baseXRCamera*(this: Graphic3dCView): Handle[Graphic3dCamera] {.noSideEffect,
     importcpp: "BaseXRCamera", header: "Graphic3d_CView.hxx".}
-proc SetBaseXRCamera*(this: var Graphic3d_CView; theCamera: handle[Graphic3d_Camera]) {.
+proc setBaseXRCamera*(this: var Graphic3dCView; theCamera: Handle[Graphic3dCamera]) {.
     importcpp: "SetBaseXRCamera", header: "Graphic3d_CView.hxx".}
-proc PoseXRToWorld*(this: Graphic3d_CView; thePoseXR: gp_Trsf): gp_Trsf {.
-    noSideEffect, importcpp: "PoseXRToWorld", header: "Graphic3d_CView.hxx".}
-proc SynchronizeXRBaseToPosedCamera*(this: var Graphic3d_CView) {.
+proc poseXRToWorld*(this: Graphic3dCView; thePoseXR: Trsf): Trsf {.noSideEffect,
+    importcpp: "PoseXRToWorld", header: "Graphic3d_CView.hxx".}
+proc synchronizeXRBaseToPosedCamera*(this: var Graphic3dCView) {.
     importcpp: "SynchronizeXRBaseToPosedCamera", header: "Graphic3d_CView.hxx".}
-proc SynchronizeXRPosedToBaseCamera*(this: var Graphic3d_CView) {.
+proc synchronizeXRPosedToBaseCamera*(this: var Graphic3dCView) {.
     importcpp: "SynchronizeXRPosedToBaseCamera", header: "Graphic3d_CView.hxx".}
-proc ComputeXRPosedCameraFromBase*(this: Graphic3d_CView;
-                                  theCam: var Graphic3d_Camera; theXRTrsf: gp_Trsf) {.
+proc computeXRPosedCameraFromBase*(this: Graphic3dCView;
+                                  theCam: var Graphic3dCamera; theXRTrsf: Trsf) {.
     noSideEffect, importcpp: "ComputeXRPosedCameraFromBase",
     header: "Graphic3d_CView.hxx".}
-proc ComputeXRBaseCameraFromPosed*(this: var Graphic3d_CView;
-                                  theCamPosed: Graphic3d_Camera;
-                                  thePoseTrsf: gp_Trsf) {.
+proc computeXRBaseCameraFromPosed*(this: var Graphic3dCView;
+                                  theCamPosed: Graphic3dCamera; thePoseTrsf: Trsf) {.
     importcpp: "ComputeXRBaseCameraFromPosed", header: "Graphic3d_CView.hxx".}
-proc TurnViewXRCamera*(this: var Graphic3d_CView; theTrsfTurn: gp_Trsf) {.
+proc turnViewXRCamera*(this: var Graphic3dCView; theTrsfTurn: Trsf) {.
     importcpp: "TurnViewXRCamera", header: "Graphic3d_CView.hxx".}
-proc GetGraduatedTrihedron*(this: var Graphic3d_CView): Graphic3d_GraduatedTrihedron {.
+proc getGraduatedTrihedron*(this: var Graphic3dCView): Graphic3dGraduatedTrihedron {.
     importcpp: "GetGraduatedTrihedron", header: "Graphic3d_CView.hxx".}
-proc GraduatedTrihedronDisplay*(this: var Graphic3d_CView;
-                               theTrihedronData: Graphic3d_GraduatedTrihedron) {.
+proc graduatedTrihedronDisplay*(this: var Graphic3dCView;
+                               theTrihedronData: Graphic3dGraduatedTrihedron) {.
     importcpp: "GraduatedTrihedronDisplay", header: "Graphic3d_CView.hxx".}
-proc GraduatedTrihedronErase*(this: var Graphic3d_CView) {.
+proc graduatedTrihedronErase*(this: var Graphic3dCView) {.
     importcpp: "GraduatedTrihedronErase", header: "Graphic3d_CView.hxx".}
-proc GraduatedTrihedronMinMaxValues*(this: var Graphic3d_CView;
-                                    theMin: Graphic3d_Vec3; theMax: Graphic3d_Vec3) {.
+proc graduatedTrihedronMinMaxValues*(this: var Graphic3dCView;
+                                    theMin: Graphic3dVec3; theMax: Graphic3dVec3) {.
     importcpp: "GraduatedTrihedronMinMaxValues", header: "Graphic3d_CView.hxx".}
-proc DumpJson*(this: Graphic3d_CView; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Graphic3d_CView.hxx".}
+proc dumpJson*(this: Graphic3dCView; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Graphic3d_CView.hxx".}

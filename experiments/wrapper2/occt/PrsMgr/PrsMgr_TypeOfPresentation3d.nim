@@ -22,8 +22,9 @@
 ## ! entails recalculation of the display.
 
 type
-  PrsMgr_TypeOfPresentation3d* {.size: sizeof(cint),
-                                importcpp: "PrsMgr_TypeOfPresentation3d",
-                                header: "PrsMgr_TypeOfPresentation3d.hxx".} = enum
-    PrsMgr_TOP_AllView, PrsMgr_TOP_ProjectorDependant
+  PrsMgrTypeOfPresentation3d* {.size: sizeof(cint),
+                               importcpp: "PrsMgr_TypeOfPresentation3d",
+                               header: "PrsMgr_TypeOfPresentation3d.hxx".} = enum
+    PrsMgrTOP_AllView, PrsMgrTOP_ProjectorDependant
+
 

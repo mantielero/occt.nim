@@ -33,11 +33,9 @@
 ##               compatibility the method IsAllocated remained in class along
 ##               with IsDeletable.
 
-import
-  NCollection_Array1
-
 ##  *********************************************** Template for Array1 class
 
-template DEFINE_ARRAY1*(_ClassName_, _BaseCollection_, TheItemType: untyped): void =
+template define_Array1*(className, baseCollection, theItemType: untyped): void =
   type
-    _ClassName_* = NCollection_Array1[TheItemType]
+    ClassName* = NCollectionArray1[TheItemType]
+

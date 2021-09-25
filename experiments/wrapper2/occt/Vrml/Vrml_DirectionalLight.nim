@@ -14,41 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, ../Quantity/Quantity_Color, ../gp/gp_Vec,
-  ../Standard/Standard_OStream
-
 discard "forward decl of Quantity_Color"
 discard "forward decl of gp_Vec"
 type
-  Vrml_DirectionalLight* {.importcpp: "Vrml_DirectionalLight",
-                          header: "Vrml_DirectionalLight.hxx", bycopy.} = object
+  VrmlDirectionalLight* {.importcpp: "Vrml_DirectionalLight",
+                         header: "Vrml_DirectionalLight.hxx", bycopy.} = object
 
 
-proc constructVrml_DirectionalLight*(): Vrml_DirectionalLight {.constructor,
+proc constructVrmlDirectionalLight*(): VrmlDirectionalLight {.constructor,
     importcpp: "Vrml_DirectionalLight(@)", header: "Vrml_DirectionalLight.hxx".}
-proc constructVrml_DirectionalLight*(aOnOff: Standard_Boolean;
-                                    aIntensity: Standard_Real;
-                                    aColor: Quantity_Color; aDirection: gp_Vec): Vrml_DirectionalLight {.
+proc constructVrmlDirectionalLight*(aOnOff: bool; aIntensity: float;
+                                   aColor: QuantityColor; aDirection: Vec): VrmlDirectionalLight {.
     constructor, importcpp: "Vrml_DirectionalLight(@)",
     header: "Vrml_DirectionalLight.hxx".}
-proc SetOnOff*(this: var Vrml_DirectionalLight; aOnOff: Standard_Boolean) {.
-    importcpp: "SetOnOff", header: "Vrml_DirectionalLight.hxx".}
-proc OnOff*(this: Vrml_DirectionalLight): Standard_Boolean {.noSideEffect,
-    importcpp: "OnOff", header: "Vrml_DirectionalLight.hxx".}
-proc SetIntensity*(this: var Vrml_DirectionalLight; aIntensity: Standard_Real) {.
+proc setOnOff*(this: var VrmlDirectionalLight; aOnOff: bool) {.importcpp: "SetOnOff",
+    header: "Vrml_DirectionalLight.hxx".}
+proc onOff*(this: VrmlDirectionalLight): bool {.noSideEffect, importcpp: "OnOff",
+    header: "Vrml_DirectionalLight.hxx".}
+proc setIntensity*(this: var VrmlDirectionalLight; aIntensity: float) {.
     importcpp: "SetIntensity", header: "Vrml_DirectionalLight.hxx".}
-proc Intensity*(this: Vrml_DirectionalLight): Standard_Real {.noSideEffect,
+proc intensity*(this: VrmlDirectionalLight): float {.noSideEffect,
     importcpp: "Intensity", header: "Vrml_DirectionalLight.hxx".}
-proc SetColor*(this: var Vrml_DirectionalLight; aColor: Quantity_Color) {.
+proc setColor*(this: var VrmlDirectionalLight; aColor: QuantityColor) {.
     importcpp: "SetColor", header: "Vrml_DirectionalLight.hxx".}
-proc Color*(this: Vrml_DirectionalLight): Quantity_Color {.noSideEffect,
+proc color*(this: VrmlDirectionalLight): QuantityColor {.noSideEffect,
     importcpp: "Color", header: "Vrml_DirectionalLight.hxx".}
-proc SetDirection*(this: var Vrml_DirectionalLight; aDirection: gp_Vec) {.
+proc setDirection*(this: var VrmlDirectionalLight; aDirection: Vec) {.
     importcpp: "SetDirection", header: "Vrml_DirectionalLight.hxx".}
-proc Direction*(this: Vrml_DirectionalLight): gp_Vec {.noSideEffect,
+proc direction*(this: VrmlDirectionalLight): Vec {.noSideEffect,
     importcpp: "Direction", header: "Vrml_DirectionalLight.hxx".}
-proc Print*(this: Vrml_DirectionalLight; anOStream: var Standard_OStream): var Standard_OStream {.
+proc print*(this: VrmlDirectionalLight; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_DirectionalLight.hxx".}

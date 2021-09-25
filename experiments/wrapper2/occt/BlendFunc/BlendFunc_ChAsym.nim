@@ -14,16 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real, ../gp/gp_Vec,
-  ../gp/gp_Pnt, ../math/math_Vector, ../math/math_Matrix,
-  ../Standard/Standard_Boolean, ../gp/gp_Vec2d, ../Standard/Standard_Integer,
-  ../Blend/Blend_Function, ../TColStd/TColStd_Array1OfReal,
-  ../GeomAbs/GeomAbs_Shape, ../TColStd/TColStd_Array1OfInteger,
-  ../TColgp/TColgp_Array1OfPnt, ../TColgp/TColgp_Array1OfPnt2d,
-  ../TColgp/TColgp_Array1OfVec, ../TColgp/TColgp_Array1OfVec2d
-
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of math_Matrix"
@@ -33,107 +23,98 @@ discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_Lin"
 discard "forward decl of Blend_Point"
 type
-  BlendFunc_ChAsym* {.importcpp: "BlendFunc_ChAsym",
-                     header: "BlendFunc_ChAsym.hxx", bycopy.} = object of Blend_Function
+  BlendFuncChAsym* {.importcpp: "BlendFunc_ChAsym", header: "BlendFunc_ChAsym.hxx",
+                    bycopy.} = object of BlendFunction
 
 
-proc constructBlendFunc_ChAsym*(S1: handle[Adaptor3d_HSurface];
-                               S2: handle[Adaptor3d_HSurface];
-                               C: handle[Adaptor3d_HCurve]): BlendFunc_ChAsym {.
+proc constructBlendFuncChAsym*(s1: Handle[Adaptor3dHSurface];
+                              s2: Handle[Adaptor3dHSurface];
+                              c: Handle[Adaptor3dHCurve]): BlendFuncChAsym {.
     constructor, importcpp: "BlendFunc_ChAsym(@)", header: "BlendFunc_ChAsym.hxx".}
-proc NbEquations*(this: BlendFunc_ChAsym): Standard_Integer {.noSideEffect,
+proc nbEquations*(this: BlendFuncChAsym): int {.noSideEffect,
     importcpp: "NbEquations", header: "BlendFunc_ChAsym.hxx".}
-proc Set*(this: var BlendFunc_ChAsym; Param: Standard_Real) {.importcpp: "Set",
+proc set*(this: var BlendFuncChAsym; param: float) {.importcpp: "Set",
     header: "BlendFunc_ChAsym.hxx".}
-proc Set*(this: var BlendFunc_ChAsym; First: Standard_Real; Last: Standard_Real) {.
-    importcpp: "Set", header: "BlendFunc_ChAsym.hxx".}
-proc GetTolerance*(this: BlendFunc_ChAsym; Tolerance: var math_Vector;
-                  Tol: Standard_Real) {.noSideEffect, importcpp: "GetTolerance",
-                                      header: "BlendFunc_ChAsym.hxx".}
-proc GetBounds*(this: BlendFunc_ChAsym; InfBound: var math_Vector;
-               SupBound: var math_Vector) {.noSideEffect, importcpp: "GetBounds",
+proc set*(this: var BlendFuncChAsym; first: float; last: float) {.importcpp: "Set",
     header: "BlendFunc_ChAsym.hxx".}
-proc IsSolution*(this: var BlendFunc_ChAsym; Sol: math_Vector; Tol: Standard_Real): Standard_Boolean {.
+proc getTolerance*(this: BlendFuncChAsym; tolerance: var MathVector; tol: float) {.
+    noSideEffect, importcpp: "GetTolerance", header: "BlendFunc_ChAsym.hxx".}
+proc getBounds*(this: BlendFuncChAsym; infBound: var MathVector;
+               supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds",
+                                        header: "BlendFunc_ChAsym.hxx".}
+proc isSolution*(this: var BlendFuncChAsym; sol: MathVector; tol: float): bool {.
     importcpp: "IsSolution", header: "BlendFunc_ChAsym.hxx".}
-proc GetMinimalDistance*(this: BlendFunc_ChAsym): Standard_Real {.noSideEffect,
+proc getMinimalDistance*(this: BlendFuncChAsym): float {.noSideEffect,
     importcpp: "GetMinimalDistance", header: "BlendFunc_ChAsym.hxx".}
-proc ComputeValues*(this: var BlendFunc_ChAsym; X: math_Vector;
-                   DegF: Standard_Integer; DegL: Standard_Integer): Standard_Boolean {.
+proc computeValues*(this: var BlendFuncChAsym; x: MathVector; degF: int; degL: int): bool {.
     importcpp: "ComputeValues", header: "BlendFunc_ChAsym.hxx".}
-proc Value*(this: var BlendFunc_ChAsym; X: math_Vector; F: var math_Vector): Standard_Boolean {.
+proc value*(this: var BlendFuncChAsym; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "BlendFunc_ChAsym.hxx".}
-proc Derivatives*(this: var BlendFunc_ChAsym; X: math_Vector; D: var math_Matrix): Standard_Boolean {.
+proc derivatives*(this: var BlendFuncChAsym; x: MathVector; d: var MathMatrix): bool {.
     importcpp: "Derivatives", header: "BlendFunc_ChAsym.hxx".}
-proc Values*(this: var BlendFunc_ChAsym; X: math_Vector; F: var math_Vector;
-            D: var math_Matrix): Standard_Boolean {.importcpp: "Values",
+proc values*(this: var BlendFuncChAsym; x: MathVector; f: var MathVector;
+            d: var MathMatrix): bool {.importcpp: "Values",
+                                   header: "BlendFunc_ChAsym.hxx".}
+proc pointOnS1*(this: BlendFuncChAsym): Pnt {.noSideEffect, importcpp: "PointOnS1",
     header: "BlendFunc_ChAsym.hxx".}
-proc PointOnS1*(this: BlendFunc_ChAsym): gp_Pnt {.noSideEffect,
-    importcpp: "PointOnS1", header: "BlendFunc_ChAsym.hxx".}
-proc PointOnS2*(this: BlendFunc_ChAsym): gp_Pnt {.noSideEffect,
-    importcpp: "PointOnS2", header: "BlendFunc_ChAsym.hxx".}
-proc IsTangencyPoint*(this: BlendFunc_ChAsym): Standard_Boolean {.noSideEffect,
+proc pointOnS2*(this: BlendFuncChAsym): Pnt {.noSideEffect, importcpp: "PointOnS2",
+    header: "BlendFunc_ChAsym.hxx".}
+proc isTangencyPoint*(this: BlendFuncChAsym): bool {.noSideEffect,
     importcpp: "IsTangencyPoint", header: "BlendFunc_ChAsym.hxx".}
-proc TangentOnS1*(this: BlendFunc_ChAsym): gp_Vec {.noSideEffect,
+proc tangentOnS1*(this: BlendFuncChAsym): Vec {.noSideEffect,
     importcpp: "TangentOnS1", header: "BlendFunc_ChAsym.hxx".}
-proc Tangent2dOnS1*(this: BlendFunc_ChAsym): gp_Vec2d {.noSideEffect,
+proc tangent2dOnS1*(this: BlendFuncChAsym): Vec2d {.noSideEffect,
     importcpp: "Tangent2dOnS1", header: "BlendFunc_ChAsym.hxx".}
-proc TangentOnS2*(this: BlendFunc_ChAsym): gp_Vec {.noSideEffect,
+proc tangentOnS2*(this: BlendFuncChAsym): Vec {.noSideEffect,
     importcpp: "TangentOnS2", header: "BlendFunc_ChAsym.hxx".}
-proc Tangent2dOnS2*(this: BlendFunc_ChAsym): gp_Vec2d {.noSideEffect,
+proc tangent2dOnS2*(this: BlendFuncChAsym): Vec2d {.noSideEffect,
     importcpp: "Tangent2dOnS2", header: "BlendFunc_ChAsym.hxx".}
-proc TwistOnS1*(this: BlendFunc_ChAsym): Standard_Boolean {.noSideEffect,
-    importcpp: "TwistOnS1", header: "BlendFunc_ChAsym.hxx".}
-proc TwistOnS2*(this: BlendFunc_ChAsym): Standard_Boolean {.noSideEffect,
-    importcpp: "TwistOnS2", header: "BlendFunc_ChAsym.hxx".}
-proc Tangent*(this: BlendFunc_ChAsym; U1: Standard_Real; V1: Standard_Real;
-             U2: Standard_Real; V2: Standard_Real; TgFirst: var gp_Vec;
-             TgLast: var gp_Vec; NormFirst: var gp_Vec; NormLast: var gp_Vec) {.
+proc twistOnS1*(this: BlendFuncChAsym): bool {.noSideEffect, importcpp: "TwistOnS1",
+    header: "BlendFunc_ChAsym.hxx".}
+proc twistOnS2*(this: BlendFuncChAsym): bool {.noSideEffect, importcpp: "TwistOnS2",
+    header: "BlendFunc_ChAsym.hxx".}
+proc tangent*(this: BlendFuncChAsym; u1: float; v1: float; u2: float; v2: float;
+             tgFirst: var Vec; tgLast: var Vec; normFirst: var Vec; normLast: var Vec) {.
     noSideEffect, importcpp: "Tangent", header: "BlendFunc_ChAsym.hxx".}
-proc Section*(this: var BlendFunc_ChAsym; Param: Standard_Real; U1: Standard_Real;
-             V1: Standard_Real; U2: Standard_Real; V2: Standard_Real;
-             Pdeb: var Standard_Real; Pfin: var Standard_Real; C: var gp_Lin) {.
+proc section*(this: var BlendFuncChAsym; param: float; u1: float; v1: float; u2: float;
+             v2: float; pdeb: var float; pfin: var float; c: var Lin) {.
     importcpp: "Section", header: "BlendFunc_ChAsym.hxx".}
-proc IsRational*(this: BlendFunc_ChAsym): Standard_Boolean {.noSideEffect,
+proc isRational*(this: BlendFuncChAsym): bool {.noSideEffect,
     importcpp: "IsRational", header: "BlendFunc_ChAsym.hxx".}
-proc GetSectionSize*(this: BlendFunc_ChAsym): Standard_Real {.noSideEffect,
+proc getSectionSize*(this: BlendFuncChAsym): float {.noSideEffect,
     importcpp: "GetSectionSize", header: "BlendFunc_ChAsym.hxx".}
-proc GetMinimalWeight*(this: BlendFunc_ChAsym; Weigths: var TColStd_Array1OfReal) {.
+proc getMinimalWeight*(this: BlendFuncChAsym; weigths: var TColStdArray1OfReal) {.
     noSideEffect, importcpp: "GetMinimalWeight", header: "BlendFunc_ChAsym.hxx".}
-proc NbIntervals*(this: BlendFunc_ChAsym; S: GeomAbs_Shape): Standard_Integer {.
-    noSideEffect, importcpp: "NbIntervals", header: "BlendFunc_ChAsym.hxx".}
-proc Intervals*(this: BlendFunc_ChAsym; T: var TColStd_Array1OfReal; S: GeomAbs_Shape) {.
+proc nbIntervals*(this: BlendFuncChAsym; s: GeomAbsShape): int {.noSideEffect,
+    importcpp: "NbIntervals", header: "BlendFunc_ChAsym.hxx".}
+proc intervals*(this: BlendFuncChAsym; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, importcpp: "Intervals", header: "BlendFunc_ChAsym.hxx".}
-proc GetShape*(this: var BlendFunc_ChAsym; NbPoles: var Standard_Integer;
-              NbKnots: var Standard_Integer; Degree: var Standard_Integer;
-              NbPoles2d: var Standard_Integer) {.importcpp: "GetShape",
+proc getShape*(this: var BlendFuncChAsym; nbPoles: var int; nbKnots: var int;
+              degree: var int; nbPoles2d: var int) {.importcpp: "GetShape",
     header: "BlendFunc_ChAsym.hxx".}
-proc GetTolerance*(this: BlendFunc_ChAsym; BoundTol: Standard_Real;
-                  SurfTol: Standard_Real; AngleTol: Standard_Real;
-                  Tol3d: var math_Vector; Tol1D: var math_Vector) {.noSideEffect,
-    importcpp: "GetTolerance", header: "BlendFunc_ChAsym.hxx".}
-proc Knots*(this: var BlendFunc_ChAsym; TKnots: var TColStd_Array1OfReal) {.
+proc getTolerance*(this: BlendFuncChAsym; boundTol: float; surfTol: float;
+                  angleTol: float; tol3d: var MathVector; tol1D: var MathVector) {.
+    noSideEffect, importcpp: "GetTolerance", header: "BlendFunc_ChAsym.hxx".}
+proc knots*(this: var BlendFuncChAsym; tKnots: var TColStdArray1OfReal) {.
     importcpp: "Knots", header: "BlendFunc_ChAsym.hxx".}
-proc Mults*(this: var BlendFunc_ChAsym; TMults: var TColStd_Array1OfInteger) {.
+proc mults*(this: var BlendFuncChAsym; tMults: var TColStdArray1OfInteger) {.
     importcpp: "Mults", header: "BlendFunc_ChAsym.hxx".}
-proc Section*(this: var BlendFunc_ChAsym; P: Blend_Point;
-             Poles: var TColgp_Array1OfPnt; Poles2d: var TColgp_Array1OfPnt2d;
-             Weigths: var TColStd_Array1OfReal) {.importcpp: "Section",
+proc section*(this: var BlendFuncChAsym; p: BlendPoint; poles: var TColgpArray1OfPnt;
+             poles2d: var TColgpArray1OfPnt2d; weigths: var TColStdArray1OfReal) {.
+    importcpp: "Section", header: "BlendFunc_ChAsym.hxx".}
+proc section*(this: var BlendFuncChAsym; p: BlendPoint; poles: var TColgpArray1OfPnt;
+             dPoles: var TColgpArray1OfVec; poles2d: var TColgpArray1OfPnt2d;
+             dPoles2d: var TColgpArray1OfVec2d; weigths: var TColStdArray1OfReal;
+             dWeigths: var TColStdArray1OfReal): bool {.importcpp: "Section",
     header: "BlendFunc_ChAsym.hxx".}
-proc Section*(this: var BlendFunc_ChAsym; P: Blend_Point;
-             Poles: var TColgp_Array1OfPnt; DPoles: var TColgp_Array1OfVec;
-             Poles2d: var TColgp_Array1OfPnt2d; DPoles2d: var TColgp_Array1OfVec2d;
-             Weigths: var TColStd_Array1OfReal; DWeigths: var TColStd_Array1OfReal): Standard_Boolean {.
+proc section*(this: var BlendFuncChAsym; p: BlendPoint; poles: var TColgpArray1OfPnt;
+             dPoles: var TColgpArray1OfVec; d2Poles: var TColgpArray1OfVec;
+             poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
+             d2Poles2d: var TColgpArray1OfVec2d; weigths: var TColStdArray1OfReal;
+             dWeigths: var TColStdArray1OfReal; d2Weigths: var TColStdArray1OfReal): bool {.
     importcpp: "Section", header: "BlendFunc_ChAsym.hxx".}
-proc Section*(this: var BlendFunc_ChAsym; P: Blend_Point;
-             Poles: var TColgp_Array1OfPnt; DPoles: var TColgp_Array1OfVec;
-             D2Poles: var TColgp_Array1OfVec; Poles2d: var TColgp_Array1OfPnt2d;
-             DPoles2d: var TColgp_Array1OfVec2d;
-             D2Poles2d: var TColgp_Array1OfVec2d;
-             Weigths: var TColStd_Array1OfReal; DWeigths: var TColStd_Array1OfReal;
-             D2Weigths: var TColStd_Array1OfReal): Standard_Boolean {.
-    importcpp: "Section", header: "BlendFunc_ChAsym.hxx".}
-proc Resolution*(this: BlendFunc_ChAsym; IC2d: Standard_Integer; Tol: Standard_Real;
-                TolU: var Standard_Real; TolV: var Standard_Real) {.noSideEffect,
-    importcpp: "Resolution", header: "BlendFunc_ChAsym.hxx".}
-proc Set*(this: var BlendFunc_ChAsym; Dist1: Standard_Real; Angle: Standard_Real;
-         Choix: Standard_Integer) {.importcpp: "Set", header: "BlendFunc_ChAsym.hxx".}
+proc resolution*(this: BlendFuncChAsym; iC2d: int; tol: float; tolU: var float;
+                tolV: var float) {.noSideEffect, importcpp: "Resolution",
+                                header: "BlendFunc_ChAsym.hxx".}
+proc set*(this: var BlendFuncChAsym; dist1: float; angle: float; choix: int) {.
+    importcpp: "Set", header: "BlendFunc_ChAsym.hxx".}

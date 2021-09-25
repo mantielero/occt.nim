@@ -14,33 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TCollection_SeqNodePtr,
-  ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_SeqNode"
 discard "forward decl of TCollection_SeqNode"
 type
-  Handle_TCollection_SeqNode* = handle[TCollection_SeqNode]
-  TCollection_SeqNode* {.importcpp: "TCollection_SeqNode",
-                        header: "TCollection_SeqNode.hxx", bycopy.} = object of Standard_Transient
+  HandleTCollectionSeqNode* = Handle[TCollectionSeqNode]
+  TCollectionSeqNode* {.importcpp: "TCollection_SeqNode",
+                       header: "TCollection_SeqNode.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructTCollection_SeqNode*(n: TCollection_SeqNodePtr;
-                                  p: TCollection_SeqNodePtr): TCollection_SeqNode {.
+proc constructTCollectionSeqNode*(n: TCollectionSeqNodePtr;
+                                 p: TCollectionSeqNodePtr): TCollectionSeqNode {.
     constructor, importcpp: "TCollection_SeqNode(@)",
     header: "TCollection_SeqNode.hxx".}
-proc Next*(this: TCollection_SeqNode): var TCollection_SeqNodePtr {.noSideEffect,
+proc next*(this: TCollectionSeqNode): var TCollectionSeqNodePtr {.noSideEffect,
     importcpp: "Next", header: "TCollection_SeqNode.hxx".}
-proc Previous*(this: TCollection_SeqNode): var TCollection_SeqNodePtr {.noSideEffect,
+proc previous*(this: TCollectionSeqNode): var TCollectionSeqNodePtr {.noSideEffect,
     importcpp: "Previous", header: "TCollection_SeqNode.hxx".}
 type
-  TCollection_SeqNodebase_type* = Standard_Transient
+  TCollectionSeqNodebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TCollection_SeqNode::get_type_name(@)",
-                              header: "TCollection_SeqNode.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TCollection_SeqNode::get_type_name(@)",
+                            header: "TCollection_SeqNode.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TCollection_SeqNode::get_type_descriptor(@)",
     header: "TCollection_SeqNode.hxx".}
-proc DynamicType*(this: TCollection_SeqNode): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TCollectionSeqNode): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TCollection_SeqNode.hxx".}

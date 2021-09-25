@@ -13,13 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepFEA_NodeRepresentation
-
 discard "forward decl of StepFEA_GeometricNode"
 discard "forward decl of StepFEA_GeometricNode"
 type
-  Handle_StepFEA_GeometricNode* = handle[StepFEA_GeometricNode]
+  HandleStepFEA_GeometricNode* = Handle[StepFEA_GeometricNode]
 
 ## ! Representation of STEP entity GeometricNode
 
@@ -34,12 +31,12 @@ type
 proc constructStepFEA_GeometricNode*(): StepFEA_GeometricNode {.constructor,
     importcpp: "StepFEA_GeometricNode(@)", header: "StepFEA_GeometricNode.hxx".}
 type
-  StepFEA_GeometricNodebase_type* = StepFEA_NodeRepresentation
+  StepFEA_GeometricNodebaseType* = StepFEA_NodeRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_GeometricNode::get_type_name(@)",
-                              header: "StepFEA_GeometricNode.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_GeometricNode::get_type_name(@)",
+                            header: "StepFEA_GeometricNode.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_GeometricNode::get_type_descriptor(@)",
     header: "StepFEA_GeometricNode.hxx".}
-proc DynamicType*(this: StepFEA_GeometricNode): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepFEA_GeometricNode.hxx".}
+proc dynamicType*(this: StepFEA_GeometricNode): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepFEA_GeometricNode.hxx".}

@@ -13,14 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of Graphic3d_Camera"
 discard "forward decl of Graphic3d_DataStructureManager"
 discard "forward decl of Graphic3d_DataStructureManager"
 type
-  Handle_Graphic3d_DataStructureManager* = handle[Graphic3d_DataStructureManager]
+  HandleGraphic3dDataStructureManager* = Handle[Graphic3dDataStructureManager]
 
 ## ! This class allows the definition of a manager to
 ## ! which the graphic objects are associated.
@@ -28,17 +25,17 @@ type
 ## ! It defines the global attributes.
 
 type
-  Graphic3d_DataStructureManager* {.importcpp: "Graphic3d_DataStructureManager", header: "Graphic3d_DataStructureManager.hxx",
-                                   bycopy.} = object of Standard_Transient ## !
-                                                                      ## Initializes the manager <me>.
+  Graphic3dDataStructureManager* {.importcpp: "Graphic3d_DataStructureManager",
+                                  header: "Graphic3d_DataStructureManager.hxx",
+                                  bycopy.} = object of StandardTransient ## ! Initializes the manager <me>.
 
-  Graphic3d_DataStructureManagerbase_type* = Standard_Transient
+  Graphic3dDataStructureManagerbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_DataStructureManager::get_type_name(@)",
-                              header: "Graphic3d_DataStructureManager.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_DataStructureManager::get_type_name(@)",
+                            header: "Graphic3d_DataStructureManager.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_DataStructureManager::get_type_descriptor(@)",
     header: "Graphic3d_DataStructureManager.hxx".}
-proc DynamicType*(this: Graphic3d_DataStructureManager): handle[Standard_Type] {.
+proc dynamicType*(this: Graphic3dDataStructureManager): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Graphic3d_DataStructureManager.hxx".}

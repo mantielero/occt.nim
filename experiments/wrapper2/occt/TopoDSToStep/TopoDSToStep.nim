@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopoDSToStep_BuilderError,
-  TopoDSToStep_MakeFaceError, TopoDSToStep_MakeWireError,
-  TopoDSToStep_MakeEdgeError, TopoDSToStep_MakeVertexError
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of Transfer_FinderProcess"
 discard "forward decl of TopoDS_Shape"
@@ -44,23 +38,20 @@ type
   TopoDSToStep* {.importcpp: "TopoDSToStep", header: "TopoDSToStep.hxx", bycopy.} = object
 
 
-proc DecodeBuilderError*(E: TopoDSToStep_BuilderError): handle[
-    TCollection_HAsciiString] {.importcpp: "TopoDSToStep::DecodeBuilderError(@)",
-                               header: "TopoDSToStep.hxx".}
-proc DecodeFaceError*(E: TopoDSToStep_MakeFaceError): handle[
-    TCollection_HAsciiString] {.importcpp: "TopoDSToStep::DecodeFaceError(@)",
-                               header: "TopoDSToStep.hxx".}
-proc DecodeWireError*(E: TopoDSToStep_MakeWireError): handle[
-    TCollection_HAsciiString] {.importcpp: "TopoDSToStep::DecodeWireError(@)",
-                               header: "TopoDSToStep.hxx".}
-proc DecodeEdgeError*(E: TopoDSToStep_MakeEdgeError): handle[
-    TCollection_HAsciiString] {.importcpp: "TopoDSToStep::DecodeEdgeError(@)",
-                               header: "TopoDSToStep.hxx".}
-proc DecodeVertexError*(E: TopoDSToStep_MakeVertexError): handle[
-    TCollection_HAsciiString] {.importcpp: "TopoDSToStep::DecodeVertexError(@)",
-                               header: "TopoDSToStep.hxx".}
-proc AddResult*(FP: handle[Transfer_FinderProcess]; Shape: TopoDS_Shape;
-               entity: handle[Standard_Transient]) {.
+proc decodeBuilderError*(e: TopoDSToStepBuilderError): Handle[
+    TCollectionHAsciiString] {.importcpp: "TopoDSToStep::DecodeBuilderError(@)",
+                              header: "TopoDSToStep.hxx".}
+proc decodeFaceError*(e: TopoDSToStepMakeFaceError): Handle[TCollectionHAsciiString] {.
+    importcpp: "TopoDSToStep::DecodeFaceError(@)", header: "TopoDSToStep.hxx".}
+proc decodeWireError*(e: TopoDSToStepMakeWireError): Handle[TCollectionHAsciiString] {.
+    importcpp: "TopoDSToStep::DecodeWireError(@)", header: "TopoDSToStep.hxx".}
+proc decodeEdgeError*(e: TopoDSToStepMakeEdgeError): Handle[TCollectionHAsciiString] {.
+    importcpp: "TopoDSToStep::DecodeEdgeError(@)", header: "TopoDSToStep.hxx".}
+proc decodeVertexError*(e: TopoDSToStepMakeVertexError): Handle[
+    TCollectionHAsciiString] {.importcpp: "TopoDSToStep::DecodeVertexError(@)",
+                              header: "TopoDSToStep.hxx".}
+proc addResult*(fp: Handle[TransferFinderProcess]; shape: TopoDS_Shape;
+               entity: Handle[StandardTransient]) {.
     importcpp: "TopoDSToStep::AddResult(@)", header: "TopoDSToStep.hxx".}
-proc AddResult*(FP: handle[Transfer_FinderProcess]; Tool: TopoDSToStep_Tool) {.
+proc addResult*(fp: Handle[TransferFinderProcess]; tool: TopoDSToStepTool) {.
     importcpp: "TopoDSToStep::AddResult(@)", header: "TopoDSToStep.hxx".}

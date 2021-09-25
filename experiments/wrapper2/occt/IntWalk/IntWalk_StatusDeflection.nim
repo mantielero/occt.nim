@@ -15,9 +15,10 @@
 ##  commercial license or contractual agreement.
 
 type
-  IntWalk_StatusDeflection* {.size: sizeof(cint),
-                             importcpp: "IntWalk_StatusDeflection",
-                             header: "IntWalk_StatusDeflection.hxx".} = enum
-    IntWalk_PasTropGrand, IntWalk_StepTooSmall, IntWalk_PointConfondu,
-    IntWalk_ArretSurPointPrecedent, IntWalk_ArretSurPoint, IntWalk_OK
+  IntWalkStatusDeflection* {.size: sizeof(cint),
+                            importcpp: "IntWalk_StatusDeflection",
+                            header: "IntWalk_StatusDeflection.hxx".} = enum
+    IntWalkPasTropGrand, IntWalkStepTooSmall, IntWalkPointConfondu,
+    IntWalkArretSurPointPrecedent, IntWalkArretSurPoint, IntWalkOK
+
 

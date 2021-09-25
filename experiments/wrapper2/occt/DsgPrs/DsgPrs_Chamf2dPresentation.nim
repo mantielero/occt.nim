@@ -14,78 +14,73 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Prs3d/Prs3d_Drawer, DsgPrs_ArrowSide,
-  ../Prs3d/Prs3d_Presentation
-
 discard "forward decl of gp_Pnt"
 discard "forward decl of TCollection_ExtendedString"
 type
-  DsgPrs_Chamf2dPresentation* {.importcpp: "DsgPrs_Chamf2dPresentation",
-                               header: "DsgPrs_Chamf2dPresentation.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Defines
-                                                                                      ## the
-                                                                                      ## display
-                                                                                      ## of
-                                                                                      ## elements
-                                                                                      ## showing
-                                                                                      ## 2D
-                                                                                      ## chamfers
-                                                                                      ## on
-                                                                                      ## shapes.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## These
-                                                                                      ## include
-                                                                                      ## the
-                                                                                      ## text
-                                                                                      ## aText,
-                                                                                      ## the
-                                                                                      ## point
-                                                                                      ## of
-                                                                                      ## attachment,
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## aPntAttach
-                                                                                      ## and
-                                                                                      ## the
-                                                                                      ## end
-                                                                                      ## point
-                                                                                      ## aPntEnd.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## These
-                                                                                      ## arguments
-                                                                                      ## are
-                                                                                      ## added
-                                                                                      ## to
-                                                                                      ## the
-                                                                                      ## presentation
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## object
-                                                                                      ## aPresentation.
-                                                                                      ## Their
-                                                                                      ## display
-                                                                                      ## attributes
-                                                                                      ## are
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## defined
-                                                                                      ## by
-                                                                                      ## the
-                                                                                      ## attribute
-                                                                                      ## manager
-                                                                                      ## aDrawer.
+  DsgPrsChamf2dPresentation* {.importcpp: "DsgPrs_Chamf2dPresentation",
+                              header: "DsgPrs_Chamf2dPresentation.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Defines
+                                                                                     ## the
+                                                                                     ## display
+                                                                                     ## of
+                                                                                     ## elements
+                                                                                     ## showing
+                                                                                     ## 2D
+                                                                                     ## chamfers
+                                                                                     ## on
+                                                                                     ## shapes.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## These
+                                                                                     ## include
+                                                                                     ## the
+                                                                                     ## text
+                                                                                     ## aText,
+                                                                                     ## the
+                                                                                     ## point
+                                                                                     ## of
+                                                                                     ## attachment,
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## aPntAttach
+                                                                                     ## and
+                                                                                     ## the
+                                                                                     ## end
+                                                                                     ## point
+                                                                                     ## aPntEnd.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## These
+                                                                                     ## arguments
+                                                                                     ## are
+                                                                                     ## added
+                                                                                     ## to
+                                                                                     ## the
+                                                                                     ## presentation
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## object
+                                                                                     ## aPresentation.
+                                                                                     ## Their
+                                                                                     ## display
+                                                                                     ## attributes
+                                                                                     ## are
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## defined
+                                                                                     ## by
+                                                                                     ## the
+                                                                                     ## attribute
+                                                                                     ## manager
+                                                                                     ## aDrawer.
 
 
-proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
-         aPntAttach: gp_Pnt; aPntEnd: gp_Pnt; aText: TCollection_ExtendedString) {.
+proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
+         aPntAttach: Pnt; aPntEnd: Pnt; aText: TCollectionExtendedString) {.
     importcpp: "DsgPrs_Chamf2dPresentation::Add(@)",
     header: "DsgPrs_Chamf2dPresentation.hxx".}
-proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
-         aPntAttach: gp_Pnt; aPntEnd: gp_Pnt; aText: TCollection_ExtendedString;
-         ArrowSide: DsgPrs_ArrowSide) {.importcpp: "DsgPrs_Chamf2dPresentation::Add(@)",
-                                      header: "DsgPrs_Chamf2dPresentation.hxx".}
+proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
+         aPntAttach: Pnt; aPntEnd: Pnt; aText: TCollectionExtendedString;
+         arrowSide: DsgPrsArrowSide) {.importcpp: "DsgPrs_Chamf2dPresentation::Add(@)",
+                                     header: "DsgPrs_Chamf2dPresentation.hxx".}

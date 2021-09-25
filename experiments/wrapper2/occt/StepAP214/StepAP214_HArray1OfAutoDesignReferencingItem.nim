@@ -14,41 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP214_AutoDesignReferencingItem,
-  StepAP214_Array1OfAutoDesignReferencingItem,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepAP214_HArray1OfAutoDesignReferencingItem* {.
+  StepAP214HArray1OfAutoDesignReferencingItem* {.
       importcpp: "StepAP214_HArray1OfAutoDesignReferencingItem",
-      header: "StepAP214_HArray1OfAutoDesignReferencingItem.hxx", bycopy.} = object of StepAP214_Array1OfAutoDesignReferencingItem
+      header: "StepAP214_HArray1OfAutoDesignReferencingItem.hxx", bycopy.} = object of StepAP214Array1OfAutoDesignReferencingItem
 
 
-proc constructStepAP214_HArray1OfAutoDesignReferencingItem*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepAP214_HArray1OfAutoDesignReferencingItem {.
+proc constructStepAP214HArray1OfAutoDesignReferencingItem*(theLower: int;
+    theUpper: int): StepAP214HArray1OfAutoDesignReferencingItem {.constructor,
+    importcpp: "StepAP214_HArray1OfAutoDesignReferencingItem(@)",
+    header: "StepAP214_HArray1OfAutoDesignReferencingItem.hxx".}
+proc constructStepAP214HArray1OfAutoDesignReferencingItem*(theLower: int;
+    theUpper: int; theValue: ValueType): StepAP214HArray1OfAutoDesignReferencingItem {.
     constructor, importcpp: "StepAP214_HArray1OfAutoDesignReferencingItem(@)",
     header: "StepAP214_HArray1OfAutoDesignReferencingItem.hxx".}
-proc constructStepAP214_HArray1OfAutoDesignReferencingItem*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepAP214_HArray1OfAutoDesignReferencingItem {.
+proc constructStepAP214HArray1OfAutoDesignReferencingItem*(
+    theOther: StepAP214Array1OfAutoDesignReferencingItem): StepAP214HArray1OfAutoDesignReferencingItem {.
     constructor, importcpp: "StepAP214_HArray1OfAutoDesignReferencingItem(@)",
     header: "StepAP214_HArray1OfAutoDesignReferencingItem.hxx".}
-proc constructStepAP214_HArray1OfAutoDesignReferencingItem*(
-    theOther: StepAP214_Array1OfAutoDesignReferencingItem): StepAP214_HArray1OfAutoDesignReferencingItem {.
-    constructor, importcpp: "StepAP214_HArray1OfAutoDesignReferencingItem(@)",
-    header: "StepAP214_HArray1OfAutoDesignReferencingItem.hxx".}
-proc Array1*(this: StepAP214_HArray1OfAutoDesignReferencingItem): StepAP214_Array1OfAutoDesignReferencingItem {.
+proc array1*(this: StepAP214HArray1OfAutoDesignReferencingItem): StepAP214Array1OfAutoDesignReferencingItem {.
     noSideEffect, importcpp: "Array1",
     header: "StepAP214_HArray1OfAutoDesignReferencingItem.hxx".}
-proc ChangeArray1*(this: var StepAP214_HArray1OfAutoDesignReferencingItem): var StepAP214_Array1OfAutoDesignReferencingItem {.
+proc changeArray1*(this: var StepAP214HArray1OfAutoDesignReferencingItem): var StepAP214Array1OfAutoDesignReferencingItem {.
     importcpp: "ChangeArray1",
     header: "StepAP214_HArray1OfAutoDesignReferencingItem.hxx".}
 type
-  StepAP214_HArray1OfAutoDesignReferencingItembase_type* = MMgt_TShared
+  StepAP214HArray1OfAutoDesignReferencingItembaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_HArray1OfAutoDesignReferencingItem::get_type_name(@)", header: "StepAP214_HArray1OfAutoDesignReferencingItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP214_HArray1OfAutoDesignReferencingItem::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP214_HArray1OfAutoDesignReferencingItem::get_type_name(@)", header: "StepAP214_HArray1OfAutoDesignReferencingItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_HArray1OfAutoDesignReferencingItem::get_type_descriptor(@)",
     header: "StepAP214_HArray1OfAutoDesignReferencingItem.hxx".}
-proc DynamicType*(this: StepAP214_HArray1OfAutoDesignReferencingItem): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepAP214_HArray1OfAutoDesignReferencingItem.hxx".}
+proc dynamicType*(this: StepAP214HArray1OfAutoDesignReferencingItem): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepAP214_HArray1OfAutoDesignReferencingItem.hxx".}

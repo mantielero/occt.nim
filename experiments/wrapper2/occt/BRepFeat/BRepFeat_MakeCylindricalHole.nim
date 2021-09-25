@@ -14,49 +14,55 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Ax1, BRepFeat_Status,
-  ../TopoDS/TopoDS_Face, BRepFeat_Builder
-
 ##  resolve name collisions with X11 headers
 
-when defined(Status):
-  discard
+# when defined(Status):
+#   discard
 ## ! Provides a tool to make cylindrical holes on a shape.
 
 type
-  BRepFeat_MakeCylindricalHole* {.importcpp: "BRepFeat_MakeCylindricalHole",
-                                 header: "BRepFeat_MakeCylindricalHole.hxx",
-                                 bycopy.} = object of BRepFeat_Builder ## ! Empty constructor.
-                                                                  ## ! Unhide the base class member to avoid Clang warnings
+  BRepFeatMakeCylindricalHole* {.importcpp: "BRepFeat_MakeCylindricalHole",
+                                header: "BRepFeat_MakeCylindricalHole.hxx", bycopy.} = object of BRepFeatBuilder ##
+                                                                                                          ## !
+                                                                                                          ## Empty
+                                                                                                          ## constructor.
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## Unhide
+                                                                                                          ## the
+                                                                                                          ## base
+                                                                                                          ## class
+                                                                                                          ## member
+                                                                                                          ## to
+                                                                                                          ## avoid
+                                                                                                          ## Clang
+                                                                                                          ## warnings
 
 
-proc constructBRepFeat_MakeCylindricalHole*(): BRepFeat_MakeCylindricalHole {.
+proc constructBRepFeatMakeCylindricalHole*(): BRepFeatMakeCylindricalHole {.
     constructor, importcpp: "BRepFeat_MakeCylindricalHole(@)",
     header: "BRepFeat_MakeCylindricalHole.hxx".}
-proc Init*(this: var BRepFeat_MakeCylindricalHole; Axis: gp_Ax1) {.importcpp: "Init",
+proc init*(this: var BRepFeatMakeCylindricalHole; axis: Ax1) {.importcpp: "Init",
     header: "BRepFeat_MakeCylindricalHole.hxx".}
-proc Init*(this: var BRepFeat_MakeCylindricalHole; S: TopoDS_Shape; Axis: gp_Ax1) {.
+proc init*(this: var BRepFeatMakeCylindricalHole; s: TopoDS_Shape; axis: Ax1) {.
     importcpp: "Init", header: "BRepFeat_MakeCylindricalHole.hxx".}
-proc Perform*(this: var BRepFeat_MakeCylindricalHole; Radius: Standard_Real) {.
+proc perform*(this: var BRepFeatMakeCylindricalHole; radius: float) {.
     importcpp: "Perform", header: "BRepFeat_MakeCylindricalHole.hxx".}
-proc Perform*(this: var BRepFeat_MakeCylindricalHole; Radius: Standard_Real;
-             PFrom: Standard_Real; PTo: Standard_Real;
-             WithControl: Standard_Boolean = Standard_True) {.importcpp: "Perform",
+proc perform*(this: var BRepFeatMakeCylindricalHole; radius: float; pFrom: float;
+             pTo: float; withControl: bool = true) {.importcpp: "Perform",
     header: "BRepFeat_MakeCylindricalHole.hxx".}
-proc PerformThruNext*(this: var BRepFeat_MakeCylindricalHole; Radius: Standard_Real;
-                     WithControl: Standard_Boolean = Standard_True) {.
-    importcpp: "PerformThruNext", header: "BRepFeat_MakeCylindricalHole.hxx".}
-proc PerformUntilEnd*(this: var BRepFeat_MakeCylindricalHole; Radius: Standard_Real;
-                     WithControl: Standard_Boolean = Standard_True) {.
-    importcpp: "PerformUntilEnd", header: "BRepFeat_MakeCylindricalHole.hxx".}
-proc PerformBlind*(this: var BRepFeat_MakeCylindricalHole; Radius: Standard_Real;
-                  Length: Standard_Real;
-                  WithControl: Standard_Boolean = Standard_True) {.
+proc performThruNext*(this: var BRepFeatMakeCylindricalHole; radius: float;
+                     withControl: bool = true) {.importcpp: "PerformThruNext",
+    header: "BRepFeat_MakeCylindricalHole.hxx".}
+proc performUntilEnd*(this: var BRepFeatMakeCylindricalHole; radius: float;
+                     withControl: bool = true) {.importcpp: "PerformUntilEnd",
+    header: "BRepFeat_MakeCylindricalHole.hxx".}
+proc performBlind*(this: var BRepFeatMakeCylindricalHole; radius: float;
+                  length: float; withControl: bool = true) {.
     importcpp: "PerformBlind", header: "BRepFeat_MakeCylindricalHole.hxx".}
-proc Status*(this: BRepFeat_MakeCylindricalHole): BRepFeat_Status {.noSideEffect,
+proc status*(this: BRepFeatMakeCylindricalHole): BRepFeatStatus {.noSideEffect,
     importcpp: "Status", header: "BRepFeat_MakeCylindricalHole.hxx".}
-proc Build*(this: var BRepFeat_MakeCylindricalHole) {.importcpp: "Build",
+proc build*(this: var BRepFeatMakeCylindricalHole) {.importcpp: "Build",
     header: "BRepFeat_MakeCylindricalHole.hxx".}
 ## using statement
+

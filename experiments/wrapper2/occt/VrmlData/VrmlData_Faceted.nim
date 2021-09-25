@@ -13,59 +13,56 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  VrmlData_Geometry
-
 ## *
 ##   Common API of faceted Geometry nodes: IndexedFaceSet, ElevationGrid,
 ##   Extrusion.
 ##
 
 type
-  VrmlData_Faceted* {.importcpp: "VrmlData_Faceted",
-                     header: "VrmlData_Faceted.hxx", bycopy.} = object of VrmlData_Geometry ##  ---------- PUBLIC METHODS ----------
-                                                                                     ## *
-                                                                                     ##  Empty constructor
-                                                                                     ##
-                                                                                     ##  ---------- PRIVATE FIELDS ----------
-                                                                                     ##  Declaration of CASCADE RTTI
+  VrmlDataFaceted* {.importcpp: "VrmlData_Faceted", header: "VrmlData_Faceted.hxx",
+                    bycopy.} = object of VrmlDataGeometry ##  ---------- PUBLIC METHODS ----------
+                                                     ## *
+                                                     ##  Empty constructor
+                                                     ##
+                                                     ##  ---------- PRIVATE FIELDS ----------
+                                                     ##  Declaration of CASCADE RTTI
 
 
-proc constructVrmlData_Faceted*(): VrmlData_Faceted {.constructor,
+proc constructVrmlDataFaceted*(): VrmlDataFaceted {.constructor,
     importcpp: "VrmlData_Faceted(@)", header: "VrmlData_Faceted.hxx".}
-proc constructVrmlData_Faceted*(theScene: VrmlData_Scene; theName: cstring;
-                               isCCW: Standard_Boolean; isSolid: Standard_Boolean;
-                               isConvex: Standard_Boolean;
-                               theCreaseAngle: Standard_Real): VrmlData_Faceted {.
+proc constructVrmlDataFaceted*(theScene: VrmlDataScene; theName: cstring;
+                              isCCW: bool; isSolid: bool; isConvex: bool;
+                              theCreaseAngle: float): VrmlDataFaceted {.
     constructor, importcpp: "VrmlData_Faceted(@)", header: "VrmlData_Faceted.hxx".}
-proc IsCCW*(this: VrmlData_Faceted): Standard_Boolean {.noSideEffect,
-    importcpp: "IsCCW", header: "VrmlData_Faceted.hxx".}
-proc IsSolid*(this: VrmlData_Faceted): Standard_Boolean {.noSideEffect,
-    importcpp: "IsSolid", header: "VrmlData_Faceted.hxx".}
-proc IsConvex*(this: VrmlData_Faceted): Standard_Boolean {.noSideEffect,
-    importcpp: "IsConvex", header: "VrmlData_Faceted.hxx".}
-proc CreaseAngle*(this: VrmlData_Faceted): Standard_Real {.noSideEffect,
+proc isCCW*(this: VrmlDataFaceted): bool {.noSideEffect, importcpp: "IsCCW",
+                                       header: "VrmlData_Faceted.hxx".}
+proc isSolid*(this: VrmlDataFaceted): bool {.noSideEffect, importcpp: "IsSolid",
+    header: "VrmlData_Faceted.hxx".}
+proc isConvex*(this: VrmlDataFaceted): bool {.noSideEffect, importcpp: "IsConvex",
+    header: "VrmlData_Faceted.hxx".}
+proc creaseAngle*(this: VrmlDataFaceted): float {.noSideEffect,
     importcpp: "CreaseAngle", header: "VrmlData_Faceted.hxx".}
-proc SetCCW*(this: var VrmlData_Faceted; theValue: Standard_Boolean) {.
-    importcpp: "SetCCW", header: "VrmlData_Faceted.hxx".}
-proc SetSolid*(this: var VrmlData_Faceted; theValue: Standard_Boolean) {.
-    importcpp: "SetSolid", header: "VrmlData_Faceted.hxx".}
-proc SetConvex*(this: var VrmlData_Faceted; theValue: Standard_Boolean) {.
-    importcpp: "SetConvex", header: "VrmlData_Faceted.hxx".}
-proc SetCreaseAngle*(this: var VrmlData_Faceted; theValue: Standard_Real) {.
+proc setCCW*(this: var VrmlDataFaceted; theValue: bool) {.importcpp: "SetCCW",
+    header: "VrmlData_Faceted.hxx".}
+proc setSolid*(this: var VrmlDataFaceted; theValue: bool) {.importcpp: "SetSolid",
+    header: "VrmlData_Faceted.hxx".}
+proc setConvex*(this: var VrmlDataFaceted; theValue: bool) {.importcpp: "SetConvex",
+    header: "VrmlData_Faceted.hxx".}
+proc setCreaseAngle*(this: var VrmlDataFaceted; theValue: float) {.
     importcpp: "SetCreaseAngle", header: "VrmlData_Faceted.hxx".}
 type
-  VrmlData_Facetedbase_type* = VrmlData_Geometry
+  VrmlDataFacetedbaseType* = VrmlDataGeometry
 
-proc get_type_name*(): cstring {.importcpp: "VrmlData_Faceted::get_type_name(@)",
-                              header: "VrmlData_Faceted.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "VrmlData_Faceted::get_type_name(@)",
+                            header: "VrmlData_Faceted.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "VrmlData_Faceted::get_type_descriptor(@)",
     header: "VrmlData_Faceted.hxx".}
-proc DynamicType*(this: VrmlData_Faceted): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: VrmlDataFaceted): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "VrmlData_Faceted.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of VrmlData_Faceted"
 type
-  Handle_VrmlData_Faceted* = handle[VrmlData_Faceted]
+  HandleVrmlDataFaceted* = Handle[VrmlDataFaceted]
+

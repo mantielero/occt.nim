@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Boolean,
-  IFSelect_SelectExplore, ../Standard/Standard_CString,
-  ../Standard/Standard_Integer
-
 discard "forward decl of IFSelect_Signature"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Standard_Transient"
@@ -28,7 +22,7 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of IFSelect_SelectSignedSharing"
 discard "forward decl of IFSelect_SelectSignedSharing"
 type
-  Handle_IFSelect_SelectSignedSharing* = handle[IFSelect_SelectSignedSharing]
+  HandleIFSelectSelectSignedSharing* = Handle[IFSelectSelectSignedSharing]
 
 ## ! In the graph, explore the sharings of the input entities,
 ## ! until it encounters some which match a given Signature
@@ -36,43 +30,55 @@ type
 ## ! By default, fitted for any level
 
 type
-  IFSelect_SelectSignedSharing* {.importcpp: "IFSelect_SelectSignedSharing",
-                                 header: "IFSelect_SelectSignedSharing.hxx",
-                                 bycopy.} = object of IFSelect_SelectExplore ## ! Creates a
-                                                                        ## SelectSignedSharing,
-                                                                        ## defaulted for any level
-                                                                        ## ! with a given
-                                                                        ## Signature and text to match
+  IFSelectSelectSignedSharing* {.importcpp: "IFSelect_SelectSignedSharing",
+                                header: "IFSelect_SelectSignedSharing.hxx", bycopy.} = object of IFSelectSelectExplore ##
+                                                                                                                ## !
+                                                                                                                ## Creates
+                                                                                                                ## a
+                                                                                                                ## SelectSignedSharing,
+                                                                                                                ## defaulted
+                                                                                                                ## for
+                                                                                                                ## any
+                                                                                                                ## level
+                                                                                                                ##
+                                                                                                                ## !
+                                                                                                                ## with
+                                                                                                                ## a
+                                                                                                                ## given
+                                                                                                                ## Signature
+                                                                                                                ## and
+                                                                                                                ## text
+                                                                                                                ## to
+                                                                                                                ## match
 
 
-proc constructIFSelect_SelectSignedSharing*(matcher: handle[IFSelect_Signature];
-    signtext: Standard_CString; exact: Standard_Boolean = Standard_True;
-    level: Standard_Integer = 0): IFSelect_SelectSignedSharing {.constructor,
-    importcpp: "IFSelect_SelectSignedSharing(@)",
+proc constructIFSelectSelectSignedSharing*(matcher: Handle[IFSelectSignature];
+    signtext: StandardCString; exact: bool = true; level: int = 0): IFSelectSelectSignedSharing {.
+    constructor, importcpp: "IFSelect_SelectSignedSharing(@)",
     header: "IFSelect_SelectSignedSharing.hxx".}
-proc Signature*(this: IFSelect_SelectSignedSharing): handle[IFSelect_Signature] {.
+proc signature*(this: IFSelectSelectSignedSharing): Handle[IFSelectSignature] {.
     noSideEffect, importcpp: "Signature",
     header: "IFSelect_SelectSignedSharing.hxx".}
-proc SignatureText*(this: IFSelect_SelectSignedSharing): TCollection_AsciiString {.
+proc signatureText*(this: IFSelectSelectSignedSharing): TCollectionAsciiString {.
     noSideEffect, importcpp: "SignatureText",
     header: "IFSelect_SelectSignedSharing.hxx".}
-proc IsExact*(this: IFSelect_SelectSignedSharing): Standard_Boolean {.noSideEffect,
+proc isExact*(this: IFSelectSelectSignedSharing): bool {.noSideEffect,
     importcpp: "IsExact", header: "IFSelect_SelectSignedSharing.hxx".}
-proc Explore*(this: IFSelect_SelectSignedSharing; level: Standard_Integer;
-             ent: handle[Standard_Transient]; G: Interface_Graph;
-             explored: var Interface_EntityIterator): Standard_Boolean {.
-    noSideEffect, importcpp: "Explore", header: "IFSelect_SelectSignedSharing.hxx".}
-proc ExploreLabel*(this: IFSelect_SelectSignedSharing): TCollection_AsciiString {.
+proc explore*(this: IFSelectSelectSignedSharing; level: int;
+             ent: Handle[StandardTransient]; g: InterfaceGraph;
+             explored: var InterfaceEntityIterator): bool {.noSideEffect,
+    importcpp: "Explore", header: "IFSelect_SelectSignedSharing.hxx".}
+proc exploreLabel*(this: IFSelectSelectSignedSharing): TCollectionAsciiString {.
     noSideEffect, importcpp: "ExploreLabel",
     header: "IFSelect_SelectSignedSharing.hxx".}
 type
-  IFSelect_SelectSignedSharingbase_type* = IFSelect_SelectExplore
+  IFSelectSelectSignedSharingbaseType* = IFSelectSelectExplore
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectSignedSharing::get_type_name(@)",
-                              header: "IFSelect_SelectSignedSharing.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectSignedSharing::get_type_name(@)",
+                            header: "IFSelect_SelectSignedSharing.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_SelectSignedSharing::get_type_descriptor(@)",
     header: "IFSelect_SelectSignedSharing.hxx".}
-proc DynamicType*(this: IFSelect_SelectSignedSharing): handle[Standard_Type] {.
+proc dynamicType*(this: IFSelectSelectSignedSharing): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IFSelect_SelectSignedSharing.hxx".}

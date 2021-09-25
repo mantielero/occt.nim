@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  Geom2dGcc_Type1* {.size: sizeof(cint), importcpp: "Geom2dGcc_Type1",
-                    header: "Geom2dGcc_Type1.hxx".} = enum
-    Geom2dGcc_CuCuCu, Geom2dGcc_CiCuCu, Geom2dGcc_CiCiCu, Geom2dGcc_CiLiCu,
-    Geom2dGcc_LiLiCu, Geom2dGcc_LiCuCu
+  Geom2dGccType1* {.size: sizeof(cint), importcpp: "Geom2dGcc_Type1",
+                   header: "Geom2dGcc_Type1.hxx".} = enum
+    Geom2dGccCuCuCu, Geom2dGccCiCuCu, Geom2dGccCiCiCu, Geom2dGccCiLiCu,
+    Geom2dGccLiLiCu, Geom2dGccLiCuCu
+
 

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../Interface/Interface_ReaderModule, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_SequenceOfAsciiString, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Interface_FileReaderData"
 discard "forward decl of TCollection_AsciiString"
@@ -29,7 +24,7 @@ discard "forward decl of StepData_StepWriter"
 discard "forward decl of StepData_ReadWriteModule"
 discard "forward decl of StepData_ReadWriteModule"
 type
-  Handle_StepData_ReadWriteModule* = handle[StepData_ReadWriteModule]
+  HandleStepDataReadWriteModule* = Handle[StepDataReadWriteModule]
 
 ## ! Defines basic File Access Module (Recognize, Read, Write)
 ## ! That is : ReaderModule (Recognize & Read) + Write for
@@ -40,116 +35,116 @@ type
 ## ! as the Protocol does for the corresponding Entity)
 
 type
-  StepData_ReadWriteModule* {.importcpp: "StepData_ReadWriteModule",
-                             header: "StepData_ReadWriteModule.hxx", bycopy.} = object of Interface_ReaderModule ##
-                                                                                                          ## !
-                                                                                                          ## Translate
-                                                                                                          ## the
-                                                                                                          ## Type
-                                                                                                          ## of
-                                                                                                          ## record
-                                                                                                          ## <num>
-                                                                                                          ## in
-                                                                                                          ## <data>
-                                                                                                          ## to
-                                                                                                          ## a
-                                                                                                          ## positive
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Case
-                                                                                                          ## Number,
-                                                                                                          ## or
-                                                                                                          ## 0
-                                                                                                          ## if
-                                                                                                          ## failed.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Works
-                                                                                                          ## with
-                                                                                                          ## a
-                                                                                                          ## StepReaderData,
-                                                                                                          ## in
-                                                                                                          ## which
-                                                                                                          ## the
-                                                                                                          ## Type
-                                                                                                          ## of
-                                                                                                          ## an
-                                                                                                          ## Entity
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## is
-                                                                                                          ## defined
-                                                                                                          ## as
-                                                                                                          ## a
-                                                                                                          ## String
-                                                                                                          ## :
-                                                                                                          ## Reads
-                                                                                                          ## the
-                                                                                                          ## RecordType
-                                                                                                          ## <num>
-                                                                                                          ## then
-                                                                                                          ## calls
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## CaseNum
-                                                                                                          ## (this
-                                                                                                          ## type)
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Warning
-                                                                                                          ## :
-                                                                                                          ## The
-                                                                                                          ## methods
-                                                                                                          ## CaseStep,
-                                                                                                          ## StepType
-                                                                                                          ## and
-                                                                                                          ## Recognize,
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## must
-                                                                                                          ## be
-                                                                                                          ## in
-                                                                                                          ## phase
-                                                                                                          ## (triplets
-                                                                                                          ## CaseNum-StepType-Type
-                                                                                                          ## of
-                                                                                                          ## Object)
+  StepDataReadWriteModule* {.importcpp: "StepData_ReadWriteModule",
+                            header: "StepData_ReadWriteModule.hxx", bycopy.} = object of InterfaceReaderModule ##
+                                                                                                        ## !
+                                                                                                        ## Translate
+                                                                                                        ## the
+                                                                                                        ## Type
+                                                                                                        ## of
+                                                                                                        ## record
+                                                                                                        ## <num>
+                                                                                                        ## in
+                                                                                                        ## <data>
+                                                                                                        ## to
+                                                                                                        ## a
+                                                                                                        ## positive
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## Case
+                                                                                                        ## Number,
+                                                                                                        ## or
+                                                                                                        ## 0
+                                                                                                        ## if
+                                                                                                        ## failed.
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## Works
+                                                                                                        ## with
+                                                                                                        ## a
+                                                                                                        ## StepReaderData,
+                                                                                                        ## in
+                                                                                                        ## which
+                                                                                                        ## the
+                                                                                                        ## Type
+                                                                                                        ## of
+                                                                                                        ## an
+                                                                                                        ## Entity
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## is
+                                                                                                        ## defined
+                                                                                                        ## as
+                                                                                                        ## a
+                                                                                                        ## String
+                                                                                                        ## :
+                                                                                                        ## Reads
+                                                                                                        ## the
+                                                                                                        ## RecordType
+                                                                                                        ## <num>
+                                                                                                        ## then
+                                                                                                        ## calls
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## CaseNum
+                                                                                                        ## (this
+                                                                                                        ## type)
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## Warning
+                                                                                                        ## :
+                                                                                                        ## The
+                                                                                                        ## methods
+                                                                                                        ## CaseStep,
+                                                                                                        ## StepType
+                                                                                                        ## and
+                                                                                                        ## Recognize,
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## must
+                                                                                                        ## be
+                                                                                                        ## in
+                                                                                                        ## phase
+                                                                                                        ## (triplets
+                                                                                                        ## CaseNum-StepType-Type
+                                                                                                        ## of
+                                                                                                        ## Object)
 
 
-proc CaseNum*(this: StepData_ReadWriteModule;
-             data: handle[Interface_FileReaderData]; num: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "CaseNum", header: "StepData_ReadWriteModule.hxx".}
-proc CaseStep*(this: StepData_ReadWriteModule; atype: TCollection_AsciiString): Standard_Integer {.
+proc caseNum*(this: StepDataReadWriteModule; data: Handle[InterfaceFileReaderData];
+             num: int): int {.noSideEffect, importcpp: "CaseNum",
+                           header: "StepData_ReadWriteModule.hxx".}
+proc caseStep*(this: StepDataReadWriteModule; atype: TCollectionAsciiString): int {.
     noSideEffect, importcpp: "CaseStep", header: "StepData_ReadWriteModule.hxx".}
-proc CaseStep*(this: StepData_ReadWriteModule; types: TColStd_SequenceOfAsciiString): Standard_Integer {.
+proc caseStep*(this: StepDataReadWriteModule; types: TColStdSequenceOfAsciiString): int {.
     noSideEffect, importcpp: "CaseStep", header: "StepData_ReadWriteModule.hxx".}
-proc IsComplex*(this: StepData_ReadWriteModule; CN: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsComplex", header: "StepData_ReadWriteModule.hxx".}
-proc StepType*(this: StepData_ReadWriteModule; CN: Standard_Integer): TCollection_AsciiString {.
+proc isComplex*(this: StepDataReadWriteModule; cn: int): bool {.noSideEffect,
+    importcpp: "IsComplex", header: "StepData_ReadWriteModule.hxx".}
+proc stepType*(this: StepDataReadWriteModule; cn: int): TCollectionAsciiString {.
     noSideEffect, importcpp: "StepType", header: "StepData_ReadWriteModule.hxx".}
-proc ShortType*(this: StepData_ReadWriteModule; CN: Standard_Integer): TCollection_AsciiString {.
+proc shortType*(this: StepDataReadWriteModule; cn: int): TCollectionAsciiString {.
     noSideEffect, importcpp: "ShortType", header: "StepData_ReadWriteModule.hxx".}
-proc ComplexType*(this: StepData_ReadWriteModule; CN: Standard_Integer;
-                 types: var TColStd_SequenceOfAsciiString): Standard_Boolean {.
-    noSideEffect, importcpp: "ComplexType", header: "StepData_ReadWriteModule.hxx".}
-proc Read*(this: StepData_ReadWriteModule; CN: Standard_Integer;
-          data: handle[Interface_FileReaderData]; num: Standard_Integer;
-          ach: var handle[Interface_Check]; ent: handle[Standard_Transient]) {.
+proc complexType*(this: StepDataReadWriteModule; cn: int;
+                 types: var TColStdSequenceOfAsciiString): bool {.noSideEffect,
+    importcpp: "ComplexType", header: "StepData_ReadWriteModule.hxx".}
+proc read*(this: StepDataReadWriteModule; cn: int;
+          data: Handle[InterfaceFileReaderData]; num: int;
+          ach: var Handle[InterfaceCheck]; ent: Handle[StandardTransient]) {.
     noSideEffect, importcpp: "Read", header: "StepData_ReadWriteModule.hxx".}
-proc ReadStep*(this: StepData_ReadWriteModule; CN: Standard_Integer;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check]; ent: handle[Standard_Transient]) {.
+proc readStep*(this: StepDataReadWriteModule; cn: int;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck]; ent: Handle[StandardTransient]) {.
     noSideEffect, importcpp: "ReadStep", header: "StepData_ReadWriteModule.hxx".}
-proc WriteStep*(this: StepData_ReadWriteModule; CN: Standard_Integer;
-               SW: var StepData_StepWriter; ent: handle[Standard_Transient]) {.
-    noSideEffect, importcpp: "WriteStep", header: "StepData_ReadWriteModule.hxx".}
+proc writeStep*(this: StepDataReadWriteModule; cn: int; sw: var StepDataStepWriter;
+               ent: Handle[StandardTransient]) {.noSideEffect,
+    importcpp: "WriteStep", header: "StepData_ReadWriteModule.hxx".}
 type
-  StepData_ReadWriteModulebase_type* = Interface_ReaderModule
+  StepDataReadWriteModulebaseType* = InterfaceReaderModule
 
-proc get_type_name*(): cstring {.importcpp: "StepData_ReadWriteModule::get_type_name(@)",
-                              header: "StepData_ReadWriteModule.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepData_ReadWriteModule::get_type_name(@)",
+                            header: "StepData_ReadWriteModule.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepData_ReadWriteModule::get_type_descriptor(@)",
     header: "StepData_ReadWriteModule.hxx".}
-proc DynamicType*(this: StepData_ReadWriteModule): handle[Standard_Type] {.
+proc dynamicType*(this: StepDataReadWriteModule): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepData_ReadWriteModule.hxx".}

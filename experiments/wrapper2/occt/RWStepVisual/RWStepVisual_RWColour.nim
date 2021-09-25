@@ -14,25 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_Colour"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepVisual_RWColour* {.importcpp: "RWStepVisual_RWColour",
-                          header: "RWStepVisual_RWColour.hxx", bycopy.} = object
+  RWStepVisualRWColour* {.importcpp: "RWStepVisual_RWColour",
+                         header: "RWStepVisual_RWColour.hxx", bycopy.} = object
 
 
-proc constructRWStepVisual_RWColour*(): RWStepVisual_RWColour {.constructor,
+proc constructRWStepVisualRWColour*(): RWStepVisualRWColour {.constructor,
     importcpp: "RWStepVisual_RWColour(@)", header: "RWStepVisual_RWColour.hxx".}
-proc ReadStep*(this: RWStepVisual_RWColour; data: handle[StepData_StepReaderData];
-              num: Standard_Integer; ach: var handle[Interface_Check];
-              ent: handle[StepVisual_Colour]) {.noSideEffect,
-    importcpp: "ReadStep", header: "RWStepVisual_RWColour.hxx".}
-proc WriteStep*(this: RWStepVisual_RWColour; SW: var StepData_StepWriter;
-               ent: handle[StepVisual_Colour]) {.noSideEffect,
+proc readStep*(this: RWStepVisualRWColour; data: Handle[StepDataStepReaderData];
+              num: int; ach: var Handle[InterfaceCheck];
+              ent: Handle[StepVisualColour]) {.noSideEffect, importcpp: "ReadStep",
+    header: "RWStepVisual_RWColour.hxx".}
+proc writeStep*(this: RWStepVisualRWColour; sw: var StepDataStepWriter;
+               ent: Handle[StepVisualColour]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWColour.hxx".}

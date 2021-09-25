@@ -14,34 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_ShellBasedSurfaceModel"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShape_RWShellBasedSurfaceModel* {.
-      importcpp: "RWStepShape_RWShellBasedSurfaceModel",
-      header: "RWStepShape_RWShellBasedSurfaceModel.hxx", bycopy.} = object
+  RWStepShapeRWShellBasedSurfaceModel* {.importcpp: "RWStepShape_RWShellBasedSurfaceModel", header: "RWStepShape_RWShellBasedSurfaceModel.hxx",
+                                        bycopy.} = object
 
 
-proc constructRWStepShape_RWShellBasedSurfaceModel*(): RWStepShape_RWShellBasedSurfaceModel {.
+proc constructRWStepShapeRWShellBasedSurfaceModel*(): RWStepShapeRWShellBasedSurfaceModel {.
     constructor, importcpp: "RWStepShape_RWShellBasedSurfaceModel(@)",
     header: "RWStepShape_RWShellBasedSurfaceModel.hxx".}
-proc ReadStep*(this: RWStepShape_RWShellBasedSurfaceModel;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepShape_ShellBasedSurfaceModel]) {.noSideEffect,
+proc readStep*(this: RWStepShapeRWShellBasedSurfaceModel;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepShapeShellBasedSurfaceModel]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWShellBasedSurfaceModel.hxx".}
-proc WriteStep*(this: RWStepShape_RWShellBasedSurfaceModel;
-               SW: var StepData_StepWriter;
-               ent: handle[StepShape_ShellBasedSurfaceModel]) {.noSideEffect,
+proc writeStep*(this: RWStepShapeRWShellBasedSurfaceModel;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepShapeShellBasedSurfaceModel]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWShellBasedSurfaceModel.hxx".}
-proc Share*(this: RWStepShape_RWShellBasedSurfaceModel;
-           ent: handle[StepShape_ShellBasedSurfaceModel];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepShapeRWShellBasedSurfaceModel;
+           ent: Handle[StepShapeShellBasedSurfaceModel];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWShellBasedSurfaceModel.hxx".}

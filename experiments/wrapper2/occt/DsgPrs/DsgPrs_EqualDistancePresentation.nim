@@ -14,36 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Prs3d/Prs3d_Drawer, DsgPrs_ArrowSide,
-  ../Prs3d/Prs3d_Presentation
-
 discard "forward decl of gp_Pnt"
 discard "forward decl of Geom_Plane"
 discard "forward decl of gp_Dir"
 discard "forward decl of gp_Circ"
 type
-  DsgPrs_EqualDistancePresentation* {.importcpp: "DsgPrs_EqualDistancePresentation", header: "DsgPrs_EqualDistancePresentation.hxx",
-                                     bycopy.} = object ## ! Adds the points Point1, Point2, Point3 Point4, and the
-                                                    ## ! plane Plane to the presentation object aPresentation.
-                                                    ## ! The display attributes of these elements is defined by the attribute manager aDrawer.
-                                                    ## ! The distance is the length of a projection from the shape to the plane.
-                                                    ## ! These distances are used to compare two shapes by this vector alone.
+  DsgPrsEqualDistancePresentation* {.importcpp: "DsgPrs_EqualDistancePresentation", header: "DsgPrs_EqualDistancePresentation.hxx",
+                                    bycopy.} = object ## ! Adds the points Point1, Point2, Point3 Point4, and the
+                                                   ## ! plane Plane to the presentation object aPresentation.
+                                                   ## ! The display attributes of these elements is defined by the attribute manager aDrawer.
+                                                   ## ! The distance is the length of a projection from the shape to the plane.
+                                                   ## ! These distances are used to compare two shapes by this vector alone.
 
 
-proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
-         Point1: gp_Pnt; Point2: gp_Pnt; Point3: gp_Pnt; Point4: gp_Pnt;
-         Plane: handle[Geom_Plane]) {.importcpp: "DsgPrs_EqualDistancePresentation::Add(@)", header: "DsgPrs_EqualDistancePresentation.hxx".}
-proc AddInterval*(aPresentation: handle[Prs3d_Presentation];
-                 aDrawer: handle[Prs3d_Drawer]; aPoint1: gp_Pnt; aPoint2: gp_Pnt;
-                 aDir: gp_Dir; aPosition: gp_Pnt; anArrowSide: DsgPrs_ArrowSide;
-                 anExtremePnt1: var gp_Pnt; anExtremePnt2: var gp_Pnt) {.
+proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
+         point1: Pnt; point2: Pnt; point3: Pnt; point4: Pnt; plane: Handle[GeomPlane]) {.
+    importcpp: "DsgPrs_EqualDistancePresentation::Add(@)",
+    header: "DsgPrs_EqualDistancePresentation.hxx".}
+proc addInterval*(aPresentation: Handle[Prs3dPresentation];
+                 aDrawer: Handle[Prs3dDrawer]; aPoint1: Pnt; aPoint2: Pnt; aDir: Dir;
+                 aPosition: Pnt; anArrowSide: DsgPrsArrowSide;
+                 anExtremePnt1: var Pnt; anExtremePnt2: var Pnt) {.
     importcpp: "DsgPrs_EqualDistancePresentation::AddInterval(@)",
     header: "DsgPrs_EqualDistancePresentation.hxx".}
-proc AddIntervalBetweenTwoArcs*(aPresentation: handle[Prs3d_Presentation];
-                               aDrawer: handle[Prs3d_Drawer]; aCircle1: gp_Circ;
-                               aCircle2: gp_Circ; aPoint1: gp_Pnt; aPoint2: gp_Pnt;
-                               aPoint3: gp_Pnt; aPoint4: gp_Pnt;
-                               anArrowSide: DsgPrs_ArrowSide) {.importcpp: "DsgPrs_EqualDistancePresentation::AddIntervalBetweenTwoArcs(@)",
+proc addIntervalBetweenTwoArcs*(aPresentation: Handle[Prs3dPresentation];
+                               aDrawer: Handle[Prs3dDrawer]; aCircle1: Circ;
+                               aCircle2: Circ; aPoint1: Pnt; aPoint2: Pnt;
+                               aPoint3: Pnt; aPoint4: Pnt;
+                               anArrowSide: DsgPrsArrowSide) {.importcpp: "DsgPrs_EqualDistancePresentation::AddIntervalBetweenTwoArcs(@)",
     header: "DsgPrs_EqualDistancePresentation.hxx".}

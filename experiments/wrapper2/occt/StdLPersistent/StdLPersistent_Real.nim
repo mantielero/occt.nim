@@ -11,24 +11,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../StdObjMgt/StdObjMgt_Attribute, ../TDataStd/TDataStd_Real
-
 type
-  StdLPersistent_Real* {.importcpp: "StdLPersistent_Real",
-                        header: "StdLPersistent_Real.hxx", bycopy.} = object of StdObjMgt_Attribute[
-      TDataStd_Real]          ## ! Empty constructor.
+  StdLPersistentReal* {.importcpp: "StdLPersistent_Real",
+                       header: "StdLPersistent_Real.hxx", bycopy.} = object of StdObjMgtAttribute[
+      TDataStdReal]           ## ! Empty constructor.
 
 
-proc constructStdLPersistent_Real*(): StdLPersistent_Real {.constructor,
+proc constructStdLPersistentReal*(): StdLPersistentReal {.constructor,
     importcpp: "StdLPersistent_Real(@)", header: "StdLPersistent_Real.hxx".}
-proc Read*(this: var StdLPersistent_Real; theReadData: var StdObjMgt_ReadData) {.
+proc read*(this: var StdLPersistentReal; theReadData: var StdObjMgtReadData) {.
     importcpp: "Read", header: "StdLPersistent_Real.hxx".}
-proc Write*(this: StdLPersistent_Real; theWriteData: var StdObjMgt_WriteData) {.
+proc write*(this: StdLPersistentReal; theWriteData: var StdObjMgtWriteData) {.
     noSideEffect, importcpp: "Write", header: "StdLPersistent_Real.hxx".}
-proc PChildren*(this: StdLPersistent_Real; a2: var SequenceOfPersistent) {.
+proc pChildren*(this: StdLPersistentReal; a2: var SequenceOfPersistent) {.
     noSideEffect, importcpp: "PChildren", header: "StdLPersistent_Real.hxx".}
-proc PName*(this: StdLPersistent_Real): Standard_CString {.noSideEffect,
+proc pName*(this: StdLPersistentReal): StandardCString {.noSideEffect,
     importcpp: "PName", header: "StdLPersistent_Real.hxx".}
-proc Import*(this: StdLPersistent_Real; theAttribute: handle[TDataStd_Real]) {.
+proc `import`*(this: StdLPersistentReal; theAttribute: Handle[TDataStdReal]) {.
     noSideEffect, importcpp: "Import", header: "StdLPersistent_Real.hxx".}

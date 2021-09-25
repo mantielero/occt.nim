@@ -12,9 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Transient, ../NCollection/NCollection_DefaultHasher
-
 type
-  TColStd_MapTransientHasher* = NCollection_DefaultHasher[
-      handle[Standard_Transient]]
+  TColStdMapTransientHasher* = NCollectionDefaultHasher[Handle[StandardTransient]]
+

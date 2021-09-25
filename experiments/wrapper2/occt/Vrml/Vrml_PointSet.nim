@@ -14,27 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_OStream
-
 ## ! defines a PointSet node of VRML specifying geometry shapes.
 
 type
-  Vrml_PointSet* {.importcpp: "Vrml_PointSet", header: "Vrml_PointSet.hxx", bycopy.} = object
+  VrmlPointSet* {.importcpp: "Vrml_PointSet", header: "Vrml_PointSet.hxx", bycopy.} = object
 
 
-proc constructVrml_PointSet*(aStartIndex: Standard_Integer = 0;
-                            aNumPoints: Standard_Integer = -1): Vrml_PointSet {.
+proc constructVrmlPointSet*(aStartIndex: int = 0; aNumPoints: int = -1): VrmlPointSet {.
     constructor, importcpp: "Vrml_PointSet(@)", header: "Vrml_PointSet.hxx".}
-proc SetStartIndex*(this: var Vrml_PointSet; aStartIndex: Standard_Integer) {.
+proc setStartIndex*(this: var VrmlPointSet; aStartIndex: int) {.
     importcpp: "SetStartIndex", header: "Vrml_PointSet.hxx".}
-proc StartIndex*(this: Vrml_PointSet): Standard_Integer {.noSideEffect,
-    importcpp: "StartIndex", header: "Vrml_PointSet.hxx".}
-proc SetNumPoints*(this: var Vrml_PointSet; aNumPoints: Standard_Integer) {.
+proc startIndex*(this: VrmlPointSet): int {.noSideEffect, importcpp: "StartIndex",
+                                        header: "Vrml_PointSet.hxx".}
+proc setNumPoints*(this: var VrmlPointSet; aNumPoints: int) {.
     importcpp: "SetNumPoints", header: "Vrml_PointSet.hxx".}
-proc NumPoints*(this: Vrml_PointSet): Standard_Integer {.noSideEffect,
-    importcpp: "NumPoints", header: "Vrml_PointSet.hxx".}
-proc Print*(this: Vrml_PointSet; anOStream: var Standard_OStream): var Standard_OStream {.
+proc numPoints*(this: VrmlPointSet): int {.noSideEffect, importcpp: "NumPoints",
+                                       header: "Vrml_PointSet.hxx".}
+proc print*(this: VrmlPointSet; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_PointSet.hxx".}

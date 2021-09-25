@@ -13,43 +13,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_NameAssignment"
 discard "forward decl of StepBasic_NameAssignment"
 type
-  Handle_StepBasic_NameAssignment* = handle[StepBasic_NameAssignment]
+  HandleStepBasicNameAssignment* = Handle[StepBasicNameAssignment]
 
 ## ! Representation of STEP entity NameAssignment
 
 type
-  StepBasic_NameAssignment* {.importcpp: "StepBasic_NameAssignment",
-                             header: "StepBasic_NameAssignment.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                      ## !
-                                                                                                      ## Empty
-                                                                                                      ## constructor
+  StepBasicNameAssignment* {.importcpp: "StepBasic_NameAssignment",
+                            header: "StepBasic_NameAssignment.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                    ## !
+                                                                                                    ## Empty
+                                                                                                    ## constructor
 
 
-proc constructStepBasic_NameAssignment*(): StepBasic_NameAssignment {.constructor,
+proc constructStepBasicNameAssignment*(): StepBasicNameAssignment {.constructor,
     importcpp: "StepBasic_NameAssignment(@)",
     header: "StepBasic_NameAssignment.hxx".}
-proc Init*(this: var StepBasic_NameAssignment;
-          aAssignedName: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepBasicNameAssignment;
+          aAssignedName: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepBasic_NameAssignment.hxx".}
-proc AssignedName*(this: StepBasic_NameAssignment): handle[TCollection_HAsciiString] {.
+proc assignedName*(this: StepBasicNameAssignment): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "AssignedName", header: "StepBasic_NameAssignment.hxx".}
-proc SetAssignedName*(this: var StepBasic_NameAssignment;
-                     AssignedName: handle[TCollection_HAsciiString]) {.
+proc setAssignedName*(this: var StepBasicNameAssignment;
+                     assignedName: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetAssignedName", header: "StepBasic_NameAssignment.hxx".}
 type
-  StepBasic_NameAssignmentbase_type* = Standard_Transient
+  StepBasicNameAssignmentbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_NameAssignment::get_type_name(@)",
-                              header: "StepBasic_NameAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_NameAssignment::get_type_name(@)",
+                            header: "StepBasic_NameAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_NameAssignment::get_type_descriptor(@)",
     header: "StepBasic_NameAssignment.hxx".}
-proc DynamicType*(this: StepBasic_NameAssignment): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicNameAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_NameAssignment.hxx".}

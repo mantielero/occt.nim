@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Shape,
-  ../Transfer/Transfer_Finder, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Type, ../Standard/Standard_CString
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopTools_ShapeMapHasher"
 discard "forward decl of TransferBRep_ShapeInfo"
@@ -26,67 +21,66 @@ discard "forward decl of Transfer_Finder"
 discard "forward decl of TransferBRep_ShapeMapper"
 discard "forward decl of TransferBRep_ShapeMapper"
 type
-  Handle_TransferBRep_ShapeMapper* = handle[TransferBRep_ShapeMapper]
-  TransferBRep_ShapeMapper* {.importcpp: "TransferBRep_ShapeMapper",
-                             header: "TransferBRep_ShapeMapper.hxx", bycopy.} = object of Transfer_Finder ##
-                                                                                                   ## !
-                                                                                                   ## Creates
-                                                                                                   ## a
-                                                                                                   ## Mapper
-                                                                                                   ## with
-                                                                                                   ## a
-                                                                                                   ## Value.
-                                                                                                   ## This
-                                                                                                   ## Value
-                                                                                                   ## can
-                                                                                                   ## then
-                                                                                                   ## not
-                                                                                                   ## be
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## changed.
-                                                                                                   ## It
-                                                                                                   ## is
-                                                                                                   ## used
-                                                                                                   ## by
-                                                                                                   ## the
-                                                                                                   ## Hasher
-                                                                                                   ## to
-                                                                                                   ## compute
-                                                                                                   ## the
-                                                                                                   ## HashCode,
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## which
-                                                                                                   ## will
-                                                                                                   ## then
-                                                                                                   ## be
-                                                                                                   ## stored
-                                                                                                   ## for
-                                                                                                   ## an
-                                                                                                   ## immediate
-                                                                                                   ## reading.
+  HandleTransferBRepShapeMapper* = Handle[TransferBRepShapeMapper]
+  TransferBRepShapeMapper* {.importcpp: "TransferBRep_ShapeMapper",
+                            header: "TransferBRep_ShapeMapper.hxx", bycopy.} = object of TransferFinder ##
+                                                                                                 ## !
+                                                                                                 ## Creates
+                                                                                                 ## a
+                                                                                                 ## Mapper
+                                                                                                 ## with
+                                                                                                 ## a
+                                                                                                 ## Value.
+                                                                                                 ## This
+                                                                                                 ## Value
+                                                                                                 ## can
+                                                                                                 ## then
+                                                                                                 ## not
+                                                                                                 ## be
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## changed.
+                                                                                                 ## It
+                                                                                                 ## is
+                                                                                                 ## used
+                                                                                                 ## by
+                                                                                                 ## the
+                                                                                                 ## Hasher
+                                                                                                 ## to
+                                                                                                 ## compute
+                                                                                                 ## the
+                                                                                                 ## HashCode,
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## which
+                                                                                                 ## will
+                                                                                                 ## then
+                                                                                                 ## be
+                                                                                                 ## stored
+                                                                                                 ## for
+                                                                                                 ## an
+                                                                                                 ## immediate
+                                                                                                 ## reading.
 
 
-proc constructTransferBRep_ShapeMapper*(akey: TopoDS_Shape): TransferBRep_ShapeMapper {.
+proc constructTransferBRepShapeMapper*(akey: TopoDS_Shape): TransferBRepShapeMapper {.
     constructor, importcpp: "TransferBRep_ShapeMapper(@)",
     header: "TransferBRep_ShapeMapper.hxx".}
-proc Value*(this: TransferBRep_ShapeMapper): TopoDS_Shape {.noSideEffect,
+proc value*(this: TransferBRepShapeMapper): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "TransferBRep_ShapeMapper.hxx".}
-proc Equates*(this: TransferBRep_ShapeMapper; other: handle[Transfer_Finder]): Standard_Boolean {.
+proc equates*(this: TransferBRepShapeMapper; other: Handle[TransferFinder]): bool {.
     noSideEffect, importcpp: "Equates", header: "TransferBRep_ShapeMapper.hxx".}
-proc ValueType*(this: TransferBRep_ShapeMapper): handle[Standard_Type] {.
-    noSideEffect, importcpp: "ValueType", header: "TransferBRep_ShapeMapper.hxx".}
-proc ValueTypeName*(this: TransferBRep_ShapeMapper): Standard_CString {.
-    noSideEffect, importcpp: "ValueTypeName",
-    header: "TransferBRep_ShapeMapper.hxx".}
+proc valueType*(this: TransferBRepShapeMapper): Handle[StandardType] {.noSideEffect,
+    importcpp: "ValueType", header: "TransferBRep_ShapeMapper.hxx".}
+proc valueTypeName*(this: TransferBRepShapeMapper): StandardCString {.noSideEffect,
+    importcpp: "ValueTypeName", header: "TransferBRep_ShapeMapper.hxx".}
 type
-  TransferBRep_ShapeMapperbase_type* = Transfer_Finder
+  TransferBRepShapeMapperbaseType* = TransferFinder
 
-proc get_type_name*(): cstring {.importcpp: "TransferBRep_ShapeMapper::get_type_name(@)",
-                              header: "TransferBRep_ShapeMapper.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TransferBRep_ShapeMapper::get_type_name(@)",
+                            header: "TransferBRep_ShapeMapper.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TransferBRep_ShapeMapper::get_type_descriptor(@)",
     header: "TransferBRep_ShapeMapper.hxx".}
-proc DynamicType*(this: TransferBRep_ShapeMapper): handle[Standard_Type] {.
+proc dynamicType*(this: TransferBRepShapeMapper): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TransferBRep_ShapeMapper.hxx".}

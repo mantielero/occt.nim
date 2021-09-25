@@ -13,48 +13,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../XmlMDF/XmlMDF_ADriver,
-  ../Standard/Standard_Boolean, ../XmlObjMgt/XmlObjMgt_RRelocationTable,
-  ../XmlObjMgt/XmlObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDataXtd_PositionDriver"
 discard "forward decl of XmlMDataXtd_PositionDriver"
 type
-  Handle_XmlMDataXtd_PositionDriver* = handle[XmlMDataXtd_PositionDriver]
+  HandleXmlMDataXtdPositionDriver* = Handle[XmlMDataXtdPositionDriver]
 
 ## ! Attribute Driver.
 
 type
-  XmlMDataXtd_PositionDriver* {.importcpp: "XmlMDataXtd_PositionDriver",
-                               header: "XmlMDataXtd_PositionDriver.hxx", bycopy.} = object of XmlMDF_ADriver
+  XmlMDataXtdPositionDriver* {.importcpp: "XmlMDataXtd_PositionDriver",
+                              header: "XmlMDataXtd_PositionDriver.hxx", bycopy.} = object of XmlMDF_ADriver
 
 
-proc constructXmlMDataXtd_PositionDriver*(
-    theMessageDriver: handle[Message_Messenger]): XmlMDataXtd_PositionDriver {.
+proc constructXmlMDataXtdPositionDriver*(theMessageDriver: Handle[MessageMessenger]): XmlMDataXtdPositionDriver {.
     constructor, importcpp: "XmlMDataXtd_PositionDriver(@)",
     header: "XmlMDataXtd_PositionDriver.hxx".}
-proc NewEmpty*(this: XmlMDataXtd_PositionDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: XmlMDataXtdPositionDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty", header: "XmlMDataXtd_PositionDriver.hxx".}
-proc Paste*(this: XmlMDataXtd_PositionDriver; Source: XmlObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var XmlObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "XmlMDataXtd_PositionDriver.hxx".}
-proc Paste*(this: XmlMDataXtd_PositionDriver; Source: handle[TDF_Attribute];
-           Target: var XmlObjMgt_Persistent;
-           RelocTable: var XmlObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: XmlMDataXtdPositionDriver; source: XmlObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var XmlObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "XmlMDataXtd_PositionDriver.hxx".}
+proc paste*(this: XmlMDataXtdPositionDriver; source: Handle[TDF_Attribute];
+           target: var XmlObjMgtPersistent;
+           relocTable: var XmlObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "XmlMDataXtd_PositionDriver.hxx".}
 type
-  XmlMDataXtd_PositionDriverbase_type* = XmlMDF_ADriver
+  XmlMDataXtdPositionDriverbaseType* = XmlMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "XmlMDataXtd_PositionDriver::get_type_name(@)",
-                              header: "XmlMDataXtd_PositionDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XmlMDataXtd_PositionDriver::get_type_name(@)",
+                            header: "XmlMDataXtd_PositionDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XmlMDataXtd_PositionDriver::get_type_descriptor(@)",
     header: "XmlMDataXtd_PositionDriver.hxx".}
-proc DynamicType*(this: XmlMDataXtd_PositionDriver): handle[Standard_Type] {.
+proc dynamicType*(this: XmlMDataXtdPositionDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMDataXtd_PositionDriver.hxx".}

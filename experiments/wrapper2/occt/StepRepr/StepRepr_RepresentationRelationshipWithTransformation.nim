@@ -14,46 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_Transformation,
-  StepRepr_ShapeRepresentationRelationship
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_Representation"
 discard "forward decl of StepRepr_Transformation"
 discard "forward decl of StepRepr_RepresentationRelationshipWithTransformation"
 discard "forward decl of StepRepr_RepresentationRelationshipWithTransformation"
 type
-  Handle_StepRepr_RepresentationRelationshipWithTransformation* = handle[
-      StepRepr_RepresentationRelationshipWithTransformation]
-  StepRepr_RepresentationRelationshipWithTransformation* {.
+  HandleStepReprRepresentationRelationshipWithTransformation* = Handle[
+      StepReprRepresentationRelationshipWithTransformation]
+  StepReprRepresentationRelationshipWithTransformation* {.
       importcpp: "StepRepr_RepresentationRelationshipWithTransformation",
-      header: "StepRepr_RepresentationRelationshipWithTransformation.hxx", bycopy.} = object of StepRepr_ShapeRepresentationRelationship
+      header: "StepRepr_RepresentationRelationshipWithTransformation.hxx", bycopy.} = object of StepReprShapeRepresentationRelationship
 
 
-proc constructStepRepr_RepresentationRelationshipWithTransformation*(): StepRepr_RepresentationRelationshipWithTransformation {.
+proc constructStepReprRepresentationRelationshipWithTransformation*(): StepReprRepresentationRelationshipWithTransformation {.
     constructor,
     importcpp: "StepRepr_RepresentationRelationshipWithTransformation(@)",
     header: "StepRepr_RepresentationRelationshipWithTransformation.hxx".}
-proc Init*(this: var StepRepr_RepresentationRelationshipWithTransformation;
-          aName: handle[TCollection_HAsciiString];
-          aDescription: handle[TCollection_HAsciiString];
-          aRep1: handle[StepRepr_Representation];
-          aRep2: handle[StepRepr_Representation]; aTransf: StepRepr_Transformation) {.
+proc init*(this: var StepReprRepresentationRelationshipWithTransformation;
+          aName: Handle[TCollectionHAsciiString];
+          aDescription: Handle[TCollectionHAsciiString];
+          aRep1: Handle[StepReprRepresentation];
+          aRep2: Handle[StepReprRepresentation]; aTransf: StepReprTransformation) {.
     importcpp: "Init",
     header: "StepRepr_RepresentationRelationshipWithTransformation.hxx".}
-proc TransformationOperator*(this: StepRepr_RepresentationRelationshipWithTransformation): StepRepr_Transformation {.
+proc transformationOperator*(this: StepReprRepresentationRelationshipWithTransformation): StepReprTransformation {.
     noSideEffect, importcpp: "TransformationOperator",
     header: "StepRepr_RepresentationRelationshipWithTransformation.hxx".}
-proc SetTransformationOperator*(this: var StepRepr_RepresentationRelationshipWithTransformation;
-                               aTrans: StepRepr_Transformation) {.
+proc setTransformationOperator*(this: var StepReprRepresentationRelationshipWithTransformation;
+                               aTrans: StepReprTransformation) {.
     importcpp: "SetTransformationOperator",
     header: "StepRepr_RepresentationRelationshipWithTransformation.hxx".}
 type
-  StepRepr_RepresentationRelationshipWithTransformationbase_type* = StepRepr_ShapeRepresentationRelationship
+  StepReprRepresentationRelationshipWithTransformationbaseType* = StepReprShapeRepresentationRelationship
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_RepresentationRelationshipWithTransformation::get_type_name(@)", header: "StepRepr_RepresentationRelationshipWithTransformation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepRepr_RepresentationRelationshipWithTransformation::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepRepr_RepresentationRelationshipWithTransformation::get_type_name(@)", header: "StepRepr_RepresentationRelationshipWithTransformation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_RepresentationRelationshipWithTransformation::get_type_descriptor(@)",
     header: "StepRepr_RepresentationRelationshipWithTransformation.hxx".}
-proc DynamicType*(this: StepRepr_RepresentationRelationshipWithTransformation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepRepr_RepresentationRelationshipWithTransformation.hxx".}
+proc dynamicType*(this: StepReprRepresentationRelationshipWithTransformation): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepRepr_RepresentationRelationshipWithTransformation.hxx".}

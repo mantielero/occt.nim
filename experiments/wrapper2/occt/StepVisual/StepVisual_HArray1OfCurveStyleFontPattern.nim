@@ -14,40 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_CurveStyleFontPattern, StepVisual_Array1OfCurveStyleFontPattern,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepVisual_HArray1OfCurveStyleFontPattern* {.
+  StepVisualHArray1OfCurveStyleFontPattern* {.
       importcpp: "StepVisual_HArray1OfCurveStyleFontPattern",
-      header: "StepVisual_HArray1OfCurveStyleFontPattern.hxx", bycopy.} = object of StepVisual_Array1OfCurveStyleFontPattern
+      header: "StepVisual_HArray1OfCurveStyleFontPattern.hxx", bycopy.} = object of StepVisualArray1OfCurveStyleFontPattern
 
 
-proc constructStepVisual_HArray1OfCurveStyleFontPattern*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepVisual_HArray1OfCurveStyleFontPattern {.
+proc constructStepVisualHArray1OfCurveStyleFontPattern*(theLower: int;
+    theUpper: int): StepVisualHArray1OfCurveStyleFontPattern {.constructor,
+    importcpp: "StepVisual_HArray1OfCurveStyleFontPattern(@)",
+    header: "StepVisual_HArray1OfCurveStyleFontPattern.hxx".}
+proc constructStepVisualHArray1OfCurveStyleFontPattern*(theLower: int;
+    theUpper: int; theValue: ValueType): StepVisualHArray1OfCurveStyleFontPattern {.
     constructor, importcpp: "StepVisual_HArray1OfCurveStyleFontPattern(@)",
     header: "StepVisual_HArray1OfCurveStyleFontPattern.hxx".}
-proc constructStepVisual_HArray1OfCurveStyleFontPattern*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepVisual_HArray1OfCurveStyleFontPattern {.
+proc constructStepVisualHArray1OfCurveStyleFontPattern*(
+    theOther: StepVisualArray1OfCurveStyleFontPattern): StepVisualHArray1OfCurveStyleFontPattern {.
     constructor, importcpp: "StepVisual_HArray1OfCurveStyleFontPattern(@)",
     header: "StepVisual_HArray1OfCurveStyleFontPattern.hxx".}
-proc constructStepVisual_HArray1OfCurveStyleFontPattern*(
-    theOther: StepVisual_Array1OfCurveStyleFontPattern): StepVisual_HArray1OfCurveStyleFontPattern {.
-    constructor, importcpp: "StepVisual_HArray1OfCurveStyleFontPattern(@)",
-    header: "StepVisual_HArray1OfCurveStyleFontPattern.hxx".}
-proc Array1*(this: StepVisual_HArray1OfCurveStyleFontPattern): StepVisual_Array1OfCurveStyleFontPattern {.
+proc array1*(this: StepVisualHArray1OfCurveStyleFontPattern): StepVisualArray1OfCurveStyleFontPattern {.
     noSideEffect, importcpp: "Array1",
     header: "StepVisual_HArray1OfCurveStyleFontPattern.hxx".}
-proc ChangeArray1*(this: var StepVisual_HArray1OfCurveStyleFontPattern): var StepVisual_Array1OfCurveStyleFontPattern {.
+proc changeArray1*(this: var StepVisualHArray1OfCurveStyleFontPattern): var StepVisualArray1OfCurveStyleFontPattern {.
     importcpp: "ChangeArray1",
     header: "StepVisual_HArray1OfCurveStyleFontPattern.hxx".}
 type
-  StepVisual_HArray1OfCurveStyleFontPatternbase_type* = MMgt_TShared
+  StepVisualHArray1OfCurveStyleFontPatternbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_HArray1OfCurveStyleFontPattern::get_type_name(@)", header: "StepVisual_HArray1OfCurveStyleFontPattern.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_HArray1OfCurveStyleFontPattern::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepVisual_HArray1OfCurveStyleFontPattern::get_type_name(@)", header: "StepVisual_HArray1OfCurveStyleFontPattern.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_HArray1OfCurveStyleFontPattern::get_type_descriptor(@)",
     header: "StepVisual_HArray1OfCurveStyleFontPattern.hxx".}
-proc DynamicType*(this: StepVisual_HArray1OfCurveStyleFontPattern): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepVisual_HArray1OfCurveStyleFontPattern.hxx".}
+proc dynamicType*(this: StepVisualHArray1OfCurveStyleFontPattern): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepVisual_HArray1OfCurveStyleFontPattern.hxx".}

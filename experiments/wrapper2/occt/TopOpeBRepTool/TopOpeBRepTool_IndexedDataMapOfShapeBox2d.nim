@@ -14,11 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, ../Bnd/Bnd_Box2d,
-  ../TopTools/TopTools_OrientedShapeMapHasher,
-  ../NCollection/NCollection_IndexedDataMap
-
 type
-  TopOpeBRepTool_IndexedDataMapOfShapeBox2d* = NCollection_IndexedDataMap[
-      TopoDS_Shape, Bnd_Box2d, TopTools_OrientedShapeMapHasher]
+  TopOpeBRepToolIndexedDataMapOfShapeBox2d* = NCollectionIndexedDataMap[
+      TopoDS_Shape, BndBox2d, TopToolsOrientedShapeMapHasher]
+

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  Geom_ElementarySurface, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_RangeError"
 discard "forward decl of gp_Ax3"
@@ -31,7 +26,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_SphericalSurface"
 discard "forward decl of Geom_SphericalSurface"
 type
-  Handle_Geom_SphericalSurface* = handle[Geom_SphericalSurface]
+  HandleGeomSphericalSurface* = Handle[GeomSphericalSurface]
 
 ## ! Describes a sphere.
 ## ! A sphere is defined by its radius, and is positioned in
@@ -74,212 +69,205 @@ type
 ## ! - [ - Pi/2., + Pi/2. ] for v.
 
 type
-  Geom_SphericalSurface* {.importcpp: "Geom_SphericalSurface",
-                          header: "Geom_SphericalSurface.hxx", bycopy.} = object of Geom_ElementarySurface ##
-                                                                                                    ## !
-                                                                                                    ## A3
-                                                                                                    ## is
-                                                                                                    ## the
-                                                                                                    ## local
-                                                                                                    ## coordinate
-                                                                                                    ## system
-                                                                                                    ## of
-                                                                                                    ## the
-                                                                                                    ## surface.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## At
-                                                                                                    ## the
-                                                                                                    ## creation
-                                                                                                    ## the
-                                                                                                    ## parametrization
-                                                                                                    ## of
-                                                                                                    ## the
-                                                                                                    ## surface
-                                                                                                    ## is
-                                                                                                    ## defined
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## such
-                                                                                                    ## as
-                                                                                                    ## the
-                                                                                                    ## normal
-                                                                                                    ## Vector
-                                                                                                    ## (N
-                                                                                                    ## =
-                                                                                                    ## D1U
-                                                                                                    ## ^
-                                                                                                    ## D1V)
-                                                                                                    ## is
-                                                                                                    ## directed
-                                                                                                    ## away
-                                                                                                    ## from
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## the
-                                                                                                    ## center
-                                                                                                    ## of
-                                                                                                    ## the
-                                                                                                    ## sphere.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## The
-                                                                                                    ## direction
-                                                                                                    ## of
-                                                                                                    ## increasing
-                                                                                                    ## parametric
-                                                                                                    ## value
-                                                                                                    ## V
-                                                                                                    ## is
-                                                                                                    ## defined
-                                                                                                    ## by
-                                                                                                    ## the
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## rotation
-                                                                                                    ## around
-                                                                                                    ## the
-                                                                                                    ## "YDirection"
-                                                                                                    ## of
-                                                                                                    ## A2
-                                                                                                    ## in
-                                                                                                    ## the
-                                                                                                    ## trigonometric
-                                                                                                    ## sense
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## and
-                                                                                                    ## the
-                                                                                                    ## orientation
-                                                                                                    ## of
-                                                                                                    ## increasing
-                                                                                                    ## parametric
-                                                                                                    ## value
-                                                                                                    ## U
-                                                                                                    ## is
-                                                                                                    ## defined
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## by
-                                                                                                    ## the
-                                                                                                    ## rotation
-                                                                                                    ## around
-                                                                                                    ## the
-                                                                                                    ## main
-                                                                                                    ## direction
-                                                                                                    ## of
-                                                                                                    ## A2
-                                                                                                    ## in
-                                                                                                    ## the
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## trigonometric
-                                                                                                    ## sense.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Warnings
-                                                                                                    ## :
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## It
-                                                                                                    ## is
-                                                                                                    ## not
-                                                                                                    ## forbidden
-                                                                                                    ## to
-                                                                                                    ## create
-                                                                                                    ## a
-                                                                                                    ## spherical
-                                                                                                    ## surface
-                                                                                                    ## with
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Radius
-                                                                                                    ## =
-                                                                                                    ## 0.0
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Raised
-                                                                                                    ## if
-                                                                                                    ## Radius
-                                                                                                    ## <
-                                                                                                    ## 0.0.
+  GeomSphericalSurface* {.importcpp: "Geom_SphericalSurface",
+                         header: "Geom_SphericalSurface.hxx", bycopy.} = object of GeomElementarySurface ##
+                                                                                                  ## !
+                                                                                                  ## A3
+                                                                                                  ## is
+                                                                                                  ## the
+                                                                                                  ## local
+                                                                                                  ## coordinate
+                                                                                                  ## system
+                                                                                                  ## of
+                                                                                                  ## the
+                                                                                                  ## surface.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## At
+                                                                                                  ## the
+                                                                                                  ## creation
+                                                                                                  ## the
+                                                                                                  ## parametrization
+                                                                                                  ## of
+                                                                                                  ## the
+                                                                                                  ## surface
+                                                                                                  ## is
+                                                                                                  ## defined
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## such
+                                                                                                  ## as
+                                                                                                  ## the
+                                                                                                  ## normal
+                                                                                                  ## Vector
+                                                                                                  ## (N
+                                                                                                  ## =
+                                                                                                  ## D1U
+                                                                                                  ## ^
+                                                                                                  ## D1V)
+                                                                                                  ## is
+                                                                                                  ## directed
+                                                                                                  ## away
+                                                                                                  ## from
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## the
+                                                                                                  ## center
+                                                                                                  ## of
+                                                                                                  ## the
+                                                                                                  ## sphere.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## The
+                                                                                                  ## direction
+                                                                                                  ## of
+                                                                                                  ## increasing
+                                                                                                  ## parametric
+                                                                                                  ## value
+                                                                                                  ## V
+                                                                                                  ## is
+                                                                                                  ## defined
+                                                                                                  ## by
+                                                                                                  ## the
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## rotation
+                                                                                                  ## around
+                                                                                                  ## the
+                                                                                                  ## "YDirection"
+                                                                                                  ## of
+                                                                                                  ## A2
+                                                                                                  ## in
+                                                                                                  ## the
+                                                                                                  ## trigonometric
+                                                                                                  ## sense
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## and
+                                                                                                  ## the
+                                                                                                  ## orientation
+                                                                                                  ## of
+                                                                                                  ## increasing
+                                                                                                  ## parametric
+                                                                                                  ## value
+                                                                                                  ## U
+                                                                                                  ## is
+                                                                                                  ## defined
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## by
+                                                                                                  ## the
+                                                                                                  ## rotation
+                                                                                                  ## around
+                                                                                                  ## the
+                                                                                                  ## main
+                                                                                                  ## direction
+                                                                                                  ## of
+                                                                                                  ## A2
+                                                                                                  ## in
+                                                                                                  ## the
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## trigonometric
+                                                                                                  ## sense.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Warnings
+                                                                                                  ## :
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## It
+                                                                                                  ## is
+                                                                                                  ## not
+                                                                                                  ## forbidden
+                                                                                                  ## to
+                                                                                                  ## create
+                                                                                                  ## a
+                                                                                                  ## spherical
+                                                                                                  ## surface
+                                                                                                  ## with
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Radius
+                                                                                                  ## =
+                                                                                                  ## 0.0
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Raised
+                                                                                                  ## if
+                                                                                                  ## Radius
+                                                                                                  ## <
+                                                                                                  ## 0.0.
 
 
-proc constructGeom_SphericalSurface*(A3: gp_Ax3; Radius: Standard_Real): Geom_SphericalSurface {.
+proc constructGeomSphericalSurface*(a3: Ax3; radius: float): GeomSphericalSurface {.
     constructor, importcpp: "Geom_SphericalSurface(@)",
     header: "Geom_SphericalSurface.hxx".}
-proc constructGeom_SphericalSurface*(S: gp_Sphere): Geom_SphericalSurface {.
-    constructor, importcpp: "Geom_SphericalSurface(@)",
+proc constructGeomSphericalSurface*(s: Sphere): GeomSphericalSurface {.constructor,
+    importcpp: "Geom_SphericalSurface(@)", header: "Geom_SphericalSurface.hxx".}
+proc setRadius*(this: var GeomSphericalSurface; r: float) {.importcpp: "SetRadius",
     header: "Geom_SphericalSurface.hxx".}
-proc SetRadius*(this: var Geom_SphericalSurface; R: Standard_Real) {.
-    importcpp: "SetRadius", header: "Geom_SphericalSurface.hxx".}
-proc SetSphere*(this: var Geom_SphericalSurface; S: gp_Sphere) {.
-    importcpp: "SetSphere", header: "Geom_SphericalSurface.hxx".}
-proc Sphere*(this: Geom_SphericalSurface): gp_Sphere {.noSideEffect,
-    importcpp: "Sphere", header: "Geom_SphericalSurface.hxx".}
-proc UReversedParameter*(this: Geom_SphericalSurface; U: Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "UReversedParameter",
+proc setSphere*(this: var GeomSphericalSurface; s: Sphere) {.importcpp: "SetSphere",
     header: "Geom_SphericalSurface.hxx".}
-proc VReversedParameter*(this: Geom_SphericalSurface; V: Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "VReversedParameter",
+proc sphere*(this: GeomSphericalSurface): Sphere {.noSideEffect, importcpp: "Sphere",
     header: "Geom_SphericalSurface.hxx".}
-proc Area*(this: Geom_SphericalSurface): Standard_Real {.noSideEffect,
-    importcpp: "Area", header: "Geom_SphericalSurface.hxx".}
-proc Bounds*(this: Geom_SphericalSurface; U1: var Standard_Real;
-            U2: var Standard_Real; V1: var Standard_Real; V2: var Standard_Real) {.
-    noSideEffect, importcpp: "Bounds", header: "Geom_SphericalSurface.hxx".}
-proc Coefficients*(this: Geom_SphericalSurface; A1: var Standard_Real;
-                  A2: var Standard_Real; A3: var Standard_Real; B1: var Standard_Real;
-                  B2: var Standard_Real; B3: var Standard_Real; C1: var Standard_Real;
-                  C2: var Standard_Real; C3: var Standard_Real; D: var Standard_Real) {.
-    noSideEffect, importcpp: "Coefficients", header: "Geom_SphericalSurface.hxx".}
-proc Radius*(this: Geom_SphericalSurface): Standard_Real {.noSideEffect,
-    importcpp: "Radius", header: "Geom_SphericalSurface.hxx".}
-proc Volume*(this: Geom_SphericalSurface): Standard_Real {.noSideEffect,
-    importcpp: "Volume", header: "Geom_SphericalSurface.hxx".}
-proc IsUClosed*(this: Geom_SphericalSurface): Standard_Boolean {.noSideEffect,
-    importcpp: "IsUClosed", header: "Geom_SphericalSurface.hxx".}
-proc IsVClosed*(this: Geom_SphericalSurface): Standard_Boolean {.noSideEffect,
-    importcpp: "IsVClosed", header: "Geom_SphericalSurface.hxx".}
-proc IsUPeriodic*(this: Geom_SphericalSurface): Standard_Boolean {.noSideEffect,
-    importcpp: "IsUPeriodic", header: "Geom_SphericalSurface.hxx".}
-proc IsVPeriodic*(this: Geom_SphericalSurface): Standard_Boolean {.noSideEffect,
-    importcpp: "IsVPeriodic", header: "Geom_SphericalSurface.hxx".}
-proc UIso*(this: Geom_SphericalSurface; U: Standard_Real): handle[Geom_Curve] {.
-    noSideEffect, importcpp: "UIso", header: "Geom_SphericalSurface.hxx".}
-proc VIso*(this: Geom_SphericalSurface; V: Standard_Real): handle[Geom_Curve] {.
-    noSideEffect, importcpp: "VIso", header: "Geom_SphericalSurface.hxx".}
-proc D0*(this: Geom_SphericalSurface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt) {.
-    noSideEffect, importcpp: "D0", header: "Geom_SphericalSurface.hxx".}
-proc D1*(this: Geom_SphericalSurface; U: Standard_Real; V: Standard_Real;
-        P: var gp_Pnt; D1U: var gp_Vec; D1V: var gp_Vec) {.noSideEffect, importcpp: "D1",
+proc uReversedParameter*(this: GeomSphericalSurface; u: float): float {.noSideEffect,
+    importcpp: "UReversedParameter", header: "Geom_SphericalSurface.hxx".}
+proc vReversedParameter*(this: GeomSphericalSurface; v: float): float {.noSideEffect,
+    importcpp: "VReversedParameter", header: "Geom_SphericalSurface.hxx".}
+proc area*(this: GeomSphericalSurface): float {.noSideEffect, importcpp: "Area",
     header: "Geom_SphericalSurface.hxx".}
-proc D2*(this: Geom_SphericalSurface; U: Standard_Real; V: Standard_Real;
-        P: var gp_Pnt; D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec;
-        D2UV: var gp_Vec) {.noSideEffect, importcpp: "D2",
-                         header: "Geom_SphericalSurface.hxx".}
-proc D3*(this: Geom_SphericalSurface; U: Standard_Real; V: Standard_Real;
-        P: var gp_Pnt; D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec;
-        D2UV: var gp_Vec; D3U: var gp_Vec; D3V: var gp_Vec; D3UUV: var gp_Vec;
-        D3UVV: var gp_Vec) {.noSideEffect, importcpp: "D3",
+proc bounds*(this: GeomSphericalSurface; u1: var float; u2: var float; v1: var float;
+            v2: var float) {.noSideEffect, importcpp: "Bounds",
                           header: "Geom_SphericalSurface.hxx".}
-proc DN*(this: Geom_SphericalSurface; U: Standard_Real; V: Standard_Real;
-        Nu: Standard_Integer; Nv: Standard_Integer): gp_Vec {.noSideEffect,
-    importcpp: "DN", header: "Geom_SphericalSurface.hxx".}
-proc Transform*(this: var Geom_SphericalSurface; T: gp_Trsf) {.importcpp: "Transform",
+proc coefficients*(this: GeomSphericalSurface; a1: var float; a2: var float;
+                  a3: var float; b1: var float; b2: var float; b3: var float; c1: var float;
+                  c2: var float; c3: var float; d: var float) {.noSideEffect,
+    importcpp: "Coefficients", header: "Geom_SphericalSurface.hxx".}
+proc radius*(this: GeomSphericalSurface): float {.noSideEffect, importcpp: "Radius",
     header: "Geom_SphericalSurface.hxx".}
-proc Copy*(this: Geom_SphericalSurface): handle[Geom_Geometry] {.noSideEffect,
+proc volume*(this: GeomSphericalSurface): float {.noSideEffect, importcpp: "Volume",
+    header: "Geom_SphericalSurface.hxx".}
+proc isUClosed*(this: GeomSphericalSurface): bool {.noSideEffect,
+    importcpp: "IsUClosed", header: "Geom_SphericalSurface.hxx".}
+proc isVClosed*(this: GeomSphericalSurface): bool {.noSideEffect,
+    importcpp: "IsVClosed", header: "Geom_SphericalSurface.hxx".}
+proc isUPeriodic*(this: GeomSphericalSurface): bool {.noSideEffect,
+    importcpp: "IsUPeriodic", header: "Geom_SphericalSurface.hxx".}
+proc isVPeriodic*(this: GeomSphericalSurface): bool {.noSideEffect,
+    importcpp: "IsVPeriodic", header: "Geom_SphericalSurface.hxx".}
+proc uIso*(this: GeomSphericalSurface; u: float): Handle[GeomCurve] {.noSideEffect,
+    importcpp: "UIso", header: "Geom_SphericalSurface.hxx".}
+proc vIso*(this: GeomSphericalSurface; v: float): Handle[GeomCurve] {.noSideEffect,
+    importcpp: "VIso", header: "Geom_SphericalSurface.hxx".}
+proc d0*(this: GeomSphericalSurface; u: float; v: float; p: var Pnt) {.noSideEffect,
+    importcpp: "D0", header: "Geom_SphericalSurface.hxx".}
+proc d1*(this: GeomSphericalSurface; u: float; v: float; p: var Pnt; d1u: var Vec;
+        d1v: var Vec) {.noSideEffect, importcpp: "D1",
+                     header: "Geom_SphericalSurface.hxx".}
+proc d2*(this: GeomSphericalSurface; u: float; v: float; p: var Pnt; d1u: var Vec;
+        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
+    importcpp: "D2", header: "Geom_SphericalSurface.hxx".}
+proc d3*(this: GeomSphericalSurface; u: float; v: float; p: var Pnt; d1u: var Vec;
+        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
+        d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
+                                    header: "Geom_SphericalSurface.hxx".}
+proc dn*(this: GeomSphericalSurface; u: float; v: float; nu: int; nv: int): Vec {.
+    noSideEffect, importcpp: "DN", header: "Geom_SphericalSurface.hxx".}
+proc transform*(this: var GeomSphericalSurface; t: Trsf) {.importcpp: "Transform",
+    header: "Geom_SphericalSurface.hxx".}
+proc copy*(this: GeomSphericalSurface): Handle[GeomGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_SphericalSurface.hxx".}
-proc DumpJson*(this: Geom_SphericalSurface; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Geom_SphericalSurface.hxx".}
+proc dumpJson*(this: GeomSphericalSurface; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Geom_SphericalSurface.hxx".}
 type
-  Geom_SphericalSurfacebase_type* = Geom_ElementarySurface
+  GeomSphericalSurfacebaseType* = GeomElementarySurface
 
-proc get_type_name*(): cstring {.importcpp: "Geom_SphericalSurface::get_type_name(@)",
-                              header: "Geom_SphericalSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Geom_SphericalSurface::get_type_name(@)",
+                            header: "Geom_SphericalSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_SphericalSurface::get_type_descriptor(@)",
     header: "Geom_SphericalSurface.hxx".}
-proc DynamicType*(this: Geom_SphericalSurface): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Geom_SphericalSurface.hxx".}
+proc dynamicType*(this: GeomSphericalSurface): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Geom_SphericalSurface.hxx".}

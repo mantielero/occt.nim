@@ -13,8 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Graphic3d/Graphic3d_Layer
-
 type
-  OpenGl_Layer* = Graphic3d_Layer
+  OpenGlLayer* = Graphic3dLayer
+

@@ -13,38 +13,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  BRepMesh_NURBSRangeSplitter
-
 ## ! Auxiliary class extending UV range splitter in order to generate
 ## ! internal nodes for NURBS surface.
 
 type
-  BRepMesh_BoundaryParamsRangeSplitter* {.
-      importcpp: "BRepMesh_BoundaryParamsRangeSplitter",
-      header: "BRepMesh_BoundaryParamsRangeSplitter.hxx", bycopy.} = object of BRepMesh_NURBSRangeSplitter ##
-                                                                                                    ## !
-                                                                                                    ## Constructor.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Initializes
-                                                                                                    ## U
-                                                                                                    ## and
-                                                                                                    ## V
-                                                                                                    ## parameters
-                                                                                                    ## lists
-                                                                                                    ## using
-                                                                                                    ## CN
-                                                                                                    ## continuity
-                                                                                                    ## intervals.
+  BRepMeshBoundaryParamsRangeSplitter* {.importcpp: "BRepMesh_BoundaryParamsRangeSplitter", header: "BRepMesh_BoundaryParamsRangeSplitter.hxx",
+                                        bycopy.} = object of BRepMeshNURBSRangeSplitter ##
+                                                                                   ## !
+                                                                                   ## Constructor.
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## Initializes
+                                                                                   ## U
+                                                                                   ## and
+                                                                                   ## V
+                                                                                   ## parameters
+                                                                                   ## lists
+                                                                                   ## using
+                                                                                   ## CN
+                                                                                   ## continuity
+                                                                                   ## intervals.
 
 
-proc constructBRepMesh_BoundaryParamsRangeSplitter*(): BRepMesh_BoundaryParamsRangeSplitter {.
+proc constructBRepMeshBoundaryParamsRangeSplitter*(): BRepMeshBoundaryParamsRangeSplitter {.
     constructor, importcpp: "BRepMesh_BoundaryParamsRangeSplitter(@)",
     header: "BRepMesh_BoundaryParamsRangeSplitter.hxx".}
-proc destroyBRepMesh_BoundaryParamsRangeSplitter*(
-    this: var BRepMesh_BoundaryParamsRangeSplitter) {.
+proc destroyBRepMeshBoundaryParamsRangeSplitter*(
+    this: var BRepMeshBoundaryParamsRangeSplitter) {.
     importcpp: "#.~BRepMesh_BoundaryParamsRangeSplitter()",
     header: "BRepMesh_BoundaryParamsRangeSplitter.hxx".}
-proc AddPoint*(this: var BRepMesh_BoundaryParamsRangeSplitter; thePoint: gp_Pnt2d) {.
+proc addPoint*(this: var BRepMeshBoundaryParamsRangeSplitter; thePoint: Pnt2d) {.
     importcpp: "AddPoint", header: "BRepMesh_BoundaryParamsRangeSplitter.hxx".}

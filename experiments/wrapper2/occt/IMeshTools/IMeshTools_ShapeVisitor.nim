@@ -13,35 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Transient, ../Standard/Standard_Type
-
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 type
-  IMeshTools_ShapeVisitor* {.importcpp: "IMeshTools_ShapeVisitor",
-                            header: "IMeshTools_ShapeVisitor.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                    ## !
-                                                                                                    ## Destructor.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Constructor.
+  IMeshToolsShapeVisitor* {.importcpp: "IMeshTools_ShapeVisitor",
+                           header: "IMeshTools_ShapeVisitor.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                  ## !
+                                                                                                  ## Destructor.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Constructor.
 
 
-proc destroyIMeshTools_ShapeVisitor*(this: var IMeshTools_ShapeVisitor) {.
+proc destroyIMeshToolsShapeVisitor*(this: var IMeshToolsShapeVisitor) {.
     importcpp: "#.~IMeshTools_ShapeVisitor()",
     header: "IMeshTools_ShapeVisitor.hxx".}
-proc Visit*(this: var IMeshTools_ShapeVisitor; theFace: TopoDS_Face) {.
+proc visit*(this: var IMeshToolsShapeVisitor; theFace: TopoDS_Face) {.
     importcpp: "Visit", header: "IMeshTools_ShapeVisitor.hxx".}
-proc Visit*(this: var IMeshTools_ShapeVisitor; theEdge: TopoDS_Edge) {.
+proc visit*(this: var IMeshToolsShapeVisitor; theEdge: TopoDS_Edge) {.
     importcpp: "Visit", header: "IMeshTools_ShapeVisitor.hxx".}
 type
-  IMeshTools_ShapeVisitorbase_type* = Standard_Transient
+  IMeshToolsShapeVisitorbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "IMeshTools_ShapeVisitor::get_type_name(@)",
-                              header: "IMeshTools_ShapeVisitor.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IMeshTools_ShapeVisitor::get_type_name(@)",
+                            header: "IMeshTools_ShapeVisitor.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IMeshTools_ShapeVisitor::get_type_descriptor(@)",
     header: "IMeshTools_ShapeVisitor.hxx".}
-proc DynamicType*(this: IMeshTools_ShapeVisitor): handle[Standard_Type] {.
+proc dynamicType*(this: IMeshToolsShapeVisitor): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IMeshTools_ShapeVisitor.hxx".}

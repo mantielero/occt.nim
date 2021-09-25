@@ -14,43 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  Draw_Drawable3D, ../Standard/Standard_OStream, Draw_Interpretor
-
 discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Drawable3D"
 discard "forward decl of Draw_Number"
 discard "forward decl of Draw_Number"
 type
-  Handle_Draw_Number* = handle[Draw_Number]
+  HandleDrawNumber* = Handle[DrawNumber]
 
 ## ! To store nummbers in variables.
 
 type
-  Draw_Number* {.importcpp: "Draw_Number", header: "Draw_Number.hxx", bycopy.} = object of Draw_Drawable3D
+  DrawNumber* {.importcpp: "Draw_Number", header: "Draw_Number.hxx", bycopy.} = object of DrawDrawable3D
 
 
-proc constructDraw_Number*(V: Standard_Real): Draw_Number {.constructor,
+proc constructDrawNumber*(v: float): DrawNumber {.constructor,
     importcpp: "Draw_Number(@)", header: "Draw_Number.hxx".}
-proc Value*(this: Draw_Number): Standard_Real {.noSideEffect, importcpp: "Value",
-    header: "Draw_Number.hxx".}
-proc Value*(this: var Draw_Number; V: Standard_Real) {.importcpp: "Value",
-    header: "Draw_Number.hxx".}
-proc DrawOn*(this: Draw_Number; dis: var Draw_Display) {.noSideEffect,
+proc value*(this: DrawNumber): float {.noSideEffect, importcpp: "Value",
+                                   header: "Draw_Number.hxx".}
+proc value*(this: var DrawNumber; v: float) {.importcpp: "Value",
+                                        header: "Draw_Number.hxx".}
+proc drawOn*(this: DrawNumber; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "Draw_Number.hxx".}
-proc Copy*(this: Draw_Number): handle[Draw_Drawable3D] {.noSideEffect,
+proc copy*(this: DrawNumber): Handle[DrawDrawable3D] {.noSideEffect,
     importcpp: "Copy", header: "Draw_Number.hxx".}
-proc Dump*(this: Draw_Number; S: var Standard_OStream) {.noSideEffect,
-    importcpp: "Dump", header: "Draw_Number.hxx".}
-proc Whatis*(this: Draw_Number; I: var Draw_Interpretor) {.noSideEffect,
+proc dump*(this: DrawNumber; s: var StandardOStream) {.noSideEffect, importcpp: "Dump",
+    header: "Draw_Number.hxx".}
+proc whatis*(this: DrawNumber; i: var DrawInterpretor) {.noSideEffect,
     importcpp: "Whatis", header: "Draw_Number.hxx".}
 type
-  Draw_Numberbase_type* = Draw_Drawable3D
+  DrawNumberbaseType* = DrawDrawable3D
 
-proc get_type_name*(): cstring {.importcpp: "Draw_Number::get_type_name(@)",
-                              header: "Draw_Number.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Draw_Number::get_type_name(@)",
+                            header: "Draw_Number.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Draw_Number::get_type_descriptor(@)", header: "Draw_Number.hxx".}
-proc DynamicType*(this: Draw_Number): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: DrawNumber): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Number.hxx".}

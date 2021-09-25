@@ -14,16 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_HArray1OfReal, ../gp/gp_Vec, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Transient, ../Standard/Standard_OStream
-
 discard "forward decl of gp_Vec"
 discard "forward decl of Vrml_LOD"
 discard "forward decl of Vrml_LOD"
 type
-  Handle_Vrml_LOD* = handle[Vrml_LOD]
+  HandleVrmlLOD* = Handle[VrmlLOD]
 
 ## ! defines a LOD (level of detailization) node of VRML specifying properties
 ## ! of geometry  and its appearance.
@@ -48,29 +43,29 @@ type
 ## ! value,  otherwise  results  are  undefined.
 
 type
-  Vrml_LOD* {.importcpp: "Vrml_LOD", header: "Vrml_LOD.hxx", bycopy.} = object of Standard_Transient
+  VrmlLOD* {.importcpp: "Vrml_LOD", header: "Vrml_LOD.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructVrml_LOD*(): Vrml_LOD {.constructor, importcpp: "Vrml_LOD(@)",
-                                   header: "Vrml_LOD.hxx".}
-proc constructVrml_LOD*(aRange: handle[TColStd_HArray1OfReal]; aCenter: gp_Vec): Vrml_LOD {.
+proc constructVrmlLOD*(): VrmlLOD {.constructor, importcpp: "Vrml_LOD(@)",
+                                 header: "Vrml_LOD.hxx".}
+proc constructVrmlLOD*(aRange: Handle[TColStdHArray1OfReal]; aCenter: Vec): VrmlLOD {.
     constructor, importcpp: "Vrml_LOD(@)", header: "Vrml_LOD.hxx".}
-proc SetRange*(this: var Vrml_LOD; aRange: handle[TColStd_HArray1OfReal]) {.
+proc setRange*(this: var VrmlLOD; aRange: Handle[TColStdHArray1OfReal]) {.
     importcpp: "SetRange", header: "Vrml_LOD.hxx".}
-proc Range*(this: Vrml_LOD): handle[TColStd_HArray1OfReal] {.noSideEffect,
+proc range*(this: VrmlLOD): Handle[TColStdHArray1OfReal] {.noSideEffect,
     importcpp: "Range", header: "Vrml_LOD.hxx".}
-proc SetCenter*(this: var Vrml_LOD; aCenter: gp_Vec) {.importcpp: "SetCenter",
+proc setCenter*(this: var VrmlLOD; aCenter: Vec) {.importcpp: "SetCenter",
     header: "Vrml_LOD.hxx".}
-proc Center*(this: Vrml_LOD): gp_Vec {.noSideEffect, importcpp: "Center",
-                                   header: "Vrml_LOD.hxx".}
-proc Print*(this: Vrml_LOD; anOStream: var Standard_OStream): var Standard_OStream {.
+proc center*(this: VrmlLOD): Vec {.noSideEffect, importcpp: "Center",
+                               header: "Vrml_LOD.hxx".}
+proc print*(this: VrmlLOD; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_LOD.hxx".}
 type
-  Vrml_LODbase_type* = Standard_Transient
+  VrmlLODbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Vrml_LOD::get_type_name(@)",
-                              header: "Vrml_LOD.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Vrml_LOD::get_type_name(@)",
+                            header: "Vrml_LOD.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Vrml_LOD::get_type_descriptor(@)", header: "Vrml_LOD.hxx".}
-proc DynamicType*(this: Vrml_LOD): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: VrmlLOD): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Vrml_LOD.hxx".}

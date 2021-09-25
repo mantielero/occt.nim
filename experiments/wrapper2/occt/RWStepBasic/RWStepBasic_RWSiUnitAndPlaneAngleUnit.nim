@@ -14,29 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_SiUnitAndPlaneAngleUnit"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepBasic_RWSiUnitAndPlaneAngleUnit* {.
+  RWStepBasicRWSiUnitAndPlaneAngleUnit* {.
       importcpp: "RWStepBasic_RWSiUnitAndPlaneAngleUnit",
       header: "RWStepBasic_RWSiUnitAndPlaneAngleUnit.hxx", bycopy.} = object
 
 
-proc constructRWStepBasic_RWSiUnitAndPlaneAngleUnit*(): RWStepBasic_RWSiUnitAndPlaneAngleUnit {.
+proc constructRWStepBasicRWSiUnitAndPlaneAngleUnit*(): RWStepBasicRWSiUnitAndPlaneAngleUnit {.
     constructor, importcpp: "RWStepBasic_RWSiUnitAndPlaneAngleUnit(@)",
     header: "RWStepBasic_RWSiUnitAndPlaneAngleUnit.hxx".}
-proc ReadStep*(this: RWStepBasic_RWSiUnitAndPlaneAngleUnit;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepBasic_SiUnitAndPlaneAngleUnit]) {.noSideEffect,
+proc readStep*(this: RWStepBasicRWSiUnitAndPlaneAngleUnit;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepBasicSiUnitAndPlaneAngleUnit]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWSiUnitAndPlaneAngleUnit.hxx".}
-proc WriteStep*(this: RWStepBasic_RWSiUnitAndPlaneAngleUnit;
-               SW: var StepData_StepWriter;
-               ent: handle[StepBasic_SiUnitAndPlaneAngleUnit]) {.noSideEffect,
+proc writeStep*(this: RWStepBasicRWSiUnitAndPlaneAngleUnit;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepBasicSiUnitAndPlaneAngleUnit]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWSiUnitAndPlaneAngleUnit.hxx".}

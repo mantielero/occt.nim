@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepBasic/StepBasic_Unit, STEPConstruct_Tool,
-  ../Standard/Standard_Boolean, ../Standard/Standard_CString,
-  ../Standard/Standard_Real, ../TColStd/TColStd_SequenceOfTransient
-
 discard "forward decl of StepBasic_ProductDefinition"
 discard "forward decl of XSControl_WorkSession"
 discard "forward decl of TopoDS_Shape"
@@ -30,72 +24,66 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of StepRepr_NextAssemblyUsageOccurrence"
 discard "forward decl of StepRepr_PropertyDefinition"
 type
-  STEPConstruct_ValidationProps* {.importcpp: "STEPConstruct_ValidationProps",
-                                  header: "STEPConstruct_ValidationProps.hxx",
-                                  bycopy.} = object of STEPConstruct_Tool ## ! Creates an empty tool
+  STEPConstructValidationProps* {.importcpp: "STEPConstruct_ValidationProps",
+                                 header: "STEPConstruct_ValidationProps.hxx",
+                                 bycopy.} = object of STEPConstructTool ## ! Creates an empty tool
 
 
-proc constructSTEPConstruct_ValidationProps*(): STEPConstruct_ValidationProps {.
+proc constructSTEPConstructValidationProps*(): STEPConstructValidationProps {.
     constructor, importcpp: "STEPConstruct_ValidationProps(@)",
     header: "STEPConstruct_ValidationProps.hxx".}
-proc constructSTEPConstruct_ValidationProps*(WS: handle[XSControl_WorkSession]): STEPConstruct_ValidationProps {.
+proc constructSTEPConstructValidationProps*(ws: Handle[XSControlWorkSession]): STEPConstructValidationProps {.
     constructor, importcpp: "STEPConstruct_ValidationProps(@)",
     header: "STEPConstruct_ValidationProps.hxx".}
-proc Init*(this: var STEPConstruct_ValidationProps;
-          WS: handle[XSControl_WorkSession]): Standard_Boolean {.importcpp: "Init",
-    header: "STEPConstruct_ValidationProps.hxx".}
-proc AddProp*(this: var STEPConstruct_ValidationProps; Shape: TopoDS_Shape;
-             Prop: handle[StepRepr_RepresentationItem]; Descr: Standard_CString;
-             instance: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc init*(this: var STEPConstructValidationProps; ws: Handle[XSControlWorkSession]): bool {.
+    importcpp: "Init", header: "STEPConstruct_ValidationProps.hxx".}
+proc addProp*(this: var STEPConstructValidationProps; shape: TopoDS_Shape;
+             prop: Handle[StepReprRepresentationItem]; descr: StandardCString;
+             instance: bool = false): bool {.importcpp: "AddProp", header: "STEPConstruct_ValidationProps.hxx".}
+proc addProp*(this: var STEPConstructValidationProps;
+             target: StepReprCharacterizedDefinition;
+             context: Handle[StepReprRepresentationContext];
+             prop: Handle[StepReprRepresentationItem]; descr: StandardCString): bool {.
     importcpp: "AddProp", header: "STEPConstruct_ValidationProps.hxx".}
-proc AddProp*(this: var STEPConstruct_ValidationProps;
-             target: StepRepr_CharacterizedDefinition;
-             Context: handle[StepRepr_RepresentationContext];
-             Prop: handle[StepRepr_RepresentationItem]; Descr: Standard_CString): Standard_Boolean {.
-    importcpp: "AddProp", header: "STEPConstruct_ValidationProps.hxx".}
-proc AddArea*(this: var STEPConstruct_ValidationProps; Shape: TopoDS_Shape;
-             Area: Standard_Real): Standard_Boolean {.importcpp: "AddArea",
+proc addArea*(this: var STEPConstructValidationProps; shape: TopoDS_Shape; area: float): bool {.
+    importcpp: "AddArea", header: "STEPConstruct_ValidationProps.hxx".}
+proc addVolume*(this: var STEPConstructValidationProps; shape: TopoDS_Shape;
+               vol: float): bool {.importcpp: "AddVolume",
+                                header: "STEPConstruct_ValidationProps.hxx".}
+proc addCentroid*(this: var STEPConstructValidationProps; shape: TopoDS_Shape;
+                 pnt: Pnt; instance: bool = false): bool {.importcpp: "AddCentroid",
     header: "STEPConstruct_ValidationProps.hxx".}
-proc AddVolume*(this: var STEPConstruct_ValidationProps; Shape: TopoDS_Shape;
-               Vol: Standard_Real): Standard_Boolean {.importcpp: "AddVolume",
+proc findTarget*(this: var STEPConstructValidationProps; s: TopoDS_Shape;
+                target: var StepReprCharacterizedDefinition;
+                context: var Handle[StepReprRepresentationContext];
+                instance: bool = false): bool {.importcpp: "FindTarget",
     header: "STEPConstruct_ValidationProps.hxx".}
-proc AddCentroid*(this: var STEPConstruct_ValidationProps; Shape: TopoDS_Shape;
-                 Pnt: gp_Pnt; instance: Standard_Boolean = Standard_False): Standard_Boolean {.
-    importcpp: "AddCentroid", header: "STEPConstruct_ValidationProps.hxx".}
-proc FindTarget*(this: var STEPConstruct_ValidationProps; S: TopoDS_Shape;
-                target: var StepRepr_CharacterizedDefinition;
-                Context: var handle[StepRepr_RepresentationContext];
-                instance: Standard_Boolean = Standard_False): Standard_Boolean {.
-    importcpp: "FindTarget", header: "STEPConstruct_ValidationProps.hxx".}
-proc LoadProps*(this: STEPConstruct_ValidationProps;
-               seq: var TColStd_SequenceOfTransient): Standard_Boolean {.
-    noSideEffect, importcpp: "LoadProps",
+proc loadProps*(this: STEPConstructValidationProps;
+               seq: var TColStdSequenceOfTransient): bool {.noSideEffect,
+    importcpp: "LoadProps", header: "STEPConstruct_ValidationProps.hxx".}
+proc getPropNAUO*(this: STEPConstructValidationProps;
+                 pd: Handle[StepReprPropertyDefinition]): Handle[
+    StepReprNextAssemblyUsageOccurrence] {.noSideEffect, importcpp: "GetPropNAUO",
     header: "STEPConstruct_ValidationProps.hxx".}
-proc GetPropNAUO*(this: STEPConstruct_ValidationProps;
-                 PD: handle[StepRepr_PropertyDefinition]): handle[
-    StepRepr_NextAssemblyUsageOccurrence] {.noSideEffect,
-    importcpp: "GetPropNAUO", header: "STEPConstruct_ValidationProps.hxx".}
-proc GetPropPD*(this: STEPConstruct_ValidationProps;
-               PD: handle[StepRepr_PropertyDefinition]): handle[
-    StepBasic_ProductDefinition] {.noSideEffect, importcpp: "GetPropPD",
-                                  header: "STEPConstruct_ValidationProps.hxx".}
-proc GetPropShape*(this: STEPConstruct_ValidationProps;
-                  ProdDef: handle[StepBasic_ProductDefinition]): TopoDS_Shape {.
+proc getPropPD*(this: STEPConstructValidationProps;
+               pd: Handle[StepReprPropertyDefinition]): Handle[
+    StepBasicProductDefinition] {.noSideEffect, importcpp: "GetPropPD",
+                                 header: "STEPConstruct_ValidationProps.hxx".}
+proc getPropShape*(this: STEPConstructValidationProps;
+                  prodDef: Handle[StepBasicProductDefinition]): TopoDS_Shape {.
     noSideEffect, importcpp: "GetPropShape",
     header: "STEPConstruct_ValidationProps.hxx".}
-proc GetPropShape*(this: STEPConstruct_ValidationProps;
-                  PD: handle[StepRepr_PropertyDefinition]): TopoDS_Shape {.
+proc getPropShape*(this: STEPConstructValidationProps;
+                  pd: Handle[StepReprPropertyDefinition]): TopoDS_Shape {.
     noSideEffect, importcpp: "GetPropShape",
     header: "STEPConstruct_ValidationProps.hxx".}
-proc GetPropReal*(this: STEPConstruct_ValidationProps;
-                 item: handle[StepRepr_RepresentationItem];
-                 Val: var Standard_Real; isArea: var Standard_Boolean): Standard_Boolean {.
-    noSideEffect, importcpp: "GetPropReal",
-    header: "STEPConstruct_ValidationProps.hxx".}
-proc GetPropPnt*(this: STEPConstruct_ValidationProps;
-                item: handle[StepRepr_RepresentationItem];
-                Context: handle[StepRepr_RepresentationContext]; Pnt: var gp_Pnt): Standard_Boolean {.
+proc getPropReal*(this: STEPConstructValidationProps;
+                 item: Handle[StepReprRepresentationItem]; val: var float;
+                 isArea: var bool): bool {.noSideEffect, importcpp: "GetPropReal", header: "STEPConstruct_ValidationProps.hxx".}
+proc getPropPnt*(this: STEPConstructValidationProps;
+                item: Handle[StepReprRepresentationItem];
+                context: Handle[StepReprRepresentationContext]; pnt: var Pnt): bool {.
     noSideEffect, importcpp: "GetPropPnt",
     header: "STEPConstruct_ValidationProps.hxx".}
-proc SetAssemblyShape*(this: var STEPConstruct_ValidationProps; shape: TopoDS_Shape) {.
+proc setAssemblyShape*(this: var STEPConstructValidationProps; shape: TopoDS_Shape) {.
     importcpp: "SetAssemblyShape", header: "STEPConstruct_ValidationProps.hxx".}

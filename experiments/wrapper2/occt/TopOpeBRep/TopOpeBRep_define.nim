@@ -14,18 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopOpeBRepDS/TopOpeBRepDS_define
-
 const
-  MTPvpic* = TopOpeBRep_VPointInterClassifier
-  MTPvpii* = TopOpeBRep_VPointInterIterator
-  MTPvpi* = TopOpeBRep_VPointInter
-  MTPli* = TopOpeBRep_LineInter
-  MTPfi* = TopOpeBRep_FacesIntersector
-  MTPei* = TopOpeBRep_EdgesIntersector
-  MTPfei* = TopOpeBRep_FaceEdgeIntersector
-  MTPff* = TopOpeBRep_FacesFiller
-  MTPef* = TopOpeBRep_EdgesFiller
-  MTPfef* = TopOpeBRep_FaceEdgeFiller
-  MTPpgt* = TopOpeBRep_PointGeomTool
+  MTPvpic* = topOpeBRepVPointInterClassifier
+  MTPvpii* = topOpeBRepVPointInterIterator
+  MTPvpi* = topOpeBRepVPointInter
+  MTPli* = topOpeBRepLineInter
+  MTPfi* = topOpeBRepFacesIntersector
+  MTPei* = topOpeBRepEdgesIntersector
+  MTPfei* = topOpeBRepFaceEdgeIntersector
+  MTPff* = topOpeBRepFacesFiller
+  MTPef* = topOpeBRepEdgesFiller
+  MTPfef* = topOpeBRepFaceEdgeFiller
+  MTPpgt* = topOpeBRepPointGeomTool
+

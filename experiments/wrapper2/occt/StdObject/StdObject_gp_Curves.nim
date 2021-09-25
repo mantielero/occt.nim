@@ -11,48 +11,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StdObject_gp_Axes, ../gp/gp_Lin2d, ../gp/gp_Circ2d, ../gp/gp_Elips2d,
-  ../gp/gp_Hypr2d, ../gp/gp_Parab2d, ../gp/gp_Lin, ../gp/gp_Circ, ../gp/gp_Elips,
-  ../gp/gp_Hypr, ../gp/gp_Parab
-
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theLin: var gp_Lin2d): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theLin: var Lin2d): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Curves.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theLin: gp_Lin2d): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theLin: Lin2d): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Curves.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theCirc: var gp_Circ2d): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theCirc: var Circ2d): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Curves.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theCirc: gp_Circ2d): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theCirc: Circ2d): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Curves.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theElips: var gp_Elips2d): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theElips: var Elips2d): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Curves.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theElips: gp_Elips2d): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theElips: Elips2d): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Curves.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theHypr: var gp_Hypr2d): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theHypr: var Hypr2d): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Curves.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theHypr: gp_Hypr2d): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theHypr: Hypr2d): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Curves.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theParab: var gp_Parab2d): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theParab: var Parab2d): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Curves.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theParab: gp_Parab2d): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theParab: Parab2d): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Curves.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theLin: var gp_Lin): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theLin: var Lin): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Curves.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theLin: gp_Lin): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theLin: Lin): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Curves.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theCirc: var gp_Circ): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theCirc: var Circ): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Curves.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theCirc: gp_Circ): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theCirc: Circ): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Curves.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theElips: var gp_Elips): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theElips: var Elips): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Curves.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theElips: gp_Elips): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theElips: Elips): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Curves.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theHypr: var gp_Hypr): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theHypr: var Hypr): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Curves.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theHypr: gp_Hypr): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theHypr: Hypr): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Curves.hxx".}
-proc `>>`*(theReadData: var StdObjMgt_ReadData; theParab: var gp_Parab): var StdObjMgt_ReadData {.
+proc `>>`*(theReadData: var StdObjMgtReadData; theParab: var Parab): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObject_gp_Curves.hxx".}
-proc `<<`*(theWriteData: var StdObjMgt_WriteData; theParab: gp_Parab): var StdObjMgt_WriteData {.
+proc `<<`*(theWriteData: var StdObjMgtWriteData; theParab: Parab): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Curves.hxx".}

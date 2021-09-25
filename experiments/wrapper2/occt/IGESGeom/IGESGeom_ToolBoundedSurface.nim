@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESGeom_BoundedSurface"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,46 +26,46 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESGeom_ToolBoundedSurface* {.importcpp: "IGESGeom_ToolBoundedSurface",
-                                header: "IGESGeom_ToolBoundedSurface.hxx", bycopy.} = object ##
-                                                                                        ## !
-                                                                                        ## Returns
-                                                                                        ## a
-                                                                                        ## ToolBoundedSurface,
-                                                                                        ## ready
-                                                                                        ## to
-                                                                                        ## work
+  IGESGeomToolBoundedSurface* {.importcpp: "IGESGeom_ToolBoundedSurface",
+                               header: "IGESGeom_ToolBoundedSurface.hxx", bycopy.} = object ##
+                                                                                       ## !
+                                                                                       ## Returns
+                                                                                       ## a
+                                                                                       ## ToolBoundedSurface,
+                                                                                       ## ready
+                                                                                       ## to
+                                                                                       ## work
 
 
-proc constructIGESGeom_ToolBoundedSurface*(): IGESGeom_ToolBoundedSurface {.
+proc constructIGESGeomToolBoundedSurface*(): IGESGeomToolBoundedSurface {.
     constructor, importcpp: "IGESGeom_ToolBoundedSurface(@)",
     header: "IGESGeom_ToolBoundedSurface.hxx".}
-proc ReadOwnParams*(this: IGESGeom_ToolBoundedSurface;
-                   ent: handle[IGESGeom_BoundedSurface];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESGeom_ToolBoundedSurface.hxx".}
-proc WriteOwnParams*(this: IGESGeom_ToolBoundedSurface;
-                    ent: handle[IGESGeom_BoundedSurface];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESGeomToolBoundedSurface;
+                   ent: Handle[IGESGeomBoundedSurface];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESGeom_ToolBoundedSurface.hxx".}
+proc writeOwnParams*(this: IGESGeomToolBoundedSurface;
+                    ent: Handle[IGESGeomBoundedSurface];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESGeom_ToolBoundedSurface.hxx".}
-proc OwnShared*(this: IGESGeom_ToolBoundedSurface;
-               ent: handle[IGESGeom_BoundedSurface];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESGeomToolBoundedSurface;
+               ent: Handle[IGESGeomBoundedSurface];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESGeom_ToolBoundedSurface.hxx".}
-proc DirChecker*(this: IGESGeom_ToolBoundedSurface;
-                ent: handle[IGESGeom_BoundedSurface]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESGeomToolBoundedSurface;
+                ent: Handle[IGESGeomBoundedSurface]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESGeom_ToolBoundedSurface.hxx".}
-proc OwnCheck*(this: IGESGeom_ToolBoundedSurface;
-              ent: handle[IGESGeom_BoundedSurface]; shares: Interface_ShareTool;
-              ach: var handle[Interface_Check]) {.noSideEffect,
+proc ownCheck*(this: IGESGeomToolBoundedSurface;
+              ent: Handle[IGESGeomBoundedSurface]; shares: InterfaceShareTool;
+              ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "OwnCheck", header: "IGESGeom_ToolBoundedSurface.hxx".}
-proc OwnCopy*(this: IGESGeom_ToolBoundedSurface;
-             entfrom: handle[IGESGeom_BoundedSurface];
-             entto: handle[IGESGeom_BoundedSurface]; TC: var Interface_CopyTool) {.
+proc ownCopy*(this: IGESGeomToolBoundedSurface;
+             entfrom: Handle[IGESGeomBoundedSurface];
+             entto: Handle[IGESGeomBoundedSurface]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGeom_ToolBoundedSurface.hxx".}
-proc OwnDump*(this: IGESGeom_ToolBoundedSurface;
-             ent: handle[IGESGeom_BoundedSurface]; dumper: IGESData_IGESDumper;
-             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
-    importcpp: "OwnDump", header: "IGESGeom_ToolBoundedSurface.hxx".}
+proc ownDump*(this: IGESGeomToolBoundedSurface;
+             ent: Handle[IGESGeomBoundedSurface]; dumper: IGESDataIGESDumper;
+             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+    header: "IGESGeom_ToolBoundedSurface.hxx".}

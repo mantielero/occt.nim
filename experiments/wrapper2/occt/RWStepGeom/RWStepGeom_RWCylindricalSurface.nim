@@ -14,32 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_CylindricalSurface"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeom_RWCylindricalSurface* {.importcpp: "RWStepGeom_RWCylindricalSurface", header: "RWStepGeom_RWCylindricalSurface.hxx",
-                                    bycopy.} = object
+  RWStepGeomRWCylindricalSurface* {.importcpp: "RWStepGeom_RWCylindricalSurface", header: "RWStepGeom_RWCylindricalSurface.hxx",
+                                   bycopy.} = object
 
 
-proc constructRWStepGeom_RWCylindricalSurface*(): RWStepGeom_RWCylindricalSurface {.
+proc constructRWStepGeomRWCylindricalSurface*(): RWStepGeomRWCylindricalSurface {.
     constructor, importcpp: "RWStepGeom_RWCylindricalSurface(@)",
     header: "RWStepGeom_RWCylindricalSurface.hxx".}
-proc ReadStep*(this: RWStepGeom_RWCylindricalSurface;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepGeom_CylindricalSurface]) {.noSideEffect,
+proc readStep*(this: RWStepGeomRWCylindricalSurface;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepGeomCylindricalSurface]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWCylindricalSurface.hxx".}
-proc WriteStep*(this: RWStepGeom_RWCylindricalSurface; SW: var StepData_StepWriter;
-               ent: handle[StepGeom_CylindricalSurface]) {.noSideEffect,
+proc writeStep*(this: RWStepGeomRWCylindricalSurface; sw: var StepDataStepWriter;
+               ent: Handle[StepGeomCylindricalSurface]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWCylindricalSurface.hxx".}
-proc Share*(this: RWStepGeom_RWCylindricalSurface;
-           ent: handle[StepGeom_CylindricalSurface];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepGeomRWCylindricalSurface;
+           ent: Handle[StepGeomCylindricalSurface];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWCylindricalSurface.hxx".}

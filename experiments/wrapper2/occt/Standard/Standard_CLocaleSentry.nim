@@ -13,7 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_CLocaleSentry_H__ [NewLine] # _Standard_CLocaleSentry_H__ [NewLine] # Standard_Macro.hxx [NewLine] # < locale . h > [NewLine] # defined ( __APPLE__ ) [NewLine] # < xlocale . h > [NewLine] # [NewLine] # [NewLine] ! @def OCCT_CLOCALE_POSIX2008
+## !!!Ignored construct:  # _Standard_CLocaleSentry_H__ [NewLine] # _Standard_CLocaleSentry_H__ [NewLine] # < Standard_Macro . hxx > [NewLine] # < locale . h > [NewLine] # defined ( __APPLE__ ) [NewLine] # < xlocale . h > [NewLine] # [NewLine] # [NewLine] ! @def OCCT_CLOCALE_POSIX2008
 ## !
 ## ! POSIX.1-2008 extends C locale API by providing methods like newlocale/freelocale/uselocale.
 ## ! Presence of this extension cannot be checked in straightforward way (like (_POSIX_C_SOURCE >= 200809L))
@@ -34,15 +34,15 @@
 ## ! C/C++ runtime on Android currently supports only C-locale, no need to call anything.
 
 type
-  Standard_CLocaleSentry* {.importcpp: "Standard_CLocaleSentry",
-                           header: "Standard_CLocaleSentry.hxx", bycopy.} = object
+  StandardCLocaleSentry* {.importcpp: "Standard_CLocaleSentry",
+                          header: "Standard_CLocaleSentry.hxx", bycopy.} = object
 
 
-proc constructStandard_CLocaleSentry*(): Standard_CLocaleSentry {.constructor,
+proc constructStandardCLocaleSentry*(): StandardCLocaleSentry {.constructor,
     importcpp: "Standard_CLocaleSentry(@)", header: "Standard_CLocaleSentry.hxx".}
 type
-  Standard_CLocaleSentryclocale_t* = pointer
+  StandardCLocaleSentryclocaleT* = pointer
 
-proc GetCLocale*(): Standard_CLocaleSentryclocale_t {.
+proc getCLocale*(): StandardCLocaleSentryclocaleT {.
     importcpp: "Standard_CLocaleSentry::GetCLocale(@)",
     header: "Standard_CLocaleSentry.hxx".}

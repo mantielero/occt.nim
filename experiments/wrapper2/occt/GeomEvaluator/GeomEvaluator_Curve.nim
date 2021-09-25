@@ -12,41 +12,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Transient, ../Standard/Standard_Type
-
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 type
-  GeomEvaluator_Curve* {.importcpp: "GeomEvaluator_Curve",
-                        header: "GeomEvaluator_Curve.hxx", bycopy.} = object of Standard_Transient
+  GeomEvaluatorCurve* {.importcpp: "GeomEvaluator_Curve",
+                       header: "GeomEvaluator_Curve.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructGeomEvaluator_Curve*(): GeomEvaluator_Curve {.constructor,
+proc constructGeomEvaluatorCurve*(): GeomEvaluatorCurve {.constructor,
     importcpp: "GeomEvaluator_Curve(@)", header: "GeomEvaluator_Curve.hxx".}
-proc D0*(this: GeomEvaluator_Curve; theU: Standard_Real; theValue: var gp_Pnt) {.
-    noSideEffect, importcpp: "D0", header: "GeomEvaluator_Curve.hxx".}
-proc D1*(this: GeomEvaluator_Curve; theU: Standard_Real; theValue: var gp_Pnt;
-        theD1: var gp_Vec) {.noSideEffect, importcpp: "D1",
-                          header: "GeomEvaluator_Curve.hxx".}
-proc D2*(this: GeomEvaluator_Curve; theU: Standard_Real; theValue: var gp_Pnt;
-        theD1: var gp_Vec; theD2: var gp_Vec) {.noSideEffect, importcpp: "D2",
-    header: "GeomEvaluator_Curve.hxx".}
-proc D3*(this: GeomEvaluator_Curve; theU: Standard_Real; theValue: var gp_Pnt;
-        theD1: var gp_Vec; theD2: var gp_Vec; theD3: var gp_Vec) {.noSideEffect,
-    importcpp: "D3", header: "GeomEvaluator_Curve.hxx".}
-proc DN*(this: GeomEvaluator_Curve; theU: Standard_Real; theDerU: Standard_Integer): gp_Vec {.
-    noSideEffect, importcpp: "DN", header: "GeomEvaluator_Curve.hxx".}
+proc d0*(this: GeomEvaluatorCurve; theU: float; theValue: var Pnt) {.noSideEffect,
+    importcpp: "D0", header: "GeomEvaluator_Curve.hxx".}
+proc d1*(this: GeomEvaluatorCurve; theU: float; theValue: var Pnt; theD1: var Vec) {.
+    noSideEffect, importcpp: "D1", header: "GeomEvaluator_Curve.hxx".}
+proc d2*(this: GeomEvaluatorCurve; theU: float; theValue: var Pnt; theD1: var Vec;
+        theD2: var Vec) {.noSideEffect, importcpp: "D2",
+                       header: "GeomEvaluator_Curve.hxx".}
+proc d3*(this: GeomEvaluatorCurve; theU: float; theValue: var Pnt; theD1: var Vec;
+        theD2: var Vec; theD3: var Vec) {.noSideEffect, importcpp: "D3",
+                                    header: "GeomEvaluator_Curve.hxx".}
+proc dn*(this: GeomEvaluatorCurve; theU: float; theDerU: int): Vec {.noSideEffect,
+    importcpp: "DN", header: "GeomEvaluator_Curve.hxx".}
 type
-  GeomEvaluator_Curvebase_type* = Standard_Transient
+  GeomEvaluatorCurvebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "GeomEvaluator_Curve::get_type_name(@)",
-                              header: "GeomEvaluator_Curve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "GeomEvaluator_Curve::get_type_name(@)",
+                            header: "GeomEvaluator_Curve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GeomEvaluator_Curve::get_type_descriptor(@)",
     header: "GeomEvaluator_Curve.hxx".}
-proc DynamicType*(this: GeomEvaluator_Curve): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: GeomEvaluatorCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "GeomEvaluator_Curve.hxx".}
 discard "forward decl of GeomEvaluator_Curve"
 type
-  Handle_GeomEvaluator_Curve* = handle[GeomEvaluator_Curve]
+  HandleGeomEvaluatorCurve* = Handle[GeomEvaluatorCurve]
+

@@ -11,23 +11,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Graphic3d/Graphic3d_BufferType, V3d_StereoDumpOptions
-
 ## ! The structure defines options for image dump functionality.
 
 type
-  V3d_ImageDumpOptions* {.importcpp: "V3d_ImageDumpOptions",
-                         header: "V3d_ImageDumpOptions.hxx", bycopy.} = object ## !
-                                                                          ## Default
-                                                                          ## constructor.
-    Width* {.importc: "Width".}: Standard_Integer ## !< width  of image dump to allocate an image, 0 by default (meaning that image should be already allocated)
-    Height* {.importc: "Height".}: Standard_Integer ## !< height of image dump to allocate an image, 0 by default (meaning that image should be already allocated)
-    BufferType* {.importc: "BufferType".}: Graphic3d_BufferType ## !< which buffer to dump (color / depth), Graphic3d_BT_RGB by default
-    StereoOptions* {.importc: "StereoOptions".}: V3d_StereoDumpOptions ## !< dumping stereoscopic camera, V3d_SDO_MONO by default (middle-point monographic projection)
-    TileSize* {.importc: "TileSize".}: Standard_Integer ## !< the view dimension limited for tiled dump, 0 by default (automatic tiling depending on hardware capabilities)
-    ToAdjustAspect* {.importc: "ToAdjustAspect".}: Standard_Boolean ## !< flag to override active view aspect ratio by (Width / Height) defined for image dump (TRUE by default)
+  V3dImageDumpOptions* {.importcpp: "V3d_ImageDumpOptions",
+                        header: "V3d_ImageDumpOptions.hxx", bycopy.} = object ## ! Default
+                                                                         ## constructor.
+    width* {.importc: "Width".}: int ## !< width  of image dump to allocate an image, 0 by default (meaning that image should be already allocated)
+    height* {.importc: "Height".}: int ## !< height of image dump to allocate an image, 0 by default (meaning that image should be already allocated)
+    bufferType* {.importc: "BufferType".}: Graphic3dBufferType ## !< which buffer to dump (color / depth), Graphic3d_BT_RGB by default
+    stereoOptions* {.importc: "StereoOptions".}: V3dStereoDumpOptions ## !< dumping stereoscopic camera, V3d_SDO_MONO by default (middle-point monographic projection)
+    tileSize* {.importc: "TileSize".}: int ## !< the view dimension limited for tiled dump, 0 by default (automatic tiling depending on hardware capabilities)
+    toAdjustAspect* {.importc: "ToAdjustAspect".}: bool ## !< flag to override active view aspect ratio by (Width / Height) defined for image dump (TRUE by default)
 
 
-proc constructV3d_ImageDumpOptions*(): V3d_ImageDumpOptions {.constructor,
+proc constructV3dImageDumpOptions*(): V3dImageDumpOptions {.constructor,
     importcpp: "V3d_ImageDumpOptions(@)", header: "V3d_ImageDumpOptions.hxx".}

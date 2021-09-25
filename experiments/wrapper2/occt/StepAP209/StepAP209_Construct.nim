@@ -13,15 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../STEPConstruct/STEPConstruct_Tool,
-  ../Standard/Standard_Boolean,
-  ../StepElement/StepElement_HSequenceOfElementMaterial,
-  ../StepFEA/StepFEA_HSequenceOfElementGeometricRelationship,
-  ../StepFEA/StepFEA_HSequenceOfElementRepresentation, ../Standard/Standard_Type,
-  ../StepElement/StepElement_HSequenceOfCurveElementSectionDefinition
-
 discard "forward decl of XSControl_WorkSession"
 discard "forward decl of StepBasic_ProductDefinitionFormation"
 discard "forward decl of StepFEA_FeaModel"
@@ -34,113 +25,108 @@ discard "forward decl of StepBasic_ProductDefinition"
 discard "forward decl of StepData_StepModel"
 discard "forward decl of StepRepr_ProductDefinitionShape"
 type
-  StepAP209_Construct* {.importcpp: "StepAP209_Construct",
-                        header: "StepAP209_Construct.hxx", bycopy.} = object of STEPConstruct_Tool ##
-                                                                                            ## !
-                                                                                            ## Creates
-                                                                                            ## an
-                                                                                            ## empty
-                                                                                            ## tool
+  StepAP209Construct* {.importcpp: "StepAP209_Construct",
+                       header: "StepAP209_Construct.hxx", bycopy.} = object of STEPConstructTool ##
+                                                                                          ## !
+                                                                                          ## Creates
+                                                                                          ## an
+                                                                                          ## empty
+                                                                                          ## tool
 
 
-proc constructStepAP209_Construct*(): StepAP209_Construct {.constructor,
+proc constructStepAP209Construct*(): StepAP209Construct {.constructor,
     importcpp: "StepAP209_Construct(@)", header: "StepAP209_Construct.hxx".}
-proc constructStepAP209_Construct*(WS: handle[XSControl_WorkSession]): StepAP209_Construct {.
+proc constructStepAP209Construct*(ws: Handle[XSControlWorkSession]): StepAP209Construct {.
     constructor, importcpp: "StepAP209_Construct(@)",
     header: "StepAP209_Construct.hxx".}
-proc Init*(this: var StepAP209_Construct; WS: handle[XSControl_WorkSession]): Standard_Boolean {.
+proc init*(this: var StepAP209Construct; ws: Handle[XSControlWorkSession]): bool {.
     importcpp: "Init", header: "StepAP209_Construct.hxx".}
-proc IsDesing*(this: StepAP209_Construct;
-              PD: handle[StepBasic_ProductDefinitionFormation]): Standard_Boolean {.
+proc isDesing*(this: StepAP209Construct;
+              pd: Handle[StepBasicProductDefinitionFormation]): bool {.
     noSideEffect, importcpp: "IsDesing", header: "StepAP209_Construct.hxx".}
-proc IsAnalys*(this: StepAP209_Construct;
-              PD: handle[StepBasic_ProductDefinitionFormation]): Standard_Boolean {.
+proc isAnalys*(this: StepAP209Construct;
+              pd: Handle[StepBasicProductDefinitionFormation]): bool {.
     noSideEffect, importcpp: "IsAnalys", header: "StepAP209_Construct.hxx".}
-proc FeaModel*(this: StepAP209_Construct; Prod: handle[StepBasic_Product]): handle[
+proc feaModel*(this: StepAP209Construct; prod: Handle[StepBasicProduct]): Handle[
     StepFEA_FeaModel] {.noSideEffect, importcpp: "FeaModel",
                        header: "StepAP209_Construct.hxx".}
-proc FeaModel*(this: StepAP209_Construct;
-              PDF: handle[StepBasic_ProductDefinitionFormation]): handle[
+proc feaModel*(this: StepAP209Construct;
+              pdf: Handle[StepBasicProductDefinitionFormation]): Handle[
     StepFEA_FeaModel] {.noSideEffect, importcpp: "FeaModel",
                        header: "StepAP209_Construct.hxx".}
-proc GetFeaAxis2Placement3d*(this: StepAP209_Construct;
-                            theFeaModel: handle[StepFEA_FeaModel]): handle[
+proc getFeaAxis2Placement3d*(this: StepAP209Construct;
+                            theFeaModel: Handle[StepFEA_FeaModel]): Handle[
     StepFEA_FeaAxis2Placement3d] {.noSideEffect,
                                   importcpp: "GetFeaAxis2Placement3d",
                                   header: "StepAP209_Construct.hxx".}
-proc IdealShape*(this: StepAP209_Construct; Prod: handle[StepBasic_Product]): handle[
-    StepShape_ShapeRepresentation] {.noSideEffect, importcpp: "IdealShape",
-                                    header: "StepAP209_Construct.hxx".}
-proc IdealShape*(this: StepAP209_Construct;
-                PDF: handle[StepBasic_ProductDefinitionFormation]): handle[
-    StepShape_ShapeRepresentation] {.noSideEffect, importcpp: "IdealShape",
-                                    header: "StepAP209_Construct.hxx".}
-proc NominShape*(this: StepAP209_Construct; Prod: handle[StepBasic_Product]): handle[
-    StepShape_ShapeRepresentation] {.noSideEffect, importcpp: "NominShape",
-                                    header: "StepAP209_Construct.hxx".}
-proc NominShape*(this: StepAP209_Construct;
-                PDF: handle[StepBasic_ProductDefinitionFormation]): handle[
-    StepShape_ShapeRepresentation] {.noSideEffect, importcpp: "NominShape",
-                                    header: "StepAP209_Construct.hxx".}
-proc GetElementMaterial*(this: StepAP209_Construct): handle[
-    StepElement_HSequenceOfElementMaterial] {.noSideEffect,
+proc idealShape*(this: StepAP209Construct; prod: Handle[StepBasicProduct]): Handle[
+    StepShapeShapeRepresentation] {.noSideEffect, importcpp: "IdealShape",
+                                   header: "StepAP209_Construct.hxx".}
+proc idealShape*(this: StepAP209Construct;
+                pdf: Handle[StepBasicProductDefinitionFormation]): Handle[
+    StepShapeShapeRepresentation] {.noSideEffect, importcpp: "IdealShape",
+                                   header: "StepAP209_Construct.hxx".}
+proc nominShape*(this: StepAP209Construct; prod: Handle[StepBasicProduct]): Handle[
+    StepShapeShapeRepresentation] {.noSideEffect, importcpp: "NominShape",
+                                   header: "StepAP209_Construct.hxx".}
+proc nominShape*(this: StepAP209Construct;
+                pdf: Handle[StepBasicProductDefinitionFormation]): Handle[
+    StepShapeShapeRepresentation] {.noSideEffect, importcpp: "NominShape",
+                                   header: "StepAP209_Construct.hxx".}
+proc getElementMaterial*(this: StepAP209Construct): Handle[
+    StepElementHSequenceOfElementMaterial] {.noSideEffect,
     importcpp: "GetElementMaterial", header: "StepAP209_Construct.hxx".}
-proc GetElemGeomRelat*(this: StepAP209_Construct): handle[
+proc getElemGeomRelat*(this: StepAP209Construct): Handle[
     StepFEA_HSequenceOfElementGeometricRelationship] {.noSideEffect,
     importcpp: "GetElemGeomRelat", header: "StepAP209_Construct.hxx".}
-proc GetElements1D*(this: StepAP209_Construct;
-                   theFeaModel: handle[StepFEA_FeaModel]): handle[
+proc getElements1D*(this: StepAP209Construct; theFeaModel: Handle[StepFEA_FeaModel]): Handle[
     StepFEA_HSequenceOfElementRepresentation] {.noSideEffect,
     importcpp: "GetElements1D", header: "StepAP209_Construct.hxx".}
-proc GetElements2D*(this: StepAP209_Construct;
-                   theFEAModel: handle[StepFEA_FeaModel]): handle[
+proc getElements2D*(this: StepAP209Construct; theFEAModel: Handle[StepFEA_FeaModel]): Handle[
     StepFEA_HSequenceOfElementRepresentation] {.noSideEffect,
     importcpp: "GetElements2D", header: "StepAP209_Construct.hxx".}
-proc GetElements3D*(this: StepAP209_Construct;
-                   theFEAModel: handle[StepFEA_FeaModel]): handle[
+proc getElements3D*(this: StepAP209Construct; theFEAModel: Handle[StepFEA_FeaModel]): Handle[
     StepFEA_HSequenceOfElementRepresentation] {.noSideEffect,
     importcpp: "GetElements3D", header: "StepAP209_Construct.hxx".}
-proc GetCurElemSection*(this: StepAP209_Construct;
-                       ElemRepr: handle[StepFEA_Curve3dElementRepresentation]): handle[
-    StepElement_HSequenceOfCurveElementSectionDefinition] {.noSideEffect,
+proc getCurElemSection*(this: StepAP209Construct;
+                       elemRepr: Handle[StepFEA_Curve3dElementRepresentation]): Handle[
+    StepElementHSequenceOfCurveElementSectionDefinition] {.noSideEffect,
     importcpp: "GetCurElemSection", header: "StepAP209_Construct.hxx".}
-proc GetShReprForElem*(this: StepAP209_Construct;
-                      ElemRepr: handle[StepFEA_ElementRepresentation]): handle[
-    StepShape_ShapeRepresentation] {.noSideEffect, importcpp: "GetShReprForElem",
-                                    header: "StepAP209_Construct.hxx".}
-proc CreateAnalysStructure*(this: StepAP209_Construct;
-                           Prod: handle[StepBasic_Product]): Standard_Boolean {.
-    noSideEffect, importcpp: "CreateAnalysStructure",
-    header: "StepAP209_Construct.hxx".}
-proc CreateFeaStructure*(this: StepAP209_Construct; Prod: handle[StepBasic_Product]): Standard_Boolean {.
+proc getShReprForElem*(this: StepAP209Construct;
+                      elemRepr: Handle[StepFEA_ElementRepresentation]): Handle[
+    StepShapeShapeRepresentation] {.noSideEffect, importcpp: "GetShReprForElem",
+                                   header: "StepAP209_Construct.hxx".}
+proc createAnalysStructure*(this: StepAP209Construct;
+                           prod: Handle[StepBasicProduct]): bool {.noSideEffect,
+    importcpp: "CreateAnalysStructure", header: "StepAP209_Construct.hxx".}
+proc createFeaStructure*(this: StepAP209Construct; prod: Handle[StepBasicProduct]): bool {.
     noSideEffect, importcpp: "CreateFeaStructure",
     header: "StepAP209_Construct.hxx".}
-proc ReplaceCcDesingToApplied*(this: StepAP209_Construct): Standard_Boolean {.
-    noSideEffect, importcpp: "ReplaceCcDesingToApplied",
-    header: "StepAP209_Construct.hxx".}
-proc CreateAddingEntities*(this: StepAP209_Construct;
-                          AnaPD: handle[StepBasic_ProductDefinition]): Standard_Boolean {.
+proc replaceCcDesingToApplied*(this: StepAP209Construct): bool {.noSideEffect,
+    importcpp: "ReplaceCcDesingToApplied", header: "StepAP209_Construct.hxx".}
+proc createAddingEntities*(this: StepAP209Construct;
+                          anaPD: Handle[StepBasicProductDefinition]): bool {.
     noSideEffect, importcpp: "CreateAddingEntities",
     header: "StepAP209_Construct.hxx".}
-proc CreateAP203Structure*(this: StepAP209_Construct): handle[StepData_StepModel] {.
+proc createAP203Structure*(this: StepAP209Construct): Handle[StepDataStepModel] {.
     noSideEffect, importcpp: "CreateAP203Structure",
     header: "StepAP209_Construct.hxx".}
-proc CreateAdding203Entities*(this: StepAP209_Construct;
-                             PD: handle[StepBasic_ProductDefinition];
-                             aModel: var handle[StepData_StepModel]): Standard_Boolean {.
+proc createAdding203Entities*(this: StepAP209Construct;
+                             pd: Handle[StepBasicProductDefinition];
+                             aModel: var Handle[StepDataStepModel]): bool {.
     noSideEffect, importcpp: "CreateAdding203Entities",
     header: "StepAP209_Construct.hxx".}
-proc FeaModel*(this: StepAP209_Construct;
-              PDS: handle[StepRepr_ProductDefinitionShape]): handle[
+proc feaModel*(this: StepAP209Construct;
+              pds: Handle[StepReprProductDefinitionShape]): Handle[
     StepFEA_FeaModel] {.noSideEffect, importcpp: "FeaModel",
                        header: "StepAP209_Construct.hxx".}
-proc FeaModel*(this: StepAP209_Construct; PD: handle[StepBasic_ProductDefinition]): handle[
+proc feaModel*(this: StepAP209Construct; pd: Handle[StepBasicProductDefinition]): Handle[
     StepFEA_FeaModel] {.noSideEffect, importcpp: "FeaModel",
                        header: "StepAP209_Construct.hxx".}
-proc IdealShape*(this: StepAP209_Construct; PD: handle[StepBasic_ProductDefinition]): handle[
-    StepShape_ShapeRepresentation] {.noSideEffect, importcpp: "IdealShape",
-                                    header: "StepAP209_Construct.hxx".}
-proc IdealShape*(this: StepAP209_Construct;
-                PDS: handle[StepRepr_ProductDefinitionShape]): handle[
-    StepShape_ShapeRepresentation] {.noSideEffect, importcpp: "IdealShape",
-                                    header: "StepAP209_Construct.hxx".}
+proc idealShape*(this: StepAP209Construct; pd: Handle[StepBasicProductDefinition]): Handle[
+    StepShapeShapeRepresentation] {.noSideEffect, importcpp: "IdealShape",
+                                   header: "StepAP209_Construct.hxx".}
+proc idealShape*(this: StepAP209Construct;
+                pds: Handle[StepReprProductDefinitionShape]): Handle[
+    StepShapeShapeRepresentation] {.noSideEffect, importcpp: "IdealShape",
+                                   header: "StepAP209_Construct.hxx".}

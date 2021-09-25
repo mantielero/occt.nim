@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TDataXtd_GeometryEnum,
-  ../TDF/TDF_Attribute, ../Standard/Standard_Boolean, ../Standard/Standard_OStream
-
 discard "forward decl of TDF_Label"
 discard "forward decl of TNaming_NamedShape"
 discard "forward decl of gp_Pnt"
@@ -32,7 +28,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataXtd_Geometry"
 discard "forward decl of TDataXtd_Geometry"
 type
-  Handle_TDataXtd_Geometry* = handle[TDataXtd_Geometry]
+  HandleTDataXtdGeometry* = Handle[TDataXtdGeometry]
 
 ## ! This class is used to model construction geometry.
 ## ! The specific geometric construction of the
@@ -43,122 +39,122 @@ type
 ## ! Constructuion element by example.
 
 type
-  TDataXtd_Geometry* {.importcpp: "TDataXtd_Geometry",
-                      header: "TDataXtd_Geometry.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                   ## !
-                                                                                   ## API
-                                                                                   ## class
-                                                                                   ## methods
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## =================
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Finds,
-                                                                                   ## or
-                                                                                   ## creates,
-                                                                                   ## a
-                                                                                   ## Geometry
-                                                                                   ## attribute
-                                                                                   ## defined
-                                                                                   ## by
-                                                                                   ## the
-                                                                                   ## label
-                                                                                   ## label.
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## The
-                                                                                   ## default
-                                                                                   ## type
-                                                                                   ## of
-                                                                                   ## geometry
-                                                                                   ## is
-                                                                                   ## the
-                                                                                   ## value
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## ANY_GEOM
-                                                                                   ## of
-                                                                                   ## the
-                                                                                   ## enumeration
-                                                                                   ## TDataXtd_GeometryEnum.
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## To
-                                                                                   ## specify
-                                                                                   ## another
-                                                                                   ## value
-                                                                                   ## of
-                                                                                   ## this
-                                                                                   ## enumeration,
-                                                                                   ## use
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## the
-                                                                                   ## function
-                                                                                   ## SetType.
+  TDataXtdGeometry* {.importcpp: "TDataXtd_Geometry",
+                     header: "TDataXtd_Geometry.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                  ## !
+                                                                                  ## API
+                                                                                  ## class
+                                                                                  ## methods
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## =================
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## Finds,
+                                                                                  ## or
+                                                                                  ## creates,
+                                                                                  ## a
+                                                                                  ## Geometry
+                                                                                  ## attribute
+                                                                                  ## defined
+                                                                                  ## by
+                                                                                  ## the
+                                                                                  ## label
+                                                                                  ## label.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## The
+                                                                                  ## default
+                                                                                  ## type
+                                                                                  ## of
+                                                                                  ## geometry
+                                                                                  ## is
+                                                                                  ## the
+                                                                                  ## value
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## ANY_GEOM
+                                                                                  ## of
+                                                                                  ## the
+                                                                                  ## enumeration
+                                                                                  ## TDataXtd_GeometryEnum.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## To
+                                                                                  ## specify
+                                                                                  ## another
+                                                                                  ## value
+                                                                                  ## of
+                                                                                  ## this
+                                                                                  ## enumeration,
+                                                                                  ## use
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## the
+                                                                                  ## function
+                                                                                  ## SetType.
 
 
-proc Set*(label: TDF_Label): handle[TDataXtd_Geometry] {.
+proc set*(label: TDF_Label): Handle[TDataXtdGeometry] {.
     importcpp: "TDataXtd_Geometry::Set(@)", header: "TDataXtd_Geometry.hxx".}
-proc Type*(L: TDF_Label): TDataXtd_GeometryEnum {.
+proc `type`*(L: TDF_Label): TDataXtdGeometryEnum {.
     importcpp: "TDataXtd_Geometry::Type(@)", header: "TDataXtd_Geometry.hxx".}
-proc Type*(S: handle[TNaming_NamedShape]): TDataXtd_GeometryEnum {.
+proc `type`*(s: Handle[TNamingNamedShape]): TDataXtdGeometryEnum {.
     importcpp: "TDataXtd_Geometry::Type(@)", header: "TDataXtd_Geometry.hxx".}
-proc Point*(L: TDF_Label; G: var gp_Pnt): Standard_Boolean {.
+proc point*(L: TDF_Label; g: var Pnt): bool {.importcpp: "TDataXtd_Geometry::Point(@)",
+                                       header: "TDataXtd_Geometry.hxx".}
+proc point*(s: Handle[TNamingNamedShape]; g: var Pnt): bool {.
     importcpp: "TDataXtd_Geometry::Point(@)", header: "TDataXtd_Geometry.hxx".}
-proc Point*(S: handle[TNaming_NamedShape]; G: var gp_Pnt): Standard_Boolean {.
-    importcpp: "TDataXtd_Geometry::Point(@)", header: "TDataXtd_Geometry.hxx".}
-proc Axis*(L: TDF_Label; G: var gp_Ax1): Standard_Boolean {.
+proc axis*(L: TDF_Label; g: var Ax1): bool {.importcpp: "TDataXtd_Geometry::Axis(@)",
+                                      header: "TDataXtd_Geometry.hxx".}
+proc axis*(s: Handle[TNamingNamedShape]; g: var Ax1): bool {.
     importcpp: "TDataXtd_Geometry::Axis(@)", header: "TDataXtd_Geometry.hxx".}
-proc Axis*(S: handle[TNaming_NamedShape]; G: var gp_Ax1): Standard_Boolean {.
-    importcpp: "TDataXtd_Geometry::Axis(@)", header: "TDataXtd_Geometry.hxx".}
-proc Line*(L: TDF_Label; G: var gp_Lin): Standard_Boolean {.
+proc line*(L: TDF_Label; g: var Lin): bool {.importcpp: "TDataXtd_Geometry::Line(@)",
+                                      header: "TDataXtd_Geometry.hxx".}
+proc line*(s: Handle[TNamingNamedShape]; g: var Lin): bool {.
     importcpp: "TDataXtd_Geometry::Line(@)", header: "TDataXtd_Geometry.hxx".}
-proc Line*(S: handle[TNaming_NamedShape]; G: var gp_Lin): Standard_Boolean {.
-    importcpp: "TDataXtd_Geometry::Line(@)", header: "TDataXtd_Geometry.hxx".}
-proc Circle*(L: TDF_Label; G: var gp_Circ): Standard_Boolean {.
+proc circle*(L: TDF_Label; g: var Circ): bool {.
     importcpp: "TDataXtd_Geometry::Circle(@)", header: "TDataXtd_Geometry.hxx".}
-proc Circle*(S: handle[TNaming_NamedShape]; G: var gp_Circ): Standard_Boolean {.
+proc circle*(s: Handle[TNamingNamedShape]; g: var Circ): bool {.
     importcpp: "TDataXtd_Geometry::Circle(@)", header: "TDataXtd_Geometry.hxx".}
-proc Ellipse*(L: TDF_Label; G: var gp_Elips): Standard_Boolean {.
+proc ellipse*(L: TDF_Label; g: var Elips): bool {.
     importcpp: "TDataXtd_Geometry::Ellipse(@)", header: "TDataXtd_Geometry.hxx".}
-proc Ellipse*(S: handle[TNaming_NamedShape]; G: var gp_Elips): Standard_Boolean {.
+proc ellipse*(s: Handle[TNamingNamedShape]; g: var Elips): bool {.
     importcpp: "TDataXtd_Geometry::Ellipse(@)", header: "TDataXtd_Geometry.hxx".}
-proc Plane*(L: TDF_Label; G: var gp_Pln): Standard_Boolean {.
+proc plane*(L: TDF_Label; g: var Pln): bool {.importcpp: "TDataXtd_Geometry::Plane(@)",
+                                       header: "TDataXtd_Geometry.hxx".}
+proc plane*(s: Handle[TNamingNamedShape]; g: var Pln): bool {.
     importcpp: "TDataXtd_Geometry::Plane(@)", header: "TDataXtd_Geometry.hxx".}
-proc Plane*(S: handle[TNaming_NamedShape]; G: var gp_Pln): Standard_Boolean {.
-    importcpp: "TDataXtd_Geometry::Plane(@)", header: "TDataXtd_Geometry.hxx".}
-proc Cylinder*(L: TDF_Label; G: var gp_Cylinder): Standard_Boolean {.
+proc cylinder*(L: TDF_Label; g: var Cylinder): bool {.
     importcpp: "TDataXtd_Geometry::Cylinder(@)", header: "TDataXtd_Geometry.hxx".}
-proc Cylinder*(S: handle[TNaming_NamedShape]; G: var gp_Cylinder): Standard_Boolean {.
+proc cylinder*(s: Handle[TNamingNamedShape]; g: var Cylinder): bool {.
     importcpp: "TDataXtd_Geometry::Cylinder(@)", header: "TDataXtd_Geometry.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "TDataXtd_Geometry::GetID(@)",
-                            header: "TDataXtd_Geometry.hxx".}
-proc constructTDataXtd_Geometry*(): TDataXtd_Geometry {.constructor,
+proc getID*(): StandardGUID {.importcpp: "TDataXtd_Geometry::GetID(@)",
+                           header: "TDataXtd_Geometry.hxx".}
+proc constructTDataXtdGeometry*(): TDataXtdGeometry {.constructor,
     importcpp: "TDataXtd_Geometry(@)", header: "TDataXtd_Geometry.hxx".}
-proc SetType*(this: var TDataXtd_Geometry; T: TDataXtd_GeometryEnum) {.
+proc setType*(this: var TDataXtdGeometry; t: TDataXtdGeometryEnum) {.
     importcpp: "SetType", header: "TDataXtd_Geometry.hxx".}
-proc GetType*(this: TDataXtd_Geometry): TDataXtd_GeometryEnum {.noSideEffect,
+proc getType*(this: TDataXtdGeometry): TDataXtdGeometryEnum {.noSideEffect,
     importcpp: "GetType", header: "TDataXtd_Geometry.hxx".}
-proc ID*(this: TDataXtd_Geometry): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TDataXtdGeometry): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TDataXtd_Geometry.hxx".}
-proc Restore*(this: var TDataXtd_Geometry; with: handle[TDF_Attribute]) {.
+proc restore*(this: var TDataXtdGeometry; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TDataXtd_Geometry.hxx".}
-proc NewEmpty*(this: TDataXtd_Geometry): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TDataXtdGeometry): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TDataXtd_Geometry.hxx".}
-proc Paste*(this: TDataXtd_Geometry; into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TDataXtdGeometry; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TDataXtd_Geometry.hxx".}
-proc Dump*(this: TDataXtd_Geometry; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDataXtdGeometry; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataXtd_Geometry.hxx".}
 type
-  TDataXtd_Geometrybase_type* = TDF_Attribute
+  TDataXtdGeometrybaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TDataXtd_Geometry::get_type_name(@)",
-                              header: "TDataXtd_Geometry.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDataXtd_Geometry::get_type_name(@)",
+                            header: "TDataXtd_Geometry.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDataXtd_Geometry::get_type_descriptor(@)",
     header: "TDataXtd_Geometry.hxx".}
-proc DynamicType*(this: TDataXtd_Geometry): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDataXtdGeometry): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataXtd_Geometry.hxx".}

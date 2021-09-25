@@ -14,51 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TopOpeBRep_PFacesFiller,
-  ../TopoDS/TopoDS_Face, ../TopTools/TopTools_DataMapOfShapeInteger,
-  ../Standard/Standard_Integer, ../Standard/Standard_Transient,
-  ../TopOpeBRepDS/TopOpeBRepDS_Kind, ../Standard/Standard_Boolean
-
 discard "forward decl of TopOpeBRep_LineInter"
 discard "forward decl of TopOpeBRep_VPointInter"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRep_FFDumper"
 discard "forward decl of TopOpeBRep_FFDumper"
 type
-  Handle_TopOpeBRep_FFDumper* = handle[TopOpeBRep_FFDumper]
-  TopOpeBRep_FFDumper* {.importcpp: "TopOpeBRep_FFDumper",
-                        header: "TopOpeBRep_FFDumper.hxx", bycopy.} = object of Standard_Transient
+  HandleTopOpeBRepFFDumper* = Handle[TopOpeBRepFFDumper]
+  TopOpeBRepFFDumper* {.importcpp: "TopOpeBRep_FFDumper",
+                       header: "TopOpeBRep_FFDumper.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructTopOpeBRep_FFDumper*(PFF: TopOpeBRep_PFacesFiller): TopOpeBRep_FFDumper {.
+proc constructTopOpeBRepFFDumper*(pff: TopOpeBRepPFacesFiller): TopOpeBRepFFDumper {.
     constructor, importcpp: "TopOpeBRep_FFDumper(@)",
     header: "TopOpeBRep_FFDumper.hxx".}
-proc Init*(this: var TopOpeBRep_FFDumper; PFF: TopOpeBRep_PFacesFiller) {.
+proc init*(this: var TopOpeBRepFFDumper; pff: TopOpeBRepPFacesFiller) {.
     importcpp: "Init", header: "TopOpeBRep_FFDumper.hxx".}
-proc DumpLine*(this: var TopOpeBRep_FFDumper; I: Standard_Integer) {.
+proc dumpLine*(this: var TopOpeBRepFFDumper; i: int) {.importcpp: "DumpLine",
+    header: "TopOpeBRep_FFDumper.hxx".}
+proc dumpLine*(this: var TopOpeBRepFFDumper; L: TopOpeBRepLineInter) {.
     importcpp: "DumpLine", header: "TopOpeBRep_FFDumper.hxx".}
-proc DumpLine*(this: var TopOpeBRep_FFDumper; L: TopOpeBRep_LineInter) {.
-    importcpp: "DumpLine", header: "TopOpeBRep_FFDumper.hxx".}
-proc DumpVP*(this: var TopOpeBRep_FFDumper; VP: TopOpeBRep_VPointInter) {.
+proc dumpVP*(this: var TopOpeBRepFFDumper; vp: TopOpeBRepVPointInter) {.
     importcpp: "DumpVP", header: "TopOpeBRep_FFDumper.hxx".}
-proc DumpVP*(this: var TopOpeBRep_FFDumper; VP: TopOpeBRep_VPointInter;
-            ISI: Standard_Integer) {.importcpp: "DumpVP",
-                                   header: "TopOpeBRep_FFDumper.hxx".}
-proc ExploreIndex*(this: TopOpeBRep_FFDumper; S: TopoDS_Shape; ISI: Standard_Integer): Standard_Integer {.
+proc dumpVP*(this: var TopOpeBRepFFDumper; vp: TopOpeBRepVPointInter; isi: int) {.
+    importcpp: "DumpVP", header: "TopOpeBRep_FFDumper.hxx".}
+proc exploreIndex*(this: TopOpeBRepFFDumper; s: TopoDS_Shape; isi: int): int {.
     noSideEffect, importcpp: "ExploreIndex", header: "TopOpeBRep_FFDumper.hxx".}
-proc DumpDSP*(this: TopOpeBRep_FFDumper; VP: TopOpeBRep_VPointInter;
-             GK: TopOpeBRepDS_Kind; G: Standard_Integer; newinDS: Standard_Boolean) {.
-    noSideEffect, importcpp: "DumpDSP", header: "TopOpeBRep_FFDumper.hxx".}
-proc PFacesFillerDummy*(this: TopOpeBRep_FFDumper): TopOpeBRep_PFacesFiller {.
+proc dumpDSP*(this: TopOpeBRepFFDumper; vp: TopOpeBRepVPointInter;
+             gk: TopOpeBRepDS_Kind; g: int; newinDS: bool) {.noSideEffect,
+    importcpp: "DumpDSP", header: "TopOpeBRep_FFDumper.hxx".}
+proc pFacesFillerDummy*(this: TopOpeBRepFFDumper): TopOpeBRepPFacesFiller {.
     noSideEffect, importcpp: "PFacesFillerDummy", header: "TopOpeBRep_FFDumper.hxx".}
 type
-  TopOpeBRep_FFDumperbase_type* = Standard_Transient
+  TopOpeBRepFFDumperbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TopOpeBRep_FFDumper::get_type_name(@)",
-                              header: "TopOpeBRep_FFDumper.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TopOpeBRep_FFDumper::get_type_name(@)",
+                            header: "TopOpeBRep_FFDumper.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopOpeBRep_FFDumper::get_type_descriptor(@)",
     header: "TopOpeBRep_FFDumper.hxx".}
-proc DynamicType*(this: TopOpeBRep_FFDumper): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TopOpeBRepFFDumper): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopOpeBRep_FFDumper.hxx".}

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_OStream
-
 discard "forward decl of LocalAnalysis_SurfaceContinuity"
 discard "forward decl of LocalAnalysis_CurveContinuity"
 discard "forward decl of LocalAnalysis_SurfaceContinuity"
@@ -62,7 +58,7 @@ type
                                                                                       ## CurveContinuity
 
 
-proc Dump*(surfconti: LocalAnalysis_SurfaceContinuity; o: var Standard_OStream) {.
+proc dump*(surfconti: LocalAnalysisSurfaceContinuity; o: var StandardOStream) {.
     importcpp: "LocalAnalysis::Dump(@)", header: "LocalAnalysis.hxx".}
-proc Dump*(curvconti: LocalAnalysis_CurveContinuity; o: var Standard_OStream) {.
+proc dump*(curvconti: LocalAnalysisCurveContinuity; o: var StandardOStream) {.
     importcpp: "LocalAnalysis::Dump(@)", header: "LocalAnalysis.hxx".}

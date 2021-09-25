@@ -11,439 +11,418 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ShapePersistent_TopoDS, ShapePersistent_Geom, ShapePersistent_Geom2d,
-  ShapePersistent_Poly, ../StdObjMgt/StdObjMgt_TransientPersistentMap,
-  ../StdObject/StdObject_Location, ../StdObject/StdObject_gp_Vectors,
-  ../BRep/BRep_ListOfPointRepresentation, ../BRep/BRep_ListOfCurveRepresentation,
-  ../gp/gp_Pnt, ../gp/gp_Pnt2d
-
 discard "forward decl of BRep_PointRepresentation"
 discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
 type
-  ShapePersistent_BRep* {.importcpp: "ShapePersistent_BRep",
-                         header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistent_TopoDS ##
-                                                                                                  ## !
-                                                                                                  ## Create
-                                                                                                  ## a
-                                                                                                  ## persistent
-                                                                                                  ## object
-                                                                                                  ## for
-                                                                                                  ## a
-                                                                                                  ## vertex
+  ShapePersistentBRep* {.importcpp: "ShapePersistent_BRep",
+                        header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistentTopoDS ##
+                                                                                                ## !
+                                                                                                ## Create
+                                                                                                ## a
+                                                                                                ## persistent
+                                                                                                ## object
+                                                                                                ## for
+                                                                                                ## a
+                                                                                                ## vertex
 
-  ShapePersistent_BRepPointRepresentation* {.
+  ShapePersistentBRepPointRepresentation* {.
       importcpp: "ShapePersistent_BRep::PointRepresentation",
-      header: "ShapePersistent_BRep.hxx", bycopy.} = object of StdObjMgt_Persistent ## !
-                                                                             ## Empty
-                                                                             ## constructor.
+      header: "ShapePersistent_BRep.hxx", bycopy.} = object of StdObjMgtPersistent ## !
+                                                                            ## Empty
+                                                                            ## constructor.
 
 
-proc constructShapePersistent_BRepPointRepresentation*(): ShapePersistent_BRepPointRepresentation {.
+proc constructShapePersistentBRepPointRepresentation*(): ShapePersistentBRepPointRepresentation {.
     constructor, importcpp: "ShapePersistent_BRep::PointRepresentation(@)",
     header: "ShapePersistent_BRep.hxx".}
-proc Read*(this: var ShapePersistent_BRepPointRepresentation;
-          theReadData: var StdObjMgt_ReadData) {.importcpp: "Read",
+proc read*(this: var ShapePersistentBRepPointRepresentation;
+          theReadData: var StdObjMgtReadData) {.importcpp: "Read",
     header: "ShapePersistent_BRep.hxx".}
-proc Write*(this: ShapePersistent_BRepPointRepresentation;
-           theWriteData: var StdObjMgt_WriteData) {.noSideEffect,
-    importcpp: "Write", header: "ShapePersistent_BRep.hxx".}
-proc PChildren*(this: ShapePersistent_BRepPointRepresentation;
+proc write*(this: ShapePersistentBRepPointRepresentation;
+           theWriteData: var StdObjMgtWriteData) {.noSideEffect, importcpp: "Write",
+    header: "ShapePersistent_BRep.hxx".}
+proc pChildren*(this: ShapePersistentBRepPointRepresentation;
                theChildren: var SequenceOfPersistent) {.noSideEffect,
     importcpp: "PChildren", header: "ShapePersistent_BRep.hxx".}
-proc PName*(this: ShapePersistent_BRepPointRepresentation): Standard_CString {.
+proc pName*(this: ShapePersistentBRepPointRepresentation): StandardCString {.
     noSideEffect, importcpp: "PName", header: "ShapePersistent_BRep.hxx".}
-proc Import*(this: ShapePersistent_BRepPointRepresentation;
-            thePoints: var BRep_ListOfPointRepresentation) {.noSideEffect,
+proc `import`*(this: ShapePersistentBRepPointRepresentation;
+              thePoints: var BRepListOfPointRepresentation) {.noSideEffect,
     importcpp: "Import", header: "ShapePersistent_BRep.hxx".}
 type
-  ShapePersistent_BRepPointOnCurve* {.importcpp: "ShapePersistent_BRep::PointOnCurve",
-                                     header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistent_BRepPointRepresentation
+  ShapePersistentBRepPointOnCurve* {.importcpp: "ShapePersistent_BRep::PointOnCurve",
+                                    header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistentBRepPointRepresentation
 
 
-proc Read*(this: var ShapePersistent_BRepPointOnCurve;
-          theReadData: var StdObjMgt_ReadData) {.importcpp: "Read",
+proc read*(this: var ShapePersistentBRepPointOnCurve;
+          theReadData: var StdObjMgtReadData) {.importcpp: "Read",
     header: "ShapePersistent_BRep.hxx".}
-proc Write*(this: ShapePersistent_BRepPointOnCurve;
-           theWriteData: var StdObjMgt_WriteData) {.noSideEffect,
-    importcpp: "Write", header: "ShapePersistent_BRep.hxx".}
-proc PChildren*(this: ShapePersistent_BRepPointOnCurve;
+proc write*(this: ShapePersistentBRepPointOnCurve;
+           theWriteData: var StdObjMgtWriteData) {.noSideEffect, importcpp: "Write",
+    header: "ShapePersistent_BRep.hxx".}
+proc pChildren*(this: ShapePersistentBRepPointOnCurve;
                theChildren: var SequenceOfPersistent) {.noSideEffect,
     importcpp: "PChildren", header: "ShapePersistent_BRep.hxx".}
-proc PName*(this: ShapePersistent_BRepPointOnCurve): Standard_CString {.
-    noSideEffect, importcpp: "PName", header: "ShapePersistent_BRep.hxx".}
-proc `import`*(this: ShapePersistent_BRepPointOnCurve): handle[
-    BRep_PointRepresentation] {.noSideEffect, importcpp: "import",
-                               header: "ShapePersistent_BRep.hxx".}
+proc pName*(this: ShapePersistentBRepPointOnCurve): StandardCString {.noSideEffect,
+    importcpp: "PName", header: "ShapePersistent_BRep.hxx".}
+proc `import`*(this: ShapePersistentBRepPointOnCurve): Handle[
+    BRepPointRepresentation] {.noSideEffect, importcpp: "import",
+                              header: "ShapePersistent_BRep.hxx".}
 type
-  ShapePersistent_BRepPointsOnSurface* {.importcpp: "ShapePersistent_BRep::PointsOnSurface",
-                                        header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistent_BRepPointRepresentation
+  ShapePersistentBRepPointsOnSurface* {.importcpp: "ShapePersistent_BRep::PointsOnSurface",
+                                       header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistentBRepPointRepresentation
 
 
-proc Read*(this: var ShapePersistent_BRepPointsOnSurface;
-          theReadData: var StdObjMgt_ReadData) {.importcpp: "Read",
+proc read*(this: var ShapePersistentBRepPointsOnSurface;
+          theReadData: var StdObjMgtReadData) {.importcpp: "Read",
     header: "ShapePersistent_BRep.hxx".}
-proc Write*(this: ShapePersistent_BRepPointsOnSurface;
-           theWriteData: var StdObjMgt_WriteData) {.noSideEffect,
-    importcpp: "Write", header: "ShapePersistent_BRep.hxx".}
-proc PChildren*(this: ShapePersistent_BRepPointsOnSurface;
+proc write*(this: ShapePersistentBRepPointsOnSurface;
+           theWriteData: var StdObjMgtWriteData) {.noSideEffect, importcpp: "Write",
+    header: "ShapePersistent_BRep.hxx".}
+proc pChildren*(this: ShapePersistentBRepPointsOnSurface;
                theChildren: var SequenceOfPersistent) {.noSideEffect,
     importcpp: "PChildren", header: "ShapePersistent_BRep.hxx".}
-proc PName*(this: ShapePersistent_BRepPointsOnSurface): Standard_CString {.
+proc pName*(this: ShapePersistentBRepPointsOnSurface): StandardCString {.
     noSideEffect, importcpp: "PName", header: "ShapePersistent_BRep.hxx".}
 type
-  ShapePersistent_BRepPointOnCurveOnSurface* {.
+  ShapePersistentBRepPointOnCurveOnSurface* {.
       importcpp: "ShapePersistent_BRep::PointOnCurveOnSurface",
-      header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistent_BRepPointsOnSurface
+      header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistentBRepPointsOnSurface
 
 
-proc Read*(this: var ShapePersistent_BRepPointOnCurveOnSurface;
-          theReadData: var StdObjMgt_ReadData) {.importcpp: "Read",
+proc read*(this: var ShapePersistentBRepPointOnCurveOnSurface;
+          theReadData: var StdObjMgtReadData) {.importcpp: "Read",
     header: "ShapePersistent_BRep.hxx".}
-proc Write*(this: ShapePersistent_BRepPointOnCurveOnSurface;
-           theWriteData: var StdObjMgt_WriteData) {.noSideEffect,
-    importcpp: "Write", header: "ShapePersistent_BRep.hxx".}
-proc PChildren*(this: ShapePersistent_BRepPointOnCurveOnSurface;
+proc write*(this: ShapePersistentBRepPointOnCurveOnSurface;
+           theWriteData: var StdObjMgtWriteData) {.noSideEffect, importcpp: "Write",
+    header: "ShapePersistent_BRep.hxx".}
+proc pChildren*(this: ShapePersistentBRepPointOnCurveOnSurface;
                theChildren: var SequenceOfPersistent) {.noSideEffect,
     importcpp: "PChildren", header: "ShapePersistent_BRep.hxx".}
-proc PName*(this: ShapePersistent_BRepPointOnCurveOnSurface): Standard_CString {.
+proc pName*(this: ShapePersistentBRepPointOnCurveOnSurface): StandardCString {.
     noSideEffect, importcpp: "PName", header: "ShapePersistent_BRep.hxx".}
-proc `import`*(this: ShapePersistent_BRepPointOnCurveOnSurface): handle[
-    BRep_PointRepresentation] {.noSideEffect, importcpp: "import",
-                               header: "ShapePersistent_BRep.hxx".}
+proc `import`*(this: ShapePersistentBRepPointOnCurveOnSurface): Handle[
+    BRepPointRepresentation] {.noSideEffect, importcpp: "import",
+                              header: "ShapePersistent_BRep.hxx".}
 type
-  ShapePersistent_BRepPointOnSurface* {.importcpp: "ShapePersistent_BRep::PointOnSurface",
-                                       header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistent_BRepPointsOnSurface
+  ShapePersistentBRepPointOnSurface* {.importcpp: "ShapePersistent_BRep::PointOnSurface",
+                                      header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistentBRepPointsOnSurface
 
 
-proc constructShapePersistent_BRepPointOnSurface*(): ShapePersistent_BRepPointOnSurface {.
+proc constructShapePersistentBRepPointOnSurface*(): ShapePersistentBRepPointOnSurface {.
     constructor, importcpp: "ShapePersistent_BRep::PointOnSurface(@)",
     header: "ShapePersistent_BRep.hxx".}
-proc Read*(this: var ShapePersistent_BRepPointOnSurface;
-          theReadData: var StdObjMgt_ReadData) {.importcpp: "Read",
+proc read*(this: var ShapePersistentBRepPointOnSurface;
+          theReadData: var StdObjMgtReadData) {.importcpp: "Read",
     header: "ShapePersistent_BRep.hxx".}
-proc Write*(this: ShapePersistent_BRepPointOnSurface;
-           theWriteData: var StdObjMgt_WriteData) {.noSideEffect,
-    importcpp: "Write", header: "ShapePersistent_BRep.hxx".}
-proc PName*(this: ShapePersistent_BRepPointOnSurface): Standard_CString {.
+proc write*(this: ShapePersistentBRepPointOnSurface;
+           theWriteData: var StdObjMgtWriteData) {.noSideEffect, importcpp: "Write",
+    header: "ShapePersistent_BRep.hxx".}
+proc pName*(this: ShapePersistentBRepPointOnSurface): StandardCString {.
     noSideEffect, importcpp: "PName", header: "ShapePersistent_BRep.hxx".}
-proc `import`*(this: ShapePersistent_BRepPointOnSurface): handle[
-    BRep_PointRepresentation] {.noSideEffect, importcpp: "import",
-                               header: "ShapePersistent_BRep.hxx".}
+proc `import`*(this: ShapePersistentBRepPointOnSurface): Handle[
+    BRepPointRepresentation] {.noSideEffect, importcpp: "import",
+                              header: "ShapePersistent_BRep.hxx".}
 type
-  ShapePersistent_BRepCurveRepresentation* {.
+  ShapePersistentBRepCurveRepresentation* {.
       importcpp: "ShapePersistent_BRep::CurveRepresentation",
-      header: "ShapePersistent_BRep.hxx", bycopy.} = object of StdObjMgt_Persistent ## !
-                                                                             ## Read
-                                                                             ## persistent
-                                                                             ## data
-                                                                             ## from a
-                                                                             ## file.
+      header: "ShapePersistent_BRep.hxx", bycopy.} = object of StdObjMgtPersistent ## ! Read
+                                                                            ## persistent data from a
+                                                                            ## file.
 
 
-proc Read*(this: var ShapePersistent_BRepCurveRepresentation;
-          theReadData: var StdObjMgt_ReadData) {.importcpp: "Read",
+proc read*(this: var ShapePersistentBRepCurveRepresentation;
+          theReadData: var StdObjMgtReadData) {.importcpp: "Read",
     header: "ShapePersistent_BRep.hxx".}
-proc Write*(this: ShapePersistent_BRepCurveRepresentation;
-           theWriteData: var StdObjMgt_WriteData) {.noSideEffect,
-    importcpp: "Write", header: "ShapePersistent_BRep.hxx".}
-proc PChildren*(this: ShapePersistent_BRepCurveRepresentation;
+proc write*(this: ShapePersistentBRepCurveRepresentation;
+           theWriteData: var StdObjMgtWriteData) {.noSideEffect, importcpp: "Write",
+    header: "ShapePersistent_BRep.hxx".}
+proc pChildren*(this: ShapePersistentBRepCurveRepresentation;
                theChildren: var SequenceOfPersistent) {.noSideEffect,
     importcpp: "PChildren", header: "ShapePersistent_BRep.hxx".}
-proc PName*(this: ShapePersistent_BRepCurveRepresentation): Standard_CString {.
+proc pName*(this: ShapePersistentBRepCurveRepresentation): StandardCString {.
     noSideEffect, importcpp: "PName", header: "ShapePersistent_BRep.hxx".}
-proc Import*(this: ShapePersistent_BRepCurveRepresentation;
-            theCurves: var BRep_ListOfCurveRepresentation) {.noSideEffect,
+proc `import`*(this: ShapePersistentBRepCurveRepresentation;
+              theCurves: var BRepListOfCurveRepresentation) {.noSideEffect,
     importcpp: "Import", header: "ShapePersistent_BRep.hxx".}
 type
-  ShapePersistent_BRepGCurve* {.importcpp: "ShapePersistent_BRep::GCurve",
-                               header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistent_BRepCurveRepresentation
+  ShapePersistentBRepGCurve* {.importcpp: "ShapePersistent_BRep::GCurve",
+                              header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistentBRepCurveRepresentation
 
 
-proc constructShapePersistent_BRepGCurve*(): ShapePersistent_BRepGCurve {.
+proc constructShapePersistentBRepGCurve*(): ShapePersistentBRepGCurve {.
     constructor, importcpp: "ShapePersistent_BRep::GCurve(@)",
     header: "ShapePersistent_BRep.hxx".}
-proc Read*(this: var ShapePersistent_BRepGCurve; theReadData: var StdObjMgt_ReadData) {.
+proc read*(this: var ShapePersistentBRepGCurve; theReadData: var StdObjMgtReadData) {.
     importcpp: "Read", header: "ShapePersistent_BRep.hxx".}
-proc Write*(this: ShapePersistent_BRepGCurve; theWriteData: var StdObjMgt_WriteData) {.
+proc write*(this: ShapePersistentBRepGCurve; theWriteData: var StdObjMgtWriteData) {.
     noSideEffect, importcpp: "Write", header: "ShapePersistent_BRep.hxx".}
-proc PName*(this: ShapePersistent_BRepGCurve): Standard_CString {.noSideEffect,
+proc pName*(this: ShapePersistentBRepGCurve): StandardCString {.noSideEffect,
     importcpp: "PName", header: "ShapePersistent_BRep.hxx".}
 type
-  ShapePersistent_BRepCurve3D* {.importcpp: "ShapePersistent_BRep::Curve3D",
-                                header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistent_BRepGCurve
+  ShapePersistentBRepCurve3D* {.importcpp: "ShapePersistent_BRep::Curve3D",
+                               header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistentBRepGCurve
 
 
-proc Read*(this: var ShapePersistent_BRepCurve3D;
-          theReadData: var StdObjMgt_ReadData) {.importcpp: "Read",
-    header: "ShapePersistent_BRep.hxx".}
-proc Write*(this: ShapePersistent_BRepCurve3D;
-           theWriteData: var StdObjMgt_WriteData) {.noSideEffect,
-    importcpp: "Write", header: "ShapePersistent_BRep.hxx".}
-proc PChildren*(this: ShapePersistent_BRepCurve3D;
+proc read*(this: var ShapePersistentBRepCurve3D; theReadData: var StdObjMgtReadData) {.
+    importcpp: "Read", header: "ShapePersistent_BRep.hxx".}
+proc write*(this: ShapePersistentBRepCurve3D; theWriteData: var StdObjMgtWriteData) {.
+    noSideEffect, importcpp: "Write", header: "ShapePersistent_BRep.hxx".}
+proc pChildren*(this: ShapePersistentBRepCurve3D;
                theChildren: var SequenceOfPersistent) {.noSideEffect,
     importcpp: "PChildren", header: "ShapePersistent_BRep.hxx".}
-proc PName*(this: ShapePersistent_BRepCurve3D): Standard_CString {.noSideEffect,
+proc pName*(this: ShapePersistentBRepCurve3D): StandardCString {.noSideEffect,
     importcpp: "PName", header: "ShapePersistent_BRep.hxx".}
-proc `import`*(this: ShapePersistent_BRepCurve3D): handle[BRep_CurveRepresentation] {.
+proc `import`*(this: ShapePersistentBRepCurve3D): Handle[BRepCurveRepresentation] {.
     noSideEffect, importcpp: "import", header: "ShapePersistent_BRep.hxx".}
 type
-  ShapePersistent_BRepCurveOnSurface* {.importcpp: "ShapePersistent_BRep::CurveOnSurface",
-                                       header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistent_BRepGCurve
+  ShapePersistentBRepCurveOnSurface* {.importcpp: "ShapePersistent_BRep::CurveOnSurface",
+                                      header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistentBRepGCurve
 
 
-proc Read*(this: var ShapePersistent_BRepCurveOnSurface;
-          theReadData: var StdObjMgt_ReadData) {.importcpp: "Read",
+proc read*(this: var ShapePersistentBRepCurveOnSurface;
+          theReadData: var StdObjMgtReadData) {.importcpp: "Read",
     header: "ShapePersistent_BRep.hxx".}
-proc Write*(this: ShapePersistent_BRepCurveOnSurface;
-           theWriteData: var StdObjMgt_WriteData) {.noSideEffect,
-    importcpp: "Write", header: "ShapePersistent_BRep.hxx".}
-proc PChildren*(this: ShapePersistent_BRepCurveOnSurface;
+proc write*(this: ShapePersistentBRepCurveOnSurface;
+           theWriteData: var StdObjMgtWriteData) {.noSideEffect, importcpp: "Write",
+    header: "ShapePersistent_BRep.hxx".}
+proc pChildren*(this: ShapePersistentBRepCurveOnSurface;
                theChildren: var SequenceOfPersistent) {.noSideEffect,
     importcpp: "PChildren", header: "ShapePersistent_BRep.hxx".}
-proc PName*(this: ShapePersistent_BRepCurveOnSurface): Standard_CString {.
+proc pName*(this: ShapePersistentBRepCurveOnSurface): StandardCString {.
     noSideEffect, importcpp: "PName", header: "ShapePersistent_BRep.hxx".}
-proc `import`*(this: ShapePersistent_BRepCurveOnSurface): handle[
-    BRep_CurveRepresentation] {.noSideEffect, importcpp: "import",
-                               header: "ShapePersistent_BRep.hxx".}
+proc `import`*(this: ShapePersistentBRepCurveOnSurface): Handle[
+    BRepCurveRepresentation] {.noSideEffect, importcpp: "import",
+                              header: "ShapePersistent_BRep.hxx".}
 type
-  ShapePersistent_BRepCurveOnClosedSurface* {.
+  ShapePersistentBRepCurveOnClosedSurface* {.
       importcpp: "ShapePersistent_BRep::CurveOnClosedSurface",
-      header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistent_BRepCurveOnSurface
+      header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistentBRepCurveOnSurface
 
 
-proc constructShapePersistent_BRepCurveOnClosedSurface*(): ShapePersistent_BRepCurveOnClosedSurface {.
+proc constructShapePersistentBRepCurveOnClosedSurface*(): ShapePersistentBRepCurveOnClosedSurface {.
     constructor, importcpp: "ShapePersistent_BRep::CurveOnClosedSurface(@)",
     header: "ShapePersistent_BRep.hxx".}
-proc Read*(this: var ShapePersistent_BRepCurveOnClosedSurface;
-          theReadData: var StdObjMgt_ReadData) {.importcpp: "Read",
+proc read*(this: var ShapePersistentBRepCurveOnClosedSurface;
+          theReadData: var StdObjMgtReadData) {.importcpp: "Read",
     header: "ShapePersistent_BRep.hxx".}
-proc Write*(this: ShapePersistent_BRepCurveOnClosedSurface;
-           theWriteData: var StdObjMgt_WriteData) {.noSideEffect,
-    importcpp: "Write", header: "ShapePersistent_BRep.hxx".}
-proc PChildren*(this: ShapePersistent_BRepCurveOnClosedSurface;
+proc write*(this: ShapePersistentBRepCurveOnClosedSurface;
+           theWriteData: var StdObjMgtWriteData) {.noSideEffect, importcpp: "Write",
+    header: "ShapePersistent_BRep.hxx".}
+proc pChildren*(this: ShapePersistentBRepCurveOnClosedSurface;
                theChildren: var SequenceOfPersistent) {.noSideEffect,
     importcpp: "PChildren", header: "ShapePersistent_BRep.hxx".}
-proc PName*(this: ShapePersistent_BRepCurveOnClosedSurface): Standard_CString {.
+proc pName*(this: ShapePersistentBRepCurveOnClosedSurface): StandardCString {.
     noSideEffect, importcpp: "PName", header: "ShapePersistent_BRep.hxx".}
-proc `import`*(this: ShapePersistent_BRepCurveOnClosedSurface): handle[
-    BRep_CurveRepresentation] {.noSideEffect, importcpp: "import",
-                               header: "ShapePersistent_BRep.hxx".}
+proc `import`*(this: ShapePersistentBRepCurveOnClosedSurface): Handle[
+    BRepCurveRepresentation] {.noSideEffect, importcpp: "import",
+                              header: "ShapePersistent_BRep.hxx".}
 type
-  ShapePersistent_BRepPolygon3D* {.importcpp: "ShapePersistent_BRep::Polygon3D",
-                                  header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistent_BRepCurveRepresentation
+  ShapePersistentBRepPolygon3D* {.importcpp: "ShapePersistent_BRep::Polygon3D",
+                                 header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistentBRepCurveRepresentation
 
 
-proc Read*(this: var ShapePersistent_BRepPolygon3D;
-          theReadData: var StdObjMgt_ReadData) {.importcpp: "Read",
+proc read*(this: var ShapePersistentBRepPolygon3D;
+          theReadData: var StdObjMgtReadData) {.importcpp: "Read",
     header: "ShapePersistent_BRep.hxx".}
-proc Write*(this: ShapePersistent_BRepPolygon3D;
-           theWriteData: var StdObjMgt_WriteData) {.noSideEffect,
-    importcpp: "Write", header: "ShapePersistent_BRep.hxx".}
-proc PChildren*(this: ShapePersistent_BRepPolygon3D;
+proc write*(this: ShapePersistentBRepPolygon3D;
+           theWriteData: var StdObjMgtWriteData) {.noSideEffect, importcpp: "Write",
+    header: "ShapePersistent_BRep.hxx".}
+proc pChildren*(this: ShapePersistentBRepPolygon3D;
                theChildren: var SequenceOfPersistent) {.noSideEffect,
     importcpp: "PChildren", header: "ShapePersistent_BRep.hxx".}
-proc PName*(this: ShapePersistent_BRepPolygon3D): Standard_CString {.noSideEffect,
+proc pName*(this: ShapePersistentBRepPolygon3D): StandardCString {.noSideEffect,
     importcpp: "PName", header: "ShapePersistent_BRep.hxx".}
-proc `import`*(this: ShapePersistent_BRepPolygon3D): handle[
-    BRep_CurveRepresentation] {.noSideEffect, importcpp: "import",
-                               header: "ShapePersistent_BRep.hxx".}
+proc `import`*(this: ShapePersistentBRepPolygon3D): Handle[BRepCurveRepresentation] {.
+    noSideEffect, importcpp: "import", header: "ShapePersistent_BRep.hxx".}
 type
-  ShapePersistent_BRepPolygonOnTriangulation* {.
+  ShapePersistentBRepPolygonOnTriangulation* {.
       importcpp: "ShapePersistent_BRep::PolygonOnTriangulation",
-      header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistent_BRepCurveRepresentation
+      header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistentBRepCurveRepresentation
 
 
-proc Read*(this: var ShapePersistent_BRepPolygonOnTriangulation;
-          theReadData: var StdObjMgt_ReadData) {.importcpp: "Read",
+proc read*(this: var ShapePersistentBRepPolygonOnTriangulation;
+          theReadData: var StdObjMgtReadData) {.importcpp: "Read",
     header: "ShapePersistent_BRep.hxx".}
-proc Write*(this: ShapePersistent_BRepPolygonOnTriangulation;
-           theWriteData: var StdObjMgt_WriteData) {.noSideEffect,
-    importcpp: "Write", header: "ShapePersistent_BRep.hxx".}
-proc PChildren*(this: ShapePersistent_BRepPolygonOnTriangulation;
+proc write*(this: ShapePersistentBRepPolygonOnTriangulation;
+           theWriteData: var StdObjMgtWriteData) {.noSideEffect, importcpp: "Write",
+    header: "ShapePersistent_BRep.hxx".}
+proc pChildren*(this: ShapePersistentBRepPolygonOnTriangulation;
                theChildren: var SequenceOfPersistent) {.noSideEffect,
     importcpp: "PChildren", header: "ShapePersistent_BRep.hxx".}
-proc PName*(this: ShapePersistent_BRepPolygonOnTriangulation): Standard_CString {.
+proc pName*(this: ShapePersistentBRepPolygonOnTriangulation): StandardCString {.
     noSideEffect, importcpp: "PName", header: "ShapePersistent_BRep.hxx".}
-proc `import`*(this: ShapePersistent_BRepPolygonOnTriangulation): handle[
-    BRep_CurveRepresentation] {.noSideEffect, importcpp: "import",
-                               header: "ShapePersistent_BRep.hxx".}
+proc `import`*(this: ShapePersistentBRepPolygonOnTriangulation): Handle[
+    BRepCurveRepresentation] {.noSideEffect, importcpp: "import",
+                              header: "ShapePersistent_BRep.hxx".}
 type
-  ShapePersistent_BRepPolygonOnClosedTriangulation* {.
+  ShapePersistentBRepPolygonOnClosedTriangulation* {.
       importcpp: "ShapePersistent_BRep::PolygonOnClosedTriangulation",
-      header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistent_BRepPolygonOnTriangulation
+      header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistentBRepPolygonOnTriangulation
 
 
-proc Read*(this: var ShapePersistent_BRepPolygonOnClosedTriangulation;
-          theReadData: var StdObjMgt_ReadData) {.importcpp: "Read",
+proc read*(this: var ShapePersistentBRepPolygonOnClosedTriangulation;
+          theReadData: var StdObjMgtReadData) {.importcpp: "Read",
     header: "ShapePersistent_BRep.hxx".}
-proc Write*(this: ShapePersistent_BRepPolygonOnClosedTriangulation;
-           theWriteData: var StdObjMgt_WriteData) {.noSideEffect,
-    importcpp: "Write", header: "ShapePersistent_BRep.hxx".}
-proc PChildren*(this: ShapePersistent_BRepPolygonOnClosedTriangulation;
+proc write*(this: ShapePersistentBRepPolygonOnClosedTriangulation;
+           theWriteData: var StdObjMgtWriteData) {.noSideEffect, importcpp: "Write",
+    header: "ShapePersistent_BRep.hxx".}
+proc pChildren*(this: ShapePersistentBRepPolygonOnClosedTriangulation;
                theChildren: var SequenceOfPersistent) {.noSideEffect,
     importcpp: "PChildren", header: "ShapePersistent_BRep.hxx".}
-proc PName*(this: ShapePersistent_BRepPolygonOnClosedTriangulation): Standard_CString {.
+proc pName*(this: ShapePersistentBRepPolygonOnClosedTriangulation): StandardCString {.
     noSideEffect, importcpp: "PName", header: "ShapePersistent_BRep.hxx".}
-proc `import`*(this: ShapePersistent_BRepPolygonOnClosedTriangulation): handle[
-    BRep_CurveRepresentation] {.noSideEffect, importcpp: "import",
-                               header: "ShapePersistent_BRep.hxx".}
+proc `import`*(this: ShapePersistentBRepPolygonOnClosedTriangulation): Handle[
+    BRepCurveRepresentation] {.noSideEffect, importcpp: "import",
+                              header: "ShapePersistent_BRep.hxx".}
 type
-  ShapePersistent_BRepPolygonOnSurface* {.
-      importcpp: "ShapePersistent_BRep::PolygonOnSurface",
-      header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistent_BRepCurveRepresentation
+  ShapePersistentBRepPolygonOnSurface* {.importcpp: "ShapePersistent_BRep::PolygonOnSurface",
+                                        header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistentBRepCurveRepresentation
 
 
-proc Read*(this: var ShapePersistent_BRepPolygonOnSurface;
-          theReadData: var StdObjMgt_ReadData) {.importcpp: "Read",
+proc read*(this: var ShapePersistentBRepPolygonOnSurface;
+          theReadData: var StdObjMgtReadData) {.importcpp: "Read",
     header: "ShapePersistent_BRep.hxx".}
-proc Write*(this: ShapePersistent_BRepPolygonOnSurface;
-           theWriteData: var StdObjMgt_WriteData) {.noSideEffect,
-    importcpp: "Write", header: "ShapePersistent_BRep.hxx".}
-proc PChildren*(this: ShapePersistent_BRepPolygonOnSurface;
+proc write*(this: ShapePersistentBRepPolygonOnSurface;
+           theWriteData: var StdObjMgtWriteData) {.noSideEffect, importcpp: "Write",
+    header: "ShapePersistent_BRep.hxx".}
+proc pChildren*(this: ShapePersistentBRepPolygonOnSurface;
                theChildren: var SequenceOfPersistent) {.noSideEffect,
     importcpp: "PChildren", header: "ShapePersistent_BRep.hxx".}
-proc PName*(this: ShapePersistent_BRepPolygonOnSurface): Standard_CString {.
+proc pName*(this: ShapePersistentBRepPolygonOnSurface): StandardCString {.
     noSideEffect, importcpp: "PName", header: "ShapePersistent_BRep.hxx".}
-proc `import`*(this: ShapePersistent_BRepPolygonOnSurface): handle[
-    BRep_CurveRepresentation] {.noSideEffect, importcpp: "import",
-                               header: "ShapePersistent_BRep.hxx".}
+proc `import`*(this: ShapePersistentBRepPolygonOnSurface): Handle[
+    BRepCurveRepresentation] {.noSideEffect, importcpp: "import",
+                              header: "ShapePersistent_BRep.hxx".}
 type
-  ShapePersistent_BRepPolygonOnClosedSurface* {.
+  ShapePersistentBRepPolygonOnClosedSurface* {.
       importcpp: "ShapePersistent_BRep::PolygonOnClosedSurface",
-      header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistent_BRepPolygonOnSurface
+      header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistentBRepPolygonOnSurface
 
 
-proc Read*(this: var ShapePersistent_BRepPolygonOnClosedSurface;
-          theReadData: var StdObjMgt_ReadData) {.importcpp: "Read",
+proc read*(this: var ShapePersistentBRepPolygonOnClosedSurface;
+          theReadData: var StdObjMgtReadData) {.importcpp: "Read",
     header: "ShapePersistent_BRep.hxx".}
-proc Write*(this: ShapePersistent_BRepPolygonOnClosedSurface;
-           theWriteData: var StdObjMgt_WriteData) {.noSideEffect,
-    importcpp: "Write", header: "ShapePersistent_BRep.hxx".}
-proc PChildren*(this: ShapePersistent_BRepPolygonOnClosedSurface;
+proc write*(this: ShapePersistentBRepPolygonOnClosedSurface;
+           theWriteData: var StdObjMgtWriteData) {.noSideEffect, importcpp: "Write",
+    header: "ShapePersistent_BRep.hxx".}
+proc pChildren*(this: ShapePersistentBRepPolygonOnClosedSurface;
                theChildren: var SequenceOfPersistent) {.noSideEffect,
     importcpp: "PChildren", header: "ShapePersistent_BRep.hxx".}
-proc PName*(this: ShapePersistent_BRepPolygonOnClosedSurface): Standard_CString {.
+proc pName*(this: ShapePersistentBRepPolygonOnClosedSurface): StandardCString {.
     noSideEffect, importcpp: "PName", header: "ShapePersistent_BRep.hxx".}
-proc `import`*(this: ShapePersistent_BRepPolygonOnClosedSurface): handle[
-    BRep_CurveRepresentation] {.noSideEffect, importcpp: "import",
-                               header: "ShapePersistent_BRep.hxx".}
+proc `import`*(this: ShapePersistentBRepPolygonOnClosedSurface): Handle[
+    BRepCurveRepresentation] {.noSideEffect, importcpp: "import",
+                              header: "ShapePersistent_BRep.hxx".}
 type
-  ShapePersistent_BRepCurveOn2Surfaces* {.
-      importcpp: "ShapePersistent_BRep::CurveOn2Surfaces",
-      header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistent_BRepCurveRepresentation
+  ShapePersistentBRepCurveOn2Surfaces* {.importcpp: "ShapePersistent_BRep::CurveOn2Surfaces",
+                                        header: "ShapePersistent_BRep.hxx", bycopy.} = object of ShapePersistentBRepCurveRepresentation
 
 
-proc constructShapePersistent_BRepCurveOn2Surfaces*(): ShapePersistent_BRepCurveOn2Surfaces {.
+proc constructShapePersistentBRepCurveOn2Surfaces*(): ShapePersistentBRepCurveOn2Surfaces {.
     constructor, importcpp: "ShapePersistent_BRep::CurveOn2Surfaces(@)",
     header: "ShapePersistent_BRep.hxx".}
-proc Read*(this: var ShapePersistent_BRepCurveOn2Surfaces;
-          theReadData: var StdObjMgt_ReadData) {.importcpp: "Read",
+proc read*(this: var ShapePersistentBRepCurveOn2Surfaces;
+          theReadData: var StdObjMgtReadData) {.importcpp: "Read",
     header: "ShapePersistent_BRep.hxx".}
-proc Write*(this: ShapePersistent_BRepCurveOn2Surfaces;
-           theWriteData: var StdObjMgt_WriteData) {.noSideEffect,
-    importcpp: "Write", header: "ShapePersistent_BRep.hxx".}
-proc PChildren*(this: ShapePersistent_BRepCurveOn2Surfaces;
+proc write*(this: ShapePersistentBRepCurveOn2Surfaces;
+           theWriteData: var StdObjMgtWriteData) {.noSideEffect, importcpp: "Write",
+    header: "ShapePersistent_BRep.hxx".}
+proc pChildren*(this: ShapePersistentBRepCurveOn2Surfaces;
                theChildren: var SequenceOfPersistent) {.noSideEffect,
     importcpp: "PChildren", header: "ShapePersistent_BRep.hxx".}
-proc PName*(this: ShapePersistent_BRepCurveOn2Surfaces): Standard_CString {.
+proc pName*(this: ShapePersistentBRepCurveOn2Surfaces): StandardCString {.
     noSideEffect, importcpp: "PName", header: "ShapePersistent_BRep.hxx".}
-proc `import`*(this: ShapePersistent_BRepCurveOn2Surfaces): handle[
-    BRep_CurveRepresentation] {.noSideEffect, importcpp: "import",
-                               header: "ShapePersistent_BRep.hxx".}
+proc `import`*(this: ShapePersistentBRepCurveOn2Surfaces): Handle[
+    BRepCurveRepresentation] {.noSideEffect, importcpp: "import",
+                              header: "ShapePersistent_BRep.hxx".}
 type
-  ShapePersistent_BRepTVertex* = tObject[ShapePersistent_BReppTVertex]
-  ShapePersistent_BRepTEdge* = tObject[ShapePersistent_BReppTEdge]
-  ShapePersistent_BRepTFace* = tObject[ShapePersistent_BReppTFace]
-  ShapePersistent_BRepTVertex1* = tObject1[ShapePersistent_BReppTVertex]
-  ShapePersistent_BRepTEdge1* = tObject1[ShapePersistent_BReppTEdge]
-  ShapePersistent_BRepTFace1* = tObject1[ShapePersistent_BReppTFace]
+  ShapePersistentBRepTVertex* = TObject[ShapePersistentBReppTVertex]
+  ShapePersistentBRepTEdge* = TObject[ShapePersistentBReppTEdge]
+  ShapePersistentBRepTFace* = TObject[ShapePersistentBReppTFace]
+  ShapePersistentBRepTVertex1* = TObject1[ShapePersistentBReppTVertex]
+  ShapePersistentBRepTEdge1* = TObject1[ShapePersistentBReppTEdge]
+  ShapePersistentBRepTFace1* = TObject1[ShapePersistentBReppTFace]
 
-proc Translate*(theVertex: TopoDS_Vertex;
-               theMap: var StdObjMgt_TransientPersistentMap): handle[pTObjectT] {.
+proc translate*(theVertex: TopoDS_Vertex;
+               theMap: var StdObjMgtTransientPersistentMap): Handle[PTObjectT] {.
     importcpp: "ShapePersistent_BRep::Translate(@)",
     header: "ShapePersistent_BRep.hxx".}
-proc Translate*(theEdge: TopoDS_Edge; theMap: var StdObjMgt_TransientPersistentMap;
-               theTriangleMode: ShapePersistent_TriangleMode): handle[pTObjectT] {.
+proc translate*(theEdge: TopoDS_Edge; theMap: var StdObjMgtTransientPersistentMap;
+               theTriangleMode: ShapePersistentTriangleMode): Handle[PTObjectT] {.
     importcpp: "ShapePersistent_BRep::Translate(@)",
     header: "ShapePersistent_BRep.hxx".}
-proc Translate*(theFace: TopoDS_Face; theMap: var StdObjMgt_TransientPersistentMap;
-               theTriangleMode: ShapePersistent_TriangleMode): handle[pTObjectT] {.
+proc translate*(theFace: TopoDS_Face; theMap: var StdObjMgtTransientPersistentMap;
+               theTriangleMode: ShapePersistentTriangleMode): Handle[PTObjectT] {.
     importcpp: "ShapePersistent_BRep::Translate(@)",
     header: "ShapePersistent_BRep.hxx".}
-proc Translate*(theParam: Standard_Real; theCurve: handle[Geom_Curve];
-               theLoc: TopLoc_Location;
-               theMap: var StdObjMgt_TransientPersistentMap): handle[
-    ShapePersistent_BRepPointOnCurve] {.importcpp: "ShapePersistent_BRep::Translate(@)",
-                                       header: "ShapePersistent_BRep.hxx".}
-proc Translate*(theParam: Standard_Real; theCurve: handle[Geom2d_Curve];
-               theSurf: handle[Geom_Surface]; theLoc: TopLoc_Location;
-               theMap: var StdObjMgt_TransientPersistentMap): handle[
-    ShapePersistent_BRepPointOnCurveOnSurface] {.
+proc translate*(theParam: float; theCurve: Handle[GeomCurve]; theLoc: TopLocLocation;
+               theMap: var StdObjMgtTransientPersistentMap): Handle[
+    ShapePersistentBRepPointOnCurve] {.importcpp: "ShapePersistent_BRep::Translate(@)",
+                                      header: "ShapePersistent_BRep.hxx".}
+proc translate*(theParam: float; theCurve: Handle[Geom2dCurve];
+               theSurf: Handle[GeomSurface]; theLoc: TopLocLocation;
+               theMap: var StdObjMgtTransientPersistentMap): Handle[
+    ShapePersistentBRepPointOnCurveOnSurface] {.
     importcpp: "ShapePersistent_BRep::Translate(@)",
     header: "ShapePersistent_BRep.hxx".}
-proc Translate*(theParam: Standard_Real; theParam2: Standard_Real;
-               theSurf: handle[Geom_Surface]; theLoc: TopLoc_Location;
-               theMap: var StdObjMgt_TransientPersistentMap): handle[
-    ShapePersistent_BRepPointOnSurface] {.
+proc translate*(theParam: float; theParam2: float; theSurf: Handle[GeomSurface];
+               theLoc: TopLocLocation; theMap: var StdObjMgtTransientPersistentMap): Handle[
+    ShapePersistentBRepPointOnSurface] {.importcpp: "ShapePersistent_BRep::Translate(@)",
+                                        header: "ShapePersistent_BRep.hxx".}
+proc translate*(theCurve: Handle[Geom2dCurve]; theFirstParam: float;
+               theLastParam: float; theSurf: Handle[GeomSurface];
+               theLoc: TopLocLocation; theMap: var StdObjMgtTransientPersistentMap): Handle[
+    ShapePersistentBRepCurveOnSurface] {.importcpp: "ShapePersistent_BRep::Translate(@)",
+                                        header: "ShapePersistent_BRep.hxx".}
+proc translate*(theCurve: Handle[Geom2dCurve]; theCurve2: Handle[Geom2dCurve];
+               theFirstParam: float; theLastParam: float;
+               theSurf: Handle[GeomSurface]; theLoc: TopLocLocation;
+               theContinuity: GeomAbsShape;
+               theMap: var StdObjMgtTransientPersistentMap): Handle[
+    ShapePersistentBRepCurveOnClosedSurface] {.
     importcpp: "ShapePersistent_BRep::Translate(@)",
     header: "ShapePersistent_BRep.hxx".}
-proc Translate*(theCurve: handle[Geom2d_Curve]; theFirstParam: Standard_Real;
-               theLastParam: Standard_Real; theSurf: handle[Geom_Surface];
-               theLoc: TopLoc_Location;
-               theMap: var StdObjMgt_TransientPersistentMap): handle[
-    ShapePersistent_BRepCurveOnSurface] {.
+proc translate*(theSurf: Handle[GeomSurface]; theSurf2: Handle[GeomSurface];
+               theLoc: TopLocLocation; theLoc2: TopLocLocation;
+               theContinuity: GeomAbsShape;
+               theMap: var StdObjMgtTransientPersistentMap): Handle[
+    ShapePersistentBRepCurveOn2Surfaces] {.
     importcpp: "ShapePersistent_BRep::Translate(@)",
     header: "ShapePersistent_BRep.hxx".}
-proc Translate*(theCurve: handle[Geom2d_Curve]; theCurve2: handle[Geom2d_Curve];
-               theFirstParam: Standard_Real; theLastParam: Standard_Real;
-               theSurf: handle[Geom_Surface]; theLoc: TopLoc_Location;
-               theContinuity: GeomAbs_Shape;
-               theMap: var StdObjMgt_TransientPersistentMap): handle[
-    ShapePersistent_BRepCurveOnClosedSurface] {.
+proc translate*(theCurve: Handle[GeomCurve]; theFirstParam: float;
+               theLastParam: float; theLoc: TopLocLocation;
+               theMap: var StdObjMgtTransientPersistentMap): Handle[
+    ShapePersistentBRepCurve3D] {.importcpp: "ShapePersistent_BRep::Translate(@)",
+                                 header: "ShapePersistent_BRep.hxx".}
+proc translate*(thePoly: Handle[PolyPolygon3D]; theLoc: TopLocLocation;
+               theMap: var StdObjMgtTransientPersistentMap): Handle[
+    ShapePersistentBRepPolygon3D] {.importcpp: "ShapePersistent_BRep::Translate(@)",
+                                   header: "ShapePersistent_BRep.hxx".}
+proc translate*(thePoly: Handle[PolyPolygon2D]; thePoly2: Handle[PolyPolygon2D];
+               theSurf: Handle[GeomSurface]; theLoc: TopLocLocation;
+               theMap: var StdObjMgtTransientPersistentMap): Handle[
+    ShapePersistentBRepPolygonOnClosedSurface] {.
     importcpp: "ShapePersistent_BRep::Translate(@)",
     header: "ShapePersistent_BRep.hxx".}
-proc Translate*(theSurf: handle[Geom_Surface]; theSurf2: handle[Geom_Surface];
-               theLoc: TopLoc_Location; theLoc2: TopLoc_Location;
-               theContinuity: GeomAbs_Shape;
-               theMap: var StdObjMgt_TransientPersistentMap): handle[
-    ShapePersistent_BRepCurveOn2Surfaces] {.
+proc translate*(thePoly: Handle[PolyPolygon2D]; theSurf: Handle[GeomSurface];
+               theLoc: TopLocLocation; theMap: var StdObjMgtTransientPersistentMap): Handle[
+    ShapePersistentBRepPolygonOnSurface] {.
     importcpp: "ShapePersistent_BRep::Translate(@)",
     header: "ShapePersistent_BRep.hxx".}
-proc Translate*(theCurve: handle[Geom_Curve]; theFirstParam: Standard_Real;
-               theLastParam: Standard_Real; theLoc: TopLoc_Location;
-               theMap: var StdObjMgt_TransientPersistentMap): handle[
-    ShapePersistent_BRepCurve3D] {.importcpp: "ShapePersistent_BRep::Translate(@)",
-                                  header: "ShapePersistent_BRep.hxx".}
-proc Translate*(thePoly: handle[Poly_Polygon3D]; theLoc: TopLoc_Location;
-               theMap: var StdObjMgt_TransientPersistentMap): handle[
-    ShapePersistent_BRepPolygon3D] {.importcpp: "ShapePersistent_BRep::Translate(@)",
-                                    header: "ShapePersistent_BRep.hxx".}
-proc Translate*(thePoly: handle[Poly_Polygon2D]; thePoly2: handle[Poly_Polygon2D];
-               theSurf: handle[Geom_Surface]; theLoc: TopLoc_Location;
-               theMap: var StdObjMgt_TransientPersistentMap): handle[
-    ShapePersistent_BRepPolygonOnClosedSurface] {.
+proc translate*(thePolyOnTriang: Handle[PolyPolygonOnTriangulation];
+               thePolyOnTriang2: Handle[PolyPolygonOnTriangulation];
+               thePolyTriang: Handle[PolyTriangulation]; theLoc: TopLocLocation;
+               theMap: var StdObjMgtTransientPersistentMap): Handle[
+    ShapePersistentBRepPolygonOnClosedTriangulation] {.
     importcpp: "ShapePersistent_BRep::Translate(@)",
     header: "ShapePersistent_BRep.hxx".}
-proc Translate*(thePoly: handle[Poly_Polygon2D]; theSurf: handle[Geom_Surface];
-               theLoc: TopLoc_Location;
-               theMap: var StdObjMgt_TransientPersistentMap): handle[
-    ShapePersistent_BRepPolygonOnSurface] {.
-    importcpp: "ShapePersistent_BRep::Translate(@)",
-    header: "ShapePersistent_BRep.hxx".}
-proc Translate*(thePolyOnTriang: handle[Poly_PolygonOnTriangulation];
-               thePolyOnTriang2: handle[Poly_PolygonOnTriangulation];
-               thePolyTriang: handle[Poly_Triangulation]; theLoc: TopLoc_Location;
-               theMap: var StdObjMgt_TransientPersistentMap): handle[
-    ShapePersistent_BRepPolygonOnClosedTriangulation] {.
-    importcpp: "ShapePersistent_BRep::Translate(@)",
-    header: "ShapePersistent_BRep.hxx".}
-proc Translate*(thePolyOnTriang: handle[Poly_PolygonOnTriangulation];
-               thePolyTriang: handle[Poly_Triangulation]; theLoc: TopLoc_Location;
-               theMap: var StdObjMgt_TransientPersistentMap): handle[
-    ShapePersistent_BRepPolygonOnTriangulation] {.
+proc translate*(thePolyOnTriang: Handle[PolyPolygonOnTriangulation];
+               thePolyTriang: Handle[PolyTriangulation]; theLoc: TopLocLocation;
+               theMap: var StdObjMgtTransientPersistentMap): Handle[
+    ShapePersistentBRepPolygonOnTriangulation] {.
     importcpp: "ShapePersistent_BRep::Translate(@)",
     header: "ShapePersistent_BRep.hxx".}

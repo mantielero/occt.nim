@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  Draft_ErrorStatus* {.size: sizeof(cint), importcpp: "Draft_ErrorStatus",
-                      header: "Draft_ErrorStatus.hxx".} = enum
-    Draft_NoError, Draft_FaceRecomputation, Draft_EdgeRecomputation,
-    Draft_VertexRecomputation
+  DraftErrorStatus* {.size: sizeof(cint), importcpp: "Draft_ErrorStatus",
+                     header: "Draft_ErrorStatus.hxx".} = enum
+    DraftNoError, DraftFaceRecomputation, DraftEdgeRecomputation,
+    DraftVertexRecomputation
+
 

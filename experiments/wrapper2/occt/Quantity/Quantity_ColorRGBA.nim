@@ -11,85 +11,80 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Quantity_Color, ../Standard/Standard_Assert
-
 ## ! The pair of Quantity_Color and Alpha component (1.0 opaque, 0.0 transparent).
 
 type
-  Quantity_ColorRGBA* {.importcpp: "Quantity_ColorRGBA",
-                       header: "Quantity_ColorRGBA.hxx", bycopy.} = object ## ! Creates a color with the default value.
-                                                                      ## ! Finds color from predefined names.
-                                                                      ## ! For example, the name of the color which
-                                                                      ## corresponds to "BLACK" is
-                                                                      ## Quantity_NOC_BLACK.
-                                                                      ## ! An alpha component is set to 1.0.
-                                                                      ## ! @param
-                                                                      ## theColorNameString the color name
-                                                                      ## ! @param theColor a found color
-                                                                      ## ! @return false if the color name is unknown, or true if the search by color name was successful
-                                                                      ## ! Convert linear RGB components into sRGB using OpenGL specs formula.
-                                                                      ## ! Dumps the content of me into the stream
+  QuantityColorRGBA* {.importcpp: "Quantity_ColorRGBA",
+                      header: "Quantity_ColorRGBA.hxx", bycopy.} = object ## ! Creates a color with the default value.
+                                                                     ## ! Finds color from predefined names.
+                                                                     ## ! For example, the name of the color which corresponds to "BLACK" is
+                                                                     ## Quantity_NOC_BLACK.
+                                                                     ## ! An alpha component is set to 1.0.
+                                                                     ## ! @param
+                                                                     ## theColorNameString the color name
+                                                                     ## ! @param theColor a found color
+                                                                     ## ! @return false if the color name is unknown, or true if the search by color name was successful
+                                                                     ## ! Convert linear RGB components into sRGB using OpenGL specs formula.
+                                                                     ## ! Dumps the content of me into the stream
 
 
-proc constructQuantity_ColorRGBA*(): Quantity_ColorRGBA {.constructor,
+proc constructQuantityColorRGBA*(): QuantityColorRGBA {.constructor,
     importcpp: "Quantity_ColorRGBA(@)", header: "Quantity_ColorRGBA.hxx".}
-proc constructQuantity_ColorRGBA*(theRgb: Quantity_Color): Quantity_ColorRGBA {.
+proc constructQuantityColorRGBA*(theRgb: QuantityColor): QuantityColorRGBA {.
     constructor, importcpp: "Quantity_ColorRGBA(@)",
     header: "Quantity_ColorRGBA.hxx".}
-proc constructQuantity_ColorRGBA*(theRgb: Quantity_Color; theAlpha: cfloat): Quantity_ColorRGBA {.
+proc constructQuantityColorRGBA*(theRgb: QuantityColor; theAlpha: cfloat): QuantityColorRGBA {.
     constructor, importcpp: "Quantity_ColorRGBA(@)",
     header: "Quantity_ColorRGBA.hxx".}
-proc constructQuantity_ColorRGBA*(theRgba: NCollection_Vec4[cfloat]): Quantity_ColorRGBA {.
+proc constructQuantityColorRGBA*(theRgba: NCollectionVec4[cfloat]): QuantityColorRGBA {.
     constructor, importcpp: "Quantity_ColorRGBA(@)",
     header: "Quantity_ColorRGBA.hxx".}
-proc constructQuantity_ColorRGBA*(theRed: cfloat; theGreen: cfloat; theBlue: cfloat;
-                                 theAlpha: cfloat): Quantity_ColorRGBA {.
-    constructor, importcpp: "Quantity_ColorRGBA(@)",
-    header: "Quantity_ColorRGBA.hxx".}
-proc SetValues*(this: var Quantity_ColorRGBA; theRed: cfloat; theGreen: cfloat;
+proc constructQuantityColorRGBA*(theRed: cfloat; theGreen: cfloat; theBlue: cfloat;
+                                theAlpha: cfloat): QuantityColorRGBA {.constructor,
+    importcpp: "Quantity_ColorRGBA(@)", header: "Quantity_ColorRGBA.hxx".}
+proc setValues*(this: var QuantityColorRGBA; theRed: cfloat; theGreen: cfloat;
                theBlue: cfloat; theAlpha: cfloat) {.importcpp: "SetValues",
     header: "Quantity_ColorRGBA.hxx".}
-proc GetRGB*(this: Quantity_ColorRGBA): Quantity_Color {.noSideEffect,
+proc getRGB*(this: QuantityColorRGBA): QuantityColor {.noSideEffect,
     importcpp: "GetRGB", header: "Quantity_ColorRGBA.hxx".}
-proc ChangeRGB*(this: var Quantity_ColorRGBA): var Quantity_Color {.
+proc changeRGB*(this: var QuantityColorRGBA): var QuantityColor {.
     importcpp: "ChangeRGB", header: "Quantity_ColorRGBA.hxx".}
-proc SetRGB*(this: var Quantity_ColorRGBA; theRgb: Quantity_Color) {.
+proc setRGB*(this: var QuantityColorRGBA; theRgb: QuantityColor) {.
     importcpp: "SetRGB", header: "Quantity_ColorRGBA.hxx".}
-proc Alpha*(this: Quantity_ColorRGBA): Standard_ShortReal {.noSideEffect,
+proc alpha*(this: QuantityColorRGBA): StandardShortReal {.noSideEffect,
     importcpp: "Alpha", header: "Quantity_ColorRGBA.hxx".}
-proc SetAlpha*(this: var Quantity_ColorRGBA; theAlpha: Standard_ShortReal) {.
+proc setAlpha*(this: var QuantityColorRGBA; theAlpha: StandardShortReal) {.
     importcpp: "SetAlpha", header: "Quantity_ColorRGBA.hxx".}
-converter `constNCollection_Vec4`*(this: Quantity_ColorRGBA): NCollection_Vec4[
-    cfloat] {.noSideEffect,
-             importcpp: "Quantity_ColorRGBA::operator constNCollection_Vec4",
-             header: "Quantity_ColorRGBA.hxx".}
-proc IsDifferent*(this: Quantity_ColorRGBA; theOther: Quantity_ColorRGBA): bool {.
+converter `constNCollectionVec4`*(this: QuantityColorRGBA): NCollectionVec4[cfloat] {.
+    noSideEffect,
+    importcpp: "Quantity_ColorRGBA::operator constNCollection_Vec4",
+    header: "Quantity_ColorRGBA.hxx".}
+proc isDifferent*(this: QuantityColorRGBA; theOther: QuantityColorRGBA): bool {.
     noSideEffect, importcpp: "IsDifferent", header: "Quantity_ColorRGBA.hxx".}
-proc IsEqual*(this: Quantity_ColorRGBA; theOther: Quantity_ColorRGBA): bool {.
+proc isEqual*(this: QuantityColorRGBA; theOther: QuantityColorRGBA): bool {.
     noSideEffect, importcpp: "IsEqual", header: "Quantity_ColorRGBA.hxx".}
-proc `==`*(this: Quantity_ColorRGBA; theOther: Quantity_ColorRGBA): bool {.
-    noSideEffect, importcpp: "(# == #)", header: "Quantity_ColorRGBA.hxx".}
-proc ColorFromName*(theColorNameString: Standard_CString;
-                   theColor: var Quantity_ColorRGBA): Standard_Boolean {.
+proc `==`*(this: QuantityColorRGBA; theOther: QuantityColorRGBA): bool {.noSideEffect,
+    importcpp: "(# == #)", header: "Quantity_ColorRGBA.hxx".}
+proc colorFromName*(theColorNameString: StandardCString;
+                   theColor: var QuantityColorRGBA): bool {.
     importcpp: "Quantity_ColorRGBA::ColorFromName(@)",
     header: "Quantity_ColorRGBA.hxx".}
-proc ColorFromHex*(theHexColorString: cstring; theColor: var Quantity_ColorRGBA;
+proc colorFromHex*(theHexColorString: cstring; theColor: var QuantityColorRGBA;
                   theAlphaComponentIsOff: bool = false): bool {.
     importcpp: "Quantity_ColorRGBA::ColorFromHex(@)",
     header: "Quantity_ColorRGBA.hxx".}
-proc ColorToHex*(theColor: Quantity_ColorRGBA; theToPrefixHash: bool = true): TCollection_AsciiString {.
+proc colorToHex*(theColor: QuantityColorRGBA; theToPrefixHash: bool = true): TCollectionAsciiString {.
     importcpp: "Quantity_ColorRGBA::ColorToHex(@)",
     header: "Quantity_ColorRGBA.hxx".}
-proc Convert_LinearRGB_To_sRGB*(theRGB: NCollection_Vec4[cfloat]): NCollection_Vec4[
+proc convertLinearRGB_ToSRGB*(theRGB: NCollectionVec4[cfloat]): NCollectionVec4[
     cfloat] {.importcpp: "Quantity_ColorRGBA::Convert_LinearRGB_To_sRGB(@)",
              header: "Quantity_ColorRGBA.hxx".}
-proc Convert_sRGB_To_LinearRGB*(theRGB: NCollection_Vec4[cfloat]): NCollection_Vec4[
+proc convertSRGB_ToLinearRGB*(theRGB: NCollectionVec4[cfloat]): NCollectionVec4[
     cfloat] {.importcpp: "Quantity_ColorRGBA::Convert_sRGB_To_LinearRGB(@)",
              header: "Quantity_ColorRGBA.hxx".}
-proc DumpJson*(this: Quantity_ColorRGBA; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
+proc dumpJson*(this: QuantityColorRGBA; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Quantity_ColorRGBA.hxx".}
+proc initFromJson*(this: var QuantityColorRGBA; theSStream: StandardSStream;
+                  theStreamPos: var int): bool {.importcpp: "InitFromJson",
     header: "Quantity_ColorRGBA.hxx".}
-proc InitFromJson*(this: var Quantity_ColorRGBA; theSStream: Standard_SStream;
-                  theStreamPos: var Standard_Integer): Standard_Boolean {.
-    importcpp: "InitFromJson", header: "Quantity_ColorRGBA.hxx".}

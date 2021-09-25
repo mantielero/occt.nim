@@ -13,32 +13,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_ShapeAspect
-
 discard "forward decl of StepRepr_DerivedShapeAspect"
 discard "forward decl of StepRepr_DerivedShapeAspect"
 type
-  Handle_StepRepr_DerivedShapeAspect* = handle[StepRepr_DerivedShapeAspect]
+  HandleStepReprDerivedShapeAspect* = Handle[StepReprDerivedShapeAspect]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepRepr_DerivedShapeAspect* {.importcpp: "StepRepr_DerivedShapeAspect",
-                                header: "StepRepr_DerivedShapeAspect.hxx", bycopy.} = object of StepRepr_ShapeAspect
+  StepReprDerivedShapeAspect* {.importcpp: "StepRepr_DerivedShapeAspect",
+                               header: "StepRepr_DerivedShapeAspect.hxx", bycopy.} = object of StepReprShapeAspect
 
 
-proc constructStepRepr_DerivedShapeAspect*(): StepRepr_DerivedShapeAspect {.
+proc constructStepReprDerivedShapeAspect*(): StepReprDerivedShapeAspect {.
     constructor, importcpp: "StepRepr_DerivedShapeAspect(@)",
     header: "StepRepr_DerivedShapeAspect.hxx".}
 type
-  StepRepr_DerivedShapeAspectbase_type* = StepRepr_ShapeAspect
+  StepReprDerivedShapeAspectbaseType* = StepReprShapeAspect
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_DerivedShapeAspect::get_type_name(@)",
-                              header: "StepRepr_DerivedShapeAspect.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_DerivedShapeAspect::get_type_name(@)",
+                            header: "StepRepr_DerivedShapeAspect.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_DerivedShapeAspect::get_type_descriptor(@)",
     header: "StepRepr_DerivedShapeAspect.hxx".}
-proc DynamicType*(this: StepRepr_DerivedShapeAspect): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprDerivedShapeAspect): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_DerivedShapeAspect.hxx".}

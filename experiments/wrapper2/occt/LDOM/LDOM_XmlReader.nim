@@ -20,9 +20,6 @@
 const
   XML_BUFFER_SIZE* = 20480
 
-import
-  LDOM_BasicElement, LDOM_OSStream
-
 discard "forward decl of TCollection_AsciiString"
 type
   LDOM_XmlReader* {.importcpp: "LDOM_XmlReader", header: "LDOM_XmlReader.hxx", bycopy.} = object ##  ---------- PRIVATE (PROHIBITED) METHODS ----------
@@ -36,19 +33,18 @@ type
     XML_END_ELEMENT, XML_FULL_ELEMENT, XML_TEXT, XML_CDATA, XML_EOF
 
 
-proc constructLDOM_XmlReader*(aDocument: handle[LDOM_MemManager];
-                             anErrorString: var TCollection_AsciiString;
-                             theTagPerStep: Standard_Boolean = Standard_False): LDOM_XmlReader {.
+proc constructLDOM_XmlReader*(aDocument: Handle[LDOM_MemManager];
+                             anErrorString: var TCollectionAsciiString;
+                             theTagPerStep: bool = false): LDOM_XmlReader {.
     constructor, importcpp: "LDOM_XmlReader(@)", header: "LDOM_XmlReader.hxx".}
-proc ReadRecord*(this: var LDOM_XmlReader; theIStream: var Standard_IStream;
+proc readRecord*(this: var LDOM_XmlReader; theIStream: var StandardIStream;
                 theData: var LDOM_OSStream): LDOM_XmlReaderRecordType {.
     importcpp: "ReadRecord", header: "LDOM_XmlReader.hxx".}
-proc GetElement*(this: LDOM_XmlReader): var LDOM_BasicElement {.noSideEffect,
+proc getElement*(this: LDOM_XmlReader): var LDOM_BasicElement {.noSideEffect,
     importcpp: "GetElement", header: "LDOM_XmlReader.hxx".}
-proc CreateElement*(this: var LDOM_XmlReader; theName: cstring;
-                   theLen: Standard_Integer) {.importcpp: "CreateElement",
-    header: "LDOM_XmlReader.hxx".}
-proc getInteger*(theValue: var LDOMBasicString; theStart: cstring; theEnd: cstring): Standard_Boolean {.
+proc createElement*(this: var LDOM_XmlReader; theName: cstring; theLen: int) {.
+    importcpp: "CreateElement", header: "LDOM_XmlReader.hxx".}
+proc getInteger*(theValue: var LDOMBasicString; theStart: cstring; theEnd: cstring): bool {.
     importcpp: "LDOM_XmlReader::getInteger(@)", header: "LDOM_XmlReader.hxx".}
-proc GetBOM*(this: LDOM_XmlReader): BOMType {.noSideEffect, importcpp: "GetBOM",
+proc getBOM*(this: LDOM_XmlReader): BOMType {.noSideEffect, importcpp: "GetBOM",
     header: "LDOM_XmlReader.hxx".}

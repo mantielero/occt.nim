@@ -13,44 +13,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_Group"
 discard "forward decl of StepBasic_GroupAssignment"
 discard "forward decl of StepBasic_GroupAssignment"
 type
-  Handle_StepBasic_GroupAssignment* = handle[StepBasic_GroupAssignment]
+  HandleStepBasicGroupAssignment* = Handle[StepBasicGroupAssignment]
 
 ## ! Representation of STEP entity GroupAssignment
 
 type
-  StepBasic_GroupAssignment* {.importcpp: "StepBasic_GroupAssignment",
-                              header: "StepBasic_GroupAssignment.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                        ## !
-                                                                                                        ## Empty
-                                                                                                        ## constructor
+  StepBasicGroupAssignment* {.importcpp: "StepBasic_GroupAssignment",
+                             header: "StepBasic_GroupAssignment.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                      ## !
+                                                                                                      ## Empty
+                                                                                                      ## constructor
 
 
-proc constructStepBasic_GroupAssignment*(): StepBasic_GroupAssignment {.
-    constructor, importcpp: "StepBasic_GroupAssignment(@)",
+proc constructStepBasicGroupAssignment*(): StepBasicGroupAssignment {.constructor,
+    importcpp: "StepBasic_GroupAssignment(@)",
     header: "StepBasic_GroupAssignment.hxx".}
-proc Init*(this: var StepBasic_GroupAssignment;
-          aAssignedGroup: handle[StepBasic_Group]) {.importcpp: "Init",
+proc init*(this: var StepBasicGroupAssignment;
+          aAssignedGroup: Handle[StepBasicGroup]) {.importcpp: "Init",
     header: "StepBasic_GroupAssignment.hxx".}
-proc AssignedGroup*(this: StepBasic_GroupAssignment): handle[StepBasic_Group] {.
+proc assignedGroup*(this: StepBasicGroupAssignment): Handle[StepBasicGroup] {.
     noSideEffect, importcpp: "AssignedGroup",
     header: "StepBasic_GroupAssignment.hxx".}
-proc SetAssignedGroup*(this: var StepBasic_GroupAssignment;
-                      AssignedGroup: handle[StepBasic_Group]) {.
+proc setAssignedGroup*(this: var StepBasicGroupAssignment;
+                      assignedGroup: Handle[StepBasicGroup]) {.
     importcpp: "SetAssignedGroup", header: "StepBasic_GroupAssignment.hxx".}
 type
-  StepBasic_GroupAssignmentbase_type* = Standard_Transient
+  StepBasicGroupAssignmentbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_GroupAssignment::get_type_name(@)",
-                              header: "StepBasic_GroupAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_GroupAssignment::get_type_name(@)",
+                            header: "StepBasic_GroupAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_GroupAssignment::get_type_descriptor(@)",
     header: "StepBasic_GroupAssignment.hxx".}
-proc DynamicType*(this: StepBasic_GroupAssignment): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicGroupAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_GroupAssignment.hxx".}

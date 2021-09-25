@@ -1,0 +1,76 @@
+{{.experimental: "codeReordering".}}
+{{.experimental: "callOperator".}}
+
+include\n  StepElement_AnalysisItemWithinRepresentation
+  StepElement_Array1OfCurveElementEndReleasePacket
+  StepElement_Array1OfCurveElementSectionDefinition
+  StepElement_Array1OfHSequenceOfCurveElementPurposeMember
+  StepElement_Array1OfHSequenceOfSurfaceElementPurposeMember
+  StepElement_Array1OfMeasureOrUnspecifiedValue
+  StepElement_Array1OfSurfaceSection
+  StepElement_Array1OfVolumeElementPurpose
+  StepElement_Array1OfVolumeElementPurposeMember
+  StepElement_Array2OfCurveElementPurposeMember
+  StepElement_Array2OfSurfaceElementPurpose
+  StepElement_Array2OfSurfaceElementPurposeMember
+  StepElement_Curve3dElementDescriptor
+  StepElement_CurveEdge
+  StepElement_CurveElementEndReleasePacket
+  StepElement_CurveElementFreedom
+  StepElement_CurveElementFreedomMember
+  StepElement_CurveElementPurpose
+  StepElement_CurveElementPurposeMember
+  StepElement_CurveElementSectionDefinition
+  StepElement_CurveElementSectionDerivedDefinitions
+  StepElement_Element2dShape
+  StepElement_ElementAspect
+  StepElement_ElementAspectMember
+  StepElement_ElementDescriptor
+  StepElement_ElementMaterial
+  StepElement_ElementOrder
+  StepElement_ElementVolume
+  StepElement_EnumeratedCurveElementFreedom
+  StepElement_EnumeratedCurveElementPurpose
+  StepElement_EnumeratedSurfaceElementPurpose
+  StepElement_EnumeratedVolumeElementPurpose
+  StepElement_HArray1OfCurveElementEndReleasePacket
+  StepElement_HArray1OfCurveElementSectionDefinition
+  StepElement_HArray1OfHSequenceOfCurveElementPurposeMember
+  StepElement_HArray1OfHSequenceOfSurfaceElementPurposeMember
+  StepElement_HArray1OfMeasureOrUnspecifiedValue
+  StepElement_HArray1OfSurfaceSection
+  StepElement_HArray1OfVolumeElementPurpose
+  StepElement_HArray1OfVolumeElementPurposeMember
+  StepElement_HArray2OfCurveElementPurposeMember
+  StepElement_HArray2OfSurfaceElementPurpose
+  StepElement_HArray2OfSurfaceElementPurposeMember
+  StepElement_HSequenceOfCurveElementPurposeMember
+  StepElement_HSequenceOfCurveElementSectionDefinition
+  StepElement_HSequenceOfElementMaterial
+  StepElement_HSequenceOfSurfaceElementPurposeMember
+  StepElement_MeasureOrUnspecifiedValue
+  StepElement_MeasureOrUnspecifiedValueMember
+  StepElement_SequenceOfCurveElementPurposeMember
+  StepElement_SequenceOfCurveElementSectionDefinition
+  StepElement_SequenceOfElementMaterial
+  StepElement_SequenceOfSurfaceElementPurposeMember
+  StepElement_Surface3dElementDescriptor
+  StepElement_SurfaceElementProperty
+  StepElement_SurfaceElementPurpose
+  StepElement_SurfaceElementPurposeMember
+  StepElement_SurfaceSection
+  StepElement_SurfaceSectionField
+  StepElement_SurfaceSectionFieldConstant
+  StepElement_SurfaceSectionFieldVarying
+  StepElement_UniformSurfaceSection
+  StepElement_UnspecifiedValue
+  StepElement_Volume3dElementDescriptor
+  StepElement_Volume3dElementShape
+  StepElement_VolumeElementPurpose
+  StepElement_VolumeElementPurposeMember
+
+
+
+
+
+

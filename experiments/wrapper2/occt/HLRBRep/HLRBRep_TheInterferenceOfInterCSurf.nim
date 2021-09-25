@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../Intf/Intf_Interference,
-  ../Intf/Intf_Array1OfLin, ../Standard/Standard_Real
-
 discard "forward decl of HLRBRep_ThePolygonOfInterCSurf"
 discard "forward decl of HLRBRep_ThePolygonToolOfInterCSurf"
 discard "forward decl of HLRBRep_ThePolyhedronOfInterCSurf"
@@ -29,85 +23,77 @@ discard "forward decl of Bnd_BoundSortBox"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_XYZ"
 type
-  HLRBRep_TheInterferenceOfInterCSurf* {.importcpp: "HLRBRep_TheInterferenceOfInterCSurf", header: "HLRBRep_TheInterferenceOfInterCSurf.hxx",
-                                        bycopy.} = object of Intf_Interference ## !
-                                                                          ## Constructs  an  empty
-                                                                          ## interference
-                                                                          ## between
-                                                                          ## Polygon   and
-                                                                          ## !
-                                                                          ## Polyhedron.
-                                                                          ## !
-                                                                          ## Computes the
-                                                                          ## intersection
-                                                                          ## between  the
-                                                                          ## segment
-                                                                          ## <BegO><EndO>
-                                                                          ## ! and the
-                                                                          ## triangle <TTri> of
-                                                                          ## <thePolyh>.
+  HLRBRepTheInterferenceOfInterCSurf* {.importcpp: "HLRBRep_TheInterferenceOfInterCSurf", header: "HLRBRep_TheInterferenceOfInterCSurf.hxx",
+                                       bycopy.} = object of IntfInterference ## !
+                                                                        ## Constructs  an  empty
+                                                                        ## interference  between Polygon   and
+                                                                        ## !
+                                                                        ## Polyhedron.
+                                                                        ## ! Computes the
+                                                                        ## intersection between  the segment
+                                                                        ## <BegO><EndO>
+                                                                        ## ! and the triangle <TTri> of
+                                                                        ## <thePolyh>.
 
 
-proc constructHLRBRep_TheInterferenceOfInterCSurf*(): HLRBRep_TheInterferenceOfInterCSurf {.
+proc constructHLRBRepTheInterferenceOfInterCSurf*(): HLRBRepTheInterferenceOfInterCSurf {.
     constructor, importcpp: "HLRBRep_TheInterferenceOfInterCSurf(@)",
     header: "HLRBRep_TheInterferenceOfInterCSurf.hxx".}
-proc constructHLRBRep_TheInterferenceOfInterCSurf*(
-    thePolyg: HLRBRep_ThePolygonOfInterCSurf;
-    thePolyh: HLRBRep_ThePolyhedronOfInterCSurf): HLRBRep_TheInterferenceOfInterCSurf {.
+proc constructHLRBRepTheInterferenceOfInterCSurf*(
+    thePolyg: HLRBRepThePolygonOfInterCSurf;
+    thePolyh: HLRBRepThePolyhedronOfInterCSurf): HLRBRepTheInterferenceOfInterCSurf {.
     constructor, importcpp: "HLRBRep_TheInterferenceOfInterCSurf(@)",
     header: "HLRBRep_TheInterferenceOfInterCSurf.hxx".}
-proc constructHLRBRep_TheInterferenceOfInterCSurf*(theLin: gp_Lin;
-    thePolyh: HLRBRep_ThePolyhedronOfInterCSurf): HLRBRep_TheInterferenceOfInterCSurf {.
+proc constructHLRBRepTheInterferenceOfInterCSurf*(theLin: Lin;
+    thePolyh: HLRBRepThePolyhedronOfInterCSurf): HLRBRepTheInterferenceOfInterCSurf {.
     constructor, importcpp: "HLRBRep_TheInterferenceOfInterCSurf(@)",
     header: "HLRBRep_TheInterferenceOfInterCSurf.hxx".}
-proc constructHLRBRep_TheInterferenceOfInterCSurf*(theLins: Intf_Array1OfLin;
-    thePolyh: HLRBRep_ThePolyhedronOfInterCSurf): HLRBRep_TheInterferenceOfInterCSurf {.
+proc constructHLRBRepTheInterferenceOfInterCSurf*(theLins: IntfArray1OfLin;
+    thePolyh: HLRBRepThePolyhedronOfInterCSurf): HLRBRepTheInterferenceOfInterCSurf {.
     constructor, importcpp: "HLRBRep_TheInterferenceOfInterCSurf(@)",
     header: "HLRBRep_TheInterferenceOfInterCSurf.hxx".}
-proc Perform*(this: var HLRBRep_TheInterferenceOfInterCSurf;
-             thePolyg: HLRBRep_ThePolygonOfInterCSurf;
-             thePolyh: HLRBRep_ThePolyhedronOfInterCSurf) {.importcpp: "Perform",
+proc perform*(this: var HLRBRepTheInterferenceOfInterCSurf;
+             thePolyg: HLRBRepThePolygonOfInterCSurf;
+             thePolyh: HLRBRepThePolyhedronOfInterCSurf) {.importcpp: "Perform",
     header: "HLRBRep_TheInterferenceOfInterCSurf.hxx".}
-proc Perform*(this: var HLRBRep_TheInterferenceOfInterCSurf; theLin: gp_Lin;
-             thePolyh: HLRBRep_ThePolyhedronOfInterCSurf) {.importcpp: "Perform",
+proc perform*(this: var HLRBRepTheInterferenceOfInterCSurf; theLin: Lin;
+             thePolyh: HLRBRepThePolyhedronOfInterCSurf) {.importcpp: "Perform",
     header: "HLRBRep_TheInterferenceOfInterCSurf.hxx".}
-proc Perform*(this: var HLRBRep_TheInterferenceOfInterCSurf;
-             theLins: Intf_Array1OfLin;
-             thePolyh: HLRBRep_ThePolyhedronOfInterCSurf) {.importcpp: "Perform",
-    header: "HLRBRep_TheInterferenceOfInterCSurf.hxx".}
-proc constructHLRBRep_TheInterferenceOfInterCSurf*(
-    thePolyg: HLRBRep_ThePolygonOfInterCSurf;
-    thePolyh: HLRBRep_ThePolyhedronOfInterCSurf; theBoundSB: var Bnd_BoundSortBox): HLRBRep_TheInterferenceOfInterCSurf {.
+proc perform*(this: var HLRBRepTheInterferenceOfInterCSurf;
+             theLins: IntfArray1OfLin; thePolyh: HLRBRepThePolyhedronOfInterCSurf) {.
+    importcpp: "Perform", header: "HLRBRep_TheInterferenceOfInterCSurf.hxx".}
+proc constructHLRBRepTheInterferenceOfInterCSurf*(
+    thePolyg: HLRBRepThePolygonOfInterCSurf;
+    thePolyh: HLRBRepThePolyhedronOfInterCSurf; theBoundSB: var BndBoundSortBox): HLRBRepTheInterferenceOfInterCSurf {.
     constructor, importcpp: "HLRBRep_TheInterferenceOfInterCSurf(@)",
     header: "HLRBRep_TheInterferenceOfInterCSurf.hxx".}
-proc constructHLRBRep_TheInterferenceOfInterCSurf*(theLin: gp_Lin;
-    thePolyh: HLRBRep_ThePolyhedronOfInterCSurf; theBoundSB: var Bnd_BoundSortBox): HLRBRep_TheInterferenceOfInterCSurf {.
+proc constructHLRBRepTheInterferenceOfInterCSurf*(theLin: Lin;
+    thePolyh: HLRBRepThePolyhedronOfInterCSurf; theBoundSB: var BndBoundSortBox): HLRBRepTheInterferenceOfInterCSurf {.
     constructor, importcpp: "HLRBRep_TheInterferenceOfInterCSurf(@)",
     header: "HLRBRep_TheInterferenceOfInterCSurf.hxx".}
-proc constructHLRBRep_TheInterferenceOfInterCSurf*(theLins: Intf_Array1OfLin;
-    thePolyh: HLRBRep_ThePolyhedronOfInterCSurf; theBoundSB: var Bnd_BoundSortBox): HLRBRep_TheInterferenceOfInterCSurf {.
+proc constructHLRBRepTheInterferenceOfInterCSurf*(theLins: IntfArray1OfLin;
+    thePolyh: HLRBRepThePolyhedronOfInterCSurf; theBoundSB: var BndBoundSortBox): HLRBRepTheInterferenceOfInterCSurf {.
     constructor, importcpp: "HLRBRep_TheInterferenceOfInterCSurf(@)",
     header: "HLRBRep_TheInterferenceOfInterCSurf.hxx".}
-proc Perform*(this: var HLRBRep_TheInterferenceOfInterCSurf;
-             thePolyg: HLRBRep_ThePolygonOfInterCSurf;
-             thePolyh: HLRBRep_ThePolyhedronOfInterCSurf;
-             theBoundSB: var Bnd_BoundSortBox) {.importcpp: "Perform",
+proc perform*(this: var HLRBRepTheInterferenceOfInterCSurf;
+             thePolyg: HLRBRepThePolygonOfInterCSurf;
+             thePolyh: HLRBRepThePolyhedronOfInterCSurf;
+             theBoundSB: var BndBoundSortBox) {.importcpp: "Perform",
     header: "HLRBRep_TheInterferenceOfInterCSurf.hxx".}
-proc Perform*(this: var HLRBRep_TheInterferenceOfInterCSurf; theLin: gp_Lin;
-             thePolyh: HLRBRep_ThePolyhedronOfInterCSurf;
-             theBoundSB: var Bnd_BoundSortBox) {.importcpp: "Perform",
+proc perform*(this: var HLRBRepTheInterferenceOfInterCSurf; theLin: Lin;
+             thePolyh: HLRBRepThePolyhedronOfInterCSurf;
+             theBoundSB: var BndBoundSortBox) {.importcpp: "Perform",
     header: "HLRBRep_TheInterferenceOfInterCSurf.hxx".}
-proc Perform*(this: var HLRBRep_TheInterferenceOfInterCSurf;
-             theLins: Intf_Array1OfLin;
-             thePolyh: HLRBRep_ThePolyhedronOfInterCSurf;
-             theBoundSB: var Bnd_BoundSortBox) {.importcpp: "Perform",
+proc perform*(this: var HLRBRepTheInterferenceOfInterCSurf;
+             theLins: IntfArray1OfLin; thePolyh: HLRBRepThePolyhedronOfInterCSurf;
+             theBoundSB: var BndBoundSortBox) {.importcpp: "Perform",
     header: "HLRBRep_TheInterferenceOfInterCSurf.hxx".}
-proc Interference*(this: var HLRBRep_TheInterferenceOfInterCSurf;
-                  thePolyg: HLRBRep_ThePolygonOfInterCSurf;
-                  thePolyh: HLRBRep_ThePolyhedronOfInterCSurf;
-                  theBoundSB: var Bnd_BoundSortBox) {.importcpp: "Interference",
+proc interference*(this: var HLRBRepTheInterferenceOfInterCSurf;
+                  thePolyg: HLRBRepThePolygonOfInterCSurf;
+                  thePolyh: HLRBRepThePolyhedronOfInterCSurf;
+                  theBoundSB: var BndBoundSortBox) {.importcpp: "Interference",
     header: "HLRBRep_TheInterferenceOfInterCSurf.hxx".}
-proc Interference*(this: var HLRBRep_TheInterferenceOfInterCSurf;
-                  thePolyg: HLRBRep_ThePolygonOfInterCSurf;
-                  thePolyh: HLRBRep_ThePolyhedronOfInterCSurf) {.
+proc interference*(this: var HLRBRepTheInterferenceOfInterCSurf;
+                  thePolyg: HLRBRepThePolygonOfInterCSurf;
+                  thePolyh: HLRBRepThePolyhedronOfInterCSurf) {.
     importcpp: "Interference", header: "HLRBRep_TheInterferenceOfInterCSurf.hxx".}

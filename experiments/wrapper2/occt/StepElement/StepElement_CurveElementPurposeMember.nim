@@ -13,50 +13,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../StepData/StepData_SelectNamed, ../Standard/Standard_Boolean,
-  ../Standard/Standard_CString
-
 discard "forward decl of StepElement_CurveElementPurposeMember"
 discard "forward decl of StepElement_CurveElementPurposeMember"
 type
-  Handle_StepElement_CurveElementPurposeMember* = handle[
-      StepElement_CurveElementPurposeMember]
+  HandleStepElementCurveElementPurposeMember* = Handle[
+      StepElementCurveElementPurposeMember]
 
 ## ! Representation of member for  STEP SELECT type CurveElementPurpose
 
 type
-  StepElement_CurveElementPurposeMember* {.
+  StepElementCurveElementPurposeMember* {.
       importcpp: "StepElement_CurveElementPurposeMember",
-      header: "StepElement_CurveElementPurposeMember.hxx", bycopy.} = object of StepData_SelectNamed ##
-                                                                                              ## !
-                                                                                              ## Empty
-                                                                                              ## constructor
+      header: "StepElement_CurveElementPurposeMember.hxx", bycopy.} = object of StepDataSelectNamed ##
+                                                                                             ## !
+                                                                                             ## Empty
+                                                                                             ## constructor
 
 
-proc constructStepElement_CurveElementPurposeMember*(): StepElement_CurveElementPurposeMember {.
+proc constructStepElementCurveElementPurposeMember*(): StepElementCurveElementPurposeMember {.
     constructor, importcpp: "StepElement_CurveElementPurposeMember(@)",
     header: "StepElement_CurveElementPurposeMember.hxx".}
-proc HasName*(this: StepElement_CurveElementPurposeMember): Standard_Boolean {.
-    noSideEffect, importcpp: "HasName",
-    header: "StepElement_CurveElementPurposeMember.hxx".}
-proc Name*(this: StepElement_CurveElementPurposeMember): Standard_CString {.
+proc hasName*(this: StepElementCurveElementPurposeMember): bool {.noSideEffect,
+    importcpp: "HasName", header: "StepElement_CurveElementPurposeMember.hxx".}
+proc name*(this: StepElementCurveElementPurposeMember): StandardCString {.
     noSideEffect, importcpp: "Name",
     header: "StepElement_CurveElementPurposeMember.hxx".}
-proc SetName*(this: var StepElement_CurveElementPurposeMember;
-             name: Standard_CString): Standard_Boolean {.importcpp: "SetName",
-    header: "StepElement_CurveElementPurposeMember.hxx".}
-proc Matches*(this: StepElement_CurveElementPurposeMember; name: Standard_CString): Standard_Boolean {.
+proc setName*(this: var StepElementCurveElementPurposeMember; name: StandardCString): bool {.
+    importcpp: "SetName", header: "StepElement_CurveElementPurposeMember.hxx".}
+proc matches*(this: StepElementCurveElementPurposeMember; name: StandardCString): bool {.
     noSideEffect, importcpp: "Matches",
     header: "StepElement_CurveElementPurposeMember.hxx".}
 type
-  StepElement_CurveElementPurposeMemberbase_type* = StepData_SelectNamed
+  StepElementCurveElementPurposeMemberbaseType* = StepDataSelectNamed
 
-proc get_type_name*(): cstring {.importcpp: "StepElement_CurveElementPurposeMember::get_type_name(@)", header: "StepElement_CurveElementPurposeMember.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepElement_CurveElementPurposeMember::get_type_name(@)",
+                            header: "StepElement_CurveElementPurposeMember.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepElement_CurveElementPurposeMember::get_type_descriptor(@)",
     header: "StepElement_CurveElementPurposeMember.hxx".}
-proc DynamicType*(this: StepElement_CurveElementPurposeMember): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepElement_CurveElementPurposeMember.hxx".}
+proc dynamicType*(this: StepElementCurveElementPurposeMember): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepElement_CurveElementPurposeMember.hxx".}

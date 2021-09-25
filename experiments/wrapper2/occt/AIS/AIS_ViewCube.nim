@@ -13,12 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  AIS_InteractiveObject, ../Graphic3d/Graphic3d_Camera,
-  ../Graphic3d/Graphic3d_Vec2, ../Prs3d/Prs3d_DatumParts,
-  ../Prs3d/Prs3d_ShadingAspect, ../Prs3d/Prs3d_TextAspect,
-  ../SelectMgr/SelectMgr_EntityOwner, ../V3d/V3d_TypeOfOrientation
-
 discard "forward decl of AIS_AnimationCamera"
 discard "forward decl of AIS_ViewCubeOwner"
 discard "forward decl of Graphic3d_ArrayOfTriangles"
@@ -357,222 +351,219 @@ type
     ## !< fit selected or fit entire scene
     ## !< always reset camera up direction to default
 
-  AIS_ViewCubebase_type* = AIS_InteractiveObject
+  AIS_ViewCubebaseType* = AIS_InteractiveObject
 
-proc get_type_name*(): cstring {.importcpp: "AIS_ViewCube::get_type_name(@)",
-                              header: "AIS_ViewCube.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "AIS_ViewCube::get_type_name(@)",
+                            header: "AIS_ViewCube.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "AIS_ViewCube::get_type_descriptor(@)", header: "AIS_ViewCube.hxx".}
-proc DynamicType*(this: AIS_ViewCube): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: AIS_ViewCube): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_ViewCube.hxx".}
-proc IsBoxSide*(theOrient: V3d_TypeOfOrientation): bool {.
+proc isBoxSide*(theOrient: V3dTypeOfOrientation): bool {.
     importcpp: "AIS_ViewCube::IsBoxSide(@)", header: "AIS_ViewCube.hxx".}
-proc IsBoxEdge*(theOrient: V3d_TypeOfOrientation): bool {.
+proc isBoxEdge*(theOrient: V3dTypeOfOrientation): bool {.
     importcpp: "AIS_ViewCube::IsBoxEdge(@)", header: "AIS_ViewCube.hxx".}
-proc IsBoxCorner*(theOrient: V3d_TypeOfOrientation): bool {.
+proc isBoxCorner*(theOrient: V3dTypeOfOrientation): bool {.
     importcpp: "AIS_ViewCube::IsBoxCorner(@)", header: "AIS_ViewCube.hxx".}
 proc constructAIS_ViewCube*(): AIS_ViewCube {.constructor,
     importcpp: "AIS_ViewCube(@)", header: "AIS_ViewCube.hxx".}
-proc ViewAnimation*(this: AIS_ViewCube): handle[AIS_AnimationCamera] {.noSideEffect,
+proc viewAnimation*(this: AIS_ViewCube): Handle[AIS_AnimationCamera] {.noSideEffect,
     importcpp: "ViewAnimation", header: "AIS_ViewCube.hxx".}
-proc SetViewAnimation*(this: var AIS_ViewCube;
-                      theAnimation: handle[AIS_AnimationCamera]) {.
+proc setViewAnimation*(this: var AIS_ViewCube;
+                      theAnimation: Handle[AIS_AnimationCamera]) {.
     importcpp: "SetViewAnimation", header: "AIS_ViewCube.hxx".}
-proc ToAutoStartAnimation*(this: AIS_ViewCube): Standard_Boolean {.noSideEffect,
+proc toAutoStartAnimation*(this: AIS_ViewCube): bool {.noSideEffect,
     importcpp: "ToAutoStartAnimation", header: "AIS_ViewCube.hxx".}
-proc SetAutoStartAnimation*(this: var AIS_ViewCube; theToEnable: bool) {.
+proc setAutoStartAnimation*(this: var AIS_ViewCube; theToEnable: bool) {.
     importcpp: "SetAutoStartAnimation", header: "AIS_ViewCube.hxx".}
-proc IsFixedAnimationLoop*(this: AIS_ViewCube): Standard_Boolean {.noSideEffect,
+proc isFixedAnimationLoop*(this: AIS_ViewCube): bool {.noSideEffect,
     importcpp: "IsFixedAnimationLoop", header: "AIS_ViewCube.hxx".}
-proc SetFixedAnimationLoop*(this: var AIS_ViewCube; theToEnable: bool) {.
+proc setFixedAnimationLoop*(this: var AIS_ViewCube; theToEnable: bool) {.
     importcpp: "SetFixedAnimationLoop", header: "AIS_ViewCube.hxx".}
-proc ResetStyles*(this: var AIS_ViewCube) {.importcpp: "ResetStyles",
+proc resetStyles*(this: var AIS_ViewCube) {.importcpp: "ResetStyles",
                                         header: "AIS_ViewCube.hxx".}
-proc Size*(this: AIS_ViewCube): Standard_Real {.noSideEffect, importcpp: "Size",
-    header: "AIS_ViewCube.hxx".}
-proc SetSize*(this: var AIS_ViewCube; theValue: Standard_Real;
-             theToAdaptAnother: Standard_Boolean = true) {.importcpp: "SetSize",
-    header: "AIS_ViewCube.hxx".}
-proc BoxFacetExtension*(this: AIS_ViewCube): Standard_Real {.noSideEffect,
+proc size*(this: AIS_ViewCube): float {.noSideEffect, importcpp: "Size",
+                                    header: "AIS_ViewCube.hxx".}
+proc setSize*(this: var AIS_ViewCube; theValue: float; theToAdaptAnother: bool = true) {.
+    importcpp: "SetSize", header: "AIS_ViewCube.hxx".}
+proc boxFacetExtension*(this: AIS_ViewCube): float {.noSideEffect,
     importcpp: "BoxFacetExtension", header: "AIS_ViewCube.hxx".}
-proc SetBoxFacetExtension*(this: var AIS_ViewCube; theValue: Standard_Real) {.
+proc setBoxFacetExtension*(this: var AIS_ViewCube; theValue: float) {.
     importcpp: "SetBoxFacetExtension", header: "AIS_ViewCube.hxx".}
-proc AxesPadding*(this: AIS_ViewCube): Standard_Real {.noSideEffect,
+proc axesPadding*(this: AIS_ViewCube): float {.noSideEffect,
     importcpp: "AxesPadding", header: "AIS_ViewCube.hxx".}
-proc SetAxesPadding*(this: var AIS_ViewCube; theValue: Standard_Real) {.
+proc setAxesPadding*(this: var AIS_ViewCube; theValue: float) {.
     importcpp: "SetAxesPadding", header: "AIS_ViewCube.hxx".}
-proc BoxEdgeGap*(this: AIS_ViewCube): Standard_Real {.noSideEffect,
-    importcpp: "BoxEdgeGap", header: "AIS_ViewCube.hxx".}
-proc SetBoxEdgeGap*(this: var AIS_ViewCube; theValue: Standard_Real) {.
+proc boxEdgeGap*(this: AIS_ViewCube): float {.noSideEffect, importcpp: "BoxEdgeGap",
+    header: "AIS_ViewCube.hxx".}
+proc setBoxEdgeGap*(this: var AIS_ViewCube; theValue: float) {.
     importcpp: "SetBoxEdgeGap", header: "AIS_ViewCube.hxx".}
-proc BoxEdgeMinSize*(this: AIS_ViewCube): Standard_Real {.noSideEffect,
+proc boxEdgeMinSize*(this: AIS_ViewCube): float {.noSideEffect,
     importcpp: "BoxEdgeMinSize", header: "AIS_ViewCube.hxx".}
-proc SetBoxEdgeMinSize*(this: var AIS_ViewCube; theValue: Standard_Real) {.
+proc setBoxEdgeMinSize*(this: var AIS_ViewCube; theValue: float) {.
     importcpp: "SetBoxEdgeMinSize", header: "AIS_ViewCube.hxx".}
-proc BoxCornerMinSize*(this: AIS_ViewCube): Standard_Real {.noSideEffect,
+proc boxCornerMinSize*(this: AIS_ViewCube): float {.noSideEffect,
     importcpp: "BoxCornerMinSize", header: "AIS_ViewCube.hxx".}
-proc SetBoxCornerMinSize*(this: var AIS_ViewCube; theValue: Standard_Real) {.
+proc setBoxCornerMinSize*(this: var AIS_ViewCube; theValue: float) {.
     importcpp: "SetBoxCornerMinSize", header: "AIS_ViewCube.hxx".}
-proc RoundRadius*(this: AIS_ViewCube): Standard_Real {.noSideEffect,
+proc roundRadius*(this: AIS_ViewCube): float {.noSideEffect,
     importcpp: "RoundRadius", header: "AIS_ViewCube.hxx".}
-proc SetRoundRadius*(this: var AIS_ViewCube; theValue: Standard_Real) {.
+proc setRoundRadius*(this: var AIS_ViewCube; theValue: float) {.
     importcpp: "SetRoundRadius", header: "AIS_ViewCube.hxx".}
-proc AxesRadius*(this: AIS_ViewCube): Standard_Real {.noSideEffect,
-    importcpp: "AxesRadius", header: "AIS_ViewCube.hxx".}
-proc SetAxesRadius*(this: var AIS_ViewCube; theRadius: Standard_Real) {.
+proc axesRadius*(this: AIS_ViewCube): float {.noSideEffect, importcpp: "AxesRadius",
+    header: "AIS_ViewCube.hxx".}
+proc setAxesRadius*(this: var AIS_ViewCube; theRadius: float) {.
     importcpp: "SetAxesRadius", header: "AIS_ViewCube.hxx".}
-proc AxesConeRadius*(this: AIS_ViewCube): Standard_Real {.noSideEffect,
+proc axesConeRadius*(this: AIS_ViewCube): float {.noSideEffect,
     importcpp: "AxesConeRadius", header: "AIS_ViewCube.hxx".}
-proc SetAxesConeRadius*(this: var AIS_ViewCube; theRadius: Standard_Real) {.
+proc setAxesConeRadius*(this: var AIS_ViewCube; theRadius: float) {.
     importcpp: "SetAxesConeRadius", header: "AIS_ViewCube.hxx".}
-proc AxesSphereRadius*(this: AIS_ViewCube): Standard_Real {.noSideEffect,
+proc axesSphereRadius*(this: AIS_ViewCube): float {.noSideEffect,
     importcpp: "AxesSphereRadius", header: "AIS_ViewCube.hxx".}
-proc SetAxesSphereRadius*(this: var AIS_ViewCube; theRadius: Standard_Real) {.
+proc setAxesSphereRadius*(this: var AIS_ViewCube; theRadius: float) {.
     importcpp: "SetAxesSphereRadius", header: "AIS_ViewCube.hxx".}
-proc ToDrawAxes*(this: AIS_ViewCube): Standard_Boolean {.noSideEffect,
-    importcpp: "ToDrawAxes", header: "AIS_ViewCube.hxx".}
-proc SetDrawAxes*(this: var AIS_ViewCube; theValue: Standard_Boolean) {.
-    importcpp: "SetDrawAxes", header: "AIS_ViewCube.hxx".}
-proc ToDrawEdges*(this: AIS_ViewCube): Standard_Boolean {.noSideEffect,
-    importcpp: "ToDrawEdges", header: "AIS_ViewCube.hxx".}
-proc SetDrawEdges*(this: var AIS_ViewCube; theValue: Standard_Boolean) {.
+proc toDrawAxes*(this: AIS_ViewCube): bool {.noSideEffect, importcpp: "ToDrawAxes",
+    header: "AIS_ViewCube.hxx".}
+proc setDrawAxes*(this: var AIS_ViewCube; theValue: bool) {.importcpp: "SetDrawAxes",
+    header: "AIS_ViewCube.hxx".}
+proc toDrawEdges*(this: AIS_ViewCube): bool {.noSideEffect, importcpp: "ToDrawEdges",
+    header: "AIS_ViewCube.hxx".}
+proc setDrawEdges*(this: var AIS_ViewCube; theValue: bool) {.
     importcpp: "SetDrawEdges", header: "AIS_ViewCube.hxx".}
-proc ToDrawVertices*(this: AIS_ViewCube): Standard_Boolean {.noSideEffect,
+proc toDrawVertices*(this: AIS_ViewCube): bool {.noSideEffect,
     importcpp: "ToDrawVertices", header: "AIS_ViewCube.hxx".}
-proc SetDrawVertices*(this: var AIS_ViewCube; theValue: Standard_Boolean) {.
+proc setDrawVertices*(this: var AIS_ViewCube; theValue: bool) {.
     importcpp: "SetDrawVertices", header: "AIS_ViewCube.hxx".}
-proc IsYup*(this: AIS_ViewCube): Standard_Boolean {.noSideEffect, importcpp: "IsYup",
-    header: "AIS_ViewCube.hxx".}
-proc SetYup*(this: var AIS_ViewCube; theIsYup: Standard_Boolean;
-            theToUpdateLabels: Standard_Boolean = Standard_True) {.
+proc isYup*(this: AIS_ViewCube): bool {.noSideEffect, importcpp: "IsYup",
+                                    header: "AIS_ViewCube.hxx".}
+proc setYup*(this: var AIS_ViewCube; theIsYup: bool; theToUpdateLabels: bool = true) {.
     importcpp: "SetYup", header: "AIS_ViewCube.hxx".}
-proc BoxSideStyle*(this: AIS_ViewCube): handle[Prs3d_ShadingAspect] {.noSideEffect,
+proc boxSideStyle*(this: AIS_ViewCube): Handle[Prs3dShadingAspect] {.noSideEffect,
     importcpp: "BoxSideStyle", header: "AIS_ViewCube.hxx".}
-proc BoxEdgeStyle*(this: AIS_ViewCube): handle[Prs3d_ShadingAspect] {.noSideEffect,
+proc boxEdgeStyle*(this: AIS_ViewCube): Handle[Prs3dShadingAspect] {.noSideEffect,
     importcpp: "BoxEdgeStyle", header: "AIS_ViewCube.hxx".}
-proc BoxCornerStyle*(this: AIS_ViewCube): handle[Prs3d_ShadingAspect] {.
-    noSideEffect, importcpp: "BoxCornerStyle", header: "AIS_ViewCube.hxx".}
-proc BoxColor*(this: AIS_ViewCube): Quantity_Color {.noSideEffect,
+proc boxCornerStyle*(this: AIS_ViewCube): Handle[Prs3dShadingAspect] {.noSideEffect,
+    importcpp: "BoxCornerStyle", header: "AIS_ViewCube.hxx".}
+proc boxColor*(this: AIS_ViewCube): QuantityColor {.noSideEffect,
     importcpp: "BoxColor", header: "AIS_ViewCube.hxx".}
-proc SetBoxColor*(this: var AIS_ViewCube; theColor: Quantity_Color) {.
+proc setBoxColor*(this: var AIS_ViewCube; theColor: QuantityColor) {.
     importcpp: "SetBoxColor", header: "AIS_ViewCube.hxx".}
-proc BoxTransparency*(this: AIS_ViewCube): Standard_Real {.noSideEffect,
+proc boxTransparency*(this: AIS_ViewCube): float {.noSideEffect,
     importcpp: "BoxTransparency", header: "AIS_ViewCube.hxx".}
-proc SetBoxTransparency*(this: var AIS_ViewCube; theValue: Standard_Real) {.
+proc setBoxTransparency*(this: var AIS_ViewCube; theValue: float) {.
     importcpp: "SetBoxTransparency", header: "AIS_ViewCube.hxx".}
-proc InnerColor*(this: AIS_ViewCube): Quantity_Color {.noSideEffect,
+proc innerColor*(this: AIS_ViewCube): QuantityColor {.noSideEffect,
     importcpp: "InnerColor", header: "AIS_ViewCube.hxx".}
-proc SetInnerColor*(this: var AIS_ViewCube; theColor: Quantity_Color) {.
+proc setInnerColor*(this: var AIS_ViewCube; theColor: QuantityColor) {.
     importcpp: "SetInnerColor", header: "AIS_ViewCube.hxx".}
-proc BoxSideLabel*(this: AIS_ViewCube; theSide: V3d_TypeOfOrientation): TCollection_AsciiString {.
+proc boxSideLabel*(this: AIS_ViewCube; theSide: V3dTypeOfOrientation): TCollectionAsciiString {.
     noSideEffect, importcpp: "BoxSideLabel", header: "AIS_ViewCube.hxx".}
-proc SetBoxSideLabel*(this: var AIS_ViewCube; theSide: V3d_TypeOfOrientation;
-                     theLabel: TCollection_AsciiString) {.
+proc setBoxSideLabel*(this: var AIS_ViewCube; theSide: V3dTypeOfOrientation;
+                     theLabel: TCollectionAsciiString) {.
     importcpp: "SetBoxSideLabel", header: "AIS_ViewCube.hxx".}
-proc TextColor*(this: AIS_ViewCube): Quantity_Color {.noSideEffect,
+proc textColor*(this: AIS_ViewCube): QuantityColor {.noSideEffect,
     importcpp: "TextColor", header: "AIS_ViewCube.hxx".}
-proc SetTextColor*(this: var AIS_ViewCube; theColor: Quantity_Color) {.
+proc setTextColor*(this: var AIS_ViewCube; theColor: QuantityColor) {.
     importcpp: "SetTextColor", header: "AIS_ViewCube.hxx".}
-proc Font*(this: AIS_ViewCube): TCollection_AsciiString {.noSideEffect,
+proc font*(this: AIS_ViewCube): TCollectionAsciiString {.noSideEffect,
     importcpp: "Font", header: "AIS_ViewCube.hxx".}
-proc SetFont*(this: var AIS_ViewCube; theFont: TCollection_AsciiString) {.
+proc setFont*(this: var AIS_ViewCube; theFont: TCollectionAsciiString) {.
     importcpp: "SetFont", header: "AIS_ViewCube.hxx".}
-proc FontHeight*(this: AIS_ViewCube): Standard_Real {.noSideEffect,
-    importcpp: "FontHeight", header: "AIS_ViewCube.hxx".}
-proc SetFontHeight*(this: var AIS_ViewCube; theValue: Standard_Real) {.
+proc fontHeight*(this: AIS_ViewCube): float {.noSideEffect, importcpp: "FontHeight",
+    header: "AIS_ViewCube.hxx".}
+proc setFontHeight*(this: var AIS_ViewCube; theValue: float) {.
     importcpp: "SetFontHeight", header: "AIS_ViewCube.hxx".}
-proc AxisLabel*(this: AIS_ViewCube; theAxis: Prs3d_DatumParts): TCollection_AsciiString {.
+proc axisLabel*(this: AIS_ViewCube; theAxis: Prs3dDatumParts): TCollectionAsciiString {.
     noSideEffect, importcpp: "AxisLabel", header: "AIS_ViewCube.hxx".}
-proc SetAxesLabels*(this: var AIS_ViewCube; theX: TCollection_AsciiString;
-                   theY: TCollection_AsciiString; theZ: TCollection_AsciiString) {.
+proc setAxesLabels*(this: var AIS_ViewCube; theX: TCollectionAsciiString;
+                   theY: TCollectionAsciiString; theZ: TCollectionAsciiString) {.
     importcpp: "SetAxesLabels", header: "AIS_ViewCube.hxx".}
-proc SetColor*(this: var AIS_ViewCube; theColor: Quantity_Color) {.
+proc setColor*(this: var AIS_ViewCube; theColor: QuantityColor) {.
     importcpp: "SetColor", header: "AIS_ViewCube.hxx".}
-proc UnsetColor*(this: var AIS_ViewCube) {.importcpp: "UnsetColor",
+proc unsetColor*(this: var AIS_ViewCube) {.importcpp: "UnsetColor",
                                        header: "AIS_ViewCube.hxx".}
-proc SetTransparency*(this: var AIS_ViewCube; theValue: Standard_Real) {.
+proc setTransparency*(this: var AIS_ViewCube; theValue: float) {.
     importcpp: "SetTransparency", header: "AIS_ViewCube.hxx".}
-proc UnsetTransparency*(this: var AIS_ViewCube) {.importcpp: "UnsetTransparency",
+proc unsetTransparency*(this: var AIS_ViewCube) {.importcpp: "UnsetTransparency",
     header: "AIS_ViewCube.hxx".}
-proc SetMaterial*(this: var AIS_ViewCube; theMat: Graphic3d_MaterialAspect) {.
+proc setMaterial*(this: var AIS_ViewCube; theMat: Graphic3dMaterialAspect) {.
     importcpp: "SetMaterial", header: "AIS_ViewCube.hxx".}
-proc UnsetMaterial*(this: var AIS_ViewCube) {.importcpp: "UnsetMaterial",
+proc unsetMaterial*(this: var AIS_ViewCube) {.importcpp: "UnsetMaterial",
     header: "AIS_ViewCube.hxx".}
-proc Duration*(this: AIS_ViewCube): Standard_Real {.noSideEffect,
-    importcpp: "Duration", header: "AIS_ViewCube.hxx".}
-proc SetDuration*(this: var AIS_ViewCube; theValue: Standard_Real) {.
-    importcpp: "SetDuration", header: "AIS_ViewCube.hxx".}
-proc ToResetCameraUp*(this: AIS_ViewCube): Standard_Boolean {.noSideEffect,
+proc duration*(this: AIS_ViewCube): float {.noSideEffect, importcpp: "Duration",
+                                        header: "AIS_ViewCube.hxx".}
+proc setDuration*(this: var AIS_ViewCube; theValue: float) {.importcpp: "SetDuration",
+    header: "AIS_ViewCube.hxx".}
+proc toResetCameraUp*(this: AIS_ViewCube): bool {.noSideEffect,
     importcpp: "ToResetCameraUp", header: "AIS_ViewCube.hxx".}
-proc SetResetCamera*(this: var AIS_ViewCube; theToReset: Standard_Boolean) {.
+proc setResetCamera*(this: var AIS_ViewCube; theToReset: bool) {.
     importcpp: "SetResetCamera", header: "AIS_ViewCube.hxx".}
-proc ToFitSelected*(this: AIS_ViewCube): Standard_Boolean {.noSideEffect,
+proc toFitSelected*(this: AIS_ViewCube): bool {.noSideEffect,
     importcpp: "ToFitSelected", header: "AIS_ViewCube.hxx".}
-proc SetFitSelected*(this: var AIS_ViewCube; theToFitSelected: Standard_Boolean) {.
+proc setFitSelected*(this: var AIS_ViewCube; theToFitSelected: bool) {.
     importcpp: "SetFitSelected", header: "AIS_ViewCube.hxx".}
-proc HasAnimation*(this: AIS_ViewCube): Standard_Boolean {.noSideEffect,
+proc hasAnimation*(this: AIS_ViewCube): bool {.noSideEffect,
     importcpp: "HasAnimation", header: "AIS_ViewCube.hxx".}
-proc StartAnimation*(this: var AIS_ViewCube; theOwner: handle[AIS_ViewCubeOwner]) {.
+proc startAnimation*(this: var AIS_ViewCube; theOwner: Handle[AIS_ViewCubeOwner]) {.
     importcpp: "StartAnimation", header: "AIS_ViewCube.hxx".}
-proc UpdateAnimation*(this: var AIS_ViewCube; theToUpdate: Standard_Boolean): Standard_Boolean {.
+proc updateAnimation*(this: var AIS_ViewCube; theToUpdate: bool): bool {.
     importcpp: "UpdateAnimation", header: "AIS_ViewCube.hxx".}
-proc HandleClick*(this: var AIS_ViewCube; theOwner: handle[AIS_ViewCubeOwner]) {.
+proc handleClick*(this: var AIS_ViewCube; theOwner: Handle[AIS_ViewCubeOwner]) {.
     importcpp: "HandleClick", header: "AIS_ViewCube.hxx".}
-proc AcceptDisplayMode*(this: AIS_ViewCube; theMode: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "AcceptDisplayMode", header: "AIS_ViewCube.hxx".}
-proc GlobalSelOwner*(this: AIS_ViewCube): handle[SelectMgr_EntityOwner] {.
+proc acceptDisplayMode*(this: AIS_ViewCube; theMode: int): bool {.noSideEffect,
+    importcpp: "AcceptDisplayMode", header: "AIS_ViewCube.hxx".}
+proc globalSelOwner*(this: AIS_ViewCube): Handle[SelectMgrEntityOwner] {.
     noSideEffect, importcpp: "GlobalSelOwner", header: "AIS_ViewCube.hxx".}
-proc Compute*(this: var AIS_ViewCube;
-             thePrsMgr: handle[PrsMgr_PresentationManager3d];
-             thePrs: handle[Prs3d_Presentation]; theMode: Standard_Integer = 0) {.
+proc compute*(this: var AIS_ViewCube;
+             thePrsMgr: Handle[PrsMgrPresentationManager3d];
+             thePrs: Handle[Prs3dPresentation]; theMode: int = 0) {.
     importcpp: "Compute", header: "AIS_ViewCube.hxx".}
-proc ComputeSelection*(this: var AIS_ViewCube;
-                      theSelection: handle[SelectMgr_Selection];
-                      theMode: Standard_Integer) {.importcpp: "ComputeSelection",
-    header: "AIS_ViewCube.hxx".}
-proc IsAutoHilight*(this: AIS_ViewCube): Standard_Boolean {.noSideEffect,
+proc computeSelection*(this: var AIS_ViewCube;
+                      theSelection: Handle[SelectMgrSelection]; theMode: int) {.
+    importcpp: "ComputeSelection", header: "AIS_ViewCube.hxx".}
+proc isAutoHilight*(this: AIS_ViewCube): bool {.noSideEffect,
     importcpp: "IsAutoHilight", header: "AIS_ViewCube.hxx".}
-proc ClearSelected*(this: var AIS_ViewCube) {.importcpp: "ClearSelected",
+proc clearSelected*(this: var AIS_ViewCube) {.importcpp: "ClearSelected",
     header: "AIS_ViewCube.hxx".}
-proc HilightOwnerWithColor*(this: var AIS_ViewCube;
-                           thePM: handle[PrsMgr_PresentationManager3d];
-                           theStyle: handle[Prs3d_Drawer];
-                           theOwner: handle[SelectMgr_EntityOwner]) {.
+proc hilightOwnerWithColor*(this: var AIS_ViewCube;
+                           thePM: Handle[PrsMgrPresentationManager3d];
+                           theStyle: Handle[Prs3dDrawer];
+                           theOwner: Handle[SelectMgrEntityOwner]) {.
     importcpp: "HilightOwnerWithColor", header: "AIS_ViewCube.hxx".}
-proc HilightSelected*(this: var AIS_ViewCube;
-                     thePM: handle[PrsMgr_PresentationManager3d];
-                     theSeq: SelectMgr_SequenceOfOwner) {.
+proc hilightSelected*(this: var AIS_ViewCube;
+                     thePM: Handle[PrsMgrPresentationManager3d];
+                     theSeq: SelectMgrSequenceOfOwner) {.
     importcpp: "HilightSelected", header: "AIS_ViewCube.hxx".}
-proc UnsetAttributes*(this: var AIS_ViewCube) {.importcpp: "UnsetAttributes",
+proc unsetAttributes*(this: var AIS_ViewCube) {.importcpp: "UnsetAttributes",
     header: "AIS_ViewCube.hxx".}
-proc UnsetHilightAttributes*(this: var AIS_ViewCube) {.
+proc unsetHilightAttributes*(this: var AIS_ViewCube) {.
     importcpp: "UnsetHilightAttributes", header: "AIS_ViewCube.hxx".}
 ## ! Redefined entity owner that is highlighted when owner is detected,
 ## ! even if Interactive Context highlighted on last detection procedure.
 
 type
   AIS_ViewCubeOwner* {.importcpp: "AIS_ViewCubeOwner", header: "AIS_ViewCube.hxx",
-                      bycopy.} = object of SelectMgr_EntityOwner ## ! Main constructor.
+                      bycopy.} = object of SelectMgrEntityOwner ## ! Main constructor.
     ## !< new orientation to set
 
-  AIS_ViewCubeOwnerbase_type* = SelectMgr_EntityOwner
+  AIS_ViewCubeOwnerbaseType* = SelectMgrEntityOwner
 
-proc get_type_name*(): cstring {.importcpp: "AIS_ViewCubeOwner::get_type_name(@)",
-                              header: "AIS_ViewCube.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "AIS_ViewCubeOwner::get_type_name(@)",
+                            header: "AIS_ViewCube.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "AIS_ViewCubeOwner::get_type_descriptor(@)",
     header: "AIS_ViewCube.hxx".}
-proc DynamicType*(this: AIS_ViewCubeOwner): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: AIS_ViewCubeOwner): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_ViewCube.hxx".}
-proc constructAIS_ViewCubeOwner*(theObject: handle[AIS_ViewCube];
-                                theOrient: V3d_TypeOfOrientation;
-                                thePriority: Standard_Integer = 5): AIS_ViewCubeOwner {.
+proc constructAIS_ViewCubeOwner*(theObject: Handle[AIS_ViewCube];
+                                theOrient: V3dTypeOfOrientation;
+                                thePriority: int = 5): AIS_ViewCubeOwner {.
     constructor, importcpp: "AIS_ViewCubeOwner(@)", header: "AIS_ViewCube.hxx".}
-proc IsForcedHilight*(this: AIS_ViewCubeOwner): Standard_Boolean {.noSideEffect,
+proc isForcedHilight*(this: AIS_ViewCubeOwner): bool {.noSideEffect,
     importcpp: "IsForcedHilight", header: "AIS_ViewCube.hxx".}
-proc MainOrientation*(this: AIS_ViewCubeOwner): V3d_TypeOfOrientation {.
-    noSideEffect, importcpp: "MainOrientation", header: "AIS_ViewCube.hxx".}
-proc HandleMouseClick*(this: var AIS_ViewCubeOwner; thePoint: Graphic3d_Vec2i;
-                      theButton: Aspect_VKeyMouse; theModifiers: Aspect_VKeyFlags;
-                      theIsDoubleClick: bool): Standard_Boolean {.
+proc mainOrientation*(this: AIS_ViewCubeOwner): V3dTypeOfOrientation {.noSideEffect,
+    importcpp: "MainOrientation", header: "AIS_ViewCube.hxx".}
+proc handleMouseClick*(this: var AIS_ViewCubeOwner; thePoint: Graphic3dVec2i;
+                      theButton: AspectVKeyMouse; theModifiers: AspectVKeyFlags;
+                      theIsDoubleClick: bool): bool {.
     importcpp: "HandleMouseClick", header: "AIS_ViewCube.hxx".}

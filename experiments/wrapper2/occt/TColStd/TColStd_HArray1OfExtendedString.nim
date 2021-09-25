@@ -12,40 +12,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_ExtendedString, TColStd_Array1OfExtendedString,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  TColStd_HArray1OfExtendedString* {.importcpp: "TColStd_HArray1OfExtendedString", header: "TColStd_HArray1OfExtendedString.hxx",
-                                    bycopy.} = object of TColStd_Array1OfExtendedString
+  TColStdHArray1OfExtendedString* {.importcpp: "TColStd_HArray1OfExtendedString", header: "TColStd_HArray1OfExtendedString.hxx",
+                                   bycopy.} = object of TColStdArray1OfExtendedString
+# 
 
-
-proc constructTColStd_HArray1OfExtendedString*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): TColStd_HArray1OfExtendedString {.constructor,
+proc constructTColStdHArray1OfExtendedString*(theLower: int; theUpper: int): TColStdHArray1OfExtendedString {.
+    constructor, importcpp: "TColStd_HArray1OfExtendedString(@)",
+    header: "TColStd_HArray1OfExtendedString.hxx".}
+proc constructTColStdHArray1OfExtendedString*(theLower: int; theUpper: int;
+    theValue: ValueType): TColStdHArray1OfExtendedString {.constructor,
     importcpp: "TColStd_HArray1OfExtendedString(@)",
     header: "TColStd_HArray1OfExtendedString.hxx".}
-proc constructTColStd_HArray1OfExtendedString*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): TColStd_HArray1OfExtendedString {.
+proc constructTColStdHArray1OfExtendedString*(
+    theOther: TColStdArray1OfExtendedString): TColStdHArray1OfExtendedString {.
     constructor, importcpp: "TColStd_HArray1OfExtendedString(@)",
     header: "TColStd_HArray1OfExtendedString.hxx".}
-proc constructTColStd_HArray1OfExtendedString*(
-    theOther: TColStd_Array1OfExtendedString): TColStd_HArray1OfExtendedString {.
-    constructor, importcpp: "TColStd_HArray1OfExtendedString(@)",
-    header: "TColStd_HArray1OfExtendedString.hxx".}
-proc Array1*(this: TColStd_HArray1OfExtendedString): TColStd_Array1OfExtendedString {.
+proc array1*(this: TColStdHArray1OfExtendedString): TColStdArray1OfExtendedString {.
     noSideEffect, importcpp: "Array1",
     header: "TColStd_HArray1OfExtendedString.hxx".}
-proc ChangeArray1*(this: var TColStd_HArray1OfExtendedString): var TColStd_Array1OfExtendedString {.
+proc changeArray1*(this: var TColStdHArray1OfExtendedString): var TColStdArray1OfExtendedString {.
     importcpp: "ChangeArray1", header: "TColStd_HArray1OfExtendedString.hxx".}
 type
-  TColStd_HArray1OfExtendedStringbase_type* = MMgt_TShared
+  TColStdHArray1OfExtendedStringbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TColStd_HArray1OfExtendedString::get_type_name(@)",
-                              header: "TColStd_HArray1OfExtendedString.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TColStd_HArray1OfExtendedString::get_type_name(@)",
+                            header: "TColStd_HArray1OfExtendedString.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TColStd_HArray1OfExtendedString::get_type_descriptor(@)",
     header: "TColStd_HArray1OfExtendedString.hxx".}
-proc DynamicType*(this: TColStd_HArray1OfExtendedString): handle[Standard_Type] {.
+proc dynamicType*(this: TColStdHArray1OfExtendedString): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TColStd_HArray1OfExtendedString.hxx".}
+

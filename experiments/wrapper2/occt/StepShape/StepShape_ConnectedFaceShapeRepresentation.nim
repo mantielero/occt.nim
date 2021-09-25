@@ -13,36 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepRepr/StepRepr_Representation
-
 discard "forward decl of StepShape_ConnectedFaceShapeRepresentation"
 discard "forward decl of StepShape_ConnectedFaceShapeRepresentation"
 type
-  Handle_StepShape_ConnectedFaceShapeRepresentation* = handle[
-      StepShape_ConnectedFaceShapeRepresentation]
+  HandleStepShapeConnectedFaceShapeRepresentation* = Handle[
+      StepShapeConnectedFaceShapeRepresentation]
 
 ## ! Representation of STEP entity ConnectedFaceShapeRepresentation
 
 type
-  StepShape_ConnectedFaceShapeRepresentation* {.
+  StepShapeConnectedFaceShapeRepresentation* {.
       importcpp: "StepShape_ConnectedFaceShapeRepresentation",
-      header: "StepShape_ConnectedFaceShapeRepresentation.hxx", bycopy.} = object of StepRepr_Representation ##
-                                                                                                      ## !
-                                                                                                      ## Empty
-                                                                                                      ## constructor
+      header: "StepShape_ConnectedFaceShapeRepresentation.hxx", bycopy.} = object of StepReprRepresentation ##
+                                                                                                     ## !
+                                                                                                     ## Empty
+                                                                                                     ## constructor
 
 
-proc constructStepShape_ConnectedFaceShapeRepresentation*(): StepShape_ConnectedFaceShapeRepresentation {.
+proc constructStepShapeConnectedFaceShapeRepresentation*(): StepShapeConnectedFaceShapeRepresentation {.
     constructor, importcpp: "StepShape_ConnectedFaceShapeRepresentation(@)",
     header: "StepShape_ConnectedFaceShapeRepresentation.hxx".}
 type
-  StepShape_ConnectedFaceShapeRepresentationbase_type* = StepRepr_Representation
+  StepShapeConnectedFaceShapeRepresentationbaseType* = StepReprRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_ConnectedFaceShapeRepresentation::get_type_name(@)", header: "StepShape_ConnectedFaceShapeRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepShape_ConnectedFaceShapeRepresentation::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepShape_ConnectedFaceShapeRepresentation::get_type_name(@)", header: "StepShape_ConnectedFaceShapeRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_ConnectedFaceShapeRepresentation::get_type_descriptor(@)",
     header: "StepShape_ConnectedFaceShapeRepresentation.hxx".}
-proc DynamicType*(this: StepShape_ConnectedFaceShapeRepresentation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepShape_ConnectedFaceShapeRepresentation.hxx".}
+proc dynamicType*(this: StepShapeConnectedFaceShapeRepresentation): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepShape_ConnectedFaceShapeRepresentation.hxx".}

@@ -14,32 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_RepresentationContext
-
 discard "forward decl of StepRepr_ParametricRepresentationContext"
 discard "forward decl of StepRepr_ParametricRepresentationContext"
 type
-  Handle_StepRepr_ParametricRepresentationContext* = handle[
-      StepRepr_ParametricRepresentationContext]
-  StepRepr_ParametricRepresentationContext* {.
+  HandleStepReprParametricRepresentationContext* = Handle[
+      StepReprParametricRepresentationContext]
+  StepReprParametricRepresentationContext* {.
       importcpp: "StepRepr_ParametricRepresentationContext",
-      header: "StepRepr_ParametricRepresentationContext.hxx", bycopy.} = object of StepRepr_RepresentationContext ##
-                                                                                                           ## !
-                                                                                                           ## Returns
-                                                                                                           ## a
-                                                                                                           ## ParametricRepresentationContext
+      header: "StepRepr_ParametricRepresentationContext.hxx", bycopy.} = object of StepReprRepresentationContext ##
+                                                                                                          ## !
+                                                                                                          ## Returns
+                                                                                                          ## a
+                                                                                                          ## ParametricRepresentationContext
 
 
-proc constructStepRepr_ParametricRepresentationContext*(): StepRepr_ParametricRepresentationContext {.
+proc constructStepReprParametricRepresentationContext*(): StepReprParametricRepresentationContext {.
     constructor, importcpp: "StepRepr_ParametricRepresentationContext(@)",
     header: "StepRepr_ParametricRepresentationContext.hxx".}
 type
-  StepRepr_ParametricRepresentationContextbase_type* = StepRepr_RepresentationContext
+  StepReprParametricRepresentationContextbaseType* = StepReprRepresentationContext
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_ParametricRepresentationContext::get_type_name(@)", header: "StepRepr_ParametricRepresentationContext.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepRepr_ParametricRepresentationContext::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepRepr_ParametricRepresentationContext::get_type_name(@)", header: "StepRepr_ParametricRepresentationContext.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_ParametricRepresentationContext::get_type_descriptor(@)",
     header: "StepRepr_ParametricRepresentationContext.hxx".}
-proc DynamicType*(this: StepRepr_ParametricRepresentationContext): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepRepr_ParametricRepresentationContext.hxx".}
+proc dynamicType*(this: StepReprParametricRepresentationContext): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepRepr_ParametricRepresentationContext.hxx".}

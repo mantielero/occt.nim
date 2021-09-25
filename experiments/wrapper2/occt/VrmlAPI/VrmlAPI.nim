@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_CString,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of VrmlAPI_Writer"
 type
@@ -26,6 +21,5 @@ type
                                                                     ## ! to the file identified by aFileName using default parameters.
 
 
-proc Write*(aShape: TopoDS_Shape; aFileName: Standard_CString;
-           aVersion: Standard_Integer = 2): Standard_Boolean {.
+proc write*(aShape: TopoDS_Shape; aFileName: StandardCString; aVersion: int = 2): bool {.
     importcpp: "VrmlAPI::Write(@)", header: "VrmlAPI.hxx".}

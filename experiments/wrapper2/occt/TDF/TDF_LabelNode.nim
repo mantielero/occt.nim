@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_AsciiString, TDF_Attribute, TDF_LabelNodePtr,
-  TDF_HAllocator, ../NCollection/NCollection_DefineAlloc
-
 discard "forward decl of TDF_Attribute"
 discard "forward decl of TDF_AttributeIterator"
 discard "forward decl of TDF_ChildIterator"
@@ -44,31 +40,31 @@ type
                                                                                       ##  Constructor
     ## jfa 10.01.2003
     ##  Flags & Depth
-    when defined(OCCT_DEBUG):
-      discard
+#     when defined(OCCT_DEBUG):
+#       discard
 
 
-proc Father*(this: TDF_LabelNode): ptr TDF_LabelNode {.noSideEffect,
+proc father*(this: TDF_LabelNode): ptr TDF_LabelNode {.noSideEffect,
     importcpp: "Father", header: "TDF_LabelNode.hxx".}
-proc Brother*(this: TDF_LabelNode): ptr TDF_LabelNode {.noSideEffect,
+proc brother*(this: TDF_LabelNode): ptr TDF_LabelNode {.noSideEffect,
     importcpp: "Brother", header: "TDF_LabelNode.hxx".}
-proc FirstChild*(this: TDF_LabelNode): ptr TDF_LabelNode {.noSideEffect,
+proc firstChild*(this: TDF_LabelNode): ptr TDF_LabelNode {.noSideEffect,
     importcpp: "FirstChild", header: "TDF_LabelNode.hxx".}
-proc FirstAttribute*(this: TDF_LabelNode): handle[TDF_Attribute] {.noSideEffect,
+proc firstAttribute*(this: TDF_LabelNode): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "FirstAttribute", header: "TDF_LabelNode.hxx".}
-proc Tag*(this: TDF_LabelNode): Standard_Integer {.noSideEffect, importcpp: "Tag",
+proc tag*(this: TDF_LabelNode): int {.noSideEffect, importcpp: "Tag",
+                                  header: "TDF_LabelNode.hxx".}
+proc depth*(this: TDF_LabelNode): int {.noSideEffect, importcpp: "Depth",
+                                    header: "TDF_LabelNode.hxx".}
+proc isRoot*(this: TDF_LabelNode): bool {.noSideEffect, importcpp: "IsRoot",
+                                      header: "TDF_LabelNode.hxx".}
+proc data*(this: TDF_LabelNode): ptr TDF_Data {.noSideEffect, importcpp: "Data",
     header: "TDF_LabelNode.hxx".}
-proc Depth*(this: TDF_LabelNode): Standard_Integer {.noSideEffect,
-    importcpp: "Depth", header: "TDF_LabelNode.hxx".}
-proc IsRoot*(this: TDF_LabelNode): Standard_Boolean {.noSideEffect,
-    importcpp: "IsRoot", header: "TDF_LabelNode.hxx".}
-proc Data*(this: TDF_LabelNode): ptr TDF_Data {.noSideEffect, importcpp: "Data",
-    header: "TDF_LabelNode.hxx".}
-proc AttributesModified*(this: var TDF_LabelNode; aStatus: Standard_Boolean) {.
+proc attributesModified*(this: var TDF_LabelNode; aStatus: bool) {.
     importcpp: "AttributesModified", header: "TDF_LabelNode.hxx".}
-proc AttributesModified*(this: TDF_LabelNode): Standard_Boolean {.noSideEffect,
+proc attributesModified*(this: TDF_LabelNode): bool {.noSideEffect,
     importcpp: "AttributesModified", header: "TDF_LabelNode.hxx".}
-proc MayBeModified*(this: var TDF_LabelNode; aStatus: Standard_Boolean) {.
+proc mayBeModified*(this: var TDF_LabelNode; aStatus: bool) {.
     importcpp: "MayBeModified", header: "TDF_LabelNode.hxx".}
-proc MayBeModified*(this: TDF_LabelNode): Standard_Boolean {.noSideEffect,
+proc mayBeModified*(this: TDF_LabelNode): bool {.noSideEffect,
     importcpp: "MayBeModified", header: "TDF_LabelNode.hxx".}

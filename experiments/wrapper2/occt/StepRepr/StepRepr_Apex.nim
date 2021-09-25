@@ -13,29 +13,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_DerivedShapeAspect
-
 discard "forward decl of StepRepr_Apex"
 discard "forward decl of StepRepr_Apex"
 type
-  Handle_StepRepr_Apex* = handle[StepRepr_Apex]
+  HandleStepReprApex* = Handle[StepReprApex]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepRepr_Apex* {.importcpp: "StepRepr_Apex", header: "StepRepr_Apex.hxx", bycopy.} = object of StepRepr_DerivedShapeAspect
+  StepReprApex* {.importcpp: "StepRepr_Apex", header: "StepRepr_Apex.hxx", bycopy.} = object of StepReprDerivedShapeAspect
 
 
-proc constructStepRepr_Apex*(): StepRepr_Apex {.constructor,
+proc constructStepReprApex*(): StepReprApex {.constructor,
     importcpp: "StepRepr_Apex(@)", header: "StepRepr_Apex.hxx".}
 type
-  StepRepr_Apexbase_type* = StepRepr_DerivedShapeAspect
+  StepReprApexbaseType* = StepReprDerivedShapeAspect
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_Apex::get_type_name(@)",
-                              header: "StepRepr_Apex.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_Apex::get_type_name(@)",
+                            header: "StepRepr_Apex.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_Apex::get_type_descriptor(@)",
     header: "StepRepr_Apex.hxx".}
-proc DynamicType*(this: StepRepr_Apex): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepReprApex): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepRepr_Apex.hxx".}

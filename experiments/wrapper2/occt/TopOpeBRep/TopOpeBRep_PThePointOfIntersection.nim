@@ -16,4 +16,5 @@
 
 discard "forward decl of IntPatch_Point"
 type
-  TopOpeBRep_PThePointOfIntersection* = ptr IntPatch_Point
+  TopOpeBRepPThePointOfIntersection* = ptr IntPatchPoint
+

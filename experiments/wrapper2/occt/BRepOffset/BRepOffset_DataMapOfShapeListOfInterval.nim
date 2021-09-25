@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, BRepOffset_ListOfInterval,
-  ../TopTools/TopTools_ShapeMapHasher, ../NCollection/NCollection_DataMap
-
 type
-  BRepOffset_DataMapOfShapeListOfInterval* = NCollection_DataMap[TopoDS_Shape,
-      BRepOffset_ListOfInterval, TopTools_ShapeMapHasher]
-  BRepOffset_DataMapIteratorOfDataMapOfShapeListOfInterval* = Iterator[
-      TopoDS_Shape, BRepOffset_ListOfInterval, TopTools_ShapeMapHasher]
+  BRepOffsetDataMapOfShapeListOfInterval* = NCollectionDataMap[TopoDS_Shape,
+      BRepOffsetListOfInterval, TopToolsShapeMapHasher]
+  BRepOffsetDataMapIteratorOfDataMapOfShapeListOfInterval* = Iterator[
+      TopoDS_Shape, BRepOffsetListOfInterval, TopToolsShapeMapHasher]
+

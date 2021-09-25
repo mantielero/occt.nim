@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  Vrml_ConeParts* {.size: sizeof(cint), importcpp: "Vrml_ConeParts",
-                   header: "Vrml_ConeParts.hxx".} = enum
-    Vrml_ConeSIDES, Vrml_ConeBOTTOM, Vrml_ConeALL
+  VrmlConeParts* {.size: sizeof(cint), importcpp: "Vrml_ConeParts",
+                  header: "Vrml_ConeParts.hxx".} = enum
+    VrmlConeSIDES, VrmlConeBOTTOM, VrmlConeALL
+
 

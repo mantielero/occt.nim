@@ -14,76 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../math/math_NewtonMinimum, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of math_MultipleVarFunctionWithHessian"
 type
-  FairCurve_Newton* {.importcpp: "FairCurve_Newton",
-                     header: "FairCurve_Newton.hxx", bycopy.} = object of math_NewtonMinimum ##
-                                                                                      ## !
-                                                                                      ## The
-                                                                                      ## tolerance
-                                                                                      ## required
-                                                                                      ## on
-                                                                                      ## the
-                                                                                      ## solution
-                                                                                      ## is
-                                                                                      ## given
-                                                                                      ## by
-                                                                                      ## Tolerance.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Iteration
-                                                                                      ## are
-                                                                                      ## stopped
-                                                                                      ## if
-                                                                                      ## (!WithSingularity)
-                                                                                      ## and
-                                                                                      ## H(F(Xi))
-                                                                                      ## is
-                                                                                      ## not
-                                                                                      ## definite
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## positive
-                                                                                      ## (if
-                                                                                      ## the
-                                                                                      ## smaller
-                                                                                      ## eigenvalue
-                                                                                      ## of
-                                                                                      ## H
-                                                                                      ## <
-                                                                                      ## Convexity)
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## or
-                                                                                      ## IsConverged()
-                                                                                      ## returns
-                                                                                      ## True
-                                                                                      ## for
-                                                                                      ## 2
-                                                                                      ## successives
-                                                                                      ## Iterations.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Warning:
-                                                                                      ## This
-                                                                                      ## constructor
-                                                                                      ## do
-                                                                                      ## not
-                                                                                      ## computation
+  FairCurveNewton* {.importcpp: "FairCurve_Newton", header: "FairCurve_Newton.hxx",
+                    bycopy.} = object of MathNewtonMinimum ## ! The tolerance  required on  the  solution is given  by Tolerance.
+                                                      ## ! Iteration are  stopped if (!WithSingularity)  and H(F(Xi)) is not definite
+                                                      ## ! positive  (if the smaller eigenvalue of H < Convexity)
+                                                      ## ! or IsConverged() returns True for 2 successives Iterations.
+                                                      ## ! Warning: This constructor do not computation
 
 
-proc constructFairCurve_Newton*(theFunction: math_MultipleVarFunctionWithHessian;
-                               theSpatialTolerance: Standard_Real = 1.0e-7;
-                               theCriteriumTolerance: Standard_Real = 1.0e-7;
-                               theNbIterations: Standard_Integer = 40;
-                               theConvexity: Standard_Real = 1.0e-6;
-    theWithSingularity: Standard_Boolean = Standard_True): FairCurve_Newton {.
+proc constructFairCurveNewton*(theFunction: MathMultipleVarFunctionWithHessian;
+                              theSpatialTolerance: float = 1.0e-7;
+                              theCriteriumTolerance: float = 1.0e-7;
+                              theNbIterations: int = 40;
+                              theConvexity: float = 1.0e-6;
+                              theWithSingularity: bool = true): FairCurveNewton {.
     constructor, importcpp: "FairCurve_Newton(@)", header: "FairCurve_Newton.hxx".}
-proc IsConverged*(this: FairCurve_Newton): Standard_Boolean {.noSideEffect,
+proc isConverged*(this: FairCurveNewton): bool {.noSideEffect,
     importcpp: "IsConverged", header: "FairCurve_Newton.hxx".}

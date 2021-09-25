@@ -14,29 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_SeamCurve"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeom_RWSeamCurve* {.importcpp: "RWStepGeom_RWSeamCurve",
-                           header: "RWStepGeom_RWSeamCurve.hxx", bycopy.} = object
+  RWStepGeomRWSeamCurve* {.importcpp: "RWStepGeom_RWSeamCurve",
+                          header: "RWStepGeom_RWSeamCurve.hxx", bycopy.} = object
 
 
-proc constructRWStepGeom_RWSeamCurve*(): RWStepGeom_RWSeamCurve {.constructor,
+proc constructRWStepGeomRWSeamCurve*(): RWStepGeomRWSeamCurve {.constructor,
     importcpp: "RWStepGeom_RWSeamCurve(@)", header: "RWStepGeom_RWSeamCurve.hxx".}
-proc ReadStep*(this: RWStepGeom_RWSeamCurve; data: handle[StepData_StepReaderData];
-              num: Standard_Integer; ach: var handle[Interface_Check];
-              ent: handle[StepGeom_SeamCurve]) {.noSideEffect,
+proc readStep*(this: RWStepGeomRWSeamCurve; data: Handle[StepDataStepReaderData];
+              num: int; ach: var Handle[InterfaceCheck];
+              ent: Handle[StepGeomSeamCurve]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWSeamCurve.hxx".}
-proc WriteStep*(this: RWStepGeom_RWSeamCurve; SW: var StepData_StepWriter;
-               ent: handle[StepGeom_SeamCurve]) {.noSideEffect,
+proc writeStep*(this: RWStepGeomRWSeamCurve; sw: var StepDataStepWriter;
+               ent: Handle[StepGeomSeamCurve]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWSeamCurve.hxx".}
-proc Share*(this: RWStepGeom_RWSeamCurve; ent: handle[StepGeom_SeamCurve];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepGeomRWSeamCurve; ent: Handle[StepGeomSeamCurve];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWSeamCurve.hxx".}

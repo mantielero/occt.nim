@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP214_OrganizationItem, ../NCollection/NCollection_Array1
-
 type
-  StepAP214_Array1OfOrganizationItem* = NCollection_Array1[
-      StepAP214_OrganizationItem]
+  StepAP214Array1OfOrganizationItem* = NCollectionArray1[StepAP214OrganizationItem]
+

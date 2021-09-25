@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_ManifoldSolidBrep,
-  StepShape_HArray1OfOrientedClosedShell, ../Standard/Standard_Integer
-
 discard "forward decl of StepShape_FacetedBrep"
 discard "forward decl of StepShape_BrepWithVoids"
 discard "forward decl of TCollection_HAsciiString"
@@ -26,62 +22,62 @@ discard "forward decl of StepShape_OrientedClosedShell"
 discard "forward decl of StepShape_FacetedBrepAndBrepWithVoids"
 discard "forward decl of StepShape_FacetedBrepAndBrepWithVoids"
 type
-  Handle_StepShape_FacetedBrepAndBrepWithVoids* = handle[
-      StepShape_FacetedBrepAndBrepWithVoids]
-  StepShape_FacetedBrepAndBrepWithVoids* {.
+  HandleStepShapeFacetedBrepAndBrepWithVoids* = Handle[
+      StepShapeFacetedBrepAndBrepWithVoids]
+  StepShapeFacetedBrepAndBrepWithVoids* {.
       importcpp: "StepShape_FacetedBrepAndBrepWithVoids",
-      header: "StepShape_FacetedBrepAndBrepWithVoids.hxx", bycopy.} = object of StepShape_ManifoldSolidBrep ##
-                                                                                                     ## !
-                                                                                                     ## Returns
-                                                                                                     ## a
-                                                                                                     ## FacetedBrepAndBrepWithVoids
+      header: "StepShape_FacetedBrepAndBrepWithVoids.hxx", bycopy.} = object of StepShapeManifoldSolidBrep ##
+                                                                                                    ## !
+                                                                                                    ## Returns
+                                                                                                    ## a
+                                                                                                    ## FacetedBrepAndBrepWithVoids
 
 
-proc constructStepShape_FacetedBrepAndBrepWithVoids*(): StepShape_FacetedBrepAndBrepWithVoids {.
+proc constructStepShapeFacetedBrepAndBrepWithVoids*(): StepShapeFacetedBrepAndBrepWithVoids {.
     constructor, importcpp: "StepShape_FacetedBrepAndBrepWithVoids(@)",
     header: "StepShape_FacetedBrepAndBrepWithVoids.hxx".}
-proc Init*(this: var StepShape_FacetedBrepAndBrepWithVoids;
-          aName: handle[TCollection_HAsciiString];
-          aOuter: handle[StepShape_ClosedShell];
-          aFacetedBrep: handle[StepShape_FacetedBrep];
-          aBrepWithVoids: handle[StepShape_BrepWithVoids]) {.importcpp: "Init",
+proc init*(this: var StepShapeFacetedBrepAndBrepWithVoids;
+          aName: Handle[TCollectionHAsciiString];
+          aOuter: Handle[StepShapeClosedShell];
+          aFacetedBrep: Handle[StepShapeFacetedBrep];
+          aBrepWithVoids: Handle[StepShapeBrepWithVoids]) {.importcpp: "Init",
     header: "StepShape_FacetedBrepAndBrepWithVoids.hxx".}
-proc Init*(this: var StepShape_FacetedBrepAndBrepWithVoids;
-          aName: handle[TCollection_HAsciiString];
-          aOuter: handle[StepShape_ClosedShell];
-          aVoids: handle[StepShape_HArray1OfOrientedClosedShell]) {.
+proc init*(this: var StepShapeFacetedBrepAndBrepWithVoids;
+          aName: Handle[TCollectionHAsciiString];
+          aOuter: Handle[StepShapeClosedShell];
+          aVoids: Handle[StepShapeHArray1OfOrientedClosedShell]) {.
     importcpp: "Init", header: "StepShape_FacetedBrepAndBrepWithVoids.hxx".}
-proc SetFacetedBrep*(this: var StepShape_FacetedBrepAndBrepWithVoids;
-                    aFacetedBrep: handle[StepShape_FacetedBrep]) {.
+proc setFacetedBrep*(this: var StepShapeFacetedBrepAndBrepWithVoids;
+                    aFacetedBrep: Handle[StepShapeFacetedBrep]) {.
     importcpp: "SetFacetedBrep",
     header: "StepShape_FacetedBrepAndBrepWithVoids.hxx".}
-proc FacetedBrep*(this: StepShape_FacetedBrepAndBrepWithVoids): handle[
-    StepShape_FacetedBrep] {.noSideEffect, importcpp: "FacetedBrep",
-                            header: "StepShape_FacetedBrepAndBrepWithVoids.hxx".}
-proc SetBrepWithVoids*(this: var StepShape_FacetedBrepAndBrepWithVoids;
-                      aBrepWithVoids: handle[StepShape_BrepWithVoids]) {.
+proc facetedBrep*(this: StepShapeFacetedBrepAndBrepWithVoids): Handle[
+    StepShapeFacetedBrep] {.noSideEffect, importcpp: "FacetedBrep",
+                           header: "StepShape_FacetedBrepAndBrepWithVoids.hxx".}
+proc setBrepWithVoids*(this: var StepShapeFacetedBrepAndBrepWithVoids;
+                      aBrepWithVoids: Handle[StepShapeBrepWithVoids]) {.
     importcpp: "SetBrepWithVoids",
     header: "StepShape_FacetedBrepAndBrepWithVoids.hxx".}
-proc BrepWithVoids*(this: StepShape_FacetedBrepAndBrepWithVoids): handle[
-    StepShape_BrepWithVoids] {.noSideEffect, importcpp: "BrepWithVoids", header: "StepShape_FacetedBrepAndBrepWithVoids.hxx".}
-proc SetVoids*(this: var StepShape_FacetedBrepAndBrepWithVoids;
-              aVoids: handle[StepShape_HArray1OfOrientedClosedShell]) {.
+proc brepWithVoids*(this: StepShapeFacetedBrepAndBrepWithVoids): Handle[
+    StepShapeBrepWithVoids] {.noSideEffect, importcpp: "BrepWithVoids", header: "StepShape_FacetedBrepAndBrepWithVoids.hxx".}
+proc setVoids*(this: var StepShapeFacetedBrepAndBrepWithVoids;
+              aVoids: Handle[StepShapeHArray1OfOrientedClosedShell]) {.
     importcpp: "SetVoids", header: "StepShape_FacetedBrepAndBrepWithVoids.hxx".}
-proc Voids*(this: StepShape_FacetedBrepAndBrepWithVoids): handle[
-    StepShape_HArray1OfOrientedClosedShell] {.noSideEffect, importcpp: "Voids",
+proc voids*(this: StepShapeFacetedBrepAndBrepWithVoids): Handle[
+    StepShapeHArray1OfOrientedClosedShell] {.noSideEffect, importcpp: "Voids",
     header: "StepShape_FacetedBrepAndBrepWithVoids.hxx".}
-proc VoidsValue*(this: StepShape_FacetedBrepAndBrepWithVoids; num: Standard_Integer): handle[
-    StepShape_OrientedClosedShell] {.noSideEffect, importcpp: "VoidsValue", header: "StepShape_FacetedBrepAndBrepWithVoids.hxx".}
-proc NbVoids*(this: StepShape_FacetedBrepAndBrepWithVoids): Standard_Integer {.
-    noSideEffect, importcpp: "NbVoids",
-    header: "StepShape_FacetedBrepAndBrepWithVoids.hxx".}
+proc voidsValue*(this: StepShapeFacetedBrepAndBrepWithVoids; num: int): Handle[
+    StepShapeOrientedClosedShell] {.noSideEffect, importcpp: "VoidsValue", header: "StepShape_FacetedBrepAndBrepWithVoids.hxx".}
+proc nbVoids*(this: StepShapeFacetedBrepAndBrepWithVoids): int {.noSideEffect,
+    importcpp: "NbVoids", header: "StepShape_FacetedBrepAndBrepWithVoids.hxx".}
 type
-  StepShape_FacetedBrepAndBrepWithVoidsbase_type* = StepShape_ManifoldSolidBrep
+  StepShapeFacetedBrepAndBrepWithVoidsbaseType* = StepShapeManifoldSolidBrep
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_FacetedBrepAndBrepWithVoids::get_type_name(@)", header: "StepShape_FacetedBrepAndBrepWithVoids.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_FacetedBrepAndBrepWithVoids::get_type_name(@)",
+                            header: "StepShape_FacetedBrepAndBrepWithVoids.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_FacetedBrepAndBrepWithVoids::get_type_descriptor(@)",
     header: "StepShape_FacetedBrepAndBrepWithVoids.hxx".}
-proc DynamicType*(this: StepShape_FacetedBrepAndBrepWithVoids): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepShape_FacetedBrepAndBrepWithVoids.hxx".}
+proc dynamicType*(this: StepShapeFacetedBrepAndBrepWithVoids): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepShape_FacetedBrepAndBrepWithVoids.hxx".}

@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../Extrema/Extrema_ExtCC,
-  ../GeomAdaptor/GeomAdaptor_Curve, ../Standard/Standard_Real, ../gp/gp_Pnt
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom_Curve"
@@ -63,58 +57,51 @@ type
 proc constructGeomAPI_ExtremaCurveCurve*(): GeomAPI_ExtremaCurveCurve {.
     constructor, importcpp: "GeomAPI_ExtremaCurveCurve(@)",
     header: "GeomAPI_ExtremaCurveCurve.hxx".}
-proc constructGeomAPI_ExtremaCurveCurve*(C1: handle[Geom_Curve];
-                                        C2: handle[Geom_Curve]): GeomAPI_ExtremaCurveCurve {.
+proc constructGeomAPI_ExtremaCurveCurve*(c1: Handle[GeomCurve];
+                                        c2: Handle[GeomCurve]): GeomAPI_ExtremaCurveCurve {.
     constructor, importcpp: "GeomAPI_ExtremaCurveCurve(@)",
     header: "GeomAPI_ExtremaCurveCurve.hxx".}
-proc constructGeomAPI_ExtremaCurveCurve*(C1: handle[Geom_Curve];
-                                        C2: handle[Geom_Curve];
-                                        U1min: Standard_Real;
-                                        U1max: Standard_Real;
-                                        U2min: Standard_Real; U2max: Standard_Real): GeomAPI_ExtremaCurveCurve {.
+proc constructGeomAPI_ExtremaCurveCurve*(c1: Handle[GeomCurve];
+                                        c2: Handle[GeomCurve]; u1min: float;
+                                        u1max: float; u2min: float; u2max: float): GeomAPI_ExtremaCurveCurve {.
     constructor, importcpp: "GeomAPI_ExtremaCurveCurve(@)",
     header: "GeomAPI_ExtremaCurveCurve.hxx".}
-proc Init*(this: var GeomAPI_ExtremaCurveCurve; C1: handle[Geom_Curve];
-          C2: handle[Geom_Curve]) {.importcpp: "Init",
-                                  header: "GeomAPI_ExtremaCurveCurve.hxx".}
-proc Init*(this: var GeomAPI_ExtremaCurveCurve; C1: handle[Geom_Curve];
-          C2: handle[Geom_Curve]; U1min: Standard_Real; U1max: Standard_Real;
-          U2min: Standard_Real; U2max: Standard_Real) {.importcpp: "Init",
-    header: "GeomAPI_ExtremaCurveCurve.hxx".}
-proc NbExtrema*(this: GeomAPI_ExtremaCurveCurve): Standard_Integer {.noSideEffect,
+proc init*(this: var GeomAPI_ExtremaCurveCurve; c1: Handle[GeomCurve];
+          c2: Handle[GeomCurve]) {.importcpp: "Init",
+                                 header: "GeomAPI_ExtremaCurveCurve.hxx".}
+proc init*(this: var GeomAPI_ExtremaCurveCurve; c1: Handle[GeomCurve];
+          c2: Handle[GeomCurve]; u1min: float; u1max: float; u2min: float; u2max: float) {.
+    importcpp: "Init", header: "GeomAPI_ExtremaCurveCurve.hxx".}
+proc nbExtrema*(this: GeomAPI_ExtremaCurveCurve): int {.noSideEffect,
     importcpp: "NbExtrema", header: "GeomAPI_ExtremaCurveCurve.hxx".}
-converter `Standard_Integer`*(this: GeomAPI_ExtremaCurveCurve): Standard_Integer {.
-    noSideEffect,
+converter `int`*(this: GeomAPI_ExtremaCurveCurve): int {.noSideEffect,
     importcpp: "GeomAPI_ExtremaCurveCurve::operator Standard_Integer",
     header: "GeomAPI_ExtremaCurveCurve.hxx".}
-proc Points*(this: GeomAPI_ExtremaCurveCurve; Index: Standard_Integer;
-            P1: var gp_Pnt; P2: var gp_Pnt) {.noSideEffect, importcpp: "Points",
-                                        header: "GeomAPI_ExtremaCurveCurve.hxx".}
-proc Parameters*(this: GeomAPI_ExtremaCurveCurve; Index: Standard_Integer;
-                U1: var Standard_Real; U2: var Standard_Real) {.noSideEffect,
-    importcpp: "Parameters", header: "GeomAPI_ExtremaCurveCurve.hxx".}
-proc Distance*(this: GeomAPI_ExtremaCurveCurve; Index: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "Distance", header: "GeomAPI_ExtremaCurveCurve.hxx".}
-proc NearestPoints*(this: GeomAPI_ExtremaCurveCurve; P1: var gp_Pnt; P2: var gp_Pnt) {.
+proc points*(this: GeomAPI_ExtremaCurveCurve; index: int; p1: var Pnt; p2: var Pnt) {.
+    noSideEffect, importcpp: "Points", header: "GeomAPI_ExtremaCurveCurve.hxx".}
+proc parameters*(this: GeomAPI_ExtremaCurveCurve; index: int; u1: var float;
+                u2: var float) {.noSideEffect, importcpp: "Parameters",
+                              header: "GeomAPI_ExtremaCurveCurve.hxx".}
+proc distance*(this: GeomAPI_ExtremaCurveCurve; index: int): float {.noSideEffect,
+    importcpp: "Distance", header: "GeomAPI_ExtremaCurveCurve.hxx".}
+proc nearestPoints*(this: GeomAPI_ExtremaCurveCurve; p1: var Pnt; p2: var Pnt) {.
     noSideEffect, importcpp: "NearestPoints",
     header: "GeomAPI_ExtremaCurveCurve.hxx".}
-proc LowerDistanceParameters*(this: GeomAPI_ExtremaCurveCurve;
-                             U1: var Standard_Real; U2: var Standard_Real) {.
-    noSideEffect, importcpp: "LowerDistanceParameters",
-    header: "GeomAPI_ExtremaCurveCurve.hxx".}
-proc LowerDistance*(this: GeomAPI_ExtremaCurveCurve): Standard_Real {.noSideEffect,
+proc lowerDistanceParameters*(this: GeomAPI_ExtremaCurveCurve; u1: var float;
+                             u2: var float) {.noSideEffect,
+    importcpp: "LowerDistanceParameters", header: "GeomAPI_ExtremaCurveCurve.hxx".}
+proc lowerDistance*(this: GeomAPI_ExtremaCurveCurve): float {.noSideEffect,
     importcpp: "LowerDistance", header: "GeomAPI_ExtremaCurveCurve.hxx".}
-converter `Standard_Real`*(this: GeomAPI_ExtremaCurveCurve): Standard_Real {.
-    noSideEffect, importcpp: "GeomAPI_ExtremaCurveCurve::operator Standard_Real",
+converter `float`*(this: GeomAPI_ExtremaCurveCurve): float {.noSideEffect,
+    importcpp: "GeomAPI_ExtremaCurveCurve::operator Standard_Real",
     header: "GeomAPI_ExtremaCurveCurve.hxx".}
-proc Extrema*(this: GeomAPI_ExtremaCurveCurve): Extrema_ExtCC {.noSideEffect,
+proc extrema*(this: GeomAPI_ExtremaCurveCurve): ExtremaExtCC {.noSideEffect,
     importcpp: "Extrema", header: "GeomAPI_ExtremaCurveCurve.hxx".}
-proc TotalNearestPoints*(this: var GeomAPI_ExtremaCurveCurve; P1: var gp_Pnt;
-                        P2: var gp_Pnt): Standard_Boolean {.
+proc totalNearestPoints*(this: var GeomAPI_ExtremaCurveCurve; p1: var Pnt; p2: var Pnt): bool {.
     importcpp: "TotalNearestPoints", header: "GeomAPI_ExtremaCurveCurve.hxx".}
-proc TotalLowerDistanceParameters*(this: var GeomAPI_ExtremaCurveCurve;
-                                  U1: var Standard_Real; U2: var Standard_Real): Standard_Boolean {.
+proc totalLowerDistanceParameters*(this: var GeomAPI_ExtremaCurveCurve;
+                                  u1: var float; u2: var float): bool {.
     importcpp: "TotalLowerDistanceParameters",
     header: "GeomAPI_ExtremaCurveCurve.hxx".}
-proc TotalLowerDistance*(this: var GeomAPI_ExtremaCurveCurve): Standard_Real {.
+proc totalLowerDistance*(this: var GeomAPI_ExtremaCurveCurve): float {.
     importcpp: "TotalLowerDistance", header: "GeomAPI_ExtremaCurveCurve.hxx".}

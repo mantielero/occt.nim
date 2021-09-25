@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real, ../math/math_BFGS,
-  ../math/math_Vector, ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of GeomInt_TheMultiLineOfWLApprox"
 discard "forward decl of GeomInt_TheMultiLineToolOfWLApprox"
 discard "forward decl of GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox"
@@ -27,15 +22,14 @@ discard "forward decl of GeomInt_ResConstraintOfMyGradientOfTheComputeLineBezier
 discard "forward decl of GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox"
 discard "forward decl of math_MultipleVarFunctionWithGradient"
 type
-  GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox* {.importcpp: "GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox", header: "GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx",
-      bycopy.} = object of math_BFGS
+  GeomIntGradientBFGSOfMyGradientOfTheComputeLineBezierOfWLApprox* {.importcpp: "GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox", header: "GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx",
+      bycopy.} = object of MathBFGS
 
 
-proc constructGeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox*(
-    F: var math_MultipleVarFunctionWithGradient; StartingPoint: math_Vector;
-    Tolerance3d: Standard_Real; Tolerance2d: Standard_Real; Eps: Standard_Real;
-    NbIterations: Standard_Integer = 200): GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox {.
+proc constructGeomIntGradientBFGSOfMyGradientOfTheComputeLineBezierOfWLApprox*(
+    f: var MathMultipleVarFunctionWithGradient; startingPoint: MathVector;
+    tolerance3d: float; tolerance2d: float; eps: float; nbIterations: int = 200): GeomIntGradientBFGSOfMyGradientOfTheComputeLineBezierOfWLApprox {.
     constructor, importcpp: "GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox(@)", header: "GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
-proc IsSolutionReached*(this: GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox;
-                       F: var math_MultipleVarFunctionWithGradient): Standard_Boolean {.
+proc isSolutionReached*(this: GeomIntGradientBFGSOfMyGradientOfTheComputeLineBezierOfWLApprox;
+                       f: var MathMultipleVarFunctionWithGradient): bool {.
     noSideEffect, importcpp: "IsSolutionReached", header: "GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}

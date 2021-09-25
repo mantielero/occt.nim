@@ -13,33 +13,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepVisual_AnnotationOccurrence
-
 discard "forward decl of StepVisual_AnnotationCurveOccurrence"
 discard "forward decl of StepVisual_AnnotationCurveOccurrence"
 type
-  Handle_StepVisual_AnnotationCurveOccurrence* = handle[
-      StepVisual_AnnotationCurveOccurrence]
-  StepVisual_AnnotationCurveOccurrence* {.
-      importcpp: "StepVisual_AnnotationCurveOccurrence",
-      header: "StepVisual_AnnotationCurveOccurrence.hxx", bycopy.} = object of StepVisual_AnnotationOccurrence ##
-                                                                                                        ## !
-                                                                                                        ## Returns
-                                                                                                        ## a
-                                                                                                        ## AnnotationCurveOccurrence
+  HandleStepVisualAnnotationCurveOccurrence* = Handle[
+      StepVisualAnnotationCurveOccurrence]
+  StepVisualAnnotationCurveOccurrence* {.importcpp: "StepVisual_AnnotationCurveOccurrence", header: "StepVisual_AnnotationCurveOccurrence.hxx",
+                                        bycopy.} = object of StepVisualAnnotationOccurrence ##
+                                                                                       ## !
+                                                                                       ## Returns
+                                                                                       ## a
+                                                                                       ## AnnotationCurveOccurrence
 
 
-proc constructStepVisual_AnnotationCurveOccurrence*(): StepVisual_AnnotationCurveOccurrence {.
+proc constructStepVisualAnnotationCurveOccurrence*(): StepVisualAnnotationCurveOccurrence {.
     constructor, importcpp: "StepVisual_AnnotationCurveOccurrence(@)",
     header: "StepVisual_AnnotationCurveOccurrence.hxx".}
 type
-  StepVisual_AnnotationCurveOccurrencebase_type* = StepVisual_AnnotationOccurrence
+  StepVisualAnnotationCurveOccurrencebaseType* = StepVisualAnnotationOccurrence
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_AnnotationCurveOccurrence::get_type_name(@)", header: "StepVisual_AnnotationCurveOccurrence.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_AnnotationCurveOccurrence::get_type_name(@)",
+                            header: "StepVisual_AnnotationCurveOccurrence.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_AnnotationCurveOccurrence::get_type_descriptor(@)",
     header: "StepVisual_AnnotationCurveOccurrence.hxx".}
-proc DynamicType*(this: StepVisual_AnnotationCurveOccurrence): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualAnnotationCurveOccurrence): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_AnnotationCurveOccurrence.hxx".}

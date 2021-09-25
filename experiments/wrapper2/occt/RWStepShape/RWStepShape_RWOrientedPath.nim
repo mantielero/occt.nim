@@ -14,30 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_OrientedPath"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShape_RWOrientedPath* {.importcpp: "RWStepShape_RWOrientedPath",
-                               header: "RWStepShape_RWOrientedPath.hxx", bycopy.} = object
+  RWStepShapeRWOrientedPath* {.importcpp: "RWStepShape_RWOrientedPath",
+                              header: "RWStepShape_RWOrientedPath.hxx", bycopy.} = object
 
 
-proc constructRWStepShape_RWOrientedPath*(): RWStepShape_RWOrientedPath {.
+proc constructRWStepShapeRWOrientedPath*(): RWStepShapeRWOrientedPath {.
     constructor, importcpp: "RWStepShape_RWOrientedPath(@)",
     header: "RWStepShape_RWOrientedPath.hxx".}
-proc ReadStep*(this: RWStepShape_RWOrientedPath;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check]; ent: handle[StepShape_OrientedPath]) {.
+proc readStep*(this: RWStepShapeRWOrientedPath;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck]; ent: Handle[StepShapeOrientedPath]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepShape_RWOrientedPath.hxx".}
-proc WriteStep*(this: RWStepShape_RWOrientedPath; SW: var StepData_StepWriter;
-               ent: handle[StepShape_OrientedPath]) {.noSideEffect,
+proc writeStep*(this: RWStepShapeRWOrientedPath; sw: var StepDataStepWriter;
+               ent: Handle[StepShapeOrientedPath]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWOrientedPath.hxx".}
-proc Share*(this: RWStepShape_RWOrientedPath; ent: handle[StepShape_OrientedPath];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepShapeRWOrientedPath; ent: Handle[StepShapeOrientedPath];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWOrientedPath.hxx".}

@@ -14,47 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Dir, ../Standard/Standard_Real,
-  ../TColStd/TColStd_Array2OfReal, TopTrans_Array2OfOrientation,
-  ../Standard/Standard_Boolean, ../TopAbs/TopAbs_Orientation,
-  ../TopAbs/TopAbs_State
-
 discard "forward decl of gp_Dir"
 type
-  TopTrans_SurfaceTransition* {.importcpp: "TopTrans_SurfaceTransition",
-                               header: "TopTrans_SurfaceTransition.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Create
-                                                                                      ## an
-                                                                                      ## empty
-                                                                                      ## Surface
-                                                                                      ## Transition.
+  TopTransSurfaceTransition* {.importcpp: "TopTrans_SurfaceTransition",
+                              header: "TopTrans_SurfaceTransition.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Create
+                                                                                     ## an
+                                                                                     ## empty
+                                                                                     ## Surface
+                                                                                     ## Transition.
 
 
-proc constructTopTrans_SurfaceTransition*(): TopTrans_SurfaceTransition {.
+proc constructTopTransSurfaceTransition*(): TopTransSurfaceTransition {.
     constructor, importcpp: "TopTrans_SurfaceTransition(@)",
     header: "TopTrans_SurfaceTransition.hxx".}
-proc Reset*(this: var TopTrans_SurfaceTransition; Tgt: gp_Dir; Norm: gp_Dir;
-           MaxD: gp_Dir; MinD: gp_Dir; MaxCurv: Standard_Real; MinCurv: Standard_Real) {.
-    importcpp: "Reset", header: "TopTrans_SurfaceTransition.hxx".}
-proc Reset*(this: var TopTrans_SurfaceTransition; Tgt: gp_Dir; Norm: gp_Dir) {.
-    importcpp: "Reset", header: "TopTrans_SurfaceTransition.hxx".}
-proc Compare*(this: var TopTrans_SurfaceTransition; Tole: Standard_Real; Norm: gp_Dir;
-             MaxD: gp_Dir; MinD: gp_Dir; MaxCurv: Standard_Real;
-             MinCurv: Standard_Real; S: TopAbs_Orientation; O: TopAbs_Orientation) {.
-    importcpp: "Compare", header: "TopTrans_SurfaceTransition.hxx".}
-proc Compare*(this: var TopTrans_SurfaceTransition; Tole: Standard_Real; Norm: gp_Dir;
-             S: TopAbs_Orientation; O: TopAbs_Orientation) {.importcpp: "Compare",
+proc reset*(this: var TopTransSurfaceTransition; tgt: Dir; norm: Dir; maxD: Dir;
+           minD: Dir; maxCurv: float; minCurv: float) {.importcpp: "Reset",
     header: "TopTrans_SurfaceTransition.hxx".}
-proc StateBefore*(this: TopTrans_SurfaceTransition): TopAbs_State {.noSideEffect,
+proc reset*(this: var TopTransSurfaceTransition; tgt: Dir; norm: Dir) {.
+    importcpp: "Reset", header: "TopTrans_SurfaceTransition.hxx".}
+proc compare*(this: var TopTransSurfaceTransition; tole: float; norm: Dir; maxD: Dir;
+             minD: Dir; maxCurv: float; minCurv: float; s: TopAbsOrientation;
+             o: TopAbsOrientation) {.importcpp: "Compare",
+                                   header: "TopTrans_SurfaceTransition.hxx".}
+proc compare*(this: var TopTransSurfaceTransition; tole: float; norm: Dir;
+             s: TopAbsOrientation; o: TopAbsOrientation) {.importcpp: "Compare",
+    header: "TopTrans_SurfaceTransition.hxx".}
+proc stateBefore*(this: TopTransSurfaceTransition): TopAbsState {.noSideEffect,
     importcpp: "StateBefore", header: "TopTrans_SurfaceTransition.hxx".}
-proc StateAfter*(this: TopTrans_SurfaceTransition): TopAbs_State {.noSideEffect,
+proc stateAfter*(this: TopTransSurfaceTransition): TopAbsState {.noSideEffect,
     importcpp: "StateAfter", header: "TopTrans_SurfaceTransition.hxx".}
-proc GetBefore*(Tran: TopAbs_Orientation): TopAbs_State {.
+proc getBefore*(tran: TopAbsOrientation): TopAbsState {.
     importcpp: "TopTrans_SurfaceTransition::GetBefore(@)",
     header: "TopTrans_SurfaceTransition.hxx".}
-proc GetAfter*(Tran: TopAbs_Orientation): TopAbs_State {.
+proc getAfter*(tran: TopAbsOrientation): TopAbsState {.
     importcpp: "TopTrans_SurfaceTransition::GetAfter(@)",
     header: "TopTrans_SurfaceTransition.hxx".}

@@ -14,9 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_MagneticFieldStrength_HeaderFile [NewLine] # _Quantity_MagneticFieldStrength_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Described as a vector quantity, it is the ratio of the
+## !!!Ignored construct:  # _Quantity_MagneticFieldStrength_HeaderFile [NewLine] # _Quantity_MagneticFieldStrength_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Described as a vector quantity, it is the ratio of the
 ## ! magnetic flux density to the permeability of the medium.
 ## ! Its integral along a closed line is equal to the
 ## ! magnetomotive force.
 ## ! It is measured in amperes per metre. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_MagneticFieldStrength ;
 ## Error: expected ';'!!!
+

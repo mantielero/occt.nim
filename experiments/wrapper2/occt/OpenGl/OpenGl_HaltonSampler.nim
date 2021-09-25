@@ -21,23 +21,23 @@
 ## ! Compute points of the Halton sequence with digit-permutations for different bases.
 
 type
-  OpenGl_HaltonSampler* {.importcpp: "OpenGl_HaltonSampler",
-                         header: "OpenGl_HaltonSampler.hxx", bycopy.} = object ## ! Return the number of
-                                                                          ## supported
-                                                                          ## dimensions.
-                                                                          ## ! Init the
-                                                                          ## permutation arrays using
-                                                                          ## Faure-permutations.
-                                                                          ## ! Init the
-                                                                          ## permutation arrays using
-                                                                          ## Faure-permutations.
+  OpenGlHaltonSampler* {.importcpp: "OpenGl_HaltonSampler",
+                        header: "OpenGl_HaltonSampler.hxx", bycopy.} = object ## ! Return the number of
+                                                                         ## supported
+                                                                         ## dimensions.
+                                                                         ## ! Init the
+                                                                         ## permutation arrays using
+                                                                         ## Faure-permutations.
+                                                                         ## ! Init the
+                                                                         ## permutation arrays using
+                                                                         ## Faure-permutations.
 
 
-proc get_num_dimensions*(): cuint {.importcpp: "OpenGl_HaltonSampler::get_num_dimensions(@)",
-                                 header: "OpenGl_HaltonSampler.hxx".}
-proc constructOpenGl_HaltonSampler*(): OpenGl_HaltonSampler {.constructor,
+proc getNumDimensions*(): cuint {.importcpp: "OpenGl_HaltonSampler::get_num_dimensions(@)",
+                               header: "OpenGl_HaltonSampler.hxx".}
+proc constructOpenGlHaltonSampler*(): OpenGlHaltonSampler {.constructor,
     importcpp: "OpenGl_HaltonSampler(@)", header: "OpenGl_HaltonSampler.hxx".}
-proc sample*(this: OpenGl_HaltonSampler; theDimension: cuint; theIndex: cuint): cfloat {.
+proc sample*(this: OpenGlHaltonSampler; theDimension: cuint; theIndex: cuint): cfloat {.
     noSideEffect, importcpp: "sample", header: "OpenGl_HaltonSampler.hxx".}
-proc initFaure*(this: var OpenGl_HaltonSampler) {.importcpp: "initFaure",
+proc initFaure*(this: var OpenGlHaltonSampler) {.importcpp: "initFaure",
     header: "OpenGl_HaltonSampler.hxx".}

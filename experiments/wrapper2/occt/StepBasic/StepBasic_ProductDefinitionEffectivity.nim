@@ -14,40 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_Effectivity
-
 discard "forward decl of StepBasic_ProductDefinitionRelationship"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_ProductDefinitionEffectivity"
 discard "forward decl of StepBasic_ProductDefinitionEffectivity"
 type
-  Handle_StepBasic_ProductDefinitionEffectivity* = handle[
-      StepBasic_ProductDefinitionEffectivity]
-  StepBasic_ProductDefinitionEffectivity* {.
+  HandleStepBasicProductDefinitionEffectivity* = Handle[
+      StepBasicProductDefinitionEffectivity]
+  StepBasicProductDefinitionEffectivity* {.
       importcpp: "StepBasic_ProductDefinitionEffectivity",
-      header: "StepBasic_ProductDefinitionEffectivity.hxx", bycopy.} = object of StepBasic_Effectivity
+      header: "StepBasic_ProductDefinitionEffectivity.hxx", bycopy.} = object of StepBasicEffectivity
 
 
-proc constructStepBasic_ProductDefinitionEffectivity*(): StepBasic_ProductDefinitionEffectivity {.
+proc constructStepBasicProductDefinitionEffectivity*(): StepBasicProductDefinitionEffectivity {.
     constructor, importcpp: "StepBasic_ProductDefinitionEffectivity(@)",
     header: "StepBasic_ProductDefinitionEffectivity.hxx".}
-proc Init*(this: var StepBasic_ProductDefinitionEffectivity;
-          aId: handle[TCollection_HAsciiString];
-          aUsage: handle[StepBasic_ProductDefinitionRelationship]) {.
+proc init*(this: var StepBasicProductDefinitionEffectivity;
+          aId: Handle[TCollectionHAsciiString];
+          aUsage: Handle[StepBasicProductDefinitionRelationship]) {.
     importcpp: "Init", header: "StepBasic_ProductDefinitionEffectivity.hxx".}
-proc Usage*(this: StepBasic_ProductDefinitionEffectivity): handle[
-    StepBasic_ProductDefinitionRelationship] {.noSideEffect, importcpp: "Usage",
+proc usage*(this: StepBasicProductDefinitionEffectivity): Handle[
+    StepBasicProductDefinitionRelationship] {.noSideEffect, importcpp: "Usage",
     header: "StepBasic_ProductDefinitionEffectivity.hxx".}
-proc SetUsage*(this: var StepBasic_ProductDefinitionEffectivity;
-              aUsage: handle[StepBasic_ProductDefinitionRelationship]) {.
+proc setUsage*(this: var StepBasicProductDefinitionEffectivity;
+              aUsage: Handle[StepBasicProductDefinitionRelationship]) {.
     importcpp: "SetUsage", header: "StepBasic_ProductDefinitionEffectivity.hxx".}
 type
-  StepBasic_ProductDefinitionEffectivitybase_type* = StepBasic_Effectivity
+  StepBasicProductDefinitionEffectivitybaseType* = StepBasicEffectivity
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ProductDefinitionEffectivity::get_type_name(@)", header: "StepBasic_ProductDefinitionEffectivity.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepBasic_ProductDefinitionEffectivity::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ProductDefinitionEffectivity::get_type_name(@)", header: "StepBasic_ProductDefinitionEffectivity.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_ProductDefinitionEffectivity::get_type_descriptor(@)",
     header: "StepBasic_ProductDefinitionEffectivity.hxx".}
-proc DynamicType*(this: StepBasic_ProductDefinitionEffectivity): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepBasic_ProductDefinitionEffectivity.hxx".}
+proc dynamicType*(this: StepBasicProductDefinitionEffectivity): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepBasic_ProductDefinitionEffectivity.hxx".}

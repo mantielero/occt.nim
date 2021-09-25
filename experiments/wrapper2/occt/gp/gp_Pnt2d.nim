@@ -12,98 +12,69 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, gp_XY, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_XY"
 discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Trsf2d"
 discard "forward decl of gp_Vec2d"
 type
-  gp_Pnt2d* {.importcpp: "gp_Pnt2d", header: "gp_Pnt2d.hxx", bycopy.} = object ## ! Creates a point with zero
-                                                                       ## coordinates.
-    gp_Pnt2d* {.importc: "gp_Pnt2d".}: Standard_NODISCARD
-    gp_Pnt2d* {.importc: "gp_Pnt2d".}: Standard_NODISCARD
-    gp_Pnt2d* {.importc: "gp_Pnt2d".}: Standard_NODISCARD
-    gp_Pnt2d* {.importc: "gp_Pnt2d".}: Standard_NODISCARD
-    gp_Pnt2d* {.importc: "gp_Pnt2d".}: Standard_NODISCARD
-    gp_Pnt2d* {.importc: "gp_Pnt2d".}: Standard_NODISCARD
-    gp_Pnt2d* {.importc: "gp_Pnt2d".}: Standard_NODISCARD
+  Pnt2d* {.importcpp: "gp_Pnt2d", header: "gp_Pnt2d.hxx", bycopy.} = object ## ! Creates a point with zero coordinates.
 
 
-proc constructgp_Pnt2d*(): gp_Pnt2d {.constructor, importcpp: "gp_Pnt2d(@)",
-                                   header: "gp_Pnt2d.hxx".}
-proc constructgp_Pnt2d*(Coord: gp_XY): gp_Pnt2d {.constructor,
-    importcpp: "gp_Pnt2d(@)", header: "gp_Pnt2d.hxx".}
-proc constructgp_Pnt2d*(Xp: Standard_Real; Yp: Standard_Real): gp_Pnt2d {.constructor,
-    importcpp: "gp_Pnt2d(@)", header: "gp_Pnt2d.hxx".}
-proc SetCoord*(this: var gp_Pnt2d; Index: Standard_Integer; Xi: Standard_Real) {.
-    importcpp: "SetCoord", header: "gp_Pnt2d.hxx".}
-proc SetCoord*(this: var gp_Pnt2d; Xp: Standard_Real; Yp: Standard_Real) {.
-    importcpp: "SetCoord", header: "gp_Pnt2d.hxx".}
-proc SetX*(this: var gp_Pnt2d; X: Standard_Real) {.importcpp: "SetX",
-    header: "gp_Pnt2d.hxx".}
-proc SetY*(this: var gp_Pnt2d; Y: Standard_Real) {.importcpp: "SetY",
-    header: "gp_Pnt2d.hxx".}
-proc SetXY*(this: var gp_Pnt2d; Coord: gp_XY) {.importcpp: "SetXY",
-    header: "gp_Pnt2d.hxx".}
-proc Coord*(this: gp_Pnt2d; Index: Standard_Integer): Standard_Real {.noSideEffect,
-    importcpp: "Coord", header: "gp_Pnt2d.hxx".}
-proc Coord*(this: gp_Pnt2d; Xp: var Standard_Real; Yp: var Standard_Real) {.noSideEffect,
-    importcpp: "Coord", header: "gp_Pnt2d.hxx".}
-proc X*(this: gp_Pnt2d): Standard_Real {.noSideEffect, importcpp: "X",
+proc constructPnt2d*(): Pnt2d {.constructor, importcpp: "gp_Pnt2d(@)",
+                             header: "gp_Pnt2d.hxx".}
+proc constructPnt2d*(coord: Xy): Pnt2d {.constructor, importcpp: "gp_Pnt2d(@)",
                                      header: "gp_Pnt2d.hxx".}
-proc Y*(this: gp_Pnt2d): Standard_Real {.noSideEffect, importcpp: "Y",
-                                     header: "gp_Pnt2d.hxx".}
-proc XY*(this: gp_Pnt2d): gp_XY {.noSideEffect, importcpp: "XY", header: "gp_Pnt2d.hxx".}
-proc Coord*(this: gp_Pnt2d): gp_XY {.noSideEffect, importcpp: "Coord",
-                                 header: "gp_Pnt2d.hxx".}
-proc ChangeCoord*(this: var gp_Pnt2d): var gp_XY {.importcpp: "ChangeCoord",
+proc constructPnt2d*(xp: float; yp: float): Pnt2d {.constructor,
+    importcpp: "gp_Pnt2d(@)", header: "gp_Pnt2d.hxx".}
+proc setCoord*(this: var Pnt2d; index: int; xi: float) {.importcpp: "SetCoord",
     header: "gp_Pnt2d.hxx".}
-proc IsEqual*(this: gp_Pnt2d; Other: gp_Pnt2d; LinearTolerance: Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "IsEqual", header: "gp_Pnt2d.hxx".}
-proc Distance*(this: gp_Pnt2d; Other: gp_Pnt2d): Standard_Real {.noSideEffect,
-    importcpp: "Distance", header: "gp_Pnt2d.hxx".}
-proc SquareDistance*(this: gp_Pnt2d; Other: gp_Pnt2d): Standard_Real {.noSideEffect,
+proc setCoord*(this: var Pnt2d; xp: float; yp: float) {.importcpp: "SetCoord",
+    header: "gp_Pnt2d.hxx".}
+proc setX*(this: var Pnt2d; x: float) {.importcpp: "SetX", header: "gp_Pnt2d.hxx".}
+proc setY*(this: var Pnt2d; y: float) {.importcpp: "SetY", header: "gp_Pnt2d.hxx".}
+proc setXY*(this: var Pnt2d; coord: Xy) {.importcpp: "SetXY", header: "gp_Pnt2d.hxx".}
+proc coord*(this: Pnt2d; index: int): float {.noSideEffect, importcpp: "Coord",
+                                        header: "gp_Pnt2d.hxx".}
+proc coord*(this: Pnt2d; xp: var float; yp: var float) {.noSideEffect, importcpp: "Coord",
+    header: "gp_Pnt2d.hxx".}
+proc x*(this: Pnt2d): float {.noSideEffect, importcpp: "X", header: "gp_Pnt2d.hxx".}
+proc y*(this: Pnt2d): float {.noSideEffect, importcpp: "Y", header: "gp_Pnt2d.hxx".}
+proc xy*(this: Pnt2d): Xy {.noSideEffect, importcpp: "XY", header: "gp_Pnt2d.hxx".}
+proc coord*(this: Pnt2d): Xy {.noSideEffect, importcpp: "Coord", header: "gp_Pnt2d.hxx".}
+proc changeCoord*(this: var Pnt2d): var Xy {.importcpp: "ChangeCoord",
+                                       header: "gp_Pnt2d.hxx".}
+proc isEqual*(this: Pnt2d; other: Pnt2d; linearTolerance: float): bool {.noSideEffect,
+    importcpp: "IsEqual", header: "gp_Pnt2d.hxx".}
+proc distance*(this: Pnt2d; other: Pnt2d): float {.noSideEffect, importcpp: "Distance",
+    header: "gp_Pnt2d.hxx".}
+proc squareDistance*(this: Pnt2d; other: Pnt2d): float {.noSideEffect,
     importcpp: "SquareDistance", header: "gp_Pnt2d.hxx".}
-proc Mirror*(this: var gp_Pnt2d; P: gp_Pnt2d) {.importcpp: "Mirror",
+proc mirror*(this: var Pnt2d; p: Pnt2d) {.importcpp: "Mirror", header: "gp_Pnt2d.hxx".}
+proc mirrored*(this: Pnt2d; p: Pnt2d): Pnt2d {.noSideEffect, importcpp: "Mirrored",
     header: "gp_Pnt2d.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Pnt2d & P ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Mirror*(this: var gp_Pnt2d; A: gp_Ax2d) {.importcpp: "Mirror",
+proc mirror*(this: var Pnt2d; a: Ax2d) {.importcpp: "Mirror", header: "gp_Pnt2d.hxx".}
+proc mirrored*(this: Pnt2d; a: Ax2d): Pnt2d {.noSideEffect, importcpp: "Mirrored",
+                                        header: "gp_Pnt2d.hxx".}
+proc rotate*(this: var Pnt2d; p: Pnt2d; ang: float) {.importcpp: "Rotate",
     header: "gp_Pnt2d.hxx".}
-## !!!Ignored construct:  Mirrored ( const gp_Ax2d & A ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Rotate*(this: var gp_Pnt2d; P: gp_Pnt2d; Ang: Standard_Real) {.importcpp: "Rotate",
+proc rotated*(this: Pnt2d; p: Pnt2d; ang: float): Pnt2d {.noSideEffect,
+    importcpp: "Rotated", header: "gp_Pnt2d.hxx".}
+proc scale*(this: var Pnt2d; p: Pnt2d; s: float) {.importcpp: "Scale",
     header: "gp_Pnt2d.hxx".}
-## !!!Ignored construct:  Rotated ( const gp_Pnt2d & P , const Standard_Real Ang ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Scale*(this: var gp_Pnt2d; P: gp_Pnt2d; S: Standard_Real) {.importcpp: "Scale",
+proc scaled*(this: Pnt2d; p: Pnt2d; s: float): Pnt2d {.noSideEffect, importcpp: "Scaled",
     header: "gp_Pnt2d.hxx".}
-## !!!Ignored construct:  Scaled ( const gp_Pnt2d & P , const Standard_Real S ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Transform*(this: var gp_Pnt2d; T: gp_Trsf2d) {.importcpp: "Transform",
+proc transform*(this: var Pnt2d; t: Trsf2d) {.importcpp: "Transform",
+                                        header: "gp_Pnt2d.hxx".}
+proc transformed*(this: Pnt2d; t: Trsf2d): Pnt2d {.noSideEffect,
+    importcpp: "Transformed", header: "gp_Pnt2d.hxx".}
+proc translate*(this: var Pnt2d; v: Vec2d) {.importcpp: "Translate",
+                                       header: "gp_Pnt2d.hxx".}
+proc translated*(this: Pnt2d; v: Vec2d): Pnt2d {.noSideEffect, importcpp: "Translated",
     header: "gp_Pnt2d.hxx".}
-## !!!Ignored construct:  Transformed ( const gp_Trsf2d & T ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Translate*(this: var gp_Pnt2d; V: gp_Vec2d) {.importcpp: "Translate",
+proc translate*(this: var Pnt2d; p1: Pnt2d; p2: Pnt2d) {.importcpp: "Translate",
     header: "gp_Pnt2d.hxx".}
-## !!!Ignored construct:  Translated ( const gp_Vec2d & V ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Translate*(this: var gp_Pnt2d; P1: gp_Pnt2d; P2: gp_Pnt2d) {.
-    importcpp: "Translate", header: "gp_Pnt2d.hxx".}
-## !!!Ignored construct:  Translated ( const gp_Pnt2d & P1 , const gp_Pnt2d & P2 ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc DumpJson*(this: gp_Pnt2d; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "gp_Pnt2d.hxx".}
+proc translated*(this: Pnt2d; p1: Pnt2d; p2: Pnt2d): Pnt2d {.noSideEffect,
+    importcpp: "Translated", header: "gp_Pnt2d.hxx".}
+proc dumpJson*(this: Pnt2d; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "gp_Pnt2d.hxx".}

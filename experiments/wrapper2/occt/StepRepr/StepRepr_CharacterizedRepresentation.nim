@@ -13,44 +13,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_Representation
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_RepresentationContext"
 discard "forward decl of StepRepr_RepresentationItem"
 discard "forward decl of StepRepr_CharacterizedRepresentation"
 discard "forward decl of StepRepr_CharacterizedRepresentation"
 type
-  Handle_StepRepr_CharacterizedRepresentation* = handle[
-      StepRepr_CharacterizedRepresentation]
-  StepRepr_CharacterizedRepresentation* {.
-      importcpp: "StepRepr_CharacterizedRepresentation",
-      header: "StepRepr_CharacterizedRepresentation.hxx", bycopy.} = object of StepRepr_Representation
+  HandleStepReprCharacterizedRepresentation* = Handle[
+      StepReprCharacterizedRepresentation]
+  StepReprCharacterizedRepresentation* {.importcpp: "StepRepr_CharacterizedRepresentation", header: "StepRepr_CharacterizedRepresentation.hxx",
+                                        bycopy.} = object of StepReprRepresentation
 
 
-proc constructStepRepr_CharacterizedRepresentation*(): StepRepr_CharacterizedRepresentation {.
+proc constructStepReprCharacterizedRepresentation*(): StepReprCharacterizedRepresentation {.
     constructor, importcpp: "StepRepr_CharacterizedRepresentation(@)",
     header: "StepRepr_CharacterizedRepresentation.hxx".}
-proc Init*(this: var StepRepr_CharacterizedRepresentation;
-          theName: handle[TCollection_HAsciiString];
-          theDescription: handle[TCollection_HAsciiString];
-          theItems: handle[StepRepr_HArray1OfRepresentationItem];
-          theContextOfItems: handle[StepRepr_RepresentationContext]) {.
+proc init*(this: var StepReprCharacterizedRepresentation;
+          theName: Handle[TCollectionHAsciiString];
+          theDescription: Handle[TCollectionHAsciiString];
+          theItems: Handle[StepReprHArray1OfRepresentationItem];
+          theContextOfItems: Handle[StepReprRepresentationContext]) {.
     importcpp: "Init", header: "StepRepr_CharacterizedRepresentation.hxx".}
-proc SetDescription*(this: var StepRepr_CharacterizedRepresentation;
-                    theDescription: handle[TCollection_HAsciiString]) {.
+proc setDescription*(this: var StepReprCharacterizedRepresentation;
+                    theDescription: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription",
     header: "StepRepr_CharacterizedRepresentation.hxx".}
-proc Description*(this: StepRepr_CharacterizedRepresentation): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description", header: "StepRepr_CharacterizedRepresentation.hxx".}
+proc description*(this: StepReprCharacterizedRepresentation): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Description", header: "StepRepr_CharacterizedRepresentation.hxx".}
 type
-  StepRepr_CharacterizedRepresentationbase_type* = StepRepr_Representation
+  StepReprCharacterizedRepresentationbaseType* = StepReprRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_CharacterizedRepresentation::get_type_name(@)", header: "StepRepr_CharacterizedRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_CharacterizedRepresentation::get_type_name(@)",
+                            header: "StepRepr_CharacterizedRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_CharacterizedRepresentation::get_type_descriptor(@)",
     header: "StepRepr_CharacterizedRepresentation.hxx".}
-proc DynamicType*(this: StepRepr_CharacterizedRepresentation): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprCharacterizedRepresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_CharacterizedRepresentation.hxx".}

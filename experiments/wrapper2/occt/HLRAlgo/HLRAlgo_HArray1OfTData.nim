@@ -14,38 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  HLRAlgo_TriangleData, HLRAlgo_Array1OfTData,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  HLRAlgo_HArray1OfTData* {.importcpp: "HLRAlgo_HArray1OfTData",
-                           header: "HLRAlgo_HArray1OfTData.hxx", bycopy.} = object of HLRAlgo_Array1OfTData
+  HLRAlgoHArray1OfTData* {.importcpp: "HLRAlgo_HArray1OfTData",
+                          header: "HLRAlgo_HArray1OfTData.hxx", bycopy.} = object of HLRAlgoArray1OfTData
 
 
-proc constructHLRAlgo_HArray1OfTData*(theLower: Standard_Integer;
-                                     theUpper: Standard_Integer): HLRAlgo_HArray1OfTData {.
+proc constructHLRAlgoHArray1OfTData*(theLower: int; theUpper: int): HLRAlgoHArray1OfTData {.
     constructor, importcpp: "HLRAlgo_HArray1OfTData(@)",
     header: "HLRAlgo_HArray1OfTData.hxx".}
-proc constructHLRAlgo_HArray1OfTData*(theLower: Standard_Integer;
-                                     theUpper: Standard_Integer;
-                                     theValue: value_type): HLRAlgo_HArray1OfTData {.
+proc constructHLRAlgoHArray1OfTData*(theLower: int; theUpper: int;
+                                    theValue: ValueType): HLRAlgoHArray1OfTData {.
     constructor, importcpp: "HLRAlgo_HArray1OfTData(@)",
     header: "HLRAlgo_HArray1OfTData.hxx".}
-proc constructHLRAlgo_HArray1OfTData*(theOther: HLRAlgo_Array1OfTData): HLRAlgo_HArray1OfTData {.
+proc constructHLRAlgoHArray1OfTData*(theOther: HLRAlgoArray1OfTData): HLRAlgoHArray1OfTData {.
     constructor, importcpp: "HLRAlgo_HArray1OfTData(@)",
     header: "HLRAlgo_HArray1OfTData.hxx".}
-proc Array1*(this: HLRAlgo_HArray1OfTData): HLRAlgo_Array1OfTData {.noSideEffect,
+proc array1*(this: HLRAlgoHArray1OfTData): HLRAlgoArray1OfTData {.noSideEffect,
     importcpp: "Array1", header: "HLRAlgo_HArray1OfTData.hxx".}
-proc ChangeArray1*(this: var HLRAlgo_HArray1OfTData): var HLRAlgo_Array1OfTData {.
+proc changeArray1*(this: var HLRAlgoHArray1OfTData): var HLRAlgoArray1OfTData {.
     importcpp: "ChangeArray1", header: "HLRAlgo_HArray1OfTData.hxx".}
 type
-  HLRAlgo_HArray1OfTDatabase_type* = MMgt_TShared
+  HLRAlgoHArray1OfTDatabaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "HLRAlgo_HArray1OfTData::get_type_name(@)",
-                              header: "HLRAlgo_HArray1OfTData.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "HLRAlgo_HArray1OfTData::get_type_name(@)",
+                            header: "HLRAlgo_HArray1OfTData.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "HLRAlgo_HArray1OfTData::get_type_descriptor(@)",
     header: "HLRAlgo_HArray1OfTData.hxx".}
-proc DynamicType*(this: HLRAlgo_HArray1OfTData): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "HLRAlgo_HArray1OfTData.hxx".}
+proc dynamicType*(this: HLRAlgoHArray1OfTData): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "HLRAlgo_HArray1OfTData.hxx".}

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRepDS_ListOfInterference,
-  ../Standard/Standard_Boolean, ../TColStd/TColStd_MapOfInteger
-
 discard "forward decl of TopOpeBRepDS_HDataStructure"
 discard "forward decl of TopOpeBRepDS_GapTool"
 discard "forward decl of TopOpeBRepDS_Association"
@@ -31,43 +26,43 @@ type
                            header: "TopOpeBRepDS_GapFiller.hxx", bycopy.} = object
 
 
-proc constructTopOpeBRepDS_GapFiller*(HDS: handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_GapFiller {.
+proc constructTopOpeBRepDS_GapFiller*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_GapFiller {.
     constructor, importcpp: "TopOpeBRepDS_GapFiller(@)",
     header: "TopOpeBRepDS_GapFiller.hxx".}
-proc Perform*(this: var TopOpeBRepDS_GapFiller) {.importcpp: "Perform",
+proc perform*(this: var TopOpeBRepDS_GapFiller) {.importcpp: "Perform",
     header: "TopOpeBRepDS_GapFiller.hxx".}
-proc FindAssociatedPoints*(this: var TopOpeBRepDS_GapFiller;
-                          I: handle[TopOpeBRepDS_Interference];
-                          LI: var TopOpeBRepDS_ListOfInterference) {.
+proc findAssociatedPoints*(this: var TopOpeBRepDS_GapFiller;
+                          i: Handle[TopOpeBRepDS_Interference];
+                          li: var TopOpeBRepDS_ListOfInterference) {.
     importcpp: "FindAssociatedPoints", header: "TopOpeBRepDS_GapFiller.hxx".}
-proc CheckConnexity*(this: var TopOpeBRepDS_GapFiller;
-                    LI: var TopOpeBRepDS_ListOfInterference): Standard_Boolean {.
+proc checkConnexity*(this: var TopOpeBRepDS_GapFiller;
+                    li: var TopOpeBRepDS_ListOfInterference): bool {.
     importcpp: "CheckConnexity", header: "TopOpeBRepDS_GapFiller.hxx".}
-proc AddPointsOnShape*(this: var TopOpeBRepDS_GapFiller; S: TopoDS_Shape;
-                      LI: var TopOpeBRepDS_ListOfInterference) {.
+proc addPointsOnShape*(this: var TopOpeBRepDS_GapFiller; s: TopoDS_Shape;
+                      li: var TopOpeBRepDS_ListOfInterference) {.
     importcpp: "AddPointsOnShape", header: "TopOpeBRepDS_GapFiller.hxx".}
-proc AddPointsOnConnexShape*(this: var TopOpeBRepDS_GapFiller; F: TopoDS_Shape;
-                            LI: TopOpeBRepDS_ListOfInterference) {.
+proc addPointsOnConnexShape*(this: var TopOpeBRepDS_GapFiller; f: TopoDS_Shape;
+                            li: TopOpeBRepDS_ListOfInterference) {.
     importcpp: "AddPointsOnConnexShape", header: "TopOpeBRepDS_GapFiller.hxx".}
-proc FilterByFace*(this: var TopOpeBRepDS_GapFiller; F: TopoDS_Face;
-                  LI: var TopOpeBRepDS_ListOfInterference) {.
+proc filterByFace*(this: var TopOpeBRepDS_GapFiller; f: TopoDS_Face;
+                  li: var TopOpeBRepDS_ListOfInterference) {.
     importcpp: "FilterByFace", header: "TopOpeBRepDS_GapFiller.hxx".}
-proc FilterByEdge*(this: var TopOpeBRepDS_GapFiller; E: TopoDS_Edge;
-                  LI: var TopOpeBRepDS_ListOfInterference) {.
+proc filterByEdge*(this: var TopOpeBRepDS_GapFiller; e: TopoDS_Edge;
+                  li: var TopOpeBRepDS_ListOfInterference) {.
     importcpp: "FilterByEdge", header: "TopOpeBRepDS_GapFiller.hxx".}
-proc FilterByIncidentDistance*(this: var TopOpeBRepDS_GapFiller; F: TopoDS_Face;
-                              I: handle[TopOpeBRepDS_Interference];
-                              LI: var TopOpeBRepDS_ListOfInterference) {.
+proc filterByIncidentDistance*(this: var TopOpeBRepDS_GapFiller; f: TopoDS_Face;
+                              i: Handle[TopOpeBRepDS_Interference];
+                              li: var TopOpeBRepDS_ListOfInterference) {.
     importcpp: "FilterByIncidentDistance", header: "TopOpeBRepDS_GapFiller.hxx".}
-proc IsOnFace*(this: TopOpeBRepDS_GapFiller; I: handle[TopOpeBRepDS_Interference];
-              F: TopoDS_Face): Standard_Boolean {.noSideEffect,
-    importcpp: "IsOnFace", header: "TopOpeBRepDS_GapFiller.hxx".}
-proc IsOnEdge*(this: TopOpeBRepDS_GapFiller; I: handle[TopOpeBRepDS_Interference];
-              E: TopoDS_Edge): Standard_Boolean {.noSideEffect,
-    importcpp: "IsOnEdge", header: "TopOpeBRepDS_GapFiller.hxx".}
-proc BuildNewGeometries*(this: var TopOpeBRepDS_GapFiller) {.
+proc isOnFace*(this: TopOpeBRepDS_GapFiller; i: Handle[TopOpeBRepDS_Interference];
+              f: TopoDS_Face): bool {.noSideEffect, importcpp: "IsOnFace",
+                                   header: "TopOpeBRepDS_GapFiller.hxx".}
+proc isOnEdge*(this: TopOpeBRepDS_GapFiller; i: Handle[TopOpeBRepDS_Interference];
+              e: TopoDS_Edge): bool {.noSideEffect, importcpp: "IsOnEdge",
+                                   header: "TopOpeBRepDS_GapFiller.hxx".}
+proc buildNewGeometries*(this: var TopOpeBRepDS_GapFiller) {.
     importcpp: "BuildNewGeometries", header: "TopOpeBRepDS_GapFiller.hxx".}
-proc ReBuildGeom*(this: var TopOpeBRepDS_GapFiller;
-                 I1: handle[TopOpeBRepDS_Interference];
-                 Done: var TColStd_MapOfInteger) {.importcpp: "ReBuildGeom",
+proc reBuildGeom*(this: var TopOpeBRepDS_GapFiller;
+                 i1: Handle[TopOpeBRepDS_Interference];
+                 done: var TColStdMapOfInteger) {.importcpp: "ReBuildGeom",
     header: "TopOpeBRepDS_GapFiller.hxx".}

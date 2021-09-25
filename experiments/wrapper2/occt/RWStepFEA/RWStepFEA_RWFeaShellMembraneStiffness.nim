@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepFEA_FeaShellMembraneStiffness"
@@ -32,16 +28,16 @@ type
 proc constructRWStepFEA_RWFeaShellMembraneStiffness*(): RWStepFEA_RWFeaShellMembraneStiffness {.
     constructor, importcpp: "RWStepFEA_RWFeaShellMembraneStiffness(@)",
     header: "RWStepFEA_RWFeaShellMembraneStiffness.hxx".}
-proc ReadStep*(this: RWStepFEA_RWFeaShellMembraneStiffness;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepFEA_FeaShellMembraneStiffness]) {.noSideEffect,
+proc readStep*(this: RWStepFEA_RWFeaShellMembraneStiffness;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepFEA_FeaShellMembraneStiffness]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWFeaShellMembraneStiffness.hxx".}
-proc WriteStep*(this: RWStepFEA_RWFeaShellMembraneStiffness;
-               SW: var StepData_StepWriter;
-               ent: handle[StepFEA_FeaShellMembraneStiffness]) {.noSideEffect,
+proc writeStep*(this: RWStepFEA_RWFeaShellMembraneStiffness;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepFEA_FeaShellMembraneStiffness]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepFEA_RWFeaShellMembraneStiffness.hxx".}
-proc Share*(this: RWStepFEA_RWFeaShellMembraneStiffness;
-           ent: handle[StepFEA_FeaShellMembraneStiffness];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepFEA_RWFeaShellMembraneStiffness;
+           ent: Handle[StepFEA_FeaShellMembraneStiffness];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFeaShellMembraneStiffness.hxx".}

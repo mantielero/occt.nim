@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  DBRep_Edge, ../NCollection/NCollection_List
-
 type
-  DBRep_ListOfEdge* = NCollection_List[handle[DBRep_Edge]]
-  DBRep_ListIteratorOfListOfEdge* = Iterator[handle[DBRep_Edge]]
+  DBRepListOfEdge* = NCollectionList[Handle[DBRepEdge]]
+  DBRepListIteratorOfListOfEdge* = Iterator[Handle[DBRepEdge]]
+

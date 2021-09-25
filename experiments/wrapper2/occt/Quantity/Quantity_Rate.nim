@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Rate_HeaderFile [NewLine] # _Quantity_Rate_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Rate ;
+## !!!Ignored construct:  # _Quantity_Rate_HeaderFile [NewLine] # _Quantity_Rate_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Rate ;
 ## Error: expected ';'!!!
+

@@ -14,29 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TCollection/TCollection_ExtendedString,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_ExtendedString"
 type
-  TDocStd_PathParser* {.importcpp: "TDocStd_PathParser",
-                       header: "TDocStd_PathParser.hxx", bycopy.} = object
+  TDocStdPathParser* {.importcpp: "TDocStd_PathParser",
+                      header: "TDocStd_PathParser.hxx", bycopy.} = object
 
 
-proc constructTDocStd_PathParser*(path: TCollection_ExtendedString): TDocStd_PathParser {.
+proc constructTDocStdPathParser*(path: TCollectionExtendedString): TDocStdPathParser {.
     constructor, importcpp: "TDocStd_PathParser(@)",
     header: "TDocStd_PathParser.hxx".}
-proc Parse*(this: var TDocStd_PathParser) {.importcpp: "Parse",
-                                        header: "TDocStd_PathParser.hxx".}
-proc Trek*(this: TDocStd_PathParser): TCollection_ExtendedString {.noSideEffect,
+proc parse*(this: var TDocStdPathParser) {.importcpp: "Parse",
+                                       header: "TDocStd_PathParser.hxx".}
+proc trek*(this: TDocStdPathParser): TCollectionExtendedString {.noSideEffect,
     importcpp: "Trek", header: "TDocStd_PathParser.hxx".}
-proc Name*(this: TDocStd_PathParser): TCollection_ExtendedString {.noSideEffect,
+proc name*(this: TDocStdPathParser): TCollectionExtendedString {.noSideEffect,
     importcpp: "Name", header: "TDocStd_PathParser.hxx".}
-proc Extension*(this: TDocStd_PathParser): TCollection_ExtendedString {.
-    noSideEffect, importcpp: "Extension", header: "TDocStd_PathParser.hxx".}
-proc Path*(this: TDocStd_PathParser): TCollection_ExtendedString {.noSideEffect,
+proc extension*(this: TDocStdPathParser): TCollectionExtendedString {.noSideEffect,
+    importcpp: "Extension", header: "TDocStd_PathParser.hxx".}
+proc path*(this: TDocStdPathParser): TCollectionExtendedString {.noSideEffect,
     importcpp: "Path", header: "TDocStd_PathParser.hxx".}
-proc Length*(this: TDocStd_PathParser): Standard_Integer {.noSideEffect,
-    importcpp: "Length", header: "TDocStd_PathParser.hxx".}
+proc length*(this: TDocStdPathParser): int {.noSideEffect, importcpp: "Length",
+    header: "TDocStd_PathParser.hxx".}

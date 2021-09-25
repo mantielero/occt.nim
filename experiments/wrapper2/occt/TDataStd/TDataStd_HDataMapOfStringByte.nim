@@ -13,39 +13,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TDataStd_DataMapOfStringByte,
-  ../Standard/Standard_Transient, ../Standard/Standard_Integer
-
 ## ! Extension of TDataStd_DataMapOfStringByte class
 ## ! to be manipulated by handle.
 
 type
-  TDataStd_HDataMapOfStringByte* {.importcpp: "TDataStd_HDataMapOfStringByte",
-                                  header: "TDataStd_HDataMapOfStringByte.hxx",
-                                  bycopy.} = object of Standard_Transient
+  TDataStdHDataMapOfStringByte* {.importcpp: "TDataStd_HDataMapOfStringByte",
+                                 header: "TDataStd_HDataMapOfStringByte.hxx",
+                                 bycopy.} = object of StandardTransient
 
-  TDataStd_HDataMapOfStringBytebase_type* = Standard_Transient
+  TDataStdHDataMapOfStringBytebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TDataStd_HDataMapOfStringByte::get_type_name(@)",
-                              header: "TDataStd_HDataMapOfStringByte.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDataStd_HDataMapOfStringByte::get_type_name(@)",
+                            header: "TDataStd_HDataMapOfStringByte.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDataStd_HDataMapOfStringByte::get_type_descriptor(@)",
     header: "TDataStd_HDataMapOfStringByte.hxx".}
-proc DynamicType*(this: TDataStd_HDataMapOfStringByte): handle[Standard_Type] {.
+proc dynamicType*(this: TDataStdHDataMapOfStringByte): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TDataStd_HDataMapOfStringByte.hxx".}
-proc constructTDataStd_HDataMapOfStringByte*(NbBuckets: Standard_Integer = 1): TDataStd_HDataMapOfStringByte {.
+proc constructTDataStdHDataMapOfStringByte*(nbBuckets: int = 1): TDataStdHDataMapOfStringByte {.
     constructor, importcpp: "TDataStd_HDataMapOfStringByte(@)",
     header: "TDataStd_HDataMapOfStringByte.hxx".}
-proc constructTDataStd_HDataMapOfStringByte*(
-    theOther: TDataStd_DataMapOfStringByte): TDataStd_HDataMapOfStringByte {.
+proc constructTDataStdHDataMapOfStringByte*(theOther: TDataStdDataMapOfStringByte): TDataStdHDataMapOfStringByte {.
     constructor, importcpp: "TDataStd_HDataMapOfStringByte(@)",
     header: "TDataStd_HDataMapOfStringByte.hxx".}
-proc Map*(this: TDataStd_HDataMapOfStringByte): TDataStd_DataMapOfStringByte {.
+proc map*(this: TDataStdHDataMapOfStringByte): TDataStdDataMapOfStringByte {.
     noSideEffect, importcpp: "Map", header: "TDataStd_HDataMapOfStringByte.hxx".}
-proc ChangeMap*(this: var TDataStd_HDataMapOfStringByte): var TDataStd_DataMapOfStringByte {.
+proc changeMap*(this: var TDataStdHDataMapOfStringByte): var TDataStdDataMapOfStringByte {.
     importcpp: "ChangeMap", header: "TDataStd_HDataMapOfStringByte.hxx".}
 discard "forward decl of TDataStd_HDataMapOfStringByte"
 type
-  Handle_TDataStd_HDataMapOfStringByte* = handle[TDataStd_HDataMapOfStringByte]
+  HandleTDataStdHDataMapOfStringByte* = Handle[TDataStdHDataMapOfStringByte]
+

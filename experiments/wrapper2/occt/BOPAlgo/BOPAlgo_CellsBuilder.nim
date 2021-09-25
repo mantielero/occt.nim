@@ -12,16 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_DefineAlloc, ../Standard/Standard_Handle,
-  ../Standard/Standard_OStream, ../TopoDS/TopoDS_Shape,
-  ../TopAbs/TopAbs_ShapeEnum, ../TopTools/TopTools_MapOfShape, BOPAlgo_Builder,
-  ../TopTools/TopTools_ListOfShape,
-  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape,
-  ../TopTools/TopTools_DataMapOfIntegerListOfShape,
-  ../TopTools/TopTools_DataMapOfShapeInteger,
-  ../TopTools/TopTools_DataMapOfShapeShape
-
 ## !
 ## ! The algorithm is based on the General Fuse algorithm (GFA). The result of
 ## ! GFA is all split parts of the Arguments.<br>
@@ -165,27 +155,27 @@ import
 ## !
 
 type
-  BOPAlgo_CellsBuilder* {.importcpp: "BOPAlgo_CellsBuilder",
-                         header: "BOPAlgo_CellsBuilder.hxx", bycopy.} = object of BOPAlgo_Builder ##
-                                                                                           ## !
-                                                                                           ## Prepare
-                                                                                           ## information
-                                                                                           ## for
-                                                                                           ## history
-                                                                                           ## support
-                                                                                           ## taking
-                                                                                           ## into
-                                                                                           ## account
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## local
-                                                                                           ## modification
-                                                                                           ## map
-                                                                                           ## of
-                                                                                           ## unified
-                                                                                           ## elements
-                                                                                           ## -
-                                                                                           ## myMapModified.
+  BOPAlgoCellsBuilder* {.importcpp: "BOPAlgo_CellsBuilder",
+                        header: "BOPAlgo_CellsBuilder.hxx", bycopy.} = object of BOPAlgoBuilder ##
+                                                                                         ## !
+                                                                                         ## Prepare
+                                                                                         ## information
+                                                                                         ## for
+                                                                                         ## history
+                                                                                         ## support
+                                                                                         ## taking
+                                                                                         ## into
+                                                                                         ## account
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## local
+                                                                                         ## modification
+                                                                                         ## map
+                                                                                         ## of
+                                                                                         ## unified
+                                                                                         ## elements
+                                                                                         ## -
+                                                                                         ## myMapModified.
     ## !< All split parts of the arguments
     ## !< Connection map from all splits parts to the argument shapes from which they were created
     ## !< Map of assigned materials (material -> list of shape)
@@ -193,33 +183,31 @@ type
     ## !< Local modification map to track unification of the splits
 
 
-proc constructBOPAlgo_CellsBuilder*(): BOPAlgo_CellsBuilder {.constructor,
+proc constructBOPAlgoCellsBuilder*(): BOPAlgoCellsBuilder {.constructor,
     importcpp: "BOPAlgo_CellsBuilder(@)", header: "BOPAlgo_CellsBuilder.hxx".}
-proc constructBOPAlgo_CellsBuilder*(theAllocator: handle[NCollection_BaseAllocator]): BOPAlgo_CellsBuilder {.
+proc constructBOPAlgoCellsBuilder*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoCellsBuilder {.
     constructor, importcpp: "BOPAlgo_CellsBuilder(@)",
     header: "BOPAlgo_CellsBuilder.hxx".}
-proc destroyBOPAlgo_CellsBuilder*(this: var BOPAlgo_CellsBuilder) {.
+proc destroyBOPAlgoCellsBuilder*(this: var BOPAlgoCellsBuilder) {.
     importcpp: "#.~BOPAlgo_CellsBuilder()", header: "BOPAlgo_CellsBuilder.hxx".}
-proc Clear*(this: var BOPAlgo_CellsBuilder) {.importcpp: "Clear",
+proc clear*(this: var BOPAlgoCellsBuilder) {.importcpp: "Clear",
     header: "BOPAlgo_CellsBuilder.hxx".}
-proc AddToResult*(this: var BOPAlgo_CellsBuilder; theLSToTake: TopTools_ListOfShape;
-                 theLSToAvoid: TopTools_ListOfShape;
-                 theMaterial: Standard_Integer = 0;
-                 theUpdate: Standard_Boolean = Standard_False) {.
-    importcpp: "AddToResult", header: "BOPAlgo_CellsBuilder.hxx".}
-proc AddAllToResult*(this: var BOPAlgo_CellsBuilder;
-                    theMaterial: Standard_Integer = 0;
-                    theUpdate: Standard_Boolean = Standard_False) {.
-    importcpp: "AddAllToResult", header: "BOPAlgo_CellsBuilder.hxx".}
-proc RemoveFromResult*(this: var BOPAlgo_CellsBuilder;
-                      theLSToTake: TopTools_ListOfShape;
-                      theLSToAvoid: TopTools_ListOfShape) {.
+proc addToResult*(this: var BOPAlgoCellsBuilder; theLSToTake: TopToolsListOfShape;
+                 theLSToAvoid: TopToolsListOfShape; theMaterial: int = 0;
+                 theUpdate: bool = false) {.importcpp: "AddToResult",
+                                        header: "BOPAlgo_CellsBuilder.hxx".}
+proc addAllToResult*(this: var BOPAlgoCellsBuilder; theMaterial: int = 0;
+                    theUpdate: bool = false) {.importcpp: "AddAllToResult",
+    header: "BOPAlgo_CellsBuilder.hxx".}
+proc removeFromResult*(this: var BOPAlgoCellsBuilder;
+                      theLSToTake: TopToolsListOfShape;
+                      theLSToAvoid: TopToolsListOfShape) {.
     importcpp: "RemoveFromResult", header: "BOPAlgo_CellsBuilder.hxx".}
-proc RemoveAllFromResult*(this: var BOPAlgo_CellsBuilder) {.
+proc removeAllFromResult*(this: var BOPAlgoCellsBuilder) {.
     importcpp: "RemoveAllFromResult", header: "BOPAlgo_CellsBuilder.hxx".}
-proc RemoveInternalBoundaries*(this: var BOPAlgo_CellsBuilder) {.
+proc removeInternalBoundaries*(this: var BOPAlgoCellsBuilder) {.
     importcpp: "RemoveInternalBoundaries", header: "BOPAlgo_CellsBuilder.hxx".}
-proc GetAllParts*(this: BOPAlgo_CellsBuilder): TopoDS_Shape {.noSideEffect,
+proc getAllParts*(this: BOPAlgoCellsBuilder): TopoDS_Shape {.noSideEffect,
     importcpp: "GetAllParts", header: "BOPAlgo_CellsBuilder.hxx".}
-proc MakeContainers*(this: var BOPAlgo_CellsBuilder) {.importcpp: "MakeContainers",
+proc makeContainers*(this: var BOPAlgoCellsBuilder) {.importcpp: "MakeContainers",
     header: "BOPAlgo_CellsBuilder.hxx".}

@@ -13,37 +13,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 type
-  LProp3d_SurfaceTool* {.importcpp: "LProp3d_SurfaceTool",
-                        header: "LProp3d_SurfaceTool.hxx", bycopy.} = object ## ! Computes the point <P> of
-                                                                        ## parameter <U> and <V> on the
-                                                                        ## ! HSurface <S>.
+  LProp3dSurfaceTool* {.importcpp: "LProp3d_SurfaceTool",
+                       header: "LProp3d_SurfaceTool.hxx", bycopy.} = object ## ! Computes the point <P> of parameter <U> and <V> on the
+                                                                       ## ! HSurface <S>.
 
 
-proc Value*(S: handle[Adaptor3d_HSurface]; U: Standard_Real; V: Standard_Real;
-           P: var gp_Pnt) {.importcpp: "LProp3d_SurfaceTool::Value(@)",
-                         header: "LProp3d_SurfaceTool.hxx".}
-proc D1*(S: handle[Adaptor3d_HSurface]; U: Standard_Real; V: Standard_Real;
-        P: var gp_Pnt; D1U: var gp_Vec; D1V: var gp_Vec) {.
-    importcpp: "LProp3d_SurfaceTool::D1(@)", header: "LProp3d_SurfaceTool.hxx".}
-proc D2*(S: handle[Adaptor3d_HSurface]; U: Standard_Real; V: Standard_Real;
-        P: var gp_Pnt; D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec;
-        DUV: var gp_Vec) {.importcpp: "LProp3d_SurfaceTool::D2(@)",
-                        header: "LProp3d_SurfaceTool.hxx".}
-proc DN*(S: handle[Adaptor3d_HSurface]; U: Standard_Real; V: Standard_Real;
-        IU: Standard_Integer; IV: Standard_Integer): gp_Vec {.
+proc value*(s: Handle[Adaptor3dHSurface]; u: float; v: float; p: var Pnt) {.
+    importcpp: "LProp3d_SurfaceTool::Value(@)", header: "LProp3d_SurfaceTool.hxx".}
+proc d1*(s: Handle[Adaptor3dHSurface]; u: float; v: float; p: var Pnt; d1u: var Vec;
+        d1v: var Vec) {.importcpp: "LProp3d_SurfaceTool::D1(@)",
+                     header: "LProp3d_SurfaceTool.hxx".}
+proc d2*(s: Handle[Adaptor3dHSurface]; u: float; v: float; p: var Pnt; d1u: var Vec;
+        d1v: var Vec; d2u: var Vec; d2v: var Vec; duv: var Vec) {.
+    importcpp: "LProp3d_SurfaceTool::D2(@)", header: "LProp3d_SurfaceTool.hxx".}
+proc dn*(s: Handle[Adaptor3dHSurface]; u: float; v: float; iu: int; iv: int): Vec {.
     importcpp: "LProp3d_SurfaceTool::DN(@)", header: "LProp3d_SurfaceTool.hxx".}
-proc Continuity*(S: handle[Adaptor3d_HSurface]): Standard_Integer {.
+proc continuity*(s: Handle[Adaptor3dHSurface]): int {.
     importcpp: "LProp3d_SurfaceTool::Continuity(@)",
     header: "LProp3d_SurfaceTool.hxx".}
-proc Bounds*(S: handle[Adaptor3d_HSurface]; U1: var Standard_Real;
-            V1: var Standard_Real; U2: var Standard_Real; V2: var Standard_Real) {.
-    importcpp: "LProp3d_SurfaceTool::Bounds(@)", header: "LProp3d_SurfaceTool.hxx".}
+proc bounds*(s: Handle[Adaptor3dHSurface]; u1: var float; v1: var float; u2: var float;
+            v2: var float) {.importcpp: "LProp3d_SurfaceTool::Bounds(@)",
+                          header: "LProp3d_SurfaceTool.hxx".}

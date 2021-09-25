@@ -13,8 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_TypeDef
-
 type
-  BinObjMgt_PInteger* = ptr Standard_Integer
+  BinObjMgtPInteger* = ptr int
+

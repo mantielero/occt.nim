@@ -21,8 +21,9 @@
 ## ! - ASPECT_FILL_AREA: aspect for face primitives.
 
 type
-  Graphic3d_GroupAspect* {.size: sizeof(cint), importcpp: "Graphic3d_GroupAspect",
-                          header: "Graphic3d_GroupAspect.hxx".} = enum
-    Graphic3d_ASPECT_LINE, Graphic3d_ASPECT_TEXT, Graphic3d_ASPECT_MARKER,
-    Graphic3d_ASPECT_FILL_AREA
+  Graphic3dGroupAspect* {.size: sizeof(cint), importcpp: "Graphic3d_GroupAspect",
+                         header: "Graphic3d_GroupAspect.hxx".} = enum
+    Graphic3dASPECT_LINE, Graphic3dASPECT_TEXT, Graphic3dASPECT_MARKER,
+    Graphic3dASPECT_FILL_AREA
+
 

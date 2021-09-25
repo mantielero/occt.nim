@@ -11,43 +11,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepElement_CurveElementEndReleasePacket,
-  StepElement_Array1OfCurveElementEndReleasePacket,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepElement_HArray1OfCurveElementEndReleasePacket* {.
+  StepElementHArray1OfCurveElementEndReleasePacket* {.
       importcpp: "StepElement_HArray1OfCurveElementEndReleasePacket",
-      header: "StepElement_HArray1OfCurveElementEndReleasePacket.hxx", bycopy.} = object of StepElement_Array1OfCurveElementEndReleasePacket
+      header: "StepElement_HArray1OfCurveElementEndReleasePacket.hxx", bycopy.} = object of StepElementArray1OfCurveElementEndReleasePacket
 
 
-proc constructStepElement_HArray1OfCurveElementEndReleasePacket*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepElement_HArray1OfCurveElementEndReleasePacket {.
+proc constructStepElementHArray1OfCurveElementEndReleasePacket*(theLower: int;
+    theUpper: int): StepElementHArray1OfCurveElementEndReleasePacket {.constructor,
+    importcpp: "StepElement_HArray1OfCurveElementEndReleasePacket(@)",
+    header: "StepElement_HArray1OfCurveElementEndReleasePacket.hxx".}
+proc constructStepElementHArray1OfCurveElementEndReleasePacket*(theLower: int;
+    theUpper: int; theValue: ValueType): StepElementHArray1OfCurveElementEndReleasePacket {.
     constructor,
     importcpp: "StepElement_HArray1OfCurveElementEndReleasePacket(@)",
     header: "StepElement_HArray1OfCurveElementEndReleasePacket.hxx".}
-proc constructStepElement_HArray1OfCurveElementEndReleasePacket*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepElement_HArray1OfCurveElementEndReleasePacket {.
+proc constructStepElementHArray1OfCurveElementEndReleasePacket*(
+    theOther: StepElementArray1OfCurveElementEndReleasePacket): StepElementHArray1OfCurveElementEndReleasePacket {.
     constructor,
     importcpp: "StepElement_HArray1OfCurveElementEndReleasePacket(@)",
     header: "StepElement_HArray1OfCurveElementEndReleasePacket.hxx".}
-proc constructStepElement_HArray1OfCurveElementEndReleasePacket*(
-    theOther: StepElement_Array1OfCurveElementEndReleasePacket): StepElement_HArray1OfCurveElementEndReleasePacket {.
-    constructor,
-    importcpp: "StepElement_HArray1OfCurveElementEndReleasePacket(@)",
-    header: "StepElement_HArray1OfCurveElementEndReleasePacket.hxx".}
-proc Array1*(this: StepElement_HArray1OfCurveElementEndReleasePacket): StepElement_Array1OfCurveElementEndReleasePacket {.
+proc array1*(this: StepElementHArray1OfCurveElementEndReleasePacket): StepElementArray1OfCurveElementEndReleasePacket {.
     noSideEffect, importcpp: "Array1",
     header: "StepElement_HArray1OfCurveElementEndReleasePacket.hxx".}
-proc ChangeArray1*(this: var StepElement_HArray1OfCurveElementEndReleasePacket): var StepElement_Array1OfCurveElementEndReleasePacket {.
+proc changeArray1*(this: var StepElementHArray1OfCurveElementEndReleasePacket): var StepElementArray1OfCurveElementEndReleasePacket {.
     importcpp: "ChangeArray1",
     header: "StepElement_HArray1OfCurveElementEndReleasePacket.hxx".}
 type
-  StepElement_HArray1OfCurveElementEndReleasePacketbase_type* = MMgt_TShared
+  StepElementHArray1OfCurveElementEndReleasePacketbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepElement_HArray1OfCurveElementEndReleasePacket::get_type_name(@)", header: "StepElement_HArray1OfCurveElementEndReleasePacket.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepElement_HArray1OfCurveElementEndReleasePacket::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepElement_HArray1OfCurveElementEndReleasePacket::get_type_name(@)", header: "StepElement_HArray1OfCurveElementEndReleasePacket.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_HArray1OfCurveElementEndReleasePacket::get_type_descriptor(@)",
     header: "StepElement_HArray1OfCurveElementEndReleasePacket.hxx".}
-proc DynamicType*(this: StepElement_HArray1OfCurveElementEndReleasePacket): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepElement_HArray1OfCurveElementEndReleasePacket.hxx".}
+proc dynamicType*(this: StepElementHArray1OfCurveElementEndReleasePacket): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepElement_HArray1OfCurveElementEndReleasePacket.hxx".}

@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Extrema_POnSurfParams, ../NCollection/NCollection_Array2
-
 type
-  Extrema_Array2OfPOnSurfParams* = NCollection_Array2[Extrema_POnSurfParams]
+  ExtremaArray2OfPOnSurfParams* = NCollectionArray2[ExtremaPOnSurfParams]
+

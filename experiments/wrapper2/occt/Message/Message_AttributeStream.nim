@@ -11,37 +11,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Message_Attribute, ../Standard/Standard_SStream
-
 ## ! Alert object storing stream value
 
 type
-  Message_AttributeStream* {.importcpp: "Message_AttributeStream",
-                            header: "Message_AttributeStream.hxx", bycopy.} = object of Message_Attribute ##
-                                                                                                   ## !
-                                                                                                   ## Constructor
-                                                                                                   ## with
-                                                                                                   ## string
-                                                                                                   ## argument
+  MessageAttributeStream* {.importcpp: "Message_AttributeStream",
+                           header: "Message_AttributeStream.hxx", bycopy.} = object of MessageAttribute ##
+                                                                                                 ## !
+                                                                                                 ## Constructor
+                                                                                                 ## with
+                                                                                                 ## string
+                                                                                                 ## argument
     ## !< container of values
 
-  Message_AttributeStreambase_type* = Message_Attribute
+  MessageAttributeStreambaseType* = MessageAttribute
 
-proc get_type_name*(): cstring {.importcpp: "Message_AttributeStream::get_type_name(@)",
-                              header: "Message_AttributeStream.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Message_AttributeStream::get_type_name(@)",
+                            header: "Message_AttributeStream.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Message_AttributeStream::get_type_descriptor(@)",
     header: "Message_AttributeStream.hxx".}
-proc DynamicType*(this: Message_AttributeStream): handle[Standard_Type] {.
+proc dynamicType*(this: MessageAttributeStream): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Message_AttributeStream.hxx".}
-proc constructMessage_AttributeStream*(theStream: Standard_SStream; theName: TCollection_AsciiString = TCollection_AsciiString()): Message_AttributeStream {.
+proc constructMessageAttributeStream*(theStream: StandardSStream; theName: TCollectionAsciiString = tCollectionAsciiString()): MessageAttributeStream {.
     constructor, importcpp: "Message_AttributeStream(@)",
     header: "Message_AttributeStream.hxx".}
-proc Stream*(this: Message_AttributeStream): Standard_SStream {.noSideEffect,
+proc stream*(this: MessageAttributeStream): StandardSStream {.noSideEffect,
     importcpp: "Stream", header: "Message_AttributeStream.hxx".}
-proc SetStream*(this: var Message_AttributeStream; theStream: Standard_SStream) {.
+proc setStream*(this: var MessageAttributeStream; theStream: StandardSStream) {.
     importcpp: "SetStream", header: "Message_AttributeStream.hxx".}
-proc DumpJson*(this: Message_AttributeStream; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Message_AttributeStream.hxx".}
+proc dumpJson*(this: MessageAttributeStream; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Message_AttributeStream.hxx".}

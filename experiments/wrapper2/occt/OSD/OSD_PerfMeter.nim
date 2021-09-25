@@ -37,15 +37,15 @@ proc constructOSD_PerfMeter*(): OSD_PerfMeter {.constructor,
     importcpp: "OSD_PerfMeter(@)", header: "OSD_PerfMeter.hxx".}
 proc constructOSD_PerfMeter*(theMeter: cstring; theToAutoStart: bool = true): OSD_PerfMeter {.
     constructor, importcpp: "OSD_PerfMeter(@)", header: "OSD_PerfMeter.hxx".}
-proc Init*(this: var OSD_PerfMeter; theMeter: cstring) {.importcpp: "Init",
+proc init*(this: var OSD_PerfMeter; theMeter: cstring) {.importcpp: "Init",
     header: "OSD_PerfMeter.hxx".}
-proc Start*(this: OSD_PerfMeter) {.noSideEffect, importcpp: "Start",
+proc start*(this: OSD_PerfMeter) {.noSideEffect, importcpp: "Start",
                                 header: "OSD_PerfMeter.hxx".}
-proc Stop*(this: OSD_PerfMeter) {.noSideEffect, importcpp: "Stop",
+proc stop*(this: OSD_PerfMeter) {.noSideEffect, importcpp: "Stop",
                                header: "OSD_PerfMeter.hxx".}
-proc Tick*(this: OSD_PerfMeter) {.noSideEffect, importcpp: "Tick",
+proc tick*(this: OSD_PerfMeter) {.noSideEffect, importcpp: "Tick",
                                header: "OSD_PerfMeter.hxx".}
-proc Flush*(this: OSD_PerfMeter) {.noSideEffect, importcpp: "Flush",
+proc flush*(this: OSD_PerfMeter) {.noSideEffect, importcpp: "Flush",
                                 header: "OSD_PerfMeter.hxx".}
 proc destroyOSD_PerfMeter*(this: var OSD_PerfMeter) {.
     importcpp: "#.~OSD_PerfMeter()", header: "OSD_PerfMeter.hxx".}

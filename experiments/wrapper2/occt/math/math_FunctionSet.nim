@@ -14,26 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, math_Vector
-
 ## ! This abstract class describes the virtual functions associated to
 ## ! a set on N Functions of M independant variables.
 
 type
-  math_FunctionSet* {.importcpp: "math_FunctionSet",
-                     header: "math_FunctionSet.hxx", bycopy.} = object ## ! Returns the number of variables of the function.
+  MathFunctionSet* {.importcpp: "math_FunctionSet", header: "math_FunctionSet.hxx",
+                    bycopy.} = object ## ! Returns the number of variables of the function.
 
 
-proc NbVariables*(this: math_FunctionSet): Standard_Integer {.noSideEffect,
+proc nbVariables*(this: MathFunctionSet): int {.noSideEffect,
     importcpp: "NbVariables", header: "math_FunctionSet.hxx".}
-proc NbEquations*(this: math_FunctionSet): Standard_Integer {.noSideEffect,
+proc nbEquations*(this: MathFunctionSet): int {.noSideEffect,
     importcpp: "NbEquations", header: "math_FunctionSet.hxx".}
-proc Value*(this: var math_FunctionSet; X: math_Vector; F: var math_Vector): Standard_Boolean {.
+proc value*(this: var MathFunctionSet; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "math_FunctionSet.hxx".}
-proc GetStateNumber*(this: var math_FunctionSet): Standard_Integer {.
-    importcpp: "GetStateNumber", header: "math_FunctionSet.hxx".}
-proc destroymath_FunctionSet*(this: var math_FunctionSet) {.
+proc getStateNumber*(this: var MathFunctionSet): int {.importcpp: "GetStateNumber",
+    header: "math_FunctionSet.hxx".}
+proc destroyMathFunctionSet*(this: var MathFunctionSet) {.
     importcpp: "#.~math_FunctionSet()", header: "math_FunctionSet.hxx".}

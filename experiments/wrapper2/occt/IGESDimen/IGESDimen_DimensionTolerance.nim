@@ -14,15 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean,
-  ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of IGESDimen_DimensionTolerance"
 discard "forward decl of IGESDimen_DimensionTolerance"
 type
-  Handle_IGESDimen_DimensionTolerance* = handle[IGESDimen_DimensionTolerance]
+  HandleIGESDimenDimensionTolerance* = Handle[IGESDimenDimensionTolerance]
 
 ## ! defines Dimension Tolerance, Type <406>, Form <29>
 ## ! in package IGESDimen
@@ -31,55 +26,45 @@ type
 ## ! dimension.
 
 type
-  IGESDimen_DimensionTolerance* {.importcpp: "IGESDimen_DimensionTolerance",
-                                 header: "IGESDimen_DimensionTolerance.hxx",
-                                 bycopy.} = object of IGESData_IGESEntity
+  IGESDimenDimensionTolerance* {.importcpp: "IGESDimen_DimensionTolerance",
+                                header: "IGESDimen_DimensionTolerance.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESDimen_DimensionTolerance*(): IGESDimen_DimensionTolerance {.
+proc constructIGESDimenDimensionTolerance*(): IGESDimenDimensionTolerance {.
     constructor, importcpp: "IGESDimen_DimensionTolerance(@)",
     header: "IGESDimen_DimensionTolerance.hxx".}
-proc Init*(this: var IGESDimen_DimensionTolerance; nbPropVal: Standard_Integer;
-          aSecTolFlag: Standard_Integer; aTolType: Standard_Integer;
-          aTolPlaceFlag: Standard_Integer; anUpperTol: Standard_Real;
-          aLowerTol: Standard_Real; aSignFlag: Standard_Boolean;
-          aFracFlag: Standard_Integer; aPrecision: Standard_Integer) {.
-    importcpp: "Init", header: "IGESDimen_DimensionTolerance.hxx".}
-proc NbPropertyValues*(this: IGESDimen_DimensionTolerance): Standard_Integer {.
-    noSideEffect, importcpp: "NbPropertyValues",
+proc init*(this: var IGESDimenDimensionTolerance; nbPropVal: int; aSecTolFlag: int;
+          aTolType: int; aTolPlaceFlag: int; anUpperTol: float; aLowerTol: float;
+          aSignFlag: bool; aFracFlag: int; aPrecision: int) {.importcpp: "Init",
     header: "IGESDimen_DimensionTolerance.hxx".}
-proc SecondaryToleranceFlag*(this: IGESDimen_DimensionTolerance): Standard_Integer {.
-    noSideEffect, importcpp: "SecondaryToleranceFlag",
+proc nbPropertyValues*(this: IGESDimenDimensionTolerance): int {.noSideEffect,
+    importcpp: "NbPropertyValues", header: "IGESDimen_DimensionTolerance.hxx".}
+proc secondaryToleranceFlag*(this: IGESDimenDimensionTolerance): int {.noSideEffect,
+    importcpp: "SecondaryToleranceFlag",
     header: "IGESDimen_DimensionTolerance.hxx".}
-proc ToleranceType*(this: IGESDimen_DimensionTolerance): Standard_Integer {.
-    noSideEffect, importcpp: "ToleranceType",
+proc toleranceType*(this: IGESDimenDimensionTolerance): int {.noSideEffect,
+    importcpp: "ToleranceType", header: "IGESDimen_DimensionTolerance.hxx".}
+proc tolerancePlacementFlag*(this: IGESDimenDimensionTolerance): int {.noSideEffect,
+    importcpp: "TolerancePlacementFlag",
     header: "IGESDimen_DimensionTolerance.hxx".}
-proc TolerancePlacementFlag*(this: IGESDimen_DimensionTolerance): Standard_Integer {.
-    noSideEffect, importcpp: "TolerancePlacementFlag",
-    header: "IGESDimen_DimensionTolerance.hxx".}
-proc UpperTolerance*(this: IGESDimen_DimensionTolerance): Standard_Real {.
-    noSideEffect, importcpp: "UpperTolerance",
-    header: "IGESDimen_DimensionTolerance.hxx".}
-proc LowerTolerance*(this: IGESDimen_DimensionTolerance): Standard_Real {.
-    noSideEffect, importcpp: "LowerTolerance",
-    header: "IGESDimen_DimensionTolerance.hxx".}
-proc SignSuppressionFlag*(this: IGESDimen_DimensionTolerance): Standard_Boolean {.
-    noSideEffect, importcpp: "SignSuppressionFlag",
-    header: "IGESDimen_DimensionTolerance.hxx".}
-proc FractionFlag*(this: IGESDimen_DimensionTolerance): Standard_Integer {.
-    noSideEffect, importcpp: "FractionFlag",
-    header: "IGESDimen_DimensionTolerance.hxx".}
-proc Precision*(this: IGESDimen_DimensionTolerance): Standard_Integer {.
-    noSideEffect, importcpp: "Precision",
-    header: "IGESDimen_DimensionTolerance.hxx".}
+proc upperTolerance*(this: IGESDimenDimensionTolerance): float {.noSideEffect,
+    importcpp: "UpperTolerance", header: "IGESDimen_DimensionTolerance.hxx".}
+proc lowerTolerance*(this: IGESDimenDimensionTolerance): float {.noSideEffect,
+    importcpp: "LowerTolerance", header: "IGESDimen_DimensionTolerance.hxx".}
+proc signSuppressionFlag*(this: IGESDimenDimensionTolerance): bool {.noSideEffect,
+    importcpp: "SignSuppressionFlag", header: "IGESDimen_DimensionTolerance.hxx".}
+proc fractionFlag*(this: IGESDimenDimensionTolerance): int {.noSideEffect,
+    importcpp: "FractionFlag", header: "IGESDimen_DimensionTolerance.hxx".}
+proc precision*(this: IGESDimenDimensionTolerance): int {.noSideEffect,
+    importcpp: "Precision", header: "IGESDimen_DimensionTolerance.hxx".}
 type
-  IGESDimen_DimensionTolerancebase_type* = IGESData_IGESEntity
+  IGESDimenDimensionTolerancebaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESDimen_DimensionTolerance::get_type_name(@)",
-                              header: "IGESDimen_DimensionTolerance.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESDimen_DimensionTolerance::get_type_name(@)",
+                            header: "IGESDimen_DimensionTolerance.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESDimen_DimensionTolerance::get_type_descriptor(@)",
     header: "IGESDimen_DimensionTolerance.hxx".}
-proc DynamicType*(this: IGESDimen_DimensionTolerance): handle[Standard_Type] {.
+proc dynamicType*(this: IGESDimenDimensionTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESDimen_DimensionTolerance.hxx".}

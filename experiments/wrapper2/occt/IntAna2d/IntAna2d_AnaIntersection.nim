@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, IntAna2d_IntPoint
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Lin2d"
@@ -29,70 +24,68 @@ discard "forward decl of gp_Parab2d"
 discard "forward decl of gp_Hypr2d"
 discard "forward decl of IntAna2d_IntPoint"
 type
-  IntAna2d_AnaIntersection* {.importcpp: "IntAna2d_AnaIntersection",
-                             header: "IntAna2d_AnaIntersection.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Empty
-                                                                                  ## constructor.
-                                                                                  ## IsDone
-                                                                                  ## returns
-                                                                                  ## False.
+  IntAna2dAnaIntersection* {.importcpp: "IntAna2d_AnaIntersection",
+                            header: "IntAna2d_AnaIntersection.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## Empty
+                                                                                 ## constructor.
+                                                                                 ## IsDone
+                                                                                 ## returns
+                                                                                 ## False.
 
 
-proc constructIntAna2d_AnaIntersection*(): IntAna2d_AnaIntersection {.constructor,
+proc constructIntAna2dAnaIntersection*(): IntAna2dAnaIntersection {.constructor,
     importcpp: "IntAna2d_AnaIntersection(@)",
     header: "IntAna2d_AnaIntersection.hxx".}
-proc constructIntAna2d_AnaIntersection*(L1: gp_Lin2d; L2: gp_Lin2d): IntAna2d_AnaIntersection {.
+proc constructIntAna2dAnaIntersection*(l1: Lin2d; l2: Lin2d): IntAna2dAnaIntersection {.
     constructor, importcpp: "IntAna2d_AnaIntersection(@)",
     header: "IntAna2d_AnaIntersection.hxx".}
-proc constructIntAna2d_AnaIntersection*(C1: gp_Circ2d; C2: gp_Circ2d): IntAna2d_AnaIntersection {.
+proc constructIntAna2dAnaIntersection*(c1: Circ2d; c2: Circ2d): IntAna2dAnaIntersection {.
     constructor, importcpp: "IntAna2d_AnaIntersection(@)",
     header: "IntAna2d_AnaIntersection.hxx".}
-proc constructIntAna2d_AnaIntersection*(L: gp_Lin2d; C: gp_Circ2d): IntAna2d_AnaIntersection {.
+proc constructIntAna2dAnaIntersection*(L: Lin2d; c: Circ2d): IntAna2dAnaIntersection {.
     constructor, importcpp: "IntAna2d_AnaIntersection(@)",
     header: "IntAna2d_AnaIntersection.hxx".}
-proc constructIntAna2d_AnaIntersection*(L: gp_Lin2d; C: IntAna2d_Conic): IntAna2d_AnaIntersection {.
+proc constructIntAna2dAnaIntersection*(L: Lin2d; c: IntAna2dConic): IntAna2dAnaIntersection {.
     constructor, importcpp: "IntAna2d_AnaIntersection(@)",
     header: "IntAna2d_AnaIntersection.hxx".}
-proc constructIntAna2d_AnaIntersection*(C: gp_Circ2d; Co: IntAna2d_Conic): IntAna2d_AnaIntersection {.
+proc constructIntAna2dAnaIntersection*(c: Circ2d; co: IntAna2dConic): IntAna2dAnaIntersection {.
     constructor, importcpp: "IntAna2d_AnaIntersection(@)",
     header: "IntAna2d_AnaIntersection.hxx".}
-proc constructIntAna2d_AnaIntersection*(E: gp_Elips2d; C: IntAna2d_Conic): IntAna2d_AnaIntersection {.
+proc constructIntAna2dAnaIntersection*(e: Elips2d; c: IntAna2dConic): IntAna2dAnaIntersection {.
     constructor, importcpp: "IntAna2d_AnaIntersection(@)",
     header: "IntAna2d_AnaIntersection.hxx".}
-proc constructIntAna2d_AnaIntersection*(P: gp_Parab2d; C: IntAna2d_Conic): IntAna2d_AnaIntersection {.
+proc constructIntAna2dAnaIntersection*(p: Parab2d; c: IntAna2dConic): IntAna2dAnaIntersection {.
     constructor, importcpp: "IntAna2d_AnaIntersection(@)",
     header: "IntAna2d_AnaIntersection.hxx".}
-proc constructIntAna2d_AnaIntersection*(H: gp_Hypr2d; C: IntAna2d_Conic): IntAna2d_AnaIntersection {.
+proc constructIntAna2dAnaIntersection*(h: Hypr2d; c: IntAna2dConic): IntAna2dAnaIntersection {.
     constructor, importcpp: "IntAna2d_AnaIntersection(@)",
     header: "IntAna2d_AnaIntersection.hxx".}
-proc Perform*(this: var IntAna2d_AnaIntersection; L1: gp_Lin2d; L2: gp_Lin2d) {.
+proc perform*(this: var IntAna2dAnaIntersection; l1: Lin2d; l2: Lin2d) {.
     importcpp: "Perform", header: "IntAna2d_AnaIntersection.hxx".}
-proc Perform*(this: var IntAna2d_AnaIntersection; C1: gp_Circ2d; C2: gp_Circ2d) {.
+proc perform*(this: var IntAna2dAnaIntersection; c1: Circ2d; c2: Circ2d) {.
     importcpp: "Perform", header: "IntAna2d_AnaIntersection.hxx".}
-proc Perform*(this: var IntAna2d_AnaIntersection; L: gp_Lin2d; C: gp_Circ2d) {.
+proc perform*(this: var IntAna2dAnaIntersection; L: Lin2d; c: Circ2d) {.
     importcpp: "Perform", header: "IntAna2d_AnaIntersection.hxx".}
-proc Perform*(this: var IntAna2d_AnaIntersection; L: gp_Lin2d; C: IntAna2d_Conic) {.
+proc perform*(this: var IntAna2dAnaIntersection; L: Lin2d; c: IntAna2dConic) {.
     importcpp: "Perform", header: "IntAna2d_AnaIntersection.hxx".}
-proc Perform*(this: var IntAna2d_AnaIntersection; C: gp_Circ2d; Co: IntAna2d_Conic) {.
+proc perform*(this: var IntAna2dAnaIntersection; c: Circ2d; co: IntAna2dConic) {.
     importcpp: "Perform", header: "IntAna2d_AnaIntersection.hxx".}
-proc Perform*(this: var IntAna2d_AnaIntersection; E: gp_Elips2d; C: IntAna2d_Conic) {.
+proc perform*(this: var IntAna2dAnaIntersection; e: Elips2d; c: IntAna2dConic) {.
     importcpp: "Perform", header: "IntAna2d_AnaIntersection.hxx".}
-proc Perform*(this: var IntAna2d_AnaIntersection; P: gp_Parab2d; C: IntAna2d_Conic) {.
+proc perform*(this: var IntAna2dAnaIntersection; p: Parab2d; c: IntAna2dConic) {.
     importcpp: "Perform", header: "IntAna2d_AnaIntersection.hxx".}
-proc Perform*(this: var IntAna2d_AnaIntersection; H: gp_Hypr2d; C: IntAna2d_Conic) {.
+proc perform*(this: var IntAna2dAnaIntersection; h: Hypr2d; c: IntAna2dConic) {.
     importcpp: "Perform", header: "IntAna2d_AnaIntersection.hxx".}
-proc IsDone*(this: IntAna2d_AnaIntersection): Standard_Boolean {.noSideEffect,
+proc isDone*(this: IntAna2dAnaIntersection): bool {.noSideEffect,
     importcpp: "IsDone", header: "IntAna2d_AnaIntersection.hxx".}
-proc IsEmpty*(this: IntAna2d_AnaIntersection): Standard_Boolean {.noSideEffect,
+proc isEmpty*(this: IntAna2dAnaIntersection): bool {.noSideEffect,
     importcpp: "IsEmpty", header: "IntAna2d_AnaIntersection.hxx".}
-proc IdenticalElements*(this: IntAna2d_AnaIntersection): Standard_Boolean {.
-    noSideEffect, importcpp: "IdenticalElements",
-    header: "IntAna2d_AnaIntersection.hxx".}
-proc ParallelElements*(this: IntAna2d_AnaIntersection): Standard_Boolean {.
-    noSideEffect, importcpp: "ParallelElements",
-    header: "IntAna2d_AnaIntersection.hxx".}
-proc NbPoints*(this: IntAna2d_AnaIntersection): Standard_Integer {.noSideEffect,
+proc identicalElements*(this: IntAna2dAnaIntersection): bool {.noSideEffect,
+    importcpp: "IdenticalElements", header: "IntAna2d_AnaIntersection.hxx".}
+proc parallelElements*(this: IntAna2dAnaIntersection): bool {.noSideEffect,
+    importcpp: "ParallelElements", header: "IntAna2d_AnaIntersection.hxx".}
+proc nbPoints*(this: IntAna2dAnaIntersection): int {.noSideEffect,
     importcpp: "NbPoints", header: "IntAna2d_AnaIntersection.hxx".}
-proc Point*(this: IntAna2d_AnaIntersection; N: Standard_Integer): IntAna2d_IntPoint {.
-    noSideEffect, importcpp: "Point", header: "IntAna2d_AnaIntersection.hxx".}
+proc point*(this: IntAna2dAnaIntersection; n: int): IntAna2dIntPoint {.noSideEffect,
+    importcpp: "Point", header: "IntAna2d_AnaIntersection.hxx".}

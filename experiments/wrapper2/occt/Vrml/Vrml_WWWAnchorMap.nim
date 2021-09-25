@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  Vrml_WWWAnchorMap* {.size: sizeof(cint), importcpp: "Vrml_WWWAnchorMap",
-                      header: "Vrml_WWWAnchorMap.hxx".} = enum
-    Vrml_MAP_NONE, Vrml_POINT
+  VrmlWWWAnchorMap* {.size: sizeof(cint), importcpp: "Vrml_WWWAnchorMap",
+                     header: "Vrml_WWWAnchorMap.hxx".} = enum
+    VrmlMAP_NONE, VrmlPOINT
+
 

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESSolid_SolidOfLinearExtrusion"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,43 +26,43 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESSolid_ToolSolidOfLinearExtrusion* {.
-      importcpp: "IGESSolid_ToolSolidOfLinearExtrusion",
-      header: "IGESSolid_ToolSolidOfLinearExtrusion.hxx", bycopy.} = object ## ! Returns a
-                                                                       ## ToolSolidOfLinearExtrusion, ready to work
+  IGESSolidToolSolidOfLinearExtrusion* {.importcpp: "IGESSolid_ToolSolidOfLinearExtrusion", header: "IGESSolid_ToolSolidOfLinearExtrusion.hxx",
+                                        bycopy.} = object ## ! Returns a
+                                                       ## ToolSolidOfLinearExtrusion, ready to work
 
 
-proc constructIGESSolid_ToolSolidOfLinearExtrusion*(): IGESSolid_ToolSolidOfLinearExtrusion {.
+proc constructIGESSolidToolSolidOfLinearExtrusion*(): IGESSolidToolSolidOfLinearExtrusion {.
     constructor, importcpp: "IGESSolid_ToolSolidOfLinearExtrusion(@)",
     header: "IGESSolid_ToolSolidOfLinearExtrusion.hxx".}
-proc ReadOwnParams*(this: IGESSolid_ToolSolidOfLinearExtrusion;
-                   ent: handle[IGESSolid_SolidOfLinearExtrusion];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESSolid_ToolSolidOfLinearExtrusion.hxx".}
-proc WriteOwnParams*(this: IGESSolid_ToolSolidOfLinearExtrusion;
-                    ent: handle[IGESSolid_SolidOfLinearExtrusion];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESSolidToolSolidOfLinearExtrusion;
+                   ent: Handle[IGESSolidSolidOfLinearExtrusion];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESSolid_ToolSolidOfLinearExtrusion.hxx".}
+proc writeOwnParams*(this: IGESSolidToolSolidOfLinearExtrusion;
+                    ent: Handle[IGESSolidSolidOfLinearExtrusion];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams",
     header: "IGESSolid_ToolSolidOfLinearExtrusion.hxx".}
-proc OwnShared*(this: IGESSolid_ToolSolidOfLinearExtrusion;
-               ent: handle[IGESSolid_SolidOfLinearExtrusion];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESSolidToolSolidOfLinearExtrusion;
+               ent: Handle[IGESSolidSolidOfLinearExtrusion];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESSolid_ToolSolidOfLinearExtrusion.hxx".}
-proc DirChecker*(this: IGESSolid_ToolSolidOfLinearExtrusion;
-                ent: handle[IGESSolid_SolidOfLinearExtrusion]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESSolidToolSolidOfLinearExtrusion;
+                ent: Handle[IGESSolidSolidOfLinearExtrusion]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESSolid_ToolSolidOfLinearExtrusion.hxx".}
-proc OwnCheck*(this: IGESSolid_ToolSolidOfLinearExtrusion;
-              ent: handle[IGESSolid_SolidOfLinearExtrusion];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESSolidToolSolidOfLinearExtrusion;
+              ent: Handle[IGESSolidSolidOfLinearExtrusion];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck",
     header: "IGESSolid_ToolSolidOfLinearExtrusion.hxx".}
-proc OwnCopy*(this: IGESSolid_ToolSolidOfLinearExtrusion;
-             entfrom: handle[IGESSolid_SolidOfLinearExtrusion];
-             entto: handle[IGESSolid_SolidOfLinearExtrusion];
-             TC: var Interface_CopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESSolid_ToolSolidOfLinearExtrusion.hxx".}
-proc OwnDump*(this: IGESSolid_ToolSolidOfLinearExtrusion;
-             ent: handle[IGESSolid_SolidOfLinearExtrusion];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump", header: "IGESSolid_ToolSolidOfLinearExtrusion.hxx".}
+proc ownCopy*(this: IGESSolidToolSolidOfLinearExtrusion;
+             entfrom: Handle[IGESSolidSolidOfLinearExtrusion];
+             entto: Handle[IGESSolidSolidOfLinearExtrusion];
+             tc: var InterfaceCopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESSolid_ToolSolidOfLinearExtrusion.hxx".}
+proc ownDump*(this: IGESSolidToolSolidOfLinearExtrusion;
+             ent: Handle[IGESSolidSolidOfLinearExtrusion];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump",
+    header: "IGESSolid_ToolSolidOfLinearExtrusion.hxx".}

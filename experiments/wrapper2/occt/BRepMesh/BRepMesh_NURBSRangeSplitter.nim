@@ -13,54 +13,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  BRepMesh_UVParamRangeSplitter, ../IMeshData/IMeshData_Types,
-  ../IMeshTools/IMeshTools_Parameters
-
 ## ! Auxiliary class extending UV range splitter in order to generate
 ## ! internal nodes for NURBS surface.
 
 type
-  BRepMesh_NURBSRangeSplitter* {.importcpp: "BRepMesh_NURBSRangeSplitter",
-                                header: "BRepMesh_NURBSRangeSplitter.hxx", bycopy.} = object of BRepMesh_UVParamRangeSplitter ##
-                                                                                                                       ## !
-                                                                                                                       ## Constructor.
-                                                                                                                       ##
-                                                                                                                       ## !
-                                                                                                                       ## Initializes
-                                                                                                                       ## U
-                                                                                                                       ## and
-                                                                                                                       ## V
-                                                                                                                       ## parameters
-                                                                                                                       ## lists
-                                                                                                                       ## using
-                                                                                                                       ## CN
-                                                                                                                       ## continuity
-                                                                                                                       ## intervals.
-                                                                                                                       ##
-                                                                                                                       ## !
-                                                                                                                       ## Computes
-                                                                                                                       ## parameters
-                                                                                                                       ## of
-                                                                                                                       ## filter
-                                                                                                                       ## and
-                                                                                                                       ## applies
-                                                                                                                       ## it
-                                                                                                                       ## to
-                                                                                                                       ## the
-                                                                                                                       ## source
-                                                                                                                       ## parameters.
+  BRepMeshNURBSRangeSplitter* {.importcpp: "BRepMesh_NURBSRangeSplitter",
+                               header: "BRepMesh_NURBSRangeSplitter.hxx", bycopy.} = object of BRepMeshUVParamRangeSplitter ##
+                                                                                                                     ## !
+                                                                                                                     ## Constructor.
+                                                                                                                     ##
+                                                                                                                     ## !
+                                                                                                                     ## Initializes
+                                                                                                                     ## U
+                                                                                                                     ## and
+                                                                                                                     ## V
+                                                                                                                     ## parameters
+                                                                                                                     ## lists
+                                                                                                                     ## using
+                                                                                                                     ## CN
+                                                                                                                     ## continuity
+                                                                                                                     ## intervals.
+                                                                                                                     ##
+                                                                                                                     ## !
+                                                                                                                     ## Computes
+                                                                                                                     ## parameters
+                                                                                                                     ## of
+                                                                                                                     ## filter
+                                                                                                                     ## and
+                                                                                                                     ## applies
+                                                                                                                     ## it
+                                                                                                                     ## to
+                                                                                                                     ## the
+                                                                                                                     ## source
+                                                                                                                     ## parameters.
 
 
-proc constructBRepMesh_NURBSRangeSplitter*(): BRepMesh_NURBSRangeSplitter {.
+proc constructBRepMeshNURBSRangeSplitter*(): BRepMeshNURBSRangeSplitter {.
     constructor, importcpp: "BRepMesh_NURBSRangeSplitter(@)",
     header: "BRepMesh_NURBSRangeSplitter.hxx".}
-proc destroyBRepMesh_NURBSRangeSplitter*(this: var BRepMesh_NURBSRangeSplitter) {.
+proc destroyBRepMeshNURBSRangeSplitter*(this: var BRepMeshNURBSRangeSplitter) {.
     importcpp: "#.~BRepMesh_NURBSRangeSplitter()",
     header: "BRepMesh_NURBSRangeSplitter.hxx".}
-proc AdjustRange*(this: var BRepMesh_NURBSRangeSplitter) {.importcpp: "AdjustRange",
+proc adjustRange*(this: var BRepMeshNURBSRangeSplitter) {.importcpp: "AdjustRange",
     header: "BRepMesh_NURBSRangeSplitter.hxx".}
-proc GenerateSurfaceNodes*(this: BRepMesh_NURBSRangeSplitter;
-                          theParameters: IMeshTools_Parameters): handle[
-    ListOfPnt2d] {.noSideEffect, importcpp: "GenerateSurfaceNodes",
-                  header: "BRepMesh_NURBSRangeSplitter.hxx".}
+proc generateSurfaceNodes*(this: BRepMeshNURBSRangeSplitter;
+                          theParameters: IMeshToolsParameters): Handle[ListOfPnt2d] {.
+    noSideEffect, importcpp: "GenerateSurfaceNodes",
+    header: "BRepMesh_NURBSRangeSplitter.hxx".}

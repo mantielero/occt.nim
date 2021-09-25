@@ -14,28 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GeomToStep_Root
-
 discard "forward decl of StepGeom_Ellipse"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Elips"
 discard "forward decl of Geom_Ellipse"
 discard "forward decl of Geom2d_Ellipse"
 type
-  GeomToStep_MakeEllipse* {.importcpp: "GeomToStep_MakeEllipse",
-                           header: "GeomToStep_MakeEllipse.hxx", bycopy.} = object of GeomToStep_Root
+  GeomToStepMakeEllipse* {.importcpp: "GeomToStep_MakeEllipse",
+                          header: "GeomToStep_MakeEllipse.hxx", bycopy.} = object of GeomToStepRoot
 
 
-proc constructGeomToStep_MakeEllipse*(C: gp_Elips): GeomToStep_MakeEllipse {.
+proc constructGeomToStepMakeEllipse*(c: Elips): GeomToStepMakeEllipse {.constructor,
+    importcpp: "GeomToStep_MakeEllipse(@)", header: "GeomToStep_MakeEllipse.hxx".}
+proc constructGeomToStepMakeEllipse*(c: Handle[GeomEllipse]): GeomToStepMakeEllipse {.
     constructor, importcpp: "GeomToStep_MakeEllipse(@)",
     header: "GeomToStep_MakeEllipse.hxx".}
-proc constructGeomToStep_MakeEllipse*(C: handle[Geom_Ellipse]): GeomToStep_MakeEllipse {.
+proc constructGeomToStepMakeEllipse*(c: Handle[Geom2dEllipse]): GeomToStepMakeEllipse {.
     constructor, importcpp: "GeomToStep_MakeEllipse(@)",
     header: "GeomToStep_MakeEllipse.hxx".}
-proc constructGeomToStep_MakeEllipse*(C: handle[Geom2d_Ellipse]): GeomToStep_MakeEllipse {.
-    constructor, importcpp: "GeomToStep_MakeEllipse(@)",
-    header: "GeomToStep_MakeEllipse.hxx".}
-proc Value*(this: GeomToStep_MakeEllipse): handle[StepGeom_Ellipse] {.noSideEffect,
+proc value*(this: GeomToStepMakeEllipse): Handle[StepGeomEllipse] {.noSideEffect,
     importcpp: "Value", header: "GeomToStep_MakeEllipse.hxx".}

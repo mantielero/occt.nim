@@ -13,41 +13,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  BinMXCAFDoc_NoteDriver
-
 discard "forward decl of BinMXCAFDoc_NoteBinDataDriver"
 discard "forward decl of BinMXCAFDoc_NoteBinDataDriver"
 type
-  Handle_BinMXCAFDoc_NoteBinDataDriver* = handle[BinMXCAFDoc_NoteBinDataDriver]
-  BinMXCAFDoc_NoteBinDataDriver* {.importcpp: "BinMXCAFDoc_NoteBinDataDriver",
-                                  header: "BinMXCAFDoc_NoteBinDataDriver.hxx",
-                                  bycopy.} = object of BinMXCAFDoc_NoteDriver
+  HandleBinMXCAFDocNoteBinDataDriver* = Handle[BinMXCAFDocNoteBinDataDriver]
+  BinMXCAFDocNoteBinDataDriver* {.importcpp: "BinMXCAFDoc_NoteBinDataDriver",
+                                 header: "BinMXCAFDoc_NoteBinDataDriver.hxx",
+                                 bycopy.} = object of BinMXCAFDocNoteDriver
 
 
-proc constructBinMXCAFDoc_NoteBinDataDriver*(
-    theMsgDriver: handle[Message_Messenger]): BinMXCAFDoc_NoteBinDataDriver {.
+proc constructBinMXCAFDocNoteBinDataDriver*(
+    theMsgDriver: Handle[MessageMessenger]): BinMXCAFDocNoteBinDataDriver {.
     constructor, importcpp: "BinMXCAFDoc_NoteBinDataDriver(@)",
     header: "BinMXCAFDoc_NoteBinDataDriver.hxx".}
-proc NewEmpty*(this: BinMXCAFDoc_NoteBinDataDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: BinMXCAFDocNoteBinDataDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty",
     header: "BinMXCAFDoc_NoteBinDataDriver.hxx".}
-proc Paste*(this: BinMXCAFDoc_NoteBinDataDriver; theSource: BinObjMgt_Persistent;
-           theTarget: handle[TDF_Attribute];
-           theRelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "BinMXCAFDoc_NoteBinDataDriver.hxx".}
-proc Paste*(this: BinMXCAFDoc_NoteBinDataDriver; theSource: handle[TDF_Attribute];
-           theTarget: var BinObjMgt_Persistent;
-           theRelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: BinMXCAFDocNoteBinDataDriver; theSource: BinObjMgtPersistent;
+           theTarget: Handle[TDF_Attribute];
+           theRelocTable: var BinObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "BinMXCAFDoc_NoteBinDataDriver.hxx".}
+proc paste*(this: BinMXCAFDocNoteBinDataDriver; theSource: Handle[TDF_Attribute];
+           theTarget: var BinObjMgtPersistent;
+           theRelocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMXCAFDoc_NoteBinDataDriver.hxx".}
 type
-  BinMXCAFDoc_NoteBinDataDriverbase_type* = BinMXCAFDoc_NoteDriver
+  BinMXCAFDocNoteBinDataDriverbaseType* = BinMXCAFDocNoteDriver
 
-proc get_type_name*(): cstring {.importcpp: "BinMXCAFDoc_NoteBinDataDriver::get_type_name(@)",
-                              header: "BinMXCAFDoc_NoteBinDataDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BinMXCAFDoc_NoteBinDataDriver::get_type_name(@)",
+                            header: "BinMXCAFDoc_NoteBinDataDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BinMXCAFDoc_NoteBinDataDriver::get_type_descriptor(@)",
     header: "BinMXCAFDoc_NoteBinDataDriver.hxx".}
-proc DynamicType*(this: BinMXCAFDoc_NoteBinDataDriver): handle[Standard_Type] {.
+proc dynamicType*(this: BinMXCAFDocNoteBinDataDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMXCAFDoc_NoteBinDataDriver.hxx".}

@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of Interface_ReaderModule"
 discard "forward decl of Interface_Protocol"
 discard "forward decl of Standard_Transient"
@@ -25,35 +22,34 @@ discard "forward decl of Interface_NodeOfReaderLib"
 discard "forward decl of Interface_GlobalNodeOfReaderLib"
 discard "forward decl of Interface_GlobalNodeOfReaderLib"
 type
-  Handle_Interface_GlobalNodeOfReaderLib* = handle[Interface_GlobalNodeOfReaderLib]
-  Interface_GlobalNodeOfReaderLib* {.importcpp: "Interface_GlobalNodeOfReaderLib", header: "Interface_GlobalNodeOfReaderLib.hxx",
-                                    bycopy.} = object of Standard_Transient ## ! Creates an empty
-                                                                       ## GlobalNode, with no Next
+  HandleInterfaceGlobalNodeOfReaderLib* = Handle[InterfaceGlobalNodeOfReaderLib]
+  InterfaceGlobalNodeOfReaderLib* {.importcpp: "Interface_GlobalNodeOfReaderLib", header: "Interface_GlobalNodeOfReaderLib.hxx",
+                                   bycopy.} = object of StandardTransient ## ! Creates an empty GlobalNode, with no Next
 
 
-proc constructInterface_GlobalNodeOfReaderLib*(): Interface_GlobalNodeOfReaderLib {.
+proc constructInterfaceGlobalNodeOfReaderLib*(): InterfaceGlobalNodeOfReaderLib {.
     constructor, importcpp: "Interface_GlobalNodeOfReaderLib(@)",
     header: "Interface_GlobalNodeOfReaderLib.hxx".}
-proc Add*(this: var Interface_GlobalNodeOfReaderLib;
-         amodule: handle[Interface_ReaderModule];
-         aprotocol: handle[Interface_Protocol]) {.importcpp: "Add",
+proc add*(this: var InterfaceGlobalNodeOfReaderLib;
+         amodule: Handle[InterfaceReaderModule];
+         aprotocol: Handle[InterfaceProtocol]) {.importcpp: "Add",
     header: "Interface_GlobalNodeOfReaderLib.hxx".}
-proc Module*(this: Interface_GlobalNodeOfReaderLib): handle[Interface_ReaderModule] {.
+proc module*(this: InterfaceGlobalNodeOfReaderLib): Handle[InterfaceReaderModule] {.
     noSideEffect, importcpp: "Module",
     header: "Interface_GlobalNodeOfReaderLib.hxx".}
-proc Protocol*(this: Interface_GlobalNodeOfReaderLib): handle[Interface_Protocol] {.
+proc protocol*(this: InterfaceGlobalNodeOfReaderLib): Handle[InterfaceProtocol] {.
     noSideEffect, importcpp: "Protocol",
     header: "Interface_GlobalNodeOfReaderLib.hxx".}
-proc Next*(this: Interface_GlobalNodeOfReaderLib): handle[
-    Interface_GlobalNodeOfReaderLib] {.noSideEffect, importcpp: "Next", header: "Interface_GlobalNodeOfReaderLib.hxx".}
+proc next*(this: InterfaceGlobalNodeOfReaderLib): Handle[
+    InterfaceGlobalNodeOfReaderLib] {.noSideEffect, importcpp: "Next", header: "Interface_GlobalNodeOfReaderLib.hxx".}
 type
-  Interface_GlobalNodeOfReaderLibbase_type* = Standard_Transient
+  InterfaceGlobalNodeOfReaderLibbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Interface_GlobalNodeOfReaderLib::get_type_name(@)",
-                              header: "Interface_GlobalNodeOfReaderLib.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Interface_GlobalNodeOfReaderLib::get_type_name(@)",
+                            header: "Interface_GlobalNodeOfReaderLib.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Interface_GlobalNodeOfReaderLib::get_type_descriptor(@)",
     header: "Interface_GlobalNodeOfReaderLib.hxx".}
-proc DynamicType*(this: Interface_GlobalNodeOfReaderLib): handle[Standard_Type] {.
+proc dynamicType*(this: InterfaceGlobalNodeOfReaderLib): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Interface_GlobalNodeOfReaderLib.hxx".}

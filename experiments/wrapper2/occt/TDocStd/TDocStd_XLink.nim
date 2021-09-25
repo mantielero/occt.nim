@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString, TDocStd_XLinkPtr, ../TDF/TDF_Attribute,
-  ../Standard/Standard_Boolean, ../Standard/Standard_OStream
-
 discard "forward decl of TDocStd_XLinkRoot"
 discard "forward decl of TDocStd_XLinkIterator"
 discard "forward decl of TDF_Label"
@@ -30,7 +25,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDocStd_XLink"
 discard "forward decl of TDocStd_XLink"
 type
-  Handle_TDocStd_XLink* = handle[TDocStd_XLink]
+  HandleTDocStdXLink* = Handle[TDocStdXLink]
 
 ## ! An attribute to store the path and the entry of
 ## ! external links.
@@ -38,75 +33,75 @@ type
 ## ! structure in another document.
 
 type
-  TDocStd_XLink* {.importcpp: "TDocStd_XLink", header: "TDocStd_XLink.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                                     ## !
-                                                                                                     ## Sets
-                                                                                                     ## an
-                                                                                                     ## empty
-                                                                                                     ## external
-                                                                                                     ## reference,
-                                                                                                     ## at
-                                                                                                     ## the
-                                                                                                     ## label
-                                                                                                     ## aLabel.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Sets
-                                                                                                     ## the
-                                                                                                     ## field
-                                                                                                     ## <myNext>
-                                                                                                     ## with
-                                                                                                     ## <anXLinkPtr>.
+  TDocStdXLink* {.importcpp: "TDocStd_XLink", header: "TDocStd_XLink.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                                    ## !
+                                                                                                    ## Sets
+                                                                                                    ## an
+                                                                                                    ## empty
+                                                                                                    ## external
+                                                                                                    ## reference,
+                                                                                                    ## at
+                                                                                                    ## the
+                                                                                                    ## label
+                                                                                                    ## aLabel.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Sets
+                                                                                                    ## the
+                                                                                                    ## field
+                                                                                                    ## <myNext>
+                                                                                                    ## with
+                                                                                                    ## <anXLinkPtr>.
 
 
-proc Set*(atLabel: TDF_Label): handle[TDocStd_XLink] {.
+proc set*(atLabel: TDF_Label): Handle[TDocStdXLink] {.
     importcpp: "TDocStd_XLink::Set(@)", header: "TDocStd_XLink.hxx".}
-proc constructTDocStd_XLink*(): TDocStd_XLink {.constructor,
+proc constructTDocStdXLink*(): TDocStdXLink {.constructor,
     importcpp: "TDocStd_XLink(@)", header: "TDocStd_XLink.hxx".}
-proc Update*(this: var TDocStd_XLink): handle[TDF_Reference] {.importcpp: "Update",
+proc update*(this: var TDocStdXLink): Handle[TDF_Reference] {.importcpp: "Update",
     header: "TDocStd_XLink.hxx".}
-proc ID*(this: TDocStd_XLink): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TDocStdXLink): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TDocStd_XLink.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "TDocStd_XLink::GetID(@)",
-                            header: "TDocStd_XLink.hxx".}
-proc DocumentEntry*(this: var TDocStd_XLink; aDocEntry: TCollection_AsciiString) {.
+proc getID*(): StandardGUID {.importcpp: "TDocStd_XLink::GetID(@)",
+                           header: "TDocStd_XLink.hxx".}
+proc documentEntry*(this: var TDocStdXLink; aDocEntry: TCollectionAsciiString) {.
     importcpp: "DocumentEntry", header: "TDocStd_XLink.hxx".}
-proc DocumentEntry*(this: TDocStd_XLink): TCollection_AsciiString {.noSideEffect,
+proc documentEntry*(this: TDocStdXLink): TCollectionAsciiString {.noSideEffect,
     importcpp: "DocumentEntry", header: "TDocStd_XLink.hxx".}
-proc LabelEntry*(this: var TDocStd_XLink; aLabel: TDF_Label) {.
-    importcpp: "LabelEntry", header: "TDocStd_XLink.hxx".}
-proc LabelEntry*(this: var TDocStd_XLink; aLabEntry: TCollection_AsciiString) {.
-    importcpp: "LabelEntry", header: "TDocStd_XLink.hxx".}
-proc LabelEntry*(this: TDocStd_XLink): TCollection_AsciiString {.noSideEffect,
-    importcpp: "LabelEntry", header: "TDocStd_XLink.hxx".}
-proc AfterAddition*(this: var TDocStd_XLink) {.importcpp: "AfterAddition",
+proc labelEntry*(this: var TDocStdXLink; aLabel: TDF_Label) {.importcpp: "LabelEntry",
     header: "TDocStd_XLink.hxx".}
-proc BeforeRemoval*(this: var TDocStd_XLink) {.importcpp: "BeforeRemoval",
+proc labelEntry*(this: var TDocStdXLink; aLabEntry: TCollectionAsciiString) {.
+    importcpp: "LabelEntry", header: "TDocStd_XLink.hxx".}
+proc labelEntry*(this: TDocStdXLink): TCollectionAsciiString {.noSideEffect,
+    importcpp: "LabelEntry", header: "TDocStd_XLink.hxx".}
+proc afterAddition*(this: var TDocStdXLink) {.importcpp: "AfterAddition",
     header: "TDocStd_XLink.hxx".}
-proc BeforeUndo*(this: var TDocStd_XLink; anAttDelta: handle[TDF_AttributeDelta];
-                forceIt: Standard_Boolean = Standard_False): Standard_Boolean {.
-    importcpp: "BeforeUndo", header: "TDocStd_XLink.hxx".}
-proc AfterUndo*(this: var TDocStd_XLink; anAttDelta: handle[TDF_AttributeDelta];
-               forceIt: Standard_Boolean = Standard_False): Standard_Boolean {.
-    importcpp: "AfterUndo", header: "TDocStd_XLink.hxx".}
-proc BackupCopy*(this: TDocStd_XLink): handle[TDF_Attribute] {.noSideEffect,
+proc beforeRemoval*(this: var TDocStdXLink) {.importcpp: "BeforeRemoval",
+    header: "TDocStd_XLink.hxx".}
+proc beforeUndo*(this: var TDocStdXLink; anAttDelta: Handle[TDF_AttributeDelta];
+                forceIt: bool = false): bool {.importcpp: "BeforeUndo",
+    header: "TDocStd_XLink.hxx".}
+proc afterUndo*(this: var TDocStdXLink; anAttDelta: Handle[TDF_AttributeDelta];
+               forceIt: bool = false): bool {.importcpp: "AfterUndo",
+    header: "TDocStd_XLink.hxx".}
+proc backupCopy*(this: TDocStdXLink): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "BackupCopy", header: "TDocStd_XLink.hxx".}
-proc Restore*(this: var TDocStd_XLink; anAttribute: handle[TDF_Attribute]) {.
+proc restore*(this: var TDocStdXLink; anAttribute: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TDocStd_XLink.hxx".}
-proc NewEmpty*(this: TDocStd_XLink): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TDocStdXLink): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TDocStd_XLink.hxx".}
-proc Paste*(this: TDocStd_XLink; intoAttribute: handle[TDF_Attribute];
-           aRelocationTable: handle[TDF_RelocationTable]) {.noSideEffect,
+proc paste*(this: TDocStdXLink; intoAttribute: Handle[TDF_Attribute];
+           aRelocationTable: Handle[TDF_RelocationTable]) {.noSideEffect,
     importcpp: "Paste", header: "TDocStd_XLink.hxx".}
-proc Dump*(this: TDocStd_XLink; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDocStdXLink; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDocStd_XLink.hxx".}
 type
-  TDocStd_XLinkbase_type* = TDF_Attribute
+  TDocStdXLinkbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TDocStd_XLink::get_type_name(@)",
-                              header: "TDocStd_XLink.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDocStd_XLink::get_type_name(@)",
+                            header: "TDocStd_XLink.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDocStd_XLink::get_type_descriptor(@)",
     header: "TDocStd_XLink.hxx".}
-proc DynamicType*(this: TDocStd_XLink): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDocStdXLink): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDocStd_XLink.hxx".}

@@ -14,15 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../IGESData/IGESData_ColorEntity, ../Standard/Standard_Boolean
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESGraph_Color"
 discard "forward decl of IGESGraph_Color"
 type
-  Handle_IGESGraph_Color* = handle[IGESGraph_Color]
+  HandleIGESGraphColor* = Handle[IGESGraphColor]
 
 ## ! defines IGESColor, Type <314> Form <0>
 ## ! in package IGESGraph
@@ -33,35 +29,35 @@ type
 ## ! intensity range.
 
 type
-  IGESGraph_Color* {.importcpp: "IGESGraph_Color", header: "IGESGraph_Color.hxx",
-                    bycopy.} = object of IGESData_ColorEntity
+  IGESGraphColor* {.importcpp: "IGESGraph_Color", header: "IGESGraph_Color.hxx",
+                   bycopy.} = object of IGESDataColorEntity
 
 
-proc constructIGESGraph_Color*(): IGESGraph_Color {.constructor,
+proc constructIGESGraphColor*(): IGESGraphColor {.constructor,
     importcpp: "IGESGraph_Color(@)", header: "IGESGraph_Color.hxx".}
-proc Init*(this: var IGESGraph_Color; red: Standard_Real; green: Standard_Real;
-          blue: Standard_Real; aColorName: handle[TCollection_HAsciiString]) {.
-    importcpp: "Init", header: "IGESGraph_Color.hxx".}
-proc RGBIntensity*(this: IGESGraph_Color; Red: var Standard_Real;
-                  Green: var Standard_Real; Blue: var Standard_Real) {.noSideEffect,
-    importcpp: "RGBIntensity", header: "IGESGraph_Color.hxx".}
-proc CMYIntensity*(this: IGESGraph_Color; Cyan: var Standard_Real;
-                  Magenta: var Standard_Real; Yellow: var Standard_Real) {.
-    noSideEffect, importcpp: "CMYIntensity", header: "IGESGraph_Color.hxx".}
-proc HLSPercentage*(this: IGESGraph_Color; Hue: var Standard_Real;
-                   Lightness: var Standard_Real; Saturation: var Standard_Real) {.
-    noSideEffect, importcpp: "HLSPercentage", header: "IGESGraph_Color.hxx".}
-proc HasColorName*(this: IGESGraph_Color): Standard_Boolean {.noSideEffect,
+proc init*(this: var IGESGraphColor; red: float; green: float; blue: float;
+          aColorName: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
+    header: "IGESGraph_Color.hxx".}
+proc rGBIntensity*(this: IGESGraphColor; red: var float; green: var float;
+                  blue: var float) {.noSideEffect, importcpp: "RGBIntensity",
+                                  header: "IGESGraph_Color.hxx".}
+proc cMYIntensity*(this: IGESGraphColor; cyan: var float; magenta: var float;
+                  yellow: var float) {.noSideEffect, importcpp: "CMYIntensity",
+                                    header: "IGESGraph_Color.hxx".}
+proc hLSPercentage*(this: IGESGraphColor; hue: var float; lightness: var float;
+                   saturation: var float) {.noSideEffect,
+    importcpp: "HLSPercentage", header: "IGESGraph_Color.hxx".}
+proc hasColorName*(this: IGESGraphColor): bool {.noSideEffect,
     importcpp: "HasColorName", header: "IGESGraph_Color.hxx".}
-proc ColorName*(this: IGESGraph_Color): handle[TCollection_HAsciiString] {.
+proc colorName*(this: IGESGraphColor): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "ColorName", header: "IGESGraph_Color.hxx".}
 type
-  IGESGraph_Colorbase_type* = IGESData_ColorEntity
+  IGESGraphColorbaseType* = IGESDataColorEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESGraph_Color::get_type_name(@)",
-                              header: "IGESGraph_Color.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESGraph_Color::get_type_name(@)",
+                            header: "IGESGraph_Color.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESGraph_Color::get_type_descriptor(@)",
     header: "IGESGraph_Color.hxx".}
-proc DynamicType*(this: IGESGraph_Color): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IGESGraphColor): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGraph_Color.hxx".}

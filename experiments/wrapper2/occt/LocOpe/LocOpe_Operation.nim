@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  LocOpe_Operation* {.size: sizeof(cint), importcpp: "LocOpe_Operation",
-                     header: "LocOpe_Operation.hxx".} = enum
-    LocOpe_FUSE, LocOpe_CUT, LocOpe_INVALID
+  LocOpeOperation* {.size: sizeof(cint), importcpp: "LocOpe_Operation",
+                    header: "LocOpe_Operation.hxx".} = enum
+    LocOpeFUSE, LocOpeCUT, LocOpeINVALID
+
 

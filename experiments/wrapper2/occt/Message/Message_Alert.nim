@@ -13,13 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Type
-
 discard "forward decl of Message_Alert"
 discard "forward decl of Message_Alert"
 type
-  Handle_Message_Alert* = handle[Message_Alert]
+  HandleMessageAlert* = Handle[MessageAlert]
 
 ## ! Base class of the hierarchy of classes describing various situations
 ## ! occurring during execution of some algorithm or procedure.
@@ -35,87 +32,88 @@ type
 ## !
 
 type
-  Message_Alert* {.importcpp: "Message_Alert", header: "Message_Alert.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                          ## !
-                                                                                                          ## Return
-                                                                                                          ## a
-                                                                                                          ## C
-                                                                                                          ## string
-                                                                                                          ## to
-                                                                                                          ## be
-                                                                                                          ## used
-                                                                                                          ## as
-                                                                                                          ## a
-                                                                                                          ## key
-                                                                                                          ## for
-                                                                                                          ## generating
-                                                                                                          ## text
-                                                                                                          ## user
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## messages
-                                                                                                          ## describing
-                                                                                                          ## this
-                                                                                                          ## alert.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## The
-                                                                                                          ## messages
-                                                                                                          ## are
-                                                                                                          ## generated
-                                                                                                          ## with
-                                                                                                          ## help
-                                                                                                          ## of
-                                                                                                          ## Message_Msg
-                                                                                                          ## class,
-                                                                                                          ## in
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Message_Report::Dump().
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Base
-                                                                                                          ## implementation
-                                                                                                          ## returns
-                                                                                                          ## dynamic
-                                                                                                          ## type
-                                                                                                          ## name
-                                                                                                          ## of
-                                                                                                          ## the
-                                                                                                          ## instance.
+  MessageAlert* {.importcpp: "Message_Alert", header: "Message_Alert.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                        ## !
+                                                                                                        ## Return
+                                                                                                        ## a
+                                                                                                        ## C
+                                                                                                        ## string
+                                                                                                        ## to
+                                                                                                        ## be
+                                                                                                        ## used
+                                                                                                        ## as
+                                                                                                        ## a
+                                                                                                        ## key
+                                                                                                        ## for
+                                                                                                        ## generating
+                                                                                                        ## text
+                                                                                                        ## user
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## messages
+                                                                                                        ## describing
+                                                                                                        ## this
+                                                                                                        ## alert.
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## The
+                                                                                                        ## messages
+                                                                                                        ## are
+                                                                                                        ## generated
+                                                                                                        ## with
+                                                                                                        ## help
+                                                                                                        ## of
+                                                                                                        ## Message_Msg
+                                                                                                        ## class,
+                                                                                                        ## in
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## Message_Report::Dump().
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## Base
+                                                                                                        ## implementation
+                                                                                                        ## returns
+                                                                                                        ## dynamic
+                                                                                                        ## type
+                                                                                                        ## name
+                                                                                                        ## of
+                                                                                                        ## the
+                                                                                                        ## instance.
 
 
-proc GetMessageKey*(this: Message_Alert): Standard_CString {.noSideEffect,
+proc getMessageKey*(this: MessageAlert): StandardCString {.noSideEffect,
     importcpp: "GetMessageKey", header: "Message_Alert.hxx".}
-proc SupportsMerge*(this: Message_Alert): Standard_Boolean {.noSideEffect,
+proc supportsMerge*(this: MessageAlert): bool {.noSideEffect,
     importcpp: "SupportsMerge", header: "Message_Alert.hxx".}
-proc Merge*(this: var Message_Alert; theTarget: handle[Message_Alert]): Standard_Boolean {.
+proc merge*(this: var MessageAlert; theTarget: Handle[MessageAlert]): bool {.
     importcpp: "Merge", header: "Message_Alert.hxx".}
-proc DumpJson*(this: Message_Alert; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Message_Alert.hxx".}
+proc dumpJson*(this: MessageAlert; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Message_Alert.hxx".}
 type
-  Message_Alertbase_type* = Standard_Transient
+  MessageAlertbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Message_Alert::get_type_name(@)",
-                              header: "Message_Alert.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
-    importcpp: "Message_Alert::get_type_descriptor(@)",
-    header: "Message_Alert.hxx".}
-proc DynamicType*(this: Message_Alert): handle[Standard_Type] {.noSideEffect,
+# proc getTypeName*(): cstring {.importcpp: "Message_Alert::get_type_name(@)",
+#                             header: "Message_Alert.hxx".}
+# proc getTypeDescriptor*(): Handle[StandardType] {.
+#     importcpp: "Message_Alert::get_type_descriptor(@)",
+#     header: "Message_Alert.hxx".}
+proc dynamicType*(this: MessageAlert): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Message_Alert.hxx".}
 ## ! Macro allowing to define simple alert (without data) in single line of code
 
-template DEFINE_SIMPLE_ALERT*(Alert: untyped): void =
+template define_Simple_Alert*(alert: untyped): void =
   type
-    Alert* {.importcpp: "Alert", header: "Message_Alert.hxx", bycopy.} = object of Message_Alert
+    Alert* {.importcpp: "Alert", header: "Message_Alert.hxx", bycopy.} = object of MessageAlert
 
   type
-    Alertbase_type* = Message_Alert
-  proc get_type_name*(): cstring {.importcpp: "Alert::get_type_name(@)",
-                                header: "Message_Alert.hxx".}
-  proc get_type_descriptor*(): handle[Standard_Type] {.
+    AlertbaseType* = MessageAlert
+  proc getTypeName*(): cstring {.importcpp: "Alert::get_type_name(@)",
+                              header: "Message_Alert.hxx".}
+  proc getTypeDescriptor*(): Handle[StandardType] {.
       importcpp: "Alert::get_type_descriptor(@)", header: "Message_Alert.hxx".}
-  proc DynamicType*(this: Alert): handle[Standard_Type] {.noSideEffect,
+  proc dynamicType*(this: Alert): Handle[StandardType] {.noSideEffect,
       importcpp: "DynamicType", header: "Message_Alert.hxx".}
   
+

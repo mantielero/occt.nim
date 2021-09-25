@@ -14,24 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GeomToStep_Root
-
 discard "forward decl of StepGeom_Hyperbola"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom2d_Hyperbola"
 discard "forward decl of Geom_Hyperbola"
 type
-  GeomToStep_MakeHyperbola* {.importcpp: "GeomToStep_MakeHyperbola",
-                             header: "GeomToStep_MakeHyperbola.hxx", bycopy.} = object of GeomToStep_Root
+  GeomToStepMakeHyperbola* {.importcpp: "GeomToStep_MakeHyperbola",
+                            header: "GeomToStep_MakeHyperbola.hxx", bycopy.} = object of GeomToStepRoot
 
 
-proc constructGeomToStep_MakeHyperbola*(C: handle[Geom2d_Hyperbola]): GeomToStep_MakeHyperbola {.
+proc constructGeomToStepMakeHyperbola*(c: Handle[Geom2dHyperbola]): GeomToStepMakeHyperbola {.
     constructor, importcpp: "GeomToStep_MakeHyperbola(@)",
     header: "GeomToStep_MakeHyperbola.hxx".}
-proc constructGeomToStep_MakeHyperbola*(C: handle[Geom_Hyperbola]): GeomToStep_MakeHyperbola {.
+proc constructGeomToStepMakeHyperbola*(c: Handle[GeomHyperbola]): GeomToStepMakeHyperbola {.
     constructor, importcpp: "GeomToStep_MakeHyperbola(@)",
     header: "GeomToStep_MakeHyperbola.hxx".}
-proc Value*(this: GeomToStep_MakeHyperbola): handle[StepGeom_Hyperbola] {.
+proc value*(this: GeomToStepMakeHyperbola): Handle[StepGeomHyperbola] {.
     noSideEffect, importcpp: "Value", header: "GeomToStep_MakeHyperbola.hxx".}

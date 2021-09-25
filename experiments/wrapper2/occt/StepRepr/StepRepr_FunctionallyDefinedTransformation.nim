@@ -14,48 +14,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_FunctionallyDefinedTransformation"
 discard "forward decl of StepRepr_FunctionallyDefinedTransformation"
 type
-  Handle_StepRepr_FunctionallyDefinedTransformation* = handle[
-      StepRepr_FunctionallyDefinedTransformation]
-  StepRepr_FunctionallyDefinedTransformation* {.
+  HandleStepReprFunctionallyDefinedTransformation* = Handle[
+      StepReprFunctionallyDefinedTransformation]
+  StepReprFunctionallyDefinedTransformation* {.
       importcpp: "StepRepr_FunctionallyDefinedTransformation",
-      header: "StepRepr_FunctionallyDefinedTransformation.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                 ## !
-                                                                                                 ## Returns
-                                                                                                 ## a
-                                                                                                 ## FunctionallyDefinedTransformation
+      header: "StepRepr_FunctionallyDefinedTransformation.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                ## !
+                                                                                                ## Returns
+                                                                                                ## a
+                                                                                                ## FunctionallyDefinedTransformation
 
 
-proc constructStepRepr_FunctionallyDefinedTransformation*(): StepRepr_FunctionallyDefinedTransformation {.
+proc constructStepReprFunctionallyDefinedTransformation*(): StepReprFunctionallyDefinedTransformation {.
     constructor, importcpp: "StepRepr_FunctionallyDefinedTransformation(@)",
     header: "StepRepr_FunctionallyDefinedTransformation.hxx".}
-proc Init*(this: var StepRepr_FunctionallyDefinedTransformation;
-          aName: handle[TCollection_HAsciiString];
-          aDescription: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepReprFunctionallyDefinedTransformation;
+          aName: Handle[TCollectionHAsciiString];
+          aDescription: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepRepr_FunctionallyDefinedTransformation.hxx".}
-proc SetName*(this: var StepRepr_FunctionallyDefinedTransformation;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepReprFunctionallyDefinedTransformation;
+             aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepRepr_FunctionallyDefinedTransformation.hxx".}
-proc Name*(this: StepRepr_FunctionallyDefinedTransformation): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Name", header: "StepRepr_FunctionallyDefinedTransformation.hxx".}
-proc SetDescription*(this: var StepRepr_FunctionallyDefinedTransformation;
-                    aDescription: handle[TCollection_HAsciiString]) {.
+proc name*(this: StepReprFunctionallyDefinedTransformation): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Name", header: "StepRepr_FunctionallyDefinedTransformation.hxx".}
+proc setDescription*(this: var StepReprFunctionallyDefinedTransformation;
+                    aDescription: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription",
     header: "StepRepr_FunctionallyDefinedTransformation.hxx".}
-proc Description*(this: StepRepr_FunctionallyDefinedTransformation): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description", header: "StepRepr_FunctionallyDefinedTransformation.hxx".}
+proc description*(this: StepReprFunctionallyDefinedTransformation): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Description", header: "StepRepr_FunctionallyDefinedTransformation.hxx".}
 type
-  StepRepr_FunctionallyDefinedTransformationbase_type* = Standard_Transient
+  StepReprFunctionallyDefinedTransformationbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_FunctionallyDefinedTransformation::get_type_name(@)", header: "StepRepr_FunctionallyDefinedTransformation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepRepr_FunctionallyDefinedTransformation::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepRepr_FunctionallyDefinedTransformation::get_type_name(@)", header: "StepRepr_FunctionallyDefinedTransformation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_FunctionallyDefinedTransformation::get_type_descriptor(@)",
     header: "StepRepr_FunctionallyDefinedTransformation.hxx".}
-proc DynamicType*(this: StepRepr_FunctionallyDefinedTransformation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepRepr_FunctionallyDefinedTransformation.hxx".}
+proc dynamicType*(this: StepReprFunctionallyDefinedTransformation): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepRepr_FunctionallyDefinedTransformation.hxx".}

@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Pressure_HeaderFile [NewLine] # _Quantity_Pressure_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the force perpendicular to a
+## !!!Ignored construct:  # _Quantity_Pressure_HeaderFile [NewLine] # _Quantity_Pressure_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the force perpendicular to a
 ## ! unit area. In a fluid it is defined as the product
 ## ! of the depth, density, and free fall acceleration.
 ## ! It is measured in pascals (newtons per square metre). Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Pressure ;
 ## Error: expected ';'!!!
+

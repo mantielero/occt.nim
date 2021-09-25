@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 ## ! This class provides options closure management.
 
 type
@@ -25,13 +20,13 @@ type
                     bycopy.} = object ## ! Creates an objet with all modes set to <aMode>.
 
 
-proc constructTDF_ClosureMode*(aMode: Standard_Boolean = Standard_True): TDF_ClosureMode {.
-    constructor, importcpp: "TDF_ClosureMode(@)", header: "TDF_ClosureMode.hxx".}
-proc Descendants*(this: var TDF_ClosureMode; aStatus: Standard_Boolean) {.
+proc constructTDF_ClosureMode*(aMode: bool = true): TDF_ClosureMode {.constructor,
+    importcpp: "TDF_ClosureMode(@)", header: "TDF_ClosureMode.hxx".}
+proc descendants*(this: var TDF_ClosureMode; aStatus: bool) {.
     importcpp: "Descendants", header: "TDF_ClosureMode.hxx".}
-proc Descendants*(this: TDF_ClosureMode): Standard_Boolean {.noSideEffect,
+proc descendants*(this: TDF_ClosureMode): bool {.noSideEffect,
     importcpp: "Descendants", header: "TDF_ClosureMode.hxx".}
-proc References*(this: var TDF_ClosureMode; aStatus: Standard_Boolean) {.
-    importcpp: "References", header: "TDF_ClosureMode.hxx".}
-proc References*(this: TDF_ClosureMode): Standard_Boolean {.noSideEffect,
+proc references*(this: var TDF_ClosureMode; aStatus: bool) {.importcpp: "References",
+    header: "TDF_ClosureMode.hxx".}
+proc references*(this: TDF_ClosureMode): bool {.noSideEffect,
     importcpp: "References", header: "TDF_ClosureMode.hxx".}

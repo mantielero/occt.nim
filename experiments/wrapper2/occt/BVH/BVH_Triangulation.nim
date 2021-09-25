@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  BVH_PrimitiveSet
-
 ## ! Triangulation as an example of BVH primitive set.
 ## ! \tparam T Numeric data type
 ## ! \tparam N Vector dimension
@@ -26,8 +23,8 @@ type
       T, N]                    ## ! Creates empty triangulation.
           ## ! Array of vertex coordinates.
           ## ! Returns total number of triangles.
-    BVH* {.importc: "BVH".}: typename
-    Elements* {.importc: "Elements".}: BVH_Array4i
+    bvh* {.importc: "BVH".}: Typename
+    elements* {.importc: "Elements".}: BVH_Array4i
 
   BVH_TriangulationBVH_VecNt*[T; N] = Type[T, N]
 
@@ -35,7 +32,7 @@ proc constructBVH_Triangulation*[T; N: static[cint]](): BVH_Triangulation[T, N] 
     constructor, importcpp: "BVH_Triangulation<\'*0,\'*1>(@)",
     header: "BVH_Triangulation.hxx".}
 proc constructBVH_Triangulation*[T; N: static[cint]](
-    theBuilder: handle[BVH_Builder[T, N]]): BVH_Triangulation[T, N] {.constructor,
+    theBuilder: Handle[BVH_Builder[T, N]]): BVH_Triangulation[T, N] {.constructor,
     importcpp: "BVH_Triangulation<\'*0,\'*1>(@)", header: "BVH_Triangulation.hxx".}
 proc destroyBVH_Triangulation*[T; N: static[cint]](
     this: var BVH_Triangulation[T, N]) {.importcpp: "#.~BVH_Triangulation()",
@@ -43,18 +40,15 @@ proc destroyBVH_Triangulation*[T; N: static[cint]](
 ## !!!Ignored construct:  :: ArrayType < T , N > :: Type Vertices ;
 ## Error: identifier expected, but got: ::!!!
 
-proc Size*[T; N: static[cint]](this: BVH_Triangulation[T, N]): Standard_Integer {.
-    noSideEffect, importcpp: "Size", header: "BVH_Triangulation.hxx".}
+proc size*[T; N: static[cint]](this: BVH_Triangulation[T, N]): int {.noSideEffect,
+    importcpp: "Size", header: "BVH_Triangulation.hxx".}
 ## using statement
 
-proc Box*[T; N: static[cint]](this: BVH_Triangulation[T, N];
-                           theIndex: Standard_Integer): BVH_Box[T, N] {.
+proc box*[T; N: static[cint]](this: BVH_Triangulation[T, N]; theIndex: int): BVH_Box[T, N] {.
     noSideEffect, importcpp: "Box", header: "BVH_Triangulation.hxx".}
-proc Center*[T; N: static[cint]](this: BVH_Triangulation[T, N];
-                              theIndex: Standard_Integer;
-                              theAxis: Standard_Integer): T {.noSideEffect,
-    importcpp: "Center", header: "BVH_Triangulation.hxx".}
-proc Swap*[T; N: static[cint]](this: var BVH_Triangulation[T, N];
-                            theIndex1: Standard_Integer;
-                            theIndex2: Standard_Integer) {.importcpp: "Swap",
+proc center*[T; N: static[cint]](this: BVH_Triangulation[T, N]; theIndex: int;
+                              theAxis: int): T {.noSideEffect, importcpp: "Center",
+    header: "BVH_Triangulation.hxx".}
+proc swap*[T; N: static[cint]](this: var BVH_Triangulation[T, N]; theIndex1: int;
+                            theIndex2: int) {.importcpp: "Swap",
     header: "BVH_Triangulation.hxx".}

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../TDF/TDF_Attribute
-
 discard "forward decl of Draw_Drawable3D"
 discard "forward decl of TDF_Label"
 discard "forward decl of Standard_GUID"
@@ -27,81 +23,77 @@ discard "forward decl of TDF_AttributeDelta"
 discard "forward decl of DDataStd_DrawPresentation"
 discard "forward decl of DDataStd_DrawPresentation"
 type
-  Handle_DDataStd_DrawPresentation* = handle[DDataStd_DrawPresentation]
+  HandleDDataStdDrawPresentation* = Handle[DDataStdDrawPresentation]
 
 ## ! draw presentaion of a label of a document
 
 type
-  DDataStd_DrawPresentation* {.importcpp: "DDataStd_DrawPresentation",
-                              header: "DDataStd_DrawPresentation.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                                   ## !
-                                                                                                   ## api
-                                                                                                   ## methods
-                                                                                                   ## on
-                                                                                                   ## draw
-                                                                                                   ## presentation
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## ================================
+  DDataStdDrawPresentation* {.importcpp: "DDataStd_DrawPresentation",
+                             header: "DDataStd_DrawPresentation.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                                  ## !
+                                                                                                  ## api
+                                                                                                  ## methods
+                                                                                                  ## on
+                                                                                                  ## draw
+                                                                                                  ## presentation
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## ================================
 
 
-proc HasPresentation*(L: TDF_Label): Standard_Boolean {.
-    importcpp: "DDataStd_DrawPresentation::HasPresentation(@)",
-    header: "DDataStd_DrawPresentation.hxx".}
-proc IsDisplayed*(L: TDF_Label): Standard_Boolean {.
-    importcpp: "DDataStd_DrawPresentation::IsDisplayed(@)",
-    header: "DDataStd_DrawPresentation.hxx".}
-proc Display*(L: TDF_Label) {.importcpp: "DDataStd_DrawPresentation::Display(@)",
+proc hasPresentation*(L: TDF_Label): bool {.importcpp: "DDataStd_DrawPresentation::HasPresentation(@)",
+                                        header: "DDataStd_DrawPresentation.hxx".}
+proc isDisplayed*(L: TDF_Label): bool {.importcpp: "DDataStd_DrawPresentation::IsDisplayed(@)",
+                                    header: "DDataStd_DrawPresentation.hxx".}
+proc display*(L: TDF_Label) {.importcpp: "DDataStd_DrawPresentation::Display(@)",
                            header: "DDataStd_DrawPresentation.hxx".}
-proc Erase*(L: TDF_Label) {.importcpp: "DDataStd_DrawPresentation::Erase(@)",
+proc erase*(L: TDF_Label) {.importcpp: "DDataStd_DrawPresentation::Erase(@)",
                          header: "DDataStd_DrawPresentation.hxx".}
-proc Update*(L: TDF_Label) {.importcpp: "DDataStd_DrawPresentation::Update(@)",
+proc update*(L: TDF_Label) {.importcpp: "DDataStd_DrawPresentation::Update(@)",
                           header: "DDataStd_DrawPresentation.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "DDataStd_DrawPresentation::GetID(@)",
-                            header: "DDataStd_DrawPresentation.hxx".}
-proc constructDDataStd_DrawPresentation*(): DDataStd_DrawPresentation {.
-    constructor, importcpp: "DDataStd_DrawPresentation(@)",
+proc getID*(): StandardGUID {.importcpp: "DDataStd_DrawPresentation::GetID(@)",
+                           header: "DDataStd_DrawPresentation.hxx".}
+proc constructDDataStdDrawPresentation*(): DDataStdDrawPresentation {.constructor,
+    importcpp: "DDataStd_DrawPresentation(@)",
     header: "DDataStd_DrawPresentation.hxx".}
-proc SetDisplayed*(this: var DDataStd_DrawPresentation; status: Standard_Boolean) {.
+proc setDisplayed*(this: var DDataStdDrawPresentation; status: bool) {.
     importcpp: "SetDisplayed", header: "DDataStd_DrawPresentation.hxx".}
-proc IsDisplayed*(this: DDataStd_DrawPresentation): Standard_Boolean {.noSideEffect,
+proc isDisplayed*(this: DDataStdDrawPresentation): bool {.noSideEffect,
     importcpp: "IsDisplayed", header: "DDataStd_DrawPresentation.hxx".}
-proc SetDrawable*(this: var DDataStd_DrawPresentation; D: handle[Draw_Drawable3D]) {.
+proc setDrawable*(this: var DDataStdDrawPresentation; d: Handle[DrawDrawable3D]) {.
     importcpp: "SetDrawable", header: "DDataStd_DrawPresentation.hxx".}
-proc GetDrawable*(this: DDataStd_DrawPresentation): handle[Draw_Drawable3D] {.
+proc getDrawable*(this: DDataStdDrawPresentation): Handle[DrawDrawable3D] {.
     noSideEffect, importcpp: "GetDrawable", header: "DDataStd_DrawPresentation.hxx".}
-proc ID*(this: DDataStd_DrawPresentation): Standard_GUID {.noSideEffect,
+proc id*(this: DDataStdDrawPresentation): StandardGUID {.noSideEffect,
     importcpp: "ID", header: "DDataStd_DrawPresentation.hxx".}
-proc NewEmpty*(this: DDataStd_DrawPresentation): handle[TDF_Attribute] {.
+proc newEmpty*(this: DDataStdDrawPresentation): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty", header: "DDataStd_DrawPresentation.hxx".}
-proc Restore*(this: var DDataStd_DrawPresentation; with: handle[TDF_Attribute]) {.
+proc restore*(this: var DDataStdDrawPresentation; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "DDataStd_DrawPresentation.hxx".}
-proc Paste*(this: DDataStd_DrawPresentation; into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: DDataStdDrawPresentation; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "DDataStd_DrawPresentation.hxx".}
-proc AfterAddition*(this: var DDataStd_DrawPresentation) {.
+proc afterAddition*(this: var DDataStdDrawPresentation) {.
     importcpp: "AfterAddition", header: "DDataStd_DrawPresentation.hxx".}
-proc BeforeRemoval*(this: var DDataStd_DrawPresentation) {.
+proc beforeRemoval*(this: var DDataStdDrawPresentation) {.
     importcpp: "BeforeRemoval", header: "DDataStd_DrawPresentation.hxx".}
-proc BeforeForget*(this: var DDataStd_DrawPresentation) {.importcpp: "BeforeForget",
+proc beforeForget*(this: var DDataStdDrawPresentation) {.importcpp: "BeforeForget",
     header: "DDataStd_DrawPresentation.hxx".}
-proc AfterResume*(this: var DDataStd_DrawPresentation) {.importcpp: "AfterResume",
+proc afterResume*(this: var DDataStdDrawPresentation) {.importcpp: "AfterResume",
     header: "DDataStd_DrawPresentation.hxx".}
-proc BeforeUndo*(this: var DDataStd_DrawPresentation;
-                anAttDelta: handle[TDF_AttributeDelta];
-                forceIt: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc beforeUndo*(this: var DDataStdDrawPresentation;
+                anAttDelta: Handle[TDF_AttributeDelta]; forceIt: bool = false): bool {.
     importcpp: "BeforeUndo", header: "DDataStd_DrawPresentation.hxx".}
-proc AfterUndo*(this: var DDataStd_DrawPresentation;
-               anAttDelta: handle[TDF_AttributeDelta];
-               forceIt: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc afterUndo*(this: var DDataStdDrawPresentation;
+               anAttDelta: Handle[TDF_AttributeDelta]; forceIt: bool = false): bool {.
     importcpp: "AfterUndo", header: "DDataStd_DrawPresentation.hxx".}
 type
-  DDataStd_DrawPresentationbase_type* = TDF_Attribute
+  DDataStdDrawPresentationbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "DDataStd_DrawPresentation::get_type_name(@)",
-                              header: "DDataStd_DrawPresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "DDataStd_DrawPresentation::get_type_name(@)",
+                            header: "DDataStd_DrawPresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "DDataStd_DrawPresentation::get_type_descriptor(@)",
     header: "DDataStd_DrawPresentation.hxx".}
-proc DynamicType*(this: DDataStd_DrawPresentation): handle[Standard_Type] {.
+proc dynamicType*(this: DDataStdDrawPresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "DDataStd_DrawPresentation.hxx".}

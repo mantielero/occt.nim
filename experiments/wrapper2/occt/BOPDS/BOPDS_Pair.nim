@@ -12,10 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 ## ! The class is to provide the pair of indices of interfering shapes.
 
 type
@@ -24,19 +20,17 @@ type
 
 proc constructBOPDS_Pair*(): BOPDS_Pair {.constructor, importcpp: "BOPDS_Pair(@)",
                                        header: "BOPDS_Pair.hxx".}
-proc constructBOPDS_Pair*(theIndex1: Standard_Integer; theIndex2: Standard_Integer): BOPDS_Pair {.
-    constructor, importcpp: "BOPDS_Pair(@)", header: "BOPDS_Pair.hxx".}
+proc constructBOPDS_Pair*(theIndex1: int; theIndex2: int): BOPDS_Pair {.constructor,
+    importcpp: "BOPDS_Pair(@)", header: "BOPDS_Pair.hxx".}
 proc destroyBOPDS_Pair*(this: var BOPDS_Pair) {.importcpp: "#.~BOPDS_Pair()",
     header: "BOPDS_Pair.hxx".}
-proc SetIndices*(this: var BOPDS_Pair; theIndex1: Standard_Integer;
-                theIndex2: Standard_Integer) {.importcpp: "SetIndices",
-    header: "BOPDS_Pair.hxx".}
-proc Indices*(this: BOPDS_Pair; theIndex1: var Standard_Integer;
-             theIndex2: var Standard_Integer) {.noSideEffect, importcpp: "Indices",
-    header: "BOPDS_Pair.hxx".}
-proc `<`*(this: BOPDS_Pair; theOther: BOPDS_Pair): Standard_Boolean {.noSideEffect,
+proc setIndices*(this: var BOPDS_Pair; theIndex1: int; theIndex2: int) {.
+    importcpp: "SetIndices", header: "BOPDS_Pair.hxx".}
+proc indices*(this: BOPDS_Pair; theIndex1: var int; theIndex2: var int) {.noSideEffect,
+    importcpp: "Indices", header: "BOPDS_Pair.hxx".}
+proc `<`*(this: BOPDS_Pair; theOther: BOPDS_Pair): bool {.noSideEffect,
     importcpp: "(# < #)", header: "BOPDS_Pair.hxx".}
-proc IsEqual*(this: BOPDS_Pair; theOther: BOPDS_Pair): Standard_Boolean {.
-    noSideEffect, importcpp: "IsEqual", header: "BOPDS_Pair.hxx".}
-proc HashCode*(this: BOPDS_Pair; theUpperBound: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "HashCode", header: "BOPDS_Pair.hxx".}
+proc isEqual*(this: BOPDS_Pair; theOther: BOPDS_Pair): bool {.noSideEffect,
+    importcpp: "IsEqual", header: "BOPDS_Pair.hxx".}
+proc hashCode*(this: BOPDS_Pair; theUpperBound: int): int {.noSideEffect,
+    importcpp: "HashCode", header: "BOPDS_Pair.hxx".}

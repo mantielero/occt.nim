@@ -14,26 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of HeaderSection_FileName"
 discard "forward decl of StepData_StepWriter"
 type
-  RWHeaderSection_RWFileName* {.importcpp: "RWHeaderSection_RWFileName",
-                               header: "RWHeaderSection_RWFileName.hxx", bycopy.} = object
+  RWHeaderSectionRWFileName* {.importcpp: "RWHeaderSection_RWFileName",
+                              header: "RWHeaderSection_RWFileName.hxx", bycopy.} = object
 
 
-proc constructRWHeaderSection_RWFileName*(): RWHeaderSection_RWFileName {.
+proc constructRWHeaderSectionRWFileName*(): RWHeaderSectionRWFileName {.
     constructor, importcpp: "RWHeaderSection_RWFileName(@)",
     header: "RWHeaderSection_RWFileName.hxx".}
-proc ReadStep*(this: RWHeaderSection_RWFileName;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check]; ent: handle[HeaderSection_FileName]) {.
+proc readStep*(this: RWHeaderSectionRWFileName;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck]; ent: Handle[HeaderSectionFileName]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWHeaderSection_RWFileName.hxx".}
-proc WriteStep*(this: RWHeaderSection_RWFileName; SW: var StepData_StepWriter;
-               ent: handle[HeaderSection_FileName]) {.noSideEffect,
+proc writeStep*(this: RWHeaderSectionRWFileName; sw: var StepDataStepWriter;
+               ent: Handle[HeaderSectionFileName]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWHeaderSection_RWFileName.hxx".}

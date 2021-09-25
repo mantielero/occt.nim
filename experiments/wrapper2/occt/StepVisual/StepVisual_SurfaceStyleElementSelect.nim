@@ -14,43 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepVisual_SurfaceStyleFillArea"
 discard "forward decl of StepVisual_SurfaceStyleBoundary"
 discard "forward decl of StepVisual_SurfaceStyleParameterLine"
 discard "forward decl of StepVisual_SurfaceStyleRendering"
 type
-  StepVisual_SurfaceStyleElementSelect* {.
-      importcpp: "StepVisual_SurfaceStyleElementSelect",
-      header: "StepVisual_SurfaceStyleElementSelect.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## a
-                                                                                            ## SurfaceStyleElementSelect
-                                                                                            ## SelectType
+  StepVisualSurfaceStyleElementSelect* {.importcpp: "StepVisual_SurfaceStyleElementSelect", header: "StepVisual_SurfaceStyleElementSelect.hxx",
+                                        bycopy.} = object of StepDataSelectType ## !
+                                                                           ## Returns a
+                                                                           ## SurfaceStyleElementSelect
+                                                                           ## SelectType
 
 
-proc constructStepVisual_SurfaceStyleElementSelect*(): StepVisual_SurfaceStyleElementSelect {.
+proc constructStepVisualSurfaceStyleElementSelect*(): StepVisualSurfaceStyleElementSelect {.
     constructor, importcpp: "StepVisual_SurfaceStyleElementSelect(@)",
     header: "StepVisual_SurfaceStyleElementSelect.hxx".}
-proc CaseNum*(this: StepVisual_SurfaceStyleElementSelect;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepVisualSurfaceStyleElementSelect;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepVisual_SurfaceStyleElementSelect.hxx".}
-proc SurfaceStyleFillArea*(this: StepVisual_SurfaceStyleElementSelect): handle[
-    StepVisual_SurfaceStyleFillArea] {.noSideEffect,
-                                      importcpp: "SurfaceStyleFillArea", header: "StepVisual_SurfaceStyleElementSelect.hxx".}
-proc SurfaceStyleBoundary*(this: StepVisual_SurfaceStyleElementSelect): handle[
-    StepVisual_SurfaceStyleBoundary] {.noSideEffect,
-                                      importcpp: "SurfaceStyleBoundary", header: "StepVisual_SurfaceStyleElementSelect.hxx".}
-proc SurfaceStyleParameterLine*(this: StepVisual_SurfaceStyleElementSelect): handle[
-    StepVisual_SurfaceStyleParameterLine] {.noSideEffect,
+proc surfaceStyleFillArea*(this: StepVisualSurfaceStyleElementSelect): Handle[
+    StepVisualSurfaceStyleFillArea] {.noSideEffect,
+                                     importcpp: "SurfaceStyleFillArea", header: "StepVisual_SurfaceStyleElementSelect.hxx".}
+proc surfaceStyleBoundary*(this: StepVisualSurfaceStyleElementSelect): Handle[
+    StepVisualSurfaceStyleBoundary] {.noSideEffect,
+                                     importcpp: "SurfaceStyleBoundary", header: "StepVisual_SurfaceStyleElementSelect.hxx".}
+proc surfaceStyleParameterLine*(this: StepVisualSurfaceStyleElementSelect): Handle[
+    StepVisualSurfaceStyleParameterLine] {.noSideEffect,
     importcpp: "SurfaceStyleParameterLine",
     header: "StepVisual_SurfaceStyleElementSelect.hxx".}
-proc SurfaceStyleRendering*(this: StepVisual_SurfaceStyleElementSelect): handle[
-    StepVisual_SurfaceStyleRendering] {.noSideEffect,
-                                       importcpp: "SurfaceStyleRendering", header: "StepVisual_SurfaceStyleElementSelect.hxx".}
+proc surfaceStyleRendering*(this: StepVisualSurfaceStyleElementSelect): Handle[
+    StepVisualSurfaceStyleRendering] {.noSideEffect,
+                                      importcpp: "SurfaceStyleRendering", header: "StepVisual_SurfaceStyleElementSelect.hxx".}

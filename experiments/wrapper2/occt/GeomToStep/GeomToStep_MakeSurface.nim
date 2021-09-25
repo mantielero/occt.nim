@@ -14,20 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GeomToStep_Root
-
 discard "forward decl of StepGeom_Surface"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom_Surface"
 type
-  GeomToStep_MakeSurface* {.importcpp: "GeomToStep_MakeSurface",
-                           header: "GeomToStep_MakeSurface.hxx", bycopy.} = object of GeomToStep_Root
+  GeomToStepMakeSurface* {.importcpp: "GeomToStep_MakeSurface",
+                          header: "GeomToStep_MakeSurface.hxx", bycopy.} = object of GeomToStepRoot
 
 
-proc constructGeomToStep_MakeSurface*(C: handle[Geom_Surface]): GeomToStep_MakeSurface {.
+proc constructGeomToStepMakeSurface*(c: Handle[GeomSurface]): GeomToStepMakeSurface {.
     constructor, importcpp: "GeomToStep_MakeSurface(@)",
     header: "GeomToStep_MakeSurface.hxx".}
-proc Value*(this: GeomToStep_MakeSurface): handle[StepGeom_Surface] {.noSideEffect,
+proc value*(this: GeomToStepMakeSurface): Handle[StepGeomSurface] {.noSideEffect,
     importcpp: "Value", header: "GeomToStep_MakeSurface.hxx".}

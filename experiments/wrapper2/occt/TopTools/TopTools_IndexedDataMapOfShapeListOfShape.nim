@@ -14,10 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, TopTools_ListOfShape, TopTools_ShapeMapHasher,
-  ../NCollection/NCollection_IndexedDataMap
-
 type
-  TopTools_IndexedDataMapOfShapeListOfShape* = NCollection_IndexedDataMap[
-      TopoDS_Shape, TopTools_ListOfShape, TopTools_ShapeMapHasher]
+  TopToolsIndexedDataMapOfShapeListOfShape* = NCollectionIndexedDataMap[
+      TopoDS_Shape, TopToolsListOfShape, TopToolsShapeMapHasher]
+

@@ -12,16 +12,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IntPolyh_Array, ../gp/gp_Pnt, ../gp/gp_Vec
-
 ## ! Auxiliary structure to represent pair of point and
 ## ! normal vector in this point on the surface.
 
 type
-  IntPolyh_PointNormal* {.importcpp: "IntPolyh_PointNormal",
-                         header: "IntPolyh_ArrayOfPointNormal.hxx", bycopy.} = object
-    Point* {.importc: "Point".}: gp_Pnt
-    Normal* {.importc: "Normal".}: gp_Vec
+  IntPolyhPointNormal* {.importcpp: "IntPolyh_PointNormal",
+                        header: "IntPolyh_ArrayOfPointNormal.hxx", bycopy.} = object
+    point* {.importc: "Point".}: Pnt
+    normal* {.importc: "Normal".}: Vec
 
-  IntPolyh_ArrayOfPointNormal* = IntPolyh_Array[IntPolyh_PointNormal]
+  IntPolyhArrayOfPointNormal* = IntPolyhArray[IntPolyhPointNormal]
+

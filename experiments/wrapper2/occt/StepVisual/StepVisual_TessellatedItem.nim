@@ -13,35 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepGeom/StepGeom_GeometricRepresentationItem
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepVisual_TessellatedItem"
 type
-  Handle_StepVisual_TessellatedItem* = handle[StepVisual_TessellatedItem]
-  StepVisual_TessellatedItem* {.importcpp: "StepVisual_TessellatedItem",
-                               header: "StepVisual_TessellatedItem.hxx", bycopy.} = object of StepGeom_GeometricRepresentationItem ##
-                                                                                                                            ## !
-                                                                                                                            ## Returns
-                                                                                                                            ## a
-                                                                                                                            ## DraughtingCalloutElement
-                                                                                                                            ## select
-                                                                                                                            ## type
+  HandleStepVisualTessellatedItem* = Handle[StepVisualTessellatedItem]
+  StepVisualTessellatedItem* {.importcpp: "StepVisual_TessellatedItem",
+                              header: "StepVisual_TessellatedItem.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
+                                                                                                                          ## !
+                                                                                                                          ## Returns
+                                                                                                                          ## a
+                                                                                                                          ## DraughtingCalloutElement
+                                                                                                                          ## select
+                                                                                                                          ## type
 
 
-proc constructStepVisual_TessellatedItem*(): StepVisual_TessellatedItem {.
+proc constructStepVisualTessellatedItem*(): StepVisualTessellatedItem {.
     constructor, importcpp: "StepVisual_TessellatedItem(@)",
     header: "StepVisual_TessellatedItem.hxx".}
 type
-  StepVisual_TessellatedItembase_type* = StepGeom_GeometricRepresentationItem
+  StepVisualTessellatedItembaseType* = StepGeomGeometricRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_TessellatedItem::get_type_name(@)",
-                              header: "StepVisual_TessellatedItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_TessellatedItem::get_type_name(@)",
+                            header: "StepVisual_TessellatedItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_TessellatedItem::get_type_descriptor(@)",
     header: "StepVisual_TessellatedItem.hxx".}
-proc DynamicType*(this: StepVisual_TessellatedItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualTessellatedItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_TessellatedItem.hxx".}

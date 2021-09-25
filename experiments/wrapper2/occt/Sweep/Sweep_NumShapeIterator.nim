@@ -14,28 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Sweep_NumShape, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../TopAbs/TopAbs_Orientation
-
 discard "forward decl of Standard_NoMoreObject"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Sweep_NumShape"
 type
-  Sweep_NumShapeIterator* {.importcpp: "Sweep_NumShapeIterator",
-                           header: "Sweep_NumShapeIterator.hxx", bycopy.} = object
+  SweepNumShapeIterator* {.importcpp: "Sweep_NumShapeIterator",
+                          header: "Sweep_NumShapeIterator.hxx", bycopy.} = object
 
 
-proc constructSweep_NumShapeIterator*(): Sweep_NumShapeIterator {.constructor,
+proc constructSweepNumShapeIterator*(): SweepNumShapeIterator {.constructor,
     importcpp: "Sweep_NumShapeIterator(@)", header: "Sweep_NumShapeIterator.hxx".}
-proc Init*(this: var Sweep_NumShapeIterator; aShape: Sweep_NumShape) {.
+proc init*(this: var SweepNumShapeIterator; aShape: SweepNumShape) {.
     importcpp: "Init", header: "Sweep_NumShapeIterator.hxx".}
-proc More*(this: Sweep_NumShapeIterator): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "Sweep_NumShapeIterator.hxx".}
-proc Next*(this: var Sweep_NumShapeIterator) {.importcpp: "Next",
+proc more*(this: SweepNumShapeIterator): bool {.noSideEffect, importcpp: "More",
     header: "Sweep_NumShapeIterator.hxx".}
-proc Value*(this: Sweep_NumShapeIterator): Sweep_NumShape {.noSideEffect,
+proc next*(this: var SweepNumShapeIterator) {.importcpp: "Next",
+    header: "Sweep_NumShapeIterator.hxx".}
+proc value*(this: SweepNumShapeIterator): SweepNumShape {.noSideEffect,
     importcpp: "Value", header: "Sweep_NumShapeIterator.hxx".}
-proc Orientation*(this: Sweep_NumShapeIterator): TopAbs_Orientation {.noSideEffect,
+proc orientation*(this: SweepNumShapeIterator): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "Sweep_NumShapeIterator.hxx".}

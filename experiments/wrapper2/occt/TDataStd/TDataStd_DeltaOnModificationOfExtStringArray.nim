@@ -13,24 +13,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_HArray1OfInteger,
-  ../TColStd/TColStd_HArray1OfExtendedString, ../Standard/Standard_Integer,
-  ../TDF/TDF_DeltaOnModification
-
 discard "forward decl of TDataStd_ExtStringArray"
 discard "forward decl of TDataStd_DeltaOnModificationOfExtStringArray"
 discard "forward decl of TDataStd_DeltaOnModificationOfExtStringArray"
 type
-  Handle_TDataStd_DeltaOnModificationOfExtStringArray* = handle[
-      TDataStd_DeltaOnModificationOfExtStringArray]
+  HandleTDataStdDeltaOnModificationOfExtStringArray* = Handle[
+      TDataStdDeltaOnModificationOfExtStringArray]
 
 ## ! This class provides default services for an
 ## ! AttributeDelta on a MODIFICATION action.
 
 type
-  TDataStd_DeltaOnModificationOfExtStringArray* {.
+  TDataStdDeltaOnModificationOfExtStringArray* {.
       importcpp: "TDataStd_DeltaOnModificationOfExtStringArray",
       header: "TDataStd_DeltaOnModificationOfExtStringArray.hxx", bycopy.} = object of TDF_DeltaOnModification ##
                                                                                                         ## !
@@ -39,18 +33,18 @@ type
                                                                                                         ## TDF_DeltaOnModification.
 
 
-proc constructTDataStd_DeltaOnModificationOfExtStringArray*(
-    Arr: handle[TDataStd_ExtStringArray]): TDataStd_DeltaOnModificationOfExtStringArray {.
+proc constructTDataStdDeltaOnModificationOfExtStringArray*(
+    arr: Handle[TDataStdExtStringArray]): TDataStdDeltaOnModificationOfExtStringArray {.
     constructor, importcpp: "TDataStd_DeltaOnModificationOfExtStringArray(@)",
     header: "TDataStd_DeltaOnModificationOfExtStringArray.hxx".}
-proc Apply*(this: var TDataStd_DeltaOnModificationOfExtStringArray) {.
+proc apply*(this: var TDataStdDeltaOnModificationOfExtStringArray) {.
     importcpp: "Apply", header: "TDataStd_DeltaOnModificationOfExtStringArray.hxx".}
 type
-  TDataStd_DeltaOnModificationOfExtStringArraybase_type* = TDF_DeltaOnModification
+  TDataStdDeltaOnModificationOfExtStringArraybaseType* = TDF_DeltaOnModification
 
-proc get_type_name*(): cstring {.importcpp: "TDataStd_DeltaOnModificationOfExtStringArray::get_type_name(@)", header: "TDataStd_DeltaOnModificationOfExtStringArray.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "TDataStd_DeltaOnModificationOfExtStringArray::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "TDataStd_DeltaOnModificationOfExtStringArray::get_type_name(@)", header: "TDataStd_DeltaOnModificationOfExtStringArray.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "TDataStd_DeltaOnModificationOfExtStringArray::get_type_descriptor(@)",
     header: "TDataStd_DeltaOnModificationOfExtStringArray.hxx".}
-proc DynamicType*(this: TDataStd_DeltaOnModificationOfExtStringArray): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "TDataStd_DeltaOnModificationOfExtStringArray.hxx".}
+proc dynamicType*(this: TDataStdDeltaOnModificationOfExtStringArray): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "TDataStd_DeltaOnModificationOfExtStringArray.hxx".}

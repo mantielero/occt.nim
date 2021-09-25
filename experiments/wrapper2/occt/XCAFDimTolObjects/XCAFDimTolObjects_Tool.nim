@@ -13,42 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../XCAFDoc/XCAFDoc_DimTolTool,
-  ../TDocStd/TDocStd_Document, ../Standard/Standard_Boolean,
-  XCAFDimTolObjects_DimensionObjectSequence,
-  XCAFDimTolObjects_GeomToleranceObjectSequence,
-  XCAFDimTolObjects_DatumObjectSequence,
-  XCAFDimTolObjects_DataMapOfToleranceDatum, XCAFDimTolObjects_DatumObject
-
 discard "forward decl of TDocStd_Document"
 discard "forward decl of TopoDS_Shape"
 type
-  XCAFDimTolObjects_Tool* {.importcpp: "XCAFDimTolObjects_Tool",
-                           header: "XCAFDimTolObjects_Tool.hxx", bycopy.} = object
+  XCAFDimTolObjectsTool* {.importcpp: "XCAFDimTolObjects_Tool",
+                          header: "XCAFDimTolObjects_Tool.hxx", bycopy.} = object
 
 
-proc constructXCAFDimTolObjects_Tool*(theDoc: handle[TDocStd_Document]): XCAFDimTolObjects_Tool {.
+proc constructXCAFDimTolObjectsTool*(theDoc: Handle[TDocStdDocument]): XCAFDimTolObjectsTool {.
     constructor, importcpp: "XCAFDimTolObjects_Tool(@)",
     header: "XCAFDimTolObjects_Tool.hxx".}
-proc GetDimensions*(this: XCAFDimTolObjects_Tool; theDimensionObjectSequence: var XCAFDimTolObjects_DimensionObjectSequence) {.
+proc getDimensions*(this: XCAFDimTolObjectsTool; theDimensionObjectSequence: var XCAFDimTolObjectsDimensionObjectSequence) {.
     noSideEffect, importcpp: "GetDimensions", header: "XCAFDimTolObjects_Tool.hxx".}
-proc GetRefDimensions*(this: XCAFDimTolObjects_Tool; theShape: TopoDS_Shape;
-    theDimensions: var XCAFDimTolObjects_DimensionObjectSequence): Standard_Boolean {.
+proc getRefDimensions*(this: XCAFDimTolObjectsTool; theShape: TopoDS_Shape;
+    theDimensions: var XCAFDimTolObjectsDimensionObjectSequence): bool {.
     noSideEffect, importcpp: "GetRefDimensions",
     header: "XCAFDimTolObjects_Tool.hxx".}
-proc GetGeomTolerances*(this: XCAFDimTolObjects_Tool;
-    theGeomToleranceObjectSequence: var XCAFDimTolObjects_GeomToleranceObjectSequence;
-    theDatumObjectSequence: var XCAFDimTolObjects_DatumObjectSequence;
-                       theMap: var XCAFDimTolObjects_DataMapOfToleranceDatum) {.
+proc getGeomTolerances*(this: XCAFDimTolObjectsTool; theGeomToleranceObjectSequence: var XCAFDimTolObjectsGeomToleranceObjectSequence;
+    theDatumObjectSequence: var XCAFDimTolObjectsDatumObjectSequence;
+                       theMap: var XCAFDimTolObjectsDataMapOfToleranceDatum) {.
     noSideEffect, importcpp: "GetGeomTolerances",
     header: "XCAFDimTolObjects_Tool.hxx".}
-proc GetRefGeomTolerances*(this: XCAFDimTolObjects_Tool; theShape: TopoDS_Shape;
-    theGeomToleranceObjectSequence: var XCAFDimTolObjects_GeomToleranceObjectSequence;
-    theDatumObjectSequence: var XCAFDimTolObjects_DatumObjectSequence;
-                          theMap: var XCAFDimTolObjects_DataMapOfToleranceDatum): Standard_Boolean {.
+proc getRefGeomTolerances*(this: XCAFDimTolObjectsTool; theShape: TopoDS_Shape;
+    theGeomToleranceObjectSequence: var XCAFDimTolObjectsGeomToleranceObjectSequence;
+    theDatumObjectSequence: var XCAFDimTolObjectsDatumObjectSequence;
+                          theMap: var XCAFDimTolObjectsDataMapOfToleranceDatum): bool {.
     noSideEffect, importcpp: "GetRefGeomTolerances",
     header: "XCAFDimTolObjects_Tool.hxx".}
-proc GetRefDatum*(this: XCAFDimTolObjects_Tool; theShape: TopoDS_Shape;
-                 theDatum: var handle[XCAFDimTolObjects_DatumObject]): Standard_Boolean {.
+proc getRefDatum*(this: XCAFDimTolObjectsTool; theShape: TopoDS_Shape;
+                 theDatum: var Handle[XCAFDimTolObjectsDatumObject]): bool {.
     noSideEffect, importcpp: "GetRefDatum", header: "XCAFDimTolObjects_Tool.hxx".}

@@ -14,16 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _TopoDS_LockedShape_HeaderFile [NewLine] # _TopoDS_LockedShape_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_DomainError.hxx [NewLine] ! An attempt was made to modify a geometry of Shape already
+## !!!Ignored construct:  # _TopoDS_LockedShape_HeaderFile [NewLine] # _TopoDS_LockedShape_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] ! An attempt was made to modify a geometry of Shape already
 ## ! shared or protected. class TopoDS_LockedShape ;
 ## Error: expected ';'!!!
 
 discard "forward decl of TopoDS_LockedShape"
 type
-  Handle_TopoDS_LockedShapeTopoDS_LockedShape* = handle[TopoDS_LockedShape]
+  HandleTopoDS_LockedShapeTopoDS_LockedShape* = Handle[TopoDS_LockedShape]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_TopoDS_LockedShape [NewLine] # if ( CONDITION ) throw TopoDS_LockedShape ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( TopoDS_LockedShape , Standard_DomainError ) #  _TopoDS_LockedShape_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( TopoDS_LockedShape , Standard_DomainError ) #  _TopoDS_LockedShape_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

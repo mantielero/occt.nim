@@ -17,7 +17,8 @@ type
   MeshVS_EntityType* {.size: sizeof(cint), importcpp: "MeshVS_EntityType",
                       header: "MeshVS_EntityType.hxx".} = enum
     MeshVS_ET_NONE = 0x00, MeshVS_ET_Node = 0x01, MeshVS_ET_0D = 0x02,
-    MeshVS_ET_Link = 0x04, MeshVS_ET_Face = 0x08, MeshVS_ET_Volume = 0x10, MeshVS_ET_Element = MeshVS_ET_0D or
-        MeshVS_ET_Link or MeshVS_ET_Face or MeshVS_ET_Volume,
-    MeshVS_ET_All = MeshVS_ET_Element or MeshVS_ET_Node
+    MeshVS_ET_Link = 0x04, MeshVS_ET_Face = 0x08, MeshVS_ET_Volume = 0x10, MeshVS_ET_Element = meshVS_ET_0D or
+        meshVS_ET_Link or meshVS_ET_Face or meshVS_ET_Volume,
+    MeshVS_ET_All = meshVS_ET_Element or meshVS_ET_Node
+
 

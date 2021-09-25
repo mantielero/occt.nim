@@ -11,10 +11,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_DataMap, ../Standard/Standard_Transient
-
 discard "forward decl of Graphic3d_Aspects"
 type
-  Graphic3d_MapOfAspectsToAspects* = NCollection_DataMap[
-      handle[Graphic3d_Aspects], handle[Graphic3d_Aspects]]
+  Graphic3dMapOfAspectsToAspects* = NCollectionDataMap[Handle[Graphic3dAspects],
+      Handle[Graphic3dAspects]]
+

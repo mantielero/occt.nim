@@ -14,44 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_Curve
-
 discard "forward decl of StepGeom_Surface"
 discard "forward decl of StepRepr_DefinitionalRepresentation"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_Pcurve"
 discard "forward decl of StepGeom_Pcurve"
 type
-  Handle_StepGeom_Pcurve* = handle[StepGeom_Pcurve]
-  StepGeom_Pcurve* {.importcpp: "StepGeom_Pcurve", header: "StepGeom_Pcurve.hxx",
-                    bycopy.} = object of StepGeom_Curve ## ! Returns a Pcurve
+  HandleStepGeomPcurve* = Handle[StepGeomPcurve]
+  StepGeomPcurve* {.importcpp: "StepGeom_Pcurve", header: "StepGeom_Pcurve.hxx",
+                   bycopy.} = object of StepGeomCurve ## ! Returns a Pcurve
 
 
-proc constructStepGeom_Pcurve*(): StepGeom_Pcurve {.constructor,
+proc constructStepGeomPcurve*(): StepGeomPcurve {.constructor,
     importcpp: "StepGeom_Pcurve(@)", header: "StepGeom_Pcurve.hxx".}
-proc Init*(this: var StepGeom_Pcurve; aName: handle[TCollection_HAsciiString];
-          aBasisSurface: handle[StepGeom_Surface];
-          aReferenceToCurve: handle[StepRepr_DefinitionalRepresentation]) {.
+proc init*(this: var StepGeomPcurve; aName: Handle[TCollectionHAsciiString];
+          aBasisSurface: Handle[StepGeomSurface];
+          aReferenceToCurve: Handle[StepReprDefinitionalRepresentation]) {.
     importcpp: "Init", header: "StepGeom_Pcurve.hxx".}
-proc SetBasisSurface*(this: var StepGeom_Pcurve;
-                     aBasisSurface: handle[StepGeom_Surface]) {.
+proc setBasisSurface*(this: var StepGeomPcurve;
+                     aBasisSurface: Handle[StepGeomSurface]) {.
     importcpp: "SetBasisSurface", header: "StepGeom_Pcurve.hxx".}
-proc BasisSurface*(this: StepGeom_Pcurve): handle[StepGeom_Surface] {.noSideEffect,
+proc basisSurface*(this: StepGeomPcurve): Handle[StepGeomSurface] {.noSideEffect,
     importcpp: "BasisSurface", header: "StepGeom_Pcurve.hxx".}
-proc SetReferenceToCurve*(this: var StepGeom_Pcurve; aReferenceToCurve: handle[
-    StepRepr_DefinitionalRepresentation]) {.importcpp: "SetReferenceToCurve",
+proc setReferenceToCurve*(this: var StepGeomPcurve; aReferenceToCurve: Handle[
+    StepReprDefinitionalRepresentation]) {.importcpp: "SetReferenceToCurve",
     header: "StepGeom_Pcurve.hxx".}
-proc ReferenceToCurve*(this: StepGeom_Pcurve): handle[
-    StepRepr_DefinitionalRepresentation] {.noSideEffect,
+proc referenceToCurve*(this: StepGeomPcurve): Handle[
+    StepReprDefinitionalRepresentation] {.noSideEffect,
     importcpp: "ReferenceToCurve", header: "StepGeom_Pcurve.hxx".}
 type
-  StepGeom_Pcurvebase_type* = StepGeom_Curve
+  StepGeomPcurvebaseType* = StepGeomCurve
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_Pcurve::get_type_name(@)",
-                              header: "StepGeom_Pcurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_Pcurve::get_type_name(@)",
+                            header: "StepGeom_Pcurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_Pcurve::get_type_descriptor(@)",
     header: "StepGeom_Pcurve.hxx".}
-proc DynamicType*(this: StepGeom_Pcurve): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepGeomPcurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Pcurve.hxx".}

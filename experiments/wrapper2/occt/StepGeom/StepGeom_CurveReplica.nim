@@ -14,48 +14,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_Curve
-
 discard "forward decl of StepGeom_Curve"
 discard "forward decl of StepGeom_CartesianTransformationOperator"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_CurveReplica"
 discard "forward decl of StepGeom_CurveReplica"
 type
-  Handle_StepGeom_CurveReplica* = handle[StepGeom_CurveReplica]
-  StepGeom_CurveReplica* {.importcpp: "StepGeom_CurveReplica",
-                          header: "StepGeom_CurveReplica.hxx", bycopy.} = object of StepGeom_Curve ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## a
-                                                                                            ## CurveReplica
+  HandleStepGeomCurveReplica* = Handle[StepGeomCurveReplica]
+  StepGeomCurveReplica* {.importcpp: "StepGeom_CurveReplica",
+                         header: "StepGeom_CurveReplica.hxx", bycopy.} = object of StepGeomCurve ##
+                                                                                          ## !
+                                                                                          ## Returns
+                                                                                          ## a
+                                                                                          ## CurveReplica
 
 
-proc constructStepGeom_CurveReplica*(): StepGeom_CurveReplica {.constructor,
+proc constructStepGeomCurveReplica*(): StepGeomCurveReplica {.constructor,
     importcpp: "StepGeom_CurveReplica(@)", header: "StepGeom_CurveReplica.hxx".}
-proc Init*(this: var StepGeom_CurveReplica; aName: handle[TCollection_HAsciiString];
-          aParentCurve: handle[StepGeom_Curve];
-          aTransformation: handle[StepGeom_CartesianTransformationOperator]) {.
+proc init*(this: var StepGeomCurveReplica; aName: Handle[TCollectionHAsciiString];
+          aParentCurve: Handle[StepGeomCurve];
+          aTransformation: Handle[StepGeomCartesianTransformationOperator]) {.
     importcpp: "Init", header: "StepGeom_CurveReplica.hxx".}
-proc SetParentCurve*(this: var StepGeom_CurveReplica;
-                    aParentCurve: handle[StepGeom_Curve]) {.
+proc setParentCurve*(this: var StepGeomCurveReplica;
+                    aParentCurve: Handle[StepGeomCurve]) {.
     importcpp: "SetParentCurve", header: "StepGeom_CurveReplica.hxx".}
-proc ParentCurve*(this: StepGeom_CurveReplica): handle[StepGeom_Curve] {.
-    noSideEffect, importcpp: "ParentCurve", header: "StepGeom_CurveReplica.hxx".}
-proc SetTransformation*(this: var StepGeom_CurveReplica; aTransformation: handle[
-    StepGeom_CartesianTransformationOperator]) {.importcpp: "SetTransformation",
+proc parentCurve*(this: StepGeomCurveReplica): Handle[StepGeomCurve] {.noSideEffect,
+    importcpp: "ParentCurve", header: "StepGeom_CurveReplica.hxx".}
+proc setTransformation*(this: var StepGeomCurveReplica; aTransformation: Handle[
+    StepGeomCartesianTransformationOperator]) {.importcpp: "SetTransformation",
     header: "StepGeom_CurveReplica.hxx".}
-proc Transformation*(this: StepGeom_CurveReplica): handle[
-    StepGeom_CartesianTransformationOperator] {.noSideEffect,
+proc transformation*(this: StepGeomCurveReplica): Handle[
+    StepGeomCartesianTransformationOperator] {.noSideEffect,
     importcpp: "Transformation", header: "StepGeom_CurveReplica.hxx".}
 type
-  StepGeom_CurveReplicabase_type* = StepGeom_Curve
+  StepGeomCurveReplicabaseType* = StepGeomCurve
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_CurveReplica::get_type_name(@)",
-                              header: "StepGeom_CurveReplica.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_CurveReplica::get_type_name(@)",
+                            header: "StepGeom_CurveReplica.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_CurveReplica::get_type_descriptor(@)",
     header: "StepGeom_CurveReplica.hxx".}
-proc DynamicType*(this: StepGeom_CurveReplica): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepGeom_CurveReplica.hxx".}
+proc dynamicType*(this: StepGeomCurveReplica): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepGeom_CurveReplica.hxx".}

@@ -20,14 +20,11 @@
 ## ====        typedef char Standard_Character
 ## ============================================================================
 
-import
-  Standard_TypeDef
-
 ##  ------------------------------------------------------------------
 ##  IsEqual : Returns Standard_True if two characters have the same value
 ##  ------------------------------------------------------------------
 
-proc IsEqual*(One: Standard_Character; Two: Standard_Character): Standard_Boolean =
+proc isEqual*(one: StandardCharacter; two: StandardCharacter): bool =
   discard
 
 ##  ===============================================
@@ -48,56 +45,56 @@ proc IsEqual*(One: Standard_Character; Two: Standard_Character): Standard_Boolea
 ##  IsAlphabetic : Returns Standard_True if a character is alphabetic
 ##  ==================================================================
 
-proc IsAlphabetic*(me: Standard_Character): Standard_Boolean =
+proc isAlphabetic*(me: StandardCharacter): bool =
   discard
 
 ##  ==================================================================
 ##  IsDigit : Returns Standard_True if a character is a digit
 ##  ==================================================================
 
-proc IsDigit*(me: Standard_Character): Standard_Boolean =
+proc isDigit*(me: StandardCharacter): bool =
   discard
 
 ##  ==================================================================
 ##  IsXDigit : Returns Standard_True if a character is a digit
 ##  ==================================================================
 
-proc IsXDigit*(me: Standard_Character): Standard_Boolean =
+proc isXDigit*(me: StandardCharacter): bool =
   discard
 
 ##  ==================================================================
 ##  IsAlphanumeric : Returns Standard_True if a character is alphanumeric
 ##  ==================================================================
 
-proc IsAlphanumeric*(me: Standard_Character): Standard_Boolean =
+proc isAlphanumeric*(me: StandardCharacter): bool =
   discard
 
 ##  ==================================================================
 ##  IsControl : Returns Standard_True if a character  is a control character
 ##  ==================================================================
 
-proc IsControl*(me: Standard_Character): Standard_Boolean =
+proc isControl*(me: StandardCharacter): bool =
   discard
 
 ##  ==================================================================
 ##  IsGraphic : Returns Standard_True if a character is graphic
 ##  ==================================================================
 
-proc IsGraphic*(me: Standard_Character): Standard_Boolean =
+proc isGraphic*(me: StandardCharacter): bool =
   discard
 
 ##  ==================================================================
 ##  IsLowerCase : Returns Standard_True if a character is lowercase
 ##  ==================================================================
 
-proc IsLowerCase*(me: Standard_Character): Standard_Boolean =
+proc isLowerCase*(me: StandardCharacter): bool =
   discard
 
 ##  ==================================================================
 ##  IsPrintable : Returns Standard_True if a character is printable
 ##  ==================================================================
 
-proc IsPrintable*(me: Standard_Character): Standard_Boolean =
+proc isPrintable*(me: StandardCharacter): bool =
   discard
 
 ##  ==================================================================
@@ -105,33 +102,34 @@ proc IsPrintable*(me: Standard_Character): Standard_Boolean =
 ##                  not a alphanumeric character
 ##  ==================================================================
 
-proc IsPunctuation*(me: Standard_Character): Standard_Boolean =
+proc isPunctuation*(me: StandardCharacter): bool =
   discard
 
 ##  ==================================================================
 ##  IsSpace : Returns Standard_True if a character is a space
 ##  ==================================================================
 
-proc IsSpace*(me: Standard_Character): Standard_Boolean =
+proc isSpace*(me: StandardCharacter): bool =
   discard
 
 ##  ==================================================================
 ##  IsUppercase : Returns Standard_True if a character is uppercase
 ##  ==================================================================
 
-proc IsUpperCase*(me: Standard_Character): Standard_Boolean =
+proc isUpperCase*(me: StandardCharacter): bool =
   discard
 
 ##  ==================================================================
 ##  LowerCase : Returns a lowercase character
 ##  ==================================================================
 
-proc LowerCase*(me: Standard_Character): Standard_Character =
+proc lowerCase*(me: StandardCharacter): StandardCharacter =
   discard
 
 ##  ==================================================================
 ##  UpperCase : Returns a uppercase character
 ##  ==================================================================
 
-proc UpperCase*(me: Standard_Character): Standard_Character =
+proc upperCase*(me: StandardCharacter): StandardCharacter =
   discard
+

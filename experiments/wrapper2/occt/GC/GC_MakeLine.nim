@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GC_Root, ../Geom/Geom_Line
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Lin"
@@ -52,17 +48,17 @@ type
                                                                                          ## line.
 
 
-proc constructGC_MakeLine*(A1: gp_Ax1): GC_MakeLine {.constructor,
+proc constructGC_MakeLine*(a1: Ax1): GC_MakeLine {.constructor,
     importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
-proc constructGC_MakeLine*(L: gp_Lin): GC_MakeLine {.constructor,
+proc constructGC_MakeLine*(L: Lin): GC_MakeLine {.constructor,
     importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
-proc constructGC_MakeLine*(P: gp_Pnt; V: gp_Dir): GC_MakeLine {.constructor,
+proc constructGC_MakeLine*(p: Pnt; v: Dir): GC_MakeLine {.constructor,
     importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
-proc constructGC_MakeLine*(Lin: gp_Lin; Point: gp_Pnt): GC_MakeLine {.constructor,
+proc constructGC_MakeLine*(lin: Lin; point: Pnt): GC_MakeLine {.constructor,
     importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
-proc constructGC_MakeLine*(P1: gp_Pnt; P2: gp_Pnt): GC_MakeLine {.constructor,
+proc constructGC_MakeLine*(p1: Pnt; p2: Pnt): GC_MakeLine {.constructor,
     importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
-proc Value*(this: GC_MakeLine): handle[Geom_Line] {.noSideEffect, importcpp: "Value",
+proc value*(this: GC_MakeLine): Handle[GeomLine] {.noSideEffect, importcpp: "Value",
     header: "GC_MakeLine.hxx".}
-converter `constopencascade`*(this: GC_MakeLine): handle[Geom_Line] {.noSideEffect,
+converter `constopencascade`*(this: GC_MakeLine): Handle[GeomLine] {.noSideEffect,
     importcpp: "GC_MakeLine::operator constopencascade", header: "GC_MakeLine.hxx".}

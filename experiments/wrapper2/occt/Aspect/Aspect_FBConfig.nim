@@ -11,14 +11,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-when not defined(_WIN32) and (not defined(__APPLE__) or defined(MACOSX_USE_GLX)) and
-    not defined(__ANDROID__) and not defined(__QNX__) and
-    not defined(__EMSCRIPTEN__):
+when not defined(win32) and (not defined(apple) or defined(macosx_Use_Glx)) and
+    not defined(android) and not defined(qnx) and not defined(emscripten):
   type
-    GLXFBConfig* = ptr __GLXFBConfigRec
-    Aspect_FBConfig* = GLXFBConfig
+    GLXFBConfig* = ptr gLXFBConfigRec
+    AspectFBConfig* = GLXFBConfig
   ##  GLXFBConfig* under UNIX
 else:
   type
-    Aspect_FBConfig* = pointer
+    AspectFBConfig* = pointer
   ##  unused on other systems

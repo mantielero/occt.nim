@@ -11,56 +11,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Transient, ../OSD/OSD_Thread, ../Standard/Standard_Mutex,
-  ../Select3D/Select3D_SensitiveEntity, ../Standard/Standard_Condition,
-  ../Message/Message_Messenger
-
 ## ! Class defining a thread pool for building BVH for the list of Select3D_SensitiveEntity within background thread(s).
 
 type
-  SelectMgr_BVHThreadPool* {.importcpp: "SelectMgr_BVHThreadPool",
-                            header: "SelectMgr_BVHThreadPool.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                    ## !
-                                                                                                    ## Main
-                                                                                                    ## constructor
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Thread
-                                                                                                    ## with
-                                                                                                    ## back
-                                                                                                    ## reference
-                                                                                                    ## to
-                                                                                                    ## thread
-                                                                                                    ## pool
-                                                                                                    ## and
-                                                                                                    ## thread
-                                                                                                    ## mutex
-                                                                                                    ## in
-                                                                                                    ## it.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Queue
-                                                                                                    ## a
-                                                                                                    ## sensitive
-                                                                                                    ## entity
-                                                                                                    ## to
-                                                                                                    ## build
-                                                                                                    ## its
-                                                                                                    ## BVH
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Class
-                                                                                                    ## providing
-                                                                                                    ## a
-                                                                                                    ## simple
-                                                                                                    ## interface
-                                                                                                    ## to
-                                                                                                    ## mutexes
-                                                                                                    ## for
-                                                                                                    ## list
-                                                                                                    ## of
-                                                                                                    ## BVHThread
+  SelectMgrBVHThreadPool* {.importcpp: "SelectMgr_BVHThreadPool",
+                           header: "SelectMgr_BVHThreadPool.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                  ## !
+                                                                                                  ## Main
+                                                                                                  ## constructor
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Thread
+                                                                                                  ## with
+                                                                                                  ## back
+                                                                                                  ## reference
+                                                                                                  ## to
+                                                                                                  ## thread
+                                                                                                  ## pool
+                                                                                                  ## and
+                                                                                                  ## thread
+                                                                                                  ## mutex
+                                                                                                  ## in
+                                                                                                  ## it.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Queue
+                                                                                                  ## a
+                                                                                                  ## sensitive
+                                                                                                  ## entity
+                                                                                                  ## to
+                                                                                                  ## build
+                                                                                                  ## its
+                                                                                                  ## BVH
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Class
+                                                                                                  ## providing
+                                                                                                  ## a
+                                                                                                  ## simple
+                                                                                                  ## interface
+                                                                                                  ## to
+                                                                                                  ## mutexes
+                                                                                                  ## for
+                                                                                                  ## list
+                                                                                                  ## of
+                                                                                                  ## BVHThread
     ## !< list of queued sensitive entities
     ## !< threads to build BVH
     ## !< flag to stop BVH threads
@@ -69,82 +64,81 @@ type
     ## !< raises when BVH list become empty
     ## !< indicates that threads are running
 
-  SelectMgr_BVHThreadPoolbase_type* = Standard_Transient
+  SelectMgrBVHThreadPoolbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "SelectMgr_BVHThreadPool::get_type_name(@)",
-                              header: "SelectMgr_BVHThreadPool.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "SelectMgr_BVHThreadPool::get_type_name(@)",
+                            header: "SelectMgr_BVHThreadPool.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "SelectMgr_BVHThreadPool::get_type_descriptor(@)",
     header: "SelectMgr_BVHThreadPool.hxx".}
-proc DynamicType*(this: SelectMgr_BVHThreadPool): handle[Standard_Type] {.
+proc dynamicType*(this: SelectMgrBVHThreadPool): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "SelectMgr_BVHThreadPool.hxx".}
-proc constructSelectMgr_BVHThreadPool*(theNbThreads: Standard_Integer): SelectMgr_BVHThreadPool {.
+proc constructSelectMgrBVHThreadPool*(theNbThreads: int): SelectMgrBVHThreadPool {.
     constructor, importcpp: "SelectMgr_BVHThreadPool(@)",
     header: "SelectMgr_BVHThreadPool.hxx".}
-proc destroySelectMgr_BVHThreadPool*(this: var SelectMgr_BVHThreadPool) {.
+proc destroySelectMgrBVHThreadPool*(this: var SelectMgrBVHThreadPool) {.
     importcpp: "#.~SelectMgr_BVHThreadPool()",
     header: "SelectMgr_BVHThreadPool.hxx".}
 type
-  SelectMgr_BVHThreadPoolBVHThread* {.importcpp: "SelectMgr_BVHThreadPool::BVHThread",
-                                     header: "SelectMgr_BVHThreadPool.hxx", bycopy.} = object of OSD_Thread ##
-                                                                                                     ## !
-                                                                                                     ## Method
-                                                                                                     ## is
-                                                                                                     ## executed
-                                                                                                     ## in
-                                                                                                     ## the
-                                                                                                     ## context
-                                                                                                     ## of
-                                                                                                     ## thread.
+  SelectMgrBVHThreadPoolBVHThread* {.importcpp: "SelectMgr_BVHThreadPool::BVHThread",
+                                    header: "SelectMgr_BVHThreadPool.hxx", bycopy.} = object of OSD_Thread ##
+                                                                                                    ## !
+                                                                                                    ## Method
+                                                                                                    ## is
+                                                                                                    ## executed
+                                                                                                    ## in
+                                                                                                    ## the
+                                                                                                    ## context
+                                                                                                    ## of
+                                                                                                    ## thread.
 
 
-proc constructSelectMgr_BVHThreadPoolBVHThread*(): SelectMgr_BVHThreadPoolBVHThread {.
+proc constructSelectMgrBVHThreadPoolBVHThread*(): SelectMgrBVHThreadPoolBVHThread {.
     constructor, importcpp: "SelectMgr_BVHThreadPool::BVHThread(@)",
     header: "SelectMgr_BVHThreadPool.hxx".}
-proc BVHMutex*(this: var SelectMgr_BVHThreadPoolBVHThread): var Standard_Mutex {.
+proc bVHMutex*(this: var SelectMgrBVHThreadPoolBVHThread): var StandardMutex {.
     importcpp: "BVHMutex", header: "SelectMgr_BVHThreadPool.hxx".}
-proc Assign*(this: var SelectMgr_BVHThreadPoolBVHThread;
-            theCopy: SelectMgr_BVHThreadPoolBVHThread) {.importcpp: "Assign",
+proc assign*(this: var SelectMgrBVHThreadPoolBVHThread;
+            theCopy: SelectMgrBVHThreadPoolBVHThread) {.importcpp: "Assign",
     header: "SelectMgr_BVHThreadPool.hxx".}
-proc AddEntity*(this: var SelectMgr_BVHThreadPool;
-               theEntity: handle[Select3D_SensitiveEntity]) {.
+proc addEntity*(this: var SelectMgrBVHThreadPool;
+               theEntity: Handle[Select3D_SensitiveEntity]) {.
     importcpp: "AddEntity", header: "SelectMgr_BVHThreadPool.hxx".}
-proc StopThreads*(this: var SelectMgr_BVHThreadPool) {.importcpp: "StopThreads",
+proc stopThreads*(this: var SelectMgrBVHThreadPool) {.importcpp: "StopThreads",
     header: "SelectMgr_BVHThreadPool.hxx".}
-proc WaitThreads*(this: var SelectMgr_BVHThreadPool) {.importcpp: "WaitThreads",
+proc waitThreads*(this: var SelectMgrBVHThreadPool) {.importcpp: "WaitThreads",
     header: "SelectMgr_BVHThreadPool.hxx".}
-proc Threads*(this: var SelectMgr_BVHThreadPool): var NCollection_Array1[
-    SelectMgr_BVHThreadPoolBVHThread] {.importcpp: "Threads",
-                                       header: "SelectMgr_BVHThreadPool.hxx".}
+proc threads*(this: var SelectMgrBVHThreadPool): var NCollectionArray1[
+    SelectMgrBVHThreadPoolBVHThread] {.importcpp: "Threads",
+                                      header: "SelectMgr_BVHThreadPool.hxx".}
 type
-  SelectMgr_BVHThreadPoolSentry* {.importcpp: "SelectMgr_BVHThreadPool::Sentry",
-                                  header: "SelectMgr_BVHThreadPool.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Constructor
-                                                                                      ## -
-                                                                                      ## initializes
-                                                                                      ## the
-                                                                                      ## sentry
-                                                                                      ## object
-                                                                                      ## and
-                                                                                      ## locks
-                                                                                      ## list
-                                                                                      ## of
-                                                                                      ## mutexes
-                                                                                      ## immediately
+  SelectMgrBVHThreadPoolSentry* {.importcpp: "SelectMgr_BVHThreadPool::Sentry",
+                                 header: "SelectMgr_BVHThreadPool.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Constructor
+                                                                                     ## -
+                                                                                     ## initializes
+                                                                                     ## the
+                                                                                     ## sentry
+                                                                                     ## object
+                                                                                     ## and
+                                                                                     ## locks
+                                                                                     ## list
+                                                                                     ## of
+                                                                                     ## mutexes
+                                                                                     ## immediately
 
 
-proc constructSelectMgr_BVHThreadPoolSentry*(
-    thePool: handle[SelectMgr_BVHThreadPool]): SelectMgr_BVHThreadPoolSentry {.
+proc constructSelectMgrBVHThreadPoolSentry*(
+    thePool: Handle[SelectMgrBVHThreadPool]): SelectMgrBVHThreadPoolSentry {.
     constructor, importcpp: "SelectMgr_BVHThreadPool::Sentry(@)",
     header: "SelectMgr_BVHThreadPool.hxx".}
-proc destroySelectMgr_BVHThreadPoolSentry*(
-    this: var SelectMgr_BVHThreadPoolSentry) {.importcpp: "#.~Sentry()",
+proc destroySelectMgrBVHThreadPoolSentry*(this: var SelectMgrBVHThreadPoolSentry) {.
+    importcpp: "#.~Sentry()", header: "SelectMgr_BVHThreadPool.hxx".}
+proc lock*(this: var SelectMgrBVHThreadPoolSentry) {.importcpp: "Lock",
     header: "SelectMgr_BVHThreadPool.hxx".}
-proc Lock*(this: var SelectMgr_BVHThreadPoolSentry) {.importcpp: "Lock",
+proc unlock*(this: var SelectMgrBVHThreadPoolSentry) {.importcpp: "Unlock",
     header: "SelectMgr_BVHThreadPool.hxx".}
-proc Unlock*(this: var SelectMgr_BVHThreadPoolSentry) {.importcpp: "Unlock",
-    header: "SelectMgr_BVHThreadPool.hxx".}
-proc constructSelectMgr_BVHThreadPoolSentry*(a1: SelectMgr_BVHThreadPoolSentry): SelectMgr_BVHThreadPoolSentry {.
+proc constructSelectMgrBVHThreadPoolSentry*(a1: SelectMgrBVHThreadPoolSentry): SelectMgrBVHThreadPoolSentry {.
     constructor, importcpp: "SelectMgr_BVHThreadPool::Sentry(@)",
     header: "SelectMgr_BVHThreadPool.hxx".}

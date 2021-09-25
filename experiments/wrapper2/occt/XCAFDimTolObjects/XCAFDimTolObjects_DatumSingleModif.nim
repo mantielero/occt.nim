@@ -16,27 +16,28 @@
 ## ! Defines modifirs
 
 type
-  XCAFDimTolObjects_DatumSingleModif* {.size: sizeof(cint), importcpp: "XCAFDimTolObjects_DatumSingleModif", header: "XCAFDimTolObjects_DatumSingleModif.hxx".} = enum
-    XCAFDimTolObjects_DatumSingleModif_AnyCrossSection,
-    XCAFDimTolObjects_DatumSingleModif_Any_LongitudinalSection,
-    XCAFDimTolObjects_DatumSingleModif_Basic,
-    XCAFDimTolObjects_DatumSingleModif_ContactingFeature,
-    XCAFDimTolObjects_DatumSingleModif_DegreeOfFreedomConstraintU,
-    XCAFDimTolObjects_DatumSingleModif_DegreeOfFreedomConstraintV,
-    XCAFDimTolObjects_DatumSingleModif_DegreeOfFreedomConstraintW,
-    XCAFDimTolObjects_DatumSingleModif_DegreeOfFreedomConstraintX,
-    XCAFDimTolObjects_DatumSingleModif_DegreeOfFreedomConstraintY,
-    XCAFDimTolObjects_DatumSingleModif_DegreeOfFreedomConstraintZ,
-    XCAFDimTolObjects_DatumSingleModif_DistanceVariable,
-    XCAFDimTolObjects_DatumSingleModif_FreeState,
-    XCAFDimTolObjects_DatumSingleModif_LeastMaterialRequirement,
-    XCAFDimTolObjects_DatumSingleModif_Line,
-    XCAFDimTolObjects_DatumSingleModif_MajorDiameter,
-    XCAFDimTolObjects_DatumSingleModif_MaximumMaterialRequirement,
-    XCAFDimTolObjects_DatumSingleModif_MinorDiameter,
-    XCAFDimTolObjects_DatumSingleModif_Orientation,
-    XCAFDimTolObjects_DatumSingleModif_PitchDiameter,
-    XCAFDimTolObjects_DatumSingleModif_Plane,
-    XCAFDimTolObjects_DatumSingleModif_Point,
-    XCAFDimTolObjects_DatumSingleModif_Translation
+  XCAFDimTolObjectsDatumSingleModif* {.size: sizeof(cint), importcpp: "XCAFDimTolObjects_DatumSingleModif", header: "XCAFDimTolObjects_DatumSingleModif.hxx".} = enum
+    XCAFDimTolObjectsDatumSingleModifAnyCrossSection,
+    XCAFDimTolObjectsDatumSingleModifAnyLongitudinalSection,
+    XCAFDimTolObjectsDatumSingleModifBasic,
+    XCAFDimTolObjectsDatumSingleModifContactingFeature,
+    XCAFDimTolObjectsDatumSingleModifDegreeOfFreedomConstraintU,
+    XCAFDimTolObjectsDatumSingleModifDegreeOfFreedomConstraintV,
+    XCAFDimTolObjectsDatumSingleModifDegreeOfFreedomConstraintW,
+    XCAFDimTolObjectsDatumSingleModifDegreeOfFreedomConstraintX,
+    XCAFDimTolObjectsDatumSingleModifDegreeOfFreedomConstraintY,
+    XCAFDimTolObjectsDatumSingleModifDegreeOfFreedomConstraintZ,
+    XCAFDimTolObjectsDatumSingleModifDistanceVariable,
+    XCAFDimTolObjectsDatumSingleModifFreeState,
+    XCAFDimTolObjectsDatumSingleModifLeastMaterialRequirement,
+    XCAFDimTolObjectsDatumSingleModifLine,
+    XCAFDimTolObjectsDatumSingleModifMajorDiameter,
+    XCAFDimTolObjectsDatumSingleModifMaximumMaterialRequirement,
+    XCAFDimTolObjectsDatumSingleModifMinorDiameter,
+    XCAFDimTolObjectsDatumSingleModifOrientation,
+    XCAFDimTolObjectsDatumSingleModifPitchDiameter,
+    XCAFDimTolObjectsDatumSingleModifPlane,
+    XCAFDimTolObjectsDatumSingleModifPoint,
+    XCAFDimTolObjectsDatumSingleModifTranslation
+
 

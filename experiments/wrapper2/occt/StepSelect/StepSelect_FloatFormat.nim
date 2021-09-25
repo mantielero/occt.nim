@@ -14,19 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Real,
-  StepSelect_FileModifier, ../Standard/Standard_Integer,
-  ../Standard/Standard_CString
-
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_ContextWrite"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of StepSelect_FloatFormat"
 discard "forward decl of StepSelect_FloatFormat"
 type
-  Handle_StepSelect_FloatFormat* = handle[StepSelect_FloatFormat]
+  HandleStepSelectFloatFormat* = Handle[StepSelectFloatFormat]
 
 ## ! This class gives control out format for floatting values :
 ## ! ZeroSuppress or no, Main Format, Format in Range (for values
@@ -34,64 +28,64 @@ type
 ## ! Formats are given under C-printf form
 
 type
-  StepSelect_FloatFormat* {.importcpp: "StepSelect_FloatFormat",
-                           header: "StepSelect_FloatFormat.hxx", bycopy.} = object of StepSelect_FileModifier ##
-                                                                                                       ## !
-                                                                                                       ## Creates
-                                                                                                       ## a
-                                                                                                       ## new
-                                                                                                       ## FloatFormat,
-                                                                                                       ## with
-                                                                                                       ## standard
-                                                                                                       ## options
-                                                                                                       ## :
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## ZeroSuppress,
-                                                                                                       ## Main
-                                                                                                       ## Format
-                                                                                                       ## =
-                                                                                                       ## %E,
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Format
-                                                                                                       ## between
-                                                                                                       ## 0.001
-                                                                                                       ## and
-                                                                                                       ## 1000.
-                                                                                                       ## =
-                                                                                                       ## %f
+  StepSelectFloatFormat* {.importcpp: "StepSelect_FloatFormat",
+                          header: "StepSelect_FloatFormat.hxx", bycopy.} = object of StepSelectFileModifier ##
+                                                                                                     ## !
+                                                                                                     ## Creates
+                                                                                                     ## a
+                                                                                                     ## new
+                                                                                                     ## FloatFormat,
+                                                                                                     ## with
+                                                                                                     ## standard
+                                                                                                     ## options
+                                                                                                     ## :
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## ZeroSuppress,
+                                                                                                     ## Main
+                                                                                                     ## Format
+                                                                                                     ## =
+                                                                                                     ## %E,
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## Format
+                                                                                                     ## between
+                                                                                                     ## 0.001
+                                                                                                     ## and
+                                                                                                     ## 1000.
+                                                                                                     ## =
+                                                                                                     ## %f
 
 
-proc constructStepSelect_FloatFormat*(): StepSelect_FloatFormat {.constructor,
+proc constructStepSelectFloatFormat*(): StepSelectFloatFormat {.constructor,
     importcpp: "StepSelect_FloatFormat(@)", header: "StepSelect_FloatFormat.hxx".}
-proc SetDefault*(this: var StepSelect_FloatFormat; digits: Standard_Integer = 0) {.
+proc setDefault*(this: var StepSelectFloatFormat; digits: int = 0) {.
     importcpp: "SetDefault", header: "StepSelect_FloatFormat.hxx".}
-proc SetZeroSuppress*(this: var StepSelect_FloatFormat; mode: Standard_Boolean) {.
+proc setZeroSuppress*(this: var StepSelectFloatFormat; mode: bool) {.
     importcpp: "SetZeroSuppress", header: "StepSelect_FloatFormat.hxx".}
-proc SetFormat*(this: var StepSelect_FloatFormat; format: Standard_CString = "%E") {.
+proc setFormat*(this: var StepSelectFloatFormat; format: StandardCString = "%E") {.
     importcpp: "SetFormat", header: "StepSelect_FloatFormat.hxx".}
-proc SetFormatForRange*(this: var StepSelect_FloatFormat;
-                       format: Standard_CString = "%f"; Rmin: Standard_Real = 0.1;
-                       Rmax: Standard_Real = 1000.0) {.
-    importcpp: "SetFormatForRange", header: "StepSelect_FloatFormat.hxx".}
-proc Format*(this: StepSelect_FloatFormat; zerosup: var Standard_Boolean;
-            mainform: var TCollection_AsciiString; hasrange: var Standard_Boolean;
-            forminrange: var TCollection_AsciiString; rangemin: var Standard_Real;
-            rangemax: var Standard_Real) {.noSideEffect, importcpp: "Format",
-                                        header: "StepSelect_FloatFormat.hxx".}
-proc Perform*(this: StepSelect_FloatFormat; ctx: var IFSelect_ContextWrite;
-             writer: var StepData_StepWriter) {.noSideEffect, importcpp: "Perform",
+proc setFormatForRange*(this: var StepSelectFloatFormat;
+                       format: StandardCString = "%f"; rmin: float = 0.1;
+                       rmax: float = 1000.0) {.importcpp: "SetFormatForRange",
     header: "StepSelect_FloatFormat.hxx".}
-proc Label*(this: StepSelect_FloatFormat): TCollection_AsciiString {.noSideEffect,
+proc format*(this: StepSelectFloatFormat; zerosup: var bool;
+            mainform: var TCollectionAsciiString; hasrange: var bool;
+            forminrange: var TCollectionAsciiString; rangemin: var float;
+            rangemax: var float) {.noSideEffect, importcpp: "Format",
+                                header: "StepSelect_FloatFormat.hxx".}
+proc perform*(this: StepSelectFloatFormat; ctx: var IFSelectContextWrite;
+             writer: var StepDataStepWriter) {.noSideEffect, importcpp: "Perform",
+    header: "StepSelect_FloatFormat.hxx".}
+proc label*(this: StepSelectFloatFormat): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "StepSelect_FloatFormat.hxx".}
 type
-  StepSelect_FloatFormatbase_type* = StepSelect_FileModifier
+  StepSelectFloatFormatbaseType* = StepSelectFileModifier
 
-proc get_type_name*(): cstring {.importcpp: "StepSelect_FloatFormat::get_type_name(@)",
-                              header: "StepSelect_FloatFormat.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepSelect_FloatFormat::get_type_name(@)",
+                            header: "StepSelect_FloatFormat.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepSelect_FloatFormat::get_type_descriptor(@)",
     header: "StepSelect_FloatFormat.hxx".}
-proc DynamicType*(this: StepSelect_FloatFormat): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepSelect_FloatFormat.hxx".}
+proc dynamicType*(this: StepSelectFloatFormat): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepSelect_FloatFormat.hxx".}

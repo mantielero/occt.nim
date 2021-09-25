@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRep_ShapeIntersector,
-  TopOpeBRep_ShapeIntersector2d, TopOpeBRep_FacesFiller, TopOpeBRep_EdgesFiller,
-  TopOpeBRep_FaceEdgeFiller, ../TopOpeBRepTool/TopOpeBRepTool_PShapeClassifier,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRepDS_HDataStructure"
 discard "forward decl of TopoDS_Face"
@@ -30,68 +23,66 @@ discard "forward decl of TopOpeBRep_FacesFiller"
 discard "forward decl of TopOpeBRep_EdgesFiller"
 discard "forward decl of TopOpeBRep_FaceEdgeFiller"
 type
-  TopOpeBRep_DSFiller* {.importcpp: "TopOpeBRep_DSFiller",
-                        header: "TopOpeBRep_DSFiller.hxx", bycopy.} = object
+  TopOpeBRepDSFiller* {.importcpp: "TopOpeBRep_DSFiller",
+                       header: "TopOpeBRep_DSFiller.hxx", bycopy.} = object
 
 
-proc constructTopOpeBRep_DSFiller*(): TopOpeBRep_DSFiller {.constructor,
+proc constructTopOpeBRepDSFiller*(): TopOpeBRepDSFiller {.constructor,
     importcpp: "TopOpeBRep_DSFiller(@)", header: "TopOpeBRep_DSFiller.hxx".}
-proc destroyTopOpeBRep_DSFiller*(this: var TopOpeBRep_DSFiller) {.
+proc destroyTopOpeBRepDSFiller*(this: var TopOpeBRepDSFiller) {.
     importcpp: "#.~TopOpeBRep_DSFiller()", header: "TopOpeBRep_DSFiller.hxx".}
-proc PShapeClassifier*(this: TopOpeBRep_DSFiller): TopOpeBRepTool_PShapeClassifier {.
+proc pShapeClassifier*(this: TopOpeBRepDSFiller): TopOpeBRepToolPShapeClassifier {.
     noSideEffect, importcpp: "PShapeClassifier", header: "TopOpeBRep_DSFiller.hxx".}
-proc Insert*(this: var TopOpeBRep_DSFiller; S1: TopoDS_Shape; S2: TopoDS_Shape;
-            HDS: handle[TopOpeBRepDS_HDataStructure];
-            orientFORWARD: Standard_Boolean = Standard_True) {.importcpp: "Insert",
-    header: "TopOpeBRep_DSFiller.hxx".}
-proc InsertIntersection*(this: var TopOpeBRep_DSFiller; S1: TopoDS_Shape;
-                        S2: TopoDS_Shape;
-                        HDS: handle[TopOpeBRepDS_HDataStructure];
-                        orientFORWARD: Standard_Boolean = Standard_True) {.
+proc insert*(this: var TopOpeBRepDSFiller; s1: TopoDS_Shape; s2: TopoDS_Shape;
+            hds: Handle[TopOpeBRepDS_HDataStructure]; orientFORWARD: bool = true) {.
+    importcpp: "Insert", header: "TopOpeBRep_DSFiller.hxx".}
+proc insertIntersection*(this: var TopOpeBRepDSFiller; s1: TopoDS_Shape;
+                        s2: TopoDS_Shape;
+                        hds: Handle[TopOpeBRepDS_HDataStructure];
+                        orientFORWARD: bool = true) {.
     importcpp: "InsertIntersection", header: "TopOpeBRep_DSFiller.hxx".}
-proc Complete*(this: var TopOpeBRep_DSFiller;
-              HDS: handle[TopOpeBRepDS_HDataStructure]) {.importcpp: "Complete",
+proc complete*(this: var TopOpeBRepDSFiller;
+              hds: Handle[TopOpeBRepDS_HDataStructure]) {.importcpp: "Complete",
     header: "TopOpeBRep_DSFiller.hxx".}
-proc Insert2d*(this: var TopOpeBRep_DSFiller; S1: TopoDS_Shape; S2: TopoDS_Shape;
-              HDS: handle[TopOpeBRepDS_HDataStructure]) {.importcpp: "Insert2d",
+proc insert2d*(this: var TopOpeBRepDSFiller; s1: TopoDS_Shape; s2: TopoDS_Shape;
+              hds: Handle[TopOpeBRepDS_HDataStructure]) {.importcpp: "Insert2d",
     header: "TopOpeBRep_DSFiller.hxx".}
-proc InsertIntersection2d*(this: var TopOpeBRep_DSFiller; S1: TopoDS_Shape;
-                          S2: TopoDS_Shape;
-                          HDS: handle[TopOpeBRepDS_HDataStructure]) {.
+proc insertIntersection2d*(this: var TopOpeBRepDSFiller; s1: TopoDS_Shape;
+                          s2: TopoDS_Shape;
+                          hds: Handle[TopOpeBRepDS_HDataStructure]) {.
     importcpp: "InsertIntersection2d", header: "TopOpeBRep_DSFiller.hxx".}
-proc IsMadeOf1d*(this: TopOpeBRep_DSFiller; S: TopoDS_Shape): Standard_Boolean {.
-    noSideEffect, importcpp: "IsMadeOf1d", header: "TopOpeBRep_DSFiller.hxx".}
-proc IsContext1d*(this: TopOpeBRep_DSFiller; S: TopoDS_Shape): Standard_Boolean {.
-    noSideEffect, importcpp: "IsContext1d", header: "TopOpeBRep_DSFiller.hxx".}
-proc Insert1d*(this: var TopOpeBRep_DSFiller; S1: TopoDS_Shape; S2: TopoDS_Shape;
-              F1: TopoDS_Face; F2: TopoDS_Face;
-              HDS: handle[TopOpeBRepDS_HDataStructure];
-              orientFORWARD: Standard_Boolean = Standard_False) {.
-    importcpp: "Insert1d", header: "TopOpeBRep_DSFiller.hxx".}
-proc ChangeShapeIntersector*(this: var TopOpeBRep_DSFiller): var TopOpeBRep_ShapeIntersector {.
+proc isMadeOf1d*(this: TopOpeBRepDSFiller; s: TopoDS_Shape): bool {.noSideEffect,
+    importcpp: "IsMadeOf1d", header: "TopOpeBRep_DSFiller.hxx".}
+proc isContext1d*(this: TopOpeBRepDSFiller; s: TopoDS_Shape): bool {.noSideEffect,
+    importcpp: "IsContext1d", header: "TopOpeBRep_DSFiller.hxx".}
+proc insert1d*(this: var TopOpeBRepDSFiller; s1: TopoDS_Shape; s2: TopoDS_Shape;
+              f1: TopoDS_Face; f2: TopoDS_Face;
+              hds: Handle[TopOpeBRepDS_HDataStructure];
+              orientFORWARD: bool = false) {.importcpp: "Insert1d",
+    header: "TopOpeBRep_DSFiller.hxx".}
+proc changeShapeIntersector*(this: var TopOpeBRepDSFiller): var TopOpeBRepShapeIntersector {.
     importcpp: "ChangeShapeIntersector", header: "TopOpeBRep_DSFiller.hxx".}
-proc ChangeShapeIntersector2d*(this: var TopOpeBRep_DSFiller): var TopOpeBRep_ShapeIntersector2d {.
+proc changeShapeIntersector2d*(this: var TopOpeBRepDSFiller): var TopOpeBRepShapeIntersector2d {.
     importcpp: "ChangeShapeIntersector2d", header: "TopOpeBRep_DSFiller.hxx".}
-proc ChangeFacesFiller*(this: var TopOpeBRep_DSFiller): var TopOpeBRep_FacesFiller {.
+proc changeFacesFiller*(this: var TopOpeBRepDSFiller): var TopOpeBRepFacesFiller {.
     importcpp: "ChangeFacesFiller", header: "TopOpeBRep_DSFiller.hxx".}
-proc ChangeEdgesFiller*(this: var TopOpeBRep_DSFiller): var TopOpeBRep_EdgesFiller {.
+proc changeEdgesFiller*(this: var TopOpeBRepDSFiller): var TopOpeBRepEdgesFiller {.
     importcpp: "ChangeEdgesFiller", header: "TopOpeBRep_DSFiller.hxx".}
-proc ChangeFaceEdgeFiller*(this: var TopOpeBRep_DSFiller): var TopOpeBRep_FaceEdgeFiller {.
+proc changeFaceEdgeFiller*(this: var TopOpeBRepDSFiller): var TopOpeBRepFaceEdgeFiller {.
     importcpp: "ChangeFaceEdgeFiller", header: "TopOpeBRep_DSFiller.hxx".}
-proc GapFiller*(this: TopOpeBRep_DSFiller; HDS: handle[TopOpeBRepDS_HDataStructure]) {.
+proc gapFiller*(this: TopOpeBRepDSFiller; hds: Handle[TopOpeBRepDS_HDataStructure]) {.
     noSideEffect, importcpp: "GapFiller", header: "TopOpeBRep_DSFiller.hxx".}
-proc CompleteDS*(this: TopOpeBRep_DSFiller;
-                HDS: handle[TopOpeBRepDS_HDataStructure]) {.noSideEffect,
-    importcpp: "CompleteDS", header: "TopOpeBRep_DSFiller.hxx".}
-proc Filter*(this: TopOpeBRep_DSFiller; HDS: handle[TopOpeBRepDS_HDataStructure]) {.
+proc completeDS*(this: TopOpeBRepDSFiller; hds: Handle[TopOpeBRepDS_HDataStructure]) {.
+    noSideEffect, importcpp: "CompleteDS", header: "TopOpeBRep_DSFiller.hxx".}
+proc filter*(this: TopOpeBRepDSFiller; hds: Handle[TopOpeBRepDS_HDataStructure]) {.
     noSideEffect, importcpp: "Filter", header: "TopOpeBRep_DSFiller.hxx".}
-proc Reducer*(this: TopOpeBRep_DSFiller; HDS: handle[TopOpeBRepDS_HDataStructure]) {.
+proc reducer*(this: TopOpeBRepDSFiller; hds: Handle[TopOpeBRepDS_HDataStructure]) {.
     noSideEffect, importcpp: "Reducer", header: "TopOpeBRep_DSFiller.hxx".}
-proc RemoveUnsharedGeometry*(this: var TopOpeBRep_DSFiller;
-                            HDS: handle[TopOpeBRepDS_HDataStructure]) {.
+proc removeUnsharedGeometry*(this: var TopOpeBRepDSFiller;
+                            hds: Handle[TopOpeBRepDS_HDataStructure]) {.
     importcpp: "RemoveUnsharedGeometry", header: "TopOpeBRep_DSFiller.hxx".}
-proc Checker*(this: TopOpeBRep_DSFiller; HDS: handle[TopOpeBRepDS_HDataStructure]) {.
+proc checker*(this: TopOpeBRepDSFiller; hds: Handle[TopOpeBRepDS_HDataStructure]) {.
     noSideEffect, importcpp: "Checker", header: "TopOpeBRep_DSFiller.hxx".}
-proc CompleteDS2d*(this: TopOpeBRep_DSFiller;
-                  HDS: handle[TopOpeBRepDS_HDataStructure]) {.noSideEffect,
+proc completeDS2d*(this: TopOpeBRepDSFiller;
+                  hds: Handle[TopOpeBRepDS_HDataStructure]) {.noSideEffect,
     importcpp: "CompleteDS2d", header: "TopOpeBRep_DSFiller.hxx".}

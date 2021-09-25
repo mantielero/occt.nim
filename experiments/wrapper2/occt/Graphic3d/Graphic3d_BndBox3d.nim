@@ -11,8 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../BVH/BVH_Box, ../BVH/BVH_Types
-
 type
-  Graphic3d_BndBox3d* = BVH_Box[Standard_Real, 3]
+  Graphic3dBndBox3d* = BVH_Box[float, 3]
+

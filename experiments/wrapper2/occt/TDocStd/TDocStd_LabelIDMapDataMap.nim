@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TDF/TDF_Label, ../TDF/TDF_IDMap, ../TDF/TDF_LabelMapHasher,
-  ../NCollection/NCollection_DataMap
-
 type
-  TDocStd_LabelIDMapDataMap* = NCollection_DataMap[TDF_Label, TDF_IDMap,
+  TDocStdLabelIDMapDataMap* = NCollectionDataMap[TDF_Label, TDF_IDMap,
       TDF_LabelMapHasher]
-  TDocStd_DataMapIteratorOfLabelIDMapDataMap* = Iterator[TDF_Label, TDF_IDMap,
+  TDocStdDataMapIteratorOfLabelIDMapDataMap* = Iterator[TDF_Label, TDF_IDMap,
       TDF_LabelMapHasher]
+

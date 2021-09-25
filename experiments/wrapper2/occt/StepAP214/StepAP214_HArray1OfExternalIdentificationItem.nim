@@ -14,41 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP214_ExternalIdentificationItem,
-  StepAP214_Array1OfExternalIdentificationItem,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepAP214_HArray1OfExternalIdentificationItem* {.
+  StepAP214HArray1OfExternalIdentificationItem* {.
       importcpp: "StepAP214_HArray1OfExternalIdentificationItem",
-      header: "StepAP214_HArray1OfExternalIdentificationItem.hxx", bycopy.} = object of StepAP214_Array1OfExternalIdentificationItem
+      header: "StepAP214_HArray1OfExternalIdentificationItem.hxx", bycopy.} = object of StepAP214Array1OfExternalIdentificationItem
 
 
-proc constructStepAP214_HArray1OfExternalIdentificationItem*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepAP214_HArray1OfExternalIdentificationItem {.
+proc constructStepAP214HArray1OfExternalIdentificationItem*(theLower: int;
+    theUpper: int): StepAP214HArray1OfExternalIdentificationItem {.constructor,
+    importcpp: "StepAP214_HArray1OfExternalIdentificationItem(@)",
+    header: "StepAP214_HArray1OfExternalIdentificationItem.hxx".}
+proc constructStepAP214HArray1OfExternalIdentificationItem*(theLower: int;
+    theUpper: int; theValue: ValueType): StepAP214HArray1OfExternalIdentificationItem {.
     constructor, importcpp: "StepAP214_HArray1OfExternalIdentificationItem(@)",
     header: "StepAP214_HArray1OfExternalIdentificationItem.hxx".}
-proc constructStepAP214_HArray1OfExternalIdentificationItem*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepAP214_HArray1OfExternalIdentificationItem {.
+proc constructStepAP214HArray1OfExternalIdentificationItem*(
+    theOther: StepAP214Array1OfExternalIdentificationItem): StepAP214HArray1OfExternalIdentificationItem {.
     constructor, importcpp: "StepAP214_HArray1OfExternalIdentificationItem(@)",
     header: "StepAP214_HArray1OfExternalIdentificationItem.hxx".}
-proc constructStepAP214_HArray1OfExternalIdentificationItem*(
-    theOther: StepAP214_Array1OfExternalIdentificationItem): StepAP214_HArray1OfExternalIdentificationItem {.
-    constructor, importcpp: "StepAP214_HArray1OfExternalIdentificationItem(@)",
-    header: "StepAP214_HArray1OfExternalIdentificationItem.hxx".}
-proc Array1*(this: StepAP214_HArray1OfExternalIdentificationItem): StepAP214_Array1OfExternalIdentificationItem {.
+proc array1*(this: StepAP214HArray1OfExternalIdentificationItem): StepAP214Array1OfExternalIdentificationItem {.
     noSideEffect, importcpp: "Array1",
     header: "StepAP214_HArray1OfExternalIdentificationItem.hxx".}
-proc ChangeArray1*(this: var StepAP214_HArray1OfExternalIdentificationItem): var StepAP214_Array1OfExternalIdentificationItem {.
+proc changeArray1*(this: var StepAP214HArray1OfExternalIdentificationItem): var StepAP214Array1OfExternalIdentificationItem {.
     importcpp: "ChangeArray1",
     header: "StepAP214_HArray1OfExternalIdentificationItem.hxx".}
 type
-  StepAP214_HArray1OfExternalIdentificationItembase_type* = MMgt_TShared
+  StepAP214HArray1OfExternalIdentificationItembaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_HArray1OfExternalIdentificationItem::get_type_name(@)", header: "StepAP214_HArray1OfExternalIdentificationItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP214_HArray1OfExternalIdentificationItem::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP214_HArray1OfExternalIdentificationItem::get_type_name(@)", header: "StepAP214_HArray1OfExternalIdentificationItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_HArray1OfExternalIdentificationItem::get_type_descriptor(@)",
     header: "StepAP214_HArray1OfExternalIdentificationItem.hxx".}
-proc DynamicType*(this: StepAP214_HArray1OfExternalIdentificationItem): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepAP214_HArray1OfExternalIdentificationItem.hxx".}
+proc dynamicType*(this: StepAP214HArray1OfExternalIdentificationItem): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepAP214_HArray1OfExternalIdentificationItem.hxx".}

@@ -13,7 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_Size_HeaderFile [NewLine] # _Standard_Size_HeaderFile [NewLine] # Standard_Integer.hxx [NewLine]  msv 26.05.2009: add HashCode and IsEqual functions ! Computes a hash code for the given value of the Standard_Size type, in the range [1, theUpperBound]
+## !!!Ignored construct:  # _Standard_Size_HeaderFile [NewLine] # _Standard_Size_HeaderFile [NewLine] # < Standard_Integer . hxx > [NewLine]  msv 26.05.2009: add HashCode and IsEqual functions ! Computes a hash code for the given value of the Standard_Size type, in the range [1, theUpperBound]
 ## ! @tparam TheSize the type of the given value (it is Standard_Size,
 ## ! and must not be the same as "unsigned int", because the overload of the HashCode function
 ## ! for "unsigned int" type is already presented in Standard_Integer.hxx)
@@ -23,3 +23,4 @@
 ##  IsEqual : Returns Standard_True if two values are equal
 ##  ------------------------------------------------------------------ inline Standard_Boolean IsEqual ( const Standard_Size One , const Standard_Size Two ) { return One == Two ; } # [NewLine]
 ## Error: token expected: ( but got: ::!!!
+

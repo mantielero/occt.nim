@@ -14,11 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_AsciiString, ../NCollection/NCollection_DataMap
-
 type
-  Resource_DataMapOfAsciiStringAsciiString* = NCollection_DataMap[
-      TCollection_AsciiString, TCollection_AsciiString, TCollection_AsciiString]
-  Resource_DataMapIteratorOfDataMapOfAsciiStringAsciiString* = Iterator[
-      TCollection_AsciiString, TCollection_AsciiString, TCollection_AsciiString]
+  ResourceDataMapOfAsciiStringAsciiString* = NCollectionDataMap[
+      TCollectionAsciiString, TCollectionAsciiString, TCollectionAsciiString]
+  ResourceDataMapIteratorOfDataMapOfAsciiStringAsciiString* = Iterator[
+      TCollectionAsciiString, TCollectionAsciiString, TCollectionAsciiString]
+

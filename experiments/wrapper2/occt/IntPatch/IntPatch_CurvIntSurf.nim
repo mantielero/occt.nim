@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean, IntPatch_CSFunction,
-  ../Standard/Standard_Real
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Adaptor3d_HSurface"
@@ -29,44 +24,38 @@ discard "forward decl of IntPatch_CSFunction"
 discard "forward decl of math_FunctionSetRoot"
 discard "forward decl of gp_Pnt"
 type
-  IntPatch_CurvIntSurf* {.importcpp: "IntPatch_CurvIntSurf",
-                         header: "IntPatch_CurvIntSurf.hxx", bycopy.} = object ## !
-                                                                          ## compute the
-                                                                          ## solution point with the close point
-                                                                          ## !
-                                                                          ## MarginCoef is the
-                                                                          ## coefficient for
-                                                                          ## extension of UV
-                                                                          ## bounds.
-                                                                          ## ! Ex., UFirst -=
-                                                                          ## MarginCoef*(ULast-UFirst)
+  IntPatchCurvIntSurf* {.importcpp: "IntPatch_CurvIntSurf",
+                        header: "IntPatch_CurvIntSurf.hxx", bycopy.} = object ## ! compute the
+                                                                         ## solution point with the close point
+                                                                         ## !
+                                                                         ## MarginCoef is the
+                                                                         ## coefficient for
+                                                                         ## extension of UV bounds.
+                                                                         ## ! Ex., UFirst -=
+                                                                         ## MarginCoef*(ULast-UFirst)
 
 
-proc constructIntPatch_CurvIntSurf*(U: Standard_Real; V: Standard_Real;
-                                   W: Standard_Real; F: IntPatch_CSFunction;
-                                   TolTangency: Standard_Real;
-                                   MarginCoef: Standard_Real = 0.0): IntPatch_CurvIntSurf {.
+proc constructIntPatchCurvIntSurf*(u: float; v: float; w: float; f: IntPatchCSFunction;
+                                  tolTangency: float; marginCoef: float = 0.0): IntPatchCurvIntSurf {.
     constructor, importcpp: "IntPatch_CurvIntSurf(@)",
     header: "IntPatch_CurvIntSurf.hxx".}
-proc constructIntPatch_CurvIntSurf*(F: IntPatch_CSFunction;
-                                   TolTangency: Standard_Real): IntPatch_CurvIntSurf {.
+proc constructIntPatchCurvIntSurf*(f: IntPatchCSFunction; tolTangency: float): IntPatchCurvIntSurf {.
     constructor, importcpp: "IntPatch_CurvIntSurf(@)",
     header: "IntPatch_CurvIntSurf.hxx".}
-proc Perform*(this: var IntPatch_CurvIntSurf; U: Standard_Real; V: Standard_Real;
-             W: Standard_Real; Rsnld: var math_FunctionSetRoot; u0: Standard_Real;
-             v0: Standard_Real; u1: Standard_Real; v1: Standard_Real;
-             w0: Standard_Real; w1: Standard_Real) {.importcpp: "Perform",
+proc perform*(this: var IntPatchCurvIntSurf; u: float; v: float; w: float;
+             rsnld: var MathFunctionSetRoot; u0: float; v0: float; u1: float; v1: float;
+             w0: float; w1: float) {.importcpp: "Perform",
+                                 header: "IntPatch_CurvIntSurf.hxx".}
+proc isDone*(this: IntPatchCurvIntSurf): bool {.noSideEffect, importcpp: "IsDone",
     header: "IntPatch_CurvIntSurf.hxx".}
-proc IsDone*(this: IntPatch_CurvIntSurf): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "IntPatch_CurvIntSurf.hxx".}
-proc IsEmpty*(this: IntPatch_CurvIntSurf): Standard_Boolean {.noSideEffect,
-    importcpp: "IsEmpty", header: "IntPatch_CurvIntSurf.hxx".}
-proc Point*(this: IntPatch_CurvIntSurf): gp_Pnt {.noSideEffect, importcpp: "Point",
+proc isEmpty*(this: IntPatchCurvIntSurf): bool {.noSideEffect, importcpp: "IsEmpty",
     header: "IntPatch_CurvIntSurf.hxx".}
-proc ParameterOnCurve*(this: IntPatch_CurvIntSurf): Standard_Real {.noSideEffect,
+proc point*(this: IntPatchCurvIntSurf): Pnt {.noSideEffect, importcpp: "Point",
+    header: "IntPatch_CurvIntSurf.hxx".}
+proc parameterOnCurve*(this: IntPatchCurvIntSurf): float {.noSideEffect,
     importcpp: "ParameterOnCurve", header: "IntPatch_CurvIntSurf.hxx".}
-proc ParameterOnSurface*(this: IntPatch_CurvIntSurf; U: var Standard_Real;
-                        V: var Standard_Real) {.noSideEffect,
-    importcpp: "ParameterOnSurface", header: "IntPatch_CurvIntSurf.hxx".}
-proc Function*(this: var IntPatch_CurvIntSurf): var IntPatch_CSFunction {.
+proc parameterOnSurface*(this: IntPatchCurvIntSurf; u: var float; v: var float) {.
+    noSideEffect, importcpp: "ParameterOnSurface",
+    header: "IntPatch_CurvIntSurf.hxx".}
+proc function*(this: var IntPatchCurvIntSurf): var IntPatchCSFunction {.
     importcpp: "Function", header: "IntPatch_CurvIntSurf.hxx".}

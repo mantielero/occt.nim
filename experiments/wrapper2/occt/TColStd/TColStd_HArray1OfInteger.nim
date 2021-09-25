@@ -12,38 +12,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Integer, TColStd_Array1OfInteger,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  TColStd_HArray1OfInteger* {.importcpp: "TColStd_HArray1OfInteger",
-                             header: "TColStd_HArray1OfInteger.hxx", bycopy.} = object of TColStd_Array1OfInteger
+  TColStdHArray1OfInteger* {.importcpp: "TColStd_HArray1OfInteger",
+                            header: "TColStd_HArray1OfInteger.hxx", bycopy.} = object of TColStdArray1OfInteger
 
 
-proc constructTColStd_HArray1OfInteger*(theLower: Standard_Integer;
-                                       theUpper: Standard_Integer): TColStd_HArray1OfInteger {.
+proc constructTColStdHArray1OfInteger*(theLower: int; theUpper: int): TColStdHArray1OfInteger {.
     constructor, importcpp: "TColStd_HArray1OfInteger(@)",
     header: "TColStd_HArray1OfInteger.hxx".}
-proc constructTColStd_HArray1OfInteger*(theLower: Standard_Integer;
-                                       theUpper: Standard_Integer;
-                                       theValue: value_type): TColStd_HArray1OfInteger {.
+proc constructTColStdHArray1OfInteger*(theLower: int; theUpper: int;
+                                      theValue: ValueType): TColStdHArray1OfInteger {.
     constructor, importcpp: "TColStd_HArray1OfInteger(@)",
     header: "TColStd_HArray1OfInteger.hxx".}
-proc constructTColStd_HArray1OfInteger*(theOther: TColStd_Array1OfInteger): TColStd_HArray1OfInteger {.
+proc constructTColStdHArray1OfInteger*(theOther: TColStdArray1OfInteger): TColStdHArray1OfInteger {.
     constructor, importcpp: "TColStd_HArray1OfInteger(@)",
     header: "TColStd_HArray1OfInteger.hxx".}
-proc Array1*(this: TColStd_HArray1OfInteger): TColStd_Array1OfInteger {.
-    noSideEffect, importcpp: "Array1", header: "TColStd_HArray1OfInteger.hxx".}
-proc ChangeArray1*(this: var TColStd_HArray1OfInteger): var TColStd_Array1OfInteger {.
+proc array1*(this: TColStdHArray1OfInteger): TColStdArray1OfInteger {.noSideEffect,
+    importcpp: "Array1", header: "TColStd_HArray1OfInteger.hxx".}
+proc changeArray1*(this: var TColStdHArray1OfInteger): var TColStdArray1OfInteger {.
     importcpp: "ChangeArray1", header: "TColStd_HArray1OfInteger.hxx".}
 type
-  TColStd_HArray1OfIntegerbase_type* = MMgt_TShared
+  TColStdHArray1OfIntegerbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TColStd_HArray1OfInteger::get_type_name(@)",
-                              header: "TColStd_HArray1OfInteger.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TColStd_HArray1OfInteger::get_type_name(@)",
+                            header: "TColStd_HArray1OfInteger.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TColStd_HArray1OfInteger::get_type_descriptor(@)",
     header: "TColStd_HArray1OfInteger.hxx".}
-proc DynamicType*(this: TColStd_HArray1OfInteger): handle[Standard_Type] {.
+proc dynamicType*(this: TColStdHArray1OfInteger): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TColStd_HArray1OfInteger.hxx".}

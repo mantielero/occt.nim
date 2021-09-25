@@ -14,4 +14,5 @@
 
 discard "forward decl of BOPAlgo_BOP"
 type
-  BOPAlgo_PBOP* = ptr BOPAlgo_BOP
+  BOPAlgoPBOP* = ptr BOPAlgoBOP
+

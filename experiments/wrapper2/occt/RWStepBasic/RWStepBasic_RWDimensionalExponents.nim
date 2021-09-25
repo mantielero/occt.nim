@@ -14,28 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_DimensionalExponents"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepBasic_RWDimensionalExponents* {.importcpp: "RWStepBasic_RWDimensionalExponents", header: "RWStepBasic_RWDimensionalExponents.hxx",
-                                       bycopy.} = object
+  RWStepBasicRWDimensionalExponents* {.importcpp: "RWStepBasic_RWDimensionalExponents", header: "RWStepBasic_RWDimensionalExponents.hxx",
+                                      bycopy.} = object
 
 
-proc constructRWStepBasic_RWDimensionalExponents*(): RWStepBasic_RWDimensionalExponents {.
+proc constructRWStepBasicRWDimensionalExponents*(): RWStepBasicRWDimensionalExponents {.
     constructor, importcpp: "RWStepBasic_RWDimensionalExponents(@)",
     header: "RWStepBasic_RWDimensionalExponents.hxx".}
-proc ReadStep*(this: RWStepBasic_RWDimensionalExponents;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepBasic_DimensionalExponents]) {.noSideEffect,
+proc readStep*(this: RWStepBasicRWDimensionalExponents;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepBasicDimensionalExponents]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWDimensionalExponents.hxx".}
-proc WriteStep*(this: RWStepBasic_RWDimensionalExponents;
-               SW: var StepData_StepWriter;
-               ent: handle[StepBasic_DimensionalExponents]) {.noSideEffect,
+proc writeStep*(this: RWStepBasicRWDimensionalExponents;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepBasicDimensionalExponents]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWDimensionalExponents.hxx".}

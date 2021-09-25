@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  AIS_InteractiveObject
-
 discard "forward decl of Graphic3d_ArrayOfSegments"
 discard "forward decl of Graphic3d_ArrayOfTriangles"
 type
@@ -57,32 +54,32 @@ type
     ## !< Triangles for camera frustum filling
     ## !< Segments for camera frustum borders
 
-  AIS_CameraFrustumbase_type* = AIS_InteractiveObject
+  AIS_CameraFrustumbaseType* = AIS_InteractiveObject
 
-proc get_type_name*(): cstring {.importcpp: "AIS_CameraFrustum::get_type_name(@)",
-                              header: "AIS_CameraFrustum.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "AIS_CameraFrustum::get_type_name(@)",
+                            header: "AIS_CameraFrustum.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "AIS_CameraFrustum::get_type_descriptor(@)",
     header: "AIS_CameraFrustum.hxx".}
-proc DynamicType*(this: AIS_CameraFrustum): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: AIS_CameraFrustum): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_CameraFrustum.hxx".}
 type
   AIS_CameraFrustumSelectionMode* {.size: sizeof(cint), importcpp: "AIS_CameraFrustum::SelectionMode",
                                    header: "AIS_CameraFrustum.hxx".} = enum
-    SelectionMode_Edges = 0,    ## !< detect by edges (default)
-    SelectionMode_Volume = 1    ## !< detect by volume
+    SelectionModeEdges = 0,     ## !< detect by edges (default)
+    SelectionModeVolume = 1     ## !< detect by volume
 
 
 proc constructAIS_CameraFrustum*(): AIS_CameraFrustum {.constructor,
     importcpp: "AIS_CameraFrustum(@)", header: "AIS_CameraFrustum.hxx".}
-proc SetCameraFrustum*(this: var AIS_CameraFrustum;
-                      theCamera: handle[Graphic3d_Camera]) {.
+proc setCameraFrustum*(this: var AIS_CameraFrustum;
+                      theCamera: Handle[Graphic3dCamera]) {.
     importcpp: "SetCameraFrustum", header: "AIS_CameraFrustum.hxx".}
-proc SetColor*(this: var AIS_CameraFrustum; theColor: Quantity_Color) {.
+proc setColor*(this: var AIS_CameraFrustum; theColor: QuantityColor) {.
     importcpp: "SetColor", header: "AIS_CameraFrustum.hxx".}
-proc UnsetColor*(this: var AIS_CameraFrustum) {.importcpp: "UnsetColor",
+proc unsetColor*(this: var AIS_CameraFrustum) {.importcpp: "UnsetColor",
     header: "AIS_CameraFrustum.hxx".}
-proc UnsetTransparency*(this: var AIS_CameraFrustum) {.
+proc unsetTransparency*(this: var AIS_CameraFrustum) {.
     importcpp: "UnsetTransparency", header: "AIS_CameraFrustum.hxx".}
-proc AcceptDisplayMode*(this: AIS_CameraFrustum; theMode: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "AcceptDisplayMode", header: "AIS_CameraFrustum.hxx".}
+proc acceptDisplayMode*(this: AIS_CameraFrustum; theMode: int): bool {.noSideEffect,
+    importcpp: "AcceptDisplayMode", header: "AIS_CameraFrustum.hxx".}

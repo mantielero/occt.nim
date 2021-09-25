@@ -14,46 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepVisual_TextStyleForDefinedFont"
 discard "forward decl of StepVisual_TextStyle"
 discard "forward decl of StepVisual_TextStyle"
 type
-  Handle_StepVisual_TextStyle* = handle[StepVisual_TextStyle]
-  StepVisual_TextStyle* {.importcpp: "StepVisual_TextStyle",
-                         header: "StepVisual_TextStyle.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## a
-                                                                                              ## TextStyle
+  HandleStepVisualTextStyle* = Handle[StepVisualTextStyle]
+  StepVisualTextStyle* {.importcpp: "StepVisual_TextStyle",
+                        header: "StepVisual_TextStyle.hxx", bycopy.} = object of StandardTransient ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## a
+                                                                                            ## TextStyle
 
 
-proc constructStepVisual_TextStyle*(): StepVisual_TextStyle {.constructor,
+proc constructStepVisualTextStyle*(): StepVisualTextStyle {.constructor,
     importcpp: "StepVisual_TextStyle(@)", header: "StepVisual_TextStyle.hxx".}
-proc Init*(this: var StepVisual_TextStyle; aName: handle[TCollection_HAsciiString];
-          aCharacterAppearance: handle[StepVisual_TextStyleForDefinedFont]) {.
+proc init*(this: var StepVisualTextStyle; aName: Handle[TCollectionHAsciiString];
+          aCharacterAppearance: Handle[StepVisualTextStyleForDefinedFont]) {.
     importcpp: "Init", header: "StepVisual_TextStyle.hxx".}
-proc SetName*(this: var StepVisual_TextStyle;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
-    header: "StepVisual_TextStyle.hxx".}
-proc Name*(this: StepVisual_TextStyle): handle[TCollection_HAsciiString] {.
+proc setName*(this: var StepVisualTextStyle; aName: Handle[TCollectionHAsciiString]) {.
+    importcpp: "SetName", header: "StepVisual_TextStyle.hxx".}
+proc name*(this: StepVisualTextStyle): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepVisual_TextStyle.hxx".}
-proc SetCharacterAppearance*(this: var StepVisual_TextStyle; aCharacterAppearance: handle[
-    StepVisual_TextStyleForDefinedFont]) {.importcpp: "SetCharacterAppearance",
+proc setCharacterAppearance*(this: var StepVisualTextStyle; aCharacterAppearance: Handle[
+    StepVisualTextStyleForDefinedFont]) {.importcpp: "SetCharacterAppearance",
     header: "StepVisual_TextStyle.hxx".}
-proc CharacterAppearance*(this: StepVisual_TextStyle): handle[
-    StepVisual_TextStyleForDefinedFont] {.noSideEffect,
-    importcpp: "CharacterAppearance", header: "StepVisual_TextStyle.hxx".}
+proc characterAppearance*(this: StepVisualTextStyle): Handle[
+    StepVisualTextStyleForDefinedFont] {.noSideEffect,
+                                        importcpp: "CharacterAppearance",
+                                        header: "StepVisual_TextStyle.hxx".}
 type
-  StepVisual_TextStylebase_type* = Standard_Transient
+  StepVisualTextStylebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_TextStyle::get_type_name(@)",
-                              header: "StepVisual_TextStyle.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_TextStyle::get_type_name(@)",
+                            header: "StepVisual_TextStyle.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_TextStyle::get_type_descriptor(@)",
     header: "StepVisual_TextStyle.hxx".}
-proc DynamicType*(this: StepVisual_TextStyle): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepVisualTextStyle): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepVisual_TextStyle.hxx".}

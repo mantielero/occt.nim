@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  IntSurf_TypeTrans* {.size: sizeof(cint), importcpp: "IntSurf_TypeTrans",
-                      header: "IntSurf_TypeTrans.hxx".} = enum
-    IntSurf_In, IntSurf_Out, IntSurf_Touch, IntSurf_Undecided
+  IntSurfTypeTrans* {.size: sizeof(cint), importcpp: "IntSurf_TypeTrans",
+                     header: "IntSurf_TypeTrans.hxx".} = enum
+    IntSurfIn, IntSurfOut, IntSurfTouch, IntSurfUndecided
+
 

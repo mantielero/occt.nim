@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real, OSD_Chronometer,
-  ../Standard/Standard_OStream, ../Standard/Standard_Integer
-
 ## ! Working on heterogeneous platforms
 ## ! we need to use the system call gettimeofday.
 ## ! This function is portable and it measures ELAPSED
@@ -87,20 +82,19 @@ type
                                                                                            ## OSD_Chronometer
 
 
-proc constructOSD_Timer*(theThisThreadOnly: Standard_Boolean = Standard_False): OSD_Timer {.
-    constructor, importcpp: "OSD_Timer(@)", header: "OSD_Timer.hxx".}
-proc Reset*(this: var OSD_Timer; theTimeElapsedSec: Standard_Real) {.
-    importcpp: "Reset", header: "OSD_Timer.hxx".}
-proc Reset*(this: var OSD_Timer) {.importcpp: "Reset", header: "OSD_Timer.hxx".}
-proc Restart*(this: var OSD_Timer) {.importcpp: "Restart", header: "OSD_Timer.hxx".}
-proc Show*(this: OSD_Timer) {.noSideEffect, importcpp: "Show", header: "OSD_Timer.hxx".}
-proc Show*(this: OSD_Timer; os: var Standard_OStream) {.noSideEffect,
-    importcpp: "Show", header: "OSD_Timer.hxx".}
-proc Show*(this: OSD_Timer; theSeconds: var Standard_Real;
-          theMinutes: var Standard_Integer; theHours: var Standard_Integer;
-          theCPUtime: var Standard_Real) {.noSideEffect, importcpp: "Show",
+proc constructOSD_Timer*(theThisThreadOnly: bool = false): OSD_Timer {.constructor,
+    importcpp: "OSD_Timer(@)", header: "OSD_Timer.hxx".}
+proc reset*(this: var OSD_Timer; theTimeElapsedSec: float) {.importcpp: "Reset",
+    header: "OSD_Timer.hxx".}
+proc reset*(this: var OSD_Timer) {.importcpp: "Reset", header: "OSD_Timer.hxx".}
+proc restart*(this: var OSD_Timer) {.importcpp: "Restart", header: "OSD_Timer.hxx".}
+proc show*(this: OSD_Timer) {.noSideEffect, importcpp: "Show", header: "OSD_Timer.hxx".}
+proc show*(this: OSD_Timer; os: var StandardOStream) {.noSideEffect, importcpp: "Show",
+    header: "OSD_Timer.hxx".}
+proc show*(this: OSD_Timer; theSeconds: var float; theMinutes: var int;
+          theHours: var int; theCPUtime: var float) {.noSideEffect, importcpp: "Show",
+    header: "OSD_Timer.hxx".}
+proc stop*(this: var OSD_Timer) {.importcpp: "Stop", header: "OSD_Timer.hxx".}
+proc start*(this: var OSD_Timer) {.importcpp: "Start", header: "OSD_Timer.hxx".}
+proc elapsedTime*(this: OSD_Timer): float {.noSideEffect, importcpp: "ElapsedTime",
                                         header: "OSD_Timer.hxx".}
-proc Stop*(this: var OSD_Timer) {.importcpp: "Stop", header: "OSD_Timer.hxx".}
-proc Start*(this: var OSD_Timer) {.importcpp: "Start", header: "OSD_Timer.hxx".}
-proc ElapsedTime*(this: OSD_Timer): Standard_Real {.noSideEffect,
-    importcpp: "ElapsedTime", header: "OSD_Timer.hxx".}

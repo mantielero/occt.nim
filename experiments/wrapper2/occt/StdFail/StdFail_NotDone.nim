@@ -14,15 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _StdFail_NotDone_HeaderFile [NewLine] # _StdFail_NotDone_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_Failure.hxx [NewLine] class StdFail_NotDone ;
+## !!!Ignored construct:  # _StdFail_NotDone_HeaderFile [NewLine] # _StdFail_NotDone_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class StdFail_NotDone ;
 ## Error: expected ';'!!!
 
 discard "forward decl of StdFail_NotDone"
 type
-  Handle_StdFail_NotDoneStdFail_NotDone* = handle[StdFail_NotDone]
+  HandleStdFailNotDoneStdFailNotDone* = Handle[StdFailNotDone]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_StdFail_NotDone [NewLine] # if ( CONDITION ) throw StdFail_NotDone ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( StdFail_NotDone , Standard_Failure ) #  _StdFail_NotDone_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( StdFail_NotDone , Standard_Failure ) #  _StdFail_NotDone_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

@@ -14,15 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TopTools/TopTools_HArray1OfShape, ../TDF/TDF_DeltaOnModification
-
 discard "forward decl of TNaming_NamedShape"
 discard "forward decl of TNaming_DeltaOnModification"
 discard "forward decl of TNaming_DeltaOnModification"
 type
-  Handle_TNaming_DeltaOnModification* = handle[TNaming_DeltaOnModification]
+  HandleTNamingDeltaOnModification* = Handle[TNamingDeltaOnModification]
 
 ## ! This class provides default services for an
 ## ! AttributeDelta on a MODIFICATION action.
@@ -31,27 +27,27 @@ type
 ## ! the attribute previously registered state.
 
 type
-  TNaming_DeltaOnModification* {.importcpp: "TNaming_DeltaOnModification",
-                                header: "TNaming_DeltaOnModification.hxx", bycopy.} = object of TDF_DeltaOnModification ##
-                                                                                                                 ## !
-                                                                                                                 ## Initializes
-                                                                                                                 ## a
-                                                                                                                 ## TDF_DeltaOnModification.
+  TNamingDeltaOnModification* {.importcpp: "TNaming_DeltaOnModification",
+                               header: "TNaming_DeltaOnModification.hxx", bycopy.} = object of TDF_DeltaOnModification ##
+                                                                                                                ## !
+                                                                                                                ## Initializes
+                                                                                                                ## a
+                                                                                                                ## TDF_DeltaOnModification.
 
 
-proc constructTNaming_DeltaOnModification*(NS: handle[TNaming_NamedShape]): TNaming_DeltaOnModification {.
+proc constructTNamingDeltaOnModification*(ns: Handle[TNamingNamedShape]): TNamingDeltaOnModification {.
     constructor, importcpp: "TNaming_DeltaOnModification(@)",
     header: "TNaming_DeltaOnModification.hxx".}
-proc Apply*(this: var TNaming_DeltaOnModification) {.importcpp: "Apply",
+proc apply*(this: var TNamingDeltaOnModification) {.importcpp: "Apply",
     header: "TNaming_DeltaOnModification.hxx".}
 type
-  TNaming_DeltaOnModificationbase_type* = TDF_DeltaOnModification
+  TNamingDeltaOnModificationbaseType* = TDF_DeltaOnModification
 
-proc get_type_name*(): cstring {.importcpp: "TNaming_DeltaOnModification::get_type_name(@)",
-                              header: "TNaming_DeltaOnModification.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TNaming_DeltaOnModification::get_type_name(@)",
+                            header: "TNaming_DeltaOnModification.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TNaming_DeltaOnModification::get_type_descriptor(@)",
     header: "TNaming_DeltaOnModification.hxx".}
-proc DynamicType*(this: TNaming_DeltaOnModification): handle[Standard_Type] {.
+proc dynamicType*(this: TNamingDeltaOnModification): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TNaming_DeltaOnModification.hxx".}

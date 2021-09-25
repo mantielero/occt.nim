@@ -14,25 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_Curve"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepGeom_RWCurve* {.importcpp: "RWStepGeom_RWCurve",
-                       header: "RWStepGeom_RWCurve.hxx", bycopy.} = object
+  RWStepGeomRWCurve* {.importcpp: "RWStepGeom_RWCurve",
+                      header: "RWStepGeom_RWCurve.hxx", bycopy.} = object
 
 
-proc constructRWStepGeom_RWCurve*(): RWStepGeom_RWCurve {.constructor,
+proc constructRWStepGeomRWCurve*(): RWStepGeomRWCurve {.constructor,
     importcpp: "RWStepGeom_RWCurve(@)", header: "RWStepGeom_RWCurve.hxx".}
-proc ReadStep*(this: RWStepGeom_RWCurve; data: handle[StepData_StepReaderData];
-              num: Standard_Integer; ach: var handle[Interface_Check];
-              ent: handle[StepGeom_Curve]) {.noSideEffect, importcpp: "ReadStep",
-    header: "RWStepGeom_RWCurve.hxx".}
-proc WriteStep*(this: RWStepGeom_RWCurve; SW: var StepData_StepWriter;
-               ent: handle[StepGeom_Curve]) {.noSideEffect, importcpp: "WriteStep",
+proc readStep*(this: RWStepGeomRWCurve; data: Handle[StepDataStepReaderData];
+              num: int; ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomCurve]) {.
+    noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWCurve.hxx".}
+proc writeStep*(this: RWStepGeomRWCurve; sw: var StepDataStepWriter;
+               ent: Handle[StepGeomCurve]) {.noSideEffect, importcpp: "WriteStep",
     header: "RWStepGeom_RWCurve.hxx".}

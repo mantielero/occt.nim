@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Integer, MAT_Node, ../TColStd/TColStd_MapIntegerHasher,
-  ../NCollection/NCollection_DataMap
-
 type
-  MAT_DataMapOfIntegerNode* = NCollection_DataMap[Standard_Integer,
-      handle[MAT_Node], TColStd_MapIntegerHasher]
-  MAT_DataMapIteratorOfDataMapOfIntegerNode* = Iterator[Standard_Integer,
-      handle[MAT_Node], TColStd_MapIntegerHasher]
+  MAT_DataMapOfIntegerNode* = NCollectionDataMap[int, Handle[MAT_Node],
+      TColStdMapIntegerHasher]
+  MAT_DataMapIteratorOfDataMapOfIntegerNode* = Iterator[int, Handle[MAT_Node],
+      TColStdMapIntegerHasher]
+

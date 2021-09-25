@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../IFSelect/IFSelect_ReturnStatus, ../Transfer/Transfer_FinderProcess
-
 discard "forward decl of XSControl_Controller"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
@@ -26,7 +22,7 @@ discard "forward decl of Interface_CheckIterator"
 discard "forward decl of XSControl_TransferWriter"
 discard "forward decl of XSControl_TransferWriter"
 type
-  Handle_XSControl_TransferWriter* = handle[XSControl_TransferWriter]
+  HandleXSControlTransferWriter* = Handle[XSControlTransferWriter]
 
 ## ! TransferWriter gives help to control transfer to write a file
 ## ! after having converted data from Cascade/Imagine
@@ -36,77 +32,76 @@ type
 ## ! checks
 
 type
-  XSControl_TransferWriter* {.importcpp: "XSControl_TransferWriter",
-                             header: "XSControl_TransferWriter.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                      ## !
-                                                                                                      ## Creates
-                                                                                                      ## a
-                                                                                                      ## TransferWriter,
-                                                                                                      ## empty,
-                                                                                                      ## ready
-                                                                                                      ## to
-                                                                                                      ## run
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## with
-                                                                                                      ## an
-                                                                                                      ## empty
-                                                                                                      ## FinderProcess
-                                                                                                      ## (but
-                                                                                                      ## no
-                                                                                                      ## controller,
-                                                                                                      ## etc)
+  XSControlTransferWriter* {.importcpp: "XSControl_TransferWriter",
+                            header: "XSControl_TransferWriter.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                    ## !
+                                                                                                    ## Creates
+                                                                                                    ## a
+                                                                                                    ## TransferWriter,
+                                                                                                    ## empty,
+                                                                                                    ## ready
+                                                                                                    ## to
+                                                                                                    ## run
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## with
+                                                                                                    ## an
+                                                                                                    ## empty
+                                                                                                    ## FinderProcess
+                                                                                                    ## (but
+                                                                                                    ## no
+                                                                                                    ## controller,
+                                                                                                    ## etc)
 
 
-proc constructXSControl_TransferWriter*(): XSControl_TransferWriter {.constructor,
+proc constructXSControlTransferWriter*(): XSControlTransferWriter {.constructor,
     importcpp: "XSControl_TransferWriter(@)",
     header: "XSControl_TransferWriter.hxx".}
-proc FinderProcess*(this: XSControl_TransferWriter): handle[Transfer_FinderProcess] {.
+proc finderProcess*(this: XSControlTransferWriter): Handle[TransferFinderProcess] {.
     noSideEffect, importcpp: "FinderProcess",
     header: "XSControl_TransferWriter.hxx".}
-proc SetFinderProcess*(this: var XSControl_TransferWriter;
-                      theFP: handle[Transfer_FinderProcess]) {.
+proc setFinderProcess*(this: var XSControlTransferWriter;
+                      theFP: Handle[TransferFinderProcess]) {.
     importcpp: "SetFinderProcess", header: "XSControl_TransferWriter.hxx".}
-proc Controller*(this: XSControl_TransferWriter): handle[XSControl_Controller] {.
+proc controller*(this: XSControlTransferWriter): Handle[XSControlController] {.
     noSideEffect, importcpp: "Controller", header: "XSControl_TransferWriter.hxx".}
-proc SetController*(this: var XSControl_TransferWriter;
-                   theCtl: handle[XSControl_Controller]) {.
+proc setController*(this: var XSControlTransferWriter;
+                   theCtl: Handle[XSControlController]) {.
     importcpp: "SetController", header: "XSControl_TransferWriter.hxx".}
-proc Clear*(this: var XSControl_TransferWriter; theMode: Standard_Integer) {.
-    importcpp: "Clear", header: "XSControl_TransferWriter.hxx".}
-proc TransferMode*(this: XSControl_TransferWriter): Standard_Integer {.noSideEffect,
+proc clear*(this: var XSControlTransferWriter; theMode: int) {.importcpp: "Clear",
+    header: "XSControl_TransferWriter.hxx".}
+proc transferMode*(this: XSControlTransferWriter): int {.noSideEffect,
     importcpp: "TransferMode", header: "XSControl_TransferWriter.hxx".}
-proc SetTransferMode*(this: var XSControl_TransferWriter; theMode: Standard_Integer) {.
+proc setTransferMode*(this: var XSControlTransferWriter; theMode: int) {.
     importcpp: "SetTransferMode", header: "XSControl_TransferWriter.hxx".}
-proc PrintStats*(this: XSControl_TransferWriter; theWhat: Standard_Integer;
-                theMode: Standard_Integer = 0) {.noSideEffect,
-    importcpp: "PrintStats", header: "XSControl_TransferWriter.hxx".}
-proc RecognizeTransient*(this: var XSControl_TransferWriter;
-                        theObj: handle[Standard_Transient]): Standard_Boolean {.
+proc printStats*(this: XSControlTransferWriter; theWhat: int; theMode: int = 0) {.
+    noSideEffect, importcpp: "PrintStats", header: "XSControl_TransferWriter.hxx".}
+proc recognizeTransient*(this: var XSControlTransferWriter;
+                        theObj: Handle[StandardTransient]): bool {.
     importcpp: "RecognizeTransient", header: "XSControl_TransferWriter.hxx".}
-proc TransferWriteTransient*(this: var XSControl_TransferWriter;
-                            theModel: handle[Interface_InterfaceModel];
-                            theObj: handle[Standard_Transient]; theProgress: Message_ProgressRange = Message_ProgressRange()): IFSelect_ReturnStatus {.
+proc transferWriteTransient*(this: var XSControlTransferWriter;
+                            theModel: Handle[InterfaceInterfaceModel];
+                            theObj: Handle[StandardTransient]; theProgress: MessageProgressRange = messageProgressRange()): IFSelectReturnStatus {.
     importcpp: "TransferWriteTransient", header: "XSControl_TransferWriter.hxx".}
-proc RecognizeShape*(this: var XSControl_TransferWriter; theShape: TopoDS_Shape): Standard_Boolean {.
+proc recognizeShape*(this: var XSControlTransferWriter; theShape: TopoDS_Shape): bool {.
     importcpp: "RecognizeShape", header: "XSControl_TransferWriter.hxx".}
-proc TransferWriteShape*(this: var XSControl_TransferWriter;
-                        theModel: handle[Interface_InterfaceModel];
-                        theShape: TopoDS_Shape; theProgress: Message_ProgressRange = Message_ProgressRange()): IFSelect_ReturnStatus {.
+proc transferWriteShape*(this: var XSControlTransferWriter;
+                        theModel: Handle[InterfaceInterfaceModel];
+                        theShape: TopoDS_Shape; theProgress: MessageProgressRange = messageProgressRange()): IFSelectReturnStatus {.
     importcpp: "TransferWriteShape", header: "XSControl_TransferWriter.hxx".}
-proc CheckList*(this: XSControl_TransferWriter): Interface_CheckIterator {.
+proc checkList*(this: XSControlTransferWriter): InterfaceCheckIterator {.
     noSideEffect, importcpp: "CheckList", header: "XSControl_TransferWriter.hxx".}
-proc ResultCheckList*(this: XSControl_TransferWriter;
-                     theModel: handle[Interface_InterfaceModel]): Interface_CheckIterator {.
+proc resultCheckList*(this: XSControlTransferWriter;
+                     theModel: Handle[InterfaceInterfaceModel]): InterfaceCheckIterator {.
     noSideEffect, importcpp: "ResultCheckList",
     header: "XSControl_TransferWriter.hxx".}
 type
-  XSControl_TransferWriterbase_type* = Standard_Transient
+  XSControlTransferWriterbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "XSControl_TransferWriter::get_type_name(@)",
-                              header: "XSControl_TransferWriter.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XSControl_TransferWriter::get_type_name(@)",
+                            header: "XSControl_TransferWriter.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XSControl_TransferWriter::get_type_descriptor(@)",
     header: "XSControl_TransferWriter.hxx".}
-proc DynamicType*(this: XSControl_TransferWriter): handle[Standard_Type] {.
+proc dynamicType*(this: XSControlTransferWriter): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "XSControl_TransferWriter.hxx".}

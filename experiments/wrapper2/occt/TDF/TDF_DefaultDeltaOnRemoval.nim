@@ -13,14 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TDF_DeltaOnRemoval
-
 discard "forward decl of TDF_Attribute"
 discard "forward decl of TDF_DefaultDeltaOnRemoval"
 discard "forward decl of TDF_DefaultDeltaOnRemoval"
 type
-  Handle_TDF_DefaultDeltaOnRemoval* = handle[TDF_DefaultDeltaOnRemoval]
+  HandleTDF_DefaultDeltaOnRemoval* = Handle[TDF_DefaultDeltaOnRemoval]
 
 ## ! This class provides a default implementation of a
 ## ! TDF_DeltaOnRemoval.
@@ -34,18 +31,18 @@ type
                                                                                                         ## TDF_DefaultDeltaOnRemoval.
 
 
-proc constructTDF_DefaultDeltaOnRemoval*(anAttribute: handle[TDF_Attribute]): TDF_DefaultDeltaOnRemoval {.
+proc constructTDF_DefaultDeltaOnRemoval*(anAttribute: Handle[TDF_Attribute]): TDF_DefaultDeltaOnRemoval {.
     constructor, importcpp: "TDF_DefaultDeltaOnRemoval(@)",
     header: "TDF_DefaultDeltaOnRemoval.hxx".}
-proc Apply*(this: var TDF_DefaultDeltaOnRemoval) {.importcpp: "Apply",
+proc apply*(this: var TDF_DefaultDeltaOnRemoval) {.importcpp: "Apply",
     header: "TDF_DefaultDeltaOnRemoval.hxx".}
 type
-  TDF_DefaultDeltaOnRemovalbase_type* = TDF_DeltaOnRemoval
+  TDF_DefaultDeltaOnRemovalbaseType* = TDF_DeltaOnRemoval
 
-proc get_type_name*(): cstring {.importcpp: "TDF_DefaultDeltaOnRemoval::get_type_name(@)",
-                              header: "TDF_DefaultDeltaOnRemoval.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDF_DefaultDeltaOnRemoval::get_type_name(@)",
+                            header: "TDF_DefaultDeltaOnRemoval.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDF_DefaultDeltaOnRemoval::get_type_descriptor(@)",
     header: "TDF_DefaultDeltaOnRemoval.hxx".}
-proc DynamicType*(this: TDF_DefaultDeltaOnRemoval): handle[Standard_Type] {.
+proc dynamicType*(this: TDF_DefaultDeltaOnRemoval): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TDF_DefaultDeltaOnRemoval.hxx".}

@@ -11,43 +11,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Graphic3d_Buffer
-
 ## ! Index buffer.
 
 type
-  Graphic3d_IndexBuffer* {.importcpp: "Graphic3d_IndexBuffer",
-                          header: "Graphic3d_IndexBuffer.hxx", bycopy.} = object of Graphic3d_Buffer ##
-                                                                                              ## !
-                                                                                              ## Empty
-                                                                                              ## constructor.
+  Graphic3dIndexBuffer* {.importcpp: "Graphic3d_IndexBuffer",
+                         header: "Graphic3d_IndexBuffer.hxx", bycopy.} = object of Graphic3dBuffer ##
+                                                                                            ## !
+                                                                                            ## Empty
+                                                                                            ## constructor.
 
-  Graphic3d_IndexBufferbase_type* = Graphic3d_Buffer
+  Graphic3dIndexBufferbaseType* = Graphic3dBuffer
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_IndexBuffer::get_type_name(@)",
-                              header: "Graphic3d_IndexBuffer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_IndexBuffer::get_type_name(@)",
+                            header: "Graphic3d_IndexBuffer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_IndexBuffer::get_type_descriptor(@)",
     header: "Graphic3d_IndexBuffer.hxx".}
-proc DynamicType*(this: Graphic3d_IndexBuffer): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Graphic3d_IndexBuffer.hxx".}
-proc constructGraphic3d_IndexBuffer*(theAlloc: handle[NCollection_BaseAllocator]): Graphic3d_IndexBuffer {.
+proc dynamicType*(this: Graphic3dIndexBuffer): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Graphic3d_IndexBuffer.hxx".}
+proc constructGraphic3dIndexBuffer*(theAlloc: Handle[NCollectionBaseAllocator]): Graphic3dIndexBuffer {.
     constructor, importcpp: "Graphic3d_IndexBuffer(@)",
     header: "Graphic3d_IndexBuffer.hxx".}
-proc Init*[IndexType_t](this: var Graphic3d_IndexBuffer;
-                       theNbElems: Standard_Integer): bool {.importcpp: "Init",
-    header: "Graphic3d_IndexBuffer.hxx".}
-proc InitInt32*(this: var Graphic3d_IndexBuffer; theNbElems: Standard_Integer): bool {.
+proc init*[IndexTypeT](this: var Graphic3dIndexBuffer; theNbElems: int): bool {.
+    importcpp: "Init", header: "Graphic3d_IndexBuffer.hxx".}
+proc initInt32*(this: var Graphic3dIndexBuffer; theNbElems: int): bool {.
     importcpp: "InitInt32", header: "Graphic3d_IndexBuffer.hxx".}
-proc Index*(this: Graphic3d_IndexBuffer; theIndex: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "Index", header: "Graphic3d_IndexBuffer.hxx".}
-proc SetIndex*(this: var Graphic3d_IndexBuffer; theIndex: Standard_Integer;
-              theValue: Standard_Integer) {.importcpp: "SetIndex",
-    header: "Graphic3d_IndexBuffer.hxx".}
-proc DumpJson*(this: Graphic3d_IndexBuffer; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Graphic3d_IndexBuffer.hxx".}
+proc index*(this: Graphic3dIndexBuffer; theIndex: int): int {.noSideEffect,
+    importcpp: "Index", header: "Graphic3d_IndexBuffer.hxx".}
+proc setIndex*(this: var Graphic3dIndexBuffer; theIndex: int; theValue: int) {.
+    importcpp: "SetIndex", header: "Graphic3d_IndexBuffer.hxx".}
+proc dumpJson*(this: Graphic3dIndexBuffer; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Graphic3d_IndexBuffer.hxx".}
 discard "forward decl of Graphic3d_IndexBuffer"
 type
-  Handle_Graphic3d_IndexBuffer* = handle[Graphic3d_IndexBuffer]
+  HandleGraphic3dIndexBuffer* = Handle[Graphic3dIndexBuffer]
+

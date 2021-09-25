@@ -13,34 +13,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepVisual_AnnotationCurveOccurrence
-
 discard "forward decl of StepVisual_AnnotationCurveOccurrenceAndGeomReprItem"
 discard "forward decl of StepVisual_AnnotationCurveOccurrenceAndGeomReprItem"
 type
-  Handle_StepVisual_AnnotationCurveOccurrenceAndGeomReprItem* = handle[
-      StepVisual_AnnotationCurveOccurrenceAndGeomReprItem]
+  HandleStepVisualAnnotationCurveOccurrenceAndGeomReprItem* = Handle[
+      StepVisualAnnotationCurveOccurrenceAndGeomReprItem]
 
 ## ! Added for Dimensional Tolerances
 ## ! Complex STEP entity AnnotationCurveOccurrence & AnnotationOccurrence & GeometricRepresentationItem & RepresentationItem & StyledItem
 
 type
-  StepVisual_AnnotationCurveOccurrenceAndGeomReprItem* {.
+  StepVisualAnnotationCurveOccurrenceAndGeomReprItem* {.
       importcpp: "StepVisual_AnnotationCurveOccurrenceAndGeomReprItem",
-      header: "StepVisual_AnnotationCurveOccurrenceAndGeomReprItem.hxx", bycopy.} = object of StepVisual_AnnotationCurveOccurrence
+      header: "StepVisual_AnnotationCurveOccurrenceAndGeomReprItem.hxx", bycopy.} = object of StepVisualAnnotationCurveOccurrence
 
 
-proc constructStepVisual_AnnotationCurveOccurrenceAndGeomReprItem*(): StepVisual_AnnotationCurveOccurrenceAndGeomReprItem {.
+proc constructStepVisualAnnotationCurveOccurrenceAndGeomReprItem*(): StepVisualAnnotationCurveOccurrenceAndGeomReprItem {.
     constructor,
     importcpp: "StepVisual_AnnotationCurveOccurrenceAndGeomReprItem(@)",
     header: "StepVisual_AnnotationCurveOccurrenceAndGeomReprItem.hxx".}
 type
-  StepVisual_AnnotationCurveOccurrenceAndGeomReprItembase_type* = StepVisual_AnnotationCurveOccurrence
+  StepVisualAnnotationCurveOccurrenceAndGeomReprItembaseType* = StepVisualAnnotationCurveOccurrence
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_AnnotationCurveOccurrenceAndGeomReprItem::get_type_name(@)", header: "StepVisual_AnnotationCurveOccurrenceAndGeomReprItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_AnnotationCurveOccurrenceAndGeomReprItem::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepVisual_AnnotationCurveOccurrenceAndGeomReprItem::get_type_name(@)", header: "StepVisual_AnnotationCurveOccurrenceAndGeomReprItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_AnnotationCurveOccurrenceAndGeomReprItem::get_type_descriptor(@)",
     header: "StepVisual_AnnotationCurveOccurrenceAndGeomReprItem.hxx".}
-proc DynamicType*(this: StepVisual_AnnotationCurveOccurrenceAndGeomReprItem): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepVisual_AnnotationCurveOccurrenceAndGeomReprItem.hxx".}
+proc dynamicType*(this: StepVisualAnnotationCurveOccurrenceAndGeomReprItem): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepVisual_AnnotationCurveOccurrenceAndGeomReprItem.hxx".}

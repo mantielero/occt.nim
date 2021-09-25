@@ -13,120 +13,115 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_GUID, ../TColStd/TColStd_ListOfAsciiString
-
 ## ! Unique item identifier in the hierarchical product structure.
 ## ! A full path to an assembly component in the "part-of" graph starting from
 ## ! the root node.
 
 type
-  XCAFDoc_AssemblyItemId* {.importcpp: "XCAFDoc_AssemblyItemId",
-                           header: "XCAFDoc_AssemblyItemId.hxx", bycopy.} = object ## !
-                                                                              ## Constructs an
-                                                                              ## empty
-                                                                              ## item
-                                                                              ## ID.
+  XCAFDocAssemblyItemId* {.importcpp: "XCAFDoc_AssemblyItemId",
+                          header: "XCAFDoc_AssemblyItemId.hxx", bycopy.} = object ## !
+                                                                             ## Constructs an
+                                                                             ## empty
+                                                                             ## item ID.
     ## /< List of label entries
 
 
-proc constructXCAFDoc_AssemblyItemId*(): XCAFDoc_AssemblyItemId {.constructor,
+proc constructXCAFDocAssemblyItemId*(): XCAFDocAssemblyItemId {.constructor,
     importcpp: "XCAFDoc_AssemblyItemId(@)", header: "XCAFDoc_AssemblyItemId.hxx".}
-proc constructXCAFDoc_AssemblyItemId*(thePath: TColStd_ListOfAsciiString): XCAFDoc_AssemblyItemId {.
+proc constructXCAFDocAssemblyItemId*(thePath: TColStdListOfAsciiString): XCAFDocAssemblyItemId {.
     constructor, importcpp: "XCAFDoc_AssemblyItemId(@)",
     header: "XCAFDoc_AssemblyItemId.hxx".}
-proc constructXCAFDoc_AssemblyItemId*(theString: TCollection_AsciiString): XCAFDoc_AssemblyItemId {.
+proc constructXCAFDocAssemblyItemId*(theString: TCollectionAsciiString): XCAFDocAssemblyItemId {.
     constructor, importcpp: "XCAFDoc_AssemblyItemId(@)",
     header: "XCAFDoc_AssemblyItemId.hxx".}
-proc Init*(this: var XCAFDoc_AssemblyItemId; thePath: TColStd_ListOfAsciiString) {.
+proc init*(this: var XCAFDocAssemblyItemId; thePath: TColStdListOfAsciiString) {.
     importcpp: "Init", header: "XCAFDoc_AssemblyItemId.hxx".}
-proc Init*(this: var XCAFDoc_AssemblyItemId; theString: TCollection_AsciiString) {.
+proc init*(this: var XCAFDocAssemblyItemId; theString: TCollectionAsciiString) {.
     importcpp: "Init", header: "XCAFDoc_AssemblyItemId.hxx".}
-proc IsNull*(this: XCAFDoc_AssemblyItemId): Standard_Boolean {.noSideEffect,
-    importcpp: "IsNull", header: "XCAFDoc_AssemblyItemId.hxx".}
-proc Nullify*(this: var XCAFDoc_AssemblyItemId) {.importcpp: "Nullify",
+proc isNull*(this: XCAFDocAssemblyItemId): bool {.noSideEffect, importcpp: "IsNull",
     header: "XCAFDoc_AssemblyItemId.hxx".}
-proc IsChild*(this: XCAFDoc_AssemblyItemId; theOther: XCAFDoc_AssemblyItemId): Standard_Boolean {.
+proc nullify*(this: var XCAFDocAssemblyItemId) {.importcpp: "Nullify",
+    header: "XCAFDoc_AssemblyItemId.hxx".}
+proc isChild*(this: XCAFDocAssemblyItemId; theOther: XCAFDocAssemblyItemId): bool {.
     noSideEffect, importcpp: "IsChild", header: "XCAFDoc_AssemblyItemId.hxx".}
-proc IsDirectChild*(this: XCAFDoc_AssemblyItemId; theOther: XCAFDoc_AssemblyItemId): Standard_Boolean {.
+proc isDirectChild*(this: XCAFDocAssemblyItemId; theOther: XCAFDocAssemblyItemId): bool {.
     noSideEffect, importcpp: "IsDirectChild", header: "XCAFDoc_AssemblyItemId.hxx".}
-proc IsEqual*(this: XCAFDoc_AssemblyItemId; theOther: XCAFDoc_AssemblyItemId): Standard_Boolean {.
+proc isEqual*(this: XCAFDocAssemblyItemId; theOther: XCAFDocAssemblyItemId): bool {.
     noSideEffect, importcpp: "IsEqual", header: "XCAFDoc_AssemblyItemId.hxx".}
-proc GetPath*(this: XCAFDoc_AssemblyItemId): TColStd_ListOfAsciiString {.
-    noSideEffect, importcpp: "GetPath", header: "XCAFDoc_AssemblyItemId.hxx".}
-proc ToString*(this: XCAFDoc_AssemblyItemId): TCollection_AsciiString {.
-    noSideEffect, importcpp: "ToString", header: "XCAFDoc_AssemblyItemId.hxx".}
-proc DumpJson*(this: XCAFDoc_AssemblyItemId; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "XCAFDoc_AssemblyItemId.hxx".}
+proc getPath*(this: XCAFDocAssemblyItemId): TColStdListOfAsciiString {.noSideEffect,
+    importcpp: "GetPath", header: "XCAFDoc_AssemblyItemId.hxx".}
+proc toString*(this: XCAFDocAssemblyItemId): TCollectionAsciiString {.noSideEffect,
+    importcpp: "ToString", header: "XCAFDoc_AssemblyItemId.hxx".}
+proc dumpJson*(this: XCAFDocAssemblyItemId; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "XCAFDoc_AssemblyItemId.hxx".}
 type
-  XCAFDoc_AssemblyItemIdHasher* {.importcpp: "XCAFDoc_AssemblyItemId::Hasher",
-                                 header: "XCAFDoc_AssemblyItemId.hxx", bycopy.} = object ##
-                                                                                    ## !
-                                                                                    ## Computes
-                                                                                    ## a
-                                                                                    ## hash
-                                                                                    ## code
-                                                                                    ## for
-                                                                                    ## the
-                                                                                    ## given
-                                                                                    ## value
-                                                                                    ## of
-                                                                                    ## the
-                                                                                    ## XCAFDoc_AssemblyItemId,
-                                                                                    ## in
-                                                                                    ## range
-                                                                                    ## [1,
-                                                                                    ## theUpperBound]
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## @param
-                                                                                    ## theAssemblyItemId
-                                                                                    ## the
-                                                                                    ## value
-                                                                                    ## of
-                                                                                    ## the
-                                                                                    ## XCAFDoc_AssemblyItemId
-                                                                                    ## type
-                                                                                    ## which
-                                                                                    ## hash
-                                                                                    ## code
-                                                                                    ## is
-                                                                                    ## to
-                                                                                    ## be
-                                                                                    ## computed
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## @param
-                                                                                    ## theUpperBound
-                                                                                    ## the
-                                                                                    ## upper
-                                                                                    ## bound
-                                                                                    ## of
-                                                                                    ## the
-                                                                                    ## range
-                                                                                    ## a
-                                                                                    ## computing
-                                                                                    ## hash
-                                                                                    ## code
-                                                                                    ## must
-                                                                                    ## be
-                                                                                    ## within
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## @return
-                                                                                    ## a
-                                                                                    ## computed
-                                                                                    ## hash
-                                                                                    ## code,
-                                                                                    ## in
-                                                                                    ## range
-                                                                                    ## [1,
-                                                                                    ## theUpperBound]
+  XCAFDocAssemblyItemIdHasher* {.importcpp: "XCAFDoc_AssemblyItemId::Hasher",
+                                header: "XCAFDoc_AssemblyItemId.hxx", bycopy.} = object ##
+                                                                                   ## !
+                                                                                   ## Computes
+                                                                                   ## a
+                                                                                   ## hash
+                                                                                   ## code
+                                                                                   ## for
+                                                                                   ## the
+                                                                                   ## given
+                                                                                   ## value
+                                                                                   ## of
+                                                                                   ## the
+                                                                                   ## XCAFDoc_AssemblyItemId,
+                                                                                   ## in
+                                                                                   ## range
+                                                                                   ## [1,
+                                                                                   ## theUpperBound]
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## @param
+                                                                                   ## theAssemblyItemId
+                                                                                   ## the
+                                                                                   ## value
+                                                                                   ## of
+                                                                                   ## the
+                                                                                   ## XCAFDoc_AssemblyItemId
+                                                                                   ## type
+                                                                                   ## which
+                                                                                   ## hash
+                                                                                   ## code
+                                                                                   ## is
+                                                                                   ## to
+                                                                                   ## be
+                                                                                   ## computed
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## @param
+                                                                                   ## theUpperBound
+                                                                                   ## the
+                                                                                   ## upper
+                                                                                   ## bound
+                                                                                   ## of
+                                                                                   ## the
+                                                                                   ## range
+                                                                                   ## a
+                                                                                   ## computing
+                                                                                   ## hash
+                                                                                   ## code
+                                                                                   ## must
+                                                                                   ## be
+                                                                                   ## within
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## @return
+                                                                                   ## a
+                                                                                   ## computed
+                                                                                   ## hash
+                                                                                   ## code,
+                                                                                   ## in
+                                                                                   ## range
+                                                                                   ## [1,
+                                                                                   ## theUpperBound]
 
 
-proc HashCode*(theAssemblyItemId: XCAFDoc_AssemblyItemId;
-              theUpperBound: Standard_Integer): Standard_Integer {.
+proc hashCode*(theAssemblyItemId: XCAFDocAssemblyItemId; theUpperBound: int): int {.
     importcpp: "Hasher::HashCode(@)", header: "XCAFDoc_AssemblyItemId.hxx".}
-proc IsEqual*(theItem1: XCAFDoc_AssemblyItemId; theItem2: XCAFDoc_AssemblyItemId): cint {.
+proc isEqual*(theItem1: XCAFDocAssemblyItemId; theItem2: XCAFDocAssemblyItemId): cint {.
     importcpp: "Hasher::IsEqual(@)", header: "XCAFDoc_AssemblyItemId.hxx".}

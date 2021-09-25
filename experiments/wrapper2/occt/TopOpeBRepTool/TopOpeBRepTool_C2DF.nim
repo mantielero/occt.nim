@@ -14,36 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real, ../TopoDS/TopoDS_Face,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of TopoDS_Face"
 type
-  TopOpeBRepTool_C2DF* {.importcpp: "TopOpeBRepTool_C2DF",
-                        header: "TopOpeBRepTool_C2DF.hxx", bycopy.} = object
+  TopOpeBRepToolC2DF* {.importcpp: "TopOpeBRepTool_C2DF",
+                       header: "TopOpeBRepTool_C2DF.hxx", bycopy.} = object
 
 
-proc constructTopOpeBRepTool_C2DF*(): TopOpeBRepTool_C2DF {.constructor,
+proc constructTopOpeBRepToolC2DF*(): TopOpeBRepToolC2DF {.constructor,
     importcpp: "TopOpeBRepTool_C2DF(@)", header: "TopOpeBRepTool_C2DF.hxx".}
-proc constructTopOpeBRepTool_C2DF*(PC: handle[Geom2d_Curve]; f2d: Standard_Real;
-                                  l2d: Standard_Real; tol: Standard_Real;
-                                  F: TopoDS_Face): TopOpeBRepTool_C2DF {.
+proc constructTopOpeBRepToolC2DF*(pc: Handle[Geom2dCurve]; f2d: float; l2d: float;
+                                 tol: float; f: TopoDS_Face): TopOpeBRepToolC2DF {.
     constructor, importcpp: "TopOpeBRepTool_C2DF(@)",
     header: "TopOpeBRepTool_C2DF.hxx".}
-proc SetPC*(this: var TopOpeBRepTool_C2DF; PC: handle[Geom2d_Curve];
-           f2d: Standard_Real; l2d: Standard_Real; tol: Standard_Real) {.
-    importcpp: "SetPC", header: "TopOpeBRepTool_C2DF.hxx".}
-proc SetFace*(this: var TopOpeBRepTool_C2DF; F: TopoDS_Face) {.importcpp: "SetFace",
+proc setPC*(this: var TopOpeBRepToolC2DF; pc: Handle[Geom2dCurve]; f2d: float;
+           l2d: float; tol: float) {.importcpp: "SetPC",
+                                 header: "TopOpeBRepTool_C2DF.hxx".}
+proc setFace*(this: var TopOpeBRepToolC2DF; f: TopoDS_Face) {.importcpp: "SetFace",
     header: "TopOpeBRepTool_C2DF.hxx".}
-proc PC*(this: TopOpeBRepTool_C2DF; f2d: var Standard_Real; l2d: var Standard_Real;
-        tol: var Standard_Real): handle[Geom2d_Curve] {.noSideEffect,
-    importcpp: "PC", header: "TopOpeBRepTool_C2DF.hxx".}
-proc Face*(this: TopOpeBRepTool_C2DF): TopoDS_Face {.noSideEffect, importcpp: "Face",
+proc pc*(this: TopOpeBRepToolC2DF; f2d: var float; l2d: var float; tol: var float): Handle[
+    Geom2dCurve] {.noSideEffect, importcpp: "PC", header: "TopOpeBRepTool_C2DF.hxx".}
+proc face*(this: TopOpeBRepToolC2DF): TopoDS_Face {.noSideEffect, importcpp: "Face",
     header: "TopOpeBRepTool_C2DF.hxx".}
-proc IsPC*(this: TopOpeBRepTool_C2DF; PC: handle[Geom2d_Curve]): Standard_Boolean {.
-    noSideEffect, importcpp: "IsPC", header: "TopOpeBRepTool_C2DF.hxx".}
-proc IsFace*(this: TopOpeBRepTool_C2DF; F: TopoDS_Face): Standard_Boolean {.
-    noSideEffect, importcpp: "IsFace", header: "TopOpeBRepTool_C2DF.hxx".}
+proc isPC*(this: TopOpeBRepToolC2DF; pc: Handle[Geom2dCurve]): bool {.noSideEffect,
+    importcpp: "IsPC", header: "TopOpeBRepTool_C2DF.hxx".}
+proc isFace*(this: TopOpeBRepToolC2DF; f: TopoDS_Face): bool {.noSideEffect,
+    importcpp: "IsFace", header: "TopOpeBRepTool_C2DF.hxx".}

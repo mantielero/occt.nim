@@ -12,39 +12,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, BRepCheck_Result
-
 discard "forward decl of TopoDS_Solid"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepCheck_Solid"
 discard "forward decl of BRepCheck_Solid"
 type
-  Handle_BRepCheck_Solid* = handle[BRepCheck_Solid]
+  HandleBRepCheckSolid* = Handle[BRepCheckSolid]
 
 ## ! The class is to check a solid.
 
 type
-  BRepCheck_Solid* {.importcpp: "BRepCheck_Solid", header: "BRepCheck_Solid.hxx",
-                    bycopy.} = object of BRepCheck_Result ## ! Constructor
-                                                     ## ! <theS> is the solid to check
+  BRepCheckSolid* {.importcpp: "BRepCheck_Solid", header: "BRepCheck_Solid.hxx",
+                   bycopy.} = object of BRepCheckResult ## ! Constructor
+                                                   ## ! <theS> is the solid to check
 
 
-proc constructBRepCheck_Solid*(theS: TopoDS_Solid): BRepCheck_Solid {.constructor,
+proc constructBRepCheckSolid*(theS: TopoDS_Solid): BRepCheckSolid {.constructor,
     importcpp: "BRepCheck_Solid(@)", header: "BRepCheck_Solid.hxx".}
-proc InContext*(this: var BRepCheck_Solid; theContextShape: TopoDS_Shape) {.
+proc inContext*(this: var BRepCheckSolid; theContextShape: TopoDS_Shape) {.
     importcpp: "InContext", header: "BRepCheck_Solid.hxx".}
-proc Minimum*(this: var BRepCheck_Solid) {.importcpp: "Minimum",
-                                       header: "BRepCheck_Solid.hxx".}
-proc Blind*(this: var BRepCheck_Solid) {.importcpp: "Blind",
-                                     header: "BRepCheck_Solid.hxx".}
+proc minimum*(this: var BRepCheckSolid) {.importcpp: "Minimum",
+                                      header: "BRepCheck_Solid.hxx".}
+proc blind*(this: var BRepCheckSolid) {.importcpp: "Blind",
+                                    header: "BRepCheck_Solid.hxx".}
 type
-  BRepCheck_Solidbase_type* = BRepCheck_Result
+  BRepCheckSolidbaseType* = BRepCheckResult
 
-proc get_type_name*(): cstring {.importcpp: "BRepCheck_Solid::get_type_name(@)",
-                              header: "BRepCheck_Solid.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepCheck_Solid::get_type_name(@)",
+                            header: "BRepCheck_Solid.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepCheck_Solid::get_type_descriptor(@)",
     header: "BRepCheck_Solid.hxx".}
-proc DynamicType*(this: BRepCheck_Solid): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: BRepCheckSolid): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepCheck_Solid.hxx".}

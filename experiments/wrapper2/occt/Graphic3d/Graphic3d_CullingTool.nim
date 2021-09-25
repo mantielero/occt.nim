@@ -13,47 +13,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Graphic3d_Camera, Graphic3d_Vec4, Graphic3d_WorldViewProjState
-
 ## ! Graphic3d_CullingTool class provides a possibility to store parameters of view volume,
 ## ! such as its vertices and equations, and contains methods detecting if given AABB overlaps view volume.
 
 type
-  Graphic3d_CullingTool* {.importcpp: "Graphic3d_CullingTool",
-                          header: "Graphic3d_CullingTool.hxx", bycopy.} = object ## !
-                                                                            ## Auxiliary
-                                                                            ## structure
-                                                                            ## holding
-                                                                            ## non-persistent
-                                                                            ## culling
-                                                                            ## options.
-                                                                            ## !
-                                                                            ## Creates an
-                                                                            ## empty
-                                                                            ## selector
-                                                                            ## object with
-                                                                            ## parallel
-                                                                            ## projection type by
-                                                                            ## default.
-                                                                            ## !
-                                                                            ## Calculates
-                                                                            ## signed
-                                                                            ## distance from
-                                                                            ## plane to
-                                                                            ## point.
-                                                                            ## !
-                                                                            ## @param
-                                                                            ## theNormal [in] the
-                                                                            ## plane's
-                                                                            ## normal.
-                                                                            ## !
-                                                                            ## @param
-                                                                            ## thePnt    [in]
-                                                                            ## !
-                                                                            ## Enumerates
-                                                                            ## planes of view
-                                                                            ## volume.
+  Graphic3dCullingTool* {.importcpp: "Graphic3d_CullingTool",
+                         header: "Graphic3d_CullingTool.hxx", bycopy.} = object ## !
+                                                                           ## Auxiliary
+                                                                           ## structure
+                                                                           ## holding
+                                                                           ## non-persistent
+                                                                           ## culling
+                                                                           ## options.
+                                                                           ## !
+                                                                           ## Creates an empty
+                                                                           ## selector
+                                                                           ## object with
+                                                                           ## parallel
+                                                                           ## projection type by
+                                                                           ## default.
+                                                                           ## !
+                                                                           ## Calculates
+                                                                           ## signed
+                                                                           ## distance from plane to
+                                                                           ## point.
+                                                                           ## !
+                                                                           ## @param
+                                                                           ## theNormal [in] the
+                                                                           ## plane's
+                                                                           ## normal.
+                                                                           ## !
+                                                                           ## @param
+                                                                           ## thePnt    [in]
+                                                                           ## !
+                                                                           ## Enumerates
+                                                                           ## planes of view
+                                                                           ## volume.
     ## !< Planes
     ## !< Vertices
     ## !< camera definition
@@ -71,91 +66,86 @@ type
     ## !< camera scale for size culling
     ## !< pixel size for size culling
 
-  Graphic3d_CullingToolCullingContext* {.importcpp: "Graphic3d_CullingTool::CullingContext",
-                                        header: "Graphic3d_CullingTool.hxx",
-                                        bycopy.} = object
-    DistCull* {.importc: "DistCull".}: Standard_Real ## !< culling distance
-    SizeCull2* {.importc: "SizeCull2".}: Standard_Real ## !< squared culling size
-                                                   ## ! Empty constructor.
+  Graphic3dCullingToolCullingContext* {.importcpp: "Graphic3d_CullingTool::CullingContext",
+                                       header: "Graphic3d_CullingTool.hxx", bycopy.} = object
+    distCull* {.importc: "DistCull".}: float ## !< culling distance
+    sizeCull2* {.importc: "SizeCull2".}: float ## !< squared culling size
+                                           ## ! Empty constructor.
 
 
-proc constructGraphic3d_CullingToolCullingContext*(): Graphic3d_CullingToolCullingContext {.
+proc constructGraphic3dCullingToolCullingContext*(): Graphic3dCullingToolCullingContext {.
     constructor, importcpp: "Graphic3d_CullingTool::CullingContext(@)",
     header: "Graphic3d_CullingTool.hxx".}
 type
-  Graphic3d_CullingToolPlane* {.importcpp: "Graphic3d_CullingTool::Plane",
-                               header: "Graphic3d_CullingTool.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Creates
-                                                                                 ## default
-                                                                                 ## plane.
-    Origin* {.importc: "Origin".}: Graphic3d_Vec3d
-    Normal* {.importc: "Normal".}: Graphic3d_Vec3d
+  Graphic3dCullingToolPlane* {.importcpp: "Graphic3d_CullingTool::Plane",
+                              header: "Graphic3d_CullingTool.hxx", bycopy.} = object ##
+                                                                                ## !
+                                                                                ## Creates
+                                                                                ## default
+                                                                                ## plane.
+    origin* {.importc: "Origin".}: Graphic3dVec3d
+    normal* {.importc: "Normal".}: Graphic3dVec3d
 
 
-proc constructGraphic3d_CullingToolPlane*(): Graphic3d_CullingToolPlane {.
+proc constructGraphic3dCullingToolPlane*(): Graphic3dCullingToolPlane {.
     constructor, importcpp: "Graphic3d_CullingTool::Plane(@)",
     header: "Graphic3d_CullingTool.hxx".}
-proc constructGraphic3d_CullingToolPlane*(theOrigin: Graphic3d_Vec3d;
-    theNormal: Graphic3d_Vec3d): Graphic3d_CullingToolPlane {.constructor,
-    importcpp: "Graphic3d_CullingTool::Plane(@)",
+proc constructGraphic3dCullingToolPlane*(theOrigin: Graphic3dVec3d;
+                                        theNormal: Graphic3dVec3d): Graphic3dCullingToolPlane {.
+    constructor, importcpp: "Graphic3d_CullingTool::Plane(@)",
     header: "Graphic3d_CullingTool.hxx".}
-proc constructGraphic3d_CullingTool*(): Graphic3d_CullingTool {.constructor,
+proc constructGraphic3dCullingTool*(): Graphic3dCullingTool {.constructor,
     importcpp: "Graphic3d_CullingTool(@)", header: "Graphic3d_CullingTool.hxx".}
-proc SetViewVolume*(this: var Graphic3d_CullingTool;
-                   theCamera: handle[Graphic3d_Camera];
-                   theModelWorld: Graphic3d_Mat4d = Graphic3d_Mat4d()) {.
+proc setViewVolume*(this: var Graphic3dCullingTool;
+                   theCamera: Handle[Graphic3dCamera];
+                   theModelWorld: Graphic3dMat4d = graphic3dMat4d()) {.
     importcpp: "SetViewVolume", header: "Graphic3d_CullingTool.hxx".}
-proc SetViewportSize*(this: var Graphic3d_CullingTool;
-                     theViewportWidth: Standard_Integer;
-                     theViewportHeight: Standard_Integer;
-                     theResolutionRatio: Standard_Real) {.
+proc setViewportSize*(this: var Graphic3dCullingTool; theViewportWidth: int;
+                     theViewportHeight: int; theResolutionRatio: float) {.
     importcpp: "SetViewportSize", header: "Graphic3d_CullingTool.hxx".}
-proc SetCullingDistance*(this: Graphic3d_CullingTool;
-                        theCtx: var Graphic3d_CullingToolCullingContext;
-                        theDistance: Standard_Real) {.noSideEffect,
+proc setCullingDistance*(this: Graphic3dCullingTool;
+                        theCtx: var Graphic3dCullingToolCullingContext;
+                        theDistance: float) {.noSideEffect,
     importcpp: "SetCullingDistance", header: "Graphic3d_CullingTool.hxx".}
-proc SetCullingSize*(this: Graphic3d_CullingTool;
-                    theCtx: var Graphic3d_CullingToolCullingContext;
-                    theSize: Standard_Real) {.noSideEffect,
-    importcpp: "SetCullingSize", header: "Graphic3d_CullingTool.hxx".}
-proc CacheClipPtsProjections*(this: var Graphic3d_CullingTool) {.
+proc setCullingSize*(this: Graphic3dCullingTool;
+                    theCtx: var Graphic3dCullingToolCullingContext; theSize: float) {.
+    noSideEffect, importcpp: "SetCullingSize", header: "Graphic3d_CullingTool.hxx".}
+proc cacheClipPtsProjections*(this: var Graphic3dCullingTool) {.
     importcpp: "CacheClipPtsProjections", header: "Graphic3d_CullingTool.hxx".}
-proc IsCulled*(this: Graphic3d_CullingTool;
-              theCtx: Graphic3d_CullingToolCullingContext;
-              theMinPnt: Graphic3d_Vec3d; theMaxPnt: Graphic3d_Vec3d;
-              theIsInside: ptr Standard_Boolean = nil): bool {.noSideEffect,
-    importcpp: "IsCulled", header: "Graphic3d_CullingTool.hxx".}
-proc Camera*(this: Graphic3d_CullingTool): handle[Graphic3d_Camera] {.noSideEffect,
+proc isCulled*(this: Graphic3dCullingTool;
+              theCtx: Graphic3dCullingToolCullingContext;
+              theMinPnt: Graphic3dVec3d; theMaxPnt: Graphic3dVec3d;
+              theIsInside: ptr bool = nil): bool {.noSideEffect, importcpp: "IsCulled",
+    header: "Graphic3d_CullingTool.hxx".}
+proc camera*(this: Graphic3dCullingTool): Handle[Graphic3dCamera] {.noSideEffect,
     importcpp: "Camera", header: "Graphic3d_CullingTool.hxx".}
-proc ProjectionMatrix*(this: Graphic3d_CullingTool): Graphic3d_Mat4d {.noSideEffect,
+proc projectionMatrix*(this: Graphic3dCullingTool): Graphic3dMat4d {.noSideEffect,
     importcpp: "ProjectionMatrix", header: "Graphic3d_CullingTool.hxx".}
-proc WorldViewMatrix*(this: Graphic3d_CullingTool): Graphic3d_Mat4d {.noSideEffect,
+proc worldViewMatrix*(this: Graphic3dCullingTool): Graphic3dMat4d {.noSideEffect,
     importcpp: "WorldViewMatrix", header: "Graphic3d_CullingTool.hxx".}
-proc ViewportWidth*(this: Graphic3d_CullingTool): Standard_Integer {.noSideEffect,
+proc viewportWidth*(this: Graphic3dCullingTool): int {.noSideEffect,
     importcpp: "ViewportWidth", header: "Graphic3d_CullingTool.hxx".}
-proc ViewportHeight*(this: Graphic3d_CullingTool): Standard_Integer {.noSideEffect,
+proc viewportHeight*(this: Graphic3dCullingTool): int {.noSideEffect,
     importcpp: "ViewportHeight", header: "Graphic3d_CullingTool.hxx".}
-proc WorldViewProjState*(this: Graphic3d_CullingTool): Graphic3d_WorldViewProjState {.
+proc worldViewProjState*(this: Graphic3dCullingTool): Graphic3dWorldViewProjState {.
     noSideEffect, importcpp: "WorldViewProjState",
     header: "Graphic3d_CullingTool.hxx".}
-proc CameraEye*(this: Graphic3d_CullingTool): Graphic3d_Vec3d {.noSideEffect,
+proc cameraEye*(this: Graphic3dCullingTool): Graphic3dVec3d {.noSideEffect,
     importcpp: "CameraEye", header: "Graphic3d_CullingTool.hxx".}
-proc CameraDirection*(this: Graphic3d_CullingTool): Graphic3d_Vec3d {.noSideEffect,
+proc cameraDirection*(this: Graphic3dCullingTool): Graphic3dVec3d {.noSideEffect,
     importcpp: "CameraDirection", header: "Graphic3d_CullingTool.hxx".}
-proc SignedPlanePointDistance*(this: var Graphic3d_CullingTool;
-                              theNormal: Graphic3d_Vec4d; thePnt: Graphic3d_Vec4d): Standard_Real {.
+proc signedPlanePointDistance*(this: var Graphic3dCullingTool;
+                              theNormal: Graphic3dVec4d; thePnt: Graphic3dVec4d): float {.
     importcpp: "SignedPlanePointDistance", header: "Graphic3d_CullingTool.hxx".}
-proc IsOutFrustum*(this: Graphic3d_CullingTool; theMinPnt: Graphic3d_Vec3d;
-                  theMaxPnt: Graphic3d_Vec3d;
-                  theIsInside: ptr Standard_Boolean = nil): bool {.noSideEffect,
-    importcpp: "IsOutFrustum", header: "Graphic3d_CullingTool.hxx".}
-proc IsTooDistant*(this: Graphic3d_CullingTool;
-                  theCtx: Graphic3d_CullingToolCullingContext;
-                  theMinPnt: Graphic3d_Vec3d; theMaxPnt: Graphic3d_Vec3d;
-                  theIsInside: ptr Standard_Boolean = nil): bool {.noSideEffect,
+proc isOutFrustum*(this: Graphic3dCullingTool; theMinPnt: Graphic3dVec3d;
+                  theMaxPnt: Graphic3dVec3d; theIsInside: ptr bool = nil): bool {.
+    noSideEffect, importcpp: "IsOutFrustum", header: "Graphic3d_CullingTool.hxx".}
+proc isTooDistant*(this: Graphic3dCullingTool;
+                  theCtx: Graphic3dCullingToolCullingContext;
+                  theMinPnt: Graphic3dVec3d; theMaxPnt: Graphic3dVec3d;
+                  theIsInside: ptr bool = nil): bool {.noSideEffect,
     importcpp: "IsTooDistant", header: "Graphic3d_CullingTool.hxx".}
-proc IsTooSmall*(this: Graphic3d_CullingTool;
-                theCtx: Graphic3d_CullingToolCullingContext;
-                theMinPnt: Graphic3d_Vec3d; theMaxPnt: Graphic3d_Vec3d): bool {.
+proc isTooSmall*(this: Graphic3dCullingTool;
+                theCtx: Graphic3dCullingToolCullingContext;
+                theMinPnt: Graphic3dVec3d; theMaxPnt: Graphic3dVec3d): bool {.
     noSideEffect, importcpp: "IsTooSmall", header: "Graphic3d_CullingTool.hxx".}

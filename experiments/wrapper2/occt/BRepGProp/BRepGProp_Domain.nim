@@ -14,29 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopExp/TopExp_Explorer,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 type
-  BRepGProp_Domain* {.importcpp: "BRepGProp_Domain",
-                     header: "BRepGProp_Domain.hxx", bycopy.} = object ## ! Empty constructor.
+  BRepGPropDomain* {.importcpp: "BRepGProp_Domain", header: "BRepGProp_Domain.hxx",
+                    bycopy.} = object ## ! Empty constructor.
 
 
-proc constructBRepGProp_Domain*(): BRepGProp_Domain {.constructor,
+proc constructBRepGPropDomain*(): BRepGPropDomain {.constructor,
     importcpp: "BRepGProp_Domain(@)", header: "BRepGProp_Domain.hxx".}
-proc constructBRepGProp_Domain*(F: TopoDS_Face): BRepGProp_Domain {.constructor,
+proc constructBRepGPropDomain*(f: TopoDS_Face): BRepGPropDomain {.constructor,
     importcpp: "BRepGProp_Domain(@)", header: "BRepGProp_Domain.hxx".}
-proc Init*(this: var BRepGProp_Domain; F: TopoDS_Face) {.importcpp: "Init",
+proc init*(this: var BRepGPropDomain; f: TopoDS_Face) {.importcpp: "Init",
     header: "BRepGProp_Domain.hxx".}
-proc More*(this: var BRepGProp_Domain): Standard_Boolean {.importcpp: "More",
+proc more*(this: var BRepGPropDomain): bool {.importcpp: "More",
     header: "BRepGProp_Domain.hxx".}
-proc Init*(this: var BRepGProp_Domain) {.importcpp: "Init",
-                                     header: "BRepGProp_Domain.hxx".}
-proc Value*(this: var BRepGProp_Domain): TopoDS_Edge {.importcpp: "Value",
+proc init*(this: var BRepGPropDomain) {.importcpp: "Init",
+                                    header: "BRepGProp_Domain.hxx".}
+proc value*(this: var BRepGPropDomain): TopoDS_Edge {.importcpp: "Value",
     header: "BRepGProp_Domain.hxx".}
-proc Next*(this: var BRepGProp_Domain) {.importcpp: "Next",
-                                     header: "BRepGProp_Domain.hxx".}
+proc next*(this: var BRepGPropDomain) {.importcpp: "Next",
+                                    header: "BRepGProp_Domain.hxx".}

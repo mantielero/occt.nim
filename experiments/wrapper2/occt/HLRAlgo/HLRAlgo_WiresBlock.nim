@@ -14,15 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  HLRAlgo_EdgesBlock, ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_Array1OfTransient, ../Standard/Standard_Integer,
-  ../Standard/Standard_Transient
-
 discard "forward decl of HLRAlgo_WiresBlock"
 discard "forward decl of HLRAlgo_WiresBlock"
 type
-  Handle_HLRAlgo_WiresBlock* = handle[HLRAlgo_WiresBlock]
+  HandleHLRAlgoWiresBlock* = Handle[HLRAlgoWiresBlock]
 
 ## ! A WiresBlock is a set of Blocks. It is used by the
 ## ! DataStructure to structure the Edges.
@@ -32,37 +27,35 @@ type
 ## ! * An Array  of Blocks.
 
 type
-  HLRAlgo_WiresBlock* {.importcpp: "HLRAlgo_WiresBlock",
-                       header: "HLRAlgo_WiresBlock.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                          ## !
-                                                                                          ## Create
-                                                                                          ## a
-                                                                                          ## Block
-                                                                                          ## of
-                                                                                          ## Blocks.
+  HLRAlgoWiresBlock* {.importcpp: "HLRAlgo_WiresBlock",
+                      header: "HLRAlgo_WiresBlock.hxx", bycopy.} = object of StandardTransient ##
+                                                                                        ## !
+                                                                                        ## Create
+                                                                                        ## a
+                                                                                        ## Block
+                                                                                        ## of
+                                                                                        ## Blocks.
 
 
-proc constructHLRAlgo_WiresBlock*(NbWires: Standard_Integer): HLRAlgo_WiresBlock {.
-    constructor, importcpp: "HLRAlgo_WiresBlock(@)",
+proc constructHLRAlgoWiresBlock*(nbWires: int): HLRAlgoWiresBlock {.constructor,
+    importcpp: "HLRAlgo_WiresBlock(@)", header: "HLRAlgo_WiresBlock.hxx".}
+proc nbWires*(this: HLRAlgoWiresBlock): int {.noSideEffect, importcpp: "NbWires",
     header: "HLRAlgo_WiresBlock.hxx".}
-proc NbWires*(this: HLRAlgo_WiresBlock): Standard_Integer {.noSideEffect,
-    importcpp: "NbWires", header: "HLRAlgo_WiresBlock.hxx".}
-proc Set*(this: var HLRAlgo_WiresBlock; I: Standard_Integer;
-         W: handle[HLRAlgo_EdgesBlock]) {.importcpp: "Set",
-                                        header: "HLRAlgo_WiresBlock.hxx".}
-proc Wire*(this: var HLRAlgo_WiresBlock; I: Standard_Integer): var handle[
-    HLRAlgo_EdgesBlock] {.importcpp: "Wire", header: "HLRAlgo_WiresBlock.hxx".}
-proc UpdateMinMax*(this: var HLRAlgo_WiresBlock; theMinMaxes: MinMaxIndices) {.
+proc set*(this: var HLRAlgoWiresBlock; i: int; w: Handle[HLRAlgoEdgesBlock]) {.
+    importcpp: "Set", header: "HLRAlgo_WiresBlock.hxx".}
+proc wire*(this: var HLRAlgoWiresBlock; i: int): var Handle[HLRAlgoEdgesBlock] {.
+    importcpp: "Wire", header: "HLRAlgo_WiresBlock.hxx".}
+proc updateMinMax*(this: var HLRAlgoWiresBlock; theMinMaxes: MinMaxIndices) {.
     importcpp: "UpdateMinMax", header: "HLRAlgo_WiresBlock.hxx".}
-proc MinMax*(this: var HLRAlgo_WiresBlock): var MinMaxIndices {.importcpp: "MinMax",
+proc minMax*(this: var HLRAlgoWiresBlock): var MinMaxIndices {.importcpp: "MinMax",
     header: "HLRAlgo_WiresBlock.hxx".}
 type
-  HLRAlgo_WiresBlockbase_type* = Standard_Transient
+  HLRAlgoWiresBlockbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "HLRAlgo_WiresBlock::get_type_name(@)",
-                              header: "HLRAlgo_WiresBlock.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "HLRAlgo_WiresBlock::get_type_name(@)",
+                            header: "HLRAlgo_WiresBlock.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "HLRAlgo_WiresBlock::get_type_descriptor(@)",
     header: "HLRAlgo_WiresBlock.hxx".}
-proc DynamicType*(this: HLRAlgo_WiresBlock): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: HLRAlgoWiresBlock): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRAlgo_WiresBlock.hxx".}

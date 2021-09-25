@@ -13,56 +13,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  VrmlData_Node, ../gp/gp_XY
-
 ## /  Implementation of the TextureTransform node
 
 type
-  VrmlData_TextureTransform* {.importcpp: "VrmlData_TextureTransform",
-                              header: "VrmlData_TextureTransform.hxx", bycopy.} = object of VrmlData_Node ##  ---------- PUBLIC METHODS ----------
-                                                                                                   ## *
-                                                                                                   ##  Empty constructor
-                                                                                                   ##
-                                                                                                   ##  ---------- PROTECTED METHODS ----------
-                                                                                                   ##  ---------- PRIVATE FIELDS ----------
-                                                                                                   ##  Declaration of CASCADE RTTI
+  VrmlDataTextureTransform* {.importcpp: "VrmlData_TextureTransform",
+                             header: "VrmlData_TextureTransform.hxx", bycopy.} = object of VrmlDataNode ##  ---------- PUBLIC METHODS ----------
+                                                                                                 ## *
+                                                                                                 ##  Empty constructor
+                                                                                                 ##
+                                                                                                 ##  ---------- PROTECTED METHODS ----------
+                                                                                                 ##  ---------- PRIVATE FIELDS ----------
+                                                                                                 ##  Declaration of CASCADE RTTI
 
 
-proc constructVrmlData_TextureTransform*(): VrmlData_TextureTransform {.
+proc constructVrmlDataTextureTransform*(): VrmlDataTextureTransform {.constructor,
+    importcpp: "VrmlData_TextureTransform(@)",
+    header: "VrmlData_TextureTransform.hxx".}
+proc constructVrmlDataTextureTransform*(theScene: VrmlDataScene; theName: cstring): VrmlDataTextureTransform {.
     constructor, importcpp: "VrmlData_TextureTransform(@)",
     header: "VrmlData_TextureTransform.hxx".}
-proc constructVrmlData_TextureTransform*(theScene: VrmlData_Scene; theName: cstring): VrmlData_TextureTransform {.
-    constructor, importcpp: "VrmlData_TextureTransform(@)",
+proc center*(this: VrmlDataTextureTransform): Xy {.noSideEffect, importcpp: "Center",
     header: "VrmlData_TextureTransform.hxx".}
-proc Center*(this: VrmlData_TextureTransform): gp_XY {.noSideEffect,
-    importcpp: "Center", header: "VrmlData_TextureTransform.hxx".}
-proc Rotation*(this: VrmlData_TextureTransform): Standard_Real {.noSideEffect,
+proc rotation*(this: VrmlDataTextureTransform): float {.noSideEffect,
     importcpp: "Rotation", header: "VrmlData_TextureTransform.hxx".}
-proc Scale*(this: VrmlData_TextureTransform): gp_XY {.noSideEffect,
-    importcpp: "Scale", header: "VrmlData_TextureTransform.hxx".}
-proc Translation*(this: VrmlData_TextureTransform): gp_XY {.noSideEffect,
-    importcpp: "Translation", header: "VrmlData_TextureTransform.hxx".}
-proc SetCenter*(this: var VrmlData_TextureTransform; V: gp_XY) {.
-    importcpp: "SetCenter", header: "VrmlData_TextureTransform.hxx".}
-proc SetRotation*(this: var VrmlData_TextureTransform; V: Standard_Real) {.
-    importcpp: "SetRotation", header: "VrmlData_TextureTransform.hxx".}
-proc SetScale*(this: var VrmlData_TextureTransform; V: gp_XY) {.importcpp: "SetScale",
+proc scale*(this: VrmlDataTextureTransform): Xy {.noSideEffect, importcpp: "Scale",
     header: "VrmlData_TextureTransform.hxx".}
-proc SetTranslation*(this: var VrmlData_TextureTransform; V: gp_XY) {.
+proc translation*(this: VrmlDataTextureTransform): Xy {.noSideEffect,
+    importcpp: "Translation", header: "VrmlData_TextureTransform.hxx".}
+proc setCenter*(this: var VrmlDataTextureTransform; v: Xy) {.importcpp: "SetCenter",
+    header: "VrmlData_TextureTransform.hxx".}
+proc setRotation*(this: var VrmlDataTextureTransform; v: float) {.
+    importcpp: "SetRotation", header: "VrmlData_TextureTransform.hxx".}
+proc setScale*(this: var VrmlDataTextureTransform; v: Xy) {.importcpp: "SetScale",
+    header: "VrmlData_TextureTransform.hxx".}
+proc setTranslation*(this: var VrmlDataTextureTransform; v: Xy) {.
     importcpp: "SetTranslation", header: "VrmlData_TextureTransform.hxx".}
 type
-  VrmlData_TextureTransformbase_type* = VrmlData_Node
+  VrmlDataTextureTransformbaseType* = VrmlDataNode
 
-proc get_type_name*(): cstring {.importcpp: "VrmlData_TextureTransform::get_type_name(@)",
-                              header: "VrmlData_TextureTransform.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "VrmlData_TextureTransform::get_type_name(@)",
+                            header: "VrmlData_TextureTransform.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "VrmlData_TextureTransform::get_type_descriptor(@)",
     header: "VrmlData_TextureTransform.hxx".}
-proc DynamicType*(this: VrmlData_TextureTransform): handle[Standard_Type] {.
+proc dynamicType*(this: VrmlDataTextureTransform): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "VrmlData_TextureTransform.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of VrmlData_TextureTransform"
 type
-  Handle_VrmlData_TextureTransform* = handle[VrmlData_TextureTransform]
+  HandleVrmlDataTextureTransform* = Handle[VrmlDataTextureTransform]
+

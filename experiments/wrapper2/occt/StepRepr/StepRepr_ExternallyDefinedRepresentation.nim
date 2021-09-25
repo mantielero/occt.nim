@@ -14,28 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_Representation
-
 discard "forward decl of StepRepr_ExternallyDefinedRepresentation"
 discard "forward decl of StepRepr_ExternallyDefinedRepresentation"
 type
-  Handle_StepRepr_ExternallyDefinedRepresentation* = handle[
-      StepRepr_ExternallyDefinedRepresentation]
-  StepRepr_ExternallyDefinedRepresentation* {.
+  HandleStepReprExternallyDefinedRepresentation* = Handle[
+      StepReprExternallyDefinedRepresentation]
+  StepReprExternallyDefinedRepresentation* {.
       importcpp: "StepRepr_ExternallyDefinedRepresentation",
-      header: "StepRepr_ExternallyDefinedRepresentation.hxx", bycopy.} = object of StepRepr_Representation
+      header: "StepRepr_ExternallyDefinedRepresentation.hxx", bycopy.} = object of StepReprRepresentation
 
 
-proc constructStepRepr_ExternallyDefinedRepresentation*(): StepRepr_ExternallyDefinedRepresentation {.
+proc constructStepReprExternallyDefinedRepresentation*(): StepReprExternallyDefinedRepresentation {.
     constructor, importcpp: "StepRepr_ExternallyDefinedRepresentation(@)",
     header: "StepRepr_ExternallyDefinedRepresentation.hxx".}
 type
-  StepRepr_ExternallyDefinedRepresentationbase_type* = StepRepr_Representation
+  StepReprExternallyDefinedRepresentationbaseType* = StepReprRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_ExternallyDefinedRepresentation::get_type_name(@)", header: "StepRepr_ExternallyDefinedRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepRepr_ExternallyDefinedRepresentation::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepRepr_ExternallyDefinedRepresentation::get_type_name(@)", header: "StepRepr_ExternallyDefinedRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_ExternallyDefinedRepresentation::get_type_descriptor(@)",
     header: "StepRepr_ExternallyDefinedRepresentation.hxx".}
-proc DynamicType*(this: StepRepr_ExternallyDefinedRepresentation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepRepr_ExternallyDefinedRepresentation.hxx".}
+proc dynamicType*(this: StepReprExternallyDefinedRepresentation): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepRepr_ExternallyDefinedRepresentation.hxx".}

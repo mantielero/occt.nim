@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_BrepWithVoids"
@@ -25,26 +21,23 @@ discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_ShareTool"
 type
-  RWStepShape_RWBrepWithVoids* {.importcpp: "RWStepShape_RWBrepWithVoids",
-                                header: "RWStepShape_RWBrepWithVoids.hxx", bycopy.} = object
+  RWStepShapeRWBrepWithVoids* {.importcpp: "RWStepShape_RWBrepWithVoids",
+                               header: "RWStepShape_RWBrepWithVoids.hxx", bycopy.} = object
 
 
-proc constructRWStepShape_RWBrepWithVoids*(): RWStepShape_RWBrepWithVoids {.
+proc constructRWStepShapeRWBrepWithVoids*(): RWStepShapeRWBrepWithVoids {.
     constructor, importcpp: "RWStepShape_RWBrepWithVoids(@)",
     header: "RWStepShape_RWBrepWithVoids.hxx".}
-proc ReadStep*(this: RWStepShape_RWBrepWithVoids;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepShape_BrepWithVoids]) {.noSideEffect,
-    importcpp: "ReadStep", header: "RWStepShape_RWBrepWithVoids.hxx".}
-proc WriteStep*(this: RWStepShape_RWBrepWithVoids; SW: var StepData_StepWriter;
-               ent: handle[StepShape_BrepWithVoids]) {.noSideEffect,
+proc readStep*(this: RWStepShapeRWBrepWithVoids;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck]; ent: Handle[StepShapeBrepWithVoids]) {.
+    noSideEffect, importcpp: "ReadStep", header: "RWStepShape_RWBrepWithVoids.hxx".}
+proc writeStep*(this: RWStepShapeRWBrepWithVoids; sw: var StepDataStepWriter;
+               ent: Handle[StepShapeBrepWithVoids]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWBrepWithVoids.hxx".}
-proc Share*(this: RWStepShape_RWBrepWithVoids;
-           ent: handle[StepShape_BrepWithVoids];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepShapeRWBrepWithVoids; ent: Handle[StepShapeBrepWithVoids];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWBrepWithVoids.hxx".}
-proc Check*(this: RWStepShape_RWBrepWithVoids;
-           ent: handle[StepShape_BrepWithVoids]; shares: Interface_ShareTool;
-           ach: var handle[Interface_Check]) {.noSideEffect, importcpp: "Check",
-    header: "RWStepShape_RWBrepWithVoids.hxx".}
+proc check*(this: RWStepShapeRWBrepWithVoids; ent: Handle[StepShapeBrepWithVoids];
+           shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
+    noSideEffect, importcpp: "Check", header: "RWStepShape_RWBrepWithVoids.hxx".}

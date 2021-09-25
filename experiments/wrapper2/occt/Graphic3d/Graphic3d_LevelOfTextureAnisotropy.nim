@@ -18,7 +18,8 @@
 ## ! Notice that actual quality depends on hardware capabilities!
 
 type
-  Graphic3d_LevelOfTextureAnisotropy* {.size: sizeof(cint), importcpp: "Graphic3d_LevelOfTextureAnisotropy", header: "Graphic3d_LevelOfTextureAnisotropy.hxx".} = enum
-    Graphic3d_LOTA_OFF, Graphic3d_LOTA_FAST, Graphic3d_LOTA_MIDDLE,
-    Graphic3d_LOTA_QUALITY
+  Graphic3dLevelOfTextureAnisotropy* {.size: sizeof(cint), importcpp: "Graphic3d_LevelOfTextureAnisotropy", header: "Graphic3d_LevelOfTextureAnisotropy.hxx".} = enum
+    Graphic3dLOTA_OFF, Graphic3dLOTA_FAST, Graphic3dLOTA_MIDDLE,
+    Graphic3dLOTA_QUALITY
+
 

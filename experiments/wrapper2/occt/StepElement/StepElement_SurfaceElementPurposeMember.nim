@@ -13,49 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../StepData/StepData_SelectNamed, ../Standard/Standard_Boolean,
-  ../Standard/Standard_CString
-
 discard "forward decl of StepElement_SurfaceElementPurposeMember"
 discard "forward decl of StepElement_SurfaceElementPurposeMember"
 type
-  Handle_StepElement_SurfaceElementPurposeMember* = handle[
-      StepElement_SurfaceElementPurposeMember]
+  HandleStepElementSurfaceElementPurposeMember* = Handle[
+      StepElementSurfaceElementPurposeMember]
 
 ## ! Representation of member for  STEP SELECT type SurfaceElementPurpose
 
 type
-  StepElement_SurfaceElementPurposeMember* {.
+  StepElementSurfaceElementPurposeMember* {.
       importcpp: "StepElement_SurfaceElementPurposeMember",
-      header: "StepElement_SurfaceElementPurposeMember.hxx", bycopy.} = object of StepData_SelectNamed ##
-                                                                                                ## !
-                                                                                                ## Empty
-                                                                                                ## constructor
+      header: "StepElement_SurfaceElementPurposeMember.hxx", bycopy.} = object of StepDataSelectNamed ##
+                                                                                               ## !
+                                                                                               ## Empty
+                                                                                               ## constructor
 
 
-proc constructStepElement_SurfaceElementPurposeMember*(): StepElement_SurfaceElementPurposeMember {.
+proc constructStepElementSurfaceElementPurposeMember*(): StepElementSurfaceElementPurposeMember {.
     constructor, importcpp: "StepElement_SurfaceElementPurposeMember(@)",
     header: "StepElement_SurfaceElementPurposeMember.hxx".}
-proc HasName*(this: StepElement_SurfaceElementPurposeMember): Standard_Boolean {.
-    noSideEffect, importcpp: "HasName",
-    header: "StepElement_SurfaceElementPurposeMember.hxx".}
-proc Name*(this: StepElement_SurfaceElementPurposeMember): Standard_CString {.
+proc hasName*(this: StepElementSurfaceElementPurposeMember): bool {.noSideEffect,
+    importcpp: "HasName", header: "StepElement_SurfaceElementPurposeMember.hxx".}
+proc name*(this: StepElementSurfaceElementPurposeMember): StandardCString {.
     noSideEffect, importcpp: "Name",
     header: "StepElement_SurfaceElementPurposeMember.hxx".}
-proc SetName*(this: var StepElement_SurfaceElementPurposeMember;
-             name: Standard_CString): Standard_Boolean {.importcpp: "SetName",
+proc setName*(this: var StepElementSurfaceElementPurposeMember;
+             name: StandardCString): bool {.importcpp: "SetName",
     header: "StepElement_SurfaceElementPurposeMember.hxx".}
-proc Matches*(this: StepElement_SurfaceElementPurposeMember; name: Standard_CString): Standard_Boolean {.
+proc matches*(this: StepElementSurfaceElementPurposeMember; name: StandardCString): bool {.
     noSideEffect, importcpp: "Matches",
     header: "StepElement_SurfaceElementPurposeMember.hxx".}
 type
-  StepElement_SurfaceElementPurposeMemberbase_type* = StepData_SelectNamed
+  StepElementSurfaceElementPurposeMemberbaseType* = StepDataSelectNamed
 
-proc get_type_name*(): cstring {.importcpp: "StepElement_SurfaceElementPurposeMember::get_type_name(@)", header: "StepElement_SurfaceElementPurposeMember.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepElement_SurfaceElementPurposeMember::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepElement_SurfaceElementPurposeMember::get_type_name(@)", header: "StepElement_SurfaceElementPurposeMember.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_SurfaceElementPurposeMember::get_type_descriptor(@)",
     header: "StepElement_SurfaceElementPurposeMember.hxx".}
-proc DynamicType*(this: StepElement_SurfaceElementPurposeMember): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepElement_SurfaceElementPurposeMember.hxx".}
+proc dynamicType*(this: StepElementSurfaceElementPurposeMember): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepElement_SurfaceElementPurposeMember.hxx".}

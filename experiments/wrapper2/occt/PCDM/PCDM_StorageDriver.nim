@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_ExtendedString, ../Standard/Standard_Boolean,
-  PCDM_StoreStatus, PCDM_Writer, PCDM_SequenceOfDocument,
-  ../TColStd/TColStd_SequenceOfExtendedString
-
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of PCDM_DriverError"
 discard "forward decl of PCDM_Document"
@@ -29,7 +23,7 @@ discard "forward decl of Storage_Schema"
 discard "forward decl of PCDM_StorageDriver"
 discard "forward decl of PCDM_StorageDriver"
 type
-  Handle_PCDM_StorageDriver* = handle[PCDM_StorageDriver]
+  HandlePCDM_StorageDriver* = Handle[PCDM_StorageDriver]
 
 ## ! persistent implemention of storage.
 ## !
@@ -54,38 +48,38 @@ type
                                                                                    ## NotImplemented.
 
 
-proc Make*(this: var PCDM_StorageDriver; aDocument: handle[CDM_Document]): handle[
+proc make*(this: var PCDM_StorageDriver; aDocument: Handle[CDM_Document]): Handle[
     PCDM_Document] {.importcpp: "Make", header: "PCDM_StorageDriver.hxx".}
-proc Make*(this: var PCDM_StorageDriver; aDocument: handle[CDM_Document];
-          Documents: var PCDM_SequenceOfDocument) {.importcpp: "Make",
+proc make*(this: var PCDM_StorageDriver; aDocument: Handle[CDM_Document];
+          documents: var PCDM_SequenceOfDocument) {.importcpp: "Make",
     header: "PCDM_StorageDriver.hxx".}
-proc Write*(this: var PCDM_StorageDriver; aDocument: handle[CDM_Document];
-           aFileName: TCollection_ExtendedString;
-           theRange: Message_ProgressRange = Message_ProgressRange()) {.
+proc write*(this: var PCDM_StorageDriver; aDocument: Handle[CDM_Document];
+           aFileName: TCollectionExtendedString;
+           theRange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Write", header: "PCDM_StorageDriver.hxx".}
-proc Write*(this: var PCDM_StorageDriver; theDocument: handle[CDM_Document];
-           theOStream: var Standard_OStream;
-           theRange: Message_ProgressRange = Message_ProgressRange()) {.
+proc write*(this: var PCDM_StorageDriver; theDocument: Handle[CDM_Document];
+           theOStream: var StandardOStream;
+           theRange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Write", header: "PCDM_StorageDriver.hxx".}
-proc SetFormat*(this: var PCDM_StorageDriver; aformat: TCollection_ExtendedString) {.
+proc setFormat*(this: var PCDM_StorageDriver; aformat: TCollectionExtendedString) {.
     importcpp: "SetFormat", header: "PCDM_StorageDriver.hxx".}
-proc GetFormat*(this: PCDM_StorageDriver): TCollection_ExtendedString {.
-    noSideEffect, importcpp: "GetFormat", header: "PCDM_StorageDriver.hxx".}
-proc IsError*(this: PCDM_StorageDriver): Standard_Boolean {.noSideEffect,
-    importcpp: "IsError", header: "PCDM_StorageDriver.hxx".}
-proc SetIsError*(this: var PCDM_StorageDriver; theIsError: Standard_Boolean) {.
+proc getFormat*(this: PCDM_StorageDriver): TCollectionExtendedString {.noSideEffect,
+    importcpp: "GetFormat", header: "PCDM_StorageDriver.hxx".}
+proc isError*(this: PCDM_StorageDriver): bool {.noSideEffect, importcpp: "IsError",
+    header: "PCDM_StorageDriver.hxx".}
+proc setIsError*(this: var PCDM_StorageDriver; theIsError: bool) {.
     importcpp: "SetIsError", header: "PCDM_StorageDriver.hxx".}
-proc GetStoreStatus*(this: PCDM_StorageDriver): PCDM_StoreStatus {.noSideEffect,
+proc getStoreStatus*(this: PCDM_StorageDriver): PCDM_StoreStatus {.noSideEffect,
     importcpp: "GetStoreStatus", header: "PCDM_StorageDriver.hxx".}
-proc SetStoreStatus*(this: var PCDM_StorageDriver; theStoreStatus: PCDM_StoreStatus) {.
+proc setStoreStatus*(this: var PCDM_StorageDriver; theStoreStatus: PCDM_StoreStatus) {.
     importcpp: "SetStoreStatus", header: "PCDM_StorageDriver.hxx".}
 type
-  PCDM_StorageDriverbase_type* = PCDM_Writer
+  PCDM_StorageDriverbaseType* = PCDM_Writer
 
-proc get_type_name*(): cstring {.importcpp: "PCDM_StorageDriver::get_type_name(@)",
-                              header: "PCDM_StorageDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "PCDM_StorageDriver::get_type_name(@)",
+                            header: "PCDM_StorageDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "PCDM_StorageDriver::get_type_descriptor(@)",
     header: "PCDM_StorageDriver.hxx".}
-proc DynamicType*(this: PCDM_StorageDriver): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: PCDM_StorageDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "PCDM_StorageDriver.hxx".}

@@ -14,16 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TColgp/TColgp_HArray1OfXYZ,
-  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt"
 discard "forward decl of IGESSolid_VertexList"
 discard "forward decl of IGESSolid_VertexList"
 type
-  Handle_IGESSolid_VertexList* = handle[IGESSolid_VertexList]
+  HandleIGESSolidVertexList* = Handle[IGESSolidVertexList]
 
 ## ! defines VertexList, Type <502> Form Number <1>
 ## ! in package IGESSolid
@@ -32,25 +28,25 @@ type
 ## ! It contains one or more vertices.
 
 type
-  IGESSolid_VertexList* {.importcpp: "IGESSolid_VertexList",
-                         header: "IGESSolid_VertexList.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESSolidVertexList* {.importcpp: "IGESSolid_VertexList",
+                        header: "IGESSolid_VertexList.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESSolid_VertexList*(): IGESSolid_VertexList {.constructor,
+proc constructIGESSolidVertexList*(): IGESSolidVertexList {.constructor,
     importcpp: "IGESSolid_VertexList(@)", header: "IGESSolid_VertexList.hxx".}
-proc Init*(this: var IGESSolid_VertexList; vertices: handle[TColgp_HArray1OfXYZ]) {.
+proc init*(this: var IGESSolidVertexList; vertices: Handle[TColgpHArray1OfXYZ]) {.
     importcpp: "Init", header: "IGESSolid_VertexList.hxx".}
-proc NbVertices*(this: IGESSolid_VertexList): Standard_Integer {.noSideEffect,
+proc nbVertices*(this: IGESSolidVertexList): int {.noSideEffect,
     importcpp: "NbVertices", header: "IGESSolid_VertexList.hxx".}
-proc Vertex*(this: IGESSolid_VertexList; num: Standard_Integer): gp_Pnt {.
-    noSideEffect, importcpp: "Vertex", header: "IGESSolid_VertexList.hxx".}
+proc vertex*(this: IGESSolidVertexList; num: int): Pnt {.noSideEffect,
+    importcpp: "Vertex", header: "IGESSolid_VertexList.hxx".}
 type
-  IGESSolid_VertexListbase_type* = IGESData_IGESEntity
+  IGESSolidVertexListbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESSolid_VertexList::get_type_name(@)",
-                              header: "IGESSolid_VertexList.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSolid_VertexList::get_type_name(@)",
+                            header: "IGESSolid_VertexList.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSolid_VertexList::get_type_descriptor(@)",
     header: "IGESSolid_VertexList.hxx".}
-proc DynamicType*(this: IGESSolid_VertexList): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IGESSolidVertexList): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSolid_VertexList.hxx".}

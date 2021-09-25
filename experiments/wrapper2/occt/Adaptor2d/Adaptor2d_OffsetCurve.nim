@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real, Adaptor2d_Curve2d,
-  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_Array1OfReal, ../Standard/Standard_Boolean,
-  ../GeomAbs/GeomAbs_CurveType
-
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_DomainError"
@@ -36,101 +29,97 @@ discard "forward decl of gp_Parab2d"
 discard "forward decl of Geom2d_BezierCurve"
 discard "forward decl of Geom2d_BSplineCurve"
 type
-  Adaptor2d_OffsetCurve* {.importcpp: "Adaptor2d_OffsetCurve",
-                          header: "Adaptor2d_OffsetCurve.hxx", bycopy.} = object of Adaptor2d_Curve2d ##
-                                                                                               ## !
-                                                                                               ## The
-                                                                                               ## Offset
-                                                                                               ## is
-                                                                                               ## set
-                                                                                               ## to
-                                                                                               ## 0.
+  Adaptor2dOffsetCurve* {.importcpp: "Adaptor2d_OffsetCurve",
+                         header: "Adaptor2d_OffsetCurve.hxx", bycopy.} = object of Adaptor2dCurve2d ##
+                                                                                             ## !
+                                                                                             ## The
+                                                                                             ## Offset
+                                                                                             ## is
+                                                                                             ## set
+                                                                                             ## to
+                                                                                             ## 0.
 
 
-proc constructAdaptor2d_OffsetCurve*(): Adaptor2d_OffsetCurve {.constructor,
+proc constructAdaptor2dOffsetCurve*(): Adaptor2dOffsetCurve {.constructor,
     importcpp: "Adaptor2d_OffsetCurve(@)", header: "Adaptor2d_OffsetCurve.hxx".}
-proc constructAdaptor2d_OffsetCurve*(C: handle[Adaptor2d_HCurve2d]): Adaptor2d_OffsetCurve {.
+proc constructAdaptor2dOffsetCurve*(c: Handle[Adaptor2dHCurve2d]): Adaptor2dOffsetCurve {.
     constructor, importcpp: "Adaptor2d_OffsetCurve(@)",
     header: "Adaptor2d_OffsetCurve.hxx".}
-proc constructAdaptor2d_OffsetCurve*(C: handle[Adaptor2d_HCurve2d];
-                                    Offset: Standard_Real): Adaptor2d_OffsetCurve {.
+proc constructAdaptor2dOffsetCurve*(c: Handle[Adaptor2dHCurve2d]; offset: float): Adaptor2dOffsetCurve {.
     constructor, importcpp: "Adaptor2d_OffsetCurve(@)",
     header: "Adaptor2d_OffsetCurve.hxx".}
-proc constructAdaptor2d_OffsetCurve*(C: handle[Adaptor2d_HCurve2d];
-                                    Offset: Standard_Real; WFirst: Standard_Real;
-                                    WLast: Standard_Real): Adaptor2d_OffsetCurve {.
+proc constructAdaptor2dOffsetCurve*(c: Handle[Adaptor2dHCurve2d]; offset: float;
+                                   wFirst: float; wLast: float): Adaptor2dOffsetCurve {.
     constructor, importcpp: "Adaptor2d_OffsetCurve(@)",
     header: "Adaptor2d_OffsetCurve.hxx".}
-proc Load*(this: var Adaptor2d_OffsetCurve; S: handle[Adaptor2d_HCurve2d]) {.
+proc load*(this: var Adaptor2dOffsetCurve; s: Handle[Adaptor2dHCurve2d]) {.
     importcpp: "Load", header: "Adaptor2d_OffsetCurve.hxx".}
-proc Load*(this: var Adaptor2d_OffsetCurve; Offset: Standard_Real) {.
-    importcpp: "Load", header: "Adaptor2d_OffsetCurve.hxx".}
-proc Load*(this: var Adaptor2d_OffsetCurve; Offset: Standard_Real;
-          WFirst: Standard_Real; WLast: Standard_Real) {.importcpp: "Load",
+proc load*(this: var Adaptor2dOffsetCurve; offset: float) {.importcpp: "Load",
     header: "Adaptor2d_OffsetCurve.hxx".}
-proc Curve*(this: Adaptor2d_OffsetCurve): handle[Adaptor2d_HCurve2d] {.noSideEffect,
+proc load*(this: var Adaptor2dOffsetCurve; offset: float; wFirst: float; wLast: float) {.
+    importcpp: "Load", header: "Adaptor2d_OffsetCurve.hxx".}
+proc curve*(this: Adaptor2dOffsetCurve): Handle[Adaptor2dHCurve2d] {.noSideEffect,
     importcpp: "Curve", header: "Adaptor2d_OffsetCurve.hxx".}
-proc Offset*(this: Adaptor2d_OffsetCurve): Standard_Real {.noSideEffect,
-    importcpp: "Offset", header: "Adaptor2d_OffsetCurve.hxx".}
-proc FirstParameter*(this: Adaptor2d_OffsetCurve): Standard_Real {.noSideEffect,
-    importcpp: "FirstParameter", header: "Adaptor2d_OffsetCurve.hxx".}
-proc LastParameter*(this: Adaptor2d_OffsetCurve): Standard_Real {.noSideEffect,
-    importcpp: "LastParameter", header: "Adaptor2d_OffsetCurve.hxx".}
-proc Continuity*(this: Adaptor2d_OffsetCurve): GeomAbs_Shape {.noSideEffect,
-    importcpp: "Continuity", header: "Adaptor2d_OffsetCurve.hxx".}
-proc NbIntervals*(this: Adaptor2d_OffsetCurve; S: GeomAbs_Shape): Standard_Integer {.
-    noSideEffect, importcpp: "NbIntervals", header: "Adaptor2d_OffsetCurve.hxx".}
-proc Intervals*(this: Adaptor2d_OffsetCurve; T: var TColStd_Array1OfReal;
-               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
-                                 header: "Adaptor2d_OffsetCurve.hxx".}
-proc Trim*(this: Adaptor2d_OffsetCurve; First: Standard_Real; Last: Standard_Real;
-          Tol: Standard_Real): handle[Adaptor2d_HCurve2d] {.noSideEffect,
-    importcpp: "Trim", header: "Adaptor2d_OffsetCurve.hxx".}
-proc IsClosed*(this: Adaptor2d_OffsetCurve): Standard_Boolean {.noSideEffect,
-    importcpp: "IsClosed", header: "Adaptor2d_OffsetCurve.hxx".}
-proc IsPeriodic*(this: Adaptor2d_OffsetCurve): Standard_Boolean {.noSideEffect,
-    importcpp: "IsPeriodic", header: "Adaptor2d_OffsetCurve.hxx".}
-proc Period*(this: Adaptor2d_OffsetCurve): Standard_Real {.noSideEffect,
-    importcpp: "Period", header: "Adaptor2d_OffsetCurve.hxx".}
-proc Value*(this: Adaptor2d_OffsetCurve; U: Standard_Real): gp_Pnt2d {.noSideEffect,
-    importcpp: "Value", header: "Adaptor2d_OffsetCurve.hxx".}
-proc D0*(this: Adaptor2d_OffsetCurve; U: Standard_Real; P: var gp_Pnt2d) {.noSideEffect,
-    importcpp: "D0", header: "Adaptor2d_OffsetCurve.hxx".}
-proc D1*(this: Adaptor2d_OffsetCurve; U: Standard_Real; P: var gp_Pnt2d; V: var gp_Vec2d) {.
-    noSideEffect, importcpp: "D1", header: "Adaptor2d_OffsetCurve.hxx".}
-proc D2*(this: Adaptor2d_OffsetCurve; U: Standard_Real; P: var gp_Pnt2d;
-        V1: var gp_Vec2d; V2: var gp_Vec2d) {.noSideEffect, importcpp: "D2",
-                                        header: "Adaptor2d_OffsetCurve.hxx".}
-proc D3*(this: Adaptor2d_OffsetCurve; U: Standard_Real; P: var gp_Pnt2d;
-        V1: var gp_Vec2d; V2: var gp_Vec2d; V3: var gp_Vec2d) {.noSideEffect,
-    importcpp: "D3", header: "Adaptor2d_OffsetCurve.hxx".}
-proc DN*(this: Adaptor2d_OffsetCurve; U: Standard_Real; N: Standard_Integer): gp_Vec2d {.
-    noSideEffect, importcpp: "DN", header: "Adaptor2d_OffsetCurve.hxx".}
-proc Resolution*(this: Adaptor2d_OffsetCurve; R3d: Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "Resolution", header: "Adaptor2d_OffsetCurve.hxx".}
-proc GetType*(this: Adaptor2d_OffsetCurve): GeomAbs_CurveType {.noSideEffect,
-    importcpp: "GetType", header: "Adaptor2d_OffsetCurve.hxx".}
-proc Line*(this: Adaptor2d_OffsetCurve): gp_Lin2d {.noSideEffect, importcpp: "Line",
+proc offset*(this: Adaptor2dOffsetCurve): float {.noSideEffect, importcpp: "Offset",
     header: "Adaptor2d_OffsetCurve.hxx".}
-proc Circle*(this: Adaptor2d_OffsetCurve): gp_Circ2d {.noSideEffect,
-    importcpp: "Circle", header: "Adaptor2d_OffsetCurve.hxx".}
-proc Ellipse*(this: Adaptor2d_OffsetCurve): gp_Elips2d {.noSideEffect,
+proc firstParameter*(this: Adaptor2dOffsetCurve): float {.noSideEffect,
+    importcpp: "FirstParameter", header: "Adaptor2d_OffsetCurve.hxx".}
+proc lastParameter*(this: Adaptor2dOffsetCurve): float {.noSideEffect,
+    importcpp: "LastParameter", header: "Adaptor2d_OffsetCurve.hxx".}
+proc continuity*(this: Adaptor2dOffsetCurve): GeomAbsShape {.noSideEffect,
+    importcpp: "Continuity", header: "Adaptor2d_OffsetCurve.hxx".}
+proc nbIntervals*(this: Adaptor2dOffsetCurve; s: GeomAbsShape): int {.noSideEffect,
+    importcpp: "NbIntervals", header: "Adaptor2d_OffsetCurve.hxx".}
+proc intervals*(this: Adaptor2dOffsetCurve; t: var TColStdArray1OfReal;
+               s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
+                                header: "Adaptor2d_OffsetCurve.hxx".}
+proc trim*(this: Adaptor2dOffsetCurve; first: float; last: float; tol: float): Handle[
+    Adaptor2dHCurve2d] {.noSideEffect, importcpp: "Trim",
+                        header: "Adaptor2d_OffsetCurve.hxx".}
+proc isClosed*(this: Adaptor2dOffsetCurve): bool {.noSideEffect,
+    importcpp: "IsClosed", header: "Adaptor2d_OffsetCurve.hxx".}
+proc isPeriodic*(this: Adaptor2dOffsetCurve): bool {.noSideEffect,
+    importcpp: "IsPeriodic", header: "Adaptor2d_OffsetCurve.hxx".}
+proc period*(this: Adaptor2dOffsetCurve): float {.noSideEffect, importcpp: "Period",
+    header: "Adaptor2d_OffsetCurve.hxx".}
+proc value*(this: Adaptor2dOffsetCurve; u: float): Pnt2d {.noSideEffect,
+    importcpp: "Value", header: "Adaptor2d_OffsetCurve.hxx".}
+proc d0*(this: Adaptor2dOffsetCurve; u: float; p: var Pnt2d) {.noSideEffect,
+    importcpp: "D0", header: "Adaptor2d_OffsetCurve.hxx".}
+proc d1*(this: Adaptor2dOffsetCurve; u: float; p: var Pnt2d; v: var Vec2d) {.noSideEffect,
+    importcpp: "D1", header: "Adaptor2d_OffsetCurve.hxx".}
+proc d2*(this: Adaptor2dOffsetCurve; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
+    noSideEffect, importcpp: "D2", header: "Adaptor2d_OffsetCurve.hxx".}
+proc d3*(this: Adaptor2dOffsetCurve; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
+        v3: var Vec2d) {.noSideEffect, importcpp: "D3",
+                      header: "Adaptor2d_OffsetCurve.hxx".}
+proc dn*(this: Adaptor2dOffsetCurve; u: float; n: int): Vec2d {.noSideEffect,
+    importcpp: "DN", header: "Adaptor2d_OffsetCurve.hxx".}
+proc resolution*(this: Adaptor2dOffsetCurve; r3d: float): float {.noSideEffect,
+    importcpp: "Resolution", header: "Adaptor2d_OffsetCurve.hxx".}
+proc getType*(this: Adaptor2dOffsetCurve): GeomAbsCurveType {.noSideEffect,
+    importcpp: "GetType", header: "Adaptor2d_OffsetCurve.hxx".}
+proc line*(this: Adaptor2dOffsetCurve): Lin2d {.noSideEffect, importcpp: "Line",
+    header: "Adaptor2d_OffsetCurve.hxx".}
+proc circle*(this: Adaptor2dOffsetCurve): Circ2d {.noSideEffect, importcpp: "Circle",
+    header: "Adaptor2d_OffsetCurve.hxx".}
+proc ellipse*(this: Adaptor2dOffsetCurve): Elips2d {.noSideEffect,
     importcpp: "Ellipse", header: "Adaptor2d_OffsetCurve.hxx".}
-proc Hyperbola*(this: Adaptor2d_OffsetCurve): gp_Hypr2d {.noSideEffect,
+proc hyperbola*(this: Adaptor2dOffsetCurve): Hypr2d {.noSideEffect,
     importcpp: "Hyperbola", header: "Adaptor2d_OffsetCurve.hxx".}
-proc Parabola*(this: Adaptor2d_OffsetCurve): gp_Parab2d {.noSideEffect,
+proc parabola*(this: Adaptor2dOffsetCurve): Parab2d {.noSideEffect,
     importcpp: "Parabola", header: "Adaptor2d_OffsetCurve.hxx".}
-proc Degree*(this: Adaptor2d_OffsetCurve): Standard_Integer {.noSideEffect,
-    importcpp: "Degree", header: "Adaptor2d_OffsetCurve.hxx".}
-proc IsRational*(this: Adaptor2d_OffsetCurve): Standard_Boolean {.noSideEffect,
+proc degree*(this: Adaptor2dOffsetCurve): int {.noSideEffect, importcpp: "Degree",
+    header: "Adaptor2d_OffsetCurve.hxx".}
+proc isRational*(this: Adaptor2dOffsetCurve): bool {.noSideEffect,
     importcpp: "IsRational", header: "Adaptor2d_OffsetCurve.hxx".}
-proc NbPoles*(this: Adaptor2d_OffsetCurve): Standard_Integer {.noSideEffect,
-    importcpp: "NbPoles", header: "Adaptor2d_OffsetCurve.hxx".}
-proc NbKnots*(this: Adaptor2d_OffsetCurve): Standard_Integer {.noSideEffect,
-    importcpp: "NbKnots", header: "Adaptor2d_OffsetCurve.hxx".}
-proc Bezier*(this: Adaptor2d_OffsetCurve): handle[Geom2d_BezierCurve] {.
-    noSideEffect, importcpp: "Bezier", header: "Adaptor2d_OffsetCurve.hxx".}
-proc BSpline*(this: Adaptor2d_OffsetCurve): handle[Geom2d_BSplineCurve] {.
+proc nbPoles*(this: Adaptor2dOffsetCurve): int {.noSideEffect, importcpp: "NbPoles",
+    header: "Adaptor2d_OffsetCurve.hxx".}
+proc nbKnots*(this: Adaptor2dOffsetCurve): int {.noSideEffect, importcpp: "NbKnots",
+    header: "Adaptor2d_OffsetCurve.hxx".}
+proc bezier*(this: Adaptor2dOffsetCurve): Handle[Geom2dBezierCurve] {.noSideEffect,
+    importcpp: "Bezier", header: "Adaptor2d_OffsetCurve.hxx".}
+proc bSpline*(this: Adaptor2dOffsetCurve): Handle[Geom2dBSplineCurve] {.
     noSideEffect, importcpp: "BSpline", header: "Adaptor2d_OffsetCurve.hxx".}
-proc NbSamples*(this: Adaptor2d_OffsetCurve): Standard_Integer {.noSideEffect,
+proc nbSamples*(this: Adaptor2dOffsetCurve): int {.noSideEffect,
     importcpp: "NbSamples", header: "Adaptor2d_OffsetCurve.hxx".}

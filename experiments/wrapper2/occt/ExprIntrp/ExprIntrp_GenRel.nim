@@ -14,46 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ExprIntrp_Generator
-
 discard "forward decl of Expr_GeneralRelation"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of ExprIntrp_GenRel"
 discard "forward decl of ExprIntrp_GenRel"
 type
-  Handle_ExprIntrp_GenRel* = handle[ExprIntrp_GenRel]
+  HandleExprIntrpGenRel* = Handle[ExprIntrpGenRel]
 
 ## ! Implements an interpreter for equations or system
 ## ! of equations made of expressions of package Expr.
 
 type
-  ExprIntrp_GenRel* {.importcpp: "ExprIntrp_GenRel",
-                     header: "ExprIntrp_GenRel.hxx", bycopy.} = object of ExprIntrp_Generator ##
-                                                                                       ## !
-                                                                                       ## Creates
-                                                                                       ## an
-                                                                                       ## empty
-                                                                                       ## generator
+  ExprIntrpGenRel* {.importcpp: "ExprIntrp_GenRel", header: "ExprIntrp_GenRel.hxx",
+                    bycopy.} = object of ExprIntrpGenerator ## ! Creates an empty generator
 
 
-proc Create*(): handle[ExprIntrp_GenRel] {.importcpp: "ExprIntrp_GenRel::Create(@)",
-                                        header: "ExprIntrp_GenRel.hxx".}
-proc Process*(this: var ExprIntrp_GenRel; str: TCollection_AsciiString) {.
+proc create*(): Handle[ExprIntrpGenRel] {.importcpp: "ExprIntrp_GenRel::Create(@)",
+                                       header: "ExprIntrp_GenRel.hxx".}
+proc process*(this: var ExprIntrpGenRel; str: TCollectionAsciiString) {.
     importcpp: "Process", header: "ExprIntrp_GenRel.hxx".}
-proc IsDone*(this: ExprIntrp_GenRel): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "ExprIntrp_GenRel.hxx".}
-proc Relation*(this: ExprIntrp_GenRel): handle[Expr_GeneralRelation] {.noSideEffect,
+proc isDone*(this: ExprIntrpGenRel): bool {.noSideEffect, importcpp: "IsDone",
+                                        header: "ExprIntrp_GenRel.hxx".}
+proc relation*(this: ExprIntrpGenRel): Handle[ExprGeneralRelation] {.noSideEffect,
     importcpp: "Relation", header: "ExprIntrp_GenRel.hxx".}
 type
-  ExprIntrp_GenRelbase_type* = ExprIntrp_Generator
+  ExprIntrpGenRelbaseType* = ExprIntrpGenerator
 
-proc get_type_name*(): cstring {.importcpp: "ExprIntrp_GenRel::get_type_name(@)",
-                              header: "ExprIntrp_GenRel.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ExprIntrp_GenRel::get_type_name(@)",
+                            header: "ExprIntrp_GenRel.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ExprIntrp_GenRel::get_type_descriptor(@)",
     header: "ExprIntrp_GenRel.hxx".}
-proc DynamicType*(this: ExprIntrp_GenRel): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: ExprIntrpGenRel): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ExprIntrp_GenRel.hxx".}

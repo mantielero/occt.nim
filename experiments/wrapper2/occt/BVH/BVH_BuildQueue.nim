@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  BVH_Builder, ../Standard/Standard_Mutex, ../NCollection/NCollection_Sequence
-
 ## ! Command-queue for parallel building of BVH nodes.
 
 type
@@ -58,11 +55,11 @@ proc constructBVH_BuildQueue*(): BVH_BuildQueue {.constructor,
     importcpp: "BVH_BuildQueue(@)", header: "BVH_BuildQueue.hxx".}
 proc destroyBVH_BuildQueue*(this: var BVH_BuildQueue) {.
     importcpp: "#.~BVH_BuildQueue()", header: "BVH_BuildQueue.hxx".}
-proc Size*(this: var BVH_BuildQueue): Standard_Integer {.importcpp: "Size",
+proc size*(this: var BVH_BuildQueue): int {.importcpp: "Size",
+                                       header: "BVH_BuildQueue.hxx".}
+proc enqueue*(this: var BVH_BuildQueue; theNode: int) {.importcpp: "Enqueue",
     header: "BVH_BuildQueue.hxx".}
-proc Enqueue*(this: var BVH_BuildQueue; theNode: Standard_Integer) {.
-    importcpp: "Enqueue", header: "BVH_BuildQueue.hxx".}
-proc Fetch*(this: var BVH_BuildQueue; wasBusy: var Standard_Boolean): Standard_Integer {.
-    importcpp: "Fetch", header: "BVH_BuildQueue.hxx".}
-proc HasBusyThreads*(this: var BVH_BuildQueue): Standard_Boolean {.
-    importcpp: "HasBusyThreads", header: "BVH_BuildQueue.hxx".}
+proc fetch*(this: var BVH_BuildQueue; wasBusy: var bool): int {.importcpp: "Fetch",
+    header: "BVH_BuildQueue.hxx".}
+proc hasBusyThreads*(this: var BVH_BuildQueue): bool {.importcpp: "HasBusyThreads",
+    header: "BVH_BuildQueue.hxx".}

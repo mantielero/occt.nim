@@ -14,16 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Interface_Check"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_ReportEntity"
 discard "forward decl of Interface_ReportEntity"
 type
-  Handle_Interface_ReportEntity* = handle[Interface_ReportEntity]
+  HandleInterfaceReportEntity* = Handle[InterfaceReportEntity]
 
 ## ! A ReportEntity is produced to aknowledge and memorize the
 ## ! binding between a Check and an Entity. The Check can bring
@@ -50,65 +46,64 @@ type
 ## ! only the specific part remains to be defined for each norm.
 
 type
-  Interface_ReportEntity* {.importcpp: "Interface_ReportEntity",
-                           header: "Interface_ReportEntity.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                  ## !
-                                                                                                  ## Creates
-                                                                                                  ## a
-                                                                                                  ## ReportEntity
-                                                                                                  ## for
-                                                                                                  ## an
-                                                                                                  ## Unknown
-                                                                                                  ## Entity
-                                                                                                  ## :
-                                                                                                  ## Check
-                                                                                                  ## is
-                                                                                                  ## empty,
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## and
-                                                                                                  ## Concerned
-                                                                                                  ## equates
-                                                                                                  ## Content
-                                                                                                  ## (i.e.
-                                                                                                  ## the
-                                                                                                  ## Unknown
-                                                                                                  ## Entity)
+  InterfaceReportEntity* {.importcpp: "Interface_ReportEntity",
+                          header: "Interface_ReportEntity.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                ## !
+                                                                                                ## Creates
+                                                                                                ## a
+                                                                                                ## ReportEntity
+                                                                                                ## for
+                                                                                                ## an
+                                                                                                ## Unknown
+                                                                                                ## Entity
+                                                                                                ## :
+                                                                                                ## Check
+                                                                                                ## is
+                                                                                                ## empty,
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## and
+                                                                                                ## Concerned
+                                                                                                ## equates
+                                                                                                ## Content
+                                                                                                ## (i.e.
+                                                                                                ## the
+                                                                                                ## Unknown
+                                                                                                ## Entity)
 
 
-proc constructInterface_ReportEntity*(unknown: handle[Standard_Transient]): Interface_ReportEntity {.
+proc constructInterfaceReportEntity*(unknown: Handle[StandardTransient]): InterfaceReportEntity {.
     constructor, importcpp: "Interface_ReportEntity(@)",
     header: "Interface_ReportEntity.hxx".}
-proc constructInterface_ReportEntity*(acheck: handle[Interface_Check];
-                                     concerned: handle[Standard_Transient]): Interface_ReportEntity {.
+proc constructInterfaceReportEntity*(acheck: Handle[InterfaceCheck];
+                                    concerned: Handle[StandardTransient]): InterfaceReportEntity {.
     constructor, importcpp: "Interface_ReportEntity(@)",
     header: "Interface_ReportEntity.hxx".}
-proc SetContent*(this: var Interface_ReportEntity;
-                content: handle[Standard_Transient]) {.importcpp: "SetContent",
-    header: "Interface_ReportEntity.hxx".}
-proc Check*(this: Interface_ReportEntity): handle[Interface_Check] {.noSideEffect,
+proc setContent*(this: var InterfaceReportEntity; content: Handle[StandardTransient]) {.
+    importcpp: "SetContent", header: "Interface_ReportEntity.hxx".}
+proc check*(this: InterfaceReportEntity): Handle[InterfaceCheck] {.noSideEffect,
     importcpp: "Check", header: "Interface_ReportEntity.hxx".}
-proc CCheck*(this: var Interface_ReportEntity): var handle[Interface_Check] {.
+proc cCheck*(this: var InterfaceReportEntity): var Handle[InterfaceCheck] {.
     importcpp: "CCheck", header: "Interface_ReportEntity.hxx".}
-proc Concerned*(this: Interface_ReportEntity): handle[Standard_Transient] {.
+proc concerned*(this: InterfaceReportEntity): Handle[StandardTransient] {.
     noSideEffect, importcpp: "Concerned", header: "Interface_ReportEntity.hxx".}
-proc HasContent*(this: Interface_ReportEntity): Standard_Boolean {.noSideEffect,
+proc hasContent*(this: InterfaceReportEntity): bool {.noSideEffect,
     importcpp: "HasContent", header: "Interface_ReportEntity.hxx".}
-proc HasNewContent*(this: Interface_ReportEntity): Standard_Boolean {.noSideEffect,
+proc hasNewContent*(this: InterfaceReportEntity): bool {.noSideEffect,
     importcpp: "HasNewContent", header: "Interface_ReportEntity.hxx".}
-proc Content*(this: Interface_ReportEntity): handle[Standard_Transient] {.
+proc content*(this: InterfaceReportEntity): Handle[StandardTransient] {.
     noSideEffect, importcpp: "Content", header: "Interface_ReportEntity.hxx".}
-proc IsError*(this: Interface_ReportEntity): Standard_Boolean {.noSideEffect,
+proc isError*(this: InterfaceReportEntity): bool {.noSideEffect,
     importcpp: "IsError", header: "Interface_ReportEntity.hxx".}
-proc IsUnknown*(this: Interface_ReportEntity): Standard_Boolean {.noSideEffect,
+proc isUnknown*(this: InterfaceReportEntity): bool {.noSideEffect,
     importcpp: "IsUnknown", header: "Interface_ReportEntity.hxx".}
 type
-  Interface_ReportEntitybase_type* = Standard_Transient
+  InterfaceReportEntitybaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Interface_ReportEntity::get_type_name(@)",
-                              header: "Interface_ReportEntity.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Interface_ReportEntity::get_type_name(@)",
+                            header: "Interface_ReportEntity.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Interface_ReportEntity::get_type_descriptor(@)",
     header: "Interface_ReportEntity.hxx".}
-proc DynamicType*(this: Interface_ReportEntity): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Interface_ReportEntity.hxx".}
+proc dynamicType*(this: InterfaceReportEntity): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Interface_ReportEntity.hxx".}

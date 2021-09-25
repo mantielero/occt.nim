@@ -14,25 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GeomToStep_Root
-
 discard "forward decl of StepGeom_Axis2Placement2d"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Ax22d"
 type
-  GeomToStep_MakeAxis2Placement2d* {.importcpp: "GeomToStep_MakeAxis2Placement2d", header: "GeomToStep_MakeAxis2Placement2d.hxx",
-                                    bycopy.} = object of GeomToStep_Root
+  GeomToStepMakeAxis2Placement2d* {.importcpp: "GeomToStep_MakeAxis2Placement2d", header: "GeomToStep_MakeAxis2Placement2d.hxx",
+                                   bycopy.} = object of GeomToStepRoot
 
 
-proc constructGeomToStep_MakeAxis2Placement2d*(A: gp_Ax2): GeomToStep_MakeAxis2Placement2d {.
+proc constructGeomToStepMakeAxis2Placement2d*(a: Ax2): GeomToStepMakeAxis2Placement2d {.
     constructor, importcpp: "GeomToStep_MakeAxis2Placement2d(@)",
     header: "GeomToStep_MakeAxis2Placement2d.hxx".}
-proc constructGeomToStep_MakeAxis2Placement2d*(A: gp_Ax22d): GeomToStep_MakeAxis2Placement2d {.
+proc constructGeomToStepMakeAxis2Placement2d*(a: Ax22d): GeomToStepMakeAxis2Placement2d {.
     constructor, importcpp: "GeomToStep_MakeAxis2Placement2d(@)",
     header: "GeomToStep_MakeAxis2Placement2d.hxx".}
-proc Value*(this: GeomToStep_MakeAxis2Placement2d): handle[
-    StepGeom_Axis2Placement2d] {.noSideEffect, importcpp: "Value",
-                                header: "GeomToStep_MakeAxis2Placement2d.hxx".}
+proc value*(this: GeomToStepMakeAxis2Placement2d): Handle[StepGeomAxis2Placement2d] {.
+    noSideEffect, importcpp: "Value", header: "GeomToStep_MakeAxis2Placement2d.hxx".}

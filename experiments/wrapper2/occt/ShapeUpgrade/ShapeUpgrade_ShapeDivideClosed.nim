@@ -14,24 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ShapeUpgrade_ShapeDivide,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TopoDS_Shape"
 type
-  ShapeUpgrade_ShapeDivideClosed* {.importcpp: "ShapeUpgrade_ShapeDivideClosed", header: "ShapeUpgrade_ShapeDivideClosed.hxx",
-                                   bycopy.} = object of ShapeUpgrade_ShapeDivide ## !
-                                                                            ## Initialises tool with
-                                                                            ## shape and
-                                                                            ## default
-                                                                            ## parameter.
+  ShapeUpgradeShapeDivideClosed* {.importcpp: "ShapeUpgrade_ShapeDivideClosed",
+                                  header: "ShapeUpgrade_ShapeDivideClosed.hxx",
+                                  bycopy.} = object of ShapeUpgradeShapeDivide ## !
+                                                                          ## Initialises tool with shape and
+                                                                          ## default
+                                                                          ## parameter.
 
 
-proc constructShapeUpgrade_ShapeDivideClosed*(S: TopoDS_Shape): ShapeUpgrade_ShapeDivideClosed {.
+proc constructShapeUpgradeShapeDivideClosed*(s: TopoDS_Shape): ShapeUpgradeShapeDivideClosed {.
     constructor, importcpp: "ShapeUpgrade_ShapeDivideClosed(@)",
     header: "ShapeUpgrade_ShapeDivideClosed.hxx".}
-proc SetNbSplitPoints*(this: var ShapeUpgrade_ShapeDivideClosed;
-                      num: Standard_Integer) {.importcpp: "SetNbSplitPoints",
-    header: "ShapeUpgrade_ShapeDivideClosed.hxx".}
+proc setNbSplitPoints*(this: var ShapeUpgradeShapeDivideClosed; num: int) {.
+    importcpp: "SetNbSplitPoints", header: "ShapeUpgrade_ShapeDivideClosed.hxx".}

@@ -14,33 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_OrientedClosedShell"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShape_RWOrientedClosedShell* {.importcpp: "RWStepShape_RWOrientedClosedShell", header: "RWStepShape_RWOrientedClosedShell.hxx",
-                                      bycopy.} = object
+  RWStepShapeRWOrientedClosedShell* {.importcpp: "RWStepShape_RWOrientedClosedShell", header: "RWStepShape_RWOrientedClosedShell.hxx",
+                                     bycopy.} = object
 
 
-proc constructRWStepShape_RWOrientedClosedShell*(): RWStepShape_RWOrientedClosedShell {.
+proc constructRWStepShapeRWOrientedClosedShell*(): RWStepShapeRWOrientedClosedShell {.
     constructor, importcpp: "RWStepShape_RWOrientedClosedShell(@)",
     header: "RWStepShape_RWOrientedClosedShell.hxx".}
-proc ReadStep*(this: RWStepShape_RWOrientedClosedShell;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepShape_OrientedClosedShell]) {.noSideEffect,
+proc readStep*(this: RWStepShapeRWOrientedClosedShell;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepShapeOrientedClosedShell]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWOrientedClosedShell.hxx".}
-proc WriteStep*(this: RWStepShape_RWOrientedClosedShell;
-               SW: var StepData_StepWriter;
-               ent: handle[StepShape_OrientedClosedShell]) {.noSideEffect,
+proc writeStep*(this: RWStepShapeRWOrientedClosedShell; sw: var StepDataStepWriter;
+               ent: Handle[StepShapeOrientedClosedShell]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWOrientedClosedShell.hxx".}
-proc Share*(this: RWStepShape_RWOrientedClosedShell;
-           ent: handle[StepShape_OrientedClosedShell];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepShapeRWOrientedClosedShell;
+           ent: Handle[StepShapeOrientedClosedShell];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWOrientedClosedShell.hxx".}

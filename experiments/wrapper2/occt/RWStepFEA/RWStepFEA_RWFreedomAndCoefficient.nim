@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepFEA_FreedomAndCoefficient"
@@ -30,16 +26,16 @@ type
 proc constructRWStepFEA_RWFreedomAndCoefficient*(): RWStepFEA_RWFreedomAndCoefficient {.
     constructor, importcpp: "RWStepFEA_RWFreedomAndCoefficient(@)",
     header: "RWStepFEA_RWFreedomAndCoefficient.hxx".}
-proc ReadStep*(this: RWStepFEA_RWFreedomAndCoefficient;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepFEA_FreedomAndCoefficient]) {.noSideEffect,
+proc readStep*(this: RWStepFEA_RWFreedomAndCoefficient;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepFEA_FreedomAndCoefficient]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWFreedomAndCoefficient.hxx".}
-proc WriteStep*(this: RWStepFEA_RWFreedomAndCoefficient;
-               SW: var StepData_StepWriter;
-               ent: handle[StepFEA_FreedomAndCoefficient]) {.noSideEffect,
+proc writeStep*(this: RWStepFEA_RWFreedomAndCoefficient;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepFEA_FreedomAndCoefficient]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepFEA_RWFreedomAndCoefficient.hxx".}
-proc Share*(this: RWStepFEA_RWFreedomAndCoefficient;
-           ent: handle[StepFEA_FreedomAndCoefficient];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepFEA_RWFreedomAndCoefficient;
+           ent: Handle[StepFEA_FreedomAndCoefficient];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFreedomAndCoefficient.hxx".}

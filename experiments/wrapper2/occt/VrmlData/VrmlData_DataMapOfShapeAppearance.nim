@@ -13,9 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_DataMap, VrmlData_Appearance, ../TopoDS/TopoDS_TShape
-
 type
-  VrmlData_DataMapOfShapeAppearance* = NCollection_DataMap[handle[TopoDS_TShape],
-      handle[VrmlData_Appearance]]
+  VrmlDataDataMapOfShapeAppearance* = NCollectionDataMap[Handle[TopoDS_TShape],
+      Handle[VrmlDataAppearance]]
+

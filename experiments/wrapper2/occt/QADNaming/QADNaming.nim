@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_CString,
-  ../TopTools/TopTools_ListOfShape, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Address,
-  ../Draw/Draw_Interpretor
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TDF_Data"
 discard "forward decl of TCollection_AsciiString"
@@ -29,25 +22,24 @@ type
   QADNaming* {.importcpp: "QADNaming", header: "QADNaming.hxx", bycopy.} = object
 
 
-proc CurrentShape*(ShapeEntry: Standard_CString; Data: handle[TDF_Data]): TopoDS_Shape {.
+proc currentShape*(shapeEntry: StandardCString; data: Handle[TDF_Data]): TopoDS_Shape {.
     importcpp: "QADNaming::CurrentShape(@)", header: "QADNaming.hxx".}
-proc GetShape*(ShapeEntry: Standard_CString; Data: handle[TDF_Data];
-              Shapes: var TopTools_ListOfShape) {.
+proc getShape*(shapeEntry: StandardCString; data: Handle[TDF_Data];
+              shapes: var TopToolsListOfShape) {.
     importcpp: "QADNaming::GetShape(@)", header: "QADNaming.hxx".}
-proc GetEntry*(Shape: TopoDS_Shape; Data: handle[TDF_Data];
-              theStatus: var Standard_Integer): TCollection_AsciiString {.
+proc getEntry*(shape: TopoDS_Shape; data: Handle[TDF_Data]; theStatus: var int): TCollectionAsciiString {.
     importcpp: "QADNaming::GetEntry(@)", header: "QADNaming.hxx".}
-proc Entry*(theArguments: Standard_Address; theLabel: var TDF_Label): Standard_Boolean {.
+proc entry*(theArguments: StandardAddress; theLabel: var TDF_Label): bool {.
     importcpp: "QADNaming::Entry(@)", header: "QADNaming.hxx".}
-proc AllCommands*(DI: var Draw_Interpretor) {.
-    importcpp: "QADNaming::AllCommands(@)", header: "QADNaming.hxx".}
-proc BasicCommands*(DI: var Draw_Interpretor) {.
+proc allCommands*(di: var DrawInterpretor) {.importcpp: "QADNaming::AllCommands(@)",
+    header: "QADNaming.hxx".}
+proc basicCommands*(di: var DrawInterpretor) {.
     importcpp: "QADNaming::BasicCommands(@)", header: "QADNaming.hxx".}
-proc BuilderCommands*(DI: var Draw_Interpretor) {.
+proc builderCommands*(di: var DrawInterpretor) {.
     importcpp: "QADNaming::BuilderCommands(@)", header: "QADNaming.hxx".}
-proc IteratorsCommands*(DI: var Draw_Interpretor) {.
+proc iteratorsCommands*(di: var DrawInterpretor) {.
     importcpp: "QADNaming::IteratorsCommands(@)", header: "QADNaming.hxx".}
-proc ToolsCommands*(DI: var Draw_Interpretor) {.
+proc toolsCommands*(di: var DrawInterpretor) {.
     importcpp: "QADNaming::ToolsCommands(@)", header: "QADNaming.hxx".}
-proc SelectionCommands*(DI: var Draw_Interpretor) {.
+proc selectionCommands*(di: var DrawInterpretor) {.
     importcpp: "QADNaming::SelectionCommands(@)", header: "QADNaming.hxx".}

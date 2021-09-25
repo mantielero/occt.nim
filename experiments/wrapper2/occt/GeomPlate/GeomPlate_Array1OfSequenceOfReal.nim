@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TColStd/TColStd_SequenceOfReal, ../NCollection/NCollection_Array1
-
 type
-  GeomPlate_Array1OfSequenceOfReal* = NCollection_Array1[TColStd_SequenceOfReal]
+  GeomPlateArray1OfSequenceOfReal* = NCollectionArray1[TColStdSequenceOfReal]
+

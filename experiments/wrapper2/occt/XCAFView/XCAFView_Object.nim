@@ -13,104 +13,98 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Dir, ../gp/gp_Pln,
-  ../gp/gp_Pnt, ../TColgp/TColgp_HArray1OfPnt,
-  ../TCollection/TCollection_HAsciiString, XCAFView_ProjectionType
-
 discard "forward decl of XCAFView_Object"
 discard "forward decl of XCAFView_Object"
 type
-  Handle_XCAFView_Object* = handle[XCAFView_Object]
+  HandleXCAFViewObject* = Handle[XCAFViewObject]
 
 ## ! Access object for saved view
 
 type
-  XCAFView_Object* {.importcpp: "XCAFView_Object", header: "XCAFView_Object.hxx",
-                    bycopy.} = object of Standard_Transient
+  XCAFViewObject* {.importcpp: "XCAFView_Object", header: "XCAFView_Object.hxx",
+                   bycopy.} = object of StandardTransient
     ##  Point for each GDT to describe position of GDT frame in View.
 
 
-proc constructXCAFView_Object*(): XCAFView_Object {.constructor,
+proc constructXCAFViewObject*(): XCAFViewObject {.constructor,
     importcpp: "XCAFView_Object(@)", header: "XCAFView_Object.hxx".}
-proc constructXCAFView_Object*(theObj: handle[XCAFView_Object]): XCAFView_Object {.
+proc constructXCAFViewObject*(theObj: Handle[XCAFViewObject]): XCAFViewObject {.
     constructor, importcpp: "XCAFView_Object(@)", header: "XCAFView_Object.hxx".}
-proc SetName*(this: var XCAFView_Object; theName: handle[TCollection_HAsciiString]) {.
+proc setName*(this: var XCAFViewObject; theName: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetName", header: "XCAFView_Object.hxx".}
-proc Name*(this: var XCAFView_Object): handle[TCollection_HAsciiString] {.
+proc name*(this: var XCAFViewObject): Handle[TCollectionHAsciiString] {.
     importcpp: "Name", header: "XCAFView_Object.hxx".}
-proc SetType*(this: var XCAFView_Object; theType: XCAFView_ProjectionType) {.
+proc setType*(this: var XCAFViewObject; theType: XCAFViewProjectionType) {.
     importcpp: "SetType", header: "XCAFView_Object.hxx".}
-proc Type*(this: var XCAFView_Object): XCAFView_ProjectionType {.importcpp: "Type",
+proc `type`*(this: var XCAFViewObject): XCAFViewProjectionType {.importcpp: "Type",
     header: "XCAFView_Object.hxx".}
-proc SetProjectionPoint*(this: var XCAFView_Object; thePoint: gp_Pnt) {.
+proc setProjectionPoint*(this: var XCAFViewObject; thePoint: Pnt) {.
     importcpp: "SetProjectionPoint", header: "XCAFView_Object.hxx".}
-proc ProjectionPoint*(this: var XCAFView_Object): gp_Pnt {.
-    importcpp: "ProjectionPoint", header: "XCAFView_Object.hxx".}
-proc SetViewDirection*(this: var XCAFView_Object; theDirection: gp_Dir) {.
+proc projectionPoint*(this: var XCAFViewObject): Pnt {.importcpp: "ProjectionPoint",
+    header: "XCAFView_Object.hxx".}
+proc setViewDirection*(this: var XCAFViewObject; theDirection: Dir) {.
     importcpp: "SetViewDirection", header: "XCAFView_Object.hxx".}
-proc ViewDirection*(this: var XCAFView_Object): gp_Dir {.importcpp: "ViewDirection",
+proc viewDirection*(this: var XCAFViewObject): Dir {.importcpp: "ViewDirection",
     header: "XCAFView_Object.hxx".}
-proc SetUpDirection*(this: var XCAFView_Object; theDirection: gp_Dir) {.
+proc setUpDirection*(this: var XCAFViewObject; theDirection: Dir) {.
     importcpp: "SetUpDirection", header: "XCAFView_Object.hxx".}
-proc UpDirection*(this: var XCAFView_Object): gp_Dir {.importcpp: "UpDirection",
+proc upDirection*(this: var XCAFViewObject): Dir {.importcpp: "UpDirection",
     header: "XCAFView_Object.hxx".}
-proc SetZoomFactor*(this: var XCAFView_Object; theZoomFactor: Standard_Real) {.
+proc setZoomFactor*(this: var XCAFViewObject; theZoomFactor: float) {.
     importcpp: "SetZoomFactor", header: "XCAFView_Object.hxx".}
-proc ZoomFactor*(this: var XCAFView_Object): Standard_Real {.importcpp: "ZoomFactor",
+proc zoomFactor*(this: var XCAFViewObject): float {.importcpp: "ZoomFactor",
     header: "XCAFView_Object.hxx".}
-proc SetWindowHorizontalSize*(this: var XCAFView_Object; theSize: Standard_Real) {.
+proc setWindowHorizontalSize*(this: var XCAFViewObject; theSize: float) {.
     importcpp: "SetWindowHorizontalSize", header: "XCAFView_Object.hxx".}
-proc WindowHorizontalSize*(this: var XCAFView_Object): Standard_Real {.
+proc windowHorizontalSize*(this: var XCAFViewObject): float {.
     importcpp: "WindowHorizontalSize", header: "XCAFView_Object.hxx".}
-proc SetWindowVerticalSize*(this: var XCAFView_Object; theSize: Standard_Real) {.
+proc setWindowVerticalSize*(this: var XCAFViewObject; theSize: float) {.
     importcpp: "SetWindowVerticalSize", header: "XCAFView_Object.hxx".}
-proc WindowVerticalSize*(this: var XCAFView_Object): Standard_Real {.
+proc windowVerticalSize*(this: var XCAFViewObject): float {.
     importcpp: "WindowVerticalSize", header: "XCAFView_Object.hxx".}
-proc SetClippingExpression*(this: var XCAFView_Object;
-                           theExpression: handle[TCollection_HAsciiString]) {.
+proc setClippingExpression*(this: var XCAFViewObject;
+                           theExpression: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetClippingExpression", header: "XCAFView_Object.hxx".}
-proc ClippingExpression*(this: var XCAFView_Object): handle[TCollection_HAsciiString] {.
+proc clippingExpression*(this: var XCAFViewObject): Handle[TCollectionHAsciiString] {.
     importcpp: "ClippingExpression", header: "XCAFView_Object.hxx".}
-proc UnsetFrontPlaneClipping*(this: var XCAFView_Object) {.
+proc unsetFrontPlaneClipping*(this: var XCAFViewObject) {.
     importcpp: "UnsetFrontPlaneClipping", header: "XCAFView_Object.hxx".}
-proc HasFrontPlaneClipping*(this: var XCAFView_Object): Standard_Boolean {.
+proc hasFrontPlaneClipping*(this: var XCAFViewObject): bool {.
     importcpp: "HasFrontPlaneClipping", header: "XCAFView_Object.hxx".}
-proc SetFrontPlaneDistance*(this: var XCAFView_Object; theDistance: Standard_Real) {.
+proc setFrontPlaneDistance*(this: var XCAFViewObject; theDistance: float) {.
     importcpp: "SetFrontPlaneDistance", header: "XCAFView_Object.hxx".}
-proc FrontPlaneDistance*(this: var XCAFView_Object): Standard_Real {.
+proc frontPlaneDistance*(this: var XCAFViewObject): float {.
     importcpp: "FrontPlaneDistance", header: "XCAFView_Object.hxx".}
-proc UnsetBackPlaneClipping*(this: var XCAFView_Object) {.
+proc unsetBackPlaneClipping*(this: var XCAFViewObject) {.
     importcpp: "UnsetBackPlaneClipping", header: "XCAFView_Object.hxx".}
-proc HasBackPlaneClipping*(this: var XCAFView_Object): Standard_Boolean {.
+proc hasBackPlaneClipping*(this: var XCAFViewObject): bool {.
     importcpp: "HasBackPlaneClipping", header: "XCAFView_Object.hxx".}
-proc SetBackPlaneDistance*(this: var XCAFView_Object; theDistance: Standard_Real) {.
+proc setBackPlaneDistance*(this: var XCAFViewObject; theDistance: float) {.
     importcpp: "SetBackPlaneDistance", header: "XCAFView_Object.hxx".}
-proc BackPlaneDistance*(this: var XCAFView_Object): Standard_Real {.
+proc backPlaneDistance*(this: var XCAFViewObject): float {.
     importcpp: "BackPlaneDistance", header: "XCAFView_Object.hxx".}
-proc SetViewVolumeSidesClipping*(this: var XCAFView_Object;
-                                theViewVolumeSidesClipping: Standard_Boolean) {.
+proc setViewVolumeSidesClipping*(this: var XCAFViewObject;
+                                theViewVolumeSidesClipping: bool) {.
     importcpp: "SetViewVolumeSidesClipping", header: "XCAFView_Object.hxx".}
-proc HasViewVolumeSidesClipping*(this: var XCAFView_Object): Standard_Boolean {.
+proc hasViewVolumeSidesClipping*(this: var XCAFViewObject): bool {.
     importcpp: "HasViewVolumeSidesClipping", header: "XCAFView_Object.hxx".}
-proc CreateGDTPoints*(this: var XCAFView_Object; theLenght: Standard_Integer) {.
+proc createGDTPoints*(this: var XCAFViewObject; theLenght: int) {.
     importcpp: "CreateGDTPoints", header: "XCAFView_Object.hxx".}
-proc HasGDTPoints*(this: var XCAFView_Object): Standard_Boolean {.
-    importcpp: "HasGDTPoints", header: "XCAFView_Object.hxx".}
-proc NbGDTPoints*(this: var XCAFView_Object): Standard_Integer {.
-    importcpp: "NbGDTPoints", header: "XCAFView_Object.hxx".}
-proc SetGDTPoint*(this: var XCAFView_Object; theIndex: Standard_Integer;
-                 thePoint: gp_Pnt) {.importcpp: "SetGDTPoint",
-                                   header: "XCAFView_Object.hxx".}
-proc GDTPoint*(this: var XCAFView_Object; theIndex: Standard_Integer): gp_Pnt {.
-    importcpp: "GDTPoint", header: "XCAFView_Object.hxx".}
+proc hasGDTPoints*(this: var XCAFViewObject): bool {.importcpp: "HasGDTPoints",
+    header: "XCAFView_Object.hxx".}
+proc nbGDTPoints*(this: var XCAFViewObject): int {.importcpp: "NbGDTPoints",
+    header: "XCAFView_Object.hxx".}
+proc setGDTPoint*(this: var XCAFViewObject; theIndex: int; thePoint: Pnt) {.
+    importcpp: "SetGDTPoint", header: "XCAFView_Object.hxx".}
+proc gDTPoint*(this: var XCAFViewObject; theIndex: int): Pnt {.importcpp: "GDTPoint",
+    header: "XCAFView_Object.hxx".}
 type
-  XCAFView_Objectbase_type* = Standard_Transient
+  XCAFViewObjectbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "XCAFView_Object::get_type_name(@)",
-                              header: "XCAFView_Object.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XCAFView_Object::get_type_name(@)",
+                            header: "XCAFView_Object.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XCAFView_Object::get_type_descriptor(@)",
     header: "XCAFView_Object.hxx".}
-proc DynamicType*(this: XCAFView_Object): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: XCAFViewObject): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XCAFView_Object.hxx".}

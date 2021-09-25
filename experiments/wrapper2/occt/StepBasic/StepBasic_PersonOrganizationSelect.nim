@@ -14,35 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_Person"
 discard "forward decl of StepBasic_Organization"
 discard "forward decl of StepBasic_PersonAndOrganization"
 type
-  StepBasic_PersonOrganizationSelect* {.importcpp: "StepBasic_PersonOrganizationSelect", header: "StepBasic_PersonOrganizationSelect.hxx",
-                                       bycopy.} = object of StepData_SelectType ## !
-                                                                           ## Returns a
-                                                                           ## PersonOrganizationSelect
-                                                                           ## SelectType
+  StepBasicPersonOrganizationSelect* {.importcpp: "StepBasic_PersonOrganizationSelect", header: "StepBasic_PersonOrganizationSelect.hxx",
+                                      bycopy.} = object of StepDataSelectType ## ! Returns a
+                                                                         ## PersonOrganizationSelect
+                                                                         ## SelectType
 
 
-proc constructStepBasic_PersonOrganizationSelect*(): StepBasic_PersonOrganizationSelect {.
+proc constructStepBasicPersonOrganizationSelect*(): StepBasicPersonOrganizationSelect {.
     constructor, importcpp: "StepBasic_PersonOrganizationSelect(@)",
     header: "StepBasic_PersonOrganizationSelect.hxx".}
-proc CaseNum*(this: StepBasic_PersonOrganizationSelect;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepBasicPersonOrganizationSelect;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepBasic_PersonOrganizationSelect.hxx".}
-proc Person*(this: StepBasic_PersonOrganizationSelect): handle[StepBasic_Person] {.
+proc person*(this: StepBasicPersonOrganizationSelect): Handle[StepBasicPerson] {.
     noSideEffect, importcpp: "Person",
     header: "StepBasic_PersonOrganizationSelect.hxx".}
-proc Organization*(this: StepBasic_PersonOrganizationSelect): handle[
-    StepBasic_Organization] {.noSideEffect, importcpp: "Organization",
-                             header: "StepBasic_PersonOrganizationSelect.hxx".}
-proc PersonAndOrganization*(this: StepBasic_PersonOrganizationSelect): handle[
-    StepBasic_PersonAndOrganization] {.noSideEffect,
-                                      importcpp: "PersonAndOrganization", header: "StepBasic_PersonOrganizationSelect.hxx".}
+proc organization*(this: StepBasicPersonOrganizationSelect): Handle[
+    StepBasicOrganization] {.noSideEffect, importcpp: "Organization",
+                            header: "StepBasic_PersonOrganizationSelect.hxx".}
+proc personAndOrganization*(this: StepBasicPersonOrganizationSelect): Handle[
+    StepBasicPersonAndOrganization] {.noSideEffect,
+                                     importcpp: "PersonAndOrganization", header: "StepBasic_PersonOrganizationSelect.hxx".}

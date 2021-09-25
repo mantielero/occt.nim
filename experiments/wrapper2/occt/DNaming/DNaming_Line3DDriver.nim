@@ -13,58 +13,53 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TFunction/TFunction_Driver,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
-  ../TopTools/TopTools_Array1OfShape
-
 discard "forward decl of TFunction_Logbook"
 discard "forward decl of TDF_Label"
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of DNaming_Line3DDriver"
 discard "forward decl of DNaming_Line3DDriver"
 type
-  Handle_DNaming_Line3DDriver* = handle[DNaming_Line3DDriver]
+  HandleDNamingLine3DDriver* = Handle[DNamingLine3DDriver]
 
 ## ! Computes Line 3D function
 
 type
-  DNaming_Line3DDriver* {.importcpp: "DNaming_Line3DDriver",
-                         header: "DNaming_Line3DDriver.hxx", bycopy.} = object of TFunction_Driver ##
-                                                                                            ## !
-                                                                                            ## Constructor
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## validation
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## ==========
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Loads
-                                                                                            ## a
-                                                                                            ## Line3D
-                                                                                            ## in
-                                                                                            ## a
-                                                                                            ## data
-                                                                                            ## framework
+  DNamingLine3DDriver* {.importcpp: "DNaming_Line3DDriver",
+                        header: "DNaming_Line3DDriver.hxx", bycopy.} = object of TFunctionDriver ##
+                                                                                          ## !
+                                                                                          ## Constructor
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## validation
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## ==========
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## Loads
+                                                                                          ## a
+                                                                                          ## Line3D
+                                                                                          ## in
+                                                                                          ## a
+                                                                                          ## data
+                                                                                          ## framework
 
 
-proc constructDNaming_Line3DDriver*(): DNaming_Line3DDriver {.constructor,
+proc constructDNamingLine3DDriver*(): DNamingLine3DDriver {.constructor,
     importcpp: "DNaming_Line3DDriver(@)", header: "DNaming_Line3DDriver.hxx".}
-proc Validate*(this: DNaming_Line3DDriver; theLog: var handle[TFunction_Logbook]) {.
+proc validate*(this: DNamingLine3DDriver; theLog: var Handle[TFunctionLogbook]) {.
     noSideEffect, importcpp: "Validate", header: "DNaming_Line3DDriver.hxx".}
-proc MustExecute*(this: DNaming_Line3DDriver; theLog: handle[TFunction_Logbook]): Standard_Boolean {.
+proc mustExecute*(this: DNamingLine3DDriver; theLog: Handle[TFunctionLogbook]): bool {.
     noSideEffect, importcpp: "MustExecute", header: "DNaming_Line3DDriver.hxx".}
-proc Execute*(this: DNaming_Line3DDriver; theLog: var handle[TFunction_Logbook]): Standard_Integer {.
+proc execute*(this: DNamingLine3DDriver; theLog: var Handle[TFunctionLogbook]): int {.
     noSideEffect, importcpp: "Execute", header: "DNaming_Line3DDriver.hxx".}
 type
-  DNaming_Line3DDriverbase_type* = TFunction_Driver
+  DNamingLine3DDriverbaseType* = TFunctionDriver
 
-proc get_type_name*(): cstring {.importcpp: "DNaming_Line3DDriver::get_type_name(@)",
-                              header: "DNaming_Line3DDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "DNaming_Line3DDriver::get_type_name(@)",
+                            header: "DNaming_Line3DDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "DNaming_Line3DDriver::get_type_descriptor(@)",
     header: "DNaming_Line3DDriver.hxx".}
-proc DynamicType*(this: DNaming_Line3DDriver): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: DNamingLine3DDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DNaming_Line3DDriver.hxx".}

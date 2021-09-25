@@ -14,20 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopAbs/TopAbs_State
-
 discard "forward decl of TopOpeBRepBuild_Loop"
 type
-  TopOpeBRepBuild_LoopClassifier* {.importcpp: "TopOpeBRepBuild_LoopClassifier", header: "TopOpeBRepBuild_LoopClassifier.hxx",
-                                   bycopy.} = object
+  TopOpeBRepBuildLoopClassifier* {.importcpp: "TopOpeBRepBuild_LoopClassifier",
+                                  header: "TopOpeBRepBuild_LoopClassifier.hxx",
+                                  bycopy.} = object
 
 
-proc destroyTopOpeBRepBuild_LoopClassifier*(
-    this: var TopOpeBRepBuild_LoopClassifier) {.
+proc destroyTopOpeBRepBuildLoopClassifier*(
+    this: var TopOpeBRepBuildLoopClassifier) {.
     importcpp: "#.~TopOpeBRepBuild_LoopClassifier()",
     header: "TopOpeBRepBuild_LoopClassifier.hxx".}
-proc Compare*(this: var TopOpeBRepBuild_LoopClassifier;
-             L1: handle[TopOpeBRepBuild_Loop]; L2: handle[TopOpeBRepBuild_Loop]): TopAbs_State {.
+proc compare*(this: var TopOpeBRepBuildLoopClassifier;
+             l1: Handle[TopOpeBRepBuildLoop]; l2: Handle[TopOpeBRepBuildLoop]): TopAbsState {.
     importcpp: "Compare", header: "TopOpeBRepBuild_LoopClassifier.hxx".}

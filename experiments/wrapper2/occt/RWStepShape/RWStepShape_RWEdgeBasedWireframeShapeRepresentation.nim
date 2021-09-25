@@ -13,17 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_EdgeBasedWireframeShapeRepresentation"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShape_RWEdgeBasedWireframeShapeRepresentation* {.
+  RWStepShapeRWEdgeBasedWireframeShapeRepresentation* {.
       importcpp: "RWStepShape_RWEdgeBasedWireframeShapeRepresentation",
       header: "RWStepShape_RWEdgeBasedWireframeShapeRepresentation.hxx", bycopy.} = object ##
                                                                                       ## !
@@ -31,22 +27,22 @@ type
                                                                                       ## constructor
 
 
-proc constructRWStepShape_RWEdgeBasedWireframeShapeRepresentation*(): RWStepShape_RWEdgeBasedWireframeShapeRepresentation {.
+proc constructRWStepShapeRWEdgeBasedWireframeShapeRepresentation*(): RWStepShapeRWEdgeBasedWireframeShapeRepresentation {.
     constructor,
     importcpp: "RWStepShape_RWEdgeBasedWireframeShapeRepresentation(@)",
     header: "RWStepShape_RWEdgeBasedWireframeShapeRepresentation.hxx".}
-proc ReadStep*(this: RWStepShape_RWEdgeBasedWireframeShapeRepresentation;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepShape_EdgeBasedWireframeShapeRepresentation]) {.
+proc readStep*(this: RWStepShapeRWEdgeBasedWireframeShapeRepresentation;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepShapeEdgeBasedWireframeShapeRepresentation]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepShape_RWEdgeBasedWireframeShapeRepresentation.hxx".}
-proc WriteStep*(this: RWStepShape_RWEdgeBasedWireframeShapeRepresentation;
-               SW: var StepData_StepWriter;
-               ent: handle[StepShape_EdgeBasedWireframeShapeRepresentation]) {.
+proc writeStep*(this: RWStepShapeRWEdgeBasedWireframeShapeRepresentation;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepShapeEdgeBasedWireframeShapeRepresentation]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepShape_RWEdgeBasedWireframeShapeRepresentation.hxx".}
-proc Share*(this: RWStepShape_RWEdgeBasedWireframeShapeRepresentation;
-           ent: handle[StepShape_EdgeBasedWireframeShapeRepresentation];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepShapeRWEdgeBasedWireframeShapeRepresentation;
+           ent: Handle[StepShapeEdgeBasedWireframeShapeRepresentation];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWEdgeBasedWireframeShapeRepresentation.hxx".}

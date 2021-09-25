@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  BRepFeat_Status* {.size: sizeof(cint), importcpp: "BRepFeat_Status",
-                    header: "BRepFeat_Status.hxx".} = enum
-    BRepFeat_NoError, BRepFeat_InvalidPlacement, BRepFeat_HoleTooLong
+  BRepFeatStatus* {.size: sizeof(cint), importcpp: "BRepFeat_Status",
+                   header: "BRepFeat_Status.hxx".} = enum
+    BRepFeatNoError, BRepFeatInvalidPlacement, BRepFeatHoleTooLong
+
 

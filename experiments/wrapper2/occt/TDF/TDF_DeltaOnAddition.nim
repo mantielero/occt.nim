@@ -13,14 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TDF_AttributeDelta
-
 discard "forward decl of TDF_Attribute"
 discard "forward decl of TDF_DeltaOnAddition"
 discard "forward decl of TDF_DeltaOnAddition"
 type
-  Handle_TDF_DeltaOnAddition* = handle[TDF_DeltaOnAddition]
+  HandleTDF_DeltaOnAddition* = Handle[TDF_DeltaOnAddition]
 
 ## ! This class provides default services for an
 ## ! AttributeDelta on an ADDITION action.
@@ -37,18 +34,18 @@ type
                                                                                             ## TDF_DeltaOnAddition.
 
 
-proc constructTDF_DeltaOnAddition*(anAtt: handle[TDF_Attribute]): TDF_DeltaOnAddition {.
+proc constructTDF_DeltaOnAddition*(anAtt: Handle[TDF_Attribute]): TDF_DeltaOnAddition {.
     constructor, importcpp: "TDF_DeltaOnAddition(@)",
     header: "TDF_DeltaOnAddition.hxx".}
-proc Apply*(this: var TDF_DeltaOnAddition) {.importcpp: "Apply",
+proc apply*(this: var TDF_DeltaOnAddition) {.importcpp: "Apply",
     header: "TDF_DeltaOnAddition.hxx".}
 type
-  TDF_DeltaOnAdditionbase_type* = TDF_AttributeDelta
+  TDF_DeltaOnAdditionbaseType* = TDF_AttributeDelta
 
-proc get_type_name*(): cstring {.importcpp: "TDF_DeltaOnAddition::get_type_name(@)",
-                              header: "TDF_DeltaOnAddition.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDF_DeltaOnAddition::get_type_name(@)",
+                            header: "TDF_DeltaOnAddition.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDF_DeltaOnAddition::get_type_descriptor(@)",
     header: "TDF_DeltaOnAddition.hxx".}
-proc DynamicType*(this: TDF_DeltaOnAddition): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDF_DeltaOnAddition): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDF_DeltaOnAddition.hxx".}

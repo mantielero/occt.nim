@@ -14,67 +14,58 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real
-
 discard "forward decl of Adaptor3d_Surface"
 discard "forward decl of Bnd_Box"
 discard "forward decl of gp_Cylinder"
 discard "forward decl of gp_Cone"
 discard "forward decl of gp_Sphere"
 type
-  BndLib_AddSurface* {.importcpp: "BndLib_AddSurface",
-                      header: "BndLib_AddSurface.hxx", bycopy.} = object ## ! Adds to the bounding box B the surface S
-                                                                    ## ! B is then enlarged by the tolerance value Tol.
-                                                                    ## ! Note: depending on the type of curve, one of the following
-                                                                    ## !
-                                                                    ## representations of the surface S is used to include it in the bounding box B:
-                                                                    ## ! -   an exact
-                                                                    ## representation if S is built from a plane, a
-                                                                    ## ! cylinder, a cone, a sphere or a torus,
-                                                                    ## ! -   the poles of the surface if S is built from a Bezier
-                                                                    ## ! surface or a BSpline surface,
-                                                                    ## ! -   the points of an
-                                                                    ## approximation of the surface S in
-                                                                    ## ! cases other than offset surfaces;
-                                                                    ## ! -   in the case of an offset surface, the basis surface is first
-                                                                    ## ! included according to the previous rules; then the
-                                                                    ## ! bounding box is enlarged by the offset value.
-                                                                    ## ! Warning
-                                                                    ## ! Do not use these functions to add a non-finite surface to
-                                                                    ## ! the bounding box B.
-                                                                    ## ! If UMin, UMax, VMin or VMax is an infinite value B will become WholeSpace.
-                                                                    ## ! S is an adapted surface, that is, an object which is an interface between:
-                                                                    ## ! -   the services provided by a surface from the package Geom
-                                                                    ## ! -   and those required of the surface by the computation algorithm.
-                                                                    ## ! The adapted surface is created in the following way:
-                                                                    ## !
-                                                                    ## Handle(Geom_Surface) mysurface = ... ;
-                                                                    ## !
-                                                                    ## GeomAdaptor_Surface
-                                                                    ## S(mysurface);
-                                                                    ## ! The bounding box B is then enlarged by adding this surface:
-                                                                    ## ! Bnd_Box B;
-                                                                    ## ! // ...
-                                                                    ## !
-                                                                    ## Standard_Real Tol = ... ;
-                                                                    ## !
-                                                                    ## AddSurface::Add ( S, Tol, B );
+  BndLibAddSurface* {.importcpp: "BndLib_AddSurface",
+                     header: "BndLib_AddSurface.hxx", bycopy.} = object ## ! Adds to the bounding box B the surface S
+                                                                   ## ! B is then enlarged by the tolerance value Tol.
+                                                                   ## ! Note: depending on the type of curve, one of the following
+                                                                   ## !
+                                                                   ## representations of the surface S is used to include it in the bounding box B:
+                                                                   ## ! -   an exact
+                                                                   ## representation if S is built from a plane, a
+                                                                   ## ! cylinder, a cone, a sphere or a torus,
+                                                                   ## ! -   the poles of the surface if S is built from a Bezier
+                                                                   ## ! surface or a BSpline surface,
+                                                                   ## ! -   the points of an approximation of the surface S in
+                                                                   ## ! cases other than offset surfaces;
+                                                                   ## ! -   in the case of an offset surface, the basis surface is first
+                                                                   ## ! included according to the previous rules; then the
+                                                                   ## ! bounding box is enlarged by the offset value.
+                                                                   ## ! Warning
+                                                                   ## ! Do not use these functions to add a non-finite surface to
+                                                                   ## ! the bounding box B.
+                                                                   ## ! If UMin, UMax, VMin or VMax is an infinite value B will become WholeSpace.
+                                                                   ## ! S is an adapted surface, that is, an object which is an interface between:
+                                                                   ## ! -   the services provided by a surface from the package Geom
+                                                                   ## ! -   and those required of the surface by the computation algorithm.
+                                                                   ## ! The adapted surface is created in the following way:
+                                                                   ## !
+                                                                   ## Handle(Geom_Surface) mysurface = ... ;
+                                                                   ## !
+                                                                   ## GeomAdaptor_Surface S(mysurface);
+                                                                   ## ! The bounding box B is then enlarged by adding this surface:
+                                                                   ## ! Bnd_Box B;
+                                                                   ## ! // ...
+                                                                   ## ! Standard_Real Tol = ... ;
+                                                                   ## !
+                                                                   ## AddSurface::Add ( S, Tol, B );
 
 
-proc Add*(S: Adaptor3d_Surface; Tol: Standard_Real; B: var Bnd_Box) {.
+proc add*(s: Adaptor3dSurface; tol: float; b: var BndBox) {.
     importcpp: "BndLib_AddSurface::Add(@)", header: "BndLib_AddSurface.hxx".}
-proc Add*(S: Adaptor3d_Surface; UMin: Standard_Real; UMax: Standard_Real;
-         VMin: Standard_Real; VMax: Standard_Real; Tol: Standard_Real; B: var Bnd_Box) {.
-    importcpp: "BndLib_AddSurface::Add(@)", header: "BndLib_AddSurface.hxx".}
-proc AddOptimal*(S: Adaptor3d_Surface; Tol: Standard_Real; B: var Bnd_Box) {.
+proc add*(s: Adaptor3dSurface; uMin: float; uMax: float; vMin: float; vMax: float;
+         tol: float; b: var BndBox) {.importcpp: "BndLib_AddSurface::Add(@)",
+                                 header: "BndLib_AddSurface.hxx".}
+proc addOptimal*(s: Adaptor3dSurface; tol: float; b: var BndBox) {.
     importcpp: "BndLib_AddSurface::AddOptimal(@)", header: "BndLib_AddSurface.hxx".}
-proc AddOptimal*(S: Adaptor3d_Surface; UMin: Standard_Real; UMax: Standard_Real;
-                VMin: Standard_Real; VMax: Standard_Real; Tol: Standard_Real;
-                B: var Bnd_Box) {.importcpp: "BndLib_AddSurface::AddOptimal(@)",
-                               header: "BndLib_AddSurface.hxx".}
-proc AddGenSurf*(S: Adaptor3d_Surface; UMin: Standard_Real; UMax: Standard_Real;
-                VMin: Standard_Real; VMax: Standard_Real; Tol: Standard_Real;
-                B: var Bnd_Box) {.importcpp: "BndLib_AddSurface::AddGenSurf(@)",
-                               header: "BndLib_AddSurface.hxx".}
+proc addOptimal*(s: Adaptor3dSurface; uMin: float; uMax: float; vMin: float; vMax: float;
+                tol: float; b: var BndBox) {.importcpp: "BndLib_AddSurface::AddOptimal(@)",
+                                        header: "BndLib_AddSurface.hxx".}
+proc addGenSurf*(s: Adaptor3dSurface; uMin: float; uMax: float; vMin: float; vMax: float;
+                tol: float; b: var BndBox) {.importcpp: "BndLib_AddSurface::AddGenSurf(@)",
+                                        header: "BndLib_AddSurface.hxx".}

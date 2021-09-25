@@ -13,48 +13,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../XmlMDF/XmlMDF_ADriver,
-  ../Standard/Standard_Boolean, ../XmlObjMgt/XmlObjMgt_RRelocationTable,
-  ../XmlObjMgt/XmlObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDataStd_TreeNodeDriver"
 discard "forward decl of XmlMDataStd_TreeNodeDriver"
 type
-  Handle_XmlMDataStd_TreeNodeDriver* = handle[XmlMDataStd_TreeNodeDriver]
+  HandleXmlMDataStdTreeNodeDriver* = Handle[XmlMDataStdTreeNodeDriver]
 
 ## ! Attribute Driver.
 
 type
-  XmlMDataStd_TreeNodeDriver* {.importcpp: "XmlMDataStd_TreeNodeDriver",
-                               header: "XmlMDataStd_TreeNodeDriver.hxx", bycopy.} = object of XmlMDF_ADriver
+  XmlMDataStdTreeNodeDriver* {.importcpp: "XmlMDataStd_TreeNodeDriver",
+                              header: "XmlMDataStd_TreeNodeDriver.hxx", bycopy.} = object of XmlMDF_ADriver
 
 
-proc constructXmlMDataStd_TreeNodeDriver*(
-    theMessageDriver: handle[Message_Messenger]): XmlMDataStd_TreeNodeDriver {.
+proc constructXmlMDataStdTreeNodeDriver*(theMessageDriver: Handle[MessageMessenger]): XmlMDataStdTreeNodeDriver {.
     constructor, importcpp: "XmlMDataStd_TreeNodeDriver(@)",
     header: "XmlMDataStd_TreeNodeDriver.hxx".}
-proc NewEmpty*(this: XmlMDataStd_TreeNodeDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: XmlMDataStdTreeNodeDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty", header: "XmlMDataStd_TreeNodeDriver.hxx".}
-proc Paste*(this: XmlMDataStd_TreeNodeDriver; Source: XmlObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var XmlObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "XmlMDataStd_TreeNodeDriver.hxx".}
-proc Paste*(this: XmlMDataStd_TreeNodeDriver; Source: handle[TDF_Attribute];
-           Target: var XmlObjMgt_Persistent;
-           RelocTable: var XmlObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: XmlMDataStdTreeNodeDriver; source: XmlObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var XmlObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "XmlMDataStd_TreeNodeDriver.hxx".}
+proc paste*(this: XmlMDataStdTreeNodeDriver; source: Handle[TDF_Attribute];
+           target: var XmlObjMgtPersistent;
+           relocTable: var XmlObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "XmlMDataStd_TreeNodeDriver.hxx".}
 type
-  XmlMDataStd_TreeNodeDriverbase_type* = XmlMDF_ADriver
+  XmlMDataStdTreeNodeDriverbaseType* = XmlMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "XmlMDataStd_TreeNodeDriver::get_type_name(@)",
-                              header: "XmlMDataStd_TreeNodeDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XmlMDataStd_TreeNodeDriver::get_type_name(@)",
+                            header: "XmlMDataStd_TreeNodeDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XmlMDataStd_TreeNodeDriver::get_type_descriptor(@)",
     header: "XmlMDataStd_TreeNodeDriver.hxx".}
-proc DynamicType*(this: XmlMDataStd_TreeNodeDriver): handle[Standard_Type] {.
+proc dynamicType*(this: XmlMDataStdTreeNodeDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMDataStd_TreeNodeDriver.hxx".}

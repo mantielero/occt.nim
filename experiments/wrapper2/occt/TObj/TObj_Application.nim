@@ -14,140 +14,78 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation Copyright: (C) RINA S.p.A
 
-import
-  ../TDocStd/TDocStd_Application, TObj_Common, ../Message/Message_Gravity,
-  ../Message/Message_Messenger, ../TColStd/TColStd_SequenceOfExtendedString
-
 ## !
 ## ! This is a base class for OCAF based TObj models
 ## !  with declared virtual methods
 ## !
 
 type
-  TObj_Application* {.importcpp: "TObj_Application",
-                     header: "TObj_Application.hxx", bycopy.} = object of TDocStd_Application ##
-                                                                                       ## !
-                                                                                       ## Returns
-                                                                                       ## static
-                                                                                       ## instance
-                                                                                       ## of
-                                                                                       ## the
-                                                                                       ## application
-                                                                                       ##
-                                                                                       ## *
-                                                                                       ##
-                                                                                       ## Load/Save
-                                                                                       ## support
-                                                                                       ##
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Saving
-                                                                                       ## the
-                                                                                       ## OCAF
-                                                                                       ## document
-                                                                                       ## to
-                                                                                       ## a
-                                                                                       ## file
-                                                                                       ##
-                                                                                       ## *
-                                                                                       ##
-                                                                                       ## Redefined
-                                                                                       ## OCAF
-                                                                                       ## methods
-                                                                                       ##
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Return
-                                                                                       ## name
-                                                                                       ## of
-                                                                                       ## resource
-                                                                                       ## (i.e.
-                                                                                       ## "TObj")
-                                                                                       ##
-                                                                                       ## *
-                                                                                       ##
-                                                                                       ## Constructor
-                                                                                       ##
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Constructor
-                                                                                       ## is
-                                                                                       ## protected.
-                                                                                       ## Use
-                                                                                       ## method
-                                                                                       ## GetInstance()
-                                                                                       ## method
-                                                                                       ## to
-                                                                                       ## obtain
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## the
-                                                                                       ## static
-                                                                                       ## instance
-                                                                                       ## of
-                                                                                       ## the
-                                                                                       ## object
-                                                                                       ## (or
-                                                                                       ## derive
-                                                                                       ## your
-                                                                                       ## own
-                                                                                       ## application)
-                                                                                       ##
-                                                                                       ## *
-                                                                                       ##
-                                                                                       ## Fields
-                                                                                       ##
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## CASCADE
-                                                                                       ## RTTI
+  TObjApplication* {.importcpp: "TObj_Application", header: "TObj_Application.hxx",
+                    bycopy.} = object of TDocStdApplication ## ! Returns static instance of the application
+                                                       ## *
+                                                       ##     Load/Save support
+                                                       ##
+                                                       ## ! Saving the OCAF document to a file
+                                                       ## *
+                                                       ##  Redefined OCAF methods
+                                                       ##
+                                                       ## ! Return name of resource (i.e. "TObj")
+                                                       ## *
+                                                       ##  Constructor
+                                                       ##
+                                                       ## ! Constructor is protected. Use method GetInstance() method to obtain
+                                                       ## ! the static instance of the object (or derive your own application)
+                                                       ## *
+                                                       ##  Fields
+                                                       ##
+                                                       ## ! CASCADE RTTI
     ## !< error flag
     ## !< verbose flag
     ## !< messenger
 
 
-proc GetInstance*(): handle[TObj_Application] {.
+proc getInstance*(): Handle[TObjApplication] {.
     importcpp: "TObj_Application::GetInstance(@)", header: "TObj_Application.hxx".}
-proc Messenger*(this: var TObj_Application): var handle[Message_Messenger] {.
+proc messenger*(this: var TObjApplication): var Handle[MessageMessenger] {.
     importcpp: "Messenger", header: "TObj_Application.hxx".}
-proc SaveDocument*(this: var TObj_Application;
-                  theSourceDoc: handle[TDocStd_Document];
-                  theTargetFile: TCollection_ExtendedString): Standard_Boolean {.
+proc saveDocument*(this: var TObjApplication; theSourceDoc: Handle[TDocStdDocument];
+                  theTargetFile: TCollectionExtendedString): bool {.
     importcpp: "SaveDocument", header: "TObj_Application.hxx".}
-proc LoadDocument*(this: var TObj_Application;
-                  theSourceFile: TCollection_ExtendedString;
-                  theTargetDoc: var handle[TDocStd_Document]): Standard_Boolean {.
+proc loadDocument*(this: var TObjApplication;
+                  theSourceFile: TCollectionExtendedString;
+                  theTargetDoc: var Handle[TDocStdDocument]): bool {.
     importcpp: "LoadDocument", header: "TObj_Application.hxx".}
-proc CreateNewDocument*(this: var TObj_Application;
-                       theDoc: var handle[TDocStd_Document];
-                       theFormat: TCollection_ExtendedString): Standard_Boolean {.
+proc createNewDocument*(this: var TObjApplication;
+                       theDoc: var Handle[TDocStdDocument];
+                       theFormat: TCollectionExtendedString): bool {.
     importcpp: "CreateNewDocument", header: "TObj_Application.hxx".}
-proc ErrorMessage*(this: var TObj_Application; theMsg: TCollection_ExtendedString;
-                  theLevel: Message_Gravity) {.importcpp: "ErrorMessage",
+proc errorMessage*(this: var TObjApplication; theMsg: TCollectionExtendedString;
+                  theLevel: MessageGravity) {.importcpp: "ErrorMessage",
     header: "TObj_Application.hxx".}
-proc ErrorMessage*(this: var TObj_Application; theMsg: TCollection_ExtendedString) {.
+proc errorMessage*(this: var TObjApplication; theMsg: TCollectionExtendedString) {.
     importcpp: "ErrorMessage", header: "TObj_Application.hxx".}
-proc SetVerbose*(this: var TObj_Application; isVerbose: Standard_Boolean) {.
+proc setVerbose*(this: var TObjApplication; isVerbose: bool) {.
     importcpp: "SetVerbose", header: "TObj_Application.hxx".}
-proc IsVerbose*(this: TObj_Application): Standard_Boolean {.noSideEffect,
-    importcpp: "IsVerbose", header: "TObj_Application.hxx".}
-proc DumpJson*(this: TObj_Application; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
+proc isVerbose*(this: TObjApplication): bool {.noSideEffect, importcpp: "IsVerbose",
     header: "TObj_Application.hxx".}
-proc ResourcesName*(this: var TObj_Application): Standard_CString {.
+proc dumpJson*(this: TObjApplication; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TObj_Application.hxx".}
+proc resourcesName*(this: var TObjApplication): StandardCString {.
     importcpp: "ResourcesName", header: "TObj_Application.hxx".}
 type
-  TObj_Applicationbase_type* = TDocStd_Application
+  TObjApplicationbaseType* = TDocStdApplication
 
-proc get_type_name*(): cstring {.importcpp: "TObj_Application::get_type_name(@)",
-                              header: "TObj_Application.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TObj_Application::get_type_name(@)",
+                            header: "TObj_Application.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TObj_Application::get_type_descriptor(@)",
     header: "TObj_Application.hxx".}
-proc DynamicType*(this: TObj_Application): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TObjApplication): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TObj_Application.hxx".}
 ## ! Define handle class
 
 discard "forward decl of TObj_Application"
 type
-  Handle_TObj_Application* = handle[TObj_Application]
+  HandleTObjApplication* = Handle[TObjApplication]
+

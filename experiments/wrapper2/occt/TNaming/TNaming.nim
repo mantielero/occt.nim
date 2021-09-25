@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopTools/TopTools_DataMapOfShapeShape,
-  ../Standard/Standard_Boolean, ../TopTools/TopTools_MapOfShape,
-  ../TopTools/TopTools_HArray1OfShape, ../TDF/TDF_IDList,
-  ../Standard/Standard_OStream, TNaming_Evolution, TNaming_NameType
-
 discard "forward decl of TDF_Label"
 discard "forward decl of TopLoc_Location"
 discard "forward decl of gp_Trsf"
@@ -58,41 +51,40 @@ type
                                                                     ## ! vers cible
 
 
-proc Substitute*(labelsource: TDF_Label; labelcible: TDF_Label;
-                mapOldNew: var TopTools_DataMapOfShapeShape) {.
+proc substitute*(labelsource: TDF_Label; labelcible: TDF_Label;
+                mapOldNew: var TopToolsDataMapOfShapeShape) {.
     importcpp: "TNaming::Substitute(@)", header: "TNaming.hxx".}
-proc Update*(label: TDF_Label; mapOldNew: var TopTools_DataMapOfShapeShape) {.
+proc update*(label: TDF_Label; mapOldNew: var TopToolsDataMapOfShapeShape) {.
     importcpp: "TNaming::Update(@)", header: "TNaming.hxx".}
-proc Displace*(label: TDF_Label; aLocation: TopLoc_Location;
-              WithOld: Standard_Boolean = Standard_True) {.
+proc displace*(label: TDF_Label; aLocation: TopLocLocation; withOld: bool = true) {.
     importcpp: "TNaming::Displace(@)", header: "TNaming.hxx".}
-proc ChangeShapes*(label: TDF_Label; M: var TopTools_DataMapOfShapeShape) {.
+proc changeShapes*(label: TDF_Label; m: var TopToolsDataMapOfShapeShape) {.
     importcpp: "TNaming::ChangeShapes(@)", header: "TNaming.hxx".}
-proc Transform*(label: TDF_Label; aTransformation: gp_Trsf) {.
+proc transform*(label: TDF_Label; aTransformation: Trsf) {.
     importcpp: "TNaming::Transform(@)", header: "TNaming.hxx".}
-proc Replicate*(NS: handle[TNaming_NamedShape]; T: gp_Trsf; L: TDF_Label) {.
+proc replicate*(ns: Handle[TNamingNamedShape]; t: Trsf; L: TDF_Label) {.
     importcpp: "TNaming::Replicate(@)", header: "TNaming.hxx".}
-proc Replicate*(SH: TopoDS_Shape; T: gp_Trsf; L: TDF_Label) {.
+proc replicate*(sh: TopoDS_Shape; t: Trsf; L: TDF_Label) {.
     importcpp: "TNaming::Replicate(@)", header: "TNaming.hxx".}
-proc MakeShape*(MS: TopTools_MapOfShape): TopoDS_Shape {.
+proc makeShape*(ms: TopToolsMapOfShape): TopoDS_Shape {.
     importcpp: "TNaming::MakeShape(@)", header: "TNaming.hxx".}
-proc FindUniqueContext*(S: TopoDS_Shape; Context: TopoDS_Shape): TopoDS_Shape {.
+proc findUniqueContext*(s: TopoDS_Shape; context: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "TNaming::FindUniqueContext(@)", header: "TNaming.hxx".}
-proc FindUniqueContextSet*(S: TopoDS_Shape; Context: TopoDS_Shape;
-                          Arr: var handle[TopTools_HArray1OfShape]): TopoDS_Shape {.
+proc findUniqueContextSet*(s: TopoDS_Shape; context: TopoDS_Shape;
+                          arr: var Handle[TopToolsHArray1OfShape]): TopoDS_Shape {.
     importcpp: "TNaming::FindUniqueContextSet(@)", header: "TNaming.hxx".}
-proc SubstituteSShape*(accesslabel: TDF_Label; From: TopoDS_Shape;
-                      To: var TopoDS_Shape): Standard_Boolean {.
+proc substituteSShape*(accesslabel: TDF_Label; `from`: TopoDS_Shape;
+                      to: var TopoDS_Shape): bool {.
     importcpp: "TNaming::SubstituteSShape(@)", header: "TNaming.hxx".}
-proc OuterWire*(theFace: TopoDS_Face; theWire: var TopoDS_Wire): Standard_Boolean {.
+proc outerWire*(theFace: TopoDS_Face; theWire: var TopoDS_Wire): bool {.
     importcpp: "TNaming::OuterWire(@)", header: "TNaming.hxx".}
-proc OuterShell*(theSolid: TopoDS_Solid; theShell: var TopoDS_Shell): Standard_Boolean {.
+proc outerShell*(theSolid: TopoDS_Solid; theShell: var TopoDS_Shell): bool {.
     importcpp: "TNaming::OuterShell(@)", header: "TNaming.hxx".}
-proc IDList*(anIDList: var TDF_IDList) {.importcpp: "TNaming::IDList(@)",
+proc iDList*(anIDList: var TDF_IDList) {.importcpp: "TNaming::IDList(@)",
                                      header: "TNaming.hxx".}
-proc Print*(EVOL: TNaming_Evolution; S: var Standard_OStream): var Standard_OStream {.
+proc print*(evol: TNamingEvolution; s: var StandardOStream): var StandardOStream {.
     importcpp: "TNaming::Print(@)", header: "TNaming.hxx".}
-proc Print*(NAME: TNaming_NameType; S: var Standard_OStream): var Standard_OStream {.
+proc print*(name: TNamingNameType; s: var StandardOStream): var StandardOStream {.
     importcpp: "TNaming::Print(@)", header: "TNaming.hxx".}
-proc Print*(ACCESS: TDF_Label; S: var Standard_OStream): var Standard_OStream {.
+proc print*(access: TDF_Label; s: var StandardOStream): var StandardOStream {.
     importcpp: "TNaming::Print(@)", header: "TNaming.hxx".}

@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # TColgp_HSequenceOfDir2d_HeaderFile [NewLine] # TColgp_HSequenceOfDir2d_HeaderFile [NewLine] # ../gp/gp_Dir2d.hxx [NewLine] # TColgp_SequenceOfDir2d.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( TColgp_HSequenceOfDir2d , TColgp_SequenceOfDir2d ) # [NewLine]
+## !!!Ignored construct:  # TColgp_HSequenceOfDir2d_HeaderFile [NewLine] # TColgp_HSequenceOfDir2d_HeaderFile [NewLine] # < gp_Dir2d . hxx > [NewLine] # < TColgp_SequenceOfDir2d . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( TColgp_HSequenceOfDir2d , TColgp_SequenceOfDir2d ) # [NewLine]
 ## Error: expected ';'!!!
+

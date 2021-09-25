@@ -14,48 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_Array1OfReal, ../Standard/Standard_Real
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Law_Function"
 discard "forward decl of Law_Function"
 type
-  Handle_Law_Function* = handle[Law_Function]
+  HandleLawFunction* = Handle[LawFunction]
 
 ## ! Root class for evolution laws.
 
 type
-  Law_Function* {.importcpp: "Law_Function", header: "Law_Function.hxx", bycopy.} = object of Standard_Transient
+  LawFunction* {.importcpp: "Law_Function", header: "Law_Function.hxx", bycopy.} = object of StandardTransient
 
 
-proc Continuity*(this: Law_Function): GeomAbs_Shape {.noSideEffect,
+proc continuity*(this: LawFunction): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Law_Function.hxx".}
-proc NbIntervals*(this: Law_Function; S: GeomAbs_Shape): Standard_Integer {.
-    noSideEffect, importcpp: "NbIntervals", header: "Law_Function.hxx".}
-proc Intervals*(this: Law_Function; T: var TColStd_Array1OfReal; S: GeomAbs_Shape) {.
+proc nbIntervals*(this: LawFunction; s: GeomAbsShape): int {.noSideEffect,
+    importcpp: "NbIntervals", header: "Law_Function.hxx".}
+proc intervals*(this: LawFunction; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, importcpp: "Intervals", header: "Law_Function.hxx".}
-proc Value*(this: var Law_Function; X: Standard_Real): Standard_Real {.
-    importcpp: "Value", header: "Law_Function.hxx".}
-proc D1*(this: var Law_Function; X: Standard_Real; F: var Standard_Real;
-        D: var Standard_Real) {.importcpp: "D1", header: "Law_Function.hxx".}
-proc D2*(this: var Law_Function; X: Standard_Real; F: var Standard_Real;
-        D: var Standard_Real; D2: var Standard_Real) {.importcpp: "D2",
+proc value*(this: var LawFunction; x: float): float {.importcpp: "Value",
     header: "Law_Function.hxx".}
-proc Trim*(this: Law_Function; PFirst: Standard_Real; PLast: Standard_Real;
-          Tol: Standard_Real): handle[Law_Function] {.noSideEffect,
-    importcpp: "Trim", header: "Law_Function.hxx".}
-proc Bounds*(this: var Law_Function; PFirst: var Standard_Real;
-            PLast: var Standard_Real) {.importcpp: "Bounds",
-                                     header: "Law_Function.hxx".}
+proc d1*(this: var LawFunction; x: float; f: var float; d: var float) {.importcpp: "D1",
+    header: "Law_Function.hxx".}
+proc d2*(this: var LawFunction; x: float; f: var float; d: var float; d2: var float) {.
+    importcpp: "D2", header: "Law_Function.hxx".}
+proc trim*(this: LawFunction; pFirst: float; pLast: float; tol: float): Handle[
+    LawFunction] {.noSideEffect, importcpp: "Trim", header: "Law_Function.hxx".}
+proc bounds*(this: var LawFunction; pFirst: var float; pLast: var float) {.
+    importcpp: "Bounds", header: "Law_Function.hxx".}
 type
-  Law_Functionbase_type* = Standard_Transient
+  LawFunctionbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Law_Function::get_type_name(@)",
-                              header: "Law_Function.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Law_Function::get_type_name(@)",
+                            header: "Law_Function.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Law_Function::get_type_descriptor(@)", header: "Law_Function.hxx".}
-proc DynamicType*(this: Law_Function): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: LawFunction): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Law_Function.hxx".}

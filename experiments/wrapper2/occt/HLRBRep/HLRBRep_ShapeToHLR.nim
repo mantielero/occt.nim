@@ -14,24 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../BRepTopAdaptor/BRepTopAdaptor_MapOfShapeTool,
-  ../Standard/Standard_Integer, ../TopTools/TopTools_IndexedMapOfShape,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of HLRBRep_Data"
 discard "forward decl of HLRTopoBRep_OutLiner"
 discard "forward decl of HLRAlgo_Projector"
 discard "forward decl of TopoDS_Face"
 type
-  HLRBRep_ShapeToHLR* {.importcpp: "HLRBRep_ShapeToHLR",
-                       header: "HLRBRep_ShapeToHLR.hxx", bycopy.} = object ## ! Creates  a
-                                                                      ## DataStructure   containing the OutLiner
-                                                                      ## ! <S> depending on the projector <P> and nbIso.
+  HLRBRepShapeToHLR* {.importcpp: "HLRBRep_ShapeToHLR",
+                      header: "HLRBRep_ShapeToHLR.hxx", bycopy.} = object ## ! Creates  a
+                                                                     ## DataStructure   containing the OutLiner
+                                                                     ## ! <S> depending on the projector <P> and nbIso.
 
 
-proc Load*(S: handle[HLRTopoBRep_OutLiner]; P: HLRAlgo_Projector;
-          MST: var BRepTopAdaptor_MapOfShapeTool; nbIso: Standard_Integer = 0): handle[
-    HLRBRep_Data] {.importcpp: "HLRBRep_ShapeToHLR::Load(@)",
-                   header: "HLRBRep_ShapeToHLR.hxx".}
+proc load*(s: Handle[HLRTopoBRepOutLiner]; p: HLRAlgoProjector;
+          mst: var BRepTopAdaptorMapOfShapeTool; nbIso: int = 0): Handle[HLRBRepData] {.
+    importcpp: "HLRBRep_ShapeToHLR::Load(@)", header: "HLRBRep_ShapeToHLR.hxx".}

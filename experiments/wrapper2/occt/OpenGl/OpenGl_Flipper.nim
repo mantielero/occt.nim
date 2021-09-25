@@ -11,50 +11,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_Element, OpenGl_Vec
-
 discard "forward decl of gp_Ax2"
 type
-  OpenGl_Flipper* {.importcpp: "OpenGl_Flipper", header: "OpenGl_Flipper.hxx", bycopy.} = object of OpenGl_Element ##
-                                                                                                         ## !
-                                                                                                         ## Construct
-                                                                                                         ## rendering
-                                                                                                         ## element
-                                                                                                         ## to
-                                                                                                         ## flip
-                                                                                                         ## model-view
-                                                                                                         ## matrix
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## along
-                                                                                                         ## the
-                                                                                                         ## reference
-                                                                                                         ## system
-                                                                                                         ## to
-                                                                                                         ## ensure
-                                                                                                         ## up-Y,
-                                                                                                         ## right-X
-                                                                                                         ## orientation.
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## @param
-                                                                                                         ## theReferenceSystem
-                                                                                                         ## [in]
-                                                                                                         ## the
-                                                                                                         ## reference
-                                                                                                         ## coordinate
-                                                                                                         ## system.
+  OpenGlFlipper* {.importcpp: "OpenGl_Flipper", header: "OpenGl_Flipper.hxx", bycopy.} = object of OpenGlElement ##
+                                                                                                       ## !
+                                                                                                       ## Construct
+                                                                                                       ## rendering
+                                                                                                       ## element
+                                                                                                       ## to
+                                                                                                       ## flip
+                                                                                                       ## model-view
+                                                                                                       ## matrix
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## along
+                                                                                                       ## the
+                                                                                                       ## reference
+                                                                                                       ## system
+                                                                                                       ## to
+                                                                                                       ## ensure
+                                                                                                       ## up-Y,
+                                                                                                       ## right-X
+                                                                                                       ## orientation.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## @param
+                                                                                                       ## theReferenceSystem
+                                                                                                       ## [in]
+                                                                                                       ## the
+                                                                                                       ## reference
+                                                                                                       ## coordinate
+                                                                                                       ## system.
 
 
-proc constructOpenGl_Flipper*(theReferenceSystem: gp_Ax2): OpenGl_Flipper {.
-    constructor, importcpp: "OpenGl_Flipper(@)", header: "OpenGl_Flipper.hxx".}
-proc SetOptions*(this: var OpenGl_Flipper; theIsEnabled: Standard_Boolean) {.
+proc constructOpenGlFlipper*(theReferenceSystem: Ax2): OpenGlFlipper {.constructor,
+    importcpp: "OpenGl_Flipper(@)", header: "OpenGl_Flipper.hxx".}
+proc setOptions*(this: var OpenGlFlipper; theIsEnabled: bool) {.
     importcpp: "SetOptions", header: "OpenGl_Flipper.hxx".}
-proc Render*(this: OpenGl_Flipper; theWorkspace: handle[OpenGl_Workspace]) {.
+proc render*(this: OpenGlFlipper; theWorkspace: Handle[OpenGlWorkspace]) {.
     noSideEffect, importcpp: "Render", header: "OpenGl_Flipper.hxx".}
-proc Release*(this: var OpenGl_Flipper; theCtx: ptr OpenGl_Context) {.
+proc release*(this: var OpenGlFlipper; theCtx: ptr OpenGlContext) {.
     importcpp: "Release", header: "OpenGl_Flipper.hxx".}
-proc DumpJson*(this: OpenGl_Flipper; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "OpenGl_Flipper.hxx".}
+proc dumpJson*(this: OpenGlFlipper; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "OpenGl_Flipper.hxx".}

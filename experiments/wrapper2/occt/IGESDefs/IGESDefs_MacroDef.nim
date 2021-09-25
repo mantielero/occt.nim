@@ -14,16 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Interface/Interface_HArray1OfHAsciiString, ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESDefs_MacroDef"
 discard "forward decl of IGESDefs_MacroDef"
 type
-  Handle_IGESDefs_MacroDef* = handle[IGESDefs_MacroDef]
+  HandleIGESDefsMacroDef* = Handle[IGESDefsMacroDef]
 
 ## ! defines IGES Macro Definition Entity, Type <306> Form <0>
 ## ! in package IGESDefs
@@ -32,35 +28,35 @@ type
 ## ! by means of MACRO class instance entity.
 
 type
-  IGESDefs_MacroDef* {.importcpp: "IGESDefs_MacroDef",
-                      header: "IGESDefs_MacroDef.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESDefsMacroDef* {.importcpp: "IGESDefs_MacroDef",
+                     header: "IGESDefs_MacroDef.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESDefs_MacroDef*(): IGESDefs_MacroDef {.constructor,
+proc constructIGESDefsMacroDef*(): IGESDefsMacroDef {.constructor,
     importcpp: "IGESDefs_MacroDef(@)", header: "IGESDefs_MacroDef.hxx".}
-proc Init*(this: var IGESDefs_MacroDef; `macro`: handle[TCollection_HAsciiString];
-          entityTypeID: Standard_Integer;
-          langStatements: handle[Interface_HArray1OfHAsciiString];
-          endMacro: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var IGESDefsMacroDef; `macro`: Handle[TCollectionHAsciiString];
+          entityTypeID: int;
+          langStatements: Handle[InterfaceHArray1OfHAsciiString];
+          endMacro: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "IGESDefs_MacroDef.hxx".}
-proc NbStatements*(this: IGESDefs_MacroDef): Standard_Integer {.noSideEffect,
+proc nbStatements*(this: IGESDefsMacroDef): int {.noSideEffect,
     importcpp: "NbStatements", header: "IGESDefs_MacroDef.hxx".}
-proc MACRO*(this: IGESDefs_MacroDef): handle[TCollection_HAsciiString] {.
+proc `macro`*(this: IGESDefsMacroDef): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "MACRO", header: "IGESDefs_MacroDef.hxx".}
-proc EntityTypeID*(this: IGESDefs_MacroDef): Standard_Integer {.noSideEffect,
+proc entityTypeID*(this: IGESDefsMacroDef): int {.noSideEffect,
     importcpp: "EntityTypeID", header: "IGESDefs_MacroDef.hxx".}
-proc LanguageStatement*(this: IGESDefs_MacroDef; StatNum: Standard_Integer): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "LanguageStatement",
-                               header: "IGESDefs_MacroDef.hxx".}
-proc ENDMACRO*(this: IGESDefs_MacroDef): handle[TCollection_HAsciiString] {.
+proc languageStatement*(this: IGESDefsMacroDef; statNum: int): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "LanguageStatement",
+                              header: "IGESDefs_MacroDef.hxx".}
+proc endmacro*(this: IGESDefsMacroDef): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "ENDMACRO", header: "IGESDefs_MacroDef.hxx".}
 type
-  IGESDefs_MacroDefbase_type* = IGESData_IGESEntity
+  IGESDefsMacroDefbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESDefs_MacroDef::get_type_name(@)",
-                              header: "IGESDefs_MacroDef.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESDefs_MacroDef::get_type_name(@)",
+                            header: "IGESDefs_MacroDef.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESDefs_MacroDef::get_type_descriptor(@)",
     header: "IGESDefs_MacroDef.hxx".}
-proc DynamicType*(this: IGESDefs_MacroDef): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IGESDefsMacroDef): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDefs_MacroDef.hxx".}

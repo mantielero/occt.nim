@@ -13,31 +13,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  NCollection_ListNode
-
 ## *
 ##  Purpose:     Abstract list node class. Used by BaseList
 ##  Remark:      Internal class
 ##
 
 type
-  NCollection_TListNode*[TheItemType] {.importcpp: "NCollection_TListNode<\'0>",
-                                       header: "NCollection_TListNode.hxx", bycopy.} = object of NCollection_ListNode ##
-                                                                                                               ## !
-                                                                                                               ## Constructor
+  NCollectionTListNode*[TheItemType] {.importcpp: "NCollection_TListNode<\'0>",
+                                      header: "NCollection_TListNode.hxx", bycopy.} = object of NCollectionListNode ##
+                                                                                                             ## !
+                                                                                                             ## Constructor
     ## !< The item stored in the node
 
 
-proc constructNCollection_TListNode*[TheItemType](theItem: TheItemType;
-    theNext: ptr NCollection_ListNode = nil): NCollection_TListNode[TheItemType] {.
+proc constructNCollectionTListNode*[TheItemType](theItem: TheItemType;
+    theNext: ptr NCollectionListNode = nil): NCollectionTListNode[TheItemType] {.
     constructor, importcpp: "NCollection_TListNode<\'*0>(@)",
     header: "NCollection_TListNode.hxx".}
-proc Value*[TheItemType](this: NCollection_TListNode[TheItemType]): TheItemType {.
+proc value*[TheItemType](this: NCollectionTListNode[TheItemType]): TheItemType {.
     noSideEffect, importcpp: "Value", header: "NCollection_TListNode.hxx".}
-proc ChangeValue*[TheItemType](this: var NCollection_TListNode[TheItemType]): var TheItemType {.
+proc changeValue*[TheItemType](this: var NCollectionTListNode[TheItemType]): var TheItemType {.
     importcpp: "ChangeValue", header: "NCollection_TListNode.hxx".}
-proc delNode*[TheItemType](theNode: ptr NCollection_ListNode;
-                          theAl: var handle[NCollection_BaseAllocator]) {.
+proc delNode*[TheItemType](theNode: ptr NCollectionListNode;
+                          theAl: var Handle[NCollectionBaseAllocator]) {.
     importcpp: "NCollection_TListNode::delNode(@)",
     header: "NCollection_TListNode.hxx".}

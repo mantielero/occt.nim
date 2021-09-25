@@ -17,16 +17,16 @@
 ## ! Discribes the error.
 
 type
-  BRepFeat_StatusError* {.size: sizeof(cint), importcpp: "BRepFeat_StatusError",
-                         header: "BRepFeat_StatusError.hxx".} = enum
-    BRepFeat_OK, BRepFeat_BadDirect, BRepFeat_BadIntersect,
-    BRepFeat_EmptyBaryCurve, BRepFeat_EmptyCutResult, BRepFeat_FalseSide,
-    BRepFeat_IncDirection, BRepFeat_IncSlidFace, BRepFeat_IncParameter,
-    BRepFeat_IncTypes, BRepFeat_IntervalOverlap, BRepFeat_InvFirstShape,
-    BRepFeat_InvOption, BRepFeat_InvShape, BRepFeat_LocOpeNotDone,
-    BRepFeat_LocOpeInvNotDone, BRepFeat_NoExtFace, BRepFeat_NoFaceProf,
-    BRepFeat_NoGluer, BRepFeat_NoIntersectF, BRepFeat_NoIntersectU,
-    BRepFeat_NoParts, BRepFeat_NoProjPt, BRepFeat_NotInitialized,
-    BRepFeat_NotYetImplemented, BRepFeat_NullRealTool, BRepFeat_NullToolF,
-    BRepFeat_NullToolU
+  BRepFeatStatusError* {.size: sizeof(cint), importcpp: "BRepFeat_StatusError",
+                        header: "BRepFeat_StatusError.hxx".} = enum
+    BRepFeatOK, BRepFeatBadDirect, BRepFeatBadIntersect, BRepFeatEmptyBaryCurve,
+    BRepFeatEmptyCutResult, BRepFeatFalseSide, BRepFeatIncDirection,
+    BRepFeatIncSlidFace, BRepFeatIncParameter, BRepFeatIncTypes,
+    BRepFeatIntervalOverlap, BRepFeatInvFirstShape, BRepFeatInvOption,
+    BRepFeatInvShape, BRepFeatLocOpeNotDone, BRepFeatLocOpeInvNotDone,
+    BRepFeatNoExtFace, BRepFeatNoFaceProf, BRepFeatNoGluer, BRepFeatNoIntersectF,
+    BRepFeatNoIntersectU, BRepFeatNoParts, BRepFeatNoProjPt,
+    BRepFeatNotInitialized, BRepFeatNotYetImplemented, BRepFeatNullRealTool,
+    BRepFeatNullToolF, BRepFeatNullToolU
+
 

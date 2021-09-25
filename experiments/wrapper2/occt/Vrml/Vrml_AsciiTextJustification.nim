@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  Vrml_AsciiTextJustification* {.size: sizeof(cint),
-                                importcpp: "Vrml_AsciiTextJustification",
-                                header: "Vrml_AsciiTextJustification.hxx".} = enum
-    Vrml_LEFT, Vrml_CENTER, Vrml_RIGHT
+  VrmlAsciiTextJustification* {.size: sizeof(cint),
+                               importcpp: "Vrml_AsciiTextJustification",
+                               header: "Vrml_AsciiTextJustification.hxx".} = enum
+    VrmlLEFT, VrmlCENTER, VrmlRIGHT
+
 

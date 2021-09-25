@@ -13,31 +13,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepShape_PrecisionQualifier"
 discard "forward decl of StepShape_TypeQualifier"
 discard "forward decl of StepShape_ValueFormatTypeQualifier"
 type
-  StepShape_ValueQualifier* {.importcpp: "StepShape_ValueQualifier",
-                             header: "StepShape_ValueQualifier.hxx", bycopy.} = object of StepData_SelectType
+  StepShapeValueQualifier* {.importcpp: "StepShape_ValueQualifier",
+                            header: "StepShape_ValueQualifier.hxx", bycopy.} = object of StepDataSelectType
 
 
-proc constructStepShape_ValueQualifier*(): StepShape_ValueQualifier {.constructor,
+proc constructStepShapeValueQualifier*(): StepShapeValueQualifier {.constructor,
     importcpp: "StepShape_ValueQualifier(@)",
     header: "StepShape_ValueQualifier.hxx".}
-proc CaseNum*(this: StepShape_ValueQualifier; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepShapeValueQualifier; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepShape_ValueQualifier.hxx".}
-proc PrecisionQualifier*(this: StepShape_ValueQualifier): handle[
-    StepShape_PrecisionQualifier] {.noSideEffect, importcpp: "PrecisionQualifier",
-                                   header: "StepShape_ValueQualifier.hxx".}
-proc TypeQualifier*(this: StepShape_ValueQualifier): handle[StepShape_TypeQualifier] {.
+proc precisionQualifier*(this: StepShapeValueQualifier): Handle[
+    StepShapePrecisionQualifier] {.noSideEffect, importcpp: "PrecisionQualifier",
+                                  header: "StepShape_ValueQualifier.hxx".}
+proc typeQualifier*(this: StepShapeValueQualifier): Handle[StepShapeTypeQualifier] {.
     noSideEffect, importcpp: "TypeQualifier",
     header: "StepShape_ValueQualifier.hxx".}
-proc ValueFormatTypeQualifier*(this: StepShape_ValueQualifier): handle[
-    StepShape_ValueFormatTypeQualifier] {.noSideEffect,
-    importcpp: "ValueFormatTypeQualifier", header: "StepShape_ValueQualifier.hxx".}
+proc valueFormatTypeQualifier*(this: StepShapeValueQualifier): Handle[
+    StepShapeValueFormatTypeQualifier] {.noSideEffect,
+                                        importcpp: "ValueFormatTypeQualifier",
+                                        header: "StepShape_ValueQualifier.hxx".}

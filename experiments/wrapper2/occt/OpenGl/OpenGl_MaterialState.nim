@@ -13,19 +13,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_ShaderStates, OpenGl_Material
-
 ## ! Defines generic state of material properties.
 
 type
-  OpenGl_MaterialState* {.importcpp: "OpenGl_MaterialState",
-                         header: "OpenGl_MaterialState.hxx", bycopy.} = object of OpenGl_StateInterface ##
-                                                                                                 ## !
-                                                                                                 ## Creates
-                                                                                                 ## new
-                                                                                                 ## material
-                                                                                                 ## state.
+  OpenGlMaterialState* {.importcpp: "OpenGl_MaterialState",
+                        header: "OpenGl_MaterialState.hxx", bycopy.} = object of OpenGlStateInterface ##
+                                                                                               ## !
+                                                                                               ## Creates
+                                                                                               ## new
+                                                                                               ## material
+                                                                                               ## state.
     ## !< front material
     ## !< back  material
     ## !< alpha cutoff value
@@ -33,21 +30,21 @@ type
     ## !< flag for mapping a texture
 
 
-proc constructOpenGl_MaterialState*(): OpenGl_MaterialState {.constructor,
+proc constructOpenGlMaterialState*(): OpenGlMaterialState {.constructor,
     importcpp: "OpenGl_MaterialState(@)", header: "OpenGl_MaterialState.hxx".}
-proc Set*(this: var OpenGl_MaterialState; theFrontMat: OpenGl_Material;
-         theBackMat: OpenGl_Material; theAlphaCutoff: cfloat;
-         theToDistinguish: bool; theToMapTexture: bool) {.importcpp: "Set",
-    header: "OpenGl_MaterialState.hxx".}
-proc FrontMaterial*(this: OpenGl_MaterialState): OpenGl_Material {.noSideEffect,
+proc set*(this: var OpenGlMaterialState; theFrontMat: OpenGlMaterial;
+         theBackMat: OpenGlMaterial; theAlphaCutoff: cfloat; theToDistinguish: bool;
+         theToMapTexture: bool) {.importcpp: "Set",
+                                header: "OpenGl_MaterialState.hxx".}
+proc frontMaterial*(this: OpenGlMaterialState): OpenGlMaterial {.noSideEffect,
     importcpp: "FrontMaterial", header: "OpenGl_MaterialState.hxx".}
-proc BackMaterial*(this: OpenGl_MaterialState): OpenGl_Material {.noSideEffect,
+proc backMaterial*(this: OpenGlMaterialState): OpenGlMaterial {.noSideEffect,
     importcpp: "BackMaterial", header: "OpenGl_MaterialState.hxx".}
-proc AlphaCutoff*(this: OpenGl_MaterialState): cfloat {.noSideEffect,
+proc alphaCutoff*(this: OpenGlMaterialState): cfloat {.noSideEffect,
     importcpp: "AlphaCutoff", header: "OpenGl_MaterialState.hxx".}
-proc HasAlphaCutoff*(this: OpenGl_MaterialState): bool {.noSideEffect,
+proc hasAlphaCutoff*(this: OpenGlMaterialState): bool {.noSideEffect,
     importcpp: "HasAlphaCutoff", header: "OpenGl_MaterialState.hxx".}
-proc ToDistinguish*(this: OpenGl_MaterialState): bool {.noSideEffect,
+proc toDistinguish*(this: OpenGlMaterialState): bool {.noSideEffect,
     importcpp: "ToDistinguish", header: "OpenGl_MaterialState.hxx".}
-proc ToMapTexture*(this: OpenGl_MaterialState): bool {.noSideEffect,
+proc toMapTexture*(this: OpenGlMaterialState): bool {.noSideEffect,
     importcpp: "ToMapTexture", header: "OpenGl_MaterialState.hxx".}

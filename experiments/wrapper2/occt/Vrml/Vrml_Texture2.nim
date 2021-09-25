@@ -14,38 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TCollection/TCollection_AsciiString,
-  Vrml_Texture2Wrap, ../Standard/Standard_OStream
-
 discard "forward decl of Vrml_SFImage"
 discard "forward decl of TCollection_AsciiString"
 type
-  Vrml_Texture2* {.importcpp: "Vrml_Texture2", header: "Vrml_Texture2.hxx", bycopy.} = object
+  VrmlTexture2* {.importcpp: "Vrml_Texture2", header: "Vrml_Texture2.hxx", bycopy.} = object
 
 
-proc constructVrml_Texture2*(): Vrml_Texture2 {.constructor,
+proc constructVrmlTexture2*(): VrmlTexture2 {.constructor,
     importcpp: "Vrml_Texture2(@)", header: "Vrml_Texture2.hxx".}
-proc constructVrml_Texture2*(aFilename: TCollection_AsciiString;
-                            aImage: handle[Vrml_SFImage];
-                            aWrapS: Vrml_Texture2Wrap; aWrapT: Vrml_Texture2Wrap): Vrml_Texture2 {.
-    constructor, importcpp: "Vrml_Texture2(@)", header: "Vrml_Texture2.hxx".}
-proc SetFilename*(this: var Vrml_Texture2; aFilename: TCollection_AsciiString) {.
+proc constructVrmlTexture2*(aFilename: TCollectionAsciiString;
+                           aImage: Handle[VrmlSFImage]; aWrapS: VrmlTexture2Wrap;
+                           aWrapT: VrmlTexture2Wrap): VrmlTexture2 {.constructor,
+    importcpp: "Vrml_Texture2(@)", header: "Vrml_Texture2.hxx".}
+proc setFilename*(this: var VrmlTexture2; aFilename: TCollectionAsciiString) {.
     importcpp: "SetFilename", header: "Vrml_Texture2.hxx".}
-proc Filename*(this: Vrml_Texture2): TCollection_AsciiString {.noSideEffect,
+proc filename*(this: VrmlTexture2): TCollectionAsciiString {.noSideEffect,
     importcpp: "Filename", header: "Vrml_Texture2.hxx".}
-proc SetImage*(this: var Vrml_Texture2; aImage: handle[Vrml_SFImage]) {.
+proc setImage*(this: var VrmlTexture2; aImage: Handle[VrmlSFImage]) {.
     importcpp: "SetImage", header: "Vrml_Texture2.hxx".}
-proc Image*(this: Vrml_Texture2): handle[Vrml_SFImage] {.noSideEffect,
+proc image*(this: VrmlTexture2): Handle[VrmlSFImage] {.noSideEffect,
     importcpp: "Image", header: "Vrml_Texture2.hxx".}
-proc SetWrapS*(this: var Vrml_Texture2; aWrapS: Vrml_Texture2Wrap) {.
+proc setWrapS*(this: var VrmlTexture2; aWrapS: VrmlTexture2Wrap) {.
     importcpp: "SetWrapS", header: "Vrml_Texture2.hxx".}
-proc WrapS*(this: Vrml_Texture2): Vrml_Texture2Wrap {.noSideEffect,
-    importcpp: "WrapS", header: "Vrml_Texture2.hxx".}
-proc SetWrapT*(this: var Vrml_Texture2; aWrapT: Vrml_Texture2Wrap) {.
+proc wrapS*(this: VrmlTexture2): VrmlTexture2Wrap {.noSideEffect, importcpp: "WrapS",
+    header: "Vrml_Texture2.hxx".}
+proc setWrapT*(this: var VrmlTexture2; aWrapT: VrmlTexture2Wrap) {.
     importcpp: "SetWrapT", header: "Vrml_Texture2.hxx".}
-proc WrapT*(this: Vrml_Texture2): Vrml_Texture2Wrap {.noSideEffect,
-    importcpp: "WrapT", header: "Vrml_Texture2.hxx".}
-proc Print*(this: Vrml_Texture2; anOStream: var Standard_OStream): var Standard_OStream {.
+proc wrapT*(this: VrmlTexture2): VrmlTexture2Wrap {.noSideEffect, importcpp: "WrapT",
+    header: "Vrml_Texture2.hxx".}
+proc print*(this: VrmlTexture2; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Texture2.hxx".}

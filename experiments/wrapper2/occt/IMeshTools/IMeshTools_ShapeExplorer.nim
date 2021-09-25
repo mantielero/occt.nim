@@ -13,35 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../IMeshData/IMeshData_Shape, ../Standard/Standard_Type,
-  IMeshTools_ShapeVisitor, ../TopoDS/TopoDS_Shape
-
 ## ! Explores TopoDS_Shape for parts to be meshed - faces and free edges.
 
 type
-  IMeshTools_ShapeExplorer* {.importcpp: "IMeshTools_ShapeExplorer",
-                             header: "IMeshTools_ShapeExplorer.hxx", bycopy.} = object of IMeshData_Shape ##
-                                                                                                   ## !
-                                                                                                   ## Constructor.
+  IMeshToolsShapeExplorer* {.importcpp: "IMeshTools_ShapeExplorer",
+                            header: "IMeshTools_ShapeExplorer.hxx", bycopy.} = object of IMeshDataShape ##
+                                                                                                 ## !
+                                                                                                 ## Constructor.
 
 
-proc constructIMeshTools_ShapeExplorer*(theShape: TopoDS_Shape): IMeshTools_ShapeExplorer {.
+proc constructIMeshToolsShapeExplorer*(theShape: TopoDS_Shape): IMeshToolsShapeExplorer {.
     constructor, importcpp: "IMeshTools_ShapeExplorer(@)",
     header: "IMeshTools_ShapeExplorer.hxx".}
-proc destroyIMeshTools_ShapeExplorer*(this: var IMeshTools_ShapeExplorer) {.
+proc destroyIMeshToolsShapeExplorer*(this: var IMeshToolsShapeExplorer) {.
     importcpp: "#.~IMeshTools_ShapeExplorer()",
     header: "IMeshTools_ShapeExplorer.hxx".}
-proc Accept*(this: var IMeshTools_ShapeExplorer;
-            theVisitor: handle[IMeshTools_ShapeVisitor]) {.importcpp: "Accept",
+proc accept*(this: var IMeshToolsShapeExplorer;
+            theVisitor: Handle[IMeshToolsShapeVisitor]) {.importcpp: "Accept",
     header: "IMeshTools_ShapeExplorer.hxx".}
 type
-  IMeshTools_ShapeExplorerbase_type* = IMeshData_Shape
+  IMeshToolsShapeExplorerbaseType* = IMeshDataShape
 
-proc get_type_name*(): cstring {.importcpp: "IMeshTools_ShapeExplorer::get_type_name(@)",
-                              header: "IMeshTools_ShapeExplorer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IMeshTools_ShapeExplorer::get_type_name(@)",
+                            header: "IMeshTools_ShapeExplorer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IMeshTools_ShapeExplorer::get_type_descriptor(@)",
     header: "IMeshTools_ShapeExplorer.hxx".}
-proc DynamicType*(this: IMeshTools_ShapeExplorer): handle[Standard_Type] {.
+proc dynamicType*(this: IMeshToolsShapeExplorer): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IMeshTools_ShapeExplorer.hxx".}

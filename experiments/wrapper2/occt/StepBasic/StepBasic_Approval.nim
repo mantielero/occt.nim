@@ -14,47 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_ApprovalStatus"
 discard "forward decl of TCollection_HAsciiString"
-when defined(Status):
-  discard
+# when defined(Status):
+#   discard
 discard "forward decl of StepBasic_Approval"
 discard "forward decl of StepBasic_Approval"
 type
-  Handle_StepBasic_Approval* = handle[StepBasic_Approval]
-  StepBasic_Approval* {.importcpp: "StepBasic_Approval",
-                       header: "StepBasic_Approval.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                          ## !
-                                                                                          ## Returns
-                                                                                          ## a
-                                                                                          ## Approval
+  HandleStepBasicApproval* = Handle[StepBasicApproval]
+  StepBasicApproval* {.importcpp: "StepBasic_Approval",
+                      header: "StepBasic_Approval.hxx", bycopy.} = object of StandardTransient ##
+                                                                                        ## !
+                                                                                        ## Returns
+                                                                                        ## a
+                                                                                        ## Approval
 
 
-proc constructStepBasic_Approval*(): StepBasic_Approval {.constructor,
+proc constructStepBasicApproval*(): StepBasicApproval {.constructor,
     importcpp: "StepBasic_Approval(@)", header: "StepBasic_Approval.hxx".}
-proc Init*(this: var StepBasic_Approval; aStatus: handle[StepBasic_ApprovalStatus];
-          aLevel: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepBasicApproval; aStatus: Handle[StepBasicApprovalStatus];
+          aLevel: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepBasic_Approval.hxx".}
-proc SetStatus*(this: var StepBasic_Approval;
-               aStatus: handle[StepBasic_ApprovalStatus]) {.
-    importcpp: "SetStatus", header: "StepBasic_Approval.hxx".}
-proc Status*(this: StepBasic_Approval): handle[StepBasic_ApprovalStatus] {.
+proc setStatus*(this: var StepBasicApproval;
+               aStatus: Handle[StepBasicApprovalStatus]) {.importcpp: "SetStatus",
+    header: "StepBasic_Approval.hxx".}
+proc status*(this: StepBasicApproval): Handle[StepBasicApprovalStatus] {.
     noSideEffect, importcpp: "Status", header: "StepBasic_Approval.hxx".}
-proc SetLevel*(this: var StepBasic_Approval;
-              aLevel: handle[TCollection_HAsciiString]) {.importcpp: "SetLevel",
-    header: "StepBasic_Approval.hxx".}
-proc Level*(this: StepBasic_Approval): handle[TCollection_HAsciiString] {.
+proc setLevel*(this: var StepBasicApproval; aLevel: Handle[TCollectionHAsciiString]) {.
+    importcpp: "SetLevel", header: "StepBasic_Approval.hxx".}
+proc level*(this: StepBasicApproval): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Level", header: "StepBasic_Approval.hxx".}
 type
-  StepBasic_Approvalbase_type* = Standard_Transient
+  StepBasicApprovalbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_Approval::get_type_name(@)",
-                              header: "StepBasic_Approval.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_Approval::get_type_name(@)",
+                            header: "StepBasic_Approval.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_Approval::get_type_descriptor(@)",
     header: "StepBasic_Approval.hxx".}
-proc DynamicType*(this: StepBasic_Approval): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepBasicApproval): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_Approval.hxx".}

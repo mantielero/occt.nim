@@ -14,30 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_SurfacePatch"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeom_RWSurfacePatch* {.importcpp: "RWStepGeom_RWSurfacePatch",
-                              header: "RWStepGeom_RWSurfacePatch.hxx", bycopy.} = object
+  RWStepGeomRWSurfacePatch* {.importcpp: "RWStepGeom_RWSurfacePatch",
+                             header: "RWStepGeom_RWSurfacePatch.hxx", bycopy.} = object
 
 
-proc constructRWStepGeom_RWSurfacePatch*(): RWStepGeom_RWSurfacePatch {.
-    constructor, importcpp: "RWStepGeom_RWSurfacePatch(@)",
+proc constructRWStepGeomRWSurfacePatch*(): RWStepGeomRWSurfacePatch {.constructor,
+    importcpp: "RWStepGeom_RWSurfacePatch(@)",
     header: "RWStepGeom_RWSurfacePatch.hxx".}
-proc ReadStep*(this: RWStepGeom_RWSurfacePatch;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check]; ent: handle[StepGeom_SurfacePatch]) {.
+proc readStep*(this: RWStepGeomRWSurfacePatch;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomSurfacePatch]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWSurfacePatch.hxx".}
-proc WriteStep*(this: RWStepGeom_RWSurfacePatch; SW: var StepData_StepWriter;
-               ent: handle[StepGeom_SurfacePatch]) {.noSideEffect,
+proc writeStep*(this: RWStepGeomRWSurfacePatch; sw: var StepDataStepWriter;
+               ent: Handle[StepGeomSurfacePatch]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWSurfacePatch.hxx".}
-proc Share*(this: RWStepGeom_RWSurfacePatch; ent: handle[StepGeom_SurfacePatch];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepGeomRWSurfacePatch; ent: Handle[StepGeomSurfacePatch];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWSurfacePatch.hxx".}

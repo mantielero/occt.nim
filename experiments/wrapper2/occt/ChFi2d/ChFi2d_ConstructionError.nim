@@ -24,11 +24,12 @@
 ## ! is not a line or a circle
 
 type
-  ChFi2d_ConstructionError* {.size: sizeof(cint),
-                             importcpp: "ChFi2d_ConstructionError",
-                             header: "ChFi2d_ConstructionError.hxx".} = enum
-    ChFi2d_NotPlanar, ChFi2d_NoFace, ChFi2d_InitialisationError,
-    ChFi2d_ParametersError, ChFi2d_Ready, ChFi2d_IsDone, ChFi2d_ComputationError,
-    ChFi2d_ConnexionError, ChFi2d_TangencyError, ChFi2d_FirstEdgeDegenerated,
-    ChFi2d_LastEdgeDegenerated, ChFi2d_BothEdgesDegenerated, ChFi2d_NotAuthorized
+  ChFi2dConstructionError* {.size: sizeof(cint),
+                            importcpp: "ChFi2d_ConstructionError",
+                            header: "ChFi2d_ConstructionError.hxx".} = enum
+    ChFi2dNotPlanar, ChFi2dNoFace, ChFi2dInitialisationError,
+    ChFi2dParametersError, ChFi2dReady, ChFi2dIsDone, ChFi2dComputationError,
+    ChFi2dConnexionError, ChFi2dTangencyError, ChFi2dFirstEdgeDegenerated,
+    ChFi2dLastEdgeDegenerated, ChFi2dBothEdgesDegenerated, ChFi2dNotAuthorized
+
 

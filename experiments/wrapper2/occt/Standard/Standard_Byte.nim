@@ -14,6 +14,5 @@
 
 ## typedef unsigned char  Standard_Byte;
 
-when not defined(_Standard_TypeDef_HeaderFile):
-  import
-    Standard_TypeDef
+# when not defined(_Standard_TypeDef_HeaderFile):
+#   discard

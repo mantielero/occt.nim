@@ -14,9 +14,10 @@
 ## ! Enumeration defines picking strategy - which entities detected by picking line will be accepted, considering selection filters.
 
 type
-  SelectMgr_PickingStrategy* {.size: sizeof(cint),
-                              importcpp: "SelectMgr_PickingStrategy",
-                              header: "SelectMgr_PickingStrategy.hxx".} = enum
-    SelectMgr_PickingStrategy_FirstAcceptable, ## !< the first detected entity passing selection filter is accepted (e.g. any)
-    SelectMgr_PickingStrategy_OnlyTopmost ## !< only topmost detected entity passing selection filter is accepted
+  SelectMgrPickingStrategy* {.size: sizeof(cint),
+                             importcpp: "SelectMgr_PickingStrategy",
+                             header: "SelectMgr_PickingStrategy.hxx".} = enum
+    SelectMgrPickingStrategyFirstAcceptable, ## !< the first detected entity passing selection filter is accepted (e.g. any)
+    SelectMgrPickingStrategyOnlyTopmost ## !< only topmost detected entity passing selection filter is accepted
+
 

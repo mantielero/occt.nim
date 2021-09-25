@@ -14,55 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor
-
 ## ! Provides commands to test BRep.
 
 type
   BRepTest* {.importcpp: "BRepTest", header: "BRepTest.hxx", bycopy.} = object ## ! Defines all the topology commands.
 
 
-proc AllCommands*(DI: var Draw_Interpretor) {.importcpp: "BRepTest::AllCommands(@)",
+proc allCommands*(di: var DrawInterpretor) {.importcpp: "BRepTest::AllCommands(@)",
     header: "BRepTest.hxx".}
-proc BasicCommands*(DI: var Draw_Interpretor) {.
+proc basicCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::BasicCommands(@)", header: "BRepTest.hxx".}
-proc CurveCommands*(DI: var Draw_Interpretor) {.
+proc curveCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::CurveCommands(@)", header: "BRepTest.hxx".}
-proc Fillet2DCommands*(DI: var Draw_Interpretor) {.
+proc fillet2DCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::Fillet2DCommands(@)", header: "BRepTest.hxx".}
-proc SurfaceCommands*(DI: var Draw_Interpretor) {.
+proc surfaceCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::SurfaceCommands(@)", header: "BRepTest.hxx".}
-proc PrimitiveCommands*(DI: var Draw_Interpretor) {.
+proc primitiveCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::PrimitiveCommands(@)", header: "BRepTest.hxx".}
-proc FillingCommands*(DI: var Draw_Interpretor) {.
+proc fillingCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::FillingCommands(@)", header: "BRepTest.hxx".}
-proc SweepCommands*(DI: var Draw_Interpretor) {.
+proc sweepCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::SweepCommands(@)", header: "BRepTest.hxx".}
-proc TopologyCommands*(DI: var Draw_Interpretor) {.
+proc topologyCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::TopologyCommands(@)", header: "BRepTest.hxx".}
-proc FilletCommands*(DI: var Draw_Interpretor) {.
+proc filletCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::FilletCommands(@)", header: "BRepTest.hxx".}
-proc ChamferCommands*(DI: var Draw_Interpretor) {.
+proc chamferCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::ChamferCommands(@)", header: "BRepTest.hxx".}
-proc GPropCommands*(DI: var Draw_Interpretor) {.
+proc gPropCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::GPropCommands(@)", header: "BRepTest.hxx".}
-proc MatCommands*(DI: var Draw_Interpretor) {.importcpp: "BRepTest::MatCommands(@)",
+proc matCommands*(di: var DrawInterpretor) {.importcpp: "BRepTest::MatCommands(@)",
     header: "BRepTest.hxx".}
-proc DraftAngleCommands*(DI: var Draw_Interpretor) {.
+proc draftAngleCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::DraftAngleCommands(@)", header: "BRepTest.hxx".}
-proc FeatureCommands*(DI: var Draw_Interpretor) {.
+proc featureCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::FeatureCommands(@)", header: "BRepTest.hxx".}
-proc OtherCommands*(DI: var Draw_Interpretor) {.
+proc otherCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::OtherCommands(@)", header: "BRepTest.hxx".}
-proc ExtremaCommands*(DI: var Draw_Interpretor) {.
+proc extremaCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::ExtremaCommands(@)", header: "BRepTest.hxx".}
-proc CheckCommands*(DI: var Draw_Interpretor) {.
+proc checkCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::CheckCommands(@)", header: "BRepTest.hxx".}
-proc PlacementCommands*(DI: var Draw_Interpretor) {.
+proc placementCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::PlacementCommands(@)", header: "BRepTest.hxx".}
-proc ProjectionCommands*(DI: var Draw_Interpretor) {.
+proc projectionCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::ProjectionCommands(@)", header: "BRepTest.hxx".}
-proc HistoryCommands*(DI: var Draw_Interpretor) {.
+proc historyCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::HistoryCommands(@)", header: "BRepTest.hxx".}

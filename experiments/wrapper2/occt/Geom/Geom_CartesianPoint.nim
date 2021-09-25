@@ -14,73 +14,66 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Pnt, Geom_Point,
-  ../Standard/Standard_Real
-
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_CartesianPoint"
 discard "forward decl of Geom_CartesianPoint"
 type
-  Handle_Geom_CartesianPoint* = handle[Geom_CartesianPoint]
+  HandleGeomCartesianPoint* = Handle[GeomCartesianPoint]
 
 ## ! Describes a point in 3D space. A
 ## ! Geom_CartesianPoint is defined by a gp_Pnt point,
 ## ! with its three Cartesian coordinates X, Y and Z.
 
 type
-  Geom_CartesianPoint* {.importcpp: "Geom_CartesianPoint",
-                        header: "Geom_CartesianPoint.hxx", bycopy.} = object of Geom_Point ##
-                                                                                    ## !
-                                                                                    ## Returns
-                                                                                    ## a
-                                                                                    ## transient
-                                                                                    ## copy
-                                                                                    ## of
-                                                                                    ## P.
+  GeomCartesianPoint* {.importcpp: "Geom_CartesianPoint",
+                       header: "Geom_CartesianPoint.hxx", bycopy.} = object of GeomPoint ##
+                                                                                  ## !
+                                                                                  ## Returns
+                                                                                  ## a
+                                                                                  ## transient
+                                                                                  ## copy
+                                                                                  ## of
+                                                                                  ## P.
 
 
-proc constructGeom_CartesianPoint*(P: gp_Pnt): Geom_CartesianPoint {.constructor,
+proc constructGeomCartesianPoint*(p: Pnt): GeomCartesianPoint {.constructor,
     importcpp: "Geom_CartesianPoint(@)", header: "Geom_CartesianPoint.hxx".}
-proc constructGeom_CartesianPoint*(X: Standard_Real; Y: Standard_Real;
-                                  Z: Standard_Real): Geom_CartesianPoint {.
+proc constructGeomCartesianPoint*(x: float; y: float; z: float): GeomCartesianPoint {.
     constructor, importcpp: "Geom_CartesianPoint(@)",
     header: "Geom_CartesianPoint.hxx".}
-proc SetCoord*(this: var Geom_CartesianPoint; X: Standard_Real; Y: Standard_Real;
-              Z: Standard_Real) {.importcpp: "SetCoord",
-                                header: "Geom_CartesianPoint.hxx".}
-proc SetPnt*(this: var Geom_CartesianPoint; P: gp_Pnt) {.importcpp: "SetPnt",
+proc setCoord*(this: var GeomCartesianPoint; x: float; y: float; z: float) {.
+    importcpp: "SetCoord", header: "Geom_CartesianPoint.hxx".}
+proc setPnt*(this: var GeomCartesianPoint; p: Pnt) {.importcpp: "SetPnt",
     header: "Geom_CartesianPoint.hxx".}
-proc SetX*(this: var Geom_CartesianPoint; X: Standard_Real) {.importcpp: "SetX",
+proc setX*(this: var GeomCartesianPoint; x: float) {.importcpp: "SetX",
     header: "Geom_CartesianPoint.hxx".}
-proc SetY*(this: var Geom_CartesianPoint; Y: Standard_Real) {.importcpp: "SetY",
+proc setY*(this: var GeomCartesianPoint; y: float) {.importcpp: "SetY",
     header: "Geom_CartesianPoint.hxx".}
-proc SetZ*(this: var Geom_CartesianPoint; Z: Standard_Real) {.importcpp: "SetZ",
+proc setZ*(this: var GeomCartesianPoint; z: float) {.importcpp: "SetZ",
     header: "Geom_CartesianPoint.hxx".}
-proc Coord*(this: Geom_CartesianPoint; X: var Standard_Real; Y: var Standard_Real;
-           Z: var Standard_Real) {.noSideEffect, importcpp: "Coord",
-                                header: "Geom_CartesianPoint.hxx".}
-proc Pnt*(this: Geom_CartesianPoint): gp_Pnt {.noSideEffect, importcpp: "Pnt",
+proc coord*(this: GeomCartesianPoint; x: var float; y: var float; z: var float) {.
+    noSideEffect, importcpp: "Coord", header: "Geom_CartesianPoint.hxx".}
+proc pnt*(this: GeomCartesianPoint): Pnt {.noSideEffect, importcpp: "Pnt",
+                                       header: "Geom_CartesianPoint.hxx".}
+proc x*(this: GeomCartesianPoint): float {.noSideEffect, importcpp: "X",
+                                       header: "Geom_CartesianPoint.hxx".}
+proc y*(this: GeomCartesianPoint): float {.noSideEffect, importcpp: "Y",
+                                       header: "Geom_CartesianPoint.hxx".}
+proc z*(this: GeomCartesianPoint): float {.noSideEffect, importcpp: "Z",
+                                       header: "Geom_CartesianPoint.hxx".}
+proc transform*(this: var GeomCartesianPoint; t: Trsf) {.importcpp: "Transform",
     header: "Geom_CartesianPoint.hxx".}
-proc X*(this: Geom_CartesianPoint): Standard_Real {.noSideEffect, importcpp: "X",
-    header: "Geom_CartesianPoint.hxx".}
-proc Y*(this: Geom_CartesianPoint): Standard_Real {.noSideEffect, importcpp: "Y",
-    header: "Geom_CartesianPoint.hxx".}
-proc Z*(this: Geom_CartesianPoint): Standard_Real {.noSideEffect, importcpp: "Z",
-    header: "Geom_CartesianPoint.hxx".}
-proc Transform*(this: var Geom_CartesianPoint; T: gp_Trsf) {.importcpp: "Transform",
-    header: "Geom_CartesianPoint.hxx".}
-proc Copy*(this: Geom_CartesianPoint): handle[Geom_Geometry] {.noSideEffect,
+proc copy*(this: GeomCartesianPoint): Handle[GeomGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_CartesianPoint.hxx".}
 type
-  Geom_CartesianPointbase_type* = Geom_Point
+  GeomCartesianPointbaseType* = GeomPoint
 
-proc get_type_name*(): cstring {.importcpp: "Geom_CartesianPoint::get_type_name(@)",
-                              header: "Geom_CartesianPoint.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Geom_CartesianPoint::get_type_name(@)",
+                            header: "Geom_CartesianPoint.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_CartesianPoint::get_type_descriptor(@)",
     header: "Geom_CartesianPoint.hxx".}
-proc DynamicType*(this: Geom_CartesianPoint): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: GeomCartesianPoint): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom_CartesianPoint.hxx".}

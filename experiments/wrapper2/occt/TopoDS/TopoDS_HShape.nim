@@ -14,45 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TopoDS_Shape,
-  ../Standard/Standard_Transient
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_HShape"
 discard "forward decl of TopoDS_HShape"
 type
-  Handle_TopoDS_HShape* = handle[TopoDS_HShape]
+  HandleTopoDS_HShape* = Handle[TopoDS_HShape]
 
 ## ! Class to manipulate a Shape with  handle.
 
 type
-  TopoDS_HShape* {.importcpp: "TopoDS_HShape", header: "TopoDS_HShape.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                          ## !
-                                                                                                          ## Constructs
-                                                                                                          ## an
-                                                                                                          ## empty
-                                                                                                          ## shape
-                                                                                                          ## object
+  TopoDS_HShape* {.importcpp: "TopoDS_HShape", header: "TopoDS_HShape.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                         ## !
+                                                                                                         ## Constructs
+                                                                                                         ## an
+                                                                                                         ## empty
+                                                                                                         ## shape
+                                                                                                         ## object
 
 
 proc constructTopoDS_HShape*(): TopoDS_HShape {.constructor,
     importcpp: "TopoDS_HShape(@)", header: "TopoDS_HShape.hxx".}
 proc constructTopoDS_HShape*(aShape: TopoDS_Shape): TopoDS_HShape {.constructor,
     importcpp: "TopoDS_HShape(@)", header: "TopoDS_HShape.hxx".}
-proc Shape*(this: var TopoDS_HShape; aShape: TopoDS_Shape) {.importcpp: "Shape",
+proc shape*(this: var TopoDS_HShape; aShape: TopoDS_Shape) {.importcpp: "Shape",
     header: "TopoDS_HShape.hxx".}
-proc Shape*(this: TopoDS_HShape): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
+proc shape*(this: TopoDS_HShape): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "TopoDS_HShape.hxx".}
-proc ChangeShape*(this: var TopoDS_HShape): var TopoDS_Shape {.
+proc changeShape*(this: var TopoDS_HShape): var TopoDS_Shape {.
     importcpp: "ChangeShape", header: "TopoDS_HShape.hxx".}
 type
-  TopoDS_HShapebase_type* = Standard_Transient
+  TopoDS_HShapebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TopoDS_HShape::get_type_name(@)",
-                              header: "TopoDS_HShape.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TopoDS_HShape::get_type_name(@)",
+                            header: "TopoDS_HShape.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopoDS_HShape::get_type_descriptor(@)",
     header: "TopoDS_HShape.hxx".}
-proc DynamicType*(this: TopoDS_HShape): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TopoDS_HShape): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopoDS_HShape.hxx".}

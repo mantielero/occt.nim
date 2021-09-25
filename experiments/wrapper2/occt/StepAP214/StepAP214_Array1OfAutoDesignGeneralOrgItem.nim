@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP214_AutoDesignGeneralOrgItem, ../NCollection/NCollection_Array1
-
 type
-  StepAP214_Array1OfAutoDesignGeneralOrgItem* = NCollection_Array1[
-      StepAP214_AutoDesignGeneralOrgItem]
+  StepAP214Array1OfAutoDesignGeneralOrgItem* = NCollectionArray1[
+      StepAP214AutoDesignGeneralOrgItem]
+

@@ -11,27 +11,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../StdObjMgt/StdObjMgt_Persistent, StdLPersistent_HArray1
-
 discard "forward decl of TDF_Data"
 type
-  StdLPersistent_Data* {.importcpp: "StdLPersistent_Data",
-                        header: "StdLPersistent_Data.hxx", bycopy.} = object of StdObjMgt_Persistent ##
-                                                                                              ## !
-                                                                                              ## Empty
-                                                                                              ## constructor.
+  StdLPersistentData* {.importcpp: "StdLPersistent_Data",
+                       header: "StdLPersistent_Data.hxx", bycopy.} = object of StdObjMgtPersistent ##
+                                                                                            ## !
+                                                                                            ## Empty
+                                                                                            ## constructor.
 
 
-proc constructStdLPersistent_Data*(): StdLPersistent_Data {.constructor,
+proc constructStdLPersistentData*(): StdLPersistentData {.constructor,
     importcpp: "StdLPersistent_Data(@)", header: "StdLPersistent_Data.hxx".}
-proc Read*(this: var StdLPersistent_Data; theReadData: var StdObjMgt_ReadData) {.
+proc read*(this: var StdLPersistentData; theReadData: var StdObjMgtReadData) {.
     importcpp: "Read", header: "StdLPersistent_Data.hxx".}
-proc Write*(this: StdLPersistent_Data; theWriteData: var StdObjMgt_WriteData) {.
+proc write*(this: StdLPersistentData; theWriteData: var StdObjMgtWriteData) {.
     noSideEffect, importcpp: "Write", header: "StdLPersistent_Data.hxx".}
-proc PChildren*(this: StdLPersistent_Data; theChildren: var SequenceOfPersistent) {.
+proc pChildren*(this: StdLPersistentData; theChildren: var SequenceOfPersistent) {.
     noSideEffect, importcpp: "PChildren", header: "StdLPersistent_Data.hxx".}
-proc PName*(this: StdLPersistent_Data): Standard_CString {.noSideEffect,
+proc pName*(this: StdLPersistentData): StandardCString {.noSideEffect,
     importcpp: "PName", header: "StdLPersistent_Data.hxx".}
-proc Import*(this: StdLPersistent_Data): handle[TDF_Data] {.noSideEffect,
+proc `import`*(this: StdLPersistentData): Handle[TDF_Data] {.noSideEffect,
     importcpp: "Import", header: "StdLPersistent_Data.hxx".}

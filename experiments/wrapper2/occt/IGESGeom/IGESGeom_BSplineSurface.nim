@@ -14,19 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../TColStd/TColStd_HArray1OfReal,
-  ../TColStd/TColStd_HArray2OfReal, ../TColgp/TColgp_HArray2OfXYZ,
-  ../Standard/Standard_Real, ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of Standard_DimensionMismatch"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt"
 discard "forward decl of IGESGeom_BSplineSurface"
 discard "forward decl of IGESGeom_BSplineSurface"
 type
-  Handle_IGESGeom_BSplineSurface* = handle[IGESGeom_BSplineSurface]
+  HandleIGESGeomBSplineSurface* = Handle[IGESGeomBSplineSurface]
 
 ## ! defines IGESBSplineSurface, Type <128> Form <0-9>
 ## ! in package IGESGeom
@@ -35,80 +29,74 @@ type
 ## ! points, and B-Spline basis functions
 
 type
-  IGESGeom_BSplineSurface* {.importcpp: "IGESGeom_BSplineSurface",
-                            header: "IGESGeom_BSplineSurface.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESGeomBSplineSurface* {.importcpp: "IGESGeom_BSplineSurface",
+                           header: "IGESGeom_BSplineSurface.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESGeom_BSplineSurface*(): IGESGeom_BSplineSurface {.constructor,
+proc constructIGESGeomBSplineSurface*(): IGESGeomBSplineSurface {.constructor,
     importcpp: "IGESGeom_BSplineSurface(@)", header: "IGESGeom_BSplineSurface.hxx".}
-proc Init*(this: var IGESGeom_BSplineSurface; anIndexU: Standard_Integer;
-          anIndexV: Standard_Integer; aDegU: Standard_Integer;
-          aDegV: Standard_Integer; aCloseU: Standard_Boolean;
-          aCloseV: Standard_Boolean; aPolynom: Standard_Boolean;
-          aPeriodU: Standard_Boolean; aPeriodV: Standard_Boolean;
-          allKnotsU: handle[TColStd_HArray1OfReal];
-          allKnotsV: handle[TColStd_HArray1OfReal];
-          allWeights: handle[TColStd_HArray2OfReal];
-          allPoles: handle[TColgp_HArray2OfXYZ]; aUmin: Standard_Real;
-          aUmax: Standard_Real; aVmin: Standard_Real; aVmax: Standard_Real) {.
-    importcpp: "Init", header: "IGESGeom_BSplineSurface.hxx".}
-proc SetFormNumber*(this: var IGESGeom_BSplineSurface; form: Standard_Integer) {.
+proc init*(this: var IGESGeomBSplineSurface; anIndexU: int; anIndexV: int; aDegU: int;
+          aDegV: int; aCloseU: bool; aCloseV: bool; aPolynom: bool; aPeriodU: bool;
+          aPeriodV: bool; allKnotsU: Handle[TColStdHArray1OfReal];
+          allKnotsV: Handle[TColStdHArray1OfReal];
+          allWeights: Handle[TColStdHArray2OfReal];
+          allPoles: Handle[TColgpHArray2OfXYZ]; aUmin: float; aUmax: float;
+          aVmin: float; aVmax: float) {.importcpp: "Init",
+                                    header: "IGESGeom_BSplineSurface.hxx".}
+proc setFormNumber*(this: var IGESGeomBSplineSurface; form: int) {.
     importcpp: "SetFormNumber", header: "IGESGeom_BSplineSurface.hxx".}
-proc UpperIndexU*(this: IGESGeom_BSplineSurface): Standard_Integer {.noSideEffect,
+proc upperIndexU*(this: IGESGeomBSplineSurface): int {.noSideEffect,
     importcpp: "UpperIndexU", header: "IGESGeom_BSplineSurface.hxx".}
-proc UpperIndexV*(this: IGESGeom_BSplineSurface): Standard_Integer {.noSideEffect,
+proc upperIndexV*(this: IGESGeomBSplineSurface): int {.noSideEffect,
     importcpp: "UpperIndexV", header: "IGESGeom_BSplineSurface.hxx".}
-proc DegreeU*(this: IGESGeom_BSplineSurface): Standard_Integer {.noSideEffect,
+proc degreeU*(this: IGESGeomBSplineSurface): int {.noSideEffect,
     importcpp: "DegreeU", header: "IGESGeom_BSplineSurface.hxx".}
-proc DegreeV*(this: IGESGeom_BSplineSurface): Standard_Integer {.noSideEffect,
+proc degreeV*(this: IGESGeomBSplineSurface): int {.noSideEffect,
     importcpp: "DegreeV", header: "IGESGeom_BSplineSurface.hxx".}
-proc IsClosedU*(this: IGESGeom_BSplineSurface): Standard_Boolean {.noSideEffect,
+proc isClosedU*(this: IGESGeomBSplineSurface): bool {.noSideEffect,
     importcpp: "IsClosedU", header: "IGESGeom_BSplineSurface.hxx".}
-proc IsClosedV*(this: IGESGeom_BSplineSurface): Standard_Boolean {.noSideEffect,
+proc isClosedV*(this: IGESGeomBSplineSurface): bool {.noSideEffect,
     importcpp: "IsClosedV", header: "IGESGeom_BSplineSurface.hxx".}
-proc IsPolynomial*(this: IGESGeom_BSplineSurface;
-                  flag: Standard_Boolean = Standard_False): Standard_Boolean {.
+proc isPolynomial*(this: IGESGeomBSplineSurface; flag: bool = false): bool {.
     noSideEffect, importcpp: "IsPolynomial", header: "IGESGeom_BSplineSurface.hxx".}
-proc IsPeriodicU*(this: IGESGeom_BSplineSurface): Standard_Boolean {.noSideEffect,
+proc isPeriodicU*(this: IGESGeomBSplineSurface): bool {.noSideEffect,
     importcpp: "IsPeriodicU", header: "IGESGeom_BSplineSurface.hxx".}
-proc IsPeriodicV*(this: IGESGeom_BSplineSurface): Standard_Boolean {.noSideEffect,
+proc isPeriodicV*(this: IGESGeomBSplineSurface): bool {.noSideEffect,
     importcpp: "IsPeriodicV", header: "IGESGeom_BSplineSurface.hxx".}
-proc NbKnotsU*(this: IGESGeom_BSplineSurface): Standard_Integer {.noSideEffect,
+proc nbKnotsU*(this: IGESGeomBSplineSurface): int {.noSideEffect,
     importcpp: "NbKnotsU", header: "IGESGeom_BSplineSurface.hxx".}
-proc NbKnotsV*(this: IGESGeom_BSplineSurface): Standard_Integer {.noSideEffect,
+proc nbKnotsV*(this: IGESGeomBSplineSurface): int {.noSideEffect,
     importcpp: "NbKnotsV", header: "IGESGeom_BSplineSurface.hxx".}
-proc KnotU*(this: IGESGeom_BSplineSurface; anIndex: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "KnotU", header: "IGESGeom_BSplineSurface.hxx".}
-proc KnotV*(this: IGESGeom_BSplineSurface; anIndex: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "KnotV", header: "IGESGeom_BSplineSurface.hxx".}
-proc NbPolesU*(this: IGESGeom_BSplineSurface): Standard_Integer {.noSideEffect,
+proc knotU*(this: IGESGeomBSplineSurface; anIndex: int): float {.noSideEffect,
+    importcpp: "KnotU", header: "IGESGeom_BSplineSurface.hxx".}
+proc knotV*(this: IGESGeomBSplineSurface; anIndex: int): float {.noSideEffect,
+    importcpp: "KnotV", header: "IGESGeom_BSplineSurface.hxx".}
+proc nbPolesU*(this: IGESGeomBSplineSurface): int {.noSideEffect,
     importcpp: "NbPolesU", header: "IGESGeom_BSplineSurface.hxx".}
-proc NbPolesV*(this: IGESGeom_BSplineSurface): Standard_Integer {.noSideEffect,
+proc nbPolesV*(this: IGESGeomBSplineSurface): int {.noSideEffect,
     importcpp: "NbPolesV", header: "IGESGeom_BSplineSurface.hxx".}
-proc Weight*(this: IGESGeom_BSplineSurface; anIndex1: Standard_Integer;
-            anIndex2: Standard_Integer): Standard_Real {.noSideEffect,
-    importcpp: "Weight", header: "IGESGeom_BSplineSurface.hxx".}
-proc Pole*(this: IGESGeom_BSplineSurface; anIndex1: Standard_Integer;
-          anIndex2: Standard_Integer): gp_Pnt {.noSideEffect, importcpp: "Pole",
+proc weight*(this: IGESGeomBSplineSurface; anIndex1: int; anIndex2: int): float {.
+    noSideEffect, importcpp: "Weight", header: "IGESGeom_BSplineSurface.hxx".}
+proc pole*(this: IGESGeomBSplineSurface; anIndex1: int; anIndex2: int): Pnt {.
+    noSideEffect, importcpp: "Pole", header: "IGESGeom_BSplineSurface.hxx".}
+proc transformedPole*(this: IGESGeomBSplineSurface; anIndex1: int; anIndex2: int): Pnt {.
+    noSideEffect, importcpp: "TransformedPole",
     header: "IGESGeom_BSplineSurface.hxx".}
-proc TransformedPole*(this: IGESGeom_BSplineSurface; anIndex1: Standard_Integer;
-                     anIndex2: Standard_Integer): gp_Pnt {.noSideEffect,
-    importcpp: "TransformedPole", header: "IGESGeom_BSplineSurface.hxx".}
-proc UMin*(this: IGESGeom_BSplineSurface): Standard_Real {.noSideEffect,
-    importcpp: "UMin", header: "IGESGeom_BSplineSurface.hxx".}
-proc UMax*(this: IGESGeom_BSplineSurface): Standard_Real {.noSideEffect,
-    importcpp: "UMax", header: "IGESGeom_BSplineSurface.hxx".}
-proc VMin*(this: IGESGeom_BSplineSurface): Standard_Real {.noSideEffect,
-    importcpp: "VMin", header: "IGESGeom_BSplineSurface.hxx".}
-proc VMax*(this: IGESGeom_BSplineSurface): Standard_Real {.noSideEffect,
-    importcpp: "VMax", header: "IGESGeom_BSplineSurface.hxx".}
+proc uMin*(this: IGESGeomBSplineSurface): float {.noSideEffect, importcpp: "UMin",
+    header: "IGESGeom_BSplineSurface.hxx".}
+proc uMax*(this: IGESGeomBSplineSurface): float {.noSideEffect, importcpp: "UMax",
+    header: "IGESGeom_BSplineSurface.hxx".}
+proc vMin*(this: IGESGeomBSplineSurface): float {.noSideEffect, importcpp: "VMin",
+    header: "IGESGeom_BSplineSurface.hxx".}
+proc vMax*(this: IGESGeomBSplineSurface): float {.noSideEffect, importcpp: "VMax",
+    header: "IGESGeom_BSplineSurface.hxx".}
 type
-  IGESGeom_BSplineSurfacebase_type* = IGESData_IGESEntity
+  IGESGeomBSplineSurfacebaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESGeom_BSplineSurface::get_type_name(@)",
-                              header: "IGESGeom_BSplineSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESGeom_BSplineSurface::get_type_name(@)",
+                            header: "IGESGeom_BSplineSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESGeom_BSplineSurface::get_type_descriptor(@)",
     header: "IGESGeom_BSplineSurface.hxx".}
-proc DynamicType*(this: IGESGeom_BSplineSurface): handle[Standard_Type] {.
+proc dynamicType*(this: IGESGeomBSplineSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESGeom_BSplineSurface.hxx".}

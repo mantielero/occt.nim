@@ -14,39 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_Axis2Placement,
-  StepGeom_Curve
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_Axis2Placement"
 discard "forward decl of StepGeom_Conic"
 discard "forward decl of StepGeom_Conic"
 type
-  Handle_StepGeom_Conic* = handle[StepGeom_Conic]
-  StepGeom_Conic* {.importcpp: "StepGeom_Conic", header: "StepGeom_Conic.hxx", bycopy.} = object of StepGeom_Curve ##
-                                                                                                         ## !
-                                                                                                         ## Returns
-                                                                                                         ## a
-                                                                                                         ## Conic
+  HandleStepGeomConic* = Handle[StepGeomConic]
+  StepGeomConic* {.importcpp: "StepGeom_Conic", header: "StepGeom_Conic.hxx", bycopy.} = object of StepGeomCurve ##
+                                                                                                       ## !
+                                                                                                       ## Returns
+                                                                                                       ## a
+                                                                                                       ## Conic
 
 
-proc constructStepGeom_Conic*(): StepGeom_Conic {.constructor,
+proc constructStepGeomConic*(): StepGeomConic {.constructor,
     importcpp: "StepGeom_Conic(@)", header: "StepGeom_Conic.hxx".}
-proc Init*(this: var StepGeom_Conic; aName: handle[TCollection_HAsciiString];
-          aPosition: StepGeom_Axis2Placement) {.importcpp: "Init",
+proc init*(this: var StepGeomConic; aName: Handle[TCollectionHAsciiString];
+          aPosition: StepGeomAxis2Placement) {.importcpp: "Init",
     header: "StepGeom_Conic.hxx".}
-proc SetPosition*(this: var StepGeom_Conic; aPosition: StepGeom_Axis2Placement) {.
+proc setPosition*(this: var StepGeomConic; aPosition: StepGeomAxis2Placement) {.
     importcpp: "SetPosition", header: "StepGeom_Conic.hxx".}
-proc Position*(this: StepGeom_Conic): StepGeom_Axis2Placement {.noSideEffect,
+proc position*(this: StepGeomConic): StepGeomAxis2Placement {.noSideEffect,
     importcpp: "Position", header: "StepGeom_Conic.hxx".}
 type
-  StepGeom_Conicbase_type* = StepGeom_Curve
+  StepGeomConicbaseType* = StepGeomCurve
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_Conic::get_type_name(@)",
-                              header: "StepGeom_Conic.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_Conic::get_type_name(@)",
+                            header: "StepGeom_Conic.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_Conic::get_type_descriptor(@)",
     header: "StepGeom_Conic.hxx".}
-proc DynamicType*(this: StepGeom_Conic): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepGeomConic): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Conic.hxx".}

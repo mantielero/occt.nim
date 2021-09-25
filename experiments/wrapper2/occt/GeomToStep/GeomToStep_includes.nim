@@ -1,0 +1,37 @@
+{.passC:"-I/usr/include/opencascade/" .}
+{.experimental: "codeReordering".}
+{.experimental: "callOperator".}
+
+include GeomToStep_MakeAxis1Placement
+include GeomToStep_MakeAxis2Placement2d
+include GeomToStep_MakeAxis2Placement3d
+include GeomToStep_MakeBSplineCurveWithKnots
+include GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve
+include GeomToStep_MakeBSplineSurfaceWithKnots
+include GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface
+include GeomToStep_MakeBoundedCurve
+include GeomToStep_MakeBoundedSurface
+include GeomToStep_MakeCartesianPoint
+include GeomToStep_MakeCircle
+include GeomToStep_MakeConic
+include GeomToStep_MakeConicalSurface
+include GeomToStep_MakeCurve
+include GeomToStep_MakeCylindricalSurface
+include GeomToStep_MakeDirection
+include GeomToStep_MakeElementarySurface
+include GeomToStep_MakeEllipse
+include GeomToStep_MakeHyperbola
+include GeomToStep_MakeLine
+include GeomToStep_MakeParabola
+include GeomToStep_MakePlane
+include GeomToStep_MakePolyline
+include GeomToStep_MakeRectangularTrimmedSurface
+include GeomToStep_MakeSphericalSurface
+include GeomToStep_MakeSurface
+include GeomToStep_MakeSurfaceOfLinearExtrusion
+include GeomToStep_MakeSurfaceOfRevolution
+include GeomToStep_MakeSweptSurface
+include GeomToStep_MakeToroidalSurface
+include GeomToStep_MakeVector
+include GeomToStep_Root
+

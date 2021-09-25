@@ -14,13 +14,14 @@
 ## ! Timers for collecting frame performance statistics.
 
 type
-  Graphic3d_FrameStatsTimer* {.size: sizeof(cint),
-                              importcpp: "Graphic3d_FrameStatsTimer",
-                              header: "Graphic3d_FrameStatsTimer.hxx".} = enum
-    Graphic3d_FrameStatsTimer_ElapsedFrame, Graphic3d_FrameStatsTimer_CpuFrame,
-    Graphic3d_FrameStatsTimer_CpuCulling, Graphic3d_FrameStatsTimer_CpuPicking,
-    Graphic3d_FrameStatsTimer_CpuDynamics
+  Graphic3dFrameStatsTimer* {.size: sizeof(cint),
+                             importcpp: "Graphic3d_FrameStatsTimer",
+                             header: "Graphic3d_FrameStatsTimer.hxx".} = enum
+    Graphic3dFrameStatsTimerElapsedFrame, Graphic3dFrameStatsTimerCpuFrame,
+    Graphic3dFrameStatsTimerCpuCulling, Graphic3dFrameStatsTimerCpuPicking,
+    Graphic3dFrameStatsTimerCpuDynamics
 
 
 const
-  Graphic3d_FrameStatsTimer_NB* = Graphic3d_FrameStatsTimer_CpuDynamics + 1
+  Graphic3dFrameStatsTimerNB* = graphic3dFrameStatsTimerCpuDynamics + 1
+

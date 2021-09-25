@@ -14,32 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColStd/TColStd_SequenceOfReal,
-  LProp_SequenceOfCIType, ../Standard/Standard_Real, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, LProp_CIType
-
 discard "forward decl of Standard_OutOfRange"
 type
-  LProp_CurAndInf* {.importcpp: "LProp_CurAndInf", header: "LProp_CurAndInf.hxx",
-                    bycopy.} = object
+  LPropCurAndInf* {.importcpp: "LProp_CurAndInf", header: "LProp_CurAndInf.hxx",
+                   bycopy.} = object
 
 
-proc constructLProp_CurAndInf*(): LProp_CurAndInf {.constructor,
+proc constructLPropCurAndInf*(): LPropCurAndInf {.constructor,
     importcpp: "LProp_CurAndInf(@)", header: "LProp_CurAndInf.hxx".}
-proc AddInflection*(this: var LProp_CurAndInf; Param: Standard_Real) {.
+proc addInflection*(this: var LPropCurAndInf; param: float) {.
     importcpp: "AddInflection", header: "LProp_CurAndInf.hxx".}
-proc AddExtCur*(this: var LProp_CurAndInf; Param: Standard_Real;
-               IsMin: Standard_Boolean) {.importcpp: "AddExtCur",
+proc addExtCur*(this: var LPropCurAndInf; param: float; isMin: bool) {.
+    importcpp: "AddExtCur", header: "LProp_CurAndInf.hxx".}
+proc clear*(this: var LPropCurAndInf) {.importcpp: "Clear",
+                                    header: "LProp_CurAndInf.hxx".}
+proc isEmpty*(this: LPropCurAndInf): bool {.noSideEffect, importcpp: "IsEmpty",
                                         header: "LProp_CurAndInf.hxx".}
-proc Clear*(this: var LProp_CurAndInf) {.importcpp: "Clear",
-                                     header: "LProp_CurAndInf.hxx".}
-proc IsEmpty*(this: LProp_CurAndInf): Standard_Boolean {.noSideEffect,
-    importcpp: "IsEmpty", header: "LProp_CurAndInf.hxx".}
-proc NbPoints*(this: LProp_CurAndInf): Standard_Integer {.noSideEffect,
-    importcpp: "NbPoints", header: "LProp_CurAndInf.hxx".}
-proc Parameter*(this: LProp_CurAndInf; N: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "Parameter", header: "LProp_CurAndInf.hxx".}
-proc Type*(this: LProp_CurAndInf; N: Standard_Integer): LProp_CIType {.noSideEffect,
+proc nbPoints*(this: LPropCurAndInf): int {.noSideEffect, importcpp: "NbPoints",
+                                        header: "LProp_CurAndInf.hxx".}
+proc parameter*(this: LPropCurAndInf; n: int): float {.noSideEffect,
+    importcpp: "Parameter", header: "LProp_CurAndInf.hxx".}
+proc `type`*(this: LPropCurAndInf; n: int): LPropCIType {.noSideEffect,
     importcpp: "Type", header: "LProp_CurAndInf.hxx".}

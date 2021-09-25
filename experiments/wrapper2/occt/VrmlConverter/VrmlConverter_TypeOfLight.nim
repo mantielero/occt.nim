@@ -15,9 +15,10 @@
 ##  commercial license or contractual agreement.
 
 type
-  VrmlConverter_TypeOfLight* {.size: sizeof(cint),
-                              importcpp: "VrmlConverter_TypeOfLight",
-                              header: "VrmlConverter_TypeOfLight.hxx".} = enum
-    VrmlConverter_NoLight, VrmlConverter_DirectionLight, VrmlConverter_PointLight,
-    VrmlConverter_SpotLight
+  VrmlConverterTypeOfLight* {.size: sizeof(cint),
+                             importcpp: "VrmlConverter_TypeOfLight",
+                             header: "VrmlConverter_TypeOfLight.hxx".} = enum
+    VrmlConverterNoLight, VrmlConverterDirectionLight, VrmlConverterPointLight,
+    VrmlConverterSpotLight
+
 

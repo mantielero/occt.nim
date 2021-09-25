@@ -27,8 +27,9 @@
 ## ! NonConstant in other cases.
 
 type
-  BSplCLib_MultDistribution* {.size: sizeof(cint),
-                              importcpp: "BSplCLib_MultDistribution",
-                              header: "BSplCLib_MultDistribution.hxx".} = enum
-    BSplCLib_NonConstant, BSplCLib_Constant, BSplCLib_QuasiConstant
+  BSplCLibMultDistribution* {.size: sizeof(cint),
+                             importcpp: "BSplCLib_MultDistribution",
+                             header: "BSplCLib_MultDistribution.hxx".} = enum
+    BSplCLibNonConstant, BSplCLibConstant, BSplCLibQuasiConstant
+
 

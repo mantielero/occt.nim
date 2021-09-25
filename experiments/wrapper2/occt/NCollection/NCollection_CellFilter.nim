@@ -13,7 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # NCollection_CellFilter_HeaderFile [NewLine] # NCollection_CellFilter_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # NCollection_LocalArray.hxx [NewLine] # NCollection_Array1.hxx [NewLine] # NCollection_List.hxx [NewLine] # NCollection_Map.hxx [NewLine] # NCollection_DataMap.hxx [NewLine] # NCollection_IncAllocator.hxx [NewLine] # NCollection_TypeDef.hxx [NewLine] ! Auxiliary enumeration serving as responce from method Inspect enum NCollection_CellFilter_Action { CellFilter_Keep = 0 , !< Target is needed and should be kept CellFilter_Purge = 1 !< Target is not needed and can be removed from the current cell } ;
+## !!!Ignored construct:  # NCollection_CellFilter_HeaderFile [NewLine] # NCollection_CellFilter_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] # < NCollection_LocalArray . hxx > [NewLine] # < NCollection_Array1 . hxx > [NewLine] # < NCollection_List . hxx > [NewLine] # < NCollection_Map . hxx > [NewLine] # < NCollection_DataMap . hxx > [NewLine] # < NCollection_IncAllocator . hxx > [NewLine] # < NCollection_TypeDef . hxx > [NewLine] ! Auxiliary enumeration serving as responce from method Inspect enum NCollection_CellFilter_Action { CellFilter_Keep = 0 , !< Target is needed and should be kept CellFilter_Purge = 1 !< Target is not needed and can be removed from the current cell } ;
 ## Error: token expected: ; but got: [identifier]!!!
 
 ## *
@@ -140,23 +140,23 @@
 
 discard "forward decl of gp_XYZ"
 type
-  NCollection_CellFilterNCollection_CellFilterNCollection_CellFilter_InspectorXYZ* {.
+  NCollectionCellFilterNCollectionCellFilterNCollectionCellFilterInspectorXYZ* {.
       importcpp: "NCollection_CellFilter_InspectorXYZ",
       header: "NCollection_CellFilter.hxx", bycopy.} = object ## ! Points dimension
 
 
 const
-  NCollection_CellFilterNCollection_CellFilterNCollection_CellFilter_InspectorXYZDimension* = 3
+  NCollectionCellFilterNCollectionCellFilterNCollectionCellFilterInspectorXYZDimension* = 3
 
 type
-  NCollection_CellFilterNCollection_CellFilterNCollection_CellFilter_InspectorXYZPoint* = NCollection_CellFilterNCollection_CellFiltergp_XYZ
+  NCollectionCellFilterNCollectionCellFilterNCollectionCellFilterInspectorXYZPoint* = NCollectionCellFilterNCollectionCellFiltergpXYZ
 
-proc Coord*(i: cint; thePnt: NCollection_CellFilterNCollection_CellFilterNCollection_CellFilter_InspectorXYZPoint): Standard_Real {.
+proc coord*(i: cint; thePnt: NCollectionCellFilterNCollectionCellFilterNCollectionCellFilterInspectorXYZPoint): float {.
     importcpp: "NCollection_CellFilter_InspectorXYZ::Coord(@)",
     header: "NCollection_CellFilter.hxx".}
-proc Shift*(this: NCollection_CellFilterNCollection_CellFilterNCollection_CellFilter_InspectorXYZ;
-    thePnt: NCollection_CellFilterNCollection_CellFilterNCollection_CellFilter_InspectorXYZPoint;
-           theTol: Standard_Real): NCollection_CellFilterNCollection_CellFilterNCollection_CellFilter_InspectorXYZPoint {.
+proc shift*(this: NCollectionCellFilterNCollectionCellFilterNCollectionCellFilterInspectorXYZ;
+    thePnt: NCollectionCellFilterNCollectionCellFilterNCollectionCellFilterInspectorXYZPoint;
+           theTol: float): NCollectionCellFilterNCollectionCellFilterNCollectionCellFilterInspectorXYZPoint {.
     noSideEffect, importcpp: "Shift", header: "NCollection_CellFilter.hxx".}
 ## *
 ##  Base class defining part of the Inspector interface
@@ -165,21 +165,21 @@ proc Shift*(this: NCollection_CellFilterNCollection_CellFilterNCollection_CellFi
 
 discard "forward decl of gp_XY"
 type
-  NCollection_CellFilterNCollection_CellFilterNCollection_CellFilter_InspectorXY* {.
+  NCollectionCellFilterNCollectionCellFilterNCollectionCellFilterInspectorXY* {.
       importcpp: "NCollection_CellFilter_InspectorXY",
       header: "NCollection_CellFilter.hxx", bycopy.} = object ## ! Points dimension
 
 
 const
-  NCollection_CellFilterNCollection_CellFilterNCollection_CellFilter_InspectorXYDimension* = 2
+  NCollectionCellFilterNCollectionCellFilterNCollectionCellFilterInspectorXYDimension* = 2
 
 type
-  NCollection_CellFilterNCollection_CellFilterNCollection_CellFilter_InspectorXYPoint* = NCollection_CellFilterNCollection_CellFiltergp_XY
+  NCollectionCellFilterNCollectionCellFilterNCollectionCellFilterInspectorXYPoint* = NCollectionCellFilterNCollectionCellFiltergpXY
 
-proc Coord*(i: cint; thePnt: NCollection_CellFilterNCollection_CellFilterNCollection_CellFilter_InspectorXYPoint): Standard_Real {.
+proc coord*(i: cint; thePnt: NCollectionCellFilterNCollectionCellFilterNCollectionCellFilterInspectorXYPoint): float {.
     importcpp: "NCollection_CellFilter_InspectorXY::Coord(@)",
     header: "NCollection_CellFilter.hxx".}
-proc Shift*(this: NCollection_CellFilterNCollection_CellFilterNCollection_CellFilter_InspectorXY;
-    thePnt: NCollection_CellFilterNCollection_CellFilterNCollection_CellFilter_InspectorXYPoint;
-           theTol: Standard_Real): NCollection_CellFilterNCollection_CellFilterNCollection_CellFilter_InspectorXYPoint {.
+proc shift*(this: NCollectionCellFilterNCollectionCellFilterNCollectionCellFilterInspectorXY;
+    thePnt: NCollectionCellFilterNCollectionCellFilterNCollectionCellFilterInspectorXYPoint;
+           theTol: float): NCollectionCellFilterNCollectionCellFilterNCollectionCellFilterInspectorXYPoint {.
     noSideEffect, importcpp: "Shift", header: "NCollection_CellFilter.hxx".}

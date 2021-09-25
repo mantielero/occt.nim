@@ -13,35 +13,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  IntTools_BaseRangeSample, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real
-
 discard "forward decl of IntTools_Range"
 type
-  IntTools_CurveRangeSample* {.importcpp: "IntTools_CurveRangeSample",
-                              header: "IntTools_CurveRangeSample.hxx", bycopy.} = object of IntTools_BaseRangeSample
+  IntToolsCurveRangeSample* {.importcpp: "IntTools_CurveRangeSample",
+                             header: "IntTools_CurveRangeSample.hxx", bycopy.} = object of IntToolsBaseRangeSample
 
 
-proc constructIntTools_CurveRangeSample*(): IntTools_CurveRangeSample {.
+proc constructIntToolsCurveRangeSample*(): IntToolsCurveRangeSample {.constructor,
+    importcpp: "IntTools_CurveRangeSample(@)",
+    header: "IntTools_CurveRangeSample.hxx".}
+proc constructIntToolsCurveRangeSample*(theIndex: int): IntToolsCurveRangeSample {.
     constructor, importcpp: "IntTools_CurveRangeSample(@)",
     header: "IntTools_CurveRangeSample.hxx".}
-proc constructIntTools_CurveRangeSample*(theIndex: Standard_Integer): IntTools_CurveRangeSample {.
-    constructor, importcpp: "IntTools_CurveRangeSample(@)",
-    header: "IntTools_CurveRangeSample.hxx".}
-proc SetRangeIndex*(this: var IntTools_CurveRangeSample; theIndex: Standard_Integer) {.
+proc setRangeIndex*(this: var IntToolsCurveRangeSample; theIndex: int) {.
     importcpp: "SetRangeIndex", header: "IntTools_CurveRangeSample.hxx".}
-proc GetRangeIndex*(this: IntTools_CurveRangeSample): Standard_Integer {.
-    noSideEffect, importcpp: "GetRangeIndex",
-    header: "IntTools_CurveRangeSample.hxx".}
-proc IsEqual*(this: IntTools_CurveRangeSample; Other: IntTools_CurveRangeSample): Standard_Boolean {.
+proc getRangeIndex*(this: IntToolsCurveRangeSample): int {.noSideEffect,
+    importcpp: "GetRangeIndex", header: "IntTools_CurveRangeSample.hxx".}
+proc isEqual*(this: IntToolsCurveRangeSample; other: IntToolsCurveRangeSample): bool {.
     noSideEffect, importcpp: "IsEqual", header: "IntTools_CurveRangeSample.hxx".}
-proc GetRange*(this: IntTools_CurveRangeSample; theFirst: Standard_Real;
-              theLast: Standard_Real; theNbSample: Standard_Integer): IntTools_Range {.
-    noSideEffect, importcpp: "GetRange", header: "IntTools_CurveRangeSample.hxx".}
-proc GetRangeIndexDeeper*(this: IntTools_CurveRangeSample;
-                         theNbSample: Standard_Integer): Standard_Integer {.
+proc getRange*(this: IntToolsCurveRangeSample; theFirst: float; theLast: float;
+              theNbSample: int): IntToolsRange {.noSideEffect,
+    importcpp: "GetRange", header: "IntTools_CurveRangeSample.hxx".}
+proc getRangeIndexDeeper*(this: IntToolsCurveRangeSample; theNbSample: int): int {.
     noSideEffect, importcpp: "GetRangeIndexDeeper",
     header: "IntTools_CurveRangeSample.hxx".}

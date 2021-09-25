@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TopLoc_Location, TopLoc_MapLocationHasher, ../NCollection/NCollection_IndexedMap
-
 type
-  TopLoc_IndexedMapOfLocation* = NCollection_IndexedMap[TopLoc_Location,
-      TopLoc_MapLocationHasher]
+  TopLocIndexedMapOfLocation* = NCollectionIndexedMap[TopLocLocation,
+      TopLocMapLocationHasher]
+

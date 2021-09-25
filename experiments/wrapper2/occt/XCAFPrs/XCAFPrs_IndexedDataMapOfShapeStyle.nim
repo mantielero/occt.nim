@@ -13,12 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, XCAFPrs_Style, ../TopTools/TopTools_ShapeMapHasher,
-  ../NCollection/NCollection_IndexedDataMap
-
 type
-  XCAFPrs_IndexedDataMapOfShapeStyle* = NCollection_IndexedDataMap[TopoDS_Shape,
-      XCAFPrs_Style, TopTools_ShapeMapHasher]
-  XCAFPrs_DataMapIteratorOfIndexedDataMapOfShapeStyle* = Iterator[TopoDS_Shape,
-      XCAFPrs_Style, TopTools_ShapeMapHasher]
+  XCAFPrsIndexedDataMapOfShapeStyle* = NCollectionIndexedDataMap[TopoDS_Shape,
+      XCAFPrsStyle, TopToolsShapeMapHasher]
+  XCAFPrsDataMapIteratorOfIndexedDataMapOfShapeStyle* = Iterator[TopoDS_Shape,
+      XCAFPrsStyle, TopToolsShapeMapHasher]
+

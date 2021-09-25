@@ -14,22 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColStd/TColStd_Array1OfReal,
-  ../Standard/Standard_Real, AdvApprox_Cutting, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_DomainError"
 type
-  AdvApprox_PrefAndRec* {.importcpp: "AdvApprox_PrefAndRec",
-                         header: "AdvApprox_PrefAndRec.hxx", bycopy.} = object of AdvApprox_Cutting
+  AdvApproxPrefAndRec* {.importcpp: "AdvApprox_PrefAndRec",
+                        header: "AdvApprox_PrefAndRec.hxx", bycopy.} = object of AdvApproxCutting
 
 
-proc constructAdvApprox_PrefAndRec*(RecomendedCut: TColStd_Array1OfReal;
-                                   PrefferedCut: TColStd_Array1OfReal;
-                                   Weight: Standard_Real = 5): AdvApprox_PrefAndRec {.
+proc constructAdvApproxPrefAndRec*(recomendedCut: TColStdArray1OfReal;
+                                  prefferedCut: TColStdArray1OfReal;
+                                  weight: float = 5): AdvApproxPrefAndRec {.
     constructor, importcpp: "AdvApprox_PrefAndRec(@)",
     header: "AdvApprox_PrefAndRec.hxx".}
-proc Value*(this: AdvApprox_PrefAndRec; a: Standard_Real; b: Standard_Real;
-           cuttingvalue: var Standard_Real): Standard_Boolean {.noSideEffect,
-    importcpp: "Value", header: "AdvApprox_PrefAndRec.hxx".}
+proc value*(this: AdvApproxPrefAndRec; a: float; b: float; cuttingvalue: var float): bool {.
+    noSideEffect, importcpp: "Value", header: "AdvApprox_PrefAndRec.hxx".}

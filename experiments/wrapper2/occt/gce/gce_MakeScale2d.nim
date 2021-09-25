@@ -14,25 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Trsf2d, ../Standard/Standard_Real
-
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Trsf2d"
 type
-  gce_MakeScale2d* {.importcpp: "gce_MakeScale2d", header: "gce_MakeScale2d.hxx",
-                    bycopy.} = object ## ! Constructs a scaling transformation with:
-                                   ## ! -   Point as the center of the transformation, and
-                                   ## ! -   Scale as the scale factor.
+  GceMakeScale2d* {.importcpp: "gce_MakeScale2d", header: "gce_MakeScale2d.hxx",
+                   bycopy.} = object ## ! Constructs a scaling transformation with:
+                                  ## ! -   Point as the center of the transformation, and
+                                  ## ! -   Scale as the scale factor.
 
 
-proc constructgce_MakeScale2d*(Point: gp_Pnt2d; Scale: Standard_Real): gce_MakeScale2d {.
+proc constructGceMakeScale2d*(point: Pnt2d; scale: float): GceMakeScale2d {.
     constructor, importcpp: "gce_MakeScale2d(@)", header: "gce_MakeScale2d.hxx".}
-proc Value*(this: gce_MakeScale2d): gp_Trsf2d {.noSideEffect, importcpp: "Value",
+proc value*(this: GceMakeScale2d): Trsf2d {.noSideEffect, importcpp: "Value",
+                                        header: "gce_MakeScale2d.hxx".}
+proc operator*(this: GceMakeScale2d): Trsf2d {.noSideEffect, importcpp: "Operator",
     header: "gce_MakeScale2d.hxx".}
-proc Operator*(this: gce_MakeScale2d): gp_Trsf2d {.noSideEffect,
-    importcpp: "Operator", header: "gce_MakeScale2d.hxx".}
-converter `gp_Trsf2d`*(this: gce_MakeScale2d): gp_Trsf2d {.noSideEffect,
+converter `trsf2d`*(this: GceMakeScale2d): Trsf2d {.noSideEffect,
     importcpp: "gce_MakeScale2d::operator gp_Trsf2d",
     header: "gce_MakeScale2d.hxx".}

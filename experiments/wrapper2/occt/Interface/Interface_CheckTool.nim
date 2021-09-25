@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Interface_ShareTool, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Interface_GTool"
 discard "forward decl of Interface_CheckFailure"
 discard "forward decl of Interface_InterfaceModel"
@@ -31,52 +26,49 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CheckIterator"
 discard "forward decl of Interface_EntityIterator"
 type
-  Interface_CheckTool* {.importcpp: "Interface_CheckTool",
-                        header: "Interface_CheckTool.hxx", bycopy.} = object ## ! Creates a
-                                                                        ## CheckTool, by calling the General Service Library
-                                                                        ## ! and Modules, selected through a
-                                                                        ## Protocol, to work on a Model
-                                                                        ## !
-                                                                        ## Moreover, Protocol
-                                                                        ## recognizes Unknown Entities
+  InterfaceCheckTool* {.importcpp: "Interface_CheckTool",
+                       header: "Interface_CheckTool.hxx", bycopy.} = object ## ! Creates a
+                                                                       ## CheckTool, by calling the General Service Library
+                                                                       ## ! and Modules, selected through a Protocol, to work on a Model
+                                                                       ## ! Moreover, Protocol
+                                                                       ## recognizes Unknown Entities
 
 
-proc constructInterface_CheckTool*(model: handle[Interface_InterfaceModel];
-                                  protocol: handle[Interface_Protocol]): Interface_CheckTool {.
+proc constructInterfaceCheckTool*(model: Handle[InterfaceInterfaceModel];
+                                 protocol: Handle[InterfaceProtocol]): InterfaceCheckTool {.
     constructor, importcpp: "Interface_CheckTool(@)",
     header: "Interface_CheckTool.hxx".}
-proc constructInterface_CheckTool*(model: handle[Interface_InterfaceModel]): Interface_CheckTool {.
+proc constructInterfaceCheckTool*(model: Handle[InterfaceInterfaceModel]): InterfaceCheckTool {.
     constructor, importcpp: "Interface_CheckTool(@)",
     header: "Interface_CheckTool.hxx".}
-proc constructInterface_CheckTool*(graph: Interface_Graph): Interface_CheckTool {.
+proc constructInterfaceCheckTool*(graph: InterfaceGraph): InterfaceCheckTool {.
     constructor, importcpp: "Interface_CheckTool(@)",
     header: "Interface_CheckTool.hxx".}
-proc constructInterface_CheckTool*(hgraph: handle[Interface_HGraph]): Interface_CheckTool {.
+proc constructInterfaceCheckTool*(hgraph: Handle[InterfaceHGraph]): InterfaceCheckTool {.
     constructor, importcpp: "Interface_CheckTool(@)",
     header: "Interface_CheckTool.hxx".}
-proc FillCheck*(this: var Interface_CheckTool; ent: handle[Standard_Transient];
-               sh: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc fillCheck*(this: var InterfaceCheckTool; ent: Handle[StandardTransient];
+               sh: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     importcpp: "FillCheck", header: "Interface_CheckTool.hxx".}
-proc Print*(this: Interface_CheckTool; ach: handle[Interface_Check];
-           S: var Standard_OStream) {.noSideEffect, importcpp: "Print",
-                                   header: "Interface_CheckTool.hxx".}
-proc Print*(this: Interface_CheckTool; list: Interface_CheckIterator;
-           S: var Standard_OStream) {.noSideEffect, importcpp: "Print",
-                                   header: "Interface_CheckTool.hxx".}
-proc Check*(this: var Interface_CheckTool; num: Standard_Integer): handle[
-    Interface_Check] {.importcpp: "Check", header: "Interface_CheckTool.hxx".}
-proc CheckSuccess*(this: var Interface_CheckTool;
-                  reset: Standard_Boolean = Standard_False) {.
+proc print*(this: InterfaceCheckTool; ach: Handle[InterfaceCheck];
+           s: var StandardOStream) {.noSideEffect, importcpp: "Print",
+                                  header: "Interface_CheckTool.hxx".}
+proc print*(this: InterfaceCheckTool; list: InterfaceCheckIterator;
+           s: var StandardOStream) {.noSideEffect, importcpp: "Print",
+                                  header: "Interface_CheckTool.hxx".}
+proc check*(this: var InterfaceCheckTool; num: int): Handle[InterfaceCheck] {.
+    importcpp: "Check", header: "Interface_CheckTool.hxx".}
+proc checkSuccess*(this: var InterfaceCheckTool; reset: bool = false) {.
     importcpp: "CheckSuccess", header: "Interface_CheckTool.hxx".}
-proc CompleteCheckList*(this: var Interface_CheckTool): Interface_CheckIterator {.
+proc completeCheckList*(this: var InterfaceCheckTool): InterfaceCheckIterator {.
     importcpp: "CompleteCheckList", header: "Interface_CheckTool.hxx".}
-proc CheckList*(this: var Interface_CheckTool): Interface_CheckIterator {.
+proc checkList*(this: var InterfaceCheckTool): InterfaceCheckIterator {.
     importcpp: "CheckList", header: "Interface_CheckTool.hxx".}
-proc AnalyseCheckList*(this: var Interface_CheckTool): Interface_CheckIterator {.
+proc analyseCheckList*(this: var InterfaceCheckTool): InterfaceCheckIterator {.
     importcpp: "AnalyseCheckList", header: "Interface_CheckTool.hxx".}
-proc VerifyCheckList*(this: var Interface_CheckTool): Interface_CheckIterator {.
+proc verifyCheckList*(this: var InterfaceCheckTool): InterfaceCheckIterator {.
     importcpp: "VerifyCheckList", header: "Interface_CheckTool.hxx".}
-proc WarningCheckList*(this: var Interface_CheckTool): Interface_CheckIterator {.
+proc warningCheckList*(this: var InterfaceCheckTool): InterfaceCheckIterator {.
     importcpp: "WarningCheckList", header: "Interface_CheckTool.hxx".}
-proc UnknownEntities*(this: var Interface_CheckTool): Interface_EntityIterator {.
+proc unknownEntities*(this: var InterfaceCheckTool): InterfaceEntityIterator {.
     importcpp: "UnknownEntities", header: "Interface_CheckTool.hxx".}

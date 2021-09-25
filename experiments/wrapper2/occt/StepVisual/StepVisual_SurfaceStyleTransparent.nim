@@ -14,44 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepVisual_SurfaceStyleTransparent"
 discard "forward decl of StepVisual_SurfaceStyleTransparent"
 type
-  Handle_StepVisual_SurfaceStyleTransparent* = handle[
-      StepVisual_SurfaceStyleTransparent]
+  HandleStepVisualSurfaceStyleTransparent* = Handle[
+      StepVisualSurfaceStyleTransparent]
 
 ## ! Representation of STEP entity SurfaceStyleTransparent
 
 type
-  StepVisual_SurfaceStyleTransparent* {.importcpp: "StepVisual_SurfaceStyleTransparent", header: "StepVisual_SurfaceStyleTransparent.hxx",
-                                       bycopy.} = object of Standard_Transient ## !
-                                                                          ## default
-                                                                          ## constructor
+  StepVisualSurfaceStyleTransparent* {.importcpp: "StepVisual_SurfaceStyleTransparent", header: "StepVisual_SurfaceStyleTransparent.hxx",
+                                      bycopy.} = object of StandardTransient ## ! default
+                                                                        ## constructor
 
 
-proc constructStepVisual_SurfaceStyleTransparent*(): StepVisual_SurfaceStyleTransparent {.
+proc constructStepVisualSurfaceStyleTransparent*(): StepVisualSurfaceStyleTransparent {.
     constructor, importcpp: "StepVisual_SurfaceStyleTransparent(@)",
     header: "StepVisual_SurfaceStyleTransparent.hxx".}
-proc Init*(this: var StepVisual_SurfaceStyleTransparent;
-          theTransparency: Standard_Real) {.importcpp: "Init",
+proc init*(this: var StepVisualSurfaceStyleTransparent; theTransparency: float) {.
+    importcpp: "Init", header: "StepVisual_SurfaceStyleTransparent.hxx".}
+proc transparency*(this: StepVisualSurfaceStyleTransparent): float {.noSideEffect,
+    importcpp: "Transparency", header: "StepVisual_SurfaceStyleTransparent.hxx".}
+proc setTransparency*(this: var StepVisualSurfaceStyleTransparent;
+                     theTransparency: float) {.importcpp: "SetTransparency",
     header: "StepVisual_SurfaceStyleTransparent.hxx".}
-proc Transparency*(this: StepVisual_SurfaceStyleTransparent): Standard_Real {.
-    noSideEffect, importcpp: "Transparency",
-    header: "StepVisual_SurfaceStyleTransparent.hxx".}
-proc SetTransparency*(this: var StepVisual_SurfaceStyleTransparent;
-                     theTransparency: Standard_Real) {.
-    importcpp: "SetTransparency", header: "StepVisual_SurfaceStyleTransparent.hxx".}
 type
-  StepVisual_SurfaceStyleTransparentbase_type* = Standard_Transient
+  StepVisualSurfaceStyleTransparentbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_SurfaceStyleTransparent::get_type_name(@)",
-                              header: "StepVisual_SurfaceStyleTransparent.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_SurfaceStyleTransparent::get_type_name(@)",
+                            header: "StepVisual_SurfaceStyleTransparent.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_SurfaceStyleTransparent::get_type_descriptor(@)",
     header: "StepVisual_SurfaceStyleTransparent.hxx".}
-proc DynamicType*(this: StepVisual_SurfaceStyleTransparent): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualSurfaceStyleTransparent): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_SurfaceStyleTransparent.hxx".}

@@ -14,77 +14,66 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColGeom/TColGeom_HSequenceOfCurve, ../TColStd/TColStd_HSequenceOfReal,
-  ../Standard/Standard_Boolean, ShapeUpgrade_SplitCurve3d
-
 discard "forward decl of ShapeUpgrade_ConvertCurve3dToBezier"
 discard "forward decl of ShapeUpgrade_ConvertCurve3dToBezier"
 type
-  Handle_ShapeUpgrade_ConvertCurve3dToBezier* = handle[
-      ShapeUpgrade_ConvertCurve3dToBezier]
+  HandleShapeUpgradeConvertCurve3dToBezier* = Handle[
+      ShapeUpgradeConvertCurve3dToBezier]
 
 ## ! converts/splits a 3d curve of any type to a list of beziers
 
 type
-  ShapeUpgrade_ConvertCurve3dToBezier* {.importcpp: "ShapeUpgrade_ConvertCurve3dToBezier", header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx",
-                                        bycopy.} = object of ShapeUpgrade_SplitCurve3d ##
-                                                                                  ## !
-                                                                                  ## Empty
-                                                                                  ## constructor
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Returns
-                                                                                  ## the
-                                                                                  ## list
-                                                                                  ## of
-                                                                                  ## bezier
-                                                                                  ## curves
-                                                                                  ## correspondent
-                                                                                  ## to
-                                                                                  ## original
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## curve.
+  ShapeUpgradeConvertCurve3dToBezier* {.importcpp: "ShapeUpgrade_ConvertCurve3dToBezier", header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx",
+                                       bycopy.} = object of ShapeUpgradeSplitCurve3d ##
+                                                                                ## !
+                                                                                ## Empty
+                                                                                ## constructor
+                                                                                ##
+                                                                                ## !
+                                                                                ## Returns
+                                                                                ## the
+                                                                                ## list
+                                                                                ## of
+                                                                                ## bezier
+                                                                                ## curves
+                                                                                ## correspondent
+                                                                                ## to
+                                                                                ## original
+                                                                                ##
+                                                                                ## !
+                                                                                ## curve.
 
 
-proc constructShapeUpgrade_ConvertCurve3dToBezier*(): ShapeUpgrade_ConvertCurve3dToBezier {.
+proc constructShapeUpgradeConvertCurve3dToBezier*(): ShapeUpgradeConvertCurve3dToBezier {.
     constructor, importcpp: "ShapeUpgrade_ConvertCurve3dToBezier(@)",
     header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx".}
-proc SetLineMode*(this: var ShapeUpgrade_ConvertCurve3dToBezier;
-                 mode: Standard_Boolean) {.importcpp: "SetLineMode",
+proc setLineMode*(this: var ShapeUpgradeConvertCurve3dToBezier; mode: bool) {.
+    importcpp: "SetLineMode", header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx".}
+proc getLineMode*(this: ShapeUpgradeConvertCurve3dToBezier): bool {.noSideEffect,
+    importcpp: "GetLineMode", header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx".}
+proc setCircleMode*(this: var ShapeUpgradeConvertCurve3dToBezier; mode: bool) {.
+    importcpp: "SetCircleMode", header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx".}
+proc getCircleMode*(this: ShapeUpgradeConvertCurve3dToBezier): bool {.noSideEffect,
+    importcpp: "GetCircleMode", header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx".}
+proc setConicMode*(this: var ShapeUpgradeConvertCurve3dToBezier; mode: bool) {.
+    importcpp: "SetConicMode", header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx".}
+proc getConicMode*(this: ShapeUpgradeConvertCurve3dToBezier): bool {.noSideEffect,
+    importcpp: "GetConicMode", header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx".}
+proc compute*(this: var ShapeUpgradeConvertCurve3dToBezier) {.importcpp: "Compute",
     header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx".}
-proc GetLineMode*(this: ShapeUpgrade_ConvertCurve3dToBezier): Standard_Boolean {.
-    noSideEffect, importcpp: "GetLineMode",
-    header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx".}
-proc SetCircleMode*(this: var ShapeUpgrade_ConvertCurve3dToBezier;
-                   mode: Standard_Boolean) {.importcpp: "SetCircleMode",
-    header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx".}
-proc GetCircleMode*(this: ShapeUpgrade_ConvertCurve3dToBezier): Standard_Boolean {.
-    noSideEffect, importcpp: "GetCircleMode",
-    header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx".}
-proc SetConicMode*(this: var ShapeUpgrade_ConvertCurve3dToBezier;
-                  mode: Standard_Boolean) {.importcpp: "SetConicMode",
-    header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx".}
-proc GetConicMode*(this: ShapeUpgrade_ConvertCurve3dToBezier): Standard_Boolean {.
-    noSideEffect, importcpp: "GetConicMode",
-    header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx".}
-proc Compute*(this: var ShapeUpgrade_ConvertCurve3dToBezier) {.importcpp: "Compute",
-    header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx".}
-proc Build*(this: var ShapeUpgrade_ConvertCurve3dToBezier; Segment: Standard_Boolean) {.
+proc build*(this: var ShapeUpgradeConvertCurve3dToBezier; segment: bool) {.
     importcpp: "Build", header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx".}
-proc SplitParams*(this: ShapeUpgrade_ConvertCurve3dToBezier): handle[
-    TColStd_HSequenceOfReal] {.noSideEffect, importcpp: "SplitParams",
-                              header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx".}
+proc splitParams*(this: ShapeUpgradeConvertCurve3dToBezier): Handle[
+    TColStdHSequenceOfReal] {.noSideEffect, importcpp: "SplitParams",
+                             header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx".}
 type
-  ShapeUpgrade_ConvertCurve3dToBezierbase_type* = ShapeUpgrade_SplitCurve3d
+  ShapeUpgradeConvertCurve3dToBezierbaseType* = ShapeUpgradeSplitCurve3d
 
-proc get_type_name*(): cstring {.importcpp: "ShapeUpgrade_ConvertCurve3dToBezier::get_type_name(@)",
-                              header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeUpgrade_ConvertCurve3dToBezier::get_type_name(@)",
+                            header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeUpgrade_ConvertCurve3dToBezier::get_type_descriptor(@)",
     header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx".}
-proc DynamicType*(this: ShapeUpgrade_ConvertCurve3dToBezier): handle[Standard_Type] {.
+proc dynamicType*(this: ShapeUpgradeConvertCurve3dToBezier): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_ConvertCurve3dToBezier.hxx".}

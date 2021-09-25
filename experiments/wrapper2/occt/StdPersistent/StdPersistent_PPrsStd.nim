@@ -11,55 +11,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../StdObjMgt/StdObjMgt_Attribute, ../StdLPersistent/StdLPersistent_HString,
-  ../TDataXtd/TDataXtd_Presentation
-
 type
-  StdPersistent_PPrsStd* {.importcpp: "StdPersistent_PPrsStd",
-                          header: "StdPersistent_PPrsStd.hxx", bycopy.} = object
+  StdPersistentPPrsStd* {.importcpp: "StdPersistent_PPrsStd",
+                         header: "StdPersistent_PPrsStd.hxx", bycopy.} = object
 
-  StdPersistent_PPrsStdAISPresentation* {.
-      importcpp: "StdPersistent_PPrsStd::AISPresentation",
-      header: "StdPersistent_PPrsStd.hxx", bycopy.} = object of StdObjMgt_Attribute[
-      TDataXtd_Presentation]  ## ! Read persistent data from a file.
+  StdPersistentPPrsStdAISPresentation* {.importcpp: "StdPersistent_PPrsStd::AISPresentation",
+                                        header: "StdPersistent_PPrsStd.hxx",
+                                        bycopy.} = object of StdObjMgtAttribute[
+      TDataXtdPresentation]   ## ! Read persistent data from a file.
 
 
-proc Read*(this: var StdPersistent_PPrsStdAISPresentation;
-          theReadData: var StdObjMgt_ReadData) {.importcpp: "Read",
+proc read*(this: var StdPersistentPPrsStdAISPresentation;
+          theReadData: var StdObjMgtReadData) {.importcpp: "Read",
     header: "StdPersistent_PPrsStd.hxx".}
-proc Write*(this: StdPersistent_PPrsStdAISPresentation;
-           theWriteData: var StdObjMgt_WriteData) {.noSideEffect,
-    importcpp: "Write", header: "StdPersistent_PPrsStd.hxx".}
-proc PChildren*(this: StdPersistent_PPrsStdAISPresentation;
+proc write*(this: StdPersistentPPrsStdAISPresentation;
+           theWriteData: var StdObjMgtWriteData) {.noSideEffect, importcpp: "Write",
+    header: "StdPersistent_PPrsStd.hxx".}
+proc pChildren*(this: StdPersistentPPrsStdAISPresentation;
                theChildren: var SequenceOfPersistent) {.noSideEffect,
     importcpp: "PChildren", header: "StdPersistent_PPrsStd.hxx".}
-proc PName*(this: StdPersistent_PPrsStdAISPresentation): Standard_CString {.
+proc pName*(this: StdPersistentPPrsStdAISPresentation): StandardCString {.
     noSideEffect, importcpp: "PName", header: "StdPersistent_PPrsStd.hxx".}
-proc Import*(this: StdPersistent_PPrsStdAISPresentation;
-            theAttribute: handle[TDataXtd_Presentation]) {.noSideEffect,
+proc `import`*(this: StdPersistentPPrsStdAISPresentation;
+              theAttribute: Handle[TDataXtdPresentation]) {.noSideEffect,
     importcpp: "Import", header: "StdPersistent_PPrsStd.hxx".}
 type
-  StdPersistent_PPrsStdAISPresentation_1* {.
+  StdPersistentPPrsStdAISPresentation1* {.
       importcpp: "StdPersistent_PPrsStd::AISPresentation_1",
-      header: "StdPersistent_PPrsStd.hxx", bycopy.} = object of StdPersistent_PPrsStdAISPresentation ##
-                                                                                              ## !
-                                                                                              ## Read
-                                                                                              ## persistent
-                                                                                              ## data
-                                                                                              ## from
-                                                                                              ## a
-                                                                                              ## file.
+      header: "StdPersistent_PPrsStd.hxx", bycopy.} = object of StdPersistentPPrsStdAISPresentation ##
+                                                                                             ## !
+                                                                                             ## Read
+                                                                                             ## persistent
+                                                                                             ## data
+                                                                                             ## from
+                                                                                             ## a
+                                                                                             ## file.
 
 
-proc Read*(this: var StdPersistent_PPrsStdAISPresentation_1;
-          theReadData: var StdObjMgt_ReadData) {.importcpp: "Read",
+proc read*(this: var StdPersistentPPrsStdAISPresentation1;
+          theReadData: var StdObjMgtReadData) {.importcpp: "Read",
     header: "StdPersistent_PPrsStd.hxx".}
-proc Write*(this: var StdPersistent_PPrsStdAISPresentation_1;
-           theWriteData: var StdObjMgt_WriteData) {.importcpp: "Write",
+proc write*(this: var StdPersistentPPrsStdAISPresentation1;
+           theWriteData: var StdObjMgtWriteData) {.importcpp: "Write",
     header: "StdPersistent_PPrsStd.hxx".}
-proc PName*(this: StdPersistent_PPrsStdAISPresentation_1): Standard_CString {.
+proc pName*(this: StdPersistentPPrsStdAISPresentation1): StandardCString {.
     noSideEffect, importcpp: "PName", header: "StdPersistent_PPrsStd.hxx".}
-proc Import*(this: StdPersistent_PPrsStdAISPresentation_1;
-            theAttribute: handle[TDataXtd_Presentation]) {.noSideEffect,
+proc `import`*(this: StdPersistentPPrsStdAISPresentation1;
+              theAttribute: Handle[TDataXtdPresentation]) {.noSideEffect,
     importcpp: "Import", header: "StdPersistent_PPrsStd.hxx".}

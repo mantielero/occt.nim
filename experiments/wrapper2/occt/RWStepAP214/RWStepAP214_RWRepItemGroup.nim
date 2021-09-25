@@ -13,33 +13,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepAP214_RepItemGroup"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepAP214_RWRepItemGroup* {.importcpp: "RWStepAP214_RWRepItemGroup",
-                               header: "RWStepAP214_RWRepItemGroup.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Empty
-                                                                                      ## constructor
+  RWStepAP214RWRepItemGroup* {.importcpp: "RWStepAP214_RWRepItemGroup",
+                              header: "RWStepAP214_RWRepItemGroup.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Empty
+                                                                                     ## constructor
 
 
-proc constructRWStepAP214_RWRepItemGroup*(): RWStepAP214_RWRepItemGroup {.
+proc constructRWStepAP214RWRepItemGroup*(): RWStepAP214RWRepItemGroup {.
     constructor, importcpp: "RWStepAP214_RWRepItemGroup(@)",
     header: "RWStepAP214_RWRepItemGroup.hxx".}
-proc ReadStep*(this: RWStepAP214_RWRepItemGroup;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check]; ent: handle[StepAP214_RepItemGroup]) {.
+proc readStep*(this: RWStepAP214RWRepItemGroup;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck]; ent: Handle[StepAP214RepItemGroup]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepAP214_RWRepItemGroup.hxx".}
-proc WriteStep*(this: RWStepAP214_RWRepItemGroup; SW: var StepData_StepWriter;
-               ent: handle[StepAP214_RepItemGroup]) {.noSideEffect,
+proc writeStep*(this: RWStepAP214RWRepItemGroup; sw: var StepDataStepWriter;
+               ent: Handle[StepAP214RepItemGroup]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepAP214_RWRepItemGroup.hxx".}
-proc Share*(this: RWStepAP214_RWRepItemGroup; ent: handle[StepAP214_RepItemGroup];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepAP214RWRepItemGroup; ent: Handle[StepAP214RepItemGroup];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWRepItemGroup.hxx".}

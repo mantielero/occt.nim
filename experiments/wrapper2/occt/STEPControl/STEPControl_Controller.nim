@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../XSControl/XSControl_Controller, ../IFSelect/IFSelect_ReturnStatus,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Transfer_ActorOfTransientProcess"
 discard "forward decl of XSControl_WorkSession"
@@ -27,53 +22,53 @@ discard "forward decl of Transfer_FinderProcess"
 discard "forward decl of STEPControl_Controller"
 discard "forward decl of STEPControl_Controller"
 type
-  Handle_STEPControl_Controller* = handle[STEPControl_Controller]
+  HandleSTEPControlController* = Handle[STEPControlController]
 
 ## ! defines basic controller for STEP processor
 
 type
-  STEPControl_Controller* {.importcpp: "STEPControl_Controller",
-                           header: "STEPControl_Controller.hxx", bycopy.} = object of XSControl_Controller ##
-                                                                                                    ## !
-                                                                                                    ## Initializes
-                                                                                                    ## the
-                                                                                                    ## use
-                                                                                                    ## of
-                                                                                                    ## STEP
-                                                                                                    ## Norm
-                                                                                                    ## (the
-                                                                                                    ## first
-                                                                                                    ## time)
-                                                                                                    ## and
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## returns
-                                                                                                    ## a
-                                                                                                    ## Controller
+  STEPControlController* {.importcpp: "STEPControl_Controller",
+                          header: "STEPControl_Controller.hxx", bycopy.} = object of XSControlController ##
+                                                                                                  ## !
+                                                                                                  ## Initializes
+                                                                                                  ## the
+                                                                                                  ## use
+                                                                                                  ## of
+                                                                                                  ## STEP
+                                                                                                  ## Norm
+                                                                                                  ## (the
+                                                                                                  ## first
+                                                                                                  ## time)
+                                                                                                  ## and
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## returns
+                                                                                                  ## a
+                                                                                                  ## Controller
 
 
-proc constructSTEPControl_Controller*(): STEPControl_Controller {.constructor,
+proc constructSTEPControlController*(): STEPControlController {.constructor,
     importcpp: "STEPControl_Controller(@)", header: "STEPControl_Controller.hxx".}
-proc NewModel*(this: STEPControl_Controller): handle[Interface_InterfaceModel] {.
+proc newModel*(this: STEPControlController): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "NewModel", header: "STEPControl_Controller.hxx".}
-proc Customise*(this: var STEPControl_Controller;
-               WS: var handle[XSControl_WorkSession]) {.importcpp: "Customise",
+proc customise*(this: var STEPControlController;
+               ws: var Handle[XSControlWorkSession]) {.importcpp: "Customise",
     header: "STEPControl_Controller.hxx".}
-proc TransferWriteShape*(this: STEPControl_Controller; shape: TopoDS_Shape;
-                        FP: handle[Transfer_FinderProcess];
-                        model: handle[Interface_InterfaceModel];
-                        modetrans: Standard_Integer = 0; theProgress: Message_ProgressRange = Message_ProgressRange()): IFSelect_ReturnStatus {.
+proc transferWriteShape*(this: STEPControlController; shape: TopoDS_Shape;
+                        fp: Handle[TransferFinderProcess];
+                        model: Handle[InterfaceInterfaceModel];
+                        modetrans: int = 0; theProgress: MessageProgressRange = messageProgressRange()): IFSelectReturnStatus {.
     noSideEffect, importcpp: "TransferWriteShape",
     header: "STEPControl_Controller.hxx".}
-proc Init*(): Standard_Boolean {.importcpp: "STEPControl_Controller::Init(@)",
-                              header: "STEPControl_Controller.hxx".}
+proc init*(): bool {.importcpp: "STEPControl_Controller::Init(@)",
+                  header: "STEPControl_Controller.hxx".}
 type
-  STEPControl_Controllerbase_type* = XSControl_Controller
+  STEPControlControllerbaseType* = XSControlController
 
-proc get_type_name*(): cstring {.importcpp: "STEPControl_Controller::get_type_name(@)",
-                              header: "STEPControl_Controller.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "STEPControl_Controller::get_type_name(@)",
+                            header: "STEPControl_Controller.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "STEPControl_Controller::get_type_descriptor(@)",
     header: "STEPControl_Controller.hxx".}
-proc DynamicType*(this: STEPControl_Controller): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "STEPControl_Controller.hxx".}
+proc dynamicType*(this: STEPControlController): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "STEPControl_Controller.hxx".}

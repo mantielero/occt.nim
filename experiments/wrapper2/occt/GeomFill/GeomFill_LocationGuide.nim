@@ -14,15 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColgp/TColgp_HArray2OfPnt2d, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real, ../gp/gp_Mat,
-  ../math/math_Vector, GeomFill_PipeError, GeomFill_LocationLaw,
-  ../TColgp/TColgp_Array1OfPnt2d, ../TColgp/TColgp_Array1OfVec2d,
-  ../GeomAbs/GeomAbs_Shape, ../TColStd/TColStd_Array1OfReal,
-  ../TColgp/TColgp_HArray1OfPnt2d
-
 discard "forward decl of GeomFill_TrihedronWithGuide"
 discard "forward decl of GeomFill_SectionLaw"
 discard "forward decl of Adaptor3d_HCurve"
@@ -37,101 +28,92 @@ discard "forward decl of Geom_Curve"
 discard "forward decl of GeomFill_LocationGuide"
 discard "forward decl of GeomFill_LocationGuide"
 type
-  Handle_GeomFill_LocationGuide* = handle[GeomFill_LocationGuide]
-  GeomFill_LocationGuide* {.importcpp: "GeomFill_LocationGuide",
-                           header: "GeomFill_LocationGuide.hxx", bycopy.} = object of GeomFill_LocationLaw
+  HandleGeomFillLocationGuide* = Handle[GeomFillLocationGuide]
+  GeomFillLocationGuide* {.importcpp: "GeomFill_LocationGuide",
+                          header: "GeomFill_LocationGuide.hxx", bycopy.} = object of GeomFillLocationLaw
 
 
-proc constructGeomFill_LocationGuide*(Triedre: handle[GeomFill_TrihedronWithGuide]): GeomFill_LocationGuide {.
+proc constructGeomFillLocationGuide*(triedre: Handle[GeomFillTrihedronWithGuide]): GeomFillLocationGuide {.
     constructor, importcpp: "GeomFill_LocationGuide(@)",
     header: "GeomFill_LocationGuide.hxx".}
-proc Set*(this: var GeomFill_LocationGuide; Section: handle[GeomFill_SectionLaw];
-         rotat: Standard_Boolean; SFirst: Standard_Real; SLast: Standard_Real;
-         PrecAngle: Standard_Real; LastAngle: var Standard_Real) {.importcpp: "Set",
+proc set*(this: var GeomFillLocationGuide; section: Handle[GeomFillSectionLaw];
+         rotat: bool; sFirst: float; sLast: float; precAngle: float;
+         lastAngle: var float) {.importcpp: "Set",
+                              header: "GeomFill_LocationGuide.hxx".}
+proc eraseRotation*(this: var GeomFillLocationGuide) {.importcpp: "EraseRotation",
     header: "GeomFill_LocationGuide.hxx".}
-proc EraseRotation*(this: var GeomFill_LocationGuide) {.importcpp: "EraseRotation",
-    header: "GeomFill_LocationGuide.hxx".}
-proc SetCurve*(this: var GeomFill_LocationGuide; C: handle[Adaptor3d_HCurve]) {.
+proc setCurve*(this: var GeomFillLocationGuide; c: Handle[Adaptor3dHCurve]) {.
     importcpp: "SetCurve", header: "GeomFill_LocationGuide.hxx".}
-proc GetCurve*(this: GeomFill_LocationGuide): handle[Adaptor3d_HCurve] {.
-    noSideEffect, importcpp: "GetCurve", header: "GeomFill_LocationGuide.hxx".}
-proc SetTrsf*(this: var GeomFill_LocationGuide; Transfo: gp_Mat) {.
-    importcpp: "SetTrsf", header: "GeomFill_LocationGuide.hxx".}
-proc Copy*(this: GeomFill_LocationGuide): handle[GeomFill_LocationLaw] {.
-    noSideEffect, importcpp: "Copy", header: "GeomFill_LocationGuide.hxx".}
-proc D0*(this: var GeomFill_LocationGuide; Param: Standard_Real; M: var gp_Mat;
-        V: var gp_Vec): Standard_Boolean {.importcpp: "D0",
-                                       header: "GeomFill_LocationGuide.hxx".}
-proc D0*(this: var GeomFill_LocationGuide; Param: Standard_Real; M: var gp_Mat;
-        V: var gp_Vec; Poles2d: var TColgp_Array1OfPnt2d): Standard_Boolean {.
+proc getCurve*(this: GeomFillLocationGuide): Handle[Adaptor3dHCurve] {.noSideEffect,
+    importcpp: "GetCurve", header: "GeomFill_LocationGuide.hxx".}
+proc setTrsf*(this: var GeomFillLocationGuide; transfo: Mat) {.importcpp: "SetTrsf",
+    header: "GeomFill_LocationGuide.hxx".}
+proc copy*(this: GeomFillLocationGuide): Handle[GeomFillLocationLaw] {.noSideEffect,
+    importcpp: "Copy", header: "GeomFill_LocationGuide.hxx".}
+proc d0*(this: var GeomFillLocationGuide; param: float; m: var Mat; v: var Vec): bool {.
     importcpp: "D0", header: "GeomFill_LocationGuide.hxx".}
-proc D1*(this: var GeomFill_LocationGuide; Param: Standard_Real; M: var gp_Mat;
-        V: var gp_Vec; DM: var gp_Mat; DV: var gp_Vec; Poles2d: var TColgp_Array1OfPnt2d;
-        DPoles2d: var TColgp_Array1OfVec2d): Standard_Boolean {.importcpp: "D1",
+proc d0*(this: var GeomFillLocationGuide; param: float; m: var Mat; v: var Vec;
+        poles2d: var TColgpArray1OfPnt2d): bool {.importcpp: "D0",
     header: "GeomFill_LocationGuide.hxx".}
-proc D2*(this: var GeomFill_LocationGuide; Param: Standard_Real; M: var gp_Mat;
-        V: var gp_Vec; DM: var gp_Mat; DV: var gp_Vec; D2M: var gp_Mat; D2V: var gp_Vec;
-        Poles2d: var TColgp_Array1OfPnt2d; DPoles2d: var TColgp_Array1OfVec2d;
-        D2Poles2d: var TColgp_Array1OfVec2d): Standard_Boolean {.importcpp: "D2",
+proc d1*(this: var GeomFillLocationGuide; param: float; m: var Mat; v: var Vec; dm: var Mat;
+        dv: var Vec; poles2d: var TColgpArray1OfPnt2d;
+        dPoles2d: var TColgpArray1OfVec2d): bool {.importcpp: "D1",
     header: "GeomFill_LocationGuide.hxx".}
-proc HasFirstRestriction*(this: GeomFill_LocationGuide): Standard_Boolean {.
-    noSideEffect, importcpp: "HasFirstRestriction",
-    header: "GeomFill_LocationGuide.hxx".}
-proc HasLastRestriction*(this: GeomFill_LocationGuide): Standard_Boolean {.
-    noSideEffect, importcpp: "HasLastRestriction",
-    header: "GeomFill_LocationGuide.hxx".}
-proc TraceNumber*(this: GeomFill_LocationGuide): Standard_Integer {.noSideEffect,
+proc d2*(this: var GeomFillLocationGuide; param: float; m: var Mat; v: var Vec; dm: var Mat;
+        dv: var Vec; d2m: var Mat; d2v: var Vec; poles2d: var TColgpArray1OfPnt2d;
+        dPoles2d: var TColgpArray1OfVec2d; d2Poles2d: var TColgpArray1OfVec2d): bool {.
+    importcpp: "D2", header: "GeomFill_LocationGuide.hxx".}
+proc hasFirstRestriction*(this: GeomFillLocationGuide): bool {.noSideEffect,
+    importcpp: "HasFirstRestriction", header: "GeomFill_LocationGuide.hxx".}
+proc hasLastRestriction*(this: GeomFillLocationGuide): bool {.noSideEffect,
+    importcpp: "HasLastRestriction", header: "GeomFill_LocationGuide.hxx".}
+proc traceNumber*(this: GeomFillLocationGuide): int {.noSideEffect,
     importcpp: "TraceNumber", header: "GeomFill_LocationGuide.hxx".}
-proc ErrorStatus*(this: GeomFill_LocationGuide): GeomFill_PipeError {.noSideEffect,
+proc errorStatus*(this: GeomFillLocationGuide): GeomFillPipeError {.noSideEffect,
     importcpp: "ErrorStatus", header: "GeomFill_LocationGuide.hxx".}
-proc NbIntervals*(this: GeomFill_LocationGuide; S: GeomAbs_Shape): Standard_Integer {.
-    noSideEffect, importcpp: "NbIntervals", header: "GeomFill_LocationGuide.hxx".}
-proc Intervals*(this: GeomFill_LocationGuide; T: var TColStd_Array1OfReal;
-               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
-                                 header: "GeomFill_LocationGuide.hxx".}
-proc SetInterval*(this: var GeomFill_LocationGuide; First: Standard_Real;
-                 Last: Standard_Real) {.importcpp: "SetInterval",
-                                      header: "GeomFill_LocationGuide.hxx".}
-proc GetInterval*(this: GeomFill_LocationGuide; First: var Standard_Real;
-                 Last: var Standard_Real) {.noSideEffect, importcpp: "GetInterval",
-    header: "GeomFill_LocationGuide.hxx".}
-proc GetDomain*(this: GeomFill_LocationGuide; First: var Standard_Real;
-               Last: var Standard_Real) {.noSideEffect, importcpp: "GetDomain",
-                                       header: "GeomFill_LocationGuide.hxx".}
-proc SetTolerance*(this: var GeomFill_LocationGuide; Tol3d: Standard_Real;
-                  Tol2d: Standard_Real) {.importcpp: "SetTolerance",
-                                        header: "GeomFill_LocationGuide.hxx".}
-proc Resolution*(this: GeomFill_LocationGuide; Index: Standard_Integer;
-                Tol: Standard_Real; TolU: var Standard_Real; TolV: var Standard_Real) {.
-    noSideEffect, importcpp: "Resolution", header: "GeomFill_LocationGuide.hxx".}
-proc GetMaximalNorm*(this: var GeomFill_LocationGuide): Standard_Real {.
+proc nbIntervals*(this: GeomFillLocationGuide; s: GeomAbsShape): int {.noSideEffect,
+    importcpp: "NbIntervals", header: "GeomFill_LocationGuide.hxx".}
+proc intervals*(this: GeomFillLocationGuide; t: var TColStdArray1OfReal;
+               s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
+                                header: "GeomFill_LocationGuide.hxx".}
+proc setInterval*(this: var GeomFillLocationGuide; first: float; last: float) {.
+    importcpp: "SetInterval", header: "GeomFill_LocationGuide.hxx".}
+proc getInterval*(this: GeomFillLocationGuide; first: var float; last: var float) {.
+    noSideEffect, importcpp: "GetInterval", header: "GeomFill_LocationGuide.hxx".}
+proc getDomain*(this: GeomFillLocationGuide; first: var float; last: var float) {.
+    noSideEffect, importcpp: "GetDomain", header: "GeomFill_LocationGuide.hxx".}
+proc setTolerance*(this: var GeomFillLocationGuide; tol3d: float; tol2d: float) {.
+    importcpp: "SetTolerance", header: "GeomFill_LocationGuide.hxx".}
+proc resolution*(this: GeomFillLocationGuide; index: int; tol: float; tolU: var float;
+                tolV: var float) {.noSideEffect, importcpp: "Resolution",
+                                header: "GeomFill_LocationGuide.hxx".}
+proc getMaximalNorm*(this: var GeomFillLocationGuide): float {.
     importcpp: "GetMaximalNorm", header: "GeomFill_LocationGuide.hxx".}
-proc GetAverageLaw*(this: var GeomFill_LocationGuide; AM: var gp_Mat; AV: var gp_Vec) {.
+proc getAverageLaw*(this: var GeomFillLocationGuide; am: var Mat; av: var Vec) {.
     importcpp: "GetAverageLaw", header: "GeomFill_LocationGuide.hxx".}
-proc IsTranslation*(this: GeomFill_LocationGuide; Error: var Standard_Real): Standard_Boolean {.
+proc isTranslation*(this: GeomFillLocationGuide; error: var float): bool {.
     noSideEffect, importcpp: "IsTranslation", header: "GeomFill_LocationGuide.hxx".}
-proc IsRotation*(this: GeomFill_LocationGuide; Error: var Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "IsRotation", header: "GeomFill_LocationGuide.hxx".}
-proc Rotation*(this: GeomFill_LocationGuide; Center: var gp_Pnt) {.noSideEffect,
+proc isRotation*(this: GeomFillLocationGuide; error: var float): bool {.noSideEffect,
+    importcpp: "IsRotation", header: "GeomFill_LocationGuide.hxx".}
+proc rotation*(this: GeomFillLocationGuide; center: var Pnt) {.noSideEffect,
     importcpp: "Rotation", header: "GeomFill_LocationGuide.hxx".}
-proc Section*(this: GeomFill_LocationGuide): handle[Geom_Curve] {.noSideEffect,
+proc section*(this: GeomFillLocationGuide): Handle[GeomCurve] {.noSideEffect,
     importcpp: "Section", header: "GeomFill_LocationGuide.hxx".}
-proc Guide*(this: GeomFill_LocationGuide): handle[Adaptor3d_HCurve] {.noSideEffect,
+proc guide*(this: GeomFillLocationGuide): Handle[Adaptor3dHCurve] {.noSideEffect,
     importcpp: "Guide", header: "GeomFill_LocationGuide.hxx".}
-proc SetOrigine*(this: var GeomFill_LocationGuide; Param1: Standard_Real;
-                Param2: Standard_Real) {.importcpp: "SetOrigine",
-                                       header: "GeomFill_LocationGuide.hxx".}
-proc ComputeAutomaticLaw*(this: GeomFill_LocationGuide;
-                         ParAndRad: var handle[TColgp_HArray1OfPnt2d]): GeomFill_PipeError {.
+proc setOrigine*(this: var GeomFillLocationGuide; param1: float; param2: float) {.
+    importcpp: "SetOrigine", header: "GeomFill_LocationGuide.hxx".}
+proc computeAutomaticLaw*(this: GeomFillLocationGuide;
+                         parAndRad: var Handle[TColgpHArray1OfPnt2d]): GeomFillPipeError {.
     noSideEffect, importcpp: "ComputeAutomaticLaw",
     header: "GeomFill_LocationGuide.hxx".}
 type
-  GeomFill_LocationGuidebase_type* = GeomFill_LocationLaw
+  GeomFillLocationGuidebaseType* = GeomFillLocationLaw
 
-proc get_type_name*(): cstring {.importcpp: "GeomFill_LocationGuide::get_type_name(@)",
-                              header: "GeomFill_LocationGuide.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "GeomFill_LocationGuide::get_type_name(@)",
+                            header: "GeomFill_LocationGuide.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GeomFill_LocationGuide::get_type_descriptor(@)",
     header: "GeomFill_LocationGuide.hxx".}
-proc DynamicType*(this: GeomFill_LocationGuide): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "GeomFill_LocationGuide.hxx".}
+proc dynamicType*(this: GeomFillLocationGuide): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "GeomFill_LocationGuide.hxx".}

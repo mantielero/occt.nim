@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Array1
-
 discard "forward decl of Storage_Schema"
 type
-  Storage_ArrayOfSchema* = NCollection_Array1[handle[Storage_Schema]]
+  StorageArrayOfSchema* = NCollectionArray1[Handle[StorageSchema]]
+

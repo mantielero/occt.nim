@@ -14,48 +14,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_SolidModel
-
 discard "forward decl of StepShape_ConnectedFaceSet"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_ClosedShell"
 discard "forward decl of StepShape_ManifoldSolidBrep"
 discard "forward decl of StepShape_ManifoldSolidBrep"
 type
-  Handle_StepShape_ManifoldSolidBrep* = handle[StepShape_ManifoldSolidBrep]
-  StepShape_ManifoldSolidBrep* {.importcpp: "StepShape_ManifoldSolidBrep",
-                                header: "StepShape_ManifoldSolidBrep.hxx", bycopy.} = object of StepShape_SolidModel ##
-                                                                                                              ## !
-                                                                                                              ## Returns
-                                                                                                              ## a
-                                                                                                              ## ManifoldSolidBrep
+  HandleStepShapeManifoldSolidBrep* = Handle[StepShapeManifoldSolidBrep]
+  StepShapeManifoldSolidBrep* {.importcpp: "StepShape_ManifoldSolidBrep",
+                               header: "StepShape_ManifoldSolidBrep.hxx", bycopy.} = object of StepShapeSolidModel ##
+                                                                                                            ## !
+                                                                                                            ## Returns
+                                                                                                            ## a
+                                                                                                            ## ManifoldSolidBrep
 
 
-proc constructStepShape_ManifoldSolidBrep*(): StepShape_ManifoldSolidBrep {.
+proc constructStepShapeManifoldSolidBrep*(): StepShapeManifoldSolidBrep {.
     constructor, importcpp: "StepShape_ManifoldSolidBrep(@)",
     header: "StepShape_ManifoldSolidBrep.hxx".}
-proc Init*(this: var StepShape_ManifoldSolidBrep;
-          aName: handle[TCollection_HAsciiString];
-          aOuter: handle[StepShape_ClosedShell]) {.importcpp: "Init",
+proc init*(this: var StepShapeManifoldSolidBrep;
+          aName: Handle[TCollectionHAsciiString];
+          aOuter: Handle[StepShapeClosedShell]) {.importcpp: "Init",
     header: "StepShape_ManifoldSolidBrep.hxx".}
-proc Init*(this: var StepShape_ManifoldSolidBrep;
-          aName: handle[TCollection_HAsciiString];
-          aOuter: handle[StepShape_ConnectedFaceSet]) {.importcpp: "Init",
+proc init*(this: var StepShapeManifoldSolidBrep;
+          aName: Handle[TCollectionHAsciiString];
+          aOuter: Handle[StepShapeConnectedFaceSet]) {.importcpp: "Init",
     header: "StepShape_ManifoldSolidBrep.hxx".}
-proc SetOuter*(this: var StepShape_ManifoldSolidBrep;
-              aOuter: handle[StepShape_ConnectedFaceSet]) {.importcpp: "SetOuter",
+proc setOuter*(this: var StepShapeManifoldSolidBrep;
+              aOuter: Handle[StepShapeConnectedFaceSet]) {.importcpp: "SetOuter",
     header: "StepShape_ManifoldSolidBrep.hxx".}
-proc Outer*(this: StepShape_ManifoldSolidBrep): handle[StepShape_ConnectedFaceSet] {.
+proc outer*(this: StepShapeManifoldSolidBrep): Handle[StepShapeConnectedFaceSet] {.
     noSideEffect, importcpp: "Outer", header: "StepShape_ManifoldSolidBrep.hxx".}
 type
-  StepShape_ManifoldSolidBrepbase_type* = StepShape_SolidModel
+  StepShapeManifoldSolidBrepbaseType* = StepShapeSolidModel
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_ManifoldSolidBrep::get_type_name(@)",
-                              header: "StepShape_ManifoldSolidBrep.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_ManifoldSolidBrep::get_type_name(@)",
+                            header: "StepShape_ManifoldSolidBrep.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_ManifoldSolidBrep::get_type_descriptor(@)",
     header: "StepShape_ManifoldSolidBrep.hxx".}
-proc DynamicType*(this: StepShape_ManifoldSolidBrep): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeManifoldSolidBrep): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_ManifoldSolidBrep.hxx".}

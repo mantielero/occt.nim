@@ -14,57 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepBasic/StepBasic_HArray1OfUncertaintyMeasureWithUnit,
-  StepRepr_RepresentationContext, ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_UncertaintyMeasureWithUnit"
 discard "forward decl of StepRepr_GlobalUncertaintyAssignedContext"
 discard "forward decl of StepRepr_GlobalUncertaintyAssignedContext"
 type
-  Handle_StepRepr_GlobalUncertaintyAssignedContext* = handle[
-      StepRepr_GlobalUncertaintyAssignedContext]
-  StepRepr_GlobalUncertaintyAssignedContext* {.
+  HandleStepReprGlobalUncertaintyAssignedContext* = Handle[
+      StepReprGlobalUncertaintyAssignedContext]
+  StepReprGlobalUncertaintyAssignedContext* {.
       importcpp: "StepRepr_GlobalUncertaintyAssignedContext",
-      header: "StepRepr_GlobalUncertaintyAssignedContext.hxx", bycopy.} = object of StepRepr_RepresentationContext ##
-                                                                                                            ## !
-                                                                                                            ## Returns
-                                                                                                            ## a
-                                                                                                            ## GlobalUncertaintyAssignedContext
+      header: "StepRepr_GlobalUncertaintyAssignedContext.hxx", bycopy.} = object of StepReprRepresentationContext ##
+                                                                                                           ## !
+                                                                                                           ## Returns
+                                                                                                           ## a
+                                                                                                           ## GlobalUncertaintyAssignedContext
 
 
-proc constructStepRepr_GlobalUncertaintyAssignedContext*(): StepRepr_GlobalUncertaintyAssignedContext {.
+proc constructStepReprGlobalUncertaintyAssignedContext*(): StepReprGlobalUncertaintyAssignedContext {.
     constructor, importcpp: "StepRepr_GlobalUncertaintyAssignedContext(@)",
     header: "StepRepr_GlobalUncertaintyAssignedContext.hxx".}
-proc Init*(this: var StepRepr_GlobalUncertaintyAssignedContext;
-          aContextIdentifier: handle[TCollection_HAsciiString];
-          aContextType: handle[TCollection_HAsciiString];
-          aUncertainty: handle[StepBasic_HArray1OfUncertaintyMeasureWithUnit]) {.
+proc init*(this: var StepReprGlobalUncertaintyAssignedContext;
+          aContextIdentifier: Handle[TCollectionHAsciiString];
+          aContextType: Handle[TCollectionHAsciiString];
+          aUncertainty: Handle[StepBasicHArray1OfUncertaintyMeasureWithUnit]) {.
     importcpp: "Init", header: "StepRepr_GlobalUncertaintyAssignedContext.hxx".}
-proc SetUncertainty*(this: var StepRepr_GlobalUncertaintyAssignedContext;
-    aUncertainty: handle[StepBasic_HArray1OfUncertaintyMeasureWithUnit]) {.
+proc setUncertainty*(this: var StepReprGlobalUncertaintyAssignedContext;
+    aUncertainty: Handle[StepBasicHArray1OfUncertaintyMeasureWithUnit]) {.
     importcpp: "SetUncertainty",
     header: "StepRepr_GlobalUncertaintyAssignedContext.hxx".}
-proc Uncertainty*(this: StepRepr_GlobalUncertaintyAssignedContext): handle[
-    StepBasic_HArray1OfUncertaintyMeasureWithUnit] {.noSideEffect,
+proc uncertainty*(this: StepReprGlobalUncertaintyAssignedContext): Handle[
+    StepBasicHArray1OfUncertaintyMeasureWithUnit] {.noSideEffect,
     importcpp: "Uncertainty",
     header: "StepRepr_GlobalUncertaintyAssignedContext.hxx".}
-proc UncertaintyValue*(this: StepRepr_GlobalUncertaintyAssignedContext;
-                      num: Standard_Integer): handle[
-    StepBasic_UncertaintyMeasureWithUnit] {.noSideEffect,
+proc uncertaintyValue*(this: StepReprGlobalUncertaintyAssignedContext; num: int): Handle[
+    StepBasicUncertaintyMeasureWithUnit] {.noSideEffect,
     importcpp: "UncertaintyValue",
     header: "StepRepr_GlobalUncertaintyAssignedContext.hxx".}
-proc NbUncertainty*(this: StepRepr_GlobalUncertaintyAssignedContext): Standard_Integer {.
+proc nbUncertainty*(this: StepReprGlobalUncertaintyAssignedContext): int {.
     noSideEffect, importcpp: "NbUncertainty",
     header: "StepRepr_GlobalUncertaintyAssignedContext.hxx".}
 type
-  StepRepr_GlobalUncertaintyAssignedContextbase_type* = StepRepr_RepresentationContext
+  StepReprGlobalUncertaintyAssignedContextbaseType* = StepReprRepresentationContext
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_GlobalUncertaintyAssignedContext::get_type_name(@)", header: "StepRepr_GlobalUncertaintyAssignedContext.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepRepr_GlobalUncertaintyAssignedContext::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepRepr_GlobalUncertaintyAssignedContext::get_type_name(@)", header: "StepRepr_GlobalUncertaintyAssignedContext.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_GlobalUncertaintyAssignedContext::get_type_descriptor(@)",
     header: "StepRepr_GlobalUncertaintyAssignedContext.hxx".}
-proc DynamicType*(this: StepRepr_GlobalUncertaintyAssignedContext): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepRepr_GlobalUncertaintyAssignedContext.hxx".}
+proc dynamicType*(this: StepReprGlobalUncertaintyAssignedContext): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepRepr_GlobalUncertaintyAssignedContext.hxx".}

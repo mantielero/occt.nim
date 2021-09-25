@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../TopoDS/TopoDS_Shape, ../TopoDS/TopoDS_Compound,
-  ../TopTools/TopTools_HSequenceOfShape, ../Standard/Standard_Integer,
-  ../TopoDS/TopoDS_Wire
-
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_NullObject"
@@ -28,29 +21,29 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of gp_Dir"
 discard "forward decl of gp_Pnt"
 type
-  BRepProj_Projection* {.importcpp: "BRepProj_Projection",
-                        header: "BRepProj_Projection.hxx", bycopy.} = object ## ! Makes a
-                                                                        ## Cylindrical
-                                                                        ## projection of Wire om Shape
-                                                                        ## ! Performs section of theShape by theTool
-                                                                        ## ! and stores result in the fields.
+  BRepProjProjection* {.importcpp: "BRepProj_Projection",
+                       header: "BRepProj_Projection.hxx", bycopy.} = object ## ! Makes a
+                                                                       ## Cylindrical
+                                                                       ## projection of Wire om Shape
+                                                                       ## ! Performs section of theShape by theTool
+                                                                       ## ! and stores result in the fields.
 
 
-proc constructBRepProj_Projection*(Wire: TopoDS_Shape; Shape: TopoDS_Shape; D: gp_Dir): BRepProj_Projection {.
+proc constructBRepProjProjection*(wire: TopoDS_Shape; shape: TopoDS_Shape; d: Dir): BRepProjProjection {.
     constructor, importcpp: "BRepProj_Projection(@)",
     header: "BRepProj_Projection.hxx".}
-proc constructBRepProj_Projection*(Wire: TopoDS_Shape; Shape: TopoDS_Shape; P: gp_Pnt): BRepProj_Projection {.
+proc constructBRepProjProjection*(wire: TopoDS_Shape; shape: TopoDS_Shape; p: Pnt): BRepProjProjection {.
     constructor, importcpp: "BRepProj_Projection(@)",
     header: "BRepProj_Projection.hxx".}
-proc IsDone*(this: BRepProj_Projection): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "BRepProj_Projection.hxx".}
-proc Init*(this: var BRepProj_Projection) {.importcpp: "Init",
-                                        header: "BRepProj_Projection.hxx".}
-proc More*(this: BRepProj_Projection): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "BRepProj_Projection.hxx".}
-proc Next*(this: var BRepProj_Projection) {.importcpp: "Next",
-                                        header: "BRepProj_Projection.hxx".}
-proc Current*(this: BRepProj_Projection): TopoDS_Wire {.noSideEffect,
+proc isDone*(this: BRepProjProjection): bool {.noSideEffect, importcpp: "IsDone",
+    header: "BRepProj_Projection.hxx".}
+proc init*(this: var BRepProjProjection) {.importcpp: "Init",
+                                       header: "BRepProj_Projection.hxx".}
+proc more*(this: BRepProjProjection): bool {.noSideEffect, importcpp: "More",
+    header: "BRepProj_Projection.hxx".}
+proc next*(this: var BRepProjProjection) {.importcpp: "Next",
+                                       header: "BRepProj_Projection.hxx".}
+proc current*(this: BRepProjProjection): TopoDS_Wire {.noSideEffect,
     importcpp: "Current", header: "BRepProj_Projection.hxx".}
-proc Shape*(this: BRepProj_Projection): TopoDS_Compound {.noSideEffect,
+proc shape*(this: BRepProjProjection): TopoDS_Compound {.noSideEffect,
     importcpp: "Shape", header: "BRepProj_Projection.hxx".}

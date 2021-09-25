@@ -14,16 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Transfer_TransferDeadLoop_HeaderFile [NewLine] # _Transfer_TransferDeadLoop_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # Transfer_TransferFailure.hxx [NewLine] class Transfer_TransferDeadLoop ;
+## !!!Ignored construct:  # _Transfer_TransferDeadLoop_HeaderFile [NewLine] # _Transfer_TransferDeadLoop_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Transfer_TransferFailure . hxx > [NewLine] class Transfer_TransferDeadLoop ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Transfer_TransferDeadLoop"
 type
-  Handle_Transfer_TransferDeadLoopTransfer_TransferDeadLoop* = handle[
-      Transfer_TransferDeadLoop]
+  HandleTransferTransferDeadLoopTransferTransferDeadLoop* = Handle[
+      TransferTransferDeadLoop]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Transfer_TransferDeadLoop [NewLine] # if ( CONDITION ) throw Transfer_TransferDeadLoop ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Transfer_TransferDeadLoop , Transfer_TransferFailure ) #  _Transfer_TransferDeadLoop_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Transfer_TransferDeadLoop , Transfer_TransferFailure ) #  _Transfer_TransferDeadLoop_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

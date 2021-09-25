@@ -16,4 +16,5 @@
 
 discard "forward decl of TNaming_NamedShape"
 type
-  TNaming_PtrAttribute* = ptr TNaming_NamedShape
+  TNamingPtrAttribute* = ptr TNamingNamedShape
+

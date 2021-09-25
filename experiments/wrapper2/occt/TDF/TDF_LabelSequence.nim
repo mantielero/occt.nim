@@ -13,8 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TDF_Label, ../NCollection/NCollection_Sequence
-
 type
-  TDF_LabelSequence* = NCollection_Sequence[TDF_Label]
+  TDF_LabelSequence* = NCollectionSequence[TDF_Label]
+

@@ -14,44 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../StepGeom/StepGeom_GeometricRepresentationItem
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepVisual_PlanarExtent"
 discard "forward decl of StepVisual_PlanarExtent"
 type
-  Handle_StepVisual_PlanarExtent* = handle[StepVisual_PlanarExtent]
-  StepVisual_PlanarExtent* {.importcpp: "StepVisual_PlanarExtent",
-                            header: "StepVisual_PlanarExtent.hxx", bycopy.} = object of StepGeom_GeometricRepresentationItem ##
-                                                                                                                      ## !
-                                                                                                                      ## Returns
-                                                                                                                      ## a
-                                                                                                                      ## PlanarExtent
+  HandleStepVisualPlanarExtent* = Handle[StepVisualPlanarExtent]
+  StepVisualPlanarExtent* {.importcpp: "StepVisual_PlanarExtent",
+                           header: "StepVisual_PlanarExtent.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
+                                                                                                                    ## !
+                                                                                                                    ## Returns
+                                                                                                                    ## a
+                                                                                                                    ## PlanarExtent
 
 
-proc constructStepVisual_PlanarExtent*(): StepVisual_PlanarExtent {.constructor,
+proc constructStepVisualPlanarExtent*(): StepVisualPlanarExtent {.constructor,
     importcpp: "StepVisual_PlanarExtent(@)", header: "StepVisual_PlanarExtent.hxx".}
-proc Init*(this: var StepVisual_PlanarExtent;
-          aName: handle[TCollection_HAsciiString]; aSizeInX: Standard_Real;
-          aSizeInY: Standard_Real) {.importcpp: "Init",
-                                   header: "StepVisual_PlanarExtent.hxx".}
-proc SetSizeInX*(this: var StepVisual_PlanarExtent; aSizeInX: Standard_Real) {.
+proc init*(this: var StepVisualPlanarExtent; aName: Handle[TCollectionHAsciiString];
+          aSizeInX: float; aSizeInY: float) {.importcpp: "Init",
+    header: "StepVisual_PlanarExtent.hxx".}
+proc setSizeInX*(this: var StepVisualPlanarExtent; aSizeInX: float) {.
     importcpp: "SetSizeInX", header: "StepVisual_PlanarExtent.hxx".}
-proc SizeInX*(this: StepVisual_PlanarExtent): Standard_Real {.noSideEffect,
+proc sizeInX*(this: StepVisualPlanarExtent): float {.noSideEffect,
     importcpp: "SizeInX", header: "StepVisual_PlanarExtent.hxx".}
-proc SetSizeInY*(this: var StepVisual_PlanarExtent; aSizeInY: Standard_Real) {.
+proc setSizeInY*(this: var StepVisualPlanarExtent; aSizeInY: float) {.
     importcpp: "SetSizeInY", header: "StepVisual_PlanarExtent.hxx".}
-proc SizeInY*(this: StepVisual_PlanarExtent): Standard_Real {.noSideEffect,
+proc sizeInY*(this: StepVisualPlanarExtent): float {.noSideEffect,
     importcpp: "SizeInY", header: "StepVisual_PlanarExtent.hxx".}
 type
-  StepVisual_PlanarExtentbase_type* = StepGeom_GeometricRepresentationItem
+  StepVisualPlanarExtentbaseType* = StepGeomGeometricRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_PlanarExtent::get_type_name(@)",
-                              header: "StepVisual_PlanarExtent.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_PlanarExtent::get_type_name(@)",
+                            header: "StepVisual_PlanarExtent.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_PlanarExtent::get_type_descriptor(@)",
     header: "StepVisual_PlanarExtent.hxx".}
-proc DynamicType*(this: StepVisual_PlanarExtent): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualPlanarExtent): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepVisual_PlanarExtent.hxx".}

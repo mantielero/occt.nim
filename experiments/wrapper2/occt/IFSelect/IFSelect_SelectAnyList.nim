@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_SelectDeduct,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of IFSelect_IntParam"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Interface_InterfaceError"
@@ -28,7 +24,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectAnyList"
 discard "forward decl of IFSelect_SelectAnyList"
 type
-  Handle_IFSelect_SelectAnyList* = handle[IFSelect_SelectAnyList]
+  HandleIFSelectSelectAnyList* = Handle[IFSelectSelectAnyList]
 
 ## ! A SelectAnyList kind Selection selects a List of an Entity, as
 ## ! well as this Entity contains some. A List contains sub-entities
@@ -59,88 +55,86 @@ type
 ## ! RootResult must have zero (empty) or one Entity maximum
 
 type
-  IFSelect_SelectAnyList* {.importcpp: "IFSelect_SelectAnyList",
-                           header: "IFSelect_SelectAnyList.hxx", bycopy.} = object of IFSelect_SelectDeduct ##
-                                                                                                     ## !
-                                                                                                     ## Keeps
-                                                                                                     ## Input
-                                                                                                     ## Entity,
-                                                                                                     ## as
-                                                                                                     ## having
-                                                                                                     ## required
-                                                                                                     ## type.
-                                                                                                     ## It
-                                                                                                     ## works
-                                                                                                     ## by
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## keeping
-                                                                                                     ## in
-                                                                                                     ## <iter>,
-                                                                                                     ## only
-                                                                                                     ## suitable
-                                                                                                     ## Entities
-                                                                                                     ## (SelectType
-                                                                                                     ## can
-                                                                                                     ## be
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## used).
-                                                                                                     ## Called
-                                                                                                     ## by
-                                                                                                     ## RootResult
-                                                                                                     ## (which
-                                                                                                     ## waits
-                                                                                                     ## for
-                                                                                                     ## ONE
-                                                                                                     ## ENTITY
-                                                                                                     ## MAX)
+  IFSelectSelectAnyList* {.importcpp: "IFSelect_SelectAnyList",
+                          header: "IFSelect_SelectAnyList.hxx", bycopy.} = object of IFSelectSelectDeduct ##
+                                                                                                   ## !
+                                                                                                   ## Keeps
+                                                                                                   ## Input
+                                                                                                   ## Entity,
+                                                                                                   ## as
+                                                                                                   ## having
+                                                                                                   ## required
+                                                                                                   ## type.
+                                                                                                   ## It
+                                                                                                   ## works
+                                                                                                   ## by
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## keeping
+                                                                                                   ## in
+                                                                                                   ## <iter>,
+                                                                                                   ## only
+                                                                                                   ## suitable
+                                                                                                   ## Entities
+                                                                                                   ## (SelectType
+                                                                                                   ## can
+                                                                                                   ## be
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## used).
+                                                                                                   ## Called
+                                                                                                   ## by
+                                                                                                   ## RootResult
+                                                                                                   ## (which
+                                                                                                   ## waits
+                                                                                                   ## for
+                                                                                                   ## ONE
+                                                                                                   ## ENTITY
+                                                                                                   ## MAX)
 
 
-proc KeepInputEntity*(this: IFSelect_SelectAnyList;
-                     iter: var Interface_EntityIterator) {.noSideEffect,
+proc keepInputEntity*(this: IFSelectSelectAnyList;
+                     iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "KeepInputEntity", header: "IFSelect_SelectAnyList.hxx".}
-proc NbItems*(this: IFSelect_SelectAnyList; ent: handle[Standard_Transient]): Standard_Integer {.
+proc nbItems*(this: IFSelectSelectAnyList; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "NbItems", header: "IFSelect_SelectAnyList.hxx".}
-proc SetRange*(this: var IFSelect_SelectAnyList;
-              rankfrom: handle[IFSelect_IntParam];
-              rankto: handle[IFSelect_IntParam]) {.importcpp: "SetRange",
+proc setRange*(this: var IFSelectSelectAnyList; rankfrom: Handle[IFSelectIntParam];
+              rankto: Handle[IFSelectIntParam]) {.importcpp: "SetRange",
     header: "IFSelect_SelectAnyList.hxx".}
-proc SetOne*(this: var IFSelect_SelectAnyList; rank: handle[IFSelect_IntParam]) {.
+proc setOne*(this: var IFSelectSelectAnyList; rank: Handle[IFSelectIntParam]) {.
     importcpp: "SetOne", header: "IFSelect_SelectAnyList.hxx".}
-proc SetFrom*(this: var IFSelect_SelectAnyList; rankfrom: handle[IFSelect_IntParam]) {.
+proc setFrom*(this: var IFSelectSelectAnyList; rankfrom: Handle[IFSelectIntParam]) {.
     importcpp: "SetFrom", header: "IFSelect_SelectAnyList.hxx".}
-proc SetUntil*(this: var IFSelect_SelectAnyList; rankto: handle[IFSelect_IntParam]) {.
+proc setUntil*(this: var IFSelectSelectAnyList; rankto: Handle[IFSelectIntParam]) {.
     importcpp: "SetUntil", header: "IFSelect_SelectAnyList.hxx".}
-proc HasLower*(this: IFSelect_SelectAnyList): Standard_Boolean {.noSideEffect,
+proc hasLower*(this: IFSelectSelectAnyList): bool {.noSideEffect,
     importcpp: "HasLower", header: "IFSelect_SelectAnyList.hxx".}
-proc Lower*(this: IFSelect_SelectAnyList): handle[IFSelect_IntParam] {.noSideEffect,
+proc lower*(this: IFSelectSelectAnyList): Handle[IFSelectIntParam] {.noSideEffect,
     importcpp: "Lower", header: "IFSelect_SelectAnyList.hxx".}
-proc LowerValue*(this: IFSelect_SelectAnyList): Standard_Integer {.noSideEffect,
+proc lowerValue*(this: IFSelectSelectAnyList): int {.noSideEffect,
     importcpp: "LowerValue", header: "IFSelect_SelectAnyList.hxx".}
-proc HasUpper*(this: IFSelect_SelectAnyList): Standard_Boolean {.noSideEffect,
+proc hasUpper*(this: IFSelectSelectAnyList): bool {.noSideEffect,
     importcpp: "HasUpper", header: "IFSelect_SelectAnyList.hxx".}
-proc Upper*(this: IFSelect_SelectAnyList): handle[IFSelect_IntParam] {.noSideEffect,
+proc upper*(this: IFSelectSelectAnyList): Handle[IFSelectIntParam] {.noSideEffect,
     importcpp: "Upper", header: "IFSelect_SelectAnyList.hxx".}
-proc UpperValue*(this: IFSelect_SelectAnyList): Standard_Integer {.noSideEffect,
+proc upperValue*(this: IFSelectSelectAnyList): int {.noSideEffect,
     importcpp: "UpperValue", header: "IFSelect_SelectAnyList.hxx".}
-proc RootResult*(this: IFSelect_SelectAnyList; G: Interface_Graph): Interface_EntityIterator {.
+proc rootResult*(this: IFSelectSelectAnyList; g: InterfaceGraph): InterfaceEntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "IFSelect_SelectAnyList.hxx".}
-proc FillResult*(this: IFSelect_SelectAnyList; n1: Standard_Integer;
-                n2: Standard_Integer; ent: handle[Standard_Transient];
-                res: var Interface_EntityIterator) {.noSideEffect,
-    importcpp: "FillResult", header: "IFSelect_SelectAnyList.hxx".}
-proc Label*(this: IFSelect_SelectAnyList): TCollection_AsciiString {.noSideEffect,
+proc fillResult*(this: IFSelectSelectAnyList; n1: int; n2: int;
+                ent: Handle[StandardTransient]; res: var InterfaceEntityIterator) {.
+    noSideEffect, importcpp: "FillResult", header: "IFSelect_SelectAnyList.hxx".}
+proc label*(this: IFSelectSelectAnyList): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_SelectAnyList.hxx".}
-proc ListLabel*(this: IFSelect_SelectAnyList): TCollection_AsciiString {.
-    noSideEffect, importcpp: "ListLabel", header: "IFSelect_SelectAnyList.hxx".}
+proc listLabel*(this: IFSelectSelectAnyList): TCollectionAsciiString {.noSideEffect,
+    importcpp: "ListLabel", header: "IFSelect_SelectAnyList.hxx".}
 type
-  IFSelect_SelectAnyListbase_type* = IFSelect_SelectDeduct
+  IFSelectSelectAnyListbaseType* = IFSelectSelectDeduct
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectAnyList::get_type_name(@)",
-                              header: "IFSelect_SelectAnyList.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectAnyList::get_type_name(@)",
+                            header: "IFSelect_SelectAnyList.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_SelectAnyList::get_type_descriptor(@)",
     header: "IFSelect_SelectAnyList.hxx".}
-proc DynamicType*(this: IFSelect_SelectAnyList): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IFSelect_SelectAnyList.hxx".}
+proc dynamicType*(this: IFSelectSelectAnyList): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IFSelect_SelectAnyList.hxx".}

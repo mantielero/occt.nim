@@ -14,51 +14,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepShape_HArray1OfOrientedClosedShell, StepShape_ManifoldSolidBrep,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_ClosedShell"
 discard "forward decl of StepShape_OrientedClosedShell"
 discard "forward decl of StepShape_BrepWithVoids"
 discard "forward decl of StepShape_BrepWithVoids"
 type
-  Handle_StepShape_BrepWithVoids* = handle[StepShape_BrepWithVoids]
-  StepShape_BrepWithVoids* {.importcpp: "StepShape_BrepWithVoids",
-                            header: "StepShape_BrepWithVoids.hxx", bycopy.} = object of StepShape_ManifoldSolidBrep ##
-                                                                                                             ## !
-                                                                                                             ## Returns
-                                                                                                             ## a
-                                                                                                             ## BrepWithVoids
+  HandleStepShapeBrepWithVoids* = Handle[StepShapeBrepWithVoids]
+  StepShapeBrepWithVoids* {.importcpp: "StepShape_BrepWithVoids",
+                           header: "StepShape_BrepWithVoids.hxx", bycopy.} = object of StepShapeManifoldSolidBrep ##
+                                                                                                           ## !
+                                                                                                           ## Returns
+                                                                                                           ## a
+                                                                                                           ## BrepWithVoids
 
 
-proc constructStepShape_BrepWithVoids*(): StepShape_BrepWithVoids {.constructor,
+proc constructStepShapeBrepWithVoids*(): StepShapeBrepWithVoids {.constructor,
     importcpp: "StepShape_BrepWithVoids(@)", header: "StepShape_BrepWithVoids.hxx".}
-proc Init*(this: var StepShape_BrepWithVoids;
-          aName: handle[TCollection_HAsciiString];
-          aOuter: handle[StepShape_ClosedShell];
-          aVoids: handle[StepShape_HArray1OfOrientedClosedShell]) {.
+proc init*(this: var StepShapeBrepWithVoids; aName: Handle[TCollectionHAsciiString];
+          aOuter: Handle[StepShapeClosedShell];
+          aVoids: Handle[StepShapeHArray1OfOrientedClosedShell]) {.
     importcpp: "Init", header: "StepShape_BrepWithVoids.hxx".}
-proc SetVoids*(this: var StepShape_BrepWithVoids;
-              aVoids: handle[StepShape_HArray1OfOrientedClosedShell]) {.
+proc setVoids*(this: var StepShapeBrepWithVoids;
+              aVoids: Handle[StepShapeHArray1OfOrientedClosedShell]) {.
     importcpp: "SetVoids", header: "StepShape_BrepWithVoids.hxx".}
-proc Voids*(this: StepShape_BrepWithVoids): handle[
-    StepShape_HArray1OfOrientedClosedShell] {.noSideEffect, importcpp: "Voids",
+proc voids*(this: StepShapeBrepWithVoids): Handle[
+    StepShapeHArray1OfOrientedClosedShell] {.noSideEffect, importcpp: "Voids",
     header: "StepShape_BrepWithVoids.hxx".}
-proc VoidsValue*(this: StepShape_BrepWithVoids; num: Standard_Integer): handle[
-    StepShape_OrientedClosedShell] {.noSideEffect, importcpp: "VoidsValue",
-                                    header: "StepShape_BrepWithVoids.hxx".}
-proc NbVoids*(this: StepShape_BrepWithVoids): Standard_Integer {.noSideEffect,
+proc voidsValue*(this: StepShapeBrepWithVoids; num: int): Handle[
+    StepShapeOrientedClosedShell] {.noSideEffect, importcpp: "VoidsValue",
+                                   header: "StepShape_BrepWithVoids.hxx".}
+proc nbVoids*(this: StepShapeBrepWithVoids): int {.noSideEffect,
     importcpp: "NbVoids", header: "StepShape_BrepWithVoids.hxx".}
 type
-  StepShape_BrepWithVoidsbase_type* = StepShape_ManifoldSolidBrep
+  StepShapeBrepWithVoidsbaseType* = StepShapeManifoldSolidBrep
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_BrepWithVoids::get_type_name(@)",
-                              header: "StepShape_BrepWithVoids.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_BrepWithVoids::get_type_name(@)",
+                            header: "StepShape_BrepWithVoids.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_BrepWithVoids::get_type_descriptor(@)",
     header: "StepShape_BrepWithVoids.hxx".}
-proc DynamicType*(this: StepShape_BrepWithVoids): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeBrepWithVoids): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_BrepWithVoids.hxx".}

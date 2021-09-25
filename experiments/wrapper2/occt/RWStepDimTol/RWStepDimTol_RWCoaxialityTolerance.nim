@@ -13,33 +13,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepDimTol_CoaxialityTolerance"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepDimTol_RWCoaxialityTolerance* {.importcpp: "RWStepDimTol_RWCoaxialityTolerance", header: "RWStepDimTol_RWCoaxialityTolerance.hxx",
-                                       bycopy.} = object ## ! Empty constructor
+  RWStepDimTolRWCoaxialityTolerance* {.importcpp: "RWStepDimTol_RWCoaxialityTolerance", header: "RWStepDimTol_RWCoaxialityTolerance.hxx",
+                                      bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepDimTol_RWCoaxialityTolerance*(): RWStepDimTol_RWCoaxialityTolerance {.
+proc constructRWStepDimTolRWCoaxialityTolerance*(): RWStepDimTolRWCoaxialityTolerance {.
     constructor, importcpp: "RWStepDimTol_RWCoaxialityTolerance(@)",
     header: "RWStepDimTol_RWCoaxialityTolerance.hxx".}
-proc ReadStep*(this: RWStepDimTol_RWCoaxialityTolerance;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepDimTol_CoaxialityTolerance]) {.noSideEffect,
+proc readStep*(this: RWStepDimTolRWCoaxialityTolerance;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepDimTolCoaxialityTolerance]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepDimTol_RWCoaxialityTolerance.hxx".}
-proc WriteStep*(this: RWStepDimTol_RWCoaxialityTolerance;
-               SW: var StepData_StepWriter;
-               ent: handle[StepDimTol_CoaxialityTolerance]) {.noSideEffect,
+proc writeStep*(this: RWStepDimTolRWCoaxialityTolerance;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepDimTolCoaxialityTolerance]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepDimTol_RWCoaxialityTolerance.hxx".}
-proc Share*(this: RWStepDimTol_RWCoaxialityTolerance;
-           ent: handle[StepDimTol_CoaxialityTolerance];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepDimTolRWCoaxialityTolerance;
+           ent: Handle[StepDimTolCoaxialityTolerance];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWCoaxialityTolerance.hxx".}

@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  STEPSelections_AssemblyComponent, ../NCollection/NCollection_Sequence
-
 type
-  STEPSelections_SequenceOfAssemblyComponent* = NCollection_Sequence[
-      handle[STEPSelections_AssemblyComponent]]
+  STEPSelectionsSequenceOfAssemblyComponent* = NCollectionSequence[
+      Handle[STEPSelectionsAssemblyComponent]]
+

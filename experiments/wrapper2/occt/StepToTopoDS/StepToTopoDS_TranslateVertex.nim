@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, StepToTopoDS_TranslateVertexError,
-  ../TopoDS/TopoDS_Shape, StepToTopoDS_Root
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of StepShape_Vertex"
 discard "forward decl of StepToTopoDS_Tool"
@@ -33,14 +28,14 @@ type
 proc constructStepToTopoDS_TranslateVertex*(): StepToTopoDS_TranslateVertex {.
     constructor, importcpp: "StepToTopoDS_TranslateVertex(@)",
     header: "StepToTopoDS_TranslateVertex.hxx".}
-proc constructStepToTopoDS_TranslateVertex*(V: handle[StepShape_Vertex];
-    T: var StepToTopoDS_Tool; NMTool: var StepToTopoDS_NMTool): StepToTopoDS_TranslateVertex {.
+proc constructStepToTopoDS_TranslateVertex*(v: Handle[StepShapeVertex];
+    t: var StepToTopoDS_Tool; nMTool: var StepToTopoDS_NMTool): StepToTopoDS_TranslateVertex {.
     constructor, importcpp: "StepToTopoDS_TranslateVertex(@)",
     header: "StepToTopoDS_TranslateVertex.hxx".}
-proc Init*(this: var StepToTopoDS_TranslateVertex; V: handle[StepShape_Vertex];
-          T: var StepToTopoDS_Tool; NMTool: var StepToTopoDS_NMTool) {.
+proc init*(this: var StepToTopoDS_TranslateVertex; v: Handle[StepShapeVertex];
+          t: var StepToTopoDS_Tool; nMTool: var StepToTopoDS_NMTool) {.
     importcpp: "Init", header: "StepToTopoDS_TranslateVertex.hxx".}
-proc Value*(this: StepToTopoDS_TranslateVertex): TopoDS_Shape {.noSideEffect,
+proc value*(this: StepToTopoDS_TranslateVertex): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "StepToTopoDS_TranslateVertex.hxx".}
-proc Error*(this: StepToTopoDS_TranslateVertex): StepToTopoDS_TranslateVertexError {.
+proc error*(this: StepToTopoDS_TranslateVertex): StepToTopoDS_TranslateVertexError {.
     noSideEffect, importcpp: "Error", header: "StepToTopoDS_TranslateVertex.hxx".}

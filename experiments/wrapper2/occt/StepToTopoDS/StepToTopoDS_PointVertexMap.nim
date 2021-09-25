@@ -14,14 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../StepGeom/StepGeom_CartesianPoint, ../TopoDS/TopoDS_Vertex,
-  StepToTopoDS_CartesianPointHasher, ../NCollection/NCollection_DataMap
-
 type
-  StepToTopoDS_PointVertexMap* = NCollection_DataMap[
-      handle[StepGeom_CartesianPoint], TopoDS_Vertex,
+  StepToTopoDS_PointVertexMap* = NCollectionDataMap[
+      Handle[StepGeomCartesianPoint], TopoDS_Vertex,
       StepToTopoDS_CartesianPointHasher]
   StepToTopoDS_DataMapIteratorOfPointVertexMap* = Iterator[
-      handle[StepGeom_CartesianPoint], TopoDS_Vertex,
+      Handle[StepGeomCartesianPoint], TopoDS_Vertex,
       StepToTopoDS_CartesianPointHasher]
+

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../IFSelect/IFSelect_SelectExplore, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_Graph"
@@ -27,8 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SelectBypassSubfigure"
 discard "forward decl of IGESSelect_SelectBypassSubfigure"
 type
-  Handle_IGESSelect_SelectBypassSubfigure* = handle[
-      IGESSelect_SelectBypassSubfigure]
+  HandleIGESSelectSelectBypassSubfigure* = Handle[IGESSelectSelectBypassSubfigure]
 
 ## ! Selects a list built as follows :
 ## ! Subfigures correspond to
@@ -46,38 +40,33 @@ type
 ## ! level (i.e. for an instance, returns its definition)
 
 type
-  IGESSelect_SelectBypassSubfigure* {.importcpp: "IGESSelect_SelectBypassSubfigure", header: "IGESSelect_SelectBypassSubfigure.hxx",
-                                     bycopy.} = object of IFSelect_SelectExplore ## !
-                                                                            ## Creates a
-                                                                            ## SelectBypassSubfigure, by
-                                                                            ## default all
-                                                                            ## level
-                                                                            ## !
-                                                                            ## (level = 1
-                                                                            ## explores at
-                                                                            ## first
-                                                                            ## level)
+  IGESSelectSelectBypassSubfigure* {.importcpp: "IGESSelect_SelectBypassSubfigure", header: "IGESSelect_SelectBypassSubfigure.hxx",
+                                    bycopy.} = object of IFSelectSelectExplore ## !
+                                                                          ## Creates a
+                                                                          ## SelectBypassSubfigure, by
+                                                                          ## default all level
+                                                                          ## ! (level = 1
+                                                                          ## explores at first level)
 
 
-proc constructIGESSelect_SelectBypassSubfigure*(level: Standard_Integer = 0): IGESSelect_SelectBypassSubfigure {.
+proc constructIGESSelectSelectBypassSubfigure*(level: int = 0): IGESSelectSelectBypassSubfigure {.
     constructor, importcpp: "IGESSelect_SelectBypassSubfigure(@)",
     header: "IGESSelect_SelectBypassSubfigure.hxx".}
-proc Explore*(this: IGESSelect_SelectBypassSubfigure; level: Standard_Integer;
-             ent: handle[Standard_Transient]; G: Interface_Graph;
-             explored: var Interface_EntityIterator): Standard_Boolean {.
-    noSideEffect, importcpp: "Explore",
-    header: "IGESSelect_SelectBypassSubfigure.hxx".}
-proc ExploreLabel*(this: IGESSelect_SelectBypassSubfigure): TCollection_AsciiString {.
+proc explore*(this: IGESSelectSelectBypassSubfigure; level: int;
+             ent: Handle[StandardTransient]; g: InterfaceGraph;
+             explored: var InterfaceEntityIterator): bool {.noSideEffect,
+    importcpp: "Explore", header: "IGESSelect_SelectBypassSubfigure.hxx".}
+proc exploreLabel*(this: IGESSelectSelectBypassSubfigure): TCollectionAsciiString {.
     noSideEffect, importcpp: "ExploreLabel",
     header: "IGESSelect_SelectBypassSubfigure.hxx".}
 type
-  IGESSelect_SelectBypassSubfigurebase_type* = IFSelect_SelectExplore
+  IGESSelectSelectBypassSubfigurebaseType* = IFSelectSelectExplore
 
-proc get_type_name*(): cstring {.importcpp: "IGESSelect_SelectBypassSubfigure::get_type_name(@)",
-                              header: "IGESSelect_SelectBypassSubfigure.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_SelectBypassSubfigure::get_type_name(@)",
+                            header: "IGESSelect_SelectBypassSubfigure.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSelect_SelectBypassSubfigure::get_type_descriptor(@)",
     header: "IGESSelect_SelectBypassSubfigure.hxx".}
-proc DynamicType*(this: IGESSelect_SelectBypassSubfigure): handle[Standard_Type] {.
+proc dynamicType*(this: IGESSelectSelectBypassSubfigure): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SelectBypassSubfigure.hxx".}

@@ -14,54 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, math_Function, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real
-
 ## ! This abstract class describes the virtual functions associated with
 ## ! a function of a single variable for which the first derivative is
 ## ! available.
 
 type
-  math_FunctionWithDerivative* {.importcpp: "math_FunctionWithDerivative",
-                                header: "math_FunctionWithDerivative.hxx", bycopy.} = object of math_Function ##
-                                                                                                       ## !
-                                                                                                       ## Computes
-                                                                                                       ## the
-                                                                                                       ## value
-                                                                                                       ## <F>of
-                                                                                                       ## the
-                                                                                                       ## function
-                                                                                                       ## for
-                                                                                                       ## the
-                                                                                                       ## variable
-                                                                                                       ## <X>.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Returns
-                                                                                                       ## True
-                                                                                                       ## if
-                                                                                                       ## the
-                                                                                                       ## calculation
-                                                                                                       ## were
-                                                                                                       ## successfully
-                                                                                                       ## done,
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## False
-                                                                                                       ## otherwise.
+  MathFunctionWithDerivative* {.importcpp: "math_FunctionWithDerivative",
+                               header: "math_FunctionWithDerivative.hxx", bycopy.} = object of MathFunction ##
+                                                                                                     ## !
+                                                                                                     ## Computes
+                                                                                                     ## the
+                                                                                                     ## value
+                                                                                                     ## <F>of
+                                                                                                     ## the
+                                                                                                     ## function
+                                                                                                     ## for
+                                                                                                     ## the
+                                                                                                     ## variable
+                                                                                                     ## <X>.
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## Returns
+                                                                                                     ## True
+                                                                                                     ## if
+                                                                                                     ## the
+                                                                                                     ## calculation
+                                                                                                     ## were
+                                                                                                     ## successfully
+                                                                                                     ## done,
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## False
+                                                                                                     ## otherwise.
 
 
-proc Value*(this: var math_FunctionWithDerivative; X: Standard_Real;
-           F: var Standard_Real): Standard_Boolean {.importcpp: "Value",
-    header: "math_FunctionWithDerivative.hxx".}
-proc Derivative*(this: var math_FunctionWithDerivative; X: Standard_Real;
-                D: var Standard_Real): Standard_Boolean {.importcpp: "Derivative",
-    header: "math_FunctionWithDerivative.hxx".}
-proc Values*(this: var math_FunctionWithDerivative; X: Standard_Real;
-            F: var Standard_Real; D: var Standard_Real): Standard_Boolean {.
+proc value*(this: var MathFunctionWithDerivative; x: float; f: var float): bool {.
+    importcpp: "Value", header: "math_FunctionWithDerivative.hxx".}
+proc derivative*(this: var MathFunctionWithDerivative; x: float; d: var float): bool {.
+    importcpp: "Derivative", header: "math_FunctionWithDerivative.hxx".}
+proc values*(this: var MathFunctionWithDerivative; x: float; f: var float; d: var float): bool {.
     importcpp: "Values", header: "math_FunctionWithDerivative.hxx".}
-proc destroymath_FunctionWithDerivative*(this: var math_FunctionWithDerivative) {.
+proc destroyMathFunctionWithDerivative*(this: var MathFunctionWithDerivative) {.
     importcpp: "#.~math_FunctionWithDerivative()",
     header: "math_FunctionWithDerivative.hxx".}

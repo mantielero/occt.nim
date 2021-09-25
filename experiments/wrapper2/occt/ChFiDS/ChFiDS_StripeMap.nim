@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ChFiDS_IndexedDataMapOfVertexListOfStripe,
-  ../Standard/Standard_Integer, ChFiDS_ListOfStripe
-
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of ChFiDS_Stripe"
 type
@@ -28,19 +23,19 @@ type
 
 proc constructChFiDS_StripeMap*(): ChFiDS_StripeMap {.constructor,
     importcpp: "ChFiDS_StripeMap(@)", header: "ChFiDS_StripeMap.hxx".}
-proc Add*(this: var ChFiDS_StripeMap; V: TopoDS_Vertex; F: handle[ChFiDS_Stripe]) {.
+proc add*(this: var ChFiDS_StripeMap; v: TopoDS_Vertex; f: Handle[ChFiDS_Stripe]) {.
     importcpp: "Add", header: "ChFiDS_StripeMap.hxx".}
-proc Extent*(this: ChFiDS_StripeMap): Standard_Integer {.noSideEffect,
-    importcpp: "Extent", header: "ChFiDS_StripeMap.hxx".}
-proc FindFromKey*(this: ChFiDS_StripeMap; V: TopoDS_Vertex): ChFiDS_ListOfStripe {.
+proc extent*(this: ChFiDS_StripeMap): int {.noSideEffect, importcpp: "Extent",
+                                        header: "ChFiDS_StripeMap.hxx".}
+proc findFromKey*(this: ChFiDS_StripeMap; v: TopoDS_Vertex): ChFiDS_ListOfStripe {.
     noSideEffect, importcpp: "FindFromKey", header: "ChFiDS_StripeMap.hxx".}
-proc `()`*(this: ChFiDS_StripeMap; V: TopoDS_Vertex): ChFiDS_ListOfStripe {.
+proc `()`*(this: ChFiDS_StripeMap; v: TopoDS_Vertex): ChFiDS_ListOfStripe {.
     noSideEffect, importcpp: "#(@)", header: "ChFiDS_StripeMap.hxx".}
-proc FindFromIndex*(this: ChFiDS_StripeMap; I: Standard_Integer): ChFiDS_ListOfStripe {.
+proc findFromIndex*(this: ChFiDS_StripeMap; i: int): ChFiDS_ListOfStripe {.
     noSideEffect, importcpp: "FindFromIndex", header: "ChFiDS_StripeMap.hxx".}
-proc `()`*(this: ChFiDS_StripeMap; I: Standard_Integer): ChFiDS_ListOfStripe {.
-    noSideEffect, importcpp: "#(@)", header: "ChFiDS_StripeMap.hxx".}
-proc FindKey*(this: ChFiDS_StripeMap; I: Standard_Integer): TopoDS_Vertex {.
-    noSideEffect, importcpp: "FindKey", header: "ChFiDS_StripeMap.hxx".}
-proc Clear*(this: var ChFiDS_StripeMap) {.importcpp: "Clear",
+proc `()`*(this: ChFiDS_StripeMap; i: int): ChFiDS_ListOfStripe {.noSideEffect,
+    importcpp: "#(@)", header: "ChFiDS_StripeMap.hxx".}
+proc findKey*(this: ChFiDS_StripeMap; i: int): TopoDS_Vertex {.noSideEffect,
+    importcpp: "FindKey", header: "ChFiDS_StripeMap.hxx".}
+proc clear*(this: var ChFiDS_StripeMap) {.importcpp: "Clear",
                                       header: "ChFiDS_StripeMap.hxx".}

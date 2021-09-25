@@ -13,9 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Map
-
 discard "forward decl of Graphic3d_Structure"
 type
-  Graphic3d_MapOfStructure* = NCollection_Map[handle[Graphic3d_Structure]]
+  Graphic3dMapOfStructure* = NCollectionMap[Handle[Graphic3dStructure]]
+

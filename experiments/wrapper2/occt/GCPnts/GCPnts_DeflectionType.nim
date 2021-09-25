@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  GCPnts_DeflectionType* {.size: sizeof(cint), importcpp: "GCPnts_DeflectionType",
-                          header: "GCPnts_DeflectionType.hxx".} = enum
-    GCPnts_Linear, GCPnts_Circular, GCPnts_Curved, GCPnts_DefComposite
+  GCPntsDeflectionType* {.size: sizeof(cint), importcpp: "GCPnts_DeflectionType",
+                         header: "GCPnts_DeflectionType.hxx".} = enum
+    GCPntsLinear, GCPntsCircular, GCPntsCurved, GCPntsDefComposite
+
 

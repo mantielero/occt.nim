@@ -14,16 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  TopOpeBRepDS_Config, TopOpeBRepDS_Interference, TopOpeBRepDS_Kind,
-  ../Standard/Standard_Integer, ../Standard/Standard_OStream
-
 discard "forward decl of TopOpeBRepDS_Transition"
 discard "forward decl of TopOpeBRepDS_ShapeShapeInterference"
 discard "forward decl of TopOpeBRepDS_ShapeShapeInterference"
 type
-  Handle_TopOpeBRepDS_ShapeShapeInterference* = handle[
+  HandleTopOpeBRepDS_ShapeShapeInterference* = Handle[
       TopOpeBRepDS_ShapeShapeInterference]
 
 ## ! Interference
@@ -179,27 +174,26 @@ type
                                                                                   ## DIFFERENT.
 
 
-proc constructTopOpeBRepDS_ShapeShapeInterference*(T: TopOpeBRepDS_Transition;
-    ST: TopOpeBRepDS_Kind; S: Standard_Integer; GT: TopOpeBRepDS_Kind;
-    G: Standard_Integer; GBound: Standard_Boolean; C: TopOpeBRepDS_Config): TopOpeBRepDS_ShapeShapeInterference {.
-    constructor, importcpp: "TopOpeBRepDS_ShapeShapeInterference(@)",
+proc constructTopOpeBRepDS_ShapeShapeInterference*(t: TopOpeBRepDS_Transition;
+    st: TopOpeBRepDS_Kind; s: int; gt: TopOpeBRepDS_Kind; g: int; gBound: bool;
+    c: TopOpeBRepDS_Config): TopOpeBRepDS_ShapeShapeInterference {.constructor,
+    importcpp: "TopOpeBRepDS_ShapeShapeInterference(@)",
     header: "TopOpeBRepDS_ShapeShapeInterference.hxx".}
-proc Config*(this: TopOpeBRepDS_ShapeShapeInterference): TopOpeBRepDS_Config {.
+proc config*(this: TopOpeBRepDS_ShapeShapeInterference): TopOpeBRepDS_Config {.
     noSideEffect, importcpp: "Config",
     header: "TopOpeBRepDS_ShapeShapeInterference.hxx".}
-proc GBound*(this: TopOpeBRepDS_ShapeShapeInterference): Standard_Boolean {.
-    noSideEffect, importcpp: "GBound",
-    header: "TopOpeBRepDS_ShapeShapeInterference.hxx".}
-proc SetGBound*(this: var TopOpeBRepDS_ShapeShapeInterference; b: Standard_Boolean) {.
+proc gBound*(this: TopOpeBRepDS_ShapeShapeInterference): bool {.noSideEffect,
+    importcpp: "GBound", header: "TopOpeBRepDS_ShapeShapeInterference.hxx".}
+proc setGBound*(this: var TopOpeBRepDS_ShapeShapeInterference; b: bool) {.
     importcpp: "SetGBound", header: "TopOpeBRepDS_ShapeShapeInterference.hxx".}
 type
-  TopOpeBRepDS_ShapeShapeInterferencebase_type* = TopOpeBRepDS_Interference
+  TopOpeBRepDS_ShapeShapeInterferencebaseType* = TopOpeBRepDS_Interference
 
-proc get_type_name*(): cstring {.importcpp: "TopOpeBRepDS_ShapeShapeInterference::get_type_name(@)",
-                              header: "TopOpeBRepDS_ShapeShapeInterference.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TopOpeBRepDS_ShapeShapeInterference::get_type_name(@)",
+                            header: "TopOpeBRepDS_ShapeShapeInterference.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopOpeBRepDS_ShapeShapeInterference::get_type_descriptor(@)",
     header: "TopOpeBRepDS_ShapeShapeInterference.hxx".}
-proc DynamicType*(this: TopOpeBRepDS_ShapeShapeInterference): handle[Standard_Type] {.
+proc dynamicType*(this: TopOpeBRepDS_ShapeShapeInterference): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TopOpeBRepDS_ShapeShapeInterference.hxx".}

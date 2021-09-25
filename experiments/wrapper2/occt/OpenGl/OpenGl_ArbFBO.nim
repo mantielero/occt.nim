@@ -13,13 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_GlFunctions
-
 ## ! FBO is available on OpenGL 2.0+ hardware
 
 type
-  OpenGl_ArbFBO* {.importcpp: "OpenGl_ArbFBO", header: "OpenGl_ArbFBO.hxx", bycopy.} = object of OpenGl_GlFunctions
+  OpenGlArbFBO* {.importcpp: "OpenGl_ArbFBO", header: "OpenGl_ArbFBO.hxx", bycopy.} = object of OpenGlGlFunctions
 
 
 ## using statement
@@ -52,22 +49,23 @@ type
 
 ## using statement
 
-when not defined(GL_ES_VERSION_2_0):
-  discard
-when not defined(GL_ES_VERSION_2_0):
-  discard
-when not defined(GL_ES_VERSION_2_0):
-  discard
-when not defined(GL_ES_VERSION_2_0):
-  discard
-when not defined(GL_ES_VERSION_2_0):
-  discard
+# when not defined(gl_Es_Version_20):
+#   discard
+# when not defined(gl_Es_Version_20):
+#   discard
+# when not defined(gl_Es_Version_20):
+#   discard
+# when not defined(gl_Es_Version_20):
+#   discard
+# when not defined(gl_Es_Version_20):
+#   discard
 ## ! FBO blit is available in OpenGL 3.0+.
 ## ! Moved out from OpenGl_ArbFBO since it is unavailable in OpenGL ES 2.0.
 
 type
-  OpenGl_ArbFBOBlit* {.importcpp: "OpenGl_ArbFBOBlit", header: "OpenGl_ArbFBO.hxx",
-                      bycopy.} = object of OpenGl_GlFunctions
+  OpenGlArbFBOBlit* {.importcpp: "OpenGl_ArbFBOBlit", header: "OpenGl_ArbFBO.hxx",
+                     bycopy.} = object of OpenGlGlFunctions
 
 
 ## using statement
+

@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_OStream,
-  ../Standard/Standard_Boolean, TopOpeBRepDS_Kind, ../Standard/Standard_Integer,
-  ../TopAbs/TopAbs_ShapeEnum, TopOpeBRepDS_ListOfInterference,
-  ../TCollection/TCollection_AsciiString, ../TopTools/TopTools_ListOfShape
-
 discard "forward decl of TopOpeBRepDS_HDataStructure"
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom2d_Curve"
@@ -36,21 +29,20 @@ type
                         header: "TopOpeBRepDS_Dumper.hxx", bycopy.} = object
 
 
-proc constructTopOpeBRepDS_Dumper*(HDS: handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_Dumper {.
+proc constructTopOpeBRepDS_Dumper*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_Dumper {.
     constructor, importcpp: "TopOpeBRepDS_Dumper(@)",
     header: "TopOpeBRepDS_Dumper.hxx".}
-proc SDumpRefOri*(this: TopOpeBRepDS_Dumper; K: TopOpeBRepDS_Kind;
-                 I: Standard_Integer): TCollection_AsciiString {.noSideEffect,
-    importcpp: "SDumpRefOri", header: "TopOpeBRepDS_Dumper.hxx".}
-proc SDumpRefOri*(this: TopOpeBRepDS_Dumper; S: TopoDS_Shape): TCollection_AsciiString {.
+proc sDumpRefOri*(this: TopOpeBRepDS_Dumper; k: TopOpeBRepDS_Kind; i: int): TCollectionAsciiString {.
     noSideEffect, importcpp: "SDumpRefOri", header: "TopOpeBRepDS_Dumper.hxx".}
-proc SPrintShape*(this: TopOpeBRepDS_Dumper; I: Standard_Integer): TCollection_AsciiString {.
+proc sDumpRefOri*(this: TopOpeBRepDS_Dumper; s: TopoDS_Shape): TCollectionAsciiString {.
+    noSideEffect, importcpp: "SDumpRefOri", header: "TopOpeBRepDS_Dumper.hxx".}
+proc sPrintShape*(this: TopOpeBRepDS_Dumper; i: int): TCollectionAsciiString {.
     noSideEffect, importcpp: "SPrintShape", header: "TopOpeBRepDS_Dumper.hxx".}
-proc SPrintShape*(this: TopOpeBRepDS_Dumper; S: TopoDS_Shape): TCollection_AsciiString {.
+proc sPrintShape*(this: TopOpeBRepDS_Dumper; s: TopoDS_Shape): TCollectionAsciiString {.
     noSideEffect, importcpp: "SPrintShape", header: "TopOpeBRepDS_Dumper.hxx".}
-proc SPrintShapeRefOri*(this: TopOpeBRepDS_Dumper; S: TopoDS_Shape;
-                       B: TCollection_AsciiString = ""): TCollection_AsciiString {.
+proc sPrintShapeRefOri*(this: TopOpeBRepDS_Dumper; s: TopoDS_Shape;
+                       b: TCollectionAsciiString = ""): TCollectionAsciiString {.
     noSideEffect, importcpp: "SPrintShapeRefOri", header: "TopOpeBRepDS_Dumper.hxx".}
-proc SPrintShapeRefOri*(this: TopOpeBRepDS_Dumper; L: TopTools_ListOfShape;
-                       B: TCollection_AsciiString = ""): TCollection_AsciiString {.
+proc sPrintShapeRefOri*(this: TopOpeBRepDS_Dumper; L: TopToolsListOfShape;
+                       b: TCollectionAsciiString = ""): TCollectionAsciiString {.
     noSideEffect, importcpp: "SPrintShapeRefOri", header: "TopOpeBRepDS_Dumper.hxx".}

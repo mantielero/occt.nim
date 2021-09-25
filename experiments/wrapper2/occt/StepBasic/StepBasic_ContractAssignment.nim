@@ -14,43 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_Contract"
 discard "forward decl of StepBasic_ContractAssignment"
 discard "forward decl of StepBasic_ContractAssignment"
 type
-  Handle_StepBasic_ContractAssignment* = handle[StepBasic_ContractAssignment]
+  HandleStepBasicContractAssignment* = Handle[StepBasicContractAssignment]
 
 ## ! Representation of STEP entity ContractAssignment
 
 type
-  StepBasic_ContractAssignment* {.importcpp: "StepBasic_ContractAssignment",
-                                 header: "StepBasic_ContractAssignment.hxx",
-                                 bycopy.} = object of Standard_Transient ## ! Empty constructor
+  StepBasicContractAssignment* {.importcpp: "StepBasic_ContractAssignment",
+                                header: "StepBasic_ContractAssignment.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                            ## !
+                                                                                                            ## Empty
+                                                                                                            ## constructor
 
 
-proc constructStepBasic_ContractAssignment*(): StepBasic_ContractAssignment {.
+proc constructStepBasicContractAssignment*(): StepBasicContractAssignment {.
     constructor, importcpp: "StepBasic_ContractAssignment(@)",
     header: "StepBasic_ContractAssignment.hxx".}
-proc Init*(this: var StepBasic_ContractAssignment;
-          aAssignedContract: handle[StepBasic_Contract]) {.importcpp: "Init",
+proc init*(this: var StepBasicContractAssignment;
+          aAssignedContract: Handle[StepBasicContract]) {.importcpp: "Init",
     header: "StepBasic_ContractAssignment.hxx".}
-proc AssignedContract*(this: StepBasic_ContractAssignment): handle[
-    StepBasic_Contract] {.noSideEffect, importcpp: "AssignedContract",
-                         header: "StepBasic_ContractAssignment.hxx".}
-proc SetAssignedContract*(this: var StepBasic_ContractAssignment;
-                         AssignedContract: handle[StepBasic_Contract]) {.
+proc assignedContract*(this: StepBasicContractAssignment): Handle[StepBasicContract] {.
+    noSideEffect, importcpp: "AssignedContract",
+    header: "StepBasic_ContractAssignment.hxx".}
+proc setAssignedContract*(this: var StepBasicContractAssignment;
+                         assignedContract: Handle[StepBasicContract]) {.
     importcpp: "SetAssignedContract", header: "StepBasic_ContractAssignment.hxx".}
 type
-  StepBasic_ContractAssignmentbase_type* = Standard_Transient
+  StepBasicContractAssignmentbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ContractAssignment::get_type_name(@)",
-                              header: "StepBasic_ContractAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ContractAssignment::get_type_name(@)",
+                            header: "StepBasic_ContractAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_ContractAssignment::get_type_descriptor(@)",
     header: "StepBasic_ContractAssignment.hxx".}
-proc DynamicType*(this: StepBasic_ContractAssignment): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicContractAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ContractAssignment.hxx".}

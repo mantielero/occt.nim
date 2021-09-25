@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TNaming_Name,
-  ../TDF/TDF_Attribute, ../Standard/Standard_Boolean, ../TDF/TDF_LabelMap,
-  ../Standard/Standard_OStream, ../TDF/TDF_AttributeIndexedMap
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
 discard "forward decl of TNaming_NamedShape"
@@ -31,7 +26,7 @@ discard "forward decl of TDF_IDFilter"
 discard "forward decl of TNaming_Naming"
 discard "forward decl of TNaming_Naming"
 type
-  Handle_TNaming_Naming* = handle[TNaming_Naming]
+  HandleTNamingNaming* = Handle[TNamingNaming]
 
 ## ! This attribute  store the  topological  naming of any
 ## ! selected   shape,  when this  shape  is  not  already
@@ -40,64 +35,63 @@ type
 ## ! naming are modified.
 
 type
-  TNaming_Naming* {.importcpp: "TNaming_Naming", header: "TNaming_Naming.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                                        ## !
-                                                                                                        ## following
-                                                                                                        ## code
-                                                                                                        ## from
-                                                                                                        ## TDesignStd
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## ==============================
+  TNamingNaming* {.importcpp: "TNaming_Naming", header: "TNaming_Naming.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                                       ## !
+                                                                                                       ## following
+                                                                                                       ## code
+                                                                                                       ## from
+                                                                                                       ## TDesignStd
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## ==============================
 
 
-proc GetID*(): Standard_GUID {.importcpp: "TNaming_Naming::GetID(@)",
-                            header: "TNaming_Naming.hxx".}
-proc Insert*(under: TDF_Label): handle[TNaming_Naming] {.
+proc getID*(): StandardGUID {.importcpp: "TNaming_Naming::GetID(@)",
+                           header: "TNaming_Naming.hxx".}
+proc insert*(under: TDF_Label): Handle[TNamingNaming] {.
     importcpp: "TNaming_Naming::Insert(@)", header: "TNaming_Naming.hxx".}
-proc Name*(where: TDF_Label; Selection: TopoDS_Shape; Context: TopoDS_Shape;
-          Geometry: Standard_Boolean = Standard_False;
-          KeepOrientation: Standard_Boolean = Standard_False;
-          BNproblem: Standard_Boolean = Standard_False): handle[TNaming_NamedShape] {.
-    importcpp: "TNaming_Naming::Name(@)", header: "TNaming_Naming.hxx".}
-proc constructTNaming_Naming*(): TNaming_Naming {.constructor,
+proc name*(where: TDF_Label; selection: TopoDS_Shape; context: TopoDS_Shape;
+          geometry: bool = false; keepOrientation: bool = false; bNproblem: bool = false): Handle[
+    TNamingNamedShape] {.importcpp: "TNaming_Naming::Name(@)",
+                        header: "TNaming_Naming.hxx".}
+proc constructTNamingNaming*(): TNamingNaming {.constructor,
     importcpp: "TNaming_Naming(@)", header: "TNaming_Naming.hxx".}
-proc IsDefined*(this: TNaming_Naming): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDefined", header: "TNaming_Naming.hxx".}
-proc GetName*(this: TNaming_Naming): TNaming_Name {.noSideEffect,
-    importcpp: "GetName", header: "TNaming_Naming.hxx".}
-proc ChangeName*(this: var TNaming_Naming): var TNaming_Name {.
-    importcpp: "ChangeName", header: "TNaming_Naming.hxx".}
-proc Regenerate*(this: var TNaming_Naming; scope: var TDF_LabelMap): Standard_Boolean {.
+proc isDefined*(this: TNamingNaming): bool {.noSideEffect, importcpp: "IsDefined",
+    header: "TNaming_Naming.hxx".}
+proc getName*(this: TNamingNaming): TNamingName {.noSideEffect, importcpp: "GetName",
+    header: "TNaming_Naming.hxx".}
+proc changeName*(this: var TNamingNaming): var TNamingName {.importcpp: "ChangeName",
+    header: "TNaming_Naming.hxx".}
+proc regenerate*(this: var TNamingNaming; scope: var TDF_LabelMap): bool {.
     importcpp: "Regenerate", header: "TNaming_Naming.hxx".}
-proc Solve*(this: var TNaming_Naming; scope: var TDF_LabelMap): Standard_Boolean {.
+proc solve*(this: var TNamingNaming; scope: var TDF_LabelMap): bool {.
     importcpp: "Solve", header: "TNaming_Naming.hxx".}
-proc ID*(this: TNaming_Naming): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TNamingNaming): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TNaming_Naming.hxx".}
-proc NewEmpty*(this: TNaming_Naming): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TNamingNaming): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TNaming_Naming.hxx".}
-proc Restore*(this: var TNaming_Naming; With: handle[TDF_Attribute]) {.
+proc restore*(this: var TNamingNaming; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TNaming_Naming.hxx".}
-proc Paste*(this: TNaming_Naming; Into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TNamingNaming; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TNaming_Naming.hxx".}
-proc References*(this: TNaming_Naming; aDataSet: handle[TDF_DataSet]) {.noSideEffect,
+proc references*(this: TNamingNaming; aDataSet: Handle[TDF_DataSet]) {.noSideEffect,
     importcpp: "References", header: "TNaming_Naming.hxx".}
-proc Dump*(this: TNaming_Naming; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TNamingNaming; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TNaming_Naming.hxx".}
-proc ExtendedDump*(this: TNaming_Naming; anOS: var Standard_OStream;
+proc extendedDump*(this: TNamingNaming; anOS: var StandardOStream;
                   aFilter: TDF_IDFilter; aMap: var TDF_AttributeIndexedMap) {.
     noSideEffect, importcpp: "ExtendedDump", header: "TNaming_Naming.hxx".}
-proc DumpJson*(this: TNaming_Naming; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TNaming_Naming.hxx".}
+proc dumpJson*(this: TNamingNaming; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TNaming_Naming.hxx".}
 type
-  TNaming_Namingbase_type* = TDF_Attribute
+  TNamingNamingbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TNaming_Naming::get_type_name(@)",
-                              header: "TNaming_Naming.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TNaming_Naming::get_type_name(@)",
+                            header: "TNaming_Naming.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TNaming_Naming::get_type_descriptor(@)",
     header: "TNaming_Naming.hxx".}
-proc DynamicType*(this: TNaming_Naming): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TNamingNaming): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TNaming_Naming.hxx".}

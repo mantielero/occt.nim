@@ -30,3 +30,4 @@ type
     VrmlAPI_ShadedRepresentation, VrmlAPI_WireFrameRepresentation,
     VrmlAPI_BothRepresentation
 
+

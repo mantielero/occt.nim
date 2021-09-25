@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_GeneralModifier,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of IFSelect_ContextModif"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_Protocol"
@@ -25,7 +21,7 @@ discard "forward decl of Interface_CopyTool"
 discard "forward decl of IFSelect_Modifier"
 discard "forward decl of IFSelect_Modifier"
 type
-  Handle_IFSelect_Modifier* = handle[IFSelect_Modifier]
+  HandleIFSelectModifier* = Handle[IFSelectModifier]
 
 ## ! This class gives a frame for Actions which can work globally
 ## ! on a File once completely defined (i.e. afterwards)
@@ -35,144 +31,144 @@ type
 ## ! produced.
 
 type
-  IFSelect_Modifier* {.importcpp: "IFSelect_Modifier",
-                      header: "IFSelect_Modifier.hxx", bycopy.} = object of IFSelect_GeneralModifier ##
-                                                                                              ## !
-                                                                                              ## This
-                                                                                              ## deferred
-                                                                                              ## method
-                                                                                              ## defines
-                                                                                              ## the
-                                                                                              ## action
-                                                                                              ## specific
-                                                                                              ## to
-                                                                                              ## each
-                                                                                              ## class
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## of
-                                                                                              ## Modifier.
-                                                                                              ## It
-                                                                                              ## is
-                                                                                              ## called
-                                                                                              ## by
-                                                                                              ## a
-                                                                                              ## ModelCopier,
-                                                                                              ## once
-                                                                                              ## the
-                                                                                              ## Model
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## generated
-                                                                                              ## and
-                                                                                              ## filled.
-                                                                                              ## ModelCopier
-                                                                                              ## has
-                                                                                              ## already
-                                                                                              ## checked
-                                                                                              ## the
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## criteria
-                                                                                              ## (Dispatch,
-                                                                                              ## Model
-                                                                                              ## Rank,
-                                                                                              ## Selection)
-                                                                                              ## before
-                                                                                              ## calling
-                                                                                              ## it.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## <ctx>
-                                                                                              ## detains
-                                                                                              ## informations
-                                                                                              ## about
-                                                                                              ## original
-                                                                                              ## data
-                                                                                              ## and
-                                                                                              ## selection.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## The
-                                                                                              ## result
-                                                                                              ## of
-                                                                                              ## copying,
-                                                                                              ## on
-                                                                                              ## which
-                                                                                              ## modifications
-                                                                                              ## are
-                                                                                              ## to
-                                                                                              ## be
-                                                                                              ## done,
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## is
-                                                                                              ## <target>.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## <TC>
-                                                                                              ## allows
-                                                                                              ## to
-                                                                                              ## run
-                                                                                              ## additional
-                                                                                              ## copies
-                                                                                              ## as
-                                                                                              ## required
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## In
-                                                                                              ## case
-                                                                                              ## of
-                                                                                              ## Error,
-                                                                                              ## use
-                                                                                              ## methods
-                                                                                              ## CCheck
-                                                                                              ## from
-                                                                                              ## the
-                                                                                              ## ContextModif
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## to
-                                                                                              ## aknowledge
-                                                                                              ## an
-                                                                                              ## entity
-                                                                                              ## Check
-                                                                                              ## or
-                                                                                              ## a
-                                                                                              ## Global
-                                                                                              ## Check
-                                                                                              ## with
-                                                                                              ## messages
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Calls
-                                                                                              ## inherited
-                                                                                              ## Initialize,
-                                                                                              ## transmits
-                                                                                              ## to
-                                                                                              ## it
-                                                                                              ## the
-                                                                                              ## information
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## <maychangegraph>
+  IFSelectModifier* {.importcpp: "IFSelect_Modifier",
+                     header: "IFSelect_Modifier.hxx", bycopy.} = object of IFSelectGeneralModifier ##
+                                                                                            ## !
+                                                                                            ## This
+                                                                                            ## deferred
+                                                                                            ## method
+                                                                                            ## defines
+                                                                                            ## the
+                                                                                            ## action
+                                                                                            ## specific
+                                                                                            ## to
+                                                                                            ## each
+                                                                                            ## class
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## of
+                                                                                            ## Modifier.
+                                                                                            ## It
+                                                                                            ## is
+                                                                                            ## called
+                                                                                            ## by
+                                                                                            ## a
+                                                                                            ## ModelCopier,
+                                                                                            ## once
+                                                                                            ## the
+                                                                                            ## Model
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## generated
+                                                                                            ## and
+                                                                                            ## filled.
+                                                                                            ## ModelCopier
+                                                                                            ## has
+                                                                                            ## already
+                                                                                            ## checked
+                                                                                            ## the
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## criteria
+                                                                                            ## (Dispatch,
+                                                                                            ## Model
+                                                                                            ## Rank,
+                                                                                            ## Selection)
+                                                                                            ## before
+                                                                                            ## calling
+                                                                                            ## it.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## <ctx>
+                                                                                            ## detains
+                                                                                            ## informations
+                                                                                            ## about
+                                                                                            ## original
+                                                                                            ## data
+                                                                                            ## and
+                                                                                            ## selection.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## The
+                                                                                            ## result
+                                                                                            ## of
+                                                                                            ## copying,
+                                                                                            ## on
+                                                                                            ## which
+                                                                                            ## modifications
+                                                                                            ## are
+                                                                                            ## to
+                                                                                            ## be
+                                                                                            ## done,
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## is
+                                                                                            ## <target>.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## <TC>
+                                                                                            ## allows
+                                                                                            ## to
+                                                                                            ## run
+                                                                                            ## additional
+                                                                                            ## copies
+                                                                                            ## as
+                                                                                            ## required
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## In
+                                                                                            ## case
+                                                                                            ## of
+                                                                                            ## Error,
+                                                                                            ## use
+                                                                                            ## methods
+                                                                                            ## CCheck
+                                                                                            ## from
+                                                                                            ## the
+                                                                                            ## ContextModif
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## to
+                                                                                            ## aknowledge
+                                                                                            ## an
+                                                                                            ## entity
+                                                                                            ## Check
+                                                                                            ## or
+                                                                                            ## a
+                                                                                            ## Global
+                                                                                            ## Check
+                                                                                            ## with
+                                                                                            ## messages
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Calls
+                                                                                            ## inherited
+                                                                                            ## Initialize,
+                                                                                            ## transmits
+                                                                                            ## to
+                                                                                            ## it
+                                                                                            ## the
+                                                                                            ## information
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## <maychangegraph>
 
 
-proc Perform*(this: IFSelect_Modifier; ctx: var IFSelect_ContextModif;
-             target: handle[Interface_InterfaceModel];
-             protocol: handle[Interface_Protocol]; TC: var Interface_CopyTool) {.
+proc perform*(this: IFSelectModifier; ctx: var IFSelectContextModif;
+             target: Handle[InterfaceInterfaceModel];
+             protocol: Handle[InterfaceProtocol]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "Perform", header: "IFSelect_Modifier.hxx".}
 type
-  IFSelect_Modifierbase_type* = IFSelect_GeneralModifier
+  IFSelectModifierbaseType* = IFSelectGeneralModifier
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_Modifier::get_type_name(@)",
-                              header: "IFSelect_Modifier.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_Modifier::get_type_name(@)",
+                            header: "IFSelect_Modifier.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_Modifier::get_type_descriptor(@)",
     header: "IFSelect_Modifier.hxx".}
-proc DynamicType*(this: IFSelect_Modifier): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IFSelectModifier): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_Modifier.hxx".}

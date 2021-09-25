@@ -13,9 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TDF_Label, ../NCollection/NCollection_List
-
 type
-  TDF_LabelList* = NCollection_List[TDF_Label]
+  TDF_LabelList* = NCollectionList[TDF_Label]
   TDF_ListIteratorOfLabelList* = Iterator[TDF_Label]
+

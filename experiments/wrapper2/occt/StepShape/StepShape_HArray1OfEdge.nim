@@ -14,37 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepShape_Edge, StepShape_Array1OfEdge, ../NCollection/NCollection_DefineHArray1
-
 type
-  StepShape_HArray1OfEdge* {.importcpp: "StepShape_HArray1OfEdge",
-                            header: "StepShape_HArray1OfEdge.hxx", bycopy.} = object of StepShape_Array1OfEdge
+  StepShapeHArray1OfEdge* {.importcpp: "StepShape_HArray1OfEdge",
+                           header: "StepShape_HArray1OfEdge.hxx", bycopy.} = object of StepShapeArray1OfEdge
 
 
-proc constructStepShape_HArray1OfEdge*(theLower: Standard_Integer;
-                                      theUpper: Standard_Integer): StepShape_HArray1OfEdge {.
+proc constructStepShapeHArray1OfEdge*(theLower: int; theUpper: int): StepShapeHArray1OfEdge {.
     constructor, importcpp: "StepShape_HArray1OfEdge(@)",
     header: "StepShape_HArray1OfEdge.hxx".}
-proc constructStepShape_HArray1OfEdge*(theLower: Standard_Integer;
-                                      theUpper: Standard_Integer;
-                                      theValue: value_type): StepShape_HArray1OfEdge {.
+proc constructStepShapeHArray1OfEdge*(theLower: int; theUpper: int;
+                                     theValue: ValueType): StepShapeHArray1OfEdge {.
     constructor, importcpp: "StepShape_HArray1OfEdge(@)",
     header: "StepShape_HArray1OfEdge.hxx".}
-proc constructStepShape_HArray1OfEdge*(theOther: StepShape_Array1OfEdge): StepShape_HArray1OfEdge {.
+proc constructStepShapeHArray1OfEdge*(theOther: StepShapeArray1OfEdge): StepShapeHArray1OfEdge {.
     constructor, importcpp: "StepShape_HArray1OfEdge(@)",
     header: "StepShape_HArray1OfEdge.hxx".}
-proc Array1*(this: StepShape_HArray1OfEdge): StepShape_Array1OfEdge {.noSideEffect,
+proc array1*(this: StepShapeHArray1OfEdge): StepShapeArray1OfEdge {.noSideEffect,
     importcpp: "Array1", header: "StepShape_HArray1OfEdge.hxx".}
-proc ChangeArray1*(this: var StepShape_HArray1OfEdge): var StepShape_Array1OfEdge {.
+proc changeArray1*(this: var StepShapeHArray1OfEdge): var StepShapeArray1OfEdge {.
     importcpp: "ChangeArray1", header: "StepShape_HArray1OfEdge.hxx".}
 type
-  StepShape_HArray1OfEdgebase_type* = MMgt_TShared
+  StepShapeHArray1OfEdgebaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_HArray1OfEdge::get_type_name(@)",
-                              header: "StepShape_HArray1OfEdge.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_HArray1OfEdge::get_type_name(@)",
+                            header: "StepShape_HArray1OfEdge.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_HArray1OfEdge::get_type_descriptor(@)",
     header: "StepShape_HArray1OfEdge.hxx".}
-proc DynamicType*(this: StepShape_HArray1OfEdge): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeHArray1OfEdge): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_HArray1OfEdge.hxx".}

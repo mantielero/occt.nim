@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real, Extrema_POnCurv
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt"
@@ -29,49 +24,39 @@ discard "forward decl of gp_Hypr"
 discard "forward decl of gp_Parab"
 discard "forward decl of Extrema_POnCurv"
 type
-  Extrema_ExtPElC* {.importcpp: "Extrema_ExtPElC", header: "Extrema_ExtPElC.hxx",
-                    bycopy.} = object
+  ExtremaExtPElC* {.importcpp: "Extrema_ExtPElC", header: "Extrema_ExtPElC.hxx",
+                   bycopy.} = object
 
 
-proc constructExtrema_ExtPElC*(): Extrema_ExtPElC {.constructor,
+proc constructExtremaExtPElC*(): ExtremaExtPElC {.constructor,
     importcpp: "Extrema_ExtPElC(@)", header: "Extrema_ExtPElC.hxx".}
-proc constructExtrema_ExtPElC*(P: gp_Pnt; C: gp_Lin; Tol: Standard_Real;
-                              Uinf: Standard_Real; Usup: Standard_Real): Extrema_ExtPElC {.
+proc constructExtremaExtPElC*(p: Pnt; c: Lin; tol: float; uinf: float; usup: float): ExtremaExtPElC {.
     constructor, importcpp: "Extrema_ExtPElC(@)", header: "Extrema_ExtPElC.hxx".}
-proc Perform*(this: var Extrema_ExtPElC; P: gp_Pnt; C: gp_Lin; Tol: Standard_Real;
-             Uinf: Standard_Real; Usup: Standard_Real) {.importcpp: "Perform",
-    header: "Extrema_ExtPElC.hxx".}
-proc constructExtrema_ExtPElC*(P: gp_Pnt; C: gp_Circ; Tol: Standard_Real;
-                              Uinf: Standard_Real; Usup: Standard_Real): Extrema_ExtPElC {.
+proc perform*(this: var ExtremaExtPElC; p: Pnt; c: Lin; tol: float; uinf: float; usup: float) {.
+    importcpp: "Perform", header: "Extrema_ExtPElC.hxx".}
+proc constructExtremaExtPElC*(p: Pnt; c: Circ; tol: float; uinf: float; usup: float): ExtremaExtPElC {.
     constructor, importcpp: "Extrema_ExtPElC(@)", header: "Extrema_ExtPElC.hxx".}
-proc Perform*(this: var Extrema_ExtPElC; P: gp_Pnt; C: gp_Circ; Tol: Standard_Real;
-             Uinf: Standard_Real; Usup: Standard_Real) {.importcpp: "Perform",
-    header: "Extrema_ExtPElC.hxx".}
-proc constructExtrema_ExtPElC*(P: gp_Pnt; C: gp_Elips; Tol: Standard_Real;
-                              Uinf: Standard_Real; Usup: Standard_Real): Extrema_ExtPElC {.
+proc perform*(this: var ExtremaExtPElC; p: Pnt; c: Circ; tol: float; uinf: float;
+             usup: float) {.importcpp: "Perform", header: "Extrema_ExtPElC.hxx".}
+proc constructExtremaExtPElC*(p: Pnt; c: Elips; tol: float; uinf: float; usup: float): ExtremaExtPElC {.
     constructor, importcpp: "Extrema_ExtPElC(@)", header: "Extrema_ExtPElC.hxx".}
-proc Perform*(this: var Extrema_ExtPElC; P: gp_Pnt; C: gp_Elips; Tol: Standard_Real;
-             Uinf: Standard_Real; Usup: Standard_Real) {.importcpp: "Perform",
-    header: "Extrema_ExtPElC.hxx".}
-proc constructExtrema_ExtPElC*(P: gp_Pnt; C: gp_Hypr; Tol: Standard_Real;
-                              Uinf: Standard_Real; Usup: Standard_Real): Extrema_ExtPElC {.
+proc perform*(this: var ExtremaExtPElC; p: Pnt; c: Elips; tol: float; uinf: float;
+             usup: float) {.importcpp: "Perform", header: "Extrema_ExtPElC.hxx".}
+proc constructExtremaExtPElC*(p: Pnt; c: Hypr; tol: float; uinf: float; usup: float): ExtremaExtPElC {.
     constructor, importcpp: "Extrema_ExtPElC(@)", header: "Extrema_ExtPElC.hxx".}
-proc Perform*(this: var Extrema_ExtPElC; P: gp_Pnt; C: gp_Hypr; Tol: Standard_Real;
-             Uinf: Standard_Real; Usup: Standard_Real) {.importcpp: "Perform",
-    header: "Extrema_ExtPElC.hxx".}
-proc constructExtrema_ExtPElC*(P: gp_Pnt; C: gp_Parab; Tol: Standard_Real;
-                              Uinf: Standard_Real; Usup: Standard_Real): Extrema_ExtPElC {.
+proc perform*(this: var ExtremaExtPElC; p: Pnt; c: Hypr; tol: float; uinf: float;
+             usup: float) {.importcpp: "Perform", header: "Extrema_ExtPElC.hxx".}
+proc constructExtremaExtPElC*(p: Pnt; c: Parab; tol: float; uinf: float; usup: float): ExtremaExtPElC {.
     constructor, importcpp: "Extrema_ExtPElC(@)", header: "Extrema_ExtPElC.hxx".}
-proc Perform*(this: var Extrema_ExtPElC; P: gp_Pnt; C: gp_Parab; Tol: Standard_Real;
-             Uinf: Standard_Real; Usup: Standard_Real) {.importcpp: "Perform",
+proc perform*(this: var ExtremaExtPElC; p: Pnt; c: Parab; tol: float; uinf: float;
+             usup: float) {.importcpp: "Perform", header: "Extrema_ExtPElC.hxx".}
+proc isDone*(this: ExtremaExtPElC): bool {.noSideEffect, importcpp: "IsDone",
+                                       header: "Extrema_ExtPElC.hxx".}
+proc nbExt*(this: ExtremaExtPElC): int {.noSideEffect, importcpp: "NbExt",
+                                     header: "Extrema_ExtPElC.hxx".}
+proc squareDistance*(this: ExtremaExtPElC; n: int): float {.noSideEffect,
+    importcpp: "SquareDistance", header: "Extrema_ExtPElC.hxx".}
+proc isMin*(this: ExtremaExtPElC; n: int): bool {.noSideEffect, importcpp: "IsMin",
     header: "Extrema_ExtPElC.hxx".}
-proc IsDone*(this: Extrema_ExtPElC): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "Extrema_ExtPElC.hxx".}
-proc NbExt*(this: Extrema_ExtPElC): Standard_Integer {.noSideEffect,
-    importcpp: "NbExt", header: "Extrema_ExtPElC.hxx".}
-proc SquareDistance*(this: Extrema_ExtPElC; N: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "SquareDistance", header: "Extrema_ExtPElC.hxx".}
-proc IsMin*(this: Extrema_ExtPElC; N: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsMin", header: "Extrema_ExtPElC.hxx".}
-proc Point*(this: Extrema_ExtPElC; N: Standard_Integer): Extrema_POnCurv {.
-    noSideEffect, importcpp: "Point", header: "Extrema_ExtPElC.hxx".}
+proc point*(this: ExtremaExtPElC; n: int): ExtremaPOnCurv {.noSideEffect,
+    importcpp: "Point", header: "Extrema_ExtPElC.hxx".}

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, BRepToIGES_BREntity, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of BRepToIGES_BREntity"
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of TopoDS_Shape"
@@ -36,42 +31,42 @@ type
 
 proc constructBRepToIGES_BRWire*(): BRepToIGES_BRWire {.constructor,
     importcpp: "BRepToIGES_BRWire(@)", header: "BRepToIGES_BRWire.hxx".}
-proc constructBRepToIGES_BRWire*(BR: BRepToIGES_BREntity): BRepToIGES_BRWire {.
+proc constructBRepToIGES_BRWire*(br: BRepToIGES_BREntity): BRepToIGES_BRWire {.
     constructor, importcpp: "BRepToIGES_BRWire(@)", header: "BRepToIGES_BRWire.hxx".}
-proc TransferWire*(this: var BRepToIGES_BRWire; start: TopoDS_Shape): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferWire",
-                          header: "BRepToIGES_BRWire.hxx".}
-proc TransferVertex*(this: var BRepToIGES_BRWire; myvertex: TopoDS_Vertex): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferVertex",
-                          header: "BRepToIGES_BRWire.hxx".}
-proc TransferVertex*(this: var BRepToIGES_BRWire; myvertex: TopoDS_Vertex;
-                    myedge: TopoDS_Edge; parameter: var Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferVertex",
-                          header: "BRepToIGES_BRWire.hxx".}
-proc TransferVertex*(this: var BRepToIGES_BRWire; myvertex: TopoDS_Vertex;
-                    myedge: TopoDS_Edge; myface: TopoDS_Face;
-                    parameter: var Standard_Real): handle[IGESData_IGESEntity] {.
-    importcpp: "TransferVertex", header: "BRepToIGES_BRWire.hxx".}
-proc TransferVertex*(this: var BRepToIGES_BRWire; myvertex: TopoDS_Vertex;
-                    myedge: TopoDS_Edge; mysurface: handle[Geom_Surface];
-                    myloc: TopLoc_Location; parameter: var Standard_Real): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferVertex",
-                          header: "BRepToIGES_BRWire.hxx".}
-proc TransferVertex*(this: var BRepToIGES_BRWire; myvertex: TopoDS_Vertex;
-                    myface: TopoDS_Face; mypoint: var gp_Pnt2d): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferVertex",
-                          header: "BRepToIGES_BRWire.hxx".}
-proc TransferEdge*(this: var BRepToIGES_BRWire; myedge: TopoDS_Edge;
-                  isBRepMode: Standard_Boolean): handle[IGESData_IGESEntity] {.
-    importcpp: "TransferEdge", header: "BRepToIGES_BRWire.hxx".}
-proc TransferEdge*(this: var BRepToIGES_BRWire; myedge: TopoDS_Edge;
-                  myface: TopoDS_Face; length: Standard_Real;
-                  isBRepMode: Standard_Boolean): handle[IGESData_IGESEntity] {.
-    importcpp: "TransferEdge", header: "BRepToIGES_BRWire.hxx".}
-proc TransferWire*(this: var BRepToIGES_BRWire; mywire: TopoDS_Wire): handle[
-    IGESData_IGESEntity] {.importcpp: "TransferWire",
-                          header: "BRepToIGES_BRWire.hxx".}
-proc TransferWire*(this: var BRepToIGES_BRWire; mywire: TopoDS_Wire;
-                  myface: TopoDS_Face; mycurve2d: var handle[IGESData_IGESEntity];
-                  length: Standard_Real): handle[IGESData_IGESEntity] {.
+proc transferWire*(this: var BRepToIGES_BRWire; start: TopoDS_Shape): Handle[
+    IGESDataIGESEntity] {.importcpp: "TransferWire",
+                         header: "BRepToIGES_BRWire.hxx".}
+proc transferVertex*(this: var BRepToIGES_BRWire; myvertex: TopoDS_Vertex): Handle[
+    IGESDataIGESEntity] {.importcpp: "TransferVertex",
+                         header: "BRepToIGES_BRWire.hxx".}
+proc transferVertex*(this: var BRepToIGES_BRWire; myvertex: TopoDS_Vertex;
+                    myedge: TopoDS_Edge; parameter: var float): Handle[
+    IGESDataIGESEntity] {.importcpp: "TransferVertex",
+                         header: "BRepToIGES_BRWire.hxx".}
+proc transferVertex*(this: var BRepToIGES_BRWire; myvertex: TopoDS_Vertex;
+                    myedge: TopoDS_Edge; myface: TopoDS_Face; parameter: var float): Handle[
+    IGESDataIGESEntity] {.importcpp: "TransferVertex",
+                         header: "BRepToIGES_BRWire.hxx".}
+proc transferVertex*(this: var BRepToIGES_BRWire; myvertex: TopoDS_Vertex;
+                    myedge: TopoDS_Edge; mysurface: Handle[GeomSurface];
+                    myloc: TopLocLocation; parameter: var float): Handle[
+    IGESDataIGESEntity] {.importcpp: "TransferVertex",
+                         header: "BRepToIGES_BRWire.hxx".}
+proc transferVertex*(this: var BRepToIGES_BRWire; myvertex: TopoDS_Vertex;
+                    myface: TopoDS_Face; mypoint: var Pnt2d): Handle[
+    IGESDataIGESEntity] {.importcpp: "TransferVertex",
+                         header: "BRepToIGES_BRWire.hxx".}
+proc transferEdge*(this: var BRepToIGES_BRWire; myedge: TopoDS_Edge; isBRepMode: bool): Handle[
+    IGESDataIGESEntity] {.importcpp: "TransferEdge",
+                         header: "BRepToIGES_BRWire.hxx".}
+proc transferEdge*(this: var BRepToIGES_BRWire; myedge: TopoDS_Edge;
+                  myface: TopoDS_Face; length: float; isBRepMode: bool): Handle[
+    IGESDataIGESEntity] {.importcpp: "TransferEdge",
+                         header: "BRepToIGES_BRWire.hxx".}
+proc transferWire*(this: var BRepToIGES_BRWire; mywire: TopoDS_Wire): Handle[
+    IGESDataIGESEntity] {.importcpp: "TransferWire",
+                         header: "BRepToIGES_BRWire.hxx".}
+proc transferWire*(this: var BRepToIGES_BRWire; mywire: TopoDS_Wire;
+                  myface: TopoDS_Face; mycurve2d: var Handle[IGESDataIGESEntity];
+                  length: float): Handle[IGESDataIGESEntity] {.
     importcpp: "TransferWire", header: "BRepToIGES_BRWire.hxx".}

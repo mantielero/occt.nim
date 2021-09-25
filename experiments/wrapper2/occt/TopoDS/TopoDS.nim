@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Edge"
@@ -56,35 +52,35 @@ type
                                                                  ## Standard_TypeMismatch if S cannot be cast to this return type.
 
 
-proc Vertex*(S: TopoDS_Shape): TopoDS_Vertex {.importcpp: "TopoDS::Vertex(@)",
+proc vertex*(s: TopoDS_Shape): TopoDS_Vertex {.importcpp: "TopoDS::Vertex(@)",
     header: "TopoDS.hxx".}
-proc Vertex*(a1: var TopoDS_Shape): var TopoDS_Vertex {.
+proc vertex*(a1: var TopoDS_Shape): var TopoDS_Vertex {.
     importcpp: "TopoDS::Vertex(@)", header: "TopoDS.hxx".}
-proc Edge*(S: TopoDS_Shape): TopoDS_Edge {.importcpp: "TopoDS::Edge(@)",
+proc edge*(s: TopoDS_Shape): TopoDS_Edge {.importcpp: "TopoDS::Edge(@)",
                                        header: "TopoDS.hxx".}
-proc Edge*(a1: var TopoDS_Shape): var TopoDS_Edge {.importcpp: "TopoDS::Edge(@)",
+proc edge*(a1: var TopoDS_Shape): var TopoDS_Edge {.importcpp: "TopoDS::Edge(@)",
     header: "TopoDS.hxx".}
-proc Wire*(S: TopoDS_Shape): TopoDS_Wire {.importcpp: "TopoDS::Wire(@)",
+proc wire*(s: TopoDS_Shape): TopoDS_Wire {.importcpp: "TopoDS::Wire(@)",
                                        header: "TopoDS.hxx".}
-proc Wire*(a1: var TopoDS_Shape): var TopoDS_Wire {.importcpp: "TopoDS::Wire(@)",
+proc wire*(a1: var TopoDS_Shape): var TopoDS_Wire {.importcpp: "TopoDS::Wire(@)",
     header: "TopoDS.hxx".}
-proc Face*(S: TopoDS_Shape): TopoDS_Face {.importcpp: "TopoDS::Face(@)",
+proc face*(s: TopoDS_Shape): TopoDS_Face {.importcpp: "TopoDS::Face(@)",
                                        header: "TopoDS.hxx".}
-proc Face*(a1: var TopoDS_Shape): var TopoDS_Face {.importcpp: "TopoDS::Face(@)",
+proc face*(a1: var TopoDS_Shape): var TopoDS_Face {.importcpp: "TopoDS::Face(@)",
     header: "TopoDS.hxx".}
-proc Shell*(S: TopoDS_Shape): TopoDS_Shell {.importcpp: "TopoDS::Shell(@)",
+proc shell*(s: TopoDS_Shape): TopoDS_Shell {.importcpp: "TopoDS::Shell(@)",
     header: "TopoDS.hxx".}
-proc Shell*(a1: var TopoDS_Shape): var TopoDS_Shell {.importcpp: "TopoDS::Shell(@)",
+proc shell*(a1: var TopoDS_Shape): var TopoDS_Shell {.importcpp: "TopoDS::Shell(@)",
     header: "TopoDS.hxx".}
-proc Solid*(S: TopoDS_Shape): TopoDS_Solid {.importcpp: "TopoDS::Solid(@)",
+proc solid*(s: TopoDS_Shape): TopoDS_Solid {.importcpp: "TopoDS::Solid(@)",
     header: "TopoDS.hxx".}
-proc Solid*(a1: var TopoDS_Shape): var TopoDS_Solid {.importcpp: "TopoDS::Solid(@)",
+proc solid*(a1: var TopoDS_Shape): var TopoDS_Solid {.importcpp: "TopoDS::Solid(@)",
     header: "TopoDS.hxx".}
-proc CompSolid*(S: TopoDS_Shape): TopoDS_CompSolid {.
+proc compSolid*(s: TopoDS_Shape): TopoDS_CompSolid {.
     importcpp: "TopoDS::CompSolid(@)", header: "TopoDS.hxx".}
-proc CompSolid*(a1: var TopoDS_Shape): var TopoDS_CompSolid {.
+proc compSolid*(a1: var TopoDS_Shape): var TopoDS_CompSolid {.
     importcpp: "TopoDS::CompSolid(@)", header: "TopoDS.hxx".}
-proc Compound*(S: TopoDS_Shape): TopoDS_Compound {.importcpp: "TopoDS::Compound(@)",
+proc compound*(s: TopoDS_Shape): TopoDS_Compound {.importcpp: "TopoDS::Compound(@)",
     header: "TopoDS.hxx".}
-proc Compound*(a1: var TopoDS_Shape): var TopoDS_Compound {.
+proc compound*(a1: var TopoDS_Shape): var TopoDS_Compound {.
     importcpp: "TopoDS::Compound(@)", header: "TopoDS.hxx".}

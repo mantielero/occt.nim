@@ -14,30 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepGeom_Vector"
 discard "forward decl of StepGeom_Direction"
 type
-  StepGeom_VectorOrDirection* {.importcpp: "StepGeom_VectorOrDirection",
-                               header: "StepGeom_VectorOrDirection.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                           ## !
-                                                                                                           ## Returns
-                                                                                                           ## a
-                                                                                                           ## VectorOrDirection
-                                                                                                           ## SelectType
+  StepGeomVectorOrDirection* {.importcpp: "StepGeom_VectorOrDirection",
+                              header: "StepGeom_VectorOrDirection.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                         ## !
+                                                                                                         ## Returns
+                                                                                                         ## a
+                                                                                                         ## VectorOrDirection
+                                                                                                         ## SelectType
 
 
-proc constructStepGeom_VectorOrDirection*(): StepGeom_VectorOrDirection {.
+proc constructStepGeomVectorOrDirection*(): StepGeomVectorOrDirection {.
     constructor, importcpp: "StepGeom_VectorOrDirection(@)",
     header: "StepGeom_VectorOrDirection.hxx".}
-proc CaseNum*(this: StepGeom_VectorOrDirection; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepGeomVectorOrDirection; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepGeom_VectorOrDirection.hxx".}
-proc Vector*(this: StepGeom_VectorOrDirection): handle[StepGeom_Vector] {.
+proc vector*(this: StepGeomVectorOrDirection): Handle[StepGeomVector] {.
     noSideEffect, importcpp: "Vector", header: "StepGeom_VectorOrDirection.hxx".}
-proc Direction*(this: StepGeom_VectorOrDirection): handle[StepGeom_Direction] {.
+proc direction*(this: StepGeomVectorOrDirection): Handle[StepGeomDirection] {.
     noSideEffect, importcpp: "Direction", header: "StepGeom_VectorOrDirection.hxx".}

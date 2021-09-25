@@ -14,16 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Graphic3d_MaterialDefinitionError_HeaderFile [NewLine] # _Graphic3d_MaterialDefinitionError_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_OutOfRange.hxx [NewLine] class Graphic3d_MaterialDefinitionError ;
+## !!!Ignored construct:  # _Graphic3d_MaterialDefinitionError_HeaderFile [NewLine] # _Graphic3d_MaterialDefinitionError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_OutOfRange . hxx > [NewLine] class Graphic3d_MaterialDefinitionError ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Graphic3d_MaterialDefinitionError"
 type
-  Handle_Graphic3d_MaterialDefinitionErrorGraphic3d_MaterialDefinitionError* = handle[
-      Graphic3d_MaterialDefinitionError]
+  HandleGraphic3dMaterialDefinitionErrorGraphic3dMaterialDefinitionError* = Handle[
+      Graphic3dMaterialDefinitionError]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Graphic3d_MaterialDefinitionError [NewLine] # if ( CONDITION ) throw Graphic3d_MaterialDefinitionError ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Graphic3d_MaterialDefinitionError , Standard_OutOfRange ) #  _Graphic3d_MaterialDefinitionError_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Graphic3d_MaterialDefinitionError , Standard_OutOfRange ) #  _Graphic3d_MaterialDefinitionError_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

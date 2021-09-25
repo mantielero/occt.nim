@@ -23,3 +23,4 @@ type
     AIS_DS_Erased,            ## !< the Interactive Object is hidden in main viewer
     AIS_DS_None               ## !< the Interactive Object is nowhere displayed
 
+

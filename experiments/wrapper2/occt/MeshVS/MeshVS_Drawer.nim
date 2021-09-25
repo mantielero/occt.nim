@@ -13,21 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_DataMapOfIntegerInteger, MeshVS_DataMapOfIntegerBoolean,
-  ../TColStd/TColStd_DataMapOfIntegerReal, MeshVS_DataMapOfIntegerColor,
-  MeshVS_DataMapOfIntegerMaterial, MeshVS_DataMapOfIntegerAsciiString,
-  ../Standard/Standard_Transient, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean
-
 discard "forward decl of Quantity_Color"
 discard "forward decl of Graphic3d_MaterialAspect"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of MeshVS_Drawer"
 discard "forward decl of MeshVS_Drawer"
 type
-  Handle_MeshVS_Drawer* = handle[MeshVS_Drawer]
+  HandleMeshVS_Drawer* = Handle[MeshVS_Drawer]
 
 ## ! This class provided the common interface to share between classes
 ## ! big set of constants affecting to object appearance. By default, this class
@@ -35,71 +27,63 @@ type
 ## ! can be stored as integers.
 
 type
-  MeshVS_Drawer* {.importcpp: "MeshVS_Drawer", header: "MeshVS_Drawer.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                          ## !
-                                                                                                          ## This
-                                                                                                          ## method
-                                                                                                          ## copies
-                                                                                                          ## other
-                                                                                                          ## drawer
-                                                                                                          ## contents
-                                                                                                          ## to
-                                                                                                          ## this.
+  MeshVS_Drawer* {.importcpp: "MeshVS_Drawer", header: "MeshVS_Drawer.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                         ## !
+                                                                                                         ## This
+                                                                                                         ## method
+                                                                                                         ## copies
+                                                                                                         ## other
+                                                                                                         ## drawer
+                                                                                                         ## contents
+                                                                                                         ## to
+                                                                                                         ## this.
 
 
-proc Assign*(this: var MeshVS_Drawer; aDrawer: handle[MeshVS_Drawer]) {.
+proc assign*(this: var MeshVS_Drawer; aDrawer: Handle[MeshVS_Drawer]) {.
     importcpp: "Assign", header: "MeshVS_Drawer.hxx".}
-proc SetInteger*(this: var MeshVS_Drawer; Key: Standard_Integer;
-                Value: Standard_Integer) {.importcpp: "SetInteger",
-    header: "MeshVS_Drawer.hxx".}
-proc SetDouble*(this: var MeshVS_Drawer; Key: Standard_Integer; Value: Standard_Real) {.
+proc setInteger*(this: var MeshVS_Drawer; key: int; value: int) {.
+    importcpp: "SetInteger", header: "MeshVS_Drawer.hxx".}
+proc setDouble*(this: var MeshVS_Drawer; key: int; value: float) {.
     importcpp: "SetDouble", header: "MeshVS_Drawer.hxx".}
-proc SetBoolean*(this: var MeshVS_Drawer; Key: Standard_Integer;
-                Value: Standard_Boolean) {.importcpp: "SetBoolean",
-    header: "MeshVS_Drawer.hxx".}
-proc SetColor*(this: var MeshVS_Drawer; Key: Standard_Integer; Value: Quantity_Color) {.
+proc setBoolean*(this: var MeshVS_Drawer; key: int; value: bool) {.
+    importcpp: "SetBoolean", header: "MeshVS_Drawer.hxx".}
+proc setColor*(this: var MeshVS_Drawer; key: int; value: QuantityColor) {.
     importcpp: "SetColor", header: "MeshVS_Drawer.hxx".}
-proc SetMaterial*(this: var MeshVS_Drawer; Key: Standard_Integer;
-                 Value: Graphic3d_MaterialAspect) {.importcpp: "SetMaterial",
-    header: "MeshVS_Drawer.hxx".}
-proc SetAsciiString*(this: var MeshVS_Drawer; Key: Standard_Integer;
-                    Value: TCollection_AsciiString) {.importcpp: "SetAsciiString",
-    header: "MeshVS_Drawer.hxx".}
-proc GetInteger*(this: MeshVS_Drawer; Key: Standard_Integer;
-                Value: var Standard_Integer): Standard_Boolean {.noSideEffect,
+proc setMaterial*(this: var MeshVS_Drawer; key: int; value: Graphic3dMaterialAspect) {.
+    importcpp: "SetMaterial", header: "MeshVS_Drawer.hxx".}
+proc setAsciiString*(this: var MeshVS_Drawer; key: int; value: TCollectionAsciiString) {.
+    importcpp: "SetAsciiString", header: "MeshVS_Drawer.hxx".}
+proc getInteger*(this: MeshVS_Drawer; key: int; value: var int): bool {.noSideEffect,
     importcpp: "GetInteger", header: "MeshVS_Drawer.hxx".}
-proc GetDouble*(this: MeshVS_Drawer; Key: Standard_Integer; Value: var Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "GetDouble", header: "MeshVS_Drawer.hxx".}
-proc GetBoolean*(this: MeshVS_Drawer; Key: Standard_Integer;
-                Value: var Standard_Boolean): Standard_Boolean {.noSideEffect,
+proc getDouble*(this: MeshVS_Drawer; key: int; value: var float): bool {.noSideEffect,
+    importcpp: "GetDouble", header: "MeshVS_Drawer.hxx".}
+proc getBoolean*(this: MeshVS_Drawer; key: int; value: var bool): bool {.noSideEffect,
     importcpp: "GetBoolean", header: "MeshVS_Drawer.hxx".}
-proc GetColor*(this: MeshVS_Drawer; Key: Standard_Integer; Value: var Quantity_Color): Standard_Boolean {.
+proc getColor*(this: MeshVS_Drawer; key: int; value: var QuantityColor): bool {.
     noSideEffect, importcpp: "GetColor", header: "MeshVS_Drawer.hxx".}
-proc GetMaterial*(this: MeshVS_Drawer; Key: Standard_Integer;
-                 Value: var Graphic3d_MaterialAspect): Standard_Boolean {.
+proc getMaterial*(this: MeshVS_Drawer; key: int; value: var Graphic3dMaterialAspect): bool {.
     noSideEffect, importcpp: "GetMaterial", header: "MeshVS_Drawer.hxx".}
-proc GetAsciiString*(this: MeshVS_Drawer; Key: Standard_Integer;
-                    Value: var TCollection_AsciiString): Standard_Boolean {.
+proc getAsciiString*(this: MeshVS_Drawer; key: int; value: var TCollectionAsciiString): bool {.
     noSideEffect, importcpp: "GetAsciiString", header: "MeshVS_Drawer.hxx".}
-proc RemoveInteger*(this: var MeshVS_Drawer; Key: Standard_Integer): Standard_Boolean {.
+proc removeInteger*(this: var MeshVS_Drawer; key: int): bool {.
     importcpp: "RemoveInteger", header: "MeshVS_Drawer.hxx".}
-proc RemoveDouble*(this: var MeshVS_Drawer; Key: Standard_Integer): Standard_Boolean {.
+proc removeDouble*(this: var MeshVS_Drawer; key: int): bool {.
     importcpp: "RemoveDouble", header: "MeshVS_Drawer.hxx".}
-proc RemoveBoolean*(this: var MeshVS_Drawer; Key: Standard_Integer): Standard_Boolean {.
+proc removeBoolean*(this: var MeshVS_Drawer; key: int): bool {.
     importcpp: "RemoveBoolean", header: "MeshVS_Drawer.hxx".}
-proc RemoveColor*(this: var MeshVS_Drawer; Key: Standard_Integer): Standard_Boolean {.
-    importcpp: "RemoveColor", header: "MeshVS_Drawer.hxx".}
-proc RemoveMaterial*(this: var MeshVS_Drawer; Key: Standard_Integer): Standard_Boolean {.
+proc removeColor*(this: var MeshVS_Drawer; key: int): bool {.importcpp: "RemoveColor",
+    header: "MeshVS_Drawer.hxx".}
+proc removeMaterial*(this: var MeshVS_Drawer; key: int): bool {.
     importcpp: "RemoveMaterial", header: "MeshVS_Drawer.hxx".}
-proc RemoveAsciiString*(this: var MeshVS_Drawer; Key: Standard_Integer): Standard_Boolean {.
+proc removeAsciiString*(this: var MeshVS_Drawer; key: int): bool {.
     importcpp: "RemoveAsciiString", header: "MeshVS_Drawer.hxx".}
 type
-  MeshVS_Drawerbase_type* = Standard_Transient
+  MeshVS_DrawerbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "MeshVS_Drawer::get_type_name(@)",
-                              header: "MeshVS_Drawer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "MeshVS_Drawer::get_type_name(@)",
+                            header: "MeshVS_Drawer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "MeshVS_Drawer::get_type_descriptor(@)",
     header: "MeshVS_Drawer.hxx".}
-proc DynamicType*(this: MeshVS_Drawer): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: MeshVS_Drawer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MeshVS_Drawer.hxx".}

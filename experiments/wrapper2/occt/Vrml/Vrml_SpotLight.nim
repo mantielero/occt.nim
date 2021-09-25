@@ -14,52 +14,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, ../Quantity/Quantity_Color, ../gp/gp_Vec,
-  ../Standard/Standard_OStream
-
 discard "forward decl of Quantity_Color"
 discard "forward decl of gp_Vec"
 type
-  Vrml_SpotLight* {.importcpp: "Vrml_SpotLight", header: "Vrml_SpotLight.hxx", bycopy.} = object
+  VrmlSpotLight* {.importcpp: "Vrml_SpotLight", header: "Vrml_SpotLight.hxx", bycopy.} = object
 
 
-proc constructVrml_SpotLight*(): Vrml_SpotLight {.constructor,
+proc constructVrmlSpotLight*(): VrmlSpotLight {.constructor,
     importcpp: "Vrml_SpotLight(@)", header: "Vrml_SpotLight.hxx".}
-proc constructVrml_SpotLight*(aOnOff: Standard_Boolean; aIntensity: Standard_Real;
-                             aColor: Quantity_Color; aLocation: gp_Vec;
-                             aDirection: gp_Vec; aDropOffRate: Standard_Real;
-                             aCutOffAngle: Standard_Real): Vrml_SpotLight {.
-    constructor, importcpp: "Vrml_SpotLight(@)", header: "Vrml_SpotLight.hxx".}
-proc SetOnOff*(this: var Vrml_SpotLight; anOnOff: Standard_Boolean) {.
-    importcpp: "SetOnOff", header: "Vrml_SpotLight.hxx".}
-proc OnOff*(this: Vrml_SpotLight): Standard_Boolean {.noSideEffect,
-    importcpp: "OnOff", header: "Vrml_SpotLight.hxx".}
-proc SetIntensity*(this: var Vrml_SpotLight; aIntensity: Standard_Real) {.
+proc constructVrmlSpotLight*(aOnOff: bool; aIntensity: float; aColor: QuantityColor;
+                            aLocation: Vec; aDirection: Vec; aDropOffRate: float;
+                            aCutOffAngle: float): VrmlSpotLight {.constructor,
+    importcpp: "Vrml_SpotLight(@)", header: "Vrml_SpotLight.hxx".}
+proc setOnOff*(this: var VrmlSpotLight; anOnOff: bool) {.importcpp: "SetOnOff",
+    header: "Vrml_SpotLight.hxx".}
+proc onOff*(this: VrmlSpotLight): bool {.noSideEffect, importcpp: "OnOff",
+                                     header: "Vrml_SpotLight.hxx".}
+proc setIntensity*(this: var VrmlSpotLight; aIntensity: float) {.
     importcpp: "SetIntensity", header: "Vrml_SpotLight.hxx".}
-proc Intensity*(this: Vrml_SpotLight): Standard_Real {.noSideEffect,
-    importcpp: "Intensity", header: "Vrml_SpotLight.hxx".}
-proc SetColor*(this: var Vrml_SpotLight; aColor: Quantity_Color) {.
+proc intensity*(this: VrmlSpotLight): float {.noSideEffect, importcpp: "Intensity",
+    header: "Vrml_SpotLight.hxx".}
+proc setColor*(this: var VrmlSpotLight; aColor: QuantityColor) {.
     importcpp: "SetColor", header: "Vrml_SpotLight.hxx".}
-proc Color*(this: Vrml_SpotLight): Quantity_Color {.noSideEffect, importcpp: "Color",
+proc color*(this: VrmlSpotLight): QuantityColor {.noSideEffect, importcpp: "Color",
     header: "Vrml_SpotLight.hxx".}
-proc SetLocation*(this: var Vrml_SpotLight; aLocation: gp_Vec) {.
-    importcpp: "SetLocation", header: "Vrml_SpotLight.hxx".}
-proc Location*(this: Vrml_SpotLight): gp_Vec {.noSideEffect, importcpp: "Location",
+proc setLocation*(this: var VrmlSpotLight; aLocation: Vec) {.importcpp: "SetLocation",
     header: "Vrml_SpotLight.hxx".}
-proc SetDirection*(this: var Vrml_SpotLight; aDirection: gp_Vec) {.
+proc location*(this: VrmlSpotLight): Vec {.noSideEffect, importcpp: "Location",
+                                       header: "Vrml_SpotLight.hxx".}
+proc setDirection*(this: var VrmlSpotLight; aDirection: Vec) {.
     importcpp: "SetDirection", header: "Vrml_SpotLight.hxx".}
-proc Direction*(this: Vrml_SpotLight): gp_Vec {.noSideEffect, importcpp: "Direction",
-    header: "Vrml_SpotLight.hxx".}
-proc SetDropOffRate*(this: var Vrml_SpotLight; aDropOffRate: Standard_Real) {.
+proc direction*(this: VrmlSpotLight): Vec {.noSideEffect, importcpp: "Direction",
+                                        header: "Vrml_SpotLight.hxx".}
+proc setDropOffRate*(this: var VrmlSpotLight; aDropOffRate: float) {.
     importcpp: "SetDropOffRate", header: "Vrml_SpotLight.hxx".}
-proc DropOffRate*(this: Vrml_SpotLight): Standard_Real {.noSideEffect,
+proc dropOffRate*(this: VrmlSpotLight): float {.noSideEffect,
     importcpp: "DropOffRate", header: "Vrml_SpotLight.hxx".}
-proc SetCutOffAngle*(this: var Vrml_SpotLight; aCutOffAngle: Standard_Real) {.
+proc setCutOffAngle*(this: var VrmlSpotLight; aCutOffAngle: float) {.
     importcpp: "SetCutOffAngle", header: "Vrml_SpotLight.hxx".}
-proc CutOffAngle*(this: Vrml_SpotLight): Standard_Real {.noSideEffect,
+proc cutOffAngle*(this: VrmlSpotLight): float {.noSideEffect,
     importcpp: "CutOffAngle", header: "Vrml_SpotLight.hxx".}
-proc Print*(this: Vrml_SpotLight; anOStream: var Standard_OStream): var Standard_OStream {.
+proc print*(this: VrmlSpotLight; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_SpotLight.hxx".}

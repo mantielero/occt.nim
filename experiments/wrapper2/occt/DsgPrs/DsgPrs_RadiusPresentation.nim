@@ -14,119 +14,108 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Prs3d/Prs3d_Drawer, DsgPrs_ArrowSide,
-  ../Prs3d/Prs3d_Presentation
-
 discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Circ"
 type
-  DsgPrs_RadiusPresentation* {.importcpp: "DsgPrs_RadiusPresentation",
-                              header: "DsgPrs_RadiusPresentation.hxx", bycopy.} = object ##
-                                                                                    ## !
-                                                                                    ## Adds
-                                                                                    ## the
-                                                                                    ## point
-                                                                                    ## AttachmentPoint,
-                                                                                    ## the
-                                                                                    ## circle
-                                                                                    ## aCircle,
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## the
-                                                                                    ## text
-                                                                                    ## aText,
-                                                                                    ## and
-                                                                                    ## the
-                                                                                    ## parameters
-                                                                                    ## firstparam
-                                                                                    ## and
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## lastparam
-                                                                                    ## to
-                                                                                    ## the
-                                                                                    ## presentation
-                                                                                    ## object
-                                                                                    ## aPresentation.
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## The
-                                                                                    ## display
-                                                                                    ## attributes
-                                                                                    ## of
-                                                                                    ## these
-                                                                                    ## elements
-                                                                                    ## is
-                                                                                    ## defined
-                                                                                    ## by
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## the
-                                                                                    ## attribute
-                                                                                    ## manager
-                                                                                    ## aDrawer.
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## If
-                                                                                    ## the
-                                                                                    ## Boolean
-                                                                                    ## drawFromCenter
-                                                                                    ## is
-                                                                                    ## false,
-                                                                                    ## the
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## arrowhead
-                                                                                    ## will
-                                                                                    ## point
-                                                                                    ## towards
-                                                                                    ## the
-                                                                                    ## center
-                                                                                    ## of
-                                                                                    ## aCircle.
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## If
-                                                                                    ## the
-                                                                                    ## Boolean
-                                                                                    ## reverseArrow
-                                                                                    ## is
-                                                                                    ## true,
-                                                                                    ## the
-                                                                                    ## arrowhead
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## will
-                                                                                    ## point
-                                                                                    ## away
-                                                                                    ## from
-                                                                                    ## the
-                                                                                    ## attachment
-                                                                                    ## point.
+  DsgPrsRadiusPresentation* {.importcpp: "DsgPrs_RadiusPresentation",
+                             header: "DsgPrs_RadiusPresentation.hxx", bycopy.} = object ##
+                                                                                   ## !
+                                                                                   ## Adds
+                                                                                   ## the
+                                                                                   ## point
+                                                                                   ## AttachmentPoint,
+                                                                                   ## the
+                                                                                   ## circle
+                                                                                   ## aCircle,
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## the
+                                                                                   ## text
+                                                                                   ## aText,
+                                                                                   ## and
+                                                                                   ## the
+                                                                                   ## parameters
+                                                                                   ## firstparam
+                                                                                   ## and
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## lastparam
+                                                                                   ## to
+                                                                                   ## the
+                                                                                   ## presentation
+                                                                                   ## object
+                                                                                   ## aPresentation.
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## The
+                                                                                   ## display
+                                                                                   ## attributes
+                                                                                   ## of
+                                                                                   ## these
+                                                                                   ## elements
+                                                                                   ## is
+                                                                                   ## defined
+                                                                                   ## by
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## the
+                                                                                   ## attribute
+                                                                                   ## manager
+                                                                                   ## aDrawer.
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## If
+                                                                                   ## the
+                                                                                   ## Boolean
+                                                                                   ## drawFromCenter
+                                                                                   ## is
+                                                                                   ## false,
+                                                                                   ## the
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## arrowhead
+                                                                                   ## will
+                                                                                   ## point
+                                                                                   ## towards
+                                                                                   ## the
+                                                                                   ## center
+                                                                                   ## of
+                                                                                   ## aCircle.
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## If
+                                                                                   ## the
+                                                                                   ## Boolean
+                                                                                   ## reverseArrow
+                                                                                   ## is
+                                                                                   ## true,
+                                                                                   ## the
+                                                                                   ## arrowhead
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## will
+                                                                                   ## point
+                                                                                   ## away
+                                                                                   ## from
+                                                                                   ## the
+                                                                                   ## attachment
+                                                                                   ## point.
 
 
-proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
-         aText: TCollection_ExtendedString; AttachmentPoint: gp_Pnt;
-         aCircle: gp_Circ; firstparam: Standard_Real; lastparam: Standard_Real;
-         drawFromCenter: Standard_Boolean = Standard_True;
-         reverseArrow: Standard_Boolean = Standard_False) {.
+proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
+         aText: TCollectionExtendedString; attachmentPoint: Pnt; aCircle: Circ;
+         firstparam: float; lastparam: float; drawFromCenter: bool = true;
+         reverseArrow: bool = false) {.importcpp: "DsgPrs_RadiusPresentation::Add(@)",
+                                   header: "DsgPrs_RadiusPresentation.hxx".}
+proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
+         aText: TCollectionExtendedString; attachmentPoint: Pnt; aCircle: Circ;
+         firstparam: float; lastparam: float; arrowSide: DsgPrsArrowSide;
+         drawFromCenter: bool = true; reverseArrow: bool = false) {.
     importcpp: "DsgPrs_RadiusPresentation::Add(@)",
     header: "DsgPrs_RadiusPresentation.hxx".}
-proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
-         aText: TCollection_ExtendedString; AttachmentPoint: gp_Pnt;
-         aCircle: gp_Circ; firstparam: Standard_Real; lastparam: Standard_Real;
-         ArrowSide: DsgPrs_ArrowSide;
-         drawFromCenter: Standard_Boolean = Standard_True;
-         reverseArrow: Standard_Boolean = Standard_False) {.
-    importcpp: "DsgPrs_RadiusPresentation::Add(@)",
-    header: "DsgPrs_RadiusPresentation.hxx".}
-proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
-         aText: TCollection_ExtendedString; AttachmentPoint: gp_Pnt; Center: gp_Pnt;
-         EndOfArrow: gp_Pnt; ArrowSide: DsgPrs_ArrowSide;
-         drawFromCenter: Standard_Boolean = Standard_True;
-         reverseArrow: Standard_Boolean = Standard_False) {.
-    importcpp: "DsgPrs_RadiusPresentation::Add(@)",
-    header: "DsgPrs_RadiusPresentation.hxx".}
+proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
+         aText: TCollectionExtendedString; attachmentPoint: Pnt; center: Pnt;
+         endOfArrow: Pnt; arrowSide: DsgPrsArrowSide; drawFromCenter: bool = true;
+         reverseArrow: bool = false) {.importcpp: "DsgPrs_RadiusPresentation::Add(@)",
+                                   header: "DsgPrs_RadiusPresentation.hxx".}

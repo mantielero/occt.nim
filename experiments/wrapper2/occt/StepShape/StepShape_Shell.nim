@@ -14,24 +14,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepShape_OpenShell"
 discard "forward decl of StepShape_ClosedShell"
 type
-  StepShape_Shell* {.importcpp: "StepShape_Shell", header: "StepShape_Shell.hxx",
-                    bycopy.} = object of StepData_SelectType ## ! Returns a Shell SelectType
+  StepShapeShell* {.importcpp: "StepShape_Shell", header: "StepShape_Shell.hxx",
+                   bycopy.} = object of StepDataSelectType ## ! Returns a Shell SelectType
 
 
-proc constructStepShape_Shell*(): StepShape_Shell {.constructor,
+proc constructStepShapeShell*(): StepShapeShell {.constructor,
     importcpp: "StepShape_Shell(@)", header: "StepShape_Shell.hxx".}
-proc CaseNum*(this: StepShape_Shell; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepShapeShell; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepShape_Shell.hxx".}
-proc OpenShell*(this: StepShape_Shell): handle[StepShape_OpenShell] {.noSideEffect,
+proc openShell*(this: StepShapeShell): Handle[StepShapeOpenShell] {.noSideEffect,
     importcpp: "OpenShell", header: "StepShape_Shell.hxx".}
-proc ClosedShell*(this: StepShape_Shell): handle[StepShape_ClosedShell] {.
+proc closedShell*(this: StepShapeShell): Handle[StepShapeClosedShell] {.
     noSideEffect, importcpp: "ClosedShell", header: "StepShape_Shell.hxx".}

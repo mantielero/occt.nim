@@ -15,35 +15,34 @@
 ## ! Root elements within glTF JSON document.
 
 type
-  RWGltf_GltfRootElement* {.size: sizeof(cint),
-                           importcpp: "RWGltf_GltfRootElement",
-                           header: "RWGltf_GltfRootElement.hxx".} = enum
-    RWGltf_GltfRootElement_Asset, ## !< "asset"       element, mandatory
-    RWGltf_GltfRootElement_Scenes, ## !< "scenes"      element, mandatory
-    RWGltf_GltfRootElement_Scene, ## !< "scene"       element, mandatory
-    RWGltf_GltfRootElement_Nodes, ## !< "nodes"       element, mandatory
-    RWGltf_GltfRootElement_Meshes, ## !< "meshes"      element, mandatory
-    RWGltf_GltfRootElement_Accessors, ## !< "accessors"   element, mandatory
-    RWGltf_GltfRootElement_BufferViews, ## !< "bufferViews" element, mandatory
-    RWGltf_GltfRootElement_Buffers, ## !< "buffers"     element, mandatory
-    RWGltf_GltfRootElement_NB_MANDATORY, ## !< number of mandatory elements
-                                        ##  optional elements
-    RWGltf_GltfRootElement_Materials, ## !< "materials"  element,
-    RWGltf_GltfRootElement_Programs, ## !< "programs"   element,
-    RWGltf_GltfRootElement_Samplers, ## !< "samplers"   element,
-    RWGltf_GltfRootElement_Shaders, ## !< "shaders"    element,
-    RWGltf_GltfRootElement_Skins, ## !< "skins"      element,
-    RWGltf_GltfRootElement_Techniques, ## !< "techniques" element,
-    RWGltf_GltfRootElement_Textures, ## !< "textures"   element,
-    RWGltf_GltfRootElement_Images, ## !< "images"     element,
-    RWGltf_GltfRootElement_ExtensionsUsed, ## !< "extensionsUsed"     element,
-    RWGltf_GltfRootElement_ExtensionsRequired, ## !< "extensionsRequired" element,
-    RWGltf_GltfRootElement_NB ## !< overall number of elements
+  RWGltfGltfRootElement* {.size: sizeof(cint), importcpp: "RWGltf_GltfRootElement",
+                          header: "RWGltf_GltfRootElement.hxx".} = enum
+    RWGltfGltfRootElementAsset, ## !< "asset"       element, mandatory
+    RWGltfGltfRootElementScenes, ## !< "scenes"      element, mandatory
+    RWGltfGltfRootElementScene, ## !< "scene"       element, mandatory
+    RWGltfGltfRootElementNodes, ## !< "nodes"       element, mandatory
+    RWGltfGltfRootElementMeshes, ## !< "meshes"      element, mandatory
+    RWGltfGltfRootElementAccessors, ## !< "accessors"   element, mandatory
+    RWGltfGltfRootElementBufferViews, ## !< "bufferViews" element, mandatory
+    RWGltfGltfRootElementBuffers, ## !< "buffers"     element, mandatory
+    RWGltfGltfRootElementNB_MANDATORY, ## !< number of mandatory elements
+                                      ##  optional elements
+    RWGltfGltfRootElementAnimations = rWGltfGltfRootElementNB_MANDATORY, ## !< "animations" element
+    RWGltfGltfRootElementMaterials, ## !< "materials"  element,
+    RWGltfGltfRootElementPrograms, ## !< "programs"   element,
+    RWGltfGltfRootElementSamplers, ## !< "samplers"   element,
+    RWGltfGltfRootElementShaders, ## !< "shaders"    element,
+    RWGltfGltfRootElementSkins, ## !< "skins"      element,
+    RWGltfGltfRootElementTechniques, ## !< "techniques" element,
+    RWGltfGltfRootElementTextures, ## !< "textures"   element,
+    RWGltfGltfRootElementImages, ## !< "images"     element,
+    RWGltfGltfRootElementExtensionsUsed, ## !< "extensionsUsed"     element,
+    RWGltfGltfRootElementExtensionsRequired, ## !< "extensionsRequired" element,
+    RWGltfGltfRootElementNB   ## !< overall number of elements
 
-const
-  RWGltf_GltfRootElement_Animations* = RWGltf_GltfRootElement_NB_MANDATORY
 
 ## ! Root elements within glTF JSON document - names array.
 
-proc RWGltf_GltfRootElementName*(theElem: RWGltf_GltfRootElement): cstring =
+proc rWGltfGltfRootElementName*(theElem: RWGltfGltfRootElement): cstring =
   discard
+

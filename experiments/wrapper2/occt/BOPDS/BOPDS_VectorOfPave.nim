@@ -12,8 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Array1, BOPDS_Pave
-
 type
-  BOPDS_VectorOfPave* = NCollection_Array1[BOPDS_Pave]
+  BOPDS_VectorOfPave* = NCollectionArray1[BOPDS_Pave]
+

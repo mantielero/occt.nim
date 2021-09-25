@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # TColgp_HSequenceOfPnt2d_HeaderFile [NewLine] # TColgp_HSequenceOfPnt2d_HeaderFile [NewLine] # ../gp/gp_Pnt2d.hxx [NewLine] # TColgp_SequenceOfPnt2d.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( TColgp_HSequenceOfPnt2d , TColgp_SequenceOfPnt2d ) # [NewLine]
+## !!!Ignored construct:  # TColgp_HSequenceOfPnt2d_HeaderFile [NewLine] # TColgp_HSequenceOfPnt2d_HeaderFile [NewLine] # < gp_Pnt2d . hxx > [NewLine] # < TColgp_SequenceOfPnt2d . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( TColgp_HSequenceOfPnt2d , TColgp_SequenceOfPnt2d ) # [NewLine]
 ## Error: expected ';'!!!
+

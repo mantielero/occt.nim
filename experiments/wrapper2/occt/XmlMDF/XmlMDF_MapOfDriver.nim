@@ -13,12 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_AsciiString, XmlMDF_ADriver,
-  ../TCollection/TCollection_AsciiString, ../NCollection/NCollection_DataMap
-
 type
-  XmlMDF_MapOfDriver* = NCollection_DataMap[TCollection_AsciiString,
-      handle[XmlMDF_ADriver], TCollection_AsciiString]
-  XmlMDF_DataMapIteratorOfMapOfDriver* = Iterator[TCollection_AsciiString,
-      handle[XmlMDF_ADriver], TCollection_AsciiString]
+  XmlMDF_MapOfDriver* = NCollectionDataMap[TCollectionAsciiString,
+      Handle[XmlMDF_ADriver], TCollectionAsciiString]
+  XmlMDF_DataMapIteratorOfMapOfDriver* = Iterator[TCollectionAsciiString,
+      Handle[XmlMDF_ADriver], TCollectionAsciiString]
+

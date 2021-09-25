@@ -13,15 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../StepShape/StepShape_ShapeDefinitionRepresentation,
-  STEPCAFControl_ExternFile, ../TColStd/TColStd_MapTransientHasher,
-  ../NCollection/NCollection_DataMap
-
 type
-  STEPCAFControl_DataMapOfSDRExternFile* = NCollection_DataMap[
-      handle[StepShape_ShapeDefinitionRepresentation],
-      handle[STEPCAFControl_ExternFile], TColStd_MapTransientHasher]
-  STEPCAFControl_DataMapIteratorOfDataMapOfSDRExternFile* = Iterator[
-      handle[StepShape_ShapeDefinitionRepresentation],
-      handle[STEPCAFControl_ExternFile], TColStd_MapTransientHasher]
+  STEPCAFControlDataMapOfSDRExternFile* = NCollectionDataMap[
+      Handle[StepShapeShapeDefinitionRepresentation],
+      Handle[STEPCAFControlExternFile], TColStdMapTransientHasher]
+  STEPCAFControlDataMapIteratorOfDataMapOfSDRExternFile* = Iterator[
+      Handle[StepShapeShapeDefinitionRepresentation],
+      Handle[STEPCAFControlExternFile], TColStdMapTransientHasher]
+

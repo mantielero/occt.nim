@@ -14,21 +14,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-proc ChFiKPart_MakeChAsym*(DStr: var TopOpeBRepDS_DataStructure;
-                          Data: handle[ChFiDS_SurfData]; Pln: gp_Pln;
-                          Cyl: gp_Cylinder; fu: Standard_Real; lu: Standard_Real;
-                          Or1: TopAbs_Orientation; Or2: TopAbs_Orientation;
-                          Dis: Standard_Real; Angle: Standard_Real; Spine: gp_Circ;
-                          First: Standard_Real; Ofpl: TopAbs_Orientation;
-                          plandab: Standard_Boolean; DisOnP: Standard_Boolean): Standard_Boolean {.
+proc chFiKPartMakeChAsym*(dStr: var TopOpeBRepDS_DataStructure;
+                         data: Handle[ChFiDS_SurfData]; pln: Pln; cyl: Cylinder;
+                         fu: float; lu: float; or1: TopAbsOrientation;
+                         or2: TopAbsOrientation; dis: float; angle: float;
+                         spine: Circ; first: float; ofpl: TopAbsOrientation;
+                         plandab: bool; disOnP: bool): bool {.
     importcpp: "ChFiKPart_MakeChAsym(@)",
     header: "ChFiKPart_ComputeData_ChAsymPlnCyl.hxx".}
-proc ChFiKPart_MakeChAsym*(DStr: var TopOpeBRepDS_DataStructure;
-                          Data: handle[ChFiDS_SurfData]; Pln: gp_Pln;
-                          Cyl: gp_Cylinder; fu: Standard_Real; lu: Standard_Real;
-                          Or1: TopAbs_Orientation; Or2: TopAbs_Orientation;
-                          Dis: Standard_Real; Angle: Standard_Real; Spine: gp_Lin;
-                          First: Standard_Real; Ofpl: TopAbs_Orientation;
-                          plandab: Standard_Boolean; DisOnP: Standard_Boolean): Standard_Boolean {.
+proc chFiKPartMakeChAsym*(dStr: var TopOpeBRepDS_DataStructure;
+                         data: Handle[ChFiDS_SurfData]; pln: Pln; cyl: Cylinder;
+                         fu: float; lu: float; or1: TopAbsOrientation;
+                         or2: TopAbsOrientation; dis: float; angle: float; spine: Lin;
+                         first: float; ofpl: TopAbsOrientation; plandab: bool;
+                         disOnP: bool): bool {.
     importcpp: "ChFiKPart_MakeChAsym(@)",
     header: "ChFiKPart_ComputeData_ChAsymPlnCyl.hxx".}

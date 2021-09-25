@@ -14,18 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../AppParCurves/AppParCurves_SequenceOfMultiCurve,
-  ../AppParCurves/AppParCurves_MultiCurve,
-  ../AppParCurves/AppParCurves_MultiBSpCurve, ../Standard/Standard_Boolean,
-  ../Approx/Approx_ParametrizationType, ../TColStd/TColStd_HArray1OfReal,
-  ../Approx/Approx_SequenceOfHArray1OfReal, ../TColStd/TColStd_SequenceOfReal,
-  ../AppParCurves/AppParCurves_HArray1OfConstraintCouple,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real,
-  ../AppParCurves/AppParCurves_Constraint, ../math/math_Vector,
-  ../TColStd/TColStd_Array1OfReal
-
 discard "forward decl of GeomInt_TheMultiLineOfWLApprox"
 discard "forward decl of GeomInt_TheMultiLineToolOfWLApprox"
 discard "forward decl of GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox"
@@ -36,7 +24,7 @@ discard "forward decl of GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezier
 discard "forward decl of AppParCurves_MultiCurve"
 discard "forward decl of AppParCurves_MultiBSpCurve"
 type
-  GeomInt_TheComputeLineBezierOfWLApprox* {.
+  GeomIntTheComputeLineBezierOfWLApprox* {.
       importcpp: "GeomInt_TheComputeLineBezierOfWLApprox",
       header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx", bycopy.} = object ## ! The
                                                                          ## MultiLine <Line> will be
@@ -60,83 +48,73 @@ type
                                                                          ## algorithm.
 
 
-proc constructGeomInt_TheComputeLineBezierOfWLApprox*(
-    Line: GeomInt_TheMultiLineOfWLApprox; degreemin: Standard_Integer = 4;
-    degreemax: Standard_Integer = 8; Tolerance3d: Standard_Real = 1.0e-3;
-    Tolerance2d: Standard_Real = 1.0e-6; NbIterations: Standard_Integer = 5;
-    cutting: Standard_Boolean = Standard_True;
-    parametrization: Approx_ParametrizationType = Approx_ChordLength;
-    Squares: Standard_Boolean = Standard_False): GeomInt_TheComputeLineBezierOfWLApprox {.
+proc constructGeomIntTheComputeLineBezierOfWLApprox*(
+    line: GeomIntTheMultiLineOfWLApprox; degreemin: int = 4; degreemax: int = 8;
+    tolerance3d: float = 1.0e-3; tolerance2d: float = 1.0e-6; nbIterations: int = 5;
+    cutting: bool = true;
+    parametrization: ApproxParametrizationType = approxChordLength;
+    squares: bool = false): GeomIntTheComputeLineBezierOfWLApprox {.constructor,
+    importcpp: "GeomInt_TheComputeLineBezierOfWLApprox(@)",
+    header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
+proc constructGeomIntTheComputeLineBezierOfWLApprox*(
+    line: GeomIntTheMultiLineOfWLApprox; parameters: MathVector; degreemin: int = 4;
+    degreemax: int = 8; tolerance3d: float = 1.0e-03; tolerance2d: float = 1.0e-06;
+    nbIterations: int = 5; cutting: bool = true; squares: bool = false): GeomIntTheComputeLineBezierOfWLApprox {.
     constructor, importcpp: "GeomInt_TheComputeLineBezierOfWLApprox(@)",
     header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
-proc constructGeomInt_TheComputeLineBezierOfWLApprox*(
-    Line: GeomInt_TheMultiLineOfWLApprox; Parameters: math_Vector;
-    degreemin: Standard_Integer = 4; degreemax: Standard_Integer = 8;
-    Tolerance3d: Standard_Real = 1.0e-03; Tolerance2d: Standard_Real = 1.0e-06;
-    NbIterations: Standard_Integer = 5; cutting: Standard_Boolean = Standard_True;
-    Squares: Standard_Boolean = Standard_False): GeomInt_TheComputeLineBezierOfWLApprox {.
-    constructor, importcpp: "GeomInt_TheComputeLineBezierOfWLApprox(@)",
+proc constructGeomIntTheComputeLineBezierOfWLApprox*(parameters: MathVector;
+    degreemin: int = 4; degreemax: int = 8; tolerance3d: float = 1.0e-03;
+    tolerance2d: float = 1.0e-06; nbIterations: int = 5; cutting: bool = true;
+    squares: bool = false): GeomIntTheComputeLineBezierOfWLApprox {.constructor,
+    importcpp: "GeomInt_TheComputeLineBezierOfWLApprox(@)",
     header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
-proc constructGeomInt_TheComputeLineBezierOfWLApprox*(Parameters: math_Vector;
-    degreemin: Standard_Integer = 4; degreemax: Standard_Integer = 8;
-    Tolerance3d: Standard_Real = 1.0e-03; Tolerance2d: Standard_Real = 1.0e-06;
-    NbIterations: Standard_Integer = 5; cutting: Standard_Boolean = Standard_True;
-    Squares: Standard_Boolean = Standard_False): GeomInt_TheComputeLineBezierOfWLApprox {.
-    constructor, importcpp: "GeomInt_TheComputeLineBezierOfWLApprox(@)",
+proc constructGeomIntTheComputeLineBezierOfWLApprox*(degreemin: int = 4;
+    degreemax: int = 8; tolerance3d: float = 1.0e-03; tolerance2d: float = 1.0e-06;
+    nbIterations: int = 5; cutting: bool = true;
+    parametrization: ApproxParametrizationType = approxChordLength;
+    squares: bool = false): GeomIntTheComputeLineBezierOfWLApprox {.constructor,
+    importcpp: "GeomInt_TheComputeLineBezierOfWLApprox(@)",
     header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
-proc constructGeomInt_TheComputeLineBezierOfWLApprox*(
-    degreemin: Standard_Integer = 4; degreemax: Standard_Integer = 8;
-    Tolerance3d: Standard_Real = 1.0e-03; Tolerance2d: Standard_Real = 1.0e-06;
-    NbIterations: Standard_Integer = 5; cutting: Standard_Boolean = Standard_True;
-    parametrization: Approx_ParametrizationType = Approx_ChordLength;
-    Squares: Standard_Boolean = Standard_False): GeomInt_TheComputeLineBezierOfWLApprox {.
-    constructor, importcpp: "GeomInt_TheComputeLineBezierOfWLApprox(@)",
+proc init*(this: var GeomIntTheComputeLineBezierOfWLApprox; degreemin: int = 4;
+          degreemax: int = 8; tolerance3d: float = 1.0e-03;
+          tolerance2d: float = 1.0e-06; nbIterations: int = 5; cutting: bool = true;
+          parametrization: ApproxParametrizationType = approxChordLength;
+          squares: bool = false) {.importcpp: "Init", header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
+proc perform*(this: var GeomIntTheComputeLineBezierOfWLApprox;
+             line: GeomIntTheMultiLineOfWLApprox) {.importcpp: "Perform",
     header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
-proc Init*(this: var GeomInt_TheComputeLineBezierOfWLApprox;
-          degreemin: Standard_Integer = 4; degreemax: Standard_Integer = 8;
-          Tolerance3d: Standard_Real = 1.0e-03;
-          Tolerance2d: Standard_Real = 1.0e-06; NbIterations: Standard_Integer = 5;
-          cutting: Standard_Boolean = Standard_True;
-          parametrization: Approx_ParametrizationType = Approx_ChordLength;
-          Squares: Standard_Boolean = Standard_False) {.importcpp: "Init",
-    header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
-proc Perform*(this: var GeomInt_TheComputeLineBezierOfWLApprox;
-             Line: GeomInt_TheMultiLineOfWLApprox) {.importcpp: "Perform",
-    header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
-proc SetDegrees*(this: var GeomInt_TheComputeLineBezierOfWLApprox;
-                degreemin: Standard_Integer; degreemax: Standard_Integer) {.
-    importcpp: "SetDegrees", header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
-proc SetTolerances*(this: var GeomInt_TheComputeLineBezierOfWLApprox;
-                   Tolerance3d: Standard_Real; Tolerance2d: Standard_Real) {.
+proc setDegrees*(this: var GeomIntTheComputeLineBezierOfWLApprox; degreemin: int;
+                degreemax: int) {.importcpp: "SetDegrees", header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
+proc setTolerances*(this: var GeomIntTheComputeLineBezierOfWLApprox;
+                   tolerance3d: float; tolerance2d: float) {.
     importcpp: "SetTolerances",
     header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
-proc SetConstraints*(this: var GeomInt_TheComputeLineBezierOfWLApprox;
-                    firstC: AppParCurves_Constraint;
-                    lastC: AppParCurves_Constraint) {.importcpp: "SetConstraints",
+proc setConstraints*(this: var GeomIntTheComputeLineBezierOfWLApprox;
+                    firstC: AppParCurvesConstraint; lastC: AppParCurvesConstraint) {.
+    importcpp: "SetConstraints",
     header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
-proc IsAllApproximated*(this: GeomInt_TheComputeLineBezierOfWLApprox): Standard_Boolean {.
+proc isAllApproximated*(this: GeomIntTheComputeLineBezierOfWLApprox): bool {.
     noSideEffect, importcpp: "IsAllApproximated",
     header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
-proc IsToleranceReached*(this: GeomInt_TheComputeLineBezierOfWLApprox): Standard_Boolean {.
+proc isToleranceReached*(this: GeomIntTheComputeLineBezierOfWLApprox): bool {.
     noSideEffect, importcpp: "IsToleranceReached",
     header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
-proc Error*(this: GeomInt_TheComputeLineBezierOfWLApprox; Index: Standard_Integer;
-           tol3d: var Standard_Real; tol2d: var Standard_Real) {.noSideEffect,
-    importcpp: "Error", header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
-proc NbMultiCurves*(this: GeomInt_TheComputeLineBezierOfWLApprox): Standard_Integer {.
+proc error*(this: GeomIntTheComputeLineBezierOfWLApprox; index: int;
+           tol3d: var float; tol2d: var float) {.noSideEffect, importcpp: "Error",
+    header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
+proc nbMultiCurves*(this: GeomIntTheComputeLineBezierOfWLApprox): int {.
     noSideEffect, importcpp: "NbMultiCurves",
     header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
-proc Value*(this: GeomInt_TheComputeLineBezierOfWLApprox;
-           Index: Standard_Integer = 1): AppParCurves_MultiCurve {.noSideEffect,
-    importcpp: "Value", header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
-proc ChangeValue*(this: var GeomInt_TheComputeLineBezierOfWLApprox;
-                 Index: Standard_Integer = 1): var AppParCurves_MultiCurve {.
+proc value*(this: GeomIntTheComputeLineBezierOfWLApprox; index: int = 1): AppParCurvesMultiCurve {.
+    noSideEffect, importcpp: "Value",
+    header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
+proc changeValue*(this: var GeomIntTheComputeLineBezierOfWLApprox; index: int = 1): var AppParCurvesMultiCurve {.
     importcpp: "ChangeValue", header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
-proc SplineValue*(this: var GeomInt_TheComputeLineBezierOfWLApprox): AppParCurves_MultiBSpCurve {.
+proc splineValue*(this: var GeomIntTheComputeLineBezierOfWLApprox): AppParCurvesMultiBSpCurve {.
     importcpp: "SplineValue", header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
-proc Parametrization*(this: GeomInt_TheComputeLineBezierOfWLApprox): Approx_ParametrizationType {.
+proc parametrization*(this: GeomIntTheComputeLineBezierOfWLApprox): ApproxParametrizationType {.
     noSideEffect, importcpp: "Parametrization",
     header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
-proc Parameters*(this: GeomInt_TheComputeLineBezierOfWLApprox;
-                Index: Standard_Integer = 1): TColStd_Array1OfReal {.noSideEffect,
-    importcpp: "Parameters", header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}
+proc parameters*(this: GeomIntTheComputeLineBezierOfWLApprox; index: int = 1): TColStdArray1OfReal {.
+    noSideEffect, importcpp: "Parameters",
+    header: "GeomInt_TheComputeLineBezierOfWLApprox.hxx".}

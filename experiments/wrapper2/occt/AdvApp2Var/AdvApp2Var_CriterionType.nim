@@ -19,8 +19,9 @@
 ## ! max is good and criterion is not satisfied
 
 type
-  AdvApp2Var_CriterionType* {.size: sizeof(cint),
-                             importcpp: "AdvApp2Var_CriterionType",
-                             header: "AdvApp2Var_CriterionType.hxx".} = enum
-    AdvApp2Var_Absolute, AdvApp2Var_Relative
+  AdvApp2VarCriterionType* {.size: sizeof(cint),
+                            importcpp: "AdvApp2Var_CriterionType",
+                            header: "AdvApp2Var_CriterionType.hxx".} = enum
+    AdvApp2VarAbsolute, AdvApp2VarRelative
+
 

@@ -13,53 +13,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepShape_ToleranceMethodDefinition, StepShape_DimensionalCharacteristic,
-  ../Standard/Standard_Transient
-
 discard "forward decl of StepShape_ToleranceMethodDefinition"
 discard "forward decl of StepShape_DimensionalCharacteristic"
 discard "forward decl of StepShape_PlusMinusTolerance"
 discard "forward decl of StepShape_PlusMinusTolerance"
 type
-  Handle_StepShape_PlusMinusTolerance* = handle[StepShape_PlusMinusTolerance]
+  HandleStepShapePlusMinusTolerance* = Handle[StepShapePlusMinusTolerance]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepShape_PlusMinusTolerance* {.importcpp: "StepShape_PlusMinusTolerance",
-                                 header: "StepShape_PlusMinusTolerance.hxx",
-                                 bycopy.} = object of Standard_Transient
+  StepShapePlusMinusTolerance* {.importcpp: "StepShape_PlusMinusTolerance",
+                                header: "StepShape_PlusMinusTolerance.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructStepShape_PlusMinusTolerance*(): StepShape_PlusMinusTolerance {.
+proc constructStepShapePlusMinusTolerance*(): StepShapePlusMinusTolerance {.
     constructor, importcpp: "StepShape_PlusMinusTolerance(@)",
     header: "StepShape_PlusMinusTolerance.hxx".}
-proc Init*(this: var StepShape_PlusMinusTolerance;
-          range: StepShape_ToleranceMethodDefinition;
-          toleranced_dimension: StepShape_DimensionalCharacteristic) {.
+proc init*(this: var StepShapePlusMinusTolerance;
+          range: StepShapeToleranceMethodDefinition;
+          tolerancedDimension: StepShapeDimensionalCharacteristic) {.
     importcpp: "Init", header: "StepShape_PlusMinusTolerance.hxx".}
-proc Range*(this: StepShape_PlusMinusTolerance): StepShape_ToleranceMethodDefinition {.
+proc range*(this: StepShapePlusMinusTolerance): StepShapeToleranceMethodDefinition {.
     noSideEffect, importcpp: "Range", header: "StepShape_PlusMinusTolerance.hxx".}
-proc SetRange*(this: var StepShape_PlusMinusTolerance;
-              range: StepShape_ToleranceMethodDefinition) {.importcpp: "SetRange",
+proc setRange*(this: var StepShapePlusMinusTolerance;
+              range: StepShapeToleranceMethodDefinition) {.importcpp: "SetRange",
     header: "StepShape_PlusMinusTolerance.hxx".}
-proc TolerancedDimension*(this: StepShape_PlusMinusTolerance): StepShape_DimensionalCharacteristic {.
+proc tolerancedDimension*(this: StepShapePlusMinusTolerance): StepShapeDimensionalCharacteristic {.
     noSideEffect, importcpp: "TolerancedDimension",
     header: "StepShape_PlusMinusTolerance.hxx".}
-proc SetTolerancedDimension*(this: var StepShape_PlusMinusTolerance;
-    toleranced_dimension: StepShape_DimensionalCharacteristic) {.
+proc setTolerancedDimension*(this: var StepShapePlusMinusTolerance;
+    tolerancedDimension: StepShapeDimensionalCharacteristic) {.
     importcpp: "SetTolerancedDimension",
     header: "StepShape_PlusMinusTolerance.hxx".}
 type
-  StepShape_PlusMinusTolerancebase_type* = Standard_Transient
+  StepShapePlusMinusTolerancebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_PlusMinusTolerance::get_type_name(@)",
-                              header: "StepShape_PlusMinusTolerance.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_PlusMinusTolerance::get_type_name(@)",
+                            header: "StepShape_PlusMinusTolerance.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_PlusMinusTolerance::get_type_descriptor(@)",
     header: "StepShape_PlusMinusTolerance.hxx".}
-proc DynamicType*(this: StepShape_PlusMinusTolerance): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapePlusMinusTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_PlusMinusTolerance.hxx".}

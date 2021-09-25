@@ -16,4 +16,5 @@
 
 discard "forward decl of TNaming_Node"
 type
-  TNaming_PtrNode* = ptr TNaming_Node
+  TNamingPtrNode* = ptr TNamingNode
+

@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TopOpeBRep_VPointInter, TopOpeBRep_Array1OfVPointInter,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  TopOpeBRep_HArray1OfVPointInter* {.importcpp: "TopOpeBRep_HArray1OfVPointInter", header: "TopOpeBRep_HArray1OfVPointInter.hxx",
-                                    bycopy.} = object of TopOpeBRep_Array1OfVPointInter
+  TopOpeBRepHArray1OfVPointInter* {.importcpp: "TopOpeBRep_HArray1OfVPointInter", header: "TopOpeBRep_HArray1OfVPointInter.hxx",
+                                   bycopy.} = object of TopOpeBRepArray1OfVPointInter
 
 
-proc constructTopOpeBRep_HArray1OfVPointInter*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): TopOpeBRep_HArray1OfVPointInter {.constructor,
+proc constructTopOpeBRepHArray1OfVPointInter*(theLower: int; theUpper: int): TopOpeBRepHArray1OfVPointInter {.
+    constructor, importcpp: "TopOpeBRep_HArray1OfVPointInter(@)",
+    header: "TopOpeBRep_HArray1OfVPointInter.hxx".}
+proc constructTopOpeBRepHArray1OfVPointInter*(theLower: int; theUpper: int;
+    theValue: ValueType): TopOpeBRepHArray1OfVPointInter {.constructor,
     importcpp: "TopOpeBRep_HArray1OfVPointInter(@)",
     header: "TopOpeBRep_HArray1OfVPointInter.hxx".}
-proc constructTopOpeBRep_HArray1OfVPointInter*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): TopOpeBRep_HArray1OfVPointInter {.
+proc constructTopOpeBRepHArray1OfVPointInter*(
+    theOther: TopOpeBRepArray1OfVPointInter): TopOpeBRepHArray1OfVPointInter {.
     constructor, importcpp: "TopOpeBRep_HArray1OfVPointInter(@)",
     header: "TopOpeBRep_HArray1OfVPointInter.hxx".}
-proc constructTopOpeBRep_HArray1OfVPointInter*(
-    theOther: TopOpeBRep_Array1OfVPointInter): TopOpeBRep_HArray1OfVPointInter {.
-    constructor, importcpp: "TopOpeBRep_HArray1OfVPointInter(@)",
-    header: "TopOpeBRep_HArray1OfVPointInter.hxx".}
-proc Array1*(this: TopOpeBRep_HArray1OfVPointInter): TopOpeBRep_Array1OfVPointInter {.
+proc array1*(this: TopOpeBRepHArray1OfVPointInter): TopOpeBRepArray1OfVPointInter {.
     noSideEffect, importcpp: "Array1",
     header: "TopOpeBRep_HArray1OfVPointInter.hxx".}
-proc ChangeArray1*(this: var TopOpeBRep_HArray1OfVPointInter): var TopOpeBRep_Array1OfVPointInter {.
+proc changeArray1*(this: var TopOpeBRepHArray1OfVPointInter): var TopOpeBRepArray1OfVPointInter {.
     importcpp: "ChangeArray1", header: "TopOpeBRep_HArray1OfVPointInter.hxx".}
 type
-  TopOpeBRep_HArray1OfVPointInterbase_type* = MMgt_TShared
+  TopOpeBRepHArray1OfVPointInterbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TopOpeBRep_HArray1OfVPointInter::get_type_name(@)",
-                              header: "TopOpeBRep_HArray1OfVPointInter.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TopOpeBRep_HArray1OfVPointInter::get_type_name(@)",
+                            header: "TopOpeBRep_HArray1OfVPointInter.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopOpeBRep_HArray1OfVPointInter::get_type_descriptor(@)",
     header: "TopOpeBRep_HArray1OfVPointInter.hxx".}
-proc DynamicType*(this: TopOpeBRep_HArray1OfVPointInter): handle[Standard_Type] {.
+proc dynamicType*(this: TopOpeBRepHArray1OfVPointInter): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TopOpeBRep_HArray1OfVPointInter.hxx".}

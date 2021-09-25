@@ -13,44 +13,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../IMeshTools/IMeshTools_CurveTessellator, ../IMeshData/IMeshData_Types,
-  BRepMesh_EdgeParameterProvider, ../TColgp/TColgp_Array1OfPnt,
-  ../TColStd/TColStd_Array1OfInteger, ../TopLoc/TopLoc_Location
-
 ## ! Auxiliary class implements functionality retrieving tessellated
 ## ! representation of an edge stored in polygon.
 
 type
-  BRepMesh_EdgeTessellationExtractor* {.importcpp: "BRepMesh_EdgeTessellationExtractor", header: "BRepMesh_EdgeTessellationExtractor.hxx",
-                                       bycopy.} = object of IMeshTools_CurveTessellator ##
-                                                                                   ## !
-                                                                                   ## Constructor.
+  BRepMeshEdgeTessellationExtractor* {.importcpp: "BRepMesh_EdgeTessellationExtractor", header: "BRepMesh_EdgeTessellationExtractor.hxx",
+                                      bycopy.} = object of IMeshToolsCurveTessellator ##
+                                                                                 ## !
+                                                                                 ## Constructor.
 
 
-proc constructBRepMesh_EdgeTessellationExtractor*(theEdge: IEdgeHandle;
-    theFace: IFaceHandle): BRepMesh_EdgeTessellationExtractor {.constructor,
+proc constructBRepMeshEdgeTessellationExtractor*(theEdge: IEdgeHandle;
+    theFace: IFaceHandle): BRepMeshEdgeTessellationExtractor {.constructor,
     importcpp: "BRepMesh_EdgeTessellationExtractor(@)",
     header: "BRepMesh_EdgeTessellationExtractor.hxx".}
-proc destroyBRepMesh_EdgeTessellationExtractor*(
-    this: var BRepMesh_EdgeTessellationExtractor) {.
+proc destroyBRepMeshEdgeTessellationExtractor*(
+    this: var BRepMeshEdgeTessellationExtractor) {.
     importcpp: "#.~BRepMesh_EdgeTessellationExtractor()",
     header: "BRepMesh_EdgeTessellationExtractor.hxx".}
-proc PointsNb*(this: BRepMesh_EdgeTessellationExtractor): Standard_Integer {.
-    noSideEffect, importcpp: "PointsNb",
-    header: "BRepMesh_EdgeTessellationExtractor.hxx".}
-proc Value*(this: BRepMesh_EdgeTessellationExtractor; theIndex: Standard_Integer;
-           thePoint: var gp_Pnt; theParameter: var Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "Value",
-    header: "BRepMesh_EdgeTessellationExtractor.hxx".}
+proc pointsNb*(this: BRepMeshEdgeTessellationExtractor): int {.noSideEffect,
+    importcpp: "PointsNb", header: "BRepMesh_EdgeTessellationExtractor.hxx".}
+proc value*(this: BRepMeshEdgeTessellationExtractor; theIndex: int;
+           thePoint: var Pnt; theParameter: var float): bool {.noSideEffect,
+    importcpp: "Value", header: "BRepMesh_EdgeTessellationExtractor.hxx".}
 type
-  BRepMesh_EdgeTessellationExtractorbase_type* = IMeshTools_CurveTessellator
+  BRepMeshEdgeTessellationExtractorbaseType* = IMeshToolsCurveTessellator
 
-proc get_type_name*(): cstring {.importcpp: "BRepMesh_EdgeTessellationExtractor::get_type_name(@)",
-                              header: "BRepMesh_EdgeTessellationExtractor.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepMesh_EdgeTessellationExtractor::get_type_name(@)",
+                            header: "BRepMesh_EdgeTessellationExtractor.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepMesh_EdgeTessellationExtractor::get_type_descriptor(@)",
     header: "BRepMesh_EdgeTessellationExtractor.hxx".}
-proc DynamicType*(this: BRepMesh_EdgeTessellationExtractor): handle[Standard_Type] {.
+proc dynamicType*(this: BRepMeshEdgeTessellationExtractor): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BRepMesh_EdgeTessellationExtractor.hxx".}

@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_GUID,
-  ../TDF/TDF_Attribute, ../Standard/Standard_OStream
-
 discard "forward decl of TDF_Label"
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Attribute"
@@ -26,74 +22,74 @@ discard "forward decl of TDF_DataSet"
 discard "forward decl of TDataStd_UAttribute"
 discard "forward decl of TDataStd_UAttribute"
 type
-  Handle_TDataStd_UAttribute* = handle[TDataStd_UAttribute]
-  TDataStd_UAttribute* {.importcpp: "TDataStd_UAttribute",
-                        header: "TDataStd_UAttribute.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                       ## !
-                                                                                       ## api
-                                                                                       ## class
-                                                                                       ## methods
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## =============
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Find,
-                                                                                       ## or
-                                                                                       ## create,
-                                                                                       ## a
-                                                                                       ## UAttribute
-                                                                                       ## attribute
-                                                                                       ## with
-                                                                                       ## <LocalID>
-                                                                                       ## as
-                                                                                       ## Local
-                                                                                       ## GUID.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## The
-                                                                                       ## UAttribute
-                                                                                       ## attribute
-                                                                                       ## is
-                                                                                       ## returned.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## UAttribute
-                                                                                       ## methods
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## ============
+  HandleTDataStdUAttribute* = Handle[TDataStdUAttribute]
+  TDataStdUAttribute* {.importcpp: "TDataStd_UAttribute",
+                       header: "TDataStd_UAttribute.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                      ## !
+                                                                                      ## api
+                                                                                      ## class
+                                                                                      ## methods
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## =============
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Find,
+                                                                                      ## or
+                                                                                      ## create,
+                                                                                      ## a
+                                                                                      ## UAttribute
+                                                                                      ## attribute
+                                                                                      ## with
+                                                                                      ## <LocalID>
+                                                                                      ## as
+                                                                                      ## Local
+                                                                                      ## GUID.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## The
+                                                                                      ## UAttribute
+                                                                                      ## attribute
+                                                                                      ## is
+                                                                                      ## returned.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## UAttribute
+                                                                                      ## methods
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## ============
 
 
-proc Set*(label: TDF_Label; LocalID: Standard_GUID): handle[TDataStd_UAttribute] {.
+proc set*(label: TDF_Label; localID: StandardGUID): Handle[TDataStdUAttribute] {.
     importcpp: "TDataStd_UAttribute::Set(@)", header: "TDataStd_UAttribute.hxx".}
-proc constructTDataStd_UAttribute*(): TDataStd_UAttribute {.constructor,
+proc constructTDataStdUAttribute*(): TDataStdUAttribute {.constructor,
     importcpp: "TDataStd_UAttribute(@)", header: "TDataStd_UAttribute.hxx".}
-proc SetID*(this: var TDataStd_UAttribute; LocalID: Standard_GUID) {.
-    importcpp: "SetID", header: "TDataStd_UAttribute.hxx".}
-proc ID*(this: TDataStd_UAttribute): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc setID*(this: var TDataStdUAttribute; localID: StandardGUID) {.importcpp: "SetID",
     header: "TDataStd_UAttribute.hxx".}
-proc Restore*(this: var TDataStd_UAttribute; with: handle[TDF_Attribute]) {.
+proc id*(this: TDataStdUAttribute): StandardGUID {.noSideEffect, importcpp: "ID",
+    header: "TDataStd_UAttribute.hxx".}
+proc restore*(this: var TDataStdUAttribute; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TDataStd_UAttribute.hxx".}
-proc NewEmpty*(this: TDataStd_UAttribute): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TDataStdUAttribute): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TDataStd_UAttribute.hxx".}
-proc Paste*(this: TDataStd_UAttribute; into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TDataStdUAttribute; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TDataStd_UAttribute.hxx".}
-proc References*(this: TDataStd_UAttribute; DS: handle[TDF_DataSet]) {.noSideEffect,
+proc references*(this: TDataStdUAttribute; ds: Handle[TDF_DataSet]) {.noSideEffect,
     importcpp: "References", header: "TDataStd_UAttribute.hxx".}
-proc Dump*(this: TDataStd_UAttribute; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDataStdUAttribute; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_UAttribute.hxx".}
-proc DumpJson*(this: TDataStd_UAttribute; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TDataStd_UAttribute.hxx".}
+proc dumpJson*(this: TDataStdUAttribute; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TDataStd_UAttribute.hxx".}
 type
-  TDataStd_UAttributebase_type* = TDF_Attribute
+  TDataStdUAttributebaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TDataStd_UAttribute::get_type_name(@)",
-                              header: "TDataStd_UAttribute.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDataStd_UAttribute::get_type_name(@)",
+                            header: "TDataStd_UAttribute.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDataStd_UAttribute::get_type_descriptor(@)",
     header: "TDataStd_UAttribute.hxx".}
-proc DynamicType*(this: TDataStd_UAttribute): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDataStdUAttribute): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_UAttribute.hxx".}

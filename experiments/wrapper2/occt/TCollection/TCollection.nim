@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of TCollection_HAsciiString"
@@ -124,5 +120,5 @@ type
                                                                                 ## map.
 
 
-proc NextPrimeForMap*(I: Standard_Integer): Standard_Integer {.
-    importcpp: "TCollection::NextPrimeForMap(@)", header: "TCollection.hxx".}
+proc nextPrimeForMap*(i: int): int {.importcpp: "TCollection::NextPrimeForMap(@)",
+                                 header: "TCollection.hxx".}

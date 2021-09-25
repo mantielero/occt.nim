@@ -14,31 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepGeom/StepGeom_GeometricRepresentationItem
-
 discard "forward decl of StepVisual_CameraModel"
 discard "forward decl of StepVisual_CameraModel"
 type
-  Handle_StepVisual_CameraModel* = handle[StepVisual_CameraModel]
-  StepVisual_CameraModel* {.importcpp: "StepVisual_CameraModel",
-                           header: "StepVisual_CameraModel.hxx", bycopy.} = object of StepGeom_GeometricRepresentationItem ##
-                                                                                                                    ## !
-                                                                                                                    ## Returns
-                                                                                                                    ## a
-                                                                                                                    ## CameraModel
+  HandleStepVisualCameraModel* = Handle[StepVisualCameraModel]
+  StepVisualCameraModel* {.importcpp: "StepVisual_CameraModel",
+                          header: "StepVisual_CameraModel.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
+                                                                                                                  ## !
+                                                                                                                  ## Returns
+                                                                                                                  ## a
+                                                                                                                  ## CameraModel
 
 
-proc constructStepVisual_CameraModel*(): StepVisual_CameraModel {.constructor,
+proc constructStepVisualCameraModel*(): StepVisualCameraModel {.constructor,
     importcpp: "StepVisual_CameraModel(@)", header: "StepVisual_CameraModel.hxx".}
 type
-  StepVisual_CameraModelbase_type* = StepGeom_GeometricRepresentationItem
+  StepVisualCameraModelbaseType* = StepGeomGeometricRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_CameraModel::get_type_name(@)",
-                              header: "StepVisual_CameraModel.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_CameraModel::get_type_name(@)",
+                            header: "StepVisual_CameraModel.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_CameraModel::get_type_descriptor(@)",
     header: "StepVisual_CameraModel.hxx".}
-proc DynamicType*(this: StepVisual_CameraModel): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepVisual_CameraModel.hxx".}
+proc dynamicType*(this: StepVisualCameraModel): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepVisual_CameraModel.hxx".}

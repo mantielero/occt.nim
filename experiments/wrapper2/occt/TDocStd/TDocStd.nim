@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TDF/TDF_IDList
-
 discard "forward decl of TDocStd_Application"
 discard "forward decl of TDocStd_Document"
 discard "forward decl of TDocStd_Context"
@@ -40,5 +36,5 @@ type
                                                                     ## ! cleared before use.
 
 
-proc IDList*(anIDList: var TDF_IDList) {.importcpp: "TDocStd::IDList(@)",
+proc iDList*(anIDList: var TDF_IDList) {.importcpp: "TDocStd::IDList(@)",
                                      header: "TDocStd.hxx".}

@@ -13,12 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TDF_Label, TDF_Label, TDF_LabelMapHasher, TDF_LabelMapHasher,
-  ../NCollection/NCollection_DoubleMap
-
 type
-  TDF_LabelDoubleMap* = NCollection_DoubleMap[TDF_Label, TDF_Label,
+  TDF_LabelDoubleMap* = NCollectionDoubleMap[TDF_Label, TDF_Label,
       TDF_LabelMapHasher, TDF_LabelMapHasher]
   TDF_DoubleMapIteratorOfLabelDoubleMap* = Iterator[TDF_Label, TDF_Label,
       TDF_LabelMapHasher, TDF_LabelMapHasher]
+

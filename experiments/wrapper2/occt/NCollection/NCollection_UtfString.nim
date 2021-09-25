@@ -13,7 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _NCollection_UtfString_H__ [NewLine] # _NCollection_UtfString_H__ [NewLine] # NCollection_UtfIterator.hxx [NewLine] # < cstring > [NewLine] # < cstdlib > [NewLine] ! This template class represent constant UTF-* string.
+## !!!Ignored construct:  # _NCollection_UtfString_H__ [NewLine] # _NCollection_UtfString_H__ [NewLine] # < NCollection_UtfIterator . hxx > [NewLine] # < cstring > [NewLine] # < cstdlib > [NewLine] ! This template class represent constant UTF-* string.
 ## ! String stored in memory continuously, always NULL-terminated
 ## ! and can be used as standard C-string using ToCString() method.
 ## !
@@ -69,16 +69,14 @@
 ## Error: token expected: ; but got: :!!!
 
 type
-  NCollection_UtfStringNCollection_Utf8String* = NCollection_UtfString[
-      Standard_Utf8Char]
-  NCollection_UtfStringNCollection_Utf16String* = NCollection_UtfString[
-      Standard_Utf16Char]
-  NCollection_UtfStringNCollection_Utf32String* = NCollection_UtfString[
-      Standard_Utf32Char]
-  NCollection_UtfStringNCollection_UtfWideString* = NCollection_UtfString[
-      Standard_WideChar]
+  NCollectionUtfStringNCollectionUtf8String* = NCollectionUtfString[
+      StandardUtf8Char]
+  NCollectionUtfStringNCollectionUtf16String* = NCollectionUtfString[
+      StandardUtf16Char]
+  NCollectionUtfStringNCollectionUtf32String* = NCollectionUtfString[
+      StandardUtf32Char]
+  NCollectionUtfStringNCollectionUtfWideString* = NCollectionUtfString[
+      StandardWideChar]
 
 ##  template implementation (inline methods)
 
-import
-  NCollection_UtfString

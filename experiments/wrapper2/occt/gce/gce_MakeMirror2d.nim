@@ -14,32 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Trsf2d
-
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Lin2d"
 discard "forward decl of gp_Dir2d"
 discard "forward decl of gp_Trsf2d"
 type
-  gce_MakeMirror2d* {.importcpp: "gce_MakeMirror2d",
-                     header: "gce_MakeMirror2d.hxx", bycopy.} = object
+  GceMakeMirror2d* {.importcpp: "gce_MakeMirror2d", header: "gce_MakeMirror2d.hxx",
+                    bycopy.} = object
 
 
-proc constructgce_MakeMirror2d*(Point: gp_Pnt2d): gce_MakeMirror2d {.constructor,
+proc constructGceMakeMirror2d*(point: Pnt2d): GceMakeMirror2d {.constructor,
     importcpp: "gce_MakeMirror2d(@)", header: "gce_MakeMirror2d.hxx".}
-proc constructgce_MakeMirror2d*(Axis: gp_Ax2d): gce_MakeMirror2d {.constructor,
+proc constructGceMakeMirror2d*(axis: Ax2d): GceMakeMirror2d {.constructor,
     importcpp: "gce_MakeMirror2d(@)", header: "gce_MakeMirror2d.hxx".}
-proc constructgce_MakeMirror2d*(Line: gp_Lin2d): gce_MakeMirror2d {.constructor,
+proc constructGceMakeMirror2d*(line: Lin2d): GceMakeMirror2d {.constructor,
     importcpp: "gce_MakeMirror2d(@)", header: "gce_MakeMirror2d.hxx".}
-proc constructgce_MakeMirror2d*(Point: gp_Pnt2d; Direc: gp_Dir2d): gce_MakeMirror2d {.
+proc constructGceMakeMirror2d*(point: Pnt2d; direc: Dir2d): GceMakeMirror2d {.
     constructor, importcpp: "gce_MakeMirror2d(@)", header: "gce_MakeMirror2d.hxx".}
-proc Value*(this: gce_MakeMirror2d): gp_Trsf2d {.noSideEffect, importcpp: "Value",
+proc value*(this: GceMakeMirror2d): Trsf2d {.noSideEffect, importcpp: "Value",
     header: "gce_MakeMirror2d.hxx".}
-proc Operator*(this: gce_MakeMirror2d): gp_Trsf2d {.noSideEffect,
-    importcpp: "Operator", header: "gce_MakeMirror2d.hxx".}
-converter `gp_Trsf2d`*(this: gce_MakeMirror2d): gp_Trsf2d {.noSideEffect,
+proc operator*(this: GceMakeMirror2d): Trsf2d {.noSideEffect, importcpp: "Operator",
+    header: "gce_MakeMirror2d.hxx".}
+converter `trsf2d`*(this: GceMakeMirror2d): Trsf2d {.noSideEffect,
     importcpp: "gce_MakeMirror2d::operator gp_Trsf2d",
     header: "gce_MakeMirror2d.hxx".}

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_Product"
 discard "forward decl of StepBasic_ProductDefinition"
@@ -29,45 +24,44 @@ discard "forward decl of StepRepr_Representation"
 discard "forward decl of StepRepr_ExternallyDefinedRepresentation"
 discard "forward decl of StepAP214_AutoDesignDocumentReference"
 type
-  StepAP214_AutoDesignGeneralOrgItem* {.importcpp: "StepAP214_AutoDesignGeneralOrgItem", header: "StepAP214_AutoDesignGeneralOrgItem.hxx",
-                                       bycopy.} = object of StepData_SelectType ## !
-                                                                           ## Returns a
-                                                                           ## AutoDesignGeneralOrgItem
-                                                                           ## SelectType
+  StepAP214AutoDesignGeneralOrgItem* {.importcpp: "StepAP214_AutoDesignGeneralOrgItem", header: "StepAP214_AutoDesignGeneralOrgItem.hxx",
+                                      bycopy.} = object of StepDataSelectType ## ! Returns a
+                                                                         ## AutoDesignGeneralOrgItem
+                                                                         ## SelectType
 
 
-proc constructStepAP214_AutoDesignGeneralOrgItem*(): StepAP214_AutoDesignGeneralOrgItem {.
+proc constructStepAP214AutoDesignGeneralOrgItem*(): StepAP214AutoDesignGeneralOrgItem {.
     constructor, importcpp: "StepAP214_AutoDesignGeneralOrgItem(@)",
     header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
-proc CaseNum*(this: StepAP214_AutoDesignGeneralOrgItem;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepAP214AutoDesignGeneralOrgItem;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
-proc Product*(this: StepAP214_AutoDesignGeneralOrgItem): handle[StepBasic_Product] {.
+proc product*(this: StepAP214AutoDesignGeneralOrgItem): Handle[StepBasicProduct] {.
     noSideEffect, importcpp: "Product",
     header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
-proc ProductDefinition*(this: StepAP214_AutoDesignGeneralOrgItem): handle[
-    StepBasic_ProductDefinition] {.noSideEffect, importcpp: "ProductDefinition", header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
-proc ProductDefinitionFormation*(this: StepAP214_AutoDesignGeneralOrgItem): handle[
-    StepBasic_ProductDefinitionFormation] {.noSideEffect,
+proc productDefinition*(this: StepAP214AutoDesignGeneralOrgItem): Handle[
+    StepBasicProductDefinition] {.noSideEffect, importcpp: "ProductDefinition", header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
+proc productDefinitionFormation*(this: StepAP214AutoDesignGeneralOrgItem): Handle[
+    StepBasicProductDefinitionFormation] {.noSideEffect,
     importcpp: "ProductDefinitionFormation",
     header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
-proc ProductDefinitionRelationship*(this: StepAP214_AutoDesignGeneralOrgItem): handle[
-    StepBasic_ProductDefinitionRelationship] {.noSideEffect,
+proc productDefinitionRelationship*(this: StepAP214AutoDesignGeneralOrgItem): Handle[
+    StepBasicProductDefinitionRelationship] {.noSideEffect,
     importcpp: "ProductDefinitionRelationship",
     header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
-proc ProductDefinitionWithAssociatedDocuments*(
-    this: StepAP214_AutoDesignGeneralOrgItem): handle[
-    StepBasic_ProductDefinitionWithAssociatedDocuments] {.noSideEffect,
+proc productDefinitionWithAssociatedDocuments*(
+    this: StepAP214AutoDesignGeneralOrgItem): Handle[
+    StepBasicProductDefinitionWithAssociatedDocuments] {.noSideEffect,
     importcpp: "ProductDefinitionWithAssociatedDocuments",
     header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
-proc Representation*(this: StepAP214_AutoDesignGeneralOrgItem): handle[
-    StepRepr_Representation] {.noSideEffect, importcpp: "Representation",
-                              header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
-proc ExternallyDefinedRepresentation*(this: StepAP214_AutoDesignGeneralOrgItem): handle[
-    StepRepr_ExternallyDefinedRepresentation] {.noSideEffect,
+proc representation*(this: StepAP214AutoDesignGeneralOrgItem): Handle[
+    StepReprRepresentation] {.noSideEffect, importcpp: "Representation",
+                             header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
+proc externallyDefinedRepresentation*(this: StepAP214AutoDesignGeneralOrgItem): Handle[
+    StepReprExternallyDefinedRepresentation] {.noSideEffect,
     importcpp: "ExternallyDefinedRepresentation",
     header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
-proc AutoDesignDocumentReference*(this: StepAP214_AutoDesignGeneralOrgItem): handle[
-    StepAP214_AutoDesignDocumentReference] {.noSideEffect,
+proc autoDesignDocumentReference*(this: StepAP214AutoDesignGeneralOrgItem): Handle[
+    StepAP214AutoDesignDocumentReference] {.noSideEffect,
     importcpp: "AutoDesignDocumentReference",
     header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}

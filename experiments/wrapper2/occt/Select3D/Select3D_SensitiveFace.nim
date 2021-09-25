@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Select3D_TypeOfSensitivity, Select3D_SensitiveSet,
-  ../TColgp/TColgp_HArray1OfPnt,
-  ../SelectBasics/SelectBasics_SelectingVolumeManager
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_OutOfRange"
 type
@@ -66,48 +61,49 @@ type
     ## !< Type of sensitivity: interior or boundary
     ## !< Wrapper for overlap detection created depending on sensitivity type
 
-  Select3D_SensitiveFacebase_type* = Select3D_SensitiveEntity
+  Select3D_SensitiveFacebaseType* = Select3D_SensitiveEntity
 
-proc get_type_name*(): cstring {.importcpp: "Select3D_SensitiveFace::get_type_name(@)",
-                              header: "Select3D_SensitiveFace.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Select3D_SensitiveFace::get_type_name(@)",
+                            header: "Select3D_SensitiveFace.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Select3D_SensitiveFace::get_type_descriptor(@)",
     header: "Select3D_SensitiveFace.hxx".}
-proc DynamicType*(this: Select3D_SensitiveFace): handle[Standard_Type] {.
+proc dynamicType*(this: Select3D_SensitiveFace): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Select3D_SensitiveFace.hxx".}
-proc constructSelect3D_SensitiveFace*(theOwnerId: handle[SelectMgr_EntityOwner];
-                                     thePoints: TColgp_Array1OfPnt;
+proc constructSelect3D_SensitiveFace*(theOwnerId: Handle[SelectMgrEntityOwner];
+                                     thePoints: TColgpArray1OfPnt;
                                      theType: Select3D_TypeOfSensitivity): Select3D_SensitiveFace {.
     constructor, importcpp: "Select3D_SensitiveFace(@)",
     header: "Select3D_SensitiveFace.hxx".}
-proc constructSelect3D_SensitiveFace*(theOwnerId: handle[SelectMgr_EntityOwner];
-                                     thePoints: handle[TColgp_HArray1OfPnt];
+proc constructSelect3D_SensitiveFace*(theOwnerId: Handle[SelectMgrEntityOwner];
+                                     thePoints: Handle[TColgpHArray1OfPnt];
                                      theType: Select3D_TypeOfSensitivity): Select3D_SensitiveFace {.
     constructor, importcpp: "Select3D_SensitiveFace(@)",
     header: "Select3D_SensitiveFace.hxx".}
-proc GetPoints*(this: var Select3D_SensitiveFace;
-               theHArrayOfPnt: var handle[TColgp_HArray1OfPnt]) {.
+proc getPoints*(this: var Select3D_SensitiveFace;
+               theHArrayOfPnt: var Handle[TColgpHArray1OfPnt]) {.
     importcpp: "GetPoints", header: "Select3D_SensitiveFace.hxx".}
-proc Matches*(this: var Select3D_SensitiveFace;
-             theMgr: var SelectBasics_SelectingVolumeManager;
-             thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
+proc matches*(this: var Select3D_SensitiveFace;
+             theMgr: var SelectBasicsSelectingVolumeManager;
+             thePickResult: var SelectBasicsPickResult): bool {.
     importcpp: "Matches", header: "Select3D_SensitiveFace.hxx".}
-proc GetConnected*(this: var Select3D_SensitiveFace): handle[
+proc getConnected*(this: var Select3D_SensitiveFace): Handle[
     Select3D_SensitiveEntity] {.importcpp: "GetConnected",
                                header: "Select3D_SensitiveFace.hxx".}
-proc BoundingBox*(this: var Select3D_SensitiveFace): Select3D_BndBox3d {.
+proc boundingBox*(this: var Select3D_SensitiveFace): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "Select3D_SensitiveFace.hxx".}
-proc CenterOfGeometry*(this: Select3D_SensitiveFace): gp_Pnt {.noSideEffect,
+proc centerOfGeometry*(this: Select3D_SensitiveFace): Pnt {.noSideEffect,
     importcpp: "CenterOfGeometry", header: "Select3D_SensitiveFace.hxx".}
-proc BVH*(this: var Select3D_SensitiveFace) {.importcpp: "BVH",
+proc bvh*(this: var Select3D_SensitiveFace) {.importcpp: "BVH",
     header: "Select3D_SensitiveFace.hxx".}
-proc ToBuildBVH*(this: Select3D_SensitiveFace): Standard_Boolean {.noSideEffect,
+proc toBuildBVH*(this: Select3D_SensitiveFace): bool {.noSideEffect,
     importcpp: "ToBuildBVH", header: "Select3D_SensitiveFace.hxx".}
-proc NbSubElements*(this: Select3D_SensitiveFace): Standard_Integer {.noSideEffect,
+proc nbSubElements*(this: Select3D_SensitiveFace): int {.noSideEffect,
     importcpp: "NbSubElements", header: "Select3D_SensitiveFace.hxx".}
-proc DumpJson*(this: Select3D_SensitiveFace; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Select3D_SensitiveFace.hxx".}
+proc dumpJson*(this: Select3D_SensitiveFace; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Select3D_SensitiveFace.hxx".}
 discard "forward decl of Select3D_SensitiveFace"
 type
-  Handle_Select3D_SensitiveFace* = handle[Select3D_SensitiveFace]
+  HandleSelect3D_SensitiveFace* = Handle[Select3D_SensitiveFace]
+

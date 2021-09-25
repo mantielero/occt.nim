@@ -11,33 +11,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Prs3d/Prs3d_Presentation, ../Standard/Standard_Transient,
-  ../Standard/Standard_Type
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Prs3d_Drawer"
 discard "forward decl of Graphic3d_Camera"
 type
-  StdPrs_HLRShapeI* {.importcpp: "StdPrs_HLRShapeI",
-                     header: "StdPrs_HLRShapeI.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                      ## !
-                                                                                      ## Compute
-                                                                                      ## presentation
-                                                                                      ## for
-                                                                                      ## specified
-                                                                                      ## shape.
+  StdPrsHLRShapeI* {.importcpp: "StdPrs_HLRShapeI", header: "StdPrs_HLRShapeI.hxx",
+                    bycopy.} = object of StandardTransient ## ! Compute presentation for specified shape.
 
-  StdPrs_HLRShapeIbase_type* = Standard_Transient
+  StdPrsHLRShapeIbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StdPrs_HLRShapeI::get_type_name(@)",
-                              header: "StdPrs_HLRShapeI.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StdPrs_HLRShapeI::get_type_name(@)",
+                            header: "StdPrs_HLRShapeI.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StdPrs_HLRShapeI::get_type_descriptor(@)",
     header: "StdPrs_HLRShapeI.hxx".}
-proc DynamicType*(this: StdPrs_HLRShapeI): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StdPrsHLRShapeI): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StdPrs_HLRShapeI.hxx".}
-proc ComputeHLR*(this: StdPrs_HLRShapeI; thePrs: handle[Prs3d_Presentation];
-                theShape: TopoDS_Shape; theDrawer: handle[Prs3d_Drawer];
-                theProjector: handle[Graphic3d_Camera]) {.noSideEffect,
+proc computeHLR*(this: StdPrsHLRShapeI; thePrs: Handle[Prs3dPresentation];
+                theShape: TopoDS_Shape; theDrawer: Handle[Prs3dDrawer];
+                theProjector: Handle[Graphic3dCamera]) {.noSideEffect,
     importcpp: "ComputeHLR", header: "StdPrs_HLRShapeI.hxx".}

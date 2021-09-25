@@ -13,8 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  MeshVS_TwoColors, ../NCollection/NCollection_DefaultHasher
-
 type
-  MeshVS_TwoColorsHasher* = NCollection_DefaultHasher[MeshVS_TwoColors]
+  MeshVS_TwoColorsHasher* = NCollectionDefaultHasher[MeshVS_TwoColors]
+

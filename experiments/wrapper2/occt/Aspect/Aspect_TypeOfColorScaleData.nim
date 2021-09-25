@@ -16,8 +16,9 @@
 ## ! Defines the using type of colors and labels
 
 type
-  Aspect_TypeOfColorScaleData* {.size: sizeof(cint),
-                                importcpp: "Aspect_TypeOfColorScaleData",
-                                header: "Aspect_TypeOfColorScaleData.hxx".} = enum
-    Aspect_TOCSD_AUTO, Aspect_TOCSD_USER
+  AspectTypeOfColorScaleData* {.size: sizeof(cint),
+                               importcpp: "Aspect_TypeOfColorScaleData",
+                               header: "Aspect_TypeOfColorScaleData.hxx".} = enum
+    AspectTOCSD_AUTO, AspectTOCSD_USER
+
 

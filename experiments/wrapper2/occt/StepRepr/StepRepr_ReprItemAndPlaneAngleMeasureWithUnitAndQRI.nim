@@ -13,38 +13,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepRepr_ReprItemAndMeasureWithUnitAndQRI
-
 discard "forward decl of StepBasic_PlaneAngleMeasureWithUnit"
 discard "forward decl of StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI"
 discard "forward decl of StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI"
 type
-  Handle_StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI* = handle[
-      StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI]
-  StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI* {.
+  HandleStepReprReprItemAndPlaneAngleMeasureWithUnitAndQRI* = Handle[
+      StepReprReprItemAndPlaneAngleMeasureWithUnitAndQRI]
+  StepReprReprItemAndPlaneAngleMeasureWithUnitAndQRI* {.
       importcpp: "StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI",
-      header: "StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI.hxx", bycopy.} = object of StepRepr_ReprItemAndMeasureWithUnitAndQRI
+      header: "StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI.hxx", bycopy.} = object of StepReprReprItemAndMeasureWithUnitAndQRI
 
 
-proc constructStepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI*(): StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI {.
+proc constructStepReprReprItemAndPlaneAngleMeasureWithUnitAndQRI*(): StepReprReprItemAndPlaneAngleMeasureWithUnitAndQRI {.
     constructor,
     importcpp: "StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI(@)",
     header: "StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI.hxx".}
-proc SetPlaneAngleMeasureWithUnit*(this: var StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI;
-    aLMWU: handle[StepBasic_PlaneAngleMeasureWithUnit]) {.
+proc setPlaneAngleMeasureWithUnit*(this: var StepReprReprItemAndPlaneAngleMeasureWithUnitAndQRI;
+    aLMWU: Handle[StepBasicPlaneAngleMeasureWithUnit]) {.
     importcpp: "SetPlaneAngleMeasureWithUnit",
     header: "StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI.hxx".}
-proc GetPlaneAngleMeasureWithUnit*(this: StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI): handle[
-    StepBasic_PlaneAngleMeasureWithUnit] {.noSideEffect,
+proc getPlaneAngleMeasureWithUnit*(this: StepReprReprItemAndPlaneAngleMeasureWithUnitAndQRI): Handle[
+    StepBasicPlaneAngleMeasureWithUnit] {.noSideEffect,
     importcpp: "GetPlaneAngleMeasureWithUnit",
     header: "StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI.hxx".}
 type
-  StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRIbase_type* = StepRepr_ReprItemAndMeasureWithUnitAndQRI
+  StepReprReprItemAndPlaneAngleMeasureWithUnitAndQRIbaseType* = StepReprReprItemAndMeasureWithUnitAndQRI
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI::get_type_name(@)", header: "StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI::get_type_name(@)", header: "StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI::get_type_descriptor(@)",
     header: "StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI.hxx".}
-proc DynamicType*(this: StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI.hxx".}
+proc dynamicType*(this: StepReprReprItemAndPlaneAngleMeasureWithUnitAndQRI): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI.hxx".}

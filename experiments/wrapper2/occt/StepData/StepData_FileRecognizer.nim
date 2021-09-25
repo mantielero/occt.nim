@@ -14,99 +14,95 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Transient
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of StepData_FileRecognizer"
 discard "forward decl of StepData_FileRecognizer"
 type
-  Handle_StepData_FileRecognizer* = handle[StepData_FileRecognizer]
-  StepData_FileRecognizer* {.importcpp: "StepData_FileRecognizer",
-                            header: "StepData_FileRecognizer.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                    ## !
-                                                                                                    ## Evaluates
-                                                                                                    ## if
-                                                                                                    ## recognition
-                                                                                                    ## has
-                                                                                                    ## a
-                                                                                                    ## result,
-                                                                                                    ## returns
-                                                                                                    ## it
-                                                                                                    ## if
-                                                                                                    ## yes
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## In
-                                                                                                    ## case
-                                                                                                    ## of
-                                                                                                    ## success,
-                                                                                                    ## Returns
-                                                                                                    ## True
-                                                                                                    ## and
-                                                                                                    ## puts
-                                                                                                    ## result
-                                                                                                    ## in
-                                                                                                    ## "res"
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## In
-                                                                                                    ## case
-                                                                                                    ## of
-                                                                                                    ## Failure,
-                                                                                                    ## simply
-                                                                                                    ## Returns
-                                                                                                    ## False
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Works
-                                                                                                    ## by
-                                                                                                    ## calling
-                                                                                                    ## deferred
-                                                                                                    ## method
-                                                                                                    ## Eval,
-                                                                                                    ## and
-                                                                                                    ## in
-                                                                                                    ## case
-                                                                                                    ## of
-                                                                                                    ## failure,
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## looks
-                                                                                                    ## for
-                                                                                                    ## Added
-                                                                                                    ## Recognizers
-                                                                                                    ## to
-                                                                                                    ## work
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Assumes
-                                                                                                    ## that
-                                                                                                    ## no
-                                                                                                    ## result
-                                                                                                    ## has
-                                                                                                    ## yet
-                                                                                                    ## been
-                                                                                                    ## recognized
+  HandleStepDataFileRecognizer* = Handle[StepDataFileRecognizer]
+  StepDataFileRecognizer* {.importcpp: "StepData_FileRecognizer",
+                           header: "StepData_FileRecognizer.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                  ## !
+                                                                                                  ## Evaluates
+                                                                                                  ## if
+                                                                                                  ## recognition
+                                                                                                  ## has
+                                                                                                  ## a
+                                                                                                  ## result,
+                                                                                                  ## returns
+                                                                                                  ## it
+                                                                                                  ## if
+                                                                                                  ## yes
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## In
+                                                                                                  ## case
+                                                                                                  ## of
+                                                                                                  ## success,
+                                                                                                  ## Returns
+                                                                                                  ## True
+                                                                                                  ## and
+                                                                                                  ## puts
+                                                                                                  ## result
+                                                                                                  ## in
+                                                                                                  ## "res"
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## In
+                                                                                                  ## case
+                                                                                                  ## of
+                                                                                                  ## Failure,
+                                                                                                  ## simply
+                                                                                                  ## Returns
+                                                                                                  ## False
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Works
+                                                                                                  ## by
+                                                                                                  ## calling
+                                                                                                  ## deferred
+                                                                                                  ## method
+                                                                                                  ## Eval,
+                                                                                                  ## and
+                                                                                                  ## in
+                                                                                                  ## case
+                                                                                                  ## of
+                                                                                                  ## failure,
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## looks
+                                                                                                  ## for
+                                                                                                  ## Added
+                                                                                                  ## Recognizers
+                                                                                                  ## to
+                                                                                                  ## work
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Assumes
+                                                                                                  ## that
+                                                                                                  ## no
+                                                                                                  ## result
+                                                                                                  ## has
+                                                                                                  ## yet
+                                                                                                  ## been
+                                                                                                  ## recognized
 
 
-proc Evaluate*(this: var StepData_FileRecognizer; akey: TCollection_AsciiString;
-              res: var handle[Standard_Transient]): Standard_Boolean {.
-    importcpp: "Evaluate", header: "StepData_FileRecognizer.hxx".}
-proc Result*(this: StepData_FileRecognizer): handle[Standard_Transient] {.
+proc evaluate*(this: var StepDataFileRecognizer; akey: TCollectionAsciiString;
+              res: var Handle[StandardTransient]): bool {.importcpp: "Evaluate",
+    header: "StepData_FileRecognizer.hxx".}
+proc result*(this: StepDataFileRecognizer): Handle[StandardTransient] {.
     noSideEffect, importcpp: "Result", header: "StepData_FileRecognizer.hxx".}
-proc Add*(this: var StepData_FileRecognizer; reco: handle[StepData_FileRecognizer]) {.
+proc add*(this: var StepDataFileRecognizer; reco: Handle[StepDataFileRecognizer]) {.
     importcpp: "Add", header: "StepData_FileRecognizer.hxx".}
 type
-  StepData_FileRecognizerbase_type* = Standard_Transient
+  StepDataFileRecognizerbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepData_FileRecognizer::get_type_name(@)",
-                              header: "StepData_FileRecognizer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepData_FileRecognizer::get_type_name(@)",
+                            header: "StepData_FileRecognizer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepData_FileRecognizer::get_type_descriptor(@)",
     header: "StepData_FileRecognizer.hxx".}
-proc DynamicType*(this: StepData_FileRecognizer): handle[Standard_Type] {.
+proc dynamicType*(this: StepDataFileRecognizer): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepData_FileRecognizer.hxx".}

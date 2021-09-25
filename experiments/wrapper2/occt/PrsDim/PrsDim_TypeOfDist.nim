@@ -17,8 +17,8 @@
 ## ! To declare the type of distance.
 
 type
-  PrsDim_TypeOfDist* {.size: sizeof(cint), importcpp: "PrsDim_TypeOfDist",
-                      header: "PrsDim_TypeOfDist.hxx".} = enum
-    PrsDim_TypeOfDist_Unknown, PrsDim_TypeOfDist_Horizontal,
-    PrsDim_TypeOfDist_Vertical
+  PrsDimTypeOfDist* {.size: sizeof(cint), importcpp: "PrsDim_TypeOfDist",
+                     header: "PrsDim_TypeOfDist.hxx".} = enum
+    PrsDimTypeOfDistUnknown, PrsDimTypeOfDistHorizontal, PrsDimTypeOfDistVertical
+
 

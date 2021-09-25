@@ -14,60 +14,52 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  Law_Function, ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_Array1OfReal
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Law_Function"
 discard "forward decl of Law_Linear"
 discard "forward decl of Law_Linear"
 type
-  Handle_Law_Linear* = handle[Law_Linear]
+  HandleLawLinear* = Handle[LawLinear]
 
 ## ! Describes an linear evolution law.
 
 type
-  Law_Linear* {.importcpp: "Law_Linear", header: "Law_Linear.hxx", bycopy.} = object of Law_Function ##
-                                                                                           ## !
-                                                                                           ## Constructs
-                                                                                           ## an
-                                                                                           ## empty
-                                                                                           ## linear
-                                                                                           ## evolution
-                                                                                           ## law.
+  LawLinear* {.importcpp: "Law_Linear", header: "Law_Linear.hxx", bycopy.} = object of LawFunction ##
+                                                                                         ## !
+                                                                                         ## Constructs
+                                                                                         ## an
+                                                                                         ## empty
+                                                                                         ## linear
+                                                                                         ## evolution
+                                                                                         ## law.
 
 
-proc constructLaw_Linear*(): Law_Linear {.constructor, importcpp: "Law_Linear(@)",
-                                       header: "Law_Linear.hxx".}
-proc Set*(this: var Law_Linear; Pdeb: Standard_Real; Valdeb: Standard_Real;
-         Pfin: Standard_Real; Valfin: Standard_Real) {.importcpp: "Set",
-    header: "Law_Linear.hxx".}
-proc Continuity*(this: Law_Linear): GeomAbs_Shape {.noSideEffect,
+proc constructLawLinear*(): LawLinear {.constructor, importcpp: "Law_Linear(@)",
+                                     header: "Law_Linear.hxx".}
+proc set*(this: var LawLinear; pdeb: float; valdeb: float; pfin: float; valfin: float) {.
+    importcpp: "Set", header: "Law_Linear.hxx".}
+proc continuity*(this: LawLinear): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Law_Linear.hxx".}
-proc NbIntervals*(this: Law_Linear; S: GeomAbs_Shape): Standard_Integer {.
-    noSideEffect, importcpp: "NbIntervals", header: "Law_Linear.hxx".}
-proc Intervals*(this: Law_Linear; T: var TColStd_Array1OfReal; S: GeomAbs_Shape) {.
+proc nbIntervals*(this: LawLinear; s: GeomAbsShape): int {.noSideEffect,
+    importcpp: "NbIntervals", header: "Law_Linear.hxx".}
+proc intervals*(this: LawLinear; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, importcpp: "Intervals", header: "Law_Linear.hxx".}
-proc Value*(this: var Law_Linear; X: Standard_Real): Standard_Real {.
-    importcpp: "Value", header: "Law_Linear.hxx".}
-proc D1*(this: var Law_Linear; X: Standard_Real; F: var Standard_Real;
-        D: var Standard_Real) {.importcpp: "D1", header: "Law_Linear.hxx".}
-proc D2*(this: var Law_Linear; X: Standard_Real; F: var Standard_Real;
-        D: var Standard_Real; D2: var Standard_Real) {.importcpp: "D2",
+proc value*(this: var LawLinear; x: float): float {.importcpp: "Value",
     header: "Law_Linear.hxx".}
-proc Trim*(this: Law_Linear; PFirst: Standard_Real; PLast: Standard_Real;
-          Tol: Standard_Real): handle[Law_Function] {.noSideEffect,
-    importcpp: "Trim", header: "Law_Linear.hxx".}
-proc Bounds*(this: var Law_Linear; PFirst: var Standard_Real; PLast: var Standard_Real) {.
+proc d1*(this: var LawLinear; x: float; f: var float; d: var float) {.importcpp: "D1",
+    header: "Law_Linear.hxx".}
+proc d2*(this: var LawLinear; x: float; f: var float; d: var float; d2: var float) {.
+    importcpp: "D2", header: "Law_Linear.hxx".}
+proc trim*(this: LawLinear; pFirst: float; pLast: float; tol: float): Handle[LawFunction] {.
+    noSideEffect, importcpp: "Trim", header: "Law_Linear.hxx".}
+proc bounds*(this: var LawLinear; pFirst: var float; pLast: var float) {.
     importcpp: "Bounds", header: "Law_Linear.hxx".}
 type
-  Law_Linearbase_type* = Law_Function
+  LawLinearbaseType* = LawFunction
 
-proc get_type_name*(): cstring {.importcpp: "Law_Linear::get_type_name(@)",
-                              header: "Law_Linear.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Law_Linear::get_type_name(@)",
+                            header: "Law_Linear.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Law_Linear::get_type_descriptor(@)", header: "Law_Linear.hxx".}
-proc DynamicType*(this: Law_Linear): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: LawLinear): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Law_Linear.hxx".}

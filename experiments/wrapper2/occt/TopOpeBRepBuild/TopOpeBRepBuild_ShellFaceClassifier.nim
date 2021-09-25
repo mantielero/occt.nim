@@ -14,74 +14,65 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean, ../gp/gp_Pnt,
-  ../TopoDS/TopoDS_Shell, ../BRep/BRep_Builder,
-  ../TopOpeBRepTool/TopOpeBRepTool_SolidClassifier,
-  ../TopTools/TopTools_DataMapOfShapeShape, ../TopoDS/TopoDS_Shape,
-  TopOpeBRepBuild_CompositeClassifier, ../TopAbs/TopAbs_State
-
 discard "forward decl of TopOpeBRepBuild_BlockBuilder"
 discard "forward decl of TopoDS_Shape"
 type
-  TopOpeBRepBuild_ShellFaceClassifier* {.importcpp: "TopOpeBRepBuild_ShellFaceClassifier", header: "TopOpeBRepBuild_ShellFaceClassifier.hxx",
-                                        bycopy.} = object of TopOpeBRepBuild_CompositeClassifier ##
-                                                                                            ## !
-                                                                                            ## Creates
-                                                                                            ## a
-                                                                                            ## classifier
-                                                                                            ## in
-                                                                                            ## 3D
-                                                                                            ## space,
-                                                                                            ## to
-                                                                                            ## compare
-                                                                                            ## :
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## a
-                                                                                            ## face
-                                                                                            ## with
-                                                                                            ## a
-                                                                                            ## set
-                                                                                            ## of
-                                                                                            ## faces
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## a
-                                                                                            ## shell
-                                                                                            ## with
-                                                                                            ## a
-                                                                                            ## set
-                                                                                            ## of
-                                                                                            ## faces
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## a
-                                                                                            ## shell
-                                                                                            ## with
-                                                                                            ## a
-                                                                                            ## shell
+  TopOpeBRepBuildShellFaceClassifier* {.importcpp: "TopOpeBRepBuild_ShellFaceClassifier", header: "TopOpeBRepBuild_ShellFaceClassifier.hxx",
+                                       bycopy.} = object of TopOpeBRepBuildCompositeClassifier ##
+                                                                                          ## !
+                                                                                          ## Creates
+                                                                                          ## a
+                                                                                          ## classifier
+                                                                                          ## in
+                                                                                          ## 3D
+                                                                                          ## space,
+                                                                                          ## to
+                                                                                          ## compare
+                                                                                          ## :
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## a
+                                                                                          ## face
+                                                                                          ## with
+                                                                                          ## a
+                                                                                          ## set
+                                                                                          ## of
+                                                                                          ## faces
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## a
+                                                                                          ## shell
+                                                                                          ## with
+                                                                                          ## a
+                                                                                          ## set
+                                                                                          ## of
+                                                                                          ## faces
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## a
+                                                                                          ## shell
+                                                                                          ## with
+                                                                                          ## a
+                                                                                          ## shell
 
 
-proc constructTopOpeBRepBuild_ShellFaceClassifier*(
-    BB: TopOpeBRepBuild_BlockBuilder): TopOpeBRepBuild_ShellFaceClassifier {.
+proc constructTopOpeBRepBuildShellFaceClassifier*(bb: TopOpeBRepBuildBlockBuilder): TopOpeBRepBuildShellFaceClassifier {.
     constructor, importcpp: "TopOpeBRepBuild_ShellFaceClassifier(@)",
     header: "TopOpeBRepBuild_ShellFaceClassifier.hxx".}
-proc Clear*(this: var TopOpeBRepBuild_ShellFaceClassifier) {.importcpp: "Clear",
+proc clear*(this: var TopOpeBRepBuildShellFaceClassifier) {.importcpp: "Clear",
     header: "TopOpeBRepBuild_ShellFaceClassifier.hxx".}
-proc CompareShapes*(this: var TopOpeBRepBuild_ShellFaceClassifier; B1: TopoDS_Shape;
-                   B2: TopoDS_Shape): TopAbs_State {.importcpp: "CompareShapes",
+proc compareShapes*(this: var TopOpeBRepBuildShellFaceClassifier; b1: TopoDS_Shape;
+                   b2: TopoDS_Shape): TopAbsState {.importcpp: "CompareShapes",
     header: "TopOpeBRepBuild_ShellFaceClassifier.hxx".}
-proc CompareElementToShape*(this: var TopOpeBRepBuild_ShellFaceClassifier;
-                           F: TopoDS_Shape; S: TopoDS_Shape): TopAbs_State {.
+proc compareElementToShape*(this: var TopOpeBRepBuildShellFaceClassifier;
+                           f: TopoDS_Shape; s: TopoDS_Shape): TopAbsState {.
     importcpp: "CompareElementToShape",
     header: "TopOpeBRepBuild_ShellFaceClassifier.hxx".}
-proc ResetShape*(this: var TopOpeBRepBuild_ShellFaceClassifier; S: TopoDS_Shape) {.
+proc resetShape*(this: var TopOpeBRepBuildShellFaceClassifier; s: TopoDS_Shape) {.
     importcpp: "ResetShape", header: "TopOpeBRepBuild_ShellFaceClassifier.hxx".}
-proc ResetElement*(this: var TopOpeBRepBuild_ShellFaceClassifier; F: TopoDS_Shape) {.
+proc resetElement*(this: var TopOpeBRepBuildShellFaceClassifier; f: TopoDS_Shape) {.
     importcpp: "ResetElement", header: "TopOpeBRepBuild_ShellFaceClassifier.hxx".}
-proc CompareElement*(this: var TopOpeBRepBuild_ShellFaceClassifier; F: TopoDS_Shape): Standard_Boolean {.
+proc compareElement*(this: var TopOpeBRepBuildShellFaceClassifier; f: TopoDS_Shape): bool {.
     importcpp: "CompareElement", header: "TopOpeBRepBuild_ShellFaceClassifier.hxx".}
-proc State*(this: var TopOpeBRepBuild_ShellFaceClassifier): TopAbs_State {.
+proc state*(this: var TopOpeBRepBuildShellFaceClassifier): TopAbsState {.
     importcpp: "State", header: "TopOpeBRepBuild_ShellFaceClassifier.hxx".}

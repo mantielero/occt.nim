@@ -11,5 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # StepElement_HSequenceOfElementMaterial_HeaderFile [NewLine] # StepElement_HSequenceOfElementMaterial_HeaderFile [NewLine] # StepElement_ElementMaterial.hxx [NewLine] # StepElement_SequenceOfElementMaterial.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( StepElement_HSequenceOfElementMaterial , StepElement_SequenceOfElementMaterial ) # [NewLine]
+## !!!Ignored construct:  # StepElement_HSequenceOfElementMaterial_HeaderFile [NewLine] # StepElement_HSequenceOfElementMaterial_HeaderFile [NewLine] # < StepElement_ElementMaterial . hxx > [NewLine] # < StepElement_SequenceOfElementMaterial . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( StepElement_HSequenceOfElementMaterial , StepElement_SequenceOfElementMaterial ) # [NewLine]
 ## Error: expected ';'!!!
+

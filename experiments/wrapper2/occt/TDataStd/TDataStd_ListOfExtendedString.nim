@@ -14,10 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_ExtendedString, ../NCollection/NCollection_List
-
 type
-  TDataStd_ListOfExtendedString* = NCollection_List[TCollection_ExtendedString]
-  TDataStd_ListIteratorOfListOfExtendedString* = Iterator[
-      TCollection_ExtendedString]
+  TDataStdListOfExtendedString* = NCollectionList[TCollectionExtendedString]
+  TDataStdListIteratorOfListOfExtendedString* = Iterator[TCollectionExtendedString]
+

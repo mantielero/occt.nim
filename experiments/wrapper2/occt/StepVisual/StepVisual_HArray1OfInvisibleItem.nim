@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_InvisibleItem, StepVisual_Array1OfInvisibleItem,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepVisual_HArray1OfInvisibleItem* {.importcpp: "StepVisual_HArray1OfInvisibleItem", header: "StepVisual_HArray1OfInvisibleItem.hxx",
-                                      bycopy.} = object of StepVisual_Array1OfInvisibleItem
+  StepVisualHArray1OfInvisibleItem* {.importcpp: "StepVisual_HArray1OfInvisibleItem", header: "StepVisual_HArray1OfInvisibleItem.hxx",
+                                     bycopy.} = object of StepVisualArray1OfInvisibleItem
 
 
-proc constructStepVisual_HArray1OfInvisibleItem*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepVisual_HArray1OfInvisibleItem {.constructor,
+proc constructStepVisualHArray1OfInvisibleItem*(theLower: int; theUpper: int): StepVisualHArray1OfInvisibleItem {.
+    constructor, importcpp: "StepVisual_HArray1OfInvisibleItem(@)",
+    header: "StepVisual_HArray1OfInvisibleItem.hxx".}
+proc constructStepVisualHArray1OfInvisibleItem*(theLower: int; theUpper: int;
+    theValue: ValueType): StepVisualHArray1OfInvisibleItem {.constructor,
     importcpp: "StepVisual_HArray1OfInvisibleItem(@)",
     header: "StepVisual_HArray1OfInvisibleItem.hxx".}
-proc constructStepVisual_HArray1OfInvisibleItem*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepVisual_HArray1OfInvisibleItem {.
+proc constructStepVisualHArray1OfInvisibleItem*(
+    theOther: StepVisualArray1OfInvisibleItem): StepVisualHArray1OfInvisibleItem {.
     constructor, importcpp: "StepVisual_HArray1OfInvisibleItem(@)",
     header: "StepVisual_HArray1OfInvisibleItem.hxx".}
-proc constructStepVisual_HArray1OfInvisibleItem*(
-    theOther: StepVisual_Array1OfInvisibleItem): StepVisual_HArray1OfInvisibleItem {.
-    constructor, importcpp: "StepVisual_HArray1OfInvisibleItem(@)",
-    header: "StepVisual_HArray1OfInvisibleItem.hxx".}
-proc Array1*(this: StepVisual_HArray1OfInvisibleItem): StepVisual_Array1OfInvisibleItem {.
+proc array1*(this: StepVisualHArray1OfInvisibleItem): StepVisualArray1OfInvisibleItem {.
     noSideEffect, importcpp: "Array1",
     header: "StepVisual_HArray1OfInvisibleItem.hxx".}
-proc ChangeArray1*(this: var StepVisual_HArray1OfInvisibleItem): var StepVisual_Array1OfInvisibleItem {.
+proc changeArray1*(this: var StepVisualHArray1OfInvisibleItem): var StepVisualArray1OfInvisibleItem {.
     importcpp: "ChangeArray1", header: "StepVisual_HArray1OfInvisibleItem.hxx".}
 type
-  StepVisual_HArray1OfInvisibleItembase_type* = MMgt_TShared
+  StepVisualHArray1OfInvisibleItembaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_HArray1OfInvisibleItem::get_type_name(@)",
-                              header: "StepVisual_HArray1OfInvisibleItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_HArray1OfInvisibleItem::get_type_name(@)",
+                            header: "StepVisual_HArray1OfInvisibleItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_HArray1OfInvisibleItem::get_type_descriptor(@)",
     header: "StepVisual_HArray1OfInvisibleItem.hxx".}
-proc DynamicType*(this: StepVisual_HArray1OfInvisibleItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualHArray1OfInvisibleItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_HArray1OfInvisibleItem.hxx".}

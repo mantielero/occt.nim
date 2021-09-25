@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, StepToTopoDS_DataMapOfTRI,
-  StepToTopoDS_PointVertexMap, StepToTopoDS_PointEdgeMap,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of Transfer_TransientProcess"
 discard "forward decl of StepShape_TopologicalRepresentationItem"
 discard "forward decl of TopoDS_Shape"
@@ -37,65 +31,65 @@ type
 
 proc constructStepToTopoDS_Tool*(): StepToTopoDS_Tool {.constructor,
     importcpp: "StepToTopoDS_Tool(@)", header: "StepToTopoDS_Tool.hxx".}
-proc constructStepToTopoDS_Tool*(Map: StepToTopoDS_DataMapOfTRI;
-                                TP: handle[Transfer_TransientProcess]): StepToTopoDS_Tool {.
+proc constructStepToTopoDS_Tool*(map: StepToTopoDS_DataMapOfTRI;
+                                tp: Handle[TransferTransientProcess]): StepToTopoDS_Tool {.
     constructor, importcpp: "StepToTopoDS_Tool(@)", header: "StepToTopoDS_Tool.hxx".}
-proc Init*(this: var StepToTopoDS_Tool; Map: StepToTopoDS_DataMapOfTRI;
-          TP: handle[Transfer_TransientProcess]) {.importcpp: "Init",
+proc init*(this: var StepToTopoDS_Tool; map: StepToTopoDS_DataMapOfTRI;
+          tp: Handle[TransferTransientProcess]) {.importcpp: "Init",
     header: "StepToTopoDS_Tool.hxx".}
-proc IsBound*(this: var StepToTopoDS_Tool;
-             TRI: handle[StepShape_TopologicalRepresentationItem]): Standard_Boolean {.
+proc isBound*(this: var StepToTopoDS_Tool;
+             tri: Handle[StepShapeTopologicalRepresentationItem]): bool {.
     importcpp: "IsBound", header: "StepToTopoDS_Tool.hxx".}
-proc Bind*(this: var StepToTopoDS_Tool;
-          TRI: handle[StepShape_TopologicalRepresentationItem]; S: TopoDS_Shape) {.
+proc `bind`*(this: var StepToTopoDS_Tool;
+            tri: Handle[StepShapeTopologicalRepresentationItem]; s: TopoDS_Shape) {.
     importcpp: "Bind", header: "StepToTopoDS_Tool.hxx".}
-proc Find*(this: var StepToTopoDS_Tool;
-          TRI: handle[StepShape_TopologicalRepresentationItem]): TopoDS_Shape {.
+proc find*(this: var StepToTopoDS_Tool;
+          tri: Handle[StepShapeTopologicalRepresentationItem]): TopoDS_Shape {.
     importcpp: "Find", header: "StepToTopoDS_Tool.hxx".}
-proc ClearEdgeMap*(this: var StepToTopoDS_Tool) {.importcpp: "ClearEdgeMap",
+proc clearEdgeMap*(this: var StepToTopoDS_Tool) {.importcpp: "ClearEdgeMap",
     header: "StepToTopoDS_Tool.hxx".}
-proc IsEdgeBound*(this: var StepToTopoDS_Tool; PP: StepToTopoDS_PointPair): Standard_Boolean {.
+proc isEdgeBound*(this: var StepToTopoDS_Tool; pp: StepToTopoDS_PointPair): bool {.
     importcpp: "IsEdgeBound", header: "StepToTopoDS_Tool.hxx".}
-proc BindEdge*(this: var StepToTopoDS_Tool; PP: StepToTopoDS_PointPair; E: TopoDS_Edge) {.
+proc bindEdge*(this: var StepToTopoDS_Tool; pp: StepToTopoDS_PointPair; e: TopoDS_Edge) {.
     importcpp: "BindEdge", header: "StepToTopoDS_Tool.hxx".}
-proc FindEdge*(this: var StepToTopoDS_Tool; PP: StepToTopoDS_PointPair): TopoDS_Edge {.
+proc findEdge*(this: var StepToTopoDS_Tool; pp: StepToTopoDS_PointPair): TopoDS_Edge {.
     importcpp: "FindEdge", header: "StepToTopoDS_Tool.hxx".}
-proc ClearVertexMap*(this: var StepToTopoDS_Tool) {.importcpp: "ClearVertexMap",
+proc clearVertexMap*(this: var StepToTopoDS_Tool) {.importcpp: "ClearVertexMap",
     header: "StepToTopoDS_Tool.hxx".}
-proc IsVertexBound*(this: var StepToTopoDS_Tool; PG: handle[StepGeom_CartesianPoint]): Standard_Boolean {.
+proc isVertexBound*(this: var StepToTopoDS_Tool; pg: Handle[StepGeomCartesianPoint]): bool {.
     importcpp: "IsVertexBound", header: "StepToTopoDS_Tool.hxx".}
-proc BindVertex*(this: var StepToTopoDS_Tool; P: handle[StepGeom_CartesianPoint];
-                V: TopoDS_Vertex) {.importcpp: "BindVertex",
+proc bindVertex*(this: var StepToTopoDS_Tool; p: Handle[StepGeomCartesianPoint];
+                v: TopoDS_Vertex) {.importcpp: "BindVertex",
                                   header: "StepToTopoDS_Tool.hxx".}
-proc FindVertex*(this: var StepToTopoDS_Tool; P: handle[StepGeom_CartesianPoint]): TopoDS_Vertex {.
+proc findVertex*(this: var StepToTopoDS_Tool; p: Handle[StepGeomCartesianPoint]): TopoDS_Vertex {.
     importcpp: "FindVertex", header: "StepToTopoDS_Tool.hxx".}
-proc ComputePCurve*(this: var StepToTopoDS_Tool; B: Standard_Boolean) {.
+proc computePCurve*(this: var StepToTopoDS_Tool; b: bool) {.
     importcpp: "ComputePCurve", header: "StepToTopoDS_Tool.hxx".}
-proc ComputePCurve*(this: StepToTopoDS_Tool): Standard_Boolean {.noSideEffect,
+proc computePCurve*(this: StepToTopoDS_Tool): bool {.noSideEffect,
     importcpp: "ComputePCurve", header: "StepToTopoDS_Tool.hxx".}
-proc TransientProcess*(this: StepToTopoDS_Tool): handle[Transfer_TransientProcess] {.
+proc transientProcess*(this: StepToTopoDS_Tool): Handle[TransferTransientProcess] {.
     noSideEffect, importcpp: "TransientProcess", header: "StepToTopoDS_Tool.hxx".}
-proc AddContinuity*(this: var StepToTopoDS_Tool; GeomSurf: handle[Geom_Surface]) {.
+proc addContinuity*(this: var StepToTopoDS_Tool; geomSurf: Handle[GeomSurface]) {.
     importcpp: "AddContinuity", header: "StepToTopoDS_Tool.hxx".}
-proc AddContinuity*(this: var StepToTopoDS_Tool; GeomCurve: handle[Geom_Curve]) {.
+proc addContinuity*(this: var StepToTopoDS_Tool; geomCurve: Handle[GeomCurve]) {.
     importcpp: "AddContinuity", header: "StepToTopoDS_Tool.hxx".}
-proc AddContinuity*(this: var StepToTopoDS_Tool; GeomCur2d: handle[Geom2d_Curve]) {.
+proc addContinuity*(this: var StepToTopoDS_Tool; geomCur2d: Handle[Geom2dCurve]) {.
     importcpp: "AddContinuity", header: "StepToTopoDS_Tool.hxx".}
-proc C0Surf*(this: StepToTopoDS_Tool): Standard_Integer {.noSideEffect,
-    importcpp: "C0Surf", header: "StepToTopoDS_Tool.hxx".}
-proc C1Surf*(this: StepToTopoDS_Tool): Standard_Integer {.noSideEffect,
-    importcpp: "C1Surf", header: "StepToTopoDS_Tool.hxx".}
-proc C2Surf*(this: StepToTopoDS_Tool): Standard_Integer {.noSideEffect,
-    importcpp: "C2Surf", header: "StepToTopoDS_Tool.hxx".}
-proc C0Cur2*(this: StepToTopoDS_Tool): Standard_Integer {.noSideEffect,
-    importcpp: "C0Cur2", header: "StepToTopoDS_Tool.hxx".}
-proc C1Cur2*(this: StepToTopoDS_Tool): Standard_Integer {.noSideEffect,
-    importcpp: "C1Cur2", header: "StepToTopoDS_Tool.hxx".}
-proc C2Cur2*(this: StepToTopoDS_Tool): Standard_Integer {.noSideEffect,
-    importcpp: "C2Cur2", header: "StepToTopoDS_Tool.hxx".}
-proc C0Cur3*(this: StepToTopoDS_Tool): Standard_Integer {.noSideEffect,
-    importcpp: "C0Cur3", header: "StepToTopoDS_Tool.hxx".}
-proc C1Cur3*(this: StepToTopoDS_Tool): Standard_Integer {.noSideEffect,
-    importcpp: "C1Cur3", header: "StepToTopoDS_Tool.hxx".}
-proc C2Cur3*(this: StepToTopoDS_Tool): Standard_Integer {.noSideEffect,
-    importcpp: "C2Cur3", header: "StepToTopoDS_Tool.hxx".}
+proc c0Surf*(this: StepToTopoDS_Tool): int {.noSideEffect, importcpp: "C0Surf",
+    header: "StepToTopoDS_Tool.hxx".}
+proc c1Surf*(this: StepToTopoDS_Tool): int {.noSideEffect, importcpp: "C1Surf",
+    header: "StepToTopoDS_Tool.hxx".}
+proc c2Surf*(this: StepToTopoDS_Tool): int {.noSideEffect, importcpp: "C2Surf",
+    header: "StepToTopoDS_Tool.hxx".}
+proc c0Cur2*(this: StepToTopoDS_Tool): int {.noSideEffect, importcpp: "C0Cur2",
+    header: "StepToTopoDS_Tool.hxx".}
+proc c1Cur2*(this: StepToTopoDS_Tool): int {.noSideEffect, importcpp: "C1Cur2",
+    header: "StepToTopoDS_Tool.hxx".}
+proc c2Cur2*(this: StepToTopoDS_Tool): int {.noSideEffect, importcpp: "C2Cur2",
+    header: "StepToTopoDS_Tool.hxx".}
+proc c0Cur3*(this: StepToTopoDS_Tool): int {.noSideEffect, importcpp: "C0Cur3",
+    header: "StepToTopoDS_Tool.hxx".}
+proc c1Cur3*(this: StepToTopoDS_Tool): int {.noSideEffect, importcpp: "C1Cur3",
+    header: "StepToTopoDS_Tool.hxx".}
+proc c2Cur3*(this: StepToTopoDS_Tool): int {.noSideEffect, importcpp: "C2Cur3",
+    header: "StepToTopoDS_Tool.hxx".}

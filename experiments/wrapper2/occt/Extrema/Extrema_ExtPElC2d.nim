@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real, Extrema_POnCurv2d
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt2d"
@@ -29,49 +24,41 @@ discard "forward decl of gp_Hypr2d"
 discard "forward decl of gp_Parab2d"
 discard "forward decl of Extrema_POnCurv2d"
 type
-  Extrema_ExtPElC2d* {.importcpp: "Extrema_ExtPElC2d",
-                      header: "Extrema_ExtPElC2d.hxx", bycopy.} = object
+  ExtremaExtPElC2d* {.importcpp: "Extrema_ExtPElC2d",
+                     header: "Extrema_ExtPElC2d.hxx", bycopy.} = object
 
 
-proc constructExtrema_ExtPElC2d*(): Extrema_ExtPElC2d {.constructor,
+proc constructExtremaExtPElC2d*(): ExtremaExtPElC2d {.constructor,
     importcpp: "Extrema_ExtPElC2d(@)", header: "Extrema_ExtPElC2d.hxx".}
-proc constructExtrema_ExtPElC2d*(P: gp_Pnt2d; C: gp_Lin2d; Tol: Standard_Real;
-                                Uinf: Standard_Real; Usup: Standard_Real): Extrema_ExtPElC2d {.
+proc constructExtremaExtPElC2d*(p: Pnt2d; c: Lin2d; tol: float; uinf: float; usup: float): ExtremaExtPElC2d {.
     constructor, importcpp: "Extrema_ExtPElC2d(@)", header: "Extrema_ExtPElC2d.hxx".}
-proc Perform*(this: var Extrema_ExtPElC2d; P: gp_Pnt2d; L: gp_Lin2d; Tol: Standard_Real;
-             Uinf: Standard_Real; Usup: Standard_Real) {.importcpp: "Perform",
+proc perform*(this: var ExtremaExtPElC2d; p: Pnt2d; L: Lin2d; tol: float; uinf: float;
+             usup: float) {.importcpp: "Perform", header: "Extrema_ExtPElC2d.hxx".}
+proc constructExtremaExtPElC2d*(p: Pnt2d; c: Circ2d; tol: float; uinf: float; usup: float): ExtremaExtPElC2d {.
+    constructor, importcpp: "Extrema_ExtPElC2d(@)", header: "Extrema_ExtPElC2d.hxx".}
+proc perform*(this: var ExtremaExtPElC2d; p: Pnt2d; c: Circ2d; tol: float; uinf: float;
+             usup: float) {.importcpp: "Perform", header: "Extrema_ExtPElC2d.hxx".}
+proc constructExtremaExtPElC2d*(p: Pnt2d; c: Elips2d; tol: float; uinf: float;
+                               usup: float): ExtremaExtPElC2d {.constructor,
+    importcpp: "Extrema_ExtPElC2d(@)", header: "Extrema_ExtPElC2d.hxx".}
+proc perform*(this: var ExtremaExtPElC2d; p: Pnt2d; c: Elips2d; tol: float; uinf: float;
+             usup: float) {.importcpp: "Perform", header: "Extrema_ExtPElC2d.hxx".}
+proc constructExtremaExtPElC2d*(p: Pnt2d; c: Hypr2d; tol: float; uinf: float; usup: float): ExtremaExtPElC2d {.
+    constructor, importcpp: "Extrema_ExtPElC2d(@)", header: "Extrema_ExtPElC2d.hxx".}
+proc perform*(this: var ExtremaExtPElC2d; p: Pnt2d; c: Hypr2d; tol: float; uinf: float;
+             usup: float) {.importcpp: "Perform", header: "Extrema_ExtPElC2d.hxx".}
+proc constructExtremaExtPElC2d*(p: Pnt2d; c: Parab2d; tol: float; uinf: float;
+                               usup: float): ExtremaExtPElC2d {.constructor,
+    importcpp: "Extrema_ExtPElC2d(@)", header: "Extrema_ExtPElC2d.hxx".}
+proc perform*(this: var ExtremaExtPElC2d; p: Pnt2d; c: Parab2d; tol: float; uinf: float;
+             usup: float) {.importcpp: "Perform", header: "Extrema_ExtPElC2d.hxx".}
+proc isDone*(this: ExtremaExtPElC2d): bool {.noSideEffect, importcpp: "IsDone",
     header: "Extrema_ExtPElC2d.hxx".}
-proc constructExtrema_ExtPElC2d*(P: gp_Pnt2d; C: gp_Circ2d; Tol: Standard_Real;
-                                Uinf: Standard_Real; Usup: Standard_Real): Extrema_ExtPElC2d {.
-    constructor, importcpp: "Extrema_ExtPElC2d(@)", header: "Extrema_ExtPElC2d.hxx".}
-proc Perform*(this: var Extrema_ExtPElC2d; P: gp_Pnt2d; C: gp_Circ2d;
-             Tol: Standard_Real; Uinf: Standard_Real; Usup: Standard_Real) {.
-    importcpp: "Perform", header: "Extrema_ExtPElC2d.hxx".}
-proc constructExtrema_ExtPElC2d*(P: gp_Pnt2d; C: gp_Elips2d; Tol: Standard_Real;
-                                Uinf: Standard_Real; Usup: Standard_Real): Extrema_ExtPElC2d {.
-    constructor, importcpp: "Extrema_ExtPElC2d(@)", header: "Extrema_ExtPElC2d.hxx".}
-proc Perform*(this: var Extrema_ExtPElC2d; P: gp_Pnt2d; C: gp_Elips2d;
-             Tol: Standard_Real; Uinf: Standard_Real; Usup: Standard_Real) {.
-    importcpp: "Perform", header: "Extrema_ExtPElC2d.hxx".}
-proc constructExtrema_ExtPElC2d*(P: gp_Pnt2d; C: gp_Hypr2d; Tol: Standard_Real;
-                                Uinf: Standard_Real; Usup: Standard_Real): Extrema_ExtPElC2d {.
-    constructor, importcpp: "Extrema_ExtPElC2d(@)", header: "Extrema_ExtPElC2d.hxx".}
-proc Perform*(this: var Extrema_ExtPElC2d; P: gp_Pnt2d; C: gp_Hypr2d;
-             Tol: Standard_Real; Uinf: Standard_Real; Usup: Standard_Real) {.
-    importcpp: "Perform", header: "Extrema_ExtPElC2d.hxx".}
-proc constructExtrema_ExtPElC2d*(P: gp_Pnt2d; C: gp_Parab2d; Tol: Standard_Real;
-                                Uinf: Standard_Real; Usup: Standard_Real): Extrema_ExtPElC2d {.
-    constructor, importcpp: "Extrema_ExtPElC2d(@)", header: "Extrema_ExtPElC2d.hxx".}
-proc Perform*(this: var Extrema_ExtPElC2d; P: gp_Pnt2d; C: gp_Parab2d;
-             Tol: Standard_Real; Uinf: Standard_Real; Usup: Standard_Real) {.
-    importcpp: "Perform", header: "Extrema_ExtPElC2d.hxx".}
-proc IsDone*(this: Extrema_ExtPElC2d): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "Extrema_ExtPElC2d.hxx".}
-proc NbExt*(this: Extrema_ExtPElC2d): Standard_Integer {.noSideEffect,
-    importcpp: "NbExt", header: "Extrema_ExtPElC2d.hxx".}
-proc SquareDistance*(this: Extrema_ExtPElC2d; N: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "SquareDistance", header: "Extrema_ExtPElC2d.hxx".}
-proc IsMin*(this: Extrema_ExtPElC2d; N: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsMin", header: "Extrema_ExtPElC2d.hxx".}
-proc Point*(this: Extrema_ExtPElC2d; N: Standard_Integer): Extrema_POnCurv2d {.
-    noSideEffect, importcpp: "Point", header: "Extrema_ExtPElC2d.hxx".}
+proc nbExt*(this: ExtremaExtPElC2d): int {.noSideEffect, importcpp: "NbExt",
+                                       header: "Extrema_ExtPElC2d.hxx".}
+proc squareDistance*(this: ExtremaExtPElC2d; n: int): float {.noSideEffect,
+    importcpp: "SquareDistance", header: "Extrema_ExtPElC2d.hxx".}
+proc isMin*(this: ExtremaExtPElC2d; n: int): bool {.noSideEffect, importcpp: "IsMin",
+    header: "Extrema_ExtPElC2d.hxx".}
+proc point*(this: ExtremaExtPElC2d; n: int): ExtremaPOnCurv2d {.noSideEffect,
+    importcpp: "Point", header: "Extrema_ExtPElC2d.hxx".}

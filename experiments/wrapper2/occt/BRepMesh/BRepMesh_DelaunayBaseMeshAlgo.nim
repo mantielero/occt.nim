@@ -13,46 +13,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  BRepMesh_ConstrainedBaseMeshAlgo, ../NCollection/NCollection_Shared,
-  ../IMeshTools/IMeshTools_Parameters
-
 discard "forward decl of BRepMesh_DataStructureOfDelaun"
 discard "forward decl of BRepMesh_Delaun"
 type
-  BRepMesh_DelaunayBaseMeshAlgo* {.importcpp: "BRepMesh_DelaunayBaseMeshAlgo",
-                                  header: "BRepMesh_DelaunayBaseMeshAlgo.hxx",
-                                  bycopy.} = object of BRepMesh_ConstrainedBaseMeshAlgo ##
-                                                                                   ## !
-                                                                                   ## Constructor.
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Generates
-                                                                                   ## mesh
-                                                                                   ## for
-                                                                                   ## the
-                                                                                   ## contour
-                                                                                   ## stored
-                                                                                   ## in
-                                                                                   ## data
-                                                                                   ## structure.
+  BRepMeshDelaunayBaseMeshAlgo* {.importcpp: "BRepMesh_DelaunayBaseMeshAlgo",
+                                 header: "BRepMesh_DelaunayBaseMeshAlgo.hxx",
+                                 bycopy.} = object of BRepMeshConstrainedBaseMeshAlgo ##
+                                                                                 ## !
+                                                                                 ## Constructor.
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## Generates
+                                                                                 ## mesh
+                                                                                 ## for
+                                                                                 ## the
+                                                                                 ## contour
+                                                                                 ## stored
+                                                                                 ## in
+                                                                                 ## data
+                                                                                 ## structure.
 
 
-proc constructBRepMesh_DelaunayBaseMeshAlgo*(): BRepMesh_DelaunayBaseMeshAlgo {.
+proc constructBRepMeshDelaunayBaseMeshAlgo*(): BRepMeshDelaunayBaseMeshAlgo {.
     constructor, importcpp: "BRepMesh_DelaunayBaseMeshAlgo(@)",
     header: "BRepMesh_DelaunayBaseMeshAlgo.hxx".}
-proc destroyBRepMesh_DelaunayBaseMeshAlgo*(
-    this: var BRepMesh_DelaunayBaseMeshAlgo) {.
+proc destroyBRepMeshDelaunayBaseMeshAlgo*(this: var BRepMeshDelaunayBaseMeshAlgo) {.
     importcpp: "#.~BRepMesh_DelaunayBaseMeshAlgo()",
     header: "BRepMesh_DelaunayBaseMeshAlgo.hxx".}
 type
-  BRepMesh_DelaunayBaseMeshAlgobase_type* = BRepMesh_ConstrainedBaseMeshAlgo
+  BRepMeshDelaunayBaseMeshAlgobaseType* = BRepMeshConstrainedBaseMeshAlgo
 
-proc get_type_name*(): cstring {.importcpp: "BRepMesh_DelaunayBaseMeshAlgo::get_type_name(@)",
-                              header: "BRepMesh_DelaunayBaseMeshAlgo.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepMesh_DelaunayBaseMeshAlgo::get_type_name(@)",
+                            header: "BRepMesh_DelaunayBaseMeshAlgo.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepMesh_DelaunayBaseMeshAlgo::get_type_descriptor(@)",
     header: "BRepMesh_DelaunayBaseMeshAlgo.hxx".}
-proc DynamicType*(this: BRepMesh_DelaunayBaseMeshAlgo): handle[Standard_Type] {.
+proc dynamicType*(this: BRepMeshDelaunayBaseMeshAlgo): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BRepMesh_DelaunayBaseMeshAlgo.hxx".}

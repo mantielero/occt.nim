@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Character,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../Standard/Standard_CString
-
 ## ! This class converts a floting number (Real) to a string
 ## ! It can be used if the standard C-C++ output functions
 ## ! (sprintf or std::cout<<) are not convenient. That is to say :
@@ -29,65 +23,59 @@ import
 ## ! Formats are given in the form used by printf-sprintf
 
 type
-  Interface_FloatWriter* {.importcpp: "Interface_FloatWriter",
-                          header: "Interface_FloatWriter.hxx", bycopy.} = object ## !
-                                                                            ## Creates a
-                                                                            ## FloatWriter
-                                                                            ## ready to
-                                                                            ## work, with
-                                                                            ## default
-                                                                            ## options  -
-                                                                            ## ! - zero
-                                                                            ## suppress
-                                                                            ## option is set
-                                                                            ## ! - main
-                                                                            ## format is set to "%E"
-                                                                            ## ! -
-                                                                            ## secondary
-                                                                            ## format is set to "%f" for
-                                                                            ## values
-                                                                            ## between 0.1 and
-                                                                            ## !
-                                                                            ## 1000. in
-                                                                            ## absolute
-                                                                            ## values
-                                                                            ## ! If
-                                                                            ## <chars> is
-                                                                            ## given (and
-                                                                            ## positive), it will
-                                                                            ## produce
-                                                                            ## options
-                                                                            ## ! to
-                                                                            ## produce this
-                                                                            ## count of
-                                                                            ## characters :
-                                                                            ## "%<chars>f","%<chars>%E"
+  InterfaceFloatWriter* {.importcpp: "Interface_FloatWriter",
+                         header: "Interface_FloatWriter.hxx", bycopy.} = object ## !
+                                                                           ## Creates a
+                                                                           ## FloatWriter ready to work, with
+                                                                           ## default
+                                                                           ## options  -
+                                                                           ## ! - zero
+                                                                           ## suppress
+                                                                           ## option is set
+                                                                           ## ! - main
+                                                                           ## format is set to "%E"
+                                                                           ## ! -
+                                                                           ## secondary
+                                                                           ## format is set to "%f" for
+                                                                           ## values
+                                                                           ## between 0.1 and
+                                                                           ## ! 1000. in
+                                                                           ## absolute
+                                                                           ## values
+                                                                           ## ! If
+                                                                           ## <chars> is given (and
+                                                                           ## positive), it will
+                                                                           ## produce
+                                                                           ## options
+                                                                           ## ! to
+                                                                           ## produce this count of
+                                                                           ## characters :
+                                                                           ## "%<chars>f","%<chars>%E"
 
 
-proc constructInterface_FloatWriter*(chars: Standard_Integer = 0): Interface_FloatWriter {.
+proc constructInterfaceFloatWriter*(chars: int = 0): InterfaceFloatWriter {.
     constructor, importcpp: "Interface_FloatWriter(@)",
     header: "Interface_FloatWriter.hxx".}
-proc SetFormat*(this: var Interface_FloatWriter; form: Standard_CString;
-               reset: Standard_Boolean = Standard_True) {.importcpp: "SetFormat",
+proc setFormat*(this: var InterfaceFloatWriter; form: StandardCString;
+               reset: bool = true) {.importcpp: "SetFormat",
+                                 header: "Interface_FloatWriter.hxx".}
+proc setFormatForRange*(this: var InterfaceFloatWriter; form: StandardCString;
+                       r1: float; r2: float) {.importcpp: "SetFormatForRange",
     header: "Interface_FloatWriter.hxx".}
-proc SetFormatForRange*(this: var Interface_FloatWriter; form: Standard_CString;
-                       R1: Standard_Real; R2: Standard_Real) {.
-    importcpp: "SetFormatForRange", header: "Interface_FloatWriter.hxx".}
-proc SetZeroSuppress*(this: var Interface_FloatWriter; mode: Standard_Boolean) {.
+proc setZeroSuppress*(this: var InterfaceFloatWriter; mode: bool) {.
     importcpp: "SetZeroSuppress", header: "Interface_FloatWriter.hxx".}
-proc SetDefaults*(this: var Interface_FloatWriter; chars: Standard_Integer = 0) {.
+proc setDefaults*(this: var InterfaceFloatWriter; chars: int = 0) {.
     importcpp: "SetDefaults", header: "Interface_FloatWriter.hxx".}
-proc Options*(this: Interface_FloatWriter; zerosup: var Standard_Boolean;
-             range: var Standard_Boolean; R1: var Standard_Real; R2: var Standard_Real) {.
-    noSideEffect, importcpp: "Options", header: "Interface_FloatWriter.hxx".}
-proc MainFormat*(this: Interface_FloatWriter): Standard_CString {.noSideEffect,
+proc options*(this: InterfaceFloatWriter; zerosup: var bool; range: var bool;
+             r1: var float; r2: var float) {.noSideEffect, importcpp: "Options",
+                                       header: "Interface_FloatWriter.hxx".}
+proc mainFormat*(this: InterfaceFloatWriter): StandardCString {.noSideEffect,
     importcpp: "MainFormat", header: "Interface_FloatWriter.hxx".}
-proc FormatForRange*(this: Interface_FloatWriter): Standard_CString {.noSideEffect,
+proc formatForRange*(this: InterfaceFloatWriter): StandardCString {.noSideEffect,
     importcpp: "FormatForRange", header: "Interface_FloatWriter.hxx".}
-proc Write*(this: Interface_FloatWriter; val: Standard_Real; text: Standard_CString): Standard_Integer {.
+proc write*(this: InterfaceFloatWriter; val: float; text: StandardCString): int {.
     noSideEffect, importcpp: "Write", header: "Interface_FloatWriter.hxx".}
-proc Convert*(val: Standard_Real; text: Standard_CString; zerosup: Standard_Boolean;
-             Range1: Standard_Real; Range2: Standard_Real;
-             mainform: Standard_CString; rangeform: Standard_CString): Standard_Integer {.
+proc convert*(val: float; text: StandardCString; zerosup: bool; range1: float;
+             range2: float; mainform: StandardCString; rangeform: StandardCString): int {.
     importcpp: "Interface_FloatWriter::Convert(@)",
     header: "Interface_FloatWriter.hxx".}

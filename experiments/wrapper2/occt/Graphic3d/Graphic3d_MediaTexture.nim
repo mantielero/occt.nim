@@ -12,42 +12,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Graphic3d_Texture2D, ../NCollection/NCollection_DefineAlloc,
-  ../NCollection/NCollection_Shared, ../Standard/Standard_Mutex
-
 discard "forward decl of Media_Frame"
 type
-  Media_HMutex* = NCollection_Shared[Standard_Mutex]
+  MediaHMutex* = NCollectionShared[StandardMutex]
 
 ## ! Texture adapter for Media_Frame.
 
 type
-  Graphic3d_MediaTexture* {.importcpp: "Graphic3d_MediaTexture",
-                           header: "Graphic3d_MediaTexture.hxx", bycopy.} = object of Graphic3d_Texture2D ##
-                                                                                                   ## !
-                                                                                                   ## Main
-                                                                                                   ## constructor.
+  Graphic3dMediaTexture* {.importcpp: "Graphic3d_MediaTexture",
+                          header: "Graphic3d_MediaTexture.hxx", bycopy.} = object of Graphic3dTexture2D ##
+                                                                                                 ## !
+                                                                                                 ## Main
+                                                                                                 ## constructor.
 
-  Graphic3d_MediaTexturebase_type* = Graphic3d_Texture2D
+  Graphic3dMediaTexturebaseType* = Graphic3dTexture2D
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_MediaTexture::get_type_name(@)",
-                              header: "Graphic3d_MediaTexture.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_MediaTexture::get_type_name(@)",
+                            header: "Graphic3d_MediaTexture.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_MediaTexture::get_type_descriptor(@)",
     header: "Graphic3d_MediaTexture.hxx".}
-proc DynamicType*(this: Graphic3d_MediaTexture): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "Graphic3d_MediaTexture.hxx".}
-proc constructGraphic3d_MediaTexture*(theMutex: handle[Media_HMutex];
-                                     thePlane: Standard_Integer = -1): Graphic3d_MediaTexture {.
+proc dynamicType*(this: Graphic3dMediaTexture): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Graphic3d_MediaTexture.hxx".}
+proc constructGraphic3dMediaTexture*(theMutex: Handle[MediaHMutex];
+                                    thePlane: int = -1): Graphic3dMediaTexture {.
     constructor, importcpp: "Graphic3d_MediaTexture(@)",
     header: "Graphic3d_MediaTexture.hxx".}
-proc GetImage*(this: var Graphic3d_MediaTexture;
-              theSupported: handle[Image_SupportedFormats]): handle[Image_PixMap] {.
+proc getImage*(this: var Graphic3dMediaTexture;
+              theSupported: Handle[ImageSupportedFormats]): Handle[ImagePixMap] {.
     importcpp: "GetImage", header: "Graphic3d_MediaTexture.hxx".}
-proc Frame*(this: Graphic3d_MediaTexture): handle[Media_Frame] {.noSideEffect,
+proc frame*(this: Graphic3dMediaTexture): Handle[MediaFrame] {.noSideEffect,
     importcpp: "Frame", header: "Graphic3d_MediaTexture.hxx".}
-proc SetFrame*(this: var Graphic3d_MediaTexture; theFrame: handle[Media_Frame]) {.
+proc setFrame*(this: var Graphic3dMediaTexture; theFrame: Handle[MediaFrame]) {.
     importcpp: "SetFrame", header: "Graphic3d_MediaTexture.hxx".}
-proc GenerateNewId*(this: var Graphic3d_MediaTexture) {.importcpp: "GenerateNewId",
+proc generateNewId*(this: var Graphic3dMediaTexture) {.importcpp: "GenerateNewId",
     header: "Graphic3d_MediaTexture.hxx".}

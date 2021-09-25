@@ -14,13 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  PrsDim_KindOfDimension, PrsDim_Relation, ../DsgPrs/DsgPrs_ArrowSide, ../gp/gp_Dir
-
 discard "forward decl of Geom_Plane"
 discard "forward decl of PrsDim_Chamf2dDimension"
 type
-  Handle_PrsDim_Chamf2dDimension* = handle[PrsDim_Chamf2dDimension]
+  HandlePrsDimChamf2dDimension* = Handle[PrsDimChamf2dDimension]
 
 ## ! A framework to define display of 2D chamfers.
 ## ! A chamfer is displayed with arrows and text. The text
@@ -28,65 +25,62 @@ type
 ## ! chamfer, or the angle if it is not.
 
 type
-  PrsDim_Chamf2dDimension* {.importcpp: "PrsDim_Chamf2dDimension",
-                            header: "PrsDim_Chamf2dDimension.hxx", bycopy.} = object of PrsDim_Relation ##
-                                                                                                 ## !
-                                                                                                 ## Constructs
-                                                                                                 ## the
-                                                                                                 ## display
-                                                                                                 ## object
-                                                                                                 ## for
-                                                                                                 ## 2D
-                                                                                                 ## chamfers.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## This
-                                                                                                 ## object
-                                                                                                 ## is
-                                                                                                 ## defined
-                                                                                                 ## by
-                                                                                                 ## the
-                                                                                                 ## face
-                                                                                                 ## aFShape,
-                                                                                                 ## the
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## dimension
-                                                                                                 ## aVal,
-                                                                                                 ## the
-                                                                                                 ## plane
-                                                                                                 ## aPlane
-                                                                                                 ## and
-                                                                                                 ## the
-                                                                                                 ## text
-                                                                                                 ## aText.
+  PrsDimChamf2dDimension* {.importcpp: "PrsDim_Chamf2dDimension",
+                           header: "PrsDim_Chamf2dDimension.hxx", bycopy.} = object of PrsDimRelation ##
+                                                                                               ## !
+                                                                                               ## Constructs
+                                                                                               ## the
+                                                                                               ## display
+                                                                                               ## object
+                                                                                               ## for
+                                                                                               ## 2D
+                                                                                               ## chamfers.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## This
+                                                                                               ## object
+                                                                                               ## is
+                                                                                               ## defined
+                                                                                               ## by
+                                                                                               ## the
+                                                                                               ## face
+                                                                                               ## aFShape,
+                                                                                               ## the
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## dimension
+                                                                                               ## aVal,
+                                                                                               ## the
+                                                                                               ## plane
+                                                                                               ## aPlane
+                                                                                               ## and
+                                                                                               ## the
+                                                                                               ## text
+                                                                                               ## aText.
 
-  PrsDim_Chamf2dDimensionbase_type* = PrsDim_Relation
+  PrsDimChamf2dDimensionbaseType* = PrsDimRelation
 
-proc get_type_name*(): cstring {.importcpp: "PrsDim_Chamf2dDimension::get_type_name(@)",
-                              header: "PrsDim_Chamf2dDimension.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "PrsDim_Chamf2dDimension::get_type_name(@)",
+                            header: "PrsDim_Chamf2dDimension.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "PrsDim_Chamf2dDimension::get_type_descriptor(@)",
     header: "PrsDim_Chamf2dDimension.hxx".}
-proc DynamicType*(this: PrsDim_Chamf2dDimension): handle[Standard_Type] {.
+proc dynamicType*(this: PrsDimChamf2dDimension): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "PrsDim_Chamf2dDimension.hxx".}
-proc constructPrsDim_Chamf2dDimension*(aFShape: TopoDS_Shape;
-                                      aPlane: handle[Geom_Plane];
-                                      aVal: Standard_Real;
-                                      aText: TCollection_ExtendedString): PrsDim_Chamf2dDimension {.
+proc constructPrsDimChamf2dDimension*(aFShape: TopoDS_Shape;
+                                     aPlane: Handle[GeomPlane]; aVal: float;
+                                     aText: TCollectionExtendedString): PrsDimChamf2dDimension {.
     constructor, importcpp: "PrsDim_Chamf2dDimension(@)",
     header: "PrsDim_Chamf2dDimension.hxx".}
-proc constructPrsDim_Chamf2dDimension*(aFShape: TopoDS_Shape;
-                                      aPlane: handle[Geom_Plane];
-                                      aVal: Standard_Real;
-                                      aText: TCollection_ExtendedString;
-                                      aPosition: gp_Pnt;
-                                      aSymbolPrs: DsgPrs_ArrowSide;
-                                      anArrowSize: Standard_Real = 0.0): PrsDim_Chamf2dDimension {.
+proc constructPrsDimChamf2dDimension*(aFShape: TopoDS_Shape;
+                                     aPlane: Handle[GeomPlane]; aVal: float;
+                                     aText: TCollectionExtendedString;
+                                     aPosition: Pnt; aSymbolPrs: DsgPrsArrowSide;
+                                     anArrowSize: float = 0.0): PrsDimChamf2dDimension {.
     constructor, importcpp: "PrsDim_Chamf2dDimension(@)",
     header: "PrsDim_Chamf2dDimension.hxx".}
-proc KindOfDimension*(this: PrsDim_Chamf2dDimension): PrsDim_KindOfDimension {.
+proc kindOfDimension*(this: PrsDimChamf2dDimension): PrsDimKindOfDimension {.
     noSideEffect, importcpp: "KindOfDimension",
     header: "PrsDim_Chamf2dDimension.hxx".}
-proc IsMovable*(this: PrsDim_Chamf2dDimension): Standard_Boolean {.noSideEffect,
+proc isMovable*(this: PrsDimChamf2dDimension): bool {.noSideEffect,
     importcpp: "IsMovable", header: "PrsDim_Chamf2dDimension.hxx".}

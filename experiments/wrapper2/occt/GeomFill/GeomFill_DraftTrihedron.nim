@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Vec,
-  ../Standard/Standard_Real, GeomFill_TrihedronLaw, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../GeomAbs/GeomAbs_Shape,
-  ../TColStd/TColStd_Array1OfReal
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of gp_Vec"
@@ -27,50 +21,48 @@ discard "forward decl of GeomFill_TrihedronLaw"
 discard "forward decl of GeomFill_DraftTrihedron"
 discard "forward decl of GeomFill_DraftTrihedron"
 type
-  Handle_GeomFill_DraftTrihedron* = handle[GeomFill_DraftTrihedron]
-  GeomFill_DraftTrihedron* {.importcpp: "GeomFill_DraftTrihedron",
-                            header: "GeomFill_DraftTrihedron.hxx", bycopy.} = object of GeomFill_TrihedronLaw
+  HandleGeomFillDraftTrihedron* = Handle[GeomFillDraftTrihedron]
+  GeomFillDraftTrihedron* {.importcpp: "GeomFill_DraftTrihedron",
+                           header: "GeomFill_DraftTrihedron.hxx", bycopy.} = object of GeomFillTrihedronLaw
 
 
-proc constructGeomFill_DraftTrihedron*(BiNormal: gp_Vec; Angle: Standard_Real): GeomFill_DraftTrihedron {.
+proc constructGeomFillDraftTrihedron*(biNormal: Vec; angle: float): GeomFillDraftTrihedron {.
     constructor, importcpp: "GeomFill_DraftTrihedron(@)",
     header: "GeomFill_DraftTrihedron.hxx".}
-proc SetAngle*(this: var GeomFill_DraftTrihedron; Angle: Standard_Real) {.
+proc setAngle*(this: var GeomFillDraftTrihedron; angle: float) {.
     importcpp: "SetAngle", header: "GeomFill_DraftTrihedron.hxx".}
-proc Copy*(this: GeomFill_DraftTrihedron): handle[GeomFill_TrihedronLaw] {.
+proc copy*(this: GeomFillDraftTrihedron): Handle[GeomFillTrihedronLaw] {.
     noSideEffect, importcpp: "Copy", header: "GeomFill_DraftTrihedron.hxx".}
-proc D0*(this: var GeomFill_DraftTrihedron; Param: Standard_Real; Tangent: var gp_Vec;
-        Normal: var gp_Vec; BiNormal: var gp_Vec): Standard_Boolean {.importcpp: "D0",
+proc d0*(this: var GeomFillDraftTrihedron; param: float; tangent: var Vec;
+        normal: var Vec; biNormal: var Vec): bool {.importcpp: "D0",
     header: "GeomFill_DraftTrihedron.hxx".}
-proc D1*(this: var GeomFill_DraftTrihedron; Param: Standard_Real; Tangent: var gp_Vec;
-        DTangent: var gp_Vec; Normal: var gp_Vec; DNormal: var gp_Vec;
-        BiNormal: var gp_Vec; DBiNormal: var gp_Vec): Standard_Boolean {.
-    importcpp: "D1", header: "GeomFill_DraftTrihedron.hxx".}
-proc D2*(this: var GeomFill_DraftTrihedron; Param: Standard_Real; Tangent: var gp_Vec;
-        DTangent: var gp_Vec; D2Tangent: var gp_Vec; Normal: var gp_Vec;
-        DNormal: var gp_Vec; D2Normal: var gp_Vec; BiNormal: var gp_Vec;
-        DBiNormal: var gp_Vec; D2BiNormal: var gp_Vec): Standard_Boolean {.
+proc d1*(this: var GeomFillDraftTrihedron; param: float; tangent: var Vec;
+        dTangent: var Vec; normal: var Vec; dNormal: var Vec; biNormal: var Vec;
+        dBiNormal: var Vec): bool {.importcpp: "D1",
+                                header: "GeomFill_DraftTrihedron.hxx".}
+proc d2*(this: var GeomFillDraftTrihedron; param: float; tangent: var Vec;
+        dTangent: var Vec; d2Tangent: var Vec; normal: var Vec; dNormal: var Vec;
+        d2Normal: var Vec; biNormal: var Vec; dBiNormal: var Vec; d2BiNormal: var Vec): bool {.
     importcpp: "D2", header: "GeomFill_DraftTrihedron.hxx".}
-proc NbIntervals*(this: GeomFill_DraftTrihedron; S: GeomAbs_Shape): Standard_Integer {.
-    noSideEffect, importcpp: "NbIntervals", header: "GeomFill_DraftTrihedron.hxx".}
-proc Intervals*(this: GeomFill_DraftTrihedron; T: var TColStd_Array1OfReal;
-               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
-                                 header: "GeomFill_DraftTrihedron.hxx".}
-proc GetAverageLaw*(this: var GeomFill_DraftTrihedron; ATangent: var gp_Vec;
-                   ANormal: var gp_Vec; ABiNormal: var gp_Vec) {.
-    importcpp: "GetAverageLaw", header: "GeomFill_DraftTrihedron.hxx".}
-proc IsConstant*(this: GeomFill_DraftTrihedron): Standard_Boolean {.noSideEffect,
-    importcpp: "IsConstant", header: "GeomFill_DraftTrihedron.hxx".}
-proc IsOnlyBy3dCurve*(this: GeomFill_DraftTrihedron): Standard_Boolean {.
-    noSideEffect, importcpp: "IsOnlyBy3dCurve",
+proc nbIntervals*(this: GeomFillDraftTrihedron; s: GeomAbsShape): int {.noSideEffect,
+    importcpp: "NbIntervals", header: "GeomFill_DraftTrihedron.hxx".}
+proc intervals*(this: GeomFillDraftTrihedron; t: var TColStdArray1OfReal;
+               s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
+                                header: "GeomFill_DraftTrihedron.hxx".}
+proc getAverageLaw*(this: var GeomFillDraftTrihedron; aTangent: var Vec;
+                   aNormal: var Vec; aBiNormal: var Vec) {.importcpp: "GetAverageLaw",
     header: "GeomFill_DraftTrihedron.hxx".}
+proc isConstant*(this: GeomFillDraftTrihedron): bool {.noSideEffect,
+    importcpp: "IsConstant", header: "GeomFill_DraftTrihedron.hxx".}
+proc isOnlyBy3dCurve*(this: GeomFillDraftTrihedron): bool {.noSideEffect,
+    importcpp: "IsOnlyBy3dCurve", header: "GeomFill_DraftTrihedron.hxx".}
 type
-  GeomFill_DraftTrihedronbase_type* = GeomFill_TrihedronLaw
+  GeomFillDraftTrihedronbaseType* = GeomFillTrihedronLaw
 
-proc get_type_name*(): cstring {.importcpp: "GeomFill_DraftTrihedron::get_type_name(@)",
-                              header: "GeomFill_DraftTrihedron.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "GeomFill_DraftTrihedron::get_type_name(@)",
+                            header: "GeomFill_DraftTrihedron.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GeomFill_DraftTrihedron::get_type_descriptor(@)",
     header: "GeomFill_DraftTrihedron.hxx".}
-proc DynamicType*(this: GeomFill_DraftTrihedron): handle[Standard_Type] {.
+proc dynamicType*(this: GeomFillDraftTrihedron): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "GeomFill_DraftTrihedron.hxx".}

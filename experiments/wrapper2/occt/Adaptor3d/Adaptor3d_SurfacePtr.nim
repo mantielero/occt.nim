@@ -16,4 +16,5 @@
 
 discard "forward decl of Adaptor3d_Surface"
 type
-  Adaptor3d_SurfacePtr* = ptr Adaptor3d_Surface
+  Adaptor3dSurfacePtr* = ptr Adaptor3dSurface
+

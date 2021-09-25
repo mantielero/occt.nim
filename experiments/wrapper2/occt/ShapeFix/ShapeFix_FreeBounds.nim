@@ -14,35 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Compound, ../TopoDS/TopoDS_Shape,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Compound"
 type
-  ShapeFix_FreeBounds* {.importcpp: "ShapeFix_FreeBounds",
-                        header: "ShapeFix_FreeBounds.hxx", bycopy.} = object ## ! Empty
-                                                                        ## constructor
+  ShapeFixFreeBounds* {.importcpp: "ShapeFix_FreeBounds",
+                       header: "ShapeFix_FreeBounds.hxx", bycopy.} = object ## ! Empty
+                                                                       ## constructor
 
 
-proc constructShapeFix_FreeBounds*(): ShapeFix_FreeBounds {.constructor,
+proc constructShapeFixFreeBounds*(): ShapeFixFreeBounds {.constructor,
     importcpp: "ShapeFix_FreeBounds(@)", header: "ShapeFix_FreeBounds.hxx".}
-proc constructShapeFix_FreeBounds*(shape: TopoDS_Shape; sewtoler: Standard_Real;
-                                  closetoler: Standard_Real;
-                                  splitclosed: Standard_Boolean;
-                                  splitopen: Standard_Boolean): ShapeFix_FreeBounds {.
+proc constructShapeFixFreeBounds*(shape: TopoDS_Shape; sewtoler: float;
+                                 closetoler: float; splitclosed: bool;
+                                 splitopen: bool): ShapeFixFreeBounds {.
     constructor, importcpp: "ShapeFix_FreeBounds(@)",
     header: "ShapeFix_FreeBounds.hxx".}
-proc constructShapeFix_FreeBounds*(shape: TopoDS_Shape; closetoler: Standard_Real;
-                                  splitclosed: Standard_Boolean;
-                                  splitopen: Standard_Boolean): ShapeFix_FreeBounds {.
+proc constructShapeFixFreeBounds*(shape: TopoDS_Shape; closetoler: float;
+                                 splitclosed: bool; splitopen: bool): ShapeFixFreeBounds {.
     constructor, importcpp: "ShapeFix_FreeBounds(@)",
     header: "ShapeFix_FreeBounds.hxx".}
-proc GetClosedWires*(this: ShapeFix_FreeBounds): TopoDS_Compound {.noSideEffect,
+proc getClosedWires*(this: ShapeFixFreeBounds): TopoDS_Compound {.noSideEffect,
     importcpp: "GetClosedWires", header: "ShapeFix_FreeBounds.hxx".}
-proc GetOpenWires*(this: ShapeFix_FreeBounds): TopoDS_Compound {.noSideEffect,
+proc getOpenWires*(this: ShapeFixFreeBounds): TopoDS_Compound {.noSideEffect,
     importcpp: "GetOpenWires", header: "ShapeFix_FreeBounds.hxx".}
-proc GetShape*(this: ShapeFix_FreeBounds): TopoDS_Shape {.noSideEffect,
+proc getShape*(this: ShapeFixFreeBounds): TopoDS_Shape {.noSideEffect,
     importcpp: "GetShape", header: "ShapeFix_FreeBounds.hxx".}

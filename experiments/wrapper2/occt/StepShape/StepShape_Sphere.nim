@@ -14,44 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../StepGeom/StepGeom_GeometricRepresentationItem
-
 discard "forward decl of StepGeom_Point"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_Sphere"
 discard "forward decl of StepShape_Sphere"
 type
-  Handle_StepShape_Sphere* = handle[StepShape_Sphere]
-  StepShape_Sphere* {.importcpp: "StepShape_Sphere",
-                     header: "StepShape_Sphere.hxx", bycopy.} = object of StepGeom_GeometricRepresentationItem ##
-                                                                                                        ## !
-                                                                                                        ## Returns
-                                                                                                        ## a
-                                                                                                        ## Sphere
+  HandleStepShapeSphere* = Handle[StepShapeSphere]
+  StepShapeSphere* {.importcpp: "StepShape_Sphere", header: "StepShape_Sphere.hxx",
+                    bycopy.} = object of StepGeomGeometricRepresentationItem ## ! Returns a Sphere
 
 
-proc constructStepShape_Sphere*(): StepShape_Sphere {.constructor,
+proc constructStepShapeSphere*(): StepShapeSphere {.constructor,
     importcpp: "StepShape_Sphere(@)", header: "StepShape_Sphere.hxx".}
-proc Init*(this: var StepShape_Sphere; aName: handle[TCollection_HAsciiString];
-          aRadius: Standard_Real; aCentre: handle[StepGeom_Point]) {.
-    importcpp: "Init", header: "StepShape_Sphere.hxx".}
-proc SetRadius*(this: var StepShape_Sphere; aRadius: Standard_Real) {.
-    importcpp: "SetRadius", header: "StepShape_Sphere.hxx".}
-proc Radius*(this: StepShape_Sphere): Standard_Real {.noSideEffect,
-    importcpp: "Radius", header: "StepShape_Sphere.hxx".}
-proc SetCentre*(this: var StepShape_Sphere; aCentre: handle[StepGeom_Point]) {.
+proc init*(this: var StepShapeSphere; aName: Handle[TCollectionHAsciiString];
+          aRadius: float; aCentre: Handle[StepGeomPoint]) {.importcpp: "Init",
+    header: "StepShape_Sphere.hxx".}
+proc setRadius*(this: var StepShapeSphere; aRadius: float) {.importcpp: "SetRadius",
+    header: "StepShape_Sphere.hxx".}
+proc radius*(this: StepShapeSphere): float {.noSideEffect, importcpp: "Radius",
+    header: "StepShape_Sphere.hxx".}
+proc setCentre*(this: var StepShapeSphere; aCentre: Handle[StepGeomPoint]) {.
     importcpp: "SetCentre", header: "StepShape_Sphere.hxx".}
-proc Centre*(this: StepShape_Sphere): handle[StepGeom_Point] {.noSideEffect,
+proc centre*(this: StepShapeSphere): Handle[StepGeomPoint] {.noSideEffect,
     importcpp: "Centre", header: "StepShape_Sphere.hxx".}
 type
-  StepShape_Spherebase_type* = StepGeom_GeometricRepresentationItem
+  StepShapeSpherebaseType* = StepGeomGeometricRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_Sphere::get_type_name(@)",
-                              header: "StepShape_Sphere.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_Sphere::get_type_name(@)",
+                            header: "StepShape_Sphere.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_Sphere::get_type_descriptor(@)",
     header: "StepShape_Sphere.hxx".}
-proc DynamicType*(this: StepShape_Sphere): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepShapeSphere): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_Sphere.hxx".}

@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_FillStyleSelect, StepVisual_Array1OfFillStyleSelect,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepVisual_HArray1OfFillStyleSelect* {.importcpp: "StepVisual_HArray1OfFillStyleSelect", header: "StepVisual_HArray1OfFillStyleSelect.hxx",
-                                        bycopy.} = object of StepVisual_Array1OfFillStyleSelect
+  StepVisualHArray1OfFillStyleSelect* {.importcpp: "StepVisual_HArray1OfFillStyleSelect", header: "StepVisual_HArray1OfFillStyleSelect.hxx",
+                                       bycopy.} = object of StepVisualArray1OfFillStyleSelect
 
 
-proc constructStepVisual_HArray1OfFillStyleSelect*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepVisual_HArray1OfFillStyleSelect {.constructor,
+proc constructStepVisualHArray1OfFillStyleSelect*(theLower: int; theUpper: int): StepVisualHArray1OfFillStyleSelect {.
+    constructor, importcpp: "StepVisual_HArray1OfFillStyleSelect(@)",
+    header: "StepVisual_HArray1OfFillStyleSelect.hxx".}
+proc constructStepVisualHArray1OfFillStyleSelect*(theLower: int; theUpper: int;
+    theValue: ValueType): StepVisualHArray1OfFillStyleSelect {.constructor,
     importcpp: "StepVisual_HArray1OfFillStyleSelect(@)",
     header: "StepVisual_HArray1OfFillStyleSelect.hxx".}
-proc constructStepVisual_HArray1OfFillStyleSelect*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepVisual_HArray1OfFillStyleSelect {.
+proc constructStepVisualHArray1OfFillStyleSelect*(
+    theOther: StepVisualArray1OfFillStyleSelect): StepVisualHArray1OfFillStyleSelect {.
     constructor, importcpp: "StepVisual_HArray1OfFillStyleSelect(@)",
     header: "StepVisual_HArray1OfFillStyleSelect.hxx".}
-proc constructStepVisual_HArray1OfFillStyleSelect*(
-    theOther: StepVisual_Array1OfFillStyleSelect): StepVisual_HArray1OfFillStyleSelect {.
-    constructor, importcpp: "StepVisual_HArray1OfFillStyleSelect(@)",
-    header: "StepVisual_HArray1OfFillStyleSelect.hxx".}
-proc Array1*(this: StepVisual_HArray1OfFillStyleSelect): StepVisual_Array1OfFillStyleSelect {.
+proc array1*(this: StepVisualHArray1OfFillStyleSelect): StepVisualArray1OfFillStyleSelect {.
     noSideEffect, importcpp: "Array1",
     header: "StepVisual_HArray1OfFillStyleSelect.hxx".}
-proc ChangeArray1*(this: var StepVisual_HArray1OfFillStyleSelect): var StepVisual_Array1OfFillStyleSelect {.
+proc changeArray1*(this: var StepVisualHArray1OfFillStyleSelect): var StepVisualArray1OfFillStyleSelect {.
     importcpp: "ChangeArray1", header: "StepVisual_HArray1OfFillStyleSelect.hxx".}
 type
-  StepVisual_HArray1OfFillStyleSelectbase_type* = MMgt_TShared
+  StepVisualHArray1OfFillStyleSelectbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_HArray1OfFillStyleSelect::get_type_name(@)",
-                              header: "StepVisual_HArray1OfFillStyleSelect.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_HArray1OfFillStyleSelect::get_type_name(@)",
+                            header: "StepVisual_HArray1OfFillStyleSelect.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_HArray1OfFillStyleSelect::get_type_descriptor(@)",
     header: "StepVisual_HArray1OfFillStyleSelect.hxx".}
-proc DynamicType*(this: StepVisual_HArray1OfFillStyleSelect): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualHArray1OfFillStyleSelect): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_HArray1OfFillStyleSelect.hxx".}

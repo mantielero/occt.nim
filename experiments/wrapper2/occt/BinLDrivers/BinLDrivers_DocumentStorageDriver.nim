@@ -13,14 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../BinObjMgt/BinObjMgt_Persistent, ../BinObjMgt/BinObjMgt_SRelocationTable,
-  ../TDF/TDF_LabelList, ../TColStd/TColStd_MapOfTransient,
-  ../TColStd/TColStd_IndexedMapOfTransient, BinLDrivers_VectorOfDocumentSection,
-  ../PCDM/PCDM_StorageDriver, ../Standard/Standard_OStream,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Type
-
 discard "forward decl of BinMDF_ADriverTable"
 discard "forward decl of Message_Messenger"
 discard "forward decl of TCollection_ExtendedString"
@@ -31,47 +23,46 @@ discard "forward decl of BinLDrivers_DocumentSection"
 discard "forward decl of BinLDrivers_DocumentStorageDriver"
 discard "forward decl of BinLDrivers_DocumentStorageDriver"
 type
-  Handle_BinLDrivers_DocumentStorageDriver* = handle[
-      BinLDrivers_DocumentStorageDriver]
+  HandleBinLDriversDocumentStorageDriver* = Handle[
+      BinLDriversDocumentStorageDriver]
 
 ## ! persistent implemention of storage a document in a binary file
 
 type
-  BinLDrivers_DocumentStorageDriver* {.importcpp: "BinLDrivers_DocumentStorageDriver", header: "BinLDrivers_DocumentStorageDriver.hxx",
-                                      bycopy.} = object of PCDM_StorageDriver ## !
-                                                                         ## Constructor
-                                                                         ## ! Write the tree under
-                                                                         ## <theLabel> to the stream <theOS>
+  BinLDriversDocumentStorageDriver* {.importcpp: "BinLDrivers_DocumentStorageDriver", header: "BinLDrivers_DocumentStorageDriver.hxx",
+                                     bycopy.} = object of PCDM_StorageDriver ## !
+                                                                        ## Constructor
+                                                                        ## ! Write the tree under
+                                                                        ## <theLabel> to the stream <theOS>
 
 
-proc constructBinLDrivers_DocumentStorageDriver*(): BinLDrivers_DocumentStorageDriver {.
+proc constructBinLDriversDocumentStorageDriver*(): BinLDriversDocumentStorageDriver {.
     constructor, importcpp: "BinLDrivers_DocumentStorageDriver(@)",
     header: "BinLDrivers_DocumentStorageDriver.hxx".}
-proc Write*(this: var BinLDrivers_DocumentStorageDriver;
-           theDocument: handle[CDM_Document];
-           theFileName: TCollection_ExtendedString;
-           theRange: Message_ProgressRange = Message_ProgressRange()) {.
+proc write*(this: var BinLDriversDocumentStorageDriver;
+           theDocument: Handle[CDM_Document];
+           theFileName: TCollectionExtendedString;
+           theRange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Write", header: "BinLDrivers_DocumentStorageDriver.hxx".}
-proc Write*(this: var BinLDrivers_DocumentStorageDriver;
-           theDocument: handle[CDM_Document]; theOStream: var Standard_OStream;
-           theRange: Message_ProgressRange = Message_ProgressRange()) {.
+proc write*(this: var BinLDriversDocumentStorageDriver;
+           theDocument: Handle[CDM_Document]; theOStream: var StandardOStream;
+           theRange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Write", header: "BinLDrivers_DocumentStorageDriver.hxx".}
-proc AttributeDrivers*(this: var BinLDrivers_DocumentStorageDriver;
-                      theMsgDriver: handle[Message_Messenger]): handle[
+proc attributeDrivers*(this: var BinLDriversDocumentStorageDriver;
+                      theMsgDriver: Handle[MessageMessenger]): Handle[
     BinMDF_ADriverTable] {.importcpp: "AttributeDrivers",
                           header: "BinLDrivers_DocumentStorageDriver.hxx".}
-proc AddSection*(this: var BinLDrivers_DocumentStorageDriver;
-                theName: TCollection_AsciiString;
-                isPostRead: Standard_Boolean = Standard_True) {.
+proc addSection*(this: var BinLDriversDocumentStorageDriver;
+                theName: TCollectionAsciiString; isPostRead: bool = true) {.
     importcpp: "AddSection", header: "BinLDrivers_DocumentStorageDriver.hxx".}
 type
-  BinLDrivers_DocumentStorageDriverbase_type* = PCDM_StorageDriver
+  BinLDriversDocumentStorageDriverbaseType* = PCDM_StorageDriver
 
-proc get_type_name*(): cstring {.importcpp: "BinLDrivers_DocumentStorageDriver::get_type_name(@)",
-                              header: "BinLDrivers_DocumentStorageDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BinLDrivers_DocumentStorageDriver::get_type_name(@)",
+                            header: "BinLDrivers_DocumentStorageDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BinLDrivers_DocumentStorageDriver::get_type_descriptor(@)",
     header: "BinLDrivers_DocumentStorageDriver.hxx".}
-proc DynamicType*(this: BinLDrivers_DocumentStorageDriver): handle[Standard_Type] {.
+proc dynamicType*(this: BinLDriversDocumentStorageDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinLDrivers_DocumentStorageDriver.hxx".}

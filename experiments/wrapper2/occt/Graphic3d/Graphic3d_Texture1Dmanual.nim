@@ -14,48 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Graphic3d_Texture1D,
-  Graphic3d_NameOfTexture1D
-
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Graphic3d_Texture1Dmanual"
 discard "forward decl of Graphic3d_Texture1Dmanual"
 type
-  Handle_Graphic3d_Texture1Dmanual* = handle[Graphic3d_Texture1Dmanual]
+  HandleGraphic3dTexture1Dmanual* = Handle[Graphic3dTexture1Dmanual]
 
 ## ! This class provides the implementation of a manual 1D texture.
 ## ! you MUST provides texture coordinates on your facets if you want to see your texture.
 
 type
-  Graphic3d_Texture1Dmanual* {.importcpp: "Graphic3d_Texture1Dmanual",
-                              header: "Graphic3d_Texture1Dmanual.hxx", bycopy.} = object of Graphic3d_Texture1D ##
-                                                                                                         ## !
-                                                                                                         ## Creates
-                                                                                                         ## a
-                                                                                                         ## texture
-                                                                                                         ## from
-                                                                                                         ## the
-                                                                                                         ## file
-                                                                                                         ## FileName.
+  Graphic3dTexture1Dmanual* {.importcpp: "Graphic3d_Texture1Dmanual",
+                             header: "Graphic3d_Texture1Dmanual.hxx", bycopy.} = object of Graphic3dTexture1D ##
+                                                                                                       ## !
+                                                                                                       ## Creates
+                                                                                                       ## a
+                                                                                                       ## texture
+                                                                                                       ## from
+                                                                                                       ## the
+                                                                                                       ## file
+                                                                                                       ## FileName.
 
 
-proc constructGraphic3d_Texture1Dmanual*(theFileName: TCollection_AsciiString): Graphic3d_Texture1Dmanual {.
+proc constructGraphic3dTexture1Dmanual*(theFileName: TCollectionAsciiString): Graphic3dTexture1Dmanual {.
     constructor, importcpp: "Graphic3d_Texture1Dmanual(@)",
     header: "Graphic3d_Texture1Dmanual.hxx".}
-proc constructGraphic3d_Texture1Dmanual*(theNOT: Graphic3d_NameOfTexture1D): Graphic3d_Texture1Dmanual {.
+proc constructGraphic3dTexture1Dmanual*(theNOT: Graphic3dNameOfTexture1D): Graphic3dTexture1Dmanual {.
     constructor, importcpp: "Graphic3d_Texture1Dmanual(@)",
     header: "Graphic3d_Texture1Dmanual.hxx".}
-proc constructGraphic3d_Texture1Dmanual*(thePixMap: handle[Image_PixMap]): Graphic3d_Texture1Dmanual {.
+proc constructGraphic3dTexture1Dmanual*(thePixMap: Handle[ImagePixMap]): Graphic3dTexture1Dmanual {.
     constructor, importcpp: "Graphic3d_Texture1Dmanual(@)",
     header: "Graphic3d_Texture1Dmanual.hxx".}
 type
-  Graphic3d_Texture1Dmanualbase_type* = Graphic3d_Texture1D
+  Graphic3dTexture1DmanualbaseType* = Graphic3dTexture1D
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_Texture1Dmanual::get_type_name(@)",
-                              header: "Graphic3d_Texture1Dmanual.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_Texture1Dmanual::get_type_name(@)",
+                            header: "Graphic3d_Texture1Dmanual.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_Texture1Dmanual::get_type_descriptor(@)",
     header: "Graphic3d_Texture1Dmanual.hxx".}
-proc DynamicType*(this: Graphic3d_Texture1Dmanual): handle[Standard_Type] {.
+proc dynamicType*(this: Graphic3dTexture1Dmanual): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Graphic3d_Texture1Dmanual.hxx".}

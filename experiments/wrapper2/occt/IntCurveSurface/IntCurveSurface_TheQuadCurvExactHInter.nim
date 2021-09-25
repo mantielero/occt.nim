@@ -14,19 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_SequenceOfReal, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real
-
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_HSurfaceTool"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of IntCurveSurface_TheHCurveTool"
 discard "forward decl of IntCurveSurface_TheQuadCurvFuncOfTheQuadCurvExactHInter"
 type
-  IntCurveSurface_TheQuadCurvExactHInter* {.
+  IntCurveSurfaceTheQuadCurvExactHInter* {.
       importcpp: "IntCurveSurface_TheQuadCurvExactHInter",
       header: "IntCurveSurface_TheQuadCurvExactHInter.hxx", bycopy.} = object ## !
                                                                          ## Provides the signed
@@ -37,23 +31,19 @@ type
                                                                          ## dQ(w)/dw
 
 
-proc constructIntCurveSurface_TheQuadCurvExactHInter*(
-    S: handle[Adaptor3d_HSurface]; C: handle[Adaptor3d_HCurve]): IntCurveSurface_TheQuadCurvExactHInter {.
+proc constructIntCurveSurfaceTheQuadCurvExactHInter*(
+    s: Handle[Adaptor3dHSurface]; c: Handle[Adaptor3dHCurve]): IntCurveSurfaceTheQuadCurvExactHInter {.
     constructor, importcpp: "IntCurveSurface_TheQuadCurvExactHInter(@)",
     header: "IntCurveSurface_TheQuadCurvExactHInter.hxx".}
-proc IsDone*(this: IntCurveSurface_TheQuadCurvExactHInter): Standard_Boolean {.
-    noSideEffect, importcpp: "IsDone",
-    header: "IntCurveSurface_TheQuadCurvExactHInter.hxx".}
-proc NbRoots*(this: IntCurveSurface_TheQuadCurvExactHInter): Standard_Integer {.
-    noSideEffect, importcpp: "NbRoots",
-    header: "IntCurveSurface_TheQuadCurvExactHInter.hxx".}
-proc Root*(this: IntCurveSurface_TheQuadCurvExactHInter; Index: Standard_Integer): Standard_Real {.
+proc isDone*(this: IntCurveSurfaceTheQuadCurvExactHInter): bool {.noSideEffect,
+    importcpp: "IsDone", header: "IntCurveSurface_TheQuadCurvExactHInter.hxx".}
+proc nbRoots*(this: IntCurveSurfaceTheQuadCurvExactHInter): int {.noSideEffect,
+    importcpp: "NbRoots", header: "IntCurveSurface_TheQuadCurvExactHInter.hxx".}
+proc root*(this: IntCurveSurfaceTheQuadCurvExactHInter; index: int): float {.
     noSideEffect, importcpp: "Root",
     header: "IntCurveSurface_TheQuadCurvExactHInter.hxx".}
-proc NbIntervals*(this: IntCurveSurface_TheQuadCurvExactHInter): Standard_Integer {.
-    noSideEffect, importcpp: "NbIntervals",
-    header: "IntCurveSurface_TheQuadCurvExactHInter.hxx".}
-proc Intervals*(this: IntCurveSurface_TheQuadCurvExactHInter;
-               Index: Standard_Integer; U1: var Standard_Real; U2: var Standard_Real) {.
-    noSideEffect, importcpp: "Intervals",
+proc nbIntervals*(this: IntCurveSurfaceTheQuadCurvExactHInter): int {.noSideEffect,
+    importcpp: "NbIntervals", header: "IntCurveSurface_TheQuadCurvExactHInter.hxx".}
+proc intervals*(this: IntCurveSurfaceTheQuadCurvExactHInter; index: int;
+               u1: var float; u2: var float) {.noSideEffect, importcpp: "Intervals",
     header: "IntCurveSurface_TheQuadCurvExactHInter.hxx".}

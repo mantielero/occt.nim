@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IVtkTools, IVtkTools_SubPolyDataFilter, ../NCollection/NCollection_DataMap
-
 # when defined(_MSC_VER):
 ## ! @class IVtkTools_DisplayModeFilter
 ## ! @brief Cells filter according to the selected display mode by mesh parts types.
@@ -23,57 +20,57 @@ import
 ## ! display modes.
 
 type
-  IVtkTools_DisplayModeFilter* {.importcpp: "IVtkTools_DisplayModeFilter",
-                                header: "IVtkTools_DisplayModeFilter.hxx", bycopy.} = object of IVtkTools_SubPolyDataFilter ##
-                                                                                                                     ## !
-                                                                                                                     ## Filter
-                                                                                                                     ## cells
-                                                                                                                     ## according
-                                                                                                                     ## to
-                                                                                                                     ## the
-                                                                                                                     ## given
-                                                                                                                     ## set
-                                                                                                                     ## of
-                                                                                                                     ## ids.
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## Display
-                                                                                                                     ## mode
-                                                                                                                     ## defining
-                                                                                                                     ## mesh
-                                                                                                                     ## types
-                                                                                                                     ## to
-                                                                                                                     ## pass
-                                                                                                                     ## through
-                                                                                                                     ## this
-                                                                                                                     ## filter.
+  IVtkToolsDisplayModeFilter* {.importcpp: "IVtkTools_DisplayModeFilter",
+                               header: "IVtkTools_DisplayModeFilter.hxx", bycopy.} = object of IVtkToolsSubPolyDataFilter ##
+                                                                                                                   ## !
+                                                                                                                   ## Filter
+                                                                                                                   ## cells
+                                                                                                                   ## according
+                                                                                                                   ## to
+                                                                                                                   ## the
+                                                                                                                   ## given
+                                                                                                                   ## set
+                                                                                                                   ## of
+                                                                                                                   ## ids.
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## Display
+                                                                                                                   ## mode
+                                                                                                                   ## defining
+                                                                                                                   ## mesh
+                                                                                                                   ## types
+                                                                                                                   ## to
+                                                                                                                   ## pass
+                                                                                                                   ## through
+                                                                                                                   ## this
+                                                                                                                   ## filter.
     ## ! Draw Face boundaries flag is applicable only for shading display mode.
 
 
 ## !!!Ignored construct:  public : vtkTypeMacro ( IVtkTools_DisplayModeFilter , IVtkTools_SubPolyDataFilter ) static IVtkTools_DisplayModeFilter * New ( ) ;
 ## Error: token expected: ) but got: ,!!!
 
-proc PrintSelf*(this: var IVtkTools_DisplayModeFilter; os: var ostream;
-               indent: vtkIndent) {.importcpp: "PrintSelf",
+proc printSelf*(this: var IVtkToolsDisplayModeFilter; os: var Ostream;
+               indent: VtkIndent) {.importcpp: "PrintSelf",
                                   header: "IVtkTools_DisplayModeFilter.hxx".}
-proc SetDisplayMode*(this: var IVtkTools_DisplayModeFilter; aMode: IVtk_DisplayMode) {.
+proc setDisplayMode*(this: var IVtkToolsDisplayModeFilter; aMode: IVtkDisplayMode) {.
     importcpp: "SetDisplayMode", header: "IVtkTools_DisplayModeFilter.hxx".}
-proc SetDisplaySharedVertices*(this: var IVtkTools_DisplayModeFilter;
-                              doDisplay: bool) {.
+proc setDisplaySharedVertices*(this: var IVtkToolsDisplayModeFilter; doDisplay: bool) {.
     importcpp: "SetDisplaySharedVertices",
     header: "IVtkTools_DisplayModeFilter.hxx".}
-proc GetDisplayMode*(this: IVtkTools_DisplayModeFilter): IVtk_DisplayMode {.
+proc getDisplayMode*(this: IVtkToolsDisplayModeFilter): IVtkDisplayMode {.
     noSideEffect, importcpp: "GetDisplayMode",
     header: "IVtkTools_DisplayModeFilter.hxx".}
-proc MeshTypesForMode*(this: IVtkTools_DisplayModeFilter; theMode: IVtk_DisplayMode): IVtk_IdTypeMap {.
+proc meshTypesForMode*(this: IVtkToolsDisplayModeFilter; theMode: IVtkDisplayMode): IVtkIdTypeMap {.
     noSideEffect, importcpp: "MeshTypesForMode",
     header: "IVtkTools_DisplayModeFilter.hxx".}
-proc SetMeshTypesForMode*(this: var IVtkTools_DisplayModeFilter;
-                         theMode: IVtk_DisplayMode; theMeshTypes: IVtk_IdTypeMap) {.
+proc setMeshTypesForMode*(this: var IVtkToolsDisplayModeFilter;
+                         theMode: IVtkDisplayMode; theMeshTypes: IVtkIdTypeMap) {.
     importcpp: "SetMeshTypesForMode", header: "IVtkTools_DisplayModeFilter.hxx".}
-# proc SetFaceBoundaryDraw*(this: var IVtkTools_DisplayModeFilter; theToDraw: bool) {.
-#     importcpp: "SetFaceBoundaryDraw", header: "IVtkTools_DisplayModeFilter.hxx".}
-proc FaceBoundaryDraw*(this: IVtkTools_DisplayModeFilter): bool {.noSideEffect,
+proc setFaceBoundaryDraw*(this: var IVtkToolsDisplayModeFilter; theToDraw: bool) {.
+    importcpp: "SetFaceBoundaryDraw", header: "IVtkTools_DisplayModeFilter.hxx".}
+proc faceBoundaryDraw*(this: IVtkToolsDisplayModeFilter): bool {.noSideEffect,
     importcpp: "FaceBoundaryDraw", header: "IVtkTools_DisplayModeFilter.hxx".}
-# when defined(_MSC_VER):
-  discard
+# # when defined(_MSC_VER):
+#   discard
+

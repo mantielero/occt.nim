@@ -14,30 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_StyledItem"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisual_RWStyledItem* {.importcpp: "RWStepVisual_RWStyledItem",
-                              header: "RWStepVisual_RWStyledItem.hxx", bycopy.} = object
+  RWStepVisualRWStyledItem* {.importcpp: "RWStepVisual_RWStyledItem",
+                             header: "RWStepVisual_RWStyledItem.hxx", bycopy.} = object
 
 
-proc constructRWStepVisual_RWStyledItem*(): RWStepVisual_RWStyledItem {.
-    constructor, importcpp: "RWStepVisual_RWStyledItem(@)",
+proc constructRWStepVisualRWStyledItem*(): RWStepVisualRWStyledItem {.constructor,
+    importcpp: "RWStepVisual_RWStyledItem(@)",
     header: "RWStepVisual_RWStyledItem.hxx".}
-proc ReadStep*(this: RWStepVisual_RWStyledItem;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check]; ent: handle[StepVisual_StyledItem]) {.
+proc readStep*(this: RWStepVisualRWStyledItem;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck]; ent: Handle[StepVisualStyledItem]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWStyledItem.hxx".}
-proc WriteStep*(this: RWStepVisual_RWStyledItem; SW: var StepData_StepWriter;
-               ent: handle[StepVisual_StyledItem]) {.noSideEffect,
+proc writeStep*(this: RWStepVisualRWStyledItem; sw: var StepDataStepWriter;
+               ent: Handle[StepVisualStyledItem]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWStyledItem.hxx".}
-proc Share*(this: RWStepVisual_RWStyledItem; ent: handle[StepVisual_StyledItem];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepVisualRWStyledItem; ent: Handle[StepVisualStyledItem];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWStyledItem.hxx".}

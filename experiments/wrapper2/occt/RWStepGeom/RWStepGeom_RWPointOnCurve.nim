@@ -14,30 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_PointOnCurve"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeom_RWPointOnCurve* {.importcpp: "RWStepGeom_RWPointOnCurve",
-                              header: "RWStepGeom_RWPointOnCurve.hxx", bycopy.} = object
+  RWStepGeomRWPointOnCurve* {.importcpp: "RWStepGeom_RWPointOnCurve",
+                             header: "RWStepGeom_RWPointOnCurve.hxx", bycopy.} = object
 
 
-proc constructRWStepGeom_RWPointOnCurve*(): RWStepGeom_RWPointOnCurve {.
-    constructor, importcpp: "RWStepGeom_RWPointOnCurve(@)",
+proc constructRWStepGeomRWPointOnCurve*(): RWStepGeomRWPointOnCurve {.constructor,
+    importcpp: "RWStepGeom_RWPointOnCurve(@)",
     header: "RWStepGeom_RWPointOnCurve.hxx".}
-proc ReadStep*(this: RWStepGeom_RWPointOnCurve;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check]; ent: handle[StepGeom_PointOnCurve]) {.
+proc readStep*(this: RWStepGeomRWPointOnCurve;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomPointOnCurve]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWPointOnCurve.hxx".}
-proc WriteStep*(this: RWStepGeom_RWPointOnCurve; SW: var StepData_StepWriter;
-               ent: handle[StepGeom_PointOnCurve]) {.noSideEffect,
+proc writeStep*(this: RWStepGeomRWPointOnCurve; sw: var StepDataStepWriter;
+               ent: Handle[StepGeomPointOnCurve]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWPointOnCurve.hxx".}
-proc Share*(this: RWStepGeom_RWPointOnCurve; ent: handle[StepGeom_PointOnCurve];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepGeomRWPointOnCurve; ent: Handle[StepGeomPointOnCurve];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWPointOnCurve.hxx".}

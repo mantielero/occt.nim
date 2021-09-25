@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_CString, ../Draw/Draw_Interpretor
-
 discard "forward decl of TDF_Data"
 discard "forward decl of TDF_Label"
 discard "forward decl of Standard_GUID"
@@ -26,34 +21,33 @@ discard "forward decl of DDF_Data"
 discard "forward decl of DDF_Browser"
 discard "forward decl of DDF_Transaction"
 type
-  DDF* {.importcpp: "DDF", header: "DDF.hxx", bycopy.} = object ## ! Search in draw  directory the framewok  identified
+  Ddf* {.importcpp: "DDF", header: "DDF.hxx", bycopy.} = object ## ! Search in draw  directory the framewok  identified
                                                         ## ! by its name <Name>. returns True if found. In that
                                                         ## ! case <DF> is setted.
 
 
-proc GetDF*(Name: var Standard_CString; DF: var handle[TDF_Data];
-           Complain: Standard_Boolean = Standard_True): Standard_Boolean {.
+proc getDF*(name: var StandardCString; df: var Handle[TDF_Data]; complain: bool = true): bool {.
     importcpp: "DDF::GetDF(@)", header: "DDF.hxx".}
-proc FindLabel*(DF: handle[TDF_Data]; Entry: Standard_CString; Label: var TDF_Label;
-               Complain: Standard_Boolean = Standard_True): Standard_Boolean {.
-    importcpp: "DDF::FindLabel(@)", header: "DDF.hxx".}
-proc AddLabel*(DF: handle[TDF_Data]; Entry: Standard_CString; Label: var TDF_Label): Standard_Boolean {.
+proc findLabel*(df: Handle[TDF_Data]; entry: StandardCString; label: var TDF_Label;
+               complain: bool = true): bool {.importcpp: "DDF::FindLabel(@)",
+    header: "DDF.hxx".}
+proc addLabel*(df: Handle[TDF_Data]; entry: StandardCString; label: var TDF_Label): bool {.
     importcpp: "DDF::AddLabel(@)", header: "DDF.hxx".}
-proc Find*(DF: handle[TDF_Data]; Entry: Standard_CString; ID: Standard_GUID;
-          A: var handle[TDF_Attribute]; Complain: Standard_Boolean = Standard_True): Standard_Boolean {.
+proc find*(df: Handle[TDF_Data]; entry: StandardCString; id: StandardGUID;
+          a: var Handle[TDF_Attribute]; complain: bool = true): bool {.
     importcpp: "DDF::Find(@)", header: "DDF.hxx".}
-proc Find*[T](DF: handle[TDF_Data]; Entry: Standard_CString; ID: Standard_GUID;
-             A: var handle[T]; Complain: Standard_Boolean = Standard_True): Standard_Boolean {.
-    importcpp: "DDF::Find(@)", header: "DDF.hxx".}
-proc ReturnLabel*(theCommands: var Draw_Interpretor; L: TDF_Label): var Draw_Interpretor {.
+proc find*[T](df: Handle[TDF_Data]; entry: StandardCString; id: StandardGUID;
+             a: var Handle[T]; complain: bool = true): bool {.importcpp: "DDF::Find(@)",
+    header: "DDF.hxx".}
+proc returnLabel*(theCommands: var DrawInterpretor; L: TDF_Label): var DrawInterpretor {.
     importcpp: "DDF::ReturnLabel(@)", header: "DDF.hxx".}
-proc AllCommands*(theCommands: var Draw_Interpretor) {.
+proc allCommands*(theCommands: var DrawInterpretor) {.
     importcpp: "DDF::AllCommands(@)", header: "DDF.hxx".}
-proc BasicCommands*(theCommands: var Draw_Interpretor) {.
+proc basicCommands*(theCommands: var DrawInterpretor) {.
     importcpp: "DDF::BasicCommands(@)", header: "DDF.hxx".}
-proc DataCommands*(theCommands: var Draw_Interpretor) {.
+proc dataCommands*(theCommands: var DrawInterpretor) {.
     importcpp: "DDF::DataCommands(@)", header: "DDF.hxx".}
-proc TransactionCommands*(theCommands: var Draw_Interpretor) {.
+proc transactionCommands*(theCommands: var DrawInterpretor) {.
     importcpp: "DDF::TransactionCommands(@)", header: "DDF.hxx".}
-proc BrowserCommands*(theCommands: var Draw_Interpretor) {.
+proc browserCommands*(theCommands: var DrawInterpretor) {.
     importcpp: "DDF::BrowserCommands(@)", header: "DDF.hxx".}

@@ -14,27 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Bnd/Bnd_Box, ../TopoDS/TopoDS_Face, ../BRepAdaptor/BRepAdaptor_Surface,
-  TopOpeBRepTool_define
-
-proc FTOL_FaceTolerances*(B1: Bnd_Box; B2: Bnd_Box; myFace1: TopoDS_Face;
-                         myFace2: TopoDS_Face; mySurface1: BRepAdaptor_Surface;
-                         mySurface2: BRepAdaptor_Surface;
-                         myTol1: var Standard_Real; myTol2: var Standard_Real;
-                         Deflection: var Standard_Real; MaxUV: var Standard_Real) {.
+proc fTOL_FaceTolerances*(b1: BndBox; b2: BndBox; myFace1: TopoDS_Face;
+                         myFace2: TopoDS_Face; mySurface1: BRepAdaptorSurface;
+                         mySurface2: BRepAdaptorSurface; myTol1: var float;
+                         myTol2: var float; deflection: var float; maxUV: var float) {.
     importcpp: "FTOL_FaceTolerances(@)", header: "TopOpeBRepTool_tol.hxx".}
-proc FTOL_FaceTolerances3d*(myFace1: TopoDS_Face; myFace2: TopoDS_Face;
-                           Tol: var Standard_Real) {.
+proc fTOL_FaceTolerances3d*(myFace1: TopoDS_Face; myFace2: TopoDS_Face;
+                           tol: var float) {.importcpp: "FTOL_FaceTolerances3d(@)",
+    header: "TopOpeBRepTool_tol.hxx".}
+proc fTOL_FaceTolerances3d*(b1: BndBox; b2: BndBox; myFace1: TopoDS_Face;
+                           myFace2: TopoDS_Face; mySurface1: BRepAdaptorSurface;
+                           mySurface2: BRepAdaptorSurface; myTol1: var float;
+                           myTol2: var float; deflection: var float; maxUV: var float) {.
     importcpp: "FTOL_FaceTolerances3d(@)", header: "TopOpeBRepTool_tol.hxx".}
-proc FTOL_FaceTolerances3d*(B1: Bnd_Box; B2: Bnd_Box; myFace1: TopoDS_Face;
-                           myFace2: TopoDS_Face; mySurface1: BRepAdaptor_Surface;
-                           mySurface2: BRepAdaptor_Surface;
-                           myTol1: var Standard_Real; myTol2: var Standard_Real;
-                           Deflection: var Standard_Real; MaxUV: var Standard_Real) {.
-    importcpp: "FTOL_FaceTolerances3d(@)", header: "TopOpeBRepTool_tol.hxx".}
-proc FTOL_FaceTolerances2d*(B1: Bnd_Box; B2: Bnd_Box; myFace1: TopoDS_Face;
-                           myFace2: TopoDS_Face; mySurface1: BRepAdaptor_Surface;
-                           mySurface2: BRepAdaptor_Surface;
-                           myTol1: var Standard_Real; myTol2: var Standard_Real) {.
+proc fTOL_FaceTolerances2d*(b1: BndBox; b2: BndBox; myFace1: TopoDS_Face;
+                           myFace2: TopoDS_Face; mySurface1: BRepAdaptorSurface;
+                           mySurface2: BRepAdaptorSurface; myTol1: var float;
+                           myTol2: var float) {.
     importcpp: "FTOL_FaceTolerances2d(@)", header: "TopOpeBRepTool_tol.hxx".}

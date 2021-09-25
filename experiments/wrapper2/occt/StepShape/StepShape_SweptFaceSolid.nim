@@ -14,42 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_SolidModel
-
 discard "forward decl of StepShape_FaceSurface"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_SweptFaceSolid"
 discard "forward decl of StepShape_SweptFaceSolid"
 type
-  Handle_StepShape_SweptFaceSolid* = handle[StepShape_SweptFaceSolid]
-  StepShape_SweptFaceSolid* {.importcpp: "StepShape_SweptFaceSolid",
-                             header: "StepShape_SweptFaceSolid.hxx", bycopy.} = object of StepShape_SolidModel ##
-                                                                                                        ## !
-                                                                                                        ## Returns
-                                                                                                        ## a
-                                                                                                        ## SweptFaceSolid
+  HandleStepShapeSweptFaceSolid* = Handle[StepShapeSweptFaceSolid]
+  StepShapeSweptFaceSolid* {.importcpp: "StepShape_SweptFaceSolid",
+                            header: "StepShape_SweptFaceSolid.hxx", bycopy.} = object of StepShapeSolidModel ##
+                                                                                                      ## !
+                                                                                                      ## Returns
+                                                                                                      ## a
+                                                                                                      ## SweptFaceSolid
 
 
-proc constructStepShape_SweptFaceSolid*(): StepShape_SweptFaceSolid {.constructor,
+proc constructStepShapeSweptFaceSolid*(): StepShapeSweptFaceSolid {.constructor,
     importcpp: "StepShape_SweptFaceSolid(@)",
     header: "StepShape_SweptFaceSolid.hxx".}
-proc Init*(this: var StepShape_SweptFaceSolid;
-          aName: handle[TCollection_HAsciiString];
-          aSweptArea: handle[StepShape_FaceSurface]) {.importcpp: "Init",
+proc init*(this: var StepShapeSweptFaceSolid;
+          aName: Handle[TCollectionHAsciiString];
+          aSweptArea: Handle[StepShapeFaceSurface]) {.importcpp: "Init",
     header: "StepShape_SweptFaceSolid.hxx".}
-proc SetSweptFace*(this: var StepShape_SweptFaceSolid;
-                  aSweptArea: handle[StepShape_FaceSurface]) {.
+proc setSweptFace*(this: var StepShapeSweptFaceSolid;
+                  aSweptArea: Handle[StepShapeFaceSurface]) {.
     importcpp: "SetSweptFace", header: "StepShape_SweptFaceSolid.hxx".}
-proc SweptFace*(this: StepShape_SweptFaceSolid): handle[StepShape_FaceSurface] {.
+proc sweptFace*(this: StepShapeSweptFaceSolid): Handle[StepShapeFaceSurface] {.
     noSideEffect, importcpp: "SweptFace", header: "StepShape_SweptFaceSolid.hxx".}
 type
-  StepShape_SweptFaceSolidbase_type* = StepShape_SolidModel
+  StepShapeSweptFaceSolidbaseType* = StepShapeSolidModel
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_SweptFaceSolid::get_type_name(@)",
-                              header: "StepShape_SweptFaceSolid.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_SweptFaceSolid::get_type_name(@)",
+                            header: "StepShape_SweptFaceSolid.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_SweptFaceSolid::get_type_descriptor(@)",
     header: "StepShape_SweptFaceSolid.hxx".}
-proc DynamicType*(this: StepShape_SweptFaceSolid): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeSweptFaceSolid): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_SweptFaceSolid.hxx".}

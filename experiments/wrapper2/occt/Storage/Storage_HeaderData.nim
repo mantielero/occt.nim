@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../TCollection/TCollection_AsciiString,
-  ../TCollection/TCollection_ExtendedString,
-  ../TColStd/TColStd_SequenceOfAsciiString,
-  ../TColStd/TColStd_SequenceOfExtendedString, Storage_Error,
-  ../Standard/Standard_Transient
-
 discard "forward decl of Storage_Schema"
 discard "forward decl of Storage_BaseDriver"
 discard "forward decl of TCollection_AsciiString"
@@ -29,76 +21,72 @@ discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of Storage_HeaderData"
 discard "forward decl of Storage_HeaderData"
 type
-  Handle_Storage_HeaderData* = handle[Storage_HeaderData]
-  Storage_HeaderData* {.importcpp: "Storage_HeaderData",
-                       header: "Storage_HeaderData.hxx", bycopy.} = object of Standard_Transient
+  HandleStorageHeaderData* = Handle[StorageHeaderData]
+  StorageHeaderData* {.importcpp: "Storage_HeaderData",
+                      header: "Storage_HeaderData.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructStorage_HeaderData*(): Storage_HeaderData {.constructor,
+proc constructStorageHeaderData*(): StorageHeaderData {.constructor,
     importcpp: "Storage_HeaderData(@)", header: "Storage_HeaderData.hxx".}
-proc Read*(this: var Storage_HeaderData; theDriver: handle[Storage_BaseDriver]): Standard_Boolean {.
+proc read*(this: var StorageHeaderData; theDriver: Handle[StorageBaseDriver]): bool {.
     importcpp: "Read", header: "Storage_HeaderData.hxx".}
-proc CreationDate*(this: Storage_HeaderData): TCollection_AsciiString {.
-    noSideEffect, importcpp: "CreationDate", header: "Storage_HeaderData.hxx".}
-proc StorageVersion*(this: Storage_HeaderData): TCollection_AsciiString {.
+proc creationDate*(this: StorageHeaderData): TCollectionAsciiString {.noSideEffect,
+    importcpp: "CreationDate", header: "Storage_HeaderData.hxx".}
+proc storageVersion*(this: StorageHeaderData): TCollectionAsciiString {.
     noSideEffect, importcpp: "StorageVersion", header: "Storage_HeaderData.hxx".}
-proc SchemaVersion*(this: Storage_HeaderData): TCollection_AsciiString {.
-    noSideEffect, importcpp: "SchemaVersion", header: "Storage_HeaderData.hxx".}
-proc SchemaName*(this: Storage_HeaderData): TCollection_AsciiString {.noSideEffect,
+proc schemaVersion*(this: StorageHeaderData): TCollectionAsciiString {.noSideEffect,
+    importcpp: "SchemaVersion", header: "Storage_HeaderData.hxx".}
+proc schemaName*(this: StorageHeaderData): TCollectionAsciiString {.noSideEffect,
     importcpp: "SchemaName", header: "Storage_HeaderData.hxx".}
-proc SetApplicationVersion*(this: var Storage_HeaderData;
-                           aVersion: TCollection_AsciiString) {.
+proc setApplicationVersion*(this: var StorageHeaderData;
+                           aVersion: TCollectionAsciiString) {.
     importcpp: "SetApplicationVersion", header: "Storage_HeaderData.hxx".}
-proc ApplicationVersion*(this: Storage_HeaderData): TCollection_AsciiString {.
+proc applicationVersion*(this: StorageHeaderData): TCollectionAsciiString {.
     noSideEffect, importcpp: "ApplicationVersion", header: "Storage_HeaderData.hxx".}
-proc SetApplicationName*(this: var Storage_HeaderData;
-                        aName: TCollection_ExtendedString) {.
+proc setApplicationName*(this: var StorageHeaderData;
+                        aName: TCollectionExtendedString) {.
     importcpp: "SetApplicationName", header: "Storage_HeaderData.hxx".}
-proc ApplicationName*(this: Storage_HeaderData): TCollection_ExtendedString {.
+proc applicationName*(this: StorageHeaderData): TCollectionExtendedString {.
     noSideEffect, importcpp: "ApplicationName", header: "Storage_HeaderData.hxx".}
-proc SetDataType*(this: var Storage_HeaderData; aType: TCollection_ExtendedString) {.
+proc setDataType*(this: var StorageHeaderData; aType: TCollectionExtendedString) {.
     importcpp: "SetDataType", header: "Storage_HeaderData.hxx".}
-proc DataType*(this: Storage_HeaderData): TCollection_ExtendedString {.noSideEffect,
+proc dataType*(this: StorageHeaderData): TCollectionExtendedString {.noSideEffect,
     importcpp: "DataType", header: "Storage_HeaderData.hxx".}
-proc AddToUserInfo*(this: var Storage_HeaderData;
-                   theUserInfo: TCollection_AsciiString) {.
+proc addToUserInfo*(this: var StorageHeaderData; theUserInfo: TCollectionAsciiString) {.
     importcpp: "AddToUserInfo", header: "Storage_HeaderData.hxx".}
-proc UserInfo*(this: Storage_HeaderData): TColStd_SequenceOfAsciiString {.
+proc userInfo*(this: StorageHeaderData): TColStdSequenceOfAsciiString {.
     noSideEffect, importcpp: "UserInfo", header: "Storage_HeaderData.hxx".}
-proc AddToComments*(this: var Storage_HeaderData;
-                   aComment: TCollection_ExtendedString) {.
+proc addToComments*(this: var StorageHeaderData; aComment: TCollectionExtendedString) {.
     importcpp: "AddToComments", header: "Storage_HeaderData.hxx".}
-proc Comments*(this: Storage_HeaderData): TColStd_SequenceOfExtendedString {.
+proc comments*(this: StorageHeaderData): TColStdSequenceOfExtendedString {.
     noSideEffect, importcpp: "Comments", header: "Storage_HeaderData.hxx".}
-proc NumberOfObjects*(this: Storage_HeaderData): Standard_Integer {.noSideEffect,
+proc numberOfObjects*(this: StorageHeaderData): int {.noSideEffect,
     importcpp: "NumberOfObjects", header: "Storage_HeaderData.hxx".}
-proc ErrorStatus*(this: Storage_HeaderData): Storage_Error {.noSideEffect,
+proc errorStatus*(this: StorageHeaderData): StorageError {.noSideEffect,
     importcpp: "ErrorStatus", header: "Storage_HeaderData.hxx".}
-proc ErrorStatusExtension*(this: Storage_HeaderData): TCollection_AsciiString {.
+proc errorStatusExtension*(this: StorageHeaderData): TCollectionAsciiString {.
     noSideEffect, importcpp: "ErrorStatusExtension",
     header: "Storage_HeaderData.hxx".}
-proc ClearErrorStatus*(this: var Storage_HeaderData) {.
-    importcpp: "ClearErrorStatus", header: "Storage_HeaderData.hxx".}
+proc clearErrorStatus*(this: var StorageHeaderData) {.importcpp: "ClearErrorStatus",
+    header: "Storage_HeaderData.hxx".}
 type
-  Storage_HeaderDatabase_type* = Standard_Transient
+  StorageHeaderDatabaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Storage_HeaderData::get_type_name(@)",
-                              header: "Storage_HeaderData.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Storage_HeaderData::get_type_name(@)",
+                            header: "Storage_HeaderData.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Storage_HeaderData::get_type_descriptor(@)",
     header: "Storage_HeaderData.hxx".}
-proc DynamicType*(this: Storage_HeaderData): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StorageHeaderData): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Storage_HeaderData.hxx".}
-proc SetNumberOfObjects*(this: var Storage_HeaderData;
-                        anObjectNumber: Standard_Integer) {.
+proc setNumberOfObjects*(this: var StorageHeaderData; anObjectNumber: int) {.
     importcpp: "SetNumberOfObjects", header: "Storage_HeaderData.hxx".}
-proc SetStorageVersion*(this: var Storage_HeaderData;
-                       aVersion: TCollection_AsciiString) {.
+proc setStorageVersion*(this: var StorageHeaderData;
+                       aVersion: TCollectionAsciiString) {.
     importcpp: "SetStorageVersion", header: "Storage_HeaderData.hxx".}
-proc SetCreationDate*(this: var Storage_HeaderData; aDate: TCollection_AsciiString) {.
+proc setCreationDate*(this: var StorageHeaderData; aDate: TCollectionAsciiString) {.
     importcpp: "SetCreationDate", header: "Storage_HeaderData.hxx".}
-proc SetSchemaVersion*(this: var Storage_HeaderData;
-                      aVersion: TCollection_AsciiString) {.
+proc setSchemaVersion*(this: var StorageHeaderData; aVersion: TCollectionAsciiString) {.
     importcpp: "SetSchemaVersion", header: "Storage_HeaderData.hxx".}
-proc SetSchemaName*(this: var Storage_HeaderData; aName: TCollection_AsciiString) {.
+proc setSchemaName*(this: var StorageHeaderData; aName: TCollectionAsciiString) {.
     importcpp: "SetSchemaName", header: "Storage_HeaderData.hxx".}

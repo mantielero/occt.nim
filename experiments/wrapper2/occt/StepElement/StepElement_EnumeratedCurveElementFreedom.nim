@@ -12,10 +12,11 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepElement_EnumeratedCurveElementFreedom* {.size: sizeof(cint),
+  StepElementEnumeratedCurveElementFreedom* {.size: sizeof(cint),
       importcpp: "StepElement_EnumeratedCurveElementFreedom",
       header: "StepElement_EnumeratedCurveElementFreedom.hxx".} = enum
-    StepElement_XTranslation, StepElement_YTranslation, StepElement_ZTranslation,
-    StepElement_XRotation, StepElement_YRotation, StepElement_ZRotation,
-    StepElement_Warp, StepElement_None
+    StepElementXTranslation, StepElementYTranslation, StepElementZTranslation,
+    StepElementXRotation, StepElementYRotation, StepElementZRotation,
+    StepElementWarp, StepElementNone
+
 

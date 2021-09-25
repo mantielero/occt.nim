@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../IFSelect/IFSelect_SelectDeduct, ../Standard/Standard_Boolean
-
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
@@ -25,41 +21,38 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SelectSingleViewFrom"
 discard "forward decl of IGESSelect_SelectSingleViewFrom"
 type
-  Handle_IGESSelect_SelectSingleViewFrom* = handle[IGESSelect_SelectSingleViewFrom]
+  HandleIGESSelectSelectSingleViewFrom* = Handle[IGESSelectSelectSingleViewFrom]
 
 ## ! This selection gets the Single Views attached to its input
 ## ! IGES entities. Single Views themselves or Drawings as passed
 ## ! as such (Drawings, for their Annotations)
 
 type
-  IGESSelect_SelectSingleViewFrom* {.importcpp: "IGESSelect_SelectSingleViewFrom", header: "IGESSelect_SelectSingleViewFrom.hxx",
-                                    bycopy.} = object of IFSelect_SelectDeduct ## !
-                                                                          ## Creates a
-                                                                          ## SelectSingleViewFrom
-                                                                          ## !
-                                                                          ## Returns True,
-                                                                          ## because
-                                                                          ## selection works with a
-                                                                          ## ViewSorter which
-                                                                          ## ! gives a unique result
+  IGESSelectSelectSingleViewFrom* {.importcpp: "IGESSelect_SelectSingleViewFrom", header: "IGESSelect_SelectSingleViewFrom.hxx",
+                                   bycopy.} = object of IFSelectSelectDeduct ## ! Creates a
+                                                                        ## SelectSingleViewFrom
+                                                                        ## ! Returns True, because
+                                                                        ## selection works with a
+                                                                        ## ViewSorter which
+                                                                        ## ! gives a unique result
 
 
-proc constructIGESSelect_SelectSingleViewFrom*(): IGESSelect_SelectSingleViewFrom {.
+proc constructIGESSelectSelectSingleViewFrom*(): IGESSelectSelectSingleViewFrom {.
     constructor, importcpp: "IGESSelect_SelectSingleViewFrom(@)",
     header: "IGESSelect_SelectSingleViewFrom.hxx".}
-proc RootResult*(this: IGESSelect_SelectSingleViewFrom; G: Interface_Graph): Interface_EntityIterator {.
+proc rootResult*(this: IGESSelectSelectSingleViewFrom; g: InterfaceGraph): InterfaceEntityIterator {.
     noSideEffect, importcpp: "RootResult",
     header: "IGESSelect_SelectSingleViewFrom.hxx".}
-proc Label*(this: IGESSelect_SelectSingleViewFrom): TCollection_AsciiString {.
+proc label*(this: IGESSelectSelectSingleViewFrom): TCollectionAsciiString {.
     noSideEffect, importcpp: "Label", header: "IGESSelect_SelectSingleViewFrom.hxx".}
 type
-  IGESSelect_SelectSingleViewFrombase_type* = IFSelect_SelectDeduct
+  IGESSelectSelectSingleViewFrombaseType* = IFSelectSelectDeduct
 
-proc get_type_name*(): cstring {.importcpp: "IGESSelect_SelectSingleViewFrom::get_type_name(@)",
-                              header: "IGESSelect_SelectSingleViewFrom.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_SelectSingleViewFrom::get_type_name(@)",
+                            header: "IGESSelect_SelectSingleViewFrom.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSelect_SelectSingleViewFrom::get_type_descriptor(@)",
     header: "IGESSelect_SelectSingleViewFrom.hxx".}
-proc DynamicType*(this: IGESSelect_SelectSingleViewFrom): handle[Standard_Type] {.
+proc dynamicType*(this: IGESSelectSelectSingleViewFrom): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SelectSingleViewFrom.hxx".}

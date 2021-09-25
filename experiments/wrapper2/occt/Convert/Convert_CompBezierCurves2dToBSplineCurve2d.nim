@@ -14,18 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Convert_SequenceOfArray1OfPoles2d,
-  ../TColgp/TColgp_SequenceOfPnt2d, ../TColStd/TColStd_SequenceOfReal,
-  ../TColStd/TColStd_SequenceOfInteger, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean,
-  ../TColgp/TColgp_Array1OfPnt2d, ../TColStd/TColStd_Array1OfReal,
-  ../TColStd/TColStd_Array1OfInteger
-
 discard "forward decl of Standard_ConstructionError"
 type
-  Convert_CompBezierCurves2dToBSplineCurve2d* {.
+  ConvertCompBezierCurves2dToBSplineCurve2d* {.
       importcpp: "Convert_CompBezierCurves2dToBSplineCurve2d",
       header: "Convert_CompBezierCurves2dToBSplineCurve2d.hxx", bycopy.} = object ## !
                                                                              ## Constructs a
@@ -123,29 +114,26 @@ type
                                                                              ## curve.
 
 
-proc constructConvert_CompBezierCurves2dToBSplineCurve2d*(
-    AngularTolerance: Standard_Real = 1.0e-4): Convert_CompBezierCurves2dToBSplineCurve2d {.
+proc constructConvertCompBezierCurves2dToBSplineCurve2d*(
+    angularTolerance: float = 1.0e-4): ConvertCompBezierCurves2dToBSplineCurve2d {.
     constructor, importcpp: "Convert_CompBezierCurves2dToBSplineCurve2d(@)",
     header: "Convert_CompBezierCurves2dToBSplineCurve2d.hxx".}
-proc AddCurve*(this: var Convert_CompBezierCurves2dToBSplineCurve2d;
-              Poles: TColgp_Array1OfPnt2d) {.importcpp: "AddCurve",
+proc addCurve*(this: var ConvertCompBezierCurves2dToBSplineCurve2d;
+              poles: TColgpArray1OfPnt2d) {.importcpp: "AddCurve",
     header: "Convert_CompBezierCurves2dToBSplineCurve2d.hxx".}
-proc Perform*(this: var Convert_CompBezierCurves2dToBSplineCurve2d) {.
+proc perform*(this: var ConvertCompBezierCurves2dToBSplineCurve2d) {.
     importcpp: "Perform", header: "Convert_CompBezierCurves2dToBSplineCurve2d.hxx".}
-proc Degree*(this: Convert_CompBezierCurves2dToBSplineCurve2d): Standard_Integer {.
-    noSideEffect, importcpp: "Degree",
+proc degree*(this: ConvertCompBezierCurves2dToBSplineCurve2d): int {.noSideEffect,
+    importcpp: "Degree", header: "Convert_CompBezierCurves2dToBSplineCurve2d.hxx".}
+proc nbPoles*(this: ConvertCompBezierCurves2dToBSplineCurve2d): int {.noSideEffect,
+    importcpp: "NbPoles", header: "Convert_CompBezierCurves2dToBSplineCurve2d.hxx".}
+proc poles*(this: ConvertCompBezierCurves2dToBSplineCurve2d;
+           poles: var TColgpArray1OfPnt2d) {.noSideEffect, importcpp: "Poles",
     header: "Convert_CompBezierCurves2dToBSplineCurve2d.hxx".}
-proc NbPoles*(this: Convert_CompBezierCurves2dToBSplineCurve2d): Standard_Integer {.
-    noSideEffect, importcpp: "NbPoles",
-    header: "Convert_CompBezierCurves2dToBSplineCurve2d.hxx".}
-proc Poles*(this: Convert_CompBezierCurves2dToBSplineCurve2d;
-           Poles: var TColgp_Array1OfPnt2d) {.noSideEffect, importcpp: "Poles",
-    header: "Convert_CompBezierCurves2dToBSplineCurve2d.hxx".}
-proc NbKnots*(this: Convert_CompBezierCurves2dToBSplineCurve2d): Standard_Integer {.
-    noSideEffect, importcpp: "NbKnots",
-    header: "Convert_CompBezierCurves2dToBSplineCurve2d.hxx".}
-proc KnotsAndMults*(this: Convert_CompBezierCurves2dToBSplineCurve2d;
-                   Knots: var TColStd_Array1OfReal;
-                   Mults: var TColStd_Array1OfInteger) {.noSideEffect,
+proc nbKnots*(this: ConvertCompBezierCurves2dToBSplineCurve2d): int {.noSideEffect,
+    importcpp: "NbKnots", header: "Convert_CompBezierCurves2dToBSplineCurve2d.hxx".}
+proc knotsAndMults*(this: ConvertCompBezierCurves2dToBSplineCurve2d;
+                   knots: var TColStdArray1OfReal;
+                   mults: var TColStdArray1OfInteger) {.noSideEffect,
     importcpp: "KnotsAndMults",
     header: "Convert_CompBezierCurves2dToBSplineCurve2d.hxx".}

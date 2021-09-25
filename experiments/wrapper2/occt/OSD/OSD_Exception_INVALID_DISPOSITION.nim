@@ -12,16 +12,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _OSD_Exception_INVALID_DISPOSITION_HeaderFile [NewLine] # _OSD_Exception_INVALID_DISPOSITION_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # OSD_Exception.hxx [NewLine] class OSD_Exception_INVALID_DISPOSITION ;
+## !!!Ignored construct:  # _OSD_Exception_INVALID_DISPOSITION_HeaderFile [NewLine] # _OSD_Exception_INVALID_DISPOSITION_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < OSD_Exception . hxx > [NewLine] class OSD_Exception_INVALID_DISPOSITION ;
 ## Error: expected ';'!!!
 
 discard "forward decl of OSD_Exception_INVALID_DISPOSITION"
 type
-  Handle_OSD_Exception_INVALID_DISPOSITIONOSD_Exception_INVALID_DISPOSITION* = handle[
-      OSD_Exception_INVALID_DISPOSITION]
+  HandleOSD_ExceptionINVALID_DISPOSITIONOSD_ExceptionINVALID_DISPOSITION* = Handle[
+      OSD_ExceptionINVALID_DISPOSITION]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_Exception_INVALID_DISPOSITION [NewLine] # if ( CONDITION ) throw OSD_Exception_INVALID_DISPOSITION ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception_INVALID_DISPOSITION , OSD_Exception ) #  _OSD_Exception_INVALID_DISPOSITION_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception_INVALID_DISPOSITION , OSD_Exception ) #  _OSD_Exception_INVALID_DISPOSITION_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

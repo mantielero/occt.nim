@@ -31,9 +31,10 @@
 ## ! D1NuIsParallelD1Nv  : The angle between D1Nu and D1Nv is Null.
 
 type
-  CSLib_NormalStatus* {.size: sizeof(cint), importcpp: "CSLib_NormalStatus",
-                       header: "CSLib_NormalStatus.hxx".} = enum
-    CSLib_Singular, CSLib_Defined, CSLib_InfinityOfSolutions, CSLib_D1NuIsNull,
-    CSLib_D1NvIsNull, CSLib_D1NIsNull, CSLib_D1NuNvRatioIsNull,
-    CSLib_D1NvNuRatioIsNull, CSLib_D1NuIsParallelD1Nv
+  CSLibNormalStatus* {.size: sizeof(cint), importcpp: "CSLib_NormalStatus",
+                      header: "CSLib_NormalStatus.hxx".} = enum
+    CSLibSingular, CSLibDefined, CSLibInfinityOfSolutions, CSLibD1NuIsNull,
+    CSLibD1NvIsNull, CSLibD1NIsNull, CSLibD1NuNvRatioIsNull,
+    CSLibD1NvNuRatioIsNull, CSLibD1NuIsParallelD1Nv
+
 

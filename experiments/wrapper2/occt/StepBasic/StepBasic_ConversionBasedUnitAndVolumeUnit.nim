@@ -14,39 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_ConversionBasedUnit
-
 discard "forward decl of StepBasic_VolumeUnit"
 discard "forward decl of StepBasic_ConversionBasedUnitAndVolumeUnit"
 discard "forward decl of StepBasic_ConversionBasedUnitAndVolumeUnit"
 type
-  Handle_StepBasic_ConversionBasedUnitAndVolumeUnit* = handle[
-      StepBasic_ConversionBasedUnitAndVolumeUnit]
-  StepBasic_ConversionBasedUnitAndVolumeUnit* {.
+  HandleStepBasicConversionBasedUnitAndVolumeUnit* = Handle[
+      StepBasicConversionBasedUnitAndVolumeUnit]
+  StepBasicConversionBasedUnitAndVolumeUnit* {.
       importcpp: "StepBasic_ConversionBasedUnitAndVolumeUnit",
-      header: "StepBasic_ConversionBasedUnitAndVolumeUnit.hxx", bycopy.} = object of StepBasic_ConversionBasedUnit ##
-                                                                                                            ## !
-                                                                                                            ## Returns
-                                                                                                            ## a
-                                                                                                            ## ConversionBasedUnitAndVolumeUnit
+      header: "StepBasic_ConversionBasedUnitAndVolumeUnit.hxx", bycopy.} = object of StepBasicConversionBasedUnit ##
+                                                                                                           ## !
+                                                                                                           ## Returns
+                                                                                                           ## a
+                                                                                                           ## ConversionBasedUnitAndVolumeUnit
 
 
-proc constructStepBasic_ConversionBasedUnitAndVolumeUnit*(): StepBasic_ConversionBasedUnitAndVolumeUnit {.
+proc constructStepBasicConversionBasedUnitAndVolumeUnit*(): StepBasicConversionBasedUnitAndVolumeUnit {.
     constructor, importcpp: "StepBasic_ConversionBasedUnitAndVolumeUnit(@)",
     header: "StepBasic_ConversionBasedUnitAndVolumeUnit.hxx".}
-proc SetVolumeUnit*(this: var StepBasic_ConversionBasedUnitAndVolumeUnit;
-                   aVolumeUnit: handle[StepBasic_VolumeUnit]) {.
+proc setVolumeUnit*(this: var StepBasicConversionBasedUnitAndVolumeUnit;
+                   aVolumeUnit: Handle[StepBasicVolumeUnit]) {.
     importcpp: "SetVolumeUnit",
     header: "StepBasic_ConversionBasedUnitAndVolumeUnit.hxx".}
-proc VolumeUnit*(this: StepBasic_ConversionBasedUnitAndVolumeUnit): handle[
-    StepBasic_VolumeUnit] {.noSideEffect, importcpp: "VolumeUnit", header: "StepBasic_ConversionBasedUnitAndVolumeUnit.hxx".}
+proc volumeUnit*(this: StepBasicConversionBasedUnitAndVolumeUnit): Handle[
+    StepBasicVolumeUnit] {.noSideEffect, importcpp: "VolumeUnit", header: "StepBasic_ConversionBasedUnitAndVolumeUnit.hxx".}
 type
-  StepBasic_ConversionBasedUnitAndVolumeUnitbase_type* = StepBasic_ConversionBasedUnit
+  StepBasicConversionBasedUnitAndVolumeUnitbaseType* = StepBasicConversionBasedUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ConversionBasedUnitAndVolumeUnit::get_type_name(@)", header: "StepBasic_ConversionBasedUnitAndVolumeUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepBasic_ConversionBasedUnitAndVolumeUnit::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ConversionBasedUnitAndVolumeUnit::get_type_name(@)", header: "StepBasic_ConversionBasedUnitAndVolumeUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_ConversionBasedUnitAndVolumeUnit::get_type_descriptor(@)",
     header: "StepBasic_ConversionBasedUnitAndVolumeUnit.hxx".}
-proc DynamicType*(this: StepBasic_ConversionBasedUnitAndVolumeUnit): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepBasic_ConversionBasedUnitAndVolumeUnit.hxx".}
+proc dynamicType*(this: StepBasicConversionBasedUnitAndVolumeUnit): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepBasic_ConversionBasedUnitAndVolumeUnit.hxx".}

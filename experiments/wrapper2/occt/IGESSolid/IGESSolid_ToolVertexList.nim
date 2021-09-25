@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESSolid_VertexList"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,42 +26,40 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESSolid_ToolVertexList* {.importcpp: "IGESSolid_ToolVertexList",
-                             header: "IGESSolid_ToolVertexList.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Returns
-                                                                                  ## a
-                                                                                  ## ToolVertexList,
-                                                                                  ## ready
-                                                                                  ## to
-                                                                                  ## work
+  IGESSolidToolVertexList* {.importcpp: "IGESSolid_ToolVertexList",
+                            header: "IGESSolid_ToolVertexList.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## Returns
+                                                                                 ## a
+                                                                                 ## ToolVertexList,
+                                                                                 ## ready
+                                                                                 ## to
+                                                                                 ## work
 
 
-proc constructIGESSolid_ToolVertexList*(): IGESSolid_ToolVertexList {.constructor,
+proc constructIGESSolidToolVertexList*(): IGESSolidToolVertexList {.constructor,
     importcpp: "IGESSolid_ToolVertexList(@)",
     header: "IGESSolid_ToolVertexList.hxx".}
-proc ReadOwnParams*(this: IGESSolid_ToolVertexList;
-                   ent: handle[IGESSolid_VertexList];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESSolid_ToolVertexList.hxx".}
-proc WriteOwnParams*(this: IGESSolid_ToolVertexList;
-                    ent: handle[IGESSolid_VertexList]; IW: var IGESData_IGESWriter) {.
+proc readOwnParams*(this: IGESSolidToolVertexList;
+                   ent: Handle[IGESSolidVertexList];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESSolid_ToolVertexList.hxx".}
+proc writeOwnParams*(this: IGESSolidToolVertexList;
+                    ent: Handle[IGESSolidVertexList]; iw: var IGESDataIGESWriter) {.
     noSideEffect, importcpp: "WriteOwnParams",
     header: "IGESSolid_ToolVertexList.hxx".}
-proc OwnShared*(this: IGESSolid_ToolVertexList; ent: handle[IGESSolid_VertexList];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESSolidToolVertexList; ent: Handle[IGESSolidVertexList];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESSolid_ToolVertexList.hxx".}
-proc DirChecker*(this: IGESSolid_ToolVertexList; ent: handle[IGESSolid_VertexList]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESSolidToolVertexList; ent: Handle[IGESSolidVertexList]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESSolid_ToolVertexList.hxx".}
-proc OwnCheck*(this: IGESSolid_ToolVertexList; ent: handle[IGESSolid_VertexList];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESSolidToolVertexList; ent: Handle[IGESSolidVertexList];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESSolid_ToolVertexList.hxx".}
-proc OwnCopy*(this: IGESSolid_ToolVertexList;
-             entfrom: handle[IGESSolid_VertexList];
-             entto: handle[IGESSolid_VertexList]; TC: var Interface_CopyTool) {.
+proc ownCopy*(this: IGESSolidToolVertexList; entfrom: Handle[IGESSolidVertexList];
+             entto: Handle[IGESSolidVertexList]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESSolid_ToolVertexList.hxx".}
-proc OwnDump*(this: IGESSolid_ToolVertexList; ent: handle[IGESSolid_VertexList];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
-                                    header: "IGESSolid_ToolVertexList.hxx".}
+proc ownDump*(this: IGESSolidToolVertexList; ent: Handle[IGESSolidVertexList];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump", header: "IGESSolid_ToolVertexList.hxx".}

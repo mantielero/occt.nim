@@ -13,42 +13,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  TDataStd_DataMapOfStringHArray1OfInteger, ../Standard/Standard_Transient,
-  ../Standard/Standard_Integer
-
 ## ! Extension of TDataStd_DataMapOfStringHArray1OfInteger class
 ## ! to be manipulated by handle.
 
 type
-  TDataStd_HDataMapOfStringHArray1OfInteger* {.
+  TDataStdHDataMapOfStringHArray1OfInteger* {.
       importcpp: "TDataStd_HDataMapOfStringHArray1OfInteger",
-      header: "TDataStd_HDataMapOfStringHArray1OfInteger.hxx", bycopy.} = object of Standard_Transient
+      header: "TDataStd_HDataMapOfStringHArray1OfInteger.hxx", bycopy.} = object of StandardTransient
 
-  TDataStd_HDataMapOfStringHArray1OfIntegerbase_type* = Standard_Transient
+  TDataStdHDataMapOfStringHArray1OfIntegerbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TDataStd_HDataMapOfStringHArray1OfInteger::get_type_name(@)", header: "TDataStd_HDataMapOfStringHArray1OfInteger.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "TDataStd_HDataMapOfStringHArray1OfInteger::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "TDataStd_HDataMapOfStringHArray1OfInteger::get_type_name(@)", header: "TDataStd_HDataMapOfStringHArray1OfInteger.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "TDataStd_HDataMapOfStringHArray1OfInteger::get_type_descriptor(@)",
     header: "TDataStd_HDataMapOfStringHArray1OfInteger.hxx".}
-proc DynamicType*(this: TDataStd_HDataMapOfStringHArray1OfInteger): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "TDataStd_HDataMapOfStringHArray1OfInteger.hxx".}
-proc constructTDataStd_HDataMapOfStringHArray1OfInteger*(
-    NbBuckets: Standard_Integer = 1): TDataStd_HDataMapOfStringHArray1OfInteger {.
+proc dynamicType*(this: TDataStdHDataMapOfStringHArray1OfInteger): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "TDataStd_HDataMapOfStringHArray1OfInteger.hxx".}
+proc constructTDataStdHDataMapOfStringHArray1OfInteger*(nbBuckets: int = 1): TDataStdHDataMapOfStringHArray1OfInteger {.
     constructor, importcpp: "TDataStd_HDataMapOfStringHArray1OfInteger(@)",
     header: "TDataStd_HDataMapOfStringHArray1OfInteger.hxx".}
-proc constructTDataStd_HDataMapOfStringHArray1OfInteger*(
-    theOther: TDataStd_DataMapOfStringHArray1OfInteger): TDataStd_HDataMapOfStringHArray1OfInteger {.
+proc constructTDataStdHDataMapOfStringHArray1OfInteger*(
+    theOther: TDataStdDataMapOfStringHArray1OfInteger): TDataStdHDataMapOfStringHArray1OfInteger {.
     constructor, importcpp: "TDataStd_HDataMapOfStringHArray1OfInteger(@)",
     header: "TDataStd_HDataMapOfStringHArray1OfInteger.hxx".}
-proc Map*(this: TDataStd_HDataMapOfStringHArray1OfInteger): TDataStd_DataMapOfStringHArray1OfInteger {.
+proc map*(this: TDataStdHDataMapOfStringHArray1OfInteger): TDataStdDataMapOfStringHArray1OfInteger {.
     noSideEffect, importcpp: "Map",
     header: "TDataStd_HDataMapOfStringHArray1OfInteger.hxx".}
-proc ChangeMap*(this: var TDataStd_HDataMapOfStringHArray1OfInteger): var TDataStd_DataMapOfStringHArray1OfInteger {.
+proc changeMap*(this: var TDataStdHDataMapOfStringHArray1OfInteger): var TDataStdDataMapOfStringHArray1OfInteger {.
     importcpp: "ChangeMap",
     header: "TDataStd_HDataMapOfStringHArray1OfInteger.hxx".}
 discard "forward decl of TDataStd_HDataMapOfStringHArray1OfInteger"
 type
-  Handle_TDataStd_HDataMapOfStringHArray1OfInteger* = handle[
-      TDataStd_HDataMapOfStringHArray1OfInteger]
+  HandleTDataStdHDataMapOfStringHArray1OfInteger* = Handle[
+      TDataStdHDataMapOfStringHArray1OfInteger]
+

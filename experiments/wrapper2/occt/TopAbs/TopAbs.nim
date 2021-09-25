@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopAbs_Orientation, ../Standard/Standard_OStream,
-  TopAbs_ShapeEnum, TopAbs_State
-
 ## ! This package gives resources for Topology oriented
 ## ! applications such as : Topological Data Structure,
 ## ! Topological Algorithms.
@@ -58,29 +53,29 @@ type
                                                                  ## ! for the purposes of Open CASCADE topology and shape sharing.
 
 
-proc Compose*(Or1: TopAbs_Orientation; Or2: TopAbs_Orientation): TopAbs_Orientation {.
+proc compose*(or1: TopAbsOrientation; or2: TopAbsOrientation): TopAbsOrientation {.
     importcpp: "TopAbs::Compose(@)", header: "TopAbs.hxx".}
-proc Reverse*(Or: TopAbs_Orientation): TopAbs_Orientation {.
+proc reverse*(`or`: TopAbsOrientation): TopAbsOrientation {.
     importcpp: "TopAbs::Reverse(@)", header: "TopAbs.hxx".}
-proc Complement*(Or: TopAbs_Orientation): TopAbs_Orientation {.
+proc complement*(`or`: TopAbsOrientation): TopAbsOrientation {.
     importcpp: "TopAbs::Complement(@)", header: "TopAbs.hxx".}
-proc Print*(theShapeType: TopAbs_ShapeEnum; theStream: var Standard_OStream): var Standard_OStream {.
+proc print*(theShapeType: TopAbsShapeEnum; theStream: var StandardOStream): var StandardOStream {.
     importcpp: "TopAbs::Print(@)", header: "TopAbs.hxx".}
-proc Print*(theOrientation: TopAbs_Orientation; theStream: var Standard_OStream): var Standard_OStream {.
+proc print*(theOrientation: TopAbsOrientation; theStream: var StandardOStream): var StandardOStream {.
     importcpp: "TopAbs::Print(@)", header: "TopAbs.hxx".}
-proc Print*(St: TopAbs_State; S: var Standard_OStream): var Standard_OStream {.
+proc print*(st: TopAbsState; s: var StandardOStream): var StandardOStream {.
     importcpp: "TopAbs::Print(@)", header: "TopAbs.hxx".}
-proc ShapeTypeToString*(theType: TopAbs_ShapeEnum): Standard_CString {.
+proc shapeTypeToString*(theType: TopAbsShapeEnum): StandardCString {.
     importcpp: "TopAbs::ShapeTypeToString(@)", header: "TopAbs.hxx".}
-proc ShapeTypeFromString*(theTypeString: Standard_CString): TopAbs_ShapeEnum {.
+proc shapeTypeFromString*(theTypeString: StandardCString): TopAbsShapeEnum {.
     importcpp: "TopAbs::ShapeTypeFromString(@)", header: "TopAbs.hxx".}
-proc ShapeTypeFromString*(theTypeString: Standard_CString;
-                         theType: var TopAbs_ShapeEnum): Standard_Boolean {.
+proc shapeTypeFromString*(theTypeString: StandardCString;
+                         theType: var TopAbsShapeEnum): bool {.
     importcpp: "TopAbs::ShapeTypeFromString(@)", header: "TopAbs.hxx".}
-proc ShapeOrientationToString*(theOrientation: TopAbs_Orientation): Standard_CString {.
+proc shapeOrientationToString*(theOrientation: TopAbsOrientation): StandardCString {.
     importcpp: "TopAbs::ShapeOrientationToString(@)", header: "TopAbs.hxx".}
-proc ShapeOrientationFromString*(theOrientationString: Standard_CString): TopAbs_Orientation {.
+proc shapeOrientationFromString*(theOrientationString: StandardCString): TopAbsOrientation {.
     importcpp: "TopAbs::ShapeOrientationFromString(@)", header: "TopAbs.hxx".}
-proc ShapeOrientationFromString*(theOrientationString: Standard_CString;
-                                theOrientation: var TopAbs_Orientation): Standard_Boolean {.
+proc shapeOrientationFromString*(theOrientationString: StandardCString;
+                                theOrientation: var TopAbsOrientation): bool {.
     importcpp: "TopAbs::ShapeOrientationFromString(@)", header: "TopAbs.hxx".}

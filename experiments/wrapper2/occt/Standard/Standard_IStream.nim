@@ -12,8 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Standard_Macro, Standard_Stream
-
 type
-  Standard_IStream* = istream
+  StandardIStream* = ref object   # should be: Istream
+

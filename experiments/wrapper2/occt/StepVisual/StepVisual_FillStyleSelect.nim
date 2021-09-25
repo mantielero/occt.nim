@@ -14,29 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepVisual_FillAreaStyleColour"
 type
-  StepVisual_FillStyleSelect* {.importcpp: "StepVisual_FillStyleSelect",
-                               header: "StepVisual_FillStyleSelect.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                           ## !
-                                                                                                           ## Returns
-                                                                                                           ## a
-                                                                                                           ## FillStyleSelect
-                                                                                                           ## SelectType
+  StepVisualFillStyleSelect* {.importcpp: "StepVisual_FillStyleSelect",
+                              header: "StepVisual_FillStyleSelect.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                         ## !
+                                                                                                         ## Returns
+                                                                                                         ## a
+                                                                                                         ## FillStyleSelect
+                                                                                                         ## SelectType
 
 
-proc constructStepVisual_FillStyleSelect*(): StepVisual_FillStyleSelect {.
+proc constructStepVisualFillStyleSelect*(): StepVisualFillStyleSelect {.
     constructor, importcpp: "StepVisual_FillStyleSelect(@)",
     header: "StepVisual_FillStyleSelect.hxx".}
-proc CaseNum*(this: StepVisual_FillStyleSelect; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepVisualFillStyleSelect; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_FillStyleSelect.hxx".}
-proc FillAreaStyleColour*(this: StepVisual_FillStyleSelect): handle[
-    StepVisual_FillAreaStyleColour] {.noSideEffect,
-                                     importcpp: "FillAreaStyleColour",
-                                     header: "StepVisual_FillStyleSelect.hxx".}
+proc fillAreaStyleColour*(this: StepVisualFillStyleSelect): Handle[
+    StepVisualFillAreaStyleColour] {.noSideEffect,
+                                    importcpp: "FillAreaStyleColour",
+                                    header: "StepVisual_FillStyleSelect.hxx".}

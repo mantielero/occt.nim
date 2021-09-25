@@ -14,33 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepGeom_CartesianTransformationOperator
-
 discard "forward decl of StepGeom_CartesianTransformationOperator2d"
 discard "forward decl of StepGeom_CartesianTransformationOperator2d"
 type
-  Handle_StepGeom_CartesianTransformationOperator2d* = handle[
-      StepGeom_CartesianTransformationOperator2d]
+  HandleStepGeomCartesianTransformationOperator2d* = Handle[
+      StepGeomCartesianTransformationOperator2d]
 
 ## ! Added from StepGeom Rev2 to Rev4
 
 type
-  StepGeom_CartesianTransformationOperator2d* {.
+  StepGeomCartesianTransformationOperator2d* {.
       importcpp: "StepGeom_CartesianTransformationOperator2d",
-      header: "StepGeom_CartesianTransformationOperator2d.hxx", bycopy.} = object of StepGeom_CartesianTransformationOperator
+      header: "StepGeom_CartesianTransformationOperator2d.hxx", bycopy.} = object of StepGeomCartesianTransformationOperator
 
 
-proc constructStepGeom_CartesianTransformationOperator2d*(): StepGeom_CartesianTransformationOperator2d {.
+proc constructStepGeomCartesianTransformationOperator2d*(): StepGeomCartesianTransformationOperator2d {.
     constructor, importcpp: "StepGeom_CartesianTransformationOperator2d(@)",
     header: "StepGeom_CartesianTransformationOperator2d.hxx".}
 type
-  StepGeom_CartesianTransformationOperator2dbase_type* = StepGeom_CartesianTransformationOperator
+  StepGeomCartesianTransformationOperator2dbaseType* = StepGeomCartesianTransformationOperator
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_CartesianTransformationOperator2d::get_type_name(@)", header: "StepGeom_CartesianTransformationOperator2d.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepGeom_CartesianTransformationOperator2d::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepGeom_CartesianTransformationOperator2d::get_type_name(@)", header: "StepGeom_CartesianTransformationOperator2d.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_CartesianTransformationOperator2d::get_type_descriptor(@)",
     header: "StepGeom_CartesianTransformationOperator2d.hxx".}
-proc DynamicType*(this: StepGeom_CartesianTransformationOperator2d): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepGeom_CartesianTransformationOperator2d.hxx".}
+proc dynamicType*(this: StepGeomCartesianTransformationOperator2d): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepGeom_CartesianTransformationOperator2d.hxx".}

@@ -13,148 +13,138 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Transient, ../Standard/Standard_Type,
-  Font_FontAspect, Font_NListOfSystemFont, Font_StrictLevel, Font_UnicodeSubset,
-  ../NCollection/NCollection_DataMap, ../NCollection/NCollection_IndexedMap,
-  ../NCollection/NCollection_Shared, ../TColStd/TColStd_SequenceOfHAsciiString
-
 discard "forward decl of Font_SystemFont"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of NCollection_Buffer"
 discard "forward decl of Font_FontMgr"
 type
-  Handle_Font_FontMgr* = handle[Font_FontMgr]
+  HandleFontFontMgr* = Handle[FontFontMgr]
 
 ## ! Collects and provides information about available fonts in system.
 
 type
-  Font_FontMgr* {.importcpp: "Font_FontMgr", header: "Font_FontMgr.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                       ## !
-                                                                                                       ## Return
-                                                                                                       ## global
-                                                                                                       ## instance
-                                                                                                       ## of
-                                                                                                       ## font
-                                                                                                       ## manager.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Return
-                                                                                                       ## the
-                                                                                                       ## list
-                                                                                                       ## of
-                                                                                                       ## available
-                                                                                                       ## fonts.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Return
-                                                                                                       ## flag
-                                                                                                       ## for
-                                                                                                       ## tracing
-                                                                                                       ## font
-                                                                                                       ## aliases
-                                                                                                       ## usage
-                                                                                                       ## via
-                                                                                                       ## Message_Trace
-                                                                                                       ## messages;
-                                                                                                       ## TRUE
-                                                                                                       ## by
-                                                                                                       ## default.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Collects
-                                                                                                       ## available
-                                                                                                       ## fonts
-                                                                                                       ## paths.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Creates
-                                                                                                       ## empty
-                                                                                                       ## font
-                                                                                                       ## manager
-                                                                                                       ## object
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Map
-                                                                                                       ## storing
-                                                                                                       ## registered
-                                                                                                       ## fonts.
+  FontFontMgr* {.importcpp: "Font_FontMgr", header: "Font_FontMgr.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                     ## !
+                                                                                                     ## Return
+                                                                                                     ## global
+                                                                                                     ## instance
+                                                                                                     ## of
+                                                                                                     ## font
+                                                                                                     ## manager.
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## Return
+                                                                                                     ## the
+                                                                                                     ## list
+                                                                                                     ## of
+                                                                                                     ## available
+                                                                                                     ## fonts.
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## Return
+                                                                                                     ## flag
+                                                                                                     ## for
+                                                                                                     ## tracing
+                                                                                                     ## font
+                                                                                                     ## aliases
+                                                                                                     ## usage
+                                                                                                     ## via
+                                                                                                     ## Message_Trace
+                                                                                                     ## messages;
+                                                                                                     ## TRUE
+                                                                                                     ## by
+                                                                                                     ## default.
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## Collects
+                                                                                                     ## available
+                                                                                                     ## fonts
+                                                                                                     ## paths.
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## Creates
+                                                                                                     ## empty
+                                                                                                     ## font
+                                                                                                     ## manager
+                                                                                                     ## object
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## Map
+                                                                                                     ## storing
+                                                                                                     ## registered
+                                                                                                     ## fonts.
 
-  Font_FontMgrbase_type* = Standard_Transient
+  FontFontMgrbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Font_FontMgr::get_type_name(@)",
-                              header: "Font_FontMgr.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Font_FontMgr::get_type_name(@)",
+                            header: "Font_FontMgr.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Font_FontMgr::get_type_descriptor(@)", header: "Font_FontMgr.hxx".}
-proc DynamicType*(this: Font_FontMgr): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: FontFontMgr): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Font_FontMgr.hxx".}
-proc GetInstance*(): handle[Font_FontMgr] {.
-    importcpp: "Font_FontMgr::GetInstance(@)", header: "Font_FontMgr.hxx".}
-proc FontAspectToString*(theAspect: Font_FontAspect): cstring {.
+proc getInstance*(): Handle[FontFontMgr] {.importcpp: "Font_FontMgr::GetInstance(@)",
+                                        header: "Font_FontMgr.hxx".}
+proc fontAspectToString*(theAspect: FontFontAspect): cstring {.
     importcpp: "Font_FontMgr::FontAspectToString(@)", header: "Font_FontMgr.hxx".}
-proc ToUseUnicodeSubsetFallback*(): var Standard_Boolean {.
+proc toUseUnicodeSubsetFallback*(): var bool {.
     importcpp: "Font_FontMgr::ToUseUnicodeSubsetFallback(@)",
     header: "Font_FontMgr.hxx".}
-proc AvailableFonts*(this: Font_FontMgr; theList: var Font_NListOfSystemFont) {.
+proc availableFonts*(this: FontFontMgr; theList: var FontNListOfSystemFont) {.
     noSideEffect, importcpp: "AvailableFonts", header: "Font_FontMgr.hxx".}
-proc GetAvailableFonts*(this: Font_FontMgr): Font_NListOfSystemFont {.noSideEffect,
+proc getAvailableFonts*(this: FontFontMgr): FontNListOfSystemFont {.noSideEffect,
     importcpp: "GetAvailableFonts", header: "Font_FontMgr.hxx".}
-proc GetAvailableFontsNames*(this: Font_FontMgr;
-                            theFontsNames: var TColStd_SequenceOfHAsciiString) {.
+proc getAvailableFontsNames*(this: FontFontMgr;
+                            theFontsNames: var TColStdSequenceOfHAsciiString) {.
     noSideEffect, importcpp: "GetAvailableFontsNames", header: "Font_FontMgr.hxx".}
-proc GetFont*(this: Font_FontMgr; theFontName: handle[TCollection_HAsciiString];
-             theFontAspect: Font_FontAspect; theFontSize: Standard_Integer): handle[
-    Font_SystemFont] {.noSideEffect, importcpp: "GetFont",
-                      header: "Font_FontMgr.hxx".}
-proc GetFont*(this: Font_FontMgr; theFontName: TCollection_AsciiString): handle[
-    Font_SystemFont] {.noSideEffect, importcpp: "GetFont",
-                      header: "Font_FontMgr.hxx".}
-proc FindFont*(this: Font_FontMgr; theFontName: TCollection_AsciiString;
-              theStrictLevel: Font_StrictLevel;
-              theFontAspect: var Font_FontAspect;
-              theDoFailMsg: Standard_Boolean = Standard_True): handle[
-    Font_SystemFont] {.noSideEffect, importcpp: "FindFont",
-                      header: "Font_FontMgr.hxx".}
-proc FindFont*(this: Font_FontMgr; theFontName: TCollection_AsciiString;
-              theFontAspect: var Font_FontAspect): handle[Font_SystemFont] {.
+proc getFont*(this: FontFontMgr; theFontName: Handle[TCollectionHAsciiString];
+             theFontAspect: FontFontAspect; theFontSize: int): Handle[FontSystemFont] {.
+    noSideEffect, importcpp: "GetFont", header: "Font_FontMgr.hxx".}
+proc getFont*(this: FontFontMgr; theFontName: TCollectionAsciiString): Handle[
+    FontSystemFont] {.noSideEffect, importcpp: "GetFont", header: "Font_FontMgr.hxx".}
+proc findFont*(this: FontFontMgr; theFontName: TCollectionAsciiString;
+              theStrictLevel: FontStrictLevel; theFontAspect: var FontFontAspect;
+              theDoFailMsg: bool = true): Handle[FontSystemFont] {.noSideEffect,
+    importcpp: "FindFont", header: "Font_FontMgr.hxx".}
+proc findFont*(this: FontFontMgr; theFontName: TCollectionAsciiString;
+              theFontAspect: var FontFontAspect): Handle[FontSystemFont] {.
     noSideEffect, importcpp: "FindFont", header: "Font_FontMgr.hxx".}
-proc FindFallbackFont*(this: Font_FontMgr; theSubset: Font_UnicodeSubset;
-                      theFontAspect: Font_FontAspect): handle[Font_SystemFont] {.
+proc findFallbackFont*(this: FontFontMgr; theSubset: FontUnicodeSubset;
+                      theFontAspect: FontFontAspect): Handle[FontSystemFont] {.
     noSideEffect, importcpp: "FindFallbackFont", header: "Font_FontMgr.hxx".}
-proc CheckFont*(this: Font_FontMgr;
-               theFonts: var NCollection_Sequence[handle[Font_SystemFont]];
-               theFontPath: TCollection_AsciiString): Standard_Boolean {.
-    noSideEffect, importcpp: "CheckFont", header: "Font_FontMgr.hxx".}
-proc CheckFont*(this: Font_FontMgr; theFontPath: Standard_CString): handle[
-    Font_SystemFont] {.noSideEffect, importcpp: "CheckFont",
-                      header: "Font_FontMgr.hxx".}
-proc RegisterFont*(this: var Font_FontMgr; theFont: handle[Font_SystemFont];
-                  theToOverride: Standard_Boolean): Standard_Boolean {.
-    importcpp: "RegisterFont", header: "Font_FontMgr.hxx".}
-proc RegisterFonts*(this: var Font_FontMgr;
-                   theFonts: NCollection_Sequence[handle[Font_SystemFont]];
-                   theToOverride: Standard_Boolean): Standard_Boolean {.
-    importcpp: "RegisterFonts", header: "Font_FontMgr.hxx".}
-proc ToTraceAliases*(this: Font_FontMgr): Standard_Boolean {.noSideEffect,
+proc checkFont*(this: FontFontMgr;
+               theFonts: var NCollectionSequence[Handle[FontSystemFont]];
+               theFontPath: TCollectionAsciiString): bool {.noSideEffect,
+    importcpp: "CheckFont", header: "Font_FontMgr.hxx".}
+proc checkFont*(this: FontFontMgr; theFontPath: StandardCString): Handle[
+    FontSystemFont] {.noSideEffect, importcpp: "CheckFont",
+                     header: "Font_FontMgr.hxx".}
+proc registerFont*(this: var FontFontMgr; theFont: Handle[FontSystemFont];
+                  theToOverride: bool): bool {.importcpp: "RegisterFont",
+    header: "Font_FontMgr.hxx".}
+proc registerFonts*(this: var FontFontMgr;
+                   theFonts: NCollectionSequence[Handle[FontSystemFont]];
+                   theToOverride: bool): bool {.importcpp: "RegisterFonts",
+    header: "Font_FontMgr.hxx".}
+proc toTraceAliases*(this: FontFontMgr): bool {.noSideEffect,
     importcpp: "ToTraceAliases", header: "Font_FontMgr.hxx".}
-proc SetTraceAliases*(this: var Font_FontMgr; theToTrace: Standard_Boolean) {.
+proc setTraceAliases*(this: var FontFontMgr; theToTrace: bool) {.
     importcpp: "SetTraceAliases", header: "Font_FontMgr.hxx".}
-proc GetAllAliases*(this: Font_FontMgr;
-                   theAliases: var TColStd_SequenceOfHAsciiString) {.noSideEffect,
+proc getAllAliases*(this: FontFontMgr;
+                   theAliases: var TColStdSequenceOfHAsciiString) {.noSideEffect,
     importcpp: "GetAllAliases", header: "Font_FontMgr.hxx".}
-proc GetFontAliases*(this: Font_FontMgr;
-                    theFontNames: var TColStd_SequenceOfHAsciiString;
-                    theAliasName: TCollection_AsciiString) {.noSideEffect,
+proc getFontAliases*(this: FontFontMgr;
+                    theFontNames: var TColStdSequenceOfHAsciiString;
+                    theAliasName: TCollectionAsciiString) {.noSideEffect,
     importcpp: "GetFontAliases", header: "Font_FontMgr.hxx".}
-proc AddFontAlias*(this: var Font_FontMgr; theAliasName: TCollection_AsciiString;
-                  theFontName: TCollection_AsciiString): bool {.
+proc addFontAlias*(this: var FontFontMgr; theAliasName: TCollectionAsciiString;
+                  theFontName: TCollectionAsciiString): bool {.
     importcpp: "AddFontAlias", header: "Font_FontMgr.hxx".}
-proc RemoveFontAlias*(this: var Font_FontMgr; theAliasName: TCollection_AsciiString;
-                     theFontName: TCollection_AsciiString): bool {.
+proc removeFontAlias*(this: var FontFontMgr; theAliasName: TCollectionAsciiString;
+                     theFontName: TCollectionAsciiString): bool {.
     importcpp: "RemoveFontAlias", header: "Font_FontMgr.hxx".}
-proc InitFontDataBase*(this: var Font_FontMgr) {.importcpp: "InitFontDataBase",
+proc initFontDataBase*(this: var FontFontMgr) {.importcpp: "InitFontDataBase",
     header: "Font_FontMgr.hxx".}
-proc ClearFontDataBase*(this: var Font_FontMgr) {.importcpp: "ClearFontDataBase",
+proc clearFontDataBase*(this: var FontFontMgr) {.importcpp: "ClearFontDataBase",
     header: "Font_FontMgr.hxx".}
-proc EmbedFallbackFont*(): handle[NCollection_Buffer] {.
+proc embedFallbackFont*(): Handle[NCollectionBuffer] {.
     importcpp: "Font_FontMgr::EmbedFallbackFont(@)", header: "Font_FontMgr.hxx".}

@@ -13,88 +13,83 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../IMeshTools/IMeshTools_Parameters, ../Standard/Standard_Transient,
-  ../IMeshData/IMeshData_Face, ../Standard/Standard_Type,
-  ../NCollection/NCollection_Shared
-
 ## ! Auxiliary class checking wires of target face for self-intersections.
 ## ! Explodes wires of discrete face on sets of segments using tessellation
 ## ! data stored in model. Each segment is then checked for intersection with
 ## ! other ones. All collisions are registerd and returned as result of check.
 
 type
-  BRepMesh_FaceChecker* {.importcpp: "BRepMesh_FaceChecker",
-                         header: "BRepMesh_FaceChecker.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                              ## !
-                                                                                              ## @name
-                                                                                              ## mesher
-                                                                                              ## API
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Identifies
-                                                                                              ## segment
-                                                                                              ## inside
-                                                                                              ## face.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## True
-                                                                                              ## in
-                                                                                              ## case
-                                                                                              ## if
-                                                                                              ## check
-                                                                                              ## can
-                                                                                              ## be
-                                                                                              ## performed
-                                                                                              ## in
-                                                                                              ## parallel
-                                                                                              ## mode.
+  BRepMeshFaceChecker* {.importcpp: "BRepMesh_FaceChecker",
+                        header: "BRepMesh_FaceChecker.hxx", bycopy.} = object of StandardTransient ##
+                                                                                            ## !
+                                                                                            ## @name
+                                                                                            ## mesher
+                                                                                            ## API
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Identifies
+                                                                                            ## segment
+                                                                                            ## inside
+                                                                                            ## face.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## True
+                                                                                            ## in
+                                                                                            ## case
+                                                                                            ## if
+                                                                                            ## check
+                                                                                            ## can
+                                                                                            ## be
+                                                                                            ## performed
+                                                                                            ## in
+                                                                                            ## parallel
+                                                                                            ## mode.
 
-  BRepMesh_FaceCheckerSegment* {.importcpp: "BRepMesh_FaceChecker::Segment",
-                                header: "BRepMesh_FaceChecker.hxx", bycopy.} = object
-    EdgePtr* {.importc: "EdgePtr".}: IEdgePtr
-    Point1* {.importc: "Point1".}: ptr gp_Pnt2d ##  \ Use explicit pointers to points instead of accessing
-    Point2* {.importc: "Point2".}: ptr gp_Pnt2d ##  / using indices.
+  BRepMeshFaceCheckerSegment* {.importcpp: "BRepMesh_FaceChecker::Segment",
+                               header: "BRepMesh_FaceChecker.hxx", bycopy.} = object
+    edgePtr* {.importc: "EdgePtr".}: IEdgePtr
+    point1* {.importc: "Point1".}: ptr Pnt2d ##  \ Use explicit pointers to points instead of accessing
+    point2* {.importc: "Point2".}: ptr Pnt2d ##  / using indices.
 
 
-proc constructBRepMesh_FaceCheckerSegment*(): BRepMesh_FaceCheckerSegment {.
+proc constructBRepMeshFaceCheckerSegment*(): BRepMeshFaceCheckerSegment {.
     constructor, importcpp: "BRepMesh_FaceChecker::Segment(@)",
     header: "BRepMesh_FaceChecker.hxx".}
-proc constructBRepMesh_FaceCheckerSegment*(theEdgePtr: IEdgePtr;
-    thePoint1: ptr gp_Pnt2d; thePoint2: ptr gp_Pnt2d): BRepMesh_FaceCheckerSegment {.
+proc constructBRepMeshFaceCheckerSegment*(theEdgePtr: IEdgePtr;
+    thePoint1: ptr Pnt2d; thePoint2: ptr Pnt2d): BRepMeshFaceCheckerSegment {.
     constructor, importcpp: "BRepMesh_FaceChecker::Segment(@)",
     header: "BRepMesh_FaceChecker.hxx".}
 type
-  BRepMesh_FaceCheckerSegments* = NCollection_Shared[
-      NCollection_Vector[BRepMesh_FaceCheckerSegment]]
-  BRepMesh_FaceCheckerArrayOfSegments* = NCollection_Shared[
-      NCollection_Array1[handle[BRepMesh_FaceCheckerSegments]]]
-  BRepMesh_FaceCheckerArrayOfBndBoxTree* = NCollection_Shared[
-      NCollection_Array1[handle[BndBox2dTree]]]
-  BRepMesh_FaceCheckerArrayOfMapOfIEdgePtr* = NCollection_Shared[
-      NCollection_Array1[handle[MapOfIEdgePtr]]]
+  BRepMeshFaceCheckerSegments* = NCollectionShared[
+      NCollectionVector[BRepMeshFaceCheckerSegment]]
+  BRepMeshFaceCheckerArrayOfSegments* = NCollectionShared[
+      NCollectionArray1[Handle[BRepMeshFaceCheckerSegments]]]
+  BRepMeshFaceCheckerArrayOfBndBoxTree* = NCollectionShared[
+      NCollectionArray1[Handle[BndBox2dTree]]]
+  BRepMeshFaceCheckerArrayOfMapOfIEdgePtr* = NCollectionShared[
+      NCollectionArray1[Handle[MapOfIEdgePtr]]]
 
-proc constructBRepMesh_FaceChecker*(theFace: IFaceHandle;
-                                   theParameters: IMeshTools_Parameters): BRepMesh_FaceChecker {.
+proc constructBRepMeshFaceChecker*(theFace: IFaceHandle;
+                                  theParameters: IMeshToolsParameters): BRepMeshFaceChecker {.
     constructor, importcpp: "BRepMesh_FaceChecker(@)",
     header: "BRepMesh_FaceChecker.hxx".}
-proc destroyBRepMesh_FaceChecker*(this: var BRepMesh_FaceChecker) {.
+proc destroyBRepMeshFaceChecker*(this: var BRepMeshFaceChecker) {.
     importcpp: "#.~BRepMesh_FaceChecker()", header: "BRepMesh_FaceChecker.hxx".}
-proc Perform*(this: var BRepMesh_FaceChecker): Standard_Boolean {.
-    importcpp: "Perform", header: "BRepMesh_FaceChecker.hxx".}
-proc GetIntersectingEdges*(this: BRepMesh_FaceChecker): handle[MapOfIEdgePtr] {.
+proc perform*(this: var BRepMeshFaceChecker): bool {.importcpp: "Perform",
+    header: "BRepMesh_FaceChecker.hxx".}
+proc getIntersectingEdges*(this: BRepMeshFaceChecker): Handle[MapOfIEdgePtr] {.
     noSideEffect, importcpp: "GetIntersectingEdges",
     header: "BRepMesh_FaceChecker.hxx".}
-proc `()`*(this: BRepMesh_FaceChecker; theWireIndex: Standard_Integer) {.
-    noSideEffect, importcpp: "#(@)", header: "BRepMesh_FaceChecker.hxx".}
+proc `()`*(this: BRepMeshFaceChecker; theWireIndex: int) {.noSideEffect,
+    importcpp: "#(@)", header: "BRepMesh_FaceChecker.hxx".}
 type
-  BRepMesh_FaceCheckerbase_type* = Standard_Transient
+  BRepMeshFaceCheckerbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "BRepMesh_FaceChecker::get_type_name(@)",
-                              header: "BRepMesh_FaceChecker.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepMesh_FaceChecker::get_type_name(@)",
+                            header: "BRepMesh_FaceChecker.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepMesh_FaceChecker::get_type_descriptor(@)",
     header: "BRepMesh_FaceChecker.hxx".}
-proc DynamicType*(this: BRepMesh_FaceChecker): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: BRepMeshFaceChecker): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMesh_FaceChecker.hxx".}

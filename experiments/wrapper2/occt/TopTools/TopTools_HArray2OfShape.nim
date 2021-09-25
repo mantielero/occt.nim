@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # TopTools_HArray2OfShape_HeaderFile [NewLine] # TopTools_HArray2OfShape_HeaderFile [NewLine] # ../TopoDS/TopoDS_Shape.hxx [NewLine] # TopTools_Array2OfShape.hxx [NewLine] # ../NCollection/NCollection_DefineHArray2.hxx [NewLine] DEFINE_HARRAY2 ( TopTools_HArray2OfShape , TopTools_Array2OfShape ) # [NewLine]
+## !!!Ignored construct:  # TopTools_HArray2OfShape_HeaderFile [NewLine] # TopTools_HArray2OfShape_HeaderFile [NewLine] # < TopoDS_Shape . hxx > [NewLine] # < TopTools_Array2OfShape . hxx > [NewLine] # < NCollection_DefineHArray2 . hxx > [NewLine] DEFINE_HARRAY2 ( TopTools_HArray2OfShape , TopTools_Array2OfShape ) # [NewLine]
 ## Error: expected ';'!!!
+

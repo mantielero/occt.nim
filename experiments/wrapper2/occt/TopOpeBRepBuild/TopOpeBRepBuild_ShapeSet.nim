@@ -14,132 +14,121 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopAbs/TopAbs_ShapeEnum,
-  ../TopOpeBRepTool/TopOpeBRepTool_ShapeExplorer,
-  ../TopTools/TopTools_ListOfShape,
-  ../TopTools/TopTools_ListIteratorOfListOfShape,
-  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape, ../TopoDS/TopoDS_Shape,
-  ../Standard/Standard_Integer, ../TCollection/TCollection_AsciiString,
-  ../TopTools/TopTools_IndexedMapOfOrientedShape, ../Standard/Standard_Boolean,
-  ../Standard/Standard_OStream
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TCollection_AsciiString"
 type
-  TopOpeBRepBuild_ShapeSet* {.importcpp: "TopOpeBRepBuild_ShapeSet",
-                             header: "TopOpeBRepBuild_ShapeSet.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Creates
-                                                                                  ## a
-                                                                                  ## ShapeSet
-                                                                                  ## in
-                                                                                  ## order
-                                                                                  ## to
-                                                                                  ## build
-                                                                                  ## shapes
-                                                                                  ## connected
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## by
-                                                                                  ## <SubShapeType>
-                                                                                  ## shapes.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## <checkshape>:check
-                                                                                  ## (or
-                                                                                  ## not)
-                                                                                  ## the
-                                                                                  ## shapes,
-                                                                                  ## startelements,
-                                                                                  ## elements
-                                                                                  ## added.
+  TopOpeBRepBuildShapeSet* {.importcpp: "TopOpeBRepBuild_ShapeSet",
+                            header: "TopOpeBRepBuild_ShapeSet.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## Creates
+                                                                                 ## a
+                                                                                 ## ShapeSet
+                                                                                 ## in
+                                                                                 ## order
+                                                                                 ## to
+                                                                                 ## build
+                                                                                 ## shapes
+                                                                                 ## connected
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## by
+                                                                                 ## <SubShapeType>
+                                                                                 ## shapes.
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## <checkshape>:check
+                                                                                 ## (or
+                                                                                 ## not)
+                                                                                 ## the
+                                                                                 ## shapes,
+                                                                                 ## startelements,
+                                                                                 ## elements
+                                                                                 ## added.
 
 
-proc constructTopOpeBRepBuild_ShapeSet*(SubShapeType: TopAbs_ShapeEnum; checkshape: Standard_Boolean = Standard_True): TopOpeBRepBuild_ShapeSet {.
+proc constructTopOpeBRepBuildShapeSet*(subShapeType: TopAbsShapeEnum;
+                                      checkshape: bool = true): TopOpeBRepBuildShapeSet {.
     constructor, importcpp: "TopOpeBRepBuild_ShapeSet(@)",
     header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc destroyTopOpeBRepBuild_ShapeSet*(this: var TopOpeBRepBuild_ShapeSet) {.
+proc destroyTopOpeBRepBuildShapeSet*(this: var TopOpeBRepBuildShapeSet) {.
     importcpp: "#.~TopOpeBRepBuild_ShapeSet()",
     header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc AddShape*(this: var TopOpeBRepBuild_ShapeSet; S: TopoDS_Shape) {.
+proc addShape*(this: var TopOpeBRepBuildShapeSet; s: TopoDS_Shape) {.
     importcpp: "AddShape", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc AddStartElement*(this: var TopOpeBRepBuild_ShapeSet; S: TopoDS_Shape) {.
+proc addStartElement*(this: var TopOpeBRepBuildShapeSet; s: TopoDS_Shape) {.
     importcpp: "AddStartElement", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc AddElement*(this: var TopOpeBRepBuild_ShapeSet; S: TopoDS_Shape) {.
+proc addElement*(this: var TopOpeBRepBuildShapeSet; s: TopoDS_Shape) {.
     importcpp: "AddElement", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc StartElements*(this: TopOpeBRepBuild_ShapeSet): TopTools_ListOfShape {.
+proc startElements*(this: TopOpeBRepBuildShapeSet): TopToolsListOfShape {.
     noSideEffect, importcpp: "StartElements",
     header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc InitShapes*(this: var TopOpeBRepBuild_ShapeSet) {.importcpp: "InitShapes",
+proc initShapes*(this: var TopOpeBRepBuildShapeSet) {.importcpp: "InitShapes",
     header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc MoreShapes*(this: TopOpeBRepBuild_ShapeSet): Standard_Boolean {.noSideEffect,
+proc moreShapes*(this: TopOpeBRepBuildShapeSet): bool {.noSideEffect,
     importcpp: "MoreShapes", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc NextShape*(this: var TopOpeBRepBuild_ShapeSet) {.importcpp: "NextShape",
+proc nextShape*(this: var TopOpeBRepBuildShapeSet) {.importcpp: "NextShape",
     header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc Shape*(this: TopOpeBRepBuild_ShapeSet): TopoDS_Shape {.noSideEffect,
+proc shape*(this: TopOpeBRepBuildShapeSet): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc InitStartElements*(this: var TopOpeBRepBuild_ShapeSet) {.
+proc initStartElements*(this: var TopOpeBRepBuildShapeSet) {.
     importcpp: "InitStartElements", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc MoreStartElements*(this: TopOpeBRepBuild_ShapeSet): Standard_Boolean {.
-    noSideEffect, importcpp: "MoreStartElements",
-    header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc NextStartElement*(this: var TopOpeBRepBuild_ShapeSet) {.
+proc moreStartElements*(this: TopOpeBRepBuildShapeSet): bool {.noSideEffect,
+    importcpp: "MoreStartElements", header: "TopOpeBRepBuild_ShapeSet.hxx".}
+proc nextStartElement*(this: var TopOpeBRepBuildShapeSet) {.
     importcpp: "NextStartElement", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc StartElement*(this: TopOpeBRepBuild_ShapeSet): TopoDS_Shape {.noSideEffect,
+proc startElement*(this: TopOpeBRepBuildShapeSet): TopoDS_Shape {.noSideEffect,
     importcpp: "StartElement", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc InitNeighbours*(this: var TopOpeBRepBuild_ShapeSet; S: TopoDS_Shape) {.
+proc initNeighbours*(this: var TopOpeBRepBuildShapeSet; s: TopoDS_Shape) {.
     importcpp: "InitNeighbours", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc MoreNeighbours*(this: var TopOpeBRepBuild_ShapeSet): Standard_Boolean {.
+proc moreNeighbours*(this: var TopOpeBRepBuildShapeSet): bool {.
     importcpp: "MoreNeighbours", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc NextNeighbour*(this: var TopOpeBRepBuild_ShapeSet) {.
-    importcpp: "NextNeighbour", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc Neighbour*(this: TopOpeBRepBuild_ShapeSet): TopoDS_Shape {.noSideEffect,
+proc nextNeighbour*(this: var TopOpeBRepBuildShapeSet) {.importcpp: "NextNeighbour",
+    header: "TopOpeBRepBuild_ShapeSet.hxx".}
+proc neighbour*(this: TopOpeBRepBuildShapeSet): TopoDS_Shape {.noSideEffect,
     importcpp: "Neighbour", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc ChangeStartShapes*(this: var TopOpeBRepBuild_ShapeSet): var TopTools_ListOfShape {.
+proc changeStartShapes*(this: var TopOpeBRepBuildShapeSet): var TopToolsListOfShape {.
     importcpp: "ChangeStartShapes", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc FindNeighbours*(this: var TopOpeBRepBuild_ShapeSet) {.
+proc findNeighbours*(this: var TopOpeBRepBuildShapeSet) {.
     importcpp: "FindNeighbours", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc MakeNeighboursList*(this: var TopOpeBRepBuild_ShapeSet; E: TopoDS_Shape;
-                        V: TopoDS_Shape): TopTools_ListOfShape {.
+proc makeNeighboursList*(this: var TopOpeBRepBuildShapeSet; e: TopoDS_Shape;
+                        v: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "MakeNeighboursList", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc MaxNumberSubShape*(this: var TopOpeBRepBuild_ShapeSet; Shape: TopoDS_Shape): Standard_Integer {.
+proc maxNumberSubShape*(this: var TopOpeBRepBuildShapeSet; shape: TopoDS_Shape): int {.
     importcpp: "MaxNumberSubShape", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc CheckShape*(this: var TopOpeBRepBuild_ShapeSet; checkshape: Standard_Boolean) {.
+proc checkShape*(this: var TopOpeBRepBuildShapeSet; checkshape: bool) {.
     importcpp: "CheckShape", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc CheckShape*(this: TopOpeBRepBuild_ShapeSet): Standard_Boolean {.noSideEffect,
+proc checkShape*(this: TopOpeBRepBuildShapeSet): bool {.noSideEffect,
     importcpp: "CheckShape", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc CheckShape*(this: var TopOpeBRepBuild_ShapeSet; S: TopoDS_Shape;
-                checkgeom: Standard_Boolean = Standard_False): Standard_Boolean {.
-    importcpp: "CheckShape", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc DumpName*(this: TopOpeBRepBuild_ShapeSet; OS: var Standard_OStream;
-              str: TCollection_AsciiString) {.noSideEffect, importcpp: "DumpName",
+proc checkShape*(this: var TopOpeBRepBuildShapeSet; s: TopoDS_Shape;
+                checkgeom: bool = false): bool {.importcpp: "CheckShape",
     header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc DumpCheck*(this: TopOpeBRepBuild_ShapeSet; OS: var Standard_OStream;
-               str: TCollection_AsciiString; S: TopoDS_Shape; chk: Standard_Boolean) {.
+proc dumpName*(this: TopOpeBRepBuildShapeSet; os: var StandardOStream;
+              str: TCollectionAsciiString) {.noSideEffect, importcpp: "DumpName",
+    header: "TopOpeBRepBuild_ShapeSet.hxx".}
+proc dumpCheck*(this: TopOpeBRepBuildShapeSet; os: var StandardOStream;
+               str: TCollectionAsciiString; s: TopoDS_Shape; chk: bool) {.
     noSideEffect, importcpp: "DumpCheck", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc DumpSS*(this: var TopOpeBRepBuild_ShapeSet) {.importcpp: "DumpSS",
+proc dumpSS*(this: var TopOpeBRepBuildShapeSet) {.importcpp: "DumpSS",
     header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc DumpBB*(this: var TopOpeBRepBuild_ShapeSet) {.importcpp: "DumpBB",
+proc dumpBB*(this: var TopOpeBRepBuildShapeSet) {.importcpp: "DumpBB",
     header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc DEBName*(this: var TopOpeBRepBuild_ShapeSet; N: TCollection_AsciiString) {.
+proc dEBName*(this: var TopOpeBRepBuildShapeSet; n: TCollectionAsciiString) {.
     importcpp: "DEBName", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc DEBName*(this: TopOpeBRepBuild_ShapeSet): TCollection_AsciiString {.
-    noSideEffect, importcpp: "DEBName", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc DEBNumber*(this: var TopOpeBRepBuild_ShapeSet; I: Standard_Integer) {.
+proc dEBName*(this: TopOpeBRepBuildShapeSet): TCollectionAsciiString {.noSideEffect,
+    importcpp: "DEBName", header: "TopOpeBRepBuild_ShapeSet.hxx".}
+proc dEBNumber*(this: var TopOpeBRepBuildShapeSet; i: int) {.importcpp: "DEBNumber",
+    header: "TopOpeBRepBuild_ShapeSet.hxx".}
+proc dEBNumber*(this: TopOpeBRepBuildShapeSet): int {.noSideEffect,
     importcpp: "DEBNumber", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc DEBNumber*(this: TopOpeBRepBuild_ShapeSet): Standard_Integer {.noSideEffect,
-    importcpp: "DEBNumber", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc SName*(this: TopOpeBRepBuild_ShapeSet; S: TopoDS_Shape;
-           sb: TCollection_AsciiString = ""; sa: TCollection_AsciiString = ""): TCollection_AsciiString {.
+proc sName*(this: TopOpeBRepBuildShapeSet; s: TopoDS_Shape;
+           sb: TCollectionAsciiString = ""; sa: TCollectionAsciiString = ""): TCollectionAsciiString {.
     noSideEffect, importcpp: "SName", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc SNameori*(this: TopOpeBRepBuild_ShapeSet; S: TopoDS_Shape;
-              sb: TCollection_AsciiString = ""; sa: TCollection_AsciiString = ""): TCollection_AsciiString {.
+proc sNameori*(this: TopOpeBRepBuildShapeSet; s: TopoDS_Shape;
+              sb: TCollectionAsciiString = ""; sa: TCollectionAsciiString = ""): TCollectionAsciiString {.
     noSideEffect, importcpp: "SNameori", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc SName*(this: TopOpeBRepBuild_ShapeSet; S: TopTools_ListOfShape;
-           sb: TCollection_AsciiString = ""; sa: TCollection_AsciiString = ""): TCollection_AsciiString {.
+proc sName*(this: TopOpeBRepBuildShapeSet; s: TopToolsListOfShape;
+           sb: TCollectionAsciiString = ""; sa: TCollectionAsciiString = ""): TCollectionAsciiString {.
     noSideEffect, importcpp: "SName", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc SNameori*(this: TopOpeBRepBuild_ShapeSet; S: TopTools_ListOfShape;
-              sb: TCollection_AsciiString = ""; sa: TCollection_AsciiString = ""): TCollection_AsciiString {.
+proc sNameori*(this: TopOpeBRepBuildShapeSet; s: TopToolsListOfShape;
+              sb: TCollectionAsciiString = ""; sa: TCollectionAsciiString = ""): TCollectionAsciiString {.
     noSideEffect, importcpp: "SNameori", header: "TopOpeBRepBuild_ShapeSet.hxx".}

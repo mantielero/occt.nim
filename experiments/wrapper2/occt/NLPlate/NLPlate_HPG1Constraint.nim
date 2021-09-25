@@ -14,51 +14,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Plate/Plate_D1, ../Standard/Standard_Integer, NLPlate_HGPPConstraint
-
 discard "forward decl of gp_XY"
 discard "forward decl of Plate_D1"
 discard "forward decl of NLPlate_HPG1Constraint"
 discard "forward decl of NLPlate_HPG1Constraint"
 type
-  Handle_NLPlate_HPG1Constraint* = handle[NLPlate_HPG1Constraint]
+  HandleNLPlateHPG1Constraint* = Handle[NLPlateHPG1Constraint]
 
 ## ! define a PinPoint (no G0)  G1 Constraint used to load a Non
 ## ! Linear Plate
 
 type
-  NLPlate_HPG1Constraint* {.importcpp: "NLPlate_HPG1Constraint",
-                           header: "NLPlate_HPG1Constraint.hxx", bycopy.} = object of NLPlate_HGPPConstraint
+  NLPlateHPG1Constraint* {.importcpp: "NLPlate_HPG1Constraint",
+                          header: "NLPlate_HPG1Constraint.hxx", bycopy.} = object of NLPlateHGPPConstraint
 
 
-proc constructNLPlate_HPG1Constraint*(UV: gp_XY; D1T: Plate_D1): NLPlate_HPG1Constraint {.
+proc constructNLPlateHPG1Constraint*(uv: Xy; d1t: PlateD1): NLPlateHPG1Constraint {.
     constructor, importcpp: "NLPlate_HPG1Constraint(@)",
     header: "NLPlate_HPG1Constraint.hxx".}
-proc SetIncrementalLoadAllowed*(this: var NLPlate_HPG1Constraint;
-                               ILA: Standard_Boolean) {.
+proc setIncrementalLoadAllowed*(this: var NLPlateHPG1Constraint; ila: bool) {.
     importcpp: "SetIncrementalLoadAllowed", header: "NLPlate_HPG1Constraint.hxx".}
-proc SetOrientation*(this: var NLPlate_HPG1Constraint; Orient: Standard_Integer = 0) {.
+proc setOrientation*(this: var NLPlateHPG1Constraint; orient: int = 0) {.
     importcpp: "SetOrientation", header: "NLPlate_HPG1Constraint.hxx".}
-proc IncrementalLoadAllowed*(this: NLPlate_HPG1Constraint): Standard_Boolean {.
-    noSideEffect, importcpp: "IncrementalLoadAllowed",
-    header: "NLPlate_HPG1Constraint.hxx".}
-proc ActiveOrder*(this: NLPlate_HPG1Constraint): Standard_Integer {.noSideEffect,
+proc incrementalLoadAllowed*(this: NLPlateHPG1Constraint): bool {.noSideEffect,
+    importcpp: "IncrementalLoadAllowed", header: "NLPlate_HPG1Constraint.hxx".}
+proc activeOrder*(this: NLPlateHPG1Constraint): int {.noSideEffect,
     importcpp: "ActiveOrder", header: "NLPlate_HPG1Constraint.hxx".}
-proc IsG0*(this: NLPlate_HPG1Constraint): Standard_Boolean {.noSideEffect,
-    importcpp: "IsG0", header: "NLPlate_HPG1Constraint.hxx".}
-proc Orientation*(this: var NLPlate_HPG1Constraint): Standard_Integer {.
-    importcpp: "Orientation", header: "NLPlate_HPG1Constraint.hxx".}
-proc G1Target*(this: NLPlate_HPG1Constraint): Plate_D1 {.noSideEffect,
+proc isG0*(this: NLPlateHPG1Constraint): bool {.noSideEffect, importcpp: "IsG0",
+    header: "NLPlate_HPG1Constraint.hxx".}
+proc orientation*(this: var NLPlateHPG1Constraint): int {.importcpp: "Orientation",
+    header: "NLPlate_HPG1Constraint.hxx".}
+proc g1Target*(this: NLPlateHPG1Constraint): PlateD1 {.noSideEffect,
     importcpp: "G1Target", header: "NLPlate_HPG1Constraint.hxx".}
 type
-  NLPlate_HPG1Constraintbase_type* = NLPlate_HGPPConstraint
+  NLPlateHPG1ConstraintbaseType* = NLPlateHGPPConstraint
 
-proc get_type_name*(): cstring {.importcpp: "NLPlate_HPG1Constraint::get_type_name(@)",
-                              header: "NLPlate_HPG1Constraint.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "NLPlate_HPG1Constraint::get_type_name(@)",
+                            header: "NLPlate_HPG1Constraint.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "NLPlate_HPG1Constraint::get_type_descriptor(@)",
     header: "NLPlate_HPG1Constraint.hxx".}
-proc DynamicType*(this: NLPlate_HPG1Constraint): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "NLPlate_HPG1Constraint.hxx".}
+proc dynamicType*(this: NLPlateHPG1Constraint): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "NLPlate_HPG1Constraint.hxx".}

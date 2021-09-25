@@ -14,13 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Integer, ../TDF/TDF_Label,
-  ../TColStd/TColStd_MapIntegerHasher, ../TDF/TDF_LabelMapHasher,
-  ../NCollection/NCollection_DoubleMap
-
 type
-  TFunction_DoubleMapOfIntegerLabel* = NCollection_DoubleMap[Standard_Integer,
-      TDF_Label, TColStd_MapIntegerHasher, TDF_LabelMapHasher]
-  TFunction_DoubleMapIteratorOfDoubleMapOfIntegerLabel* = Iterator[
-      Standard_Integer, TDF_Label, TColStd_MapIntegerHasher, TDF_LabelMapHasher]
+  TFunctionDoubleMapOfIntegerLabel* = NCollectionDoubleMap[int, TDF_Label,
+      TColStdMapIntegerHasher, TDF_LabelMapHasher]
+  TFunctionDoubleMapIteratorOfDoubleMapOfIntegerLabel* = Iterator[int, TDF_Label,
+      TColStdMapIntegerHasher, TDF_LabelMapHasher]
+

@@ -17,9 +17,10 @@
 ## ! Algorithmes :
 
 type
-  GProp_ValueType* {.size: sizeof(cint), importcpp: "GProp_ValueType",
-                    header: "GProp_ValueType.hxx".} = enum
-    GProp_Mass, GProp_CenterMassX, GProp_CenterMassY, GProp_CenterMassZ,
-    GProp_InertiaXX, GProp_InertiaYY, GProp_InertiaZZ, GProp_InertiaXY,
-    GProp_InertiaXZ, GProp_InertiaYZ, GProp_Unknown
+  GPropValueType* {.size: sizeof(cint), importcpp: "GProp_ValueType",
+                   header: "GProp_ValueType.hxx".} = enum
+    GPropMass, GPropCenterMassX, GPropCenterMassY, GPropCenterMassZ, GPropInertiaXX,
+    GPropInertiaYY, GPropInertiaZZ, GPropInertiaXY, GPropInertiaXZ, GPropInertiaYZ,
+    GPropUnknown
+
 

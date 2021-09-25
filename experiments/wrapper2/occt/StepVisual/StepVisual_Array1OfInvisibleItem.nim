@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_InvisibleItem, ../NCollection/NCollection_Array1
-
 type
-  StepVisual_Array1OfInvisibleItem* = NCollection_Array1[StepVisual_InvisibleItem]
+  StepVisualArray1OfInvisibleItem* = NCollectionArray1[StepVisualInvisibleItem]
+

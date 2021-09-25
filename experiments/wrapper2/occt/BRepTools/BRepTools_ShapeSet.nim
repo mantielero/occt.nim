@@ -14,91 +14,80 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../BRep/BRep_Builder,
-  ../GeomTools/GeomTools_SurfaceSet, ../GeomTools/GeomTools_CurveSet,
-  ../GeomTools/GeomTools_Curve2dSet, ../TColStd/TColStd_IndexedMapOfTransient,
-  ../Standard/Standard_Boolean, ../TopTools/TopTools_ShapeSet,
-  ../Standard/Standard_OStream, ../Standard/Standard_IStream,
-  ../TopAbs/TopAbs_ShapeEnum
-
 discard "forward decl of BRep_Builder"
 discard "forward decl of TopoDS_Shape"
 type
-  BRepTools_ShapeSet* {.importcpp: "BRepTools_ShapeSet",
-                       header: "BRepTools_ShapeSet.hxx", bycopy.} = object of TopTools_ShapeSet ##
-                                                                                         ## !
-                                                                                         ## Builds
-                                                                                         ## an
-                                                                                         ## empty
-                                                                                         ## ShapeSet.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Parameter
-                                                                                         ## <isWithTriangles>
-                                                                                         ## is
-                                                                                         ## added
-                                                                                         ## for
-                                                                                         ## XML
-                                                                                         ## Persistence
+  BRepToolsShapeSet* {.importcpp: "BRepTools_ShapeSet",
+                      header: "BRepTools_ShapeSet.hxx", bycopy.} = object of TopToolsShapeSet ##
+                                                                                       ## !
+                                                                                       ## Builds
+                                                                                       ## an
+                                                                                       ## empty
+                                                                                       ## ShapeSet.
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## Parameter
+                                                                                       ## <isWithTriangles>
+                                                                                       ## is
+                                                                                       ## added
+                                                                                       ## for
+                                                                                       ## XML
+                                                                                       ## Persistence
 
 
-proc constructBRepTools_ShapeSet*(isWithTriangles: Standard_Boolean = Standard_True): BRepTools_ShapeSet {.
+proc constructBRepToolsShapeSet*(isWithTriangles: bool = true): BRepToolsShapeSet {.
     constructor, importcpp: "BRepTools_ShapeSet(@)",
     header: "BRepTools_ShapeSet.hxx".}
-proc constructBRepTools_ShapeSet*(B: BRep_Builder; isWithTriangles: Standard_Boolean = Standard_True): BRepTools_ShapeSet {.
+proc constructBRepToolsShapeSet*(b: BRepBuilder; isWithTriangles: bool = true): BRepToolsShapeSet {.
     constructor, importcpp: "BRepTools_ShapeSet(@)",
     header: "BRepTools_ShapeSet.hxx".}
-proc Clear*(this: var BRepTools_ShapeSet) {.importcpp: "Clear",
-                                        header: "BRepTools_ShapeSet.hxx".}
-proc AddGeometry*(this: var BRepTools_ShapeSet; S: TopoDS_Shape) {.
+proc clear*(this: var BRepToolsShapeSet) {.importcpp: "Clear",
+                                       header: "BRepTools_ShapeSet.hxx".}
+proc addGeometry*(this: var BRepToolsShapeSet; s: TopoDS_Shape) {.
     importcpp: "AddGeometry", header: "BRepTools_ShapeSet.hxx".}
-proc DumpGeometry*(this: BRepTools_ShapeSet; OS: var Standard_OStream) {.noSideEffect,
+proc dumpGeometry*(this: BRepToolsShapeSet; os: var StandardOStream) {.noSideEffect,
     importcpp: "DumpGeometry", header: "BRepTools_ShapeSet.hxx".}
-proc WriteGeometry*(this: var BRepTools_ShapeSet; OS: var Standard_OStream;
-                   theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc writeGeometry*(this: var BRepToolsShapeSet; os: var StandardOStream;
+                   theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "WriteGeometry", header: "BRepTools_ShapeSet.hxx".}
-proc ReadGeometry*(this: var BRepTools_ShapeSet; IS: var Standard_IStream;
-                  theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc readGeometry*(this: var BRepToolsShapeSet; `is`: var StandardIStream;
+                  theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "ReadGeometry", header: "BRepTools_ShapeSet.hxx".}
-proc DumpGeometry*(this: BRepTools_ShapeSet; S: TopoDS_Shape;
-                  OS: var Standard_OStream) {.noSideEffect,
-    importcpp: "DumpGeometry", header: "BRepTools_ShapeSet.hxx".}
-proc WriteGeometry*(this: BRepTools_ShapeSet; S: TopoDS_Shape;
-                   OS: var Standard_OStream) {.noSideEffect,
-    importcpp: "WriteGeometry", header: "BRepTools_ShapeSet.hxx".}
-proc ReadGeometry*(this: var BRepTools_ShapeSet; T: TopAbs_ShapeEnum;
-                  IS: var Standard_IStream; S: var TopoDS_Shape) {.
+proc dumpGeometry*(this: BRepToolsShapeSet; s: TopoDS_Shape; os: var StandardOStream) {.
+    noSideEffect, importcpp: "DumpGeometry", header: "BRepTools_ShapeSet.hxx".}
+proc writeGeometry*(this: BRepToolsShapeSet; s: TopoDS_Shape; os: var StandardOStream) {.
+    noSideEffect, importcpp: "WriteGeometry", header: "BRepTools_ShapeSet.hxx".}
+proc readGeometry*(this: var BRepToolsShapeSet; t: TopAbsShapeEnum;
+                  `is`: var StandardIStream; s: var TopoDS_Shape) {.
     importcpp: "ReadGeometry", header: "BRepTools_ShapeSet.hxx".}
-proc AddShapes*(this: var BRepTools_ShapeSet; S1: var TopoDS_Shape; S2: TopoDS_Shape) {.
+proc addShapes*(this: var BRepToolsShapeSet; s1: var TopoDS_Shape; s2: TopoDS_Shape) {.
     importcpp: "AddShapes", header: "BRepTools_ShapeSet.hxx".}
-proc Check*(this: var BRepTools_ShapeSet; T: TopAbs_ShapeEnum; S: var TopoDS_Shape) {.
+proc check*(this: var BRepToolsShapeSet; t: TopAbsShapeEnum; s: var TopoDS_Shape) {.
     importcpp: "Check", header: "BRepTools_ShapeSet.hxx".}
-proc ReadPolygon3D*(this: var BRepTools_ShapeSet; IS: var Standard_IStream;
-                   theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc readPolygon3D*(this: var BRepToolsShapeSet; `is`: var StandardIStream;
+                   theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "ReadPolygon3D", header: "BRepTools_ShapeSet.hxx".}
-proc WritePolygon3D*(this: BRepTools_ShapeSet; OS: var Standard_OStream;
-                    Compact: Standard_Boolean = Standard_True; theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc writePolygon3D*(this: BRepToolsShapeSet; os: var StandardOStream;
+                    compact: bool = true;
+                    theProgress: MessageProgressRange = messageProgressRange()) {.
     noSideEffect, importcpp: "WritePolygon3D", header: "BRepTools_ShapeSet.hxx".}
-proc DumpPolygon3D*(this: BRepTools_ShapeSet; OS: var Standard_OStream) {.
-    noSideEffect, importcpp: "DumpPolygon3D", header: "BRepTools_ShapeSet.hxx".}
-proc ReadTriangulation*(this: var BRepTools_ShapeSet; IS: var Standard_IStream;
-    theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc dumpPolygon3D*(this: BRepToolsShapeSet; os: var StandardOStream) {.noSideEffect,
+    importcpp: "DumpPolygon3D", header: "BRepTools_ShapeSet.hxx".}
+proc readTriangulation*(this: var BRepToolsShapeSet; `is`: var StandardIStream;
+    theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "ReadTriangulation", header: "BRepTools_ShapeSet.hxx".}
-proc WriteTriangulation*(this: BRepTools_ShapeSet; OS: var Standard_OStream;
-                        Compact: Standard_Boolean = Standard_True; theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc writeTriangulation*(this: BRepToolsShapeSet; os: var StandardOStream;
+                        compact: bool = true; theProgress: MessageProgressRange = messageProgressRange()) {.
     noSideEffect, importcpp: "WriteTriangulation", header: "BRepTools_ShapeSet.hxx".}
-proc DumpTriangulation*(this: BRepTools_ShapeSet; OS: var Standard_OStream) {.
+proc dumpTriangulation*(this: BRepToolsShapeSet; os: var StandardOStream) {.
     noSideEffect, importcpp: "DumpTriangulation", header: "BRepTools_ShapeSet.hxx".}
-proc ReadPolygonOnTriangulation*(this: var BRepTools_ShapeSet;
-                                IS: var Standard_IStream; theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc readPolygonOnTriangulation*(this: var BRepToolsShapeSet;
+                                `is`: var StandardIStream; theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "ReadPolygonOnTriangulation", header: "BRepTools_ShapeSet.hxx".}
-proc WritePolygonOnTriangulation*(this: BRepTools_ShapeSet;
-                                 OS: var Standard_OStream;
-                                 Compact: Standard_Boolean = Standard_True;
-    theProgress: Message_ProgressRange = Message_ProgressRange()) {.noSideEffect,
-    importcpp: "WritePolygonOnTriangulation", header: "BRepTools_ShapeSet.hxx".}
-proc DumpPolygonOnTriangulation*(this: BRepTools_ShapeSet; OS: var Standard_OStream) {.
+proc writePolygonOnTriangulation*(this: BRepToolsShapeSet; os: var StandardOStream;
+                                 compact: bool = true; theProgress: MessageProgressRange = messageProgressRange()) {.
+    noSideEffect, importcpp: "WritePolygonOnTriangulation",
+    header: "BRepTools_ShapeSet.hxx".}
+proc dumpPolygonOnTriangulation*(this: BRepToolsShapeSet; os: var StandardOStream) {.
     noSideEffect, importcpp: "DumpPolygonOnTriangulation",
     header: "BRepTools_ShapeSet.hxx".}

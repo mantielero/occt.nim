@@ -14,55 +14,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../TopTools/TopTools_SequenceOfShape, ../Standard/Standard_Integer,
-  ../Standard/Standard_CString, ../Standard/Standard_Real,
-  ../Message/Message_ProgressRange
-
 discard "forward decl of IGESData_IGESModel"
 discard "forward decl of IGESToBRep_Actor"
 discard "forward decl of Transfer_TransientProcess"
 discard "forward decl of TopoDS_Shape"
 type
-  IGESToBRep_Reader* {.importcpp: "IGESToBRep_Reader",
-                      header: "IGESToBRep_Reader.hxx", bycopy.} = object ## ! Creates a Reader
+  IGESToBRepReader* {.importcpp: "IGESToBRep_Reader",
+                     header: "IGESToBRep_Reader.hxx", bycopy.} = object ## ! Creates a Reader
 
 
-proc constructIGESToBRep_Reader*(): IGESToBRep_Reader {.constructor,
+proc constructIGESToBRepReader*(): IGESToBRepReader {.constructor,
     importcpp: "IGESToBRep_Reader(@)", header: "IGESToBRep_Reader.hxx".}
-proc LoadFile*(this: var IGESToBRep_Reader; filename: Standard_CString): Standard_Integer {.
+proc loadFile*(this: var IGESToBRepReader; filename: StandardCString): int {.
     importcpp: "LoadFile", header: "IGESToBRep_Reader.hxx".}
-proc SetModel*(this: var IGESToBRep_Reader; model: handle[IGESData_IGESModel]) {.
+proc setModel*(this: var IGESToBRepReader; model: Handle[IGESDataIGESModel]) {.
     importcpp: "SetModel", header: "IGESToBRep_Reader.hxx".}
-proc Model*(this: IGESToBRep_Reader): handle[IGESData_IGESModel] {.noSideEffect,
+proc model*(this: IGESToBRepReader): Handle[IGESDataIGESModel] {.noSideEffect,
     importcpp: "Model", header: "IGESToBRep_Reader.hxx".}
-proc SetTransientProcess*(this: var IGESToBRep_Reader;
-                         TP: handle[Transfer_TransientProcess]) {.
+proc setTransientProcess*(this: var IGESToBRepReader;
+                         tp: Handle[TransferTransientProcess]) {.
     importcpp: "SetTransientProcess", header: "IGESToBRep_Reader.hxx".}
-proc TransientProcess*(this: IGESToBRep_Reader): handle[Transfer_TransientProcess] {.
+proc transientProcess*(this: IGESToBRepReader): Handle[TransferTransientProcess] {.
     noSideEffect, importcpp: "TransientProcess", header: "IGESToBRep_Reader.hxx".}
-proc Actor*(this: IGESToBRep_Reader): handle[IGESToBRep_Actor] {.noSideEffect,
+proc actor*(this: IGESToBRepReader): Handle[IGESToBRepActor] {.noSideEffect,
     importcpp: "Actor", header: "IGESToBRep_Reader.hxx".}
-proc Clear*(this: var IGESToBRep_Reader) {.importcpp: "Clear",
-                                       header: "IGESToBRep_Reader.hxx".}
-proc Check*(this: IGESToBRep_Reader; withprint: Standard_Boolean): Standard_Boolean {.
-    noSideEffect, importcpp: "Check", header: "IGESToBRep_Reader.hxx".}
-proc TransferRoots*(this: var IGESToBRep_Reader;
-                   onlyvisible: Standard_Boolean = Standard_True;
-                   theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc clear*(this: var IGESToBRepReader) {.importcpp: "Clear",
+                                      header: "IGESToBRep_Reader.hxx".}
+proc check*(this: IGESToBRepReader; withprint: bool): bool {.noSideEffect,
+    importcpp: "Check", header: "IGESToBRep_Reader.hxx".}
+proc transferRoots*(this: var IGESToBRepReader; onlyvisible: bool = true;
+                   theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "TransferRoots", header: "IGESToBRep_Reader.hxx".}
-proc Transfer*(this: var IGESToBRep_Reader; num: Standard_Integer;
-              theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
+proc transfer*(this: var IGESToBRepReader; num: int;
+              theProgress: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "Transfer", header: "IGESToBRep_Reader.hxx".}
-proc IsDone*(this: IGESToBRep_Reader): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "IGESToBRep_Reader.hxx".}
-proc UsedTolerance*(this: IGESToBRep_Reader): Standard_Real {.noSideEffect,
+proc isDone*(this: IGESToBRepReader): bool {.noSideEffect, importcpp: "IsDone",
+    header: "IGESToBRep_Reader.hxx".}
+proc usedTolerance*(this: IGESToBRepReader): float {.noSideEffect,
     importcpp: "UsedTolerance", header: "IGESToBRep_Reader.hxx".}
-proc NbShapes*(this: IGESToBRep_Reader): Standard_Integer {.noSideEffect,
-    importcpp: "NbShapes", header: "IGESToBRep_Reader.hxx".}
-proc Shape*(this: IGESToBRep_Reader; num: Standard_Integer = 1): TopoDS_Shape {.
-    noSideEffect, importcpp: "Shape", header: "IGESToBRep_Reader.hxx".}
-proc OneShape*(this: IGESToBRep_Reader): TopoDS_Shape {.noSideEffect,
+proc nbShapes*(this: IGESToBRepReader): int {.noSideEffect, importcpp: "NbShapes",
+    header: "IGESToBRep_Reader.hxx".}
+proc shape*(this: IGESToBRepReader; num: int = 1): TopoDS_Shape {.noSideEffect,
+    importcpp: "Shape", header: "IGESToBRep_Reader.hxx".}
+proc oneShape*(this: IGESToBRepReader): TopoDS_Shape {.noSideEffect,
     importcpp: "OneShape", header: "IGESToBRep_Reader.hxx".}

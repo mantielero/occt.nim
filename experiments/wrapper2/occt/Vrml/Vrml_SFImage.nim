@@ -14,52 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  Vrml_SFImageNumber, ../TColStd/TColStd_HArray1OfInteger,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Transient
-
 discard "forward decl of Vrml_SFImage"
 discard "forward decl of Vrml_SFImage"
 type
-  Handle_Vrml_SFImage* = handle[Vrml_SFImage]
+  HandleVrmlSFImage* = Handle[VrmlSFImage]
 
 ## ! defines SFImage type of VRML field types.
 
 type
-  Vrml_SFImage* {.importcpp: "Vrml_SFImage", header: "Vrml_SFImage.hxx", bycopy.} = object of Standard_Transient
+  VrmlSFImage* {.importcpp: "Vrml_SFImage", header: "Vrml_SFImage.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructVrml_SFImage*(): Vrml_SFImage {.constructor,
+proc constructVrmlSFImage*(): VrmlSFImage {.constructor,
     importcpp: "Vrml_SFImage(@)", header: "Vrml_SFImage.hxx".}
-proc constructVrml_SFImage*(aWidth: Standard_Integer; aHeight: Standard_Integer;
-                           aNumber: Vrml_SFImageNumber;
-                           anArray: handle[TColStd_HArray1OfInteger]): Vrml_SFImage {.
+proc constructVrmlSFImage*(aWidth: int; aHeight: int; aNumber: VrmlSFImageNumber;
+                          anArray: Handle[TColStdHArray1OfInteger]): VrmlSFImage {.
     constructor, importcpp: "Vrml_SFImage(@)", header: "Vrml_SFImage.hxx".}
-proc SetWidth*(this: var Vrml_SFImage; aWidth: Standard_Integer) {.
-    importcpp: "SetWidth", header: "Vrml_SFImage.hxx".}
-proc Width*(this: Vrml_SFImage): Standard_Integer {.noSideEffect, importcpp: "Width",
+proc setWidth*(this: var VrmlSFImage; aWidth: int) {.importcpp: "SetWidth",
     header: "Vrml_SFImage.hxx".}
-proc SetHeight*(this: var Vrml_SFImage; aHeight: Standard_Integer) {.
-    importcpp: "SetHeight", header: "Vrml_SFImage.hxx".}
-proc Height*(this: Vrml_SFImage): Standard_Integer {.noSideEffect,
-    importcpp: "Height", header: "Vrml_SFImage.hxx".}
-proc SetNumber*(this: var Vrml_SFImage; aNumber: Vrml_SFImageNumber) {.
+proc width*(this: VrmlSFImage): int {.noSideEffect, importcpp: "Width",
+                                  header: "Vrml_SFImage.hxx".}
+proc setHeight*(this: var VrmlSFImage; aHeight: int) {.importcpp: "SetHeight",
+    header: "Vrml_SFImage.hxx".}
+proc height*(this: VrmlSFImage): int {.noSideEffect, importcpp: "Height",
+                                   header: "Vrml_SFImage.hxx".}
+proc setNumber*(this: var VrmlSFImage; aNumber: VrmlSFImageNumber) {.
     importcpp: "SetNumber", header: "Vrml_SFImage.hxx".}
-proc Number*(this: Vrml_SFImage): Vrml_SFImageNumber {.noSideEffect,
+proc number*(this: VrmlSFImage): VrmlSFImageNumber {.noSideEffect,
     importcpp: "Number", header: "Vrml_SFImage.hxx".}
-proc SetArray*(this: var Vrml_SFImage; anArray: handle[TColStd_HArray1OfInteger]) {.
+proc setArray*(this: var VrmlSFImage; anArray: Handle[TColStdHArray1OfInteger]) {.
     importcpp: "SetArray", header: "Vrml_SFImage.hxx".}
-proc Array*(this: Vrml_SFImage): handle[TColStd_HArray1OfInteger] {.noSideEffect,
+proc array*(this: VrmlSFImage): Handle[TColStdHArray1OfInteger] {.noSideEffect,
     importcpp: "Array", header: "Vrml_SFImage.hxx".}
-proc ArrayFlag*(this: Vrml_SFImage): Standard_Boolean {.noSideEffect,
-    importcpp: "ArrayFlag", header: "Vrml_SFImage.hxx".}
+proc arrayFlag*(this: VrmlSFImage): bool {.noSideEffect, importcpp: "ArrayFlag",
+                                       header: "Vrml_SFImage.hxx".}
 type
-  Vrml_SFImagebase_type* = Standard_Transient
+  VrmlSFImagebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Vrml_SFImage::get_type_name(@)",
-                              header: "Vrml_SFImage.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Vrml_SFImage::get_type_name(@)",
+                            header: "Vrml_SFImage.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Vrml_SFImage::get_type_descriptor(@)", header: "Vrml_SFImage.hxx".}
-proc DynamicType*(this: Vrml_SFImage): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: VrmlSFImage): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Vrml_SFImage.hxx".}

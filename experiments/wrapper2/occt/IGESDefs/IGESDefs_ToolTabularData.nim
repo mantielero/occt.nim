@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESDefs_TabularData"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,42 +26,40 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESDefs_ToolTabularData* {.importcpp: "IGESDefs_ToolTabularData",
-                             header: "IGESDefs_ToolTabularData.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Returns
-                                                                                  ## a
-                                                                                  ## ToolTabularData,
-                                                                                  ## ready
-                                                                                  ## to
-                                                                                  ## work
+  IGESDefsToolTabularData* {.importcpp: "IGESDefs_ToolTabularData",
+                            header: "IGESDefs_ToolTabularData.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## Returns
+                                                                                 ## a
+                                                                                 ## ToolTabularData,
+                                                                                 ## ready
+                                                                                 ## to
+                                                                                 ## work
 
 
-proc constructIGESDefs_ToolTabularData*(): IGESDefs_ToolTabularData {.constructor,
+proc constructIGESDefsToolTabularData*(): IGESDefsToolTabularData {.constructor,
     importcpp: "IGESDefs_ToolTabularData(@)",
     header: "IGESDefs_ToolTabularData.hxx".}
-proc ReadOwnParams*(this: IGESDefs_ToolTabularData;
-                   ent: handle[IGESDefs_TabularData];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESDefs_ToolTabularData.hxx".}
-proc WriteOwnParams*(this: IGESDefs_ToolTabularData;
-                    ent: handle[IGESDefs_TabularData]; IW: var IGESData_IGESWriter) {.
+proc readOwnParams*(this: IGESDefsToolTabularData;
+                   ent: Handle[IGESDefsTabularData];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESDefs_ToolTabularData.hxx".}
+proc writeOwnParams*(this: IGESDefsToolTabularData;
+                    ent: Handle[IGESDefsTabularData]; iw: var IGESDataIGESWriter) {.
     noSideEffect, importcpp: "WriteOwnParams",
     header: "IGESDefs_ToolTabularData.hxx".}
-proc OwnShared*(this: IGESDefs_ToolTabularData; ent: handle[IGESDefs_TabularData];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESDefsToolTabularData; ent: Handle[IGESDefsTabularData];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESDefs_ToolTabularData.hxx".}
-proc DirChecker*(this: IGESDefs_ToolTabularData; ent: handle[IGESDefs_TabularData]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESDefsToolTabularData; ent: Handle[IGESDefsTabularData]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESDefs_ToolTabularData.hxx".}
-proc OwnCheck*(this: IGESDefs_ToolTabularData; ent: handle[IGESDefs_TabularData];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESDefsToolTabularData; ent: Handle[IGESDefsTabularData];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESDefs_ToolTabularData.hxx".}
-proc OwnCopy*(this: IGESDefs_ToolTabularData;
-             entfrom: handle[IGESDefs_TabularData];
-             entto: handle[IGESDefs_TabularData]; TC: var Interface_CopyTool) {.
+proc ownCopy*(this: IGESDefsToolTabularData; entfrom: Handle[IGESDefsTabularData];
+             entto: Handle[IGESDefsTabularData]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESDefs_ToolTabularData.hxx".}
-proc OwnDump*(this: IGESDefs_ToolTabularData; ent: handle[IGESDefs_TabularData];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
-                                    header: "IGESDefs_ToolTabularData.hxx".}
+proc ownDump*(this: IGESDefsToolTabularData; ent: Handle[IGESDefsTabularData];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump", header: "IGESDefs_ToolTabularData.hxx".}

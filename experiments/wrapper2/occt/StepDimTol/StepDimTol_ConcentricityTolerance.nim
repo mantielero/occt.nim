@@ -13,37 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepDimTol_GeometricToleranceWithDatumReference
-
 discard "forward decl of StepDimTol_ConcentricityTolerance"
 discard "forward decl of StepDimTol_ConcentricityTolerance"
 type
-  Handle_StepDimTol_ConcentricityTolerance* = handle[
-      StepDimTol_ConcentricityTolerance]
+  HandleStepDimTolConcentricityTolerance* = Handle[
+      StepDimTolConcentricityTolerance]
 
 ## ! Representation of STEP entity ConcentricityTolerance
 
 type
-  StepDimTol_ConcentricityTolerance* {.importcpp: "StepDimTol_ConcentricityTolerance", header: "StepDimTol_ConcentricityTolerance.hxx",
-                                      bycopy.} = object of StepDimTol_GeometricToleranceWithDatumReference ##
-                                                                                                      ## !
-                                                                                                      ## Empty
-                                                                                                      ## constructor
+  StepDimTolConcentricityTolerance* {.importcpp: "StepDimTol_ConcentricityTolerance", header: "StepDimTol_ConcentricityTolerance.hxx",
+                                     bycopy.} = object of StepDimTolGeometricToleranceWithDatumReference ##
+                                                                                                    ## !
+                                                                                                    ## Empty
+                                                                                                    ## constructor
 
 
-proc constructStepDimTol_ConcentricityTolerance*(): StepDimTol_ConcentricityTolerance {.
+proc constructStepDimTolConcentricityTolerance*(): StepDimTolConcentricityTolerance {.
     constructor, importcpp: "StepDimTol_ConcentricityTolerance(@)",
     header: "StepDimTol_ConcentricityTolerance.hxx".}
 type
-  StepDimTol_ConcentricityTolerancebase_type* = StepDimTol_GeometricToleranceWithDatumReference
+  StepDimTolConcentricityTolerancebaseType* = StepDimTolGeometricToleranceWithDatumReference
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_ConcentricityTolerance::get_type_name(@)",
-                              header: "StepDimTol_ConcentricityTolerance.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_ConcentricityTolerance::get_type_name(@)",
+                            header: "StepDimTol_ConcentricityTolerance.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_ConcentricityTolerance::get_type_descriptor(@)",
     header: "StepDimTol_ConcentricityTolerance.hxx".}
-proc DynamicType*(this: StepDimTol_ConcentricityTolerance): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolConcentricityTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_ConcentricityTolerance.hxx".}

@@ -14,29 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRepBuild_Area2dBuilder,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TopOpeBRepBuild_LoopSet"
 discard "forward decl of TopOpeBRepBuild_LoopClassifier"
 type
-  TopOpeBRepBuild_FaceAreaBuilder* {.importcpp: "TopOpeBRepBuild_FaceAreaBuilder", header: "TopOpeBRepBuild_FaceAreaBuilder.hxx",
-                                    bycopy.} = object of TopOpeBRepBuild_Area2dBuilder
+  TopOpeBRepBuildFaceAreaBuilder* {.importcpp: "TopOpeBRepBuild_FaceAreaBuilder", header: "TopOpeBRepBuild_FaceAreaBuilder.hxx",
+                                   bycopy.} = object of TopOpeBRepBuildArea2dBuilder
 
 
-proc constructTopOpeBRepBuild_FaceAreaBuilder*(): TopOpeBRepBuild_FaceAreaBuilder {.
+proc constructTopOpeBRepBuildFaceAreaBuilder*(): TopOpeBRepBuildFaceAreaBuilder {.
     constructor, importcpp: "TopOpeBRepBuild_FaceAreaBuilder(@)",
     header: "TopOpeBRepBuild_FaceAreaBuilder.hxx".}
-proc constructTopOpeBRepBuild_FaceAreaBuilder*(LS: var TopOpeBRepBuild_LoopSet;
-    LC: var TopOpeBRepBuild_LoopClassifier;
-    ForceClass: Standard_Boolean = Standard_False): TopOpeBRepBuild_FaceAreaBuilder {.
+proc constructTopOpeBRepBuildFaceAreaBuilder*(ls: var TopOpeBRepBuildLoopSet;
+    lc: var TopOpeBRepBuildLoopClassifier; forceClass: bool = false): TopOpeBRepBuildFaceAreaBuilder {.
     constructor, importcpp: "TopOpeBRepBuild_FaceAreaBuilder(@)",
     header: "TopOpeBRepBuild_FaceAreaBuilder.hxx".}
-proc InitFaceAreaBuilder*(this: var TopOpeBRepBuild_FaceAreaBuilder;
-                         LS: var TopOpeBRepBuild_LoopSet;
-                         LC: var TopOpeBRepBuild_LoopClassifier;
-                         ForceClass: Standard_Boolean = Standard_False) {.
+proc initFaceAreaBuilder*(this: var TopOpeBRepBuildFaceAreaBuilder;
+                         ls: var TopOpeBRepBuildLoopSet;
+                         lc: var TopOpeBRepBuildLoopClassifier;
+                         forceClass: bool = false) {.
     importcpp: "InitFaceAreaBuilder",
     header: "TopOpeBRepBuild_FaceAreaBuilder.hxx".}

@@ -11,24 +11,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_FrameStats, OpenGl_Text
-
 discard "forward decl of Graphic3d_ArrayOfTriangles"
 discard "forward decl of Graphic3d_TransformPers"
 discard "forward decl of OpenGl_IndexBuffer"
 discard "forward decl of OpenGl_VertexBuffer"
 type
-  OpenGl_FrameStatsPrs* {.importcpp: "OpenGl_FrameStatsPrs",
-                         header: "OpenGl_FrameStatsPrs.hxx", bycopy.} = object of OpenGl_Element ##
-                                                                                          ## !
-                                                                                          ## Default
-                                                                                          ## constructor.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Update
-                                                                                          ## chart
-                                                                                          ## presentation.
+  OpenGlFrameStatsPrs* {.importcpp: "OpenGl_FrameStatsPrs",
+                        header: "OpenGl_FrameStatsPrs.hxx", bycopy.} = object of OpenGlElement ##
+                                                                                        ## !
+                                                                                        ## Default
+                                                                                        ## constructor.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Update
+                                                                                        ## chart
+                                                                                        ## presentation.
     ## !< currently displayed stats
     ## !< transformation persistence for counters presentation
     ## !< counters presentation
@@ -41,19 +38,19 @@ type
     ## !< chart labels
 
 
-proc constructOpenGl_FrameStatsPrs*(): OpenGl_FrameStatsPrs {.constructor,
+proc constructOpenGlFrameStatsPrs*(): OpenGlFrameStatsPrs {.constructor,
     importcpp: "OpenGl_FrameStatsPrs(@)", header: "OpenGl_FrameStatsPrs.hxx".}
-proc destroyOpenGl_FrameStatsPrs*(this: var OpenGl_FrameStatsPrs) {.
+proc destroyOpenGlFrameStatsPrs*(this: var OpenGlFrameStatsPrs) {.
     importcpp: "#.~OpenGl_FrameStatsPrs()", header: "OpenGl_FrameStatsPrs.hxx".}
-proc Render*(this: OpenGl_FrameStatsPrs; theWorkspace: handle[OpenGl_Workspace]) {.
+proc render*(this: OpenGlFrameStatsPrs; theWorkspace: Handle[OpenGlWorkspace]) {.
     noSideEffect, importcpp: "Render", header: "OpenGl_FrameStatsPrs.hxx".}
-proc Release*(this: var OpenGl_FrameStatsPrs; theCtx: ptr OpenGl_Context) {.
+proc release*(this: var OpenGlFrameStatsPrs; theCtx: ptr OpenGlContext) {.
     importcpp: "Release", header: "OpenGl_FrameStatsPrs.hxx".}
-proc Update*(this: var OpenGl_FrameStatsPrs; theWorkspace: handle[OpenGl_Workspace]) {.
+proc update*(this: var OpenGlFrameStatsPrs; theWorkspace: Handle[OpenGlWorkspace]) {.
     importcpp: "Update", header: "OpenGl_FrameStatsPrs.hxx".}
-proc SetTextAspect*(this: var OpenGl_FrameStatsPrs;
-                   theAspect: handle[Graphic3d_AspectText3d]) {.
+proc setTextAspect*(this: var OpenGlFrameStatsPrs;
+                   theAspect: Handle[Graphic3dAspectText3d]) {.
     importcpp: "SetTextAspect", header: "OpenGl_FrameStatsPrs.hxx".}
-proc DumpJson*(this: OpenGl_FrameStatsPrs; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "OpenGl_FrameStatsPrs.hxx".}
+proc dumpJson*(this: OpenGlFrameStatsPrs; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "OpenGl_FrameStatsPrs.hxx".}

@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TopOpeBRep_VPointInter, ../NCollection/NCollection_Array1
-
 type
-  TopOpeBRep_Array1OfVPointInter* = NCollection_Array1[TopOpeBRep_VPointInter]
+  TopOpeBRepArray1OfVPointInter* = NCollectionArray1[TopOpeBRepVPointInter]
+

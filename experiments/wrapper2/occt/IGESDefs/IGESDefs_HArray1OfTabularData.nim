@@ -14,40 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IGESDefs_TabularData, IGESDefs_Array1OfTabularData,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  IGESDefs_HArray1OfTabularData* {.importcpp: "IGESDefs_HArray1OfTabularData",
-                                  header: "IGESDefs_HArray1OfTabularData.hxx",
-                                  bycopy.} = object of IGESDefs_Array1OfTabularData
+  IGESDefsHArray1OfTabularData* {.importcpp: "IGESDefs_HArray1OfTabularData",
+                                 header: "IGESDefs_HArray1OfTabularData.hxx",
+                                 bycopy.} = object of IGESDefsArray1OfTabularData
 
 
-proc constructIGESDefs_HArray1OfTabularData*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): IGESDefs_HArray1OfTabularData {.constructor,
+proc constructIGESDefsHArray1OfTabularData*(theLower: int; theUpper: int): IGESDefsHArray1OfTabularData {.
+    constructor, importcpp: "IGESDefs_HArray1OfTabularData(@)",
+    header: "IGESDefs_HArray1OfTabularData.hxx".}
+proc constructIGESDefsHArray1OfTabularData*(theLower: int; theUpper: int;
+    theValue: ValueType): IGESDefsHArray1OfTabularData {.constructor,
     importcpp: "IGESDefs_HArray1OfTabularData(@)",
     header: "IGESDefs_HArray1OfTabularData.hxx".}
-proc constructIGESDefs_HArray1OfTabularData*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): IGESDefs_HArray1OfTabularData {.
+proc constructIGESDefsHArray1OfTabularData*(theOther: IGESDefsArray1OfTabularData): IGESDefsHArray1OfTabularData {.
     constructor, importcpp: "IGESDefs_HArray1OfTabularData(@)",
     header: "IGESDefs_HArray1OfTabularData.hxx".}
-proc constructIGESDefs_HArray1OfTabularData*(
-    theOther: IGESDefs_Array1OfTabularData): IGESDefs_HArray1OfTabularData {.
-    constructor, importcpp: "IGESDefs_HArray1OfTabularData(@)",
-    header: "IGESDefs_HArray1OfTabularData.hxx".}
-proc Array1*(this: IGESDefs_HArray1OfTabularData): IGESDefs_Array1OfTabularData {.
+proc array1*(this: IGESDefsHArray1OfTabularData): IGESDefsArray1OfTabularData {.
     noSideEffect, importcpp: "Array1", header: "IGESDefs_HArray1OfTabularData.hxx".}
-proc ChangeArray1*(this: var IGESDefs_HArray1OfTabularData): var IGESDefs_Array1OfTabularData {.
+proc changeArray1*(this: var IGESDefsHArray1OfTabularData): var IGESDefsArray1OfTabularData {.
     importcpp: "ChangeArray1", header: "IGESDefs_HArray1OfTabularData.hxx".}
 type
-  IGESDefs_HArray1OfTabularDatabase_type* = MMgt_TShared
+  IGESDefsHArray1OfTabularDatabaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "IGESDefs_HArray1OfTabularData::get_type_name(@)",
-                              header: "IGESDefs_HArray1OfTabularData.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESDefs_HArray1OfTabularData::get_type_name(@)",
+                            header: "IGESDefs_HArray1OfTabularData.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESDefs_HArray1OfTabularData::get_type_descriptor(@)",
     header: "IGESDefs_HArray1OfTabularData.hxx".}
-proc DynamicType*(this: IGESDefs_HArray1OfTabularData): handle[Standard_Type] {.
+proc dynamicType*(this: IGESDefsHArray1OfTabularData): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESDefs_HArray1OfTabularData.hxx".}

@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Byte, ../NCollection/NCollection_List
-
 type
-  TDataStd_ListOfByte* = NCollection_List[Standard_Byte]
-  TDataStd_ListIteratorOfListOfByte* = Iterator[Standard_Byte]
+  TDataStdListOfByte* = NCollectionList[StandardByte]
+  TDataStdListIteratorOfListOfByte* = Iterator[StandardByte]
+

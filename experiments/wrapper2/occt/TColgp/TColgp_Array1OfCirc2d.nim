@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Circ2d, ../NCollection/NCollection_Array1
-
 type
-  TColgp_Array1OfCirc2d* = NCollection_Array1[gp_Circ2d]
+  TColgpArray1OfCirc2d* = NCollectionArray1[Circ2d]
+

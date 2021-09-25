@@ -14,78 +14,74 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _BRepApprox_TheMultiLineToolOfApprox_HeaderFile [NewLine] # _BRepApprox_TheMultiLineToolOfApprox_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Standard/Standard_Integer.hxx [NewLine] # ../TColgp/TColgp_Array1OfPnt.hxx [NewLine] # ../TColgp/TColgp_Array1OfPnt2d.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # ../TColgp/TColgp_Array1OfVec.hxx [NewLine] # ../TColgp/TColgp_Array1OfVec2d.hxx [NewLine] # BRepApprox_TheMultiLineOfApprox.hxx [NewLine] # ../Approx/Approx_Status.hxx [NewLine] class BRepApprox_TheMultiLineOfApprox ;
+## !!!Ignored construct:  # _BRepApprox_TheMultiLineToolOfApprox_HeaderFile [NewLine] # _BRepApprox_TheMultiLineToolOfApprox_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] # < TColgp_Array1OfPnt . hxx > [NewLine] # < TColgp_Array1OfPnt2d . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < TColgp_Array1OfVec . hxx > [NewLine] # < TColgp_Array1OfVec2d . hxx > [NewLine] # < BRepApprox_TheMultiLineOfApprox . hxx > [NewLine] # < Approx_Status . hxx > [NewLine] class BRepApprox_TheMultiLineOfApprox ;
 ## Error: did not expect <!!!
 
 discard "forward decl of ApproxInt_SvSurfaces"
 type
-  BRepApprox_TheMultiLineToolOfApprox* {.importcpp: "BRepApprox_TheMultiLineToolOfApprox", header: "BRepApprox_TheMultiLineToolOfApprox.hxx",
-                                        bycopy.} = object ## ! Returns the number of multipoints of the TheMultiLine.
+  BRepApproxTheMultiLineToolOfApprox* {.importcpp: "BRepApprox_TheMultiLineToolOfApprox", header: "BRepApprox_TheMultiLineToolOfApprox.hxx",
+                                       bycopy.} = object ## ! Returns the number of multipoints of the TheMultiLine.
 
 
-proc FirstPoint*(ML: BRepApprox_TheMultiLineOfApprox): Standard_Integer {.
+proc firstPoint*(ml: BRepApproxTheMultiLineOfApprox): int {.
     importcpp: "BRepApprox_TheMultiLineToolOfApprox::FirstPoint(@)",
     header: "BRepApprox_TheMultiLineToolOfApprox.hxx".}
-proc LastPoint*(ML: BRepApprox_TheMultiLineOfApprox): Standard_Integer {.
+proc lastPoint*(ml: BRepApproxTheMultiLineOfApprox): int {.
     importcpp: "BRepApprox_TheMultiLineToolOfApprox::LastPoint(@)",
     header: "BRepApprox_TheMultiLineToolOfApprox.hxx".}
-proc NbP2d*(ML: BRepApprox_TheMultiLineOfApprox): Standard_Integer {.
+proc nbP2d*(ml: BRepApproxTheMultiLineOfApprox): int {.
     importcpp: "BRepApprox_TheMultiLineToolOfApprox::NbP2d(@)",
     header: "BRepApprox_TheMultiLineToolOfApprox.hxx".}
-proc NbP3d*(ML: BRepApprox_TheMultiLineOfApprox): Standard_Integer {.
+proc nbP3d*(ml: BRepApproxTheMultiLineOfApprox): int {.
     importcpp: "BRepApprox_TheMultiLineToolOfApprox::NbP3d(@)",
     header: "BRepApprox_TheMultiLineToolOfApprox.hxx".}
-proc Value*(ML: BRepApprox_TheMultiLineOfApprox; MPointIndex: Standard_Integer;
-           tabPt: var TColgp_Array1OfPnt) {.
+proc value*(ml: BRepApproxTheMultiLineOfApprox; mPointIndex: int;
+           tabPt: var TColgpArray1OfPnt) {.importcpp: "BRepApprox_TheMultiLineToolOfApprox::Value(@)", header: "BRepApprox_TheMultiLineToolOfApprox.hxx".}
+proc value*(ml: BRepApproxTheMultiLineOfApprox; mPointIndex: int;
+           tabPt2d: var TColgpArray1OfPnt2d) {.
     importcpp: "BRepApprox_TheMultiLineToolOfApprox::Value(@)",
     header: "BRepApprox_TheMultiLineToolOfApprox.hxx".}
-proc Value*(ML: BRepApprox_TheMultiLineOfApprox; MPointIndex: Standard_Integer;
-           tabPt2d: var TColgp_Array1OfPnt2d) {.
+proc value*(ml: BRepApproxTheMultiLineOfApprox; mPointIndex: int;
+           tabPt: var TColgpArray1OfPnt; tabPt2d: var TColgpArray1OfPnt2d) {.
     importcpp: "BRepApprox_TheMultiLineToolOfApprox::Value(@)",
     header: "BRepApprox_TheMultiLineToolOfApprox.hxx".}
-proc Value*(ML: BRepApprox_TheMultiLineOfApprox; MPointIndex: Standard_Integer;
-           tabPt: var TColgp_Array1OfPnt; tabPt2d: var TColgp_Array1OfPnt2d) {.
-    importcpp: "BRepApprox_TheMultiLineToolOfApprox::Value(@)",
-    header: "BRepApprox_TheMultiLineToolOfApprox.hxx".}
-proc Tangency*(ML: BRepApprox_TheMultiLineOfApprox; MPointIndex: Standard_Integer;
-              tabV: var TColgp_Array1OfVec): Standard_Boolean {.
+proc tangency*(ml: BRepApproxTheMultiLineOfApprox; mPointIndex: int;
+              tabV: var TColgpArray1OfVec): bool {.
     importcpp: "BRepApprox_TheMultiLineToolOfApprox::Tangency(@)",
     header: "BRepApprox_TheMultiLineToolOfApprox.hxx".}
-proc Tangency*(ML: BRepApprox_TheMultiLineOfApprox; MPointIndex: Standard_Integer;
-              tabV2d: var TColgp_Array1OfVec2d): Standard_Boolean {.
+proc tangency*(ml: BRepApproxTheMultiLineOfApprox; mPointIndex: int;
+              tabV2d: var TColgpArray1OfVec2d): bool {.
     importcpp: "BRepApprox_TheMultiLineToolOfApprox::Tangency(@)",
     header: "BRepApprox_TheMultiLineToolOfApprox.hxx".}
-proc Tangency*(ML: BRepApprox_TheMultiLineOfApprox; MPointIndex: Standard_Integer;
-              tabV: var TColgp_Array1OfVec; tabV2d: var TColgp_Array1OfVec2d): Standard_Boolean {.
+proc tangency*(ml: BRepApproxTheMultiLineOfApprox; mPointIndex: int;
+              tabV: var TColgpArray1OfVec; tabV2d: var TColgpArray1OfVec2d): bool {.
     importcpp: "BRepApprox_TheMultiLineToolOfApprox::Tangency(@)",
     header: "BRepApprox_TheMultiLineToolOfApprox.hxx".}
-proc Curvature*(ML: BRepApprox_TheMultiLineOfApprox; MPointIndex: Standard_Integer;
-               tabV: var TColgp_Array1OfVec): Standard_Boolean {.
+proc curvature*(ml: BRepApproxTheMultiLineOfApprox; mPointIndex: int;
+               tabV: var TColgpArray1OfVec): bool {.
     importcpp: "BRepApprox_TheMultiLineToolOfApprox::Curvature(@)",
     header: "BRepApprox_TheMultiLineToolOfApprox.hxx".}
-proc Curvature*(ML: BRepApprox_TheMultiLineOfApprox; MPointIndex: Standard_Integer;
-               tabV2d: var TColgp_Array1OfVec2d): Standard_Boolean {.
+proc curvature*(ml: BRepApproxTheMultiLineOfApprox; mPointIndex: int;
+               tabV2d: var TColgpArray1OfVec2d): bool {.
     importcpp: "BRepApprox_TheMultiLineToolOfApprox::Curvature(@)",
     header: "BRepApprox_TheMultiLineToolOfApprox.hxx".}
-proc Curvature*(ML: BRepApprox_TheMultiLineOfApprox; MPointIndex: Standard_Integer;
-               tabV: var TColgp_Array1OfVec; tabV2d: var TColgp_Array1OfVec2d): Standard_Boolean {.
+proc curvature*(ml: BRepApproxTheMultiLineOfApprox; mPointIndex: int;
+               tabV: var TColgpArray1OfVec; tabV2d: var TColgpArray1OfVec2d): bool {.
     importcpp: "BRepApprox_TheMultiLineToolOfApprox::Curvature(@)",
     header: "BRepApprox_TheMultiLineToolOfApprox.hxx".}
-proc MakeMLBetween*(ML: BRepApprox_TheMultiLineOfApprox; I1: Standard_Integer;
-                   I2: Standard_Integer; NbPMin: Standard_Integer): BRepApprox_TheMultiLineOfApprox {.
+proc makeMLBetween*(ml: BRepApproxTheMultiLineOfApprox; i1: int; i2: int; nbPMin: int): BRepApproxTheMultiLineOfApprox {.
     importcpp: "BRepApprox_TheMultiLineToolOfApprox::MakeMLBetween(@)",
     header: "BRepApprox_TheMultiLineToolOfApprox.hxx".}
-proc MakeMLOneMorePoint*(ML: BRepApprox_TheMultiLineOfApprox; I1: Standard_Integer;
-                        I2: Standard_Integer; indbad: Standard_Integer;
-                        OtherLine: var BRepApprox_TheMultiLineOfApprox): Standard_Boolean {.
+proc makeMLOneMorePoint*(ml: BRepApproxTheMultiLineOfApprox; i1: int; i2: int;
+                        indbad: int; otherLine: var BRepApproxTheMultiLineOfApprox): bool {.
     importcpp: "BRepApprox_TheMultiLineToolOfApprox::MakeMLOneMorePoint(@)",
     header: "BRepApprox_TheMultiLineToolOfApprox.hxx".}
-proc WhatStatus*(ML: BRepApprox_TheMultiLineOfApprox; I1: Standard_Integer;
-                I2: Standard_Integer): Approx_Status {.
+proc whatStatus*(ml: BRepApproxTheMultiLineOfApprox; i1: int; i2: int): ApproxStatus {.
     importcpp: "BRepApprox_TheMultiLineToolOfApprox::WhatStatus(@)",
     header: "BRepApprox_TheMultiLineToolOfApprox.hxx".}
-proc Dump*(ML: BRepApprox_TheMultiLineOfApprox) {.
+proc dump*(ml: BRepApproxTheMultiLineOfApprox) {.
     importcpp: "BRepApprox_TheMultiLineToolOfApprox::Dump(@)",
     header: "BRepApprox_TheMultiLineToolOfApprox.hxx".}
-## !!!Ignored construct:  # TheMultiLine BRepApprox_TheMultiLineOfApprox [NewLine] # TheMultiLine_hxx < BRepApprox_TheMultiLineOfApprox . hxx > [NewLine] # TheMultiMPoint ApproxInt_SvSurfaces [NewLine] # TheMultiMPoint_hxx < ApproxInt_SvSurfaces . hxx > [NewLine] # ApproxInt_MultiLineTool BRepApprox_TheMultiLineToolOfApprox [NewLine] # ApproxInt_MultiLineTool_hxx < BRepApprox_TheMultiLineToolOfApprox . hxx > [NewLine] # < ApproxInt_MultiLineTool . lxx > [NewLine] # TheMultiLine [NewLine] # TheMultiLine_hxx [NewLine] # TheMultiMPoint [NewLine] # TheMultiMPoint_hxx [NewLine] # ApproxInt_MultiLineTool [NewLine] # ApproxInt_MultiLineTool_hxx [NewLine] #  _BRepApprox_TheMultiLineToolOfApprox_HeaderFile [NewLine]
+## !!!Ignored construct:  # TheMultiLine BRepApprox_TheMultiLineOfApprox [NewLine] # TheMultiLine_hxx < BRepApprox_TheMultiLineOfApprox . hxx > [NewLine] # TheMultiMPoint ApproxInt_SvSurfaces [NewLine] # TheMultiMPoint_hxx < ApproxInt_SvSurfaces . hxx > [NewLine] # ApproxInt_MultiLineTool BRepApprox_TheMultiLineToolOfApprox [NewLine] # ApproxInt_MultiLineTool_hxx < BRepApprox_TheMultiLineToolOfApprox . hxx > [NewLine] # < ApproxInt_MultiLineTool . lxx > [NewLine] # TheMultiLine [NewLine] # TheMultiLine_hxx [NewLine] # TheMultiMPoint [NewLine] # TheMultiMPoint_hxx [NewLine] # ApproxInt_MultiLineTool [NewLine] # ApproxInt_MultiLineTool_hxx [NewLine] #  _BRepApprox_TheMultiLineToolOfApprox_HeaderFile
 ## Error: did not expect <!!!
+

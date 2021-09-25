@@ -14,50 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  StepShape_SweptAreaSolid
-
 discard "forward decl of StepGeom_Axis1Placement"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_CurveBoundedSurface"
 discard "forward decl of StepShape_RevolvedAreaSolid"
 discard "forward decl of StepShape_RevolvedAreaSolid"
 type
-  Handle_StepShape_RevolvedAreaSolid* = handle[StepShape_RevolvedAreaSolid]
-  StepShape_RevolvedAreaSolid* {.importcpp: "StepShape_RevolvedAreaSolid",
-                                header: "StepShape_RevolvedAreaSolid.hxx", bycopy.} = object of StepShape_SweptAreaSolid ##
-                                                                                                                  ## !
-                                                                                                                  ## Returns
-                                                                                                                  ## a
-                                                                                                                  ## RevolvedAreaSolid
+  HandleStepShapeRevolvedAreaSolid* = Handle[StepShapeRevolvedAreaSolid]
+  StepShapeRevolvedAreaSolid* {.importcpp: "StepShape_RevolvedAreaSolid",
+                               header: "StepShape_RevolvedAreaSolid.hxx", bycopy.} = object of StepShapeSweptAreaSolid ##
+                                                                                                                ## !
+                                                                                                                ## Returns
+                                                                                                                ## a
+                                                                                                                ## RevolvedAreaSolid
 
 
-proc constructStepShape_RevolvedAreaSolid*(): StepShape_RevolvedAreaSolid {.
+proc constructStepShapeRevolvedAreaSolid*(): StepShapeRevolvedAreaSolid {.
     constructor, importcpp: "StepShape_RevolvedAreaSolid(@)",
     header: "StepShape_RevolvedAreaSolid.hxx".}
-proc Init*(this: var StepShape_RevolvedAreaSolid;
-          aName: handle[TCollection_HAsciiString];
-          aSweptArea: handle[StepGeom_CurveBoundedSurface];
-          aAxis: handle[StepGeom_Axis1Placement]; aAngle: Standard_Real) {.
-    importcpp: "Init", header: "StepShape_RevolvedAreaSolid.hxx".}
-proc SetAxis*(this: var StepShape_RevolvedAreaSolid;
-             aAxis: handle[StepGeom_Axis1Placement]) {.importcpp: "SetAxis",
+proc init*(this: var StepShapeRevolvedAreaSolid;
+          aName: Handle[TCollectionHAsciiString];
+          aSweptArea: Handle[StepGeomCurveBoundedSurface];
+          aAxis: Handle[StepGeomAxis1Placement]; aAngle: float) {.importcpp: "Init",
     header: "StepShape_RevolvedAreaSolid.hxx".}
-proc Axis*(this: StepShape_RevolvedAreaSolid): handle[StepGeom_Axis1Placement] {.
+proc setAxis*(this: var StepShapeRevolvedAreaSolid;
+             aAxis: Handle[StepGeomAxis1Placement]) {.importcpp: "SetAxis",
+    header: "StepShape_RevolvedAreaSolid.hxx".}
+proc axis*(this: StepShapeRevolvedAreaSolid): Handle[StepGeomAxis1Placement] {.
     noSideEffect, importcpp: "Axis", header: "StepShape_RevolvedAreaSolid.hxx".}
-proc SetAngle*(this: var StepShape_RevolvedAreaSolid; aAngle: Standard_Real) {.
+proc setAngle*(this: var StepShapeRevolvedAreaSolid; aAngle: float) {.
     importcpp: "SetAngle", header: "StepShape_RevolvedAreaSolid.hxx".}
-proc Angle*(this: StepShape_RevolvedAreaSolid): Standard_Real {.noSideEffect,
+proc angle*(this: StepShapeRevolvedAreaSolid): float {.noSideEffect,
     importcpp: "Angle", header: "StepShape_RevolvedAreaSolid.hxx".}
 type
-  StepShape_RevolvedAreaSolidbase_type* = StepShape_SweptAreaSolid
+  StepShapeRevolvedAreaSolidbaseType* = StepShapeSweptAreaSolid
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_RevolvedAreaSolid::get_type_name(@)",
-                              header: "StepShape_RevolvedAreaSolid.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_RevolvedAreaSolid::get_type_name(@)",
+                            header: "StepShape_RevolvedAreaSolid.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_RevolvedAreaSolid::get_type_descriptor(@)",
     header: "StepShape_RevolvedAreaSolid.hxx".}
-proc DynamicType*(this: StepShape_RevolvedAreaSolid): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeRevolvedAreaSolid): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_RevolvedAreaSolid.hxx".}

@@ -13,25 +13,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Real
-
 ## ! Fast random number generator (the algorithm proposed by Ian C. Bullard).
 
 type
-  math_BullardGenerator* {.importcpp: "math_BullardGenerator",
-                          header: "math_BullardGenerator.hxx", bycopy.} = object ## !
-                                                                            ## Creates new
-                                                                            ## Xorshift
-                                                                            ## 64-bit RNG.
+  MathBullardGenerator* {.importcpp: "math_BullardGenerator",
+                         header: "math_BullardGenerator.hxx", bycopy.} = object ## !
+                                                                           ## Creates new
+                                                                           ## Xorshift
+                                                                           ## 64-bit RNG.
 
 
-proc constructmath_BullardGenerator*(theSeed: cuint = 1): math_BullardGenerator {.
+proc constructMathBullardGenerator*(theSeed: cuint = 1): MathBullardGenerator {.
     constructor, importcpp: "math_BullardGenerator(@)",
     header: "math_BullardGenerator.hxx".}
-proc SetSeed*(this: var math_BullardGenerator; theSeed: cuint = 1) {.
+proc setSeed*(this: var MathBullardGenerator; theSeed: cuint = 1) {.
     importcpp: "SetSeed", header: "math_BullardGenerator.hxx".}
-proc NextInt*(this: var math_BullardGenerator): cuint {.importcpp: "NextInt",
+proc nextInt*(this: var MathBullardGenerator): cuint {.importcpp: "NextInt",
     header: "math_BullardGenerator.hxx".}
-proc NextReal*(this: var math_BullardGenerator): Standard_Real {.
-    importcpp: "NextReal", header: "math_BullardGenerator.hxx".}
+proc nextReal*(this: var MathBullardGenerator): float {.importcpp: "NextReal",
+    header: "math_BullardGenerator.hxx".}

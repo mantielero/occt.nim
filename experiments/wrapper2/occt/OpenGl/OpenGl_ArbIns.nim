@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_GlFunctions
-
 ## ! Instancing is available on OpenGL 3.0+ hardware
 ## ! (in core since OpenGL 3.1 or GL_ARB_draw_instanced extension).
 ## !
@@ -23,9 +20,10 @@ import
 ## ! which has been introduced in later OpenGL versions (OpenGL 3.3 or OpenGL ES 3.0).
 
 type
-  OpenGl_ArbIns* {.importcpp: "OpenGl_ArbIns", header: "OpenGl_ArbIns.hxx", bycopy.} = object of OpenGl_GlFunctions
+  OpenGlArbIns* {.importcpp: "OpenGl_ArbIns", header: "OpenGl_ArbIns.hxx", bycopy.} = object of OpenGlGlFunctions
 
 
 ## using statement
 
 ## using statement
+

@@ -13,33 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  BRepMesh_DefaultRangeSplitter, ../IMeshTools/IMeshTools_Parameters
-
 ## ! Auxiliary class extending default range splitter in
 ## ! order to generate internal nodes for spherical surface.
 
 type
-  BRepMesh_SphereRangeSplitter* {.importcpp: "BRepMesh_SphereRangeSplitter",
-                                 header: "BRepMesh_SphereRangeSplitter.hxx",
-                                 bycopy.} = object of BRepMesh_DefaultRangeSplitter ## !
-                                                                               ## Constructor.
-                                                                               ## !
-                                                                               ## Computes
-                                                                               ## step
-                                                                               ## for
-                                                                               ## the
-                                                                               ## given
-                                                                               ## range.
+  BRepMeshSphereRangeSplitter* {.importcpp: "BRepMesh_SphereRangeSplitter",
+                                header: "BRepMesh_SphereRangeSplitter.hxx", bycopy.} = object of BRepMeshDefaultRangeSplitter ##
+                                                                                                                       ## !
+                                                                                                                       ## Constructor.
+                                                                                                                       ##
+                                                                                                                       ## !
+                                                                                                                       ## Computes
+                                                                                                                       ## step
+                                                                                                                       ## for
+                                                                                                                       ## the
+                                                                                                                       ## given
+                                                                                                                       ## range.
 
 
-proc constructBRepMesh_SphereRangeSplitter*(): BRepMesh_SphereRangeSplitter {.
+proc constructBRepMeshSphereRangeSplitter*(): BRepMeshSphereRangeSplitter {.
     constructor, importcpp: "BRepMesh_SphereRangeSplitter(@)",
     header: "BRepMesh_SphereRangeSplitter.hxx".}
-proc destroyBRepMesh_SphereRangeSplitter*(this: var BRepMesh_SphereRangeSplitter) {.
+proc destroyBRepMeshSphereRangeSplitter*(this: var BRepMeshSphereRangeSplitter) {.
     importcpp: "#.~BRepMesh_SphereRangeSplitter()",
     header: "BRepMesh_SphereRangeSplitter.hxx".}
-proc GenerateSurfaceNodes*(this: BRepMesh_SphereRangeSplitter;
-                          theParameters: IMeshTools_Parameters): handle[
-    ListOfPnt2d] {.noSideEffect, importcpp: "GenerateSurfaceNodes",
-                  header: "BRepMesh_SphereRangeSplitter.hxx".}
+proc generateSurfaceNodes*(this: BRepMeshSphereRangeSplitter;
+                          theParameters: IMeshToolsParameters): Handle[ListOfPnt2d] {.
+    noSideEffect, importcpp: "GenerateSurfaceNodes",
+    header: "BRepMesh_SphereRangeSplitter.hxx".}

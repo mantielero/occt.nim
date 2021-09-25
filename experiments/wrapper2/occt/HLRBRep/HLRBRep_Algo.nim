@@ -14,16 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, HLRBRep_InternalAlgo,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Standard_Transient"
 discard "forward decl of HLRBRep_Algo"
 discard "forward decl of HLRBRep_Algo"
 type
-  Handle_HLRBRep_Algo* = handle[HLRBRep_Algo]
+  HandleHLRBRepAlgo* = Handle[HLRBRepAlgo]
 
 ## ! Inherited  from InternalAlgo  to  provide  methods with Shape from TopoDS.
 ## ! A framework to compute a shape as seen in a projection plane. This is done by
@@ -59,102 +55,102 @@ type
 ## ! comparing each face in the shape with every other face in the same shape.
 
 type
-  HLRBRep_Algo* {.importcpp: "HLRBRep_Algo", header: "HLRBRep_Algo.hxx", bycopy.} = object of HLRBRep_InternalAlgo ##
-                                                                                                         ## !
-                                                                                                         ## Constructs
-                                                                                                         ## an
-                                                                                                         ## empty
-                                                                                                         ## framework
-                                                                                                         ## for
-                                                                                                         ## the
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## calculation
-                                                                                                         ## of
-                                                                                                         ## visible
-                                                                                                         ## and
-                                                                                                         ## hidden
-                                                                                                         ## lines
-                                                                                                         ## of
-                                                                                                         ## a
-                                                                                                         ## shape
-                                                                                                         ## in
-                                                                                                         ## a
-                                                                                                         ## projection.
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Use
-                                                                                                         ## the
-                                                                                                         ## function:
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## -
-                                                                                                         ## Projector
-                                                                                                         ## to
-                                                                                                         ## define
-                                                                                                         ## the
-                                                                                                         ## point
-                                                                                                         ## of
-                                                                                                         ## view
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## -
-                                                                                                         ## Add
-                                                                                                         ## to
-                                                                                                         ## select
-                                                                                                         ## the
-                                                                                                         ## shape
-                                                                                                         ## or
-                                                                                                         ## shapes
-                                                                                                         ## to
-                                                                                                         ## be
-                                                                                                         ## visualized
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## -
-                                                                                                         ## Update
-                                                                                                         ## to
-                                                                                                         ## compute
-                                                                                                         ## the
-                                                                                                         ## outlines
-                                                                                                         ## of
-                                                                                                         ## the
-                                                                                                         ## shape,
-                                                                                                         ## and
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## -
-                                                                                                         ## Hide
-                                                                                                         ## to
-                                                                                                         ## compute
-                                                                                                         ## the
-                                                                                                         ## visible
-                                                                                                         ## and
-                                                                                                         ## hidden
-                                                                                                         ## lines
-                                                                                                         ## of
-                                                                                                         ## the
-                                                                                                         ## shape.
+  HLRBRepAlgo* {.importcpp: "HLRBRep_Algo", header: "HLRBRep_Algo.hxx", bycopy.} = object of HLRBRepInternalAlgo ##
+                                                                                                       ## !
+                                                                                                       ## Constructs
+                                                                                                       ## an
+                                                                                                       ## empty
+                                                                                                       ## framework
+                                                                                                       ## for
+                                                                                                       ## the
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## calculation
+                                                                                                       ## of
+                                                                                                       ## visible
+                                                                                                       ## and
+                                                                                                       ## hidden
+                                                                                                       ## lines
+                                                                                                       ## of
+                                                                                                       ## a
+                                                                                                       ## shape
+                                                                                                       ## in
+                                                                                                       ## a
+                                                                                                       ## projection.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## Use
+                                                                                                       ## the
+                                                                                                       ## function:
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## -
+                                                                                                       ## Projector
+                                                                                                       ## to
+                                                                                                       ## define
+                                                                                                       ## the
+                                                                                                       ## point
+                                                                                                       ## of
+                                                                                                       ## view
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## -
+                                                                                                       ## Add
+                                                                                                       ## to
+                                                                                                       ## select
+                                                                                                       ## the
+                                                                                                       ## shape
+                                                                                                       ## or
+                                                                                                       ## shapes
+                                                                                                       ## to
+                                                                                                       ## be
+                                                                                                       ## visualized
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## -
+                                                                                                       ## Update
+                                                                                                       ## to
+                                                                                                       ## compute
+                                                                                                       ## the
+                                                                                                       ## outlines
+                                                                                                       ## of
+                                                                                                       ## the
+                                                                                                       ## shape,
+                                                                                                       ## and
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## -
+                                                                                                       ## Hide
+                                                                                                       ## to
+                                                                                                       ## compute
+                                                                                                       ## the
+                                                                                                       ## visible
+                                                                                                       ## and
+                                                                                                       ## hidden
+                                                                                                       ## lines
+                                                                                                       ## of
+                                                                                                       ## the
+                                                                                                       ## shape.
 
 
-proc constructHLRBRep_Algo*(): HLRBRep_Algo {.constructor,
+proc constructHLRBRepAlgo*(): HLRBRepAlgo {.constructor,
     importcpp: "HLRBRep_Algo(@)", header: "HLRBRep_Algo.hxx".}
-proc constructHLRBRep_Algo*(A: handle[HLRBRep_Algo]): HLRBRep_Algo {.constructor,
+proc constructHLRBRepAlgo*(a: Handle[HLRBRepAlgo]): HLRBRepAlgo {.constructor,
     importcpp: "HLRBRep_Algo(@)", header: "HLRBRep_Algo.hxx".}
-proc Add*(this: var HLRBRep_Algo; S: TopoDS_Shape; SData: handle[Standard_Transient];
-         nbIso: Standard_Integer = 0) {.importcpp: "Add", header: "HLRBRep_Algo.hxx".}
-proc Add*(this: var HLRBRep_Algo; S: TopoDS_Shape; nbIso: Standard_Integer = 0) {.
-    importcpp: "Add", header: "HLRBRep_Algo.hxx".}
-proc Index*(this: var HLRBRep_Algo; S: TopoDS_Shape): Standard_Integer {.
-    importcpp: "Index", header: "HLRBRep_Algo.hxx".}
-proc OutLinedShapeNullify*(this: var HLRBRep_Algo) {.
+proc add*(this: var HLRBRepAlgo; s: TopoDS_Shape; sData: Handle[StandardTransient];
+         nbIso: int = 0) {.importcpp: "Add", header: "HLRBRep_Algo.hxx".}
+proc add*(this: var HLRBRepAlgo; s: TopoDS_Shape; nbIso: int = 0) {.importcpp: "Add",
+    header: "HLRBRep_Algo.hxx".}
+proc index*(this: var HLRBRepAlgo; s: TopoDS_Shape): int {.importcpp: "Index",
+    header: "HLRBRep_Algo.hxx".}
+proc outLinedShapeNullify*(this: var HLRBRepAlgo) {.
     importcpp: "OutLinedShapeNullify", header: "HLRBRep_Algo.hxx".}
 type
-  HLRBRep_Algobase_type* = HLRBRep_InternalAlgo
+  HLRBRepAlgobaseType* = HLRBRepInternalAlgo
 
-proc get_type_name*(): cstring {.importcpp: "HLRBRep_Algo::get_type_name(@)",
-                              header: "HLRBRep_Algo.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "HLRBRep_Algo::get_type_name(@)",
+                            header: "HLRBRep_Algo.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "HLRBRep_Algo::get_type_descriptor(@)", header: "HLRBRep_Algo.hxx".}
-proc DynamicType*(this: HLRBRep_Algo): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: HLRBRepAlgo): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRBRep_Algo.hxx".}

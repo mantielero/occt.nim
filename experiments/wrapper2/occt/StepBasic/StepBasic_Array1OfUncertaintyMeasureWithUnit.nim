@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepBasic_UncertaintyMeasureWithUnit, ../NCollection/NCollection_Array1
-
 type
-  StepBasic_Array1OfUncertaintyMeasureWithUnit* = NCollection_Array1[
-      handle[StepBasic_UncertaintyMeasureWithUnit]]
+  StepBasicArray1OfUncertaintyMeasureWithUnit* = NCollectionArray1[
+      Handle[StepBasicUncertaintyMeasureWithUnit]]
+

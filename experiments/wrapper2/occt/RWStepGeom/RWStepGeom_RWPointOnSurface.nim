@@ -14,32 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_PointOnSurface"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeom_RWPointOnSurface* {.importcpp: "RWStepGeom_RWPointOnSurface",
-                                header: "RWStepGeom_RWPointOnSurface.hxx", bycopy.} = object
+  RWStepGeomRWPointOnSurface* {.importcpp: "RWStepGeom_RWPointOnSurface",
+                               header: "RWStepGeom_RWPointOnSurface.hxx", bycopy.} = object
 
 
-proc constructRWStepGeom_RWPointOnSurface*(): RWStepGeom_RWPointOnSurface {.
+proc constructRWStepGeomRWPointOnSurface*(): RWStepGeomRWPointOnSurface {.
     constructor, importcpp: "RWStepGeom_RWPointOnSurface(@)",
     header: "RWStepGeom_RWPointOnSurface.hxx".}
-proc ReadStep*(this: RWStepGeom_RWPointOnSurface;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepGeom_PointOnSurface]) {.noSideEffect,
-    importcpp: "ReadStep", header: "RWStepGeom_RWPointOnSurface.hxx".}
-proc WriteStep*(this: RWStepGeom_RWPointOnSurface; SW: var StepData_StepWriter;
-               ent: handle[StepGeom_PointOnSurface]) {.noSideEffect,
+proc readStep*(this: RWStepGeomRWPointOnSurface;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomPointOnSurface]) {.
+    noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWPointOnSurface.hxx".}
+proc writeStep*(this: RWStepGeomRWPointOnSurface; sw: var StepDataStepWriter;
+               ent: Handle[StepGeomPointOnSurface]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWPointOnSurface.hxx".}
-proc Share*(this: RWStepGeom_RWPointOnSurface;
-           ent: handle[StepGeom_PointOnSurface];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepGeomRWPointOnSurface; ent: Handle[StepGeomPointOnSurface];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWPointOnSurface.hxx".}

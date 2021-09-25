@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of IGESDraw_Protocol"
 discard "forward decl of IGESDraw_ConnectPoint"
 discard "forward decl of IGESDraw_NetworkSubfigureDef"
@@ -56,6 +52,6 @@ type
                                                                        ## (Protocol, Modules) for this package
 
 
-proc Init*() {.importcpp: "IGESDraw::Init(@)", header: "IGESDraw.hxx".}
-proc Protocol*(): handle[IGESDraw_Protocol] {.importcpp: "IGESDraw::Protocol(@)",
+proc init*() {.importcpp: "IGESDraw::Init(@)", header: "IGESDraw.hxx".}
+proc protocol*(): Handle[IGESDrawProtocol] {.importcpp: "IGESDraw::Protocol(@)",
     header: "IGESDraw.hxx".}

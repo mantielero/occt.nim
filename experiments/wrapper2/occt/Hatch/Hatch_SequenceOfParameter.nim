@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Hatch_Parameter, ../NCollection/NCollection_Sequence
-
 type
-  Hatch_SequenceOfParameter* = NCollection_Sequence[Hatch_Parameter]
+  HatchSequenceOfParameter* = NCollectionSequence[HatchParameter]
+

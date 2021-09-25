@@ -13,28 +13,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../StepData/StepData_SelectType
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepDimTol_Datum"
 discard "forward decl of StepDimTol_HArray1OfDatumReferenceElement"
 type
-  StepDimTol_DatumOrCommonDatum* {.importcpp: "StepDimTol_DatumOrCommonDatum",
-                                  header: "StepDimTol_DatumOrCommonDatum.hxx",
-                                  bycopy.} = object of StepData_SelectType ## ! Returns a
-                                                                      ## DatumOrCommonDatum select type
+  StepDimTolDatumOrCommonDatum* {.importcpp: "StepDimTol_DatumOrCommonDatum",
+                                 header: "StepDimTol_DatumOrCommonDatum.hxx",
+                                 bycopy.} = object of StepDataSelectType ## ! Returns a
+                                                                    ## DatumOrCommonDatum select type
 
 
-proc constructStepDimTol_DatumOrCommonDatum*(): StepDimTol_DatumOrCommonDatum {.
+proc constructStepDimTolDatumOrCommonDatum*(): StepDimTolDatumOrCommonDatum {.
     constructor, importcpp: "StepDimTol_DatumOrCommonDatum(@)",
     header: "StepDimTol_DatumOrCommonDatum.hxx".}
-proc CaseNum*(this: StepDimTol_DatumOrCommonDatum; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepDimTolDatumOrCommonDatum; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepDimTol_DatumOrCommonDatum.hxx".}
-proc Datum*(this: StepDimTol_DatumOrCommonDatum): handle[StepDimTol_Datum] {.
+proc datum*(this: StepDimTolDatumOrCommonDatum): Handle[StepDimTolDatum] {.
     noSideEffect, importcpp: "Datum", header: "StepDimTol_DatumOrCommonDatum.hxx".}
-proc CommonDatumList*(this: StepDimTol_DatumOrCommonDatum): handle[
-    StepDimTol_HArray1OfDatumReferenceElement] {.noSideEffect,
+proc commonDatumList*(this: StepDimTolDatumOrCommonDatum): Handle[
+    StepDimTolHArray1OfDatumReferenceElement] {.noSideEffect,
     importcpp: "CommonDatumList", header: "StepDimTol_DatumOrCommonDatum.hxx".}

@@ -14,116 +14,67 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Standard, Standard_Type, Standard_CString, Standard_Transient, Standard_OStream,
-  Standard_SStream
-
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_Failure"
 discard "forward decl of Standard_Failure"
 type
-  Handle_Standard_Failure* = handle[Standard_Failure]
+  HandleStandardFailure* = Handle[StandardFailure]
 
 ## ! Forms the root of the entire exception hierarchy.
 
 type
-  Standard_Failure* {.importcpp: "Standard_Failure",
-                     header: "Standard_Failure.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                      ## !
-                                                                                      ## Creates
-                                                                                      ## a
-                                                                                      ## status
-                                                                                      ## object
-                                                                                      ## of
-                                                                                      ## type
-                                                                                      ## "Failure".
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Used
-                                                                                      ## only
-                                                                                      ## if
-                                                                                      ## standard
-                                                                                      ## C++
-                                                                                      ## exceptions
-                                                                                      ## are
-                                                                                      ## used.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Throws
-                                                                                      ## exception
-                                                                                      ## of
-                                                                                      ## the
-                                                                                      ## same
-                                                                                      ## type
-                                                                                      ## as
-                                                                                      ## this
-                                                                                      ## by
-                                                                                      ## C++
-                                                                                      ## throw,
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## and
-                                                                                      ## stores
-                                                                                      ## current
-                                                                                      ## object
-                                                                                      ## as
-                                                                                      ## last
-                                                                                      ## thrown
-                                                                                      ## exception,
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## to
-                                                                                      ## be
-                                                                                      ## accessible
-                                                                                      ## by
-                                                                                      ## method
-                                                                                      ## Caught()
+  StandardFailure* {.importcpp: "Standard_Failure", header: "Standard_Failure.hxx",
+                    bycopy.} = object of StandardTransient ## ! Creates a status object of type "Failure".
+                                                      ## ! Used only if standard C++ exceptions are used.
+                                                      ## ! Throws exception of the same type as this by C++ throw,
+                                                      ## ! and stores current object as last thrown exception,
+                                                      ## ! to be accessible by method Caught()
 
 
-proc constructStandard_Failure*(): Standard_Failure {.constructor,
+proc constructStandardFailure*(): StandardFailure {.constructor,
     importcpp: "Standard_Failure(@)", header: "Standard_Failure.hxx".}
-proc constructStandard_Failure*(f: Standard_Failure): Standard_Failure {.
+proc constructStandardFailure*(f: StandardFailure): StandardFailure {.constructor,
+    importcpp: "Standard_Failure(@)", header: "Standard_Failure.hxx".}
+proc constructStandardFailure*(aString: StandardCString): StandardFailure {.
     constructor, importcpp: "Standard_Failure(@)", header: "Standard_Failure.hxx".}
-proc constructStandard_Failure*(aString: Standard_CString): Standard_Failure {.
-    constructor, importcpp: "Standard_Failure(@)", header: "Standard_Failure.hxx".}
-proc destroyStandard_Failure*(this: var Standard_Failure) {.
+proc destroyStandardFailure*(this: var StandardFailure) {.
     importcpp: "#.~Standard_Failure()", header: "Standard_Failure.hxx".}
-proc Print*(this: Standard_Failure; theStream: var Standard_OStream) {.noSideEffect,
+proc print*(this: StandardFailure; theStream: var StandardOStream) {.noSideEffect,
     importcpp: "Print", header: "Standard_Failure.hxx".}
-proc GetMessageString*(this: Standard_Failure): Standard_CString {.noSideEffect,
+proc getMessageString*(this: StandardFailure): StandardCString {.noSideEffect,
     importcpp: "GetMessageString", header: "Standard_Failure.hxx".}
-proc SetMessageString*(this: var Standard_Failure; aMessage: Standard_CString) {.
+proc setMessageString*(this: var StandardFailure; aMessage: StandardCString) {.
     importcpp: "SetMessageString", header: "Standard_Failure.hxx".}
-proc Reraise*(this: var Standard_Failure) {.importcpp: "Reraise",
-                                        header: "Standard_Failure.hxx".}
-proc Reraise*(this: var Standard_Failure; aMessage: Standard_CString) {.
+proc reraise*(this: var StandardFailure) {.importcpp: "Reraise",
+                                       header: "Standard_Failure.hxx".}
+proc reraise*(this: var StandardFailure; aMessage: StandardCString) {.
     importcpp: "Reraise", header: "Standard_Failure.hxx".}
-proc Reraise*(this: var Standard_Failure; aReason: Standard_SStream) {.
+proc reraise*(this: var StandardFailure; aReason: StandardSStream) {.
     importcpp: "Reraise", header: "Standard_Failure.hxx".}
-proc Raise*(aMessage: Standard_CString = "") {.
+proc `raise`*(aMessage: StandardCString = "") {.
     importcpp: "Standard_Failure::Raise(@)", header: "Standard_Failure.hxx".}
-proc Raise*(aReason: Standard_SStream) {.importcpp: "Standard_Failure::Raise(@)",
-                                      header: "Standard_Failure.hxx".}
-proc NewInstance*(aMessage: Standard_CString): handle[Standard_Failure] {.
+proc `raise`*(aReason: StandardSStream) {.importcpp: "Standard_Failure::Raise(@)",
+                                       header: "Standard_Failure.hxx".}
+proc newInstance*(aMessage: StandardCString): Handle[StandardFailure] {.
     importcpp: "Standard_Failure::NewInstance(@)", header: "Standard_Failure.hxx".}
-proc Jump*(this: var Standard_Failure) {.importcpp: "Jump",
-                                     header: "Standard_Failure.hxx".}
+proc jump*(this: var StandardFailure) {.importcpp: "Jump",
+                                    header: "Standard_Failure.hxx".}
 ## !!!Ignored construct:  ! Returns the last caught exception.
 ## ! Needed when exceptions are emulated by C longjumps,
 ## ! in other cases is also provided for compatibility. Standard_DEPRECATED ( This method is deprecated (not thread-safe), use standard C++ mechanism instead ) static opencascade :: handle < Standard_Failure > [end of template] Caught ( ) ;
 ## Error: identifier expected, but got: This method is deprecated (not thread-safe), use standard C++ mechanism instead!!!
 
 type
-  Standard_Failurebase_type* = Standard_Transient
+  StandardFailurebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Standard_Failure::get_type_name(@)",
-                              header: "Standard_Failure.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Standard_Failure::get_type_name(@)",
+                            header: "Standard_Failure.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Standard_Failure::get_type_descriptor(@)",
     header: "Standard_Failure.hxx".}
-proc DynamicType*(this: Standard_Failure): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StandardFailure): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Standard_Failure.hxx".}
-proc `<<`*(AStream: var Standard_OStream; AFailure: handle[Standard_Failure]): var Standard_OStream {.
+proc `<<`*(aStream: var StandardOStream; aFailure: Handle[StandardFailure]): var StandardOStream {.
     importcpp: "(# << #)", header: "Standard_Failure.hxx".}
-proc `<<`*(AStream: var Standard_OStream; AFailure: Standard_Failure): var Standard_OStream {.
+proc `<<`*(aStream: var StandardOStream; aFailure: StandardFailure): var StandardOStream {.
     importcpp: "(# << #)", header: "Standard_Failure.hxx".}

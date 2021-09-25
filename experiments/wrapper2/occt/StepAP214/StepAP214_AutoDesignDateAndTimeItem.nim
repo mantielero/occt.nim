@@ -14,38 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_ApprovalPersonOrganization"
 discard "forward decl of StepAP214_AutoDesignDateAndPersonAssignment"
 discard "forward decl of StepBasic_ProductDefinitionEffectivity"
 type
-  StepAP214_AutoDesignDateAndTimeItem* {.importcpp: "StepAP214_AutoDesignDateAndTimeItem", header: "StepAP214_AutoDesignDateAndTimeItem.hxx",
-                                        bycopy.} = object of StepData_SelectType ## !
-                                                                            ## Returns a
-                                                                            ## AutoDesignDateAndTimeItem
-                                                                            ## SelectType
+  StepAP214AutoDesignDateAndTimeItem* {.importcpp: "StepAP214_AutoDesignDateAndTimeItem", header: "StepAP214_AutoDesignDateAndTimeItem.hxx",
+                                       bycopy.} = object of StepDataSelectType ## !
+                                                                          ## Returns a
+                                                                          ## AutoDesignDateAndTimeItem
+                                                                          ## SelectType
 
 
-proc constructStepAP214_AutoDesignDateAndTimeItem*(): StepAP214_AutoDesignDateAndTimeItem {.
+proc constructStepAP214AutoDesignDateAndTimeItem*(): StepAP214AutoDesignDateAndTimeItem {.
     constructor, importcpp: "StepAP214_AutoDesignDateAndTimeItem(@)",
     header: "StepAP214_AutoDesignDateAndTimeItem.hxx".}
-proc CaseNum*(this: StepAP214_AutoDesignDateAndTimeItem;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepAP214AutoDesignDateAndTimeItem;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_AutoDesignDateAndTimeItem.hxx".}
-proc ApprovalPersonOrganization*(this: StepAP214_AutoDesignDateAndTimeItem): handle[
-    StepBasic_ApprovalPersonOrganization] {.noSideEffect,
+proc approvalPersonOrganization*(this: StepAP214AutoDesignDateAndTimeItem): Handle[
+    StepBasicApprovalPersonOrganization] {.noSideEffect,
     importcpp: "ApprovalPersonOrganization",
     header: "StepAP214_AutoDesignDateAndTimeItem.hxx".}
-proc AutoDesignDateAndPersonAssignment*(this: StepAP214_AutoDesignDateAndTimeItem): handle[
-    StepAP214_AutoDesignDateAndPersonAssignment] {.noSideEffect,
+proc autoDesignDateAndPersonAssignment*(this: StepAP214AutoDesignDateAndTimeItem): Handle[
+    StepAP214AutoDesignDateAndPersonAssignment] {.noSideEffect,
     importcpp: "AutoDesignDateAndPersonAssignment",
     header: "StepAP214_AutoDesignDateAndTimeItem.hxx".}
-proc ProductDefinitionEffectivity*(this: StepAP214_AutoDesignDateAndTimeItem): handle[
-    StepBasic_ProductDefinitionEffectivity] {.noSideEffect,
+proc productDefinitionEffectivity*(this: StepAP214AutoDesignDateAndTimeItem): Handle[
+    StepBasicProductDefinitionEffectivity] {.noSideEffect,
     importcpp: "ProductDefinitionEffectivity",
     header: "StepAP214_AutoDesignDateAndTimeItem.hxx".}

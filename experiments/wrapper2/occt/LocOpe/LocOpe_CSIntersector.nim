@@ -14,64 +14,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../TopoDS/TopoDS_Shape, ../Standard/Standard_Address,
-  ../Standard/Standard_Integer, LocOpe_SequenceOfLin, LocOpe_SequenceOfCirc,
-  ../TColGeom/TColGeom_SequenceOfCurve, ../Standard/Standard_Real,
-  ../TopAbs/TopAbs_Orientation
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of LocOpe_PntFace"
 type
-  LocOpe_CSIntersector* {.importcpp: "LocOpe_CSIntersector",
-                         header: "LocOpe_CSIntersector.hxx", bycopy.} = object ## ! Empty
-                                                                          ## constructor.
+  LocOpeCSIntersector* {.importcpp: "LocOpe_CSIntersector",
+                        header: "LocOpe_CSIntersector.hxx", bycopy.} = object ## ! Empty
+                                                                         ## constructor.
 
 
-proc constructLocOpe_CSIntersector*(): LocOpe_CSIntersector {.constructor,
+proc constructLocOpeCSIntersector*(): LocOpeCSIntersector {.constructor,
     importcpp: "LocOpe_CSIntersector(@)", header: "LocOpe_CSIntersector.hxx".}
-proc constructLocOpe_CSIntersector*(S: TopoDS_Shape): LocOpe_CSIntersector {.
+proc constructLocOpeCSIntersector*(s: TopoDS_Shape): LocOpeCSIntersector {.
     constructor, importcpp: "LocOpe_CSIntersector(@)",
     header: "LocOpe_CSIntersector.hxx".}
-proc Init*(this: var LocOpe_CSIntersector; S: TopoDS_Shape) {.importcpp: "Init",
+proc init*(this: var LocOpeCSIntersector; s: TopoDS_Shape) {.importcpp: "Init",
     header: "LocOpe_CSIntersector.hxx".}
-proc Perform*(this: var LocOpe_CSIntersector; Slin: LocOpe_SequenceOfLin) {.
+proc perform*(this: var LocOpeCSIntersector; slin: LocOpeSequenceOfLin) {.
     importcpp: "Perform", header: "LocOpe_CSIntersector.hxx".}
-proc Perform*(this: var LocOpe_CSIntersector; Scir: LocOpe_SequenceOfCirc) {.
+proc perform*(this: var LocOpeCSIntersector; scir: LocOpeSequenceOfCirc) {.
     importcpp: "Perform", header: "LocOpe_CSIntersector.hxx".}
-proc Perform*(this: var LocOpe_CSIntersector; Scur: TColGeom_SequenceOfCurve) {.
+proc perform*(this: var LocOpeCSIntersector; scur: TColGeomSequenceOfCurve) {.
     importcpp: "Perform", header: "LocOpe_CSIntersector.hxx".}
-proc IsDone*(this: LocOpe_CSIntersector): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "LocOpe_CSIntersector.hxx".}
-proc NbPoints*(this: LocOpe_CSIntersector; I: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "NbPoints", header: "LocOpe_CSIntersector.hxx".}
-proc Point*(this: LocOpe_CSIntersector; I: Standard_Integer; Index: Standard_Integer): LocOpe_PntFace {.
+proc isDone*(this: LocOpeCSIntersector): bool {.noSideEffect, importcpp: "IsDone",
+    header: "LocOpe_CSIntersector.hxx".}
+proc nbPoints*(this: LocOpeCSIntersector; i: int): int {.noSideEffect,
+    importcpp: "NbPoints", header: "LocOpe_CSIntersector.hxx".}
+proc point*(this: LocOpeCSIntersector; i: int; index: int): LocOpePntFace {.
     noSideEffect, importcpp: "Point", header: "LocOpe_CSIntersector.hxx".}
-proc LocalizeAfter*(this: LocOpe_CSIntersector; I: Standard_Integer;
-                   From: Standard_Real; Tol: Standard_Real;
-                   Or: var TopAbs_Orientation; IndFrom: var Standard_Integer;
-                   IndTo: var Standard_Integer): Standard_Boolean {.noSideEffect,
-    importcpp: "LocalizeAfter", header: "LocOpe_CSIntersector.hxx".}
-proc LocalizeBefore*(this: LocOpe_CSIntersector; I: Standard_Integer;
-                    From: Standard_Real; Tol: Standard_Real;
-                    Or: var TopAbs_Orientation; IndFrom: var Standard_Integer;
-                    IndTo: var Standard_Integer): Standard_Boolean {.noSideEffect,
-    importcpp: "LocalizeBefore", header: "LocOpe_CSIntersector.hxx".}
-proc LocalizeAfter*(this: LocOpe_CSIntersector; I: Standard_Integer;
-                   FromInd: Standard_Integer; Tol: Standard_Real;
-                   Or: var TopAbs_Orientation; IndFrom: var Standard_Integer;
-                   IndTo: var Standard_Integer): Standard_Boolean {.noSideEffect,
-    importcpp: "LocalizeAfter", header: "LocOpe_CSIntersector.hxx".}
-proc LocalizeBefore*(this: LocOpe_CSIntersector; I: Standard_Integer;
-                    FromInd: Standard_Integer; Tol: Standard_Real;
-                    Or: var TopAbs_Orientation; IndFrom: var Standard_Integer;
-                    IndTo: var Standard_Integer): Standard_Boolean {.noSideEffect,
-    importcpp: "LocalizeBefore", header: "LocOpe_CSIntersector.hxx".}
-proc Destroy*(this: var LocOpe_CSIntersector) {.importcpp: "Destroy",
+proc localizeAfter*(this: LocOpeCSIntersector; i: int; `from`: float; tol: float;
+                   `or`: var TopAbsOrientation; indFrom: var int; indTo: var int): bool {.
+    noSideEffect, importcpp: "LocalizeAfter", header: "LocOpe_CSIntersector.hxx".}
+proc localizeBefore*(this: LocOpeCSIntersector; i: int; `from`: float; tol: float;
+                    `or`: var TopAbsOrientation; indFrom: var int; indTo: var int): bool {.
+    noSideEffect, importcpp: "LocalizeBefore", header: "LocOpe_CSIntersector.hxx".}
+proc localizeAfter*(this: LocOpeCSIntersector; i: int; fromInd: int; tol: float;
+                   `or`: var TopAbsOrientation; indFrom: var int; indTo: var int): bool {.
+    noSideEffect, importcpp: "LocalizeAfter", header: "LocOpe_CSIntersector.hxx".}
+proc localizeBefore*(this: LocOpeCSIntersector; i: int; fromInd: int; tol: float;
+                    `or`: var TopAbsOrientation; indFrom: var int; indTo: var int): bool {.
+    noSideEffect, importcpp: "LocalizeBefore", header: "LocOpe_CSIntersector.hxx".}
+proc destroy*(this: var LocOpeCSIntersector) {.importcpp: "Destroy",
     header: "LocOpe_CSIntersector.hxx".}
-proc destroyLocOpe_CSIntersector*(this: var LocOpe_CSIntersector) {.
+proc destroyLocOpeCSIntersector*(this: var LocOpeCSIntersector) {.
     importcpp: "#.~LocOpe_CSIntersector()", header: "LocOpe_CSIntersector.hxx".}

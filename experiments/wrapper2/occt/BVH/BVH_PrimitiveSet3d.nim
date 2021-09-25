@@ -11,8 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  BVH_PrimitiveSet
-
 type
-  BVH_PrimitiveSet3d* = BVH_PrimitiveSet[Standard_Real, 3]
+  BVH_PrimitiveSet3d* = BVH_PrimitiveSet[float, 3]
+

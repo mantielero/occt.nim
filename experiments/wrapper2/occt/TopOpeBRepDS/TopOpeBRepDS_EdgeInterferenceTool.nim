@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopAbs/TopAbs_Orientation,
-  ../Standard/Standard_Integer, ../TopTrans/TopTrans_CurveTransition
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRepDS_Interference"
 discard "forward decl of TopOpeBRepDS_Point"
@@ -30,15 +25,15 @@ type
 proc constructTopOpeBRepDS_EdgeInterferenceTool*(): TopOpeBRepDS_EdgeInterferenceTool {.
     constructor, importcpp: "TopOpeBRepDS_EdgeInterferenceTool(@)",
     header: "TopOpeBRepDS_EdgeInterferenceTool.hxx".}
-proc Init*(this: var TopOpeBRepDS_EdgeInterferenceTool; E: TopoDS_Shape;
-          I: handle[TopOpeBRepDS_Interference]) {.importcpp: "Init",
+proc init*(this: var TopOpeBRepDS_EdgeInterferenceTool; e: TopoDS_Shape;
+          i: Handle[TopOpeBRepDS_Interference]) {.importcpp: "Init",
     header: "TopOpeBRepDS_EdgeInterferenceTool.hxx".}
-proc Add*(this: var TopOpeBRepDS_EdgeInterferenceTool; E: TopoDS_Shape;
-         V: TopoDS_Shape; I: handle[TopOpeBRepDS_Interference]) {.importcpp: "Add",
+proc add*(this: var TopOpeBRepDS_EdgeInterferenceTool; e: TopoDS_Shape;
+         v: TopoDS_Shape; i: Handle[TopOpeBRepDS_Interference]) {.importcpp: "Add",
     header: "TopOpeBRepDS_EdgeInterferenceTool.hxx".}
-proc Add*(this: var TopOpeBRepDS_EdgeInterferenceTool; E: TopoDS_Shape;
-         P: TopOpeBRepDS_Point; I: handle[TopOpeBRepDS_Interference]) {.
+proc add*(this: var TopOpeBRepDS_EdgeInterferenceTool; e: TopoDS_Shape;
+         p: TopOpeBRepDS_Point; i: Handle[TopOpeBRepDS_Interference]) {.
     importcpp: "Add", header: "TopOpeBRepDS_EdgeInterferenceTool.hxx".}
-proc Transition*(this: TopOpeBRepDS_EdgeInterferenceTool;
-                I: handle[TopOpeBRepDS_Interference]) {.noSideEffect,
+proc transition*(this: TopOpeBRepDS_EdgeInterferenceTool;
+                i: Handle[TopOpeBRepDS_Interference]) {.noSideEffect,
     importcpp: "Transition", header: "TopOpeBRepDS_EdgeInterferenceTool.hxx".}

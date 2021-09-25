@@ -13,10 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  MeshVS_TwoNodes, MeshVS_TwoNodesHasher, ../NCollection/NCollection_Map
-
 type
-  MeshVS_MapOfTwoNodes* = NCollection_Map[MeshVS_TwoNodes, MeshVS_TwoNodesHasher]
+  MeshVS_MapOfTwoNodes* = NCollectionMap[MeshVS_TwoNodes, MeshVS_TwoNodesHasher]
   MeshVS_MapIteratorOfMapOfTwoNodes* = Iterator[MeshVS_TwoNodes,
       MeshVS_TwoNodesHasher]
+

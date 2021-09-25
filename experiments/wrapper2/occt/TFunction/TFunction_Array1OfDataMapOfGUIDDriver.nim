@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TFunction_DataMapOfGUIDDriver, ../NCollection/NCollection_Array1
-
 type
-  TFunction_Array1OfDataMapOfGUIDDriver* = NCollection_Array1[
-      TFunction_DataMapOfGUIDDriver]
+  TFunctionArray1OfDataMapOfGUIDDriver* = NCollectionArray1[
+      TFunctionDataMapOfGUIDDriver]
+

@@ -14,15 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_Underflow_HeaderFile [NewLine] # _Standard_Underflow_HeaderFile [NewLine] # Standard_Type.hxx [NewLine] # Standard_DefineException.hxx [NewLine] # Standard_SStream.hxx [NewLine] # Standard_NumericError.hxx [NewLine] class Standard_Underflow ;
+## !!!Ignored construct:  # _Standard_Underflow_HeaderFile [NewLine] # _Standard_Underflow_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_NumericError . hxx > [NewLine] class Standard_Underflow ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Standard_Underflow"
 type
-  Handle_Standard_UnderflowStandard_Underflow* = handle[Standard_Underflow]
+  HandleStandardUnderflowStandardUnderflow* = Handle[StandardUnderflow]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_Underflow [NewLine] # if ( CONDITION ) throw Standard_Underflow ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_Underflow , Standard_NumericError ) #  _Standard_Underflow_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_Underflow , Standard_NumericError ) #  _Standard_Underflow_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

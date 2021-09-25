@@ -14,16 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Graphic3d_GroupDefinitionError_HeaderFile [NewLine] # _Graphic3d_GroupDefinitionError_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_OutOfRange.hxx [NewLine] class Graphic3d_GroupDefinitionError ;
+## !!!Ignored construct:  # _Graphic3d_GroupDefinitionError_HeaderFile [NewLine] # _Graphic3d_GroupDefinitionError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_OutOfRange . hxx > [NewLine] class Graphic3d_GroupDefinitionError ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Graphic3d_GroupDefinitionError"
 type
-  Handle_Graphic3d_GroupDefinitionErrorGraphic3d_GroupDefinitionError* = handle[
-      Graphic3d_GroupDefinitionError]
+  HandleGraphic3dGroupDefinitionErrorGraphic3dGroupDefinitionError* = Handle[
+      Graphic3dGroupDefinitionError]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Graphic3d_GroupDefinitionError [NewLine] # if ( CONDITION ) throw Graphic3d_GroupDefinitionError ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Graphic3d_GroupDefinitionError , Standard_OutOfRange ) #  _Graphic3d_GroupDefinitionError_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Graphic3d_GroupDefinitionError , Standard_OutOfRange ) #  _Graphic3d_GroupDefinitionError_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

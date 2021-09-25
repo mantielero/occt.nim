@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Ax3, ../gp/gp_Dir,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
-  ../GeomAbs/GeomAbs_CurveType, ../Adaptor3d/Adaptor3d_Curve,
-  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_Array1OfReal
-
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of GeomAdaptor_HCurve"
 discard "forward decl of Standard_OutOfRange"
@@ -41,90 +33,87 @@ discard "forward decl of gp_Parab"
 discard "forward decl of Geom_BezierCurve"
 discard "forward decl of Geom_BSplineCurve"
 type
-  ProjLib_ProjectOnPlane* {.importcpp: "ProjLib_ProjectOnPlane",
-                           header: "ProjLib_ProjectOnPlane.hxx", bycopy.} = object of Adaptor3d_Curve ##
-                                                                                               ## !
-                                                                                               ## Empty
-                                                                                               ## constructor.
+  ProjLibProjectOnPlane* {.importcpp: "ProjLib_ProjectOnPlane",
+                          header: "ProjLib_ProjectOnPlane.hxx", bycopy.} = object of Adaptor3dCurve ##
+                                                                                             ## !
+                                                                                             ## Empty
+                                                                                             ## constructor.
 
 
-proc constructProjLib_ProjectOnPlane*(): ProjLib_ProjectOnPlane {.constructor,
+proc constructProjLibProjectOnPlane*(): ProjLibProjectOnPlane {.constructor,
     importcpp: "ProjLib_ProjectOnPlane(@)", header: "ProjLib_ProjectOnPlane.hxx".}
-proc constructProjLib_ProjectOnPlane*(Pl: gp_Ax3): ProjLib_ProjectOnPlane {.
+proc constructProjLibProjectOnPlane*(pl: Ax3): ProjLibProjectOnPlane {.constructor,
+    importcpp: "ProjLib_ProjectOnPlane(@)", header: "ProjLib_ProjectOnPlane.hxx".}
+proc constructProjLibProjectOnPlane*(pl: Ax3; d: Dir): ProjLibProjectOnPlane {.
     constructor, importcpp: "ProjLib_ProjectOnPlane(@)",
     header: "ProjLib_ProjectOnPlane.hxx".}
-proc constructProjLib_ProjectOnPlane*(Pl: gp_Ax3; D: gp_Dir): ProjLib_ProjectOnPlane {.
-    constructor, importcpp: "ProjLib_ProjectOnPlane(@)",
+proc load*(this: var ProjLibProjectOnPlane; c: Handle[Adaptor3dHCurve];
+          tolerance: float; keepParametrization: bool = true) {.importcpp: "Load",
     header: "ProjLib_ProjectOnPlane.hxx".}
-proc Load*(this: var ProjLib_ProjectOnPlane; C: handle[Adaptor3d_HCurve];
-          Tolerance: Standard_Real;
-          KeepParametrization: Standard_Boolean = Standard_True) {.
-    importcpp: "Load", header: "ProjLib_ProjectOnPlane.hxx".}
-proc GetPlane*(this: ProjLib_ProjectOnPlane): gp_Ax3 {.noSideEffect,
+proc getPlane*(this: ProjLibProjectOnPlane): Ax3 {.noSideEffect,
     importcpp: "GetPlane", header: "ProjLib_ProjectOnPlane.hxx".}
-proc GetDirection*(this: ProjLib_ProjectOnPlane): gp_Dir {.noSideEffect,
+proc getDirection*(this: ProjLibProjectOnPlane): Dir {.noSideEffect,
     importcpp: "GetDirection", header: "ProjLib_ProjectOnPlane.hxx".}
-proc GetCurve*(this: ProjLib_ProjectOnPlane): handle[Adaptor3d_HCurve] {.
-    noSideEffect, importcpp: "GetCurve", header: "ProjLib_ProjectOnPlane.hxx".}
-proc GetResult*(this: ProjLib_ProjectOnPlane): handle[GeomAdaptor_HCurve] {.
+proc getCurve*(this: ProjLibProjectOnPlane): Handle[Adaptor3dHCurve] {.noSideEffect,
+    importcpp: "GetCurve", header: "ProjLib_ProjectOnPlane.hxx".}
+proc getResult*(this: ProjLibProjectOnPlane): Handle[GeomAdaptorHCurve] {.
     noSideEffect, importcpp: "GetResult", header: "ProjLib_ProjectOnPlane.hxx".}
-proc FirstParameter*(this: ProjLib_ProjectOnPlane): Standard_Real {.noSideEffect,
+proc firstParameter*(this: ProjLibProjectOnPlane): float {.noSideEffect,
     importcpp: "FirstParameter", header: "ProjLib_ProjectOnPlane.hxx".}
-proc LastParameter*(this: ProjLib_ProjectOnPlane): Standard_Real {.noSideEffect,
+proc lastParameter*(this: ProjLibProjectOnPlane): float {.noSideEffect,
     importcpp: "LastParameter", header: "ProjLib_ProjectOnPlane.hxx".}
-proc Continuity*(this: ProjLib_ProjectOnPlane): GeomAbs_Shape {.noSideEffect,
+proc continuity*(this: ProjLibProjectOnPlane): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "ProjLib_ProjectOnPlane.hxx".}
-proc NbIntervals*(this: ProjLib_ProjectOnPlane; S: GeomAbs_Shape): Standard_Integer {.
-    noSideEffect, importcpp: "NbIntervals", header: "ProjLib_ProjectOnPlane.hxx".}
-proc Intervals*(this: ProjLib_ProjectOnPlane; T: var TColStd_Array1OfReal;
-               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
-                                 header: "ProjLib_ProjectOnPlane.hxx".}
-proc Trim*(this: ProjLib_ProjectOnPlane; First: Standard_Real; Last: Standard_Real;
-          Tol: Standard_Real): handle[Adaptor3d_HCurve] {.noSideEffect,
-    importcpp: "Trim", header: "ProjLib_ProjectOnPlane.hxx".}
-proc IsClosed*(this: ProjLib_ProjectOnPlane): Standard_Boolean {.noSideEffect,
+proc nbIntervals*(this: ProjLibProjectOnPlane; s: GeomAbsShape): int {.noSideEffect,
+    importcpp: "NbIntervals", header: "ProjLib_ProjectOnPlane.hxx".}
+proc intervals*(this: ProjLibProjectOnPlane; t: var TColStdArray1OfReal;
+               s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
+                                header: "ProjLib_ProjectOnPlane.hxx".}
+proc trim*(this: ProjLibProjectOnPlane; first: float; last: float; tol: float): Handle[
+    Adaptor3dHCurve] {.noSideEffect, importcpp: "Trim",
+                      header: "ProjLib_ProjectOnPlane.hxx".}
+proc isClosed*(this: ProjLibProjectOnPlane): bool {.noSideEffect,
     importcpp: "IsClosed", header: "ProjLib_ProjectOnPlane.hxx".}
-proc IsPeriodic*(this: ProjLib_ProjectOnPlane): Standard_Boolean {.noSideEffect,
+proc isPeriodic*(this: ProjLibProjectOnPlane): bool {.noSideEffect,
     importcpp: "IsPeriodic", header: "ProjLib_ProjectOnPlane.hxx".}
-proc Period*(this: ProjLib_ProjectOnPlane): Standard_Real {.noSideEffect,
-    importcpp: "Period", header: "ProjLib_ProjectOnPlane.hxx".}
-proc Value*(this: ProjLib_ProjectOnPlane; U: Standard_Real): gp_Pnt {.noSideEffect,
-    importcpp: "Value", header: "ProjLib_ProjectOnPlane.hxx".}
-proc D0*(this: ProjLib_ProjectOnPlane; U: Standard_Real; P: var gp_Pnt) {.noSideEffect,
-    importcpp: "D0", header: "ProjLib_ProjectOnPlane.hxx".}
-proc D1*(this: ProjLib_ProjectOnPlane; U: Standard_Real; P: var gp_Pnt; V: var gp_Vec) {.
-    noSideEffect, importcpp: "D1", header: "ProjLib_ProjectOnPlane.hxx".}
-proc D2*(this: ProjLib_ProjectOnPlane; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
-        V2: var gp_Vec) {.noSideEffect, importcpp: "D2",
-                       header: "ProjLib_ProjectOnPlane.hxx".}
-proc D3*(this: ProjLib_ProjectOnPlane; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
-        V2: var gp_Vec; V3: var gp_Vec) {.noSideEffect, importcpp: "D3",
-                                    header: "ProjLib_ProjectOnPlane.hxx".}
-proc DN*(this: ProjLib_ProjectOnPlane; U: Standard_Real; N: Standard_Integer): gp_Vec {.
-    noSideEffect, importcpp: "DN", header: "ProjLib_ProjectOnPlane.hxx".}
-proc Resolution*(this: ProjLib_ProjectOnPlane; R3d: Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "Resolution", header: "ProjLib_ProjectOnPlane.hxx".}
-proc GetType*(this: ProjLib_ProjectOnPlane): GeomAbs_CurveType {.noSideEffect,
-    importcpp: "GetType", header: "ProjLib_ProjectOnPlane.hxx".}
-proc Line*(this: ProjLib_ProjectOnPlane): gp_Lin {.noSideEffect, importcpp: "Line",
+proc period*(this: ProjLibProjectOnPlane): float {.noSideEffect, importcpp: "Period",
     header: "ProjLib_ProjectOnPlane.hxx".}
-proc Circle*(this: ProjLib_ProjectOnPlane): gp_Circ {.noSideEffect,
-    importcpp: "Circle", header: "ProjLib_ProjectOnPlane.hxx".}
-proc Ellipse*(this: ProjLib_ProjectOnPlane): gp_Elips {.noSideEffect,
+proc value*(this: ProjLibProjectOnPlane; u: float): Pnt {.noSideEffect,
+    importcpp: "Value", header: "ProjLib_ProjectOnPlane.hxx".}
+proc d0*(this: ProjLibProjectOnPlane; u: float; p: var Pnt) {.noSideEffect,
+    importcpp: "D0", header: "ProjLib_ProjectOnPlane.hxx".}
+proc d1*(this: ProjLibProjectOnPlane; u: float; p: var Pnt; v: var Vec) {.noSideEffect,
+    importcpp: "D1", header: "ProjLib_ProjectOnPlane.hxx".}
+proc d2*(this: ProjLibProjectOnPlane; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.
+    noSideEffect, importcpp: "D2", header: "ProjLib_ProjectOnPlane.hxx".}
+proc d3*(this: ProjLibProjectOnPlane; u: float; p: var Pnt; v1: var Vec; v2: var Vec;
+        v3: var Vec) {.noSideEffect, importcpp: "D3",
+                    header: "ProjLib_ProjectOnPlane.hxx".}
+proc dn*(this: ProjLibProjectOnPlane; u: float; n: int): Vec {.noSideEffect,
+    importcpp: "DN", header: "ProjLib_ProjectOnPlane.hxx".}
+proc resolution*(this: ProjLibProjectOnPlane; r3d: float): float {.noSideEffect,
+    importcpp: "Resolution", header: "ProjLib_ProjectOnPlane.hxx".}
+proc getType*(this: ProjLibProjectOnPlane): GeomAbsCurveType {.noSideEffect,
+    importcpp: "GetType", header: "ProjLib_ProjectOnPlane.hxx".}
+proc line*(this: ProjLibProjectOnPlane): Lin {.noSideEffect, importcpp: "Line",
+    header: "ProjLib_ProjectOnPlane.hxx".}
+proc circle*(this: ProjLibProjectOnPlane): Circ {.noSideEffect, importcpp: "Circle",
+    header: "ProjLib_ProjectOnPlane.hxx".}
+proc ellipse*(this: ProjLibProjectOnPlane): Elips {.noSideEffect,
     importcpp: "Ellipse", header: "ProjLib_ProjectOnPlane.hxx".}
-proc Hyperbola*(this: ProjLib_ProjectOnPlane): gp_Hypr {.noSideEffect,
+proc hyperbola*(this: ProjLibProjectOnPlane): Hypr {.noSideEffect,
     importcpp: "Hyperbola", header: "ProjLib_ProjectOnPlane.hxx".}
-proc Parabola*(this: ProjLib_ProjectOnPlane): gp_Parab {.noSideEffect,
+proc parabola*(this: ProjLibProjectOnPlane): Parab {.noSideEffect,
     importcpp: "Parabola", header: "ProjLib_ProjectOnPlane.hxx".}
-proc Degree*(this: ProjLib_ProjectOnPlane): Standard_Integer {.noSideEffect,
-    importcpp: "Degree", header: "ProjLib_ProjectOnPlane.hxx".}
-proc IsRational*(this: ProjLib_ProjectOnPlane): Standard_Boolean {.noSideEffect,
+proc degree*(this: ProjLibProjectOnPlane): int {.noSideEffect, importcpp: "Degree",
+    header: "ProjLib_ProjectOnPlane.hxx".}
+proc isRational*(this: ProjLibProjectOnPlane): bool {.noSideEffect,
     importcpp: "IsRational", header: "ProjLib_ProjectOnPlane.hxx".}
-proc NbPoles*(this: ProjLib_ProjectOnPlane): Standard_Integer {.noSideEffect,
-    importcpp: "NbPoles", header: "ProjLib_ProjectOnPlane.hxx".}
-proc NbKnots*(this: ProjLib_ProjectOnPlane): Standard_Integer {.noSideEffect,
-    importcpp: "NbKnots", header: "ProjLib_ProjectOnPlane.hxx".}
-proc Bezier*(this: ProjLib_ProjectOnPlane): handle[Geom_BezierCurve] {.noSideEffect,
+proc nbPoles*(this: ProjLibProjectOnPlane): int {.noSideEffect, importcpp: "NbPoles",
+    header: "ProjLib_ProjectOnPlane.hxx".}
+proc nbKnots*(this: ProjLibProjectOnPlane): int {.noSideEffect, importcpp: "NbKnots",
+    header: "ProjLib_ProjectOnPlane.hxx".}
+proc bezier*(this: ProjLibProjectOnPlane): Handle[GeomBezierCurve] {.noSideEffect,
     importcpp: "Bezier", header: "ProjLib_ProjectOnPlane.hxx".}
-proc BSpline*(this: ProjLib_ProjectOnPlane): handle[Geom_BSplineCurve] {.
-    noSideEffect, importcpp: "BSpline", header: "ProjLib_ProjectOnPlane.hxx".}
+proc bSpline*(this: ProjLibProjectOnPlane): Handle[GeomBSplineCurve] {.noSideEffect,
+    importcpp: "BSpline", header: "ProjLib_ProjectOnPlane.hxx".}

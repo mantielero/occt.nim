@@ -12,9 +12,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Integer, ../NCollection/NCollection_List
-
 type
-  TColStd_ListOfInteger* = NCollection_List[Standard_Integer]
-  TColStd_ListIteratorOfListOfInteger* = Iterator[Standard_Integer]
+  TColStdListOfInteger* = NCollectionList[int]
+  TColStdListIteratorOfListOfInteger* = Iterator[int]
+

@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColgp/TColgp_HSequenceOfXYZ, ../gp/gp_Trsf,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_XY"
 discard "forward decl of gp_XYZ"
@@ -30,57 +24,55 @@ discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Ax1"
 discard "forward decl of IGESGeom_TransformationMatrix"
 type
-  IGESConvGeom_GeomBuilder* {.importcpp: "IGESConvGeom_GeomBuilder",
-                             header: "IGESConvGeom_GeomBuilder.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Creates
-                                                                                  ## a
-                                                                                  ## GeomBuilder
-                                                                                  ## at
-                                                                                  ## initial
-                                                                                  ## state.
+  IGESConvGeomGeomBuilder* {.importcpp: "IGESConvGeom_GeomBuilder",
+                            header: "IGESConvGeom_GeomBuilder.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## Creates
+                                                                                 ## a
+                                                                                 ## GeomBuilder
+                                                                                 ## at
+                                                                                 ## initial
+                                                                                 ## state.
 
 
-proc constructIGESConvGeom_GeomBuilder*(): IGESConvGeom_GeomBuilder {.constructor,
+proc constructIGESConvGeomGeomBuilder*(): IGESConvGeomGeomBuilder {.constructor,
     importcpp: "IGESConvGeom_GeomBuilder(@)",
     header: "IGESConvGeom_GeomBuilder.hxx".}
-proc Clear*(this: var IGESConvGeom_GeomBuilder) {.importcpp: "Clear",
+proc clear*(this: var IGESConvGeomGeomBuilder) {.importcpp: "Clear",
     header: "IGESConvGeom_GeomBuilder.hxx".}
-proc AddXY*(this: var IGESConvGeom_GeomBuilder; val: gp_XY) {.importcpp: "AddXY",
+proc addXY*(this: var IGESConvGeomGeomBuilder; val: Xy) {.importcpp: "AddXY",
     header: "IGESConvGeom_GeomBuilder.hxx".}
-proc AddXYZ*(this: var IGESConvGeom_GeomBuilder; val: gp_XYZ) {.importcpp: "AddXYZ",
+proc addXYZ*(this: var IGESConvGeomGeomBuilder; val: Xyz) {.importcpp: "AddXYZ",
     header: "IGESConvGeom_GeomBuilder.hxx".}
-proc AddVec*(this: var IGESConvGeom_GeomBuilder; val: gp_XYZ) {.importcpp: "AddVec",
+proc addVec*(this: var IGESConvGeomGeomBuilder; val: Xyz) {.importcpp: "AddVec",
     header: "IGESConvGeom_GeomBuilder.hxx".}
-proc NbPoints*(this: IGESConvGeom_GeomBuilder): Standard_Integer {.noSideEffect,
+proc nbPoints*(this: IGESConvGeomGeomBuilder): int {.noSideEffect,
     importcpp: "NbPoints", header: "IGESConvGeom_GeomBuilder.hxx".}
-proc Point*(this: IGESConvGeom_GeomBuilder; num: Standard_Integer): gp_XYZ {.
-    noSideEffect, importcpp: "Point", header: "IGESConvGeom_GeomBuilder.hxx".}
-proc MakeCopiousData*(this: IGESConvGeom_GeomBuilder; datatype: Standard_Integer;
-                     polyline: Standard_Boolean = Standard_False): handle[
-    IGESGeom_CopiousData] {.noSideEffect, importcpp: "MakeCopiousData",
-                           header: "IGESConvGeom_GeomBuilder.hxx".}
-proc Position*(this: IGESConvGeom_GeomBuilder): gp_Trsf {.noSideEffect,
-    importcpp: "Position", header: "IGESConvGeom_GeomBuilder.hxx".}
-proc SetPosition*(this: var IGESConvGeom_GeomBuilder; pos: gp_Trsf) {.
-    importcpp: "SetPosition", header: "IGESConvGeom_GeomBuilder.hxx".}
-proc SetPosition*(this: var IGESConvGeom_GeomBuilder; pos: gp_Ax3) {.
-    importcpp: "SetPosition", header: "IGESConvGeom_GeomBuilder.hxx".}
-proc SetPosition*(this: var IGESConvGeom_GeomBuilder; pos: gp_Ax2) {.
-    importcpp: "SetPosition", header: "IGESConvGeom_GeomBuilder.hxx".}
-proc SetPosition*(this: var IGESConvGeom_GeomBuilder; pos: gp_Ax1) {.
-    importcpp: "SetPosition", header: "IGESConvGeom_GeomBuilder.hxx".}
-proc IsIdentity*(this: IGESConvGeom_GeomBuilder): Standard_Boolean {.noSideEffect,
-    importcpp: "IsIdentity", header: "IGESConvGeom_GeomBuilder.hxx".}
-proc IsTranslation*(this: IGESConvGeom_GeomBuilder): Standard_Boolean {.
-    noSideEffect, importcpp: "IsTranslation",
+proc point*(this: IGESConvGeomGeomBuilder; num: int): Xyz {.noSideEffect,
+    importcpp: "Point", header: "IGESConvGeom_GeomBuilder.hxx".}
+proc makeCopiousData*(this: IGESConvGeomGeomBuilder; datatype: int;
+                     polyline: bool = false): Handle[IGESGeomCopiousData] {.
+    noSideEffect, importcpp: "MakeCopiousData",
     header: "IGESConvGeom_GeomBuilder.hxx".}
-proc IsZOnly*(this: IGESConvGeom_GeomBuilder): Standard_Boolean {.noSideEffect,
+proc position*(this: IGESConvGeomGeomBuilder): Trsf {.noSideEffect,
+    importcpp: "Position", header: "IGESConvGeom_GeomBuilder.hxx".}
+proc setPosition*(this: var IGESConvGeomGeomBuilder; pos: Trsf) {.
+    importcpp: "SetPosition", header: "IGESConvGeom_GeomBuilder.hxx".}
+proc setPosition*(this: var IGESConvGeomGeomBuilder; pos: Ax3) {.
+    importcpp: "SetPosition", header: "IGESConvGeom_GeomBuilder.hxx".}
+proc setPosition*(this: var IGESConvGeomGeomBuilder; pos: Ax2) {.
+    importcpp: "SetPosition", header: "IGESConvGeom_GeomBuilder.hxx".}
+proc setPosition*(this: var IGESConvGeomGeomBuilder; pos: Ax1) {.
+    importcpp: "SetPosition", header: "IGESConvGeom_GeomBuilder.hxx".}
+proc isIdentity*(this: IGESConvGeomGeomBuilder): bool {.noSideEffect,
+    importcpp: "IsIdentity", header: "IGESConvGeom_GeomBuilder.hxx".}
+proc isTranslation*(this: IGESConvGeomGeomBuilder): bool {.noSideEffect,
+    importcpp: "IsTranslation", header: "IGESConvGeom_GeomBuilder.hxx".}
+proc isZOnly*(this: IGESConvGeomGeomBuilder): bool {.noSideEffect,
     importcpp: "IsZOnly", header: "IGESConvGeom_GeomBuilder.hxx".}
-proc EvalXYZ*(this: IGESConvGeom_GeomBuilder; val: gp_XYZ; X: var Standard_Real;
-             Y: var Standard_Real; Z: var Standard_Real) {.noSideEffect,
-    importcpp: "EvalXYZ", header: "IGESConvGeom_GeomBuilder.hxx".}
-proc MakeTransformation*(this: IGESConvGeom_GeomBuilder; unit: Standard_Real = 1): handle[
-    IGESGeom_TransformationMatrix] {.noSideEffect,
-                                    importcpp: "MakeTransformation",
-                                    header: "IGESConvGeom_GeomBuilder.hxx".}
+proc evalXYZ*(this: IGESConvGeomGeomBuilder; val: Xyz; x: var float; y: var float;
+             z: var float) {.noSideEffect, importcpp: "EvalXYZ",
+                          header: "IGESConvGeom_GeomBuilder.hxx".}
+proc makeTransformation*(this: IGESConvGeomGeomBuilder; unit: float = 1): Handle[
+    IGESGeomTransformationMatrix] {.noSideEffect, importcpp: "MakeTransformation",
+                                   header: "IGESConvGeom_GeomBuilder.hxx".}

@@ -13,52 +13,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepRepr/StepRepr_CompositeShapeAspect, ../StepData/StepData_Logical
-
 discard "forward decl of StepDimTol_Datum"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_ProductDefinitionShape"
 discard "forward decl of StepDimTol_CommonDatum"
 discard "forward decl of StepDimTol_CommonDatum"
 type
-  Handle_StepDimTol_CommonDatum* = handle[StepDimTol_CommonDatum]
+  HandleStepDimTolCommonDatum* = Handle[StepDimTolCommonDatum]
 
 ## ! Representation of STEP entity CommonDatum
 
 type
-  StepDimTol_CommonDatum* {.importcpp: "StepDimTol_CommonDatum",
-                           header: "StepDimTol_CommonDatum.hxx", bycopy.} = object of StepRepr_CompositeShapeAspect ##
-                                                                                                             ## !
-                                                                                                             ## Empty
-                                                                                                             ## constructor
+  StepDimTolCommonDatum* {.importcpp: "StepDimTol_CommonDatum",
+                          header: "StepDimTol_CommonDatum.hxx", bycopy.} = object of StepReprCompositeShapeAspect ##
+                                                                                                           ## !
+                                                                                                           ## Empty
+                                                                                                           ## constructor
 
 
-proc constructStepDimTol_CommonDatum*(): StepDimTol_CommonDatum {.constructor,
+proc constructStepDimTolCommonDatum*(): StepDimTolCommonDatum {.constructor,
     importcpp: "StepDimTol_CommonDatum(@)", header: "StepDimTol_CommonDatum.hxx".}
-proc Init*(this: var StepDimTol_CommonDatum;
-          theShapeAspect_Name: handle[TCollection_HAsciiString];
-          theShapeAspect_Description: handle[TCollection_HAsciiString];
-          theShapeAspect_OfShape: handle[StepRepr_ProductDefinitionShape];
-          theShapeAspect_ProductDefinitional: StepData_Logical;
-          theDatum_Name: handle[TCollection_HAsciiString];
-          theDatum_Description: handle[TCollection_HAsciiString];
-          theDatum_OfShape: handle[StepRepr_ProductDefinitionShape];
-          theDatum_ProductDefinitional: StepData_Logical;
-          theDatum_Identification: handle[TCollection_HAsciiString]) {.
+proc init*(this: var StepDimTolCommonDatum;
+          theShapeAspectName: Handle[TCollectionHAsciiString];
+          theShapeAspectDescription: Handle[TCollectionHAsciiString];
+          theShapeAspectOfShape: Handle[StepReprProductDefinitionShape];
+          theShapeAspectProductDefinitional: StepDataLogical;
+          theDatumName: Handle[TCollectionHAsciiString];
+          theDatumDescription: Handle[TCollectionHAsciiString];
+          theDatumOfShape: Handle[StepReprProductDefinitionShape];
+          theDatumProductDefinitional: StepDataLogical;
+          theDatumIdentification: Handle[TCollectionHAsciiString]) {.
     importcpp: "Init", header: "StepDimTol_CommonDatum.hxx".}
-proc Datum*(this: StepDimTol_CommonDatum): handle[StepDimTol_Datum] {.noSideEffect,
+proc datum*(this: StepDimTolCommonDatum): Handle[StepDimTolDatum] {.noSideEffect,
     importcpp: "Datum", header: "StepDimTol_CommonDatum.hxx".}
-proc SetDatum*(this: var StepDimTol_CommonDatum; theDatum: handle[StepDimTol_Datum]) {.
+proc setDatum*(this: var StepDimTolCommonDatum; theDatum: Handle[StepDimTolDatum]) {.
     importcpp: "SetDatum", header: "StepDimTol_CommonDatum.hxx".}
 type
-  StepDimTol_CommonDatumbase_type* = StepRepr_CompositeShapeAspect
+  StepDimTolCommonDatumbaseType* = StepReprCompositeShapeAspect
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_CommonDatum::get_type_name(@)",
-                              header: "StepDimTol_CommonDatum.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_CommonDatum::get_type_name(@)",
+                            header: "StepDimTol_CommonDatum.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_CommonDatum::get_type_descriptor(@)",
     header: "StepDimTol_CommonDatum.hxx".}
-proc DynamicType*(this: StepDimTol_CommonDatum): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepDimTol_CommonDatum.hxx".}
+proc dynamicType*(this: StepDimTolCommonDatum): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepDimTol_CommonDatum.hxx".}

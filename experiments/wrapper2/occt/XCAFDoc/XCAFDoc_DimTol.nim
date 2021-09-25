@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_HArray1OfReal, ../TDF/TDF_Attribute
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
@@ -25,55 +21,53 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of XCAFDoc_DimTol"
 discard "forward decl of XCAFDoc_DimTol"
 type
-  Handle_XCAFDoc_DimTol* = handle[XCAFDoc_DimTol]
+  HandleXCAFDocDimTol* = Handle[XCAFDocDimTol]
 
 ## ! attribute to store dimension and tolerance
 
 type
-  XCAFDoc_DimTol* {.importcpp: "XCAFDoc_DimTol", header: "XCAFDoc_DimTol.hxx", bycopy.} = object of TDF_Attribute
+  XCAFDocDimTol* {.importcpp: "XCAFDoc_DimTol", header: "XCAFDoc_DimTol.hxx", bycopy.} = object of TDF_Attribute
 
 
-proc constructXCAFDoc_DimTol*(): XCAFDoc_DimTol {.constructor,
+proc constructXCAFDocDimTol*(): XCAFDocDimTol {.constructor,
     importcpp: "XCAFDoc_DimTol(@)", header: "XCAFDoc_DimTol.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "XCAFDoc_DimTol::GetID(@)",
-                            header: "XCAFDoc_DimTol.hxx".}
-proc Set*(label: TDF_Label; kind: Standard_Integer;
-         aVal: handle[TColStd_HArray1OfReal];
-         aName: handle[TCollection_HAsciiString];
-         aDescription: handle[TCollection_HAsciiString]): handle[XCAFDoc_DimTol] {.
+proc getID*(): StandardGUID {.importcpp: "XCAFDoc_DimTol::GetID(@)",
+                           header: "XCAFDoc_DimTol.hxx".}
+proc set*(label: TDF_Label; kind: int; aVal: Handle[TColStdHArray1OfReal];
+         aName: Handle[TCollectionHAsciiString];
+         aDescription: Handle[TCollectionHAsciiString]): Handle[XCAFDocDimTol] {.
     importcpp: "XCAFDoc_DimTol::Set(@)", header: "XCAFDoc_DimTol.hxx".}
-proc Set*(this: var XCAFDoc_DimTol; kind: Standard_Integer;
-         aVal: handle[TColStd_HArray1OfReal];
-         aName: handle[TCollection_HAsciiString];
-         aDescription: handle[TCollection_HAsciiString]) {.importcpp: "Set",
+proc set*(this: var XCAFDocDimTol; kind: int; aVal: Handle[TColStdHArray1OfReal];
+         aName: Handle[TCollectionHAsciiString];
+         aDescription: Handle[TCollectionHAsciiString]) {.importcpp: "Set",
     header: "XCAFDoc_DimTol.hxx".}
-proc GetKind*(this: XCAFDoc_DimTol): Standard_Integer {.noSideEffect,
-    importcpp: "GetKind", header: "XCAFDoc_DimTol.hxx".}
-proc GetVal*(this: XCAFDoc_DimTol): handle[TColStd_HArray1OfReal] {.noSideEffect,
+proc getKind*(this: XCAFDocDimTol): int {.noSideEffect, importcpp: "GetKind",
+                                      header: "XCAFDoc_DimTol.hxx".}
+proc getVal*(this: XCAFDocDimTol): Handle[TColStdHArray1OfReal] {.noSideEffect,
     importcpp: "GetVal", header: "XCAFDoc_DimTol.hxx".}
-proc GetName*(this: XCAFDoc_DimTol): handle[TCollection_HAsciiString] {.
-    noSideEffect, importcpp: "GetName", header: "XCAFDoc_DimTol.hxx".}
-proc GetDescription*(this: XCAFDoc_DimTol): handle[TCollection_HAsciiString] {.
+proc getName*(this: XCAFDocDimTol): Handle[TCollectionHAsciiString] {.noSideEffect,
+    importcpp: "GetName", header: "XCAFDoc_DimTol.hxx".}
+proc getDescription*(this: XCAFDocDimTol): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "GetDescription", header: "XCAFDoc_DimTol.hxx".}
-proc ID*(this: XCAFDoc_DimTol): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: XCAFDocDimTol): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "XCAFDoc_DimTol.hxx".}
-proc Restore*(this: var XCAFDoc_DimTol; With: handle[TDF_Attribute]) {.
+proc restore*(this: var XCAFDocDimTol; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "XCAFDoc_DimTol.hxx".}
-proc NewEmpty*(this: XCAFDoc_DimTol): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: XCAFDocDimTol): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "XCAFDoc_DimTol.hxx".}
-proc Paste*(this: XCAFDoc_DimTol; Into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: XCAFDocDimTol; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "XCAFDoc_DimTol.hxx".}
-proc DumpJson*(this: XCAFDoc_DimTol; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "XCAFDoc_DimTol.hxx".}
+proc dumpJson*(this: XCAFDocDimTol; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "XCAFDoc_DimTol.hxx".}
 type
-  XCAFDoc_DimTolbase_type* = TDF_Attribute
+  XCAFDocDimTolbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "XCAFDoc_DimTol::get_type_name(@)",
-                              header: "XCAFDoc_DimTol.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XCAFDoc_DimTol::get_type_name(@)",
+                            header: "XCAFDoc_DimTol.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XCAFDoc_DimTol::get_type_descriptor(@)",
     header: "XCAFDoc_DimTol.hxx".}
-proc DynamicType*(this: XCAFDoc_DimTol): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: XCAFDocDimTol): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XCAFDoc_DimTol.hxx".}

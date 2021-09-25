@@ -14,48 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, BRepCheck_Status,
-  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape, BRepCheck_Result,
-  ../TopTools/TopTools_ListOfShape
-
 discard "forward decl of TopoDS_Shell"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepCheck_Shell"
 discard "forward decl of BRepCheck_Shell"
 type
-  Handle_BRepCheck_Shell* = handle[BRepCheck_Shell]
-  BRepCheck_Shell* {.importcpp: "BRepCheck_Shell", header: "BRepCheck_Shell.hxx",
-                    bycopy.} = object of BRepCheck_Result
+  HandleBRepCheckShell* = Handle[BRepCheckShell]
+  BRepCheckShell* {.importcpp: "BRepCheck_Shell", header: "BRepCheck_Shell.hxx",
+                   bycopy.} = object of BRepCheckResult
 
 
-proc constructBRepCheck_Shell*(S: TopoDS_Shell): BRepCheck_Shell {.constructor,
+proc constructBRepCheckShell*(s: TopoDS_Shell): BRepCheckShell {.constructor,
     importcpp: "BRepCheck_Shell(@)", header: "BRepCheck_Shell.hxx".}
-proc InContext*(this: var BRepCheck_Shell; ContextShape: TopoDS_Shape) {.
+proc inContext*(this: var BRepCheckShell; contextShape: TopoDS_Shape) {.
     importcpp: "InContext", header: "BRepCheck_Shell.hxx".}
-proc Minimum*(this: var BRepCheck_Shell) {.importcpp: "Minimum",
-                                       header: "BRepCheck_Shell.hxx".}
-proc Blind*(this: var BRepCheck_Shell) {.importcpp: "Blind",
-                                     header: "BRepCheck_Shell.hxx".}
-proc Closed*(this: var BRepCheck_Shell; Update: Standard_Boolean = Standard_False): BRepCheck_Status {.
+proc minimum*(this: var BRepCheckShell) {.importcpp: "Minimum",
+                                      header: "BRepCheck_Shell.hxx".}
+proc blind*(this: var BRepCheckShell) {.importcpp: "Blind",
+                                    header: "BRepCheck_Shell.hxx".}
+proc closed*(this: var BRepCheckShell; update: bool = false): BRepCheckStatus {.
     importcpp: "Closed", header: "BRepCheck_Shell.hxx".}
-proc Orientation*(this: var BRepCheck_Shell;
-                 Update: Standard_Boolean = Standard_False): BRepCheck_Status {.
+proc orientation*(this: var BRepCheckShell; update: bool = false): BRepCheckStatus {.
     importcpp: "Orientation", header: "BRepCheck_Shell.hxx".}
-proc SetUnorientable*(this: var BRepCheck_Shell) {.importcpp: "SetUnorientable",
+proc setUnorientable*(this: var BRepCheckShell) {.importcpp: "SetUnorientable",
     header: "BRepCheck_Shell.hxx".}
-proc IsUnorientable*(this: BRepCheck_Shell): Standard_Boolean {.noSideEffect,
+proc isUnorientable*(this: BRepCheckShell): bool {.noSideEffect,
     importcpp: "IsUnorientable", header: "BRepCheck_Shell.hxx".}
-proc NbConnectedSet*(this: var BRepCheck_Shell; theSets: var TopTools_ListOfShape): Standard_Integer {.
+proc nbConnectedSet*(this: var BRepCheckShell; theSets: var TopToolsListOfShape): int {.
     importcpp: "NbConnectedSet", header: "BRepCheck_Shell.hxx".}
 type
-  BRepCheck_Shellbase_type* = BRepCheck_Result
+  BRepCheckShellbaseType* = BRepCheckResult
 
-proc get_type_name*(): cstring {.importcpp: "BRepCheck_Shell::get_type_name(@)",
-                              header: "BRepCheck_Shell.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepCheck_Shell::get_type_name(@)",
+                            header: "BRepCheck_Shell.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepCheck_Shell::get_type_descriptor(@)",
     header: "BRepCheck_Shell.hxx".}
-proc DynamicType*(this: BRepCheck_Shell): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: BRepCheckShell): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepCheck_Shell.hxx".}

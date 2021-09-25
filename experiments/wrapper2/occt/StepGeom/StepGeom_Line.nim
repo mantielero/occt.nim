@@ -14,43 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_Curve
-
 discard "forward decl of StepGeom_CartesianPoint"
 discard "forward decl of StepGeom_Vector"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_Line"
 discard "forward decl of StepGeom_Line"
 type
-  Handle_StepGeom_Line* = handle[StepGeom_Line]
-  StepGeom_Line* {.importcpp: "StepGeom_Line", header: "StepGeom_Line.hxx", bycopy.} = object of StepGeom_Curve ##
-                                                                                                      ## !
-                                                                                                      ## Returns
-                                                                                                      ## a
-                                                                                                      ## Line
+  HandleStepGeomLine* = Handle[StepGeomLine]
+  StepGeomLine* {.importcpp: "StepGeom_Line", header: "StepGeom_Line.hxx", bycopy.} = object of StepGeomCurve ##
+                                                                                                    ## !
+                                                                                                    ## Returns
+                                                                                                    ## a
+                                                                                                    ## Line
 
 
-proc constructStepGeom_Line*(): StepGeom_Line {.constructor,
+proc constructStepGeomLine*(): StepGeomLine {.constructor,
     importcpp: "StepGeom_Line(@)", header: "StepGeom_Line.hxx".}
-proc Init*(this: var StepGeom_Line; aName: handle[TCollection_HAsciiString];
-          aPnt: handle[StepGeom_CartesianPoint]; aDir: handle[StepGeom_Vector]) {.
+proc init*(this: var StepGeomLine; aName: Handle[TCollectionHAsciiString];
+          aPnt: Handle[StepGeomCartesianPoint]; aDir: Handle[StepGeomVector]) {.
     importcpp: "Init", header: "StepGeom_Line.hxx".}
-proc SetPnt*(this: var StepGeom_Line; aPnt: handle[StepGeom_CartesianPoint]) {.
+proc setPnt*(this: var StepGeomLine; aPnt: Handle[StepGeomCartesianPoint]) {.
     importcpp: "SetPnt", header: "StepGeom_Line.hxx".}
-proc Pnt*(this: StepGeom_Line): handle[StepGeom_CartesianPoint] {.noSideEffect,
+proc pnt*(this: StepGeomLine): Handle[StepGeomCartesianPoint] {.noSideEffect,
     importcpp: "Pnt", header: "StepGeom_Line.hxx".}
-proc SetDir*(this: var StepGeom_Line; aDir: handle[StepGeom_Vector]) {.
+proc setDir*(this: var StepGeomLine; aDir: Handle[StepGeomVector]) {.
     importcpp: "SetDir", header: "StepGeom_Line.hxx".}
-proc Dir*(this: StepGeom_Line): handle[StepGeom_Vector] {.noSideEffect,
+proc dir*(this: StepGeomLine): Handle[StepGeomVector] {.noSideEffect,
     importcpp: "Dir", header: "StepGeom_Line.hxx".}
 type
-  StepGeom_Linebase_type* = StepGeom_Curve
+  StepGeomLinebaseType* = StepGeomCurve
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_Line::get_type_name(@)",
-                              header: "StepGeom_Line.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_Line::get_type_name(@)",
+                            header: "StepGeom_Line.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_Line::get_type_descriptor(@)",
     header: "StepGeom_Line.hxx".}
-proc DynamicType*(this: StepGeom_Line): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepGeomLine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Line.hxx".}

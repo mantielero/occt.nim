@@ -14,22 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopoDSToStep_Root
-
 discard "forward decl of StepShape_GeometricCurveSet"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Transfer_FinderProcess"
 type
-  TopoDSToStep_MakeGeometricCurveSet* {.importcpp: "TopoDSToStep_MakeGeometricCurveSet", header: "TopoDSToStep_MakeGeometricCurveSet.hxx",
-                                       bycopy.} = object of TopoDSToStep_Root
+  TopoDSToStepMakeGeometricCurveSet* {.importcpp: "TopoDSToStep_MakeGeometricCurveSet", header: "TopoDSToStep_MakeGeometricCurveSet.hxx",
+                                      bycopy.} = object of TopoDSToStepRoot
 
 
-proc constructTopoDSToStep_MakeGeometricCurveSet*(SH: TopoDS_Shape;
-    FP: handle[Transfer_FinderProcess]): TopoDSToStep_MakeGeometricCurveSet {.
+proc constructTopoDSToStepMakeGeometricCurveSet*(sh: TopoDS_Shape;
+    fp: Handle[TransferFinderProcess]): TopoDSToStepMakeGeometricCurveSet {.
     constructor, importcpp: "TopoDSToStep_MakeGeometricCurveSet(@)",
     header: "TopoDSToStep_MakeGeometricCurveSet.hxx".}
-proc Value*(this: TopoDSToStep_MakeGeometricCurveSet): handle[
-    StepShape_GeometricCurveSet] {.noSideEffect, importcpp: "Value", header: "TopoDSToStep_MakeGeometricCurveSet.hxx".}
+proc value*(this: TopoDSToStepMakeGeometricCurveSet): Handle[
+    StepShapeGeometricCurveSet] {.noSideEffect, importcpp: "Value", header: "TopoDSToStep_MakeGeometricCurveSet.hxx".}

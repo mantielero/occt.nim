@@ -14,56 +14,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, math_Vector, ../Standard/Standard_Boolean,
-  math_IntegerVector, ../Standard/Standard_OStream
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_NotImplemented"
 discard "forward decl of math_FunctionSet"
 type
-  math_GaussSetIntegration* {.importcpp: "math_GaussSetIntegration",
-                             header: "math_GaussSetIntegration.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## The
-                                                                                  ## Gauss-Legendre
-                                                                                  ## integration
-                                                                                  ## with
-                                                                                  ## Order
-                                                                                  ## =
-                                                                                  ## points
-                                                                                  ## of
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## integration
-                                                                                  ## for
-                                                                                  ## each
-                                                                                  ## unknow,
-                                                                                  ## is
-                                                                                  ## done
-                                                                                  ## on
-                                                                                  ## the
-                                                                                  ## function
-                                                                                  ## F
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## between
-                                                                                  ## the
-                                                                                  ## bounds
-                                                                                  ## Lower
-                                                                                  ## and
-                                                                                  ## Upper.
+  MathGaussSetIntegration* {.importcpp: "math_GaussSetIntegration",
+                            header: "math_GaussSetIntegration.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## The
+                                                                                 ## Gauss-Legendre
+                                                                                 ## integration
+                                                                                 ## with
+                                                                                 ## Order
+                                                                                 ## =
+                                                                                 ## points
+                                                                                 ## of
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## integration
+                                                                                 ## for
+                                                                                 ## each
+                                                                                 ## unknow,
+                                                                                 ## is
+                                                                                 ## done
+                                                                                 ## on
+                                                                                 ## the
+                                                                                 ## function
+                                                                                 ## F
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## between
+                                                                                 ## the
+                                                                                 ## bounds
+                                                                                 ## Lower
+                                                                                 ## and
+                                                                                 ## Upper.
 
 
-proc constructmath_GaussSetIntegration*(F: var math_FunctionSet; Lower: math_Vector;
-                                       Upper: math_Vector;
-                                       Order: math_IntegerVector): math_GaussSetIntegration {.
+proc constructMathGaussSetIntegration*(f: var MathFunctionSet; lower: MathVector;
+                                      upper: MathVector; order: MathIntegerVector): MathGaussSetIntegration {.
     constructor, importcpp: "math_GaussSetIntegration(@)",
     header: "math_GaussSetIntegration.hxx".}
-proc IsDone*(this: math_GaussSetIntegration): Standard_Boolean {.noSideEffect,
+proc isDone*(this: MathGaussSetIntegration): bool {.noSideEffect,
     importcpp: "IsDone", header: "math_GaussSetIntegration.hxx".}
-proc Value*(this: math_GaussSetIntegration): math_Vector {.noSideEffect,
+proc value*(this: MathGaussSetIntegration): MathVector {.noSideEffect,
     importcpp: "Value", header: "math_GaussSetIntegration.hxx".}
-proc Dump*(this: math_GaussSetIntegration; o: var Standard_OStream) {.noSideEffect,
+proc dump*(this: MathGaussSetIntegration; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_GaussSetIntegration.hxx".}

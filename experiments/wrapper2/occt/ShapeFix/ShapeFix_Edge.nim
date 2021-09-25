@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Transient, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, ../ShapeExtend/ShapeExtend_Status
-
 discard "forward decl of ShapeConstruct_ProjectCurveOnSurface"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
@@ -26,12 +21,12 @@ discard "forward decl of Geom_Surface"
 discard "forward decl of TopLoc_Location"
 discard "forward decl of ShapeAnalysis_Surface"
 discard "forward decl of ShapeBuild_ReShape"
-when defined(Status):
-  discard
+# when defined(Status):
+#   discard
 discard "forward decl of ShapeFix_Edge"
 discard "forward decl of ShapeFix_Edge"
 type
-  Handle_ShapeFix_Edge* = handle[ShapeFix_Edge]
+  HandleShapeFixEdge* = Handle[ShapeFixEdge]
 
 ## ! Fixing invalid edge.
 ## ! Geometrical and/or topological inconsistency:
@@ -42,72 +37,69 @@ type
 ## ! - not adjacent curves (3d or pcurve) to the vertices.
 
 type
-  ShapeFix_Edge* {.importcpp: "ShapeFix_Edge", header: "ShapeFix_Edge.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                          ## !
-                                                                                                          ## Empty
-                                                                                                          ## constructor
+  ShapeFixEdge* {.importcpp: "ShapeFix_Edge", header: "ShapeFix_Edge.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                        ## !
+                                                                                                        ## Empty
+                                                                                                        ## constructor
 
 
-proc constructShapeFix_Edge*(): ShapeFix_Edge {.constructor,
+proc constructShapeFixEdge*(): ShapeFixEdge {.constructor,
     importcpp: "ShapeFix_Edge(@)", header: "ShapeFix_Edge.hxx".}
-proc Projector*(this: var ShapeFix_Edge): handle[
-    ShapeConstruct_ProjectCurveOnSurface] {.importcpp: "Projector",
-    header: "ShapeFix_Edge.hxx".}
-proc FixRemovePCurve*(this: var ShapeFix_Edge; edge: TopoDS_Edge; face: TopoDS_Face): Standard_Boolean {.
+proc projector*(this: var ShapeFixEdge): Handle[ShapeConstructProjectCurveOnSurface] {.
+    importcpp: "Projector", header: "ShapeFix_Edge.hxx".}
+proc fixRemovePCurve*(this: var ShapeFixEdge; edge: TopoDS_Edge; face: TopoDS_Face): bool {.
     importcpp: "FixRemovePCurve", header: "ShapeFix_Edge.hxx".}
-proc FixRemovePCurve*(this: var ShapeFix_Edge; edge: TopoDS_Edge;
-                     surface: handle[Geom_Surface]; location: TopLoc_Location): Standard_Boolean {.
+proc fixRemovePCurve*(this: var ShapeFixEdge; edge: TopoDS_Edge;
+                     surface: Handle[GeomSurface]; location: TopLocLocation): bool {.
     importcpp: "FixRemovePCurve", header: "ShapeFix_Edge.hxx".}
-proc FixRemoveCurve3d*(this: var ShapeFix_Edge; edge: TopoDS_Edge): Standard_Boolean {.
+proc fixRemoveCurve3d*(this: var ShapeFixEdge; edge: TopoDS_Edge): bool {.
     importcpp: "FixRemoveCurve3d", header: "ShapeFix_Edge.hxx".}
-proc FixAddPCurve*(this: var ShapeFix_Edge; edge: TopoDS_Edge; face: TopoDS_Face;
-                  isSeam: Standard_Boolean; prec: Standard_Real = 0.0): Standard_Boolean {.
-    importcpp: "FixAddPCurve", header: "ShapeFix_Edge.hxx".}
-proc FixAddPCurve*(this: var ShapeFix_Edge; edge: TopoDS_Edge;
-                  surface: handle[Geom_Surface]; location: TopLoc_Location;
-                  isSeam: Standard_Boolean; prec: Standard_Real = 0.0): Standard_Boolean {.
-    importcpp: "FixAddPCurve", header: "ShapeFix_Edge.hxx".}
-proc FixAddPCurve*(this: var ShapeFix_Edge; edge: TopoDS_Edge; face: TopoDS_Face;
-                  isSeam: Standard_Boolean;
-                  surfana: handle[ShapeAnalysis_Surface];
-                  prec: Standard_Real = 0.0): Standard_Boolean {.
-    importcpp: "FixAddPCurve", header: "ShapeFix_Edge.hxx".}
-proc FixAddPCurve*(this: var ShapeFix_Edge; edge: TopoDS_Edge;
-                  surface: handle[Geom_Surface]; location: TopLoc_Location;
-                  isSeam: Standard_Boolean;
-                  surfana: handle[ShapeAnalysis_Surface];
-                  prec: Standard_Real = 0.0): Standard_Boolean {.
-    importcpp: "FixAddPCurve", header: "ShapeFix_Edge.hxx".}
-proc FixAddCurve3d*(this: var ShapeFix_Edge; edge: TopoDS_Edge): Standard_Boolean {.
+proc fixAddPCurve*(this: var ShapeFixEdge; edge: TopoDS_Edge; face: TopoDS_Face;
+                  isSeam: bool; prec: float = 0.0): bool {.importcpp: "FixAddPCurve",
+    header: "ShapeFix_Edge.hxx".}
+proc fixAddPCurve*(this: var ShapeFixEdge; edge: TopoDS_Edge;
+                  surface: Handle[GeomSurface]; location: TopLocLocation;
+                  isSeam: bool; prec: float = 0.0): bool {.importcpp: "FixAddPCurve",
+    header: "ShapeFix_Edge.hxx".}
+proc fixAddPCurve*(this: var ShapeFixEdge; edge: TopoDS_Edge; face: TopoDS_Face;
+                  isSeam: bool; surfana: Handle[ShapeAnalysisSurface];
+                  prec: float = 0.0): bool {.importcpp: "FixAddPCurve",
+                                        header: "ShapeFix_Edge.hxx".}
+proc fixAddPCurve*(this: var ShapeFixEdge; edge: TopoDS_Edge;
+                  surface: Handle[GeomSurface]; location: TopLocLocation;
+                  isSeam: bool; surfana: Handle[ShapeAnalysisSurface];
+                  prec: float = 0.0): bool {.importcpp: "FixAddPCurve",
+                                        header: "ShapeFix_Edge.hxx".}
+proc fixAddCurve3d*(this: var ShapeFixEdge; edge: TopoDS_Edge): bool {.
     importcpp: "FixAddCurve3d", header: "ShapeFix_Edge.hxx".}
-proc FixVertexTolerance*(this: var ShapeFix_Edge; edge: TopoDS_Edge; face: TopoDS_Face): Standard_Boolean {.
+proc fixVertexTolerance*(this: var ShapeFixEdge; edge: TopoDS_Edge; face: TopoDS_Face): bool {.
     importcpp: "FixVertexTolerance", header: "ShapeFix_Edge.hxx".}
-proc FixVertexTolerance*(this: var ShapeFix_Edge; edge: TopoDS_Edge): Standard_Boolean {.
+proc fixVertexTolerance*(this: var ShapeFixEdge; edge: TopoDS_Edge): bool {.
     importcpp: "FixVertexTolerance", header: "ShapeFix_Edge.hxx".}
-proc FixReversed2d*(this: var ShapeFix_Edge; edge: TopoDS_Edge; face: TopoDS_Face): Standard_Boolean {.
+proc fixReversed2d*(this: var ShapeFixEdge; edge: TopoDS_Edge; face: TopoDS_Face): bool {.
     importcpp: "FixReversed2d", header: "ShapeFix_Edge.hxx".}
-proc FixReversed2d*(this: var ShapeFix_Edge; edge: TopoDS_Edge;
-                   surface: handle[Geom_Surface]; location: TopLoc_Location): Standard_Boolean {.
+proc fixReversed2d*(this: var ShapeFixEdge; edge: TopoDS_Edge;
+                   surface: Handle[GeomSurface]; location: TopLocLocation): bool {.
     importcpp: "FixReversed2d", header: "ShapeFix_Edge.hxx".}
-proc FixSameParameter*(this: var ShapeFix_Edge; edge: TopoDS_Edge;
-                      tolerance: Standard_Real = 0.0): Standard_Boolean {.
-    importcpp: "FixSameParameter", header: "ShapeFix_Edge.hxx".}
-proc FixSameParameter*(this: var ShapeFix_Edge; edge: TopoDS_Edge; face: TopoDS_Face;
-                      tolerance: Standard_Real = 0.0): Standard_Boolean {.
-    importcpp: "FixSameParameter", header: "ShapeFix_Edge.hxx".}
-proc Status*(this: ShapeFix_Edge; status: ShapeExtend_Status): Standard_Boolean {.
-    noSideEffect, importcpp: "Status", header: "ShapeFix_Edge.hxx".}
-proc SetContext*(this: var ShapeFix_Edge; context: handle[ShapeBuild_ReShape]) {.
+proc fixSameParameter*(this: var ShapeFixEdge; edge: TopoDS_Edge;
+                      tolerance: float = 0.0): bool {.importcpp: "FixSameParameter",
+    header: "ShapeFix_Edge.hxx".}
+proc fixSameParameter*(this: var ShapeFixEdge; edge: TopoDS_Edge; face: TopoDS_Face;
+                      tolerance: float = 0.0): bool {.importcpp: "FixSameParameter",
+    header: "ShapeFix_Edge.hxx".}
+proc status*(this: ShapeFixEdge; status: ShapeExtendStatus): bool {.noSideEffect,
+    importcpp: "Status", header: "ShapeFix_Edge.hxx".}
+proc setContext*(this: var ShapeFixEdge; context: Handle[ShapeBuildReShape]) {.
     importcpp: "SetContext", header: "ShapeFix_Edge.hxx".}
-proc Context*(this: ShapeFix_Edge): handle[ShapeBuild_ReShape] {.noSideEffect,
+proc context*(this: ShapeFixEdge): Handle[ShapeBuildReShape] {.noSideEffect,
     importcpp: "Context", header: "ShapeFix_Edge.hxx".}
 type
-  ShapeFix_Edgebase_type* = Standard_Transient
+  ShapeFixEdgebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "ShapeFix_Edge::get_type_name(@)",
-                              header: "ShapeFix_Edge.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeFix_Edge::get_type_name(@)",
+                            header: "ShapeFix_Edge.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeFix_Edge::get_type_descriptor(@)",
     header: "ShapeFix_Edge.hxx".}
-proc DynamicType*(this: ShapeFix_Edge): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: ShapeFixEdge): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeFix_Edge.hxx".}

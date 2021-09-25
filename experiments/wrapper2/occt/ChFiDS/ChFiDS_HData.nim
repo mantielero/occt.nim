@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # ChFiDS_HData_HeaderFile [NewLine] # ChFiDS_HData_HeaderFile [NewLine] # ChFiDS_SurfData.hxx [NewLine] # ChFiDS_SequenceOfSurfData.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( ChFiDS_HData , ChFiDS_SequenceOfSurfData ) # [NewLine]
+## !!!Ignored construct:  # ChFiDS_HData_HeaderFile [NewLine] # ChFiDS_HData_HeaderFile [NewLine] # < ChFiDS_SurfData . hxx > [NewLine] # < ChFiDS_SequenceOfSurfData . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( ChFiDS_HData , ChFiDS_SequenceOfSurfData ) # [NewLine]
 ## Error: expected ';'!!!
+

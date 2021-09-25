@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../TColStd/TColStd_HArray1OfTransient
-
 discard "forward decl of Interface_Protocol"
 discard "forward decl of Interface_FileReaderData"
 discard "forward decl of Interface_InterfaceModel"
@@ -30,87 +25,85 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_GeneralLib"
 discard "forward decl of Interface_ReaderLib"
 type
-  Interface_FileReaderTool* {.importcpp: "Interface_FileReaderTool",
-                             header: "Interface_FileReaderTool.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Sets
-                                                                                  ## Data
-                                                                                  ## to
-                                                                                  ## a
-                                                                                  ## FileReaderData.
-                                                                                  ## Works
-                                                                                  ## with
-                                                                                  ## a
-                                                                                  ## Protocol
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Constructor;
-                                                                                  ## sets
-                                                                                  ## default
-                                                                                  ## fields
+  InterfaceFileReaderTool* {.importcpp: "Interface_FileReaderTool",
+                            header: "Interface_FileReaderTool.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## Sets
+                                                                                 ## Data
+                                                                                 ## to
+                                                                                 ## a
+                                                                                 ## FileReaderData.
+                                                                                 ## Works
+                                                                                 ## with
+                                                                                 ## a
+                                                                                 ## Protocol
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## Constructor;
+                                                                                 ## sets
+                                                                                 ## default
+                                                                                 ## fields
 
 
-proc SetData*(this: var Interface_FileReaderTool;
-             reader: handle[Interface_FileReaderData];
-             protocol: handle[Interface_Protocol]) {.importcpp: "SetData",
+proc setData*(this: var InterfaceFileReaderTool;
+             reader: Handle[InterfaceFileReaderData];
+             protocol: Handle[InterfaceProtocol]) {.importcpp: "SetData",
     header: "Interface_FileReaderTool.hxx".}
-proc Protocol*(this: Interface_FileReaderTool): handle[Interface_Protocol] {.
+proc protocol*(this: InterfaceFileReaderTool): Handle[InterfaceProtocol] {.
     noSideEffect, importcpp: "Protocol", header: "Interface_FileReaderTool.hxx".}
-proc Data*(this: Interface_FileReaderTool): handle[Interface_FileReaderData] {.
+proc data*(this: InterfaceFileReaderTool): Handle[InterfaceFileReaderData] {.
     noSideEffect, importcpp: "Data", header: "Interface_FileReaderTool.hxx".}
-proc SetModel*(this: var Interface_FileReaderTool;
-              amodel: handle[Interface_InterfaceModel]) {.importcpp: "SetModel",
+proc setModel*(this: var InterfaceFileReaderTool;
+              amodel: Handle[InterfaceInterfaceModel]) {.importcpp: "SetModel",
     header: "Interface_FileReaderTool.hxx".}
-proc Model*(this: Interface_FileReaderTool): handle[Interface_InterfaceModel] {.
+proc model*(this: InterfaceFileReaderTool): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "Model", header: "Interface_FileReaderTool.hxx".}
-proc SetMessenger*(this: var Interface_FileReaderTool;
-                  messenger: handle[Message_Messenger]) {.
+proc setMessenger*(this: var InterfaceFileReaderTool;
+                  messenger: Handle[MessageMessenger]) {.
     importcpp: "SetMessenger", header: "Interface_FileReaderTool.hxx".}
-proc Messenger*(this: Interface_FileReaderTool): handle[Message_Messenger] {.
+proc messenger*(this: InterfaceFileReaderTool): Handle[MessageMessenger] {.
     noSideEffect, importcpp: "Messenger", header: "Interface_FileReaderTool.hxx".}
-proc SetTraceLevel*(this: var Interface_FileReaderTool; tracelev: Standard_Integer) {.
+proc setTraceLevel*(this: var InterfaceFileReaderTool; tracelev: int) {.
     importcpp: "SetTraceLevel", header: "Interface_FileReaderTool.hxx".}
-proc TraceLevel*(this: Interface_FileReaderTool): Standard_Integer {.noSideEffect,
+proc traceLevel*(this: InterfaceFileReaderTool): int {.noSideEffect,
     importcpp: "TraceLevel", header: "Interface_FileReaderTool.hxx".}
-proc SetErrorHandle*(this: var Interface_FileReaderTool; err: Standard_Boolean) {.
+proc setErrorHandle*(this: var InterfaceFileReaderTool; err: bool) {.
     importcpp: "SetErrorHandle", header: "Interface_FileReaderTool.hxx".}
-proc ErrorHandle*(this: Interface_FileReaderTool): Standard_Boolean {.noSideEffect,
+proc errorHandle*(this: InterfaceFileReaderTool): bool {.noSideEffect,
     importcpp: "ErrorHandle", header: "Interface_FileReaderTool.hxx".}
-proc SetEntities*(this: var Interface_FileReaderTool) {.importcpp: "SetEntities",
+proc setEntities*(this: var InterfaceFileReaderTool) {.importcpp: "SetEntities",
     header: "Interface_FileReaderTool.hxx".}
-proc Recognize*(this: var Interface_FileReaderTool; num: Standard_Integer;
-               ach: var handle[Interface_Check];
-               ent: var handle[Standard_Transient]): Standard_Boolean {.
+proc recognize*(this: var InterfaceFileReaderTool; num: int;
+               ach: var Handle[InterfaceCheck]; ent: var Handle[StandardTransient]): bool {.
     importcpp: "Recognize", header: "Interface_FileReaderTool.hxx".}
-proc RecognizeByLib*(this: Interface_FileReaderTool; num: Standard_Integer;
-                    glib: var Interface_GeneralLib; rlib: var Interface_ReaderLib;
-                    ach: var handle[Interface_Check];
-                    ent: var handle[Standard_Transient]): Standard_Boolean {.
-    noSideEffect, importcpp: "RecognizeByLib",
-    header: "Interface_FileReaderTool.hxx".}
-proc UnknownEntity*(this: Interface_FileReaderTool): handle[Standard_Transient] {.
+proc recognizeByLib*(this: InterfaceFileReaderTool; num: int;
+                    glib: var InterfaceGeneralLib; rlib: var InterfaceReaderLib;
+                    ach: var Handle[InterfaceCheck];
+                    ent: var Handle[StandardTransient]): bool {.noSideEffect,
+    importcpp: "RecognizeByLib", header: "Interface_FileReaderTool.hxx".}
+proc unknownEntity*(this: InterfaceFileReaderTool): Handle[StandardTransient] {.
     noSideEffect, importcpp: "UnknownEntity",
     header: "Interface_FileReaderTool.hxx".}
-proc NewModel*(this: Interface_FileReaderTool): handle[Interface_InterfaceModel] {.
+proc newModel*(this: InterfaceFileReaderTool): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "NewModel", header: "Interface_FileReaderTool.hxx".}
-proc LoadModel*(this: var Interface_FileReaderTool;
-               amodel: handle[Interface_InterfaceModel]) {.importcpp: "LoadModel",
+proc loadModel*(this: var InterfaceFileReaderTool;
+               amodel: Handle[InterfaceInterfaceModel]) {.importcpp: "LoadModel",
     header: "Interface_FileReaderTool.hxx".}
-proc LoadedEntity*(this: var Interface_FileReaderTool; num: Standard_Integer): handle[
-    Standard_Transient] {.importcpp: "LoadedEntity",
-                         header: "Interface_FileReaderTool.hxx".}
-proc BeginRead*(this: var Interface_FileReaderTool;
-               amodel: handle[Interface_InterfaceModel]) {.importcpp: "BeginRead",
+proc loadedEntity*(this: var InterfaceFileReaderTool; num: int): Handle[
+    StandardTransient] {.importcpp: "LoadedEntity",
+                        header: "Interface_FileReaderTool.hxx".}
+proc beginRead*(this: var InterfaceFileReaderTool;
+               amodel: Handle[InterfaceInterfaceModel]) {.importcpp: "BeginRead",
     header: "Interface_FileReaderTool.hxx".}
-proc AnalyseRecord*(this: var Interface_FileReaderTool; num: Standard_Integer;
-                   anent: handle[Standard_Transient];
-                   acheck: var handle[Interface_Check]): Standard_Boolean {.
+proc analyseRecord*(this: var InterfaceFileReaderTool; num: int;
+                   anent: Handle[StandardTransient];
+                   acheck: var Handle[InterfaceCheck]): bool {.
     importcpp: "AnalyseRecord", header: "Interface_FileReaderTool.hxx".}
-proc destroyInterface_FileReaderTool*(this: var Interface_FileReaderTool) {.
+proc destroyInterfaceFileReaderTool*(this: var InterfaceFileReaderTool) {.
     importcpp: "#.~Interface_FileReaderTool()",
     header: "Interface_FileReaderTool.hxx".}
-proc EndRead*(this: var Interface_FileReaderTool;
-             amodel: handle[Interface_InterfaceModel]) {.importcpp: "EndRead",
+proc endRead*(this: var InterfaceFileReaderTool;
+             amodel: Handle[InterfaceInterfaceModel]) {.importcpp: "EndRead",
     header: "Interface_FileReaderTool.hxx".}
-proc Clear*(this: var Interface_FileReaderTool) {.importcpp: "Clear",
+proc clear*(this: var InterfaceFileReaderTool) {.importcpp: "Clear",
     header: "Interface_FileReaderTool.hxx".}

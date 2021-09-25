@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # Extrema_HArray2OfPOnSurf_HeaderFile [NewLine] # Extrema_HArray2OfPOnSurf_HeaderFile [NewLine] # Extrema_POnSurf.hxx [NewLine] # Extrema_Array2OfPOnSurf.hxx [NewLine] # ../NCollection/NCollection_DefineHArray2.hxx [NewLine] DEFINE_HARRAY2 ( Extrema_HArray2OfPOnSurf , Extrema_Array2OfPOnSurf ) # [NewLine]
+## !!!Ignored construct:  # Extrema_HArray2OfPOnSurf_HeaderFile [NewLine] # Extrema_HArray2OfPOnSurf_HeaderFile [NewLine] # < Extrema_POnSurf . hxx > [NewLine] # < Extrema_Array2OfPOnSurf . hxx > [NewLine] # < NCollection_DefineHArray2 . hxx > [NewLine] DEFINE_HARRAY2 ( Extrema_HArray2OfPOnSurf , Extrema_Array2OfPOnSurf ) # [NewLine]
 ## Error: expected ';'!!!
+

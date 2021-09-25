@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_LuminousIntensity_HeaderFile [NewLine] # _Quantity_LuminousIntensity_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the luminous flux emitted per unit solid
+## !!!Ignored construct:  # _Quantity_LuminousIntensity_HeaderFile [NewLine] # _Quantity_LuminousIntensity_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the luminous flux emitted per unit solid
 ## ! angle in a given direction by a point source.
 ## ! It is measured in candelas. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_LuminousIntensity ;
 ## Error: expected ';'!!!
+

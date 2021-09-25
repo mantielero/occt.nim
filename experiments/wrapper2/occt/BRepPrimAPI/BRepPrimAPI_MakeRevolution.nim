@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../BRepPrim/BRepPrim_Revolution,
-  BRepPrimAPI_MakeOneAxis, ../Standard/Standard_Real, ../Standard/Standard_Address
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Geom_Curve"
 discard "forward decl of gp_Ax2"
@@ -39,39 +34,36 @@ type
                                                                                                                ## Z.
 
 
-proc constructBRepPrimAPI_MakeRevolution*(Meridian: handle[Geom_Curve]): BRepPrimAPI_MakeRevolution {.
+proc constructBRepPrimAPI_MakeRevolution*(meridian: Handle[GeomCurve]): BRepPrimAPI_MakeRevolution {.
     constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)",
     header: "BRepPrimAPI_MakeRevolution.hxx".}
-proc constructBRepPrimAPI_MakeRevolution*(Meridian: handle[Geom_Curve];
-    angle: Standard_Real): BRepPrimAPI_MakeRevolution {.constructor,
+proc constructBRepPrimAPI_MakeRevolution*(meridian: Handle[GeomCurve]; angle: float): BRepPrimAPI_MakeRevolution {.
+    constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)",
+    header: "BRepPrimAPI_MakeRevolution.hxx".}
+proc constructBRepPrimAPI_MakeRevolution*(meridian: Handle[GeomCurve]; vMin: float;
+    vMax: float): BRepPrimAPI_MakeRevolution {.constructor,
     importcpp: "BRepPrimAPI_MakeRevolution(@)",
     header: "BRepPrimAPI_MakeRevolution.hxx".}
-proc constructBRepPrimAPI_MakeRevolution*(Meridian: handle[Geom_Curve];
-    VMin: Standard_Real; VMax: Standard_Real): BRepPrimAPI_MakeRevolution {.
-    constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)",
-    header: "BRepPrimAPI_MakeRevolution.hxx".}
-proc constructBRepPrimAPI_MakeRevolution*(Meridian: handle[Geom_Curve];
-    VMin: Standard_Real; VMax: Standard_Real; angle: Standard_Real): BRepPrimAPI_MakeRevolution {.
-    constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)",
-    header: "BRepPrimAPI_MakeRevolution.hxx".}
-proc constructBRepPrimAPI_MakeRevolution*(Axes: gp_Ax2;
-    Meridian: handle[Geom_Curve]): BRepPrimAPI_MakeRevolution {.constructor,
+proc constructBRepPrimAPI_MakeRevolution*(meridian: Handle[GeomCurve]; vMin: float;
+    vMax: float; angle: float): BRepPrimAPI_MakeRevolution {.constructor,
     importcpp: "BRepPrimAPI_MakeRevolution(@)",
     header: "BRepPrimAPI_MakeRevolution.hxx".}
-proc constructBRepPrimAPI_MakeRevolution*(Axes: gp_Ax2;
-    Meridian: handle[Geom_Curve]; angle: Standard_Real): BRepPrimAPI_MakeRevolution {.
+proc constructBRepPrimAPI_MakeRevolution*(axes: Ax2; meridian: Handle[GeomCurve]): BRepPrimAPI_MakeRevolution {.
     constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)",
     header: "BRepPrimAPI_MakeRevolution.hxx".}
-proc constructBRepPrimAPI_MakeRevolution*(Axes: gp_Ax2;
-    Meridian: handle[Geom_Curve]; VMin: Standard_Real; VMax: Standard_Real): BRepPrimAPI_MakeRevolution {.
-    constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)",
-    header: "BRepPrimAPI_MakeRevolution.hxx".}
-proc constructBRepPrimAPI_MakeRevolution*(Axes: gp_Ax2;
-    Meridian: handle[Geom_Curve]; VMin: Standard_Real; VMax: Standard_Real;
-    angle: Standard_Real): BRepPrimAPI_MakeRevolution {.constructor,
+proc constructBRepPrimAPI_MakeRevolution*(axes: Ax2; meridian: Handle[GeomCurve];
+    angle: float): BRepPrimAPI_MakeRevolution {.constructor,
     importcpp: "BRepPrimAPI_MakeRevolution(@)",
     header: "BRepPrimAPI_MakeRevolution.hxx".}
-proc OneAxis*(this: var BRepPrimAPI_MakeRevolution): Standard_Address {.
+proc constructBRepPrimAPI_MakeRevolution*(axes: Ax2; meridian: Handle[GeomCurve];
+    vMin: float; vMax: float): BRepPrimAPI_MakeRevolution {.constructor,
+    importcpp: "BRepPrimAPI_MakeRevolution(@)",
+    header: "BRepPrimAPI_MakeRevolution.hxx".}
+proc constructBRepPrimAPI_MakeRevolution*(axes: Ax2; meridian: Handle[GeomCurve];
+    vMin: float; vMax: float; angle: float): BRepPrimAPI_MakeRevolution {.constructor,
+    importcpp: "BRepPrimAPI_MakeRevolution(@)",
+    header: "BRepPrimAPI_MakeRevolution.hxx".}
+proc oneAxis*(this: var BRepPrimAPI_MakeRevolution): StandardAddress {.
     importcpp: "OneAxis", header: "BRepPrimAPI_MakeRevolution.hxx".}
-proc Revolution*(this: var BRepPrimAPI_MakeRevolution): var BRepPrim_Revolution {.
+proc revolution*(this: var BRepPrimAPI_MakeRevolution): var BRepPrimRevolution {.
     importcpp: "Revolution", header: "BRepPrimAPI_MakeRevolution.hxx".}

@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepBasic_Approval, ../NCollection/NCollection_Array1
-
 type
-  StepBasic_Array1OfApproval* = NCollection_Array1[handle[StepBasic_Approval]]
+  StepBasicArray1OfApproval* = NCollectionArray1[Handle[StepBasicApproval]]
+

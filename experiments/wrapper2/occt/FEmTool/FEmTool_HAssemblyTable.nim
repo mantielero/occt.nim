@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # FEmTool_HAssemblyTable_HeaderFile [NewLine] # FEmTool_HAssemblyTable_HeaderFile [NewLine] # ../TColStd/TColStd_HArray1OfInteger.hxx [NewLine] # FEmTool_AssemblyTable.hxx [NewLine] # ../NCollection/NCollection_DefineHArray2.hxx [NewLine] DEFINE_HARRAY2 ( FEmTool_HAssemblyTable , FEmTool_AssemblyTable ) # [NewLine]
+## !!!Ignored construct:  # FEmTool_HAssemblyTable_HeaderFile [NewLine] # FEmTool_HAssemblyTable_HeaderFile [NewLine] # < TColStd_HArray1OfInteger . hxx > [NewLine] # < FEmTool_AssemblyTable . hxx > [NewLine] # < NCollection_DefineHArray2 . hxx > [NewLine] DEFINE_HARRAY2 ( FEmTool_HAssemblyTable , FEmTool_AssemblyTable ) # [NewLine]
 ## Error: expected ';'!!!
+

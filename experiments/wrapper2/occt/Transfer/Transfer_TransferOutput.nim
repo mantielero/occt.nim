@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Message/Message_ProgressRange
-
 discard "forward decl of Transfer_TransientProcess"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Standard_NoSuchObject"
@@ -29,52 +24,47 @@ discard "forward decl of Interface_Protocol"
 discard "forward decl of Interface_Graph"
 discard "forward decl of Interface_EntityIterator"
 type
-  Transfer_TransferOutput* {.importcpp: "Transfer_TransferOutput",
-                            header: "Transfer_TransferOutput.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Creates
-                                                                                ## a
-                                                                                ## TransferOutput
-                                                                                ## ready
-                                                                                ## to
-                                                                                ## use,
-                                                                                ## with
-                                                                                ## a
-                                                                                ## TransientProcess
+  TransferTransferOutput* {.importcpp: "Transfer_TransferOutput",
+                           header: "Transfer_TransferOutput.hxx", bycopy.} = object ## !
+                                                                               ## Creates a
+                                                                               ## TransferOutput
+                                                                               ## ready
+                                                                               ## to
+                                                                               ## use,
+                                                                               ## with a
+                                                                               ## TransientProcess
 
 
-proc constructTransfer_TransferOutput*(actor: handle[
-    Transfer_ActorOfTransientProcess]; amodel: handle[Interface_InterfaceModel]): Transfer_TransferOutput {.
+proc constructTransferTransferOutput*(actor: Handle[
+    TransferActorOfTransientProcess]; amodel: Handle[InterfaceInterfaceModel]): TransferTransferOutput {.
     constructor, importcpp: "Transfer_TransferOutput(@)",
     header: "Transfer_TransferOutput.hxx".}
-proc constructTransfer_TransferOutput*(`proc`: handle[Transfer_TransientProcess];
-                                      amodel: handle[Interface_InterfaceModel]): Transfer_TransferOutput {.
+proc constructTransferTransferOutput*(`proc`: Handle[TransferTransientProcess];
+                                     amodel: Handle[InterfaceInterfaceModel]): TransferTransferOutput {.
     constructor, importcpp: "Transfer_TransferOutput(@)",
     header: "Transfer_TransferOutput.hxx".}
-proc Model*(this: Transfer_TransferOutput): handle[Interface_InterfaceModel] {.
+proc model*(this: TransferTransferOutput): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "Model", header: "Transfer_TransferOutput.hxx".}
-proc TransientProcess*(this: Transfer_TransferOutput): handle[
-    Transfer_TransientProcess] {.noSideEffect, importcpp: "TransientProcess",
-                                header: "Transfer_TransferOutput.hxx".}
-proc Transfer*(this: var Transfer_TransferOutput; obj: handle[Standard_Transient];
-              theProgress: Message_ProgressRange = Message_ProgressRange()) {.
-    importcpp: "Transfer", header: "Transfer_TransferOutput.hxx".}
-proc TransferRoots*(this: var Transfer_TransferOutput;
-                   protocol: handle[Interface_Protocol];
-                   theProgress: Message_ProgressRange = Message_ProgressRange()) {.
-    importcpp: "TransferRoots", header: "Transfer_TransferOutput.hxx".}
-proc TransferRoots*(this: var Transfer_TransferOutput; G: Interface_Graph;
-                   theProgress: Message_ProgressRange = Message_ProgressRange()) {.
-    importcpp: "TransferRoots", header: "Transfer_TransferOutput.hxx".}
-proc TransferRoots*(this: var Transfer_TransferOutput;
-                   theProgress: Message_ProgressRange = Message_ProgressRange()) {.
-    importcpp: "TransferRoots", header: "Transfer_TransferOutput.hxx".}
-proc ListForStatus*(this: Transfer_TransferOutput; normal: Standard_Boolean;
-                   roots: Standard_Boolean = Standard_True): Interface_EntityIterator {.
-    noSideEffect, importcpp: "ListForStatus", header: "Transfer_TransferOutput.hxx".}
-proc ModelForStatus*(this: Transfer_TransferOutput;
-                    protocol: handle[Interface_Protocol];
-                    normal: Standard_Boolean;
-                    roots: Standard_Boolean = Standard_True): handle[
-    Interface_InterfaceModel] {.noSideEffect, importcpp: "ModelForStatus",
+proc transientProcess*(this: TransferTransferOutput): Handle[
+    TransferTransientProcess] {.noSideEffect, importcpp: "TransientProcess",
                                header: "Transfer_TransferOutput.hxx".}
+proc transfer*(this: var TransferTransferOutput; obj: Handle[StandardTransient];
+              theProgress: MessageProgressRange = messageProgressRange()) {.
+    importcpp: "Transfer", header: "Transfer_TransferOutput.hxx".}
+proc transferRoots*(this: var TransferTransferOutput;
+                   protocol: Handle[InterfaceProtocol];
+                   theProgress: MessageProgressRange = messageProgressRange()) {.
+    importcpp: "TransferRoots", header: "Transfer_TransferOutput.hxx".}
+proc transferRoots*(this: var TransferTransferOutput; g: InterfaceGraph;
+                   theProgress: MessageProgressRange = messageProgressRange()) {.
+    importcpp: "TransferRoots", header: "Transfer_TransferOutput.hxx".}
+proc transferRoots*(this: var TransferTransferOutput;
+                   theProgress: MessageProgressRange = messageProgressRange()) {.
+    importcpp: "TransferRoots", header: "Transfer_TransferOutput.hxx".}
+proc listForStatus*(this: TransferTransferOutput; normal: bool; roots: bool = true): InterfaceEntityIterator {.
+    noSideEffect, importcpp: "ListForStatus", header: "Transfer_TransferOutput.hxx".}
+proc modelForStatus*(this: TransferTransferOutput;
+                    protocol: Handle[InterfaceProtocol]; normal: bool;
+                    roots: bool = true): Handle[InterfaceInterfaceModel] {.
+    noSideEffect, importcpp: "ModelForStatus",
+    header: "Transfer_TransferOutput.hxx".}

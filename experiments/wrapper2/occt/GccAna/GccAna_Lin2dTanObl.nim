@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../TColgp/TColgp_Array1OfLin2d,
-  ../GccEnt/GccEnt_Array1OfPosition, ../TColgp/TColgp_Array1OfPnt2d,
-  ../TColStd/TColStd_Array1OfReal, ../Standard/Standard_Real,
-  ../GccEnt/GccEnt_Position
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of GccEnt_BadQualifier"
 discard "forward decl of StdFail_NotDone"
@@ -29,34 +21,29 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Lin2d"
 discard "forward decl of GccEnt_QualifiedCirc"
 type
-  GccAna_Lin2dTanObl* {.importcpp: "GccAna_Lin2dTanObl",
-                       header: "GccAna_Lin2dTanObl.hxx", bycopy.} = object ## ! This class implements the algorithms used to
-                                                                      ## ! create 2d line passing through a point and
-                                                                      ## ! making an angle with a line.
+  GccAnaLin2dTanObl* {.importcpp: "GccAna_Lin2dTanObl",
+                      header: "GccAna_Lin2dTanObl.hxx", bycopy.} = object ## ! This class implements the algorithms used to
+                                                                     ## ! create 2d line passing through a point and
+                                                                     ## ! making an angle with a line.
 
 
-proc constructGccAna_Lin2dTanObl*(ThePoint: gp_Pnt2d; TheLine: gp_Lin2d;
-                                 TheAngle: Standard_Real): GccAna_Lin2dTanObl {.
+proc constructGccAnaLin2dTanObl*(thePoint: Pnt2d; theLine: Lin2d; theAngle: float): GccAnaLin2dTanObl {.
     constructor, importcpp: "GccAna_Lin2dTanObl(@)",
     header: "GccAna_Lin2dTanObl.hxx".}
-proc constructGccAna_Lin2dTanObl*(Qualified1: GccEnt_QualifiedCirc;
-                                 TheLine: gp_Lin2d; TheAngle: Standard_Real): GccAna_Lin2dTanObl {.
-    constructor, importcpp: "GccAna_Lin2dTanObl(@)",
+proc constructGccAnaLin2dTanObl*(qualified1: GccEntQualifiedCirc; theLine: Lin2d;
+                                theAngle: float): GccAnaLin2dTanObl {.constructor,
+    importcpp: "GccAna_Lin2dTanObl(@)", header: "GccAna_Lin2dTanObl.hxx".}
+proc isDone*(this: GccAnaLin2dTanObl): bool {.noSideEffect, importcpp: "IsDone",
     header: "GccAna_Lin2dTanObl.hxx".}
-proc IsDone*(this: GccAna_Lin2dTanObl): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "GccAna_Lin2dTanObl.hxx".}
-proc NbSolutions*(this: GccAna_Lin2dTanObl): Standard_Integer {.noSideEffect,
+proc nbSolutions*(this: GccAnaLin2dTanObl): int {.noSideEffect,
     importcpp: "NbSolutions", header: "GccAna_Lin2dTanObl.hxx".}
-proc ThisSolution*(this: GccAna_Lin2dTanObl; Index: Standard_Integer): gp_Lin2d {.
-    noSideEffect, importcpp: "ThisSolution", header: "GccAna_Lin2dTanObl.hxx".}
-proc WhichQualifier*(this: GccAna_Lin2dTanObl; Index: Standard_Integer;
-                    Qualif1: var GccEnt_Position) {.noSideEffect,
-    importcpp: "WhichQualifier", header: "GccAna_Lin2dTanObl.hxx".}
-proc Tangency1*(this: GccAna_Lin2dTanObl; Index: Standard_Integer;
-               ParSol: var Standard_Real; ParArg: var Standard_Real;
-               PntSol: var gp_Pnt2d) {.noSideEffect, importcpp: "Tangency1",
-                                    header: "GccAna_Lin2dTanObl.hxx".}
-proc Intersection2*(this: GccAna_Lin2dTanObl; Index: Standard_Integer;
-                   ParSol: var Standard_Real; ParArg: var Standard_Real;
-                   PntSol: var gp_Pnt2d) {.noSideEffect, importcpp: "Intersection2",
-                                        header: "GccAna_Lin2dTanObl.hxx".}
+proc thisSolution*(this: GccAnaLin2dTanObl; index: int): Lin2d {.noSideEffect,
+    importcpp: "ThisSolution", header: "GccAna_Lin2dTanObl.hxx".}
+proc whichQualifier*(this: GccAnaLin2dTanObl; index: int; qualif1: var GccEntPosition) {.
+    noSideEffect, importcpp: "WhichQualifier", header: "GccAna_Lin2dTanObl.hxx".}
+proc tangency1*(this: GccAnaLin2dTanObl; index: int; parSol: var float;
+               parArg: var float; pntSol: var Pnt2d) {.noSideEffect,
+    importcpp: "Tangency1", header: "GccAna_Lin2dTanObl.hxx".}
+proc intersection2*(this: GccAnaLin2dTanObl; index: int; parSol: var float;
+                   parArg: var float; pntSol: var Pnt2d) {.noSideEffect,
+    importcpp: "Intersection2", header: "GccAna_Lin2dTanObl.hxx".}

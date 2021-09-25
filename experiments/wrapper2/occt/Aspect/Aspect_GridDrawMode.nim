@@ -17,7 +17,8 @@
 ## ! by using lines or points.
 
 type
-  Aspect_GridDrawMode* {.size: sizeof(cint), importcpp: "Aspect_GridDrawMode",
-                        header: "Aspect_GridDrawMode.hxx".} = enum
-    Aspect_GDM_Lines, Aspect_GDM_Points, Aspect_GDM_None
+  AspectGridDrawMode* {.size: sizeof(cint), importcpp: "Aspect_GridDrawMode",
+                       header: "Aspect_GridDrawMode.hxx".} = enum
+    AspectGDM_Lines, AspectGDM_Points, AspectGDM_None
+
 

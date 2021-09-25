@@ -13,46 +13,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../BinMDF/BinMDF_ADriver,
-  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
-  ../BinObjMgt/BinObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDocStd_XLinkDriver"
 discard "forward decl of BinMDocStd_XLinkDriver"
 type
-  Handle_BinMDocStd_XLinkDriver* = handle[BinMDocStd_XLinkDriver]
+  HandleBinMDocStdXLinkDriver* = Handle[BinMDocStdXLinkDriver]
 
 ## ! XLink attribute Driver.
 
 type
-  BinMDocStd_XLinkDriver* {.importcpp: "BinMDocStd_XLinkDriver",
-                           header: "BinMDocStd_XLinkDriver.hxx", bycopy.} = object of BinMDF_ADriver
+  BinMDocStdXLinkDriver* {.importcpp: "BinMDocStd_XLinkDriver",
+                          header: "BinMDocStd_XLinkDriver.hxx", bycopy.} = object of BinMDF_ADriver
 
 
-proc constructBinMDocStd_XLinkDriver*(theMessageDriver: handle[Message_Messenger]): BinMDocStd_XLinkDriver {.
+proc constructBinMDocStdXLinkDriver*(theMessageDriver: Handle[MessageMessenger]): BinMDocStdXLinkDriver {.
     constructor, importcpp: "BinMDocStd_XLinkDriver(@)",
     header: "BinMDocStd_XLinkDriver.hxx".}
-proc NewEmpty*(this: BinMDocStd_XLinkDriver): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: BinMDocStdXLinkDriver): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "BinMDocStd_XLinkDriver.hxx".}
-proc Paste*(this: BinMDocStd_XLinkDriver; Source: BinObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "BinMDocStd_XLinkDriver.hxx".}
-proc Paste*(this: BinMDocStd_XLinkDriver; Source: handle[TDF_Attribute];
-           Target: var BinObjMgt_Persistent;
-           RelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: BinMDocStdXLinkDriver; source: BinObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var BinObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "BinMDocStd_XLinkDriver.hxx".}
+proc paste*(this: BinMDocStdXLinkDriver; source: Handle[TDF_Attribute];
+           target: var BinObjMgtPersistent;
+           relocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMDocStd_XLinkDriver.hxx".}
 type
-  BinMDocStd_XLinkDriverbase_type* = BinMDF_ADriver
+  BinMDocStdXLinkDriverbaseType* = BinMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "BinMDocStd_XLinkDriver::get_type_name(@)",
-                              header: "BinMDocStd_XLinkDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BinMDocStd_XLinkDriver::get_type_name(@)",
+                            header: "BinMDocStd_XLinkDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BinMDocStd_XLinkDriver::get_type_descriptor(@)",
     header: "BinMDocStd_XLinkDriver.hxx".}
-proc DynamicType*(this: BinMDocStd_XLinkDriver): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "BinMDocStd_XLinkDriver.hxx".}
+proc dynamicType*(this: BinMDocStdXLinkDriver): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "BinMDocStd_XLinkDriver.hxx".}

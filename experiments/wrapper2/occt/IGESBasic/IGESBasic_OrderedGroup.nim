@@ -14,14 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, IGESBasic_Group
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESBasic_OrderedGroup"
 discard "forward decl of IGESBasic_OrderedGroup"
 type
-  Handle_IGESBasic_OrderedGroup* = handle[IGESBasic_OrderedGroup]
+  HandleIGESBasicOrderedGroup* = Handle[IGESBasicOrderedGroup]
 
 ## ! defines OrderedGroup, Type <402> Form <14>
 ## ! in package IGESBasic
@@ -32,19 +29,19 @@ type
 ## ! It inherits from Group
 
 type
-  IGESBasic_OrderedGroup* {.importcpp: "IGESBasic_OrderedGroup",
-                           header: "IGESBasic_OrderedGroup.hxx", bycopy.} = object of IGESBasic_Group
+  IGESBasicOrderedGroup* {.importcpp: "IGESBasic_OrderedGroup",
+                          header: "IGESBasic_OrderedGroup.hxx", bycopy.} = object of IGESBasicGroup
 
 
-proc constructIGESBasic_OrderedGroup*(): IGESBasic_OrderedGroup {.constructor,
+proc constructIGESBasicOrderedGroup*(): IGESBasicOrderedGroup {.constructor,
     importcpp: "IGESBasic_OrderedGroup(@)", header: "IGESBasic_OrderedGroup.hxx".}
 type
-  IGESBasic_OrderedGroupbase_type* = IGESBasic_Group
+  IGESBasicOrderedGroupbaseType* = IGESBasicGroup
 
-proc get_type_name*(): cstring {.importcpp: "IGESBasic_OrderedGroup::get_type_name(@)",
-                              header: "IGESBasic_OrderedGroup.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESBasic_OrderedGroup::get_type_name(@)",
+                            header: "IGESBasic_OrderedGroup.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESBasic_OrderedGroup::get_type_descriptor(@)",
     header: "IGESBasic_OrderedGroup.hxx".}
-proc DynamicType*(this: IGESBasic_OrderedGroup): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IGESBasic_OrderedGroup.hxx".}
+proc dynamicType*(this: IGESBasicOrderedGroup): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IGESBasic_OrderedGroup.hxx".}

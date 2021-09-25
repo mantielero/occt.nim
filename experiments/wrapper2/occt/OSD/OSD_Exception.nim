@@ -12,15 +12,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _OSD_Exception_HeaderFile [NewLine] # _OSD_Exception_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_Failure.hxx [NewLine] class OSD_Exception ;
+## !!!Ignored construct:  # _OSD_Exception_HeaderFile [NewLine] # _OSD_Exception_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class OSD_Exception ;
 ## Error: expected ';'!!!
 
 discard "forward decl of OSD_Exception"
 type
-  Handle_OSD_ExceptionOSD_Exception* = handle[OSD_Exception]
+  HandleOSD_ExceptionOSD_Exception* = Handle[OSD_Exception]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_Exception [NewLine] # if ( CONDITION ) throw OSD_Exception ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception , Standard_Failure ) #  _OSD_Exception_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception , Standard_Failure ) #  _OSD_Exception_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

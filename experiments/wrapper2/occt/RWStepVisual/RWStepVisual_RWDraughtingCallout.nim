@@ -13,33 +13,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_DraughtingCallout"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepVisual_RWDraughtingCallout* {.importcpp: "RWStepVisual_RWDraughtingCallout", header: "RWStepVisual_RWDraughtingCallout.hxx",
-                                     bycopy.} = object
+  RWStepVisualRWDraughtingCallout* {.importcpp: "RWStepVisual_RWDraughtingCallout", header: "RWStepVisual_RWDraughtingCallout.hxx",
+                                    bycopy.} = object
 
 
-proc constructRWStepVisual_RWDraughtingCallout*(): RWStepVisual_RWDraughtingCallout {.
+proc constructRWStepVisualRWDraughtingCallout*(): RWStepVisualRWDraughtingCallout {.
     constructor, importcpp: "RWStepVisual_RWDraughtingCallout(@)",
     header: "RWStepVisual_RWDraughtingCallout.hxx".}
-proc ReadStep*(this: RWStepVisual_RWDraughtingCallout;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepVisual_DraughtingCallout]) {.noSideEffect,
+proc readStep*(this: RWStepVisualRWDraughtingCallout;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepVisualDraughtingCallout]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWDraughtingCallout.hxx".}
-proc WriteStep*(this: RWStepVisual_RWDraughtingCallout;
-               SW: var StepData_StepWriter;
-               ent: handle[StepVisual_DraughtingCallout]) {.noSideEffect,
+proc writeStep*(this: RWStepVisualRWDraughtingCallout; sw: var StepDataStepWriter;
+               ent: Handle[StepVisualDraughtingCallout]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWDraughtingCallout.hxx".}
-proc Share*(this: RWStepVisual_RWDraughtingCallout;
-           ent: handle[StepVisual_DraughtingCallout];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepVisualRWDraughtingCallout;
+           ent: Handle[StepVisualDraughtingCallout];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWDraughtingCallout.hxx".}

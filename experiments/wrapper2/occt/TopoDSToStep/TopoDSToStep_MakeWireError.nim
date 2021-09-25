@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  TopoDSToStep_MakeWireError* {.size: sizeof(cint),
-                               importcpp: "TopoDSToStep_MakeWireError",
-                               header: "TopoDSToStep_MakeWireError.hxx".} = enum
-    TopoDSToStep_WireDone, TopoDSToStep_NonManifoldWire, TopoDSToStep_WireOther
+  TopoDSToStepMakeWireError* {.size: sizeof(cint),
+                              importcpp: "TopoDSToStep_MakeWireError",
+                              header: "TopoDSToStep_MakeWireError.hxx".} = enum
+    TopoDSToStepWireDone, TopoDSToStepNonManifoldWire, TopoDSToStepWireOther
+
 

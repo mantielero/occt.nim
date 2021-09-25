@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../IFSelect/IFSelect_Editor,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_EditForm"
 discard "forward decl of TCollection_HAsciiString"
@@ -26,43 +22,41 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IGESSelect_EditHeader"
 discard "forward decl of IGESSelect_EditHeader"
 type
-  Handle_IGESSelect_EditHeader* = handle[IGESSelect_EditHeader]
+  HandleIGESSelectEditHeader* = Handle[IGESSelectEditHeader]
 
 ## ! This class is aimed to display and edit the Header of an
 ## ! IGES Model : Start Section and Global Section
 
 type
-  IGESSelect_EditHeader* {.importcpp: "IGESSelect_EditHeader",
-                          header: "IGESSelect_EditHeader.hxx", bycopy.} = object of IFSelect_Editor
+  IGESSelectEditHeader* {.importcpp: "IGESSelect_EditHeader",
+                         header: "IGESSelect_EditHeader.hxx", bycopy.} = object of IFSelectEditor
 
 
-proc constructIGESSelect_EditHeader*(): IGESSelect_EditHeader {.constructor,
+proc constructIGESSelectEditHeader*(): IGESSelectEditHeader {.constructor,
     importcpp: "IGESSelect_EditHeader(@)", header: "IGESSelect_EditHeader.hxx".}
-proc Label*(this: IGESSelect_EditHeader): TCollection_AsciiString {.noSideEffect,
+proc label*(this: IGESSelectEditHeader): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "IGESSelect_EditHeader.hxx".}
-proc Recognize*(this: IGESSelect_EditHeader; form: handle[IFSelect_EditForm]): Standard_Boolean {.
+proc recognize*(this: IGESSelectEditHeader; form: Handle[IFSelectEditForm]): bool {.
     noSideEffect, importcpp: "Recognize", header: "IGESSelect_EditHeader.hxx".}
-proc StringValue*(this: IGESSelect_EditHeader; form: handle[IFSelect_EditForm];
-                 num: Standard_Integer): handle[TCollection_HAsciiString] {.
-    noSideEffect, importcpp: "StringValue", header: "IGESSelect_EditHeader.hxx".}
-proc Load*(this: IGESSelect_EditHeader; form: handle[IFSelect_EditForm];
-          ent: handle[Standard_Transient]; model: handle[Interface_InterfaceModel]): Standard_Boolean {.
+proc stringValue*(this: IGESSelectEditHeader; form: Handle[IFSelectEditForm];
+                 num: int): Handle[TCollectionHAsciiString] {.noSideEffect,
+    importcpp: "StringValue", header: "IGESSelect_EditHeader.hxx".}
+proc load*(this: IGESSelectEditHeader; form: Handle[IFSelectEditForm];
+          ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, importcpp: "Load", header: "IGESSelect_EditHeader.hxx".}
-proc Update*(this: IGESSelect_EditHeader; form: handle[IFSelect_EditForm];
-            num: Standard_Integer; newval: handle[TCollection_HAsciiString];
-            enforce: Standard_Boolean): Standard_Boolean {.noSideEffect,
-    importcpp: "Update", header: "IGESSelect_EditHeader.hxx".}
-proc Apply*(this: IGESSelect_EditHeader; form: handle[IFSelect_EditForm];
-           ent: handle[Standard_Transient];
-           model: handle[Interface_InterfaceModel]): Standard_Boolean {.
+proc update*(this: IGESSelectEditHeader; form: Handle[IFSelectEditForm]; num: int;
+            newval: Handle[TCollectionHAsciiString]; enforce: bool): bool {.
+    noSideEffect, importcpp: "Update", header: "IGESSelect_EditHeader.hxx".}
+proc apply*(this: IGESSelectEditHeader; form: Handle[IFSelectEditForm];
+           ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, importcpp: "Apply", header: "IGESSelect_EditHeader.hxx".}
 type
-  IGESSelect_EditHeaderbase_type* = IFSelect_Editor
+  IGESSelectEditHeaderbaseType* = IFSelectEditor
 
-proc get_type_name*(): cstring {.importcpp: "IGESSelect_EditHeader::get_type_name(@)",
-                              header: "IGESSelect_EditHeader.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_EditHeader::get_type_name(@)",
+                            header: "IGESSelect_EditHeader.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSelect_EditHeader::get_type_descriptor(@)",
     header: "IGESSelect_EditHeader.hxx".}
-proc DynamicType*(this: IGESSelect_EditHeader): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IGESSelect_EditHeader.hxx".}
+proc dynamicType*(this: IGESSelectEditHeader): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IGESSelect_EditHeader.hxx".}

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../GeomAbs/GeomAbs_Shape, Geom2d_Curve, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../Geom2dEvaluator/Geom2dEvaluator_OffsetCurve
-
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_RangeError"
@@ -33,7 +28,7 @@ discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_OffsetCurve"
 discard "forward decl of Geom2d_OffsetCurve"
 type
-  Handle_Geom2d_OffsetCurve* = handle[Geom2d_OffsetCurve]
+  HandleGeom2dOffsetCurve* = Handle[Geom2dOffsetCurve]
 
 ## ! This class implements the basis services for the creation,
 ## ! edition, modification and evaluation of planar offset curve.
@@ -74,285 +69,283 @@ type
 ## ! closed even if the basis curve is not closed.
 
 type
-  Geom2d_OffsetCurve* {.importcpp: "Geom2d_OffsetCurve",
-                       header: "Geom2d_OffsetCurve.hxx", bycopy.} = object of Geom2d_Curve ##
-                                                                                    ## !
-                                                                                    ## Constructs
-                                                                                    ## a
-                                                                                    ## curve
-                                                                                    ## offset
-                                                                                    ## from
-                                                                                    ## the
-                                                                                    ## basis
-                                                                                    ## curve
-                                                                                    ## C,
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## where
-                                                                                    ## Offset
-                                                                                    ## is
-                                                                                    ## the
-                                                                                    ## distance
-                                                                                    ## between
-                                                                                    ## the
-                                                                                    ## offset
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## curve
-                                                                                    ## and
-                                                                                    ## the
-                                                                                    ## basis
-                                                                                    ## curve
-                                                                                    ## at
-                                                                                    ## any
-                                                                                    ## point.
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## A
-                                                                                    ## point
-                                                                                    ## on
-                                                                                    ## the
-                                                                                    ## offset
-                                                                                    ## curve
-                                                                                    ## is
-                                                                                    ## built
-                                                                                    ## by
-                                                                                    ## measuring
-                                                                                    ## the
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## offset
-                                                                                    ## value
-                                                                                    ## along
-                                                                                    ## a
-                                                                                    ## normal
-                                                                                    ## vector
-                                                                                    ## at
-                                                                                    ## a
-                                                                                    ## point
-                                                                                    ## on
-                                                                                    ## C.
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## This
-                                                                                    ## normal
-                                                                                    ## vector
-                                                                                    ## is
-                                                                                    ## obtained
-                                                                                    ## by
-                                                                                    ## rotating
-                                                                                    ## the
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## vector
-                                                                                    ## tangential
-                                                                                    ## to
-                                                                                    ## C
-                                                                                    ## at
-                                                                                    ## 90
-                                                                                    ## degrees
-                                                                                    ## in
-                                                                                    ## the
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## anti-trigonometric
-                                                                                    ## sense.
-                                                                                    ## The
-                                                                                    ## side
-                                                                                    ## of
-                                                                                    ## C
-                                                                                    ## on
-                                                                                    ## which
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## the
-                                                                                    ## offset
-                                                                                    ## value
-                                                                                    ## is
-                                                                                    ## measured
-                                                                                    ## is
-                                                                                    ## indicated
-                                                                                    ## by
-                                                                                    ## this
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## normal
-                                                                                    ## vector
-                                                                                    ## if
-                                                                                    ## Offset
-                                                                                    ## is
-                                                                                    ## positive,
-                                                                                    ## or
-                                                                                    ## in
-                                                                                    ## the
-                                                                                    ## inverse
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## sense
-                                                                                    ## if
-                                                                                    ## Offset
-                                                                                    ## is
-                                                                                    ## negative.
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## If
-                                                                                    ## isNotCheckC0
-                                                                                    ## =
-                                                                                    ## TRUE
-                                                                                    ## checking
-                                                                                    ## if
-                                                                                    ## basis
-                                                                                    ## curve
-                                                                                    ## has
-                                                                                    ## C0-continuity
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## is
-                                                                                    ## not
-                                                                                    ## made.
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## Warnings
-                                                                                    ## :
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## In
-                                                                                    ## this
-                                                                                    ## package
-                                                                                    ## the
-                                                                                    ## entities
-                                                                                    ## are
-                                                                                    ## not
-                                                                                    ## shared.
-                                                                                    ## The
-                                                                                    ## OffsetCurve
-                                                                                    ## is
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## built
-                                                                                    ## with
-                                                                                    ## a
-                                                                                    ## copy
-                                                                                    ## of
-                                                                                    ## the
-                                                                                    ## curve
-                                                                                    ## C.
-                                                                                    ## So
-                                                                                    ## when
-                                                                                    ## C
-                                                                                    ## is
-                                                                                    ## modified
-                                                                                    ## the
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## OffsetCurve
-                                                                                    ## is
-                                                                                    ## not
-                                                                                    ## modified
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## Warning!
-                                                                                    ## if
-                                                                                    ## isNotCheckC0
-                                                                                    ## =
-                                                                                    ## false,
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## ConstructionError
-                                                                                    ## raised
-                                                                                    ## if
-                                                                                    ## the
-                                                                                    ## basis
-                                                                                    ## curve
-                                                                                    ## C
-                                                                                    ## is
-                                                                                    ## not
-                                                                                    ## at
-                                                                                    ## least
-                                                                                    ## C1.
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## No
-                                                                                    ## check
-                                                                                    ## is
-                                                                                    ## done
-                                                                                    ## to
-                                                                                    ## know
-                                                                                    ## if
-                                                                                    ## ||V^Z||
-                                                                                    ## !=
-                                                                                    ## 0.0
-                                                                                    ## at
-                                                                                    ## any
-                                                                                    ## point.
+  Geom2dOffsetCurve* {.importcpp: "Geom2d_OffsetCurve",
+                      header: "Geom2d_OffsetCurve.hxx", bycopy.} = object of Geom2dCurve ##
+                                                                                  ## !
+                                                                                  ## Constructs
+                                                                                  ## a
+                                                                                  ## curve
+                                                                                  ## offset
+                                                                                  ## from
+                                                                                  ## the
+                                                                                  ## basis
+                                                                                  ## curve
+                                                                                  ## C,
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## where
+                                                                                  ## Offset
+                                                                                  ## is
+                                                                                  ## the
+                                                                                  ## distance
+                                                                                  ## between
+                                                                                  ## the
+                                                                                  ## offset
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## curve
+                                                                                  ## and
+                                                                                  ## the
+                                                                                  ## basis
+                                                                                  ## curve
+                                                                                  ## at
+                                                                                  ## any
+                                                                                  ## point.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## A
+                                                                                  ## point
+                                                                                  ## on
+                                                                                  ## the
+                                                                                  ## offset
+                                                                                  ## curve
+                                                                                  ## is
+                                                                                  ## built
+                                                                                  ## by
+                                                                                  ## measuring
+                                                                                  ## the
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## offset
+                                                                                  ## value
+                                                                                  ## along
+                                                                                  ## a
+                                                                                  ## normal
+                                                                                  ## vector
+                                                                                  ## at
+                                                                                  ## a
+                                                                                  ## point
+                                                                                  ## on
+                                                                                  ## C.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## This
+                                                                                  ## normal
+                                                                                  ## vector
+                                                                                  ## is
+                                                                                  ## obtained
+                                                                                  ## by
+                                                                                  ## rotating
+                                                                                  ## the
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## vector
+                                                                                  ## tangential
+                                                                                  ## to
+                                                                                  ## C
+                                                                                  ## at
+                                                                                  ## 90
+                                                                                  ## degrees
+                                                                                  ## in
+                                                                                  ## the
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## anti-trigonometric
+                                                                                  ## sense.
+                                                                                  ## The
+                                                                                  ## side
+                                                                                  ## of
+                                                                                  ## C
+                                                                                  ## on
+                                                                                  ## which
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## the
+                                                                                  ## offset
+                                                                                  ## value
+                                                                                  ## is
+                                                                                  ## measured
+                                                                                  ## is
+                                                                                  ## indicated
+                                                                                  ## by
+                                                                                  ## this
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## normal
+                                                                                  ## vector
+                                                                                  ## if
+                                                                                  ## Offset
+                                                                                  ## is
+                                                                                  ## positive,
+                                                                                  ## or
+                                                                                  ## in
+                                                                                  ## the
+                                                                                  ## inverse
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## sense
+                                                                                  ## if
+                                                                                  ## Offset
+                                                                                  ## is
+                                                                                  ## negative.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## If
+                                                                                  ## isNotCheckC0
+                                                                                  ## =
+                                                                                  ## TRUE
+                                                                                  ## checking
+                                                                                  ## if
+                                                                                  ## basis
+                                                                                  ## curve
+                                                                                  ## has
+                                                                                  ## C0-continuity
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## is
+                                                                                  ## not
+                                                                                  ## made.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## Warnings
+                                                                                  ## :
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## In
+                                                                                  ## this
+                                                                                  ## package
+                                                                                  ## the
+                                                                                  ## entities
+                                                                                  ## are
+                                                                                  ## not
+                                                                                  ## shared.
+                                                                                  ## The
+                                                                                  ## OffsetCurve
+                                                                                  ## is
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## built
+                                                                                  ## with
+                                                                                  ## a
+                                                                                  ## copy
+                                                                                  ## of
+                                                                                  ## the
+                                                                                  ## curve
+                                                                                  ## C.
+                                                                                  ## So
+                                                                                  ## when
+                                                                                  ## C
+                                                                                  ## is
+                                                                                  ## modified
+                                                                                  ## the
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## OffsetCurve
+                                                                                  ## is
+                                                                                  ## not
+                                                                                  ## modified
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## Warning!
+                                                                                  ## if
+                                                                                  ## isNotCheckC0
+                                                                                  ## =
+                                                                                  ## false,
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## ConstructionError
+                                                                                  ## raised
+                                                                                  ## if
+                                                                                  ## the
+                                                                                  ## basis
+                                                                                  ## curve
+                                                                                  ## C
+                                                                                  ## is
+                                                                                  ## not
+                                                                                  ## at
+                                                                                  ## least
+                                                                                  ## C1.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## No
+                                                                                  ## check
+                                                                                  ## is
+                                                                                  ## done
+                                                                                  ## to
+                                                                                  ## know
+                                                                                  ## if
+                                                                                  ## ||V^Z||
+                                                                                  ## !=
+                                                                                  ## 0.0
+                                                                                  ## at
+                                                                                  ## any
+                                                                                  ## point.
 
 
-proc constructGeom2d_OffsetCurve*(C: handle[Geom2d_Curve]; Offset: Standard_Real;
-    isNotCheckC0: Standard_Boolean = Standard_False): Geom2d_OffsetCurve {.
+proc constructGeom2dOffsetCurve*(c: Handle[Geom2dCurve]; offset: float;
+                                isNotCheckC0: bool = false): Geom2dOffsetCurve {.
     constructor, importcpp: "Geom2d_OffsetCurve(@)",
     header: "Geom2d_OffsetCurve.hxx".}
-proc Reverse*(this: var Geom2d_OffsetCurve) {.importcpp: "Reverse",
+proc reverse*(this: var Geom2dOffsetCurve) {.importcpp: "Reverse",
     header: "Geom2d_OffsetCurve.hxx".}
-proc ReversedParameter*(this: Geom2d_OffsetCurve; U: Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "ReversedParameter", header: "Geom2d_OffsetCurve.hxx".}
-proc SetBasisCurve*(this: var Geom2d_OffsetCurve; C: handle[Geom2d_Curve];
-                   isNotCheckC0: Standard_Boolean = Standard_False) {.
-    importcpp: "SetBasisCurve", header: "Geom2d_OffsetCurve.hxx".}
-proc SetOffsetValue*(this: var Geom2d_OffsetCurve; D: Standard_Real) {.
+proc reversedParameter*(this: Geom2dOffsetCurve; u: float): float {.noSideEffect,
+    importcpp: "ReversedParameter", header: "Geom2d_OffsetCurve.hxx".}
+proc setBasisCurve*(this: var Geom2dOffsetCurve; c: Handle[Geom2dCurve];
+                   isNotCheckC0: bool = false) {.importcpp: "SetBasisCurve",
+    header: "Geom2d_OffsetCurve.hxx".}
+proc setOffsetValue*(this: var Geom2dOffsetCurve; d: float) {.
     importcpp: "SetOffsetValue", header: "Geom2d_OffsetCurve.hxx".}
-proc BasisCurve*(this: Geom2d_OffsetCurve): handle[Geom2d_Curve] {.noSideEffect,
+proc basisCurve*(this: Geom2dOffsetCurve): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "BasisCurve", header: "Geom2d_OffsetCurve.hxx".}
-proc Continuity*(this: Geom2d_OffsetCurve): GeomAbs_Shape {.noSideEffect,
+proc continuity*(this: Geom2dOffsetCurve): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Geom2d_OffsetCurve.hxx".}
-proc D0*(this: Geom2d_OffsetCurve; U: Standard_Real; P: var gp_Pnt2d) {.noSideEffect,
+proc d0*(this: Geom2dOffsetCurve; u: float; p: var Pnt2d) {.noSideEffect,
     importcpp: "D0", header: "Geom2d_OffsetCurve.hxx".}
-proc D1*(this: Geom2d_OffsetCurve; U: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d) {.
-    noSideEffect, importcpp: "D1", header: "Geom2d_OffsetCurve.hxx".}
-proc D2*(this: Geom2d_OffsetCurve; U: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d;
-        V2: var gp_Vec2d) {.noSideEffect, importcpp: "D2",
-                         header: "Geom2d_OffsetCurve.hxx".}
-proc D3*(this: Geom2d_OffsetCurve; U: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d;
-        V2: var gp_Vec2d; V3: var gp_Vec2d) {.noSideEffect, importcpp: "D3",
-                                        header: "Geom2d_OffsetCurve.hxx".}
-proc DN*(this: Geom2d_OffsetCurve; U: Standard_Real; N: Standard_Integer): gp_Vec2d {.
-    noSideEffect, importcpp: "DN", header: "Geom2d_OffsetCurve.hxx".}
-proc FirstParameter*(this: Geom2d_OffsetCurve): Standard_Real {.noSideEffect,
+proc d1*(this: Geom2dOffsetCurve; u: float; p: var Pnt2d; v1: var Vec2d) {.noSideEffect,
+    importcpp: "D1", header: "Geom2d_OffsetCurve.hxx".}
+proc d2*(this: Geom2dOffsetCurve; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
+    noSideEffect, importcpp: "D2", header: "Geom2d_OffsetCurve.hxx".}
+proc d3*(this: Geom2dOffsetCurve; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
+        v3: var Vec2d) {.noSideEffect, importcpp: "D3",
+                      header: "Geom2d_OffsetCurve.hxx".}
+proc dn*(this: Geom2dOffsetCurve; u: float; n: int): Vec2d {.noSideEffect,
+    importcpp: "DN", header: "Geom2d_OffsetCurve.hxx".}
+proc firstParameter*(this: Geom2dOffsetCurve): float {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom2d_OffsetCurve.hxx".}
-proc LastParameter*(this: Geom2d_OffsetCurve): Standard_Real {.noSideEffect,
+proc lastParameter*(this: Geom2dOffsetCurve): float {.noSideEffect,
     importcpp: "LastParameter", header: "Geom2d_OffsetCurve.hxx".}
-proc Offset*(this: Geom2d_OffsetCurve): Standard_Real {.noSideEffect,
-    importcpp: "Offset", header: "Geom2d_OffsetCurve.hxx".}
-proc IsClosed*(this: Geom2d_OffsetCurve): Standard_Boolean {.noSideEffect,
-    importcpp: "IsClosed", header: "Geom2d_OffsetCurve.hxx".}
-proc IsCN*(this: Geom2d_OffsetCurve; N: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsCN", header: "Geom2d_OffsetCurve.hxx".}
-proc IsPeriodic*(this: Geom2d_OffsetCurve): Standard_Boolean {.noSideEffect,
-    importcpp: "IsPeriodic", header: "Geom2d_OffsetCurve.hxx".}
-proc Period*(this: Geom2d_OffsetCurve): Standard_Real {.noSideEffect,
-    importcpp: "Period", header: "Geom2d_OffsetCurve.hxx".}
-proc Transform*(this: var Geom2d_OffsetCurve; T: gp_Trsf2d) {.importcpp: "Transform",
+proc offset*(this: Geom2dOffsetCurve): float {.noSideEffect, importcpp: "Offset",
     header: "Geom2d_OffsetCurve.hxx".}
-proc TransformedParameter*(this: Geom2d_OffsetCurve; U: Standard_Real; T: gp_Trsf2d): Standard_Real {.
+proc isClosed*(this: Geom2dOffsetCurve): bool {.noSideEffect, importcpp: "IsClosed",
+    header: "Geom2d_OffsetCurve.hxx".}
+proc isCN*(this: Geom2dOffsetCurve; n: int): bool {.noSideEffect, importcpp: "IsCN",
+    header: "Geom2d_OffsetCurve.hxx".}
+proc isPeriodic*(this: Geom2dOffsetCurve): bool {.noSideEffect,
+    importcpp: "IsPeriodic", header: "Geom2d_OffsetCurve.hxx".}
+proc period*(this: Geom2dOffsetCurve): float {.noSideEffect, importcpp: "Period",
+    header: "Geom2d_OffsetCurve.hxx".}
+proc transform*(this: var Geom2dOffsetCurve; t: Trsf2d) {.importcpp: "Transform",
+    header: "Geom2d_OffsetCurve.hxx".}
+proc transformedParameter*(this: Geom2dOffsetCurve; u: float; t: Trsf2d): float {.
     noSideEffect, importcpp: "TransformedParameter",
     header: "Geom2d_OffsetCurve.hxx".}
-proc ParametricTransformation*(this: Geom2d_OffsetCurve; T: gp_Trsf2d): Standard_Real {.
+proc parametricTransformation*(this: Geom2dOffsetCurve; t: Trsf2d): float {.
     noSideEffect, importcpp: "ParametricTransformation",
     header: "Geom2d_OffsetCurve.hxx".}
-proc Copy*(this: Geom2d_OffsetCurve): handle[Geom2d_Geometry] {.noSideEffect,
+proc copy*(this: Geom2dOffsetCurve): Handle[Geom2dGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom2d_OffsetCurve.hxx".}
-proc GetBasisCurveContinuity*(this: Geom2d_OffsetCurve): GeomAbs_Shape {.
-    noSideEffect, importcpp: "GetBasisCurveContinuity",
-    header: "Geom2d_OffsetCurve.hxx".}
-proc DumpJson*(this: Geom2d_OffsetCurve; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Geom2d_OffsetCurve.hxx".}
+proc getBasisCurveContinuity*(this: Geom2dOffsetCurve): GeomAbsShape {.noSideEffect,
+    importcpp: "GetBasisCurveContinuity", header: "Geom2d_OffsetCurve.hxx".}
+proc dumpJson*(this: Geom2dOffsetCurve; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Geom2d_OffsetCurve.hxx".}
 type
-  Geom2d_OffsetCurvebase_type* = Geom2d_Curve
+  Geom2dOffsetCurvebaseType* = Geom2dCurve
 
-proc get_type_name*(): cstring {.importcpp: "Geom2d_OffsetCurve::get_type_name(@)",
-                              header: "Geom2d_OffsetCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Geom2d_OffsetCurve::get_type_name(@)",
+                            header: "Geom2d_OffsetCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom2d_OffsetCurve::get_type_descriptor(@)",
     header: "Geom2d_OffsetCurve.hxx".}
-proc DynamicType*(this: Geom2d_OffsetCurve): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: Geom2dOffsetCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom2d_OffsetCurve.hxx".}

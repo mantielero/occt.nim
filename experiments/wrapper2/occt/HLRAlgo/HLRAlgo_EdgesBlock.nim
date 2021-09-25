@@ -14,16 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_Array1OfInteger, ../TColStd/TColStd_Array1OfBoolean,
-  ../Standard/Standard_Integer, ../Standard/Standard_Transient,
-  ../TopAbs/TopAbs_Orientation, ../Standard/Standard_Boolean
-
 discard "forward decl of HLRAlgo_EdgesBlock"
 discard "forward decl of HLRAlgo_EdgesBlock"
 type
-  Handle_HLRAlgo_EdgesBlock* = handle[HLRAlgo_EdgesBlock]
+  HandleHLRAlgoEdgesBlock* = Handle[HLRAlgoEdgesBlock]
 
 ## ! An EdgesBlock is a set of Edges. It is used by the
 ## ! DataStructure to structure the Edges.
@@ -39,63 +33,61 @@ type
 ## ! IsoLine)
 
 type
-  HLRAlgo_EdgesBlock* {.importcpp: "HLRAlgo_EdgesBlock",
-                       header: "HLRAlgo_EdgesBlock.hxx", bycopy.} = object of Standard_Transient
+  HLRAlgoEdgesBlock* {.importcpp: "HLRAlgo_EdgesBlock",
+                      header: "HLRAlgo_EdgesBlock.hxx", bycopy.} = object of StandardTransient
 
-  HLRAlgo_EdgesBlockMinMaxIndices* {.importcpp: "HLRAlgo_EdgesBlock::MinMaxIndices",
-                                    header: "HLRAlgo_EdgesBlock.hxx", bycopy.} = object
-    Min* {.importc: "Min".}: array[8, Standard_Integer]
-    Max* {.importc: "Max".}: array[8, Standard_Integer]
+  HLRAlgoEdgesBlockMinMaxIndices* {.importcpp: "HLRAlgo_EdgesBlock::MinMaxIndices",
+                                   header: "HLRAlgo_EdgesBlock.hxx", bycopy.} = object
+    min* {.importc: "Min".}: array[8, int]
+    max* {.importc: "Max".}: array[8, int]
 
 
-proc Minimize*(this: var HLRAlgo_EdgesBlockMinMaxIndices;
-              theMinMaxIndices: HLRAlgo_EdgesBlockMinMaxIndices): var HLRAlgo_EdgesBlockMinMaxIndices {.
+proc minimize*(this: var HLRAlgoEdgesBlockMinMaxIndices;
+              theMinMaxIndices: HLRAlgoEdgesBlockMinMaxIndices): var HLRAlgoEdgesBlockMinMaxIndices {.
     importcpp: "Minimize", header: "HLRAlgo_EdgesBlock.hxx".}
-proc Maximize*(this: var HLRAlgo_EdgesBlockMinMaxIndices;
-              theMinMaxIndices: HLRAlgo_EdgesBlockMinMaxIndices): var HLRAlgo_EdgesBlockMinMaxIndices {.
+proc maximize*(this: var HLRAlgoEdgesBlockMinMaxIndices;
+              theMinMaxIndices: HLRAlgoEdgesBlockMinMaxIndices): var HLRAlgoEdgesBlockMinMaxIndices {.
     importcpp: "Maximize", header: "HLRAlgo_EdgesBlock.hxx".}
-proc constructHLRAlgo_EdgesBlock*(NbEdges: Standard_Integer): HLRAlgo_EdgesBlock {.
-    constructor, importcpp: "HLRAlgo_EdgesBlock(@)",
+proc constructHLRAlgoEdgesBlock*(nbEdges: int): HLRAlgoEdgesBlock {.constructor,
+    importcpp: "HLRAlgo_EdgesBlock(@)", header: "HLRAlgo_EdgesBlock.hxx".}
+proc nbEdges*(this: HLRAlgoEdgesBlock): int {.noSideEffect, importcpp: "NbEdges",
     header: "HLRAlgo_EdgesBlock.hxx".}
-proc NbEdges*(this: HLRAlgo_EdgesBlock): Standard_Integer {.noSideEffect,
-    importcpp: "NbEdges", header: "HLRAlgo_EdgesBlock.hxx".}
-proc Edge*(this: var HLRAlgo_EdgesBlock; I: Standard_Integer; EI: Standard_Integer) {.
-    importcpp: "Edge", header: "HLRAlgo_EdgesBlock.hxx".}
-proc Edge*(this: HLRAlgo_EdgesBlock; I: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "Edge", header: "HLRAlgo_EdgesBlock.hxx".}
-proc Orientation*(this: var HLRAlgo_EdgesBlock; I: Standard_Integer;
-                 Or: TopAbs_Orientation) {.importcpp: "Orientation",
+proc edge*(this: var HLRAlgoEdgesBlock; i: int; ei: int) {.importcpp: "Edge",
     header: "HLRAlgo_EdgesBlock.hxx".}
-proc Orientation*(this: HLRAlgo_EdgesBlock; I: Standard_Integer): TopAbs_Orientation {.
-    noSideEffect, importcpp: "Orientation", header: "HLRAlgo_EdgesBlock.hxx".}
-proc OutLine*(this: HLRAlgo_EdgesBlock; I: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "OutLine", header: "HLRAlgo_EdgesBlock.hxx".}
-proc OutLine*(this: var HLRAlgo_EdgesBlock; I: Standard_Integer; B: Standard_Boolean) {.
+proc edge*(this: HLRAlgoEdgesBlock; i: int): int {.noSideEffect, importcpp: "Edge",
+    header: "HLRAlgo_EdgesBlock.hxx".}
+proc orientation*(this: var HLRAlgoEdgesBlock; i: int; `or`: TopAbsOrientation) {.
+    importcpp: "Orientation", header: "HLRAlgo_EdgesBlock.hxx".}
+proc orientation*(this: HLRAlgoEdgesBlock; i: int): TopAbsOrientation {.noSideEffect,
+    importcpp: "Orientation", header: "HLRAlgo_EdgesBlock.hxx".}
+proc outLine*(this: HLRAlgoEdgesBlock; i: int): bool {.noSideEffect,
     importcpp: "OutLine", header: "HLRAlgo_EdgesBlock.hxx".}
-proc Internal*(this: HLRAlgo_EdgesBlock; I: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "Internal", header: "HLRAlgo_EdgesBlock.hxx".}
-proc Internal*(this: var HLRAlgo_EdgesBlock; I: Standard_Integer; B: Standard_Boolean) {.
+proc outLine*(this: var HLRAlgoEdgesBlock; i: int; b: bool) {.importcpp: "OutLine",
+    header: "HLRAlgo_EdgesBlock.hxx".}
+proc internal*(this: HLRAlgoEdgesBlock; i: int): bool {.noSideEffect,
     importcpp: "Internal", header: "HLRAlgo_EdgesBlock.hxx".}
-proc Double*(this: HLRAlgo_EdgesBlock; I: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "Double", header: "HLRAlgo_EdgesBlock.hxx".}
-proc Double*(this: var HLRAlgo_EdgesBlock; I: Standard_Integer; B: Standard_Boolean) {.
+proc internal*(this: var HLRAlgoEdgesBlock; i: int; b: bool) {.importcpp: "Internal",
+    header: "HLRAlgo_EdgesBlock.hxx".}
+proc double*(this: HLRAlgoEdgesBlock; i: int): bool {.noSideEffect,
     importcpp: "Double", header: "HLRAlgo_EdgesBlock.hxx".}
-proc IsoLine*(this: HLRAlgo_EdgesBlock; I: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsoLine", header: "HLRAlgo_EdgesBlock.hxx".}
-proc IsoLine*(this: var HLRAlgo_EdgesBlock; I: Standard_Integer; B: Standard_Boolean) {.
+proc double*(this: var HLRAlgoEdgesBlock; i: int; b: bool) {.importcpp: "Double",
+    header: "HLRAlgo_EdgesBlock.hxx".}
+proc isoLine*(this: HLRAlgoEdgesBlock; i: int): bool {.noSideEffect,
     importcpp: "IsoLine", header: "HLRAlgo_EdgesBlock.hxx".}
-proc UpdateMinMax*(this: var HLRAlgo_EdgesBlock;
-                  TotMinMax: HLRAlgo_EdgesBlockMinMaxIndices) {.
+proc isoLine*(this: var HLRAlgoEdgesBlock; i: int; b: bool) {.importcpp: "IsoLine",
+    header: "HLRAlgo_EdgesBlock.hxx".}
+proc updateMinMax*(this: var HLRAlgoEdgesBlock;
+                  totMinMax: HLRAlgoEdgesBlockMinMaxIndices) {.
     importcpp: "UpdateMinMax", header: "HLRAlgo_EdgesBlock.hxx".}
-proc MinMax*(this: var HLRAlgo_EdgesBlock): var HLRAlgo_EdgesBlockMinMaxIndices {.
+proc minMax*(this: var HLRAlgoEdgesBlock): var HLRAlgoEdgesBlockMinMaxIndices {.
     importcpp: "MinMax", header: "HLRAlgo_EdgesBlock.hxx".}
 type
-  HLRAlgo_EdgesBlockbase_type* = Standard_Transient
+  HLRAlgoEdgesBlockbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "HLRAlgo_EdgesBlock::get_type_name(@)",
-                              header: "HLRAlgo_EdgesBlock.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "HLRAlgo_EdgesBlock::get_type_name(@)",
+                            header: "HLRAlgo_EdgesBlock.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "HLRAlgo_EdgesBlock::get_type_descriptor(@)",
     header: "HLRAlgo_EdgesBlock.hxx".}
-proc DynamicType*(this: HLRAlgo_EdgesBlock): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: HLRAlgoEdgesBlock): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRAlgo_EdgesBlock.hxx".}

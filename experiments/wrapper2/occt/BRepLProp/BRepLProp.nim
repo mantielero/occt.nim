@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Real
-
 discard "forward decl of BRepAdaptor_Curve"
 discard "forward decl of BRepLProp_CurveTool"
 discard "forward decl of BRepLProp_SurfaceTool"
@@ -39,9 +35,8 @@ type
                                                                           ## derivative.
 
 
-proc Continuity*(C1: BRepAdaptor_Curve; C2: BRepAdaptor_Curve; u1: Standard_Real;
-                u2: Standard_Real; tl: Standard_Real; ta: Standard_Real): GeomAbs_Shape {.
+proc continuity*(c1: BRepAdaptorCurve; c2: BRepAdaptorCurve; u1: float; u2: float;
+                tl: float; ta: float): GeomAbsShape {.
     importcpp: "BRepLProp::Continuity(@)", header: "BRepLProp.hxx".}
-proc Continuity*(C1: BRepAdaptor_Curve; C2: BRepAdaptor_Curve; u1: Standard_Real;
-                u2: Standard_Real): GeomAbs_Shape {.
+proc continuity*(c1: BRepAdaptorCurve; c2: BRepAdaptorCurve; u1: float; u2: float): GeomAbsShape {.
     importcpp: "BRepLProp::Continuity(@)", header: "BRepLProp.hxx".}

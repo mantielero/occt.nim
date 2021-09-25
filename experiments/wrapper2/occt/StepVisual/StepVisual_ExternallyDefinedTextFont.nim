@@ -13,37 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepBasic/StepBasic_ExternallyDefinedItem
-
 discard "forward decl of StepVisual_ExternallyDefinedTextFont"
 discard "forward decl of StepVisual_ExternallyDefinedTextFont"
 type
-  Handle_StepVisual_ExternallyDefinedTextFont* = handle[
-      StepVisual_ExternallyDefinedTextFont]
+  HandleStepVisualExternallyDefinedTextFont* = Handle[
+      StepVisualExternallyDefinedTextFont]
 
 ## ! Representation of STEP entity ExternallyDefinedTextFont
 
 type
-  StepVisual_ExternallyDefinedTextFont* {.
-      importcpp: "StepVisual_ExternallyDefinedTextFont",
-      header: "StepVisual_ExternallyDefinedTextFont.hxx", bycopy.} = object of StepBasic_ExternallyDefinedItem ##
-                                                                                                        ## !
-                                                                                                        ## Empty
-                                                                                                        ## constructor
+  StepVisualExternallyDefinedTextFont* {.importcpp: "StepVisual_ExternallyDefinedTextFont", header: "StepVisual_ExternallyDefinedTextFont.hxx",
+                                        bycopy.} = object of StepBasicExternallyDefinedItem ##
+                                                                                       ## !
+                                                                                       ## Empty
+                                                                                       ## constructor
 
 
-proc constructStepVisual_ExternallyDefinedTextFont*(): StepVisual_ExternallyDefinedTextFont {.
+proc constructStepVisualExternallyDefinedTextFont*(): StepVisualExternallyDefinedTextFont {.
     constructor, importcpp: "StepVisual_ExternallyDefinedTextFont(@)",
     header: "StepVisual_ExternallyDefinedTextFont.hxx".}
 type
-  StepVisual_ExternallyDefinedTextFontbase_type* = StepBasic_ExternallyDefinedItem
+  StepVisualExternallyDefinedTextFontbaseType* = StepBasicExternallyDefinedItem
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_ExternallyDefinedTextFont::get_type_name(@)", header: "StepVisual_ExternallyDefinedTextFont.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_ExternallyDefinedTextFont::get_type_name(@)",
+                            header: "StepVisual_ExternallyDefinedTextFont.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_ExternallyDefinedTextFont::get_type_descriptor(@)",
     header: "StepVisual_ExternallyDefinedTextFont.hxx".}
-proc DynamicType*(this: StepVisual_ExternallyDefinedTextFont): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualExternallyDefinedTextFont): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_ExternallyDefinedTextFont.hxx".}

@@ -14,15 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TopoDS_TShape,
-  ../TopAbs/TopAbs_ShapeEnum
-
 discard "forward decl of TopoDS_TShape"
 discard "forward decl of TopoDS_TShell"
 discard "forward decl of TopoDS_TShell"
 type
-  Handle_TopoDS_TShell* = handle[TopoDS_TShell]
+  HandleTopoDS_TShell* = Handle[TopoDS_TShell]
 
 ## ! A set of faces connected by their edges.
 
@@ -37,17 +33,17 @@ type
 
 proc constructTopoDS_TShell*(): TopoDS_TShell {.constructor,
     importcpp: "TopoDS_TShell(@)", header: "TopoDS_TShell.hxx".}
-proc ShapeType*(this: TopoDS_TShell): TopAbs_ShapeEnum {.noSideEffect,
+proc shapeType*(this: TopoDS_TShell): TopAbsShapeEnum {.noSideEffect,
     importcpp: "ShapeType", header: "TopoDS_TShell.hxx".}
-proc EmptyCopy*(this: TopoDS_TShell): handle[TopoDS_TShape] {.noSideEffect,
+proc emptyCopy*(this: TopoDS_TShell): Handle[TopoDS_TShape] {.noSideEffect,
     importcpp: "EmptyCopy", header: "TopoDS_TShell.hxx".}
 type
-  TopoDS_TShellbase_type* = TopoDS_TShape
+  TopoDS_TShellbaseType* = TopoDS_TShape
 
-proc get_type_name*(): cstring {.importcpp: "TopoDS_TShell::get_type_name(@)",
-                              header: "TopoDS_TShell.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TopoDS_TShell::get_type_name(@)",
+                            header: "TopoDS_TShell.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopoDS_TShell::get_type_descriptor(@)",
     header: "TopoDS_TShell.hxx".}
-proc DynamicType*(this: TopoDS_TShell): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TopoDS_TShell): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopoDS_TShell.hxx".}

@@ -11,130 +11,125 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../StdObjMgt/StdObjMgt_Attribute, ../StdObjMgt/StdObjMgt_Persistent,
-  StdPersistent_HArray1, ../StdLPersistent/StdLPersistent_HArray1,
-  ../StdLPersistent/StdLPersistent_HString, ../TNaming/TNaming_NamedShape,
-  ../TNaming/TNaming_Naming
-
 discard "forward decl of TNaming_Name"
 type
-  StdPersistent_Naming* {.importcpp: "StdPersistent_Naming",
-                         header: "StdPersistent_Naming.hxx", bycopy.} = object
+  StdPersistentNaming* {.importcpp: "StdPersistent_Naming",
+                        header: "StdPersistent_Naming.hxx", bycopy.} = object
 
-  StdPersistent_NamingNamedShape* {.importcpp: "StdPersistent_Naming::NamedShape",
-                                   header: "StdPersistent_Naming.hxx", bycopy.} = object of StdObjMgt_Attribute[
-      TNaming_NamedShape]     ## ! Read persistent data from a file.
+  StdPersistentNamingNamedShape* {.importcpp: "StdPersistent_Naming::NamedShape",
+                                  header: "StdPersistent_Naming.hxx", bycopy.} = object of StdObjMgtAttribute[
+      TNamingNamedShape]      ## ! Read persistent data from a file.
 
 
-proc Read*(this: var StdPersistent_NamingNamedShape;
-          theReadData: var StdObjMgt_ReadData) {.importcpp: "Read",
+proc read*(this: var StdPersistentNamingNamedShape;
+          theReadData: var StdObjMgtReadData) {.importcpp: "Read",
     header: "StdPersistent_Naming.hxx".}
-proc Write*(this: StdPersistent_NamingNamedShape;
-           theWriteData: var StdObjMgt_WriteData) {.noSideEffect,
-    importcpp: "Write", header: "StdPersistent_Naming.hxx".}
-proc PChildren*(this: StdPersistent_NamingNamedShape;
+proc write*(this: StdPersistentNamingNamedShape;
+           theWriteData: var StdObjMgtWriteData) {.noSideEffect, importcpp: "Write",
+    header: "StdPersistent_Naming.hxx".}
+proc pChildren*(this: StdPersistentNamingNamedShape;
                theChildren: var SequenceOfPersistent) {.noSideEffect,
     importcpp: "PChildren", header: "StdPersistent_Naming.hxx".}
-proc PName*(this: StdPersistent_NamingNamedShape): Standard_CString {.noSideEffect,
+proc pName*(this: StdPersistentNamingNamedShape): StandardCString {.noSideEffect,
     importcpp: "PName", header: "StdPersistent_Naming.hxx".}
-proc Import*(this: StdPersistent_NamingNamedShape;
-            theAttribute: handle[TNaming_NamedShape]) {.noSideEffect,
+proc `import`*(this: StdPersistentNamingNamedShape;
+              theAttribute: Handle[TNamingNamedShape]) {.noSideEffect,
     importcpp: "Import", header: "StdPersistent_Naming.hxx".}
 type
-  StdPersistent_NamingName* {.importcpp: "StdPersistent_Naming::Name",
-                             header: "StdPersistent_Naming.hxx", bycopy.} = object of StdObjMgt_Persistent ##
-                                                                                                    ## !
-                                                                                                    ## Read
-                                                                                                    ## persistent
-                                                                                                    ## data
-                                                                                                    ## from
-                                                                                                    ## a
-                                                                                                    ## file.
+  StdPersistentNamingName* {.importcpp: "StdPersistent_Naming::Name",
+                            header: "StdPersistent_Naming.hxx", bycopy.} = object of StdObjMgtPersistent ##
+                                                                                                  ## !
+                                                                                                  ## Read
+                                                                                                  ## persistent
+                                                                                                  ## data
+                                                                                                  ## from
+                                                                                                  ## a
+                                                                                                  ## file.
 
 
-proc Read*(this: var StdPersistent_NamingName; theReadData: var StdObjMgt_ReadData) {.
+proc read*(this: var StdPersistentNamingName; theReadData: var StdObjMgtReadData) {.
     importcpp: "Read", header: "StdPersistent_Naming.hxx".}
-proc Write*(this: StdPersistent_NamingName; theWriteData: var StdObjMgt_WriteData) {.
+proc write*(this: StdPersistentNamingName; theWriteData: var StdObjMgtWriteData) {.
     noSideEffect, importcpp: "Write", header: "StdPersistent_Naming.hxx".}
-proc PChildren*(this: StdPersistent_NamingName;
+proc pChildren*(this: StdPersistentNamingName;
                theChildren: var SequenceOfPersistent) {.noSideEffect,
     importcpp: "PChildren", header: "StdPersistent_Naming.hxx".}
-proc PName*(this: StdPersistent_NamingName): Standard_CString {.noSideEffect,
+proc pName*(this: StdPersistentNamingName): StandardCString {.noSideEffect,
     importcpp: "PName", header: "StdPersistent_Naming.hxx".}
-proc Import*(this: StdPersistent_NamingName; theName: var TNaming_Name;
-            theDF: handle[TDF_Data]) {.noSideEffect, importcpp: "Import",
-                                     header: "StdPersistent_Naming.hxx".}
+proc `import`*(this: StdPersistentNamingName; theName: var TNamingName;
+              theDF: Handle[TDF_Data]) {.noSideEffect, importcpp: "Import",
+                                       header: "StdPersistent_Naming.hxx".}
 type
-  StdPersistent_NamingName_1* {.importcpp: "StdPersistent_Naming::Name_1",
-                               header: "StdPersistent_Naming.hxx", bycopy.} = object of StdPersistent_NamingName ##
-                                                                                                          ## !
-                                                                                                          ## Read
-                                                                                                          ## persistent
-                                                                                                          ## data
-                                                                                                          ## from
-                                                                                                          ## a
-                                                                                                          ## file.
+  StdPersistentNamingName1* {.importcpp: "StdPersistent_Naming::Name_1",
+                             header: "StdPersistent_Naming.hxx", bycopy.} = object of StdPersistentNamingName ##
+                                                                                                       ## !
+                                                                                                       ## Read
+                                                                                                       ## persistent
+                                                                                                       ## data
+                                                                                                       ## from
+                                                                                                       ## a
+                                                                                                       ## file.
 
 
-proc Read*(this: var StdPersistent_NamingName_1; theReadData: var StdObjMgt_ReadData) {.
+proc read*(this: var StdPersistentNamingName1; theReadData: var StdObjMgtReadData) {.
     importcpp: "Read", header: "StdPersistent_Naming.hxx".}
-proc Write*(this: StdPersistent_NamingName_1; theWriteData: var StdObjMgt_WriteData) {.
+proc write*(this: StdPersistentNamingName1; theWriteData: var StdObjMgtWriteData) {.
     noSideEffect, importcpp: "Write", header: "StdPersistent_Naming.hxx".}
-proc PChildren*(this: StdPersistent_NamingName_1;
+proc pChildren*(this: StdPersistentNamingName1;
                theChildren: var SequenceOfPersistent) {.noSideEffect,
     importcpp: "PChildren", header: "StdPersistent_Naming.hxx".}
-proc PName*(this: StdPersistent_NamingName_1): Standard_CString {.noSideEffect,
+proc pName*(this: StdPersistentNamingName1): StandardCString {.noSideEffect,
     importcpp: "PName", header: "StdPersistent_Naming.hxx".}
-proc Import*(this: StdPersistent_NamingName_1; theName: var TNaming_Name;
-            theDF: handle[TDF_Data]) {.noSideEffect, importcpp: "Import",
-                                     header: "StdPersistent_Naming.hxx".}
+proc `import`*(this: StdPersistentNamingName1; theName: var TNamingName;
+              theDF: Handle[TDF_Data]) {.noSideEffect, importcpp: "Import",
+                                       header: "StdPersistent_Naming.hxx".}
 type
-  StdPersistent_NamingName_2* {.importcpp: "StdPersistent_Naming::Name_2",
-                               header: "StdPersistent_Naming.hxx", bycopy.} = object of StdPersistent_NamingName_1 ##
-                                                                                                            ## !
-                                                                                                            ## Read
-                                                                                                            ## persistent
-                                                                                                            ## data
-                                                                                                            ## from
-                                                                                                            ## a
-                                                                                                            ## file.
+  StdPersistentNamingName2* {.importcpp: "StdPersistent_Naming::Name_2",
+                             header: "StdPersistent_Naming.hxx", bycopy.} = object of StdPersistentNamingName1 ##
+                                                                                                        ## !
+                                                                                                        ## Read
+                                                                                                        ## persistent
+                                                                                                        ## data
+                                                                                                        ## from
+                                                                                                        ## a
+                                                                                                        ## file.
 
 
-proc Read*(this: var StdPersistent_NamingName_2; theReadData: var StdObjMgt_ReadData) {.
+proc read*(this: var StdPersistentNamingName2; theReadData: var StdObjMgtReadData) {.
     importcpp: "Read", header: "StdPersistent_Naming.hxx".}
-proc Write*(this: StdPersistent_NamingName_2; theWriteData: var StdObjMgt_WriteData) {.
+proc write*(this: StdPersistentNamingName2; theWriteData: var StdObjMgtWriteData) {.
     noSideEffect, importcpp: "Write", header: "StdPersistent_Naming.hxx".}
-proc PChildren*(this: StdPersistent_NamingName_2;
+proc pChildren*(this: StdPersistentNamingName2;
                theChildren: var SequenceOfPersistent) {.noSideEffect,
     importcpp: "PChildren", header: "StdPersistent_Naming.hxx".}
-proc PName*(this: StdPersistent_NamingName_2): Standard_CString {.noSideEffect,
+proc pName*(this: StdPersistentNamingName2): StandardCString {.noSideEffect,
     importcpp: "PName", header: "StdPersistent_Naming.hxx".}
-proc Import*(this: StdPersistent_NamingName_2; theName: var TNaming_Name;
-            theDF: handle[TDF_Data]) {.noSideEffect, importcpp: "Import",
-                                     header: "StdPersistent_Naming.hxx".}
+proc `import`*(this: StdPersistentNamingName2; theName: var TNamingName;
+              theDF: Handle[TDF_Data]) {.noSideEffect, importcpp: "Import",
+                                       header: "StdPersistent_Naming.hxx".}
 type
-  StdPersistent_NamingNaming* {.importcpp: "StdPersistent_Naming::Naming",
-                               header: "StdPersistent_Naming.hxx", bycopy.} = object of SingleRef[
-      TNaming_Naming]         ## ! Import transient attribuite from the persistent data.
+  StdPersistentNamingNaming* {.importcpp: "StdPersistent_Naming::Naming",
+                              header: "StdPersistent_Naming.hxx", bycopy.} = object of SingleRef[
+      TNamingNaming]          ## ! Import transient attribuite from the persistent data.
 
 
-proc ImportAttribute*(this: var StdPersistent_NamingNaming) {.
+proc importAttribute*(this: var StdPersistentNamingNaming) {.
     importcpp: "ImportAttribute", header: "StdPersistent_Naming.hxx".}
 type
-  StdPersistent_NamingNaming_1* {.importcpp: "StdPersistent_Naming::Naming_1",
-                                 header: "StdPersistent_Naming.hxx", bycopy.} = object of StdPersistent_NamingNaming ##
-                                                                                                              ## !
-                                                                                                              ## Import
-                                                                                                              ## transient
-                                                                                                              ## attribuite
-                                                                                                              ## from
-                                                                                                              ## the
-                                                                                                              ## persistent
-                                                                                                              ## data.
+  StdPersistentNamingNaming1* {.importcpp: "StdPersistent_Naming::Naming_1",
+                               header: "StdPersistent_Naming.hxx", bycopy.} = object of StdPersistentNamingNaming ##
+                                                                                                           ## !
+                                                                                                           ## Import
+                                                                                                           ## transient
+                                                                                                           ## attribuite
+                                                                                                           ## from
+                                                                                                           ## the
+                                                                                                           ## persistent
+                                                                                                           ## data.
 
 
-proc ImportAttribute*(this: var StdPersistent_NamingNaming_1) {.
+proc importAttribute*(this: var StdPersistentNamingNaming1) {.
     importcpp: "ImportAttribute", header: "StdPersistent_Naming.hxx".}
 type
-  StdPersistent_NamingNaming_2* = StdPersistent_NamingNaming
+  StdPersistentNamingNaming2* = StdPersistentNamingNaming
+

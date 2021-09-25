@@ -11,8 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../BVH/BVH_Builder, ../Standard/Standard_Real
-
 type
-  Select3D_BVHBuilder3d* = BVH_Builder[Standard_Real, 3]
+  Select3D_BVHBuilder3d* = BVH_Builder[float, 3]
+

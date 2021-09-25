@@ -11,30 +11,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Image/Image_PixMap, ../math/math_BullardGenerator,
-  ../NCollection/NCollection_Map, ../StdSelect/StdSelect_TypeOfSelectionImage,
-  ../Quantity/Quantity_ColorHasher
-
 discard "forward decl of SelectMgr_ViewerSelector"
 type
-  SelectMgr_SelectionImageFiller* {.importcpp: "SelectMgr_SelectionImageFiller", header: "SelectMgr_SelectionImageFiller.hxx",
-                                   bycopy.} = object of Standard_Transient ## ! Create filler of specified type.
-                                                                      ## ! Main
-                                                                      ## constructor.
-                                                                      ## ! Find the new unique random color.
+  SelectMgrSelectionImageFiller* {.importcpp: "SelectMgr_SelectionImageFiller",
+                                  header: "SelectMgr_SelectionImageFiller.hxx",
+                                  bycopy.} = object of StandardTransient ## ! Create filler of specified type.
+                                                                    ## ! Main constructor.
+                                                                    ## ! Find the new unique random color.
 
 
-proc CreateFiller*(thePixMap: var Image_PixMap;
-                  theSelector: ptr SelectMgr_ViewerSelector;
-                  theType: StdSelect_TypeOfSelectionImage): handle[
-    SelectMgr_SelectionImageFiller] {.importcpp: "SelectMgr_SelectionImageFiller::CreateFiller(@)", header: "SelectMgr_SelectionImageFiller.hxx".}
-proc constructSelectMgr_SelectionImageFiller*(thePixMap: var Image_PixMap;
-    theSelector: ptr SelectMgr_ViewerSelector): SelectMgr_SelectionImageFiller {.
+proc createFiller*(thePixMap: var ImagePixMap;
+                  theSelector: ptr SelectMgrViewerSelector;
+                  theType: StdSelectTypeOfSelectionImage): Handle[
+    SelectMgrSelectionImageFiller] {.importcpp: "SelectMgr_SelectionImageFiller::CreateFiller(@)", header: "SelectMgr_SelectionImageFiller.hxx".}
+proc constructSelectMgrSelectionImageFiller*(thePixMap: var ImagePixMap;
+    theSelector: ptr SelectMgrViewerSelector): SelectMgrSelectionImageFiller {.
     constructor, importcpp: "SelectMgr_SelectionImageFiller(@)",
     header: "SelectMgr_SelectionImageFiller.hxx".}
-proc Fill*(this: var SelectMgr_SelectionImageFiller; theCol: Standard_Integer;
-          theRow: Standard_Integer; thePicked: Standard_Integer) {.
-    importcpp: "Fill", header: "SelectMgr_SelectionImageFiller.hxx".}
-proc Flush*(this: var SelectMgr_SelectionImageFiller) {.importcpp: "Flush",
+proc fill*(this: var SelectMgrSelectionImageFiller; theCol: int; theRow: int;
+          thePicked: int) {.importcpp: "Fill",
+                          header: "SelectMgr_SelectionImageFiller.hxx".}
+proc flush*(this: var SelectMgrSelectionImageFiller) {.importcpp: "Flush",
     header: "SelectMgr_SelectionImageFiller.hxx".}

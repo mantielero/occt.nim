@@ -14,16 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _gp_VectorWithNullMagnitude_HeaderFile [NewLine] # _gp_VectorWithNullMagnitude_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_DomainError.hxx [NewLine] class gp_VectorWithNullMagnitude ;
+## !!!Ignored construct:  # _gp_VectorWithNullMagnitude_HeaderFile [NewLine] # _gp_VectorWithNullMagnitude_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class gp_VectorWithNullMagnitude ;
 ## Error: expected ';'!!!
 
 discard "forward decl of gp_VectorWithNullMagnitude"
-type
-  Handle_gp_VectorWithNullMagnitudegp_VectorWithNullMagnitude* = handle[
-      gp_VectorWithNullMagnitude]
+# type
+#   HandleGpVectorWithNullMagnitudegpVectorWithNullMagnitude* = Handle[
+#       VectorWithNullMagnitude]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_gp_VectorWithNullMagnitude [NewLine] # if ( CONDITION ) throw gp_VectorWithNullMagnitude ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( gp_VectorWithNullMagnitude , Standard_DomainError ) #  _gp_VectorWithNullMagnitude_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( gp_VectorWithNullMagnitude , Standard_DomainError ) #  _gp_VectorWithNullMagnitude_HeaderFile
 ## Error: did not expect [NewLine]!!!
+
+

@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../MAT/MAT_Node, ../TopTools/TopTools_DataMapOfShapeShape,
-  ../TColStd/TColStd_MapTransientHasher, ../NCollection/NCollection_DataMap
-
 type
-  BRepFill_DataMapOfNodeDataMapOfShapeShape* = NCollection_DataMap[
-      handle[MAT_Node], TopTools_DataMapOfShapeShape, TColStd_MapTransientHasher]
-  BRepFill_DataMapIteratorOfDataMapOfNodeDataMapOfShapeShape* = Iterator[
-      handle[MAT_Node], TopTools_DataMapOfShapeShape, TColStd_MapTransientHasher]
+  BRepFillDataMapOfNodeDataMapOfShapeShape* = NCollectionDataMap[Handle[MAT_Node],
+      TopToolsDataMapOfShapeShape, TColStdMapTransientHasher]
+  BRepFillDataMapIteratorOfDataMapOfNodeDataMapOfShapeShape* = Iterator[
+      Handle[MAT_Node], TopToolsDataMapOfShapeShape, TColStdMapTransientHasher]
+

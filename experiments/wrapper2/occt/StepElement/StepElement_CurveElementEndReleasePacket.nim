@@ -13,56 +13,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepElement_CurveElementFreedom, ../Standard/Standard_Real,
-  ../Standard/Standard_Transient
-
 discard "forward decl of StepElement_CurveElementFreedom"
 discard "forward decl of StepElement_CurveElementEndReleasePacket"
 discard "forward decl of StepElement_CurveElementEndReleasePacket"
 type
-  Handle_StepElement_CurveElementEndReleasePacket* = handle[
-      StepElement_CurveElementEndReleasePacket]
+  HandleStepElementCurveElementEndReleasePacket* = Handle[
+      StepElementCurveElementEndReleasePacket]
 
 ## ! Representation of STEP entity CurveElementEndReleasePacket
 
 type
-  StepElement_CurveElementEndReleasePacket* {.
+  StepElementCurveElementEndReleasePacket* {.
       importcpp: "StepElement_CurveElementEndReleasePacket",
-      header: "StepElement_CurveElementEndReleasePacket.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                               ## !
-                                                                                               ## Empty
-                                                                                               ## constructor
+      header: "StepElement_CurveElementEndReleasePacket.hxx", bycopy.} = object of StandardTransient ##
+                                                                                              ## !
+                                                                                              ## Empty
+                                                                                              ## constructor
 
 
-proc constructStepElement_CurveElementEndReleasePacket*(): StepElement_CurveElementEndReleasePacket {.
+proc constructStepElementCurveElementEndReleasePacket*(): StepElementCurveElementEndReleasePacket {.
     constructor, importcpp: "StepElement_CurveElementEndReleasePacket(@)",
     header: "StepElement_CurveElementEndReleasePacket.hxx".}
-proc Init*(this: var StepElement_CurveElementEndReleasePacket;
-          aReleaseFreedom: StepElement_CurveElementFreedom;
-          aReleaseStiffness: Standard_Real) {.importcpp: "Init",
-    header: "StepElement_CurveElementEndReleasePacket.hxx".}
-proc ReleaseFreedom*(this: StepElement_CurveElementEndReleasePacket): StepElement_CurveElementFreedom {.
+proc init*(this: var StepElementCurveElementEndReleasePacket;
+          aReleaseFreedom: StepElementCurveElementFreedom;
+          aReleaseStiffness: float) {.importcpp: "Init", header: "StepElement_CurveElementEndReleasePacket.hxx".}
+proc releaseFreedom*(this: StepElementCurveElementEndReleasePacket): StepElementCurveElementFreedom {.
     noSideEffect, importcpp: "ReleaseFreedom",
     header: "StepElement_CurveElementEndReleasePacket.hxx".}
-proc SetReleaseFreedom*(this: var StepElement_CurveElementEndReleasePacket;
-                       ReleaseFreedom: StepElement_CurveElementFreedom) {.
+proc setReleaseFreedom*(this: var StepElementCurveElementEndReleasePacket;
+                       releaseFreedom: StepElementCurveElementFreedom) {.
     importcpp: "SetReleaseFreedom",
     header: "StepElement_CurveElementEndReleasePacket.hxx".}
-proc ReleaseStiffness*(this: StepElement_CurveElementEndReleasePacket): Standard_Real {.
+proc releaseStiffness*(this: StepElementCurveElementEndReleasePacket): float {.
     noSideEffect, importcpp: "ReleaseStiffness",
     header: "StepElement_CurveElementEndReleasePacket.hxx".}
-proc SetReleaseStiffness*(this: var StepElement_CurveElementEndReleasePacket;
-                         ReleaseStiffness: Standard_Real) {.
+proc setReleaseStiffness*(this: var StepElementCurveElementEndReleasePacket;
+                         releaseStiffness: float) {.
     importcpp: "SetReleaseStiffness",
     header: "StepElement_CurveElementEndReleasePacket.hxx".}
 type
-  StepElement_CurveElementEndReleasePacketbase_type* = Standard_Transient
+  StepElementCurveElementEndReleasePacketbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepElement_CurveElementEndReleasePacket::get_type_name(@)", header: "StepElement_CurveElementEndReleasePacket.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepElement_CurveElementEndReleasePacket::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepElement_CurveElementEndReleasePacket::get_type_name(@)", header: "StepElement_CurveElementEndReleasePacket.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_CurveElementEndReleasePacket::get_type_descriptor(@)",
     header: "StepElement_CurveElementEndReleasePacket.hxx".}
-proc DynamicType*(this: StepElement_CurveElementEndReleasePacket): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepElement_CurveElementEndReleasePacket.hxx".}
+proc dynamicType*(this: StepElementCurveElementEndReleasePacket): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepElement_CurveElementEndReleasePacket.hxx".}

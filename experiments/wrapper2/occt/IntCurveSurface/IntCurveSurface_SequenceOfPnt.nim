@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  IntCurveSurface_IntersectionPoint, ../NCollection/NCollection_Sequence
-
 type
-  IntCurveSurface_SequenceOfPnt* = NCollection_Sequence[
-      IntCurveSurface_IntersectionPoint]
+  IntCurveSurfaceSequenceOfPnt* = NCollectionSequence[
+      IntCurveSurfaceIntersectionPoint]
+

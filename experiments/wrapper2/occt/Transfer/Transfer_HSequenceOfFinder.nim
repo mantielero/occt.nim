@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # Transfer_HSequenceOfFinder_HeaderFile [NewLine] # Transfer_HSequenceOfFinder_HeaderFile [NewLine] # Transfer_Finder.hxx [NewLine] # Transfer_SequenceOfFinder.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( Transfer_HSequenceOfFinder , Transfer_SequenceOfFinder ) # [NewLine]
+## !!!Ignored construct:  # Transfer_HSequenceOfFinder_HeaderFile [NewLine] # Transfer_HSequenceOfFinder_HeaderFile [NewLine] # < Transfer_Finder . hxx > [NewLine] # < Transfer_SequenceOfFinder . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( Transfer_HSequenceOfFinder , Transfer_SequenceOfFinder ) # [NewLine]
 ## Error: expected ';'!!!
+

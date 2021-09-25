@@ -16,9 +16,10 @@
 ## ! Enumerates tone mapping methods.
 
 type
-  Graphic3d_ToneMappingMethod* {.size: sizeof(cint),
-                                importcpp: "Graphic3d_ToneMappingMethod",
-                                header: "Graphic3d_ToneMappingMethod.hxx".} = enum
-    Graphic3d_ToneMappingMethod_Disabled, ## !< Don't use tone mapping
-    Graphic3d_ToneMappingMethod_Filmic ## !< Use filmic tone mapping
+  Graphic3dToneMappingMethod* {.size: sizeof(cint),
+                               importcpp: "Graphic3d_ToneMappingMethod",
+                               header: "Graphic3d_ToneMappingMethod.hxx".} = enum
+    Graphic3dToneMappingMethodDisabled, ## !< Don't use tone mapping
+    Graphic3dToneMappingMethodFilmic ## !< Use filmic tone mapping
+
 

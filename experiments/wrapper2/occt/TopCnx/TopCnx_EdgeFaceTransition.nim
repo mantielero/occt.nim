@@ -14,38 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopTrans/TopTrans_CurveTransition,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real,
-  ../TopAbs/TopAbs_Orientation
-
 discard "forward decl of gp_Dir"
 type
-  TopCnx_EdgeFaceTransition* {.importcpp: "TopCnx_EdgeFaceTransition",
-                              header: "TopCnx_EdgeFaceTransition.hxx", bycopy.} = object ##
-                                                                                    ## !
-                                                                                    ## Creates
-                                                                                    ## an
-                                                                                    ## empty
-                                                                                    ## algorithm.
+  TopCnxEdgeFaceTransition* {.importcpp: "TopCnx_EdgeFaceTransition",
+                             header: "TopCnx_EdgeFaceTransition.hxx", bycopy.} = object ##
+                                                                                   ## !
+                                                                                   ## Creates
+                                                                                   ## an
+                                                                                   ## empty
+                                                                                   ## algorithm.
 
 
-proc constructTopCnx_EdgeFaceTransition*(): TopCnx_EdgeFaceTransition {.
-    constructor, importcpp: "TopCnx_EdgeFaceTransition(@)",
+proc constructTopCnxEdgeFaceTransition*(): TopCnxEdgeFaceTransition {.constructor,
+    importcpp: "TopCnx_EdgeFaceTransition(@)",
     header: "TopCnx_EdgeFaceTransition.hxx".}
-proc Reset*(this: var TopCnx_EdgeFaceTransition; Tgt: gp_Dir; Norm: gp_Dir;
-           Curv: Standard_Real) {.importcpp: "Reset",
-                                header: "TopCnx_EdgeFaceTransition.hxx".}
-proc Reset*(this: var TopCnx_EdgeFaceTransition; Tgt: gp_Dir) {.importcpp: "Reset",
+proc reset*(this: var TopCnxEdgeFaceTransition; tgt: Dir; norm: Dir; curv: float) {.
+    importcpp: "Reset", header: "TopCnx_EdgeFaceTransition.hxx".}
+proc reset*(this: var TopCnxEdgeFaceTransition; tgt: Dir) {.importcpp: "Reset",
     header: "TopCnx_EdgeFaceTransition.hxx".}
-proc AddInterference*(this: var TopCnx_EdgeFaceTransition; Tole: Standard_Real;
-                     Tang: gp_Dir; Norm: gp_Dir; Curv: Standard_Real;
-                     Or: TopAbs_Orientation; Tr: TopAbs_Orientation;
-                     BTr: TopAbs_Orientation) {.importcpp: "AddInterference",
-    header: "TopCnx_EdgeFaceTransition.hxx".}
-proc Transition*(this: TopCnx_EdgeFaceTransition): TopAbs_Orientation {.
-    noSideEffect, importcpp: "Transition", header: "TopCnx_EdgeFaceTransition.hxx".}
-proc BoundaryTransition*(this: TopCnx_EdgeFaceTransition): TopAbs_Orientation {.
+proc addInterference*(this: var TopCnxEdgeFaceTransition; tole: float; tang: Dir;
+                     norm: Dir; curv: float; `or`: TopAbsOrientation;
+                     tr: TopAbsOrientation; bTr: TopAbsOrientation) {.
+    importcpp: "AddInterference", header: "TopCnx_EdgeFaceTransition.hxx".}
+proc transition*(this: TopCnxEdgeFaceTransition): TopAbsOrientation {.noSideEffect,
+    importcpp: "Transition", header: "TopCnx_EdgeFaceTransition.hxx".}
+proc boundaryTransition*(this: TopCnxEdgeFaceTransition): TopAbsOrientation {.
     noSideEffect, importcpp: "BoundaryTransition",
     header: "TopCnx_EdgeFaceTransition.hxx".}

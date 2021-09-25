@@ -17,8 +17,9 @@
 ## ! Declares the type of angle.
 
 type
-  PrsDim_TypeOfAngle* {.size: sizeof(cint), importcpp: "PrsDim_TypeOfAngle",
-                       header: "PrsDim_TypeOfAngle.hxx".} = enum
-    PrsDim_TypeOfAngle_Interior, ## !< the angle between two lines built on geometry parameters
-    PrsDim_TypeOfAngle_Exterior ## !< the angle equal 2 PI minus the interior angle
+  PrsDimTypeOfAngle* {.size: sizeof(cint), importcpp: "PrsDim_TypeOfAngle",
+                      header: "PrsDim_TypeOfAngle.hxx".} = enum
+    PrsDimTypeOfAngleInterior, ## !< the angle between two lines built on geometry parameters
+    PrsDimTypeOfAngleExterior ## !< the angle equal 2 PI minus the interior angle
+
 

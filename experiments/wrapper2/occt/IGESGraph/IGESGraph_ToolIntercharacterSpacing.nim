@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESGraph_IntercharacterSpacing"
 discard "forward decl of IGESData_IGESReaderData"
@@ -31,45 +26,44 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESGraph_ToolIntercharacterSpacing* {.importcpp: "IGESGraph_ToolIntercharacterSpacing", header: "IGESGraph_ToolIntercharacterSpacing.hxx",
-                                        bycopy.} = object ## ! Returns a
-                                                       ## ToolIntercharacterSpacing, ready to work
+  IGESGraphToolIntercharacterSpacing* {.importcpp: "IGESGraph_ToolIntercharacterSpacing", header: "IGESGraph_ToolIntercharacterSpacing.hxx",
+                                       bycopy.} = object ## ! Returns a ToolIntercharacterSpacing, ready to work
 
 
-proc constructIGESGraph_ToolIntercharacterSpacing*(): IGESGraph_ToolIntercharacterSpacing {.
+proc constructIGESGraphToolIntercharacterSpacing*(): IGESGraphToolIntercharacterSpacing {.
     constructor, importcpp: "IGESGraph_ToolIntercharacterSpacing(@)",
     header: "IGESGraph_ToolIntercharacterSpacing.hxx".}
-proc ReadOwnParams*(this: IGESGraph_ToolIntercharacterSpacing;
-                   ent: handle[IGESGraph_IntercharacterSpacing];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESGraph_ToolIntercharacterSpacing.hxx".}
-proc WriteOwnParams*(this: IGESGraph_ToolIntercharacterSpacing;
-                    ent: handle[IGESGraph_IntercharacterSpacing];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
-    importcpp: "WriteOwnParams", header: "IGESGraph_ToolIntercharacterSpacing.hxx".}
-proc OwnShared*(this: IGESGraph_ToolIntercharacterSpacing;
-               ent: handle[IGESGraph_IntercharacterSpacing];
-               iter: var Interface_EntityIterator) {.noSideEffect,
-    importcpp: "OwnShared", header: "IGESGraph_ToolIntercharacterSpacing.hxx".}
-proc OwnCorrect*(this: IGESGraph_ToolIntercharacterSpacing;
-                ent: handle[IGESGraph_IntercharacterSpacing]): Standard_Boolean {.
-    noSideEffect, importcpp: "OwnCorrect",
+proc readOwnParams*(this: IGESGraphToolIntercharacterSpacing;
+                   ent: Handle[IGESGraphIntercharacterSpacing];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
     header: "IGESGraph_ToolIntercharacterSpacing.hxx".}
-proc DirChecker*(this: IGESGraph_ToolIntercharacterSpacing;
-                ent: handle[IGESGraph_IntercharacterSpacing]): IGESData_DirChecker {.
+proc writeOwnParams*(this: IGESGraphToolIntercharacterSpacing;
+                    ent: Handle[IGESGraphIntercharacterSpacing];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
+    importcpp: "WriteOwnParams", header: "IGESGraph_ToolIntercharacterSpacing.hxx".}
+proc ownShared*(this: IGESGraphToolIntercharacterSpacing;
+               ent: Handle[IGESGraphIntercharacterSpacing];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
+    importcpp: "OwnShared", header: "IGESGraph_ToolIntercharacterSpacing.hxx".}
+proc ownCorrect*(this: IGESGraphToolIntercharacterSpacing;
+                ent: Handle[IGESGraphIntercharacterSpacing]): bool {.noSideEffect,
+    importcpp: "OwnCorrect", header: "IGESGraph_ToolIntercharacterSpacing.hxx".}
+proc dirChecker*(this: IGESGraphToolIntercharacterSpacing;
+                ent: Handle[IGESGraphIntercharacterSpacing]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESGraph_ToolIntercharacterSpacing.hxx".}
-proc OwnCheck*(this: IGESGraph_ToolIntercharacterSpacing;
-              ent: handle[IGESGraph_IntercharacterSpacing];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESGraphToolIntercharacterSpacing;
+              ent: Handle[IGESGraphIntercharacterSpacing];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck",
     header: "IGESGraph_ToolIntercharacterSpacing.hxx".}
-proc OwnCopy*(this: IGESGraph_ToolIntercharacterSpacing;
-             entfrom: handle[IGESGraph_IntercharacterSpacing];
-             entto: handle[IGESGraph_IntercharacterSpacing];
-             TC: var Interface_CopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESGraph_ToolIntercharacterSpacing.hxx".}
-proc OwnDump*(this: IGESGraph_ToolIntercharacterSpacing;
-             ent: handle[IGESGraph_IntercharacterSpacing];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump", header: "IGESGraph_ToolIntercharacterSpacing.hxx".}
+proc ownCopy*(this: IGESGraphToolIntercharacterSpacing;
+             entfrom: Handle[IGESGraphIntercharacterSpacing];
+             entto: Handle[IGESGraphIntercharacterSpacing];
+             tc: var InterfaceCopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESGraph_ToolIntercharacterSpacing.hxx".}
+proc ownDump*(this: IGESGraphToolIntercharacterSpacing;
+             ent: Handle[IGESGraphIntercharacterSpacing];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump",
+    header: "IGESGraph_ToolIntercharacterSpacing.hxx".}

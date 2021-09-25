@@ -13,56 +13,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../IMeshData/IMeshData_PCurve, ../Standard/Standard_Type,
-  ../NCollection/NCollection_IncAllocator
-
 ## ! Default implementation of pcurve data model entity.
 
 type
-  BRepMeshData_PCurve* {.importcpp: "BRepMeshData_PCurve",
-                        header: "BRepMeshData_PCurve.hxx", bycopy.} = object of IMeshData_PCurve ##
-                                                                                          ## !
-                                                                                          ## Removes
-                                                                                          ## parameter
-                                                                                          ## with
-                                                                                          ## the
-                                                                                          ## given
-                                                                                          ## index.
+  BRepMeshDataPCurve* {.importcpp: "BRepMeshData_PCurve",
+                       header: "BRepMeshData_PCurve.hxx", bycopy.} = object of IMeshDataPCurve ##
+                                                                                        ## !
+                                                                                        ## Removes
+                                                                                        ## parameter
+                                                                                        ## with
+                                                                                        ## the
+                                                                                        ## given
+                                                                                        ## index.
 
 
-proc BRepMeshData_PCurve*(this: var BRepMeshData_PCurve; theDFace: IFacePtr;
-                         theOrientation: TopAbs_Orientation;
-                         theAllocator: handle[NCollection_IncAllocator]): DEFINE_INC_ALLOC {.
+proc bRepMeshDataPCurve*(this: var BRepMeshDataPCurve; theDFace: IFacePtr;
+                        theOrientation: TopAbsOrientation;
+                        theAllocator: Handle[NCollectionIncAllocator]): Define_Inc_Alloc {.
     importcpp: "BRepMeshData_PCurve", header: "BRepMeshData_PCurve.hxx".}
   ## ! Constructor.
-proc destroyBRepMeshData_PCurve*(this: var BRepMeshData_PCurve) {.
+proc destroyBRepMeshDataPCurve*(this: var BRepMeshDataPCurve) {.
     importcpp: "#.~BRepMeshData_PCurve()", header: "BRepMeshData_PCurve.hxx".}
-proc InsertPoint*(this: var BRepMeshData_PCurve; thePosition: Standard_Integer;
-                 thePoint: gp_Pnt2d; theParamOnPCurve: Standard_Real) {.
-    importcpp: "InsertPoint", header: "BRepMeshData_PCurve.hxx".}
-proc AddPoint*(this: var BRepMeshData_PCurve; thePoint: gp_Pnt2d;
-              theParamOnPCurve: Standard_Real) {.importcpp: "AddPoint",
+proc insertPoint*(this: var BRepMeshDataPCurve; thePosition: int; thePoint: Pnt2d;
+                 theParamOnPCurve: float) {.importcpp: "InsertPoint",
     header: "BRepMeshData_PCurve.hxx".}
-proc GetPoint*(this: var BRepMeshData_PCurve; theIndex: Standard_Integer): var gp_Pnt2d {.
+proc addPoint*(this: var BRepMeshDataPCurve; thePoint: Pnt2d; theParamOnPCurve: float) {.
+    importcpp: "AddPoint", header: "BRepMeshData_PCurve.hxx".}
+proc getPoint*(this: var BRepMeshDataPCurve; theIndex: int): var Pnt2d {.
     importcpp: "GetPoint", header: "BRepMeshData_PCurve.hxx".}
-proc GetIndex*(this: var BRepMeshData_PCurve; theIndex: Standard_Integer): var Standard_Integer {.
+proc getIndex*(this: var BRepMeshDataPCurve; theIndex: int): var int {.
     importcpp: "GetIndex", header: "BRepMeshData_PCurve.hxx".}
-proc RemovePoint*(this: var BRepMeshData_PCurve; theIndex: Standard_Integer) {.
+proc removePoint*(this: var BRepMeshDataPCurve; theIndex: int) {.
     importcpp: "RemovePoint", header: "BRepMeshData_PCurve.hxx".}
-proc GetParameter*(this: var BRepMeshData_PCurve; theIndex: Standard_Integer): var Standard_Real {.
+proc getParameter*(this: var BRepMeshDataPCurve; theIndex: int): var float {.
     importcpp: "GetParameter", header: "BRepMeshData_PCurve.hxx".}
-proc ParametersNb*(this: BRepMeshData_PCurve): Standard_Integer {.noSideEffect,
+proc parametersNb*(this: BRepMeshDataPCurve): int {.noSideEffect,
     importcpp: "ParametersNb", header: "BRepMeshData_PCurve.hxx".}
-proc Clear*(this: var BRepMeshData_PCurve; isKeepEndPoints: Standard_Boolean) {.
-    importcpp: "Clear", header: "BRepMeshData_PCurve.hxx".}
+proc clear*(this: var BRepMeshDataPCurve; isKeepEndPoints: bool) {.importcpp: "Clear",
+    header: "BRepMeshData_PCurve.hxx".}
 type
-  BRepMeshData_PCurvebase_type* = IMeshData_PCurve
+  BRepMeshDataPCurvebaseType* = IMeshDataPCurve
 
-proc get_type_name*(): cstring {.importcpp: "BRepMeshData_PCurve::get_type_name(@)",
-                              header: "BRepMeshData_PCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepMeshData_PCurve::get_type_name(@)",
+                            header: "BRepMeshData_PCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepMeshData_PCurve::get_type_descriptor(@)",
     header: "BRepMeshData_PCurve.hxx".}
-proc DynamicType*(this: BRepMeshData_PCurve): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: BRepMeshDataPCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMeshData_PCurve.hxx".}

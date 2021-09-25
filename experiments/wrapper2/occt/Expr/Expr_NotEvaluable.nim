@@ -14,15 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Expr_NotEvaluable_HeaderFile [NewLine] # _Expr_NotEvaluable_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # Expr_ExprFailure.hxx [NewLine] class Expr_NotEvaluable ;
+## !!!Ignored construct:  # _Expr_NotEvaluable_HeaderFile [NewLine] # _Expr_NotEvaluable_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Expr_ExprFailure . hxx > [NewLine] class Expr_NotEvaluable ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Expr_NotEvaluable"
 type
-  Handle_Expr_NotEvaluableExpr_NotEvaluable* = handle[Expr_NotEvaluable]
+  HandleExprNotEvaluableExprNotEvaluable* = Handle[ExprNotEvaluable]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Expr_NotEvaluable [NewLine] # if ( CONDITION ) throw Expr_NotEvaluable ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Expr_NotEvaluable , Expr_ExprFailure ) #  _Expr_NotEvaluable_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Expr_NotEvaluable , Expr_ExprFailure ) #  _Expr_NotEvaluable_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

@@ -14,57 +14,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP214_HArray1OfAutoDesignDateAndPersonItem,
-  ../StepBasic/StepBasic_PersonAndOrganizationAssignment,
-  ../Standard/Standard_Integer
-
 discard "forward decl of StepBasic_PersonAndOrganization"
 discard "forward decl of StepBasic_PersonAndOrganizationRole"
 discard "forward decl of StepAP214_AutoDesignDateAndPersonItem"
 discard "forward decl of StepAP214_AutoDesignDateAndPersonAssignment"
 discard "forward decl of StepAP214_AutoDesignDateAndPersonAssignment"
 type
-  Handle_StepAP214_AutoDesignDateAndPersonAssignment* = handle[
-      StepAP214_AutoDesignDateAndPersonAssignment]
-  StepAP214_AutoDesignDateAndPersonAssignment* {.
+  HandleStepAP214AutoDesignDateAndPersonAssignment* = Handle[
+      StepAP214AutoDesignDateAndPersonAssignment]
+  StepAP214AutoDesignDateAndPersonAssignment* {.
       importcpp: "StepAP214_AutoDesignDateAndPersonAssignment",
-      header: "StepAP214_AutoDesignDateAndPersonAssignment.hxx", bycopy.} = object of StepBasic_PersonAndOrganizationAssignment ##
-                                                                                                                         ## !
-                                                                                                                         ## Returns
-                                                                                                                         ## a
-                                                                                                                         ## AutoDesignDateAndPersonAssignment
+      header: "StepAP214_AutoDesignDateAndPersonAssignment.hxx", bycopy.} = object of StepBasicPersonAndOrganizationAssignment ##
+                                                                                                                        ## !
+                                                                                                                        ## Returns
+                                                                                                                        ## a
+                                                                                                                        ## AutoDesignDateAndPersonAssignment
 
 
-proc constructStepAP214_AutoDesignDateAndPersonAssignment*(): StepAP214_AutoDesignDateAndPersonAssignment {.
+proc constructStepAP214AutoDesignDateAndPersonAssignment*(): StepAP214AutoDesignDateAndPersonAssignment {.
     constructor, importcpp: "StepAP214_AutoDesignDateAndPersonAssignment(@)",
     header: "StepAP214_AutoDesignDateAndPersonAssignment.hxx".}
-proc Init*(this: var StepAP214_AutoDesignDateAndPersonAssignment;
-    aAssignedPersonAndOrganization: handle[StepBasic_PersonAndOrganization];
-          aRole: handle[StepBasic_PersonAndOrganizationRole];
-          aItems: handle[StepAP214_HArray1OfAutoDesignDateAndPersonItem]) {.
+proc init*(this: var StepAP214AutoDesignDateAndPersonAssignment;
+    aAssignedPersonAndOrganization: Handle[StepBasicPersonAndOrganization];
+          aRole: Handle[StepBasicPersonAndOrganizationRole];
+          aItems: Handle[StepAP214HArray1OfAutoDesignDateAndPersonItem]) {.
     importcpp: "Init", header: "StepAP214_AutoDesignDateAndPersonAssignment.hxx".}
-proc SetItems*(this: var StepAP214_AutoDesignDateAndPersonAssignment;
-              aItems: handle[StepAP214_HArray1OfAutoDesignDateAndPersonItem]) {.
+proc setItems*(this: var StepAP214AutoDesignDateAndPersonAssignment;
+              aItems: Handle[StepAP214HArray1OfAutoDesignDateAndPersonItem]) {.
     importcpp: "SetItems",
     header: "StepAP214_AutoDesignDateAndPersonAssignment.hxx".}
-proc Items*(this: StepAP214_AutoDesignDateAndPersonAssignment): handle[
-    StepAP214_HArray1OfAutoDesignDateAndPersonItem] {.noSideEffect,
+proc items*(this: StepAP214AutoDesignDateAndPersonAssignment): Handle[
+    StepAP214HArray1OfAutoDesignDateAndPersonItem] {.noSideEffect,
     importcpp: "Items", header: "StepAP214_AutoDesignDateAndPersonAssignment.hxx".}
-proc ItemsValue*(this: StepAP214_AutoDesignDateAndPersonAssignment;
-                num: Standard_Integer): StepAP214_AutoDesignDateAndPersonItem {.
+proc itemsValue*(this: StepAP214AutoDesignDateAndPersonAssignment; num: int): StepAP214AutoDesignDateAndPersonItem {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AutoDesignDateAndPersonAssignment.hxx".}
-proc NbItems*(this: StepAP214_AutoDesignDateAndPersonAssignment): Standard_Integer {.
-    noSideEffect, importcpp: "NbItems",
+proc nbItems*(this: StepAP214AutoDesignDateAndPersonAssignment): int {.noSideEffect,
+    importcpp: "NbItems",
     header: "StepAP214_AutoDesignDateAndPersonAssignment.hxx".}
 type
-  StepAP214_AutoDesignDateAndPersonAssignmentbase_type* = StepBasic_PersonAndOrganizationAssignment
+  StepAP214AutoDesignDateAndPersonAssignmentbaseType* = StepBasicPersonAndOrganizationAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_AutoDesignDateAndPersonAssignment::get_type_name(@)", header: "StepAP214_AutoDesignDateAndPersonAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP214_AutoDesignDateAndPersonAssignment::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP214_AutoDesignDateAndPersonAssignment::get_type_name(@)", header: "StepAP214_AutoDesignDateAndPersonAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_AutoDesignDateAndPersonAssignment::get_type_descriptor(@)",
     header: "StepAP214_AutoDesignDateAndPersonAssignment.hxx".}
-proc DynamicType*(this: StepAP214_AutoDesignDateAndPersonAssignment): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepAP214_AutoDesignDateAndPersonAssignment.hxx".}
+proc dynamicType*(this: StepAP214AutoDesignDateAndPersonAssignment): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepAP214_AutoDesignDateAndPersonAssignment.hxx".}

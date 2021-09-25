@@ -14,43 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP214_AutoDesignPresentedItemSelect,
-  StepAP214_Array1OfAutoDesignPresentedItemSelect,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepAP214_HArray1OfAutoDesignPresentedItemSelect* {.
+  StepAP214HArray1OfAutoDesignPresentedItemSelect* {.
       importcpp: "StepAP214_HArray1OfAutoDesignPresentedItemSelect",
-      header: "StepAP214_HArray1OfAutoDesignPresentedItemSelect.hxx", bycopy.} = object of StepAP214_Array1OfAutoDesignPresentedItemSelect
+      header: "StepAP214_HArray1OfAutoDesignPresentedItemSelect.hxx", bycopy.} = object of StepAP214Array1OfAutoDesignPresentedItemSelect
 
 
-proc constructStepAP214_HArray1OfAutoDesignPresentedItemSelect*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepAP214_HArray1OfAutoDesignPresentedItemSelect {.
+proc constructStepAP214HArray1OfAutoDesignPresentedItemSelect*(theLower: int;
+    theUpper: int): StepAP214HArray1OfAutoDesignPresentedItemSelect {.constructor,
+    importcpp: "StepAP214_HArray1OfAutoDesignPresentedItemSelect(@)",
+    header: "StepAP214_HArray1OfAutoDesignPresentedItemSelect.hxx".}
+proc constructStepAP214HArray1OfAutoDesignPresentedItemSelect*(theLower: int;
+    theUpper: int; theValue: ValueType): StepAP214HArray1OfAutoDesignPresentedItemSelect {.
     constructor,
     importcpp: "StepAP214_HArray1OfAutoDesignPresentedItemSelect(@)",
     header: "StepAP214_HArray1OfAutoDesignPresentedItemSelect.hxx".}
-proc constructStepAP214_HArray1OfAutoDesignPresentedItemSelect*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepAP214_HArray1OfAutoDesignPresentedItemSelect {.
+proc constructStepAP214HArray1OfAutoDesignPresentedItemSelect*(
+    theOther: StepAP214Array1OfAutoDesignPresentedItemSelect): StepAP214HArray1OfAutoDesignPresentedItemSelect {.
     constructor,
     importcpp: "StepAP214_HArray1OfAutoDesignPresentedItemSelect(@)",
     header: "StepAP214_HArray1OfAutoDesignPresentedItemSelect.hxx".}
-proc constructStepAP214_HArray1OfAutoDesignPresentedItemSelect*(
-    theOther: StepAP214_Array1OfAutoDesignPresentedItemSelect): StepAP214_HArray1OfAutoDesignPresentedItemSelect {.
-    constructor,
-    importcpp: "StepAP214_HArray1OfAutoDesignPresentedItemSelect(@)",
-    header: "StepAP214_HArray1OfAutoDesignPresentedItemSelect.hxx".}
-proc Array1*(this: StepAP214_HArray1OfAutoDesignPresentedItemSelect): StepAP214_Array1OfAutoDesignPresentedItemSelect {.
+proc array1*(this: StepAP214HArray1OfAutoDesignPresentedItemSelect): StepAP214Array1OfAutoDesignPresentedItemSelect {.
     noSideEffect, importcpp: "Array1",
     header: "StepAP214_HArray1OfAutoDesignPresentedItemSelect.hxx".}
-proc ChangeArray1*(this: var StepAP214_HArray1OfAutoDesignPresentedItemSelect): var StepAP214_Array1OfAutoDesignPresentedItemSelect {.
+proc changeArray1*(this: var StepAP214HArray1OfAutoDesignPresentedItemSelect): var StepAP214Array1OfAutoDesignPresentedItemSelect {.
     importcpp: "ChangeArray1",
     header: "StepAP214_HArray1OfAutoDesignPresentedItemSelect.hxx".}
 type
-  StepAP214_HArray1OfAutoDesignPresentedItemSelectbase_type* = MMgt_TShared
+  StepAP214HArray1OfAutoDesignPresentedItemSelectbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_HArray1OfAutoDesignPresentedItemSelect::get_type_name(@)", header: "StepAP214_HArray1OfAutoDesignPresentedItemSelect.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP214_HArray1OfAutoDesignPresentedItemSelect::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP214_HArray1OfAutoDesignPresentedItemSelect::get_type_name(@)", header: "StepAP214_HArray1OfAutoDesignPresentedItemSelect.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_HArray1OfAutoDesignPresentedItemSelect::get_type_descriptor(@)",
     header: "StepAP214_HArray1OfAutoDesignPresentedItemSelect.hxx".}
-proc DynamicType*(this: StepAP214_HArray1OfAutoDesignPresentedItemSelect): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepAP214_HArray1OfAutoDesignPresentedItemSelect.hxx".}
+proc dynamicType*(this: StepAP214HArray1OfAutoDesignPresentedItemSelect): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepAP214_HArray1OfAutoDesignPresentedItemSelect.hxx".}

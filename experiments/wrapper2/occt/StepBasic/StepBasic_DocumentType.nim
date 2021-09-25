@@ -14,35 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_DocumentType"
 discard "forward decl of StepBasic_DocumentType"
 type
-  Handle_StepBasic_DocumentType* = handle[StepBasic_DocumentType]
-  StepBasic_DocumentType* {.importcpp: "StepBasic_DocumentType",
-                           header: "StepBasic_DocumentType.hxx", bycopy.} = object of Standard_Transient
+  HandleStepBasicDocumentType* = Handle[StepBasicDocumentType]
+  StepBasicDocumentType* {.importcpp: "StepBasic_DocumentType",
+                          header: "StepBasic_DocumentType.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructStepBasic_DocumentType*(): StepBasic_DocumentType {.constructor,
+proc constructStepBasicDocumentType*(): StepBasicDocumentType {.constructor,
     importcpp: "StepBasic_DocumentType(@)", header: "StepBasic_DocumentType.hxx".}
-proc Init*(this: var StepBasic_DocumentType; apdt: handle[TCollection_HAsciiString]) {.
+proc init*(this: var StepBasicDocumentType; apdt: Handle[TCollectionHAsciiString]) {.
     importcpp: "Init", header: "StepBasic_DocumentType.hxx".}
-proc ProductDataType*(this: StepBasic_DocumentType): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "ProductDataType",
-                               header: "StepBasic_DocumentType.hxx".}
-proc SetProductDataType*(this: var StepBasic_DocumentType;
-                        apdt: handle[TCollection_HAsciiString]) {.
+proc productDataType*(this: StepBasicDocumentType): Handle[TCollectionHAsciiString] {.
+    noSideEffect, importcpp: "ProductDataType",
+    header: "StepBasic_DocumentType.hxx".}
+proc setProductDataType*(this: var StepBasicDocumentType;
+                        apdt: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetProductDataType", header: "StepBasic_DocumentType.hxx".}
 type
-  StepBasic_DocumentTypebase_type* = Standard_Transient
+  StepBasicDocumentTypebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_DocumentType::get_type_name(@)",
-                              header: "StepBasic_DocumentType.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_DocumentType::get_type_name(@)",
+                            header: "StepBasic_DocumentType.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_DocumentType::get_type_descriptor(@)",
     header: "StepBasic_DocumentType.hxx".}
-proc DynamicType*(this: StepBasic_DocumentType): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepBasic_DocumentType.hxx".}
+proc dynamicType*(this: StepBasicDocumentType): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepBasic_DocumentType.hxx".}

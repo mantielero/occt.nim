@@ -14,15 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  Transfer_SimpleBinderOfTransient
-
 discard "forward decl of Transfer_BinderOfTransientInteger"
 discard "forward decl of Transfer_BinderOfTransientInteger"
 type
-  Handle_Transfer_BinderOfTransientInteger* = handle[
-      Transfer_BinderOfTransientInteger]
+  HandleTransferBinderOfTransientInteger* = Handle[
+      TransferBinderOfTransientInteger]
 
 ## ! This type of Binder allows to attach as result, besides a
 ## ! Transient Object, an Integer Value, which can be an Index
@@ -32,42 +28,40 @@ type
 ## ! i.e. its basic result (for iterators, etc) is the Transient
 
 type
-  Transfer_BinderOfTransientInteger* {.importcpp: "Transfer_BinderOfTransientInteger", header: "Transfer_BinderOfTransientInteger.hxx",
-                                      bycopy.} = object of Transfer_SimpleBinderOfTransient ##
-                                                                                       ## !
-                                                                                       ## Creates
-                                                                                       ## an
-                                                                                       ## empty
-                                                                                       ## BinderOfTransientInteger;
-                                                                                       ## Default
-                                                                                       ## value
-                                                                                       ## for
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## the
-                                                                                       ## integer
-                                                                                       ## part
-                                                                                       ## is
-                                                                                       ## zero
+  TransferBinderOfTransientInteger* {.importcpp: "Transfer_BinderOfTransientInteger", header: "Transfer_BinderOfTransientInteger.hxx",
+                                     bycopy.} = object of TransferSimpleBinderOfTransient ##
+                                                                                     ## !
+                                                                                     ## Creates
+                                                                                     ## an
+                                                                                     ## empty
+                                                                                     ## BinderOfTransientInteger;
+                                                                                     ## Default
+                                                                                     ## value
+                                                                                     ## for
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## the
+                                                                                     ## integer
+                                                                                     ## part
+                                                                                     ## is
+                                                                                     ## zero
 
 
-proc constructTransfer_BinderOfTransientInteger*(): Transfer_BinderOfTransientInteger {.
+proc constructTransferBinderOfTransientInteger*(): TransferBinderOfTransientInteger {.
     constructor, importcpp: "Transfer_BinderOfTransientInteger(@)",
     header: "Transfer_BinderOfTransientInteger.hxx".}
-proc SetInteger*(this: var Transfer_BinderOfTransientInteger;
-                value: Standard_Integer) {.importcpp: "SetInteger",
-    header: "Transfer_BinderOfTransientInteger.hxx".}
-proc Integer*(this: Transfer_BinderOfTransientInteger): Standard_Integer {.
-    noSideEffect, importcpp: "Integer",
-    header: "Transfer_BinderOfTransientInteger.hxx".}
+proc setInteger*(this: var TransferBinderOfTransientInteger; value: int) {.
+    importcpp: "SetInteger", header: "Transfer_BinderOfTransientInteger.hxx".}
+proc integer*(this: TransferBinderOfTransientInteger): int {.noSideEffect,
+    importcpp: "Integer", header: "Transfer_BinderOfTransientInteger.hxx".}
 type
-  Transfer_BinderOfTransientIntegerbase_type* = Transfer_SimpleBinderOfTransient
+  TransferBinderOfTransientIntegerbaseType* = TransferSimpleBinderOfTransient
 
-proc get_type_name*(): cstring {.importcpp: "Transfer_BinderOfTransientInteger::get_type_name(@)",
-                              header: "Transfer_BinderOfTransientInteger.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Transfer_BinderOfTransientInteger::get_type_name(@)",
+                            header: "Transfer_BinderOfTransientInteger.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_BinderOfTransientInteger::get_type_descriptor(@)",
     header: "Transfer_BinderOfTransientInteger.hxx".}
-proc DynamicType*(this: Transfer_BinderOfTransientInteger): handle[Standard_Type] {.
+proc dynamicType*(this: TransferBinderOfTransientInteger): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Transfer_BinderOfTransientInteger.hxx".}

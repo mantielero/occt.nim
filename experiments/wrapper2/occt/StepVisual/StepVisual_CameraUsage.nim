@@ -14,31 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepRepr/StepRepr_RepresentationMap
-
 discard "forward decl of StepVisual_CameraUsage"
 discard "forward decl of StepVisual_CameraUsage"
 type
-  Handle_StepVisual_CameraUsage* = handle[StepVisual_CameraUsage]
-  StepVisual_CameraUsage* {.importcpp: "StepVisual_CameraUsage",
-                           header: "StepVisual_CameraUsage.hxx", bycopy.} = object of StepRepr_RepresentationMap ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## a
-                                                                                                          ## CameraUsage
+  HandleStepVisualCameraUsage* = Handle[StepVisualCameraUsage]
+  StepVisualCameraUsage* {.importcpp: "StepVisual_CameraUsage",
+                          header: "StepVisual_CameraUsage.hxx", bycopy.} = object of StepReprRepresentationMap ##
+                                                                                                        ## !
+                                                                                                        ## Returns
+                                                                                                        ## a
+                                                                                                        ## CameraUsage
 
 
-proc constructStepVisual_CameraUsage*(): StepVisual_CameraUsage {.constructor,
+proc constructStepVisualCameraUsage*(): StepVisualCameraUsage {.constructor,
     importcpp: "StepVisual_CameraUsage(@)", header: "StepVisual_CameraUsage.hxx".}
 type
-  StepVisual_CameraUsagebase_type* = StepRepr_RepresentationMap
+  StepVisualCameraUsagebaseType* = StepReprRepresentationMap
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_CameraUsage::get_type_name(@)",
-                              header: "StepVisual_CameraUsage.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_CameraUsage::get_type_name(@)",
+                            header: "StepVisual_CameraUsage.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_CameraUsage::get_type_descriptor(@)",
     header: "StepVisual_CameraUsage.hxx".}
-proc DynamicType*(this: StepVisual_CameraUsage): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepVisual_CameraUsage.hxx".}
+proc dynamicType*(this: StepVisualCameraUsage): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepVisual_CameraUsage.hxx".}

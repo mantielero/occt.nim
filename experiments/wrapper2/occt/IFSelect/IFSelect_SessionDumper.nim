@@ -14,17 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of IFSelect_SessionFile"
 discard "forward decl of Standard_Transient"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SessionDumper"
 discard "forward decl of IFSelect_SessionDumper"
 type
-  Handle_IFSelect_SessionDumper* = handle[IFSelect_SessionDumper]
+  HandleIFSelectSessionDumper* = Handle[IFSelectSessionDumper]
 
 ## ! A SessionDumper is called by SessionFile. It takes into
 ## ! account a set of classes (such as Selections, Dispatches ...).
@@ -53,84 +49,84 @@ type
 ## ! SessionFile. They are put at Creation Time in this Library.
 
 type
-  IFSelect_SessionDumper* {.importcpp: "IFSelect_SessionDumper",
-                           header: "IFSelect_SessionDumper.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                  ## !
-                                                                                                  ## Returns
-                                                                                                  ## the
-                                                                                                  ## First
-                                                                                                  ## item
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## Library
-                                                                                                  ## of
-                                                                                                  ## Dumper.
-                                                                                                  ## The
-                                                                                                  ## Next
-                                                                                                  ## ones
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## are
-                                                                                                  ## then
-                                                                                                  ## obtained
-                                                                                                  ## by
-                                                                                                  ## Next
-                                                                                                  ## on
-                                                                                                  ## the
-                                                                                                  ## returned
-                                                                                                  ## items
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## The
-                                                                                                  ## Initialization
-                                                                                                  ## puts
-                                                                                                  ## a
-                                                                                                  ## just
-                                                                                                  ## created
-                                                                                                  ## SessionDumper
-                                                                                                  ## in
-                                                                                                  ## the
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Library
-                                                                                                  ## of
-                                                                                                  ## SessionDumper.
-                                                                                                  ## Then,
-                                                                                                  ## it
-                                                                                                  ## suffices
-                                                                                                  ## to
-                                                                                                  ## create
-                                                                                                  ## once
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## a
-                                                                                                  ## SessionDumper
-                                                                                                  ## to
-                                                                                                  ## fill
-                                                                                                  ## the
-                                                                                                  ## Library
-                                                                                                  ## with
-                                                                                                  ## it
+  IFSelectSessionDumper* {.importcpp: "IFSelect_SessionDumper",
+                          header: "IFSelect_SessionDumper.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                ## !
+                                                                                                ## Returns
+                                                                                                ## the
+                                                                                                ## First
+                                                                                                ## item
+                                                                                                ## of
+                                                                                                ## the
+                                                                                                ## Library
+                                                                                                ## of
+                                                                                                ## Dumper.
+                                                                                                ## The
+                                                                                                ## Next
+                                                                                                ## ones
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## are
+                                                                                                ## then
+                                                                                                ## obtained
+                                                                                                ## by
+                                                                                                ## Next
+                                                                                                ## on
+                                                                                                ## the
+                                                                                                ## returned
+                                                                                                ## items
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## The
+                                                                                                ## Initialization
+                                                                                                ## puts
+                                                                                                ## a
+                                                                                                ## just
+                                                                                                ## created
+                                                                                                ## SessionDumper
+                                                                                                ## in
+                                                                                                ## the
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Library
+                                                                                                ## of
+                                                                                                ## SessionDumper.
+                                                                                                ## Then,
+                                                                                                ## it
+                                                                                                ## suffices
+                                                                                                ## to
+                                                                                                ## create
+                                                                                                ## once
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## a
+                                                                                                ## SessionDumper
+                                                                                                ## to
+                                                                                                ## fill
+                                                                                                ## the
+                                                                                                ## Library
+                                                                                                ## with
+                                                                                                ## it
 
 
-proc First*(): handle[IFSelect_SessionDumper] {.
+proc first*(): Handle[IFSelectSessionDumper] {.
     importcpp: "IFSelect_SessionDumper::First(@)",
     header: "IFSelect_SessionDumper.hxx".}
-proc Next*(this: IFSelect_SessionDumper): handle[IFSelect_SessionDumper] {.
+proc next*(this: IFSelectSessionDumper): Handle[IFSelectSessionDumper] {.
     noSideEffect, importcpp: "Next", header: "IFSelect_SessionDumper.hxx".}
-proc WriteOwn*(this: IFSelect_SessionDumper; file: var IFSelect_SessionFile;
-              item: handle[Standard_Transient]): Standard_Boolean {.noSideEffect,
+proc writeOwn*(this: IFSelectSessionDumper; file: var IFSelectSessionFile;
+              item: Handle[StandardTransient]): bool {.noSideEffect,
     importcpp: "WriteOwn", header: "IFSelect_SessionDumper.hxx".}
-proc ReadOwn*(this: IFSelect_SessionDumper; file: var IFSelect_SessionFile;
-             `type`: TCollection_AsciiString; item: var handle[Standard_Transient]): Standard_Boolean {.
+proc readOwn*(this: IFSelectSessionDumper; file: var IFSelectSessionFile;
+             `type`: TCollectionAsciiString; item: var Handle[StandardTransient]): bool {.
     noSideEffect, importcpp: "ReadOwn", header: "IFSelect_SessionDumper.hxx".}
 type
-  IFSelect_SessionDumperbase_type* = Standard_Transient
+  IFSelectSessionDumperbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_SessionDumper::get_type_name(@)",
-                              header: "IFSelect_SessionDumper.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_SessionDumper::get_type_name(@)",
+                            header: "IFSelect_SessionDumper.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_SessionDumper::get_type_descriptor(@)",
     header: "IFSelect_SessionDumper.hxx".}
-proc DynamicType*(this: IFSelect_SessionDumper): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IFSelect_SessionDumper.hxx".}
+proc dynamicType*(this: IFSelectSessionDumper): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IFSelect_SessionDumper.hxx".}

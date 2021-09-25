@@ -13,24 +13,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_Context, OpenGl_Font, OpenGl_VertexBuffer, OpenGl_VertexBufferEditor,
-  OpenGl_Vec, ../NCollection/NCollection_Vector, ../NCollection/NCollection_Handle
-
 discard "forward decl of Font_TextFormatter"
 type
-  OpenGl_TextBuilder* {.importcpp: "OpenGl_TextBuilder",
-                       header: "OpenGl_TextBuilder.hxx", bycopy.} = object ## ! Creates empty object.
-                                                                      ## ! @name class auxillary methods
-                                                                      ## ! @name class auxillary fields
+  OpenGlTextBuilder* {.importcpp: "OpenGl_TextBuilder",
+                      header: "OpenGl_TextBuilder.hxx", bycopy.} = object ## ! Creates empty object.
+                                                                     ## ! @name class auxillary methods
+                                                                     ## ! @name class auxillary fields
 
 
-proc constructOpenGl_TextBuilder*(): OpenGl_TextBuilder {.constructor,
+proc constructOpenGlTextBuilder*(): OpenGlTextBuilder {.constructor,
     importcpp: "OpenGl_TextBuilder(@)", header: "OpenGl_TextBuilder.hxx".}
-proc Perform*(this: var OpenGl_TextBuilder;
-             theFormatter: handle[Font_TextFormatter];
-             theContext: handle[OpenGl_Context]; theFont: var OpenGl_Font;
-             theTextures: var NCollection_Vector[GLuint]; theVertsPerTexture: var NCollection_Vector[
-    handle[OpenGl_VertexBuffer]]; theTCrdsPerTexture: var NCollection_Vector[
-    handle[OpenGl_VertexBuffer]]) {.importcpp: "Perform",
-                                   header: "OpenGl_TextBuilder.hxx".}
+proc perform*(this: var OpenGlTextBuilder; theFormatter: Handle[FontTextFormatter];
+             theContext: Handle[OpenGlContext]; theFont: var OpenGlFont;
+             theTextures: var NCollectionVector[GLuint]; theVertsPerTexture: var NCollectionVector[
+    Handle[OpenGlVertexBuffer]]; theTCrdsPerTexture: var NCollectionVector[
+    Handle[OpenGlVertexBuffer]]) {.importcpp: "Perform",
+                                  header: "OpenGl_TextBuilder.hxx".}

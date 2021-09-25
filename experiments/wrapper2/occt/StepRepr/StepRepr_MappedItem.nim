@@ -14,47 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_RepresentationItem
-
 discard "forward decl of StepRepr_RepresentationMap"
 discard "forward decl of StepRepr_RepresentationItem"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_MappedItem"
 discard "forward decl of StepRepr_MappedItem"
 type
-  Handle_StepRepr_MappedItem* = handle[StepRepr_MappedItem]
-  StepRepr_MappedItem* {.importcpp: "StepRepr_MappedItem",
-                        header: "StepRepr_MappedItem.hxx", bycopy.} = object of StepRepr_RepresentationItem ##
-                                                                                                     ## !
-                                                                                                     ## Returns
-                                                                                                     ## a
-                                                                                                     ## MappedItem
+  HandleStepReprMappedItem* = Handle[StepReprMappedItem]
+  StepReprMappedItem* {.importcpp: "StepRepr_MappedItem",
+                       header: "StepRepr_MappedItem.hxx", bycopy.} = object of StepReprRepresentationItem ##
+                                                                                                   ## !
+                                                                                                   ## Returns
+                                                                                                   ## a
+                                                                                                   ## MappedItem
 
 
-proc constructStepRepr_MappedItem*(): StepRepr_MappedItem {.constructor,
+proc constructStepReprMappedItem*(): StepReprMappedItem {.constructor,
     importcpp: "StepRepr_MappedItem(@)", header: "StepRepr_MappedItem.hxx".}
-proc Init*(this: var StepRepr_MappedItem; aName: handle[TCollection_HAsciiString];
-          aMappingSource: handle[StepRepr_RepresentationMap];
-          aMappingTarget: handle[StepRepr_RepresentationItem]) {.
-    importcpp: "Init", header: "StepRepr_MappedItem.hxx".}
-proc SetMappingSource*(this: var StepRepr_MappedItem;
-                      aMappingSource: handle[StepRepr_RepresentationMap]) {.
+proc init*(this: var StepReprMappedItem; aName: Handle[TCollectionHAsciiString];
+          aMappingSource: Handle[StepReprRepresentationMap];
+          aMappingTarget: Handle[StepReprRepresentationItem]) {.importcpp: "Init",
+    header: "StepRepr_MappedItem.hxx".}
+proc setMappingSource*(this: var StepReprMappedItem;
+                      aMappingSource: Handle[StepReprRepresentationMap]) {.
     importcpp: "SetMappingSource", header: "StepRepr_MappedItem.hxx".}
-proc MappingSource*(this: StepRepr_MappedItem): handle[StepRepr_RepresentationMap] {.
+proc mappingSource*(this: StepReprMappedItem): Handle[StepReprRepresentationMap] {.
     noSideEffect, importcpp: "MappingSource", header: "StepRepr_MappedItem.hxx".}
-proc SetMappingTarget*(this: var StepRepr_MappedItem;
-                      aMappingTarget: handle[StepRepr_RepresentationItem]) {.
+proc setMappingTarget*(this: var StepReprMappedItem;
+                      aMappingTarget: Handle[StepReprRepresentationItem]) {.
     importcpp: "SetMappingTarget", header: "StepRepr_MappedItem.hxx".}
-proc MappingTarget*(this: StepRepr_MappedItem): handle[StepRepr_RepresentationItem] {.
+proc mappingTarget*(this: StepReprMappedItem): Handle[StepReprRepresentationItem] {.
     noSideEffect, importcpp: "MappingTarget", header: "StepRepr_MappedItem.hxx".}
 type
-  StepRepr_MappedItembase_type* = StepRepr_RepresentationItem
+  StepReprMappedItembaseType* = StepReprRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_MappedItem::get_type_name(@)",
-                              header: "StepRepr_MappedItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_MappedItem::get_type_name(@)",
+                            header: "StepRepr_MappedItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_MappedItem::get_type_descriptor(@)",
     header: "StepRepr_MappedItem.hxx".}
-proc DynamicType*(this: StepRepr_MappedItem): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepReprMappedItem): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepRepr_MappedItem.hxx".}

@@ -13,33 +13,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepElement_SurfaceSectionField"
 discard "forward decl of StepElement_SurfaceSectionField"
 type
-  Handle_StepElement_SurfaceSectionField* = handle[StepElement_SurfaceSectionField]
+  HandleStepElementSurfaceSectionField* = Handle[StepElementSurfaceSectionField]
 
 ## ! Representation of STEP entity SurfaceSectionField
 
 type
-  StepElement_SurfaceSectionField* {.importcpp: "StepElement_SurfaceSectionField", header: "StepElement_SurfaceSectionField.hxx",
-                                    bycopy.} = object of Standard_Transient ## ! Empty
-                                                                       ## constructor
+  StepElementSurfaceSectionField* {.importcpp: "StepElement_SurfaceSectionField", header: "StepElement_SurfaceSectionField.hxx",
+                                   bycopy.} = object of StandardTransient ## ! Empty constructor
 
 
-proc constructStepElement_SurfaceSectionField*(): StepElement_SurfaceSectionField {.
+proc constructStepElementSurfaceSectionField*(): StepElementSurfaceSectionField {.
     constructor, importcpp: "StepElement_SurfaceSectionField(@)",
     header: "StepElement_SurfaceSectionField.hxx".}
 type
-  StepElement_SurfaceSectionFieldbase_type* = Standard_Transient
+  StepElementSurfaceSectionFieldbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepElement_SurfaceSectionField::get_type_name(@)",
-                              header: "StepElement_SurfaceSectionField.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepElement_SurfaceSectionField::get_type_name(@)",
+                            header: "StepElement_SurfaceSectionField.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepElement_SurfaceSectionField::get_type_descriptor(@)",
     header: "StepElement_SurfaceSectionField.hxx".}
-proc DynamicType*(this: StepElement_SurfaceSectionField): handle[Standard_Type] {.
+proc dynamicType*(this: StepElementSurfaceSectionField): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_SurfaceSectionField.hxx".}

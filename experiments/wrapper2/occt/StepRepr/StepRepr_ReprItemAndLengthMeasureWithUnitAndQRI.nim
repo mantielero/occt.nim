@@ -13,36 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepRepr_ReprItemAndMeasureWithUnitAndQRI
-
 discard "forward decl of StepBasic_LengthMeasureWithUnit"
 discard "forward decl of StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI"
 discard "forward decl of StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI"
 type
-  Handle_StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI* = handle[
-      StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI]
-  StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI* {.
+  HandleStepReprReprItemAndLengthMeasureWithUnitAndQRI* = Handle[
+      StepReprReprItemAndLengthMeasureWithUnitAndQRI]
+  StepReprReprItemAndLengthMeasureWithUnitAndQRI* {.
       importcpp: "StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI",
-      header: "StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI.hxx", bycopy.} = object of StepRepr_ReprItemAndMeasureWithUnitAndQRI
+      header: "StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI.hxx", bycopy.} = object of StepReprReprItemAndMeasureWithUnitAndQRI
 
 
-proc constructStepRepr_ReprItemAndLengthMeasureWithUnitAndQRI*(): StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI {.
+proc constructStepReprReprItemAndLengthMeasureWithUnitAndQRI*(): StepReprReprItemAndLengthMeasureWithUnitAndQRI {.
     constructor, importcpp: "StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI(@)",
     header: "StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI.hxx".}
-proc SetLengthMeasureWithUnit*(this: var StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI;
-                              aLMWU: handle[StepBasic_LengthMeasureWithUnit]) {.
+proc setLengthMeasureWithUnit*(this: var StepReprReprItemAndLengthMeasureWithUnitAndQRI;
+                              aLMWU: Handle[StepBasicLengthMeasureWithUnit]) {.
     importcpp: "SetLengthMeasureWithUnit",
     header: "StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI.hxx".}
-proc GetLengthMeasureWithUnit*(this: StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI): handle[
-    StepBasic_LengthMeasureWithUnit] {.noSideEffect,
-                                      importcpp: "GetLengthMeasureWithUnit", header: "StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI.hxx".}
+proc getLengthMeasureWithUnit*(this: StepReprReprItemAndLengthMeasureWithUnitAndQRI): Handle[
+    StepBasicLengthMeasureWithUnit] {.noSideEffect,
+                                     importcpp: "GetLengthMeasureWithUnit", header: "StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI.hxx".}
 type
-  StepRepr_ReprItemAndLengthMeasureWithUnitAndQRIbase_type* = StepRepr_ReprItemAndMeasureWithUnitAndQRI
+  StepReprReprItemAndLengthMeasureWithUnitAndQRIbaseType* = StepReprReprItemAndMeasureWithUnitAndQRI
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI::get_type_name(@)", header: "StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI::get_type_name(@)", header: "StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI::get_type_descriptor(@)",
     header: "StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI.hxx".}
-proc DynamicType*(this: StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI.hxx".}
+proc dynamicType*(this: StepReprReprItemAndLengthMeasureWithUnitAndQRI): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI.hxx".}

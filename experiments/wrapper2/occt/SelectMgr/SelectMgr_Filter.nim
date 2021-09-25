@@ -14,15 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_Boolean, ../TopAbs/TopAbs_ShapeEnum
-
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of SelectMgr_Filter"
 discard "forward decl of SelectMgr_Filter"
 type
-  Handle_SelectMgr_Filter* = handle[SelectMgr_Filter]
+  HandleSelectMgrFilter* = Handle[SelectMgrFilter]
 
 ## ! The root class to define filter objects for selection.
 ## ! Advance handling of objects requires the services of
@@ -35,162 +31,34 @@ type
 ## ! filters by loading them into an AIS interactive context.
 
 type
-  SelectMgr_Filter* {.importcpp: "SelectMgr_Filter",
-                     header: "SelectMgr_Filter.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                      ## !
-                                                                                      ## Indicates
-                                                                                      ## that
-                                                                                      ## the
-                                                                                      ## selected
-                                                                                      ## Interactive
-                                                                                      ## Object
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## passes
-                                                                                      ## the
-                                                                                      ## filter.
-                                                                                      ## The
-                                                                                      ## owner,
-                                                                                      ## anObj,
-                                                                                      ## can
-                                                                                      ## be
-                                                                                      ## either
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## direct
-                                                                                      ## or
-                                                                                      ## user.
-                                                                                      ## A
-                                                                                      ## direct
-                                                                                      ## owner
-                                                                                      ## is
-                                                                                      ## the
-                                                                                      ## corresponding
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## construction
-                                                                                      ## element,
-                                                                                      ## whereas
-                                                                                      ## a
-                                                                                      ## user
-                                                                                      ## is
-                                                                                      ## the
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## compound
-                                                                                      ## shape
-                                                                                      ## of
-                                                                                      ## which
-                                                                                      ## the
-                                                                                      ## entity
-                                                                                      ## forms
-                                                                                      ## a
-                                                                                      ## part.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## When
-                                                                                      ## an
-                                                                                      ## object
-                                                                                      ## is
-                                                                                      ## detected
-                                                                                      ## by
-                                                                                      ## the
-                                                                                      ## mouse
-                                                                                      ## -
-                                                                                      ## in
-                                                                                      ## AIS,
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## this
-                                                                                      ## is
-                                                                                      ## done
-                                                                                      ## through
-                                                                                      ## a
-                                                                                      ## context
-                                                                                      ## selector
-                                                                                      ## -
-                                                                                      ## its
-                                                                                      ## owner
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## is
-                                                                                      ## passed
-                                                                                      ## to
-                                                                                      ## the
-                                                                                      ## filter
-                                                                                      ## as
-                                                                                      ## an
-                                                                                      ## argument.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## If
-                                                                                      ## the
-                                                                                      ## object
-                                                                                      ## returns
-                                                                                      ## Standard_True,
-                                                                                      ## it
-                                                                                      ## is
-                                                                                      ## kept;
-                                                                                      ## if
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## not,
-                                                                                      ## it
-                                                                                      ## is
-                                                                                      ## rejected.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## If
-                                                                                      ## you
-                                                                                      ## are
-                                                                                      ## creating
-                                                                                      ## a
-                                                                                      ## filter
-                                                                                      ## class
-                                                                                      ## inheriting
-                                                                                      ## this
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## framework,
-                                                                                      ## and
-                                                                                      ## the
-                                                                                      ## daughter
-                                                                                      ## class
-                                                                                      ## is
-                                                                                      ## to
-                                                                                      ## be
-                                                                                      ## used
-                                                                                      ## in
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## an
-                                                                                      ## AIS
-                                                                                      ## local
-                                                                                      ## context,
-                                                                                      ## you
-                                                                                      ## will
-                                                                                      ## need
-                                                                                      ## to
-                                                                                      ## implement
-                                                                                      ## the
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## virtual
-                                                                                      ## function
-                                                                                      ## ActsOn.
+  SelectMgrFilter* {.importcpp: "SelectMgr_Filter", header: "SelectMgr_Filter.hxx",
+                    bycopy.} = object of StandardTransient ## ! Indicates that the selected Interactive Object
+                                                      ## ! passes the filter. The owner, anObj, can be either
+                                                      ## ! direct or user. A direct owner is the corresponding
+                                                      ## ! construction element, whereas a user is the
+                                                      ## ! compound shape of which the entity forms a part.
+                                                      ## ! When an object is detected by the mouse - in AIS,
+                                                      ## ! this is done through a context selector - its owner
+                                                      ## ! is passed to the filter as an argument.
+                                                      ## ! If the object returns Standard_True, it is kept; if
+                                                      ## ! not, it is rejected.
+                                                      ## ! If you are creating a filter class inheriting this
+                                                      ## ! framework, and the daughter class is to be used in
+                                                      ## ! an AIS local context, you will need to implement the
+                                                      ## ! virtual function ActsOn.
 
 
-proc IsOk*(this: SelectMgr_Filter; anObj: handle[SelectMgr_EntityOwner]): Standard_Boolean {.
+proc isOk*(this: SelectMgrFilter; anObj: Handle[SelectMgrEntityOwner]): bool {.
     noSideEffect, importcpp: "IsOk", header: "SelectMgr_Filter.hxx".}
-proc ActsOn*(this: SelectMgr_Filter; aStandardMode: TopAbs_ShapeEnum): Standard_Boolean {.
+proc actsOn*(this: SelectMgrFilter; aStandardMode: TopAbsShapeEnum): bool {.
     noSideEffect, importcpp: "ActsOn", header: "SelectMgr_Filter.hxx".}
 type
-  SelectMgr_Filterbase_type* = Standard_Transient
+  SelectMgrFilterbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "SelectMgr_Filter::get_type_name(@)",
-                              header: "SelectMgr_Filter.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "SelectMgr_Filter::get_type_name(@)",
+                            header: "SelectMgr_Filter.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "SelectMgr_Filter::get_type_descriptor(@)",
     header: "SelectMgr_Filter.hxx".}
-proc DynamicType*(this: SelectMgr_Filter): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: SelectMgrFilter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "SelectMgr_Filter.hxx".}

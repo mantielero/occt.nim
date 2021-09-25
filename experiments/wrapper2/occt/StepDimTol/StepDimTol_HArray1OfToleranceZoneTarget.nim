@@ -13,40 +13,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepDimTol_ToleranceZoneTarget, StepDimTol_Array1OfToleranceZoneTarget,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepDimTol_HArray1OfToleranceZoneTarget* {.
+  StepDimTolHArray1OfToleranceZoneTarget* {.
       importcpp: "StepDimTol_HArray1OfToleranceZoneTarget",
-      header: "StepDimTol_HArray1OfToleranceZoneTarget.hxx", bycopy.} = object of StepDimTol_Array1OfToleranceZoneTarget
+      header: "StepDimTol_HArray1OfToleranceZoneTarget.hxx", bycopy.} = object of StepDimTolArray1OfToleranceZoneTarget
 
 
-proc constructStepDimTol_HArray1OfToleranceZoneTarget*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepDimTol_HArray1OfToleranceZoneTarget {.
+proc constructStepDimTolHArray1OfToleranceZoneTarget*(theLower: int; theUpper: int): StepDimTolHArray1OfToleranceZoneTarget {.
     constructor, importcpp: "StepDimTol_HArray1OfToleranceZoneTarget(@)",
     header: "StepDimTol_HArray1OfToleranceZoneTarget.hxx".}
-proc constructStepDimTol_HArray1OfToleranceZoneTarget*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepDimTol_HArray1OfToleranceZoneTarget {.
+proc constructStepDimTolHArray1OfToleranceZoneTarget*(theLower: int; theUpper: int;
+    theValue: ValueType): StepDimTolHArray1OfToleranceZoneTarget {.constructor,
+    importcpp: "StepDimTol_HArray1OfToleranceZoneTarget(@)",
+    header: "StepDimTol_HArray1OfToleranceZoneTarget.hxx".}
+proc constructStepDimTolHArray1OfToleranceZoneTarget*(
+    theOther: StepDimTolArray1OfToleranceZoneTarget): StepDimTolHArray1OfToleranceZoneTarget {.
     constructor, importcpp: "StepDimTol_HArray1OfToleranceZoneTarget(@)",
     header: "StepDimTol_HArray1OfToleranceZoneTarget.hxx".}
-proc constructStepDimTol_HArray1OfToleranceZoneTarget*(
-    theOther: StepDimTol_Array1OfToleranceZoneTarget): StepDimTol_HArray1OfToleranceZoneTarget {.
-    constructor, importcpp: "StepDimTol_HArray1OfToleranceZoneTarget(@)",
-    header: "StepDimTol_HArray1OfToleranceZoneTarget.hxx".}
-proc Array1*(this: StepDimTol_HArray1OfToleranceZoneTarget): StepDimTol_Array1OfToleranceZoneTarget {.
+proc array1*(this: StepDimTolHArray1OfToleranceZoneTarget): StepDimTolArray1OfToleranceZoneTarget {.
     noSideEffect, importcpp: "Array1",
     header: "StepDimTol_HArray1OfToleranceZoneTarget.hxx".}
-proc ChangeArray1*(this: var StepDimTol_HArray1OfToleranceZoneTarget): var StepDimTol_Array1OfToleranceZoneTarget {.
+proc changeArray1*(this: var StepDimTolHArray1OfToleranceZoneTarget): var StepDimTolArray1OfToleranceZoneTarget {.
     importcpp: "ChangeArray1",
     header: "StepDimTol_HArray1OfToleranceZoneTarget.hxx".}
 type
-  StepDimTol_HArray1OfToleranceZoneTargetbase_type* = MMgt_TShared
+  StepDimTolHArray1OfToleranceZoneTargetbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_HArray1OfToleranceZoneTarget::get_type_name(@)", header: "StepDimTol_HArray1OfToleranceZoneTarget.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepDimTol_HArray1OfToleranceZoneTarget::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_HArray1OfToleranceZoneTarget::get_type_name(@)", header: "StepDimTol_HArray1OfToleranceZoneTarget.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepDimTol_HArray1OfToleranceZoneTarget::get_type_descriptor(@)",
     header: "StepDimTol_HArray1OfToleranceZoneTarget.hxx".}
-proc DynamicType*(this: StepDimTol_HArray1OfToleranceZoneTarget): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepDimTol_HArray1OfToleranceZoneTarget.hxx".}
+proc dynamicType*(this: StepDimTolHArray1OfToleranceZoneTarget): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepDimTol_HArray1OfToleranceZoneTarget.hxx".}

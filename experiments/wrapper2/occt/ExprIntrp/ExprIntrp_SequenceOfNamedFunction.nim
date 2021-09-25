@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Expr/Expr_NamedFunction, ../NCollection/NCollection_Sequence
-
 type
-  ExprIntrp_SequenceOfNamedFunction* = NCollection_Sequence[
-      handle[Expr_NamedFunction]]
+  ExprIntrpSequenceOfNamedFunction* = NCollectionSequence[
+      Handle[ExprNamedFunction]]
+

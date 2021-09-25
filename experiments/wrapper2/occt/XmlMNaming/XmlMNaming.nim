@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of XmlMDF_ADriverTable"
 discard "forward decl of Message_Messenger"
 discard "forward decl of XmlMNaming_NamedShapeDriver"
@@ -30,6 +26,6 @@ type
                                                                              ## <aDriverTable>.
 
 
-proc AddDrivers*(aDriverTable: handle[XmlMDF_ADriverTable];
-                aMessageDriver: handle[Message_Messenger]) {.
+proc addDrivers*(aDriverTable: Handle[XmlMDF_ADriverTable];
+                aMessageDriver: Handle[MessageMessenger]) {.
     importcpp: "XmlMNaming::AddDrivers(@)", header: "XmlMNaming.hxx".}

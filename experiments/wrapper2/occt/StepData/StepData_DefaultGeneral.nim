@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepData_GeneralModule,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_ShareTool"
@@ -26,46 +22,46 @@ discard "forward decl of Interface_CopyTool"
 discard "forward decl of StepData_DefaultGeneral"
 discard "forward decl of StepData_DefaultGeneral"
 type
-  Handle_StepData_DefaultGeneral* = handle[StepData_DefaultGeneral]
+  HandleStepDataDefaultGeneral* = Handle[StepDataDefaultGeneral]
 
 ## ! DefaultGeneral defines a GeneralModule which processes
 ## ! Unknown Entity from StepData  only
 
 type
-  StepData_DefaultGeneral* {.importcpp: "StepData_DefaultGeneral",
-                            header: "StepData_DefaultGeneral.hxx", bycopy.} = object of StepData_GeneralModule ##
-                                                                                                        ## !
-                                                                                                        ## Creates
-                                                                                                        ## a
-                                                                                                        ## Default
-                                                                                                        ## General
-                                                                                                        ## Module
+  StepDataDefaultGeneral* {.importcpp: "StepData_DefaultGeneral",
+                           header: "StepData_DefaultGeneral.hxx", bycopy.} = object of StepDataGeneralModule ##
+                                                                                                      ## !
+                                                                                                      ## Creates
+                                                                                                      ## a
+                                                                                                      ## Default
+                                                                                                      ## General
+                                                                                                      ## Module
 
 
-proc constructStepData_DefaultGeneral*(): StepData_DefaultGeneral {.constructor,
+proc constructStepDataDefaultGeneral*(): StepDataDefaultGeneral {.constructor,
     importcpp: "StepData_DefaultGeneral(@)", header: "StepData_DefaultGeneral.hxx".}
-proc FillSharedCase*(this: StepData_DefaultGeneral; casenum: Standard_Integer;
-                    ent: handle[Standard_Transient];
-                    iter: var Interface_EntityIterator) {.noSideEffect,
+proc fillSharedCase*(this: StepDataDefaultGeneral; casenum: int;
+                    ent: Handle[StandardTransient];
+                    iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "FillSharedCase", header: "StepData_DefaultGeneral.hxx".}
-proc CheckCase*(this: StepData_DefaultGeneral; casenum: Standard_Integer;
-               ent: handle[Standard_Transient]; shares: Interface_ShareTool;
-               ach: var handle[Interface_Check]) {.noSideEffect,
+proc checkCase*(this: StepDataDefaultGeneral; casenum: int;
+               ent: Handle[StandardTransient]; shares: InterfaceShareTool;
+               ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "CheckCase", header: "StepData_DefaultGeneral.hxx".}
-proc NewVoid*(this: StepData_DefaultGeneral; CN: Standard_Integer;
-             entto: var handle[Standard_Transient]): Standard_Boolean {.
-    noSideEffect, importcpp: "NewVoid", header: "StepData_DefaultGeneral.hxx".}
-proc CopyCase*(this: StepData_DefaultGeneral; casenum: Standard_Integer;
-              entfrom: handle[Standard_Transient];
-              entto: handle[Standard_Transient]; TC: var Interface_CopyTool) {.
+proc newVoid*(this: StepDataDefaultGeneral; cn: int;
+             entto: var Handle[StandardTransient]): bool {.noSideEffect,
+    importcpp: "NewVoid", header: "StepData_DefaultGeneral.hxx".}
+proc copyCase*(this: StepDataDefaultGeneral; casenum: int;
+              entfrom: Handle[StandardTransient];
+              entto: Handle[StandardTransient]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "CopyCase", header: "StepData_DefaultGeneral.hxx".}
 type
-  StepData_DefaultGeneralbase_type* = StepData_GeneralModule
+  StepDataDefaultGeneralbaseType* = StepDataGeneralModule
 
-proc get_type_name*(): cstring {.importcpp: "StepData_DefaultGeneral::get_type_name(@)",
-                              header: "StepData_DefaultGeneral.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepData_DefaultGeneral::get_type_name(@)",
+                            header: "StepData_DefaultGeneral.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepData_DefaultGeneral::get_type_descriptor(@)",
     header: "StepData_DefaultGeneral.hxx".}
-proc DynamicType*(this: StepData_DefaultGeneral): handle[Standard_Type] {.
+proc dynamicType*(this: StepDataDefaultGeneral): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepData_DefaultGeneral.hxx".}

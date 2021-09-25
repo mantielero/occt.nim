@@ -13,22 +13,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_PrimitiveTypes
-
 type
   FSD_FileHeader* {.importcpp: "FSD_FileHeader", header: "FSD_FileHeader.hxx", bycopy.} = object
-    testindian* {.importc: "testindian".}: Standard_Integer
-    binfo* {.importc: "binfo".}: Standard_Integer
-    einfo* {.importc: "einfo".}: Standard_Integer
-    bcomment* {.importc: "bcomment".}: Standard_Integer
-    ecomment* {.importc: "ecomment".}: Standard_Integer
-    btype* {.importc: "btype".}: Standard_Integer
-    etype* {.importc: "etype".}: Standard_Integer
-    broot* {.importc: "broot".}: Standard_Integer
-    eroot* {.importc: "eroot".}: Standard_Integer
-    bref* {.importc: "bref".}: Standard_Integer
-    eref* {.importc: "eref".}: Standard_Integer
-    bdata* {.importc: "bdata".}: Standard_Integer
-    edata* {.importc: "edata".}: Standard_Integer
+    testindian* {.importc: "testindian".}: int
+    binfo* {.importc: "binfo".}: int
+    einfo* {.importc: "einfo".}: int
+    bcomment* {.importc: "bcomment".}: int
+    ecomment* {.importc: "ecomment".}: int
+    btype* {.importc: "btype".}: int
+    etype* {.importc: "etype".}: int
+    broot* {.importc: "broot".}: int
+    eroot* {.importc: "eroot".}: int
+    bref* {.importc: "bref".}: int
+    eref* {.importc: "eref".}: int
+    bdata* {.importc: "bdata".}: int
+    edata* {.importc: "edata".}: int
+
 

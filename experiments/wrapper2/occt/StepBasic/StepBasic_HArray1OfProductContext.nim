@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepBasic_ProductContext, StepBasic_Array1OfProductContext,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepBasic_HArray1OfProductContext* {.importcpp: "StepBasic_HArray1OfProductContext", header: "StepBasic_HArray1OfProductContext.hxx",
-                                      bycopy.} = object of StepBasic_Array1OfProductContext
+  StepBasicHArray1OfProductContext* {.importcpp: "StepBasic_HArray1OfProductContext", header: "StepBasic_HArray1OfProductContext.hxx",
+                                     bycopy.} = object of StepBasicArray1OfProductContext
 
 
-proc constructStepBasic_HArray1OfProductContext*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepBasic_HArray1OfProductContext {.constructor,
+proc constructStepBasicHArray1OfProductContext*(theLower: int; theUpper: int): StepBasicHArray1OfProductContext {.
+    constructor, importcpp: "StepBasic_HArray1OfProductContext(@)",
+    header: "StepBasic_HArray1OfProductContext.hxx".}
+proc constructStepBasicHArray1OfProductContext*(theLower: int; theUpper: int;
+    theValue: ValueType): StepBasicHArray1OfProductContext {.constructor,
     importcpp: "StepBasic_HArray1OfProductContext(@)",
     header: "StepBasic_HArray1OfProductContext.hxx".}
-proc constructStepBasic_HArray1OfProductContext*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepBasic_HArray1OfProductContext {.
+proc constructStepBasicHArray1OfProductContext*(
+    theOther: StepBasicArray1OfProductContext): StepBasicHArray1OfProductContext {.
     constructor, importcpp: "StepBasic_HArray1OfProductContext(@)",
     header: "StepBasic_HArray1OfProductContext.hxx".}
-proc constructStepBasic_HArray1OfProductContext*(
-    theOther: StepBasic_Array1OfProductContext): StepBasic_HArray1OfProductContext {.
-    constructor, importcpp: "StepBasic_HArray1OfProductContext(@)",
-    header: "StepBasic_HArray1OfProductContext.hxx".}
-proc Array1*(this: StepBasic_HArray1OfProductContext): StepBasic_Array1OfProductContext {.
+proc array1*(this: StepBasicHArray1OfProductContext): StepBasicArray1OfProductContext {.
     noSideEffect, importcpp: "Array1",
     header: "StepBasic_HArray1OfProductContext.hxx".}
-proc ChangeArray1*(this: var StepBasic_HArray1OfProductContext): var StepBasic_Array1OfProductContext {.
+proc changeArray1*(this: var StepBasicHArray1OfProductContext): var StepBasicArray1OfProductContext {.
     importcpp: "ChangeArray1", header: "StepBasic_HArray1OfProductContext.hxx".}
 type
-  StepBasic_HArray1OfProductContextbase_type* = MMgt_TShared
+  StepBasicHArray1OfProductContextbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_HArray1OfProductContext::get_type_name(@)",
-                              header: "StepBasic_HArray1OfProductContext.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_HArray1OfProductContext::get_type_name(@)",
+                            header: "StepBasic_HArray1OfProductContext.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_HArray1OfProductContext::get_type_descriptor(@)",
     header: "StepBasic_HArray1OfProductContext.hxx".}
-proc DynamicType*(this: StepBasic_HArray1OfProductContext): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicHArray1OfProductContext): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_HArray1OfProductContext.hxx".}

@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  IntSurf_Situation* {.size: sizeof(cint), importcpp: "IntSurf_Situation",
-                      header: "IntSurf_Situation.hxx".} = enum
-    IntSurf_Inside, IntSurf_Outside, IntSurf_Unknown
+  IntSurfSituation* {.size: sizeof(cint), importcpp: "IntSurf_Situation",
+                     header: "IntSurf_Situation.hxx".} = enum
+    IntSurfInside, IntSurfOutside, IntSurfUnknown
+
 

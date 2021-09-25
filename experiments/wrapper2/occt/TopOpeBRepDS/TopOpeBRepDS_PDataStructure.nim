@@ -17,3 +17,4 @@
 discard "forward decl of TopOpeBRepDS_DataStructure"
 type
   TopOpeBRepDS_PDataStructure* = ptr TopOpeBRepDS_DataStructure
+

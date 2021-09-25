@@ -14,69 +14,66 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_ApplicationContext"
-when defined(Status):
-  discard
+# when defined(Status):
+#   discard
 discard "forward decl of StepBasic_ApplicationProtocolDefinition"
 discard "forward decl of StepBasic_ApplicationProtocolDefinition"
 type
-  Handle_StepBasic_ApplicationProtocolDefinition* = handle[
-      StepBasic_ApplicationProtocolDefinition]
-  StepBasic_ApplicationProtocolDefinition* {.
+  HandleStepBasicApplicationProtocolDefinition* = Handle[
+      StepBasicApplicationProtocolDefinition]
+  StepBasicApplicationProtocolDefinition* {.
       importcpp: "StepBasic_ApplicationProtocolDefinition",
-      header: "StepBasic_ApplicationProtocolDefinition.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## a
-                                                                                              ## ApplicationProtocolDefinition
+      header: "StepBasic_ApplicationProtocolDefinition.hxx", bycopy.} = object of StandardTransient ##
+                                                                                             ## !
+                                                                                             ## Returns
+                                                                                             ## a
+                                                                                             ## ApplicationProtocolDefinition
 
 
-proc constructStepBasic_ApplicationProtocolDefinition*(): StepBasic_ApplicationProtocolDefinition {.
+proc constructStepBasicApplicationProtocolDefinition*(): StepBasicApplicationProtocolDefinition {.
     constructor, importcpp: "StepBasic_ApplicationProtocolDefinition(@)",
     header: "StepBasic_ApplicationProtocolDefinition.hxx".}
-proc Init*(this: var StepBasic_ApplicationProtocolDefinition;
-          aStatus: handle[TCollection_HAsciiString];
-    aApplicationInterpretedModelSchemaName: handle[TCollection_HAsciiString];
-          aApplicationProtocolYear: Standard_Integer;
-          aApplication: handle[StepBasic_ApplicationContext]) {.importcpp: "Init",
+proc init*(this: var StepBasicApplicationProtocolDefinition;
+          aStatus: Handle[TCollectionHAsciiString];
+    aApplicationInterpretedModelSchemaName: Handle[TCollectionHAsciiString];
+          aApplicationProtocolYear: int;
+          aApplication: Handle[StepBasicApplicationContext]) {.importcpp: "Init",
     header: "StepBasic_ApplicationProtocolDefinition.hxx".}
-proc SetStatus*(this: var StepBasic_ApplicationProtocolDefinition;
-               aStatus: handle[TCollection_HAsciiString]) {.
-    importcpp: "SetStatus", header: "StepBasic_ApplicationProtocolDefinition.hxx".}
-proc Status*(this: StepBasic_ApplicationProtocolDefinition): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Status", header: "StepBasic_ApplicationProtocolDefinition.hxx".}
-proc SetApplicationInterpretedModelSchemaName*(
-    this: var StepBasic_ApplicationProtocolDefinition;
-    aApplicationInterpretedModelSchemaName: handle[TCollection_HAsciiString]) {.
+proc setStatus*(this: var StepBasicApplicationProtocolDefinition;
+               aStatus: Handle[TCollectionHAsciiString]) {.importcpp: "SetStatus",
+    header: "StepBasic_ApplicationProtocolDefinition.hxx".}
+proc status*(this: StepBasicApplicationProtocolDefinition): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Status", header: "StepBasic_ApplicationProtocolDefinition.hxx".}
+proc setApplicationInterpretedModelSchemaName*(
+    this: var StepBasicApplicationProtocolDefinition;
+    aApplicationInterpretedModelSchemaName: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetApplicationInterpretedModelSchemaName",
     header: "StepBasic_ApplicationProtocolDefinition.hxx".}
-proc ApplicationInterpretedModelSchemaName*(
-    this: StepBasic_ApplicationProtocolDefinition): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "ApplicationInterpretedModelSchemaName", header: "StepBasic_ApplicationProtocolDefinition.hxx".}
-proc SetApplicationProtocolYear*(this: var StepBasic_ApplicationProtocolDefinition;
-                                aApplicationProtocolYear: Standard_Integer) {.
+proc applicationInterpretedModelSchemaName*(
+    this: StepBasicApplicationProtocolDefinition): Handle[TCollectionHAsciiString] {.
+    noSideEffect, importcpp: "ApplicationInterpretedModelSchemaName",
+    header: "StepBasic_ApplicationProtocolDefinition.hxx".}
+proc setApplicationProtocolYear*(this: var StepBasicApplicationProtocolDefinition;
+                                aApplicationProtocolYear: int) {.
     importcpp: "SetApplicationProtocolYear",
     header: "StepBasic_ApplicationProtocolDefinition.hxx".}
-proc ApplicationProtocolYear*(this: StepBasic_ApplicationProtocolDefinition): Standard_Integer {.
+proc applicationProtocolYear*(this: StepBasicApplicationProtocolDefinition): int {.
     noSideEffect, importcpp: "ApplicationProtocolYear",
     header: "StepBasic_ApplicationProtocolDefinition.hxx".}
-proc SetApplication*(this: var StepBasic_ApplicationProtocolDefinition;
-                    aApplication: handle[StepBasic_ApplicationContext]) {.
+proc setApplication*(this: var StepBasicApplicationProtocolDefinition;
+                    aApplication: Handle[StepBasicApplicationContext]) {.
     importcpp: "SetApplication",
     header: "StepBasic_ApplicationProtocolDefinition.hxx".}
-proc Application*(this: StepBasic_ApplicationProtocolDefinition): handle[
-    StepBasic_ApplicationContext] {.noSideEffect, importcpp: "Application", header: "StepBasic_ApplicationProtocolDefinition.hxx".}
+proc application*(this: StepBasicApplicationProtocolDefinition): Handle[
+    StepBasicApplicationContext] {.noSideEffect, importcpp: "Application", header: "StepBasic_ApplicationProtocolDefinition.hxx".}
 type
-  StepBasic_ApplicationProtocolDefinitionbase_type* = Standard_Transient
+  StepBasicApplicationProtocolDefinitionbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ApplicationProtocolDefinition::get_type_name(@)", header: "StepBasic_ApplicationProtocolDefinition.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepBasic_ApplicationProtocolDefinition::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ApplicationProtocolDefinition::get_type_name(@)", header: "StepBasic_ApplicationProtocolDefinition.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_ApplicationProtocolDefinition::get_type_descriptor(@)",
     header: "StepBasic_ApplicationProtocolDefinition.hxx".}
-proc DynamicType*(this: StepBasic_ApplicationProtocolDefinition): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepBasic_ApplicationProtocolDefinition.hxx".}
+proc dynamicType*(this: StepBasicApplicationProtocolDefinition): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepBasic_ApplicationProtocolDefinition.hxx".}

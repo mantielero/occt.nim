@@ -12,12 +12,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Integer, ../Standard/Standard_Transient,
-  TColStd_MapIntegerHasher, ../NCollection/NCollection_DataMap
-
 type
-  TColStd_DataMapOfIntegerTransient* = NCollection_DataMap[Standard_Integer,
-      handle[Standard_Transient], TColStd_MapIntegerHasher]
-  TColStd_DataMapIteratorOfDataMapOfIntegerTransient* = Iterator[Standard_Integer,
-      handle[Standard_Transient], TColStd_MapIntegerHasher]
+  TColStdDataMapOfIntegerTransient* = NCollectionDataMap[int,
+      Handle[StandardTransient], TColStdMapIntegerHasher]
+  TColStdDataMapIteratorOfDataMapOfIntegerTransient* = Iterator[int,
+      Handle[StandardTransient], TColStdMapIntegerHasher]
+

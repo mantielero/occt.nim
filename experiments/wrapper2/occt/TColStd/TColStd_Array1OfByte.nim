@@ -12,8 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Byte, ../NCollection/NCollection_Array1
-
 type
-  TColStd_Array1OfByte* = NCollection_Array1[Standard_Byte]
+  TColStdArray1OfByte* = NCollectionArray1[StandardByte]
+

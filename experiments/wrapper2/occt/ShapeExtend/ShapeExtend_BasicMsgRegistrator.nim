@@ -13,17 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Message/Message_Gravity
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Message_Msg"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of ShapeExtend_BasicMsgRegistrator"
 discard "forward decl of ShapeExtend_BasicMsgRegistrator"
 type
-  Handle_ShapeExtend_BasicMsgRegistrator* = handle[ShapeExtend_BasicMsgRegistrator]
+  HandleShapeExtendBasicMsgRegistrator* = Handle[ShapeExtendBasicMsgRegistrator]
 
 ## ! Abstract class that can be used for attaching messages
 ## ! to the objects (e.g. shapes).
@@ -36,30 +32,30 @@ type
 ## ! messages to interface file entities or CAS.CADE shapes.
 
 type
-  ShapeExtend_BasicMsgRegistrator* {.importcpp: "ShapeExtend_BasicMsgRegistrator", header: "ShapeExtend_BasicMsgRegistrator.hxx",
-                                    bycopy.} = object of Standard_Transient ## ! Empty
-                                                                       ## constructor.
+  ShapeExtendBasicMsgRegistrator* {.importcpp: "ShapeExtend_BasicMsgRegistrator", header: "ShapeExtend_BasicMsgRegistrator.hxx",
+                                   bycopy.} = object of StandardTransient ## ! Empty
+                                                                     ## constructor.
 
 
-proc constructShapeExtend_BasicMsgRegistrator*(): ShapeExtend_BasicMsgRegistrator {.
+proc constructShapeExtendBasicMsgRegistrator*(): ShapeExtendBasicMsgRegistrator {.
     constructor, importcpp: "ShapeExtend_BasicMsgRegistrator(@)",
     header: "ShapeExtend_BasicMsgRegistrator.hxx".}
-proc Send*(this: var ShapeExtend_BasicMsgRegistrator;
-          `object`: handle[Standard_Transient]; message: Message_Msg;
-          gravity: Message_Gravity) {.importcpp: "Send", header: "ShapeExtend_BasicMsgRegistrator.hxx".}
-proc Send*(this: var ShapeExtend_BasicMsgRegistrator; shape: TopoDS_Shape;
-          message: Message_Msg; gravity: Message_Gravity) {.importcpp: "Send",
+proc send*(this: var ShapeExtendBasicMsgRegistrator;
+          `object`: Handle[StandardTransient]; message: MessageMsg;
+          gravity: MessageGravity) {.importcpp: "Send", header: "ShapeExtend_BasicMsgRegistrator.hxx".}
+proc send*(this: var ShapeExtendBasicMsgRegistrator; shape: TopoDS_Shape;
+          message: MessageMsg; gravity: MessageGravity) {.importcpp: "Send",
     header: "ShapeExtend_BasicMsgRegistrator.hxx".}
-proc Send*(this: var ShapeExtend_BasicMsgRegistrator; message: Message_Msg;
-          gravity: Message_Gravity) {.importcpp: "Send", header: "ShapeExtend_BasicMsgRegistrator.hxx".}
+proc send*(this: var ShapeExtendBasicMsgRegistrator; message: MessageMsg;
+          gravity: MessageGravity) {.importcpp: "Send", header: "ShapeExtend_BasicMsgRegistrator.hxx".}
 type
-  ShapeExtend_BasicMsgRegistratorbase_type* = Standard_Transient
+  ShapeExtendBasicMsgRegistratorbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "ShapeExtend_BasicMsgRegistrator::get_type_name(@)",
-                              header: "ShapeExtend_BasicMsgRegistrator.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeExtend_BasicMsgRegistrator::get_type_name(@)",
+                            header: "ShapeExtend_BasicMsgRegistrator.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeExtend_BasicMsgRegistrator::get_type_descriptor(@)",
     header: "ShapeExtend_BasicMsgRegistrator.hxx".}
-proc DynamicType*(this: ShapeExtend_BasicMsgRegistrator): handle[Standard_Type] {.
+proc dynamicType*(this: ShapeExtendBasicMsgRegistrator): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeExtend_BasicMsgRegistrator.hxx".}

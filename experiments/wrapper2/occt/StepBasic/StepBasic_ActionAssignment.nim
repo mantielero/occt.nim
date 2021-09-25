@@ -14,45 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_Action"
 discard "forward decl of StepBasic_ActionAssignment"
 discard "forward decl of StepBasic_ActionAssignment"
 type
-  Handle_StepBasic_ActionAssignment* = handle[StepBasic_ActionAssignment]
+  HandleStepBasicActionAssignment* = Handle[StepBasicActionAssignment]
 
 ## ! Representation of STEP entity ActionAssignment
 
 type
-  StepBasic_ActionAssignment* {.importcpp: "StepBasic_ActionAssignment",
-                               header: "StepBasic_ActionAssignment.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                          ## !
-                                                                                                          ## Empty
-                                                                                                          ## constructor
+  StepBasicActionAssignment* {.importcpp: "StepBasic_ActionAssignment",
+                              header: "StepBasic_ActionAssignment.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                        ## !
+                                                                                                        ## Empty
+                                                                                                        ## constructor
 
 
-proc constructStepBasic_ActionAssignment*(): StepBasic_ActionAssignment {.
+proc constructStepBasicActionAssignment*(): StepBasicActionAssignment {.
     constructor, importcpp: "StepBasic_ActionAssignment(@)",
     header: "StepBasic_ActionAssignment.hxx".}
-proc Init*(this: var StepBasic_ActionAssignment;
-          aAssignedAction: handle[StepBasic_Action]) {.importcpp: "Init",
+proc init*(this: var StepBasicActionAssignment;
+          aAssignedAction: Handle[StepBasicAction]) {.importcpp: "Init",
     header: "StepBasic_ActionAssignment.hxx".}
-proc AssignedAction*(this: StepBasic_ActionAssignment): handle[StepBasic_Action] {.
+proc assignedAction*(this: StepBasicActionAssignment): Handle[StepBasicAction] {.
     noSideEffect, importcpp: "AssignedAction",
     header: "StepBasic_ActionAssignment.hxx".}
-proc SetAssignedAction*(this: var StepBasic_ActionAssignment;
-                       AssignedAction: handle[StepBasic_Action]) {.
+proc setAssignedAction*(this: var StepBasicActionAssignment;
+                       assignedAction: Handle[StepBasicAction]) {.
     importcpp: "SetAssignedAction", header: "StepBasic_ActionAssignment.hxx".}
 type
-  StepBasic_ActionAssignmentbase_type* = Standard_Transient
+  StepBasicActionAssignmentbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ActionAssignment::get_type_name(@)",
-                              header: "StepBasic_ActionAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ActionAssignment::get_type_name(@)",
+                            header: "StepBasic_ActionAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_ActionAssignment::get_type_descriptor(@)",
     header: "StepBasic_ActionAssignment.hxx".}
-proc DynamicType*(this: StepBasic_ActionAssignment): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicActionAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ActionAssignment.hxx".}

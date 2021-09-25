@@ -14,52 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Face,
-  ../TopTools/TopTools_ListOfShape,
-  ../TopTools/TopTools_DataMapOfShapeListOfShape,
-  ../TopTools/TopTools_DataMapOfShapeShape,
-  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape, BRepAlgo_Image
-
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 type
-  BRepAlgo_Loop* {.importcpp: "BRepAlgo_Loop", header: "BRepAlgo_Loop.hxx", bycopy.} = object
+  BRepAlgoLoop* {.importcpp: "BRepAlgo_Loop", header: "BRepAlgo_Loop.hxx", bycopy.} = object
 
 
-proc constructBRepAlgo_Loop*(): BRepAlgo_Loop {.constructor,
+proc constructBRepAlgoLoop*(): BRepAlgoLoop {.constructor,
     importcpp: "BRepAlgo_Loop(@)", header: "BRepAlgo_Loop.hxx".}
-proc Init*(this: var BRepAlgo_Loop; F: TopoDS_Face) {.importcpp: "Init",
+proc init*(this: var BRepAlgoLoop; f: TopoDS_Face) {.importcpp: "Init",
     header: "BRepAlgo_Loop.hxx".}
-proc AddEdge*(this: var BRepAlgo_Loop; E: var TopoDS_Edge; LV: TopTools_ListOfShape) {.
+proc addEdge*(this: var BRepAlgoLoop; e: var TopoDS_Edge; lv: TopToolsListOfShape) {.
     importcpp: "AddEdge", header: "BRepAlgo_Loop.hxx".}
-proc AddConstEdge*(this: var BRepAlgo_Loop; E: TopoDS_Edge) {.
+proc addConstEdge*(this: var BRepAlgoLoop; e: TopoDS_Edge) {.
     importcpp: "AddConstEdge", header: "BRepAlgo_Loop.hxx".}
-proc AddConstEdges*(this: var BRepAlgo_Loop; LE: TopTools_ListOfShape) {.
+proc addConstEdges*(this: var BRepAlgoLoop; le: TopToolsListOfShape) {.
     importcpp: "AddConstEdges", header: "BRepAlgo_Loop.hxx".}
-proc SetImageVV*(this: var BRepAlgo_Loop; theImageVV: BRepAlgo_Image) {.
+proc setImageVV*(this: var BRepAlgoLoop; theImageVV: BRepAlgoImage) {.
     importcpp: "SetImageVV", header: "BRepAlgo_Loop.hxx".}
-proc Perform*(this: var BRepAlgo_Loop) {.importcpp: "Perform",
-                                     header: "BRepAlgo_Loop.hxx".}
-proc UpdateVEmap*(this: var BRepAlgo_Loop;
-                 theVEmap: var TopTools_IndexedDataMapOfShapeListOfShape) {.
+proc perform*(this: var BRepAlgoLoop) {.importcpp: "Perform",
+                                    header: "BRepAlgo_Loop.hxx".}
+proc updateVEmap*(this: var BRepAlgoLoop;
+                 theVEmap: var TopToolsIndexedDataMapOfShapeListOfShape) {.
     importcpp: "UpdateVEmap", header: "BRepAlgo_Loop.hxx".}
-proc CutEdge*(this: BRepAlgo_Loop; E: TopoDS_Edge; VonE: TopTools_ListOfShape;
-             NE: var TopTools_ListOfShape) {.noSideEffect, importcpp: "CutEdge",
+proc cutEdge*(this: BRepAlgoLoop; e: TopoDS_Edge; vonE: TopToolsListOfShape;
+             ne: var TopToolsListOfShape) {.noSideEffect, importcpp: "CutEdge",
     header: "BRepAlgo_Loop.hxx".}
-proc NewWires*(this: BRepAlgo_Loop): TopTools_ListOfShape {.noSideEffect,
+proc newWires*(this: BRepAlgoLoop): TopToolsListOfShape {.noSideEffect,
     importcpp: "NewWires", header: "BRepAlgo_Loop.hxx".}
-proc WiresToFaces*(this: var BRepAlgo_Loop) {.importcpp: "WiresToFaces",
+proc wiresToFaces*(this: var BRepAlgoLoop) {.importcpp: "WiresToFaces",
     header: "BRepAlgo_Loop.hxx".}
-proc NewFaces*(this: BRepAlgo_Loop): TopTools_ListOfShape {.noSideEffect,
+proc newFaces*(this: BRepAlgoLoop): TopToolsListOfShape {.noSideEffect,
     importcpp: "NewFaces", header: "BRepAlgo_Loop.hxx".}
-proc NewEdges*(this: BRepAlgo_Loop; E: TopoDS_Edge): TopTools_ListOfShape {.
+proc newEdges*(this: BRepAlgoLoop; e: TopoDS_Edge): TopToolsListOfShape {.
     noSideEffect, importcpp: "NewEdges", header: "BRepAlgo_Loop.hxx".}
-proc GetVerticesForSubstitute*(this: BRepAlgo_Loop;
-                              VerVerMap: var TopTools_DataMapOfShapeShape) {.
+proc getVerticesForSubstitute*(this: BRepAlgoLoop;
+                              verVerMap: var TopToolsDataMapOfShapeShape) {.
     noSideEffect, importcpp: "GetVerticesForSubstitute",
     header: "BRepAlgo_Loop.hxx".}
-proc VerticesForSubstitute*(this: var BRepAlgo_Loop;
-                           VerVerMap: var TopTools_DataMapOfShapeShape) {.
+proc verticesForSubstitute*(this: var BRepAlgoLoop;
+                           verVerMap: var TopToolsDataMapOfShapeShape) {.
     importcpp: "VerticesForSubstitute", header: "BRepAlgo_Loop.hxx".}

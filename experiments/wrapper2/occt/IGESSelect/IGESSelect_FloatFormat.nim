@@ -14,19 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Real,
-  IGESSelect_FileModifier, ../Standard/Standard_Integer,
-  ../Standard/Standard_CString
-
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_ContextWrite"
 discard "forward decl of IGESData_IGESWriter"
 discard "forward decl of IGESSelect_FloatFormat"
 discard "forward decl of IGESSelect_FloatFormat"
 type
-  Handle_IGESSelect_FloatFormat* = handle[IGESSelect_FloatFormat]
+  HandleIGESSelectFloatFormat* = Handle[IGESSelectFloatFormat]
 
 ## ! This class gives control out format for floatting values :
 ## ! ZeroSuppress or no, Main Format, Format in Range (for values
@@ -34,64 +28,64 @@ type
 ## ! Formats are given under C-printf form
 
 type
-  IGESSelect_FloatFormat* {.importcpp: "IGESSelect_FloatFormat",
-                           header: "IGESSelect_FloatFormat.hxx", bycopy.} = object of IGESSelect_FileModifier ##
-                                                                                                       ## !
-                                                                                                       ## Creates
-                                                                                                       ## a
-                                                                                                       ## new
-                                                                                                       ## FloatFormat,
-                                                                                                       ## with
-                                                                                                       ## standard
-                                                                                                       ## options
-                                                                                                       ## :
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## ZeroSuppress,
-                                                                                                       ## Main
-                                                                                                       ## Format
-                                                                                                       ## =
-                                                                                                       ## %E,
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Format
-                                                                                                       ## between
-                                                                                                       ## 0.001
-                                                                                                       ## and
-                                                                                                       ## 1000.
-                                                                                                       ## =
-                                                                                                       ## %f
+  IGESSelectFloatFormat* {.importcpp: "IGESSelect_FloatFormat",
+                          header: "IGESSelect_FloatFormat.hxx", bycopy.} = object of IGESSelectFileModifier ##
+                                                                                                     ## !
+                                                                                                     ## Creates
+                                                                                                     ## a
+                                                                                                     ## new
+                                                                                                     ## FloatFormat,
+                                                                                                     ## with
+                                                                                                     ## standard
+                                                                                                     ## options
+                                                                                                     ## :
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## ZeroSuppress,
+                                                                                                     ## Main
+                                                                                                     ## Format
+                                                                                                     ## =
+                                                                                                     ## %E,
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## Format
+                                                                                                     ## between
+                                                                                                     ## 0.001
+                                                                                                     ## and
+                                                                                                     ## 1000.
+                                                                                                     ## =
+                                                                                                     ## %f
 
 
-proc constructIGESSelect_FloatFormat*(): IGESSelect_FloatFormat {.constructor,
+proc constructIGESSelectFloatFormat*(): IGESSelectFloatFormat {.constructor,
     importcpp: "IGESSelect_FloatFormat(@)", header: "IGESSelect_FloatFormat.hxx".}
-proc SetDefault*(this: var IGESSelect_FloatFormat; digits: Standard_Integer = 0) {.
+proc setDefault*(this: var IGESSelectFloatFormat; digits: int = 0) {.
     importcpp: "SetDefault", header: "IGESSelect_FloatFormat.hxx".}
-proc SetZeroSuppress*(this: var IGESSelect_FloatFormat; mode: Standard_Boolean) {.
+proc setZeroSuppress*(this: var IGESSelectFloatFormat; mode: bool) {.
     importcpp: "SetZeroSuppress", header: "IGESSelect_FloatFormat.hxx".}
-proc SetFormat*(this: var IGESSelect_FloatFormat; format: Standard_CString = "%E") {.
+proc setFormat*(this: var IGESSelectFloatFormat; format: StandardCString = "%E") {.
     importcpp: "SetFormat", header: "IGESSelect_FloatFormat.hxx".}
-proc SetFormatForRange*(this: var IGESSelect_FloatFormat;
-                       format: Standard_CString = "%f"; Rmin: Standard_Real = 0.1;
-                       Rmax: Standard_Real = 1000.0) {.
-    importcpp: "SetFormatForRange", header: "IGESSelect_FloatFormat.hxx".}
-proc Format*(this: IGESSelect_FloatFormat; zerosup: var Standard_Boolean;
-            mainform: var TCollection_AsciiString; hasrange: var Standard_Boolean;
-            forminrange: var TCollection_AsciiString; rangemin: var Standard_Real;
-            rangemax: var Standard_Real) {.noSideEffect, importcpp: "Format",
-                                        header: "IGESSelect_FloatFormat.hxx".}
-proc Perform*(this: IGESSelect_FloatFormat; ctx: var IFSelect_ContextWrite;
-             writer: var IGESData_IGESWriter) {.noSideEffect, importcpp: "Perform",
+proc setFormatForRange*(this: var IGESSelectFloatFormat;
+                       format: StandardCString = "%f"; rmin: float = 0.1;
+                       rmax: float = 1000.0) {.importcpp: "SetFormatForRange",
     header: "IGESSelect_FloatFormat.hxx".}
-proc Label*(this: IGESSelect_FloatFormat): TCollection_AsciiString {.noSideEffect,
+proc format*(this: IGESSelectFloatFormat; zerosup: var bool;
+            mainform: var TCollectionAsciiString; hasrange: var bool;
+            forminrange: var TCollectionAsciiString; rangemin: var float;
+            rangemax: var float) {.noSideEffect, importcpp: "Format",
+                                header: "IGESSelect_FloatFormat.hxx".}
+proc perform*(this: IGESSelectFloatFormat; ctx: var IFSelectContextWrite;
+             writer: var IGESDataIGESWriter) {.noSideEffect, importcpp: "Perform",
+    header: "IGESSelect_FloatFormat.hxx".}
+proc label*(this: IGESSelectFloatFormat): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "IGESSelect_FloatFormat.hxx".}
 type
-  IGESSelect_FloatFormatbase_type* = IGESSelect_FileModifier
+  IGESSelectFloatFormatbaseType* = IGESSelectFileModifier
 
-proc get_type_name*(): cstring {.importcpp: "IGESSelect_FloatFormat::get_type_name(@)",
-                              header: "IGESSelect_FloatFormat.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_FloatFormat::get_type_name(@)",
+                            header: "IGESSelect_FloatFormat.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSelect_FloatFormat::get_type_descriptor(@)",
     header: "IGESSelect_FloatFormat.hxx".}
-proc DynamicType*(this: IGESSelect_FloatFormat): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IGESSelect_FloatFormat.hxx".}
+proc dynamicType*(this: IGESSelectFloatFormat): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IGESSelect_FloatFormat.hxx".}

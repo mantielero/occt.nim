@@ -11,9 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OSD_ThreadPool, ../Standard/Standard_Type
-
 ## ! @brief Simple tool for code parallelization.
 ## !
 ## ! OSD_Parallel class provides simple interface for parallel processing of
@@ -287,17 +284,17 @@ type
                                                                                    ## otherwise.
 
 
-proc ToUseOcctThreads*(): Standard_Boolean {.
-    importcpp: "OSD_Parallel::ToUseOcctThreads(@)", header: "OSD_Parallel.hxx".}
-proc SetUseOcctThreads*(theToUseOcct: Standard_Boolean) {.
+proc toUseOcctThreads*(): bool {.importcpp: "OSD_Parallel::ToUseOcctThreads(@)",
+                              header: "OSD_Parallel.hxx".}
+proc setUseOcctThreads*(theToUseOcct: bool) {.
     importcpp: "OSD_Parallel::SetUseOcctThreads(@)", header: "OSD_Parallel.hxx".}
-proc NbLogicalProcessors*(): Standard_Integer {.
-    importcpp: "OSD_Parallel::NbLogicalProcessors(@)", header: "OSD_Parallel.hxx".}
-proc ForEach*[InputIterator; Functor](theBegin: InputIterator;
+proc nbLogicalProcessors*(): int {.importcpp: "OSD_Parallel::NbLogicalProcessors(@)",
+                                header: "OSD_Parallel.hxx".}
+proc forEach*[InputIterator; Functor](theBegin: InputIterator;
                                     theEnd: InputIterator; theFunctor: Functor;
-    isForceSingleThreadExecution: Standard_Boolean = Standard_False;
-                                    theNbItems: Standard_Integer = -1) {.
+                                    isForceSingleThreadExecution: bool = false;
+                                    theNbItems: int = -1) {.
     importcpp: "OSD_Parallel::ForEach(@)", header: "OSD_Parallel.hxx".}
-proc For*[Functor](theBegin: Standard_Integer; theEnd: Standard_Integer;
-                  theFunctor: Functor; isForceSingleThreadExecution: Standard_Boolean = Standard_False) {.
+proc `for`*[Functor](theBegin: int; theEnd: int; theFunctor: Functor;
+                    isForceSingleThreadExecution: bool = false) {.
     importcpp: "OSD_Parallel::For(@)", header: "OSD_Parallel.hxx".}

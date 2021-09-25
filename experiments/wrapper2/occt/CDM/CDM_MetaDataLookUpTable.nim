@@ -14,12 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_ExtendedString, ../NCollection/NCollection_DataMap
-
 discard "forward decl of CDM_MetaData"
 type
-  CDM_MetaDataLookUpTable* = NCollection_DataMap[TCollection_ExtendedString,
-      handle[CDM_MetaData], TCollection_ExtendedString]
-  CDM_DataMapIteratorOfMetaDataLookUpTable* = Iterator[TCollection_ExtendedString,
-      handle[CDM_MetaData], TCollection_ExtendedString]
+  CDM_MetaDataLookUpTable* = NCollectionDataMap[TCollectionExtendedString,
+      Handle[CDM_MetaData], TCollectionExtendedString]
+  CDM_DataMapIteratorOfMetaDataLookUpTable* = Iterator[TCollectionExtendedString,
+      Handle[CDM_MetaData], TCollectionExtendedString]
+

@@ -13,74 +13,69 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../IMeshTools/IMeshTools_ModelAlgo, ../IMeshTools/IMeshTools_Parameters,
-  ../IMeshData/IMeshData_Types
-
 discard "forward decl of IMeshTools_CurveTessellator"
 type
-  BRepMesh_EdgeDiscret* {.importcpp: "BRepMesh_EdgeDiscret",
-                         header: "BRepMesh_EdgeDiscret.hxx", bycopy.} = object of IMeshTools_ModelAlgo ##
-                                                                                                ## !
-                                                                                                ## Constructor.
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Performs
-                                                                                                ## processing
-                                                                                                ## of
-                                                                                                ## edges
-                                                                                                ## of
-                                                                                                ## the
-                                                                                                ## given
-                                                                                                ## model.
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Checks
-                                                                                                ## existing
-                                                                                                ## discretization
-                                                                                                ## of
-                                                                                                ## the
-                                                                                                ## edge
-                                                                                                ## and
-                                                                                                ## updates
-                                                                                                ## data
-                                                                                                ## model.
+  BRepMeshEdgeDiscret* {.importcpp: "BRepMesh_EdgeDiscret",
+                        header: "BRepMesh_EdgeDiscret.hxx", bycopy.} = object of IMeshToolsModelAlgo ##
+                                                                                              ## !
+                                                                                              ## Constructor.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Performs
+                                                                                              ## processing
+                                                                                              ## of
+                                                                                              ## edges
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ## given
+                                                                                              ## model.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Checks
+                                                                                              ## existing
+                                                                                              ## discretization
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ## edge
+                                                                                              ## and
+                                                                                              ## updates
+                                                                                              ## data
+                                                                                              ## model.
 
 
-proc constructBRepMesh_EdgeDiscret*(): BRepMesh_EdgeDiscret {.constructor,
+proc constructBRepMeshEdgeDiscret*(): BRepMeshEdgeDiscret {.constructor,
     importcpp: "BRepMesh_EdgeDiscret(@)", header: "BRepMesh_EdgeDiscret.hxx".}
-proc destroyBRepMesh_EdgeDiscret*(this: var BRepMesh_EdgeDiscret) {.
+proc destroyBRepMeshEdgeDiscret*(this: var BRepMeshEdgeDiscret) {.
     importcpp: "#.~BRepMesh_EdgeDiscret()", header: "BRepMesh_EdgeDiscret.hxx".}
-proc CreateEdgeTessellator*(theDEdge: IEdgeHandle;
-                           theParameters: IMeshTools_Parameters): handle[
-    IMeshTools_CurveTessellator] {.importcpp: "BRepMesh_EdgeDiscret::CreateEdgeTessellator(@)",
-                                  header: "BRepMesh_EdgeDiscret.hxx".}
-proc CreateEdgeTessellator*(theDEdge: IEdgeHandle;
-                           theOrientation: TopAbs_Orientation;
+proc createEdgeTessellator*(theDEdge: IEdgeHandle;
+                           theParameters: IMeshToolsParameters): Handle[
+    IMeshToolsCurveTessellator] {.importcpp: "BRepMesh_EdgeDiscret::CreateEdgeTessellator(@)",
+                                 header: "BRepMesh_EdgeDiscret.hxx".}
+proc createEdgeTessellator*(theDEdge: IEdgeHandle;
+                           theOrientation: TopAbsOrientation;
                            theDFace: IFaceHandle;
-                           theParameters: IMeshTools_Parameters): handle[
-    IMeshTools_CurveTessellator] {.importcpp: "BRepMesh_EdgeDiscret::CreateEdgeTessellator(@)",
-                                  header: "BRepMesh_EdgeDiscret.hxx".}
-proc CreateEdgeTessellationExtractor*(theDEdge: IEdgeHandle; theDFace: IFaceHandle): handle[
-    IMeshTools_CurveTessellator] {.importcpp: "BRepMesh_EdgeDiscret::CreateEdgeTessellationExtractor(@)",
-                                  header: "BRepMesh_EdgeDiscret.hxx".}
-proc `()`*(this: BRepMesh_EdgeDiscret; theEdgeIndex: Standard_Integer) {.
-    noSideEffect, importcpp: "#(@)", header: "BRepMesh_EdgeDiscret.hxx".}
-proc Tessellate3d*(theDEdge: IEdgeHandle;
-                  theTessellator: handle[IMeshTools_CurveTessellator];
-                  theUpdateEnds: Standard_Boolean) {.
-    importcpp: "BRepMesh_EdgeDiscret::Tessellate3d(@)",
-    header: "BRepMesh_EdgeDiscret.hxx".}
-proc Tessellate2d*(theDEdge: IEdgeHandle; theUpdateEnds: Standard_Boolean) {.
+                           theParameters: IMeshToolsParameters): Handle[
+    IMeshToolsCurveTessellator] {.importcpp: "BRepMesh_EdgeDiscret::CreateEdgeTessellator(@)",
+                                 header: "BRepMesh_EdgeDiscret.hxx".}
+proc createEdgeTessellationExtractor*(theDEdge: IEdgeHandle; theDFace: IFaceHandle): Handle[
+    IMeshToolsCurveTessellator] {.importcpp: "BRepMesh_EdgeDiscret::CreateEdgeTessellationExtractor(@)",
+                                 header: "BRepMesh_EdgeDiscret.hxx".}
+proc `()`*(this: BRepMeshEdgeDiscret; theEdgeIndex: int) {.noSideEffect,
+    importcpp: "#(@)", header: "BRepMesh_EdgeDiscret.hxx".}
+proc tessellate3d*(theDEdge: IEdgeHandle;
+                  theTessellator: Handle[IMeshToolsCurveTessellator];
+                  theUpdateEnds: bool) {.importcpp: "BRepMesh_EdgeDiscret::Tessellate3d(@)",
+                                       header: "BRepMesh_EdgeDiscret.hxx".}
+proc tessellate2d*(theDEdge: IEdgeHandle; theUpdateEnds: bool) {.
     importcpp: "BRepMesh_EdgeDiscret::Tessellate2d(@)",
     header: "BRepMesh_EdgeDiscret.hxx".}
 type
-  BRepMesh_EdgeDiscretbase_type* = IMeshTools_ModelAlgo
+  BRepMeshEdgeDiscretbaseType* = IMeshToolsModelAlgo
 
-proc get_type_name*(): cstring {.importcpp: "BRepMesh_EdgeDiscret::get_type_name(@)",
-                              header: "BRepMesh_EdgeDiscret.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepMesh_EdgeDiscret::get_type_name(@)",
+                            header: "BRepMesh_EdgeDiscret.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepMesh_EdgeDiscret::get_type_descriptor(@)",
     header: "BRepMesh_EdgeDiscret.hxx".}
-proc DynamicType*(this: BRepMesh_EdgeDiscret): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: BRepMeshEdgeDiscret): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMesh_EdgeDiscret.hxx".}

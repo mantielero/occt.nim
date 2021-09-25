@@ -14,18 +14,19 @@
 ## ! Specifies kind of report information to collect
 
 type
-  Message_MetricType* {.size: sizeof(cint), importcpp: "Message_MetricType",
-                       header: "Message_MetricType.hxx".} = enum
-    Message_MetricType_None,  ## !< no computation
-    Message_MetricType_ThreadCPUUserTime, ## !< OSD_Chronometer::GetThreadCPU user time
-    Message_MetricType_ThreadCPUSystemTime, ## !< OSD_Chronometer::GetThreadCPU system time
-    Message_MetricType_ProcessCPUUserTime, ## !< OSD_Chronometer::GetProcessCPU user time
-    Message_MetricType_ProcessCPUSystemTime, ## !< OSD_Chronometer::GetProcessCPU system time
-    Message_MetricType_MemPrivate, ## !< OSD_MemInfo::MemPrivate
-    Message_MetricType_MemVirtual, ## !< OSD_MemInfo::MemVirtual
-    Message_MetricType_MemWorkingSet, ## !< OSD_MemInfo::MemWorkingSet
-    Message_MetricType_MemWorkingSetPeak, ## !< OSD_MemInfo::MemWorkingSetPeak
-    Message_MetricType_MemSwapUsage, ## !< OSD_MemInfo::MemSwapUsage
-    Message_MetricType_MemSwapUsagePeak, ## !< OSD_MemInfo::MemSwapUsagePeak
-    Message_MetricType_MemHeapUsage ## !< OSD_MemInfo::MemHeapUsage
+  MessageMetricType* {.size: sizeof(cint), importcpp: "Message_MetricType",
+                      header: "Message_MetricType.hxx".} = enum
+    MessageMetricTypeNone,    ## !< no computation
+    MessageMetricTypeThreadCPUUserTime, ## !< OSD_Chronometer::GetThreadCPU user time
+    MessageMetricTypeThreadCPUSystemTime, ## !< OSD_Chronometer::GetThreadCPU system time
+    MessageMetricTypeProcessCPUUserTime, ## !< OSD_Chronometer::GetProcessCPU user time
+    MessageMetricTypeProcessCPUSystemTime, ## !< OSD_Chronometer::GetProcessCPU system time
+    MessageMetricTypeMemPrivate, ## !< OSD_MemInfo::MemPrivate
+    MessageMetricTypeMemVirtual, ## !< OSD_MemInfo::MemVirtual
+    MessageMetricTypeMemWorkingSet, ## !< OSD_MemInfo::MemWorkingSet
+    MessageMetricTypeMemWorkingSetPeak, ## !< OSD_MemInfo::MemWorkingSetPeak
+    MessageMetricTypeMemSwapUsage, ## !< OSD_MemInfo::MemSwapUsage
+    MessageMetricTypeMemSwapUsagePeak, ## !< OSD_MemInfo::MemSwapUsagePeak
+    MessageMetricTypeMemHeapUsage ## !< OSD_MemInfo::MemHeapUsage
+
 

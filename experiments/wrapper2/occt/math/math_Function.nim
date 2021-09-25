@@ -14,27 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer
-
 ## ! This abstract class describes the virtual functions
 ## ! associated with a Function of a single variable.
 
 type
-  math_Function* {.importcpp: "math_Function", header: "math_Function.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Virtual
-                                                                                      ## destructor,
-                                                                                      ## for
-                                                                                      ## safe
-                                                                                      ## inheritance
+  MathFunction* {.importcpp: "math_Function", header: "math_Function.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Virtual
+                                                                                     ## destructor,
+                                                                                     ## for
+                                                                                     ## safe
+                                                                                     ## inheritance
 
 
-proc destroymath_Function*(this: var math_Function) {.
-    importcpp: "#.~math_Function()", header: "math_Function.hxx".}
-proc Value*(this: var math_Function; X: Standard_Real; F: var Standard_Real): Standard_Boolean {.
-    importcpp: "Value", header: "math_Function.hxx".}
-proc GetStateNumber*(this: var math_Function): Standard_Integer {.
-    importcpp: "GetStateNumber", header: "math_Function.hxx".}
+proc destroyMathFunction*(this: var MathFunction) {.importcpp: "#.~math_Function()",
+    header: "math_Function.hxx".}
+proc value*(this: var MathFunction; x: float; f: var float): bool {.importcpp: "Value",
+    header: "math_Function.hxx".}
+proc getStateNumber*(this: var MathFunction): int {.importcpp: "GetStateNumber",
+    header: "math_Function.hxx".}

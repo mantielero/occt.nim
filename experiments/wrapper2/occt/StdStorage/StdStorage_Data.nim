@@ -11,35 +11,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Transient, ../Standard/Standard_Macro,
-  ../Standard/Standard_Handle
-
 discard "forward decl of StdStorage_HeaderData"
 discard "forward decl of StdStorage_TypeData"
 discard "forward decl of StdStorage_RootData"
 type
-  StdStorage_Data* {.importcpp: "StdStorage_Data", header: "StdStorage_Data.hxx",
-                    bycopy.} = object of Standard_Transient ## ! Creates an empty set of data.
-                                                       ## ! You explicitly create a StdStorage_Data object
-                                                       ## ! when preparing the set of objects to be stored
-                                                       ## ! together in a container (for example, in a file).
-                                                       ## ! Then use the function StdStorage_RootData's AddRoot
-                                                       ## ! to add persistent objects to the set of data.
-                                                       ## ! A StdStorage_Data object is also returned by the
-                                                       ## ! Read function of a StdStorage algorithm. Use the
-                                                       ## ! StdStorage_RootData's functions NumberOfRoots and
-                                                       ## ! Roots to find the roots which were stored in the
-                                                       ## ! read container.
+  StdStorageData* {.importcpp: "StdStorage_Data", header: "StdStorage_Data.hxx",
+                   bycopy.} = object of StandardTransient ## ! Creates an empty set of data.
+                                                     ## ! You explicitly create a StdStorage_Data object
+                                                     ## ! when preparing the set of objects to be stored
+                                                     ## ! together in a container (for example, in a file).
+                                                     ## ! Then use the function StdStorage_RootData's AddRoot
+                                                     ## ! to add persistent objects to the set of data.
+                                                     ## ! A StdStorage_Data object is also returned by the
+                                                     ## ! Read function of a StdStorage algorithm. Use the
+                                                     ## ! StdStorage_RootData's functions NumberOfRoots and
+                                                     ## ! Roots to find the roots which were stored in the
+                                                     ## ! read container.
 
 
-proc constructStdStorage_Data*(): StdStorage_Data {.constructor,
+proc constructStdStorageData*(): StdStorageData {.constructor,
     importcpp: "StdStorage_Data(@)", header: "StdStorage_Data.hxx".}
-proc Clear*(this: var StdStorage_Data) {.importcpp: "Clear",
-                                     header: "StdStorage_Data.hxx".}
-proc HeaderData*(this: var StdStorage_Data): handle[StdStorage_HeaderData] {.
+proc clear*(this: var StdStorageData) {.importcpp: "Clear",
+                                    header: "StdStorage_Data.hxx".}
+proc headerData*(this: var StdStorageData): Handle[StdStorageHeaderData] {.
     importcpp: "HeaderData", header: "StdStorage_Data.hxx".}
-proc TypeData*(this: var StdStorage_Data): handle[StdStorage_TypeData] {.
+proc typeData*(this: var StdStorageData): Handle[StdStorageTypeData] {.
     importcpp: "TypeData", header: "StdStorage_Data.hxx".}
-proc RootData*(this: var StdStorage_Data): handle[StdStorage_RootData] {.
+proc rootData*(this: var StdStorageData): Handle[StdStorageRootData] {.
     importcpp: "RootData", header: "StdStorage_Data.hxx".}

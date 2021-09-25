@@ -14,30 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_PointReplica"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeom_RWPointReplica* {.importcpp: "RWStepGeom_RWPointReplica",
-                              header: "RWStepGeom_RWPointReplica.hxx", bycopy.} = object
+  RWStepGeomRWPointReplica* {.importcpp: "RWStepGeom_RWPointReplica",
+                             header: "RWStepGeom_RWPointReplica.hxx", bycopy.} = object
 
 
-proc constructRWStepGeom_RWPointReplica*(): RWStepGeom_RWPointReplica {.
-    constructor, importcpp: "RWStepGeom_RWPointReplica(@)",
+proc constructRWStepGeomRWPointReplica*(): RWStepGeomRWPointReplica {.constructor,
+    importcpp: "RWStepGeom_RWPointReplica(@)",
     header: "RWStepGeom_RWPointReplica.hxx".}
-proc ReadStep*(this: RWStepGeom_RWPointReplica;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check]; ent: handle[StepGeom_PointReplica]) {.
+proc readStep*(this: RWStepGeomRWPointReplica;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomPointReplica]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWPointReplica.hxx".}
-proc WriteStep*(this: RWStepGeom_RWPointReplica; SW: var StepData_StepWriter;
-               ent: handle[StepGeom_PointReplica]) {.noSideEffect,
+proc writeStep*(this: RWStepGeomRWPointReplica; sw: var StepDataStepWriter;
+               ent: Handle[StepGeomPointReplica]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWPointReplica.hxx".}
-proc Share*(this: RWStepGeom_RWPointReplica; ent: handle[StepGeom_PointReplica];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepGeomRWPointReplica; ent: Handle[StepGeomPointReplica];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWPointReplica.hxx".}

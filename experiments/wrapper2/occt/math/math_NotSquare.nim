@@ -14,15 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _math_NotSquare_HeaderFile [NewLine] # _math_NotSquare_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_DimensionError.hxx [NewLine] class math_NotSquare ;
+## !!!Ignored construct:  # _math_NotSquare_HeaderFile [NewLine] # _math_NotSquare_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DimensionError . hxx > [NewLine] class math_NotSquare ;
 ## Error: expected ';'!!!
 
 discard "forward decl of math_NotSquare"
 type
-  Handle_math_NotSquaremath_NotSquare* = handle[math_NotSquare]
+  HandleMathNotSquaremathNotSquare* = Handle[MathNotSquare]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_math_NotSquare [NewLine] # if ( CONDITION ) throw math_NotSquare ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( math_NotSquare , Standard_DimensionError ) #  _math_NotSquare_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( math_NotSquare , Standard_DimensionError ) #  _math_NotSquare_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

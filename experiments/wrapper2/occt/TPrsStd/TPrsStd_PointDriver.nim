@@ -14,42 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TPrsStd_Driver,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TDF_Label"
 discard "forward decl of AIS_InteractiveObject"
 discard "forward decl of TPrsStd_PointDriver"
 discard "forward decl of TPrsStd_PointDriver"
 type
-  Handle_TPrsStd_PointDriver* = handle[TPrsStd_PointDriver]
+  HandleTPrsStdPointDriver* = Handle[TPrsStdPointDriver]
 
 ## ! An implementation of TPrsStd_Driver for points.
 
 type
-  TPrsStd_PointDriver* {.importcpp: "TPrsStd_PointDriver",
-                        header: "TPrsStd_PointDriver.hxx", bycopy.} = object of TPrsStd_Driver ##
-                                                                                        ## !
-                                                                                        ## Constructs
-                                                                                        ## an
-                                                                                        ## empty
-                                                                                        ## point
-                                                                                        ## driver.
+  TPrsStdPointDriver* {.importcpp: "TPrsStd_PointDriver",
+                       header: "TPrsStd_PointDriver.hxx", bycopy.} = object of TPrsStdDriver ##
+                                                                                      ## !
+                                                                                      ## Constructs
+                                                                                      ## an
+                                                                                      ## empty
+                                                                                      ## point
+                                                                                      ## driver.
 
 
-proc constructTPrsStd_PointDriver*(): TPrsStd_PointDriver {.constructor,
+proc constructTPrsStdPointDriver*(): TPrsStdPointDriver {.constructor,
     importcpp: "TPrsStd_PointDriver(@)", header: "TPrsStd_PointDriver.hxx".}
-proc Update*(this: var TPrsStd_PointDriver; aLabel: TDF_Label;
-            anAISObject: var handle[AIS_InteractiveObject]): Standard_Boolean {.
+proc update*(this: var TPrsStdPointDriver; aLabel: TDF_Label;
+            anAISObject: var Handle[AIS_InteractiveObject]): bool {.
     importcpp: "Update", header: "TPrsStd_PointDriver.hxx".}
 type
-  TPrsStd_PointDriverbase_type* = TPrsStd_Driver
+  TPrsStdPointDriverbaseType* = TPrsStdDriver
 
-proc get_type_name*(): cstring {.importcpp: "TPrsStd_PointDriver::get_type_name(@)",
-                              header: "TPrsStd_PointDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TPrsStd_PointDriver::get_type_name(@)",
+                            header: "TPrsStd_PointDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TPrsStd_PointDriver::get_type_descriptor(@)",
     header: "TPrsStd_PointDriver.hxx".}
-proc DynamicType*(this: TPrsStd_PointDriver): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TPrsStdPointDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TPrsStd_PointDriver.hxx".}

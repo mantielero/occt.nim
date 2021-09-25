@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepShape_TopologicalRepresentationItem, StepShape_HArray1OfOrientedEdge,
-  ../Standard/Standard_Integer
-
 discard "forward decl of StepShape_Loop"
 discard "forward decl of StepShape_Path"
 discard "forward decl of TCollection_HAsciiString"
@@ -26,48 +21,48 @@ discard "forward decl of StepShape_OrientedEdge"
 discard "forward decl of StepShape_LoopAndPath"
 discard "forward decl of StepShape_LoopAndPath"
 type
-  Handle_StepShape_LoopAndPath* = handle[StepShape_LoopAndPath]
-  StepShape_LoopAndPath* {.importcpp: "StepShape_LoopAndPath",
-                          header: "StepShape_LoopAndPath.hxx", bycopy.} = object of StepShape_TopologicalRepresentationItem ##
-                                                                                                                     ## !
-                                                                                                                     ## Returns
-                                                                                                                     ## a
-                                                                                                                     ## LoopAndPath
+  HandleStepShapeLoopAndPath* = Handle[StepShapeLoopAndPath]
+  StepShapeLoopAndPath* {.importcpp: "StepShape_LoopAndPath",
+                         header: "StepShape_LoopAndPath.hxx", bycopy.} = object of StepShapeTopologicalRepresentationItem ##
+                                                                                                                   ## !
+                                                                                                                   ## Returns
+                                                                                                                   ## a
+                                                                                                                   ## LoopAndPath
 
 
-proc constructStepShape_LoopAndPath*(): StepShape_LoopAndPath {.constructor,
+proc constructStepShapeLoopAndPath*(): StepShapeLoopAndPath {.constructor,
     importcpp: "StepShape_LoopAndPath(@)", header: "StepShape_LoopAndPath.hxx".}
-proc Init*(this: var StepShape_LoopAndPath; aName: handle[TCollection_HAsciiString];
-          aLoop: handle[StepShape_Loop]; aPath: handle[StepShape_Path]) {.
+proc init*(this: var StepShapeLoopAndPath; aName: Handle[TCollectionHAsciiString];
+          aLoop: Handle[StepShapeLoop]; aPath: Handle[StepShapePath]) {.
     importcpp: "Init", header: "StepShape_LoopAndPath.hxx".}
-proc Init*(this: var StepShape_LoopAndPath; aName: handle[TCollection_HAsciiString];
-          aEdgeList: handle[StepShape_HArray1OfOrientedEdge]) {.importcpp: "Init",
+proc init*(this: var StepShapeLoopAndPath; aName: Handle[TCollectionHAsciiString];
+          aEdgeList: Handle[StepShapeHArray1OfOrientedEdge]) {.importcpp: "Init",
     header: "StepShape_LoopAndPath.hxx".}
-proc SetLoop*(this: var StepShape_LoopAndPath; aLoop: handle[StepShape_Loop]) {.
+proc setLoop*(this: var StepShapeLoopAndPath; aLoop: Handle[StepShapeLoop]) {.
     importcpp: "SetLoop", header: "StepShape_LoopAndPath.hxx".}
-proc Loop*(this: StepShape_LoopAndPath): handle[StepShape_Loop] {.noSideEffect,
+proc loop*(this: StepShapeLoopAndPath): Handle[StepShapeLoop] {.noSideEffect,
     importcpp: "Loop", header: "StepShape_LoopAndPath.hxx".}
-proc SetPath*(this: var StepShape_LoopAndPath; aPath: handle[StepShape_Path]) {.
+proc setPath*(this: var StepShapeLoopAndPath; aPath: Handle[StepShapePath]) {.
     importcpp: "SetPath", header: "StepShape_LoopAndPath.hxx".}
-proc Path*(this: StepShape_LoopAndPath): handle[StepShape_Path] {.noSideEffect,
+proc path*(this: StepShapeLoopAndPath): Handle[StepShapePath] {.noSideEffect,
     importcpp: "Path", header: "StepShape_LoopAndPath.hxx".}
-proc SetEdgeList*(this: var StepShape_LoopAndPath;
-                 aEdgeList: handle[StepShape_HArray1OfOrientedEdge]) {.
+proc setEdgeList*(this: var StepShapeLoopAndPath;
+                 aEdgeList: Handle[StepShapeHArray1OfOrientedEdge]) {.
     importcpp: "SetEdgeList", header: "StepShape_LoopAndPath.hxx".}
-proc EdgeList*(this: StepShape_LoopAndPath): handle[StepShape_HArray1OfOrientedEdge] {.
+proc edgeList*(this: StepShapeLoopAndPath): Handle[StepShapeHArray1OfOrientedEdge] {.
     noSideEffect, importcpp: "EdgeList", header: "StepShape_LoopAndPath.hxx".}
-proc EdgeListValue*(this: StepShape_LoopAndPath; num: Standard_Integer): handle[
-    StepShape_OrientedEdge] {.noSideEffect, importcpp: "EdgeListValue",
-                             header: "StepShape_LoopAndPath.hxx".}
-proc NbEdgeList*(this: StepShape_LoopAndPath): Standard_Integer {.noSideEffect,
+proc edgeListValue*(this: StepShapeLoopAndPath; num: int): Handle[
+    StepShapeOrientedEdge] {.noSideEffect, importcpp: "EdgeListValue",
+                            header: "StepShape_LoopAndPath.hxx".}
+proc nbEdgeList*(this: StepShapeLoopAndPath): int {.noSideEffect,
     importcpp: "NbEdgeList", header: "StepShape_LoopAndPath.hxx".}
 type
-  StepShape_LoopAndPathbase_type* = StepShape_TopologicalRepresentationItem
+  StepShapeLoopAndPathbaseType* = StepShapeTopologicalRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_LoopAndPath::get_type_name(@)",
-                              header: "StepShape_LoopAndPath.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_LoopAndPath::get_type_name(@)",
+                            header: "StepShape_LoopAndPath.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_LoopAndPath::get_type_descriptor(@)",
     header: "StepShape_LoopAndPath.hxx".}
-proc DynamicType*(this: StepShape_LoopAndPath): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepShape_LoopAndPath.hxx".}
+proc dynamicType*(this: StepShapeLoopAndPath): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepShape_LoopAndPath.hxx".}

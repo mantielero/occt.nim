@@ -14,47 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_OutOfRange
-
 ## ! Describes a component triangle of a triangulation (Poly_Triangulation object).
 ## ! A Triangle is defined by a triplet of nodes.
 ## ! Each node is an index in the table of nodes specific to an existing
 ## ! triangulation of a shape, and represents a point on the surface.
 
 type
-  Poly_Triangle* {.importcpp: "Poly_Triangle", header: "Poly_Triangle.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Constructs
-                                                                                      ## a
-                                                                                      ## triangle
-                                                                                      ## and
-                                                                                      ## sets
-                                                                                      ## all
-                                                                                      ## indices
-                                                                                      ## to
-                                                                                      ## zero.
+  PolyTriangle* {.importcpp: "Poly_Triangle", header: "Poly_Triangle.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Constructs
+                                                                                     ## a
+                                                                                     ## triangle
+                                                                                     ## and
+                                                                                     ## sets
+                                                                                     ## all
+                                                                                     ## indices
+                                                                                     ## to
+                                                                                     ## zero.
 
 
-proc constructPoly_Triangle*(): Poly_Triangle {.constructor,
+proc constructPolyTriangle*(): PolyTriangle {.constructor,
     importcpp: "Poly_Triangle(@)", header: "Poly_Triangle.hxx".}
-proc constructPoly_Triangle*(theN1: Standard_Integer; theN2: Standard_Integer;
-                            theN3: Standard_Integer): Poly_Triangle {.constructor,
-    importcpp: "Poly_Triangle(@)", header: "Poly_Triangle.hxx".}
-proc Set*(this: var Poly_Triangle; theN1: Standard_Integer; theN2: Standard_Integer;
-         theN3: Standard_Integer) {.importcpp: "Set", header: "Poly_Triangle.hxx".}
-proc Set*(this: var Poly_Triangle; theIndex: Standard_Integer;
-         theNode: Standard_Integer) {.importcpp: "Set", header: "Poly_Triangle.hxx".}
-proc Get*(this: Poly_Triangle; theN1: var Standard_Integer;
-         theN2: var Standard_Integer; theN3: var Standard_Integer) {.noSideEffect,
-    importcpp: "Get", header: "Poly_Triangle.hxx".}
-proc Value*(this: Poly_Triangle; theIndex: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "Value", header: "Poly_Triangle.hxx".}
-proc `()`*(this: Poly_Triangle; Index: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "#(@)", header: "Poly_Triangle.hxx".}
-proc ChangeValue*(this: var Poly_Triangle; theIndex: Standard_Integer): var Standard_Integer {.
+proc constructPolyTriangle*(theN1: int; theN2: int; theN3: int): PolyTriangle {.
+    constructor, importcpp: "Poly_Triangle(@)", header: "Poly_Triangle.hxx".}
+proc set*(this: var PolyTriangle; theN1: int; theN2: int; theN3: int) {.importcpp: "Set",
+    header: "Poly_Triangle.hxx".}
+proc set*(this: var PolyTriangle; theIndex: int; theNode: int) {.importcpp: "Set",
+    header: "Poly_Triangle.hxx".}
+proc get*(this: PolyTriangle; theN1: var int; theN2: var int; theN3: var int) {.
+    noSideEffect, importcpp: "Get", header: "Poly_Triangle.hxx".}
+proc value*(this: PolyTriangle; theIndex: int): int {.noSideEffect, importcpp: "Value",
+    header: "Poly_Triangle.hxx".}
+proc `()`*(this: PolyTriangle; index: int): int {.noSideEffect, importcpp: "#(@)",
+    header: "Poly_Triangle.hxx".}
+proc changeValue*(this: var PolyTriangle; theIndex: int): var int {.
     importcpp: "ChangeValue", header: "Poly_Triangle.hxx".}
-proc `()`*(this: var Poly_Triangle; Index: Standard_Integer): var Standard_Integer {.
-    importcpp: "#(@)", header: "Poly_Triangle.hxx".}
+proc `()`*(this: var PolyTriangle; index: int): var int {.importcpp: "#(@)",
+    header: "Poly_Triangle.hxx".}

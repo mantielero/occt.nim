@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  Extrema_ExtAlgo* {.size: sizeof(cint), importcpp: "Extrema_ExtAlgo",
-                    header: "Extrema_ExtAlgo.hxx".} = enum
-    Extrema_ExtAlgo_Grad, Extrema_ExtAlgo_Tree
+  ExtremaExtAlgo* {.size: sizeof(cint), importcpp: "Extrema_ExtAlgo",
+                   header: "Extrema_ExtAlgo.hxx".} = enum
+    ExtremaExtAlgoGrad, ExtremaExtAlgoTree
+
 

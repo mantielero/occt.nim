@@ -14,65 +14,59 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepVisual_HArray1OfLayeredItem, ../Standard/Standard_Transient,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepVisual_LayeredItem"
 discard "forward decl of StepVisual_PresentationLayerAssignment"
 discard "forward decl of StepVisual_PresentationLayerAssignment"
 type
-  Handle_StepVisual_PresentationLayerAssignment* = handle[
-      StepVisual_PresentationLayerAssignment]
-  StepVisual_PresentationLayerAssignment* {.
+  HandleStepVisualPresentationLayerAssignment* = Handle[
+      StepVisualPresentationLayerAssignment]
+  StepVisualPresentationLayerAssignment* {.
       importcpp: "StepVisual_PresentationLayerAssignment",
-      header: "StepVisual_PresentationLayerAssignment.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                             ## !
-                                                                                             ## Returns
-                                                                                             ## a
-                                                                                             ## PresentationLayerAssignment
+      header: "StepVisual_PresentationLayerAssignment.hxx", bycopy.} = object of StandardTransient ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## a
+                                                                                            ## PresentationLayerAssignment
 
 
-proc constructStepVisual_PresentationLayerAssignment*(): StepVisual_PresentationLayerAssignment {.
+proc constructStepVisualPresentationLayerAssignment*(): StepVisualPresentationLayerAssignment {.
     constructor, importcpp: "StepVisual_PresentationLayerAssignment(@)",
     header: "StepVisual_PresentationLayerAssignment.hxx".}
-proc Init*(this: var StepVisual_PresentationLayerAssignment;
-          aName: handle[TCollection_HAsciiString];
-          aDescription: handle[TCollection_HAsciiString];
-          aAssignedItems: handle[StepVisual_HArray1OfLayeredItem]) {.
+proc init*(this: var StepVisualPresentationLayerAssignment;
+          aName: Handle[TCollectionHAsciiString];
+          aDescription: Handle[TCollectionHAsciiString];
+          aAssignedItems: Handle[StepVisualHArray1OfLayeredItem]) {.
     importcpp: "Init", header: "StepVisual_PresentationLayerAssignment.hxx".}
-proc SetName*(this: var StepVisual_PresentationLayerAssignment;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepVisualPresentationLayerAssignment;
+             aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepVisual_PresentationLayerAssignment.hxx".}
-proc Name*(this: StepVisual_PresentationLayerAssignment): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Name", header: "StepVisual_PresentationLayerAssignment.hxx".}
-proc SetDescription*(this: var StepVisual_PresentationLayerAssignment;
-                    aDescription: handle[TCollection_HAsciiString]) {.
+proc name*(this: StepVisualPresentationLayerAssignment): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Name", header: "StepVisual_PresentationLayerAssignment.hxx".}
+proc setDescription*(this: var StepVisualPresentationLayerAssignment;
+                    aDescription: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription",
     header: "StepVisual_PresentationLayerAssignment.hxx".}
-proc Description*(this: StepVisual_PresentationLayerAssignment): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description", header: "StepVisual_PresentationLayerAssignment.hxx".}
-proc SetAssignedItems*(this: var StepVisual_PresentationLayerAssignment;
-                      aAssignedItems: handle[StepVisual_HArray1OfLayeredItem]) {.
+proc description*(this: StepVisualPresentationLayerAssignment): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Description", header: "StepVisual_PresentationLayerAssignment.hxx".}
+proc setAssignedItems*(this: var StepVisualPresentationLayerAssignment;
+                      aAssignedItems: Handle[StepVisualHArray1OfLayeredItem]) {.
     importcpp: "SetAssignedItems",
     header: "StepVisual_PresentationLayerAssignment.hxx".}
-proc AssignedItems*(this: StepVisual_PresentationLayerAssignment): handle[
-    StepVisual_HArray1OfLayeredItem] {.noSideEffect, importcpp: "AssignedItems", header: "StepVisual_PresentationLayerAssignment.hxx".}
-proc AssignedItemsValue*(this: StepVisual_PresentationLayerAssignment;
-                        num: Standard_Integer): StepVisual_LayeredItem {.
+proc assignedItems*(this: StepVisualPresentationLayerAssignment): Handle[
+    StepVisualHArray1OfLayeredItem] {.noSideEffect, importcpp: "AssignedItems", header: "StepVisual_PresentationLayerAssignment.hxx".}
+proc assignedItemsValue*(this: StepVisualPresentationLayerAssignment; num: int): StepVisualLayeredItem {.
     noSideEffect, importcpp: "AssignedItemsValue",
     header: "StepVisual_PresentationLayerAssignment.hxx".}
-proc NbAssignedItems*(this: StepVisual_PresentationLayerAssignment): Standard_Integer {.
+proc nbAssignedItems*(this: StepVisualPresentationLayerAssignment): int {.
     noSideEffect, importcpp: "NbAssignedItems",
     header: "StepVisual_PresentationLayerAssignment.hxx".}
 type
-  StepVisual_PresentationLayerAssignmentbase_type* = Standard_Transient
+  StepVisualPresentationLayerAssignmentbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_PresentationLayerAssignment::get_type_name(@)", header: "StepVisual_PresentationLayerAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_PresentationLayerAssignment::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepVisual_PresentationLayerAssignment::get_type_name(@)", header: "StepVisual_PresentationLayerAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_PresentationLayerAssignment::get_type_descriptor(@)",
     header: "StepVisual_PresentationLayerAssignment.hxx".}
-proc DynamicType*(this: StepVisual_PresentationLayerAssignment): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepVisual_PresentationLayerAssignment.hxx".}
+proc dynamicType*(this: StepVisualPresentationLayerAssignment): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepVisual_PresentationLayerAssignment.hxx".}

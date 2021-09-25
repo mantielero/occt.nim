@@ -12,8 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TColStd_ListOfInteger, ../NCollection/NCollection_Array1
-
 type
-  TColStd_Array1OfListOfInteger* = NCollection_Array1[TColStd_ListOfInteger]
+  TColStdArray1OfListOfInteger* = NCollectionArray1[TColStdListOfInteger]
+

@@ -13,31 +13,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real
-
 ## ! The class describes the  1-d range
 ## ! [myFirst, myLast].
 
 type
-  IntTools_Range* {.importcpp: "IntTools_Range", header: "IntTools_Range.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Empty
-                                                                                         ## constructor
+  IntToolsRange* {.importcpp: "IntTools_Range", header: "IntTools_Range.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Empty
+                                                                                        ## constructor
 
 
-proc constructIntTools_Range*(): IntTools_Range {.constructor,
+proc constructIntToolsRange*(): IntToolsRange {.constructor,
     importcpp: "IntTools_Range(@)", header: "IntTools_Range.hxx".}
-proc constructIntTools_Range*(aFirst: Standard_Real; aLast: Standard_Real): IntTools_Range {.
+proc constructIntToolsRange*(aFirst: float; aLast: float): IntToolsRange {.
     constructor, importcpp: "IntTools_Range(@)", header: "IntTools_Range.hxx".}
-proc SetFirst*(this: var IntTools_Range; aFirst: Standard_Real) {.
-    importcpp: "SetFirst", header: "IntTools_Range.hxx".}
-proc SetLast*(this: var IntTools_Range; aLast: Standard_Real) {.importcpp: "SetLast",
+proc setFirst*(this: var IntToolsRange; aFirst: float) {.importcpp: "SetFirst",
     header: "IntTools_Range.hxx".}
-proc First*(this: IntTools_Range): Standard_Real {.noSideEffect, importcpp: "First",
+proc setLast*(this: var IntToolsRange; aLast: float) {.importcpp: "SetLast",
     header: "IntTools_Range.hxx".}
-proc Last*(this: IntTools_Range): Standard_Real {.noSideEffect, importcpp: "Last",
-    header: "IntTools_Range.hxx".}
-proc Range*(this: IntTools_Range; aFirst: var Standard_Real; aLast: var Standard_Real) {.
-    noSideEffect, importcpp: "Range", header: "IntTools_Range.hxx".}
+proc first*(this: IntToolsRange): float {.noSideEffect, importcpp: "First",
+                                      header: "IntTools_Range.hxx".}
+proc last*(this: IntToolsRange): float {.noSideEffect, importcpp: "Last",
+                                     header: "IntTools_Range.hxx".}
+proc range*(this: IntToolsRange; aFirst: var float; aLast: var float) {.noSideEffect,
+    importcpp: "Range", header: "IntTools_Range.hxx".}

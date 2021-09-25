@@ -14,32 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Type,
-  ../Standard/Standard_CString
-
 discard "forward decl of TopoDS_Shape"
 type
-  TransferBRep_ShapeInfo* {.importcpp: "TransferBRep_ShapeInfo",
-                           header: "TransferBRep_ShapeInfo.hxx", bycopy.} = object ## !
-                                                                              ## Returns
-                                                                              ## the
-                                                                              ## Type
-                                                                              ## attached to an
-                                                                              ## object
-                                                                              ## !
-                                                                              ## Here,
-                                                                              ## TShape
-                                                                              ## (Shape
-                                                                              ## has no
-                                                                              ## Dynamic
-                                                                              ## Type)
+  TransferBRepShapeInfo* {.importcpp: "TransferBRep_ShapeInfo",
+                          header: "TransferBRep_ShapeInfo.hxx", bycopy.} = object ## !
+                                                                             ## Returns the
+                                                                             ## Type
+                                                                             ## attached to an
+                                                                             ## object
+                                                                             ## !
+                                                                             ## Here,
+                                                                             ## TShape
+                                                                             ## (Shape has no
+                                                                             ## Dynamic
+                                                                             ## Type)
 
 
-proc Type*(ent: TopoDS_Shape): handle[Standard_Type] {.
+proc `type`*(ent: TopoDS_Shape): Handle[StandardType] {.
     importcpp: "TransferBRep_ShapeInfo::Type(@)",
     header: "TransferBRep_ShapeInfo.hxx".}
-proc TypeName*(ent: TopoDS_Shape): Standard_CString {.
+proc typeName*(ent: TopoDS_Shape): StandardCString {.
     importcpp: "TransferBRep_ShapeInfo::TypeName(@)",
     header: "TransferBRep_ShapeInfo.hxx".}

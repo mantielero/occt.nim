@@ -13,44 +13,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../StepData/StepData_SelectNamed, ../Standard/Standard_Boolean,
-  ../Standard/Standard_CString
-
 discard "forward decl of StepFEA_DegreeOfFreedomMember"
 discard "forward decl of StepFEA_DegreeOfFreedomMember"
 type
-  Handle_StepFEA_DegreeOfFreedomMember* = handle[StepFEA_DegreeOfFreedomMember]
+  HandleStepFEA_DegreeOfFreedomMember* = Handle[StepFEA_DegreeOfFreedomMember]
 
 ## ! Representation of member for  STEP SELECT type CurveElementFreedom
 
 type
   StepFEA_DegreeOfFreedomMember* {.importcpp: "StepFEA_DegreeOfFreedomMember",
                                   header: "StepFEA_DegreeOfFreedomMember.hxx",
-                                  bycopy.} = object of StepData_SelectNamed ## ! Empty
-                                                                       ## constructor
+                                  bycopy.} = object of StepDataSelectNamed ## ! Empty
+                                                                      ## constructor
 
 
 proc constructStepFEA_DegreeOfFreedomMember*(): StepFEA_DegreeOfFreedomMember {.
     constructor, importcpp: "StepFEA_DegreeOfFreedomMember(@)",
     header: "StepFEA_DegreeOfFreedomMember.hxx".}
-proc HasName*(this: StepFEA_DegreeOfFreedomMember): Standard_Boolean {.noSideEffect,
+proc hasName*(this: StepFEA_DegreeOfFreedomMember): bool {.noSideEffect,
     importcpp: "HasName", header: "StepFEA_DegreeOfFreedomMember.hxx".}
-proc Name*(this: StepFEA_DegreeOfFreedomMember): Standard_CString {.noSideEffect,
+proc name*(this: StepFEA_DegreeOfFreedomMember): StandardCString {.noSideEffect,
     importcpp: "Name", header: "StepFEA_DegreeOfFreedomMember.hxx".}
-proc SetName*(this: var StepFEA_DegreeOfFreedomMember; name: Standard_CString): Standard_Boolean {.
+proc setName*(this: var StepFEA_DegreeOfFreedomMember; name: StandardCString): bool {.
     importcpp: "SetName", header: "StepFEA_DegreeOfFreedomMember.hxx".}
-proc Matches*(this: StepFEA_DegreeOfFreedomMember; name: Standard_CString): Standard_Boolean {.
+proc matches*(this: StepFEA_DegreeOfFreedomMember; name: StandardCString): bool {.
     noSideEffect, importcpp: "Matches", header: "StepFEA_DegreeOfFreedomMember.hxx".}
 type
-  StepFEA_DegreeOfFreedomMemberbase_type* = StepData_SelectNamed
+  StepFEA_DegreeOfFreedomMemberbaseType* = StepDataSelectNamed
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_DegreeOfFreedomMember::get_type_name(@)",
-                              header: "StepFEA_DegreeOfFreedomMember.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_DegreeOfFreedomMember::get_type_name(@)",
+                            header: "StepFEA_DegreeOfFreedomMember.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_DegreeOfFreedomMember::get_type_descriptor(@)",
     header: "StepFEA_DegreeOfFreedomMember.hxx".}
-proc DynamicType*(this: StepFEA_DegreeOfFreedomMember): handle[Standard_Type] {.
+proc dynamicType*(this: StepFEA_DegreeOfFreedomMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_DegreeOfFreedomMember.hxx".}

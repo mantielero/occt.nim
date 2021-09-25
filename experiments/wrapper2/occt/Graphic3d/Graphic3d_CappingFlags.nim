@@ -15,14 +15,13 @@
 ## ! Enumeration of capping flags.
 
 type
-  Graphic3d_CappingFlags* {.size: sizeof(cint),
-                           importcpp: "Graphic3d_CappingFlags",
-                           header: "Graphic3d_CappingFlags.hxx".} = enum
-    Graphic3d_CappingFlags_None = 0x0000, ## !< no flags
-    Graphic3d_CappingFlags_ObjectMaterial = 0x0001, ## !< use object material
-    Graphic3d_CappingFlags_ObjectTexture = 0x0002, ## !< use object texture
-    Graphic3d_CappingFlags_ObjectShader = 0x0008, ## !< use object GLSL program
-    Graphic3d_CappingFlags_ObjectAspect = Graphic3d_CappingFlags_ObjectMaterial or
-        Graphic3d_CappingFlags_ObjectTexture or
-        Graphic3d_CappingFlags_ObjectShader
+  Graphic3dCappingFlags* {.size: sizeof(cint), importcpp: "Graphic3d_CappingFlags",
+                          header: "Graphic3d_CappingFlags.hxx".} = enum
+    Graphic3dCappingFlagsNone = 0x0000, ## !< no flags
+    Graphic3dCappingFlagsObjectMaterial = 0x0001, ## !< use object material
+    Graphic3dCappingFlagsObjectTexture = 0x0002, ## !< use object texture
+    Graphic3dCappingFlagsObjectShader = 0x0008, ## !< use object GLSL program
+    Graphic3dCappingFlagsObjectAspect = graphic3dCappingFlagsObjectMaterial or
+        graphic3dCappingFlagsObjectTexture or graphic3dCappingFlagsObjectShader
+
 

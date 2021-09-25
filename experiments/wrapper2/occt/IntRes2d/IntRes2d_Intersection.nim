@@ -14,39 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  IntRes2d_SequenceOfIntersectionPoint, IntRes2d_SequenceOfIntersectionSegment,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IntRes2d_IntersectionPoint"
 discard "forward decl of IntRes2d_IntersectionSegment"
 type
-  IntRes2d_Intersection* {.importcpp: "IntRes2d_Intersection",
-                          header: "IntRes2d_Intersection.hxx", bycopy.} = object ## !
-                                                                            ## returns TRUE when the
-                                                                            ## computation was
-                                                                            ## successful.
-                                                                            ## !
-                                                                            ## Empty
-                                                                            ## constructor.
+  IntRes2dIntersection* {.importcpp: "IntRes2d_Intersection",
+                         header: "IntRes2d_Intersection.hxx", bycopy.} = object ## !
+                                                                           ## returns TRUE when the
+                                                                           ## computation was
+                                                                           ## successful.
+                                                                           ## ! Empty
+                                                                           ## constructor.
 
 
-proc IsDone*(this: IntRes2d_Intersection): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "IntRes2d_Intersection.hxx".}
-proc IsEmpty*(this: IntRes2d_Intersection): Standard_Boolean {.noSideEffect,
-    importcpp: "IsEmpty", header: "IntRes2d_Intersection.hxx".}
-proc NbPoints*(this: IntRes2d_Intersection): Standard_Integer {.noSideEffect,
+proc isDone*(this: IntRes2dIntersection): bool {.noSideEffect, importcpp: "IsDone",
+    header: "IntRes2d_Intersection.hxx".}
+proc isEmpty*(this: IntRes2dIntersection): bool {.noSideEffect, importcpp: "IsEmpty",
+    header: "IntRes2d_Intersection.hxx".}
+proc nbPoints*(this: IntRes2dIntersection): int {.noSideEffect,
     importcpp: "NbPoints", header: "IntRes2d_Intersection.hxx".}
-proc Point*(this: IntRes2d_Intersection; N: Standard_Integer): IntRes2d_IntersectionPoint {.
+proc point*(this: IntRes2dIntersection; n: int): IntRes2dIntersectionPoint {.
     noSideEffect, importcpp: "Point", header: "IntRes2d_Intersection.hxx".}
-proc NbSegments*(this: IntRes2d_Intersection): Standard_Integer {.noSideEffect,
+proc nbSegments*(this: IntRes2dIntersection): int {.noSideEffect,
     importcpp: "NbSegments", header: "IntRes2d_Intersection.hxx".}
-proc Segment*(this: IntRes2d_Intersection; N: Standard_Integer): IntRes2d_IntersectionSegment {.
+proc segment*(this: IntRes2dIntersection; n: int): IntRes2dIntersectionSegment {.
     noSideEffect, importcpp: "Segment", header: "IntRes2d_Intersection.hxx".}
-proc SetReversedParameters*(this: var IntRes2d_Intersection;
-                           Reverseflag: Standard_Boolean) {.
+proc setReversedParameters*(this: var IntRes2dIntersection; reverseflag: bool) {.
     importcpp: "SetReversedParameters", header: "IntRes2d_Intersection.hxx".}

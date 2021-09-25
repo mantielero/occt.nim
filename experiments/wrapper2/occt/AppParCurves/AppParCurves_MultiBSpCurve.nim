@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColStd/TColStd_HArray1OfReal,
-  ../TColStd/TColStd_HArray1OfInteger, ../Standard/Standard_Integer,
-  AppParCurves_MultiCurve, AppParCurves_Array1OfMultiPoint,
-  ../TColStd/TColStd_Array1OfReal, ../TColStd/TColStd_Array1OfInteger,
-  ../Standard/Standard_Real, ../Standard/Standard_OStream
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of Standard_ConstructionError"
@@ -31,58 +23,57 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Vec2d"
 type
-  AppParCurves_MultiBSpCurve* {.importcpp: "AppParCurves_MultiBSpCurve",
-                               header: "AppParCurves_MultiBSpCurve.hxx", bycopy.} = object of AppParCurves_MultiCurve ##
-                                                                                                               ## !
-                                                                                                               ## returns
-                                                                                                               ## an
-                                                                                                               ## indefinite
-                                                                                                               ## MultiBSpCurve.
+  AppParCurvesMultiBSpCurve* {.importcpp: "AppParCurves_MultiBSpCurve",
+                              header: "AppParCurves_MultiBSpCurve.hxx", bycopy.} = object of AppParCurvesMultiCurve ##
+                                                                                                             ## !
+                                                                                                             ## returns
+                                                                                                             ## an
+                                                                                                             ## indefinite
+                                                                                                             ## MultiBSpCurve.
 
 
-proc constructAppParCurves_MultiBSpCurve*(): AppParCurves_MultiBSpCurve {.
+proc constructAppParCurvesMultiBSpCurve*(): AppParCurvesMultiBSpCurve {.
     constructor, importcpp: "AppParCurves_MultiBSpCurve(@)",
     header: "AppParCurves_MultiBSpCurve.hxx".}
-proc constructAppParCurves_MultiBSpCurve*(NbPol: Standard_Integer): AppParCurves_MultiBSpCurve {.
+proc constructAppParCurvesMultiBSpCurve*(nbPol: int): AppParCurvesMultiBSpCurve {.
     constructor, importcpp: "AppParCurves_MultiBSpCurve(@)",
     header: "AppParCurves_MultiBSpCurve.hxx".}
-proc constructAppParCurves_MultiBSpCurve*(tabMU: AppParCurves_Array1OfMultiPoint;
-    Knots: TColStd_Array1OfReal; Mults: TColStd_Array1OfInteger): AppParCurves_MultiBSpCurve {.
+proc constructAppParCurvesMultiBSpCurve*(tabMU: AppParCurvesArray1OfMultiPoint;
+                                        knots: TColStdArray1OfReal;
+                                        mults: TColStdArray1OfInteger): AppParCurvesMultiBSpCurve {.
     constructor, importcpp: "AppParCurves_MultiBSpCurve(@)",
     header: "AppParCurves_MultiBSpCurve.hxx".}
-proc constructAppParCurves_MultiBSpCurve*(SC: AppParCurves_MultiCurve;
-    Knots: TColStd_Array1OfReal; Mults: TColStd_Array1OfInteger): AppParCurves_MultiBSpCurve {.
+proc constructAppParCurvesMultiBSpCurve*(sc: AppParCurvesMultiCurve;
+                                        knots: TColStdArray1OfReal;
+                                        mults: TColStdArray1OfInteger): AppParCurvesMultiBSpCurve {.
     constructor, importcpp: "AppParCurves_MultiBSpCurve(@)",
     header: "AppParCurves_MultiBSpCurve.hxx".}
-proc SetKnots*(this: var AppParCurves_MultiBSpCurve; theKnots: TColStd_Array1OfReal) {.
+proc setKnots*(this: var AppParCurvesMultiBSpCurve; theKnots: TColStdArray1OfReal) {.
     importcpp: "SetKnots", header: "AppParCurves_MultiBSpCurve.hxx".}
-proc SetMultiplicities*(this: var AppParCurves_MultiBSpCurve;
-                       theMults: TColStd_Array1OfInteger) {.
+proc setMultiplicities*(this: var AppParCurvesMultiBSpCurve;
+                       theMults: TColStdArray1OfInteger) {.
     importcpp: "SetMultiplicities", header: "AppParCurves_MultiBSpCurve.hxx".}
-proc Knots*(this: AppParCurves_MultiBSpCurve): TColStd_Array1OfReal {.noSideEffect,
+proc knots*(this: AppParCurvesMultiBSpCurve): TColStdArray1OfReal {.noSideEffect,
     importcpp: "Knots", header: "AppParCurves_MultiBSpCurve.hxx".}
-proc Multiplicities*(this: AppParCurves_MultiBSpCurve): TColStd_Array1OfInteger {.
+proc multiplicities*(this: AppParCurvesMultiBSpCurve): TColStdArray1OfInteger {.
     noSideEffect, importcpp: "Multiplicities",
     header: "AppParCurves_MultiBSpCurve.hxx".}
-proc Degree*(this: AppParCurves_MultiBSpCurve): Standard_Integer {.noSideEffect,
+proc degree*(this: AppParCurvesMultiBSpCurve): int {.noSideEffect,
     importcpp: "Degree", header: "AppParCurves_MultiBSpCurve.hxx".}
-proc Value*(this: AppParCurves_MultiBSpCurve; CuIndex: Standard_Integer;
-           U: Standard_Real; Pt: var gp_Pnt) {.noSideEffect, importcpp: "Value",
-    header: "AppParCurves_MultiBSpCurve.hxx".}
-proc Value*(this: AppParCurves_MultiBSpCurve; CuIndex: Standard_Integer;
-           U: Standard_Real; Pt: var gp_Pnt2d) {.noSideEffect, importcpp: "Value",
-    header: "AppParCurves_MultiBSpCurve.hxx".}
-proc D1*(this: AppParCurves_MultiBSpCurve; CuIndex: Standard_Integer;
-        U: Standard_Real; Pt: var gp_Pnt; V1: var gp_Vec) {.noSideEffect,
-    importcpp: "D1", header: "AppParCurves_MultiBSpCurve.hxx".}
-proc D1*(this: AppParCurves_MultiBSpCurve; CuIndex: Standard_Integer;
-        U: Standard_Real; Pt: var gp_Pnt2d; V1: var gp_Vec2d) {.noSideEffect,
-    importcpp: "D1", header: "AppParCurves_MultiBSpCurve.hxx".}
-proc D2*(this: AppParCurves_MultiBSpCurve; CuIndex: Standard_Integer;
-        U: Standard_Real; Pt: var gp_Pnt; V1: var gp_Vec; V2: var gp_Vec) {.noSideEffect,
-    importcpp: "D2", header: "AppParCurves_MultiBSpCurve.hxx".}
-proc D2*(this: AppParCurves_MultiBSpCurve; CuIndex: Standard_Integer;
-        U: Standard_Real; Pt: var gp_Pnt2d; V1: var gp_Vec2d; V2: var gp_Vec2d) {.
-    noSideEffect, importcpp: "D2", header: "AppParCurves_MultiBSpCurve.hxx".}
-proc Dump*(this: AppParCurves_MultiBSpCurve; o: var Standard_OStream) {.noSideEffect,
+proc value*(this: AppParCurvesMultiBSpCurve; cuIndex: int; u: float; pt: var Pnt) {.
+    noSideEffect, importcpp: "Value", header: "AppParCurves_MultiBSpCurve.hxx".}
+proc value*(this: AppParCurvesMultiBSpCurve; cuIndex: int; u: float; pt: var Pnt2d) {.
+    noSideEffect, importcpp: "Value", header: "AppParCurves_MultiBSpCurve.hxx".}
+proc d1*(this: AppParCurvesMultiBSpCurve; cuIndex: int; u: float; pt: var Pnt; v1: var Vec) {.
+    noSideEffect, importcpp: "D1", header: "AppParCurves_MultiBSpCurve.hxx".}
+proc d1*(this: AppParCurvesMultiBSpCurve; cuIndex: int; u: float; pt: var Pnt2d;
+        v1: var Vec2d) {.noSideEffect, importcpp: "D1",
+                      header: "AppParCurves_MultiBSpCurve.hxx".}
+proc d2*(this: AppParCurvesMultiBSpCurve; cuIndex: int; u: float; pt: var Pnt;
+        v1: var Vec; v2: var Vec) {.noSideEffect, importcpp: "D2",
+                              header: "AppParCurves_MultiBSpCurve.hxx".}
+proc d2*(this: AppParCurvesMultiBSpCurve; cuIndex: int; u: float; pt: var Pnt2d;
+        v1: var Vec2d; v2: var Vec2d) {.noSideEffect, importcpp: "D2",
+                                  header: "AppParCurves_MultiBSpCurve.hxx".}
+proc dump*(this: AppParCurvesMultiBSpCurve; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "AppParCurves_MultiBSpCurve.hxx".}

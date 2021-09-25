@@ -14,41 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepVisual_CurveStyle"
 discard "forward decl of StepVisual_SurfaceStyleSilhouette"
 discard "forward decl of StepVisual_SurfaceStyleSilhouette"
 type
-  Handle_StepVisual_SurfaceStyleSilhouette* = handle[
-      StepVisual_SurfaceStyleSilhouette]
-  StepVisual_SurfaceStyleSilhouette* {.importcpp: "StepVisual_SurfaceStyleSilhouette", header: "StepVisual_SurfaceStyleSilhouette.hxx",
-                                      bycopy.} = object of Standard_Transient ## ! Returns a
-                                                                         ## SurfaceStyleSilhouette
+  HandleStepVisualSurfaceStyleSilhouette* = Handle[
+      StepVisualSurfaceStyleSilhouette]
+  StepVisualSurfaceStyleSilhouette* {.importcpp: "StepVisual_SurfaceStyleSilhouette", header: "StepVisual_SurfaceStyleSilhouette.hxx",
+                                     bycopy.} = object of StandardTransient ## ! Returns a
+                                                                       ## SurfaceStyleSilhouette
 
 
-proc constructStepVisual_SurfaceStyleSilhouette*(): StepVisual_SurfaceStyleSilhouette {.
+proc constructStepVisualSurfaceStyleSilhouette*(): StepVisualSurfaceStyleSilhouette {.
     constructor, importcpp: "StepVisual_SurfaceStyleSilhouette(@)",
     header: "StepVisual_SurfaceStyleSilhouette.hxx".}
-proc Init*(this: var StepVisual_SurfaceStyleSilhouette;
-          aStyleOfSilhouette: handle[StepVisual_CurveStyle]) {.importcpp: "Init",
+proc init*(this: var StepVisualSurfaceStyleSilhouette;
+          aStyleOfSilhouette: Handle[StepVisualCurveStyle]) {.importcpp: "Init",
     header: "StepVisual_SurfaceStyleSilhouette.hxx".}
-proc SetStyleOfSilhouette*(this: var StepVisual_SurfaceStyleSilhouette;
-                          aStyleOfSilhouette: handle[StepVisual_CurveStyle]) {.
+proc setStyleOfSilhouette*(this: var StepVisualSurfaceStyleSilhouette;
+                          aStyleOfSilhouette: Handle[StepVisualCurveStyle]) {.
     importcpp: "SetStyleOfSilhouette",
     header: "StepVisual_SurfaceStyleSilhouette.hxx".}
-proc StyleOfSilhouette*(this: StepVisual_SurfaceStyleSilhouette): handle[
-    StepVisual_CurveStyle] {.noSideEffect, importcpp: "StyleOfSilhouette",
-                            header: "StepVisual_SurfaceStyleSilhouette.hxx".}
+proc styleOfSilhouette*(this: StepVisualSurfaceStyleSilhouette): Handle[
+    StepVisualCurveStyle] {.noSideEffect, importcpp: "StyleOfSilhouette",
+                           header: "StepVisual_SurfaceStyleSilhouette.hxx".}
 type
-  StepVisual_SurfaceStyleSilhouettebase_type* = Standard_Transient
+  StepVisualSurfaceStyleSilhouettebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_SurfaceStyleSilhouette::get_type_name(@)",
-                              header: "StepVisual_SurfaceStyleSilhouette.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_SurfaceStyleSilhouette::get_type_name(@)",
+                            header: "StepVisual_SurfaceStyleSilhouette.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_SurfaceStyleSilhouette::get_type_descriptor(@)",
     header: "StepVisual_SurfaceStyleSilhouette.hxx".}
-proc DynamicType*(this: StepVisual_SurfaceStyleSilhouette): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualSurfaceStyleSilhouette): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_SurfaceStyleSilhouette.hxx".}

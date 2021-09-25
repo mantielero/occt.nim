@@ -14,30 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_TrimmedCurve"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeom_RWTrimmedCurve* {.importcpp: "RWStepGeom_RWTrimmedCurve",
-                              header: "RWStepGeom_RWTrimmedCurve.hxx", bycopy.} = object
+  RWStepGeomRWTrimmedCurve* {.importcpp: "RWStepGeom_RWTrimmedCurve",
+                             header: "RWStepGeom_RWTrimmedCurve.hxx", bycopy.} = object
 
 
-proc constructRWStepGeom_RWTrimmedCurve*(): RWStepGeom_RWTrimmedCurve {.
-    constructor, importcpp: "RWStepGeom_RWTrimmedCurve(@)",
+proc constructRWStepGeomRWTrimmedCurve*(): RWStepGeomRWTrimmedCurve {.constructor,
+    importcpp: "RWStepGeom_RWTrimmedCurve(@)",
     header: "RWStepGeom_RWTrimmedCurve.hxx".}
-proc ReadStep*(this: RWStepGeom_RWTrimmedCurve;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check]; ent: handle[StepGeom_TrimmedCurve]) {.
+proc readStep*(this: RWStepGeomRWTrimmedCurve;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomTrimmedCurve]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWTrimmedCurve.hxx".}
-proc WriteStep*(this: RWStepGeom_RWTrimmedCurve; SW: var StepData_StepWriter;
-               ent: handle[StepGeom_TrimmedCurve]) {.noSideEffect,
+proc writeStep*(this: RWStepGeomRWTrimmedCurve; sw: var StepDataStepWriter;
+               ent: Handle[StepGeomTrimmedCurve]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWTrimmedCurve.hxx".}
-proc Share*(this: RWStepGeom_RWTrimmedCurve; ent: handle[StepGeom_TrimmedCurve];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepGeomRWTrimmedCurve; ent: Handle[StepGeomTrimmedCurve];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWTrimmedCurve.hxx".}

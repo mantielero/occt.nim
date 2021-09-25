@@ -14,34 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepRepr/StepRepr_RepresentationItem
-
 discard "forward decl of StepGeom_GeometricRepresentationItem"
 discard "forward decl of StepGeom_GeometricRepresentationItem"
 type
-  Handle_StepGeom_GeometricRepresentationItem* = handle[
-      StepGeom_GeometricRepresentationItem]
-  StepGeom_GeometricRepresentationItem* {.
-      importcpp: "StepGeom_GeometricRepresentationItem",
-      header: "StepGeom_GeometricRepresentationItem.hxx", bycopy.} = object of StepRepr_RepresentationItem ##
-                                                                                                    ## !
-                                                                                                    ## Returns
-                                                                                                    ## a
-                                                                                                    ## GeometricRepresentationItem
+  HandleStepGeomGeometricRepresentationItem* = Handle[
+      StepGeomGeometricRepresentationItem]
+  StepGeomGeometricRepresentationItem* {.importcpp: "StepGeom_GeometricRepresentationItem", header: "StepGeom_GeometricRepresentationItem.hxx",
+                                        bycopy.} = object of StepReprRepresentationItem ##
+                                                                                   ## !
+                                                                                   ## Returns
+                                                                                   ## a
+                                                                                   ## GeometricRepresentationItem
 
 
-proc constructStepGeom_GeometricRepresentationItem*(): StepGeom_GeometricRepresentationItem {.
+proc constructStepGeomGeometricRepresentationItem*(): StepGeomGeometricRepresentationItem {.
     constructor, importcpp: "StepGeom_GeometricRepresentationItem(@)",
     header: "StepGeom_GeometricRepresentationItem.hxx".}
 type
-  StepGeom_GeometricRepresentationItembase_type* = StepRepr_RepresentationItem
+  StepGeomGeometricRepresentationItembaseType* = StepReprRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_GeometricRepresentationItem::get_type_name(@)", header: "StepGeom_GeometricRepresentationItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_GeometricRepresentationItem::get_type_name(@)",
+                            header: "StepGeom_GeometricRepresentationItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_GeometricRepresentationItem::get_type_descriptor(@)",
     header: "StepGeom_GeometricRepresentationItem.hxx".}
-proc DynamicType*(this: StepGeom_GeometricRepresentationItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomGeometricRepresentationItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_GeometricRepresentationItem.hxx".}

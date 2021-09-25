@@ -18,8 +18,9 @@
 ## ! element.
 
 type
-  HatchGen_IntersectionType* {.size: sizeof(cint),
-                              importcpp: "HatchGen_IntersectionType",
-                              header: "HatchGen_IntersectionType.hxx".} = enum
-    HatchGen_TRUE, HatchGen_TOUCH, HatchGen_TANGENT, HatchGen_UNDETERMINED
+  HatchGenIntersectionType* {.size: sizeof(cint),
+                             importcpp: "HatchGen_IntersectionType",
+                             header: "HatchGen_IntersectionType.hxx".} = enum
+    HatchGenTRUE, HatchGenTOUCH, HatchGenTANGENT, HatchGenUNDETERMINED
+
 

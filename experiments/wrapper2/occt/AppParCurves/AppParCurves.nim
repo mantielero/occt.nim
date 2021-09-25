@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer, ../math/math_Vector,
-  ../Standard/Standard_Real, ../math/math_IntegerVector
-
 discard "forward decl of math_Matrix"
 discard "forward decl of AppParCurves_MultiPoint"
 discard "forward decl of AppParCurves_MultiCurve"
@@ -41,16 +36,14 @@ type
   AppParCurves* {.importcpp: "AppParCurves", header: "AppParCurves.hxx", bycopy.} = object
 
 
-proc BernsteinMatrix*(NbPoles: Standard_Integer; U: math_Vector; A: var math_Matrix) {.
+proc bernsteinMatrix*(nbPoles: int; u: MathVector; a: var MathMatrix) {.
     importcpp: "AppParCurves::BernsteinMatrix(@)", header: "AppParCurves.hxx".}
-proc Bernstein*(NbPoles: Standard_Integer; U: math_Vector; A: var math_Matrix;
-               DA: var math_Matrix) {.importcpp: "AppParCurves::Bernstein(@)",
-                                   header: "AppParCurves.hxx".}
-proc SecondDerivativeBernstein*(U: Standard_Real; DDA: var math_Vector) {.
+proc bernstein*(nbPoles: int; u: MathVector; a: var MathMatrix; da: var MathMatrix) {.
+    importcpp: "AppParCurves::Bernstein(@)", header: "AppParCurves.hxx".}
+proc secondDerivativeBernstein*(u: float; dda: var MathVector) {.
     importcpp: "AppParCurves::SecondDerivativeBernstein(@)",
     header: "AppParCurves.hxx".}
-proc SplineFunction*(NbPoles: Standard_Integer; Degree: Standard_Integer;
-                    Parameters: math_Vector; FlatKnots: math_Vector;
-                    A: var math_Matrix; DA: var math_Matrix;
-                    Index: var math_IntegerVector) {.
+proc splineFunction*(nbPoles: int; degree: int; parameters: MathVector;
+                    flatKnots: MathVector; a: var MathMatrix; da: var MathMatrix;
+                    index: var MathIntegerVector) {.
     importcpp: "AppParCurves::SplineFunction(@)", header: "AppParCurves.hxx".}

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_Approval"
 discard "forward decl of StepRepr_DescriptiveRepresentationItem"
@@ -41,80 +36,77 @@ discard "forward decl of StepRepr_MeasureRepresentationItem"
 discard "forward decl of StepBasic_ProductDefinitionContext"
 discard "forward decl of StepRepr_RepresentationItem"
 type
-  StepAP214_DocumentReferenceItem* {.importcpp: "StepAP214_DocumentReferenceItem", header: "StepAP214_DocumentReferenceItem.hxx",
-                                    bycopy.} = object of StepData_SelectType ## ! Returns a
-                                                                        ## DocumentReferenceItem
-                                                                        ## SelectType
+  StepAP214DocumentReferenceItem* {.importcpp: "StepAP214_DocumentReferenceItem", header: "StepAP214_DocumentReferenceItem.hxx",
+                                   bycopy.} = object of StepDataSelectType ## ! Returns a
+                                                                      ## DocumentReferenceItem SelectType
 
 
-proc constructStepAP214_DocumentReferenceItem*(): StepAP214_DocumentReferenceItem {.
+proc constructStepAP214DocumentReferenceItem*(): StepAP214DocumentReferenceItem {.
     constructor, importcpp: "StepAP214_DocumentReferenceItem(@)",
     header: "StepAP214_DocumentReferenceItem.hxx".}
-proc CaseNum*(this: StepAP214_DocumentReferenceItem;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
-    importcpp: "CaseNum", header: "StepAP214_DocumentReferenceItem.hxx".}
-proc Approval*(this: StepAP214_DocumentReferenceItem): handle[StepBasic_Approval] {.
+proc caseNum*(this: StepAP214DocumentReferenceItem; ent: Handle[StandardTransient]): int {.
+    noSideEffect, importcpp: "CaseNum",
+    header: "StepAP214_DocumentReferenceItem.hxx".}
+proc approval*(this: StepAP214DocumentReferenceItem): Handle[StepBasicApproval] {.
     noSideEffect, importcpp: "Approval",
     header: "StepAP214_DocumentReferenceItem.hxx".}
-proc DescriptiveRepresentationItem*(this: StepAP214_DocumentReferenceItem): handle[
-    StepRepr_DescriptiveRepresentationItem] {.noSideEffect,
+proc descriptiveRepresentationItem*(this: StepAP214DocumentReferenceItem): Handle[
+    StepReprDescriptiveRepresentationItem] {.noSideEffect,
     importcpp: "DescriptiveRepresentationItem",
     header: "StepAP214_DocumentReferenceItem.hxx".}
-proc MaterialDesignation*(this: StepAP214_DocumentReferenceItem): handle[
-    StepRepr_MaterialDesignation] {.noSideEffect,
-                                   importcpp: "MaterialDesignation", header: "StepAP214_DocumentReferenceItem.hxx".}
-proc ProductDefinition*(this: StepAP214_DocumentReferenceItem): handle[
-    StepBasic_ProductDefinition] {.noSideEffect, importcpp: "ProductDefinition",
+proc materialDesignation*(this: StepAP214DocumentReferenceItem): Handle[
+    StepReprMaterialDesignation] {.noSideEffect, importcpp: "MaterialDesignation",
                                   header: "StepAP214_DocumentReferenceItem.hxx".}
-proc ProductDefinitionRelationship*(this: StepAP214_DocumentReferenceItem): handle[
-    StepBasic_ProductDefinitionRelationship] {.noSideEffect,
+proc productDefinition*(this: StepAP214DocumentReferenceItem): Handle[
+    StepBasicProductDefinition] {.noSideEffect, importcpp: "ProductDefinition",
+                                 header: "StepAP214_DocumentReferenceItem.hxx".}
+proc productDefinitionRelationship*(this: StepAP214DocumentReferenceItem): Handle[
+    StepBasicProductDefinitionRelationship] {.noSideEffect,
     importcpp: "ProductDefinitionRelationship",
     header: "StepAP214_DocumentReferenceItem.hxx".}
-proc PropertyDefinition*(this: StepAP214_DocumentReferenceItem): handle[
-    StepRepr_PropertyDefinition] {.noSideEffect, importcpp: "PropertyDefinition",
-                                  header: "StepAP214_DocumentReferenceItem.hxx".}
-proc Representation*(this: StepAP214_DocumentReferenceItem): handle[
-    StepRepr_Representation] {.noSideEffect, importcpp: "Representation",
-                              header: "StepAP214_DocumentReferenceItem.hxx".}
-proc ShapeAspect*(this: StepAP214_DocumentReferenceItem): handle[
-    StepRepr_ShapeAspect] {.noSideEffect, importcpp: "ShapeAspect",
-                           header: "StepAP214_DocumentReferenceItem.hxx".}
-proc ShapeAspectRelationship*(this: StepAP214_DocumentReferenceItem): handle[
-    StepRepr_ShapeAspectRelationship] {.noSideEffect,
-                                       importcpp: "ShapeAspectRelationship", header: "StepAP214_DocumentReferenceItem.hxx".}
-proc AppliedExternalIdentificationAssignment*(
-    this: StepAP214_DocumentReferenceItem): handle[
-    StepAP214_AppliedExternalIdentificationAssignment] {.noSideEffect,
+proc propertyDefinition*(this: StepAP214DocumentReferenceItem): Handle[
+    StepReprPropertyDefinition] {.noSideEffect, importcpp: "PropertyDefinition",
+                                 header: "StepAP214_DocumentReferenceItem.hxx".}
+proc representation*(this: StepAP214DocumentReferenceItem): Handle[
+    StepReprRepresentation] {.noSideEffect, importcpp: "Representation",
+                             header: "StepAP214_DocumentReferenceItem.hxx".}
+proc shapeAspect*(this: StepAP214DocumentReferenceItem): Handle[StepReprShapeAspect] {.
+    noSideEffect, importcpp: "ShapeAspect",
+    header: "StepAP214_DocumentReferenceItem.hxx".}
+proc shapeAspectRelationship*(this: StepAP214DocumentReferenceItem): Handle[
+    StepReprShapeAspectRelationship] {.noSideEffect,
+                                      importcpp: "ShapeAspectRelationship", header: "StepAP214_DocumentReferenceItem.hxx".}
+proc appliedExternalIdentificationAssignment*(
+    this: StepAP214DocumentReferenceItem): Handle[
+    StepAP214AppliedExternalIdentificationAssignment] {.noSideEffect,
     importcpp: "AppliedExternalIdentificationAssignment",
     header: "StepAP214_DocumentReferenceItem.hxx".}
-proc AssemblyComponentUsage*(this: StepAP214_DocumentReferenceItem): handle[
-    StepRepr_AssemblyComponentUsage] {.noSideEffect,
-                                      importcpp: "AssemblyComponentUsage", header: "StepAP214_DocumentReferenceItem.hxx".}
-proc CharacterizedObject*(this: StepAP214_DocumentReferenceItem): handle[
-    StepBasic_CharacterizedObject] {.noSideEffect,
-                                    importcpp: "CharacterizedObject", header: "StepAP214_DocumentReferenceItem.hxx".}
-proc DimensionalSize*(this: StepAP214_DocumentReferenceItem): handle[
-    StepShape_DimensionalSize] {.noSideEffect, importcpp: "DimensionalSize",
-                                header: "StepAP214_DocumentReferenceItem.hxx".}
-proc ExternallyDefinedItem*(this: StepAP214_DocumentReferenceItem): handle[
-    StepBasic_ExternallyDefinedItem] {.noSideEffect,
-                                      importcpp: "ExternallyDefinedItem", header: "StepAP214_DocumentReferenceItem.hxx".}
-proc Group*(this: StepAP214_DocumentReferenceItem): handle[StepBasic_Group] {.
+proc assemblyComponentUsage*(this: StepAP214DocumentReferenceItem): Handle[
+    StepReprAssemblyComponentUsage] {.noSideEffect,
+                                     importcpp: "AssemblyComponentUsage", header: "StepAP214_DocumentReferenceItem.hxx".}
+proc characterizedObject*(this: StepAP214DocumentReferenceItem): Handle[
+    StepBasicCharacterizedObject] {.noSideEffect,
+                                   importcpp: "CharacterizedObject", header: "StepAP214_DocumentReferenceItem.hxx".}
+proc dimensionalSize*(this: StepAP214DocumentReferenceItem): Handle[
+    StepShapeDimensionalSize] {.noSideEffect, importcpp: "DimensionalSize",
+                               header: "StepAP214_DocumentReferenceItem.hxx".}
+proc externallyDefinedItem*(this: StepAP214DocumentReferenceItem): Handle[
+    StepBasicExternallyDefinedItem] {.noSideEffect,
+                                     importcpp: "ExternallyDefinedItem", header: "StepAP214_DocumentReferenceItem.hxx".}
+proc group*(this: StepAP214DocumentReferenceItem): Handle[StepBasicGroup] {.
     noSideEffect, importcpp: "Group", header: "StepAP214_DocumentReferenceItem.hxx".}
-proc GroupRelationship*(this: StepAP214_DocumentReferenceItem): handle[
-    StepBasic_GroupRelationship] {.noSideEffect, importcpp: "GroupRelationship",
-                                  header: "StepAP214_DocumentReferenceItem.hxx".}
-proc MeasureRepresentationItem*(this: StepAP214_DocumentReferenceItem): handle[
-    StepRepr_MeasureRepresentationItem] {.noSideEffect,
-    importcpp: "MeasureRepresentationItem",
-    header: "StepAP214_DocumentReferenceItem.hxx".}
-proc ProductCategory*(this: StepAP214_DocumentReferenceItem): handle[
-    StepBasic_ProductCategory] {.noSideEffect, importcpp: "ProductCategory",
-                                header: "StepAP214_DocumentReferenceItem.hxx".}
-proc ProductDefinitionContext*(this: StepAP214_DocumentReferenceItem): handle[
-    StepBasic_ProductDefinitionContext] {.noSideEffect,
-    importcpp: "ProductDefinitionContext",
-    header: "StepAP214_DocumentReferenceItem.hxx".}
-proc RepresentationItem*(this: StepAP214_DocumentReferenceItem): handle[
-    StepRepr_RepresentationItem] {.noSideEffect, importcpp: "RepresentationItem",
-                                  header: "StepAP214_DocumentReferenceItem.hxx".}
+proc groupRelationship*(this: StepAP214DocumentReferenceItem): Handle[
+    StepBasicGroupRelationship] {.noSideEffect, importcpp: "GroupRelationship",
+                                 header: "StepAP214_DocumentReferenceItem.hxx".}
+proc measureRepresentationItem*(this: StepAP214DocumentReferenceItem): Handle[
+    StepReprMeasureRepresentationItem] {.noSideEffect,
+                                        importcpp: "MeasureRepresentationItem", header: "StepAP214_DocumentReferenceItem.hxx".}
+proc productCategory*(this: StepAP214DocumentReferenceItem): Handle[
+    StepBasicProductCategory] {.noSideEffect, importcpp: "ProductCategory",
+                               header: "StepAP214_DocumentReferenceItem.hxx".}
+proc productDefinitionContext*(this: StepAP214DocumentReferenceItem): Handle[
+    StepBasicProductDefinitionContext] {.noSideEffect,
+                                        importcpp: "ProductDefinitionContext", header: "StepAP214_DocumentReferenceItem.hxx".}
+proc representationItem*(this: StepAP214DocumentReferenceItem): Handle[
+    StepReprRepresentationItem] {.noSideEffect, importcpp: "RepresentationItem",
+                                 header: "StepAP214_DocumentReferenceItem.hxx".}

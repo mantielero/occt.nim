@@ -12,74 +12,68 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Geom/Geom_Curve, GeomEvaluator_Curve, ../gp/gp_Dir
-
 discard "forward decl of GeomAdaptor_HCurve"
 type
-  GeomEvaluator_OffsetCurve* {.importcpp: "GeomEvaluator_OffsetCurve",
-                              header: "GeomEvaluator_OffsetCurve.hxx", bycopy.} = object of GeomEvaluator_Curve ##
-                                                                                                         ## !
-                                                                                                         ## Initialize
-                                                                                                         ## evaluator
-                                                                                                         ## by
-                                                                                                         ## curve
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Recalculate
-                                                                                                         ## D1
-                                                                                                         ## values
-                                                                                                         ## of
-                                                                                                         ## base
-                                                                                                         ## curve
-                                                                                                         ## into
-                                                                                                         ## D0
-                                                                                                         ## value
-                                                                                                         ## of
-                                                                                                         ## offset
-                                                                                                         ## curve
+  GeomEvaluatorOffsetCurve* {.importcpp: "GeomEvaluator_OffsetCurve",
+                             header: "GeomEvaluator_OffsetCurve.hxx", bycopy.} = object of GeomEvaluatorCurve ##
+                                                                                                       ## !
+                                                                                                       ## Initialize
+                                                                                                       ## evaluator
+                                                                                                       ## by
+                                                                                                       ## curve
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## Recalculate
+                                                                                                       ## D1
+                                                                                                       ## values
+                                                                                                       ## of
+                                                                                                       ## base
+                                                                                                       ## curve
+                                                                                                       ## into
+                                                                                                       ## D0
+                                                                                                       ## value
+                                                                                                       ## of
+                                                                                                       ## offset
+                                                                                                       ## curve
     ## /< offset value
     ## /< offset direction
 
 
-proc constructGeomEvaluator_OffsetCurve*(theBase: handle[Geom_Curve];
-                                        theOffset: Standard_Real;
-                                        theDirection: gp_Dir): GeomEvaluator_OffsetCurve {.
+proc constructGeomEvaluatorOffsetCurve*(theBase: Handle[GeomCurve];
+                                       theOffset: float; theDirection: Dir): GeomEvaluatorOffsetCurve {.
     constructor, importcpp: "GeomEvaluator_OffsetCurve(@)",
     header: "GeomEvaluator_OffsetCurve.hxx".}
-proc constructGeomEvaluator_OffsetCurve*(theBase: handle[GeomAdaptor_HCurve];
-                                        theOffset: Standard_Real;
-                                        theDirection: gp_Dir): GeomEvaluator_OffsetCurve {.
+proc constructGeomEvaluatorOffsetCurve*(theBase: Handle[GeomAdaptorHCurve];
+                                       theOffset: float; theDirection: Dir): GeomEvaluatorOffsetCurve {.
     constructor, importcpp: "GeomEvaluator_OffsetCurve(@)",
     header: "GeomEvaluator_OffsetCurve.hxx".}
-proc SetOffsetValue*(this: var GeomEvaluator_OffsetCurve; theOffset: Standard_Real) {.
+proc setOffsetValue*(this: var GeomEvaluatorOffsetCurve; theOffset: float) {.
     importcpp: "SetOffsetValue", header: "GeomEvaluator_OffsetCurve.hxx".}
-proc SetOffsetDirection*(this: var GeomEvaluator_OffsetCurve; theDirection: gp_Dir) {.
+proc setOffsetDirection*(this: var GeomEvaluatorOffsetCurve; theDirection: Dir) {.
     importcpp: "SetOffsetDirection", header: "GeomEvaluator_OffsetCurve.hxx".}
-proc D0*(this: GeomEvaluator_OffsetCurve; theU: Standard_Real; theValue: var gp_Pnt) {.
-    noSideEffect, importcpp: "D0", header: "GeomEvaluator_OffsetCurve.hxx".}
-proc D1*(this: GeomEvaluator_OffsetCurve; theU: Standard_Real; theValue: var gp_Pnt;
-        theD1: var gp_Vec) {.noSideEffect, importcpp: "D1",
-                          header: "GeomEvaluator_OffsetCurve.hxx".}
-proc D2*(this: GeomEvaluator_OffsetCurve; theU: Standard_Real; theValue: var gp_Pnt;
-        theD1: var gp_Vec; theD2: var gp_Vec) {.noSideEffect, importcpp: "D2",
-    header: "GeomEvaluator_OffsetCurve.hxx".}
-proc D3*(this: GeomEvaluator_OffsetCurve; theU: Standard_Real; theValue: var gp_Pnt;
-        theD1: var gp_Vec; theD2: var gp_Vec; theD3: var gp_Vec) {.noSideEffect,
-    importcpp: "D3", header: "GeomEvaluator_OffsetCurve.hxx".}
-proc DN*(this: GeomEvaluator_OffsetCurve; theU: Standard_Real;
-        theDeriv: Standard_Integer): gp_Vec {.noSideEffect, importcpp: "DN",
-    header: "GeomEvaluator_OffsetCurve.hxx".}
+proc d0*(this: GeomEvaluatorOffsetCurve; theU: float; theValue: var Pnt) {.noSideEffect,
+    importcpp: "D0", header: "GeomEvaluator_OffsetCurve.hxx".}
+proc d1*(this: GeomEvaluatorOffsetCurve; theU: float; theValue: var Pnt; theD1: var Vec) {.
+    noSideEffect, importcpp: "D1", header: "GeomEvaluator_OffsetCurve.hxx".}
+proc d2*(this: GeomEvaluatorOffsetCurve; theU: float; theValue: var Pnt; theD1: var Vec;
+        theD2: var Vec) {.noSideEffect, importcpp: "D2",
+                       header: "GeomEvaluator_OffsetCurve.hxx".}
+proc d3*(this: GeomEvaluatorOffsetCurve; theU: float; theValue: var Pnt; theD1: var Vec;
+        theD2: var Vec; theD3: var Vec) {.noSideEffect, importcpp: "D3",
+                                    header: "GeomEvaluator_OffsetCurve.hxx".}
+proc dn*(this: GeomEvaluatorOffsetCurve; theU: float; theDeriv: int): Vec {.
+    noSideEffect, importcpp: "DN", header: "GeomEvaluator_OffsetCurve.hxx".}
 type
-  GeomEvaluator_OffsetCurvebase_type* = GeomEvaluator_Curve
+  GeomEvaluatorOffsetCurvebaseType* = GeomEvaluatorCurve
 
-proc get_type_name*(): cstring {.importcpp: "GeomEvaluator_OffsetCurve::get_type_name(@)",
-                              header: "GeomEvaluator_OffsetCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "GeomEvaluator_OffsetCurve::get_type_name(@)",
+                            header: "GeomEvaluator_OffsetCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GeomEvaluator_OffsetCurve::get_type_descriptor(@)",
     header: "GeomEvaluator_OffsetCurve.hxx".}
-proc DynamicType*(this: GeomEvaluator_OffsetCurve): handle[Standard_Type] {.
+proc dynamicType*(this: GeomEvaluatorOffsetCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "GeomEvaluator_OffsetCurve.hxx".}
 discard "forward decl of GeomEvaluator_OffsetCurve"
 type
-  Handle_GeomEvaluator_OffsetCurve* = handle[GeomEvaluator_OffsetCurve]
+  HandleGeomEvaluatorOffsetCurve* = Handle[GeomEvaluatorOffsetCurve]
+

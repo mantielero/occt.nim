@@ -14,32 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopoDSToStep_MakeFaceError, TopoDSToStep_Root
-
 discard "forward decl of StepShape_TopologicalRepresentationItem"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDSToStep_Tool"
 discard "forward decl of Transfer_FinderProcess"
 type
-  TopoDSToStep_MakeStepFace* {.importcpp: "TopoDSToStep_MakeStepFace",
-                              header: "TopoDSToStep_MakeStepFace.hxx", bycopy.} = object of TopoDSToStep_Root
+  TopoDSToStepMakeStepFace* {.importcpp: "TopoDSToStep_MakeStepFace",
+                             header: "TopoDSToStep_MakeStepFace.hxx", bycopy.} = object of TopoDSToStepRoot
 
 
-proc constructTopoDSToStep_MakeStepFace*(): TopoDSToStep_MakeStepFace {.
+proc constructTopoDSToStepMakeStepFace*(): TopoDSToStepMakeStepFace {.constructor,
+    importcpp: "TopoDSToStep_MakeStepFace(@)",
+    header: "TopoDSToStep_MakeStepFace.hxx".}
+proc constructTopoDSToStepMakeStepFace*(f: TopoDS_Face; t: var TopoDSToStepTool;
+                                       fp: Handle[TransferFinderProcess]): TopoDSToStepMakeStepFace {.
     constructor, importcpp: "TopoDSToStep_MakeStepFace(@)",
     header: "TopoDSToStep_MakeStepFace.hxx".}
-proc constructTopoDSToStep_MakeStepFace*(F: TopoDS_Face; T: var TopoDSToStep_Tool;
-                                        FP: handle[Transfer_FinderProcess]): TopoDSToStep_MakeStepFace {.
-    constructor, importcpp: "TopoDSToStep_MakeStepFace(@)",
-    header: "TopoDSToStep_MakeStepFace.hxx".}
-proc Init*(this: var TopoDSToStep_MakeStepFace; F: TopoDS_Face;
-          T: var TopoDSToStep_Tool; FP: handle[Transfer_FinderProcess]) {.
+proc init*(this: var TopoDSToStepMakeStepFace; f: TopoDS_Face;
+          t: var TopoDSToStepTool; fp: Handle[TransferFinderProcess]) {.
     importcpp: "Init", header: "TopoDSToStep_MakeStepFace.hxx".}
-proc Value*(this: TopoDSToStep_MakeStepFace): handle[
-    StepShape_TopologicalRepresentationItem] {.noSideEffect, importcpp: "Value",
+proc value*(this: TopoDSToStepMakeStepFace): Handle[
+    StepShapeTopologicalRepresentationItem] {.noSideEffect, importcpp: "Value",
     header: "TopoDSToStep_MakeStepFace.hxx".}
-proc Error*(this: TopoDSToStep_MakeStepFace): TopoDSToStep_MakeFaceError {.
+proc error*(this: TopoDSToStepMakeStepFace): TopoDSToStepMakeFaceError {.
     noSideEffect, importcpp: "Error", header: "TopoDSToStep_MakeStepFace.hxx".}

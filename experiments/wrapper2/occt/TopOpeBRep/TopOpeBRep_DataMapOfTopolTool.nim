@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, ../BRepTopAdaptor/BRepTopAdaptor_TopolTool,
-  ../TopTools/TopTools_ShapeMapHasher, ../NCollection/NCollection_DataMap
-
 type
-  TopOpeBRep_DataMapOfTopolTool* = NCollection_DataMap[TopoDS_Shape,
-      handle[BRepTopAdaptor_TopolTool], TopTools_ShapeMapHasher]
-  TopOpeBRep_DataMapIteratorOfDataMapOfTopolTool* = Iterator[TopoDS_Shape,
-      handle[BRepTopAdaptor_TopolTool], TopTools_ShapeMapHasher]
+  TopOpeBRepDataMapOfTopolTool* = NCollectionDataMap[TopoDS_Shape,
+      Handle[BRepTopAdaptorTopolTool], TopToolsShapeMapHasher]
+  TopOpeBRepDataMapIteratorOfDataMapOfTopolTool* = Iterator[TopoDS_Shape,
+      Handle[BRepTopAdaptorTopolTool], TopToolsShapeMapHasher]
+

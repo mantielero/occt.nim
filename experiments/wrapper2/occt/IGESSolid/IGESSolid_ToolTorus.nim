@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESSolid_Torus"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,32 +26,30 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESSolid_ToolTorus* {.importcpp: "IGESSolid_ToolTorus",
-                        header: "IGESSolid_ToolTorus.hxx", bycopy.} = object ## ! Returns a
-                                                                        ## ToolTorus, ready to work
+  IGESSolidToolTorus* {.importcpp: "IGESSolid_ToolTorus",
+                       header: "IGESSolid_ToolTorus.hxx", bycopy.} = object ## ! Returns a
+                                                                       ## ToolTorus, ready to work
 
 
-proc constructIGESSolid_ToolTorus*(): IGESSolid_ToolTorus {.constructor,
+proc constructIGESSolidToolTorus*(): IGESSolidToolTorus {.constructor,
     importcpp: "IGESSolid_ToolTorus(@)", header: "IGESSolid_ToolTorus.hxx".}
-proc ReadOwnParams*(this: IGESSolid_ToolTorus; ent: handle[IGESSolid_Torus];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESSolid_ToolTorus.hxx".}
-proc WriteOwnParams*(this: IGESSolid_ToolTorus; ent: handle[IGESSolid_Torus];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESSolidToolTorus; ent: Handle[IGESSolidTorus];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams", header: "IGESSolid_ToolTorus.hxx".}
+proc writeOwnParams*(this: IGESSolidToolTorus; ent: Handle[IGESSolidTorus];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESSolid_ToolTorus.hxx".}
-proc OwnShared*(this: IGESSolid_ToolTorus; ent: handle[IGESSolid_Torus];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESSolidToolTorus; ent: Handle[IGESSolidTorus];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESSolid_ToolTorus.hxx".}
-proc DirChecker*(this: IGESSolid_ToolTorus; ent: handle[IGESSolid_Torus]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESSolidToolTorus; ent: Handle[IGESSolidTorus]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESSolid_ToolTorus.hxx".}
-proc OwnCheck*(this: IGESSolid_ToolTorus; ent: handle[IGESSolid_Torus];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESSolidToolTorus; ent: Handle[IGESSolidTorus];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESSolid_ToolTorus.hxx".}
-proc OwnCopy*(this: IGESSolid_ToolTorus; entfrom: handle[IGESSolid_Torus];
-             entto: handle[IGESSolid_Torus]; TC: var Interface_CopyTool) {.
+proc ownCopy*(this: IGESSolidToolTorus; entfrom: Handle[IGESSolidTorus];
+             entto: Handle[IGESSolidTorus]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESSolid_ToolTorus.hxx".}
-proc OwnDump*(this: IGESSolid_ToolTorus; ent: handle[IGESSolid_Torus];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
-                                    header: "IGESSolid_ToolTorus.hxx".}
+proc ownDump*(this: IGESSolidToolTorus; ent: Handle[IGESSolidTorus];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump", header: "IGESSolid_ToolTorus.hxx".}

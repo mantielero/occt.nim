@@ -13,37 +13,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Transient, ../Standard/Standard_Type
-
 ## ! Interface class representing list of parameters on curve.
 
 type
-  IMeshData_ParametersList* {.importcpp: "IMeshData_ParametersList",
-                             header: "IMeshData_ParametersList.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                      ## !
-                                                                                                      ## Destructor.
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## Constructor.
+  IMeshDataParametersList* {.importcpp: "IMeshData_ParametersList",
+                            header: "IMeshData_ParametersList.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                    ## !
+                                                                                                    ## Destructor.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Constructor.
 
 
-proc destroyIMeshData_ParametersList*(this: var IMeshData_ParametersList) {.
+proc destroyIMeshDataParametersList*(this: var IMeshDataParametersList) {.
     importcpp: "#.~IMeshData_ParametersList()",
     header: "IMeshData_ParametersList.hxx".}
-proc GetParameter*(this: var IMeshData_ParametersList; theIndex: Standard_Integer): var Standard_Real {.
+proc getParameter*(this: var IMeshDataParametersList; theIndex: int): var float {.
     importcpp: "GetParameter", header: "IMeshData_ParametersList.hxx".}
-proc ParametersNb*(this: IMeshData_ParametersList): Standard_Integer {.noSideEffect,
+proc parametersNb*(this: IMeshDataParametersList): int {.noSideEffect,
     importcpp: "ParametersNb", header: "IMeshData_ParametersList.hxx".}
-proc Clear*(this: var IMeshData_ParametersList; isKeepEndPoints: Standard_Boolean) {.
+proc clear*(this: var IMeshDataParametersList; isKeepEndPoints: bool) {.
     importcpp: "Clear", header: "IMeshData_ParametersList.hxx".}
 type
-  IMeshData_ParametersListbase_type* = Standard_Transient
+  IMeshDataParametersListbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "IMeshData_ParametersList::get_type_name(@)",
-                              header: "IMeshData_ParametersList.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IMeshData_ParametersList::get_type_name(@)",
+                            header: "IMeshData_ParametersList.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IMeshData_ParametersList::get_type_descriptor(@)",
     header: "IMeshData_ParametersList.hxx".}
-proc DynamicType*(this: IMeshData_ParametersList): handle[Standard_Type] {.
+proc dynamicType*(this: IMeshDataParametersList): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IMeshData_ParametersList.hxx".}

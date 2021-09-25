@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Transfer_HSequenceOfFinder,
-  Transfer_TransferIterator, Transfer_TransferMapOfProcessForFinder
-
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Transfer_Finder"
 discard "forward decl of Transfer_FindHasher"
@@ -26,52 +21,50 @@ discard "forward decl of Transfer_ProcessForFinder"
 discard "forward decl of Transfer_ActorOfProcessForFinder"
 discard "forward decl of Transfer_Binder"
 type
-  Transfer_IteratorOfProcessForFinder* {.importcpp: "Transfer_IteratorOfProcessForFinder", header: "Transfer_IteratorOfProcessForFinder.hxx",
-                                        bycopy.} = object of Transfer_TransferIterator ##
-                                                                                  ## !
-                                                                                  ## Creates
-                                                                                  ## an
-                                                                                  ## empty
-                                                                                  ## Iterator
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## if
-                                                                                  ## withstarts
-                                                                                  ## is
-                                                                                  ## True,
-                                                                                  ## each
-                                                                                  ## Binder
-                                                                                  ## to
-                                                                                  ## be
-                                                                                  ## iterated
-                                                                                  ## will
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## be
-                                                                                  ## associated
-                                                                                  ## to
-                                                                                  ## its
-                                                                                  ## corresponding
-                                                                                  ## Starting
-                                                                                  ## Object
+  TransferIteratorOfProcessForFinder* {.importcpp: "Transfer_IteratorOfProcessForFinder", header: "Transfer_IteratorOfProcessForFinder.hxx",
+                                       bycopy.} = object of TransferTransferIterator ##
+                                                                                ## !
+                                                                                ## Creates
+                                                                                ## an
+                                                                                ## empty
+                                                                                ## Iterator
+                                                                                ##
+                                                                                ## !
+                                                                                ## if
+                                                                                ## withstarts
+                                                                                ## is
+                                                                                ## True,
+                                                                                ## each
+                                                                                ## Binder
+                                                                                ## to
+                                                                                ## be
+                                                                                ## iterated
+                                                                                ## will
+                                                                                ##
+                                                                                ## !
+                                                                                ## be
+                                                                                ## associated
+                                                                                ## to
+                                                                                ## its
+                                                                                ## corresponding
+                                                                                ## Starting
+                                                                                ## Object
 
 
-proc constructTransfer_IteratorOfProcessForFinder*(withstarts: Standard_Boolean): Transfer_IteratorOfProcessForFinder {.
+proc constructTransferIteratorOfProcessForFinder*(withstarts: bool): TransferIteratorOfProcessForFinder {.
     constructor, importcpp: "Transfer_IteratorOfProcessForFinder(@)",
     header: "Transfer_IteratorOfProcessForFinder.hxx".}
-proc Add*(this: var Transfer_IteratorOfProcessForFinder;
-         binder: handle[Transfer_Binder]) {.importcpp: "Add",
+proc add*(this: var TransferIteratorOfProcessForFinder;
+         binder: Handle[TransferBinder]) {.importcpp: "Add",
     header: "Transfer_IteratorOfProcessForFinder.hxx".}
-proc Add*(this: var Transfer_IteratorOfProcessForFinder;
-         binder: handle[Transfer_Binder]; start: handle[Transfer_Finder]) {.
+proc add*(this: var TransferIteratorOfProcessForFinder;
+         binder: Handle[TransferBinder]; start: Handle[TransferFinder]) {.
     importcpp: "Add", header: "Transfer_IteratorOfProcessForFinder.hxx".}
-proc Filter*(this: var Transfer_IteratorOfProcessForFinder;
-            list: handle[Transfer_HSequenceOfFinder];
-            keep: Standard_Boolean = Standard_True) {.importcpp: "Filter",
-    header: "Transfer_IteratorOfProcessForFinder.hxx".}
-proc HasStarting*(this: Transfer_IteratorOfProcessForFinder): Standard_Boolean {.
-    noSideEffect, importcpp: "HasStarting",
-    header: "Transfer_IteratorOfProcessForFinder.hxx".}
-proc Starting*(this: Transfer_IteratorOfProcessForFinder): handle[Transfer_Finder] {.
+proc filter*(this: var TransferIteratorOfProcessForFinder;
+            list: Handle[TransferHSequenceOfFinder]; keep: bool = true) {.
+    importcpp: "Filter", header: "Transfer_IteratorOfProcessForFinder.hxx".}
+proc hasStarting*(this: TransferIteratorOfProcessForFinder): bool {.noSideEffect,
+    importcpp: "HasStarting", header: "Transfer_IteratorOfProcessForFinder.hxx".}
+proc starting*(this: TransferIteratorOfProcessForFinder): Handle[TransferFinder] {.
     noSideEffect, importcpp: "Starting",
     header: "Transfer_IteratorOfProcessForFinder.hxx".}

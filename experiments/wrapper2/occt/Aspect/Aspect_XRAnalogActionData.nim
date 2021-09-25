@@ -11,24 +11,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Vec3
-
 ## ! Analog input XR action data.
 
 type
-  Aspect_XRAnalogActionData* {.importcpp: "Aspect_XRAnalogActionData",
-                              header: "Aspect_XRAnalogActionData.hxx", bycopy.} = object
-    ActiveOrigin* {.importc: "ActiveOrigin".}: uint64_t ## !< The origin that caused this action's current state
-    UpdateTime* {.importc: "UpdateTime".}: cfloat ## !< Time relative to now when this event happened. Will be negative to indicate a past time
-    VecXYZ* {.importc: "VecXYZ".}: NCollection_Vec3[cfloat] ## !< the current state of this action
-    DeltaXYZ* {.importc: "DeltaXYZ".}: NCollection_Vec3[cfloat] ## !< deltas since the previous update
-    IsActive* {.importc: "IsActive".}: bool ## !< whether or not this action is currently available to be bound in the active action set
+  AspectXRAnalogActionData* {.importcpp: "Aspect_XRAnalogActionData",
+                             header: "Aspect_XRAnalogActionData.hxx", bycopy.} = object
+    activeOrigin* {.importc: "ActiveOrigin".}: uint64T ## !< The origin that caused this action's current state
+    updateTime* {.importc: "UpdateTime".}: cfloat ## !< Time relative to now when this event happened. Will be negative to indicate a past time
+    vecXYZ* {.importc: "VecXYZ".}: NCollectionVec3[cfloat] ## !< the current state of this action
+    deltaXYZ* {.importc: "DeltaXYZ".}: NCollectionVec3[cfloat] ## !< deltas since the previous update
+    isActive* {.importc: "IsActive".}: bool ## !< whether or not this action is currently available to be bound in the active action set
                                         ## ! Return TRUE if delta is non-zero.
 
 
-proc IsChanged*(this: var Aspect_XRAnalogActionData): bool {.importcpp: "IsChanged",
+proc isChanged*(this: var AspectXRAnalogActionData): bool {.importcpp: "IsChanged",
     header: "Aspect_XRAnalogActionData.hxx".}
-proc constructAspect_XRAnalogActionData*(): Aspect_XRAnalogActionData {.
-    constructor, importcpp: "Aspect_XRAnalogActionData(@)",
+proc constructAspectXRAnalogActionData*(): AspectXRAnalogActionData {.constructor,
+    importcpp: "Aspect_XRAnalogActionData(@)",
     header: "Aspect_XRAnalogActionData.hxx".}

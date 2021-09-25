@@ -14,151 +14,139 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, ../GeomAbs/GeomAbs_Shape,
-  ../Standard/Standard_Integer, ../Standard/Standard_OStream
-
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Geom_Surface"
 discard "forward decl of Adaptor3d_HSurface"
 type
-  GeomConvert_ApproxSurface* {.importcpp: "GeomConvert_ApproxSurface",
-                              header: "GeomConvert_ApproxSurface.hxx", bycopy.} = object ##
-                                                                                    ## !
-                                                                                    ## Constructs
-                                                                                    ## a
-                                                                                    ## surface
-                                                                                    ## approximation
-                                                                                    ## framework
-                                                                                    ## defined
-                                                                                    ## by
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## -
-                                                                                    ## the
-                                                                                    ## conic
-                                                                                    ## Surf
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## -
-                                                                                    ## the
-                                                                                    ## tolerance
-                                                                                    ## value
-                                                                                    ## Tol3d
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## -
-                                                                                    ## the
-                                                                                    ## degree
-                                                                                    ## of
-                                                                                    ## continuity
-                                                                                    ## UContinuity,
-                                                                                    ## VContinuity
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## in
-                                                                                    ## the
-                                                                                    ## directions
-                                                                                    ## of
-                                                                                    ## the
-                                                                                    ## U
-                                                                                    ## and
-                                                                                    ## V
-                                                                                    ## parameters
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## -
-                                                                                    ## the
-                                                                                    ## highest
-                                                                                    ## degree
-                                                                                    ## MaxDegU,
-                                                                                    ## MaxDegV
-                                                                                    ## which
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## the
-                                                                                    ## polynomial
-                                                                                    ## defining
-                                                                                    ## the
-                                                                                    ## BSpline
-                                                                                    ## curve
-                                                                                    ## may
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## have
-                                                                                    ## in
-                                                                                    ## the
-                                                                                    ## directions
-                                                                                    ## of
-                                                                                    ## the
-                                                                                    ## U
-                                                                                    ## and
-                                                                                    ## V
-                                                                                    ## parameters
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## -
-                                                                                    ## the
-                                                                                    ## maximum
-                                                                                    ## number
-                                                                                    ## of
-                                                                                    ## segments
-                                                                                    ## MaxSegments
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## allowed
-                                                                                    ## in
-                                                                                    ## the
-                                                                                    ## resulting
-                                                                                    ## BSpline
-                                                                                    ## curve
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## -
-                                                                                    ## the
-                                                                                    ## index
-                                                                                    ## of
-                                                                                    ## precision
-                                                                                    ## PrecisCode.
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## Converts
-                                                                                    ## a
-                                                                                    ## surface
-                                                                                    ## to
-                                                                                    ## B-spline
+  GeomConvertApproxSurface* {.importcpp: "GeomConvert_ApproxSurface",
+                             header: "GeomConvert_ApproxSurface.hxx", bycopy.} = object ##
+                                                                                   ## !
+                                                                                   ## Constructs
+                                                                                   ## a
+                                                                                   ## surface
+                                                                                   ## approximation
+                                                                                   ## framework
+                                                                                   ## defined
+                                                                                   ## by
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## -
+                                                                                   ## the
+                                                                                   ## conic
+                                                                                   ## Surf
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## -
+                                                                                   ## the
+                                                                                   ## tolerance
+                                                                                   ## value
+                                                                                   ## Tol3d
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## -
+                                                                                   ## the
+                                                                                   ## degree
+                                                                                   ## of
+                                                                                   ## continuity
+                                                                                   ## UContinuity,
+                                                                                   ## VContinuity
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## in
+                                                                                   ## the
+                                                                                   ## directions
+                                                                                   ## of
+                                                                                   ## the
+                                                                                   ## U
+                                                                                   ## and
+                                                                                   ## V
+                                                                                   ## parameters
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## -
+                                                                                   ## the
+                                                                                   ## highest
+                                                                                   ## degree
+                                                                                   ## MaxDegU,
+                                                                                   ## MaxDegV
+                                                                                   ## which
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## the
+                                                                                   ## polynomial
+                                                                                   ## defining
+                                                                                   ## the
+                                                                                   ## BSpline
+                                                                                   ## curve
+                                                                                   ## may
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## have
+                                                                                   ## in
+                                                                                   ## the
+                                                                                   ## directions
+                                                                                   ## of
+                                                                                   ## the
+                                                                                   ## U
+                                                                                   ## and
+                                                                                   ## V
+                                                                                   ## parameters
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## -
+                                                                                   ## the
+                                                                                   ## maximum
+                                                                                   ## number
+                                                                                   ## of
+                                                                                   ## segments
+                                                                                   ## MaxSegments
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## allowed
+                                                                                   ## in
+                                                                                   ## the
+                                                                                   ## resulting
+                                                                                   ## BSpline
+                                                                                   ## curve
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## -
+                                                                                   ## the
+                                                                                   ## index
+                                                                                   ## of
+                                                                                   ## precision
+                                                                                   ## PrecisCode.
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## Converts
+                                                                                   ## a
+                                                                                   ## surface
+                                                                                   ## to
+                                                                                   ## B-spline
 
 
-proc constructGeomConvert_ApproxSurface*(Surf: handle[Geom_Surface];
-                                        Tol3d: Standard_Real;
-                                        UContinuity: GeomAbs_Shape;
-                                        VContinuity: GeomAbs_Shape;
-                                        MaxDegU: Standard_Integer;
-                                        MaxDegV: Standard_Integer;
-                                        MaxSegments: Standard_Integer;
-                                        PrecisCode: Standard_Integer): GeomConvert_ApproxSurface {.
+proc constructGeomConvertApproxSurface*(surf: Handle[GeomSurface]; tol3d: float;
+                                       uContinuity: GeomAbsShape;
+                                       vContinuity: GeomAbsShape; maxDegU: int;
+                                       maxDegV: int; maxSegments: int;
+                                       precisCode: int): GeomConvertApproxSurface {.
     constructor, importcpp: "GeomConvert_ApproxSurface(@)",
     header: "GeomConvert_ApproxSurface.hxx".}
-proc constructGeomConvert_ApproxSurface*(Surf: handle[Adaptor3d_HSurface];
-                                        Tol3d: Standard_Real;
-                                        UContinuity: GeomAbs_Shape;
-                                        VContinuity: GeomAbs_Shape;
-                                        MaxDegU: Standard_Integer;
-                                        MaxDegV: Standard_Integer;
-                                        MaxSegments: Standard_Integer;
-                                        PrecisCode: Standard_Integer): GeomConvert_ApproxSurface {.
+proc constructGeomConvertApproxSurface*(surf: Handle[Adaptor3dHSurface];
+                                       tol3d: float; uContinuity: GeomAbsShape;
+                                       vContinuity: GeomAbsShape; maxDegU: int;
+                                       maxDegV: int; maxSegments: int;
+                                       precisCode: int): GeomConvertApproxSurface {.
     constructor, importcpp: "GeomConvert_ApproxSurface(@)",
     header: "GeomConvert_ApproxSurface.hxx".}
-proc Surface*(this: GeomConvert_ApproxSurface): handle[Geom_BSplineSurface] {.
+proc surface*(this: GeomConvertApproxSurface): Handle[GeomBSplineSurface] {.
     noSideEffect, importcpp: "Surface", header: "GeomConvert_ApproxSurface.hxx".}
-proc IsDone*(this: GeomConvert_ApproxSurface): Standard_Boolean {.noSideEffect,
+proc isDone*(this: GeomConvertApproxSurface): bool {.noSideEffect,
     importcpp: "IsDone", header: "GeomConvert_ApproxSurface.hxx".}
-proc HasResult*(this: GeomConvert_ApproxSurface): Standard_Boolean {.noSideEffect,
+proc hasResult*(this: GeomConvertApproxSurface): bool {.noSideEffect,
     importcpp: "HasResult", header: "GeomConvert_ApproxSurface.hxx".}
-proc MaxError*(this: GeomConvert_ApproxSurface): Standard_Real {.noSideEffect,
+proc maxError*(this: GeomConvertApproxSurface): float {.noSideEffect,
     importcpp: "MaxError", header: "GeomConvert_ApproxSurface.hxx".}
-proc Dump*(this: GeomConvert_ApproxSurface; o: var Standard_OStream) {.noSideEffect,
+proc dump*(this: GeomConvertApproxSurface; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "GeomConvert_ApproxSurface.hxx".}

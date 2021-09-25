@@ -14,26 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Expr_Array1OfSingleRelation,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_NoMoreObject"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Expr_GeneralRelation"
 discard "forward decl of Expr_SingleRelation"
 type
-  Expr_RelationIterator* {.importcpp: "Expr_RelationIterator",
-                          header: "Expr_RelationIterator.hxx", bycopy.} = object
+  ExprRelationIterator* {.importcpp: "Expr_RelationIterator",
+                         header: "Expr_RelationIterator.hxx", bycopy.} = object
 
 
-proc constructExpr_RelationIterator*(rel: handle[Expr_GeneralRelation]): Expr_RelationIterator {.
+proc constructExprRelationIterator*(rel: Handle[ExprGeneralRelation]): ExprRelationIterator {.
     constructor, importcpp: "Expr_RelationIterator(@)",
     header: "Expr_RelationIterator.hxx".}
-proc More*(this: Expr_RelationIterator): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "Expr_RelationIterator.hxx".}
-proc Next*(this: var Expr_RelationIterator) {.importcpp: "Next",
+proc more*(this: ExprRelationIterator): bool {.noSideEffect, importcpp: "More",
     header: "Expr_RelationIterator.hxx".}
-proc Value*(this: Expr_RelationIterator): handle[Expr_SingleRelation] {.
-    noSideEffect, importcpp: "Value", header: "Expr_RelationIterator.hxx".}
+proc next*(this: var ExprRelationIterator) {.importcpp: "Next",
+    header: "Expr_RelationIterator.hxx".}
+proc value*(this: ExprRelationIterator): Handle[ExprSingleRelation] {.noSideEffect,
+    importcpp: "Value", header: "Expr_RelationIterator.hxx".}

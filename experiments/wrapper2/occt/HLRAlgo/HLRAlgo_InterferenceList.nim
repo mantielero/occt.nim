@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  HLRAlgo_Interference, ../NCollection/NCollection_List
-
 type
-  HLRAlgo_InterferenceList* = NCollection_List[HLRAlgo_Interference]
-  HLRAlgo_ListIteratorOfInterferenceList* = Iterator[HLRAlgo_Interference]
+  HLRAlgoInterferenceList* = NCollectionList[HLRAlgoInterference]
+  HLRAlgoListIteratorOfInterferenceList* = Iterator[HLRAlgoInterference]
+

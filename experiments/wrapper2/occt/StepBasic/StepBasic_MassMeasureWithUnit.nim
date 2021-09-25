@@ -13,31 +13,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_MeasureWithUnit
-
 discard "forward decl of StepBasic_MassMeasureWithUnit"
 discard "forward decl of StepBasic_MassMeasureWithUnit"
 type
-  Handle_StepBasic_MassMeasureWithUnit* = handle[StepBasic_MassMeasureWithUnit]
-  StepBasic_MassMeasureWithUnit* {.importcpp: "StepBasic_MassMeasureWithUnit",
-                                  header: "StepBasic_MassMeasureWithUnit.hxx",
-                                  bycopy.} = object of StepBasic_MeasureWithUnit ## !
-                                                                            ## Returns a
-                                                                            ## MassMeasureWithUnit
+  HandleStepBasicMassMeasureWithUnit* = Handle[StepBasicMassMeasureWithUnit]
+  StepBasicMassMeasureWithUnit* {.importcpp: "StepBasic_MassMeasureWithUnit",
+                                 header: "StepBasic_MassMeasureWithUnit.hxx",
+                                 bycopy.} = object of StepBasicMeasureWithUnit ## !
+                                                                          ## Returns a
+                                                                          ## MassMeasureWithUnit
 
 
-proc constructStepBasic_MassMeasureWithUnit*(): StepBasic_MassMeasureWithUnit {.
+proc constructStepBasicMassMeasureWithUnit*(): StepBasicMassMeasureWithUnit {.
     constructor, importcpp: "StepBasic_MassMeasureWithUnit(@)",
     header: "StepBasic_MassMeasureWithUnit.hxx".}
 type
-  StepBasic_MassMeasureWithUnitbase_type* = StepBasic_MeasureWithUnit
+  StepBasicMassMeasureWithUnitbaseType* = StepBasicMeasureWithUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_MassMeasureWithUnit::get_type_name(@)",
-                              header: "StepBasic_MassMeasureWithUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_MassMeasureWithUnit::get_type_name(@)",
+                            header: "StepBasic_MassMeasureWithUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_MassMeasureWithUnit::get_type_descriptor(@)",
     header: "StepBasic_MassMeasureWithUnit.hxx".}
-proc DynamicType*(this: StepBasic_MassMeasureWithUnit): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicMassMeasureWithUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_MassMeasureWithUnit.hxx".}

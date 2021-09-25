@@ -13,30 +13,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_DerivedShapeAspect
-
 discard "forward decl of StepRepr_Extension"
 discard "forward decl of StepRepr_Extension"
 type
-  Handle_StepRepr_Extension* = handle[StepRepr_Extension]
+  HandleStepReprExtension* = Handle[StepReprExtension]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepRepr_Extension* {.importcpp: "StepRepr_Extension",
-                       header: "StepRepr_Extension.hxx", bycopy.} = object of StepRepr_DerivedShapeAspect
+  StepReprExtension* {.importcpp: "StepRepr_Extension",
+                      header: "StepRepr_Extension.hxx", bycopy.} = object of StepReprDerivedShapeAspect
 
 
-proc constructStepRepr_Extension*(): StepRepr_Extension {.constructor,
+proc constructStepReprExtension*(): StepReprExtension {.constructor,
     importcpp: "StepRepr_Extension(@)", header: "StepRepr_Extension.hxx".}
 type
-  StepRepr_Extensionbase_type* = StepRepr_DerivedShapeAspect
+  StepReprExtensionbaseType* = StepReprDerivedShapeAspect
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_Extension::get_type_name(@)",
-                              header: "StepRepr_Extension.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_Extension::get_type_name(@)",
+                            header: "StepRepr_Extension.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_Extension::get_type_descriptor(@)",
     header: "StepRepr_Extension.hxx".}
-proc DynamicType*(this: StepRepr_Extension): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepReprExtension): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepRepr_Extension.hxx".}

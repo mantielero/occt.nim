@@ -14,43 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_SolidModel
-
 discard "forward decl of StepGeom_CurveBoundedSurface"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_SweptAreaSolid"
 discard "forward decl of StepShape_SweptAreaSolid"
 type
-  Handle_StepShape_SweptAreaSolid* = handle[StepShape_SweptAreaSolid]
-  StepShape_SweptAreaSolid* {.importcpp: "StepShape_SweptAreaSolid",
-                             header: "StepShape_SweptAreaSolid.hxx", bycopy.} = object of StepShape_SolidModel ##
-                                                                                                        ## !
-                                                                                                        ## Returns
-                                                                                                        ## a
-                                                                                                        ## SweptAreaSolid
+  HandleStepShapeSweptAreaSolid* = Handle[StepShapeSweptAreaSolid]
+  StepShapeSweptAreaSolid* {.importcpp: "StepShape_SweptAreaSolid",
+                            header: "StepShape_SweptAreaSolid.hxx", bycopy.} = object of StepShapeSolidModel ##
+                                                                                                      ## !
+                                                                                                      ## Returns
+                                                                                                      ## a
+                                                                                                      ## SweptAreaSolid
 
 
-proc constructStepShape_SweptAreaSolid*(): StepShape_SweptAreaSolid {.constructor,
+proc constructStepShapeSweptAreaSolid*(): StepShapeSweptAreaSolid {.constructor,
     importcpp: "StepShape_SweptAreaSolid(@)",
     header: "StepShape_SweptAreaSolid.hxx".}
-proc Init*(this: var StepShape_SweptAreaSolid;
-          aName: handle[TCollection_HAsciiString];
-          aSweptArea: handle[StepGeom_CurveBoundedSurface]) {.importcpp: "Init",
+proc init*(this: var StepShapeSweptAreaSolid;
+          aName: Handle[TCollectionHAsciiString];
+          aSweptArea: Handle[StepGeomCurveBoundedSurface]) {.importcpp: "Init",
     header: "StepShape_SweptAreaSolid.hxx".}
-proc SetSweptArea*(this: var StepShape_SweptAreaSolid;
-                  aSweptArea: handle[StepGeom_CurveBoundedSurface]) {.
+proc setSweptArea*(this: var StepShapeSweptAreaSolid;
+                  aSweptArea: Handle[StepGeomCurveBoundedSurface]) {.
     importcpp: "SetSweptArea", header: "StepShape_SweptAreaSolid.hxx".}
-proc SweptArea*(this: StepShape_SweptAreaSolid): handle[
-    StepGeom_CurveBoundedSurface] {.noSideEffect, importcpp: "SweptArea",
-                                   header: "StepShape_SweptAreaSolid.hxx".}
+proc sweptArea*(this: StepShapeSweptAreaSolid): Handle[StepGeomCurveBoundedSurface] {.
+    noSideEffect, importcpp: "SweptArea", header: "StepShape_SweptAreaSolid.hxx".}
 type
-  StepShape_SweptAreaSolidbase_type* = StepShape_SolidModel
+  StepShapeSweptAreaSolidbaseType* = StepShapeSolidModel
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_SweptAreaSolid::get_type_name(@)",
-                              header: "StepShape_SweptAreaSolid.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_SweptAreaSolid::get_type_name(@)",
+                            header: "StepShape_SweptAreaSolid.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_SweptAreaSolid::get_type_descriptor(@)",
     header: "StepShape_SweptAreaSolid.hxx".}
-proc DynamicType*(this: StepShape_SweptAreaSolid): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeSweptAreaSolid): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_SweptAreaSolid.hxx".}

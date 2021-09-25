@@ -12,8 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_AsciiString, ../NCollection/NCollection_Sequence
-
 type
-  TColStd_SequenceOfAsciiString* = NCollection_Sequence[TCollection_AsciiString]
+  TColStdSequenceOfAsciiString* = NCollectionSequence[TCollectionAsciiString]
+

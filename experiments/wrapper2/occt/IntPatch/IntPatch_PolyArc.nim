@@ -14,66 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColgp/TColgp_Array1OfPnt2d,
-  ../TColStd/TColStd_Array1OfReal, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, IntPatch_Polygo, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Bnd_Box2d"
 discard "forward decl of gp_Pnt2d"
 type
-  IntPatch_PolyArc* {.importcpp: "IntPatch_PolyArc",
-                     header: "IntPatch_PolyArc.hxx", bycopy.} = object of IntPatch_Polygo ##
-                                                                                   ## !
-                                                                                   ## Creates
-                                                                                   ## the
-                                                                                   ## polygon
-                                                                                   ## of
-                                                                                   ## the
-                                                                                   ## arc
-                                                                                   ## A
-                                                                                   ## on
-                                                                                   ## the
-                                                                                   ## surface
-                                                                                   ## S.
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## The
-                                                                                   ## arc
-                                                                                   ## is
-                                                                                   ## limited
-                                                                                   ## by
-                                                                                   ## the
-                                                                                   ## parameters
-                                                                                   ## Pfirst
-                                                                                   ## and
-                                                                                   ## Plast.
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## None
-                                                                                   ## of
-                                                                                   ## these
-                                                                                   ## parameters
-                                                                                   ## can
-                                                                                   ## be
-                                                                                   ## infinite.
+  IntPatchPolyArc* {.importcpp: "IntPatch_PolyArc", header: "IntPatch_PolyArc.hxx",
+                    bycopy.} = object of IntPatchPolygo ## ! Creates the polygon of the arc A on the surface S.
+                                                   ## ! The arc is limited by the parameters Pfirst and Plast.
+                                                   ## ! None of these parameters can be infinite.
 
 
-proc constructIntPatch_PolyArc*(A: handle[Adaptor2d_HCurve2d];
-                               NbSample: Standard_Integer; Pfirst: Standard_Real;
-                               Plast: Standard_Real; BoxOtherPolygon: Bnd_Box2d): IntPatch_PolyArc {.
+proc constructIntPatchPolyArc*(a: Handle[Adaptor2dHCurve2d]; nbSample: int;
+                              pfirst: float; plast: float; boxOtherPolygon: BndBox2d): IntPatchPolyArc {.
     constructor, importcpp: "IntPatch_PolyArc(@)", header: "IntPatch_PolyArc.hxx".}
-proc Closed*(this: IntPatch_PolyArc): Standard_Boolean {.noSideEffect,
-    importcpp: "Closed", header: "IntPatch_PolyArc.hxx".}
-proc NbPoints*(this: IntPatch_PolyArc): Standard_Integer {.noSideEffect,
-    importcpp: "NbPoints", header: "IntPatch_PolyArc.hxx".}
-proc Point*(this: IntPatch_PolyArc; Index: Standard_Integer): gp_Pnt2d {.noSideEffect,
+proc closed*(this: IntPatchPolyArc): bool {.noSideEffect, importcpp: "Closed",
+                                        header: "IntPatch_PolyArc.hxx".}
+proc nbPoints*(this: IntPatchPolyArc): int {.noSideEffect, importcpp: "NbPoints",
+    header: "IntPatch_PolyArc.hxx".}
+proc point*(this: IntPatchPolyArc; index: int): Pnt2d {.noSideEffect,
     importcpp: "Point", header: "IntPatch_PolyArc.hxx".}
-proc Parameter*(this: IntPatch_PolyArc; Index: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "Parameter", header: "IntPatch_PolyArc.hxx".}
-proc SetOffset*(this: var IntPatch_PolyArc; OffsetX: Standard_Real;
-               OffsetY: Standard_Real) {.importcpp: "SetOffset",
-                                       header: "IntPatch_PolyArc.hxx".}
+proc parameter*(this: IntPatchPolyArc; index: int): float {.noSideEffect,
+    importcpp: "Parameter", header: "IntPatch_PolyArc.hxx".}
+proc setOffset*(this: var IntPatchPolyArc; offsetX: float; offsetY: float) {.
+    importcpp: "SetOffset", header: "IntPatch_PolyArc.hxx".}

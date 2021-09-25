@@ -16,10 +16,11 @@
 ## ! Defines types of value of tolerane
 
 type
-  XCAFDimTolObjects_GeomToleranceTypeValue* {.size: sizeof(cint),
+  XCAFDimTolObjectsGeomToleranceTypeValue* {.size: sizeof(cint),
       importcpp: "XCAFDimTolObjects_GeomToleranceTypeValue",
       header: "XCAFDimTolObjects_GeomToleranceTypeValue.hxx".} = enum
-    XCAFDimTolObjects_GeomToleranceTypeValue_None,
-    XCAFDimTolObjects_GeomToleranceTypeValue_Diameter,
-    XCAFDimTolObjects_GeomToleranceTypeValue_SphericalDiameter
+    XCAFDimTolObjectsGeomToleranceTypeValueNone,
+    XCAFDimTolObjectsGeomToleranceTypeValueDiameter,
+    XCAFDimTolObjectsGeomToleranceTypeValueSphericalDiameter
+
 

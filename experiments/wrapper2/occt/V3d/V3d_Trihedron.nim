@@ -13,67 +13,61 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Graphic3d/Graphic3d_Group, ../Graphic3d/Graphic3d_Structure,
-  ../Graphic3d/Graphic3d_StructureManager, ../Graphic3d/Graphic3d_TransformPers,
-  ../Prs3d/Prs3d_LineAspect, ../Prs3d/Prs3d_ShadingAspect,
-  ../Prs3d/Prs3d_TextAspect
-
 discard "forward decl of V3d_View"
 type
-  V3d_Trihedron* {.importcpp: "V3d_Trihedron", header: "V3d_Trihedron.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                          ## !
-                                                                                                          ## Creates
-                                                                                                          ## a
-                                                                                                          ## default
-                                                                                                          ## trihedron.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Fills
-                                                                                                          ## Graphic3d_Group.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Custom
-                                                                                                          ## Graphic3d_Structure
-                                                                                                          ## implementation.
+  V3dTrihedron* {.importcpp: "V3d_Trihedron", header: "V3d_Trihedron.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                        ## !
+                                                                                                        ## Creates
+                                                                                                        ## a
+                                                                                                        ## default
+                                                                                                        ## trihedron.
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## Fills
+                                                                                                        ## Graphic3d_Group.
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## Custom
+                                                                                                        ## Graphic3d_Structure
+                                                                                                        ## implementation.
 
-  V3d_Trihedronbase_type* = Standard_Transient
+  V3dTrihedronbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "V3d_Trihedron::get_type_name(@)",
-                              header: "V3d_Trihedron.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "V3d_Trihedron::get_type_name(@)",
+                            header: "V3d_Trihedron.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "V3d_Trihedron::get_type_descriptor(@)",
     header: "V3d_Trihedron.hxx".}
-proc DynamicType*(this: V3d_Trihedron): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: V3dTrihedron): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "V3d_Trihedron.hxx".}
-proc constructV3d_Trihedron*(): V3d_Trihedron {.constructor,
+proc constructV3dTrihedron*(): V3dTrihedron {.constructor,
     importcpp: "V3d_Trihedron(@)", header: "V3d_Trihedron.hxx".}
-proc destroyV3d_Trihedron*(this: var V3d_Trihedron) {.
-    importcpp: "#.~V3d_Trihedron()", header: "V3d_Trihedron.hxx".}
-proc SetWireframe*(this: var V3d_Trihedron; theAsWireframe: Standard_Boolean) {.
+proc destroyV3dTrihedron*(this: var V3dTrihedron) {.importcpp: "#.~V3d_Trihedron()",
+    header: "V3d_Trihedron.hxx".}
+proc setWireframe*(this: var V3dTrihedron; theAsWireframe: bool) {.
     importcpp: "SetWireframe", header: "V3d_Trihedron.hxx".}
-proc SetPosition*(this: var V3d_Trihedron;
-                 thePosition: Aspect_TypeOfTriedronPosition) {.
+proc setPosition*(this: var V3dTrihedron; thePosition: AspectTypeOfTriedronPosition) {.
     importcpp: "SetPosition", header: "V3d_Trihedron.hxx".}
-proc SetScale*(this: var V3d_Trihedron; theScale: Standard_Real) {.
-    importcpp: "SetScale", header: "V3d_Trihedron.hxx".}
-proc SetSizeRatio*(this: var V3d_Trihedron; theRatio: Standard_Real) {.
+proc setScale*(this: var V3dTrihedron; theScale: float) {.importcpp: "SetScale",
+    header: "V3d_Trihedron.hxx".}
+proc setSizeRatio*(this: var V3dTrihedron; theRatio: float) {.
     importcpp: "SetSizeRatio", header: "V3d_Trihedron.hxx".}
-proc SetArrowDiameter*(this: var V3d_Trihedron; theDiam: Standard_Real) {.
+proc setArrowDiameter*(this: var V3dTrihedron; theDiam: float) {.
     importcpp: "SetArrowDiameter", header: "V3d_Trihedron.hxx".}
-proc SetNbFacets*(this: var V3d_Trihedron; theNbFacets: Standard_Integer) {.
+proc setNbFacets*(this: var V3dTrihedron; theNbFacets: int) {.
     importcpp: "SetNbFacets", header: "V3d_Trihedron.hxx".}
-proc SetLabelsColor*(this: var V3d_Trihedron; theColor: Quantity_Color) {.
+proc setLabelsColor*(this: var V3dTrihedron; theColor: QuantityColor) {.
     importcpp: "SetLabelsColor", header: "V3d_Trihedron.hxx".}
-proc SetArrowsColor*(this: var V3d_Trihedron; theXColor: Quantity_Color;
-                    theYColor: Quantity_Color; theZColor: Quantity_Color) {.
+proc setArrowsColor*(this: var V3dTrihedron; theXColor: QuantityColor;
+                    theYColor: QuantityColor; theZColor: QuantityColor) {.
     importcpp: "SetArrowsColor", header: "V3d_Trihedron.hxx".}
-proc Display*(this: var V3d_Trihedron; theView: V3d_View) {.importcpp: "Display",
+proc display*(this: var V3dTrihedron; theView: V3dView) {.importcpp: "Display",
     header: "V3d_Trihedron.hxx".}
-proc Erase*(this: var V3d_Trihedron) {.importcpp: "Erase", header: "V3d_Trihedron.hxx".}
-proc DumpJson*(this: V3d_Trihedron; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "V3d_Trihedron.hxx".}
+proc erase*(this: var V3dTrihedron) {.importcpp: "Erase", header: "V3d_Trihedron.hxx".}
+proc dumpJson*(this: V3dTrihedron; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "V3d_Trihedron.hxx".}
 discard "forward decl of V3d_Trihedron"
 type
-  Handle_V3d_Trihedron* = handle[V3d_Trihedron]
+  HandleV3dTrihedron* = Handle[V3dTrihedron]
+

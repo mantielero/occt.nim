@@ -14,29 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_ElementarySurface
-
 discard "forward decl of StepGeom_Plane"
 discard "forward decl of StepGeom_Plane"
 type
-  Handle_StepGeom_Plane* = handle[StepGeom_Plane]
-  StepGeom_Plane* {.importcpp: "StepGeom_Plane", header: "StepGeom_Plane.hxx", bycopy.} = object of StepGeom_ElementarySurface ##
-                                                                                                                     ## !
-                                                                                                                     ## Returns
-                                                                                                                     ## a
-                                                                                                                     ## Plane
+  HandleStepGeomPlane* = Handle[StepGeomPlane]
+  StepGeomPlane* {.importcpp: "StepGeom_Plane", header: "StepGeom_Plane.hxx", bycopy.} = object of StepGeomElementarySurface ##
+                                                                                                                   ## !
+                                                                                                                   ## Returns
+                                                                                                                   ## a
+                                                                                                                   ## Plane
 
 
-proc constructStepGeom_Plane*(): StepGeom_Plane {.constructor,
+proc constructStepGeomPlane*(): StepGeomPlane {.constructor,
     importcpp: "StepGeom_Plane(@)", header: "StepGeom_Plane.hxx".}
 type
-  StepGeom_Planebase_type* = StepGeom_ElementarySurface
+  StepGeomPlanebaseType* = StepGeomElementarySurface
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_Plane::get_type_name(@)",
-                              header: "StepGeom_Plane.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_Plane::get_type_name(@)",
+                            header: "StepGeom_Plane.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_Plane::get_type_descriptor(@)",
     header: "StepGeom_Plane.hxx".}
-proc DynamicType*(this: StepGeom_Plane): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepGeomPlane): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Plane.hxx".}

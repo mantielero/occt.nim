@@ -15,14 +15,15 @@
 ## ! Type of output selection image.
 
 type
-  StdSelect_TypeOfSelectionImage* {.size: sizeof(cint),
-                                   importcpp: "StdSelect_TypeOfSelectionImage",
-                                   header: "StdSelect_TypeOfSelectionImage.hxx".} = enum
-    StdSelect_TypeOfSelectionImage_NormalizedDepth = 0, ## !< normalized   depth (grayscale)
-    StdSelect_TypeOfSelectionImage_NormalizedDepthInverted, ## !< normalized   depth, inverted
-    StdSelect_TypeOfSelectionImage_UnnormalizedDepth, ## !< unnormalized depth (grayscale)
-    StdSelect_TypeOfSelectionImage_ColoredDetectedObject, ## !< color of detected object
-    StdSelect_TypeOfSelectionImage_ColoredEntity, ## !< random color for each entity
-    StdSelect_TypeOfSelectionImage_ColoredOwner, ## !< random color for each owner
-    StdSelect_TypeOfSelectionImage_ColoredSelectionMode ## !< color of selection mode
+  StdSelectTypeOfSelectionImage* {.size: sizeof(cint),
+                                  importcpp: "StdSelect_TypeOfSelectionImage",
+                                  header: "StdSelect_TypeOfSelectionImage.hxx".} = enum
+    StdSelectTypeOfSelectionImageNormalizedDepth = 0, ## !< normalized   depth (grayscale)
+    StdSelectTypeOfSelectionImageNormalizedDepthInverted, ## !< normalized   depth, inverted
+    StdSelectTypeOfSelectionImageUnnormalizedDepth, ## !< unnormalized depth (grayscale)
+    StdSelectTypeOfSelectionImageColoredDetectedObject, ## !< color of detected object
+    StdSelectTypeOfSelectionImageColoredEntity, ## !< random color for each entity
+    StdSelectTypeOfSelectionImageColoredOwner, ## !< random color for each owner
+    StdSelectTypeOfSelectionImageColoredSelectionMode ## !< color of selection mode
+
 

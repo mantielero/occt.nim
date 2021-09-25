@@ -13,8 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  MeshVS_TwoNodes, ../NCollection/NCollection_DefaultHasher
-
 type
-  MeshVS_TwoNodesHasher* = NCollection_DefaultHasher[MeshVS_TwoNodes]
+  MeshVS_TwoNodesHasher* = NCollectionDefaultHasher[MeshVS_TwoNodes]
+

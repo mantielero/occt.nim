@@ -13,21 +13,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../BRepTools/BRepTools_Modifier, ../ShapeBuild/ShapeBuild_ReShape,
-  ../NCollection/NCollection_DataMap, ../Standard/Standard_Macro,
-  ../Standard/Standard_Real, ../TCollection/TCollection_AsciiString,
-  ../TopoDS/TopoDS_Edge, ../TopoDS/TopoDS_Face, ../TopoDS/TopoDS_Vertex,
-  ../TopoDS/TopoDS_Shape
-
 type
-  BRepOffsetSimple_Status* {.size: sizeof(cint),
-                            importcpp: "BRepOffsetSimple_Status",
-                            header: "BRepOffset_MakeSimpleOffset.hxx".} = enum
-    BRepOffsetSimple_OK, BRepOffsetSimple_NullInputShape,
-    BRepOffsetSimple_ErrorOffsetComputation,
-    BRepOffsetSimple_ErrorWallFaceComputation,
-    BRepOffsetSimple_ErrorInvalidNbShells, BRepOffsetSimple_ErrorNonClosedShell
+  BRepOffsetSimpleStatus* {.size: sizeof(cint),
+                           importcpp: "BRepOffsetSimple_Status",
+                           header: "BRepOffset_MakeSimpleOffset.hxx".} = enum
+    BRepOffsetSimpleOK, BRepOffsetSimpleNullInputShape,
+    BRepOffsetSimpleErrorOffsetComputation,
+    BRepOffsetSimpleErrorWallFaceComputation,
+    BRepOffsetSimpleErrorInvalidNbShells, BRepOffsetSimpleErrorNonClosedShell
 
 
 ## ! This class represents simple offset algorithm itself. It builds simple offset without intersection.
@@ -51,27 +44,27 @@ type
 ## ! will lead to good result.
 
 type
-  BRepOffset_MakeSimpleOffset* {.importcpp: "BRepOffset_MakeSimpleOffset",
-                                header: "BRepOffset_MakeSimpleOffset.hxx", bycopy.} = object ##
-                                                                                        ## !
-                                                                                        ## Constructor.
-                                                                                        ## Does
-                                                                                        ## nothing.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Computes
-                                                                                        ## max
-                                                                                        ## angle
-                                                                                        ## in
-                                                                                        ## faces
-                                                                                        ## junction.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Builds
-                                                                                        ## face
-                                                                                        ## on
-                                                                                        ## specified
-                                                                                        ## wall.
+  BRepOffsetMakeSimpleOffset* {.importcpp: "BRepOffset_MakeSimpleOffset",
+                               header: "BRepOffset_MakeSimpleOffset.hxx", bycopy.} = object ##
+                                                                                       ## !
+                                                                                       ## Constructor.
+                                                                                       ## Does
+                                                                                       ## nothing.
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## Computes
+                                                                                       ## max
+                                                                                       ## angle
+                                                                                       ## in
+                                                                                       ## faces
+                                                                                       ## junction.
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## Builds
+                                                                                       ## face
+                                                                                       ## on
+                                                                                       ## specified
+                                                                                       ## wall.
     ## ! Offset value.
     ## ! Tolerance (for singularities)
     ## ! Solid building flag. True means solid construction.
@@ -87,48 +80,41 @@ type
     ## ! Result shape.
 
 
-proc constructBRepOffset_MakeSimpleOffset*(): BRepOffset_MakeSimpleOffset {.
+proc constructBRepOffsetMakeSimpleOffset*(): BRepOffsetMakeSimpleOffset {.
     constructor, importcpp: "BRepOffset_MakeSimpleOffset(@)",
     header: "BRepOffset_MakeSimpleOffset.hxx".}
-proc constructBRepOffset_MakeSimpleOffset*(theInputShape: TopoDS_Shape;
-    theOffsetValue: Standard_Real): BRepOffset_MakeSimpleOffset {.constructor,
+proc constructBRepOffsetMakeSimpleOffset*(theInputShape: TopoDS_Shape;
+    theOffsetValue: float): BRepOffsetMakeSimpleOffset {.constructor,
     importcpp: "BRepOffset_MakeSimpleOffset(@)",
     header: "BRepOffset_MakeSimpleOffset.hxx".}
-proc Initialize*(this: var BRepOffset_MakeSimpleOffset; theInputShape: TopoDS_Shape;
-                theOffsetValue: Standard_Real) {.importcpp: "Initialize",
+proc initialize*(this: var BRepOffsetMakeSimpleOffset; theInputShape: TopoDS_Shape;
+                theOffsetValue: float) {.importcpp: "Initialize", header: "BRepOffset_MakeSimpleOffset.hxx".}
+proc perform*(this: var BRepOffsetMakeSimpleOffset) {.importcpp: "Perform",
     header: "BRepOffset_MakeSimpleOffset.hxx".}
-proc Perform*(this: var BRepOffset_MakeSimpleOffset) {.importcpp: "Perform",
-    header: "BRepOffset_MakeSimpleOffset.hxx".}
-proc GetErrorMessage*(this: BRepOffset_MakeSimpleOffset): TCollection_AsciiString {.
+proc getErrorMessage*(this: BRepOffsetMakeSimpleOffset): TCollectionAsciiString {.
     noSideEffect, importcpp: "GetErrorMessage",
     header: "BRepOffset_MakeSimpleOffset.hxx".}
-proc GetError*(this: BRepOffset_MakeSimpleOffset): BRepOffsetSimple_Status {.
+proc getError*(this: BRepOffsetMakeSimpleOffset): BRepOffsetSimpleStatus {.
     noSideEffect, importcpp: "GetError", header: "BRepOffset_MakeSimpleOffset.hxx".}
-proc GetBuildSolidFlag*(this: BRepOffset_MakeSimpleOffset): Standard_Boolean {.
-    noSideEffect, importcpp: "GetBuildSolidFlag",
-    header: "BRepOffset_MakeSimpleOffset.hxx".}
-proc SetBuildSolidFlag*(this: var BRepOffset_MakeSimpleOffset;
-                       theBuildFlag: Standard_Boolean) {.
+proc getBuildSolidFlag*(this: BRepOffsetMakeSimpleOffset): bool {.noSideEffect,
+    importcpp: "GetBuildSolidFlag", header: "BRepOffset_MakeSimpleOffset.hxx".}
+proc setBuildSolidFlag*(this: var BRepOffsetMakeSimpleOffset; theBuildFlag: bool) {.
     importcpp: "SetBuildSolidFlag", header: "BRepOffset_MakeSimpleOffset.hxx".}
-proc GetOffsetValue*(this: BRepOffset_MakeSimpleOffset): Standard_Real {.
-    noSideEffect, importcpp: "GetOffsetValue",
-    header: "BRepOffset_MakeSimpleOffset.hxx".}
-proc SetOffsetValue*(this: var BRepOffset_MakeSimpleOffset;
-                    theOffsetValue: Standard_Real) {.importcpp: "SetOffsetValue",
-    header: "BRepOffset_MakeSimpleOffset.hxx".}
-proc GetTolerance*(this: BRepOffset_MakeSimpleOffset): Standard_Real {.noSideEffect,
+proc getOffsetValue*(this: BRepOffsetMakeSimpleOffset): float {.noSideEffect,
+    importcpp: "GetOffsetValue", header: "BRepOffset_MakeSimpleOffset.hxx".}
+proc setOffsetValue*(this: var BRepOffsetMakeSimpleOffset; theOffsetValue: float) {.
+    importcpp: "SetOffsetValue", header: "BRepOffset_MakeSimpleOffset.hxx".}
+proc getTolerance*(this: BRepOffsetMakeSimpleOffset): float {.noSideEffect,
     importcpp: "GetTolerance", header: "BRepOffset_MakeSimpleOffset.hxx".}
-proc SetTolerance*(this: var BRepOffset_MakeSimpleOffset; theValue: Standard_Real) {.
+proc setTolerance*(this: var BRepOffsetMakeSimpleOffset; theValue: float) {.
     importcpp: "SetTolerance", header: "BRepOffset_MakeSimpleOffset.hxx".}
-proc IsDone*(this: BRepOffset_MakeSimpleOffset): Standard_Boolean {.noSideEffect,
+proc isDone*(this: BRepOffsetMakeSimpleOffset): bool {.noSideEffect,
     importcpp: "IsDone", header: "BRepOffset_MakeSimpleOffset.hxx".}
-proc GetResultShape*(this: BRepOffset_MakeSimpleOffset): TopoDS_Shape {.
-    noSideEffect, importcpp: "GetResultShape",
-    header: "BRepOffset_MakeSimpleOffset.hxx".}
-proc GetSafeOffset*(this: var BRepOffset_MakeSimpleOffset;
-                   theExpectedToler: Standard_Real): Standard_Real {.
+proc getResultShape*(this: BRepOffsetMakeSimpleOffset): TopoDS_Shape {.noSideEffect,
+    importcpp: "GetResultShape", header: "BRepOffset_MakeSimpleOffset.hxx".}
+proc getSafeOffset*(this: var BRepOffsetMakeSimpleOffset; theExpectedToler: float): float {.
     importcpp: "GetSafeOffset", header: "BRepOffset_MakeSimpleOffset.hxx".}
-proc Generated*(this: BRepOffset_MakeSimpleOffset; theShape: TopoDS_Shape): TopoDS_Shape {.
+proc generated*(this: BRepOffsetMakeSimpleOffset; theShape: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "Generated", header: "BRepOffset_MakeSimpleOffset.hxx".}
-proc Modified*(this: BRepOffset_MakeSimpleOffset; theShape: TopoDS_Shape): TopoDS_Shape {.
+proc modified*(this: BRepOffsetMakeSimpleOffset; theShape: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "Modified", header: "BRepOffset_MakeSimpleOffset.hxx".}

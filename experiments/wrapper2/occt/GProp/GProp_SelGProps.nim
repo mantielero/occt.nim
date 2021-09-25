@@ -14,49 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GProp_GProps, ../Standard/Standard_Real
-
 discard "forward decl of gp_Cylinder"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Cone"
 discard "forward decl of gp_Sphere"
 discard "forward decl of gp_Torus"
 type
-  GProp_SelGProps* {.importcpp: "GProp_SelGProps", header: "GProp_SelGProps.hxx",
-                    bycopy.} = object of GProp_GProps
+  GPropSelGProps* {.importcpp: "GProp_SelGProps", header: "GProp_SelGProps.hxx",
+                   bycopy.} = object of GPropGProps
 
 
-proc constructGProp_SelGProps*(): GProp_SelGProps {.constructor,
+proc constructGPropSelGProps*(): GPropSelGProps {.constructor,
     importcpp: "GProp_SelGProps(@)", header: "GProp_SelGProps.hxx".}
-proc constructGProp_SelGProps*(S: gp_Cylinder; Alpha1: Standard_Real;
-                              Alpha2: Standard_Real; Z1: Standard_Real;
-                              Z2: Standard_Real; SLocation: gp_Pnt): GProp_SelGProps {.
+proc constructGPropSelGProps*(s: Cylinder; alpha1: float; alpha2: float; z1: float;
+                             z2: float; sLocation: Pnt): GPropSelGProps {.
     constructor, importcpp: "GProp_SelGProps(@)", header: "GProp_SelGProps.hxx".}
-proc constructGProp_SelGProps*(S: gp_Cone; Alpha1: Standard_Real;
-                              Alpha2: Standard_Real; Z1: Standard_Real;
-                              Z2: Standard_Real; SLocation: gp_Pnt): GProp_SelGProps {.
+proc constructGPropSelGProps*(s: Cone; alpha1: float; alpha2: float; z1: float;
+                             z2: float; sLocation: Pnt): GPropSelGProps {.
     constructor, importcpp: "GProp_SelGProps(@)", header: "GProp_SelGProps.hxx".}
-proc constructGProp_SelGProps*(S: gp_Sphere; Teta1: Standard_Real;
-                              Teta2: Standard_Real; Alpha1: Standard_Real;
-                              Alpha2: Standard_Real; SLocation: gp_Pnt): GProp_SelGProps {.
+proc constructGPropSelGProps*(s: Sphere; teta1: float; teta2: float; alpha1: float;
+                             alpha2: float; sLocation: Pnt): GPropSelGProps {.
     constructor, importcpp: "GProp_SelGProps(@)", header: "GProp_SelGProps.hxx".}
-proc constructGProp_SelGProps*(S: gp_Torus; Teta1: Standard_Real;
-                              Teta2: Standard_Real; Alpha1: Standard_Real;
-                              Alpha2: Standard_Real; SLocation: gp_Pnt): GProp_SelGProps {.
+proc constructGPropSelGProps*(s: Torus; teta1: float; teta2: float; alpha1: float;
+                             alpha2: float; sLocation: Pnt): GPropSelGProps {.
     constructor, importcpp: "GProp_SelGProps(@)", header: "GProp_SelGProps.hxx".}
-proc SetLocation*(this: var GProp_SelGProps; SLocation: gp_Pnt) {.
+proc setLocation*(this: var GPropSelGProps; sLocation: Pnt) {.
     importcpp: "SetLocation", header: "GProp_SelGProps.hxx".}
-proc Perform*(this: var GProp_SelGProps; S: gp_Cylinder; Alpha1: Standard_Real;
-             Alpha2: Standard_Real; Z1: Standard_Real; Z2: Standard_Real) {.
-    importcpp: "Perform", header: "GProp_SelGProps.hxx".}
-proc Perform*(this: var GProp_SelGProps; S: gp_Cone; Alpha1: Standard_Real;
-             Alpha2: Standard_Real; Z1: Standard_Real; Z2: Standard_Real) {.
-    importcpp: "Perform", header: "GProp_SelGProps.hxx".}
-proc Perform*(this: var GProp_SelGProps; S: gp_Sphere; Teta1: Standard_Real;
-             Teta2: Standard_Real; Alpha1: Standard_Real; Alpha2: Standard_Real) {.
-    importcpp: "Perform", header: "GProp_SelGProps.hxx".}
-proc Perform*(this: var GProp_SelGProps; S: gp_Torus; Teta1: Standard_Real;
-             Teta2: Standard_Real; Alpha1: Standard_Real; Alpha2: Standard_Real) {.
-    importcpp: "Perform", header: "GProp_SelGProps.hxx".}
+proc perform*(this: var GPropSelGProps; s: Cylinder; alpha1: float; alpha2: float;
+             z1: float; z2: float) {.importcpp: "Perform",
+                                 header: "GProp_SelGProps.hxx".}
+proc perform*(this: var GPropSelGProps; s: Cone; alpha1: float; alpha2: float; z1: float;
+             z2: float) {.importcpp: "Perform", header: "GProp_SelGProps.hxx".}
+proc perform*(this: var GPropSelGProps; s: Sphere; teta1: float; teta2: float;
+             alpha1: float; alpha2: float) {.importcpp: "Perform",
+    header: "GProp_SelGProps.hxx".}
+proc perform*(this: var GPropSelGProps; s: Torus; teta1: float; teta2: float;
+             alpha1: float; alpha2: float) {.importcpp: "Perform",
+    header: "GProp_SelGProps.hxx".}

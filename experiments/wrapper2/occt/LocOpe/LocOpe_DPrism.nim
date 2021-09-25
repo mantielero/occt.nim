@@ -14,15 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../BRepFill/BRepFill_Evolved,
-  ../TopoDS/TopoDS_Shape, ../TopoDS/TopoDS_Face, ../TopoDS/TopoDS_Wire,
-  ../TopoDS/TopoDS_Edge, ../Standard/Standard_Real,
-  ../TColGeom/TColGeom_SequenceOfCurve,
-  ../TopTools/TopTools_DataMapOfShapeListOfShape, ../Standard/Standard_Boolean,
-  ../TopTools/TopTools_ListOfShape
-
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of StdFail_NotDone"
@@ -30,30 +21,29 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Geom_Curve"
 type
-  LocOpe_DPrism* {.importcpp: "LocOpe_DPrism", header: "LocOpe_DPrism.hxx", bycopy.} = object
+  LocOpeDPrism* {.importcpp: "LocOpe_DPrism", header: "LocOpe_DPrism.hxx", bycopy.} = object
 
 
-proc constructLocOpe_DPrism*(Spine: TopoDS_Face; Height1: Standard_Real;
-                            Height2: Standard_Real; Angle: Standard_Real): LocOpe_DPrism {.
-    constructor, importcpp: "LocOpe_DPrism(@)", header: "LocOpe_DPrism.hxx".}
-proc constructLocOpe_DPrism*(Spine: TopoDS_Face; Height: Standard_Real;
-                            Angle: Standard_Real): LocOpe_DPrism {.constructor,
+proc constructLocOpeDPrism*(spine: TopoDS_Face; height1: float; height2: float;
+                           angle: float): LocOpeDPrism {.constructor,
     importcpp: "LocOpe_DPrism(@)", header: "LocOpe_DPrism.hxx".}
-proc IsDone*(this: LocOpe_DPrism): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "LocOpe_DPrism.hxx".}
-proc Spine*(this: LocOpe_DPrism): TopoDS_Shape {.noSideEffect, importcpp: "Spine",
+proc constructLocOpeDPrism*(spine: TopoDS_Face; height: float; angle: float): LocOpeDPrism {.
+    constructor, importcpp: "LocOpe_DPrism(@)", header: "LocOpe_DPrism.hxx".}
+proc isDone*(this: LocOpeDPrism): bool {.noSideEffect, importcpp: "IsDone",
+                                     header: "LocOpe_DPrism.hxx".}
+proc spine*(this: LocOpeDPrism): TopoDS_Shape {.noSideEffect, importcpp: "Spine",
     header: "LocOpe_DPrism.hxx".}
-proc Profile*(this: LocOpe_DPrism): TopoDS_Shape {.noSideEffect,
-    importcpp: "Profile", header: "LocOpe_DPrism.hxx".}
-proc FirstShape*(this: LocOpe_DPrism): TopoDS_Shape {.noSideEffect,
+proc profile*(this: LocOpeDPrism): TopoDS_Shape {.noSideEffect, importcpp: "Profile",
+    header: "LocOpe_DPrism.hxx".}
+proc firstShape*(this: LocOpeDPrism): TopoDS_Shape {.noSideEffect,
     importcpp: "FirstShape", header: "LocOpe_DPrism.hxx".}
-proc LastShape*(this: LocOpe_DPrism): TopoDS_Shape {.noSideEffect,
+proc lastShape*(this: LocOpeDPrism): TopoDS_Shape {.noSideEffect,
     importcpp: "LastShape", header: "LocOpe_DPrism.hxx".}
-proc Shape*(this: LocOpe_DPrism): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
+proc shape*(this: LocOpeDPrism): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "LocOpe_DPrism.hxx".}
-proc Shapes*(this: LocOpe_DPrism; S: TopoDS_Shape): TopTools_ListOfShape {.
-    noSideEffect, importcpp: "Shapes", header: "LocOpe_DPrism.hxx".}
-proc Curves*(this: LocOpe_DPrism; SCurves: var TColGeom_SequenceOfCurve) {.
-    noSideEffect, importcpp: "Curves", header: "LocOpe_DPrism.hxx".}
-proc BarycCurve*(this: LocOpe_DPrism): handle[Geom_Curve] {.noSideEffect,
+proc shapes*(this: LocOpeDPrism; s: TopoDS_Shape): TopToolsListOfShape {.noSideEffect,
+    importcpp: "Shapes", header: "LocOpe_DPrism.hxx".}
+proc curves*(this: LocOpeDPrism; sCurves: var TColGeomSequenceOfCurve) {.noSideEffect,
+    importcpp: "Curves", header: "LocOpe_DPrism.hxx".}
+proc barycCurve*(this: LocOpeDPrism): Handle[GeomCurve] {.noSideEffect,
     importcpp: "BarycCurve", header: "LocOpe_DPrism.hxx".}

@@ -15,18 +15,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, BOPAlgo_Options
-
 ## ! The class provides the root interface for the algorithms in Boolean Component.<br>
 
 type
-  BOPAlgo_Algo* {.importcpp: "BOPAlgo_Algo", header: "BOPAlgo_Algo.hxx", bycopy.} = object of BOPAlgo_Options ##
-                                                                                                    ## !
-                                                                                                    ## Default
-                                                                                                    ## constructor
+  BOPAlgoAlgo* {.importcpp: "BOPAlgo_Algo", header: "BOPAlgo_Algo.hxx", bycopy.} = object of BOPAlgoOptions ##
+                                                                                                  ## !
+                                                                                                  ## Default
+                                                                                                  ## constructor
 
 
-proc Perform*(this: var BOPAlgo_Algo) {.importcpp: "Perform",
-                                    header: "BOPAlgo_Algo.hxx".}
+proc perform*(this: var BOPAlgoAlgo) {.importcpp: "Perform",
+                                   header: "BOPAlgo_Algo.hxx".}

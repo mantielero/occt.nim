@@ -15,9 +15,10 @@
 ##  commercial license or contractual agreement.
 
 type
-  FilletSurf_ErrorTypeStatus* {.size: sizeof(cint),
-                               importcpp: "FilletSurf_ErrorTypeStatus",
-                               header: "FilletSurf_ErrorTypeStatus.hxx".} = enum
-    FilletSurf_EmptyList, FilletSurf_EdgeNotG1, FilletSurf_FacesNotG1,
-    FilletSurf_EdgeNotOnShape, FilletSurf_NotSharpEdge, FilletSurf_PbFilletCompute
+  FilletSurfErrorTypeStatus* {.size: sizeof(cint),
+                              importcpp: "FilletSurf_ErrorTypeStatus",
+                              header: "FilletSurf_ErrorTypeStatus.hxx".} = enum
+    FilletSurfEmptyList, FilletSurfEdgeNotG1, FilletSurfFacesNotG1,
+    FilletSurfEdgeNotOnShape, FilletSurfNotSharpEdge, FilletSurfPbFilletCompute
+
 

@@ -14,11 +14,12 @@
 ## ! Define buffers available for dump
 
 type
-  Graphic3d_BufferType* {.size: sizeof(cint), importcpp: "Graphic3d_BufferType",
-                         header: "Graphic3d_BufferType.hxx".} = enum
-    Graphic3d_BT_RGB,         ## !< color buffer without alpha component
-    Graphic3d_BT_RGBA,        ## !< color buffer
-    Graphic3d_BT_Depth,       ## !< depth buffer
-    Graphic3d_BT_RGB_RayTraceHdrLeft, ## !< left view HDR color buffer for Ray-Tracing
-    Graphic3d_BT_Red          ## !< color buffer, red channel
+  Graphic3dBufferType* {.size: sizeof(cint), importcpp: "Graphic3d_BufferType",
+                        header: "Graphic3d_BufferType.hxx".} = enum
+    Graphic3dBT_RGB,          ## !< color buffer without alpha component
+    Graphic3dBT_RGBA,         ## !< color buffer
+    Graphic3dBT_Depth,        ## !< depth buffer
+    Graphic3dBT_RGB_RayTraceHdrLeft, ## !< left view HDR color buffer for Ray-Tracing
+    Graphic3dBT_Red           ## !< color buffer, red channel
+
 

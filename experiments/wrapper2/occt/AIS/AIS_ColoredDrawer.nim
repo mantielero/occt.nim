@@ -11,72 +11,70 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Prs3d/Prs3d_Drawer, ../Quantity/Quantity_Color
-
 ## ! Customizable properties.
 
 type
   AIS_ColoredDrawer* {.importcpp: "AIS_ColoredDrawer",
-                      header: "AIS_ColoredDrawer.hxx", bycopy.} = object of Prs3d_Drawer ##
-                                                                                  ## !
-                                                                                  ## Default
-                                                                                  ## constructor.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## @name
-                                                                                  ## list
-                                                                                  ## of
-                                                                                  ## overridden
-                                                                                  ## properties
+                      header: "AIS_ColoredDrawer.hxx", bycopy.} = object of Prs3dDrawer ##
+                                                                                 ## !
+                                                                                 ## Default
+                                                                                 ## constructor.
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## @name
+                                                                                 ## list
+                                                                                 ## of
+                                                                                 ## overridden
+                                                                                 ## properties
     myIsHidden* {.importc: "myIsHidden".}: bool
     myHasOwnMaterial* {.importc: "myHasOwnMaterial".}: bool
     myHasOwnColor* {.importc: "myHasOwnColor".}: bool
     myHasOwnTransp* {.importc: "myHasOwnTransp".}: bool
     myHasOwnWidth* {.importc: "myHasOwnWidth".}: bool
 
-  AIS_ColoredDrawerbase_type* = Prs3d_Drawer
+  AIS_ColoredDrawerbaseType* = Prs3dDrawer
 
-proc get_type_name*(): cstring {.importcpp: "AIS_ColoredDrawer::get_type_name(@)",
-                              header: "AIS_ColoredDrawer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "AIS_ColoredDrawer::get_type_name(@)",
+                            header: "AIS_ColoredDrawer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "AIS_ColoredDrawer::get_type_descriptor(@)",
     header: "AIS_ColoredDrawer.hxx".}
-proc DynamicType*(this: AIS_ColoredDrawer): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: AIS_ColoredDrawer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_ColoredDrawer.hxx".}
-proc constructAIS_ColoredDrawer*(theLink: handle[Prs3d_Drawer]): AIS_ColoredDrawer {.
+proc constructAIS_ColoredDrawer*(theLink: Handle[Prs3dDrawer]): AIS_ColoredDrawer {.
     constructor, importcpp: "AIS_ColoredDrawer(@)", header: "AIS_ColoredDrawer.hxx".}
-proc IsHidden*(this: AIS_ColoredDrawer): bool {.noSideEffect, importcpp: "IsHidden",
+proc isHidden*(this: AIS_ColoredDrawer): bool {.noSideEffect, importcpp: "IsHidden",
     header: "AIS_ColoredDrawer.hxx".}
-proc SetHidden*(this: var AIS_ColoredDrawer; theToHide: bool) {.
+proc setHidden*(this: var AIS_ColoredDrawer; theToHide: bool) {.
     importcpp: "SetHidden", header: "AIS_ColoredDrawer.hxx".}
-proc HasOwnMaterial*(this: AIS_ColoredDrawer): bool {.noSideEffect,
+proc hasOwnMaterial*(this: AIS_ColoredDrawer): bool {.noSideEffect,
     importcpp: "HasOwnMaterial", header: "AIS_ColoredDrawer.hxx".}
-proc UnsetOwnMaterial*(this: var AIS_ColoredDrawer) {.importcpp: "UnsetOwnMaterial",
+proc unsetOwnMaterial*(this: var AIS_ColoredDrawer) {.importcpp: "UnsetOwnMaterial",
     header: "AIS_ColoredDrawer.hxx".}
-proc SetOwnMaterial*(this: var AIS_ColoredDrawer) {.importcpp: "SetOwnMaterial",
+proc setOwnMaterial*(this: var AIS_ColoredDrawer) {.importcpp: "SetOwnMaterial",
     header: "AIS_ColoredDrawer.hxx".}
-proc HasOwnColor*(this: AIS_ColoredDrawer): bool {.noSideEffect,
+proc hasOwnColor*(this: AIS_ColoredDrawer): bool {.noSideEffect,
     importcpp: "HasOwnColor", header: "AIS_ColoredDrawer.hxx".}
-proc UnsetOwnColor*(this: var AIS_ColoredDrawer) {.importcpp: "UnsetOwnColor",
+proc unsetOwnColor*(this: var AIS_ColoredDrawer) {.importcpp: "UnsetOwnColor",
     header: "AIS_ColoredDrawer.hxx".}
-proc SetOwnColor*(this: var AIS_ColoredDrawer; a2: Quantity_Color) {.
+proc setOwnColor*(this: var AIS_ColoredDrawer; a2: QuantityColor) {.
     importcpp: "SetOwnColor", header: "AIS_ColoredDrawer.hxx".}
   ## theColor
-proc HasOwnTransparency*(this: AIS_ColoredDrawer): bool {.noSideEffect,
+proc hasOwnTransparency*(this: AIS_ColoredDrawer): bool {.noSideEffect,
     importcpp: "HasOwnTransparency", header: "AIS_ColoredDrawer.hxx".}
-proc UnsetOwnTransparency*(this: var AIS_ColoredDrawer) {.
+proc unsetOwnTransparency*(this: var AIS_ColoredDrawer) {.
     importcpp: "UnsetOwnTransparency", header: "AIS_ColoredDrawer.hxx".}
-proc SetOwnTransparency*(this: var AIS_ColoredDrawer; a2: Standard_Real) {.
+proc setOwnTransparency*(this: var AIS_ColoredDrawer; a2: float) {.
     importcpp: "SetOwnTransparency", header: "AIS_ColoredDrawer.hxx".}
   ## theTransp
-proc HasOwnWidth*(this: AIS_ColoredDrawer): bool {.noSideEffect,
+proc hasOwnWidth*(this: AIS_ColoredDrawer): bool {.noSideEffect,
     importcpp: "HasOwnWidth", header: "AIS_ColoredDrawer.hxx".}
-proc UnsetOwnWidth*(this: var AIS_ColoredDrawer) {.importcpp: "UnsetOwnWidth",
+proc unsetOwnWidth*(this: var AIS_ColoredDrawer) {.importcpp: "UnsetOwnWidth",
     header: "AIS_ColoredDrawer.hxx".}
-proc SetOwnWidth*(this: var AIS_ColoredDrawer; a2: Standard_Real) {.
-    importcpp: "SetOwnWidth", header: "AIS_ColoredDrawer.hxx".}
+proc setOwnWidth*(this: var AIS_ColoredDrawer; a2: float) {.importcpp: "SetOwnWidth",
+    header: "AIS_ColoredDrawer.hxx".}
   ## theWidth
 discard "forward decl of AIS_ColoredDrawer"
 type
-  Handle_AIS_ColoredDrawer* = handle[AIS_ColoredDrawer]
+  HandleAIS_ColoredDrawer* = Handle[AIS_ColoredDrawer]
+

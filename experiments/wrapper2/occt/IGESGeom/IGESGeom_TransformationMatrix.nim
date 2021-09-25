@@ -14,18 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_HArray2OfReal, ../IGESData/IGESData_TransfEntity,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real
-
 discard "forward decl of Standard_DimensionMismatch"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_GTrsf"
 discard "forward decl of IGESGeom_TransformationMatrix"
 discard "forward decl of IGESGeom_TransformationMatrix"
 type
-  Handle_IGESGeom_TransformationMatrix* = handle[IGESGeom_TransformationMatrix]
+  HandleIGESGeomTransformationMatrix* = Handle[IGESGeomTransformationMatrix]
 
 ## ! defines IGESTransformationMatrix, Type <124> Form <0>
 ## ! in package IGESGeom
@@ -36,32 +31,31 @@ type
 ## ! it as described above, and produces the output vector.
 
 type
-  IGESGeom_TransformationMatrix* {.importcpp: "IGESGeom_TransformationMatrix",
-                                  header: "IGESGeom_TransformationMatrix.hxx",
-                                  bycopy.} = object of IGESData_TransfEntity
+  IGESGeomTransformationMatrix* {.importcpp: "IGESGeom_TransformationMatrix",
+                                 header: "IGESGeom_TransformationMatrix.hxx",
+                                 bycopy.} = object of IGESDataTransfEntity
 
 
-proc constructIGESGeom_TransformationMatrix*(): IGESGeom_TransformationMatrix {.
+proc constructIGESGeomTransformationMatrix*(): IGESGeomTransformationMatrix {.
     constructor, importcpp: "IGESGeom_TransformationMatrix(@)",
     header: "IGESGeom_TransformationMatrix.hxx".}
-proc Init*(this: var IGESGeom_TransformationMatrix;
-          aMatrix: handle[TColStd_HArray2OfReal]) {.importcpp: "Init",
+proc init*(this: var IGESGeomTransformationMatrix;
+          aMatrix: Handle[TColStdHArray2OfReal]) {.importcpp: "Init",
     header: "IGESGeom_TransformationMatrix.hxx".}
-proc SetFormNumber*(this: var IGESGeom_TransformationMatrix; form: Standard_Integer) {.
+proc setFormNumber*(this: var IGESGeomTransformationMatrix; form: int) {.
     importcpp: "SetFormNumber", header: "IGESGeom_TransformationMatrix.hxx".}
-proc Data*(this: IGESGeom_TransformationMatrix; I: Standard_Integer;
-          J: Standard_Integer): Standard_Real {.noSideEffect, importcpp: "Data",
-    header: "IGESGeom_TransformationMatrix.hxx".}
-proc Value*(this: IGESGeom_TransformationMatrix): gp_GTrsf {.noSideEffect,
+proc data*(this: IGESGeomTransformationMatrix; i: int; j: int): float {.noSideEffect,
+    importcpp: "Data", header: "IGESGeom_TransformationMatrix.hxx".}
+proc value*(this: IGESGeomTransformationMatrix): GTrsf {.noSideEffect,
     importcpp: "Value", header: "IGESGeom_TransformationMatrix.hxx".}
 type
-  IGESGeom_TransformationMatrixbase_type* = IGESData_TransfEntity
+  IGESGeomTransformationMatrixbaseType* = IGESDataTransfEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESGeom_TransformationMatrix::get_type_name(@)",
-                              header: "IGESGeom_TransformationMatrix.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESGeom_TransformationMatrix::get_type_name(@)",
+                            header: "IGESGeom_TransformationMatrix.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESGeom_TransformationMatrix::get_type_descriptor(@)",
     header: "IGESGeom_TransformationMatrix.hxx".}
-proc DynamicType*(this: IGESGeom_TransformationMatrix): handle[Standard_Type] {.
+proc dynamicType*(this: IGESGeomTransformationMatrix): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESGeom_TransformationMatrix.hxx".}

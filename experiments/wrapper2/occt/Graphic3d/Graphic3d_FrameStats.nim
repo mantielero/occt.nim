@@ -11,51 +11,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Graphic3d_FrameStatsData, Graphic3d_RenderingParams, ../Standard/Standard_Type,
-  ../Standard/Standard_Transient, ../TColStd/TColStd_IndexedDataMapOfStringString
-
 discard "forward decl of Graphic3d_CView"
 type
-  Graphic3d_FrameStats* {.importcpp: "Graphic3d_FrameStats",
-                         header: "Graphic3d_FrameStats.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                              ## !
-                                                                                              ## Default
-                                                                                              ## constructor.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## formatted
-                                                                                              ## string.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## value
-                                                                                              ## of
-                                                                                              ## specified
-                                                                                              ## counter
-                                                                                              ## for
-                                                                                              ## modification,
-                                                                                              ## should
-                                                                                              ## be
-                                                                                              ## called
-                                                                                              ## between
-                                                                                              ## ::FrameStart()
-                                                                                              ## and
-                                                                                              ## ::FrameEnd()
-                                                                                              ## calls.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Method
-                                                                                              ## to
-                                                                                              ## collect
-                                                                                              ## statistics
-                                                                                              ## from
-                                                                                              ## the
-                                                                                              ## View;
-                                                                                              ## called
-                                                                                              ## by
-                                                                                              ## FrameEnd().
+  Graphic3dFrameStats* {.importcpp: "Graphic3d_FrameStats",
+                        header: "Graphic3d_FrameStats.hxx", bycopy.} = object of StandardTransient ##
+                                                                                            ## !
+                                                                                            ## Default
+                                                                                            ## constructor.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## formatted
+                                                                                            ## string.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## value
+                                                                                            ## of
+                                                                                            ## specified
+                                                                                            ## counter
+                                                                                            ## for
+                                                                                            ## modification,
+                                                                                            ## should
+                                                                                            ## be
+                                                                                            ## called
+                                                                                            ## between
+                                                                                            ## ::FrameStart()
+                                                                                            ## and
+                                                                                            ## ::FrameEnd()
+                                                                                            ## calls.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Method
+                                                                                            ## to
+                                                                                            ## collect
+                                                                                            ## statistics
+                                                                                            ## from
+                                                                                            ## the
+                                                                                            ## View;
+                                                                                            ## called
+                                                                                            ## by
+                                                                                            ## FrameEnd().
     ## !< timer for FPS measurements
     ## !< time at the beginning of frame redraw
     ## !< frame duration
@@ -67,70 +63,68 @@ type
     ## !< last data frame index
     ## !< prefer longer lines over greater number of lines
 
-  Graphic3d_FrameStatsbase_type* = Standard_Transient
+  Graphic3dFrameStatsbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_FrameStats::get_type_name(@)",
-                              header: "Graphic3d_FrameStats.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_FrameStats::get_type_name(@)",
+                            header: "Graphic3d_FrameStats.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_FrameStats::get_type_descriptor(@)",
     header: "Graphic3d_FrameStats.hxx".}
-proc DynamicType*(this: Graphic3d_FrameStats): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: Graphic3dFrameStats): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Graphic3d_FrameStats.hxx".}
-proc constructGraphic3d_FrameStats*(): Graphic3d_FrameStats {.constructor,
+proc constructGraphic3dFrameStats*(): Graphic3dFrameStats {.constructor,
     importcpp: "Graphic3d_FrameStats(@)", header: "Graphic3d_FrameStats.hxx".}
-proc destroyGraphic3d_FrameStats*(this: var Graphic3d_FrameStats) {.
+proc destroyGraphic3dFrameStats*(this: var Graphic3dFrameStats) {.
     importcpp: "#.~Graphic3d_FrameStats()", header: "Graphic3d_FrameStats.hxx".}
-proc UpdateInterval*(this: Graphic3d_FrameStats): Standard_Real {.noSideEffect,
+proc updateInterval*(this: Graphic3dFrameStats): float {.noSideEffect,
     importcpp: "UpdateInterval", header: "Graphic3d_FrameStats.hxx".}
-proc SetUpdateInterval*(this: var Graphic3d_FrameStats; theInterval: Standard_Real) {.
+proc setUpdateInterval*(this: var Graphic3dFrameStats; theInterval: float) {.
     importcpp: "SetUpdateInterval", header: "Graphic3d_FrameStats.hxx".}
-proc IsLongLineFormat*(this: Graphic3d_FrameStats): Standard_Boolean {.noSideEffect,
+proc isLongLineFormat*(this: Graphic3dFrameStats): bool {.noSideEffect,
     importcpp: "IsLongLineFormat", header: "Graphic3d_FrameStats.hxx".}
-proc SetLongLineFormat*(this: var Graphic3d_FrameStats; theValue: Standard_Boolean) {.
+proc setLongLineFormat*(this: var Graphic3dFrameStats; theValue: bool) {.
     importcpp: "SetLongLineFormat", header: "Graphic3d_FrameStats.hxx".}
-proc FrameStart*(this: var Graphic3d_FrameStats; theView: handle[Graphic3d_CView];
+proc frameStart*(this: var Graphic3dFrameStats; theView: Handle[Graphic3dCView];
                 theIsImmediateOnly: bool) {.importcpp: "FrameStart",
     header: "Graphic3d_FrameStats.hxx".}
-proc FrameEnd*(this: var Graphic3d_FrameStats; theView: handle[Graphic3d_CView];
+proc frameEnd*(this: var Graphic3dFrameStats; theView: Handle[Graphic3dCView];
               theIsImmediateOnly: bool) {.importcpp: "FrameEnd",
                                         header: "Graphic3d_FrameStats.hxx".}
-proc FormatStats*(this: Graphic3d_FrameStats; theFlags: PerfCounters): TCollection_AsciiString {.
+proc formatStats*(this: Graphic3dFrameStats; theFlags: PerfCounters): TCollectionAsciiString {.
     noSideEffect, importcpp: "FormatStats", header: "Graphic3d_FrameStats.hxx".}
-proc FormatStats*(this: Graphic3d_FrameStats;
-                 theDict: var TColStd_IndexedDataMapOfStringString;
+proc formatStats*(this: Graphic3dFrameStats;
+                 theDict: var TColStdIndexedDataMapOfStringString;
                  theFlags: PerfCounters) {.noSideEffect, importcpp: "FormatStats",
     header: "Graphic3d_FrameStats.hxx".}
-proc FrameDuration*(this: Graphic3d_FrameStats): Standard_Real {.noSideEffect,
+proc frameDuration*(this: Graphic3dFrameStats): float {.noSideEffect,
     importcpp: "FrameDuration", header: "Graphic3d_FrameStats.hxx".}
-proc FrameRate*(this: Graphic3d_FrameStats): Standard_Real {.noSideEffect,
+proc frameRate*(this: Graphic3dFrameStats): float {.noSideEffect,
     importcpp: "FrameRate", header: "Graphic3d_FrameStats.hxx".}
-proc FrameRateCpu*(this: Graphic3d_FrameStats): Standard_Real {.noSideEffect,
+proc frameRateCpu*(this: Graphic3dFrameStats): float {.noSideEffect,
     importcpp: "FrameRateCpu", header: "Graphic3d_FrameStats.hxx".}
-proc CounterValue*(this: Graphic3d_FrameStats;
-                  theCounter: Graphic3d_FrameStatsCounter): Standard_Size {.
+proc counterValue*(this: Graphic3dFrameStats;
+                  theCounter: Graphic3dFrameStatsCounter): StandardSize {.
     noSideEffect, importcpp: "CounterValue", header: "Graphic3d_FrameStats.hxx".}
-proc TimerValue*(this: Graphic3d_FrameStats; theTimer: Graphic3d_FrameStatsTimer): Standard_Real {.
+proc timerValue*(this: Graphic3dFrameStats; theTimer: Graphic3dFrameStatsTimer): float {.
     noSideEffect, importcpp: "TimerValue", header: "Graphic3d_FrameStats.hxx".}
-proc HasCulledLayers*(this: Graphic3d_FrameStats): Standard_Boolean {.noSideEffect,
+proc hasCulledLayers*(this: Graphic3dFrameStats): bool {.noSideEffect,
     importcpp: "HasCulledLayers", header: "Graphic3d_FrameStats.hxx".}
-proc HasCulledStructs*(this: Graphic3d_FrameStats): Standard_Boolean {.noSideEffect,
+proc hasCulledStructs*(this: Graphic3dFrameStats): bool {.noSideEffect,
     importcpp: "HasCulledStructs", header: "Graphic3d_FrameStats.hxx".}
-proc LastDataFrame*(this: Graphic3d_FrameStats): Graphic3d_FrameStatsData {.
+proc lastDataFrame*(this: Graphic3dFrameStats): Graphic3dFrameStatsData {.
     noSideEffect, importcpp: "LastDataFrame", header: "Graphic3d_FrameStats.hxx".}
-proc LastDataFrameIndex*(this: Graphic3d_FrameStats): Standard_Integer {.
-    noSideEffect, importcpp: "LastDataFrameIndex",
-    header: "Graphic3d_FrameStats.hxx".}
-proc DataFrames*(this: Graphic3d_FrameStats): NCollection_Array1[
-    Graphic3d_FrameStatsData] {.noSideEffect, importcpp: "DataFrames",
-                               header: "Graphic3d_FrameStats.hxx".}
-proc ChangeDataFrames*(this: var Graphic3d_FrameStats): var NCollection_Array1[
-    Graphic3d_FrameStatsData] {.importcpp: "ChangeDataFrames",
-                               header: "Graphic3d_FrameStats.hxx".}
-proc ChangeCounter*(this: var Graphic3d_FrameStats;
-                   theCounter: Graphic3d_FrameStatsCounter): var Standard_Size {.
+proc lastDataFrameIndex*(this: Graphic3dFrameStats): int {.noSideEffect,
+    importcpp: "LastDataFrameIndex", header: "Graphic3d_FrameStats.hxx".}
+proc dataFrames*(this: Graphic3dFrameStats): NCollectionArray1[
+    Graphic3dFrameStatsData] {.noSideEffect, importcpp: "DataFrames",
+                              header: "Graphic3d_FrameStats.hxx".}
+proc changeDataFrames*(this: var Graphic3dFrameStats): var NCollectionArray1[
+    Graphic3dFrameStatsData] {.importcpp: "ChangeDataFrames",
+                              header: "Graphic3d_FrameStats.hxx".}
+proc changeCounter*(this: var Graphic3dFrameStats;
+                   theCounter: Graphic3dFrameStatsCounter): var StandardSize {.
     importcpp: "ChangeCounter", header: "Graphic3d_FrameStats.hxx".}
-proc ChangeTimer*(this: var Graphic3d_FrameStats;
-                 theTimer: Graphic3d_FrameStatsTimer): var Standard_Real {.
+proc changeTimer*(this: var Graphic3dFrameStats; theTimer: Graphic3dFrameStatsTimer): var float {.
     importcpp: "ChangeTimer", header: "Graphic3d_FrameStats.hxx".}
-proc ActiveDataFrame*(this: var Graphic3d_FrameStats): var Graphic3d_FrameStatsDataTmp {.
+proc activeDataFrame*(this: var Graphic3dFrameStats): var Graphic3dFrameStatsDataTmp {.
     importcpp: "ActiveDataFrame", header: "Graphic3d_FrameStats.hxx".}

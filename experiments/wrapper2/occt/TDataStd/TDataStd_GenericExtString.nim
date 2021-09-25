@@ -11,75 +11,71 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TDF/TDF_DerivedAttribute, ../TCollection/TCollection_ExtendedString,
-  ../Standard/Standard_GUID
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
 discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataStd_GenericExtString"
 discard "forward decl of TDataStd_GenericExtString"
 type
-  Handle_TDataStd_GenericExtString* = handle[TDataStd_GenericExtString]
+  HandleTDataStdGenericExtString* = Handle[TDataStdGenericExtString]
 
 ## ! An ancestor attibute for all attributes which have TCollection_ExtendedString field.
 ## ! If an attribute inherits this one it should not have drivers for persistence.
 ## ! Also this attribute provides functionality to have on the same label same attributes with different IDs.
 
 type
-  TDataStd_GenericExtString* {.importcpp: "TDataStd_GenericExtString",
-                              header: "TDataStd_GenericExtString.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                                   ## !
-                                                                                                   ## Sets
-                                                                                                   ## <S>
-                                                                                                   ## as
-                                                                                                   ## name.
-                                                                                                   ## Raises
-                                                                                                   ## if
-                                                                                                   ## <S>
-                                                                                                   ## is
-                                                                                                   ## not
-                                                                                                   ## a
-                                                                                                   ## valid
-                                                                                                   ## name.
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## A
-                                                                                                   ## string
-                                                                                                   ## field
-                                                                                                   ## of
-                                                                                                   ## the
-                                                                                                   ## attribute,
-                                                                                                   ## participated
-                                                                                                   ## in
-                                                                                                   ## persistence.
+  TDataStdGenericExtString* {.importcpp: "TDataStd_GenericExtString",
+                             header: "TDataStd_GenericExtString.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                                  ## !
+                                                                                                  ## Sets
+                                                                                                  ## <S>
+                                                                                                  ## as
+                                                                                                  ## name.
+                                                                                                  ## Raises
+                                                                                                  ## if
+                                                                                                  ## <S>
+                                                                                                  ## is
+                                                                                                  ## not
+                                                                                                  ## a
+                                                                                                  ## valid
+                                                                                                  ## name.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## A
+                                                                                                  ## string
+                                                                                                  ## field
+                                                                                                  ## of
+                                                                                                  ## the
+                                                                                                  ## attribute,
+                                                                                                  ## participated
+                                                                                                  ## in
+                                                                                                  ## persistence.
     ## ! A private GUID of the attribute.
 
 
-proc Set*(this: var TDataStd_GenericExtString; S: TCollection_ExtendedString) {.
+proc set*(this: var TDataStdGenericExtString; s: TCollectionExtendedString) {.
     importcpp: "Set", header: "TDataStd_GenericExtString.hxx".}
-proc SetID*(this: var TDataStd_GenericExtString; guid: Standard_GUID) {.
+proc setID*(this: var TDataStdGenericExtString; guid: StandardGUID) {.
     importcpp: "SetID", header: "TDataStd_GenericExtString.hxx".}
-proc Get*(this: TDataStd_GenericExtString): TCollection_ExtendedString {.
-    noSideEffect, importcpp: "Get", header: "TDataStd_GenericExtString.hxx".}
-proc ID*(this: TDataStd_GenericExtString): Standard_GUID {.noSideEffect,
+proc get*(this: TDataStdGenericExtString): TCollectionExtendedString {.noSideEffect,
+    importcpp: "Get", header: "TDataStd_GenericExtString.hxx".}
+proc id*(this: TDataStdGenericExtString): StandardGUID {.noSideEffect,
     importcpp: "ID", header: "TDataStd_GenericExtString.hxx".}
-proc Restore*(this: var TDataStd_GenericExtString; with: handle[TDF_Attribute]) {.
+proc restore*(this: var TDataStdGenericExtString; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TDataStd_GenericExtString.hxx".}
-proc Paste*(this: TDataStd_GenericExtString; into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TDataStdGenericExtString; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TDataStd_GenericExtString.hxx".}
-proc DumpJson*(this: TDataStd_GenericExtString; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TDataStd_GenericExtString.hxx".}
+proc dumpJson*(this: TDataStdGenericExtString; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TDataStd_GenericExtString.hxx".}
 type
-  TDataStd_GenericExtStringbase_type* = TDF_Attribute
+  TDataStdGenericExtStringbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TDataStd_GenericExtString::get_type_name(@)",
-                              header: "TDataStd_GenericExtString.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDataStd_GenericExtString::get_type_name(@)",
+                            header: "TDataStd_GenericExtString.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDataStd_GenericExtString::get_type_descriptor(@)",
     header: "TDataStd_GenericExtString.hxx".}
-proc DynamicType*(this: TDataStd_GenericExtString): handle[Standard_Type] {.
+proc dynamicType*(this: TDataStdGenericExtString): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TDataStd_GenericExtString.hxx".}

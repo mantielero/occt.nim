@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_HArray1OfInteger, Interface_HArray1OfHAsciiString,
-  Interface_EntityList, ../Standard/Standard_Transient,
-  ../Standard/Standard_Boolean, Interface_ParamType
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Interface_InterfaceMismatch"
@@ -31,7 +25,7 @@ discard "forward decl of Interface_CopyTool"
 discard "forward decl of Interface_UndefinedContent"
 discard "forward decl of Interface_UndefinedContent"
 type
-  Handle_Interface_UndefinedContent* = handle[Interface_UndefinedContent]
+  HandleInterfaceUndefinedContent* = Handle[InterfaceUndefinedContent]
 
 ## ! Defines resources for an "Undefined Entity" : such an Entity
 ## ! is used to describe an Entity which complies with the Norm,
@@ -57,70 +51,69 @@ type
 ## ! Recognize Unknown Entities of this norm
 
 type
-  Interface_UndefinedContent* {.importcpp: "Interface_UndefinedContent",
-                               header: "Interface_UndefinedContent.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                          ## !
-                                                                                                          ## Defines
-                                                                                                          ## an
-                                                                                                          ## empty
-                                                                                                          ## UndefinedContent
+  InterfaceUndefinedContent* {.importcpp: "Interface_UndefinedContent",
+                              header: "Interface_UndefinedContent.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                        ## !
+                                                                                                        ## Defines
+                                                                                                        ## an
+                                                                                                        ## empty
+                                                                                                        ## UndefinedContent
 
 
-proc constructInterface_UndefinedContent*(): Interface_UndefinedContent {.
+proc constructInterfaceUndefinedContent*(): InterfaceUndefinedContent {.
     constructor, importcpp: "Interface_UndefinedContent(@)",
     header: "Interface_UndefinedContent.hxx".}
-proc NbParams*(this: Interface_UndefinedContent): Standard_Integer {.noSideEffect,
+proc nbParams*(this: InterfaceUndefinedContent): int {.noSideEffect,
     importcpp: "NbParams", header: "Interface_UndefinedContent.hxx".}
-proc NbLiterals*(this: Interface_UndefinedContent): Standard_Integer {.noSideEffect,
+proc nbLiterals*(this: InterfaceUndefinedContent): int {.noSideEffect,
     importcpp: "NbLiterals", header: "Interface_UndefinedContent.hxx".}
-proc ParamData*(this: Interface_UndefinedContent; num: Standard_Integer;
-               ptype: var Interface_ParamType; ent: var handle[Standard_Transient];
-               val: var handle[TCollection_HAsciiString]): Standard_Boolean {.
-    noSideEffect, importcpp: "ParamData", header: "Interface_UndefinedContent.hxx".}
-proc ParamType*(this: Interface_UndefinedContent; num: Standard_Integer): Interface_ParamType {.
+proc paramData*(this: InterfaceUndefinedContent; num: int;
+               ptype: var InterfaceParamType; ent: var Handle[StandardTransient];
+               val: var Handle[TCollectionHAsciiString]): bool {.noSideEffect,
+    importcpp: "ParamData", header: "Interface_UndefinedContent.hxx".}
+proc paramType*(this: InterfaceUndefinedContent; num: int): InterfaceParamType {.
     noSideEffect, importcpp: "ParamType", header: "Interface_UndefinedContent.hxx".}
-proc IsParamEntity*(this: Interface_UndefinedContent; num: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsParamEntity",
+proc isParamEntity*(this: InterfaceUndefinedContent; num: int): bool {.noSideEffect,
+    importcpp: "IsParamEntity", header: "Interface_UndefinedContent.hxx".}
+proc paramEntity*(this: InterfaceUndefinedContent; num: int): Handle[
+    StandardTransient] {.noSideEffect, importcpp: "ParamEntity",
+                        header: "Interface_UndefinedContent.hxx".}
+proc paramValue*(this: InterfaceUndefinedContent; num: int): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "ParamValue",
+                              header: "Interface_UndefinedContent.hxx".}
+proc reservate*(this: var InterfaceUndefinedContent; nb: int; nblit: int) {.
+    importcpp: "Reservate", header: "Interface_UndefinedContent.hxx".}
+proc addLiteral*(this: var InterfaceUndefinedContent; ptype: InterfaceParamType;
+                val: Handle[TCollectionHAsciiString]) {.importcpp: "AddLiteral",
     header: "Interface_UndefinedContent.hxx".}
-proc ParamEntity*(this: Interface_UndefinedContent; num: Standard_Integer): handle[
-    Standard_Transient] {.noSideEffect, importcpp: "ParamEntity",
-                         header: "Interface_UndefinedContent.hxx".}
-proc ParamValue*(this: Interface_UndefinedContent; num: Standard_Integer): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "ParamValue",
-                               header: "Interface_UndefinedContent.hxx".}
-proc Reservate*(this: var Interface_UndefinedContent; nb: Standard_Integer;
-               nblit: Standard_Integer) {.importcpp: "Reservate", header: "Interface_UndefinedContent.hxx".}
-proc AddLiteral*(this: var Interface_UndefinedContent; ptype: Interface_ParamType;
-                val: handle[TCollection_HAsciiString]) {.importcpp: "AddLiteral",
+proc addEntity*(this: var InterfaceUndefinedContent; ptype: InterfaceParamType;
+               ent: Handle[StandardTransient]) {.importcpp: "AddEntity",
     header: "Interface_UndefinedContent.hxx".}
-proc AddEntity*(this: var Interface_UndefinedContent; ptype: Interface_ParamType;
-               ent: handle[Standard_Transient]) {.importcpp: "AddEntity",
-    header: "Interface_UndefinedContent.hxx".}
-proc RemoveParam*(this: var Interface_UndefinedContent; num: Standard_Integer) {.
+proc removeParam*(this: var InterfaceUndefinedContent; num: int) {.
     importcpp: "RemoveParam", header: "Interface_UndefinedContent.hxx".}
-proc SetLiteral*(this: var Interface_UndefinedContent; num: Standard_Integer;
-                ptype: Interface_ParamType; val: handle[TCollection_HAsciiString]) {.
+proc setLiteral*(this: var InterfaceUndefinedContent; num: int;
+                ptype: InterfaceParamType; val: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetLiteral", header: "Interface_UndefinedContent.hxx".}
-proc SetEntity*(this: var Interface_UndefinedContent; num: Standard_Integer;
-               ptype: Interface_ParamType; ent: handle[Standard_Transient]) {.
+proc setEntity*(this: var InterfaceUndefinedContent; num: int;
+               ptype: InterfaceParamType; ent: Handle[StandardTransient]) {.
     importcpp: "SetEntity", header: "Interface_UndefinedContent.hxx".}
-proc SetEntity*(this: var Interface_UndefinedContent; num: Standard_Integer;
-               ent: handle[Standard_Transient]) {.importcpp: "SetEntity",
+proc setEntity*(this: var InterfaceUndefinedContent; num: int;
+               ent: Handle[StandardTransient]) {.importcpp: "SetEntity",
     header: "Interface_UndefinedContent.hxx".}
-proc EntityList*(this: Interface_UndefinedContent): Interface_EntityList {.
+proc entityList*(this: InterfaceUndefinedContent): InterfaceEntityList {.
     noSideEffect, importcpp: "EntityList", header: "Interface_UndefinedContent.hxx".}
-proc GetFromAnother*(this: var Interface_UndefinedContent;
-                    other: handle[Interface_UndefinedContent];
-                    TC: var Interface_CopyTool) {.importcpp: "GetFromAnother",
+proc getFromAnother*(this: var InterfaceUndefinedContent;
+                    other: Handle[InterfaceUndefinedContent];
+                    tc: var InterfaceCopyTool) {.importcpp: "GetFromAnother",
     header: "Interface_UndefinedContent.hxx".}
 type
-  Interface_UndefinedContentbase_type* = Standard_Transient
+  InterfaceUndefinedContentbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Interface_UndefinedContent::get_type_name(@)",
-                              header: "Interface_UndefinedContent.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Interface_UndefinedContent::get_type_name(@)",
+                            header: "Interface_UndefinedContent.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Interface_UndefinedContent::get_type_descriptor(@)",
     header: "Interface_UndefinedContent.hxx".}
-proc DynamicType*(this: Interface_UndefinedContent): handle[Standard_Type] {.
+proc dynamicType*(this: InterfaceUndefinedContent): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Interface_UndefinedContent.hxx".}

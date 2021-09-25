@@ -14,59 +14,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, AdvApp2Var_SequenceOfNode,
-  AdvApp2Var_SequenceOfStrip, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../GeomAbs/GeomAbs_IsoType,
-  ../Standard/Standard_Real, ../TColStd/TColStd_HArray1OfReal
-
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of AdvApp2Var_Iso"
 discard "forward decl of AdvApp2Var_Node"
 type
-  AdvApp2Var_Framework* {.importcpp: "AdvApp2Var_Framework",
-                         header: "AdvApp2Var_Framework.hxx", bycopy.} = object
+  AdvApp2VarFramework* {.importcpp: "AdvApp2Var_Framework",
+                        header: "AdvApp2Var_Framework.hxx", bycopy.} = object
 
 
-proc constructAdvApp2Var_Framework*(): AdvApp2Var_Framework {.constructor,
+proc constructAdvApp2VarFramework*(): AdvApp2VarFramework {.constructor,
     importcpp: "AdvApp2Var_Framework(@)", header: "AdvApp2Var_Framework.hxx".}
-proc constructAdvApp2Var_Framework*(Frame: AdvApp2Var_SequenceOfNode;
-                                   UFrontier: AdvApp2Var_SequenceOfStrip;
-                                   VFrontier: AdvApp2Var_SequenceOfStrip): AdvApp2Var_Framework {.
+proc constructAdvApp2VarFramework*(frame: AdvApp2VarSequenceOfNode;
+                                  uFrontier: AdvApp2VarSequenceOfStrip;
+                                  vFrontier: AdvApp2VarSequenceOfStrip): AdvApp2VarFramework {.
     constructor, importcpp: "AdvApp2Var_Framework(@)",
     header: "AdvApp2Var_Framework.hxx".}
-proc FirstNotApprox*(this: AdvApp2Var_Framework; IndexIso: var Standard_Integer;
-                    IndexStrip: var Standard_Integer): handle[AdvApp2Var_Iso] {.
-    noSideEffect, importcpp: "FirstNotApprox", header: "AdvApp2Var_Framework.hxx".}
-proc FirstNode*(this: AdvApp2Var_Framework; Type: GeomAbs_IsoType;
-               IndexIso: Standard_Integer; IndexStrip: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "FirstNode", header: "AdvApp2Var_Framework.hxx".}
-proc LastNode*(this: AdvApp2Var_Framework; Type: GeomAbs_IsoType;
-              IndexIso: Standard_Integer; IndexStrip: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "LastNode", header: "AdvApp2Var_Framework.hxx".}
-proc ChangeIso*(this: var AdvApp2Var_Framework; IndexIso: Standard_Integer;
-               IndexStrip: Standard_Integer; anIso: handle[AdvApp2Var_Iso]) {.
-    importcpp: "ChangeIso", header: "AdvApp2Var_Framework.hxx".}
-proc Node*(this: AdvApp2Var_Framework; IndexNode: Standard_Integer): handle[
-    AdvApp2Var_Node] {.noSideEffect, importcpp: "Node",
-                      header: "AdvApp2Var_Framework.hxx".}
-proc Node*(this: AdvApp2Var_Framework; U: Standard_Real; V: Standard_Real): handle[
-    AdvApp2Var_Node] {.noSideEffect, importcpp: "Node",
-                      header: "AdvApp2Var_Framework.hxx".}
-proc IsoU*(this: AdvApp2Var_Framework; U: Standard_Real; V0: Standard_Real;
-          V1: Standard_Real): AdvApp2Var_Iso {.noSideEffect, importcpp: "IsoU",
+proc firstNotApprox*(this: AdvApp2VarFramework; indexIso: var int; indexStrip: var int): Handle[
+    AdvApp2VarIso] {.noSideEffect, importcpp: "FirstNotApprox",
+                    header: "AdvApp2Var_Framework.hxx".}
+proc firstNode*(this: AdvApp2VarFramework; `type`: GeomAbsIsoType; indexIso: int;
+               indexStrip: int): int {.noSideEffect, importcpp: "FirstNode",
+                                    header: "AdvApp2Var_Framework.hxx".}
+proc lastNode*(this: AdvApp2VarFramework; `type`: GeomAbsIsoType; indexIso: int;
+              indexStrip: int): int {.noSideEffect, importcpp: "LastNode",
+                                   header: "AdvApp2Var_Framework.hxx".}
+proc changeIso*(this: var AdvApp2VarFramework; indexIso: int; indexStrip: int;
+               anIso: Handle[AdvApp2VarIso]) {.importcpp: "ChangeIso",
     header: "AdvApp2Var_Framework.hxx".}
-proc IsoV*(this: AdvApp2Var_Framework; U0: Standard_Real; U1: Standard_Real;
-          V: Standard_Real): AdvApp2Var_Iso {.noSideEffect, importcpp: "IsoV",
-    header: "AdvApp2Var_Framework.hxx".}
-proc UpdateInU*(this: var AdvApp2Var_Framework; CuttingValue: Standard_Real) {.
+proc node*(this: AdvApp2VarFramework; indexNode: int): Handle[AdvApp2VarNode] {.
+    noSideEffect, importcpp: "Node", header: "AdvApp2Var_Framework.hxx".}
+proc node*(this: AdvApp2VarFramework; u: float; v: float): Handle[AdvApp2VarNode] {.
+    noSideEffect, importcpp: "Node", header: "AdvApp2Var_Framework.hxx".}
+proc isoU*(this: AdvApp2VarFramework; u: float; v0: float; v1: float): AdvApp2VarIso {.
+    noSideEffect, importcpp: "IsoU", header: "AdvApp2Var_Framework.hxx".}
+proc isoV*(this: AdvApp2VarFramework; u0: float; u1: float; v: float): AdvApp2VarIso {.
+    noSideEffect, importcpp: "IsoV", header: "AdvApp2Var_Framework.hxx".}
+proc updateInU*(this: var AdvApp2VarFramework; cuttingValue: float) {.
     importcpp: "UpdateInU", header: "AdvApp2Var_Framework.hxx".}
-proc UpdateInV*(this: var AdvApp2Var_Framework; CuttingValue: Standard_Real) {.
+proc updateInV*(this: var AdvApp2VarFramework; cuttingValue: float) {.
     importcpp: "UpdateInV", header: "AdvApp2Var_Framework.hxx".}
-proc UEquation*(this: AdvApp2Var_Framework; IndexIso: Standard_Integer;
-               IndexStrip: Standard_Integer): handle[TColStd_HArray1OfReal] {.
-    noSideEffect, importcpp: "UEquation", header: "AdvApp2Var_Framework.hxx".}
-proc VEquation*(this: AdvApp2Var_Framework; IndexIso: Standard_Integer;
-               IndexStrip: Standard_Integer): handle[TColStd_HArray1OfReal] {.
-    noSideEffect, importcpp: "VEquation", header: "AdvApp2Var_Framework.hxx".}
+proc uEquation*(this: AdvApp2VarFramework; indexIso: int; indexStrip: int): Handle[
+    TColStdHArray1OfReal] {.noSideEffect, importcpp: "UEquation",
+                           header: "AdvApp2Var_Framework.hxx".}
+proc vEquation*(this: AdvApp2VarFramework; indexIso: int; indexStrip: int): Handle[
+    TColStdHArray1OfReal] {.noSideEffect, importcpp: "VEquation",
+                           header: "AdvApp2Var_Framework.hxx".}

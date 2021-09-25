@@ -14,19 +14,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopAbs/TopAbs_ShapeEnum,
-  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape
-
 discard "forward decl of TopoDS_Shape"
 type
-  TopOpeBRepTool_AncestorsTool* {.importcpp: "TopOpeBRepTool_AncestorsTool",
-                                 header: "TopOpeBRepTool_AncestorsTool.hxx",
-                                 bycopy.} = object ## ! same as package method TopExp::MapShapeListOfShapes()
+  TopOpeBRepToolAncestorsTool* {.importcpp: "TopOpeBRepTool_AncestorsTool",
+                                header: "TopOpeBRepTool_AncestorsTool.hxx", bycopy.} = object ##
+                                                                                         ## !
+                                                                                         ## same
+                                                                                         ## as
+                                                                                         ## package
+                                                                                         ## method
+                                                                                         ## TopExp::MapShapeListOfShapes()
 
 
-proc MakeAncestors*(S: TopoDS_Shape; TS: TopAbs_ShapeEnum; TA: TopAbs_ShapeEnum;
-                   M: var TopTools_IndexedDataMapOfShapeListOfShape) {.
+proc makeAncestors*(s: TopoDS_Shape; ts: TopAbsShapeEnum; ta: TopAbsShapeEnum;
+                   m: var TopToolsIndexedDataMapOfShapeListOfShape) {.
     importcpp: "TopOpeBRepTool_AncestorsTool::MakeAncestors(@)",
     header: "TopOpeBRepTool_AncestorsTool.hxx".}

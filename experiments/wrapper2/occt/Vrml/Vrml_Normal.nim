@@ -14,14 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TColgp/TColgp_HArray1OfVec,
-  ../Standard/Standard_Transient, ../Standard/Standard_OStream
-
 discard "forward decl of Vrml_Normal"
 discard "forward decl of Vrml_Normal"
 type
-  Handle_Vrml_Normal* = handle[Vrml_Normal]
+  HandleVrmlNormal* = Handle[VrmlNormal]
 
 ## ! defines a Normal node of VRML specifying properties of geometry
 ## ! and its appearance.
@@ -32,25 +28,25 @@ type
 ## ! multiple-valued field that contains the normal vectors.
 
 type
-  Vrml_Normal* {.importcpp: "Vrml_Normal", header: "Vrml_Normal.hxx", bycopy.} = object of Standard_Transient
+  VrmlNormal* {.importcpp: "Vrml_Normal", header: "Vrml_Normal.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructVrml_Normal*(aVector: handle[TColgp_HArray1OfVec]): Vrml_Normal {.
+proc constructVrmlNormal*(aVector: Handle[TColgpHArray1OfVec]): VrmlNormal {.
     constructor, importcpp: "Vrml_Normal(@)", header: "Vrml_Normal.hxx".}
-proc constructVrml_Normal*(): Vrml_Normal {.constructor,
-    importcpp: "Vrml_Normal(@)", header: "Vrml_Normal.hxx".}
-proc SetVector*(this: var Vrml_Normal; aVector: handle[TColgp_HArray1OfVec]) {.
+proc constructVrmlNormal*(): VrmlNormal {.constructor, importcpp: "Vrml_Normal(@)",
+                                       header: "Vrml_Normal.hxx".}
+proc setVector*(this: var VrmlNormal; aVector: Handle[TColgpHArray1OfVec]) {.
     importcpp: "SetVector", header: "Vrml_Normal.hxx".}
-proc Vector*(this: Vrml_Normal): handle[TColgp_HArray1OfVec] {.noSideEffect,
+proc vector*(this: VrmlNormal): Handle[TColgpHArray1OfVec] {.noSideEffect,
     importcpp: "Vector", header: "Vrml_Normal.hxx".}
-proc Print*(this: Vrml_Normal; anOStream: var Standard_OStream): var Standard_OStream {.
+proc print*(this: VrmlNormal; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Normal.hxx".}
 type
-  Vrml_Normalbase_type* = Standard_Transient
+  VrmlNormalbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Vrml_Normal::get_type_name(@)",
-                              header: "Vrml_Normal.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Vrml_Normal::get_type_name(@)",
+                            header: "Vrml_Normal.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Vrml_Normal::get_type_descriptor(@)", header: "Vrml_Normal.hxx".}
-proc DynamicType*(this: Vrml_Normal): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: VrmlNormal): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Vrml_Normal.hxx".}

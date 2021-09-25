@@ -13,30 +13,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopTools/TopTools_DataMapOfShapeShape
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of ShapeProcess_ShapeContext"
 discard "forward decl of BRepTools_Modification"
 discard "forward decl of ShapeExtend_MsgRegistrator"
 type
-  ShapeProcess_OperLibrary* {.importcpp: "ShapeProcess_OperLibrary",
-                             header: "ShapeProcess_OperLibrary.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Registers
-                                                                                  ## all
-                                                                                  ## the
-                                                                                  ## operators
+  ShapeProcessOperLibrary* {.importcpp: "ShapeProcess_OperLibrary",
+                            header: "ShapeProcess_OperLibrary.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## Registers
+                                                                                 ## all
+                                                                                 ## the
+                                                                                 ## operators
 
 
-proc Init*() {.importcpp: "ShapeProcess_OperLibrary::Init(@)",
+proc init*() {.importcpp: "ShapeProcess_OperLibrary::Init(@)",
              header: "ShapeProcess_OperLibrary.hxx".}
-proc ApplyModifier*(S: TopoDS_Shape; context: handle[ShapeProcess_ShapeContext];
-                   M: handle[BRepTools_Modification];
-                   map: var TopTools_DataMapOfShapeShape;
-                   msg: handle[ShapeExtend_MsgRegistrator] = 0;
-                   theMutableInput: Standard_Boolean = Standard_False): TopoDS_Shape {.
+proc applyModifier*(s: TopoDS_Shape; context: Handle[ShapeProcessShapeContext];
+                   m: Handle[BRepToolsModification];
+                   map: var TopToolsDataMapOfShapeShape;
+                   msg: Handle[ShapeExtendMsgRegistrator] = 0;
+                   theMutableInput: bool = false): TopoDS_Shape {.
     importcpp: "ShapeProcess_OperLibrary::ApplyModifier(@)",
     header: "ShapeProcess_OperLibrary.hxx".}

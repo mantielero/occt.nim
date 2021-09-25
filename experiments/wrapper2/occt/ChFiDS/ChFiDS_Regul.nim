@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 ## ! Storage of  a curve  and its 2 faces or surfaces of  support.
 
 type
@@ -27,21 +22,19 @@ type
 
 proc constructChFiDS_Regul*(): ChFiDS_Regul {.constructor,
     importcpp: "ChFiDS_Regul(@)", header: "ChFiDS_Regul.hxx".}
-proc SetCurve*(this: var ChFiDS_Regul; IC: Standard_Integer) {.importcpp: "SetCurve",
+proc setCurve*(this: var ChFiDS_Regul; ic: int) {.importcpp: "SetCurve",
     header: "ChFiDS_Regul.hxx".}
-proc SetS1*(this: var ChFiDS_Regul; IS1: Standard_Integer;
-           IsFace: Standard_Boolean = Standard_True) {.importcpp: "SetS1",
+proc setS1*(this: var ChFiDS_Regul; is1: int; isFace: bool = true) {.importcpp: "SetS1",
     header: "ChFiDS_Regul.hxx".}
-proc SetS2*(this: var ChFiDS_Regul; IS2: Standard_Integer;
-           IsFace: Standard_Boolean = Standard_True) {.importcpp: "SetS2",
+proc setS2*(this: var ChFiDS_Regul; is2: int; isFace: bool = true) {.importcpp: "SetS2",
     header: "ChFiDS_Regul.hxx".}
-proc IsSurface1*(this: ChFiDS_Regul): Standard_Boolean {.noSideEffect,
-    importcpp: "IsSurface1", header: "ChFiDS_Regul.hxx".}
-proc IsSurface2*(this: ChFiDS_Regul): Standard_Boolean {.noSideEffect,
-    importcpp: "IsSurface2", header: "ChFiDS_Regul.hxx".}
-proc Curve*(this: ChFiDS_Regul): Standard_Integer {.noSideEffect, importcpp: "Curve",
+proc isSurface1*(this: ChFiDS_Regul): bool {.noSideEffect, importcpp: "IsSurface1",
     header: "ChFiDS_Regul.hxx".}
-proc S1*(this: ChFiDS_Regul): Standard_Integer {.noSideEffect, importcpp: "S1",
+proc isSurface2*(this: ChFiDS_Regul): bool {.noSideEffect, importcpp: "IsSurface2",
     header: "ChFiDS_Regul.hxx".}
-proc S2*(this: ChFiDS_Regul): Standard_Integer {.noSideEffect, importcpp: "S2",
-    header: "ChFiDS_Regul.hxx".}
+proc curve*(this: ChFiDS_Regul): int {.noSideEffect, importcpp: "Curve",
+                                   header: "ChFiDS_Regul.hxx".}
+proc s1*(this: ChFiDS_Regul): int {.noSideEffect, importcpp: "S1",
+                                header: "ChFiDS_Regul.hxx".}
+proc s2*(this: ChFiDS_Regul): int {.noSideEffect, importcpp: "S2",
+                                header: "ChFiDS_Regul.hxx".}

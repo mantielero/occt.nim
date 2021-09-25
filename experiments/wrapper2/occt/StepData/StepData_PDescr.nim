@@ -14,19 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Integer,
-  StepData_EnumTool, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Transient, ../Standard/Standard_CString
-
 discard "forward decl of StepData_EDescr"
 discard "forward decl of StepData_Field"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepData_PDescr"
 discard "forward decl of StepData_PDescr"
 type
-  Handle_StepData_PDescr* = handle[StepData_PDescr]
+  HandleStepDataPDescr* = Handle[StepDataPDescr]
 
 ## ! This class is intended to describe the authorized form for a
 ## ! parameter, as a type or a value for a field
@@ -35,109 +29,108 @@ type
 ## ! have several members
 
 type
-  StepData_PDescr* {.importcpp: "StepData_PDescr", header: "StepData_PDescr.hxx",
-                    bycopy.} = object of Standard_Transient
+  StepDataPDescr* {.importcpp: "StepData_PDescr", header: "StepData_PDescr.hxx",
+                   bycopy.} = object of StandardTransient
 
 
-proc constructStepData_PDescr*(): StepData_PDescr {.constructor,
+proc constructStepDataPDescr*(): StepDataPDescr {.constructor,
     importcpp: "StepData_PDescr(@)", header: "StepData_PDescr.hxx".}
-proc SetName*(this: var StepData_PDescr; name: Standard_CString) {.
-    importcpp: "SetName", header: "StepData_PDescr.hxx".}
-proc Name*(this: StepData_PDescr): Standard_CString {.noSideEffect,
-    importcpp: "Name", header: "StepData_PDescr.hxx".}
-proc SetSelect*(this: var StepData_PDescr) {.importcpp: "SetSelect",
+proc setName*(this: var StepDataPDescr; name: StandardCString) {.importcpp: "SetName",
     header: "StepData_PDescr.hxx".}
-proc AddMember*(this: var StepData_PDescr; member: handle[StepData_PDescr]) {.
+proc name*(this: StepDataPDescr): StandardCString {.noSideEffect, importcpp: "Name",
+    header: "StepData_PDescr.hxx".}
+proc setSelect*(this: var StepDataPDescr) {.importcpp: "SetSelect",
+                                        header: "StepData_PDescr.hxx".}
+proc addMember*(this: var StepDataPDescr; member: Handle[StepDataPDescr]) {.
     importcpp: "AddMember", header: "StepData_PDescr.hxx".}
-proc SetMemberName*(this: var StepData_PDescr; memname: Standard_CString) {.
+proc setMemberName*(this: var StepDataPDescr; memname: StandardCString) {.
     importcpp: "SetMemberName", header: "StepData_PDescr.hxx".}
-proc SetInteger*(this: var StepData_PDescr) {.importcpp: "SetInteger",
+proc setInteger*(this: var StepDataPDescr) {.importcpp: "SetInteger",
     header: "StepData_PDescr.hxx".}
-proc SetReal*(this: var StepData_PDescr) {.importcpp: "SetReal",
-                                       header: "StepData_PDescr.hxx".}
-proc SetString*(this: var StepData_PDescr) {.importcpp: "SetString",
-    header: "StepData_PDescr.hxx".}
-proc SetBoolean*(this: var StepData_PDescr) {.importcpp: "SetBoolean",
-    header: "StepData_PDescr.hxx".}
-proc SetLogical*(this: var StepData_PDescr) {.importcpp: "SetLogical",
-    header: "StepData_PDescr.hxx".}
-proc SetEnum*(this: var StepData_PDescr) {.importcpp: "SetEnum",
-                                       header: "StepData_PDescr.hxx".}
-proc AddEnumDef*(this: var StepData_PDescr; enumdef: Standard_CString) {.
-    importcpp: "AddEnumDef", header: "StepData_PDescr.hxx".}
-proc SetType*(this: var StepData_PDescr; atype: handle[Standard_Type]) {.
-    importcpp: "SetType", header: "StepData_PDescr.hxx".}
-proc SetDescr*(this: var StepData_PDescr; dscnam: Standard_CString) {.
-    importcpp: "SetDescr", header: "StepData_PDescr.hxx".}
-proc AddArity*(this: var StepData_PDescr; arity: Standard_Integer = 1) {.
-    importcpp: "AddArity", header: "StepData_PDescr.hxx".}
-proc SetArity*(this: var StepData_PDescr; arity: Standard_Integer = 1) {.
-    importcpp: "SetArity", header: "StepData_PDescr.hxx".}
-proc SetFrom*(this: var StepData_PDescr; other: handle[StepData_PDescr]) {.
-    importcpp: "SetFrom", header: "StepData_PDescr.hxx".}
-proc SetOptional*(this: var StepData_PDescr; opt: Standard_Boolean = Standard_True) {.
-    importcpp: "SetOptional", header: "StepData_PDescr.hxx".}
-proc SetDerived*(this: var StepData_PDescr; der: Standard_Boolean = Standard_True) {.
-    importcpp: "SetDerived", header: "StepData_PDescr.hxx".}
-proc SetField*(this: var StepData_PDescr; name: Standard_CString;
-              rank: Standard_Integer) {.importcpp: "SetField",
+proc setReal*(this: var StepDataPDescr) {.importcpp: "SetReal",
                                       header: "StepData_PDescr.hxx".}
-proc IsSelect*(this: StepData_PDescr): Standard_Boolean {.noSideEffect,
-    importcpp: "IsSelect", header: "StepData_PDescr.hxx".}
-proc Member*(this: StepData_PDescr; name: Standard_CString): handle[StepData_PDescr] {.
+proc setString*(this: var StepDataPDescr) {.importcpp: "SetString",
+                                        header: "StepData_PDescr.hxx".}
+proc setBoolean*(this: var StepDataPDescr) {.importcpp: "SetBoolean",
+    header: "StepData_PDescr.hxx".}
+proc setLogical*(this: var StepDataPDescr) {.importcpp: "SetLogical",
+    header: "StepData_PDescr.hxx".}
+proc setEnum*(this: var StepDataPDescr) {.importcpp: "SetEnum",
+                                      header: "StepData_PDescr.hxx".}
+proc addEnumDef*(this: var StepDataPDescr; enumdef: StandardCString) {.
+    importcpp: "AddEnumDef", header: "StepData_PDescr.hxx".}
+proc setType*(this: var StepDataPDescr; atype: Handle[StandardType]) {.
+    importcpp: "SetType", header: "StepData_PDescr.hxx".}
+proc setDescr*(this: var StepDataPDescr; dscnam: StandardCString) {.
+    importcpp: "SetDescr", header: "StepData_PDescr.hxx".}
+proc addArity*(this: var StepDataPDescr; arity: int = 1) {.importcpp: "AddArity",
+    header: "StepData_PDescr.hxx".}
+proc setArity*(this: var StepDataPDescr; arity: int = 1) {.importcpp: "SetArity",
+    header: "StepData_PDescr.hxx".}
+proc setFrom*(this: var StepDataPDescr; other: Handle[StepDataPDescr]) {.
+    importcpp: "SetFrom", header: "StepData_PDescr.hxx".}
+proc setOptional*(this: var StepDataPDescr; opt: bool = true) {.
+    importcpp: "SetOptional", header: "StepData_PDescr.hxx".}
+proc setDerived*(this: var StepDataPDescr; der: bool = true) {.importcpp: "SetDerived",
+    header: "StepData_PDescr.hxx".}
+proc setField*(this: var StepDataPDescr; name: StandardCString; rank: int) {.
+    importcpp: "SetField", header: "StepData_PDescr.hxx".}
+proc isSelect*(this: StepDataPDescr): bool {.noSideEffect, importcpp: "IsSelect",
+    header: "StepData_PDescr.hxx".}
+proc member*(this: StepDataPDescr; name: StandardCString): Handle[StepDataPDescr] {.
     noSideEffect, importcpp: "Member", header: "StepData_PDescr.hxx".}
-proc IsInteger*(this: StepData_PDescr): Standard_Boolean {.noSideEffect,
-    importcpp: "IsInteger", header: "StepData_PDescr.hxx".}
-proc IsReal*(this: StepData_PDescr): Standard_Boolean {.noSideEffect,
-    importcpp: "IsReal", header: "StepData_PDescr.hxx".}
-proc IsString*(this: StepData_PDescr): Standard_Boolean {.noSideEffect,
-    importcpp: "IsString", header: "StepData_PDescr.hxx".}
-proc IsBoolean*(this: StepData_PDescr): Standard_Boolean {.noSideEffect,
-    importcpp: "IsBoolean", header: "StepData_PDescr.hxx".}
-proc IsLogical*(this: StepData_PDescr): Standard_Boolean {.noSideEffect,
-    importcpp: "IsLogical", header: "StepData_PDescr.hxx".}
-proc IsEnum*(this: StepData_PDescr): Standard_Boolean {.noSideEffect,
-    importcpp: "IsEnum", header: "StepData_PDescr.hxx".}
-proc EnumMax*(this: StepData_PDescr): Standard_Integer {.noSideEffect,
-    importcpp: "EnumMax", header: "StepData_PDescr.hxx".}
-proc EnumValue*(this: StepData_PDescr; name: Standard_CString): Standard_Integer {.
-    noSideEffect, importcpp: "EnumValue", header: "StepData_PDescr.hxx".}
-proc EnumText*(this: StepData_PDescr; val: Standard_Integer): Standard_CString {.
-    noSideEffect, importcpp: "EnumText", header: "StepData_PDescr.hxx".}
-proc IsEntity*(this: StepData_PDescr): Standard_Boolean {.noSideEffect,
-    importcpp: "IsEntity", header: "StepData_PDescr.hxx".}
-proc IsType*(this: StepData_PDescr; atype: handle[Standard_Type]): Standard_Boolean {.
-    noSideEffect, importcpp: "IsType", header: "StepData_PDescr.hxx".}
-proc Type*(this: StepData_PDescr): handle[Standard_Type] {.noSideEffect,
+proc isInteger*(this: StepDataPDescr): bool {.noSideEffect, importcpp: "IsInteger",
+    header: "StepData_PDescr.hxx".}
+proc isReal*(this: StepDataPDescr): bool {.noSideEffect, importcpp: "IsReal",
+                                       header: "StepData_PDescr.hxx".}
+proc isString*(this: StepDataPDescr): bool {.noSideEffect, importcpp: "IsString",
+    header: "StepData_PDescr.hxx".}
+proc isBoolean*(this: StepDataPDescr): bool {.noSideEffect, importcpp: "IsBoolean",
+    header: "StepData_PDescr.hxx".}
+proc isLogical*(this: StepDataPDescr): bool {.noSideEffect, importcpp: "IsLogical",
+    header: "StepData_PDescr.hxx".}
+proc isEnum*(this: StepDataPDescr): bool {.noSideEffect, importcpp: "IsEnum",
+                                       header: "StepData_PDescr.hxx".}
+proc enumMax*(this: StepDataPDescr): int {.noSideEffect, importcpp: "EnumMax",
+                                       header: "StepData_PDescr.hxx".}
+proc enumValue*(this: StepDataPDescr; name: StandardCString): int {.noSideEffect,
+    importcpp: "EnumValue", header: "StepData_PDescr.hxx".}
+proc enumText*(this: StepDataPDescr; val: int): StandardCString {.noSideEffect,
+    importcpp: "EnumText", header: "StepData_PDescr.hxx".}
+proc isEntity*(this: StepDataPDescr): bool {.noSideEffect, importcpp: "IsEntity",
+    header: "StepData_PDescr.hxx".}
+proc isType*(this: StepDataPDescr; atype: Handle[StandardType]): bool {.noSideEffect,
+    importcpp: "IsType", header: "StepData_PDescr.hxx".}
+proc `type`*(this: StepDataPDescr): Handle[StandardType] {.noSideEffect,
     importcpp: "Type", header: "StepData_PDescr.hxx".}
-proc IsDescr*(this: StepData_PDescr; descr: handle[StepData_EDescr]): Standard_Boolean {.
+proc isDescr*(this: StepDataPDescr; descr: Handle[StepDataEDescr]): bool {.
     noSideEffect, importcpp: "IsDescr", header: "StepData_PDescr.hxx".}
-proc DescrName*(this: StepData_PDescr): Standard_CString {.noSideEffect,
+proc descrName*(this: StepDataPDescr): StandardCString {.noSideEffect,
     importcpp: "DescrName", header: "StepData_PDescr.hxx".}
-proc Arity*(this: StepData_PDescr): Standard_Integer {.noSideEffect,
-    importcpp: "Arity", header: "StepData_PDescr.hxx".}
-proc Simple*(this: StepData_PDescr): handle[StepData_PDescr] {.noSideEffect,
+proc arity*(this: StepDataPDescr): int {.noSideEffect, importcpp: "Arity",
+                                     header: "StepData_PDescr.hxx".}
+proc simple*(this: StepDataPDescr): Handle[StepDataPDescr] {.noSideEffect,
     importcpp: "Simple", header: "StepData_PDescr.hxx".}
-proc IsOptional*(this: StepData_PDescr): Standard_Boolean {.noSideEffect,
-    importcpp: "IsOptional", header: "StepData_PDescr.hxx".}
-proc IsDerived*(this: StepData_PDescr): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDerived", header: "StepData_PDescr.hxx".}
-proc IsField*(this: StepData_PDescr): Standard_Boolean {.noSideEffect,
-    importcpp: "IsField", header: "StepData_PDescr.hxx".}
-proc FieldName*(this: StepData_PDescr): Standard_CString {.noSideEffect,
+proc isOptional*(this: StepDataPDescr): bool {.noSideEffect, importcpp: "IsOptional",
+    header: "StepData_PDescr.hxx".}
+proc isDerived*(this: StepDataPDescr): bool {.noSideEffect, importcpp: "IsDerived",
+    header: "StepData_PDescr.hxx".}
+proc isField*(this: StepDataPDescr): bool {.noSideEffect, importcpp: "IsField",
+                                        header: "StepData_PDescr.hxx".}
+proc fieldName*(this: StepDataPDescr): StandardCString {.noSideEffect,
     importcpp: "FieldName", header: "StepData_PDescr.hxx".}
-proc FieldRank*(this: StepData_PDescr): Standard_Integer {.noSideEffect,
-    importcpp: "FieldRank", header: "StepData_PDescr.hxx".}
-proc Check*(this: StepData_PDescr; afild: StepData_Field;
-           ach: var handle[Interface_Check]) {.noSideEffect, importcpp: "Check",
+proc fieldRank*(this: StepDataPDescr): int {.noSideEffect, importcpp: "FieldRank",
+    header: "StepData_PDescr.hxx".}
+proc check*(this: StepDataPDescr; afild: StepDataField;
+           ach: var Handle[InterfaceCheck]) {.noSideEffect, importcpp: "Check",
     header: "StepData_PDescr.hxx".}
 type
-  StepData_PDescrbase_type* = Standard_Transient
+  StepDataPDescrbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepData_PDescr::get_type_name(@)",
-                              header: "StepData_PDescr.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepData_PDescr::get_type_name(@)",
+                            header: "StepData_PDescr.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepData_PDescr::get_type_descriptor(@)",
     header: "StepData_PDescr.hxx".}
-proc DynamicType*(this: StepData_PDescr): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepDataPDescr): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_PDescr.hxx".}

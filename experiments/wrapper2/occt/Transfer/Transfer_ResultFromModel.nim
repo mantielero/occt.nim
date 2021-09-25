@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Integer,
-  ../Interface/Interface_CheckStatus, ../Standard/Standard_Transient,
-  ../Standard/Standard_CString, ../Standard/Standard_Boolean,
-  ../TColStd/TColStd_HSequenceOfTransient
-
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Transfer_ResultFromTransient"
 discard "forward decl of Transfer_TransientProcess"
@@ -29,7 +22,7 @@ discard "forward decl of Interface_CheckIterator"
 discard "forward decl of Transfer_ResultFromModel"
 discard "forward decl of Transfer_ResultFromModel"
 type
-  Handle_Transfer_ResultFromModel* = handle[Transfer_ResultFromModel]
+  HandleTransferResultFromModel* = Handle[TransferResultFromModel]
 
 ## ! ResultFromModel is used to store a final result stored in a
 ## ! TransientProcess, respectfully to its structuration in scopes
@@ -48,75 +41,70 @@ type
 ## ! were filled by the operation which filled it the first time
 
 type
-  Transfer_ResultFromModel* {.importcpp: "Transfer_ResultFromModel",
-                             header: "Transfer_ResultFromModel.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                      ## !
-                                                                                                      ## Creates
-                                                                                                      ## a
-                                                                                                      ## ResultFromModel,
-                                                                                                      ## empty
+  TransferResultFromModel* {.importcpp: "Transfer_ResultFromModel",
+                            header: "Transfer_ResultFromModel.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                    ## !
+                                                                                                    ## Creates
+                                                                                                    ## a
+                                                                                                    ## ResultFromModel,
+                                                                                                    ## empty
 
 
-proc constructTransfer_ResultFromModel*(): Transfer_ResultFromModel {.constructor,
+proc constructTransferResultFromModel*(): TransferResultFromModel {.constructor,
     importcpp: "Transfer_ResultFromModel(@)",
     header: "Transfer_ResultFromModel.hxx".}
-proc SetModel*(this: var Transfer_ResultFromModel;
-              model: handle[Interface_InterfaceModel]) {.importcpp: "SetModel",
+proc setModel*(this: var TransferResultFromModel;
+              model: Handle[InterfaceInterfaceModel]) {.importcpp: "SetModel",
     header: "Transfer_ResultFromModel.hxx".}
-proc SetFileName*(this: var Transfer_ResultFromModel; filename: Standard_CString) {.
+proc setFileName*(this: var TransferResultFromModel; filename: StandardCString) {.
     importcpp: "SetFileName", header: "Transfer_ResultFromModel.hxx".}
-proc Model*(this: Transfer_ResultFromModel): handle[Interface_InterfaceModel] {.
+proc model*(this: TransferResultFromModel): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "Model", header: "Transfer_ResultFromModel.hxx".}
-proc FileName*(this: Transfer_ResultFromModel): Standard_CString {.noSideEffect,
+proc fileName*(this: TransferResultFromModel): StandardCString {.noSideEffect,
     importcpp: "FileName", header: "Transfer_ResultFromModel.hxx".}
-proc Fill*(this: var Transfer_ResultFromModel;
-          TP: handle[Transfer_TransientProcess]; ent: handle[Standard_Transient]): Standard_Boolean {.
-    importcpp: "Fill", header: "Transfer_ResultFromModel.hxx".}
-proc Strip*(this: var Transfer_ResultFromModel; mode: Standard_Integer) {.
-    importcpp: "Strip", header: "Transfer_ResultFromModel.hxx".}
-proc FillBack*(this: Transfer_ResultFromModel;
-              TP: handle[Transfer_TransientProcess]) {.noSideEffect,
-    importcpp: "FillBack", header: "Transfer_ResultFromModel.hxx".}
-proc HasResult*(this: Transfer_ResultFromModel): Standard_Boolean {.noSideEffect,
+proc fill*(this: var TransferResultFromModel; tp: Handle[TransferTransientProcess];
+          ent: Handle[StandardTransient]): bool {.importcpp: "Fill",
+    header: "Transfer_ResultFromModel.hxx".}
+proc strip*(this: var TransferResultFromModel; mode: int) {.importcpp: "Strip",
+    header: "Transfer_ResultFromModel.hxx".}
+proc fillBack*(this: TransferResultFromModel; tp: Handle[TransferTransientProcess]) {.
+    noSideEffect, importcpp: "FillBack", header: "Transfer_ResultFromModel.hxx".}
+proc hasResult*(this: TransferResultFromModel): bool {.noSideEffect,
     importcpp: "HasResult", header: "Transfer_ResultFromModel.hxx".}
-proc MainResult*(this: Transfer_ResultFromModel): handle[
-    Transfer_ResultFromTransient] {.noSideEffect, importcpp: "MainResult",
-                                   header: "Transfer_ResultFromModel.hxx".}
-proc SetMainResult*(this: var Transfer_ResultFromModel;
-                   amain: handle[Transfer_ResultFromTransient]) {.
+proc mainResult*(this: TransferResultFromModel): Handle[TransferResultFromTransient] {.
+    noSideEffect, importcpp: "MainResult", header: "Transfer_ResultFromModel.hxx".}
+proc setMainResult*(this: var TransferResultFromModel;
+                   amain: Handle[TransferResultFromTransient]) {.
     importcpp: "SetMainResult", header: "Transfer_ResultFromModel.hxx".}
-proc MainLabel*(this: Transfer_ResultFromModel): Standard_CString {.noSideEffect,
+proc mainLabel*(this: TransferResultFromModel): StandardCString {.noSideEffect,
     importcpp: "MainLabel", header: "Transfer_ResultFromModel.hxx".}
-proc MainNumber*(this: Transfer_ResultFromModel): Standard_Integer {.noSideEffect,
+proc mainNumber*(this: TransferResultFromModel): int {.noSideEffect,
     importcpp: "MainNumber", header: "Transfer_ResultFromModel.hxx".}
-proc ResultFromKey*(this: Transfer_ResultFromModel;
-                   start: handle[Standard_Transient]): handle[
-    Transfer_ResultFromTransient] {.noSideEffect, importcpp: "ResultFromKey",
-                                   header: "Transfer_ResultFromModel.hxx".}
-proc Results*(this: Transfer_ResultFromModel; level: Standard_Integer): handle[
-    TColStd_HSequenceOfTransient] {.noSideEffect, importcpp: "Results",
-                                   header: "Transfer_ResultFromModel.hxx".}
-proc TransferredList*(this: Transfer_ResultFromModel; level: Standard_Integer = 2): handle[
-    TColStd_HSequenceOfTransient] {.noSideEffect, importcpp: "TransferredList",
-                                   header: "Transfer_ResultFromModel.hxx".}
-proc CheckedList*(this: Transfer_ResultFromModel; check: Interface_CheckStatus;
-                 result: Standard_Boolean): handle[TColStd_HSequenceOfTransient] {.
-    noSideEffect, importcpp: "CheckedList", header: "Transfer_ResultFromModel.hxx".}
-proc CheckList*(this: Transfer_ResultFromModel; erronly: Standard_Boolean;
-               level: Standard_Integer = 2): Interface_CheckIterator {.noSideEffect,
-    importcpp: "CheckList", header: "Transfer_ResultFromModel.hxx".}
-proc CheckStatus*(this: Transfer_ResultFromModel): Interface_CheckStatus {.
+proc resultFromKey*(this: TransferResultFromModel; start: Handle[StandardTransient]): Handle[
+    TransferResultFromTransient] {.noSideEffect, importcpp: "ResultFromKey",
+                                  header: "Transfer_ResultFromModel.hxx".}
+proc results*(this: TransferResultFromModel; level: int): Handle[
+    TColStdHSequenceOfTransient] {.noSideEffect, importcpp: "Results",
+                                  header: "Transfer_ResultFromModel.hxx".}
+proc transferredList*(this: TransferResultFromModel; level: int = 2): Handle[
+    TColStdHSequenceOfTransient] {.noSideEffect, importcpp: "TransferredList",
+                                  header: "Transfer_ResultFromModel.hxx".}
+proc checkedList*(this: TransferResultFromModel; check: InterfaceCheckStatus;
+                 result: bool): Handle[TColStdHSequenceOfTransient] {.noSideEffect,
+    importcpp: "CheckedList", header: "Transfer_ResultFromModel.hxx".}
+proc checkList*(this: TransferResultFromModel; erronly: bool; level: int = 2): InterfaceCheckIterator {.
+    noSideEffect, importcpp: "CheckList", header: "Transfer_ResultFromModel.hxx".}
+proc checkStatus*(this: TransferResultFromModel): InterfaceCheckStatus {.
     noSideEffect, importcpp: "CheckStatus", header: "Transfer_ResultFromModel.hxx".}
-proc ComputeCheckStatus*(this: var Transfer_ResultFromModel;
-                        enforce: Standard_Boolean): Interface_CheckStatus {.
+proc computeCheckStatus*(this: var TransferResultFromModel; enforce: bool): InterfaceCheckStatus {.
     importcpp: "ComputeCheckStatus", header: "Transfer_ResultFromModel.hxx".}
 type
-  Transfer_ResultFromModelbase_type* = Standard_Transient
+  TransferResultFromModelbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Transfer_ResultFromModel::get_type_name(@)",
-                              header: "Transfer_ResultFromModel.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Transfer_ResultFromModel::get_type_name(@)",
+                            header: "Transfer_ResultFromModel.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_ResultFromModel::get_type_descriptor(@)",
     header: "Transfer_ResultFromModel.hxx".}
-proc DynamicType*(this: Transfer_ResultFromModel): handle[Standard_Type] {.
+proc dynamicType*(this: TransferResultFromModel): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Transfer_ResultFromModel.hxx".}

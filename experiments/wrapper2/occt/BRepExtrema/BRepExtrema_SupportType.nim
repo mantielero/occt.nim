@@ -12,8 +12,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  BRepExtrema_SupportType* {.size: sizeof(cint),
-                            importcpp: "BRepExtrema_SupportType",
-                            header: "BRepExtrema_SupportType.hxx".} = enum
-    BRepExtrema_IsVertex, BRepExtrema_IsOnEdge, BRepExtrema_IsInFace
+  BRepExtremaSupportType* {.size: sizeof(cint),
+                           importcpp: "BRepExtrema_SupportType",
+                           header: "BRepExtrema_SupportType.hxx".} = enum
+    BRepExtremaIsVertex, BRepExtremaIsOnEdge, BRepExtremaIsInFace
+
 

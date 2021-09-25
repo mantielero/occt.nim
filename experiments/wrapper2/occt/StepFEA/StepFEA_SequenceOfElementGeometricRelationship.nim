@@ -11,9 +11,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepFEA_ElementGeometricRelationship, ../NCollection/NCollection_Sequence
-
 type
-  StepFEA_SequenceOfElementGeometricRelationship* = NCollection_Sequence[
-      handle[StepFEA_ElementGeometricRelationship]]
+  StepFEA_SequenceOfElementGeometricRelationship* = NCollectionSequence[
+      Handle[StepFEA_ElementGeometricRelationship]]
+

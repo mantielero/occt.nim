@@ -19,3 +19,4 @@ type
                   header: "OSD_FromWhere.hxx".} = enum
     OSD_FromBeginning, OSD_FromHere, OSD_FromEnd
 
+

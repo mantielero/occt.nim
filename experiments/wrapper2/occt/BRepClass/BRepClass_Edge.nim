@@ -14,25 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Edge, ../TopoDS/TopoDS_Face
-
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
 type
-  BRepClass_Edge* {.importcpp: "BRepClass_Edge", header: "BRepClass_Edge.hxx", bycopy.} = object
+  BRepClassEdge* {.importcpp: "BRepClass_Edge", header: "BRepClass_Edge.hxx", bycopy.} = object
 
 
-proc constructBRepClass_Edge*(): BRepClass_Edge {.constructor,
+proc constructBRepClassEdge*(): BRepClassEdge {.constructor,
     importcpp: "BRepClass_Edge(@)", header: "BRepClass_Edge.hxx".}
-proc constructBRepClass_Edge*(E: TopoDS_Edge; F: TopoDS_Face): BRepClass_Edge {.
+proc constructBRepClassEdge*(e: TopoDS_Edge; f: TopoDS_Face): BRepClassEdge {.
     constructor, importcpp: "BRepClass_Edge(@)", header: "BRepClass_Edge.hxx".}
-proc Edge*(this: var BRepClass_Edge): var TopoDS_Edge {.importcpp: "Edge",
+proc edge*(this: var BRepClassEdge): var TopoDS_Edge {.importcpp: "Edge",
     header: "BRepClass_Edge.hxx".}
-proc Edge*(this: BRepClass_Edge): TopoDS_Edge {.noSideEffect, importcpp: "Edge",
+proc edge*(this: BRepClassEdge): TopoDS_Edge {.noSideEffect, importcpp: "Edge",
     header: "BRepClass_Edge.hxx".}
-proc Face*(this: var BRepClass_Edge): var TopoDS_Face {.importcpp: "Face",
+proc face*(this: var BRepClassEdge): var TopoDS_Face {.importcpp: "Face",
     header: "BRepClass_Edge.hxx".}
-proc Face*(this: BRepClass_Edge): TopoDS_Face {.noSideEffect, importcpp: "Face",
+proc face*(this: BRepClassEdge): TopoDS_Face {.noSideEffect, importcpp: "Face",
     header: "BRepClass_Edge.hxx".}

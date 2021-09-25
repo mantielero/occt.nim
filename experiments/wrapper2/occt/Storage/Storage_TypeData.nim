@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Storage_PType, Storage_Error,
-  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Transient,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
-  ../TColStd/TColStd_HSequenceOfAsciiString
-
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Storage_Schema"
 discard "forward decl of Storage_BaseDriver"
@@ -27,43 +21,42 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Storage_TypeData"
 discard "forward decl of Storage_TypeData"
 type
-  Handle_Storage_TypeData* = handle[Storage_TypeData]
-  Storage_TypeData* {.importcpp: "Storage_TypeData",
-                     header: "Storage_TypeData.hxx", bycopy.} = object of Standard_Transient
+  HandleStorageTypeData* = Handle[StorageTypeData]
+  StorageTypeData* {.importcpp: "Storage_TypeData", header: "Storage_TypeData.hxx",
+                    bycopy.} = object of StandardTransient
 
 
-proc constructStorage_TypeData*(): Storage_TypeData {.constructor,
+proc constructStorageTypeData*(): StorageTypeData {.constructor,
     importcpp: "Storage_TypeData(@)", header: "Storage_TypeData.hxx".}
-proc Read*(this: var Storage_TypeData; theDriver: handle[Storage_BaseDriver]): Standard_Boolean {.
+proc read*(this: var StorageTypeData; theDriver: Handle[StorageBaseDriver]): bool {.
     importcpp: "Read", header: "Storage_TypeData.hxx".}
-proc NumberOfTypes*(this: Storage_TypeData): Standard_Integer {.noSideEffect,
+proc numberOfTypes*(this: StorageTypeData): int {.noSideEffect,
     importcpp: "NumberOfTypes", header: "Storage_TypeData.hxx".}
-proc AddType*(this: var Storage_TypeData; aName: TCollection_AsciiString;
-             aTypeNum: Standard_Integer) {.importcpp: "AddType",
-    header: "Storage_TypeData.hxx".}
-proc Type*(this: Storage_TypeData; aTypeNum: Standard_Integer): TCollection_AsciiString {.
+proc addType*(this: var StorageTypeData; aName: TCollectionAsciiString; aTypeNum: int) {.
+    importcpp: "AddType", header: "Storage_TypeData.hxx".}
+proc `type`*(this: StorageTypeData; aTypeNum: int): TCollectionAsciiString {.
     noSideEffect, importcpp: "Type", header: "Storage_TypeData.hxx".}
-proc Type*(this: Storage_TypeData; aTypeName: TCollection_AsciiString): Standard_Integer {.
+proc `type`*(this: StorageTypeData; aTypeName: TCollectionAsciiString): int {.
     noSideEffect, importcpp: "Type", header: "Storage_TypeData.hxx".}
-proc IsType*(this: Storage_TypeData; aName: TCollection_AsciiString): Standard_Boolean {.
+proc isType*(this: StorageTypeData; aName: TCollectionAsciiString): bool {.
     noSideEffect, importcpp: "IsType", header: "Storage_TypeData.hxx".}
-proc Types*(this: Storage_TypeData): handle[TColStd_HSequenceOfAsciiString] {.
+proc types*(this: StorageTypeData): Handle[TColStdHSequenceOfAsciiString] {.
     noSideEffect, importcpp: "Types", header: "Storage_TypeData.hxx".}
-proc ErrorStatus*(this: Storage_TypeData): Storage_Error {.noSideEffect,
+proc errorStatus*(this: StorageTypeData): StorageError {.noSideEffect,
     importcpp: "ErrorStatus", header: "Storage_TypeData.hxx".}
-proc ErrorStatusExtension*(this: Storage_TypeData): TCollection_AsciiString {.
+proc errorStatusExtension*(this: StorageTypeData): TCollectionAsciiString {.
     noSideEffect, importcpp: "ErrorStatusExtension", header: "Storage_TypeData.hxx".}
-proc ClearErrorStatus*(this: var Storage_TypeData) {.importcpp: "ClearErrorStatus",
+proc clearErrorStatus*(this: var StorageTypeData) {.importcpp: "ClearErrorStatus",
     header: "Storage_TypeData.hxx".}
-proc Clear*(this: var Storage_TypeData) {.importcpp: "Clear",
-                                      header: "Storage_TypeData.hxx".}
+proc clear*(this: var StorageTypeData) {.importcpp: "Clear",
+                                     header: "Storage_TypeData.hxx".}
 type
-  Storage_TypeDatabase_type* = Standard_Transient
+  StorageTypeDatabaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Storage_TypeData::get_type_name(@)",
-                              header: "Storage_TypeData.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Storage_TypeData::get_type_name(@)",
+                            header: "Storage_TypeData.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Storage_TypeData::get_type_descriptor(@)",
     header: "Storage_TypeData.hxx".}
-proc DynamicType*(this: Storage_TypeData): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StorageTypeData): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Storage_TypeData.hxx".}

@@ -17,10 +17,10 @@
 ## ! to store naming characteristcs
 
 type
-  TNaming_NameType* {.size: sizeof(cint), importcpp: "TNaming_NameType",
-                     header: "TNaming_NameType.hxx".} = enum
-    TNaming_UNKNOWN, TNaming_IDENTITY, TNaming_MODIFUNTIL, TNaming_GENERATION,
-    TNaming_INTERSECTION, TNaming_UNION, TNaming_SUBSTRACTION, TNaming_CONSTSHAPE,
-    TNaming_FILTERBYNEIGHBOURGS, TNaming_ORIENTATION, TNaming_WIREIN,
-    TNaming_SHELLIN
+  TNamingNameType* {.size: sizeof(cint), importcpp: "TNaming_NameType",
+                    header: "TNaming_NameType.hxx".} = enum
+    TNamingUNKNOWN, TNamingIDENTITY, TNamingMODIFUNTIL, TNamingGENERATION,
+    TNamingINTERSECTION, TNamingUNION, TNamingSUBSTRACTION, TNamingCONSTSHAPE,
+    TNamingFILTERBYNEIGHBOURGS, TNamingORIENTATION, TNamingWIREIN, TNamingSHELLIN
+
 

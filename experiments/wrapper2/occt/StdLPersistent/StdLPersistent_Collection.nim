@@ -11,19 +11,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../StdObjMgt/StdObjMgt_Attribute, StdLPersistent_HArray1,
-  ../TDataStd/TDataStd_IntegerArray, ../TDataStd/TDataStd_RealArray,
-  ../TDataStd/TDataStd_ByteArray, ../TDataStd/TDataStd_ExtStringArray,
-  ../TDataStd/TDataStd_BooleanArray, ../TDataStd/TDataStd_ReferenceArray,
-  ../TDataStd/TDataStd_IntegerList, ../TDataStd/TDataStd_RealList,
-  ../TDataStd/TDataStd_ExtStringList, ../TDataStd/TDataStd_BooleanList,
-  ../TDataStd/TDataStd_ReferenceList, ../TDataStd/TDataStd_IntPackedMap
-
 type
-  StdLPersistent_Collection* {.importcpp: "StdLPersistent_Collection",
-                              header: "StdLPersistent_Collection.hxx", bycopy.} = object ##  Converters
-                                                                                    ##  Final specialization
+  StdLPersistentCollection* {.importcpp: "StdLPersistent_Collection",
+                             header: "StdLPersistent_Collection.hxx", bycopy.} = object ##  Converters
+                                                                                   ##  Final specialization
 
 
 ## !!!Ignored construct:   Instance templates template < template < class > class BaseT , class HArrayClass , class AttribClass , class Converter > [end of template] class instance : public BaseT < typename StdObjMgt_Attribute < AttribClass > :: SingleRef > { public : ! Import transient attribuite from the persistent data. virtual void ImportAttribute ( ) ; } ;
@@ -45,42 +36,43 @@ type
 ## Error: token expected: > [end of template] but got: =!!!
 
 type
-  StdLPersistent_CollectionBooleanArray* = booleanArrayT[
-      StdLPersistent_Collectioninteger, TDataStd_BooleanArray,
-      StdLPersistent_CollectionbyteConverter]
-  StdLPersistent_CollectionIntegerArray* = directArrayT[
-      StdLPersistent_Collectioninteger, TDataStd_IntegerArray]
-  StdLPersistent_CollectionRealArray* = directArrayT[
-      StdLPersistent_Collectionreal, TDataStd_RealArray]
-  StdLPersistent_CollectionByteArray* = arrayT[StdLPersistent_Collectioninteger,
-      TDataStd_ByteArray, StdLPersistent_CollectionbyteConverter]
-  StdLPersistent_CollectionExtStringArray* = arrayT[
-      StdLPersistent_Collectionpersistent, TDataStd_ExtStringArray,
-      StdLPersistent_CollectionstringConverter]
-  StdLPersistent_CollectionReferenceArray* = arrayT[
-      StdLPersistent_Collectionpersistent, TDataStd_ReferenceArray,
-      StdLPersistent_CollectionreferenceConverter]
-  StdLPersistent_CollectionIntegerList* = listT[StdLPersistent_Collectioninteger,
-      TDataStd_IntegerList]
-  StdLPersistent_CollectionRealList* = listT[StdLPersistent_Collectionreal,
-      TDataStd_RealList]
-  StdLPersistent_CollectionBooleanList* = listT[StdLPersistent_Collectioninteger,
-      TDataStd_BooleanList, StdLPersistent_CollectionboolConverter]
-  StdLPersistent_CollectionExtStringList* = listT[
-      StdLPersistent_Collectionpersistent, TDataStd_ExtStringList,
-      StdLPersistent_CollectionstringConverter]
-  StdLPersistent_CollectionReferenceList* = listT[
-      StdLPersistent_Collectionpersistent, TDataStd_ReferenceList,
-      StdLPersistent_CollectionreferenceConverter]
-  StdLPersistent_CollectionIntPackedMap* = mapT[StdLPersistent_Collectioninteger,
-      TDataStd_IntPackedMap]
-  StdLPersistent_CollectionIntegerArray_1* = StdLPersistent_Collectioninstance_1[
-      StdLPersistent_CollectionIntegerArray]
-  StdLPersistent_CollectionRealArray_1* = StdLPersistent_Collectioninstance_1[
-      StdLPersistent_CollectionRealArray]
-  StdLPersistent_CollectionByteArray_1* = StdLPersistent_Collectioninstance_1[
-      StdLPersistent_CollectionByteArray]
-  StdLPersistent_CollectionExtStringArray_1* = StdLPersistent_Collectioninstance_1[
-      StdLPersistent_CollectionExtStringArray]
-  StdLPersistent_CollectionIntPackedMap_1* = StdLPersistent_Collectioninstance_1[
-      StdLPersistent_CollectionIntPackedMap]
+  StdLPersistentCollectionBooleanArray* = booleanArrayT[
+      StdLPersistentCollectioninteger, TDataStdBooleanArray,
+      StdLPersistentCollectionbyteConverter]
+  StdLPersistentCollectionIntegerArray* = DirectArrayT[
+      StdLPersistentCollectioninteger, TDataStdIntegerArray]
+  StdLPersistentCollectionRealArray* = DirectArrayT[StdLPersistentCollectionreal,
+      TDataStdRealArray]
+  StdLPersistentCollectionByteArray* = arrayT[StdLPersistentCollectioninteger,
+      TDataStdByteArray, StdLPersistentCollectionbyteConverter]
+  StdLPersistentCollectionExtStringArray* = arrayT[
+      StdLPersistentCollectionpersistent, TDataStdExtStringArray,
+      StdLPersistentCollectionstringConverter]
+  StdLPersistentCollectionReferenceArray* = arrayT[
+      StdLPersistentCollectionpersistent, TDataStdReferenceArray,
+      StdLPersistentCollectionreferenceConverter]
+  StdLPersistentCollectionIntegerList* = ListT[StdLPersistentCollectioninteger,
+      TDataStdIntegerList]
+  StdLPersistentCollectionRealList* = ListT[StdLPersistentCollectionreal,
+      TDataStdRealList]
+  StdLPersistentCollectionBooleanList* = ListT[StdLPersistentCollectioninteger,
+      TDataStdBooleanList, StdLPersistentCollectionboolConverter]
+  StdLPersistentCollectionExtStringList* = ListT[
+      StdLPersistentCollectionpersistent, TDataStdExtStringList,
+      StdLPersistentCollectionstringConverter]
+  StdLPersistentCollectionReferenceList* = ListT[
+      StdLPersistentCollectionpersistent, TDataStdReferenceList,
+      StdLPersistentCollectionreferenceConverter]
+  StdLPersistentCollectionIntPackedMap* = MapT[StdLPersistentCollectioninteger,
+      TDataStdIntPackedMap]
+  StdLPersistentCollectionIntegerArray1* = StdLPersistentCollectioninstance1[
+      StdLPersistentCollectionIntegerArray]
+  StdLPersistentCollectionRealArray1* = StdLPersistentCollectioninstance1[
+      StdLPersistentCollectionRealArray]
+  StdLPersistentCollectionByteArray1* = StdLPersistentCollectioninstance1[
+      StdLPersistentCollectionByteArray]
+  StdLPersistentCollectionExtStringArray1* = StdLPersistentCollectioninstance1[
+      StdLPersistentCollectionExtStringArray]
+  StdLPersistentCollectionIntPackedMap1* = StdLPersistentCollectioninstance1[
+      StdLPersistentCollectionIntPackedMap]
+

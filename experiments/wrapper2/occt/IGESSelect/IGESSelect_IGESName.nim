@@ -14,16 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../IFSelect/IFSelect_Signature,
-  ../Standard/Standard_CString
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IGESSelect_IGESName"
 discard "forward decl of IGESSelect_IGESName"
 type
-  Handle_IGESSelect_IGESName* = handle[IGESSelect_IGESName]
+  HandleIGESSelectIGESName* = Handle[IGESSelectIGESName]
 
 ## ! IGESName is a Signature specific to IGESNorm :
 ## ! it considers the Name of an IGESEntity as being its ShortLabel
@@ -31,39 +27,39 @@ type
 ## ! ratjer to classify them)
 
 type
-  IGESSelect_IGESName* {.importcpp: "IGESSelect_IGESName",
-                        header: "IGESSelect_IGESName.hxx", bycopy.} = object of IFSelect_Signature ##
-                                                                                            ## !
-                                                                                            ## Creates
-                                                                                            ## a
-                                                                                            ## Signature
-                                                                                            ## for
-                                                                                            ## IGES
-                                                                                            ## Name
-                                                                                            ## (reduced
-                                                                                            ## to
-                                                                                            ## ShortLabel,
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## without
-                                                                                            ## SubscriptLabel
-                                                                                            ## or
-                                                                                            ## Long
-                                                                                            ## Name)
+  IGESSelectIGESName* {.importcpp: "IGESSelect_IGESName",
+                       header: "IGESSelect_IGESName.hxx", bycopy.} = object of IFSelectSignature ##
+                                                                                          ## !
+                                                                                          ## Creates
+                                                                                          ## a
+                                                                                          ## Signature
+                                                                                          ## for
+                                                                                          ## IGES
+                                                                                          ## Name
+                                                                                          ## (reduced
+                                                                                          ## to
+                                                                                          ## ShortLabel,
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## without
+                                                                                          ## SubscriptLabel
+                                                                                          ## or
+                                                                                          ## Long
+                                                                                          ## Name)
 
 
-proc constructIGESSelect_IGESName*(): IGESSelect_IGESName {.constructor,
+proc constructIGESSelectIGESName*(): IGESSelectIGESName {.constructor,
     importcpp: "IGESSelect_IGESName(@)", header: "IGESSelect_IGESName.hxx".}
-proc Value*(this: IGESSelect_IGESName; ent: handle[Standard_Transient];
-           model: handle[Interface_InterfaceModel]): Standard_CString {.
-    noSideEffect, importcpp: "Value", header: "IGESSelect_IGESName.hxx".}
+proc value*(this: IGESSelectIGESName; ent: Handle[StandardTransient];
+           model: Handle[InterfaceInterfaceModel]): StandardCString {.noSideEffect,
+    importcpp: "Value", header: "IGESSelect_IGESName.hxx".}
 type
-  IGESSelect_IGESNamebase_type* = IFSelect_Signature
+  IGESSelectIGESNamebaseType* = IFSelectSignature
 
-proc get_type_name*(): cstring {.importcpp: "IGESSelect_IGESName::get_type_name(@)",
-                              header: "IGESSelect_IGESName.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_IGESName::get_type_name(@)",
+                            header: "IGESSelect_IGESName.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESSelect_IGESName::get_type_descriptor(@)",
     header: "IGESSelect_IGESName.hxx".}
-proc DynamicType*(this: IGESSelect_IGESName): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IGESSelectIGESName): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSelect_IGESName.hxx".}

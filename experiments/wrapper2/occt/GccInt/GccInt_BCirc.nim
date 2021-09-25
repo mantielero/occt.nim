@@ -14,47 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Circ2d, GccInt_Bisec,
-  GccInt_IType
-
 discard "forward decl of gp_Circ2d"
 discard "forward decl of GccInt_BCirc"
 discard "forward decl of GccInt_BCirc"
 type
-  Handle_GccInt_BCirc* = handle[GccInt_BCirc]
+  HandleGccIntBCirc* = Handle[GccIntBCirc]
 
 ## ! Describes a circle as a bisecting curve between two 2D
 ## ! geometric objects (such as circles or points).
 
 type
-  GccInt_BCirc* {.importcpp: "GccInt_BCirc", header: "GccInt_BCirc.hxx", bycopy.} = object of GccInt_Bisec ##
-                                                                                                 ## !
-                                                                                                 ## Constructs
-                                                                                                 ## a
-                                                                                                 ## bisecting
-                                                                                                 ## curve
-                                                                                                 ## whose
-                                                                                                 ## geometry
-                                                                                                 ## is
-                                                                                                 ## the
-                                                                                                 ## 2D
-                                                                                                 ## circle
-                                                                                                 ## Circ.
+  GccIntBCirc* {.importcpp: "GccInt_BCirc", header: "GccInt_BCirc.hxx", bycopy.} = object of GccIntBisec ##
+                                                                                               ## !
+                                                                                               ## Constructs
+                                                                                               ## a
+                                                                                               ## bisecting
+                                                                                               ## curve
+                                                                                               ## whose
+                                                                                               ## geometry
+                                                                                               ## is
+                                                                                               ## the
+                                                                                               ## 2D
+                                                                                               ## circle
+                                                                                               ## Circ.
 
 
-proc constructGccInt_BCirc*(Circ: gp_Circ2d): GccInt_BCirc {.constructor,
+proc constructGccIntBCirc*(circ: Circ2d): GccIntBCirc {.constructor,
     importcpp: "GccInt_BCirc(@)", header: "GccInt_BCirc.hxx".}
-proc Circle*(this: GccInt_BCirc): gp_Circ2d {.noSideEffect, importcpp: "Circle",
-    header: "GccInt_BCirc.hxx".}
-proc ArcType*(this: GccInt_BCirc): GccInt_IType {.noSideEffect, importcpp: "ArcType",
+proc circle*(this: GccIntBCirc): Circ2d {.noSideEffect, importcpp: "Circle",
+                                      header: "GccInt_BCirc.hxx".}
+proc arcType*(this: GccIntBCirc): GccIntIType {.noSideEffect, importcpp: "ArcType",
     header: "GccInt_BCirc.hxx".}
 type
-  GccInt_BCircbase_type* = GccInt_Bisec
+  GccIntBCircbaseType* = GccIntBisec
 
-proc get_type_name*(): cstring {.importcpp: "GccInt_BCirc::get_type_name(@)",
-                              header: "GccInt_BCirc.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "GccInt_BCirc::get_type_name(@)",
+                            header: "GccInt_BCirc.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GccInt_BCirc::get_type_descriptor(@)", header: "GccInt_BCirc.hxx".}
-proc DynamicType*(this: GccInt_BCirc): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: GccIntBCirc): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "GccInt_BCirc.hxx".}

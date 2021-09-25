@@ -13,33 +13,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_ContinuosShapeAspect
-
 discard "forward decl of StepRepr_AllAroundShapeAspect"
 discard "forward decl of StepRepr_AllAroundShapeAspect"
 type
-  Handle_StepRepr_AllAroundShapeAspect* = handle[StepRepr_AllAroundShapeAspect]
+  HandleStepReprAllAroundShapeAspect* = Handle[StepReprAllAroundShapeAspect]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepRepr_AllAroundShapeAspect* {.importcpp: "StepRepr_AllAroundShapeAspect",
-                                  header: "StepRepr_AllAroundShapeAspect.hxx",
-                                  bycopy.} = object of StepRepr_ContinuosShapeAspect
+  StepReprAllAroundShapeAspect* {.importcpp: "StepRepr_AllAroundShapeAspect",
+                                 header: "StepRepr_AllAroundShapeAspect.hxx",
+                                 bycopy.} = object of StepReprContinuosShapeAspect
 
 
-proc constructStepRepr_AllAroundShapeAspect*(): StepRepr_AllAroundShapeAspect {.
+proc constructStepReprAllAroundShapeAspect*(): StepReprAllAroundShapeAspect {.
     constructor, importcpp: "StepRepr_AllAroundShapeAspect(@)",
     header: "StepRepr_AllAroundShapeAspect.hxx".}
 type
-  StepRepr_AllAroundShapeAspectbase_type* = StepRepr_ContinuosShapeAspect
+  StepReprAllAroundShapeAspectbaseType* = StepReprContinuosShapeAspect
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_AllAroundShapeAspect::get_type_name(@)",
-                              header: "StepRepr_AllAroundShapeAspect.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_AllAroundShapeAspect::get_type_name(@)",
+                            header: "StepRepr_AllAroundShapeAspect.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_AllAroundShapeAspect::get_type_descriptor(@)",
     header: "StepRepr_AllAroundShapeAspect.hxx".}
-proc DynamicType*(this: StepRepr_AllAroundShapeAspect): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprAllAroundShapeAspect): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_AllAroundShapeAspect.hxx".}

@@ -14,30 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real, ../Intf/Intf_Polygon2d,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt2d"
 type
-  IntPatch_Polygo* {.importcpp: "IntPatch_Polygo", header: "IntPatch_Polygo.hxx",
-                    bycopy.} = object of Intf_Polygon2d
+  IntPatchPolygo* {.importcpp: "IntPatch_Polygo", header: "IntPatch_Polygo.hxx",
+                   bycopy.} = object of IntfPolygon2d
 
 
-proc Error*(this: IntPatch_Polygo): Standard_Real {.noSideEffect, importcpp: "Error",
-    header: "IntPatch_Polygo.hxx".}
-proc NbPoints*(this: IntPatch_Polygo): Standard_Integer {.noSideEffect,
-    importcpp: "NbPoints", header: "IntPatch_Polygo.hxx".}
-proc Point*(this: IntPatch_Polygo; Index: Standard_Integer): gp_Pnt2d {.noSideEffect,
+proc error*(this: IntPatchPolygo): float {.noSideEffect, importcpp: "Error",
+                                       header: "IntPatch_Polygo.hxx".}
+proc nbPoints*(this: IntPatchPolygo): int {.noSideEffect, importcpp: "NbPoints",
+                                        header: "IntPatch_Polygo.hxx".}
+proc point*(this: IntPatchPolygo; index: int): Pnt2d {.noSideEffect,
     importcpp: "Point", header: "IntPatch_Polygo.hxx".}
-proc DeflectionOverEstimation*(this: IntPatch_Polygo): Standard_Real {.noSideEffect,
+proc deflectionOverEstimation*(this: IntPatchPolygo): float {.noSideEffect,
     importcpp: "DeflectionOverEstimation", header: "IntPatch_Polygo.hxx".}
-proc NbSegments*(this: IntPatch_Polygo): Standard_Integer {.noSideEffect,
-    importcpp: "NbSegments", header: "IntPatch_Polygo.hxx".}
-proc Segment*(this: IntPatch_Polygo; theIndex: Standard_Integer;
-             theBegin: var gp_Pnt2d; theEnd: var gp_Pnt2d) {.noSideEffect,
-    importcpp: "Segment", header: "IntPatch_Polygo.hxx".}
-proc Dump*(this: IntPatch_Polygo) {.noSideEffect, importcpp: "Dump",
-                                 header: "IntPatch_Polygo.hxx".}
+proc nbSegments*(this: IntPatchPolygo): int {.noSideEffect, importcpp: "NbSegments",
+    header: "IntPatch_Polygo.hxx".}
+proc segment*(this: IntPatchPolygo; theIndex: int; theBegin: var Pnt2d;
+             theEnd: var Pnt2d) {.noSideEffect, importcpp: "Segment",
+                               header: "IntPatch_Polygo.hxx".}
+proc dump*(this: IntPatchPolygo) {.noSideEffect, importcpp: "Dump",
+                                header: "IntPatch_Polygo.hxx".}

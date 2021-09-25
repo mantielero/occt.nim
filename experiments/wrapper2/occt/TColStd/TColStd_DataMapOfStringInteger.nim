@@ -12,12 +12,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_ExtendedString, ../Standard/Standard_Integer,
-  ../TCollection/TCollection_ExtendedString, ../NCollection/NCollection_DataMap
-
 type
-  TColStd_DataMapOfStringInteger* = NCollection_DataMap[
-      TCollection_ExtendedString, Standard_Integer, TCollection_ExtendedString]
-  TColStd_DataMapIteratorOfDataMapOfStringInteger* = Iterator[
-      TCollection_ExtendedString, Standard_Integer, TCollection_ExtendedString]
+  TColStdDataMapOfStringInteger* = NCollectionDataMap[TCollectionExtendedString,
+      int, TCollectionExtendedString]
+  TColStdDataMapIteratorOfDataMapOfStringInteger* = Iterator[
+      TCollectionExtendedString, int, TCollectionExtendedString]
+

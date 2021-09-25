@@ -11,26 +11,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Trsf, ../NCollection/NCollection_Array1
-
 ## ! Describes a single pose for a tracked object (for XR).
 
 type
-  Aspect_TrackedDevicePose* {.importcpp: "Aspect_TrackedDevicePose",
-                             header: "Aspect_TrackedDevicePose.hxx", bycopy.} = object
-    Orientation* {.importc: "Orientation".}: gp_Trsf ## !< device to absolute transformation
-    Velocity* {.importc: "Velocity".}: gp_Vec ## !< velocity in tracker space in m/s
-    AngularVelocity* {.importc: "AngularVelocity".}: gp_Vec ## !< angular velocity in radians/s
-    IsValidPose* {.importc: "IsValidPose".}: bool ## !< indicates valid pose
-    IsConnectedDevice* {.importc: "IsConnectedDevice".}: bool ## !< indicates connected state
+  AspectTrackedDevicePose* {.importcpp: "Aspect_TrackedDevicePose",
+                            header: "Aspect_TrackedDevicePose.hxx", bycopy.} = object
+    orientation* {.importc: "Orientation".}: Trsf ## !< device to absolute transformation
+    velocity* {.importc: "Velocity".}: Vec ## !< velocity in tracker space in m/s
+    angularVelocity* {.importc: "AngularVelocity".}: Vec ## !< angular velocity in radians/s
+    isValidPose* {.importc: "IsValidPose".}: bool ## !< indicates valid pose
+    isConnectedDevice* {.importc: "IsConnectedDevice".}: bool ## !< indicates connected state
                                                           ## ! Empty constructor.
 
 
-proc constructAspect_TrackedDevicePose*(): Aspect_TrackedDevicePose {.constructor,
+proc constructAspectTrackedDevicePose*(): AspectTrackedDevicePose {.constructor,
     importcpp: "Aspect_TrackedDevicePose(@)",
     header: "Aspect_TrackedDevicePose.hxx".}
 ## ! Array of tracked poses.
 
 type
-  Aspect_TrackedDevicePoseArray* = NCollection_Array1[Aspect_TrackedDevicePose]
+  AspectTrackedDevicePoseArray* = NCollectionArray1[AspectTrackedDevicePose]
+

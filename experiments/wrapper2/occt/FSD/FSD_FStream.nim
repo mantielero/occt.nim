@@ -12,8 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Stream
-
 type
-  FSD_FStream* = fstream
+  FSD_FStream* = ref object # Fstream
+

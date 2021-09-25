@@ -18,9 +18,10 @@
 ## ! where they will be displayed in presenting a length.
 
 type
-  DsgPrs_ArrowSide* {.size: sizeof(cint), importcpp: "DsgPrs_ArrowSide",
-                     header: "DsgPrs_ArrowSide.hxx".} = enum
-    DsgPrs_AS_NONE, DsgPrs_AS_FIRSTAR, DsgPrs_AS_LASTAR, DsgPrs_AS_BOTHAR,
-    DsgPrs_AS_FIRSTPT, DsgPrs_AS_LASTPT, DsgPrs_AS_BOTHPT,
-    DsgPrs_AS_FIRSTAR_LASTPT, DsgPrs_AS_FIRSTPT_LASTAR
+  DsgPrsArrowSide* {.size: sizeof(cint), importcpp: "DsgPrs_ArrowSide",
+                    header: "DsgPrs_ArrowSide.hxx".} = enum
+    DsgPrsAS_NONE, DsgPrsAS_FIRSTAR, DsgPrsAS_LASTAR, DsgPrsAS_BOTHAR,
+    DsgPrsAS_FIRSTPT, DsgPrsAS_LASTPT, DsgPrsAS_BOTHPT, DsgPrsAS_FIRSTAR_LASTPT,
+    DsgPrsAS_FIRSTPT_LASTAR
+
 

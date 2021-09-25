@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../MoniTool/MoniTool_DataMapOfShapeTransient,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real, ../TopoDS/TopoDS_Shell,
-  ../TopoDS/TopoDS_Face, ../TopoDS/TopoDS_Wire, ../TopoDS/TopoDS_Edge,
-  ../TopoDS/TopoDS_Vertex, ../Standard/Standard_Integer
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of StepShape_TopologicalRepresentationItem"
 discard "forward decl of TopoDS_Shell"
@@ -29,55 +22,54 @@ discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
 type
-  TopoDSToStep_Tool* {.importcpp: "TopoDSToStep_Tool",
-                      header: "TopoDSToStep_Tool.hxx", bycopy.} = object
+  TopoDSToStepTool* {.importcpp: "TopoDSToStep_Tool",
+                     header: "TopoDSToStep_Tool.hxx", bycopy.} = object
 
 
-proc constructTopoDSToStep_Tool*(): TopoDSToStep_Tool {.constructor,
+proc constructTopoDSToStepTool*(): TopoDSToStepTool {.constructor,
     importcpp: "TopoDSToStep_Tool(@)", header: "TopoDSToStep_Tool.hxx".}
-proc constructTopoDSToStep_Tool*(M: MoniTool_DataMapOfShapeTransient;
-                                FacetedContext: Standard_Boolean): TopoDSToStep_Tool {.
+proc constructTopoDSToStepTool*(m: MoniToolDataMapOfShapeTransient;
+                               facetedContext: bool): TopoDSToStepTool {.
     constructor, importcpp: "TopoDSToStep_Tool(@)", header: "TopoDSToStep_Tool.hxx".}
-proc Init*(this: var TopoDSToStep_Tool; M: MoniTool_DataMapOfShapeTransient;
-          FacetedContext: Standard_Boolean) {.importcpp: "Init",
-    header: "TopoDSToStep_Tool.hxx".}
-proc IsBound*(this: var TopoDSToStep_Tool; S: TopoDS_Shape): Standard_Boolean {.
+proc init*(this: var TopoDSToStepTool; m: MoniToolDataMapOfShapeTransient;
+          facetedContext: bool) {.importcpp: "Init", header: "TopoDSToStep_Tool.hxx".}
+proc isBound*(this: var TopoDSToStepTool; s: TopoDS_Shape): bool {.
     importcpp: "IsBound", header: "TopoDSToStep_Tool.hxx".}
-proc Bind*(this: var TopoDSToStep_Tool; S: TopoDS_Shape;
-          T: handle[StepShape_TopologicalRepresentationItem]) {.importcpp: "Bind",
+proc `bind`*(this: var TopoDSToStepTool; s: TopoDS_Shape;
+            t: Handle[StepShapeTopologicalRepresentationItem]) {.
+    importcpp: "Bind", header: "TopoDSToStep_Tool.hxx".}
+proc find*(this: var TopoDSToStepTool; s: TopoDS_Shape): Handle[
+    StepShapeTopologicalRepresentationItem] {.importcpp: "Find",
     header: "TopoDSToStep_Tool.hxx".}
-proc Find*(this: var TopoDSToStep_Tool; S: TopoDS_Shape): handle[
-    StepShape_TopologicalRepresentationItem] {.importcpp: "Find",
+proc faceted*(this: TopoDSToStepTool): bool {.noSideEffect, importcpp: "Faceted",
     header: "TopoDSToStep_Tool.hxx".}
-proc Faceted*(this: TopoDSToStep_Tool): Standard_Boolean {.noSideEffect,
-    importcpp: "Faceted", header: "TopoDSToStep_Tool.hxx".}
-proc SetCurrentShell*(this: var TopoDSToStep_Tool; S: TopoDS_Shell) {.
+proc setCurrentShell*(this: var TopoDSToStepTool; s: TopoDS_Shell) {.
     importcpp: "SetCurrentShell", header: "TopoDSToStep_Tool.hxx".}
-proc CurrentShell*(this: TopoDSToStep_Tool): TopoDS_Shell {.noSideEffect,
+proc currentShell*(this: TopoDSToStepTool): TopoDS_Shell {.noSideEffect,
     importcpp: "CurrentShell", header: "TopoDSToStep_Tool.hxx".}
-proc SetCurrentFace*(this: var TopoDSToStep_Tool; F: TopoDS_Face) {.
+proc setCurrentFace*(this: var TopoDSToStepTool; f: TopoDS_Face) {.
     importcpp: "SetCurrentFace", header: "TopoDSToStep_Tool.hxx".}
-proc CurrentFace*(this: TopoDSToStep_Tool): TopoDS_Face {.noSideEffect,
+proc currentFace*(this: TopoDSToStepTool): TopoDS_Face {.noSideEffect,
     importcpp: "CurrentFace", header: "TopoDSToStep_Tool.hxx".}
-proc SetCurrentWire*(this: var TopoDSToStep_Tool; W: TopoDS_Wire) {.
+proc setCurrentWire*(this: var TopoDSToStepTool; w: TopoDS_Wire) {.
     importcpp: "SetCurrentWire", header: "TopoDSToStep_Tool.hxx".}
-proc CurrentWire*(this: TopoDSToStep_Tool): TopoDS_Wire {.noSideEffect,
+proc currentWire*(this: TopoDSToStepTool): TopoDS_Wire {.noSideEffect,
     importcpp: "CurrentWire", header: "TopoDSToStep_Tool.hxx".}
-proc SetCurrentEdge*(this: var TopoDSToStep_Tool; E: TopoDS_Edge) {.
+proc setCurrentEdge*(this: var TopoDSToStepTool; e: TopoDS_Edge) {.
     importcpp: "SetCurrentEdge", header: "TopoDSToStep_Tool.hxx".}
-proc CurrentEdge*(this: TopoDSToStep_Tool): TopoDS_Edge {.noSideEffect,
+proc currentEdge*(this: TopoDSToStepTool): TopoDS_Edge {.noSideEffect,
     importcpp: "CurrentEdge", header: "TopoDSToStep_Tool.hxx".}
-proc SetCurrentVertex*(this: var TopoDSToStep_Tool; V: TopoDS_Vertex) {.
+proc setCurrentVertex*(this: var TopoDSToStepTool; v: TopoDS_Vertex) {.
     importcpp: "SetCurrentVertex", header: "TopoDSToStep_Tool.hxx".}
-proc CurrentVertex*(this: TopoDSToStep_Tool): TopoDS_Vertex {.noSideEffect,
+proc currentVertex*(this: TopoDSToStepTool): TopoDS_Vertex {.noSideEffect,
     importcpp: "CurrentVertex", header: "TopoDSToStep_Tool.hxx".}
-proc Lowest3DTolerance*(this: TopoDSToStep_Tool): Standard_Real {.noSideEffect,
+proc lowest3DTolerance*(this: TopoDSToStepTool): float {.noSideEffect,
     importcpp: "Lowest3DTolerance", header: "TopoDSToStep_Tool.hxx".}
-proc SetSurfaceReversed*(this: var TopoDSToStep_Tool; B: Standard_Boolean) {.
+proc setSurfaceReversed*(this: var TopoDSToStepTool; b: bool) {.
     importcpp: "SetSurfaceReversed", header: "TopoDSToStep_Tool.hxx".}
-proc SurfaceReversed*(this: TopoDSToStep_Tool): Standard_Boolean {.noSideEffect,
+proc surfaceReversed*(this: TopoDSToStepTool): bool {.noSideEffect,
     importcpp: "SurfaceReversed", header: "TopoDSToStep_Tool.hxx".}
-proc Map*(this: TopoDSToStep_Tool): MoniTool_DataMapOfShapeTransient {.noSideEffect,
+proc map*(this: TopoDSToStepTool): MoniToolDataMapOfShapeTransient {.noSideEffect,
     importcpp: "Map", header: "TopoDSToStep_Tool.hxx".}
-proc PCurveMode*(this: TopoDSToStep_Tool): Standard_Integer {.noSideEffect,
+proc pCurveMode*(this: TopoDSToStepTool): int {.noSideEffect,
     importcpp: "PCurveMode", header: "TopoDSToStep_Tool.hxx".}

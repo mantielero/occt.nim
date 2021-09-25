@@ -14,27 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_PreDefinedColour"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepVisual_RWPreDefinedColour* {.importcpp: "RWStepVisual_RWPreDefinedColour", header: "RWStepVisual_RWPreDefinedColour.hxx",
-                                    bycopy.} = object
+  RWStepVisualRWPreDefinedColour* {.importcpp: "RWStepVisual_RWPreDefinedColour", header: "RWStepVisual_RWPreDefinedColour.hxx",
+                                   bycopy.} = object
 
 
-proc constructRWStepVisual_RWPreDefinedColour*(): RWStepVisual_RWPreDefinedColour {.
+proc constructRWStepVisualRWPreDefinedColour*(): RWStepVisualRWPreDefinedColour {.
     constructor, importcpp: "RWStepVisual_RWPreDefinedColour(@)",
     header: "RWStepVisual_RWPreDefinedColour.hxx".}
-proc ReadStep*(this: RWStepVisual_RWPreDefinedColour;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepVisual_PreDefinedColour]) {.noSideEffect,
+proc readStep*(this: RWStepVisualRWPreDefinedColour;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepVisualPreDefinedColour]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWPreDefinedColour.hxx".}
-proc WriteStep*(this: RWStepVisual_RWPreDefinedColour; SW: var StepData_StepWriter;
-               ent: handle[StepVisual_PreDefinedColour]) {.noSideEffect,
+proc writeStep*(this: RWStepVisualRWPreDefinedColour; sw: var StepDataStepWriter;
+               ent: Handle[StepVisualPreDefinedColour]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWPreDefinedColour.hxx".}

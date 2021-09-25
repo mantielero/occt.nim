@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, TDataXtd_Pattern, TDataXtd_Array1OfTrsf,
-  ../Standard/Standard_OStream
-
 discard "forward decl of TNaming_NamedShape"
 discard "forward decl of TDataStd_Real"
 discard "forward decl of TDataStd_Integer"
@@ -29,89 +24,89 @@ discard "forward decl of TDF_DataSet"
 discard "forward decl of TDataXtd_PatternStd"
 discard "forward decl of TDataXtd_PatternStd"
 type
-  Handle_TDataXtd_PatternStd* = handle[TDataXtd_PatternStd]
+  HandleTDataXtdPatternStd* = Handle[TDataXtdPatternStd]
 
 ## ! to create a PatternStd
 ## ! (LinearPattern, CircularPattern, RectangularPattern,
 ## ! RadialCircularPattern, MirrorPattern)
 
 type
-  TDataXtd_PatternStd* {.importcpp: "TDataXtd_PatternStd",
-                        header: "TDataXtd_PatternStd.hxx", bycopy.} = object of TDataXtd_Pattern
+  TDataXtdPatternStd* {.importcpp: "TDataXtd_PatternStd",
+                       header: "TDataXtd_PatternStd.hxx", bycopy.} = object of TDataXtdPattern
 
 
-proc GetPatternID*(): Standard_GUID {.importcpp: "TDataXtd_PatternStd::GetPatternID(@)",
-                                   header: "TDataXtd_PatternStd.hxx".}
-proc Set*(label: TDF_Label): handle[TDataXtd_PatternStd] {.
+proc getPatternID*(): StandardGUID {.importcpp: "TDataXtd_PatternStd::GetPatternID(@)",
+                                  header: "TDataXtd_PatternStd.hxx".}
+proc set*(label: TDF_Label): Handle[TDataXtdPatternStd] {.
     importcpp: "TDataXtd_PatternStd::Set(@)", header: "TDataXtd_PatternStd.hxx".}
-proc constructTDataXtd_PatternStd*(): TDataXtd_PatternStd {.constructor,
+proc constructTDataXtdPatternStd*(): TDataXtdPatternStd {.constructor,
     importcpp: "TDataXtd_PatternStd(@)", header: "TDataXtd_PatternStd.hxx".}
-proc Signature*(this: var TDataXtd_PatternStd; signature: Standard_Integer) {.
+proc signature*(this: var TDataXtdPatternStd; signature: int) {.
     importcpp: "Signature", header: "TDataXtd_PatternStd.hxx".}
-proc Axis1*(this: var TDataXtd_PatternStd; Axis1: handle[TNaming_NamedShape]) {.
+proc axis1*(this: var TDataXtdPatternStd; axis1: Handle[TNamingNamedShape]) {.
     importcpp: "Axis1", header: "TDataXtd_PatternStd.hxx".}
-proc Axis2*(this: var TDataXtd_PatternStd; Axis2: handle[TNaming_NamedShape]) {.
+proc axis2*(this: var TDataXtdPatternStd; axis2: Handle[TNamingNamedShape]) {.
     importcpp: "Axis2", header: "TDataXtd_PatternStd.hxx".}
-proc Axis1Reversed*(this: var TDataXtd_PatternStd; Axis1Reversed: Standard_Boolean) {.
+proc axis1Reversed*(this: var TDataXtdPatternStd; axis1Reversed: bool) {.
     importcpp: "Axis1Reversed", header: "TDataXtd_PatternStd.hxx".}
-proc Axis2Reversed*(this: var TDataXtd_PatternStd; Axis2Reversed: Standard_Boolean) {.
+proc axis2Reversed*(this: var TDataXtdPatternStd; axis2Reversed: bool) {.
     importcpp: "Axis2Reversed", header: "TDataXtd_PatternStd.hxx".}
-proc Value1*(this: var TDataXtd_PatternStd; value: handle[TDataStd_Real]) {.
+proc value1*(this: var TDataXtdPatternStd; value: Handle[TDataStdReal]) {.
     importcpp: "Value1", header: "TDataXtd_PatternStd.hxx".}
-proc Value2*(this: var TDataXtd_PatternStd; value: handle[TDataStd_Real]) {.
+proc value2*(this: var TDataXtdPatternStd; value: Handle[TDataStdReal]) {.
     importcpp: "Value2", header: "TDataXtd_PatternStd.hxx".}
-proc NbInstances1*(this: var TDataXtd_PatternStd;
-                  NbInstances1: handle[TDataStd_Integer]) {.
+proc nbInstances1*(this: var TDataXtdPatternStd;
+                  nbInstances1: Handle[TDataStdInteger]) {.
     importcpp: "NbInstances1", header: "TDataXtd_PatternStd.hxx".}
-proc NbInstances2*(this: var TDataXtd_PatternStd;
-                  NbInstances2: handle[TDataStd_Integer]) {.
+proc nbInstances2*(this: var TDataXtdPatternStd;
+                  nbInstances2: Handle[TDataStdInteger]) {.
     importcpp: "NbInstances2", header: "TDataXtd_PatternStd.hxx".}
-proc Mirror*(this: var TDataXtd_PatternStd; plane: handle[TNaming_NamedShape]) {.
+proc mirror*(this: var TDataXtdPatternStd; plane: Handle[TNamingNamedShape]) {.
     importcpp: "Mirror", header: "TDataXtd_PatternStd.hxx".}
-proc Signature*(this: TDataXtd_PatternStd): Standard_Integer {.noSideEffect,
+proc signature*(this: TDataXtdPatternStd): int {.noSideEffect,
     importcpp: "Signature", header: "TDataXtd_PatternStd.hxx".}
-proc Axis1*(this: TDataXtd_PatternStd): handle[TNaming_NamedShape] {.noSideEffect,
+proc axis1*(this: TDataXtdPatternStd): Handle[TNamingNamedShape] {.noSideEffect,
     importcpp: "Axis1", header: "TDataXtd_PatternStd.hxx".}
-proc Axis2*(this: TDataXtd_PatternStd): handle[TNaming_NamedShape] {.noSideEffect,
+proc axis2*(this: TDataXtdPatternStd): Handle[TNamingNamedShape] {.noSideEffect,
     importcpp: "Axis2", header: "TDataXtd_PatternStd.hxx".}
-proc Axis1Reversed*(this: TDataXtd_PatternStd): Standard_Boolean {.noSideEffect,
+proc axis1Reversed*(this: TDataXtdPatternStd): bool {.noSideEffect,
     importcpp: "Axis1Reversed", header: "TDataXtd_PatternStd.hxx".}
-proc Axis2Reversed*(this: TDataXtd_PatternStd): Standard_Boolean {.noSideEffect,
+proc axis2Reversed*(this: TDataXtdPatternStd): bool {.noSideEffect,
     importcpp: "Axis2Reversed", header: "TDataXtd_PatternStd.hxx".}
-proc Value1*(this: TDataXtd_PatternStd): handle[TDataStd_Real] {.noSideEffect,
+proc value1*(this: TDataXtdPatternStd): Handle[TDataStdReal] {.noSideEffect,
     importcpp: "Value1", header: "TDataXtd_PatternStd.hxx".}
-proc Value2*(this: TDataXtd_PatternStd): handle[TDataStd_Real] {.noSideEffect,
+proc value2*(this: TDataXtdPatternStd): Handle[TDataStdReal] {.noSideEffect,
     importcpp: "Value2", header: "TDataXtd_PatternStd.hxx".}
-proc NbInstances1*(this: TDataXtd_PatternStd): handle[TDataStd_Integer] {.
+proc nbInstances1*(this: TDataXtdPatternStd): Handle[TDataStdInteger] {.
     noSideEffect, importcpp: "NbInstances1", header: "TDataXtd_PatternStd.hxx".}
-proc NbInstances2*(this: TDataXtd_PatternStd): handle[TDataStd_Integer] {.
+proc nbInstances2*(this: TDataXtdPatternStd): Handle[TDataStdInteger] {.
     noSideEffect, importcpp: "NbInstances2", header: "TDataXtd_PatternStd.hxx".}
-proc Mirror*(this: TDataXtd_PatternStd): handle[TNaming_NamedShape] {.noSideEffect,
+proc mirror*(this: TDataXtdPatternStd): Handle[TNamingNamedShape] {.noSideEffect,
     importcpp: "Mirror", header: "TDataXtd_PatternStd.hxx".}
-proc NbTrsfs*(this: TDataXtd_PatternStd): Standard_Integer {.noSideEffect,
-    importcpp: "NbTrsfs", header: "TDataXtd_PatternStd.hxx".}
-proc ComputeTrsfs*(this: TDataXtd_PatternStd; Trsfs: var TDataXtd_Array1OfTrsf) {.
-    noSideEffect, importcpp: "ComputeTrsfs", header: "TDataXtd_PatternStd.hxx".}
-proc PatternID*(this: TDataXtd_PatternStd): Standard_GUID {.noSideEffect,
-    importcpp: "PatternID", header: "TDataXtd_PatternStd.hxx".}
-proc Restore*(this: var TDataXtd_PatternStd; With: handle[TDF_Attribute]) {.
-    importcpp: "Restore", header: "TDataXtd_PatternStd.hxx".}
-proc NewEmpty*(this: TDataXtd_PatternStd): handle[TDF_Attribute] {.noSideEffect,
-    importcpp: "NewEmpty", header: "TDataXtd_PatternStd.hxx".}
-proc Paste*(this: TDataXtd_PatternStd; Into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc nbTrsfs*(this: TDataXtdPatternStd): int {.noSideEffect, importcpp: "NbTrsfs",
     header: "TDataXtd_PatternStd.hxx".}
-proc References*(this: TDataXtd_PatternStd; aDataSet: handle[TDF_DataSet]) {.
+proc computeTrsfs*(this: TDataXtdPatternStd; trsfs: var TDataXtdArray1OfTrsf) {.
+    noSideEffect, importcpp: "ComputeTrsfs", header: "TDataXtd_PatternStd.hxx".}
+proc patternID*(this: TDataXtdPatternStd): StandardGUID {.noSideEffect,
+    importcpp: "PatternID", header: "TDataXtd_PatternStd.hxx".}
+proc restore*(this: var TDataXtdPatternStd; with: Handle[TDF_Attribute]) {.
+    importcpp: "Restore", header: "TDataXtd_PatternStd.hxx".}
+proc newEmpty*(this: TDataXtdPatternStd): Handle[TDF_Attribute] {.noSideEffect,
+    importcpp: "NewEmpty", header: "TDataXtd_PatternStd.hxx".}
+proc paste*(this: TDataXtdPatternStd; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+    header: "TDataXtd_PatternStd.hxx".}
+proc references*(this: TDataXtdPatternStd; aDataSet: Handle[TDF_DataSet]) {.
     noSideEffect, importcpp: "References", header: "TDataXtd_PatternStd.hxx".}
-proc Dump*(this: TDataXtd_PatternStd; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDataXtdPatternStd; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataXtd_PatternStd.hxx".}
 type
-  TDataXtd_PatternStdbase_type* = TDataXtd_Pattern
+  TDataXtdPatternStdbaseType* = TDataXtdPattern
 
-proc get_type_name*(): cstring {.importcpp: "TDataXtd_PatternStd::get_type_name(@)",
-                              header: "TDataXtd_PatternStd.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDataXtd_PatternStd::get_type_name(@)",
+                            header: "TDataXtd_PatternStd.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDataXtd_PatternStd::get_type_descriptor(@)",
     header: "TDataXtd_PatternStd.hxx".}
-proc DynamicType*(this: TDataXtd_PatternStd): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDataXtdPatternStd): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataXtd_PatternStd.hxx".}

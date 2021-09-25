@@ -13,9 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepShape_ShapeDimensionRepresentationItem, ../NCollection/NCollection_Array1
-
 type
-  StepShape_Array1OfShapeDimensionRepresentationItem* = NCollection_Array1[
-      StepShape_ShapeDimensionRepresentationItem]
+  StepShapeArray1OfShapeDimensionRepresentationItem* = NCollectionArray1[
+      StepShapeShapeDimensionRepresentationItem]
+

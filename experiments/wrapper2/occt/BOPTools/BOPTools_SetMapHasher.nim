@@ -12,43 +12,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of BOPTools_Set"
 type
-  BOPTools_SetMapHasher* {.importcpp: "BOPTools_SetMapHasher",
-                          header: "BOPTools_SetMapHasher.hxx", bycopy.} = object ## !
-                                                                            ## Computes a hash code for the
-                                                                            ## given set, in the
-                                                                            ## range [1,
-                                                                            ## theUpperBound]
-                                                                            ## !
-                                                                            ## @param
-                                                                            ## theSet the set
-                                                                            ## which hash code is to be
-                                                                            ## computed
-                                                                            ## !
-                                                                            ## @param
-                                                                            ## theUpperBound the
-                                                                            ## upper
-                                                                            ## bound of the
-                                                                            ## range a
-                                                                            ## computing hash code must be
-                                                                            ## within
-                                                                            ## !
-                                                                            ## @return a
-                                                                            ## computed hash
-                                                                            ## code, in the
-                                                                            ## range [1,
-                                                                            ## theUpperBound]
+  BOPToolsSetMapHasher* {.importcpp: "BOPTools_SetMapHasher",
+                         header: "BOPTools_SetMapHasher.hxx", bycopy.} = object ## !
+                                                                           ## Computes a hash code for the given set, in the range [1,
+                                                                           ## theUpperBound]
+                                                                           ## !
+                                                                           ## @param
+                                                                           ## theSet the set which hash code is to be
+                                                                           ## computed
+                                                                           ## !
+                                                                           ## @param
+                                                                           ## theUpperBound the upper bound of the range a
+                                                                           ## computing hash code must be
+                                                                           ## within
+                                                                           ## !
+                                                                           ## @return a
+                                                                           ## computed hash code, in the range [1,
+                                                                           ## theUpperBound]
 
 
-proc HashCode*(theSet: BOPTools_Set; theUpperBound: Standard_Integer): Standard_Integer {.
+proc hashCode*(theSet: BOPToolsSet; theUpperBound: int): int {.
     importcpp: "BOPTools_SetMapHasher::HashCode(@)",
     header: "BOPTools_SetMapHasher.hxx".}
-proc IsEqual*(aSet1: BOPTools_Set; aSet2: BOPTools_Set): Standard_Boolean {.
+proc isEqual*(aSet1: BOPToolsSet; aSet2: BOPToolsSet): bool {.
     importcpp: "BOPTools_SetMapHasher::IsEqual(@)",
     header: "BOPTools_SetMapHasher.hxx".}

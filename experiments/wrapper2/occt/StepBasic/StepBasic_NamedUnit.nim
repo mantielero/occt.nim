@@ -14,39 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_DimensionalExponents"
 discard "forward decl of StepBasic_NamedUnit"
 discard "forward decl of StepBasic_NamedUnit"
 type
-  Handle_StepBasic_NamedUnit* = handle[StepBasic_NamedUnit]
-  StepBasic_NamedUnit* {.importcpp: "StepBasic_NamedUnit",
-                        header: "StepBasic_NamedUnit.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## a
-                                                                                            ## NamedUnit
+  HandleStepBasicNamedUnit* = Handle[StepBasicNamedUnit]
+  StepBasicNamedUnit* {.importcpp: "StepBasic_NamedUnit",
+                       header: "StepBasic_NamedUnit.hxx", bycopy.} = object of StandardTransient ##
+                                                                                          ## !
+                                                                                          ## Returns
+                                                                                          ## a
+                                                                                          ## NamedUnit
 
 
-proc constructStepBasic_NamedUnit*(): StepBasic_NamedUnit {.constructor,
+proc constructStepBasicNamedUnit*(): StepBasicNamedUnit {.constructor,
     importcpp: "StepBasic_NamedUnit(@)", header: "StepBasic_NamedUnit.hxx".}
-proc Init*(this: var StepBasic_NamedUnit;
-          aDimensions: handle[StepBasic_DimensionalExponents]) {.
-    importcpp: "Init", header: "StepBasic_NamedUnit.hxx".}
-proc SetDimensions*(this: var StepBasic_NamedUnit;
-                   aDimensions: handle[StepBasic_DimensionalExponents]) {.
+proc init*(this: var StepBasicNamedUnit;
+          aDimensions: Handle[StepBasicDimensionalExponents]) {.importcpp: "Init",
+    header: "StepBasic_NamedUnit.hxx".}
+proc setDimensions*(this: var StepBasicNamedUnit;
+                   aDimensions: Handle[StepBasicDimensionalExponents]) {.
     importcpp: "SetDimensions", header: "StepBasic_NamedUnit.hxx".}
-proc Dimensions*(this: StepBasic_NamedUnit): handle[StepBasic_DimensionalExponents] {.
+proc dimensions*(this: StepBasicNamedUnit): Handle[StepBasicDimensionalExponents] {.
     noSideEffect, importcpp: "Dimensions", header: "StepBasic_NamedUnit.hxx".}
 type
-  StepBasic_NamedUnitbase_type* = Standard_Transient
+  StepBasicNamedUnitbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_NamedUnit::get_type_name(@)",
-                              header: "StepBasic_NamedUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_NamedUnit::get_type_name(@)",
+                            header: "StepBasic_NamedUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_NamedUnit::get_type_descriptor(@)",
     header: "StepBasic_NamedUnit.hxx".}
-proc DynamicType*(this: StepBasic_NamedUnit): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepBasicNamedUnit): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_NamedUnit.hxx".}

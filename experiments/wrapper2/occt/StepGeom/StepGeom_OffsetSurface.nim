@@ -14,52 +14,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../StepData/StepData_Logical, StepGeom_Surface
-
 discard "forward decl of StepGeom_Surface"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_OffsetSurface"
 discard "forward decl of StepGeom_OffsetSurface"
 type
-  Handle_StepGeom_OffsetSurface* = handle[StepGeom_OffsetSurface]
-  StepGeom_OffsetSurface* {.importcpp: "StepGeom_OffsetSurface",
-                           header: "StepGeom_OffsetSurface.hxx", bycopy.} = object of StepGeom_Surface ##
-                                                                                                ## !
-                                                                                                ## Returns
-                                                                                                ## a
-                                                                                                ## OffsetSurface
+  HandleStepGeomOffsetSurface* = Handle[StepGeomOffsetSurface]
+  StepGeomOffsetSurface* {.importcpp: "StepGeom_OffsetSurface",
+                          header: "StepGeom_OffsetSurface.hxx", bycopy.} = object of StepGeomSurface ##
+                                                                                              ## !
+                                                                                              ## Returns
+                                                                                              ## a
+                                                                                              ## OffsetSurface
 
 
-proc constructStepGeom_OffsetSurface*(): StepGeom_OffsetSurface {.constructor,
+proc constructStepGeomOffsetSurface*(): StepGeomOffsetSurface {.constructor,
     importcpp: "StepGeom_OffsetSurface(@)", header: "StepGeom_OffsetSurface.hxx".}
-proc Init*(this: var StepGeom_OffsetSurface;
-          aName: handle[TCollection_HAsciiString];
-          aBasisSurface: handle[StepGeom_Surface]; aDistance: Standard_Real;
-          aSelfIntersect: StepData_Logical) {.importcpp: "Init",
+proc init*(this: var StepGeomOffsetSurface; aName: Handle[TCollectionHAsciiString];
+          aBasisSurface: Handle[StepGeomSurface]; aDistance: float;
+          aSelfIntersect: StepDataLogical) {.importcpp: "Init",
     header: "StepGeom_OffsetSurface.hxx".}
-proc SetBasisSurface*(this: var StepGeom_OffsetSurface;
-                     aBasisSurface: handle[StepGeom_Surface]) {.
+proc setBasisSurface*(this: var StepGeomOffsetSurface;
+                     aBasisSurface: Handle[StepGeomSurface]) {.
     importcpp: "SetBasisSurface", header: "StepGeom_OffsetSurface.hxx".}
-proc BasisSurface*(this: StepGeom_OffsetSurface): handle[StepGeom_Surface] {.
+proc basisSurface*(this: StepGeomOffsetSurface): Handle[StepGeomSurface] {.
     noSideEffect, importcpp: "BasisSurface", header: "StepGeom_OffsetSurface.hxx".}
-proc SetDistance*(this: var StepGeom_OffsetSurface; aDistance: Standard_Real) {.
+proc setDistance*(this: var StepGeomOffsetSurface; aDistance: float) {.
     importcpp: "SetDistance", header: "StepGeom_OffsetSurface.hxx".}
-proc Distance*(this: StepGeom_OffsetSurface): Standard_Real {.noSideEffect,
+proc distance*(this: StepGeomOffsetSurface): float {.noSideEffect,
     importcpp: "Distance", header: "StepGeom_OffsetSurface.hxx".}
-proc SetSelfIntersect*(this: var StepGeom_OffsetSurface;
-                      aSelfIntersect: StepData_Logical) {.
+proc setSelfIntersect*(this: var StepGeomOffsetSurface;
+                      aSelfIntersect: StepDataLogical) {.
     importcpp: "SetSelfIntersect", header: "StepGeom_OffsetSurface.hxx".}
-proc SelfIntersect*(this: StepGeom_OffsetSurface): StepData_Logical {.noSideEffect,
+proc selfIntersect*(this: StepGeomOffsetSurface): StepDataLogical {.noSideEffect,
     importcpp: "SelfIntersect", header: "StepGeom_OffsetSurface.hxx".}
 type
-  StepGeom_OffsetSurfacebase_type* = StepGeom_Surface
+  StepGeomOffsetSurfacebaseType* = StepGeomSurface
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_OffsetSurface::get_type_name(@)",
-                              header: "StepGeom_OffsetSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_OffsetSurface::get_type_name(@)",
+                            header: "StepGeom_OffsetSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_OffsetSurface::get_type_descriptor(@)",
     header: "StepGeom_OffsetSurface.hxx".}
-proc DynamicType*(this: StepGeom_OffsetSurface): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepGeom_OffsetSurface.hxx".}
+proc dynamicType*(this: StepGeomOffsetSurface): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepGeom_OffsetSurface.hxx".}

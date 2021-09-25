@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  MAT2d_BiInt, ../Standard/Standard_Integer, MAT2d_MapBiIntHasher,
-  ../NCollection/NCollection_DataMap
-
 type
-  MAT2d_DataMapOfBiIntInteger* = NCollection_DataMap[MAT2d_BiInt, Standard_Integer,
-      MAT2d_MapBiIntHasher]
-  MAT2d_DataMapIteratorOfDataMapOfBiIntInteger* = Iterator[MAT2d_BiInt,
-      Standard_Integer, MAT2d_MapBiIntHasher]
+  MAT2dDataMapOfBiIntInteger* = NCollectionDataMap[MAT2dBiInt, int,
+      MAT2dMapBiIntHasher]
+  MAT2dDataMapIteratorOfDataMapOfBiIntInteger* = Iterator[MAT2dBiInt, int,
+      MAT2dMapBiIntHasher]
+

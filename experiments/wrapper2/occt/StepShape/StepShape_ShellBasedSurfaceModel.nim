@@ -14,52 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_HArray1OfShell,
-  ../StepGeom/StepGeom_GeometricRepresentationItem, ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_Shell"
 discard "forward decl of StepShape_ShellBasedSurfaceModel"
 discard "forward decl of StepShape_ShellBasedSurfaceModel"
 type
-  Handle_StepShape_ShellBasedSurfaceModel* = handle[
-      StepShape_ShellBasedSurfaceModel]
-  StepShape_ShellBasedSurfaceModel* {.importcpp: "StepShape_ShellBasedSurfaceModel", header: "StepShape_ShellBasedSurfaceModel.hxx",
-                                     bycopy.} = object of StepGeom_GeometricRepresentationItem ##
-                                                                                          ## !
-                                                                                          ## Returns
-                                                                                          ## a
-                                                                                          ## ShellBasedSurfaceModel
+  HandleStepShapeShellBasedSurfaceModel* = Handle[StepShapeShellBasedSurfaceModel]
+  StepShapeShellBasedSurfaceModel* {.importcpp: "StepShape_ShellBasedSurfaceModel", header: "StepShape_ShellBasedSurfaceModel.hxx",
+                                    bycopy.} = object of StepGeomGeometricRepresentationItem ##
+                                                                                        ## !
+                                                                                        ## Returns
+                                                                                        ## a
+                                                                                        ## ShellBasedSurfaceModel
 
 
-proc constructStepShape_ShellBasedSurfaceModel*(): StepShape_ShellBasedSurfaceModel {.
+proc constructStepShapeShellBasedSurfaceModel*(): StepShapeShellBasedSurfaceModel {.
     constructor, importcpp: "StepShape_ShellBasedSurfaceModel(@)",
     header: "StepShape_ShellBasedSurfaceModel.hxx".}
-proc Init*(this: var StepShape_ShellBasedSurfaceModel;
-          aName: handle[TCollection_HAsciiString];
-          aSbsmBoundary: handle[StepShape_HArray1OfShell]) {.importcpp: "Init",
+proc init*(this: var StepShapeShellBasedSurfaceModel;
+          aName: Handle[TCollectionHAsciiString];
+          aSbsmBoundary: Handle[StepShapeHArray1OfShell]) {.importcpp: "Init",
     header: "StepShape_ShellBasedSurfaceModel.hxx".}
-proc SetSbsmBoundary*(this: var StepShape_ShellBasedSurfaceModel;
-                     aSbsmBoundary: handle[StepShape_HArray1OfShell]) {.
+proc setSbsmBoundary*(this: var StepShapeShellBasedSurfaceModel;
+                     aSbsmBoundary: Handle[StepShapeHArray1OfShell]) {.
     importcpp: "SetSbsmBoundary", header: "StepShape_ShellBasedSurfaceModel.hxx".}
-proc SbsmBoundary*(this: StepShape_ShellBasedSurfaceModel): handle[
-    StepShape_HArray1OfShell] {.noSideEffect, importcpp: "SbsmBoundary",
-                               header: "StepShape_ShellBasedSurfaceModel.hxx".}
-proc SbsmBoundaryValue*(this: StepShape_ShellBasedSurfaceModel;
-                       num: Standard_Integer): StepShape_Shell {.noSideEffect,
-    importcpp: "SbsmBoundaryValue", header: "StepShape_ShellBasedSurfaceModel.hxx".}
-proc NbSbsmBoundary*(this: StepShape_ShellBasedSurfaceModel): Standard_Integer {.
-    noSideEffect, importcpp: "NbSbsmBoundary",
-    header: "StepShape_ShellBasedSurfaceModel.hxx".}
-type
-  StepShape_ShellBasedSurfaceModelbase_type* = StepGeom_GeometricRepresentationItem
-
-proc get_type_name*(): cstring {.importcpp: "StepShape_ShellBasedSurfaceModel::get_type_name(@)",
+proc sbsmBoundary*(this: StepShapeShellBasedSurfaceModel): Handle[
+    StepShapeHArray1OfShell] {.noSideEffect, importcpp: "SbsmBoundary",
                               header: "StepShape_ShellBasedSurfaceModel.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc sbsmBoundaryValue*(this: StepShapeShellBasedSurfaceModel; num: int): StepShapeShell {.
+    noSideEffect, importcpp: "SbsmBoundaryValue",
+    header: "StepShape_ShellBasedSurfaceModel.hxx".}
+proc nbSbsmBoundary*(this: StepShapeShellBasedSurfaceModel): int {.noSideEffect,
+    importcpp: "NbSbsmBoundary", header: "StepShape_ShellBasedSurfaceModel.hxx".}
+type
+  StepShapeShellBasedSurfaceModelbaseType* = StepGeomGeometricRepresentationItem
+
+proc getTypeName*(): cstring {.importcpp: "StepShape_ShellBasedSurfaceModel::get_type_name(@)",
+                            header: "StepShape_ShellBasedSurfaceModel.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_ShellBasedSurfaceModel::get_type_descriptor(@)",
     header: "StepShape_ShellBasedSurfaceModel.hxx".}
-proc DynamicType*(this: StepShape_ShellBasedSurfaceModel): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeShellBasedSurfaceModel): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_ShellBasedSurfaceModel.hxx".}

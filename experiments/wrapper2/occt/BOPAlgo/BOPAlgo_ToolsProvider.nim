@@ -12,30 +12,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, BOPAlgo_Builder
-
 ## ! Auxiliary class providing API to operate tool arguments.
 
 type
-  BOPAlgo_ToolsProvider* {.importcpp: "BOPAlgo_ToolsProvider",
-                          header: "BOPAlgo_ToolsProvider.hxx", bycopy.} = object of BOPAlgo_Builder ##
-                                                                                             ## !
-                                                                                             ## Empty
-                                                                                             ## constructor
+  BOPAlgoToolsProvider* {.importcpp: "BOPAlgo_ToolsProvider",
+                         header: "BOPAlgo_ToolsProvider.hxx", bycopy.} = object of BOPAlgoBuilder ##
+                                                                                           ## !
+                                                                                           ## Empty
+                                                                                           ## constructor
 
 
-proc constructBOPAlgo_ToolsProvider*(): BOPAlgo_ToolsProvider {.constructor,
+proc constructBOPAlgoToolsProvider*(): BOPAlgoToolsProvider {.constructor,
     importcpp: "BOPAlgo_ToolsProvider(@)", header: "BOPAlgo_ToolsProvider.hxx".}
-proc constructBOPAlgo_ToolsProvider*(theAllocator: handle[
-    NCollection_BaseAllocator]): BOPAlgo_ToolsProvider {.constructor,
-    importcpp: "BOPAlgo_ToolsProvider(@)", header: "BOPAlgo_ToolsProvider.hxx".}
-proc Clear*(this: var BOPAlgo_ToolsProvider) {.importcpp: "Clear",
+proc constructBOPAlgoToolsProvider*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoToolsProvider {.
+    constructor, importcpp: "BOPAlgo_ToolsProvider(@)",
     header: "BOPAlgo_ToolsProvider.hxx".}
-proc AddTool*(this: var BOPAlgo_ToolsProvider; theShape: TopoDS_Shape) {.
+proc clear*(this: var BOPAlgoToolsProvider) {.importcpp: "Clear",
+    header: "BOPAlgo_ToolsProvider.hxx".}
+proc addTool*(this: var BOPAlgoToolsProvider; theShape: TopoDS_Shape) {.
     importcpp: "AddTool", header: "BOPAlgo_ToolsProvider.hxx".}
-proc SetTools*(this: var BOPAlgo_ToolsProvider; theShapes: TopTools_ListOfShape) {.
+proc setTools*(this: var BOPAlgoToolsProvider; theShapes: TopToolsListOfShape) {.
     importcpp: "SetTools", header: "BOPAlgo_ToolsProvider.hxx".}
-proc Tools*(this: BOPAlgo_ToolsProvider): TopTools_ListOfShape {.noSideEffect,
+proc tools*(this: BOPAlgoToolsProvider): TopToolsListOfShape {.noSideEffect,
     importcpp: "Tools", header: "BOPAlgo_ToolsProvider.hxx".}

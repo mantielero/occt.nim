@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TopTools/TopTools_HSequenceOfShape, ../Transfer/Transfer_Binder,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Type,
-  ../Standard/Standard_CString, ../Standard/Standard_Integer,
-  ../TopAbs/TopAbs_ShapeEnum
-
 discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of TopoDS_Shape"
@@ -35,7 +28,7 @@ discard "forward decl of TopoDS_Compound"
 discard "forward decl of TransferBRep_ShapeListBinder"
 discard "forward decl of TransferBRep_ShapeListBinder"
 type
-  Handle_TransferBRep_ShapeListBinder* = handle[TransferBRep_ShapeListBinder]
+  HandleTransferBRepShapeListBinder* = Handle[TransferBRepShapeListBinder]
 
 ## ! This binder binds several (a list of) shapes with a starting
 ## ! entity, when this entity itself corresponds to a simple list
@@ -43,66 +36,62 @@ type
 ## ! independant componant, but as an item of a built-in list
 
 type
-  TransferBRep_ShapeListBinder* {.importcpp: "TransferBRep_ShapeListBinder",
-                                 header: "TransferBRep_ShapeListBinder.hxx",
-                                 bycopy.} = object of Transfer_Binder
+  TransferBRepShapeListBinder* {.importcpp: "TransferBRep_ShapeListBinder",
+                                header: "TransferBRep_ShapeListBinder.hxx", bycopy.} = object of TransferBinder
 
 
-proc constructTransferBRep_ShapeListBinder*(): TransferBRep_ShapeListBinder {.
+proc constructTransferBRepShapeListBinder*(): TransferBRepShapeListBinder {.
     constructor, importcpp: "TransferBRep_ShapeListBinder(@)",
     header: "TransferBRep_ShapeListBinder.hxx".}
-proc constructTransferBRep_ShapeListBinder*(
-    list: handle[TopTools_HSequenceOfShape]): TransferBRep_ShapeListBinder {.
+proc constructTransferBRepShapeListBinder*(list: Handle[TopToolsHSequenceOfShape]): TransferBRepShapeListBinder {.
     constructor, importcpp: "TransferBRep_ShapeListBinder(@)",
     header: "TransferBRep_ShapeListBinder.hxx".}
-proc IsMultiple*(this: TransferBRep_ShapeListBinder): Standard_Boolean {.
-    noSideEffect, importcpp: "IsMultiple",
-    header: "TransferBRep_ShapeListBinder.hxx".}
-proc ResultType*(this: TransferBRep_ShapeListBinder): handle[Standard_Type] {.
+proc isMultiple*(this: TransferBRepShapeListBinder): bool {.noSideEffect,
+    importcpp: "IsMultiple", header: "TransferBRep_ShapeListBinder.hxx".}
+proc resultType*(this: TransferBRepShapeListBinder): Handle[StandardType] {.
     noSideEffect, importcpp: "ResultType",
     header: "TransferBRep_ShapeListBinder.hxx".}
-proc ResultTypeName*(this: TransferBRep_ShapeListBinder): Standard_CString {.
+proc resultTypeName*(this: TransferBRepShapeListBinder): StandardCString {.
     noSideEffect, importcpp: "ResultTypeName",
     header: "TransferBRep_ShapeListBinder.hxx".}
-proc AddResult*(this: var TransferBRep_ShapeListBinder; res: TopoDS_Shape) {.
+proc addResult*(this: var TransferBRepShapeListBinder; res: TopoDS_Shape) {.
     importcpp: "AddResult", header: "TransferBRep_ShapeListBinder.hxx".}
-proc Result*(this: TransferBRep_ShapeListBinder): handle[TopTools_HSequenceOfShape] {.
+proc result*(this: TransferBRepShapeListBinder): Handle[TopToolsHSequenceOfShape] {.
     noSideEffect, importcpp: "Result", header: "TransferBRep_ShapeListBinder.hxx".}
-proc SetResult*(this: var TransferBRep_ShapeListBinder; num: Standard_Integer;
-               res: TopoDS_Shape) {.importcpp: "SetResult",
-                                  header: "TransferBRep_ShapeListBinder.hxx".}
-proc NbShapes*(this: TransferBRep_ShapeListBinder): Standard_Integer {.noSideEffect,
+proc setResult*(this: var TransferBRepShapeListBinder; num: int; res: TopoDS_Shape) {.
+    importcpp: "SetResult", header: "TransferBRep_ShapeListBinder.hxx".}
+proc nbShapes*(this: TransferBRepShapeListBinder): int {.noSideEffect,
     importcpp: "NbShapes", header: "TransferBRep_ShapeListBinder.hxx".}
-proc Shape*(this: TransferBRep_ShapeListBinder; num: Standard_Integer): TopoDS_Shape {.
-    noSideEffect, importcpp: "Shape", header: "TransferBRep_ShapeListBinder.hxx".}
-proc ShapeType*(this: TransferBRep_ShapeListBinder; num: Standard_Integer): TopAbs_ShapeEnum {.
+proc shape*(this: TransferBRepShapeListBinder; num: int): TopoDS_Shape {.noSideEffect,
+    importcpp: "Shape", header: "TransferBRep_ShapeListBinder.hxx".}
+proc shapeType*(this: TransferBRepShapeListBinder; num: int): TopAbsShapeEnum {.
     noSideEffect, importcpp: "ShapeType",
     header: "TransferBRep_ShapeListBinder.hxx".}
-proc Vertex*(this: TransferBRep_ShapeListBinder; num: Standard_Integer): TopoDS_Vertex {.
+proc vertex*(this: TransferBRepShapeListBinder; num: int): TopoDS_Vertex {.
     noSideEffect, importcpp: "Vertex", header: "TransferBRep_ShapeListBinder.hxx".}
-proc Edge*(this: TransferBRep_ShapeListBinder; num: Standard_Integer): TopoDS_Edge {.
-    noSideEffect, importcpp: "Edge", header: "TransferBRep_ShapeListBinder.hxx".}
-proc Wire*(this: TransferBRep_ShapeListBinder; num: Standard_Integer): TopoDS_Wire {.
-    noSideEffect, importcpp: "Wire", header: "TransferBRep_ShapeListBinder.hxx".}
-proc Face*(this: TransferBRep_ShapeListBinder; num: Standard_Integer): TopoDS_Face {.
-    noSideEffect, importcpp: "Face", header: "TransferBRep_ShapeListBinder.hxx".}
-proc Shell*(this: TransferBRep_ShapeListBinder; num: Standard_Integer): TopoDS_Shell {.
-    noSideEffect, importcpp: "Shell", header: "TransferBRep_ShapeListBinder.hxx".}
-proc Solid*(this: TransferBRep_ShapeListBinder; num: Standard_Integer): TopoDS_Solid {.
-    noSideEffect, importcpp: "Solid", header: "TransferBRep_ShapeListBinder.hxx".}
-proc CompSolid*(this: TransferBRep_ShapeListBinder; num: Standard_Integer): TopoDS_CompSolid {.
+proc edge*(this: TransferBRepShapeListBinder; num: int): TopoDS_Edge {.noSideEffect,
+    importcpp: "Edge", header: "TransferBRep_ShapeListBinder.hxx".}
+proc wire*(this: TransferBRepShapeListBinder; num: int): TopoDS_Wire {.noSideEffect,
+    importcpp: "Wire", header: "TransferBRep_ShapeListBinder.hxx".}
+proc face*(this: TransferBRepShapeListBinder; num: int): TopoDS_Face {.noSideEffect,
+    importcpp: "Face", header: "TransferBRep_ShapeListBinder.hxx".}
+proc shell*(this: TransferBRepShapeListBinder; num: int): TopoDS_Shell {.noSideEffect,
+    importcpp: "Shell", header: "TransferBRep_ShapeListBinder.hxx".}
+proc solid*(this: TransferBRepShapeListBinder; num: int): TopoDS_Solid {.noSideEffect,
+    importcpp: "Solid", header: "TransferBRep_ShapeListBinder.hxx".}
+proc compSolid*(this: TransferBRepShapeListBinder; num: int): TopoDS_CompSolid {.
     noSideEffect, importcpp: "CompSolid",
     header: "TransferBRep_ShapeListBinder.hxx".}
-proc Compound*(this: TransferBRep_ShapeListBinder; num: Standard_Integer): TopoDS_Compound {.
+proc compound*(this: TransferBRepShapeListBinder; num: int): TopoDS_Compound {.
     noSideEffect, importcpp: "Compound", header: "TransferBRep_ShapeListBinder.hxx".}
 type
-  TransferBRep_ShapeListBinderbase_type* = Transfer_Binder
+  TransferBRepShapeListBinderbaseType* = TransferBinder
 
-proc get_type_name*(): cstring {.importcpp: "TransferBRep_ShapeListBinder::get_type_name(@)",
-                              header: "TransferBRep_ShapeListBinder.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TransferBRep_ShapeListBinder::get_type_name(@)",
+                            header: "TransferBRep_ShapeListBinder.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TransferBRep_ShapeListBinder::get_type_descriptor(@)",
     header: "TransferBRep_ShapeListBinder.hxx".}
-proc DynamicType*(this: TransferBRep_ShapeListBinder): handle[Standard_Type] {.
+proc dynamicType*(this: TransferBRepShapeListBinder): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TransferBRep_ShapeListBinder.hxx".}

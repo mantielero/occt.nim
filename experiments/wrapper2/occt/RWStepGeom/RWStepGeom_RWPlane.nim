@@ -14,29 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_Plane"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeom_RWPlane* {.importcpp: "RWStepGeom_RWPlane",
-                       header: "RWStepGeom_RWPlane.hxx", bycopy.} = object
+  RWStepGeomRWPlane* {.importcpp: "RWStepGeom_RWPlane",
+                      header: "RWStepGeom_RWPlane.hxx", bycopy.} = object
 
 
-proc constructRWStepGeom_RWPlane*(): RWStepGeom_RWPlane {.constructor,
+proc constructRWStepGeomRWPlane*(): RWStepGeomRWPlane {.constructor,
     importcpp: "RWStepGeom_RWPlane(@)", header: "RWStepGeom_RWPlane.hxx".}
-proc ReadStep*(this: RWStepGeom_RWPlane; data: handle[StepData_StepReaderData];
-              num: Standard_Integer; ach: var handle[Interface_Check];
-              ent: handle[StepGeom_Plane]) {.noSideEffect, importcpp: "ReadStep",
+proc readStep*(this: RWStepGeomRWPlane; data: Handle[StepDataStepReaderData];
+              num: int; ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomPlane]) {.
+    noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWPlane.hxx".}
+proc writeStep*(this: RWStepGeomRWPlane; sw: var StepDataStepWriter;
+               ent: Handle[StepGeomPlane]) {.noSideEffect, importcpp: "WriteStep",
     header: "RWStepGeom_RWPlane.hxx".}
-proc WriteStep*(this: RWStepGeom_RWPlane; SW: var StepData_StepWriter;
-               ent: handle[StepGeom_Plane]) {.noSideEffect, importcpp: "WriteStep",
-    header: "RWStepGeom_RWPlane.hxx".}
-proc Share*(this: RWStepGeom_RWPlane; ent: handle[StepGeom_Plane];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepGeomRWPlane; ent: Handle[StepGeomPlane];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWPlane.hxx".}

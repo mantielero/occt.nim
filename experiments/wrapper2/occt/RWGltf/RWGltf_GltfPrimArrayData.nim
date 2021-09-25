@@ -12,25 +12,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Buffer, RWGltf_GltfAccessor, RWGltf_GltfArrayType,
-  ../TCollection/TCollection_AsciiString
-
 ## ! An element within primitive array - vertex attribute or element indexes.
 
 type
-  RWGltf_GltfPrimArrayData* {.importcpp: "RWGltf_GltfPrimArrayData",
-                             header: "RWGltf_GltfPrimArrayData.hxx", bycopy.} = object
-    StreamData* {.importc: "StreamData".}: handle[NCollection_Buffer]
-    StreamUri* {.importc: "StreamUri".}: TCollection_AsciiString
-    StreamOffset* {.importc: "StreamOffset".}: int64_t
-    Accessor* {.importc: "Accessor".}: RWGltf_GltfAccessor
-    Type* {.importc: "Type".}: RWGltf_GltfArrayType
+  RWGltfGltfPrimArrayData* {.importcpp: "RWGltf_GltfPrimArrayData",
+                            header: "RWGltf_GltfPrimArrayData.hxx", bycopy.} = object
+    streamData* {.importc: "StreamData".}: Handle[NCollectionBuffer]
+    streamUri* {.importc: "StreamUri".}: TCollectionAsciiString
+    streamOffset* {.importc: "StreamOffset".}: int64T
+    accessor* {.importc: "Accessor".}: RWGltfGltfAccessor
+    `type`* {.importc: "Type".}: RWGltfGltfArrayType
 
 
-proc constructRWGltf_GltfPrimArrayData*(): RWGltf_GltfPrimArrayData {.constructor,
+proc constructRWGltfGltfPrimArrayData*(): RWGltfGltfPrimArrayData {.constructor,
     importcpp: "RWGltf_GltfPrimArrayData(@)",
     header: "RWGltf_GltfPrimArrayData.hxx".}
-proc constructRWGltf_GltfPrimArrayData*(theType: RWGltf_GltfArrayType): RWGltf_GltfPrimArrayData {.
+proc constructRWGltfGltfPrimArrayData*(theType: RWGltfGltfArrayType): RWGltfGltfPrimArrayData {.
     constructor, importcpp: "RWGltf_GltfPrimArrayData(@)",
     header: "RWGltf_GltfPrimArrayData.hxx".}

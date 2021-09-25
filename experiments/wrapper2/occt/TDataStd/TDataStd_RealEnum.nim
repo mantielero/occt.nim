@@ -18,7 +18,8 @@
 ## ! semantics of a real number value.
 
 type
-  TDataStd_RealEnum* {.size: sizeof(cint), importcpp: "TDataStd_RealEnum",
-                      header: "TDataStd_RealEnum.hxx".} = enum
-    TDataStd_SCALAR, TDataStd_LENGTH, TDataStd_ANGULAR
+  TDataStdRealEnum* {.size: sizeof(cint), importcpp: "TDataStd_RealEnum",
+                     header: "TDataStd_RealEnum.hxx".} = enum
+    TDataStdSCALAR, TDataStdLENGTH, TDataStdANGULAR
+
 

@@ -14,65 +14,59 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepGeom/StepGeom_Axis2Placement, StepVisual_TextPath, StepVisual_FontSelect,
-  ../StepGeom/StepGeom_GeometricRepresentationItem
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_Axis2Placement"
 discard "forward decl of StepVisual_FontSelect"
 discard "forward decl of StepVisual_TextLiteral"
 discard "forward decl of StepVisual_TextLiteral"
 type
-  Handle_StepVisual_TextLiteral* = handle[StepVisual_TextLiteral]
-  StepVisual_TextLiteral* {.importcpp: "StepVisual_TextLiteral",
-                           header: "StepVisual_TextLiteral.hxx", bycopy.} = object of StepGeom_GeometricRepresentationItem ##
-                                                                                                                    ## !
-                                                                                                                    ## Returns
-                                                                                                                    ## a
-                                                                                                                    ## TextLiteral
+  HandleStepVisualTextLiteral* = Handle[StepVisualTextLiteral]
+  StepVisualTextLiteral* {.importcpp: "StepVisual_TextLiteral",
+                          header: "StepVisual_TextLiteral.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
+                                                                                                                  ## !
+                                                                                                                  ## Returns
+                                                                                                                  ## a
+                                                                                                                  ## TextLiteral
 
 
-proc constructStepVisual_TextLiteral*(): StepVisual_TextLiteral {.constructor,
+proc constructStepVisualTextLiteral*(): StepVisualTextLiteral {.constructor,
     importcpp: "StepVisual_TextLiteral(@)", header: "StepVisual_TextLiteral.hxx".}
-proc Init*(this: var StepVisual_TextLiteral;
-          aName: handle[TCollection_HAsciiString];
-          aLiteral: handle[TCollection_HAsciiString];
-          aPlacement: StepGeom_Axis2Placement;
-          aAlignment: handle[TCollection_HAsciiString];
-          aPath: StepVisual_TextPath; aFont: StepVisual_FontSelect) {.
-    importcpp: "Init", header: "StepVisual_TextLiteral.hxx".}
-proc SetLiteral*(this: var StepVisual_TextLiteral;
-                aLiteral: handle[TCollection_HAsciiString]) {.
+proc init*(this: var StepVisualTextLiteral; aName: Handle[TCollectionHAsciiString];
+          aLiteral: Handle[TCollectionHAsciiString];
+          aPlacement: StepGeomAxis2Placement;
+          aAlignment: Handle[TCollectionHAsciiString]; aPath: StepVisualTextPath;
+          aFont: StepVisualFontSelect) {.importcpp: "Init",
+                                       header: "StepVisual_TextLiteral.hxx".}
+proc setLiteral*(this: var StepVisualTextLiteral;
+                aLiteral: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetLiteral", header: "StepVisual_TextLiteral.hxx".}
-proc Literal*(this: StepVisual_TextLiteral): handle[TCollection_HAsciiString] {.
+proc literal*(this: StepVisualTextLiteral): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Literal", header: "StepVisual_TextLiteral.hxx".}
-proc SetPlacement*(this: var StepVisual_TextLiteral;
-                  aPlacement: StepGeom_Axis2Placement) {.
-    importcpp: "SetPlacement", header: "StepVisual_TextLiteral.hxx".}
-proc Placement*(this: StepVisual_TextLiteral): StepGeom_Axis2Placement {.
-    noSideEffect, importcpp: "Placement", header: "StepVisual_TextLiteral.hxx".}
-proc SetAlignment*(this: var StepVisual_TextLiteral;
-                  aAlignment: handle[TCollection_HAsciiString]) {.
+proc setPlacement*(this: var StepVisualTextLiteral;
+                  aPlacement: StepGeomAxis2Placement) {.importcpp: "SetPlacement",
+    header: "StepVisual_TextLiteral.hxx".}
+proc placement*(this: StepVisualTextLiteral): StepGeomAxis2Placement {.noSideEffect,
+    importcpp: "Placement", header: "StepVisual_TextLiteral.hxx".}
+proc setAlignment*(this: var StepVisualTextLiteral;
+                  aAlignment: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetAlignment", header: "StepVisual_TextLiteral.hxx".}
-proc Alignment*(this: StepVisual_TextLiteral): handle[TCollection_HAsciiString] {.
+proc alignment*(this: StepVisualTextLiteral): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Alignment", header: "StepVisual_TextLiteral.hxx".}
-proc SetPath*(this: var StepVisual_TextLiteral; aPath: StepVisual_TextPath) {.
+proc setPath*(this: var StepVisualTextLiteral; aPath: StepVisualTextPath) {.
     importcpp: "SetPath", header: "StepVisual_TextLiteral.hxx".}
-proc Path*(this: StepVisual_TextLiteral): StepVisual_TextPath {.noSideEffect,
+proc path*(this: StepVisualTextLiteral): StepVisualTextPath {.noSideEffect,
     importcpp: "Path", header: "StepVisual_TextLiteral.hxx".}
-proc SetFont*(this: var StepVisual_TextLiteral; aFont: StepVisual_FontSelect) {.
+proc setFont*(this: var StepVisualTextLiteral; aFont: StepVisualFontSelect) {.
     importcpp: "SetFont", header: "StepVisual_TextLiteral.hxx".}
-proc Font*(this: StepVisual_TextLiteral): StepVisual_FontSelect {.noSideEffect,
+proc font*(this: StepVisualTextLiteral): StepVisualFontSelect {.noSideEffect,
     importcpp: "Font", header: "StepVisual_TextLiteral.hxx".}
 type
-  StepVisual_TextLiteralbase_type* = StepGeom_GeometricRepresentationItem
+  StepVisualTextLiteralbaseType* = StepGeomGeometricRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_TextLiteral::get_type_name(@)",
-                              header: "StepVisual_TextLiteral.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_TextLiteral::get_type_name(@)",
+                            header: "StepVisual_TextLiteral.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_TextLiteral::get_type_descriptor(@)",
     header: "StepVisual_TextLiteral.hxx".}
-proc DynamicType*(this: StepVisual_TextLiteral): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepVisual_TextLiteral.hxx".}
+proc dynamicType*(this: StepVisualTextLiteral): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepVisual_TextLiteral.hxx".}

@@ -14,16 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_DateDefinitionError_HeaderFile [NewLine] # _Quantity_DateDefinitionError_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_DomainError.hxx [NewLine] class Quantity_DateDefinitionError ;
+## !!!Ignored construct:  # _Quantity_DateDefinitionError_HeaderFile [NewLine] # _Quantity_DateDefinitionError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class Quantity_DateDefinitionError ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Quantity_DateDefinitionError"
 type
-  Handle_Quantity_DateDefinitionErrorQuantity_DateDefinitionError* = handle[
-      Quantity_DateDefinitionError]
+  HandleQuantityDateDefinitionErrorQuantityDateDefinitionError* = Handle[
+      QuantityDateDefinitionError]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Quantity_DateDefinitionError [NewLine] # if ( CONDITION ) throw Quantity_DateDefinitionError ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Quantity_DateDefinitionError , Standard_DomainError ) #  _Quantity_DateDefinitionError_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Quantity_DateDefinitionError , Standard_DomainError ) #  _Quantity_DateDefinitionError_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

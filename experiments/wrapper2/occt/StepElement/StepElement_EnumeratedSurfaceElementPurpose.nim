@@ -12,10 +12,10 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepElement_EnumeratedSurfaceElementPurpose* {.size: sizeof(cint),
+  StepElementEnumeratedSurfaceElementPurpose* {.size: sizeof(cint),
       importcpp: "StepElement_EnumeratedSurfaceElementPurpose",
       header: "StepElement_EnumeratedSurfaceElementPurpose.hxx".} = enum
-    StepElement_MembraneDirect, StepElement_MembraneShear,
-    StepElement_BendingDirect, StepElement_BendingTorsion,
-    StepElement_NormalToPlaneShear
+    StepElementMembraneDirect, StepElementMembraneShear, StepElementBendingDirect,
+    StepElementBendingTorsion, StepElementNormalToPlaneShear
+
 

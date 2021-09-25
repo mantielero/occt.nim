@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GeomToIGES_GeomEntity
-
 discard "forward decl of GeomToIGES_GeomEntity"
 discard "forward decl of IGESGeom_Point"
 discard "forward decl of Geom_Point"
@@ -29,12 +25,11 @@ type
 
 proc constructGeomToIGES_GeomPoint*(): GeomToIGES_GeomPoint {.constructor,
     importcpp: "GeomToIGES_GeomPoint(@)", header: "GeomToIGES_GeomPoint.hxx".}
-proc constructGeomToIGES_GeomPoint*(GE: GeomToIGES_GeomEntity): GeomToIGES_GeomPoint {.
+proc constructGeomToIGES_GeomPoint*(ge: GeomToIGES_GeomEntity): GeomToIGES_GeomPoint {.
     constructor, importcpp: "GeomToIGES_GeomPoint(@)",
     header: "GeomToIGES_GeomPoint.hxx".}
-proc TransferPoint*(this: var GeomToIGES_GeomPoint; start: handle[Geom_Point]): handle[
-    IGESGeom_Point] {.importcpp: "TransferPoint",
-                     header: "GeomToIGES_GeomPoint.hxx".}
-proc TransferPoint*(this: var GeomToIGES_GeomPoint;
-                   start: handle[Geom_CartesianPoint]): handle[IGESGeom_Point] {.
+proc transferPoint*(this: var GeomToIGES_GeomPoint; start: Handle[GeomPoint]): Handle[
+    IGESGeomPoint] {.importcpp: "TransferPoint", header: "GeomToIGES_GeomPoint.hxx".}
+proc transferPoint*(this: var GeomToIGES_GeomPoint;
+                   start: Handle[GeomCartesianPoint]): Handle[IGESGeomPoint] {.
     importcpp: "TransferPoint", header: "GeomToIGES_GeomPoint.hxx".}

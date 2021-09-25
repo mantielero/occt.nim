@@ -13,7 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # NCollection_Shared_HeaderFile [NewLine] # NCollection_Shared_HeaderFile [NewLine] # NCollection_DefineAlloc.hxx [NewLine] ! Template defining a class derived from the specified base class and
+## !!!Ignored construct:  # NCollection_Shared_HeaderFile [NewLine] # NCollection_Shared_HeaderFile [NewLine] # < NCollection_DefineAlloc . hxx > [NewLine] ! Template defining a class derived from the specified base class and
 ## ! Standard_Transient, and supporting OCCT RTTI.
 ## !
 ## ! This provides possibility to use Handes for types not initially intended
@@ -33,3 +33,4 @@
 ##   {}
 ##  } ;
 ## Error: identifier expected, but got: =!!!
+

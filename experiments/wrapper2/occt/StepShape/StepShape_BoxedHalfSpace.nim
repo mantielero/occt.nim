@@ -14,46 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_HalfSpaceSolid,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of StepShape_BoxDomain"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_Surface"
 discard "forward decl of StepShape_BoxedHalfSpace"
 discard "forward decl of StepShape_BoxedHalfSpace"
 type
-  Handle_StepShape_BoxedHalfSpace* = handle[StepShape_BoxedHalfSpace]
-  StepShape_BoxedHalfSpace* {.importcpp: "StepShape_BoxedHalfSpace",
-                             header: "StepShape_BoxedHalfSpace.hxx", bycopy.} = object of StepShape_HalfSpaceSolid ##
-                                                                                                            ## !
-                                                                                                            ## Returns
-                                                                                                            ## a
-                                                                                                            ## BoxedHalfSpace
+  HandleStepShapeBoxedHalfSpace* = Handle[StepShapeBoxedHalfSpace]
+  StepShapeBoxedHalfSpace* {.importcpp: "StepShape_BoxedHalfSpace",
+                            header: "StepShape_BoxedHalfSpace.hxx", bycopy.} = object of StepShapeHalfSpaceSolid ##
+                                                                                                          ## !
+                                                                                                          ## Returns
+                                                                                                          ## a
+                                                                                                          ## BoxedHalfSpace
 
 
-proc constructStepShape_BoxedHalfSpace*(): StepShape_BoxedHalfSpace {.constructor,
+proc constructStepShapeBoxedHalfSpace*(): StepShapeBoxedHalfSpace {.constructor,
     importcpp: "StepShape_BoxedHalfSpace(@)",
     header: "StepShape_BoxedHalfSpace.hxx".}
-proc Init*(this: var StepShape_BoxedHalfSpace;
-          aName: handle[TCollection_HAsciiString];
-          aBaseSurface: handle[StepGeom_Surface];
-          aAgreementFlag: Standard_Boolean;
-          aEnclosure: handle[StepShape_BoxDomain]) {.importcpp: "Init",
+proc init*(this: var StepShapeBoxedHalfSpace;
+          aName: Handle[TCollectionHAsciiString];
+          aBaseSurface: Handle[StepGeomSurface]; aAgreementFlag: bool;
+          aEnclosure: Handle[StepShapeBoxDomain]) {.importcpp: "Init",
     header: "StepShape_BoxedHalfSpace.hxx".}
-proc SetEnclosure*(this: var StepShape_BoxedHalfSpace;
-                  aEnclosure: handle[StepShape_BoxDomain]) {.
+proc setEnclosure*(this: var StepShapeBoxedHalfSpace;
+                  aEnclosure: Handle[StepShapeBoxDomain]) {.
     importcpp: "SetEnclosure", header: "StepShape_BoxedHalfSpace.hxx".}
-proc Enclosure*(this: StepShape_BoxedHalfSpace): handle[StepShape_BoxDomain] {.
+proc enclosure*(this: StepShapeBoxedHalfSpace): Handle[StepShapeBoxDomain] {.
     noSideEffect, importcpp: "Enclosure", header: "StepShape_BoxedHalfSpace.hxx".}
 type
-  StepShape_BoxedHalfSpacebase_type* = StepShape_HalfSpaceSolid
+  StepShapeBoxedHalfSpacebaseType* = StepShapeHalfSpaceSolid
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_BoxedHalfSpace::get_type_name(@)",
-                              header: "StepShape_BoxedHalfSpace.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_BoxedHalfSpace::get_type_name(@)",
+                            header: "StepShape_BoxedHalfSpace.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_BoxedHalfSpace::get_type_descriptor(@)",
     header: "StepShape_BoxedHalfSpace.hxx".}
-proc DynamicType*(this: StepShape_BoxedHalfSpace): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeBoxedHalfSpace): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_BoxedHalfSpace.hxx".}

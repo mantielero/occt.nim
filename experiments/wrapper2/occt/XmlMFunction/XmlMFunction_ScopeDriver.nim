@@ -13,46 +13,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../XmlMDF/XmlMDF_ADriver,
-  ../Standard/Standard_Boolean, ../XmlObjMgt/XmlObjMgt_RRelocationTable,
-  ../XmlObjMgt/XmlObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMFunction_ScopeDriver"
 discard "forward decl of XmlMFunction_ScopeDriver"
 type
-  Handle_XmlMFunction_ScopeDriver* = handle[XmlMFunction_ScopeDriver]
+  HandleXmlMFunctionScopeDriver* = Handle[XmlMFunctionScopeDriver]
 
 ## ! XML persistence driver for a scope of functions.
 
 type
-  XmlMFunction_ScopeDriver* {.importcpp: "XmlMFunction_ScopeDriver",
-                             header: "XmlMFunction_ScopeDriver.hxx", bycopy.} = object of XmlMDF_ADriver
+  XmlMFunctionScopeDriver* {.importcpp: "XmlMFunction_ScopeDriver",
+                            header: "XmlMFunction_ScopeDriver.hxx", bycopy.} = object of XmlMDF_ADriver
 
 
-proc constructXmlMFunction_ScopeDriver*(theMessageDriver: handle[Message_Messenger]): XmlMFunction_ScopeDriver {.
+proc constructXmlMFunctionScopeDriver*(theMessageDriver: Handle[MessageMessenger]): XmlMFunctionScopeDriver {.
     constructor, importcpp: "XmlMFunction_ScopeDriver(@)",
     header: "XmlMFunction_ScopeDriver.hxx".}
-proc NewEmpty*(this: XmlMFunction_ScopeDriver): handle[TDF_Attribute] {.
-    noSideEffect, importcpp: "NewEmpty", header: "XmlMFunction_ScopeDriver.hxx".}
-proc Paste*(this: XmlMFunction_ScopeDriver; Source: XmlObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var XmlObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "XmlMFunction_ScopeDriver.hxx".}
-proc Paste*(this: XmlMFunction_ScopeDriver; Source: handle[TDF_Attribute];
-           Target: var XmlObjMgt_Persistent;
-           RelocTable: var XmlObjMgt_SRelocationTable) {.noSideEffect,
+proc newEmpty*(this: XmlMFunctionScopeDriver): Handle[TDF_Attribute] {.noSideEffect,
+    importcpp: "NewEmpty", header: "XmlMFunction_ScopeDriver.hxx".}
+proc paste*(this: XmlMFunctionScopeDriver; source: XmlObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var XmlObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "XmlMFunction_ScopeDriver.hxx".}
+proc paste*(this: XmlMFunctionScopeDriver; source: Handle[TDF_Attribute];
+           target: var XmlObjMgtPersistent;
+           relocTable: var XmlObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "XmlMFunction_ScopeDriver.hxx".}
 type
-  XmlMFunction_ScopeDriverbase_type* = XmlMDF_ADriver
+  XmlMFunctionScopeDriverbaseType* = XmlMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "XmlMFunction_ScopeDriver::get_type_name(@)",
-                              header: "XmlMFunction_ScopeDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XmlMFunction_ScopeDriver::get_type_name(@)",
+                            header: "XmlMFunction_ScopeDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XmlMFunction_ScopeDriver::get_type_descriptor(@)",
     header: "XmlMFunction_ScopeDriver.hxx".}
-proc DynamicType*(this: XmlMFunction_ScopeDriver): handle[Standard_Type] {.
+proc dynamicType*(this: XmlMFunctionScopeDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "XmlMFunction_ScopeDriver.hxx".}

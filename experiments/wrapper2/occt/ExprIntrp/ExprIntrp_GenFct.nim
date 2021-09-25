@@ -14,39 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ExprIntrp_Generator
-
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of ExprIntrp_GenFct"
 discard "forward decl of ExprIntrp_GenFct"
 type
-  Handle_ExprIntrp_GenFct* = handle[ExprIntrp_GenFct]
+  HandleExprIntrpGenFct* = Handle[ExprIntrpGenFct]
 
 ## ! Implements an interpreter for defining functions.
 ## ! All its functionnalities can be found in class
 ## ! GenExp.
 
 type
-  ExprIntrp_GenFct* {.importcpp: "ExprIntrp_GenFct",
-                     header: "ExprIntrp_GenFct.hxx", bycopy.} = object of ExprIntrp_Generator
+  ExprIntrpGenFct* {.importcpp: "ExprIntrp_GenFct", header: "ExprIntrp_GenFct.hxx",
+                    bycopy.} = object of ExprIntrpGenerator
 
 
-proc Create*(): handle[ExprIntrp_GenFct] {.importcpp: "ExprIntrp_GenFct::Create(@)",
-                                        header: "ExprIntrp_GenFct.hxx".}
-proc Process*(this: var ExprIntrp_GenFct; str: TCollection_AsciiString) {.
+proc create*(): Handle[ExprIntrpGenFct] {.importcpp: "ExprIntrp_GenFct::Create(@)",
+                                       header: "ExprIntrp_GenFct.hxx".}
+proc process*(this: var ExprIntrpGenFct; str: TCollectionAsciiString) {.
     importcpp: "Process", header: "ExprIntrp_GenFct.hxx".}
-proc IsDone*(this: ExprIntrp_GenFct): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "ExprIntrp_GenFct.hxx".}
+proc isDone*(this: ExprIntrpGenFct): bool {.noSideEffect, importcpp: "IsDone",
+                                        header: "ExprIntrp_GenFct.hxx".}
 type
-  ExprIntrp_GenFctbase_type* = ExprIntrp_Generator
+  ExprIntrpGenFctbaseType* = ExprIntrpGenerator
 
-proc get_type_name*(): cstring {.importcpp: "ExprIntrp_GenFct::get_type_name(@)",
-                              header: "ExprIntrp_GenFct.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ExprIntrp_GenFct::get_type_name(@)",
+                            header: "ExprIntrp_GenFct.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ExprIntrp_GenFct::get_type_descriptor(@)",
     header: "ExprIntrp_GenFct.hxx".}
-proc DynamicType*(this: ExprIntrp_GenFct): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: ExprIntrpGenFct): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ExprIntrp_GenFct.hxx".}

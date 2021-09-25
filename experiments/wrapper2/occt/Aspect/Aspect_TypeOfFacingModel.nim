@@ -14,8 +14,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  Aspect_TypeOfFacingModel* {.size: sizeof(cint),
-                             importcpp: "Aspect_TypeOfFacingModel",
-                             header: "Aspect_TypeOfFacingModel.hxx".} = enum
-    Aspect_TOFM_BOTH_SIDE, Aspect_TOFM_BACK_SIDE, Aspect_TOFM_FRONT_SIDE
+  AspectTypeOfFacingModel* {.size: sizeof(cint),
+                            importcpp: "Aspect_TypeOfFacingModel",
+                            header: "Aspect_TypeOfFacingModel.hxx".} = enum
+    AspectTOFM_BOTH_SIDE, AspectTOFM_BACK_SIDE, AspectTOFM_FRONT_SIDE
+
 

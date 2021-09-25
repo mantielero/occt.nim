@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepAP203_Change"
 discard "forward decl of StepAP203_StartWork"
@@ -31,44 +26,45 @@ discard "forward decl of StepBasic_ProductDefinition"
 discard "forward decl of StepBasic_Contract"
 discard "forward decl of StepBasic_SecurityClassification"
 type
-  StepAP203_PersonOrganizationItem* {.importcpp: "StepAP203_PersonOrganizationItem", header: "StepAP203_PersonOrganizationItem.hxx",
-                                     bycopy.} = object of StepData_SelectType ## ! Empty
-                                                                         ## constructor
+  StepAP203PersonOrganizationItem* {.importcpp: "StepAP203_PersonOrganizationItem", header: "StepAP203_PersonOrganizationItem.hxx",
+                                    bycopy.} = object of StepDataSelectType ## ! Empty
+                                                                       ## constructor
 
 
-proc constructStepAP203_PersonOrganizationItem*(): StepAP203_PersonOrganizationItem {.
+proc constructStepAP203PersonOrganizationItem*(): StepAP203PersonOrganizationItem {.
     constructor, importcpp: "StepAP203_PersonOrganizationItem(@)",
     header: "StepAP203_PersonOrganizationItem.hxx".}
-proc CaseNum*(this: StepAP203_PersonOrganizationItem;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
-    importcpp: "CaseNum", header: "StepAP203_PersonOrganizationItem.hxx".}
-proc Change*(this: StepAP203_PersonOrganizationItem): handle[StepAP203_Change] {.
+proc caseNum*(this: StepAP203PersonOrganizationItem; ent: Handle[StandardTransient]): int {.
+    noSideEffect, importcpp: "CaseNum",
+    header: "StepAP203_PersonOrganizationItem.hxx".}
+proc change*(this: StepAP203PersonOrganizationItem): Handle[StepAP203Change] {.
     noSideEffect, importcpp: "Change",
     header: "StepAP203_PersonOrganizationItem.hxx".}
-proc StartWork*(this: StepAP203_PersonOrganizationItem): handle[StepAP203_StartWork] {.
+proc startWork*(this: StepAP203PersonOrganizationItem): Handle[StepAP203StartWork] {.
     noSideEffect, importcpp: "StartWork",
     header: "StepAP203_PersonOrganizationItem.hxx".}
-proc ChangeRequest*(this: StepAP203_PersonOrganizationItem): handle[
-    StepAP203_ChangeRequest] {.noSideEffect, importcpp: "ChangeRequest",
-                              header: "StepAP203_PersonOrganizationItem.hxx".}
-proc StartRequest*(this: StepAP203_PersonOrganizationItem): handle[
-    StepAP203_StartRequest] {.noSideEffect, importcpp: "StartRequest",
+proc changeRequest*(this: StepAP203PersonOrganizationItem): Handle[
+    StepAP203ChangeRequest] {.noSideEffect, importcpp: "ChangeRequest",
                              header: "StepAP203_PersonOrganizationItem.hxx".}
-proc ConfigurationItem*(this: StepAP203_PersonOrganizationItem): handle[
-    StepRepr_ConfigurationItem] {.noSideEffect, importcpp: "ConfigurationItem",
-                                 header: "StepAP203_PersonOrganizationItem.hxx".}
-proc Product*(this: StepAP203_PersonOrganizationItem): handle[StepBasic_Product] {.
+proc startRequest*(this: StepAP203PersonOrganizationItem): Handle[
+    StepAP203StartRequest] {.noSideEffect, importcpp: "StartRequest",
+                            header: "StepAP203_PersonOrganizationItem.hxx".}
+proc configurationItem*(this: StepAP203PersonOrganizationItem): Handle[
+    StepReprConfigurationItem] {.noSideEffect, importcpp: "ConfigurationItem",
+                                header: "StepAP203_PersonOrganizationItem.hxx".}
+proc product*(this: StepAP203PersonOrganizationItem): Handle[StepBasicProduct] {.
     noSideEffect, importcpp: "Product",
     header: "StepAP203_PersonOrganizationItem.hxx".}
-proc ProductDefinitionFormation*(this: StepAP203_PersonOrganizationItem): handle[
-    StepBasic_ProductDefinitionFormation] {.noSideEffect,
+proc productDefinitionFormation*(this: StepAP203PersonOrganizationItem): Handle[
+    StepBasicProductDefinitionFormation] {.noSideEffect,
     importcpp: "ProductDefinitionFormation",
     header: "StepAP203_PersonOrganizationItem.hxx".}
-proc ProductDefinition*(this: StepAP203_PersonOrganizationItem): handle[
-    StepBasic_ProductDefinition] {.noSideEffect, importcpp: "ProductDefinition", header: "StepAP203_PersonOrganizationItem.hxx".}
-proc Contract*(this: StepAP203_PersonOrganizationItem): handle[StepBasic_Contract] {.
+proc productDefinition*(this: StepAP203PersonOrganizationItem): Handle[
+    StepBasicProductDefinition] {.noSideEffect, importcpp: "ProductDefinition",
+                                 header: "StepAP203_PersonOrganizationItem.hxx".}
+proc contract*(this: StepAP203PersonOrganizationItem): Handle[StepBasicContract] {.
     noSideEffect, importcpp: "Contract",
     header: "StepAP203_PersonOrganizationItem.hxx".}
-proc SecurityClassification*(this: StepAP203_PersonOrganizationItem): handle[
-    StepBasic_SecurityClassification] {.noSideEffect,
-                                       importcpp: "SecurityClassification", header: "StepAP203_PersonOrganizationItem.hxx".}
+proc securityClassification*(this: StepAP203PersonOrganizationItem): Handle[
+    StepBasicSecurityClassification] {.noSideEffect,
+                                      importcpp: "SecurityClassification", header: "StepAP203_PersonOrganizationItem.hxx".}

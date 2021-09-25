@@ -12,125 +12,100 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Trsf2d"
 discard "forward decl of gp_GTrsf2d"
 discard "forward decl of gp_XY"
 type
-  gp_Mat2d* {.importcpp: "gp_Mat2d", header: "gp_Mat2d.hxx", bycopy.} = object ## ! Creates  a matrix with null
-                                                                       ## coefficients.
-    gp_Mat2d* {.importc: "gp_Mat2d".}: Standard_NODISCARD
-    gp_Mat2d* {.importc: "gp_Mat2d".}: Standard_NODISCARD
-    gp_Mat2d* {.importc: "gp_Mat2d".}: Standard_NODISCARD
-    gp_Mat2d* {.importc: "gp_Mat2d".}: Standard_NODISCARD
-    gp_Mat2d* {.importc: "gp_Mat2d".}: Standard_NODISCARD
-    gp_Mat2d* {.importc: "gp_Mat2d".}: Standard_NODISCARD
-    gp_Mat2d* {.importc: "gp_Mat2d".}: Standard_NODISCARD
-    gp_Mat2d* {.importc: "gp_Mat2d".}: Standard_NODISCARD
-    gp_Mat2d* {.importc: "gp_Mat2d".}: Standard_NODISCARD
-    gp_Mat2d* {.importc: "gp_Mat2d".}: Standard_NODISCARD
-    gp_Mat2d* {.importc: "gp_Mat2d".}: Standard_NODISCARD
-    gp_Mat2d* {.importc: "gp_Mat2d".}: Standard_NODISCARD
-    gp_Mat2d* {.importc: "gp_Mat2d".}: Standard_NODISCARD
+  Mat2d* {.importcpp: "gp_Mat2d", header: "gp_Mat2d.hxx", bycopy.} = object ## ! Creates  a matrix with null
+                                                                    ## coefficients.
 
 
-proc constructgp_Mat2d*(): gp_Mat2d {.constructor, importcpp: "gp_Mat2d(@)",
-                                   header: "gp_Mat2d.hxx".}
-proc constructgp_Mat2d*(Col1: gp_XY; Col2: gp_XY): gp_Mat2d {.constructor,
+proc constructMat2d*(): Mat2d {.constructor, importcpp: "gp_Mat2d(@)",
+                             header: "gp_Mat2d.hxx".}
+proc constructMat2d*(col1: Xy; col2: Xy): Mat2d {.constructor,
     importcpp: "gp_Mat2d(@)", header: "gp_Mat2d.hxx".}
-proc SetCol*(this: var gp_Mat2d; Col: Standard_Integer; Value: gp_XY) {.
-    importcpp: "SetCol", header: "gp_Mat2d.hxx".}
-proc SetCols*(this: var gp_Mat2d; Col1: gp_XY; Col2: gp_XY) {.importcpp: "SetCols",
+proc setCol*(this: var Mat2d; col: int; value: Xy) {.importcpp: "SetCol",
     header: "gp_Mat2d.hxx".}
-proc SetDiagonal*(this: var gp_Mat2d; X1: Standard_Real; X2: Standard_Real) {.
-    importcpp: "SetDiagonal", header: "gp_Mat2d.hxx".}
-proc SetIdentity*(this: var gp_Mat2d) {.importcpp: "SetIdentity",
+proc setCols*(this: var Mat2d; col1: Xy; col2: Xy) {.importcpp: "SetCols",
+    header: "gp_Mat2d.hxx".}
+proc setDiagonal*(this: var Mat2d; x1: float; x2: float) {.importcpp: "SetDiagonal",
+    header: "gp_Mat2d.hxx".}
+proc setIdentity*(this: var Mat2d) {.importcpp: "SetIdentity", header: "gp_Mat2d.hxx".}
+proc setRotation*(this: var Mat2d; ang: float) {.importcpp: "SetRotation",
+    header: "gp_Mat2d.hxx".}
+proc setRow*(this: var Mat2d; row: int; value: Xy) {.importcpp: "SetRow",
+    header: "gp_Mat2d.hxx".}
+proc setRows*(this: var Mat2d; row1: Xy; row2: Xy) {.importcpp: "SetRows",
+    header: "gp_Mat2d.hxx".}
+proc setScale*(this: var Mat2d; s: float) {.importcpp: "SetScale",
+                                      header: "gp_Mat2d.hxx".}
+proc setValue*(this: var Mat2d; row: int; col: int; value: float) {.importcpp: "SetValue",
+    header: "gp_Mat2d.hxx".}
+proc column*(this: Mat2d; col: int): Xy {.noSideEffect, importcpp: "Column",
                                     header: "gp_Mat2d.hxx".}
-proc SetRotation*(this: var gp_Mat2d; Ang: Standard_Real) {.importcpp: "SetRotation",
-    header: "gp_Mat2d.hxx".}
-proc SetRow*(this: var gp_Mat2d; Row: Standard_Integer; Value: gp_XY) {.
-    importcpp: "SetRow", header: "gp_Mat2d.hxx".}
-proc SetRows*(this: var gp_Mat2d; Row1: gp_XY; Row2: gp_XY) {.importcpp: "SetRows",
-    header: "gp_Mat2d.hxx".}
-proc SetScale*(this: var gp_Mat2d; S: Standard_Real) {.importcpp: "SetScale",
-    header: "gp_Mat2d.hxx".}
-proc SetValue*(this: var gp_Mat2d; Row: Standard_Integer; Col: Standard_Integer;
-              Value: Standard_Real) {.importcpp: "SetValue", header: "gp_Mat2d.hxx".}
-proc Column*(this: gp_Mat2d; Col: Standard_Integer): gp_XY {.noSideEffect,
-    importcpp: "Column", header: "gp_Mat2d.hxx".}
-proc Determinant*(this: gp_Mat2d): Standard_Real {.noSideEffect,
-    importcpp: "Determinant", header: "gp_Mat2d.hxx".}
-proc Diagonal*(this: gp_Mat2d): gp_XY {.noSideEffect, importcpp: "Diagonal",
+proc determinant*(this: Mat2d): float {.noSideEffect, importcpp: "Determinant",
                                     header: "gp_Mat2d.hxx".}
-proc Row*(this: gp_Mat2d; Row: Standard_Integer): gp_XY {.noSideEffect,
-    importcpp: "Row", header: "gp_Mat2d.hxx".}
-proc Value*(this: gp_Mat2d; Row: Standard_Integer; Col: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "Value", header: "gp_Mat2d.hxx".}
-proc `()`*(this: gp_Mat2d; Row: Standard_Integer; Col: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "#(@)", header: "gp_Mat2d.hxx".}
-proc ChangeValue*(this: var gp_Mat2d; Row: Standard_Integer; Col: Standard_Integer): var Standard_Real {.
+proc diagonal*(this: Mat2d): Xy {.noSideEffect, importcpp: "Diagonal",
+                              header: "gp_Mat2d.hxx".}
+proc row*(this: Mat2d; row: int): Xy {.noSideEffect, importcpp: "Row",
+                                 header: "gp_Mat2d.hxx".}
+proc value*(this: Mat2d; row: int; col: int): float {.noSideEffect, importcpp: "Value",
+    header: "gp_Mat2d.hxx".}
+proc `()`*(this: Mat2d; row: int; col: int): float {.noSideEffect, importcpp: "#(@)",
+    header: "gp_Mat2d.hxx".}
+proc changeValue*(this: var Mat2d; row: int; col: int): var float {.
     importcpp: "ChangeValue", header: "gp_Mat2d.hxx".}
-proc `()`*(this: var gp_Mat2d; Row: Standard_Integer; Col: Standard_Integer): var Standard_Real {.
-    importcpp: "#(@)", header: "gp_Mat2d.hxx".}
-proc IsSingular*(this: gp_Mat2d): Standard_Boolean {.noSideEffect,
-    importcpp: "IsSingular", header: "gp_Mat2d.hxx".}
-proc Add*(this: var gp_Mat2d; Other: gp_Mat2d) {.importcpp: "Add",
+proc `()`*(this: var Mat2d; row: int; col: int): var float {.importcpp: "#(@)",
     header: "gp_Mat2d.hxx".}
-proc `+=`*(this: var gp_Mat2d; Other: gp_Mat2d) {.importcpp: "(# += #)",
+proc isSingular*(this: Mat2d): bool {.noSideEffect, importcpp: "IsSingular",
+                                  header: "gp_Mat2d.hxx".}
+proc add*(this: var Mat2d; other: Mat2d) {.importcpp: "Add", header: "gp_Mat2d.hxx".}
+proc `+=`*(this: var Mat2d; other: Mat2d) {.importcpp: "(# += #)",
+                                      header: "gp_Mat2d.hxx".}
+proc added*(this: Mat2d; other: Mat2d): Mat2d {.noSideEffect, importcpp: "Added",
     header: "gp_Mat2d.hxx".}
-## !!!Ignored construct:  Added ( const gp_Mat2d & Other ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-## !!!Ignored construct:  operator + ( const gp_Mat2d & Other ) const { return Added ( Other ) ; } void Divide ( const Standard_Real Scalar ) ;
-## Error: identifier expected, but got: +!!!
-
-proc `/=`*(this: var gp_Mat2d; Scalar: Standard_Real) {.importcpp: "(# /= #)",
+proc `+`*(this: Mat2d; other: Mat2d): Mat2d {.noSideEffect, importcpp: "(# + #)",
+                                        header: "gp_Mat2d.hxx".}
+proc divide*(this: var Mat2d; scalar: float) {.importcpp: "Divide",
     header: "gp_Mat2d.hxx".}
-## !!!Ignored construct:  Divided ( const Standard_Real Scalar ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-## !!!Ignored construct:  operator / ( const Standard_Real Scalar ) const { return Divided ( Scalar ) ; } void Invert ( ) ;
-## Error: identifier expected, but got: /!!!
-
-## !!!Ignored construct:  Inverted ( ) const ;
-## Error: identifier expected, but got: )!!!
-
-## !!!Ignored construct:  Multiplied ( const gp_Mat2d & Other ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-## !!!Ignored construct:  operator * ( const gp_Mat2d & Other ) const { return Multiplied ( Other ) ; } ! Computes the product of two matrices <me> * <Other> void Multiply ( const gp_Mat2d & Other ) ;
-## Error: identifier expected, but got: *!!!
-
-proc PreMultiply*(this: var gp_Mat2d; Other: gp_Mat2d) {.importcpp: "PreMultiply",
+proc `/=`*(this: var Mat2d; scalar: float) {.importcpp: "(# /= #)",
+                                       header: "gp_Mat2d.hxx".}
+proc divided*(this: Mat2d; scalar: float): Mat2d {.noSideEffect, importcpp: "Divided",
     header: "gp_Mat2d.hxx".}
-## !!!Ignored construct:  Multiplied ( const Standard_Real Scalar ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-## !!!Ignored construct:  operator * ( const Standard_Real Scalar ) const { return Multiplied ( Scalar ) ; } ! Multiplies all the coefficients of the matrix by a scalar. void Multiply ( const Standard_Real Scalar ) ;
-## Error: identifier expected, but got: *!!!
-
-proc `*=`*(this: var gp_Mat2d; Scalar: Standard_Real) {.importcpp: "(# *= #)",
+proc `/`*(this: Mat2d; scalar: float): Mat2d {.noSideEffect, importcpp: "(# / #)",
     header: "gp_Mat2d.hxx".}
-proc Power*(this: var gp_Mat2d; N: Standard_Integer) {.importcpp: "Power",
+proc invert*(this: var Mat2d) {.importcpp: "Invert", header: "gp_Mat2d.hxx".}
+proc inverted*(this: Mat2d): Mat2d {.noSideEffect, importcpp: "Inverted",
+                                 header: "gp_Mat2d.hxx".}
+proc multiplied*(this: Mat2d; other: Mat2d): Mat2d {.noSideEffect,
+    importcpp: "Multiplied", header: "gp_Mat2d.hxx".}
+proc `*`*(this: Mat2d; other: Mat2d): Mat2d {.noSideEffect, importcpp: "(# * #)",
+                                        header: "gp_Mat2d.hxx".}
+proc multiply*(this: var Mat2d; other: Mat2d) {.importcpp: "Multiply",
     header: "gp_Mat2d.hxx".}
-## !!!Ignored construct:  Powered ( const Standard_Integer N ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-proc Subtract*(this: var gp_Mat2d; Other: gp_Mat2d) {.importcpp: "Subtract",
+proc preMultiply*(this: var Mat2d; other: Mat2d) {.importcpp: "PreMultiply",
     header: "gp_Mat2d.hxx".}
-proc `-=`*(this: var gp_Mat2d; Other: gp_Mat2d) {.importcpp: "(# -= #)",
+proc multiplied*(this: Mat2d; scalar: float): Mat2d {.noSideEffect,
+    importcpp: "Multiplied", header: "gp_Mat2d.hxx".}
+proc `*`*(this: Mat2d; scalar: float): Mat2d {.noSideEffect, importcpp: "(# * #)",
     header: "gp_Mat2d.hxx".}
-## !!!Ignored construct:  Subtracted ( const gp_Mat2d & Other ) const ;
-## Error: token expected: ) but got: [identifier]!!!
-
-## !!!Ignored construct:  operator - ( const gp_Mat2d & Other ) const { return Subtracted ( Other ) ; } void Transpose ( ) ;
-## Error: identifier expected, but got: -!!!
-
-## !!!Ignored construct:  Transposed ( ) const ;
-## Error: identifier expected, but got: )!!!
+proc multiply*(this: var Mat2d; scalar: float) {.importcpp: "Multiply",
+    header: "gp_Mat2d.hxx".}
+proc `*=`*(this: var Mat2d; scalar: float) {.importcpp: "(# *= #)",
+                                       header: "gp_Mat2d.hxx".}
+proc power*(this: var Mat2d; n: int) {.importcpp: "Power", header: "gp_Mat2d.hxx".}
+proc powered*(this: Mat2d; n: int): Mat2d {.noSideEffect, importcpp: "Powered",
+                                      header: "gp_Mat2d.hxx".}
+proc subtract*(this: var Mat2d; other: Mat2d) {.importcpp: "Subtract",
+    header: "gp_Mat2d.hxx".}
+proc `-=`*(this: var Mat2d; other: Mat2d) {.importcpp: "(# -= #)",
+                                      header: "gp_Mat2d.hxx".}
+proc subtracted*(this: Mat2d; other: Mat2d): Mat2d {.noSideEffect,
+    importcpp: "Subtracted", header: "gp_Mat2d.hxx".}
+proc `-`*(this: Mat2d; other: Mat2d): Mat2d {.noSideEffect, importcpp: "(# - #)",
+                                        header: "gp_Mat2d.hxx".}
+proc transpose*(this: var Mat2d) {.importcpp: "Transpose", header: "gp_Mat2d.hxx".}
+proc transposed*(this: Mat2d): Mat2d {.noSideEffect, importcpp: "Transposed",
+                                   header: "gp_Mat2d.hxx".}

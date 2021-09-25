@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_OStream,
-  ../Standard/Standard_CString
-
 discard "forward decl of Vrml_SFImage"
 discard "forward decl of Vrml_SFRotation"
 discard "forward decl of Vrml_AsciiText"
@@ -63,7 +58,7 @@ type
                                                            ## ! Writes one line of commentary in  anOStream (VRML file).
 
 
-proc VrmlHeaderWriter*(anOStream: var Standard_OStream): var Standard_OStream {.
+proc vrmlHeaderWriter*(anOStream: var StandardOStream): var StandardOStream {.
     importcpp: "Vrml::VrmlHeaderWriter(@)", header: "Vrml.hxx".}
-proc CommentWriter*(aComment: Standard_CString; anOStream: var Standard_OStream): var Standard_OStream {.
+proc commentWriter*(aComment: StandardCString; anOStream: var StandardOStream): var StandardOStream {.
     importcpp: "Vrml::CommentWriter(@)", header: "Vrml.hxx".}

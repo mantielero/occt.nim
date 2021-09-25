@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_ConversionBasedUnit
-
 discard "forward decl of StepBasic_PlaneAngleUnit"
 discard "forward decl of StepBasic_DimensionalExponents"
 discard "forward decl of TCollection_HAsciiString"
@@ -24,37 +21,38 @@ discard "forward decl of StepBasic_MeasureWithUnit"
 discard "forward decl of StepBasic_ConversionBasedUnitAndPlaneAngleUnit"
 discard "forward decl of StepBasic_ConversionBasedUnitAndPlaneAngleUnit"
 type
-  Handle_StepBasic_ConversionBasedUnitAndPlaneAngleUnit* = handle[
-      StepBasic_ConversionBasedUnitAndPlaneAngleUnit]
-  StepBasic_ConversionBasedUnitAndPlaneAngleUnit* {.
+  HandleStepBasicConversionBasedUnitAndPlaneAngleUnit* = Handle[
+      StepBasicConversionBasedUnitAndPlaneAngleUnit]
+  StepBasicConversionBasedUnitAndPlaneAngleUnit* {.
       importcpp: "StepBasic_ConversionBasedUnitAndPlaneAngleUnit",
-      header: "StepBasic_ConversionBasedUnitAndPlaneAngleUnit.hxx", bycopy.} = object of StepBasic_ConversionBasedUnit ##
-                                                                                                                ## !
-                                                                                                                ## Returns
-                                                                                                                ## a
-                                                                                                                ## ConversionBasedUnitAndPlaneAngleUnit
+      header: "StepBasic_ConversionBasedUnitAndPlaneAngleUnit.hxx", bycopy.} = object of StepBasicConversionBasedUnit ##
+                                                                                                               ## !
+                                                                                                               ## Returns
+                                                                                                               ## a
+                                                                                                               ## ConversionBasedUnitAndPlaneAngleUnit
 
 
-proc constructStepBasic_ConversionBasedUnitAndPlaneAngleUnit*(): StepBasic_ConversionBasedUnitAndPlaneAngleUnit {.
+proc constructStepBasicConversionBasedUnitAndPlaneAngleUnit*(): StepBasicConversionBasedUnitAndPlaneAngleUnit {.
     constructor, importcpp: "StepBasic_ConversionBasedUnitAndPlaneAngleUnit(@)",
     header: "StepBasic_ConversionBasedUnitAndPlaneAngleUnit.hxx".}
-proc Init*(this: var StepBasic_ConversionBasedUnitAndPlaneAngleUnit;
-          aDimensions: handle[StepBasic_DimensionalExponents];
-          aName: handle[TCollection_HAsciiString];
-          aConversionFactor: handle[StepBasic_MeasureWithUnit]) {.
+proc init*(this: var StepBasicConversionBasedUnitAndPlaneAngleUnit;
+          aDimensions: Handle[StepBasicDimensionalExponents];
+          aName: Handle[TCollectionHAsciiString];
+          aConversionFactor: Handle[StepBasicMeasureWithUnit]) {.
     importcpp: "Init",
     header: "StepBasic_ConversionBasedUnitAndPlaneAngleUnit.hxx".}
-proc SetPlaneAngleUnit*(this: var StepBasic_ConversionBasedUnitAndPlaneAngleUnit;
-                       aPlaneAngleUnit: handle[StepBasic_PlaneAngleUnit]) {.
+proc setPlaneAngleUnit*(this: var StepBasicConversionBasedUnitAndPlaneAngleUnit;
+                       aPlaneAngleUnit: Handle[StepBasicPlaneAngleUnit]) {.
     importcpp: "SetPlaneAngleUnit",
     header: "StepBasic_ConversionBasedUnitAndPlaneAngleUnit.hxx".}
-proc PlaneAngleUnit*(this: StepBasic_ConversionBasedUnitAndPlaneAngleUnit): handle[
-    StepBasic_PlaneAngleUnit] {.noSideEffect, importcpp: "PlaneAngleUnit", header: "StepBasic_ConversionBasedUnitAndPlaneAngleUnit.hxx".}
+proc planeAngleUnit*(this: StepBasicConversionBasedUnitAndPlaneAngleUnit): Handle[
+    StepBasicPlaneAngleUnit] {.noSideEffect, importcpp: "PlaneAngleUnit", header: "StepBasic_ConversionBasedUnitAndPlaneAngleUnit.hxx".}
 type
-  StepBasic_ConversionBasedUnitAndPlaneAngleUnitbase_type* = StepBasic_ConversionBasedUnit
+  StepBasicConversionBasedUnitAndPlaneAngleUnitbaseType* = StepBasicConversionBasedUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ConversionBasedUnitAndPlaneAngleUnit::get_type_name(@)", header: "StepBasic_ConversionBasedUnitAndPlaneAngleUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepBasic_ConversionBasedUnitAndPlaneAngleUnit::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ConversionBasedUnitAndPlaneAngleUnit::get_type_name(@)", header: "StepBasic_ConversionBasedUnitAndPlaneAngleUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_ConversionBasedUnitAndPlaneAngleUnit::get_type_descriptor(@)",
     header: "StepBasic_ConversionBasedUnitAndPlaneAngleUnit.hxx".}
-proc DynamicType*(this: StepBasic_ConversionBasedUnitAndPlaneAngleUnit): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepBasic_ConversionBasedUnitAndPlaneAngleUnit.hxx".}
+proc dynamicType*(this: StepBasicConversionBasedUnitAndPlaneAngleUnit): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepBasic_ConversionBasedUnitAndPlaneAngleUnit.hxx".}

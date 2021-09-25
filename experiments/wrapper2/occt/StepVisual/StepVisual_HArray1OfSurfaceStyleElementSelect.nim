@@ -14,41 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_SurfaceStyleElementSelect,
-  StepVisual_Array1OfSurfaceStyleElementSelect,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepVisual_HArray1OfSurfaceStyleElementSelect* {.
+  StepVisualHArray1OfSurfaceStyleElementSelect* {.
       importcpp: "StepVisual_HArray1OfSurfaceStyleElementSelect",
-      header: "StepVisual_HArray1OfSurfaceStyleElementSelect.hxx", bycopy.} = object of StepVisual_Array1OfSurfaceStyleElementSelect
+      header: "StepVisual_HArray1OfSurfaceStyleElementSelect.hxx", bycopy.} = object of StepVisualArray1OfSurfaceStyleElementSelect
 
 
-proc constructStepVisual_HArray1OfSurfaceStyleElementSelect*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepVisual_HArray1OfSurfaceStyleElementSelect {.
+proc constructStepVisualHArray1OfSurfaceStyleElementSelect*(theLower: int;
+    theUpper: int): StepVisualHArray1OfSurfaceStyleElementSelect {.constructor,
+    importcpp: "StepVisual_HArray1OfSurfaceStyleElementSelect(@)",
+    header: "StepVisual_HArray1OfSurfaceStyleElementSelect.hxx".}
+proc constructStepVisualHArray1OfSurfaceStyleElementSelect*(theLower: int;
+    theUpper: int; theValue: ValueType): StepVisualHArray1OfSurfaceStyleElementSelect {.
     constructor, importcpp: "StepVisual_HArray1OfSurfaceStyleElementSelect(@)",
     header: "StepVisual_HArray1OfSurfaceStyleElementSelect.hxx".}
-proc constructStepVisual_HArray1OfSurfaceStyleElementSelect*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepVisual_HArray1OfSurfaceStyleElementSelect {.
+proc constructStepVisualHArray1OfSurfaceStyleElementSelect*(
+    theOther: StepVisualArray1OfSurfaceStyleElementSelect): StepVisualHArray1OfSurfaceStyleElementSelect {.
     constructor, importcpp: "StepVisual_HArray1OfSurfaceStyleElementSelect(@)",
     header: "StepVisual_HArray1OfSurfaceStyleElementSelect.hxx".}
-proc constructStepVisual_HArray1OfSurfaceStyleElementSelect*(
-    theOther: StepVisual_Array1OfSurfaceStyleElementSelect): StepVisual_HArray1OfSurfaceStyleElementSelect {.
-    constructor, importcpp: "StepVisual_HArray1OfSurfaceStyleElementSelect(@)",
-    header: "StepVisual_HArray1OfSurfaceStyleElementSelect.hxx".}
-proc Array1*(this: StepVisual_HArray1OfSurfaceStyleElementSelect): StepVisual_Array1OfSurfaceStyleElementSelect {.
+proc array1*(this: StepVisualHArray1OfSurfaceStyleElementSelect): StepVisualArray1OfSurfaceStyleElementSelect {.
     noSideEffect, importcpp: "Array1",
     header: "StepVisual_HArray1OfSurfaceStyleElementSelect.hxx".}
-proc ChangeArray1*(this: var StepVisual_HArray1OfSurfaceStyleElementSelect): var StepVisual_Array1OfSurfaceStyleElementSelect {.
+proc changeArray1*(this: var StepVisualHArray1OfSurfaceStyleElementSelect): var StepVisualArray1OfSurfaceStyleElementSelect {.
     importcpp: "ChangeArray1",
     header: "StepVisual_HArray1OfSurfaceStyleElementSelect.hxx".}
 type
-  StepVisual_HArray1OfSurfaceStyleElementSelectbase_type* = MMgt_TShared
+  StepVisualHArray1OfSurfaceStyleElementSelectbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_HArray1OfSurfaceStyleElementSelect::get_type_name(@)", header: "StepVisual_HArray1OfSurfaceStyleElementSelect.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_HArray1OfSurfaceStyleElementSelect::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepVisual_HArray1OfSurfaceStyleElementSelect::get_type_name(@)", header: "StepVisual_HArray1OfSurfaceStyleElementSelect.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_HArray1OfSurfaceStyleElementSelect::get_type_descriptor(@)",
     header: "StepVisual_HArray1OfSurfaceStyleElementSelect.hxx".}
-proc DynamicType*(this: StepVisual_HArray1OfSurfaceStyleElementSelect): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepVisual_HArray1OfSurfaceStyleElementSelect.hxx".}
+proc dynamicType*(this: StepVisualHArray1OfSurfaceStyleElementSelect): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepVisual_HArray1OfSurfaceStyleElementSelect.hxx".}

@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  Vrml_VertexOrdering* {.size: sizeof(cint), importcpp: "Vrml_VertexOrdering",
-                        header: "Vrml_VertexOrdering.hxx".} = enum
-    Vrml_UNKNOWN_ORDERING, Vrml_CLOCKWISE, Vrml_COUNTERCLOCKWISE
+  VrmlVertexOrdering* {.size: sizeof(cint), importcpp: "Vrml_VertexOrdering",
+                       header: "Vrml_VertexOrdering.hxx".} = enum
+    VrmlUNKNOWN_ORDERING, VrmlCLOCKWISE, VrmlCOUNTERCLOCKWISE
+
 

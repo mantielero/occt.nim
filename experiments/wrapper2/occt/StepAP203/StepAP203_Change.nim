@@ -14,44 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepAP203_HArray1OfWorkItem,
-  ../StepBasic/StepBasic_ActionAssignment
-
 discard "forward decl of StepBasic_Action"
 discard "forward decl of StepAP203_Change"
 discard "forward decl of StepAP203_Change"
 type
-  Handle_StepAP203_Change* = handle[StepAP203_Change]
+  HandleStepAP203Change* = Handle[StepAP203Change]
 
 ## ! Representation of STEP entity Change
 
 type
-  StepAP203_Change* {.importcpp: "StepAP203_Change",
-                     header: "StepAP203_Change.hxx", bycopy.} = object of StepBasic_ActionAssignment ##
-                                                                                              ## !
-                                                                                              ## Empty
-                                                                                              ## constructor
+  StepAP203Change* {.importcpp: "StepAP203_Change", header: "StepAP203_Change.hxx",
+                    bycopy.} = object of StepBasicActionAssignment ## ! Empty constructor
 
 
-proc constructStepAP203_Change*(): StepAP203_Change {.constructor,
+proc constructStepAP203Change*(): StepAP203Change {.constructor,
     importcpp: "StepAP203_Change(@)", header: "StepAP203_Change.hxx".}
-proc Init*(this: var StepAP203_Change;
-          aActionAssignment_AssignedAction: handle[StepBasic_Action];
-          aItems: handle[StepAP203_HArray1OfWorkItem]) {.importcpp: "Init",
+proc init*(this: var StepAP203Change;
+          aActionAssignmentAssignedAction: Handle[StepBasicAction];
+          aItems: Handle[StepAP203HArray1OfWorkItem]) {.importcpp: "Init",
     header: "StepAP203_Change.hxx".}
-proc Items*(this: StepAP203_Change): handle[StepAP203_HArray1OfWorkItem] {.
+proc items*(this: StepAP203Change): Handle[StepAP203HArray1OfWorkItem] {.
     noSideEffect, importcpp: "Items", header: "StepAP203_Change.hxx".}
-proc SetItems*(this: var StepAP203_Change;
-              Items: handle[StepAP203_HArray1OfWorkItem]) {.importcpp: "SetItems",
-    header: "StepAP203_Change.hxx".}
+proc setItems*(this: var StepAP203Change; items: Handle[StepAP203HArray1OfWorkItem]) {.
+    importcpp: "SetItems", header: "StepAP203_Change.hxx".}
 type
-  StepAP203_Changebase_type* = StepBasic_ActionAssignment
+  StepAP203ChangebaseType* = StepBasicActionAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP203_Change::get_type_name(@)",
-                              header: "StepAP203_Change.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP203_Change::get_type_name(@)",
+                            header: "StepAP203_Change.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP203_Change::get_type_descriptor(@)",
     header: "StepAP203_Change.hxx".}
-proc DynamicType*(this: StepAP203_Change): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepAP203Change): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepAP203_Change.hxx".}

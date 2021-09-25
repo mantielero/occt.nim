@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepFEA_FeaAxis2Placement3d"
@@ -30,15 +26,15 @@ type
 proc constructRWStepFEA_RWFeaAxis2Placement3d*(): RWStepFEA_RWFeaAxis2Placement3d {.
     constructor, importcpp: "RWStepFEA_RWFeaAxis2Placement3d(@)",
     header: "RWStepFEA_RWFeaAxis2Placement3d.hxx".}
-proc ReadStep*(this: RWStepFEA_RWFeaAxis2Placement3d;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepFEA_FeaAxis2Placement3d]) {.noSideEffect,
+proc readStep*(this: RWStepFEA_RWFeaAxis2Placement3d;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepFEA_FeaAxis2Placement3d]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWFeaAxis2Placement3d.hxx".}
-proc WriteStep*(this: RWStepFEA_RWFeaAxis2Placement3d; SW: var StepData_StepWriter;
-               ent: handle[StepFEA_FeaAxis2Placement3d]) {.noSideEffect,
+proc writeStep*(this: RWStepFEA_RWFeaAxis2Placement3d; sw: var StepDataStepWriter;
+               ent: Handle[StepFEA_FeaAxis2Placement3d]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepFEA_RWFeaAxis2Placement3d.hxx".}
-proc Share*(this: RWStepFEA_RWFeaAxis2Placement3d;
-           ent: handle[StepFEA_FeaAxis2Placement3d];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepFEA_RWFeaAxis2Placement3d;
+           ent: Handle[StepFEA_FeaAxis2Placement3d];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFeaAxis2Placement3d.hxx".}

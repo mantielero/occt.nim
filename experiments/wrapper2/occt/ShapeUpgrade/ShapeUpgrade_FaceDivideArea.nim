@@ -13,45 +13,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ShapeUpgrade_FaceDivide, ../Standard/Standard_Boolean
-
 discard "forward decl of TopoDS_Face"
 discard "forward decl of ShapeUpgrade_FaceDivideArea"
 discard "forward decl of ShapeUpgrade_FaceDivideArea"
 type
-  Handle_ShapeUpgrade_FaceDivideArea* = handle[ShapeUpgrade_FaceDivideArea]
+  HandleShapeUpgradeFaceDivideArea* = Handle[ShapeUpgradeFaceDivideArea]
 
 ## ! Divides face by max area criterium.
 
 type
-  ShapeUpgrade_FaceDivideArea* {.importcpp: "ShapeUpgrade_FaceDivideArea",
-                                header: "ShapeUpgrade_FaceDivideArea.hxx", bycopy.} = object of ShapeUpgrade_FaceDivide ##
-                                                                                                                 ## !
-                                                                                                                 ## Creates
-                                                                                                                 ## empty
-                                                                                                                 ## constructor.
+  ShapeUpgradeFaceDivideArea* {.importcpp: "ShapeUpgrade_FaceDivideArea",
+                               header: "ShapeUpgrade_FaceDivideArea.hxx", bycopy.} = object of ShapeUpgradeFaceDivide ##
+                                                                                                               ## !
+                                                                                                               ## Creates
+                                                                                                               ## empty
+                                                                                                               ## constructor.
 
 
-proc constructShapeUpgrade_FaceDivideArea*(): ShapeUpgrade_FaceDivideArea {.
+proc constructShapeUpgradeFaceDivideArea*(): ShapeUpgradeFaceDivideArea {.
     constructor, importcpp: "ShapeUpgrade_FaceDivideArea(@)",
     header: "ShapeUpgrade_FaceDivideArea.hxx".}
-proc constructShapeUpgrade_FaceDivideArea*(F: TopoDS_Face): ShapeUpgrade_FaceDivideArea {.
+proc constructShapeUpgradeFaceDivideArea*(f: TopoDS_Face): ShapeUpgradeFaceDivideArea {.
     constructor, importcpp: "ShapeUpgrade_FaceDivideArea(@)",
     header: "ShapeUpgrade_FaceDivideArea.hxx".}
-proc Perform*(this: var ShapeUpgrade_FaceDivideArea): Standard_Boolean {.
-    importcpp: "Perform", header: "ShapeUpgrade_FaceDivideArea.hxx".}
-proc MaxArea*(this: var ShapeUpgrade_FaceDivideArea): var Standard_Real {.
-    importcpp: "MaxArea", header: "ShapeUpgrade_FaceDivideArea.hxx".}
+proc perform*(this: var ShapeUpgradeFaceDivideArea): bool {.importcpp: "Perform",
+    header: "ShapeUpgrade_FaceDivideArea.hxx".}
+proc maxArea*(this: var ShapeUpgradeFaceDivideArea): var float {.importcpp: "MaxArea",
+    header: "ShapeUpgrade_FaceDivideArea.hxx".}
 type
-  ShapeUpgrade_FaceDivideAreabase_type* = ShapeUpgrade_FaceDivide
+  ShapeUpgradeFaceDivideAreabaseType* = ShapeUpgradeFaceDivide
 
-proc get_type_name*(): cstring {.importcpp: "ShapeUpgrade_FaceDivideArea::get_type_name(@)",
-                              header: "ShapeUpgrade_FaceDivideArea.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeUpgrade_FaceDivideArea::get_type_name(@)",
+                            header: "ShapeUpgrade_FaceDivideArea.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeUpgrade_FaceDivideArea::get_type_descriptor(@)",
     header: "ShapeUpgrade_FaceDivideArea.hxx".}
-proc DynamicType*(this: ShapeUpgrade_FaceDivideArea): handle[Standard_Type] {.
+proc dynamicType*(this: ShapeUpgradeFaceDivideArea): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_FaceDivideArea.hxx".}

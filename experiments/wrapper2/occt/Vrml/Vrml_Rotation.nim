@@ -14,22 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Vrml_SFRotation, ../Standard/Standard_OStream
-
 discard "forward decl of Vrml_SFRotation"
 type
-  Vrml_Rotation* {.importcpp: "Vrml_Rotation", header: "Vrml_Rotation.hxx", bycopy.} = object
+  VrmlRotation* {.importcpp: "Vrml_Rotation", header: "Vrml_Rotation.hxx", bycopy.} = object
 
 
-proc constructVrml_Rotation*(): Vrml_Rotation {.constructor,
+proc constructVrmlRotation*(): VrmlRotation {.constructor,
     importcpp: "Vrml_Rotation(@)", header: "Vrml_Rotation.hxx".}
-proc constructVrml_Rotation*(aRotation: Vrml_SFRotation): Vrml_Rotation {.
-    constructor, importcpp: "Vrml_Rotation(@)", header: "Vrml_Rotation.hxx".}
-proc SetRotation*(this: var Vrml_Rotation; aRotation: Vrml_SFRotation) {.
+proc constructVrmlRotation*(aRotation: VrmlSFRotation): VrmlRotation {.constructor,
+    importcpp: "Vrml_Rotation(@)", header: "Vrml_Rotation.hxx".}
+proc setRotation*(this: var VrmlRotation; aRotation: VrmlSFRotation) {.
     importcpp: "SetRotation", header: "Vrml_Rotation.hxx".}
-proc Rotation*(this: Vrml_Rotation): Vrml_SFRotation {.noSideEffect,
+proc rotation*(this: VrmlRotation): VrmlSFRotation {.noSideEffect,
     importcpp: "Rotation", header: "Vrml_Rotation.hxx".}
-proc Print*(this: Vrml_Rotation; anOStream: var Standard_OStream): var Standard_OStream {.
+proc print*(this: VrmlRotation; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Rotation.hxx".}

@@ -14,30 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of Geom2d_Transformation"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Lin2d"
 discard "forward decl of gp_Dir2d"
 type
-  GCE2d_MakeMirror* {.importcpp: "GCE2d_MakeMirror",
-                     header: "GCE2d_MakeMirror.hxx", bycopy.} = object
+  GCE2dMakeMirror* {.importcpp: "GCE2d_MakeMirror", header: "GCE2d_MakeMirror.hxx",
+                    bycopy.} = object
 
 
-proc constructGCE2d_MakeMirror*(Point: gp_Pnt2d): GCE2d_MakeMirror {.constructor,
+proc constructGCE2dMakeMirror*(point: Pnt2d): GCE2dMakeMirror {.constructor,
     importcpp: "GCE2d_MakeMirror(@)", header: "GCE2d_MakeMirror.hxx".}
-proc constructGCE2d_MakeMirror*(Axis: gp_Ax2d): GCE2d_MakeMirror {.constructor,
+proc constructGCE2dMakeMirror*(axis: Ax2d): GCE2dMakeMirror {.constructor,
     importcpp: "GCE2d_MakeMirror(@)", header: "GCE2d_MakeMirror.hxx".}
-proc constructGCE2d_MakeMirror*(Line: gp_Lin2d): GCE2d_MakeMirror {.constructor,
+proc constructGCE2dMakeMirror*(line: Lin2d): GCE2dMakeMirror {.constructor,
     importcpp: "GCE2d_MakeMirror(@)", header: "GCE2d_MakeMirror.hxx".}
-proc constructGCE2d_MakeMirror*(Point: gp_Pnt2d; Direc: gp_Dir2d): GCE2d_MakeMirror {.
+proc constructGCE2dMakeMirror*(point: Pnt2d; direc: Dir2d): GCE2dMakeMirror {.
     constructor, importcpp: "GCE2d_MakeMirror(@)", header: "GCE2d_MakeMirror.hxx".}
-proc Value*(this: GCE2d_MakeMirror): handle[Geom2d_Transformation] {.noSideEffect,
+proc value*(this: GCE2dMakeMirror): Handle[Geom2dTransformation] {.noSideEffect,
     importcpp: "Value", header: "GCE2d_MakeMirror.hxx".}
-converter `constopencascade`*(this: GCE2d_MakeMirror): handle[Geom2d_Transformation] {.
+converter `constopencascade`*(this: GCE2dMakeMirror): Handle[Geom2dTransformation] {.
     noSideEffect, importcpp: "GCE2d_MakeMirror::operator constopencascade",
     header: "GCE2d_MakeMirror.hxx".}

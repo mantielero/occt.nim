@@ -14,46 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopAbs/TopAbs_ShapeEnum, ../SelectMgr/SelectMgr_Filter
-
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of StdSelect_ShapeTypeFilter"
 type
-  Handle_StdSelect_ShapeTypeFilter* = handle[StdSelect_ShapeTypeFilter]
+  HandleStdSelectShapeTypeFilter* = Handle[StdSelectShapeTypeFilter]
 
 ## ! A filter framework which allows you to define a filter for a specific shape type.
 
 type
-  StdSelect_ShapeTypeFilter* {.importcpp: "StdSelect_ShapeTypeFilter",
-                              header: "StdSelect_ShapeTypeFilter.hxx", bycopy.} = object of SelectMgr_Filter ##
-                                                                                                      ## !
-                                                                                                      ## Constructs
-                                                                                                      ## a
-                                                                                                      ## filter
-                                                                                                      ## object
-                                                                                                      ## defined
-                                                                                                      ## by
-                                                                                                      ## the
-                                                                                                      ## shape
-                                                                                                      ## type
-                                                                                                      ## aType.
+  StdSelectShapeTypeFilter* {.importcpp: "StdSelect_ShapeTypeFilter",
+                             header: "StdSelect_ShapeTypeFilter.hxx", bycopy.} = object of SelectMgrFilter ##
+                                                                                                    ## !
+                                                                                                    ## Constructs
+                                                                                                    ## a
+                                                                                                    ## filter
+                                                                                                    ## object
+                                                                                                    ## defined
+                                                                                                    ## by
+                                                                                                    ## the
+                                                                                                    ## shape
+                                                                                                    ## type
+                                                                                                    ## aType.
 
-  StdSelect_ShapeTypeFilterbase_type* = SelectMgr_Filter
+  StdSelectShapeTypeFilterbaseType* = SelectMgrFilter
 
-proc get_type_name*(): cstring {.importcpp: "StdSelect_ShapeTypeFilter::get_type_name(@)",
-                              header: "StdSelect_ShapeTypeFilter.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StdSelect_ShapeTypeFilter::get_type_name(@)",
+                            header: "StdSelect_ShapeTypeFilter.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StdSelect_ShapeTypeFilter::get_type_descriptor(@)",
     header: "StdSelect_ShapeTypeFilter.hxx".}
-proc DynamicType*(this: StdSelect_ShapeTypeFilter): handle[Standard_Type] {.
+proc dynamicType*(this: StdSelectShapeTypeFilter): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StdSelect_ShapeTypeFilter.hxx".}
-proc constructStdSelect_ShapeTypeFilter*(aType: TopAbs_ShapeEnum): StdSelect_ShapeTypeFilter {.
+proc constructStdSelectShapeTypeFilter*(aType: TopAbsShapeEnum): StdSelectShapeTypeFilter {.
     constructor, importcpp: "StdSelect_ShapeTypeFilter(@)",
     header: "StdSelect_ShapeTypeFilter.hxx".}
-proc Type*(this: StdSelect_ShapeTypeFilter): TopAbs_ShapeEnum {.noSideEffect,
+proc `type`*(this: StdSelectShapeTypeFilter): TopAbsShapeEnum {.noSideEffect,
     importcpp: "Type", header: "StdSelect_ShapeTypeFilter.hxx".}
-proc IsOk*(this: StdSelect_ShapeTypeFilter; anobj: handle[SelectMgr_EntityOwner]): Standard_Boolean {.
+proc isOk*(this: StdSelectShapeTypeFilter; anobj: Handle[SelectMgrEntityOwner]): bool {.
     noSideEffect, importcpp: "IsOk", header: "StdSelect_ShapeTypeFilter.hxx".}
-proc ActsOn*(this: StdSelect_ShapeTypeFilter; aStandardMode: TopAbs_ShapeEnum): Standard_Boolean {.
+proc actsOn*(this: StdSelectShapeTypeFilter; aStandardMode: TopAbsShapeEnum): bool {.
     noSideEffect, importcpp: "ActsOn", header: "StdSelect_ShapeTypeFilter.hxx".}

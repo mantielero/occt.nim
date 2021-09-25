@@ -14,30 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopoDSToStep_Root, ../Message/Message_ProgressRange
-
 discard "forward decl of StepShape_FacetedBrep"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Shell"
 discard "forward decl of Transfer_FinderProcess"
 discard "forward decl of TopoDS_Solid"
 type
-  TopoDSToStep_MakeFacetedBrep* {.importcpp: "TopoDSToStep_MakeFacetedBrep",
-                                 header: "TopoDSToStep_MakeFacetedBrep.hxx",
-                                 bycopy.} = object of TopoDSToStep_Root
+  TopoDSToStepMakeFacetedBrep* {.importcpp: "TopoDSToStep_MakeFacetedBrep",
+                                header: "TopoDSToStep_MakeFacetedBrep.hxx", bycopy.} = object of TopoDSToStepRoot
 
 
-proc constructTopoDSToStep_MakeFacetedBrep*(S: TopoDS_Shell;
-    FP: handle[Transfer_FinderProcess];
-    theProgress: Message_ProgressRange = Message_ProgressRange()): TopoDSToStep_MakeFacetedBrep {.
+proc constructTopoDSToStepMakeFacetedBrep*(s: TopoDS_Shell;
+    fp: Handle[TransferFinderProcess];
+    theProgress: MessageProgressRange = messageProgressRange()): TopoDSToStepMakeFacetedBrep {.
     constructor, importcpp: "TopoDSToStep_MakeFacetedBrep(@)",
     header: "TopoDSToStep_MakeFacetedBrep.hxx".}
-proc constructTopoDSToStep_MakeFacetedBrep*(S: TopoDS_Solid;
-    FP: handle[Transfer_FinderProcess];
-    theProgress: Message_ProgressRange = Message_ProgressRange()): TopoDSToStep_MakeFacetedBrep {.
+proc constructTopoDSToStepMakeFacetedBrep*(s: TopoDS_Solid;
+    fp: Handle[TransferFinderProcess];
+    theProgress: MessageProgressRange = messageProgressRange()): TopoDSToStepMakeFacetedBrep {.
     constructor, importcpp: "TopoDSToStep_MakeFacetedBrep(@)",
     header: "TopoDSToStep_MakeFacetedBrep.hxx".}
-proc Value*(this: TopoDSToStep_MakeFacetedBrep): handle[StepShape_FacetedBrep] {.
+proc value*(this: TopoDSToStepMakeFacetedBrep): Handle[StepShapeFacetedBrep] {.
     noSideEffect, importcpp: "Value", header: "TopoDSToStep_MakeFacetedBrep.hxx".}

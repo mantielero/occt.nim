@@ -14,39 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape,
-  ../Standard/Standard_Boolean, ../TopTools/TopTools_DataMapOfShapeListOfShape,
-  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_NullObject"
 discard "forward decl of TopoDS_Shape"
 type
-  TopOpeBRepTool_PurgeInternalEdges* {.importcpp: "TopOpeBRepTool_PurgeInternalEdges", header: "TopOpeBRepTool_PurgeInternalEdges.hxx",
-                                      bycopy.} = object ## ! Initialize   members and  begin  exploration   of  shape
-                                                     ## ! depending of the value of PerformNow
-                                                     ## ! Do the main job. Explore all the  edges of myShape and
-                                                     ## ! build a map with  faces as a key  and list of internal
-                                                     ## ! edges(without connected faces) as value.
+  TopOpeBRepToolPurgeInternalEdges* {.importcpp: "TopOpeBRepTool_PurgeInternalEdges", header: "TopOpeBRepTool_PurgeInternalEdges.hxx",
+                                     bycopy.} = object ## ! Initialize   members and  begin  exploration   of  shape
+                                                    ## ! depending of the value of PerformNow
+                                                    ## ! Do the main job. Explore all the  edges of myShape and
+                                                    ## ! build a map with  faces as a key  and list of internal
+                                                    ## ! edges(without connected faces) as value.
 
 
-proc constructTopOpeBRepTool_PurgeInternalEdges*(theShape: TopoDS_Shape;
-    PerformNow: Standard_Boolean = Standard_True): TopOpeBRepTool_PurgeInternalEdges {.
-    constructor, importcpp: "TopOpeBRepTool_PurgeInternalEdges(@)",
+proc constructTopOpeBRepToolPurgeInternalEdges*(theShape: TopoDS_Shape;
+    performNow: bool = true): TopOpeBRepToolPurgeInternalEdges {.constructor,
+    importcpp: "TopOpeBRepTool_PurgeInternalEdges(@)",
     header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
-proc Faces*(this: var TopOpeBRepTool_PurgeInternalEdges;
-           theMapFacLstEdg: var TopTools_DataMapOfShapeListOfShape) {.
+proc faces*(this: var TopOpeBRepToolPurgeInternalEdges;
+           theMapFacLstEdg: var TopToolsDataMapOfShapeListOfShape) {.
     importcpp: "Faces", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
-proc Shape*(this: var TopOpeBRepTool_PurgeInternalEdges): var TopoDS_Shape {.
+proc shape*(this: var TopOpeBRepToolPurgeInternalEdges): var TopoDS_Shape {.
     importcpp: "Shape", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
-proc NbEdges*(this: TopOpeBRepTool_PurgeInternalEdges): Standard_Integer {.
-    noSideEffect, importcpp: "NbEdges",
-    header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
-proc IsDone*(this: TopOpeBRepTool_PurgeInternalEdges): Standard_Boolean {.
-    noSideEffect, importcpp: "IsDone",
-    header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
-proc Perform*(this: var TopOpeBRepTool_PurgeInternalEdges) {.importcpp: "Perform",
+proc nbEdges*(this: TopOpeBRepToolPurgeInternalEdges): int {.noSideEffect,
+    importcpp: "NbEdges", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
+proc isDone*(this: TopOpeBRepToolPurgeInternalEdges): bool {.noSideEffect,
+    importcpp: "IsDone", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
+proc perform*(this: var TopOpeBRepToolPurgeInternalEdges) {.importcpp: "Perform",
     header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}

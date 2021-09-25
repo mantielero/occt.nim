@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  IFSelect_Modifier
-
 discard "forward decl of IFSelect_ContextModif"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_Protocol"
@@ -26,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_ModifReorder"
 discard "forward decl of IFSelect_ModifReorder"
 type
-  Handle_IFSelect_ModifReorder* = handle[IFSelect_ModifReorder]
+  HandleIFSelectModifReorder* = Handle[IFSelectModifReorder]
 
 ## ! This modifier reorders a whole model from its roots, i.e.
 ## ! according to <rootlast> status, it considers each of its
@@ -35,65 +31,65 @@ type
 ## ! the roots.
 
 type
-  IFSelect_ModifReorder* {.importcpp: "IFSelect_ModifReorder",
-                          header: "IFSelect_ModifReorder.hxx", bycopy.} = object of IFSelect_Modifier ##
-                                                                                               ## !
-                                                                                               ## Creates
-                                                                                               ## a
-                                                                                               ## ModifReorder.
-                                                                                               ## It
-                                                                                               ## may
-                                                                                               ## change
-                                                                                               ## the
-                                                                                               ## graph
-                                                                                               ## (it
-                                                                                               ## does
-                                                                                               ## !)
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## If
-                                                                                               ## <rootlast>
-                                                                                               ## is
-                                                                                               ## True
-                                                                                               ## (D),
-                                                                                               ## roots
-                                                                                               ## are
-                                                                                               ## set
-                                                                                               ## at
-                                                                                               ## the
-                                                                                               ## end
-                                                                                               ## of
-                                                                                               ## packets
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Else,
-                                                                                               ## they
-                                                                                               ## are
-                                                                                               ## set
-                                                                                               ## at
-                                                                                               ## beginning
-                                                                                               ## (as
-                                                                                               ## done
-                                                                                               ## by
-                                                                                               ## AddWithRefs)
+  IFSelectModifReorder* {.importcpp: "IFSelect_ModifReorder",
+                         header: "IFSelect_ModifReorder.hxx", bycopy.} = object of IFSelectModifier ##
+                                                                                             ## !
+                                                                                             ## Creates
+                                                                                             ## a
+                                                                                             ## ModifReorder.
+                                                                                             ## It
+                                                                                             ## may
+                                                                                             ## change
+                                                                                             ## the
+                                                                                             ## graph
+                                                                                             ## (it
+                                                                                             ## does
+                                                                                             ## !)
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## If
+                                                                                             ## <rootlast>
+                                                                                             ## is
+                                                                                             ## True
+                                                                                             ## (D),
+                                                                                             ## roots
+                                                                                             ## are
+                                                                                             ## set
+                                                                                             ## at
+                                                                                             ## the
+                                                                                             ## end
+                                                                                             ## of
+                                                                                             ## packets
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Else,
+                                                                                             ## they
+                                                                                             ## are
+                                                                                             ## set
+                                                                                             ## at
+                                                                                             ## beginning
+                                                                                             ## (as
+                                                                                             ## done
+                                                                                             ## by
+                                                                                             ## AddWithRefs)
 
 
-proc constructIFSelect_ModifReorder*(rootlast: Standard_Boolean = Standard_True): IFSelect_ModifReorder {.
+proc constructIFSelectModifReorder*(rootlast: bool = true): IFSelectModifReorder {.
     constructor, importcpp: "IFSelect_ModifReorder(@)",
     header: "IFSelect_ModifReorder.hxx".}
-proc Perform*(this: IFSelect_ModifReorder; ctx: var IFSelect_ContextModif;
-             target: handle[Interface_InterfaceModel];
-             protocol: handle[Interface_Protocol]; TC: var Interface_CopyTool) {.
+proc perform*(this: IFSelectModifReorder; ctx: var IFSelectContextModif;
+             target: Handle[InterfaceInterfaceModel];
+             protocol: Handle[InterfaceProtocol]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "Perform", header: "IFSelect_ModifReorder.hxx".}
-proc Label*(this: IFSelect_ModifReorder): TCollection_AsciiString {.noSideEffect,
+proc label*(this: IFSelectModifReorder): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_ModifReorder.hxx".}
 type
-  IFSelect_ModifReorderbase_type* = IFSelect_Modifier
+  IFSelectModifReorderbaseType* = IFSelectModifier
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_ModifReorder::get_type_name(@)",
-                              header: "IFSelect_ModifReorder.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_ModifReorder::get_type_name(@)",
+                            header: "IFSelect_ModifReorder.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_ModifReorder::get_type_descriptor(@)",
     header: "IFSelect_ModifReorder.hxx".}
-proc DynamicType*(this: IFSelect_ModifReorder): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IFSelect_ModifReorder.hxx".}
+proc dynamicType*(this: IFSelectModifReorder): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IFSelect_ModifReorder.hxx".}

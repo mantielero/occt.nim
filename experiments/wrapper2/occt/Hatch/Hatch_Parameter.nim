@@ -14,20 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of Hatch_Line"
 discard "forward decl of Hatch_Hatcher"
 type
-  Hatch_Parameter* {.importcpp: "Hatch_Parameter", header: "Hatch_Parameter.hxx",
-                    bycopy.} = object
+  HatchParameter* {.importcpp: "Hatch_Parameter", header: "Hatch_Parameter.hxx",
+                   bycopy.} = object
 
 
-proc constructHatch_Parameter*(): Hatch_Parameter {.constructor,
+proc constructHatchParameter*(): HatchParameter {.constructor,
     importcpp: "Hatch_Parameter(@)", header: "Hatch_Parameter.hxx".}
-proc constructHatch_Parameter*(Par1: Standard_Real; Start: Standard_Boolean;
-                              Index: Standard_Integer = 0; Par2: Standard_Real = 0): Hatch_Parameter {.
+proc constructHatchParameter*(par1: float; start: bool; index: int = 0; par2: float = 0): HatchParameter {.
     constructor, importcpp: "Hatch_Parameter(@)", header: "Hatch_Parameter.hxx".}

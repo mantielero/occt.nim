@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TDF_DataSet"
 discard "forward decl of TDF_IDFilter"
 discard "forward decl of TDF_RelocationTable"
@@ -34,24 +29,24 @@ type
                                                                       ## Compare(...).
 
 
-proc Compare*(aSourceDataSet: handle[TDF_DataSet];
-             aTargetDataSet: handle[TDF_DataSet]; aFilter: TDF_IDFilter;
-             aRelocationTable: handle[TDF_RelocationTable]) {.
+proc compare*(aSourceDataSet: Handle[TDF_DataSet];
+             aTargetDataSet: Handle[TDF_DataSet]; aFilter: TDF_IDFilter;
+             aRelocationTable: Handle[TDF_RelocationTable]) {.
     importcpp: "TDF_ComparisonTool::Compare(@)", header: "TDF_ComparisonTool.hxx".}
-proc SourceUnbound*(aRefDataSet: handle[TDF_DataSet];
-                   aRelocationTable: handle[TDF_RelocationTable];
-                   aFilter: TDF_IDFilter; aDiffDataSet: handle[TDF_DataSet];
-                   anOption: Standard_Integer = 2): Standard_Boolean {.
+proc sourceUnbound*(aRefDataSet: Handle[TDF_DataSet];
+                   aRelocationTable: Handle[TDF_RelocationTable];
+                   aFilter: TDF_IDFilter; aDiffDataSet: Handle[TDF_DataSet];
+                   anOption: int = 2): bool {.
     importcpp: "TDF_ComparisonTool::SourceUnbound(@)",
     header: "TDF_ComparisonTool.hxx".}
-proc TargetUnbound*(aRefDataSet: handle[TDF_DataSet];
-                   aRelocationTable: handle[TDF_RelocationTable];
-                   aFilter: TDF_IDFilter; aDiffDataSet: handle[TDF_DataSet];
-                   anOption: Standard_Integer = 2): Standard_Boolean {.
+proc targetUnbound*(aRefDataSet: Handle[TDF_DataSet];
+                   aRelocationTable: Handle[TDF_RelocationTable];
+                   aFilter: TDF_IDFilter; aDiffDataSet: Handle[TDF_DataSet];
+                   anOption: int = 2): bool {.
     importcpp: "TDF_ComparisonTool::TargetUnbound(@)",
     header: "TDF_ComparisonTool.hxx".}
-proc Cut*(aDataSet: handle[TDF_DataSet]) {.importcpp: "TDF_ComparisonTool::Cut(@)",
+proc cut*(aDataSet: Handle[TDF_DataSet]) {.importcpp: "TDF_ComparisonTool::Cut(@)",
                                         header: "TDF_ComparisonTool.hxx".}
-proc IsSelfContained*(aLabel: TDF_Label; aDataSet: handle[TDF_DataSet]): Standard_Boolean {.
+proc isSelfContained*(aLabel: TDF_Label; aDataSet: Handle[TDF_DataSet]): bool {.
     importcpp: "TDF_ComparisonTool::IsSelfContained(@)",
     header: "TDF_ComparisonTool.hxx".}

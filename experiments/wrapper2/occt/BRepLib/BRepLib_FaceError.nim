@@ -19,8 +19,9 @@
 ## ! not initialised
 
 type
-  BRepLib_FaceError* {.size: sizeof(cint), importcpp: "BRepLib_FaceError",
-                      header: "BRepLib_FaceError.hxx".} = enum
-    BRepLib_FaceDone, BRepLib_NoFace, BRepLib_NotPlanar,
-    BRepLib_CurveProjectionFailed, BRepLib_ParametersOutOfRange
+  BRepLibFaceError* {.size: sizeof(cint), importcpp: "BRepLib_FaceError",
+                     header: "BRepLib_FaceError.hxx".} = enum
+    BRepLibFaceDone, BRepLibNoFace, BRepLibNotPlanar, BRepLibCurveProjectionFailed,
+    BRepLibParametersOutOfRange
+
 

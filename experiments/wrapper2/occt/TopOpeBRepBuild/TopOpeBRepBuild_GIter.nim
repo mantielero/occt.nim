@@ -14,32 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Address, ../Standard/Standard_Boolean,
-  ../TopAbs/TopAbs_State, ../Standard/Standard_OStream
-
 discard "forward decl of TopOpeBRepBuild_GTopo"
 type
-  TopOpeBRepBuild_GIter* {.importcpp: "TopOpeBRepBuild_GIter",
-                          header: "TopOpeBRepBuild_GIter.hxx", bycopy.} = object
+  TopOpeBRepBuildGIter* {.importcpp: "TopOpeBRepBuild_GIter",
+                         header: "TopOpeBRepBuild_GIter.hxx", bycopy.} = object
 
 
-proc constructTopOpeBRepBuild_GIter*(): TopOpeBRepBuild_GIter {.constructor,
+proc constructTopOpeBRepBuildGIter*(): TopOpeBRepBuildGIter {.constructor,
     importcpp: "TopOpeBRepBuild_GIter(@)", header: "TopOpeBRepBuild_GIter.hxx".}
-proc constructTopOpeBRepBuild_GIter*(G: TopOpeBRepBuild_GTopo): TopOpeBRepBuild_GIter {.
+proc constructTopOpeBRepBuildGIter*(g: TopOpeBRepBuildGTopo): TopOpeBRepBuildGIter {.
     constructor, importcpp: "TopOpeBRepBuild_GIter(@)",
     header: "TopOpeBRepBuild_GIter.hxx".}
-proc Init*(this: var TopOpeBRepBuild_GIter) {.importcpp: "Init",
+proc init*(this: var TopOpeBRepBuildGIter) {.importcpp: "Init",
     header: "TopOpeBRepBuild_GIter.hxx".}
-proc Init*(this: var TopOpeBRepBuild_GIter; G: TopOpeBRepBuild_GTopo) {.
+proc init*(this: var TopOpeBRepBuildGIter; g: TopOpeBRepBuildGTopo) {.
     importcpp: "Init", header: "TopOpeBRepBuild_GIter.hxx".}
-proc More*(this: TopOpeBRepBuild_GIter): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "TopOpeBRepBuild_GIter.hxx".}
-proc Next*(this: var TopOpeBRepBuild_GIter) {.importcpp: "Next",
+proc more*(this: TopOpeBRepBuildGIter): bool {.noSideEffect, importcpp: "More",
     header: "TopOpeBRepBuild_GIter.hxx".}
-proc Current*(this: TopOpeBRepBuild_GIter; s1: var TopAbs_State; s2: var TopAbs_State) {.
+proc next*(this: var TopOpeBRepBuildGIter) {.importcpp: "Next",
+    header: "TopOpeBRepBuild_GIter.hxx".}
+proc current*(this: TopOpeBRepBuildGIter; s1: var TopAbsState; s2: var TopAbsState) {.
     noSideEffect, importcpp: "Current", header: "TopOpeBRepBuild_GIter.hxx".}
-proc Dump*(this: TopOpeBRepBuild_GIter; OS: var Standard_OStream) {.noSideEffect,
+proc dump*(this: TopOpeBRepBuildGIter; os: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "TopOpeBRepBuild_GIter.hxx".}

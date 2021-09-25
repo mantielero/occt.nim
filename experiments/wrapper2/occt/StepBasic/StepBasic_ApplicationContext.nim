@@ -14,40 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_ApplicationContext"
 discard "forward decl of StepBasic_ApplicationContext"
 type
-  Handle_StepBasic_ApplicationContext* = handle[StepBasic_ApplicationContext]
-  StepBasic_ApplicationContext* {.importcpp: "StepBasic_ApplicationContext",
-                                 header: "StepBasic_ApplicationContext.hxx",
-                                 bycopy.} = object of Standard_Transient ## ! Returns a
-                                                                    ## ApplicationContext
+  HandleStepBasicApplicationContext* = Handle[StepBasicApplicationContext]
+  StepBasicApplicationContext* {.importcpp: "StepBasic_ApplicationContext",
+                                header: "StepBasic_ApplicationContext.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                            ## !
+                                                                                                            ## Returns
+                                                                                                            ## a
+                                                                                                            ## ApplicationContext
 
 
-proc constructStepBasic_ApplicationContext*(): StepBasic_ApplicationContext {.
+proc constructStepBasicApplicationContext*(): StepBasicApplicationContext {.
     constructor, importcpp: "StepBasic_ApplicationContext(@)",
     header: "StepBasic_ApplicationContext.hxx".}
-proc Init*(this: var StepBasic_ApplicationContext;
-          aApplication: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepBasicApplicationContext;
+          aApplication: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepBasic_ApplicationContext.hxx".}
-proc SetApplication*(this: var StepBasic_ApplicationContext;
-                    aApplication: handle[TCollection_HAsciiString]) {.
+proc setApplication*(this: var StepBasicApplicationContext;
+                    aApplication: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetApplication", header: "StepBasic_ApplicationContext.hxx".}
-proc Application*(this: StepBasic_ApplicationContext): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Application",
-                               header: "StepBasic_ApplicationContext.hxx".}
-type
-  StepBasic_ApplicationContextbase_type* = Standard_Transient
-
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ApplicationContext::get_type_name(@)",
+proc application*(this: StepBasicApplicationContext): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Application",
                               header: "StepBasic_ApplicationContext.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+type
+  StepBasicApplicationContextbaseType* = StandardTransient
+
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ApplicationContext::get_type_name(@)",
+                            header: "StepBasic_ApplicationContext.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_ApplicationContext::get_type_descriptor(@)",
     header: "StepBasic_ApplicationContext.hxx".}
-proc DynamicType*(this: StepBasic_ApplicationContext): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicApplicationContext): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ApplicationContext.hxx".}

@@ -18,3 +18,4 @@ type
   StepToTopoDS_TranslateEdgeLoopError* {.size: sizeof(cint), importcpp: "StepToTopoDS_TranslateEdgeLoopError", header: "StepToTopoDS_TranslateEdgeLoopError.hxx".} = enum
     StepToTopoDS_TranslateEdgeLoopDone, StepToTopoDS_TranslateEdgeLoopOther
 
+

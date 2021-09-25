@@ -13,42 +13,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ShapeUpgrade_SplitSurface, ../Standard/Standard_Boolean
-
 discard "forward decl of ShapeUpgrade_SplitSurfaceArea"
 discard "forward decl of ShapeUpgrade_SplitSurfaceArea"
 type
-  Handle_ShapeUpgrade_SplitSurfaceArea* = handle[ShapeUpgrade_SplitSurfaceArea]
+  HandleShapeUpgradeSplitSurfaceArea* = Handle[ShapeUpgradeSplitSurfaceArea]
 
 ## ! Split surface in the parametric space
 ## ! in according specified number of splits on the
 
 type
-  ShapeUpgrade_SplitSurfaceArea* {.importcpp: "ShapeUpgrade_SplitSurfaceArea",
-                                  header: "ShapeUpgrade_SplitSurfaceArea.hxx",
-                                  bycopy.} = object of ShapeUpgrade_SplitSurface ## !
-                                                                            ## Empty
-                                                                            ## constructor.
+  ShapeUpgradeSplitSurfaceArea* {.importcpp: "ShapeUpgrade_SplitSurfaceArea",
+                                 header: "ShapeUpgrade_SplitSurfaceArea.hxx",
+                                 bycopy.} = object of ShapeUpgradeSplitSurface ## ! Empty
+                                                                          ## constructor.
 
 
-proc constructShapeUpgrade_SplitSurfaceArea*(): ShapeUpgrade_SplitSurfaceArea {.
+proc constructShapeUpgradeSplitSurfaceArea*(): ShapeUpgradeSplitSurfaceArea {.
     constructor, importcpp: "ShapeUpgrade_SplitSurfaceArea(@)",
     header: "ShapeUpgrade_SplitSurfaceArea.hxx".}
-proc NbParts*(this: var ShapeUpgrade_SplitSurfaceArea): var Standard_Integer {.
-    importcpp: "NbParts", header: "ShapeUpgrade_SplitSurfaceArea.hxx".}
-proc Compute*(this: var ShapeUpgrade_SplitSurfaceArea;
-             Segment: Standard_Boolean = Standard_True) {.importcpp: "Compute",
+proc nbParts*(this: var ShapeUpgradeSplitSurfaceArea): var int {.importcpp: "NbParts",
     header: "ShapeUpgrade_SplitSurfaceArea.hxx".}
+proc compute*(this: var ShapeUpgradeSplitSurfaceArea; segment: bool = true) {.
+    importcpp: "Compute", header: "ShapeUpgrade_SplitSurfaceArea.hxx".}
 type
-  ShapeUpgrade_SplitSurfaceAreabase_type* = ShapeUpgrade_SplitSurface
+  ShapeUpgradeSplitSurfaceAreabaseType* = ShapeUpgradeSplitSurface
 
-proc get_type_name*(): cstring {.importcpp: "ShapeUpgrade_SplitSurfaceArea::get_type_name(@)",
-                              header: "ShapeUpgrade_SplitSurfaceArea.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeUpgrade_SplitSurfaceArea::get_type_name(@)",
+                            header: "ShapeUpgrade_SplitSurfaceArea.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeUpgrade_SplitSurfaceArea::get_type_descriptor(@)",
     header: "ShapeUpgrade_SplitSurfaceArea.hxx".}
-proc DynamicType*(this: ShapeUpgrade_SplitSurfaceArea): handle[Standard_Type] {.
+proc dynamicType*(this: ShapeUpgradeSplitSurfaceArea): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_SplitSurfaceArea.hxx".}

@@ -13,68 +13,64 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  VrmlData_Geometry
-
 ## *
 ##   Implementation of the Cylinder node
 ##
 
 type
-  VrmlData_Cylinder* {.importcpp: "VrmlData_Cylinder",
-                      header: "VrmlData_Cylinder.hxx", bycopy.} = object of VrmlData_Geometry ##  ---------- PUBLIC METHODS ----------
-                                                                                       ## *
-                                                                                       ##  Empty constructor
-                                                                                       ##
-                                                                                       ##  ---------- PROTECTED METHODS ----------
-                                                                                       ##  ---------- PRIVATE FIELDS ----------
-                                                                                       ##  Declaration of CASCADE RTTI
+  VrmlDataCylinder* {.importcpp: "VrmlData_Cylinder",
+                     header: "VrmlData_Cylinder.hxx", bycopy.} = object of VrmlDataGeometry ##  ---------- PUBLIC METHODS ----------
+                                                                                     ## *
+                                                                                     ##  Empty constructor
+                                                                                     ##
+                                                                                     ##  ---------- PROTECTED METHODS ----------
+                                                                                     ##  ---------- PRIVATE FIELDS ----------
+                                                                                     ##  Declaration of CASCADE RTTI
 
 
-proc constructVrmlData_Cylinder*(): VrmlData_Cylinder {.constructor,
+proc constructVrmlDataCylinder*(): VrmlDataCylinder {.constructor,
     importcpp: "VrmlData_Cylinder(@)", header: "VrmlData_Cylinder.hxx".}
-proc constructVrmlData_Cylinder*(theScene: VrmlData_Scene; theName: cstring;
-                                theRadius: Standard_Real = 1.0;
-                                theHeight: Standard_Real = 2.0): VrmlData_Cylinder {.
+proc constructVrmlDataCylinder*(theScene: VrmlDataScene; theName: cstring;
+                               theRadius: float = 1.0; theHeight: float = 2.0): VrmlDataCylinder {.
     constructor, importcpp: "VrmlData_Cylinder(@)", header: "VrmlData_Cylinder.hxx".}
-proc Radius*(this: VrmlData_Cylinder): Standard_Real {.noSideEffect,
-    importcpp: "Radius", header: "VrmlData_Cylinder.hxx".}
-proc Height*(this: VrmlData_Cylinder): Standard_Real {.noSideEffect,
-    importcpp: "Height", header: "VrmlData_Cylinder.hxx".}
-proc HasBottom*(this: VrmlData_Cylinder): Standard_Boolean {.noSideEffect,
-    importcpp: "HasBottom", header: "VrmlData_Cylinder.hxx".}
-proc HasSide*(this: VrmlData_Cylinder): Standard_Boolean {.noSideEffect,
-    importcpp: "HasSide", header: "VrmlData_Cylinder.hxx".}
-proc HasTop*(this: VrmlData_Cylinder): Standard_Boolean {.noSideEffect,
-    importcpp: "HasTop", header: "VrmlData_Cylinder.hxx".}
-proc SetRadius*(this: var VrmlData_Cylinder; theRadius: Standard_Real) {.
+proc radius*(this: VrmlDataCylinder): float {.noSideEffect, importcpp: "Radius",
+    header: "VrmlData_Cylinder.hxx".}
+proc height*(this: VrmlDataCylinder): float {.noSideEffect, importcpp: "Height",
+    header: "VrmlData_Cylinder.hxx".}
+proc hasBottom*(this: VrmlDataCylinder): bool {.noSideEffect, importcpp: "HasBottom",
+    header: "VrmlData_Cylinder.hxx".}
+proc hasSide*(this: VrmlDataCylinder): bool {.noSideEffect, importcpp: "HasSide",
+    header: "VrmlData_Cylinder.hxx".}
+proc hasTop*(this: VrmlDataCylinder): bool {.noSideEffect, importcpp: "HasTop",
+    header: "VrmlData_Cylinder.hxx".}
+proc setRadius*(this: var VrmlDataCylinder; theRadius: float) {.
     importcpp: "SetRadius", header: "VrmlData_Cylinder.hxx".}
-proc SetHeight*(this: var VrmlData_Cylinder; theHeight: Standard_Real) {.
+proc setHeight*(this: var VrmlDataCylinder; theHeight: float) {.
     importcpp: "SetHeight", header: "VrmlData_Cylinder.hxx".}
-proc SetFaces*(this: var VrmlData_Cylinder; hasBottom: Standard_Boolean;
-              hasSide: Standard_Boolean; hasTop: Standard_Boolean) {.
+proc setFaces*(this: var VrmlDataCylinder; hasBottom: bool; hasSide: bool; hasTop: bool) {.
     importcpp: "SetFaces", header: "VrmlData_Cylinder.hxx".}
-proc TShape*(this: var VrmlData_Cylinder): handle[TopoDS_TShape] {.
+proc tShape*(this: var VrmlDataCylinder): Handle[TopoDS_TShape] {.
     importcpp: "TShape", header: "VrmlData_Cylinder.hxx".}
-proc Clone*(this: VrmlData_Cylinder; theOther: handle[VrmlData_Node]): handle[
-    VrmlData_Node] {.noSideEffect, importcpp: "Clone",
-                    header: "VrmlData_Cylinder.hxx".}
-proc Read*(this: var VrmlData_Cylinder; theBuffer: var VrmlData_InBuffer): VrmlData_ErrorStatus {.
+proc clone*(this: VrmlDataCylinder; theOther: Handle[VrmlDataNode]): Handle[
+    VrmlDataNode] {.noSideEffect, importcpp: "Clone",
+                   header: "VrmlData_Cylinder.hxx".}
+proc read*(this: var VrmlDataCylinder; theBuffer: var VrmlDataInBuffer): VrmlDataErrorStatus {.
     importcpp: "Read", header: "VrmlData_Cylinder.hxx".}
-proc Write*(this: VrmlData_Cylinder; thePrefix: cstring): VrmlData_ErrorStatus {.
+proc write*(this: VrmlDataCylinder; thePrefix: cstring): VrmlDataErrorStatus {.
     noSideEffect, importcpp: "Write", header: "VrmlData_Cylinder.hxx".}
 type
-  VrmlData_Cylinderbase_type* = VrmlData_Geometry
+  VrmlDataCylinderbaseType* = VrmlDataGeometry
 
-proc get_type_name*(): cstring {.importcpp: "VrmlData_Cylinder::get_type_name(@)",
-                              header: "VrmlData_Cylinder.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "VrmlData_Cylinder::get_type_name(@)",
+                            header: "VrmlData_Cylinder.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "VrmlData_Cylinder::get_type_descriptor(@)",
     header: "VrmlData_Cylinder.hxx".}
-proc DynamicType*(this: VrmlData_Cylinder): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: VrmlDataCylinder): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "VrmlData_Cylinder.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of VrmlData_Cylinder"
 type
-  Handle_VrmlData_Cylinder* = handle[VrmlData_Cylinder]
+  HandleVrmlDataCylinder* = Handle[VrmlDataCylinder]
+

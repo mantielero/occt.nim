@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Geom/Geom_BezierCurve, ../NCollection/NCollection_Array1
-
 type
-  TColGeom_Array1OfBezierCurve* = NCollection_Array1[handle[Geom_BezierCurve]]
+  TColGeomArray1OfBezierCurve* = NCollectionArray1[Handle[GeomBezierCurve]]
+

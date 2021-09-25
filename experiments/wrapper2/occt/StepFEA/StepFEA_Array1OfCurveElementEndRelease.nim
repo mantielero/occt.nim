@@ -11,9 +11,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepFEA_CurveElementEndRelease, ../NCollection/NCollection_Array1
-
 type
-  StepFEA_Array1OfCurveElementEndRelease* = NCollection_Array1[
-      handle[StepFEA_CurveElementEndRelease]]
+  StepFEA_Array1OfCurveElementEndRelease* = NCollectionArray1[
+      Handle[StepFEA_CurveElementEndRelease]]
+

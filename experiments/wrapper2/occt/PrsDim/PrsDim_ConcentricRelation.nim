@@ -14,13 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  PrsDim_Relation, ../gp/gp_Dir
-
 discard "forward decl of Geom_Plane"
 discard "forward decl of PrsDim_ConcentricRelation"
 type
-  Handle_PrsDim_ConcentricRelation* = handle[PrsDim_ConcentricRelation]
+  HandlePrsDimConcentricRelation* = Handle[PrsDimConcentricRelation]
 
 ## ! A framework to define a constraint by a relation of
 ## ! concentricity between two or more interactive datums.
@@ -29,71 +26,71 @@ type
 ## ! relation of concentricity can be extended.
 
 type
-  PrsDim_ConcentricRelation* {.importcpp: "PrsDim_ConcentricRelation",
-                              header: "PrsDim_ConcentricRelation.hxx", bycopy.} = object of PrsDim_Relation ##
-                                                                                                     ## !
-                                                                                                     ## Constructs
-                                                                                                     ## the
-                                                                                                     ## display
-                                                                                                     ## object
-                                                                                                     ## for
-                                                                                                     ## concentric
-                                                                                                     ## relations
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## between
-                                                                                                     ## shapes.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## This
-                                                                                                     ## object
-                                                                                                     ## is
-                                                                                                     ## defined
-                                                                                                     ## by
-                                                                                                     ## the
-                                                                                                     ## two
-                                                                                                     ## shapes,
-                                                                                                     ## aFShape
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## and
-                                                                                                     ## aSShape
-                                                                                                     ## and
-                                                                                                     ## the
-                                                                                                     ## plane
-                                                                                                     ## aPlane.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## aPlane
-                                                                                                     ## is
-                                                                                                     ## provided
-                                                                                                     ## to
-                                                                                                     ## create
-                                                                                                     ## an
-                                                                                                     ## axis
-                                                                                                     ## along
-                                                                                                     ## which
-                                                                                                     ## the
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## relation
-                                                                                                     ## of
-                                                                                                     ## concentricity
-                                                                                                     ## can
-                                                                                                     ## be
-                                                                                                     ## extended.
+  PrsDimConcentricRelation* {.importcpp: "PrsDim_ConcentricRelation",
+                             header: "PrsDim_ConcentricRelation.hxx", bycopy.} = object of PrsDimRelation ##
+                                                                                                   ## !
+                                                                                                   ## Constructs
+                                                                                                   ## the
+                                                                                                   ## display
+                                                                                                   ## object
+                                                                                                   ## for
+                                                                                                   ## concentric
+                                                                                                   ## relations
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## between
+                                                                                                   ## shapes.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## This
+                                                                                                   ## object
+                                                                                                   ## is
+                                                                                                   ## defined
+                                                                                                   ## by
+                                                                                                   ## the
+                                                                                                   ## two
+                                                                                                   ## shapes,
+                                                                                                   ## aFShape
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## and
+                                                                                                   ## aSShape
+                                                                                                   ## and
+                                                                                                   ## the
+                                                                                                   ## plane
+                                                                                                   ## aPlane.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## aPlane
+                                                                                                   ## is
+                                                                                                   ## provided
+                                                                                                   ## to
+                                                                                                   ## create
+                                                                                                   ## an
+                                                                                                   ## axis
+                                                                                                   ## along
+                                                                                                   ## which
+                                                                                                   ## the
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## relation
+                                                                                                   ## of
+                                                                                                   ## concentricity
+                                                                                                   ## can
+                                                                                                   ## be
+                                                                                                   ## extended.
 
-  PrsDim_ConcentricRelationbase_type* = PrsDim_Relation
+  PrsDimConcentricRelationbaseType* = PrsDimRelation
 
-proc get_type_name*(): cstring {.importcpp: "PrsDim_ConcentricRelation::get_type_name(@)",
-                              header: "PrsDim_ConcentricRelation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "PrsDim_ConcentricRelation::get_type_name(@)",
+                            header: "PrsDim_ConcentricRelation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "PrsDim_ConcentricRelation::get_type_descriptor(@)",
     header: "PrsDim_ConcentricRelation.hxx".}
-proc DynamicType*(this: PrsDim_ConcentricRelation): handle[Standard_Type] {.
+proc dynamicType*(this: PrsDimConcentricRelation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "PrsDim_ConcentricRelation.hxx".}
-proc constructPrsDim_ConcentricRelation*(aFShape: TopoDS_Shape;
-                                        aSShape: TopoDS_Shape;
-                                        aPlane: handle[Geom_Plane]): PrsDim_ConcentricRelation {.
+proc constructPrsDimConcentricRelation*(aFShape: TopoDS_Shape;
+                                       aSShape: TopoDS_Shape;
+                                       aPlane: Handle[GeomPlane]): PrsDimConcentricRelation {.
     constructor, importcpp: "PrsDim_ConcentricRelation(@)",
     header: "PrsDim_ConcentricRelation.hxx".}

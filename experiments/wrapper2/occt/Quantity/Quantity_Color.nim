@@ -13,12 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_ShortReal,
-  Quantity_NameOfColor, Quantity_TypeOfColor,
-  ../TCollection/TCollection_AsciiString, ../NCollection/NCollection_Vec4
-
 ## ! This class allows the definition of an RGB color as triplet of 3 normalized floating point values (red, green, blue).
 ## !
 ## ! Although Quantity_Color can be technically used for pass-through storage of RGB triplet in any color space,
@@ -27,260 +21,258 @@ import
 ## ! for instance, application usually providing color picking within 0..255 range in sRGB color space.
 
 type
-  Quantity_Color* {.importcpp: "Quantity_Color", header: "Quantity_Color.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## Quantity_NOC_YELLOW
-                                                                                         ## color
-                                                                                         ## (for
-                                                                                         ## historical
-                                                                                         ## reasons).
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Returns
-                                                                                         ## the
-                                                                                         ## color
-                                                                                         ## from
-                                                                                         ## Quantity_NameOfColor
-                                                                                         ## enumeration
-                                                                                         ## nearest
-                                                                                         ## to
-                                                                                         ## specified
-                                                                                         ## RGB
-                                                                                         ## values.
-                                                                                         ##
-                                                                                         ## !@name
-                                                                                         ## Routines
-                                                                                         ## converting
-                                                                                         ## colors
-                                                                                         ## between
-                                                                                         ## different
-                                                                                         ## encodings
-                                                                                         ## and
-                                                                                         ## color
-                                                                                         ## spaces
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Parses
-                                                                                         ## the
-                                                                                         ## string
-                                                                                         ## as
-                                                                                         ## a
-                                                                                         ## hex
-                                                                                         ## color
-                                                                                         ## (like
-                                                                                         ## "#FF0"
-                                                                                         ## for
-                                                                                         ## short
-                                                                                         ## sRGB
-                                                                                         ## color,
-                                                                                         ## or
-                                                                                         ## "#FFFF00"
-                                                                                         ## for
-                                                                                         ## sRGB
-                                                                                         ## color)
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @param
-                                                                                         ## theHexColorString
-                                                                                         ## the
-                                                                                         ## string
-                                                                                         ## to
-                                                                                         ## be
-                                                                                         ## parsed
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @param
-                                                                                         ## theColor
-                                                                                         ## a
-                                                                                         ## color
-                                                                                         ## that
-                                                                                         ## is
-                                                                                         ## a
-                                                                                         ## result
-                                                                                         ## of
-                                                                                         ## parsing
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @return
-                                                                                         ## true
-                                                                                         ## if
-                                                                                         ## parsing
-                                                                                         ## was
-                                                                                         ## successful,
-                                                                                         ## or
-                                                                                         ## false
-                                                                                         ## otherwise
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Returns
-                                                                                         ## the
-                                                                                         ## value
-                                                                                         ## used
-                                                                                         ## to
-                                                                                         ## compare
-                                                                                         ## two
-                                                                                         ## colors
-                                                                                         ## for
-                                                                                         ## equality;
-                                                                                         ## 0.0001
-                                                                                         ## by
-                                                                                         ## default.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Returns
-                                                                                         ## the
-                                                                                         ## values
-                                                                                         ## of
-                                                                                         ## a
-                                                                                         ## predefined
-                                                                                         ## color
-                                                                                         ## according
-                                                                                         ## to
-                                                                                         ## the
-                                                                                         ## mode.
+  QuantityColor* {.importcpp: "Quantity_Color", header: "Quantity_Color.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Creates
+                                                                                        ## Quantity_NOC_YELLOW
+                                                                                        ## color
+                                                                                        ## (for
+                                                                                        ## historical
+                                                                                        ## reasons).
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Returns
+                                                                                        ## the
+                                                                                        ## color
+                                                                                        ## from
+                                                                                        ## Quantity_NameOfColor
+                                                                                        ## enumeration
+                                                                                        ## nearest
+                                                                                        ## to
+                                                                                        ## specified
+                                                                                        ## RGB
+                                                                                        ## values.
+                                                                                        ##
+                                                                                        ## !@name
+                                                                                        ## Routines
+                                                                                        ## converting
+                                                                                        ## colors
+                                                                                        ## between
+                                                                                        ## different
+                                                                                        ## encodings
+                                                                                        ## and
+                                                                                        ## color
+                                                                                        ## spaces
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Parses
+                                                                                        ## the
+                                                                                        ## string
+                                                                                        ## as
+                                                                                        ## a
+                                                                                        ## hex
+                                                                                        ## color
+                                                                                        ## (like
+                                                                                        ## "#FF0"
+                                                                                        ## for
+                                                                                        ## short
+                                                                                        ## sRGB
+                                                                                        ## color,
+                                                                                        ## or
+                                                                                        ## "#FFFF00"
+                                                                                        ## for
+                                                                                        ## sRGB
+                                                                                        ## color)
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## @param
+                                                                                        ## theHexColorString
+                                                                                        ## the
+                                                                                        ## string
+                                                                                        ## to
+                                                                                        ## be
+                                                                                        ## parsed
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## @param
+                                                                                        ## theColor
+                                                                                        ## a
+                                                                                        ## color
+                                                                                        ## that
+                                                                                        ## is
+                                                                                        ## a
+                                                                                        ## result
+                                                                                        ## of
+                                                                                        ## parsing
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## @return
+                                                                                        ## true
+                                                                                        ## if
+                                                                                        ## parsing
+                                                                                        ## was
+                                                                                        ## successful,
+                                                                                        ## or
+                                                                                        ## false
+                                                                                        ## otherwise
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Returns
+                                                                                        ## the
+                                                                                        ## value
+                                                                                        ## used
+                                                                                        ## to
+                                                                                        ## compare
+                                                                                        ## two
+                                                                                        ## colors
+                                                                                        ## for
+                                                                                        ## equality;
+                                                                                        ## 0.0001
+                                                                                        ## by
+                                                                                        ## default.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Returns
+                                                                                        ## the
+                                                                                        ## values
+                                                                                        ## of
+                                                                                        ## a
+                                                                                        ## predefined
+                                                                                        ## color
+                                                                                        ## according
+                                                                                        ## to
+                                                                                        ## the
+                                                                                        ## mode.
 
 
-proc constructQuantity_Color*(): Quantity_Color {.constructor,
+proc constructQuantityColor*(): QuantityColor {.constructor,
     importcpp: "Quantity_Color(@)", header: "Quantity_Color.hxx".}
-proc constructQuantity_Color*(theName: Quantity_NameOfColor): Quantity_Color {.
+proc constructQuantityColor*(theName: QuantityNameOfColor): QuantityColor {.
     constructor, importcpp: "Quantity_Color(@)", header: "Quantity_Color.hxx".}
-proc constructQuantity_Color*(theC1: Standard_Real; theC2: Standard_Real;
-                             theC3: Standard_Real; theType: Quantity_TypeOfColor): Quantity_Color {.
+proc constructQuantityColor*(theC1: float; theC2: float; theC3: float;
+                            theType: QuantityTypeOfColor): QuantityColor {.
     constructor, importcpp: "Quantity_Color(@)", header: "Quantity_Color.hxx".}
-proc constructQuantity_Color*(theRgb: NCollection_Vec3[cfloat]): Quantity_Color {.
+proc constructQuantityColor*(theRgb: NCollectionVec3[cfloat]): QuantityColor {.
     constructor, importcpp: "Quantity_Color(@)", header: "Quantity_Color.hxx".}
-proc Name*(this: Quantity_Color): Quantity_NameOfColor {.noSideEffect,
+proc name*(this: QuantityColor): QuantityNameOfColor {.noSideEffect,
     importcpp: "Name", header: "Quantity_Color.hxx".}
-proc SetValues*(this: var Quantity_Color; theName: Quantity_NameOfColor) {.
+proc setValues*(this: var QuantityColor; theName: QuantityNameOfColor) {.
     importcpp: "SetValues", header: "Quantity_Color.hxx".}
-proc Rgb*(this: Quantity_Color): NCollection_Vec3[cfloat] {.noSideEffect,
+proc rgb*(this: QuantityColor): NCollectionVec3[cfloat] {.noSideEffect,
     importcpp: "Rgb", header: "Quantity_Color.hxx".}
-converter `constNCollection_Vec3`*(this: Quantity_Color): NCollection_Vec3[cfloat] {.
+converter `constNCollectionVec3`*(this: QuantityColor): NCollectionVec3[cfloat] {.
     noSideEffect, importcpp: "Quantity_Color::operator constNCollection_Vec3",
     header: "Quantity_Color.hxx".}
-proc Values*(this: Quantity_Color; theC1: var Standard_Real; theC2: var Standard_Real;
-            theC3: var Standard_Real; theType: Quantity_TypeOfColor) {.noSideEffect,
-    importcpp: "Values", header: "Quantity_Color.hxx".}
-proc SetValues*(this: var Quantity_Color; theC1: Standard_Real; theC2: Standard_Real;
-               theC3: Standard_Real; theType: Quantity_TypeOfColor) {.
-    importcpp: "SetValues", header: "Quantity_Color.hxx".}
-proc Red*(this: Quantity_Color): Standard_Real {.noSideEffect, importcpp: "Red",
+proc values*(this: QuantityColor; theC1: var float; theC2: var float; theC3: var float;
+            theType: QuantityTypeOfColor) {.noSideEffect, importcpp: "Values",
     header: "Quantity_Color.hxx".}
-proc Green*(this: Quantity_Color): Standard_Real {.noSideEffect, importcpp: "Green",
+proc setValues*(this: var QuantityColor; theC1: float; theC2: float; theC3: float;
+               theType: QuantityTypeOfColor) {.importcpp: "SetValues",
     header: "Quantity_Color.hxx".}
-proc Blue*(this: Quantity_Color): Standard_Real {.noSideEffect, importcpp: "Blue",
-    header: "Quantity_Color.hxx".}
-proc Hue*(this: Quantity_Color): Standard_Real {.noSideEffect, importcpp: "Hue",
-    header: "Quantity_Color.hxx".}
-proc Light*(this: Quantity_Color): Standard_Real {.noSideEffect, importcpp: "Light",
-    header: "Quantity_Color.hxx".}
-proc ChangeIntensity*(this: var Quantity_Color; theDelta: Standard_Real) {.
+proc red*(this: QuantityColor): float {.noSideEffect, importcpp: "Red",
+                                    header: "Quantity_Color.hxx".}
+proc green*(this: QuantityColor): float {.noSideEffect, importcpp: "Green",
+                                      header: "Quantity_Color.hxx".}
+proc blue*(this: QuantityColor): float {.noSideEffect, importcpp: "Blue",
+                                     header: "Quantity_Color.hxx".}
+proc hue*(this: QuantityColor): float {.noSideEffect, importcpp: "Hue",
+                                    header: "Quantity_Color.hxx".}
+proc light*(this: QuantityColor): float {.noSideEffect, importcpp: "Light",
+                                      header: "Quantity_Color.hxx".}
+proc changeIntensity*(this: var QuantityColor; theDelta: float) {.
     importcpp: "ChangeIntensity", header: "Quantity_Color.hxx".}
-proc Saturation*(this: Quantity_Color): Standard_Real {.noSideEffect,
-    importcpp: "Saturation", header: "Quantity_Color.hxx".}
-proc ChangeContrast*(this: var Quantity_Color; theDelta: Standard_Real) {.
+proc saturation*(this: QuantityColor): float {.noSideEffect, importcpp: "Saturation",
+    header: "Quantity_Color.hxx".}
+proc changeContrast*(this: var QuantityColor; theDelta: float) {.
     importcpp: "ChangeContrast", header: "Quantity_Color.hxx".}
-proc IsDifferent*(this: Quantity_Color; theOther: Quantity_Color): Standard_Boolean {.
-    noSideEffect, importcpp: "IsDifferent", header: "Quantity_Color.hxx".}
-proc IsEqual*(this: Quantity_Color; theOther: Quantity_Color): Standard_Boolean {.
-    noSideEffect, importcpp: "IsEqual", header: "Quantity_Color.hxx".}
-proc `==`*(this: Quantity_Color; theOther: Quantity_Color): Standard_Boolean {.
-    noSideEffect, importcpp: "(# == #)", header: "Quantity_Color.hxx".}
-proc Distance*(this: Quantity_Color; theColor: Quantity_Color): Standard_Real {.
-    noSideEffect, importcpp: "Distance", header: "Quantity_Color.hxx".}
-proc SquareDistance*(this: Quantity_Color; theColor: Quantity_Color): Standard_Real {.
+proc isDifferent*(this: QuantityColor; theOther: QuantityColor): bool {.noSideEffect,
+    importcpp: "IsDifferent", header: "Quantity_Color.hxx".}
+proc isEqual*(this: QuantityColor; theOther: QuantityColor): bool {.noSideEffect,
+    importcpp: "IsEqual", header: "Quantity_Color.hxx".}
+proc `==`*(this: QuantityColor; theOther: QuantityColor): bool {.noSideEffect,
+    importcpp: "(# == #)", header: "Quantity_Color.hxx".}
+proc distance*(this: QuantityColor; theColor: QuantityColor): float {.noSideEffect,
+    importcpp: "Distance", header: "Quantity_Color.hxx".}
+proc squareDistance*(this: QuantityColor; theColor: QuantityColor): float {.
     noSideEffect, importcpp: "SquareDistance", header: "Quantity_Color.hxx".}
-proc Delta*(this: Quantity_Color; theColor: Quantity_Color; DC: var Standard_Real;
-           DI: var Standard_Real) {.noSideEffect, importcpp: "Delta",
-                                 header: "Quantity_Color.hxx".}
-proc DeltaE2000*(this: Quantity_Color; theOther: Quantity_Color): Standard_Real {.
-    noSideEffect, importcpp: "DeltaE2000", header: "Quantity_Color.hxx".}
-proc Name*(theR: Standard_Real; theG: Standard_Real; theB: Standard_Real): Quantity_NameOfColor {.
+proc delta*(this: QuantityColor; theColor: QuantityColor; dc: var float; di: var float) {.
+    noSideEffect, importcpp: "Delta", header: "Quantity_Color.hxx".}
+proc deltaE2000*(this: QuantityColor; theOther: QuantityColor): float {.noSideEffect,
+    importcpp: "DeltaE2000", header: "Quantity_Color.hxx".}
+proc name*(theR: float; theG: float; theB: float): QuantityNameOfColor {.
     importcpp: "Quantity_Color::Name(@)", header: "Quantity_Color.hxx".}
-proc StringName*(theColor: Quantity_NameOfColor): Standard_CString {.
+proc stringName*(theColor: QuantityNameOfColor): StandardCString {.
     importcpp: "Quantity_Color::StringName(@)", header: "Quantity_Color.hxx".}
-proc ColorFromName*(theName: Standard_CString; theColor: var Quantity_NameOfColor): Standard_Boolean {.
+proc colorFromName*(theName: StandardCString; theColor: var QuantityNameOfColor): bool {.
     importcpp: "Quantity_Color::ColorFromName(@)", header: "Quantity_Color.hxx".}
-proc ColorFromName*(theColorNameString: Standard_CString;
-                   theColor: var Quantity_Color): Standard_Boolean {.
+proc colorFromName*(theColorNameString: StandardCString;
+                   theColor: var QuantityColor): bool {.
     importcpp: "Quantity_Color::ColorFromName(@)", header: "Quantity_Color.hxx".}
-proc ColorFromHex*(theHexColorString: Standard_CString;
-                  theColor: var Quantity_Color): bool {.
+proc colorFromHex*(theHexColorString: StandardCString; theColor: var QuantityColor): bool {.
     importcpp: "Quantity_Color::ColorFromHex(@)", header: "Quantity_Color.hxx".}
-proc ColorToHex*(theColor: Quantity_Color; theToPrefixHash: bool = true): TCollection_AsciiString {.
+proc colorToHex*(theColor: QuantityColor; theToPrefixHash: bool = true): TCollectionAsciiString {.
     importcpp: "Quantity_Color::ColorToHex(@)", header: "Quantity_Color.hxx".}
-proc Convert_sRGB_To_HLS*(theRgb: NCollection_Vec3[cfloat]): NCollection_Vec3[
-    cfloat] {.importcpp: "Quantity_Color::Convert_sRGB_To_HLS(@)",
-             header: "Quantity_Color.hxx".}
-proc Convert_HLS_To_sRGB*(theHls: NCollection_Vec3[cfloat]): NCollection_Vec3[
-    cfloat] {.importcpp: "Quantity_Color::Convert_HLS_To_sRGB(@)",
-             header: "Quantity_Color.hxx".}
-proc Convert_LinearRGB_To_HLS*(theRgb: NCollection_Vec3[cfloat]): NCollection_Vec3[
+proc convertSRGB_ToHLS*(theRgb: NCollectionVec3[cfloat]): NCollectionVec3[cfloat] {.
+    importcpp: "Quantity_Color::Convert_sRGB_To_HLS(@)",
+    header: "Quantity_Color.hxx".}
+proc convertHLS_ToSRGB*(theHls: NCollectionVec3[cfloat]): NCollectionVec3[cfloat] {.
+    importcpp: "Quantity_Color::Convert_HLS_To_sRGB(@)",
+    header: "Quantity_Color.hxx".}
+proc convertLinearRGB_ToHLS*(theRgb: NCollectionVec3[cfloat]): NCollectionVec3[
     cfloat] {.importcpp: "Quantity_Color::Convert_LinearRGB_To_HLS(@)",
              header: "Quantity_Color.hxx".}
-proc Convert_HLS_To_LinearRGB*(theHls: NCollection_Vec3[cfloat]): NCollection_Vec3[
+proc convertHLS_ToLinearRGB*(theHls: NCollectionVec3[cfloat]): NCollectionVec3[
     cfloat] {.importcpp: "Quantity_Color::Convert_HLS_To_LinearRGB(@)",
              header: "Quantity_Color.hxx".}
-proc Convert_LinearRGB_To_Lab*(theRgb: NCollection_Vec3[cfloat]): NCollection_Vec3[
+proc convertLinearRGB_ToLab*(theRgb: NCollectionVec3[cfloat]): NCollectionVec3[
     cfloat] {.importcpp: "Quantity_Color::Convert_LinearRGB_To_Lab(@)",
              header: "Quantity_Color.hxx".}
-proc Convert_Lab_To_Lch*(theLab: NCollection_Vec3[cfloat]): NCollection_Vec3[cfloat] {.
+proc convertLabToLch*(theLab: NCollectionVec3[cfloat]): NCollectionVec3[cfloat] {.
     importcpp: "Quantity_Color::Convert_Lab_To_Lch(@)",
     header: "Quantity_Color.hxx".}
-proc Convert_Lab_To_LinearRGB*(theLab: NCollection_Vec3[cfloat]): NCollection_Vec3[
+proc convertLabToLinearRGB*(theLab: NCollectionVec3[cfloat]): NCollectionVec3[
     cfloat] {.importcpp: "Quantity_Color::Convert_Lab_To_LinearRGB(@)",
              header: "Quantity_Color.hxx".}
-proc Convert_Lch_To_Lab*(theLch: NCollection_Vec3[cfloat]): NCollection_Vec3[cfloat] {.
+proc convertLchToLab*(theLch: NCollectionVec3[cfloat]): NCollectionVec3[cfloat] {.
     importcpp: "Quantity_Color::Convert_Lch_To_Lab(@)",
     header: "Quantity_Color.hxx".}
-proc Color2argb*(theColor: Quantity_Color; theARGB: var Standard_Integer) {.
+proc color2argb*(theColor: QuantityColor; theARGB: var int) {.
     importcpp: "Quantity_Color::Color2argb(@)", header: "Quantity_Color.hxx".}
-proc Argb2color*(theARGB: Standard_Integer; theColor: var Quantity_Color) {.
+proc argb2color*(theARGB: int; theColor: var QuantityColor) {.
     importcpp: "Quantity_Color::Argb2color(@)", header: "Quantity_Color.hxx".}
-proc Convert_LinearRGB_To_sRGB*(theLinearValue: Standard_Real): Standard_Real {.
+proc convertLinearRGB_ToSRGB*(theLinearValue: float): float {.
     importcpp: "Quantity_Color::Convert_LinearRGB_To_sRGB(@)",
     header: "Quantity_Color.hxx".}
-proc Convert_LinearRGB_To_sRGB*(theLinearValue: cfloat): cfloat {.
+proc convertLinearRGB_ToSRGB*(theLinearValue: cfloat): cfloat {.
     importcpp: "Quantity_Color::Convert_LinearRGB_To_sRGB(@)",
     header: "Quantity_Color.hxx".}
-proc Convert_sRGB_To_LinearRGB*(thesRGBValue: Standard_Real): Standard_Real {.
+proc convertSRGB_ToLinearRGB*(thesRGBValue: float): float {.
     importcpp: "Quantity_Color::Convert_sRGB_To_LinearRGB(@)",
     header: "Quantity_Color.hxx".}
-proc Convert_sRGB_To_LinearRGB*(thesRGBValue: cfloat): cfloat {.
+proc convertSRGB_ToLinearRGB*(thesRGBValue: cfloat): cfloat {.
     importcpp: "Quantity_Color::Convert_sRGB_To_LinearRGB(@)",
     header: "Quantity_Color.hxx".}
-proc Convert_LinearRGB_To_sRGB*[T](theRGB: NCollection_Vec3[T]): NCollection_Vec3[T] {.
+proc convertLinearRGB_ToSRGB*[T](theRGB: NCollectionVec3[T]): NCollectionVec3[T] {.
     importcpp: "Quantity_Color::Convert_LinearRGB_To_sRGB(@)",
     header: "Quantity_Color.hxx".}
-proc Convert_sRGB_To_LinearRGB*[T](theRGB: NCollection_Vec3[T]): NCollection_Vec3[T] {.
+proc convertSRGB_ToLinearRGB*[T](theRGB: NCollectionVec3[T]): NCollectionVec3[T] {.
     importcpp: "Quantity_Color::Convert_sRGB_To_LinearRGB(@)",
     header: "Quantity_Color.hxx".}
-proc Convert_LinearRGB_To_sRGB_approx22*(theLinearValue: cfloat): cfloat {.
+proc convertLinearRGB_ToSRGB_approx22*(theLinearValue: cfloat): cfloat {.
     importcpp: "Quantity_Color::Convert_LinearRGB_To_sRGB_approx22(@)",
     header: "Quantity_Color.hxx".}
-proc Convert_sRGB_To_LinearRGB_approx22*(thesRGBValue: cfloat): cfloat {.
+proc convertSRGB_ToLinearRGB_approx22*(thesRGBValue: cfloat): cfloat {.
     importcpp: "Quantity_Color::Convert_sRGB_To_LinearRGB_approx22(@)",
     header: "Quantity_Color.hxx".}
-proc Convert_LinearRGB_To_sRGB_approx22*(theRGB: NCollection_Vec3[cfloat]): NCollection_Vec3[
+proc convertLinearRGB_ToSRGB_approx22*(theRGB: NCollectionVec3[cfloat]): NCollectionVec3[
     cfloat] {.importcpp: "Quantity_Color::Convert_LinearRGB_To_sRGB_approx22(@)",
              header: "Quantity_Color.hxx".}
-proc Convert_sRGB_To_LinearRGB_approx22*(theRGB: NCollection_Vec3[cfloat]): NCollection_Vec3[
+proc convertSRGB_ToLinearRGB_approx22*(theRGB: NCollectionVec3[cfloat]): NCollectionVec3[
     cfloat] {.importcpp: "Quantity_Color::Convert_sRGB_To_LinearRGB_approx22(@)",
              header: "Quantity_Color.hxx".}
-proc HlsRgb*(theH: Standard_Real; theL: Standard_Real; theS: Standard_Real;
-            theR: var Standard_Real; theG: var Standard_Real; theB: var Standard_Real) {.
-    importcpp: "Quantity_Color::HlsRgb(@)", header: "Quantity_Color.hxx".}
-proc RgbHls*(theR: Standard_Real; theG: Standard_Real; theB: Standard_Real;
-            theH: var Standard_Real; theL: var Standard_Real; theS: var Standard_Real) {.
-    importcpp: "Quantity_Color::RgbHls(@)", header: "Quantity_Color.hxx".}
-proc Epsilon*(): Standard_Real {.importcpp: "Quantity_Color::Epsilon(@)",
-                              header: "Quantity_Color.hxx".}
-proc SetEpsilon*(theEpsilon: Standard_Real) {.
-    importcpp: "Quantity_Color::SetEpsilon(@)", header: "Quantity_Color.hxx".}
-proc DumpJson*(this: Quantity_Color; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
+proc hlsRgb*(theH: float; theL: float; theS: float; theR: var float; theG: var float;
+            theB: var float) {.importcpp: "Quantity_Color::HlsRgb(@)",
+                            header: "Quantity_Color.hxx".}
+proc rgbHls*(theR: float; theG: float; theB: float; theH: var float; theL: var float;
+            theS: var float) {.importcpp: "Quantity_Color::RgbHls(@)",
+                            header: "Quantity_Color.hxx".}
+proc epsilon*(): float {.importcpp: "Quantity_Color::Epsilon(@)",
+                      header: "Quantity_Color.hxx".}
+proc setEpsilon*(theEpsilon: float) {.importcpp: "Quantity_Color::SetEpsilon(@)",
+                                   header: "Quantity_Color.hxx".}
+proc dumpJson*(this: QuantityColor; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Quantity_Color.hxx".}
+proc initFromJson*(this: var QuantityColor; theSStream: StandardSStream;
+                  theStreamPos: var int): bool {.importcpp: "InitFromJson",
     header: "Quantity_Color.hxx".}
-proc InitFromJson*(this: var Quantity_Color; theSStream: Standard_SStream;
-                  theStreamPos: var Standard_Integer): Standard_Boolean {.
-    importcpp: "InitFromJson", header: "Quantity_Color.hxx".}

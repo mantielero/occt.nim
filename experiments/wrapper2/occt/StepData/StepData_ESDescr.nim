@@ -14,81 +14,65 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString, ../TColStd/TColStd_HArray1OfTransient,
-  StepData_EDescr, ../Standard/Standard_CString, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../NCollection/NCollection_DataMap,
-  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Transient
-
 discard "forward decl of StepData_PDescr"
 discard "forward decl of StepData_Described"
 discard "forward decl of StepData_ESDescr"
 discard "forward decl of StepData_ESDescr"
 type
-  Handle_StepData_ESDescr* = handle[StepData_ESDescr]
+  HandleStepDataESDescr* = Handle[StepDataESDescr]
 
 ## ! This class is intended to describe the authorized form for a
 ## ! Simple (not Plex) Entity, as a list of fields
 
 type
-  StepData_ESDescr* {.importcpp: "StepData_ESDescr",
-                     header: "StepData_ESDescr.hxx", bycopy.} = object of StepData_EDescr ##
-                                                                                   ## !
-                                                                                   ## Creates
-                                                                                   ## an
-                                                                                   ## ESDescr
-                                                                                   ## with
-                                                                                   ## a
-                                                                                   ## type
-                                                                                   ## name
+  StepDataESDescr* {.importcpp: "StepData_ESDescr", header: "StepData_ESDescr.hxx",
+                    bycopy.} = object of StepDataEDescr ## ! Creates an ESDescr with a type name
 
 
-proc constructStepData_ESDescr*(name: Standard_CString): StepData_ESDescr {.
+proc constructStepDataESDescr*(name: StandardCString): StepDataESDescr {.
     constructor, importcpp: "StepData_ESDescr(@)", header: "StepData_ESDescr.hxx".}
-proc SetNbFields*(this: var StepData_ESDescr; nb: Standard_Integer) {.
-    importcpp: "SetNbFields", header: "StepData_ESDescr.hxx".}
-proc SetField*(this: var StepData_ESDescr; num: Standard_Integer;
-              name: Standard_CString; descr: handle[StepData_PDescr]) {.
-    importcpp: "SetField", header: "StepData_ESDescr.hxx".}
-proc SetBase*(this: var StepData_ESDescr; base: handle[StepData_ESDescr]) {.
+proc setNbFields*(this: var StepDataESDescr; nb: int) {.importcpp: "SetNbFields",
+    header: "StepData_ESDescr.hxx".}
+proc setField*(this: var StepDataESDescr; num: int; name: StandardCString;
+              descr: Handle[StepDataPDescr]) {.importcpp: "SetField",
+    header: "StepData_ESDescr.hxx".}
+proc setBase*(this: var StepDataESDescr; base: Handle[StepDataESDescr]) {.
     importcpp: "SetBase", header: "StepData_ESDescr.hxx".}
-proc SetSuper*(this: var StepData_ESDescr; super: handle[StepData_ESDescr]) {.
+proc setSuper*(this: var StepDataESDescr; super: Handle[StepDataESDescr]) {.
     importcpp: "SetSuper", header: "StepData_ESDescr.hxx".}
-proc TypeName*(this: StepData_ESDescr): Standard_CString {.noSideEffect,
+proc typeName*(this: StepDataESDescr): StandardCString {.noSideEffect,
     importcpp: "TypeName", header: "StepData_ESDescr.hxx".}
-proc StepType*(this: StepData_ESDescr): TCollection_AsciiString {.noSideEffect,
+proc stepType*(this: StepDataESDescr): TCollectionAsciiString {.noSideEffect,
     importcpp: "StepType", header: "StepData_ESDescr.hxx".}
-proc Base*(this: StepData_ESDescr): handle[StepData_ESDescr] {.noSideEffect,
+proc base*(this: StepDataESDescr): Handle[StepDataESDescr] {.noSideEffect,
     importcpp: "Base", header: "StepData_ESDescr.hxx".}
-proc Super*(this: StepData_ESDescr): handle[StepData_ESDescr] {.noSideEffect,
+proc super*(this: StepDataESDescr): Handle[StepDataESDescr] {.noSideEffect,
     importcpp: "Super", header: "StepData_ESDescr.hxx".}
-proc IsSub*(this: StepData_ESDescr; other: handle[StepData_ESDescr]): Standard_Boolean {.
+proc isSub*(this: StepDataESDescr; other: Handle[StepDataESDescr]): bool {.
     noSideEffect, importcpp: "IsSub", header: "StepData_ESDescr.hxx".}
-proc NbFields*(this: StepData_ESDescr): Standard_Integer {.noSideEffect,
-    importcpp: "NbFields", header: "StepData_ESDescr.hxx".}
-proc Rank*(this: StepData_ESDescr; name: Standard_CString): Standard_Integer {.
-    noSideEffect, importcpp: "Rank", header: "StepData_ESDescr.hxx".}
-proc Name*(this: StepData_ESDescr; num: Standard_Integer): Standard_CString {.
-    noSideEffect, importcpp: "Name", header: "StepData_ESDescr.hxx".}
-proc Field*(this: StepData_ESDescr; num: Standard_Integer): handle[StepData_PDescr] {.
-    noSideEffect, importcpp: "Field", header: "StepData_ESDescr.hxx".}
-proc NamedField*(this: StepData_ESDescr; name: Standard_CString): handle[
-    StepData_PDescr] {.noSideEffect, importcpp: "NamedField",
-                      header: "StepData_ESDescr.hxx".}
-proc Matches*(this: StepData_ESDescr; steptype: Standard_CString): Standard_Boolean {.
-    noSideEffect, importcpp: "Matches", header: "StepData_ESDescr.hxx".}
-proc IsComplex*(this: StepData_ESDescr): Standard_Boolean {.noSideEffect,
-    importcpp: "IsComplex", header: "StepData_ESDescr.hxx".}
-proc NewEntity*(this: StepData_ESDescr): handle[StepData_Described] {.noSideEffect,
+proc nbFields*(this: StepDataESDescr): int {.noSideEffect, importcpp: "NbFields",
+    header: "StepData_ESDescr.hxx".}
+proc rank*(this: StepDataESDescr; name: StandardCString): int {.noSideEffect,
+    importcpp: "Rank", header: "StepData_ESDescr.hxx".}
+proc name*(this: StepDataESDescr; num: int): StandardCString {.noSideEffect,
+    importcpp: "Name", header: "StepData_ESDescr.hxx".}
+proc field*(this: StepDataESDescr; num: int): Handle[StepDataPDescr] {.noSideEffect,
+    importcpp: "Field", header: "StepData_ESDescr.hxx".}
+proc namedField*(this: StepDataESDescr; name: StandardCString): Handle[StepDataPDescr] {.
+    noSideEffect, importcpp: "NamedField", header: "StepData_ESDescr.hxx".}
+proc matches*(this: StepDataESDescr; steptype: StandardCString): bool {.noSideEffect,
+    importcpp: "Matches", header: "StepData_ESDescr.hxx".}
+proc isComplex*(this: StepDataESDescr): bool {.noSideEffect, importcpp: "IsComplex",
+    header: "StepData_ESDescr.hxx".}
+proc newEntity*(this: StepDataESDescr): Handle[StepDataDescribed] {.noSideEffect,
     importcpp: "NewEntity", header: "StepData_ESDescr.hxx".}
 type
-  StepData_ESDescrbase_type* = StepData_EDescr
+  StepDataESDescrbaseType* = StepDataEDescr
 
-proc get_type_name*(): cstring {.importcpp: "StepData_ESDescr::get_type_name(@)",
-                              header: "StepData_ESDescr.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepData_ESDescr::get_type_name(@)",
+                            header: "StepData_ESDescr.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepData_ESDescr::get_type_descriptor(@)",
     header: "StepData_ESDescr.hxx".}
-proc DynamicType*(this: StepData_ESDescr): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepDataESDescr): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_ESDescr.hxx".}

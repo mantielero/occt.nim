@@ -14,30 +14,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../TColStd/TColStd_Array1OfReal, ../TColStd/TColStd_Array1OfInteger,
-  ../Standard/Standard_Integer, ../Geom2dHatch/Geom2dHatch_Hatcher,
-  ../NCollection/NCollection_IndexedDataMap
-
 discard "forward decl of TopoDS_Face"
 discard "forward decl of DBRep_Face"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopTools_OrientedShapeMapHasher"
 type
-  DBRep_IsoBuilder* {.importcpp: "DBRep_IsoBuilder",
-                     header: "DBRep_IsoBuilder.hxx", bycopy.} = object of Geom2dHatch_Hatcher ##
-                                                                                       ## !
-                                                                                       ## Creates
-                                                                                       ## the
-                                                                                       ## builder.
+  DBRepIsoBuilder* {.importcpp: "DBRep_IsoBuilder", header: "DBRep_IsoBuilder.hxx",
+                    bycopy.} = object of Geom2dHatchHatcher ## ! Creates the builder.
 
 
-proc constructDBRep_IsoBuilder*(TopologicalFace: TopoDS_Face;
-                               Infinite: Standard_Real; NbIsos: Standard_Integer): DBRep_IsoBuilder {.
-    constructor, importcpp: "DBRep_IsoBuilder(@)", header: "DBRep_IsoBuilder.hxx".}
-proc NbDomains*(this: DBRep_IsoBuilder): Standard_Integer {.noSideEffect,
-    importcpp: "NbDomains", header: "DBRep_IsoBuilder.hxx".}
-proc LoadIsos*(this: DBRep_IsoBuilder; Face: handle[DBRep_Face]) {.noSideEffect,
+proc constructDBRepIsoBuilder*(topologicalFace: TopoDS_Face; infinite: float;
+                              nbIsos: int): DBRepIsoBuilder {.constructor,
+    importcpp: "DBRep_IsoBuilder(@)", header: "DBRep_IsoBuilder.hxx".}
+proc nbDomains*(this: DBRepIsoBuilder): int {.noSideEffect, importcpp: "NbDomains",
+    header: "DBRep_IsoBuilder.hxx".}
+proc loadIsos*(this: DBRepIsoBuilder; face: Handle[DBRepFace]) {.noSideEffect,
     importcpp: "LoadIsos", header: "DBRep_IsoBuilder.hxx".}

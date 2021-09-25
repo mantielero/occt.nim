@@ -13,50 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real
-
 discard "forward decl of Geom_Curve"
 discard "forward decl of gp_Pnt"
 discard "forward decl of Geom_Surface"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of gp_Pnt2d"
 type
-  GeomLib_Tool* {.importcpp: "GeomLib_Tool", header: "GeomLib_Tool.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Extracts
-                                                                                   ## the
-                                                                                   ## parameter
-                                                                                   ## of
-                                                                                   ## a
-                                                                                   ## 3D
-                                                                                   ## point
-                                                                                   ## lying
-                                                                                   ## on
-                                                                                   ## a
-                                                                                   ## 3D
-                                                                                   ## curve
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## or
-                                                                                   ## at
-                                                                                   ## a
-                                                                                   ## distance
-                                                                                   ## less
-                                                                                   ## than
-                                                                                   ## the
-                                                                                   ## MaxDist
-                                                                                   ## value.
+  GeomLibTool* {.importcpp: "GeomLib_Tool", header: "GeomLib_Tool.hxx", bycopy.} = object ##
+                                                                                  ## !
+                                                                                  ## Extracts
+                                                                                  ## the
+                                                                                  ## parameter
+                                                                                  ## of
+                                                                                  ## a
+                                                                                  ## 3D
+                                                                                  ## point
+                                                                                  ## lying
+                                                                                  ## on
+                                                                                  ## a
+                                                                                  ## 3D
+                                                                                  ## curve
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## or
+                                                                                  ## at
+                                                                                  ## a
+                                                                                  ## distance
+                                                                                  ## less
+                                                                                  ## than
+                                                                                  ## the
+                                                                                  ## MaxDist
+                                                                                  ## value.
 
 
-proc Parameter*(Curve: handle[Geom_Curve]; Point: gp_Pnt; MaxDist: Standard_Real;
-               U: var Standard_Real): Standard_Boolean {.
+proc parameter*(curve: Handle[GeomCurve]; point: Pnt; maxDist: float; u: var float): bool {.
     importcpp: "GeomLib_Tool::Parameter(@)", header: "GeomLib_Tool.hxx".}
-proc Parameters*(Surface: handle[Geom_Surface]; Point: gp_Pnt;
-                MaxDist: Standard_Real; U: var Standard_Real; V: var Standard_Real): Standard_Boolean {.
+proc parameters*(surface: Handle[GeomSurface]; point: Pnt; maxDist: float;
+                u: var float; v: var float): bool {.
     importcpp: "GeomLib_Tool::Parameters(@)", header: "GeomLib_Tool.hxx".}
-proc Parameter*(Curve: handle[Geom2d_Curve]; Point: gp_Pnt2d; MaxDist: Standard_Real;
-               U: var Standard_Real): Standard_Boolean {.
+proc parameter*(curve: Handle[Geom2dCurve]; point: Pnt2d; maxDist: float; u: var float): bool {.
     importcpp: "GeomLib_Tool::Parameter(@)", header: "GeomLib_Tool.hxx".}

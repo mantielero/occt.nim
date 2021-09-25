@@ -13,43 +13,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_RepresentationItem
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_IntegerRepresentationItem"
 discard "forward decl of StepRepr_IntegerRepresentationItem"
 type
-  Handle_StepRepr_IntegerRepresentationItem* = handle[
-      StepRepr_IntegerRepresentationItem]
-  StepRepr_IntegerRepresentationItem* {.importcpp: "StepRepr_IntegerRepresentationItem", header: "StepRepr_IntegerRepresentationItem.hxx",
-                                       bycopy.} = object of StepRepr_RepresentationItem ##
-                                                                                   ## !
-                                                                                   ## Returns
-                                                                                   ## a
-                                                                                   ## IntegerRepresentationItem
+  HandleStepReprIntegerRepresentationItem* = Handle[
+      StepReprIntegerRepresentationItem]
+  StepReprIntegerRepresentationItem* {.importcpp: "StepRepr_IntegerRepresentationItem", header: "StepRepr_IntegerRepresentationItem.hxx",
+                                      bycopy.} = object of StepReprRepresentationItem ##
+                                                                                 ## !
+                                                                                 ## Returns
+                                                                                 ## a
+                                                                                 ## IntegerRepresentationItem
 
 
-proc constructStepRepr_IntegerRepresentationItem*(): StepRepr_IntegerRepresentationItem {.
+proc constructStepReprIntegerRepresentationItem*(): StepReprIntegerRepresentationItem {.
     constructor, importcpp: "StepRepr_IntegerRepresentationItem(@)",
     header: "StepRepr_IntegerRepresentationItem.hxx".}
-proc Init*(this: var StepRepr_IntegerRepresentationItem;
-          theName: handle[TCollection_HAsciiString]; theValue: Standard_Integer) {.
+proc init*(this: var StepReprIntegerRepresentationItem;
+          theName: Handle[TCollectionHAsciiString]; theValue: int) {.
     importcpp: "Init", header: "StepRepr_IntegerRepresentationItem.hxx".}
-proc SetValue*(this: var StepRepr_IntegerRepresentationItem;
-              theValue: Standard_Integer) {.importcpp: "SetValue",
-    header: "StepRepr_IntegerRepresentationItem.hxx".}
-proc Value*(this: StepRepr_IntegerRepresentationItem): Standard_Integer {.
-    noSideEffect, importcpp: "Value",
-    header: "StepRepr_IntegerRepresentationItem.hxx".}
+proc setValue*(this: var StepReprIntegerRepresentationItem; theValue: int) {.
+    importcpp: "SetValue", header: "StepRepr_IntegerRepresentationItem.hxx".}
+proc value*(this: StepReprIntegerRepresentationItem): int {.noSideEffect,
+    importcpp: "Value", header: "StepRepr_IntegerRepresentationItem.hxx".}
 type
-  StepRepr_IntegerRepresentationItembase_type* = StepRepr_RepresentationItem
+  StepReprIntegerRepresentationItembaseType* = StepReprRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_IntegerRepresentationItem::get_type_name(@)",
-                              header: "StepRepr_IntegerRepresentationItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_IntegerRepresentationItem::get_type_name(@)",
+                            header: "StepRepr_IntegerRepresentationItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_IntegerRepresentationItem::get_type_descriptor(@)",
     header: "StepRepr_IntegerRepresentationItem.hxx".}
-proc DynamicType*(this: StepRepr_IntegerRepresentationItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprIntegerRepresentationItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_IntegerRepresentationItem.hxx".}

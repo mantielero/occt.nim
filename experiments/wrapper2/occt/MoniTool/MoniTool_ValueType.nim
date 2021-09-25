@@ -15,10 +15,10 @@
 ##  commercial license or contractual agreement.
 
 type
-  MoniTool_ValueType* {.size: sizeof(cint), importcpp: "MoniTool_ValueType",
-                       header: "MoniTool_ValueType.hxx".} = enum
-    MoniTool_ValueMisc, MoniTool_ValueInteger, MoniTool_ValueReal,
-    MoniTool_ValueIdent, MoniTool_ValueVoid, MoniTool_ValueText,
-    MoniTool_ValueEnum, MoniTool_ValueLogical, MoniTool_ValueSub,
-    MoniTool_ValueHexa, MoniTool_ValueBinary
+  MoniToolValueType* {.size: sizeof(cint), importcpp: "MoniTool_ValueType",
+                      header: "MoniTool_ValueType.hxx".} = enum
+    MoniToolValueMisc, MoniToolValueInteger, MoniToolValueReal, MoniToolValueIdent,
+    MoniToolValueVoid, MoniToolValueText, MoniToolValueEnum, MoniToolValueLogical,
+    MoniToolValueSub, MoniToolValueHexa, MoniToolValueBinary
+
 

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepVisual_HArray1OfStyleContextSelect, StepVisual_OverRidingStyledItem,
-  StepVisual_HArray1OfPresentationStyleAssignment, ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_RepresentationItem"
 discard "forward decl of StepVisual_StyledItem"
@@ -26,48 +21,48 @@ discard "forward decl of StepVisual_StyleContextSelect"
 discard "forward decl of StepVisual_ContextDependentOverRidingStyledItem"
 discard "forward decl of StepVisual_ContextDependentOverRidingStyledItem"
 type
-  Handle_StepVisual_ContextDependentOverRidingStyledItem* = handle[
-      StepVisual_ContextDependentOverRidingStyledItem]
-  StepVisual_ContextDependentOverRidingStyledItem* {.
+  HandleStepVisualContextDependentOverRidingStyledItem* = Handle[
+      StepVisualContextDependentOverRidingStyledItem]
+  StepVisualContextDependentOverRidingStyledItem* {.
       importcpp: "StepVisual_ContextDependentOverRidingStyledItem",
-      header: "StepVisual_ContextDependentOverRidingStyledItem.hxx", bycopy.} = object of StepVisual_OverRidingStyledItem ##
-                                                                                                                   ## !
-                                                                                                                   ## Returns
-                                                                                                                   ## a
-                                                                                                                   ## ContextDependentOverRidingStyledItem
+      header: "StepVisual_ContextDependentOverRidingStyledItem.hxx", bycopy.} = object of StepVisualOverRidingStyledItem ##
+                                                                                                                  ## !
+                                                                                                                  ## Returns
+                                                                                                                  ## a
+                                                                                                                  ## ContextDependentOverRidingStyledItem
 
 
-proc constructStepVisual_ContextDependentOverRidingStyledItem*(): StepVisual_ContextDependentOverRidingStyledItem {.
+proc constructStepVisualContextDependentOverRidingStyledItem*(): StepVisualContextDependentOverRidingStyledItem {.
     constructor, importcpp: "StepVisual_ContextDependentOverRidingStyledItem(@)",
     header: "StepVisual_ContextDependentOverRidingStyledItem.hxx".}
-proc Init*(this: var StepVisual_ContextDependentOverRidingStyledItem;
-          aName: handle[TCollection_HAsciiString];
-          aStyles: handle[StepVisual_HArray1OfPresentationStyleAssignment];
-          aItem: handle[Standard_Transient];
-          aOverRiddenStyle: handle[StepVisual_StyledItem];
-          aStyleContext: handle[StepVisual_HArray1OfStyleContextSelect]) {.
+proc init*(this: var StepVisualContextDependentOverRidingStyledItem;
+          aName: Handle[TCollectionHAsciiString];
+          aStyles: Handle[StepVisualHArray1OfPresentationStyleAssignment];
+          aItem: Handle[StandardTransient];
+          aOverRiddenStyle: Handle[StepVisualStyledItem];
+          aStyleContext: Handle[StepVisualHArray1OfStyleContextSelect]) {.
     importcpp: "Init",
     header: "StepVisual_ContextDependentOverRidingStyledItem.hxx".}
-proc SetStyleContext*(this: var StepVisual_ContextDependentOverRidingStyledItem;
-    aStyleContext: handle[StepVisual_HArray1OfStyleContextSelect]) {.
+proc setStyleContext*(this: var StepVisualContextDependentOverRidingStyledItem;
+    aStyleContext: Handle[StepVisualHArray1OfStyleContextSelect]) {.
     importcpp: "SetStyleContext",
     header: "StepVisual_ContextDependentOverRidingStyledItem.hxx".}
-proc StyleContext*(this: StepVisual_ContextDependentOverRidingStyledItem): handle[
-    StepVisual_HArray1OfStyleContextSelect] {.noSideEffect,
+proc styleContext*(this: StepVisualContextDependentOverRidingStyledItem): Handle[
+    StepVisualHArray1OfStyleContextSelect] {.noSideEffect,
     importcpp: "StyleContext",
     header: "StepVisual_ContextDependentOverRidingStyledItem.hxx".}
-proc StyleContextValue*(this: StepVisual_ContextDependentOverRidingStyledItem;
-                       num: Standard_Integer): StepVisual_StyleContextSelect {.
-    noSideEffect, importcpp: "StyleContextValue",
+proc styleContextValue*(this: StepVisualContextDependentOverRidingStyledItem;
+                       num: int): StepVisualStyleContextSelect {.noSideEffect,
+    importcpp: "StyleContextValue",
     header: "StepVisual_ContextDependentOverRidingStyledItem.hxx".}
-proc NbStyleContext*(this: StepVisual_ContextDependentOverRidingStyledItem): Standard_Integer {.
+proc nbStyleContext*(this: StepVisualContextDependentOverRidingStyledItem): int {.
     noSideEffect, importcpp: "NbStyleContext",
     header: "StepVisual_ContextDependentOverRidingStyledItem.hxx".}
 type
-  StepVisual_ContextDependentOverRidingStyledItembase_type* = StepVisual_OverRidingStyledItem
+  StepVisualContextDependentOverRidingStyledItembaseType* = StepVisualOverRidingStyledItem
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_ContextDependentOverRidingStyledItem::get_type_name(@)", header: "StepVisual_ContextDependentOverRidingStyledItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_ContextDependentOverRidingStyledItem::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepVisual_ContextDependentOverRidingStyledItem::get_type_name(@)", header: "StepVisual_ContextDependentOverRidingStyledItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_ContextDependentOverRidingStyledItem::get_type_descriptor(@)",
     header: "StepVisual_ContextDependentOverRidingStyledItem.hxx".}
-proc DynamicType*(this: StepVisual_ContextDependentOverRidingStyledItem): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepVisual_ContextDependentOverRidingStyledItem.hxx".}
+proc dynamicType*(this: StepVisualContextDependentOverRidingStyledItem): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepVisual_ContextDependentOverRidingStyledItem.hxx".}

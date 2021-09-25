@@ -14,32 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_BackgroundColour"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisual_RWBackgroundColour* {.importcpp: "RWStepVisual_RWBackgroundColour", header: "RWStepVisual_RWBackgroundColour.hxx",
-                                    bycopy.} = object
+  RWStepVisualRWBackgroundColour* {.importcpp: "RWStepVisual_RWBackgroundColour", header: "RWStepVisual_RWBackgroundColour.hxx",
+                                   bycopy.} = object
 
 
-proc constructRWStepVisual_RWBackgroundColour*(): RWStepVisual_RWBackgroundColour {.
+proc constructRWStepVisualRWBackgroundColour*(): RWStepVisualRWBackgroundColour {.
     constructor, importcpp: "RWStepVisual_RWBackgroundColour(@)",
     header: "RWStepVisual_RWBackgroundColour.hxx".}
-proc ReadStep*(this: RWStepVisual_RWBackgroundColour;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepVisual_BackgroundColour]) {.noSideEffect,
+proc readStep*(this: RWStepVisualRWBackgroundColour;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepVisualBackgroundColour]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWBackgroundColour.hxx".}
-proc WriteStep*(this: RWStepVisual_RWBackgroundColour; SW: var StepData_StepWriter;
-               ent: handle[StepVisual_BackgroundColour]) {.noSideEffect,
+proc writeStep*(this: RWStepVisualRWBackgroundColour; sw: var StepDataStepWriter;
+               ent: Handle[StepVisualBackgroundColour]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWBackgroundColour.hxx".}
-proc Share*(this: RWStepVisual_RWBackgroundColour;
-           ent: handle[StepVisual_BackgroundColour];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepVisualRWBackgroundColour;
+           ent: Handle[StepVisualBackgroundColour];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWBackgroundColour.hxx".}

@@ -14,80 +14,69 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_GTrsf, ../gp/gp_Trsf, ../Standard/Standard_Assert,
-  ../Standard/Standard_Transient, Select3D_BndBox3d,
-  ../SelectBasics/SelectBasics_SelectingVolumeManager,
-  ../SelectBasics/SelectBasics_PickResult,
-  ../SelectBasics/SelectBasics_SensitiveEntity,
-  ../SelectMgr/SelectMgr_SelectingVolumeManager, ../TopLoc/TopLoc_Location
-
 discard "forward decl of SelectMgr_EntityOwner"
 type
   Select3D_SensitiveEntity* {.importcpp: "Select3D_SensitiveEntity",
-                             header: "Select3D_SensitiveEntity.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                      ## !
-                                                                                                      ## Returns
-                                                                                                      ## pointer
-                                                                                                      ## to
-                                                                                                      ## owner
-                                                                                                      ## of
-                                                                                                      ## the
-                                                                                                      ## entity
+                             header: "Select3D_SensitiveEntity.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                     ## !
+                                                                                                     ## Returns
+                                                                                                     ## pointer
+                                                                                                     ## to
+                                                                                                     ## owner
+                                                                                                     ## of
+                                                                                                     ## the
+                                                                                                     ## entity
 
-  Select3D_SensitiveEntitybase_type* = Standard_Transient
+  Select3D_SensitiveEntitybaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Select3D_SensitiveEntity::get_type_name(@)",
-                              header: "Select3D_SensitiveEntity.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Select3D_SensitiveEntity::get_type_name(@)",
+                            header: "Select3D_SensitiveEntity.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Select3D_SensitiveEntity::get_type_descriptor(@)",
     header: "Select3D_SensitiveEntity.hxx".}
-proc DynamicType*(this: Select3D_SensitiveEntity): handle[Standard_Type] {.
+proc dynamicType*(this: Select3D_SensitiveEntity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Select3D_SensitiveEntity.hxx".}
-proc OwnerId*(this: Select3D_SensitiveEntity): handle[SelectMgr_EntityOwner] {.
+proc ownerId*(this: Select3D_SensitiveEntity): Handle[SelectMgrEntityOwner] {.
     noSideEffect, importcpp: "OwnerId", header: "Select3D_SensitiveEntity.hxx".}
-proc Set*(this: var Select3D_SensitiveEntity;
-         theOwnerId: handle[SelectMgr_EntityOwner]) {.importcpp: "Set",
+proc set*(this: var Select3D_SensitiveEntity;
+         theOwnerId: Handle[SelectMgrEntityOwner]) {.importcpp: "Set",
     header: "Select3D_SensitiveEntity.hxx".}
-proc SensitivityFactor*(this: Select3D_SensitiveEntity): Standard_Integer {.
-    noSideEffect, importcpp: "SensitivityFactor",
-    header: "Select3D_SensitiveEntity.hxx".}
-proc SetSensitivityFactor*(this: var Select3D_SensitiveEntity;
-                          theNewSens: Standard_Integer) {.
+proc sensitivityFactor*(this: Select3D_SensitiveEntity): int {.noSideEffect,
+    importcpp: "SensitivityFactor", header: "Select3D_SensitiveEntity.hxx".}
+proc setSensitivityFactor*(this: var Select3D_SensitiveEntity; theNewSens: int) {.
     importcpp: "SetSensitivityFactor", header: "Select3D_SensitiveEntity.hxx".}
-proc GetConnected*(this: var Select3D_SensitiveEntity): handle[
+proc getConnected*(this: var Select3D_SensitiveEntity): Handle[
     Select3D_SensitiveEntity] {.importcpp: "GetConnected",
                                header: "Select3D_SensitiveEntity.hxx".}
-proc Matches*(this: var Select3D_SensitiveEntity;
-             theMgr: var SelectBasics_SelectingVolumeManager;
-             thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
+proc matches*(this: var Select3D_SensitiveEntity;
+             theMgr: var SelectBasicsSelectingVolumeManager;
+             thePickResult: var SelectBasicsPickResult): bool {.
     importcpp: "Matches", header: "Select3D_SensitiveEntity.hxx".}
-proc NbSubElements*(this: Select3D_SensitiveEntity): Standard_Integer {.
-    noSideEffect, importcpp: "NbSubElements",
-    header: "Select3D_SensitiveEntity.hxx".}
-proc BoundingBox*(this: var Select3D_SensitiveEntity): Select3D_BndBox3d {.
+proc nbSubElements*(this: Select3D_SensitiveEntity): int {.noSideEffect,
+    importcpp: "NbSubElements", header: "Select3D_SensitiveEntity.hxx".}
+proc boundingBox*(this: var Select3D_SensitiveEntity): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "Select3D_SensitiveEntity.hxx".}
-proc CenterOfGeometry*(this: Select3D_SensitiveEntity): gp_Pnt {.noSideEffect,
+proc centerOfGeometry*(this: Select3D_SensitiveEntity): Pnt {.noSideEffect,
     importcpp: "CenterOfGeometry", header: "Select3D_SensitiveEntity.hxx".}
-proc BVH*(this: var Select3D_SensitiveEntity) {.importcpp: "BVH",
+proc bvh*(this: var Select3D_SensitiveEntity) {.importcpp: "BVH",
     header: "Select3D_SensitiveEntity.hxx".}
-proc ToBuildBVH*(this: Select3D_SensitiveEntity): Standard_Boolean {.noSideEffect,
+proc toBuildBVH*(this: Select3D_SensitiveEntity): bool {.noSideEffect,
     importcpp: "ToBuildBVH", header: "Select3D_SensitiveEntity.hxx".}
-proc Clear*(this: var Select3D_SensitiveEntity) {.importcpp: "Clear",
+proc clear*(this: var Select3D_SensitiveEntity) {.importcpp: "Clear",
     header: "Select3D_SensitiveEntity.hxx".}
-proc HasInitLocation*(this: Select3D_SensitiveEntity): Standard_Boolean {.
-    noSideEffect, importcpp: "HasInitLocation",
-    header: "Select3D_SensitiveEntity.hxx".}
-proc InvInitLocation*(this: Select3D_SensitiveEntity): gp_GTrsf {.noSideEffect,
+proc hasInitLocation*(this: Select3D_SensitiveEntity): bool {.noSideEffect,
+    importcpp: "HasInitLocation", header: "Select3D_SensitiveEntity.hxx".}
+proc invInitLocation*(this: Select3D_SensitiveEntity): GTrsf {.noSideEffect,
     importcpp: "InvInitLocation", header: "Select3D_SensitiveEntity.hxx".}
-proc DumpJson*(this: Select3D_SensitiveEntity; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Select3D_SensitiveEntity.hxx".}
+proc dumpJson*(this: Select3D_SensitiveEntity; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Select3D_SensitiveEntity.hxx".}
 discard "forward decl of Select3D_SensitiveEntity"
 type
-  Handle_Select3D_SensitiveEntity* = handle[Select3D_SensitiveEntity]
+  HandleSelect3D_SensitiveEntity* = Handle[Select3D_SensitiveEntity]
 
 ##  for porting old code
 
 type
-  SelectBasics_SensitiveEntity* = Select3D_SensitiveEntity
+  SelectBasicsSensitiveEntity* = Select3D_SensitiveEntity
+

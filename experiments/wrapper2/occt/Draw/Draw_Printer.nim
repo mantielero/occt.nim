@@ -13,45 +13,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Message/Message_Printer, Draw_Interpretor
-
 discard "forward decl of Draw_Printer"
 discard "forward decl of Draw_Printer"
 type
-  Handle_Draw_Printer* = handle[Draw_Printer]
+  HandleDrawPrinter* = Handle[DrawPrinter]
 
 ## ! Implementation of Printer class with output
 ## ! (Message_Messenge) directed to Draw_Interpretor
 
 type
-  Draw_Printer* {.importcpp: "Draw_Printer", header: "Draw_Printer.hxx", bycopy.} = object of Message_Printer ##
-                                                                                                    ## !
-                                                                                                    ## Creates
-                                                                                                    ## a
-                                                                                                    ## printer
-                                                                                                    ## connected
-                                                                                                    ## to
-                                                                                                    ## the
-                                                                                                    ## interpretor.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Send
-                                                                                                    ## a
-                                                                                                    ## string
-                                                                                                    ## message
-                                                                                                    ## with
-                                                                                                    ## specified
-                                                                                                    ## trace
-                                                                                                    ## level.
+  DrawPrinter* {.importcpp: "Draw_Printer", header: "Draw_Printer.hxx", bycopy.} = object of MessagePrinter ##
+                                                                                                  ## !
+                                                                                                  ## Creates
+                                                                                                  ## a
+                                                                                                  ## printer
+                                                                                                  ## connected
+                                                                                                  ## to
+                                                                                                  ## the
+                                                                                                  ## interpretor.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Send
+                                                                                                  ## a
+                                                                                                  ## string
+                                                                                                  ## message
+                                                                                                  ## with
+                                                                                                  ## specified
+                                                                                                  ## trace
+                                                                                                  ## level.
 
-  Draw_Printerbase_type* = Message_Printer
+  DrawPrinterbaseType* = MessagePrinter
 
-proc get_type_name*(): cstring {.importcpp: "Draw_Printer::get_type_name(@)",
-                              header: "Draw_Printer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Draw_Printer::get_type_name(@)",
+                            header: "Draw_Printer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Draw_Printer::get_type_descriptor(@)", header: "Draw_Printer.hxx".}
-proc DynamicType*(this: Draw_Printer): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: DrawPrinter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Printer.hxx".}
-proc constructDraw_Printer*(theTcl: var Draw_Interpretor): Draw_Printer {.
-    constructor, importcpp: "Draw_Printer(@)", header: "Draw_Printer.hxx".}
+proc constructDrawPrinter*(theTcl: var DrawInterpretor): DrawPrinter {.constructor,
+    importcpp: "Draw_Printer(@)", header: "Draw_Printer.hxx".}

@@ -15,4 +15,5 @@
 
 discard "forward decl of BinTools_LocationSet"
 type
-  BinTools_LocationSetPtr* = ptr BinTools_LocationSet
+  BinToolsLocationSetPtr* = ptr BinToolsLocationSet
+

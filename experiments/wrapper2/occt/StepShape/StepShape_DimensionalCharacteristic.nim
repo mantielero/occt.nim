@@ -13,29 +13,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepShape_DimensionalLocation"
 discard "forward decl of StepShape_DimensionalSize"
 type
-  StepShape_DimensionalCharacteristic* {.importcpp: "StepShape_DimensionalCharacteristic", header: "StepShape_DimensionalCharacteristic.hxx",
-                                        bycopy.} = object of StepData_SelectType ## !
-                                                                            ## Empty
-                                                                            ## constructor
+  StepShapeDimensionalCharacteristic* {.importcpp: "StepShape_DimensionalCharacteristic", header: "StepShape_DimensionalCharacteristic.hxx",
+                                       bycopy.} = object of StepDataSelectType ## ! Empty
+                                                                          ## constructor
 
 
-proc constructStepShape_DimensionalCharacteristic*(): StepShape_DimensionalCharacteristic {.
+proc constructStepShapeDimensionalCharacteristic*(): StepShapeDimensionalCharacteristic {.
     constructor, importcpp: "StepShape_DimensionalCharacteristic(@)",
     header: "StepShape_DimensionalCharacteristic.hxx".}
-proc CaseNum*(this: StepShape_DimensionalCharacteristic;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepShapeDimensionalCharacteristic;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepShape_DimensionalCharacteristic.hxx".}
-proc DimensionalLocation*(this: StepShape_DimensionalCharacteristic): handle[
-    StepShape_DimensionalLocation] {.noSideEffect,
-                                    importcpp: "DimensionalLocation", header: "StepShape_DimensionalCharacteristic.hxx".}
-proc DimensionalSize*(this: StepShape_DimensionalCharacteristic): handle[
-    StepShape_DimensionalSize] {.noSideEffect, importcpp: "DimensionalSize", header: "StepShape_DimensionalCharacteristic.hxx".}
+proc dimensionalLocation*(this: StepShapeDimensionalCharacteristic): Handle[
+    StepShapeDimensionalLocation] {.noSideEffect,
+                                   importcpp: "DimensionalLocation", header: "StepShape_DimensionalCharacteristic.hxx".}
+proc dimensionalSize*(this: StepShapeDimensionalCharacteristic): Handle[
+    StepShapeDimensionalSize] {.noSideEffect, importcpp: "DimensionalSize", header: "StepShape_DimensionalCharacteristic.hxx".}

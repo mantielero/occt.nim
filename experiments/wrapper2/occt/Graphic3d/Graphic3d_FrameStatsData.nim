@@ -11,49 +11,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Array1, Graphic3d_FrameStatsCounter,
-  Graphic3d_FrameStatsTimer, ../OSD/OSD_Timer
-
 ## ! Data frame definition.
 
 type
-  Graphic3d_FrameStatsData* {.importcpp: "Graphic3d_FrameStatsData",
-                             header: "Graphic3d_FrameStatsData.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Returns
-                                                                                  ## FPS
-                                                                                  ## (frames
-                                                                                  ## per
-                                                                                  ## seconds,
-                                                                                  ## elapsed
-                                                                                  ## time).
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## This
-                                                                                  ## number
-                                                                                  ## indicates
-                                                                                  ## an
-                                                                                  ## actual
-                                                                                  ## frame
-                                                                                  ## rate
-                                                                                  ## averaged
-                                                                                  ## for
-                                                                                  ## several
-                                                                                  ## frames
-                                                                                  ## within
-                                                                                  ## UpdateInterval()
-                                                                                  ## duration,
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## basing
-                                                                                  ## on
-                                                                                  ## a
-                                                                                  ## real
-                                                                                  ## elapsed
-                                                                                  ## time
-                                                                                  ## between
-                                                                                  ## updates.
+  Graphic3dFrameStatsData* {.importcpp: "Graphic3d_FrameStatsData",
+                            header: "Graphic3d_FrameStatsData.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## Returns
+                                                                                 ## FPS
+                                                                                 ## (frames
+                                                                                 ## per
+                                                                                 ## seconds,
+                                                                                 ## elapsed
+                                                                                 ## time).
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## This
+                                                                                 ## number
+                                                                                 ## indicates
+                                                                                 ## an
+                                                                                 ## actual
+                                                                                 ## frame
+                                                                                 ## rate
+                                                                                 ## averaged
+                                                                                 ## for
+                                                                                 ## several
+                                                                                 ## frames
+                                                                                 ## within
+                                                                                 ## UpdateInterval()
+                                                                                 ## duration,
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## basing
+                                                                                 ## on
+                                                                                 ## a
+                                                                                 ## real
+                                                                                 ## elapsed
+                                                                                 ## time
+                                                                                 ## between
+                                                                                 ## updates.
     ## !< counters
     ## !< timers
     ## !< minimal values of timers
@@ -64,74 +60,70 @@ type
     ## !< CPU FPS meter for immediate redraws
 
 
-proc FrameRate*(this: Graphic3d_FrameStatsData): Standard_Real {.noSideEffect,
+proc frameRate*(this: Graphic3dFrameStatsData): float {.noSideEffect,
     importcpp: "FrameRate", header: "Graphic3d_FrameStatsData.hxx".}
-proc FrameRateCpu*(this: Graphic3d_FrameStatsData): Standard_Real {.noSideEffect,
+proc frameRateCpu*(this: Graphic3dFrameStatsData): float {.noSideEffect,
     importcpp: "FrameRateCpu", header: "Graphic3d_FrameStatsData.hxx".}
-proc ImmediateFrameRate*(this: Graphic3d_FrameStatsData): Standard_Real {.
-    noSideEffect, importcpp: "ImmediateFrameRate",
-    header: "Graphic3d_FrameStatsData.hxx".}
-proc ImmediateFrameRateCpu*(this: Graphic3d_FrameStatsData): Standard_Real {.
-    noSideEffect, importcpp: "ImmediateFrameRateCpu",
-    header: "Graphic3d_FrameStatsData.hxx".}
-proc CounterValue*(this: Graphic3d_FrameStatsData;
-                  theIndex: Graphic3d_FrameStatsCounter): Standard_Size {.
+proc immediateFrameRate*(this: Graphic3dFrameStatsData): float {.noSideEffect,
+    importcpp: "ImmediateFrameRate", header: "Graphic3d_FrameStatsData.hxx".}
+proc immediateFrameRateCpu*(this: Graphic3dFrameStatsData): float {.noSideEffect,
+    importcpp: "ImmediateFrameRateCpu", header: "Graphic3d_FrameStatsData.hxx".}
+proc counterValue*(this: Graphic3dFrameStatsData;
+                  theIndex: Graphic3dFrameStatsCounter): StandardSize {.
     noSideEffect, importcpp: "CounterValue", header: "Graphic3d_FrameStatsData.hxx".}
-proc `[]`*(this: Graphic3d_FrameStatsData; theIndex: Graphic3d_FrameStatsCounter): Standard_Size {.
+proc `[]`*(this: Graphic3dFrameStatsData; theIndex: Graphic3dFrameStatsCounter): StandardSize {.
     noSideEffect, importcpp: "#[@]", header: "Graphic3d_FrameStatsData.hxx".}
-proc TimerValue*(this: Graphic3d_FrameStatsData;
-                theIndex: Graphic3d_FrameStatsTimer): Standard_Real {.noSideEffect,
-    importcpp: "TimerValue", header: "Graphic3d_FrameStatsData.hxx".}
-proc `[]`*(this: Graphic3d_FrameStatsData; theIndex: Graphic3d_FrameStatsTimer): Standard_Real {.
+proc timerValue*(this: Graphic3dFrameStatsData; theIndex: Graphic3dFrameStatsTimer): float {.
+    noSideEffect, importcpp: "TimerValue", header: "Graphic3d_FrameStatsData.hxx".}
+proc `[]`*(this: Graphic3dFrameStatsData; theIndex: Graphic3dFrameStatsTimer): float {.
     noSideEffect, importcpp: "#[@]", header: "Graphic3d_FrameStatsData.hxx".}
-proc constructGraphic3d_FrameStatsData*(): Graphic3d_FrameStatsData {.constructor,
+proc constructGraphic3dFrameStatsData*(): Graphic3dFrameStatsData {.constructor,
     importcpp: "Graphic3d_FrameStatsData(@)",
     header: "Graphic3d_FrameStatsData.hxx".}
-proc Reset*(this: var Graphic3d_FrameStatsData) {.importcpp: "Reset",
+proc reset*(this: var Graphic3dFrameStatsData) {.importcpp: "Reset",
     header: "Graphic3d_FrameStatsData.hxx".}
-proc FillMax*(this: var Graphic3d_FrameStatsData; theOther: Graphic3d_FrameStatsData) {.
+proc fillMax*(this: var Graphic3dFrameStatsData; theOther: Graphic3dFrameStatsData) {.
     importcpp: "FillMax", header: "Graphic3d_FrameStatsData.hxx".}
 ## ! Temporary data frame definition.
 
 type
-  Graphic3d_FrameStatsDataTmp* {.importcpp: "Graphic3d_FrameStatsDataTmp",
-                                header: "Graphic3d_FrameStatsData.hxx", bycopy.} = object of Graphic3d_FrameStatsData ##
-                                                                                                               ## !
-                                                                                                               ## Empty
-                                                                                                               ## constructor.
+  Graphic3dFrameStatsDataTmp* {.importcpp: "Graphic3d_FrameStatsDataTmp",
+                               header: "Graphic3d_FrameStatsData.hxx", bycopy.} = object of Graphic3dFrameStatsData ##
+                                                                                                             ## !
+                                                                                                             ## Empty
+                                                                                                             ## constructor.
     ## !< precise timers for time measurements
     ## !< previous timers values
 
 
-proc constructGraphic3d_FrameStatsDataTmp*(): Graphic3d_FrameStatsDataTmp {.
+proc constructGraphic3dFrameStatsDataTmp*(): Graphic3dFrameStatsDataTmp {.
     constructor, importcpp: "Graphic3d_FrameStatsDataTmp(@)",
     header: "Graphic3d_FrameStatsData.hxx".}
-proc FlushTimers*(this: var Graphic3d_FrameStatsDataTmp; theNbFrames: Standard_Size;
+proc flushTimers*(this: var Graphic3dFrameStatsDataTmp; theNbFrames: StandardSize;
                  theIsFinal: bool) {.importcpp: "FlushTimers",
                                    header: "Graphic3d_FrameStatsData.hxx".}
-proc Reset*(this: var Graphic3d_FrameStatsDataTmp) {.importcpp: "Reset",
+proc reset*(this: var Graphic3dFrameStatsDataTmp) {.importcpp: "Reset",
     header: "Graphic3d_FrameStatsData.hxx".}
-proc ChangeFrameRate*(this: var Graphic3d_FrameStatsDataTmp): var Standard_Real {.
+proc changeFrameRate*(this: var Graphic3dFrameStatsDataTmp): var float {.
     importcpp: "ChangeFrameRate", header: "Graphic3d_FrameStatsData.hxx".}
-proc ChangeFrameRateCpu*(this: var Graphic3d_FrameStatsDataTmp): var Standard_Real {.
+proc changeFrameRateCpu*(this: var Graphic3dFrameStatsDataTmp): var float {.
     importcpp: "ChangeFrameRateCpu", header: "Graphic3d_FrameStatsData.hxx".}
-proc ChangeImmediateFrameRate*(this: var Graphic3d_FrameStatsDataTmp): var Standard_Real {.
+proc changeImmediateFrameRate*(this: var Graphic3dFrameStatsDataTmp): var float {.
     importcpp: "ChangeImmediateFrameRate", header: "Graphic3d_FrameStatsData.hxx".}
-proc ChangeImmediateFrameRateCpu*(this: var Graphic3d_FrameStatsDataTmp): var Standard_Real {.
+proc changeImmediateFrameRateCpu*(this: var Graphic3dFrameStatsDataTmp): var float {.
     importcpp: "ChangeImmediateFrameRateCpu",
     header: "Graphic3d_FrameStatsData.hxx".}
-proc ChangeTimer*(this: var Graphic3d_FrameStatsDataTmp;
-                 theTimer: Graphic3d_FrameStatsTimer): var OSD_Timer {.
+proc changeTimer*(this: var Graphic3dFrameStatsDataTmp;
+                 theTimer: Graphic3dFrameStatsTimer): var OSD_Timer {.
     importcpp: "ChangeTimer", header: "Graphic3d_FrameStatsData.hxx".}
-proc ChangeCounterValue*(this: var Graphic3d_FrameStatsDataTmp;
-                        theIndex: Graphic3d_FrameStatsCounter): var Standard_Size {.
+proc changeCounterValue*(this: var Graphic3dFrameStatsDataTmp;
+                        theIndex: Graphic3dFrameStatsCounter): var StandardSize {.
     importcpp: "ChangeCounterValue", header: "Graphic3d_FrameStatsData.hxx".}
-proc `[]`*(this: var Graphic3d_FrameStatsDataTmp;
-          theIndex: Graphic3d_FrameStatsCounter): var Standard_Size {.
+proc `[]`*(this: var Graphic3dFrameStatsDataTmp;
+          theIndex: Graphic3dFrameStatsCounter): var StandardSize {.
     importcpp: "#[@]", header: "Graphic3d_FrameStatsData.hxx".}
-proc ChangeTimerValue*(this: var Graphic3d_FrameStatsDataTmp;
-                      theIndex: Graphic3d_FrameStatsTimer): var Standard_Real {.
+proc changeTimerValue*(this: var Graphic3dFrameStatsDataTmp;
+                      theIndex: Graphic3dFrameStatsTimer): var float {.
     importcpp: "ChangeTimerValue", header: "Graphic3d_FrameStatsData.hxx".}
-proc `[]`*(this: var Graphic3d_FrameStatsDataTmp;
-          theIndex: Graphic3d_FrameStatsTimer): var Standard_Real {.
+proc `[]`*(this: var Graphic3dFrameStatsDataTmp; theIndex: Graphic3dFrameStatsTimer): var float {.
     importcpp: "#[@]", header: "Graphic3d_FrameStatsData.hxx".}

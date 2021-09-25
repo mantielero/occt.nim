@@ -14,33 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_ProductConceptContext"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasic_RWProductConceptContext* {.importcpp: "RWStepBasic_RWProductConceptContext", header: "RWStepBasic_RWProductConceptContext.hxx",
-                                        bycopy.} = object ## ! Empty constructor
+  RWStepBasicRWProductConceptContext* {.importcpp: "RWStepBasic_RWProductConceptContext", header: "RWStepBasic_RWProductConceptContext.hxx",
+                                       bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepBasic_RWProductConceptContext*(): RWStepBasic_RWProductConceptContext {.
+proc constructRWStepBasicRWProductConceptContext*(): RWStepBasicRWProductConceptContext {.
     constructor, importcpp: "RWStepBasic_RWProductConceptContext(@)",
     header: "RWStepBasic_RWProductConceptContext.hxx".}
-proc ReadStep*(this: RWStepBasic_RWProductConceptContext;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepBasic_ProductConceptContext]) {.noSideEffect,
+proc readStep*(this: RWStepBasicRWProductConceptContext;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepBasicProductConceptContext]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWProductConceptContext.hxx".}
-proc WriteStep*(this: RWStepBasic_RWProductConceptContext;
-               SW: var StepData_StepWriter;
-               ent: handle[StepBasic_ProductConceptContext]) {.noSideEffect,
+proc writeStep*(this: RWStepBasicRWProductConceptContext;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepBasicProductConceptContext]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWProductConceptContext.hxx".}
-proc Share*(this: RWStepBasic_RWProductConceptContext;
-           ent: handle[StepBasic_ProductConceptContext];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepBasicRWProductConceptContext;
+           ent: Handle[StepBasicProductConceptContext];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWProductConceptContext.hxx".}

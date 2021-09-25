@@ -18,8 +18,8 @@
 type
   BVH_Ray*[T; N: static[cint]] {.importcpp: "BVH_Ray<\'0,\'1>",
                               header: "BVH_Ray.hxx", bycopy.} = object
-    Origin* {.importc: "Origin".}: BVH_RayBVH_VecNt
-    Direct* {.importc: "Direct".}: BVH_RayBVH_VecNt
+    origin* {.importc: "Origin".}: BVH_RayBVH_VecNt
+    direct* {.importc: "Direct".}: BVH_RayBVH_VecNt
 
   BVH_RayBVH_VecNt*[T; N] = Type[T, N]
 

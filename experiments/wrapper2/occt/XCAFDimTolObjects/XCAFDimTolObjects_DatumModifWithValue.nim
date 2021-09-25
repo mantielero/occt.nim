@@ -16,12 +16,13 @@
 ## ! Defines modifirs
 
 type
-  XCAFDimTolObjects_DatumModifWithValue* {.size: sizeof(cint),
+  XCAFDimTolObjectsDatumModifWithValue* {.size: sizeof(cint),
       importcpp: "XCAFDimTolObjects_DatumModifWithValue",
       header: "XCAFDimTolObjects_DatumModifWithValue.hxx".} = enum
-    XCAFDimTolObjects_DatumModifWithValue_None,
-    XCAFDimTolObjects_DatumModifWithValue_CircularOrCylindrical,
-    XCAFDimTolObjects_DatumModifWithValue_Distance,
-    XCAFDimTolObjects_DatumModifWithValue_Projected,
-    XCAFDimTolObjects_DatumModifWithValue_Spherical
+    XCAFDimTolObjectsDatumModifWithValueNone,
+    XCAFDimTolObjectsDatumModifWithValueCircularOrCylindrical,
+    XCAFDimTolObjectsDatumModifWithValueDistance,
+    XCAFDimTolObjectsDatumModifWithValueProjected,
+    XCAFDimTolObjectsDatumModifWithValueSpherical
+
 

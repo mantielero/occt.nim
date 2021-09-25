@@ -13,34 +13,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopLoc/TopLoc_IndexedMapOfLocation,
-  ../Standard/Standard_Integer, ../Standard/Standard_OStream,
-  ../Standard/Standard_IStream
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of TopLoc_Location"
 type
-  BinTools_LocationSet* {.importcpp: "BinTools_LocationSet",
-                         header: "BinTools_LocationSet.hxx", bycopy.} = object ## !
-                                                                          ## Returns an empty set of
-                                                                          ## locations.
+  BinToolsLocationSet* {.importcpp: "BinTools_LocationSet",
+                        header: "BinTools_LocationSet.hxx", bycopy.} = object ## ! Returns an empty set of
+                                                                         ## locations.
 
 
-proc constructBinTools_LocationSet*(): BinTools_LocationSet {.constructor,
+proc constructBinToolsLocationSet*(): BinToolsLocationSet {.constructor,
     importcpp: "BinTools_LocationSet(@)", header: "BinTools_LocationSet.hxx".}
-proc Clear*(this: var BinTools_LocationSet) {.importcpp: "Clear",
+proc clear*(this: var BinToolsLocationSet) {.importcpp: "Clear",
     header: "BinTools_LocationSet.hxx".}
-proc Add*(this: var BinTools_LocationSet; L: TopLoc_Location): Standard_Integer {.
-    importcpp: "Add", header: "BinTools_LocationSet.hxx".}
-proc Location*(this: BinTools_LocationSet; I: Standard_Integer): TopLoc_Location {.
-    noSideEffect, importcpp: "Location", header: "BinTools_LocationSet.hxx".}
-proc Index*(this: BinTools_LocationSet; L: TopLoc_Location): Standard_Integer {.
-    noSideEffect, importcpp: "Index", header: "BinTools_LocationSet.hxx".}
-proc NbLocations*(this: BinTools_LocationSet): Standard_Integer {.noSideEffect,
+proc add*(this: var BinToolsLocationSet; L: TopLocLocation): int {.importcpp: "Add",
+    header: "BinTools_LocationSet.hxx".}
+proc location*(this: BinToolsLocationSet; i: int): TopLocLocation {.noSideEffect,
+    importcpp: "Location", header: "BinTools_LocationSet.hxx".}
+proc index*(this: BinToolsLocationSet; L: TopLocLocation): int {.noSideEffect,
+    importcpp: "Index", header: "BinTools_LocationSet.hxx".}
+proc nbLocations*(this: BinToolsLocationSet): int {.noSideEffect,
     importcpp: "NbLocations", header: "BinTools_LocationSet.hxx".}
-proc Write*(this: BinTools_LocationSet; OS: var Standard_OStream) {.noSideEffect,
+proc write*(this: BinToolsLocationSet; os: var StandardOStream) {.noSideEffect,
     importcpp: "Write", header: "BinTools_LocationSet.hxx".}
-proc Read*(this: var BinTools_LocationSet; IS: var Standard_IStream) {.
+proc read*(this: var BinToolsLocationSet; `is`: var StandardIStream) {.
     importcpp: "Read", header: "BinTools_LocationSet.hxx".}

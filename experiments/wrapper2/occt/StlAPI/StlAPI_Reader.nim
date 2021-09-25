@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_CString
-
 discard "forward decl of TopoDS_Shape"
 type
   StlAPI_Reader* {.importcpp: "StlAPI_Reader", header: "StlAPI_Reader.hxx", bycopy.} = object ##
@@ -44,6 +40,6 @@ type
                                                                                       ## successful
 
 
-proc Read*(this: var StlAPI_Reader; theShape: var TopoDS_Shape;
-          theFileName: Standard_CString): Standard_Boolean {.importcpp: "Read",
+proc read*(this: var StlAPI_Reader; theShape: var TopoDS_Shape;
+          theFileName: StandardCString): bool {.importcpp: "Read",
     header: "StlAPI_Reader.hxx".}

@@ -17,7 +17,8 @@
 ## ! result status of transferring an entity (see Transcriptor)
 
 type
-  Transfer_StatusResult* {.size: sizeof(cint), importcpp: "Transfer_StatusResult",
-                          header: "Transfer_StatusResult.hxx".} = enum
-    Transfer_StatusVoid, Transfer_StatusDefined, Transfer_StatusUsed
+  TransferStatusResult* {.size: sizeof(cint), importcpp: "Transfer_StatusResult",
+                         header: "Transfer_StatusResult.hxx".} = enum
+    TransferStatusVoid, TransferStatusDefined, TransferStatusUsed
+
 

@@ -14,36 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepVisual_PresentationView"
 discard "forward decl of StepVisual_PresentationArea"
 discard "forward decl of StepVisual_AreaInSet"
 type
-  StepVisual_PresentationSizeAssignmentSelect* {.
+  StepVisualPresentationSizeAssignmentSelect* {.
       importcpp: "StepVisual_PresentationSizeAssignmentSelect",
-      header: "StepVisual_PresentationSizeAssignmentSelect.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                   ## !
-                                                                                                   ## Returns
-                                                                                                   ## a
-                                                                                                   ## PresentationSizeAssignmentSelect
-                                                                                                   ## SelectType
+      header: "StepVisual_PresentationSizeAssignmentSelect.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                  ## !
+                                                                                                  ## Returns
+                                                                                                  ## a
+                                                                                                  ## PresentationSizeAssignmentSelect
+                                                                                                  ## SelectType
 
 
-proc constructStepVisual_PresentationSizeAssignmentSelect*(): StepVisual_PresentationSizeAssignmentSelect {.
+proc constructStepVisualPresentationSizeAssignmentSelect*(): StepVisualPresentationSizeAssignmentSelect {.
     constructor, importcpp: "StepVisual_PresentationSizeAssignmentSelect(@)",
     header: "StepVisual_PresentationSizeAssignmentSelect.hxx".}
-proc CaseNum*(this: StepVisual_PresentationSizeAssignmentSelect;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepVisualPresentationSizeAssignmentSelect;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum",
     header: "StepVisual_PresentationSizeAssignmentSelect.hxx".}
-proc PresentationView*(this: StepVisual_PresentationSizeAssignmentSelect): handle[
-    StepVisual_PresentationView] {.noSideEffect, importcpp: "PresentationView", header: "StepVisual_PresentationSizeAssignmentSelect.hxx".}
-proc PresentationArea*(this: StepVisual_PresentationSizeAssignmentSelect): handle[
-    StepVisual_PresentationArea] {.noSideEffect, importcpp: "PresentationArea", header: "StepVisual_PresentationSizeAssignmentSelect.hxx".}
-proc AreaInSet*(this: StepVisual_PresentationSizeAssignmentSelect): handle[
-    StepVisual_AreaInSet] {.noSideEffect, importcpp: "AreaInSet", header: "StepVisual_PresentationSizeAssignmentSelect.hxx".}
+proc presentationView*(this: StepVisualPresentationSizeAssignmentSelect): Handle[
+    StepVisualPresentationView] {.noSideEffect, importcpp: "PresentationView", header: "StepVisual_PresentationSizeAssignmentSelect.hxx".}
+proc presentationArea*(this: StepVisualPresentationSizeAssignmentSelect): Handle[
+    StepVisualPresentationArea] {.noSideEffect, importcpp: "PresentationArea", header: "StepVisual_PresentationSizeAssignmentSelect.hxx".}
+proc areaInSet*(this: StepVisualPresentationSizeAssignmentSelect): Handle[
+    StepVisualAreaInSet] {.noSideEffect, importcpp: "AreaInSet", header: "StepVisual_PresentationSizeAssignmentSelect.hxx".}

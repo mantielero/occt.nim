@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  HLRBRep_TheCSFunctionOfInterCSurf, ../Standard/Standard_Real,
-  ../Standard/Standard_Address
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of HLRBRep_SurfaceTool"
@@ -29,61 +23,60 @@ discard "forward decl of HLRBRep_TheCSFunctionOfInterCSurf"
 discard "forward decl of math_FunctionSetRoot"
 discard "forward decl of gp_Pnt"
 type
-  HLRBRep_TheExactInterCSurf* {.importcpp: "HLRBRep_TheExactInterCSurf",
-                               header: "HLRBRep_TheExactInterCSurf.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## compute
-                                                                                      ## the
-                                                                                      ## solution
-                                                                                      ## point
-                                                                                      ## with
-                                                                                      ## the
-                                                                                      ## close
-                                                                                      ## point
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## MarginCoef
-                                                                                      ## is
-                                                                                      ## the
-                                                                                      ## coefficient
-                                                                                      ## for
-                                                                                      ## extension
-                                                                                      ## of
-                                                                                      ## UV
-                                                                                      ## bounds.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Ex.,
-                                                                                      ## UFirst
-                                                                                      ## -=
-                                                                                      ## MarginCoef*(ULast-UFirst)
+  HLRBRepTheExactInterCSurf* {.importcpp: "HLRBRep_TheExactInterCSurf",
+                              header: "HLRBRep_TheExactInterCSurf.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## compute
+                                                                                     ## the
+                                                                                     ## solution
+                                                                                     ## point
+                                                                                     ## with
+                                                                                     ## the
+                                                                                     ## close
+                                                                                     ## point
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## MarginCoef
+                                                                                     ## is
+                                                                                     ## the
+                                                                                     ## coefficient
+                                                                                     ## for
+                                                                                     ## extension
+                                                                                     ## of
+                                                                                     ## UV
+                                                                                     ## bounds.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Ex.,
+                                                                                     ## UFirst
+                                                                                     ## -=
+                                                                                     ## MarginCoef*(ULast-UFirst)
 
 
-proc constructHLRBRep_TheExactInterCSurf*(U: Standard_Real; V: Standard_Real;
-    W: Standard_Real; F: HLRBRep_TheCSFunctionOfInterCSurf;
-    TolTangency: Standard_Real; MarginCoef: Standard_Real = 0.0): HLRBRep_TheExactInterCSurf {.
+proc constructHLRBRepTheExactInterCSurf*(u: float; v: float; w: float;
+                                        f: HLRBRepTheCSFunctionOfInterCSurf;
+                                        tolTangency: float;
+                                        marginCoef: float = 0.0): HLRBRepTheExactInterCSurf {.
     constructor, importcpp: "HLRBRep_TheExactInterCSurf(@)",
     header: "HLRBRep_TheExactInterCSurf.hxx".}
-proc constructHLRBRep_TheExactInterCSurf*(F: HLRBRep_TheCSFunctionOfInterCSurf;
-    TolTangency: Standard_Real): HLRBRep_TheExactInterCSurf {.constructor,
-    importcpp: "HLRBRep_TheExactInterCSurf(@)",
+proc constructHLRBRepTheExactInterCSurf*(f: HLRBRepTheCSFunctionOfInterCSurf;
+                                        tolTangency: float): HLRBRepTheExactInterCSurf {.
+    constructor, importcpp: "HLRBRep_TheExactInterCSurf(@)",
     header: "HLRBRep_TheExactInterCSurf.hxx".}
-proc Perform*(this: var HLRBRep_TheExactInterCSurf; U: Standard_Real;
-             V: Standard_Real; W: Standard_Real; Rsnld: var math_FunctionSetRoot;
-             u0: Standard_Real; v0: Standard_Real; u1: Standard_Real;
-             v1: Standard_Real; w0: Standard_Real; w1: Standard_Real) {.
-    importcpp: "Perform", header: "HLRBRep_TheExactInterCSurf.hxx".}
-proc IsDone*(this: HLRBRep_TheExactInterCSurf): Standard_Boolean {.noSideEffect,
+proc perform*(this: var HLRBRepTheExactInterCSurf; u: float; v: float; w: float;
+             rsnld: var MathFunctionSetRoot; u0: float; v0: float; u1: float; v1: float;
+             w0: float; w1: float) {.importcpp: "Perform",
+                                 header: "HLRBRep_TheExactInterCSurf.hxx".}
+proc isDone*(this: HLRBRepTheExactInterCSurf): bool {.noSideEffect,
     importcpp: "IsDone", header: "HLRBRep_TheExactInterCSurf.hxx".}
-proc IsEmpty*(this: HLRBRep_TheExactInterCSurf): Standard_Boolean {.noSideEffect,
+proc isEmpty*(this: HLRBRepTheExactInterCSurf): bool {.noSideEffect,
     importcpp: "IsEmpty", header: "HLRBRep_TheExactInterCSurf.hxx".}
-proc Point*(this: HLRBRep_TheExactInterCSurf): gp_Pnt {.noSideEffect,
-    importcpp: "Point", header: "HLRBRep_TheExactInterCSurf.hxx".}
-proc ParameterOnCurve*(this: HLRBRep_TheExactInterCSurf): Standard_Real {.
-    noSideEffect, importcpp: "ParameterOnCurve",
+proc point*(this: HLRBRepTheExactInterCSurf): Pnt {.noSideEffect, importcpp: "Point",
     header: "HLRBRep_TheExactInterCSurf.hxx".}
-proc ParameterOnSurface*(this: HLRBRep_TheExactInterCSurf; U: var Standard_Real;
-                        V: var Standard_Real) {.noSideEffect,
-    importcpp: "ParameterOnSurface", header: "HLRBRep_TheExactInterCSurf.hxx".}
-proc Function*(this: var HLRBRep_TheExactInterCSurf): var HLRBRep_TheCSFunctionOfInterCSurf {.
+proc parameterOnCurve*(this: HLRBRepTheExactInterCSurf): float {.noSideEffect,
+    importcpp: "ParameterOnCurve", header: "HLRBRep_TheExactInterCSurf.hxx".}
+proc parameterOnSurface*(this: HLRBRepTheExactInterCSurf; u: var float; v: var float) {.
+    noSideEffect, importcpp: "ParameterOnSurface",
+    header: "HLRBRep_TheExactInterCSurf.hxx".}
+proc function*(this: var HLRBRepTheExactInterCSurf): var HLRBRepTheCSFunctionOfInterCSurf {.
     importcpp: "Function", header: "HLRBRep_TheExactInterCSurf.hxx".}

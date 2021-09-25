@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepBasic_Product, ../NCollection/NCollection_Array1
-
 type
-  StepBasic_Array1OfProduct* = NCollection_Array1[handle[StepBasic_Product]]
+  StepBasicArray1OfProduct* = NCollectionArray1[Handle[StepBasicProduct]]
+

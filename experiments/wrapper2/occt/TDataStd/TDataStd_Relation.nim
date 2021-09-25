@@ -14,13 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TDataStd_Expression
-
 discard "forward decl of TDataStd_Relation"
 discard "forward decl of TDataStd_Relation"
 type
-  Handle_TDataStd_Relation* = handle[TDataStd_Relation]
+  HandleTDataStdRelation* = Handle[TDataStdRelation]
 
 ## ! Relation attribute.
 ## ! ==================
@@ -32,32 +29,33 @@ type
 ## ! relation must have its equivalent in the string
 
 type
-  TDataStd_Relation* {.importcpp: "TDataStd_Relation",
-                      header: "TDataStd_Relation.hxx", bycopy.} = object of TDataStd_Expression ##
-                                                                                         ## !
-                                                                                         ## class
-                                                                                         ## methods
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## =============
+  TDataStdRelation* {.importcpp: "TDataStd_Relation",
+                     header: "TDataStd_Relation.hxx", bycopy.} = object of TDataStdExpression ##
+                                                                                       ## !
+                                                                                       ## class
+                                                                                       ## methods
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## =============
 
 
-proc GetID*(): Standard_GUID {.importcpp: "TDataStd_Relation::GetID(@)",
-                            header: "TDataStd_Relation.hxx".}
-proc Set*(label: TDF_Label): handle[TDataStd_Relation] {.
+proc getID*(): StandardGUID {.importcpp: "TDataStd_Relation::GetID(@)",
+                           header: "TDataStd_Relation.hxx".}
+proc set*(label: TDF_Label): Handle[TDataStdRelation] {.
     importcpp: "TDataStd_Relation::Set(@)", header: "TDataStd_Relation.hxx".}
-proc constructTDataStd_Relation*(): TDataStd_Relation {.constructor,
+proc constructTDataStdRelation*(): TDataStdRelation {.constructor,
     importcpp: "TDataStd_Relation(@)", header: "TDataStd_Relation.hxx".}
-proc SetRelation*(this: var TDataStd_Relation; E: TCollection_ExtendedString) {.
+proc setRelation*(this: var TDataStdRelation; e: TCollectionExtendedString) {.
     importcpp: "SetRelation", header: "TDataStd_Relation.hxx".}
-proc GetRelation*(this: TDataStd_Relation): TCollection_ExtendedString {.
-    noSideEffect, importcpp: "GetRelation", header: "TDataStd_Relation.hxx".}
-proc ID*(this: TDataStd_Relation): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc getRelation*(this: TDataStdRelation): TCollectionExtendedString {.noSideEffect,
+    importcpp: "GetRelation", header: "TDataStd_Relation.hxx".}
+proc id*(this: TDataStdRelation): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TDataStd_Relation.hxx".}
-proc Dump*(this: TDataStd_Relation; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDataStdRelation; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_Relation.hxx".}
-proc DumpJson*(this: TDataStd_Relation; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TDataStd_Relation.hxx".}
+proc dumpJson*(this: TDataStdRelation; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TDataStd_Relation.hxx".}
 ## !!!Ignored construct:  DEFINE_DERIVED_ATTRIBUTE ( TDataStd_Relation , TDataStd_Expression ) }
 ## Error: token expected: ) but got: ,!!!
+

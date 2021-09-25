@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of StepData_Protocol"
 discard "forward decl of StepData_StepModel"
 discard "forward decl of StepData_UndefinedEntity"
@@ -67,10 +63,10 @@ type
                                                                        ## FileProtocol if more than one Protocol was yet defined
 
 
-proc HeaderProtocol*(): handle[StepData_Protocol] {.
+proc headerProtocol*(): Handle[StepDataProtocol] {.
     importcpp: "StepData::HeaderProtocol(@)", header: "StepData.hxx".}
-proc AddHeaderProtocol*(headerproto: handle[StepData_Protocol]) {.
+proc addHeaderProtocol*(headerproto: Handle[StepDataProtocol]) {.
     importcpp: "StepData::AddHeaderProtocol(@)", header: "StepData.hxx".}
-proc Init*() {.importcpp: "StepData::Init(@)", header: "StepData.hxx".}
-proc Protocol*(): handle[StepData_Protocol] {.importcpp: "StepData::Protocol(@)",
+proc init*() {.importcpp: "StepData::Init(@)", header: "StepData.hxx".}
+proc protocol*(): Handle[StepDataProtocol] {.importcpp: "StepData::Protocol(@)",
     header: "StepData.hxx".}

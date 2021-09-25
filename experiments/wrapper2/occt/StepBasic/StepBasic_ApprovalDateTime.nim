@@ -14,50 +14,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_DateTimeSelect,
-  ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_Approval"
 discard "forward decl of StepBasic_DateTimeSelect"
 discard "forward decl of StepBasic_ApprovalDateTime"
 discard "forward decl of StepBasic_ApprovalDateTime"
 type
-  Handle_StepBasic_ApprovalDateTime* = handle[StepBasic_ApprovalDateTime]
+  HandleStepBasicApprovalDateTime* = Handle[StepBasicApprovalDateTime]
 
 ## ! Added from StepBasic Rev2 to Rev4
 
 type
-  StepBasic_ApprovalDateTime* {.importcpp: "StepBasic_ApprovalDateTime",
-                               header: "StepBasic_ApprovalDateTime.hxx", bycopy.} = object of Standard_Transient
+  StepBasicApprovalDateTime* {.importcpp: "StepBasic_ApprovalDateTime",
+                              header: "StepBasic_ApprovalDateTime.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructStepBasic_ApprovalDateTime*(): StepBasic_ApprovalDateTime {.
+proc constructStepBasicApprovalDateTime*(): StepBasicApprovalDateTime {.
     constructor, importcpp: "StepBasic_ApprovalDateTime(@)",
     header: "StepBasic_ApprovalDateTime.hxx".}
-proc Init*(this: var StepBasic_ApprovalDateTime;
-          aDateTime: StepBasic_DateTimeSelect;
-          aDatedApproval: handle[StepBasic_Approval]) {.importcpp: "Init",
+proc init*(this: var StepBasicApprovalDateTime; aDateTime: StepBasicDateTimeSelect;
+          aDatedApproval: Handle[StepBasicApproval]) {.importcpp: "Init",
     header: "StepBasic_ApprovalDateTime.hxx".}
-proc SetDateTime*(this: var StepBasic_ApprovalDateTime;
-                 aDateTime: StepBasic_DateTimeSelect) {.importcpp: "SetDateTime",
+proc setDateTime*(this: var StepBasicApprovalDateTime;
+                 aDateTime: StepBasicDateTimeSelect) {.importcpp: "SetDateTime",
     header: "StepBasic_ApprovalDateTime.hxx".}
-proc DateTime*(this: StepBasic_ApprovalDateTime): StepBasic_DateTimeSelect {.
+proc dateTime*(this: StepBasicApprovalDateTime): StepBasicDateTimeSelect {.
     noSideEffect, importcpp: "DateTime", header: "StepBasic_ApprovalDateTime.hxx".}
-proc SetDatedApproval*(this: var StepBasic_ApprovalDateTime;
-                      aDatedApproval: handle[StepBasic_Approval]) {.
+proc setDatedApproval*(this: var StepBasicApprovalDateTime;
+                      aDatedApproval: Handle[StepBasicApproval]) {.
     importcpp: "SetDatedApproval", header: "StepBasic_ApprovalDateTime.hxx".}
-proc DatedApproval*(this: StepBasic_ApprovalDateTime): handle[StepBasic_Approval] {.
+proc datedApproval*(this: StepBasicApprovalDateTime): Handle[StepBasicApproval] {.
     noSideEffect, importcpp: "DatedApproval",
     header: "StepBasic_ApprovalDateTime.hxx".}
 type
-  StepBasic_ApprovalDateTimebase_type* = Standard_Transient
+  StepBasicApprovalDateTimebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ApprovalDateTime::get_type_name(@)",
-                              header: "StepBasic_ApprovalDateTime.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ApprovalDateTime::get_type_name(@)",
+                            header: "StepBasic_ApprovalDateTime.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_ApprovalDateTime::get_type_descriptor(@)",
     header: "StepBasic_ApprovalDateTime.hxx".}
-proc DynamicType*(this: StepBasic_ApprovalDateTime): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicApprovalDateTime): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ApprovalDateTime.hxx".}

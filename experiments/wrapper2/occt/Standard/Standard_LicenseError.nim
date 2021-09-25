@@ -14,16 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_LicenseError_HeaderFile [NewLine] # _Standard_LicenseError_HeaderFile [NewLine] # Standard_Type.hxx [NewLine] # Standard_DefineException.hxx [NewLine] # Standard_SStream.hxx [NewLine] # Standard_Failure.hxx [NewLine] class Standard_LicenseError ;
+## !!!Ignored construct:  # _Standard_LicenseError_HeaderFile [NewLine] # _Standard_LicenseError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class Standard_LicenseError ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Standard_LicenseError"
 type
-  Handle_Standard_LicenseErrorStandard_LicenseError* = handle[
-      Standard_LicenseError]
+  HandleStandardLicenseErrorStandardLicenseError* = Handle[StandardLicenseError]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_LicenseError [NewLine] # if ( CONDITION ) throw Standard_LicenseError ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_LicenseError , Standard_Failure ) #  _Standard_LicenseError_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_LicenseError , Standard_Failure ) #  _Standard_LicenseError_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

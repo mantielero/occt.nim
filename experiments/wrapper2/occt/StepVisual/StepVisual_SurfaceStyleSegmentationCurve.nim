@@ -14,42 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepVisual_CurveStyle"
 discard "forward decl of StepVisual_SurfaceStyleSegmentationCurve"
 discard "forward decl of StepVisual_SurfaceStyleSegmentationCurve"
 type
-  Handle_StepVisual_SurfaceStyleSegmentationCurve* = handle[
-      StepVisual_SurfaceStyleSegmentationCurve]
-  StepVisual_SurfaceStyleSegmentationCurve* {.
+  HandleStepVisualSurfaceStyleSegmentationCurve* = Handle[
+      StepVisualSurfaceStyleSegmentationCurve]
+  StepVisualSurfaceStyleSegmentationCurve* {.
       importcpp: "StepVisual_SurfaceStyleSegmentationCurve",
-      header: "StepVisual_SurfaceStyleSegmentationCurve.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                               ## !
-                                                                                               ## Returns
-                                                                                               ## a
-                                                                                               ## SurfaceStyleSegmentationCurve
+      header: "StepVisual_SurfaceStyleSegmentationCurve.hxx", bycopy.} = object of StandardTransient ##
+                                                                                              ## !
+                                                                                              ## Returns
+                                                                                              ## a
+                                                                                              ## SurfaceStyleSegmentationCurve
 
 
-proc constructStepVisual_SurfaceStyleSegmentationCurve*(): StepVisual_SurfaceStyleSegmentationCurve {.
+proc constructStepVisualSurfaceStyleSegmentationCurve*(): StepVisualSurfaceStyleSegmentationCurve {.
     constructor, importcpp: "StepVisual_SurfaceStyleSegmentationCurve(@)",
     header: "StepVisual_SurfaceStyleSegmentationCurve.hxx".}
-proc Init*(this: var StepVisual_SurfaceStyleSegmentationCurve;
-          aStyleOfSegmentationCurve: handle[StepVisual_CurveStyle]) {.
+proc init*(this: var StepVisualSurfaceStyleSegmentationCurve;
+          aStyleOfSegmentationCurve: Handle[StepVisualCurveStyle]) {.
     importcpp: "Init", header: "StepVisual_SurfaceStyleSegmentationCurve.hxx".}
-proc SetStyleOfSegmentationCurve*(this: var StepVisual_SurfaceStyleSegmentationCurve;
-    aStyleOfSegmentationCurve: handle[StepVisual_CurveStyle]) {.
+proc setStyleOfSegmentationCurve*(this: var StepVisualSurfaceStyleSegmentationCurve;
+    aStyleOfSegmentationCurve: Handle[StepVisualCurveStyle]) {.
     importcpp: "SetStyleOfSegmentationCurve",
     header: "StepVisual_SurfaceStyleSegmentationCurve.hxx".}
-proc StyleOfSegmentationCurve*(this: StepVisual_SurfaceStyleSegmentationCurve): handle[
-    StepVisual_CurveStyle] {.noSideEffect, importcpp: "StyleOfSegmentationCurve", header: "StepVisual_SurfaceStyleSegmentationCurve.hxx".}
+proc styleOfSegmentationCurve*(this: StepVisualSurfaceStyleSegmentationCurve): Handle[
+    StepVisualCurveStyle] {.noSideEffect, importcpp: "StyleOfSegmentationCurve", header: "StepVisual_SurfaceStyleSegmentationCurve.hxx".}
 type
-  StepVisual_SurfaceStyleSegmentationCurvebase_type* = Standard_Transient
+  StepVisualSurfaceStyleSegmentationCurvebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_SurfaceStyleSegmentationCurve::get_type_name(@)", header: "StepVisual_SurfaceStyleSegmentationCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_SurfaceStyleSegmentationCurve::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepVisual_SurfaceStyleSegmentationCurve::get_type_name(@)", header: "StepVisual_SurfaceStyleSegmentationCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_SurfaceStyleSegmentationCurve::get_type_descriptor(@)",
     header: "StepVisual_SurfaceStyleSegmentationCurve.hxx".}
-proc DynamicType*(this: StepVisual_SurfaceStyleSegmentationCurve): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepVisual_SurfaceStyleSegmentationCurve.hxx".}
+proc dynamicType*(this: StepVisualSurfaceStyleSegmentationCurve): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepVisual_SurfaceStyleSegmentationCurve.hxx".}

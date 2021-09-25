@@ -14,51 +14,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepVisual_PresentationLayerAssignment"
 discard "forward decl of StepVisual_PresentationRepresentation"
 discard "forward decl of StepVisual_PresentationLayerUsage"
 discard "forward decl of StepVisual_PresentationLayerUsage"
 type
-  Handle_StepVisual_PresentationLayerUsage* = handle[
-      StepVisual_PresentationLayerUsage]
+  HandleStepVisualPresentationLayerUsage* = Handle[
+      StepVisualPresentationLayerUsage]
 
 ## ! Added from StepVisual Rev2 to Rev4
 
 type
-  StepVisual_PresentationLayerUsage* {.importcpp: "StepVisual_PresentationLayerUsage", header: "StepVisual_PresentationLayerUsage.hxx",
-                                      bycopy.} = object of Standard_Transient
+  StepVisualPresentationLayerUsage* {.importcpp: "StepVisual_PresentationLayerUsage", header: "StepVisual_PresentationLayerUsage.hxx",
+                                     bycopy.} = object of StandardTransient
 
 
-proc constructStepVisual_PresentationLayerUsage*(): StepVisual_PresentationLayerUsage {.
+proc constructStepVisualPresentationLayerUsage*(): StepVisualPresentationLayerUsage {.
     constructor, importcpp: "StepVisual_PresentationLayerUsage(@)",
     header: "StepVisual_PresentationLayerUsage.hxx".}
-proc Init*(this: var StepVisual_PresentationLayerUsage;
-          aAssignment: handle[StepVisual_PresentationLayerAssignment];
-          aPresentation: handle[StepVisual_PresentationRepresentation]) {.
+proc init*(this: var StepVisualPresentationLayerUsage;
+          aAssignment: Handle[StepVisualPresentationLayerAssignment];
+          aPresentation: Handle[StepVisualPresentationRepresentation]) {.
     importcpp: "Init", header: "StepVisual_PresentationLayerUsage.hxx".}
-proc SetAssignment*(this: var StepVisual_PresentationLayerUsage;
-                   aAssignment: handle[StepVisual_PresentationLayerAssignment]) {.
+proc setAssignment*(this: var StepVisualPresentationLayerUsage;
+                   aAssignment: Handle[StepVisualPresentationLayerAssignment]) {.
     importcpp: "SetAssignment", header: "StepVisual_PresentationLayerUsage.hxx".}
-proc Assignment*(this: StepVisual_PresentationLayerUsage): handle[
-    StepVisual_PresentationLayerAssignment] {.noSideEffect,
+proc assignment*(this: StepVisualPresentationLayerUsage): Handle[
+    StepVisualPresentationLayerAssignment] {.noSideEffect,
     importcpp: "Assignment", header: "StepVisual_PresentationLayerUsage.hxx".}
-proc SetPresentation*(this: var StepVisual_PresentationLayerUsage; aPresentation: handle[
-    StepVisual_PresentationRepresentation]) {.importcpp: "SetPresentation",
+proc setPresentation*(this: var StepVisualPresentationLayerUsage; aPresentation: Handle[
+    StepVisualPresentationRepresentation]) {.importcpp: "SetPresentation",
     header: "StepVisual_PresentationLayerUsage.hxx".}
-proc Presentation*(this: StepVisual_PresentationLayerUsage): handle[
-    StepVisual_PresentationRepresentation] {.noSideEffect,
+proc presentation*(this: StepVisualPresentationLayerUsage): Handle[
+    StepVisualPresentationRepresentation] {.noSideEffect,
     importcpp: "Presentation", header: "StepVisual_PresentationLayerUsage.hxx".}
 type
-  StepVisual_PresentationLayerUsagebase_type* = Standard_Transient
+  StepVisualPresentationLayerUsagebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_PresentationLayerUsage::get_type_name(@)",
-                              header: "StepVisual_PresentationLayerUsage.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_PresentationLayerUsage::get_type_name(@)",
+                            header: "StepVisual_PresentationLayerUsage.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_PresentationLayerUsage::get_type_descriptor(@)",
     header: "StepVisual_PresentationLayerUsage.hxx".}
-proc DynamicType*(this: StepVisual_PresentationLayerUsage): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualPresentationLayerUsage): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_PresentationLayerUsage.hxx".}

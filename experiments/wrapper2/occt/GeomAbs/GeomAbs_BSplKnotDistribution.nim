@@ -19,9 +19,9 @@
 ## ! (comments in classes BSplineCurve and BSplineSurface)
 
 type
-  GeomAbs_BSplKnotDistribution* {.size: sizeof(cint),
-                                 importcpp: "GeomAbs_BSplKnotDistribution",
-                                 header: "GeomAbs_BSplKnotDistribution.hxx".} = enum
-    GeomAbs_NonUniform, GeomAbs_Uniform, GeomAbs_QuasiUniform,
-    GeomAbs_PiecewiseBezier
+  GeomAbsBSplKnotDistribution* {.size: sizeof(cint),
+                                importcpp: "GeomAbs_BSplKnotDistribution",
+                                header: "GeomAbs_BSplKnotDistribution.hxx".} = enum
+    GeomAbsNonUniform, GeomAbsUniform, GeomAbsQuasiUniform, GeomAbsPiecewiseBezier
+
 

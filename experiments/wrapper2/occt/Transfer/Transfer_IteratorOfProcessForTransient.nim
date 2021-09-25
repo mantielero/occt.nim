@@ -14,65 +14,57 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColStd/TColStd_HSequenceOfTransient,
-  Transfer_TransferIterator, Transfer_TransferMapOfProcessForTransient
-
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_ProcessForTransient"
 discard "forward decl of Transfer_ActorOfProcessForTransient"
 discard "forward decl of Transfer_Binder"
 type
-  Transfer_IteratorOfProcessForTransient* {.
+  TransferIteratorOfProcessForTransient* {.
       importcpp: "Transfer_IteratorOfProcessForTransient",
-      header: "Transfer_IteratorOfProcessForTransient.hxx", bycopy.} = object of Transfer_TransferIterator ##
-                                                                                                    ## !
-                                                                                                    ## Creates
-                                                                                                    ## an
-                                                                                                    ## empty
-                                                                                                    ## Iterator
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## if
-                                                                                                    ## withstarts
-                                                                                                    ## is
-                                                                                                    ## True,
-                                                                                                    ## each
-                                                                                                    ## Binder
-                                                                                                    ## to
-                                                                                                    ## be
-                                                                                                    ## iterated
-                                                                                                    ## will
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## be
-                                                                                                    ## associated
-                                                                                                    ## to
-                                                                                                    ## its
-                                                                                                    ## corresponding
-                                                                                                    ## Starting
-                                                                                                    ## Object
+      header: "Transfer_IteratorOfProcessForTransient.hxx", bycopy.} = object of TransferTransferIterator ##
+                                                                                                   ## !
+                                                                                                   ## Creates
+                                                                                                   ## an
+                                                                                                   ## empty
+                                                                                                   ## Iterator
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## if
+                                                                                                   ## withstarts
+                                                                                                   ## is
+                                                                                                   ## True,
+                                                                                                   ## each
+                                                                                                   ## Binder
+                                                                                                   ## to
+                                                                                                   ## be
+                                                                                                   ## iterated
+                                                                                                   ## will
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## be
+                                                                                                   ## associated
+                                                                                                   ## to
+                                                                                                   ## its
+                                                                                                   ## corresponding
+                                                                                                   ## Starting
+                                                                                                   ## Object
 
 
-proc constructTransfer_IteratorOfProcessForTransient*(
-    withstarts: Standard_Boolean): Transfer_IteratorOfProcessForTransient {.
+proc constructTransferIteratorOfProcessForTransient*(withstarts: bool): TransferIteratorOfProcessForTransient {.
     constructor, importcpp: "Transfer_IteratorOfProcessForTransient(@)",
     header: "Transfer_IteratorOfProcessForTransient.hxx".}
-proc Add*(this: var Transfer_IteratorOfProcessForTransient;
-         binder: handle[Transfer_Binder]) {.importcpp: "Add",
+proc add*(this: var TransferIteratorOfProcessForTransient;
+         binder: Handle[TransferBinder]) {.importcpp: "Add",
     header: "Transfer_IteratorOfProcessForTransient.hxx".}
-proc Add*(this: var Transfer_IteratorOfProcessForTransient;
-         binder: handle[Transfer_Binder]; start: handle[Standard_Transient]) {.
+proc add*(this: var TransferIteratorOfProcessForTransient;
+         binder: Handle[TransferBinder]; start: Handle[StandardTransient]) {.
     importcpp: "Add", header: "Transfer_IteratorOfProcessForTransient.hxx".}
-proc Filter*(this: var Transfer_IteratorOfProcessForTransient;
-            list: handle[TColStd_HSequenceOfTransient];
-            keep: Standard_Boolean = Standard_True) {.importcpp: "Filter",
-    header: "Transfer_IteratorOfProcessForTransient.hxx".}
-proc HasStarting*(this: Transfer_IteratorOfProcessForTransient): Standard_Boolean {.
-    noSideEffect, importcpp: "HasStarting",
-    header: "Transfer_IteratorOfProcessForTransient.hxx".}
-proc Starting*(this: Transfer_IteratorOfProcessForTransient): handle[
-    Standard_Transient] {.noSideEffect, importcpp: "Starting",
-                         header: "Transfer_IteratorOfProcessForTransient.hxx".}
+proc filter*(this: var TransferIteratorOfProcessForTransient;
+            list: Handle[TColStdHSequenceOfTransient]; keep: bool = true) {.
+    importcpp: "Filter", header: "Transfer_IteratorOfProcessForTransient.hxx".}
+proc hasStarting*(this: TransferIteratorOfProcessForTransient): bool {.noSideEffect,
+    importcpp: "HasStarting", header: "Transfer_IteratorOfProcessForTransient.hxx".}
+proc starting*(this: TransferIteratorOfProcessForTransient): Handle[
+    StandardTransient] {.noSideEffect, importcpp: "Starting",
+                        header: "Transfer_IteratorOfProcessForTransient.hxx".}

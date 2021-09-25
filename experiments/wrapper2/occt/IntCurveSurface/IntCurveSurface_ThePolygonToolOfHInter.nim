@@ -14,41 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _IntCurveSurface_ThePolygonToolOfHInter_HeaderFile [NewLine] # _IntCurveSurface_ThePolygonToolOfHInter_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # ../Standard/Standard_Integer.hxx [NewLine] class Standard_OutOfRange ;
+## !!!Ignored construct:  # _IntCurveSurface_ThePolygonToolOfHInter_HeaderFile [NewLine] # _IntCurveSurface_ThePolygonToolOfHInter_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] class Standard_OutOfRange ;
 ## Error: did not expect <!!!
 
 discard "forward decl of gp_Pnt"
 discard "forward decl of IntCurveSurface_ThePolygonOfHInter"
 discard "forward decl of Bnd_Box"
 type
-  IntCurveSurface_ThePolygonToolOfHInter* {.
+  IntCurveSurfaceThePolygonToolOfHInter* {.
       importcpp: "IntCurveSurface_ThePolygonToolOfHInter",
       header: "IntCurveSurface_ThePolygonToolOfHInter.hxx", bycopy.} = object ## ! Give the
                                                                          ## bounding box of the
                                                                          ## polygon.
 
 
-proc Bounding*(thePolygon: IntCurveSurface_ThePolygonOfHInter): Bnd_Box {.
+proc bounding*(thePolygon: IntCurveSurfaceThePolygonOfHInter): BndBox {.
     importcpp: "IntCurveSurface_ThePolygonToolOfHInter::Bounding(@)",
     header: "IntCurveSurface_ThePolygonToolOfHInter.hxx".}
-proc DeflectionOverEstimation*(thePolygon: IntCurveSurface_ThePolygonOfHInter): Standard_Real {.importcpp: "IntCurveSurface_ThePolygonToolOfHInter::DeflectionOverEstimation(@)",
+proc deflectionOverEstimation*(thePolygon: IntCurveSurfaceThePolygonOfHInter): float {.importcpp: "IntCurveSurface_ThePolygonToolOfHInter::DeflectionOverEstimation(@)",
     header: "IntCurveSurface_ThePolygonToolOfHInter.hxx".}
-proc Closed*(thePolygon: IntCurveSurface_ThePolygonOfHInter): Standard_Boolean {.
+proc closed*(thePolygon: IntCurveSurfaceThePolygonOfHInter): bool {.
     importcpp: "IntCurveSurface_ThePolygonToolOfHInter::Closed(@)",
     header: "IntCurveSurface_ThePolygonToolOfHInter.hxx".}
-proc NbSegments*(thePolygon: IntCurveSurface_ThePolygonOfHInter): Standard_Integer {.
+proc nbSegments*(thePolygon: IntCurveSurfaceThePolygonOfHInter): int {.
     importcpp: "IntCurveSurface_ThePolygonToolOfHInter::NbSegments(@)",
     header: "IntCurveSurface_ThePolygonToolOfHInter.hxx".}
-proc BeginOfSeg*(thePolygon: IntCurveSurface_ThePolygonOfHInter;
-                Index: Standard_Integer): gp_Pnt {.
+proc beginOfSeg*(thePolygon: IntCurveSurfaceThePolygonOfHInter; index: int): Pnt {.
     importcpp: "IntCurveSurface_ThePolygonToolOfHInter::BeginOfSeg(@)",
     header: "IntCurveSurface_ThePolygonToolOfHInter.hxx".}
-proc EndOfSeg*(thePolygon: IntCurveSurface_ThePolygonOfHInter;
-              Index: Standard_Integer): gp_Pnt {.
+proc endOfSeg*(thePolygon: IntCurveSurfaceThePolygonOfHInter; index: int): Pnt {.
     importcpp: "IntCurveSurface_ThePolygonToolOfHInter::EndOfSeg(@)",
     header: "IntCurveSurface_ThePolygonToolOfHInter.hxx".}
-proc Dump*(thePolygon: IntCurveSurface_ThePolygonOfHInter) {.
+proc dump*(thePolygon: IntCurveSurfaceThePolygonOfHInter) {.
     importcpp: "IntCurveSurface_ThePolygonToolOfHInter::Dump(@)",
     header: "IntCurveSurface_ThePolygonToolOfHInter.hxx".}
-## !!!Ignored construct:  # ThePoint gp_Pnt [NewLine] # ThePoint_hxx < gp_Pnt . hxx > [NewLine] # ThePolygon IntCurveSurface_ThePolygonOfHInter [NewLine] # ThePolygon_hxx < IntCurveSurface_ThePolygonOfHInter . hxx > [NewLine] # TheBoundingBox Bnd_Box [NewLine] # TheBoundingBox_hxx < Bnd_Box . hxx > [NewLine] # IntCurveSurface_PolygonTool IntCurveSurface_ThePolygonToolOfHInter [NewLine] # IntCurveSurface_PolygonTool_hxx < IntCurveSurface_ThePolygonToolOfHInter . hxx > [NewLine] # < IntCurveSurface_PolygonTool . lxx > [NewLine] # ThePoint [NewLine] # ThePoint_hxx [NewLine] # ThePolygon [NewLine] # ThePolygon_hxx [NewLine] # TheBoundingBox [NewLine] # TheBoundingBox_hxx [NewLine] # IntCurveSurface_PolygonTool [NewLine] # IntCurveSurface_PolygonTool_hxx [NewLine] #  _IntCurveSurface_ThePolygonToolOfHInter_HeaderFile [NewLine]
+## !!!Ignored construct:  # ThePoint gp_Pnt [NewLine] # ThePoint_hxx < gp_Pnt . hxx > [NewLine] # ThePolygon IntCurveSurface_ThePolygonOfHInter [NewLine] # ThePolygon_hxx < IntCurveSurface_ThePolygonOfHInter . hxx > [NewLine] # TheBoundingBox Bnd_Box [NewLine] # TheBoundingBox_hxx < Bnd_Box . hxx > [NewLine] # IntCurveSurface_PolygonTool IntCurveSurface_ThePolygonToolOfHInter [NewLine] # IntCurveSurface_PolygonTool_hxx < IntCurveSurface_ThePolygonToolOfHInter . hxx > [NewLine] # < IntCurveSurface_PolygonTool . lxx > [NewLine] # ThePoint [NewLine] # ThePoint_hxx [NewLine] # ThePolygon [NewLine] # ThePolygon_hxx [NewLine] # TheBoundingBox [NewLine] # TheBoundingBox_hxx [NewLine] # IntCurveSurface_PolygonTool [NewLine] # IntCurveSurface_PolygonTool_hxx [NewLine] #  _IntCurveSurface_ThePolygonToolOfHInter_HeaderFile
 ## Error: did not expect <!!!
+

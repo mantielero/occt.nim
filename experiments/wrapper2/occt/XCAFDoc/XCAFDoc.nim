@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, XCAFDoc_ColorType
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of XCAFDoc_DocumentTool"
 discard "forward decl of XCAFDoc_Location"
@@ -44,51 +40,51 @@ type
                                                                     ## ! Returns GUID for UAttribute identifying assembly
 
 
-proc AssemblyGUID*(): Standard_GUID {.importcpp: "XCAFDoc::AssemblyGUID(@)",
-                                   header: "XCAFDoc.hxx".}
-proc ShapeRefGUID*(): Standard_GUID {.importcpp: "XCAFDoc::ShapeRefGUID(@)",
-                                   header: "XCAFDoc.hxx".}
-proc ColorRefGUID*(`type`: XCAFDoc_ColorType): Standard_GUID {.
+proc assemblyGUID*(): StandardGUID {.importcpp: "XCAFDoc::AssemblyGUID(@)",
+                                  header: "XCAFDoc.hxx".}
+proc shapeRefGUID*(): StandardGUID {.importcpp: "XCAFDoc::ShapeRefGUID(@)",
+                                  header: "XCAFDoc.hxx".}
+proc colorRefGUID*(`type`: XCAFDocColorType): StandardGUID {.
     importcpp: "XCAFDoc::ColorRefGUID(@)", header: "XCAFDoc.hxx".}
-proc DimTolRefGUID*(): Standard_GUID {.importcpp: "XCAFDoc::DimTolRefGUID(@)",
-                                    header: "XCAFDoc.hxx".}
-proc DimensionRefFirstGUID*(): Standard_GUID {.
+proc dimTolRefGUID*(): StandardGUID {.importcpp: "XCAFDoc::DimTolRefGUID(@)",
+                                   header: "XCAFDoc.hxx".}
+proc dimensionRefFirstGUID*(): StandardGUID {.
     importcpp: "XCAFDoc::DimensionRefFirstGUID(@)", header: "XCAFDoc.hxx".}
-proc DimensionRefSecondGUID*(): Standard_GUID {.
+proc dimensionRefSecondGUID*(): StandardGUID {.
     importcpp: "XCAFDoc::DimensionRefSecondGUID(@)", header: "XCAFDoc.hxx".}
-proc GeomToleranceRefGUID*(): Standard_GUID {.
+proc geomToleranceRefGUID*(): StandardGUID {.
     importcpp: "XCAFDoc::GeomToleranceRefGUID(@)", header: "XCAFDoc.hxx".}
-proc DatumRefGUID*(): Standard_GUID {.importcpp: "XCAFDoc::DatumRefGUID(@)",
-                                   header: "XCAFDoc.hxx".}
-proc DatumTolRefGUID*(): Standard_GUID {.importcpp: "XCAFDoc::DatumTolRefGUID(@)",
-                                      header: "XCAFDoc.hxx".}
-proc LayerRefGUID*(): Standard_GUID {.importcpp: "XCAFDoc::LayerRefGUID(@)",
-                                   header: "XCAFDoc.hxx".}
-proc MaterialRefGUID*(): Standard_GUID {.importcpp: "XCAFDoc::MaterialRefGUID(@)",
-                                      header: "XCAFDoc.hxx".}
-proc VisMaterialRefGUID*(): Standard_GUID {.
-    importcpp: "XCAFDoc::VisMaterialRefGUID(@)", header: "XCAFDoc.hxx".}
-proc NoteRefGUID*(): Standard_GUID {.importcpp: "XCAFDoc::NoteRefGUID(@)",
+proc datumRefGUID*(): StandardGUID {.importcpp: "XCAFDoc::DatumRefGUID(@)",
                                   header: "XCAFDoc.hxx".}
-proc InvisibleGUID*(): Standard_GUID {.importcpp: "XCAFDoc::InvisibleGUID(@)",
-                                    header: "XCAFDoc.hxx".}
-proc ColorByLayerGUID*(): Standard_GUID {.importcpp: "XCAFDoc::ColorByLayerGUID(@)",
-                                       header: "XCAFDoc.hxx".}
-proc ExternRefGUID*(): Standard_GUID {.importcpp: "XCAFDoc::ExternRefGUID(@)",
-                                    header: "XCAFDoc.hxx".}
-proc SHUORefGUID*(): Standard_GUID {.importcpp: "XCAFDoc::SHUORefGUID(@)",
-                                  header: "XCAFDoc.hxx".}
-proc ViewRefGUID*(): Standard_GUID {.importcpp: "XCAFDoc::ViewRefGUID(@)",
-                                  header: "XCAFDoc.hxx".}
-proc ViewRefShapeGUID*(): Standard_GUID {.importcpp: "XCAFDoc::ViewRefShapeGUID(@)",
-                                       header: "XCAFDoc.hxx".}
-proc ViewRefGDTGUID*(): Standard_GUID {.importcpp: "XCAFDoc::ViewRefGDTGUID(@)",
+proc datumTolRefGUID*(): StandardGUID {.importcpp: "XCAFDoc::DatumTolRefGUID(@)",
                                      header: "XCAFDoc.hxx".}
-proc ViewRefPlaneGUID*(): Standard_GUID {.importcpp: "XCAFDoc::ViewRefPlaneGUID(@)",
-                                       header: "XCAFDoc.hxx".}
-proc ViewRefNoteGUID*(): Standard_GUID {.importcpp: "XCAFDoc::ViewRefNoteGUID(@)",
+proc layerRefGUID*(): StandardGUID {.importcpp: "XCAFDoc::LayerRefGUID(@)",
+                                  header: "XCAFDoc.hxx".}
+proc materialRefGUID*(): StandardGUID {.importcpp: "XCAFDoc::MaterialRefGUID(@)",
+                                     header: "XCAFDoc.hxx".}
+proc visMaterialRefGUID*(): StandardGUID {.importcpp: "XCAFDoc::VisMaterialRefGUID(@)",
+                                        header: "XCAFDoc.hxx".}
+proc noteRefGUID*(): StandardGUID {.importcpp: "XCAFDoc::NoteRefGUID(@)",
+                                 header: "XCAFDoc.hxx".}
+proc invisibleGUID*(): StandardGUID {.importcpp: "XCAFDoc::InvisibleGUID(@)",
+                                   header: "XCAFDoc.hxx".}
+proc colorByLayerGUID*(): StandardGUID {.importcpp: "XCAFDoc::ColorByLayerGUID(@)",
                                       header: "XCAFDoc.hxx".}
-proc ViewRefAnnotationGUID*(): Standard_GUID {.
+proc externRefGUID*(): StandardGUID {.importcpp: "XCAFDoc::ExternRefGUID(@)",
+                                   header: "XCAFDoc.hxx".}
+proc sHUORefGUID*(): StandardGUID {.importcpp: "XCAFDoc::SHUORefGUID(@)",
+                                 header: "XCAFDoc.hxx".}
+proc viewRefGUID*(): StandardGUID {.importcpp: "XCAFDoc::ViewRefGUID(@)",
+                                 header: "XCAFDoc.hxx".}
+proc viewRefShapeGUID*(): StandardGUID {.importcpp: "XCAFDoc::ViewRefShapeGUID(@)",
+                                      header: "XCAFDoc.hxx".}
+proc viewRefGDTGUID*(): StandardGUID {.importcpp: "XCAFDoc::ViewRefGDTGUID(@)",
+                                    header: "XCAFDoc.hxx".}
+proc viewRefPlaneGUID*(): StandardGUID {.importcpp: "XCAFDoc::ViewRefPlaneGUID(@)",
+                                      header: "XCAFDoc.hxx".}
+proc viewRefNoteGUID*(): StandardGUID {.importcpp: "XCAFDoc::ViewRefNoteGUID(@)",
+                                     header: "XCAFDoc.hxx".}
+proc viewRefAnnotationGUID*(): StandardGUID {.
     importcpp: "XCAFDoc::ViewRefAnnotationGUID(@)", header: "XCAFDoc.hxx".}
-proc LockGUID*(): Standard_GUID {.importcpp: "XCAFDoc::LockGUID(@)",
-                               header: "XCAFDoc.hxx".}
+proc lockGUID*(): StandardGUID {.importcpp: "XCAFDoc::LockGUID(@)",
+                              header: "XCAFDoc.hxx".}

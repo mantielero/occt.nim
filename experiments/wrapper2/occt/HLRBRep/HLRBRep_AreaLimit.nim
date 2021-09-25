@@ -14,82 +14,75 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../HLRAlgo/HLRAlgo_Intersection, ../Standard/Standard_Boolean,
-  ../TopAbs/TopAbs_State, ../Standard/Standard_Transient
-
 discard "forward decl of HLRAlgo_Intersection"
 discard "forward decl of HLRBRep_AreaLimit"
 discard "forward decl of HLRBRep_AreaLimit"
 type
-  Handle_HLRBRep_AreaLimit* = handle[HLRBRep_AreaLimit]
+  HandleHLRBRepAreaLimit* = Handle[HLRBRepAreaLimit]
 
 ## ! The  private  nested class AreaLimit represents   a --
 ## ! vertex on  the Edge with the  state on the left and --
 ## ! the right.
 
 type
-  HLRBRep_AreaLimit* {.importcpp: "HLRBRep_AreaLimit",
-                      header: "HLRBRep_AreaLimit.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                        ## !
-                                                                                        ## The
-                                                                                        ## previous
-                                                                                        ## and
-                                                                                        ## next
-                                                                                        ## field
-                                                                                        ## are
-                                                                                        ## set
-                                                                                        ## to
-                                                                                        ## NULL.
+  HLRBRepAreaLimit* {.importcpp: "HLRBRep_AreaLimit",
+                     header: "HLRBRep_AreaLimit.hxx", bycopy.} = object of StandardTransient ##
+                                                                                      ## !
+                                                                                      ## The
+                                                                                      ## previous
+                                                                                      ## and
+                                                                                      ## next
+                                                                                      ## field
+                                                                                      ## are
+                                                                                      ## set
+                                                                                      ## to
+                                                                                      ## NULL.
 
 
-proc constructHLRBRep_AreaLimit*(V: HLRAlgo_Intersection;
-                                Boundary: Standard_Boolean;
-                                Interference: Standard_Boolean;
-                                StateBefore: TopAbs_State;
-                                StateAfter: TopAbs_State;
-                                EdgeBefore: TopAbs_State; EdgeAfter: TopAbs_State): HLRBRep_AreaLimit {.
+proc constructHLRBRepAreaLimit*(v: HLRAlgoIntersection; boundary: bool;
+                               interference: bool; stateBefore: TopAbsState;
+                               stateAfter: TopAbsState; edgeBefore: TopAbsState;
+                               edgeAfter: TopAbsState): HLRBRepAreaLimit {.
     constructor, importcpp: "HLRBRep_AreaLimit(@)", header: "HLRBRep_AreaLimit.hxx".}
-proc StateBefore*(this: var HLRBRep_AreaLimit; St: TopAbs_State) {.
+proc stateBefore*(this: var HLRBRepAreaLimit; st: TopAbsState) {.
     importcpp: "StateBefore", header: "HLRBRep_AreaLimit.hxx".}
-proc StateAfter*(this: var HLRBRep_AreaLimit; St: TopAbs_State) {.
+proc stateAfter*(this: var HLRBRepAreaLimit; st: TopAbsState) {.
     importcpp: "StateAfter", header: "HLRBRep_AreaLimit.hxx".}
-proc EdgeBefore*(this: var HLRBRep_AreaLimit; St: TopAbs_State) {.
+proc edgeBefore*(this: var HLRBRepAreaLimit; st: TopAbsState) {.
     importcpp: "EdgeBefore", header: "HLRBRep_AreaLimit.hxx".}
-proc EdgeAfter*(this: var HLRBRep_AreaLimit; St: TopAbs_State) {.
-    importcpp: "EdgeAfter", header: "HLRBRep_AreaLimit.hxx".}
-proc Previous*(this: var HLRBRep_AreaLimit; P: handle[HLRBRep_AreaLimit]) {.
+proc edgeAfter*(this: var HLRBRepAreaLimit; st: TopAbsState) {.importcpp: "EdgeAfter",
+    header: "HLRBRep_AreaLimit.hxx".}
+proc previous*(this: var HLRBRepAreaLimit; p: Handle[HLRBRepAreaLimit]) {.
     importcpp: "Previous", header: "HLRBRep_AreaLimit.hxx".}
-proc Next*(this: var HLRBRep_AreaLimit; N: handle[HLRBRep_AreaLimit]) {.
+proc next*(this: var HLRBRepAreaLimit; n: Handle[HLRBRepAreaLimit]) {.
     importcpp: "Next", header: "HLRBRep_AreaLimit.hxx".}
-proc Vertex*(this: HLRBRep_AreaLimit): HLRAlgo_Intersection {.noSideEffect,
+proc vertex*(this: HLRBRepAreaLimit): HLRAlgoIntersection {.noSideEffect,
     importcpp: "Vertex", header: "HLRBRep_AreaLimit.hxx".}
-proc IsBoundary*(this: HLRBRep_AreaLimit): Standard_Boolean {.noSideEffect,
+proc isBoundary*(this: HLRBRepAreaLimit): bool {.noSideEffect,
     importcpp: "IsBoundary", header: "HLRBRep_AreaLimit.hxx".}
-proc IsInterference*(this: HLRBRep_AreaLimit): Standard_Boolean {.noSideEffect,
+proc isInterference*(this: HLRBRepAreaLimit): bool {.noSideEffect,
     importcpp: "IsInterference", header: "HLRBRep_AreaLimit.hxx".}
-proc StateBefore*(this: HLRBRep_AreaLimit): TopAbs_State {.noSideEffect,
+proc stateBefore*(this: HLRBRepAreaLimit): TopAbsState {.noSideEffect,
     importcpp: "StateBefore", header: "HLRBRep_AreaLimit.hxx".}
-proc StateAfter*(this: HLRBRep_AreaLimit): TopAbs_State {.noSideEffect,
+proc stateAfter*(this: HLRBRepAreaLimit): TopAbsState {.noSideEffect,
     importcpp: "StateAfter", header: "HLRBRep_AreaLimit.hxx".}
-proc EdgeBefore*(this: HLRBRep_AreaLimit): TopAbs_State {.noSideEffect,
+proc edgeBefore*(this: HLRBRepAreaLimit): TopAbsState {.noSideEffect,
     importcpp: "EdgeBefore", header: "HLRBRep_AreaLimit.hxx".}
-proc EdgeAfter*(this: HLRBRep_AreaLimit): TopAbs_State {.noSideEffect,
+proc edgeAfter*(this: HLRBRepAreaLimit): TopAbsState {.noSideEffect,
     importcpp: "EdgeAfter", header: "HLRBRep_AreaLimit.hxx".}
-proc Previous*(this: HLRBRep_AreaLimit): handle[HLRBRep_AreaLimit] {.noSideEffect,
+proc previous*(this: HLRBRepAreaLimit): Handle[HLRBRepAreaLimit] {.noSideEffect,
     importcpp: "Previous", header: "HLRBRep_AreaLimit.hxx".}
-proc Next*(this: HLRBRep_AreaLimit): handle[HLRBRep_AreaLimit] {.noSideEffect,
+proc next*(this: HLRBRepAreaLimit): Handle[HLRBRepAreaLimit] {.noSideEffect,
     importcpp: "Next", header: "HLRBRep_AreaLimit.hxx".}
-proc Clear*(this: var HLRBRep_AreaLimit) {.importcpp: "Clear",
-                                       header: "HLRBRep_AreaLimit.hxx".}
+proc clear*(this: var HLRBRepAreaLimit) {.importcpp: "Clear",
+                                      header: "HLRBRep_AreaLimit.hxx".}
 type
-  HLRBRep_AreaLimitbase_type* = Standard_Transient
+  HLRBRepAreaLimitbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "HLRBRep_AreaLimit::get_type_name(@)",
-                              header: "HLRBRep_AreaLimit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "HLRBRep_AreaLimit::get_type_name(@)",
+                            header: "HLRBRep_AreaLimit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "HLRBRep_AreaLimit::get_type_descriptor(@)",
     header: "HLRBRep_AreaLimit.hxx".}
-proc DynamicType*(this: HLRBRep_AreaLimit): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: HLRBRepAreaLimit): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRBRep_AreaLimit.hxx".}

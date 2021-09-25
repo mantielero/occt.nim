@@ -28,6 +28,14 @@ csource "GC_MakeArcOfCircle.hxx":
 proc makeArcOfCircle*(a,b,c:Pnt):Handle_Geom_TrimmedCurve =#Handle_Geom_TrimmedCurve =
   return GC_MakeArcOfCircle.init(a,b,c)
   
+csource "GC_MakeSegment.hxx":
+  type 
+    GC_MakeSegment* = object of CClass
+
+  converter toHandle_Geom_TrimmedCurve*(self: GC_MakeSegment):Handle_Geom_TrimmedCurve {.importcpp:"(#)".}
+
+proc makeSegment*(a,b:Pnt):Handle_Geom_TrimmedCurve =#Handle_Geom_TrimmedCurve =
+  return GC_MakeSegment.init(a,b)
 
 #converter toHandle*(this: GC_MakeArcOfCircle): handle[Geom_TrimmedCurve] =
 #  this.constopencascade

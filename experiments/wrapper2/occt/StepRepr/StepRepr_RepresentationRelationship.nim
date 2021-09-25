@@ -14,61 +14,59 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_Representation"
 discard "forward decl of StepRepr_RepresentationRelationship"
 discard "forward decl of StepRepr_RepresentationRelationship"
 type
-  Handle_StepRepr_RepresentationRelationship* = handle[
-      StepRepr_RepresentationRelationship]
-  StepRepr_RepresentationRelationship* {.importcpp: "StepRepr_RepresentationRelationship", header: "StepRepr_RepresentationRelationship.hxx",
-                                        bycopy.} = object of Standard_Transient ## !
-                                                                           ## Returns a
-                                                                           ## RepresentationRelationship
+  HandleStepReprRepresentationRelationship* = Handle[
+      StepReprRepresentationRelationship]
+  StepReprRepresentationRelationship* {.importcpp: "StepRepr_RepresentationRelationship", header: "StepRepr_RepresentationRelationship.hxx",
+                                       bycopy.} = object of StandardTransient ## ! Returns a
+                                                                         ## RepresentationRelationship
 
 
-proc constructStepRepr_RepresentationRelationship*(): StepRepr_RepresentationRelationship {.
+proc constructStepReprRepresentationRelationship*(): StepReprRepresentationRelationship {.
     constructor, importcpp: "StepRepr_RepresentationRelationship(@)",
     header: "StepRepr_RepresentationRelationship.hxx".}
-proc Init*(this: var StepRepr_RepresentationRelationship;
-          aName: handle[TCollection_HAsciiString];
-          aDescription: handle[TCollection_HAsciiString];
-          aRep1: handle[StepRepr_Representation];
-          aRep2: handle[StepRepr_Representation]) {.importcpp: "Init",
+proc init*(this: var StepReprRepresentationRelationship;
+          aName: Handle[TCollectionHAsciiString];
+          aDescription: Handle[TCollectionHAsciiString];
+          aRep1: Handle[StepReprRepresentation];
+          aRep2: Handle[StepReprRepresentation]) {.importcpp: "Init",
     header: "StepRepr_RepresentationRelationship.hxx".}
-proc SetName*(this: var StepRepr_RepresentationRelationship;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepReprRepresentationRelationship;
+             aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepRepr_RepresentationRelationship.hxx".}
-proc Name*(this: StepRepr_RepresentationRelationship): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Name", header: "StepRepr_RepresentationRelationship.hxx".}
-proc SetDescription*(this: var StepRepr_RepresentationRelationship;
-                    aDescription: handle[TCollection_HAsciiString]) {.
+proc name*(this: StepReprRepresentationRelationship): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Name",
+                              header: "StepRepr_RepresentationRelationship.hxx".}
+proc setDescription*(this: var StepReprRepresentationRelationship;
+                    aDescription: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepRepr_RepresentationRelationship.hxx".}
-proc Description*(this: StepRepr_RepresentationRelationship): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description", header: "StepRepr_RepresentationRelationship.hxx".}
-proc SetRep1*(this: var StepRepr_RepresentationRelationship;
-             aRep1: handle[StepRepr_Representation]) {.importcpp: "SetRep1",
-    header: "StepRepr_RepresentationRelationship.hxx".}
-proc Rep1*(this: StepRepr_RepresentationRelationship): handle[
-    StepRepr_Representation] {.noSideEffect, importcpp: "Rep1",
+proc description*(this: StepReprRepresentationRelationship): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Description",
                               header: "StepRepr_RepresentationRelationship.hxx".}
-proc SetRep2*(this: var StepRepr_RepresentationRelationship;
-             aRep2: handle[StepRepr_Representation]) {.importcpp: "SetRep2",
+proc setRep1*(this: var StepReprRepresentationRelationship;
+             aRep1: Handle[StepReprRepresentation]) {.importcpp: "SetRep1",
     header: "StepRepr_RepresentationRelationship.hxx".}
-proc Rep2*(this: StepRepr_RepresentationRelationship): handle[
-    StepRepr_Representation] {.noSideEffect, importcpp: "Rep2",
-                              header: "StepRepr_RepresentationRelationship.hxx".}
+proc rep1*(this: StepReprRepresentationRelationship): Handle[StepReprRepresentation] {.
+    noSideEffect, importcpp: "Rep1",
+    header: "StepRepr_RepresentationRelationship.hxx".}
+proc setRep2*(this: var StepReprRepresentationRelationship;
+             aRep2: Handle[StepReprRepresentation]) {.importcpp: "SetRep2",
+    header: "StepRepr_RepresentationRelationship.hxx".}
+proc rep2*(this: StepReprRepresentationRelationship): Handle[StepReprRepresentation] {.
+    noSideEffect, importcpp: "Rep2",
+    header: "StepRepr_RepresentationRelationship.hxx".}
 type
-  StepRepr_RepresentationRelationshipbase_type* = Standard_Transient
+  StepReprRepresentationRelationshipbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_RepresentationRelationship::get_type_name(@)",
-                              header: "StepRepr_RepresentationRelationship.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_RepresentationRelationship::get_type_name(@)",
+                            header: "StepRepr_RepresentationRelationship.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_RepresentationRelationship::get_type_descriptor(@)",
     header: "StepRepr_RepresentationRelationship.hxx".}
-proc DynamicType*(this: StepRepr_RepresentationRelationship): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprRepresentationRelationship): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_RepresentationRelationship.hxx".}

@@ -13,52 +13,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepBasic/StepBasic_LengthMeasureWithUnit, StepDimTol_GeometricTolerance
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_MeasureWithUnit"
 discard "forward decl of StepDimTol_GeometricToleranceTarget"
 discard "forward decl of StepDimTol_UnequallyDisposedGeometricTolerance"
 discard "forward decl of StepDimTol_UnequallyDisposedGeometricTolerance"
 type
-  Handle_StepDimTol_UnequallyDisposedGeometricTolerance* = handle[
-      StepDimTol_UnequallyDisposedGeometricTolerance]
+  HandleStepDimTolUnequallyDisposedGeometricTolerance* = Handle[
+      StepDimTolUnequallyDisposedGeometricTolerance]
 
 ## ! Representation of STEP entity UnequallyDisposedGeometricTolerance
 
 type
-  StepDimTol_UnequallyDisposedGeometricTolerance* {.
+  StepDimTolUnequallyDisposedGeometricTolerance* {.
       importcpp: "StepDimTol_UnequallyDisposedGeometricTolerance",
-      header: "StepDimTol_UnequallyDisposedGeometricTolerance.hxx", bycopy.} = object of StepDimTol_GeometricTolerance ##
-                                                                                                                ## !
-                                                                                                                ## Empty
-                                                                                                                ## constructor
+      header: "StepDimTol_UnequallyDisposedGeometricTolerance.hxx", bycopy.} = object of StepDimTolGeometricTolerance ##
+                                                                                                               ## !
+                                                                                                               ## Empty
+                                                                                                               ## constructor
 
 
-proc constructStepDimTol_UnequallyDisposedGeometricTolerance*(): StepDimTol_UnequallyDisposedGeometricTolerance {.
+proc constructStepDimTolUnequallyDisposedGeometricTolerance*(): StepDimTolUnequallyDisposedGeometricTolerance {.
     constructor, importcpp: "StepDimTol_UnequallyDisposedGeometricTolerance(@)",
     header: "StepDimTol_UnequallyDisposedGeometricTolerance.hxx".}
-proc Init*(this: var StepDimTol_UnequallyDisposedGeometricTolerance;
-          theName: handle[TCollection_HAsciiString];
-          theDescription: handle[TCollection_HAsciiString];
-          theMagnitude: handle[StepBasic_MeasureWithUnit];
-          theTolerancedShapeAspect: StepDimTol_GeometricToleranceTarget;
-          theDisplacement: handle[StepBasic_LengthMeasureWithUnit]) {.
+proc init*(this: var StepDimTolUnequallyDisposedGeometricTolerance;
+          theName: Handle[TCollectionHAsciiString];
+          theDescription: Handle[TCollectionHAsciiString];
+          theMagnitude: Handle[StepBasicMeasureWithUnit];
+          theTolerancedShapeAspect: StepDimTolGeometricToleranceTarget;
+          theDisplacement: Handle[StepBasicLengthMeasureWithUnit]) {.
     importcpp: "Init",
     header: "StepDimTol_UnequallyDisposedGeometricTolerance.hxx".}
-proc Displacement*(this: StepDimTol_UnequallyDisposedGeometricTolerance): handle[
-    StepBasic_LengthMeasureWithUnit] {.noSideEffect, importcpp: "Displacement", header: "StepDimTol_UnequallyDisposedGeometricTolerance.hxx".}
-proc SetDisplacement*(this: var StepDimTol_UnequallyDisposedGeometricTolerance;
-                     theDisplacement: handle[StepBasic_LengthMeasureWithUnit]) {.
+proc displacement*(this: StepDimTolUnequallyDisposedGeometricTolerance): Handle[
+    StepBasicLengthMeasureWithUnit] {.noSideEffect, importcpp: "Displacement", header: "StepDimTol_UnequallyDisposedGeometricTolerance.hxx".}
+proc setDisplacement*(this: var StepDimTolUnequallyDisposedGeometricTolerance;
+                     theDisplacement: Handle[StepBasicLengthMeasureWithUnit]) {.
     importcpp: "SetDisplacement",
     header: "StepDimTol_UnequallyDisposedGeometricTolerance.hxx".}
 type
-  StepDimTol_UnequallyDisposedGeometricTolerancebase_type* = StepDimTol_GeometricTolerance
+  StepDimTolUnequallyDisposedGeometricTolerancebaseType* = StepDimTolGeometricTolerance
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_UnequallyDisposedGeometricTolerance::get_type_name(@)", header: "StepDimTol_UnequallyDisposedGeometricTolerance.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepDimTol_UnequallyDisposedGeometricTolerance::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_UnequallyDisposedGeometricTolerance::get_type_name(@)", header: "StepDimTol_UnequallyDisposedGeometricTolerance.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepDimTol_UnequallyDisposedGeometricTolerance::get_type_descriptor(@)",
     header: "StepDimTol_UnequallyDisposedGeometricTolerance.hxx".}
-proc DynamicType*(this: StepDimTol_UnequallyDisposedGeometricTolerance): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepDimTol_UnequallyDisposedGeometricTolerance.hxx".}
+proc dynamicType*(this: StepDimTolUnequallyDisposedGeometricTolerance): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepDimTol_UnequallyDisposedGeometricTolerance.hxx".}

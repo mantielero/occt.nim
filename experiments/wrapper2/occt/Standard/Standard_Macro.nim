@@ -22,7 +22,7 @@
 ## ! function disappears or changes its signature in the base class.
 ## !
 ## ! Expands to C++11 keyword "override" on compilers that are known to
-## ! suppot it; empty in other cases. # defined ( __cplusplus ) && ( __cplusplus >= 201100L ) [NewLine]  part of C++11 standard # override [NewLine] # defined ( _MSC_VER ) && ( _MSC_VER >= 1700 ) [NewLine]  MSVC extension since VS2012 # override [NewLine] # [NewLine] # [NewLine] # [NewLine] ! @def Standard_FALLTHROUGH
+## ! suppot it; empty in other cases. # defined ( __cplusplus ) && ( __cplusplus >= 201100L ) [NewLine]  part of C++11 standard # [NewLine] # defined ( _MSC_VER ) && ( _MSC_VER >= 1700 ) [NewLine]  MSVC extension since VS2012 # [NewLine] # [NewLine] # [NewLine] # [NewLine] ! @def Standard_FALLTHROUGH
 ## ! Should be used in a switch statement immediately before a case label,
 ## ! if code associated with the previous case label may fall through to that
 ## ! next label (i.e. does not end with "break" or "return" etc.).
@@ -90,3 +90,4 @@
 ## ! This macro is defined on Windows platform in the case if the code
 ## ! is being compiled for UWP (Universal Windows Platform). # defined ( WINAPI_FAMILY ) && WINAPI_FAMILY == WINAPI_FAMILY_APP [NewLine] # OCCT_UWP [NewLine] # [NewLine] # OCCT_UWP [NewLine] # OCCT_UWP [NewLine] # [NewLine] # [NewLine] # [NewLine]
 ## Error: did not expect [NewLine]!!!
+

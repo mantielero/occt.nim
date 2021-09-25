@@ -14,66 +14,63 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Graphic3d_NameOfTexture2D, Graphic3d_TextureMap
-
 ## ! This abstract class for managing 2D textures
 
 type
-  Graphic3d_Texture2D* {.importcpp: "Graphic3d_Texture2D",
-                        header: "Graphic3d_Texture2D.hxx", bycopy.} = object of Graphic3d_TextureMap ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## the
-                                                                                              ## number
-                                                                                              ## of
-                                                                                              ## predefined
-                                                                                              ## textures.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## the
-                                                                                              ## name
-                                                                                              ## of
-                                                                                              ## the
-                                                                                              ## predefined
-                                                                                              ## textures
-                                                                                              ## or
-                                                                                              ## NOT_2D_UNKNOWN
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## when
-                                                                                              ## the
-                                                                                              ## name
-                                                                                              ## is
-                                                                                              ## given
-                                                                                              ## as
-                                                                                              ## a
-                                                                                              ## filename.
+  Graphic3dTexture2D* {.importcpp: "Graphic3d_Texture2D",
+                       header: "Graphic3d_Texture2D.hxx", bycopy.} = object of Graphic3dTextureMap ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## the
+                                                                                            ## number
+                                                                                            ## of
+                                                                                            ## predefined
+                                                                                            ## textures.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## the
+                                                                                            ## name
+                                                                                            ## of
+                                                                                            ## the
+                                                                                            ## predefined
+                                                                                            ## textures
+                                                                                            ## or
+                                                                                            ## NOT_2D_UNKNOWN
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## when
+                                                                                            ## the
+                                                                                            ## name
+                                                                                            ## is
+                                                                                            ## given
+                                                                                            ## as
+                                                                                            ## a
+                                                                                            ## filename.
 
-  Graphic3d_Texture2Dbase_type* = Graphic3d_TextureMap
+  Graphic3dTexture2DbaseType* = Graphic3dTextureMap
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_Texture2D::get_type_name(@)",
-                              header: "Graphic3d_Texture2D.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_Texture2D::get_type_name(@)",
+                            header: "Graphic3d_Texture2D.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_Texture2D::get_type_descriptor(@)",
     header: "Graphic3d_Texture2D.hxx".}
-proc DynamicType*(this: Graphic3d_Texture2D): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: Graphic3dTexture2D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Graphic3d_Texture2D.hxx".}
-proc NumberOfTextures*(): Standard_Integer {.
-    importcpp: "Graphic3d_Texture2D::NumberOfTextures(@)",
-    header: "Graphic3d_Texture2D.hxx".}
-proc TextureName*(theRank: Standard_Integer): TCollection_AsciiString {.
+proc numberOfTextures*(): int {.importcpp: "Graphic3d_Texture2D::NumberOfTextures(@)",
+                             header: "Graphic3d_Texture2D.hxx".}
+proc textureName*(theRank: int): TCollectionAsciiString {.
     importcpp: "Graphic3d_Texture2D::TextureName(@)",
     header: "Graphic3d_Texture2D.hxx".}
-proc Name*(this: Graphic3d_Texture2D): Graphic3d_NameOfTexture2D {.noSideEffect,
+proc name*(this: Graphic3dTexture2D): Graphic3dNameOfTexture2D {.noSideEffect,
     importcpp: "Name", header: "Graphic3d_Texture2D.hxx".}
-proc SetImage*(this: var Graphic3d_Texture2D; thePixMap: handle[Image_PixMap]) {.
+proc setImage*(this: var Graphic3dTexture2D; thePixMap: Handle[ImagePixMap]) {.
     importcpp: "SetImage", header: "Graphic3d_Texture2D.hxx".}
-proc HasMipMaps*(this: Graphic3d_Texture2D): Standard_Boolean {.noSideEffect,
+proc hasMipMaps*(this: Graphic3dTexture2D): bool {.noSideEffect,
     importcpp: "HasMipMaps", header: "Graphic3d_Texture2D.hxx".}
-proc SetMipMaps*(this: var Graphic3d_Texture2D; theToUse: Standard_Boolean) {.
+proc setMipMaps*(this: var Graphic3dTexture2D; theToUse: bool) {.
     importcpp: "SetMipMaps", header: "Graphic3d_Texture2D.hxx".}
 discard "forward decl of Graphic3d_Texture2D"
 type
-  Handle_Graphic3d_Texture2D* = handle[Graphic3d_Texture2D]
+  HandleGraphic3dTexture2D* = Handle[Graphic3dTexture2D]
+

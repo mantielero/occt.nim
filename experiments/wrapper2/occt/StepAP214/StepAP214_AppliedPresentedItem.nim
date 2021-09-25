@@ -14,48 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP214_HArray1OfPresentedItemSelect, ../StepVisual/StepVisual_PresentedItem,
-  ../Standard/Standard_Integer
-
 discard "forward decl of StepAP214_PresentedItemSelect"
 discard "forward decl of StepAP214_AppliedPresentedItem"
 discard "forward decl of StepAP214_AppliedPresentedItem"
 type
-  Handle_StepAP214_AppliedPresentedItem* = handle[StepAP214_AppliedPresentedItem]
-  StepAP214_AppliedPresentedItem* {.importcpp: "StepAP214_AppliedPresentedItem", header: "StepAP214_AppliedPresentedItem.hxx",
-                                   bycopy.} = object of StepVisual_PresentedItem ## !
-                                                                            ## Returns a
-                                                                            ## AutoDesignPresentedItem
+  HandleStepAP214AppliedPresentedItem* = Handle[StepAP214AppliedPresentedItem]
+  StepAP214AppliedPresentedItem* {.importcpp: "StepAP214_AppliedPresentedItem",
+                                  header: "StepAP214_AppliedPresentedItem.hxx",
+                                  bycopy.} = object of StepVisualPresentedItem ## !
+                                                                          ## Returns a
+                                                                          ## AutoDesignPresentedItem
 
 
-proc constructStepAP214_AppliedPresentedItem*(): StepAP214_AppliedPresentedItem {.
+proc constructStepAP214AppliedPresentedItem*(): StepAP214AppliedPresentedItem {.
     constructor, importcpp: "StepAP214_AppliedPresentedItem(@)",
     header: "StepAP214_AppliedPresentedItem.hxx".}
-proc Init*(this: var StepAP214_AppliedPresentedItem;
-          aItems: handle[StepAP214_HArray1OfPresentedItemSelect]) {.
+proc init*(this: var StepAP214AppliedPresentedItem;
+          aItems: Handle[StepAP214HArray1OfPresentedItemSelect]) {.
     importcpp: "Init", header: "StepAP214_AppliedPresentedItem.hxx".}
-proc SetItems*(this: var StepAP214_AppliedPresentedItem;
-              aItems: handle[StepAP214_HArray1OfPresentedItemSelect]) {.
+proc setItems*(this: var StepAP214AppliedPresentedItem;
+              aItems: Handle[StepAP214HArray1OfPresentedItemSelect]) {.
     importcpp: "SetItems", header: "StepAP214_AppliedPresentedItem.hxx".}
-proc Items*(this: StepAP214_AppliedPresentedItem): handle[
-    StepAP214_HArray1OfPresentedItemSelect] {.noSideEffect, importcpp: "Items",
+proc items*(this: StepAP214AppliedPresentedItem): Handle[
+    StepAP214HArray1OfPresentedItemSelect] {.noSideEffect, importcpp: "Items",
     header: "StepAP214_AppliedPresentedItem.hxx".}
-proc ItemsValue*(this: StepAP214_AppliedPresentedItem; num: Standard_Integer): StepAP214_PresentedItemSelect {.
+proc itemsValue*(this: StepAP214AppliedPresentedItem; num: int): StepAP214PresentedItemSelect {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AppliedPresentedItem.hxx".}
-proc NbItems*(this: StepAP214_AppliedPresentedItem): Standard_Integer {.
-    noSideEffect, importcpp: "NbItems",
-    header: "StepAP214_AppliedPresentedItem.hxx".}
+proc nbItems*(this: StepAP214AppliedPresentedItem): int {.noSideEffect,
+    importcpp: "NbItems", header: "StepAP214_AppliedPresentedItem.hxx".}
 type
-  StepAP214_AppliedPresentedItembase_type* = StepVisual_PresentedItem
+  StepAP214AppliedPresentedItembaseType* = StepVisualPresentedItem
 
-proc get_type_name*(): cstring {.importcpp: "StepAP214_AppliedPresentedItem::get_type_name(@)",
-                              header: "StepAP214_AppliedPresentedItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP214_AppliedPresentedItem::get_type_name(@)",
+                            header: "StepAP214_AppliedPresentedItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP214_AppliedPresentedItem::get_type_descriptor(@)",
     header: "StepAP214_AppliedPresentedItem.hxx".}
-proc DynamicType*(this: StepAP214_AppliedPresentedItem): handle[Standard_Type] {.
+proc dynamicType*(this: StepAP214AppliedPresentedItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_AppliedPresentedItem.hxx".}

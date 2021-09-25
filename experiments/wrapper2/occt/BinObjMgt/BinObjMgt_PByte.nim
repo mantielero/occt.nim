@@ -13,8 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_TypeDef
-
 type
-  BinObjMgt_PByte* = ptr Standard_Byte
+  BinObjMgtPByte* = ptr StandardByte
+

@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  V3d_TypeOfRepresentation* {.size: sizeof(cint),
-                             importcpp: "V3d_TypeOfRepresentation",
-                             header: "V3d_TypeOfRepresentation.hxx".} = enum
-    V3d_SIMPLE, V3d_COMPLETE, V3d_PARTIAL, V3d_SAMELAST
+  V3dTypeOfRepresentation* {.size: sizeof(cint),
+                            importcpp: "V3d_TypeOfRepresentation",
+                            header: "V3d_TypeOfRepresentation.hxx".} = enum
+    V3dSIMPLE, V3dCOMPLETE, V3dPARTIAL, V3dSAMELAST
+
 

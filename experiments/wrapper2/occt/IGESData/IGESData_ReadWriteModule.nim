@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../Interface/Interface_ReaderModule, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Interface_FileReaderData"
 discard "forward decl of Interface_Check"
@@ -29,7 +25,7 @@ discard "forward decl of IGESData_IGESWriter"
 discard "forward decl of IGESData_ReadWriteModule"
 discard "forward decl of IGESData_ReadWriteModule"
 type
-  Handle_IGESData_ReadWriteModule* = handle[IGESData_ReadWriteModule]
+  HandleIGESDataReadWriteModule* = Handle[IGESDataReadWriteModule]
 
 ## ! Defines basic File Access Module, under the control of
 ## ! IGESReaderTool for Reading and IGESWriter for Writing :
@@ -51,74 +47,73 @@ type
 ## ! Warning : Works with an IGESReaderData which stores "DE parts" of Items
 
 type
-  IGESData_ReadWriteModule* {.importcpp: "IGESData_ReadWriteModule",
-                             header: "IGESData_ReadWriteModule.hxx", bycopy.} = object of Interface_ReaderModule ##
-                                                                                                          ## !
-                                                                                                          ## Translates
-                                                                                                          ## the
-                                                                                                          ## Type
-                                                                                                          ## of
-                                                                                                          ## record
-                                                                                                          ## <num>
-                                                                                                          ## in
-                                                                                                          ## <data>
-                                                                                                          ## to
-                                                                                                          ## a
-                                                                                                          ## positive
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Case
-                                                                                                          ## Number,
-                                                                                                          ## or
-                                                                                                          ## 0
-                                                                                                          ## if
-                                                                                                          ## failed.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Works
-                                                                                                          ## with
-                                                                                                          ## IGESReaderData
-                                                                                                          ## which
-                                                                                                          ## provides
-                                                                                                          ## Type
-                                                                                                          ## &
-                                                                                                          ## Form
-                                                                                                          ## Numbers,
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## and
-                                                                                                          ## calls
-                                                                                                          ## CaseIGES
-                                                                                                          ## (see
-                                                                                                          ## below)
+  IGESDataReadWriteModule* {.importcpp: "IGESData_ReadWriteModule",
+                            header: "IGESData_ReadWriteModule.hxx", bycopy.} = object of InterfaceReaderModule ##
+                                                                                                        ## !
+                                                                                                        ## Translates
+                                                                                                        ## the
+                                                                                                        ## Type
+                                                                                                        ## of
+                                                                                                        ## record
+                                                                                                        ## <num>
+                                                                                                        ## in
+                                                                                                        ## <data>
+                                                                                                        ## to
+                                                                                                        ## a
+                                                                                                        ## positive
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## Case
+                                                                                                        ## Number,
+                                                                                                        ## or
+                                                                                                        ## 0
+                                                                                                        ## if
+                                                                                                        ## failed.
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## Works
+                                                                                                        ## with
+                                                                                                        ## IGESReaderData
+                                                                                                        ## which
+                                                                                                        ## provides
+                                                                                                        ## Type
+                                                                                                        ## &
+                                                                                                        ## Form
+                                                                                                        ## Numbers,
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## and
+                                                                                                        ## calls
+                                                                                                        ## CaseIGES
+                                                                                                        ## (see
+                                                                                                        ## below)
 
 
-proc CaseNum*(this: IGESData_ReadWriteModule;
-             data: handle[Interface_FileReaderData]; num: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "CaseNum", header: "IGESData_ReadWriteModule.hxx".}
-proc CaseIGES*(this: IGESData_ReadWriteModule; typenum: Standard_Integer;
-              formnum: Standard_Integer): Standard_Integer {.noSideEffect,
-    importcpp: "CaseIGES", header: "IGESData_ReadWriteModule.hxx".}
-proc Read*(this: IGESData_ReadWriteModule; CN: Standard_Integer;
-          data: handle[Interface_FileReaderData]; num: Standard_Integer;
-          ach: var handle[Interface_Check]; ent: handle[Standard_Transient]) {.
+proc caseNum*(this: IGESDataReadWriteModule; data: Handle[InterfaceFileReaderData];
+             num: int): int {.noSideEffect, importcpp: "CaseNum",
+                           header: "IGESData_ReadWriteModule.hxx".}
+proc caseIGES*(this: IGESDataReadWriteModule; typenum: int; formnum: int): int {.
+    noSideEffect, importcpp: "CaseIGES", header: "IGESData_ReadWriteModule.hxx".}
+proc read*(this: IGESDataReadWriteModule; cn: int;
+          data: Handle[InterfaceFileReaderData]; num: int;
+          ach: var Handle[InterfaceCheck]; ent: Handle[StandardTransient]) {.
     noSideEffect, importcpp: "Read", header: "IGESData_ReadWriteModule.hxx".}
-proc ReadOwnParams*(this: IGESData_ReadWriteModule; CN: Standard_Integer;
-                   ent: handle[IGESData_IGESEntity];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESData_ReadWriteModule.hxx".}
-proc WriteOwnParams*(this: IGESData_ReadWriteModule; CN: Standard_Integer;
-                    ent: handle[IGESData_IGESEntity]; IW: var IGESData_IGESWriter) {.
+proc readOwnParams*(this: IGESDataReadWriteModule; cn: int;
+                   ent: Handle[IGESDataIGESEntity];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESData_ReadWriteModule.hxx".}
+proc writeOwnParams*(this: IGESDataReadWriteModule; cn: int;
+                    ent: Handle[IGESDataIGESEntity]; iw: var IGESDataIGESWriter) {.
     noSideEffect, importcpp: "WriteOwnParams",
     header: "IGESData_ReadWriteModule.hxx".}
 type
-  IGESData_ReadWriteModulebase_type* = Interface_ReaderModule
+  IGESDataReadWriteModulebaseType* = InterfaceReaderModule
 
-proc get_type_name*(): cstring {.importcpp: "IGESData_ReadWriteModule::get_type_name(@)",
-                              header: "IGESData_ReadWriteModule.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESData_ReadWriteModule::get_type_name(@)",
+                            header: "IGESData_ReadWriteModule.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESData_ReadWriteModule::get_type_descriptor(@)",
     header: "IGESData_ReadWriteModule.hxx".}
-proc DynamicType*(this: IGESData_ReadWriteModule): handle[Standard_Type] {.
+proc dynamicType*(this: IGESDataReadWriteModule): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESData_ReadWriteModule.hxx".}

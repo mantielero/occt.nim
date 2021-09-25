@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Expr_UnaryExpression,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
-  Expr_Array1OfNamedUnknown, ../TColStd/TColStd_Array1OfReal
-
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Expr_NotEvaluable"
 discard "forward decl of Expr_GeneralExpression"
@@ -27,41 +22,41 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_ArcCosine"
 discard "forward decl of Expr_ArcCosine"
 type
-  Handle_Expr_ArcCosine* = handle[Expr_ArcCosine]
-  Expr_ArcCosine* {.importcpp: "Expr_ArcCosine", header: "Expr_ArcCosine.hxx", bycopy.} = object of Expr_UnaryExpression ##
-                                                                                                               ## !
-                                                                                                               ## Creates
-                                                                                                               ## the
-                                                                                                               ## Arccos
-                                                                                                               ## of
-                                                                                                               ## <exp>
+  HandleExprArcCosine* = Handle[ExprArcCosine]
+  ExprArcCosine* {.importcpp: "Expr_ArcCosine", header: "Expr_ArcCosine.hxx", bycopy.} = object of ExprUnaryExpression ##
+                                                                                                             ## !
+                                                                                                             ## Creates
+                                                                                                             ## the
+                                                                                                             ## Arccos
+                                                                                                             ## of
+                                                                                                             ## <exp>
 
 
-proc constructExpr_ArcCosine*(exp: handle[Expr_GeneralExpression]): Expr_ArcCosine {.
+proc constructExprArcCosine*(exp: Handle[ExprGeneralExpression]): ExprArcCosine {.
     constructor, importcpp: "Expr_ArcCosine(@)", header: "Expr_ArcCosine.hxx".}
-proc ShallowSimplified*(this: Expr_ArcCosine): handle[Expr_GeneralExpression] {.
+proc shallowSimplified*(this: ExprArcCosine): Handle[ExprGeneralExpression] {.
     noSideEffect, importcpp: "ShallowSimplified", header: "Expr_ArcCosine.hxx".}
-proc Copy*(this: Expr_ArcCosine): handle[Expr_GeneralExpression] {.noSideEffect,
+proc copy*(this: ExprArcCosine): Handle[ExprGeneralExpression] {.noSideEffect,
     importcpp: "Copy", header: "Expr_ArcCosine.hxx".}
-proc IsIdentical*(this: Expr_ArcCosine; Other: handle[Expr_GeneralExpression]): Standard_Boolean {.
+proc isIdentical*(this: ExprArcCosine; other: Handle[ExprGeneralExpression]): bool {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_ArcCosine.hxx".}
-proc IsLinear*(this: Expr_ArcCosine): Standard_Boolean {.noSideEffect,
-    importcpp: "IsLinear", header: "Expr_ArcCosine.hxx".}
-proc Derivative*(this: Expr_ArcCosine; X: handle[Expr_NamedUnknown]): handle[
-    Expr_GeneralExpression] {.noSideEffect, importcpp: "Derivative",
-                             header: "Expr_ArcCosine.hxx".}
-proc Evaluate*(this: Expr_ArcCosine; vars: Expr_Array1OfNamedUnknown;
-              vals: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
+proc isLinear*(this: ExprArcCosine): bool {.noSideEffect, importcpp: "IsLinear",
+                                        header: "Expr_ArcCosine.hxx".}
+proc derivative*(this: ExprArcCosine; x: Handle[ExprNamedUnknown]): Handle[
+    ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
+                            header: "Expr_ArcCosine.hxx".}
+proc evaluate*(this: ExprArcCosine; vars: ExprArray1OfNamedUnknown;
+              vals: TColStdArray1OfReal): float {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_ArcCosine.hxx".}
-proc String*(this: Expr_ArcCosine): TCollection_AsciiString {.noSideEffect,
+proc string*(this: ExprArcCosine): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_ArcCosine.hxx".}
 type
-  Expr_ArcCosinebase_type* = Expr_UnaryExpression
+  ExprArcCosinebaseType* = ExprUnaryExpression
 
-proc get_type_name*(): cstring {.importcpp: "Expr_ArcCosine::get_type_name(@)",
-                              header: "Expr_ArcCosine.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Expr_ArcCosine::get_type_name(@)",
+                            header: "Expr_ArcCosine.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Expr_ArcCosine::get_type_descriptor(@)",
     header: "Expr_ArcCosine.hxx".}
-proc DynamicType*(this: Expr_ArcCosine): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: ExprArcCosine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_ArcCosine.hxx".}

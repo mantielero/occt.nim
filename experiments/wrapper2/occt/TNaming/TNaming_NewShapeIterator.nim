@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TNaming_PtrNode, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_NoMoreObject"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TNaming_Tool"
@@ -30,34 +25,32 @@ discard "forward decl of TDF_Label"
 discard "forward decl of TNaming_Iterator"
 discard "forward decl of TNaming_NamedShape"
 type
-  TNaming_NewShapeIterator* {.importcpp: "TNaming_NewShapeIterator",
-                             header: "TNaming_NewShapeIterator.hxx", bycopy.} = object
+  TNamingNewShapeIterator* {.importcpp: "TNaming_NewShapeIterator",
+                            header: "TNaming_NewShapeIterator.hxx", bycopy.} = object
 
 
-proc constructTNaming_NewShapeIterator*(aShape: TopoDS_Shape;
-                                       Transaction: Standard_Integer;
-                                       access: TDF_Label): TNaming_NewShapeIterator {.
+proc constructTNamingNewShapeIterator*(aShape: TopoDS_Shape; transaction: int;
+                                      access: TDF_Label): TNamingNewShapeIterator {.
     constructor, importcpp: "TNaming_NewShapeIterator(@)",
     header: "TNaming_NewShapeIterator.hxx".}
-proc constructTNaming_NewShapeIterator*(aShape: TopoDS_Shape; access: TDF_Label): TNaming_NewShapeIterator {.
+proc constructTNamingNewShapeIterator*(aShape: TopoDS_Shape; access: TDF_Label): TNamingNewShapeIterator {.
     constructor, importcpp: "TNaming_NewShapeIterator(@)",
     header: "TNaming_NewShapeIterator.hxx".}
-proc constructTNaming_NewShapeIterator*(anIterator: TNaming_NewShapeIterator): TNaming_NewShapeIterator {.
+proc constructTNamingNewShapeIterator*(anIterator: TNamingNewShapeIterator): TNamingNewShapeIterator {.
     constructor, importcpp: "TNaming_NewShapeIterator(@)",
     header: "TNaming_NewShapeIterator.hxx".}
-proc constructTNaming_NewShapeIterator*(anIterator: TNaming_Iterator): TNaming_NewShapeIterator {.
+proc constructTNamingNewShapeIterator*(anIterator: TNamingIterator): TNamingNewShapeIterator {.
     constructor, importcpp: "TNaming_NewShapeIterator(@)",
     header: "TNaming_NewShapeIterator.hxx".}
-proc More*(this: TNaming_NewShapeIterator): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "TNaming_NewShapeIterator.hxx".}
-proc Next*(this: var TNaming_NewShapeIterator) {.importcpp: "Next",
+proc more*(this: TNamingNewShapeIterator): bool {.noSideEffect, importcpp: "More",
     header: "TNaming_NewShapeIterator.hxx".}
-proc Label*(this: TNaming_NewShapeIterator): TDF_Label {.noSideEffect,
+proc next*(this: var TNamingNewShapeIterator) {.importcpp: "Next",
+    header: "TNaming_NewShapeIterator.hxx".}
+proc label*(this: TNamingNewShapeIterator): TDF_Label {.noSideEffect,
     importcpp: "Label", header: "TNaming_NewShapeIterator.hxx".}
-proc NamedShape*(this: TNaming_NewShapeIterator): handle[TNaming_NamedShape] {.
+proc namedShape*(this: TNamingNewShapeIterator): Handle[TNamingNamedShape] {.
     noSideEffect, importcpp: "NamedShape", header: "TNaming_NewShapeIterator.hxx".}
-proc Shape*(this: TNaming_NewShapeIterator): TopoDS_Shape {.noSideEffect,
+proc shape*(this: TNamingNewShapeIterator): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "TNaming_NewShapeIterator.hxx".}
-proc IsModification*(this: TNaming_NewShapeIterator): Standard_Boolean {.
-    noSideEffect, importcpp: "IsModification",
-    header: "TNaming_NewShapeIterator.hxx".}
+proc isModification*(this: TNamingNewShapeIterator): bool {.noSideEffect,
+    importcpp: "IsModification", header: "TNaming_NewShapeIterator.hxx".}

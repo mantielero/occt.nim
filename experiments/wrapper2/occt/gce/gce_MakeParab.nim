@@ -14,101 +14,97 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Parab, gce_Root, ../Standard/Standard_Real
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Parab"
 type
-  gce_MakeParab* {.importcpp: "gce_MakeParab", header: "gce_MakeParab.hxx", bycopy.} = object of gce_Root ##
-                                                                                                ## !
-                                                                                                ## ---
-                                                                                                ## Purpose
-                                                                                                ## ;
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## a
-                                                                                                ## parabola
-                                                                                                ## with
-                                                                                                ## its
-                                                                                                ## local
-                                                                                                ## coordinate
-                                                                                                ## system
-                                                                                                ## "A2"
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## and
-                                                                                                ## it's
-                                                                                                ## focal
-                                                                                                ## length
-                                                                                                ## "Focal".
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## The
-                                                                                                ## XDirection
-                                                                                                ## of
-                                                                                                ## A2
-                                                                                                ## defines
-                                                                                                ## the
-                                                                                                ## axis
-                                                                                                ## of
-                                                                                                ## symmetry
-                                                                                                ## of
-                                                                                                ## the
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## parabola.
-                                                                                                ## The
-                                                                                                ## YDirection
-                                                                                                ## of
-                                                                                                ## A2
-                                                                                                ## is
-                                                                                                ## parallel
-                                                                                                ## to
-                                                                                                ## the
-                                                                                                ## directrix
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## of
-                                                                                                ## the
-                                                                                                ## parabola.
-                                                                                                ## The
-                                                                                                ## Location
-                                                                                                ## point
-                                                                                                ## of
-                                                                                                ## A2
-                                                                                                ## is
-                                                                                                ## the
-                                                                                                ## vertex
-                                                                                                ## of
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## the
-                                                                                                ## parabola
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## The
-                                                                                                ## status
-                                                                                                ## is
-                                                                                                ## "NullFocusLength"
-                                                                                                ## if
-                                                                                                ## Focal
-                                                                                                ## <
-                                                                                                ## 0.0
+  GceMakeParab* {.importcpp: "gce_MakeParab", header: "gce_MakeParab.hxx", bycopy.} = object of GceRoot ##
+                                                                                              ## !
+                                                                                              ## ---
+                                                                                              ## Purpose
+                                                                                              ## ;
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Creates
+                                                                                              ## a
+                                                                                              ## parabola
+                                                                                              ## with
+                                                                                              ## its
+                                                                                              ## local
+                                                                                              ## coordinate
+                                                                                              ## system
+                                                                                              ## "A2"
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## and
+                                                                                              ## it's
+                                                                                              ## focal
+                                                                                              ## length
+                                                                                              ## "Focal".
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## The
+                                                                                              ## XDirection
+                                                                                              ## of
+                                                                                              ## A2
+                                                                                              ## defines
+                                                                                              ## the
+                                                                                              ## axis
+                                                                                              ## of
+                                                                                              ## symmetry
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## parabola.
+                                                                                              ## The
+                                                                                              ## YDirection
+                                                                                              ## of
+                                                                                              ## A2
+                                                                                              ## is
+                                                                                              ## parallel
+                                                                                              ## to
+                                                                                              ## the
+                                                                                              ## directrix
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ## parabola.
+                                                                                              ## The
+                                                                                              ## Location
+                                                                                              ## point
+                                                                                              ## of
+                                                                                              ## A2
+                                                                                              ## is
+                                                                                              ## the
+                                                                                              ## vertex
+                                                                                              ## of
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## the
+                                                                                              ## parabola
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## The
+                                                                                              ## status
+                                                                                              ## is
+                                                                                              ## "NullFocusLength"
+                                                                                              ## if
+                                                                                              ## Focal
+                                                                                              ## <
+                                                                                              ## 0.0
 
 
-proc constructgce_MakeParab*(A2: gp_Ax2; Focal: Standard_Real): gce_MakeParab {.
-    constructor, importcpp: "gce_MakeParab(@)", header: "gce_MakeParab.hxx".}
-proc constructgce_MakeParab*(D: gp_Ax1; F: gp_Pnt): gce_MakeParab {.constructor,
+proc constructGceMakeParab*(a2: Ax2; focal: float): GceMakeParab {.constructor,
     importcpp: "gce_MakeParab(@)", header: "gce_MakeParab.hxx".}
-proc Value*(this: gce_MakeParab): gp_Parab {.noSideEffect, importcpp: "Value",
-    header: "gce_MakeParab.hxx".}
-proc Operator*(this: gce_MakeParab): gp_Parab {.noSideEffect, importcpp: "Operator",
-    header: "gce_MakeParab.hxx".}
-converter `gp_Parab`*(this: gce_MakeParab): gp_Parab {.noSideEffect,
+proc constructGceMakeParab*(d: Ax1; f: Pnt): GceMakeParab {.constructor,
+    importcpp: "gce_MakeParab(@)", header: "gce_MakeParab.hxx".}
+proc value*(this: GceMakeParab): Parab {.noSideEffect, importcpp: "Value",
+                                     header: "gce_MakeParab.hxx".}
+proc operator*(this: GceMakeParab): Parab {.noSideEffect, importcpp: "Operator",
+                                        header: "gce_MakeParab.hxx".}
+converter `parab`*(this: GceMakeParab): Parab {.noSideEffect,
     importcpp: "gce_MakeParab::operator gp_Parab", header: "gce_MakeParab.hxx".}

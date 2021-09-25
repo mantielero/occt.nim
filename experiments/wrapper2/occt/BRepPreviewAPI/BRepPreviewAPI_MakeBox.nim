@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../BRepPrimAPI/BRepPrimAPI_MakeBox
-
 ## ! Builds a valid box, if points fulfill the conditions of a valid box.
 ## ! And allows to build a preview, otherwise.
 ## ! There are 4 cases:
@@ -47,5 +44,5 @@ type
 
 proc constructBRepPreviewAPI_MakeBox*(): BRepPreviewAPI_MakeBox {.constructor,
     importcpp: "BRepPreviewAPI_MakeBox(@)", header: "BRepPreviewAPI_MakeBox.hxx".}
-proc Build*(this: var BRepPreviewAPI_MakeBox) {.importcpp: "Build",
+proc build*(this: var BRepPreviewAPI_MakeBox) {.importcpp: "Build",
     header: "BRepPreviewAPI_MakeBox.hxx".}

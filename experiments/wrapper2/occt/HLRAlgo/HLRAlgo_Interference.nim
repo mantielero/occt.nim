@@ -14,48 +14,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _HLRAlgo_Interference_HeaderFile [NewLine] # _HLRAlgo_Interference_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # HLRAlgo_Intersection.hxx [NewLine] # HLRAlgo_Coincidence.hxx [NewLine] # ../TopAbs/TopAbs_Orientation.hxx [NewLine] class HLRAlgo_Intersection ;
+## !!!Ignored construct:  # _HLRAlgo_Interference_HeaderFile [NewLine] # _HLRAlgo_Interference_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < HLRAlgo_Intersection . hxx > [NewLine] # < HLRAlgo_Coincidence . hxx > [NewLine] # < TopAbs_Orientation . hxx > [NewLine] class HLRAlgo_Intersection ;
 ## Error: did not expect <!!!
 
 discard "forward decl of HLRAlgo_Coincidence"
 type
-  HLRAlgo_Interference* {.importcpp: "HLRAlgo_Interference",
-                         header: "HLRAlgo_Interference.hxx", bycopy.} = object
+  HLRAlgoInterference* {.importcpp: "HLRAlgo_Interference",
+                        header: "HLRAlgo_Interference.hxx", bycopy.} = object
 
 
-proc constructHLRAlgo_Interference*(): HLRAlgo_Interference {.constructor,
+proc constructHLRAlgoInterference*(): HLRAlgoInterference {.constructor,
     importcpp: "HLRAlgo_Interference(@)", header: "HLRAlgo_Interference.hxx".}
-proc constructHLRAlgo_Interference*(Inters: HLRAlgo_Intersection;
-                                   Bound: HLRAlgo_Coincidence;
-                                   Orient: TopAbs_Orientation;
-                                   Trans: TopAbs_Orientation;
-                                   BTrans: TopAbs_Orientation): HLRAlgo_Interference {.
+proc constructHLRAlgoInterference*(inters: HLRAlgoIntersection;
+                                  bound: HLRAlgoCoincidence;
+                                  orient: TopAbsOrientation;
+                                  trans: TopAbsOrientation;
+                                  bTrans: TopAbsOrientation): HLRAlgoInterference {.
     constructor, importcpp: "HLRAlgo_Interference(@)",
     header: "HLRAlgo_Interference.hxx".}
-proc Intersection*(this: var HLRAlgo_Interference; I: HLRAlgo_Intersection) {.
+proc intersection*(this: var HLRAlgoInterference; i: HLRAlgoIntersection) {.
     importcpp: "Intersection", header: "HLRAlgo_Interference.hxx".}
-proc Boundary*(this: var HLRAlgo_Interference; B: HLRAlgo_Coincidence) {.
+proc boundary*(this: var HLRAlgoInterference; b: HLRAlgoCoincidence) {.
     importcpp: "Boundary", header: "HLRAlgo_Interference.hxx".}
-proc Orientation*(this: var HLRAlgo_Interference; O: TopAbs_Orientation) {.
+proc orientation*(this: var HLRAlgoInterference; o: TopAbsOrientation) {.
     importcpp: "Orientation", header: "HLRAlgo_Interference.hxx".}
-proc Transition*(this: var HLRAlgo_Interference; Tr: TopAbs_Orientation) {.
+proc transition*(this: var HLRAlgoInterference; tr: TopAbsOrientation) {.
     importcpp: "Transition", header: "HLRAlgo_Interference.hxx".}
-proc BoundaryTransition*(this: var HLRAlgo_Interference; BTr: TopAbs_Orientation) {.
+proc boundaryTransition*(this: var HLRAlgoInterference; bTr: TopAbsOrientation) {.
     importcpp: "BoundaryTransition", header: "HLRAlgo_Interference.hxx".}
-proc Intersection*(this: HLRAlgo_Interference): HLRAlgo_Intersection {.noSideEffect,
+proc intersection*(this: HLRAlgoInterference): HLRAlgoIntersection {.noSideEffect,
     importcpp: "Intersection", header: "HLRAlgo_Interference.hxx".}
-proc ChangeIntersection*(this: var HLRAlgo_Interference): var HLRAlgo_Intersection {.
+proc changeIntersection*(this: var HLRAlgoInterference): var HLRAlgoIntersection {.
     importcpp: "ChangeIntersection", header: "HLRAlgo_Interference.hxx".}
-proc Boundary*(this: HLRAlgo_Interference): HLRAlgo_Coincidence {.noSideEffect,
+proc boundary*(this: HLRAlgoInterference): HLRAlgoCoincidence {.noSideEffect,
     importcpp: "Boundary", header: "HLRAlgo_Interference.hxx".}
-proc ChangeBoundary*(this: var HLRAlgo_Interference): var HLRAlgo_Coincidence {.
+proc changeBoundary*(this: var HLRAlgoInterference): var HLRAlgoCoincidence {.
     importcpp: "ChangeBoundary", header: "HLRAlgo_Interference.hxx".}
-proc Orientation*(this: HLRAlgo_Interference): TopAbs_Orientation {.noSideEffect,
+proc orientation*(this: HLRAlgoInterference): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "HLRAlgo_Interference.hxx".}
-proc Transition*(this: HLRAlgo_Interference): TopAbs_Orientation {.noSideEffect,
+proc transition*(this: HLRAlgoInterference): TopAbsOrientation {.noSideEffect,
     importcpp: "Transition", header: "HLRAlgo_Interference.hxx".}
-proc BoundaryTransition*(this: HLRAlgo_Interference): TopAbs_Orientation {.
+proc boundaryTransition*(this: HLRAlgoInterference): TopAbsOrientation {.
     noSideEffect, importcpp: "BoundaryTransition",
     header: "HLRAlgo_Interference.hxx".}
-## !!!Ignored construct:  # TheSubShape HLRAlgo_Intersection [NewLine] # TheSubShape_hxx < HLRAlgo_Intersection . hxx > [NewLine] # TheShape HLRAlgo_Coincidence [NewLine] # TheShape_hxx < HLRAlgo_Coincidence . hxx > [NewLine] # TopBas_Interference HLRAlgo_Interference [NewLine] # TopBas_Interference_hxx < HLRAlgo_Interference . hxx > [NewLine] # < TopBas_Interference . lxx > [NewLine] # TheSubShape [NewLine] # TheSubShape_hxx [NewLine] # TheShape [NewLine] # TheShape_hxx [NewLine] # TopBas_Interference [NewLine] # TopBas_Interference_hxx [NewLine] #  _HLRAlgo_Interference_HeaderFile [NewLine]
+## !!!Ignored construct:  # TheSubShape HLRAlgo_Intersection [NewLine] # TheSubShape_hxx < HLRAlgo_Intersection . hxx > [NewLine] # TheShape HLRAlgo_Coincidence [NewLine] # TheShape_hxx < HLRAlgo_Coincidence . hxx > [NewLine] # TopBas_Interference HLRAlgo_Interference [NewLine] # TopBas_Interference_hxx < HLRAlgo_Interference . hxx > [NewLine] # < TopBas_Interference . lxx > [NewLine] # TheSubShape [NewLine] # TheSubShape_hxx [NewLine] # TheShape [NewLine] # TheShape_hxx [NewLine] # TopBas_Interference [NewLine] # TopBas_Interference_hxx [NewLine] #  _HLRAlgo_Interference_HeaderFile
 ## Error: did not expect <!!!
+

@@ -14,36 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Dir, TColgp_Array1OfDir, ../NCollection/NCollection_DefineHArray1
-
 type
-  TColgp_HArray1OfDir* {.importcpp: "TColgp_HArray1OfDir",
-                        header: "TColgp_HArray1OfDir.hxx", bycopy.} = object of TColgp_Array1OfDir
+  TColgpHArray1OfDir* {.importcpp: "TColgp_HArray1OfDir",
+                       header: "TColgp_HArray1OfDir.hxx", bycopy.} = object of TColgpArray1OfDir
 
 
-proc constructTColgp_HArray1OfDir*(theLower: Standard_Integer;
-                                  theUpper: Standard_Integer): TColgp_HArray1OfDir {.
+proc constructTColgpHArray1OfDir*(theLower: int; theUpper: int): TColgpHArray1OfDir {.
     constructor, importcpp: "TColgp_HArray1OfDir(@)",
     header: "TColgp_HArray1OfDir.hxx".}
-proc constructTColgp_HArray1OfDir*(theLower: Standard_Integer;
-                                  theUpper: Standard_Integer; theValue: value_type): TColgp_HArray1OfDir {.
+proc constructTColgpHArray1OfDir*(theLower: int; theUpper: int; theValue: ValueType): TColgpHArray1OfDir {.
     constructor, importcpp: "TColgp_HArray1OfDir(@)",
     header: "TColgp_HArray1OfDir.hxx".}
-proc constructTColgp_HArray1OfDir*(theOther: TColgp_Array1OfDir): TColgp_HArray1OfDir {.
+proc constructTColgpHArray1OfDir*(theOther: TColgpArray1OfDir): TColgpHArray1OfDir {.
     constructor, importcpp: "TColgp_HArray1OfDir(@)",
     header: "TColgp_HArray1OfDir.hxx".}
-proc Array1*(this: TColgp_HArray1OfDir): TColgp_Array1OfDir {.noSideEffect,
+proc array1*(this: TColgpHArray1OfDir): TColgpArray1OfDir {.noSideEffect,
     importcpp: "Array1", header: "TColgp_HArray1OfDir.hxx".}
-proc ChangeArray1*(this: var TColgp_HArray1OfDir): var TColgp_Array1OfDir {.
+proc changeArray1*(this: var TColgpHArray1OfDir): var TColgpArray1OfDir {.
     importcpp: "ChangeArray1", header: "TColgp_HArray1OfDir.hxx".}
 type
-  TColgp_HArray1OfDirbase_type* = MMgt_TShared
+  TColgpHArray1OfDirbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TColgp_HArray1OfDir::get_type_name(@)",
-                              header: "TColgp_HArray1OfDir.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TColgp_HArray1OfDir::get_type_name(@)",
+                            header: "TColgp_HArray1OfDir.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TColgp_HArray1OfDir::get_type_descriptor(@)",
     header: "TColgp_HArray1OfDir.hxx".}
-proc DynamicType*(this: TColgp_HArray1OfDir): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TColgpHArray1OfDir): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TColgp_HArray1OfDir.hxx".}

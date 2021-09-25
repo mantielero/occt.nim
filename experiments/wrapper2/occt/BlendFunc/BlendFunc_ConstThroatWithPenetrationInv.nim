@@ -12,33 +12,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, BlendFunc_ConstThroatInv, ../math/math_Vector,
-  ../Standard/Standard_Real
-
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of math_Matrix"
 type
-  BlendFunc_ConstThroatWithPenetrationInv* {.
+  BlendFuncConstThroatWithPenetrationInv* {.
       importcpp: "BlendFunc_ConstThroatWithPenetrationInv",
-      header: "BlendFunc_ConstThroatWithPenetrationInv.hxx", bycopy.} = object of BlendFunc_ConstThroatInv
+      header: "BlendFunc_ConstThroatWithPenetrationInv.hxx", bycopy.} = object of BlendFuncConstThroatInv
 
 
-proc constructBlendFunc_ConstThroatWithPenetrationInv*(
-    S1: handle[Adaptor3d_HSurface]; S2: handle[Adaptor3d_HSurface];
-    C: handle[Adaptor3d_HCurve]): BlendFunc_ConstThroatWithPenetrationInv {.
+proc constructBlendFuncConstThroatWithPenetrationInv*(
+    s1: Handle[Adaptor3dHSurface]; s2: Handle[Adaptor3dHSurface];
+    c: Handle[Adaptor3dHCurve]): BlendFuncConstThroatWithPenetrationInv {.
     constructor, importcpp: "BlendFunc_ConstThroatWithPenetrationInv(@)",
     header: "BlendFunc_ConstThroatWithPenetrationInv.hxx".}
-proc IsSolution*(this: var BlendFunc_ConstThroatWithPenetrationInv;
-                Sol: math_Vector; Tol: Standard_Real): Standard_Boolean {.
-    importcpp: "IsSolution", header: "BlendFunc_ConstThroatWithPenetrationInv.hxx".}
-proc Value*(this: var BlendFunc_ConstThroatWithPenetrationInv; X: math_Vector;
-           F: var math_Vector): Standard_Boolean {.importcpp: "Value",
-    header: "BlendFunc_ConstThroatWithPenetrationInv.hxx".}
-proc Derivatives*(this: var BlendFunc_ConstThroatWithPenetrationInv; X: math_Vector;
-                 D: var math_Matrix): Standard_Boolean {.importcpp: "Derivatives",
-    header: "BlendFunc_ConstThroatWithPenetrationInv.hxx".}
+proc isSolution*(this: var BlendFuncConstThroatWithPenetrationInv; sol: MathVector;
+                tol: float): bool {.importcpp: "IsSolution", header: "BlendFunc_ConstThroatWithPenetrationInv.hxx".}
+proc value*(this: var BlendFuncConstThroatWithPenetrationInv; x: MathVector;
+           f: var MathVector): bool {.importcpp: "Value", header: "BlendFunc_ConstThroatWithPenetrationInv.hxx".}
+proc derivatives*(this: var BlendFuncConstThroatWithPenetrationInv; x: MathVector;
+                 d: var MathMatrix): bool {.importcpp: "Derivatives", header: "BlendFunc_ConstThroatWithPenetrationInv.hxx".}

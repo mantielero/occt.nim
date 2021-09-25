@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../TColgp/TColgp_Array1OfPnt2d, ../Standard/Standard_Integer,
-  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Real,
-  ../TColStd/TColStd_Array1OfReal, ../Approx/Approx_ParametrizationType
-
 discard "forward decl of Geom2d_BSplineCurve"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
@@ -51,74 +44,63 @@ type
 proc constructGeom2dAPI_PointsToBSpline*(): Geom2dAPI_PointsToBSpline {.
     constructor, importcpp: "Geom2dAPI_PointsToBSpline(@)",
     header: "Geom2dAPI_PointsToBSpline.hxx".}
-proc constructGeom2dAPI_PointsToBSpline*(Points: TColgp_Array1OfPnt2d;
-                                        DegMin: Standard_Integer = 3;
-                                        DegMax: Standard_Integer = 8;
-                                        Continuity: GeomAbs_Shape = GeomAbs_C2;
-                                        Tol2D: Standard_Real = 1.0e-6): Geom2dAPI_PointsToBSpline {.
+proc constructGeom2dAPI_PointsToBSpline*(points: TColgpArray1OfPnt2d;
+                                        degMin: int = 3; degMax: int = 8;
+                                        continuity: GeomAbsShape = geomAbsC2;
+                                        tol2D: float = 1.0e-6): Geom2dAPI_PointsToBSpline {.
     constructor, importcpp: "Geom2dAPI_PointsToBSpline(@)",
     header: "Geom2dAPI_PointsToBSpline.hxx".}
-proc constructGeom2dAPI_PointsToBSpline*(YValues: TColStd_Array1OfReal;
-                                        X0: Standard_Real; DX: Standard_Real;
-                                        DegMin: Standard_Integer = 3;
-                                        DegMax: Standard_Integer = 8;
-                                        Continuity: GeomAbs_Shape = GeomAbs_C2;
-                                        Tol2D: Standard_Real = 1.0e-6): Geom2dAPI_PointsToBSpline {.
+proc constructGeom2dAPI_PointsToBSpline*(yValues: TColStdArray1OfReal; x0: float;
+                                        dx: float; degMin: int = 3; degMax: int = 8;
+                                        continuity: GeomAbsShape = geomAbsC2;
+                                        tol2D: float = 1.0e-6): Geom2dAPI_PointsToBSpline {.
     constructor, importcpp: "Geom2dAPI_PointsToBSpline(@)",
     header: "Geom2dAPI_PointsToBSpline.hxx".}
-proc constructGeom2dAPI_PointsToBSpline*(Points: TColgp_Array1OfPnt2d;
-                                        ParType: Approx_ParametrizationType;
-                                        DegMin: Standard_Integer = 3;
-                                        DegMax: Standard_Integer = 8;
-                                        Continuity: GeomAbs_Shape = GeomAbs_C2;
-                                        Tol2D: Standard_Real = 1.0e-3): Geom2dAPI_PointsToBSpline {.
+proc constructGeom2dAPI_PointsToBSpline*(points: TColgpArray1OfPnt2d;
+                                        parType: ApproxParametrizationType;
+                                        degMin: int = 3; degMax: int = 8;
+                                        continuity: GeomAbsShape = geomAbsC2;
+                                        tol2D: float = 1.0e-3): Geom2dAPI_PointsToBSpline {.
     constructor, importcpp: "Geom2dAPI_PointsToBSpline(@)",
     header: "Geom2dAPI_PointsToBSpline.hxx".}
-proc constructGeom2dAPI_PointsToBSpline*(Points: TColgp_Array1OfPnt2d;
-                                        Parameters: TColStd_Array1OfReal;
-                                        DegMin: Standard_Integer = 3;
-                                        DegMax: Standard_Integer = 8;
-                                        Continuity: GeomAbs_Shape = GeomAbs_C2;
-                                        Tol2D: Standard_Real = 1.0e-3): Geom2dAPI_PointsToBSpline {.
+proc constructGeom2dAPI_PointsToBSpline*(points: TColgpArray1OfPnt2d;
+                                        parameters: TColStdArray1OfReal;
+                                        degMin: int = 3; degMax: int = 8;
+                                        continuity: GeomAbsShape = geomAbsC2;
+                                        tol2D: float = 1.0e-3): Geom2dAPI_PointsToBSpline {.
     constructor, importcpp: "Geom2dAPI_PointsToBSpline(@)",
     header: "Geom2dAPI_PointsToBSpline.hxx".}
-proc constructGeom2dAPI_PointsToBSpline*(Points: TColgp_Array1OfPnt2d;
-                                        Weight1: Standard_Real;
-                                        Weight2: Standard_Real;
-                                        Weight3: Standard_Real;
-                                        DegMax: Standard_Integer = 8;
-                                        Continuity: GeomAbs_Shape = GeomAbs_C2;
-                                        Tol3D: Standard_Real = 1.0e-3): Geom2dAPI_PointsToBSpline {.
+proc constructGeom2dAPI_PointsToBSpline*(points: TColgpArray1OfPnt2d;
+                                        weight1: float; weight2: float;
+                                        weight3: float; degMax: int = 8;
+                                        continuity: GeomAbsShape = geomAbsC2;
+                                        tol3D: float = 1.0e-3): Geom2dAPI_PointsToBSpline {.
     constructor, importcpp: "Geom2dAPI_PointsToBSpline(@)",
     header: "Geom2dAPI_PointsToBSpline.hxx".}
-proc Init*(this: var Geom2dAPI_PointsToBSpline; Points: TColgp_Array1OfPnt2d;
-          DegMin: Standard_Integer = 3; DegMax: Standard_Integer = 8;
-          Continuity: GeomAbs_Shape = GeomAbs_C2; Tol2D: Standard_Real = 1.0e-6) {.
+proc init*(this: var Geom2dAPI_PointsToBSpline; points: TColgpArray1OfPnt2d;
+          degMin: int = 3; degMax: int = 8; continuity: GeomAbsShape = geomAbsC2;
+          tol2D: float = 1.0e-6) {.importcpp: "Init",
+                               header: "Geom2dAPI_PointsToBSpline.hxx".}
+proc init*(this: var Geom2dAPI_PointsToBSpline; yValues: TColStdArray1OfReal;
+          x0: float; dx: float; degMin: int = 3; degMax: int = 8;
+          continuity: GeomAbsShape = geomAbsC2; tol2D: float = 1.0e-6) {.
     importcpp: "Init", header: "Geom2dAPI_PointsToBSpline.hxx".}
-proc Init*(this: var Geom2dAPI_PointsToBSpline; YValues: TColStd_Array1OfReal;
-          X0: Standard_Real; DX: Standard_Real; DegMin: Standard_Integer = 3;
-          DegMax: Standard_Integer = 8; Continuity: GeomAbs_Shape = GeomAbs_C2;
-          Tol2D: Standard_Real = 1.0e-6) {.importcpp: "Init",
-                                       header: "Geom2dAPI_PointsToBSpline.hxx".}
-proc Init*(this: var Geom2dAPI_PointsToBSpline; Points: TColgp_Array1OfPnt2d;
-          ParType: Approx_ParametrizationType; DegMin: Standard_Integer = 3;
-          DegMax: Standard_Integer = 8; Continuity: GeomAbs_Shape = GeomAbs_C2;
-          Tol2D: Standard_Real = 1.0e-3) {.importcpp: "Init",
-                                       header: "Geom2dAPI_PointsToBSpline.hxx".}
-proc Init*(this: var Geom2dAPI_PointsToBSpline; Points: TColgp_Array1OfPnt2d;
-          Parameters: TColStd_Array1OfReal; DegMin: Standard_Integer = 3;
-          DegMax: Standard_Integer = 8; Continuity: GeomAbs_Shape = GeomAbs_C2;
-          Tol2D: Standard_Real = 1.0e-3) {.importcpp: "Init",
-                                       header: "Geom2dAPI_PointsToBSpline.hxx".}
-proc Init*(this: var Geom2dAPI_PointsToBSpline; Points: TColgp_Array1OfPnt2d;
-          Weight1: Standard_Real; Weight2: Standard_Real; Weight3: Standard_Real;
-          DegMax: Standard_Integer = 8; Continuity: GeomAbs_Shape = GeomAbs_C2;
-          Tol2D: Standard_Real = 1.0e-3) {.importcpp: "Init",
-                                       header: "Geom2dAPI_PointsToBSpline.hxx".}
-proc Curve*(this: Geom2dAPI_PointsToBSpline): handle[Geom2d_BSplineCurve] {.
+proc init*(this: var Geom2dAPI_PointsToBSpline; points: TColgpArray1OfPnt2d;
+          parType: ApproxParametrizationType; degMin: int = 3; degMax: int = 8;
+          continuity: GeomAbsShape = geomAbsC2; tol2D: float = 1.0e-3) {.
+    importcpp: "Init", header: "Geom2dAPI_PointsToBSpline.hxx".}
+proc init*(this: var Geom2dAPI_PointsToBSpline; points: TColgpArray1OfPnt2d;
+          parameters: TColStdArray1OfReal; degMin: int = 3; degMax: int = 8;
+          continuity: GeomAbsShape = geomAbsC2; tol2D: float = 1.0e-3) {.
+    importcpp: "Init", header: "Geom2dAPI_PointsToBSpline.hxx".}
+proc init*(this: var Geom2dAPI_PointsToBSpline; points: TColgpArray1OfPnt2d;
+          weight1: float; weight2: float; weight3: float; degMax: int = 8;
+          continuity: GeomAbsShape = geomAbsC2; tol2D: float = 1.0e-3) {.
+    importcpp: "Init", header: "Geom2dAPI_PointsToBSpline.hxx".}
+proc curve*(this: Geom2dAPI_PointsToBSpline): Handle[Geom2dBSplineCurve] {.
     noSideEffect, importcpp: "Curve", header: "Geom2dAPI_PointsToBSpline.hxx".}
-converter `opencascade`*(this: Geom2dAPI_PointsToBSpline): handle[
-    Geom2d_BSplineCurve] {.noSideEffect, importcpp: "Geom2dAPI_PointsToBSpline::operator opencascade",
-                          header: "Geom2dAPI_PointsToBSpline.hxx".}
-proc IsDone*(this: Geom2dAPI_PointsToBSpline): Standard_Boolean {.noSideEffect,
+converter `opencascade`*(this: Geom2dAPI_PointsToBSpline): Handle[
+    Geom2dBSplineCurve] {.noSideEffect, importcpp: "Geom2dAPI_PointsToBSpline::operator opencascade",
+                         header: "Geom2dAPI_PointsToBSpline.hxx".}
+proc isDone*(this: Geom2dAPI_PointsToBSpline): bool {.noSideEffect,
     importcpp: "IsDone", header: "Geom2dAPI_PointsToBSpline.hxx".}

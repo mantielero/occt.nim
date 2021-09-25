@@ -14,16 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _StdFail_UndefinedDerivative_HeaderFile [NewLine] # _StdFail_UndefinedDerivative_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_DomainError.hxx [NewLine] class StdFail_UndefinedDerivative ;
+## !!!Ignored construct:  # _StdFail_UndefinedDerivative_HeaderFile [NewLine] # _StdFail_UndefinedDerivative_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class StdFail_UndefinedDerivative ;
 ## Error: expected ';'!!!
 
 discard "forward decl of StdFail_UndefinedDerivative"
 type
-  Handle_StdFail_UndefinedDerivativeStdFail_UndefinedDerivative* = handle[
-      StdFail_UndefinedDerivative]
+  HandleStdFailUndefinedDerivativeStdFailUndefinedDerivative* = Handle[
+      StdFailUndefinedDerivative]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_StdFail_UndefinedDerivative [NewLine] # if ( CONDITION ) throw StdFail_UndefinedDerivative ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( StdFail_UndefinedDerivative , Standard_DomainError ) #  _StdFail_UndefinedDerivative_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( StdFail_UndefinedDerivative , Standard_DomainError ) #  _StdFail_UndefinedDerivative_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

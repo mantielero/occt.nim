@@ -14,53 +14,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP203_HArray1OfPersonOrganizationItem,
-  ../StepBasic/StepBasic_PersonAndOrganizationAssignment
-
 discard "forward decl of StepBasic_PersonAndOrganization"
 discard "forward decl of StepBasic_PersonAndOrganizationRole"
 discard "forward decl of StepAP203_CcDesignPersonAndOrganizationAssignment"
 discard "forward decl of StepAP203_CcDesignPersonAndOrganizationAssignment"
 type
-  Handle_StepAP203_CcDesignPersonAndOrganizationAssignment* = handle[
-      StepAP203_CcDesignPersonAndOrganizationAssignment]
+  HandleStepAP203CcDesignPersonAndOrganizationAssignment* = Handle[
+      StepAP203CcDesignPersonAndOrganizationAssignment]
 
 ## ! Representation of STEP entity CcDesignPersonAndOrganizationAssignment
 
 type
-  StepAP203_CcDesignPersonAndOrganizationAssignment* {.
+  StepAP203CcDesignPersonAndOrganizationAssignment* {.
       importcpp: "StepAP203_CcDesignPersonAndOrganizationAssignment",
-      header: "StepAP203_CcDesignPersonAndOrganizationAssignment.hxx", bycopy.} = object of StepBasic_PersonAndOrganizationAssignment ##
-                                                                                                                               ## !
-                                                                                                                               ## Empty
-                                                                                                                               ## constructor
+      header: "StepAP203_CcDesignPersonAndOrganizationAssignment.hxx", bycopy.} = object of StepBasicPersonAndOrganizationAssignment ##
+                                                                                                                              ## !
+                                                                                                                              ## Empty
+                                                                                                                              ## constructor
 
 
-proc constructStepAP203_CcDesignPersonAndOrganizationAssignment*(): StepAP203_CcDesignPersonAndOrganizationAssignment {.
+proc constructStepAP203CcDesignPersonAndOrganizationAssignment*(): StepAP203CcDesignPersonAndOrganizationAssignment {.
     constructor,
     importcpp: "StepAP203_CcDesignPersonAndOrganizationAssignment(@)",
     header: "StepAP203_CcDesignPersonAndOrganizationAssignment.hxx".}
-proc Init*(this: var StepAP203_CcDesignPersonAndOrganizationAssignment;
-    aPersonAndOrganizationAssignment_AssignedPersonAndOrganization: handle[
-    StepBasic_PersonAndOrganization]; aPersonAndOrganizationAssignment_Role: handle[
-    StepBasic_PersonAndOrganizationRole];
-          aItems: handle[StepAP203_HArray1OfPersonOrganizationItem]) {.
+proc init*(this: var StepAP203CcDesignPersonAndOrganizationAssignment;
+    aPersonAndOrganizationAssignmentAssignedPersonAndOrganization: Handle[
+    StepBasicPersonAndOrganization]; aPersonAndOrganizationAssignmentRole: Handle[
+    StepBasicPersonAndOrganizationRole];
+          aItems: Handle[StepAP203HArray1OfPersonOrganizationItem]) {.
     importcpp: "Init",
     header: "StepAP203_CcDesignPersonAndOrganizationAssignment.hxx".}
-proc Items*(this: StepAP203_CcDesignPersonAndOrganizationAssignment): handle[
-    StepAP203_HArray1OfPersonOrganizationItem] {.noSideEffect, importcpp: "Items",
+proc items*(this: StepAP203CcDesignPersonAndOrganizationAssignment): Handle[
+    StepAP203HArray1OfPersonOrganizationItem] {.noSideEffect, importcpp: "Items",
     header: "StepAP203_CcDesignPersonAndOrganizationAssignment.hxx".}
-proc SetItems*(this: var StepAP203_CcDesignPersonAndOrganizationAssignment;
-              Items: handle[StepAP203_HArray1OfPersonOrganizationItem]) {.
+proc setItems*(this: var StepAP203CcDesignPersonAndOrganizationAssignment;
+              items: Handle[StepAP203HArray1OfPersonOrganizationItem]) {.
     importcpp: "SetItems",
     header: "StepAP203_CcDesignPersonAndOrganizationAssignment.hxx".}
 type
-  StepAP203_CcDesignPersonAndOrganizationAssignmentbase_type* = StepBasic_PersonAndOrganizationAssignment
+  StepAP203CcDesignPersonAndOrganizationAssignmentbaseType* = StepBasicPersonAndOrganizationAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP203_CcDesignPersonAndOrganizationAssignment::get_type_name(@)", header: "StepAP203_CcDesignPersonAndOrganizationAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP203_CcDesignPersonAndOrganizationAssignment::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP203_CcDesignPersonAndOrganizationAssignment::get_type_name(@)", header: "StepAP203_CcDesignPersonAndOrganizationAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP203_CcDesignPersonAndOrganizationAssignment::get_type_descriptor(@)",
     header: "StepAP203_CcDesignPersonAndOrganizationAssignment.hxx".}
-proc DynamicType*(this: StepAP203_CcDesignPersonAndOrganizationAssignment): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepAP203_CcDesignPersonAndOrganizationAssignment.hxx".}
+proc dynamicType*(this: StepAP203CcDesignPersonAndOrganizationAssignment): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepAP203_CcDesignPersonAndOrganizationAssignment.hxx".}

@@ -14,39 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  StepBasic_Date
-
 discard "forward decl of StepBasic_OrdinalDate"
 discard "forward decl of StepBasic_OrdinalDate"
 type
-  Handle_StepBasic_OrdinalDate* = handle[StepBasic_OrdinalDate]
-  StepBasic_OrdinalDate* {.importcpp: "StepBasic_OrdinalDate",
-                          header: "StepBasic_OrdinalDate.hxx", bycopy.} = object of StepBasic_Date ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## a
-                                                                                            ## OrdinalDate
+  HandleStepBasicOrdinalDate* = Handle[StepBasicOrdinalDate]
+  StepBasicOrdinalDate* {.importcpp: "StepBasic_OrdinalDate",
+                         header: "StepBasic_OrdinalDate.hxx", bycopy.} = object of StepBasicDate ##
+                                                                                          ## !
+                                                                                          ## Returns
+                                                                                          ## a
+                                                                                          ## OrdinalDate
 
 
-proc constructStepBasic_OrdinalDate*(): StepBasic_OrdinalDate {.constructor,
+proc constructStepBasicOrdinalDate*(): StepBasicOrdinalDate {.constructor,
     importcpp: "StepBasic_OrdinalDate(@)", header: "StepBasic_OrdinalDate.hxx".}
-proc Init*(this: var StepBasic_OrdinalDate; aYearComponent: Standard_Integer;
-          aDayComponent: Standard_Integer) {.importcpp: "Init",
-    header: "StepBasic_OrdinalDate.hxx".}
-proc SetDayComponent*(this: var StepBasic_OrdinalDate;
-                     aDayComponent: Standard_Integer) {.
+proc init*(this: var StepBasicOrdinalDate; aYearComponent: int; aDayComponent: int) {.
+    importcpp: "Init", header: "StepBasic_OrdinalDate.hxx".}
+proc setDayComponent*(this: var StepBasicOrdinalDate; aDayComponent: int) {.
     importcpp: "SetDayComponent", header: "StepBasic_OrdinalDate.hxx".}
-proc DayComponent*(this: StepBasic_OrdinalDate): Standard_Integer {.noSideEffect,
+proc dayComponent*(this: StepBasicOrdinalDate): int {.noSideEffect,
     importcpp: "DayComponent", header: "StepBasic_OrdinalDate.hxx".}
 type
-  StepBasic_OrdinalDatebase_type* = StepBasic_Date
+  StepBasicOrdinalDatebaseType* = StepBasicDate
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_OrdinalDate::get_type_name(@)",
-                              header: "StepBasic_OrdinalDate.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_OrdinalDate::get_type_name(@)",
+                            header: "StepBasic_OrdinalDate.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_OrdinalDate::get_type_descriptor(@)",
     header: "StepBasic_OrdinalDate.hxx".}
-proc DynamicType*(this: StepBasic_OrdinalDate): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepBasic_OrdinalDate.hxx".}
+proc dynamicType*(this: StepBasicOrdinalDate): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepBasic_OrdinalDate.hxx".}

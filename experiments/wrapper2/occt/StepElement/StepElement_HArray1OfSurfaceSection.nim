@@ -11,40 +11,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepElement_SurfaceSection, StepElement_Array1OfSurfaceSection,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepElement_HArray1OfSurfaceSection* {.importcpp: "StepElement_HArray1OfSurfaceSection", header: "StepElement_HArray1OfSurfaceSection.hxx",
-                                        bycopy.} = object of StepElement_Array1OfSurfaceSection
+  StepElementHArray1OfSurfaceSection* {.importcpp: "StepElement_HArray1OfSurfaceSection", header: "StepElement_HArray1OfSurfaceSection.hxx",
+                                       bycopy.} = object of StepElementArray1OfSurfaceSection
 
 
-proc constructStepElement_HArray1OfSurfaceSection*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepElement_HArray1OfSurfaceSection {.constructor,
+proc constructStepElementHArray1OfSurfaceSection*(theLower: int; theUpper: int): StepElementHArray1OfSurfaceSection {.
+    constructor, importcpp: "StepElement_HArray1OfSurfaceSection(@)",
+    header: "StepElement_HArray1OfSurfaceSection.hxx".}
+proc constructStepElementHArray1OfSurfaceSection*(theLower: int; theUpper: int;
+    theValue: ValueType): StepElementHArray1OfSurfaceSection {.constructor,
     importcpp: "StepElement_HArray1OfSurfaceSection(@)",
     header: "StepElement_HArray1OfSurfaceSection.hxx".}
-proc constructStepElement_HArray1OfSurfaceSection*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepElement_HArray1OfSurfaceSection {.
+proc constructStepElementHArray1OfSurfaceSection*(
+    theOther: StepElementArray1OfSurfaceSection): StepElementHArray1OfSurfaceSection {.
     constructor, importcpp: "StepElement_HArray1OfSurfaceSection(@)",
     header: "StepElement_HArray1OfSurfaceSection.hxx".}
-proc constructStepElement_HArray1OfSurfaceSection*(
-    theOther: StepElement_Array1OfSurfaceSection): StepElement_HArray1OfSurfaceSection {.
-    constructor, importcpp: "StepElement_HArray1OfSurfaceSection(@)",
-    header: "StepElement_HArray1OfSurfaceSection.hxx".}
-proc Array1*(this: StepElement_HArray1OfSurfaceSection): StepElement_Array1OfSurfaceSection {.
+proc array1*(this: StepElementHArray1OfSurfaceSection): StepElementArray1OfSurfaceSection {.
     noSideEffect, importcpp: "Array1",
     header: "StepElement_HArray1OfSurfaceSection.hxx".}
-proc ChangeArray1*(this: var StepElement_HArray1OfSurfaceSection): var StepElement_Array1OfSurfaceSection {.
+proc changeArray1*(this: var StepElementHArray1OfSurfaceSection): var StepElementArray1OfSurfaceSection {.
     importcpp: "ChangeArray1", header: "StepElement_HArray1OfSurfaceSection.hxx".}
 type
-  StepElement_HArray1OfSurfaceSectionbase_type* = MMgt_TShared
+  StepElementHArray1OfSurfaceSectionbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepElement_HArray1OfSurfaceSection::get_type_name(@)",
-                              header: "StepElement_HArray1OfSurfaceSection.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepElement_HArray1OfSurfaceSection::get_type_name(@)",
+                            header: "StepElement_HArray1OfSurfaceSection.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepElement_HArray1OfSurfaceSection::get_type_descriptor(@)",
     header: "StepElement_HArray1OfSurfaceSection.hxx".}
-proc DynamicType*(this: StepElement_HArray1OfSurfaceSection): handle[Standard_Type] {.
+proc dynamicType*(this: StepElementHArray1OfSurfaceSection): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_HArray1OfSurfaceSection.hxx".}

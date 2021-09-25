@@ -13,36 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepDimTol_GeometricTolerance
-
 discard "forward decl of StepDimTol_RoundnessTolerance"
 discard "forward decl of StepDimTol_RoundnessTolerance"
 type
-  Handle_StepDimTol_RoundnessTolerance* = handle[StepDimTol_RoundnessTolerance]
+  HandleStepDimTolRoundnessTolerance* = Handle[StepDimTolRoundnessTolerance]
 
 ## ! Representation of STEP entity RoundnessTolerance
 
 type
-  StepDimTol_RoundnessTolerance* {.importcpp: "StepDimTol_RoundnessTolerance",
-                                  header: "StepDimTol_RoundnessTolerance.hxx",
-                                  bycopy.} = object of StepDimTol_GeometricTolerance ##
-                                                                                ## !
-                                                                                ## Empty
-                                                                                ## constructor
+  StepDimTolRoundnessTolerance* {.importcpp: "StepDimTol_RoundnessTolerance",
+                                 header: "StepDimTol_RoundnessTolerance.hxx",
+                                 bycopy.} = object of StepDimTolGeometricTolerance ## !
+                                                                              ## Empty
+                                                                              ## constructor
 
 
-proc constructStepDimTol_RoundnessTolerance*(): StepDimTol_RoundnessTolerance {.
+proc constructStepDimTolRoundnessTolerance*(): StepDimTolRoundnessTolerance {.
     constructor, importcpp: "StepDimTol_RoundnessTolerance(@)",
     header: "StepDimTol_RoundnessTolerance.hxx".}
 type
-  StepDimTol_RoundnessTolerancebase_type* = StepDimTol_GeometricTolerance
+  StepDimTolRoundnessTolerancebaseType* = StepDimTolGeometricTolerance
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_RoundnessTolerance::get_type_name(@)",
-                              header: "StepDimTol_RoundnessTolerance.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_RoundnessTolerance::get_type_name(@)",
+                            header: "StepDimTol_RoundnessTolerance.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_RoundnessTolerance::get_type_descriptor(@)",
     header: "StepDimTol_RoundnessTolerance.hxx".}
-proc DynamicType*(this: StepDimTol_RoundnessTolerance): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolRoundnessTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_RoundnessTolerance.hxx".}

@@ -12,84 +12,76 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Sequence, ../NCollection/NCollection_UBTreeFiller,
-  ../NCollection/NCollection_UBTree, ../TopTools/TopTools_IndexedMapOfShape,
-  ../BRepBndLib/BRepBndLib, ../TopoDS/TopoDS_Edge, ../TopoDS/TopoDS_Vertex,
-  ../Geom/Geom_Line, ../Bnd/Bnd_Box, ../gp/gp_Lin,
-  ../GeomAdaptor/GeomAdaptor_Curve, ../Precision/Precision
-
 ##  Typedef to reduce code complexity.
 
 type
-  BRepClass3d_BndBoxTree* = NCollection_UBTree[Standard_Integer, Bnd_Box]
+  BRepClass3dBndBoxTree* = NCollectionUBTree[int, BndBox]
 
 ##  Class representing tree selector for point object.
 
 type
-  BRepClass3d_BndBoxTreeSelectorPoint* {.importcpp: "BRepClass3d_BndBoxTreeSelectorPoint",
-                                        header: "BRepClass3d_BndBoxTree.hxx",
-                                        bycopy.} = object of Selector
+  BRepClass3dBndBoxTreeSelectorPoint* {.importcpp: "BRepClass3d_BndBoxTreeSelectorPoint",
+                                       header: "BRepClass3d_BndBoxTree.hxx",
+                                       bycopy.} = object of Selector
     ## shapes (vertices + edges)
 
 
-proc constructBRepClass3d_BndBoxTreeSelectorPoint*(
-    theMapOfShape: TopTools_IndexedMapOfShape): BRepClass3d_BndBoxTreeSelectorPoint {.
+proc constructBRepClass3dBndBoxTreeSelectorPoint*(
+    theMapOfShape: TopToolsIndexedMapOfShape): BRepClass3dBndBoxTreeSelectorPoint {.
     constructor, importcpp: "BRepClass3d_BndBoxTreeSelectorPoint(@)",
     header: "BRepClass3d_BndBoxTree.hxx".}
-proc Reject*(this: BRepClass3d_BndBoxTreeSelectorPoint; theBox: Bnd_Box): Standard_Boolean {.
+proc reject*(this: BRepClass3dBndBoxTreeSelectorPoint; theBox: BndBox): bool {.
     noSideEffect, importcpp: "Reject", header: "BRepClass3d_BndBoxTree.hxx".}
-proc Accept*(this: var BRepClass3d_BndBoxTreeSelectorPoint; theObj: Standard_Integer): Standard_Boolean {.
+proc accept*(this: var BRepClass3dBndBoxTreeSelectorPoint; theObj: int): bool {.
     importcpp: "Accept", header: "BRepClass3d_BndBoxTree.hxx".}
-proc SetCurrentPoint*(this: var BRepClass3d_BndBoxTreeSelectorPoint; theP: gp_Pnt) {.
+proc setCurrentPoint*(this: var BRepClass3dBndBoxTreeSelectorPoint; theP: Pnt) {.
     importcpp: "SetCurrentPoint", header: "BRepClass3d_BndBoxTree.hxx".}
 ##  Class representing tree selector for line object.
 
 type
-  BRepClass3d_BndBoxTreeSelectorLine* {.importcpp: "BRepClass3d_BndBoxTreeSelectorLine",
-                                       header: "BRepClass3d_BndBoxTree.hxx",
-                                       bycopy.} = object of Selector
+  BRepClass3dBndBoxTreeSelectorLine* {.importcpp: "BRepClass3d_BndBoxTreeSelectorLine",
+                                      header: "BRepClass3d_BndBoxTree.hxx", bycopy.} = object of Selector
     ## shapes (vertices + edges)
     ## output result (edge vs line)
     ## output result (vertex vs line)
 
-  BRepClass3d_BndBoxTreeSelectorLineEdgeParam* {.
+  BRepClass3dBndBoxTreeSelectorLineEdgeParam* {.
       importcpp: "BRepClass3d_BndBoxTreeSelectorLine::EdgeParam",
       header: "BRepClass3d_BndBoxTree.hxx", bycopy.} = object
     myE* {.importc: "myE".}: TopoDS_Edge
-    myParam* {.importc: "myParam".}: Standard_Real ## par on myE
-    myLParam* {.importc: "myLParam".}: Standard_Real ## par on line
+    myParam* {.importc: "myParam".}: float ## par on myE
+    myLParam* {.importc: "myLParam".}: float ## par on line
 
-  BRepClass3d_BndBoxTreeSelectorLineVertParam* {.
+  BRepClass3dBndBoxTreeSelectorLineVertParam* {.
       importcpp: "BRepClass3d_BndBoxTreeSelectorLine::VertParam",
       header: "BRepClass3d_BndBoxTree.hxx", bycopy.} = object
     myV* {.importc: "myV".}: TopoDS_Vertex
-    myLParam* {.importc: "myLParam".}: Standard_Real ## par on line
+    myLParam* {.importc: "myLParam".}: float ## par on line
 
 
-proc constructBRepClass3d_BndBoxTreeSelectorLine*(
-    theMapOfShape: TopTools_IndexedMapOfShape): BRepClass3d_BndBoxTreeSelectorLine {.
+proc constructBRepClass3dBndBoxTreeSelectorLine*(
+    theMapOfShape: TopToolsIndexedMapOfShape): BRepClass3dBndBoxTreeSelectorLine {.
     constructor, importcpp: "BRepClass3d_BndBoxTreeSelectorLine(@)",
     header: "BRepClass3d_BndBoxTree.hxx".}
-proc Reject*(this: BRepClass3d_BndBoxTreeSelectorLine; theBox: Bnd_Box): Standard_Boolean {.
+proc reject*(this: BRepClass3dBndBoxTreeSelectorLine; theBox: BndBox): bool {.
     noSideEffect, importcpp: "Reject", header: "BRepClass3d_BndBoxTree.hxx".}
-proc Accept*(this: var BRepClass3d_BndBoxTreeSelectorLine; theObj: Standard_Integer): Standard_Boolean {.
+proc accept*(this: var BRepClass3dBndBoxTreeSelectorLine; theObj: int): bool {.
     importcpp: "Accept", header: "BRepClass3d_BndBoxTree.hxx".}
-proc SetCurrentLine*(this: var BRepClass3d_BndBoxTreeSelectorLine; theL: gp_Lin;
-                    theMaxParam: Standard_Real) {.importcpp: "SetCurrentLine",
-    header: "BRepClass3d_BndBoxTree.hxx".}
-proc GetEdgeParam*(this: BRepClass3d_BndBoxTreeSelectorLine; i: Standard_Integer;
-                  theOutE: var TopoDS_Edge; theOutParam: var Standard_Real;
-                  outLParam: var Standard_Real) {.noSideEffect,
-    importcpp: "GetEdgeParam", header: "BRepClass3d_BndBoxTree.hxx".}
-proc GetVertParam*(this: BRepClass3d_BndBoxTreeSelectorLine; i: Standard_Integer;
-                  theOutV: var TopoDS_Vertex; outLParam: var Standard_Real) {.
-    noSideEffect, importcpp: "GetVertParam", header: "BRepClass3d_BndBoxTree.hxx".}
-proc GetNbEdgeParam*(this: BRepClass3d_BndBoxTreeSelectorLine): Standard_Integer {.
-    noSideEffect, importcpp: "GetNbEdgeParam", header: "BRepClass3d_BndBoxTree.hxx".}
-proc GetNbVertParam*(this: BRepClass3d_BndBoxTreeSelectorLine): Standard_Integer {.
-    noSideEffect, importcpp: "GetNbVertParam", header: "BRepClass3d_BndBoxTree.hxx".}
-proc ClearResults*(this: var BRepClass3d_BndBoxTreeSelectorLine) {.
+proc setCurrentLine*(this: var BRepClass3dBndBoxTreeSelectorLine; theL: Lin;
+                    theMaxParam: float) {.importcpp: "SetCurrentLine",
+                                        header: "BRepClass3d_BndBoxTree.hxx".}
+proc getEdgeParam*(this: BRepClass3dBndBoxTreeSelectorLine; i: int;
+                  theOutE: var TopoDS_Edge; theOutParam: var float;
+                  outLParam: var float) {.noSideEffect, importcpp: "GetEdgeParam",
+                                       header: "BRepClass3d_BndBoxTree.hxx".}
+proc getVertParam*(this: BRepClass3dBndBoxTreeSelectorLine; i: int;
+                  theOutV: var TopoDS_Vertex; outLParam: var float) {.noSideEffect,
+    importcpp: "GetVertParam", header: "BRepClass3d_BndBoxTree.hxx".}
+proc getNbEdgeParam*(this: BRepClass3dBndBoxTreeSelectorLine): int {.noSideEffect,
+    importcpp: "GetNbEdgeParam", header: "BRepClass3d_BndBoxTree.hxx".}
+proc getNbVertParam*(this: BRepClass3dBndBoxTreeSelectorLine): int {.noSideEffect,
+    importcpp: "GetNbVertParam", header: "BRepClass3d_BndBoxTree.hxx".}
+proc clearResults*(this: var BRepClass3dBndBoxTreeSelectorLine) {.
     importcpp: "ClearResults", header: "BRepClass3d_BndBoxTree.hxx".}
-proc IsCorrect*(this: BRepClass3d_BndBoxTreeSelectorLine): Standard_Boolean {.
-    noSideEffect, importcpp: "IsCorrect", header: "BRepClass3d_BndBoxTree.hxx".}
+proc isCorrect*(this: BRepClass3dBndBoxTreeSelectorLine): bool {.noSideEffect,
+    importcpp: "IsCorrect", header: "BRepClass3d_BndBoxTree.hxx".}

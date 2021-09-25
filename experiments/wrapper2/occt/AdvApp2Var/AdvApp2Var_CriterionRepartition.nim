@@ -21,6 +21,7 @@
 ## ! of cutting process
 
 type
-  AdvApp2Var_CriterionRepartition* {.size: sizeof(cint), importcpp: "AdvApp2Var_CriterionRepartition", header: "AdvApp2Var_CriterionRepartition.hxx".} = enum
-    AdvApp2Var_Regular, AdvApp2Var_Incremental
+  AdvApp2VarCriterionRepartition* {.size: sizeof(cint), importcpp: "AdvApp2Var_CriterionRepartition", header: "AdvApp2Var_CriterionRepartition.hxx".} = enum
+    AdvApp2VarRegular, AdvApp2VarIncremental
+
 

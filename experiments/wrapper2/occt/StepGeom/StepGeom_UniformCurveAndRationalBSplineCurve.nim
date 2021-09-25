@@ -14,79 +14,72 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_BSplineCurve,
-  ../Standard/Standard_Integer, StepGeom_HArray1OfCartesianPoint,
-  StepGeom_BSplineCurveForm, ../StepData/StepData_Logical,
-  ../TColStd/TColStd_HArray1OfReal, ../Standard/Standard_Real
-
 discard "forward decl of StepGeom_UniformCurve"
 discard "forward decl of StepGeom_RationalBSplineCurve"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_UniformCurveAndRationalBSplineCurve"
 discard "forward decl of StepGeom_UniformCurveAndRationalBSplineCurve"
 type
-  Handle_StepGeom_UniformCurveAndRationalBSplineCurve* = handle[
-      StepGeom_UniformCurveAndRationalBSplineCurve]
-  StepGeom_UniformCurveAndRationalBSplineCurve* {.
+  HandleStepGeomUniformCurveAndRationalBSplineCurve* = Handle[
+      StepGeomUniformCurveAndRationalBSplineCurve]
+  StepGeomUniformCurveAndRationalBSplineCurve* {.
       importcpp: "StepGeom_UniformCurveAndRationalBSplineCurve",
-      header: "StepGeom_UniformCurveAndRationalBSplineCurve.hxx", bycopy.} = object of StepGeom_BSplineCurve ##
-                                                                                                      ## !
-                                                                                                      ## Returns
-                                                                                                      ## a
-                                                                                                      ## UniformCurveAndRationalBSplineCurve
+      header: "StepGeom_UniformCurveAndRationalBSplineCurve.hxx", bycopy.} = object of StepGeomBSplineCurve ##
+                                                                                                     ## !
+                                                                                                     ## Returns
+                                                                                                     ## a
+                                                                                                     ## UniformCurveAndRationalBSplineCurve
 
 
-proc constructStepGeom_UniformCurveAndRationalBSplineCurve*(): StepGeom_UniformCurveAndRationalBSplineCurve {.
+proc constructStepGeomUniformCurveAndRationalBSplineCurve*(): StepGeomUniformCurveAndRationalBSplineCurve {.
     constructor, importcpp: "StepGeom_UniformCurveAndRationalBSplineCurve(@)",
     header: "StepGeom_UniformCurveAndRationalBSplineCurve.hxx".}
-proc Init*(this: var StepGeom_UniformCurveAndRationalBSplineCurve;
-          aName: handle[TCollection_HAsciiString]; aDegree: Standard_Integer;
-          aControlPointsList: handle[StepGeom_HArray1OfCartesianPoint];
-          aCurveForm: StepGeom_BSplineCurveForm; aClosedCurve: StepData_Logical;
-          aSelfIntersect: StepData_Logical;
-          aUniformCurve: handle[StepGeom_UniformCurve];
-          aRationalBSplineCurve: handle[StepGeom_RationalBSplineCurve]) {.
+proc init*(this: var StepGeomUniformCurveAndRationalBSplineCurve;
+          aName: Handle[TCollectionHAsciiString]; aDegree: int;
+          aControlPointsList: Handle[StepGeomHArray1OfCartesianPoint];
+          aCurveForm: StepGeomBSplineCurveForm; aClosedCurve: StepDataLogical;
+          aSelfIntersect: StepDataLogical;
+          aUniformCurve: Handle[StepGeomUniformCurve];
+          aRationalBSplineCurve: Handle[StepGeomRationalBSplineCurve]) {.
     importcpp: "Init", header: "StepGeom_UniformCurveAndRationalBSplineCurve.hxx".}
-proc Init*(this: var StepGeom_UniformCurveAndRationalBSplineCurve;
-          aName: handle[TCollection_HAsciiString]; aDegree: Standard_Integer;
-          aControlPointsList: handle[StepGeom_HArray1OfCartesianPoint];
-          aCurveForm: StepGeom_BSplineCurveForm; aClosedCurve: StepData_Logical;
-          aSelfIntersect: StepData_Logical;
-          aWeightsData: handle[TColStd_HArray1OfReal]) {.importcpp: "Init",
+proc init*(this: var StepGeomUniformCurveAndRationalBSplineCurve;
+          aName: Handle[TCollectionHAsciiString]; aDegree: int;
+          aControlPointsList: Handle[StepGeomHArray1OfCartesianPoint];
+          aCurveForm: StepGeomBSplineCurveForm; aClosedCurve: StepDataLogical;
+          aSelfIntersect: StepDataLogical;
+          aWeightsData: Handle[TColStdHArray1OfReal]) {.importcpp: "Init",
     header: "StepGeom_UniformCurveAndRationalBSplineCurve.hxx".}
-proc SetUniformCurve*(this: var StepGeom_UniformCurveAndRationalBSplineCurve;
-                     aUniformCurve: handle[StepGeom_UniformCurve]) {.
+proc setUniformCurve*(this: var StepGeomUniformCurveAndRationalBSplineCurve;
+                     aUniformCurve: Handle[StepGeomUniformCurve]) {.
     importcpp: "SetUniformCurve",
     header: "StepGeom_UniformCurveAndRationalBSplineCurve.hxx".}
-proc UniformCurve*(this: StepGeom_UniformCurveAndRationalBSplineCurve): handle[
-    StepGeom_UniformCurve] {.noSideEffect, importcpp: "UniformCurve", header: "StepGeom_UniformCurveAndRationalBSplineCurve.hxx".}
-proc SetRationalBSplineCurve*(this: var StepGeom_UniformCurveAndRationalBSplineCurve;
-    aRationalBSplineCurve: handle[StepGeom_RationalBSplineCurve]) {.
+proc uniformCurve*(this: StepGeomUniformCurveAndRationalBSplineCurve): Handle[
+    StepGeomUniformCurve] {.noSideEffect, importcpp: "UniformCurve", header: "StepGeom_UniformCurveAndRationalBSplineCurve.hxx".}
+proc setRationalBSplineCurve*(this: var StepGeomUniformCurveAndRationalBSplineCurve;
+    aRationalBSplineCurve: Handle[StepGeomRationalBSplineCurve]) {.
     importcpp: "SetRationalBSplineCurve",
     header: "StepGeom_UniformCurveAndRationalBSplineCurve.hxx".}
-proc RationalBSplineCurve*(this: StepGeom_UniformCurveAndRationalBSplineCurve): handle[
-    StepGeom_RationalBSplineCurve] {.noSideEffect,
-                                    importcpp: "RationalBSplineCurve", header: "StepGeom_UniformCurveAndRationalBSplineCurve.hxx".}
-proc SetWeightsData*(this: var StepGeom_UniformCurveAndRationalBSplineCurve;
-                    aWeightsData: handle[TColStd_HArray1OfReal]) {.
+proc rationalBSplineCurve*(this: StepGeomUniformCurveAndRationalBSplineCurve): Handle[
+    StepGeomRationalBSplineCurve] {.noSideEffect,
+                                   importcpp: "RationalBSplineCurve", header: "StepGeom_UniformCurveAndRationalBSplineCurve.hxx".}
+proc setWeightsData*(this: var StepGeomUniformCurveAndRationalBSplineCurve;
+                    aWeightsData: Handle[TColStdHArray1OfReal]) {.
     importcpp: "SetWeightsData",
     header: "StepGeom_UniformCurveAndRationalBSplineCurve.hxx".}
-proc WeightsData*(this: StepGeom_UniformCurveAndRationalBSplineCurve): handle[
-    TColStd_HArray1OfReal] {.noSideEffect, importcpp: "WeightsData", header: "StepGeom_UniformCurveAndRationalBSplineCurve.hxx".}
-proc WeightsDataValue*(this: StepGeom_UniformCurveAndRationalBSplineCurve;
-                      num: Standard_Integer): Standard_Real {.noSideEffect,
-    importcpp: "WeightsDataValue",
+proc weightsData*(this: StepGeomUniformCurveAndRationalBSplineCurve): Handle[
+    TColStdHArray1OfReal] {.noSideEffect, importcpp: "WeightsData", header: "StepGeom_UniformCurveAndRationalBSplineCurve.hxx".}
+proc weightsDataValue*(this: StepGeomUniformCurveAndRationalBSplineCurve; num: int): float {.
+    noSideEffect, importcpp: "WeightsDataValue",
     header: "StepGeom_UniformCurveAndRationalBSplineCurve.hxx".}
-proc NbWeightsData*(this: StepGeom_UniformCurveAndRationalBSplineCurve): Standard_Integer {.
+proc nbWeightsData*(this: StepGeomUniformCurveAndRationalBSplineCurve): int {.
     noSideEffect, importcpp: "NbWeightsData",
     header: "StepGeom_UniformCurveAndRationalBSplineCurve.hxx".}
 type
-  StepGeom_UniformCurveAndRationalBSplineCurvebase_type* = StepGeom_BSplineCurve
+  StepGeomUniformCurveAndRationalBSplineCurvebaseType* = StepGeomBSplineCurve
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_UniformCurveAndRationalBSplineCurve::get_type_name(@)", header: "StepGeom_UniformCurveAndRationalBSplineCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepGeom_UniformCurveAndRationalBSplineCurve::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepGeom_UniformCurveAndRationalBSplineCurve::get_type_name(@)", header: "StepGeom_UniformCurveAndRationalBSplineCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_UniformCurveAndRationalBSplineCurve::get_type_descriptor(@)",
     header: "StepGeom_UniformCurveAndRationalBSplineCurve.hxx".}
-proc DynamicType*(this: StepGeom_UniformCurveAndRationalBSplineCurve): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepGeom_UniformCurveAndRationalBSplineCurve.hxx".}
+proc dynamicType*(this: StepGeomUniformCurveAndRationalBSplineCurve): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepGeom_UniformCurveAndRationalBSplineCurve.hxx".}

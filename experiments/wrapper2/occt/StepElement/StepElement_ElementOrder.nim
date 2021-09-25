@@ -12,8 +12,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepElement_ElementOrder* {.size: sizeof(cint),
-                             importcpp: "StepElement_ElementOrder",
-                             header: "StepElement_ElementOrder.hxx".} = enum
-    StepElement_Linear, StepElement_Quadratic, StepElement_Cubic
+  StepElementElementOrder* {.size: sizeof(cint),
+                            importcpp: "StepElement_ElementOrder",
+                            header: "StepElement_ElementOrder.hxx".} = enum
+    StepElementLinear, StepElementQuadratic, StepElementCubic
+
 

@@ -17,7 +17,8 @@
 ## ! Direction in which text is displayed.
 
 type
-  Graphic3d_TextPath* {.size: sizeof(cint), importcpp: "Graphic3d_TextPath",
-                       header: "Graphic3d_TextPath.hxx".} = enum
-    Graphic3d_TP_UP, Graphic3d_TP_DOWN, Graphic3d_TP_LEFT, Graphic3d_TP_RIGHT
+  Graphic3dTextPath* {.size: sizeof(cint), importcpp: "Graphic3d_TextPath",
+                      header: "Graphic3d_TextPath.hxx".} = enum
+    Graphic3dTP_UP, Graphic3dTP_DOWN, Graphic3dTP_LEFT, Graphic3dTP_RIGHT
+
 

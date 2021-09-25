@@ -13,48 +13,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../XmlMDF/XmlMDF_ADriver,
-  ../Standard/Standard_Boolean, ../XmlObjMgt/XmlObjMgt_RRelocationTable,
-  ../XmlObjMgt/XmlObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMXCAFDoc_CentroidDriver"
 discard "forward decl of XmlMXCAFDoc_CentroidDriver"
 type
-  Handle_XmlMXCAFDoc_CentroidDriver* = handle[XmlMXCAFDoc_CentroidDriver]
+  HandleXmlMXCAFDocCentroidDriver* = Handle[XmlMXCAFDocCentroidDriver]
 
 ## ! Attribute Driver.
 
 type
-  XmlMXCAFDoc_CentroidDriver* {.importcpp: "XmlMXCAFDoc_CentroidDriver",
-                               header: "XmlMXCAFDoc_CentroidDriver.hxx", bycopy.} = object of XmlMDF_ADriver
+  XmlMXCAFDocCentroidDriver* {.importcpp: "XmlMXCAFDoc_CentroidDriver",
+                              header: "XmlMXCAFDoc_CentroidDriver.hxx", bycopy.} = object of XmlMDF_ADriver
 
 
-proc constructXmlMXCAFDoc_CentroidDriver*(
-    theMessageDriver: handle[Message_Messenger]): XmlMXCAFDoc_CentroidDriver {.
+proc constructXmlMXCAFDocCentroidDriver*(theMessageDriver: Handle[MessageMessenger]): XmlMXCAFDocCentroidDriver {.
     constructor, importcpp: "XmlMXCAFDoc_CentroidDriver(@)",
     header: "XmlMXCAFDoc_CentroidDriver.hxx".}
-proc NewEmpty*(this: XmlMXCAFDoc_CentroidDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: XmlMXCAFDocCentroidDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty", header: "XmlMXCAFDoc_CentroidDriver.hxx".}
-proc Paste*(this: XmlMXCAFDoc_CentroidDriver; Source: XmlObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var XmlObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "XmlMXCAFDoc_CentroidDriver.hxx".}
-proc Paste*(this: XmlMXCAFDoc_CentroidDriver; Source: handle[TDF_Attribute];
-           Target: var XmlObjMgt_Persistent;
-           RelocTable: var XmlObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: XmlMXCAFDocCentroidDriver; source: XmlObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var XmlObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "XmlMXCAFDoc_CentroidDriver.hxx".}
+proc paste*(this: XmlMXCAFDocCentroidDriver; source: Handle[TDF_Attribute];
+           target: var XmlObjMgtPersistent;
+           relocTable: var XmlObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "XmlMXCAFDoc_CentroidDriver.hxx".}
 type
-  XmlMXCAFDoc_CentroidDriverbase_type* = XmlMDF_ADriver
+  XmlMXCAFDocCentroidDriverbaseType* = XmlMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "XmlMXCAFDoc_CentroidDriver::get_type_name(@)",
-                              header: "XmlMXCAFDoc_CentroidDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XmlMXCAFDoc_CentroidDriver::get_type_name(@)",
+                            header: "XmlMXCAFDoc_CentroidDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XmlMXCAFDoc_CentroidDriver::get_type_descriptor(@)",
     header: "XmlMXCAFDoc_CentroidDriver.hxx".}
-proc DynamicType*(this: XmlMXCAFDoc_CentroidDriver): handle[Standard_Type] {.
+proc dynamicType*(this: XmlMXCAFDocCentroidDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMXCAFDoc_CentroidDriver.hxx".}

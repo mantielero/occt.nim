@@ -13,40 +13,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepDimTol_DatumReferenceElement, StepDimTol_Array1OfDatumReferenceElement,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepDimTol_HArray1OfDatumReferenceElement* {.
+  StepDimTolHArray1OfDatumReferenceElement* {.
       importcpp: "StepDimTol_HArray1OfDatumReferenceElement",
-      header: "StepDimTol_HArray1OfDatumReferenceElement.hxx", bycopy.} = object of StepDimTol_Array1OfDatumReferenceElement
+      header: "StepDimTol_HArray1OfDatumReferenceElement.hxx", bycopy.} = object of StepDimTolArray1OfDatumReferenceElement
 
 
-proc constructStepDimTol_HArray1OfDatumReferenceElement*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepDimTol_HArray1OfDatumReferenceElement {.
+proc constructStepDimTolHArray1OfDatumReferenceElement*(theLower: int;
+    theUpper: int): StepDimTolHArray1OfDatumReferenceElement {.constructor,
+    importcpp: "StepDimTol_HArray1OfDatumReferenceElement(@)",
+    header: "StepDimTol_HArray1OfDatumReferenceElement.hxx".}
+proc constructStepDimTolHArray1OfDatumReferenceElement*(theLower: int;
+    theUpper: int; theValue: ValueType): StepDimTolHArray1OfDatumReferenceElement {.
     constructor, importcpp: "StepDimTol_HArray1OfDatumReferenceElement(@)",
     header: "StepDimTol_HArray1OfDatumReferenceElement.hxx".}
-proc constructStepDimTol_HArray1OfDatumReferenceElement*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepDimTol_HArray1OfDatumReferenceElement {.
+proc constructStepDimTolHArray1OfDatumReferenceElement*(
+    theOther: StepDimTolArray1OfDatumReferenceElement): StepDimTolHArray1OfDatumReferenceElement {.
     constructor, importcpp: "StepDimTol_HArray1OfDatumReferenceElement(@)",
     header: "StepDimTol_HArray1OfDatumReferenceElement.hxx".}
-proc constructStepDimTol_HArray1OfDatumReferenceElement*(
-    theOther: StepDimTol_Array1OfDatumReferenceElement): StepDimTol_HArray1OfDatumReferenceElement {.
-    constructor, importcpp: "StepDimTol_HArray1OfDatumReferenceElement(@)",
-    header: "StepDimTol_HArray1OfDatumReferenceElement.hxx".}
-proc Array1*(this: StepDimTol_HArray1OfDatumReferenceElement): StepDimTol_Array1OfDatumReferenceElement {.
+proc array1*(this: StepDimTolHArray1OfDatumReferenceElement): StepDimTolArray1OfDatumReferenceElement {.
     noSideEffect, importcpp: "Array1",
     header: "StepDimTol_HArray1OfDatumReferenceElement.hxx".}
-proc ChangeArray1*(this: var StepDimTol_HArray1OfDatumReferenceElement): var StepDimTol_Array1OfDatumReferenceElement {.
+proc changeArray1*(this: var StepDimTolHArray1OfDatumReferenceElement): var StepDimTolArray1OfDatumReferenceElement {.
     importcpp: "ChangeArray1",
     header: "StepDimTol_HArray1OfDatumReferenceElement.hxx".}
 type
-  StepDimTol_HArray1OfDatumReferenceElementbase_type* = MMgt_TShared
+  StepDimTolHArray1OfDatumReferenceElementbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_HArray1OfDatumReferenceElement::get_type_name(@)", header: "StepDimTol_HArray1OfDatumReferenceElement.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepDimTol_HArray1OfDatumReferenceElement::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_HArray1OfDatumReferenceElement::get_type_name(@)", header: "StepDimTol_HArray1OfDatumReferenceElement.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepDimTol_HArray1OfDatumReferenceElement::get_type_descriptor(@)",
     header: "StepDimTol_HArray1OfDatumReferenceElement.hxx".}
-proc DynamicType*(this: StepDimTol_HArray1OfDatumReferenceElement): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepDimTol_HArray1OfDatumReferenceElement.hxx".}
+proc dynamicType*(this: StepDimTolHArray1OfDatumReferenceElement): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepDimTol_HArray1OfDatumReferenceElement.hxx".}

@@ -14,22 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Address, ../Standard/Standard_Boolean
-
 discard "forward decl of TCollection_BasicMap"
 type
-  TCollection_BasicMapIterator* {.importcpp: "TCollection_BasicMapIterator",
-                                 header: "TCollection_BasicMapIterator.hxx",
-                                 bycopy.} = object ## ! Resets the iterator to the first node.
-                                                ## ! Creates an empty iterator.
+  TCollectionBasicMapIterator* {.importcpp: "TCollection_BasicMapIterator",
+                                header: "TCollection_BasicMapIterator.hxx", bycopy.} = object ##
+                                                                                         ## !
+                                                                                         ## Resets
+                                                                                         ## the
+                                                                                         ## iterator
+                                                                                         ## to
+                                                                                         ## the
+                                                                                         ## first
+                                                                                         ## node.
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## Creates
+                                                                                         ## an
+                                                                                         ## empty
+                                                                                         ## iterator.
 
 
-proc Reset*(this: var TCollection_BasicMapIterator) {.importcpp: "Reset",
+proc reset*(this: var TCollectionBasicMapIterator) {.importcpp: "Reset",
     header: "TCollection_BasicMapIterator.hxx".}
-proc More*(this: TCollection_BasicMapIterator): Standard_Boolean {.noSideEffect,
+proc more*(this: TCollectionBasicMapIterator): bool {.noSideEffect,
     importcpp: "More", header: "TCollection_BasicMapIterator.hxx".}
-proc Next*(this: var TCollection_BasicMapIterator) {.importcpp: "Next",
+proc next*(this: var TCollectionBasicMapIterator) {.importcpp: "Next",
     header: "TCollection_BasicMapIterator.hxx".}

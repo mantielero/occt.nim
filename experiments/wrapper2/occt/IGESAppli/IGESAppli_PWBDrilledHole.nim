@@ -14,14 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of IGESAppli_PWBDrilledHole"
 discard "forward decl of IGESAppli_PWBDrilledHole"
 type
-  Handle_IGESAppli_PWBDrilledHole* = handle[IGESAppli_PWBDrilledHole]
+  HandleIGESAppliPWBDrilledHole* = Handle[IGESAppliPWBDrilledHole]
 
 ## ! defines PWBDrilledHole, Type <406> Form <26>
 ## ! in package IGESAppli
@@ -29,35 +25,31 @@ type
 ## ! and to specify the characteristics of the drilled hole
 
 type
-  IGESAppli_PWBDrilledHole* {.importcpp: "IGESAppli_PWBDrilledHole",
-                             header: "IGESAppli_PWBDrilledHole.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESAppliPWBDrilledHole* {.importcpp: "IGESAppli_PWBDrilledHole",
+                            header: "IGESAppli_PWBDrilledHole.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESAppli_PWBDrilledHole*(): IGESAppli_PWBDrilledHole {.constructor,
+proc constructIGESAppliPWBDrilledHole*(): IGESAppliPWBDrilledHole {.constructor,
     importcpp: "IGESAppli_PWBDrilledHole(@)",
     header: "IGESAppli_PWBDrilledHole.hxx".}
-proc Init*(this: var IGESAppli_PWBDrilledHole; nbPropVal: Standard_Integer;
-          aDrillDia: Standard_Real; aFinishDia: Standard_Real;
-          aCode: Standard_Integer) {.importcpp: "Init",
-                                   header: "IGESAppli_PWBDrilledHole.hxx".}
-proc NbPropertyValues*(this: IGESAppli_PWBDrilledHole): Standard_Integer {.
-    noSideEffect, importcpp: "NbPropertyValues",
-    header: "IGESAppli_PWBDrilledHole.hxx".}
-proc DrillDiameterSize*(this: IGESAppli_PWBDrilledHole): Standard_Real {.
-    noSideEffect, importcpp: "DrillDiameterSize",
-    header: "IGESAppli_PWBDrilledHole.hxx".}
-proc FinishDiameterSize*(this: IGESAppli_PWBDrilledHole): Standard_Real {.
-    noSideEffect, importcpp: "FinishDiameterSize",
-    header: "IGESAppli_PWBDrilledHole.hxx".}
-proc FunctionCode*(this: IGESAppli_PWBDrilledHole): Standard_Integer {.noSideEffect,
+proc init*(this: var IGESAppliPWBDrilledHole; nbPropVal: int; aDrillDia: float;
+          aFinishDia: float; aCode: int) {.importcpp: "Init",
+                                       header: "IGESAppli_PWBDrilledHole.hxx".}
+proc nbPropertyValues*(this: IGESAppliPWBDrilledHole): int {.noSideEffect,
+    importcpp: "NbPropertyValues", header: "IGESAppli_PWBDrilledHole.hxx".}
+proc drillDiameterSize*(this: IGESAppliPWBDrilledHole): float {.noSideEffect,
+    importcpp: "DrillDiameterSize", header: "IGESAppli_PWBDrilledHole.hxx".}
+proc finishDiameterSize*(this: IGESAppliPWBDrilledHole): float {.noSideEffect,
+    importcpp: "FinishDiameterSize", header: "IGESAppli_PWBDrilledHole.hxx".}
+proc functionCode*(this: IGESAppliPWBDrilledHole): int {.noSideEffect,
     importcpp: "FunctionCode", header: "IGESAppli_PWBDrilledHole.hxx".}
 type
-  IGESAppli_PWBDrilledHolebase_type* = IGESData_IGESEntity
+  IGESAppliPWBDrilledHolebaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESAppli_PWBDrilledHole::get_type_name(@)",
-                              header: "IGESAppli_PWBDrilledHole.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESAppli_PWBDrilledHole::get_type_name(@)",
+                            header: "IGESAppli_PWBDrilledHole.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESAppli_PWBDrilledHole::get_type_descriptor(@)",
     header: "IGESAppli_PWBDrilledHole.hxx".}
-proc DynamicType*(this: IGESAppli_PWBDrilledHole): handle[Standard_Type] {.
+proc dynamicType*(this: IGESAppliPWBDrilledHole): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESAppli_PWBDrilledHole.hxx".}

@@ -14,16 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_Boolean, ../Standard/Standard_CString,
-  ../Standard/Standard_Integer, ../Interface/Interface_ParamType,
-  StepData_Logical, ../Standard/Standard_Real
-
 discard "forward decl of StepData_SelectMember"
 discard "forward decl of StepData_SelectMember"
 type
-  Handle_StepData_SelectMember* = handle[StepData_SelectMember]
+  HandleStepDataSelectMember* = Handle[StepDataSelectMember]
 
 ## ! The general form for a Select Member. A Select Member can,
 ## ! either define a value of a basic type (such as an integer)
@@ -43,67 +37,65 @@ type
 ## ! one of its virtual methods must be redefined to be usable
 
 type
-  StepData_SelectMember* {.importcpp: "StepData_SelectMember",
-                          header: "StepData_SelectMember.hxx", bycopy.} = object of Standard_Transient
+  StepDataSelectMember* {.importcpp: "StepData_SelectMember",
+                         header: "StepData_SelectMember.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructStepData_SelectMember*(): StepData_SelectMember {.constructor,
+proc constructStepDataSelectMember*(): StepDataSelectMember {.constructor,
     importcpp: "StepData_SelectMember(@)", header: "StepData_SelectMember.hxx".}
-proc HasName*(this: StepData_SelectMember): Standard_Boolean {.noSideEffect,
-    importcpp: "HasName", header: "StepData_SelectMember.hxx".}
-proc Name*(this: StepData_SelectMember): Standard_CString {.noSideEffect,
-    importcpp: "Name", header: "StepData_SelectMember.hxx".}
-proc SetName*(this: var StepData_SelectMember; name: Standard_CString): Standard_Boolean {.
-    importcpp: "SetName", header: "StepData_SelectMember.hxx".}
-proc Matches*(this: StepData_SelectMember; name: Standard_CString): Standard_Boolean {.
-    noSideEffect, importcpp: "Matches", header: "StepData_SelectMember.hxx".}
-proc Kind*(this: StepData_SelectMember): Standard_Integer {.noSideEffect,
-    importcpp: "Kind", header: "StepData_SelectMember.hxx".}
-proc SetKind*(this: var StepData_SelectMember; kind: Standard_Integer) {.
-    importcpp: "SetKind", header: "StepData_SelectMember.hxx".}
-proc ParamType*(this: StepData_SelectMember): Interface_ParamType {.noSideEffect,
-    importcpp: "ParamType", header: "StepData_SelectMember.hxx".}
-proc Int*(this: StepData_SelectMember): Standard_Integer {.noSideEffect,
-    importcpp: "Int", header: "StepData_SelectMember.hxx".}
-proc SetInt*(this: var StepData_SelectMember; val: Standard_Integer) {.
-    importcpp: "SetInt", header: "StepData_SelectMember.hxx".}
-proc Integer*(this: StepData_SelectMember): Standard_Integer {.noSideEffect,
-    importcpp: "Integer", header: "StepData_SelectMember.hxx".}
-proc SetInteger*(this: var StepData_SelectMember; val: Standard_Integer) {.
-    importcpp: "SetInteger", header: "StepData_SelectMember.hxx".}
-proc Boolean*(this: StepData_SelectMember): Standard_Boolean {.noSideEffect,
-    importcpp: "Boolean", header: "StepData_SelectMember.hxx".}
-proc SetBoolean*(this: var StepData_SelectMember; val: Standard_Boolean) {.
-    importcpp: "SetBoolean", header: "StepData_SelectMember.hxx".}
-proc Logical*(this: StepData_SelectMember): StepData_Logical {.noSideEffect,
-    importcpp: "Logical", header: "StepData_SelectMember.hxx".}
-proc SetLogical*(this: var StepData_SelectMember; val: StepData_Logical) {.
-    importcpp: "SetLogical", header: "StepData_SelectMember.hxx".}
-proc Real*(this: StepData_SelectMember): Standard_Real {.noSideEffect,
-    importcpp: "Real", header: "StepData_SelectMember.hxx".}
-proc SetReal*(this: var StepData_SelectMember; val: Standard_Real) {.
-    importcpp: "SetReal", header: "StepData_SelectMember.hxx".}
-proc String*(this: StepData_SelectMember): Standard_CString {.noSideEffect,
-    importcpp: "String", header: "StepData_SelectMember.hxx".}
-proc SetString*(this: var StepData_SelectMember; val: Standard_CString) {.
-    importcpp: "SetString", header: "StepData_SelectMember.hxx".}
-proc Enum*(this: StepData_SelectMember): Standard_Integer {.noSideEffect,
-    importcpp: "Enum", header: "StepData_SelectMember.hxx".}
-proc EnumText*(this: StepData_SelectMember): Standard_CString {.noSideEffect,
-    importcpp: "EnumText", header: "StepData_SelectMember.hxx".}
-proc SetEnum*(this: var StepData_SelectMember; val: Standard_Integer;
-             text: Standard_CString = "") {.importcpp: "SetEnum",
-                                        header: "StepData_SelectMember.hxx".}
-proc SetEnumText*(this: var StepData_SelectMember; val: Standard_Integer;
-                 text: Standard_CString) {.importcpp: "SetEnumText",
+proc hasName*(this: StepDataSelectMember): bool {.noSideEffect, importcpp: "HasName",
     header: "StepData_SelectMember.hxx".}
+proc name*(this: StepDataSelectMember): StandardCString {.noSideEffect,
+    importcpp: "Name", header: "StepData_SelectMember.hxx".}
+proc setName*(this: var StepDataSelectMember; name: StandardCString): bool {.
+    importcpp: "SetName", header: "StepData_SelectMember.hxx".}
+proc matches*(this: StepDataSelectMember; name: StandardCString): bool {.noSideEffect,
+    importcpp: "Matches", header: "StepData_SelectMember.hxx".}
+proc kind*(this: StepDataSelectMember): int {.noSideEffect, importcpp: "Kind",
+    header: "StepData_SelectMember.hxx".}
+proc setKind*(this: var StepDataSelectMember; kind: int) {.importcpp: "SetKind",
+    header: "StepData_SelectMember.hxx".}
+proc paramType*(this: StepDataSelectMember): InterfaceParamType {.noSideEffect,
+    importcpp: "ParamType", header: "StepData_SelectMember.hxx".}
+proc int*(this: StepDataSelectMember): int {.noSideEffect, importcpp: "Int",
+    header: "StepData_SelectMember.hxx".}
+proc setInt*(this: var StepDataSelectMember; val: int) {.importcpp: "SetInt",
+    header: "StepData_SelectMember.hxx".}
+proc integer*(this: StepDataSelectMember): int {.noSideEffect, importcpp: "Integer",
+    header: "StepData_SelectMember.hxx".}
+proc setInteger*(this: var StepDataSelectMember; val: int) {.importcpp: "SetInteger",
+    header: "StepData_SelectMember.hxx".}
+proc boolean*(this: StepDataSelectMember): bool {.noSideEffect, importcpp: "Boolean",
+    header: "StepData_SelectMember.hxx".}
+proc setBoolean*(this: var StepDataSelectMember; val: bool) {.importcpp: "SetBoolean",
+    header: "StepData_SelectMember.hxx".}
+proc logical*(this: StepDataSelectMember): StepDataLogical {.noSideEffect,
+    importcpp: "Logical", header: "StepData_SelectMember.hxx".}
+proc setLogical*(this: var StepDataSelectMember; val: StepDataLogical) {.
+    importcpp: "SetLogical", header: "StepData_SelectMember.hxx".}
+proc real*(this: StepDataSelectMember): float {.noSideEffect, importcpp: "Real",
+    header: "StepData_SelectMember.hxx".}
+proc setReal*(this: var StepDataSelectMember; val: float) {.importcpp: "SetReal",
+    header: "StepData_SelectMember.hxx".}
+proc string*(this: StepDataSelectMember): StandardCString {.noSideEffect,
+    importcpp: "String", header: "StepData_SelectMember.hxx".}
+proc setString*(this: var StepDataSelectMember; val: StandardCString) {.
+    importcpp: "SetString", header: "StepData_SelectMember.hxx".}
+proc `enum`*(this: StepDataSelectMember): int {.noSideEffect, importcpp: "Enum",
+    header: "StepData_SelectMember.hxx".}
+proc enumText*(this: StepDataSelectMember): StandardCString {.noSideEffect,
+    importcpp: "EnumText", header: "StepData_SelectMember.hxx".}
+proc setEnum*(this: var StepDataSelectMember; val: int; text: StandardCString = "") {.
+    importcpp: "SetEnum", header: "StepData_SelectMember.hxx".}
+proc setEnumText*(this: var StepDataSelectMember; val: int; text: StandardCString) {.
+    importcpp: "SetEnumText", header: "StepData_SelectMember.hxx".}
 type
-  StepData_SelectMemberbase_type* = Standard_Transient
+  StepDataSelectMemberbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepData_SelectMember::get_type_name(@)",
-                              header: "StepData_SelectMember.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepData_SelectMember::get_type_name(@)",
+                            header: "StepData_SelectMember.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepData_SelectMember::get_type_descriptor(@)",
     header: "StepData_SelectMember.hxx".}
-proc DynamicType*(this: StepData_SelectMember): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepData_SelectMember.hxx".}
+proc dynamicType*(this: StepDataSelectMember): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepData_SelectMember.hxx".}

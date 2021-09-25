@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../IFSelect/IFSelect_Signature,
-  ../Standard/Standard_CString
-
 discard "forward decl of XSControl_TransferReader"
 discard "forward decl of Transfer_TransientProcess"
 discard "forward decl of Standard_Transient"
@@ -25,7 +21,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of XSControl_SignTransferStatus"
 discard "forward decl of XSControl_SignTransferStatus"
 type
-  Handle_XSControl_SignTransferStatus* = handle[XSControl_SignTransferStatus]
+  HandleXSControlSignTransferStatus* = Handle[XSControlSignTransferStatus]
 
 ## ! This Signatures gives the Transfer Status of an entity, as
 ## ! recorded in a TransferProcess. It can be :
@@ -42,40 +38,50 @@ type
 ## ! (this should not appear and indicates a programming error)
 
 type
-  XSControl_SignTransferStatus* {.importcpp: "XSControl_SignTransferStatus",
-                                 header: "XSControl_SignTransferStatus.hxx",
-                                 bycopy.} = object of IFSelect_Signature ## ! Creates a
-                                                                    ## SignTransferStatus, not initialised
-                                                                    ## ! it gives nothing (empty string)
+  XSControlSignTransferStatus* {.importcpp: "XSControl_SignTransferStatus",
+                                header: "XSControl_SignTransferStatus.hxx", bycopy.} = object of IFSelectSignature ##
+                                                                                                            ## !
+                                                                                                            ## Creates
+                                                                                                            ## a
+                                                                                                            ## SignTransferStatus,
+                                                                                                            ## not
+                                                                                                            ## initialised
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## it
+                                                                                                            ## gives
+                                                                                                            ## nothing
+                                                                                                            ## (empty
+                                                                                                            ## string)
 
 
-proc constructXSControl_SignTransferStatus*(): XSControl_SignTransferStatus {.
+proc constructXSControlSignTransferStatus*(): XSControlSignTransferStatus {.
     constructor, importcpp: "XSControl_SignTransferStatus(@)",
     header: "XSControl_SignTransferStatus.hxx".}
-proc constructXSControl_SignTransferStatus*(TR: handle[XSControl_TransferReader]): XSControl_SignTransferStatus {.
+proc constructXSControlSignTransferStatus*(tr: Handle[XSControlTransferReader]): XSControlSignTransferStatus {.
     constructor, importcpp: "XSControl_SignTransferStatus(@)",
     header: "XSControl_SignTransferStatus.hxx".}
-proc SetReader*(this: var XSControl_SignTransferStatus;
-               TR: handle[XSControl_TransferReader]) {.importcpp: "SetReader",
+proc setReader*(this: var XSControlSignTransferStatus;
+               tr: Handle[XSControlTransferReader]) {.importcpp: "SetReader",
     header: "XSControl_SignTransferStatus.hxx".}
-proc SetMap*(this: var XSControl_SignTransferStatus;
-            TP: handle[Transfer_TransientProcess]) {.importcpp: "SetMap",
+proc setMap*(this: var XSControlSignTransferStatus;
+            tp: Handle[TransferTransientProcess]) {.importcpp: "SetMap",
     header: "XSControl_SignTransferStatus.hxx".}
-proc Map*(this: XSControl_SignTransferStatus): handle[Transfer_TransientProcess] {.
+proc map*(this: XSControlSignTransferStatus): Handle[TransferTransientProcess] {.
     noSideEffect, importcpp: "Map", header: "XSControl_SignTransferStatus.hxx".}
-proc Reader*(this: XSControl_SignTransferStatus): handle[XSControl_TransferReader] {.
+proc reader*(this: XSControlSignTransferStatus): Handle[XSControlTransferReader] {.
     noSideEffect, importcpp: "Reader", header: "XSControl_SignTransferStatus.hxx".}
-proc Value*(this: XSControl_SignTransferStatus; ent: handle[Standard_Transient];
-           model: handle[Interface_InterfaceModel]): Standard_CString {.
-    noSideEffect, importcpp: "Value", header: "XSControl_SignTransferStatus.hxx".}
+proc value*(this: XSControlSignTransferStatus; ent: Handle[StandardTransient];
+           model: Handle[InterfaceInterfaceModel]): StandardCString {.noSideEffect,
+    importcpp: "Value", header: "XSControl_SignTransferStatus.hxx".}
 type
-  XSControl_SignTransferStatusbase_type* = IFSelect_Signature
+  XSControlSignTransferStatusbaseType* = IFSelectSignature
 
-proc get_type_name*(): cstring {.importcpp: "XSControl_SignTransferStatus::get_type_name(@)",
-                              header: "XSControl_SignTransferStatus.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XSControl_SignTransferStatus::get_type_name(@)",
+                            header: "XSControl_SignTransferStatus.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XSControl_SignTransferStatus::get_type_descriptor(@)",
     header: "XSControl_SignTransferStatus.hxx".}
-proc DynamicType*(this: XSControl_SignTransferStatus): handle[Standard_Type] {.
+proc dynamicType*(this: XSControlSignTransferStatus): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XSControl_SignTransferStatus.hxx".}

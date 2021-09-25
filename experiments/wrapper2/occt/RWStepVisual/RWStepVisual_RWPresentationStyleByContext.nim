@@ -14,35 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_PresentationStyleByContext"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisual_RWPresentationStyleByContext* {.
+  RWStepVisualRWPresentationStyleByContext* {.
       importcpp: "RWStepVisual_RWPresentationStyleByContext",
       header: "RWStepVisual_RWPresentationStyleByContext.hxx", bycopy.} = object
 
 
-proc constructRWStepVisual_RWPresentationStyleByContext*(): RWStepVisual_RWPresentationStyleByContext {.
+proc constructRWStepVisualRWPresentationStyleByContext*(): RWStepVisualRWPresentationStyleByContext {.
     constructor, importcpp: "RWStepVisual_RWPresentationStyleByContext(@)",
     header: "RWStepVisual_RWPresentationStyleByContext.hxx".}
-proc ReadStep*(this: RWStepVisual_RWPresentationStyleByContext;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepVisual_PresentationStyleByContext]) {.noSideEffect,
+proc readStep*(this: RWStepVisualRWPresentationStyleByContext;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepVisualPresentationStyleByContext]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWPresentationStyleByContext.hxx".}
-proc WriteStep*(this: RWStepVisual_RWPresentationStyleByContext;
-               SW: var StepData_StepWriter;
-               ent: handle[StepVisual_PresentationStyleByContext]) {.noSideEffect,
+proc writeStep*(this: RWStepVisualRWPresentationStyleByContext;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepVisualPresentationStyleByContext]) {.noSideEffect,
     importcpp: "WriteStep",
     header: "RWStepVisual_RWPresentationStyleByContext.hxx".}
-proc Share*(this: RWStepVisual_RWPresentationStyleByContext;
-           ent: handle[StepVisual_PresentationStyleByContext];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepVisualRWPresentationStyleByContext;
+           ent: Handle[StepVisualPresentationStyleByContext];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWPresentationStyleByContext.hxx".}

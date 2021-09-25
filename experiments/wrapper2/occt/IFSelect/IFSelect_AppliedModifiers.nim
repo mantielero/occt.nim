@@ -14,17 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  IFSelect_SequenceOfGeneralModifier, ../Interface/Interface_IntList,
-  ../Standard/Standard_Integer, ../Standard/Standard_Transient,
-  ../Standard/Standard_Boolean, ../TColStd/TColStd_HSequenceOfInteger
-
 discard "forward decl of IFSelect_GeneralModifier"
 discard "forward decl of IFSelect_AppliedModifiers"
 discard "forward decl of IFSelect_AppliedModifiers"
 type
-  Handle_IFSelect_AppliedModifiers* = handle[IFSelect_AppliedModifiers]
+  HandleIFSelectAppliedModifiers* = Handle[IFSelectAppliedModifiers]
 
 ## ! This class allows to memorize and access to the modifiers
 ## ! which are to be applied to a file. To each modifier, is bound
@@ -46,57 +40,55 @@ type
 ## ! nument = ItemNum (i);  -> return an entity number
 
 type
-  IFSelect_AppliedModifiers* {.importcpp: "IFSelect_AppliedModifiers",
-                              header: "IFSelect_AppliedModifiers.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                        ## !
-                                                                                                        ## Creates
-                                                                                                        ## an
-                                                                                                        ## AppliedModifiers,
-                                                                                                        ## ready
-                                                                                                        ## to
-                                                                                                        ## record
-                                                                                                        ## up
-                                                                                                        ## to
-                                                                                                        ## <nbmax>
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## modifiers,
-                                                                                                        ## on
-                                                                                                        ## a
-                                                                                                        ## model
-                                                                                                        ## of
-                                                                                                        ## <nbent>
-                                                                                                        ## entities
+  IFSelectAppliedModifiers* {.importcpp: "IFSelect_AppliedModifiers",
+                             header: "IFSelect_AppliedModifiers.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                      ## !
+                                                                                                      ## Creates
+                                                                                                      ## an
+                                                                                                      ## AppliedModifiers,
+                                                                                                      ## ready
+                                                                                                      ## to
+                                                                                                      ## record
+                                                                                                      ## up
+                                                                                                      ## to
+                                                                                                      ## <nbmax>
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## modifiers,
+                                                                                                      ## on
+                                                                                                      ## a
+                                                                                                      ## model
+                                                                                                      ## of
+                                                                                                      ## <nbent>
+                                                                                                      ## entities
 
 
-proc constructIFSelect_AppliedModifiers*(nbmax: Standard_Integer;
-                                        nbent: Standard_Integer): IFSelect_AppliedModifiers {.
+proc constructIFSelectAppliedModifiers*(nbmax: int; nbent: int): IFSelectAppliedModifiers {.
     constructor, importcpp: "IFSelect_AppliedModifiers(@)",
     header: "IFSelect_AppliedModifiers.hxx".}
-proc AddModif*(this: var IFSelect_AppliedModifiers;
-              modif: handle[IFSelect_GeneralModifier]): Standard_Boolean {.
+proc addModif*(this: var IFSelectAppliedModifiers;
+              modif: Handle[IFSelectGeneralModifier]): bool {.
     importcpp: "AddModif", header: "IFSelect_AppliedModifiers.hxx".}
-proc AddNum*(this: var IFSelect_AppliedModifiers; nument: Standard_Integer): Standard_Boolean {.
+proc addNum*(this: var IFSelectAppliedModifiers; nument: int): bool {.
     importcpp: "AddNum", header: "IFSelect_AppliedModifiers.hxx".}
-proc Count*(this: IFSelect_AppliedModifiers): Standard_Integer {.noSideEffect,
-    importcpp: "Count", header: "IFSelect_AppliedModifiers.hxx".}
-proc Item*(this: var IFSelect_AppliedModifiers; num: Standard_Integer;
-          modif: var handle[IFSelect_GeneralModifier];
-          entcount: var Standard_Integer): Standard_Boolean {.importcpp: "Item",
+proc count*(this: IFSelectAppliedModifiers): int {.noSideEffect, importcpp: "Count",
     header: "IFSelect_AppliedModifiers.hxx".}
-proc ItemNum*(this: IFSelect_AppliedModifiers; nument: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "ItemNum", header: "IFSelect_AppliedModifiers.hxx".}
-proc ItemList*(this: IFSelect_AppliedModifiers): handle[TColStd_HSequenceOfInteger] {.
+proc item*(this: var IFSelectAppliedModifiers; num: int;
+          modif: var Handle[IFSelectGeneralModifier]; entcount: var int): bool {.
+    importcpp: "Item", header: "IFSelect_AppliedModifiers.hxx".}
+proc itemNum*(this: IFSelectAppliedModifiers; nument: int): int {.noSideEffect,
+    importcpp: "ItemNum", header: "IFSelect_AppliedModifiers.hxx".}
+proc itemList*(this: IFSelectAppliedModifiers): Handle[TColStdHSequenceOfInteger] {.
     noSideEffect, importcpp: "ItemList", header: "IFSelect_AppliedModifiers.hxx".}
-proc IsForAll*(this: IFSelect_AppliedModifiers): Standard_Boolean {.noSideEffect,
+proc isForAll*(this: IFSelectAppliedModifiers): bool {.noSideEffect,
     importcpp: "IsForAll", header: "IFSelect_AppliedModifiers.hxx".}
 type
-  IFSelect_AppliedModifiersbase_type* = Standard_Transient
+  IFSelectAppliedModifiersbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_AppliedModifiers::get_type_name(@)",
-                              header: "IFSelect_AppliedModifiers.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_AppliedModifiers::get_type_name(@)",
+                            header: "IFSelect_AppliedModifiers.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_AppliedModifiers::get_type_descriptor(@)",
     header: "IFSelect_AppliedModifiers.hxx".}
-proc DynamicType*(this: IFSelect_AppliedModifiers): handle[Standard_Type] {.
+proc dynamicType*(this: IFSelectAppliedModifiers): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IFSelect_AppliedModifiers.hxx".}

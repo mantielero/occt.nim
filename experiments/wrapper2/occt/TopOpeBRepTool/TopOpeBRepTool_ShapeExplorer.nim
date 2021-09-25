@@ -14,32 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopExp/TopExp_Explorer, ../TopAbs/TopAbs
-
 ## ! Extends TopExp_Explorer by counting index of current item
 ## ! (for tracing and debug)
 
 type
-  TopOpeBRepTool_ShapeExplorer* {.importcpp: "TopOpeBRepTool_ShapeExplorer",
-                                 header: "TopOpeBRepTool_ShapeExplorer.hxx",
-                                 bycopy.} = object of TopExp_Explorer ## ! Creates an empty explorer, becomes usefull after Init.
+  TopOpeBRepToolShapeExplorer* {.importcpp: "TopOpeBRepTool_ShapeExplorer",
+                                header: "TopOpeBRepTool_ShapeExplorer.hxx", bycopy.} = object of TopExpExplorer ##
+                                                                                                         ## !
+                                                                                                         ## Creates
+                                                                                                         ## an
+                                                                                                         ## empty
+                                                                                                         ## explorer,
+                                                                                                         ## becomes
+                                                                                                         ## usefull
+                                                                                                         ## after
+                                                                                                         ## Init.
 
 
-proc constructTopOpeBRepTool_ShapeExplorer*(): TopOpeBRepTool_ShapeExplorer {.
+proc constructTopOpeBRepToolShapeExplorer*(): TopOpeBRepToolShapeExplorer {.
     constructor, importcpp: "TopOpeBRepTool_ShapeExplorer(@)",
     header: "TopOpeBRepTool_ShapeExplorer.hxx".}
-proc constructTopOpeBRepTool_ShapeExplorer*(S: TopoDS_Shape;
-    ToFind: TopAbs_ShapeEnum; ToAvoid: TopAbs_ShapeEnum = TopAbs_SHAPE): TopOpeBRepTool_ShapeExplorer {.
+proc constructTopOpeBRepToolShapeExplorer*(s: TopoDS_Shape;
+    toFind: TopAbsShapeEnum; toAvoid: TopAbsShapeEnum = topAbsSHAPE): TopOpeBRepToolShapeExplorer {.
     constructor, importcpp: "TopOpeBRepTool_ShapeExplorer(@)",
     header: "TopOpeBRepTool_ShapeExplorer.hxx".}
-proc Init*(this: var TopOpeBRepTool_ShapeExplorer; S: TopoDS_Shape;
-          ToFind: TopAbs_ShapeEnum; ToAvoid: TopAbs_ShapeEnum = TopAbs_SHAPE) {.
+proc init*(this: var TopOpeBRepToolShapeExplorer; s: TopoDS_Shape;
+          toFind: TopAbsShapeEnum; toAvoid: TopAbsShapeEnum = topAbsSHAPE) {.
     importcpp: "Init", header: "TopOpeBRepTool_ShapeExplorer.hxx".}
-proc Next*(this: var TopOpeBRepTool_ShapeExplorer) {.importcpp: "Next",
+proc next*(this: var TopOpeBRepToolShapeExplorer) {.importcpp: "Next",
     header: "TopOpeBRepTool_ShapeExplorer.hxx".}
-proc Index*(this: TopOpeBRepTool_ShapeExplorer): Standard_Integer {.noSideEffect,
+proc index*(this: TopOpeBRepToolShapeExplorer): int {.noSideEffect,
     importcpp: "Index", header: "TopOpeBRepTool_ShapeExplorer.hxx".}
-proc DumpCurrent*(this: TopOpeBRepTool_ShapeExplorer; OS: var Standard_OStream): var Standard_OStream {.
+proc dumpCurrent*(this: TopOpeBRepToolShapeExplorer; os: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "DumpCurrent",
     header: "TopOpeBRepTool_ShapeExplorer.hxx".}

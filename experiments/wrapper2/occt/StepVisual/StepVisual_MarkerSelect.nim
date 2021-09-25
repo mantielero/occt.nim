@@ -14,31 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepData_SelectMember"
 discard "forward decl of StepVisual_MarkerMember"
 type
-  StepVisual_MarkerSelect* {.importcpp: "StepVisual_MarkerSelect",
-                            header: "StepVisual_MarkerSelect.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                     ## !
-                                                                                                     ## Returns
-                                                                                                     ## a
-                                                                                                     ## MarkerSelect
-                                                                                                     ## SelectType
+  StepVisualMarkerSelect* {.importcpp: "StepVisual_MarkerSelect",
+                           header: "StepVisual_MarkerSelect.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                   ## !
+                                                                                                   ## Returns
+                                                                                                   ## a
+                                                                                                   ## MarkerSelect
+                                                                                                   ## SelectType
 
 
-proc constructStepVisual_MarkerSelect*(): StepVisual_MarkerSelect {.constructor,
+proc constructStepVisualMarkerSelect*(): StepVisualMarkerSelect {.constructor,
     importcpp: "StepVisual_MarkerSelect(@)", header: "StepVisual_MarkerSelect.hxx".}
-proc CaseNum*(this: StepVisual_MarkerSelect; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepVisualMarkerSelect; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_MarkerSelect.hxx".}
-proc NewMember*(this: StepVisual_MarkerSelect): handle[StepData_SelectMember] {.
+proc newMember*(this: StepVisualMarkerSelect): Handle[StepDataSelectMember] {.
     noSideEffect, importcpp: "NewMember", header: "StepVisual_MarkerSelect.hxx".}
-proc CaseMem*(this: StepVisual_MarkerSelect; sm: handle[StepData_SelectMember]): Standard_Integer {.
+proc caseMem*(this: StepVisualMarkerSelect; sm: Handle[StepDataSelectMember]): int {.
     noSideEffect, importcpp: "CaseMem", header: "StepVisual_MarkerSelect.hxx".}
-proc MarkerMember*(this: StepVisual_MarkerSelect): handle[StepVisual_MarkerMember] {.
+proc markerMember*(this: StepVisualMarkerSelect): Handle[StepVisualMarkerMember] {.
     noSideEffect, importcpp: "MarkerMember", header: "StepVisual_MarkerSelect.hxx".}

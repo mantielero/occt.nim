@@ -14,54 +14,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  VrmlConverter_LineAspect, ../Standard/Standard_Boolean
-
 discard "forward decl of Vrml_Material"
 discard "forward decl of VrmlConverter_IsoAspect"
 discard "forward decl of VrmlConverter_IsoAspect"
 type
-  Handle_VrmlConverter_IsoAspect* = handle[VrmlConverter_IsoAspect]
+  HandleVrmlConverterIsoAspect* = Handle[VrmlConverterIsoAspect]
 
 ## ! qualifies the aspect properties for
 ## ! the VRML conversation of iso curves .
 
 type
-  VrmlConverter_IsoAspect* {.importcpp: "VrmlConverter_IsoAspect",
-                            header: "VrmlConverter_IsoAspect.hxx", bycopy.} = object of VrmlConverter_LineAspect ##
-                                                                                                          ## !
-                                                                                                          ## create
-                                                                                                          ## a
-                                                                                                          ## default
-                                                                                                          ## IsoAspect.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Default
-                                                                                                          ## value:
-                                                                                                          ## myNumber
-                                                                                                          ## -
-                                                                                                          ## 10.
+  VrmlConverterIsoAspect* {.importcpp: "VrmlConverter_IsoAspect",
+                           header: "VrmlConverter_IsoAspect.hxx", bycopy.} = object of VrmlConverterLineAspect ##
+                                                                                                        ## !
+                                                                                                        ## create
+                                                                                                        ## a
+                                                                                                        ## default
+                                                                                                        ## IsoAspect.
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## Default
+                                                                                                        ## value:
+                                                                                                        ## myNumber
+                                                                                                        ## -
+                                                                                                        ## 10.
 
 
-proc constructVrmlConverter_IsoAspect*(): VrmlConverter_IsoAspect {.constructor,
+proc constructVrmlConverterIsoAspect*(): VrmlConverterIsoAspect {.constructor,
     importcpp: "VrmlConverter_IsoAspect(@)", header: "VrmlConverter_IsoAspect.hxx".}
-proc constructVrmlConverter_IsoAspect*(aMaterial: handle[Vrml_Material];
-                                      OnOff: Standard_Boolean;
-                                      aNumber: Standard_Integer): VrmlConverter_IsoAspect {.
+proc constructVrmlConverterIsoAspect*(aMaterial: Handle[VrmlMaterial]; onOff: bool;
+                                     aNumber: int): VrmlConverterIsoAspect {.
     constructor, importcpp: "VrmlConverter_IsoAspect(@)",
     header: "VrmlConverter_IsoAspect.hxx".}
-proc SetNumber*(this: var VrmlConverter_IsoAspect; aNumber: Standard_Integer) {.
+proc setNumber*(this: var VrmlConverterIsoAspect; aNumber: int) {.
     importcpp: "SetNumber", header: "VrmlConverter_IsoAspect.hxx".}
-proc Number*(this: VrmlConverter_IsoAspect): Standard_Integer {.noSideEffect,
-    importcpp: "Number", header: "VrmlConverter_IsoAspect.hxx".}
+proc number*(this: VrmlConverterIsoAspect): int {.noSideEffect, importcpp: "Number",
+    header: "VrmlConverter_IsoAspect.hxx".}
 type
-  VrmlConverter_IsoAspectbase_type* = VrmlConverter_LineAspect
+  VrmlConverterIsoAspectbaseType* = VrmlConverterLineAspect
 
-proc get_type_name*(): cstring {.importcpp: "VrmlConverter_IsoAspect::get_type_name(@)",
-                              header: "VrmlConverter_IsoAspect.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "VrmlConverter_IsoAspect::get_type_name(@)",
+                            header: "VrmlConverter_IsoAspect.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "VrmlConverter_IsoAspect::get_type_descriptor(@)",
     header: "VrmlConverter_IsoAspect.hxx".}
-proc DynamicType*(this: VrmlConverter_IsoAspect): handle[Standard_Type] {.
+proc dynamicType*(this: VrmlConverterIsoAspect): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "VrmlConverter_IsoAspect.hxx".}

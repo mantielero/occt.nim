@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TColStd/TColStd_SequenceOfReal, GeomPlate_Array1OfSequenceOfReal,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  GeomPlate_HArray1OfSequenceOfReal* {.importcpp: "GeomPlate_HArray1OfSequenceOfReal", header: "GeomPlate_HArray1OfSequenceOfReal.hxx",
-                                      bycopy.} = object of GeomPlate_Array1OfSequenceOfReal
+  GeomPlateHArray1OfSequenceOfReal* {.importcpp: "GeomPlate_HArray1OfSequenceOfReal", header: "GeomPlate_HArray1OfSequenceOfReal.hxx",
+                                     bycopy.} = object of GeomPlateArray1OfSequenceOfReal
 
 
-proc constructGeomPlate_HArray1OfSequenceOfReal*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): GeomPlate_HArray1OfSequenceOfReal {.constructor,
+proc constructGeomPlateHArray1OfSequenceOfReal*(theLower: int; theUpper: int): GeomPlateHArray1OfSequenceOfReal {.
+    constructor, importcpp: "GeomPlate_HArray1OfSequenceOfReal(@)",
+    header: "GeomPlate_HArray1OfSequenceOfReal.hxx".}
+proc constructGeomPlateHArray1OfSequenceOfReal*(theLower: int; theUpper: int;
+    theValue: ValueType): GeomPlateHArray1OfSequenceOfReal {.constructor,
     importcpp: "GeomPlate_HArray1OfSequenceOfReal(@)",
     header: "GeomPlate_HArray1OfSequenceOfReal.hxx".}
-proc constructGeomPlate_HArray1OfSequenceOfReal*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): GeomPlate_HArray1OfSequenceOfReal {.
+proc constructGeomPlateHArray1OfSequenceOfReal*(
+    theOther: GeomPlateArray1OfSequenceOfReal): GeomPlateHArray1OfSequenceOfReal {.
     constructor, importcpp: "GeomPlate_HArray1OfSequenceOfReal(@)",
     header: "GeomPlate_HArray1OfSequenceOfReal.hxx".}
-proc constructGeomPlate_HArray1OfSequenceOfReal*(
-    theOther: GeomPlate_Array1OfSequenceOfReal): GeomPlate_HArray1OfSequenceOfReal {.
-    constructor, importcpp: "GeomPlate_HArray1OfSequenceOfReal(@)",
-    header: "GeomPlate_HArray1OfSequenceOfReal.hxx".}
-proc Array1*(this: GeomPlate_HArray1OfSequenceOfReal): GeomPlate_Array1OfSequenceOfReal {.
+proc array1*(this: GeomPlateHArray1OfSequenceOfReal): GeomPlateArray1OfSequenceOfReal {.
     noSideEffect, importcpp: "Array1",
     header: "GeomPlate_HArray1OfSequenceOfReal.hxx".}
-proc ChangeArray1*(this: var GeomPlate_HArray1OfSequenceOfReal): var GeomPlate_Array1OfSequenceOfReal {.
+proc changeArray1*(this: var GeomPlateHArray1OfSequenceOfReal): var GeomPlateArray1OfSequenceOfReal {.
     importcpp: "ChangeArray1", header: "GeomPlate_HArray1OfSequenceOfReal.hxx".}
 type
-  GeomPlate_HArray1OfSequenceOfRealbase_type* = MMgt_TShared
+  GeomPlateHArray1OfSequenceOfRealbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "GeomPlate_HArray1OfSequenceOfReal::get_type_name(@)",
-                              header: "GeomPlate_HArray1OfSequenceOfReal.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "GeomPlate_HArray1OfSequenceOfReal::get_type_name(@)",
+                            header: "GeomPlate_HArray1OfSequenceOfReal.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GeomPlate_HArray1OfSequenceOfReal::get_type_descriptor(@)",
     header: "GeomPlate_HArray1OfSequenceOfReal.hxx".}
-proc DynamicType*(this: GeomPlate_HArray1OfSequenceOfReal): handle[Standard_Type] {.
+proc dynamicType*(this: GeomPlateHArray1OfSequenceOfReal): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "GeomPlate_HArray1OfSequenceOfReal.hxx".}

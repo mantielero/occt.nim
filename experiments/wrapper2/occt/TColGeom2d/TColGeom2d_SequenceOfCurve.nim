@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Geom2d/Geom2d_Curve, ../NCollection/NCollection_Sequence
-
 type
-  TColGeom2d_SequenceOfCurve* = NCollection_Sequence[handle[Geom2d_Curve]]
+  TColGeom2dSequenceOfCurve* = NCollectionSequence[Handle[Geom2dCurve]]
+

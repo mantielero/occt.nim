@@ -13,12 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TDF_Attribute, TDF_Attribute, ../TColStd/TColStd_MapTransientHasher,
-  ../NCollection/NCollection_DataMap
-
 type
-  TDF_AttributeDataMap* = NCollection_DataMap[handle[TDF_Attribute],
-      handle[TDF_Attribute], TColStd_MapTransientHasher]
-  TDF_DataMapIteratorOfAttributeDataMap* = Iterator[handle[TDF_Attribute],
-      handle[TDF_Attribute], TColStd_MapTransientHasher]
+  TDF_AttributeDataMap* = NCollectionDataMap[Handle[TDF_Attribute],
+      Handle[TDF_Attribute], TColStdMapTransientHasher]
+  TDF_DataMapIteratorOfAttributeDataMap* = Iterator[Handle[TDF_Attribute],
+      Handle[TDF_Attribute], TColStdMapTransientHasher]
+

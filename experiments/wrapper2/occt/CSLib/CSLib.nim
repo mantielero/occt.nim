@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real, CSLib_DerivativeStatus,
-  ../Standard/Standard_Boolean, CSLib_NormalStatus, ../Standard/Standard_Integer,
-  ../TColgp/TColgp_Array2OfVec
-
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Dir"
 discard "forward decl of CSLib_Class2d"
@@ -39,29 +33,21 @@ type
                                                               ## ! reason why the computation has failed.
 
 
-proc Normal*(D1U: gp_Vec; D1V: gp_Vec; SinTol: Standard_Real;
-            theStatus: var CSLib_DerivativeStatus; Normal: var gp_Dir) {.
+proc normal*(d1u: Vec; d1v: Vec; sinTol: float; theStatus: var CSLibDerivativeStatus;
+            normal: var Dir) {.importcpp: "CSLib::Normal(@)", header: "CSLib.hxx".}
+proc normal*(d1u: Vec; d1v: Vec; d2u: Vec; d2v: Vec; d2uv: Vec; sinTol: float;
+            done: var bool; theStatus: var CSLibNormalStatus; normal: var Dir) {.
     importcpp: "CSLib::Normal(@)", header: "CSLib.hxx".}
-proc Normal*(D1U: gp_Vec; D1V: gp_Vec; D2U: gp_Vec; D2V: gp_Vec; D2UV: gp_Vec;
-            SinTol: Standard_Real; Done: var Standard_Boolean;
-            theStatus: var CSLib_NormalStatus; Normal: var gp_Dir) {.
-    importcpp: "CSLib::Normal(@)", header: "CSLib.hxx".}
-proc Normal*(D1U: gp_Vec; D1V: gp_Vec; MagTol: Standard_Real;
-            theStatus: var CSLib_NormalStatus; Normal: var gp_Dir) {.
-    importcpp: "CSLib::Normal(@)", header: "CSLib.hxx".}
-proc Normal*(MaxOrder: Standard_Integer; DerNUV: TColgp_Array2OfVec;
-            MagTol: Standard_Real; U: Standard_Real; V: Standard_Real;
-            Umin: Standard_Real; Umax: Standard_Real; Vmin: Standard_Real;
-            Vmax: Standard_Real; theStatus: var CSLib_NormalStatus;
-            Normal: var gp_Dir; OrderU: var Standard_Integer;
-            OrderV: var Standard_Integer) {.importcpp: "CSLib::Normal(@)",
-    header: "CSLib.hxx".}
-proc DNNUV*(Nu: Standard_Integer; Nv: Standard_Integer; DerSurf: TColgp_Array2OfVec): gp_Vec {.
+proc normal*(d1u: Vec; d1v: Vec; magTol: float; theStatus: var CSLibNormalStatus;
+            normal: var Dir) {.importcpp: "CSLib::Normal(@)", header: "CSLib.hxx".}
+proc normal*(maxOrder: int; derNUV: TColgpArray2OfVec; magTol: float; u: float; v: float;
+            umin: float; umax: float; vmin: float; vmax: float;
+            theStatus: var CSLibNormalStatus; normal: var Dir; orderU: var int;
+            orderV: var int) {.importcpp: "CSLib::Normal(@)", header: "CSLib.hxx".}
+proc dnnuv*(nu: int; nv: int; derSurf: TColgpArray2OfVec): Vec {.
     importcpp: "CSLib::DNNUV(@)", header: "CSLib.hxx".}
-proc DNNUV*(Nu: Standard_Integer; Nv: Standard_Integer; DerSurf1: TColgp_Array2OfVec;
-           DerSurf2: TColgp_Array2OfVec): gp_Vec {.importcpp: "CSLib::DNNUV(@)",
-    header: "CSLib.hxx".}
-proc DNNormal*(Nu: Standard_Integer; Nv: Standard_Integer;
-              DerNUV: TColgp_Array2OfVec; Iduref: Standard_Integer = 0;
-              Idvref: Standard_Integer = 0): gp_Vec {.
-    importcpp: "CSLib::DNNormal(@)", header: "CSLib.hxx".}
+proc dnnuv*(nu: int; nv: int; derSurf1: TColgpArray2OfVec; derSurf2: TColgpArray2OfVec): Vec {.
+    importcpp: "CSLib::DNNUV(@)", header: "CSLib.hxx".}
+proc dNNormal*(nu: int; nv: int; derNUV: TColgpArray2OfVec; iduref: int = 0;
+              idvref: int = 0): Vec {.importcpp: "CSLib::DNNormal(@)",
+                                 header: "CSLib.hxx".}

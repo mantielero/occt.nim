@@ -13,23 +13,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real
-
 discard "forward decl of Geom_Curve"
 type
-  ShapeCustom_Curve* {.importcpp: "ShapeCustom_Curve",
-                      header: "ShapeCustom_Curve.hxx", bycopy.} = object
+  ShapeCustomCurve* {.importcpp: "ShapeCustom_Curve",
+                     header: "ShapeCustom_Curve.hxx", bycopy.} = object
 
 
-proc constructShapeCustom_Curve*(): ShapeCustom_Curve {.constructor,
+proc constructShapeCustomCurve*(): ShapeCustomCurve {.constructor,
     importcpp: "ShapeCustom_Curve(@)", header: "ShapeCustom_Curve.hxx".}
-proc constructShapeCustom_Curve*(C: handle[Geom_Curve]): ShapeCustom_Curve {.
+proc constructShapeCustomCurve*(c: Handle[GeomCurve]): ShapeCustomCurve {.
     constructor, importcpp: "ShapeCustom_Curve(@)", header: "ShapeCustom_Curve.hxx".}
-proc Init*(this: var ShapeCustom_Curve; C: handle[Geom_Curve]) {.importcpp: "Init",
+proc init*(this: var ShapeCustomCurve; c: Handle[GeomCurve]) {.importcpp: "Init",
     header: "ShapeCustom_Curve.hxx".}
-proc ConvertToPeriodic*(this: var ShapeCustom_Curve; substitute: Standard_Boolean;
-                       preci: Standard_Real = -1): handle[Geom_Curve] {.
+proc convertToPeriodic*(this: var ShapeCustomCurve; substitute: bool;
+                       preci: float = -1): Handle[GeomCurve] {.
     importcpp: "ConvertToPeriodic", header: "ShapeCustom_Curve.hxx".}

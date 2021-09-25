@@ -14,203 +14,195 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GProp_GProps, ../Standard/Standard_Real,
-  ../TColgp/TColgp_Array1OfPnt, ../TColgp/TColgp_Array2OfPnt,
-  ../TColStd/TColStd_Array1OfReal, ../TColStd/TColStd_Array2OfReal
-
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Pnt"
 type
-  GProp_PGProps* {.importcpp: "GProp_PGProps", header: "GProp_PGProps.hxx", bycopy.} = object of GProp_GProps ##
-                                                                                                    ## !
-                                                                                                    ## Initializes
-                                                                                                    ## a
-                                                                                                    ## framework
-                                                                                                    ## to
-                                                                                                    ## compute
-                                                                                                    ## global
-                                                                                                    ## properties
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## on
-                                                                                                    ## a
-                                                                                                    ## set
-                                                                                                    ## of
-                                                                                                    ## points.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## The
-                                                                                                    ## point
-                                                                                                    ## relative
-                                                                                                    ## to
-                                                                                                    ## which
-                                                                                                    ## the
-                                                                                                    ## inertia
-                                                                                                    ## of
-                                                                                                    ## the
-                                                                                                    ## system
-                                                                                                    ## is
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## computed
-                                                                                                    ## will
-                                                                                                    ## be
-                                                                                                    ## the
-                                                                                                    ## origin
-                                                                                                    ## (0,
-                                                                                                    ## 0,
-                                                                                                    ## 0)
-                                                                                                    ## of
-                                                                                                    ## the
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## absolute
-                                                                                                    ## Cartesian
-                                                                                                    ## coordinate
-                                                                                                    ## system.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## At
-                                                                                                    ## initialization,
-                                                                                                    ## the
-                                                                                                    ## framework
-                                                                                                    ## is
-                                                                                                    ## empty,
-                                                                                                    ## i.e.
-                                                                                                    ## it
-                                                                                                    ## retains
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## no
-                                                                                                    ## dimensional
-                                                                                                    ## information
-                                                                                                    ## such
-                                                                                                    ## as
-                                                                                                    ## mass
-                                                                                                    ## and
-                                                                                                    ## inertia.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## It
-                                                                                                    ## is,
-                                                                                                    ## however,
-                                                                                                    ## now
-                                                                                                    ## able
-                                                                                                    ## to
-                                                                                                    ## keep
-                                                                                                    ## global
-                                                                                                    ## properties
-                                                                                                    ## of
-                                                                                                    ## a
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## set
-                                                                                                    ## of
-                                                                                                    ## points
-                                                                                                    ## while
-                                                                                                    ## new
-                                                                                                    ## points
-                                                                                                    ## are
-                                                                                                    ## added
-                                                                                                    ## using
-                                                                                                    ## the
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## AddPoint
-                                                                                                    ## function.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## The
-                                                                                                    ## set
-                                                                                                    ## of
-                                                                                                    ## points
-                                                                                                    ## whose
-                                                                                                    ## global
-                                                                                                    ## properties
-                                                                                                    ## are
-                                                                                                    ## brought
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## together
-                                                                                                    ## by
-                                                                                                    ## this
-                                                                                                    ## framework
-                                                                                                    ## will
-                                                                                                    ## then
-                                                                                                    ## be
-                                                                                                    ## referred
-                                                                                                    ## to
-                                                                                                    ## as
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## the
-                                                                                                    ## current
-                                                                                                    ## system.
-                                                                                                    ## The
-                                                                                                    ## current
-                                                                                                    ## system
-                                                                                                    ## is,
-                                                                                                    ## however,
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## not
-                                                                                                    ## kept
-                                                                                                    ## by
-                                                                                                    ## this
-                                                                                                    ## framework,
-                                                                                                    ## which
-                                                                                                    ## only
-                                                                                                    ## keeps
-                                                                                                    ## that
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## system's
-                                                                                                    ## global
-                                                                                                    ## properties.
-                                                                                                    ## Note
-                                                                                                    ## that
-                                                                                                    ## the
-                                                                                                    ## current
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## system
-                                                                                                    ## may
-                                                                                                    ## be
-                                                                                                    ## more
-                                                                                                    ## complex
-                                                                                                    ## than
-                                                                                                    ## a
-                                                                                                    ## set
-                                                                                                    ## of
-                                                                                                    ## points.
+  GPropPGProps* {.importcpp: "GProp_PGProps", header: "GProp_PGProps.hxx", bycopy.} = object of GPropGProps ##
+                                                                                                  ## !
+                                                                                                  ## Initializes
+                                                                                                  ## a
+                                                                                                  ## framework
+                                                                                                  ## to
+                                                                                                  ## compute
+                                                                                                  ## global
+                                                                                                  ## properties
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## on
+                                                                                                  ## a
+                                                                                                  ## set
+                                                                                                  ## of
+                                                                                                  ## points.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## The
+                                                                                                  ## point
+                                                                                                  ## relative
+                                                                                                  ## to
+                                                                                                  ## which
+                                                                                                  ## the
+                                                                                                  ## inertia
+                                                                                                  ## of
+                                                                                                  ## the
+                                                                                                  ## system
+                                                                                                  ## is
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## computed
+                                                                                                  ## will
+                                                                                                  ## be
+                                                                                                  ## the
+                                                                                                  ## origin
+                                                                                                  ## (0,
+                                                                                                  ## 0,
+                                                                                                  ## 0)
+                                                                                                  ## of
+                                                                                                  ## the
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## absolute
+                                                                                                  ## Cartesian
+                                                                                                  ## coordinate
+                                                                                                  ## system.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## At
+                                                                                                  ## initialization,
+                                                                                                  ## the
+                                                                                                  ## framework
+                                                                                                  ## is
+                                                                                                  ## empty,
+                                                                                                  ## i.e.
+                                                                                                  ## it
+                                                                                                  ## retains
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## no
+                                                                                                  ## dimensional
+                                                                                                  ## information
+                                                                                                  ## such
+                                                                                                  ## as
+                                                                                                  ## mass
+                                                                                                  ## and
+                                                                                                  ## inertia.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## It
+                                                                                                  ## is,
+                                                                                                  ## however,
+                                                                                                  ## now
+                                                                                                  ## able
+                                                                                                  ## to
+                                                                                                  ## keep
+                                                                                                  ## global
+                                                                                                  ## properties
+                                                                                                  ## of
+                                                                                                  ## a
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## set
+                                                                                                  ## of
+                                                                                                  ## points
+                                                                                                  ## while
+                                                                                                  ## new
+                                                                                                  ## points
+                                                                                                  ## are
+                                                                                                  ## added
+                                                                                                  ## using
+                                                                                                  ## the
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## AddPoint
+                                                                                                  ## function.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## The
+                                                                                                  ## set
+                                                                                                  ## of
+                                                                                                  ## points
+                                                                                                  ## whose
+                                                                                                  ## global
+                                                                                                  ## properties
+                                                                                                  ## are
+                                                                                                  ## brought
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## together
+                                                                                                  ## by
+                                                                                                  ## this
+                                                                                                  ## framework
+                                                                                                  ## will
+                                                                                                  ## then
+                                                                                                  ## be
+                                                                                                  ## referred
+                                                                                                  ## to
+                                                                                                  ## as
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## the
+                                                                                                  ## current
+                                                                                                  ## system.
+                                                                                                  ## The
+                                                                                                  ## current
+                                                                                                  ## system
+                                                                                                  ## is,
+                                                                                                  ## however,
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## not
+                                                                                                  ## kept
+                                                                                                  ## by
+                                                                                                  ## this
+                                                                                                  ## framework,
+                                                                                                  ## which
+                                                                                                  ## only
+                                                                                                  ## keeps
+                                                                                                  ## that
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## system's
+                                                                                                  ## global
+                                                                                                  ## properties.
+                                                                                                  ## Note
+                                                                                                  ## that
+                                                                                                  ## the
+                                                                                                  ## current
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## system
+                                                                                                  ## may
+                                                                                                  ## be
+                                                                                                  ## more
+                                                                                                  ## complex
+                                                                                                  ## than
+                                                                                                  ## a
+                                                                                                  ## set
+                                                                                                  ## of
+                                                                                                  ## points.
 
 
-proc constructGProp_PGProps*(): GProp_PGProps {.constructor,
+proc constructGPropPGProps*(): GPropPGProps {.constructor,
     importcpp: "GProp_PGProps(@)", header: "GProp_PGProps.hxx".}
-proc AddPoint*(this: var GProp_PGProps; P: gp_Pnt) {.importcpp: "AddPoint",
+proc addPoint*(this: var GPropPGProps; p: Pnt) {.importcpp: "AddPoint",
     header: "GProp_PGProps.hxx".}
-proc AddPoint*(this: var GProp_PGProps; P: gp_Pnt; Density: Standard_Real) {.
-    importcpp: "AddPoint", header: "GProp_PGProps.hxx".}
-proc constructGProp_PGProps*(Pnts: TColgp_Array1OfPnt): GProp_PGProps {.constructor,
+proc addPoint*(this: var GPropPGProps; p: Pnt; density: float) {.importcpp: "AddPoint",
+    header: "GProp_PGProps.hxx".}
+proc constructGPropPGProps*(pnts: TColgpArray1OfPnt): GPropPGProps {.constructor,
     importcpp: "GProp_PGProps(@)", header: "GProp_PGProps.hxx".}
-proc constructGProp_PGProps*(Pnts: TColgp_Array2OfPnt): GProp_PGProps {.constructor,
+proc constructGPropPGProps*(pnts: TColgpArray2OfPnt): GPropPGProps {.constructor,
     importcpp: "GProp_PGProps(@)", header: "GProp_PGProps.hxx".}
-proc constructGProp_PGProps*(Pnts: TColgp_Array1OfPnt;
-                            Density: TColStd_Array1OfReal): GProp_PGProps {.
+proc constructGPropPGProps*(pnts: TColgpArray1OfPnt; density: TColStdArray1OfReal): GPropPGProps {.
     constructor, importcpp: "GProp_PGProps(@)", header: "GProp_PGProps.hxx".}
-proc constructGProp_PGProps*(Pnts: TColgp_Array2OfPnt;
-                            Density: TColStd_Array2OfReal): GProp_PGProps {.
+proc constructGPropPGProps*(pnts: TColgpArray2OfPnt; density: TColStdArray2OfReal): GPropPGProps {.
     constructor, importcpp: "GProp_PGProps(@)", header: "GProp_PGProps.hxx".}
-proc Barycentre*(Pnts: TColgp_Array1OfPnt): gp_Pnt {.
+proc barycentre*(pnts: TColgpArray1OfPnt): Pnt {.
     importcpp: "GProp_PGProps::Barycentre(@)", header: "GProp_PGProps.hxx".}
-proc Barycentre*(Pnts: TColgp_Array2OfPnt): gp_Pnt {.
+proc barycentre*(pnts: TColgpArray2OfPnt): Pnt {.
     importcpp: "GProp_PGProps::Barycentre(@)", header: "GProp_PGProps.hxx".}
-proc Barycentre*(Pnts: TColgp_Array1OfPnt; Density: TColStd_Array1OfReal;
-                Mass: var Standard_Real; G: var gp_Pnt) {.
+proc barycentre*(pnts: TColgpArray1OfPnt; density: TColStdArray1OfReal;
+                mass: var float; g: var Pnt) {.
     importcpp: "GProp_PGProps::Barycentre(@)", header: "GProp_PGProps.hxx".}
-proc Barycentre*(Pnts: TColgp_Array2OfPnt; Density: TColStd_Array2OfReal;
-                Mass: var Standard_Real; G: var gp_Pnt) {.
+proc barycentre*(pnts: TColgpArray2OfPnt; density: TColStdArray2OfReal;
+                mass: var float; g: var Pnt) {.
     importcpp: "GProp_PGProps::Barycentre(@)", header: "GProp_PGProps.hxx".}

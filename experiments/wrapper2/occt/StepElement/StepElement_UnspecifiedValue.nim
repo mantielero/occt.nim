@@ -12,8 +12,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepElement_UnspecifiedValue* {.size: sizeof(cint),
-                                 importcpp: "StepElement_UnspecifiedValue",
-                                 header: "StepElement_UnspecifiedValue.hxx".} = enum
-    StepElement_Unspecified
+  StepElementUnspecifiedValue* {.size: sizeof(cint),
+                                importcpp: "StepElement_UnspecifiedValue",
+                                header: "StepElement_UnspecifiedValue.hxx".} = enum
+    StepElementUnspecified
+
 

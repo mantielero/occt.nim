@@ -14,10 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-proc ChFiKPart_MakeRotule*(DStr: var TopOpeBRepDS_DataStructure;
-                          Data: handle[ChFiDS_SurfData]; pl: gp_Pln; pl1: gp_Pln;
-                          pl2: gp_Pln; opl: TopAbs_Orientation;
-                          opl1: TopAbs_Orientation; opl2: TopAbs_Orientation;
-                          r: Standard_Real; ofpl: TopAbs_Orientation): Standard_Boolean {.
+proc chFiKPartMakeRotule*(dStr: var TopOpeBRepDS_DataStructure;
+                         data: Handle[ChFiDS_SurfData]; pl: Pln; pl1: Pln; pl2: Pln;
+                         opl: TopAbsOrientation; opl1: TopAbsOrientation;
+                         opl2: TopAbsOrientation; r: float; ofpl: TopAbsOrientation): bool {.
     importcpp: "ChFiKPart_MakeRotule(@)",
     header: "ChFiKPart_ComputeData_Rotule.hxx".}

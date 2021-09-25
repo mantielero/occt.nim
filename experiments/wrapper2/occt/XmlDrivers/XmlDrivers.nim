@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Handle
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Standard_GUID"
 discard "forward decl of XmlMDF_ADriverTable"
@@ -27,10 +24,10 @@ type
   XmlDrivers* {.importcpp: "XmlDrivers", header: "XmlDrivers.hxx", bycopy.} = object
 
 
-proc Factory*(theGUID: Standard_GUID): handle[Standard_Transient] {.
+proc factory*(theGUID: StandardGUID): Handle[StandardTransient] {.
     importcpp: "XmlDrivers::Factory(@)", header: "XmlDrivers.hxx".}
-proc DefineFormat*(theApp: handle[TDocStd_Application]) {.
+proc defineFormat*(theApp: Handle[TDocStdApplication]) {.
     importcpp: "XmlDrivers::DefineFormat(@)", header: "XmlDrivers.hxx".}
-proc AttributeDrivers*(theMsgDriver: handle[Message_Messenger]): handle[
+proc attributeDrivers*(theMsgDriver: Handle[MessageMessenger]): Handle[
     XmlMDF_ADriverTable] {.importcpp: "XmlDrivers::AttributeDrivers(@)",
                           header: "XmlDrivers.hxx".}

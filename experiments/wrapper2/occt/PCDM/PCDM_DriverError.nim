@@ -14,15 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _PCDM_DriverError_HeaderFile [NewLine] # _PCDM_DriverError_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_Failure.hxx [NewLine] class PCDM_DriverError ;
+## !!!Ignored construct:  # _PCDM_DriverError_HeaderFile [NewLine] # _PCDM_DriverError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class PCDM_DriverError ;
 ## Error: expected ';'!!!
 
 discard "forward decl of PCDM_DriverError"
 type
-  Handle_PCDM_DriverErrorPCDM_DriverError* = handle[PCDM_DriverError]
+  HandlePCDM_DriverErrorPCDM_DriverError* = Handle[PCDM_DriverError]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_PCDM_DriverError [NewLine] # if ( CONDITION ) throw PCDM_DriverError ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( PCDM_DriverError , Standard_Failure ) #  _PCDM_DriverError_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( PCDM_DriverError , Standard_Failure ) #  _PCDM_DriverError_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

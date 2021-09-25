@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Geom2dToIGES_Geom2dEntity,
-  ../Standard/Standard_Real
-
 discard "forward decl of Geom2dToIGES_Geom2dEntity"
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of Geom2d_Curve"
@@ -30,10 +25,10 @@ type
 proc constructGeom2dToIGES_Geom2dCurve*(): Geom2dToIGES_Geom2dCurve {.constructor,
     importcpp: "Geom2dToIGES_Geom2dCurve(@)",
     header: "Geom2dToIGES_Geom2dCurve.hxx".}
-proc constructGeom2dToIGES_Geom2dCurve*(G2dE: Geom2dToIGES_Geom2dEntity): Geom2dToIGES_Geom2dCurve {.
+proc constructGeom2dToIGES_Geom2dCurve*(g2dE: Geom2dToIGES_Geom2dEntity): Geom2dToIGES_Geom2dCurve {.
     constructor, importcpp: "Geom2dToIGES_Geom2dCurve(@)",
     header: "Geom2dToIGES_Geom2dCurve.hxx".}
-proc Transfer2dCurve*(this: var Geom2dToIGES_Geom2dCurve;
-                     start: handle[Geom2d_Curve]; Udeb: Standard_Real;
-                     Ufin: Standard_Real): handle[IGESData_IGESEntity] {.
-    importcpp: "Transfer2dCurve", header: "Geom2dToIGES_Geom2dCurve.hxx".}
+proc transfer2dCurve*(this: var Geom2dToIGES_Geom2dCurve;
+                     start: Handle[Geom2dCurve]; udeb: float; ufin: float): Handle[
+    IGESDataIGESEntity] {.importcpp: "Transfer2dCurve",
+                         header: "Geom2dToIGES_Geom2dCurve.hxx".}

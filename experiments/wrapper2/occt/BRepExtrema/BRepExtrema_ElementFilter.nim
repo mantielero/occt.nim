@@ -13,31 +13,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_TypeDef
-
 ## ! Filtering tool used to detect if two given mesh elements
 ## ! should be tested for overlapping/intersection or not.
 
 type
-  BRepExtrema_ElementFilter* {.importcpp: "BRepExtrema_ElementFilter",
-                              header: "BRepExtrema_ElementFilter.hxx", bycopy.} = object ##
-                                                                                    ## !
-                                                                                    ## Result
-                                                                                    ## of
-                                                                                    ## filtering
-                                                                                    ## function.
+  BRepExtremaElementFilter* {.importcpp: "BRepExtrema_ElementFilter",
+                             header: "BRepExtrema_ElementFilter.hxx", bycopy.} = object ##
+                                                                                   ## !
+                                                                                   ## Result
+                                                                                   ## of
+                                                                                   ## filtering
+                                                                                   ## function.
 
-  BRepExtrema_ElementFilterFilterResult* {.size: sizeof(cint),
+  BRepExtremaElementFilterFilterResult* {.size: sizeof(cint),
       importcpp: "BRepExtrema_ElementFilter::FilterResult",
       header: "BRepExtrema_ElementFilter.hxx".} = enum
     NoCheck, Overlap, DoCheck
 
 
-proc destroyBRepExtrema_ElementFilter*(this: var BRepExtrema_ElementFilter) {.
+proc destroyBRepExtremaElementFilter*(this: var BRepExtremaElementFilter) {.
     importcpp: "#.~BRepExtrema_ElementFilter()",
     header: "BRepExtrema_ElementFilter.hxx".}
-proc PreCheckElements*(this: var BRepExtrema_ElementFilter; a2: Standard_Integer; ## theIndex1
-                      a3: Standard_Integer): BRepExtrema_ElementFilterFilterResult {.
+proc preCheckElements*(this: var BRepExtremaElementFilter; a2: int; ## theIndex1
+                      a3: int): BRepExtremaElementFilterFilterResult {.
     importcpp: "PreCheckElements", header: "BRepExtrema_ElementFilter.hxx".}
   ## theIndex2

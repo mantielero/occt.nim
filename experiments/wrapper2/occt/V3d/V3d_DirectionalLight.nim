@@ -14,43 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  V3d_PositionLight, V3d_TypeOfOrientation
-
 ## ! Directional light source for a viewer.
 
 type
-  V3d_DirectionalLight* {.importcpp: "V3d_DirectionalLight",
-                         header: "V3d_DirectionalLight.hxx", bycopy.} = object of V3d_PositionLight ##
-                                                                                             ## !
-                                                                                             ## Creates
-                                                                                             ## a
-                                                                                             ## directional
-                                                                                             ## light
-                                                                                             ## source
-                                                                                             ## in
-                                                                                             ## the
-                                                                                             ## viewer.
+  V3dDirectionalLight* {.importcpp: "V3d_DirectionalLight",
+                        header: "V3d_DirectionalLight.hxx", bycopy.} = object of V3dPositionLight ##
+                                                                                           ## !
+                                                                                           ## Creates
+                                                                                           ## a
+                                                                                           ## directional
+                                                                                           ## light
+                                                                                           ## source
+                                                                                           ## in
+                                                                                           ## the
+                                                                                           ## viewer.
 
-  V3d_DirectionalLightbase_type* = V3d_PositionLight
+  V3dDirectionalLightbaseType* = V3dPositionLight
 
-proc get_type_name*(): cstring {.importcpp: "V3d_DirectionalLight::get_type_name(@)",
-                              header: "V3d_DirectionalLight.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "V3d_DirectionalLight::get_type_name(@)",
+                            header: "V3d_DirectionalLight.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "V3d_DirectionalLight::get_type_descriptor(@)",
     header: "V3d_DirectionalLight.hxx".}
-proc DynamicType*(this: V3d_DirectionalLight): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: V3dDirectionalLight): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "V3d_DirectionalLight.hxx".}
-proc constructV3d_DirectionalLight*(theDirection: V3d_TypeOfOrientation = V3d_XposYposZpos;
-    theColor: Quantity_Color = Quantity_NOC_WHITE; theIsHeadlight: Standard_Boolean = Standard_False): V3d_DirectionalLight {.
+proc constructV3dDirectionalLight*(theDirection: V3dTypeOfOrientation = v3dXposYposZpos;
+                                  theColor: QuantityColor = quantityNOC_WHITE;
+                                  theIsHeadlight: bool = false): V3dDirectionalLight {.
     constructor, importcpp: "V3d_DirectionalLight(@)",
     header: "V3d_DirectionalLight.hxx".}
-proc constructV3d_DirectionalLight*(theDirection: gp_Dir; theColor: Quantity_Color = Quantity_NOC_WHITE;
-    theIsHeadlight: Standard_Boolean = Standard_False): V3d_DirectionalLight {.
+proc constructV3dDirectionalLight*(theDirection: Dir;
+                                  theColor: QuantityColor = quantityNOC_WHITE;
+                                  theIsHeadlight: bool = false): V3dDirectionalLight {.
     constructor, importcpp: "V3d_DirectionalLight(@)",
     header: "V3d_DirectionalLight.hxx".}
-proc SetDirection*(this: var V3d_DirectionalLight;
-                  theDirection: V3d_TypeOfOrientation) {.
+proc setDirection*(this: var V3dDirectionalLight; theDirection: V3dTypeOfOrientation) {.
     importcpp: "SetDirection", header: "V3d_DirectionalLight.hxx".}
 ## using statement
 
@@ -76,4 +74,5 @@ proc SetDirection*(this: var V3d_DirectionalLight;
 
 discard "forward decl of V3d_DirectionalLight"
 type
-  Handle_V3d_DirectionalLight* = handle[V3d_DirectionalLight]
+  HandleV3dDirectionalLight* = Handle[V3dDirectionalLight]
+

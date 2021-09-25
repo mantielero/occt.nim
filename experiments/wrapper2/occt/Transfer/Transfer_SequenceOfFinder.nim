@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Transfer_Finder, ../NCollection/NCollection_Sequence
-
 type
-  Transfer_SequenceOfFinder* = NCollection_Sequence[handle[Transfer_Finder]]
+  TransferSequenceOfFinder* = NCollectionSequence[Handle[TransferFinder]]
+

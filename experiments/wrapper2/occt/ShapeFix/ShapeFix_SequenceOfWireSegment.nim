@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ShapeFix_WireSegment, ../NCollection/NCollection_Sequence
-
 type
-  ShapeFix_SequenceOfWireSegment* = NCollection_Sequence[ShapeFix_WireSegment]
+  ShapeFixSequenceOfWireSegment* = NCollectionSequence[ShapeFixWireSegment]
+

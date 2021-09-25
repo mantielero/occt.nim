@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColStd/TColStd_HArray1OfReal,
-  ../Standard/Standard_Integer, ../TColStd/TColStd_Array1OfReal,
-  ../TColStd/TColStd_Array1OfInteger, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real
-
 discard "forward decl of Law_BSpFunc"
 discard "forward decl of Law_Linear"
 discard "forward decl of Law_BSpline"
@@ -44,24 +37,19 @@ type
                                                         ## ! derivatives at the extremities.
 
 
-proc MixBnd*(Lin: handle[Law_Linear]): handle[Law_BSpFunc] {.
+proc mixBnd*(lin: Handle[LawLinear]): Handle[LawBSpFunc] {.
     importcpp: "Law::MixBnd(@)", header: "Law.hxx".}
-proc MixBnd*(Degree: Standard_Integer; Knots: TColStd_Array1OfReal;
-            Mults: TColStd_Array1OfInteger; Lin: handle[Law_Linear]): handle[
-    TColStd_HArray1OfReal] {.importcpp: "Law::MixBnd(@)", header: "Law.hxx".}
-proc MixTgt*(Degree: Standard_Integer; Knots: TColStd_Array1OfReal;
-            Mults: TColStd_Array1OfInteger; NulOnTheRight: Standard_Boolean;
-            Index: Standard_Integer): handle[TColStd_HArray1OfReal] {.
+proc mixBnd*(degree: int; knots: TColStdArray1OfReal; mults: TColStdArray1OfInteger;
+            lin: Handle[LawLinear]): Handle[TColStdHArray1OfReal] {.
+    importcpp: "Law::MixBnd(@)", header: "Law.hxx".}
+proc mixTgt*(degree: int; knots: TColStdArray1OfReal; mults: TColStdArray1OfInteger;
+            nulOnTheRight: bool; index: int): Handle[TColStdHArray1OfReal] {.
     importcpp: "Law::MixTgt(@)", header: "Law.hxx".}
-proc Reparametrize*(Curve: Adaptor3d_Curve; First: Standard_Real;
-                   Last: Standard_Real; HasDF: Standard_Boolean;
-                   HasDL: Standard_Boolean; DFirst: Standard_Real;
-                   DLast: Standard_Real; Rev: Standard_Boolean;
-                   NbPoints: Standard_Integer): handle[Law_BSpline] {.
-    importcpp: "Law::Reparametrize(@)", header: "Law.hxx".}
-proc Scale*(First: Standard_Real; Last: Standard_Real; HasF: Standard_Boolean;
-           HasL: Standard_Boolean; VFirst: Standard_Real; VLast: Standard_Real): handle[
-    Law_BSpline] {.importcpp: "Law::Scale(@)", header: "Law.hxx".}
-proc ScaleCub*(First: Standard_Real; Last: Standard_Real; HasF: Standard_Boolean;
-              HasL: Standard_Boolean; VFirst: Standard_Real; VLast: Standard_Real): handle[
-    Law_BSpline] {.importcpp: "Law::ScaleCub(@)", header: "Law.hxx".}
+proc reparametrize*(curve: Adaptor3dCurve; first: float; last: float; hasDF: bool;
+                   hasDL: bool; dFirst: float; dLast: float; rev: bool; nbPoints: int): Handle[
+    LawBSpline] {.importcpp: "Law::Reparametrize(@)", header: "Law.hxx".}
+proc scale*(first: float; last: float; hasF: bool; hasL: bool; vFirst: float; vLast: float): Handle[
+    LawBSpline] {.importcpp: "Law::Scale(@)", header: "Law.hxx".}
+proc scaleCub*(first: float; last: float; hasF: bool; hasL: bool; vFirst: float;
+              vLast: float): Handle[LawBSpline] {.importcpp: "Law::ScaleCub(@)",
+    header: "Law.hxx".}

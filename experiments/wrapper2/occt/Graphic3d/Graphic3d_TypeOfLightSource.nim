@@ -17,20 +17,18 @@
 ## ! Definition of all the type of light source.
 
 type
-  Graphic3d_TypeOfLightSource* {.size: sizeof(cint),
-                                importcpp: "Graphic3d_TypeOfLightSource",
-                                header: "Graphic3d_TypeOfLightSource.hxx".} = enum
-    Graphic3d_TOLS_AMBIENT,   ## !< ambient light
-    Graphic3d_TOLS_DIRECTIONAL, ## !< directional light
-    Graphic3d_TOLS_POSITIONAL, ## !< positional light
-    Graphic3d_TOLS_SPOT       ## !< spot light
+  Graphic3dTypeOfLightSource* {.size: sizeof(cint),
+                               importcpp: "Graphic3d_TypeOfLightSource",
+                               header: "Graphic3d_TypeOfLightSource.hxx".} = enum
+    Graphic3dTOLS_AMBIENT,    ## !< ambient light
+    Graphic3dTOLS_DIRECTIONAL, ## !< directional light
+    Graphic3dTOLS_POSITIONAL, ## !< positional light
+    Graphic3dTOLS_SPOT,       ## !< spot light
                        ##  obsolete aliases
+    V3dAMBIENT = graphic3dTOLS_AMBIENT, V3dDIRECTIONAL = graphic3dTOLS_DIRECTIONAL,
+    V3dPOSITIONAL = graphic3dTOLS_POSITIONAL, V3dSPOT = graphic3dTOLS_SPOT
 
-const
-  V3d_AMBIENT* = Graphic3d_TOLS_AMBIENT
-  V3d_DIRECTIONAL* = Graphic3d_TOLS_DIRECTIONAL
-  V3d_POSITIONAL* = Graphic3d_TOLS_POSITIONAL
-  V3d_SPOT* = Graphic3d_TOLS_SPOT
 
 const                         ## ! Auxiliary value defining the overall number of values in enumeration Graphic3d_TypeOfLightSource
-  Graphic3d_TypeOfLightSource_NB* = Graphic3d_TOLS_SPOT + 1
+  Graphic3dTypeOfLightSourceNB* = graphic3dTOLS_SPOT + 1
+

@@ -13,15 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepFEA_FeaRepresentationItem
-
 discard "forward decl of StepFEA_ParametricCurve3dElementCoordinateDirection"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepFEA_ParametricCurve3dElementCoordinateSystem"
 discard "forward decl of StepFEA_ParametricCurve3dElementCoordinateSystem"
 type
-  Handle_StepFEA_ParametricCurve3dElementCoordinateSystem* = handle[
+  HandleStepFEA_ParametricCurve3dElementCoordinateSystem* = Handle[
       StepFEA_ParametricCurve3dElementCoordinateSystem]
 
 ## ! Representation of STEP entity ParametricCurve3dElementCoordinateSystem
@@ -39,23 +36,23 @@ proc constructStepFEA_ParametricCurve3dElementCoordinateSystem*(): StepFEA_Param
     constructor,
     importcpp: "StepFEA_ParametricCurve3dElementCoordinateSystem(@)",
     header: "StepFEA_ParametricCurve3dElementCoordinateSystem.hxx".}
-proc Init*(this: var StepFEA_ParametricCurve3dElementCoordinateSystem;
-          aRepresentationItem_Name: handle[TCollection_HAsciiString]; aDirection: handle[
+proc init*(this: var StepFEA_ParametricCurve3dElementCoordinateSystem;
+          aRepresentationItemName: Handle[TCollectionHAsciiString]; aDirection: Handle[
     StepFEA_ParametricCurve3dElementCoordinateDirection]) {.importcpp: "Init",
     header: "StepFEA_ParametricCurve3dElementCoordinateSystem.hxx".}
-proc Direction*(this: StepFEA_ParametricCurve3dElementCoordinateSystem): handle[
+proc direction*(this: StepFEA_ParametricCurve3dElementCoordinateSystem): Handle[
     StepFEA_ParametricCurve3dElementCoordinateDirection] {.noSideEffect,
     importcpp: "Direction",
     header: "StepFEA_ParametricCurve3dElementCoordinateSystem.hxx".}
-proc SetDirection*(this: var StepFEA_ParametricCurve3dElementCoordinateSystem;
-    Direction: handle[StepFEA_ParametricCurve3dElementCoordinateDirection]) {.
+proc setDirection*(this: var StepFEA_ParametricCurve3dElementCoordinateSystem;
+    direction: Handle[StepFEA_ParametricCurve3dElementCoordinateDirection]) {.
     importcpp: "SetDirection",
     header: "StepFEA_ParametricCurve3dElementCoordinateSystem.hxx".}
 type
-  StepFEA_ParametricCurve3dElementCoordinateSystembase_type* = StepFEA_FeaRepresentationItem
+  StepFEA_ParametricCurve3dElementCoordinateSystembaseType* = StepFEA_FeaRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_ParametricCurve3dElementCoordinateSystem::get_type_name(@)", header: "StepFEA_ParametricCurve3dElementCoordinateSystem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepFEA_ParametricCurve3dElementCoordinateSystem::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepFEA_ParametricCurve3dElementCoordinateSystem::get_type_name(@)", header: "StepFEA_ParametricCurve3dElementCoordinateSystem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_ParametricCurve3dElementCoordinateSystem::get_type_descriptor(@)",
     header: "StepFEA_ParametricCurve3dElementCoordinateSystem.hxx".}
-proc DynamicType*(this: StepFEA_ParametricCurve3dElementCoordinateSystem): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType", header: "StepFEA_ParametricCurve3dElementCoordinateSystem.hxx".}
+proc dynamicType*(this: StepFEA_ParametricCurve3dElementCoordinateSystem): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepFEA_ParametricCurve3dElementCoordinateSystem.hxx".}

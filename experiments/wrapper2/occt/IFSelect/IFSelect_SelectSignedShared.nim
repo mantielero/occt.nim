@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Boolean,
-  IFSelect_SelectExplore, ../Standard/Standard_CString,
-  ../Standard/Standard_Integer
-
 discard "forward decl of IFSelect_Signature"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Standard_Transient"
@@ -28,7 +22,7 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of IFSelect_SelectSignedShared"
 discard "forward decl of IFSelect_SelectSignedShared"
 type
-  Handle_IFSelect_SelectSignedShared* = handle[IFSelect_SelectSignedShared]
+  HandleIFSelectSelectSignedShared* = Handle[IFSelectSelectSignedShared]
 
 ## ! In the graph, explore the Shareds of the input entities,
 ## ! until it encounters some which match a given Signature
@@ -36,55 +30,54 @@ type
 ## ! By default, fitted for any level
 
 type
-  IFSelect_SelectSignedShared* {.importcpp: "IFSelect_SelectSignedShared",
-                                header: "IFSelect_SelectSignedShared.hxx", bycopy.} = object of IFSelect_SelectExplore ##
-                                                                                                                ## !
-                                                                                                                ## Creates
-                                                                                                                ## a
-                                                                                                                ## SelectSignedShared,
-                                                                                                                ## defaulted
-                                                                                                                ## for
-                                                                                                                ## any
-                                                                                                                ## level
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## with
-                                                                                                                ## a
-                                                                                                                ## given
-                                                                                                                ## Signature
-                                                                                                                ## and
-                                                                                                                ## text
-                                                                                                                ## to
-                                                                                                                ## match
+  IFSelectSelectSignedShared* {.importcpp: "IFSelect_SelectSignedShared",
+                               header: "IFSelect_SelectSignedShared.hxx", bycopy.} = object of IFSelectSelectExplore ##
+                                                                                                              ## !
+                                                                                                              ## Creates
+                                                                                                              ## a
+                                                                                                              ## SelectSignedShared,
+                                                                                                              ## defaulted
+                                                                                                              ## for
+                                                                                                              ## any
+                                                                                                              ## level
+                                                                                                              ##
+                                                                                                              ## !
+                                                                                                              ## with
+                                                                                                              ## a
+                                                                                                              ## given
+                                                                                                              ## Signature
+                                                                                                              ## and
+                                                                                                              ## text
+                                                                                                              ## to
+                                                                                                              ## match
 
 
-proc constructIFSelect_SelectSignedShared*(matcher: handle[IFSelect_Signature];
-    signtext: Standard_CString; exact: Standard_Boolean = Standard_True;
-    level: Standard_Integer = 0): IFSelect_SelectSignedShared {.constructor,
-    importcpp: "IFSelect_SelectSignedShared(@)",
+proc constructIFSelectSelectSignedShared*(matcher: Handle[IFSelectSignature];
+    signtext: StandardCString; exact: bool = true; level: int = 0): IFSelectSelectSignedShared {.
+    constructor, importcpp: "IFSelect_SelectSignedShared(@)",
     header: "IFSelect_SelectSignedShared.hxx".}
-proc Signature*(this: IFSelect_SelectSignedShared): handle[IFSelect_Signature] {.
+proc signature*(this: IFSelectSelectSignedShared): Handle[IFSelectSignature] {.
     noSideEffect, importcpp: "Signature", header: "IFSelect_SelectSignedShared.hxx".}
-proc SignatureText*(this: IFSelect_SelectSignedShared): TCollection_AsciiString {.
+proc signatureText*(this: IFSelectSelectSignedShared): TCollectionAsciiString {.
     noSideEffect, importcpp: "SignatureText",
     header: "IFSelect_SelectSignedShared.hxx".}
-proc IsExact*(this: IFSelect_SelectSignedShared): Standard_Boolean {.noSideEffect,
+proc isExact*(this: IFSelectSelectSignedShared): bool {.noSideEffect,
     importcpp: "IsExact", header: "IFSelect_SelectSignedShared.hxx".}
-proc Explore*(this: IFSelect_SelectSignedShared; level: Standard_Integer;
-             ent: handle[Standard_Transient]; G: Interface_Graph;
-             explored: var Interface_EntityIterator): Standard_Boolean {.
-    noSideEffect, importcpp: "Explore", header: "IFSelect_SelectSignedShared.hxx".}
-proc ExploreLabel*(this: IFSelect_SelectSignedShared): TCollection_AsciiString {.
+proc explore*(this: IFSelectSelectSignedShared; level: int;
+             ent: Handle[StandardTransient]; g: InterfaceGraph;
+             explored: var InterfaceEntityIterator): bool {.noSideEffect,
+    importcpp: "Explore", header: "IFSelect_SelectSignedShared.hxx".}
+proc exploreLabel*(this: IFSelectSelectSignedShared): TCollectionAsciiString {.
     noSideEffect, importcpp: "ExploreLabel",
     header: "IFSelect_SelectSignedShared.hxx".}
 type
-  IFSelect_SelectSignedSharedbase_type* = IFSelect_SelectExplore
+  IFSelectSelectSignedSharedbaseType* = IFSelectSelectExplore
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectSignedShared::get_type_name(@)",
-                              header: "IFSelect_SelectSignedShared.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectSignedShared::get_type_name(@)",
+                            header: "IFSelect_SelectSignedShared.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_SelectSignedShared::get_type_descriptor(@)",
     header: "IFSelect_SelectSignedShared.hxx".}
-proc DynamicType*(this: IFSelect_SelectSignedShared): handle[Standard_Type] {.
+proc dynamicType*(this: IFSelectSelectSignedShared): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IFSelect_SelectSignedShared.hxx".}

@@ -14,16 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Geom2d_UndefinedValue_HeaderFile [NewLine] # _Geom2d_UndefinedValue_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_DomainError.hxx [NewLine] class Geom2d_UndefinedValue ;
+## !!!Ignored construct:  # _Geom2d_UndefinedValue_HeaderFile [NewLine] # _Geom2d_UndefinedValue_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class Geom2d_UndefinedValue ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Geom2d_UndefinedValue"
 type
-  Handle_Geom2d_UndefinedValueGeom2d_UndefinedValue* = handle[
-      Geom2d_UndefinedValue]
+  HandleGeom2dUndefinedValueGeom2dUndefinedValue* = Handle[Geom2dUndefinedValue]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Geom2d_UndefinedValue [NewLine] # if ( CONDITION ) throw Geom2d_UndefinedValue ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Geom2d_UndefinedValue , Standard_DomainError ) #  _Geom2d_UndefinedValue_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Geom2d_UndefinedValue , Standard_DomainError ) #  _Geom2d_UndefinedValue_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

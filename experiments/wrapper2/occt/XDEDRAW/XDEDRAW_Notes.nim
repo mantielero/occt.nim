@@ -13,15 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor
-
 ## ! Contains commands to work with notes
 
 type
   XDEDRAW_Notes* {.importcpp: "XDEDRAW_Notes", header: "XDEDRAW_Notes.hxx", bycopy.} = object
 
 
-proc InitCommands*(theCommands: var Draw_Interpretor) {.
+proc initCommands*(theCommands: var DrawInterpretor) {.
     importcpp: "XDEDRAW_Notes::InitCommands(@)", header: "XDEDRAW_Notes.hxx".}

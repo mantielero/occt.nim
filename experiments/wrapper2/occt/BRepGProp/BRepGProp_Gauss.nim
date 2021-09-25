@@ -11,61 +11,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Handle, ../NCollection/NCollection_Array1
-
 discard "forward decl of math_Vector"
 type
-  BRepGProp_Gauss* {.importcpp: "BRepGProp_Gauss", header: "BRepGProp_Gauss.hxx",
-                    bycopy.} = object ## ! Auxiliary structure for storing of inertial moments.
-                                   ## ! @name public API
-                                   ## ! Describes types of geometric objects.
-                                   ## ! - Vinert is 3D closed region of space delimited with:
-                                   ## ! -- Surface;
-                                   ## ! -- Point and Surface;
-                                   ## ! -- Plane and Surface.
-                                   ## ! - Sinert is face in 3D space.
-                                   ## ! @name private methods
-                                   ## ! @name private fields
+  BRepGPropGauss* {.importcpp: "BRepGProp_Gauss", header: "BRepGProp_Gauss.hxx",
+                   bycopy.} = object ## ! Auxiliary structure for storing of inertial moments.
+                                  ## ! @name public API
+                                  ## ! Describes types of geometric objects.
+                                  ## ! - Vinert is 3D closed region of space delimited with:
+                                  ## ! -- Surface;
+                                  ## ! -- Point and Surface;
+                                  ## ! -- Plane and Surface.
+                                  ## ! - Sinert is face in 3D space.
+                                  ## ! @name private methods
+                                  ## ! @name private fields
     ## !< Type of geometric object
     ## !< Pointer on the add function
     ## !< Pointer on the mult function
 
-  BRepGProp_GaussBRepGProp_GaussType* {.size: sizeof(cint), importcpp: "BRepGProp_Gauss::BRepGProp_GaussType",
-                                       header: "BRepGProp_Gauss.hxx".} = enum
+  BRepGPropGaussBRepGPropGaussType* {.size: sizeof(cint), importcpp: "BRepGProp_Gauss::BRepGProp_GaussType",
+                                     header: "BRepGProp_Gauss.hxx".} = enum
     Vinert = 0, Sinert
 
 
-proc constructBRepGProp_Gauss*(theType: BRepGProp_GaussBRepGProp_GaussType): BRepGProp_Gauss {.
+proc constructBRepGPropGauss*(theType: BRepGPropGaussBRepGPropGaussType): BRepGPropGauss {.
     constructor, importcpp: "BRepGProp_Gauss(@)", header: "BRepGProp_Gauss.hxx".}
-proc Compute*(this: var BRepGProp_Gauss; theSurface: BRepGProp_Face;
-             theLocation: gp_Pnt; theCoeff: ptr Standard_Real;
-             theIsByPoint: Standard_Boolean; theOutMass: var Standard_Real;
-             theOutGravityCenter: var gp_Pnt; theOutInertia: var gp_Mat) {.
+proc compute*(this: var BRepGPropGauss; theSurface: BRepGPropFace; theLocation: Pnt;
+             theCoeff: ptr float; theIsByPoint: bool; theOutMass: var float;
+             theOutGravityCenter: var Pnt; theOutInertia: var Mat) {.
     importcpp: "Compute", header: "BRepGProp_Gauss.hxx".}
-proc Compute*(this: var BRepGProp_Gauss; theSurface: BRepGProp_Face;
-             theLocation: gp_Pnt; theOutMass: var Standard_Real;
-             theOutGravityCenter: var gp_Pnt; theOutInertia: var gp_Mat) {.
+proc compute*(this: var BRepGPropGauss; theSurface: BRepGPropFace; theLocation: Pnt;
+             theOutMass: var float; theOutGravityCenter: var Pnt;
+             theOutInertia: var Mat) {.importcpp: "Compute",
+                                    header: "BRepGProp_Gauss.hxx".}
+proc compute*(this: var BRepGPropGauss; theSurface: var BRepGPropFace;
+             theDomain: var BRepGPropDomain; theLocation: Pnt; theCoeff: ptr float;
+             theIsByPoint: bool; theOutMass: var float; theOutGravityCenter: var Pnt;
+             theOutInertia: var Mat) {.importcpp: "Compute",
+                                    header: "BRepGProp_Gauss.hxx".}
+proc compute*(this: var BRepGPropGauss; theSurface: var BRepGPropFace;
+             theDomain: var BRepGPropDomain; theLocation: Pnt; theOutMass: var float;
+             theOutGravityCenter: var Pnt; theOutInertia: var Mat) {.
     importcpp: "Compute", header: "BRepGProp_Gauss.hxx".}
-proc Compute*(this: var BRepGProp_Gauss; theSurface: var BRepGProp_Face;
-             theDomain: var BRepGProp_Domain; theLocation: gp_Pnt;
-             theCoeff: ptr Standard_Real; theIsByPoint: Standard_Boolean;
-             theOutMass: var Standard_Real; theOutGravityCenter: var gp_Pnt;
-             theOutInertia: var gp_Mat) {.importcpp: "Compute",
-                                       header: "BRepGProp_Gauss.hxx".}
-proc Compute*(this: var BRepGProp_Gauss; theSurface: var BRepGProp_Face;
-             theDomain: var BRepGProp_Domain; theLocation: gp_Pnt;
-             theOutMass: var Standard_Real; theOutGravityCenter: var gp_Pnt;
-             theOutInertia: var gp_Mat) {.importcpp: "Compute",
-                                       header: "BRepGProp_Gauss.hxx".}
-proc Compute*(this: var BRepGProp_Gauss; theSurface: var BRepGProp_Face;
-             theDomain: var BRepGProp_Domain; theLocation: gp_Pnt;
-             theEps: Standard_Real; theCoeff: ptr Standard_Real;
-             theByPoint: Standard_Boolean; theOutMass: var Standard_Real;
-             theOutGravityCenter: var gp_Pnt; theOutInertia: var gp_Mat): Standard_Real {.
+proc compute*(this: var BRepGPropGauss; theSurface: var BRepGPropFace;
+             theDomain: var BRepGPropDomain; theLocation: Pnt; theEps: float;
+             theCoeff: ptr float; theByPoint: bool; theOutMass: var float;
+             theOutGravityCenter: var Pnt; theOutInertia: var Mat): float {.
     importcpp: "Compute", header: "BRepGProp_Gauss.hxx".}
-proc Compute*(this: var BRepGProp_Gauss; theSurface: var BRepGProp_Face;
-             theDomain: var BRepGProp_Domain; theLocation: gp_Pnt;
-             theEps: Standard_Real; theOutMass: var Standard_Real;
-             theOutGravityCenter: var gp_Pnt; theOutInertia: var gp_Mat): Standard_Real {.
-    importcpp: "Compute", header: "BRepGProp_Gauss.hxx".}
+proc compute*(this: var BRepGPropGauss; theSurface: var BRepGPropFace;
+             theDomain: var BRepGPropDomain; theLocation: Pnt; theEps: float;
+             theOutMass: var float; theOutGravityCenter: var Pnt;
+             theOutInertia: var Mat): float {.importcpp: "Compute",
+    header: "BRepGProp_Gauss.hxx".}

@@ -13,41 +13,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TColgp/TColgp_HArray1OfXYZ,
-  StepVisual_TessellatedItem
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepVisual_CoordinatesList"
 type
-  Handle_StepVisual_CoordinatesList* = handle[StepVisual_CoordinatesList]
-  StepVisual_CoordinatesList* {.importcpp: "StepVisual_CoordinatesList",
-                               header: "StepVisual_CoordinatesList.hxx", bycopy.} = object of StepVisual_TessellatedItem ##
-                                                                                                                  ## !
-                                                                                                                  ## Returns
-                                                                                                                  ## a
-                                                                                                                  ## coordinate
-                                                                                                                  ## list
+  HandleStepVisualCoordinatesList* = Handle[StepVisualCoordinatesList]
+  StepVisualCoordinatesList* {.importcpp: "StepVisual_CoordinatesList",
+                              header: "StepVisual_CoordinatesList.hxx", bycopy.} = object of StepVisualTessellatedItem ##
+                                                                                                                ## !
+                                                                                                                ## Returns
+                                                                                                                ## a
+                                                                                                                ## coordinate
+                                                                                                                ## list
 
 
-proc constructStepVisual_CoordinatesList*(): StepVisual_CoordinatesList {.
+proc constructStepVisualCoordinatesList*(): StepVisualCoordinatesList {.
     constructor, importcpp: "StepVisual_CoordinatesList(@)",
     header: "StepVisual_CoordinatesList.hxx".}
-proc Init*(this: var StepVisual_CoordinatesList;
-          theName: handle[TCollection_HAsciiString];
-          thePoints: handle[TColgp_HArray1OfXYZ]) {.importcpp: "Init",
+proc init*(this: var StepVisualCoordinatesList;
+          theName: Handle[TCollectionHAsciiString];
+          thePoints: Handle[TColgpHArray1OfXYZ]) {.importcpp: "Init",
     header: "StepVisual_CoordinatesList.hxx".}
-proc Points*(this: StepVisual_CoordinatesList): handle[TColgp_HArray1OfXYZ] {.
+proc points*(this: StepVisualCoordinatesList): Handle[TColgpHArray1OfXYZ] {.
     noSideEffect, importcpp: "Points", header: "StepVisual_CoordinatesList.hxx".}
 type
-  StepVisual_CoordinatesListbase_type* = StepVisual_TessellatedItem
+  StepVisualCoordinatesListbaseType* = StepVisualTessellatedItem
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_CoordinatesList::get_type_name(@)",
-                              header: "StepVisual_CoordinatesList.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_CoordinatesList::get_type_name(@)",
+                            header: "StepVisual_CoordinatesList.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_CoordinatesList::get_type_descriptor(@)",
     header: "StepVisual_CoordinatesList.hxx".}
-proc DynamicType*(this: StepVisual_CoordinatesList): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualCoordinatesList): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_CoordinatesList.hxx".}

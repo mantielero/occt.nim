@@ -14,47 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP203_HArray1OfApprovedItem, ../StepBasic/StepBasic_ApprovalAssignment
-
 discard "forward decl of StepBasic_Approval"
 discard "forward decl of StepAP203_CcDesignApproval"
 discard "forward decl of StepAP203_CcDesignApproval"
 type
-  Handle_StepAP203_CcDesignApproval* = handle[StepAP203_CcDesignApproval]
+  HandleStepAP203CcDesignApproval* = Handle[StepAP203CcDesignApproval]
 
 ## ! Representation of STEP entity CcDesignApproval
 
 type
-  StepAP203_CcDesignApproval* {.importcpp: "StepAP203_CcDesignApproval",
-                               header: "StepAP203_CcDesignApproval.hxx", bycopy.} = object of StepBasic_ApprovalAssignment ##
-                                                                                                                    ## !
-                                                                                                                    ## Empty
-                                                                                                                    ## constructor
+  StepAP203CcDesignApproval* {.importcpp: "StepAP203_CcDesignApproval",
+                              header: "StepAP203_CcDesignApproval.hxx", bycopy.} = object of StepBasicApprovalAssignment ##
+                                                                                                                  ## !
+                                                                                                                  ## Empty
+                                                                                                                  ## constructor
 
 
-proc constructStepAP203_CcDesignApproval*(): StepAP203_CcDesignApproval {.
+proc constructStepAP203CcDesignApproval*(): StepAP203CcDesignApproval {.
     constructor, importcpp: "StepAP203_CcDesignApproval(@)",
     header: "StepAP203_CcDesignApproval.hxx".}
-proc Init*(this: var StepAP203_CcDesignApproval;
-          aApprovalAssignment_AssignedApproval: handle[StepBasic_Approval];
-          aItems: handle[StepAP203_HArray1OfApprovedItem]) {.importcpp: "Init",
+proc init*(this: var StepAP203CcDesignApproval;
+          aApprovalAssignmentAssignedApproval: Handle[StepBasicApproval];
+          aItems: Handle[StepAP203HArray1OfApprovedItem]) {.importcpp: "Init",
     header: "StepAP203_CcDesignApproval.hxx".}
-proc Items*(this: StepAP203_CcDesignApproval): handle[
-    StepAP203_HArray1OfApprovedItem] {.noSideEffect, importcpp: "Items",
-                                      header: "StepAP203_CcDesignApproval.hxx".}
-proc SetItems*(this: var StepAP203_CcDesignApproval;
-              Items: handle[StepAP203_HArray1OfApprovedItem]) {.
+proc items*(this: StepAP203CcDesignApproval): Handle[StepAP203HArray1OfApprovedItem] {.
+    noSideEffect, importcpp: "Items", header: "StepAP203_CcDesignApproval.hxx".}
+proc setItems*(this: var StepAP203CcDesignApproval;
+              items: Handle[StepAP203HArray1OfApprovedItem]) {.
     importcpp: "SetItems", header: "StepAP203_CcDesignApproval.hxx".}
 type
-  StepAP203_CcDesignApprovalbase_type* = StepBasic_ApprovalAssignment
+  StepAP203CcDesignApprovalbaseType* = StepBasicApprovalAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP203_CcDesignApproval::get_type_name(@)",
-                              header: "StepAP203_CcDesignApproval.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepAP203_CcDesignApproval::get_type_name(@)",
+                            header: "StepAP203_CcDesignApproval.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepAP203_CcDesignApproval::get_type_descriptor(@)",
     header: "StepAP203_CcDesignApproval.hxx".}
-proc DynamicType*(this: StepAP203_CcDesignApproval): handle[Standard_Type] {.
+proc dynamicType*(this: StepAP203CcDesignApproval): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP203_CcDesignApproval.hxx".}

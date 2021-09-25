@@ -13,24 +13,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../AIS/AIS_InteractiveObject
-
 discard "forward decl of QABugs_PresentableObject"
 type
-  Handle_QABugs_PresentableObject* = handle[QABugs_PresentableObject]
-  QABugs_PresentableObject* {.importcpp: "QABugs_PresentableObject",
-                             header: "QABugs_PresentableObject.hxx", bycopy.} = object of AIS_InteractiveObject
+  HandleQABugsPresentableObject* = Handle[QABugsPresentableObject]
+  QABugsPresentableObject* {.importcpp: "QABugs_PresentableObject",
+                            header: "QABugs_PresentableObject.hxx", bycopy.} = object of AIS_InteractiveObject
 
-  QABugs_PresentableObjectbase_type* = AIS_InteractiveObject
+  QABugsPresentableObjectbaseType* = AIS_InteractiveObject
 
-proc get_type_name*(): cstring {.importcpp: "QABugs_PresentableObject::get_type_name(@)",
-                              header: "QABugs_PresentableObject.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "QABugs_PresentableObject::get_type_name(@)",
+                            header: "QABugs_PresentableObject.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "QABugs_PresentableObject::get_type_descriptor(@)",
     header: "QABugs_PresentableObject.hxx".}
-proc DynamicType*(this: QABugs_PresentableObject): handle[Standard_Type] {.
+proc dynamicType*(this: QABugsPresentableObject): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "QABugs_PresentableObject.hxx".}
-proc constructQABugs_PresentableObject*(aTypeOfPresentation3d: PrsMgr_TypeOfPresentation3d = PrsMgr_TOP_AllView): QABugs_PresentableObject {.
+proc constructQABugsPresentableObject*(aTypeOfPresentation3d: PrsMgrTypeOfPresentation3d = prsMgrTOP_AllView): QABugsPresentableObject {.
     constructor, importcpp: "QABugs_PresentableObject(@)",
     header: "QABugs_PresentableObject.hxx".}

@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Pnt, ../gp/gp_Pnt2d, ../NCollection/NCollection_CellFilter,
-  math_MultipleVarFunction, ../NCollection/NCollection_Sequence,
-  ../Standard/Standard_Type
-
 ## ! This class represents Evtushenko's algorithm of global optimization based on non-uniform mesh.
 ## ! Article: Yu. Evtushenko. Numerical methods for finding global extreme (case of a non-uniform mesh).
 ## ! U.S.S.R. Comput. Maths. Math. Phys., Vol. 11, N 6, pp. 38-54.
@@ -45,15 +40,15 @@ import
 ## ! This functionality is covered by SetFunctionalMinimalValue and GetFunctionalMinimalValue API.
 
 type
-  math_GlobOptMin* {.importcpp: "math_GlobOptMin", header: "math_GlobOptMin.hxx",
-                    bycopy.} = object ## ! Constructor. Perform method is not called from it.
-                                   ## ! @param theFunc - objective functional.
-                                   ## ! @param theLowerBorder - lower corner of the search box.
-                                   ## ! @param theUpperBorder - upper corner of the search box.
-                                   ## ! @param theC - Lipschitz constant.
-                                   ## ! @param theDiscretizationTol - parameter space discretization tolerance.
-                                   ## ! @param theSameTol - functional value space indifference tolerance.
-                                   ## ! Class for duplicate fast search. For internal usage only.
+  MathGlobOptMin* {.importcpp: "math_GlobOptMin", header: "math_GlobOptMin.hxx",
+                   bycopy.} = object ## ! Constructor. Perform method is not called from it.
+                                  ## ! @param theFunc - objective functional.
+                                  ## ! @param theLowerBorder - lower corner of the search box.
+                                  ## ! @param theUpperBorder - upper corner of the search box.
+                                  ## ! @param theC - Lipschitz constant.
+                                  ## ! @param theDiscretizationTol - parameter space discretization tolerance.
+                                  ## ! @param theSameTol - functional value space indifference tolerance.
+                                  ## ! Class for duplicate fast search. For internal usage only.
     ##  Left border on current C2 interval.
     ##  Right border on current C2 interval.
     ##  Global left border.
@@ -83,52 +78,45 @@ type
     ##  Current value of Global optimum.
 
 
-proc constructmath_GlobOptMin*(theFunc: ptr math_MultipleVarFunction;
-                              theLowerBorder: math_Vector;
-                              theUpperBorder: math_Vector;
-                              theC: Standard_Real = 9;
-                              theDiscretizationTol: Standard_Real = 1.0e-2;
-                              theSameTol: Standard_Real = 1.0e-7): math_GlobOptMin {.
+proc constructMathGlobOptMin*(theFunc: ptr MathMultipleVarFunction;
+                             theLowerBorder: MathVector;
+                             theUpperBorder: MathVector; theC: float = 9;
+                             theDiscretizationTol: float = 1.0e-2;
+                             theSameTol: float = 1.0e-7): MathGlobOptMin {.
     constructor, importcpp: "math_GlobOptMin(@)", header: "math_GlobOptMin.hxx".}
-proc SetGlobalParams*(this: var math_GlobOptMin;
-                     theFunc: ptr math_MultipleVarFunction;
-                     theLowerBorder: math_Vector; theUpperBorder: math_Vector;
-                     theC: Standard_Real = 9;
-                     theDiscretizationTol: Standard_Real = 1.0e-2;
-                     theSameTol: Standard_Real = 1.0e-7) {.
-    importcpp: "SetGlobalParams", header: "math_GlobOptMin.hxx".}
-proc SetLocalParams*(this: var math_GlobOptMin; theLocalA: math_Vector;
-                    theLocalB: math_Vector) {.importcpp: "SetLocalParams",
+proc setGlobalParams*(this: var MathGlobOptMin;
+                     theFunc: ptr MathMultipleVarFunction;
+                     theLowerBorder: MathVector; theUpperBorder: MathVector;
+                     theC: float = 9; theDiscretizationTol: float = 1.0e-2;
+                     theSameTol: float = 1.0e-7) {.importcpp: "SetGlobalParams",
     header: "math_GlobOptMin.hxx".}
-proc SetTol*(this: var math_GlobOptMin; theDiscretizationTol: Standard_Real;
-            theSameTol: Standard_Real) {.importcpp: "SetTol",
-                                       header: "math_GlobOptMin.hxx".}
-proc GetTol*(this: var math_GlobOptMin; theDiscretizationTol: var Standard_Real;
-            theSameTol: var Standard_Real) {.importcpp: "GetTol",
+proc setLocalParams*(this: var MathGlobOptMin; theLocalA: MathVector;
+                    theLocalB: MathVector) {.importcpp: "SetLocalParams",
     header: "math_GlobOptMin.hxx".}
-proc Perform*(this: var math_GlobOptMin;
-             isFindSingleSolution: Standard_Boolean = Standard_False) {.
+proc setTol*(this: var MathGlobOptMin; theDiscretizationTol: float; theSameTol: float) {.
+    importcpp: "SetTol", header: "math_GlobOptMin.hxx".}
+proc getTol*(this: var MathGlobOptMin; theDiscretizationTol: var float;
+            theSameTol: var float) {.importcpp: "GetTol",
+                                  header: "math_GlobOptMin.hxx".}
+proc perform*(this: var MathGlobOptMin; isFindSingleSolution: bool = false) {.
     importcpp: "Perform", header: "math_GlobOptMin.hxx".}
-proc Points*(this: var math_GlobOptMin; theIndex: Standard_Integer;
-            theSol: var math_Vector) {.importcpp: "Points",
-                                    header: "math_GlobOptMin.hxx".}
-proc SetContinuity*(this: var math_GlobOptMin; theCont: Standard_Integer) {.
+proc points*(this: var MathGlobOptMin; theIndex: int; theSol: var MathVector) {.
+    importcpp: "Points", header: "math_GlobOptMin.hxx".}
+proc setContinuity*(this: var MathGlobOptMin; theCont: int) {.
     importcpp: "SetContinuity", header: "math_GlobOptMin.hxx".}
-proc GetContinuity*(this: math_GlobOptMin): Standard_Integer {.noSideEffect,
+proc getContinuity*(this: MathGlobOptMin): int {.noSideEffect,
     importcpp: "GetContinuity", header: "math_GlobOptMin.hxx".}
-proc SetFunctionalMinimalValue*(this: var math_GlobOptMin;
-                               theMinimalValue: Standard_Real) {.
+proc setFunctionalMinimalValue*(this: var MathGlobOptMin; theMinimalValue: float) {.
     importcpp: "SetFunctionalMinimalValue", header: "math_GlobOptMin.hxx".}
-proc GetFunctionalMinimalValue*(this: math_GlobOptMin): Standard_Real {.
-    noSideEffect, importcpp: "GetFunctionalMinimalValue",
-    header: "math_GlobOptMin.hxx".}
-proc SetLipConstState*(this: var math_GlobOptMin; theFlag: Standard_Boolean) {.
+proc getFunctionalMinimalValue*(this: MathGlobOptMin): float {.noSideEffect,
+    importcpp: "GetFunctionalMinimalValue", header: "math_GlobOptMin.hxx".}
+proc setLipConstState*(this: var MathGlobOptMin; theFlag: bool) {.
     importcpp: "SetLipConstState", header: "math_GlobOptMin.hxx".}
-proc GetLipConstState*(this: math_GlobOptMin): Standard_Boolean {.noSideEffect,
+proc getLipConstState*(this: MathGlobOptMin): bool {.noSideEffect,
     importcpp: "GetLipConstState", header: "math_GlobOptMin.hxx".}
-proc isDone*(this: math_GlobOptMin): Standard_Boolean {.noSideEffect,
-    importcpp: "isDone", header: "math_GlobOptMin.hxx".}
-proc GetF*(this: math_GlobOptMin): Standard_Real {.noSideEffect, importcpp: "GetF",
+proc isDone*(this: MathGlobOptMin): bool {.noSideEffect, importcpp: "isDone",
+                                       header: "math_GlobOptMin.hxx".}
+proc getF*(this: MathGlobOptMin): float {.noSideEffect, importcpp: "GetF",
+                                      header: "math_GlobOptMin.hxx".}
+proc nbExtrema*(this: MathGlobOptMin): int {.noSideEffect, importcpp: "NbExtrema",
     header: "math_GlobOptMin.hxx".}
-proc NbExtrema*(this: math_GlobOptMin): Standard_Integer {.noSideEffect,
-    importcpp: "NbExtrema", header: "math_GlobOptMin.hxx".}

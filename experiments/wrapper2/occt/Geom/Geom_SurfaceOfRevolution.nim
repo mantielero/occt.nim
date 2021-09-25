@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Pnt, Geom_SweptSurface,
-  ../GeomEvaluator/GeomEvaluator_SurfaceOfRevolution, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_RangeError"
 discard "forward decl of Geom_UndefinedDerivative"
@@ -34,7 +29,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_SurfaceOfRevolution"
 discard "forward decl of Geom_SurfaceOfRevolution"
 type
-  Handle_Geom_SurfaceOfRevolution* = handle[Geom_SurfaceOfRevolution]
+  HandleGeomSurfaceOfRevolution* = Handle[GeomSurfaceOfRevolution]
 
 ## ! Describes a surface of revolution (revolved surface).
 ## ! Such a surface is obtained by rotating a curve (called
@@ -75,259 +70,255 @@ type
 ## ! curve, using a cylindrical projection in the reference plane.
 
 type
-  Geom_SurfaceOfRevolution* {.importcpp: "Geom_SurfaceOfRevolution",
-                             header: "Geom_SurfaceOfRevolution.hxx", bycopy.} = object of Geom_SweptSurface ##
-                                                                                                     ## !
-                                                                                                     ## C
-                                                                                                     ## :
-                                                                                                     ## is
-                                                                                                     ## the
-                                                                                                     ## meridian
-                                                                                                     ## or
-                                                                                                     ## the
-                                                                                                     ## referenced
-                                                                                                     ## curve.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## A1
-                                                                                                     ## is
-                                                                                                     ## the
-                                                                                                     ## axis
-                                                                                                     ## of
-                                                                                                     ## revolution.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## The
-                                                                                                     ## form
-                                                                                                     ## of
-                                                                                                     ## a
-                                                                                                     ## SurfaceOfRevolution
-                                                                                                     ## can
-                                                                                                     ## be
-                                                                                                     ## :
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## .
-                                                                                                     ## a
-                                                                                                     ## general
-                                                                                                     ## revolution
-                                                                                                     ## surface
-                                                                                                     ## (RevolutionForm),
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## .
-                                                                                                     ## a
-                                                                                                     ## conical
-                                                                                                     ## surface
-                                                                                                     ## if
-                                                                                                     ## the
-                                                                                                     ## meridian
-                                                                                                     ## is
-                                                                                                     ## a
-                                                                                                     ## line
-                                                                                                     ## or
-                                                                                                     ## a
-                                                                                                     ## trimmed
-                                                                                                     ## line
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## (ConicalForm),
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## .
-                                                                                                     ## a
-                                                                                                     ## cylindrical
-                                                                                                     ## surface
-                                                                                                     ## if
-                                                                                                     ## the
-                                                                                                     ## meridian
-                                                                                                     ## is
-                                                                                                     ## a
-                                                                                                     ## line
-                                                                                                     ## or
-                                                                                                     ## a
-                                                                                                     ## trimmed
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## line
-                                                                                                     ## parallel
-                                                                                                     ## to
-                                                                                                     ## the
-                                                                                                     ## revolution
-                                                                                                     ## axis
-                                                                                                     ## (CylindricalForm),
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## .
-                                                                                                     ## a
-                                                                                                     ## planar
-                                                                                                     ## surface
-                                                                                                     ## if
-                                                                                                     ## the
-                                                                                                     ## meridian
-                                                                                                     ## is
-                                                                                                     ## a
-                                                                                                     ## line
-                                                                                                     ## perpendicular
-                                                                                                     ## to
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## the
-                                                                                                     ## revolution
-                                                                                                     ## axis
-                                                                                                     ## of
-                                                                                                     ## the
-                                                                                                     ## surface
-                                                                                                     ## (PlanarForm).
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## .
-                                                                                                     ## a
-                                                                                                     ## spherical
-                                                                                                     ## surface,
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## .
-                                                                                                     ## a
-                                                                                                     ## toroidal
-                                                                                                     ## surface,
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## .
-                                                                                                     ## a
-                                                                                                     ## quadric
-                                                                                                     ## surface.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Warnings
-                                                                                                     ## :
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## It
-                                                                                                     ## is
-                                                                                                     ## not
-                                                                                                     ## checked
-                                                                                                     ## that
-                                                                                                     ## the
-                                                                                                     ## curve
-                                                                                                     ## C
-                                                                                                     ## is
-                                                                                                     ## planar
-                                                                                                     ## and
-                                                                                                     ## that
-                                                                                                     ## the
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## surface
-                                                                                                     ## axis
-                                                                                                     ## is
-                                                                                                     ## in
-                                                                                                     ## the
-                                                                                                     ## plane
-                                                                                                     ## of
-                                                                                                     ## the
-                                                                                                     ## curve.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## It
-                                                                                                     ## is
-                                                                                                     ## not
-                                                                                                     ## checked
-                                                                                                     ## that
-                                                                                                     ## the
-                                                                                                     ## revolved
-                                                                                                     ## curve
-                                                                                                     ## C
-                                                                                                     ## doesn't
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## self-intersects.
+  GeomSurfaceOfRevolution* {.importcpp: "Geom_SurfaceOfRevolution",
+                            header: "Geom_SurfaceOfRevolution.hxx", bycopy.} = object of GeomSweptSurface ##
+                                                                                                   ## !
+                                                                                                   ## C
+                                                                                                   ## :
+                                                                                                   ## is
+                                                                                                   ## the
+                                                                                                   ## meridian
+                                                                                                   ## or
+                                                                                                   ## the
+                                                                                                   ## referenced
+                                                                                                   ## curve.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## A1
+                                                                                                   ## is
+                                                                                                   ## the
+                                                                                                   ## axis
+                                                                                                   ## of
+                                                                                                   ## revolution.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## The
+                                                                                                   ## form
+                                                                                                   ## of
+                                                                                                   ## a
+                                                                                                   ## SurfaceOfRevolution
+                                                                                                   ## can
+                                                                                                   ## be
+                                                                                                   ## :
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## .
+                                                                                                   ## a
+                                                                                                   ## general
+                                                                                                   ## revolution
+                                                                                                   ## surface
+                                                                                                   ## (RevolutionForm),
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## .
+                                                                                                   ## a
+                                                                                                   ## conical
+                                                                                                   ## surface
+                                                                                                   ## if
+                                                                                                   ## the
+                                                                                                   ## meridian
+                                                                                                   ## is
+                                                                                                   ## a
+                                                                                                   ## line
+                                                                                                   ## or
+                                                                                                   ## a
+                                                                                                   ## trimmed
+                                                                                                   ## line
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## (ConicalForm),
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## .
+                                                                                                   ## a
+                                                                                                   ## cylindrical
+                                                                                                   ## surface
+                                                                                                   ## if
+                                                                                                   ## the
+                                                                                                   ## meridian
+                                                                                                   ## is
+                                                                                                   ## a
+                                                                                                   ## line
+                                                                                                   ## or
+                                                                                                   ## a
+                                                                                                   ## trimmed
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## line
+                                                                                                   ## parallel
+                                                                                                   ## to
+                                                                                                   ## the
+                                                                                                   ## revolution
+                                                                                                   ## axis
+                                                                                                   ## (CylindricalForm),
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## .
+                                                                                                   ## a
+                                                                                                   ## planar
+                                                                                                   ## surface
+                                                                                                   ## if
+                                                                                                   ## the
+                                                                                                   ## meridian
+                                                                                                   ## is
+                                                                                                   ## a
+                                                                                                   ## line
+                                                                                                   ## perpendicular
+                                                                                                   ## to
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## the
+                                                                                                   ## revolution
+                                                                                                   ## axis
+                                                                                                   ## of
+                                                                                                   ## the
+                                                                                                   ## surface
+                                                                                                   ## (PlanarForm).
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## .
+                                                                                                   ## a
+                                                                                                   ## spherical
+                                                                                                   ## surface,
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## .
+                                                                                                   ## a
+                                                                                                   ## toroidal
+                                                                                                   ## surface,
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## .
+                                                                                                   ## a
+                                                                                                   ## quadric
+                                                                                                   ## surface.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## Warnings
+                                                                                                   ## :
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## It
+                                                                                                   ## is
+                                                                                                   ## not
+                                                                                                   ## checked
+                                                                                                   ## that
+                                                                                                   ## the
+                                                                                                   ## curve
+                                                                                                   ## C
+                                                                                                   ## is
+                                                                                                   ## planar
+                                                                                                   ## and
+                                                                                                   ## that
+                                                                                                   ## the
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## surface
+                                                                                                   ## axis
+                                                                                                   ## is
+                                                                                                   ## in
+                                                                                                   ## the
+                                                                                                   ## plane
+                                                                                                   ## of
+                                                                                                   ## the
+                                                                                                   ## curve.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## It
+                                                                                                   ## is
+                                                                                                   ## not
+                                                                                                   ## checked
+                                                                                                   ## that
+                                                                                                   ## the
+                                                                                                   ## revolved
+                                                                                                   ## curve
+                                                                                                   ## C
+                                                                                                   ## doesn't
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## self-intersects.
 
 
-proc constructGeom_SurfaceOfRevolution*(C: handle[Geom_Curve]; A1: gp_Ax1): Geom_SurfaceOfRevolution {.
+proc constructGeomSurfaceOfRevolution*(c: Handle[GeomCurve]; a1: Ax1): GeomSurfaceOfRevolution {.
     constructor, importcpp: "Geom_SurfaceOfRevolution(@)",
     header: "Geom_SurfaceOfRevolution.hxx".}
-proc SetAxis*(this: var Geom_SurfaceOfRevolution; A1: gp_Ax1) {.importcpp: "SetAxis",
+proc setAxis*(this: var GeomSurfaceOfRevolution; a1: Ax1) {.importcpp: "SetAxis",
     header: "Geom_SurfaceOfRevolution.hxx".}
-proc SetDirection*(this: var Geom_SurfaceOfRevolution; V: gp_Dir) {.
+proc setDirection*(this: var GeomSurfaceOfRevolution; v: Dir) {.
     importcpp: "SetDirection", header: "Geom_SurfaceOfRevolution.hxx".}
-proc SetBasisCurve*(this: var Geom_SurfaceOfRevolution; C: handle[Geom_Curve]) {.
+proc setBasisCurve*(this: var GeomSurfaceOfRevolution; c: Handle[GeomCurve]) {.
     importcpp: "SetBasisCurve", header: "Geom_SurfaceOfRevolution.hxx".}
-proc SetLocation*(this: var Geom_SurfaceOfRevolution; P: gp_Pnt) {.
+proc setLocation*(this: var GeomSurfaceOfRevolution; p: Pnt) {.
     importcpp: "SetLocation", header: "Geom_SurfaceOfRevolution.hxx".}
-proc Axis*(this: Geom_SurfaceOfRevolution): gp_Ax1 {.noSideEffect, importcpp: "Axis",
+proc axis*(this: GeomSurfaceOfRevolution): Ax1 {.noSideEffect, importcpp: "Axis",
     header: "Geom_SurfaceOfRevolution.hxx".}
-proc Location*(this: Geom_SurfaceOfRevolution): gp_Pnt {.noSideEffect,
+proc location*(this: GeomSurfaceOfRevolution): Pnt {.noSideEffect,
     importcpp: "Location", header: "Geom_SurfaceOfRevolution.hxx".}
-proc ReferencePlane*(this: Geom_SurfaceOfRevolution): gp_Ax2 {.noSideEffect,
+proc referencePlane*(this: GeomSurfaceOfRevolution): Ax2 {.noSideEffect,
     importcpp: "ReferencePlane", header: "Geom_SurfaceOfRevolution.hxx".}
-proc UReverse*(this: var Geom_SurfaceOfRevolution) {.importcpp: "UReverse",
+proc uReverse*(this: var GeomSurfaceOfRevolution) {.importcpp: "UReverse",
     header: "Geom_SurfaceOfRevolution.hxx".}
-proc UReversedParameter*(this: Geom_SurfaceOfRevolution; U: Standard_Real): Standard_Real {.
+proc uReversedParameter*(this: GeomSurfaceOfRevolution; u: float): float {.
     noSideEffect, importcpp: "UReversedParameter",
     header: "Geom_SurfaceOfRevolution.hxx".}
-proc VReverse*(this: var Geom_SurfaceOfRevolution) {.importcpp: "VReverse",
+proc vReverse*(this: var GeomSurfaceOfRevolution) {.importcpp: "VReverse",
     header: "Geom_SurfaceOfRevolution.hxx".}
-proc VReversedParameter*(this: Geom_SurfaceOfRevolution; V: Standard_Real): Standard_Real {.
+proc vReversedParameter*(this: GeomSurfaceOfRevolution; v: float): float {.
     noSideEffect, importcpp: "VReversedParameter",
     header: "Geom_SurfaceOfRevolution.hxx".}
-proc TransformParameters*(this: Geom_SurfaceOfRevolution; U: var Standard_Real;
-                         V: var Standard_Real; T: gp_Trsf) {.noSideEffect,
-    importcpp: "TransformParameters", header: "Geom_SurfaceOfRevolution.hxx".}
-proc ParametricTransformation*(this: Geom_SurfaceOfRevolution; T: gp_Trsf): gp_GTrsf2d {.
+proc transformParameters*(this: GeomSurfaceOfRevolution; u: var float; v: var float;
+                         t: Trsf) {.noSideEffect, importcpp: "TransformParameters",
+                                  header: "Geom_SurfaceOfRevolution.hxx".}
+proc parametricTransformation*(this: GeomSurfaceOfRevolution; t: Trsf): GTrsf2d {.
     noSideEffect, importcpp: "ParametricTransformation",
     header: "Geom_SurfaceOfRevolution.hxx".}
-proc Bounds*(this: Geom_SurfaceOfRevolution; U1: var Standard_Real;
-            U2: var Standard_Real; V1: var Standard_Real; V2: var Standard_Real) {.
-    noSideEffect, importcpp: "Bounds", header: "Geom_SurfaceOfRevolution.hxx".}
-proc IsUClosed*(this: Geom_SurfaceOfRevolution): Standard_Boolean {.noSideEffect,
-    importcpp: "IsUClosed", header: "Geom_SurfaceOfRevolution.hxx".}
-proc IsVClosed*(this: Geom_SurfaceOfRevolution): Standard_Boolean {.noSideEffect,
-    importcpp: "IsVClosed", header: "Geom_SurfaceOfRevolution.hxx".}
-proc IsCNu*(this: Geom_SurfaceOfRevolution; N: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsCNu", header: "Geom_SurfaceOfRevolution.hxx".}
-proc IsCNv*(this: Geom_SurfaceOfRevolution; N: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsCNv", header: "Geom_SurfaceOfRevolution.hxx".}
-proc IsUPeriodic*(this: Geom_SurfaceOfRevolution): Standard_Boolean {.noSideEffect,
-    importcpp: "IsUPeriodic", header: "Geom_SurfaceOfRevolution.hxx".}
-proc IsVPeriodic*(this: Geom_SurfaceOfRevolution): Standard_Boolean {.noSideEffect,
-    importcpp: "IsVPeriodic", header: "Geom_SurfaceOfRevolution.hxx".}
-proc UIso*(this: Geom_SurfaceOfRevolution; U: Standard_Real): handle[Geom_Curve] {.
-    noSideEffect, importcpp: "UIso", header: "Geom_SurfaceOfRevolution.hxx".}
-proc VIso*(this: Geom_SurfaceOfRevolution; V: Standard_Real): handle[Geom_Curve] {.
-    noSideEffect, importcpp: "VIso", header: "Geom_SurfaceOfRevolution.hxx".}
-proc D0*(this: Geom_SurfaceOfRevolution; U: Standard_Real; V: Standard_Real;
-        P: var gp_Pnt) {.noSideEffect, importcpp: "D0",
-                      header: "Geom_SurfaceOfRevolution.hxx".}
-proc D1*(this: Geom_SurfaceOfRevolution; U: Standard_Real; V: Standard_Real;
-        P: var gp_Pnt; D1U: var gp_Vec; D1V: var gp_Vec) {.noSideEffect, importcpp: "D1",
-    header: "Geom_SurfaceOfRevolution.hxx".}
-proc D2*(this: Geom_SurfaceOfRevolution; U: Standard_Real; V: Standard_Real;
-        P: var gp_Pnt; D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec;
-        D2UV: var gp_Vec) {.noSideEffect, importcpp: "D2",
-                         header: "Geom_SurfaceOfRevolution.hxx".}
-proc D3*(this: Geom_SurfaceOfRevolution; U: Standard_Real; V: Standard_Real;
-        P: var gp_Pnt; D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec;
-        D2UV: var gp_Vec; D3U: var gp_Vec; D3V: var gp_Vec; D3UUV: var gp_Vec;
-        D3UVV: var gp_Vec) {.noSideEffect, importcpp: "D3",
+proc bounds*(this: GeomSurfaceOfRevolution; u1: var float; u2: var float; v1: var float;
+            v2: var float) {.noSideEffect, importcpp: "Bounds",
                           header: "Geom_SurfaceOfRevolution.hxx".}
-proc DN*(this: Geom_SurfaceOfRevolution; U: Standard_Real; V: Standard_Real;
-        Nu: Standard_Integer; Nv: Standard_Integer): gp_Vec {.noSideEffect,
-    importcpp: "DN", header: "Geom_SurfaceOfRevolution.hxx".}
-proc Transform*(this: var Geom_SurfaceOfRevolution; T: gp_Trsf) {.
-    importcpp: "Transform", header: "Geom_SurfaceOfRevolution.hxx".}
-proc Copy*(this: Geom_SurfaceOfRevolution): handle[Geom_Geometry] {.noSideEffect,
-    importcpp: "Copy", header: "Geom_SurfaceOfRevolution.hxx".}
-proc DumpJson*(this: Geom_SurfaceOfRevolution; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
+proc isUClosed*(this: GeomSurfaceOfRevolution): bool {.noSideEffect,
+    importcpp: "IsUClosed", header: "Geom_SurfaceOfRevolution.hxx".}
+proc isVClosed*(this: GeomSurfaceOfRevolution): bool {.noSideEffect,
+    importcpp: "IsVClosed", header: "Geom_SurfaceOfRevolution.hxx".}
+proc isCNu*(this: GeomSurfaceOfRevolution; n: int): bool {.noSideEffect,
+    importcpp: "IsCNu", header: "Geom_SurfaceOfRevolution.hxx".}
+proc isCNv*(this: GeomSurfaceOfRevolution; n: int): bool {.noSideEffect,
+    importcpp: "IsCNv", header: "Geom_SurfaceOfRevolution.hxx".}
+proc isUPeriodic*(this: GeomSurfaceOfRevolution): bool {.noSideEffect,
+    importcpp: "IsUPeriodic", header: "Geom_SurfaceOfRevolution.hxx".}
+proc isVPeriodic*(this: GeomSurfaceOfRevolution): bool {.noSideEffect,
+    importcpp: "IsVPeriodic", header: "Geom_SurfaceOfRevolution.hxx".}
+proc uIso*(this: GeomSurfaceOfRevolution; u: float): Handle[GeomCurve] {.noSideEffect,
+    importcpp: "UIso", header: "Geom_SurfaceOfRevolution.hxx".}
+proc vIso*(this: GeomSurfaceOfRevolution; v: float): Handle[GeomCurve] {.noSideEffect,
+    importcpp: "VIso", header: "Geom_SurfaceOfRevolution.hxx".}
+proc d0*(this: GeomSurfaceOfRevolution; u: float; v: float; p: var Pnt) {.noSideEffect,
+    importcpp: "D0", header: "Geom_SurfaceOfRevolution.hxx".}
+proc d1*(this: GeomSurfaceOfRevolution; u: float; v: float; p: var Pnt; d1u: var Vec;
+        d1v: var Vec) {.noSideEffect, importcpp: "D1",
+                     header: "Geom_SurfaceOfRevolution.hxx".}
+proc d2*(this: GeomSurfaceOfRevolution; u: float; v: float; p: var Pnt; d1u: var Vec;
+        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
+    importcpp: "D2", header: "Geom_SurfaceOfRevolution.hxx".}
+proc d3*(this: GeomSurfaceOfRevolution; u: float; v: float; p: var Pnt; d1u: var Vec;
+        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
+        d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
+                                    header: "Geom_SurfaceOfRevolution.hxx".}
+proc dn*(this: GeomSurfaceOfRevolution; u: float; v: float; nu: int; nv: int): Vec {.
+    noSideEffect, importcpp: "DN", header: "Geom_SurfaceOfRevolution.hxx".}
+proc transform*(this: var GeomSurfaceOfRevolution; t: Trsf) {.importcpp: "Transform",
     header: "Geom_SurfaceOfRevolution.hxx".}
+proc copy*(this: GeomSurfaceOfRevolution): Handle[GeomGeometry] {.noSideEffect,
+    importcpp: "Copy", header: "Geom_SurfaceOfRevolution.hxx".}
+proc dumpJson*(this: GeomSurfaceOfRevolution; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Geom_SurfaceOfRevolution.hxx".}
 type
-  Geom_SurfaceOfRevolutionbase_type* = Geom_SweptSurface
+  GeomSurfaceOfRevolutionbaseType* = GeomSweptSurface
 
-proc get_type_name*(): cstring {.importcpp: "Geom_SurfaceOfRevolution::get_type_name(@)",
-                              header: "Geom_SurfaceOfRevolution.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Geom_SurfaceOfRevolution::get_type_name(@)",
+                            header: "Geom_SurfaceOfRevolution.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_SurfaceOfRevolution::get_type_descriptor(@)",
     header: "Geom_SurfaceOfRevolution.hxx".}
-proc DynamicType*(this: Geom_SurfaceOfRevolution): handle[Standard_Type] {.
+proc dynamicType*(this: GeomSurfaceOfRevolution): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Geom_SurfaceOfRevolution.hxx".}

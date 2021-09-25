@@ -14,72 +14,69 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation Copyright: (C) RINA S.p.A
 
-import
-  TObj_Common
-
 discard "forward decl of TObj_Object"
 type
-  TObj_ObjectIterator* {.importcpp: "TObj_ObjectIterator",
-                        header: "TObj_ObjectIterator.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                            ##
-                                                                                            ## Methods
-                                                                                            ## to
-                                                                                            ## iterate
-                                                                                            ## on
-                                                                                            ## a
-                                                                                            ## objects
-                                                                                            ##
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## True
-                                                                                            ## if
-                                                                                            ## iteration
-                                                                                            ## is
-                                                                                            ## not
-                                                                                            ## finished
-                                                                                            ## and
-                                                                                            ## method
-                                                                                            ## Current()
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## will
-                                                                                            ## give
-                                                                                            ## the
-                                                                                            ## object.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Default
-                                                                                            ## implementation
-                                                                                            ## returns
-                                                                                            ## False
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## CASCADE
-                                                                                            ## RTTI
+  TObjObjectIterator* {.importcpp: "TObj_ObjectIterator",
+                       header: "TObj_ObjectIterator.hxx", bycopy.} = object of StandardTransient ##
+                                                                                          ##
+                                                                                          ## Methods
+                                                                                          ## to
+                                                                                          ## iterate
+                                                                                          ## on
+                                                                                          ## a
+                                                                                          ## objects
+                                                                                          ##
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## Returns
+                                                                                          ## True
+                                                                                          ## if
+                                                                                          ## iteration
+                                                                                          ## is
+                                                                                          ## not
+                                                                                          ## finished
+                                                                                          ## and
+                                                                                          ## method
+                                                                                          ## Current()
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## will
+                                                                                          ## give
+                                                                                          ## the
+                                                                                          ## object.
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## Default
+                                                                                          ## implementation
+                                                                                          ## returns
+                                                                                          ## False
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## CASCADE
+                                                                                          ## RTTI
 
 
-proc More*(this: TObj_ObjectIterator): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "TObj_ObjectIterator.hxx".}
-proc Next*(this: var TObj_ObjectIterator) {.importcpp: "Next",
-                                        header: "TObj_ObjectIterator.hxx".}
-proc Value*(this: TObj_ObjectIterator): handle[TObj_Object] {.noSideEffect,
+proc more*(this: TObjObjectIterator): bool {.noSideEffect, importcpp: "More",
+    header: "TObj_ObjectIterator.hxx".}
+proc next*(this: var TObjObjectIterator) {.importcpp: "Next",
+                                       header: "TObj_ObjectIterator.hxx".}
+proc value*(this: TObjObjectIterator): Handle[TObjObject] {.noSideEffect,
     importcpp: "Value", header: "TObj_ObjectIterator.hxx".}
 type
-  TObj_ObjectIteratorbase_type* = Standard_Transient
+  TObjObjectIteratorbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TObj_ObjectIterator::get_type_name(@)",
-                              header: "TObj_ObjectIterator.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TObj_ObjectIterator::get_type_name(@)",
+                            header: "TObj_ObjectIterator.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TObj_ObjectIterator::get_type_descriptor(@)",
     header: "TObj_ObjectIterator.hxx".}
-proc DynamicType*(this: TObj_ObjectIterator): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TObjObjectIterator): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TObj_ObjectIterator.hxx".}
 ## ! Define handle class for TObj_ObjectIterator
 
 discard "forward decl of TObj_ObjectIterator"
 type
-  Handle_TObj_ObjectIterator* = handle[TObj_ObjectIterator]
+  HandleTObjObjectIterator* = Handle[TObjObjectIterator]
 
-when defined(_MSC_VER):
-  discard
+# when defined(_MSC_VER):
+#   discard

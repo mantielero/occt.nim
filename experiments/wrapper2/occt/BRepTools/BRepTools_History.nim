@@ -13,14 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Handle, ../TopExp/TopExp,
-  ../TopTools/TopTools_DataMapOfShapeListOfShape, ../TopTools/TopTools_MapOfShape
-
 discard "forward decl of BRepTools_History"
 discard "forward decl of BRepTools_History"
 type
-  Handle_BRepTools_History* = handle[BRepTools_History]
+  HandleBRepToolsHistory* = Handle[BRepToolsHistory]
 
 ## ! The history keeps the following relations between the input shapes
 ## ! (S1, ..., Sm) and output shapes (T1, ..., Tn):
@@ -86,235 +82,235 @@ type
 ## !   Tj <= M12(Si), Qk <= M23(Tj) ==> Qk <= M13(Si);
 
 type
-  BRepTools_History* {.importcpp: "BRepTools_History",
-                      header: "BRepTools_History.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                        ## !
-                                                                                        ## @name
-                                                                                        ## Constructors
-                                                                                        ## for
-                                                                                        ## History
-                                                                                        ## creation
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Empty
-                                                                                        ## constructor
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## The
-                                                                                        ## types
-                                                                                        ## of
-                                                                                        ## the
-                                                                                        ## historical
-                                                                                        ## relations.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Returns
-                                                                                        ## 'true'
-                                                                                        ## if
-                                                                                        ## the
-                                                                                        ## type
-                                                                                        ## of
-                                                                                        ## the
-                                                                                        ## shape
-                                                                                        ## is
-                                                                                        ## supported
-                                                                                        ## by
-                                                                                        ## the
-                                                                                        ## history.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Methods
-                                                                                        ## to
-                                                                                        ## set
-                                                                                        ## the
-                                                                                        ## history.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Set
-                                                                                        ## the
-                                                                                        ## second
-                                                                                        ## shape
-                                                                                        ## as
-                                                                                        ## generated
-                                                                                        ## one
-                                                                                        ## from
-                                                                                        ## the
-                                                                                        ## first
-                                                                                        ## shape.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Methods
-                                                                                        ## to
-                                                                                        ## read
-                                                                                        ## the
-                                                                                        ## history.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Returns
-                                                                                        ## all
-                                                                                        ## shapes
-                                                                                        ## generated
-                                                                                        ## from
-                                                                                        ## the
-                                                                                        ## shape.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## A
-                                                                                        ## method
-                                                                                        ## to
-                                                                                        ## merge
-                                                                                        ## a
-                                                                                        ## next
-                                                                                        ## history
-                                                                                        ## to
-                                                                                        ## this
-                                                                                        ## history.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Merges
-                                                                                        ## the
-                                                                                        ## next
-                                                                                        ## history
-                                                                                        ## to
-                                                                                        ## this
-                                                                                        ## history.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## A
-                                                                                        ## method
-                                                                                        ## to
-                                                                                        ## dump
-                                                                                        ## a
-                                                                                        ## history
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Prints
-                                                                                        ## the
-                                                                                        ## brief
-                                                                                        ## description
-                                                                                        ## of
-                                                                                        ## the
-                                                                                        ## history
-                                                                                        ## into
-                                                                                        ## a
-                                                                                        ## stream
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Define
-                                                                                        ## the
-                                                                                        ## OCCT
-                                                                                        ## RTTI
-                                                                                        ## for
-                                                                                        ## the
-                                                                                        ## type.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Prepares
-                                                                                        ## the
-                                                                                        ## shapes
-                                                                                        ## generated
-                                                                                        ## from
-                                                                                        ## the
-                                                                                        ## first
-                                                                                        ## shape
-                                                                                        ## to
-                                                                                        ## set
-                                                                                        ## the
-                                                                                        ## second
-                                                                                        ## one
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## as
-                                                                                        ## generated
-                                                                                        ## one
-                                                                                        ## from
-                                                                                        ## the
-                                                                                        ## first
-                                                                                        ## one
-                                                                                        ## by
-                                                                                        ## the
-                                                                                        ## addition
-                                                                                        ## or
-                                                                                        ## the
-                                                                                        ## replacement.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Returns
-                                                                                        ## 'true'
-                                                                                        ## on
-                                                                                        ## success.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Data
-                                                                                        ## to
-                                                                                        ## keep
-                                                                                        ## the
-                                                                                        ## history.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Maps
-                                                                                        ## each
-                                                                                        ## input
-                                                                                        ## shape
-                                                                                        ## to
-                                                                                        ## all
-                                                                                        ## shapes
-                                                                                        ## modified
-                                                                                        ## from
-                                                                                        ## it.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## If
-                                                                                        ## an
-                                                                                        ## input
-                                                                                        ## shape
-                                                                                        ## is
-                                                                                        ## not
-                                                                                        ## bound
-                                                                                        ## to
-                                                                                        ## the
-                                                                                        ## map
-                                                                                        ## then
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## there
-                                                                                        ## is
-                                                                                        ## no
-                                                                                        ## shapes
-                                                                                        ## modified
-                                                                                        ## from
-                                                                                        ## the
-                                                                                        ## shape.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## No
-                                                                                        ## any
-                                                                                        ## shape
-                                                                                        ## should
-                                                                                        ## be
-                                                                                        ## mapped
-                                                                                        ## to
-                                                                                        ## an
-                                                                                        ## empty
-                                                                                        ## list.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Auxiliary
-                                                                                        ## members
-                                                                                        ## to
-                                                                                        ## read
-                                                                                        ## the
-                                                                                        ## history.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## An
-                                                                                        ## auxiliary
-                                                                                        ## empty
-                                                                                        ## list.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Auxiliary
-                                                                                        ## messages.
+  BRepToolsHistory* {.importcpp: "BRepTools_History",
+                     header: "BRepTools_History.hxx", bycopy.} = object of StandardTransient ##
+                                                                                      ## !
+                                                                                      ## @name
+                                                                                      ## Constructors
+                                                                                      ## for
+                                                                                      ## History
+                                                                                      ## creation
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Empty
+                                                                                      ## constructor
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## The
+                                                                                      ## types
+                                                                                      ## of
+                                                                                      ## the
+                                                                                      ## historical
+                                                                                      ## relations.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## 'true'
+                                                                                      ## if
+                                                                                      ## the
+                                                                                      ## type
+                                                                                      ## of
+                                                                                      ## the
+                                                                                      ## shape
+                                                                                      ## is
+                                                                                      ## supported
+                                                                                      ## by
+                                                                                      ## the
+                                                                                      ## history.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Methods
+                                                                                      ## to
+                                                                                      ## set
+                                                                                      ## the
+                                                                                      ## history.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Set
+                                                                                      ## the
+                                                                                      ## second
+                                                                                      ## shape
+                                                                                      ## as
+                                                                                      ## generated
+                                                                                      ## one
+                                                                                      ## from
+                                                                                      ## the
+                                                                                      ## first
+                                                                                      ## shape.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Methods
+                                                                                      ## to
+                                                                                      ## read
+                                                                                      ## the
+                                                                                      ## history.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## all
+                                                                                      ## shapes
+                                                                                      ## generated
+                                                                                      ## from
+                                                                                      ## the
+                                                                                      ## shape.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## A
+                                                                                      ## method
+                                                                                      ## to
+                                                                                      ## merge
+                                                                                      ## a
+                                                                                      ## next
+                                                                                      ## history
+                                                                                      ## to
+                                                                                      ## this
+                                                                                      ## history.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Merges
+                                                                                      ## the
+                                                                                      ## next
+                                                                                      ## history
+                                                                                      ## to
+                                                                                      ## this
+                                                                                      ## history.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## A
+                                                                                      ## method
+                                                                                      ## to
+                                                                                      ## dump
+                                                                                      ## a
+                                                                                      ## history
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Prints
+                                                                                      ## the
+                                                                                      ## brief
+                                                                                      ## description
+                                                                                      ## of
+                                                                                      ## the
+                                                                                      ## history
+                                                                                      ## into
+                                                                                      ## a
+                                                                                      ## stream
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Define
+                                                                                      ## the
+                                                                                      ## OCCT
+                                                                                      ## RTTI
+                                                                                      ## for
+                                                                                      ## the
+                                                                                      ## type.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Prepares
+                                                                                      ## the
+                                                                                      ## shapes
+                                                                                      ## generated
+                                                                                      ## from
+                                                                                      ## the
+                                                                                      ## first
+                                                                                      ## shape
+                                                                                      ## to
+                                                                                      ## set
+                                                                                      ## the
+                                                                                      ## second
+                                                                                      ## one
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## as
+                                                                                      ## generated
+                                                                                      ## one
+                                                                                      ## from
+                                                                                      ## the
+                                                                                      ## first
+                                                                                      ## one
+                                                                                      ## by
+                                                                                      ## the
+                                                                                      ## addition
+                                                                                      ## or
+                                                                                      ## the
+                                                                                      ## replacement.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## 'true'
+                                                                                      ## on
+                                                                                      ## success.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Data
+                                                                                      ## to
+                                                                                      ## keep
+                                                                                      ## the
+                                                                                      ## history.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Maps
+                                                                                      ## each
+                                                                                      ## input
+                                                                                      ## shape
+                                                                                      ## to
+                                                                                      ## all
+                                                                                      ## shapes
+                                                                                      ## modified
+                                                                                      ## from
+                                                                                      ## it.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## If
+                                                                                      ## an
+                                                                                      ## input
+                                                                                      ## shape
+                                                                                      ## is
+                                                                                      ## not
+                                                                                      ## bound
+                                                                                      ## to
+                                                                                      ## the
+                                                                                      ## map
+                                                                                      ## then
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## there
+                                                                                      ## is
+                                                                                      ## no
+                                                                                      ## shapes
+                                                                                      ## modified
+                                                                                      ## from
+                                                                                      ## the
+                                                                                      ## shape.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## No
+                                                                                      ## any
+                                                                                      ## shape
+                                                                                      ## should
+                                                                                      ## be
+                                                                                      ## mapped
+                                                                                      ## to
+                                                                                      ## an
+                                                                                      ## empty
+                                                                                      ## list.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Auxiliary
+                                                                                      ## members
+                                                                                      ## to
+                                                                                      ## read
+                                                                                      ## the
+                                                                                      ## history.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## An
+                                                                                      ## auxiliary
+                                                                                      ## empty
+                                                                                      ## list.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Auxiliary
+                                                                                      ## messages.
     ## ! Maps each input shape to all shapes generated from it.
     ## ! If an input shape is not bound to the map then
     ## ! there is no shapes generated from the shape.
@@ -322,64 +318,64 @@ type
     ## !< The removed shapes.
 
 
-proc constructBRepTools_History*(): BRepTools_History {.constructor,
+proc constructBRepToolsHistory*(): BRepToolsHistory {.constructor,
     importcpp: "BRepTools_History(@)", header: "BRepTools_History.hxx".}
-proc constructBRepTools_History*[TheAlgo](theArguments: TopTools_ListOfShape;
-    theAlgo: var TheAlgo): BRepTools_History {.constructor,
-    importcpp: "BRepTools_History(@)", header: "BRepTools_History.hxx".}
+proc constructBRepToolsHistory*[TheAlgo](theArguments: TopToolsListOfShape;
+                                        theAlgo: var TheAlgo): BRepToolsHistory {.
+    constructor, importcpp: "BRepTools_History(@)", header: "BRepTools_History.hxx".}
 type
-  BRepTools_HistoryTRelationType* {.size: sizeof(cint), importcpp: "BRepTools_History::TRelationType",
-                                   header: "BRepTools_History.hxx".} = enum
-    TRelationType_Removed, TRelationType_Generated, TRelationType_Modified
+  BRepToolsHistoryTRelationType* {.size: sizeof(cint), importcpp: "BRepTools_History::TRelationType",
+                                  header: "BRepTools_History.hxx".} = enum
+    TRelationTypeRemoved, TRelationTypeGenerated, TRelationTypeModified
 
 
-proc IsSupportedType*(theShape: TopoDS_Shape): Standard_Boolean {.
+proc isSupportedType*(theShape: TopoDS_Shape): bool {.
     importcpp: "BRepTools_History::IsSupportedType(@)",
     header: "BRepTools_History.hxx".}
-proc AddGenerated*(this: var BRepTools_History; theInitial: TopoDS_Shape;
+proc addGenerated*(this: var BRepToolsHistory; theInitial: TopoDS_Shape;
                   theGenerated: TopoDS_Shape) {.importcpp: "AddGenerated",
     header: "BRepTools_History.hxx".}
-proc AddModified*(this: var BRepTools_History; theInitial: TopoDS_Shape;
+proc addModified*(this: var BRepToolsHistory; theInitial: TopoDS_Shape;
                  theModified: TopoDS_Shape) {.importcpp: "AddModified",
     header: "BRepTools_History.hxx".}
-proc Remove*(this: var BRepTools_History; theRemoved: TopoDS_Shape) {.
+proc remove*(this: var BRepToolsHistory; theRemoved: TopoDS_Shape) {.
     importcpp: "Remove", header: "BRepTools_History.hxx".}
-proc ReplaceGenerated*(this: var BRepTools_History; theInitial: TopoDS_Shape;
+proc replaceGenerated*(this: var BRepToolsHistory; theInitial: TopoDS_Shape;
                       theGenerated: TopoDS_Shape) {.importcpp: "ReplaceGenerated",
     header: "BRepTools_History.hxx".}
-proc ReplaceModified*(this: var BRepTools_History; theInitial: TopoDS_Shape;
+proc replaceModified*(this: var BRepToolsHistory; theInitial: TopoDS_Shape;
                      theModified: TopoDS_Shape) {.importcpp: "ReplaceModified",
     header: "BRepTools_History.hxx".}
-proc Clear*(this: var BRepTools_History) {.importcpp: "Clear",
-                                       header: "BRepTools_History.hxx".}
-proc Generated*(this: BRepTools_History; theInitial: TopoDS_Shape): TopTools_ListOfShape {.
+proc clear*(this: var BRepToolsHistory) {.importcpp: "Clear",
+                                      header: "BRepTools_History.hxx".}
+proc generated*(this: BRepToolsHistory; theInitial: TopoDS_Shape): TopToolsListOfShape {.
     noSideEffect, importcpp: "Generated", header: "BRepTools_History.hxx".}
-proc Modified*(this: BRepTools_History; theInitial: TopoDS_Shape): TopTools_ListOfShape {.
+proc modified*(this: BRepToolsHistory; theInitial: TopoDS_Shape): TopToolsListOfShape {.
     noSideEffect, importcpp: "Modified", header: "BRepTools_History.hxx".}
-proc IsRemoved*(this: BRepTools_History; theInitial: TopoDS_Shape): Standard_Boolean {.
+proc isRemoved*(this: BRepToolsHistory; theInitial: TopoDS_Shape): bool {.
     noSideEffect, importcpp: "IsRemoved", header: "BRepTools_History.hxx".}
-proc HasGenerated*(this: BRepTools_History): Standard_Boolean {.noSideEffect,
+proc hasGenerated*(this: BRepToolsHistory): bool {.noSideEffect,
     importcpp: "HasGenerated", header: "BRepTools_History.hxx".}
-proc HasModified*(this: BRepTools_History): Standard_Boolean {.noSideEffect,
+proc hasModified*(this: BRepToolsHistory): bool {.noSideEffect,
     importcpp: "HasModified", header: "BRepTools_History.hxx".}
-proc HasRemoved*(this: BRepTools_History): Standard_Boolean {.noSideEffect,
+proc hasRemoved*(this: BRepToolsHistory): bool {.noSideEffect,
     importcpp: "HasRemoved", header: "BRepTools_History.hxx".}
-proc Merge*(this: var BRepTools_History; theHistory23: handle[BRepTools_History]) {.
+proc merge*(this: var BRepToolsHistory; theHistory23: Handle[BRepToolsHistory]) {.
     importcpp: "Merge", header: "BRepTools_History.hxx".}
-proc Merge*(this: var BRepTools_History; theHistory23: BRepTools_History) {.
+proc merge*(this: var BRepToolsHistory; theHistory23: BRepToolsHistory) {.
     importcpp: "Merge", header: "BRepTools_History.hxx".}
-proc Merge*[TheAlgo](this: var BRepTools_History;
-                    theArguments: TopTools_ListOfShape; theAlgo: var TheAlgo) {.
-    importcpp: "Merge", header: "BRepTools_History.hxx".}
-proc Dump*(this: var BRepTools_History; theS: var Standard_OStream) {.
-    importcpp: "Dump", header: "BRepTools_History.hxx".}
+proc merge*[TheAlgo](this: var BRepToolsHistory; theArguments: TopToolsListOfShape;
+                    theAlgo: var TheAlgo) {.importcpp: "Merge",
+    header: "BRepTools_History.hxx".}
+proc dump*(this: var BRepToolsHistory; theS: var StandardOStream) {.importcpp: "Dump",
+    header: "BRepTools_History.hxx".}
 type
-  BRepTools_Historybase_type* = Standard_Transient
+  BRepToolsHistorybaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "BRepTools_History::get_type_name(@)",
-                              header: "BRepTools_History.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepTools_History::get_type_name(@)",
+                            header: "BRepTools_History.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepTools_History::get_type_descriptor(@)",
     header: "BRepTools_History.hxx".}
-proc DynamicType*(this: BRepTools_History): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: BRepToolsHistory): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepTools_History.hxx".}

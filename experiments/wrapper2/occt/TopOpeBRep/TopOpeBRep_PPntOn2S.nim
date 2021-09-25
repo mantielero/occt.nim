@@ -16,4 +16,5 @@
 
 discard "forward decl of IntSurf_PntOn2S"
 type
-  TopOpeBRep_PPntOn2S* = ptr IntSurf_PntOn2S
+  TopOpeBRepPPntOn2S* = ptr IntSurfPntOn2S
+

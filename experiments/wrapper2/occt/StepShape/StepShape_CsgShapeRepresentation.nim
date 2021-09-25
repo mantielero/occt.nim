@@ -14,33 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_ShapeRepresentation
-
 discard "forward decl of StepShape_CsgShapeRepresentation"
 discard "forward decl of StepShape_CsgShapeRepresentation"
 type
-  Handle_StepShape_CsgShapeRepresentation* = handle[
-      StepShape_CsgShapeRepresentation]
-  StepShape_CsgShapeRepresentation* {.importcpp: "StepShape_CsgShapeRepresentation", header: "StepShape_CsgShapeRepresentation.hxx",
-                                     bycopy.} = object of StepShape_ShapeRepresentation ##
-                                                                                   ## !
-                                                                                   ## Returns
-                                                                                   ## a
-                                                                                   ## CsgShapeRepresentation
+  HandleStepShapeCsgShapeRepresentation* = Handle[StepShapeCsgShapeRepresentation]
+  StepShapeCsgShapeRepresentation* {.importcpp: "StepShape_CsgShapeRepresentation", header: "StepShape_CsgShapeRepresentation.hxx",
+                                    bycopy.} = object of StepShapeShapeRepresentation ##
+                                                                                 ## !
+                                                                                 ## Returns
+                                                                                 ## a
+                                                                                 ## CsgShapeRepresentation
 
 
-proc constructStepShape_CsgShapeRepresentation*(): StepShape_CsgShapeRepresentation {.
+proc constructStepShapeCsgShapeRepresentation*(): StepShapeCsgShapeRepresentation {.
     constructor, importcpp: "StepShape_CsgShapeRepresentation(@)",
     header: "StepShape_CsgShapeRepresentation.hxx".}
 type
-  StepShape_CsgShapeRepresentationbase_type* = StepShape_ShapeRepresentation
+  StepShapeCsgShapeRepresentationbaseType* = StepShapeShapeRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_CsgShapeRepresentation::get_type_name(@)",
-                              header: "StepShape_CsgShapeRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_CsgShapeRepresentation::get_type_name(@)",
+                            header: "StepShape_CsgShapeRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_CsgShapeRepresentation::get_type_descriptor(@)",
     header: "StepShape_CsgShapeRepresentation.hxx".}
-proc DynamicType*(this: StepShape_CsgShapeRepresentation): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeCsgShapeRepresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_CsgShapeRepresentation.hxx".}

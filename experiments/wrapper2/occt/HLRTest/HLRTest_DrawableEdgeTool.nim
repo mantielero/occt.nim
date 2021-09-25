@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../Draw/Draw_Drawable3D
-
 discard "forward decl of HLRBRep_Algo"
 discard "forward decl of Draw_Display"
 discard "forward decl of HLRBRep_Data"
@@ -25,32 +21,29 @@ discard "forward decl of HLRBRep_EdgeData"
 discard "forward decl of HLRTest_DrawableEdgeTool"
 discard "forward decl of HLRTest_DrawableEdgeTool"
 type
-  Handle_HLRTest_DrawableEdgeTool* = handle[HLRTest_DrawableEdgeTool]
+  HandleHLRTestDrawableEdgeTool* = Handle[HLRTestDrawableEdgeTool]
 
 ## ! Used to display the results.
 
 type
-  HLRTest_DrawableEdgeTool* {.importcpp: "HLRTest_DrawableEdgeTool",
-                             header: "HLRTest_DrawableEdgeTool.hxx", bycopy.} = object of Draw_Drawable3D
+  HLRTestDrawableEdgeTool* {.importcpp: "HLRTest_DrawableEdgeTool",
+                            header: "HLRTest_DrawableEdgeTool.hxx", bycopy.} = object of DrawDrawable3D
 
 
-proc constructHLRTest_DrawableEdgeTool*(Alg: handle[HLRBRep_Algo];
-                                       Visible: Standard_Boolean;
-                                       IsoLine: Standard_Boolean;
-                                       Rg1Line: Standard_Boolean;
-                                       RgNLine: Standard_Boolean;
-                                       ViewId: Standard_Integer): HLRTest_DrawableEdgeTool {.
+proc constructHLRTestDrawableEdgeTool*(alg: Handle[HLRBRepAlgo]; visible: bool;
+                                      isoLine: bool; rg1Line: bool; rgNLine: bool;
+                                      viewId: int): HLRTestDrawableEdgeTool {.
     constructor, importcpp: "HLRTest_DrawableEdgeTool(@)",
     header: "HLRTest_DrawableEdgeTool.hxx".}
-proc DrawOn*(this: HLRTest_DrawableEdgeTool; D: var Draw_Display) {.noSideEffect,
+proc drawOn*(this: HLRTestDrawableEdgeTool; d: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "HLRTest_DrawableEdgeTool.hxx".}
 type
-  HLRTest_DrawableEdgeToolbase_type* = Draw_Drawable3D
+  HLRTestDrawableEdgeToolbaseType* = DrawDrawable3D
 
-proc get_type_name*(): cstring {.importcpp: "HLRTest_DrawableEdgeTool::get_type_name(@)",
-                              header: "HLRTest_DrawableEdgeTool.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "HLRTest_DrawableEdgeTool::get_type_name(@)",
+                            header: "HLRTest_DrawableEdgeTool.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "HLRTest_DrawableEdgeTool::get_type_descriptor(@)",
     header: "HLRTest_DrawableEdgeTool.hxx".}
-proc DynamicType*(this: HLRTest_DrawableEdgeTool): handle[Standard_Type] {.
+proc dynamicType*(this: HLRTestDrawableEdgeTool): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "HLRTest_DrawableEdgeTool.hxx".}

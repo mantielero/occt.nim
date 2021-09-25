@@ -15,10 +15,11 @@
 ##  commercial license or contractual agreement.
 
 type
-  LocalAnalysis_StatusErrorType* {.size: sizeof(cint),
-                                  importcpp: "LocalAnalysis_StatusErrorType",
-                                  header: "LocalAnalysis_StatusErrorType.hxx".} = enum
-    LocalAnalysis_NullFirstDerivative, LocalAnalysis_NullSecondDerivative,
-    LocalAnalysis_TangentNotDefined, LocalAnalysis_NormalNotDefined,
-    LocalAnalysis_CurvatureNotDefined
+  LocalAnalysisStatusErrorType* {.size: sizeof(cint),
+                                 importcpp: "LocalAnalysis_StatusErrorType",
+                                 header: "LocalAnalysis_StatusErrorType.hxx".} = enum
+    LocalAnalysisNullFirstDerivative, LocalAnalysisNullSecondDerivative,
+    LocalAnalysisTangentNotDefined, LocalAnalysisNormalNotDefined,
+    LocalAnalysisCurvatureNotDefined
+
 

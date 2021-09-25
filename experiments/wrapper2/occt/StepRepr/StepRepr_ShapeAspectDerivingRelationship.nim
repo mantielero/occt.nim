@@ -13,33 +13,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepRepr_ShapeAspectRelationship
-
 discard "forward decl of StepRepr_ShapeAspectDerivingRelationship"
 discard "forward decl of StepRepr_ShapeAspectDerivingRelationship"
 type
-  Handle_StepRepr_ShapeAspectDerivingRelationship* = handle[
-      StepRepr_ShapeAspectDerivingRelationship]
+  HandleStepReprShapeAspectDerivingRelationship* = Handle[
+      StepReprShapeAspectDerivingRelationship]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepRepr_ShapeAspectDerivingRelationship* {.
+  StepReprShapeAspectDerivingRelationship* {.
       importcpp: "StepRepr_ShapeAspectDerivingRelationship",
-      header: "StepRepr_ShapeAspectDerivingRelationship.hxx", bycopy.} = object of StepRepr_ShapeAspectRelationship
+      header: "StepRepr_ShapeAspectDerivingRelationship.hxx", bycopy.} = object of StepReprShapeAspectRelationship
 
 
-proc constructStepRepr_ShapeAspectDerivingRelationship*(): StepRepr_ShapeAspectDerivingRelationship {.
+proc constructStepReprShapeAspectDerivingRelationship*(): StepReprShapeAspectDerivingRelationship {.
     constructor, importcpp: "StepRepr_ShapeAspectDerivingRelationship(@)",
     header: "StepRepr_ShapeAspectDerivingRelationship.hxx".}
 type
-  StepRepr_ShapeAspectDerivingRelationshipbase_type* = StepRepr_ShapeAspectRelationship
+  StepReprShapeAspectDerivingRelationshipbaseType* = StepReprShapeAspectRelationship
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_ShapeAspectDerivingRelationship::get_type_name(@)", header: "StepRepr_ShapeAspectDerivingRelationship.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepRepr_ShapeAspectDerivingRelationship::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepRepr_ShapeAspectDerivingRelationship::get_type_name(@)", header: "StepRepr_ShapeAspectDerivingRelationship.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_ShapeAspectDerivingRelationship::get_type_descriptor(@)",
     header: "StepRepr_ShapeAspectDerivingRelationship.hxx".}
-proc DynamicType*(this: StepRepr_ShapeAspectDerivingRelationship): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepRepr_ShapeAspectDerivingRelationship.hxx".}
+proc dynamicType*(this: StepReprShapeAspectDerivingRelationship): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepRepr_ShapeAspectDerivingRelationship.hxx".}

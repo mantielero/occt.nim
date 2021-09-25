@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_DoseEquivalent_HeaderFile [NewLine] # _Quantity_DoseEquivalent_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the product of the absorbed dose and a
+## !!!Ignored construct:  # _Quantity_DoseEquivalent_HeaderFile [NewLine] # _Quantity_DoseEquivalent_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the product of the absorbed dose and a
 ## ! quality factor related to the effect of a particular
 ## ! type of radiation on biological tissue.
 ## ! It is measured in sieverts. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_DoseEquivalent ;
 ## Error: expected ';'!!!
+

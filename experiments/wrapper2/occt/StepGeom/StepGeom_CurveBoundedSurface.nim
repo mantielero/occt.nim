@@ -14,61 +14,55 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepGeom_HArray1OfSurfaceBoundary, ../Standard/Standard_Boolean,
-  StepGeom_BoundedSurface
-
 discard "forward decl of StepGeom_Surface"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_CurveBoundedSurface"
 discard "forward decl of StepGeom_CurveBoundedSurface"
 type
-  Handle_StepGeom_CurveBoundedSurface* = handle[StepGeom_CurveBoundedSurface]
+  HandleStepGeomCurveBoundedSurface* = Handle[StepGeomCurveBoundedSurface]
 
 ## ! Representation of STEP entity CurveBoundedSurface
 
 type
-  StepGeom_CurveBoundedSurface* {.importcpp: "StepGeom_CurveBoundedSurface",
-                                 header: "StepGeom_CurveBoundedSurface.hxx",
-                                 bycopy.} = object of StepGeom_BoundedSurface ## ! Empty
-                                                                         ## constructor
+  StepGeomCurveBoundedSurface* {.importcpp: "StepGeom_CurveBoundedSurface",
+                                header: "StepGeom_CurveBoundedSurface.hxx", bycopy.} = object of StepGeomBoundedSurface ##
+                                                                                                                 ## !
+                                                                                                                 ## Empty
+                                                                                                                 ## constructor
 
 
-proc constructStepGeom_CurveBoundedSurface*(): StepGeom_CurveBoundedSurface {.
+proc constructStepGeomCurveBoundedSurface*(): StepGeomCurveBoundedSurface {.
     constructor, importcpp: "StepGeom_CurveBoundedSurface(@)",
     header: "StepGeom_CurveBoundedSurface.hxx".}
-proc Init*(this: var StepGeom_CurveBoundedSurface;
-          aRepresentationItem_Name: handle[TCollection_HAsciiString];
-          aBasisSurface: handle[StepGeom_Surface];
-          aBoundaries: handle[StepGeom_HArray1OfSurfaceBoundary];
-          aImplicitOuter: Standard_Boolean) {.importcpp: "Init",
-    header: "StepGeom_CurveBoundedSurface.hxx".}
-proc BasisSurface*(this: StepGeom_CurveBoundedSurface): handle[StepGeom_Surface] {.
+proc init*(this: var StepGeomCurveBoundedSurface;
+          aRepresentationItemName: Handle[TCollectionHAsciiString];
+          aBasisSurface: Handle[StepGeomSurface];
+          aBoundaries: Handle[StepGeomHArray1OfSurfaceBoundary];
+          aImplicitOuter: bool) {.importcpp: "Init",
+                                header: "StepGeom_CurveBoundedSurface.hxx".}
+proc basisSurface*(this: StepGeomCurveBoundedSurface): Handle[StepGeomSurface] {.
     noSideEffect, importcpp: "BasisSurface",
     header: "StepGeom_CurveBoundedSurface.hxx".}
-proc SetBasisSurface*(this: var StepGeom_CurveBoundedSurface;
-                     BasisSurface: handle[StepGeom_Surface]) {.
+proc setBasisSurface*(this: var StepGeomCurveBoundedSurface;
+                     basisSurface: Handle[StepGeomSurface]) {.
     importcpp: "SetBasisSurface", header: "StepGeom_CurveBoundedSurface.hxx".}
-proc Boundaries*(this: StepGeom_CurveBoundedSurface): handle[
-    StepGeom_HArray1OfSurfaceBoundary] {.noSideEffect, importcpp: "Boundaries", header: "StepGeom_CurveBoundedSurface.hxx".}
-proc SetBoundaries*(this: var StepGeom_CurveBoundedSurface;
-                   Boundaries: handle[StepGeom_HArray1OfSurfaceBoundary]) {.
+proc boundaries*(this: StepGeomCurveBoundedSurface): Handle[
+    StepGeomHArray1OfSurfaceBoundary] {.noSideEffect, importcpp: "Boundaries", header: "StepGeom_CurveBoundedSurface.hxx".}
+proc setBoundaries*(this: var StepGeomCurveBoundedSurface;
+                   boundaries: Handle[StepGeomHArray1OfSurfaceBoundary]) {.
     importcpp: "SetBoundaries", header: "StepGeom_CurveBoundedSurface.hxx".}
-proc ImplicitOuter*(this: StepGeom_CurveBoundedSurface): Standard_Boolean {.
-    noSideEffect, importcpp: "ImplicitOuter",
-    header: "StepGeom_CurveBoundedSurface.hxx".}
-proc SetImplicitOuter*(this: var StepGeom_CurveBoundedSurface;
-                      ImplicitOuter: Standard_Boolean) {.
+proc implicitOuter*(this: StepGeomCurveBoundedSurface): bool {.noSideEffect,
+    importcpp: "ImplicitOuter", header: "StepGeom_CurveBoundedSurface.hxx".}
+proc setImplicitOuter*(this: var StepGeomCurveBoundedSurface; implicitOuter: bool) {.
     importcpp: "SetImplicitOuter", header: "StepGeom_CurveBoundedSurface.hxx".}
 type
-  StepGeom_CurveBoundedSurfacebase_type* = StepGeom_BoundedSurface
+  StepGeomCurveBoundedSurfacebaseType* = StepGeomBoundedSurface
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_CurveBoundedSurface::get_type_name(@)",
-                              header: "StepGeom_CurveBoundedSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_CurveBoundedSurface::get_type_name(@)",
+                            header: "StepGeom_CurveBoundedSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_CurveBoundedSurface::get_type_descriptor(@)",
     header: "StepGeom_CurveBoundedSurface.hxx".}
-proc DynamicType*(this: StepGeom_CurveBoundedSurface): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomCurveBoundedSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_CurveBoundedSurface.hxx".}

@@ -14,46 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColGeom/TColGeom_HArray1OfCurve, ShapeUpgrade_SplitCurve,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean
-
 discard "forward decl of Geom_Curve"
 discard "forward decl of ShapeUpgrade_SplitCurve3d"
 discard "forward decl of ShapeUpgrade_SplitCurve3d"
 type
-  Handle_ShapeUpgrade_SplitCurve3d* = handle[ShapeUpgrade_SplitCurve3d]
+  HandleShapeUpgradeSplitCurve3d* = Handle[ShapeUpgradeSplitCurve3d]
 
 ## ! Splits a 3d curve with a criterion.
 
 type
-  ShapeUpgrade_SplitCurve3d* {.importcpp: "ShapeUpgrade_SplitCurve3d",
-                              header: "ShapeUpgrade_SplitCurve3d.hxx", bycopy.} = object of ShapeUpgrade_SplitCurve ##
-                                                                                                             ## !
-                                                                                                             ## Empty
-                                                                                                             ## constructor.
+  ShapeUpgradeSplitCurve3d* {.importcpp: "ShapeUpgrade_SplitCurve3d",
+                             header: "ShapeUpgrade_SplitCurve3d.hxx", bycopy.} = object of ShapeUpgradeSplitCurve ##
+                                                                                                           ## !
+                                                                                                           ## Empty
+                                                                                                           ## constructor.
 
 
-proc constructShapeUpgrade_SplitCurve3d*(): ShapeUpgrade_SplitCurve3d {.
-    constructor, importcpp: "ShapeUpgrade_SplitCurve3d(@)",
+proc constructShapeUpgradeSplitCurve3d*(): ShapeUpgradeSplitCurve3d {.constructor,
+    importcpp: "ShapeUpgrade_SplitCurve3d(@)",
     header: "ShapeUpgrade_SplitCurve3d.hxx".}
-proc Init*(this: var ShapeUpgrade_SplitCurve3d; C: handle[Geom_Curve]) {.
+proc init*(this: var ShapeUpgradeSplitCurve3d; c: Handle[GeomCurve]) {.
     importcpp: "Init", header: "ShapeUpgrade_SplitCurve3d.hxx".}
-proc Init*(this: var ShapeUpgrade_SplitCurve3d; C: handle[Geom_Curve];
-          First: Standard_Real; Last: Standard_Real) {.importcpp: "Init",
+proc init*(this: var ShapeUpgradeSplitCurve3d; c: Handle[GeomCurve]; first: float;
+          last: float) {.importcpp: "Init", header: "ShapeUpgrade_SplitCurve3d.hxx".}
+proc build*(this: var ShapeUpgradeSplitCurve3d; segment: bool) {.importcpp: "Build",
     header: "ShapeUpgrade_SplitCurve3d.hxx".}
-proc Build*(this: var ShapeUpgrade_SplitCurve3d; Segment: Standard_Boolean) {.
-    importcpp: "Build", header: "ShapeUpgrade_SplitCurve3d.hxx".}
-proc GetCurves*(this: ShapeUpgrade_SplitCurve3d): handle[TColGeom_HArray1OfCurve] {.
+proc getCurves*(this: ShapeUpgradeSplitCurve3d): Handle[TColGeomHArray1OfCurve] {.
     noSideEffect, importcpp: "GetCurves", header: "ShapeUpgrade_SplitCurve3d.hxx".}
 type
-  ShapeUpgrade_SplitCurve3dbase_type* = ShapeUpgrade_SplitCurve
+  ShapeUpgradeSplitCurve3dbaseType* = ShapeUpgradeSplitCurve
 
-proc get_type_name*(): cstring {.importcpp: "ShapeUpgrade_SplitCurve3d::get_type_name(@)",
-                              header: "ShapeUpgrade_SplitCurve3d.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeUpgrade_SplitCurve3d::get_type_name(@)",
+                            header: "ShapeUpgrade_SplitCurve3d.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeUpgrade_SplitCurve3d::get_type_descriptor(@)",
     header: "ShapeUpgrade_SplitCurve3d.hxx".}
-proc DynamicType*(this: ShapeUpgrade_SplitCurve3d): handle[Standard_Type] {.
+proc dynamicType*(this: ShapeUpgradeSplitCurve3d): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "ShapeUpgrade_SplitCurve3d.hxx".}

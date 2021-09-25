@@ -14,53 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, StepShape_CsgPrimitive,
-  ../Standard/Standard_Integer
-
 discard "forward decl of StepShape_SolidModel"
 discard "forward decl of StepShape_HalfSpaceSolid"
 discard "forward decl of StepShape_BooleanResult"
 discard "forward decl of StepShape_CsgPrimitive"
 type
-  StepShape_BooleanOperand* {.importcpp: "StepShape_BooleanOperand",
-                             header: "StepShape_BooleanOperand.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Returns
-                                                                                  ## a
-                                                                                  ## BooleanOperand
-                                                                                  ## SelectType
+  StepShapeBooleanOperand* {.importcpp: "StepShape_BooleanOperand",
+                            header: "StepShape_BooleanOperand.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## Returns
+                                                                                 ## a
+                                                                                 ## BooleanOperand
+                                                                                 ## SelectType
 
 
-proc constructStepShape_BooleanOperand*(): StepShape_BooleanOperand {.constructor,
+proc constructStepShapeBooleanOperand*(): StepShapeBooleanOperand {.constructor,
     importcpp: "StepShape_BooleanOperand(@)",
     header: "StepShape_BooleanOperand.hxx".}
-proc SetTypeOfContent*(this: var StepShape_BooleanOperand;
-                      aTypeOfContent: Standard_Integer) {.
+proc setTypeOfContent*(this: var StepShapeBooleanOperand; aTypeOfContent: int) {.
     importcpp: "SetTypeOfContent", header: "StepShape_BooleanOperand.hxx".}
-proc TypeOfContent*(this: StepShape_BooleanOperand): Standard_Integer {.
-    noSideEffect, importcpp: "TypeOfContent",
-    header: "StepShape_BooleanOperand.hxx".}
-proc SolidModel*(this: StepShape_BooleanOperand): handle[StepShape_SolidModel] {.
+proc typeOfContent*(this: StepShapeBooleanOperand): int {.noSideEffect,
+    importcpp: "TypeOfContent", header: "StepShape_BooleanOperand.hxx".}
+proc solidModel*(this: StepShapeBooleanOperand): Handle[StepShapeSolidModel] {.
     noSideEffect, importcpp: "SolidModel", header: "StepShape_BooleanOperand.hxx".}
-proc SetSolidModel*(this: var StepShape_BooleanOperand;
-                   aSolidModel: handle[StepShape_SolidModel]) {.
+proc setSolidModel*(this: var StepShapeBooleanOperand;
+                   aSolidModel: Handle[StepShapeSolidModel]) {.
     importcpp: "SetSolidModel", header: "StepShape_BooleanOperand.hxx".}
-proc HalfSpaceSolid*(this: StepShape_BooleanOperand): handle[
-    StepShape_HalfSpaceSolid] {.noSideEffect, importcpp: "HalfSpaceSolid",
-                               header: "StepShape_BooleanOperand.hxx".}
-proc SetHalfSpaceSolid*(this: var StepShape_BooleanOperand;
-                       aHalfSpaceSolid: handle[StepShape_HalfSpaceSolid]) {.
+proc halfSpaceSolid*(this: StepShapeBooleanOperand): Handle[StepShapeHalfSpaceSolid] {.
+    noSideEffect, importcpp: "HalfSpaceSolid",
+    header: "StepShape_BooleanOperand.hxx".}
+proc setHalfSpaceSolid*(this: var StepShapeBooleanOperand;
+                       aHalfSpaceSolid: Handle[StepShapeHalfSpaceSolid]) {.
     importcpp: "SetHalfSpaceSolid", header: "StepShape_BooleanOperand.hxx".}
-proc CsgPrimitive*(this: StepShape_BooleanOperand): StepShape_CsgPrimitive {.
+proc csgPrimitive*(this: StepShapeBooleanOperand): StepShapeCsgPrimitive {.
     noSideEffect, importcpp: "CsgPrimitive", header: "StepShape_BooleanOperand.hxx".}
-proc SetCsgPrimitive*(this: var StepShape_BooleanOperand;
-                     aCsgPrimitive: StepShape_CsgPrimitive) {.
+proc setCsgPrimitive*(this: var StepShapeBooleanOperand;
+                     aCsgPrimitive: StepShapeCsgPrimitive) {.
     importcpp: "SetCsgPrimitive", header: "StepShape_BooleanOperand.hxx".}
-proc BooleanResult*(this: StepShape_BooleanOperand): handle[StepShape_BooleanResult] {.
+proc booleanResult*(this: StepShapeBooleanOperand): Handle[StepShapeBooleanResult] {.
     noSideEffect, importcpp: "BooleanResult",
     header: "StepShape_BooleanOperand.hxx".}
-proc SetBooleanResult*(this: var StepShape_BooleanOperand;
-                      aBooleanResult: handle[StepShape_BooleanResult]) {.
+proc setBooleanResult*(this: var StepShapeBooleanOperand;
+                      aBooleanResult: Handle[StepShapeBooleanResult]) {.
     importcpp: "SetBooleanResult", header: "StepShape_BooleanOperand.hxx".}

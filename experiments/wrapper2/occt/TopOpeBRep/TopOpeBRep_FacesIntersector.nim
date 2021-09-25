@@ -14,75 +14,62 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../IntPatch/IntPatch_Intersection,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
-  TopOpeBRep_HArray1OfLineInter, TopOpeBRep_LineInter,
-  ../Standard/Standard_Integer, ../TopoDS/TopoDS_Face,
-  ../GeomAbs/GeomAbs_SurfaceType, ../TopTools/TopTools_IndexedMapOfShape,
-  ../TopoDS/TopoDS_Shape, ../TopAbs/TopAbs_ShapeEnum
-
 discard "forward decl of BRepAdaptor_HSurface"
 discard "forward decl of BRepTopAdaptor_TopolTool"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Bnd_Box"
 discard "forward decl of TopOpeBRep_LineInter"
 type
-  TopOpeBRep_FacesIntersector* {.importcpp: "TopOpeBRep_FacesIntersector",
-                                header: "TopOpeBRep_FacesIntersector.hxx", bycopy.} = object
+  TopOpeBRepFacesIntersector* {.importcpp: "TopOpeBRep_FacesIntersector",
+                               header: "TopOpeBRep_FacesIntersector.hxx", bycopy.} = object
 
 
-proc constructTopOpeBRep_FacesIntersector*(): TopOpeBRep_FacesIntersector {.
+proc constructTopOpeBRepFacesIntersector*(): TopOpeBRepFacesIntersector {.
     constructor, importcpp: "TopOpeBRep_FacesIntersector(@)",
     header: "TopOpeBRep_FacesIntersector.hxx".}
-proc Perform*(this: var TopOpeBRep_FacesIntersector; S1: TopoDS_Shape;
-             S2: TopoDS_Shape) {.importcpp: "Perform",
-                               header: "TopOpeBRep_FacesIntersector.hxx".}
-proc Perform*(this: var TopOpeBRep_FacesIntersector; S1: TopoDS_Shape;
-             S2: TopoDS_Shape; B1: Bnd_Box; B2: Bnd_Box) {.importcpp: "Perform",
+proc perform*(this: var TopOpeBRepFacesIntersector; s1: TopoDS_Shape; s2: TopoDS_Shape) {.
+    importcpp: "Perform", header: "TopOpeBRep_FacesIntersector.hxx".}
+proc perform*(this: var TopOpeBRepFacesIntersector; s1: TopoDS_Shape;
+             s2: TopoDS_Shape; b1: BndBox; b2: BndBox) {.importcpp: "Perform",
     header: "TopOpeBRep_FacesIntersector.hxx".}
-proc IsEmpty*(this: var TopOpeBRep_FacesIntersector): Standard_Boolean {.
-    importcpp: "IsEmpty", header: "TopOpeBRep_FacesIntersector.hxx".}
-proc IsDone*(this: TopOpeBRep_FacesIntersector): Standard_Boolean {.noSideEffect,
+proc isEmpty*(this: var TopOpeBRepFacesIntersector): bool {.importcpp: "IsEmpty",
+    header: "TopOpeBRep_FacesIntersector.hxx".}
+proc isDone*(this: TopOpeBRepFacesIntersector): bool {.noSideEffect,
     importcpp: "IsDone", header: "TopOpeBRep_FacesIntersector.hxx".}
-proc SameDomain*(this: TopOpeBRep_FacesIntersector): Standard_Boolean {.
-    noSideEffect, importcpp: "SameDomain",
-    header: "TopOpeBRep_FacesIntersector.hxx".}
-proc Face*(this: TopOpeBRep_FacesIntersector; Index: Standard_Integer): TopoDS_Shape {.
-    noSideEffect, importcpp: "Face", header: "TopOpeBRep_FacesIntersector.hxx".}
-proc SurfacesSameOriented*(this: TopOpeBRep_FacesIntersector): Standard_Boolean {.
-    noSideEffect, importcpp: "SurfacesSameOriented",
-    header: "TopOpeBRep_FacesIntersector.hxx".}
-proc IsRestriction*(this: TopOpeBRep_FacesIntersector; E: TopoDS_Shape): Standard_Boolean {.
+proc sameDomain*(this: TopOpeBRepFacesIntersector): bool {.noSideEffect,
+    importcpp: "SameDomain", header: "TopOpeBRep_FacesIntersector.hxx".}
+proc face*(this: TopOpeBRepFacesIntersector; index: int): TopoDS_Shape {.noSideEffect,
+    importcpp: "Face", header: "TopOpeBRep_FacesIntersector.hxx".}
+proc surfacesSameOriented*(this: TopOpeBRepFacesIntersector): bool {.noSideEffect,
+    importcpp: "SurfacesSameOriented", header: "TopOpeBRep_FacesIntersector.hxx".}
+proc isRestriction*(this: TopOpeBRepFacesIntersector; e: TopoDS_Shape): bool {.
     noSideEffect, importcpp: "IsRestriction",
     header: "TopOpeBRep_FacesIntersector.hxx".}
-proc Restrictions*(this: TopOpeBRep_FacesIntersector): TopTools_IndexedMapOfShape {.
+proc restrictions*(this: TopOpeBRepFacesIntersector): TopToolsIndexedMapOfShape {.
     noSideEffect, importcpp: "Restrictions",
     header: "TopOpeBRep_FacesIntersector.hxx".}
-proc PrepareLines*(this: var TopOpeBRep_FacesIntersector) {.
+proc prepareLines*(this: var TopOpeBRepFacesIntersector) {.
     importcpp: "PrepareLines", header: "TopOpeBRep_FacesIntersector.hxx".}
-proc Lines*(this: var TopOpeBRep_FacesIntersector): handle[
-    TopOpeBRep_HArray1OfLineInter] {.importcpp: "Lines",
-                                    header: "TopOpeBRep_FacesIntersector.hxx".}
-proc NbLines*(this: TopOpeBRep_FacesIntersector): Standard_Integer {.noSideEffect,
+proc lines*(this: var TopOpeBRepFacesIntersector): Handle[
+    TopOpeBRepHArray1OfLineInter] {.importcpp: "Lines",
+                                   header: "TopOpeBRep_FacesIntersector.hxx".}
+proc nbLines*(this: TopOpeBRepFacesIntersector): int {.noSideEffect,
     importcpp: "NbLines", header: "TopOpeBRep_FacesIntersector.hxx".}
-proc InitLine*(this: var TopOpeBRep_FacesIntersector) {.importcpp: "InitLine",
+proc initLine*(this: var TopOpeBRepFacesIntersector) {.importcpp: "InitLine",
     header: "TopOpeBRep_FacesIntersector.hxx".}
-proc MoreLine*(this: TopOpeBRep_FacesIntersector): Standard_Boolean {.noSideEffect,
+proc moreLine*(this: TopOpeBRepFacesIntersector): bool {.noSideEffect,
     importcpp: "MoreLine", header: "TopOpeBRep_FacesIntersector.hxx".}
-proc NextLine*(this: var TopOpeBRep_FacesIntersector) {.importcpp: "NextLine",
+proc nextLine*(this: var TopOpeBRepFacesIntersector) {.importcpp: "NextLine",
     header: "TopOpeBRep_FacesIntersector.hxx".}
-proc CurrentLine*(this: var TopOpeBRep_FacesIntersector): var TopOpeBRep_LineInter {.
+proc currentLine*(this: var TopOpeBRepFacesIntersector): var TopOpeBRepLineInter {.
     importcpp: "CurrentLine", header: "TopOpeBRep_FacesIntersector.hxx".}
-proc CurrentLineIndex*(this: TopOpeBRep_FacesIntersector): Standard_Integer {.
-    noSideEffect, importcpp: "CurrentLineIndex",
-    header: "TopOpeBRep_FacesIntersector.hxx".}
-proc ChangeLine*(this: var TopOpeBRep_FacesIntersector; IL: Standard_Integer): var TopOpeBRep_LineInter {.
+proc currentLineIndex*(this: TopOpeBRepFacesIntersector): int {.noSideEffect,
+    importcpp: "CurrentLineIndex", header: "TopOpeBRep_FacesIntersector.hxx".}
+proc changeLine*(this: var TopOpeBRepFacesIntersector; il: int): var TopOpeBRepLineInter {.
     importcpp: "ChangeLine", header: "TopOpeBRep_FacesIntersector.hxx".}
-proc ForceTolerances*(this: var TopOpeBRep_FacesIntersector; tolarc: Standard_Real;
-                     toltang: Standard_Real) {.importcpp: "ForceTolerances",
-    header: "TopOpeBRep_FacesIntersector.hxx".}
-proc GetTolerances*(this: TopOpeBRep_FacesIntersector; tolarc: var Standard_Real;
-                   toltang: var Standard_Real) {.noSideEffect,
-    importcpp: "GetTolerances", header: "TopOpeBRep_FacesIntersector.hxx".}
+proc forceTolerances*(this: var TopOpeBRepFacesIntersector; tolarc: float;
+                     toltang: float) {.importcpp: "ForceTolerances",
+                                     header: "TopOpeBRep_FacesIntersector.hxx".}
+proc getTolerances*(this: TopOpeBRepFacesIntersector; tolarc: var float;
+                   toltang: var float) {.noSideEffect, importcpp: "GetTolerances",
+                                      header: "TopOpeBRep_FacesIntersector.hxx".}

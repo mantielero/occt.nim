@@ -14,72 +14,69 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Prs3d/Prs3d_Root, ../Prs3d/Prs3d_Drawer
-
 discard "forward decl of Adaptor3d_Surface"
 type
-  StdPrs_WFPoleSurface* {.importcpp: "StdPrs_WFPoleSurface",
-                         header: "StdPrs_WFPoleSurface.hxx", bycopy.} = object of Prs3d_Root ##
-                                                                                      ## !
-                                                                                      ## Adds
-                                                                                      ## the
-                                                                                      ## surface
-                                                                                      ## aSurface
-                                                                                      ## to
-                                                                                      ## the
-                                                                                      ## presentation
-                                                                                      ## object
-                                                                                      ## aPresentation.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## The
-                                                                                      ## shape's
-                                                                                      ## display
-                                                                                      ## attributes
-                                                                                      ## are
-                                                                                      ## set
-                                                                                      ## in
-                                                                                      ## the
-                                                                                      ## attribute
-                                                                                      ## manager
-                                                                                      ## aDrawer.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## The
-                                                                                      ## surface
-                                                                                      ## aSurface
-                                                                                      ## is
-                                                                                      ## a
-                                                                                      ## surface
-                                                                                      ## object
-                                                                                      ## from
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Adaptor3d,
-                                                                                      ## and
-                                                                                      ## provides
-                                                                                      ## data
-                                                                                      ## from
-                                                                                      ## a
-                                                                                      ## Geom
-                                                                                      ## surface.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## This
-                                                                                      ## makes
-                                                                                      ## it
-                                                                                      ## possible
-                                                                                      ## to
-                                                                                      ## use
-                                                                                      ## the
-                                                                                      ## surface
-                                                                                      ## in
-                                                                                      ## a
-                                                                                      ## geometric
-                                                                                      ## algorithm.
+  StdPrsWFPoleSurface* {.importcpp: "StdPrs_WFPoleSurface",
+                        header: "StdPrs_WFPoleSurface.hxx", bycopy.} = object of Prs3dRoot ##
+                                                                                    ## !
+                                                                                    ## Adds
+                                                                                    ## the
+                                                                                    ## surface
+                                                                                    ## aSurface
+                                                                                    ## to
+                                                                                    ## the
+                                                                                    ## presentation
+                                                                                    ## object
+                                                                                    ## aPresentation.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## The
+                                                                                    ## shape's
+                                                                                    ## display
+                                                                                    ## attributes
+                                                                                    ## are
+                                                                                    ## set
+                                                                                    ## in
+                                                                                    ## the
+                                                                                    ## attribute
+                                                                                    ## manager
+                                                                                    ## aDrawer.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## The
+                                                                                    ## surface
+                                                                                    ## aSurface
+                                                                                    ## is
+                                                                                    ## a
+                                                                                    ## surface
+                                                                                    ## object
+                                                                                    ## from
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Adaptor3d,
+                                                                                    ## and
+                                                                                    ## provides
+                                                                                    ## data
+                                                                                    ## from
+                                                                                    ## a
+                                                                                    ## Geom
+                                                                                    ## surface.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## This
+                                                                                    ## makes
+                                                                                    ## it
+                                                                                    ## possible
+                                                                                    ## to
+                                                                                    ## use
+                                                                                    ## the
+                                                                                    ## surface
+                                                                                    ## in
+                                                                                    ## a
+                                                                                    ## geometric
+                                                                                    ## algorithm.
 
 
-proc Add*(aPresentation: handle[Prs3d_Presentation]; aSurface: Adaptor3d_Surface;
-         aDrawer: handle[Prs3d_Drawer]) {.importcpp: "StdPrs_WFPoleSurface::Add(@)",
-                                        header: "StdPrs_WFPoleSurface.hxx".}
+proc add*(aPresentation: Handle[Prs3dPresentation]; aSurface: Adaptor3dSurface;
+         aDrawer: Handle[Prs3dDrawer]) {.importcpp: "StdPrs_WFPoleSurface::Add(@)",
+                                       header: "StdPrs_WFPoleSurface.hxx".}

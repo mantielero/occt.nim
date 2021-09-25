@@ -14,38 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepAP214_AutoDesignSecurityClassificationAssignment"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepAP214_RWAutoDesignSecurityClassificationAssignment* {.
+  RWStepAP214RWAutoDesignSecurityClassificationAssignment* {.
       importcpp: "RWStepAP214_RWAutoDesignSecurityClassificationAssignment",
       header: "RWStepAP214_RWAutoDesignSecurityClassificationAssignment.hxx",
       bycopy.} = object
 
 
-proc constructRWStepAP214_RWAutoDesignSecurityClassificationAssignment*(): RWStepAP214_RWAutoDesignSecurityClassificationAssignment {.
+proc constructRWStepAP214RWAutoDesignSecurityClassificationAssignment*(): RWStepAP214RWAutoDesignSecurityClassificationAssignment {.
     constructor,
     importcpp: "RWStepAP214_RWAutoDesignSecurityClassificationAssignment(@)",
     header: "RWStepAP214_RWAutoDesignSecurityClassificationAssignment.hxx".}
-proc ReadStep*(this: RWStepAP214_RWAutoDesignSecurityClassificationAssignment;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepAP214_AutoDesignSecurityClassificationAssignment]) {.
+proc readStep*(this: RWStepAP214RWAutoDesignSecurityClassificationAssignment;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepAP214AutoDesignSecurityClassificationAssignment]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepAP214_RWAutoDesignSecurityClassificationAssignment.hxx".}
-proc WriteStep*(this: RWStepAP214_RWAutoDesignSecurityClassificationAssignment;
-               SW: var StepData_StepWriter; ent: handle[
-    StepAP214_AutoDesignSecurityClassificationAssignment]) {.noSideEffect,
-    importcpp: "WriteStep",
+proc writeStep*(this: RWStepAP214RWAutoDesignSecurityClassificationAssignment;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepAP214AutoDesignSecurityClassificationAssignment]) {.
+    noSideEffect, importcpp: "WriteStep",
     header: "RWStepAP214_RWAutoDesignSecurityClassificationAssignment.hxx".}
-proc Share*(this: RWStepAP214_RWAutoDesignSecurityClassificationAssignment;
-           ent: handle[StepAP214_AutoDesignSecurityClassificationAssignment];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepAP214RWAutoDesignSecurityClassificationAssignment;
+           ent: Handle[StepAP214AutoDesignSecurityClassificationAssignment];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWAutoDesignSecurityClassificationAssignment.hxx".}

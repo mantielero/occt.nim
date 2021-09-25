@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../TopTrans/TopTrans_SurfaceTransition, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../TopoDS/TopoDS_Shape, ../gp/gp_Pnt, ../gp/gp_Dir
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRepDS_Interference"
 type
@@ -30,16 +24,15 @@ type
 proc constructTopOpeBRepDS_Edge3dInterferenceTool*(): TopOpeBRepDS_Edge3dInterferenceTool {.
     constructor, importcpp: "TopOpeBRepDS_Edge3dInterferenceTool(@)",
     header: "TopOpeBRepDS_Edge3dInterferenceTool.hxx".}
-proc InitPointVertex*(this: var TopOpeBRepDS_Edge3dInterferenceTool;
-                     IsVertex: Standard_Integer; VonOO: TopoDS_Shape) {.
-    importcpp: "InitPointVertex",
+proc initPointVertex*(this: var TopOpeBRepDS_Edge3dInterferenceTool; isVertex: int;
+                     vonOO: TopoDS_Shape) {.importcpp: "InitPointVertex",
     header: "TopOpeBRepDS_Edge3dInterferenceTool.hxx".}
-proc Init*(this: var TopOpeBRepDS_Edge3dInterferenceTool; Eref: TopoDS_Shape;
-          E: TopoDS_Shape; F: TopoDS_Shape; I: handle[TopOpeBRepDS_Interference]) {.
+proc init*(this: var TopOpeBRepDS_Edge3dInterferenceTool; eref: TopoDS_Shape;
+          e: TopoDS_Shape; f: TopoDS_Shape; i: Handle[TopOpeBRepDS_Interference]) {.
     importcpp: "Init", header: "TopOpeBRepDS_Edge3dInterferenceTool.hxx".}
-proc Add*(this: var TopOpeBRepDS_Edge3dInterferenceTool; Eref: TopoDS_Shape;
-         E: TopoDS_Shape; F: TopoDS_Shape; I: handle[TopOpeBRepDS_Interference]) {.
+proc add*(this: var TopOpeBRepDS_Edge3dInterferenceTool; eref: TopoDS_Shape;
+         e: TopoDS_Shape; f: TopoDS_Shape; i: Handle[TopOpeBRepDS_Interference]) {.
     importcpp: "Add", header: "TopOpeBRepDS_Edge3dInterferenceTool.hxx".}
-proc Transition*(this: TopOpeBRepDS_Edge3dInterferenceTool;
-                I: handle[TopOpeBRepDS_Interference]) {.noSideEffect,
+proc transition*(this: TopOpeBRepDS_Edge3dInterferenceTool;
+                i: Handle[TopOpeBRepDS_Interference]) {.noSideEffect,
     importcpp: "Transition", header: "TopOpeBRepDS_Edge3dInterferenceTool.hxx".}

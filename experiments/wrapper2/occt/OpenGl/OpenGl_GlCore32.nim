@@ -13,48 +13,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_GlCore31
-
 ## ! OpenGL 3.2 definition.
 
 type
-  OpenGl_TmplCore32*[theBaseClass_t] {.importcpp: "OpenGl_TmplCore32<\'0>",
-                                      header: "OpenGl_GlCore32.hxx", bycopy.} = object of theBaseClass_t ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## GL_ARB_provoking_vertex
-                                                                                                  ## (added
-                                                                                                  ## to
-                                                                                                  ## OpenGL
-                                                                                                  ## 3.2
-                                                                                                  ## core)
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## GL_ARB_sync
-                                                                                                  ## (added
-                                                                                                  ## to
-                                                                                                  ## OpenGL
-                                                                                                  ## 3.2
-                                                                                                  ## core)
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## GL_ARB_texture_multisample
-                                                                                                  ## (added
-                                                                                                  ## to
-                                                                                                  ## OpenGL
-                                                                                                  ## 3.2
-                                                                                                  ## core)
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## OpenGL
-                                                                                                  ## 3.2
-                                                                                                  ## additives
-                                                                                                  ## to
-                                                                                                  ## 3.1
+  OpenGlTmplCore32*[TheBaseClassT] {.importcpp: "OpenGl_TmplCore32<\'0>",
+                                    header: "OpenGl_GlCore32.hxx", bycopy.} = object of TheBaseClassT ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## GL_ARB_provoking_vertex
+                                                                                               ## (added
+                                                                                               ## to
+                                                                                               ## OpenGL
+                                                                                               ## 3.2
+                                                                                               ## core)
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## GL_ARB_sync
+                                                                                               ## (added
+                                                                                               ## to
+                                                                                               ## OpenGL
+                                                                                               ## 3.2
+                                                                                               ## core)
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## GL_ARB_texture_multisample
+                                                                                               ## (added
+                                                                                               ## to
+                                                                                               ## OpenGL
+                                                                                               ## 3.2
+                                                                                               ## core)
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## OpenGL
+                                                                                               ## 3.2
+                                                                                               ## additives
+                                                                                               ## to
+                                                                                               ## 3.1
 
 
 ## !!!Ignored construct:  # ! defined ( GL_ES_VERSION_2_0 ) [NewLine] public : ! @name GL_ARB_draw_elements_base_vertex (added to OpenGL 3.2 core) using theBaseClass_t :: glDrawElementsBaseVertex ;
@@ -99,9 +96,10 @@ type
 ## ! OpenGL 3.2 compatibility profile.
 
 type
-  OpenGl_GlCore32Back* = OpenGl_TmplCore32[OpenGl_GlCore31Back]
+  OpenGlGlCore32Back* = OpenGlTmplCore32[OpenGlGlCore31Back]
 
 ## ! OpenGL 3.2 core profile.
 
 type
-  OpenGl_GlCore32* = OpenGl_TmplCore32[OpenGl_GlCore31]
+  OpenGlGlCore32* = OpenGlTmplCore32[OpenGlGlCore31]
+

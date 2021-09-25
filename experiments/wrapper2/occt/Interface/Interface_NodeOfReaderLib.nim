@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of Interface_GlobalNodeOfReaderLib"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_ReaderModule"
@@ -25,38 +22,38 @@ discard "forward decl of Interface_ReaderLib"
 discard "forward decl of Interface_NodeOfReaderLib"
 discard "forward decl of Interface_NodeOfReaderLib"
 type
-  Handle_Interface_NodeOfReaderLib* = handle[Interface_NodeOfReaderLib]
-  Interface_NodeOfReaderLib* {.importcpp: "Interface_NodeOfReaderLib",
-                              header: "Interface_NodeOfReaderLib.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                        ## !
-                                                                                                        ## Creates
-                                                                                                        ## an
-                                                                                                        ## empty
-                                                                                                        ## Node,
-                                                                                                        ## with
-                                                                                                        ## no
-                                                                                                        ## Next
+  HandleInterfaceNodeOfReaderLib* = Handle[InterfaceNodeOfReaderLib]
+  InterfaceNodeOfReaderLib* {.importcpp: "Interface_NodeOfReaderLib",
+                             header: "Interface_NodeOfReaderLib.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                      ## !
+                                                                                                      ## Creates
+                                                                                                      ## an
+                                                                                                      ## empty
+                                                                                                      ## Node,
+                                                                                                      ## with
+                                                                                                      ## no
+                                                                                                      ## Next
 
 
-proc constructInterface_NodeOfReaderLib*(): Interface_NodeOfReaderLib {.
-    constructor, importcpp: "Interface_NodeOfReaderLib(@)",
+proc constructInterfaceNodeOfReaderLib*(): InterfaceNodeOfReaderLib {.constructor,
+    importcpp: "Interface_NodeOfReaderLib(@)",
     header: "Interface_NodeOfReaderLib.hxx".}
-proc AddNode*(this: var Interface_NodeOfReaderLib;
-             anode: handle[Interface_GlobalNodeOfReaderLib]) {.
+proc addNode*(this: var InterfaceNodeOfReaderLib;
+             anode: Handle[InterfaceGlobalNodeOfReaderLib]) {.
     importcpp: "AddNode", header: "Interface_NodeOfReaderLib.hxx".}
-proc Module*(this: Interface_NodeOfReaderLib): handle[Interface_ReaderModule] {.
+proc module*(this: InterfaceNodeOfReaderLib): Handle[InterfaceReaderModule] {.
     noSideEffect, importcpp: "Module", header: "Interface_NodeOfReaderLib.hxx".}
-proc Protocol*(this: Interface_NodeOfReaderLib): handle[Interface_Protocol] {.
+proc protocol*(this: InterfaceNodeOfReaderLib): Handle[InterfaceProtocol] {.
     noSideEffect, importcpp: "Protocol", header: "Interface_NodeOfReaderLib.hxx".}
-proc Next*(this: Interface_NodeOfReaderLib): handle[Interface_NodeOfReaderLib] {.
+proc next*(this: InterfaceNodeOfReaderLib): Handle[InterfaceNodeOfReaderLib] {.
     noSideEffect, importcpp: "Next", header: "Interface_NodeOfReaderLib.hxx".}
 type
-  Interface_NodeOfReaderLibbase_type* = Standard_Transient
+  InterfaceNodeOfReaderLibbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Interface_NodeOfReaderLib::get_type_name(@)",
-                              header: "Interface_NodeOfReaderLib.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Interface_NodeOfReaderLib::get_type_name(@)",
+                            header: "Interface_NodeOfReaderLib.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Interface_NodeOfReaderLib::get_type_descriptor(@)",
     header: "Interface_NodeOfReaderLib.hxx".}
-proc DynamicType*(this: Interface_NodeOfReaderLib): handle[Standard_Type] {.
+proc dynamicType*(this: InterfaceNodeOfReaderLib): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Interface_NodeOfReaderLib.hxx".}

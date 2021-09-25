@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepGeom_CartesianPoint, ../NCollection/NCollection_Array1
-
 type
-  StepGeom_Array1OfCartesianPoint* = NCollection_Array1[
-      handle[StepGeom_CartesianPoint]]
+  StepGeomArray1OfCartesianPoint* = NCollectionArray1[
+      Handle[StepGeomCartesianPoint]]
+

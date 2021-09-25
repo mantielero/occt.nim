@@ -14,16 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Storage_StreamModeError_HeaderFile [NewLine] # _Storage_StreamModeError_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_Failure.hxx [NewLine] class Storage_StreamModeError ;
+## !!!Ignored construct:  # _Storage_StreamModeError_HeaderFile [NewLine] # _Storage_StreamModeError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class Storage_StreamModeError ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Storage_StreamModeError"
 type
-  Handle_Storage_StreamModeErrorStorage_StreamModeError* = handle[
-      Storage_StreamModeError]
+  HandleStorageStreamModeErrorStorageStreamModeError* = Handle[
+      StorageStreamModeError]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Storage_StreamModeError [NewLine] # if ( CONDITION ) throw Storage_StreamModeError ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Storage_StreamModeError , Standard_Failure ) #  _Storage_StreamModeError_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Storage_StreamModeError , Standard_Failure ) #  _Storage_StreamModeError_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

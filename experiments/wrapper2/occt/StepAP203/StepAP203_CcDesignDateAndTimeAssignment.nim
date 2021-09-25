@@ -14,48 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepAP203_HArray1OfDateTimeItem, ../StepBasic/StepBasic_DateAndTimeAssignment
-
 discard "forward decl of StepBasic_DateAndTime"
 discard "forward decl of StepBasic_DateTimeRole"
 discard "forward decl of StepAP203_CcDesignDateAndTimeAssignment"
 discard "forward decl of StepAP203_CcDesignDateAndTimeAssignment"
 type
-  Handle_StepAP203_CcDesignDateAndTimeAssignment* = handle[
-      StepAP203_CcDesignDateAndTimeAssignment]
+  HandleStepAP203CcDesignDateAndTimeAssignment* = Handle[
+      StepAP203CcDesignDateAndTimeAssignment]
 
 ## ! Representation of STEP entity CcDesignDateAndTimeAssignment
 
 type
-  StepAP203_CcDesignDateAndTimeAssignment* {.
+  StepAP203CcDesignDateAndTimeAssignment* {.
       importcpp: "StepAP203_CcDesignDateAndTimeAssignment",
-      header: "StepAP203_CcDesignDateAndTimeAssignment.hxx", bycopy.} = object of StepBasic_DateAndTimeAssignment ##
-                                                                                                           ## !
-                                                                                                           ## Empty
-                                                                                                           ## constructor
+      header: "StepAP203_CcDesignDateAndTimeAssignment.hxx", bycopy.} = object of StepBasicDateAndTimeAssignment ##
+                                                                                                          ## !
+                                                                                                          ## Empty
+                                                                                                          ## constructor
 
 
-proc constructStepAP203_CcDesignDateAndTimeAssignment*(): StepAP203_CcDesignDateAndTimeAssignment {.
+proc constructStepAP203CcDesignDateAndTimeAssignment*(): StepAP203CcDesignDateAndTimeAssignment {.
     constructor, importcpp: "StepAP203_CcDesignDateAndTimeAssignment(@)",
     header: "StepAP203_CcDesignDateAndTimeAssignment.hxx".}
-proc Init*(this: var StepAP203_CcDesignDateAndTimeAssignment;
-    aDateAndTimeAssignment_AssignedDateAndTime: handle[StepBasic_DateAndTime];
-          aDateAndTimeAssignment_Role: handle[StepBasic_DateTimeRole];
-          aItems: handle[StepAP203_HArray1OfDateTimeItem]) {.importcpp: "Init",
+proc init*(this: var StepAP203CcDesignDateAndTimeAssignment;
+    aDateAndTimeAssignmentAssignedDateAndTime: Handle[StepBasicDateAndTime];
+          aDateAndTimeAssignmentRole: Handle[StepBasicDateTimeRole];
+          aItems: Handle[StepAP203HArray1OfDateTimeItem]) {.importcpp: "Init",
     header: "StepAP203_CcDesignDateAndTimeAssignment.hxx".}
-proc Items*(this: StepAP203_CcDesignDateAndTimeAssignment): handle[
-    StepAP203_HArray1OfDateTimeItem] {.noSideEffect, importcpp: "Items", header: "StepAP203_CcDesignDateAndTimeAssignment.hxx".}
-proc SetItems*(this: var StepAP203_CcDesignDateAndTimeAssignment;
-              Items: handle[StepAP203_HArray1OfDateTimeItem]) {.
+proc items*(this: StepAP203CcDesignDateAndTimeAssignment): Handle[
+    StepAP203HArray1OfDateTimeItem] {.noSideEffect, importcpp: "Items", header: "StepAP203_CcDesignDateAndTimeAssignment.hxx".}
+proc setItems*(this: var StepAP203CcDesignDateAndTimeAssignment;
+              items: Handle[StepAP203HArray1OfDateTimeItem]) {.
     importcpp: "SetItems", header: "StepAP203_CcDesignDateAndTimeAssignment.hxx".}
 type
-  StepAP203_CcDesignDateAndTimeAssignmentbase_type* = StepBasic_DateAndTimeAssignment
+  StepAP203CcDesignDateAndTimeAssignmentbaseType* = StepBasicDateAndTimeAssignment
 
-proc get_type_name*(): cstring {.importcpp: "StepAP203_CcDesignDateAndTimeAssignment::get_type_name(@)", header: "StepAP203_CcDesignDateAndTimeAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepAP203_CcDesignDateAndTimeAssignment::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepAP203_CcDesignDateAndTimeAssignment::get_type_name(@)", header: "StepAP203_CcDesignDateAndTimeAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP203_CcDesignDateAndTimeAssignment::get_type_descriptor(@)",
     header: "StepAP203_CcDesignDateAndTimeAssignment.hxx".}
-proc DynamicType*(this: StepAP203_CcDesignDateAndTimeAssignment): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepAP203_CcDesignDateAndTimeAssignment.hxx".}
+proc dynamicType*(this: StepAP203CcDesignDateAndTimeAssignment): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepAP203_CcDesignDateAndTimeAssignment.hxx".}

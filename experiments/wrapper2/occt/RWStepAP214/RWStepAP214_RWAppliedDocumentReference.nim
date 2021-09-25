@@ -14,34 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepAP214_AppliedDocumentReference"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepAP214_RWAppliedDocumentReference* {.
+  RWStepAP214RWAppliedDocumentReference* {.
       importcpp: "RWStepAP214_RWAppliedDocumentReference",
       header: "RWStepAP214_RWAppliedDocumentReference.hxx", bycopy.} = object
 
 
-proc constructRWStepAP214_RWAppliedDocumentReference*(): RWStepAP214_RWAppliedDocumentReference {.
+proc constructRWStepAP214RWAppliedDocumentReference*(): RWStepAP214RWAppliedDocumentReference {.
     constructor, importcpp: "RWStepAP214_RWAppliedDocumentReference(@)",
     header: "RWStepAP214_RWAppliedDocumentReference.hxx".}
-proc ReadStep*(this: RWStepAP214_RWAppliedDocumentReference;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepAP214_AppliedDocumentReference]) {.noSideEffect,
+proc readStep*(this: RWStepAP214RWAppliedDocumentReference;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepAP214AppliedDocumentReference]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepAP214_RWAppliedDocumentReference.hxx".}
-proc WriteStep*(this: RWStepAP214_RWAppliedDocumentReference;
-               SW: var StepData_StepWriter;
-               ent: handle[StepAP214_AppliedDocumentReference]) {.noSideEffect,
+proc writeStep*(this: RWStepAP214RWAppliedDocumentReference;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepAP214AppliedDocumentReference]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepAP214_RWAppliedDocumentReference.hxx".}
-proc Share*(this: RWStepAP214_RWAppliedDocumentReference;
-           ent: handle[StepAP214_AppliedDocumentReference];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepAP214RWAppliedDocumentReference;
+           ent: Handle[StepAP214AppliedDocumentReference];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWAppliedDocumentReference.hxx".}

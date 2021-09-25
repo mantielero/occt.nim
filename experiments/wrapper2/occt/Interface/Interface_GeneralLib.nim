@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Interface_NodeOfGeneralLib"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_Transient"
@@ -26,40 +21,40 @@ discard "forward decl of Interface_GeneralModule"
 discard "forward decl of Interface_Protocol"
 discard "forward decl of Interface_GlobalNodeOfGeneralLib"
 type
-  Interface_GeneralLib* {.importcpp: "Interface_GeneralLib",
-                         header: "Interface_GeneralLib.hxx", bycopy.} = object ## ! Adds a couple
-                                                                          ## (Module-Protocol) into the global
-                                                                          ## definition set
-                                                                          ## ! for this class of
-                                                                          ## Library.
+  InterfaceGeneralLib* {.importcpp: "Interface_GeneralLib",
+                        header: "Interface_GeneralLib.hxx", bycopy.} = object ## ! Adds a couple
+                                                                         ## (Module-Protocol) into the global
+                                                                         ## definition set
+                                                                         ## ! for this class of
+                                                                         ## Library.
 
 
-proc SetGlobal*(amodule: handle[Interface_GeneralModule];
-               aprotocol: handle[Interface_Protocol]) {.
+proc setGlobal*(amodule: Handle[InterfaceGeneralModule];
+               aprotocol: Handle[InterfaceProtocol]) {.
     importcpp: "Interface_GeneralLib::SetGlobal(@)",
     header: "Interface_GeneralLib.hxx".}
-proc constructInterface_GeneralLib*(aprotocol: handle[Interface_Protocol]): Interface_GeneralLib {.
+proc constructInterfaceGeneralLib*(aprotocol: Handle[InterfaceProtocol]): InterfaceGeneralLib {.
     constructor, importcpp: "Interface_GeneralLib(@)",
     header: "Interface_GeneralLib.hxx".}
-proc constructInterface_GeneralLib*(): Interface_GeneralLib {.constructor,
+proc constructInterfaceGeneralLib*(): InterfaceGeneralLib {.constructor,
     importcpp: "Interface_GeneralLib(@)", header: "Interface_GeneralLib.hxx".}
-proc AddProtocol*(this: var Interface_GeneralLib;
-                 aprotocol: handle[Standard_Transient]) {.
-    importcpp: "AddProtocol", header: "Interface_GeneralLib.hxx".}
-proc Clear*(this: var Interface_GeneralLib) {.importcpp: "Clear",
+proc addProtocol*(this: var InterfaceGeneralLib;
+                 aprotocol: Handle[StandardTransient]) {.importcpp: "AddProtocol",
     header: "Interface_GeneralLib.hxx".}
-proc SetComplete*(this: var Interface_GeneralLib) {.importcpp: "SetComplete",
+proc clear*(this: var InterfaceGeneralLib) {.importcpp: "Clear",
     header: "Interface_GeneralLib.hxx".}
-proc Select*(this: Interface_GeneralLib; obj: handle[Standard_Transient];
-            module: var handle[Interface_GeneralModule]; CN: var Standard_Integer): Standard_Boolean {.
+proc setComplete*(this: var InterfaceGeneralLib) {.importcpp: "SetComplete",
+    header: "Interface_GeneralLib.hxx".}
+proc select*(this: InterfaceGeneralLib; obj: Handle[StandardTransient];
+            module: var Handle[InterfaceGeneralModule]; cn: var int): bool {.
     noSideEffect, importcpp: "Select", header: "Interface_GeneralLib.hxx".}
-proc Start*(this: var Interface_GeneralLib) {.importcpp: "Start",
+proc start*(this: var InterfaceGeneralLib) {.importcpp: "Start",
     header: "Interface_GeneralLib.hxx".}
-proc More*(this: Interface_GeneralLib): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "Interface_GeneralLib.hxx".}
-proc Next*(this: var Interface_GeneralLib) {.importcpp: "Next",
+proc more*(this: InterfaceGeneralLib): bool {.noSideEffect, importcpp: "More",
     header: "Interface_GeneralLib.hxx".}
-proc Module*(this: Interface_GeneralLib): handle[Interface_GeneralModule] {.
+proc next*(this: var InterfaceGeneralLib) {.importcpp: "Next",
+                                        header: "Interface_GeneralLib.hxx".}
+proc module*(this: InterfaceGeneralLib): Handle[InterfaceGeneralModule] {.
     noSideEffect, importcpp: "Module", header: "Interface_GeneralLib.hxx".}
-proc Protocol*(this: Interface_GeneralLib): handle[Interface_Protocol] {.
-    noSideEffect, importcpp: "Protocol", header: "Interface_GeneralLib.hxx".}
+proc protocol*(this: InterfaceGeneralLib): Handle[InterfaceProtocol] {.noSideEffect,
+    importcpp: "Protocol", header: "Interface_GeneralLib.hxx".}

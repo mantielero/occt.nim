@@ -13,38 +13,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Type
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of OpenGl_Context"
 type
-  OpenGl_Resource* {.importcpp: "OpenGl_Resource", header: "OpenGl_Resource.hxx",
-                    bycopy.} = object of Standard_Transient ## ! Empty constructor
-                                                       ## ! Copy should be performed only within Handles!
+  OpenGlResource* {.importcpp: "OpenGl_Resource", header: "OpenGl_Resource.hxx",
+                   bycopy.} = object of StandardTransient ## ! Empty constructor
+                                                     ## ! Copy should be performed only within Handles!
 
 
-proc constructOpenGl_Resource*(): OpenGl_Resource {.constructor,
+proc constructOpenGlResource*(): OpenGlResource {.constructor,
     importcpp: "OpenGl_Resource(@)", header: "OpenGl_Resource.hxx".}
-proc destroyOpenGl_Resource*(this: var OpenGl_Resource) {.
+proc destroyOpenGlResource*(this: var OpenGlResource) {.
     importcpp: "#.~OpenGl_Resource()", header: "OpenGl_Resource.hxx".}
-proc Release*(this: var OpenGl_Resource; theGlCtx: ptr OpenGl_Context) {.
+proc release*(this: var OpenGlResource; theGlCtx: ptr OpenGlContext) {.
     importcpp: "Release", header: "OpenGl_Resource.hxx".}
-proc EstimatedDataSize*(this: OpenGl_Resource): Standard_Size {.noSideEffect,
+proc estimatedDataSize*(this: OpenGlResource): StandardSize {.noSideEffect,
     importcpp: "EstimatedDataSize", header: "OpenGl_Resource.hxx".}
-proc DumpJson*(this: OpenGl_Resource; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "OpenGl_Resource.hxx".}
+proc dumpJson*(this: OpenGlResource; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "OpenGl_Resource.hxx".}
 type
-  OpenGl_Resourcebase_type* = Standard_Transient
+  OpenGlResourcebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "OpenGl_Resource::get_type_name(@)",
-                              header: "OpenGl_Resource.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "OpenGl_Resource::get_type_name(@)",
+                            header: "OpenGl_Resource.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "OpenGl_Resource::get_type_descriptor(@)",
     header: "OpenGl_Resource.hxx".}
-proc DynamicType*(this: OpenGl_Resource): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: OpenGlResource): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "OpenGl_Resource.hxx".}
 discard "forward decl of OpenGl_Resource"
 type
-  Handle_OpenGl_Resource* = handle[OpenGl_Resource]
+  HandleOpenGlResource* = Handle[OpenGlResource]
+

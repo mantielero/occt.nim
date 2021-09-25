@@ -14,43 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TPrsStd_Driver,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TDF_Label"
 discard "forward decl of AIS_InteractiveObject"
 discard "forward decl of TPrsStd_ConstraintDriver"
 discard "forward decl of TPrsStd_ConstraintDriver"
 type
-  Handle_TPrsStd_ConstraintDriver* = handle[TPrsStd_ConstraintDriver]
+  HandleTPrsStdConstraintDriver* = Handle[TPrsStdConstraintDriver]
 
 ## ! An implementation of TPrsStd_Driver for constraints.
 
 type
-  TPrsStd_ConstraintDriver* {.importcpp: "TPrsStd_ConstraintDriver",
-                             header: "TPrsStd_ConstraintDriver.hxx", bycopy.} = object of TPrsStd_Driver ##
-                                                                                                  ## !
-                                                                                                  ## Constructs
-                                                                                                  ## an
-                                                                                                  ## empty
-                                                                                                  ## constraint
-                                                                                                  ## driver.
+  TPrsStdConstraintDriver* {.importcpp: "TPrsStd_ConstraintDriver",
+                            header: "TPrsStd_ConstraintDriver.hxx", bycopy.} = object of TPrsStdDriver ##
+                                                                                                ## !
+                                                                                                ## Constructs
+                                                                                                ## an
+                                                                                                ## empty
+                                                                                                ## constraint
+                                                                                                ## driver.
 
 
-proc constructTPrsStd_ConstraintDriver*(): TPrsStd_ConstraintDriver {.constructor,
+proc constructTPrsStdConstraintDriver*(): TPrsStdConstraintDriver {.constructor,
     importcpp: "TPrsStd_ConstraintDriver(@)",
     header: "TPrsStd_ConstraintDriver.hxx".}
-proc Update*(this: var TPrsStd_ConstraintDriver; aLabel: TDF_Label;
-            anAISObject: var handle[AIS_InteractiveObject]): Standard_Boolean {.
+proc update*(this: var TPrsStdConstraintDriver; aLabel: TDF_Label;
+            anAISObject: var Handle[AIS_InteractiveObject]): bool {.
     importcpp: "Update", header: "TPrsStd_ConstraintDriver.hxx".}
 type
-  TPrsStd_ConstraintDriverbase_type* = TPrsStd_Driver
+  TPrsStdConstraintDriverbaseType* = TPrsStdDriver
 
-proc get_type_name*(): cstring {.importcpp: "TPrsStd_ConstraintDriver::get_type_name(@)",
-                              header: "TPrsStd_ConstraintDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TPrsStd_ConstraintDriver::get_type_name(@)",
+                            header: "TPrsStd_ConstraintDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TPrsStd_ConstraintDriver::get_type_descriptor(@)",
     header: "TPrsStd_ConstraintDriver.hxx".}
-proc DynamicType*(this: TPrsStd_ConstraintDriver): handle[Standard_Type] {.
+proc dynamicType*(this: TPrsStdConstraintDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TPrsStd_ConstraintDriver.hxx".}

@@ -14,83 +14,78 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation Copyright: (C) RINA S.p.A
 
-import
-  TObj_Object, TObj_Persistence
-
 ## *
 ##  This class privides tool handling one of partitions (the set of
 ##  homogenious elements) in the OCAF based model`s data structure
 ##
 
 type
-  TObj_Partition* {.importcpp: "TObj_Partition", header: "TObj_Partition.hxx", bycopy.} = object of TObj_Object ## *
-                                                                                                      ##  Constructor
-                                                                                                      ##
-                                                                                                      ## ! Constructor is protected;
-                                                                                                      ## ! static methods are used for creation of this type of objects
-                                                                                                      ## *
-                                                                                                      ##  Method for create partition
-                                                                                                      ##
-                                                                                                      ## ! Creates a new partition on given label.
-                                                                                                      ## *
-                                                                                                      ##  Methods hanling name of the object
-                                                                                                      ##
-                                                                                                      ## ! Sets name of the object. partition does not check unique of own name
-                                                                                                      ## *
-                                                                                                      ##  Method for updating object afrer restoring
-                                                                                                      ##
-                                                                                                      ## ! Preforms updating the links and dependances of the object which are not
-                                                                                                      ## ! stored in persistence. Does not register the partition name
-                                                                                                      ## *
-                                                                                                      ##  Methods handling of the objects in partition
-                                                                                                      ##
-                                                                                                      ## ! Creates and Returns label for new object in partition.
-                                                                                                      ## *
-                                                                                                      ##  Methods to define partition by object
-                                                                                                      ##
-                                                                                                      ## ! Returns the partition in which object is stored. Null partition
-                                                                                                      ## ! returned if not found
-                                                                                                      ## *
-                                                                                                      ##  Methods for updating the object
-                                                                                                      ##
-                                                                                                      ## ! Does nothing in the partition.
-                                                                                                      ## *
-                                                                                                      ##  protected redefined methods
-                                                                                                      ##
-                                                                                                      ## ! Coping the data of me to Target object.
-                                                                                                      ## ! return Standard_False is Target object is different type
-                                                                                                      ## *
-                                                                                                      ##  fields
-                                                                                                      ##
-                                                                                                      ## ! prefix for naming of objects in the partition
-                                                                                                      ## ! Persistence of TObj object
+  TObjPartition* {.importcpp: "TObj_Partition", header: "TObj_Partition.hxx", bycopy.} = object of TObjObject ## *
+                                                                                                    ##  Constructor
+                                                                                                    ##
+                                                                                                    ## ! Constructor is protected;
+                                                                                                    ## ! static methods are used for creation of this type of objects
+                                                                                                    ## *
+                                                                                                    ##  Method for create partition
+                                                                                                    ##
+                                                                                                    ## ! Creates a new partition on given label.
+                                                                                                    ## *
+                                                                                                    ##  Methods hanling name of the object
+                                                                                                    ##
+                                                                                                    ## ! Sets name of the object. partition does not check unique of own name
+                                                                                                    ## *
+                                                                                                    ##  Method for updating object afrer restoring
+                                                                                                    ##
+                                                                                                    ## ! Preforms updating the links and dependances of the object which are not
+                                                                                                    ## ! stored in persistence. Does not register the partition name
+                                                                                                    ## *
+                                                                                                    ##  Methods handling of the objects in partition
+                                                                                                    ##
+                                                                                                    ## ! Creates and Returns label for new object in partition.
+                                                                                                    ## *
+                                                                                                    ##  Methods to define partition by object
+                                                                                                    ##
+                                                                                                    ## ! Returns the partition in which object is stored. Null partition
+                                                                                                    ## ! returned if not found
+                                                                                                    ## *
+                                                                                                    ##  Methods for updating the object
+                                                                                                    ##
+                                                                                                    ## ! Does nothing in the partition.
+                                                                                                    ## *
+                                                                                                    ##  protected redefined methods
+                                                                                                    ##
+                                                                                                    ## ! Coping the data of me to Target object.
+                                                                                                    ## ! return Standard_False is Target object is different type
+                                                                                                    ## *
+                                                                                                    ##  fields
+                                                                                                    ##
+                                                                                                    ## ! prefix for naming of objects in the partition
+                                                                                                    ## ! Persistence of TObj object
 
 
-proc Create*(theLabel: TDF_Label; theSetName: Standard_Boolean = Standard_True): handle[
-    TObj_Partition] {.importcpp: "TObj_Partition::Create(@)",
-                     header: "TObj_Partition.hxx".}
-proc SetName*(this: TObj_Partition; theName: handle[TCollection_HExtendedString]): Standard_Boolean {.
+proc create*(theLabel: TDF_Label; theSetName: bool = true): Handle[TObjPartition] {.
+    importcpp: "TObj_Partition::Create(@)", header: "TObj_Partition.hxx".}
+proc setName*(this: TObjPartition; theName: Handle[TCollectionHExtendedString]): bool {.
     noSideEffect, importcpp: "SetName", header: "TObj_Partition.hxx".}
-proc AfterRetrieval*(this: var TObj_Partition) {.importcpp: "AfterRetrieval",
+proc afterRetrieval*(this: var TObjPartition) {.importcpp: "AfterRetrieval",
     header: "TObj_Partition.hxx".}
-proc NewLabel*(this: TObj_Partition): TDF_Label {.noSideEffect,
-    importcpp: "NewLabel", header: "TObj_Partition.hxx".}
-proc SetNamePrefix*(this: var TObj_Partition;
-                   thePrefix: handle[TCollection_HExtendedString]) {.
+proc newLabel*(this: TObjPartition): TDF_Label {.noSideEffect, importcpp: "NewLabel",
+    header: "TObj_Partition.hxx".}
+proc setNamePrefix*(this: var TObjPartition;
+                   thePrefix: Handle[TCollectionHExtendedString]) {.
     importcpp: "SetNamePrefix", header: "TObj_Partition.hxx".}
-proc GetNamePrefix*(this: TObj_Partition): handle[TCollection_HExtendedString] {.
+proc getNamePrefix*(this: TObjPartition): Handle[TCollectionHExtendedString] {.
     noSideEffect, importcpp: "GetNamePrefix", header: "TObj_Partition.hxx".}
-proc GetNewName*(this: var TObj_Partition;
-                theIsToChangeCount: Standard_Boolean = Standard_True): handle[
-    TCollection_HExtendedString] {.importcpp: "GetNewName",
-                                  header: "TObj_Partition.hxx".}
-proc GetLastIndex*(this: TObj_Partition): Standard_Integer {.noSideEffect,
+proc getNewName*(this: var TObjPartition; theIsToChangeCount: bool = true): Handle[
+    TCollectionHExtendedString] {.importcpp: "GetNewName",
+                                 header: "TObj_Partition.hxx".}
+proc getLastIndex*(this: TObjPartition): int {.noSideEffect,
     importcpp: "GetLastIndex", header: "TObj_Partition.hxx".}
-proc SetLastIndex*(this: var TObj_Partition; theIndex: Standard_Integer) {.
+proc setLastIndex*(this: var TObjPartition; theIndex: int) {.
     importcpp: "SetLastIndex", header: "TObj_Partition.hxx".}
-proc GetPartition*(theObject: handle[TObj_Object]): handle[TObj_Partition] {.
+proc getPartition*(theObject: Handle[TObjObject]): Handle[TObjPartition] {.
     importcpp: "TObj_Partition::GetPartition(@)", header: "TObj_Partition.hxx".}
-proc Update*(this: var TObj_Partition): Standard_Boolean {.importcpp: "Update",
+proc update*(this: var TObjPartition): bool {.importcpp: "Update",
     header: "TObj_Partition.hxx".}
 ## !!!Ignored construct:  protected : ! Persistence of TObj object DECLARE_TOBJOCAF_PERSISTENCE ( TObj_Partition , TObj_Object ) public : ! CASCADE RTTI public : typedef TObj_Object base_type ;
 ## Error: token expected: ) but got: ,!!!
@@ -99,7 +94,7 @@ proc Update*(this: var TObj_Partition): Standard_Boolean {.importcpp: "Update",
 
 discard "forward decl of TObj_Partition"
 type
-  Handle_TObj_Partition* = handle[TObj_Partition]
+  HandleTObjPartition* = Handle[TObjPartition]
 
-when defined(_MSC_VER):
-  discard
+# when defined(_MSC_VER):
+#   discard

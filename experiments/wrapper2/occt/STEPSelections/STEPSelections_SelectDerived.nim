@@ -14,37 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepSelect/StepSelect_StepType, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of STEPSelections_SelectDerived"
 discard "forward decl of STEPSelections_SelectDerived"
 type
-  Handle_STEPSelections_SelectDerived* = handle[STEPSelections_SelectDerived]
-  STEPSelections_SelectDerived* {.importcpp: "STEPSelections_SelectDerived",
-                                 header: "STEPSelections_SelectDerived.hxx",
-                                 bycopy.} = object of StepSelect_StepType
+  HandleSTEPSelectionsSelectDerived* = Handle[STEPSelectionsSelectDerived]
+  STEPSelectionsSelectDerived* {.importcpp: "STEPSelections_SelectDerived",
+                                header: "STEPSelections_SelectDerived.hxx", bycopy.} = object of StepSelectStepType
 
 
-proc constructSTEPSelections_SelectDerived*(): STEPSelections_SelectDerived {.
+proc constructSTEPSelectionsSelectDerived*(): STEPSelectionsSelectDerived {.
     constructor, importcpp: "STEPSelections_SelectDerived(@)",
     header: "STEPSelections_SelectDerived.hxx".}
-proc Matches*(this: STEPSelections_SelectDerived; ent: handle[Standard_Transient];
-             model: handle[Interface_InterfaceModel];
-             text: TCollection_AsciiString; exact: Standard_Boolean): Standard_Boolean {.
-    noSideEffect, importcpp: "Matches", header: "STEPSelections_SelectDerived.hxx".}
+proc matches*(this: STEPSelectionsSelectDerived; ent: Handle[StandardTransient];
+             model: Handle[InterfaceInterfaceModel]; text: TCollectionAsciiString;
+             exact: bool): bool {.noSideEffect, importcpp: "Matches",
+                               header: "STEPSelections_SelectDerived.hxx".}
 type
-  STEPSelections_SelectDerivedbase_type* = StepSelect_StepType
+  STEPSelectionsSelectDerivedbaseType* = StepSelectStepType
 
-proc get_type_name*(): cstring {.importcpp: "STEPSelections_SelectDerived::get_type_name(@)",
-                              header: "STEPSelections_SelectDerived.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "STEPSelections_SelectDerived::get_type_name(@)",
+                            header: "STEPSelections_SelectDerived.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "STEPSelections_SelectDerived::get_type_descriptor(@)",
     header: "STEPSelections_SelectDerived.hxx".}
-proc DynamicType*(this: STEPSelections_SelectDerived): handle[Standard_Type] {.
+proc dynamicType*(this: STEPSelectionsSelectDerived): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "STEPSelections_SelectDerived.hxx".}

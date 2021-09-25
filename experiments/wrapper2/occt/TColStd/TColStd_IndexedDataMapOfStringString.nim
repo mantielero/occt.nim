@@ -11,10 +11,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_AsciiString,
-  ../NCollection/NCollection_IndexedDataMap
-
 type
-  TColStd_IndexedDataMapOfStringString* = NCollection_IndexedDataMap[
-      TCollection_AsciiString, TCollection_AsciiString, TCollection_AsciiString]
+  TColStdIndexedDataMapOfStringString* = NCollectionIndexedDataMap[
+      TCollectionAsciiString, TCollectionAsciiString, TCollectionAsciiString]
+

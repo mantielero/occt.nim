@@ -15,114 +15,102 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, BOPAlgo_PPaveFiller, BOPAlgo_BuilderShape,
-  BOPAlgo_GlueEnum, BOPAlgo_Operation, ../BOPDS/BOPDS_PDS,
-  ../NCollection/NCollection_BaseAllocator, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../TopTools/TopTools_DataMapOfShapeListOfShape,
-  ../TopTools/TopTools_DataMapOfShapeShape, ../TopTools/TopTools_ListOfShape,
-  ../TopTools/TopTools_MapOfShape, ../Standard/Standard_Boolean,
-  ../TopAbs/TopAbs_ShapeEnum
-
 discard "forward decl of IntTools_Context"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of BOPAlgo_PaveFiller"
 discard "forward decl of TopoDS_Solid"
 type
-  BOPAlgo_Builder* {.importcpp: "BOPAlgo_Builder", header: "BOPAlgo_Builder.hxx",
-                    bycopy.} = object of BOPAlgo_BuilderShape ## ! Empty constructor.
-                                                         ## ! @name Arguments
-                                                         ## ! Adds the argument to the operation.
-                                                         ## ! @name Options
-                                                         ## ! Sets the flag that defines the mode of treatment.
-                                                         ## ! In non-destructive mode the argument shapes are not modified. Instead
-                                                         ## ! a copy of a sub-shape is created in the result if it is needed to be updated.
-                                                         ## ! This flag is taken into account if internal PaveFiller is used only.
-                                                         ## ! In the case of calling PerformWithFiller the corresponding flag of that PaveFiller
-                                                         ## ! is in force.
-                                                         ## ! @name Performing the operation
-                                                         ## ! Performs the operation.
-                                                         ## ! The intersection will be performed also.
-                                                         ## ! @name BOPs on open solids
-                                                         ## ! Builds the result shape according to the given states for the objects
-                                                         ## ! and tools. These states can be unambiguously converted into the Boolean operation type.
-                                                         ## ! Thus, it performs the Boolean operation on the given groups of shapes.
-                                                         ## !
-                                                         ## ! The result is built basing on the result of Builder operation (GF or any other).
-                                                         ## ! The only condition for the Builder is that the splits of faces should be created
-                                                         ## ! and classified relatively solids.
-                                                         ## !
-                                                         ## ! The method uses classification approach for choosing the faces which will
-                                                         ## ! participate in building the result shape:
-                                                         ## ! - All faces from each group having the given state for the opposite group
-                                                         ## !   will be taken into result.
-                                                         ## !
-                                                         ## ! Such approach shows better results (in comparison with BOPAlgo_BuilderSolid approach)
-                                                         ## ! when working with open solids. However, the result may not be always
-                                                         ## ! correct on such data (at least, not as expected) as the correct classification
-                                                         ## ! of the faces relatively open solids is not always possible and may vary
-                                                         ## ! depending on the chosen classification point on the face.
-                                                         ## !
-                                                         ## ! History is not created for the solids in this method.
-                                                         ## !
-                                                         ## ! To avoid pollution of the report of Builder algorithm, there is a possibility to pass
-                                                         ## ! the different report to collect the alerts of the method only. But, if the new report
-                                                         ## ! is not given, the Builder report will be used.
-                                                         ## ! So, even if Builder passed without any errors, but some error has been stored into its report
-                                                         ## ! in this method, for the following calls the Builder report must be cleared.
-                                                         ## !
-                                                         ## ! The method may set the following errors:
-                                                         ## ! -
-                                                         ## BOPAlgo_AlertBuilderFailed - Building operation has not been performed yet or failed;
-                                                         ## ! - BOPAlgo_AlertBOPNotSet - invalid BOP type is given (COMMON/FUSE/CUT/CUT21 are supported);
-                                                         ## ! -
-                                                         ## BOPAlgo_AlertTooFewArguments - arguments are not given;
-                                                         ## ! -
-                                                         ## BOPAlgo_AlertUnknownShape - the shape is unknown for the operation.
-                                                         ## !
-                                                         ## ! Parameters:
-                                                         ## ! @param theObjects   - The group of Objects for BOP;
-                                                         ## ! @param theObjState  - State for objects faces to pass into result;
-                                                         ## ! @param theTools     - The group of Tools for BOP;
-                                                         ## ! @param theObjState  - State for tools faces to pass into result;
-                                                         ## ! @param theReport    - The alternative report to avoid pollution of the main one.
-                                                         ## ! @name History methods
-                                                         ## ! Prepare information for history support.
-                                                         ## ! @name Images/Origins
-                                                         ## ! Returns the map of images.
-                                                         ## ! @name Methods for building the result
-                                                         ## ! Performs the building of the result.
-                                                         ## ! The method calls the PerfromInternal1() method surrounded by a try-catch block.
-                                                         ## ! @name Checking input arguments
-                                                         ## ! Checks the input data.
-                                                         ## ! @name Fill Images of VERTICES
-                                                         ## ! Fills the images of vertices.
-                                                         ## ! @name Fill Images of EDGES
-                                                         ## ! Fills the images of edges.
-                                                         ## ! @name Fill Images of CONTAINERS
-                                                         ## ! Fills the images of containers
-                                                         ## (WIRES/SHELLS/COMPSOLID).
-                                                         ## ! @name Fill Images of FACES
-                                                         ## ! Fills the images of faces.
-                                                         ## ! The method consists of three steps:
-                                                         ## ! 1. Build the splits of faces;
-                                                         ## ! 2. Find SD faces;
-                                                         ## ! 3. Add internal vertices (if any) to faces.
-                                                         ## ! @name Fill Images of SOLIDS
-                                                         ## ! Fills the images of solids.
-                                                         ## ! The method consists of four steps:
-                                                         ## ! 1. Build the draft solid - just rebuild the solid using the splits of faces;
-                                                         ## ! 2. Find faces from other arguments located inside the solids;
-                                                         ## ! 3. Build splits of solid using the inside faces;
-                                                         ## ! 4. Fill internal shapes for the splits (Wires and vertices).
-                                                         ## ! @name Fill Images of COMPOUNDS
-                                                         ## ! Fills the images of compounds.
-                                                         ## ! @name Post treatment
-                                                         ## ! Post treatment of the result of the operation.
-                                                         ## ! The method checks validity of the sub-shapes of the result
-                                                         ## ! and updates the tolerances to make them valid.
-                                                         ## ! @name Fields
+  BOPAlgoBuilder* {.importcpp: "BOPAlgo_Builder", header: "BOPAlgo_Builder.hxx",
+                   bycopy.} = object of BOPAlgoBuilderShape ## ! Empty constructor.
+                                                       ## ! @name Arguments
+                                                       ## ! Adds the argument to the operation.
+                                                       ## ! @name Options
+                                                       ## ! Sets the flag that defines the mode of treatment.
+                                                       ## ! In non-destructive mode the argument shapes are not modified. Instead
+                                                       ## ! a copy of a sub-shape is created in the result if it is needed to be updated.
+                                                       ## ! This flag is taken into account if internal PaveFiller is used only.
+                                                       ## ! In the case of calling PerformWithFiller the corresponding flag of that PaveFiller
+                                                       ## ! is in force.
+                                                       ## ! @name Performing the operation
+                                                       ## ! Performs the operation.
+                                                       ## ! The intersection will be performed also.
+                                                       ## ! @name BOPs on open solids
+                                                       ## ! Builds the result shape according to the given states for the objects
+                                                       ## ! and tools. These states can be unambiguously converted into the Boolean operation type.
+                                                       ## ! Thus, it performs the Boolean operation on the given groups of shapes.
+                                                       ## !
+                                                       ## ! The result is built basing on the result of Builder operation (GF or any other).
+                                                       ## ! The only condition for the Builder is that the splits of faces should be created
+                                                       ## ! and classified relatively solids.
+                                                       ## !
+                                                       ## ! The method uses classification approach for choosing the faces which will
+                                                       ## ! participate in building the result shape:
+                                                       ## ! - All faces from each group having the given state for the opposite group
+                                                       ## !   will be taken into result.
+                                                       ## !
+                                                       ## ! Such approach shows better results (in comparison with BOPAlgo_BuilderSolid approach)
+                                                       ## ! when working with open solids. However, the result may not be always
+                                                       ## ! correct on such data (at least, not as expected) as the correct classification
+                                                       ## ! of the faces relatively open solids is not always possible and may vary
+                                                       ## ! depending on the chosen classification point on the face.
+                                                       ## !
+                                                       ## ! History is not created for the solids in this method.
+                                                       ## !
+                                                       ## ! To avoid pollution of the report of Builder algorithm, there is a possibility to pass
+                                                       ## ! the different report to collect the alerts of the method only. But, if the new report
+                                                       ## ! is not given, the Builder report will be used.
+                                                       ## ! So, even if Builder passed without any errors, but some error has been stored into its report
+                                                       ## ! in this method, for the following calls the Builder report must be cleared.
+                                                       ## !
+                                                       ## ! The method may set the following errors:
+                                                       ## ! -
+                                                       ## BOPAlgo_AlertBuilderFailed - Building operation has not been performed yet or failed;
+                                                       ## ! - BOPAlgo_AlertBOPNotSet - invalid BOP type is given (COMMON/FUSE/CUT/CUT21 are supported);
+                                                       ## ! -
+                                                       ## BOPAlgo_AlertTooFewArguments - arguments are not given;
+                                                       ## ! - BOPAlgo_AlertUnknownShape - the shape is unknown for the operation.
+                                                       ## !
+                                                       ## ! Parameters:
+                                                       ## ! @param theObjects   - The group of Objects for BOP;
+                                                       ## ! @param theObjState  - State for objects faces to pass into result;
+                                                       ## ! @param theTools     - The group of Tools for BOP;
+                                                       ## ! @param theObjState  - State for tools faces to pass into result;
+                                                       ## ! @param theReport    - The alternative report to avoid pollution of the main one.
+                                                       ## ! @name History methods
+                                                       ## ! Prepare information for history support.
+                                                       ## ! @name Images/Origins
+                                                       ## ! Returns the map of images.
+                                                       ## ! @name Methods for building the result
+                                                       ## ! Performs the building of the result.
+                                                       ## ! The method calls the PerfromInternal1() method surrounded by a try-catch block.
+                                                       ## ! @name Checking input arguments
+                                                       ## ! Checks the input data.
+                                                       ## ! @name Fill Images of VERTICES
+                                                       ## ! Fills the images of vertices.
+                                                       ## ! @name Fill Images of EDGES
+                                                       ## ! Fills the images of edges.
+                                                       ## ! @name Fill Images of CONTAINERS
+                                                       ## ! Fills the images of containers (WIRES/SHELLS/COMPSOLID).
+                                                       ## ! @name Fill Images of FACES
+                                                       ## ! Fills the images of faces.
+                                                       ## ! The method consists of three steps:
+                                                       ## ! 1. Build the splits of faces;
+                                                       ## ! 2. Find SD faces;
+                                                       ## ! 3. Add internal vertices (if any) to faces.
+                                                       ## ! @name Fill Images of SOLIDS
+                                                       ## ! Fills the images of solids.
+                                                       ## ! The method consists of four steps:
+                                                       ## ! 1. Build the draft solid - just rebuild the solid using the splits of faces;
+                                                       ## ! 2. Find faces from other arguments located inside the solids;
+                                                       ## ! 3. Build splits of solid using the inside faces;
+                                                       ## ! 4. Fill internal shapes for the splits (Wires and vertices).
+                                                       ## ! @name Fill Images of COMPOUNDS
+                                                       ## ! Fills the images of compounds.
+                                                       ## ! @name Post treatment
+                                                       ## ! Post treatment of the result of the operation.
+                                                       ## ! The method checks validity of the sub-shapes of the result
+                                                       ## ! and updates the tolerances to make them valid.
+                                                       ## ! @name Fields
     ## !< Arguments of the operation
     ## !< Fence map providing the uniqueness of the shapes in the list of arguments
     ## !< Pave Filler - algorithm for sub-shapes intersection
@@ -138,53 +126,53 @@ type
     ## !< Check inverted option allows disabling the check of input solids on inverted status
 
 
-proc constructBOPAlgo_Builder*(): BOPAlgo_Builder {.constructor,
+proc constructBOPAlgoBuilder*(): BOPAlgoBuilder {.constructor,
     importcpp: "BOPAlgo_Builder(@)", header: "BOPAlgo_Builder.hxx".}
-proc destroyBOPAlgo_Builder*(this: var BOPAlgo_Builder) {.
+proc destroyBOPAlgoBuilder*(this: var BOPAlgoBuilder) {.
     importcpp: "#.~BOPAlgo_Builder()", header: "BOPAlgo_Builder.hxx".}
-proc constructBOPAlgo_Builder*(theAllocator: handle[NCollection_BaseAllocator]): BOPAlgo_Builder {.
+proc constructBOPAlgoBuilder*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoBuilder {.
     constructor, importcpp: "BOPAlgo_Builder(@)", header: "BOPAlgo_Builder.hxx".}
-proc Clear*(this: var BOPAlgo_Builder) {.importcpp: "Clear",
-                                     header: "BOPAlgo_Builder.hxx".}
-proc PPaveFiller*(this: var BOPAlgo_Builder): BOPAlgo_PPaveFiller {.
+proc clear*(this: var BOPAlgoBuilder) {.importcpp: "Clear",
+                                    header: "BOPAlgo_Builder.hxx".}
+proc pPaveFiller*(this: var BOPAlgoBuilder): BOPAlgoPPaveFiller {.
     importcpp: "PPaveFiller", header: "BOPAlgo_Builder.hxx".}
-proc PDS*(this: var BOPAlgo_Builder): BOPDS_PDS {.importcpp: "PDS",
+proc pds*(this: var BOPAlgoBuilder): Bopds_Pds {.importcpp: "PDS",
     header: "BOPAlgo_Builder.hxx".}
-proc Context*(this: BOPAlgo_Builder): handle[IntTools_Context] {.noSideEffect,
+proc context*(this: BOPAlgoBuilder): Handle[IntToolsContext] {.noSideEffect,
     importcpp: "Context", header: "BOPAlgo_Builder.hxx".}
-proc AddArgument*(this: var BOPAlgo_Builder; theShape: TopoDS_Shape) {.
+proc addArgument*(this: var BOPAlgoBuilder; theShape: TopoDS_Shape) {.
     importcpp: "AddArgument", header: "BOPAlgo_Builder.hxx".}
-proc SetArguments*(this: var BOPAlgo_Builder; theLS: TopTools_ListOfShape) {.
+proc setArguments*(this: var BOPAlgoBuilder; theLS: TopToolsListOfShape) {.
     importcpp: "SetArguments", header: "BOPAlgo_Builder.hxx".}
-proc Arguments*(this: BOPAlgo_Builder): TopTools_ListOfShape {.noSideEffect,
+proc arguments*(this: BOPAlgoBuilder): TopToolsListOfShape {.noSideEffect,
     importcpp: "Arguments", header: "BOPAlgo_Builder.hxx".}
-proc SetNonDestructive*(this: var BOPAlgo_Builder; theFlag: Standard_Boolean) {.
+proc setNonDestructive*(this: var BOPAlgoBuilder; theFlag: bool) {.
     importcpp: "SetNonDestructive", header: "BOPAlgo_Builder.hxx".}
-proc NonDestructive*(this: BOPAlgo_Builder): Standard_Boolean {.noSideEffect,
+proc nonDestructive*(this: BOPAlgoBuilder): bool {.noSideEffect,
     importcpp: "NonDestructive", header: "BOPAlgo_Builder.hxx".}
-proc SetGlue*(this: var BOPAlgo_Builder; theGlue: BOPAlgo_GlueEnum) {.
+proc setGlue*(this: var BOPAlgoBuilder; theGlue: BOPAlgoGlueEnum) {.
     importcpp: "SetGlue", header: "BOPAlgo_Builder.hxx".}
-proc Glue*(this: BOPAlgo_Builder): BOPAlgo_GlueEnum {.noSideEffect,
-    importcpp: "Glue", header: "BOPAlgo_Builder.hxx".}
-proc SetCheckInverted*(this: var BOPAlgo_Builder; theCheck: Standard_Boolean) {.
-    importcpp: "SetCheckInverted", header: "BOPAlgo_Builder.hxx".}
-proc CheckInverted*(this: BOPAlgo_Builder): Standard_Boolean {.noSideEffect,
-    importcpp: "CheckInverted", header: "BOPAlgo_Builder.hxx".}
-proc Perform*(this: var BOPAlgo_Builder) {.importcpp: "Perform",
-                                       header: "BOPAlgo_Builder.hxx".}
-proc PerformWithFiller*(this: var BOPAlgo_Builder; theFiller: BOPAlgo_PaveFiller) {.
-    importcpp: "PerformWithFiller", header: "BOPAlgo_Builder.hxx".}
-proc BuildBOP*(this: var BOPAlgo_Builder; theObjects: TopTools_ListOfShape;
-              theObjState: TopAbs_State; theTools: TopTools_ListOfShape;
-              theToolsState: TopAbs_State; theReport: handle[Message_Report] = nil) {.
-    importcpp: "BuildBOP", header: "BOPAlgo_Builder.hxx".}
-proc BuildBOP*(this: var BOPAlgo_Builder; theObjects: TopTools_ListOfShape;
-              theTools: TopTools_ListOfShape; theOperation: BOPAlgo_Operation;
-              theReport: handle[Message_Report] = nil) {.importcpp: "BuildBOP",
+proc glue*(this: BOPAlgoBuilder): BOPAlgoGlueEnum {.noSideEffect, importcpp: "Glue",
     header: "BOPAlgo_Builder.hxx".}
-proc Images*(this: BOPAlgo_Builder): TopTools_DataMapOfShapeListOfShape {.
+proc setCheckInverted*(this: var BOPAlgoBuilder; theCheck: bool) {.
+    importcpp: "SetCheckInverted", header: "BOPAlgo_Builder.hxx".}
+proc checkInverted*(this: BOPAlgoBuilder): bool {.noSideEffect,
+    importcpp: "CheckInverted", header: "BOPAlgo_Builder.hxx".}
+proc perform*(this: var BOPAlgoBuilder) {.importcpp: "Perform",
+                                      header: "BOPAlgo_Builder.hxx".}
+proc performWithFiller*(this: var BOPAlgoBuilder; theFiller: BOPAlgoPaveFiller) {.
+    importcpp: "PerformWithFiller", header: "BOPAlgo_Builder.hxx".}
+proc buildBOP*(this: var BOPAlgoBuilder; theObjects: TopToolsListOfShape;
+              theObjState: TopAbsState; theTools: TopToolsListOfShape;
+              theToolsState: TopAbsState; theReport: Handle[MessageReport] = nil) {.
+    importcpp: "BuildBOP", header: "BOPAlgo_Builder.hxx".}
+proc buildBOP*(this: var BOPAlgoBuilder; theObjects: TopToolsListOfShape;
+              theTools: TopToolsListOfShape; theOperation: BOPAlgoOperation;
+              theReport: Handle[MessageReport] = nil) {.importcpp: "BuildBOP",
+    header: "BOPAlgo_Builder.hxx".}
+proc images*(this: BOPAlgoBuilder): TopToolsDataMapOfShapeListOfShape {.
     noSideEffect, importcpp: "Images", header: "BOPAlgo_Builder.hxx".}
-proc Origins*(this: BOPAlgo_Builder): TopTools_DataMapOfShapeListOfShape {.
+proc origins*(this: BOPAlgoBuilder): TopToolsDataMapOfShapeListOfShape {.
     noSideEffect, importcpp: "Origins", header: "BOPAlgo_Builder.hxx".}
-proc ShapesSD*(this: BOPAlgo_Builder): TopTools_DataMapOfShapeShape {.noSideEffect,
+proc shapesSD*(this: BOPAlgoBuilder): TopToolsDataMapOfShapeShape {.noSideEffect,
     importcpp: "ShapesSD", header: "BOPAlgo_Builder.hxx".}

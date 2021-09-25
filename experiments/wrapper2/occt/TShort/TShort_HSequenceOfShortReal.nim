@@ -12,5 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # TShort_HSequenceOfShortReal_HeaderFile [NewLine] # TShort_HSequenceOfShortReal_HeaderFile [NewLine] # ../Standard/Standard_ShortReal.hxx [NewLine] # TShort_SequenceOfShortReal.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( TShort_HSequenceOfShortReal , TShort_SequenceOfShortReal ) # [NewLine]
+## !!!Ignored construct:  # TShort_HSequenceOfShortReal_HeaderFile [NewLine] # TShort_HSequenceOfShortReal_HeaderFile [NewLine] # < Standard_ShortReal . hxx > [NewLine] # < TShort_SequenceOfShortReal . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( TShort_HSequenceOfShortReal , TShort_SequenceOfShortReal ) # [NewLine]
 ## Error: expected ';'!!!
+

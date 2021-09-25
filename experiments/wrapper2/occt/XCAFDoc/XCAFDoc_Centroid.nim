@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Pnt,
-  ../TDF/TDF_Attribute, ../Standard/Standard_Boolean, ../Standard/Standard_OStream
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
 discard "forward decl of gp_Pnt"
@@ -25,54 +21,49 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of XCAFDoc_Centroid"
 discard "forward decl of XCAFDoc_Centroid"
 type
-  Handle_XCAFDoc_Centroid* = handle[XCAFDoc_Centroid]
+  HandleXCAFDocCentroid* = Handle[XCAFDocCentroid]
 
 ## ! attribute to store centroid
 
 type
-  XCAFDoc_Centroid* {.importcpp: "XCAFDoc_Centroid",
-                     header: "XCAFDoc_Centroid.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                 ## !
-                                                                                 ## class
-                                                                                 ## methods
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## =============
+  XCAFDocCentroid* {.importcpp: "XCAFDoc_Centroid", header: "XCAFDoc_Centroid.hxx",
+                    bycopy.} = object of TDF_Attribute ## ! class methods
+                                                  ## ! =============
 
 
-proc constructXCAFDoc_Centroid*(): XCAFDoc_Centroid {.constructor,
+proc constructXCAFDocCentroid*(): XCAFDocCentroid {.constructor,
     importcpp: "XCAFDoc_Centroid(@)", header: "XCAFDoc_Centroid.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "XCAFDoc_Centroid::GetID(@)",
-                            header: "XCAFDoc_Centroid.hxx".}
-proc Set*(label: TDF_Label; pnt: gp_Pnt): handle[XCAFDoc_Centroid] {.
+proc getID*(): StandardGUID {.importcpp: "XCAFDoc_Centroid::GetID(@)",
+                           header: "XCAFDoc_Centroid.hxx".}
+proc set*(label: TDF_Label; pnt: Pnt): Handle[XCAFDocCentroid] {.
     importcpp: "XCAFDoc_Centroid::Set(@)", header: "XCAFDoc_Centroid.hxx".}
-proc Set*(this: var XCAFDoc_Centroid; pnt: gp_Pnt) {.importcpp: "Set",
+proc set*(this: var XCAFDocCentroid; pnt: Pnt) {.importcpp: "Set",
     header: "XCAFDoc_Centroid.hxx".}
-proc Get*(this: XCAFDoc_Centroid): gp_Pnt {.noSideEffect, importcpp: "Get",
-                                        header: "XCAFDoc_Centroid.hxx".}
-proc Get*(label: TDF_Label; pnt: var gp_Pnt): Standard_Boolean {.
+proc get*(this: XCAFDocCentroid): Pnt {.noSideEffect, importcpp: "Get",
+                                    header: "XCAFDoc_Centroid.hxx".}
+proc get*(label: TDF_Label; pnt: var Pnt): bool {.
     importcpp: "XCAFDoc_Centroid::Get(@)", header: "XCAFDoc_Centroid.hxx".}
-proc ID*(this: XCAFDoc_Centroid): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: XCAFDocCentroid): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "XCAFDoc_Centroid.hxx".}
-proc Restore*(this: var XCAFDoc_Centroid; With: handle[TDF_Attribute]) {.
+proc restore*(this: var XCAFDocCentroid; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "XCAFDoc_Centroid.hxx".}
-proc NewEmpty*(this: XCAFDoc_Centroid): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: XCAFDocCentroid): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "XCAFDoc_Centroid.hxx".}
-proc Paste*(this: XCAFDoc_Centroid; Into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: XCAFDocCentroid; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "XCAFDoc_Centroid.hxx".}
-proc Dump*(this: XCAFDoc_Centroid; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: XCAFDocCentroid; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "XCAFDoc_Centroid.hxx".}
-proc DumpJson*(this: XCAFDoc_Centroid; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "XCAFDoc_Centroid.hxx".}
+proc dumpJson*(this: XCAFDocCentroid; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "XCAFDoc_Centroid.hxx".}
 type
-  XCAFDoc_Centroidbase_type* = TDF_Attribute
+  XCAFDocCentroidbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "XCAFDoc_Centroid::get_type_name(@)",
-                              header: "XCAFDoc_Centroid.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XCAFDoc_Centroid::get_type_name(@)",
+                            header: "XCAFDoc_Centroid.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XCAFDoc_Centroid::get_type_descriptor(@)",
     header: "XCAFDoc_Centroid.hxx".}
-proc DynamicType*(this: XCAFDoc_Centroid): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: XCAFDocCentroid): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XCAFDoc_Centroid.hxx".}

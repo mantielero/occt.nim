@@ -13,66 +13,59 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  StepElement_MeasureOrUnspecifiedValue, StepElement_SurfaceSection
-
 discard "forward decl of StepElement_MeasureOrUnspecifiedValue"
 discard "forward decl of StepElement_UniformSurfaceSection"
 discard "forward decl of StepElement_UniformSurfaceSection"
 type
-  Handle_StepElement_UniformSurfaceSection* = handle[
-      StepElement_UniformSurfaceSection]
+  HandleStepElementUniformSurfaceSection* = Handle[
+      StepElementUniformSurfaceSection]
 
 ## ! Representation of STEP entity UniformSurfaceSection
 
 type
-  StepElement_UniformSurfaceSection* {.importcpp: "StepElement_UniformSurfaceSection", header: "StepElement_UniformSurfaceSection.hxx",
-                                      bycopy.} = object of StepElement_SurfaceSection ##
-                                                                                 ## !
-                                                                                 ## Empty
-                                                                                 ## constructor
+  StepElementUniformSurfaceSection* {.importcpp: "StepElement_UniformSurfaceSection", header: "StepElement_UniformSurfaceSection.hxx",
+                                     bycopy.} = object of StepElementSurfaceSection ## !
+                                                                               ## Empty
+                                                                               ## constructor
 
 
-proc constructStepElement_UniformSurfaceSection*(): StepElement_UniformSurfaceSection {.
+proc constructStepElementUniformSurfaceSection*(): StepElementUniformSurfaceSection {.
     constructor, importcpp: "StepElement_UniformSurfaceSection(@)",
     header: "StepElement_UniformSurfaceSection.hxx".}
-proc Init*(this: var StepElement_UniformSurfaceSection;
-          aSurfaceSection_Offset: StepElement_MeasureOrUnspecifiedValue;
-    aSurfaceSection_NonStructuralMass: StepElement_MeasureOrUnspecifiedValue;
-    aSurfaceSection_NonStructuralMassOffset: StepElement_MeasureOrUnspecifiedValue;
-          aThickness: Standard_Real;
-          aBendingThickness: StepElement_MeasureOrUnspecifiedValue;
-          aShearThickness: StepElement_MeasureOrUnspecifiedValue) {.
+proc init*(this: var StepElementUniformSurfaceSection;
+          aSurfaceSectionOffset: StepElementMeasureOrUnspecifiedValue;
+    aSurfaceSectionNonStructuralMass: StepElementMeasureOrUnspecifiedValue;
+    aSurfaceSectionNonStructuralMassOffset: StepElementMeasureOrUnspecifiedValue;
+          aThickness: float;
+          aBendingThickness: StepElementMeasureOrUnspecifiedValue;
+          aShearThickness: StepElementMeasureOrUnspecifiedValue) {.
     importcpp: "Init", header: "StepElement_UniformSurfaceSection.hxx".}
-proc Thickness*(this: StepElement_UniformSurfaceSection): Standard_Real {.
-    noSideEffect, importcpp: "Thickness",
-    header: "StepElement_UniformSurfaceSection.hxx".}
-proc SetThickness*(this: var StepElement_UniformSurfaceSection;
-                  Thickness: Standard_Real) {.importcpp: "SetThickness",
-    header: "StepElement_UniformSurfaceSection.hxx".}
-proc BendingThickness*(this: StepElement_UniformSurfaceSection): StepElement_MeasureOrUnspecifiedValue {.
+proc thickness*(this: StepElementUniformSurfaceSection): float {.noSideEffect,
+    importcpp: "Thickness", header: "StepElement_UniformSurfaceSection.hxx".}
+proc setThickness*(this: var StepElementUniformSurfaceSection; thickness: float) {.
+    importcpp: "SetThickness", header: "StepElement_UniformSurfaceSection.hxx".}
+proc bendingThickness*(this: StepElementUniformSurfaceSection): StepElementMeasureOrUnspecifiedValue {.
     noSideEffect, importcpp: "BendingThickness",
     header: "StepElement_UniformSurfaceSection.hxx".}
-proc SetBendingThickness*(this: var StepElement_UniformSurfaceSection;
-    BendingThickness: StepElement_MeasureOrUnspecifiedValue) {.
+proc setBendingThickness*(this: var StepElementUniformSurfaceSection;
+                         bendingThickness: StepElementMeasureOrUnspecifiedValue) {.
     importcpp: "SetBendingThickness",
     header: "StepElement_UniformSurfaceSection.hxx".}
-proc ShearThickness*(this: StepElement_UniformSurfaceSection): StepElement_MeasureOrUnspecifiedValue {.
+proc shearThickness*(this: StepElementUniformSurfaceSection): StepElementMeasureOrUnspecifiedValue {.
     noSideEffect, importcpp: "ShearThickness",
     header: "StepElement_UniformSurfaceSection.hxx".}
-proc SetShearThickness*(this: var StepElement_UniformSurfaceSection;
-                       ShearThickness: StepElement_MeasureOrUnspecifiedValue) {.
+proc setShearThickness*(this: var StepElementUniformSurfaceSection;
+                       shearThickness: StepElementMeasureOrUnspecifiedValue) {.
     importcpp: "SetShearThickness",
     header: "StepElement_UniformSurfaceSection.hxx".}
 type
-  StepElement_UniformSurfaceSectionbase_type* = StepElement_SurfaceSection
+  StepElementUniformSurfaceSectionbaseType* = StepElementSurfaceSection
 
-proc get_type_name*(): cstring {.importcpp: "StepElement_UniformSurfaceSection::get_type_name(@)",
-                              header: "StepElement_UniformSurfaceSection.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepElement_UniformSurfaceSection::get_type_name(@)",
+                            header: "StepElement_UniformSurfaceSection.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepElement_UniformSurfaceSection::get_type_descriptor(@)",
     header: "StepElement_UniformSurfaceSection.hxx".}
-proc DynamicType*(this: StepElement_UniformSurfaceSection): handle[Standard_Type] {.
+proc dynamicType*(this: StepElementUniformSurfaceSection): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_UniformSurfaceSection.hxx".}

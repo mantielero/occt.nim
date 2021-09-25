@@ -14,51 +14,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepRepr_ConfigurationDesignItem, ../Standard/Standard_Transient
-
 discard "forward decl of StepRepr_ConfigurationItem"
 discard "forward decl of StepRepr_ConfigurationDesignItem"
 discard "forward decl of StepRepr_ConfigurationDesign"
 discard "forward decl of StepRepr_ConfigurationDesign"
 type
-  Handle_StepRepr_ConfigurationDesign* = handle[StepRepr_ConfigurationDesign]
+  HandleStepReprConfigurationDesign* = Handle[StepReprConfigurationDesign]
 
 ## ! Representation of STEP entity ConfigurationDesign
 
 type
-  StepRepr_ConfigurationDesign* {.importcpp: "StepRepr_ConfigurationDesign",
-                                 header: "StepRepr_ConfigurationDesign.hxx",
-                                 bycopy.} = object of Standard_Transient ## ! Empty constructor
+  StepReprConfigurationDesign* {.importcpp: "StepRepr_ConfigurationDesign",
+                                header: "StepRepr_ConfigurationDesign.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                            ## !
+                                                                                                            ## Empty
+                                                                                                            ## constructor
 
 
-proc constructStepRepr_ConfigurationDesign*(): StepRepr_ConfigurationDesign {.
+proc constructStepReprConfigurationDesign*(): StepReprConfigurationDesign {.
     constructor, importcpp: "StepRepr_ConfigurationDesign(@)",
     header: "StepRepr_ConfigurationDesign.hxx".}
-proc Init*(this: var StepRepr_ConfigurationDesign;
-          aConfiguration: handle[StepRepr_ConfigurationItem];
-          aDesign: StepRepr_ConfigurationDesignItem) {.importcpp: "Init",
+proc init*(this: var StepReprConfigurationDesign;
+          aConfiguration: Handle[StepReprConfigurationItem];
+          aDesign: StepReprConfigurationDesignItem) {.importcpp: "Init",
     header: "StepRepr_ConfigurationDesign.hxx".}
-proc Configuration*(this: StepRepr_ConfigurationDesign): handle[
-    StepRepr_ConfigurationItem] {.noSideEffect, importcpp: "Configuration",
-                                 header: "StepRepr_ConfigurationDesign.hxx".}
-proc SetConfiguration*(this: var StepRepr_ConfigurationDesign;
-                      Configuration: handle[StepRepr_ConfigurationItem]) {.
+proc configuration*(this: StepReprConfigurationDesign): Handle[
+    StepReprConfigurationItem] {.noSideEffect, importcpp: "Configuration",
+                                header: "StepRepr_ConfigurationDesign.hxx".}
+proc setConfiguration*(this: var StepReprConfigurationDesign;
+                      configuration: Handle[StepReprConfigurationItem]) {.
     importcpp: "SetConfiguration", header: "StepRepr_ConfigurationDesign.hxx".}
-proc Design*(this: StepRepr_ConfigurationDesign): StepRepr_ConfigurationDesignItem {.
+proc design*(this: StepReprConfigurationDesign): StepReprConfigurationDesignItem {.
     noSideEffect, importcpp: "Design", header: "StepRepr_ConfigurationDesign.hxx".}
-proc SetDesign*(this: var StepRepr_ConfigurationDesign;
-               Design: StepRepr_ConfigurationDesignItem) {.importcpp: "SetDesign",
+proc setDesign*(this: var StepReprConfigurationDesign;
+               design: StepReprConfigurationDesignItem) {.importcpp: "SetDesign",
     header: "StepRepr_ConfigurationDesign.hxx".}
 type
-  StepRepr_ConfigurationDesignbase_type* = Standard_Transient
+  StepReprConfigurationDesignbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_ConfigurationDesign::get_type_name(@)",
-                              header: "StepRepr_ConfigurationDesign.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_ConfigurationDesign::get_type_name(@)",
+                            header: "StepRepr_ConfigurationDesign.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_ConfigurationDesign::get_type_descriptor(@)",
     header: "StepRepr_ConfigurationDesign.hxx".}
-proc DynamicType*(this: StepRepr_ConfigurationDesign): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprConfigurationDesign): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_ConfigurationDesign.hxx".}

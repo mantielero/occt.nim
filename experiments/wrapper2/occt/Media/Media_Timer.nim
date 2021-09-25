@@ -12,40 +12,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../OSD/OSD_Timer, ../Standard/Standard_Transient, ../Standard/Standard_Type
-
 ## ! Auxiliary class defining the animation timer.
 
 type
-  Media_Timer* {.importcpp: "Media_Timer", header: "Media_Timer.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                    ## !
-                                                                                                    ## Empty
-                                                                                                    ## constructor.
+  MediaTimer* {.importcpp: "Media_Timer", header: "Media_Timer.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                  ## !
+                                                                                                  ## Empty
+                                                                                                  ## constructor.
 
-  Media_Timerbase_type* = Standard_Transient
+  MediaTimerbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Media_Timer::get_type_name(@)",
-                              header: "Media_Timer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Media_Timer::get_type_name(@)",
+                            header: "Media_Timer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Media_Timer::get_type_descriptor(@)", header: "Media_Timer.hxx".}
-proc DynamicType*(this: Media_Timer): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: MediaTimer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Media_Timer.hxx".}
-proc constructMedia_Timer*(): Media_Timer {.constructor,
-    importcpp: "Media_Timer(@)", header: "Media_Timer.hxx".}
-proc ElapsedTime*(this: Media_Timer): Standard_Real {.noSideEffect,
-    importcpp: "ElapsedTime", header: "Media_Timer.hxx".}
-proc PlaybackSpeed*(this: Media_Timer): Standard_Real {.noSideEffect,
+proc constructMediaTimer*(): MediaTimer {.constructor, importcpp: "Media_Timer(@)",
+                                       header: "Media_Timer.hxx".}
+proc elapsedTime*(this: MediaTimer): float {.noSideEffect, importcpp: "ElapsedTime",
+    header: "Media_Timer.hxx".}
+proc playbackSpeed*(this: MediaTimer): float {.noSideEffect,
     importcpp: "PlaybackSpeed", header: "Media_Timer.hxx".}
-proc SetPlaybackSpeed*(this: var Media_Timer; theSpeed: Standard_Real) {.
+proc setPlaybackSpeed*(this: var MediaTimer; theSpeed: float) {.
     importcpp: "SetPlaybackSpeed", header: "Media_Timer.hxx".}
-proc IsStarted*(this: Media_Timer): Standard_Boolean {.noSideEffect,
-    importcpp: "IsStarted", header: "Media_Timer.hxx".}
-proc Start*(this: var Media_Timer) {.importcpp: "Start", header: "Media_Timer.hxx".}
-proc Pause*(this: var Media_Timer) {.importcpp: "Pause", header: "Media_Timer.hxx".}
-proc Stop*(this: var Media_Timer) {.importcpp: "Stop", header: "Media_Timer.hxx".}
-proc Seek*(this: var Media_Timer; theTime: Standard_Real) {.importcpp: "Seek",
+proc isStarted*(this: MediaTimer): bool {.noSideEffect, importcpp: "IsStarted",
+                                      header: "Media_Timer.hxx".}
+proc start*(this: var MediaTimer) {.importcpp: "Start", header: "Media_Timer.hxx".}
+proc pause*(this: var MediaTimer) {.importcpp: "Pause", header: "Media_Timer.hxx".}
+proc stop*(this: var MediaTimer) {.importcpp: "Stop", header: "Media_Timer.hxx".}
+proc seek*(this: var MediaTimer; theTime: float) {.importcpp: "Seek",
     header: "Media_Timer.hxx".}
 discard "forward decl of Media_Timer"
 type
-  Handle_Media_Timer* = handle[Media_Timer]
+  HandleMediaTimer* = Handle[MediaTimer]
+

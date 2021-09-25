@@ -12,16 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, BlendFunc_Corde, ../Blend/Blend_Function,
-  ../Standard/Standard_Boolean, ../math/math_Vector,
-  ../TColStd/TColStd_Array1OfReal, ../GeomAbs/GeomAbs_Shape,
-  ../TColStd/TColStd_Array1OfInteger, ../TColgp/TColgp_Array1OfPnt,
-  ../TColgp/TColgp_Array1OfVec, ../TColgp/TColgp_Array1OfPnt2d,
-  ../TColgp/TColgp_Array1OfVec2d
-
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of math_Matrix"
@@ -31,78 +21,70 @@ discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_Lin"
 discard "forward decl of Blend_Point"
 type
-  BlendFunc_GenChamfer* {.importcpp: "BlendFunc_GenChamfer",
-                         header: "BlendFunc_GenChamfer.hxx", bycopy.} = object of Blend_Function
+  BlendFuncGenChamfer* {.importcpp: "BlendFunc_GenChamfer",
+                        header: "BlendFunc_GenChamfer.hxx", bycopy.} = object of BlendFunction
 
 
-proc constructBlendFunc_GenChamfer*(S1: handle[Adaptor3d_HSurface];
-                                   S2: handle[Adaptor3d_HSurface];
-                                   CG: handle[Adaptor3d_HCurve]): BlendFunc_GenChamfer {.
+proc constructBlendFuncGenChamfer*(s1: Handle[Adaptor3dHSurface];
+                                  s2: Handle[Adaptor3dHSurface];
+                                  cg: Handle[Adaptor3dHCurve]): BlendFuncGenChamfer {.
     constructor, importcpp: "BlendFunc_GenChamfer(@)",
     header: "BlendFunc_GenChamfer.hxx".}
-proc NbEquations*(this: BlendFunc_GenChamfer): Standard_Integer {.noSideEffect,
+proc nbEquations*(this: BlendFuncGenChamfer): int {.noSideEffect,
     importcpp: "NbEquations", header: "BlendFunc_GenChamfer.hxx".}
-proc Values*(this: var BlendFunc_GenChamfer; X: math_Vector; F: var math_Vector;
-            D: var math_Matrix): Standard_Boolean {.importcpp: "Values",
+proc values*(this: var BlendFuncGenChamfer; x: MathVector; f: var MathVector;
+            d: var MathMatrix): bool {.importcpp: "Values",
+                                   header: "BlendFunc_GenChamfer.hxx".}
+proc set*(this: var BlendFuncGenChamfer; param: float) {.importcpp: "Set",
     header: "BlendFunc_GenChamfer.hxx".}
-proc Set*(this: var BlendFunc_GenChamfer; Param: Standard_Real) {.importcpp: "Set",
+proc set*(this: var BlendFuncGenChamfer; first: float; last: float) {.importcpp: "Set",
     header: "BlendFunc_GenChamfer.hxx".}
-proc Set*(this: var BlendFunc_GenChamfer; First: Standard_Real; Last: Standard_Real) {.
-    importcpp: "Set", header: "BlendFunc_GenChamfer.hxx".}
-proc GetTolerance*(this: BlendFunc_GenChamfer; Tolerance: var math_Vector;
-                  Tol: Standard_Real) {.noSideEffect, importcpp: "GetTolerance",
-                                      header: "BlendFunc_GenChamfer.hxx".}
-proc GetBounds*(this: BlendFunc_GenChamfer; InfBound: var math_Vector;
-               SupBound: var math_Vector) {.noSideEffect, importcpp: "GetBounds",
-    header: "BlendFunc_GenChamfer.hxx".}
-proc GetMinimalDistance*(this: BlendFunc_GenChamfer): Standard_Real {.noSideEffect,
+proc getTolerance*(this: BlendFuncGenChamfer; tolerance: var MathVector; tol: float) {.
+    noSideEffect, importcpp: "GetTolerance", header: "BlendFunc_GenChamfer.hxx".}
+proc getBounds*(this: BlendFuncGenChamfer; infBound: var MathVector;
+               supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds",
+                                        header: "BlendFunc_GenChamfer.hxx".}
+proc getMinimalDistance*(this: BlendFuncGenChamfer): float {.noSideEffect,
     importcpp: "GetMinimalDistance", header: "BlendFunc_GenChamfer.hxx".}
-proc Set*(this: var BlendFunc_GenChamfer; Dist1: Standard_Real; Dist2: Standard_Real;
-         Choix: Standard_Integer) {.importcpp: "Set",
-                                  header: "BlendFunc_GenChamfer.hxx".}
-proc IsRational*(this: BlendFunc_GenChamfer): Standard_Boolean {.noSideEffect,
+proc set*(this: var BlendFuncGenChamfer; dist1: float; dist2: float; choix: int) {.
+    importcpp: "Set", header: "BlendFunc_GenChamfer.hxx".}
+proc isRational*(this: BlendFuncGenChamfer): bool {.noSideEffect,
     importcpp: "IsRational", header: "BlendFunc_GenChamfer.hxx".}
-proc GetMinimalWeight*(this: BlendFunc_GenChamfer;
-                      Weigths: var TColStd_Array1OfReal) {.noSideEffect,
-    importcpp: "GetMinimalWeight", header: "BlendFunc_GenChamfer.hxx".}
-proc NbIntervals*(this: BlendFunc_GenChamfer; S: GeomAbs_Shape): Standard_Integer {.
-    noSideEffect, importcpp: "NbIntervals", header: "BlendFunc_GenChamfer.hxx".}
-proc Intervals*(this: BlendFunc_GenChamfer; T: var TColStd_Array1OfReal;
-               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
-                                 header: "BlendFunc_GenChamfer.hxx".}
-proc GetShape*(this: var BlendFunc_GenChamfer; NbPoles: var Standard_Integer;
-              NbKnots: var Standard_Integer; Degree: var Standard_Integer;
-              NbPoles2d: var Standard_Integer) {.importcpp: "GetShape",
+proc getMinimalWeight*(this: BlendFuncGenChamfer; weigths: var TColStdArray1OfReal) {.
+    noSideEffect, importcpp: "GetMinimalWeight", header: "BlendFunc_GenChamfer.hxx".}
+proc nbIntervals*(this: BlendFuncGenChamfer; s: GeomAbsShape): int {.noSideEffect,
+    importcpp: "NbIntervals", header: "BlendFunc_GenChamfer.hxx".}
+proc intervals*(this: BlendFuncGenChamfer; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+    noSideEffect, importcpp: "Intervals", header: "BlendFunc_GenChamfer.hxx".}
+proc getShape*(this: var BlendFuncGenChamfer; nbPoles: var int; nbKnots: var int;
+              degree: var int; nbPoles2d: var int) {.importcpp: "GetShape",
     header: "BlendFunc_GenChamfer.hxx".}
-proc GetTolerance*(this: BlendFunc_GenChamfer; BoundTol: Standard_Real;
-                  SurfTol: Standard_Real; AngleTol: Standard_Real;
-                  Tol3d: var math_Vector; Tol1D: var math_Vector) {.noSideEffect,
-    importcpp: "GetTolerance", header: "BlendFunc_GenChamfer.hxx".}
-proc Knots*(this: var BlendFunc_GenChamfer; TKnots: var TColStd_Array1OfReal) {.
+proc getTolerance*(this: BlendFuncGenChamfer; boundTol: float; surfTol: float;
+                  angleTol: float; tol3d: var MathVector; tol1D: var MathVector) {.
+    noSideEffect, importcpp: "GetTolerance", header: "BlendFunc_GenChamfer.hxx".}
+proc knots*(this: var BlendFuncGenChamfer; tKnots: var TColStdArray1OfReal) {.
     importcpp: "Knots", header: "BlendFunc_GenChamfer.hxx".}
-proc Mults*(this: var BlendFunc_GenChamfer; TMults: var TColStd_Array1OfInteger) {.
+proc mults*(this: var BlendFuncGenChamfer; tMults: var TColStdArray1OfInteger) {.
     importcpp: "Mults", header: "BlendFunc_GenChamfer.hxx".}
-proc Section*(this: var BlendFunc_GenChamfer; Param: Standard_Real; U1: Standard_Real;
-             V1: Standard_Real; U2: Standard_Real; V2: Standard_Real;
-             Pdeb: var Standard_Real; Pfin: var Standard_Real; C: var gp_Lin) {.
+proc section*(this: var BlendFuncGenChamfer; param: float; u1: float; v1: float;
+             u2: float; v2: float; pdeb: var float; pfin: var float; c: var Lin) {.
     importcpp: "Section", header: "BlendFunc_GenChamfer.hxx".}
-proc Section*(this: var BlendFunc_GenChamfer; P: Blend_Point;
-             Poles: var TColgp_Array1OfPnt; DPoles: var TColgp_Array1OfVec;
-             D2Poles: var TColgp_Array1OfVec; Poles2d: var TColgp_Array1OfPnt2d;
-             DPoles2d: var TColgp_Array1OfVec2d;
-             D2Poles2d: var TColgp_Array1OfVec2d;
-             Weigths: var TColStd_Array1OfReal; DWeigths: var TColStd_Array1OfReal;
-             D2Weigths: var TColStd_Array1OfReal): Standard_Boolean {.
-    importcpp: "Section", header: "BlendFunc_GenChamfer.hxx".}
-proc Section*(this: var BlendFunc_GenChamfer; P: Blend_Point;
-             Poles: var TColgp_Array1OfPnt; DPoles: var TColgp_Array1OfVec;
-             Poles2d: var TColgp_Array1OfPnt2d; DPoles2d: var TColgp_Array1OfVec2d;
-             Weigths: var TColStd_Array1OfReal; DWeigths: var TColStd_Array1OfReal): Standard_Boolean {.
-    importcpp: "Section", header: "BlendFunc_GenChamfer.hxx".}
-proc Section*(this: var BlendFunc_GenChamfer; P: Blend_Point;
-             Poles: var TColgp_Array1OfPnt; Poles2d: var TColgp_Array1OfPnt2d;
-             Weigths: var TColStd_Array1OfReal) {.importcpp: "Section",
+proc section*(this: var BlendFuncGenChamfer; p: BlendPoint;
+             poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
+             d2Poles: var TColgpArray1OfVec; poles2d: var TColgpArray1OfPnt2d;
+             dPoles2d: var TColgpArray1OfVec2d; d2Poles2d: var TColgpArray1OfVec2d;
+             weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal;
+             d2Weigths: var TColStdArray1OfReal): bool {.importcpp: "Section",
     header: "BlendFunc_GenChamfer.hxx".}
-proc Resolution*(this: BlendFunc_GenChamfer; IC2d: Standard_Integer;
-                Tol: Standard_Real; TolU: var Standard_Real; TolV: var Standard_Real) {.
-    noSideEffect, importcpp: "Resolution", header: "BlendFunc_GenChamfer.hxx".}
+proc section*(this: var BlendFuncGenChamfer; p: BlendPoint;
+             poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
+             poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
+             weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal): bool {.
+    importcpp: "Section", header: "BlendFunc_GenChamfer.hxx".}
+proc section*(this: var BlendFuncGenChamfer; p: BlendPoint;
+             poles: var TColgpArray1OfPnt; poles2d: var TColgpArray1OfPnt2d;
+             weigths: var TColStdArray1OfReal) {.importcpp: "Section",
+    header: "BlendFunc_GenChamfer.hxx".}
+proc resolution*(this: BlendFuncGenChamfer; iC2d: int; tol: float; tolU: var float;
+                tolV: var float) {.noSideEffect, importcpp: "Resolution",
+                                header: "BlendFunc_GenChamfer.hxx".}

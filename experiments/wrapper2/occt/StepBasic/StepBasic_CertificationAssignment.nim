@@ -14,45 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_Certification"
 discard "forward decl of StepBasic_CertificationAssignment"
 discard "forward decl of StepBasic_CertificationAssignment"
 type
-  Handle_StepBasic_CertificationAssignment* = handle[
-      StepBasic_CertificationAssignment]
+  HandleStepBasicCertificationAssignment* = Handle[
+      StepBasicCertificationAssignment]
 
 ## ! Representation of STEP entity CertificationAssignment
 
 type
-  StepBasic_CertificationAssignment* {.importcpp: "StepBasic_CertificationAssignment", header: "StepBasic_CertificationAssignment.hxx",
-                                      bycopy.} = object of Standard_Transient ## ! Empty
-                                                                         ## constructor
+  StepBasicCertificationAssignment* {.importcpp: "StepBasic_CertificationAssignment", header: "StepBasic_CertificationAssignment.hxx",
+                                     bycopy.} = object of StandardTransient ## ! Empty
+                                                                       ## constructor
 
 
-proc constructStepBasic_CertificationAssignment*(): StepBasic_CertificationAssignment {.
+proc constructStepBasicCertificationAssignment*(): StepBasicCertificationAssignment {.
     constructor, importcpp: "StepBasic_CertificationAssignment(@)",
     header: "StepBasic_CertificationAssignment.hxx".}
-proc Init*(this: var StepBasic_CertificationAssignment;
-          aAssignedCertification: handle[StepBasic_Certification]) {.
+proc init*(this: var StepBasicCertificationAssignment;
+          aAssignedCertification: Handle[StepBasicCertification]) {.
     importcpp: "Init", header: "StepBasic_CertificationAssignment.hxx".}
-proc AssignedCertification*(this: StepBasic_CertificationAssignment): handle[
-    StepBasic_Certification] {.noSideEffect, importcpp: "AssignedCertification",
-                              header: "StepBasic_CertificationAssignment.hxx".}
-proc SetAssignedCertification*(this: var StepBasic_CertificationAssignment;
-    AssignedCertification: handle[StepBasic_Certification]) {.
+proc assignedCertification*(this: StepBasicCertificationAssignment): Handle[
+    StepBasicCertification] {.noSideEffect, importcpp: "AssignedCertification",
+                             header: "StepBasic_CertificationAssignment.hxx".}
+proc setAssignedCertification*(this: var StepBasicCertificationAssignment;
+    assignedCertification: Handle[StepBasicCertification]) {.
     importcpp: "SetAssignedCertification",
     header: "StepBasic_CertificationAssignment.hxx".}
 type
-  StepBasic_CertificationAssignmentbase_type* = Standard_Transient
+  StepBasicCertificationAssignmentbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_CertificationAssignment::get_type_name(@)",
-                              header: "StepBasic_CertificationAssignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_CertificationAssignment::get_type_name(@)",
+                            header: "StepBasic_CertificationAssignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_CertificationAssignment::get_type_descriptor(@)",
     header: "StepBasic_CertificationAssignment.hxx".}
-proc DynamicType*(this: StepBasic_CertificationAssignment): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicCertificationAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_CertificationAssignment.hxx".}

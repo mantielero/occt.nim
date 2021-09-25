@@ -14,8 +14,6 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation Copyright: (C) RINA S.p.A
 
-import
-  ../NCollection/NCollection_Sequence, TObj_ObjectIterator
-
 type
-  TObj_SequenceOfIterator* = NCollection_Sequence[handle[TObj_ObjectIterator]]
+  TObjSequenceOfIterator* = NCollectionSequence[Handle[TObjObjectIterator]]
+

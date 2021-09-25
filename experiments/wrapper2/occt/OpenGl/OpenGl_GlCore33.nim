@@ -13,48 +13,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_GlCore32
-
 ## ! OpenGL 3.3 definition.
 
 type
-  OpenGl_TmplCore33*[theBaseClass_t] {.importcpp: "OpenGl_TmplCore33<\'0>",
-                                      header: "OpenGl_GlCore33.hxx", bycopy.} = object of theBaseClass_t ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## GL_ARB_sampler_objects
-                                                                                                  ## (added
-                                                                                                  ## to
-                                                                                                  ## OpenGL
-                                                                                                  ## 3.3
-                                                                                                  ## core)
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## GL_ARB_timer_query
-                                                                                                  ## (added
-                                                                                                  ## to
-                                                                                                  ## OpenGL
-                                                                                                  ## 3.3
-                                                                                                  ## core)
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## GL_ARB_vertex_type_2_10_10_10_rev
-                                                                                                  ## (added
-                                                                                                  ## to
-                                                                                                  ## OpenGL
-                                                                                                  ## 3.3
-                                                                                                  ## core)
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## OpenGL
-                                                                                                  ## 3.3
-                                                                                                  ## additives
-                                                                                                  ## to
-                                                                                                  ## 3.2
+  OpenGlTmplCore33*[TheBaseClassT] {.importcpp: "OpenGl_TmplCore33<\'0>",
+                                    header: "OpenGl_GlCore33.hxx", bycopy.} = object of TheBaseClassT ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## GL_ARB_sampler_objects
+                                                                                               ## (added
+                                                                                               ## to
+                                                                                               ## OpenGL
+                                                                                               ## 3.3
+                                                                                               ## core)
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## GL_ARB_timer_query
+                                                                                               ## (added
+                                                                                               ## to
+                                                                                               ## OpenGL
+                                                                                               ## 3.3
+                                                                                               ## core)
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## GL_ARB_vertex_type_2_10_10_10_rev
+                                                                                               ## (added
+                                                                                               ## to
+                                                                                               ## OpenGL
+                                                                                               ## 3.3
+                                                                                               ## core)
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## OpenGL
+                                                                                               ## 3.3
+                                                                                               ## additives
+                                                                                               ## to
+                                                                                               ## 3.2
 
 
 ## !!!Ignored construct:  # ! defined ( GL_ES_VERSION_2_0 ) [NewLine] public : ! @name GL_ARB_blend_func_extended (added to OpenGL 3.3 core) using theBaseClass_t :: glBindFragDataLocationIndexed ;
@@ -117,9 +114,10 @@ type
 ## ! OpenGL 3.3 compatibility profile.
 
 type
-  OpenGl_GlCore33Back* = OpenGl_TmplCore33[OpenGl_GlCore32Back]
+  OpenGlGlCore33Back* = OpenGlTmplCore33[OpenGlGlCore32Back]
 
 ## ! OpenGL 3.3 core profile.
 
 type
-  OpenGl_GlCore33* = OpenGl_TmplCore33[OpenGl_GlCore32]
+  OpenGlGlCore33* = OpenGlTmplCore33[OpenGlGlCore32]
+

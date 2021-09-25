@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  IntPatch_SequenceOfLine, ../Standard/Standard_Real,
-  ../IntSurf/IntSurf_ListOfPntOn2S, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Adaptor3d_HSurface"
@@ -29,124 +23,110 @@ discard "forward decl of IntPatch_Line"
 discard "forward decl of IntPatch_PrmPrmIntersection_T3Bits"
 discard "forward decl of IntSurf_LineOn2S"
 type
-  IntPatch_PrmPrmIntersection* {.importcpp: "IntPatch_PrmPrmIntersection",
-                                header: "IntPatch_PrmPrmIntersection.hxx", bycopy.} = object ##
-                                                                                        ## !
-                                                                                        ## Empty
-                                                                                        ## Constructor
+  IntPatchPrmPrmIntersection* {.importcpp: "IntPatch_PrmPrmIntersection",
+                               header: "IntPatch_PrmPrmIntersection.hxx", bycopy.} = object ##
+                                                                                       ## !
+                                                                                       ## Empty
+                                                                                       ## Constructor
 
 
-proc constructIntPatch_PrmPrmIntersection*(): IntPatch_PrmPrmIntersection {.
+proc constructIntPatchPrmPrmIntersection*(): IntPatchPrmPrmIntersection {.
     constructor, importcpp: "IntPatch_PrmPrmIntersection(@)",
     header: "IntPatch_PrmPrmIntersection.hxx".}
-proc Perform*(this: var IntPatch_PrmPrmIntersection;
-             Caro1: handle[Adaptor3d_HSurface]; Polyhedron1: IntPatch_Polyhedron;
-             Domain1: handle[Adaptor3d_TopolTool];
-             Caro2: handle[Adaptor3d_HSurface]; Polyhedron2: IntPatch_Polyhedron;
-             Domain2: handle[Adaptor3d_TopolTool]; TolTangency: Standard_Real;
-             Epsilon: Standard_Real; Deflection: Standard_Real;
-             Increment: Standard_Real) {.importcpp: "Perform", header: "IntPatch_PrmPrmIntersection.hxx".}
-proc Perform*(this: var IntPatch_PrmPrmIntersection;
-             Caro1: handle[Adaptor3d_HSurface]; Polyhedron1: IntPatch_Polyhedron;
-             Domain1: handle[Adaptor3d_TopolTool]; TolTangency: Standard_Real;
-             Epsilon: Standard_Real; Deflection: Standard_Real;
-             Increment: Standard_Real) {.importcpp: "Perform", header: "IntPatch_PrmPrmIntersection.hxx".}
-proc Perform*(this: var IntPatch_PrmPrmIntersection;
-             Caro1: handle[Adaptor3d_HSurface];
-             Domain1: handle[Adaptor3d_TopolTool];
-             Caro2: handle[Adaptor3d_HSurface];
-             Domain2: handle[Adaptor3d_TopolTool]; TolTangency: Standard_Real;
-             Epsilon: Standard_Real; Deflection: Standard_Real;
-             Increment: Standard_Real; ClearFlag: Standard_Boolean = Standard_True) {.
+proc perform*(this: var IntPatchPrmPrmIntersection;
+             caro1: Handle[Adaptor3dHSurface]; polyhedron1: IntPatchPolyhedron;
+             domain1: Handle[Adaptor3dTopolTool];
+             caro2: Handle[Adaptor3dHSurface]; polyhedron2: IntPatchPolyhedron;
+             domain2: Handle[Adaptor3dTopolTool]; tolTangency: float;
+             epsilon: float; deflection: float; increment: float) {.
     importcpp: "Perform", header: "IntPatch_PrmPrmIntersection.hxx".}
-proc Perform*(this: var IntPatch_PrmPrmIntersection;
-             Caro1: handle[Adaptor3d_HSurface];
-             Domain1: handle[Adaptor3d_TopolTool];
-             Caro2: handle[Adaptor3d_HSurface];
-             Domain2: handle[Adaptor3d_TopolTool]; TolTangency: Standard_Real;
-             Epsilon: Standard_Real; Deflection: Standard_Real;
-             Increment: Standard_Real; ListOfPnts: var IntSurf_ListOfPntOn2S) {.
+proc perform*(this: var IntPatchPrmPrmIntersection;
+             caro1: Handle[Adaptor3dHSurface]; polyhedron1: IntPatchPolyhedron;
+             domain1: Handle[Adaptor3dTopolTool]; tolTangency: float;
+             epsilon: float; deflection: float; increment: float) {.
     importcpp: "Perform", header: "IntPatch_PrmPrmIntersection.hxx".}
-proc Perform*(this: var IntPatch_PrmPrmIntersection;
-             Caro1: handle[Adaptor3d_HSurface];
-             Domain1: handle[Adaptor3d_TopolTool];
-             Caro2: handle[Adaptor3d_HSurface];
-             Domain2: handle[Adaptor3d_TopolTool]; U1: Standard_Real;
-             V1: Standard_Real; U2: Standard_Real; V2: Standard_Real;
-             TolTangency: Standard_Real; Epsilon: Standard_Real;
-             Deflection: Standard_Real; Increment: Standard_Real) {.
+proc perform*(this: var IntPatchPrmPrmIntersection;
+             caro1: Handle[Adaptor3dHSurface];
+             domain1: Handle[Adaptor3dTopolTool];
+             caro2: Handle[Adaptor3dHSurface];
+             domain2: Handle[Adaptor3dTopolTool]; tolTangency: float;
+             epsilon: float; deflection: float; increment: float;
+             clearFlag: bool = true) {.importcpp: "Perform",
+                                   header: "IntPatch_PrmPrmIntersection.hxx".}
+proc perform*(this: var IntPatchPrmPrmIntersection;
+             caro1: Handle[Adaptor3dHSurface];
+             domain1: Handle[Adaptor3dTopolTool];
+             caro2: Handle[Adaptor3dHSurface];
+             domain2: Handle[Adaptor3dTopolTool]; tolTangency: float;
+             epsilon: float; deflection: float; increment: float;
+             listOfPnts: var IntSurfListOfPntOn2S) {.importcpp: "Perform",
+    header: "IntPatch_PrmPrmIntersection.hxx".}
+proc perform*(this: var IntPatchPrmPrmIntersection;
+             caro1: Handle[Adaptor3dHSurface];
+             domain1: Handle[Adaptor3dTopolTool];
+             caro2: Handle[Adaptor3dHSurface];
+             domain2: Handle[Adaptor3dTopolTool]; u1: float; v1: float; u2: float;
+             v2: float; tolTangency: float; epsilon: float; deflection: float;
+             increment: float) {.importcpp: "Perform",
+                               header: "IntPatch_PrmPrmIntersection.hxx".}
+proc perform*(this: var IntPatchPrmPrmIntersection;
+             caro1: Handle[Adaptor3dHSurface];
+             domain1: Handle[Adaptor3dTopolTool]; tolTangency: float;
+             epsilon: float; deflection: float; increment: float) {.
     importcpp: "Perform", header: "IntPatch_PrmPrmIntersection.hxx".}
-proc Perform*(this: var IntPatch_PrmPrmIntersection;
-             Caro1: handle[Adaptor3d_HSurface];
-             Domain1: handle[Adaptor3d_TopolTool]; TolTangency: Standard_Real;
-             Epsilon: Standard_Real; Deflection: Standard_Real;
-             Increment: Standard_Real) {.importcpp: "Perform", header: "IntPatch_PrmPrmIntersection.hxx".}
-proc Perform*(this: var IntPatch_PrmPrmIntersection;
-             Caro1: handle[Adaptor3d_HSurface];
-             Domain1: handle[Adaptor3d_TopolTool];
-             Caro2: handle[Adaptor3d_HSurface]; Polyhedron2: IntPatch_Polyhedron;
-             Domain2: handle[Adaptor3d_TopolTool]; TolTangency: Standard_Real;
-             Epsilon: Standard_Real; Deflection: Standard_Real;
-             Increment: Standard_Real) {.importcpp: "Perform", header: "IntPatch_PrmPrmIntersection.hxx".}
-proc Perform*(this: var IntPatch_PrmPrmIntersection;
-             Caro1: handle[Adaptor3d_HSurface]; Polyhedron1: IntPatch_Polyhedron;
-             Domain1: handle[Adaptor3d_TopolTool];
-             Caro2: handle[Adaptor3d_HSurface];
-             Domain2: handle[Adaptor3d_TopolTool]; TolTangency: Standard_Real;
-             Epsilon: Standard_Real; Deflection: Standard_Real;
-             Increment: Standard_Real) {.importcpp: "Perform", header: "IntPatch_PrmPrmIntersection.hxx".}
-proc IsDone*(this: IntPatch_PrmPrmIntersection): Standard_Boolean {.noSideEffect,
+proc perform*(this: var IntPatchPrmPrmIntersection;
+             caro1: Handle[Adaptor3dHSurface];
+             domain1: Handle[Adaptor3dTopolTool];
+             caro2: Handle[Adaptor3dHSurface]; polyhedron2: IntPatchPolyhedron;
+             domain2: Handle[Adaptor3dTopolTool]; tolTangency: float;
+             epsilon: float; deflection: float; increment: float) {.
+    importcpp: "Perform", header: "IntPatch_PrmPrmIntersection.hxx".}
+proc perform*(this: var IntPatchPrmPrmIntersection;
+             caro1: Handle[Adaptor3dHSurface]; polyhedron1: IntPatchPolyhedron;
+             domain1: Handle[Adaptor3dTopolTool];
+             caro2: Handle[Adaptor3dHSurface];
+             domain2: Handle[Adaptor3dTopolTool]; tolTangency: float;
+             epsilon: float; deflection: float; increment: float) {.
+    importcpp: "Perform", header: "IntPatch_PrmPrmIntersection.hxx".}
+proc isDone*(this: IntPatchPrmPrmIntersection): bool {.noSideEffect,
     importcpp: "IsDone", header: "IntPatch_PrmPrmIntersection.hxx".}
-proc IsEmpty*(this: IntPatch_PrmPrmIntersection): Standard_Boolean {.noSideEffect,
+proc isEmpty*(this: IntPatchPrmPrmIntersection): bool {.noSideEffect,
     importcpp: "IsEmpty", header: "IntPatch_PrmPrmIntersection.hxx".}
-proc NbLines*(this: IntPatch_PrmPrmIntersection): Standard_Integer {.noSideEffect,
+proc nbLines*(this: IntPatchPrmPrmIntersection): int {.noSideEffect,
     importcpp: "NbLines", header: "IntPatch_PrmPrmIntersection.hxx".}
-proc Line*(this: IntPatch_PrmPrmIntersection; Index: Standard_Integer): handle[
-    IntPatch_Line] {.noSideEffect, importcpp: "Line",
-                    header: "IntPatch_PrmPrmIntersection.hxx".}
-proc NewLine*(this: IntPatch_PrmPrmIntersection; Caro1: handle[Adaptor3d_HSurface];
-             Caro2: handle[Adaptor3d_HSurface]; IndexLine: Standard_Integer;
-             LowPoint: Standard_Integer; HighPoint: Standard_Integer;
-             NbPoints: Standard_Integer): handle[IntPatch_Line] {.noSideEffect,
+proc line*(this: IntPatchPrmPrmIntersection; index: int): Handle[IntPatchLine] {.
+    noSideEffect, importcpp: "Line", header: "IntPatch_PrmPrmIntersection.hxx".}
+proc newLine*(this: IntPatchPrmPrmIntersection; caro1: Handle[Adaptor3dHSurface];
+             caro2: Handle[Adaptor3dHSurface]; indexLine: int; lowPoint: int;
+             highPoint: int; nbPoints: int): Handle[IntPatchLine] {.noSideEffect,
     importcpp: "NewLine", header: "IntPatch_PrmPrmIntersection.hxx".}
-proc GrilleInteger*(this: IntPatch_PrmPrmIntersection; ix: Standard_Integer;
-                   iy: Standard_Integer; iz: Standard_Integer): Standard_Integer {.
+proc grilleInteger*(this: IntPatchPrmPrmIntersection; ix: int; iy: int; iz: int): int {.
     noSideEffect, importcpp: "GrilleInteger",
     header: "IntPatch_PrmPrmIntersection.hxx".}
-proc IntegerGrille*(this: IntPatch_PrmPrmIntersection; t: Standard_Integer;
-                   ix: var Standard_Integer; iy: var Standard_Integer;
-                   iz: var Standard_Integer) {.noSideEffect,
-    importcpp: "IntegerGrille", header: "IntPatch_PrmPrmIntersection.hxx".}
-proc DansGrille*(this: IntPatch_PrmPrmIntersection; t: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "DansGrille",
+proc integerGrille*(this: IntPatchPrmPrmIntersection; t: int; ix: var int; iy: var int;
+                   iz: var int) {.noSideEffect, importcpp: "IntegerGrille",
+                               header: "IntPatch_PrmPrmIntersection.hxx".}
+proc dansGrille*(this: IntPatchPrmPrmIntersection; t: int): int {.noSideEffect,
+    importcpp: "DansGrille", header: "IntPatch_PrmPrmIntersection.hxx".}
+proc nbPointsGrille*(this: IntPatchPrmPrmIntersection): int {.noSideEffect,
+    importcpp: "NbPointsGrille", header: "IntPatch_PrmPrmIntersection.hxx".}
+proc remplitLin*(this: IntPatchPrmPrmIntersection; x1: int; y1: int; z1: int; x2: int;
+                y2: int; z2: int; map: var IntPatchPrmPrmIntersectionT3Bits) {.
+    noSideEffect, importcpp: "RemplitLin",
     header: "IntPatch_PrmPrmIntersection.hxx".}
-proc NbPointsGrille*(this: IntPatch_PrmPrmIntersection): Standard_Integer {.
-    noSideEffect, importcpp: "NbPointsGrille",
-    header: "IntPatch_PrmPrmIntersection.hxx".}
-proc RemplitLin*(this: IntPatch_PrmPrmIntersection; x1: Standard_Integer;
-                y1: Standard_Integer; z1: Standard_Integer; x2: Standard_Integer;
-                y2: Standard_Integer; z2: Standard_Integer;
-                Map: var IntPatch_PrmPrmIntersection_T3Bits) {.noSideEffect,
-    importcpp: "RemplitLin", header: "IntPatch_PrmPrmIntersection.hxx".}
-proc RemplitTri*(this: IntPatch_PrmPrmIntersection; x1: Standard_Integer;
-                y1: Standard_Integer; z1: Standard_Integer; x2: Standard_Integer;
-                y2: Standard_Integer; z2: Standard_Integer; x3: Standard_Integer;
-                y3: Standard_Integer; z3: Standard_Integer;
-                Map: var IntPatch_PrmPrmIntersection_T3Bits) {.noSideEffect,
+proc remplitTri*(this: IntPatchPrmPrmIntersection; x1: int; y1: int; z1: int; x2: int;
+                y2: int; z2: int; x3: int; y3: int; z3: int;
+                map: var IntPatchPrmPrmIntersectionT3Bits) {.noSideEffect,
     importcpp: "RemplitTri", header: "IntPatch_PrmPrmIntersection.hxx".}
-proc Remplit*(this: IntPatch_PrmPrmIntersection; a: Standard_Integer;
-             b: Standard_Integer; c: Standard_Integer;
-             Map: var IntPatch_PrmPrmIntersection_T3Bits) {.noSideEffect,
+proc remplit*(this: IntPatchPrmPrmIntersection; a: int; b: int; c: int;
+             map: var IntPatchPrmPrmIntersectionT3Bits) {.noSideEffect,
     importcpp: "Remplit", header: "IntPatch_PrmPrmIntersection.hxx".}
-proc CodeReject*(this: IntPatch_PrmPrmIntersection; x1: Standard_Real;
-                y1: Standard_Real; z1: Standard_Real; x2: Standard_Real;
-                y2: Standard_Real; z2: Standard_Real; x3: Standard_Real;
-                y3: Standard_Real; z3: Standard_Real): Standard_Integer {.
+proc codeReject*(this: IntPatchPrmPrmIntersection; x1: float; y1: float; z1: float;
+                x2: float; y2: float; z2: float; x3: float; y3: float; z3: float): int {.
     noSideEffect, importcpp: "CodeReject",
     header: "IntPatch_PrmPrmIntersection.hxx".}
-proc PointDepart*(this: IntPatch_PrmPrmIntersection;
-                 LineOn2S: var handle[IntSurf_LineOn2S];
-                 S1: handle[Adaptor3d_HSurface]; SU1: Standard_Integer;
-                 SV1: Standard_Integer; S2: handle[Adaptor3d_HSurface];
-                 SU2: Standard_Integer; SV2: Standard_Integer) {.noSideEffect,
+proc pointDepart*(this: IntPatchPrmPrmIntersection;
+                 lineOn2S: var Handle[IntSurfLineOn2S];
+                 s1: Handle[Adaptor3dHSurface]; su1: int; sv1: int;
+                 s2: Handle[Adaptor3dHSurface]; su2: int; sv2: int) {.noSideEffect,
     importcpp: "PointDepart", header: "IntPatch_PrmPrmIntersection.hxx".}

@@ -13,51 +13,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_XYZ, Poly_CoherentTriPtr, ../Precision/Precision
-
 discard "forward decl of NCollection_BaseAllocator"
 type
-  Poly_CoherentNode* {.importcpp: "Poly_CoherentNode",
-                      header: "Poly_CoherentNode.hxx", bycopy.} = object of gp_XYZ ##  ---------- PUBLIC METHODS ----------
-                                                                            ## *
-                                                                            ##  Empty constructor.
-                                                                            ##
-                                                                            ##  ---------- PROTECTED METHODS ----------
-                                                                            ##  ---------- PRIVATE FIELDS ----------
+  PolyCoherentNode* {.importcpp: "Poly_CoherentNode",
+                     header: "Poly_CoherentNode.hxx", bycopy.} = object of Xyz ##  ---------- PUBLIC METHODS ----------
+                                                                        ## *
+                                                                        ##  Empty constructor.
+                                                                        ##
+                                                                        ##  ---------- PROTECTED METHODS ----------
+                                                                        ##  ---------- PRIVATE FIELDS ----------
 
 
-proc constructPoly_CoherentNode*(): Poly_CoherentNode {.constructor,
+proc constructPolyCoherentNode*(): PolyCoherentNode {.constructor,
     importcpp: "Poly_CoherentNode(@)", header: "Poly_CoherentNode.hxx".}
-proc constructPoly_CoherentNode*(thePnt: gp_XYZ): Poly_CoherentNode {.constructor,
+proc constructPolyCoherentNode*(thePnt: Xyz): PolyCoherentNode {.constructor,
     importcpp: "Poly_CoherentNode(@)", header: "Poly_CoherentNode.hxx".}
-proc SetUV*(this: var Poly_CoherentNode; theU: Standard_Real; theV: Standard_Real) {.
-    importcpp: "SetUV", header: "Poly_CoherentNode.hxx".}
-proc GetU*(this: Poly_CoherentNode): Standard_Real {.noSideEffect, importcpp: "GetU",
+proc setUV*(this: var PolyCoherentNode; theU: float; theV: float) {.importcpp: "SetUV",
     header: "Poly_CoherentNode.hxx".}
-proc GetV*(this: Poly_CoherentNode): Standard_Real {.noSideEffect, importcpp: "GetV",
+proc getU*(this: PolyCoherentNode): float {.noSideEffect, importcpp: "GetU",
+                                        header: "Poly_CoherentNode.hxx".}
+proc getV*(this: PolyCoherentNode): float {.noSideEffect, importcpp: "GetV",
+                                        header: "Poly_CoherentNode.hxx".}
+proc setNormal*(this: var PolyCoherentNode; theVector: Xyz) {.importcpp: "SetNormal",
     header: "Poly_CoherentNode.hxx".}
-proc SetNormal*(this: var Poly_CoherentNode; theVector: gp_XYZ) {.
-    importcpp: "SetNormal", header: "Poly_CoherentNode.hxx".}
-proc HasNormal*(this: Poly_CoherentNode): Standard_Boolean {.noSideEffect,
-    importcpp: "HasNormal", header: "Poly_CoherentNode.hxx".}
-proc GetNormal*(this: Poly_CoherentNode): gp_XYZ {.noSideEffect,
-    importcpp: "GetNormal", header: "Poly_CoherentNode.hxx".}
-proc SetIndex*(this: var Poly_CoherentNode; theIndex: Standard_Integer) {.
-    importcpp: "SetIndex", header: "Poly_CoherentNode.hxx".}
-proc GetIndex*(this: Poly_CoherentNode): Standard_Integer {.noSideEffect,
-    importcpp: "GetIndex", header: "Poly_CoherentNode.hxx".}
-proc IsFreeNode*(this: Poly_CoherentNode): Standard_Boolean {.noSideEffect,
+proc hasNormal*(this: PolyCoherentNode): bool {.noSideEffect, importcpp: "HasNormal",
+    header: "Poly_CoherentNode.hxx".}
+proc getNormal*(this: PolyCoherentNode): Xyz {.noSideEffect, importcpp: "GetNormal",
+    header: "Poly_CoherentNode.hxx".}
+proc setIndex*(this: var PolyCoherentNode; theIndex: int) {.importcpp: "SetIndex",
+    header: "Poly_CoherentNode.hxx".}
+proc getIndex*(this: PolyCoherentNode): int {.noSideEffect, importcpp: "GetIndex",
+    header: "Poly_CoherentNode.hxx".}
+proc isFreeNode*(this: PolyCoherentNode): bool {.noSideEffect,
     importcpp: "IsFreeNode", header: "Poly_CoherentNode.hxx".}
-proc Clear*(this: var Poly_CoherentNode; a2: handle[NCollection_BaseAllocator]) {.
+proc clear*(this: var PolyCoherentNode; a2: Handle[NCollectionBaseAllocator]) {.
     importcpp: "Clear", header: "Poly_CoherentNode.hxx".}
-proc AddTriangle*(this: var Poly_CoherentNode; theTri: Poly_CoherentTriangle;
-                 theA: handle[NCollection_BaseAllocator]) {.
+proc addTriangle*(this: var PolyCoherentNode; theTri: PolyCoherentTriangle;
+                 theA: Handle[NCollectionBaseAllocator]) {.
     importcpp: "AddTriangle", header: "Poly_CoherentNode.hxx".}
-proc RemoveTriangle*(this: var Poly_CoherentNode; theTri: Poly_CoherentTriangle;
-                    theA: handle[NCollection_BaseAllocator]): Standard_Boolean {.
+proc removeTriangle*(this: var PolyCoherentNode; theTri: PolyCoherentTriangle;
+                    theA: Handle[NCollectionBaseAllocator]): bool {.
     importcpp: "RemoveTriangle", header: "Poly_CoherentNode.hxx".}
-proc TriangleIterator*(this: Poly_CoherentNode): Iterator {.noSideEffect,
+proc triangleIterator*(this: PolyCoherentNode): Iterator {.noSideEffect,
     importcpp: "TriangleIterator", header: "Poly_CoherentNode.hxx".}
-proc Dump*(this: Poly_CoherentNode; theStream: var Standard_OStream) {.noSideEffect,
+proc dump*(this: PolyCoherentNode; theStream: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "Poly_CoherentNode.hxx".}

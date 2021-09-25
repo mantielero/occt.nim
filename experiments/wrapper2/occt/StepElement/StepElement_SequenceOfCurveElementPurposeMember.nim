@@ -11,9 +11,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepElement_CurveElementPurposeMember, ../NCollection/NCollection_Sequence
-
 type
-  StepElement_SequenceOfCurveElementPurposeMember* = NCollection_Sequence[
-      handle[StepElement_CurveElementPurposeMember]]
+  StepElementSequenceOfCurveElementPurposeMember* = NCollectionSequence[
+      Handle[StepElementCurveElementPurposeMember]]
+

@@ -14,40 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TopOpeBRep_LineInter, TopOpeBRep_Array1OfLineInter,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  TopOpeBRep_HArray1OfLineInter* {.importcpp: "TopOpeBRep_HArray1OfLineInter",
-                                  header: "TopOpeBRep_HArray1OfLineInter.hxx",
-                                  bycopy.} = object of TopOpeBRep_Array1OfLineInter
+  TopOpeBRepHArray1OfLineInter* {.importcpp: "TopOpeBRep_HArray1OfLineInter",
+                                 header: "TopOpeBRep_HArray1OfLineInter.hxx",
+                                 bycopy.} = object of TopOpeBRepArray1OfLineInter
 
 
-proc constructTopOpeBRep_HArray1OfLineInter*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): TopOpeBRep_HArray1OfLineInter {.constructor,
+proc constructTopOpeBRepHArray1OfLineInter*(theLower: int; theUpper: int): TopOpeBRepHArray1OfLineInter {.
+    constructor, importcpp: "TopOpeBRep_HArray1OfLineInter(@)",
+    header: "TopOpeBRep_HArray1OfLineInter.hxx".}
+proc constructTopOpeBRepHArray1OfLineInter*(theLower: int; theUpper: int;
+    theValue: ValueType): TopOpeBRepHArray1OfLineInter {.constructor,
     importcpp: "TopOpeBRep_HArray1OfLineInter(@)",
     header: "TopOpeBRep_HArray1OfLineInter.hxx".}
-proc constructTopOpeBRep_HArray1OfLineInter*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): TopOpeBRep_HArray1OfLineInter {.
+proc constructTopOpeBRepHArray1OfLineInter*(theOther: TopOpeBRepArray1OfLineInter): TopOpeBRepHArray1OfLineInter {.
     constructor, importcpp: "TopOpeBRep_HArray1OfLineInter(@)",
     header: "TopOpeBRep_HArray1OfLineInter.hxx".}
-proc constructTopOpeBRep_HArray1OfLineInter*(
-    theOther: TopOpeBRep_Array1OfLineInter): TopOpeBRep_HArray1OfLineInter {.
-    constructor, importcpp: "TopOpeBRep_HArray1OfLineInter(@)",
-    header: "TopOpeBRep_HArray1OfLineInter.hxx".}
-proc Array1*(this: TopOpeBRep_HArray1OfLineInter): TopOpeBRep_Array1OfLineInter {.
+proc array1*(this: TopOpeBRepHArray1OfLineInter): TopOpeBRepArray1OfLineInter {.
     noSideEffect, importcpp: "Array1", header: "TopOpeBRep_HArray1OfLineInter.hxx".}
-proc ChangeArray1*(this: var TopOpeBRep_HArray1OfLineInter): var TopOpeBRep_Array1OfLineInter {.
+proc changeArray1*(this: var TopOpeBRepHArray1OfLineInter): var TopOpeBRepArray1OfLineInter {.
     importcpp: "ChangeArray1", header: "TopOpeBRep_HArray1OfLineInter.hxx".}
 type
-  TopOpeBRep_HArray1OfLineInterbase_type* = MMgt_TShared
+  TopOpeBRepHArray1OfLineInterbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TopOpeBRep_HArray1OfLineInter::get_type_name(@)",
-                              header: "TopOpeBRep_HArray1OfLineInter.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TopOpeBRep_HArray1OfLineInter::get_type_name(@)",
+                            header: "TopOpeBRep_HArray1OfLineInter.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopOpeBRep_HArray1OfLineInter::get_type_descriptor(@)",
     header: "TopOpeBRep_HArray1OfLineInter.hxx".}
-proc DynamicType*(this: TopOpeBRep_HArray1OfLineInter): handle[Standard_Type] {.
+proc dynamicType*(this: TopOpeBRepHArray1OfLineInter): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TopOpeBRep_HArray1OfLineInter.hxx".}

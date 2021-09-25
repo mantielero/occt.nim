@@ -13,40 +13,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  MeshVS_DataMapOfHArray1OfSequenceOfInteger, MeshVS_DataSource,
-  MeshVS_HArray1OfSequenceOfInteger, ../Standard/Standard_Integer
-
 discard "forward decl of MeshVS_DataSource3D"
 discard "forward decl of MeshVS_DataSource3D"
 type
-  Handle_MeshVS_DataSource3D* = handle[MeshVS_DataSource3D]
+  HandleMeshVS_DataSource3D* = Handle[MeshVS_DataSource3D]
   MeshVS_DataSource3D* {.importcpp: "MeshVS_DataSource3D",
                         header: "MeshVS_DataSource3D.hxx", bycopy.} = object of MeshVS_DataSource
 
 
-proc GetPrismTopology*(this: MeshVS_DataSource3D; BasePoints: Standard_Integer): handle[
+proc getPrismTopology*(this: MeshVS_DataSource3D; basePoints: int): Handle[
     MeshVS_HArray1OfSequenceOfInteger] {.noSideEffect,
                                         importcpp: "GetPrismTopology",
                                         header: "MeshVS_DataSource3D.hxx".}
-proc GetPyramidTopology*(this: MeshVS_DataSource3D; BasePoints: Standard_Integer): handle[
+proc getPyramidTopology*(this: MeshVS_DataSource3D; basePoints: int): Handle[
     MeshVS_HArray1OfSequenceOfInteger] {.noSideEffect,
                                         importcpp: "GetPyramidTopology",
                                         header: "MeshVS_DataSource3D.hxx".}
-proc CreatePrismTopology*(BasePoints: Standard_Integer): handle[
+proc createPrismTopology*(basePoints: int): Handle[
     MeshVS_HArray1OfSequenceOfInteger] {.importcpp: "MeshVS_DataSource3D::CreatePrismTopology(@)",
                                         header: "MeshVS_DataSource3D.hxx".}
-proc CreatePyramidTopology*(BasePoints: Standard_Integer): handle[
+proc createPyramidTopology*(basePoints: int): Handle[
     MeshVS_HArray1OfSequenceOfInteger] {.importcpp: "MeshVS_DataSource3D::CreatePyramidTopology(@)",
                                         header: "MeshVS_DataSource3D.hxx".}
 type
-  MeshVS_DataSource3Dbase_type* = MeshVS_DataSource
+  MeshVS_DataSource3DbaseType* = MeshVS_DataSource
 
-proc get_type_name*(): cstring {.importcpp: "MeshVS_DataSource3D::get_type_name(@)",
-                              header: "MeshVS_DataSource3D.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "MeshVS_DataSource3D::get_type_name(@)",
+                            header: "MeshVS_DataSource3D.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "MeshVS_DataSource3D::get_type_descriptor(@)",
     header: "MeshVS_DataSource3D.hxx".}
-proc DynamicType*(this: MeshVS_DataSource3D): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: MeshVS_DataSource3D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MeshVS_DataSource3D.hxx".}

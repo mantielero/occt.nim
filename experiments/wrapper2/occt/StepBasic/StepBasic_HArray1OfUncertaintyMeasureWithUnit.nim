@@ -14,41 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepBasic_UncertaintyMeasureWithUnit,
-  StepBasic_Array1OfUncertaintyMeasureWithUnit,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepBasic_HArray1OfUncertaintyMeasureWithUnit* {.
+  StepBasicHArray1OfUncertaintyMeasureWithUnit* {.
       importcpp: "StepBasic_HArray1OfUncertaintyMeasureWithUnit",
-      header: "StepBasic_HArray1OfUncertaintyMeasureWithUnit.hxx", bycopy.} = object of StepBasic_Array1OfUncertaintyMeasureWithUnit
+      header: "StepBasic_HArray1OfUncertaintyMeasureWithUnit.hxx", bycopy.} = object of StepBasicArray1OfUncertaintyMeasureWithUnit
 
 
-proc constructStepBasic_HArray1OfUncertaintyMeasureWithUnit*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepBasic_HArray1OfUncertaintyMeasureWithUnit {.
+proc constructStepBasicHArray1OfUncertaintyMeasureWithUnit*(theLower: int;
+    theUpper: int): StepBasicHArray1OfUncertaintyMeasureWithUnit {.constructor,
+    importcpp: "StepBasic_HArray1OfUncertaintyMeasureWithUnit(@)",
+    header: "StepBasic_HArray1OfUncertaintyMeasureWithUnit.hxx".}
+proc constructStepBasicHArray1OfUncertaintyMeasureWithUnit*(theLower: int;
+    theUpper: int; theValue: ValueType): StepBasicHArray1OfUncertaintyMeasureWithUnit {.
     constructor, importcpp: "StepBasic_HArray1OfUncertaintyMeasureWithUnit(@)",
     header: "StepBasic_HArray1OfUncertaintyMeasureWithUnit.hxx".}
-proc constructStepBasic_HArray1OfUncertaintyMeasureWithUnit*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepBasic_HArray1OfUncertaintyMeasureWithUnit {.
+proc constructStepBasicHArray1OfUncertaintyMeasureWithUnit*(
+    theOther: StepBasicArray1OfUncertaintyMeasureWithUnit): StepBasicHArray1OfUncertaintyMeasureWithUnit {.
     constructor, importcpp: "StepBasic_HArray1OfUncertaintyMeasureWithUnit(@)",
     header: "StepBasic_HArray1OfUncertaintyMeasureWithUnit.hxx".}
-proc constructStepBasic_HArray1OfUncertaintyMeasureWithUnit*(
-    theOther: StepBasic_Array1OfUncertaintyMeasureWithUnit): StepBasic_HArray1OfUncertaintyMeasureWithUnit {.
-    constructor, importcpp: "StepBasic_HArray1OfUncertaintyMeasureWithUnit(@)",
-    header: "StepBasic_HArray1OfUncertaintyMeasureWithUnit.hxx".}
-proc Array1*(this: StepBasic_HArray1OfUncertaintyMeasureWithUnit): StepBasic_Array1OfUncertaintyMeasureWithUnit {.
+proc array1*(this: StepBasicHArray1OfUncertaintyMeasureWithUnit): StepBasicArray1OfUncertaintyMeasureWithUnit {.
     noSideEffect, importcpp: "Array1",
     header: "StepBasic_HArray1OfUncertaintyMeasureWithUnit.hxx".}
-proc ChangeArray1*(this: var StepBasic_HArray1OfUncertaintyMeasureWithUnit): var StepBasic_Array1OfUncertaintyMeasureWithUnit {.
+proc changeArray1*(this: var StepBasicHArray1OfUncertaintyMeasureWithUnit): var StepBasicArray1OfUncertaintyMeasureWithUnit {.
     importcpp: "ChangeArray1",
     header: "StepBasic_HArray1OfUncertaintyMeasureWithUnit.hxx".}
 type
-  StepBasic_HArray1OfUncertaintyMeasureWithUnitbase_type* = MMgt_TShared
+  StepBasicHArray1OfUncertaintyMeasureWithUnitbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_HArray1OfUncertaintyMeasureWithUnit::get_type_name(@)", header: "StepBasic_HArray1OfUncertaintyMeasureWithUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepBasic_HArray1OfUncertaintyMeasureWithUnit::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepBasic_HArray1OfUncertaintyMeasureWithUnit::get_type_name(@)", header: "StepBasic_HArray1OfUncertaintyMeasureWithUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_HArray1OfUncertaintyMeasureWithUnit::get_type_descriptor(@)",
     header: "StepBasic_HArray1OfUncertaintyMeasureWithUnit.hxx".}
-proc DynamicType*(this: StepBasic_HArray1OfUncertaintyMeasureWithUnit): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepBasic_HArray1OfUncertaintyMeasureWithUnit.hxx".}
+proc dynamicType*(this: StepBasicHArray1OfUncertaintyMeasureWithUnit): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepBasic_HArray1OfUncertaintyMeasureWithUnit.hxx".}

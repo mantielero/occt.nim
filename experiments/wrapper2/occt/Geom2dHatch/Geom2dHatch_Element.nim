@@ -14,27 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Geom2dAdaptor/Geom2dAdaptor_Curve,
-  ../TopAbs/TopAbs_Orientation
-
 discard "forward decl of Geom2dAdaptor_Curve"
 type
-  Geom2dHatch_Element* {.importcpp: "Geom2dHatch_Element",
-                        header: "Geom2dHatch_Element.hxx", bycopy.} = object
+  Geom2dHatchElement* {.importcpp: "Geom2dHatch_Element",
+                       header: "Geom2dHatch_Element.hxx", bycopy.} = object
 
 
-proc constructGeom2dHatch_Element*(): Geom2dHatch_Element {.constructor,
+proc constructGeom2dHatchElement*(): Geom2dHatchElement {.constructor,
     importcpp: "Geom2dHatch_Element(@)", header: "Geom2dHatch_Element.hxx".}
-proc constructGeom2dHatch_Element*(Curve: Geom2dAdaptor_Curve; Orientation: TopAbs_Orientation = TopAbs_FORWARD): Geom2dHatch_Element {.
+proc constructGeom2dHatchElement*(curve: Geom2dAdaptorCurve;
+                                 orientation: TopAbsOrientation = topAbsFORWARD): Geom2dHatchElement {.
     constructor, importcpp: "Geom2dHatch_Element(@)",
     header: "Geom2dHatch_Element.hxx".}
-proc Curve*(this: Geom2dHatch_Element): Geom2dAdaptor_Curve {.noSideEffect,
+proc curve*(this: Geom2dHatchElement): Geom2dAdaptorCurve {.noSideEffect,
     importcpp: "Curve", header: "Geom2dHatch_Element.hxx".}
-proc ChangeCurve*(this: var Geom2dHatch_Element): var Geom2dAdaptor_Curve {.
+proc changeCurve*(this: var Geom2dHatchElement): var Geom2dAdaptorCurve {.
     importcpp: "ChangeCurve", header: "Geom2dHatch_Element.hxx".}
-proc Orientation*(this: var Geom2dHatch_Element; Orientation: TopAbs_Orientation) {.
+proc orientation*(this: var Geom2dHatchElement; orientation: TopAbsOrientation) {.
     importcpp: "Orientation", header: "Geom2dHatch_Element.hxx".}
-proc Orientation*(this: Geom2dHatch_Element): TopAbs_Orientation {.noSideEffect,
+proc orientation*(this: Geom2dHatchElement): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "Geom2dHatch_Element.hxx".}

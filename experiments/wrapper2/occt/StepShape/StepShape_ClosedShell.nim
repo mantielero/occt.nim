@@ -14,30 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_ConnectedFaceSet
-
 discard "forward decl of StepShape_ClosedShell"
 discard "forward decl of StepShape_ClosedShell"
 type
-  Handle_StepShape_ClosedShell* = handle[StepShape_ClosedShell]
-  StepShape_ClosedShell* {.importcpp: "StepShape_ClosedShell",
-                          header: "StepShape_ClosedShell.hxx", bycopy.} = object of StepShape_ConnectedFaceSet ##
-                                                                                                        ## !
-                                                                                                        ## Returns
-                                                                                                        ## a
-                                                                                                        ## ClosedShell
+  HandleStepShapeClosedShell* = Handle[StepShapeClosedShell]
+  StepShapeClosedShell* {.importcpp: "StepShape_ClosedShell",
+                         header: "StepShape_ClosedShell.hxx", bycopy.} = object of StepShapeConnectedFaceSet ##
+                                                                                                      ## !
+                                                                                                      ## Returns
+                                                                                                      ## a
+                                                                                                      ## ClosedShell
 
 
-proc constructStepShape_ClosedShell*(): StepShape_ClosedShell {.constructor,
+proc constructStepShapeClosedShell*(): StepShapeClosedShell {.constructor,
     importcpp: "StepShape_ClosedShell(@)", header: "StepShape_ClosedShell.hxx".}
 type
-  StepShape_ClosedShellbase_type* = StepShape_ConnectedFaceSet
+  StepShapeClosedShellbaseType* = StepShapeConnectedFaceSet
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_ClosedShell::get_type_name(@)",
-                              header: "StepShape_ClosedShell.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_ClosedShell::get_type_name(@)",
+                            header: "StepShape_ClosedShell.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_ClosedShell::get_type_descriptor(@)",
     header: "StepShape_ClosedShell.hxx".}
-proc DynamicType*(this: StepShape_ClosedShell): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepShape_ClosedShell.hxx".}
+proc dynamicType*(this: StepShapeClosedShell): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepShape_ClosedShell.hxx".}

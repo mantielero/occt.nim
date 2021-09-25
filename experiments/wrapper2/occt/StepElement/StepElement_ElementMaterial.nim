@@ -13,61 +13,56 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepRepr/StepRepr_HArray1OfMaterialPropertyRepresentation,
-  ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepElement_ElementMaterial"
 discard "forward decl of StepElement_ElementMaterial"
 type
-  Handle_StepElement_ElementMaterial* = handle[StepElement_ElementMaterial]
+  HandleStepElementElementMaterial* = Handle[StepElementElementMaterial]
 
 ## ! Representation of STEP entity ElementMaterial
 
 type
-  StepElement_ElementMaterial* {.importcpp: "StepElement_ElementMaterial",
-                                header: "StepElement_ElementMaterial.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                            ## !
-                                                                                                            ## Empty
-                                                                                                            ## constructor
+  StepElementElementMaterial* {.importcpp: "StepElement_ElementMaterial",
+                               header: "StepElement_ElementMaterial.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                          ## !
+                                                                                                          ## Empty
+                                                                                                          ## constructor
 
 
-proc constructStepElement_ElementMaterial*(): StepElement_ElementMaterial {.
+proc constructStepElementElementMaterial*(): StepElementElementMaterial {.
     constructor, importcpp: "StepElement_ElementMaterial(@)",
     header: "StepElement_ElementMaterial.hxx".}
-proc Init*(this: var StepElement_ElementMaterial;
-          aMaterialId: handle[TCollection_HAsciiString];
-          aDescription: handle[TCollection_HAsciiString];
-          aProperties: handle[StepRepr_HArray1OfMaterialPropertyRepresentation]) {.
+proc init*(this: var StepElementElementMaterial;
+          aMaterialId: Handle[TCollectionHAsciiString];
+          aDescription: Handle[TCollectionHAsciiString];
+          aProperties: Handle[StepReprHArray1OfMaterialPropertyRepresentation]) {.
     importcpp: "Init", header: "StepElement_ElementMaterial.hxx".}
-proc MaterialId*(this: StepElement_ElementMaterial): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "MaterialId",
-                               header: "StepElement_ElementMaterial.hxx".}
-proc SetMaterialId*(this: var StepElement_ElementMaterial;
-                   MaterialId: handle[TCollection_HAsciiString]) {.
+proc materialId*(this: StepElementElementMaterial): Handle[TCollectionHAsciiString] {.
+    noSideEffect, importcpp: "MaterialId",
+    header: "StepElement_ElementMaterial.hxx".}
+proc setMaterialId*(this: var StepElementElementMaterial;
+                   materialId: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetMaterialId", header: "StepElement_ElementMaterial.hxx".}
-proc Description*(this: StepElement_ElementMaterial): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description",
-                               header: "StepElement_ElementMaterial.hxx".}
-proc SetDescription*(this: var StepElement_ElementMaterial;
-                    Description: handle[TCollection_HAsciiString]) {.
+proc description*(this: StepElementElementMaterial): Handle[TCollectionHAsciiString] {.
+    noSideEffect, importcpp: "Description",
+    header: "StepElement_ElementMaterial.hxx".}
+proc setDescription*(this: var StepElementElementMaterial;
+                    description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepElement_ElementMaterial.hxx".}
-proc Properties*(this: StepElement_ElementMaterial): handle[
-    StepRepr_HArray1OfMaterialPropertyRepresentation] {.noSideEffect,
+proc properties*(this: StepElementElementMaterial): Handle[
+    StepReprHArray1OfMaterialPropertyRepresentation] {.noSideEffect,
     importcpp: "Properties", header: "StepElement_ElementMaterial.hxx".}
-proc SetProperties*(this: var StepElement_ElementMaterial; Properties: handle[
-    StepRepr_HArray1OfMaterialPropertyRepresentation]) {.
+proc setProperties*(this: var StepElementElementMaterial; properties: Handle[
+    StepReprHArray1OfMaterialPropertyRepresentation]) {.
     importcpp: "SetProperties", header: "StepElement_ElementMaterial.hxx".}
 type
-  StepElement_ElementMaterialbase_type* = Standard_Transient
+  StepElementElementMaterialbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepElement_ElementMaterial::get_type_name(@)",
-                              header: "StepElement_ElementMaterial.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepElement_ElementMaterial::get_type_name(@)",
+                            header: "StepElement_ElementMaterial.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepElement_ElementMaterial::get_type_descriptor(@)",
     header: "StepElement_ElementMaterial.hxx".}
-proc DynamicType*(this: StepElement_ElementMaterial): handle[Standard_Type] {.
+proc dynamicType*(this: StepElementElementMaterial): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_ElementMaterial.hxx".}

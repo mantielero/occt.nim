@@ -14,39 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../IGESData/IGESData_Protocol,
-  ../Standard/Standard_Integer, ../Standard/Standard_Type
-
 discard "forward decl of Interface_Protocol"
 discard "forward decl of IGESBasic_Protocol"
 discard "forward decl of IGESBasic_Protocol"
 type
-  Handle_IGESBasic_Protocol* = handle[IGESBasic_Protocol]
+  HandleIGESBasicProtocol* = Handle[IGESBasicProtocol]
 
 ## ! Description of Protocol for IGESBasic
 
 type
-  IGESBasic_Protocol* {.importcpp: "IGESBasic_Protocol",
-                       header: "IGESBasic_Protocol.hxx", bycopy.} = object of IGESData_Protocol
+  IGESBasicProtocol* {.importcpp: "IGESBasic_Protocol",
+                      header: "IGESBasic_Protocol.hxx", bycopy.} = object of IGESDataProtocol
 
 
-proc constructIGESBasic_Protocol*(): IGESBasic_Protocol {.constructor,
+proc constructIGESBasicProtocol*(): IGESBasicProtocol {.constructor,
     importcpp: "IGESBasic_Protocol(@)", header: "IGESBasic_Protocol.hxx".}
-proc NbResources*(this: IGESBasic_Protocol): Standard_Integer {.noSideEffect,
+proc nbResources*(this: IGESBasicProtocol): int {.noSideEffect,
     importcpp: "NbResources", header: "IGESBasic_Protocol.hxx".}
-proc Resource*(this: IGESBasic_Protocol; num: Standard_Integer): handle[
-    Interface_Protocol] {.noSideEffect, importcpp: "Resource",
-                         header: "IGESBasic_Protocol.hxx".}
-proc TypeNumber*(this: IGESBasic_Protocol; atype: handle[Standard_Type]): Standard_Integer {.
+proc resource*(this: IGESBasicProtocol; num: int): Handle[InterfaceProtocol] {.
+    noSideEffect, importcpp: "Resource", header: "IGESBasic_Protocol.hxx".}
+proc typeNumber*(this: IGESBasicProtocol; atype: Handle[StandardType]): int {.
     noSideEffect, importcpp: "TypeNumber", header: "IGESBasic_Protocol.hxx".}
 type
-  IGESBasic_Protocolbase_type* = IGESData_Protocol
+  IGESBasicProtocolbaseType* = IGESDataProtocol
 
-proc get_type_name*(): cstring {.importcpp: "IGESBasic_Protocol::get_type_name(@)",
-                              header: "IGESBasic_Protocol.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESBasic_Protocol::get_type_name(@)",
+                            header: "IGESBasic_Protocol.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESBasic_Protocol::get_type_descriptor(@)",
     header: "IGESBasic_Protocol.hxx".}
-proc DynamicType*(this: IGESBasic_Protocol): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IGESBasicProtocol): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESBasic_Protocol.hxx".}

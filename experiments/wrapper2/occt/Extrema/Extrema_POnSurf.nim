@@ -14,24 +14,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real, ../gp/gp_Pnt
-
 discard "forward decl of gp_Pnt"
 type
-  Extrema_POnSurf* {.importcpp: "Extrema_POnSurf", header: "Extrema_POnSurf.hxx",
-                    bycopy.} = object ## ! Creation of an indefinite point on surface.
+  ExtremaPOnSurf* {.importcpp: "Extrema_POnSurf", header: "Extrema_POnSurf.hxx",
+                   bycopy.} = object ## ! Creation of an indefinite point on surface.
 
 
-proc constructExtrema_POnSurf*(): Extrema_POnSurf {.constructor,
+proc constructExtremaPOnSurf*(): ExtremaPOnSurf {.constructor,
     importcpp: "Extrema_POnSurf(@)", header: "Extrema_POnSurf.hxx".}
-proc constructExtrema_POnSurf*(U: Standard_Real; V: Standard_Real; P: gp_Pnt): Extrema_POnSurf {.
-    constructor, importcpp: "Extrema_POnSurf(@)", header: "Extrema_POnSurf.hxx".}
-proc Value*(this: Extrema_POnSurf): gp_Pnt {.noSideEffect, importcpp: "Value",
-    header: "Extrema_POnSurf.hxx".}
-proc SetParameters*(this: var Extrema_POnSurf; theU: Standard_Real;
-                   theV: Standard_Real; thePnt: gp_Pnt) {.
+proc constructExtremaPOnSurf*(u: float; v: float; p: Pnt): ExtremaPOnSurf {.constructor,
+    importcpp: "Extrema_POnSurf(@)", header: "Extrema_POnSurf.hxx".}
+proc value*(this: ExtremaPOnSurf): Pnt {.noSideEffect, importcpp: "Value",
+                                     header: "Extrema_POnSurf.hxx".}
+proc setParameters*(this: var ExtremaPOnSurf; theU: float; theV: float; thePnt: Pnt) {.
     importcpp: "SetParameters", header: "Extrema_POnSurf.hxx".}
-proc Parameter*(this: Extrema_POnSurf; U: var Standard_Real; V: var Standard_Real) {.
-    noSideEffect, importcpp: "Parameter", header: "Extrema_POnSurf.hxx".}
+proc parameter*(this: ExtremaPOnSurf; u: var float; v: var float) {.noSideEffect,
+    importcpp: "Parameter", header: "Extrema_POnSurf.hxx".}

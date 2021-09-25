@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../IFSelect/IFSelect_Editor,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_EditForm"
 discard "forward decl of TCollection_HAsciiString"
@@ -26,39 +22,38 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of STEPEdit_EditSDR"
 discard "forward decl of STEPEdit_EditSDR"
 type
-  Handle_STEPEdit_EditSDR* = handle[STEPEdit_EditSDR]
+  HandleSTEPEditEditSDR* = Handle[STEPEditEditSDR]
 
 ## ! EditSDR is an Editor fit for a Shape Definition Representation
 ## ! which designates a Product Definition
 
 type
-  STEPEdit_EditSDR* {.importcpp: "STEPEdit_EditSDR",
-                     header: "STEPEdit_EditSDR.hxx", bycopy.} = object of IFSelect_Editor
+  STEPEditEditSDR* {.importcpp: "STEPEdit_EditSDR", header: "STEPEdit_EditSDR.hxx",
+                    bycopy.} = object of IFSelectEditor
 
 
-proc constructSTEPEdit_EditSDR*(): STEPEdit_EditSDR {.constructor,
+proc constructSTEPEditEditSDR*(): STEPEditEditSDR {.constructor,
     importcpp: "STEPEdit_EditSDR(@)", header: "STEPEdit_EditSDR.hxx".}
-proc Label*(this: STEPEdit_EditSDR): TCollection_AsciiString {.noSideEffect,
+proc label*(this: STEPEditEditSDR): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "STEPEdit_EditSDR.hxx".}
-proc Recognize*(this: STEPEdit_EditSDR; form: handle[IFSelect_EditForm]): Standard_Boolean {.
+proc recognize*(this: STEPEditEditSDR; form: Handle[IFSelectEditForm]): bool {.
     noSideEffect, importcpp: "Recognize", header: "STEPEdit_EditSDR.hxx".}
-proc StringValue*(this: STEPEdit_EditSDR; form: handle[IFSelect_EditForm];
-                 num: Standard_Integer): handle[TCollection_HAsciiString] {.
-    noSideEffect, importcpp: "StringValue", header: "STEPEdit_EditSDR.hxx".}
-proc Apply*(this: STEPEdit_EditSDR; form: handle[IFSelect_EditForm];
-           ent: handle[Standard_Transient];
-           model: handle[Interface_InterfaceModel]): Standard_Boolean {.
+proc stringValue*(this: STEPEditEditSDR; form: Handle[IFSelectEditForm]; num: int): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "StringValue",
+                              header: "STEPEdit_EditSDR.hxx".}
+proc apply*(this: STEPEditEditSDR; form: Handle[IFSelectEditForm];
+           ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, importcpp: "Apply", header: "STEPEdit_EditSDR.hxx".}
-proc Load*(this: STEPEdit_EditSDR; form: handle[IFSelect_EditForm];
-          ent: handle[Standard_Transient]; model: handle[Interface_InterfaceModel]): Standard_Boolean {.
+proc load*(this: STEPEditEditSDR; form: Handle[IFSelectEditForm];
+          ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, importcpp: "Load", header: "STEPEdit_EditSDR.hxx".}
 type
-  STEPEdit_EditSDRbase_type* = IFSelect_Editor
+  STEPEditEditSDRbaseType* = IFSelectEditor
 
-proc get_type_name*(): cstring {.importcpp: "STEPEdit_EditSDR::get_type_name(@)",
-                              header: "STEPEdit_EditSDR.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "STEPEdit_EditSDR::get_type_name(@)",
+                            header: "STEPEdit_EditSDR.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "STEPEdit_EditSDR::get_type_descriptor(@)",
     header: "STEPEdit_EditSDR.hxx".}
-proc DynamicType*(this: STEPEdit_EditSDR): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: STEPEditEditSDR): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "STEPEdit_EditSDR.hxx".}

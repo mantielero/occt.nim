@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_Action"
 discard "forward decl of StepBasic_Address"
@@ -31,49 +26,49 @@ discard "forward decl of StepRepr_Representation"
 discard "forward decl of StepRepr_ShapeAspect"
 discard "forward decl of StepRepr_ShapeAspectRelationship"
 type
-  StepAP242_IdAttributeSelect* {.importcpp: "StepAP242_IdAttributeSelect",
-                                header: "StepAP242_IdAttributeSelect.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                             ## !
-                                                                                                             ## Returns
-                                                                                                             ## a
-                                                                                                             ## IdAttributeSelect
-                                                                                                             ## select
-                                                                                                             ## type
+  StepAP242IdAttributeSelect* {.importcpp: "StepAP242_IdAttributeSelect",
+                               header: "StepAP242_IdAttributeSelect.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                           ## !
+                                                                                                           ## Returns
+                                                                                                           ## a
+                                                                                                           ## IdAttributeSelect
+                                                                                                           ## select
+                                                                                                           ## type
 
 
-proc constructStepAP242_IdAttributeSelect*(): StepAP242_IdAttributeSelect {.
+proc constructStepAP242IdAttributeSelect*(): StepAP242IdAttributeSelect {.
     constructor, importcpp: "StepAP242_IdAttributeSelect(@)",
     header: "StepAP242_IdAttributeSelect.hxx".}
-proc CaseNum*(this: StepAP242_IdAttributeSelect; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepAP242IdAttributeSelect; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP242_IdAttributeSelect.hxx".}
-proc Action*(this: StepAP242_IdAttributeSelect): handle[StepBasic_Action] {.
+proc action*(this: StepAP242IdAttributeSelect): Handle[StepBasicAction] {.
     noSideEffect, importcpp: "Action", header: "StepAP242_IdAttributeSelect.hxx".}
-proc Address*(this: StepAP242_IdAttributeSelect): handle[StepBasic_Address] {.
+proc address*(this: StepAP242IdAttributeSelect): Handle[StepBasicAddress] {.
     noSideEffect, importcpp: "Address", header: "StepAP242_IdAttributeSelect.hxx".}
-proc ApplicationContext*(this: StepAP242_IdAttributeSelect): handle[
-    StepBasic_ApplicationContext] {.noSideEffect, importcpp: "ApplicationContext",
-                                   header: "StepAP242_IdAttributeSelect.hxx".}
-proc DimensionalSize*(this: StepAP242_IdAttributeSelect): handle[
-    StepShape_DimensionalSize] {.noSideEffect, importcpp: "DimensionalSize",
-                                header: "StepAP242_IdAttributeSelect.hxx".}
-proc GeometricTolerance*(this: StepAP242_IdAttributeSelect): handle[
-    StepDimTol_GeometricTolerance] {.noSideEffect,
-                                    importcpp: "GeometricTolerance",
-                                    header: "StepAP242_IdAttributeSelect.hxx".}
-proc Group*(this: StepAP242_IdAttributeSelect): handle[StepBasic_Group] {.
-    noSideEffect, importcpp: "Group", header: "StepAP242_IdAttributeSelect.hxx".}
-proc ProductCategory*(this: StepAP242_IdAttributeSelect): handle[
-    StepBasic_ProductCategory] {.noSideEffect, importcpp: "ProductCategory",
-                                header: "StepAP242_IdAttributeSelect.hxx".}
-proc PropertyDefinition*(this: StepAP242_IdAttributeSelect): handle[
-    StepRepr_PropertyDefinition] {.noSideEffect, importcpp: "PropertyDefinition",
+proc applicationContext*(this: StepAP242IdAttributeSelect): Handle[
+    StepBasicApplicationContext] {.noSideEffect, importcpp: "ApplicationContext",
                                   header: "StepAP242_IdAttributeSelect.hxx".}
-proc Representation*(this: StepAP242_IdAttributeSelect): handle[
-    StepRepr_Representation] {.noSideEffect, importcpp: "Representation",
-                              header: "StepAP242_IdAttributeSelect.hxx".}
-proc ShapeAspect*(this: StepAP242_IdAttributeSelect): handle[StepRepr_ShapeAspect] {.
+proc dimensionalSize*(this: StepAP242IdAttributeSelect): Handle[
+    StepShapeDimensionalSize] {.noSideEffect, importcpp: "DimensionalSize",
+                               header: "StepAP242_IdAttributeSelect.hxx".}
+proc geometricTolerance*(this: StepAP242IdAttributeSelect): Handle[
+    StepDimTolGeometricTolerance] {.noSideEffect, importcpp: "GeometricTolerance",
+                                   header: "StepAP242_IdAttributeSelect.hxx".}
+proc group*(this: StepAP242IdAttributeSelect): Handle[StepBasicGroup] {.
+    noSideEffect, importcpp: "Group", header: "StepAP242_IdAttributeSelect.hxx".}
+proc productCategory*(this: StepAP242IdAttributeSelect): Handle[
+    StepBasicProductCategory] {.noSideEffect, importcpp: "ProductCategory",
+                               header: "StepAP242_IdAttributeSelect.hxx".}
+proc propertyDefinition*(this: StepAP242IdAttributeSelect): Handle[
+    StepReprPropertyDefinition] {.noSideEffect, importcpp: "PropertyDefinition",
+                                 header: "StepAP242_IdAttributeSelect.hxx".}
+proc representation*(this: StepAP242IdAttributeSelect): Handle[
+    StepReprRepresentation] {.noSideEffect, importcpp: "Representation",
+                             header: "StepAP242_IdAttributeSelect.hxx".}
+proc shapeAspect*(this: StepAP242IdAttributeSelect): Handle[StepReprShapeAspect] {.
     noSideEffect, importcpp: "ShapeAspect",
     header: "StepAP242_IdAttributeSelect.hxx".}
-proc ShapeAspectRelationship*(this: StepAP242_IdAttributeSelect): handle[
-    StepRepr_ShapeAspectRelationship] {.noSideEffect,
-                                       importcpp: "ShapeAspectRelationship", header: "StepAP242_IdAttributeSelect.hxx".}
+proc shapeAspectRelationship*(this: StepAP242IdAttributeSelect): Handle[
+    StepReprShapeAspectRelationship] {.noSideEffect,
+                                      importcpp: "ShapeAspectRelationship",
+                                      header: "StepAP242_IdAttributeSelect.hxx".}

@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepAP214_PresentedItemSelect, ../NCollection/NCollection_Array1
-
 type
-  StepAP214_Array1OfPresentedItemSelect* = NCollection_Array1[
-      StepAP214_PresentedItemSelect]
+  StepAP214Array1OfPresentedItemSelect* = NCollectionArray1[
+      StepAP214PresentedItemSelect]
+

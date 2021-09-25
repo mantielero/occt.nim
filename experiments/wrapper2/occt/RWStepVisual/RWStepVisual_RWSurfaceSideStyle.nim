@@ -14,32 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_SurfaceSideStyle"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisual_RWSurfaceSideStyle* {.importcpp: "RWStepVisual_RWSurfaceSideStyle", header: "RWStepVisual_RWSurfaceSideStyle.hxx",
-                                    bycopy.} = object
+  RWStepVisualRWSurfaceSideStyle* {.importcpp: "RWStepVisual_RWSurfaceSideStyle", header: "RWStepVisual_RWSurfaceSideStyle.hxx",
+                                   bycopy.} = object
 
 
-proc constructRWStepVisual_RWSurfaceSideStyle*(): RWStepVisual_RWSurfaceSideStyle {.
+proc constructRWStepVisualRWSurfaceSideStyle*(): RWStepVisualRWSurfaceSideStyle {.
     constructor, importcpp: "RWStepVisual_RWSurfaceSideStyle(@)",
     header: "RWStepVisual_RWSurfaceSideStyle.hxx".}
-proc ReadStep*(this: RWStepVisual_RWSurfaceSideStyle;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepVisual_SurfaceSideStyle]) {.noSideEffect,
+proc readStep*(this: RWStepVisualRWSurfaceSideStyle;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepVisualSurfaceSideStyle]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWSurfaceSideStyle.hxx".}
-proc WriteStep*(this: RWStepVisual_RWSurfaceSideStyle; SW: var StepData_StepWriter;
-               ent: handle[StepVisual_SurfaceSideStyle]) {.noSideEffect,
+proc writeStep*(this: RWStepVisualRWSurfaceSideStyle; sw: var StepDataStepWriter;
+               ent: Handle[StepVisualSurfaceSideStyle]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWSurfaceSideStyle.hxx".}
-proc Share*(this: RWStepVisual_RWSurfaceSideStyle;
-           ent: handle[StepVisual_SurfaceSideStyle];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepVisualRWSurfaceSideStyle;
+           ent: Handle[StepVisualSurfaceSideStyle];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWSurfaceSideStyle.hxx".}

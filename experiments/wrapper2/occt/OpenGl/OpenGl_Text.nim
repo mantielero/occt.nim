@@ -13,47 +13,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_Element, OpenGl_Aspects, OpenGl_TextBuilder,
-  ../TCollection/TCollection_ExtendedString, ../Graphic3d/Graphic3d_Vertex,
-  ../Graphic3d/Graphic3d_HorizontalTextAlignment,
-  ../Graphic3d/Graphic3d_RenderingParams, ../Graphic3d/Graphic3d_Text,
-  ../Graphic3d/Graphic3d_VerticalTextAlignment, ../gp/gp_Ax2
-
 ## ! Text rendering
 
 type
-  OpenGl_Text* {.importcpp: "OpenGl_Text", header: "OpenGl_Text.hxx", bycopy.} = object of OpenGl_Element ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## new
-                                                                                                ## text
-                                                                                                ## in
-                                                                                                ## 3D
-                                                                                                ## space.
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## @name
-                                                                                                ## methods
-                                                                                                ## for
-                                                                                                ## compatibility
-                                                                                                ## with
-                                                                                                ## layers
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Empty
-                                                                                                ## constructor
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Setup
-                                                                                                ## new
-                                                                                                ## string
-                                                                                                ## and
-                                                                                                ## position
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Setup
-                                                                                                ## matrix.
+  OpenGlText* {.importcpp: "OpenGl_Text", header: "OpenGl_Text.hxx", bycopy.} = object of OpenGlElement ##
+                                                                                              ## !
+                                                                                              ## Creates
+                                                                                              ## new
+                                                                                              ## text
+                                                                                              ## in
+                                                                                              ## 3D
+                                                                                              ## space.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## @name
+                                                                                              ## methods
+                                                                                              ## for
+                                                                                              ## compatibility
+                                                                                              ## with
+                                                                                              ## layers
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Empty
+                                                                                              ## constructor
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Setup
+                                                                                              ## new
+                                                                                              ## string
+                                                                                              ## and
+                                                                                              ## position
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Setup
+                                                                                              ## matrix.
     ## !< text parameters
     ## !< textures' IDs
     ## !< VBOs of vertices
@@ -61,56 +54,53 @@ type
     ## !< VBOs of vertices for bounding box
 
 
-proc constructOpenGl_Text*(theTextParams: handle[Graphic3d_Text]): OpenGl_Text {.
+proc constructOpenGlText*(theTextParams: Handle[Graphic3dText]): OpenGlText {.
     constructor, importcpp: "OpenGl_Text(@)", header: "OpenGl_Text.hxx".}
-proc destroyOpenGl_Text*(this: var OpenGl_Text) {.importcpp: "#.~OpenGl_Text()",
+proc destroyOpenGlText*(this: var OpenGlText) {.importcpp: "#.~OpenGl_Text()",
     header: "OpenGl_Text.hxx".}
-proc Reset*(this: var OpenGl_Text; theCtx: handle[OpenGl_Context]) {.
-    importcpp: "Reset", header: "OpenGl_Text.hxx".}
-proc Text*(this: OpenGl_Text): handle[Graphic3d_Text] {.noSideEffect,
+proc reset*(this: var OpenGlText; theCtx: Handle[OpenGlContext]) {.importcpp: "Reset",
+    header: "OpenGl_Text.hxx".}
+proc text*(this: OpenGlText): Handle[Graphic3dText] {.noSideEffect,
     importcpp: "Text", header: "OpenGl_Text.hxx".}
-proc SetText*(this: var OpenGl_Text; theText: handle[Graphic3d_Text]) {.
+proc setText*(this: var OpenGlText; theText: Handle[Graphic3dText]) {.
     importcpp: "SetText", header: "OpenGl_Text.hxx".}
-proc Is2D*(this: OpenGl_Text): Standard_Boolean {.noSideEffect, importcpp: "Is2D",
+proc is2D*(this: OpenGlText): bool {.noSideEffect, importcpp: "Is2D",
+                                 header: "OpenGl_Text.hxx".}
+proc set2D*(this: var OpenGlText; theEnable: bool) {.importcpp: "Set2D",
     header: "OpenGl_Text.hxx".}
-proc Set2D*(this: var OpenGl_Text; theEnable: Standard_Boolean) {.importcpp: "Set2D",
-    header: "OpenGl_Text.hxx".}
-proc SetFontSize*(this: var OpenGl_Text; theContext: handle[OpenGl_Context];
-                 theFontSize: Standard_Integer) {.importcpp: "SetFontSize",
-    header: "OpenGl_Text.hxx".}
-proc Render*(this: OpenGl_Text; theWorkspace: handle[OpenGl_Workspace]) {.
-    noSideEffect, importcpp: "Render", header: "OpenGl_Text.hxx".}
-proc Release*(this: var OpenGl_Text; theContext: ptr OpenGl_Context) {.
+proc setFontSize*(this: var OpenGlText; theContext: Handle[OpenGlContext];
+                 theFontSize: int) {.importcpp: "SetFontSize",
+                                   header: "OpenGl_Text.hxx".}
+proc render*(this: OpenGlText; theWorkspace: Handle[OpenGlWorkspace]) {.noSideEffect,
+    importcpp: "Render", header: "OpenGl_Text.hxx".}
+proc release*(this: var OpenGlText; theContext: ptr OpenGlContext) {.
     importcpp: "Release", header: "OpenGl_Text.hxx".}
-proc EstimatedDataSize*(this: OpenGl_Text): Standard_Size {.noSideEffect,
+proc estimatedDataSize*(this: OpenGlText): StandardSize {.noSideEffect,
     importcpp: "EstimatedDataSize", header: "OpenGl_Text.hxx".}
-proc UpdateDrawStats*(this: OpenGl_Text; theStats: var Graphic3d_FrameStatsDataTmp;
+proc updateDrawStats*(this: OpenGlText; theStats: var Graphic3dFrameStatsDataTmp;
                      theIsDetailed: bool) {.noSideEffect,
     importcpp: "UpdateDrawStats", header: "OpenGl_Text.hxx".}
-proc constructOpenGl_Text*(): OpenGl_Text {.constructor,
-    importcpp: "OpenGl_Text(@)", header: "OpenGl_Text.hxx".}
-proc FontKey*(theAspect: OpenGl_Aspects; theHeight: Standard_Integer;
-             theResolution: cuint): TCollection_AsciiString {.
+proc constructOpenGlText*(): OpenGlText {.constructor, importcpp: "OpenGl_Text(@)",
+                                       header: "OpenGl_Text.hxx".}
+proc fontKey*(theAspect: OpenGlAspects; theHeight: int; theResolution: cuint): TCollectionAsciiString {.
     importcpp: "OpenGl_Text::FontKey(@)", header: "OpenGl_Text.hxx".}
-proc FindFont*(theCtx: handle[OpenGl_Context]; theAspect: OpenGl_Aspects;
-              theHeight: Standard_Integer; theResolution: cuint;
-              theKey: TCollection_AsciiString): handle[OpenGl_Font] {.
-    importcpp: "OpenGl_Text::FindFont(@)", header: "OpenGl_Text.hxx".}
-proc StringSize*(theCtx: handle[OpenGl_Context]; theText: NCollection_String;
-                theTextAspect: OpenGl_Aspects; theHeight: Standard_ShortReal;
-                theResolution: cuint; theWidth: var Standard_ShortReal;
-                theAscent: var Standard_ShortReal;
-                theDescent: var Standard_ShortReal) {.
+proc findFont*(theCtx: Handle[OpenGlContext]; theAspect: OpenGlAspects;
+              theHeight: int; theResolution: cuint; theKey: TCollectionAsciiString): Handle[
+    OpenGlFont] {.importcpp: "OpenGl_Text::FindFont(@)", header: "OpenGl_Text.hxx".}
+proc stringSize*(theCtx: Handle[OpenGlContext]; theText: NCollectionString;
+                theTextAspect: OpenGlAspects; theHeight: StandardShortReal;
+                theResolution: cuint; theWidth: var StandardShortReal;
+                theAscent: var StandardShortReal; theDescent: var StandardShortReal) {.
     importcpp: "OpenGl_Text::StringSize(@)", header: "OpenGl_Text.hxx".}
-proc Render*(this: OpenGl_Text; theCtx: handle[OpenGl_Context];
-            theTextAspect: OpenGl_Aspects;
-            theResolution: cuint = THE_DEFAULT_RESOLUTION) {.noSideEffect,
+proc render*(this: OpenGlText; theCtx: Handle[OpenGlContext];
+            theTextAspect: OpenGlAspects;
+            theResolution: cuint = the_Default_Resolution) {.noSideEffect,
     importcpp: "Render", header: "OpenGl_Text.hxx".}
-proc DumpJson*(this: OpenGl_Text; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "OpenGl_Text.hxx".}
+proc dumpJson*(this: OpenGlText; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "OpenGl_Text.hxx".}
 ## !!!Ignored construct:  ! @name obsolete methods public : ! Setup new string and position Standard_DEPRECATED ( Deprecated method Init() with obsolete arguments, use Init() and Text() instead of it ) void Init ( const opencascade :: handle < OpenGl_Context > [end of template] & theCtx , const Standard_Utf8Char * theText , const OpenGl_Vec3 & thePoint ) ;
 ## Error: identifier expected, but got: Deprecated method Init() with obsolete arguments, use Init() and Text() instead of it!!!
 
 ## !!!Ignored construct:  ! Setup new position Standard_DEPRECATED ( Deprecated method SetPosition(), use Graphic3d_Text for it ) void SetPosition ( const OpenGl_Vec3 & thePoint ) ;
 ## Error: identifier expected, but got: Deprecated method SetPosition(), use Graphic3d_Text for it!!!
+

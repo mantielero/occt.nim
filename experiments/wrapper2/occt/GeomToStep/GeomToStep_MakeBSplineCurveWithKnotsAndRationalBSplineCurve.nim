@@ -14,29 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, GeomToStep_Root
-
 discard "forward decl of StepGeom_BSplineCurveWithKnotsAndRationalBSplineCurve"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom_BSplineCurve"
 discard "forward decl of Geom2d_BSplineCurve"
 type
-  GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve* {.
+  GeomToStepMakeBSplineCurveWithKnotsAndRationalBSplineCurve* {.
       importcpp: "GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve", header: "GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve.hxx",
-      bycopy.} = object of GeomToStep_Root
+      bycopy.} = object of GeomToStepRoot
 
 
-proc constructGeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve*(
-    Bsplin: handle[Geom_BSplineCurve]): GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve {.
+proc constructGeomToStepMakeBSplineCurveWithKnotsAndRationalBSplineCurve*(
+    bsplin: Handle[GeomBSplineCurve]): GeomToStepMakeBSplineCurveWithKnotsAndRationalBSplineCurve {.
     constructor, importcpp: "GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve(@)",
     header: "GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
-proc constructGeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve*(
-    Bsplin: handle[Geom2d_BSplineCurve]): GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve {.
+proc constructGeomToStepMakeBSplineCurveWithKnotsAndRationalBSplineCurve*(
+    bsplin: Handle[Geom2dBSplineCurve]): GeomToStepMakeBSplineCurveWithKnotsAndRationalBSplineCurve {.
     constructor, importcpp: "GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve(@)",
     header: "GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
-proc Value*(this: GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve): handle[
-    StepGeom_BSplineCurveWithKnotsAndRationalBSplineCurve] {.noSideEffect,
+proc value*(this: GeomToStepMakeBSplineCurveWithKnotsAndRationalBSplineCurve): Handle[
+    StepGeomBSplineCurveWithKnotsAndRationalBSplineCurve] {.noSideEffect,
     importcpp: "Value",
     header: "GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}

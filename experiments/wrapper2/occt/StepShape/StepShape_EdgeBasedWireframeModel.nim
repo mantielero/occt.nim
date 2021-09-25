@@ -13,49 +13,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepShape_HArray1OfConnectedEdgeSet,
-  ../StepGeom/StepGeom_GeometricRepresentationItem
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_EdgeBasedWireframeModel"
 discard "forward decl of StepShape_EdgeBasedWireframeModel"
 type
-  Handle_StepShape_EdgeBasedWireframeModel* = handle[
-      StepShape_EdgeBasedWireframeModel]
+  HandleStepShapeEdgeBasedWireframeModel* = Handle[
+      StepShapeEdgeBasedWireframeModel]
 
 ## ! Representation of STEP entity EdgeBasedWireframeModel
 
 type
-  StepShape_EdgeBasedWireframeModel* {.importcpp: "StepShape_EdgeBasedWireframeModel", header: "StepShape_EdgeBasedWireframeModel.hxx",
-                                      bycopy.} = object of StepGeom_GeometricRepresentationItem ##
-                                                                                           ## !
-                                                                                           ## Empty
-                                                                                           ## constructor
+  StepShapeEdgeBasedWireframeModel* {.importcpp: "StepShape_EdgeBasedWireframeModel", header: "StepShape_EdgeBasedWireframeModel.hxx",
+                                     bycopy.} = object of StepGeomGeometricRepresentationItem ##
+                                                                                         ## !
+                                                                                         ## Empty
+                                                                                         ## constructor
 
 
-proc constructStepShape_EdgeBasedWireframeModel*(): StepShape_EdgeBasedWireframeModel {.
+proc constructStepShapeEdgeBasedWireframeModel*(): StepShapeEdgeBasedWireframeModel {.
     constructor, importcpp: "StepShape_EdgeBasedWireframeModel(@)",
     header: "StepShape_EdgeBasedWireframeModel.hxx".}
-proc Init*(this: var StepShape_EdgeBasedWireframeModel;
-          aRepresentationItem_Name: handle[TCollection_HAsciiString];
-          aEbwmBoundary: handle[StepShape_HArray1OfConnectedEdgeSet]) {.
+proc init*(this: var StepShapeEdgeBasedWireframeModel;
+          aRepresentationItemName: Handle[TCollectionHAsciiString];
+          aEbwmBoundary: Handle[StepShapeHArray1OfConnectedEdgeSet]) {.
     importcpp: "Init", header: "StepShape_EdgeBasedWireframeModel.hxx".}
-proc EbwmBoundary*(this: StepShape_EdgeBasedWireframeModel): handle[
-    StepShape_HArray1OfConnectedEdgeSet] {.noSideEffect,
-    importcpp: "EbwmBoundary", header: "StepShape_EdgeBasedWireframeModel.hxx".}
-proc SetEbwmBoundary*(this: var StepShape_EdgeBasedWireframeModel;
-                     EbwmBoundary: handle[StepShape_HArray1OfConnectedEdgeSet]) {.
+proc ebwmBoundary*(this: StepShapeEdgeBasedWireframeModel): Handle[
+    StepShapeHArray1OfConnectedEdgeSet] {.noSideEffect, importcpp: "EbwmBoundary",
+    header: "StepShape_EdgeBasedWireframeModel.hxx".}
+proc setEbwmBoundary*(this: var StepShapeEdgeBasedWireframeModel;
+                     ebwmBoundary: Handle[StepShapeHArray1OfConnectedEdgeSet]) {.
     importcpp: "SetEbwmBoundary", header: "StepShape_EdgeBasedWireframeModel.hxx".}
 type
-  StepShape_EdgeBasedWireframeModelbase_type* = StepGeom_GeometricRepresentationItem
+  StepShapeEdgeBasedWireframeModelbaseType* = StepGeomGeometricRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_EdgeBasedWireframeModel::get_type_name(@)",
-                              header: "StepShape_EdgeBasedWireframeModel.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_EdgeBasedWireframeModel::get_type_name(@)",
+                            header: "StepShape_EdgeBasedWireframeModel.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_EdgeBasedWireframeModel::get_type_descriptor(@)",
     header: "StepShape_EdgeBasedWireframeModel.hxx".}
-proc DynamicType*(this: StepShape_EdgeBasedWireframeModel): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeEdgeBasedWireframeModel): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_EdgeBasedWireframeModel.hxx".}

@@ -14,18 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Standard_Type, Standard_DefineException, Standard_SStream, Standard_ProgramError
-
 discard "forward decl of Standard_OutOfMemory"
 discard "forward decl of Standard_OutOfMemory"
 type
-  Handle_Standard_OutOfMemory* = handle[Standard_OutOfMemory]
+  HandleStandardOutOfMemory* = Handle[StandardOutOfMemory]
 
-when not defined(No_Exception) and not defined(No_Standard_OutOfMemory):
-  template Standard_OutOfMemory_Raise_if*(CONDITION, MESSAGE: untyped): void =
-    if CONDITION:
-      proc Standard_OutOfMemory*(a1: MESSAGE): throw {.
+when not defined(noException) and not defined(noStandardOutOfMemory):
+  template standardOutOfMemoryRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardOutOfMemory*(a1: Message): Throw {.
           importcpp: "Standard_OutOfMemory(@)", header: "Standard_OutOfMemory.hxx".}
 
 else:
@@ -45,41 +42,41 @@ else:
 ## ! is dangerous (can cause recursion until stack overflow, see #24836).
 
 type
-  Standard_OutOfMemory* {.importcpp: "Standard_OutOfMemory",
-                         header: "Standard_OutOfMemory.hxx", bycopy.} = object of Standard_ProgramError ##
-                                                                                                 ## !
-                                                                                                 ## Constructor
-                                                                                                 ## is
-                                                                                                 ## kept
-                                                                                                 ## public
-                                                                                                 ## for
-                                                                                                 ## backward
-                                                                                                 ## compatibility
+  StandardOutOfMemory* {.importcpp: "Standard_OutOfMemory",
+                        header: "Standard_OutOfMemory.hxx", bycopy.} = object of StandardProgramError ##
+                                                                                               ## !
+                                                                                               ## Constructor
+                                                                                               ## is
+                                                                                               ## kept
+                                                                                               ## public
+                                                                                               ## for
+                                                                                               ## backward
+                                                                                               ## compatibility
 
 
-proc constructStandard_OutOfMemory*(theMessage: Standard_CString = 0): Standard_OutOfMemory {.
+proc constructStandardOutOfMemory*(theMessage: StandardCString = 0): StandardOutOfMemory {.
     constructor, importcpp: "Standard_OutOfMemory(@)",
     header: "Standard_OutOfMemory.hxx".}
-proc GetMessageString*(this: Standard_OutOfMemory): Standard_CString {.noSideEffect,
+proc getMessageString*(this: StandardOutOfMemory): StandardCString {.noSideEffect,
     importcpp: "GetMessageString", header: "Standard_OutOfMemory.hxx".}
-proc SetMessageString*(this: var Standard_OutOfMemory; aMessage: Standard_CString) {.
+proc setMessageString*(this: var StandardOutOfMemory; aMessage: StandardCString) {.
     importcpp: "SetMessageString", header: "Standard_OutOfMemory.hxx".}
-proc Raise*(theMessage: Standard_CString = "") {.
+proc `raise`*(theMessage: StandardCString = "") {.
     importcpp: "Standard_OutOfMemory::Raise(@)",
     header: "Standard_OutOfMemory.hxx".}
-proc Raise*(theMessage: var Standard_SStream) {.
+proc `raise`*(theMessage: var StandardSStream) {.
     importcpp: "Standard_OutOfMemory::Raise(@)",
     header: "Standard_OutOfMemory.hxx".}
-proc NewInstance*(theMessage: Standard_CString = ""): handle[Standard_OutOfMemory] {.
+proc newInstance*(theMessage: StandardCString = ""): Handle[StandardOutOfMemory] {.
     importcpp: "Standard_OutOfMemory::NewInstance(@)",
     header: "Standard_OutOfMemory.hxx".}
 type
-  Standard_OutOfMemorybase_type* = Standard_ProgramError
+  StandardOutOfMemorybaseType* = StandardProgramError
 
-proc get_type_name*(): cstring {.importcpp: "Standard_OutOfMemory::get_type_name(@)",
-                              header: "Standard_OutOfMemory.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Standard_OutOfMemory::get_type_name(@)",
+                            header: "Standard_OutOfMemory.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Standard_OutOfMemory::get_type_descriptor(@)",
     header: "Standard_OutOfMemory.hxx".}
-proc DynamicType*(this: Standard_OutOfMemory): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StandardOutOfMemory): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Standard_OutOfMemory.hxx".}

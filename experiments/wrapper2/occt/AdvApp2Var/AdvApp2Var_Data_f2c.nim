@@ -16,27 +16,27 @@
 ## Error: identifier expected, but got: ;!!!
 
 type
-  doublereal* = cdouble
+  Doublereal* = cdouble
 
 ## !!!Ignored construct:  # [NewLine] # [NewLine] typedef unsigned long uinteger ;
 ## Error: identifier expected, but got: [NewLine]!!!
 
 type
-  address* = cstring
-  shortint* = cshort
-  real* = cfloat
-  complex* {.importcpp: "complex", header: "AdvApp2Var_Data_f2c.hxx", bycopy.} = object
-    r* {.importc: "r".}: real
-    i* {.importc: "i".}: real
+  Address* = cstring
+  Shortint* = cshort
+  Real* = cfloat
+  Complex* {.importcpp: "complex", header: "AdvApp2Var_Data_f2c.hxx", bycopy.} = object
+    r* {.importc: "r".}: Real
+    i* {.importc: "i".}: Real
 
-  doublecomplex* {.importcpp: "doublecomplex", header: "AdvApp2Var_Data_f2c.hxx",
+  Doublecomplex* {.importcpp: "doublecomplex", header: "AdvApp2Var_Data_f2c.hxx",
                   bycopy.} = object
-    r* {.importc: "r".}: doublereal
-    i* {.importc: "i".}: doublereal
+    r* {.importc: "r".}: Doublereal
+    i* {.importc: "i".}: Doublereal
 
-  logical* = clong
-  shortlogical* = cshort
-  logical1* = char
+  Logical* = clong
+  Shortlogical* = cshort
+  Logical1* = char
   integer1* = char
 
 ## !!!Ignored construct:  # 0  Adjust for integer*8. [NewLine] typedef long long longint ;
@@ -49,107 +49,107 @@ type
 
 ##  system-dependent
 
-template qbit_clear*(a, b: untyped): untyped =
-  ((a) and not (cast[ulongint](1) shl (b)))
+template qbitClear*(a, b: untyped): untyped =
+  ((a) and not (cast[Ulongint](1) shl (b)))
 
-template qbit_set*(a, b: untyped): untyped =
-  ((a) or (cast[ulongint](1) shl (b)))
+template qbitSet*(a, b: untyped): untyped =
+  ((a) or (cast[Ulongint](1) shl (b)))
 
 ## !!!Ignored construct:  # ( 1 ) ( 1 ) [NewLine] # ( 0 ) ( 0 ) [NewLine]  Extern is for use with -E # Extern [NewLine] # Extern extern [NewLine] # [NewLine]  I/O stuff # f2c_i2 [NewLine]  for -i2 typedef short flag ;
 ## Error: identifier expected, but got: (!!!
 
 type
-  ftnlen* = cshort
-  ftnint* = cshort
-  flag* = clong
-  ftnlen* = clong
-  ftnint* = clong
+  Ftnlen* = cshort
+  Ftnint* = cshort
+  Flag* = clong
+  Ftnlen* = clong
+  Ftnint* = clong
 
 ## external read, write
 
 type
-  cilist* {.importcpp: "cilist", header: "AdvApp2Var_Data_f2c.hxx", bycopy.} = object
-    cierr* {.importc: "cierr".}: flag
-    ciunit* {.importc: "ciunit".}: ftnint
-    ciend* {.importc: "ciend".}: flag
+  Cilist* {.importcpp: "cilist", header: "AdvApp2Var_Data_f2c.hxx", bycopy.} = object
+    cierr* {.importc: "cierr".}: Flag
+    ciunit* {.importc: "ciunit".}: Ftnint
+    ciend* {.importc: "ciend".}: Flag
     cifmt* {.importc: "cifmt".}: cstring
-    cirec* {.importc: "cirec".}: ftnint
+    cirec* {.importc: "cirec".}: Ftnint
 
 
 ## internal read, write
 
 type
-  icilist* {.importcpp: "icilist", header: "AdvApp2Var_Data_f2c.hxx", bycopy.} = object
-    icierr* {.importc: "icierr".}: flag
+  Icilist* {.importcpp: "icilist", header: "AdvApp2Var_Data_f2c.hxx", bycopy.} = object
+    icierr* {.importc: "icierr".}: Flag
     iciunit* {.importc: "iciunit".}: cstring
-    iciend* {.importc: "iciend".}: flag
+    iciend* {.importc: "iciend".}: Flag
     icifmt* {.importc: "icifmt".}: cstring
-    icirlen* {.importc: "icirlen".}: ftnint
-    icirnum* {.importc: "icirnum".}: ftnint
+    icirlen* {.importc: "icirlen".}: Ftnint
+    icirnum* {.importc: "icirnum".}: Ftnint
 
 
 ## open
 
 type
-  olist* {.importcpp: "olist", header: "AdvApp2Var_Data_f2c.hxx", bycopy.} = object
-    oerr* {.importc: "oerr".}: flag
-    ounit* {.importc: "ounit".}: ftnint
+  Olist* {.importcpp: "olist", header: "AdvApp2Var_Data_f2c.hxx", bycopy.} = object
+    oerr* {.importc: "oerr".}: Flag
+    ounit* {.importc: "ounit".}: Ftnint
     ofnm* {.importc: "ofnm".}: cstring
-    ofnmlen* {.importc: "ofnmlen".}: ftnlen
+    ofnmlen* {.importc: "ofnmlen".}: Ftnlen
     osta* {.importc: "osta".}: cstring
     oacc* {.importc: "oacc".}: cstring
     ofm* {.importc: "ofm".}: cstring
-    orl* {.importc: "orl".}: ftnint
+    orl* {.importc: "orl".}: Ftnint
     oblnk* {.importc: "oblnk".}: cstring
 
 
 ## close
 
 type
-  cllist* {.importcpp: "cllist", header: "AdvApp2Var_Data_f2c.hxx", bycopy.} = object
-    cerr* {.importc: "cerr".}: flag
-    cunit* {.importc: "cunit".}: ftnint
+  Cllist* {.importcpp: "cllist", header: "AdvApp2Var_Data_f2c.hxx", bycopy.} = object
+    cerr* {.importc: "cerr".}: Flag
+    cunit* {.importc: "cunit".}: Ftnint
     csta* {.importc: "csta".}: cstring
 
 
 ## rewind, backspace, endfile
 
 type
-  alist* {.importcpp: "alist", header: "AdvApp2Var_Data_f2c.hxx", bycopy.} = object
-    aerr* {.importc: "aerr".}: flag
-    aunit* {.importc: "aunit".}: ftnint
+  Alist* {.importcpp: "alist", header: "AdvApp2Var_Data_f2c.hxx", bycopy.} = object
+    aerr* {.importc: "aerr".}: Flag
+    aunit* {.importc: "aunit".}: Ftnint
 
 
 ##  inquire
 
 type
-  inlist* {.importcpp: "inlist", header: "AdvApp2Var_Data_f2c.hxx", bycopy.} = object
-    inerr* {.importc: "inerr".}: flag
-    inunit* {.importc: "inunit".}: ftnint
+  Inlist* {.importcpp: "inlist", header: "AdvApp2Var_Data_f2c.hxx", bycopy.} = object
+    inerr* {.importc: "inerr".}: Flag
+    inunit* {.importc: "inunit".}: Ftnint
     infile* {.importc: "infile".}: cstring
-    infilen* {.importc: "infilen".}: ftnlen
-    inex* {.importc: "inex".}: ptr ftnint ## parameters in standard's order
-    inopen* {.importc: "inopen".}: ptr ftnint
-    innum* {.importc: "innum".}: ptr ftnint
-    innamed* {.importc: "innamed".}: ptr ftnint
+    infilen* {.importc: "infilen".}: Ftnlen
+    inex* {.importc: "inex".}: ptr Ftnint ## parameters in standard's order
+    inopen* {.importc: "inopen".}: ptr Ftnint
+    innum* {.importc: "innum".}: ptr Ftnint
+    innamed* {.importc: "innamed".}: ptr Ftnint
     inname* {.importc: "inname".}: cstring
-    innamlen* {.importc: "innamlen".}: ftnlen
+    innamlen* {.importc: "innamlen".}: Ftnlen
     inacc* {.importc: "inacc".}: cstring
-    inacclen* {.importc: "inacclen".}: ftnlen
+    inacclen* {.importc: "inacclen".}: Ftnlen
     inseq* {.importc: "inseq".}: cstring
-    inseqlen* {.importc: "inseqlen".}: ftnlen
+    inseqlen* {.importc: "inseqlen".}: Ftnlen
     indir* {.importc: "indir".}: cstring
-    indirlen* {.importc: "indirlen".}: ftnlen
+    indirlen* {.importc: "indirlen".}: Ftnlen
     infmt* {.importc: "infmt".}: cstring
-    infmtlen* {.importc: "infmtlen".}: ftnlen
+    infmtlen* {.importc: "infmtlen".}: Ftnlen
     inform* {.importc: "inform".}: cstring
-    informlen* {.importc: "informlen".}: ftnint
+    informlen* {.importc: "informlen".}: Ftnint
     inunf* {.importc: "inunf".}: cstring
-    inunflen* {.importc: "inunflen".}: ftnlen
-    inrecl* {.importc: "inrecl".}: ptr ftnint
-    innrec* {.importc: "innrec".}: ptr ftnint
+    inunflen* {.importc: "inunflen".}: Ftnlen
+    inrecl* {.importc: "inrecl".}: ptr Ftnint
+    innrec* {.importc: "innrec".}: ptr Ftnint
     inblank* {.importc: "inblank".}: cstring
-    inblanklen* {.importc: "inblanklen".}: ftnlen
+    inblanklen* {.importc: "inblanklen".}: Ftnlen
 
 
 const
@@ -159,13 +159,14 @@ type
   Multitype* {.importcpp: "Multitype", header: "AdvApp2Var_Data_f2c.hxx", bycopy,
               union.} = object
     g* {.importc: "g".}: integer1 ##  for multiple entry points
-    h* {.importc: "h".}: shortint
+    h* {.importc: "h".}: Shortint
     i* {.importc: "i".}: integer ##  longint j;
-    r* {.importc: "r".}: real
-    d* {.importc: "d".}: doublereal
-    c* {.importc: "c".}: complex
-    z* {.importc: "z".}: doublecomplex
+    r* {.importc: "r".}: Real
+    d* {.importc: "d".}: Doublereal
+    c* {.importc: "c".}: Complex
+    z* {.importc: "z".}: Doublecomplex
 
+  Multitype* = multitype
 
 ## typedef long int Long;
 ##  No longer used; formerly in Namelist
@@ -174,69 +175,72 @@ type
   Vardesc* {.importcpp: "Vardesc", header: "AdvApp2Var_Data_f2c.hxx", bycopy.} = object ##  for Namelist
     name* {.importc: "name".}: cstring
     `addr`* {.importc: "addr".}: cstring
-    dims* {.importc: "dims".}: ptr ftnlen
+    dims* {.importc: "dims".}: ptr Ftnlen
     `type`* {.importc: "type".}: cint
 
+  Vardesc* = vardesc
   Namelist* {.importcpp: "Namelist", header: "AdvApp2Var_Data_f2c.hxx", bycopy.} = object
     name* {.importc: "name".}: cstring
     vars* {.importc: "vars".}: ptr ptr Vardesc
     nvars* {.importc: "nvars".}: cint
 
+  Namelist* = namelist
 
-template advapp_abs*(x: untyped): untyped =
+template advappAbs*(x: untyped): untyped =
   (if (x) >= 0: (x) else: -(x))
 
 template dabs*(x: untyped): untyped =
-  cast[doublereal](advapp_abs(x))
+  cast[Doublereal](advappAbs(x))
 
-template advapp_min*(a, b: untyped): untyped =
+template advappMin*(a, b: untyped): untyped =
   (if (a) <= (b): (a) else: (b))
 
-template advapp_max*(a, b: untyped): untyped =
+template advappMax*(a, b: untyped): untyped =
   (if (a) >= (b): (a) else: (b))
 
 template dmin*(a, b: untyped): untyped =
-  cast[doublereal](advapp_min(a, b))
+  cast[Doublereal](advappMin(a, b))
 
 template dmax*(a, b: untyped): untyped =
-  cast[doublereal](advapp_max(a, b))
+  cast[Doublereal](advappMax(a, b))
 
-template bit_test*(a, b: untyped): untyped =
+template bitTest*(a, b: untyped): untyped =
   ((a) shr (b) and 1)
 
-template bit_clear*(a, b: untyped): untyped =
+template bitClear*(a, b: untyped): untyped =
   ((a) and not (cast[uinteger](1) shl (b)))
 
-template bit_set*(a, b: untyped): untyped =
+template bitSet*(a, b: untyped): untyped =
   ((a) or (cast[uinteger](1) shl (b)))
 
 ##  procedure parameter types for -A and -C++
 
 const
-  F2C_proc_par_types* = 1
+  F2C_procParTypes* = 1
 
 ##  E_fp is for real functions when -R is not specified
 
 type
-  C_f* = VOID
+  C_f* = Void
 
 ##  complex function
 
 type
-  H_f* = VOID
+  H_f* = Void
 
 ##  character function
 
 type
-  Z_f* = VOID
+  Z_f* = Void
 
 ##  double complex function
 
 type
-  E_f* = doublereal
+  E_f* = Doublereal
 
 ##  real function with -R not specified
 ##  undef any lower-case symbols that your C compiler predefines, e.g.:
 
 # when not defined(Skip_f2c_Undefs):
 ## #endif
+

@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../Extrema/Extrema_ExtPC,
-  ../GeomAdaptor/GeomAdaptor_Curve
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Pnt"
@@ -47,52 +41,48 @@ type
 proc constructGeomAPI_ProjectPointOnCurve*(): GeomAPI_ProjectPointOnCurve {.
     constructor, importcpp: "GeomAPI_ProjectPointOnCurve(@)",
     header: "GeomAPI_ProjectPointOnCurve.hxx".}
-proc constructGeomAPI_ProjectPointOnCurve*(P: gp_Pnt; Curve: handle[Geom_Curve]): GeomAPI_ProjectPointOnCurve {.
+proc constructGeomAPI_ProjectPointOnCurve*(p: Pnt; curve: Handle[GeomCurve]): GeomAPI_ProjectPointOnCurve {.
     constructor, importcpp: "GeomAPI_ProjectPointOnCurve(@)",
     header: "GeomAPI_ProjectPointOnCurve.hxx".}
-proc constructGeomAPI_ProjectPointOnCurve*(P: gp_Pnt; Curve: handle[Geom_Curve];
-    Umin: Standard_Real; Usup: Standard_Real): GeomAPI_ProjectPointOnCurve {.
-    constructor, importcpp: "GeomAPI_ProjectPointOnCurve(@)",
+proc constructGeomAPI_ProjectPointOnCurve*(p: Pnt; curve: Handle[GeomCurve];
+    umin: float; usup: float): GeomAPI_ProjectPointOnCurve {.constructor,
+    importcpp: "GeomAPI_ProjectPointOnCurve(@)",
     header: "GeomAPI_ProjectPointOnCurve.hxx".}
-proc Init*(this: var GeomAPI_ProjectPointOnCurve; P: gp_Pnt; Curve: handle[Geom_Curve]) {.
+proc init*(this: var GeomAPI_ProjectPointOnCurve; p: Pnt; curve: Handle[GeomCurve]) {.
     importcpp: "Init", header: "GeomAPI_ProjectPointOnCurve.hxx".}
-proc Init*(this: var GeomAPI_ProjectPointOnCurve; P: gp_Pnt;
-          Curve: handle[Geom_Curve]; Umin: Standard_Real; Usup: Standard_Real) {.
-    importcpp: "Init", header: "GeomAPI_ProjectPointOnCurve.hxx".}
-proc Init*(this: var GeomAPI_ProjectPointOnCurve; Curve: handle[Geom_Curve];
-          Umin: Standard_Real; Usup: Standard_Real) {.importcpp: "Init",
+proc init*(this: var GeomAPI_ProjectPointOnCurve; p: Pnt; curve: Handle[GeomCurve];
+          umin: float; usup: float) {.importcpp: "Init",
+                                  header: "GeomAPI_ProjectPointOnCurve.hxx".}
+proc init*(this: var GeomAPI_ProjectPointOnCurve; curve: Handle[GeomCurve];
+          umin: float; usup: float) {.importcpp: "Init",
+                                  header: "GeomAPI_ProjectPointOnCurve.hxx".}
+proc perform*(this: var GeomAPI_ProjectPointOnCurve; p: Pnt) {.importcpp: "Perform",
     header: "GeomAPI_ProjectPointOnCurve.hxx".}
-proc Perform*(this: var GeomAPI_ProjectPointOnCurve; P: gp_Pnt) {.
-    importcpp: "Perform", header: "GeomAPI_ProjectPointOnCurve.hxx".}
-proc NbPoints*(this: GeomAPI_ProjectPointOnCurve): Standard_Integer {.noSideEffect,
+proc nbPoints*(this: GeomAPI_ProjectPointOnCurve): int {.noSideEffect,
     importcpp: "NbPoints", header: "GeomAPI_ProjectPointOnCurve.hxx".}
-converter `Standard_Integer`*(this: GeomAPI_ProjectPointOnCurve): Standard_Integer {.
-    noSideEffect,
+converter `int`*(this: GeomAPI_ProjectPointOnCurve): int {.noSideEffect,
     importcpp: "GeomAPI_ProjectPointOnCurve::operator Standard_Integer",
     header: "GeomAPI_ProjectPointOnCurve.hxx".}
-proc Point*(this: GeomAPI_ProjectPointOnCurve; Index: Standard_Integer): gp_Pnt {.
-    noSideEffect, importcpp: "Point", header: "GeomAPI_ProjectPointOnCurve.hxx".}
-proc Parameter*(this: GeomAPI_ProjectPointOnCurve; Index: Standard_Integer): Standard_Real {.
+proc point*(this: GeomAPI_ProjectPointOnCurve; index: int): Pnt {.noSideEffect,
+    importcpp: "Point", header: "GeomAPI_ProjectPointOnCurve.hxx".}
+proc parameter*(this: GeomAPI_ProjectPointOnCurve; index: int): float {.noSideEffect,
+    importcpp: "Parameter", header: "GeomAPI_ProjectPointOnCurve.hxx".}
+proc parameter*(this: GeomAPI_ProjectPointOnCurve; index: int; u: var float) {.
     noSideEffect, importcpp: "Parameter", header: "GeomAPI_ProjectPointOnCurve.hxx".}
-proc Parameter*(this: GeomAPI_ProjectPointOnCurve; Index: Standard_Integer;
-               U: var Standard_Real) {.noSideEffect, importcpp: "Parameter",
-                                    header: "GeomAPI_ProjectPointOnCurve.hxx".}
-proc Distance*(this: GeomAPI_ProjectPointOnCurve; Index: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "Distance", header: "GeomAPI_ProjectPointOnCurve.hxx".}
-proc NearestPoint*(this: GeomAPI_ProjectPointOnCurve): gp_Pnt {.noSideEffect,
+proc distance*(this: GeomAPI_ProjectPointOnCurve; index: int): float {.noSideEffect,
+    importcpp: "Distance", header: "GeomAPI_ProjectPointOnCurve.hxx".}
+proc nearestPoint*(this: GeomAPI_ProjectPointOnCurve): Pnt {.noSideEffect,
     importcpp: "NearestPoint", header: "GeomAPI_ProjectPointOnCurve.hxx".}
-converter `gp_Pnt`*(this: GeomAPI_ProjectPointOnCurve): gp_Pnt {.noSideEffect,
+converter `pnt`*(this: GeomAPI_ProjectPointOnCurve): Pnt {.noSideEffect,
     importcpp: "GeomAPI_ProjectPointOnCurve::operator gp_Pnt",
     header: "GeomAPI_ProjectPointOnCurve.hxx".}
-proc LowerDistanceParameter*(this: GeomAPI_ProjectPointOnCurve): Standard_Real {.
+proc lowerDistanceParameter*(this: GeomAPI_ProjectPointOnCurve): float {.
     noSideEffect, importcpp: "LowerDistanceParameter",
     header: "GeomAPI_ProjectPointOnCurve.hxx".}
-proc LowerDistance*(this: GeomAPI_ProjectPointOnCurve): Standard_Real {.
-    noSideEffect, importcpp: "LowerDistance",
-    header: "GeomAPI_ProjectPointOnCurve.hxx".}
-converter `Standard_Real`*(this: GeomAPI_ProjectPointOnCurve): Standard_Real {.
-    noSideEffect,
+proc lowerDistance*(this: GeomAPI_ProjectPointOnCurve): float {.noSideEffect,
+    importcpp: "LowerDistance", header: "GeomAPI_ProjectPointOnCurve.hxx".}
+converter `float`*(this: GeomAPI_ProjectPointOnCurve): float {.noSideEffect,
     importcpp: "GeomAPI_ProjectPointOnCurve::operator Standard_Real",
     header: "GeomAPI_ProjectPointOnCurve.hxx".}
-proc Extrema*(this: GeomAPI_ProjectPointOnCurve): Extrema_ExtPC {.noSideEffect,
+proc extrema*(this: GeomAPI_ProjectPointOnCurve): ExtremaExtPC {.noSideEffect,
     importcpp: "Extrema", header: "GeomAPI_ProjectPointOnCurve.hxx".}

@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepVisual_ShadingSurfaceMethod* {.size: sizeof(cint), importcpp: "StepVisual_ShadingSurfaceMethod", header: "StepVisual_ShadingSurfaceMethod.hxx".} = enum
-    StepVisual_ssmConstantShading, StepVisual_ssmColourShading,
-    StepVisual_ssmDotShading, StepVisual_ssmNormalShading
+  StepVisualShadingSurfaceMethod* {.size: sizeof(cint), importcpp: "StepVisual_ShadingSurfaceMethod", header: "StepVisual_ShadingSurfaceMethod.hxx".} = enum
+    StepVisualSsmConstantShading, StepVisualSsmColourShading,
+    StepVisualSsmDotShading, StepVisualSsmNormalShading
+
 

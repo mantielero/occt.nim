@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESGraph_LineFontDefPattern"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,40 +26,41 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESGraph_ToolLineFontDefPattern* {.importcpp: "IGESGraph_ToolLineFontDefPattern", header: "IGESGraph_ToolLineFontDefPattern.hxx",
-                                     bycopy.} = object ## ! Returns a ToolLineFontDefPattern, ready to work
+  IGESGraphToolLineFontDefPattern* {.importcpp: "IGESGraph_ToolLineFontDefPattern", header: "IGESGraph_ToolLineFontDefPattern.hxx",
+                                    bycopy.} = object ## ! Returns a ToolLineFontDefPattern, ready to work
 
 
-proc constructIGESGraph_ToolLineFontDefPattern*(): IGESGraph_ToolLineFontDefPattern {.
+proc constructIGESGraphToolLineFontDefPattern*(): IGESGraphToolLineFontDefPattern {.
     constructor, importcpp: "IGESGraph_ToolLineFontDefPattern(@)",
     header: "IGESGraph_ToolLineFontDefPattern.hxx".}
-proc ReadOwnParams*(this: IGESGraph_ToolLineFontDefPattern;
-                   ent: handle[IGESGraph_LineFontDefPattern];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESGraph_ToolLineFontDefPattern.hxx".}
-proc WriteOwnParams*(this: IGESGraph_ToolLineFontDefPattern;
-                    ent: handle[IGESGraph_LineFontDefPattern];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESGraphToolLineFontDefPattern;
+                   ent: Handle[IGESGraphLineFontDefPattern];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESGraph_ToolLineFontDefPattern.hxx".}
+proc writeOwnParams*(this: IGESGraphToolLineFontDefPattern;
+                    ent: Handle[IGESGraphLineFontDefPattern];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESGraph_ToolLineFontDefPattern.hxx".}
-proc OwnShared*(this: IGESGraph_ToolLineFontDefPattern;
-               ent: handle[IGESGraph_LineFontDefPattern];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESGraphToolLineFontDefPattern;
+               ent: Handle[IGESGraphLineFontDefPattern];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESGraph_ToolLineFontDefPattern.hxx".}
-proc DirChecker*(this: IGESGraph_ToolLineFontDefPattern;
-                ent: handle[IGESGraph_LineFontDefPattern]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESGraphToolLineFontDefPattern;
+                ent: Handle[IGESGraphLineFontDefPattern]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESGraph_ToolLineFontDefPattern.hxx".}
-proc OwnCheck*(this: IGESGraph_ToolLineFontDefPattern;
-              ent: handle[IGESGraph_LineFontDefPattern];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESGraphToolLineFontDefPattern;
+              ent: Handle[IGESGraphLineFontDefPattern];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck",
     header: "IGESGraph_ToolLineFontDefPattern.hxx".}
-proc OwnCopy*(this: IGESGraph_ToolLineFontDefPattern;
-             entfrom: handle[IGESGraph_LineFontDefPattern];
-             entto: handle[IGESGraph_LineFontDefPattern];
-             TC: var Interface_CopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESGraph_ToolLineFontDefPattern.hxx".}
-proc OwnDump*(this: IGESGraph_ToolLineFontDefPattern;
-             ent: handle[IGESGraph_LineFontDefPattern];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump", header: "IGESGraph_ToolLineFontDefPattern.hxx".}
+proc ownCopy*(this: IGESGraphToolLineFontDefPattern;
+             entfrom: Handle[IGESGraphLineFontDefPattern];
+             entto: Handle[IGESGraphLineFontDefPattern]; tc: var InterfaceCopyTool) {.
+    noSideEffect, importcpp: "OwnCopy",
+    header: "IGESGraph_ToolLineFontDefPattern.hxx".}
+proc ownDump*(this: IGESGraphToolLineFontDefPattern;
+             ent: Handle[IGESGraphLineFontDefPattern]; dumper: IGESDataIGESDumper;
+             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+    header: "IGESGraph_ToolLineFontDefPattern.hxx".}

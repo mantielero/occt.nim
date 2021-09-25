@@ -16,13 +16,14 @@
 ## ! Define the display type of the text.
 
 type
-  Aspect_TypeOfDisplayText* {.size: sizeof(cint),
-                             importcpp: "Aspect_TypeOfDisplayText",
-                             header: "Aspect_TypeOfDisplayText.hxx".} = enum
-    Aspect_TODT_NORMAL,       ## !< default display, text only
-    Aspect_TODT_SUBTITLE,     ## !< there is a subtitle under the text
-    Aspect_TODT_DEKALE,       ## !< the text is displayed with a 3D style
-    Aspect_TODT_BLEND,        ## !< the text is displayed in XOR
-    Aspect_TODT_DIMENSION,    ## !< dimension line under text will be invisible
-    Aspect_TODT_SHADOW        ## !< the text will have a shadow at the right-bottom corner
+  AspectTypeOfDisplayText* {.size: sizeof(cint),
+                            importcpp: "Aspect_TypeOfDisplayText",
+                            header: "Aspect_TypeOfDisplayText.hxx".} = enum
+    AspectTODT_NORMAL,        ## !< default display, text only
+    AspectTODT_SUBTITLE,      ## !< there is a subtitle under the text
+    AspectTODT_DEKALE,        ## !< the text is displayed with a 3D style
+    AspectTODT_BLEND,         ## !< the text is displayed in XOR
+    AspectTODT_DIMENSION,     ## !< dimension line under text will be invisible
+    AspectTODT_SHADOW         ## !< the text will have a shadow at the right-bottom corner
+
 

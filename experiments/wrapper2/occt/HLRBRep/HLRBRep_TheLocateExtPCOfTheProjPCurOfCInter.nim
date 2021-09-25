@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real, HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter,
-  ../Standard/Standard_Address
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of StdFail_NotDone"
@@ -29,37 +23,35 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter"
 type
-  HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter* {.
+  HLRBRepTheLocateExtPCOfTheProjPCurOfCInter* {.
       importcpp: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter",
       header: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter.hxx", bycopy.} = object
 
 
-proc constructHLRBRep_TheLocateExtPCOfTheProjPCurOfCInter*(): HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter {.
+proc constructHLRBRepTheLocateExtPCOfTheProjPCurOfCInter*(): HLRBRepTheLocateExtPCOfTheProjPCurOfCInter {.
     constructor, importcpp: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter(@)",
     header: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-proc constructHLRBRep_TheLocateExtPCOfTheProjPCurOfCInter*(P: gp_Pnt2d;
-    C: Standard_Address; U0: Standard_Real; TolU: Standard_Real): HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter {.
+proc constructHLRBRepTheLocateExtPCOfTheProjPCurOfCInter*(p: Pnt2d;
+    c: StandardAddress; u0: float; tolU: float): HLRBRepTheLocateExtPCOfTheProjPCurOfCInter {.
     constructor, importcpp: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter(@)",
     header: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-proc constructHLRBRep_TheLocateExtPCOfTheProjPCurOfCInter*(P: gp_Pnt2d;
-    C: Standard_Address; U0: Standard_Real; Umin: Standard_Real; Usup: Standard_Real;
-    TolU: Standard_Real): HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter {.
+proc constructHLRBRepTheLocateExtPCOfTheProjPCurOfCInter*(p: Pnt2d;
+    c: StandardAddress; u0: float; umin: float; usup: float; tolU: float): HLRBRepTheLocateExtPCOfTheProjPCurOfCInter {.
     constructor, importcpp: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter(@)",
     header: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-proc Initialize*(this: var HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter;
-                C: Standard_Address; Umin: Standard_Real; Usup: Standard_Real;
-                TolU: Standard_Real) {.importcpp: "Initialize", header: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-proc Perform*(this: var HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter; P: gp_Pnt2d;
-             U0: Standard_Real) {.importcpp: "Perform", header: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-proc IsDone*(this: HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter): Standard_Boolean {.
-    noSideEffect, importcpp: "IsDone",
+proc initialize*(this: var HLRBRepTheLocateExtPCOfTheProjPCurOfCInter;
+                c: StandardAddress; umin: float; usup: float; tolU: float) {.
+    importcpp: "Initialize",
     header: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-proc SquareDistance*(this: HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter): Standard_Real {.
+proc perform*(this: var HLRBRepTheLocateExtPCOfTheProjPCurOfCInter; p: Pnt2d;
+             u0: float) {.importcpp: "Perform", header: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter.hxx".}
+proc isDone*(this: HLRBRepTheLocateExtPCOfTheProjPCurOfCInter): bool {.noSideEffect,
+    importcpp: "IsDone", header: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter.hxx".}
+proc squareDistance*(this: HLRBRepTheLocateExtPCOfTheProjPCurOfCInter): float {.
     noSideEffect, importcpp: "SquareDistance",
     header: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-proc IsMin*(this: HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter): Standard_Boolean {.
-    noSideEffect, importcpp: "IsMin",
-    header: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-proc Point*(this: HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter): Extrema_POnCurv2d {.
+proc isMin*(this: HLRBRepTheLocateExtPCOfTheProjPCurOfCInter): bool {.noSideEffect,
+    importcpp: "IsMin", header: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter.hxx".}
+proc point*(this: HLRBRepTheLocateExtPCOfTheProjPCurOfCInter): ExtremaPOnCurv2d {.
     noSideEffect, importcpp: "Point",
     header: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter.hxx".}

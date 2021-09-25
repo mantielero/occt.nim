@@ -14,39 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../IFSelect/IFSelect_Activator,
-  ../IFSelect/IFSelect_ReturnStatus, ../Standard/Standard_Integer,
-  ../Standard/Standard_CString
-
 discard "forward decl of IFSelect_SessionPilot"
 discard "forward decl of StepSelect_Activator"
 discard "forward decl of StepSelect_Activator"
 type
-  Handle_StepSelect_Activator* = handle[StepSelect_Activator]
+  HandleStepSelectActivator* = Handle[StepSelectActivator]
 
 ## ! Performs Actions specific to StepSelect, i.e. creation of
 ## ! Step Selections and Counters, plus dumping specific to Step
 
 type
-  StepSelect_Activator* {.importcpp: "StepSelect_Activator",
-                         header: "StepSelect_Activator.hxx", bycopy.} = object of IFSelect_Activator
+  StepSelectActivator* {.importcpp: "StepSelect_Activator",
+                        header: "StepSelect_Activator.hxx", bycopy.} = object of IFSelectActivator
 
 
-proc constructStepSelect_Activator*(): StepSelect_Activator {.constructor,
+proc constructStepSelectActivator*(): StepSelectActivator {.constructor,
     importcpp: "StepSelect_Activator(@)", header: "StepSelect_Activator.hxx".}
-proc Do*(this: var StepSelect_Activator; number: Standard_Integer;
-        pilot: handle[IFSelect_SessionPilot]): IFSelect_ReturnStatus {.
+proc `do`*(this: var StepSelectActivator; number: int;
+          pilot: Handle[IFSelectSessionPilot]): IFSelectReturnStatus {.
     importcpp: "Do", header: "StepSelect_Activator.hxx".}
-proc Help*(this: StepSelect_Activator; number: Standard_Integer): Standard_CString {.
-    noSideEffect, importcpp: "Help", header: "StepSelect_Activator.hxx".}
+proc help*(this: StepSelectActivator; number: int): StandardCString {.noSideEffect,
+    importcpp: "Help", header: "StepSelect_Activator.hxx".}
 type
-  StepSelect_Activatorbase_type* = IFSelect_Activator
+  StepSelectActivatorbaseType* = IFSelectActivator
 
-proc get_type_name*(): cstring {.importcpp: "StepSelect_Activator::get_type_name(@)",
-                              header: "StepSelect_Activator.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepSelect_Activator::get_type_name(@)",
+                            header: "StepSelect_Activator.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepSelect_Activator::get_type_descriptor(@)",
     header: "StepSelect_Activator.hxx".}
-proc DynamicType*(this: StepSelect_Activator): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepSelectActivator): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepSelect_Activator.hxx".}

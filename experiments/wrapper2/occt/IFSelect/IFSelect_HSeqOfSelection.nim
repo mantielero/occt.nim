@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # IFSelect_HSeqOfSelection_HeaderFile [NewLine] # IFSelect_HSeqOfSelection_HeaderFile [NewLine] # IFSelect_Selection.hxx [NewLine] # IFSelect_TSeqOfSelection.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( IFSelect_HSeqOfSelection , IFSelect_TSeqOfSelection ) # [NewLine]
+## !!!Ignored construct:  # IFSelect_HSeqOfSelection_HeaderFile [NewLine] # IFSelect_HSeqOfSelection_HeaderFile [NewLine] # < IFSelect_Selection . hxx > [NewLine] # < IFSelect_TSeqOfSelection . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( IFSelect_HSeqOfSelection , IFSelect_TSeqOfSelection ) # [NewLine]
 ## Error: expected ';'!!!
+

@@ -14,13 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-proc ChFiKPart_MakeChamfer*(DStr: var TopOpeBRepDS_DataStructure;
-                           Data: handle[ChFiDS_SurfData];
-                           theMode: ChFiDS_ChamfMode; Pln: gp_Pln; Con: gp_Cone;
-                           fu: Standard_Real; lu: Standard_Real;
-                           Or1: TopAbs_Orientation; Or2: TopAbs_Orientation;
-                           Dis1: Standard_Real; Dis2: Standard_Real; Spine: gp_Circ;
-                           First: Standard_Real; Ofpl: TopAbs_Orientation;
-                           plandab: Standard_Boolean): Standard_Boolean {.
+proc chFiKPartMakeChamfer*(dStr: var TopOpeBRepDS_DataStructure;
+                          data: Handle[ChFiDS_SurfData];
+                          theMode: ChFiDS_ChamfMode; pln: Pln; con: Cone; fu: float;
+                          lu: float; or1: TopAbsOrientation; or2: TopAbsOrientation;
+                          dis1: float; dis2: float; spine: Circ; first: float;
+                          ofpl: TopAbsOrientation; plandab: bool): bool {.
     importcpp: "ChFiKPart_MakeChamfer(@)",
     header: "ChFiKPart_ComputeData_ChPlnCon.hxx".}

@@ -35,3 +35,4 @@
 ## ! - "project..." for version containing project-specific fixes
 ## #define OCC_VERSION_DEVELOPMENT   "dev"  Derived (manually): version as real and string (major.minor) # OCC_VERSION 7.5 [NewLine] # OCC_VERSION_STRING 7.5 [NewLine] # OCC_VERSION_COMPLETE 7.5.2 [NewLine] ! Derived: extended version as string ("major.minor.maintenance.dev") # OCC_VERSION_DEVELOPMENT [NewLine] # OCC_VERSION_STRING_EXT OCC_VERSION_COMPLETE . OCC_VERSION_DEVELOPMENT [NewLine] # [NewLine] # OCC_VERSION_STRING_EXT OCC_VERSION_COMPLETE [NewLine] # [NewLine]  Derived: complete version as hex (0x0'major'0'minor'0'maintenance') # OCC_VERSION_HEX ( OCC_VERSION_MAJOR << 16 | OCC_VERSION_MINOR << 8 | OCC_VERSION_MAINTENANCE ) [NewLine] #  _Standard_Version_HeaderFile [NewLine]
 ## Error: expected ';'!!!
+

@@ -14,16 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_XYZ,
-  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Integer
-
 discard "forward decl of gp_XYZ"
 discard "forward decl of gp_Pnt"
 discard "forward decl of IGESGeom_Line"
 discard "forward decl of IGESGeom_Line"
 type
-  Handle_IGESGeom_Line* = handle[IGESGeom_Line]
+  HandleIGESGeomLine* = Handle[IGESGeomLine]
 
 ## ! defines IGESLine, Type <110> Form <0>
 ## ! in package IGESGeom
@@ -37,32 +33,32 @@ type
 ## ! 2 for full infinite Line (both Start and End are abitrary)
 
 type
-  IGESGeom_Line* {.importcpp: "IGESGeom_Line", header: "IGESGeom_Line.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESGeomLine* {.importcpp: "IGESGeom_Line", header: "IGESGeom_Line.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESGeom_Line*(): IGESGeom_Line {.constructor,
+proc constructIGESGeomLine*(): IGESGeomLine {.constructor,
     importcpp: "IGESGeom_Line(@)", header: "IGESGeom_Line.hxx".}
-proc Init*(this: var IGESGeom_Line; aStart: gp_XYZ; anEnd: gp_XYZ) {.importcpp: "Init",
+proc init*(this: var IGESGeomLine; aStart: Xyz; anEnd: Xyz) {.importcpp: "Init",
     header: "IGESGeom_Line.hxx".}
-proc Infinite*(this: IGESGeom_Line): Standard_Integer {.noSideEffect,
-    importcpp: "Infinite", header: "IGESGeom_Line.hxx".}
-proc SetInfinite*(this: var IGESGeom_Line; status: Standard_Integer) {.
-    importcpp: "SetInfinite", header: "IGESGeom_Line.hxx".}
-proc StartPoint*(this: IGESGeom_Line): gp_Pnt {.noSideEffect,
-    importcpp: "StartPoint", header: "IGESGeom_Line.hxx".}
-proc TransformedStartPoint*(this: IGESGeom_Line): gp_Pnt {.noSideEffect,
+proc infinite*(this: IGESGeomLine): int {.noSideEffect, importcpp: "Infinite",
+                                      header: "IGESGeom_Line.hxx".}
+proc setInfinite*(this: var IGESGeomLine; status: int) {.importcpp: "SetInfinite",
+    header: "IGESGeom_Line.hxx".}
+proc startPoint*(this: IGESGeomLine): Pnt {.noSideEffect, importcpp: "StartPoint",
+                                        header: "IGESGeom_Line.hxx".}
+proc transformedStartPoint*(this: IGESGeomLine): Pnt {.noSideEffect,
     importcpp: "TransformedStartPoint", header: "IGESGeom_Line.hxx".}
-proc EndPoint*(this: IGESGeom_Line): gp_Pnt {.noSideEffect, importcpp: "EndPoint",
-    header: "IGESGeom_Line.hxx".}
-proc TransformedEndPoint*(this: IGESGeom_Line): gp_Pnt {.noSideEffect,
+proc endPoint*(this: IGESGeomLine): Pnt {.noSideEffect, importcpp: "EndPoint",
+                                      header: "IGESGeom_Line.hxx".}
+proc transformedEndPoint*(this: IGESGeomLine): Pnt {.noSideEffect,
     importcpp: "TransformedEndPoint", header: "IGESGeom_Line.hxx".}
 type
-  IGESGeom_Linebase_type* = IGESData_IGESEntity
+  IGESGeomLinebaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESGeom_Line::get_type_name(@)",
-                              header: "IGESGeom_Line.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESGeom_Line::get_type_name(@)",
+                            header: "IGESGeom_Line.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESGeom_Line::get_type_descriptor(@)",
     header: "IGESGeom_Line.hxx".}
-proc DynamicType*(this: IGESGeom_Line): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IGESGeomLine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_Line.hxx".}

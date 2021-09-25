@@ -14,33 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of TNaming_UsedShapes"
 discard "forward decl of TNaming_NamedShape"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of TDF_Label"
 discard "forward decl of TopoDS_Shape"
 type
-  TNaming_Builder* {.importcpp: "TNaming_Builder", header: "TNaming_Builder.hxx",
-                    bycopy.} = object ## ! Create an   Builder.
-                                   ## ! Warning:  Before Addition copies the current Value, and clear
+  TNamingBuilder* {.importcpp: "TNaming_Builder", header: "TNaming_Builder.hxx",
+                   bycopy.} = object ## ! Create an   Builder.
+                                  ## ! Warning:  Before Addition copies the current Value, and clear
 
 
-proc constructTNaming_Builder*(aLabel: TDF_Label): TNaming_Builder {.constructor,
+proc constructTNamingBuilder*(aLabel: TDF_Label): TNamingBuilder {.constructor,
     importcpp: "TNaming_Builder(@)", header: "TNaming_Builder.hxx".}
-proc Generated*(this: var TNaming_Builder; newShape: TopoDS_Shape) {.
+proc generated*(this: var TNamingBuilder; newShape: TopoDS_Shape) {.
     importcpp: "Generated", header: "TNaming_Builder.hxx".}
-proc Generated*(this: var TNaming_Builder; oldShape: TopoDS_Shape;
+proc generated*(this: var TNamingBuilder; oldShape: TopoDS_Shape;
                newShape: TopoDS_Shape) {.importcpp: "Generated",
                                        header: "TNaming_Builder.hxx".}
-proc Delete*(this: var TNaming_Builder; oldShape: TopoDS_Shape) {.importcpp: "Delete",
+proc delete*(this: var TNamingBuilder; oldShape: TopoDS_Shape) {.importcpp: "Delete",
     header: "TNaming_Builder.hxx".}
-proc Modify*(this: var TNaming_Builder; oldShape: TopoDS_Shape; newShape: TopoDS_Shape) {.
+proc modify*(this: var TNamingBuilder; oldShape: TopoDS_Shape; newShape: TopoDS_Shape) {.
     importcpp: "Modify", header: "TNaming_Builder.hxx".}
-proc Select*(this: var TNaming_Builder; aShape: TopoDS_Shape; inShape: TopoDS_Shape) {.
+proc select*(this: var TNamingBuilder; aShape: TopoDS_Shape; inShape: TopoDS_Shape) {.
     importcpp: "Select", header: "TNaming_Builder.hxx".}
-proc NamedShape*(this: TNaming_Builder): handle[TNaming_NamedShape] {.noSideEffect,
+proc namedShape*(this: TNamingBuilder): Handle[TNamingNamedShape] {.noSideEffect,
     importcpp: "NamedShape", header: "TNaming_Builder.hxx".}

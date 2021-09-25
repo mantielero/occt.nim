@@ -13,52 +13,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  BRepMesh_ConstrainedBaseMeshAlgo, ../NCollection/NCollection_Shared,
-  ../IMeshTools/IMeshTools_Parameters, BRepMesh_Delaun, BRepMesh_MeshTool
-
 discard "forward decl of BRepMesh_DataStructureOfDelaun"
 type
-  BRepMesh_CustomBaseMeshAlgo* {.importcpp: "BRepMesh_CustomBaseMeshAlgo",
-                                header: "BRepMesh_CustomBaseMeshAlgo.hxx", bycopy.} = object of BRepMesh_ConstrainedBaseMeshAlgo ##
-                                                                                                                          ## !
-                                                                                                                          ## Constructor.
-                                                                                                                          ##
-                                                                                                                          ## !
-                                                                                                                          ## Generates
-                                                                                                                          ## mesh
-                                                                                                                          ## for
-                                                                                                                          ## the
-                                                                                                                          ## contour
-                                                                                                                          ## stored
-                                                                                                                          ## in
-                                                                                                                          ## data
-                                                                                                                          ## structure.
-                                                                                                                          ##
-                                                                                                                          ## !
-                                                                                                                          ## Builds
-                                                                                                                          ## base
-                                                                                                                          ## triangulation
-                                                                                                                          ## using
-                                                                                                                          ## custom
-                                                                                                                          ## triangulation
-                                                                                                                          ## algorithm.
+  BRepMeshCustomBaseMeshAlgo* {.importcpp: "BRepMesh_CustomBaseMeshAlgo",
+                               header: "BRepMesh_CustomBaseMeshAlgo.hxx", bycopy.} = object of BRepMeshConstrainedBaseMeshAlgo ##
+                                                                                                                        ## !
+                                                                                                                        ## Constructor.
+                                                                                                                        ##
+                                                                                                                        ## !
+                                                                                                                        ## Generates
+                                                                                                                        ## mesh
+                                                                                                                        ## for
+                                                                                                                        ## the
+                                                                                                                        ## contour
+                                                                                                                        ## stored
+                                                                                                                        ## in
+                                                                                                                        ## data
+                                                                                                                        ## structure.
+                                                                                                                        ##
+                                                                                                                        ## !
+                                                                                                                        ## Builds
+                                                                                                                        ## base
+                                                                                                                        ## triangulation
+                                                                                                                        ## using
+                                                                                                                        ## custom
+                                                                                                                        ## triangulation
+                                                                                                                        ## algorithm.
 
 
-proc constructBRepMesh_CustomBaseMeshAlgo*(): BRepMesh_CustomBaseMeshAlgo {.
+proc constructBRepMeshCustomBaseMeshAlgo*(): BRepMeshCustomBaseMeshAlgo {.
     constructor, importcpp: "BRepMesh_CustomBaseMeshAlgo(@)",
     header: "BRepMesh_CustomBaseMeshAlgo.hxx".}
-proc destroyBRepMesh_CustomBaseMeshAlgo*(this: var BRepMesh_CustomBaseMeshAlgo) {.
+proc destroyBRepMeshCustomBaseMeshAlgo*(this: var BRepMeshCustomBaseMeshAlgo) {.
     importcpp: "#.~BRepMesh_CustomBaseMeshAlgo()",
     header: "BRepMesh_CustomBaseMeshAlgo.hxx".}
 type
-  BRepMesh_CustomBaseMeshAlgobase_type* = BRepMesh_ConstrainedBaseMeshAlgo
+  BRepMeshCustomBaseMeshAlgobaseType* = BRepMeshConstrainedBaseMeshAlgo
 
-proc get_type_name*(): cstring {.importcpp: "BRepMesh_CustomBaseMeshAlgo::get_type_name(@)",
-                              header: "BRepMesh_CustomBaseMeshAlgo.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepMesh_CustomBaseMeshAlgo::get_type_name(@)",
+                            header: "BRepMesh_CustomBaseMeshAlgo.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepMesh_CustomBaseMeshAlgo::get_type_descriptor(@)",
     header: "BRepMesh_CustomBaseMeshAlgo.hxx".}
-proc DynamicType*(this: BRepMesh_CustomBaseMeshAlgo): handle[Standard_Type] {.
+proc dynamicType*(this: BRepMeshCustomBaseMeshAlgo): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BRepMesh_CustomBaseMeshAlgo.hxx".}

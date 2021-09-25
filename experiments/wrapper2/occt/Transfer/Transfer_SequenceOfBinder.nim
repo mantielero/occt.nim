@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Transfer_Binder, ../NCollection/NCollection_Sequence
-
 type
-  Transfer_SequenceOfBinder* = NCollection_Sequence[handle[Transfer_Binder]]
+  TransferSequenceOfBinder* = NCollectionSequence[Handle[TransferBinder]]
+

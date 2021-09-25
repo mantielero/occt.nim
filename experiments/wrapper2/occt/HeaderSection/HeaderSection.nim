@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle
-
 discard "forward decl of HeaderSection_Protocol"
 discard "forward decl of HeaderSection_Protocol"
 discard "forward decl of HeaderSection_FileName"
@@ -32,5 +28,5 @@ type
                                                                                       ## Protocol
 
 
-proc Protocol*(): handle[HeaderSection_Protocol] {.
+proc protocol*(): Handle[HeaderSectionProtocol] {.
     importcpp: "HeaderSection::Protocol(@)", header: "HeaderSection.hxx".}

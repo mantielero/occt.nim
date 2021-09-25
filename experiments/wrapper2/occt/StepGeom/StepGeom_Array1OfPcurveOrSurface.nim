@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepGeom_PcurveOrSurface, ../NCollection/NCollection_Array1
-
 type
-  StepGeom_Array1OfPcurveOrSurface* = NCollection_Array1[StepGeom_PcurveOrSurface]
+  StepGeomArray1OfPcurveOrSurface* = NCollectionArray1[StepGeomPcurveOrSurface]
+

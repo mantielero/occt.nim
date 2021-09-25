@@ -13,16 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepFEA_HArray1OfNodeRepresentation, StepFEA_FeaGroup
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepFEA_FeaModel"
 discard "forward decl of StepFEA_NodeGroup"
 discard "forward decl of StepFEA_NodeGroup"
 type
-  Handle_StepFEA_NodeGroup* = handle[StepFEA_NodeGroup]
+  HandleStepFEA_NodeGroup* = Handle[StepFEA_NodeGroup]
 
 ## ! Representation of STEP entity NodeGroup
 
@@ -36,24 +32,23 @@ type
 
 proc constructStepFEA_NodeGroup*(): StepFEA_NodeGroup {.constructor,
     importcpp: "StepFEA_NodeGroup(@)", header: "StepFEA_NodeGroup.hxx".}
-proc Init*(this: var StepFEA_NodeGroup;
-          aGroup_Name: handle[TCollection_HAsciiString];
-          aGroup_Description: handle[TCollection_HAsciiString];
-          aFeaGroup_ModelRef: handle[StepFEA_FeaModel];
-          aNodes: handle[StepFEA_HArray1OfNodeRepresentation]) {.
+proc init*(this: var StepFEA_NodeGroup; aGroupName: Handle[TCollectionHAsciiString];
+          aGroupDescription: Handle[TCollectionHAsciiString];
+          aFeaGroupModelRef: Handle[StepFEA_FeaModel];
+          aNodes: Handle[StepFEA_HArray1OfNodeRepresentation]) {.
     importcpp: "Init", header: "StepFEA_NodeGroup.hxx".}
-proc Nodes*(this: StepFEA_NodeGroup): handle[StepFEA_HArray1OfNodeRepresentation] {.
+proc nodes*(this: StepFEA_NodeGroup): Handle[StepFEA_HArray1OfNodeRepresentation] {.
     noSideEffect, importcpp: "Nodes", header: "StepFEA_NodeGroup.hxx".}
-proc SetNodes*(this: var StepFEA_NodeGroup;
-              Nodes: handle[StepFEA_HArray1OfNodeRepresentation]) {.
+proc setNodes*(this: var StepFEA_NodeGroup;
+              nodes: Handle[StepFEA_HArray1OfNodeRepresentation]) {.
     importcpp: "SetNodes", header: "StepFEA_NodeGroup.hxx".}
 type
-  StepFEA_NodeGroupbase_type* = StepFEA_FeaGroup
+  StepFEA_NodeGroupbaseType* = StepFEA_FeaGroup
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_NodeGroup::get_type_name(@)",
-                              header: "StepFEA_NodeGroup.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_NodeGroup::get_type_name(@)",
+                            header: "StepFEA_NodeGroup.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_NodeGroup::get_type_descriptor(@)",
     header: "StepFEA_NodeGroup.hxx".}
-proc DynamicType*(this: StepFEA_NodeGroup): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepFEA_NodeGroup): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepFEA_NodeGroup.hxx".}

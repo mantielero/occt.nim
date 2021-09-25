@@ -13,7 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _NCollection_Mat4_HeaderFile [NewLine] # _NCollection_Mat4_HeaderFile [NewLine] # NCollection_Vec4.hxx [NewLine] # ../Standard/Standard_Dump.hxx [NewLine] # ../Standard/Standard_OStream.hxx [NewLine] ! Generic matrix of 4 x 4 elements.
+## !!!Ignored construct:  # _NCollection_Mat4_HeaderFile [NewLine] # _NCollection_Mat4_HeaderFile [NewLine] # < NCollection_Vec4 . hxx > [NewLine] # < Standard_Dump . hxx > [NewLine] # < Standard_OStream . hxx > [NewLine] ! Generic matrix of 4 x 4 elements.
 ## ! To be used in conjunction with NCollection_Vec4 entities.
 ## ! Originally introduced for 3D space projection and orientation
 ## ! operations. template < typename Element_t > [end of template] class NCollection_Mat4 { public : ! Get number of rows.
@@ -72,8 +72,8 @@
 ## !!!Ignored construct:  template < typename Element_t > [end of template] Element_t NCollection_Mat4 < Element_t > :: myIdentityArray [ ] = { 1 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 , 0 , 1 } ;
 ## Error: token expected: ; but got: <!!!
 
-when defined(_MSC_VER) and (_MSC_VER >= 1900):
-  static_assert(value[NCollection_Mat4[cfloat]],
-                "NCollection_Mat4 is not is_trivially_copyable() structure!")
-  static_assert(value[NCollection_Mat4[cfloat]],
-                "NCollection_Mat4 is not is_standard_layout() structure!")
+when defined(msc_Ver) and (msc_Ver >= 1900):
+  staticAssert(Value[NCollectionMat4[cfloat]],
+               "NCollection_Mat4 is not is_trivially_copyable() structure!")
+  staticAssert(Value[NCollectionMat4[cfloat]],
+               "NCollection_Mat4 is not is_standard_layout() structure!")

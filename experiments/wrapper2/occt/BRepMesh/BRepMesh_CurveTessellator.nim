@@ -13,54 +13,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../IMeshTools/IMeshTools_CurveTessellator,
-  ../GCPnts/GCPnts_TangentialDeflection, ../TopoDS/TopoDS_Vertex,
-  ../BRepAdaptor/BRepAdaptor_Curve, ../IMeshData/IMeshData_Types
-
 discard "forward decl of TopoDS_Face"
 discard "forward decl of Geom_Surface"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of IMeshTools_Parameters"
 type
-  BRepMesh_CurveTessellator* {.importcpp: "BRepMesh_CurveTessellator",
-                              header: "BRepMesh_CurveTessellator.hxx", bycopy.} = object of IMeshTools_CurveTessellator ##
-                                                                                                                 ## !
-                                                                                                                 ## Constructor.
-                                                                                                                 ##
-                                                                                                                 ## !
-                                                                                                                 ## Performs
-                                                                                                                 ## initialization
-                                                                                                                 ## of
-                                                                                                                 ## this
-                                                                                                                 ## tool.
+  BRepMeshCurveTessellator* {.importcpp: "BRepMesh_CurveTessellator",
+                             header: "BRepMesh_CurveTessellator.hxx", bycopy.} = object of IMeshToolsCurveTessellator ##
+                                                                                                               ## !
+                                                                                                               ## Constructor.
+                                                                                                               ##
+                                                                                                               ## !
+                                                                                                               ## Performs
+                                                                                                               ## initialization
+                                                                                                               ## of
+                                                                                                               ## this
+                                                                                                               ## tool.
 
 
-proc constructBRepMesh_CurveTessellator*(theEdge: IEdgeHandle;
-                                        theParameters: IMeshTools_Parameters): BRepMesh_CurveTessellator {.
+proc constructBRepMeshCurveTessellator*(theEdge: IEdgeHandle;
+                                       theParameters: IMeshToolsParameters): BRepMeshCurveTessellator {.
     constructor, importcpp: "BRepMesh_CurveTessellator(@)",
     header: "BRepMesh_CurveTessellator.hxx".}
-proc constructBRepMesh_CurveTessellator*(theEdge: IEdgeHandle;
-                                        theOrientation: TopAbs_Orientation;
-                                        theFace: IFaceHandle;
-                                        theParameters: IMeshTools_Parameters): BRepMesh_CurveTessellator {.
+proc constructBRepMeshCurveTessellator*(theEdge: IEdgeHandle;
+                                       theOrientation: TopAbsOrientation;
+                                       theFace: IFaceHandle;
+                                       theParameters: IMeshToolsParameters): BRepMeshCurveTessellator {.
     constructor, importcpp: "BRepMesh_CurveTessellator(@)",
     header: "BRepMesh_CurveTessellator.hxx".}
-proc destroyBRepMesh_CurveTessellator*(this: var BRepMesh_CurveTessellator) {.
+proc destroyBRepMeshCurveTessellator*(this: var BRepMeshCurveTessellator) {.
     importcpp: "#.~BRepMesh_CurveTessellator()",
     header: "BRepMesh_CurveTessellator.hxx".}
-proc PointsNb*(this: BRepMesh_CurveTessellator): Standard_Integer {.noSideEffect,
+proc pointsNb*(this: BRepMeshCurveTessellator): int {.noSideEffect,
     importcpp: "PointsNb", header: "BRepMesh_CurveTessellator.hxx".}
-proc Value*(this: BRepMesh_CurveTessellator; theIndex: Standard_Integer;
-           thePoint: var gp_Pnt; theParameter: var Standard_Real): Standard_Boolean {.
-    noSideEffect, importcpp: "Value", header: "BRepMesh_CurveTessellator.hxx".}
+proc value*(this: BRepMeshCurveTessellator; theIndex: int; thePoint: var Pnt;
+           theParameter: var float): bool {.noSideEffect, importcpp: "Value",
+                                        header: "BRepMesh_CurveTessellator.hxx".}
 type
-  BRepMesh_CurveTessellatorbase_type* = IMeshTools_CurveTessellator
+  BRepMeshCurveTessellatorbaseType* = IMeshToolsCurveTessellator
 
-proc get_type_name*(): cstring {.importcpp: "BRepMesh_CurveTessellator::get_type_name(@)",
-                              header: "BRepMesh_CurveTessellator.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRepMesh_CurveTessellator::get_type_name(@)",
+                            header: "BRepMesh_CurveTessellator.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepMesh_CurveTessellator::get_type_descriptor(@)",
     header: "BRepMesh_CurveTessellator.hxx".}
-proc DynamicType*(this: BRepMesh_CurveTessellator): handle[Standard_Type] {.
+proc dynamicType*(this: BRepMeshCurveTessellator): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BRepMesh_CurveTessellator.hxx".}

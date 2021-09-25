@@ -14,19 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_HSequenceOfTransient, Transfer_Binder,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Type,
-  ../Standard/Standard_CString, ../Standard/Standard_Integer
-
 discard "forward decl of Transfer_TransferFailure"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_MultipleBinder"
 discard "forward decl of Transfer_MultipleBinder"
 type
-  Handle_Transfer_MultipleBinder* = handle[Transfer_MultipleBinder]
+  HandleTransferMultipleBinder* = Handle[TransferMultipleBinder]
 
 ## ! Allows direct binding between a starting Object and the Result
 ## ! of its transfer, when it can be made of several Transient
@@ -48,47 +42,45 @@ type
 ## ! of MultipleBinder by redefining method Transfer.
 
 type
-  Transfer_MultipleBinder* {.importcpp: "Transfer_MultipleBinder",
-                            header: "Transfer_MultipleBinder.hxx", bycopy.} = object of Transfer_Binder ##
-                                                                                                 ## !
-                                                                                                 ## normal
-                                                                                                 ## standard
-                                                                                                 ## constructor,
-                                                                                                 ## creates
-                                                                                                 ## an
-                                                                                                 ## empty
-                                                                                                 ## MultipleBinder
+  TransferMultipleBinder* {.importcpp: "Transfer_MultipleBinder",
+                           header: "Transfer_MultipleBinder.hxx", bycopy.} = object of TransferBinder ##
+                                                                                               ## !
+                                                                                               ## normal
+                                                                                               ## standard
+                                                                                               ## constructor,
+                                                                                               ## creates
+                                                                                               ## an
+                                                                                               ## empty
+                                                                                               ## MultipleBinder
 
 
-proc constructTransfer_MultipleBinder*(): Transfer_MultipleBinder {.constructor,
+proc constructTransferMultipleBinder*(): TransferMultipleBinder {.constructor,
     importcpp: "Transfer_MultipleBinder(@)", header: "Transfer_MultipleBinder.hxx".}
-proc IsMultiple*(this: Transfer_MultipleBinder): Standard_Boolean {.noSideEffect,
+proc isMultiple*(this: TransferMultipleBinder): bool {.noSideEffect,
     importcpp: "IsMultiple", header: "Transfer_MultipleBinder.hxx".}
-proc ResultType*(this: Transfer_MultipleBinder): handle[Standard_Type] {.
-    noSideEffect, importcpp: "ResultType", header: "Transfer_MultipleBinder.hxx".}
-proc ResultTypeName*(this: Transfer_MultipleBinder): Standard_CString {.
-    noSideEffect, importcpp: "ResultTypeName",
-    header: "Transfer_MultipleBinder.hxx".}
-proc AddResult*(this: var Transfer_MultipleBinder; res: handle[Standard_Transient]) {.
+proc resultType*(this: TransferMultipleBinder): Handle[StandardType] {.noSideEffect,
+    importcpp: "ResultType", header: "Transfer_MultipleBinder.hxx".}
+proc resultTypeName*(this: TransferMultipleBinder): StandardCString {.noSideEffect,
+    importcpp: "ResultTypeName", header: "Transfer_MultipleBinder.hxx".}
+proc addResult*(this: var TransferMultipleBinder; res: Handle[StandardTransient]) {.
     importcpp: "AddResult", header: "Transfer_MultipleBinder.hxx".}
-proc NbResults*(this: Transfer_MultipleBinder): Standard_Integer {.noSideEffect,
+proc nbResults*(this: TransferMultipleBinder): int {.noSideEffect,
     importcpp: "NbResults", header: "Transfer_MultipleBinder.hxx".}
-proc ResultValue*(this: Transfer_MultipleBinder; num: Standard_Integer): handle[
-    Standard_Transient] {.noSideEffect, importcpp: "ResultValue",
-                         header: "Transfer_MultipleBinder.hxx".}
-proc MultipleResult*(this: Transfer_MultipleBinder): handle[
-    TColStd_HSequenceOfTransient] {.noSideEffect, importcpp: "MultipleResult",
-                                   header: "Transfer_MultipleBinder.hxx".}
-proc SetMultipleResult*(this: var Transfer_MultipleBinder;
-                       mulres: handle[TColStd_HSequenceOfTransient]) {.
+proc resultValue*(this: TransferMultipleBinder; num: int): Handle[StandardTransient] {.
+    noSideEffect, importcpp: "ResultValue", header: "Transfer_MultipleBinder.hxx".}
+proc multipleResult*(this: TransferMultipleBinder): Handle[
+    TColStdHSequenceOfTransient] {.noSideEffect, importcpp: "MultipleResult",
+                                  header: "Transfer_MultipleBinder.hxx".}
+proc setMultipleResult*(this: var TransferMultipleBinder;
+                       mulres: Handle[TColStdHSequenceOfTransient]) {.
     importcpp: "SetMultipleResult", header: "Transfer_MultipleBinder.hxx".}
 type
-  Transfer_MultipleBinderbase_type* = Transfer_Binder
+  TransferMultipleBinderbaseType* = TransferBinder
 
-proc get_type_name*(): cstring {.importcpp: "Transfer_MultipleBinder::get_type_name(@)",
-                              header: "Transfer_MultipleBinder.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Transfer_MultipleBinder::get_type_name(@)",
+                            header: "Transfer_MultipleBinder.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_MultipleBinder::get_type_descriptor(@)",
     header: "Transfer_MultipleBinder.hxx".}
-proc DynamicType*(this: Transfer_MultipleBinder): handle[Standard_Type] {.
+proc dynamicType*(this: TransferMultipleBinder): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Transfer_MultipleBinder.hxx".}

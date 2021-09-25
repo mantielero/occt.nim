@@ -14,54 +14,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  ../StepGeom/StepGeom_GeometricRepresentationItem
-
 discard "forward decl of StepGeom_Axis1Placement"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_RightCircularCylinder"
 discard "forward decl of StepShape_RightCircularCylinder"
 type
-  Handle_StepShape_RightCircularCylinder* = handle[StepShape_RightCircularCylinder]
-  StepShape_RightCircularCylinder* {.importcpp: "StepShape_RightCircularCylinder", header: "StepShape_RightCircularCylinder.hxx",
-                                    bycopy.} = object of StepGeom_GeometricRepresentationItem ##
-                                                                                         ## !
-                                                                                         ## Returns
-                                                                                         ## a
-                                                                                         ## RightCircularCylinder
+  HandleStepShapeRightCircularCylinder* = Handle[StepShapeRightCircularCylinder]
+  StepShapeRightCircularCylinder* {.importcpp: "StepShape_RightCircularCylinder", header: "StepShape_RightCircularCylinder.hxx",
+                                   bycopy.} = object of StepGeomGeometricRepresentationItem ##
+                                                                                       ## !
+                                                                                       ## Returns
+                                                                                       ## a
+                                                                                       ## RightCircularCylinder
 
 
-proc constructStepShape_RightCircularCylinder*(): StepShape_RightCircularCylinder {.
+proc constructStepShapeRightCircularCylinder*(): StepShapeRightCircularCylinder {.
     constructor, importcpp: "StepShape_RightCircularCylinder(@)",
     header: "StepShape_RightCircularCylinder.hxx".}
-proc Init*(this: var StepShape_RightCircularCylinder;
-          aName: handle[TCollection_HAsciiString];
-          aPosition: handle[StepGeom_Axis1Placement]; aHeight: Standard_Real;
-          aRadius: Standard_Real) {.importcpp: "Init",
-                                  header: "StepShape_RightCircularCylinder.hxx".}
-proc SetPosition*(this: var StepShape_RightCircularCylinder;
-                 aPosition: handle[StepGeom_Axis1Placement]) {.
+proc init*(this: var StepShapeRightCircularCylinder;
+          aName: Handle[TCollectionHAsciiString];
+          aPosition: Handle[StepGeomAxis1Placement]; aHeight: float; aRadius: float) {.
+    importcpp: "Init", header: "StepShape_RightCircularCylinder.hxx".}
+proc setPosition*(this: var StepShapeRightCircularCylinder;
+                 aPosition: Handle[StepGeomAxis1Placement]) {.
     importcpp: "SetPosition", header: "StepShape_RightCircularCylinder.hxx".}
-proc Position*(this: StepShape_RightCircularCylinder): handle[
-    StepGeom_Axis1Placement] {.noSideEffect, importcpp: "Position",
-                              header: "StepShape_RightCircularCylinder.hxx".}
-proc SetHeight*(this: var StepShape_RightCircularCylinder; aHeight: Standard_Real) {.
+proc position*(this: StepShapeRightCircularCylinder): Handle[StepGeomAxis1Placement] {.
+    noSideEffect, importcpp: "Position",
+    header: "StepShape_RightCircularCylinder.hxx".}
+proc setHeight*(this: var StepShapeRightCircularCylinder; aHeight: float) {.
     importcpp: "SetHeight", header: "StepShape_RightCircularCylinder.hxx".}
-proc Height*(this: StepShape_RightCircularCylinder): Standard_Real {.noSideEffect,
+proc height*(this: StepShapeRightCircularCylinder): float {.noSideEffect,
     importcpp: "Height", header: "StepShape_RightCircularCylinder.hxx".}
-proc SetRadius*(this: var StepShape_RightCircularCylinder; aRadius: Standard_Real) {.
+proc setRadius*(this: var StepShapeRightCircularCylinder; aRadius: float) {.
     importcpp: "SetRadius", header: "StepShape_RightCircularCylinder.hxx".}
-proc Radius*(this: StepShape_RightCircularCylinder): Standard_Real {.noSideEffect,
+proc radius*(this: StepShapeRightCircularCylinder): float {.noSideEffect,
     importcpp: "Radius", header: "StepShape_RightCircularCylinder.hxx".}
 type
-  StepShape_RightCircularCylinderbase_type* = StepGeom_GeometricRepresentationItem
+  StepShapeRightCircularCylinderbaseType* = StepGeomGeometricRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_RightCircularCylinder::get_type_name(@)",
-                              header: "StepShape_RightCircularCylinder.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_RightCircularCylinder::get_type_name(@)",
+                            header: "StepShape_RightCircularCylinder.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_RightCircularCylinder::get_type_descriptor(@)",
     header: "StepShape_RightCircularCylinder.hxx".}
-proc DynamicType*(this: StepShape_RightCircularCylinder): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeRightCircularCylinder): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_RightCircularCylinder.hxx".}

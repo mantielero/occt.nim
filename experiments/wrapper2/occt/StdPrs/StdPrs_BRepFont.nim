@@ -12,19 +12,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Adaptor3d/Adaptor3d_CurveOnSurface, ../BRep/BRep_Builder,
-  ../Font/Font_FTFont, ../Font/Font_TextFormatter,
-  ../Geom2dAdaptor/Geom2dAdaptor_HCurve,
-  ../Geom2dConvert/Geom2dConvert_CompCurveToBSplineCurve, ../gp/gp_Ax3,
-  ../gp/gp_XY, ../gp/gp_XYZ, ../NCollection/NCollection_DataMap,
-  ../NCollection/NCollection_String, ../Standard/Standard_Mutex,
-  ../TColgp/TColgp_Array1OfPnt2d, ../TopoDS/TopoDS_Shape, ../TopoDS/TopoDS_Face,
-  ../TopTools/TopTools_SequenceOfShape
-
 discard "forward decl of StdPrs_BRepFont"
 type
-  Handle_StdPrs_BRepFont* = handle[StdPrs_BRepFont]
+  HandleStdPrsBRepFont* = Handle[StdPrsBRepFont]
 
 ## ! This tool provides basic services for rendering of vectorized text glyphs as BRep shapes.
 ## ! Single instance initialize single font for sequential glyphs rendering with implicit caching of already rendered glyphs.
@@ -35,23 +25,23 @@ type
 ## ! Although caching should eliminate this issue after rendering of sufficient number of glyphs.
 
 type
-  StdPrs_BRepFont* {.importcpp: "StdPrs_BRepFont", header: "StdPrs_BRepFont.hxx",
-                    bycopy.} = object of Standard_Transient ## ! Find the font Initialize the font.
-                                                       ## ! @param theFontName    the font name
-                                                       ## ! @param theFontAspect  the font style
-                                                       ## ! @param theSize        the face size in model units
-                                                       ## ! @param theStrictLevel search strict level for using aliases and fallback
-                                                       ## ! @return true on success
-                                                       ## ! @return vertical distance from the horizontal baseline to the highest character coordinate.
-                                                       ## ! Find (using Font_FontMgr) and initialize the font from the given name.
-                                                       ## ! Alias for FindAndInit() for backward compatibility.
-                                                       ## ! Render single glyph as TopoDS_Shape. This method does not lock the mutex.
-                                                       ## ! @param theChar  glyph identifier
-                                                       ## ! @param theShape rendered glyph within cache, might be NULL shape
-                                                       ## ! @return true if glyph's geometry is available
-                                                       ## ! Initialize class fields
-                                                       ## ! @name Protected fields
-                                                       ## ! @name Shared temporary variables for glyph construction
+  StdPrsBRepFont* {.importcpp: "StdPrs_BRepFont", header: "StdPrs_BRepFont.hxx",
+                   bycopy.} = object of StandardTransient ## ! Find the font Initialize the font.
+                                                     ## ! @param theFontName    the font name
+                                                     ## ! @param theFontAspect  the font style
+                                                     ## ! @param theSize        the face size in model units
+                                                     ## ! @param theStrictLevel search strict level for using aliases and fallback
+                                                     ## ! @return true on success
+                                                     ## ! @return vertical distance from the horizontal baseline to the highest character coordinate.
+                                                     ## ! Find (using Font_FontMgr) and initialize the font from the given name.
+                                                     ## ! Alias for FindAndInit() for backward compatibility.
+                                                     ## ! Render single glyph as TopoDS_Shape. This method does not lock the mutex.
+                                                     ## ! @param theChar  glyph identifier
+                                                     ## ! @param theShape rendered glyph within cache, might be NULL shape
+                                                     ## ! @return true if glyph's geometry is available
+                                                     ## ! Initialize class fields
+                                                     ## ! @name Protected fields
+                                                     ## ! @name Shared temporary variables for glyph construction
     ## !< wrapper over FreeType font
     ## !< glyphs cache
     ## !< lock for thread-safety
@@ -60,70 +50,67 @@ type
     ## !< scale font rendering units into model units
     ## !< flag to merge C1 curves of each contour into single C0 curve, OFF by default
 
-  StdPrs_BRepFontbase_type* = Standard_Transient
+  StdPrsBRepFontbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StdPrs_BRepFont::get_type_name(@)",
-                              header: "StdPrs_BRepFont.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StdPrs_BRepFont::get_type_name(@)",
+                            header: "StdPrs_BRepFont.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StdPrs_BRepFont::get_type_descriptor(@)",
     header: "StdPrs_BRepFont.hxx".}
-proc DynamicType*(this: StdPrs_BRepFont): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StdPrsBRepFont): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StdPrs_BRepFont.hxx".}
-proc FindAndCreate*(theFontName: TCollection_AsciiString;
-                   theFontAspect: Font_FontAspect; theSize: Standard_Real;
-                   theStrictLevel: Font_StrictLevel = Font_StrictLevel_Any): handle[
-    StdPrs_BRepFont] {.importcpp: "StdPrs_BRepFont::FindAndCreate(@)",
-                      header: "StdPrs_BRepFont.hxx".}
-proc constructStdPrs_BRepFont*(): StdPrs_BRepFont {.constructor,
+proc findAndCreate*(theFontName: TCollectionAsciiString;
+                   theFontAspect: FontFontAspect; theSize: float;
+                   theStrictLevel: FontStrictLevel = fontStrictLevelAny): Handle[
+    StdPrsBRepFont] {.importcpp: "StdPrs_BRepFont::FindAndCreate(@)",
+                     header: "StdPrs_BRepFont.hxx".}
+proc constructStdPrsBRepFont*(): StdPrsBRepFont {.constructor,
     importcpp: "StdPrs_BRepFont(@)", header: "StdPrs_BRepFont.hxx".}
-proc constructStdPrs_BRepFont*(theFontPath: NCollection_String;
-                              theSize: Standard_Real;
-                              theFaceId: Standard_Integer = 0): StdPrs_BRepFont {.
+proc constructStdPrsBRepFont*(theFontPath: NCollectionString; theSize: float;
+                             theFaceId: int = 0): StdPrsBRepFont {.constructor,
+    importcpp: "StdPrs_BRepFont(@)", header: "StdPrs_BRepFont.hxx".}
+proc constructStdPrsBRepFont*(theFontName: NCollectionString;
+                             theFontAspect: FontFontAspect; theSize: float;
+    theStrictLevel: FontStrictLevel = fontStrictLevelAny): StdPrsBRepFont {.
     constructor, importcpp: "StdPrs_BRepFont(@)", header: "StdPrs_BRepFont.hxx".}
-proc constructStdPrs_BRepFont*(theFontName: NCollection_String;
-                              theFontAspect: Font_FontAspect;
-                              theSize: Standard_Real; theStrictLevel: Font_StrictLevel = Font_StrictLevel_Any): StdPrs_BRepFont {.
-    constructor, importcpp: "StdPrs_BRepFont(@)", header: "StdPrs_BRepFont.hxx".}
-proc Release*(this: var StdPrs_BRepFont) {.importcpp: "Release",
-                                       header: "StdPrs_BRepFont.hxx".}
-proc Init*(this: var StdPrs_BRepFont; theFontPath: NCollection_String;
-          theSize: Standard_Real; theFaceId: Standard_Integer): bool {.
-    importcpp: "Init", header: "StdPrs_BRepFont.hxx".}
-proc FindAndInit*(this: var StdPrs_BRepFont; theFontName: TCollection_AsciiString;
-                 theFontAspect: Font_FontAspect; theSize: Standard_Real;
-                 theStrictLevel: Font_StrictLevel = Font_StrictLevel_Any): bool {.
+proc release*(this: var StdPrsBRepFont) {.importcpp: "Release",
+                                      header: "StdPrs_BRepFont.hxx".}
+proc init*(this: var StdPrsBRepFont; theFontPath: NCollectionString; theSize: float;
+          theFaceId: int): bool {.importcpp: "Init", header: "StdPrs_BRepFont.hxx".}
+proc findAndInit*(this: var StdPrsBRepFont; theFontName: TCollectionAsciiString;
+                 theFontAspect: FontFontAspect; theSize: float;
+                 theStrictLevel: FontStrictLevel = fontStrictLevelAny): bool {.
     importcpp: "FindAndInit", header: "StdPrs_BRepFont.hxx".}
-proc FTFont*(this: StdPrs_BRepFont): handle[Font_FTFont] {.noSideEffect,
+proc fTFont*(this: StdPrsBRepFont): Handle[FontFTFont] {.noSideEffect,
     importcpp: "FTFont", header: "StdPrs_BRepFont.hxx".}
-proc RenderGlyph*(this: var StdPrs_BRepFont; theChar: Standard_Utf32Char): TopoDS_Shape {.
+proc renderGlyph*(this: var StdPrsBRepFont; theChar: StandardUtf32Char): TopoDS_Shape {.
     importcpp: "RenderGlyph", header: "StdPrs_BRepFont.hxx".}
-proc SetCompositeCurveMode*(this: var StdPrs_BRepFont;
-                           theToConcatenate: Standard_Boolean) {.
+proc setCompositeCurveMode*(this: var StdPrsBRepFont; theToConcatenate: bool) {.
     importcpp: "SetCompositeCurveMode", header: "StdPrs_BRepFont.hxx".}
-proc SetWidthScaling*(this: var StdPrs_BRepFont; theScaleFactor: cfloat) {.
+proc setWidthScaling*(this: var StdPrsBRepFont; theScaleFactor: cfloat) {.
     importcpp: "SetWidthScaling", header: "StdPrs_BRepFont.hxx".}
-proc Ascender*(this: StdPrs_BRepFont): Standard_Real {.noSideEffect,
-    importcpp: "Ascender", header: "StdPrs_BRepFont.hxx".}
-proc Descender*(this: StdPrs_BRepFont): Standard_Real {.noSideEffect,
-    importcpp: "Descender", header: "StdPrs_BRepFont.hxx".}
-proc LineSpacing*(this: StdPrs_BRepFont): Standard_Real {.noSideEffect,
+proc ascender*(this: StdPrsBRepFont): float {.noSideEffect, importcpp: "Ascender",
+    header: "StdPrs_BRepFont.hxx".}
+proc descender*(this: StdPrsBRepFont): float {.noSideEffect, importcpp: "Descender",
+    header: "StdPrs_BRepFont.hxx".}
+proc lineSpacing*(this: StdPrsBRepFont): float {.noSideEffect,
     importcpp: "LineSpacing", header: "StdPrs_BRepFont.hxx".}
-proc PointSize*(this: StdPrs_BRepFont): Standard_Real {.noSideEffect,
-    importcpp: "PointSize", header: "StdPrs_BRepFont.hxx".}
-proc AdvanceX*(this: var StdPrs_BRepFont; theUCharNext: Standard_Utf32Char): Standard_Real {.
-    importcpp: "AdvanceX", header: "StdPrs_BRepFont.hxx".}
-proc AdvanceX*(this: var StdPrs_BRepFont; theUChar: Standard_Utf32Char;
-              theUCharNext: Standard_Utf32Char): Standard_Real {.
-    importcpp: "AdvanceX", header: "StdPrs_BRepFont.hxx".}
-proc AdvanceY*(this: var StdPrs_BRepFont; theUCharNext: Standard_Utf32Char): Standard_Real {.
-    importcpp: "AdvanceY", header: "StdPrs_BRepFont.hxx".}
-proc AdvanceY*(this: var StdPrs_BRepFont; theUChar: Standard_Utf32Char;
-              theUCharNext: Standard_Utf32Char): Standard_Real {.
-    importcpp: "AdvanceY", header: "StdPrs_BRepFont.hxx".}
-proc Scale*(this: StdPrs_BRepFont): Standard_Real {.noSideEffect, importcpp: "Scale",
+proc pointSize*(this: StdPrsBRepFont): float {.noSideEffect, importcpp: "PointSize",
     header: "StdPrs_BRepFont.hxx".}
-proc Mutex*(this: var StdPrs_BRepFont): var Standard_Mutex {.importcpp: "Mutex",
+proc advanceX*(this: var StdPrsBRepFont; theUCharNext: StandardUtf32Char): float {.
+    importcpp: "AdvanceX", header: "StdPrs_BRepFont.hxx".}
+proc advanceX*(this: var StdPrsBRepFont; theUChar: StandardUtf32Char;
+              theUCharNext: StandardUtf32Char): float {.importcpp: "AdvanceX",
     header: "StdPrs_BRepFont.hxx".}
-proc Init*(this: var StdPrs_BRepFont; theFontName: NCollection_String;
-          theFontAspect: Font_FontAspect; theSize: Standard_Real): bool {.
-    importcpp: "Init", header: "StdPrs_BRepFont.hxx".}
+proc advanceY*(this: var StdPrsBRepFont; theUCharNext: StandardUtf32Char): float {.
+    importcpp: "AdvanceY", header: "StdPrs_BRepFont.hxx".}
+proc advanceY*(this: var StdPrsBRepFont; theUChar: StandardUtf32Char;
+              theUCharNext: StandardUtf32Char): float {.importcpp: "AdvanceY",
+    header: "StdPrs_BRepFont.hxx".}
+proc scale*(this: StdPrsBRepFont): float {.noSideEffect, importcpp: "Scale",
+                                       header: "StdPrs_BRepFont.hxx".}
+proc mutex*(this: var StdPrsBRepFont): var StandardMutex {.importcpp: "Mutex",
+    header: "StdPrs_BRepFont.hxx".}
+proc init*(this: var StdPrsBRepFont; theFontName: NCollectionString;
+          theFontAspect: FontFontAspect; theSize: float): bool {.importcpp: "Init",
+    header: "StdPrs_BRepFont.hxx".}

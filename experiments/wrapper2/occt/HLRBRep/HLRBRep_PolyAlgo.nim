@@ -14,17 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../BRepAdaptor/BRepAdaptor_Surface, ../BRepAdaptor/BRepAdaptor_Curve,
-  ../BRepAdaptor/BRepAdaptor_Curve2d, ../GeomAbs/GeomAbs_Shape,
-  ../HLRAlgo/HLRAlgo_Array1OfTData, ../HLRAlgo/HLRAlgo_Array1OfPISeg,
-  ../HLRAlgo/HLRAlgo_Array1OfPINod, ../HLRAlgo/HLRAlgo_ListOfBPoint,
-  ../HLRAlgo/HLRAlgo_PolyAlgo, ../HLRAlgo/HLRAlgo_PolyInternalNode,
-  ../HLRAlgo/HLRAlgo_Projector, ../TColStd/TColStd_Array1OfInteger,
-  ../TColStd/TColStd_Array1OfTransient, ../TopTools/TopTools_IndexedMapOfShape,
-  ../TopTools/TopTools_ListOfShape, ../TopTools/TopTools_MapOfShape,
-  ../TopTools/TopTools_SequenceOfShape
-
 discard "forward decl of Geom_Surface"
 discard "forward decl of HLRAlgo_Projector"
 discard "forward decl of TopoDS_Edge"
@@ -34,7 +23,7 @@ discard "forward decl of HLRAlgo_TriangleData"
 discard "forward decl of HLRBRep_PolyAlgo"
 discard "forward decl of HLRBRep_PolyAlgo"
 type
-  Handle_HLRBRep_PolyAlgo* = handle[HLRBRep_PolyAlgo]
+  HandleHLRBRepPolyAlgo* = Handle[HLRBRepPolyAlgo]
 
 ## ! to remove Hidden lines on Shapes with Triangulations.
 ## ! A framework to compute the shape as seen in
@@ -84,156 +73,81 @@ type
 ## ! face in the shape with every other face in the same shape.
 
 type
-  HLRBRep_PolyAlgo* {.importcpp: "HLRBRep_PolyAlgo",
-                     header: "HLRBRep_PolyAlgo.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                      ## !
-                                                                                      ## Constructs
-                                                                                      ## an
-                                                                                      ## empty
-                                                                                      ## framework
-                                                                                      ## for
-                                                                                      ## the
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## calculation
-                                                                                      ## of
-                                                                                      ## the
-                                                                                      ## visible
-                                                                                      ## and
-                                                                                      ## hidden
-                                                                                      ## lines
-                                                                                      ## of
-                                                                                      ## a
-                                                                                      ## shape
-                                                                                      ## in
-                                                                                      ## a
-                                                                                      ## projection.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Use
-                                                                                      ## the
-                                                                                      ## functions:
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## -
-                                                                                      ## Projector
-                                                                                      ## to
-                                                                                      ## define
-                                                                                      ## the
-                                                                                      ## point
-                                                                                      ## of
-                                                                                      ## view
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## -
-                                                                                      ## Load
-                                                                                      ## to
-                                                                                      ## select
-                                                                                      ## the
-                                                                                      ## shape
-                                                                                      ## or
-                                                                                      ## shapes
-                                                                                      ## to
-                                                                                      ## be
-                                                                                      ## visualized
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## -
-                                                                                      ## Update
-                                                                                      ## to
-                                                                                      ## compute
-                                                                                      ## the
-                                                                                      ## visible
-                                                                                      ## and
-                                                                                      ## hidden
-                                                                                      ## lines
-                                                                                      ## of
-                                                                                      ## the
-                                                                                      ## shape.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Warning
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## The
-                                                                                      ## shape
-                                                                                      ## or
-                                                                                      ## shapes
-                                                                                      ## to
-                                                                                      ## be
-                                                                                      ## visualized
-                                                                                      ## must
-                                                                                      ## have
-                                                                                      ## already
-                                                                                      ## been
-                                                                                      ## triangulated.
+  HLRBRepPolyAlgo* {.importcpp: "HLRBRep_PolyAlgo", header: "HLRBRep_PolyAlgo.hxx",
+                    bycopy.} = object of StandardTransient ## ! Constructs an empty framework for the
+                                                      ## ! calculation of the visible and hidden lines of a shape in a projection.
+                                                      ## ! Use the functions:
+                                                      ## ! -   Projector to define the point of view
+                                                      ## ! -   Load to select the shape or shapes to be  visualized
+                                                      ## ! -   Update to compute the visible and hidden lines of the shape.
+                                                      ## ! Warning
+                                                      ## ! The shape or shapes to be visualized must have already been triangulated.
 
 
-proc constructHLRBRep_PolyAlgo*(): HLRBRep_PolyAlgo {.constructor,
+proc constructHLRBRepPolyAlgo*(): HLRBRepPolyAlgo {.constructor,
     importcpp: "HLRBRep_PolyAlgo(@)", header: "HLRBRep_PolyAlgo.hxx".}
-proc constructHLRBRep_PolyAlgo*(A: handle[HLRBRep_PolyAlgo]): HLRBRep_PolyAlgo {.
+proc constructHLRBRepPolyAlgo*(a: Handle[HLRBRepPolyAlgo]): HLRBRepPolyAlgo {.
     constructor, importcpp: "HLRBRep_PolyAlgo(@)", header: "HLRBRep_PolyAlgo.hxx".}
-proc constructHLRBRep_PolyAlgo*(S: TopoDS_Shape): HLRBRep_PolyAlgo {.constructor,
+proc constructHLRBRepPolyAlgo*(s: TopoDS_Shape): HLRBRepPolyAlgo {.constructor,
     importcpp: "HLRBRep_PolyAlgo(@)", header: "HLRBRep_PolyAlgo.hxx".}
-proc NbShapes*(this: HLRBRep_PolyAlgo): Standard_Integer {.noSideEffect,
-    importcpp: "NbShapes", header: "HLRBRep_PolyAlgo.hxx".}
-proc Shape*(this: var HLRBRep_PolyAlgo; I: Standard_Integer): var TopoDS_Shape {.
-    importcpp: "Shape", header: "HLRBRep_PolyAlgo.hxx".}
-proc Remove*(this: var HLRBRep_PolyAlgo; I: Standard_Integer) {.importcpp: "Remove",
+proc nbShapes*(this: HLRBRepPolyAlgo): int {.noSideEffect, importcpp: "NbShapes",
     header: "HLRBRep_PolyAlgo.hxx".}
-proc Index*(this: HLRBRep_PolyAlgo; S: TopoDS_Shape): Standard_Integer {.noSideEffect,
+proc shape*(this: var HLRBRepPolyAlgo; i: int): var TopoDS_Shape {.importcpp: "Shape",
+    header: "HLRBRep_PolyAlgo.hxx".}
+proc remove*(this: var HLRBRepPolyAlgo; i: int) {.importcpp: "Remove",
+    header: "HLRBRep_PolyAlgo.hxx".}
+proc index*(this: HLRBRepPolyAlgo; s: TopoDS_Shape): int {.noSideEffect,
     importcpp: "Index", header: "HLRBRep_PolyAlgo.hxx".}
-proc Load*(this: var HLRBRep_PolyAlgo; theShape: TopoDS_Shape) {.importcpp: "Load",
+proc load*(this: var HLRBRepPolyAlgo; theShape: TopoDS_Shape) {.importcpp: "Load",
     header: "HLRBRep_PolyAlgo.hxx".}
-proc Algo*(this: HLRBRep_PolyAlgo): handle[HLRAlgo_PolyAlgo] {.noSideEffect,
+proc algo*(this: HLRBRepPolyAlgo): Handle[HLRAlgoPolyAlgo] {.noSideEffect,
     importcpp: "Algo", header: "HLRBRep_PolyAlgo.hxx".}
-proc Projector*(this: HLRBRep_PolyAlgo): HLRAlgo_Projector {.noSideEffect,
+proc projector*(this: HLRBRepPolyAlgo): HLRAlgoProjector {.noSideEffect,
     importcpp: "Projector", header: "HLRBRep_PolyAlgo.hxx".}
-proc Projector*(this: var HLRBRep_PolyAlgo; theProj: HLRAlgo_Projector) {.
+proc projector*(this: var HLRBRepPolyAlgo; theProj: HLRAlgoProjector) {.
     importcpp: "Projector", header: "HLRBRep_PolyAlgo.hxx".}
-proc TolAngular*(this: HLRBRep_PolyAlgo): Standard_Real {.noSideEffect,
+proc tolAngular*(this: HLRBRepPolyAlgo): float {.noSideEffect,
     importcpp: "TolAngular", header: "HLRBRep_PolyAlgo.hxx".}
-proc TolAngular*(this: var HLRBRep_PolyAlgo; theTol: Standard_Real) {.
-    importcpp: "TolAngular", header: "HLRBRep_PolyAlgo.hxx".}
-proc TolCoef*(this: HLRBRep_PolyAlgo): Standard_Real {.noSideEffect,
-    importcpp: "TolCoef", header: "HLRBRep_PolyAlgo.hxx".}
-proc TolCoef*(this: var HLRBRep_PolyAlgo; theTol: Standard_Real) {.
-    importcpp: "TolCoef", header: "HLRBRep_PolyAlgo.hxx".}
-proc Update*(this: var HLRBRep_PolyAlgo) {.importcpp: "Update",
-                                       header: "HLRBRep_PolyAlgo.hxx".}
-proc InitHide*(this: var HLRBRep_PolyAlgo) {.importcpp: "InitHide",
+proc tolAngular*(this: var HLRBRepPolyAlgo; theTol: float) {.importcpp: "TolAngular",
     header: "HLRBRep_PolyAlgo.hxx".}
-proc MoreHide*(this: HLRBRep_PolyAlgo): Standard_Boolean {.noSideEffect,
-    importcpp: "MoreHide", header: "HLRBRep_PolyAlgo.hxx".}
-proc NextHide*(this: var HLRBRep_PolyAlgo) {.importcpp: "NextHide",
+proc tolCoef*(this: HLRBRepPolyAlgo): float {.noSideEffect, importcpp: "TolCoef",
     header: "HLRBRep_PolyAlgo.hxx".}
-proc Hide*(this: var HLRBRep_PolyAlgo; status: var HLRAlgo_EdgeStatus;
-          S: var TopoDS_Shape; reg1: var Standard_Boolean; regn: var Standard_Boolean;
-          outl: var Standard_Boolean; intl: var Standard_Boolean): var PointsT {.
-    importcpp: "Hide", header: "HLRBRep_PolyAlgo.hxx".}
-proc InitShow*(this: var HLRBRep_PolyAlgo) {.importcpp: "InitShow",
+proc tolCoef*(this: var HLRBRepPolyAlgo; theTol: float) {.importcpp: "TolCoef",
     header: "HLRBRep_PolyAlgo.hxx".}
-proc MoreShow*(this: HLRBRep_PolyAlgo): Standard_Boolean {.noSideEffect,
-    importcpp: "MoreShow", header: "HLRBRep_PolyAlgo.hxx".}
-proc NextShow*(this: var HLRBRep_PolyAlgo) {.importcpp: "NextShow",
+proc update*(this: var HLRBRepPolyAlgo) {.importcpp: "Update",
+                                      header: "HLRBRep_PolyAlgo.hxx".}
+proc initHide*(this: var HLRBRepPolyAlgo) {.importcpp: "InitHide",
+                                        header: "HLRBRep_PolyAlgo.hxx".}
+proc moreHide*(this: HLRBRepPolyAlgo): bool {.noSideEffect, importcpp: "MoreHide",
     header: "HLRBRep_PolyAlgo.hxx".}
-proc Show*(this: var HLRBRep_PolyAlgo; S: var TopoDS_Shape; reg1: var Standard_Boolean;
-          regn: var Standard_Boolean; outl: var Standard_Boolean;
-          intl: var Standard_Boolean): var PointsT {.importcpp: "Show",
+proc nextHide*(this: var HLRBRepPolyAlgo) {.importcpp: "NextHide",
+                                        header: "HLRBRep_PolyAlgo.hxx".}
+proc hide*(this: var HLRBRepPolyAlgo; status: var HLRAlgoEdgeStatus;
+          s: var TopoDS_Shape; reg1: var bool; regn: var bool; outl: var bool;
+          intl: var bool): var PointsT {.importcpp: "Hide",
+                                    header: "HLRBRep_PolyAlgo.hxx".}
+proc initShow*(this: var HLRBRepPolyAlgo) {.importcpp: "InitShow",
+                                        header: "HLRBRep_PolyAlgo.hxx".}
+proc moreShow*(this: HLRBRepPolyAlgo): bool {.noSideEffect, importcpp: "MoreShow",
     header: "HLRBRep_PolyAlgo.hxx".}
-proc OutLinedShape*(this: HLRBRep_PolyAlgo; S: TopoDS_Shape): TopoDS_Shape {.
+proc nextShow*(this: var HLRBRepPolyAlgo) {.importcpp: "NextShow",
+                                        header: "HLRBRep_PolyAlgo.hxx".}
+proc show*(this: var HLRBRepPolyAlgo; s: var TopoDS_Shape; reg1: var bool; regn: var bool;
+          outl: var bool; intl: var bool): var PointsT {.importcpp: "Show",
+    header: "HLRBRep_PolyAlgo.hxx".}
+proc outLinedShape*(this: HLRBRepPolyAlgo; s: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "OutLinedShape", header: "HLRBRep_PolyAlgo.hxx".}
-proc Debug*(this: HLRBRep_PolyAlgo): Standard_Boolean {.noSideEffect,
-    importcpp: "Debug", header: "HLRBRep_PolyAlgo.hxx".}
-proc Debug*(this: var HLRBRep_PolyAlgo; theDebug: Standard_Boolean) {.
-    importcpp: "Debug", header: "HLRBRep_PolyAlgo.hxx".}
+proc debug*(this: HLRBRepPolyAlgo): bool {.noSideEffect, importcpp: "Debug",
+                                       header: "HLRBRep_PolyAlgo.hxx".}
+proc debug*(this: var HLRBRepPolyAlgo; theDebug: bool) {.importcpp: "Debug",
+    header: "HLRBRep_PolyAlgo.hxx".}
 type
-  HLRBRep_PolyAlgobase_type* = Standard_Transient
+  HLRBRepPolyAlgobaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "HLRBRep_PolyAlgo::get_type_name(@)",
-                              header: "HLRBRep_PolyAlgo.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "HLRBRep_PolyAlgo::get_type_name(@)",
+                            header: "HLRBRep_PolyAlgo.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "HLRBRep_PolyAlgo::get_type_descriptor(@)",
     header: "HLRBRep_PolyAlgo.hxx".}
-proc DynamicType*(this: HLRBRep_PolyAlgo): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: HLRBRepPolyAlgo): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRBRep_PolyAlgo.hxx".}

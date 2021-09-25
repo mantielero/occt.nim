@@ -14,30 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepAP203_Change"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepAP203_RWChange* {.importcpp: "RWStepAP203_RWChange",
-                         header: "RWStepAP203_RWChange.hxx", bycopy.} = object ## ! Empty
-                                                                          ## constructor
+  RWStepAP203RWChange* {.importcpp: "RWStepAP203_RWChange",
+                        header: "RWStepAP203_RWChange.hxx", bycopy.} = object ## ! Empty
+                                                                         ## constructor
 
 
-proc constructRWStepAP203_RWChange*(): RWStepAP203_RWChange {.constructor,
+proc constructRWStepAP203RWChange*(): RWStepAP203RWChange {.constructor,
     importcpp: "RWStepAP203_RWChange(@)", header: "RWStepAP203_RWChange.hxx".}
-proc ReadStep*(this: RWStepAP203_RWChange; data: handle[StepData_StepReaderData];
-              num: Standard_Integer; ach: var handle[Interface_Check];
-              ent: handle[StepAP203_Change]) {.noSideEffect, importcpp: "ReadStep",
-    header: "RWStepAP203_RWChange.hxx".}
-proc WriteStep*(this: RWStepAP203_RWChange; SW: var StepData_StepWriter;
-               ent: handle[StepAP203_Change]) {.noSideEffect,
+proc readStep*(this: RWStepAP203RWChange; data: Handle[StepDataStepReaderData];
+              num: int; ach: var Handle[InterfaceCheck]; ent: Handle[StepAP203Change]) {.
+    noSideEffect, importcpp: "ReadStep", header: "RWStepAP203_RWChange.hxx".}
+proc writeStep*(this: RWStepAP203RWChange; sw: var StepDataStepWriter;
+               ent: Handle[StepAP203Change]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepAP203_RWChange.hxx".}
-proc Share*(this: RWStepAP203_RWChange; ent: handle[StepAP203_Change];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepAP203RWChange; ent: Handle[StepAP203Change];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP203_RWChange.hxx".}

@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../BRepTools/BRepTools_TrsfModification, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real
-
 discard "forward decl of gp_Trsf"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of Geom_Surface"
@@ -31,7 +26,7 @@ discard "forward decl of Geom2d_Curve"
 discard "forward decl of ShapeCustom_TrsfModification"
 discard "forward decl of ShapeCustom_TrsfModification"
 type
-  Handle_ShapeCustom_TrsfModification* = handle[ShapeCustom_TrsfModification]
+  HandleShapeCustomTrsfModification* = Handle[ShapeCustomTrsfModification]
 
 ## ! Complements BRepTools_TrsfModification to provide reversible
 ## ! scaling regarding tolerances.
@@ -40,43 +35,41 @@ type
 ## ! lower than Precision::Confusion.
 
 type
-  ShapeCustom_TrsfModification* {.importcpp: "ShapeCustom_TrsfModification",
-                                 header: "ShapeCustom_TrsfModification.hxx",
-                                 bycopy.} = object of BRepTools_TrsfModification ## !
-                                                                            ## Empty
-                                                                            ## constructor
+  ShapeCustomTrsfModification* {.importcpp: "ShapeCustom_TrsfModification",
+                                header: "ShapeCustom_TrsfModification.hxx", bycopy.} = object of BRepToolsTrsfModification ##
+                                                                                                                    ## !
+                                                                                                                    ## Empty
+                                                                                                                    ## constructor
 
 
-proc constructShapeCustom_TrsfModification*(T: gp_Trsf): ShapeCustom_TrsfModification {.
+proc constructShapeCustomTrsfModification*(t: Trsf): ShapeCustomTrsfModification {.
     constructor, importcpp: "ShapeCustom_TrsfModification(@)",
     header: "ShapeCustom_TrsfModification.hxx".}
-proc NewSurface*(this: var ShapeCustom_TrsfModification; F: TopoDS_Face;
-                S: var handle[Geom_Surface]; L: var TopLoc_Location;
-                Tol: var Standard_Real; RevWires: var Standard_Boolean;
-                RevFace: var Standard_Boolean): Standard_Boolean {.
-    importcpp: "NewSurface", header: "ShapeCustom_TrsfModification.hxx".}
-proc NewCurve*(this: var ShapeCustom_TrsfModification; E: TopoDS_Edge;
-              C: var handle[Geom_Curve]; L: var TopLoc_Location;
-              Tol: var Standard_Real): Standard_Boolean {.importcpp: "NewCurve",
+proc newSurface*(this: var ShapeCustomTrsfModification; f: TopoDS_Face;
+                s: var Handle[GeomSurface]; L: var TopLocLocation; tol: var float;
+                revWires: var bool; revFace: var bool): bool {.importcpp: "NewSurface",
     header: "ShapeCustom_TrsfModification.hxx".}
-proc NewPoint*(this: var ShapeCustom_TrsfModification; V: TopoDS_Vertex;
-              P: var gp_Pnt; Tol: var Standard_Real): Standard_Boolean {.
-    importcpp: "NewPoint", header: "ShapeCustom_TrsfModification.hxx".}
-proc NewCurve2d*(this: var ShapeCustom_TrsfModification; E: TopoDS_Edge;
-                F: TopoDS_Face; NewE: TopoDS_Edge; NewF: TopoDS_Face;
-                C: var handle[Geom2d_Curve]; Tol: var Standard_Real): Standard_Boolean {.
+proc newCurve*(this: var ShapeCustomTrsfModification; e: TopoDS_Edge;
+              c: var Handle[GeomCurve]; L: var TopLocLocation; tol: var float): bool {.
+    importcpp: "NewCurve", header: "ShapeCustom_TrsfModification.hxx".}
+proc newPoint*(this: var ShapeCustomTrsfModification; v: TopoDS_Vertex; p: var Pnt;
+              tol: var float): bool {.importcpp: "NewPoint",
+                                  header: "ShapeCustom_TrsfModification.hxx".}
+proc newCurve2d*(this: var ShapeCustomTrsfModification; e: TopoDS_Edge;
+                f: TopoDS_Face; newE: TopoDS_Edge; newF: TopoDS_Face;
+                c: var Handle[Geom2dCurve]; tol: var float): bool {.
     importcpp: "NewCurve2d", header: "ShapeCustom_TrsfModification.hxx".}
-proc NewParameter*(this: var ShapeCustom_TrsfModification; V: TopoDS_Vertex;
-                  E: TopoDS_Edge; P: var Standard_Real; Tol: var Standard_Real): Standard_Boolean {.
+proc newParameter*(this: var ShapeCustomTrsfModification; v: TopoDS_Vertex;
+                  e: TopoDS_Edge; p: var float; tol: var float): bool {.
     importcpp: "NewParameter", header: "ShapeCustom_TrsfModification.hxx".}
 type
-  ShapeCustom_TrsfModificationbase_type* = BRepTools_TrsfModification
+  ShapeCustomTrsfModificationbaseType* = BRepToolsTrsfModification
 
-proc get_type_name*(): cstring {.importcpp: "ShapeCustom_TrsfModification::get_type_name(@)",
-                              header: "ShapeCustom_TrsfModification.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeCustom_TrsfModification::get_type_name(@)",
+                            header: "ShapeCustom_TrsfModification.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeCustom_TrsfModification::get_type_descriptor(@)",
     header: "ShapeCustom_TrsfModification.hxx".}
-proc DynamicType*(this: ShapeCustom_TrsfModification): handle[Standard_Type] {.
+proc dynamicType*(this: ShapeCustomTrsfModification): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeCustom_TrsfModification.hxx".}

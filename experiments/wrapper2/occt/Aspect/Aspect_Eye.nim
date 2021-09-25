@@ -14,6 +14,7 @@
 ## ! Camera eye index within stereoscopic pair.
 
 type
-  Aspect_Eye* {.size: sizeof(cint), importcpp: "Aspect_Eye", header: "Aspect_Eye.hxx".} = enum
-    Aspect_Eye_Left, Aspect_Eye_Right
+  AspectEye* {.size: sizeof(cint), importcpp: "Aspect_Eye", header: "Aspect_Eye.hxx".} = enum
+    AspectEyeLeft, AspectEyeRight
+
 

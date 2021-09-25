@@ -13,12 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../TDF/TDF_LabelList,
-  ../TDF/TDF_Attribute, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../Standard/Standard_OStream,
-  ../Standard/Standard_GUID
-
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
 discard "forward decl of TDF_Attribute"
@@ -27,102 +21,100 @@ discard "forward decl of TDF_DataSet"
 discard "forward decl of TDataStd_ReferenceList"
 discard "forward decl of TDataStd_ReferenceList"
 type
-  Handle_TDataStd_ReferenceList* = handle[TDataStd_ReferenceList]
+  HandleTDataStdReferenceList* = Handle[TDataStdReferenceList]
 
 ## ! Contains a list of references.
 
 type
-  TDataStd_ReferenceList* {.importcpp: "TDataStd_ReferenceList",
-                           header: "TDataStd_ReferenceList.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                             ## !
-                                                                                             ## Static
-                                                                                             ## methods
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## ==============
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Returns
-                                                                                             ## the
-                                                                                             ## ID
-                                                                                             ## of
-                                                                                             ## the
-                                                                                             ## list
-                                                                                             ## of
-                                                                                             ## references
-                                                                                             ## (labels)
-                                                                                             ## attribute.
+  TDataStdReferenceList* {.importcpp: "TDataStd_ReferenceList",
+                          header: "TDataStd_ReferenceList.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                            ## !
+                                                                                            ## Static
+                                                                                            ## methods
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## ==============
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## the
+                                                                                            ## ID
+                                                                                            ## of
+                                                                                            ## the
+                                                                                            ## list
+                                                                                            ## of
+                                                                                            ## references
+                                                                                            ## (labels)
+                                                                                            ## attribute.
 
 
-proc GetID*(): Standard_GUID {.importcpp: "TDataStd_ReferenceList::GetID(@)",
-                            header: "TDataStd_ReferenceList.hxx".}
-proc Set*(label: TDF_Label): handle[TDataStd_ReferenceList] {.
+proc getID*(): StandardGUID {.importcpp: "TDataStd_ReferenceList::GetID(@)",
+                           header: "TDataStd_ReferenceList.hxx".}
+proc set*(label: TDF_Label): Handle[TDataStdReferenceList] {.
     importcpp: "TDataStd_ReferenceList::Set(@)",
     header: "TDataStd_ReferenceList.hxx".}
-proc Set*(label: TDF_Label; theGuid: Standard_GUID): handle[TDataStd_ReferenceList] {.
+proc set*(label: TDF_Label; theGuid: StandardGUID): Handle[TDataStdReferenceList] {.
     importcpp: "TDataStd_ReferenceList::Set(@)",
     header: "TDataStd_ReferenceList.hxx".}
-proc constructTDataStd_ReferenceList*(): TDataStd_ReferenceList {.constructor,
+proc constructTDataStdReferenceList*(): TDataStdReferenceList {.constructor,
     importcpp: "TDataStd_ReferenceList(@)", header: "TDataStd_ReferenceList.hxx".}
-proc IsEmpty*(this: TDataStd_ReferenceList): Standard_Boolean {.noSideEffect,
+proc isEmpty*(this: TDataStdReferenceList): bool {.noSideEffect,
     importcpp: "IsEmpty", header: "TDataStd_ReferenceList.hxx".}
-proc Extent*(this: TDataStd_ReferenceList): Standard_Integer {.noSideEffect,
-    importcpp: "Extent", header: "TDataStd_ReferenceList.hxx".}
-proc Prepend*(this: var TDataStd_ReferenceList; value: TDF_Label) {.
+proc extent*(this: TDataStdReferenceList): int {.noSideEffect, importcpp: "Extent",
+    header: "TDataStd_ReferenceList.hxx".}
+proc prepend*(this: var TDataStdReferenceList; value: TDF_Label) {.
     importcpp: "Prepend", header: "TDataStd_ReferenceList.hxx".}
-proc Append*(this: var TDataStd_ReferenceList; value: TDF_Label) {.
-    importcpp: "Append", header: "TDataStd_ReferenceList.hxx".}
-proc SetID*(this: var TDataStd_ReferenceList; theGuid: Standard_GUID) {.
+proc append*(this: var TDataStdReferenceList; value: TDF_Label) {.importcpp: "Append",
+    header: "TDataStd_ReferenceList.hxx".}
+proc setID*(this: var TDataStdReferenceList; theGuid: StandardGUID) {.
     importcpp: "SetID", header: "TDataStd_ReferenceList.hxx".}
-proc SetID*(this: var TDataStd_ReferenceList) {.importcpp: "SetID",
+proc setID*(this: var TDataStdReferenceList) {.importcpp: "SetID",
     header: "TDataStd_ReferenceList.hxx".}
-proc InsertBefore*(this: var TDataStd_ReferenceList; value: TDF_Label;
-                  before_value: TDF_Label): Standard_Boolean {.
-    importcpp: "InsertBefore", header: "TDataStd_ReferenceList.hxx".}
-proc InsertBefore*(this: var TDataStd_ReferenceList; index: Standard_Integer;
-                  before_value: TDF_Label): Standard_Boolean {.
-    importcpp: "InsertBefore", header: "TDataStd_ReferenceList.hxx".}
-proc InsertAfter*(this: var TDataStd_ReferenceList; value: TDF_Label;
-                 after_value: TDF_Label): Standard_Boolean {.
-    importcpp: "InsertAfter", header: "TDataStd_ReferenceList.hxx".}
-proc InsertAfter*(this: var TDataStd_ReferenceList; index: Standard_Integer;
-                 after_value: TDF_Label): Standard_Boolean {.
-    importcpp: "InsertAfter", header: "TDataStd_ReferenceList.hxx".}
-proc Remove*(this: var TDataStd_ReferenceList; value: TDF_Label): Standard_Boolean {.
-    importcpp: "Remove", header: "TDataStd_ReferenceList.hxx".}
-proc Remove*(this: var TDataStd_ReferenceList; index: Standard_Integer): Standard_Boolean {.
-    importcpp: "Remove", header: "TDataStd_ReferenceList.hxx".}
-proc Clear*(this: var TDataStd_ReferenceList) {.importcpp: "Clear",
+proc insertBefore*(this: var TDataStdReferenceList; value: TDF_Label;
+                  beforeValue: TDF_Label): bool {.importcpp: "InsertBefore",
     header: "TDataStd_ReferenceList.hxx".}
-proc First*(this: TDataStd_ReferenceList): TDF_Label {.noSideEffect,
+proc insertBefore*(this: var TDataStdReferenceList; index: int; beforeValue: TDF_Label): bool {.
+    importcpp: "InsertBefore", header: "TDataStd_ReferenceList.hxx".}
+proc insertAfter*(this: var TDataStdReferenceList; value: TDF_Label;
+                 afterValue: TDF_Label): bool {.importcpp: "InsertAfter",
+    header: "TDataStd_ReferenceList.hxx".}
+proc insertAfter*(this: var TDataStdReferenceList; index: int; afterValue: TDF_Label): bool {.
+    importcpp: "InsertAfter", header: "TDataStd_ReferenceList.hxx".}
+proc remove*(this: var TDataStdReferenceList; value: TDF_Label): bool {.
+    importcpp: "Remove", header: "TDataStd_ReferenceList.hxx".}
+proc remove*(this: var TDataStdReferenceList; index: int): bool {.importcpp: "Remove",
+    header: "TDataStd_ReferenceList.hxx".}
+proc clear*(this: var TDataStdReferenceList) {.importcpp: "Clear",
+    header: "TDataStd_ReferenceList.hxx".}
+proc first*(this: TDataStdReferenceList): TDF_Label {.noSideEffect,
     importcpp: "First", header: "TDataStd_ReferenceList.hxx".}
-proc Last*(this: TDataStd_ReferenceList): TDF_Label {.noSideEffect,
-    importcpp: "Last", header: "TDataStd_ReferenceList.hxx".}
-proc List*(this: TDataStd_ReferenceList): TDF_LabelList {.noSideEffect,
+proc last*(this: TDataStdReferenceList): TDF_Label {.noSideEffect, importcpp: "Last",
+    header: "TDataStd_ReferenceList.hxx".}
+proc list*(this: TDataStdReferenceList): TDF_LabelList {.noSideEffect,
     importcpp: "List", header: "TDataStd_ReferenceList.hxx".}
-proc ID*(this: TDataStd_ReferenceList): Standard_GUID {.noSideEffect,
-    importcpp: "ID", header: "TDataStd_ReferenceList.hxx".}
-proc Restore*(this: var TDataStd_ReferenceList; With: handle[TDF_Attribute]) {.
+proc id*(this: TDataStdReferenceList): StandardGUID {.noSideEffect, importcpp: "ID",
+    header: "TDataStd_ReferenceList.hxx".}
+proc restore*(this: var TDataStdReferenceList; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TDataStd_ReferenceList.hxx".}
-proc NewEmpty*(this: TDataStd_ReferenceList): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TDataStdReferenceList): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TDataStd_ReferenceList.hxx".}
-proc Paste*(this: TDataStd_ReferenceList; Into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TDataStdReferenceList; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TDataStd_ReferenceList.hxx".}
-proc References*(this: TDataStd_ReferenceList; DS: handle[TDF_DataSet]) {.
+proc references*(this: TDataStdReferenceList; ds: Handle[TDF_DataSet]) {.
     noSideEffect, importcpp: "References", header: "TDataStd_ReferenceList.hxx".}
-proc Dump*(this: TDataStd_ReferenceList; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDataStdReferenceList; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_ReferenceList.hxx".}
-proc DumpJson*(this: TDataStd_ReferenceList; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TDataStd_ReferenceList.hxx".}
+proc dumpJson*(this: TDataStdReferenceList; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TDataStd_ReferenceList.hxx".}
 type
-  TDataStd_ReferenceListbase_type* = TDF_Attribute
+  TDataStdReferenceListbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TDataStd_ReferenceList::get_type_name(@)",
-                              header: "TDataStd_ReferenceList.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDataStd_ReferenceList::get_type_name(@)",
+                            header: "TDataStd_ReferenceList.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDataStd_ReferenceList::get_type_descriptor(@)",
     header: "TDataStd_ReferenceList.hxx".}
-proc DynamicType*(this: TDataStd_ReferenceList): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "TDataStd_ReferenceList.hxx".}
+proc dynamicType*(this: TDataStdReferenceList): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "TDataStd_ReferenceList.hxx".}

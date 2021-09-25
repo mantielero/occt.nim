@@ -11,40 +11,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Graphic3d/Graphic3d_Aspects, ../Graphic3d/Graphic3d_TextureMap
-
 discard "forward decl of OpenGl_Context"
 discard "forward decl of OpenGl_PointSprite"
 type
-  OpenGl_AspectsSprite* {.importcpp: "OpenGl_AspectsSprite",
-                         header: "OpenGl_AspectsSprite.hxx", bycopy.} = object ## ! Empty
-                                                                          ## constructor.
-                                                                          ## ! Build
-                                                                          ## texture
-                                                                          ## resources.
+  OpenGlAspectsSprite* {.importcpp: "OpenGl_AspectsSprite",
+                        header: "OpenGl_AspectsSprite.hxx", bycopy.} = object ## ! Empty
+                                                                         ## constructor.
+                                                                         ## ! Build texture
+                                                                         ## resources.
 
 
-proc constructOpenGl_AspectsSprite*(): OpenGl_AspectsSprite {.constructor,
+proc constructOpenGlAspectsSprite*(): OpenGlAspectsSprite {.constructor,
     importcpp: "OpenGl_AspectsSprite(@)", header: "OpenGl_AspectsSprite.hxx".}
-proc MarkerSize*(this: OpenGl_AspectsSprite): Standard_ShortReal {.noSideEffect,
+proc markerSize*(this: OpenGlAspectsSprite): StandardShortReal {.noSideEffect,
     importcpp: "MarkerSize", header: "OpenGl_AspectsSprite.hxx".}
-proc IsReady*(this: OpenGl_AspectsSprite): bool {.noSideEffect, importcpp: "IsReady",
+proc isReady*(this: OpenGlAspectsSprite): bool {.noSideEffect, importcpp: "IsReady",
     header: "OpenGl_AspectsSprite.hxx".}
-proc Invalidate*(this: var OpenGl_AspectsSprite) {.importcpp: "Invalidate",
+proc invalidate*(this: var OpenGlAspectsSprite) {.importcpp: "Invalidate",
     header: "OpenGl_AspectsSprite.hxx".}
-proc HasPointSprite*(this: var OpenGl_AspectsSprite; theCtx: handle[OpenGl_Context];
-                    theAspects: handle[Graphic3d_Aspects]): bool {.
+proc hasPointSprite*(this: var OpenGlAspectsSprite; theCtx: Handle[OpenGlContext];
+                    theAspects: Handle[Graphic3dAspects]): bool {.
     importcpp: "HasPointSprite", header: "OpenGl_AspectsSprite.hxx".}
-proc IsDisplayListSprite*(this: var OpenGl_AspectsSprite;
-                         theCtx: handle[OpenGl_Context];
-                         theAspects: handle[Graphic3d_Aspects]): bool {.
+proc isDisplayListSprite*(this: var OpenGlAspectsSprite;
+                         theCtx: Handle[OpenGlContext];
+                         theAspects: Handle[Graphic3dAspects]): bool {.
     importcpp: "IsDisplayListSprite", header: "OpenGl_AspectsSprite.hxx".}
-proc Sprite*(this: var OpenGl_AspectsSprite; theCtx: handle[OpenGl_Context];
-            theAspects: handle[Graphic3d_Aspects]; theIsAlphaSprite: bool): handle[
-    OpenGl_PointSprite] {.importcpp: "Sprite", header: "OpenGl_AspectsSprite.hxx".}
-proc UpdateRediness*(this: var OpenGl_AspectsSprite;
-                    theAspect: handle[Graphic3d_Aspects]) {.
+proc sprite*(this: var OpenGlAspectsSprite; theCtx: Handle[OpenGlContext];
+            theAspects: Handle[Graphic3dAspects]; theIsAlphaSprite: bool): Handle[
+    OpenGlPointSprite] {.importcpp: "Sprite", header: "OpenGl_AspectsSprite.hxx".}
+proc updateRediness*(this: var OpenGlAspectsSprite;
+                    theAspect: Handle[Graphic3dAspects]) {.
     importcpp: "UpdateRediness", header: "OpenGl_AspectsSprite.hxx".}
-proc Release*(this: var OpenGl_AspectsSprite; theCtx: ptr OpenGl_Context) {.
+proc release*(this: var OpenGlAspectsSprite; theCtx: ptr OpenGlContext) {.
     importcpp: "Release", header: "OpenGl_AspectsSprite.hxx".}

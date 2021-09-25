@@ -14,65 +14,62 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_RepresentationItem"
 discard "forward decl of StepRepr_ItemDefinedTransformation"
 discard "forward decl of StepRepr_ItemDefinedTransformation"
 type
-  Handle_StepRepr_ItemDefinedTransformation* = handle[
-      StepRepr_ItemDefinedTransformation]
+  HandleStepReprItemDefinedTransformation* = Handle[
+      StepReprItemDefinedTransformation]
 
 ## ! Added from StepRepr Rev2 to Rev4
 
 type
-  StepRepr_ItemDefinedTransformation* {.importcpp: "StepRepr_ItemDefinedTransformation", header: "StepRepr_ItemDefinedTransformation.hxx",
-                                       bycopy.} = object of Standard_Transient
+  StepReprItemDefinedTransformation* {.importcpp: "StepRepr_ItemDefinedTransformation", header: "StepRepr_ItemDefinedTransformation.hxx",
+                                      bycopy.} = object of StandardTransient
 
 
-proc constructStepRepr_ItemDefinedTransformation*(): StepRepr_ItemDefinedTransformation {.
+proc constructStepReprItemDefinedTransformation*(): StepReprItemDefinedTransformation {.
     constructor, importcpp: "StepRepr_ItemDefinedTransformation(@)",
     header: "StepRepr_ItemDefinedTransformation.hxx".}
-proc Init*(this: var StepRepr_ItemDefinedTransformation;
-          aName: handle[TCollection_HAsciiString];
-          aDescription: handle[TCollection_HAsciiString];
-          aTransformItem1: handle[StepRepr_RepresentationItem];
-          aTransformItem2: handle[StepRepr_RepresentationItem]) {.
+proc init*(this: var StepReprItemDefinedTransformation;
+          aName: Handle[TCollectionHAsciiString];
+          aDescription: Handle[TCollectionHAsciiString];
+          aTransformItem1: Handle[StepReprRepresentationItem];
+          aTransformItem2: Handle[StepReprRepresentationItem]) {.
     importcpp: "Init", header: "StepRepr_ItemDefinedTransformation.hxx".}
-proc SetName*(this: var StepRepr_ItemDefinedTransformation;
-             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepReprItemDefinedTransformation;
+             aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepRepr_ItemDefinedTransformation.hxx".}
-proc Name*(this: StepRepr_ItemDefinedTransformation): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Name",
-                               header: "StepRepr_ItemDefinedTransformation.hxx".}
-proc SetDescription*(this: var StepRepr_ItemDefinedTransformation;
-                    aDescription: handle[TCollection_HAsciiString]) {.
+proc name*(this: StepReprItemDefinedTransformation): Handle[TCollectionHAsciiString] {.
+    noSideEffect, importcpp: "Name",
+    header: "StepRepr_ItemDefinedTransformation.hxx".}
+proc setDescription*(this: var StepReprItemDefinedTransformation;
+                    aDescription: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepRepr_ItemDefinedTransformation.hxx".}
-proc Description*(this: StepRepr_ItemDefinedTransformation): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description",
-                               header: "StepRepr_ItemDefinedTransformation.hxx".}
-proc SetTransformItem1*(this: var StepRepr_ItemDefinedTransformation;
-                       aItem: handle[StepRepr_RepresentationItem]) {.
+proc description*(this: StepReprItemDefinedTransformation): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Description",
+                              header: "StepRepr_ItemDefinedTransformation.hxx".}
+proc setTransformItem1*(this: var StepReprItemDefinedTransformation;
+                       aItem: Handle[StepReprRepresentationItem]) {.
     importcpp: "SetTransformItem1",
     header: "StepRepr_ItemDefinedTransformation.hxx".}
-proc TransformItem1*(this: StepRepr_ItemDefinedTransformation): handle[
-    StepRepr_RepresentationItem] {.noSideEffect, importcpp: "TransformItem1", header: "StepRepr_ItemDefinedTransformation.hxx".}
-proc SetTransformItem2*(this: var StepRepr_ItemDefinedTransformation;
-                       aItem: handle[StepRepr_RepresentationItem]) {.
+proc transformItem1*(this: StepReprItemDefinedTransformation): Handle[
+    StepReprRepresentationItem] {.noSideEffect, importcpp: "TransformItem1", header: "StepRepr_ItemDefinedTransformation.hxx".}
+proc setTransformItem2*(this: var StepReprItemDefinedTransformation;
+                       aItem: Handle[StepReprRepresentationItem]) {.
     importcpp: "SetTransformItem2",
     header: "StepRepr_ItemDefinedTransformation.hxx".}
-proc TransformItem2*(this: StepRepr_ItemDefinedTransformation): handle[
-    StepRepr_RepresentationItem] {.noSideEffect, importcpp: "TransformItem2", header: "StepRepr_ItemDefinedTransformation.hxx".}
+proc transformItem2*(this: StepReprItemDefinedTransformation): Handle[
+    StepReprRepresentationItem] {.noSideEffect, importcpp: "TransformItem2", header: "StepRepr_ItemDefinedTransformation.hxx".}
 type
-  StepRepr_ItemDefinedTransformationbase_type* = Standard_Transient
+  StepReprItemDefinedTransformationbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_ItemDefinedTransformation::get_type_name(@)",
-                              header: "StepRepr_ItemDefinedTransformation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_ItemDefinedTransformation::get_type_name(@)",
+                            header: "StepRepr_ItemDefinedTransformation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_ItemDefinedTransformation::get_type_descriptor(@)",
     header: "StepRepr_ItemDefinedTransformation.hxx".}
-proc DynamicType*(this: StepRepr_ItemDefinedTransformation): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprItemDefinedTransformation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_ItemDefinedTransformation.hxx".}

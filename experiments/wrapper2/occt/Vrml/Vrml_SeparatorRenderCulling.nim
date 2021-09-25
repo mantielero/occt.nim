@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  Vrml_SeparatorRenderCulling* {.size: sizeof(cint),
-                                importcpp: "Vrml_SeparatorRenderCulling",
-                                header: "Vrml_SeparatorRenderCulling.hxx".} = enum
-    Vrml_OFF, Vrml_ON, Vrml_AUTO
+  VrmlSeparatorRenderCulling* {.size: sizeof(cint),
+                               importcpp: "Vrml_SeparatorRenderCulling",
+                               header: "Vrml_SeparatorRenderCulling.hxx".} = enum
+    VrmlOFF, VrmlON, VrmlAUTO
+
 

@@ -11,78 +11,74 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../GProp/GProp_GProps, ../TopAbs/TopAbs_Orientation,
-  ../Poly/Poly_Array1OfTriangle, ../TColgp/TColgp_Array1OfPnt
-
 discard "forward decl of Poly_Triangulation"
 discard "forward decl of TopLoc_Location"
 discard "forward decl of gp_Pnt"
 type
-  BRepGProp_MeshProps* {.importcpp: "BRepGProp_MeshProps",
-                        header: "BRepGProp_MeshProps.hxx", bycopy.} = object of GProp_GProps ##
-                                                                                      ## !
-                                                                                      ## Describes
-                                                                                      ## types
-                                                                                      ## of
-                                                                                      ## geometric
-                                                                                      ## objects.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## -
-                                                                                      ## Vinert
-                                                                                      ## is
-                                                                                      ## 3D
-                                                                                      ## closed
-                                                                                      ## region
-                                                                                      ## of
-                                                                                      ## space
-                                                                                      ## delimited
-                                                                                      ## with
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Point
-                                                                                      ## and
-                                                                                      ## surface
-                                                                                      ## mesh;
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## -
-                                                                                      ## Sinert
-                                                                                      ## is
-                                                                                      ## surface
-                                                                                      ## mesh
-                                                                                      ## in
-                                                                                      ## 3D
-                                                                                      ## space.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @name
-                                                                                      ## private
-                                                                                      ## fields
+  BRepGPropMeshProps* {.importcpp: "BRepGProp_MeshProps",
+                       header: "BRepGProp_MeshProps.hxx", bycopy.} = object of GPropGProps ##
+                                                                                    ## !
+                                                                                    ## Describes
+                                                                                    ## types
+                                                                                    ## of
+                                                                                    ## geometric
+                                                                                    ## objects.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## -
+                                                                                    ## Vinert
+                                                                                    ## is
+                                                                                    ## 3D
+                                                                                    ## closed
+                                                                                    ## region
+                                                                                    ## of
+                                                                                    ## space
+                                                                                    ## delimited
+                                                                                    ## with
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Point
+                                                                                    ## and
+                                                                                    ## surface
+                                                                                    ## mesh;
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## -
+                                                                                    ## Sinert
+                                                                                    ## is
+                                                                                    ## surface
+                                                                                    ## mesh
+                                                                                    ## in
+                                                                                    ## 3D
+                                                                                    ## space.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## @name
+                                                                                    ## private
+                                                                                    ## fields
     ## !< Type of geometric object
 
-  BRepGProp_MeshPropsBRepGProp_MeshObjType* {.size: sizeof(cint),
+  BRepGPropMeshPropsBRepGPropMeshObjType* {.size: sizeof(cint),
       importcpp: "BRepGProp_MeshProps::BRepGProp_MeshObjType",
       header: "BRepGProp_MeshProps.hxx".} = enum
     Vinert = 0, Sinert
 
 
-proc constructBRepGProp_MeshProps*(theType: BRepGProp_MeshPropsBRepGProp_MeshObjType): BRepGProp_MeshProps {.
+proc constructBRepGPropMeshProps*(theType: BRepGPropMeshPropsBRepGPropMeshObjType): BRepGPropMeshProps {.
     constructor, importcpp: "BRepGProp_MeshProps(@)",
     header: "BRepGProp_MeshProps.hxx".}
-proc SetLocation*(this: var BRepGProp_MeshProps; theLocation: gp_Pnt) {.
+proc setLocation*(this: var BRepGPropMeshProps; theLocation: Pnt) {.
     importcpp: "SetLocation", header: "BRepGProp_MeshProps.hxx".}
-proc Perform*(this: var BRepGProp_MeshProps; theMesh: handle[Poly_Triangulation];
-             theLoc: TopLoc_Location; theOri: TopAbs_Orientation) {.
+proc perform*(this: var BRepGPropMeshProps; theMesh: Handle[PolyTriangulation];
+             theLoc: TopLocLocation; theOri: TopAbsOrientation) {.
     importcpp: "Perform", header: "BRepGProp_MeshProps.hxx".}
-proc Perform*(this: var BRepGProp_MeshProps; theNodes: TColgp_Array1OfPnt;
-             theTriangles: Poly_Array1OfTriangle; theOri: TopAbs_Orientation) {.
+proc perform*(this: var BRepGPropMeshProps; theNodes: TColgpArray1OfPnt;
+             theTriangles: PolyArray1OfTriangle; theOri: TopAbsOrientation) {.
     importcpp: "Perform", header: "BRepGProp_MeshProps.hxx".}
-proc CalculateProps*(p1: gp_Pnt; p2: gp_Pnt; p3: gp_Pnt; Apex: gp_Pnt;
-                    isVolume: Standard_Boolean; GProps: array[10, Standard_Real];
-                    NbGaussPoints: Standard_Integer; GaussPnts: ptr Standard_Real) {.
+proc calculateProps*(p1: Pnt; p2: Pnt; p3: Pnt; apex: Pnt; isVolume: bool;
+                    gProps: array[10, float]; nbGaussPoints: int;
+                    gaussPnts: ptr float) {.
     importcpp: "BRepGProp_MeshProps::CalculateProps(@)",
     header: "BRepGProp_MeshProps.hxx".}
-proc GetMeshObjType*(this: BRepGProp_MeshProps): BRepGProp_MeshPropsBRepGProp_MeshObjType {.
+proc getMeshObjType*(this: BRepGPropMeshProps): BRepGPropMeshPropsBRepGPropMeshObjType {.
     noSideEffect, importcpp: "GetMeshObjType", header: "BRepGProp_MeshProps.hxx".}

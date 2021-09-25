@@ -15,26 +15,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, BOPAlgo_Algo, BOPAlgo_GlueEnum,
-  BOPAlgo_SectionAttribute, ../BOPDS/BOPDS_DataMapOfPaveBlockListOfPaveBlock,
-  ../BOPDS/BOPDS_IndexedDataMapOfPaveBlockListOfInteger,
-  ../BOPDS/BOPDS_IndexedDataMapOfShapeCoupleOfPaveBlocks,
-  ../BOPDS/BOPDS_IndexedMapOfPaveBlock, ../BOPDS/BOPDS_ListOfPaveBlock,
-  ../BOPDS/BOPDS_MapOfPair, ../BOPDS/BOPDS_MapOfPaveBlock, ../BOPDS/BOPDS_PDS,
-  ../BOPDS/BOPDS_PIterator, ../BOPDS/BOPDS_VectorOfCurve,
-  ../BOPTools/BOPTools_BoxTree, ../IntSurf/IntSurf_ListOfPntOn2S,
-  ../IntTools/IntTools_ShrunkRange, ../NCollection/NCollection_BaseAllocator,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../TColStd/TColStd_DataMapOfIntegerInteger,
-  ../TColStd/TColStd_DataMapOfIntegerListOfInteger,
-  ../TColStd/TColStd_DataMapOfIntegerReal, ../TColStd/TColStd_ListOfInteger,
-  ../TColStd/TColStd_MapOfInteger, ../TopAbs/TopAbs_ShapeEnum,
-  ../TopTools/TopTools_DataMapOfShapeInteger,
-  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape,
-  ../TopTools/TopTools_IndexedMapOfShape, ../TopTools/TopTools_ListOfShape
-
 discard "forward decl of IntTools_Context"
 discard "forward decl of BOPDS_DS"
 discard "forward decl of BOPAlgo_SectionAttribute"
@@ -46,10 +26,10 @@ discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
 type
-  BOPAlgo_PaveFiller* {.importcpp: "BOPAlgo_PaveFiller",
-                       header: "BOPAlgo_PaveFiller.hxx", bycopy.} = object of BOPAlgo_Algo ##
-                                                                                    ## !
-                                                                                    ## Fields
+  BOPAlgoPaveFiller* {.importcpp: "BOPAlgo_PaveFiller",
+                      header: "BOPAlgo_PaveFiller.hxx", bycopy.} = object of BOPAlgoAlgo ##
+                                                                                  ## !
+                                                                                  ## Fields
     ## !< Fence map of intersected faces and pave blocks
     ## !< Sub-shapes with increased tolerance during the operation
     ## !< Vertices located close to E/E or E/F intersection points
@@ -60,41 +40,41 @@ type
     ## !  which have no real intersections
 
 
-proc constructBOPAlgo_PaveFiller*(): BOPAlgo_PaveFiller {.constructor,
+proc constructBOPAlgoPaveFiller*(): BOPAlgoPaveFiller {.constructor,
     importcpp: "BOPAlgo_PaveFiller(@)", header: "BOPAlgo_PaveFiller.hxx".}
-proc destroyBOPAlgo_PaveFiller*(this: var BOPAlgo_PaveFiller) {.
+proc destroyBOPAlgoPaveFiller*(this: var BOPAlgoPaveFiller) {.
     importcpp: "#.~BOPAlgo_PaveFiller()", header: "BOPAlgo_PaveFiller.hxx".}
-proc constructBOPAlgo_PaveFiller*(theAllocator: handle[NCollection_BaseAllocator]): BOPAlgo_PaveFiller {.
+proc constructBOPAlgoPaveFiller*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoPaveFiller {.
     constructor, importcpp: "BOPAlgo_PaveFiller(@)",
     header: "BOPAlgo_PaveFiller.hxx".}
-proc DS*(this: var BOPAlgo_PaveFiller): BOPDS_DS {.importcpp: "DS",
+proc ds*(this: var BOPAlgoPaveFiller): Bopds_Ds {.importcpp: "DS",
     header: "BOPAlgo_PaveFiller.hxx".}
-proc PDS*(this: var BOPAlgo_PaveFiller): BOPDS_PDS {.importcpp: "PDS",
+proc pds*(this: var BOPAlgoPaveFiller): Bopds_Pds {.importcpp: "PDS",
     header: "BOPAlgo_PaveFiller.hxx".}
-proc Iterator*(this: var BOPAlgo_PaveFiller): BOPDS_PIterator {.
+proc `iterator`*(this: var BOPAlgoPaveFiller): BOPDS_PIterator {.
     importcpp: "Iterator", header: "BOPAlgo_PaveFiller.hxx".}
-proc SetArguments*(this: var BOPAlgo_PaveFiller; theLS: TopTools_ListOfShape) {.
+proc setArguments*(this: var BOPAlgoPaveFiller; theLS: TopToolsListOfShape) {.
     importcpp: "SetArguments", header: "BOPAlgo_PaveFiller.hxx".}
-proc AddArgument*(this: var BOPAlgo_PaveFiller; theShape: TopoDS_Shape) {.
+proc addArgument*(this: var BOPAlgoPaveFiller; theShape: TopoDS_Shape) {.
     importcpp: "AddArgument", header: "BOPAlgo_PaveFiller.hxx".}
-proc Arguments*(this: BOPAlgo_PaveFiller): TopTools_ListOfShape {.noSideEffect,
+proc arguments*(this: BOPAlgoPaveFiller): TopToolsListOfShape {.noSideEffect,
     importcpp: "Arguments", header: "BOPAlgo_PaveFiller.hxx".}
-proc Context*(this: var BOPAlgo_PaveFiller): handle[IntTools_Context] {.
+proc context*(this: var BOPAlgoPaveFiller): Handle[IntToolsContext] {.
     importcpp: "Context", header: "BOPAlgo_PaveFiller.hxx".}
-proc SetSectionAttribute*(this: var BOPAlgo_PaveFiller;
-                         theSecAttr: BOPAlgo_SectionAttribute) {.
+proc setSectionAttribute*(this: var BOPAlgoPaveFiller;
+                         theSecAttr: BOPAlgoSectionAttribute) {.
     importcpp: "SetSectionAttribute", header: "BOPAlgo_PaveFiller.hxx".}
-proc SetNonDestructive*(this: var BOPAlgo_PaveFiller; theFlag: Standard_Boolean) {.
+proc setNonDestructive*(this: var BOPAlgoPaveFiller; theFlag: bool) {.
     importcpp: "SetNonDestructive", header: "BOPAlgo_PaveFiller.hxx".}
-proc NonDestructive*(this: BOPAlgo_PaveFiller): Standard_Boolean {.noSideEffect,
+proc nonDestructive*(this: BOPAlgoPaveFiller): bool {.noSideEffect,
     importcpp: "NonDestructive", header: "BOPAlgo_PaveFiller.hxx".}
-proc Perform*(this: var BOPAlgo_PaveFiller) {.importcpp: "Perform",
+proc perform*(this: var BOPAlgoPaveFiller) {.importcpp: "Perform",
     header: "BOPAlgo_PaveFiller.hxx".}
-proc SetGlue*(this: var BOPAlgo_PaveFiller; theGlue: BOPAlgo_GlueEnum) {.
+proc setGlue*(this: var BOPAlgoPaveFiller; theGlue: BOPAlgoGlueEnum) {.
     importcpp: "SetGlue", header: "BOPAlgo_PaveFiller.hxx".}
-proc Glue*(this: BOPAlgo_PaveFiller): BOPAlgo_GlueEnum {.noSideEffect,
+proc glue*(this: BOPAlgoPaveFiller): BOPAlgoGlueEnum {.noSideEffect,
     importcpp: "Glue", header: "BOPAlgo_PaveFiller.hxx".}
-proc SetAvoidBuildPCurve*(this: var BOPAlgo_PaveFiller; theValue: Standard_Boolean) {.
+proc setAvoidBuildPCurve*(this: var BOPAlgoPaveFiller; theValue: bool) {.
     importcpp: "SetAvoidBuildPCurve", header: "BOPAlgo_PaveFiller.hxx".}
-proc IsAvoidBuildPCurve*(this: BOPAlgo_PaveFiller): Standard_Boolean {.noSideEffect,
+proc isAvoidBuildPCurve*(this: BOPAlgoPaveFiller): bool {.noSideEffect,
     importcpp: "IsAvoidBuildPCurve", header: "BOPAlgo_PaveFiller.hxx".}

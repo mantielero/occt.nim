@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  Blend_DecrochStatus* {.size: sizeof(cint), importcpp: "Blend_DecrochStatus",
-                        header: "Blend_DecrochStatus.hxx".} = enum
-    Blend_NoDecroch, Blend_DecrochRst1, Blend_DecrochRst2, Blend_DecrochBoth
+  BlendDecrochStatus* {.size: sizeof(cint), importcpp: "Blend_DecrochStatus",
+                       header: "Blend_DecrochStatus.hxx".} = enum
+    BlendNoDecroch, BlendDecrochRst1, BlendDecrochRst2, BlendDecrochBoth
+
 

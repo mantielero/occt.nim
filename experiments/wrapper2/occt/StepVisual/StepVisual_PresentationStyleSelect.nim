@@ -14,37 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepVisual_PointStyle"
 discard "forward decl of StepVisual_CurveStyle"
 discard "forward decl of StepVisual_NullStyleMember"
 discard "forward decl of StepVisual_SurfaceStyleUsage"
 type
-  StepVisual_PresentationStyleSelect* {.importcpp: "StepVisual_PresentationStyleSelect", header: "StepVisual_PresentationStyleSelect.hxx",
-                                       bycopy.} = object of StepData_SelectType ## !
-                                                                           ## Returns a
-                                                                           ## PresentationStyleSelect
-                                                                           ## SelectType
+  StepVisualPresentationStyleSelect* {.importcpp: "StepVisual_PresentationStyleSelect", header: "StepVisual_PresentationStyleSelect.hxx",
+                                      bycopy.} = object of StepDataSelectType ## ! Returns a
+                                                                         ## PresentationStyleSelect
+                                                                         ## SelectType
 
 
-proc constructStepVisual_PresentationStyleSelect*(): StepVisual_PresentationStyleSelect {.
+proc constructStepVisualPresentationStyleSelect*(): StepVisualPresentationStyleSelect {.
     constructor, importcpp: "StepVisual_PresentationStyleSelect(@)",
     header: "StepVisual_PresentationStyleSelect.hxx".}
-proc CaseNum*(this: StepVisual_PresentationStyleSelect;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepVisualPresentationStyleSelect;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepVisual_PresentationStyleSelect.hxx".}
-proc PointStyle*(this: StepVisual_PresentationStyleSelect): handle[
-    StepVisual_PointStyle] {.noSideEffect, importcpp: "PointStyle",
-                            header: "StepVisual_PresentationStyleSelect.hxx".}
-proc CurveStyle*(this: StepVisual_PresentationStyleSelect): handle[
-    StepVisual_CurveStyle] {.noSideEffect, importcpp: "CurveStyle",
-                            header: "StepVisual_PresentationStyleSelect.hxx".}
-proc NullStyle*(this: StepVisual_PresentationStyleSelect): handle[
-    StepVisual_NullStyleMember] {.noSideEffect, importcpp: "NullStyle", header: "StepVisual_PresentationStyleSelect.hxx".}
-proc SurfaceStyleUsage*(this: StepVisual_PresentationStyleSelect): handle[
-    StepVisual_SurfaceStyleUsage] {.noSideEffect, importcpp: "SurfaceStyleUsage", header: "StepVisual_PresentationStyleSelect.hxx".}
+proc pointStyle*(this: StepVisualPresentationStyleSelect): Handle[
+    StepVisualPointStyle] {.noSideEffect, importcpp: "PointStyle",
+                           header: "StepVisual_PresentationStyleSelect.hxx".}
+proc curveStyle*(this: StepVisualPresentationStyleSelect): Handle[
+    StepVisualCurveStyle] {.noSideEffect, importcpp: "CurveStyle",
+                           header: "StepVisual_PresentationStyleSelect.hxx".}
+proc nullStyle*(this: StepVisualPresentationStyleSelect): Handle[
+    StepVisualNullStyleMember] {.noSideEffect, importcpp: "NullStyle", header: "StepVisual_PresentationStyleSelect.hxx".}
+proc surfaceStyleUsage*(this: StepVisualPresentationStyleSelect): Handle[
+    StepVisualSurfaceStyleUsage] {.noSideEffect, importcpp: "SurfaceStyleUsage", header: "StepVisual_PresentationStyleSelect.hxx".}

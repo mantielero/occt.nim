@@ -15,7 +15,8 @@
 ##  commercial license or contractual agreement.
 
 type
-  Vrml_FontStyleFamily* {.size: sizeof(cint), importcpp: "Vrml_FontStyleFamily",
-                         header: "Vrml_FontStyleFamily.hxx".} = enum
-    Vrml_SERIF, Vrml_SANS, Vrml_TYPEWRITER
+  VrmlFontStyleFamily* {.size: sizeof(cint), importcpp: "Vrml_FontStyleFamily",
+                        header: "Vrml_FontStyleFamily.hxx".} = enum
+    VrmlSERIF, VrmlSANS, VrmlTYPEWRITER
+
 

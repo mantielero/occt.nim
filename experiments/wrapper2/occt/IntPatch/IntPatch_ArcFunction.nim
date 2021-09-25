@@ -14,49 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../IntSurf/IntSurf_Quadric, ../gp/gp_Pnt,
-  ../TColgp/TColgp_SequenceOfPnt, ../math/math_FunctionWithDerivative,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of IntSurf_Quadric"
 discard "forward decl of gp_Pnt"
 type
-  IntPatch_ArcFunction* {.importcpp: "IntPatch_ArcFunction",
-                         header: "IntPatch_ArcFunction.hxx", bycopy.} = object of math_FunctionWithDerivative
+  IntPatchArcFunction* {.importcpp: "IntPatch_ArcFunction",
+                        header: "IntPatch_ArcFunction.hxx", bycopy.} = object of MathFunctionWithDerivative
 
 
-proc constructIntPatch_ArcFunction*(): IntPatch_ArcFunction {.constructor,
+proc constructIntPatchArcFunction*(): IntPatchArcFunction {.constructor,
     importcpp: "IntPatch_ArcFunction(@)", header: "IntPatch_ArcFunction.hxx".}
-proc SetQuadric*(this: var IntPatch_ArcFunction; Q: IntSurf_Quadric) {.
+proc setQuadric*(this: var IntPatchArcFunction; q: IntSurfQuadric) {.
     importcpp: "SetQuadric", header: "IntPatch_ArcFunction.hxx".}
-proc Set*(this: var IntPatch_ArcFunction; A: handle[Adaptor2d_HCurve2d]) {.
+proc set*(this: var IntPatchArcFunction; a: Handle[Adaptor2dHCurve2d]) {.
     importcpp: "Set", header: "IntPatch_ArcFunction.hxx".}
-proc Set*(this: var IntPatch_ArcFunction; S: handle[Adaptor3d_HSurface]) {.
+proc set*(this: var IntPatchArcFunction; s: Handle[Adaptor3dHSurface]) {.
     importcpp: "Set", header: "IntPatch_ArcFunction.hxx".}
-proc Value*(this: var IntPatch_ArcFunction; X: Standard_Real; F: var Standard_Real): Standard_Boolean {.
+proc value*(this: var IntPatchArcFunction; x: float; f: var float): bool {.
     importcpp: "Value", header: "IntPatch_ArcFunction.hxx".}
-proc Derivative*(this: var IntPatch_ArcFunction; X: Standard_Real;
-                D: var Standard_Real): Standard_Boolean {.importcpp: "Derivative",
-    header: "IntPatch_ArcFunction.hxx".}
-proc Values*(this: var IntPatch_ArcFunction; X: Standard_Real; F: var Standard_Real;
-            D: var Standard_Real): Standard_Boolean {.importcpp: "Values",
-    header: "IntPatch_ArcFunction.hxx".}
-proc NbSamples*(this: IntPatch_ArcFunction): Standard_Integer {.noSideEffect,
+proc derivative*(this: var IntPatchArcFunction; x: float; d: var float): bool {.
+    importcpp: "Derivative", header: "IntPatch_ArcFunction.hxx".}
+proc values*(this: var IntPatchArcFunction; x: float; f: var float; d: var float): bool {.
+    importcpp: "Values", header: "IntPatch_ArcFunction.hxx".}
+proc nbSamples*(this: IntPatchArcFunction): int {.noSideEffect,
     importcpp: "NbSamples", header: "IntPatch_ArcFunction.hxx".}
-proc GetStateNumber*(this: var IntPatch_ArcFunction): Standard_Integer {.
+proc getStateNumber*(this: var IntPatchArcFunction): int {.
     importcpp: "GetStateNumber", header: "IntPatch_ArcFunction.hxx".}
-proc Valpoint*(this: IntPatch_ArcFunction; Index: Standard_Integer): gp_Pnt {.
-    noSideEffect, importcpp: "Valpoint", header: "IntPatch_ArcFunction.hxx".}
-proc Quadric*(this: IntPatch_ArcFunction): IntSurf_Quadric {.noSideEffect,
+proc valpoint*(this: IntPatchArcFunction; index: int): Pnt {.noSideEffect,
+    importcpp: "Valpoint", header: "IntPatch_ArcFunction.hxx".}
+proc quadric*(this: IntPatchArcFunction): IntSurfQuadric {.noSideEffect,
     importcpp: "Quadric", header: "IntPatch_ArcFunction.hxx".}
-proc Arc*(this: IntPatch_ArcFunction): handle[Adaptor2d_HCurve2d] {.noSideEffect,
+proc arc*(this: IntPatchArcFunction): Handle[Adaptor2dHCurve2d] {.noSideEffect,
     importcpp: "Arc", header: "IntPatch_ArcFunction.hxx".}
-proc Surface*(this: IntPatch_ArcFunction): handle[Adaptor3d_HSurface] {.
-    noSideEffect, importcpp: "Surface", header: "IntPatch_ArcFunction.hxx".}
-proc LastComputedPoint*(this: IntPatch_ArcFunction): gp_Pnt {.noSideEffect,
+proc surface*(this: IntPatchArcFunction): Handle[Adaptor3dHSurface] {.noSideEffect,
+    importcpp: "Surface", header: "IntPatch_ArcFunction.hxx".}
+proc lastComputedPoint*(this: IntPatchArcFunction): Pnt {.noSideEffect,
     importcpp: "LastComputedPoint", header: "IntPatch_ArcFunction.hxx".}

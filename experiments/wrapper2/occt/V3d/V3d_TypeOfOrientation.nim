@@ -25,34 +25,34 @@
 ## ! Applications using other coordinate system can define their own enumeration, when found suitable.
 
 type
-  V3d_TypeOfOrientation* {.size: sizeof(cint), importcpp: "V3d_TypeOfOrientation",
-                          header: "V3d_TypeOfOrientation.hxx".} = enum
-    V3d_Xpos,                 ## !< (+Y+Z) view
-    V3d_Ypos,                 ## !< (-X+Z) view
-    V3d_Zpos,                 ## !< (+X+Y) view
-    V3d_Xneg,                 ## !< (-Y+Z) view
-    V3d_Yneg,                 ## !< (+X+Z) view
-    V3d_Zneg,                 ## !< (+X-Y) view
-    V3d_XposYpos, V3d_XposZpos, V3d_YposZpos, V3d_XnegYneg, V3d_XnegYpos,
-    V3d_XnegZneg, V3d_XnegZpos, V3d_YnegZneg, V3d_YnegZpos, V3d_XposYneg,
-    V3d_XposZneg, V3d_YposZneg, V3d_XposYposZpos, V3d_XposYnegZpos,
-    V3d_XposYposZneg, V3d_XnegYposZpos, V3d_XposYnegZneg, V3d_XnegYposZneg,
-    V3d_XnegYnegZpos, V3d_XnegYnegZneg ##  +Z-up +Y-forward convention
+  V3dTypeOfOrientation* {.size: sizeof(cint), importcpp: "V3d_TypeOfOrientation",
+                         header: "V3d_TypeOfOrientation.hxx".} = enum
+    V3dXpos,                  ## !< (+Y+Z) view
+    V3dYpos,                  ## !< (-X+Z) view
+    V3dZpos,                  ## !< (+X+Y) view
+    V3dXneg,                  ## !< (-Y+Z) view
+    V3dYneg,                  ## !< (+X+Z) view
+    V3dZneg,                  ## !< (+X-Y) view
+    V3dXposYpos, V3dXposZpos, V3dYposZpos, V3dXnegYneg, V3dXnegYpos, V3dXnegZneg,
+    V3dXnegZpos, V3dYnegZneg, V3dYnegZpos, V3dXposYneg, V3dXposZneg, V3dYposZneg,
+    V3dXposYposZpos, V3dXposYnegZpos, V3dXposYposZneg, V3dXnegYposZpos,
+    V3dXposYnegZneg, V3dXnegYposZneg, V3dXnegYnegZpos, V3dXnegYnegZneg, ##  +Z-up +Y-forward convention
+    V3dTypeOfOrientationZupAxoLeft = v3dXnegYnegZpos, ## !< +Z-up +Y-forward Left +Front+Top
+    V3dTypeOfOrientationZupAxoRight = v3dXposYnegZpos, ## !< +Z-up +Y-forward Right+Front+Top
+    V3dTypeOfOrientationZupFront = v3dYneg, ## !< +Z-up +Y-forward Front  (+X+Z) view
+    V3dTypeOfOrientationZupBack = v3dYpos, ## !< +Z-up +Y-forward Back   (-X+Z) view
+    V3dTypeOfOrientationZupTop = v3dZpos, ## !< +Z-up +Y-forward Top    (+X+Y) view
+    V3dTypeOfOrientationZupBottom = v3dZneg, ## !< +Z-up +Y-forward Bottom (+X-Y) view
+    V3dTypeOfOrientationZupLeft = v3dXneg, ## !< +Z-up +Y-forward Left   (-Y+Z) view
+    V3dTypeOfOrientationZupRight = v3dXpos, ## !< +Z-up +Y-forward Right  (+Y+Z) view
+                                         ##  +Y-up -Z-forward convention
+    V3dTypeOfOrientationYupAxoLeft = v3dXnegYposZpos, ## !< +Y-up -Z-forward Left +Front+Top
+    V3dTypeOfOrientationYupAxoRight = v3dXposYposZpos, ## !< +Y-up -Z-forward Right+Front+Top
+    V3dTypeOfOrientationYupFront = v3dZpos, ## !< +Y-up -Z-forward Front  (+X+Y) view
+    V3dTypeOfOrientationYupBack = v3dZneg, ## !< +Y-up -Z-forward Back   (-X+Y) view
+    V3dTypeOfOrientationYupTop = v3dYpos, ## !< +Y-up -Z-forward Top    (+X-Z) view
+    V3dTypeOfOrientationYupBottom = v3dYneg, ## !< +Y-up -Z-forward Bottom (-X-Z) view
+    V3dTypeOfOrientationYupLeft = v3dXpos, ## !< +Y-up -Z-forward Left   (-Z+Y) view
+    V3dTypeOfOrientationYupRight = v3dXneg ## !< +Y-up -Z-forward Right  (+Z+Y) view
 
-const
-  V3d_TypeOfOrientation_Zup_AxoLeft* = V3d_XnegYnegZpos
-  V3d_TypeOfOrientation_Zup_AxoRight* = V3d_XposYnegZpos
-  V3d_TypeOfOrientation_Zup_Front* = V3d_Yneg
-  V3d_TypeOfOrientation_Zup_Back* = V3d_Ypos
-  V3d_TypeOfOrientation_Zup_Top* = V3d_Zpos
-  V3d_TypeOfOrientation_Zup_Bottom* = V3d_Zneg
-  V3d_TypeOfOrientation_Zup_Left* = V3d_Xneg
-  V3d_TypeOfOrientation_Zup_Right* = V3d_Xpos
-  V3d_TypeOfOrientation_Yup_AxoLeft* = V3d_XnegYposZpos
-  V3d_TypeOfOrientation_Yup_AxoRight* = V3d_XposYposZpos
-  V3d_TypeOfOrientation_Yup_Front* = V3d_Zpos
-  V3d_TypeOfOrientation_Yup_Back* = V3d_Zneg
-  V3d_TypeOfOrientation_Yup_Top* = V3d_Ypos
-  V3d_TypeOfOrientation_Yup_Bottom* = V3d_Yneg
-  V3d_TypeOfOrientation_Yup_Left* = V3d_Xpos
-  V3d_TypeOfOrientation_Yup_Right* = V3d_Xneg
+

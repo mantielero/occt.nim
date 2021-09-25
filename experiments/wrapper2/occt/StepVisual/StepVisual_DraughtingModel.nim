@@ -13,36 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepRepr/StepRepr_Representation
-
 discard "forward decl of StepVisual_DraughtingModel"
 discard "forward decl of StepVisual_DraughtingModel"
 type
-  Handle_StepVisual_DraughtingModel* = handle[StepVisual_DraughtingModel]
+  HandleStepVisualDraughtingModel* = Handle[StepVisualDraughtingModel]
 
 ## ! Representation of STEP entity DraughtingModel
 
 type
-  StepVisual_DraughtingModel* {.importcpp: "StepVisual_DraughtingModel",
-                               header: "StepVisual_DraughtingModel.hxx", bycopy.} = object of StepRepr_Representation ##
-                                                                                                               ## !
-                                                                                                               ## Empty
-                                                                                                               ## constructor
+  StepVisualDraughtingModel* {.importcpp: "StepVisual_DraughtingModel",
+                              header: "StepVisual_DraughtingModel.hxx", bycopy.} = object of StepReprRepresentation ##
+                                                                                                             ## !
+                                                                                                             ## Empty
+                                                                                                             ## constructor
 
 
-proc constructStepVisual_DraughtingModel*(): StepVisual_DraughtingModel {.
+proc constructStepVisualDraughtingModel*(): StepVisualDraughtingModel {.
     constructor, importcpp: "StepVisual_DraughtingModel(@)",
     header: "StepVisual_DraughtingModel.hxx".}
 type
-  StepVisual_DraughtingModelbase_type* = StepRepr_Representation
+  StepVisualDraughtingModelbaseType* = StepReprRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_DraughtingModel::get_type_name(@)",
-                              header: "StepVisual_DraughtingModel.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_DraughtingModel::get_type_name(@)",
+                            header: "StepVisual_DraughtingModel.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_DraughtingModel::get_type_descriptor(@)",
     header: "StepVisual_DraughtingModel.hxx".}
-proc DynamicType*(this: StepVisual_DraughtingModel): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualDraughtingModel): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_DraughtingModel.hxx".}

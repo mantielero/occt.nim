@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TDocStd_Document, ../NCollection/NCollection_Sequence
-
 type
-  TDocStd_SequenceOfDocument* = NCollection_Sequence[handle[TDocStd_Document]]
+  TDocStdSequenceOfDocument* = NCollectionSequence[Handle[TDocStdDocument]]
+

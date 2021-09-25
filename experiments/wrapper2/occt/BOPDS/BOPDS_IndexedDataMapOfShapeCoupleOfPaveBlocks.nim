@@ -12,10 +12,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  BOPDS_CoupleOfPaveBlocks, ../NCollection/NCollection_IndexedDataMap,
-  ../TopTools/TopTools_ShapeMapHasher
-
 type
-  BOPDS_IndexedDataMapOfShapeCoupleOfPaveBlocks* = NCollection_IndexedDataMap[
-      TopoDS_Shape, BOPDS_CoupleOfPaveBlocks, TopTools_ShapeMapHasher]
+  BOPDS_IndexedDataMapOfShapeCoupleOfPaveBlocks* = NCollectionIndexedDataMap[
+      TopoDS_Shape, BOPDS_CoupleOfPaveBlocks, TopToolsShapeMapHasher]
+

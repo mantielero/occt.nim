@@ -14,48 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  StepShape_Edge
-
 discard "forward decl of StepGeom_Curve"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_Vertex"
 discard "forward decl of StepShape_EdgeCurve"
 discard "forward decl of StepShape_EdgeCurve"
 type
-  Handle_StepShape_EdgeCurve* = handle[StepShape_EdgeCurve]
-  StepShape_EdgeCurve* {.importcpp: "StepShape_EdgeCurve",
-                        header: "StepShape_EdgeCurve.hxx", bycopy.} = object of StepShape_Edge ##
-                                                                                        ## !
-                                                                                        ## Returns
-                                                                                        ## a
-                                                                                        ## EdgeCurve
+  HandleStepShapeEdgeCurve* = Handle[StepShapeEdgeCurve]
+  StepShapeEdgeCurve* {.importcpp: "StepShape_EdgeCurve",
+                       header: "StepShape_EdgeCurve.hxx", bycopy.} = object of StepShapeEdge ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## a
+                                                                                      ## EdgeCurve
 
 
-proc constructStepShape_EdgeCurve*(): StepShape_EdgeCurve {.constructor,
+proc constructStepShapeEdgeCurve*(): StepShapeEdgeCurve {.constructor,
     importcpp: "StepShape_EdgeCurve(@)", header: "StepShape_EdgeCurve.hxx".}
-proc Init*(this: var StepShape_EdgeCurve; aName: handle[TCollection_HAsciiString];
-          aEdgeStart: handle[StepShape_Vertex];
-          aEdgeEnd: handle[StepShape_Vertex];
-          aEdgeGeometry: handle[StepGeom_Curve]; aSameSense: Standard_Boolean) {.
+proc init*(this: var StepShapeEdgeCurve; aName: Handle[TCollectionHAsciiString];
+          aEdgeStart: Handle[StepShapeVertex]; aEdgeEnd: Handle[StepShapeVertex];
+          aEdgeGeometry: Handle[StepGeomCurve]; aSameSense: bool) {.
     importcpp: "Init", header: "StepShape_EdgeCurve.hxx".}
-proc SetEdgeGeometry*(this: var StepShape_EdgeCurve;
-                     aEdgeGeometry: handle[StepGeom_Curve]) {.
+proc setEdgeGeometry*(this: var StepShapeEdgeCurve;
+                     aEdgeGeometry: Handle[StepGeomCurve]) {.
     importcpp: "SetEdgeGeometry", header: "StepShape_EdgeCurve.hxx".}
-proc EdgeGeometry*(this: StepShape_EdgeCurve): handle[StepGeom_Curve] {.
-    noSideEffect, importcpp: "EdgeGeometry", header: "StepShape_EdgeCurve.hxx".}
-proc SetSameSense*(this: var StepShape_EdgeCurve; aSameSense: Standard_Boolean) {.
+proc edgeGeometry*(this: StepShapeEdgeCurve): Handle[StepGeomCurve] {.noSideEffect,
+    importcpp: "EdgeGeometry", header: "StepShape_EdgeCurve.hxx".}
+proc setSameSense*(this: var StepShapeEdgeCurve; aSameSense: bool) {.
     importcpp: "SetSameSense", header: "StepShape_EdgeCurve.hxx".}
-proc SameSense*(this: StepShape_EdgeCurve): Standard_Boolean {.noSideEffect,
+proc sameSense*(this: StepShapeEdgeCurve): bool {.noSideEffect,
     importcpp: "SameSense", header: "StepShape_EdgeCurve.hxx".}
 type
-  StepShape_EdgeCurvebase_type* = StepShape_Edge
+  StepShapeEdgeCurvebaseType* = StepShapeEdge
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_EdgeCurve::get_type_name(@)",
-                              header: "StepShape_EdgeCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_EdgeCurve::get_type_name(@)",
+                            header: "StepShape_EdgeCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_EdgeCurve::get_type_descriptor(@)",
     header: "StepShape_EdgeCurve.hxx".}
-proc DynamicType*(this: StepShape_EdgeCurve): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepShapeEdgeCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_EdgeCurve.hxx".}

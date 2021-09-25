@@ -13,9 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_DraughtingCalloutElement, ../NCollection/NCollection_Array1
-
 type
-  StepVisual_Array1OfDraughtingCalloutElement* = NCollection_Array1[
-      StepVisual_DraughtingCalloutElement]
+  StepVisualArray1OfDraughtingCalloutElement* = NCollectionArray1[
+      StepVisualDraughtingCalloutElement]
+

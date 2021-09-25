@@ -13,57 +13,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Image_Color, ../NCollection/NCollection_Buffer
-
 ## ! Structure to manage image buffer.
 
 type
-  Image_PixMapData* {.importcpp: "Image_PixMapData",
-                     header: "Image_PixMapData.hxx", bycopy.} = object of NCollection_Buffer ##
-                                                                                      ## !
-                                                                                      ## Empty
-                                                                                      ## constructor.
+  ImagePixMapData* {.importcpp: "Image_PixMapData", header: "Image_PixMapData.hxx",
+                    bycopy.} = object of NCollectionBuffer ## ! Empty constructor.
     ## !< pointer to the topmost row (depending on scanlines order in memory)
-    SizeBPP* {.importc: "SizeBPP".}: Standard_Size ## !< bytes per pixel
-    SizeX* {.importc: "SizeX".}: Standard_Size ## !< width  in pixels
-    SizeY* {.importc: "SizeY".}: Standard_Size ## !< height in pixels
-    SizeRowBytes* {.importc: "SizeRowBytes".}: Standard_Size ## !< number of bytes per line (in most cases equal to 3 * sizeX)
-    TopToDown* {.importc: "TopToDown".}: Standard_Size ## !< image scanlines direction in memory from Top to the Down
+    sizeBPP* {.importc: "SizeBPP".}: StandardSize ## !< bytes per pixel
+    sizeX* {.importc: "SizeX".}: StandardSize ## !< width  in pixels
+    sizeY* {.importc: "SizeY".}: StandardSize ## !< height in pixels
+    sizeRowBytes* {.importc: "SizeRowBytes".}: StandardSize ## !< number of bytes per line (in most cases equal to 3 * sizeX)
+    topToDown* {.importc: "TopToDown".}: StandardSize ## !< image scanlines direction in memory from Top to the Down
 
 
-proc constructImage_PixMapData*(): Image_PixMapData {.constructor,
+proc constructImagePixMapData*(): ImagePixMapData {.constructor,
     importcpp: "Image_PixMapData(@)", header: "Image_PixMapData.hxx".}
-proc Init*(this: var Image_PixMapData; theAlloc: handle[NCollection_BaseAllocator];
-          theSizeBPP: Standard_Size; theSizeX: Standard_Size;
-          theSizeY: Standard_Size; theSizeRowBytes: Standard_Size;
-          theDataPtr: ptr Standard_Byte): bool {.importcpp: "Init",
-    header: "Image_PixMapData.hxx".}
-proc ZeroData*(this: var Image_PixMapData) {.importcpp: "ZeroData",
-    header: "Image_PixMapData.hxx".}
-proc Row*(this: Image_PixMapData; theRow: Standard_Size): ptr Standard_Byte {.
+proc init*(this: var ImagePixMapData; theAlloc: Handle[NCollectionBaseAllocator];
+          theSizeBPP: StandardSize; theSizeX: StandardSize; theSizeY: StandardSize;
+          theSizeRowBytes: StandardSize; theDataPtr: ptr StandardByte): bool {.
+    importcpp: "Init", header: "Image_PixMapData.hxx".}
+proc zeroData*(this: var ImagePixMapData) {.importcpp: "ZeroData",
+                                        header: "Image_PixMapData.hxx".}
+proc row*(this: ImagePixMapData; theRow: StandardSize): ptr StandardByte {.
     noSideEffect, importcpp: "Row", header: "Image_PixMapData.hxx".}
-proc ChangeRow*(this: var Image_PixMapData; theRow: Standard_Size): ptr Standard_Byte {.
+proc changeRow*(this: var ImagePixMapData; theRow: StandardSize): ptr StandardByte {.
     importcpp: "ChangeRow", header: "Image_PixMapData.hxx".}
-proc Value*(this: Image_PixMapData; theRow: Standard_Size; theCol: Standard_Size): ptr Standard_Byte {.
+proc value*(this: ImagePixMapData; theRow: StandardSize; theCol: StandardSize): ptr StandardByte {.
     noSideEffect, importcpp: "Value", header: "Image_PixMapData.hxx".}
-proc ChangeValue*(this: var Image_PixMapData; theRow: Standard_Size;
-                 theCol: Standard_Size): ptr Standard_Byte {.
-    importcpp: "ChangeValue", header: "Image_PixMapData.hxx".}
-proc MaxRowAligmentBytes*(this: Image_PixMapData): Standard_Size {.noSideEffect,
+proc changeValue*(this: var ImagePixMapData; theRow: StandardSize;
+                 theCol: StandardSize): ptr StandardByte {.importcpp: "ChangeValue",
+    header: "Image_PixMapData.hxx".}
+proc maxRowAligmentBytes*(this: ImagePixMapData): StandardSize {.noSideEffect,
     importcpp: "MaxRowAligmentBytes", header: "Image_PixMapData.hxx".}
-proc SetTopDown*(this: var Image_PixMapData; theIsTopDown: bool) {.
+proc setTopDown*(this: var ImagePixMapData; theIsTopDown: bool) {.
     importcpp: "SetTopDown", header: "Image_PixMapData.hxx".}
 type
-  Image_PixMapDatabase_type* = NCollection_Buffer
+  ImagePixMapDatabaseType* = NCollectionBuffer
 
-proc get_type_name*(): cstring {.importcpp: "Image_PixMapData::get_type_name(@)",
-                              header: "Image_PixMapData.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Image_PixMapData::get_type_name(@)",
+                            header: "Image_PixMapData.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Image_PixMapData::get_type_descriptor(@)",
     header: "Image_PixMapData.hxx".}
-proc DynamicType*(this: Image_PixMapData): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: ImagePixMapData): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Image_PixMapData.hxx".}
 discard "forward decl of Image_PixMapData"
 type
-  Handle_Image_PixMapData* = handle[Image_PixMapData]
+  HandleImagePixMapData* = Handle[ImagePixMapData]
+

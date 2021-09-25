@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of Interface_GlobalNodeOfGeneralLib"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_GeneralModule"
@@ -25,39 +22,39 @@ discard "forward decl of Interface_GeneralLib"
 discard "forward decl of Interface_NodeOfGeneralLib"
 discard "forward decl of Interface_NodeOfGeneralLib"
 type
-  Handle_Interface_NodeOfGeneralLib* = handle[Interface_NodeOfGeneralLib]
-  Interface_NodeOfGeneralLib* {.importcpp: "Interface_NodeOfGeneralLib",
-                               header: "Interface_NodeOfGeneralLib.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                          ## !
-                                                                                                          ## Creates
-                                                                                                          ## an
-                                                                                                          ## empty
-                                                                                                          ## Node,
-                                                                                                          ## with
-                                                                                                          ## no
-                                                                                                          ## Next
+  HandleInterfaceNodeOfGeneralLib* = Handle[InterfaceNodeOfGeneralLib]
+  InterfaceNodeOfGeneralLib* {.importcpp: "Interface_NodeOfGeneralLib",
+                              header: "Interface_NodeOfGeneralLib.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                        ## !
+                                                                                                        ## Creates
+                                                                                                        ## an
+                                                                                                        ## empty
+                                                                                                        ## Node,
+                                                                                                        ## with
+                                                                                                        ## no
+                                                                                                        ## Next
 
 
-proc constructInterface_NodeOfGeneralLib*(): Interface_NodeOfGeneralLib {.
+proc constructInterfaceNodeOfGeneralLib*(): InterfaceNodeOfGeneralLib {.
     constructor, importcpp: "Interface_NodeOfGeneralLib(@)",
     header: "Interface_NodeOfGeneralLib.hxx".}
-proc AddNode*(this: var Interface_NodeOfGeneralLib;
-             anode: handle[Interface_GlobalNodeOfGeneralLib]) {.
+proc addNode*(this: var InterfaceNodeOfGeneralLib;
+             anode: Handle[InterfaceGlobalNodeOfGeneralLib]) {.
     importcpp: "AddNode", header: "Interface_NodeOfGeneralLib.hxx".}
-proc Module*(this: Interface_NodeOfGeneralLib): handle[Interface_GeneralModule] {.
+proc module*(this: InterfaceNodeOfGeneralLib): Handle[InterfaceGeneralModule] {.
     noSideEffect, importcpp: "Module", header: "Interface_NodeOfGeneralLib.hxx".}
-proc Protocol*(this: Interface_NodeOfGeneralLib): handle[Interface_Protocol] {.
+proc protocol*(this: InterfaceNodeOfGeneralLib): Handle[InterfaceProtocol] {.
     noSideEffect, importcpp: "Protocol", header: "Interface_NodeOfGeneralLib.hxx".}
-proc Next*(this: Interface_NodeOfGeneralLib): handle[Interface_NodeOfGeneralLib] {.
+proc next*(this: InterfaceNodeOfGeneralLib): Handle[InterfaceNodeOfGeneralLib] {.
     noSideEffect, importcpp: "Next", header: "Interface_NodeOfGeneralLib.hxx".}
 type
-  Interface_NodeOfGeneralLibbase_type* = Standard_Transient
+  InterfaceNodeOfGeneralLibbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Interface_NodeOfGeneralLib::get_type_name(@)",
-                              header: "Interface_NodeOfGeneralLib.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Interface_NodeOfGeneralLib::get_type_name(@)",
+                            header: "Interface_NodeOfGeneralLib.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Interface_NodeOfGeneralLib::get_type_descriptor(@)",
     header: "Interface_NodeOfGeneralLib.hxx".}
-proc DynamicType*(this: Interface_NodeOfGeneralLib): handle[Standard_Type] {.
+proc dynamicType*(this: InterfaceNodeOfGeneralLib): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Interface_NodeOfGeneralLib.hxx".}

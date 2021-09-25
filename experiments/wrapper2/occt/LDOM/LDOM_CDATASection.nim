@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  LDOM_Text
-
 ##   Class LDOM_CDATASection
 
 type

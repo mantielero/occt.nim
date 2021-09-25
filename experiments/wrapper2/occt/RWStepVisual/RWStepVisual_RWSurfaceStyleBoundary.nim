@@ -14,33 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_SurfaceStyleBoundary"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisual_RWSurfaceStyleBoundary* {.importcpp: "RWStepVisual_RWSurfaceStyleBoundary", header: "RWStepVisual_RWSurfaceStyleBoundary.hxx",
-                                        bycopy.} = object
+  RWStepVisualRWSurfaceStyleBoundary* {.importcpp: "RWStepVisual_RWSurfaceStyleBoundary", header: "RWStepVisual_RWSurfaceStyleBoundary.hxx",
+                                       bycopy.} = object
 
 
-proc constructRWStepVisual_RWSurfaceStyleBoundary*(): RWStepVisual_RWSurfaceStyleBoundary {.
+proc constructRWStepVisualRWSurfaceStyleBoundary*(): RWStepVisualRWSurfaceStyleBoundary {.
     constructor, importcpp: "RWStepVisual_RWSurfaceStyleBoundary(@)",
     header: "RWStepVisual_RWSurfaceStyleBoundary.hxx".}
-proc ReadStep*(this: RWStepVisual_RWSurfaceStyleBoundary;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepVisual_SurfaceStyleBoundary]) {.noSideEffect,
+proc readStep*(this: RWStepVisualRWSurfaceStyleBoundary;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepVisualSurfaceStyleBoundary]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWSurfaceStyleBoundary.hxx".}
-proc WriteStep*(this: RWStepVisual_RWSurfaceStyleBoundary;
-               SW: var StepData_StepWriter;
-               ent: handle[StepVisual_SurfaceStyleBoundary]) {.noSideEffect,
+proc writeStep*(this: RWStepVisualRWSurfaceStyleBoundary;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepVisualSurfaceStyleBoundary]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWSurfaceStyleBoundary.hxx".}
-proc Share*(this: RWStepVisual_RWSurfaceStyleBoundary;
-           ent: handle[StepVisual_SurfaceStyleBoundary];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepVisualRWSurfaceStyleBoundary;
+           ent: Handle[StepVisualSurfaceStyleBoundary];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWSurfaceStyleBoundary.hxx".}

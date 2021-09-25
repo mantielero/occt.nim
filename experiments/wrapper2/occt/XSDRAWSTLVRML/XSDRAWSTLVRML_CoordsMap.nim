@@ -13,12 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Integer, ../TColStd/TColStd_DataMapOfIntegerReal,
-  ../TColStd/TColStd_MapIntegerHasher, ../NCollection/NCollection_DataMap
-
 type
-  XSDRAWSTLVRML_CoordsMap* = NCollection_DataMap[Standard_Integer,
-      TColStd_DataMapOfIntegerReal, TColStd_MapIntegerHasher]
-  XSDRAWSTLVRML_DataMapIteratorOfCoordsMap* = Iterator[Standard_Integer,
-      TColStd_DataMapOfIntegerReal, TColStd_MapIntegerHasher]
+  XSDRAWSTLVRML_CoordsMap* = NCollectionDataMap[int, TColStdDataMapOfIntegerReal,
+      TColStdMapIntegerHasher]
+  XSDRAWSTLVRML_DataMapIteratorOfCoordsMap* = Iterator[int,
+      TColStdDataMapOfIntegerReal, TColStdMapIntegerHasher]
+

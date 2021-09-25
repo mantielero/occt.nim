@@ -14,31 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_FaceBound
-
 discard "forward decl of StepShape_FaceOuterBound"
 discard "forward decl of StepShape_FaceOuterBound"
 type
-  Handle_StepShape_FaceOuterBound* = handle[StepShape_FaceOuterBound]
-  StepShape_FaceOuterBound* {.importcpp: "StepShape_FaceOuterBound",
-                             header: "StepShape_FaceOuterBound.hxx", bycopy.} = object of StepShape_FaceBound ##
-                                                                                                       ## !
-                                                                                                       ## Returns
-                                                                                                       ## a
-                                                                                                       ## FaceOuterBound
+  HandleStepShapeFaceOuterBound* = Handle[StepShapeFaceOuterBound]
+  StepShapeFaceOuterBound* {.importcpp: "StepShape_FaceOuterBound",
+                            header: "StepShape_FaceOuterBound.hxx", bycopy.} = object of StepShapeFaceBound ##
+                                                                                                     ## !
+                                                                                                     ## Returns
+                                                                                                     ## a
+                                                                                                     ## FaceOuterBound
 
 
-proc constructStepShape_FaceOuterBound*(): StepShape_FaceOuterBound {.constructor,
+proc constructStepShapeFaceOuterBound*(): StepShapeFaceOuterBound {.constructor,
     importcpp: "StepShape_FaceOuterBound(@)",
     header: "StepShape_FaceOuterBound.hxx".}
 type
-  StepShape_FaceOuterBoundbase_type* = StepShape_FaceBound
+  StepShapeFaceOuterBoundbaseType* = StepShapeFaceBound
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_FaceOuterBound::get_type_name(@)",
-                              header: "StepShape_FaceOuterBound.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_FaceOuterBound::get_type_name(@)",
+                            header: "StepShape_FaceOuterBound.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_FaceOuterBound::get_type_descriptor(@)",
     header: "StepShape_FaceOuterBound.hxx".}
-proc DynamicType*(this: StepShape_FaceOuterBound): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeFaceOuterBound): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_FaceOuterBound.hxx".}

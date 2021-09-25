@@ -13,50 +13,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepFEA_HArray1OfNodeRepresentation, ../StepRepr/StepRepr_Representation,
-  ../StepRepr/StepRepr_HArray1OfRepresentationItem
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_RepresentationContext"
 discard "forward decl of StepFEA_ElementRepresentation"
 discard "forward decl of StepFEA_ElementRepresentation"
 type
-  Handle_StepFEA_ElementRepresentation* = handle[StepFEA_ElementRepresentation]
+  HandleStepFEA_ElementRepresentation* = Handle[StepFEA_ElementRepresentation]
 
 ## ! Representation of STEP entity ElementRepresentation
 
 type
   StepFEA_ElementRepresentation* {.importcpp: "StepFEA_ElementRepresentation",
                                   header: "StepFEA_ElementRepresentation.hxx",
-                                  bycopy.} = object of StepRepr_Representation ## ! Empty
-                                                                          ## constructor
+                                  bycopy.} = object of StepReprRepresentation ## ! Empty
+                                                                         ## constructor
 
 
 proc constructStepFEA_ElementRepresentation*(): StepFEA_ElementRepresentation {.
     constructor, importcpp: "StepFEA_ElementRepresentation(@)",
     header: "StepFEA_ElementRepresentation.hxx".}
-proc Init*(this: var StepFEA_ElementRepresentation;
-          aRepresentation_Name: handle[TCollection_HAsciiString];
-          aRepresentation_Items: handle[StepRepr_HArray1OfRepresentationItem];
-    aRepresentation_ContextOfItems: handle[StepRepr_RepresentationContext];
-          aNodeList: handle[StepFEA_HArray1OfNodeRepresentation]) {.
+proc init*(this: var StepFEA_ElementRepresentation;
+          aRepresentationName: Handle[TCollectionHAsciiString];
+          aRepresentationItems: Handle[StepReprHArray1OfRepresentationItem];
+          aRepresentationContextOfItems: Handle[StepReprRepresentationContext];
+          aNodeList: Handle[StepFEA_HArray1OfNodeRepresentation]) {.
     importcpp: "Init", header: "StepFEA_ElementRepresentation.hxx".}
-proc NodeList*(this: StepFEA_ElementRepresentation): handle[
+proc nodeList*(this: StepFEA_ElementRepresentation): Handle[
     StepFEA_HArray1OfNodeRepresentation] {.noSideEffect, importcpp: "NodeList",
     header: "StepFEA_ElementRepresentation.hxx".}
-proc SetNodeList*(this: var StepFEA_ElementRepresentation;
-                 NodeList: handle[StepFEA_HArray1OfNodeRepresentation]) {.
+proc setNodeList*(this: var StepFEA_ElementRepresentation;
+                 nodeList: Handle[StepFEA_HArray1OfNodeRepresentation]) {.
     importcpp: "SetNodeList", header: "StepFEA_ElementRepresentation.hxx".}
 type
-  StepFEA_ElementRepresentationbase_type* = StepRepr_Representation
+  StepFEA_ElementRepresentationbaseType* = StepReprRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_ElementRepresentation::get_type_name(@)",
-                              header: "StepFEA_ElementRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_ElementRepresentation::get_type_name(@)",
+                            header: "StepFEA_ElementRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_ElementRepresentation::get_type_descriptor(@)",
     header: "StepFEA_ElementRepresentation.hxx".}
-proc DynamicType*(this: StepFEA_ElementRepresentation): handle[Standard_Type] {.
+proc dynamicType*(this: StepFEA_ElementRepresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_ElementRepresentation.hxx".}

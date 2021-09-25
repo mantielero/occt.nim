@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_ExtendedString, ../Standard/Standard_Byte,
-  ../TCollection/TCollection_ExtendedString, ../NCollection/NCollection_DataMap
-
 type
-  TDataStd_DataMapOfStringByte* = NCollection_DataMap[TCollection_ExtendedString,
-      Standard_Byte, TCollection_ExtendedString]
-  TDataStd_DataMapIteratorOfDataMapOfStringByte* = Iterator[
-      TCollection_ExtendedString, Standard_Byte, TCollection_ExtendedString]
+  TDataStdDataMapOfStringByte* = NCollectionDataMap[TCollectionExtendedString,
+      StandardByte, TCollectionExtendedString]
+  TDataStdDataMapIteratorOfDataMapOfStringByte* = Iterator[
+      TCollectionExtendedString, StandardByte, TCollectionExtendedString]
+

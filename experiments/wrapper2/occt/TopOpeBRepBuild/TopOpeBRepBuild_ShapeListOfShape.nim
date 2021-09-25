@@ -14,32 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopTools/TopTools_ListOfShape,
-  ../TopoDS/TopoDS_Shape
-
 discard "forward decl of TopoDS_Shape"
 type
-  TopOpeBRepBuild_ShapeListOfShape* {.importcpp: "TopOpeBRepBuild_ShapeListOfShape", header: "TopOpeBRepBuild_ShapeListOfShape.hxx",
-                                     bycopy.} = object
+  TopOpeBRepBuildShapeListOfShape* {.importcpp: "TopOpeBRepBuild_ShapeListOfShape", header: "TopOpeBRepBuild_ShapeListOfShape.hxx",
+                                    bycopy.} = object
 
 
-proc constructTopOpeBRepBuild_ShapeListOfShape*(): TopOpeBRepBuild_ShapeListOfShape {.
+proc constructTopOpeBRepBuildShapeListOfShape*(): TopOpeBRepBuildShapeListOfShape {.
     constructor, importcpp: "TopOpeBRepBuild_ShapeListOfShape(@)",
     header: "TopOpeBRepBuild_ShapeListOfShape.hxx".}
-proc constructTopOpeBRepBuild_ShapeListOfShape*(S: TopoDS_Shape): TopOpeBRepBuild_ShapeListOfShape {.
+proc constructTopOpeBRepBuildShapeListOfShape*(s: TopoDS_Shape): TopOpeBRepBuildShapeListOfShape {.
     constructor, importcpp: "TopOpeBRepBuild_ShapeListOfShape(@)",
     header: "TopOpeBRepBuild_ShapeListOfShape.hxx".}
-proc constructTopOpeBRepBuild_ShapeListOfShape*(S: TopoDS_Shape;
-    L: TopTools_ListOfShape): TopOpeBRepBuild_ShapeListOfShape {.constructor,
+proc constructTopOpeBRepBuildShapeListOfShape*(s: TopoDS_Shape;
+    L: TopToolsListOfShape): TopOpeBRepBuildShapeListOfShape {.constructor,
     importcpp: "TopOpeBRepBuild_ShapeListOfShape(@)",
     header: "TopOpeBRepBuild_ShapeListOfShape.hxx".}
-proc List*(this: TopOpeBRepBuild_ShapeListOfShape): TopTools_ListOfShape {.
+proc list*(this: TopOpeBRepBuildShapeListOfShape): TopToolsListOfShape {.
     noSideEffect, importcpp: "List", header: "TopOpeBRepBuild_ShapeListOfShape.hxx".}
-proc ChangeList*(this: var TopOpeBRepBuild_ShapeListOfShape): var TopTools_ListOfShape {.
+proc changeList*(this: var TopOpeBRepBuildShapeListOfShape): var TopToolsListOfShape {.
     importcpp: "ChangeList", header: "TopOpeBRepBuild_ShapeListOfShape.hxx".}
-proc Shape*(this: TopOpeBRepBuild_ShapeListOfShape): TopoDS_Shape {.noSideEffect,
+proc shape*(this: TopOpeBRepBuildShapeListOfShape): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "TopOpeBRepBuild_ShapeListOfShape.hxx".}
-proc ChangeShape*(this: var TopOpeBRepBuild_ShapeListOfShape): var TopoDS_Shape {.
+proc changeShape*(this: var TopOpeBRepBuildShapeListOfShape): var TopoDS_Shape {.
     importcpp: "ChangeShape", header: "TopOpeBRepBuild_ShapeListOfShape.hxx".}

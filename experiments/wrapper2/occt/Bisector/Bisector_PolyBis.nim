@@ -14,33 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Bisector_PointOnBis, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real
-
 discard "forward decl of Bisector_PointOnBis"
 discard "forward decl of gp_Trsf2d"
 type
-  Bisector_PolyBis* {.importcpp: "Bisector_PolyBis",
-                     header: "Bisector_PolyBis.hxx", bycopy.} = object
+  BisectorPolyBis* {.importcpp: "Bisector_PolyBis", header: "Bisector_PolyBis.hxx",
+                    bycopy.} = object
 
 
-proc constructBisector_PolyBis*(): Bisector_PolyBis {.constructor,
+proc constructBisectorPolyBis*(): BisectorPolyBis {.constructor,
     importcpp: "Bisector_PolyBis(@)", header: "Bisector_PolyBis.hxx".}
-proc Append*(this: var Bisector_PolyBis; Point: Bisector_PointOnBis) {.
+proc append*(this: var BisectorPolyBis; point: BisectorPointOnBis) {.
     importcpp: "Append", header: "Bisector_PolyBis.hxx".}
-proc Length*(this: Bisector_PolyBis): Standard_Integer {.noSideEffect,
-    importcpp: "Length", header: "Bisector_PolyBis.hxx".}
-proc IsEmpty*(this: Bisector_PolyBis): Standard_Boolean {.noSideEffect,
-    importcpp: "IsEmpty", header: "Bisector_PolyBis.hxx".}
-proc Value*(this: Bisector_PolyBis; Index: Standard_Integer): Bisector_PointOnBis {.
-    noSideEffect, importcpp: "Value", header: "Bisector_PolyBis.hxx".}
-proc First*(this: Bisector_PolyBis): Bisector_PointOnBis {.noSideEffect,
+proc length*(this: BisectorPolyBis): int {.noSideEffect, importcpp: "Length",
+                                       header: "Bisector_PolyBis.hxx".}
+proc isEmpty*(this: BisectorPolyBis): bool {.noSideEffect, importcpp: "IsEmpty",
+    header: "Bisector_PolyBis.hxx".}
+proc value*(this: BisectorPolyBis; index: int): BisectorPointOnBis {.noSideEffect,
+    importcpp: "Value", header: "Bisector_PolyBis.hxx".}
+proc first*(this: BisectorPolyBis): BisectorPointOnBis {.noSideEffect,
     importcpp: "First", header: "Bisector_PolyBis.hxx".}
-proc Last*(this: Bisector_PolyBis): Bisector_PointOnBis {.noSideEffect,
+proc last*(this: BisectorPolyBis): BisectorPointOnBis {.noSideEffect,
     importcpp: "Last", header: "Bisector_PolyBis.hxx".}
-proc Interval*(this: Bisector_PolyBis; U: Standard_Real): Standard_Integer {.
-    noSideEffect, importcpp: "Interval", header: "Bisector_PolyBis.hxx".}
-proc Transform*(this: var Bisector_PolyBis; T: gp_Trsf2d) {.importcpp: "Transform",
+proc interval*(this: BisectorPolyBis; u: float): int {.noSideEffect,
+    importcpp: "Interval", header: "Bisector_PolyBis.hxx".}
+proc transform*(this: var BisectorPolyBis; t: Trsf2d) {.importcpp: "Transform",
     header: "Bisector_PolyBis.hxx".}

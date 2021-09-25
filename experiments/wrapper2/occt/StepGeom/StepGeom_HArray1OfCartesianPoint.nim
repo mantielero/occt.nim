@@ -14,40 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepGeom_CartesianPoint, StepGeom_Array1OfCartesianPoint,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepGeom_HArray1OfCartesianPoint* {.importcpp: "StepGeom_HArray1OfCartesianPoint", header: "StepGeom_HArray1OfCartesianPoint.hxx",
-                                     bycopy.} = object of StepGeom_Array1OfCartesianPoint
+  StepGeomHArray1OfCartesianPoint* {.importcpp: "StepGeom_HArray1OfCartesianPoint", header: "StepGeom_HArray1OfCartesianPoint.hxx",
+                                    bycopy.} = object of StepGeomArray1OfCartesianPoint
 
 
-proc constructStepGeom_HArray1OfCartesianPoint*(theLower: Standard_Integer;
-    theUpper: Standard_Integer): StepGeom_HArray1OfCartesianPoint {.constructor,
+proc constructStepGeomHArray1OfCartesianPoint*(theLower: int; theUpper: int): StepGeomHArray1OfCartesianPoint {.
+    constructor, importcpp: "StepGeom_HArray1OfCartesianPoint(@)",
+    header: "StepGeom_HArray1OfCartesianPoint.hxx".}
+proc constructStepGeomHArray1OfCartesianPoint*(theLower: int; theUpper: int;
+    theValue: ValueType): StepGeomHArray1OfCartesianPoint {.constructor,
     importcpp: "StepGeom_HArray1OfCartesianPoint(@)",
     header: "StepGeom_HArray1OfCartesianPoint.hxx".}
-proc constructStepGeom_HArray1OfCartesianPoint*(theLower: Standard_Integer;
-    theUpper: Standard_Integer; theValue: value_type): StepGeom_HArray1OfCartesianPoint {.
+proc constructStepGeomHArray1OfCartesianPoint*(
+    theOther: StepGeomArray1OfCartesianPoint): StepGeomHArray1OfCartesianPoint {.
     constructor, importcpp: "StepGeom_HArray1OfCartesianPoint(@)",
     header: "StepGeom_HArray1OfCartesianPoint.hxx".}
-proc constructStepGeom_HArray1OfCartesianPoint*(
-    theOther: StepGeom_Array1OfCartesianPoint): StepGeom_HArray1OfCartesianPoint {.
-    constructor, importcpp: "StepGeom_HArray1OfCartesianPoint(@)",
-    header: "StepGeom_HArray1OfCartesianPoint.hxx".}
-proc Array1*(this: StepGeom_HArray1OfCartesianPoint): StepGeom_Array1OfCartesianPoint {.
+proc array1*(this: StepGeomHArray1OfCartesianPoint): StepGeomArray1OfCartesianPoint {.
     noSideEffect, importcpp: "Array1",
     header: "StepGeom_HArray1OfCartesianPoint.hxx".}
-proc ChangeArray1*(this: var StepGeom_HArray1OfCartesianPoint): var StepGeom_Array1OfCartesianPoint {.
+proc changeArray1*(this: var StepGeomHArray1OfCartesianPoint): var StepGeomArray1OfCartesianPoint {.
     importcpp: "ChangeArray1", header: "StepGeom_HArray1OfCartesianPoint.hxx".}
 type
-  StepGeom_HArray1OfCartesianPointbase_type* = MMgt_TShared
+  StepGeomHArray1OfCartesianPointbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_HArray1OfCartesianPoint::get_type_name(@)",
-                              header: "StepGeom_HArray1OfCartesianPoint.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_HArray1OfCartesianPoint::get_type_name(@)",
+                            header: "StepGeom_HArray1OfCartesianPoint.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_HArray1OfCartesianPoint::get_type_descriptor(@)",
     header: "StepGeom_HArray1OfCartesianPoint.hxx".}
-proc DynamicType*(this: StepGeom_HArray1OfCartesianPoint): handle[Standard_Type] {.
+proc dynamicType*(this: StepGeomHArray1OfCartesianPoint): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_HArray1OfCartesianPoint.hxx".}

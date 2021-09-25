@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Geom_Plane"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopoDS_Shape"
@@ -45,13 +40,12 @@ type
 proc constructBRepBuilderAPI_FindPlane*(): BRepBuilderAPI_FindPlane {.constructor,
     importcpp: "BRepBuilderAPI_FindPlane(@)",
     header: "BRepBuilderAPI_FindPlane.hxx".}
-proc constructBRepBuilderAPI_FindPlane*(S: TopoDS_Shape; Tol: Standard_Real = -1): BRepBuilderAPI_FindPlane {.
+proc constructBRepBuilderAPI_FindPlane*(s: TopoDS_Shape; tol: float = -1): BRepBuilderAPI_FindPlane {.
     constructor, importcpp: "BRepBuilderAPI_FindPlane(@)",
     header: "BRepBuilderAPI_FindPlane.hxx".}
-proc Init*(this: var BRepBuilderAPI_FindPlane; S: TopoDS_Shape;
-          Tol: Standard_Real = -1) {.importcpp: "Init",
-                                 header: "BRepBuilderAPI_FindPlane.hxx".}
-proc Found*(this: BRepBuilderAPI_FindPlane): Standard_Boolean {.noSideEffect,
-    importcpp: "Found", header: "BRepBuilderAPI_FindPlane.hxx".}
-proc Plane*(this: BRepBuilderAPI_FindPlane): handle[Geom_Plane] {.noSideEffect,
+proc init*(this: var BRepBuilderAPI_FindPlane; s: TopoDS_Shape; tol: float = -1) {.
+    importcpp: "Init", header: "BRepBuilderAPI_FindPlane.hxx".}
+proc found*(this: BRepBuilderAPI_FindPlane): bool {.noSideEffect, importcpp: "Found",
+    header: "BRepBuilderAPI_FindPlane.hxx".}
+proc plane*(this: BRepBuilderAPI_FindPlane): Handle[GeomPlane] {.noSideEffect,
     importcpp: "Plane", header: "BRepBuilderAPI_FindPlane.hxx".}

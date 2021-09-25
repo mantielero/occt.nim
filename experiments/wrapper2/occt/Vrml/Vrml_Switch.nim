@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_OStream
-
 ## ! defines a Switch node of VRML specifying group properties.
 ## ! This  group  node  traverses  one,  none,  or  all  of  its  children.
 ## ! One  can  use  this  node  to  switch  on  and  off  the  effects  of  some
@@ -30,14 +25,14 @@ import
 ## ! like  a  regular  Group.
 
 type
-  Vrml_Switch* {.importcpp: "Vrml_Switch", header: "Vrml_Switch.hxx", bycopy.} = object
+  VrmlSwitch* {.importcpp: "Vrml_Switch", header: "Vrml_Switch.hxx", bycopy.} = object
 
 
-proc constructVrml_Switch*(aWhichChild: Standard_Integer = -1): Vrml_Switch {.
-    constructor, importcpp: "Vrml_Switch(@)", header: "Vrml_Switch.hxx".}
-proc SetWhichChild*(this: var Vrml_Switch; aWhichChild: Standard_Integer) {.
+proc constructVrmlSwitch*(aWhichChild: int = -1): VrmlSwitch {.constructor,
+    importcpp: "Vrml_Switch(@)", header: "Vrml_Switch.hxx".}
+proc setWhichChild*(this: var VrmlSwitch; aWhichChild: int) {.
     importcpp: "SetWhichChild", header: "Vrml_Switch.hxx".}
-proc WhichChild*(this: Vrml_Switch): Standard_Integer {.noSideEffect,
-    importcpp: "WhichChild", header: "Vrml_Switch.hxx".}
-proc Print*(this: Vrml_Switch; anOStream: var Standard_OStream): var Standard_OStream {.
+proc whichChild*(this: VrmlSwitch): int {.noSideEffect, importcpp: "WhichChild",
+                                      header: "Vrml_Switch.hxx".}
+proc print*(this: VrmlSwitch; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Switch.hxx".}

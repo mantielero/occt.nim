@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, StepToTopoDS_TranslateShellError,
-  ../TopoDS/TopoDS_Shape, StepToTopoDS_Root, ../Message/Message_ProgressRange
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of StepShape_ConnectedFaceSet"
 discard "forward decl of StepToTopoDS_Tool"
@@ -32,12 +27,12 @@ type
 proc constructStepToTopoDS_TranslateShell*(): StepToTopoDS_TranslateShell {.
     constructor, importcpp: "StepToTopoDS_TranslateShell(@)",
     header: "StepToTopoDS_TranslateShell.hxx".}
-proc Init*(this: var StepToTopoDS_TranslateShell;
-          CFS: handle[StepShape_ConnectedFaceSet]; T: var StepToTopoDS_Tool;
-          NMTool: var StepToTopoDS_NMTool;
-          theProgress: Message_ProgressRange = Message_ProgressRange()) {.
+proc init*(this: var StepToTopoDS_TranslateShell;
+          cfs: Handle[StepShapeConnectedFaceSet]; t: var StepToTopoDS_Tool;
+          nMTool: var StepToTopoDS_NMTool;
+          theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Init", header: "StepToTopoDS_TranslateShell.hxx".}
-proc Value*(this: StepToTopoDS_TranslateShell): TopoDS_Shape {.noSideEffect,
+proc value*(this: StepToTopoDS_TranslateShell): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "StepToTopoDS_TranslateShell.hxx".}
-proc Error*(this: StepToTopoDS_TranslateShell): StepToTopoDS_TranslateShellError {.
+proc error*(this: StepToTopoDS_TranslateShell): StepToTopoDS_TranslateShellError {.
     noSideEffect, importcpp: "Error", header: "StepToTopoDS_TranslateShell.hxx".}

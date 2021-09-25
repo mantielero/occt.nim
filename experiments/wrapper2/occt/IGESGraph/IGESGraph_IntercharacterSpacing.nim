@@ -14,14 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of IGESGraph_IntercharacterSpacing"
 discard "forward decl of IGESGraph_IntercharacterSpacing"
 type
-  Handle_IGESGraph_IntercharacterSpacing* = handle[IGESGraph_IntercharacterSpacing]
+  HandleIGESGraphIntercharacterSpacing* = Handle[IGESGraphIntercharacterSpacing]
 
 ## ! defines IGESIntercharacterSpacing, Type <406> Form <18>
 ## ! in package IGESGraph
@@ -30,28 +26,27 @@ type
 ## ! spacing is used
 
 type
-  IGESGraph_IntercharacterSpacing* {.importcpp: "IGESGraph_IntercharacterSpacing", header: "IGESGraph_IntercharacterSpacing.hxx",
-                                    bycopy.} = object of IGESData_IGESEntity
+  IGESGraphIntercharacterSpacing* {.importcpp: "IGESGraph_IntercharacterSpacing", header: "IGESGraph_IntercharacterSpacing.hxx",
+                                   bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESGraph_IntercharacterSpacing*(): IGESGraph_IntercharacterSpacing {.
+proc constructIGESGraphIntercharacterSpacing*(): IGESGraphIntercharacterSpacing {.
     constructor, importcpp: "IGESGraph_IntercharacterSpacing(@)",
     header: "IGESGraph_IntercharacterSpacing.hxx".}
-proc Init*(this: var IGESGraph_IntercharacterSpacing; nbProps: Standard_Integer;
-          anISpace: Standard_Real) {.importcpp: "Init", header: "IGESGraph_IntercharacterSpacing.hxx".}
-proc NbPropertyValues*(this: IGESGraph_IntercharacterSpacing): Standard_Integer {.
-    noSideEffect, importcpp: "NbPropertyValues",
-    header: "IGESGraph_IntercharacterSpacing.hxx".}
-proc ISpace*(this: IGESGraph_IntercharacterSpacing): Standard_Real {.noSideEffect,
+proc init*(this: var IGESGraphIntercharacterSpacing; nbProps: int; anISpace: float) {.
+    importcpp: "Init", header: "IGESGraph_IntercharacterSpacing.hxx".}
+proc nbPropertyValues*(this: IGESGraphIntercharacterSpacing): int {.noSideEffect,
+    importcpp: "NbPropertyValues", header: "IGESGraph_IntercharacterSpacing.hxx".}
+proc iSpace*(this: IGESGraphIntercharacterSpacing): float {.noSideEffect,
     importcpp: "ISpace", header: "IGESGraph_IntercharacterSpacing.hxx".}
 type
-  IGESGraph_IntercharacterSpacingbase_type* = IGESData_IGESEntity
+  IGESGraphIntercharacterSpacingbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESGraph_IntercharacterSpacing::get_type_name(@)",
-                              header: "IGESGraph_IntercharacterSpacing.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESGraph_IntercharacterSpacing::get_type_name(@)",
+                            header: "IGESGraph_IntercharacterSpacing.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESGraph_IntercharacterSpacing::get_type_descriptor(@)",
     header: "IGESGraph_IntercharacterSpacing.hxx".}
-proc DynamicType*(this: IGESGraph_IntercharacterSpacing): handle[Standard_Type] {.
+proc dynamicType*(this: IGESGraphIntercharacterSpacing): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESGraph_IntercharacterSpacing.hxx".}

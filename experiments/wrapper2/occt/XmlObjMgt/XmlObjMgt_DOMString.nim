@@ -11,13 +11,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../LDOMString/LDOMString
-
 type
-  XmlObjMgt_DOMString* = LDOMString
+  XmlObjMgtDOMString* = LDOMString
 
-template IMPLEMENT_DOMSTRING*(FnName, String: untyped): void =
-  proc FnName*(): var XmlObjMgt_DOMString =
+template implement_Domstring*(fnName, string: untyped): void =
+  proc fnName*(): var XmlObjMgtDOMString =
     discard
+
 

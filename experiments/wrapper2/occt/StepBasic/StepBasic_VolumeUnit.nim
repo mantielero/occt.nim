@@ -14,26 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_NamedUnit
-
 discard "forward decl of StepBasic_VolumeUnit"
 discard "forward decl of StepBasic_VolumeUnit"
 type
-  Handle_StepBasic_VolumeUnit* = handle[StepBasic_VolumeUnit]
-  StepBasic_VolumeUnit* {.importcpp: "StepBasic_VolumeUnit",
-                         header: "StepBasic_VolumeUnit.hxx", bycopy.} = object of StepBasic_NamedUnit
+  HandleStepBasicVolumeUnit* = Handle[StepBasicVolumeUnit]
+  StepBasicVolumeUnit* {.importcpp: "StepBasic_VolumeUnit",
+                        header: "StepBasic_VolumeUnit.hxx", bycopy.} = object of StepBasicNamedUnit
 
 
-proc constructStepBasic_VolumeUnit*(): StepBasic_VolumeUnit {.constructor,
+proc constructStepBasicVolumeUnit*(): StepBasicVolumeUnit {.constructor,
     importcpp: "StepBasic_VolumeUnit(@)", header: "StepBasic_VolumeUnit.hxx".}
 type
-  StepBasic_VolumeUnitbase_type* = StepBasic_NamedUnit
+  StepBasicVolumeUnitbaseType* = StepBasicNamedUnit
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_VolumeUnit::get_type_name(@)",
-                              header: "StepBasic_VolumeUnit.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_VolumeUnit::get_type_name(@)",
+                            header: "StepBasic_VolumeUnit.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_VolumeUnit::get_type_descriptor(@)",
     header: "StepBasic_VolumeUnit.hxx".}
-proc DynamicType*(this: StepBasic_VolumeUnit): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepBasicVolumeUnit): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_VolumeUnit.hxx".}

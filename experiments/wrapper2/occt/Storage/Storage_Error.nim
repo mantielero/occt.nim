@@ -37,11 +37,12 @@
 ## ! has occurred while reading 16 bit characte
 
 type
-  Storage_Error* {.size: sizeof(cint), importcpp: "Storage_Error",
-                  header: "Storage_Error.hxx".} = enum
-    Storage_VSOk, Storage_VSOpenError, Storage_VSModeError, Storage_VSCloseError,
-    Storage_VSAlreadyOpen, Storage_VSNotOpen, Storage_VSSectionNotFound,
-    Storage_VSWriteError, Storage_VSFormatError, Storage_VSUnknownType,
-    Storage_VSTypeMismatch, Storage_VSInternalError, Storage_VSExtCharParityError,
-    Storage_VSWrongFileDriver
+  StorageError* {.size: sizeof(cint), importcpp: "Storage_Error",
+                 header: "Storage_Error.hxx".} = enum
+    StorageVSOk, StorageVSOpenError, StorageVSModeError, StorageVSCloseError,
+    StorageVSAlreadyOpen, StorageVSNotOpen, StorageVSSectionNotFound,
+    StorageVSWriteError, StorageVSFormatError, StorageVSUnknownType,
+    StorageVSTypeMismatch, StorageVSInternalError, StorageVSExtCharParityError,
+    StorageVSWrongFileDriver
+
 

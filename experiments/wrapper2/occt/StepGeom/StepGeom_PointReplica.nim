@@ -14,47 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_Point
-
 discard "forward decl of StepGeom_Point"
 discard "forward decl of StepGeom_CartesianTransformationOperator"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_PointReplica"
 discard "forward decl of StepGeom_PointReplica"
 type
-  Handle_StepGeom_PointReplica* = handle[StepGeom_PointReplica]
-  StepGeom_PointReplica* {.importcpp: "StepGeom_PointReplica",
-                          header: "StepGeom_PointReplica.hxx", bycopy.} = object of StepGeom_Point ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## a
-                                                                                            ## PointReplica
+  HandleStepGeomPointReplica* = Handle[StepGeomPointReplica]
+  StepGeomPointReplica* {.importcpp: "StepGeom_PointReplica",
+                         header: "StepGeom_PointReplica.hxx", bycopy.} = object of StepGeomPoint ##
+                                                                                          ## !
+                                                                                          ## Returns
+                                                                                          ## a
+                                                                                          ## PointReplica
 
 
-proc constructStepGeom_PointReplica*(): StepGeom_PointReplica {.constructor,
+proc constructStepGeomPointReplica*(): StepGeomPointReplica {.constructor,
     importcpp: "StepGeom_PointReplica(@)", header: "StepGeom_PointReplica.hxx".}
-proc Init*(this: var StepGeom_PointReplica; aName: handle[TCollection_HAsciiString];
-          aParentPt: handle[StepGeom_Point];
-          aTransformation: handle[StepGeom_CartesianTransformationOperator]) {.
+proc init*(this: var StepGeomPointReplica; aName: Handle[TCollectionHAsciiString];
+          aParentPt: Handle[StepGeomPoint];
+          aTransformation: Handle[StepGeomCartesianTransformationOperator]) {.
     importcpp: "Init", header: "StepGeom_PointReplica.hxx".}
-proc SetParentPt*(this: var StepGeom_PointReplica; aParentPt: handle[StepGeom_Point]) {.
+proc setParentPt*(this: var StepGeomPointReplica; aParentPt: Handle[StepGeomPoint]) {.
     importcpp: "SetParentPt", header: "StepGeom_PointReplica.hxx".}
-proc ParentPt*(this: StepGeom_PointReplica): handle[StepGeom_Point] {.noSideEffect,
+proc parentPt*(this: StepGeomPointReplica): Handle[StepGeomPoint] {.noSideEffect,
     importcpp: "ParentPt", header: "StepGeom_PointReplica.hxx".}
-proc SetTransformation*(this: var StepGeom_PointReplica; aTransformation: handle[
-    StepGeom_CartesianTransformationOperator]) {.importcpp: "SetTransformation",
+proc setTransformation*(this: var StepGeomPointReplica; aTransformation: Handle[
+    StepGeomCartesianTransformationOperator]) {.importcpp: "SetTransformation",
     header: "StepGeom_PointReplica.hxx".}
-proc Transformation*(this: StepGeom_PointReplica): handle[
-    StepGeom_CartesianTransformationOperator] {.noSideEffect,
+proc transformation*(this: StepGeomPointReplica): Handle[
+    StepGeomCartesianTransformationOperator] {.noSideEffect,
     importcpp: "Transformation", header: "StepGeom_PointReplica.hxx".}
 type
-  StepGeom_PointReplicabase_type* = StepGeom_Point
+  StepGeomPointReplicabaseType* = StepGeomPoint
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_PointReplica::get_type_name(@)",
-                              header: "StepGeom_PointReplica.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_PointReplica::get_type_name(@)",
+                            header: "StepGeom_PointReplica.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_PointReplica::get_type_descriptor(@)",
     header: "StepGeom_PointReplica.hxx".}
-proc DynamicType*(this: StepGeom_PointReplica): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepGeom_PointReplica.hxx".}
+proc dynamicType*(this: StepGeomPointReplica): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepGeom_PointReplica.hxx".}

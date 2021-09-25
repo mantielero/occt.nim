@@ -11,22 +11,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_TypeDef
-
 ## ! Digital input XR action data.
 
 type
-  Aspect_XRDigitalActionData* {.importcpp: "Aspect_XRDigitalActionData",
-                               header: "Aspect_XRDigitalActionData.hxx", bycopy.} = object
-    ActiveOrigin* {.importc: "ActiveOrigin".}: uint64_t ## !< The origin that caused this action's current state
-    UpdateTime* {.importc: "UpdateTime".}: cfloat ## !< Time relative to now when this event happened. Will be negative to indicate a past time
-    IsActive* {.importc: "IsActive".}: bool ## !< whether or not this action is currently available to be bound in the active action set
-    IsPressed* {.importc: "IsPressed".}: bool ## !< Aspect_InputActionType_Digital state - The current state of this action; will be true if currently pressed
-    IsChanged* {.importc: "IsChanged".}: bool ## !< Aspect_InputActionType_Digital state - this is true if the state has changed since the last frame
+  AspectXRDigitalActionData* {.importcpp: "Aspect_XRDigitalActionData",
+                              header: "Aspect_XRDigitalActionData.hxx", bycopy.} = object
+    activeOrigin* {.importc: "ActiveOrigin".}: uint64T ## !< The origin that caused this action's current state
+    updateTime* {.importc: "UpdateTime".}: cfloat ## !< Time relative to now when this event happened. Will be negative to indicate a past time
+    isActive* {.importc: "IsActive".}: bool ## !< whether or not this action is currently available to be bound in the active action set
+    isPressed* {.importc: "IsPressed".}: bool ## !< Aspect_InputActionType_Digital state - The current state of this action; will be true if currently pressed
+    isChanged* {.importc: "IsChanged".}: bool ## !< Aspect_InputActionType_Digital state - this is true if the state has changed since the last frame
                                           ## ! Empty constructor.
 
 
-proc constructAspect_XRDigitalActionData*(): Aspect_XRDigitalActionData {.
+proc constructAspectXRDigitalActionData*(): AspectXRDigitalActionData {.
     constructor, importcpp: "Aspect_XRDigitalActionData(@)",
     header: "Aspect_XRDigitalActionData.hxx".}

@@ -13,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  Interface_VectorOfFileParameter, ../Standard/Standard_Transient,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_RangeError"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_OutOfMemory"
@@ -25,52 +20,51 @@ discard "forward decl of Interface_FileParameter"
 discard "forward decl of Interface_ParamList"
 discard "forward decl of Interface_ParamList"
 type
-  Handle_Interface_ParamList* = handle[Interface_ParamList]
-  Interface_ParamList* {.importcpp: "Interface_ParamList",
-                        header: "Interface_ParamList.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                            ## !
-                                                                                            ## Creates
-                                                                                            ## an
-                                                                                            ## vector
-                                                                                            ## with
-                                                                                            ## size
-                                                                                            ## of
-                                                                                            ## memmory
-                                                                                            ## blok
-                                                                                            ## equal
-                                                                                            ## to
-                                                                                            ## theIncrement
+  HandleInterfaceParamList* = Handle[InterfaceParamList]
+  InterfaceParamList* {.importcpp: "Interface_ParamList",
+                       header: "Interface_ParamList.hxx", bycopy.} = object of StandardTransient ##
+                                                                                          ## !
+                                                                                          ## Creates
+                                                                                          ## an
+                                                                                          ## vector
+                                                                                          ## with
+                                                                                          ## size
+                                                                                          ## of
+                                                                                          ## memmory
+                                                                                          ## blok
+                                                                                          ## equal
+                                                                                          ## to
+                                                                                          ## theIncrement
 
 
-proc constructInterface_ParamList*(theIncrement: Standard_Integer = 256): Interface_ParamList {.
+proc constructInterfaceParamList*(theIncrement: int = 256): InterfaceParamList {.
     constructor, importcpp: "Interface_ParamList(@)",
     header: "Interface_ParamList.hxx".}
-proc Length*(this: Interface_ParamList): Standard_Integer {.noSideEffect,
-    importcpp: "Length", header: "Interface_ParamList.hxx".}
-proc Lower*(this: Interface_ParamList): Standard_Integer {.noSideEffect,
-    importcpp: "Lower", header: "Interface_ParamList.hxx".}
-proc Upper*(this: Interface_ParamList): Standard_Integer {.noSideEffect,
-    importcpp: "Upper", header: "Interface_ParamList.hxx".}
-proc SetValue*(this: var Interface_ParamList; Index: Standard_Integer;
-              Value: Interface_FileParameter) {.importcpp: "SetValue",
+proc length*(this: InterfaceParamList): int {.noSideEffect, importcpp: "Length",
     header: "Interface_ParamList.hxx".}
-proc Value*(this: Interface_ParamList; Index: Standard_Integer): Interface_FileParameter {.
+proc lower*(this: InterfaceParamList): int {.noSideEffect, importcpp: "Lower",
+    header: "Interface_ParamList.hxx".}
+proc upper*(this: InterfaceParamList): int {.noSideEffect, importcpp: "Upper",
+    header: "Interface_ParamList.hxx".}
+proc setValue*(this: var InterfaceParamList; index: int; value: InterfaceFileParameter) {.
+    importcpp: "SetValue", header: "Interface_ParamList.hxx".}
+proc value*(this: InterfaceParamList; index: int): InterfaceFileParameter {.
     noSideEffect, importcpp: "Value", header: "Interface_ParamList.hxx".}
-proc `()`*(this: Interface_ParamList; Index: Standard_Integer): Interface_FileParameter {.
+proc `()`*(this: InterfaceParamList; index: int): InterfaceFileParameter {.
     noSideEffect, importcpp: "#(@)", header: "Interface_ParamList.hxx".}
-proc ChangeValue*(this: var Interface_ParamList; Index: Standard_Integer): var Interface_FileParameter {.
+proc changeValue*(this: var InterfaceParamList; index: int): var InterfaceFileParameter {.
     importcpp: "ChangeValue", header: "Interface_ParamList.hxx".}
-proc `()`*(this: var Interface_ParamList; Index: Standard_Integer): var Interface_FileParameter {.
+proc `()`*(this: var InterfaceParamList; index: int): var InterfaceFileParameter {.
     importcpp: "#(@)", header: "Interface_ParamList.hxx".}
-proc Clear*(this: var Interface_ParamList) {.importcpp: "Clear",
-    header: "Interface_ParamList.hxx".}
+proc clear*(this: var InterfaceParamList) {.importcpp: "Clear",
+                                        header: "Interface_ParamList.hxx".}
 type
-  Interface_ParamListbase_type* = Standard_Transient
+  InterfaceParamListbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Interface_ParamList::get_type_name(@)",
-                              header: "Interface_ParamList.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Interface_ParamList::get_type_name(@)",
+                            header: "Interface_ParamList.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Interface_ParamList::get_type_descriptor(@)",
     header: "Interface_ParamList.hxx".}
-proc DynamicType*(this: Interface_ParamList): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: InterfaceParamList): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_ParamList.hxx".}

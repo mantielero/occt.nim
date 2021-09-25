@@ -13,67 +13,62 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Quantity/Quantity_ColorRGBAHasher,
-  ../XCAFDoc/XCAFDoc_VisMaterial
-
 ## ! Represents a set of styling settings applicable to a (sub)shape
 
 type
-  XCAFPrs_Style* {.importcpp: "XCAFPrs_Style", header: "XCAFPrs_Style.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Empty
-                                                                                      ## constructor
-                                                                                      ## -
-                                                                                      ## colors
-                                                                                      ## are
-                                                                                      ## unset,
-                                                                                      ## visibility
-                                                                                      ## is
-                                                                                      ## TRUE.
+  XCAFPrsStyle* {.importcpp: "XCAFPrs_Style", header: "XCAFPrs_Style.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Empty
+                                                                                     ## constructor
+                                                                                     ## -
+                                                                                     ## colors
+                                                                                     ## are
+                                                                                     ## unset,
+                                                                                     ## visibility
+                                                                                     ## is
+                                                                                     ## TRUE.
 
 
-proc constructXCAFPrs_Style*(): XCAFPrs_Style {.constructor,
+proc constructXCAFPrsStyle*(): XCAFPrsStyle {.constructor,
     importcpp: "XCAFPrs_Style(@)", header: "XCAFPrs_Style.hxx".}
-proc IsEmpty*(this: XCAFPrs_Style): Standard_Boolean {.noSideEffect,
-    importcpp: "IsEmpty", header: "XCAFPrs_Style.hxx".}
-proc Material*(this: XCAFPrs_Style): handle[XCAFDoc_VisMaterial] {.noSideEffect,
+proc isEmpty*(this: XCAFPrsStyle): bool {.noSideEffect, importcpp: "IsEmpty",
+                                      header: "XCAFPrs_Style.hxx".}
+proc material*(this: XCAFPrsStyle): Handle[XCAFDocVisMaterial] {.noSideEffect,
     importcpp: "Material", header: "XCAFPrs_Style.hxx".}
-proc SetMaterial*(this: var XCAFPrs_Style; theMaterial: handle[XCAFDoc_VisMaterial]) {.
+proc setMaterial*(this: var XCAFPrsStyle; theMaterial: Handle[XCAFDocVisMaterial]) {.
     importcpp: "SetMaterial", header: "XCAFPrs_Style.hxx".}
-proc IsSetColorSurf*(this: XCAFPrs_Style): Standard_Boolean {.noSideEffect,
+proc isSetColorSurf*(this: XCAFPrsStyle): bool {.noSideEffect,
     importcpp: "IsSetColorSurf", header: "XCAFPrs_Style.hxx".}
-proc GetColorSurf*(this: XCAFPrs_Style): Quantity_Color {.noSideEffect,
+proc getColorSurf*(this: XCAFPrsStyle): QuantityColor {.noSideEffect,
     importcpp: "GetColorSurf", header: "XCAFPrs_Style.hxx".}
-proc SetColorSurf*(this: var XCAFPrs_Style; theColor: Quantity_Color) {.
+proc setColorSurf*(this: var XCAFPrsStyle; theColor: QuantityColor) {.
     importcpp: "SetColorSurf", header: "XCAFPrs_Style.hxx".}
-proc GetColorSurfRGBA*(this: XCAFPrs_Style): Quantity_ColorRGBA {.noSideEffect,
+proc getColorSurfRGBA*(this: XCAFPrsStyle): QuantityColorRGBA {.noSideEffect,
     importcpp: "GetColorSurfRGBA", header: "XCAFPrs_Style.hxx".}
-proc SetColorSurf*(this: var XCAFPrs_Style; theColor: Quantity_ColorRGBA) {.
+proc setColorSurf*(this: var XCAFPrsStyle; theColor: QuantityColorRGBA) {.
     importcpp: "SetColorSurf", header: "XCAFPrs_Style.hxx".}
-proc UnSetColorSurf*(this: var XCAFPrs_Style) {.importcpp: "UnSetColorSurf",
+proc unSetColorSurf*(this: var XCAFPrsStyle) {.importcpp: "UnSetColorSurf",
     header: "XCAFPrs_Style.hxx".}
-proc IsSetColorCurv*(this: XCAFPrs_Style): Standard_Boolean {.noSideEffect,
+proc isSetColorCurv*(this: XCAFPrsStyle): bool {.noSideEffect,
     importcpp: "IsSetColorCurv", header: "XCAFPrs_Style.hxx".}
-proc GetColorCurv*(this: XCAFPrs_Style): Quantity_Color {.noSideEffect,
+proc getColorCurv*(this: XCAFPrsStyle): QuantityColor {.noSideEffect,
     importcpp: "GetColorCurv", header: "XCAFPrs_Style.hxx".}
-proc SetColorCurv*(this: var XCAFPrs_Style; col: Quantity_Color) {.
+proc setColorCurv*(this: var XCAFPrsStyle; col: QuantityColor) {.
     importcpp: "SetColorCurv", header: "XCAFPrs_Style.hxx".}
-proc UnSetColorCurv*(this: var XCAFPrs_Style) {.importcpp: "UnSetColorCurv",
+proc unSetColorCurv*(this: var XCAFPrsStyle) {.importcpp: "UnSetColorCurv",
     header: "XCAFPrs_Style.hxx".}
-proc SetVisibility*(this: var XCAFPrs_Style; theVisibility: Standard_Boolean) {.
+proc setVisibility*(this: var XCAFPrsStyle; theVisibility: bool) {.
     importcpp: "SetVisibility", header: "XCAFPrs_Style.hxx".}
-proc IsVisible*(this: XCAFPrs_Style): Standard_Boolean {.noSideEffect,
-    importcpp: "IsVisible", header: "XCAFPrs_Style.hxx".}
-proc IsEqual*(this: XCAFPrs_Style; theOther: XCAFPrs_Style): Standard_Boolean {.
-    noSideEffect, importcpp: "IsEqual", header: "XCAFPrs_Style.hxx".}
-proc `==`*(this: XCAFPrs_Style; theOther: XCAFPrs_Style): Standard_Boolean {.
-    noSideEffect, importcpp: "(# == #)", header: "XCAFPrs_Style.hxx".}
-proc HashCode*(theStyle: XCAFPrs_Style; theUpperBound: Standard_Integer): Standard_Integer {.
+proc isVisible*(this: XCAFPrsStyle): bool {.noSideEffect, importcpp: "IsVisible",
+                                        header: "XCAFPrs_Style.hxx".}
+proc isEqual*(this: XCAFPrsStyle; theOther: XCAFPrsStyle): bool {.noSideEffect,
+    importcpp: "IsEqual", header: "XCAFPrs_Style.hxx".}
+proc `==`*(this: XCAFPrsStyle; theOther: XCAFPrsStyle): bool {.noSideEffect,
+    importcpp: "(# == #)", header: "XCAFPrs_Style.hxx".}
+proc hashCode*(theStyle: XCAFPrsStyle; theUpperBound: int): int {.
     importcpp: "XCAFPrs_Style::HashCode(@)", header: "XCAFPrs_Style.hxx".}
-proc IsEqual*(theS1: XCAFPrs_Style; theS2: XCAFPrs_Style): Standard_Boolean {.
+proc isEqual*(theS1: XCAFPrsStyle; theS2: XCAFPrsStyle): bool {.
     importcpp: "XCAFPrs_Style::IsEqual(@)", header: "XCAFPrs_Style.hxx".}
-proc DumpJson*(this: XCAFPrs_Style; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "XCAFPrs_Style.hxx".}
+proc dumpJson*(this: XCAFPrsStyle; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "XCAFPrs_Style.hxx".}

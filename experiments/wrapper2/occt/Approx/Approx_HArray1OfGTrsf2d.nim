@@ -14,38 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_GTrsf2d, Approx_Array1OfGTrsf2d,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  Approx_HArray1OfGTrsf2d* {.importcpp: "Approx_HArray1OfGTrsf2d",
-                            header: "Approx_HArray1OfGTrsf2d.hxx", bycopy.} = object of Approx_Array1OfGTrsf2d
+  ApproxHArray1OfGTrsf2d* {.importcpp: "Approx_HArray1OfGTrsf2d",
+                           header: "Approx_HArray1OfGTrsf2d.hxx", bycopy.} = object of ApproxArray1OfGTrsf2d
 
 
-proc constructApprox_HArray1OfGTrsf2d*(theLower: Standard_Integer;
-                                      theUpper: Standard_Integer): Approx_HArray1OfGTrsf2d {.
+proc constructApproxHArray1OfGTrsf2d*(theLower: int; theUpper: int): ApproxHArray1OfGTrsf2d {.
     constructor, importcpp: "Approx_HArray1OfGTrsf2d(@)",
     header: "Approx_HArray1OfGTrsf2d.hxx".}
-proc constructApprox_HArray1OfGTrsf2d*(theLower: Standard_Integer;
-                                      theUpper: Standard_Integer;
-                                      theValue: value_type): Approx_HArray1OfGTrsf2d {.
+proc constructApproxHArray1OfGTrsf2d*(theLower: int; theUpper: int;
+                                     theValue: ValueType): ApproxHArray1OfGTrsf2d {.
     constructor, importcpp: "Approx_HArray1OfGTrsf2d(@)",
     header: "Approx_HArray1OfGTrsf2d.hxx".}
-proc constructApprox_HArray1OfGTrsf2d*(theOther: Approx_Array1OfGTrsf2d): Approx_HArray1OfGTrsf2d {.
+proc constructApproxHArray1OfGTrsf2d*(theOther: ApproxArray1OfGTrsf2d): ApproxHArray1OfGTrsf2d {.
     constructor, importcpp: "Approx_HArray1OfGTrsf2d(@)",
     header: "Approx_HArray1OfGTrsf2d.hxx".}
-proc Array1*(this: Approx_HArray1OfGTrsf2d): Approx_Array1OfGTrsf2d {.noSideEffect,
+proc array1*(this: ApproxHArray1OfGTrsf2d): ApproxArray1OfGTrsf2d {.noSideEffect,
     importcpp: "Array1", header: "Approx_HArray1OfGTrsf2d.hxx".}
-proc ChangeArray1*(this: var Approx_HArray1OfGTrsf2d): var Approx_Array1OfGTrsf2d {.
+proc changeArray1*(this: var ApproxHArray1OfGTrsf2d): var ApproxArray1OfGTrsf2d {.
     importcpp: "ChangeArray1", header: "Approx_HArray1OfGTrsf2d.hxx".}
 type
-  Approx_HArray1OfGTrsf2dbase_type* = MMgt_TShared
+  ApproxHArray1OfGTrsf2dbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "Approx_HArray1OfGTrsf2d::get_type_name(@)",
-                              header: "Approx_HArray1OfGTrsf2d.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Approx_HArray1OfGTrsf2d::get_type_name(@)",
+                            header: "Approx_HArray1OfGTrsf2d.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Approx_HArray1OfGTrsf2d::get_type_descriptor(@)",
     header: "Approx_HArray1OfGTrsf2d.hxx".}
-proc DynamicType*(this: Approx_HArray1OfGTrsf2d): handle[Standard_Type] {.
+proc dynamicType*(this: ApproxHArray1OfGTrsf2d): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Approx_HArray1OfGTrsf2d.hxx".}

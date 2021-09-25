@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESAppli_PWBArtworkStackup"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,40 +26,40 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESAppli_ToolPWBArtworkStackup* {.importcpp: "IGESAppli_ToolPWBArtworkStackup", header: "IGESAppli_ToolPWBArtworkStackup.hxx",
-                                    bycopy.} = object ## ! Returns a ToolPWBArtworkStackup, ready to work
+  IGESAppliToolPWBArtworkStackup* {.importcpp: "IGESAppli_ToolPWBArtworkStackup", header: "IGESAppli_ToolPWBArtworkStackup.hxx",
+                                   bycopy.} = object ## ! Returns a ToolPWBArtworkStackup, ready to work
 
 
-proc constructIGESAppli_ToolPWBArtworkStackup*(): IGESAppli_ToolPWBArtworkStackup {.
+proc constructIGESAppliToolPWBArtworkStackup*(): IGESAppliToolPWBArtworkStackup {.
     constructor, importcpp: "IGESAppli_ToolPWBArtworkStackup(@)",
     header: "IGESAppli_ToolPWBArtworkStackup.hxx".}
-proc ReadOwnParams*(this: IGESAppli_ToolPWBArtworkStackup;
-                   ent: handle[IGESAppli_PWBArtworkStackup];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESAppli_ToolPWBArtworkStackup.hxx".}
-proc WriteOwnParams*(this: IGESAppli_ToolPWBArtworkStackup;
-                    ent: handle[IGESAppli_PWBArtworkStackup];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESAppliToolPWBArtworkStackup;
+                   ent: Handle[IGESAppliPWBArtworkStackup];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESAppli_ToolPWBArtworkStackup.hxx".}
+proc writeOwnParams*(this: IGESAppliToolPWBArtworkStackup;
+                    ent: Handle[IGESAppliPWBArtworkStackup];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESAppli_ToolPWBArtworkStackup.hxx".}
-proc OwnShared*(this: IGESAppli_ToolPWBArtworkStackup;
-               ent: handle[IGESAppli_PWBArtworkStackup];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESAppliToolPWBArtworkStackup;
+               ent: Handle[IGESAppliPWBArtworkStackup];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESAppli_ToolPWBArtworkStackup.hxx".}
-proc DirChecker*(this: IGESAppli_ToolPWBArtworkStackup;
-                ent: handle[IGESAppli_PWBArtworkStackup]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESAppliToolPWBArtworkStackup;
+                ent: Handle[IGESAppliPWBArtworkStackup]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESAppli_ToolPWBArtworkStackup.hxx".}
-proc OwnCheck*(this: IGESAppli_ToolPWBArtworkStackup;
-              ent: handle[IGESAppli_PWBArtworkStackup];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
-    noSideEffect, importcpp: "OwnCheck",
+proc ownCheck*(this: IGESAppliToolPWBArtworkStackup;
+              ent: Handle[IGESAppliPWBArtworkStackup]; shares: InterfaceShareTool;
+              ach: var Handle[InterfaceCheck]) {.noSideEffect,
+    importcpp: "OwnCheck", header: "IGESAppli_ToolPWBArtworkStackup.hxx".}
+proc ownCopy*(this: IGESAppliToolPWBArtworkStackup;
+             entfrom: Handle[IGESAppliPWBArtworkStackup];
+             entto: Handle[IGESAppliPWBArtworkStackup]; tc: var InterfaceCopyTool) {.
+    noSideEffect, importcpp: "OwnCopy",
     header: "IGESAppli_ToolPWBArtworkStackup.hxx".}
-proc OwnCopy*(this: IGESAppli_ToolPWBArtworkStackup;
-             entfrom: handle[IGESAppli_PWBArtworkStackup];
-             entto: handle[IGESAppli_PWBArtworkStackup];
-             TC: var Interface_CopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESAppli_ToolPWBArtworkStackup.hxx".}
-proc OwnDump*(this: IGESAppli_ToolPWBArtworkStackup;
-             ent: handle[IGESAppli_PWBArtworkStackup];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump", header: "IGESAppli_ToolPWBArtworkStackup.hxx".}
+proc ownDump*(this: IGESAppliToolPWBArtworkStackup;
+             ent: Handle[IGESAppliPWBArtworkStackup]; dumper: IGESDataIGESDumper;
+             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+    header: "IGESAppli_ToolPWBArtworkStackup.hxx".}

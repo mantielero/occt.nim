@@ -1,9 +1,10 @@
+{.passL: "-lTKMath".}
+{.passC:"-I/usr/include/opencascade/" .}
+
 #{.experimental: "codeReordering".}
 #{.experimental: "callOperator".}
 
-{.passL: "-lTKMath".}
 
-{.passC:"-I/usr/include/opencascade/" .}
 import tKernel
 
 import BSplCLib/BSplCLib
@@ -762,5 +763,6 @@ import math/math_ValueAndWeight
 export math_ValueAndWeight
 import math/math_Vector
 export math_Vector
+
 
 

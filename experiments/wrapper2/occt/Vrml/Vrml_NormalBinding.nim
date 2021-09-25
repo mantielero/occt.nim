@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Vrml_MaterialBindingAndNormalBinding,
-  ../Standard/Standard_OStream
-
 ## ! defines a NormalBinding node of VRML specifying properties of geometry
 ## ! and its appearance.
 ## ! This node specifies how the current normals are bound to shapes that follow in the scene
@@ -29,19 +24,19 @@ import
 ## ! normals defined as are necessary; otherwise, errors will occur.
 
 type
-  Vrml_NormalBinding* {.importcpp: "Vrml_NormalBinding",
-                       header: "Vrml_NormalBinding.hxx", bycopy.} = object
+  VrmlNormalBinding* {.importcpp: "Vrml_NormalBinding",
+                      header: "Vrml_NormalBinding.hxx", bycopy.} = object
 
 
-proc constructVrml_NormalBinding*(aValue: Vrml_MaterialBindingAndNormalBinding): Vrml_NormalBinding {.
+proc constructVrmlNormalBinding*(aValue: VrmlMaterialBindingAndNormalBinding): VrmlNormalBinding {.
     constructor, importcpp: "Vrml_NormalBinding(@)",
     header: "Vrml_NormalBinding.hxx".}
-proc constructVrml_NormalBinding*(): Vrml_NormalBinding {.constructor,
+proc constructVrmlNormalBinding*(): VrmlNormalBinding {.constructor,
     importcpp: "Vrml_NormalBinding(@)", header: "Vrml_NormalBinding.hxx".}
-proc SetValue*(this: var Vrml_NormalBinding;
-              aValue: Vrml_MaterialBindingAndNormalBinding) {.
+proc setValue*(this: var VrmlNormalBinding;
+              aValue: VrmlMaterialBindingAndNormalBinding) {.
     importcpp: "SetValue", header: "Vrml_NormalBinding.hxx".}
-proc Value*(this: Vrml_NormalBinding): Vrml_MaterialBindingAndNormalBinding {.
+proc value*(this: VrmlNormalBinding): VrmlMaterialBindingAndNormalBinding {.
     noSideEffect, importcpp: "Value", header: "Vrml_NormalBinding.hxx".}
-proc Print*(this: Vrml_NormalBinding; anOStream: var Standard_OStream): var Standard_OStream {.
+proc print*(this: VrmlNormalBinding; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_NormalBinding.hxx".}

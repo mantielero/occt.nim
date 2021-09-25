@@ -14,65 +14,56 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean
-
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of Adaptor3d_HVertex"
 discard "forward decl of gp_Pnt"
 type
-  Contap_HContTool* {.importcpp: "Contap_HContTool",
-                     header: "Contap_HContTool.hxx", bycopy.} = object
+  ContapHContTool* {.importcpp: "Contap_HContTool", header: "Contap_HContTool.hxx",
+                    bycopy.} = object
 
 
-proc NbSamplesU*(S: handle[Adaptor3d_HSurface]; u1: Standard_Real; u2: Standard_Real): Standard_Integer {.
+proc nbSamplesU*(s: Handle[Adaptor3dHSurface]; u1: float; u2: float): int {.
     importcpp: "Contap_HContTool::NbSamplesU(@)", header: "Contap_HContTool.hxx".}
-proc NbSamplesV*(S: handle[Adaptor3d_HSurface]; v1: Standard_Real; v2: Standard_Real): Standard_Integer {.
+proc nbSamplesV*(s: Handle[Adaptor3dHSurface]; v1: float; v2: float): int {.
     importcpp: "Contap_HContTool::NbSamplesV(@)", header: "Contap_HContTool.hxx".}
-proc NbSamplePoints*(S: handle[Adaptor3d_HSurface]): Standard_Integer {.
+proc nbSamplePoints*(s: Handle[Adaptor3dHSurface]): int {.
     importcpp: "Contap_HContTool::NbSamplePoints(@)",
     header: "Contap_HContTool.hxx".}
-proc SamplePoint*(S: handle[Adaptor3d_HSurface]; Index: Standard_Integer;
-                 U: var Standard_Real; V: var Standard_Real) {.
+proc samplePoint*(s: Handle[Adaptor3dHSurface]; index: int; u: var float; v: var float) {.
     importcpp: "Contap_HContTool::SamplePoint(@)", header: "Contap_HContTool.hxx".}
-proc HasBeenSeen*(C: handle[Adaptor2d_HCurve2d]): Standard_Boolean {.
+proc hasBeenSeen*(c: Handle[Adaptor2dHCurve2d]): bool {.
     importcpp: "Contap_HContTool::HasBeenSeen(@)", header: "Contap_HContTool.hxx".}
-proc NbSamplesOnArc*(A: handle[Adaptor2d_HCurve2d]): Standard_Integer {.
+proc nbSamplesOnArc*(a: Handle[Adaptor2dHCurve2d]): int {.
     importcpp: "Contap_HContTool::NbSamplesOnArc(@)",
     header: "Contap_HContTool.hxx".}
-proc Bounds*(C: handle[Adaptor2d_HCurve2d]; Ufirst: var Standard_Real;
-            Ulast: var Standard_Real) {.importcpp: "Contap_HContTool::Bounds(@)",
-                                     header: "Contap_HContTool.hxx".}
-proc Project*(C: handle[Adaptor2d_HCurve2d]; P: gp_Pnt2d;
-             Paramproj: var Standard_Real; Ptproj: var gp_Pnt2d): Standard_Boolean {.
-    importcpp: "Contap_HContTool::Project(@)", header: "Contap_HContTool.hxx".}
-proc Tolerance*(V: handle[Adaptor3d_HVertex]; C: handle[Adaptor2d_HCurve2d]): Standard_Real {.
+proc bounds*(c: Handle[Adaptor2dHCurve2d]; ufirst: var float; ulast: var float) {.
+    importcpp: "Contap_HContTool::Bounds(@)", header: "Contap_HContTool.hxx".}
+proc project*(c: Handle[Adaptor2dHCurve2d]; p: Pnt2d; paramproj: var float;
+             ptproj: var Pnt2d): bool {.importcpp: "Contap_HContTool::Project(@)",
+                                    header: "Contap_HContTool.hxx".}
+proc tolerance*(v: Handle[Adaptor3dHVertex]; c: Handle[Adaptor2dHCurve2d]): float {.
     importcpp: "Contap_HContTool::Tolerance(@)", header: "Contap_HContTool.hxx".}
-proc Parameter*(V: handle[Adaptor3d_HVertex]; C: handle[Adaptor2d_HCurve2d]): Standard_Real {.
+proc parameter*(v: Handle[Adaptor3dHVertex]; c: Handle[Adaptor2dHCurve2d]): float {.
     importcpp: "Contap_HContTool::Parameter(@)", header: "Contap_HContTool.hxx".}
-proc NbPoints*(C: handle[Adaptor2d_HCurve2d]): Standard_Integer {.
+proc nbPoints*(c: Handle[Adaptor2dHCurve2d]): int {.
     importcpp: "Contap_HContTool::NbPoints(@)", header: "Contap_HContTool.hxx".}
-proc Value*(C: handle[Adaptor2d_HCurve2d]; Index: Standard_Integer; Pt: var gp_Pnt;
-           Tol: var Standard_Real; U: var Standard_Real) {.
-    importcpp: "Contap_HContTool::Value(@)", header: "Contap_HContTool.hxx".}
-proc IsVertex*(C: handle[Adaptor2d_HCurve2d]; Index: Standard_Integer): Standard_Boolean {.
+proc value*(c: Handle[Adaptor2dHCurve2d]; index: int; pt: var Pnt; tol: var float;
+           u: var float) {.importcpp: "Contap_HContTool::Value(@)",
+                        header: "Contap_HContTool.hxx".}
+proc isVertex*(c: Handle[Adaptor2dHCurve2d]; index: int): bool {.
     importcpp: "Contap_HContTool::IsVertex(@)", header: "Contap_HContTool.hxx".}
-proc Vertex*(C: handle[Adaptor2d_HCurve2d]; Index: Standard_Integer;
-            V: var handle[Adaptor3d_HVertex]) {.
+proc vertex*(c: Handle[Adaptor2dHCurve2d]; index: int;
+            v: var Handle[Adaptor3dHVertex]) {.
     importcpp: "Contap_HContTool::Vertex(@)", header: "Contap_HContTool.hxx".}
-proc NbSegments*(C: handle[Adaptor2d_HCurve2d]): Standard_Integer {.
+proc nbSegments*(c: Handle[Adaptor2dHCurve2d]): int {.
     importcpp: "Contap_HContTool::NbSegments(@)", header: "Contap_HContTool.hxx".}
-proc HasFirstPoint*(C: handle[Adaptor2d_HCurve2d]; Index: Standard_Integer;
-                   IndFirst: var Standard_Integer): Standard_Boolean {.
+proc hasFirstPoint*(c: Handle[Adaptor2dHCurve2d]; index: int; indFirst: var int): bool {.
     importcpp: "Contap_HContTool::HasFirstPoint(@)",
     header: "Contap_HContTool.hxx".}
-proc HasLastPoint*(C: handle[Adaptor2d_HCurve2d]; Index: Standard_Integer;
-                  IndLast: var Standard_Integer): Standard_Boolean {.
+proc hasLastPoint*(c: Handle[Adaptor2dHCurve2d]; index: int; indLast: var int): bool {.
     importcpp: "Contap_HContTool::HasLastPoint(@)", header: "Contap_HContTool.hxx".}
-proc IsAllSolution*(C: handle[Adaptor2d_HCurve2d]): Standard_Boolean {.
+proc isAllSolution*(c: Handle[Adaptor2dHCurve2d]): bool {.
     importcpp: "Contap_HContTool::IsAllSolution(@)",
     header: "Contap_HContTool.hxx".}

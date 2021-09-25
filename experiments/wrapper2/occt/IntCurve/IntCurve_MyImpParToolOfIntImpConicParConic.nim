@@ -14,37 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Address, IntCurve_IConicTool,
-  ../math/math_FunctionWithDerivative, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real
-
 discard "forward decl of IntCurve_IConicTool"
 discard "forward decl of IntCurve_PConic"
 discard "forward decl of IntCurve_PConicTool"
 type
-  IntCurve_MyImpParToolOfIntImpConicParConic* {.
+  IntCurveMyImpParToolOfIntImpConicParConic* {.
       importcpp: "IntCurve_MyImpParToolOfIntImpConicParConic",
-      header: "IntCurve_MyImpParToolOfIntImpConicParConic.hxx", bycopy.} = object of math_FunctionWithDerivative ##
-                                                                                                          ## !
-                                                                                                          ## Constructor
-                                                                                                          ## of
-                                                                                                          ## the
-                                                                                                          ## class.
+      header: "IntCurve_MyImpParToolOfIntImpConicParConic.hxx", bycopy.} = object of MathFunctionWithDerivative ##
+                                                                                                         ## !
+                                                                                                         ## Constructor
+                                                                                                         ## of
+                                                                                                         ## the
+                                                                                                         ## class.
 
 
-proc constructIntCurve_MyImpParToolOfIntImpConicParConic*(
-    IT: IntCurve_IConicTool; PC: IntCurve_PConic): IntCurve_MyImpParToolOfIntImpConicParConic {.
-    constructor, importcpp: "IntCurve_MyImpParToolOfIntImpConicParConic(@)",
+proc constructIntCurveMyImpParToolOfIntImpConicParConic*(it: IntCurveIConicTool;
+    pc: IntCurvePConic): IntCurveMyImpParToolOfIntImpConicParConic {.constructor,
+    importcpp: "IntCurve_MyImpParToolOfIntImpConicParConic(@)",
     header: "IntCurve_MyImpParToolOfIntImpConicParConic.hxx".}
-proc Value*(this: var IntCurve_MyImpParToolOfIntImpConicParConic;
-           Param: Standard_Real; F: var Standard_Real): Standard_Boolean {.
-    importcpp: "Value", header: "IntCurve_MyImpParToolOfIntImpConicParConic.hxx".}
-proc Derivative*(this: var IntCurve_MyImpParToolOfIntImpConicParConic;
-                Param: Standard_Real; D: var Standard_Real): Standard_Boolean {.
-    importcpp: "Derivative",
+proc value*(this: var IntCurveMyImpParToolOfIntImpConicParConic; param: float;
+           f: var float): bool {.importcpp: "Value", header: "IntCurve_MyImpParToolOfIntImpConicParConic.hxx".}
+proc derivative*(this: var IntCurveMyImpParToolOfIntImpConicParConic; param: float;
+                d: var float): bool {.importcpp: "Derivative", header: "IntCurve_MyImpParToolOfIntImpConicParConic.hxx".}
+proc values*(this: var IntCurveMyImpParToolOfIntImpConicParConic; param: float;
+            f: var float; d: var float): bool {.importcpp: "Values",
     header: "IntCurve_MyImpParToolOfIntImpConicParConic.hxx".}
-proc Values*(this: var IntCurve_MyImpParToolOfIntImpConicParConic;
-            Param: Standard_Real; F: var Standard_Real; D: var Standard_Real): Standard_Boolean {.
-    importcpp: "Values", header: "IntCurve_MyImpParToolOfIntImpConicParConic.hxx".}

@@ -12,8 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Boolean, ../NCollection/NCollection_Array1
-
 type
-  TColStd_Array1OfBoolean* = NCollection_Array1[Standard_Boolean]
+  TColStdArray1OfBoolean* = NCollectionArray1[bool]
+

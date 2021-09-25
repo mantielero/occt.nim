@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Integer, AIS_ListOfInteractive,
-  ../TColStd/TColStd_MapIntegerHasher, ../NCollection/NCollection_DataMap
-
 type
-  AIS_DataMapofIntegerListOfinteractive* = NCollection_DataMap[Standard_Integer,
-      AIS_ListOfInteractive, TColStd_MapIntegerHasher]
-  AIS_DataMapIteratorOfDataMapofIntegerListOfinteractive* = Iterator[
-      Standard_Integer, AIS_ListOfInteractive, TColStd_MapIntegerHasher]
+  AIS_DataMapofIntegerListOfinteractive* = NCollectionDataMap[int,
+      AIS_ListOfInteractive, TColStdMapIntegerHasher]
+  AIS_DataMapIteratorOfDataMapofIntegerListOfinteractive* = Iterator[int,
+      AIS_ListOfInteractive, TColStdMapIntegerHasher]
+

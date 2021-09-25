@@ -12,31 +12,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  XCAFPrs_Style, ../TDF/TDF_ChildIterator, ../TDF/TDF_Label,
-  ../TopLoc/TopLoc_Location
-
 ## ! Structure defining document node.
 
 type
-  XCAFPrs_DocumentNode* {.importcpp: "XCAFPrs_DocumentNode",
-                         header: "XCAFPrs_DocumentNode.hxx", bycopy.} = object ##  Methods for hash map
-                                                                          ## ! Return hash code based on node string identifier.
-    Id* {.importc: "Id".}: TCollection_AsciiString ## !< string identifier
-    Label* {.importc: "Label".}: TDF_Label ## !< label in the document
-    RefLabel* {.importc: "RefLabel".}: TDF_Label ## !< reference label in the document
-    Style* {.importc: "Style".}: XCAFPrs_Style ## !< node style
-    Location* {.importc: "Location".}: TopLoc_Location ## !< node global transformation
-    LocalTrsf* {.importc: "LocalTrsf".}: TopLoc_Location ## !< node transformation relative to parent
-    ChildIter* {.importc: "ChildIter".}: TDF_ChildIterator ## !< child iterator
-    IsAssembly* {.importc: "IsAssembly".}: Standard_Boolean ## !< flag indicating that this label is assembly
+  XCAFPrsDocumentNode* {.importcpp: "XCAFPrs_DocumentNode",
+                        header: "XCAFPrs_DocumentNode.hxx", bycopy.} = object ##  Methods for hash map
+                                                                         ## ! Return hash code based on node string identifier.
+    id* {.importc: "Id".}: TCollectionAsciiString ## !< string identifier
+    label* {.importc: "Label".}: TDF_Label ## !< label in the document
+    refLabel* {.importc: "RefLabel".}: TDF_Label ## !< reference label in the document
+    style* {.importc: "Style".}: XCAFPrsStyle ## !< node style
+    location* {.importc: "Location".}: TopLocLocation ## !< node global transformation
+    localTrsf* {.importc: "LocalTrsf".}: TopLocLocation ## !< node transformation relative to parent
+    childIter* {.importc: "ChildIter".}: TDF_ChildIterator ## !< child iterator
+    isAssembly* {.importc: "IsAssembly".}: bool ## !< flag indicating that this label is assembly
 
 
-proc constructXCAFPrs_DocumentNode*(): XCAFPrs_DocumentNode {.constructor,
+proc constructXCAFPrsDocumentNode*(): XCAFPrsDocumentNode {.constructor,
     importcpp: "XCAFPrs_DocumentNode(@)", header: "XCAFPrs_DocumentNode.hxx".}
-proc HashCode*(theNode: XCAFPrs_DocumentNode; theN: Standard_Integer): Standard_Integer {.
+proc hashCode*(theNode: XCAFPrsDocumentNode; theN: int): int {.
     importcpp: "XCAFPrs_DocumentNode::HashCode(@)",
     header: "XCAFPrs_DocumentNode.hxx".}
-proc IsEqual*(theNode1: XCAFPrs_DocumentNode; theNode2: XCAFPrs_DocumentNode): Standard_Boolean {.
+proc isEqual*(theNode1: XCAFPrsDocumentNode; theNode2: XCAFPrsDocumentNode): bool {.
     importcpp: "XCAFPrs_DocumentNode::IsEqual(@)",
     header: "XCAFPrs_DocumentNode.hxx".}

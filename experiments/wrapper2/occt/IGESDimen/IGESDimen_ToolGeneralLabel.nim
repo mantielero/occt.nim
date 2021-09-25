@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESDimen_GeneralLabel"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,45 +26,43 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESDimen_ToolGeneralLabel* {.importcpp: "IGESDimen_ToolGeneralLabel",
-                               header: "IGESDimen_ToolGeneralLabel.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## a
-                                                                                      ## ToolGeneralLabel,
-                                                                                      ## ready
-                                                                                      ## to
-                                                                                      ## work
+  IGESDimenToolGeneralLabel* {.importcpp: "IGESDimen_ToolGeneralLabel",
+                              header: "IGESDimen_ToolGeneralLabel.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Returns
+                                                                                     ## a
+                                                                                     ## ToolGeneralLabel,
+                                                                                     ## ready
+                                                                                     ## to
+                                                                                     ## work
 
 
-proc constructIGESDimen_ToolGeneralLabel*(): IGESDimen_ToolGeneralLabel {.
+proc constructIGESDimenToolGeneralLabel*(): IGESDimenToolGeneralLabel {.
     constructor, importcpp: "IGESDimen_ToolGeneralLabel(@)",
     header: "IGESDimen_ToolGeneralLabel.hxx".}
-proc ReadOwnParams*(this: IGESDimen_ToolGeneralLabel;
-                   ent: handle[IGESDimen_GeneralLabel];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESDimen_ToolGeneralLabel.hxx".}
-proc WriteOwnParams*(this: IGESDimen_ToolGeneralLabel;
-                    ent: handle[IGESDimen_GeneralLabel];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
-    importcpp: "WriteOwnParams", header: "IGESDimen_ToolGeneralLabel.hxx".}
-proc OwnShared*(this: IGESDimen_ToolGeneralLabel;
-               ent: handle[IGESDimen_GeneralLabel];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc readOwnParams*(this: IGESDimenToolGeneralLabel;
+                   ent: Handle[IGESDimenGeneralLabel];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESDimen_ToolGeneralLabel.hxx".}
+proc writeOwnParams*(this: IGESDimenToolGeneralLabel;
+                    ent: Handle[IGESDimenGeneralLabel]; iw: var IGESDataIGESWriter) {.
+    noSideEffect, importcpp: "WriteOwnParams",
+    header: "IGESDimen_ToolGeneralLabel.hxx".}
+proc ownShared*(this: IGESDimenToolGeneralLabel;
+               ent: Handle[IGESDimenGeneralLabel];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESDimen_ToolGeneralLabel.hxx".}
-proc DirChecker*(this: IGESDimen_ToolGeneralLabel;
-                ent: handle[IGESDimen_GeneralLabel]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESDimenToolGeneralLabel;
+                ent: Handle[IGESDimenGeneralLabel]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESDimen_ToolGeneralLabel.hxx".}
-proc OwnCheck*(this: IGESDimen_ToolGeneralLabel;
-              ent: handle[IGESDimen_GeneralLabel]; shares: Interface_ShareTool;
-              ach: var handle[Interface_Check]) {.noSideEffect,
-    importcpp: "OwnCheck", header: "IGESDimen_ToolGeneralLabel.hxx".}
-proc OwnCopy*(this: IGESDimen_ToolGeneralLabel;
-             entfrom: handle[IGESDimen_GeneralLabel];
-             entto: handle[IGESDimen_GeneralLabel]; TC: var Interface_CopyTool) {.
+proc ownCheck*(this: IGESDimenToolGeneralLabel; ent: Handle[IGESDimenGeneralLabel];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
+    noSideEffect, importcpp: "OwnCheck", header: "IGESDimen_ToolGeneralLabel.hxx".}
+proc ownCopy*(this: IGESDimenToolGeneralLabel;
+             entfrom: Handle[IGESDimenGeneralLabel];
+             entto: Handle[IGESDimenGeneralLabel]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESDimen_ToolGeneralLabel.hxx".}
-proc OwnDump*(this: IGESDimen_ToolGeneralLabel;
-             ent: handle[IGESDimen_GeneralLabel]; dumper: IGESData_IGESDumper;
-             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
-    importcpp: "OwnDump", header: "IGESDimen_ToolGeneralLabel.hxx".}
+proc ownDump*(this: IGESDimenToolGeneralLabel; ent: Handle[IGESDimenGeneralLabel];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump", header: "IGESDimen_ToolGeneralLabel.hxx".}

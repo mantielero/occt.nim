@@ -14,30 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_Curve
-
 discard "forward decl of StepGeom_BoundedCurve"
 discard "forward decl of StepGeom_BoundedCurve"
 type
-  Handle_StepGeom_BoundedCurve* = handle[StepGeom_BoundedCurve]
-  StepGeom_BoundedCurve* {.importcpp: "StepGeom_BoundedCurve",
-                          header: "StepGeom_BoundedCurve.hxx", bycopy.} = object of StepGeom_Curve ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## a
-                                                                                            ## BoundedCurve
+  HandleStepGeomBoundedCurve* = Handle[StepGeomBoundedCurve]
+  StepGeomBoundedCurve* {.importcpp: "StepGeom_BoundedCurve",
+                         header: "StepGeom_BoundedCurve.hxx", bycopy.} = object of StepGeomCurve ##
+                                                                                          ## !
+                                                                                          ## Returns
+                                                                                          ## a
+                                                                                          ## BoundedCurve
 
 
-proc constructStepGeom_BoundedCurve*(): StepGeom_BoundedCurve {.constructor,
+proc constructStepGeomBoundedCurve*(): StepGeomBoundedCurve {.constructor,
     importcpp: "StepGeom_BoundedCurve(@)", header: "StepGeom_BoundedCurve.hxx".}
 type
-  StepGeom_BoundedCurvebase_type* = StepGeom_Curve
+  StepGeomBoundedCurvebaseType* = StepGeomCurve
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_BoundedCurve::get_type_name(@)",
-                              header: "StepGeom_BoundedCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_BoundedCurve::get_type_name(@)",
+                            header: "StepGeom_BoundedCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_BoundedCurve::get_type_descriptor(@)",
     header: "StepGeom_BoundedCurve.hxx".}
-proc DynamicType*(this: StepGeom_BoundedCurve): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepGeom_BoundedCurve.hxx".}
+proc dynamicType*(this: StepGeomBoundedCurve): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepGeom_BoundedCurve.hxx".}

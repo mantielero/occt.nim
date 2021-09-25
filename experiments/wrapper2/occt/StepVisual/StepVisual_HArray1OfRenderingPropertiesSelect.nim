@@ -14,41 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepVisual_RenderingPropertiesSelect,
-  StepVisual_Array1OfRenderingPropertiesSelect,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepVisual_HArray1OfRenderingPropertiesSelect* {.
+  StepVisualHArray1OfRenderingPropertiesSelect* {.
       importcpp: "StepVisual_HArray1OfRenderingPropertiesSelect",
-      header: "StepVisual_HArray1OfRenderingPropertiesSelect.hxx", bycopy.} = object of StepVisual_Array1OfRenderingPropertiesSelect
+      header: "StepVisual_HArray1OfRenderingPropertiesSelect.hxx", bycopy.} = object of StepVisualArray1OfRenderingPropertiesSelect
 
 
-proc constructStepVisual_HArray1OfRenderingPropertiesSelect*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepVisual_HArray1OfRenderingPropertiesSelect {.
+proc constructStepVisualHArray1OfRenderingPropertiesSelect*(theLower: int;
+    theUpper: int): StepVisualHArray1OfRenderingPropertiesSelect {.constructor,
+    importcpp: "StepVisual_HArray1OfRenderingPropertiesSelect(@)",
+    header: "StepVisual_HArray1OfRenderingPropertiesSelect.hxx".}
+proc constructStepVisualHArray1OfRenderingPropertiesSelect*(theLower: int;
+    theUpper: int; theValue: ValueType): StepVisualHArray1OfRenderingPropertiesSelect {.
     constructor, importcpp: "StepVisual_HArray1OfRenderingPropertiesSelect(@)",
     header: "StepVisual_HArray1OfRenderingPropertiesSelect.hxx".}
-proc constructStepVisual_HArray1OfRenderingPropertiesSelect*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepVisual_HArray1OfRenderingPropertiesSelect {.
+proc constructStepVisualHArray1OfRenderingPropertiesSelect*(
+    theOther: StepVisualArray1OfRenderingPropertiesSelect): StepVisualHArray1OfRenderingPropertiesSelect {.
     constructor, importcpp: "StepVisual_HArray1OfRenderingPropertiesSelect(@)",
     header: "StepVisual_HArray1OfRenderingPropertiesSelect.hxx".}
-proc constructStepVisual_HArray1OfRenderingPropertiesSelect*(
-    theOther: StepVisual_Array1OfRenderingPropertiesSelect): StepVisual_HArray1OfRenderingPropertiesSelect {.
-    constructor, importcpp: "StepVisual_HArray1OfRenderingPropertiesSelect(@)",
-    header: "StepVisual_HArray1OfRenderingPropertiesSelect.hxx".}
-proc Array1*(this: StepVisual_HArray1OfRenderingPropertiesSelect): StepVisual_Array1OfRenderingPropertiesSelect {.
+proc array1*(this: StepVisualHArray1OfRenderingPropertiesSelect): StepVisualArray1OfRenderingPropertiesSelect {.
     noSideEffect, importcpp: "Array1",
     header: "StepVisual_HArray1OfRenderingPropertiesSelect.hxx".}
-proc ChangeArray1*(this: var StepVisual_HArray1OfRenderingPropertiesSelect): var StepVisual_Array1OfRenderingPropertiesSelect {.
+proc changeArray1*(this: var StepVisualHArray1OfRenderingPropertiesSelect): var StepVisualArray1OfRenderingPropertiesSelect {.
     importcpp: "ChangeArray1",
     header: "StepVisual_HArray1OfRenderingPropertiesSelect.hxx".}
 type
-  StepVisual_HArray1OfRenderingPropertiesSelectbase_type* = MMgt_TShared
+  StepVisualHArray1OfRenderingPropertiesSelectbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_HArray1OfRenderingPropertiesSelect::get_type_name(@)", header: "StepVisual_HArray1OfRenderingPropertiesSelect.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepVisual_HArray1OfRenderingPropertiesSelect::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepVisual_HArray1OfRenderingPropertiesSelect::get_type_name(@)", header: "StepVisual_HArray1OfRenderingPropertiesSelect.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_HArray1OfRenderingPropertiesSelect::get_type_descriptor(@)",
     header: "StepVisual_HArray1OfRenderingPropertiesSelect.hxx".}
-proc DynamicType*(this: StepVisual_HArray1OfRenderingPropertiesSelect): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepVisual_HArray1OfRenderingPropertiesSelect.hxx".}
+proc dynamicType*(this: StepVisualHArray1OfRenderingPropertiesSelect): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepVisual_HArray1OfRenderingPropertiesSelect.hxx".}

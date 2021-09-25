@@ -13,45 +13,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer, StepElement_EnumeratedCurveElementPurpose
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepData_SelectMember"
 discard "forward decl of TCollection_HAsciiString"
 type
-  StepElement_CurveElementPurpose* {.importcpp: "StepElement_CurveElementPurpose", header: "StepElement_CurveElementPurpose.hxx",
-                                    bycopy.} = object of StepData_SelectType ## ! Empty
-                                                                        ## constructor
+  StepElementCurveElementPurpose* {.importcpp: "StepElement_CurveElementPurpose", header: "StepElement_CurveElementPurpose.hxx",
+                                   bycopy.} = object of StepDataSelectType ## ! Empty
+                                                                      ## constructor
 
 
-proc constructStepElement_CurveElementPurpose*(): StepElement_CurveElementPurpose {.
+proc constructStepElementCurveElementPurpose*(): StepElementCurveElementPurpose {.
     constructor, importcpp: "StepElement_CurveElementPurpose(@)",
     header: "StepElement_CurveElementPurpose.hxx".}
-proc CaseNum*(this: StepElement_CurveElementPurpose;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
-    importcpp: "CaseNum", header: "StepElement_CurveElementPurpose.hxx".}
-proc CaseMem*(this: StepElement_CurveElementPurpose;
-             ent: handle[StepData_SelectMember]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepElementCurveElementPurpose; ent: Handle[StandardTransient]): int {.
+    noSideEffect, importcpp: "CaseNum",
+    header: "StepElement_CurveElementPurpose.hxx".}
+proc caseMem*(this: StepElementCurveElementPurpose;
+             ent: Handle[StepDataSelectMember]): int {.noSideEffect,
     importcpp: "CaseMem", header: "StepElement_CurveElementPurpose.hxx".}
-proc NewMember*(this: StepElement_CurveElementPurpose): handle[
-    StepData_SelectMember] {.noSideEffect, importcpp: "NewMember",
-                            header: "StepElement_CurveElementPurpose.hxx".}
-proc SetEnumeratedCurveElementPurpose*(this: var StepElement_CurveElementPurpose;
-    aVal: StepElement_EnumeratedCurveElementPurpose) {.
+proc newMember*(this: StepElementCurveElementPurpose): Handle[StepDataSelectMember] {.
+    noSideEffect, importcpp: "NewMember",
+    header: "StepElement_CurveElementPurpose.hxx".}
+proc setEnumeratedCurveElementPurpose*(this: var StepElementCurveElementPurpose;
+    aVal: StepElementEnumeratedCurveElementPurpose) {.
     importcpp: "SetEnumeratedCurveElementPurpose",
     header: "StepElement_CurveElementPurpose.hxx".}
-proc EnumeratedCurveElementPurpose*(this: StepElement_CurveElementPurpose): StepElement_EnumeratedCurveElementPurpose {.
+proc enumeratedCurveElementPurpose*(this: StepElementCurveElementPurpose): StepElementEnumeratedCurveElementPurpose {.
     noSideEffect, importcpp: "EnumeratedCurveElementPurpose",
     header: "StepElement_CurveElementPurpose.hxx".}
-proc SetApplicationDefinedElementPurpose*(
-    this: var StepElement_CurveElementPurpose;
-    aVal: handle[TCollection_HAsciiString]) {.
+proc setApplicationDefinedElementPurpose*(
+    this: var StepElementCurveElementPurpose; aVal: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetApplicationDefinedElementPurpose",
     header: "StepElement_CurveElementPurpose.hxx".}
-proc ApplicationDefinedElementPurpose*(this: StepElement_CurveElementPurpose): handle[
-    TCollection_HAsciiString] {.noSideEffect,
-                               importcpp: "ApplicationDefinedElementPurpose",
-                               header: "StepElement_CurveElementPurpose.hxx".}
+proc applicationDefinedElementPurpose*(this: StepElementCurveElementPurpose): Handle[
+    TCollectionHAsciiString] {.noSideEffect,
+                              importcpp: "ApplicationDefinedElementPurpose",
+                              header: "StepElement_CurveElementPurpose.hxx".}

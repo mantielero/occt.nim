@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
-  ../Standard/Standard_Real
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Ax1"
@@ -27,7 +23,7 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Geometry"
 type
-  Handle_Geom_Geometry* = handle[Geom_Geometry]
+  HandleGeomGeometry* = Handle[GeomGeometry]
 
 ## ! The abstract class Geometry for 3D space is the root
 ## ! class of all geometric objects from the Geom
@@ -48,94 +44,78 @@ type
 ## ! transformations are implemented using the Transform method.
 
 type
-  Geom_Geometry* {.importcpp: "Geom_Geometry", header: "Geom_Geometry.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                          ## !
-                                                                                                          ## Performs
-                                                                                                          ## the
-                                                                                                          ## symmetrical
-                                                                                                          ## transformation
-                                                                                                          ## of
-                                                                                                          ## a
-                                                                                                          ## Geometry
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## with
-                                                                                                          ## respect
-                                                                                                          ## to
-                                                                                                          ## the
-                                                                                                          ## point
-                                                                                                          ## P
-                                                                                                          ## which
-                                                                                                          ## is
-                                                                                                          ## the
-                                                                                                          ## center
-                                                                                                          ## of
-                                                                                                          ## the
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## symmetry.
-    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
-    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
-    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
-    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
-    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
-    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
-    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
-    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
+  GeomGeometry* {.importcpp: "Geom_Geometry", header: "Geom_Geometry.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                        ## !
+                                                                                                        ## Performs
+                                                                                                        ## the
+                                                                                                        ## symmetrical
+                                                                                                        ## transformation
+                                                                                                        ## of
+                                                                                                        ## a
+                                                                                                        ## Geometry
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## with
+                                                                                                        ## respect
+                                                                                                        ## to
+                                                                                                        ## the
+                                                                                                        ## point
+                                                                                                        ## P
+                                                                                                        ## which
+                                                                                                        ## is
+                                                                                                        ## the
+                                                                                                        ## center
+                                                                                                        ## of
+                                                                                                        ## the
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## symmetry.
 
 
-proc Mirror*(this: var Geom_Geometry; P: gp_Pnt) {.importcpp: "Mirror",
+proc mirror*(this: var GeomGeometry; p: Pnt) {.importcpp: "Mirror",
     header: "Geom_Geometry.hxx".}
-proc Mirror*(this: var Geom_Geometry; A1: gp_Ax1) {.importcpp: "Mirror",
+proc mirror*(this: var GeomGeometry; a1: Ax1) {.importcpp: "Mirror",
     header: "Geom_Geometry.hxx".}
-proc Mirror*(this: var Geom_Geometry; A2: gp_Ax2) {.importcpp: "Mirror",
+proc mirror*(this: var GeomGeometry; a2: Ax2) {.importcpp: "Mirror",
     header: "Geom_Geometry.hxx".}
-proc Rotate*(this: var Geom_Geometry; A1: gp_Ax1; Ang: Standard_Real) {.
-    importcpp: "Rotate", header: "Geom_Geometry.hxx".}
-proc Scale*(this: var Geom_Geometry; P: gp_Pnt; S: Standard_Real) {.importcpp: "Scale",
+proc rotate*(this: var GeomGeometry; a1: Ax1; ang: float) {.importcpp: "Rotate",
     header: "Geom_Geometry.hxx".}
-proc Translate*(this: var Geom_Geometry; V: gp_Vec) {.importcpp: "Translate",
+proc scale*(this: var GeomGeometry; p: Pnt; s: float) {.importcpp: "Scale",
     header: "Geom_Geometry.hxx".}
-proc Translate*(this: var Geom_Geometry; P1: gp_Pnt; P2: gp_Pnt) {.
-    importcpp: "Translate", header: "Geom_Geometry.hxx".}
-proc Transform*(this: var Geom_Geometry; T: gp_Trsf) {.importcpp: "Transform",
+proc translate*(this: var GeomGeometry; v: Vec) {.importcpp: "Translate",
     header: "Geom_Geometry.hxx".}
-## !!!Ignored construct:  :: handle < Geom_Geometry > [end of template] Mirrored ( const gp_Pnt & P ) const ;
-## Error: identifier expected, but got: ::!!!
-
-## !!!Ignored construct:  :: handle < Geom_Geometry > [end of template] Mirrored ( const gp_Ax1 & A1 ) const ;
-## Error: identifier expected, but got: ::!!!
-
-## !!!Ignored construct:  :: handle < Geom_Geometry > [end of template] Mirrored ( const gp_Ax2 & A2 ) const ;
-## Error: identifier expected, but got: ::!!!
-
-## !!!Ignored construct:  :: handle < Geom_Geometry > [end of template] Rotated ( const gp_Ax1 & A1 , const Standard_Real Ang ) const ;
-## Error: identifier expected, but got: ::!!!
-
-## !!!Ignored construct:  :: handle < Geom_Geometry > [end of template] Scaled ( const gp_Pnt & P , const Standard_Real S ) const ;
-## Error: identifier expected, but got: ::!!!
-
-## !!!Ignored construct:  :: handle < Geom_Geometry > [end of template] Transformed ( const gp_Trsf & T ) const ;
-## Error: identifier expected, but got: ::!!!
-
-## !!!Ignored construct:  :: handle < Geom_Geometry > [end of template] Translated ( const gp_Vec & V ) const ;
-## Error: identifier expected, but got: ::!!!
-
-## !!!Ignored construct:  :: handle < Geom_Geometry > [end of template] Translated ( const gp_Pnt & P1 , const gp_Pnt & P2 ) const ;
-## Error: identifier expected, but got: ::!!!
-
-proc Copy*(this: Geom_Geometry): handle[Geom_Geometry] {.noSideEffect,
+proc translate*(this: var GeomGeometry; p1: Pnt; p2: Pnt) {.importcpp: "Translate",
+    header: "Geom_Geometry.hxx".}
+proc transform*(this: var GeomGeometry; t: Trsf) {.importcpp: "Transform",
+    header: "Geom_Geometry.hxx".}
+proc mirrored*(this: GeomGeometry; p: Pnt): Handle[GeomGeometry] {.noSideEffect,
+    importcpp: "Mirrored", header: "Geom_Geometry.hxx".}
+proc mirrored*(this: GeomGeometry; a1: Ax1): Handle[GeomGeometry] {.noSideEffect,
+    importcpp: "Mirrored", header: "Geom_Geometry.hxx".}
+proc mirrored*(this: GeomGeometry; a2: Ax2): Handle[GeomGeometry] {.noSideEffect,
+    importcpp: "Mirrored", header: "Geom_Geometry.hxx".}
+proc rotated*(this: GeomGeometry; a1: Ax1; ang: float): Handle[GeomGeometry] {.
+    noSideEffect, importcpp: "Rotated", header: "Geom_Geometry.hxx".}
+proc scaled*(this: GeomGeometry; p: Pnt; s: float): Handle[GeomGeometry] {.noSideEffect,
+    importcpp: "Scaled", header: "Geom_Geometry.hxx".}
+proc transformed*(this: GeomGeometry; t: Trsf): Handle[GeomGeometry] {.noSideEffect,
+    importcpp: "Transformed", header: "Geom_Geometry.hxx".}
+proc translated*(this: GeomGeometry; v: Vec): Handle[GeomGeometry] {.noSideEffect,
+    importcpp: "Translated", header: "Geom_Geometry.hxx".}
+proc translated*(this: GeomGeometry; p1: Pnt; p2: Pnt): Handle[GeomGeometry] {.
+    noSideEffect, importcpp: "Translated", header: "Geom_Geometry.hxx".}
+proc copy*(this: GeomGeometry): Handle[GeomGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_Geometry.hxx".}
-proc DumpJson*(this: Geom_Geometry; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Geom_Geometry.hxx".}
+proc dumpJson*(this: GeomGeometry; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Geom_Geometry.hxx".}
 type
-  Geom_Geometrybase_type* = Standard_Transient
+  GeomGeometrybaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Geom_Geometry::get_type_name(@)",
-                              header: "Geom_Geometry.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Geom_Geometry::get_type_name(@)",
+                            header: "Geom_Geometry.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_Geometry::get_type_descriptor(@)",
     header: "Geom_Geometry.hxx".}
-proc DynamicType*(this: Geom_Geometry): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: GeomGeometry): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom_Geometry.hxx".}

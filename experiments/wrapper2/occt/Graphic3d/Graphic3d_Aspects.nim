@@ -11,328 +11,318 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Aspect/Aspect_PolygonOffsetMode, ../Aspect/Aspect_InteriorStyle,
-  ../Aspect/Aspect_TypeOfDisplayText, ../Aspect/Aspect_TypeOfLine,
-  ../Aspect/Aspect_TypeOfMarker, ../Aspect/Aspect_TypeOfStyleText,
-  ../Font/Font_FontAspect, ../Font/Font_NameOfFont, Graphic3d_AlphaMode,
-  Graphic3d_MarkerImage, Graphic3d_HatchStyle, Graphic3d_MaterialAspect,
-  Graphic3d_PolygonOffset, Graphic3d_ShaderProgram, Graphic3d_TextureMap,
-  Graphic3d_TextureSet, Graphic3d_TypeOfShadingModel,
-  ../TCollection/TCollection_HAsciiString
-
 ## ! This class defines graphic attributes.
 
 type
-  Graphic3d_Aspects* {.importcpp: "Graphic3d_Aspects",
-                      header: "Graphic3d_Aspects.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                        ## !
-                                                                                        ## Creates
-                                                                                        ## a
-                                                                                        ## context
-                                                                                        ## table
-                                                                                        ## for
-                                                                                        ## drawing
-                                                                                        ## primitives
-                                                                                        ## defined
-                                                                                        ## with
-                                                                                        ## the
-                                                                                        ## following
-                                                                                        ## default
-                                                                                        ## values:
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Return
-                                                                                        ## line
-                                                                                        ## type;
-                                                                                        ## Aspect_TOL_SOLID
-                                                                                        ## by
-                                                                                        ## default.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Return
-                                                                                        ## marker
-                                                                                        ## type;
-                                                                                        ## Aspect_TOM_POINT
-                                                                                        ## by
-                                                                                        ## default.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Returns
-                                                                                        ## the
-                                                                                        ## font;
-                                                                                        ## NULL
-                                                                                        ## string
-                                                                                        ## by
-                                                                                        ## default.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Returns
-                                                                                        ## true
-                                                                                        ## if
-                                                                                        ## mesh
-                                                                                        ## edges
-                                                                                        ## should
-                                                                                        ## be
-                                                                                        ## drawn
-                                                                                        ## (false
-                                                                                        ## by
-                                                                                        ## default).
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Returns
-                                                                                        ## the
-                                                                                        ## hatch
-                                                                                        ## type
-                                                                                        ## used
-                                                                                        ## when
-                                                                                        ## InteriorStyle
-                                                                                        ## is
-                                                                                        ## IS_HATCH
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Check
-                                                                                        ## for
-                                                                                        ## equality
-                                                                                        ## with
-                                                                                        ## another
-                                                                                        ## aspects.
+  Graphic3dAspects* {.importcpp: "Graphic3d_Aspects",
+                     header: "Graphic3d_Aspects.hxx", bycopy.} = object of StandardTransient ##
+                                                                                      ## !
+                                                                                      ## Creates
+                                                                                      ## a
+                                                                                      ## context
+                                                                                      ## table
+                                                                                      ## for
+                                                                                      ## drawing
+                                                                                      ## primitives
+                                                                                      ## defined
+                                                                                      ## with
+                                                                                      ## the
+                                                                                      ## following
+                                                                                      ## default
+                                                                                      ## values:
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Return
+                                                                                      ## line
+                                                                                      ## type;
+                                                                                      ## Aspect_TOL_SOLID
+                                                                                      ## by
+                                                                                      ## default.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Return
+                                                                                      ## marker
+                                                                                      ## type;
+                                                                                      ## Aspect_TOM_POINT
+                                                                                      ## by
+                                                                                      ## default.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## the
+                                                                                      ## font;
+                                                                                      ## NULL
+                                                                                      ## string
+                                                                                      ## by
+                                                                                      ## default.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## true
+                                                                                      ## if
+                                                                                      ## mesh
+                                                                                      ## edges
+                                                                                      ## should
+                                                                                      ## be
+                                                                                      ## drawn
+                                                                                      ## (false
+                                                                                      ## by
+                                                                                      ## default).
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## the
+                                                                                      ## hatch
+                                                                                      ## type
+                                                                                      ## used
+                                                                                      ## when
+                                                                                      ## InteriorStyle
+                                                                                      ## is
+                                                                                      ## IS_HATCH
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Check
+                                                                                      ## for
+                                                                                      ## equality
+                                                                                      ## with
+                                                                                      ## another
+                                                                                      ## aspects.
 
-  Graphic3d_Aspectsbase_type* = Standard_Transient
+  Graphic3dAspectsbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Graphic3d_Aspects::get_type_name(@)",
-                              header: "Graphic3d_Aspects.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Graphic3d_Aspects::get_type_name(@)",
+                            header: "Graphic3d_Aspects.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Graphic3d_Aspects::get_type_descriptor(@)",
     header: "Graphic3d_Aspects.hxx".}
-proc DynamicType*(this: Graphic3d_Aspects): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: Graphic3dAspects): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Graphic3d_Aspects.hxx".}
-proc constructGraphic3d_Aspects*(): Graphic3d_Aspects {.constructor,
+proc constructGraphic3dAspects*(): Graphic3dAspects {.constructor,
     importcpp: "Graphic3d_Aspects(@)", header: "Graphic3d_Aspects.hxx".}
-proc InteriorStyle*(this: Graphic3d_Aspects): Aspect_InteriorStyle {.noSideEffect,
+proc interiorStyle*(this: Graphic3dAspects): AspectInteriorStyle {.noSideEffect,
     importcpp: "InteriorStyle", header: "Graphic3d_Aspects.hxx".}
-proc SetInteriorStyle*(this: var Graphic3d_Aspects; theStyle: Aspect_InteriorStyle) {.
+proc setInteriorStyle*(this: var Graphic3dAspects; theStyle: AspectInteriorStyle) {.
     importcpp: "SetInteriorStyle", header: "Graphic3d_Aspects.hxx".}
-proc ShadingModel*(this: Graphic3d_Aspects): Graphic3d_TypeOfShadingModel {.
+proc shadingModel*(this: Graphic3dAspects): Graphic3dTypeOfShadingModel {.
     noSideEffect, importcpp: "ShadingModel", header: "Graphic3d_Aspects.hxx".}
-proc SetShadingModel*(this: var Graphic3d_Aspects;
-                     theShadingModel: Graphic3d_TypeOfShadingModel) {.
+proc setShadingModel*(this: var Graphic3dAspects;
+                     theShadingModel: Graphic3dTypeOfShadingModel) {.
     importcpp: "SetShadingModel", header: "Graphic3d_Aspects.hxx".}
-proc AlphaMode*(this: Graphic3d_Aspects): Graphic3d_AlphaMode {.noSideEffect,
+proc alphaMode*(this: Graphic3dAspects): Graphic3dAlphaMode {.noSideEffect,
     importcpp: "AlphaMode", header: "Graphic3d_Aspects.hxx".}
-proc AlphaCutoff*(this: Graphic3d_Aspects): Standard_ShortReal {.noSideEffect,
+proc alphaCutoff*(this: Graphic3dAspects): StandardShortReal {.noSideEffect,
     importcpp: "AlphaCutoff", header: "Graphic3d_Aspects.hxx".}
-proc SetAlphaMode*(this: var Graphic3d_Aspects; theMode: Graphic3d_AlphaMode;
-                  theAlphaCutoff: Standard_ShortReal = 0.5f) {.
+proc setAlphaMode*(this: var Graphic3dAspects; theMode: Graphic3dAlphaMode;
+                  theAlphaCutoff: StandardShortReal = 0.5f) {.
     importcpp: "SetAlphaMode", header: "Graphic3d_Aspects.hxx".}
-proc ColorRGBA*(this: Graphic3d_Aspects): Quantity_ColorRGBA {.noSideEffect,
+proc colorRGBA*(this: Graphic3dAspects): QuantityColorRGBA {.noSideEffect,
     importcpp: "ColorRGBA", header: "Graphic3d_Aspects.hxx".}
-proc Color*(this: Graphic3d_Aspects): Quantity_Color {.noSideEffect,
+proc color*(this: Graphic3dAspects): QuantityColor {.noSideEffect,
     importcpp: "Color", header: "Graphic3d_Aspects.hxx".}
-proc SetColor*(this: var Graphic3d_Aspects; theColor: Quantity_Color) {.
+proc setColor*(this: var Graphic3dAspects; theColor: QuantityColor) {.
     importcpp: "SetColor", header: "Graphic3d_Aspects.hxx".}
-proc InteriorColor*(this: Graphic3d_Aspects): Quantity_Color {.noSideEffect,
+proc interiorColor*(this: Graphic3dAspects): QuantityColor {.noSideEffect,
     importcpp: "InteriorColor", header: "Graphic3d_Aspects.hxx".}
-proc InteriorColorRGBA*(this: Graphic3d_Aspects): Quantity_ColorRGBA {.noSideEffect,
+proc interiorColorRGBA*(this: Graphic3dAspects): QuantityColorRGBA {.noSideEffect,
     importcpp: "InteriorColorRGBA", header: "Graphic3d_Aspects.hxx".}
-proc SetInteriorColor*(this: var Graphic3d_Aspects; theColor: Quantity_Color) {.
+proc setInteriorColor*(this: var Graphic3dAspects; theColor: QuantityColor) {.
     importcpp: "SetInteriorColor", header: "Graphic3d_Aspects.hxx".}
-proc SetInteriorColor*(this: var Graphic3d_Aspects; theColor: Quantity_ColorRGBA) {.
+proc setInteriorColor*(this: var Graphic3dAspects; theColor: QuantityColorRGBA) {.
     importcpp: "SetInteriorColor", header: "Graphic3d_Aspects.hxx".}
-proc BackInteriorColor*(this: Graphic3d_Aspects): Quantity_Color {.noSideEffect,
+proc backInteriorColor*(this: Graphic3dAspects): QuantityColor {.noSideEffect,
     importcpp: "BackInteriorColor", header: "Graphic3d_Aspects.hxx".}
-proc BackInteriorColorRGBA*(this: Graphic3d_Aspects): Quantity_ColorRGBA {.
+proc backInteriorColorRGBA*(this: Graphic3dAspects): QuantityColorRGBA {.
     noSideEffect, importcpp: "BackInteriorColorRGBA",
     header: "Graphic3d_Aspects.hxx".}
-proc SetBackInteriorColor*(this: var Graphic3d_Aspects; theColor: Quantity_Color) {.
+proc setBackInteriorColor*(this: var Graphic3dAspects; theColor: QuantityColor) {.
     importcpp: "SetBackInteriorColor", header: "Graphic3d_Aspects.hxx".}
-proc SetBackInteriorColor*(this: var Graphic3d_Aspects; theColor: Quantity_ColorRGBA) {.
+proc setBackInteriorColor*(this: var Graphic3dAspects; theColor: QuantityColorRGBA) {.
     importcpp: "SetBackInteriorColor", header: "Graphic3d_Aspects.hxx".}
-proc FrontMaterial*(this: Graphic3d_Aspects): Graphic3d_MaterialAspect {.
-    noSideEffect, importcpp: "FrontMaterial", header: "Graphic3d_Aspects.hxx".}
-proc ChangeFrontMaterial*(this: var Graphic3d_Aspects): var Graphic3d_MaterialAspect {.
+proc frontMaterial*(this: Graphic3dAspects): Graphic3dMaterialAspect {.noSideEffect,
+    importcpp: "FrontMaterial", header: "Graphic3d_Aspects.hxx".}
+proc changeFrontMaterial*(this: var Graphic3dAspects): var Graphic3dMaterialAspect {.
     importcpp: "ChangeFrontMaterial", header: "Graphic3d_Aspects.hxx".}
-proc SetFrontMaterial*(this: var Graphic3d_Aspects;
-                      theMaterial: Graphic3d_MaterialAspect) {.
+proc setFrontMaterial*(this: var Graphic3dAspects;
+                      theMaterial: Graphic3dMaterialAspect) {.
     importcpp: "SetFrontMaterial", header: "Graphic3d_Aspects.hxx".}
-proc BackMaterial*(this: Graphic3d_Aspects): Graphic3d_MaterialAspect {.
-    noSideEffect, importcpp: "BackMaterial", header: "Graphic3d_Aspects.hxx".}
-proc ChangeBackMaterial*(this: var Graphic3d_Aspects): var Graphic3d_MaterialAspect {.
+proc backMaterial*(this: Graphic3dAspects): Graphic3dMaterialAspect {.noSideEffect,
+    importcpp: "BackMaterial", header: "Graphic3d_Aspects.hxx".}
+proc changeBackMaterial*(this: var Graphic3dAspects): var Graphic3dMaterialAspect {.
     importcpp: "ChangeBackMaterial", header: "Graphic3d_Aspects.hxx".}
-proc SetBackMaterial*(this: var Graphic3d_Aspects;
-                     theMaterial: Graphic3d_MaterialAspect) {.
+proc setBackMaterial*(this: var Graphic3dAspects;
+                     theMaterial: Graphic3dMaterialAspect) {.
     importcpp: "SetBackMaterial", header: "Graphic3d_Aspects.hxx".}
-proc ToSuppressBackFaces*(this: Graphic3d_Aspects): bool {.noSideEffect,
+proc toSuppressBackFaces*(this: Graphic3dAspects): bool {.noSideEffect,
     importcpp: "ToSuppressBackFaces", header: "Graphic3d_Aspects.hxx".}
-proc SetSuppressBackFaces*(this: var Graphic3d_Aspects; theToSuppress: bool) {.
+proc setSuppressBackFaces*(this: var Graphic3dAspects; theToSuppress: bool) {.
     importcpp: "SetSuppressBackFaces", header: "Graphic3d_Aspects.hxx".}
-proc BackFace*(this: Graphic3d_Aspects): bool {.noSideEffect, importcpp: "BackFace",
+proc backFace*(this: Graphic3dAspects): bool {.noSideEffect, importcpp: "BackFace",
     header: "Graphic3d_Aspects.hxx".}
-proc AllowBackFace*(this: var Graphic3d_Aspects) {.importcpp: "AllowBackFace",
+proc allowBackFace*(this: var Graphic3dAspects) {.importcpp: "AllowBackFace",
     header: "Graphic3d_Aspects.hxx".}
-proc SuppressBackFace*(this: var Graphic3d_Aspects) {.importcpp: "SuppressBackFace",
+proc suppressBackFace*(this: var Graphic3dAspects) {.importcpp: "SuppressBackFace",
     header: "Graphic3d_Aspects.hxx".}
-proc Distinguish*(this: Graphic3d_Aspects): bool {.noSideEffect,
+proc distinguish*(this: Graphic3dAspects): bool {.noSideEffect,
     importcpp: "Distinguish", header: "Graphic3d_Aspects.hxx".}
-proc SetDistinguish*(this: var Graphic3d_Aspects; toDistinguish: bool) {.
+proc setDistinguish*(this: var Graphic3dAspects; toDistinguish: bool) {.
     importcpp: "SetDistinguish", header: "Graphic3d_Aspects.hxx".}
-proc SetDistinguishOn*(this: var Graphic3d_Aspects) {.importcpp: "SetDistinguishOn",
+proc setDistinguishOn*(this: var Graphic3dAspects) {.importcpp: "SetDistinguishOn",
     header: "Graphic3d_Aspects.hxx".}
-proc SetDistinguishOff*(this: var Graphic3d_Aspects) {.
+proc setDistinguishOff*(this: var Graphic3dAspects) {.
     importcpp: "SetDistinguishOff", header: "Graphic3d_Aspects.hxx".}
-proc ShaderProgram*(this: Graphic3d_Aspects): handle[Graphic3d_ShaderProgram] {.
+proc shaderProgram*(this: Graphic3dAspects): Handle[Graphic3dShaderProgram] {.
     noSideEffect, importcpp: "ShaderProgram", header: "Graphic3d_Aspects.hxx".}
-proc SetShaderProgram*(this: var Graphic3d_Aspects;
-                      theProgram: handle[Graphic3d_ShaderProgram]) {.
+proc setShaderProgram*(this: var Graphic3dAspects;
+                      theProgram: Handle[Graphic3dShaderProgram]) {.
     importcpp: "SetShaderProgram", header: "Graphic3d_Aspects.hxx".}
-proc TextureSet*(this: Graphic3d_Aspects): handle[Graphic3d_TextureSet] {.
+proc textureSet*(this: Graphic3dAspects): Handle[Graphic3dTextureSet] {.
     noSideEffect, importcpp: "TextureSet", header: "Graphic3d_Aspects.hxx".}
-proc SetTextureSet*(this: var Graphic3d_Aspects;
-                   theTextures: handle[Graphic3d_TextureSet]) {.
+proc setTextureSet*(this: var Graphic3dAspects;
+                   theTextures: Handle[Graphic3dTextureSet]) {.
     importcpp: "SetTextureSet", header: "Graphic3d_Aspects.hxx".}
-proc TextureMap*(this: Graphic3d_Aspects): handle[Graphic3d_TextureMap] {.
+proc textureMap*(this: Graphic3dAspects): Handle[Graphic3dTextureMap] {.
     noSideEffect, importcpp: "TextureMap", header: "Graphic3d_Aspects.hxx".}
-proc SetTextureMap*(this: var Graphic3d_Aspects;
-                   theTexture: handle[Graphic3d_TextureMap]) {.
+proc setTextureMap*(this: var Graphic3dAspects;
+                   theTexture: Handle[Graphic3dTextureMap]) {.
     importcpp: "SetTextureMap", header: "Graphic3d_Aspects.hxx".}
-proc ToMapTexture*(this: Graphic3d_Aspects): bool {.noSideEffect,
+proc toMapTexture*(this: Graphic3dAspects): bool {.noSideEffect,
     importcpp: "ToMapTexture", header: "Graphic3d_Aspects.hxx".}
-proc TextureMapState*(this: Graphic3d_Aspects): bool {.noSideEffect,
+proc textureMapState*(this: Graphic3dAspects): bool {.noSideEffect,
     importcpp: "TextureMapState", header: "Graphic3d_Aspects.hxx".}
-proc SetTextureMapOn*(this: var Graphic3d_Aspects; theToMap: bool) {.
+proc setTextureMapOn*(this: var Graphic3dAspects; theToMap: bool) {.
     importcpp: "SetTextureMapOn", header: "Graphic3d_Aspects.hxx".}
-proc SetTextureMapOn*(this: var Graphic3d_Aspects) {.importcpp: "SetTextureMapOn",
+proc setTextureMapOn*(this: var Graphic3dAspects) {.importcpp: "SetTextureMapOn",
     header: "Graphic3d_Aspects.hxx".}
-proc SetTextureMapOff*(this: var Graphic3d_Aspects) {.importcpp: "SetTextureMapOff",
+proc setTextureMapOff*(this: var Graphic3dAspects) {.importcpp: "SetTextureMapOff",
     header: "Graphic3d_Aspects.hxx".}
-proc PolygonOffset*(this: Graphic3d_Aspects): Graphic3d_PolygonOffset {.
-    noSideEffect, importcpp: "PolygonOffset", header: "Graphic3d_Aspects.hxx".}
-proc SetPolygonOffset*(this: var Graphic3d_Aspects;
-                      theOffset: Graphic3d_PolygonOffset) {.
+proc polygonOffset*(this: Graphic3dAspects): Graphic3dPolygonOffset {.noSideEffect,
+    importcpp: "PolygonOffset", header: "Graphic3d_Aspects.hxx".}
+proc setPolygonOffset*(this: var Graphic3dAspects; theOffset: Graphic3dPolygonOffset) {.
     importcpp: "SetPolygonOffset", header: "Graphic3d_Aspects.hxx".}
-proc PolygonOffsets*(this: Graphic3d_Aspects; theMode: var Standard_Integer;
-                    theFactor: var Standard_ShortReal;
-                    theUnits: var Standard_ShortReal) {.noSideEffect,
+proc polygonOffsets*(this: Graphic3dAspects; theMode: var int;
+                    theFactor: var StandardShortReal;
+                    theUnits: var StandardShortReal) {.noSideEffect,
     importcpp: "PolygonOffsets", header: "Graphic3d_Aspects.hxx".}
-proc SetPolygonOffsets*(this: var Graphic3d_Aspects; theMode: Standard_Integer;
-                       theFactor: Standard_ShortReal = 1.0f;
-                       theUnits: Standard_ShortReal = 0.0f) {.
+proc setPolygonOffsets*(this: var Graphic3dAspects; theMode: int;
+                       theFactor: StandardShortReal = 1.0f;
+                       theUnits: StandardShortReal = 0.0f) {.
     importcpp: "SetPolygonOffsets", header: "Graphic3d_Aspects.hxx".}
-proc LineType*(this: Graphic3d_Aspects): Aspect_TypeOfLine {.noSideEffect,
+proc lineType*(this: Graphic3dAspects): AspectTypeOfLine {.noSideEffect,
     importcpp: "LineType", header: "Graphic3d_Aspects.hxx".}
-proc SetLineType*(this: var Graphic3d_Aspects; theType: Aspect_TypeOfLine) {.
+proc setLineType*(this: var Graphic3dAspects; theType: AspectTypeOfLine) {.
     importcpp: "SetLineType", header: "Graphic3d_Aspects.hxx".}
-proc LinePattern*(this: Graphic3d_Aspects): uint16_t {.noSideEffect,
+proc linePattern*(this: Graphic3dAspects): uint16T {.noSideEffect,
     importcpp: "LinePattern", header: "Graphic3d_Aspects.hxx".}
-proc SetLinePattern*(this: var Graphic3d_Aspects; thePattern: uint16_t) {.
+proc setLinePattern*(this: var Graphic3dAspects; thePattern: uint16T) {.
     importcpp: "SetLinePattern", header: "Graphic3d_Aspects.hxx".}
-proc LineStippleFactor*(this: Graphic3d_Aspects): uint16_t {.noSideEffect,
+proc lineStippleFactor*(this: Graphic3dAspects): uint16T {.noSideEffect,
     importcpp: "LineStippleFactor", header: "Graphic3d_Aspects.hxx".}
-proc SetLineStippleFactor*(this: var Graphic3d_Aspects; theFactor: uint16_t) {.
+proc setLineStippleFactor*(this: var Graphic3dAspects; theFactor: uint16T) {.
     importcpp: "SetLineStippleFactor", header: "Graphic3d_Aspects.hxx".}
-proc LineWidth*(this: Graphic3d_Aspects): Standard_ShortReal {.noSideEffect,
+proc lineWidth*(this: Graphic3dAspects): StandardShortReal {.noSideEffect,
     importcpp: "LineWidth", header: "Graphic3d_Aspects.hxx".}
-proc SetLineWidth*(this: var Graphic3d_Aspects; theWidth: Standard_ShortReal) {.
+proc setLineWidth*(this: var Graphic3dAspects; theWidth: StandardShortReal) {.
     importcpp: "SetLineWidth", header: "Graphic3d_Aspects.hxx".}
-proc DefaultLinePatternForType*(theType: Aspect_TypeOfLine): uint16_t {.
+proc defaultLinePatternForType*(theType: AspectTypeOfLine): uint16T {.
     importcpp: "Graphic3d_Aspects::DefaultLinePatternForType(@)",
     header: "Graphic3d_Aspects.hxx".}
-proc DefaultLineTypeForPattern*(thePattern: uint16_t): Aspect_TypeOfLine {.
+proc defaultLineTypeForPattern*(thePattern: uint16T): AspectTypeOfLine {.
     importcpp: "Graphic3d_Aspects::DefaultLineTypeForPattern(@)",
     header: "Graphic3d_Aspects.hxx".}
-proc MarkerType*(this: Graphic3d_Aspects): Aspect_TypeOfMarker {.noSideEffect,
+proc markerType*(this: Graphic3dAspects): AspectTypeOfMarker {.noSideEffect,
     importcpp: "MarkerType", header: "Graphic3d_Aspects.hxx".}
-proc SetMarkerType*(this: var Graphic3d_Aspects; theType: Aspect_TypeOfMarker) {.
+proc setMarkerType*(this: var Graphic3dAspects; theType: AspectTypeOfMarker) {.
     importcpp: "SetMarkerType", header: "Graphic3d_Aspects.hxx".}
-proc MarkerScale*(this: Graphic3d_Aspects): Standard_ShortReal {.noSideEffect,
+proc markerScale*(this: Graphic3dAspects): StandardShortReal {.noSideEffect,
     importcpp: "MarkerScale", header: "Graphic3d_Aspects.hxx".}
-proc SetMarkerScale*(this: var Graphic3d_Aspects; theScale: Standard_ShortReal) {.
+proc setMarkerScale*(this: var Graphic3dAspects; theScale: StandardShortReal) {.
     importcpp: "SetMarkerScale", header: "Graphic3d_Aspects.hxx".}
-proc MarkerImage*(this: Graphic3d_Aspects): handle[Graphic3d_MarkerImage] {.
+proc markerImage*(this: Graphic3dAspects): Handle[Graphic3dMarkerImage] {.
     noSideEffect, importcpp: "MarkerImage", header: "Graphic3d_Aspects.hxx".}
-proc SetMarkerImage*(this: var Graphic3d_Aspects;
-                    theImage: handle[Graphic3d_MarkerImage]) {.
+proc setMarkerImage*(this: var Graphic3dAspects;
+                    theImage: Handle[Graphic3dMarkerImage]) {.
     importcpp: "SetMarkerImage", header: "Graphic3d_Aspects.hxx".}
-proc IsMarkerSprite*(this: Graphic3d_Aspects): bool {.noSideEffect,
+proc isMarkerSprite*(this: Graphic3dAspects): bool {.noSideEffect,
     importcpp: "IsMarkerSprite", header: "Graphic3d_Aspects.hxx".}
-proc TextFont*(this: Graphic3d_Aspects): handle[TCollection_HAsciiString] {.
+proc textFont*(this: Graphic3dAspects): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "TextFont", header: "Graphic3d_Aspects.hxx".}
-proc SetTextFont*(this: var Graphic3d_Aspects;
-                 theFont: handle[TCollection_HAsciiString]) {.
+proc setTextFont*(this: var Graphic3dAspects;
+                 theFont: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetTextFont", header: "Graphic3d_Aspects.hxx".}
-proc TextFontAspect*(this: Graphic3d_Aspects): Font_FontAspect {.noSideEffect,
+proc textFontAspect*(this: Graphic3dAspects): FontFontAspect {.noSideEffect,
     importcpp: "TextFontAspect", header: "Graphic3d_Aspects.hxx".}
-proc SetTextFontAspect*(this: var Graphic3d_Aspects; theFontAspect: Font_FontAspect) {.
+proc setTextFontAspect*(this: var Graphic3dAspects; theFontAspect: FontFontAspect) {.
     importcpp: "SetTextFontAspect", header: "Graphic3d_Aspects.hxx".}
-proc TextDisplayType*(this: Graphic3d_Aspects): Aspect_TypeOfDisplayText {.
+proc textDisplayType*(this: Graphic3dAspects): AspectTypeOfDisplayText {.
     noSideEffect, importcpp: "TextDisplayType", header: "Graphic3d_Aspects.hxx".}
-proc SetTextDisplayType*(this: var Graphic3d_Aspects;
-                        theType: Aspect_TypeOfDisplayText) {.
+proc setTextDisplayType*(this: var Graphic3dAspects;
+                        theType: AspectTypeOfDisplayText) {.
     importcpp: "SetTextDisplayType", header: "Graphic3d_Aspects.hxx".}
-proc ColorSubTitleRGBA*(this: Graphic3d_Aspects): Quantity_ColorRGBA {.noSideEffect,
+proc colorSubTitleRGBA*(this: Graphic3dAspects): QuantityColorRGBA {.noSideEffect,
     importcpp: "ColorSubTitleRGBA", header: "Graphic3d_Aspects.hxx".}
-proc ColorSubTitle*(this: Graphic3d_Aspects): Quantity_Color {.noSideEffect,
+proc colorSubTitle*(this: Graphic3dAspects): QuantityColor {.noSideEffect,
     importcpp: "ColorSubTitle", header: "Graphic3d_Aspects.hxx".}
-proc SetColorSubTitle*(this: var Graphic3d_Aspects; theColor: Quantity_Color) {.
+proc setColorSubTitle*(this: var Graphic3dAspects; theColor: QuantityColor) {.
     importcpp: "SetColorSubTitle", header: "Graphic3d_Aspects.hxx".}
-proc SetColorSubTitle*(this: var Graphic3d_Aspects; theColor: Quantity_ColorRGBA) {.
+proc setColorSubTitle*(this: var Graphic3dAspects; theColor: QuantityColorRGBA) {.
     importcpp: "SetColorSubTitle", header: "Graphic3d_Aspects.hxx".}
-proc IsTextZoomable*(this: Graphic3d_Aspects): bool {.noSideEffect,
+proc isTextZoomable*(this: Graphic3dAspects): bool {.noSideEffect,
     importcpp: "IsTextZoomable", header: "Graphic3d_Aspects.hxx".}
-proc SetTextZoomable*(this: var Graphic3d_Aspects; theFlag: bool) {.
+proc setTextZoomable*(this: var Graphic3dAspects; theFlag: bool) {.
     importcpp: "SetTextZoomable", header: "Graphic3d_Aspects.hxx".}
-proc TextStyle*(this: Graphic3d_Aspects): Aspect_TypeOfStyleText {.noSideEffect,
+proc textStyle*(this: Graphic3dAspects): AspectTypeOfStyleText {.noSideEffect,
     importcpp: "TextStyle", header: "Graphic3d_Aspects.hxx".}
-proc SetTextStyle*(this: var Graphic3d_Aspects; theStyle: Aspect_TypeOfStyleText) {.
+proc setTextStyle*(this: var Graphic3dAspects; theStyle: AspectTypeOfStyleText) {.
     importcpp: "SetTextStyle", header: "Graphic3d_Aspects.hxx".}
-proc TextAngle*(this: Graphic3d_Aspects): Standard_ShortReal {.noSideEffect,
+proc textAngle*(this: Graphic3dAspects): StandardShortReal {.noSideEffect,
     importcpp: "TextAngle", header: "Graphic3d_Aspects.hxx".}
-proc SetTextAngle*(this: var Graphic3d_Aspects; theAngle: Standard_ShortReal) {.
+proc setTextAngle*(this: var Graphic3dAspects; theAngle: StandardShortReal) {.
     importcpp: "SetTextAngle", header: "Graphic3d_Aspects.hxx".}
-proc ToDrawEdges*(this: Graphic3d_Aspects): bool {.noSideEffect,
+proc toDrawEdges*(this: Graphic3dAspects): bool {.noSideEffect,
     importcpp: "ToDrawEdges", header: "Graphic3d_Aspects.hxx".}
-proc SetDrawEdges*(this: var Graphic3d_Aspects; theToDraw: bool) {.
+proc setDrawEdges*(this: var Graphic3dAspects; theToDraw: bool) {.
     importcpp: "SetDrawEdges", header: "Graphic3d_Aspects.hxx".}
-proc SetEdgeOn*(this: var Graphic3d_Aspects) {.importcpp: "SetEdgeOn",
+proc setEdgeOn*(this: var Graphic3dAspects) {.importcpp: "SetEdgeOn",
     header: "Graphic3d_Aspects.hxx".}
-proc SetEdgeOff*(this: var Graphic3d_Aspects) {.importcpp: "SetEdgeOff",
+proc setEdgeOff*(this: var Graphic3dAspects) {.importcpp: "SetEdgeOff",
     header: "Graphic3d_Aspects.hxx".}
-proc EdgeColor*(this: Graphic3d_Aspects): Quantity_Color {.noSideEffect,
+proc edgeColor*(this: Graphic3dAspects): QuantityColor {.noSideEffect,
     importcpp: "EdgeColor", header: "Graphic3d_Aspects.hxx".}
-proc EdgeColorRGBA*(this: Graphic3d_Aspects): Quantity_ColorRGBA {.noSideEffect,
+proc edgeColorRGBA*(this: Graphic3dAspects): QuantityColorRGBA {.noSideEffect,
     importcpp: "EdgeColorRGBA", header: "Graphic3d_Aspects.hxx".}
-proc SetEdgeColor*(this: var Graphic3d_Aspects; theColor: Quantity_Color) {.
+proc setEdgeColor*(this: var Graphic3dAspects; theColor: QuantityColor) {.
     importcpp: "SetEdgeColor", header: "Graphic3d_Aspects.hxx".}
-proc SetEdgeColor*(this: var Graphic3d_Aspects; theColor: Quantity_ColorRGBA) {.
+proc setEdgeColor*(this: var Graphic3dAspects; theColor: QuantityColorRGBA) {.
     importcpp: "SetEdgeColor", header: "Graphic3d_Aspects.hxx".}
-proc EdgeLineType*(this: Graphic3d_Aspects): Aspect_TypeOfLine {.noSideEffect,
+proc edgeLineType*(this: Graphic3dAspects): AspectTypeOfLine {.noSideEffect,
     importcpp: "EdgeLineType", header: "Graphic3d_Aspects.hxx".}
-proc SetEdgeLineType*(this: var Graphic3d_Aspects; theType: Aspect_TypeOfLine) {.
+proc setEdgeLineType*(this: var Graphic3dAspects; theType: AspectTypeOfLine) {.
     importcpp: "SetEdgeLineType", header: "Graphic3d_Aspects.hxx".}
-proc EdgeWidth*(this: Graphic3d_Aspects): Standard_ShortReal {.noSideEffect,
+proc edgeWidth*(this: Graphic3dAspects): StandardShortReal {.noSideEffect,
     importcpp: "EdgeWidth", header: "Graphic3d_Aspects.hxx".}
-proc SetEdgeWidth*(this: var Graphic3d_Aspects; theWidth: Standard_Real) {.
+proc setEdgeWidth*(this: var Graphic3dAspects; theWidth: float) {.
     importcpp: "SetEdgeWidth", header: "Graphic3d_Aspects.hxx".}
-proc ToSkipFirstEdge*(this: Graphic3d_Aspects): bool {.noSideEffect,
+proc toSkipFirstEdge*(this: Graphic3dAspects): bool {.noSideEffect,
     importcpp: "ToSkipFirstEdge", header: "Graphic3d_Aspects.hxx".}
-proc SetSkipFirstEdge*(this: var Graphic3d_Aspects; theToSkipFirstEdge: bool) {.
+proc setSkipFirstEdge*(this: var Graphic3dAspects; theToSkipFirstEdge: bool) {.
     importcpp: "SetSkipFirstEdge", header: "Graphic3d_Aspects.hxx".}
-proc ToDrawSilhouette*(this: Graphic3d_Aspects): bool {.noSideEffect,
+proc toDrawSilhouette*(this: Graphic3dAspects): bool {.noSideEffect,
     importcpp: "ToDrawSilhouette", header: "Graphic3d_Aspects.hxx".}
-proc SetDrawSilhouette*(this: var Graphic3d_Aspects; theToDraw: bool) {.
+proc setDrawSilhouette*(this: var Graphic3dAspects; theToDraw: bool) {.
     importcpp: "SetDrawSilhouette", header: "Graphic3d_Aspects.hxx".}
-proc HatchStyle*(this: Graphic3d_Aspects): handle[Graphic3d_HatchStyle] {.
+proc hatchStyle*(this: Graphic3dAspects): Handle[Graphic3dHatchStyle] {.
     noSideEffect, importcpp: "HatchStyle", header: "Graphic3d_Aspects.hxx".}
-proc SetHatchStyle*(this: var Graphic3d_Aspects;
-                   theStyle: handle[Graphic3d_HatchStyle]) {.
+proc setHatchStyle*(this: var Graphic3dAspects;
+                   theStyle: Handle[Graphic3dHatchStyle]) {.
     importcpp: "SetHatchStyle", header: "Graphic3d_Aspects.hxx".}
-proc SetHatchStyle*(this: var Graphic3d_Aspects; theStyle: Aspect_HatchStyle) {.
+proc setHatchStyle*(this: var Graphic3dAspects; theStyle: AspectHatchStyle) {.
     importcpp: "SetHatchStyle", header: "Graphic3d_Aspects.hxx".}
-proc IsEqual*(this: var Graphic3d_Aspects; theOther: Graphic3d_Aspects): bool {.
+proc isEqual*(this: var Graphic3dAspects; theOther: Graphic3dAspects): bool {.
     importcpp: "IsEqual", header: "Graphic3d_Aspects.hxx".}
-proc DumpJson*(this: Graphic3d_Aspects; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Graphic3d_Aspects.hxx".}
+proc dumpJson*(this: Graphic3dAspects; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Graphic3d_Aspects.hxx".}
 discard "forward decl of Graphic3d_Aspects"
 type
-  Handle_Graphic3d_Aspects* = handle[Graphic3d_Aspects]
+  HandleGraphic3dAspects* = Handle[Graphic3dAspects]
+

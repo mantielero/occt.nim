@@ -14,11 +14,12 @@
 ## ! XR action type.
 
 type
-  Aspect_XRActionType* {.size: sizeof(cint), importcpp: "Aspect_XRActionType",
-                        header: "Aspect_XRActionType.hxx".} = enum
-    Aspect_XRActionType_InputDigital, ## !< boolean input (like button)
-    Aspect_XRActionType_InputAnalog, ## !< analog input (1/2/3 axes)
-    Aspect_XRActionType_InputPose, ## !< positional input
-    Aspect_XRActionType_InputSkeletal, ## !< skeletal input
-    Aspect_XRActionType_OutputHaptic ## !< haptic output (vibration)
+  AspectXRActionType* {.size: sizeof(cint), importcpp: "Aspect_XRActionType",
+                       header: "Aspect_XRActionType.hxx".} = enum
+    AspectXRActionTypeInputDigital, ## !< boolean input (like button)
+    AspectXRActionTypeInputAnalog, ## !< analog input (1/2/3 axes)
+    AspectXRActionTypeInputPose, ## !< positional input
+    AspectXRActionTypeInputSkeletal, ## !< skeletal input
+    AspectXRActionTypeOutputHaptic ## !< haptic output (vibration)
+
 

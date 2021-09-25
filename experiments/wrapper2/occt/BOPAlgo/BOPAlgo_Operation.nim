@@ -13,8 +13,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  BOPAlgo_Operation* {.size: sizeof(cint), importcpp: "BOPAlgo_Operation",
-                      header: "BOPAlgo_Operation.hxx".} = enum
-    BOPAlgo_COMMON, BOPAlgo_FUSE, BOPAlgo_CUT, BOPAlgo_CUT21, BOPAlgo_SECTION,
-    BOPAlgo_UNKNOWN
+  BOPAlgoOperation* {.size: sizeof(cint), importcpp: "BOPAlgo_Operation",
+                     header: "BOPAlgo_Operation.hxx".} = enum
+    BOPAlgoCOMMON, BOPAlgoFUSE, BOPAlgoCUT, BOPAlgoCUT21, BOPAlgoSECTION,
+    BOPAlgoUNKNOWN
+
 

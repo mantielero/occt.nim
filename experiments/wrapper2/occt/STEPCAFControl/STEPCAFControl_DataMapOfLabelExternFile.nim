@@ -13,12 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TDF/TDF_Label, STEPCAFControl_ExternFile, ../TDF/TDF_LabelMapHasher,
-  ../NCollection/NCollection_DataMap
-
 type
-  STEPCAFControl_DataMapOfLabelExternFile* = NCollection_DataMap[TDF_Label,
-      handle[STEPCAFControl_ExternFile], TDF_LabelMapHasher]
-  STEPCAFControl_DataMapIteratorOfDataMapOfLabelExternFile* = Iterator[TDF_Label,
-      handle[STEPCAFControl_ExternFile], TDF_LabelMapHasher]
+  STEPCAFControlDataMapOfLabelExternFile* = NCollectionDataMap[TDF_Label,
+      Handle[STEPCAFControlExternFile], TDF_LabelMapHasher]
+  STEPCAFControlDataMapIteratorOfDataMapOfLabelExternFile* = Iterator[TDF_Label,
+      Handle[STEPCAFControlExternFile], TDF_LabelMapHasher]
+

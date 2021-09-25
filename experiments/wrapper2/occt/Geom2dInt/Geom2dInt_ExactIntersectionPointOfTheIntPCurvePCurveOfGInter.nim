@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real,
-  Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter,
-  ../math/math_Vector
-
 discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of Geom2dInt_Geom2dCurveTool"
 discard "forward decl of Geom2dInt_TheProjPCurOfGInter"
@@ -28,32 +21,28 @@ discard "forward decl of Geom2dInt_TheIntPCurvePCurveOfGInter"
 discard "forward decl of Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter"
 discard "forward decl of Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter"
 type
-  Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter* {.importcpp: "Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter", header: "Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter.hxx",
+  Geom2dIntExactIntersectionPointOfTheIntPCurvePCurveOfGInter* {.importcpp: "Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter", header: "Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter.hxx",
       bycopy.} = object
 
 
-proc constructGeom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter*(
-    C1: Adaptor2d_Curve2d; C2: Adaptor2d_Curve2d; Tol: Standard_Real): Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter {.
+proc constructGeom2dIntExactIntersectionPointOfTheIntPCurvePCurveOfGInter*(
+    c1: Adaptor2dCurve2d; c2: Adaptor2dCurve2d; tol: float): Geom2dIntExactIntersectionPointOfTheIntPCurvePCurveOfGInter {.
     constructor, importcpp: "Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter(@)",
     header: "Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter.hxx".}
-proc Perform*(this: var Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter;
-             Poly1: Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter;
-             Poly2: Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter;
-             NumSegOn1: var Standard_Integer; NumSegOn2: var Standard_Integer;
-             ParamOnSeg1: var Standard_Real; ParamOnSeg2: var Standard_Real) {.
+proc perform*(this: var Geom2dIntExactIntersectionPointOfTheIntPCurvePCurveOfGInter;
+             poly1: Geom2dIntThePolygon2dOfTheIntPCurvePCurveOfGInter;
+             poly2: Geom2dIntThePolygon2dOfTheIntPCurvePCurveOfGInter;
+             numSegOn1: var int; numSegOn2: var int; paramOnSeg1: var float;
+             paramOnSeg2: var float) {.importcpp: "Perform", header: "Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter.hxx".}
+proc perform*(this: var Geom2dIntExactIntersectionPointOfTheIntPCurvePCurveOfGInter;
+             uo: float; vo: float; uInf: float; vInf: float; uSup: float; vSup: float) {.
     importcpp: "Perform",
     header: "Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter.hxx".}
-proc Perform*(this: var Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter;
-             Uo: Standard_Real; Vo: Standard_Real; UInf: Standard_Real;
-             VInf: Standard_Real; USup: Standard_Real; VSup: Standard_Real) {.
-    importcpp: "Perform",
-    header: "Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter.hxx".}
-proc NbRoots*(this: Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter): Standard_Integer {.
+proc nbRoots*(this: Geom2dIntExactIntersectionPointOfTheIntPCurvePCurveOfGInter): int {.
     noSideEffect, importcpp: "NbRoots",
     header: "Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter.hxx".}
-proc Roots*(this: var Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter;
-           U: var Standard_Real; V: var Standard_Real) {.importcpp: "Roots",
-    header: "Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter.hxx".}
-proc AnErrorOccurred*(this: Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter): Standard_Boolean {.
+proc roots*(this: var Geom2dIntExactIntersectionPointOfTheIntPCurvePCurveOfGInter;
+           u: var float; v: var float) {.importcpp: "Roots", header: "Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter.hxx".}
+proc anErrorOccurred*(this: Geom2dIntExactIntersectionPointOfTheIntPCurvePCurveOfGInter): bool {.
     noSideEffect, importcpp: "AnErrorOccurred",
     header: "Geom2dInt_ExactIntersectionPointOfTheIntPCurvePCurveOfGInter.hxx".}

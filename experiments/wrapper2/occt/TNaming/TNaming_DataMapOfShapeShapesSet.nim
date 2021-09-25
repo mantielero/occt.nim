@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TopoDS/TopoDS_Shape, TNaming_ShapesSet, ../TopTools/TopTools_ShapeMapHasher,
-  ../NCollection/NCollection_DataMap
-
 type
-  TNaming_DataMapOfShapeShapesSet* = NCollection_DataMap[TopoDS_Shape,
-      TNaming_ShapesSet, TopTools_ShapeMapHasher]
-  TNaming_DataMapIteratorOfDataMapOfShapeShapesSet* = Iterator[TopoDS_Shape,
-      TNaming_ShapesSet, TopTools_ShapeMapHasher]
+  TNamingDataMapOfShapeShapesSet* = NCollectionDataMap[TopoDS_Shape,
+      TNamingShapesSet, TopToolsShapeMapHasher]
+  TNamingDataMapIteratorOfDataMapOfShapeShapesSet* = Iterator[TopoDS_Shape,
+      TNamingShapesSet, TopToolsShapeMapHasher]
+

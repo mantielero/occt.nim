@@ -13,40 +13,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Macro, ../Standard/Standard_Boolean,
-  ../TDataStd/TDataStd_Name, ../TDF/TDF_Label, ../TDF/TDF_LabelSequence
-
 ## ! Tool for edit structure of document.
 
 type
-  XCAFDoc_Editor* {.importcpp: "XCAFDoc_Editor", header: "XCAFDoc_Editor.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Convert
-                                                                                         ## Shape
-                                                                                         ## (compound/compsolid/shell/wire)
-                                                                                         ## to
-                                                                                         ## assembly.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Only
-                                                                                         ## compounds
-                                                                                         ## expanded
-                                                                                         ## recursively
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Get
-                                                                                         ## colors,
-                                                                                         ## layers
-                                                                                         ## and
-                                                                                         ## name
-                                                                                         ## from
-                                                                                         ## Label
+  XCAFDocEditor* {.importcpp: "XCAFDoc_Editor", header: "XCAFDoc_Editor.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Convert
+                                                                                        ## Shape
+                                                                                        ## (compound/compsolid/shell/wire)
+                                                                                        ## to
+                                                                                        ## assembly.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Only
+                                                                                        ## compounds
+                                                                                        ## expanded
+                                                                                        ## recursively
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Get
+                                                                                        ## colors,
+                                                                                        ## layers
+                                                                                        ## and
+                                                                                        ## name
+                                                                                        ## from
+                                                                                        ## Label
 
 
-proc Expand*(Doc: TDF_Label; Shape: TDF_Label;
-            recursively: Standard_Boolean = Standard_True): Standard_Boolean {.
+proc expand*(doc: TDF_Label; shape: TDF_Label; recursively: bool = true): bool {.
     importcpp: "XCAFDoc_Editor::Expand(@)", header: "XCAFDoc_Editor.hxx".}
-proc Expand*(Doc: TDF_Label; recursively: Standard_Boolean = Standard_True): Standard_Boolean {.
+proc expand*(doc: TDF_Label; recursively: bool = true): bool {.
     importcpp: "XCAFDoc_Editor::Expand(@)", header: "XCAFDoc_Editor.hxx".}

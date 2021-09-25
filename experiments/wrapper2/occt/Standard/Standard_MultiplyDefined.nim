@@ -14,16 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_MultiplyDefined_HeaderFile [NewLine] # _Standard_MultiplyDefined_HeaderFile [NewLine] # Standard_Type.hxx [NewLine] # Standard_DefineException.hxx [NewLine] # Standard_SStream.hxx [NewLine] # Standard_DomainError.hxx [NewLine] class Standard_MultiplyDefined ;
+## !!!Ignored construct:  # _Standard_MultiplyDefined_HeaderFile [NewLine] # _Standard_MultiplyDefined_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class Standard_MultiplyDefined ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Standard_MultiplyDefined"
 type
-  Handle_Standard_MultiplyDefinedStandard_MultiplyDefined* = handle[
-      Standard_MultiplyDefined]
+  HandleStandardMultiplyDefinedStandardMultiplyDefined* = Handle[
+      StandardMultiplyDefined]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_MultiplyDefined [NewLine] # if ( CONDITION ) throw Standard_MultiplyDefined ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_MultiplyDefined , Standard_DomainError ) #  _Standard_MultiplyDefined_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_MultiplyDefined , Standard_DomainError ) #  _Standard_MultiplyDefined_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

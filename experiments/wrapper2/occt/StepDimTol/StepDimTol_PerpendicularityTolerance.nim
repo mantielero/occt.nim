@@ -13,37 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepDimTol_GeometricToleranceWithDatumReference
-
 discard "forward decl of StepDimTol_PerpendicularityTolerance"
 discard "forward decl of StepDimTol_PerpendicularityTolerance"
 type
-  Handle_StepDimTol_PerpendicularityTolerance* = handle[
-      StepDimTol_PerpendicularityTolerance]
+  HandleStepDimTolPerpendicularityTolerance* = Handle[
+      StepDimTolPerpendicularityTolerance]
 
 ## ! Representation of STEP entity PerpendicularityTolerance
 
 type
-  StepDimTol_PerpendicularityTolerance* {.
-      importcpp: "StepDimTol_PerpendicularityTolerance",
-      header: "StepDimTol_PerpendicularityTolerance.hxx", bycopy.} = object of StepDimTol_GeometricToleranceWithDatumReference ##
-                                                                                                                        ## !
-                                                                                                                        ## Empty
-                                                                                                                        ## constructor
+  StepDimTolPerpendicularityTolerance* {.importcpp: "StepDimTol_PerpendicularityTolerance", header: "StepDimTol_PerpendicularityTolerance.hxx",
+                                        bycopy.} = object of StepDimTolGeometricToleranceWithDatumReference ##
+                                                                                                       ## !
+                                                                                                       ## Empty
+                                                                                                       ## constructor
 
 
-proc constructStepDimTol_PerpendicularityTolerance*(): StepDimTol_PerpendicularityTolerance {.
+proc constructStepDimTolPerpendicularityTolerance*(): StepDimTolPerpendicularityTolerance {.
     constructor, importcpp: "StepDimTol_PerpendicularityTolerance(@)",
     header: "StepDimTol_PerpendicularityTolerance.hxx".}
 type
-  StepDimTol_PerpendicularityTolerancebase_type* = StepDimTol_GeometricToleranceWithDatumReference
+  StepDimTolPerpendicularityTolerancebaseType* = StepDimTolGeometricToleranceWithDatumReference
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_PerpendicularityTolerance::get_type_name(@)", header: "StepDimTol_PerpendicularityTolerance.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_PerpendicularityTolerance::get_type_name(@)",
+                            header: "StepDimTol_PerpendicularityTolerance.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_PerpendicularityTolerance::get_type_descriptor(@)",
     header: "StepDimTol_PerpendicularityTolerance.hxx".}
-proc DynamicType*(this: StepDimTol_PerpendicularityTolerance): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolPerpendicularityTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_PerpendicularityTolerance.hxx".}

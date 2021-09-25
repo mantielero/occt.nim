@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  LProp_CIType, ../NCollection/NCollection_Sequence
-
 type
-  LProp_SequenceOfCIType* = NCollection_Sequence[LProp_CIType]
+  LPropSequenceOfCIType* = NCollectionSequence[LPropCIType]
+

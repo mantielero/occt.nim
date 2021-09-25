@@ -13,45 +13,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../XmlMDF/XmlMDF_ADriver,
-  ../Standard/Standard_Boolean, ../XmlObjMgt/XmlObjMgt_RRelocationTable,
-  ../XmlObjMgt/XmlObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDataStd_ExtStringListDriver"
 discard "forward decl of XmlMDataStd_ExtStringListDriver"
 type
-  Handle_XmlMDataStd_ExtStringListDriver* = handle[XmlMDataStd_ExtStringListDriver]
-  XmlMDataStd_ExtStringListDriver* {.importcpp: "XmlMDataStd_ExtStringListDriver", header: "XmlMDataStd_ExtStringListDriver.hxx",
-                                    bycopy.} = object of XmlMDF_ADriver
+  HandleXmlMDataStdExtStringListDriver* = Handle[XmlMDataStdExtStringListDriver]
+  XmlMDataStdExtStringListDriver* {.importcpp: "XmlMDataStd_ExtStringListDriver", header: "XmlMDataStd_ExtStringListDriver.hxx",
+                                   bycopy.} = object of XmlMDF_ADriver
 
 
-proc constructXmlMDataStd_ExtStringListDriver*(
-    theMessageDriver: handle[Message_Messenger]): XmlMDataStd_ExtStringListDriver {.
+proc constructXmlMDataStdExtStringListDriver*(
+    theMessageDriver: Handle[MessageMessenger]): XmlMDataStdExtStringListDriver {.
     constructor, importcpp: "XmlMDataStd_ExtStringListDriver(@)",
     header: "XmlMDataStd_ExtStringListDriver.hxx".}
-proc NewEmpty*(this: XmlMDataStd_ExtStringListDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: XmlMDataStdExtStringListDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty",
     header: "XmlMDataStd_ExtStringListDriver.hxx".}
-proc Paste*(this: XmlMDataStd_ExtStringListDriver; Source: XmlObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var XmlObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "XmlMDataStd_ExtStringListDriver.hxx".}
-proc Paste*(this: XmlMDataStd_ExtStringListDriver; Source: handle[TDF_Attribute];
-           Target: var XmlObjMgt_Persistent;
-           RelocTable: var XmlObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: XmlMDataStdExtStringListDriver; source: XmlObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var XmlObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "XmlMDataStd_ExtStringListDriver.hxx".}
+proc paste*(this: XmlMDataStdExtStringListDriver; source: Handle[TDF_Attribute];
+           target: var XmlObjMgtPersistent;
+           relocTable: var XmlObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "XmlMDataStd_ExtStringListDriver.hxx".}
 type
-  XmlMDataStd_ExtStringListDriverbase_type* = XmlMDF_ADriver
+  XmlMDataStdExtStringListDriverbaseType* = XmlMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "XmlMDataStd_ExtStringListDriver::get_type_name(@)",
-                              header: "XmlMDataStd_ExtStringListDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XmlMDataStd_ExtStringListDriver::get_type_name(@)",
+                            header: "XmlMDataStd_ExtStringListDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XmlMDataStd_ExtStringListDriver::get_type_descriptor(@)",
     header: "XmlMDataStd_ExtStringListDriver.hxx".}
-proc DynamicType*(this: XmlMDataStd_ExtStringListDriver): handle[Standard_Type] {.
+proc dynamicType*(this: XmlMDataStdExtStringListDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMDataStd_ExtStringListDriver.hxx".}

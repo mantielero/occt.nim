@@ -14,44 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  BRep_PointsOnSurface, ../Standard/Standard_Boolean
-
 discard "forward decl of Geom_Surface"
 discard "forward decl of TopLoc_Location"
 discard "forward decl of BRep_PointOnSurface"
 discard "forward decl of BRep_PointOnSurface"
 type
-  Handle_BRep_PointOnSurface* = handle[BRep_PointOnSurface]
+  HandleBRepPointOnSurface* = Handle[BRepPointOnSurface]
 
 ## ! Representation by two parameters on a surface.
 
 type
-  BRep_PointOnSurface* {.importcpp: "BRep_PointOnSurface",
-                        header: "BRep_PointOnSurface.hxx", bycopy.} = object of BRep_PointsOnSurface
+  BRepPointOnSurface* {.importcpp: "BRep_PointOnSurface",
+                       header: "BRep_PointOnSurface.hxx", bycopy.} = object of BRepPointsOnSurface
 
 
-proc constructBRep_PointOnSurface*(P1: Standard_Real; P2: Standard_Real;
-                                  S: handle[Geom_Surface]; L: TopLoc_Location): BRep_PointOnSurface {.
+proc constructBRepPointOnSurface*(p1: float; p2: float; s: Handle[GeomSurface];
+                                 L: TopLocLocation): BRepPointOnSurface {.
     constructor, importcpp: "BRep_PointOnSurface(@)",
     header: "BRep_PointOnSurface.hxx".}
-proc IsPointOnSurface*(this: BRep_PointOnSurface): Standard_Boolean {.noSideEffect,
+proc isPointOnSurface*(this: BRepPointOnSurface): bool {.noSideEffect,
     importcpp: "IsPointOnSurface", header: "BRep_PointOnSurface.hxx".}
-proc IsPointOnSurface*(this: BRep_PointOnSurface; S: handle[Geom_Surface];
-                      L: TopLoc_Location): Standard_Boolean {.noSideEffect,
+proc isPointOnSurface*(this: BRepPointOnSurface; s: Handle[GeomSurface];
+                      L: TopLocLocation): bool {.noSideEffect,
     importcpp: "IsPointOnSurface", header: "BRep_PointOnSurface.hxx".}
-proc Parameter2*(this: BRep_PointOnSurface): Standard_Real {.noSideEffect,
+proc parameter2*(this: BRepPointOnSurface): float {.noSideEffect,
     importcpp: "Parameter2", header: "BRep_PointOnSurface.hxx".}
-proc Parameter2*(this: var BRep_PointOnSurface; P: Standard_Real) {.
-    importcpp: "Parameter2", header: "BRep_PointOnSurface.hxx".}
+proc parameter2*(this: var BRepPointOnSurface; p: float) {.importcpp: "Parameter2",
+    header: "BRep_PointOnSurface.hxx".}
 type
-  BRep_PointOnSurfacebase_type* = BRep_PointsOnSurface
+  BRepPointOnSurfacebaseType* = BRepPointsOnSurface
 
-proc get_type_name*(): cstring {.importcpp: "BRep_PointOnSurface::get_type_name(@)",
-                              header: "BRep_PointOnSurface.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BRep_PointOnSurface::get_type_name(@)",
+                            header: "BRep_PointOnSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRep_PointOnSurface::get_type_descriptor(@)",
     header: "BRep_PointOnSurface.hxx".}
-proc DynamicType*(this: BRep_PointOnSurface): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: BRepPointOnSurface): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRep_PointOnSurface.hxx".}

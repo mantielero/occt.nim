@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../TColStd/TColStd_HArray1OfInteger,
-  IGESAppli_HArray1OfNode, ../TColStd/TColStd_HArray2OfReal,
-  ../IGESData/IGESData_IGESEntity
-
 discard "forward decl of IGESDimen_GeneralNote"
 discard "forward decl of Standard_DimensionMismatch"
 discard "forward decl of Standard_OutOfRange"
@@ -27,52 +21,50 @@ discard "forward decl of IGESAppli_Node"
 discard "forward decl of IGESAppli_NodalResults"
 discard "forward decl of IGESAppli_NodalResults"
 type
-  Handle_IGESAppli_NodalResults* = handle[IGESAppli_NodalResults]
+  HandleIGESAppliNodalResults* = Handle[IGESAppliNodalResults]
 
 ## ! defines NodalResults, Type <146>
 ## ! in package IGESAppli
 ## ! Used to store the Analysis Data results per FEM Node
 
 type
-  IGESAppli_NodalResults* {.importcpp: "IGESAppli_NodalResults",
-                           header: "IGESAppli_NodalResults.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESAppliNodalResults* {.importcpp: "IGESAppli_NodalResults",
+                          header: "IGESAppli_NodalResults.hxx", bycopy.} = object of IGESDataIGESEntity
 
 
-proc constructIGESAppli_NodalResults*(): IGESAppli_NodalResults {.constructor,
+proc constructIGESAppliNodalResults*(): IGESAppliNodalResults {.constructor,
     importcpp: "IGESAppli_NodalResults(@)", header: "IGESAppli_NodalResults.hxx".}
-proc Init*(this: var IGESAppli_NodalResults; aNote: handle[IGESDimen_GeneralNote];
-          aNumber: Standard_Integer; aTime: Standard_Real;
-          allNodeIdentifiers: handle[TColStd_HArray1OfInteger];
-          allNodes: handle[IGESAppli_HArray1OfNode];
-          allData: handle[TColStd_HArray2OfReal]) {.importcpp: "Init",
+proc init*(this: var IGESAppliNodalResults; aNote: Handle[IGESDimenGeneralNote];
+          aNumber: int; aTime: float;
+          allNodeIdentifiers: Handle[TColStdHArray1OfInteger];
+          allNodes: Handle[IGESAppliHArray1OfNode];
+          allData: Handle[TColStdHArray2OfReal]) {.importcpp: "Init",
     header: "IGESAppli_NodalResults.hxx".}
-proc SetFormNumber*(this: var IGESAppli_NodalResults; form: Standard_Integer) {.
+proc setFormNumber*(this: var IGESAppliNodalResults; form: int) {.
     importcpp: "SetFormNumber", header: "IGESAppli_NodalResults.hxx".}
-proc Note*(this: IGESAppli_NodalResults): handle[IGESDimen_GeneralNote] {.
+proc note*(this: IGESAppliNodalResults): Handle[IGESDimenGeneralNote] {.
     noSideEffect, importcpp: "Note", header: "IGESAppli_NodalResults.hxx".}
-proc SubCaseNumber*(this: IGESAppli_NodalResults): Standard_Integer {.noSideEffect,
+proc subCaseNumber*(this: IGESAppliNodalResults): int {.noSideEffect,
     importcpp: "SubCaseNumber", header: "IGESAppli_NodalResults.hxx".}
-proc Time*(this: IGESAppli_NodalResults): Standard_Real {.noSideEffect,
-    importcpp: "Time", header: "IGESAppli_NodalResults.hxx".}
-proc NbData*(this: IGESAppli_NodalResults): Standard_Integer {.noSideEffect,
-    importcpp: "NbData", header: "IGESAppli_NodalResults.hxx".}
-proc NbNodes*(this: IGESAppli_NodalResults): Standard_Integer {.noSideEffect,
-    importcpp: "NbNodes", header: "IGESAppli_NodalResults.hxx".}
-proc NodeIdentifier*(this: IGESAppli_NodalResults; Index: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "NodeIdentifier", header: "IGESAppli_NodalResults.hxx".}
-proc Node*(this: IGESAppli_NodalResults; Index: Standard_Integer): handle[
-    IGESAppli_Node] {.noSideEffect, importcpp: "Node",
-                     header: "IGESAppli_NodalResults.hxx".}
-proc Data*(this: IGESAppli_NodalResults; NodeNum: Standard_Integer;
-          DataNum: Standard_Integer): Standard_Real {.noSideEffect,
-    importcpp: "Data", header: "IGESAppli_NodalResults.hxx".}
+proc time*(this: IGESAppliNodalResults): float {.noSideEffect, importcpp: "Time",
+    header: "IGESAppli_NodalResults.hxx".}
+proc nbData*(this: IGESAppliNodalResults): int {.noSideEffect, importcpp: "NbData",
+    header: "IGESAppli_NodalResults.hxx".}
+proc nbNodes*(this: IGESAppliNodalResults): int {.noSideEffect, importcpp: "NbNodes",
+    header: "IGESAppli_NodalResults.hxx".}
+proc nodeIdentifier*(this: IGESAppliNodalResults; index: int): int {.noSideEffect,
+    importcpp: "NodeIdentifier", header: "IGESAppli_NodalResults.hxx".}
+proc node*(this: IGESAppliNodalResults; index: int): Handle[IGESAppliNode] {.
+    noSideEffect, importcpp: "Node", header: "IGESAppli_NodalResults.hxx".}
+proc data*(this: IGESAppliNodalResults; nodeNum: int; dataNum: int): float {.
+    noSideEffect, importcpp: "Data", header: "IGESAppli_NodalResults.hxx".}
 type
-  IGESAppli_NodalResultsbase_type* = IGESData_IGESEntity
+  IGESAppliNodalResultsbaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESAppli_NodalResults::get_type_name(@)",
-                              header: "IGESAppli_NodalResults.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESAppli_NodalResults::get_type_name(@)",
+                            header: "IGESAppli_NodalResults.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESAppli_NodalResults::get_type_descriptor(@)",
     header: "IGESAppli_NodalResults.hxx".}
-proc DynamicType*(this: IGESAppli_NodalResults): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "IGESAppli_NodalResults.hxx".}
+proc dynamicType*(this: IGESAppliNodalResults): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IGESAppli_NodalResults.hxx".}

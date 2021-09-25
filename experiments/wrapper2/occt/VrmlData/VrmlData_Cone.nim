@@ -13,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  VrmlData_Geometry
-
 ## *
 ##   Implementation of the Cone node.
 ##   The cone is located with its middle of the height segment in (0., 0., 0.)
@@ -23,56 +20,55 @@ import
 ##
 
 type
-  VrmlData_Cone* {.importcpp: "VrmlData_Cone", header: "VrmlData_Cone.hxx", bycopy.} = object of VrmlData_Geometry ##  ---------- PUBLIC METHODS ----------
-                                                                                                         ## *
-                                                                                                         ##  Empty constructor
-                                                                                                         ##
-                                                                                                         ##  ---------- PROTECTED METHODS ----------
-                                                                                                         ##  ---------- PRIVATE FIELDS ----------
-                                                                                                         ##  Declaration of CASCADE RTTI
+  VrmlDataCone* {.importcpp: "VrmlData_Cone", header: "VrmlData_Cone.hxx", bycopy.} = object of VrmlDataGeometry ##  ---------- PUBLIC METHODS ----------
+                                                                                                       ## *
+                                                                                                       ##  Empty constructor
+                                                                                                       ##
+                                                                                                       ##  ---------- PROTECTED METHODS ----------
+                                                                                                       ##  ---------- PRIVATE FIELDS ----------
+                                                                                                       ##  Declaration of CASCADE RTTI
 
 
-proc constructVrmlData_Cone*(): VrmlData_Cone {.constructor,
+proc constructVrmlDataCone*(): VrmlDataCone {.constructor,
     importcpp: "VrmlData_Cone(@)", header: "VrmlData_Cone.hxx".}
-proc constructVrmlData_Cone*(theScene: VrmlData_Scene; theName: cstring;
-                            theBottomRadius: Standard_Real = 1.0;
-                            theHeight: Standard_Real = 2.0): VrmlData_Cone {.
+proc constructVrmlDataCone*(theScene: VrmlDataScene; theName: cstring;
+                           theBottomRadius: float = 1.0; theHeight: float = 2.0): VrmlDataCone {.
     constructor, importcpp: "VrmlData_Cone(@)", header: "VrmlData_Cone.hxx".}
-proc BottomRadius*(this: VrmlData_Cone): Standard_Real {.noSideEffect,
+proc bottomRadius*(this: VrmlDataCone): float {.noSideEffect,
     importcpp: "BottomRadius", header: "VrmlData_Cone.hxx".}
-proc Height*(this: VrmlData_Cone): Standard_Real {.noSideEffect, importcpp: "Height",
-    header: "VrmlData_Cone.hxx".}
-proc HasBottom*(this: VrmlData_Cone): Standard_Boolean {.noSideEffect,
-    importcpp: "HasBottom", header: "VrmlData_Cone.hxx".}
-proc HasSide*(this: VrmlData_Cone): Standard_Boolean {.noSideEffect,
-    importcpp: "HasSide", header: "VrmlData_Cone.hxx".}
-proc SetBottomRadius*(this: var VrmlData_Cone; theRadius: Standard_Real) {.
+proc height*(this: VrmlDataCone): float {.noSideEffect, importcpp: "Height",
+                                      header: "VrmlData_Cone.hxx".}
+proc hasBottom*(this: VrmlDataCone): bool {.noSideEffect, importcpp: "HasBottom",
+                                        header: "VrmlData_Cone.hxx".}
+proc hasSide*(this: VrmlDataCone): bool {.noSideEffect, importcpp: "HasSide",
+                                      header: "VrmlData_Cone.hxx".}
+proc setBottomRadius*(this: var VrmlDataCone; theRadius: float) {.
     importcpp: "SetBottomRadius", header: "VrmlData_Cone.hxx".}
-proc SetHeight*(this: var VrmlData_Cone; theHeight: Standard_Real) {.
-    importcpp: "SetHeight", header: "VrmlData_Cone.hxx".}
-proc SetFaces*(this: var VrmlData_Cone; hasBottom: Standard_Boolean;
-              hasSide: Standard_Boolean) {.importcpp: "SetFaces",
+proc setHeight*(this: var VrmlDataCone; theHeight: float) {.importcpp: "SetHeight",
     header: "VrmlData_Cone.hxx".}
-proc TShape*(this: var VrmlData_Cone): handle[TopoDS_TShape] {.importcpp: "TShape",
+proc setFaces*(this: var VrmlDataCone; hasBottom: bool; hasSide: bool) {.
+    importcpp: "SetFaces", header: "VrmlData_Cone.hxx".}
+proc tShape*(this: var VrmlDataCone): Handle[TopoDS_TShape] {.importcpp: "TShape",
     header: "VrmlData_Cone.hxx".}
-proc Clone*(this: VrmlData_Cone; theOther: handle[VrmlData_Node]): handle[
-    VrmlData_Node] {.noSideEffect, importcpp: "Clone", header: "VrmlData_Cone.hxx".}
-proc Read*(this: var VrmlData_Cone; theBuffer: var VrmlData_InBuffer): VrmlData_ErrorStatus {.
+proc clone*(this: VrmlDataCone; theOther: Handle[VrmlDataNode]): Handle[VrmlDataNode] {.
+    noSideEffect, importcpp: "Clone", header: "VrmlData_Cone.hxx".}
+proc read*(this: var VrmlDataCone; theBuffer: var VrmlDataInBuffer): VrmlDataErrorStatus {.
     importcpp: "Read", header: "VrmlData_Cone.hxx".}
-proc Write*(this: VrmlData_Cone; thePrefix: cstring): VrmlData_ErrorStatus {.
+proc write*(this: VrmlDataCone; thePrefix: cstring): VrmlDataErrorStatus {.
     noSideEffect, importcpp: "Write", header: "VrmlData_Cone.hxx".}
 type
-  VrmlData_Conebase_type* = VrmlData_Geometry
+  VrmlDataConebaseType* = VrmlDataGeometry
 
-proc get_type_name*(): cstring {.importcpp: "VrmlData_Cone::get_type_name(@)",
-                              header: "VrmlData_Cone.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "VrmlData_Cone::get_type_name(@)",
+                            header: "VrmlData_Cone.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "VrmlData_Cone::get_type_descriptor(@)",
     header: "VrmlData_Cone.hxx".}
-proc DynamicType*(this: VrmlData_Cone): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: VrmlDataCone): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "VrmlData_Cone.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of VrmlData_Cone"
 type
-  Handle_VrmlData_Cone* = handle[VrmlData_Cone]
+  HandleVrmlDataCone* = Handle[VrmlDataCone]
+

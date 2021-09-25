@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../TColgp/TColgp_HArray1OfPnt, ../TColStd/TColStd_HArray1OfReal,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real, Geom_BoundedCurve,
-  ../TColgp/TColgp_Array1OfPnt, ../TColStd/TColStd_Array1OfReal,
-  ../GeomAbs/GeomAbs_Shape, ../BSplCLib/BSplCLib
-
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of Standard_RangeError"
@@ -32,7 +25,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_BezierCurve"
 discard "forward decl of Geom_BezierCurve"
 type
-  Handle_Geom_BezierCurve* = handle[Geom_BezierCurve]
+  HandleGeomBezierCurve* = Handle[GeomBezierCurve]
 
 ## ! Describes a rational or non-rational Bezier curve
 ## ! - a non-rational Bezier curve is defined by a table of
@@ -85,216 +78,112 @@ type
 ## ! - The length of a Bezier curve can be null.
 
 type
-  Geom_BezierCurve* {.importcpp: "Geom_BezierCurve",
-                     header: "Geom_BezierCurve.hxx", bycopy.} = object of Geom_BoundedCurve ##
-                                                                                     ## !
-                                                                                     ## Creates
-                                                                                     ## a
-                                                                                     ## non
-                                                                                     ## rational
-                                                                                     ## Bezier
-                                                                                     ## curve
-                                                                                     ## with
-                                                                                     ## a
-                                                                                     ## set
-                                                                                     ## of
-                                                                                     ## poles
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## CurvePoles.
-                                                                                     ## The
-                                                                                     ## weights
-                                                                                     ## are
-                                                                                     ## defaulted
-                                                                                     ## to
-                                                                                     ## all
-                                                                                     ## being
-                                                                                     ## 1.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Raises
-                                                                                     ## ConstructionError
-                                                                                     ## if
-                                                                                     ## the
-                                                                                     ## number
-                                                                                     ## of
-                                                                                     ## poles
-                                                                                     ## is
-                                                                                     ## greater
-                                                                                     ## than
-                                                                                     ## MaxDegree
-                                                                                     ## +
-                                                                                     ## 1
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## or
-                                                                                     ## lower
-                                                                                     ## than
-                                                                                     ## 2.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Set
-                                                                                     ## poles
-                                                                                     ## to
-                                                                                     ## Poles,
-                                                                                     ## weights
-                                                                                     ## to
-                                                                                     ## Weights
-                                                                                     ## (not
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## copied).
-                                                                                     ## If
-                                                                                     ## Weights
-                                                                                     ## is
-                                                                                     ## null
-                                                                                     ## the
-                                                                                     ## curve
-                                                                                     ## is
-                                                                                     ## non
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## rational.
-                                                                                     ## Create
-                                                                                     ## the
-                                                                                     ## arrays
-                                                                                     ## of
-                                                                                     ## coefficients.
-                                                                                     ## Poles
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## and
-                                                                                     ## Weights
-                                                                                     ## are
-                                                                                     ## assumed
-                                                                                     ## to
-                                                                                     ## have
-                                                                                     ## the
-                                                                                     ## first
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## coefficient
-                                                                                     ## 1.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Update
-                                                                                     ## rational
-                                                                                     ## and
-                                                                                     ## closed.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## if
-                                                                                     ## nbpoles
-                                                                                     ## <
-                                                                                     ## 2
-                                                                                     ## or
-                                                                                     ## nbboles
-                                                                                     ## >
-                                                                                     ## MaDegree
-                                                                                     ## +
-                                                                                     ## 1
+  GeomBezierCurve* {.importcpp: "Geom_BezierCurve", header: "Geom_BezierCurve.hxx",
+                    bycopy.} = object of GeomBoundedCurve ## ! Creates a non rational Bezier curve with a set of poles
+                                                     ## ! CurvePoles.  The weights are defaulted to all being 1.
+                                                     ## ! Raises ConstructionError if the number of poles is greater than MaxDegree + 1
+                                                     ## ! or lower than 2.
+                                                     ## ! Set  poles  to  Poles,  weights to  Weights  (not
+                                                     ## ! copied). If Weights is   null  the  curve is    non
+                                                     ## ! rational. Create the arrays of coefficients.  Poles
+                                                     ## ! and    Weights  are   assumed   to  have the  first
+                                                     ## ! coefficient 1.
+                                                     ## ! Update rational and closed.
+                                                     ## !
+                                                     ## ! if nbpoles < 2 or nbboles > MaDegree + 1
 
 
-proc constructGeom_BezierCurve*(CurvePoles: TColgp_Array1OfPnt): Geom_BezierCurve {.
+proc constructGeomBezierCurve*(curvePoles: TColgpArray1OfPnt): GeomBezierCurve {.
     constructor, importcpp: "Geom_BezierCurve(@)", header: "Geom_BezierCurve.hxx".}
-proc constructGeom_BezierCurve*(CurvePoles: TColgp_Array1OfPnt;
-                               PoleWeights: TColStd_Array1OfReal): Geom_BezierCurve {.
+proc constructGeomBezierCurve*(curvePoles: TColgpArray1OfPnt;
+                              poleWeights: TColStdArray1OfReal): GeomBezierCurve {.
     constructor, importcpp: "Geom_BezierCurve(@)", header: "Geom_BezierCurve.hxx".}
-proc Increase*(this: var Geom_BezierCurve; Degree: Standard_Integer) {.
-    importcpp: "Increase", header: "Geom_BezierCurve.hxx".}
-proc InsertPoleAfter*(this: var Geom_BezierCurve; Index: Standard_Integer; P: gp_Pnt) {.
+proc increase*(this: var GeomBezierCurve; degree: int) {.importcpp: "Increase",
+    header: "Geom_BezierCurve.hxx".}
+proc insertPoleAfter*(this: var GeomBezierCurve; index: int; p: Pnt) {.
     importcpp: "InsertPoleAfter", header: "Geom_BezierCurve.hxx".}
-proc InsertPoleAfter*(this: var Geom_BezierCurve; Index: Standard_Integer; P: gp_Pnt;
-                     Weight: Standard_Real) {.importcpp: "InsertPoleAfter",
-    header: "Geom_BezierCurve.hxx".}
-proc InsertPoleBefore*(this: var Geom_BezierCurve; Index: Standard_Integer; P: gp_Pnt) {.
+proc insertPoleAfter*(this: var GeomBezierCurve; index: int; p: Pnt; weight: float) {.
+    importcpp: "InsertPoleAfter", header: "Geom_BezierCurve.hxx".}
+proc insertPoleBefore*(this: var GeomBezierCurve; index: int; p: Pnt) {.
     importcpp: "InsertPoleBefore", header: "Geom_BezierCurve.hxx".}
-proc InsertPoleBefore*(this: var Geom_BezierCurve; Index: Standard_Integer; P: gp_Pnt;
-                      Weight: Standard_Real) {.importcpp: "InsertPoleBefore",
+proc insertPoleBefore*(this: var GeomBezierCurve; index: int; p: Pnt; weight: float) {.
+    importcpp: "InsertPoleBefore", header: "Geom_BezierCurve.hxx".}
+proc removePole*(this: var GeomBezierCurve; index: int) {.importcpp: "RemovePole",
     header: "Geom_BezierCurve.hxx".}
-proc RemovePole*(this: var Geom_BezierCurve; Index: Standard_Integer) {.
-    importcpp: "RemovePole", header: "Geom_BezierCurve.hxx".}
-proc Reverse*(this: var Geom_BezierCurve) {.importcpp: "Reverse",
-                                        header: "Geom_BezierCurve.hxx".}
-proc ReversedParameter*(this: Geom_BezierCurve; U: Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "ReversedParameter", header: "Geom_BezierCurve.hxx".}
-proc Segment*(this: var Geom_BezierCurve; U1: Standard_Real; U2: Standard_Real) {.
-    importcpp: "Segment", header: "Geom_BezierCurve.hxx".}
-proc SetPole*(this: var Geom_BezierCurve; Index: Standard_Integer; P: gp_Pnt) {.
+proc reverse*(this: var GeomBezierCurve) {.importcpp: "Reverse",
+                                       header: "Geom_BezierCurve.hxx".}
+proc reversedParameter*(this: GeomBezierCurve; u: float): float {.noSideEffect,
+    importcpp: "ReversedParameter", header: "Geom_BezierCurve.hxx".}
+proc segment*(this: var GeomBezierCurve; u1: float; u2: float) {.importcpp: "Segment",
+    header: "Geom_BezierCurve.hxx".}
+proc setPole*(this: var GeomBezierCurve; index: int; p: Pnt) {.importcpp: "SetPole",
+    header: "Geom_BezierCurve.hxx".}
+proc setPole*(this: var GeomBezierCurve; index: int; p: Pnt; weight: float) {.
     importcpp: "SetPole", header: "Geom_BezierCurve.hxx".}
-proc SetPole*(this: var Geom_BezierCurve; Index: Standard_Integer; P: gp_Pnt;
-             Weight: Standard_Real) {.importcpp: "SetPole",
-                                    header: "Geom_BezierCurve.hxx".}
-proc SetWeight*(this: var Geom_BezierCurve; Index: Standard_Integer;
-               Weight: Standard_Real) {.importcpp: "SetWeight",
-                                      header: "Geom_BezierCurve.hxx".}
-proc IsClosed*(this: Geom_BezierCurve): Standard_Boolean {.noSideEffect,
-    importcpp: "IsClosed", header: "Geom_BezierCurve.hxx".}
-proc IsCN*(this: Geom_BezierCurve; N: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsCN", header: "Geom_BezierCurve.hxx".}
-proc IsPeriodic*(this: Geom_BezierCurve): Standard_Boolean {.noSideEffect,
+proc setWeight*(this: var GeomBezierCurve; index: int; weight: float) {.
+    importcpp: "SetWeight", header: "Geom_BezierCurve.hxx".}
+proc isClosed*(this: GeomBezierCurve): bool {.noSideEffect, importcpp: "IsClosed",
+    header: "Geom_BezierCurve.hxx".}
+proc isCN*(this: GeomBezierCurve; n: int): bool {.noSideEffect, importcpp: "IsCN",
+    header: "Geom_BezierCurve.hxx".}
+proc isPeriodic*(this: GeomBezierCurve): bool {.noSideEffect,
     importcpp: "IsPeriodic", header: "Geom_BezierCurve.hxx".}
-proc IsRational*(this: Geom_BezierCurve): Standard_Boolean {.noSideEffect,
+proc isRational*(this: GeomBezierCurve): bool {.noSideEffect,
     importcpp: "IsRational", header: "Geom_BezierCurve.hxx".}
-proc Continuity*(this: Geom_BezierCurve): GeomAbs_Shape {.noSideEffect,
+proc continuity*(this: GeomBezierCurve): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Geom_BezierCurve.hxx".}
-proc Degree*(this: Geom_BezierCurve): Standard_Integer {.noSideEffect,
-    importcpp: "Degree", header: "Geom_BezierCurve.hxx".}
-proc D0*(this: Geom_BezierCurve; U: Standard_Real; P: var gp_Pnt) {.noSideEffect,
-    importcpp: "D0", header: "Geom_BezierCurve.hxx".}
-proc D1*(this: Geom_BezierCurve; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec) {.
-    noSideEffect, importcpp: "D1", header: "Geom_BezierCurve.hxx".}
-proc D2*(this: Geom_BezierCurve; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
-        V2: var gp_Vec) {.noSideEffect, importcpp: "D2",
-                       header: "Geom_BezierCurve.hxx".}
-proc D3*(this: Geom_BezierCurve; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
-        V2: var gp_Vec; V3: var gp_Vec) {.noSideEffect, importcpp: "D3",
-                                    header: "Geom_BezierCurve.hxx".}
-proc DN*(this: Geom_BezierCurve; U: Standard_Real; N: Standard_Integer): gp_Vec {.
-    noSideEffect, importcpp: "DN", header: "Geom_BezierCurve.hxx".}
-proc StartPoint*(this: Geom_BezierCurve): gp_Pnt {.noSideEffect,
-    importcpp: "StartPoint", header: "Geom_BezierCurve.hxx".}
-proc EndPoint*(this: Geom_BezierCurve): gp_Pnt {.noSideEffect, importcpp: "EndPoint",
+proc degree*(this: GeomBezierCurve): int {.noSideEffect, importcpp: "Degree",
+                                       header: "Geom_BezierCurve.hxx".}
+proc d0*(this: GeomBezierCurve; u: float; p: var Pnt) {.noSideEffect, importcpp: "D0",
     header: "Geom_BezierCurve.hxx".}
-proc FirstParameter*(this: Geom_BezierCurve): Standard_Real {.noSideEffect,
+proc d1*(this: GeomBezierCurve; u: float; p: var Pnt; v1: var Vec) {.noSideEffect,
+    importcpp: "D1", header: "Geom_BezierCurve.hxx".}
+proc d2*(this: GeomBezierCurve; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.
+    noSideEffect, importcpp: "D2", header: "Geom_BezierCurve.hxx".}
+proc d3*(this: GeomBezierCurve; u: float; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+    noSideEffect, importcpp: "D3", header: "Geom_BezierCurve.hxx".}
+proc dn*(this: GeomBezierCurve; u: float; n: int): Vec {.noSideEffect, importcpp: "DN",
+    header: "Geom_BezierCurve.hxx".}
+proc startPoint*(this: GeomBezierCurve): Pnt {.noSideEffect, importcpp: "StartPoint",
+    header: "Geom_BezierCurve.hxx".}
+proc endPoint*(this: GeomBezierCurve): Pnt {.noSideEffect, importcpp: "EndPoint",
+    header: "Geom_BezierCurve.hxx".}
+proc firstParameter*(this: GeomBezierCurve): float {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom_BezierCurve.hxx".}
-proc LastParameter*(this: Geom_BezierCurve): Standard_Real {.noSideEffect,
+proc lastParameter*(this: GeomBezierCurve): float {.noSideEffect,
     importcpp: "LastParameter", header: "Geom_BezierCurve.hxx".}
-proc NbPoles*(this: Geom_BezierCurve): Standard_Integer {.noSideEffect,
-    importcpp: "NbPoles", header: "Geom_BezierCurve.hxx".}
-proc Pole*(this: Geom_BezierCurve; Index: Standard_Integer): gp_Pnt {.noSideEffect,
-    importcpp: "Pole", header: "Geom_BezierCurve.hxx".}
-proc Poles*(this: Geom_BezierCurve; P: var TColgp_Array1OfPnt) {.noSideEffect,
-    importcpp: "Poles", header: "Geom_BezierCurve.hxx".}
-proc Poles*(this: Geom_BezierCurve): TColgp_Array1OfPnt {.noSideEffect,
-    importcpp: "Poles", header: "Geom_BezierCurve.hxx".}
-proc Weight*(this: Geom_BezierCurve; Index: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "Weight", header: "Geom_BezierCurve.hxx".}
-proc Weights*(this: Geom_BezierCurve; W: var TColStd_Array1OfReal) {.noSideEffect,
-    importcpp: "Weights", header: "Geom_BezierCurve.hxx".}
-proc Weights*(this: Geom_BezierCurve): ptr TColStd_Array1OfReal {.noSideEffect,
-    importcpp: "Weights", header: "Geom_BezierCurve.hxx".}
-proc Transform*(this: var Geom_BezierCurve; T: gp_Trsf) {.importcpp: "Transform",
+proc nbPoles*(this: GeomBezierCurve): int {.noSideEffect, importcpp: "NbPoles",
+                                        header: "Geom_BezierCurve.hxx".}
+proc pole*(this: GeomBezierCurve; index: int): Pnt {.noSideEffect, importcpp: "Pole",
     header: "Geom_BezierCurve.hxx".}
-proc MaxDegree*(): Standard_Integer {.importcpp: "Geom_BezierCurve::MaxDegree(@)",
-                                   header: "Geom_BezierCurve.hxx".}
-proc Resolution*(this: var Geom_BezierCurve; Tolerance3D: Standard_Real;
-                UTolerance: var Standard_Real) {.importcpp: "Resolution",
+proc poles*(this: GeomBezierCurve; p: var TColgpArray1OfPnt) {.noSideEffect,
+    importcpp: "Poles", header: "Geom_BezierCurve.hxx".}
+proc poles*(this: GeomBezierCurve): TColgpArray1OfPnt {.noSideEffect,
+    importcpp: "Poles", header: "Geom_BezierCurve.hxx".}
+proc weight*(this: GeomBezierCurve; index: int): float {.noSideEffect,
+    importcpp: "Weight", header: "Geom_BezierCurve.hxx".}
+proc weights*(this: GeomBezierCurve; w: var TColStdArray1OfReal) {.noSideEffect,
+    importcpp: "Weights", header: "Geom_BezierCurve.hxx".}
+proc weights*(this: GeomBezierCurve): ptr TColStdArray1OfReal {.noSideEffect,
+    importcpp: "Weights", header: "Geom_BezierCurve.hxx".}
+proc transform*(this: var GeomBezierCurve; t: Trsf) {.importcpp: "Transform",
     header: "Geom_BezierCurve.hxx".}
-proc Copy*(this: Geom_BezierCurve): handle[Geom_Geometry] {.noSideEffect,
+proc maxDegree*(): int {.importcpp: "Geom_BezierCurve::MaxDegree(@)",
+                      header: "Geom_BezierCurve.hxx".}
+proc resolution*(this: var GeomBezierCurve; tolerance3D: float; uTolerance: var float) {.
+    importcpp: "Resolution", header: "Geom_BezierCurve.hxx".}
+proc copy*(this: GeomBezierCurve): Handle[GeomGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_BezierCurve.hxx".}
-proc DumpJson*(this: Geom_BezierCurve; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "Geom_BezierCurve.hxx".}
+proc dumpJson*(this: GeomBezierCurve; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Geom_BezierCurve.hxx".}
 type
-  Geom_BezierCurvebase_type* = Geom_BoundedCurve
+  GeomBezierCurvebaseType* = GeomBoundedCurve
 
-proc get_type_name*(): cstring {.importcpp: "Geom_BezierCurve::get_type_name(@)",
-                              header: "Geom_BezierCurve.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Geom_BezierCurve::get_type_name(@)",
+                            header: "Geom_BezierCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_BezierCurve::get_type_descriptor(@)",
     header: "Geom_BezierCurve.hxx".}
-proc DynamicType*(this: Geom_BezierCurve): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: GeomBezierCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom_BezierCurve.hxx".}

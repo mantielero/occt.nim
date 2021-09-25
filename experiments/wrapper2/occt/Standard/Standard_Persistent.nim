@@ -12,28 +12,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Standard_Type
-
 ## ! Root of "persistent" classes, a legacy support of
 ## ! object oriented databases, now outdated.
 
 type
-  Standard_Persistent* {.importcpp: "Standard_Persistent",
-                        header: "Standard_Persistent.hxx", bycopy.} = object of Standard_Transient
+  StandardPersistent* {.importcpp: "Standard_Persistent",
+                       header: "Standard_Persistent.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructStandard_Persistent*(): Standard_Persistent {.constructor,
+proc constructStandardPersistent*(): StandardPersistent {.constructor,
     importcpp: "Standard_Persistent(@)", header: "Standard_Persistent.hxx".}
 type
-  Standard_Persistentbase_type* = Standard_Transient
+  StandardPersistentbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Standard_Persistent::get_type_name(@)",
-                              header: "Standard_Persistent.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Standard_Persistent::get_type_name(@)",
+                            header: "Standard_Persistent.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Standard_Persistent::get_type_descriptor(@)",
     header: "Standard_Persistent.hxx".}
-proc DynamicType*(this: Standard_Persistent): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StandardPersistent): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Standard_Persistent.hxx".}
-proc TypeNum*(this: var Standard_Persistent): var Standard_Integer {.
-    importcpp: "TypeNum", header: "Standard_Persistent.hxx".}
+proc typeNum*(this: var StandardPersistent): var int {.importcpp: "TypeNum",
+    header: "Standard_Persistent.hxx".}

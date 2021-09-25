@@ -12,12 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../NCollection/NCollection_BaseAllocator,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
-  ../BRepBuilderAPI/BRepBuilderAPI_MakeShape, ../BOPAlgo/BOPAlgo_Options
-
 discard "forward decl of TopoDS_Shape"
 type
   BRepAlgoAPI_Algo* {.importcpp: "BRepAlgoAPI_Algo",
@@ -27,7 +21,7 @@ type
                                                                                             ## constructor
 
 
-proc Shape*(this: var BRepAlgoAPI_Algo): TopoDS_Shape {.importcpp: "Shape",
+proc shape*(this: var BRepAlgoAPI_Algo): TopoDS_Shape {.importcpp: "Shape",
     header: "BRepAlgoAPI_Algo.hxx".}
 ## using statement
 
@@ -58,3 +52,4 @@ proc Shape*(this: var BRepAlgoAPI_Algo): TopoDS_Shape {.importcpp: "Shape",
 ## using statement
 
 ## using statement
+

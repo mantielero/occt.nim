@@ -13,14 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_PrimitiveArray, OpenGl_Resource, OpenGl_Aspects, OpenGl_Matrix,
-  ../Graphic3d/Graphic3d_ClipPlane
-
 discard "forward decl of OpenGl_CappingPlaneResource"
 discard "forward decl of OpenGl_CappingPlaneResource"
 type
-  Handle_OpenGl_CappingPlaneResource* = handle[OpenGl_CappingPlaneResource]
+  HandleOpenGlCappingPlaneResource* = Handle[OpenGlCappingPlaneResource]
 
 ## ! Container of graphical resources for rendering capping plane
 ## ! associated to graphical clipping plane.
@@ -31,36 +27,36 @@ type
 ## ! - should created and released within context (owns OpenGl elements and resources).
 
 type
-  OpenGl_CappingPlaneResource* {.importcpp: "OpenGl_CappingPlaneResource",
-                                header: "OpenGl_CappingPlaneResource.hxx", bycopy.} = object of OpenGl_Resource ##
-                                                                                                         ## !
-                                                                                                         ## Constructor.
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Create
-                                                                                                         ## capping
-                                                                                                         ## plane
-                                                                                                         ## presentation
-                                                                                                         ## associated
-                                                                                                         ## to
-                                                                                                         ## clipping
-                                                                                                         ## plane
-                                                                                                         ## data.
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## @param
-                                                                                                         ## thePlane
-                                                                                                         ## [in]
-                                                                                                         ## the
-                                                                                                         ## plane
-                                                                                                         ## data.
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Update
-                                                                                                         ## precomputed
-                                                                                                         ## plane
-                                                                                                         ## orientation
-                                                                                                         ## matrix.
+  OpenGlCappingPlaneResource* {.importcpp: "OpenGl_CappingPlaneResource",
+                               header: "OpenGl_CappingPlaneResource.hxx", bycopy.} = object of OpenGlResource ##
+                                                                                                       ## !
+                                                                                                       ## Constructor.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## Create
+                                                                                                       ## capping
+                                                                                                       ## plane
+                                                                                                       ## presentation
+                                                                                                       ## associated
+                                                                                                       ## to
+                                                                                                       ## clipping
+                                                                                                       ## plane
+                                                                                                       ## data.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## @param
+                                                                                                       ## thePlane
+                                                                                                       ## [in]
+                                                                                                       ## the
+                                                                                                       ## plane
+                                                                                                       ## data.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## Update
+                                                                                                       ## precomputed
+                                                                                                       ## plane
+                                                                                                       ## orientation
+                                                                                                       ## matrix.
     ## !< vertices and texture coordinates for rendering
     ## !< plane transformation matrix.
     ## !< capping face aspect.
@@ -71,40 +67,38 @@ type
     ## !< modification counter for aspect.
 
 
-proc constructOpenGl_CappingPlaneResource*(thePlane: handle[Graphic3d_ClipPlane]): OpenGl_CappingPlaneResource {.
+proc constructOpenGlCappingPlaneResource*(thePlane: Handle[Graphic3dClipPlane]): OpenGlCappingPlaneResource {.
     constructor, importcpp: "OpenGl_CappingPlaneResource(@)",
     header: "OpenGl_CappingPlaneResource.hxx".}
-proc destroyOpenGl_CappingPlaneResource*(this: var OpenGl_CappingPlaneResource) {.
+proc destroyOpenGlCappingPlaneResource*(this: var OpenGlCappingPlaneResource) {.
     importcpp: "#.~OpenGl_CappingPlaneResource()",
     header: "OpenGl_CappingPlaneResource.hxx".}
-proc Update*(this: var OpenGl_CappingPlaneResource;
-            theContext: handle[OpenGl_Context];
-            theObjAspect: handle[Graphic3d_Aspects]) {.importcpp: "Update",
+proc update*(this: var OpenGlCappingPlaneResource;
+            theContext: Handle[OpenGlContext];
+            theObjAspect: Handle[Graphic3dAspects]) {.importcpp: "Update",
     header: "OpenGl_CappingPlaneResource.hxx".}
-proc Release*(this: var OpenGl_CappingPlaneResource; theContext: ptr OpenGl_Context) {.
+proc release*(this: var OpenGlCappingPlaneResource; theContext: ptr OpenGlContext) {.
     importcpp: "Release", header: "OpenGl_CappingPlaneResource.hxx".}
-proc EstimatedDataSize*(this: OpenGl_CappingPlaneResource): Standard_Size {.
+proc estimatedDataSize*(this: OpenGlCappingPlaneResource): StandardSize {.
     noSideEffect, importcpp: "EstimatedDataSize",
     header: "OpenGl_CappingPlaneResource.hxx".}
-proc Plane*(this: OpenGl_CappingPlaneResource): handle[Graphic3d_ClipPlane] {.
+proc plane*(this: OpenGlCappingPlaneResource): Handle[Graphic3dClipPlane] {.
     noSideEffect, importcpp: "Plane", header: "OpenGl_CappingPlaneResource.hxx".}
-proc AspectFace*(this: OpenGl_CappingPlaneResource): ptr OpenGl_Aspects {.
-    noSideEffect, importcpp: "AspectFace",
-    header: "OpenGl_CappingPlaneResource.hxx".}
-proc Orientation*(this: OpenGl_CappingPlaneResource): ptr OpenGl_Matrix {.
-    noSideEffect, importcpp: "Orientation",
-    header: "OpenGl_CappingPlaneResource.hxx".}
-proc Primitives*(this: OpenGl_CappingPlaneResource): OpenGl_PrimitiveArray {.
+proc aspectFace*(this: OpenGlCappingPlaneResource): ptr OpenGlAspects {.noSideEffect,
+    importcpp: "AspectFace", header: "OpenGl_CappingPlaneResource.hxx".}
+proc orientation*(this: OpenGlCappingPlaneResource): ptr OpenGlMatrix {.noSideEffect,
+    importcpp: "Orientation", header: "OpenGl_CappingPlaneResource.hxx".}
+proc primitives*(this: OpenGlCappingPlaneResource): OpenGlPrimitiveArray {.
     noSideEffect, importcpp: "Primitives",
     header: "OpenGl_CappingPlaneResource.hxx".}
 type
-  OpenGl_CappingPlaneResourcebase_type* = OpenGl_Resource
+  OpenGlCappingPlaneResourcebaseType* = OpenGlResource
 
-proc get_type_name*(): cstring {.importcpp: "OpenGl_CappingPlaneResource::get_type_name(@)",
-                              header: "OpenGl_CappingPlaneResource.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "OpenGl_CappingPlaneResource::get_type_name(@)",
+                            header: "OpenGl_CappingPlaneResource.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "OpenGl_CappingPlaneResource::get_type_descriptor(@)",
     header: "OpenGl_CappingPlaneResource.hxx".}
-proc DynamicType*(this: OpenGl_CappingPlaneResource): handle[Standard_Type] {.
+proc dynamicType*(this: OpenGlCappingPlaneResource): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "OpenGl_CappingPlaneResource.hxx".}

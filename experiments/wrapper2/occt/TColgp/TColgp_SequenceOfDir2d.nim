@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Dir2d, ../NCollection/NCollection_Sequence
-
 type
-  TColgp_SequenceOfDir2d* = NCollection_Sequence[gp_Dir2d]
+  TColgpSequenceOfDir2d* = NCollectionSequence[Dir2d]
+

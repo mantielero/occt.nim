@@ -14,15 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  AIS_TypeFilter, AIS_KindOfInteractive, ../Standard/Standard_Boolean
-
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of AIS_SignatureFilter"
 discard "forward decl of AIS_SignatureFilter"
 type
-  Handle_AIS_SignatureFilter* = handle[AIS_SignatureFilter]
+  HandleAIS_SignatureFilter* = Handle[AIS_SignatureFilter]
 
 ## ! Selects Interactive Objects through their signatures
 ## ! and types. The signature provides an
@@ -79,18 +75,18 @@ type
 
 
 proc constructAIS_SignatureFilter*(aGivenKind: AIS_KindOfInteractive;
-                                  aGivenSignature: Standard_Integer): AIS_SignatureFilter {.
+                                  aGivenSignature: int): AIS_SignatureFilter {.
     constructor, importcpp: "AIS_SignatureFilter(@)",
     header: "AIS_SignatureFilter.hxx".}
-proc IsOk*(this: AIS_SignatureFilter; anobj: handle[SelectMgr_EntityOwner]): Standard_Boolean {.
+proc isOk*(this: AIS_SignatureFilter; anobj: Handle[SelectMgrEntityOwner]): bool {.
     noSideEffect, importcpp: "IsOk", header: "AIS_SignatureFilter.hxx".}
 type
-  AIS_SignatureFilterbase_type* = AIS_TypeFilter
+  AIS_SignatureFilterbaseType* = AIS_TypeFilter
 
-proc get_type_name*(): cstring {.importcpp: "AIS_SignatureFilter::get_type_name(@)",
-                              header: "AIS_SignatureFilter.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "AIS_SignatureFilter::get_type_name(@)",
+                            header: "AIS_SignatureFilter.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "AIS_SignatureFilter::get_type_descriptor(@)",
     header: "AIS_SignatureFilter.hxx".}
-proc DynamicType*(this: AIS_SignatureFilter): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: AIS_SignatureFilter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_SignatureFilter.hxx".}

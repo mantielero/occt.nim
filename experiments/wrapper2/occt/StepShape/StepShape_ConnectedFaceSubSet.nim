@@ -13,49 +13,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_ConnectedFaceSet,
-  StepShape_HArray1OfFace
-
 discard "forward decl of StepShape_ConnectedFaceSet"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_ConnectedFaceSubSet"
 discard "forward decl of StepShape_ConnectedFaceSubSet"
 type
-  Handle_StepShape_ConnectedFaceSubSet* = handle[StepShape_ConnectedFaceSubSet]
+  HandleStepShapeConnectedFaceSubSet* = Handle[StepShapeConnectedFaceSubSet]
 
 ## ! Representation of STEP entity ConnectedFaceSubSet
 
 type
-  StepShape_ConnectedFaceSubSet* {.importcpp: "StepShape_ConnectedFaceSubSet",
-                                  header: "StepShape_ConnectedFaceSubSet.hxx",
-                                  bycopy.} = object of StepShape_ConnectedFaceSet ## !
-                                                                             ## Empty
-                                                                             ## constructor
+  StepShapeConnectedFaceSubSet* {.importcpp: "StepShape_ConnectedFaceSubSet",
+                                 header: "StepShape_ConnectedFaceSubSet.hxx",
+                                 bycopy.} = object of StepShapeConnectedFaceSet ## ! Empty
+                                                                           ## constructor
 
 
-proc constructStepShape_ConnectedFaceSubSet*(): StepShape_ConnectedFaceSubSet {.
+proc constructStepShapeConnectedFaceSubSet*(): StepShapeConnectedFaceSubSet {.
     constructor, importcpp: "StepShape_ConnectedFaceSubSet(@)",
     header: "StepShape_ConnectedFaceSubSet.hxx".}
-proc Init*(this: var StepShape_ConnectedFaceSubSet;
-          aRepresentationItem_Name: handle[TCollection_HAsciiString];
-          aConnectedFaceSet_CfsFaces: handle[StepShape_HArray1OfFace];
-          aParentFaceSet: handle[StepShape_ConnectedFaceSet]) {.importcpp: "Init",
+proc init*(this: var StepShapeConnectedFaceSubSet;
+          aRepresentationItemName: Handle[TCollectionHAsciiString];
+          aConnectedFaceSetCfsFaces: Handle[StepShapeHArray1OfFace];
+          aParentFaceSet: Handle[StepShapeConnectedFaceSet]) {.importcpp: "Init",
     header: "StepShape_ConnectedFaceSubSet.hxx".}
-proc ParentFaceSet*(this: StepShape_ConnectedFaceSubSet): handle[
-    StepShape_ConnectedFaceSet] {.noSideEffect, importcpp: "ParentFaceSet",
-                                 header: "StepShape_ConnectedFaceSubSet.hxx".}
-proc SetParentFaceSet*(this: var StepShape_ConnectedFaceSubSet;
-                      ParentFaceSet: handle[StepShape_ConnectedFaceSet]) {.
+proc parentFaceSet*(this: StepShapeConnectedFaceSubSet): Handle[
+    StepShapeConnectedFaceSet] {.noSideEffect, importcpp: "ParentFaceSet",
+                                header: "StepShape_ConnectedFaceSubSet.hxx".}
+proc setParentFaceSet*(this: var StepShapeConnectedFaceSubSet;
+                      parentFaceSet: Handle[StepShapeConnectedFaceSet]) {.
     importcpp: "SetParentFaceSet", header: "StepShape_ConnectedFaceSubSet.hxx".}
 type
-  StepShape_ConnectedFaceSubSetbase_type* = StepShape_ConnectedFaceSet
+  StepShapeConnectedFaceSubSetbaseType* = StepShapeConnectedFaceSet
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_ConnectedFaceSubSet::get_type_name(@)",
-                              header: "StepShape_ConnectedFaceSubSet.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_ConnectedFaceSubSet::get_type_name(@)",
+                            header: "StepShape_ConnectedFaceSubSet.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_ConnectedFaceSubSet::get_type_descriptor(@)",
     header: "StepShape_ConnectedFaceSubSet.hxx".}
-proc DynamicType*(this: StepShape_ConnectedFaceSubSet): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeConnectedFaceSubSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_ConnectedFaceSubSet.hxx".}

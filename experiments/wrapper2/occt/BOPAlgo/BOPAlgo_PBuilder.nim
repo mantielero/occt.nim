@@ -14,4 +14,5 @@
 
 discard "forward decl of BOPAlgo_Builder"
 type
-  BOPAlgo_PBuilder* = ptr BOPAlgo_Builder
+  BOPAlgoPBuilder* = ptr BOPAlgoBuilder
+

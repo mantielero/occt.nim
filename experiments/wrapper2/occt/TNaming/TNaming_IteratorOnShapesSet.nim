@@ -14,31 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopTools/TopTools_MapIteratorOfMapOfShape,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_NoMoreObject"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TNaming_ShapesSet"
 discard "forward decl of TopoDS_Shape"
 type
-  TNaming_IteratorOnShapesSet* {.importcpp: "TNaming_IteratorOnShapesSet",
-                                header: "TNaming_IteratorOnShapesSet.hxx", bycopy.} = object
+  TNamingIteratorOnShapesSet* {.importcpp: "TNaming_IteratorOnShapesSet",
+                               header: "TNaming_IteratorOnShapesSet.hxx", bycopy.} = object
 
 
-proc constructTNaming_IteratorOnShapesSet*(): TNaming_IteratorOnShapesSet {.
+proc constructTNamingIteratorOnShapesSet*(): TNamingIteratorOnShapesSet {.
     constructor, importcpp: "TNaming_IteratorOnShapesSet(@)",
     header: "TNaming_IteratorOnShapesSet.hxx".}
-proc constructTNaming_IteratorOnShapesSet*(S: TNaming_ShapesSet): TNaming_IteratorOnShapesSet {.
+proc constructTNamingIteratorOnShapesSet*(s: TNamingShapesSet): TNamingIteratorOnShapesSet {.
     constructor, importcpp: "TNaming_IteratorOnShapesSet(@)",
     header: "TNaming_IteratorOnShapesSet.hxx".}
-proc Init*(this: var TNaming_IteratorOnShapesSet; S: TNaming_ShapesSet) {.
+proc init*(this: var TNamingIteratorOnShapesSet; s: TNamingShapesSet) {.
     importcpp: "Init", header: "TNaming_IteratorOnShapesSet.hxx".}
-proc More*(this: TNaming_IteratorOnShapesSet): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "TNaming_IteratorOnShapesSet.hxx".}
-proc Next*(this: var TNaming_IteratorOnShapesSet) {.importcpp: "Next",
+proc more*(this: TNamingIteratorOnShapesSet): bool {.noSideEffect, importcpp: "More",
     header: "TNaming_IteratorOnShapesSet.hxx".}
-proc Value*(this: TNaming_IteratorOnShapesSet): TopoDS_Shape {.noSideEffect,
+proc next*(this: var TNamingIteratorOnShapesSet) {.importcpp: "Next",
+    header: "TNaming_IteratorOnShapesSet.hxx".}
+proc value*(this: TNamingIteratorOnShapesSet): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "TNaming_IteratorOnShapesSet.hxx".}

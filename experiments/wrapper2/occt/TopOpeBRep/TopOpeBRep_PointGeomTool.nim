@@ -14,32 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean
-
 discard "forward decl of TopOpeBRepDS_Point"
 discard "forward decl of TopOpeBRep_VPointInter"
 discard "forward decl of TopOpeBRep_Point2d"
 discard "forward decl of TopOpeBRep_FaceEdgeIntersector"
 discard "forward decl of TopoDS_Shape"
 type
-  TopOpeBRep_PointGeomTool* {.importcpp: "TopOpeBRep_PointGeomTool",
-                             header: "TopOpeBRep_PointGeomTool.hxx", bycopy.} = object
+  TopOpeBRepPointGeomTool* {.importcpp: "TopOpeBRep_PointGeomTool",
+                            header: "TopOpeBRep_PointGeomTool.hxx", bycopy.} = object
 
 
-proc MakePoint*(IP: TopOpeBRep_VPointInter): TopOpeBRepDS_Point {.
+proc makePoint*(ip: TopOpeBRepVPointInter): TopOpeBRepDS_Point {.
     importcpp: "TopOpeBRep_PointGeomTool::MakePoint(@)",
     header: "TopOpeBRep_PointGeomTool.hxx".}
-proc MakePoint*(P2D: TopOpeBRep_Point2d): TopOpeBRepDS_Point {.
+proc makePoint*(p2d: TopOpeBRepPoint2d): TopOpeBRepDS_Point {.
     importcpp: "TopOpeBRep_PointGeomTool::MakePoint(@)",
     header: "TopOpeBRep_PointGeomTool.hxx".}
-proc MakePoint*(FEI: TopOpeBRep_FaceEdgeIntersector): TopOpeBRepDS_Point {.
+proc makePoint*(fei: TopOpeBRepFaceEdgeIntersector): TopOpeBRepDS_Point {.
     importcpp: "TopOpeBRep_PointGeomTool::MakePoint(@)",
     header: "TopOpeBRep_PointGeomTool.hxx".}
-proc MakePoint*(S: TopoDS_Shape): TopOpeBRepDS_Point {.
+proc makePoint*(s: TopoDS_Shape): TopOpeBRepDS_Point {.
     importcpp: "TopOpeBRep_PointGeomTool::MakePoint(@)",
     header: "TopOpeBRep_PointGeomTool.hxx".}
-proc IsEqual*(DSP1: TopOpeBRepDS_Point; DSP2: TopOpeBRepDS_Point): Standard_Boolean {.
+proc isEqual*(dsp1: TopOpeBRepDS_Point; dsp2: TopOpeBRepDS_Point): bool {.
     importcpp: "TopOpeBRep_PointGeomTool::IsEqual(@)",
     header: "TopOpeBRep_PointGeomTool.hxx".}

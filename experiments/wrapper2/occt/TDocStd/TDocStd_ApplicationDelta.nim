@@ -13,39 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TDocStd_SequenceOfDocument,
-  ../TCollection/TCollection_ExtendedString, ../Standard/Standard_Transient,
-  ../Standard/Standard_OStream
-
 discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of TDocStd_ApplicationDelta"
 discard "forward decl of TDocStd_ApplicationDelta"
 type
-  Handle_TDocStd_ApplicationDelta* = handle[TDocStd_ApplicationDelta]
-  TDocStd_ApplicationDelta* {.importcpp: "TDocStd_ApplicationDelta",
-                             header: "TDocStd_ApplicationDelta.hxx", bycopy.} = object of Standard_Transient
+  HandleTDocStdApplicationDelta* = Handle[TDocStdApplicationDelta]
+  TDocStdApplicationDelta* {.importcpp: "TDocStd_ApplicationDelta",
+                            header: "TDocStd_ApplicationDelta.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructTDocStd_ApplicationDelta*(): TDocStd_ApplicationDelta {.constructor,
+proc constructTDocStdApplicationDelta*(): TDocStdApplicationDelta {.constructor,
     importcpp: "TDocStd_ApplicationDelta(@)",
     header: "TDocStd_ApplicationDelta.hxx".}
-proc GetDocuments*(this: var TDocStd_ApplicationDelta): var TDocStd_SequenceOfDocument {.
+proc getDocuments*(this: var TDocStdApplicationDelta): var TDocStdSequenceOfDocument {.
     importcpp: "GetDocuments", header: "TDocStd_ApplicationDelta.hxx".}
-proc GetName*(this: TDocStd_ApplicationDelta): TCollection_ExtendedString {.
+proc getName*(this: TDocStdApplicationDelta): TCollectionExtendedString {.
     noSideEffect, importcpp: "GetName", header: "TDocStd_ApplicationDelta.hxx".}
-proc SetName*(this: var TDocStd_ApplicationDelta;
-             theName: TCollection_ExtendedString) {.importcpp: "SetName",
-    header: "TDocStd_ApplicationDelta.hxx".}
-proc Dump*(this: TDocStd_ApplicationDelta; anOS: var Standard_OStream) {.noSideEffect,
+proc setName*(this: var TDocStdApplicationDelta; theName: TCollectionExtendedString) {.
+    importcpp: "SetName", header: "TDocStd_ApplicationDelta.hxx".}
+proc dump*(this: TDocStdApplicationDelta; anOS: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "TDocStd_ApplicationDelta.hxx".}
 type
-  TDocStd_ApplicationDeltabase_type* = Standard_Transient
+  TDocStdApplicationDeltabaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TDocStd_ApplicationDelta::get_type_name(@)",
-                              header: "TDocStd_ApplicationDelta.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDocStd_ApplicationDelta::get_type_name(@)",
+                            header: "TDocStd_ApplicationDelta.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDocStd_ApplicationDelta::get_type_descriptor(@)",
     header: "TDocStd_ApplicationDelta.hxx".}
-proc DynamicType*(this: TDocStd_ApplicationDelta): handle[Standard_Type] {.
+proc dynamicType*(this: TDocStdApplicationDelta): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TDocStd_ApplicationDelta.hxx".}

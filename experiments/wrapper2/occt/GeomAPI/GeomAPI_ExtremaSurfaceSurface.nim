@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../Extrema/Extrema_ExtSS
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom_Surface"
@@ -35,53 +30,45 @@ type
 proc constructGeomAPI_ExtremaSurfaceSurface*(): GeomAPI_ExtremaSurfaceSurface {.
     constructor, importcpp: "GeomAPI_ExtremaSurfaceSurface(@)",
     header: "GeomAPI_ExtremaSurfaceSurface.hxx".}
-proc constructGeomAPI_ExtremaSurfaceSurface*(S1: handle[Geom_Surface];
-    S2: handle[Geom_Surface]): GeomAPI_ExtremaSurfaceSurface {.constructor,
+proc constructGeomAPI_ExtremaSurfaceSurface*(s1: Handle[GeomSurface];
+    s2: Handle[GeomSurface]): GeomAPI_ExtremaSurfaceSurface {.constructor,
     importcpp: "GeomAPI_ExtremaSurfaceSurface(@)",
     header: "GeomAPI_ExtremaSurfaceSurface.hxx".}
-proc constructGeomAPI_ExtremaSurfaceSurface*(S1: handle[Geom_Surface];
-    S2: handle[Geom_Surface]; U1min: Standard_Real; U1max: Standard_Real;
-    V1min: Standard_Real; V1max: Standard_Real; U2min: Standard_Real;
-    U2max: Standard_Real; V2min: Standard_Real; V2max: Standard_Real): GeomAPI_ExtremaSurfaceSurface {.
+proc constructGeomAPI_ExtremaSurfaceSurface*(s1: Handle[GeomSurface];
+    s2: Handle[GeomSurface]; u1min: float; u1max: float; v1min: float; v1max: float;
+    u2min: float; u2max: float; v2min: float; v2max: float): GeomAPI_ExtremaSurfaceSurface {.
     constructor, importcpp: "GeomAPI_ExtremaSurfaceSurface(@)",
     header: "GeomAPI_ExtremaSurfaceSurface.hxx".}
-proc Init*(this: var GeomAPI_ExtremaSurfaceSurface; S1: handle[Geom_Surface];
-          S2: handle[Geom_Surface]) {.importcpp: "Init",
-                                    header: "GeomAPI_ExtremaSurfaceSurface.hxx".}
-proc Init*(this: var GeomAPI_ExtremaSurfaceSurface; S1: handle[Geom_Surface];
-          S2: handle[Geom_Surface]; U1min: Standard_Real; U1max: Standard_Real;
-          V1min: Standard_Real; V1max: Standard_Real; U2min: Standard_Real;
-          U2max: Standard_Real; V2min: Standard_Real; V2max: Standard_Real) {.
+proc init*(this: var GeomAPI_ExtremaSurfaceSurface; s1: Handle[GeomSurface];
+          s2: Handle[GeomSurface]) {.importcpp: "Init",
+                                   header: "GeomAPI_ExtremaSurfaceSurface.hxx".}
+proc init*(this: var GeomAPI_ExtremaSurfaceSurface; s1: Handle[GeomSurface];
+          s2: Handle[GeomSurface]; u1min: float; u1max: float; v1min: float;
+          v1max: float; u2min: float; u2max: float; v2min: float; v2max: float) {.
     importcpp: "Init", header: "GeomAPI_ExtremaSurfaceSurface.hxx".}
-proc NbExtrema*(this: GeomAPI_ExtremaSurfaceSurface): Standard_Integer {.
-    noSideEffect, importcpp: "NbExtrema",
-    header: "GeomAPI_ExtremaSurfaceSurface.hxx".}
-converter `Standard_Integer`*(this: GeomAPI_ExtremaSurfaceSurface): Standard_Integer {.
-    noSideEffect,
+proc nbExtrema*(this: GeomAPI_ExtremaSurfaceSurface): int {.noSideEffect,
+    importcpp: "NbExtrema", header: "GeomAPI_ExtremaSurfaceSurface.hxx".}
+converter `int`*(this: GeomAPI_ExtremaSurfaceSurface): int {.noSideEffect,
     importcpp: "GeomAPI_ExtremaSurfaceSurface::operator Standard_Integer",
     header: "GeomAPI_ExtremaSurfaceSurface.hxx".}
-proc Points*(this: GeomAPI_ExtremaSurfaceSurface; Index: Standard_Integer;
-            P1: var gp_Pnt; P2: var gp_Pnt) {.noSideEffect, importcpp: "Points", header: "GeomAPI_ExtremaSurfaceSurface.hxx".}
-proc Parameters*(this: GeomAPI_ExtremaSurfaceSurface; Index: Standard_Integer;
-                U1: var Standard_Real; V1: var Standard_Real; U2: var Standard_Real;
-                V2: var Standard_Real) {.noSideEffect, importcpp: "Parameters", header: "GeomAPI_ExtremaSurfaceSurface.hxx".}
-proc Distance*(this: GeomAPI_ExtremaSurfaceSurface; Index: Standard_Integer): Standard_Real {.
-    noSideEffect, importcpp: "Distance",
+proc points*(this: GeomAPI_ExtremaSurfaceSurface; index: int; p1: var Pnt; p2: var Pnt) {.
+    noSideEffect, importcpp: "Points", header: "GeomAPI_ExtremaSurfaceSurface.hxx".}
+proc parameters*(this: GeomAPI_ExtremaSurfaceSurface; index: int; u1: var float;
+                v1: var float; u2: var float; v2: var float) {.noSideEffect,
+    importcpp: "Parameters", header: "GeomAPI_ExtremaSurfaceSurface.hxx".}
+proc distance*(this: GeomAPI_ExtremaSurfaceSurface; index: int): float {.noSideEffect,
+    importcpp: "Distance", header: "GeomAPI_ExtremaSurfaceSurface.hxx".}
+proc nearestPoints*(this: GeomAPI_ExtremaSurfaceSurface; p1: var Pnt; p2: var Pnt) {.
+    noSideEffect, importcpp: "NearestPoints",
     header: "GeomAPI_ExtremaSurfaceSurface.hxx".}
-proc NearestPoints*(this: GeomAPI_ExtremaSurfaceSurface; P1: var gp_Pnt;
-                   P2: var gp_Pnt) {.noSideEffect, importcpp: "NearestPoints",
-                                  header: "GeomAPI_ExtremaSurfaceSurface.hxx".}
-proc LowerDistanceParameters*(this: GeomAPI_ExtremaSurfaceSurface;
-                             U1: var Standard_Real; V1: var Standard_Real;
-                             U2: var Standard_Real; V2: var Standard_Real) {.
-    noSideEffect, importcpp: "LowerDistanceParameters",
+proc lowerDistanceParameters*(this: GeomAPI_ExtremaSurfaceSurface; u1: var float;
+                             v1: var float; u2: var float; v2: var float) {.noSideEffect,
+    importcpp: "LowerDistanceParameters",
     header: "GeomAPI_ExtremaSurfaceSurface.hxx".}
-proc LowerDistance*(this: GeomAPI_ExtremaSurfaceSurface): Standard_Real {.
-    noSideEffect, importcpp: "LowerDistance",
-    header: "GeomAPI_ExtremaSurfaceSurface.hxx".}
-converter `Standard_Real`*(this: GeomAPI_ExtremaSurfaceSurface): Standard_Real {.
-    noSideEffect,
+proc lowerDistance*(this: GeomAPI_ExtremaSurfaceSurface): float {.noSideEffect,
+    importcpp: "LowerDistance", header: "GeomAPI_ExtremaSurfaceSurface.hxx".}
+converter `float`*(this: GeomAPI_ExtremaSurfaceSurface): float {.noSideEffect,
     importcpp: "GeomAPI_ExtremaSurfaceSurface::operator Standard_Real",
     header: "GeomAPI_ExtremaSurfaceSurface.hxx".}
-proc Extrema*(this: GeomAPI_ExtremaSurfaceSurface): Extrema_ExtSS {.noSideEffect,
+proc extrema*(this: GeomAPI_ExtremaSurfaceSurface): ExtremaExtSS {.noSideEffect,
     importcpp: "Extrema", header: "GeomAPI_ExtremaSurfaceSurface.hxx".}

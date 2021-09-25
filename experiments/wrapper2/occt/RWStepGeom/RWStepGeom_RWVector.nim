@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_Vector"
@@ -25,22 +21,21 @@ discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_ShareTool"
 type
-  RWStepGeom_RWVector* {.importcpp: "RWStepGeom_RWVector",
-                        header: "RWStepGeom_RWVector.hxx", bycopy.} = object
+  RWStepGeomRWVector* {.importcpp: "RWStepGeom_RWVector",
+                       header: "RWStepGeom_RWVector.hxx", bycopy.} = object
 
 
-proc constructRWStepGeom_RWVector*(): RWStepGeom_RWVector {.constructor,
+proc constructRWStepGeomRWVector*(): RWStepGeomRWVector {.constructor,
     importcpp: "RWStepGeom_RWVector(@)", header: "RWStepGeom_RWVector.hxx".}
-proc ReadStep*(this: RWStepGeom_RWVector; data: handle[StepData_StepReaderData];
-              num: Standard_Integer; ach: var handle[Interface_Check];
-              ent: handle[StepGeom_Vector]) {.noSideEffect, importcpp: "ReadStep",
+proc readStep*(this: RWStepGeomRWVector; data: Handle[StepDataStepReaderData];
+              num: int; ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomVector]) {.
+    noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWVector.hxx".}
+proc writeStep*(this: RWStepGeomRWVector; sw: var StepDataStepWriter;
+               ent: Handle[StepGeomVector]) {.noSideEffect, importcpp: "WriteStep",
     header: "RWStepGeom_RWVector.hxx".}
-proc WriteStep*(this: RWStepGeom_RWVector; SW: var StepData_StepWriter;
-               ent: handle[StepGeom_Vector]) {.noSideEffect,
-    importcpp: "WriteStep", header: "RWStepGeom_RWVector.hxx".}
-proc Share*(this: RWStepGeom_RWVector; ent: handle[StepGeom_Vector];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepGeomRWVector; ent: Handle[StepGeomVector];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWVector.hxx".}
-proc Check*(this: RWStepGeom_RWVector; ent: handle[StepGeom_Vector];
-           shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc check*(this: RWStepGeomRWVector; ent: Handle[StepGeomVector];
+           shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "Check", header: "RWStepGeom_RWVector.hxx".}

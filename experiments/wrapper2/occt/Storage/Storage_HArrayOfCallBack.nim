@@ -14,38 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Storage_CallBack, Storage_ArrayOfCallBack,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  Storage_HArrayOfCallBack* {.importcpp: "Storage_HArrayOfCallBack",
-                             header: "Storage_HArrayOfCallBack.hxx", bycopy.} = object of Storage_ArrayOfCallBack
+  StorageHArrayOfCallBack* {.importcpp: "Storage_HArrayOfCallBack",
+                            header: "Storage_HArrayOfCallBack.hxx", bycopy.} = object of StorageArrayOfCallBack
 
 
-proc constructStorage_HArrayOfCallBack*(theLower: Standard_Integer;
-                                       theUpper: Standard_Integer): Storage_HArrayOfCallBack {.
+proc constructStorageHArrayOfCallBack*(theLower: int; theUpper: int): StorageHArrayOfCallBack {.
     constructor, importcpp: "Storage_HArrayOfCallBack(@)",
     header: "Storage_HArrayOfCallBack.hxx".}
-proc constructStorage_HArrayOfCallBack*(theLower: Standard_Integer;
-                                       theUpper: Standard_Integer;
-                                       theValue: value_type): Storage_HArrayOfCallBack {.
+proc constructStorageHArrayOfCallBack*(theLower: int; theUpper: int;
+                                      theValue: ValueType): StorageHArrayOfCallBack {.
     constructor, importcpp: "Storage_HArrayOfCallBack(@)",
     header: "Storage_HArrayOfCallBack.hxx".}
-proc constructStorage_HArrayOfCallBack*(theOther: Storage_ArrayOfCallBack): Storage_HArrayOfCallBack {.
+proc constructStorageHArrayOfCallBack*(theOther: StorageArrayOfCallBack): StorageHArrayOfCallBack {.
     constructor, importcpp: "Storage_HArrayOfCallBack(@)",
     header: "Storage_HArrayOfCallBack.hxx".}
-proc Array1*(this: Storage_HArrayOfCallBack): Storage_ArrayOfCallBack {.
-    noSideEffect, importcpp: "Array1", header: "Storage_HArrayOfCallBack.hxx".}
-proc ChangeArray1*(this: var Storage_HArrayOfCallBack): var Storage_ArrayOfCallBack {.
+proc array1*(this: StorageHArrayOfCallBack): StorageArrayOfCallBack {.noSideEffect,
+    importcpp: "Array1", header: "Storage_HArrayOfCallBack.hxx".}
+proc changeArray1*(this: var StorageHArrayOfCallBack): var StorageArrayOfCallBack {.
     importcpp: "ChangeArray1", header: "Storage_HArrayOfCallBack.hxx".}
 type
-  Storage_HArrayOfCallBackbase_type* = MMgt_TShared
+  StorageHArrayOfCallBackbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "Storage_HArrayOfCallBack::get_type_name(@)",
-                              header: "Storage_HArrayOfCallBack.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Storage_HArrayOfCallBack::get_type_name(@)",
+                            header: "Storage_HArrayOfCallBack.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Storage_HArrayOfCallBack::get_type_descriptor(@)",
     header: "Storage_HArrayOfCallBack.hxx".}
-proc DynamicType*(this: Storage_HArrayOfCallBack): handle[Standard_Type] {.
+proc dynamicType*(this: StorageHArrayOfCallBack): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Storage_HArrayOfCallBack.hxx".}

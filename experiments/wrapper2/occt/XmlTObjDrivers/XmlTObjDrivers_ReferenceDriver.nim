@@ -14,45 +14,43 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation Copyright: (C) RINA S.p.A
 
-import
-  ../TObj/TObj_Common, ../XmlMDF/XmlMDF_ADriver
-
 type
-  XmlTObjDrivers_ReferenceDriver* {.importcpp: "XmlTObjDrivers_ReferenceDriver", header: "XmlTObjDrivers_ReferenceDriver.hxx",
-                                   bycopy.} = object of XmlMDF_ADriver ##  CASCADE RTTI
+  XmlTObjDriversReferenceDriver* {.importcpp: "XmlTObjDrivers_ReferenceDriver",
+                                  header: "XmlTObjDrivers_ReferenceDriver.hxx",
+                                  bycopy.} = object of XmlMDF_ADriver ##  CASCADE RTTI
 
 
-proc constructXmlTObjDrivers_ReferenceDriver*(
-    theMessageDriver: handle[Message_Messenger]): XmlTObjDrivers_ReferenceDriver {.
+proc constructXmlTObjDriversReferenceDriver*(
+    theMessageDriver: Handle[MessageMessenger]): XmlTObjDriversReferenceDriver {.
     constructor, importcpp: "XmlTObjDrivers_ReferenceDriver(@)",
     header: "XmlTObjDrivers_ReferenceDriver.hxx".}
-proc NewEmpty*(this: XmlTObjDrivers_ReferenceDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: XmlTObjDriversReferenceDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty",
     header: "XmlTObjDrivers_ReferenceDriver.hxx".}
-proc Paste*(this: XmlTObjDrivers_ReferenceDriver; Source: XmlObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var XmlObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "XmlTObjDrivers_ReferenceDriver.hxx".}
-proc Paste*(this: XmlTObjDrivers_ReferenceDriver; Source: handle[TDF_Attribute];
-           Target: var XmlObjMgt_Persistent;
-           RelocTable: var XmlObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: XmlTObjDriversReferenceDriver; source: XmlObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var XmlObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "XmlTObjDrivers_ReferenceDriver.hxx".}
+proc paste*(this: XmlTObjDriversReferenceDriver; source: Handle[TDF_Attribute];
+           target: var XmlObjMgtPersistent;
+           relocTable: var XmlObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "XmlTObjDrivers_ReferenceDriver.hxx".}
 type
-  XmlTObjDrivers_ReferenceDriverbase_type* = XmlMDF_ADriver
+  XmlTObjDriversReferenceDriverbaseType* = XmlMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "XmlTObjDrivers_ReferenceDriver::get_type_name(@)",
-                              header: "XmlTObjDrivers_ReferenceDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XmlTObjDrivers_ReferenceDriver::get_type_name(@)",
+                            header: "XmlTObjDrivers_ReferenceDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XmlTObjDrivers_ReferenceDriver::get_type_descriptor(@)",
     header: "XmlTObjDrivers_ReferenceDriver.hxx".}
-proc DynamicType*(this: XmlTObjDrivers_ReferenceDriver): handle[Standard_Type] {.
+proc dynamicType*(this: XmlTObjDriversReferenceDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlTObjDrivers_ReferenceDriver.hxx".}
 ##  Define handle class
 
 discard "forward decl of XmlTObjDrivers_ReferenceDriver"
 type
-  Handle_XmlTObjDrivers_ReferenceDriver* = handle[XmlTObjDrivers_ReferenceDriver]
+  HandleXmlTObjDriversReferenceDriver* = Handle[XmlTObjDriversReferenceDriver]
 
-when defined(_MSC_VER):
-  discard
+# when defined(_MSC_VER):
+#   discard

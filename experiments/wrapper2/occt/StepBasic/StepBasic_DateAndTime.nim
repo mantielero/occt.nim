@@ -14,45 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_Date"
 discard "forward decl of StepBasic_LocalTime"
 discard "forward decl of StepBasic_DateAndTime"
 discard "forward decl of StepBasic_DateAndTime"
 type
-  Handle_StepBasic_DateAndTime* = handle[StepBasic_DateAndTime]
-  StepBasic_DateAndTime* {.importcpp: "StepBasic_DateAndTime",
-                          header: "StepBasic_DateAndTime.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                ## !
-                                                                                                ## Returns
-                                                                                                ## a
-                                                                                                ## DateAndTime
+  HandleStepBasicDateAndTime* = Handle[StepBasicDateAndTime]
+  StepBasicDateAndTime* {.importcpp: "StepBasic_DateAndTime",
+                         header: "StepBasic_DateAndTime.hxx", bycopy.} = object of StandardTransient ##
+                                                                                              ## !
+                                                                                              ## Returns
+                                                                                              ## a
+                                                                                              ## DateAndTime
 
 
-proc constructStepBasic_DateAndTime*(): StepBasic_DateAndTime {.constructor,
+proc constructStepBasicDateAndTime*(): StepBasicDateAndTime {.constructor,
     importcpp: "StepBasic_DateAndTime(@)", header: "StepBasic_DateAndTime.hxx".}
-proc Init*(this: var StepBasic_DateAndTime; aDateComponent: handle[StepBasic_Date];
-          aTimeComponent: handle[StepBasic_LocalTime]) {.importcpp: "Init",
+proc init*(this: var StepBasicDateAndTime; aDateComponent: Handle[StepBasicDate];
+          aTimeComponent: Handle[StepBasicLocalTime]) {.importcpp: "Init",
     header: "StepBasic_DateAndTime.hxx".}
-proc SetDateComponent*(this: var StepBasic_DateAndTime;
-                      aDateComponent: handle[StepBasic_Date]) {.
+proc setDateComponent*(this: var StepBasicDateAndTime;
+                      aDateComponent: Handle[StepBasicDate]) {.
     importcpp: "SetDateComponent", header: "StepBasic_DateAndTime.hxx".}
-proc DateComponent*(this: StepBasic_DateAndTime): handle[StepBasic_Date] {.
+proc dateComponent*(this: StepBasicDateAndTime): Handle[StepBasicDate] {.
     noSideEffect, importcpp: "DateComponent", header: "StepBasic_DateAndTime.hxx".}
-proc SetTimeComponent*(this: var StepBasic_DateAndTime;
-                      aTimeComponent: handle[StepBasic_LocalTime]) {.
+proc setTimeComponent*(this: var StepBasicDateAndTime;
+                      aTimeComponent: Handle[StepBasicLocalTime]) {.
     importcpp: "SetTimeComponent", header: "StepBasic_DateAndTime.hxx".}
-proc TimeComponent*(this: StepBasic_DateAndTime): handle[StepBasic_LocalTime] {.
+proc timeComponent*(this: StepBasicDateAndTime): Handle[StepBasicLocalTime] {.
     noSideEffect, importcpp: "TimeComponent", header: "StepBasic_DateAndTime.hxx".}
 type
-  StepBasic_DateAndTimebase_type* = Standard_Transient
+  StepBasicDateAndTimebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_DateAndTime::get_type_name(@)",
-                              header: "StepBasic_DateAndTime.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_DateAndTime::get_type_name(@)",
+                            header: "StepBasic_DateAndTime.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_DateAndTime::get_type_descriptor(@)",
     header: "StepBasic_DateAndTime.hxx".}
-proc DynamicType*(this: StepBasic_DateAndTime): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepBasic_DateAndTime.hxx".}
+proc dynamicType*(this: StepBasicDateAndTime): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepBasic_DateAndTime.hxx".}

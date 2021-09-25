@@ -14,45 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
-  StepGeom_Conic
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_Axis2Placement"
 discard "forward decl of StepGeom_Ellipse"
 discard "forward decl of StepGeom_Ellipse"
 type
-  Handle_StepGeom_Ellipse* = handle[StepGeom_Ellipse]
-  StepGeom_Ellipse* {.importcpp: "StepGeom_Ellipse",
-                     header: "StepGeom_Ellipse.hxx", bycopy.} = object of StepGeom_Conic ##
-                                                                                  ## !
-                                                                                  ## Returns
-                                                                                  ## a
-                                                                                  ## Ellipse
+  HandleStepGeomEllipse* = Handle[StepGeomEllipse]
+  StepGeomEllipse* {.importcpp: "StepGeom_Ellipse", header: "StepGeom_Ellipse.hxx",
+                    bycopy.} = object of StepGeomConic ## ! Returns a Ellipse
 
 
-proc constructStepGeom_Ellipse*(): StepGeom_Ellipse {.constructor,
+proc constructStepGeomEllipse*(): StepGeomEllipse {.constructor,
     importcpp: "StepGeom_Ellipse(@)", header: "StepGeom_Ellipse.hxx".}
-proc Init*(this: var StepGeom_Ellipse; aName: handle[TCollection_HAsciiString];
-          aPosition: StepGeom_Axis2Placement; aSemiAxis1: Standard_Real;
-          aSemiAxis2: Standard_Real) {.importcpp: "Init",
-                                     header: "StepGeom_Ellipse.hxx".}
-proc SetSemiAxis1*(this: var StepGeom_Ellipse; aSemiAxis1: Standard_Real) {.
+proc init*(this: var StepGeomEllipse; aName: Handle[TCollectionHAsciiString];
+          aPosition: StepGeomAxis2Placement; aSemiAxis1: float; aSemiAxis2: float) {.
+    importcpp: "Init", header: "StepGeom_Ellipse.hxx".}
+proc setSemiAxis1*(this: var StepGeomEllipse; aSemiAxis1: float) {.
     importcpp: "SetSemiAxis1", header: "StepGeom_Ellipse.hxx".}
-proc SemiAxis1*(this: StepGeom_Ellipse): Standard_Real {.noSideEffect,
-    importcpp: "SemiAxis1", header: "StepGeom_Ellipse.hxx".}
-proc SetSemiAxis2*(this: var StepGeom_Ellipse; aSemiAxis2: Standard_Real) {.
+proc semiAxis1*(this: StepGeomEllipse): float {.noSideEffect, importcpp: "SemiAxis1",
+    header: "StepGeom_Ellipse.hxx".}
+proc setSemiAxis2*(this: var StepGeomEllipse; aSemiAxis2: float) {.
     importcpp: "SetSemiAxis2", header: "StepGeom_Ellipse.hxx".}
-proc SemiAxis2*(this: StepGeom_Ellipse): Standard_Real {.noSideEffect,
-    importcpp: "SemiAxis2", header: "StepGeom_Ellipse.hxx".}
+proc semiAxis2*(this: StepGeomEllipse): float {.noSideEffect, importcpp: "SemiAxis2",
+    header: "StepGeom_Ellipse.hxx".}
 type
-  StepGeom_Ellipsebase_type* = StepGeom_Conic
+  StepGeomEllipsebaseType* = StepGeomConic
 
-proc get_type_name*(): cstring {.importcpp: "StepGeom_Ellipse::get_type_name(@)",
-                              header: "StepGeom_Ellipse.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepGeom_Ellipse::get_type_name(@)",
+                            header: "StepGeom_Ellipse.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepGeom_Ellipse::get_type_descriptor(@)",
     header: "StepGeom_Ellipse.hxx".}
-proc DynamicType*(this: StepGeom_Ellipse): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepGeomEllipse): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Ellipse.hxx".}

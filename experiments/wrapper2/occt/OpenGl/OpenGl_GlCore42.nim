@@ -13,58 +13,55 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_GlCore41
-
 ## ! OpenGL 4.2 definition.
 
 type
-  OpenGl_TmplCore42*[theBaseClass_t] {.importcpp: "OpenGl_TmplCore42<\'0>",
-                                      header: "OpenGl_GlCore42.hxx", bycopy.} = object of theBaseClass_t ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## GL_ARB_transform_feedback_instanced
-                                                                                                  ## (added
-                                                                                                  ## to
-                                                                                                  ## OpenGL
-                                                                                                  ## 4.2
-                                                                                                  ## core)
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## GL_ARB_internalformat_query
-                                                                                                  ## (added
-                                                                                                  ## to
-                                                                                                  ## OpenGL
-                                                                                                  ## 4.2
-                                                                                                  ## core)
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## GL_ARB_shader_atomic_counters
-                                                                                                  ## (added
-                                                                                                  ## to
-                                                                                                  ## OpenGL
-                                                                                                  ## 4.2
-                                                                                                  ## core)
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## GL_ARB_shader_image_load_store
-                                                                                                  ## (added
-                                                                                                  ## to
-                                                                                                  ## OpenGL
-                                                                                                  ## 4.2
-                                                                                                  ## core)
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## GL_ARB_texture_storage
-                                                                                                  ## (added
-                                                                                                  ## to
-                                                                                                  ## OpenGL
-                                                                                                  ## 4.2
-                                                                                                  ## core)
+  OpenGlTmplCore42*[TheBaseClassT] {.importcpp: "OpenGl_TmplCore42<\'0>",
+                                    header: "OpenGl_GlCore42.hxx", bycopy.} = object of TheBaseClassT ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## GL_ARB_transform_feedback_instanced
+                                                                                               ## (added
+                                                                                               ## to
+                                                                                               ## OpenGL
+                                                                                               ## 4.2
+                                                                                               ## core)
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## GL_ARB_internalformat_query
+                                                                                               ## (added
+                                                                                               ## to
+                                                                                               ## OpenGL
+                                                                                               ## 4.2
+                                                                                               ## core)
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## GL_ARB_shader_atomic_counters
+                                                                                               ## (added
+                                                                                               ## to
+                                                                                               ## OpenGL
+                                                                                               ## 4.2
+                                                                                               ## core)
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## GL_ARB_shader_image_load_store
+                                                                                               ## (added
+                                                                                               ## to
+                                                                                               ## OpenGL
+                                                                                               ## 4.2
+                                                                                               ## core)
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## GL_ARB_texture_storage
+                                                                                               ## (added
+                                                                                               ## to
+                                                                                               ## OpenGL
+                                                                                               ## 4.2
+                                                                                               ## core)
 
 
 ## !!!Ignored construct:  # ! defined ( GL_ES_VERSION_2_0 ) [NewLine] public : ! @name GL_ARB_base_instance (added to OpenGL 4.2 core) using theBaseClass_t :: glDrawArraysInstancedBaseInstance ;
@@ -95,9 +92,10 @@ type
 ## ! OpenGL 4.2 compatibility profile.
 
 type
-  OpenGl_GlCore42Back* = OpenGl_TmplCore42[OpenGl_GlCore41Back]
+  OpenGlGlCore42Back* = OpenGlTmplCore42[OpenGlGlCore41Back]
 
 ## ! OpenGL 4.2 core profile.
 
 type
-  OpenGl_GlCore42* = OpenGl_TmplCore42[OpenGl_GlCore41]
+  OpenGlGlCore42* = OpenGlTmplCore42[OpenGlGlCore41]
+

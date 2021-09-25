@@ -14,28 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Iterator,
-  ../Standard/Standard_Boolean, ../TopAbs/TopAbs_Orientation
-
 discard "forward decl of Standard_NoMoreObject"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopoDS_Shape"
 type
-  BRepSweep_Iterator* {.importcpp: "BRepSweep_Iterator",
-                       header: "BRepSweep_Iterator.hxx", bycopy.} = object
+  BRepSweepIterator* {.importcpp: "BRepSweep_Iterator",
+                      header: "BRepSweep_Iterator.hxx", bycopy.} = object
 
 
-proc constructBRepSweep_Iterator*(): BRepSweep_Iterator {.constructor,
+proc constructBRepSweepIterator*(): BRepSweepIterator {.constructor,
     importcpp: "BRepSweep_Iterator(@)", header: "BRepSweep_Iterator.hxx".}
-proc Init*(this: var BRepSweep_Iterator; aShape: TopoDS_Shape) {.importcpp: "Init",
+proc init*(this: var BRepSweepIterator; aShape: TopoDS_Shape) {.importcpp: "Init",
     header: "BRepSweep_Iterator.hxx".}
-proc More*(this: BRepSweep_Iterator): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "BRepSweep_Iterator.hxx".}
-proc Next*(this: var BRepSweep_Iterator) {.importcpp: "Next",
-                                       header: "BRepSweep_Iterator.hxx".}
-proc Value*(this: BRepSweep_Iterator): TopoDS_Shape {.noSideEffect,
+proc more*(this: BRepSweepIterator): bool {.noSideEffect, importcpp: "More",
+                                        header: "BRepSweep_Iterator.hxx".}
+proc next*(this: var BRepSweepIterator) {.importcpp: "Next",
+                                      header: "BRepSweep_Iterator.hxx".}
+proc value*(this: BRepSweepIterator): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "BRepSweep_Iterator.hxx".}
-proc Orientation*(this: BRepSweep_Iterator): TopAbs_Orientation {.noSideEffect,
+proc orientation*(this: BRepSweepIterator): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "BRepSweep_Iterator.hxx".}

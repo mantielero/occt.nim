@@ -14,14 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Vec,
-  ../Standard/Standard_Boolean, ../TColStd/TColStd_HArray1OfReal,
-  ../TColgp/TColgp_HArray1OfVec, GeomFill_TrihedronLaw, ../Standard/Standard_Real,
-  ../TColStd/TColStd_SequenceOfReal, ../TColgp/TColgp_SequenceOfVec,
-  ../Standard/Standard_Integer, ../GeomAbs/GeomAbs_Shape,
-  ../TColStd/TColStd_Array1OfReal, GeomFill_Trihedron
-
 discard "forward decl of GeomFill_Frenet"
 discard "forward decl of Law_Function"
 discard "forward decl of Standard_OutOfRange"
@@ -32,63 +24,60 @@ discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of GeomFill_CorrectedFrenet"
 discard "forward decl of GeomFill_CorrectedFrenet"
 type
-  Handle_GeomFill_CorrectedFrenet* = handle[GeomFill_CorrectedFrenet]
+  HandleGeomFillCorrectedFrenet* = Handle[GeomFillCorrectedFrenet]
 
 ## ! Defined an Corrected Frenet  Trihedron  Law It is
 ## ! like Frenet with an Torsion's minimization
 
 type
-  GeomFill_CorrectedFrenet* {.importcpp: "GeomFill_CorrectedFrenet",
-                             header: "GeomFill_CorrectedFrenet.hxx", bycopy.} = object of GeomFill_TrihedronLaw
+  GeomFillCorrectedFrenet* {.importcpp: "GeomFill_CorrectedFrenet",
+                            header: "GeomFill_CorrectedFrenet.hxx", bycopy.} = object of GeomFillTrihedronLaw
 
 
-proc constructGeomFill_CorrectedFrenet*(): GeomFill_CorrectedFrenet {.constructor,
+proc constructGeomFillCorrectedFrenet*(): GeomFillCorrectedFrenet {.constructor,
     importcpp: "GeomFill_CorrectedFrenet(@)",
     header: "GeomFill_CorrectedFrenet.hxx".}
-proc constructGeomFill_CorrectedFrenet*(ForEvaluation: Standard_Boolean): GeomFill_CorrectedFrenet {.
+proc constructGeomFillCorrectedFrenet*(forEvaluation: bool): GeomFillCorrectedFrenet {.
     constructor, importcpp: "GeomFill_CorrectedFrenet(@)",
     header: "GeomFill_CorrectedFrenet.hxx".}
-proc Copy*(this: GeomFill_CorrectedFrenet): handle[GeomFill_TrihedronLaw] {.
+proc copy*(this: GeomFillCorrectedFrenet): Handle[GeomFillTrihedronLaw] {.
     noSideEffect, importcpp: "Copy", header: "GeomFill_CorrectedFrenet.hxx".}
-proc SetCurve*(this: var GeomFill_CorrectedFrenet; C: handle[Adaptor3d_HCurve]) {.
+proc setCurve*(this: var GeomFillCorrectedFrenet; c: Handle[Adaptor3dHCurve]) {.
     importcpp: "SetCurve", header: "GeomFill_CorrectedFrenet.hxx".}
-proc SetInterval*(this: var GeomFill_CorrectedFrenet; First: Standard_Real;
-                 Last: Standard_Real) {.importcpp: "SetInterval",
-                                      header: "GeomFill_CorrectedFrenet.hxx".}
-proc D0*(this: var GeomFill_CorrectedFrenet; Param: Standard_Real;
-        Tangent: var gp_Vec; Normal: var gp_Vec; BiNormal: var gp_Vec): Standard_Boolean {.
-    importcpp: "D0", header: "GeomFill_CorrectedFrenet.hxx".}
-proc D1*(this: var GeomFill_CorrectedFrenet; Param: Standard_Real;
-        Tangent: var gp_Vec; DTangent: var gp_Vec; Normal: var gp_Vec;
-        DNormal: var gp_Vec; BiNormal: var gp_Vec; DBiNormal: var gp_Vec): Standard_Boolean {.
-    importcpp: "D1", header: "GeomFill_CorrectedFrenet.hxx".}
-proc D2*(this: var GeomFill_CorrectedFrenet; Param: Standard_Real;
-        Tangent: var gp_Vec; DTangent: var gp_Vec; D2Tangent: var gp_Vec;
-        Normal: var gp_Vec; DNormal: var gp_Vec; D2Normal: var gp_Vec;
-        BiNormal: var gp_Vec; DBiNormal: var gp_Vec; D2BiNormal: var gp_Vec): Standard_Boolean {.
-    importcpp: "D2", header: "GeomFill_CorrectedFrenet.hxx".}
-proc NbIntervals*(this: GeomFill_CorrectedFrenet; S: GeomAbs_Shape): Standard_Integer {.
-    noSideEffect, importcpp: "NbIntervals", header: "GeomFill_CorrectedFrenet.hxx".}
-proc Intervals*(this: GeomFill_CorrectedFrenet; T: var TColStd_Array1OfReal;
-               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
-                                 header: "GeomFill_CorrectedFrenet.hxx".}
-proc EvaluateBestMode*(this: var GeomFill_CorrectedFrenet): GeomFill_Trihedron {.
-    importcpp: "EvaluateBestMode", header: "GeomFill_CorrectedFrenet.hxx".}
-proc GetAverageLaw*(this: var GeomFill_CorrectedFrenet; ATangent: var gp_Vec;
-                   ANormal: var gp_Vec; ABiNormal: var gp_Vec) {.
-    importcpp: "GetAverageLaw", header: "GeomFill_CorrectedFrenet.hxx".}
-proc IsConstant*(this: GeomFill_CorrectedFrenet): Standard_Boolean {.noSideEffect,
-    importcpp: "IsConstant", header: "GeomFill_CorrectedFrenet.hxx".}
-proc IsOnlyBy3dCurve*(this: GeomFill_CorrectedFrenet): Standard_Boolean {.
-    noSideEffect, importcpp: "IsOnlyBy3dCurve",
+proc setInterval*(this: var GeomFillCorrectedFrenet; first: float; last: float) {.
+    importcpp: "SetInterval", header: "GeomFill_CorrectedFrenet.hxx".}
+proc d0*(this: var GeomFillCorrectedFrenet; param: float; tangent: var Vec;
+        normal: var Vec; biNormal: var Vec): bool {.importcpp: "D0",
     header: "GeomFill_CorrectedFrenet.hxx".}
+proc d1*(this: var GeomFillCorrectedFrenet; param: float; tangent: var Vec;
+        dTangent: var Vec; normal: var Vec; dNormal: var Vec; biNormal: var Vec;
+        dBiNormal: var Vec): bool {.importcpp: "D1",
+                                header: "GeomFill_CorrectedFrenet.hxx".}
+proc d2*(this: var GeomFillCorrectedFrenet; param: float; tangent: var Vec;
+        dTangent: var Vec; d2Tangent: var Vec; normal: var Vec; dNormal: var Vec;
+        d2Normal: var Vec; biNormal: var Vec; dBiNormal: var Vec; d2BiNormal: var Vec): bool {.
+    importcpp: "D2", header: "GeomFill_CorrectedFrenet.hxx".}
+proc nbIntervals*(this: GeomFillCorrectedFrenet; s: GeomAbsShape): int {.noSideEffect,
+    importcpp: "NbIntervals", header: "GeomFill_CorrectedFrenet.hxx".}
+proc intervals*(this: GeomFillCorrectedFrenet; t: var TColStdArray1OfReal;
+               s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
+                                header: "GeomFill_CorrectedFrenet.hxx".}
+proc evaluateBestMode*(this: var GeomFillCorrectedFrenet): GeomFillTrihedron {.
+    importcpp: "EvaluateBestMode", header: "GeomFill_CorrectedFrenet.hxx".}
+proc getAverageLaw*(this: var GeomFillCorrectedFrenet; aTangent: var Vec;
+                   aNormal: var Vec; aBiNormal: var Vec) {.importcpp: "GetAverageLaw",
+    header: "GeomFill_CorrectedFrenet.hxx".}
+proc isConstant*(this: GeomFillCorrectedFrenet): bool {.noSideEffect,
+    importcpp: "IsConstant", header: "GeomFill_CorrectedFrenet.hxx".}
+proc isOnlyBy3dCurve*(this: GeomFillCorrectedFrenet): bool {.noSideEffect,
+    importcpp: "IsOnlyBy3dCurve", header: "GeomFill_CorrectedFrenet.hxx".}
 type
-  GeomFill_CorrectedFrenetbase_type* = GeomFill_TrihedronLaw
+  GeomFillCorrectedFrenetbaseType* = GeomFillTrihedronLaw
 
-proc get_type_name*(): cstring {.importcpp: "GeomFill_CorrectedFrenet::get_type_name(@)",
-                              header: "GeomFill_CorrectedFrenet.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "GeomFill_CorrectedFrenet::get_type_name(@)",
+                            header: "GeomFill_CorrectedFrenet.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GeomFill_CorrectedFrenet::get_type_descriptor(@)",
     header: "GeomFill_CorrectedFrenet.hxx".}
-proc DynamicType*(this: GeomFill_CorrectedFrenet): handle[Standard_Type] {.
+proc dynamicType*(this: GeomFillCorrectedFrenet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "GeomFill_CorrectedFrenet.hxx".}

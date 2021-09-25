@@ -14,55 +14,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepBasic_HArray1OfProduct,
-  StepBasic_ProductCategory, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_Product"
 discard "forward decl of StepBasic_ProductRelatedProductCategory"
 discard "forward decl of StepBasic_ProductRelatedProductCategory"
 type
-  Handle_StepBasic_ProductRelatedProductCategory* = handle[
-      StepBasic_ProductRelatedProductCategory]
-  StepBasic_ProductRelatedProductCategory* {.
+  HandleStepBasicProductRelatedProductCategory* = Handle[
+      StepBasicProductRelatedProductCategory]
+  StepBasicProductRelatedProductCategory* {.
       importcpp: "StepBasic_ProductRelatedProductCategory",
-      header: "StepBasic_ProductRelatedProductCategory.hxx", bycopy.} = object of StepBasic_ProductCategory ##
-                                                                                                     ## !
-                                                                                                     ## Returns
-                                                                                                     ## a
-                                                                                                     ## ProductRelatedProductCategory
+      header: "StepBasic_ProductRelatedProductCategory.hxx", bycopy.} = object of StepBasicProductCategory ##
+                                                                                                    ## !
+                                                                                                    ## Returns
+                                                                                                    ## a
+                                                                                                    ## ProductRelatedProductCategory
 
 
-proc constructStepBasic_ProductRelatedProductCategory*(): StepBasic_ProductRelatedProductCategory {.
+proc constructStepBasicProductRelatedProductCategory*(): StepBasicProductRelatedProductCategory {.
     constructor, importcpp: "StepBasic_ProductRelatedProductCategory(@)",
     header: "StepBasic_ProductRelatedProductCategory.hxx".}
-proc Init*(this: var StepBasic_ProductRelatedProductCategory;
-          aName: handle[TCollection_HAsciiString];
-          hasAdescription: Standard_Boolean;
-          aDescription: handle[TCollection_HAsciiString];
-          aProducts: handle[StepBasic_HArray1OfProduct]) {.importcpp: "Init",
+proc init*(this: var StepBasicProductRelatedProductCategory;
+          aName: Handle[TCollectionHAsciiString]; hasAdescription: bool;
+          aDescription: Handle[TCollectionHAsciiString];
+          aProducts: Handle[StepBasicHArray1OfProduct]) {.importcpp: "Init",
     header: "StepBasic_ProductRelatedProductCategory.hxx".}
-proc SetProducts*(this: var StepBasic_ProductRelatedProductCategory;
-                 aProducts: handle[StepBasic_HArray1OfProduct]) {.
+proc setProducts*(this: var StepBasicProductRelatedProductCategory;
+                 aProducts: Handle[StepBasicHArray1OfProduct]) {.
     importcpp: "SetProducts",
     header: "StepBasic_ProductRelatedProductCategory.hxx".}
-proc Products*(this: StepBasic_ProductRelatedProductCategory): handle[
-    StepBasic_HArray1OfProduct] {.noSideEffect, importcpp: "Products", header: "StepBasic_ProductRelatedProductCategory.hxx".}
-proc ProductsValue*(this: StepBasic_ProductRelatedProductCategory;
-                   num: Standard_Integer): handle[StepBasic_Product] {.
-    noSideEffect, importcpp: "ProductsValue",
-    header: "StepBasic_ProductRelatedProductCategory.hxx".}
-proc NbProducts*(this: StepBasic_ProductRelatedProductCategory): Standard_Integer {.
-    noSideEffect, importcpp: "NbProducts",
-    header: "StepBasic_ProductRelatedProductCategory.hxx".}
+proc products*(this: StepBasicProductRelatedProductCategory): Handle[
+    StepBasicHArray1OfProduct] {.noSideEffect, importcpp: "Products", header: "StepBasic_ProductRelatedProductCategory.hxx".}
+proc productsValue*(this: StepBasicProductRelatedProductCategory; num: int): Handle[
+    StepBasicProduct] {.noSideEffect, importcpp: "ProductsValue",
+                       header: "StepBasic_ProductRelatedProductCategory.hxx".}
+proc nbProducts*(this: StepBasicProductRelatedProductCategory): int {.noSideEffect,
+    importcpp: "NbProducts", header: "StepBasic_ProductRelatedProductCategory.hxx".}
 type
-  StepBasic_ProductRelatedProductCategorybase_type* = StepBasic_ProductCategory
+  StepBasicProductRelatedProductCategorybaseType* = StepBasicProductCategory
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_ProductRelatedProductCategory::get_type_name(@)", header: "StepBasic_ProductRelatedProductCategory.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepBasic_ProductRelatedProductCategory::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepBasic_ProductRelatedProductCategory::get_type_name(@)", header: "StepBasic_ProductRelatedProductCategory.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_ProductRelatedProductCategory::get_type_descriptor(@)",
     header: "StepBasic_ProductRelatedProductCategory.hxx".}
-proc DynamicType*(this: StepBasic_ProductRelatedProductCategory): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepBasic_ProductRelatedProductCategory.hxx".}
+proc dynamicType*(this: StepBasicProductRelatedProductCategory): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepBasic_ProductRelatedProductCategory.hxx".}

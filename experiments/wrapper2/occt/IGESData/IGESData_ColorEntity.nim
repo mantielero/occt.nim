@@ -14,27 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, IGESData_IGESEntity
-
 discard "forward decl of IGESData_ColorEntity"
 discard "forward decl of IGESData_ColorEntity"
 type
-  Handle_IGESData_ColorEntity* = handle[IGESData_ColorEntity]
+  HandleIGESDataColorEntity* = Handle[IGESDataColorEntity]
 
 ## ! defines required type for Color in directory part
 ## ! an effective Color entity must inherits it
 
 type
-  IGESData_ColorEntity* {.importcpp: "IGESData_ColorEntity",
-                         header: "IGESData_ColorEntity.hxx", bycopy.} = object of IGESData_IGESEntity
+  IGESDataColorEntity* {.importcpp: "IGESData_ColorEntity",
+                        header: "IGESData_ColorEntity.hxx", bycopy.} = object of IGESDataIGESEntity
 
-  IGESData_ColorEntitybase_type* = IGESData_IGESEntity
+  IGESDataColorEntitybaseType* = IGESDataIGESEntity
 
-proc get_type_name*(): cstring {.importcpp: "IGESData_ColorEntity::get_type_name(@)",
-                              header: "IGESData_ColorEntity.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IGESData_ColorEntity::get_type_name(@)",
+                            header: "IGESData_ColorEntity.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IGESData_ColorEntity::get_type_descriptor(@)",
     header: "IGESData_ColorEntity.hxx".}
-proc DynamicType*(this: IGESData_ColorEntity): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IGESDataColorEntity): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESData_ColorEntity.hxx".}

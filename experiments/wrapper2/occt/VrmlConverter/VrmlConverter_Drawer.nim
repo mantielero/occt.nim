@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../Aspect/Aspect_TypeOfDeflection,
-  ../Standard/Standard_Real, ../Standard/Standard_Transient
-
 discard "forward decl of VrmlConverter_IsoAspect"
 discard "forward decl of VrmlConverter_LineAspect"
 discard "forward decl of VrmlConverter_ShadingAspect"
@@ -26,130 +21,124 @@ discard "forward decl of VrmlConverter_PointAspect"
 discard "forward decl of VrmlConverter_Drawer"
 discard "forward decl of VrmlConverter_Drawer"
 type
-  Handle_VrmlConverter_Drawer* = handle[VrmlConverter_Drawer]
+  HandleVrmlConverterDrawer* = Handle[VrmlConverterDrawer]
 
 ## ! qualifies the aspect properties for
 ## ! the VRML conversation of a specific kind of object.
 ## ! This includes for example color, maximal chordial deviation, etc...
 
 type
-  VrmlConverter_Drawer* {.importcpp: "VrmlConverter_Drawer",
-                         header: "VrmlConverter_Drawer.hxx", bycopy.} = object of Standard_Transient
+  VrmlConverterDrawer* {.importcpp: "VrmlConverter_Drawer",
+                        header: "VrmlConverter_Drawer.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructVrmlConverter_Drawer*(): VrmlConverter_Drawer {.constructor,
+proc constructVrmlConverterDrawer*(): VrmlConverterDrawer {.constructor,
     importcpp: "VrmlConverter_Drawer(@)", header: "VrmlConverter_Drawer.hxx".}
-proc SetTypeOfDeflection*(this: var VrmlConverter_Drawer;
-                         aTypeOfDeflection: Aspect_TypeOfDeflection) {.
+proc setTypeOfDeflection*(this: var VrmlConverterDrawer;
+                         aTypeOfDeflection: AspectTypeOfDeflection) {.
     importcpp: "SetTypeOfDeflection", header: "VrmlConverter_Drawer.hxx".}
-proc TypeOfDeflection*(this: VrmlConverter_Drawer): Aspect_TypeOfDeflection {.
+proc typeOfDeflection*(this: VrmlConverterDrawer): AspectTypeOfDeflection {.
     noSideEffect, importcpp: "TypeOfDeflection", header: "VrmlConverter_Drawer.hxx".}
-proc SetMaximalChordialDeviation*(this: var VrmlConverter_Drawer;
-                                 aChordialDeviation: Standard_Real) {.
+proc setMaximalChordialDeviation*(this: var VrmlConverterDrawer;
+                                 aChordialDeviation: float) {.
     importcpp: "SetMaximalChordialDeviation", header: "VrmlConverter_Drawer.hxx".}
-proc MaximalChordialDeviation*(this: VrmlConverter_Drawer): Standard_Real {.
-    noSideEffect, importcpp: "MaximalChordialDeviation",
-    header: "VrmlConverter_Drawer.hxx".}
-proc SetDeviationCoefficient*(this: var VrmlConverter_Drawer;
-                             aCoefficient: Standard_Real) {.
+proc maximalChordialDeviation*(this: VrmlConverterDrawer): float {.noSideEffect,
+    importcpp: "MaximalChordialDeviation", header: "VrmlConverter_Drawer.hxx".}
+proc setDeviationCoefficient*(this: var VrmlConverterDrawer; aCoefficient: float) {.
     importcpp: "SetDeviationCoefficient", header: "VrmlConverter_Drawer.hxx".}
-proc DeviationCoefficient*(this: VrmlConverter_Drawer): Standard_Real {.
-    noSideEffect, importcpp: "DeviationCoefficient",
-    header: "VrmlConverter_Drawer.hxx".}
-proc SetDiscretisation*(this: var VrmlConverter_Drawer; d: Standard_Integer) {.
+proc deviationCoefficient*(this: VrmlConverterDrawer): float {.noSideEffect,
+    importcpp: "DeviationCoefficient", header: "VrmlConverter_Drawer.hxx".}
+proc setDiscretisation*(this: var VrmlConverterDrawer; d: int) {.
     importcpp: "SetDiscretisation", header: "VrmlConverter_Drawer.hxx".}
-proc Discretisation*(this: VrmlConverter_Drawer): Standard_Integer {.noSideEffect,
+proc discretisation*(this: VrmlConverterDrawer): int {.noSideEffect,
     importcpp: "Discretisation", header: "VrmlConverter_Drawer.hxx".}
-proc SetMaximalParameterValue*(this: var VrmlConverter_Drawer; Value: Standard_Real) {.
+proc setMaximalParameterValue*(this: var VrmlConverterDrawer; value: float) {.
     importcpp: "SetMaximalParameterValue", header: "VrmlConverter_Drawer.hxx".}
-proc MaximalParameterValue*(this: VrmlConverter_Drawer): Standard_Real {.
-    noSideEffect, importcpp: "MaximalParameterValue",
-    header: "VrmlConverter_Drawer.hxx".}
-proc SetIsoOnPlane*(this: var VrmlConverter_Drawer; OnOff: Standard_Boolean) {.
+proc maximalParameterValue*(this: VrmlConverterDrawer): float {.noSideEffect,
+    importcpp: "MaximalParameterValue", header: "VrmlConverter_Drawer.hxx".}
+proc setIsoOnPlane*(this: var VrmlConverterDrawer; onOff: bool) {.
     importcpp: "SetIsoOnPlane", header: "VrmlConverter_Drawer.hxx".}
-proc IsoOnPlane*(this: VrmlConverter_Drawer): Standard_Boolean {.noSideEffect,
+proc isoOnPlane*(this: VrmlConverterDrawer): bool {.noSideEffect,
     importcpp: "IsoOnPlane", header: "VrmlConverter_Drawer.hxx".}
-proc UIsoAspect*(this: var VrmlConverter_Drawer): handle[VrmlConverter_IsoAspect] {.
+proc uIsoAspect*(this: var VrmlConverterDrawer): Handle[VrmlConverterIsoAspect] {.
     importcpp: "UIsoAspect", header: "VrmlConverter_Drawer.hxx".}
-proc SetUIsoAspect*(this: var VrmlConverter_Drawer;
-                   anAspect: handle[VrmlConverter_IsoAspect]) {.
+proc setUIsoAspect*(this: var VrmlConverterDrawer;
+                   anAspect: Handle[VrmlConverterIsoAspect]) {.
     importcpp: "SetUIsoAspect", header: "VrmlConverter_Drawer.hxx".}
-proc VIsoAspect*(this: var VrmlConverter_Drawer): handle[VrmlConverter_IsoAspect] {.
+proc vIsoAspect*(this: var VrmlConverterDrawer): Handle[VrmlConverterIsoAspect] {.
     importcpp: "VIsoAspect", header: "VrmlConverter_Drawer.hxx".}
-proc SetVIsoAspect*(this: var VrmlConverter_Drawer;
-                   anAspect: handle[VrmlConverter_IsoAspect]) {.
+proc setVIsoAspect*(this: var VrmlConverterDrawer;
+                   anAspect: Handle[VrmlConverterIsoAspect]) {.
     importcpp: "SetVIsoAspect", header: "VrmlConverter_Drawer.hxx".}
-proc FreeBoundaryAspect*(this: var VrmlConverter_Drawer): handle[
-    VrmlConverter_LineAspect] {.importcpp: "FreeBoundaryAspect",
-                               header: "VrmlConverter_Drawer.hxx".}
-proc SetFreeBoundaryAspect*(this: var VrmlConverter_Drawer;
-                           anAspect: handle[VrmlConverter_LineAspect]) {.
+proc freeBoundaryAspect*(this: var VrmlConverterDrawer): Handle[
+    VrmlConverterLineAspect] {.importcpp: "FreeBoundaryAspect",
+                              header: "VrmlConverter_Drawer.hxx".}
+proc setFreeBoundaryAspect*(this: var VrmlConverterDrawer;
+                           anAspect: Handle[VrmlConverterLineAspect]) {.
     importcpp: "SetFreeBoundaryAspect", header: "VrmlConverter_Drawer.hxx".}
-proc SetFreeBoundaryDraw*(this: var VrmlConverter_Drawer; OnOff: Standard_Boolean) {.
+proc setFreeBoundaryDraw*(this: var VrmlConverterDrawer; onOff: bool) {.
     importcpp: "SetFreeBoundaryDraw", header: "VrmlConverter_Drawer.hxx".}
-proc FreeBoundaryDraw*(this: VrmlConverter_Drawer): Standard_Boolean {.noSideEffect,
+proc freeBoundaryDraw*(this: VrmlConverterDrawer): bool {.noSideEffect,
     importcpp: "FreeBoundaryDraw", header: "VrmlConverter_Drawer.hxx".}
-proc WireAspect*(this: var VrmlConverter_Drawer): handle[VrmlConverter_LineAspect] {.
+proc wireAspect*(this: var VrmlConverterDrawer): Handle[VrmlConverterLineAspect] {.
     importcpp: "WireAspect", header: "VrmlConverter_Drawer.hxx".}
-proc SetWireAspect*(this: var VrmlConverter_Drawer;
-                   anAspect: handle[VrmlConverter_LineAspect]) {.
+proc setWireAspect*(this: var VrmlConverterDrawer;
+                   anAspect: Handle[VrmlConverterLineAspect]) {.
     importcpp: "SetWireAspect", header: "VrmlConverter_Drawer.hxx".}
-proc SetWireDraw*(this: var VrmlConverter_Drawer; OnOff: Standard_Boolean) {.
+proc setWireDraw*(this: var VrmlConverterDrawer; onOff: bool) {.
     importcpp: "SetWireDraw", header: "VrmlConverter_Drawer.hxx".}
-proc WireDraw*(this: VrmlConverter_Drawer): Standard_Boolean {.noSideEffect,
+proc wireDraw*(this: VrmlConverterDrawer): bool {.noSideEffect,
     importcpp: "WireDraw", header: "VrmlConverter_Drawer.hxx".}
-proc UnFreeBoundaryAspect*(this: var VrmlConverter_Drawer): handle[
-    VrmlConverter_LineAspect] {.importcpp: "UnFreeBoundaryAspect",
-                               header: "VrmlConverter_Drawer.hxx".}
-proc SetUnFreeBoundaryAspect*(this: var VrmlConverter_Drawer;
-                             anAspect: handle[VrmlConverter_LineAspect]) {.
+proc unFreeBoundaryAspect*(this: var VrmlConverterDrawer): Handle[
+    VrmlConverterLineAspect] {.importcpp: "UnFreeBoundaryAspect",
+                              header: "VrmlConverter_Drawer.hxx".}
+proc setUnFreeBoundaryAspect*(this: var VrmlConverterDrawer;
+                             anAspect: Handle[VrmlConverterLineAspect]) {.
     importcpp: "SetUnFreeBoundaryAspect", header: "VrmlConverter_Drawer.hxx".}
-proc SetUnFreeBoundaryDraw*(this: var VrmlConverter_Drawer; OnOff: Standard_Boolean) {.
+proc setUnFreeBoundaryDraw*(this: var VrmlConverterDrawer; onOff: bool) {.
     importcpp: "SetUnFreeBoundaryDraw", header: "VrmlConverter_Drawer.hxx".}
-proc UnFreeBoundaryDraw*(this: VrmlConverter_Drawer): Standard_Boolean {.
-    noSideEffect, importcpp: "UnFreeBoundaryDraw",
-    header: "VrmlConverter_Drawer.hxx".}
-proc LineAspect*(this: var VrmlConverter_Drawer): handle[VrmlConverter_LineAspect] {.
+proc unFreeBoundaryDraw*(this: VrmlConverterDrawer): bool {.noSideEffect,
+    importcpp: "UnFreeBoundaryDraw", header: "VrmlConverter_Drawer.hxx".}
+proc lineAspect*(this: var VrmlConverterDrawer): Handle[VrmlConverterLineAspect] {.
     importcpp: "LineAspect", header: "VrmlConverter_Drawer.hxx".}
-proc SetLineAspect*(this: var VrmlConverter_Drawer;
-                   anAspect: handle[VrmlConverter_LineAspect]) {.
+proc setLineAspect*(this: var VrmlConverterDrawer;
+                   anAspect: Handle[VrmlConverterLineAspect]) {.
     importcpp: "SetLineAspect", header: "VrmlConverter_Drawer.hxx".}
-proc PointAspect*(this: var VrmlConverter_Drawer): handle[VrmlConverter_PointAspect] {.
+proc pointAspect*(this: var VrmlConverterDrawer): Handle[VrmlConverterPointAspect] {.
     importcpp: "PointAspect", header: "VrmlConverter_Drawer.hxx".}
-proc SetPointAspect*(this: var VrmlConverter_Drawer;
-                    anAspect: handle[VrmlConverter_PointAspect]) {.
+proc setPointAspect*(this: var VrmlConverterDrawer;
+                    anAspect: Handle[VrmlConverterPointAspect]) {.
     importcpp: "SetPointAspect", header: "VrmlConverter_Drawer.hxx".}
-proc ShadingAspect*(this: var VrmlConverter_Drawer): handle[
-    VrmlConverter_ShadingAspect] {.importcpp: "ShadingAspect",
-                                  header: "VrmlConverter_Drawer.hxx".}
-proc SetShadingAspect*(this: var VrmlConverter_Drawer;
-                      anAspect: handle[VrmlConverter_ShadingAspect]) {.
+proc shadingAspect*(this: var VrmlConverterDrawer): Handle[
+    VrmlConverterShadingAspect] {.importcpp: "ShadingAspect",
+                                 header: "VrmlConverter_Drawer.hxx".}
+proc setShadingAspect*(this: var VrmlConverterDrawer;
+                      anAspect: Handle[VrmlConverterShadingAspect]) {.
     importcpp: "SetShadingAspect", header: "VrmlConverter_Drawer.hxx".}
-proc DrawHiddenLine*(this: VrmlConverter_Drawer): Standard_Boolean {.noSideEffect,
+proc drawHiddenLine*(this: VrmlConverterDrawer): bool {.noSideEffect,
     importcpp: "DrawHiddenLine", header: "VrmlConverter_Drawer.hxx".}
-proc EnableDrawHiddenLine*(this: var VrmlConverter_Drawer) {.
+proc enableDrawHiddenLine*(this: var VrmlConverterDrawer) {.
     importcpp: "EnableDrawHiddenLine", header: "VrmlConverter_Drawer.hxx".}
-proc DisableDrawHiddenLine*(this: var VrmlConverter_Drawer) {.
+proc disableDrawHiddenLine*(this: var VrmlConverterDrawer) {.
     importcpp: "DisableDrawHiddenLine", header: "VrmlConverter_Drawer.hxx".}
-proc HiddenLineAspect*(this: var VrmlConverter_Drawer): handle[
-    VrmlConverter_LineAspect] {.importcpp: "HiddenLineAspect",
-                               header: "VrmlConverter_Drawer.hxx".}
-proc SetHiddenLineAspect*(this: var VrmlConverter_Drawer;
-                         anAspect: handle[VrmlConverter_LineAspect]) {.
+proc hiddenLineAspect*(this: var VrmlConverterDrawer): Handle[
+    VrmlConverterLineAspect] {.importcpp: "HiddenLineAspect",
+                              header: "VrmlConverter_Drawer.hxx".}
+proc setHiddenLineAspect*(this: var VrmlConverterDrawer;
+                         anAspect: Handle[VrmlConverterLineAspect]) {.
     importcpp: "SetHiddenLineAspect", header: "VrmlConverter_Drawer.hxx".}
-proc SeenLineAspect*(this: var VrmlConverter_Drawer): handle[
-    VrmlConverter_LineAspect] {.importcpp: "SeenLineAspect",
-                               header: "VrmlConverter_Drawer.hxx".}
-proc SetSeenLineAspect*(this: var VrmlConverter_Drawer;
-                       anAspect: handle[VrmlConverter_LineAspect]) {.
+proc seenLineAspect*(this: var VrmlConverterDrawer): Handle[VrmlConverterLineAspect] {.
+    importcpp: "SeenLineAspect", header: "VrmlConverter_Drawer.hxx".}
+proc setSeenLineAspect*(this: var VrmlConverterDrawer;
+                       anAspect: Handle[VrmlConverterLineAspect]) {.
     importcpp: "SetSeenLineAspect", header: "VrmlConverter_Drawer.hxx".}
 type
-  VrmlConverter_Drawerbase_type* = Standard_Transient
+  VrmlConverterDrawerbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "VrmlConverter_Drawer::get_type_name(@)",
-                              header: "VrmlConverter_Drawer.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "VrmlConverter_Drawer::get_type_name(@)",
+                            header: "VrmlConverter_Drawer.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "VrmlConverter_Drawer::get_type_descriptor(@)",
     header: "VrmlConverter_Drawer.hxx".}
-proc DynamicType*(this: VrmlConverter_Drawer): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: VrmlConverterDrawer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "VrmlConverter_Drawer.hxx".}

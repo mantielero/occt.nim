@@ -14,47 +14,47 @@
 ## ! Stats counter.
 
 type
-  Graphic3d_FrameStatsCounter* {.size: sizeof(cint),
-                                importcpp: "Graphic3d_FrameStatsCounter",
-                                header: "Graphic3d_FrameStatsCounter.hxx".} = enum ##  overall scene counters
-    Graphic3d_FrameStatsCounter_NbLayers = 0, ## !< number of ZLayers
-    Graphic3d_FrameStatsCounter_NbStructs, ## !< number of defined OpenGl_Structure
-    Graphic3d_FrameStatsCounter_EstimatedBytesGeom, ## !< estimated GPU memory used for geometry
-    Graphic3d_FrameStatsCounter_EstimatedBytesFbos, ## !< estimated GPU memory used for FBOs
-    Graphic3d_FrameStatsCounter_EstimatedBytesTextures, ## !< estimated GPU memory used for textures
-                                                       ##  rendered counters
-    Graphic3d_FrameStatsCounter_NbLayersNotCulled, ## !< number of not culled ZLayers
-    Graphic3d_FrameStatsCounter_NbStructsNotCulled, ## !< number of not culled OpenGl_Structure
-    Graphic3d_FrameStatsCounter_NbGroupsNotCulled, ## !< number of not culled OpenGl_Group
-    Graphic3d_FrameStatsCounter_NbElemsNotCulled, ## !< number of not culled OpenGl_Element
-    Graphic3d_FrameStatsCounter_NbElemsFillNotCulled, ## !< number of not culled OpenGl_PrimitiveArray drawing triangles
-    Graphic3d_FrameStatsCounter_NbElemsLineNotCulled, ## !< number of not culled OpenGl_PrimitiveArray drawing lines
-    Graphic3d_FrameStatsCounter_NbElemsPointNotCulled, ## !< number of not culled OpenGl_PrimitiveArray drawing points
-    Graphic3d_FrameStatsCounter_NbElemsTextNotCulled, ## !< number of not culled OpenGl_Text
-    Graphic3d_FrameStatsCounter_NbTrianglesNotCulled, ## !< number of not culled (as structure) triangles
-    Graphic3d_FrameStatsCounter_NbLinesNotCulled, ## !< number of not culled (as structure) line segments
-    Graphic3d_FrameStatsCounter_NbPointsNotCulled, ## !< number of not culled (as structure) points
-                                                  ## Graphic3d_FrameStatsCounter_NbGlyphsNotCulled,    //!< number glyphs, to be considered in future
-                                                  ##  immediate layer rendered counters
-    Graphic3d_FrameStatsCounter_NbLayersImmediate, ## !< number of ZLayers in immediate layer
-    Graphic3d_FrameStatsCounter_NbStructsImmediate, ## !< number of OpenGl_Structure in immediate layer
-    Graphic3d_FrameStatsCounter_NbGroupsImmediate, ## !< number of OpenGl_Group in immediate layer
-    Graphic3d_FrameStatsCounter_NbElemsImmediate, ## !< number of OpenGl_Element in immediate layer
-    Graphic3d_FrameStatsCounter_NbElemsFillImmediate, ## !< number of OpenGl_PrimitiveArray drawing triangles in immediate layer
-    Graphic3d_FrameStatsCounter_NbElemsLineImmediate, ## !< number of OpenGl_PrimitiveArray drawing lines in immediate layer
-    Graphic3d_FrameStatsCounter_NbElemsPointImmediate, ## !< number of OpenGl_PrimitiveArray drawing points in immediate layer
-    Graphic3d_FrameStatsCounter_NbElemsTextImmediate, ## !< number of OpenGl_Text in immediate layer
-    Graphic3d_FrameStatsCounter_NbTrianglesImmediate, ## !< number of triangles in immediate layer
-    Graphic3d_FrameStatsCounter_NbLinesImmediate, ## !< number of line segments in immediate layer
-    Graphic3d_FrameStatsCounter_NbPointsImmediate ## !< number of points in immediate layer
+  Graphic3dFrameStatsCounter* {.size: sizeof(cint),
+                               importcpp: "Graphic3d_FrameStatsCounter",
+                               header: "Graphic3d_FrameStatsCounter.hxx".} = enum ##  overall scene counters
+    Graphic3dFrameStatsCounterNbLayers = 0, ## !< number of ZLayers
+    Graphic3dFrameStatsCounterNbStructs, ## !< number of defined OpenGl_Structure
+    Graphic3dFrameStatsCounterEstimatedBytesGeom, ## !< estimated GPU memory used for geometry
+    Graphic3dFrameStatsCounterEstimatedBytesFbos, ## !< estimated GPU memory used for FBOs
+    Graphic3dFrameStatsCounterEstimatedBytesTextures, ## !< estimated GPU memory used for textures
+                                                     ##  rendered counters
+    Graphic3dFrameStatsCounterNbLayersNotCulled, ## !< number of not culled ZLayers
+    Graphic3dFrameStatsCounterNbStructsNotCulled, ## !< number of not culled OpenGl_Structure
+    Graphic3dFrameStatsCounterNbGroupsNotCulled, ## !< number of not culled OpenGl_Group
+    Graphic3dFrameStatsCounterNbElemsNotCulled, ## !< number of not culled OpenGl_Element
+    Graphic3dFrameStatsCounterNbElemsFillNotCulled, ## !< number of not culled OpenGl_PrimitiveArray drawing triangles
+    Graphic3dFrameStatsCounterNbElemsLineNotCulled, ## !< number of not culled OpenGl_PrimitiveArray drawing lines
+    Graphic3dFrameStatsCounterNbElemsPointNotCulled, ## !< number of not culled OpenGl_PrimitiveArray drawing points
+    Graphic3dFrameStatsCounterNbElemsTextNotCulled, ## !< number of not culled OpenGl_Text
+    Graphic3dFrameStatsCounterNbTrianglesNotCulled, ## !< number of not culled (as structure) triangles
+    Graphic3dFrameStatsCounterNbLinesNotCulled, ## !< number of not culled (as structure) line segments
+    Graphic3dFrameStatsCounterNbPointsNotCulled, ## !< number of not culled (as structure) points
+                                                ## Graphic3d_FrameStatsCounter_NbGlyphsNotCulled,    //!< number glyphs, to be considered in future
+                                                ##  immediate layer rendered counters
+    Graphic3dFrameStatsCounterNbLayersImmediate, ## !< number of ZLayers in immediate layer
+    Graphic3dFrameStatsCounterNbStructsImmediate, ## !< number of OpenGl_Structure in immediate layer
+    Graphic3dFrameStatsCounterNbGroupsImmediate, ## !< number of OpenGl_Group in immediate layer
+    Graphic3dFrameStatsCounterNbElemsImmediate, ## !< number of OpenGl_Element in immediate layer
+    Graphic3dFrameStatsCounterNbElemsFillImmediate, ## !< number of OpenGl_PrimitiveArray drawing triangles in immediate layer
+    Graphic3dFrameStatsCounterNbElemsLineImmediate, ## !< number of OpenGl_PrimitiveArray drawing lines in immediate layer
+    Graphic3dFrameStatsCounterNbElemsPointImmediate, ## !< number of OpenGl_PrimitiveArray drawing points in immediate layer
+    Graphic3dFrameStatsCounterNbElemsTextImmediate, ## !< number of OpenGl_Text in immediate layer
+    Graphic3dFrameStatsCounterNbTrianglesImmediate, ## !< number of triangles in immediate layer
+    Graphic3dFrameStatsCounterNbLinesImmediate, ## !< number of line segments in immediate layer
+    Graphic3dFrameStatsCounterNbPointsImmediate ## !< number of points in immediate layer
 
 
 const
-  Graphic3d_FrameStatsCounter_NB* = Graphic3d_FrameStatsCounter_NbPointsImmediate +
-      1
-  Graphic3d_FrameStatsCounter_SCENE_LOWER* = Graphic3d_FrameStatsCounter_NbLayers
-  Graphic3d_FrameStatsCounter_SCENE_UPPER* = Graphic3d_FrameStatsCounter_EstimatedBytesTextures
-  Graphic3d_FrameStatsCounter_RENDERED_LOWER* = Graphic3d_FrameStatsCounter_NbLayersNotCulled
-  Graphic3d_FrameStatsCounter_RENDERED_UPPER* = Graphic3d_FrameStatsCounter_NbPointsNotCulled
-  Graphic3d_FrameStatsCounter_IMMEDIATE_LOWER* = Graphic3d_FrameStatsCounter_NbLayersImmediate
-  Graphic3d_FrameStatsCounter_IMMEDIATE_UPPER* = Graphic3d_FrameStatsCounter_NbPointsImmediate
+  Graphic3dFrameStatsCounterNB* = graphic3dFrameStatsCounterNbPointsImmediate + 1
+  Graphic3dFrameStatsCounterSCENE_LOWER* = graphic3dFrameStatsCounterNbLayers
+  Graphic3dFrameStatsCounterSCENE_UPPER* = graphic3dFrameStatsCounterEstimatedBytesTextures
+  Graphic3dFrameStatsCounterRENDERED_LOWER* = graphic3dFrameStatsCounterNbLayersNotCulled
+  Graphic3dFrameStatsCounterRENDERED_UPPER* = graphic3dFrameStatsCounterNbPointsNotCulled
+  Graphic3dFrameStatsCounterIMMEDIATE_LOWER* = graphic3dFrameStatsCounterNbLayersImmediate
+  Graphic3dFrameStatsCounterIMMEDIATE_UPPER* = graphic3dFrameStatsCounterNbPointsImmediate
+

@@ -13,32 +13,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_DerivedShapeAspect
-
 discard "forward decl of StepRepr_GeometricAlignment"
 discard "forward decl of StepRepr_GeometricAlignment"
 type
-  Handle_StepRepr_GeometricAlignment* = handle[StepRepr_GeometricAlignment]
+  HandleStepReprGeometricAlignment* = Handle[StepReprGeometricAlignment]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepRepr_GeometricAlignment* {.importcpp: "StepRepr_GeometricAlignment",
-                                header: "StepRepr_GeometricAlignment.hxx", bycopy.} = object of StepRepr_DerivedShapeAspect
+  StepReprGeometricAlignment* {.importcpp: "StepRepr_GeometricAlignment",
+                               header: "StepRepr_GeometricAlignment.hxx", bycopy.} = object of StepReprDerivedShapeAspect
 
 
-proc constructStepRepr_GeometricAlignment*(): StepRepr_GeometricAlignment {.
+proc constructStepReprGeometricAlignment*(): StepReprGeometricAlignment {.
     constructor, importcpp: "StepRepr_GeometricAlignment(@)",
     header: "StepRepr_GeometricAlignment.hxx".}
 type
-  StepRepr_GeometricAlignmentbase_type* = StepRepr_DerivedShapeAspect
+  StepReprGeometricAlignmentbaseType* = StepReprDerivedShapeAspect
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_GeometricAlignment::get_type_name(@)",
-                              header: "StepRepr_GeometricAlignment.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_GeometricAlignment::get_type_name(@)",
+                            header: "StepRepr_GeometricAlignment.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_GeometricAlignment::get_type_descriptor(@)",
     header: "StepRepr_GeometricAlignment.hxx".}
-proc DynamicType*(this: StepRepr_GeometricAlignment): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprGeometricAlignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_GeometricAlignment.hxx".}

@@ -14,16 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Transient, ../TCollection/TCollection_AsciiString,
-  ../TColStd/TColStd_MapTransientHasher, ../TCollection/TCollection_AsciiString,
-  ../NCollection/NCollection_DoubleMap
-
 discard "forward decl of AIS_InteractiveObject"
 type
-  ViewerTest_DoubleMapOfInteractiveAndName* = NCollection_DoubleMap[
-      handle[AIS_InteractiveObject], TCollection_AsciiString,
-      TColStd_MapTransientHasher, TCollection_AsciiString]
-  ViewerTest_DoubleMapIteratorOfDoubleMapOfInteractiveAndName* = Iterator[
-      handle[AIS_InteractiveObject], TCollection_AsciiString,
-      TColStd_MapTransientHasher, TCollection_AsciiString]
+  ViewerTestDoubleMapOfInteractiveAndName* = NCollectionDoubleMap[
+      Handle[AIS_InteractiveObject], TCollectionAsciiString,
+      TColStdMapTransientHasher, TCollectionAsciiString]
+  ViewerTestDoubleMapIteratorOfDoubleMapOfInteractiveAndName* = Iterator[
+      Handle[AIS_InteractiveObject], TCollectionAsciiString,
+      TColStdMapTransientHasher, TCollectionAsciiString]
+

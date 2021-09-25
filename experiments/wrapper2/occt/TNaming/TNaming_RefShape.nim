@@ -14,34 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape, TNaming_PtrNode
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TDF_Label"
 discard "forward decl of TNaming_NamedShape"
 type
-  TNaming_RefShape* {.importcpp: "TNaming_RefShape",
-                     header: "TNaming_RefShape.hxx", bycopy.} = object
+  TNamingRefShape* {.importcpp: "TNaming_RefShape", header: "TNaming_RefShape.hxx",
+                    bycopy.} = object
 
 
-proc constructTNaming_RefShape*(): TNaming_RefShape {.constructor,
+proc constructTNamingRefShape*(): TNamingRefShape {.constructor,
     importcpp: "TNaming_RefShape(@)", header: "TNaming_RefShape.hxx".}
-proc constructTNaming_RefShape*(S: TopoDS_Shape): TNaming_RefShape {.constructor,
+proc constructTNamingRefShape*(s: TopoDS_Shape): TNamingRefShape {.constructor,
     importcpp: "TNaming_RefShape(@)", header: "TNaming_RefShape.hxx".}
-proc Shape*(this: var TNaming_RefShape; S: TopoDS_Shape) {.importcpp: "Shape",
+proc shape*(this: var TNamingRefShape; s: TopoDS_Shape) {.importcpp: "Shape",
     header: "TNaming_RefShape.hxx".}
-proc FirstUse*(this: var TNaming_RefShape; aPtr: TNaming_PtrNode) {.
+proc firstUse*(this: var TNamingRefShape; aPtr: TNamingPtrNode) {.
     importcpp: "FirstUse", header: "TNaming_RefShape.hxx".}
-proc FirstUse*(this: TNaming_RefShape): TNaming_PtrNode {.noSideEffect,
+proc firstUse*(this: TNamingRefShape): TNamingPtrNode {.noSideEffect,
     importcpp: "FirstUse", header: "TNaming_RefShape.hxx".}
-proc Shape*(this: TNaming_RefShape): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
+proc shape*(this: TNamingRefShape): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "TNaming_RefShape.hxx".}
-proc Label*(this: TNaming_RefShape): TDF_Label {.noSideEffect, importcpp: "Label",
+proc label*(this: TNamingRefShape): TDF_Label {.noSideEffect, importcpp: "Label",
     header: "TNaming_RefShape.hxx".}
-proc NamedShape*(this: TNaming_RefShape): handle[TNaming_NamedShape] {.noSideEffect,
+proc namedShape*(this: TNamingRefShape): Handle[TNamingNamedShape] {.noSideEffect,
     importcpp: "NamedShape", header: "TNaming_RefShape.hxx".}
-proc DumpJson*(this: TNaming_RefShape; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TNaming_RefShape.hxx".}
+proc dumpJson*(this: TNamingRefShape; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TNaming_RefShape.hxx".}

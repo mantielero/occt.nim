@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../BRepTopAdaptor/BRepTopAdaptor_MapOfShapeTool,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Real
-
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Contap_Contour"
 discard "forward decl of HLRTopoBRep_Data"
@@ -28,22 +22,20 @@ discard "forward decl of TopoDS_Vertex"
 discard "forward decl of Contap_Point"
 discard "forward decl of TopoDS_Edge"
 type
-  HLRTopoBRep_DSFiller* {.importcpp: "HLRTopoBRep_DSFiller",
-                         header: "HLRTopoBRep_DSFiller.hxx", bycopy.} = object ## ! Stores in <DS> the
-                                                                          ## outlines of  <S> using the
-                                                                          ## current
-                                                                          ## !
-                                                                          ## outliner and stores the
-                                                                          ## isolines in <DS> using a
-                                                                          ## Hatcher.
-                                                                          ## ! Stores in <DS> the
-                                                                          ## outlines of  <F> using the
-                                                                          ## current
-                                                                          ## !
-                                                                          ## outliner.
+  HLRTopoBRepDSFiller* {.importcpp: "HLRTopoBRep_DSFiller",
+                        header: "HLRTopoBRep_DSFiller.hxx", bycopy.} = object ## ! Stores in <DS> the
+                                                                         ## outlines of  <S> using the current
+                                                                         ## !
+                                                                         ## outliner and stores the
+                                                                         ## isolines in <DS> using a
+                                                                         ## Hatcher.
+                                                                         ## ! Stores in <DS> the
+                                                                         ## outlines of  <F> using the current
+                                                                         ## !
+                                                                         ## outliner.
 
 
-proc Insert*(S: TopoDS_Shape; FO: var Contap_Contour; DS: var HLRTopoBRep_Data;
-            MST: var BRepTopAdaptor_MapOfShapeTool; nbIso: Standard_Integer) {.
+proc insert*(s: TopoDS_Shape; fo: var ContapContour; ds: var HLRTopoBRepData;
+            mst: var BRepTopAdaptorMapOfShapeTool; nbIso: int) {.
     importcpp: "HLRTopoBRep_DSFiller::Insert(@)",
     header: "HLRTopoBRep_DSFiller.hxx".}

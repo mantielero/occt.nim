@@ -14,77 +14,68 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Transfer_HSequenceOfBinder,
-  ../TColStd/TColStd_HSequenceOfInteger, ../Standard/Standard_Integer,
-  ../Standard/Standard_Type, ../Standard/Standard_Boolean, Transfer_StatusExec
-
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Transfer_Binder"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_Check"
-when defined(Status):
-  discard
+# when defined(Status):
+#   discard
 ## ! Defines an Iterator on the result of a Transfer
 ## ! Available for Normal Results or not (Erroneous Transfer)
 ## ! It gives several kinds of Informations, and allows to consider
 ## ! various criteria (criteria are cumulative)
 
 type
-  Transfer_TransferIterator* {.importcpp: "Transfer_TransferIterator",
-                              header: "Transfer_TransferIterator.hxx", bycopy.} = object ##
-                                                                                    ## !
-                                                                                    ## Creates
-                                                                                    ## an
-                                                                                    ## empty
-                                                                                    ## Iterator
+  TransferTransferIterator* {.importcpp: "Transfer_TransferIterator",
+                             header: "Transfer_TransferIterator.hxx", bycopy.} = object ##
+                                                                                   ## !
+                                                                                   ## Creates
+                                                                                   ## an
+                                                                                   ## empty
+                                                                                   ## Iterator
 
 
-proc constructTransfer_TransferIterator*(): Transfer_TransferIterator {.
-    constructor, importcpp: "Transfer_TransferIterator(@)",
+proc constructTransferTransferIterator*(): TransferTransferIterator {.constructor,
+    importcpp: "Transfer_TransferIterator(@)",
     header: "Transfer_TransferIterator.hxx".}
-proc AddItem*(this: var Transfer_TransferIterator; atr: handle[Transfer_Binder]) {.
+proc addItem*(this: var TransferTransferIterator; atr: Handle[TransferBinder]) {.
     importcpp: "AddItem", header: "Transfer_TransferIterator.hxx".}
-proc SelectBinder*(this: var Transfer_TransferIterator;
-                  atype: handle[Standard_Type]; keep: Standard_Boolean) {.
-    importcpp: "SelectBinder", header: "Transfer_TransferIterator.hxx".}
-proc SelectResult*(this: var Transfer_TransferIterator;
-                  atype: handle[Standard_Type]; keep: Standard_Boolean) {.
-    importcpp: "SelectResult", header: "Transfer_TransferIterator.hxx".}
-proc SelectUnique*(this: var Transfer_TransferIterator; keep: Standard_Boolean) {.
+proc selectBinder*(this: var TransferTransferIterator; atype: Handle[StandardType];
+                  keep: bool) {.importcpp: "SelectBinder",
+                              header: "Transfer_TransferIterator.hxx".}
+proc selectResult*(this: var TransferTransferIterator; atype: Handle[StandardType];
+                  keep: bool) {.importcpp: "SelectResult",
+                              header: "Transfer_TransferIterator.hxx".}
+proc selectUnique*(this: var TransferTransferIterator; keep: bool) {.
     importcpp: "SelectUnique", header: "Transfer_TransferIterator.hxx".}
-proc SelectItem*(this: var Transfer_TransferIterator; num: Standard_Integer;
-                keep: Standard_Boolean) {.importcpp: "SelectItem",
-                                        header: "Transfer_TransferIterator.hxx".}
-proc Number*(this: Transfer_TransferIterator): Standard_Integer {.noSideEffect,
+proc selectItem*(this: var TransferTransferIterator; num: int; keep: bool) {.
+    importcpp: "SelectItem", header: "Transfer_TransferIterator.hxx".}
+proc number*(this: TransferTransferIterator): int {.noSideEffect,
     importcpp: "Number", header: "Transfer_TransferIterator.hxx".}
-proc Start*(this: var Transfer_TransferIterator) {.importcpp: "Start",
+proc start*(this: var TransferTransferIterator) {.importcpp: "Start",
     header: "Transfer_TransferIterator.hxx".}
-proc More*(this: var Transfer_TransferIterator): Standard_Boolean {.
-    importcpp: "More", header: "Transfer_TransferIterator.hxx".}
-proc Next*(this: var Transfer_TransferIterator) {.importcpp: "Next",
+proc more*(this: var TransferTransferIterator): bool {.importcpp: "More",
     header: "Transfer_TransferIterator.hxx".}
-proc Value*(this: Transfer_TransferIterator): handle[Transfer_Binder] {.
-    noSideEffect, importcpp: "Value", header: "Transfer_TransferIterator.hxx".}
-proc HasResult*(this: Transfer_TransferIterator): Standard_Boolean {.noSideEffect,
+proc next*(this: var TransferTransferIterator) {.importcpp: "Next",
+    header: "Transfer_TransferIterator.hxx".}
+proc value*(this: TransferTransferIterator): Handle[TransferBinder] {.noSideEffect,
+    importcpp: "Value", header: "Transfer_TransferIterator.hxx".}
+proc hasResult*(this: TransferTransferIterator): bool {.noSideEffect,
     importcpp: "HasResult", header: "Transfer_TransferIterator.hxx".}
-proc HasUniqueResult*(this: Transfer_TransferIterator): Standard_Boolean {.
-    noSideEffect, importcpp: "HasUniqueResult",
-    header: "Transfer_TransferIterator.hxx".}
-proc ResultType*(this: Transfer_TransferIterator): handle[Standard_Type] {.
+proc hasUniqueResult*(this: TransferTransferIterator): bool {.noSideEffect,
+    importcpp: "HasUniqueResult", header: "Transfer_TransferIterator.hxx".}
+proc resultType*(this: TransferTransferIterator): Handle[StandardType] {.
     noSideEffect, importcpp: "ResultType", header: "Transfer_TransferIterator.hxx".}
-proc HasTransientResult*(this: Transfer_TransferIterator): Standard_Boolean {.
-    noSideEffect, importcpp: "HasTransientResult",
-    header: "Transfer_TransferIterator.hxx".}
-proc TransientResult*(this: Transfer_TransferIterator): handle[Standard_Transient] {.
+proc hasTransientResult*(this: TransferTransferIterator): bool {.noSideEffect,
+    importcpp: "HasTransientResult", header: "Transfer_TransferIterator.hxx".}
+proc transientResult*(this: TransferTransferIterator): Handle[StandardTransient] {.
     noSideEffect, importcpp: "TransientResult",
     header: "Transfer_TransferIterator.hxx".}
-proc Status*(this: Transfer_TransferIterator): Transfer_StatusExec {.noSideEffect,
+proc status*(this: TransferTransferIterator): TransferStatusExec {.noSideEffect,
     importcpp: "Status", header: "Transfer_TransferIterator.hxx".}
-proc HasFails*(this: Transfer_TransferIterator): Standard_Boolean {.noSideEffect,
+proc hasFails*(this: TransferTransferIterator): bool {.noSideEffect,
     importcpp: "HasFails", header: "Transfer_TransferIterator.hxx".}
-proc HasWarnings*(this: Transfer_TransferIterator): Standard_Boolean {.noSideEffect,
+proc hasWarnings*(this: TransferTransferIterator): bool {.noSideEffect,
     importcpp: "HasWarnings", header: "Transfer_TransferIterator.hxx".}
-proc Check*(this: Transfer_TransferIterator): handle[Interface_Check] {.
-    noSideEffect, importcpp: "Check", header: "Transfer_TransferIterator.hxx".}
+proc check*(this: TransferTransferIterator): Handle[InterfaceCheck] {.noSideEffect,
+    importcpp: "Check", header: "Transfer_TransferIterator.hxx".}

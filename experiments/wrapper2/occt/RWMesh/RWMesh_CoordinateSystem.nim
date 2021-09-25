@@ -18,15 +18,15 @@
 ## ! This enumeration defines two commonly used conventions - Z-up and Y-up..
 
 type
-  RWMesh_CoordinateSystem* {.size: sizeof(cint),
-                            importcpp: "RWMesh_CoordinateSystem",
-                            header: "RWMesh_CoordinateSystem.hxx".} = enum
-    RWMesh_CoordinateSystem_Undefined = -1, ## !< undefined
-    RWMesh_CoordinateSystem_posYfwd_posZup = 0, ## !< +YForward+Zup+Xright
-    RWMesh_CoordinateSystem_negZfwd_posYup ## !< -ZForward+Yup+Xright
+  RWMeshCoordinateSystem* {.size: sizeof(cint),
+                           importcpp: "RWMesh_CoordinateSystem",
+                           header: "RWMesh_CoordinateSystem.hxx".} = enum
+    RWMeshCoordinateSystemUndefined = -1, ## !< undefined
+    RWMeshCoordinateSystemPosYfwdPosZup = 0, ## !< +YForward+Zup+Xright
+    RWMeshCoordinateSystemNegZfwdPosYup, ## !< -ZForward+Yup+Xright
+    RWMeshCoordinateSystemBlender = rWMeshCoordinateSystemPosYfwdPosZup, ## !< coordinate system used by Blender (+YForward+Zup+Xright)
+    RWMeshCoordinateSystemGlTF = rWMeshCoordinateSystemNegZfwdPosYup, ## !< coordinate system used by glTF    (-ZForward+Yup+Xright)
+    RWMeshCoordinateSystemZup = rWMeshCoordinateSystemBlender, ## !< Z-up coordinate system (+YForward+Zup+Xright)
+    RWMeshCoordinateSystemYup = rWMeshCoordinateSystemGlTF ## !< Y-up coordinate system (-ZForward+Yup+Xright)
 
-const
-  RWMesh_CoordinateSystem_Blender* = RWMesh_CoordinateSystem_posYfwd_posZup
-  RWMesh_CoordinateSystem_glTF* = RWMesh_CoordinateSystem_negZfwd_posYup
-  RWMesh_CoordinateSystem_Zup* = RWMesh_CoordinateSystem_Blender
-  RWMesh_CoordinateSystem_Yup* = RWMesh_CoordinateSystem_glTF
+

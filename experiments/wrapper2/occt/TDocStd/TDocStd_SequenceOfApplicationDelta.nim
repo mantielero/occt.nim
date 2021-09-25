@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TDocStd_ApplicationDelta, ../NCollection/NCollection_Sequence
-
 type
-  TDocStd_SequenceOfApplicationDelta* = NCollection_Sequence[
-      handle[TDocStd_ApplicationDelta]]
+  TDocStdSequenceOfApplicationDelta* = NCollectionSequence[
+      Handle[TDocStdApplicationDelta]]
+

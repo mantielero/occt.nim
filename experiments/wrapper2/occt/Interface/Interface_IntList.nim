@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../TColStd/TColStd_HArray1OfInteger, ../Standard/Standard_Boolean
-
 ## ! This class detains the data which describe a Graph. A Graph
 ## ! has two lists, one for shared refs, one for sharing refs
 ## ! (the reverses). Each list comprises, for each Entity of the
@@ -46,48 +41,47 @@ import
 ## ! edited
 
 type
-  Interface_IntList* {.importcpp: "Interface_IntList",
-                      header: "Interface_IntList.hxx", bycopy.} = object ## ! Creates empty IntList.
+  InterfaceIntList* {.importcpp: "Interface_IntList",
+                     header: "Interface_IntList.hxx", bycopy.} = object ## ! Creates empty IntList.
 
 
-proc constructInterface_IntList*(): Interface_IntList {.constructor,
+proc constructInterfaceIntList*(): InterfaceIntList {.constructor,
     importcpp: "Interface_IntList(@)", header: "Interface_IntList.hxx".}
-proc constructInterface_IntList*(nbe: Standard_Integer): Interface_IntList {.
+proc constructInterfaceIntList*(nbe: int): InterfaceIntList {.constructor,
+    importcpp: "Interface_IntList(@)", header: "Interface_IntList.hxx".}
+proc constructInterfaceIntList*(other: InterfaceIntList; copied: bool): InterfaceIntList {.
     constructor, importcpp: "Interface_IntList(@)", header: "Interface_IntList.hxx".}
-proc constructInterface_IntList*(other: Interface_IntList; copied: Standard_Boolean): Interface_IntList {.
-    constructor, importcpp: "Interface_IntList(@)", header: "Interface_IntList.hxx".}
-proc Initialize*(this: var Interface_IntList; nbe: Standard_Integer) {.
-    importcpp: "Initialize", header: "Interface_IntList.hxx".}
-proc Internals*(this: Interface_IntList; nbrefs: var Standard_Integer;
-               ents: var handle[TColStd_HArray1OfInteger];
-               refs: var handle[TColStd_HArray1OfInteger]) {.noSideEffect,
-    importcpp: "Internals", header: "Interface_IntList.hxx".}
-proc NbEntities*(this: Interface_IntList): Standard_Integer {.noSideEffect,
-    importcpp: "NbEntities", header: "Interface_IntList.hxx".}
-proc SetNbEntities*(this: var Interface_IntList; nbe: Standard_Integer) {.
-    importcpp: "SetNbEntities", header: "Interface_IntList.hxx".}
-proc SetNumber*(this: var Interface_IntList; number: Standard_Integer) {.
-    importcpp: "SetNumber", header: "Interface_IntList.hxx".}
-proc Number*(this: Interface_IntList): Standard_Integer {.noSideEffect,
-    importcpp: "Number", header: "Interface_IntList.hxx".}
-proc List*(this: Interface_IntList; number: Standard_Integer;
-          copied: Standard_Boolean = Standard_False): Interface_IntList {.
-    noSideEffect, importcpp: "List", header: "Interface_IntList.hxx".}
-proc SetRedefined*(this: var Interface_IntList; mode: Standard_Boolean) {.
-    importcpp: "SetRedefined", header: "Interface_IntList.hxx".}
-proc Reservate*(this: var Interface_IntList; count: Standard_Integer) {.
-    importcpp: "Reservate", header: "Interface_IntList.hxx".}
-proc Add*(this: var Interface_IntList; `ref`: Standard_Integer) {.importcpp: "Add",
+proc initialize*(this: var InterfaceIntList; nbe: int) {.importcpp: "Initialize",
     header: "Interface_IntList.hxx".}
-proc Length*(this: Interface_IntList): Standard_Integer {.noSideEffect,
-    importcpp: "Length", header: "Interface_IntList.hxx".}
-proc IsRedefined*(this: Interface_IntList; num: Standard_Integer = 0): Standard_Boolean {.
-    noSideEffect, importcpp: "IsRedefined", header: "Interface_IntList.hxx".}
-proc Value*(this: Interface_IntList; num: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "Value", header: "Interface_IntList.hxx".}
-proc Remove*(this: var Interface_IntList; num: Standard_Integer): Standard_Boolean {.
-    importcpp: "Remove", header: "Interface_IntList.hxx".}
-proc Clear*(this: var Interface_IntList) {.importcpp: "Clear",
-                                       header: "Interface_IntList.hxx".}
-proc AdjustSize*(this: var Interface_IntList; margin: Standard_Integer = 0) {.
-    importcpp: "AdjustSize", header: "Interface_IntList.hxx".}
+proc internals*(this: InterfaceIntList; nbrefs: var int;
+               ents: var Handle[TColStdHArray1OfInteger];
+               refs: var Handle[TColStdHArray1OfInteger]) {.noSideEffect,
+    importcpp: "Internals", header: "Interface_IntList.hxx".}
+proc nbEntities*(this: InterfaceIntList): int {.noSideEffect,
+    importcpp: "NbEntities", header: "Interface_IntList.hxx".}
+proc setNbEntities*(this: var InterfaceIntList; nbe: int) {.
+    importcpp: "SetNbEntities", header: "Interface_IntList.hxx".}
+proc setNumber*(this: var InterfaceIntList; number: int) {.importcpp: "SetNumber",
+    header: "Interface_IntList.hxx".}
+proc number*(this: InterfaceIntList): int {.noSideEffect, importcpp: "Number",
+                                        header: "Interface_IntList.hxx".}
+proc list*(this: InterfaceIntList; number: int; copied: bool = false): InterfaceIntList {.
+    noSideEffect, importcpp: "List", header: "Interface_IntList.hxx".}
+proc setRedefined*(this: var InterfaceIntList; mode: bool) {.
+    importcpp: "SetRedefined", header: "Interface_IntList.hxx".}
+proc reservate*(this: var InterfaceIntList; count: int) {.importcpp: "Reservate",
+    header: "Interface_IntList.hxx".}
+proc add*(this: var InterfaceIntList; `ref`: int) {.importcpp: "Add",
+    header: "Interface_IntList.hxx".}
+proc length*(this: InterfaceIntList): int {.noSideEffect, importcpp: "Length",
+                                        header: "Interface_IntList.hxx".}
+proc isRedefined*(this: InterfaceIntList; num: int = 0): bool {.noSideEffect,
+    importcpp: "IsRedefined", header: "Interface_IntList.hxx".}
+proc value*(this: InterfaceIntList; num: int): int {.noSideEffect, importcpp: "Value",
+    header: "Interface_IntList.hxx".}
+proc remove*(this: var InterfaceIntList; num: int): bool {.importcpp: "Remove",
+    header: "Interface_IntList.hxx".}
+proc clear*(this: var InterfaceIntList) {.importcpp: "Clear",
+                                      header: "Interface_IntList.hxx".}
+proc adjustSize*(this: var InterfaceIntList; margin: int = 0) {.importcpp: "AdjustSize",
+    header: "Interface_IntList.hxx".}

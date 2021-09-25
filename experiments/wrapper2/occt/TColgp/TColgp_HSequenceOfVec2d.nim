@@ -14,5 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # TColgp_HSequenceOfVec2d_HeaderFile [NewLine] # TColgp_HSequenceOfVec2d_HeaderFile [NewLine] # ../gp/gp_Vec2d.hxx [NewLine] # TColgp_SequenceOfVec2d.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( TColgp_HSequenceOfVec2d , TColgp_SequenceOfVec2d ) # [NewLine]
+## !!!Ignored construct:  # TColgp_HSequenceOfVec2d_HeaderFile [NewLine] # TColgp_HSequenceOfVec2d_HeaderFile [NewLine] # < gp_Vec2d . hxx > [NewLine] # < TColgp_SequenceOfVec2d . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( TColgp_HSequenceOfVec2d , TColgp_SequenceOfVec2d ) # [NewLine]
 ## Error: expected ';'!!!
+

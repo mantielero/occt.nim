@@ -14,48 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../Standard/Standard_Transient
-
 discard "forward decl of MAT_Bisector"
 discard "forward decl of MAT_Edge"
 discard "forward decl of MAT_Edge"
 type
-  Handle_MAT_Edge* = handle[MAT_Edge]
-  MAT_Edge* {.importcpp: "MAT_Edge", header: "MAT_Edge.hxx", bycopy.} = object of Standard_Transient
+  HandleMAT_Edge* = Handle[MAT_Edge]
+  MAT_Edge* {.importcpp: "MAT_Edge", header: "MAT_Edge.hxx", bycopy.} = object of StandardTransient
 
 
 proc constructMAT_Edge*(): MAT_Edge {.constructor, importcpp: "MAT_Edge(@)",
                                    header: "MAT_Edge.hxx".}
-proc EdgeNumber*(this: var MAT_Edge; anumber: Standard_Integer) {.
-    importcpp: "EdgeNumber", header: "MAT_Edge.hxx".}
-proc FirstBisector*(this: var MAT_Edge; abisector: handle[MAT_Bisector]) {.
-    importcpp: "FirstBisector", header: "MAT_Edge.hxx".}
-proc SecondBisector*(this: var MAT_Edge; abisector: handle[MAT_Bisector]) {.
-    importcpp: "SecondBisector", header: "MAT_Edge.hxx".}
-proc Distance*(this: var MAT_Edge; adistance: Standard_Real) {.importcpp: "Distance",
+proc edgeNumber*(this: var MAT_Edge; anumber: int) {.importcpp: "EdgeNumber",
     header: "MAT_Edge.hxx".}
-proc IntersectionPoint*(this: var MAT_Edge; apoint: Standard_Integer) {.
-    importcpp: "IntersectionPoint", header: "MAT_Edge.hxx".}
-proc EdgeNumber*(this: MAT_Edge): Standard_Integer {.noSideEffect,
-    importcpp: "EdgeNumber", header: "MAT_Edge.hxx".}
-proc FirstBisector*(this: MAT_Edge): handle[MAT_Bisector] {.noSideEffect,
+proc firstBisector*(this: var MAT_Edge; abisector: Handle[MAT_Bisector]) {.
     importcpp: "FirstBisector", header: "MAT_Edge.hxx".}
-proc SecondBisector*(this: MAT_Edge): handle[MAT_Bisector] {.noSideEffect,
+proc secondBisector*(this: var MAT_Edge; abisector: Handle[MAT_Bisector]) {.
     importcpp: "SecondBisector", header: "MAT_Edge.hxx".}
-proc Distance*(this: MAT_Edge): Standard_Real {.noSideEffect, importcpp: "Distance",
+proc distance*(this: var MAT_Edge; adistance: float) {.importcpp: "Distance",
     header: "MAT_Edge.hxx".}
-proc IntersectionPoint*(this: MAT_Edge): Standard_Integer {.noSideEffect,
+proc intersectionPoint*(this: var MAT_Edge; apoint: int) {.
     importcpp: "IntersectionPoint", header: "MAT_Edge.hxx".}
-proc Dump*(this: MAT_Edge; ashift: Standard_Integer; alevel: Standard_Integer) {.
-    noSideEffect, importcpp: "Dump", header: "MAT_Edge.hxx".}
+proc edgeNumber*(this: MAT_Edge): int {.noSideEffect, importcpp: "EdgeNumber",
+                                    header: "MAT_Edge.hxx".}
+proc firstBisector*(this: MAT_Edge): Handle[MAT_Bisector] {.noSideEffect,
+    importcpp: "FirstBisector", header: "MAT_Edge.hxx".}
+proc secondBisector*(this: MAT_Edge): Handle[MAT_Bisector] {.noSideEffect,
+    importcpp: "SecondBisector", header: "MAT_Edge.hxx".}
+proc distance*(this: MAT_Edge): float {.noSideEffect, importcpp: "Distance",
+                                    header: "MAT_Edge.hxx".}
+proc intersectionPoint*(this: MAT_Edge): int {.noSideEffect,
+    importcpp: "IntersectionPoint", header: "MAT_Edge.hxx".}
+proc dump*(this: MAT_Edge; ashift: int; alevel: int) {.noSideEffect, importcpp: "Dump",
+    header: "MAT_Edge.hxx".}
 type
-  MAT_Edgebase_type* = Standard_Transient
+  MAT_EdgebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "MAT_Edge::get_type_name(@)",
-                              header: "MAT_Edge.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "MAT_Edge::get_type_name(@)",
+                            header: "MAT_Edge.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "MAT_Edge::get_type_descriptor(@)", header: "MAT_Edge.hxx".}
-proc DynamicType*(this: MAT_Edge): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: MAT_Edge): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MAT_Edge.hxx".}

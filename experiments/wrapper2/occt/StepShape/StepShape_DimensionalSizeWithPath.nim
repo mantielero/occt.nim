@@ -13,49 +13,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_DimensionalSize
-
 discard "forward decl of StepRepr_ShapeAspect"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_DimensionalSizeWithPath"
 discard "forward decl of StepShape_DimensionalSizeWithPath"
 type
-  Handle_StepShape_DimensionalSizeWithPath* = handle[
-      StepShape_DimensionalSizeWithPath]
+  HandleStepShapeDimensionalSizeWithPath* = Handle[
+      StepShapeDimensionalSizeWithPath]
 
 ## ! Representation of STEP entity DimensionalSizeWithPath
 
 type
-  StepShape_DimensionalSizeWithPath* {.importcpp: "StepShape_DimensionalSizeWithPath", header: "StepShape_DimensionalSizeWithPath.hxx",
-                                      bycopy.} = object of StepShape_DimensionalSize ##
-                                                                                ## !
-                                                                                ## Empty
-                                                                                ## constructor
+  StepShapeDimensionalSizeWithPath* {.importcpp: "StepShape_DimensionalSizeWithPath", header: "StepShape_DimensionalSizeWithPath.hxx",
+                                     bycopy.} = object of StepShapeDimensionalSize ## !
+                                                                              ## Empty
+                                                                              ## constructor
 
 
-proc constructStepShape_DimensionalSizeWithPath*(): StepShape_DimensionalSizeWithPath {.
+proc constructStepShapeDimensionalSizeWithPath*(): StepShapeDimensionalSizeWithPath {.
     constructor, importcpp: "StepShape_DimensionalSizeWithPath(@)",
     header: "StepShape_DimensionalSizeWithPath.hxx".}
-proc Init*(this: var StepShape_DimensionalSizeWithPath;
-          aDimensionalSize_AppliesTo: handle[StepRepr_ShapeAspect];
-          aDimensionalSize_Name: handle[TCollection_HAsciiString];
-          aPath: handle[StepRepr_ShapeAspect]) {.importcpp: "Init",
+proc init*(this: var StepShapeDimensionalSizeWithPath;
+          aDimensionalSizeAppliesTo: Handle[StepReprShapeAspect];
+          aDimensionalSizeName: Handle[TCollectionHAsciiString];
+          aPath: Handle[StepReprShapeAspect]) {.importcpp: "Init",
     header: "StepShape_DimensionalSizeWithPath.hxx".}
-proc Path*(this: StepShape_DimensionalSizeWithPath): handle[StepRepr_ShapeAspect] {.
+proc path*(this: StepShapeDimensionalSizeWithPath): Handle[StepReprShapeAspect] {.
     noSideEffect, importcpp: "Path",
     header: "StepShape_DimensionalSizeWithPath.hxx".}
-proc SetPath*(this: var StepShape_DimensionalSizeWithPath;
-             Path: handle[StepRepr_ShapeAspect]) {.importcpp: "SetPath",
+proc setPath*(this: var StepShapeDimensionalSizeWithPath;
+             path: Handle[StepReprShapeAspect]) {.importcpp: "SetPath",
     header: "StepShape_DimensionalSizeWithPath.hxx".}
 type
-  StepShape_DimensionalSizeWithPathbase_type* = StepShape_DimensionalSize
+  StepShapeDimensionalSizeWithPathbaseType* = StepShapeDimensionalSize
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_DimensionalSizeWithPath::get_type_name(@)",
-                              header: "StepShape_DimensionalSizeWithPath.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_DimensionalSizeWithPath::get_type_name(@)",
+                            header: "StepShape_DimensionalSizeWithPath.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_DimensionalSizeWithPath::get_type_descriptor(@)",
     header: "StepShape_DimensionalSizeWithPath.hxx".}
-proc DynamicType*(this: StepShape_DimensionalSizeWithPath): handle[Standard_Type] {.
+proc dynamicType*(this: StepShapeDimensionalSizeWithPath): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_DimensionalSizeWithPath.hxx".}

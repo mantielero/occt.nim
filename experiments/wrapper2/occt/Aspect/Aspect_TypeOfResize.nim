@@ -17,10 +17,11 @@
 ## ! by the user.
 
 type
-  Aspect_TypeOfResize* {.size: sizeof(cint), importcpp: "Aspect_TypeOfResize",
-                        header: "Aspect_TypeOfResize.hxx".} = enum
-    Aspect_TOR_UNKNOWN, Aspect_TOR_NO_BORDER, Aspect_TOR_TOP_BORDER,
-    Aspect_TOR_RIGHT_BORDER, Aspect_TOR_BOTTOM_BORDER, Aspect_TOR_LEFT_BORDER,
-    Aspect_TOR_TOP_AND_RIGHT_BORDER, Aspect_TOR_RIGHT_AND_BOTTOM_BORDER,
-    Aspect_TOR_BOTTOM_AND_LEFT_BORDER, Aspect_TOR_LEFT_AND_TOP_BORDER
+  AspectTypeOfResize* {.size: sizeof(cint), importcpp: "Aspect_TypeOfResize",
+                       header: "Aspect_TypeOfResize.hxx".} = enum
+    AspectTOR_UNKNOWN, AspectTOR_NO_BORDER, AspectTOR_TOP_BORDER,
+    AspectTOR_RIGHT_BORDER, AspectTOR_BOTTOM_BORDER, AspectTOR_LEFT_BORDER,
+    AspectTOR_TOP_AND_RIGHT_BORDER, AspectTOR_RIGHT_AND_BOTTOM_BORDER,
+    AspectTOR_BOTTOM_AND_LEFT_BORDER, AspectTOR_LEFT_AND_TOP_BORDER
+
 

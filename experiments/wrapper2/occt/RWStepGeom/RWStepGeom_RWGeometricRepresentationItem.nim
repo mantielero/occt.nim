@@ -14,29 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_GeometricRepresentationItem"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepGeom_RWGeometricRepresentationItem* {.
+  RWStepGeomRWGeometricRepresentationItem* {.
       importcpp: "RWStepGeom_RWGeometricRepresentationItem",
       header: "RWStepGeom_RWGeometricRepresentationItem.hxx", bycopy.} = object
 
 
-proc constructRWStepGeom_RWGeometricRepresentationItem*(): RWStepGeom_RWGeometricRepresentationItem {.
+proc constructRWStepGeomRWGeometricRepresentationItem*(): RWStepGeomRWGeometricRepresentationItem {.
     constructor, importcpp: "RWStepGeom_RWGeometricRepresentationItem(@)",
     header: "RWStepGeom_RWGeometricRepresentationItem.hxx".}
-proc ReadStep*(this: RWStepGeom_RWGeometricRepresentationItem;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepGeom_GeometricRepresentationItem]) {.noSideEffect,
+proc readStep*(this: RWStepGeomRWGeometricRepresentationItem;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepGeomGeometricRepresentationItem]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWGeometricRepresentationItem.hxx".}
-proc WriteStep*(this: RWStepGeom_RWGeometricRepresentationItem;
-               SW: var StepData_StepWriter;
-               ent: handle[StepGeom_GeometricRepresentationItem]) {.noSideEffect,
+proc writeStep*(this: RWStepGeomRWGeometricRepresentationItem;
+               sw: var StepDataStepWriter;
+               ent: Handle[StepGeomGeometricRepresentationItem]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWGeometricRepresentationItem.hxx".}

@@ -14,113 +14,105 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Real,
-  ../Standard/Standard_Transient, ../Standard/Standard_CString,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of Units_Dimensions"
 discard "forward decl of Units_Token"
 discard "forward decl of Units_Token"
 type
-  Handle_Units_Token* = handle[Units_Token]
+  HandleUnitsToken* = Handle[UnitsToken]
 
 ## ! This class defines an elementary word contained in
 ## ! a Sentence object.
 
 type
-  Units_Token* {.importcpp: "Units_Token", header: "Units_Token.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                    ## !
-                                                                                                    ## Creates
-                                                                                                    ## and
-                                                                                                    ## returns
-                                                                                                    ## a
-                                                                                                    ## empty
-                                                                                                    ## token.
-    virtual* {.importc: "virtual".}: Standard_NODISCARD
-    virtual* {.importc: "virtual".}: Standard_NODISCARD
-
-
-proc constructUnits_Token*(): Units_Token {.constructor,
+  UnitsToken* {.importcpp: "Units_Token", header: "Units_Token.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                  ## !
+                                                                                                  ## Creates
+                                                                                                  ## and
+                                                                                                  ## returns
+                                                                                                  ## a
+                                                                                                  ## empty
+                                                                                                  ## token.
+# 
+# 
+proc constructUnitsToken*(): UnitsToken {.constructor, importcpp: "Units_Token(@)",
+                                       header: "Units_Token.hxx".}
+proc constructUnitsToken*(aword: StandardCString): UnitsToken {.constructor,
     importcpp: "Units_Token(@)", header: "Units_Token.hxx".}
-proc constructUnits_Token*(aword: Standard_CString): Units_Token {.constructor,
+proc constructUnitsToken*(atoken: Handle[UnitsToken]): UnitsToken {.constructor,
     importcpp: "Units_Token(@)", header: "Units_Token.hxx".}
-proc constructUnits_Token*(atoken: handle[Units_Token]): Units_Token {.constructor,
-    importcpp: "Units_Token(@)", header: "Units_Token.hxx".}
-proc constructUnits_Token*(aword: Standard_CString; amean: Standard_CString): Units_Token {.
+proc constructUnitsToken*(aword: StandardCString; amean: StandardCString): UnitsToken {.
     constructor, importcpp: "Units_Token(@)", header: "Units_Token.hxx".}
-proc constructUnits_Token*(aword: Standard_CString; amean: Standard_CString;
-                          avalue: Standard_Real): Units_Token {.constructor,
+proc constructUnitsToken*(aword: StandardCString; amean: StandardCString;
+                         avalue: float): UnitsToken {.constructor,
     importcpp: "Units_Token(@)", header: "Units_Token.hxx".}
-proc constructUnits_Token*(aword: Standard_CString; amean: Standard_CString;
-                          avalue: Standard_Real;
-                          adimension: handle[Units_Dimensions]): Units_Token {.
+proc constructUnitsToken*(aword: StandardCString; amean: StandardCString;
+                         avalue: float; adimension: Handle[UnitsDimensions]): UnitsToken {.
     constructor, importcpp: "Units_Token(@)", header: "Units_Token.hxx".}
-proc Creates*(this: Units_Token): handle[Units_Token] {.noSideEffect,
+proc creates*(this: UnitsToken): Handle[UnitsToken] {.noSideEffect,
     importcpp: "Creates", header: "Units_Token.hxx".}
-proc Length*(this: Units_Token): Standard_Integer {.noSideEffect,
-    importcpp: "Length", header: "Units_Token.hxx".}
-proc Word*(this: Units_Token): TCollection_AsciiString {.noSideEffect,
+proc length*(this: UnitsToken): int {.noSideEffect, importcpp: "Length",
+                                  header: "Units_Token.hxx".}
+proc word*(this: UnitsToken): TCollectionAsciiString {.noSideEffect,
     importcpp: "Word", header: "Units_Token.hxx".}
-proc Word*(this: var Units_Token; aword: Standard_CString) {.importcpp: "Word",
+proc word*(this: var UnitsToken; aword: StandardCString) {.importcpp: "Word",
     header: "Units_Token.hxx".}
-proc Mean*(this: Units_Token): TCollection_AsciiString {.noSideEffect,
+proc mean*(this: UnitsToken): TCollectionAsciiString {.noSideEffect,
     importcpp: "Mean", header: "Units_Token.hxx".}
-proc Mean*(this: var Units_Token; amean: Standard_CString) {.importcpp: "Mean",
+proc mean*(this: var UnitsToken; amean: StandardCString) {.importcpp: "Mean",
     header: "Units_Token.hxx".}
-proc Value*(this: Units_Token): Standard_Real {.noSideEffect, importcpp: "Value",
+proc value*(this: UnitsToken): float {.noSideEffect, importcpp: "Value",
+                                   header: "Units_Token.hxx".}
+proc value*(this: var UnitsToken; avalue: float) {.importcpp: "Value",
     header: "Units_Token.hxx".}
-proc Value*(this: var Units_Token; avalue: Standard_Real) {.importcpp: "Value",
-    header: "Units_Token.hxx".}
-proc Dimensions*(this: Units_Token): handle[Units_Dimensions] {.noSideEffect,
+proc dimensions*(this: UnitsToken): Handle[UnitsDimensions] {.noSideEffect,
     importcpp: "Dimensions", header: "Units_Token.hxx".}
-proc Dimensions*(this: var Units_Token; adimensions: handle[Units_Dimensions]) {.
+proc dimensions*(this: var UnitsToken; adimensions: Handle[UnitsDimensions]) {.
     importcpp: "Dimensions", header: "Units_Token.hxx".}
-proc Update*(this: var Units_Token; amean: Standard_CString) {.importcpp: "Update",
+proc update*(this: var UnitsToken; amean: StandardCString) {.importcpp: "Update",
     header: "Units_Token.hxx".}
-proc Add*(this: Units_Token; aninteger: Standard_Integer): handle[Units_Token] {.
+proc add*(this: UnitsToken; aninteger: int): Handle[UnitsToken] {.noSideEffect,
+    importcpp: "Add", header: "Units_Token.hxx".}
+proc add*(this: UnitsToken; atoken: Handle[UnitsToken]): Handle[UnitsToken] {.
     noSideEffect, importcpp: "Add", header: "Units_Token.hxx".}
-proc Add*(this: Units_Token; atoken: handle[Units_Token]): handle[Units_Token] {.
-    noSideEffect, importcpp: "Add", header: "Units_Token.hxx".}
-proc Subtract*(this: Units_Token; atoken: handle[Units_Token]): handle[Units_Token] {.
+proc subtract*(this: UnitsToken; atoken: Handle[UnitsToken]): Handle[UnitsToken] {.
     noSideEffect, importcpp: "Subtract", header: "Units_Token.hxx".}
-proc Multiply*(this: Units_Token; atoken: handle[Units_Token]): handle[Units_Token] {.
+proc multiply*(this: UnitsToken; atoken: Handle[UnitsToken]): Handle[UnitsToken] {.
     noSideEffect, importcpp: "Multiply", header: "Units_Token.hxx".}
-proc Multiplied*(this: Units_Token; avalue: Standard_Real): Standard_Real {.
-    noSideEffect, importcpp: "Multiplied", header: "Units_Token.hxx".}
-proc Divide*(this: Units_Token; atoken: handle[Units_Token]): handle[Units_Token] {.
+proc multiplied*(this: UnitsToken; avalue: float): float {.noSideEffect,
+    importcpp: "Multiplied", header: "Units_Token.hxx".}
+proc divide*(this: UnitsToken; atoken: Handle[UnitsToken]): Handle[UnitsToken] {.
     noSideEffect, importcpp: "Divide", header: "Units_Token.hxx".}
-proc Divided*(this: Units_Token; avalue: Standard_Real): Standard_Real {.noSideEffect,
+proc divided*(this: UnitsToken; avalue: float): float {.noSideEffect,
     importcpp: "Divided", header: "Units_Token.hxx".}
-proc Power*(this: Units_Token; atoken: handle[Units_Token]): handle[Units_Token] {.
+proc power*(this: UnitsToken; atoken: Handle[UnitsToken]): Handle[UnitsToken] {.
     noSideEffect, importcpp: "Power", header: "Units_Token.hxx".}
-proc Power*(this: Units_Token; anexponent: Standard_Real): handle[Units_Token] {.
-    noSideEffect, importcpp: "Power", header: "Units_Token.hxx".}
-proc IsEqual*(this: Units_Token; astring: Standard_CString): Standard_Boolean {.
-    noSideEffect, importcpp: "IsEqual", header: "Units_Token.hxx".}
-proc IsEqual*(this: Units_Token; atoken: handle[Units_Token]): Standard_Boolean {.
-    noSideEffect, importcpp: "IsEqual", header: "Units_Token.hxx".}
-proc IsNotEqual*(this: Units_Token; astring: Standard_CString): Standard_Boolean {.
-    noSideEffect, importcpp: "IsNotEqual", header: "Units_Token.hxx".}
-proc IsNotEqual*(this: Units_Token; atoken: handle[Units_Token]): Standard_Boolean {.
-    noSideEffect, importcpp: "IsNotEqual", header: "Units_Token.hxx".}
-proc IsLessOrEqual*(this: Units_Token; astring: Standard_CString): Standard_Boolean {.
-    noSideEffect, importcpp: "IsLessOrEqual", header: "Units_Token.hxx".}
-proc IsGreater*(this: Units_Token; astring: Standard_CString): Standard_Boolean {.
-    noSideEffect, importcpp: "IsGreater", header: "Units_Token.hxx".}
-proc IsGreater*(this: Units_Token; atoken: handle[Units_Token]): Standard_Boolean {.
-    noSideEffect, importcpp: "IsGreater", header: "Units_Token.hxx".}
-proc IsGreaterOrEqual*(this: Units_Token; atoken: handle[Units_Token]): Standard_Boolean {.
+proc power*(this: UnitsToken; anexponent: float): Handle[UnitsToken] {.noSideEffect,
+    importcpp: "Power", header: "Units_Token.hxx".}
+proc isEqual*(this: UnitsToken; astring: StandardCString): bool {.noSideEffect,
+    importcpp: "IsEqual", header: "Units_Token.hxx".}
+proc isEqual*(this: UnitsToken; atoken: Handle[UnitsToken]): bool {.noSideEffect,
+    importcpp: "IsEqual", header: "Units_Token.hxx".}
+proc isNotEqual*(this: UnitsToken; astring: StandardCString): bool {.noSideEffect,
+    importcpp: "IsNotEqual", header: "Units_Token.hxx".}
+proc isNotEqual*(this: UnitsToken; atoken: Handle[UnitsToken]): bool {.noSideEffect,
+    importcpp: "IsNotEqual", header: "Units_Token.hxx".}
+proc isLessOrEqual*(this: UnitsToken; astring: StandardCString): bool {.noSideEffect,
+    importcpp: "IsLessOrEqual", header: "Units_Token.hxx".}
+proc isGreater*(this: UnitsToken; astring: StandardCString): bool {.noSideEffect,
+    importcpp: "IsGreater", header: "Units_Token.hxx".}
+proc isGreater*(this: UnitsToken; atoken: Handle[UnitsToken]): bool {.noSideEffect,
+    importcpp: "IsGreater", header: "Units_Token.hxx".}
+proc isGreaterOrEqual*(this: UnitsToken; atoken: Handle[UnitsToken]): bool {.
     noSideEffect, importcpp: "IsGreaterOrEqual", header: "Units_Token.hxx".}
-proc Dump*(this: Units_Token; ashift: Standard_Integer; alevel: Standard_Integer) {.
-    noSideEffect, importcpp: "Dump", header: "Units_Token.hxx".}
+proc dump*(this: UnitsToken; ashift: int; alevel: int) {.noSideEffect,
+    importcpp: "Dump", header: "Units_Token.hxx".}
 type
-  Units_Tokenbase_type* = Standard_Transient
+  UnitsTokenbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Units_Token::get_type_name(@)",
-                              header: "Units_Token.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Units_Token::get_type_name(@)",
+                            header: "Units_Token.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Units_Token::get_type_descriptor(@)", header: "Units_Token.hxx".}
-proc DynamicType*(this: Units_Token): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: UnitsToken): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Units_Token.hxx".}
+

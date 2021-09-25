@@ -14,62 +14,56 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepVisual_HArray1OfPresentationStyleAssignment,
-  ../StepRepr/StepRepr_RepresentationItem, StepVisual_StyledItemTarget,
-  ../Standard/Standard_Integer
-
 discard "forward decl of StepRepr_RepresentationItem"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepVisual_PresentationStyleAssignment"
 discard "forward decl of StepVisual_StyledItem"
 discard "forward decl of StepVisual_StyledItem"
 type
-  Handle_StepVisual_StyledItem* = handle[StepVisual_StyledItem]
-  StepVisual_StyledItem* {.importcpp: "StepVisual_StyledItem",
-                          header: "StepVisual_StyledItem.hxx", bycopy.} = object of StepRepr_RepresentationItem ##
-                                                                                                         ## !
-                                                                                                         ## Returns
-                                                                                                         ## a
-                                                                                                         ## StyledItem
+  HandleStepVisualStyledItem* = Handle[StepVisualStyledItem]
+  StepVisualStyledItem* {.importcpp: "StepVisual_StyledItem",
+                         header: "StepVisual_StyledItem.hxx", bycopy.} = object of StepReprRepresentationItem ##
+                                                                                                       ## !
+                                                                                                       ## Returns
+                                                                                                       ## a
+                                                                                                       ## StyledItem
     ## ! May be StepRepr_RepresentationItem for AP214(203) and StepVisual_StyledItemTarget for AP242
     ## ! This is downcasted from myItem
 
 
-proc constructStepVisual_StyledItem*(): StepVisual_StyledItem {.constructor,
+proc constructStepVisualStyledItem*(): StepVisualStyledItem {.constructor,
     importcpp: "StepVisual_StyledItem(@)", header: "StepVisual_StyledItem.hxx".}
-proc Init*(this: var StepVisual_StyledItem; aName: handle[TCollection_HAsciiString];
-          aStyles: handle[StepVisual_HArray1OfPresentationStyleAssignment];
-          aItem: handle[Standard_Transient]) {.importcpp: "Init",
+proc init*(this: var StepVisualStyledItem; aName: Handle[TCollectionHAsciiString];
+          aStyles: Handle[StepVisualHArray1OfPresentationStyleAssignment];
+          aItem: Handle[StandardTransient]) {.importcpp: "Init",
     header: "StepVisual_StyledItem.hxx".}
-proc SetStyles*(this: var StepVisual_StyledItem;
-               aStyles: handle[StepVisual_HArray1OfPresentationStyleAssignment]) {.
+proc setStyles*(this: var StepVisualStyledItem;
+               aStyles: Handle[StepVisualHArray1OfPresentationStyleAssignment]) {.
     importcpp: "SetStyles", header: "StepVisual_StyledItem.hxx".}
-proc Styles*(this: StepVisual_StyledItem): handle[
-    StepVisual_HArray1OfPresentationStyleAssignment] {.noSideEffect,
+proc styles*(this: StepVisualStyledItem): Handle[
+    StepVisualHArray1OfPresentationStyleAssignment] {.noSideEffect,
     importcpp: "Styles", header: "StepVisual_StyledItem.hxx".}
-proc StylesValue*(this: StepVisual_StyledItem; num: Standard_Integer): handle[
-    StepVisual_PresentationStyleAssignment] {.noSideEffect,
+proc stylesValue*(this: StepVisualStyledItem; num: int): Handle[
+    StepVisualPresentationStyleAssignment] {.noSideEffect,
     importcpp: "StylesValue", header: "StepVisual_StyledItem.hxx".}
-proc NbStyles*(this: StepVisual_StyledItem): Standard_Integer {.noSideEffect,
+proc nbStyles*(this: StepVisualStyledItem): int {.noSideEffect,
     importcpp: "NbStyles", header: "StepVisual_StyledItem.hxx".}
-proc SetItem*(this: var StepVisual_StyledItem;
-             aItem: handle[StepRepr_RepresentationItem]) {.importcpp: "SetItem",
+proc setItem*(this: var StepVisualStyledItem;
+             aItem: Handle[StepReprRepresentationItem]) {.importcpp: "SetItem",
     header: "StepVisual_StyledItem.hxx".}
-proc Item*(this: StepVisual_StyledItem): handle[StepRepr_RepresentationItem] {.
+proc item*(this: StepVisualStyledItem): Handle[StepReprRepresentationItem] {.
     noSideEffect, importcpp: "Item", header: "StepVisual_StyledItem.hxx".}
-proc SetItem*(this: var StepVisual_StyledItem; aItem: StepVisual_StyledItemTarget) {.
+proc setItem*(this: var StepVisualStyledItem; aItem: StepVisualStyledItemTarget) {.
     importcpp: "SetItem", header: "StepVisual_StyledItem.hxx".}
-proc ItemAP242*(this: StepVisual_StyledItem): StepVisual_StyledItemTarget {.
+proc itemAP242*(this: StepVisualStyledItem): StepVisualStyledItemTarget {.
     noSideEffect, importcpp: "ItemAP242", header: "StepVisual_StyledItem.hxx".}
 type
-  StepVisual_StyledItembase_type* = StepRepr_RepresentationItem
+  StepVisualStyledItembaseType* = StepReprRepresentationItem
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_StyledItem::get_type_name(@)",
-                              header: "StepVisual_StyledItem.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_StyledItem::get_type_name(@)",
+                            header: "StepVisual_StyledItem.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_StyledItem::get_type_descriptor(@)",
     header: "StepVisual_StyledItem.hxx".}
-proc DynamicType*(this: StepVisual_StyledItem): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepVisual_StyledItem.hxx".}
+proc dynamicType*(this: StepVisualStyledItem): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepVisual_StyledItem.hxx".}

@@ -17,9 +17,10 @@
 ## ! Declares what arrows are visible on angle presentation
 
 type
-  PrsDim_TypeOfAngleArrowVisibility* {.size: sizeof(cint), importcpp: "PrsDim_TypeOfAngleArrowVisibility", header: "PrsDim_TypeOfAngleArrowVisibility.hxx".} = enum
-    PrsDim_TypeOfAngleArrowVisibility_Both, ## !< both arrows of the first and the second angle tips
-    PrsDim_TypeOfAngleArrowVisibility_First, ## !< only first point arrow
-    PrsDim_TypeOfAngleArrowVisibility_Second, ## !< only second point arrow
-    PrsDim_TypeOfAngleArrowVisibility_None ## !< arrows are not visible
+  PrsDimTypeOfAngleArrowVisibility* {.size: sizeof(cint), importcpp: "PrsDim_TypeOfAngleArrowVisibility", header: "PrsDim_TypeOfAngleArrowVisibility.hxx".} = enum
+    PrsDimTypeOfAngleArrowVisibilityBoth, ## !< both arrows of the first and the second angle tips
+    PrsDimTypeOfAngleArrowVisibilityFirst, ## !< only first point arrow
+    PrsDimTypeOfAngleArrowVisibilitySecond, ## !< only second point arrow
+    PrsDimTypeOfAngleArrowVisibilityNone ## !< arrows are not visible
+
 

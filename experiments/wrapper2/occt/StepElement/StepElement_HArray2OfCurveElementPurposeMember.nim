@@ -11,5 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # StepElement_HArray2OfCurveElementPurposeMember_HeaderFile [NewLine] # StepElement_HArray2OfCurveElementPurposeMember_HeaderFile [NewLine] # StepElement_CurveElementPurposeMember.hxx [NewLine] # StepElement_Array2OfCurveElementPurposeMember.hxx [NewLine] # ../NCollection/NCollection_DefineHArray2.hxx [NewLine] DEFINE_HARRAY2 ( StepElement_HArray2OfCurveElementPurposeMember , StepElement_Array2OfCurveElementPurposeMember ) # [NewLine]
+## !!!Ignored construct:  # StepElement_HArray2OfCurveElementPurposeMember_HeaderFile [NewLine] # StepElement_HArray2OfCurveElementPurposeMember_HeaderFile [NewLine] # < StepElement_CurveElementPurposeMember . hxx > [NewLine] # < StepElement_Array2OfCurveElementPurposeMember . hxx > [NewLine] # < NCollection_DefineHArray2 . hxx > [NewLine] DEFINE_HARRAY2 ( StepElement_HArray2OfCurveElementPurposeMember , StepElement_Array2OfCurveElementPurposeMember ) # [NewLine]
 ## Error: expected ';'!!!
+

@@ -13,65 +13,58 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepRepr_CharacterizedDefinition, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_CharacterizedDefinition"
 discard "forward decl of StepRepr_PropertyDefinition"
 discard "forward decl of StepRepr_PropertyDefinition"
 type
-  Handle_StepRepr_PropertyDefinition* = handle[StepRepr_PropertyDefinition]
+  HandleStepReprPropertyDefinition* = Handle[StepReprPropertyDefinition]
 
 ## ! Representation of STEP entity PropertyDefinition
 
 type
-  StepRepr_PropertyDefinition* {.importcpp: "StepRepr_PropertyDefinition",
-                                header: "StepRepr_PropertyDefinition.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                            ## !
-                                                                                                            ## Empty
-                                                                                                            ## constructor
+  StepReprPropertyDefinition* {.importcpp: "StepRepr_PropertyDefinition",
+                               header: "StepRepr_PropertyDefinition.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                          ## !
+                                                                                                          ## Empty
+                                                                                                          ## constructor
 
 
-proc constructStepRepr_PropertyDefinition*(): StepRepr_PropertyDefinition {.
+proc constructStepReprPropertyDefinition*(): StepReprPropertyDefinition {.
     constructor, importcpp: "StepRepr_PropertyDefinition(@)",
     header: "StepRepr_PropertyDefinition.hxx".}
-proc Init*(this: var StepRepr_PropertyDefinition;
-          aName: handle[TCollection_HAsciiString];
-          hasDescription: Standard_Boolean;
-          aDescription: handle[TCollection_HAsciiString];
-          aDefinition: StepRepr_CharacterizedDefinition) {.importcpp: "Init",
+proc init*(this: var StepReprPropertyDefinition;
+          aName: Handle[TCollectionHAsciiString]; hasDescription: bool;
+          aDescription: Handle[TCollectionHAsciiString];
+          aDefinition: StepReprCharacterizedDefinition) {.importcpp: "Init",
     header: "StepRepr_PropertyDefinition.hxx".}
-proc Name*(this: StepRepr_PropertyDefinition): handle[TCollection_HAsciiString] {.
+proc name*(this: StepReprPropertyDefinition): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepRepr_PropertyDefinition.hxx".}
-proc SetName*(this: var StepRepr_PropertyDefinition;
-             Name: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepReprPropertyDefinition;
+             name: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepRepr_PropertyDefinition.hxx".}
-proc Description*(this: StepRepr_PropertyDefinition): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description",
-                               header: "StepRepr_PropertyDefinition.hxx".}
-proc SetDescription*(this: var StepRepr_PropertyDefinition;
-                    Description: handle[TCollection_HAsciiString]) {.
+proc description*(this: StepReprPropertyDefinition): Handle[TCollectionHAsciiString] {.
+    noSideEffect, importcpp: "Description",
+    header: "StepRepr_PropertyDefinition.hxx".}
+proc setDescription*(this: var StepReprPropertyDefinition;
+                    description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepRepr_PropertyDefinition.hxx".}
-proc HasDescription*(this: StepRepr_PropertyDefinition): Standard_Boolean {.
-    noSideEffect, importcpp: "HasDescription",
-    header: "StepRepr_PropertyDefinition.hxx".}
-proc Definition*(this: StepRepr_PropertyDefinition): StepRepr_CharacterizedDefinition {.
+proc hasDescription*(this: StepReprPropertyDefinition): bool {.noSideEffect,
+    importcpp: "HasDescription", header: "StepRepr_PropertyDefinition.hxx".}
+proc definition*(this: StepReprPropertyDefinition): StepReprCharacterizedDefinition {.
     noSideEffect, importcpp: "Definition",
     header: "StepRepr_PropertyDefinition.hxx".}
-proc SetDefinition*(this: var StepRepr_PropertyDefinition;
-                   Definition: StepRepr_CharacterizedDefinition) {.
+proc setDefinition*(this: var StepReprPropertyDefinition;
+                   definition: StepReprCharacterizedDefinition) {.
     importcpp: "SetDefinition", header: "StepRepr_PropertyDefinition.hxx".}
 type
-  StepRepr_PropertyDefinitionbase_type* = Standard_Transient
+  StepReprPropertyDefinitionbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_PropertyDefinition::get_type_name(@)",
-                              header: "StepRepr_PropertyDefinition.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepRepr_PropertyDefinition::get_type_name(@)",
+                            header: "StepRepr_PropertyDefinition.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepRepr_PropertyDefinition::get_type_descriptor(@)",
     header: "StepRepr_PropertyDefinition.hxx".}
-proc DynamicType*(this: StepRepr_PropertyDefinition): handle[Standard_Type] {.
+proc dynamicType*(this: StepReprPropertyDefinition): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_PropertyDefinition.hxx".}

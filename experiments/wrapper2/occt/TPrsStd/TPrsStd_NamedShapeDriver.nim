@@ -14,44 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TPrsStd_Driver,
-  ../Standard/Standard_Boolean
-
 discard "forward decl of TDF_Label"
 discard "forward decl of AIS_InteractiveObject"
 discard "forward decl of TPrsStd_NamedShapeDriver"
 discard "forward decl of TPrsStd_NamedShapeDriver"
 type
-  Handle_TPrsStd_NamedShapeDriver* = handle[TPrsStd_NamedShapeDriver]
+  HandleTPrsStdNamedShapeDriver* = Handle[TPrsStdNamedShapeDriver]
 
 ## ! An implementation of TPrsStd_Driver for named shapes.
 
 type
-  TPrsStd_NamedShapeDriver* {.importcpp: "TPrsStd_NamedShapeDriver",
-                             header: "TPrsStd_NamedShapeDriver.hxx", bycopy.} = object of TPrsStd_Driver ##
-                                                                                                  ## !
-                                                                                                  ## Constructs
-                                                                                                  ## an
-                                                                                                  ## empty
-                                                                                                  ## named
-                                                                                                  ## shape
-                                                                                                  ## driver.
+  TPrsStdNamedShapeDriver* {.importcpp: "TPrsStd_NamedShapeDriver",
+                            header: "TPrsStd_NamedShapeDriver.hxx", bycopy.} = object of TPrsStdDriver ##
+                                                                                                ## !
+                                                                                                ## Constructs
+                                                                                                ## an
+                                                                                                ## empty
+                                                                                                ## named
+                                                                                                ## shape
+                                                                                                ## driver.
 
 
-proc constructTPrsStd_NamedShapeDriver*(): TPrsStd_NamedShapeDriver {.constructor,
+proc constructTPrsStdNamedShapeDriver*(): TPrsStdNamedShapeDriver {.constructor,
     importcpp: "TPrsStd_NamedShapeDriver(@)",
     header: "TPrsStd_NamedShapeDriver.hxx".}
-proc Update*(this: var TPrsStd_NamedShapeDriver; aLabel: TDF_Label;
-            anAISObject: var handle[AIS_InteractiveObject]): Standard_Boolean {.
+proc update*(this: var TPrsStdNamedShapeDriver; aLabel: TDF_Label;
+            anAISObject: var Handle[AIS_InteractiveObject]): bool {.
     importcpp: "Update", header: "TPrsStd_NamedShapeDriver.hxx".}
 type
-  TPrsStd_NamedShapeDriverbase_type* = TPrsStd_Driver
+  TPrsStdNamedShapeDriverbaseType* = TPrsStdDriver
 
-proc get_type_name*(): cstring {.importcpp: "TPrsStd_NamedShapeDriver::get_type_name(@)",
-                              header: "TPrsStd_NamedShapeDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TPrsStd_NamedShapeDriver::get_type_name(@)",
+                            header: "TPrsStd_NamedShapeDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TPrsStd_NamedShapeDriver::get_type_descriptor(@)",
     header: "TPrsStd_NamedShapeDriver.hxx".}
-proc DynamicType*(this: TPrsStd_NamedShapeDriver): handle[Standard_Type] {.
+proc dynamicType*(this: TPrsStdNamedShapeDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TPrsStd_NamedShapeDriver.hxx".}

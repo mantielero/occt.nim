@@ -14,49 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, Plate_HArray1OfPinpointConstraint,
-  ../TColgp/TColgp_HArray2OfXYZ, Plate_Array1OfPinpointConstraint,
-  ../TColgp/TColgp_Array1OfXYZ, ../TColgp/TColgp_Array2OfXYZ,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DimensionMismatch"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Plate_PinpointConstraint"
 discard "forward decl of gp_XYZ"
 type
-  Plate_LinearScalarConstraint* {.importcpp: "Plate_LinearScalarConstraint",
-                                 header: "Plate_LinearScalarConstraint.hxx",
-                                 bycopy.} = object
+  PlateLinearScalarConstraint* {.importcpp: "Plate_LinearScalarConstraint",
+                                header: "Plate_LinearScalarConstraint.hxx", bycopy.} = object
 
 
-proc constructPlate_LinearScalarConstraint*(): Plate_LinearScalarConstraint {.
+proc constructPlateLinearScalarConstraint*(): PlateLinearScalarConstraint {.
     constructor, importcpp: "Plate_LinearScalarConstraint(@)",
     header: "Plate_LinearScalarConstraint.hxx".}
-proc constructPlate_LinearScalarConstraint*(thePPC1: Plate_PinpointConstraint;
-    theCoeff: gp_XYZ): Plate_LinearScalarConstraint {.constructor,
+proc constructPlateLinearScalarConstraint*(thePPC1: PlatePinpointConstraint;
+    theCoeff: Xyz): PlateLinearScalarConstraint {.constructor,
     importcpp: "Plate_LinearScalarConstraint(@)",
     header: "Plate_LinearScalarConstraint.hxx".}
-proc constructPlate_LinearScalarConstraint*(
-    thePPC: Plate_Array1OfPinpointConstraint; theCoeff: TColgp_Array1OfXYZ): Plate_LinearScalarConstraint {.
+proc constructPlateLinearScalarConstraint*(
+    thePPC: PlateArray1OfPinpointConstraint; theCoeff: TColgpArray1OfXYZ): PlateLinearScalarConstraint {.
     constructor, importcpp: "Plate_LinearScalarConstraint(@)",
     header: "Plate_LinearScalarConstraint.hxx".}
-proc constructPlate_LinearScalarConstraint*(
-    thePPC: Plate_Array1OfPinpointConstraint; theCoeff: TColgp_Array2OfXYZ): Plate_LinearScalarConstraint {.
+proc constructPlateLinearScalarConstraint*(
+    thePPC: PlateArray1OfPinpointConstraint; theCoeff: TColgpArray2OfXYZ): PlateLinearScalarConstraint {.
     constructor, importcpp: "Plate_LinearScalarConstraint(@)",
     header: "Plate_LinearScalarConstraint.hxx".}
-proc constructPlate_LinearScalarConstraint*(ColLen: Standard_Integer;
-    RowLen: Standard_Integer): Plate_LinearScalarConstraint {.constructor,
-    importcpp: "Plate_LinearScalarConstraint(@)",
+proc constructPlateLinearScalarConstraint*(colLen: int; rowLen: int): PlateLinearScalarConstraint {.
+    constructor, importcpp: "Plate_LinearScalarConstraint(@)",
     header: "Plate_LinearScalarConstraint.hxx".}
-proc GetPPC*(this: Plate_LinearScalarConstraint): Plate_Array1OfPinpointConstraint {.
+proc getPPC*(this: PlateLinearScalarConstraint): PlateArray1OfPinpointConstraint {.
     noSideEffect, importcpp: "GetPPC", header: "Plate_LinearScalarConstraint.hxx".}
-proc Coeff*(this: Plate_LinearScalarConstraint): TColgp_Array2OfXYZ {.noSideEffect,
+proc coeff*(this: PlateLinearScalarConstraint): TColgpArray2OfXYZ {.noSideEffect,
     importcpp: "Coeff", header: "Plate_LinearScalarConstraint.hxx".}
-proc SetPPC*(this: var Plate_LinearScalarConstraint; Index: Standard_Integer;
-            Value: Plate_PinpointConstraint) {.importcpp: "SetPPC",
+proc setPPC*(this: var PlateLinearScalarConstraint; index: int;
+            value: PlatePinpointConstraint) {.importcpp: "SetPPC",
     header: "Plate_LinearScalarConstraint.hxx".}
-proc SetCoeff*(this: var Plate_LinearScalarConstraint; Row: Standard_Integer;
-              Col: Standard_Integer; Value: gp_XYZ) {.importcpp: "SetCoeff",
-    header: "Plate_LinearScalarConstraint.hxx".}
+proc setCoeff*(this: var PlateLinearScalarConstraint; row: int; col: int; value: Xyz) {.
+    importcpp: "SetCoeff", header: "Plate_LinearScalarConstraint.hxx".}

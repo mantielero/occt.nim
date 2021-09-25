@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  AIS_InteractiveObject, ../TColStd/TColStd_MapTransientHasher,
-  ../NCollection/NCollection_Map
-
 type
-  AIS_MapOfInteractive* = NCollection_Map[handle[AIS_InteractiveObject],
-                                        TColStd_MapTransientHasher]
-  AIS_MapIteratorOfMapOfInteractive* = Iterator[handle[AIS_InteractiveObject],
-      TColStd_MapTransientHasher]
+  AIS_MapOfInteractive* = NCollectionMap[Handle[AIS_InteractiveObject],
+                                       TColStdMapTransientHasher]
+  AIS_MapIteratorOfMapOfInteractive* = Iterator[Handle[AIS_InteractiveObject],
+      TColStdMapTransientHasher]
+

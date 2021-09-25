@@ -12,8 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_Character, ../NCollection/NCollection_Array2
-
 type
-  TColStd_Array2OfCharacter* = NCollection_Array2[Standard_Character]
+  TColStdArray2OfCharacter* = NCollectionArray2[StandardCharacter]
+

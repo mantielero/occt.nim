@@ -17,28 +17,24 @@
 ## Version	Date		Purpose
 ## 		0.0	Oct  6 1997	Creation
 
-import
-  ../Standard/Standard_Boolean, ../TCollection/TCollection_AsciiString,
-  ../TDF/TDF_Attribute
-
 type
   DDF_AttributeBrowser* {.importcpp: "DDF_AttributeBrowser",
                          header: "DDF_AttributeBrowser.hxx", bycopy.} = object
 
 
-proc constructDDF_AttributeBrowser*(test: proc (a1: handle[TDF_Attribute]): Standard_Boolean;
-    open: proc (a1: handle[TDF_Attribute]): TCollection_AsciiString; text: proc (
-    a1: handle[TDF_Attribute]): TCollection_AsciiString): DDF_AttributeBrowser {.
+proc constructDDF_AttributeBrowser*(test: proc (a1: Handle[TDF_Attribute]): bool; open: proc (
+    a1: Handle[TDF_Attribute]): TCollectionAsciiString; text: proc (
+    a1: Handle[TDF_Attribute]): TCollectionAsciiString): DDF_AttributeBrowser {.
     constructor, importcpp: "DDF_AttributeBrowser(@)",
     header: "DDF_AttributeBrowser.hxx".}
-proc Test*(this: DDF_AttributeBrowser; anAtt: handle[TDF_Attribute]): Standard_Boolean {.
+proc test*(this: DDF_AttributeBrowser; anAtt: Handle[TDF_Attribute]): bool {.
     noSideEffect, importcpp: "Test", header: "DDF_AttributeBrowser.hxx".}
-proc Open*(this: DDF_AttributeBrowser; anAtt: handle[TDF_Attribute]): TCollection_AsciiString {.
+proc open*(this: DDF_AttributeBrowser; anAtt: Handle[TDF_Attribute]): TCollectionAsciiString {.
     noSideEffect, importcpp: "Open", header: "DDF_AttributeBrowser.hxx".}
-proc Text*(this: DDF_AttributeBrowser; anAtt: handle[TDF_Attribute]): TCollection_AsciiString {.
+proc text*(this: DDF_AttributeBrowser; anAtt: Handle[TDF_Attribute]): TCollectionAsciiString {.
     noSideEffect, importcpp: "Text", header: "DDF_AttributeBrowser.hxx".}
-proc Next*(this: var DDF_AttributeBrowser): ptr DDF_AttributeBrowser {.
+proc next*(this: var DDF_AttributeBrowser): ptr DDF_AttributeBrowser {.
     importcpp: "Next", header: "DDF_AttributeBrowser.hxx".}
-proc FindBrowser*(anAtt: handle[TDF_Attribute]): ptr DDF_AttributeBrowser {.
+proc findBrowser*(anAtt: Handle[TDF_Attribute]): ptr DDF_AttributeBrowser {.
     importcpp: "DDF_AttributeBrowser::FindBrowser(@)",
     header: "DDF_AttributeBrowser.hxx".}

@@ -14,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepGeom_SurfacePatch, ../NCollection/NCollection_Array2
-
 type
-  StepGeom_Array2OfSurfacePatch* = NCollection_Array2[
-      handle[StepGeom_SurfacePatch]]
+  StepGeomArray2OfSurfacePatch* = NCollectionArray2[Handle[StepGeomSurfacePatch]]
+

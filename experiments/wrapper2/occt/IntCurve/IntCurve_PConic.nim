@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../gp/gp_Ax22d, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer, ../GeomAbs/GeomAbs_CurveType
-
 discard "forward decl of gp_Elips2d"
 discard "forward decl of gp_Circ2d"
 discard "forward decl of gp_Parab2d"
@@ -26,35 +21,35 @@ discard "forward decl of gp_Hypr2d"
 discard "forward decl of gp_Lin2d"
 discard "forward decl of gp_Ax22d"
 type
-  IntCurve_PConic* {.importcpp: "IntCurve_PConic", header: "IntCurve_PConic.hxx",
-                    bycopy.} = object
+  IntCurvePConic* {.importcpp: "IntCurve_PConic", header: "IntCurve_PConic.hxx",
+                   bycopy.} = object
 
 
-proc constructIntCurve_PConic*(PC: IntCurve_PConic): IntCurve_PConic {.constructor,
+proc constructIntCurvePConic*(pc: IntCurvePConic): IntCurvePConic {.constructor,
     importcpp: "IntCurve_PConic(@)", header: "IntCurve_PConic.hxx".}
-proc constructIntCurve_PConic*(E: gp_Elips2d): IntCurve_PConic {.constructor,
+proc constructIntCurvePConic*(e: Elips2d): IntCurvePConic {.constructor,
     importcpp: "IntCurve_PConic(@)", header: "IntCurve_PConic.hxx".}
-proc constructIntCurve_PConic*(C: gp_Circ2d): IntCurve_PConic {.constructor,
+proc constructIntCurvePConic*(c: Circ2d): IntCurvePConic {.constructor,
     importcpp: "IntCurve_PConic(@)", header: "IntCurve_PConic.hxx".}
-proc constructIntCurve_PConic*(P: gp_Parab2d): IntCurve_PConic {.constructor,
+proc constructIntCurvePConic*(p: Parab2d): IntCurvePConic {.constructor,
     importcpp: "IntCurve_PConic(@)", header: "IntCurve_PConic.hxx".}
-proc constructIntCurve_PConic*(H: gp_Hypr2d): IntCurve_PConic {.constructor,
+proc constructIntCurvePConic*(h: Hypr2d): IntCurvePConic {.constructor,
     importcpp: "IntCurve_PConic(@)", header: "IntCurve_PConic.hxx".}
-proc constructIntCurve_PConic*(L: gp_Lin2d): IntCurve_PConic {.constructor,
+proc constructIntCurvePConic*(L: Lin2d): IntCurvePConic {.constructor,
     importcpp: "IntCurve_PConic(@)", header: "IntCurve_PConic.hxx".}
-proc SetEpsX*(this: var IntCurve_PConic; EpsDist: Standard_Real) {.
-    importcpp: "SetEpsX", header: "IntCurve_PConic.hxx".}
-proc SetAccuracy*(this: var IntCurve_PConic; Nb: Standard_Integer) {.
-    importcpp: "SetAccuracy", header: "IntCurve_PConic.hxx".}
-proc Accuracy*(this: IntCurve_PConic): Standard_Integer {.noSideEffect,
-    importcpp: "Accuracy", header: "IntCurve_PConic.hxx".}
-proc EpsX*(this: IntCurve_PConic): Standard_Real {.noSideEffect, importcpp: "EpsX",
+proc setEpsX*(this: var IntCurvePConic; epsDist: float) {.importcpp: "SetEpsX",
     header: "IntCurve_PConic.hxx".}
-proc TypeCurve*(this: IntCurve_PConic): GeomAbs_CurveType {.noSideEffect,
+proc setAccuracy*(this: var IntCurvePConic; nb: int) {.importcpp: "SetAccuracy",
+    header: "IntCurve_PConic.hxx".}
+proc accuracy*(this: IntCurvePConic): int {.noSideEffect, importcpp: "Accuracy",
+                                        header: "IntCurve_PConic.hxx".}
+proc epsX*(this: IntCurvePConic): float {.noSideEffect, importcpp: "EpsX",
+                                      header: "IntCurve_PConic.hxx".}
+proc typeCurve*(this: IntCurvePConic): GeomAbsCurveType {.noSideEffect,
     importcpp: "TypeCurve", header: "IntCurve_PConic.hxx".}
-proc Axis2*(this: IntCurve_PConic): gp_Ax22d {.noSideEffect, importcpp: "Axis2",
-    header: "IntCurve_PConic.hxx".}
-proc Param1*(this: IntCurve_PConic): Standard_Real {.noSideEffect,
-    importcpp: "Param1", header: "IntCurve_PConic.hxx".}
-proc Param2*(this: IntCurve_PConic): Standard_Real {.noSideEffect,
-    importcpp: "Param2", header: "IntCurve_PConic.hxx".}
+proc axis2*(this: IntCurvePConic): Ax22d {.noSideEffect, importcpp: "Axis2",
+                                       header: "IntCurve_PConic.hxx".}
+proc param1*(this: IntCurvePConic): float {.noSideEffect, importcpp: "Param1",
+                                        header: "IntCurve_PConic.hxx".}
+proc param2*(this: IntCurvePConic): float {.noSideEffect, importcpp: "Param2",
+                                        header: "IntCurve_PConic.hxx".}

@@ -22,11 +22,9 @@
 ##             for (i = A.LowerRow(); i <= A.UpperRow(); i++)
 ##               for (j = A.LowerCol(); j <= A.UpperCol(); j++)
 
-import
-  NCollection_Array2
-
 ##  *********************************************** Template for Array2 class
 
-template DEFINE_ARRAY2*(_ClassName_, _BaseCollection_, TheItemType: untyped): void =
+template define_Array2*(className, baseCollection, theItemType: untyped): void =
   type
-    _ClassName_* = NCollection_Array2[TheItemType]
+    ClassName* = NCollectionArray2[TheItemType]
+

@@ -13,71 +13,65 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_Group"
 discard "forward decl of StepBasic_GroupRelationship"
 discard "forward decl of StepBasic_GroupRelationship"
 type
-  Handle_StepBasic_GroupRelationship* = handle[StepBasic_GroupRelationship]
+  HandleStepBasicGroupRelationship* = Handle[StepBasicGroupRelationship]
 
 ## ! Representation of STEP entity GroupRelationship
 
 type
-  StepBasic_GroupRelationship* {.importcpp: "StepBasic_GroupRelationship",
-                                header: "StepBasic_GroupRelationship.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                            ## !
-                                                                                                            ## Empty
-                                                                                                            ## constructor
+  StepBasicGroupRelationship* {.importcpp: "StepBasic_GroupRelationship",
+                               header: "StepBasic_GroupRelationship.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                          ## !
+                                                                                                          ## Empty
+                                                                                                          ## constructor
 
 
-proc constructStepBasic_GroupRelationship*(): StepBasic_GroupRelationship {.
+proc constructStepBasicGroupRelationship*(): StepBasicGroupRelationship {.
     constructor, importcpp: "StepBasic_GroupRelationship(@)",
     header: "StepBasic_GroupRelationship.hxx".}
-proc Init*(this: var StepBasic_GroupRelationship;
-          aName: handle[TCollection_HAsciiString];
-          hasDescription: Standard_Boolean;
-          aDescription: handle[TCollection_HAsciiString];
-          aRelatingGroup: handle[StepBasic_Group];
-          aRelatedGroup: handle[StepBasic_Group]) {.importcpp: "Init",
+proc init*(this: var StepBasicGroupRelationship;
+          aName: Handle[TCollectionHAsciiString]; hasDescription: bool;
+          aDescription: Handle[TCollectionHAsciiString];
+          aRelatingGroup: Handle[StepBasicGroup];
+          aRelatedGroup: Handle[StepBasicGroup]) {.importcpp: "Init",
     header: "StepBasic_GroupRelationship.hxx".}
-proc Name*(this: StepBasic_GroupRelationship): handle[TCollection_HAsciiString] {.
+proc name*(this: StepBasicGroupRelationship): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepBasic_GroupRelationship.hxx".}
-proc SetName*(this: var StepBasic_GroupRelationship;
-             Name: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepBasicGroupRelationship;
+             name: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepBasic_GroupRelationship.hxx".}
-proc Description*(this: StepBasic_GroupRelationship): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description",
-                               header: "StepBasic_GroupRelationship.hxx".}
-proc SetDescription*(this: var StepBasic_GroupRelationship;
-                    Description: handle[TCollection_HAsciiString]) {.
+proc description*(this: StepBasicGroupRelationship): Handle[TCollectionHAsciiString] {.
+    noSideEffect, importcpp: "Description",
+    header: "StepBasic_GroupRelationship.hxx".}
+proc setDescription*(this: var StepBasicGroupRelationship;
+                    description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepBasic_GroupRelationship.hxx".}
-proc HasDescription*(this: StepBasic_GroupRelationship): Standard_Boolean {.
-    noSideEffect, importcpp: "HasDescription",
-    header: "StepBasic_GroupRelationship.hxx".}
-proc RelatingGroup*(this: StepBasic_GroupRelationship): handle[StepBasic_Group] {.
+proc hasDescription*(this: StepBasicGroupRelationship): bool {.noSideEffect,
+    importcpp: "HasDescription", header: "StepBasic_GroupRelationship.hxx".}
+proc relatingGroup*(this: StepBasicGroupRelationship): Handle[StepBasicGroup] {.
     noSideEffect, importcpp: "RelatingGroup",
     header: "StepBasic_GroupRelationship.hxx".}
-proc SetRelatingGroup*(this: var StepBasic_GroupRelationship;
-                      RelatingGroup: handle[StepBasic_Group]) {.
+proc setRelatingGroup*(this: var StepBasicGroupRelationship;
+                      relatingGroup: Handle[StepBasicGroup]) {.
     importcpp: "SetRelatingGroup", header: "StepBasic_GroupRelationship.hxx".}
-proc RelatedGroup*(this: StepBasic_GroupRelationship): handle[StepBasic_Group] {.
+proc relatedGroup*(this: StepBasicGroupRelationship): Handle[StepBasicGroup] {.
     noSideEffect, importcpp: "RelatedGroup",
     header: "StepBasic_GroupRelationship.hxx".}
-proc SetRelatedGroup*(this: var StepBasic_GroupRelationship;
-                     RelatedGroup: handle[StepBasic_Group]) {.
+proc setRelatedGroup*(this: var StepBasicGroupRelationship;
+                     relatedGroup: Handle[StepBasicGroup]) {.
     importcpp: "SetRelatedGroup", header: "StepBasic_GroupRelationship.hxx".}
 type
-  StepBasic_GroupRelationshipbase_type* = Standard_Transient
+  StepBasicGroupRelationshipbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_GroupRelationship::get_type_name(@)",
-                              header: "StepBasic_GroupRelationship.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_GroupRelationship::get_type_name(@)",
+                            header: "StepBasic_GroupRelationship.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_GroupRelationship::get_type_descriptor(@)",
     header: "StepBasic_GroupRelationship.hxx".}
-proc DynamicType*(this: StepBasic_GroupRelationship): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicGroupRelationship): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_GroupRelationship.hxx".}

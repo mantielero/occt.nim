@@ -13,10 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../NCollection/NCollection_Sequence
-
 discard "forward decl of XCAFDimTolObjects_DatumObject"
 type
-  XCAFDimTolObjects_DatumObjectSequence* = NCollection_Sequence[
-      handle[XCAFDimTolObjects_DatumObject]]
+  XCAFDimTolObjectsDatumObjectSequence* = NCollectionSequence[
+      Handle[XCAFDimTolObjectsDatumObject]]
+

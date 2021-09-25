@@ -13,165 +13,151 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  XCAFDimTolObjects_GeomToleranceObjectSequence,
-  XCAFDimTolObjects_GeomToleranceType, XCAFDimTolObjects_GeomToleranceTypeValue,
-  ../Standard/Standard_Real, XCAFDimTolObjects_GeomToleranceMatReqModif,
-  XCAFDimTolObjects_GeomToleranceZoneModif,
-  XCAFDimTolObjects_GeomToleranceModifiersSequence,
-  ../Standard/Standard_Transient, XCAFDimTolObjects_GeomToleranceModif,
-  XCAFDimTolObjects_ToleranceZoneAffectedPlane, ../gp/gp_Ax2, ../gp/gp_Pln,
-  ../TopoDS/TopoDS_Shape, ../TCollection/TCollection_HAsciiString
-
 discard "forward decl of XCAFDimTolObjects_GeomToleranceObject"
 discard "forward decl of XCAFDimTolObjects_GeomToleranceObject"
 type
-  Handle_XCAFDimTolObjects_GeomToleranceObject* = handle[
-      XCAFDimTolObjects_GeomToleranceObject]
+  HandleXCAFDimTolObjectsGeomToleranceObject* = Handle[
+      XCAFDimTolObjectsGeomToleranceObject]
 
 ## ! Access object to store dimension and tolerance
 
 type
-  XCAFDimTolObjects_GeomToleranceObject* {.
+  XCAFDimTolObjectsGeomToleranceObject* {.
       importcpp: "XCAFDimTolObjects_GeomToleranceObject",
-      header: "XCAFDimTolObjects_GeomToleranceObject.hxx", bycopy.} = object of Standard_Transient
+      header: "XCAFDimTolObjects_GeomToleranceObject.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructXCAFDimTolObjects_GeomToleranceObject*(): XCAFDimTolObjects_GeomToleranceObject {.
+proc constructXCAFDimTolObjectsGeomToleranceObject*(): XCAFDimTolObjectsGeomToleranceObject {.
     constructor, importcpp: "XCAFDimTolObjects_GeomToleranceObject(@)",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc constructXCAFDimTolObjects_GeomToleranceObject*(
-    theObj: handle[XCAFDimTolObjects_GeomToleranceObject]): XCAFDimTolObjects_GeomToleranceObject {.
+proc constructXCAFDimTolObjectsGeomToleranceObject*(
+    theObj: Handle[XCAFDimTolObjectsGeomToleranceObject]): XCAFDimTolObjectsGeomToleranceObject {.
     constructor, importcpp: "XCAFDimTolObjects_GeomToleranceObject(@)",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc GetSemanticName*(this: XCAFDimTolObjects_GeomToleranceObject): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "GetSemanticName", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc SetSemanticName*(this: var XCAFDimTolObjects_GeomToleranceObject;
-                     theName: handle[TCollection_HAsciiString]) {.
+proc getSemanticName*(this: XCAFDimTolObjectsGeomToleranceObject): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "GetSemanticName", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
+proc setSemanticName*(this: var XCAFDimTolObjectsGeomToleranceObject;
+                     theName: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetSemanticName",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc SetType*(this: var XCAFDimTolObjects_GeomToleranceObject;
-             theType: XCAFDimTolObjects_GeomToleranceType) {.importcpp: "SetType",
+proc setType*(this: var XCAFDimTolObjectsGeomToleranceObject;
+             theType: XCAFDimTolObjectsGeomToleranceType) {.importcpp: "SetType",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc GetType*(this: XCAFDimTolObjects_GeomToleranceObject): XCAFDimTolObjects_GeomToleranceType {.
+proc getType*(this: XCAFDimTolObjectsGeomToleranceObject): XCAFDimTolObjectsGeomToleranceType {.
     noSideEffect, importcpp: "GetType",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc SetTypeOfValue*(this: var XCAFDimTolObjects_GeomToleranceObject;
-                    theTypeOfValue: XCAFDimTolObjects_GeomToleranceTypeValue) {.
+proc setTypeOfValue*(this: var XCAFDimTolObjectsGeomToleranceObject;
+                    theTypeOfValue: XCAFDimTolObjectsGeomToleranceTypeValue) {.
     importcpp: "SetTypeOfValue",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc GetTypeOfValue*(this: XCAFDimTolObjects_GeomToleranceObject): XCAFDimTolObjects_GeomToleranceTypeValue {.
+proc getTypeOfValue*(this: XCAFDimTolObjectsGeomToleranceObject): XCAFDimTolObjectsGeomToleranceTypeValue {.
     noSideEffect, importcpp: "GetTypeOfValue",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc SetValue*(this: var XCAFDimTolObjects_GeomToleranceObject;
-              theValue: Standard_Real) {.importcpp: "SetValue", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc GetValue*(this: XCAFDimTolObjects_GeomToleranceObject): Standard_Real {.
-    noSideEffect, importcpp: "GetValue",
-    header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc SetMaterialRequirementModifier*(this: var XCAFDimTolObjects_GeomToleranceObject;
-    theMatReqModif: XCAFDimTolObjects_GeomToleranceMatReqModif) {.
+proc setValue*(this: var XCAFDimTolObjectsGeomToleranceObject; theValue: float) {.
+    importcpp: "SetValue", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
+proc getValue*(this: XCAFDimTolObjectsGeomToleranceObject): float {.noSideEffect,
+    importcpp: "GetValue", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
+proc setMaterialRequirementModifier*(this: var XCAFDimTolObjectsGeomToleranceObject;
+    theMatReqModif: XCAFDimTolObjectsGeomToleranceMatReqModif) {.
     importcpp: "SetMaterialRequirementModifier",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc GetMaterialRequirementModifier*(this: XCAFDimTolObjects_GeomToleranceObject): XCAFDimTolObjects_GeomToleranceMatReqModif {.
+proc getMaterialRequirementModifier*(this: XCAFDimTolObjectsGeomToleranceObject): XCAFDimTolObjectsGeomToleranceMatReqModif {.
     noSideEffect, importcpp: "GetMaterialRequirementModifier",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc SetZoneModifier*(this: var XCAFDimTolObjects_GeomToleranceObject;
-                     theZoneModif: XCAFDimTolObjects_GeomToleranceZoneModif) {.
+proc setZoneModifier*(this: var XCAFDimTolObjectsGeomToleranceObject;
+                     theZoneModif: XCAFDimTolObjectsGeomToleranceZoneModif) {.
     importcpp: "SetZoneModifier",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc GetZoneModifier*(this: XCAFDimTolObjects_GeomToleranceObject): XCAFDimTolObjects_GeomToleranceZoneModif {.
+proc getZoneModifier*(this: XCAFDimTolObjectsGeomToleranceObject): XCAFDimTolObjectsGeomToleranceZoneModif {.
     noSideEffect, importcpp: "GetZoneModifier",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc SetValueOfZoneModifier*(this: var XCAFDimTolObjects_GeomToleranceObject;
-                            theValue: Standard_Real) {.
+proc setValueOfZoneModifier*(this: var XCAFDimTolObjectsGeomToleranceObject;
+                            theValue: float) {.
     importcpp: "SetValueOfZoneModifier",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc GetValueOfZoneModifier*(this: XCAFDimTolObjects_GeomToleranceObject): Standard_Real {.
+proc getValueOfZoneModifier*(this: XCAFDimTolObjectsGeomToleranceObject): float {.
     noSideEffect, importcpp: "GetValueOfZoneModifier",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc SetModifiers*(this: var XCAFDimTolObjects_GeomToleranceObject; theModifiers: XCAFDimTolObjects_GeomToleranceModifiersSequence) {.
+proc setModifiers*(this: var XCAFDimTolObjectsGeomToleranceObject;
+                  theModifiers: XCAFDimTolObjectsGeomToleranceModifiersSequence) {.
     importcpp: "SetModifiers", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc AddModifier*(this: var XCAFDimTolObjects_GeomToleranceObject;
-                 theModifier: XCAFDimTolObjects_GeomToleranceModif) {.
+proc addModifier*(this: var XCAFDimTolObjectsGeomToleranceObject;
+                 theModifier: XCAFDimTolObjectsGeomToleranceModif) {.
     importcpp: "AddModifier", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc GetModifiers*(this: XCAFDimTolObjects_GeomToleranceObject): XCAFDimTolObjects_GeomToleranceModifiersSequence {.
+proc getModifiers*(this: XCAFDimTolObjectsGeomToleranceObject): XCAFDimTolObjectsGeomToleranceModifiersSequence {.
     noSideEffect, importcpp: "GetModifiers",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc SetMaxValueModifier*(this: var XCAFDimTolObjects_GeomToleranceObject;
-                         theModifier: Standard_Real) {.
-    importcpp: "SetMaxValueModifier",
+proc setMaxValueModifier*(this: var XCAFDimTolObjectsGeomToleranceObject;
+                         theModifier: float) {.importcpp: "SetMaxValueModifier",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc GetMaxValueModifier*(this: XCAFDimTolObjects_GeomToleranceObject): Standard_Real {.
+proc getMaxValueModifier*(this: XCAFDimTolObjectsGeomToleranceObject): float {.
     noSideEffect, importcpp: "GetMaxValueModifier",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc SetAxis*(this: var XCAFDimTolObjects_GeomToleranceObject; theAxis: gp_Ax2) {.
+proc setAxis*(this: var XCAFDimTolObjectsGeomToleranceObject; theAxis: Ax2) {.
     importcpp: "SetAxis", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc GetAxis*(this: XCAFDimTolObjects_GeomToleranceObject): gp_Ax2 {.noSideEffect,
+proc getAxis*(this: XCAFDimTolObjectsGeomToleranceObject): Ax2 {.noSideEffect,
     importcpp: "GetAxis", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc HasAxis*(this: XCAFDimTolObjects_GeomToleranceObject): Standard_Boolean {.
-    noSideEffect, importcpp: "HasAxis",
-    header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc SetPlane*(this: var XCAFDimTolObjects_GeomToleranceObject; thePlane: gp_Ax2) {.
+proc hasAxis*(this: XCAFDimTolObjectsGeomToleranceObject): bool {.noSideEffect,
+    importcpp: "HasAxis", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
+proc setPlane*(this: var XCAFDimTolObjectsGeomToleranceObject; thePlane: Ax2) {.
     importcpp: "SetPlane", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc GetPlane*(this: XCAFDimTolObjects_GeomToleranceObject): gp_Ax2 {.noSideEffect,
+proc getPlane*(this: XCAFDimTolObjectsGeomToleranceObject): Ax2 {.noSideEffect,
     importcpp: "GetPlane", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc SetPoint*(this: var XCAFDimTolObjects_GeomToleranceObject; thePnt: gp_Pnt) {.
+proc setPoint*(this: var XCAFDimTolObjectsGeomToleranceObject; thePnt: Pnt) {.
     importcpp: "SetPoint", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc GetPoint*(this: XCAFDimTolObjects_GeomToleranceObject): gp_Pnt {.noSideEffect,
+proc getPoint*(this: XCAFDimTolObjectsGeomToleranceObject): Pnt {.noSideEffect,
     importcpp: "GetPoint", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc SetPointTextAttach*(this: var XCAFDimTolObjects_GeomToleranceObject;
-                        thePntText: gp_Pnt) {.importcpp: "SetPointTextAttach",
+proc setPointTextAttach*(this: var XCAFDimTolObjectsGeomToleranceObject;
+                        thePntText: Pnt) {.importcpp: "SetPointTextAttach",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc GetPointTextAttach*(this: XCAFDimTolObjects_GeomToleranceObject): gp_Pnt {.
+proc getPointTextAttach*(this: XCAFDimTolObjectsGeomToleranceObject): Pnt {.
     noSideEffect, importcpp: "GetPointTextAttach",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc HasPlane*(this: XCAFDimTolObjects_GeomToleranceObject): Standard_Boolean {.
-    noSideEffect, importcpp: "HasPlane",
-    header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc HasPoint*(this: XCAFDimTolObjects_GeomToleranceObject): Standard_Boolean {.
-    noSideEffect, importcpp: "HasPoint",
-    header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc HasPointText*(this: XCAFDimTolObjects_GeomToleranceObject): Standard_Boolean {.
-    noSideEffect, importcpp: "HasPointText",
-    header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc SetPresentation*(this: var XCAFDimTolObjects_GeomToleranceObject;
+proc hasPlane*(this: XCAFDimTolObjectsGeomToleranceObject): bool {.noSideEffect,
+    importcpp: "HasPlane", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
+proc hasPoint*(this: XCAFDimTolObjectsGeomToleranceObject): bool {.noSideEffect,
+    importcpp: "HasPoint", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
+proc hasPointText*(this: XCAFDimTolObjectsGeomToleranceObject): bool {.noSideEffect,
+    importcpp: "HasPointText", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
+proc setPresentation*(this: var XCAFDimTolObjectsGeomToleranceObject;
                      thePresentation: TopoDS_Shape;
-                     thePresentationName: handle[TCollection_HAsciiString]) {.
+                     thePresentationName: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetPresentation",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc GetPresentation*(this: XCAFDimTolObjects_GeomToleranceObject): TopoDS_Shape {.
+proc getPresentation*(this: XCAFDimTolObjectsGeomToleranceObject): TopoDS_Shape {.
     noSideEffect, importcpp: "GetPresentation",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc GetPresentationName*(this: XCAFDimTolObjects_GeomToleranceObject): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "GetPresentationName", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc HasAffectedPlane*(this: XCAFDimTolObjects_GeomToleranceObject): bool {.
+proc getPresentationName*(this: XCAFDimTolObjectsGeomToleranceObject): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "GetPresentationName", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
+proc hasAffectedPlane*(this: XCAFDimTolObjectsGeomToleranceObject): bool {.
     noSideEffect, importcpp: "HasAffectedPlane",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc GetAffectedPlaneType*(this: XCAFDimTolObjects_GeomToleranceObject): XCAFDimTolObjects_ToleranceZoneAffectedPlane {.
+proc getAffectedPlaneType*(this: XCAFDimTolObjectsGeomToleranceObject): XCAFDimTolObjectsToleranceZoneAffectedPlane {.
     noSideEffect, importcpp: "GetAffectedPlaneType",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc SetAffectedPlaneType*(this: var XCAFDimTolObjects_GeomToleranceObject;
-                          theType: XCAFDimTolObjects_ToleranceZoneAffectedPlane) {.
+proc setAffectedPlaneType*(this: var XCAFDimTolObjectsGeomToleranceObject;
+                          theType: XCAFDimTolObjectsToleranceZoneAffectedPlane) {.
     importcpp: "SetAffectedPlaneType",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc SetAffectedPlane*(this: var XCAFDimTolObjects_GeomToleranceObject;
-                      thePlane: gp_Pln) {.importcpp: "SetAffectedPlane", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc SetAffectedPlane*(this: var XCAFDimTolObjects_GeomToleranceObject;
-                      thePlane: gp_Pln;
-                      theType: XCAFDimTolObjects_ToleranceZoneAffectedPlane) {.
+proc setAffectedPlane*(this: var XCAFDimTolObjectsGeomToleranceObject; thePlane: Pln) {.
     importcpp: "SetAffectedPlane",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc GetAffectedPlane*(this: XCAFDimTolObjects_GeomToleranceObject): gp_Pln {.
+proc setAffectedPlane*(this: var XCAFDimTolObjectsGeomToleranceObject;
+                      thePlane: Pln;
+                      theType: XCAFDimTolObjectsToleranceZoneAffectedPlane) {.
+    importcpp: "SetAffectedPlane",
+    header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
+proc getAffectedPlane*(this: XCAFDimTolObjectsGeomToleranceObject): Pln {.
     noSideEffect, importcpp: "GetAffectedPlane",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
 type
-  XCAFDimTolObjects_GeomToleranceObjectbase_type* = Standard_Transient
+  XCAFDimTolObjectsGeomToleranceObjectbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "XCAFDimTolObjects_GeomToleranceObject::get_type_name(@)", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XCAFDimTolObjects_GeomToleranceObject::get_type_name(@)",
+                            header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XCAFDimTolObjects_GeomToleranceObject::get_type_descriptor(@)",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc DynamicType*(this: XCAFDimTolObjects_GeomToleranceObject): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
+proc dynamicType*(this: XCAFDimTolObjectsGeomToleranceObject): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}

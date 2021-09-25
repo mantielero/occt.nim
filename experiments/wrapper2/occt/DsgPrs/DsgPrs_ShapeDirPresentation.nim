@@ -14,84 +14,78 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Prs3d/Prs3d_Drawer, ../Prs3d/Prs3d_Presentation
-
 discard "forward decl of TopoDS_Shape"
 type
-  DsgPrs_ShapeDirPresentation* {.importcpp: "DsgPrs_ShapeDirPresentation",
-                                header: "DsgPrs_ShapeDirPresentation.hxx", bycopy.} = object ##
-                                                                                        ## !
-                                                                                        ## Adds
-                                                                                        ## the
-                                                                                        ## shape
-                                                                                        ## shape
-                                                                                        ## and
-                                                                                        ## the
-                                                                                        ## mode
-                                                                                        ## mode
-                                                                                        ## to
-                                                                                        ## the
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## presentation
-                                                                                        ## object
-                                                                                        ## prs.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## The
-                                                                                        ## display
-                                                                                        ## attributes
-                                                                                        ## of
-                                                                                        ## the
-                                                                                        ## normal
-                                                                                        ## are
-                                                                                        ## defined
-                                                                                        ## by
-                                                                                        ## the
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## attribute
-                                                                                        ## manager
-                                                                                        ## aDrawer.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## mode
-                                                                                        ## determines
-                                                                                        ## whether
-                                                                                        ## the
-                                                                                        ## first
-                                                                                        ## or
-                                                                                        ## the
-                                                                                        ## last
-                                                                                        ## point
-                                                                                        ## of
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## the
-                                                                                        ## normal
-                                                                                        ## is
-                                                                                        ## given
-                                                                                        ## to
-                                                                                        ## the
-                                                                                        ## presentation
-                                                                                        ## object.
-                                                                                        ## If
-                                                                                        ## the
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## first
-                                                                                        ## point:
-                                                                                        ## 0;
-                                                                                        ## if
-                                                                                        ## the
-                                                                                        ## last
-                                                                                        ## point,
-                                                                                        ## 1.
+  DsgPrsShapeDirPresentation* {.importcpp: "DsgPrs_ShapeDirPresentation",
+                               header: "DsgPrs_ShapeDirPresentation.hxx", bycopy.} = object ##
+                                                                                       ## !
+                                                                                       ## Adds
+                                                                                       ## the
+                                                                                       ## shape
+                                                                                       ## shape
+                                                                                       ## and
+                                                                                       ## the
+                                                                                       ## mode
+                                                                                       ## mode
+                                                                                       ## to
+                                                                                       ## the
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## presentation
+                                                                                       ## object
+                                                                                       ## prs.
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## The
+                                                                                       ## display
+                                                                                       ## attributes
+                                                                                       ## of
+                                                                                       ## the
+                                                                                       ## normal
+                                                                                       ## are
+                                                                                       ## defined
+                                                                                       ## by
+                                                                                       ## the
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## attribute
+                                                                                       ## manager
+                                                                                       ## aDrawer.
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## mode
+                                                                                       ## determines
+                                                                                       ## whether
+                                                                                       ## the
+                                                                                       ## first
+                                                                                       ## or
+                                                                                       ## the
+                                                                                       ## last
+                                                                                       ## point
+                                                                                       ## of
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## the
+                                                                                       ## normal
+                                                                                       ## is
+                                                                                       ## given
+                                                                                       ## to
+                                                                                       ## the
+                                                                                       ## presentation
+                                                                                       ## object.
+                                                                                       ## If
+                                                                                       ## the
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## first
+                                                                                       ## point:
+                                                                                       ## 0;
+                                                                                       ## if
+                                                                                       ## the
+                                                                                       ## last
+                                                                                       ## point,
+                                                                                       ## 1.
 
 
-proc Add*(prs: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
-         shape: TopoDS_Shape; mode: Standard_Integer) {.
-    importcpp: "DsgPrs_ShapeDirPresentation::Add(@)",
-    header: "DsgPrs_ShapeDirPresentation.hxx".}
+proc add*(prs: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
+         shape: TopoDS_Shape; mode: int) {.importcpp: "DsgPrs_ShapeDirPresentation::Add(@)", header: "DsgPrs_ShapeDirPresentation.hxx".}

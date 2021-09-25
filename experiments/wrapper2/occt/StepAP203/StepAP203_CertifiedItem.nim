@@ -14,26 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepRepr_SuppliedPartRelationship"
 type
-  StepAP203_CertifiedItem* {.importcpp: "StepAP203_CertifiedItem",
-                            header: "StepAP203_CertifiedItem.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                     ## !
-                                                                                                     ## Empty
-                                                                                                     ## constructor
+  StepAP203CertifiedItem* {.importcpp: "StepAP203_CertifiedItem",
+                           header: "StepAP203_CertifiedItem.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                                   ## !
+                                                                                                   ## Empty
+                                                                                                   ## constructor
 
 
-proc constructStepAP203_CertifiedItem*(): StepAP203_CertifiedItem {.constructor,
+proc constructStepAP203CertifiedItem*(): StepAP203CertifiedItem {.constructor,
     importcpp: "StepAP203_CertifiedItem(@)", header: "StepAP203_CertifiedItem.hxx".}
-proc CaseNum*(this: StepAP203_CertifiedItem; ent: handle[Standard_Transient]): Standard_Integer {.
+proc caseNum*(this: StepAP203CertifiedItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP203_CertifiedItem.hxx".}
-proc SuppliedPartRelationship*(this: StepAP203_CertifiedItem): handle[
-    StepRepr_SuppliedPartRelationship] {.noSideEffect,
-                                        importcpp: "SuppliedPartRelationship",
-                                        header: "StepAP203_CertifiedItem.hxx".}
+proc suppliedPartRelationship*(this: StepAP203CertifiedItem): Handle[
+    StepReprSuppliedPartRelationship] {.noSideEffect,
+                                       importcpp: "SuppliedPartRelationship",
+                                       header: "StepAP203_CertifiedItem.hxx".}

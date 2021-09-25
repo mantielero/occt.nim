@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_SelectExtract,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
-
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of Standard_Transient"
@@ -26,45 +22,45 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectRoots"
 discard "forward decl of IFSelect_SelectRoots"
 type
-  Handle_IFSelect_SelectRoots* = handle[IFSelect_SelectRoots]
+  HandleIFSelectSelectRoots* = Handle[IFSelectSelectRoots]
 
 ## ! A SelectRoots sorts the Entities which are local roots of a
 ## ! set of Entities (not shared by other Entities inside this set,
 ## ! even if they are shared by other Entities outside it)
 
 type
-  IFSelect_SelectRoots* {.importcpp: "IFSelect_SelectRoots",
-                         header: "IFSelect_SelectRoots.hxx", bycopy.} = object of IFSelect_SelectExtract ##
-                                                                                                  ## !
-                                                                                                  ## Creates
-                                                                                                  ## a
-                                                                                                  ## SelectRoots
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Returns
-                                                                                                  ## True,
-                                                                                                  ## because
-                                                                                                  ## RootResult
-                                                                                                  ## assures
-                                                                                                  ## uniqueness
+  IFSelectSelectRoots* {.importcpp: "IFSelect_SelectRoots",
+                        header: "IFSelect_SelectRoots.hxx", bycopy.} = object of IFSelectSelectExtract ##
+                                                                                                ## !
+                                                                                                ## Creates
+                                                                                                ## a
+                                                                                                ## SelectRoots
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Returns
+                                                                                                ## True,
+                                                                                                ## because
+                                                                                                ## RootResult
+                                                                                                ## assures
+                                                                                                ## uniqueness
 
 
-proc constructIFSelect_SelectRoots*(): IFSelect_SelectRoots {.constructor,
+proc constructIFSelectSelectRoots*(): IFSelectSelectRoots {.constructor,
     importcpp: "IFSelect_SelectRoots(@)", header: "IFSelect_SelectRoots.hxx".}
-proc RootResult*(this: IFSelect_SelectRoots; G: Interface_Graph): Interface_EntityIterator {.
+proc rootResult*(this: IFSelectSelectRoots; g: InterfaceGraph): InterfaceEntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "IFSelect_SelectRoots.hxx".}
-proc Sort*(this: IFSelect_SelectRoots; rank: Standard_Integer;
-          ent: handle[Standard_Transient]; model: handle[Interface_InterfaceModel]): Standard_Boolean {.
-    noSideEffect, importcpp: "Sort", header: "IFSelect_SelectRoots.hxx".}
-proc ExtractLabel*(this: IFSelect_SelectRoots): TCollection_AsciiString {.
+proc sort*(this: IFSelectSelectRoots; rank: int; ent: Handle[StandardTransient];
+          model: Handle[InterfaceInterfaceModel]): bool {.noSideEffect,
+    importcpp: "Sort", header: "IFSelect_SelectRoots.hxx".}
+proc extractLabel*(this: IFSelectSelectRoots): TCollectionAsciiString {.
     noSideEffect, importcpp: "ExtractLabel", header: "IFSelect_SelectRoots.hxx".}
 type
-  IFSelect_SelectRootsbase_type* = IFSelect_SelectExtract
+  IFSelectSelectRootsbaseType* = IFSelectSelectExtract
 
-proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectRoots::get_type_name(@)",
-                              header: "IFSelect_SelectRoots.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectRoots::get_type_name(@)",
+                            header: "IFSelect_SelectRoots.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_SelectRoots::get_type_descriptor(@)",
     header: "IFSelect_SelectRoots.hxx".}
-proc DynamicType*(this: IFSelect_SelectRoots): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: IFSelectSelectRoots): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectRoots.hxx".}

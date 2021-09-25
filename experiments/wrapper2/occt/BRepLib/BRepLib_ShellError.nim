@@ -17,8 +17,9 @@
 ## ! Errors that can occur at shell construction.
 
 type
-  BRepLib_ShellError* {.size: sizeof(cint), importcpp: "BRepLib_ShellError",
-                       header: "BRepLib_ShellError.hxx".} = enum
-    BRepLib_ShellDone, BRepLib_EmptyShell, BRepLib_DisconnectedShell,
-    BRepLib_ShellParametersOutOfRange
+  BRepLibShellError* {.size: sizeof(cint), importcpp: "BRepLib_ShellError",
+                      header: "BRepLib_ShellError.hxx".} = enum
+    BRepLibShellDone, BRepLibEmptyShell, BRepLibDisconnectedShell,
+    BRepLibShellParametersOutOfRange
+
 

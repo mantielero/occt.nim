@@ -14,38 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../HLRAlgo/HLRAlgo_ListIteratorOfInterferenceList,
-  HLRBRep_EdgeInterferenceTool, ../Standard/Standard_Boolean,
-  ../TopAbs/TopAbs_Orientation
-
 discard "forward decl of HLRBRep_EdgeInterferenceTool"
 discard "forward decl of HLRAlgo_Intersection"
 type
-  HLRBRep_VertexList* {.importcpp: "HLRBRep_VertexList",
-                       header: "HLRBRep_VertexList.hxx", bycopy.} = object
+  HLRBRepVertexList* {.importcpp: "HLRBRep_VertexList",
+                      header: "HLRBRep_VertexList.hxx", bycopy.} = object
 
 
-proc constructHLRBRep_VertexList*(T: HLRBRep_EdgeInterferenceTool;
-                                 I: HLRAlgo_ListIteratorOfInterferenceList): HLRBRep_VertexList {.
+proc constructHLRBRepVertexList*(t: HLRBRepEdgeInterferenceTool;
+                                i: HLRAlgoListIteratorOfInterferenceList): HLRBRepVertexList {.
     constructor, importcpp: "HLRBRep_VertexList(@)",
     header: "HLRBRep_VertexList.hxx".}
-proc IsPeriodic*(this: HLRBRep_VertexList): Standard_Boolean {.noSideEffect,
+proc isPeriodic*(this: HLRBRepVertexList): bool {.noSideEffect,
     importcpp: "IsPeriodic", header: "HLRBRep_VertexList.hxx".}
-proc More*(this: HLRBRep_VertexList): Standard_Boolean {.noSideEffect,
-    importcpp: "More", header: "HLRBRep_VertexList.hxx".}
-proc Next*(this: var HLRBRep_VertexList) {.importcpp: "Next",
-                                       header: "HLRBRep_VertexList.hxx".}
-proc Current*(this: HLRBRep_VertexList): HLRAlgo_Intersection {.noSideEffect,
+proc more*(this: HLRBRepVertexList): bool {.noSideEffect, importcpp: "More",
+                                        header: "HLRBRep_VertexList.hxx".}
+proc next*(this: var HLRBRepVertexList) {.importcpp: "Next",
+                                      header: "HLRBRep_VertexList.hxx".}
+proc current*(this: HLRBRepVertexList): HLRAlgoIntersection {.noSideEffect,
     importcpp: "Current", header: "HLRBRep_VertexList.hxx".}
-proc IsBoundary*(this: HLRBRep_VertexList): Standard_Boolean {.noSideEffect,
+proc isBoundary*(this: HLRBRepVertexList): bool {.noSideEffect,
     importcpp: "IsBoundary", header: "HLRBRep_VertexList.hxx".}
-proc IsInterference*(this: HLRBRep_VertexList): Standard_Boolean {.noSideEffect,
+proc isInterference*(this: HLRBRepVertexList): bool {.noSideEffect,
     importcpp: "IsInterference", header: "HLRBRep_VertexList.hxx".}
-proc Orientation*(this: HLRBRep_VertexList): TopAbs_Orientation {.noSideEffect,
+proc orientation*(this: HLRBRepVertexList): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "HLRBRep_VertexList.hxx".}
-proc Transition*(this: HLRBRep_VertexList): TopAbs_Orientation {.noSideEffect,
+proc transition*(this: HLRBRepVertexList): TopAbsOrientation {.noSideEffect,
     importcpp: "Transition", header: "HLRBRep_VertexList.hxx".}
-proc BoundaryTransition*(this: HLRBRep_VertexList): TopAbs_Orientation {.
-    noSideEffect, importcpp: "BoundaryTransition", header: "HLRBRep_VertexList.hxx".}
+proc boundaryTransition*(this: HLRBRepVertexList): TopAbsOrientation {.noSideEffect,
+    importcpp: "BoundaryTransition", header: "HLRBRep_VertexList.hxx".}

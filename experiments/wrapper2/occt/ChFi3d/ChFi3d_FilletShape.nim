@@ -25,7 +25,8 @@
 ## ! facilitates the implementation of the construction algorithm.
 
 type
-  ChFi3d_FilletShape* {.size: sizeof(cint), importcpp: "ChFi3d_FilletShape",
-                       header: "ChFi3d_FilletShape.hxx".} = enum
-    ChFi3d_Rational, ChFi3d_QuasiAngular, ChFi3d_Polynomial
+  ChFi3dFilletShape* {.size: sizeof(cint), importcpp: "ChFi3d_FilletShape",
+                      header: "ChFi3d_FilletShape.hxx".} = enum
+    ChFi3dRational, ChFi3dQuasiAngular, ChFi3dPolynomial
+
 

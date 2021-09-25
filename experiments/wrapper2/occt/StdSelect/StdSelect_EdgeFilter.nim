@@ -14,16 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StdSelect_TypeOfEdge,
-  ../SelectMgr/SelectMgr_Filter, ../Standard/Standard_Boolean,
-  ../TopAbs/TopAbs_ShapeEnum
-
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of StdSelect_EdgeFilter"
 discard "forward decl of StdSelect_EdgeFilter"
 type
-  Handle_StdSelect_EdgeFilter* = handle[StdSelect_EdgeFilter]
+  HandleStdSelectEdgeFilter* = Handle[StdSelectEdgeFilter]
 
 ## ! A framework to define a filter to select a specific type of edge.
 ## ! The types available include:
@@ -32,41 +27,41 @@ type
 ## ! -   a circular edge.
 
 type
-  StdSelect_EdgeFilter* {.importcpp: "StdSelect_EdgeFilter",
-                         header: "StdSelect_EdgeFilter.hxx", bycopy.} = object of SelectMgr_Filter ##
-                                                                                            ## !
-                                                                                            ## Constructs
-                                                                                            ## an
-                                                                                            ## edge
-                                                                                            ## filter
-                                                                                            ## object
-                                                                                            ## defined
-                                                                                            ## by
-                                                                                            ## the
-                                                                                            ## type
-                                                                                            ## of
-                                                                                            ## edge
-                                                                                            ## Edge.
+  StdSelectEdgeFilter* {.importcpp: "StdSelect_EdgeFilter",
+                        header: "StdSelect_EdgeFilter.hxx", bycopy.} = object of SelectMgrFilter ##
+                                                                                          ## !
+                                                                                          ## Constructs
+                                                                                          ## an
+                                                                                          ## edge
+                                                                                          ## filter
+                                                                                          ## object
+                                                                                          ## defined
+                                                                                          ## by
+                                                                                          ## the
+                                                                                          ## type
+                                                                                          ## of
+                                                                                          ## edge
+                                                                                          ## Edge.
 
 
-proc constructStdSelect_EdgeFilter*(Edge: StdSelect_TypeOfEdge): StdSelect_EdgeFilter {.
+proc constructStdSelectEdgeFilter*(edge: StdSelectTypeOfEdge): StdSelectEdgeFilter {.
     constructor, importcpp: "StdSelect_EdgeFilter(@)",
     header: "StdSelect_EdgeFilter.hxx".}
-proc SetType*(this: var StdSelect_EdgeFilter; aNewType: StdSelect_TypeOfEdge) {.
+proc setType*(this: var StdSelectEdgeFilter; aNewType: StdSelectTypeOfEdge) {.
     importcpp: "SetType", header: "StdSelect_EdgeFilter.hxx".}
-proc Type*(this: StdSelect_EdgeFilter): StdSelect_TypeOfEdge {.noSideEffect,
+proc `type`*(this: StdSelectEdgeFilter): StdSelectTypeOfEdge {.noSideEffect,
     importcpp: "Type", header: "StdSelect_EdgeFilter.hxx".}
-proc IsOk*(this: StdSelect_EdgeFilter; anobj: handle[SelectMgr_EntityOwner]): Standard_Boolean {.
+proc isOk*(this: StdSelectEdgeFilter; anobj: Handle[SelectMgrEntityOwner]): bool {.
     noSideEffect, importcpp: "IsOk", header: "StdSelect_EdgeFilter.hxx".}
-proc ActsOn*(this: StdSelect_EdgeFilter; aStandardMode: TopAbs_ShapeEnum): Standard_Boolean {.
+proc actsOn*(this: StdSelectEdgeFilter; aStandardMode: TopAbsShapeEnum): bool {.
     noSideEffect, importcpp: "ActsOn", header: "StdSelect_EdgeFilter.hxx".}
 type
-  StdSelect_EdgeFilterbase_type* = SelectMgr_Filter
+  StdSelectEdgeFilterbaseType* = SelectMgrFilter
 
-proc get_type_name*(): cstring {.importcpp: "StdSelect_EdgeFilter::get_type_name(@)",
-                              header: "StdSelect_EdgeFilter.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StdSelect_EdgeFilter::get_type_name(@)",
+                            header: "StdSelect_EdgeFilter.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StdSelect_EdgeFilter::get_type_descriptor(@)",
     header: "StdSelect_EdgeFilter.hxx".}
-proc DynamicType*(this: StdSelect_EdgeFilter): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StdSelectEdgeFilter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StdSelect_EdgeFilter.hxx".}

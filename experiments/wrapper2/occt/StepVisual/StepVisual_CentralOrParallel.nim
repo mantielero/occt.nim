@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  StepVisual_CentralOrParallel* {.size: sizeof(cint),
-                                 importcpp: "StepVisual_CentralOrParallel",
-                                 header: "StepVisual_CentralOrParallel.hxx".} = enum
-    StepVisual_copCentral, StepVisual_copParallel
+  StepVisualCentralOrParallel* {.size: sizeof(cint),
+                                importcpp: "StepVisual_CentralOrParallel",
+                                header: "StepVisual_CentralOrParallel.hxx".} = enum
+    StepVisualCopCentral, StepVisualCopParallel
+
 

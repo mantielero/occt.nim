@@ -13,46 +13,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../BinMDF/BinMDF_ADriver,
-  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
-  ../BinObjMgt/BinObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataStd_IntegerListDriver"
 discard "forward decl of BinMDataStd_IntegerListDriver"
 type
-  Handle_BinMDataStd_IntegerListDriver* = handle[BinMDataStd_IntegerListDriver]
-  BinMDataStd_IntegerListDriver* {.importcpp: "BinMDataStd_IntegerListDriver",
-                                  header: "BinMDataStd_IntegerListDriver.hxx",
-                                  bycopy.} = object of BinMDF_ADriver
+  HandleBinMDataStdIntegerListDriver* = Handle[BinMDataStdIntegerListDriver]
+  BinMDataStdIntegerListDriver* {.importcpp: "BinMDataStd_IntegerListDriver",
+                                 header: "BinMDataStd_IntegerListDriver.hxx",
+                                 bycopy.} = object of BinMDF_ADriver
 
 
-proc constructBinMDataStd_IntegerListDriver*(
-    theMessageDriver: handle[Message_Messenger]): BinMDataStd_IntegerListDriver {.
+proc constructBinMDataStdIntegerListDriver*(
+    theMessageDriver: Handle[MessageMessenger]): BinMDataStdIntegerListDriver {.
     constructor, importcpp: "BinMDataStd_IntegerListDriver(@)",
     header: "BinMDataStd_IntegerListDriver.hxx".}
-proc NewEmpty*(this: BinMDataStd_IntegerListDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: BinMDataStdIntegerListDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty",
     header: "BinMDataStd_IntegerListDriver.hxx".}
-proc Paste*(this: BinMDataStd_IntegerListDriver; Source: BinObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "BinMDataStd_IntegerListDriver.hxx".}
-proc Paste*(this: BinMDataStd_IntegerListDriver; Source: handle[TDF_Attribute];
-           Target: var BinObjMgt_Persistent;
-           RelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: BinMDataStdIntegerListDriver; source: BinObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var BinObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "BinMDataStd_IntegerListDriver.hxx".}
+proc paste*(this: BinMDataStdIntegerListDriver; source: Handle[TDF_Attribute];
+           target: var BinObjMgtPersistent;
+           relocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMDataStd_IntegerListDriver.hxx".}
 type
-  BinMDataStd_IntegerListDriverbase_type* = BinMDF_ADriver
+  BinMDataStdIntegerListDriverbaseType* = BinMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "BinMDataStd_IntegerListDriver::get_type_name(@)",
-                              header: "BinMDataStd_IntegerListDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "BinMDataStd_IntegerListDriver::get_type_name(@)",
+                            header: "BinMDataStd_IntegerListDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BinMDataStd_IntegerListDriver::get_type_descriptor(@)",
     header: "BinMDataStd_IntegerListDriver.hxx".}
-proc DynamicType*(this: BinMDataStd_IntegerListDriver): handle[Standard_Type] {.
+proc dynamicType*(this: BinMDataStdIntegerListDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataStd_IntegerListDriver.hxx".}

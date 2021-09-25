@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TColStd/TColStd_IndexedMapOfInteger, Transfer_HSequenceOfFinder,
-  Transfer_TransferMapOfProcessForFinder, ../Message/Message_ProgressRange
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of Transfer_Finder"
 discard "forward decl of Transfer_Binder"
@@ -33,292 +29,276 @@ discard "forward decl of Interface_CheckIterator"
 discard "forward decl of Transfer_ProcessForFinder"
 discard "forward decl of Transfer_ProcessForFinder"
 type
-  Handle_Transfer_ProcessForFinder* = handle[Transfer_ProcessForFinder]
-  Transfer_ProcessForFinder* {.importcpp: "Transfer_ProcessForFinder",
-                              header: "Transfer_ProcessForFinder.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                                        ## !
-                                                                                                        ## Sets
-                                                                                                        ## TransferProcess
-                                                                                                        ## at
-                                                                                                        ## initial
-                                                                                                        ## state.
-                                                                                                        ## Gives
-                                                                                                        ## an
-                                                                                                        ## Initial
-                                                                                                        ## size
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## (indicative)
-                                                                                                        ## for
-                                                                                                        ## the
-                                                                                                        ## Map
-                                                                                                        ## when
-                                                                                                        ## known
-                                                                                                        ## (default
-                                                                                                        ## is
-                                                                                                        ## 10000).
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Sets
-                                                                                                        ## default
-                                                                                                        ## trace
-                                                                                                        ## file
-                                                                                                        ## as
-                                                                                                        ## a
-                                                                                                        ## printer
-                                                                                                        ## and
-                                                                                                        ## default
-                                                                                                        ## trace
-                                                                                                        ## level
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## (see
-                                                                                                        ## Message_TraceFile).
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Same
-                                                                                                        ## as
-                                                                                                        ## Find
-                                                                                                        ## but
-                                                                                                        ## stores
-                                                                                                        ## the
-                                                                                                        ## last
-                                                                                                        ## access
-                                                                                                        ## to
-                                                                                                        ## the
-                                                                                                        ## map,
-                                                                                                        ## for
-                                                                                                        ## a
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## faster
-                                                                                                        ## access
-                                                                                                        ## on
-                                                                                                        ## next
-                                                                                                        ## calls
-                                                                                                        ## (as
-                                                                                                        ## Bind
-                                                                                                        ## does
-                                                                                                        ## too)
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Considers
-                                                                                                        ## a
-                                                                                                        ## category
-                                                                                                        ## number,
-                                                                                                        ## by
-                                                                                                        ## default
-                                                                                                        ## 0
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## C++
-                                                                                                        ## :
-                                                                                                        ## return
-                                                                                                        ## const
-                                                                                                        ## &
+  HandleTransferProcessForFinder* = Handle[TransferProcessForFinder]
+  TransferProcessForFinder* {.importcpp: "Transfer_ProcessForFinder",
+                             header: "Transfer_ProcessForFinder.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                      ## !
+                                                                                                      ## Sets
+                                                                                                      ## TransferProcess
+                                                                                                      ## at
+                                                                                                      ## initial
+                                                                                                      ## state.
+                                                                                                      ## Gives
+                                                                                                      ## an
+                                                                                                      ## Initial
+                                                                                                      ## size
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## (indicative)
+                                                                                                      ## for
+                                                                                                      ## the
+                                                                                                      ## Map
+                                                                                                      ## when
+                                                                                                      ## known
+                                                                                                      ## (default
+                                                                                                      ## is
+                                                                                                      ## 10000).
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Sets
+                                                                                                      ## default
+                                                                                                      ## trace
+                                                                                                      ## file
+                                                                                                      ## as
+                                                                                                      ## a
+                                                                                                      ## printer
+                                                                                                      ## and
+                                                                                                      ## default
+                                                                                                      ## trace
+                                                                                                      ## level
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## (see
+                                                                                                      ## Message_TraceFile).
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Same
+                                                                                                      ## as
+                                                                                                      ## Find
+                                                                                                      ## but
+                                                                                                      ## stores
+                                                                                                      ## the
+                                                                                                      ## last
+                                                                                                      ## access
+                                                                                                      ## to
+                                                                                                      ## the
+                                                                                                      ## map,
+                                                                                                      ## for
+                                                                                                      ## a
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## faster
+                                                                                                      ## access
+                                                                                                      ## on
+                                                                                                      ## next
+                                                                                                      ## calls
+                                                                                                      ## (as
+                                                                                                      ## Bind
+                                                                                                      ## does
+                                                                                                      ## too)
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Considers
+                                                                                                      ## a
+                                                                                                      ## category
+                                                                                                      ## number,
+                                                                                                      ## by
+                                                                                                      ## default
+                                                                                                      ## 0
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## C++
+                                                                                                      ## :
+                                                                                                      ## return
+                                                                                                      ## const
+                                                                                                      ## &
 
 
-proc constructTransfer_ProcessForFinder*(nb: Standard_Integer = 10000): Transfer_ProcessForFinder {.
+proc constructTransferProcessForFinder*(nb: int = 10000): TransferProcessForFinder {.
     constructor, importcpp: "Transfer_ProcessForFinder(@)",
     header: "Transfer_ProcessForFinder.hxx".}
-proc constructTransfer_ProcessForFinder*(printer: handle[Message_Messenger];
-                                        nb: Standard_Integer = 10000): Transfer_ProcessForFinder {.
+proc constructTransferProcessForFinder*(printer: Handle[MessageMessenger];
+                                       nb: int = 10000): TransferProcessForFinder {.
     constructor, importcpp: "Transfer_ProcessForFinder(@)",
     header: "Transfer_ProcessForFinder.hxx".}
-proc Clear*(this: var Transfer_ProcessForFinder) {.importcpp: "Clear",
+proc clear*(this: var TransferProcessForFinder) {.importcpp: "Clear",
     header: "Transfer_ProcessForFinder.hxx".}
-proc Clean*(this: var Transfer_ProcessForFinder) {.importcpp: "Clean",
+proc clean*(this: var TransferProcessForFinder) {.importcpp: "Clean",
     header: "Transfer_ProcessForFinder.hxx".}
-proc Resize*(this: var Transfer_ProcessForFinder; nb: Standard_Integer) {.
-    importcpp: "Resize", header: "Transfer_ProcessForFinder.hxx".}
-proc SetActor*(this: var Transfer_ProcessForFinder;
-              actor: handle[Transfer_ActorOfProcessForFinder]) {.
+proc resize*(this: var TransferProcessForFinder; nb: int) {.importcpp: "Resize",
+    header: "Transfer_ProcessForFinder.hxx".}
+proc setActor*(this: var TransferProcessForFinder;
+              actor: Handle[TransferActorOfProcessForFinder]) {.
     importcpp: "SetActor", header: "Transfer_ProcessForFinder.hxx".}
-proc Actor*(this: Transfer_ProcessForFinder): handle[
-    Transfer_ActorOfProcessForFinder] {.noSideEffect, importcpp: "Actor",
-                                       header: "Transfer_ProcessForFinder.hxx".}
-proc Find*(this: Transfer_ProcessForFinder; start: handle[Transfer_Finder]): handle[
-    Transfer_Binder] {.noSideEffect, importcpp: "Find",
-                      header: "Transfer_ProcessForFinder.hxx".}
-proc IsBound*(this: Transfer_ProcessForFinder; start: handle[Transfer_Finder]): Standard_Boolean {.
+proc actor*(this: TransferProcessForFinder): Handle[TransferActorOfProcessForFinder] {.
+    noSideEffect, importcpp: "Actor", header: "Transfer_ProcessForFinder.hxx".}
+proc find*(this: TransferProcessForFinder; start: Handle[TransferFinder]): Handle[
+    TransferBinder] {.noSideEffect, importcpp: "Find",
+                     header: "Transfer_ProcessForFinder.hxx".}
+proc isBound*(this: TransferProcessForFinder; start: Handle[TransferFinder]): bool {.
     noSideEffect, importcpp: "IsBound", header: "Transfer_ProcessForFinder.hxx".}
-proc IsAlreadyUsed*(this: Transfer_ProcessForFinder; start: handle[Transfer_Finder]): Standard_Boolean {.
+proc isAlreadyUsed*(this: TransferProcessForFinder; start: Handle[TransferFinder]): bool {.
     noSideEffect, importcpp: "IsAlreadyUsed",
     header: "Transfer_ProcessForFinder.hxx".}
-proc Bind*(this: var Transfer_ProcessForFinder; start: handle[Transfer_Finder];
-          binder: handle[Transfer_Binder]) {.importcpp: "Bind",
+proc `bind`*(this: var TransferProcessForFinder; start: Handle[TransferFinder];
+            binder: Handle[TransferBinder]) {.importcpp: "Bind",
     header: "Transfer_ProcessForFinder.hxx".}
-proc Rebind*(this: var Transfer_ProcessForFinder; start: handle[Transfer_Finder];
-            binder: handle[Transfer_Binder]) {.importcpp: "Rebind",
+proc rebind*(this: var TransferProcessForFinder; start: Handle[TransferFinder];
+            binder: Handle[TransferBinder]) {.importcpp: "Rebind",
     header: "Transfer_ProcessForFinder.hxx".}
-proc Unbind*(this: var Transfer_ProcessForFinder; start: handle[Transfer_Finder]): Standard_Boolean {.
+proc unbind*(this: var TransferProcessForFinder; start: Handle[TransferFinder]): bool {.
     importcpp: "Unbind", header: "Transfer_ProcessForFinder.hxx".}
-proc FindElseBind*(this: var Transfer_ProcessForFinder;
-                  start: handle[Transfer_Finder]): handle[Transfer_Binder] {.
-    importcpp: "FindElseBind", header: "Transfer_ProcessForFinder.hxx".}
-proc SetMessenger*(this: var Transfer_ProcessForFinder;
-                  messenger: handle[Message_Messenger]) {.
+proc findElseBind*(this: var TransferProcessForFinder; start: Handle[TransferFinder]): Handle[
+    TransferBinder] {.importcpp: "FindElseBind",
+                     header: "Transfer_ProcessForFinder.hxx".}
+proc setMessenger*(this: var TransferProcessForFinder;
+                  messenger: Handle[MessageMessenger]) {.
     importcpp: "SetMessenger", header: "Transfer_ProcessForFinder.hxx".}
-proc Messenger*(this: Transfer_ProcessForFinder): handle[Message_Messenger] {.
+proc messenger*(this: TransferProcessForFinder): Handle[MessageMessenger] {.
     noSideEffect, importcpp: "Messenger", header: "Transfer_ProcessForFinder.hxx".}
-proc SetTraceLevel*(this: var Transfer_ProcessForFinder; tracelev: Standard_Integer) {.
+proc setTraceLevel*(this: var TransferProcessForFinder; tracelev: int) {.
     importcpp: "SetTraceLevel", header: "Transfer_ProcessForFinder.hxx".}
-proc TraceLevel*(this: Transfer_ProcessForFinder): Standard_Integer {.noSideEffect,
+proc traceLevel*(this: TransferProcessForFinder): int {.noSideEffect,
     importcpp: "TraceLevel", header: "Transfer_ProcessForFinder.hxx".}
-proc SendFail*(this: var Transfer_ProcessForFinder; start: handle[Transfer_Finder];
-              amsg: Message_Msg) {.importcpp: "SendFail",
-                                 header: "Transfer_ProcessForFinder.hxx".}
-proc SendWarning*(this: var Transfer_ProcessForFinder;
-                 start: handle[Transfer_Finder]; amsg: Message_Msg) {.
-    importcpp: "SendWarning", header: "Transfer_ProcessForFinder.hxx".}
-proc SendMsg*(this: var Transfer_ProcessForFinder; start: handle[Transfer_Finder];
-             amsg: Message_Msg) {.importcpp: "SendMsg",
+proc sendFail*(this: var TransferProcessForFinder; start: Handle[TransferFinder];
+              amsg: MessageMsg) {.importcpp: "SendFail",
                                 header: "Transfer_ProcessForFinder.hxx".}
-proc AddFail*(this: var Transfer_ProcessForFinder; start: handle[Transfer_Finder];
-             mess: Standard_CString; orig: Standard_CString = "") {.
+proc sendWarning*(this: var TransferProcessForFinder; start: Handle[TransferFinder];
+                 amsg: MessageMsg) {.importcpp: "SendWarning",
+                                   header: "Transfer_ProcessForFinder.hxx".}
+proc sendMsg*(this: var TransferProcessForFinder; start: Handle[TransferFinder];
+             amsg: MessageMsg) {.importcpp: "SendMsg",
+                               header: "Transfer_ProcessForFinder.hxx".}
+proc addFail*(this: var TransferProcessForFinder; start: Handle[TransferFinder];
+             mess: StandardCString; orig: StandardCString = "") {.
     importcpp: "AddFail", header: "Transfer_ProcessForFinder.hxx".}
-proc AddError*(this: var Transfer_ProcessForFinder; start: handle[Transfer_Finder];
-              mess: Standard_CString; orig: Standard_CString = "") {.
+proc addError*(this: var TransferProcessForFinder; start: Handle[TransferFinder];
+              mess: StandardCString; orig: StandardCString = "") {.
     importcpp: "AddError", header: "Transfer_ProcessForFinder.hxx".}
-proc AddFail*(this: var Transfer_ProcessForFinder; start: handle[Transfer_Finder];
-             amsg: Message_Msg) {.importcpp: "AddFail",
-                                header: "Transfer_ProcessForFinder.hxx".}
-proc AddWarning*(this: var Transfer_ProcessForFinder;
-                start: handle[Transfer_Finder]; mess: Standard_CString;
-                orig: Standard_CString = "") {.importcpp: "AddWarning",
-    header: "Transfer_ProcessForFinder.hxx".}
-proc AddWarning*(this: var Transfer_ProcessForFinder;
-                start: handle[Transfer_Finder]; amsg: Message_Msg) {.
+proc addFail*(this: var TransferProcessForFinder; start: Handle[TransferFinder];
+             amsg: MessageMsg) {.importcpp: "AddFail",
+                               header: "Transfer_ProcessForFinder.hxx".}
+proc addWarning*(this: var TransferProcessForFinder; start: Handle[TransferFinder];
+                mess: StandardCString; orig: StandardCString = "") {.
     importcpp: "AddWarning", header: "Transfer_ProcessForFinder.hxx".}
-proc Mend*(this: var Transfer_ProcessForFinder; start: handle[Transfer_Finder];
-          pref: Standard_CString = "") {.importcpp: "Mend",
-                                     header: "Transfer_ProcessForFinder.hxx".}
-proc Check*(this: Transfer_ProcessForFinder; start: handle[Transfer_Finder]): handle[
-    Interface_Check] {.noSideEffect, importcpp: "Check",
-                      header: "Transfer_ProcessForFinder.hxx".}
-proc BindTransient*(this: var Transfer_ProcessForFinder;
-                   start: handle[Transfer_Finder]; res: handle[Standard_Transient]) {.
+proc addWarning*(this: var TransferProcessForFinder; start: Handle[TransferFinder];
+                amsg: MessageMsg) {.importcpp: "AddWarning",
+                                  header: "Transfer_ProcessForFinder.hxx".}
+proc mend*(this: var TransferProcessForFinder; start: Handle[TransferFinder];
+          pref: StandardCString = "") {.importcpp: "Mend",
+                                    header: "Transfer_ProcessForFinder.hxx".}
+proc check*(this: TransferProcessForFinder; start: Handle[TransferFinder]): Handle[
+    InterfaceCheck] {.noSideEffect, importcpp: "Check",
+                     header: "Transfer_ProcessForFinder.hxx".}
+proc bindTransient*(this: var TransferProcessForFinder;
+                   start: Handle[TransferFinder]; res: Handle[StandardTransient]) {.
     importcpp: "BindTransient", header: "Transfer_ProcessForFinder.hxx".}
-proc FindTransient*(this: Transfer_ProcessForFinder; start: handle[Transfer_Finder]): handle[
-    Standard_Transient] {.noSideEffect, importcpp: "FindTransient",
-                         header: "Transfer_ProcessForFinder.hxx".}
-proc BindMultiple*(this: var Transfer_ProcessForFinder;
-                  start: handle[Transfer_Finder]) {.importcpp: "BindMultiple",
+proc findTransient*(this: TransferProcessForFinder; start: Handle[TransferFinder]): Handle[
+    StandardTransient] {.noSideEffect, importcpp: "FindTransient",
+                        header: "Transfer_ProcessForFinder.hxx".}
+proc bindMultiple*(this: var TransferProcessForFinder; start: Handle[TransferFinder]) {.
+    importcpp: "BindMultiple", header: "Transfer_ProcessForFinder.hxx".}
+proc addMultiple*(this: var TransferProcessForFinder; start: Handle[TransferFinder];
+                 res: Handle[StandardTransient]) {.importcpp: "AddMultiple",
     header: "Transfer_ProcessForFinder.hxx".}
-proc AddMultiple*(this: var Transfer_ProcessForFinder;
-                 start: handle[Transfer_Finder]; res: handle[Standard_Transient]) {.
-    importcpp: "AddMultiple", header: "Transfer_ProcessForFinder.hxx".}
-proc FindTypedTransient*(this: Transfer_ProcessForFinder;
-                        start: handle[Transfer_Finder];
-                        atype: handle[Standard_Type];
-                        val: var handle[Standard_Transient]): Standard_Boolean {.
+proc findTypedTransient*(this: TransferProcessForFinder;
+                        start: Handle[TransferFinder];
+                        atype: Handle[StandardType];
+                        val: var Handle[StandardTransient]): bool {.noSideEffect,
+    importcpp: "FindTypedTransient", header: "Transfer_ProcessForFinder.hxx".}
+proc findTypedTransient*[T](this: TransferProcessForFinder;
+                           start: Handle[TransferFinder];
+                           atype: Handle[StandardType]; val: var Handle[T]): bool {.
     noSideEffect, importcpp: "FindTypedTransient",
     header: "Transfer_ProcessForFinder.hxx".}
-proc FindTypedTransient*[T](this: Transfer_ProcessForFinder;
-                           start: handle[Transfer_Finder];
-                           atype: handle[Standard_Type]; val: var handle[T]): Standard_Boolean {.
-    noSideEffect, importcpp: "FindTypedTransient",
-    header: "Transfer_ProcessForFinder.hxx".}
-proc GetTypedTransient*(this: Transfer_ProcessForFinder;
-                       binder: handle[Transfer_Binder];
-                       atype: handle[Standard_Type];
-                       val: var handle[Standard_Transient]): Standard_Boolean {.
+proc getTypedTransient*(this: TransferProcessForFinder;
+                       binder: Handle[TransferBinder];
+                       atype: Handle[StandardType];
+                       val: var Handle[StandardTransient]): bool {.noSideEffect,
+    importcpp: "GetTypedTransient", header: "Transfer_ProcessForFinder.hxx".}
+proc getTypedTransient*[T](this: TransferProcessForFinder;
+                          start: Handle[TransferBinder];
+                          atype: Handle[StandardType]; val: var Handle[T]): bool {.
     noSideEffect, importcpp: "GetTypedTransient",
     header: "Transfer_ProcessForFinder.hxx".}
-proc GetTypedTransient*[T](this: Transfer_ProcessForFinder;
-                          start: handle[Transfer_Binder];
-                          atype: handle[Standard_Type]; val: var handle[T]): Standard_Boolean {.
-    noSideEffect, importcpp: "GetTypedTransient",
-    header: "Transfer_ProcessForFinder.hxx".}
-proc NbMapped*(this: Transfer_ProcessForFinder): Standard_Integer {.noSideEffect,
+proc nbMapped*(this: TransferProcessForFinder): int {.noSideEffect,
     importcpp: "NbMapped", header: "Transfer_ProcessForFinder.hxx".}
-proc Mapped*(this: Transfer_ProcessForFinder; num: Standard_Integer): handle[
-    Transfer_Finder] {.noSideEffect, importcpp: "Mapped",
-                      header: "Transfer_ProcessForFinder.hxx".}
-proc MapIndex*(this: Transfer_ProcessForFinder; start: handle[Transfer_Finder]): Standard_Integer {.
+proc mapped*(this: TransferProcessForFinder; num: int): Handle[TransferFinder] {.
+    noSideEffect, importcpp: "Mapped", header: "Transfer_ProcessForFinder.hxx".}
+proc mapIndex*(this: TransferProcessForFinder; start: Handle[TransferFinder]): int {.
     noSideEffect, importcpp: "MapIndex", header: "Transfer_ProcessForFinder.hxx".}
-proc MapItem*(this: Transfer_ProcessForFinder; num: Standard_Integer): handle[
-    Transfer_Binder] {.noSideEffect, importcpp: "MapItem",
-                      header: "Transfer_ProcessForFinder.hxx".}
-proc SetRoot*(this: var Transfer_ProcessForFinder; start: handle[Transfer_Finder]) {.
+proc mapItem*(this: TransferProcessForFinder; num: int): Handle[TransferBinder] {.
+    noSideEffect, importcpp: "MapItem", header: "Transfer_ProcessForFinder.hxx".}
+proc setRoot*(this: var TransferProcessForFinder; start: Handle[TransferFinder]) {.
     importcpp: "SetRoot", header: "Transfer_ProcessForFinder.hxx".}
-proc SetRootManagement*(this: var Transfer_ProcessForFinder; stat: Standard_Boolean) {.
+proc setRootManagement*(this: var TransferProcessForFinder; stat: bool) {.
     importcpp: "SetRootManagement", header: "Transfer_ProcessForFinder.hxx".}
-proc NbRoots*(this: Transfer_ProcessForFinder): Standard_Integer {.noSideEffect,
+proc nbRoots*(this: TransferProcessForFinder): int {.noSideEffect,
     importcpp: "NbRoots", header: "Transfer_ProcessForFinder.hxx".}
-proc Root*(this: Transfer_ProcessForFinder; num: Standard_Integer): handle[
-    Transfer_Finder] {.noSideEffect, importcpp: "Root",
-                      header: "Transfer_ProcessForFinder.hxx".}
-proc RootItem*(this: Transfer_ProcessForFinder; num: Standard_Integer): handle[
-    Transfer_Binder] {.noSideEffect, importcpp: "RootItem",
-                      header: "Transfer_ProcessForFinder.hxx".}
-proc RootIndex*(this: Transfer_ProcessForFinder; start: handle[Transfer_Finder]): Standard_Integer {.
+proc root*(this: TransferProcessForFinder; num: int): Handle[TransferFinder] {.
+    noSideEffect, importcpp: "Root", header: "Transfer_ProcessForFinder.hxx".}
+proc rootItem*(this: TransferProcessForFinder; num: int): Handle[TransferBinder] {.
+    noSideEffect, importcpp: "RootItem", header: "Transfer_ProcessForFinder.hxx".}
+proc rootIndex*(this: TransferProcessForFinder; start: Handle[TransferFinder]): int {.
     noSideEffect, importcpp: "RootIndex", header: "Transfer_ProcessForFinder.hxx".}
-proc NestingLevel*(this: Transfer_ProcessForFinder): Standard_Integer {.
-    noSideEffect, importcpp: "NestingLevel",
-    header: "Transfer_ProcessForFinder.hxx".}
-proc ResetNestingLevel*(this: var Transfer_ProcessForFinder) {.
+proc nestingLevel*(this: TransferProcessForFinder): int {.noSideEffect,
+    importcpp: "NestingLevel", header: "Transfer_ProcessForFinder.hxx".}
+proc resetNestingLevel*(this: var TransferProcessForFinder) {.
     importcpp: "ResetNestingLevel", header: "Transfer_ProcessForFinder.hxx".}
-proc Recognize*(this: Transfer_ProcessForFinder; start: handle[Transfer_Finder]): Standard_Boolean {.
+proc recognize*(this: TransferProcessForFinder; start: Handle[TransferFinder]): bool {.
     noSideEffect, importcpp: "Recognize", header: "Transfer_ProcessForFinder.hxx".}
-proc Transferring*(this: var Transfer_ProcessForFinder;
-                  start: handle[Transfer_Finder];
-                  theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
-    Transfer_Binder] {.importcpp: "Transferring",
-                      header: "Transfer_ProcessForFinder.hxx".}
-proc Transfer*(this: var Transfer_ProcessForFinder; start: handle[Transfer_Finder];
-              theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
+proc transferring*(this: var TransferProcessForFinder;
+                  start: Handle[TransferFinder];
+                  theProgress: MessageProgressRange = messageProgressRange()): Handle[
+    TransferBinder] {.importcpp: "Transferring",
+                     header: "Transfer_ProcessForFinder.hxx".}
+proc transfer*(this: var TransferProcessForFinder; start: Handle[TransferFinder];
+              theProgress: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "Transfer", header: "Transfer_ProcessForFinder.hxx".}
-proc SetErrorHandle*(this: var Transfer_ProcessForFinder; err: Standard_Boolean) {.
+proc setErrorHandle*(this: var TransferProcessForFinder; err: bool) {.
     importcpp: "SetErrorHandle", header: "Transfer_ProcessForFinder.hxx".}
-proc ErrorHandle*(this: Transfer_ProcessForFinder): Standard_Boolean {.noSideEffect,
+proc errorHandle*(this: TransferProcessForFinder): bool {.noSideEffect,
     importcpp: "ErrorHandle", header: "Transfer_ProcessForFinder.hxx".}
-proc StartTrace*(this: Transfer_ProcessForFinder; binder: handle[Transfer_Binder];
-                start: handle[Transfer_Finder]; level: Standard_Integer;
-                mode: Standard_Integer) {.noSideEffect, importcpp: "StartTrace",
-                                        header: "Transfer_ProcessForFinder.hxx".}
-proc PrintTrace*(this: Transfer_ProcessForFinder; start: handle[Transfer_Finder];
-                S: var Standard_OStream) {.noSideEffect, importcpp: "PrintTrace",
-                                        header: "Transfer_ProcessForFinder.hxx".}
-proc IsLooping*(this: Transfer_ProcessForFinder; alevel: Standard_Integer): Standard_Boolean {.
-    noSideEffect, importcpp: "IsLooping", header: "Transfer_ProcessForFinder.hxx".}
-proc RootResult*(this: Transfer_ProcessForFinder;
-                withstart: Standard_Boolean = Standard_False): Transfer_IteratorOfProcessForFinder {.
+proc startTrace*(this: TransferProcessForFinder; binder: Handle[TransferBinder];
+                start: Handle[TransferFinder]; level: int; mode: int) {.noSideEffect,
+    importcpp: "StartTrace", header: "Transfer_ProcessForFinder.hxx".}
+proc printTrace*(this: TransferProcessForFinder; start: Handle[TransferFinder];
+                s: var StandardOStream) {.noSideEffect, importcpp: "PrintTrace",
+                                       header: "Transfer_ProcessForFinder.hxx".}
+proc isLooping*(this: TransferProcessForFinder; alevel: int): bool {.noSideEffect,
+    importcpp: "IsLooping", header: "Transfer_ProcessForFinder.hxx".}
+proc rootResult*(this: TransferProcessForFinder; withstart: bool = false): TransferIteratorOfProcessForFinder {.
     noSideEffect, importcpp: "RootResult", header: "Transfer_ProcessForFinder.hxx".}
-proc CompleteResult*(this: Transfer_ProcessForFinder;
-                    withstart: Standard_Boolean = Standard_False): Transfer_IteratorOfProcessForFinder {.
+proc completeResult*(this: TransferProcessForFinder; withstart: bool = false): TransferIteratorOfProcessForFinder {.
     noSideEffect, importcpp: "CompleteResult",
     header: "Transfer_ProcessForFinder.hxx".}
-proc AbnormalResult*(this: Transfer_ProcessForFinder): Transfer_IteratorOfProcessForFinder {.
+proc abnormalResult*(this: TransferProcessForFinder): TransferIteratorOfProcessForFinder {.
     noSideEffect, importcpp: "AbnormalResult",
     header: "Transfer_ProcessForFinder.hxx".}
-proc CheckList*(this: Transfer_ProcessForFinder; erronly: Standard_Boolean): Interface_CheckIterator {.
+proc checkList*(this: TransferProcessForFinder; erronly: bool): InterfaceCheckIterator {.
     noSideEffect, importcpp: "CheckList", header: "Transfer_ProcessForFinder.hxx".}
-proc ResultOne*(this: Transfer_ProcessForFinder; start: handle[Transfer_Finder];
-               level: Standard_Integer;
-               withstart: Standard_Boolean = Standard_False): Transfer_IteratorOfProcessForFinder {.
+proc resultOne*(this: TransferProcessForFinder; start: Handle[TransferFinder];
+               level: int; withstart: bool = false): TransferIteratorOfProcessForFinder {.
     noSideEffect, importcpp: "ResultOne", header: "Transfer_ProcessForFinder.hxx".}
-proc CheckListOne*(this: Transfer_ProcessForFinder; start: handle[Transfer_Finder];
-                  level: Standard_Integer; erronly: Standard_Boolean): Interface_CheckIterator {.
-    noSideEffect, importcpp: "CheckListOne",
+proc checkListOne*(this: TransferProcessForFinder; start: Handle[TransferFinder];
+                  level: int; erronly: bool): InterfaceCheckIterator {.noSideEffect,
+    importcpp: "CheckListOne", header: "Transfer_ProcessForFinder.hxx".}
+proc isCheckListEmpty*(this: TransferProcessForFinder;
+                      start: Handle[TransferFinder]; level: int; erronly: bool): bool {.
+    noSideEffect, importcpp: "IsCheckListEmpty",
     header: "Transfer_ProcessForFinder.hxx".}
-proc IsCheckListEmpty*(this: Transfer_ProcessForFinder;
-                      start: handle[Transfer_Finder]; level: Standard_Integer;
-                      erronly: Standard_Boolean): Standard_Boolean {.noSideEffect,
-    importcpp: "IsCheckListEmpty", header: "Transfer_ProcessForFinder.hxx".}
-proc RemoveResult*(this: var Transfer_ProcessForFinder;
-                  start: handle[Transfer_Finder]; level: Standard_Integer;
-                  compute: Standard_Boolean = Standard_True) {.
+proc removeResult*(this: var TransferProcessForFinder;
+                  start: Handle[TransferFinder]; level: int; compute: bool = true) {.
     importcpp: "RemoveResult", header: "Transfer_ProcessForFinder.hxx".}
-proc CheckNum*(this: Transfer_ProcessForFinder; start: handle[Transfer_Finder]): Standard_Integer {.
+proc checkNum*(this: TransferProcessForFinder; start: Handle[TransferFinder]): int {.
     noSideEffect, importcpp: "CheckNum", header: "Transfer_ProcessForFinder.hxx".}
 type
-  Transfer_ProcessForFinderbase_type* = Standard_Transient
+  TransferProcessForFinderbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "Transfer_ProcessForFinder::get_type_name(@)",
-                              header: "Transfer_ProcessForFinder.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "Transfer_ProcessForFinder::get_type_name(@)",
+                            header: "Transfer_ProcessForFinder.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_ProcessForFinder::get_type_descriptor(@)",
     header: "Transfer_ProcessForFinder.hxx".}
-proc DynamicType*(this: Transfer_ProcessForFinder): handle[Standard_Type] {.
+proc dynamicType*(this: TransferProcessForFinder): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Transfer_ProcessForFinder.hxx".}

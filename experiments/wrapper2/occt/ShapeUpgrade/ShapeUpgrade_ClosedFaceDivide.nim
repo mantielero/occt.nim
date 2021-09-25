@@ -14,50 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ShapeUpgrade_FaceDivide, ../Standard/Standard_Boolean
-
 discard "forward decl of TopoDS_Face"
 discard "forward decl of ShapeUpgrade_ClosedFaceDivide"
 discard "forward decl of ShapeUpgrade_ClosedFaceDivide"
 type
-  Handle_ShapeUpgrade_ClosedFaceDivide* = handle[ShapeUpgrade_ClosedFaceDivide]
+  HandleShapeUpgradeClosedFaceDivide* = Handle[ShapeUpgradeClosedFaceDivide]
 
 ## ! Divides a Face with one or more seam edge to avoid closed faces.
 ## ! Splitting is performed by U and V direction. The number of
 ## ! resulting faces can be defined by user.
 
 type
-  ShapeUpgrade_ClosedFaceDivide* {.importcpp: "ShapeUpgrade_ClosedFaceDivide",
-                                  header: "ShapeUpgrade_ClosedFaceDivide.hxx",
-                                  bycopy.} = object of ShapeUpgrade_FaceDivide ## !
-                                                                          ## Creates empty
-                                                                          ## constructor.
+  ShapeUpgradeClosedFaceDivide* {.importcpp: "ShapeUpgrade_ClosedFaceDivide",
+                                 header: "ShapeUpgrade_ClosedFaceDivide.hxx",
+                                 bycopy.} = object of ShapeUpgradeFaceDivide ## ! Creates empty
+                                                                        ## constructor.
 
 
-proc constructShapeUpgrade_ClosedFaceDivide*(): ShapeUpgrade_ClosedFaceDivide {.
+proc constructShapeUpgradeClosedFaceDivide*(): ShapeUpgradeClosedFaceDivide {.
     constructor, importcpp: "ShapeUpgrade_ClosedFaceDivide(@)",
     header: "ShapeUpgrade_ClosedFaceDivide.hxx".}
-proc constructShapeUpgrade_ClosedFaceDivide*(F: TopoDS_Face): ShapeUpgrade_ClosedFaceDivide {.
+proc constructShapeUpgradeClosedFaceDivide*(f: TopoDS_Face): ShapeUpgradeClosedFaceDivide {.
     constructor, importcpp: "ShapeUpgrade_ClosedFaceDivide(@)",
     header: "ShapeUpgrade_ClosedFaceDivide.hxx".}
-proc SplitSurface*(this: var ShapeUpgrade_ClosedFaceDivide): Standard_Boolean {.
+proc splitSurface*(this: var ShapeUpgradeClosedFaceDivide): bool {.
     importcpp: "SplitSurface", header: "ShapeUpgrade_ClosedFaceDivide.hxx".}
-proc SetNbSplitPoints*(this: var ShapeUpgrade_ClosedFaceDivide;
-                      num: Standard_Integer) {.importcpp: "SetNbSplitPoints",
-    header: "ShapeUpgrade_ClosedFaceDivide.hxx".}
-proc GetNbSplitPoints*(this: ShapeUpgrade_ClosedFaceDivide): Standard_Integer {.
-    noSideEffect, importcpp: "GetNbSplitPoints",
-    header: "ShapeUpgrade_ClosedFaceDivide.hxx".}
+proc setNbSplitPoints*(this: var ShapeUpgradeClosedFaceDivide; num: int) {.
+    importcpp: "SetNbSplitPoints", header: "ShapeUpgrade_ClosedFaceDivide.hxx".}
+proc getNbSplitPoints*(this: ShapeUpgradeClosedFaceDivide): int {.noSideEffect,
+    importcpp: "GetNbSplitPoints", header: "ShapeUpgrade_ClosedFaceDivide.hxx".}
 type
-  ShapeUpgrade_ClosedFaceDividebase_type* = ShapeUpgrade_FaceDivide
+  ShapeUpgradeClosedFaceDividebaseType* = ShapeUpgradeFaceDivide
 
-proc get_type_name*(): cstring {.importcpp: "ShapeUpgrade_ClosedFaceDivide::get_type_name(@)",
-                              header: "ShapeUpgrade_ClosedFaceDivide.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "ShapeUpgrade_ClosedFaceDivide::get_type_name(@)",
+                            header: "ShapeUpgrade_ClosedFaceDivide.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ShapeUpgrade_ClosedFaceDivide::get_type_descriptor(@)",
     header: "ShapeUpgrade_ClosedFaceDivide.hxx".}
-proc DynamicType*(this: ShapeUpgrade_ClosedFaceDivide): handle[Standard_Type] {.
+proc dynamicType*(this: ShapeUpgradeClosedFaceDivide): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_ClosedFaceDivide.hxx".}

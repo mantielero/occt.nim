@@ -19,11 +19,10 @@
 ##  the following line should be added:
 ##  DRAW_MAIN
 
-## !!!Ignored construct:  # Draw_Main_HeaderFile [NewLine] # Draw_Main_HeaderFile [NewLine] # ../Standard/Standard_TypeDef.hxx [NewLine] # Draw_Appli.hxx [NewLine] # ../Standard/Standard_PCharacter.hxx [NewLine] typedef void ( * FDraw_InitAppli ) ( Draw_Interpretor & ) ;
+## !!!Ignored construct:  # Draw_Main_HeaderFile [NewLine] # Draw_Main_HeaderFile [NewLine] # < Standard_TypeDef . hxx > [NewLine] # < Draw_Appli . hxx > [NewLine] # < Standard_PCharacter . hxx > [NewLine] typedef void ( * FDraw_InitAppli ) ( Draw_Interpretor & ) ;
 ## Error: did not expect [NewLine]!!!
 
-proc Draw_Main*(argc: Standard_Integer; argv: ptr Standard_PCharacter;
-               Draw_InitAppli: FDraw_InitAppli): Standard_Integer {.
+proc drawMain*(argc: int; argv: ptr StandardPCharacter; drawInitAppli: FDrawInitAppli): int {.
     importcpp: "Draw_Main(@)", header: "Draw_Main.hxx".}
 ##  Declarations of macros DRAW_MAIN to be used in executables instead of explicit main/WinMain
 
@@ -33,10 +32,10 @@ proc Draw_Main*(argc: Standard_Integer; argv: ptr Standard_PCharacter;
 ##  WinMain() and main()
 
 const
-  DRAW_MAIN* = Standard_Integer
+  DRAW_MAIN* = int
 
-proc WinMain*(hInstance: HINSTANCE; hPrevinstance: HINSTANCE; lpCmdLine: LPSTR;
-             nCmdShow: Standard_Integer): PASCAL =
+proc winMain*(hInstance: Hinstance; hPrevinstance: Hinstance; lpCmdLine: Lpstr;
+             nCmdShow: int): Pascal =
   discard
 
 proc main*(argc: cint; argv: ptr cstring): cint =
@@ -44,3 +43,4 @@ proc main*(argc: cint; argv: ptr cstring): cint =
 
 ## !!!Ignored construct:  [NewLine] # [NewLine]  main() # DRAW_MAIN int main ( Standard_Integer argc , char * argv [ ] ) { return Draw_Main ( argc , argv , Draw_InitAppli ) ; } [NewLine] # [NewLine] # [NewLine]
 ## Error: did not expect [NewLine]!!!
+

@@ -13,45 +13,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  XmlMXCAFDoc_NoteDriver
-
 discard "forward decl of XmlMXCAFDoc_NoteCommentDriver"
 discard "forward decl of XmlMXCAFDoc_NoteCommentDriver"
 type
-  Handle_XmlMXCAFDoc_NoteCommentDriver* = handle[XmlMXCAFDoc_NoteCommentDriver]
+  HandleXmlMXCAFDocNoteCommentDriver* = Handle[XmlMXCAFDocNoteCommentDriver]
 
 ## ! Attribute Driver.
 
 type
-  XmlMXCAFDoc_NoteCommentDriver* {.importcpp: "XmlMXCAFDoc_NoteCommentDriver",
-                                  header: "XmlMXCAFDoc_NoteCommentDriver.hxx",
-                                  bycopy.} = object of XmlMXCAFDoc_NoteDriver
+  XmlMXCAFDocNoteCommentDriver* {.importcpp: "XmlMXCAFDoc_NoteCommentDriver",
+                                 header: "XmlMXCAFDoc_NoteCommentDriver.hxx",
+                                 bycopy.} = object of XmlMXCAFDocNoteDriver
 
 
-proc constructXmlMXCAFDoc_NoteCommentDriver*(
-    theMessageDriver: handle[Message_Messenger]): XmlMXCAFDoc_NoteCommentDriver {.
+proc constructXmlMXCAFDocNoteCommentDriver*(
+    theMessageDriver: Handle[MessageMessenger]): XmlMXCAFDocNoteCommentDriver {.
     constructor, importcpp: "XmlMXCAFDoc_NoteCommentDriver(@)",
     header: "XmlMXCAFDoc_NoteCommentDriver.hxx".}
-proc NewEmpty*(this: XmlMXCAFDoc_NoteCommentDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: XmlMXCAFDocNoteCommentDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty",
     header: "XmlMXCAFDoc_NoteCommentDriver.hxx".}
-proc Paste*(this: XmlMXCAFDoc_NoteCommentDriver; theSource: XmlObjMgt_Persistent;
-           theTarget: handle[TDF_Attribute];
-           theRelocTable: var XmlObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "XmlMXCAFDoc_NoteCommentDriver.hxx".}
-proc Paste*(this: XmlMXCAFDoc_NoteCommentDriver; theSource: handle[TDF_Attribute];
-           theTarget: var XmlObjMgt_Persistent;
-           theRelocTable: var XmlObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: XmlMXCAFDocNoteCommentDriver; theSource: XmlObjMgtPersistent;
+           theTarget: Handle[TDF_Attribute];
+           theRelocTable: var XmlObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "XmlMXCAFDoc_NoteCommentDriver.hxx".}
+proc paste*(this: XmlMXCAFDocNoteCommentDriver; theSource: Handle[TDF_Attribute];
+           theTarget: var XmlObjMgtPersistent;
+           theRelocTable: var XmlObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "XmlMXCAFDoc_NoteCommentDriver.hxx".}
 type
-  XmlMXCAFDoc_NoteCommentDriverbase_type* = XmlMXCAFDoc_NoteDriver
+  XmlMXCAFDocNoteCommentDriverbaseType* = XmlMXCAFDocNoteDriver
 
-proc get_type_name*(): cstring {.importcpp: "XmlMXCAFDoc_NoteCommentDriver::get_type_name(@)",
-                              header: "XmlMXCAFDoc_NoteCommentDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XmlMXCAFDoc_NoteCommentDriver::get_type_name(@)",
+                            header: "XmlMXCAFDoc_NoteCommentDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XmlMXCAFDoc_NoteCommentDriver::get_type_descriptor(@)",
     header: "XmlMXCAFDoc_NoteCommentDriver.hxx".}
-proc DynamicType*(this: XmlMXCAFDoc_NoteCommentDriver): handle[Standard_Type] {.
+proc dynamicType*(this: XmlMXCAFDocNoteCommentDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMXCAFDoc_NoteCommentDriver.hxx".}

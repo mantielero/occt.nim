@@ -13,37 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  StepDimTol_ToleranceZoneDefinition
-
 discard "forward decl of StepDimTol_NonUniformZoneDefinition"
 discard "forward decl of StepDimTol_NonUniformZoneDefinition"
 type
-  Handle_StepDimTol_NonUniformZoneDefinition* = handle[
-      StepDimTol_NonUniformZoneDefinition]
+  HandleStepDimTolNonUniformZoneDefinition* = Handle[
+      StepDimTolNonUniformZoneDefinition]
 
 ## ! Representation of STEP entity NonUniformZoneDefinition
 
 type
-  StepDimTol_NonUniformZoneDefinition* {.importcpp: "StepDimTol_NonUniformZoneDefinition", header: "StepDimTol_NonUniformZoneDefinition.hxx",
-                                        bycopy.} = object of StepDimTol_ToleranceZoneDefinition ##
-                                                                                           ## !
-                                                                                           ## Empty
-                                                                                           ## constructor
+  StepDimTolNonUniformZoneDefinition* {.importcpp: "StepDimTol_NonUniformZoneDefinition", header: "StepDimTol_NonUniformZoneDefinition.hxx",
+                                       bycopy.} = object of StepDimTolToleranceZoneDefinition ##
+                                                                                         ## !
+                                                                                         ## Empty
+                                                                                         ## constructor
 
 
-proc constructStepDimTol_NonUniformZoneDefinition*(): StepDimTol_NonUniformZoneDefinition {.
+proc constructStepDimTolNonUniformZoneDefinition*(): StepDimTolNonUniformZoneDefinition {.
     constructor, importcpp: "StepDimTol_NonUniformZoneDefinition(@)",
     header: "StepDimTol_NonUniformZoneDefinition.hxx".}
 type
-  StepDimTol_NonUniformZoneDefinitionbase_type* = StepDimTol_ToleranceZoneDefinition
+  StepDimTolNonUniformZoneDefinitionbaseType* = StepDimTolToleranceZoneDefinition
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_NonUniformZoneDefinition::get_type_name(@)",
-                              header: "StepDimTol_NonUniformZoneDefinition.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_NonUniformZoneDefinition::get_type_name(@)",
+                            header: "StepDimTol_NonUniformZoneDefinition.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_NonUniformZoneDefinition::get_type_descriptor(@)",
     header: "StepDimTol_NonUniformZoneDefinition.hxx".}
-proc DynamicType*(this: StepDimTol_NonUniformZoneDefinition): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolNonUniformZoneDefinition): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_NonUniformZoneDefinition.hxx".}

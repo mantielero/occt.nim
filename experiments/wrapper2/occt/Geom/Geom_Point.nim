@@ -14,15 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, Geom_Geometry,
-  ../Standard/Standard_Real
-
 discard "forward decl of gp_Pnt"
 discard "forward decl of Geom_Point"
 discard "forward decl of Geom_Point"
 type
-  Handle_Geom_Point* = handle[Geom_Point]
+  HandleGeomPoint* = Handle[GeomPoint]
 
 ## ! The abstract class Point describes the common
 ## ! behavior of geometric points in 3D space.
@@ -30,36 +26,35 @@ type
 ## ! Geom_CartesianPoint.
 
 type
-  Geom_Point* {.importcpp: "Geom_Point", header: "Geom_Point.hxx", bycopy.} = object of Geom_Geometry ##
-                                                                                            ## !
-                                                                                            ## returns
-                                                                                            ## the
-                                                                                            ## Coordinates
-                                                                                            ## of
-                                                                                            ## <me>.
+  GeomPoint* {.importcpp: "Geom_Point", header: "Geom_Point.hxx", bycopy.} = object of GeomGeometry ##
+                                                                                          ## !
+                                                                                          ## returns
+                                                                                          ## the
+                                                                                          ## Coordinates
+                                                                                          ## of
+                                                                                          ## <me>.
 
 
-proc Coord*(this: Geom_Point; X: var Standard_Real; Y: var Standard_Real;
-           Z: var Standard_Real) {.noSideEffect, importcpp: "Coord",
-                                header: "Geom_Point.hxx".}
-proc Pnt*(this: Geom_Point): gp_Pnt {.noSideEffect, importcpp: "Pnt",
-                                  header: "Geom_Point.hxx".}
-proc X*(this: Geom_Point): Standard_Real {.noSideEffect, importcpp: "X",
-                                       header: "Geom_Point.hxx".}
-proc Y*(this: Geom_Point): Standard_Real {.noSideEffect, importcpp: "Y",
-                                       header: "Geom_Point.hxx".}
-proc Z*(this: Geom_Point): Standard_Real {.noSideEffect, importcpp: "Z",
-                                       header: "Geom_Point.hxx".}
-proc Distance*(this: Geom_Point; Other: handle[Geom_Point]): Standard_Real {.
-    noSideEffect, importcpp: "Distance", header: "Geom_Point.hxx".}
-proc SquareDistance*(this: Geom_Point; Other: handle[Geom_Point]): Standard_Real {.
-    noSideEffect, importcpp: "SquareDistance", header: "Geom_Point.hxx".}
-type
-  Geom_Pointbase_type* = Geom_Geometry
-
-proc get_type_name*(): cstring {.importcpp: "Geom_Point::get_type_name(@)",
+proc coord*(this: GeomPoint; x: var float; y: var float; z: var float) {.noSideEffect,
+    importcpp: "Coord", header: "Geom_Point.hxx".}
+proc pnt*(this: GeomPoint): Pnt {.noSideEffect, importcpp: "Pnt",
                               header: "Geom_Point.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc x*(this: GeomPoint): float {.noSideEffect, importcpp: "X",
+                              header: "Geom_Point.hxx".}
+proc y*(this: GeomPoint): float {.noSideEffect, importcpp: "Y",
+                              header: "Geom_Point.hxx".}
+proc z*(this: GeomPoint): float {.noSideEffect, importcpp: "Z",
+                              header: "Geom_Point.hxx".}
+proc distance*(this: GeomPoint; other: Handle[GeomPoint]): float {.noSideEffect,
+    importcpp: "Distance", header: "Geom_Point.hxx".}
+proc squareDistance*(this: GeomPoint; other: Handle[GeomPoint]): float {.noSideEffect,
+    importcpp: "SquareDistance", header: "Geom_Point.hxx".}
+type
+  GeomPointbaseType* = GeomGeometry
+
+proc getTypeName*(): cstring {.importcpp: "Geom_Point::get_type_name(@)",
+                            header: "Geom_Point.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_Point::get_type_descriptor(@)", header: "Geom_Point.hxx".}
-proc DynamicType*(this: Geom_Point): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: GeomPoint): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom_Point.hxx".}

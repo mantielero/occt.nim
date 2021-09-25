@@ -14,70 +14,59 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../Standard/Standard_Real, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Transient
-
 discard "forward decl of StepBasic_CoordinatedUniversalTimeOffset"
 discard "forward decl of StepBasic_LocalTime"
 discard "forward decl of StepBasic_LocalTime"
 type
-  Handle_StepBasic_LocalTime* = handle[StepBasic_LocalTime]
-  StepBasic_LocalTime* {.importcpp: "StepBasic_LocalTime",
-                        header: "StepBasic_LocalTime.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## a
-                                                                                            ## LocalTime
+  HandleStepBasicLocalTime* = Handle[StepBasicLocalTime]
+  StepBasicLocalTime* {.importcpp: "StepBasic_LocalTime",
+                       header: "StepBasic_LocalTime.hxx", bycopy.} = object of StandardTransient ##
+                                                                                          ## !
+                                                                                          ## Returns
+                                                                                          ## a
+                                                                                          ## LocalTime
 
 
-proc constructStepBasic_LocalTime*(): StepBasic_LocalTime {.constructor,
+proc constructStepBasicLocalTime*(): StepBasicLocalTime {.constructor,
     importcpp: "StepBasic_LocalTime(@)", header: "StepBasic_LocalTime.hxx".}
-proc Init*(this: var StepBasic_LocalTime; aHourComponent: Standard_Integer;
-          hasAminuteComponent: Standard_Boolean;
-          aMinuteComponent: Standard_Integer;
-          hasAsecondComponent: Standard_Boolean; aSecondComponent: Standard_Real;
-          aZone: handle[StepBasic_CoordinatedUniversalTimeOffset]) {.
+proc init*(this: var StepBasicLocalTime; aHourComponent: int;
+          hasAminuteComponent: bool; aMinuteComponent: int;
+          hasAsecondComponent: bool; aSecondComponent: float;
+          aZone: Handle[StepBasicCoordinatedUniversalTimeOffset]) {.
     importcpp: "Init", header: "StepBasic_LocalTime.hxx".}
-proc SetHourComponent*(this: var StepBasic_LocalTime;
-                      aHourComponent: Standard_Integer) {.
+proc setHourComponent*(this: var StepBasicLocalTime; aHourComponent: int) {.
     importcpp: "SetHourComponent", header: "StepBasic_LocalTime.hxx".}
-proc HourComponent*(this: StepBasic_LocalTime): Standard_Integer {.noSideEffect,
+proc hourComponent*(this: StepBasicLocalTime): int {.noSideEffect,
     importcpp: "HourComponent", header: "StepBasic_LocalTime.hxx".}
-proc SetMinuteComponent*(this: var StepBasic_LocalTime;
-                        aMinuteComponent: Standard_Integer) {.
+proc setMinuteComponent*(this: var StepBasicLocalTime; aMinuteComponent: int) {.
     importcpp: "SetMinuteComponent", header: "StepBasic_LocalTime.hxx".}
-proc UnSetMinuteComponent*(this: var StepBasic_LocalTime) {.
+proc unSetMinuteComponent*(this: var StepBasicLocalTime) {.
     importcpp: "UnSetMinuteComponent", header: "StepBasic_LocalTime.hxx".}
-proc MinuteComponent*(this: StepBasic_LocalTime): Standard_Integer {.noSideEffect,
+proc minuteComponent*(this: StepBasicLocalTime): int {.noSideEffect,
     importcpp: "MinuteComponent", header: "StepBasic_LocalTime.hxx".}
-proc HasMinuteComponent*(this: StepBasic_LocalTime): Standard_Boolean {.
-    noSideEffect, importcpp: "HasMinuteComponent",
-    header: "StepBasic_LocalTime.hxx".}
-proc SetSecondComponent*(this: var StepBasic_LocalTime;
-                        aSecondComponent: Standard_Real) {.
+proc hasMinuteComponent*(this: StepBasicLocalTime): bool {.noSideEffect,
+    importcpp: "HasMinuteComponent", header: "StepBasic_LocalTime.hxx".}
+proc setSecondComponent*(this: var StepBasicLocalTime; aSecondComponent: float) {.
     importcpp: "SetSecondComponent", header: "StepBasic_LocalTime.hxx".}
-proc UnSetSecondComponent*(this: var StepBasic_LocalTime) {.
+proc unSetSecondComponent*(this: var StepBasicLocalTime) {.
     importcpp: "UnSetSecondComponent", header: "StepBasic_LocalTime.hxx".}
-proc SecondComponent*(this: StepBasic_LocalTime): Standard_Real {.noSideEffect,
+proc secondComponent*(this: StepBasicLocalTime): float {.noSideEffect,
     importcpp: "SecondComponent", header: "StepBasic_LocalTime.hxx".}
-proc HasSecondComponent*(this: StepBasic_LocalTime): Standard_Boolean {.
-    noSideEffect, importcpp: "HasSecondComponent",
-    header: "StepBasic_LocalTime.hxx".}
-proc SetZone*(this: var StepBasic_LocalTime;
-             aZone: handle[StepBasic_CoordinatedUniversalTimeOffset]) {.
+proc hasSecondComponent*(this: StepBasicLocalTime): bool {.noSideEffect,
+    importcpp: "HasSecondComponent", header: "StepBasic_LocalTime.hxx".}
+proc setZone*(this: var StepBasicLocalTime;
+             aZone: Handle[StepBasicCoordinatedUniversalTimeOffset]) {.
     importcpp: "SetZone", header: "StepBasic_LocalTime.hxx".}
-proc Zone*(this: StepBasic_LocalTime): handle[
-    StepBasic_CoordinatedUniversalTimeOffset] {.noSideEffect, importcpp: "Zone",
+proc zone*(this: StepBasicLocalTime): Handle[
+    StepBasicCoordinatedUniversalTimeOffset] {.noSideEffect, importcpp: "Zone",
     header: "StepBasic_LocalTime.hxx".}
 type
-  StepBasic_LocalTimebase_type* = Standard_Transient
+  StepBasicLocalTimebaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "StepBasic_LocalTime::get_type_name(@)",
-                              header: "StepBasic_LocalTime.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepBasic_LocalTime::get_type_name(@)",
+                            header: "StepBasic_LocalTime.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_LocalTime::get_type_descriptor(@)",
     header: "StepBasic_LocalTime.hxx".}
-proc DynamicType*(this: StepBasic_LocalTime): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: StepBasicLocalTime): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_LocalTime.hxx".}

@@ -13,17 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TDF_Label,
-  ../Standard/Standard_Transient, ../Standard/Standard_OStream
-
 discard "forward decl of TDF_Attribute"
 discard "forward decl of TDF_Label"
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_AttributeDelta"
 discard "forward decl of TDF_AttributeDelta"
 type
-  Handle_TDF_AttributeDelta* = handle[TDF_AttributeDelta]
+  HandleTDF_AttributeDelta* = Handle[TDF_AttributeDelta]
 
 ## ! This class discribes the services we need to
 ## ! implement Delta and Undo/Redo services.
@@ -40,38 +36,38 @@ type
 
 type
   TDF_AttributeDelta* {.importcpp: "TDF_AttributeDelta",
-                       header: "TDF_AttributeDelta.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                          ## !
-                                                                                          ## Applies
-                                                                                          ## the
-                                                                                          ## delta
-                                                                                          ## to
-                                                                                          ## the
-                                                                                          ## attribute.
+                       header: "TDF_AttributeDelta.hxx", bycopy.} = object of StandardTransient ##
+                                                                                         ## !
+                                                                                         ## Applies
+                                                                                         ## the
+                                                                                         ## delta
+                                                                                         ## to
+                                                                                         ## the
+                                                                                         ## attribute.
 
 
-proc Apply*(this: var TDF_AttributeDelta) {.importcpp: "Apply",
+proc apply*(this: var TDF_AttributeDelta) {.importcpp: "Apply",
                                         header: "TDF_AttributeDelta.hxx".}
-proc Label*(this: TDF_AttributeDelta): TDF_Label {.noSideEffect, importcpp: "Label",
+proc label*(this: TDF_AttributeDelta): TDF_Label {.noSideEffect, importcpp: "Label",
     header: "TDF_AttributeDelta.hxx".}
-proc Attribute*(this: TDF_AttributeDelta): handle[TDF_Attribute] {.noSideEffect,
+proc attribute*(this: TDF_AttributeDelta): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "Attribute", header: "TDF_AttributeDelta.hxx".}
-proc ID*(this: TDF_AttributeDelta): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TDF_AttributeDelta): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TDF_AttributeDelta.hxx".}
-proc Dump*(this: TDF_AttributeDelta; OS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDF_AttributeDelta; os: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDF_AttributeDelta.hxx".}
-proc `<<`*(this: TDF_AttributeDelta; OS: var Standard_OStream): var Standard_OStream {.
+proc `<<`*(this: TDF_AttributeDelta; os: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "(# << #)", header: "TDF_AttributeDelta.hxx".}
-proc DumpJson*(this: TDF_AttributeDelta; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TDF_AttributeDelta.hxx".}
+proc dumpJson*(this: TDF_AttributeDelta; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TDF_AttributeDelta.hxx".}
 type
-  TDF_AttributeDeltabase_type* = Standard_Transient
+  TDF_AttributeDeltabaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TDF_AttributeDelta::get_type_name(@)",
-                              header: "TDF_AttributeDelta.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDF_AttributeDelta::get_type_name(@)",
+                            header: "TDF_AttributeDelta.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDF_AttributeDelta::get_type_descriptor(@)",
     header: "TDF_AttributeDelta.hxx".}
-proc DynamicType*(this: TDF_AttributeDelta): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDF_AttributeDelta): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDF_AttributeDelta.hxx".}

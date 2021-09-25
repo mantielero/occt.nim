@@ -13,40 +13,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  StepDimTol_DatumReferenceModifier, StepDimTol_Array1OfDatumReferenceModifier,
-  ../NCollection/NCollection_DefineHArray1
-
 type
-  StepDimTol_HArray1OfDatumReferenceModifier* {.
+  StepDimTolHArray1OfDatumReferenceModifier* {.
       importcpp: "StepDimTol_HArray1OfDatumReferenceModifier",
-      header: "StepDimTol_HArray1OfDatumReferenceModifier.hxx", bycopy.} = object of StepDimTol_Array1OfDatumReferenceModifier
+      header: "StepDimTol_HArray1OfDatumReferenceModifier.hxx", bycopy.} = object of StepDimTolArray1OfDatumReferenceModifier
 
 
-proc constructStepDimTol_HArray1OfDatumReferenceModifier*(
-    theLower: Standard_Integer; theUpper: Standard_Integer): StepDimTol_HArray1OfDatumReferenceModifier {.
+proc constructStepDimTolHArray1OfDatumReferenceModifier*(theLower: int;
+    theUpper: int): StepDimTolHArray1OfDatumReferenceModifier {.constructor,
+    importcpp: "StepDimTol_HArray1OfDatumReferenceModifier(@)",
+    header: "StepDimTol_HArray1OfDatumReferenceModifier.hxx".}
+proc constructStepDimTolHArray1OfDatumReferenceModifier*(theLower: int;
+    theUpper: int; theValue: ValueType): StepDimTolHArray1OfDatumReferenceModifier {.
     constructor, importcpp: "StepDimTol_HArray1OfDatumReferenceModifier(@)",
     header: "StepDimTol_HArray1OfDatumReferenceModifier.hxx".}
-proc constructStepDimTol_HArray1OfDatumReferenceModifier*(
-    theLower: Standard_Integer; theUpper: Standard_Integer; theValue: value_type): StepDimTol_HArray1OfDatumReferenceModifier {.
+proc constructStepDimTolHArray1OfDatumReferenceModifier*(
+    theOther: StepDimTolArray1OfDatumReferenceModifier): StepDimTolHArray1OfDatumReferenceModifier {.
     constructor, importcpp: "StepDimTol_HArray1OfDatumReferenceModifier(@)",
     header: "StepDimTol_HArray1OfDatumReferenceModifier.hxx".}
-proc constructStepDimTol_HArray1OfDatumReferenceModifier*(
-    theOther: StepDimTol_Array1OfDatumReferenceModifier): StepDimTol_HArray1OfDatumReferenceModifier {.
-    constructor, importcpp: "StepDimTol_HArray1OfDatumReferenceModifier(@)",
-    header: "StepDimTol_HArray1OfDatumReferenceModifier.hxx".}
-proc Array1*(this: StepDimTol_HArray1OfDatumReferenceModifier): StepDimTol_Array1OfDatumReferenceModifier {.
+proc array1*(this: StepDimTolHArray1OfDatumReferenceModifier): StepDimTolArray1OfDatumReferenceModifier {.
     noSideEffect, importcpp: "Array1",
     header: "StepDimTol_HArray1OfDatumReferenceModifier.hxx".}
-proc ChangeArray1*(this: var StepDimTol_HArray1OfDatumReferenceModifier): var StepDimTol_Array1OfDatumReferenceModifier {.
+proc changeArray1*(this: var StepDimTolHArray1OfDatumReferenceModifier): var StepDimTolArray1OfDatumReferenceModifier {.
     importcpp: "ChangeArray1",
     header: "StepDimTol_HArray1OfDatumReferenceModifier.hxx".}
 type
-  StepDimTol_HArray1OfDatumReferenceModifierbase_type* = MMgt_TShared
+  StepDimTolHArray1OfDatumReferenceModifierbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_HArray1OfDatumReferenceModifier::get_type_name(@)", header: "StepDimTol_HArray1OfDatumReferenceModifier.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepDimTol_HArray1OfDatumReferenceModifier::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_HArray1OfDatumReferenceModifier::get_type_name(@)", header: "StepDimTol_HArray1OfDatumReferenceModifier.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepDimTol_HArray1OfDatumReferenceModifier::get_type_descriptor(@)",
     header: "StepDimTol_HArray1OfDatumReferenceModifier.hxx".}
-proc DynamicType*(this: StepDimTol_HArray1OfDatumReferenceModifier): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepDimTol_HArray1OfDatumReferenceModifier.hxx".}
+proc dynamicType*(this: StepDimTolHArray1OfDatumReferenceModifier): Handle[
+    StandardType] {.noSideEffect, importcpp: "DynamicType",
+                   header: "StepDimTol_HArray1OfDatumReferenceModifier.hxx".}

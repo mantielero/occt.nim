@@ -12,11 +12,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../TopAbs/TopAbs_ShapeEnum, ../Standard/Standard_Boolean
-
 ## ! The class BOPDS_Tools contains
 ## ! a set auxiliary static functions
 ## ! of the package BOPDS
@@ -47,11 +42,11 @@ type
                                                                                 ## returned
 
 
-proc TypeToInteger*(theT1: TopAbs_ShapeEnum; theT2: TopAbs_ShapeEnum): Standard_Integer {.
+proc typeToInteger*(theT1: TopAbsShapeEnum; theT2: TopAbsShapeEnum): int {.
     importcpp: "BOPDS_Tools::TypeToInteger(@)", header: "BOPDS_Tools.hxx".}
-proc TypeToInteger*(theT: TopAbs_ShapeEnum): Standard_Integer {.
+proc typeToInteger*(theT: TopAbsShapeEnum): int {.
     importcpp: "BOPDS_Tools::TypeToInteger(@)", header: "BOPDS_Tools.hxx".}
-proc HasBRep*(theT: TopAbs_ShapeEnum): Standard_Boolean {.
-    importcpp: "BOPDS_Tools::HasBRep(@)", header: "BOPDS_Tools.hxx".}
-proc IsInterfering*(theT: TopAbs_ShapeEnum): Standard_Boolean {.
+proc hasBRep*(theT: TopAbsShapeEnum): bool {.importcpp: "BOPDS_Tools::HasBRep(@)",
+    header: "BOPDS_Tools.hxx".}
+proc isInterfering*(theT: TopAbsShapeEnum): bool {.
     importcpp: "BOPDS_Tools::IsInterfering(@)", header: "BOPDS_Tools.hxx".}

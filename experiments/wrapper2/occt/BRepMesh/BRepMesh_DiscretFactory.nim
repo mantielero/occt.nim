@@ -11,48 +11,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Macro, BRepMesh_PluginEntryType, BRepMesh_FactoryError,
-  ../TColStd/TColStd_MapOfAsciiString, ../TCollection/TCollection_AsciiString,
-  ../Plugin/Plugin_MapOfFunctions, BRepMesh_DiscretRoot
-
 discard "forward decl of TopoDS_Shape"
 type
-  BRepMesh_DiscretFactory* {.importcpp: "BRepMesh_DiscretFactory",
-                            header: "BRepMesh_DiscretFactory.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Returns
-                                                                                ## the
-                                                                                ## global
-                                                                                ## factory
-                                                                                ## instance.
-                                                                                ##
-                                                                                ## !
-                                                                                ## Constructor
+  BRepMeshDiscretFactory* {.importcpp: "BRepMesh_DiscretFactory",
+                           header: "BRepMesh_DiscretFactory.hxx", bycopy.} = object ## !
+                                                                               ## Returns
+                                                                               ## the
+                                                                               ## global
+                                                                               ## factory
+                                                                               ## instance.
+                                                                               ## !
+                                                                               ## Constructor
 
 
-proc Get*(): var BRepMesh_DiscretFactory {.importcpp: "BRepMesh_DiscretFactory::Get(@)",
-                                       header: "BRepMesh_DiscretFactory.hxx".}
-proc Names*(this: BRepMesh_DiscretFactory): TColStd_MapOfAsciiString {.noSideEffect,
+proc get*(): var BRepMeshDiscretFactory {.importcpp: "BRepMesh_DiscretFactory::Get(@)",
+                                      header: "BRepMesh_DiscretFactory.hxx".}
+proc names*(this: BRepMeshDiscretFactory): TColStdMapOfAsciiString {.noSideEffect,
     importcpp: "Names", header: "BRepMesh_DiscretFactory.hxx".}
-proc SetDefaultName*(this: var BRepMesh_DiscretFactory;
-                    theName: TCollection_AsciiString): Standard_Boolean {.
+proc setDefaultName*(this: var BRepMeshDiscretFactory;
+                    theName: TCollectionAsciiString): bool {.
     importcpp: "SetDefaultName", header: "BRepMesh_DiscretFactory.hxx".}
-proc DefaultName*(this: BRepMesh_DiscretFactory): TCollection_AsciiString {.
+proc defaultName*(this: BRepMeshDiscretFactory): TCollectionAsciiString {.
     noSideEffect, importcpp: "DefaultName", header: "BRepMesh_DiscretFactory.hxx".}
-proc SetFunctionName*(this: var BRepMesh_DiscretFactory;
-                     theFuncName: TCollection_AsciiString): Standard_Boolean {.
+proc setFunctionName*(this: var BRepMeshDiscretFactory;
+                     theFuncName: TCollectionAsciiString): bool {.
     importcpp: "SetFunctionName", header: "BRepMesh_DiscretFactory.hxx".}
-proc FunctionName*(this: BRepMesh_DiscretFactory): TCollection_AsciiString {.
+proc functionName*(this: BRepMeshDiscretFactory): TCollectionAsciiString {.
     noSideEffect, importcpp: "FunctionName", header: "BRepMesh_DiscretFactory.hxx".}
-proc ErrorStatus*(this: BRepMesh_DiscretFactory): BRepMesh_FactoryError {.
+proc errorStatus*(this: BRepMeshDiscretFactory): BRepMeshFactoryError {.
     noSideEffect, importcpp: "ErrorStatus", header: "BRepMesh_DiscretFactory.hxx".}
-proc SetDefault*(this: var BRepMesh_DiscretFactory;
-                theName: TCollection_AsciiString;
-                theFuncName: TCollection_AsciiString = "DISCRETALGO"): Standard_Boolean {.
+proc setDefault*(this: var BRepMeshDiscretFactory; theName: TCollectionAsciiString;
+                theFuncName: TCollectionAsciiString = "DISCRETALGO"): bool {.
     importcpp: "SetDefault", header: "BRepMesh_DiscretFactory.hxx".}
-proc Discret*(this: var BRepMesh_DiscretFactory; theShape: TopoDS_Shape;
-             theLinDeflection: Standard_Real; theAngDeflection: Standard_Real): handle[
-    BRepMesh_DiscretRoot] {.importcpp: "Discret",
-                           header: "BRepMesh_DiscretFactory.hxx".}
+proc discret*(this: var BRepMeshDiscretFactory; theShape: TopoDS_Shape;
+             theLinDeflection: float; theAngDeflection: float): Handle[
+    BRepMeshDiscretRoot] {.importcpp: "Discret",
+                          header: "BRepMesh_DiscretFactory.hxx".}

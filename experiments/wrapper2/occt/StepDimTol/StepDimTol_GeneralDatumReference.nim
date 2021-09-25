@@ -13,70 +13,59 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
-  ../StepRepr/StepRepr_ShapeAspect, StepDimTol_DatumOrCommonDatum,
-  StepDimTol_HArray1OfDatumReferenceModifier
-
 discard "forward decl of StepDimTol_GeneralDatumReference"
 discard "forward decl of StepDimTol_GeneralDatumReference"
 type
-  Handle_StepDimTol_GeneralDatumReference* = handle[
-      StepDimTol_GeneralDatumReference]
+  HandleStepDimTolGeneralDatumReference* = Handle[StepDimTolGeneralDatumReference]
 
 ## ! Representation of STEP entity GeneralDatumReference
 
 type
-  StepDimTol_GeneralDatumReference* {.importcpp: "StepDimTol_GeneralDatumReference", header: "StepDimTol_GeneralDatumReference.hxx",
-                                     bycopy.} = object of StepRepr_ShapeAspect ## ! Empty
-                                                                          ## constructor
+  StepDimTolGeneralDatumReference* {.importcpp: "StepDimTol_GeneralDatumReference", header: "StepDimTol_GeneralDatumReference.hxx",
+                                    bycopy.} = object of StepReprShapeAspect ## ! Empty
+                                                                        ## constructor
 
 
-proc constructStepDimTol_GeneralDatumReference*(): StepDimTol_GeneralDatumReference {.
+proc constructStepDimTolGeneralDatumReference*(): StepDimTolGeneralDatumReference {.
     constructor, importcpp: "StepDimTol_GeneralDatumReference(@)",
     header: "StepDimTol_GeneralDatumReference.hxx".}
-proc Init*(this: var StepDimTol_GeneralDatumReference;
-          theName: handle[TCollection_HAsciiString];
-          theDescription: handle[TCollection_HAsciiString];
-          theOfShape: handle[StepRepr_ProductDefinitionShape];
-          theProductDefinitional: StepData_Logical;
-          theBase: StepDimTol_DatumOrCommonDatum;
-          theHasModifiers: Standard_Boolean;
-          theModifiers: handle[StepDimTol_HArray1OfDatumReferenceModifier]) {.
+proc init*(this: var StepDimTolGeneralDatumReference;
+          theName: Handle[TCollectionHAsciiString];
+          theDescription: Handle[TCollectionHAsciiString];
+          theOfShape: Handle[StepReprProductDefinitionShape];
+          theProductDefinitional: StepDataLogical;
+          theBase: StepDimTolDatumOrCommonDatum; theHasModifiers: bool;
+          theModifiers: Handle[StepDimTolHArray1OfDatumReferenceModifier]) {.
     importcpp: "Init", header: "StepDimTol_GeneralDatumReference.hxx".}
-proc Base*(this: var StepDimTol_GeneralDatumReference): StepDimTol_DatumOrCommonDatum {.
+proc base*(this: var StepDimTolGeneralDatumReference): StepDimTolDatumOrCommonDatum {.
     importcpp: "Base", header: "StepDimTol_GeneralDatumReference.hxx".}
-proc SetBase*(this: var StepDimTol_GeneralDatumReference;
-             theBase: StepDimTol_DatumOrCommonDatum) {.importcpp: "SetBase",
+proc setBase*(this: var StepDimTolGeneralDatumReference;
+             theBase: StepDimTolDatumOrCommonDatum) {.importcpp: "SetBase",
     header: "StepDimTol_GeneralDatumReference.hxx".}
-proc HasModifiers*(this: StepDimTol_GeneralDatumReference): Standard_Boolean {.
-    noSideEffect, importcpp: "HasModifiers",
+proc hasModifiers*(this: StepDimTolGeneralDatumReference): bool {.noSideEffect,
+    importcpp: "HasModifiers", header: "StepDimTol_GeneralDatumReference.hxx".}
+proc modifiers*(this: var StepDimTolGeneralDatumReference): Handle[
+    StepDimTolHArray1OfDatumReferenceModifier] {.importcpp: "Modifiers",
     header: "StepDimTol_GeneralDatumReference.hxx".}
-proc Modifiers*(this: var StepDimTol_GeneralDatumReference): handle[
-    StepDimTol_HArray1OfDatumReferenceModifier] {.importcpp: "Modifiers",
+proc setModifiers*(this: var StepDimTolGeneralDatumReference; theModifiers: Handle[
+    StepDimTolHArray1OfDatumReferenceModifier]) {.importcpp: "SetModifiers",
     header: "StepDimTol_GeneralDatumReference.hxx".}
-proc SetModifiers*(this: var StepDimTol_GeneralDatumReference; theModifiers: handle[
-    StepDimTol_HArray1OfDatumReferenceModifier]) {.importcpp: "SetModifiers",
-    header: "StepDimTol_GeneralDatumReference.hxx".}
-proc NbModifiers*(this: StepDimTol_GeneralDatumReference): Standard_Integer {.
-    noSideEffect, importcpp: "NbModifiers",
-    header: "StepDimTol_GeneralDatumReference.hxx".}
-proc ModifiersValue*(this: StepDimTol_GeneralDatumReference;
-                    theNum: Standard_Integer): StepDimTol_DatumReferenceModifier {.
+proc nbModifiers*(this: StepDimTolGeneralDatumReference): int {.noSideEffect,
+    importcpp: "NbModifiers", header: "StepDimTol_GeneralDatumReference.hxx".}
+proc modifiersValue*(this: StepDimTolGeneralDatumReference; theNum: int): StepDimTolDatumReferenceModifier {.
     noSideEffect, importcpp: "ModifiersValue",
     header: "StepDimTol_GeneralDatumReference.hxx".}
-proc ModifiersValue*(this: var StepDimTol_GeneralDatumReference;
-                    theNum: Standard_Integer;
-                    theItem: StepDimTol_DatumReferenceModifier) {.
+proc modifiersValue*(this: var StepDimTolGeneralDatumReference; theNum: int;
+                    theItem: StepDimTolDatumReferenceModifier) {.
     importcpp: "ModifiersValue", header: "StepDimTol_GeneralDatumReference.hxx".}
 type
-  StepDimTol_GeneralDatumReferencebase_type* = StepRepr_ShapeAspect
+  StepDimTolGeneralDatumReferencebaseType* = StepReprShapeAspect
 
-proc get_type_name*(): cstring {.importcpp: "StepDimTol_GeneralDatumReference::get_type_name(@)",
-                              header: "StepDimTol_GeneralDatumReference.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepDimTol_GeneralDatumReference::get_type_name(@)",
+                            header: "StepDimTol_GeneralDatumReference.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepDimTol_GeneralDatumReference::get_type_descriptor(@)",
     header: "StepDimTol_GeneralDatumReference.hxx".}
-proc DynamicType*(this: StepDimTol_GeneralDatumReference): handle[Standard_Type] {.
+proc dynamicType*(this: StepDimTolGeneralDatumReference): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_GeneralDatumReference.hxx".}

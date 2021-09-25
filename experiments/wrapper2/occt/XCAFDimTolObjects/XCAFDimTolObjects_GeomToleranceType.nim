@@ -16,21 +16,22 @@
 ## ! Defines types of geom tolerance
 
 type
-  XCAFDimTolObjects_GeomToleranceType* {.size: sizeof(cint), importcpp: "XCAFDimTolObjects_GeomToleranceType", header: "XCAFDimTolObjects_GeomToleranceType.hxx".} = enum
-    XCAFDimTolObjects_GeomToleranceType_None,
-    XCAFDimTolObjects_GeomToleranceType_Angularity,
-    XCAFDimTolObjects_GeomToleranceType_CircularRunout,
-    XCAFDimTolObjects_GeomToleranceType_CircularityOrRoundness,
-    XCAFDimTolObjects_GeomToleranceType_Coaxiality,
-    XCAFDimTolObjects_GeomToleranceType_Concentricity,
-    XCAFDimTolObjects_GeomToleranceType_Cylindricity,
-    XCAFDimTolObjects_GeomToleranceType_Flatness,
-    XCAFDimTolObjects_GeomToleranceType_Parallelism,
-    XCAFDimTolObjects_GeomToleranceType_Perpendicularity,
-    XCAFDimTolObjects_GeomToleranceType_Position,
-    XCAFDimTolObjects_GeomToleranceType_ProfileOfLine,
-    XCAFDimTolObjects_GeomToleranceType_ProfileOfSurface,
-    XCAFDimTolObjects_GeomToleranceType_Straightness,
-    XCAFDimTolObjects_GeomToleranceType_Symmetry,
-    XCAFDimTolObjects_GeomToleranceType_TotalRunout
+  XCAFDimTolObjectsGeomToleranceType* {.size: sizeof(cint), importcpp: "XCAFDimTolObjects_GeomToleranceType", header: "XCAFDimTolObjects_GeomToleranceType.hxx".} = enum
+    XCAFDimTolObjectsGeomToleranceTypeNone,
+    XCAFDimTolObjectsGeomToleranceTypeAngularity,
+    XCAFDimTolObjectsGeomToleranceTypeCircularRunout,
+    XCAFDimTolObjectsGeomToleranceTypeCircularityOrRoundness,
+    XCAFDimTolObjectsGeomToleranceTypeCoaxiality,
+    XCAFDimTolObjectsGeomToleranceTypeConcentricity,
+    XCAFDimTolObjectsGeomToleranceTypeCylindricity,
+    XCAFDimTolObjectsGeomToleranceTypeFlatness,
+    XCAFDimTolObjectsGeomToleranceTypeParallelism,
+    XCAFDimTolObjectsGeomToleranceTypePerpendicularity,
+    XCAFDimTolObjectsGeomToleranceTypePosition,
+    XCAFDimTolObjectsGeomToleranceTypeProfileOfLine,
+    XCAFDimTolObjectsGeomToleranceTypeProfileOfSurface,
+    XCAFDimTolObjectsGeomToleranceTypeStraightness,
+    XCAFDimTolObjectsGeomToleranceTypeSymmetry,
+    XCAFDimTolObjectsGeomToleranceTypeTotalRunout
+
 

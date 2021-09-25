@@ -13,36 +13,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_DimensionalLocation
-
 discard "forward decl of StepShape_DirectedDimensionalLocation"
 discard "forward decl of StepShape_DirectedDimensionalLocation"
 type
-  Handle_StepShape_DirectedDimensionalLocation* = handle[
-      StepShape_DirectedDimensionalLocation]
+  HandleStepShapeDirectedDimensionalLocation* = Handle[
+      StepShapeDirectedDimensionalLocation]
 
 ## ! Representation of STEP entity DirectedDimensionalLocation
 
 type
-  StepShape_DirectedDimensionalLocation* {.
+  StepShapeDirectedDimensionalLocation* {.
       importcpp: "StepShape_DirectedDimensionalLocation",
-      header: "StepShape_DirectedDimensionalLocation.hxx", bycopy.} = object of StepShape_DimensionalLocation ##
-                                                                                                       ## !
-                                                                                                       ## Empty
-                                                                                                       ## constructor
+      header: "StepShape_DirectedDimensionalLocation.hxx", bycopy.} = object of StepShapeDimensionalLocation ##
+                                                                                                      ## !
+                                                                                                      ## Empty
+                                                                                                      ## constructor
 
 
-proc constructStepShape_DirectedDimensionalLocation*(): StepShape_DirectedDimensionalLocation {.
+proc constructStepShapeDirectedDimensionalLocation*(): StepShapeDirectedDimensionalLocation {.
     constructor, importcpp: "StepShape_DirectedDimensionalLocation(@)",
     header: "StepShape_DirectedDimensionalLocation.hxx".}
 type
-  StepShape_DirectedDimensionalLocationbase_type* = StepShape_DimensionalLocation
+  StepShapeDirectedDimensionalLocationbaseType* = StepShapeDimensionalLocation
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_DirectedDimensionalLocation::get_type_name(@)", header: "StepShape_DirectedDimensionalLocation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_DirectedDimensionalLocation::get_type_name(@)",
+                            header: "StepShape_DirectedDimensionalLocation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_DirectedDimensionalLocation::get_type_descriptor(@)",
     header: "StepShape_DirectedDimensionalLocation.hxx".}
-proc DynamicType*(this: StepShape_DirectedDimensionalLocation): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepShape_DirectedDimensionalLocation.hxx".}
+proc dynamicType*(this: StepShapeDirectedDimensionalLocation): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepShape_DirectedDimensionalLocation.hxx".}

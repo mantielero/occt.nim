@@ -14,71 +14,57 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_CString,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Type, MoniTool_ValueType,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real,
-  ../NCollection/NCollection_DataMap, ../Standard/Standard_Transient,
-  ../TCollection/TCollection_AsciiString
-
 ## ! a AttrList allows to record a list of attributes as Transients
 ## ! which can be edited, changed ...
 ## ! Each one is identified by a name
 
 type
-  MoniTool_AttrList* {.importcpp: "MoniTool_AttrList",
-                      header: "MoniTool_AttrList.hxx", bycopy.} = object ## ! Creates an AttrList, empty
+  MoniToolAttrList* {.importcpp: "MoniTool_AttrList",
+                     header: "MoniTool_AttrList.hxx", bycopy.} = object ## ! Creates an AttrList, empty
 
 
-proc constructMoniTool_AttrList*(): MoniTool_AttrList {.constructor,
+proc constructMoniToolAttrList*(): MoniToolAttrList {.constructor,
     importcpp: "MoniTool_AttrList(@)", header: "MoniTool_AttrList.hxx".}
-proc constructMoniTool_AttrList*(other: MoniTool_AttrList): MoniTool_AttrList {.
+proc constructMoniToolAttrList*(other: MoniToolAttrList): MoniToolAttrList {.
     constructor, importcpp: "MoniTool_AttrList(@)", header: "MoniTool_AttrList.hxx".}
-proc SetAttribute*(this: var MoniTool_AttrList; name: Standard_CString;
-                  val: handle[Standard_Transient]) {.importcpp: "SetAttribute",
+proc setAttribute*(this: var MoniToolAttrList; name: StandardCString;
+                  val: Handle[StandardTransient]) {.importcpp: "SetAttribute",
     header: "MoniTool_AttrList.hxx".}
-proc RemoveAttribute*(this: var MoniTool_AttrList; name: Standard_CString): Standard_Boolean {.
+proc removeAttribute*(this: var MoniToolAttrList; name: StandardCString): bool {.
     importcpp: "RemoveAttribute", header: "MoniTool_AttrList.hxx".}
-proc GetAttribute*(this: MoniTool_AttrList; name: Standard_CString;
-                  `type`: handle[Standard_Type];
-                  val: var handle[Standard_Transient]): Standard_Boolean {.
+proc getAttribute*(this: MoniToolAttrList; name: StandardCString;
+                  `type`: Handle[StandardType]; val: var Handle[StandardTransient]): bool {.
     noSideEffect, importcpp: "GetAttribute", header: "MoniTool_AttrList.hxx".}
-proc Attribute*(this: MoniTool_AttrList; name: Standard_CString): handle[
-    Standard_Transient] {.noSideEffect, importcpp: "Attribute",
-                         header: "MoniTool_AttrList.hxx".}
-proc AttributeType*(this: MoniTool_AttrList; name: Standard_CString): MoniTool_ValueType {.
+proc attribute*(this: MoniToolAttrList; name: StandardCString): Handle[
+    StandardTransient] {.noSideEffect, importcpp: "Attribute",
+                        header: "MoniTool_AttrList.hxx".}
+proc attributeType*(this: MoniToolAttrList; name: StandardCString): MoniToolValueType {.
     noSideEffect, importcpp: "AttributeType", header: "MoniTool_AttrList.hxx".}
-proc SetIntegerAttribute*(this: var MoniTool_AttrList; name: Standard_CString;
-                         val: Standard_Integer) {.
+proc setIntegerAttribute*(this: var MoniToolAttrList; name: StandardCString; val: int) {.
     importcpp: "SetIntegerAttribute", header: "MoniTool_AttrList.hxx".}
-proc GetIntegerAttribute*(this: MoniTool_AttrList; name: Standard_CString;
-                         val: var Standard_Integer): Standard_Boolean {.
+proc getIntegerAttribute*(this: MoniToolAttrList; name: StandardCString; val: var int): bool {.
     noSideEffect, importcpp: "GetIntegerAttribute", header: "MoniTool_AttrList.hxx".}
-proc IntegerAttribute*(this: MoniTool_AttrList; name: Standard_CString): Standard_Integer {.
+proc integerAttribute*(this: MoniToolAttrList; name: StandardCString): int {.
     noSideEffect, importcpp: "IntegerAttribute", header: "MoniTool_AttrList.hxx".}
-proc SetRealAttribute*(this: var MoniTool_AttrList; name: Standard_CString;
-                      val: Standard_Real) {.importcpp: "SetRealAttribute",
-    header: "MoniTool_AttrList.hxx".}
-proc GetRealAttribute*(this: MoniTool_AttrList; name: Standard_CString;
-                      val: var Standard_Real): Standard_Boolean {.noSideEffect,
-    importcpp: "GetRealAttribute", header: "MoniTool_AttrList.hxx".}
-proc RealAttribute*(this: MoniTool_AttrList; name: Standard_CString): Standard_Real {.
+proc setRealAttribute*(this: var MoniToolAttrList; name: StandardCString; val: float) {.
+    importcpp: "SetRealAttribute", header: "MoniTool_AttrList.hxx".}
+proc getRealAttribute*(this: MoniToolAttrList; name: StandardCString; val: var float): bool {.
+    noSideEffect, importcpp: "GetRealAttribute", header: "MoniTool_AttrList.hxx".}
+proc realAttribute*(this: MoniToolAttrList; name: StandardCString): float {.
     noSideEffect, importcpp: "RealAttribute", header: "MoniTool_AttrList.hxx".}
-proc SetStringAttribute*(this: var MoniTool_AttrList; name: Standard_CString;
-                        val: Standard_CString) {.importcpp: "SetStringAttribute",
+proc setStringAttribute*(this: var MoniToolAttrList; name: StandardCString;
+                        val: StandardCString) {.importcpp: "SetStringAttribute",
     header: "MoniTool_AttrList.hxx".}
-proc GetStringAttribute*(this: MoniTool_AttrList; name: Standard_CString;
-                        val: var Standard_CString): Standard_Boolean {.noSideEffect,
+proc getStringAttribute*(this: MoniToolAttrList; name: StandardCString;
+                        val: var StandardCString): bool {.noSideEffect,
     importcpp: "GetStringAttribute", header: "MoniTool_AttrList.hxx".}
-proc StringAttribute*(this: MoniTool_AttrList; name: Standard_CString): Standard_CString {.
+proc stringAttribute*(this: MoniToolAttrList; name: StandardCString): StandardCString {.
     noSideEffect, importcpp: "StringAttribute", header: "MoniTool_AttrList.hxx".}
-proc AttrList*(this: MoniTool_AttrList): NCollection_DataMap[
-    TCollection_AsciiString, handle[Standard_Transient]] {.noSideEffect,
-    importcpp: "AttrList", header: "MoniTool_AttrList.hxx".}
-proc SameAttributes*(this: var MoniTool_AttrList; other: MoniTool_AttrList) {.
+proc attrList*(this: MoniToolAttrList): NCollectionDataMap[TCollectionAsciiString,
+    Handle[StandardTransient]] {.noSideEffect, importcpp: "AttrList",
+                                header: "MoniTool_AttrList.hxx".}
+proc sameAttributes*(this: var MoniToolAttrList; other: MoniToolAttrList) {.
     importcpp: "SameAttributes", header: "MoniTool_AttrList.hxx".}
-proc GetAttributes*(this: var MoniTool_AttrList; other: MoniTool_AttrList;
-                   fromname: Standard_CString = "";
-                   copied: Standard_Boolean = Standard_True) {.
+proc getAttributes*(this: var MoniToolAttrList; other: MoniToolAttrList;
+                   fromname: StandardCString = ""; copied: bool = true) {.
     importcpp: "GetAttributes", header: "MoniTool_AttrList.hxx".}

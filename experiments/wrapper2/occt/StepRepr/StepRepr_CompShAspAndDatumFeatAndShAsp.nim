@@ -13,32 +13,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepRepr_ShapeAspect
-
 discard "forward decl of StepRepr_CompShAspAndDatumFeatAndShAsp"
 discard "forward decl of StepRepr_CompShAspAndDatumFeatAndShAsp"
 type
-  Handle_StepRepr_CompShAspAndDatumFeatAndShAsp* = handle[
-      StepRepr_CompShAspAndDatumFeatAndShAsp]
+  HandleStepReprCompShAspAndDatumFeatAndShAsp* = Handle[
+      StepReprCompShAspAndDatumFeatAndShAsp]
 
 ## ! Added for Dimensional Tolerances
 
 type
-  StepRepr_CompShAspAndDatumFeatAndShAsp* {.
+  StepReprCompShAspAndDatumFeatAndShAsp* {.
       importcpp: "StepRepr_CompShAspAndDatumFeatAndShAsp",
-      header: "StepRepr_CompShAspAndDatumFeatAndShAsp.hxx", bycopy.} = object of StepRepr_ShapeAspect
+      header: "StepRepr_CompShAspAndDatumFeatAndShAsp.hxx", bycopy.} = object of StepReprShapeAspect
 
 
-proc constructStepRepr_CompShAspAndDatumFeatAndShAsp*(): StepRepr_CompShAspAndDatumFeatAndShAsp {.
+proc constructStepReprCompShAspAndDatumFeatAndShAsp*(): StepReprCompShAspAndDatumFeatAndShAsp {.
     constructor, importcpp: "StepRepr_CompShAspAndDatumFeatAndShAsp(@)",
     header: "StepRepr_CompShAspAndDatumFeatAndShAsp.hxx".}
 type
-  StepRepr_CompShAspAndDatumFeatAndShAspbase_type* = StepRepr_ShapeAspect
+  StepReprCompShAspAndDatumFeatAndShAspbaseType* = StepReprShapeAspect
 
-proc get_type_name*(): cstring {.importcpp: "StepRepr_CompShAspAndDatumFeatAndShAsp::get_type_name(@)", header: "StepRepr_CompShAspAndDatumFeatAndShAsp.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "StepRepr_CompShAspAndDatumFeatAndShAsp::get_type_descriptor(@)",
+proc getTypeName*(): cstring {.importcpp: "StepRepr_CompShAspAndDatumFeatAndShAsp::get_type_name(@)", header: "StepRepr_CompShAspAndDatumFeatAndShAsp.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_CompShAspAndDatumFeatAndShAsp::get_type_descriptor(@)",
     header: "StepRepr_CompShAspAndDatumFeatAndShAsp.hxx".}
-proc DynamicType*(this: StepRepr_CompShAspAndDatumFeatAndShAsp): handle[
-    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
-                    header: "StepRepr_CompShAspAndDatumFeatAndShAsp.hxx".}
+proc dynamicType*(this: StepReprCompShAspAndDatumFeatAndShAsp): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "StepRepr_CompShAspAndDatumFeatAndShAsp.hxx".}

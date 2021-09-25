@@ -32,8 +32,9 @@
 ## ! is not of the required type.
 
 type
-  IGESData_DefType* {.size: sizeof(cint), importcpp: "IGESData_DefType",
-                     header: "IGESData_DefType.hxx".} = enum
-    IGESData_DefVoid, IGESData_DefValue, IGESData_DefReference, IGESData_DefAny,
-    IGESData_ErrorVal, IGESData_ErrorRef
+  IGESDataDefType* {.size: sizeof(cint), importcpp: "IGESData_DefType",
+                    header: "IGESData_DefType.hxx".} = enum
+    IGESDataDefVoid, IGESDataDefValue, IGESDataDefReference, IGESDataDefAny,
+    IGESDataErrorVal, IGESDataErrorRef
+
 

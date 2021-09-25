@@ -18,8 +18,9 @@
 ## ! the class Message_ExecStatus
 
 type
-  Message_StatusType* {.size: sizeof(cint), importcpp: "Message_StatusType",
-                       header: "Message_StatusType.hxx".} = enum
-    Message_DONE = 0x00000100, Message_WARN = 0x00000200, Message_ALARM = 0x00000400,
-    Message_FAIL = 0x00000800
+  MessageStatusType* {.size: sizeof(cint), importcpp: "Message_StatusType",
+                      header: "Message_StatusType.hxx".} = enum
+    messageDONE = 0x00000100, MessageWARN = 0x00000200, MessageALARM = 0x00000400,
+    MessageFAIL = 0x00000800
+
 

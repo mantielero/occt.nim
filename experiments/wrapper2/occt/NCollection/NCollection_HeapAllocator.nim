@@ -13,40 +13,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  NCollection_BaseAllocator
-
 ## *
 ##  Allocator that uses the global dynamic heap (malloc / free).
 ##
 
 type
-  NCollection_HeapAllocator* {.importcpp: "NCollection_HeapAllocator",
-                              header: "NCollection_HeapAllocator.hxx", bycopy.} = object of NCollection_BaseAllocator ##  ---------- PUBLIC METHODS ----------
-                                                                                                               ## ! Constructor - prohibited
-                                                                                                               ## ! Copy constructor - prohibited
-                                                                                                               ##  Declaration of CASCADE RTTI
+  NCollectionHeapAllocator* {.importcpp: "NCollection_HeapAllocator",
+                             header: "NCollection_HeapAllocator.hxx", bycopy.} = object of NCollectionBaseAllocator ##  ---------- PUBLIC METHODS ----------
+                                                                                                             ## ! Constructor - prohibited
+                                                                                                             ## ! Copy constructor - prohibited
+                                                                                                             ##  Declaration of CASCADE RTTI
 
 
-proc Allocate*(this: var NCollection_HeapAllocator; theSize: Standard_Size): pointer {.
+proc allocate*(this: var NCollectionHeapAllocator; theSize: StandardSize): pointer {.
     importcpp: "Allocate", header: "NCollection_HeapAllocator.hxx".}
-proc Free*(this: var NCollection_HeapAllocator; anAddress: pointer) {.
+proc free*(this: var NCollectionHeapAllocator; anAddress: pointer) {.
     importcpp: "Free", header: "NCollection_HeapAllocator.hxx".}
-proc GlobalHeapAllocator*(): handle[NCollection_HeapAllocator] {.
+proc globalHeapAllocator*(): Handle[NCollectionHeapAllocator] {.
     importcpp: "NCollection_HeapAllocator::GlobalHeapAllocator(@)",
     header: "NCollection_HeapAllocator.hxx".}
 type
-  NCollection_HeapAllocatorbase_type* = NCollection_BaseAllocator
+  NCollectionHeapAllocatorbaseType* = NCollectionBaseAllocator
 
-proc get_type_name*(): cstring {.importcpp: "NCollection_HeapAllocator::get_type_name(@)",
-                              header: "NCollection_HeapAllocator.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "NCollection_HeapAllocator::get_type_name(@)",
+                            header: "NCollection_HeapAllocator.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "NCollection_HeapAllocator::get_type_descriptor(@)",
     header: "NCollection_HeapAllocator.hxx".}
-proc DynamicType*(this: NCollection_HeapAllocator): handle[Standard_Type] {.
+proc dynamicType*(this: NCollectionHeapAllocator): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "NCollection_HeapAllocator.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of NCollection_HeapAllocator"
 type
-  Handle_NCollection_HeapAllocator* = handle[NCollection_HeapAllocator]
+  HandleNCollectionHeapAllocator* = Handle[NCollectionHeapAllocator]
+

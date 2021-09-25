@@ -13,13 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, TDF_AttributeMap,
-  ../TColStd/TColStd_ListOfInteger, ../Standard/Standard_CString, TDF_LabelList,
-  TDF_LabelIntegerMap, ../Standard/Standard_OStream
-
 discard "forward decl of TDF_Label"
 discard "forward decl of TDF_IDFilter"
 discard "forward decl of TCollection_AsciiString"
@@ -31,56 +24,55 @@ type
                                                                        ## information is useful in setting the size of an array.
 
 
-proc NbLabels*(aLabel: TDF_Label): Standard_Integer {.
-    importcpp: "TDF_Tool::NbLabels(@)", header: "TDF_Tool.hxx".}
-proc NbAttributes*(aLabel: TDF_Label): Standard_Integer {.
+proc nbLabels*(aLabel: TDF_Label): int {.importcpp: "TDF_Tool::NbLabels(@)",
+                                     header: "TDF_Tool.hxx".}
+proc nbAttributes*(aLabel: TDF_Label): int {.importcpp: "TDF_Tool::NbAttributes(@)",
+    header: "TDF_Tool.hxx".}
+proc nbAttributes*(aLabel: TDF_Label; aFilter: TDF_IDFilter): int {.
     importcpp: "TDF_Tool::NbAttributes(@)", header: "TDF_Tool.hxx".}
-proc NbAttributes*(aLabel: TDF_Label; aFilter: TDF_IDFilter): Standard_Integer {.
-    importcpp: "TDF_Tool::NbAttributes(@)", header: "TDF_Tool.hxx".}
-proc IsSelfContained*(aLabel: TDF_Label): Standard_Boolean {.
+proc isSelfContained*(aLabel: TDF_Label): bool {.
     importcpp: "TDF_Tool::IsSelfContained(@)", header: "TDF_Tool.hxx".}
-proc IsSelfContained*(aLabel: TDF_Label; aFilter: TDF_IDFilter): Standard_Boolean {.
+proc isSelfContained*(aLabel: TDF_Label; aFilter: TDF_IDFilter): bool {.
     importcpp: "TDF_Tool::IsSelfContained(@)", header: "TDF_Tool.hxx".}
-proc OutReferers*(theLabel: TDF_Label; theAtts: var TDF_AttributeMap) {.
+proc outReferers*(theLabel: TDF_Label; theAtts: var TDF_AttributeMap) {.
     importcpp: "TDF_Tool::OutReferers(@)", header: "TDF_Tool.hxx".}
-proc OutReferers*(aLabel: TDF_Label; aFilterForReferers: TDF_IDFilter;
+proc outReferers*(aLabel: TDF_Label; aFilterForReferers: TDF_IDFilter;
                  aFilterForReferences: TDF_IDFilter; atts: var TDF_AttributeMap) {.
     importcpp: "TDF_Tool::OutReferers(@)", header: "TDF_Tool.hxx".}
-proc OutReferences*(aLabel: TDF_Label; atts: var TDF_AttributeMap) {.
+proc outReferences*(aLabel: TDF_Label; atts: var TDF_AttributeMap) {.
     importcpp: "TDF_Tool::OutReferences(@)", header: "TDF_Tool.hxx".}
-proc OutReferences*(aLabel: TDF_Label; aFilterForReferers: TDF_IDFilter;
+proc outReferences*(aLabel: TDF_Label; aFilterForReferers: TDF_IDFilter;
                    aFilterForReferences: TDF_IDFilter; atts: var TDF_AttributeMap) {.
     importcpp: "TDF_Tool::OutReferences(@)", header: "TDF_Tool.hxx".}
-proc RelocateLabel*(aSourceLabel: TDF_Label; fromRoot: TDF_Label; toRoot: TDF_Label;
-                   aTargetLabel: var TDF_Label;
-                   create: Standard_Boolean = Standard_False) {.
+proc relocateLabel*(aSourceLabel: TDF_Label; fromRoot: TDF_Label; toRoot: TDF_Label;
+                   aTargetLabel: var TDF_Label; create: bool = false) {.
     importcpp: "TDF_Tool::RelocateLabel(@)", header: "TDF_Tool.hxx".}
-proc Entry*(aLabel: TDF_Label; anEntry: var TCollection_AsciiString) {.
+proc entry*(aLabel: TDF_Label; anEntry: var TCollectionAsciiString) {.
     importcpp: "TDF_Tool::Entry(@)", header: "TDF_Tool.hxx".}
-proc TagList*(aLabel: TDF_Label; aTagList: var TColStd_ListOfInteger) {.
+proc tagList*(aLabel: TDF_Label; aTagList: var TColStdListOfInteger) {.
     importcpp: "TDF_Tool::TagList(@)", header: "TDF_Tool.hxx".}
-proc TagList*(anEntry: TCollection_AsciiString; aTagList: var TColStd_ListOfInteger) {.
+proc tagList*(anEntry: TCollectionAsciiString; aTagList: var TColStdListOfInteger) {.
     importcpp: "TDF_Tool::TagList(@)", header: "TDF_Tool.hxx".}
-proc Label*(aDF: handle[TDF_Data]; anEntry: TCollection_AsciiString;
-           aLabel: var TDF_Label; create: Standard_Boolean = Standard_False) {.
+proc label*(aDF: Handle[TDF_Data]; anEntry: TCollectionAsciiString;
+           aLabel: var TDF_Label; create: bool = false) {.
     importcpp: "TDF_Tool::Label(@)", header: "TDF_Tool.hxx".}
-proc Label*(aDF: handle[TDF_Data]; anEntry: Standard_CString; aLabel: var TDF_Label;
-           create: Standard_Boolean = Standard_False) {.
+proc label*(aDF: Handle[TDF_Data]; anEntry: StandardCString; aLabel: var TDF_Label;
+           create: bool = false) {.importcpp: "TDF_Tool::Label(@)",
+                               header: "TDF_Tool.hxx".}
+proc label*(aDF: Handle[TDF_Data]; aTagList: TColStdListOfInteger;
+           aLabel: var TDF_Label; create: bool = false) {.
     importcpp: "TDF_Tool::Label(@)", header: "TDF_Tool.hxx".}
-proc Label*(aDF: handle[TDF_Data]; aTagList: TColStd_ListOfInteger;
-           aLabel: var TDF_Label; create: Standard_Boolean = Standard_False) {.
-    importcpp: "TDF_Tool::Label(@)", header: "TDF_Tool.hxx".}
-proc CountLabels*(aLabelList: var TDF_LabelList; aLabelMap: var TDF_LabelIntegerMap) {.
+proc countLabels*(aLabelList: var TDF_LabelList; aLabelMap: var TDF_LabelIntegerMap) {.
     importcpp: "TDF_Tool::CountLabels(@)", header: "TDF_Tool.hxx".}
-proc DeductLabels*(aLabelList: var TDF_LabelList; aLabelMap: var TDF_LabelIntegerMap) {.
+proc deductLabels*(aLabelList: var TDF_LabelList; aLabelMap: var TDF_LabelIntegerMap) {.
     importcpp: "TDF_Tool::DeductLabels(@)", header: "TDF_Tool.hxx".}
-proc DeepDump*(anOS: var Standard_OStream; aDF: handle[TDF_Data]) {.
+proc deepDump*(anOS: var StandardOStream; aDF: Handle[TDF_Data]) {.
     importcpp: "TDF_Tool::DeepDump(@)", header: "TDF_Tool.hxx".}
-proc ExtendedDeepDump*(anOS: var Standard_OStream; aDF: handle[TDF_Data];
+proc extendedDeepDump*(anOS: var StandardOStream; aDF: Handle[TDF_Data];
                       aFilter: TDF_IDFilter) {.
     importcpp: "TDF_Tool::ExtendedDeepDump(@)", header: "TDF_Tool.hxx".}
-proc DeepDump*(anOS: var Standard_OStream; aLabel: TDF_Label) {.
+proc deepDump*(anOS: var StandardOStream; aLabel: TDF_Label) {.
     importcpp: "TDF_Tool::DeepDump(@)", header: "TDF_Tool.hxx".}
-proc ExtendedDeepDump*(anOS: var Standard_OStream; aLabel: TDF_Label;
+proc extendedDeepDump*(anOS: var StandardOStream; aLabel: TDF_Label;
                       aFilter: TDF_IDFilter) {.
     importcpp: "TDF_Tool::ExtendedDeepDump(@)", header: "TDF_Tool.hxx".}

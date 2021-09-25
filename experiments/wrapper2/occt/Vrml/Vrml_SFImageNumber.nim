@@ -17,7 +17,8 @@
 ## ! qualifies VRML geometry shapes.
 
 type
-  Vrml_SFImageNumber* {.size: sizeof(cint), importcpp: "Vrml_SFImageNumber",
-                       header: "Vrml_SFImageNumber.hxx".} = enum
-    Vrml_NULL, Vrml_ONE, Vrml_TWO, Vrml_THREE, Vrml_FOUR
+  VrmlSFImageNumber* {.size: sizeof(cint), importcpp: "Vrml_SFImageNumber",
+                      header: "Vrml_SFImageNumber.hxx".} = enum
+    VrmlNULL, VrmlONE, VrmlTWO, VrmlTHREE, VrmlFOUR
+
 

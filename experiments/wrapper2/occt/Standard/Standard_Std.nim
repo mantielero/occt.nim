@@ -39,11 +39,11 @@
 ## Error: identifier expected, but got: <!!!
 
 type
-  enable_ifconditional*[Condition: static[bool]; TypeTrue; TypeFalse] {.
+  EnableIfconditional*[Condition: static[bool]; TypeTrue; TypeFalse] {.
       importcpp: "opencascade::std::enable_if<\'0>::conditional<\'1,\'2,\'3>",
       header: "Standard_Std.hxx", bycopy.} = object
 
-  enable_ifconditionaltype*[TypeTrue] = TypeTrue
+  EnableIfconditionaltype*[TypeTrue] = TypeTrue
 
 ## !!!Ignored construct:  template < typename TypeTrue , typename TypeFalse > [end of template] struct conditional < false , TypeTrue , TypeFalse > { typedef TypeFalse type ; } ;
 ## Error: identifier expected, but got: <!!!
@@ -72,10 +72,10 @@ type
 ## ! @tparam TheType the type that is used as a function argument type to prevent its deduction
 
 type
-  enable_ifconditionalis_base_but_not_sameis_integerdisable_deduction*[TheType] {.importcpp: "opencascade::enable_if<\'0>::conditional<\'1,\'2>::is_base_but_not_same<\'3,\'4>::is_integer<\'5>::disable_deduction<\'6>",
+  EnableIfconditionalisBaseButNotSameisIntegerdisableDeduction*[TheType] {.importcpp: "opencascade::enable_if<\'0>::conditional<\'1,\'2>::is_base_but_not_same<\'3,\'4>::is_integer<\'5>::disable_deduction<\'6>",
       header: "Standard_Std.hxx", bycopy.} = object
 
-  enable_ifconditionalis_base_but_not_sameis_integerdisable_deductiontype*[
-      TheType] = TheType
+  EnableIfconditionalisBaseButNotSameisIntegerdisableDeductiontype*[TheType] = TheType
 
 ##  namespace opencascade
+

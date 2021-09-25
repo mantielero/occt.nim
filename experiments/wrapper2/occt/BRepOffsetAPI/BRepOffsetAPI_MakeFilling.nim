@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../BRepFill/BRepFill_Filling,
-  ../BRepBuilderAPI/BRepBuilderAPI_MakeShape, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
-  ../GeomAbs/GeomAbs_Shape, ../TopTools/TopTools_ListOfShape
-
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_ConstructionError"
@@ -172,61 +165,54 @@ type
                                                                                                               ## long.
 
 
-proc constructBRepOffsetAPI_MakeFilling*(Degree: Standard_Integer = 3;
-                                        NbPtsOnCur: Standard_Integer = 15;
-                                        NbIter: Standard_Integer = 2; Anisotropie: Standard_Boolean = Standard_False;
-                                        Tol2d: Standard_Real = 0.00001;
-                                        Tol3d: Standard_Real = 0.0001;
-                                        TolAng: Standard_Real = 0.01;
-                                        TolCurv: Standard_Real = 0.1;
-                                        MaxDeg: Standard_Integer = 8;
-                                        MaxSegments: Standard_Integer = 9): BRepOffsetAPI_MakeFilling {.
+proc constructBRepOffsetAPI_MakeFilling*(degree: int = 3; nbPtsOnCur: int = 15;
+                                        nbIter: int = 2; anisotropie: bool = false;
+                                        tol2d: float = 0.00001;
+                                        tol3d: float = 0.0001; tolAng: float = 0.01;
+                                        tolCurv: float = 0.1; maxDeg: int = 8;
+                                        maxSegments: int = 9): BRepOffsetAPI_MakeFilling {.
     constructor, importcpp: "BRepOffsetAPI_MakeFilling(@)",
     header: "BRepOffsetAPI_MakeFilling.hxx".}
-proc SetConstrParam*(this: var BRepOffsetAPI_MakeFilling;
-                    Tol2d: Standard_Real = 0.00001; Tol3d: Standard_Real = 0.0001;
-                    TolAng: Standard_Real = 0.01; TolCurv: Standard_Real = 0.1) {.
+proc setConstrParam*(this: var BRepOffsetAPI_MakeFilling; tol2d: float = 0.00001;
+                    tol3d: float = 0.0001; tolAng: float = 0.01; tolCurv: float = 0.1) {.
     importcpp: "SetConstrParam", header: "BRepOffsetAPI_MakeFilling.hxx".}
-proc SetResolParam*(this: var BRepOffsetAPI_MakeFilling;
-                   Degree: Standard_Integer = 3; NbPtsOnCur: Standard_Integer = 15;
-                   NbIter: Standard_Integer = 2;
-                   Anisotropie: Standard_Boolean = Standard_False) {.
+proc setResolParam*(this: var BRepOffsetAPI_MakeFilling; degree: int = 3;
+                   nbPtsOnCur: int = 15; nbIter: int = 2; anisotropie: bool = false) {.
     importcpp: "SetResolParam", header: "BRepOffsetAPI_MakeFilling.hxx".}
-proc SetApproxParam*(this: var BRepOffsetAPI_MakeFilling;
-                    MaxDeg: Standard_Integer = 8; MaxSegments: Standard_Integer = 9) {.
-    importcpp: "SetApproxParam", header: "BRepOffsetAPI_MakeFilling.hxx".}
-proc LoadInitSurface*(this: var BRepOffsetAPI_MakeFilling; Surf: TopoDS_Face) {.
+proc setApproxParam*(this: var BRepOffsetAPI_MakeFilling; maxDeg: int = 8;
+                    maxSegments: int = 9) {.importcpp: "SetApproxParam",
+                                        header: "BRepOffsetAPI_MakeFilling.hxx".}
+proc loadInitSurface*(this: var BRepOffsetAPI_MakeFilling; surf: TopoDS_Face) {.
     importcpp: "LoadInitSurface", header: "BRepOffsetAPI_MakeFilling.hxx".}
-proc Add*(this: var BRepOffsetAPI_MakeFilling; Constr: TopoDS_Edge;
-         Order: GeomAbs_Shape; IsBound: Standard_Boolean = Standard_True): Standard_Integer {.
-    importcpp: "Add", header: "BRepOffsetAPI_MakeFilling.hxx".}
-proc Add*(this: var BRepOffsetAPI_MakeFilling; Constr: TopoDS_Edge;
-         Support: TopoDS_Face; Order: GeomAbs_Shape;
-         IsBound: Standard_Boolean = Standard_True): Standard_Integer {.
-    importcpp: "Add", header: "BRepOffsetAPI_MakeFilling.hxx".}
-proc Add*(this: var BRepOffsetAPI_MakeFilling; Support: TopoDS_Face;
-         Order: GeomAbs_Shape): Standard_Integer {.importcpp: "Add",
+proc add*(this: var BRepOffsetAPI_MakeFilling; constr: TopoDS_Edge;
+         order: GeomAbsShape; isBound: bool = true): int {.importcpp: "Add",
     header: "BRepOffsetAPI_MakeFilling.hxx".}
-proc Add*(this: var BRepOffsetAPI_MakeFilling; Point: gp_Pnt): Standard_Integer {.
+proc add*(this: var BRepOffsetAPI_MakeFilling; constr: TopoDS_Edge;
+         support: TopoDS_Face; order: GeomAbsShape; isBound: bool = true): int {.
     importcpp: "Add", header: "BRepOffsetAPI_MakeFilling.hxx".}
-proc Add*(this: var BRepOffsetAPI_MakeFilling; U: Standard_Real; V: Standard_Real;
-         Support: TopoDS_Face; Order: GeomAbs_Shape): Standard_Integer {.
-    importcpp: "Add", header: "BRepOffsetAPI_MakeFilling.hxx".}
-proc Build*(this: var BRepOffsetAPI_MakeFilling) {.importcpp: "Build",
+proc add*(this: var BRepOffsetAPI_MakeFilling; support: TopoDS_Face;
+         order: GeomAbsShape): int {.importcpp: "Add",
+                                  header: "BRepOffsetAPI_MakeFilling.hxx".}
+proc add*(this: var BRepOffsetAPI_MakeFilling; point: Pnt): int {.importcpp: "Add",
     header: "BRepOffsetAPI_MakeFilling.hxx".}
-proc IsDone*(this: BRepOffsetAPI_MakeFilling): Standard_Boolean {.noSideEffect,
+proc add*(this: var BRepOffsetAPI_MakeFilling; u: float; v: float; support: TopoDS_Face;
+         order: GeomAbsShape): int {.importcpp: "Add",
+                                  header: "BRepOffsetAPI_MakeFilling.hxx".}
+proc build*(this: var BRepOffsetAPI_MakeFilling) {.importcpp: "Build",
+    header: "BRepOffsetAPI_MakeFilling.hxx".}
+proc isDone*(this: BRepOffsetAPI_MakeFilling): bool {.noSideEffect,
     importcpp: "IsDone", header: "BRepOffsetAPI_MakeFilling.hxx".}
-proc Generated*(this: var BRepOffsetAPI_MakeFilling; S: TopoDS_Shape): TopTools_ListOfShape {.
+proc generated*(this: var BRepOffsetAPI_MakeFilling; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Generated", header: "BRepOffsetAPI_MakeFilling.hxx".}
-proc G0Error*(this: BRepOffsetAPI_MakeFilling): Standard_Real {.noSideEffect,
+proc g0Error*(this: BRepOffsetAPI_MakeFilling): float {.noSideEffect,
     importcpp: "G0Error", header: "BRepOffsetAPI_MakeFilling.hxx".}
-proc G1Error*(this: BRepOffsetAPI_MakeFilling): Standard_Real {.noSideEffect,
+proc g1Error*(this: BRepOffsetAPI_MakeFilling): float {.noSideEffect,
     importcpp: "G1Error", header: "BRepOffsetAPI_MakeFilling.hxx".}
-proc G2Error*(this: BRepOffsetAPI_MakeFilling): Standard_Real {.noSideEffect,
+proc g2Error*(this: BRepOffsetAPI_MakeFilling): float {.noSideEffect,
     importcpp: "G2Error", header: "BRepOffsetAPI_MakeFilling.hxx".}
-proc G0Error*(this: var BRepOffsetAPI_MakeFilling; Index: Standard_Integer): Standard_Real {.
+proc g0Error*(this: var BRepOffsetAPI_MakeFilling; index: int): float {.
     importcpp: "G0Error", header: "BRepOffsetAPI_MakeFilling.hxx".}
-proc G1Error*(this: var BRepOffsetAPI_MakeFilling; Index: Standard_Integer): Standard_Real {.
+proc g1Error*(this: var BRepOffsetAPI_MakeFilling; index: int): float {.
     importcpp: "G1Error", header: "BRepOffsetAPI_MakeFilling.hxx".}
-proc G2Error*(this: var BRepOffsetAPI_MakeFilling; Index: Standard_Integer): Standard_Real {.
+proc g2Error*(this: var BRepOffsetAPI_MakeFilling; index: int): float {.
     importcpp: "G2Error", header: "BRepOffsetAPI_MakeFilling.hxx".}

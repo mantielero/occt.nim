@@ -14,16 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Resource_NoSuchResource_HeaderFile [NewLine] # _Resource_NoSuchResource_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_NoSuchObject.hxx [NewLine] class Resource_NoSuchResource ;
+## !!!Ignored construct:  # _Resource_NoSuchResource_HeaderFile [NewLine] # _Resource_NoSuchResource_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_NoSuchObject . hxx > [NewLine] class Resource_NoSuchResource ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Resource_NoSuchResource"
 type
-  Handle_Resource_NoSuchResourceResource_NoSuchResource* = handle[
-      Resource_NoSuchResource]
+  HandleResourceNoSuchResourceResourceNoSuchResource* = Handle[
+      ResourceNoSuchResource]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Resource_NoSuchResource [NewLine] # if ( CONDITION ) throw Resource_NoSuchResource ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Resource_NoSuchResource , Standard_NoSuchObject ) #  _Resource_NoSuchResource_HeaderFile [NewLine]
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Resource_NoSuchResource , Standard_NoSuchObject ) #  _Resource_NoSuchResource_HeaderFile
 ## Error: did not expect [NewLine]!!!
+

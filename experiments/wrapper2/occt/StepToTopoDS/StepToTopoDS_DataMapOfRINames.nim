@@ -14,12 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_AsciiString, ../TopoDS/TopoDS_Shape,
-  ../TCollection/TCollection_AsciiString, ../NCollection/NCollection_DataMap
-
 type
-  StepToTopoDS_DataMapOfRINames* = NCollection_DataMap[TCollection_AsciiString,
-      TopoDS_Shape, TCollection_AsciiString]
+  StepToTopoDS_DataMapOfRINames* = NCollectionDataMap[TCollectionAsciiString,
+      TopoDS_Shape, TCollectionAsciiString]
   StepToTopoDS_DataMapIteratorOfDataMapOfRINames* = Iterator[
-      TCollection_AsciiString, TopoDS_Shape, TCollection_AsciiString]
+      TCollectionAsciiString, TopoDS_Shape, TCollectionAsciiString]
+

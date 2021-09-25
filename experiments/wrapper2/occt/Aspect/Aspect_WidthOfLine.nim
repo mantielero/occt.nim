@@ -22,8 +22,9 @@
 ## ! WOL_USERDEFINED     defined by Users
 
 type
-  Aspect_WidthOfLine* {.size: sizeof(cint), importcpp: "Aspect_WidthOfLine",
-                       header: "Aspect_WidthOfLine.hxx".} = enum
-    Aspect_WOL_THIN, Aspect_WOL_MEDIUM, Aspect_WOL_THICK, Aspect_WOL_VERYTHICK,
-    Aspect_WOL_USERDEFINED
+  AspectWidthOfLine* {.size: sizeof(cint), importcpp: "Aspect_WidthOfLine",
+                      header: "Aspect_WidthOfLine.hxx".} = enum
+    AspectWOL_THIN, AspectWOL_MEDIUM, AspectWOL_THICK, AspectWOL_VERYTHICK,
+    AspectWOL_USERDEFINED
+
 

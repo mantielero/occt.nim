@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Geom/Geom_BezierSurface, ../NCollection/NCollection_Array2
-
 type
-  TColGeom_Array2OfBezierSurface* = NCollection_Array2[handle[Geom_BezierSurface]]
+  TColGeomArray2OfBezierSurface* = NCollectionArray2[Handle[GeomBezierSurface]]
+

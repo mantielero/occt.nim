@@ -14,40 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepShape_Vertex
-
 discard "forward decl of StepGeom_Point"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_VertexPoint"
 discard "forward decl of StepShape_VertexPoint"
 type
-  Handle_StepShape_VertexPoint* = handle[StepShape_VertexPoint]
-  StepShape_VertexPoint* {.importcpp: "StepShape_VertexPoint",
-                          header: "StepShape_VertexPoint.hxx", bycopy.} = object of StepShape_Vertex ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## a
-                                                                                              ## VertexPoint
+  HandleStepShapeVertexPoint* = Handle[StepShapeVertexPoint]
+  StepShapeVertexPoint* {.importcpp: "StepShape_VertexPoint",
+                         header: "StepShape_VertexPoint.hxx", bycopy.} = object of StepShapeVertex ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## a
+                                                                                            ## VertexPoint
 
 
-proc constructStepShape_VertexPoint*(): StepShape_VertexPoint {.constructor,
+proc constructStepShapeVertexPoint*(): StepShapeVertexPoint {.constructor,
     importcpp: "StepShape_VertexPoint(@)", header: "StepShape_VertexPoint.hxx".}
-proc Init*(this: var StepShape_VertexPoint; aName: handle[TCollection_HAsciiString];
-          aVertexGeometry: handle[StepGeom_Point]) {.importcpp: "Init",
+proc init*(this: var StepShapeVertexPoint; aName: Handle[TCollectionHAsciiString];
+          aVertexGeometry: Handle[StepGeomPoint]) {.importcpp: "Init",
     header: "StepShape_VertexPoint.hxx".}
-proc SetVertexGeometry*(this: var StepShape_VertexPoint;
-                       aVertexGeometry: handle[StepGeom_Point]) {.
+proc setVertexGeometry*(this: var StepShapeVertexPoint;
+                       aVertexGeometry: Handle[StepGeomPoint]) {.
     importcpp: "SetVertexGeometry", header: "StepShape_VertexPoint.hxx".}
-proc VertexGeometry*(this: StepShape_VertexPoint): handle[StepGeom_Point] {.
+proc vertexGeometry*(this: StepShapeVertexPoint): Handle[StepGeomPoint] {.
     noSideEffect, importcpp: "VertexGeometry", header: "StepShape_VertexPoint.hxx".}
 type
-  StepShape_VertexPointbase_type* = StepShape_Vertex
+  StepShapeVertexPointbaseType* = StepShapeVertex
 
-proc get_type_name*(): cstring {.importcpp: "StepShape_VertexPoint::get_type_name(@)",
-                              header: "StepShape_VertexPoint.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepShape_VertexPoint::get_type_name(@)",
+                            header: "StepShape_VertexPoint.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepShape_VertexPoint::get_type_descriptor(@)",
     header: "StepShape_VertexPoint.hxx".}
-proc DynamicType*(this: StepShape_VertexPoint): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "StepShape_VertexPoint.hxx".}
+proc dynamicType*(this: StepShapeVertexPoint): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "StepShape_VertexPoint.hxx".}

@@ -11,23 +11,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../StdObjMgt/StdObjMgt_Attribute, StdLPersistent_HString,
-  ../TDocStd/TDocStd_XLink
-
 type
-  StdLPersistent_XLink* {.importcpp: "StdLPersistent_XLink",
-                         header: "StdLPersistent_XLink.hxx", bycopy.} = object of StdObjMgt_Attribute[
-      TDocStd_XLink]          ## ! Read persistent data from a file.
+  StdLPersistentXLink* {.importcpp: "StdLPersistent_XLink",
+                        header: "StdLPersistent_XLink.hxx", bycopy.} = object of StdObjMgtAttribute[
+      TDocStdXLink]           ## ! Read persistent data from a file.
 
 
-proc Read*(this: var StdLPersistent_XLink; theReadData: var StdObjMgt_ReadData) {.
+proc read*(this: var StdLPersistentXLink; theReadData: var StdObjMgtReadData) {.
     importcpp: "Read", header: "StdLPersistent_XLink.hxx".}
-proc Write*(this: StdLPersistent_XLink; theWriteData: var StdObjMgt_WriteData) {.
+proc write*(this: StdLPersistentXLink; theWriteData: var StdObjMgtWriteData) {.
     noSideEffect, importcpp: "Write", header: "StdLPersistent_XLink.hxx".}
-proc PChildren*(this: StdLPersistent_XLink; theChildren: var SequenceOfPersistent) {.
+proc pChildren*(this: StdLPersistentXLink; theChildren: var SequenceOfPersistent) {.
     noSideEffect, importcpp: "PChildren", header: "StdLPersistent_XLink.hxx".}
-proc PName*(this: StdLPersistent_XLink): Standard_CString {.noSideEffect,
+proc pName*(this: StdLPersistentXLink): StandardCString {.noSideEffect,
     importcpp: "PName", header: "StdLPersistent_XLink.hxx".}
-proc Import*(this: StdLPersistent_XLink; theAttribute: handle[TDocStd_XLink]) {.
+proc `import`*(this: StdLPersistentXLink; theAttribute: Handle[TDocStdXLink]) {.
     noSideEffect, importcpp: "Import", header: "StdLPersistent_XLink.hxx".}

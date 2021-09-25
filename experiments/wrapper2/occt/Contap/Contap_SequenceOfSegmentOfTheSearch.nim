@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Contap_TheSegmentOfTheSearch, ../NCollection/NCollection_Sequence
-
 type
-  Contap_SequenceOfSegmentOfTheSearch* = NCollection_Sequence[
-      Contap_TheSegmentOfTheSearch]
+  ContapSequenceOfSegmentOfTheSearch* = NCollectionSequence[
+      ContapTheSegmentOfTheSearch]
+

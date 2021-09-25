@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESDraw_Planar"
 discard "forward decl of IGESData_IGESReaderData"
@@ -31,34 +26,32 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESDraw_ToolPlanar* {.importcpp: "IGESDraw_ToolPlanar",
-                        header: "IGESDraw_ToolPlanar.hxx", bycopy.} = object ## ! Returns a
-                                                                        ## ToolPlanar, ready to work
+  IGESDrawToolPlanar* {.importcpp: "IGESDraw_ToolPlanar",
+                       header: "IGESDraw_ToolPlanar.hxx", bycopy.} = object ## ! Returns a
+                                                                       ## ToolPlanar, ready to work
 
 
-proc constructIGESDraw_ToolPlanar*(): IGESDraw_ToolPlanar {.constructor,
+proc constructIGESDrawToolPlanar*(): IGESDrawToolPlanar {.constructor,
     importcpp: "IGESDraw_ToolPlanar(@)", header: "IGESDraw_ToolPlanar.hxx".}
-proc ReadOwnParams*(this: IGESDraw_ToolPlanar; ent: handle[IGESDraw_Planar];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESDraw_ToolPlanar.hxx".}
-proc WriteOwnParams*(this: IGESDraw_ToolPlanar; ent: handle[IGESDraw_Planar];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESDrawToolPlanar; ent: Handle[IGESDrawPlanar];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams", header: "IGESDraw_ToolPlanar.hxx".}
+proc writeOwnParams*(this: IGESDrawToolPlanar; ent: Handle[IGESDrawPlanar];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESDraw_ToolPlanar.hxx".}
-proc OwnShared*(this: IGESDraw_ToolPlanar; ent: handle[IGESDraw_Planar];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESDrawToolPlanar; ent: Handle[IGESDrawPlanar];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESDraw_ToolPlanar.hxx".}
-proc OwnCorrect*(this: IGESDraw_ToolPlanar; ent: handle[IGESDraw_Planar]): Standard_Boolean {.
+proc ownCorrect*(this: IGESDrawToolPlanar; ent: Handle[IGESDrawPlanar]): bool {.
     noSideEffect, importcpp: "OwnCorrect", header: "IGESDraw_ToolPlanar.hxx".}
-proc DirChecker*(this: IGESDraw_ToolPlanar; ent: handle[IGESDraw_Planar]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESDrawToolPlanar; ent: Handle[IGESDrawPlanar]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESDraw_ToolPlanar.hxx".}
-proc OwnCheck*(this: IGESDraw_ToolPlanar; ent: handle[IGESDraw_Planar];
-              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+proc ownCheck*(this: IGESDrawToolPlanar; ent: Handle[IGESDrawPlanar];
+              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESDraw_ToolPlanar.hxx".}
-proc OwnCopy*(this: IGESDraw_ToolPlanar; entfrom: handle[IGESDraw_Planar];
-             entto: handle[IGESDraw_Planar]; TC: var Interface_CopyTool) {.
+proc ownCopy*(this: IGESDrawToolPlanar; entfrom: Handle[IGESDrawPlanar];
+             entto: Handle[IGESDrawPlanar]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESDraw_ToolPlanar.hxx".}
-proc OwnDump*(this: IGESDraw_ToolPlanar; ent: handle[IGESDraw_Planar];
-             dumper: IGESData_IGESDumper; S: var Standard_OStream;
-             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
-                                    header: "IGESDraw_ToolPlanar.hxx".}
+proc ownDump*(this: IGESDrawToolPlanar; ent: Handle[IGESDrawPlanar];
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+    noSideEffect, importcpp: "OwnDump", header: "IGESDraw_ToolPlanar.hxx".}

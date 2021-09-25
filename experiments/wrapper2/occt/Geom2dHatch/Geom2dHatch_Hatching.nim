@@ -14,68 +14,61 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Geom2dAdaptor/Geom2dAdaptor_Curve,
-  ../Standard/Standard_Boolean, ../HatchGen/HatchGen_PointsOnHatching,
-  ../HatchGen/HatchGen_ErrorStatus, ../HatchGen/HatchGen_Domains,
-  ../Standard/Standard_Real, ../Standard/Standard_Integer
-
 discard "forward decl of gp_Pnt2d"
-when defined(Status):
-  discard
+# when defined(Status):
+#   discard
 type
-  Geom2dHatch_Hatching* {.importcpp: "Geom2dHatch_Hatching",
-                         header: "Geom2dHatch_Hatching.hxx", bycopy.} = object
+  Geom2dHatchHatching* {.importcpp: "Geom2dHatch_Hatching",
+                        header: "Geom2dHatch_Hatching.hxx", bycopy.} = object
 
 
-proc constructGeom2dHatch_Hatching*(): Geom2dHatch_Hatching {.constructor,
+proc constructGeom2dHatchHatching*(): Geom2dHatchHatching {.constructor,
     importcpp: "Geom2dHatch_Hatching(@)", header: "Geom2dHatch_Hatching.hxx".}
-proc constructGeom2dHatch_Hatching*(Curve: Geom2dAdaptor_Curve): Geom2dHatch_Hatching {.
+proc constructGeom2dHatchHatching*(curve: Geom2dAdaptorCurve): Geom2dHatchHatching {.
     constructor, importcpp: "Geom2dHatch_Hatching(@)",
     header: "Geom2dHatch_Hatching.hxx".}
-proc Curve*(this: Geom2dHatch_Hatching): Geom2dAdaptor_Curve {.noSideEffect,
+proc curve*(this: Geom2dHatchHatching): Geom2dAdaptorCurve {.noSideEffect,
     importcpp: "Curve", header: "Geom2dHatch_Hatching.hxx".}
-proc ChangeCurve*(this: var Geom2dHatch_Hatching): var Geom2dAdaptor_Curve {.
+proc changeCurve*(this: var Geom2dHatchHatching): var Geom2dAdaptorCurve {.
     importcpp: "ChangeCurve", header: "Geom2dHatch_Hatching.hxx".}
-proc TrimDone*(this: var Geom2dHatch_Hatching; Flag: Standard_Boolean) {.
+proc trimDone*(this: var Geom2dHatchHatching; flag: bool) {.importcpp: "TrimDone",
+    header: "Geom2dHatch_Hatching.hxx".}
+proc trimDone*(this: Geom2dHatchHatching): bool {.noSideEffect,
     importcpp: "TrimDone", header: "Geom2dHatch_Hatching.hxx".}
-proc TrimDone*(this: Geom2dHatch_Hatching): Standard_Boolean {.noSideEffect,
-    importcpp: "TrimDone", header: "Geom2dHatch_Hatching.hxx".}
-proc TrimFailed*(this: var Geom2dHatch_Hatching; Flag: Standard_Boolean) {.
+proc trimFailed*(this: var Geom2dHatchHatching; flag: bool) {.importcpp: "TrimFailed",
+    header: "Geom2dHatch_Hatching.hxx".}
+proc trimFailed*(this: Geom2dHatchHatching): bool {.noSideEffect,
     importcpp: "TrimFailed", header: "Geom2dHatch_Hatching.hxx".}
-proc TrimFailed*(this: Geom2dHatch_Hatching): Standard_Boolean {.noSideEffect,
-    importcpp: "TrimFailed", header: "Geom2dHatch_Hatching.hxx".}
-proc IsDone*(this: var Geom2dHatch_Hatching; Flag: Standard_Boolean) {.
-    importcpp: "IsDone", header: "Geom2dHatch_Hatching.hxx".}
-proc IsDone*(this: Geom2dHatch_Hatching): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "Geom2dHatch_Hatching.hxx".}
-proc Status*(this: var Geom2dHatch_Hatching; theStatus: HatchGen_ErrorStatus) {.
+proc isDone*(this: var Geom2dHatchHatching; flag: bool) {.importcpp: "IsDone",
+    header: "Geom2dHatch_Hatching.hxx".}
+proc isDone*(this: Geom2dHatchHatching): bool {.noSideEffect, importcpp: "IsDone",
+    header: "Geom2dHatch_Hatching.hxx".}
+proc status*(this: var Geom2dHatchHatching; theStatus: HatchGenErrorStatus) {.
     importcpp: "Status", header: "Geom2dHatch_Hatching.hxx".}
-proc Status*(this: Geom2dHatch_Hatching): HatchGen_ErrorStatus {.noSideEffect,
+proc status*(this: Geom2dHatchHatching): HatchGenErrorStatus {.noSideEffect,
     importcpp: "Status", header: "Geom2dHatch_Hatching.hxx".}
-proc AddPoint*(this: var Geom2dHatch_Hatching; Point: HatchGen_PointOnHatching;
-              Confusion: Standard_Real) {.importcpp: "AddPoint",
-                                        header: "Geom2dHatch_Hatching.hxx".}
-proc NbPoints*(this: Geom2dHatch_Hatching): Standard_Integer {.noSideEffect,
-    importcpp: "NbPoints", header: "Geom2dHatch_Hatching.hxx".}
-proc Point*(this: Geom2dHatch_Hatching; Index: Standard_Integer): HatchGen_PointOnHatching {.
+proc addPoint*(this: var Geom2dHatchHatching; point: HatchGenPointOnHatching;
+              confusion: float) {.importcpp: "AddPoint",
+                                header: "Geom2dHatch_Hatching.hxx".}
+proc nbPoints*(this: Geom2dHatchHatching): int {.noSideEffect, importcpp: "NbPoints",
+    header: "Geom2dHatch_Hatching.hxx".}
+proc point*(this: Geom2dHatchHatching; index: int): HatchGenPointOnHatching {.
     noSideEffect, importcpp: "Point", header: "Geom2dHatch_Hatching.hxx".}
-proc ChangePoint*(this: var Geom2dHatch_Hatching; Index: Standard_Integer): var HatchGen_PointOnHatching {.
+proc changePoint*(this: var Geom2dHatchHatching; index: int): var HatchGenPointOnHatching {.
     importcpp: "ChangePoint", header: "Geom2dHatch_Hatching.hxx".}
-proc RemPoint*(this: var Geom2dHatch_Hatching; Index: Standard_Integer) {.
-    importcpp: "RemPoint", header: "Geom2dHatch_Hatching.hxx".}
-proc ClrPoints*(this: var Geom2dHatch_Hatching) {.importcpp: "ClrPoints",
+proc remPoint*(this: var Geom2dHatchHatching; index: int) {.importcpp: "RemPoint",
     header: "Geom2dHatch_Hatching.hxx".}
-proc AddDomain*(this: var Geom2dHatch_Hatching; Domain: HatchGen_Domain) {.
+proc clrPoints*(this: var Geom2dHatchHatching) {.importcpp: "ClrPoints",
+    header: "Geom2dHatch_Hatching.hxx".}
+proc addDomain*(this: var Geom2dHatchHatching; domain: HatchGenDomain) {.
     importcpp: "AddDomain", header: "Geom2dHatch_Hatching.hxx".}
-proc NbDomains*(this: Geom2dHatch_Hatching): Standard_Integer {.noSideEffect,
+proc nbDomains*(this: Geom2dHatchHatching): int {.noSideEffect,
     importcpp: "NbDomains", header: "Geom2dHatch_Hatching.hxx".}
-proc Domain*(this: Geom2dHatch_Hatching; Index: Standard_Integer): HatchGen_Domain {.
-    noSideEffect, importcpp: "Domain", header: "Geom2dHatch_Hatching.hxx".}
-proc RemDomain*(this: var Geom2dHatch_Hatching; Index: Standard_Integer) {.
-    importcpp: "RemDomain", header: "Geom2dHatch_Hatching.hxx".}
-proc ClrDomains*(this: var Geom2dHatch_Hatching) {.importcpp: "ClrDomains",
+proc domain*(this: Geom2dHatchHatching; index: int): HatchGenDomain {.noSideEffect,
+    importcpp: "Domain", header: "Geom2dHatch_Hatching.hxx".}
+proc remDomain*(this: var Geom2dHatchHatching; index: int) {.importcpp: "RemDomain",
     header: "Geom2dHatch_Hatching.hxx".}
-proc ClassificationPoint*(this: Geom2dHatch_Hatching): gp_Pnt2d {.noSideEffect,
+proc clrDomains*(this: var Geom2dHatchHatching) {.importcpp: "ClrDomains",
+    header: "Geom2dHatch_Hatching.hxx".}
+proc classificationPoint*(this: Geom2dHatchHatching): Pnt2d {.noSideEffect,
     importcpp: "ClassificationPoint", header: "Geom2dHatch_Hatching.hxx".}

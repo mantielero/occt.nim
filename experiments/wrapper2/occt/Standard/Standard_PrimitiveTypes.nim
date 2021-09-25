@@ -12,7 +12,3 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  Standard_Macro, Standard_Boolean, Standard_Integer, Standard_Real,
-  Standard_Character, Standard_ExtCharacter, Standard_CString, Standard_ExtString,
-  Standard_Address

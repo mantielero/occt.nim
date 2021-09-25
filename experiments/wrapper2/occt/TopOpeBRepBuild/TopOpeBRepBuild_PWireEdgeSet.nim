@@ -16,4 +16,5 @@
 
 discard "forward decl of TopOpeBRepBuild_WireEdgeSet"
 type
-  TopOpeBRepBuild_PWireEdgeSet* = ptr TopOpeBRepBuild_WireEdgeSet
+  TopOpeBRepBuildPWireEdgeSet* = ptr TopOpeBRepBuildWireEdgeSet
+

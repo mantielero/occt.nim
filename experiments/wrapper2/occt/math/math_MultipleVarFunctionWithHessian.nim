@@ -14,39 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, math_MultipleVarFunctionWithGradient,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean, math_Vector,
-  ../Standard/Standard_Real
-
 discard "forward decl of math_Matrix"
 type
-  math_MultipleVarFunctionWithHessian* {.importcpp: "math_MultipleVarFunctionWithHessian", header: "math_MultipleVarFunctionWithHessian.hxx",
-                                        bycopy.} = object of math_MultipleVarFunctionWithGradient ##
-                                                                                             ## !
-                                                                                             ## returns
-                                                                                             ## the
-                                                                                             ## number
-                                                                                             ## of
-                                                                                             ## variables
-                                                                                             ## of
-                                                                                             ## the
-                                                                                             ## function.
+  MathMultipleVarFunctionWithHessian* {.importcpp: "math_MultipleVarFunctionWithHessian", header: "math_MultipleVarFunctionWithHessian.hxx",
+                                       bycopy.} = object of MathMultipleVarFunctionWithGradient ##
+                                                                                           ## !
+                                                                                           ## returns
+                                                                                           ## the
+                                                                                           ## number
+                                                                                           ## of
+                                                                                           ## variables
+                                                                                           ## of
+                                                                                           ## the
+                                                                                           ## function.
 
 
-proc NbVariables*(this: math_MultipleVarFunctionWithHessian): Standard_Integer {.
-    noSideEffect, importcpp: "NbVariables",
+proc nbVariables*(this: MathMultipleVarFunctionWithHessian): int {.noSideEffect,
+    importcpp: "NbVariables", header: "math_MultipleVarFunctionWithHessian.hxx".}
+proc value*(this: var MathMultipleVarFunctionWithHessian; x: MathVector; f: var float): bool {.
+    importcpp: "Value", header: "math_MultipleVarFunctionWithHessian.hxx".}
+proc gradient*(this: var MathMultipleVarFunctionWithHessian; x: MathVector;
+              g: var MathVector): bool {.importcpp: "Gradient", header: "math_MultipleVarFunctionWithHessian.hxx".}
+proc values*(this: var MathMultipleVarFunctionWithHessian; x: MathVector;
+            f: var float; g: var MathVector): bool {.importcpp: "Values",
     header: "math_MultipleVarFunctionWithHessian.hxx".}
-proc Value*(this: var math_MultipleVarFunctionWithHessian; X: math_Vector;
-           F: var Standard_Real): Standard_Boolean {.importcpp: "Value",
-    header: "math_MultipleVarFunctionWithHessian.hxx".}
-proc Gradient*(this: var math_MultipleVarFunctionWithHessian; X: math_Vector;
-              G: var math_Vector): Standard_Boolean {.importcpp: "Gradient",
-    header: "math_MultipleVarFunctionWithHessian.hxx".}
-proc Values*(this: var math_MultipleVarFunctionWithHessian; X: math_Vector;
-            F: var Standard_Real; G: var math_Vector): Standard_Boolean {.
-    importcpp: "Values", header: "math_MultipleVarFunctionWithHessian.hxx".}
-proc Values*(this: var math_MultipleVarFunctionWithHessian; X: math_Vector;
-            F: var Standard_Real; G: var math_Vector; H: var math_Matrix): Standard_Boolean {.
+proc values*(this: var MathMultipleVarFunctionWithHessian; x: MathVector;
+            f: var float; g: var MathVector; h: var MathMatrix): bool {.
     importcpp: "Values", header: "math_MultipleVarFunctionWithHessian.hxx".}

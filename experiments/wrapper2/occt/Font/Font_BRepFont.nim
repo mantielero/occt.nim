@@ -12,10 +12,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../StdPrs/StdPrs_BRepFont
-
 ## ! Alias for porting from old name.
 
 type
-  Font_BRepFont* = StdPrs_BRepFont
+  FontBRepFont* = StdPrsBRepFont
+

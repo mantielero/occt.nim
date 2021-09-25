@@ -16,6 +16,7 @@
 ## ! Defines the type of position for color scale labels
 
 type
-  Aspect_TypeOfColorScalePosition* {.size: sizeof(cint), importcpp: "Aspect_TypeOfColorScalePosition", header: "Aspect_TypeOfColorScalePosition.hxx".} = enum
-    Aspect_TOCSP_NONE, Aspect_TOCSP_LEFT, Aspect_TOCSP_RIGHT, Aspect_TOCSP_CENTER
+  AspectTypeOfColorScalePosition* {.size: sizeof(cint), importcpp: "Aspect_TypeOfColorScalePosition", header: "Aspect_TypeOfColorScalePosition.hxx".} = enum
+    AspectTOCSP_NONE, AspectTOCSP_LEFT, AspectTOCSP_RIGHT, AspectTOCSP_CENTER
+
 

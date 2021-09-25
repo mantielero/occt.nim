@@ -14,13 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../CDF/CDF_Application, ../Message/Message_Messenger,
-  ../Standard/Standard_CString, ../Standard/Standard_Integer,
-  ../Standard/Standard_IStream, ../TColStd/TColStd_SequenceOfAsciiString,
-  ../PCDM/PCDM_ReaderStatus, ../PCDM/PCDM_StoreStatus
-
 discard "forward decl of Resource_Manager"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TDocStd_Document"
@@ -28,7 +21,7 @@ discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of TDocStd_Application"
 discard "forward decl of TDocStd_Application"
 type
-  Handle_TDocStd_Application* = handle[TDocStd_Application]
+  HandleTDocStdApplication* = Handle[TDocStdApplication]
 
 ## ! The abstract root class for all application classes.
 ## ! They are in charge of:
@@ -60,107 +53,106 @@ type
 ## ! By default, trace level is Message_Info, so that all messages are output.
 
 type
-  TDocStd_Application* {.importcpp: "TDocStd_Application",
-                        header: "TDocStd_Application.hxx", bycopy.} = object of CDF_Application ##
-                                                                                         ## !
-                                                                                         ## Constructs
-                                                                                         ## the
-                                                                                         ## new
-                                                                                         ## instance
-                                                                                         ## and
-                                                                                         ## registers
-                                                                                         ## it
-                                                                                         ## in
-                                                                                         ## CDM_Session
+  TDocStdApplication* {.importcpp: "TDocStd_Application",
+                       header: "TDocStd_Application.hxx", bycopy.} = object of CDF_Application ##
+                                                                                        ## !
+                                                                                        ## Constructs
+                                                                                        ## the
+                                                                                        ## new
+                                                                                        ## instance
+                                                                                        ## and
+                                                                                        ## registers
+                                                                                        ## it
+                                                                                        ## in
+                                                                                        ## CDM_Session
 
 
-proc constructTDocStd_Application*(): TDocStd_Application {.constructor,
+proc constructTDocStdApplication*(): TDocStdApplication {.constructor,
     importcpp: "TDocStd_Application(@)", header: "TDocStd_Application.hxx".}
-proc IsDriverLoaded*(this: TDocStd_Application): Standard_Boolean {.noSideEffect,
+proc isDriverLoaded*(this: TDocStdApplication): bool {.noSideEffect,
     importcpp: "IsDriverLoaded", header: "TDocStd_Application.hxx".}
-proc Resources*(this: var TDocStd_Application): handle[Resource_Manager] {.
+proc resources*(this: var TDocStdApplication): Handle[ResourceManager] {.
     importcpp: "Resources", header: "TDocStd_Application.hxx".}
-proc ResourcesName*(this: var TDocStd_Application): Standard_CString {.
+proc resourcesName*(this: var TDocStdApplication): StandardCString {.
     importcpp: "ResourcesName", header: "TDocStd_Application.hxx".}
-proc DefineFormat*(this: var TDocStd_Application;
-                  theFormat: TCollection_AsciiString;
-                  theDescription: TCollection_AsciiString;
-                  theExtension: TCollection_AsciiString;
-                  theReader: handle[PCDM_RetrievalDriver];
-                  theWriter: handle[PCDM_StorageDriver]) {.
+proc defineFormat*(this: var TDocStdApplication; theFormat: TCollectionAsciiString;
+                  theDescription: TCollectionAsciiString;
+                  theExtension: TCollectionAsciiString;
+                  theReader: Handle[PCDM_RetrievalDriver];
+                  theWriter: Handle[PCDM_StorageDriver]) {.
     importcpp: "DefineFormat", header: "TDocStd_Application.hxx".}
-proc ReadingFormats*(this: var TDocStd_Application;
-                    theFormats: var TColStd_SequenceOfAsciiString) {.
+proc readingFormats*(this: var TDocStdApplication;
+                    theFormats: var TColStdSequenceOfAsciiString) {.
     importcpp: "ReadingFormats", header: "TDocStd_Application.hxx".}
-proc WritingFormats*(this: var TDocStd_Application;
-                    theFormats: var TColStd_SequenceOfAsciiString) {.
+proc writingFormats*(this: var TDocStdApplication;
+                    theFormats: var TColStdSequenceOfAsciiString) {.
     importcpp: "WritingFormats", header: "TDocStd_Application.hxx".}
-proc NbDocuments*(this: TDocStd_Application): Standard_Integer {.noSideEffect,
+proc nbDocuments*(this: TDocStdApplication): int {.noSideEffect,
     importcpp: "NbDocuments", header: "TDocStd_Application.hxx".}
-proc GetDocument*(this: TDocStd_Application; index: Standard_Integer;
-                 aDoc: var handle[TDocStd_Document]) {.noSideEffect,
+proc getDocument*(this: TDocStdApplication; index: int;
+                 aDoc: var Handle[TDocStdDocument]) {.noSideEffect,
     importcpp: "GetDocument", header: "TDocStd_Application.hxx".}
-proc NewDocument*(this: var TDocStd_Application; format: TCollection_ExtendedString;
-                 aDoc: var handle[TDocStd_Document]) {.importcpp: "NewDocument",
+proc newDocument*(this: var TDocStdApplication; format: TCollectionExtendedString;
+                 aDoc: var Handle[TDocStdDocument]) {.importcpp: "NewDocument",
     header: "TDocStd_Application.hxx".}
-proc InitDocument*(this: TDocStd_Application; aDoc: handle[TDocStd_Document]) {.
+proc initDocument*(this: TDocStdApplication; aDoc: Handle[TDocStdDocument]) {.
     noSideEffect, importcpp: "InitDocument", header: "TDocStd_Application.hxx".}
-proc Close*(this: var TDocStd_Application; aDoc: handle[TDocStd_Document]) {.
+proc close*(this: var TDocStdApplication; aDoc: Handle[TDocStdDocument]) {.
     importcpp: "Close", header: "TDocStd_Application.hxx".}
-proc IsInSession*(this: TDocStd_Application; path: TCollection_ExtendedString): Standard_Integer {.
+proc isInSession*(this: TDocStdApplication; path: TCollectionExtendedString): int {.
     noSideEffect, importcpp: "IsInSession", header: "TDocStd_Application.hxx".}
-proc Open*(this: var TDocStd_Application; path: TCollection_ExtendedString;
-          aDoc: var handle[TDocStd_Document];
-          theRange: Message_ProgressRange = Message_ProgressRange()): PCDM_ReaderStatus {.
+proc open*(this: var TDocStdApplication; path: TCollectionExtendedString;
+          aDoc: var Handle[TDocStdDocument];
+          theRange: MessageProgressRange = messageProgressRange()): PCDM_ReaderStatus {.
     importcpp: "Open", header: "TDocStd_Application.hxx".}
-proc Open*(this: var TDocStd_Application; theIStream: var Standard_IStream;
-          theDoc: var handle[TDocStd_Document];
-          theRange: Message_ProgressRange = Message_ProgressRange()): PCDM_ReaderStatus {.
+proc open*(this: var TDocStdApplication; theIStream: var StandardIStream;
+          theDoc: var Handle[TDocStdDocument];
+          theRange: MessageProgressRange = messageProgressRange()): PCDM_ReaderStatus {.
     importcpp: "Open", header: "TDocStd_Application.hxx".}
-proc SaveAs*(this: var TDocStd_Application; aDoc: handle[TDocStd_Document];
-            path: TCollection_ExtendedString;
-            theRange: Message_ProgressRange = Message_ProgressRange()): PCDM_StoreStatus {.
+proc saveAs*(this: var TDocStdApplication; aDoc: Handle[TDocStdDocument];
+            path: TCollectionExtendedString;
+            theRange: MessageProgressRange = messageProgressRange()): PCDM_StoreStatus {.
     importcpp: "SaveAs", header: "TDocStd_Application.hxx".}
-proc SaveAs*(this: var TDocStd_Application; theDoc: handle[TDocStd_Document];
-            theOStream: var Standard_OStream;
-            theRange: Message_ProgressRange = Message_ProgressRange()): PCDM_StoreStatus {.
+proc saveAs*(this: var TDocStdApplication; theDoc: Handle[TDocStdDocument];
+            theOStream: var StandardOStream;
+            theRange: MessageProgressRange = messageProgressRange()): PCDM_StoreStatus {.
     importcpp: "SaveAs", header: "TDocStd_Application.hxx".}
-proc Save*(this: var TDocStd_Application; aDoc: handle[TDocStd_Document];
-          theRange: Message_ProgressRange = Message_ProgressRange()): PCDM_StoreStatus {.
+proc save*(this: var TDocStdApplication; aDoc: Handle[TDocStdDocument];
+          theRange: MessageProgressRange = messageProgressRange()): PCDM_StoreStatus {.
     importcpp: "Save", header: "TDocStd_Application.hxx".}
-proc SaveAs*(this: var TDocStd_Application; aDoc: handle[TDocStd_Document];
-            path: TCollection_ExtendedString;
-            theStatusMessage: var TCollection_ExtendedString;
-            theRange: Message_ProgressRange = Message_ProgressRange()): PCDM_StoreStatus {.
+proc saveAs*(this: var TDocStdApplication; aDoc: Handle[TDocStdDocument];
+            path: TCollectionExtendedString;
+            theStatusMessage: var TCollectionExtendedString;
+            theRange: MessageProgressRange = messageProgressRange()): PCDM_StoreStatus {.
     importcpp: "SaveAs", header: "TDocStd_Application.hxx".}
-proc SaveAs*(this: var TDocStd_Application; theDoc: handle[TDocStd_Document];
-            theOStream: var Standard_OStream;
-            theStatusMessage: var TCollection_ExtendedString;
-            theRange: Message_ProgressRange = Message_ProgressRange()): PCDM_StoreStatus {.
+proc saveAs*(this: var TDocStdApplication; theDoc: Handle[TDocStdDocument];
+            theOStream: var StandardOStream;
+            theStatusMessage: var TCollectionExtendedString;
+            theRange: MessageProgressRange = messageProgressRange()): PCDM_StoreStatus {.
     importcpp: "SaveAs", header: "TDocStd_Application.hxx".}
-proc Save*(this: var TDocStd_Application; aDoc: handle[TDocStd_Document];
-          theStatusMessage: var TCollection_ExtendedString;
-          theRange: Message_ProgressRange = Message_ProgressRange()): PCDM_StoreStatus {.
+proc save*(this: var TDocStdApplication; aDoc: Handle[TDocStdDocument];
+          theStatusMessage: var TCollectionExtendedString;
+          theRange: MessageProgressRange = messageProgressRange()): PCDM_StoreStatus {.
     importcpp: "Save", header: "TDocStd_Application.hxx".}
-proc OnOpenTransaction*(this: var TDocStd_Application;
-                       theDoc: handle[TDocStd_Document]) {.
+proc onOpenTransaction*(this: var TDocStdApplication;
+                       theDoc: Handle[TDocStdDocument]) {.
     importcpp: "OnOpenTransaction", header: "TDocStd_Application.hxx".}
-proc OnCommitTransaction*(this: var TDocStd_Application;
-                         theDoc: handle[TDocStd_Document]) {.
+proc onCommitTransaction*(this: var TDocStdApplication;
+                         theDoc: Handle[TDocStdDocument]) {.
     importcpp: "OnCommitTransaction", header: "TDocStd_Application.hxx".}
-proc OnAbortTransaction*(this: var TDocStd_Application;
-                        theDoc: handle[TDocStd_Document]) {.
+proc onAbortTransaction*(this: var TDocStdApplication;
+                        theDoc: Handle[TDocStdDocument]) {.
     importcpp: "OnAbortTransaction", header: "TDocStd_Application.hxx".}
-proc DumpJson*(this: TDocStd_Application; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TDocStd_Application.hxx".}
+proc dumpJson*(this: TDocStdApplication; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TDocStd_Application.hxx".}
 type
-  TDocStd_Applicationbase_type* = CDF_Application
+  TDocStdApplicationbaseType* = CDF_Application
 
-proc get_type_name*(): cstring {.importcpp: "TDocStd_Application::get_type_name(@)",
-                              header: "TDocStd_Application.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDocStd_Application::get_type_name(@)",
+                            header: "TDocStd_Application.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDocStd_Application::get_type_descriptor(@)",
     header: "TDocStd_Application.hxx".}
-proc DynamicType*(this: TDocStd_Application): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDocStdApplication): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDocStd_Application.hxx".}

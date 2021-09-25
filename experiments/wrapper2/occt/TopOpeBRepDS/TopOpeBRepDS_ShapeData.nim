@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, TopOpeBRepDS_ListOfInterference,
-  ../TopTools/TopTools_ListOfShape, ../Standard/Standard_Integer,
-  TopOpeBRepDS_Config, ../TopAbs/TopAbs_Orientation, ../Standard/Standard_Boolean
-
 discard "forward decl of TopOpeBRepDS_DataStructure"
 type
   TopOpeBRepDS_ShapeData* {.importcpp: "TopOpeBRepDS_ShapeData",
@@ -28,11 +22,11 @@ type
 
 proc constructTopOpeBRepDS_ShapeData*(): TopOpeBRepDS_ShapeData {.constructor,
     importcpp: "TopOpeBRepDS_ShapeData(@)", header: "TopOpeBRepDS_ShapeData.hxx".}
-proc Interferences*(this: TopOpeBRepDS_ShapeData): TopOpeBRepDS_ListOfInterference {.
+proc interferences*(this: TopOpeBRepDS_ShapeData): TopOpeBRepDS_ListOfInterference {.
     noSideEffect, importcpp: "Interferences", header: "TopOpeBRepDS_ShapeData.hxx".}
-proc ChangeInterferences*(this: var TopOpeBRepDS_ShapeData): var TopOpeBRepDS_ListOfInterference {.
+proc changeInterferences*(this: var TopOpeBRepDS_ShapeData): var TopOpeBRepDS_ListOfInterference {.
     importcpp: "ChangeInterferences", header: "TopOpeBRepDS_ShapeData.hxx".}
-proc Keep*(this: TopOpeBRepDS_ShapeData): Standard_Boolean {.noSideEffect,
-    importcpp: "Keep", header: "TopOpeBRepDS_ShapeData.hxx".}
-proc ChangeKeep*(this: var TopOpeBRepDS_ShapeData; B: Standard_Boolean) {.
-    importcpp: "ChangeKeep", header: "TopOpeBRepDS_ShapeData.hxx".}
+proc keep*(this: TopOpeBRepDS_ShapeData): bool {.noSideEffect, importcpp: "Keep",
+    header: "TopOpeBRepDS_ShapeData.hxx".}
+proc changeKeep*(this: var TopOpeBRepDS_ShapeData; b: bool) {.importcpp: "ChangeKeep",
+    header: "TopOpeBRepDS_ShapeData.hxx".}

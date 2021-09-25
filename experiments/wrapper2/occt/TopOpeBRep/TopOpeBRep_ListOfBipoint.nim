@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  TopOpeBRep_Bipoint, ../NCollection/NCollection_List
-
 type
-  TopOpeBRep_ListOfBipoint* = NCollection_List[TopOpeBRep_Bipoint]
-  TopOpeBRep_ListIteratorOfListOfBipoint* = Iterator[TopOpeBRep_Bipoint]
+  TopOpeBRepListOfBipoint* = NCollectionList[TopOpeBRepBipoint]
+  TopOpeBRepListIteratorOfListOfBipoint* = Iterator[TopOpeBRepBipoint]
+

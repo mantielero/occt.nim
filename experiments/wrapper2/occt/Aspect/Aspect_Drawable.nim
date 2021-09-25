@@ -20,9 +20,9 @@
 
 when Windows:
   type
-    Aspect_Drawable* = pointer
+    AspectDrawable* = pointer
   ##  HDC under WNT
 else:
   type
-    Aspect_Drawable* = culong
+    AspectDrawable* = culong
   ##  Window or Pixmap under UNIX

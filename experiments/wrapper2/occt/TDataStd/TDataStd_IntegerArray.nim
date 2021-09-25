@@ -14,12 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_HArray1OfInteger, ../Standard/Standard_Boolean,
-  ../TDF/TDF_Attribute, ../Standard/Standard_Integer,
-  ../Standard/Standard_OStream, ../Standard/Standard_GUID
-
 discard "forward decl of TDataStd_DeltaOnModificationOfIntArray"
 discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_Label"
@@ -29,95 +23,92 @@ discard "forward decl of TDF_DeltaOnModification"
 discard "forward decl of TDataStd_IntegerArray"
 discard "forward decl of TDataStd_IntegerArray"
 type
-  Handle_TDataStd_IntegerArray* = handle[TDataStd_IntegerArray]
+  HandleTDataStdIntegerArray* = Handle[TDataStdIntegerArray]
 
 ## ! Contains an array of integers.
 
 type
-  TDataStd_IntegerArray* {.importcpp: "TDataStd_IntegerArray",
-                          header: "TDataStd_IntegerArray.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                           ## !
-                                                                                           ## class
-                                                                                           ## methods
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## =============
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Returns
-                                                                                           ## the
-                                                                                           ## GUID
-                                                                                           ## for
-                                                                                           ## arrays
-                                                                                           ## of
-                                                                                           ## integers.
+  TDataStdIntegerArray* {.importcpp: "TDataStd_IntegerArray",
+                         header: "TDataStd_IntegerArray.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                          ## !
+                                                                                          ## class
+                                                                                          ## methods
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## =============
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## Returns
+                                                                                          ## the
+                                                                                          ## GUID
+                                                                                          ## for
+                                                                                          ## arrays
+                                                                                          ## of
+                                                                                          ## integers.
 
-  TDataStd_IntegerArraybase_type* = TDF_Attribute
+  TDataStdIntegerArraybaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TDataStd_IntegerArray::get_type_name(@)",
-                              header: "TDataStd_IntegerArray.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDataStd_IntegerArray::get_type_name(@)",
+                            header: "TDataStd_IntegerArray.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDataStd_IntegerArray::get_type_descriptor(@)",
     header: "TDataStd_IntegerArray.hxx".}
-proc DynamicType*(this: TDataStd_IntegerArray): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "TDataStd_IntegerArray.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "TDataStd_IntegerArray::GetID(@)",
-                            header: "TDataStd_IntegerArray.hxx".}
-proc Set*(label: TDF_Label; lower: Standard_Integer; upper: Standard_Integer;
-         isDelta: Standard_Boolean = Standard_False): handle[TDataStd_IntegerArray] {.
+proc dynamicType*(this: TDataStdIntegerArray): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "TDataStd_IntegerArray.hxx".}
+proc getID*(): StandardGUID {.importcpp: "TDataStd_IntegerArray::GetID(@)",
+                           header: "TDataStd_IntegerArray.hxx".}
+proc set*(label: TDF_Label; lower: int; upper: int; isDelta: bool = false): Handle[
+    TDataStdIntegerArray] {.importcpp: "TDataStd_IntegerArray::Set(@)",
+                           header: "TDataStd_IntegerArray.hxx".}
+proc set*(label: TDF_Label; theGuid: StandardGUID; lower: int; upper: int;
+         isDelta: bool = false): Handle[TDataStdIntegerArray] {.
     importcpp: "TDataStd_IntegerArray::Set(@)",
     header: "TDataStd_IntegerArray.hxx".}
-proc Set*(label: TDF_Label; theGuid: Standard_GUID; lower: Standard_Integer;
-         upper: Standard_Integer; isDelta: Standard_Boolean = Standard_False): handle[
-    TDataStd_IntegerArray] {.importcpp: "TDataStd_IntegerArray::Set(@)",
-                            header: "TDataStd_IntegerArray.hxx".}
-proc Init*(this: var TDataStd_IntegerArray; lower: Standard_Integer;
-          upper: Standard_Integer) {.importcpp: "Init",
-                                   header: "TDataStd_IntegerArray.hxx".}
-proc SetValue*(this: var TDataStd_IntegerArray; Index: Standard_Integer;
-              Value: Standard_Integer) {.importcpp: "SetValue",
-                                       header: "TDataStd_IntegerArray.hxx".}
-proc SetID*(this: var TDataStd_IntegerArray; theGuid: Standard_GUID) {.
+proc init*(this: var TDataStdIntegerArray; lower: int; upper: int) {.importcpp: "Init",
+    header: "TDataStd_IntegerArray.hxx".}
+proc setValue*(this: var TDataStdIntegerArray; index: int; value: int) {.
+    importcpp: "SetValue", header: "TDataStd_IntegerArray.hxx".}
+proc setID*(this: var TDataStdIntegerArray; theGuid: StandardGUID) {.
     importcpp: "SetID", header: "TDataStd_IntegerArray.hxx".}
-proc SetID*(this: var TDataStd_IntegerArray) {.importcpp: "SetID",
+proc setID*(this: var TDataStdIntegerArray) {.importcpp: "SetID",
     header: "TDataStd_IntegerArray.hxx".}
-proc Value*(this: TDataStd_IntegerArray; Index: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "Value", header: "TDataStd_IntegerArray.hxx".}
-proc `()`*(this: TDataStd_IntegerArray; Index: Standard_Integer): Standard_Integer {.
-    noSideEffect, importcpp: "#(@)", header: "TDataStd_IntegerArray.hxx".}
-proc Lower*(this: TDataStd_IntegerArray): Standard_Integer {.noSideEffect,
-    importcpp: "Lower", header: "TDataStd_IntegerArray.hxx".}
-proc Upper*(this: TDataStd_IntegerArray): Standard_Integer {.noSideEffect,
-    importcpp: "Upper", header: "TDataStd_IntegerArray.hxx".}
-proc Length*(this: TDataStd_IntegerArray): Standard_Integer {.noSideEffect,
-    importcpp: "Length", header: "TDataStd_IntegerArray.hxx".}
-proc ChangeArray*(this: var TDataStd_IntegerArray;
-                 newArray: handle[TColStd_HArray1OfInteger];
-                 isCheckItems: Standard_Boolean = Standard_True) {.
-    importcpp: "ChangeArray", header: "TDataStd_IntegerArray.hxx".}
-proc Array*(this: TDataStd_IntegerArray): handle[TColStd_HArray1OfInteger] {.
+proc value*(this: TDataStdIntegerArray; index: int): int {.noSideEffect,
+    importcpp: "Value", header: "TDataStd_IntegerArray.hxx".}
+proc `()`*(this: TDataStdIntegerArray; index: int): int {.noSideEffect,
+    importcpp: "#(@)", header: "TDataStd_IntegerArray.hxx".}
+proc lower*(this: TDataStdIntegerArray): int {.noSideEffect, importcpp: "Lower",
+    header: "TDataStd_IntegerArray.hxx".}
+proc upper*(this: TDataStdIntegerArray): int {.noSideEffect, importcpp: "Upper",
+    header: "TDataStd_IntegerArray.hxx".}
+proc length*(this: TDataStdIntegerArray): int {.noSideEffect, importcpp: "Length",
+    header: "TDataStd_IntegerArray.hxx".}
+proc changeArray*(this: var TDataStdIntegerArray;
+                 newArray: Handle[TColStdHArray1OfInteger];
+                 isCheckItems: bool = true) {.importcpp: "ChangeArray",
+    header: "TDataStd_IntegerArray.hxx".}
+proc array*(this: TDataStdIntegerArray): Handle[TColStdHArray1OfInteger] {.
     noSideEffect, importcpp: "Array", header: "TDataStd_IntegerArray.hxx".}
-proc GetDelta*(this: TDataStd_IntegerArray): Standard_Boolean {.noSideEffect,
+proc getDelta*(this: TDataStdIntegerArray): bool {.noSideEffect,
     importcpp: "GetDelta", header: "TDataStd_IntegerArray.hxx".}
-proc SetDelta*(this: var TDataStd_IntegerArray; isDelta: Standard_Boolean) {.
-    importcpp: "SetDelta", header: "TDataStd_IntegerArray.hxx".}
-proc constructTDataStd_IntegerArray*(): TDataStd_IntegerArray {.constructor,
+proc setDelta*(this: var TDataStdIntegerArray; isDelta: bool) {.importcpp: "SetDelta",
+    header: "TDataStd_IntegerArray.hxx".}
+proc constructTDataStdIntegerArray*(): TDataStdIntegerArray {.constructor,
     importcpp: "TDataStd_IntegerArray(@)", header: "TDataStd_IntegerArray.hxx".}
-proc ID*(this: TDataStd_IntegerArray): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TDataStdIntegerArray): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TDataStd_IntegerArray.hxx".}
-proc Restore*(this: var TDataStd_IntegerArray; With: handle[TDF_Attribute]) {.
+proc restore*(this: var TDataStdIntegerArray; with: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TDataStd_IntegerArray.hxx".}
-proc NewEmpty*(this: TDataStd_IntegerArray): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TDataStdIntegerArray): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TDataStd_IntegerArray.hxx".}
-proc Paste*(this: TDataStd_IntegerArray; Into: handle[TDF_Attribute];
-           RT: handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
+proc paste*(this: TDataStdIntegerArray; into: Handle[TDF_Attribute];
+           rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TDataStd_IntegerArray.hxx".}
-proc Dump*(this: TDataStd_IntegerArray; anOS: var Standard_OStream): var Standard_OStream {.
+proc dump*(this: TDataStdIntegerArray; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_IntegerArray.hxx".}
-proc DeltaOnModification*(this: TDataStd_IntegerArray;
-                         anOldAttribute: handle[TDF_Attribute]): handle[
+proc deltaOnModification*(this: TDataStdIntegerArray;
+                         anOldAttribute: Handle[TDF_Attribute]): Handle[
     TDF_DeltaOnModification] {.noSideEffect, importcpp: "DeltaOnModification",
                               header: "TDataStd_IntegerArray.hxx".}
-proc DumpJson*(this: TDataStd_IntegerArray; theOStream: var Standard_OStream;
-              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "TDataStd_IntegerArray.hxx".}
+proc dumpJson*(this: TDataStdIntegerArray; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TDataStd_IntegerArray.hxx".}

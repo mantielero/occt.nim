@@ -43,9 +43,10 @@
 ## ! and type of the resulting shape).
 
 type
-  IFSelect_PrintCount* {.size: sizeof(cint), importcpp: "IFSelect_PrintCount",
-                        header: "IFSelect_PrintCount.hxx".} = enum
-    IFSelect_ItemsByEntity, IFSelect_CountByItem, IFSelect_ShortByItem,
-    IFSelect_ListByItem, IFSelect_EntitiesByItem, IFSelect_CountSummary,
-    IFSelect_GeneralInfo, IFSelect_Mapping, IFSelect_ResultCount
+  IFSelectPrintCount* {.size: sizeof(cint), importcpp: "IFSelect_PrintCount",
+                       header: "IFSelect_PrintCount.hxx".} = enum
+    IFSelectItemsByEntity, IFSelectCountByItem, IFSelectShortByItem,
+    IFSelectListByItem, IFSelectEntitiesByItem, IFSelectCountSummary,
+    IFSelectGeneralInfo, IFSelectMapping, IFSelectResultCount
+
 

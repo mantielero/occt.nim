@@ -14,11 +14,12 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation Copyright: (C) RINA S.p.A
 
-## !!!Ignored construct:  # TObj_SequenceOfObject_HeaderFile [NewLine] # TObj_SequenceOfObject_HeaderFile [NewLine] # ../NCollection/NCollection_Sequence.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] # TObj_Common.hxx [NewLine] class TObj_Object ;
+## !!!Ignored construct:  # TObj_SequenceOfObject_HeaderFile [NewLine] # TObj_SequenceOfObject_HeaderFile [NewLine] # < NCollection_Sequence . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] # < TObj_Common . hxx > [NewLine] class TObj_Object ;
 ## Error: expected ';'!!!
 
 type
-  TObj_SequenceOfObject* = NCollection_Sequence[handle[TObj_Object]]
+  TObjSequenceOfObject* = NCollectionSequence[Handle[TObjObject]]
 
 ## !!!Ignored construct:  DEFINE_HSEQUENCE ( TObj_HSequenceOfObject , TObj_SequenceOfObject ) # [NewLine]
 ## Error: expected ';'!!!
+

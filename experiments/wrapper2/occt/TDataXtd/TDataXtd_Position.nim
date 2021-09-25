@@ -13,10 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Pnt,
-  ../TDF/TDF_Attribute, ../Standard/Standard_Boolean
-
 discard "forward decl of TDF_Label"
 discard "forward decl of gp_Pnt"
 discard "forward decl of Standard_GUID"
@@ -25,58 +21,58 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataXtd_Position"
 discard "forward decl of TDataXtd_Position"
 type
-  Handle_TDataXtd_Position* = handle[TDataXtd_Position]
+  HandleTDataXtdPosition* = Handle[TDataXtdPosition]
 
 ## ! Position of a Label
 
 type
-  TDataXtd_Position* {.importcpp: "TDataXtd_Position",
-                      header: "TDataXtd_Position.hxx", bycopy.} = object of TDF_Attribute ##
-                                                                                   ## !
-                                                                                   ## Create
-                                                                                   ## if
-                                                                                   ## not
-                                                                                   ## found
-                                                                                   ## the
-                                                                                   ## TDataXtd_Position
-                                                                                   ## attribute
-                                                                                   ## set
-                                                                                   ## its
-                                                                                   ## position
-                                                                                   ## to
-                                                                                   ## <aPos>
+  TDataXtdPosition* {.importcpp: "TDataXtd_Position",
+                     header: "TDataXtd_Position.hxx", bycopy.} = object of TDF_Attribute ##
+                                                                                  ## !
+                                                                                  ## Create
+                                                                                  ## if
+                                                                                  ## not
+                                                                                  ## found
+                                                                                  ## the
+                                                                                  ## TDataXtd_Position
+                                                                                  ## attribute
+                                                                                  ## set
+                                                                                  ## its
+                                                                                  ## position
+                                                                                  ## to
+                                                                                  ## <aPos>
 
 
-proc Set*(aLabel: TDF_Label; aPos: gp_Pnt) {.importcpp: "TDataXtd_Position::Set(@)",
-                                        header: "TDataXtd_Position.hxx".}
-proc Set*(aLabel: TDF_Label): handle[TDataXtd_Position] {.
+proc set*(aLabel: TDF_Label; aPos: Pnt) {.importcpp: "TDataXtd_Position::Set(@)",
+                                     header: "TDataXtd_Position.hxx".}
+proc set*(aLabel: TDF_Label): Handle[TDataXtdPosition] {.
     importcpp: "TDataXtd_Position::Set(@)", header: "TDataXtd_Position.hxx".}
-proc Get*(aLabel: TDF_Label; aPos: var gp_Pnt): Standard_Boolean {.
+proc get*(aLabel: TDF_Label; aPos: var Pnt): bool {.
     importcpp: "TDataXtd_Position::Get(@)", header: "TDataXtd_Position.hxx".}
-proc constructTDataXtd_Position*(): TDataXtd_Position {.constructor,
+proc constructTDataXtdPosition*(): TDataXtdPosition {.constructor,
     importcpp: "TDataXtd_Position(@)", header: "TDataXtd_Position.hxx".}
-proc ID*(this: TDataXtd_Position): Standard_GUID {.noSideEffect, importcpp: "ID",
+proc id*(this: TDataXtdPosition): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TDataXtd_Position.hxx".}
-proc GetID*(): Standard_GUID {.importcpp: "TDataXtd_Position::GetID(@)",
-                            header: "TDataXtd_Position.hxx".}
-proc Restore*(this: var TDataXtd_Position; anAttribute: handle[TDF_Attribute]) {.
+proc getID*(): StandardGUID {.importcpp: "TDataXtd_Position::GetID(@)",
+                           header: "TDataXtd_Position.hxx".}
+proc restore*(this: var TDataXtdPosition; anAttribute: Handle[TDF_Attribute]) {.
     importcpp: "Restore", header: "TDataXtd_Position.hxx".}
-proc NewEmpty*(this: TDataXtd_Position): handle[TDF_Attribute] {.noSideEffect,
+proc newEmpty*(this: TDataXtdPosition): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TDataXtd_Position.hxx".}
-proc Paste*(this: TDataXtd_Position; intoAttribute: handle[TDF_Attribute];
-           aRelocTationable: handle[TDF_RelocationTable]) {.noSideEffect,
+proc paste*(this: TDataXtdPosition; intoAttribute: Handle[TDF_Attribute];
+           aRelocTationable: Handle[TDF_RelocationTable]) {.noSideEffect,
     importcpp: "Paste", header: "TDataXtd_Position.hxx".}
-proc GetPosition*(this: TDataXtd_Position): gp_Pnt {.noSideEffect,
+proc getPosition*(this: TDataXtdPosition): Pnt {.noSideEffect,
     importcpp: "GetPosition", header: "TDataXtd_Position.hxx".}
-proc SetPosition*(this: var TDataXtd_Position; aPos: gp_Pnt) {.
-    importcpp: "SetPosition", header: "TDataXtd_Position.hxx".}
+proc setPosition*(this: var TDataXtdPosition; aPos: Pnt) {.importcpp: "SetPosition",
+    header: "TDataXtd_Position.hxx".}
 type
-  TDataXtd_Positionbase_type* = TDF_Attribute
+  TDataXtdPositionbaseType* = TDF_Attribute
 
-proc get_type_name*(): cstring {.importcpp: "TDataXtd_Position::get_type_name(@)",
-                              header: "TDataXtd_Position.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDataXtd_Position::get_type_name(@)",
+                            header: "TDataXtd_Position.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDataXtd_Position::get_type_descriptor(@)",
     header: "TDataXtd_Position.hxx".}
-proc DynamicType*(this: TDataXtd_Position): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: TDataXtdPosition): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataXtd_Position.hxx".}

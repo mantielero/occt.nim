@@ -13,32 +13,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_GeometricAlignment"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepRepr_RWGeometricAlignment* {.importcpp: "RWStepRepr_RWGeometricAlignment", header: "RWStepRepr_RWGeometricAlignment.hxx",
-                                    bycopy.} = object ## ! Empty constructor
+  RWStepReprRWGeometricAlignment* {.importcpp: "RWStepRepr_RWGeometricAlignment", header: "RWStepRepr_RWGeometricAlignment.hxx",
+                                   bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepRepr_RWGeometricAlignment*(): RWStepRepr_RWGeometricAlignment {.
+proc constructRWStepReprRWGeometricAlignment*(): RWStepReprRWGeometricAlignment {.
     constructor, importcpp: "RWStepRepr_RWGeometricAlignment(@)",
     header: "RWStepRepr_RWGeometricAlignment.hxx".}
-proc ReadStep*(this: RWStepRepr_RWGeometricAlignment;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepRepr_GeometricAlignment]) {.noSideEffect,
+proc readStep*(this: RWStepReprRWGeometricAlignment;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepReprGeometricAlignment]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWGeometricAlignment.hxx".}
-proc WriteStep*(this: RWStepRepr_RWGeometricAlignment; SW: var StepData_StepWriter;
-               ent: handle[StepRepr_GeometricAlignment]) {.noSideEffect,
+proc writeStep*(this: RWStepReprRWGeometricAlignment; sw: var StepDataStepWriter;
+               ent: Handle[StepReprGeometricAlignment]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepRepr_RWGeometricAlignment.hxx".}
-proc Share*(this: RWStepRepr_RWGeometricAlignment;
-           ent: handle[StepRepr_GeometricAlignment];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepReprRWGeometricAlignment;
+           ent: Handle[StepReprGeometricAlignment];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWGeometricAlignment.hxx".}

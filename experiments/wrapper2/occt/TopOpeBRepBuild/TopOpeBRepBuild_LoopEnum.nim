@@ -15,8 +15,9 @@
 ##  commercial license or contractual agreement.
 
 type
-  TopOpeBRepBuild_LoopEnum* {.size: sizeof(cint),
-                             importcpp: "TopOpeBRepBuild_LoopEnum",
-                             header: "TopOpeBRepBuild_LoopEnum.hxx".} = enum
-    TopOpeBRepBuild_ANYLOOP, TopOpeBRepBuild_BOUNDARY, TopOpeBRepBuild_BLOCK
+  TopOpeBRepBuildLoopEnum* {.size: sizeof(cint),
+                            importcpp: "TopOpeBRepBuild_LoopEnum",
+                            header: "TopOpeBRepBuild_LoopEnum.hxx".} = enum
+    TopOpeBRepBuildANYLOOP, TopOpeBRepBuildBOUNDARY, TopOpeBRepBuildBLOCK
+
 

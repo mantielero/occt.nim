@@ -14,16 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Geom/Geom_Curve, ../Geom/Geom_TrimmedCurve, ../Geom2d/Geom2d_Curve,
-  ../Geom2d/Geom2d_TrimmedCurve
-
 const
-  Mhgc* = handle[Geom_Curve]
-  Mhgtc* = handle[Geom_TrimmedCurve]
-  Mhg2c* = handle[Geom2d_Curve]
-  Mhg2tc* = handle[Geom2d_TrimmedCurve]
-  Mgc* = Geom_Curve
-  Mgtc* = Geom_TrimmedCurve
-  Mg2c* = Geom2d_Curve
-  Mg2tc* = Geom_TrimmedCurve
+  Mhgc* = handle[GeomCurve]
+  Mhgtc* = handle[GeomTrimmedCurve]
+  Mhg2c* = handle[Geom2dCurve]
+  Mhg2tc* = handle[Geom2dTrimmedCurve]
+  Mgc* = geomCurve
+  Mgtc* = geomTrimmedCurve
+  Mg2c* = geom2dCurve
+  Mg2tc* = geomTrimmedCurve
+

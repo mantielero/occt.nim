@@ -11,8 +11,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../SelectMgr/SelectMgr_ViewerSelector3d
-
 type
-  StdSelect_ViewerSelector3d* = SelectMgr_ViewerSelector3d
+  StdSelectViewerSelector3d* = SelectMgrViewerSelector3d
+

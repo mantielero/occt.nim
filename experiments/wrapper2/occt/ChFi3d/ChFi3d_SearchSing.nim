@@ -14,23 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../math/math_FunctionWithDerivative,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real
-
 discard "forward decl of Geom_Curve"
 type
-  ChFi3d_SearchSing* {.importcpp: "ChFi3d_SearchSing",
-                      header: "ChFi3d_SearchSing.hxx", bycopy.} = object of math_FunctionWithDerivative
+  ChFi3dSearchSing* {.importcpp: "ChFi3d_SearchSing",
+                     header: "ChFi3d_SearchSing.hxx", bycopy.} = object of MathFunctionWithDerivative
 
 
-proc constructChFi3d_SearchSing*(C1: handle[Geom_Curve]; C2: handle[Geom_Curve]): ChFi3d_SearchSing {.
+proc constructChFi3dSearchSing*(c1: Handle[GeomCurve]; c2: Handle[GeomCurve]): ChFi3dSearchSing {.
     constructor, importcpp: "ChFi3d_SearchSing(@)", header: "ChFi3d_SearchSing.hxx".}
-proc Value*(this: var ChFi3d_SearchSing; X: Standard_Real; F: var Standard_Real): Standard_Boolean {.
+proc value*(this: var ChFi3dSearchSing; x: float; f: var float): bool {.
     importcpp: "Value", header: "ChFi3d_SearchSing.hxx".}
-proc Derivative*(this: var ChFi3d_SearchSing; X: Standard_Real; D: var Standard_Real): Standard_Boolean {.
+proc derivative*(this: var ChFi3dSearchSing; x: float; d: var float): bool {.
     importcpp: "Derivative", header: "ChFi3d_SearchSing.hxx".}
-proc Values*(this: var ChFi3d_SearchSing; X: Standard_Real; F: var Standard_Real;
-            D: var Standard_Real): Standard_Boolean {.importcpp: "Values",
-    header: "ChFi3d_SearchSing.hxx".}
+proc values*(this: var ChFi3dSearchSing; x: float; f: var float; d: var float): bool {.
+    importcpp: "Values", header: "ChFi3d_SearchSing.hxx".}

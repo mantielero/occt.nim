@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  math_ValueAndWeight, ../NCollection/NCollection_Array1
-
 type
-  math_Array1OfValueAndWeight* = NCollection_Array1[math_ValueAndWeight]
+  MathArray1OfValueAndWeight* = NCollectionArray1[MathValueAndWeight]
+

@@ -14,49 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean, ../math/math_Vector,
-  ../math/math_Matrix, ../Blend/Blend_FuncInv
-
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of math_Matrix"
 type
-  BlendFunc_ChAsymInv* {.importcpp: "BlendFunc_ChAsymInv",
-                        header: "BlendFunc_ChAsymInv.hxx", bycopy.} = object of Blend_FuncInv
+  BlendFuncChAsymInv* {.importcpp: "BlendFunc_ChAsymInv",
+                       header: "BlendFunc_ChAsymInv.hxx", bycopy.} = object of BlendFuncInv
 
 
-proc constructBlendFunc_ChAsymInv*(S1: handle[Adaptor3d_HSurface];
-                                  S2: handle[Adaptor3d_HSurface];
-                                  C: handle[Adaptor3d_HCurve]): BlendFunc_ChAsymInv {.
+proc constructBlendFuncChAsymInv*(s1: Handle[Adaptor3dHSurface];
+                                 s2: Handle[Adaptor3dHSurface];
+                                 c: Handle[Adaptor3dHCurve]): BlendFuncChAsymInv {.
     constructor, importcpp: "BlendFunc_ChAsymInv(@)",
     header: "BlendFunc_ChAsymInv.hxx".}
-proc Set*(this: var BlendFunc_ChAsymInv; OnFirst: Standard_Boolean;
-         COnSurf: handle[Adaptor2d_HCurve2d]) {.importcpp: "Set",
+proc set*(this: var BlendFuncChAsymInv; onFirst: bool;
+         cOnSurf: Handle[Adaptor2dHCurve2d]) {.importcpp: "Set",
     header: "BlendFunc_ChAsymInv.hxx".}
-proc GetTolerance*(this: BlendFunc_ChAsymInv; Tolerance: var math_Vector;
-                  Tol: Standard_Real) {.noSideEffect, importcpp: "GetTolerance",
-                                      header: "BlendFunc_ChAsymInv.hxx".}
-proc GetBounds*(this: BlendFunc_ChAsymInv; InfBound: var math_Vector;
-               SupBound: var math_Vector) {.noSideEffect, importcpp: "GetBounds",
-    header: "BlendFunc_ChAsymInv.hxx".}
-proc IsSolution*(this: var BlendFunc_ChAsymInv; Sol: math_Vector; Tol: Standard_Real): Standard_Boolean {.
+proc getTolerance*(this: BlendFuncChAsymInv; tolerance: var MathVector; tol: float) {.
+    noSideEffect, importcpp: "GetTolerance", header: "BlendFunc_ChAsymInv.hxx".}
+proc getBounds*(this: BlendFuncChAsymInv; infBound: var MathVector;
+               supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds",
+                                        header: "BlendFunc_ChAsymInv.hxx".}
+proc isSolution*(this: var BlendFuncChAsymInv; sol: MathVector; tol: float): bool {.
     importcpp: "IsSolution", header: "BlendFunc_ChAsymInv.hxx".}
-proc NbEquations*(this: BlendFunc_ChAsymInv): Standard_Integer {.noSideEffect,
+proc nbEquations*(this: BlendFuncChAsymInv): int {.noSideEffect,
     importcpp: "NbEquations", header: "BlendFunc_ChAsymInv.hxx".}
-proc ComputeValues*(this: var BlendFunc_ChAsymInv; X: math_Vector;
-                   DegF: Standard_Integer; DegL: Standard_Integer): Standard_Boolean {.
+proc computeValues*(this: var BlendFuncChAsymInv; x: MathVector; degF: int; degL: int): bool {.
     importcpp: "ComputeValues", header: "BlendFunc_ChAsymInv.hxx".}
-proc Value*(this: var BlendFunc_ChAsymInv; X: math_Vector; F: var math_Vector): Standard_Boolean {.
+proc value*(this: var BlendFuncChAsymInv; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "BlendFunc_ChAsymInv.hxx".}
-proc Derivatives*(this: var BlendFunc_ChAsymInv; X: math_Vector; D: var math_Matrix): Standard_Boolean {.
+proc derivatives*(this: var BlendFuncChAsymInv; x: MathVector; d: var MathMatrix): bool {.
     importcpp: "Derivatives", header: "BlendFunc_ChAsymInv.hxx".}
-proc Values*(this: var BlendFunc_ChAsymInv; X: math_Vector; F: var math_Vector;
-            D: var math_Matrix): Standard_Boolean {.importcpp: "Values",
-    header: "BlendFunc_ChAsymInv.hxx".}
-proc Set*(this: var BlendFunc_ChAsymInv; Dist1: Standard_Real; Angle: Standard_Real;
-         Choix: Standard_Integer) {.importcpp: "Set",
-                                  header: "BlendFunc_ChAsymInv.hxx".}
+proc values*(this: var BlendFuncChAsymInv; x: MathVector; f: var MathVector;
+            d: var MathMatrix): bool {.importcpp: "Values",
+                                   header: "BlendFunc_ChAsymInv.hxx".}
+proc set*(this: var BlendFuncChAsymInv; dist1: float; angle: float; choix: int) {.
+    importcpp: "Set", header: "BlendFunc_ChAsymInv.hxx".}

@@ -13,37 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../gp/gp_Trsf, TDataXtd_Array1OfTrsf, ../NCollection/NCollection_DefineHArray1
-
 type
-  TDataXtd_HArray1OfTrsf* {.importcpp: "TDataXtd_HArray1OfTrsf",
-                           header: "TDataXtd_HArray1OfTrsf.hxx", bycopy.} = object of TDataXtd_Array1OfTrsf
+  TDataXtdHArray1OfTrsf* {.importcpp: "TDataXtd_HArray1OfTrsf",
+                          header: "TDataXtd_HArray1OfTrsf.hxx", bycopy.} = object of TDataXtdArray1OfTrsf
 
 
-proc constructTDataXtd_HArray1OfTrsf*(theLower: Standard_Integer;
-                                     theUpper: Standard_Integer): TDataXtd_HArray1OfTrsf {.
+proc constructTDataXtdHArray1OfTrsf*(theLower: int; theUpper: int): TDataXtdHArray1OfTrsf {.
     constructor, importcpp: "TDataXtd_HArray1OfTrsf(@)",
     header: "TDataXtd_HArray1OfTrsf.hxx".}
-proc constructTDataXtd_HArray1OfTrsf*(theLower: Standard_Integer;
-                                     theUpper: Standard_Integer;
-                                     theValue: value_type): TDataXtd_HArray1OfTrsf {.
+proc constructTDataXtdHArray1OfTrsf*(theLower: int; theUpper: int;
+                                    theValue: ValueType): TDataXtdHArray1OfTrsf {.
     constructor, importcpp: "TDataXtd_HArray1OfTrsf(@)",
     header: "TDataXtd_HArray1OfTrsf.hxx".}
-proc constructTDataXtd_HArray1OfTrsf*(theOther: TDataXtd_Array1OfTrsf): TDataXtd_HArray1OfTrsf {.
+proc constructTDataXtdHArray1OfTrsf*(theOther: TDataXtdArray1OfTrsf): TDataXtdHArray1OfTrsf {.
     constructor, importcpp: "TDataXtd_HArray1OfTrsf(@)",
     header: "TDataXtd_HArray1OfTrsf.hxx".}
-proc Array1*(this: TDataXtd_HArray1OfTrsf): TDataXtd_Array1OfTrsf {.noSideEffect,
+proc array1*(this: TDataXtdHArray1OfTrsf): TDataXtdArray1OfTrsf {.noSideEffect,
     importcpp: "Array1", header: "TDataXtd_HArray1OfTrsf.hxx".}
-proc ChangeArray1*(this: var TDataXtd_HArray1OfTrsf): var TDataXtd_Array1OfTrsf {.
+proc changeArray1*(this: var TDataXtdHArray1OfTrsf): var TDataXtdArray1OfTrsf {.
     importcpp: "ChangeArray1", header: "TDataXtd_HArray1OfTrsf.hxx".}
 type
-  TDataXtd_HArray1OfTrsfbase_type* = MMgt_TShared
+  TDataXtdHArray1OfTrsfbaseType* = MMgtTShared
 
-proc get_type_name*(): cstring {.importcpp: "TDataXtd_HArray1OfTrsf::get_type_name(@)",
-                              header: "TDataXtd_HArray1OfTrsf.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TDataXtd_HArray1OfTrsf::get_type_name(@)",
+                            header: "TDataXtd_HArray1OfTrsf.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDataXtd_HArray1OfTrsf::get_type_descriptor(@)",
     header: "TDataXtd_HArray1OfTrsf.hxx".}
-proc DynamicType*(this: TDataXtd_HArray1OfTrsf): handle[Standard_Type] {.
-    noSideEffect, importcpp: "DynamicType", header: "TDataXtd_HArray1OfTrsf.hxx".}
+proc dynamicType*(this: TDataXtdHArray1OfTrsf): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "TDataXtd_HArray1OfTrsf.hxx".}

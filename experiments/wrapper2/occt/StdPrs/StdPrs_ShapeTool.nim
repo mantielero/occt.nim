@@ -14,73 +14,66 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard_DefineAlloc, ../TopoDS/TopoDS, ../TopoDS/TopoDS_Edge,
-  ../TopoDS/TopoDS_Face, ../TopoDS/TopoDS_Shape, ../TopoDS/TopoDS_Vertex,
-  ../TopExp/TopExp_Explorer,
-  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape,
-  ../TopTools/TopTools_IndexedMapOfShape, ../TopTools/TopTools_HSequenceOfShape
-
 discard "forward decl of Bnd_Box"
 discard "forward decl of Poly_Triangulation"
 discard "forward decl of Poly_PolygonOnTriangulation"
 discard "forward decl of Poly_Polygon3D"
 type
-  StdPrs_ShapeTool* {.importcpp: "StdPrs_ShapeTool",
-                     header: "StdPrs_ShapeTool.hxx", bycopy.} = object ## ! Constructs the tool and initializes it using theShape and theAllVertices
-                                                                  ## ! (optional) arguments. By default, only isolated and internal vertices are considered,
-                                                                  ## ! however if theAllVertices argument is equal to True, all shape's vertices are taken into account.
+  StdPrsShapeTool* {.importcpp: "StdPrs_ShapeTool", header: "StdPrs_ShapeTool.hxx",
+                    bycopy.} = object ## ! Constructs the tool and initializes it using theShape and theAllVertices
+                                   ## ! (optional) arguments. By default, only isolated and internal vertices are considered,
+                                   ## ! however if theAllVertices argument is equal to True, all shape's vertices are taken into account.
 
 
-proc constructStdPrs_ShapeTool*(theShape: TopoDS_Shape; theAllVertices: Standard_Boolean = Standard_False): StdPrs_ShapeTool {.
+proc constructStdPrsShapeTool*(theShape: TopoDS_Shape; theAllVertices: bool = false): StdPrsShapeTool {.
     constructor, importcpp: "StdPrs_ShapeTool(@)", header: "StdPrs_ShapeTool.hxx".}
-proc InitFace*(this: var StdPrs_ShapeTool) {.importcpp: "InitFace",
+proc initFace*(this: var StdPrsShapeTool) {.importcpp: "InitFace",
+                                        header: "StdPrs_ShapeTool.hxx".}
+proc moreFace*(this: StdPrsShapeTool): bool {.noSideEffect, importcpp: "MoreFace",
     header: "StdPrs_ShapeTool.hxx".}
-proc MoreFace*(this: StdPrs_ShapeTool): Standard_Boolean {.noSideEffect,
-    importcpp: "MoreFace", header: "StdPrs_ShapeTool.hxx".}
-proc NextFace*(this: var StdPrs_ShapeTool) {.importcpp: "NextFace",
-    header: "StdPrs_ShapeTool.hxx".}
-proc GetFace*(this: StdPrs_ShapeTool): TopoDS_Face {.noSideEffect,
+proc nextFace*(this: var StdPrsShapeTool) {.importcpp: "NextFace",
+                                        header: "StdPrs_ShapeTool.hxx".}
+proc getFace*(this: StdPrsShapeTool): TopoDS_Face {.noSideEffect,
     importcpp: "GetFace", header: "StdPrs_ShapeTool.hxx".}
-proc FaceBound*(this: StdPrs_ShapeTool): Bnd_Box {.noSideEffect,
+proc faceBound*(this: StdPrsShapeTool): BndBox {.noSideEffect,
     importcpp: "FaceBound", header: "StdPrs_ShapeTool.hxx".}
-proc IsPlanarFace*(this: StdPrs_ShapeTool): Standard_Boolean {.noSideEffect,
+proc isPlanarFace*(this: StdPrsShapeTool): bool {.noSideEffect,
     importcpp: "IsPlanarFace", header: "StdPrs_ShapeTool.hxx".}
-proc InitCurve*(this: var StdPrs_ShapeTool) {.importcpp: "InitCurve",
+proc initCurve*(this: var StdPrsShapeTool) {.importcpp: "InitCurve",
     header: "StdPrs_ShapeTool.hxx".}
-proc MoreCurve*(this: StdPrs_ShapeTool): Standard_Boolean {.noSideEffect,
-    importcpp: "MoreCurve", header: "StdPrs_ShapeTool.hxx".}
-proc NextCurve*(this: var StdPrs_ShapeTool) {.importcpp: "NextCurve",
+proc moreCurve*(this: StdPrsShapeTool): bool {.noSideEffect, importcpp: "MoreCurve",
     header: "StdPrs_ShapeTool.hxx".}
-proc GetCurve*(this: StdPrs_ShapeTool): TopoDS_Edge {.noSideEffect,
+proc nextCurve*(this: var StdPrsShapeTool) {.importcpp: "NextCurve",
+    header: "StdPrs_ShapeTool.hxx".}
+proc getCurve*(this: StdPrsShapeTool): TopoDS_Edge {.noSideEffect,
     importcpp: "GetCurve", header: "StdPrs_ShapeTool.hxx".}
-proc CurveBound*(this: StdPrs_ShapeTool): Bnd_Box {.noSideEffect,
+proc curveBound*(this: StdPrsShapeTool): BndBox {.noSideEffect,
     importcpp: "CurveBound", header: "StdPrs_ShapeTool.hxx".}
-proc Neighbours*(this: StdPrs_ShapeTool): Standard_Integer {.noSideEffect,
-    importcpp: "Neighbours", header: "StdPrs_ShapeTool.hxx".}
-proc FacesOfEdge*(this: StdPrs_ShapeTool): handle[TopTools_HSequenceOfShape] {.
+proc neighbours*(this: StdPrsShapeTool): int {.noSideEffect, importcpp: "Neighbours",
+    header: "StdPrs_ShapeTool.hxx".}
+proc facesOfEdge*(this: StdPrsShapeTool): Handle[TopToolsHSequenceOfShape] {.
     noSideEffect, importcpp: "FacesOfEdge", header: "StdPrs_ShapeTool.hxx".}
-proc InitVertex*(this: var StdPrs_ShapeTool) {.importcpp: "InitVertex",
+proc initVertex*(this: var StdPrsShapeTool) {.importcpp: "InitVertex",
     header: "StdPrs_ShapeTool.hxx".}
-proc MoreVertex*(this: StdPrs_ShapeTool): Standard_Boolean {.noSideEffect,
+proc moreVertex*(this: StdPrsShapeTool): bool {.noSideEffect,
     importcpp: "MoreVertex", header: "StdPrs_ShapeTool.hxx".}
-proc NextVertex*(this: var StdPrs_ShapeTool) {.importcpp: "NextVertex",
+proc nextVertex*(this: var StdPrsShapeTool) {.importcpp: "NextVertex",
     header: "StdPrs_ShapeTool.hxx".}
-proc GetVertex*(this: StdPrs_ShapeTool): TopoDS_Vertex {.noSideEffect,
+proc getVertex*(this: StdPrsShapeTool): TopoDS_Vertex {.noSideEffect,
     importcpp: "GetVertex", header: "StdPrs_ShapeTool.hxx".}
-proc HasSurface*(this: StdPrs_ShapeTool): Standard_Boolean {.noSideEffect,
+proc hasSurface*(this: StdPrsShapeTool): bool {.noSideEffect,
     importcpp: "HasSurface", header: "StdPrs_ShapeTool.hxx".}
-proc CurrentTriangulation*(this: StdPrs_ShapeTool; l: var TopLoc_Location): handle[
-    Poly_Triangulation] {.noSideEffect, importcpp: "CurrentTriangulation",
-                         header: "StdPrs_ShapeTool.hxx".}
-proc HasCurve*(this: StdPrs_ShapeTool): Standard_Boolean {.noSideEffect,
-    importcpp: "HasCurve", header: "StdPrs_ShapeTool.hxx".}
-proc PolygonOnTriangulation*(this: StdPrs_ShapeTool;
-                            Indices: var handle[Poly_PolygonOnTriangulation];
-                            T: var handle[Poly_Triangulation];
-                            l: var TopLoc_Location) {.noSideEffect,
-    importcpp: "PolygonOnTriangulation", header: "StdPrs_ShapeTool.hxx".}
-proc Polygon3D*(this: StdPrs_ShapeTool; l: var TopLoc_Location): handle[Poly_Polygon3D] {.
+proc currentTriangulation*(this: StdPrsShapeTool; l: var TopLocLocation): Handle[
+    PolyTriangulation] {.noSideEffect, importcpp: "CurrentTriangulation",
+                        header: "StdPrs_ShapeTool.hxx".}
+proc hasCurve*(this: StdPrsShapeTool): bool {.noSideEffect, importcpp: "HasCurve",
+    header: "StdPrs_ShapeTool.hxx".}
+proc polygonOnTriangulation*(this: StdPrsShapeTool;
+                            indices: var Handle[PolyPolygonOnTriangulation];
+                            t: var Handle[PolyTriangulation]; l: var TopLocLocation) {.
+    noSideEffect, importcpp: "PolygonOnTriangulation",
+    header: "StdPrs_ShapeTool.hxx".}
+proc polygon3D*(this: StdPrsShapeTool; l: var TopLocLocation): Handle[PolyPolygon3D] {.
     noSideEffect, importcpp: "Polygon3D", header: "StdPrs_ShapeTool.hxx".}
-proc IsPlanarFace*(theFace: TopoDS_Face): Standard_Boolean {.
+proc isPlanarFace*(theFace: TopoDS_Face): bool {.
     importcpp: "StdPrs_ShapeTool::IsPlanarFace(@)", header: "StdPrs_ShapeTool.hxx".}

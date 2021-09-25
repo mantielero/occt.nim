@@ -12,22 +12,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, BOPAlgo_Builder,
-  ../NCollection/NCollection_BaseAllocator, ../TopTools/TopTools_ListOfShape
-
 discard "forward decl of BOPAlgo_PaveFiller"
 discard "forward decl of TopoDS_Shape"
 type
-  BOPAlgo_Section* {.importcpp: "BOPAlgo_Section", header: "BOPAlgo_Section.hxx",
-                    bycopy.} = object of BOPAlgo_Builder ## ! Empty constructor
-                                                    ## ! Checks the data before performing the operation
+  BOPAlgoSection* {.importcpp: "BOPAlgo_Section", header: "BOPAlgo_Section.hxx",
+                   bycopy.} = object of BOPAlgoBuilder ## ! Empty constructor
+                                                  ## ! Checks the data before performing the operation
 
 
-proc constructBOPAlgo_Section*(): BOPAlgo_Section {.constructor,
+proc constructBOPAlgoSection*(): BOPAlgoSection {.constructor,
     importcpp: "BOPAlgo_Section(@)", header: "BOPAlgo_Section.hxx".}
-proc destroyBOPAlgo_Section*(this: var BOPAlgo_Section) {.
+proc destroyBOPAlgoSection*(this: var BOPAlgoSection) {.
     importcpp: "#.~BOPAlgo_Section()", header: "BOPAlgo_Section.hxx".}
-proc constructBOPAlgo_Section*(theAllocator: handle[NCollection_BaseAllocator]): BOPAlgo_Section {.
+proc constructBOPAlgoSection*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoSection {.
     constructor, importcpp: "BOPAlgo_Section(@)", header: "BOPAlgo_Section.hxx".}

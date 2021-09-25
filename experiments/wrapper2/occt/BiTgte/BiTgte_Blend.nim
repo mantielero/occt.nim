@@ -14,20 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../TopoDS/TopoDS_Shape,
-  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape,
-  ../BRepFill/BRepFill_DataMapOfShapeDataMapOfShapeListOfShape,
-  ../TopTools/TopTools_DataMapOfShapeListOfShape,
-  ../TopTools/TopTools_IndexedMapOfShape, ../TopTools/TopTools_MapOfShape,
-  ../BRepOffset/BRepOffset_Analyse,
-  ../BRepOffset/BRepOffset_DataMapOfShapeOffset, ../BRepAlgo/BRepAlgo_Image,
-  ../Standard/Standard_Integer, ../TColStd/TColStd_HArray1OfInteger,
-  ../TopTools/TopTools_ListOfShape, BiTgte_ContactType,
-  ../TopTools/TopTools_DataMapOfShapeBox
-
 discard "forward decl of BRepAlgo_AsDes"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
@@ -40,71 +26,66 @@ discard "forward decl of Geom2d_Curve"
 discard "forward decl of BRepOffset_Offset"
 discard "forward decl of BRepOffset_Inter3d"
 type
-  BiTgte_Blend* {.importcpp: "BiTgte_Blend", header: "BiTgte_Blend.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Perform
-                                                                                   ## the
-                                                                                   ## generated
-                                                                                   ## surfaces.
+  BiTgteBlend* {.importcpp: "BiTgte_Blend", header: "BiTgte_Blend.hxx", bycopy.} = object ##
+                                                                                  ## !
+                                                                                  ## Perform
+                                                                                  ## the
+                                                                                  ## generated
+                                                                                  ## surfaces.
 
 
-proc constructBiTgte_Blend*(): BiTgte_Blend {.constructor,
+proc constructBiTgteBlend*(): BiTgteBlend {.constructor,
     importcpp: "BiTgte_Blend(@)", header: "BiTgte_Blend.hxx".}
-proc constructBiTgte_Blend*(S: TopoDS_Shape; Radius: Standard_Real;
-                           Tol: Standard_Real; NUBS: Standard_Boolean): BiTgte_Blend {.
+proc constructBiTgteBlend*(s: TopoDS_Shape; radius: float; tol: float; nubs: bool): BiTgteBlend {.
     constructor, importcpp: "BiTgte_Blend(@)", header: "BiTgte_Blend.hxx".}
-proc Init*(this: var BiTgte_Blend; S: TopoDS_Shape; Radius: Standard_Real;
-          Tol: Standard_Real; NUBS: Standard_Boolean) {.importcpp: "Init",
-    header: "BiTgte_Blend.hxx".}
-proc Clear*(this: var BiTgte_Blend) {.importcpp: "Clear", header: "BiTgte_Blend.hxx".}
-proc SetFaces*(this: var BiTgte_Blend; F1: TopoDS_Face; F2: TopoDS_Face) {.
+proc init*(this: var BiTgteBlend; s: TopoDS_Shape; radius: float; tol: float; nubs: bool) {.
+    importcpp: "Init", header: "BiTgte_Blend.hxx".}
+proc clear*(this: var BiTgteBlend) {.importcpp: "Clear", header: "BiTgte_Blend.hxx".}
+proc setFaces*(this: var BiTgteBlend; f1: TopoDS_Face; f2: TopoDS_Face) {.
     importcpp: "SetFaces", header: "BiTgte_Blend.hxx".}
-proc SetEdge*(this: var BiTgte_Blend; Edge: TopoDS_Edge) {.importcpp: "SetEdge",
+proc setEdge*(this: var BiTgteBlend; edge: TopoDS_Edge) {.importcpp: "SetEdge",
     header: "BiTgte_Blend.hxx".}
-proc SetStoppingFace*(this: var BiTgte_Blend; Face: TopoDS_Face) {.
+proc setStoppingFace*(this: var BiTgteBlend; face: TopoDS_Face) {.
     importcpp: "SetStoppingFace", header: "BiTgte_Blend.hxx".}
-proc Perform*(this: var BiTgte_Blend; BuildShape: Standard_Boolean = Standard_True) {.
-    importcpp: "Perform", header: "BiTgte_Blend.hxx".}
-proc IsDone*(this: BiTgte_Blend): Standard_Boolean {.noSideEffect,
-    importcpp: "IsDone", header: "BiTgte_Blend.hxx".}
-proc Shape*(this: BiTgte_Blend): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
+proc perform*(this: var BiTgteBlend; buildShape: bool = true) {.importcpp: "Perform",
     header: "BiTgte_Blend.hxx".}
-proc NbSurfaces*(this: BiTgte_Blend): Standard_Integer {.noSideEffect,
-    importcpp: "NbSurfaces", header: "BiTgte_Blend.hxx".}
-proc Surface*(this: BiTgte_Blend; Index: Standard_Integer): handle[Geom_Surface] {.
-    noSideEffect, importcpp: "Surface", header: "BiTgte_Blend.hxx".}
-proc Face*(this: BiTgte_Blend; Index: Standard_Integer): TopoDS_Face {.noSideEffect,
+proc isDone*(this: BiTgteBlend): bool {.noSideEffect, importcpp: "IsDone",
+                                    header: "BiTgte_Blend.hxx".}
+proc shape*(this: BiTgteBlend): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
+    header: "BiTgte_Blend.hxx".}
+proc nbSurfaces*(this: BiTgteBlend): int {.noSideEffect, importcpp: "NbSurfaces",
+                                       header: "BiTgte_Blend.hxx".}
+proc surface*(this: BiTgteBlend; index: int): Handle[GeomSurface] {.noSideEffect,
+    importcpp: "Surface", header: "BiTgte_Blend.hxx".}
+proc face*(this: BiTgteBlend; index: int): TopoDS_Face {.noSideEffect,
     importcpp: "Face", header: "BiTgte_Blend.hxx".}
-proc CenterLines*(this: BiTgte_Blend; LC: var TopTools_ListOfShape) {.noSideEffect,
+proc centerLines*(this: BiTgteBlend; lc: var TopToolsListOfShape) {.noSideEffect,
     importcpp: "CenterLines", header: "BiTgte_Blend.hxx".}
-proc Surface*(this: BiTgte_Blend; CenterLine: TopoDS_Shape): handle[Geom_Surface] {.
+proc surface*(this: BiTgteBlend; centerLine: TopoDS_Shape): Handle[GeomSurface] {.
     noSideEffect, importcpp: "Surface", header: "BiTgte_Blend.hxx".}
-proc Face*(this: BiTgte_Blend; CenterLine: TopoDS_Shape): TopoDS_Face {.noSideEffect,
+proc face*(this: BiTgteBlend; centerLine: TopoDS_Shape): TopoDS_Face {.noSideEffect,
     importcpp: "Face", header: "BiTgte_Blend.hxx".}
-proc ContactType*(this: BiTgte_Blend; Index: Standard_Integer): BiTgte_ContactType {.
-    noSideEffect, importcpp: "ContactType", header: "BiTgte_Blend.hxx".}
-proc SupportShape1*(this: BiTgte_Blend; Index: Standard_Integer): TopoDS_Shape {.
-    noSideEffect, importcpp: "SupportShape1", header: "BiTgte_Blend.hxx".}
-proc SupportShape2*(this: BiTgte_Blend; Index: Standard_Integer): TopoDS_Shape {.
-    noSideEffect, importcpp: "SupportShape2", header: "BiTgte_Blend.hxx".}
-proc CurveOnShape1*(this: BiTgte_Blend; Index: Standard_Integer): handle[Geom_Curve] {.
-    noSideEffect, importcpp: "CurveOnShape1", header: "BiTgte_Blend.hxx".}
-proc CurveOnShape2*(this: BiTgte_Blend; Index: Standard_Integer): handle[Geom_Curve] {.
-    noSideEffect, importcpp: "CurveOnShape2", header: "BiTgte_Blend.hxx".}
-proc PCurveOnFace1*(this: BiTgte_Blend; Index: Standard_Integer): handle[Geom2d_Curve] {.
+proc contactType*(this: BiTgteBlend; index: int): BiTgteContactType {.noSideEffect,
+    importcpp: "ContactType", header: "BiTgte_Blend.hxx".}
+proc supportShape1*(this: BiTgteBlend; index: int): TopoDS_Shape {.noSideEffect,
+    importcpp: "SupportShape1", header: "BiTgte_Blend.hxx".}
+proc supportShape2*(this: BiTgteBlend; index: int): TopoDS_Shape {.noSideEffect,
+    importcpp: "SupportShape2", header: "BiTgte_Blend.hxx".}
+proc curveOnShape1*(this: BiTgteBlend; index: int): Handle[GeomCurve] {.noSideEffect,
+    importcpp: "CurveOnShape1", header: "BiTgte_Blend.hxx".}
+proc curveOnShape2*(this: BiTgteBlend; index: int): Handle[GeomCurve] {.noSideEffect,
+    importcpp: "CurveOnShape2", header: "BiTgte_Blend.hxx".}
+proc pCurveOnFace1*(this: BiTgteBlend; index: int): Handle[Geom2dCurve] {.
     noSideEffect, importcpp: "PCurveOnFace1", header: "BiTgte_Blend.hxx".}
-proc PCurve1OnFillet*(this: BiTgte_Blend; Index: Standard_Integer): handle[
-    Geom2d_Curve] {.noSideEffect, importcpp: "PCurve1OnFillet",
-                   header: "BiTgte_Blend.hxx".}
-proc PCurveOnFace2*(this: BiTgte_Blend; Index: Standard_Integer): handle[Geom2d_Curve] {.
+proc pCurve1OnFillet*(this: BiTgteBlend; index: int): Handle[Geom2dCurve] {.
+    noSideEffect, importcpp: "PCurve1OnFillet", header: "BiTgte_Blend.hxx".}
+proc pCurveOnFace2*(this: BiTgteBlend; index: int): Handle[Geom2dCurve] {.
     noSideEffect, importcpp: "PCurveOnFace2", header: "BiTgte_Blend.hxx".}
-proc PCurve2OnFillet*(this: BiTgte_Blend; Index: Standard_Integer): handle[
-    Geom2d_Curve] {.noSideEffect, importcpp: "PCurve2OnFillet",
-                   header: "BiTgte_Blend.hxx".}
-proc NbBranches*(this: var BiTgte_Blend): Standard_Integer {.importcpp: "NbBranches",
+proc pCurve2OnFillet*(this: BiTgteBlend; index: int): Handle[Geom2dCurve] {.
+    noSideEffect, importcpp: "PCurve2OnFillet", header: "BiTgte_Blend.hxx".}
+proc nbBranches*(this: var BiTgteBlend): int {.importcpp: "NbBranches",
     header: "BiTgte_Blend.hxx".}
-proc IndicesOfBranche*(this: BiTgte_Blend; Index: Standard_Integer;
-                      From: var Standard_Integer; To: var Standard_Integer) {.
+proc indicesOfBranche*(this: BiTgteBlend; index: int; `from`: var int; to: var int) {.
     noSideEffect, importcpp: "IndicesOfBranche", header: "BiTgte_Blend.hxx".}
-proc ComputeCenters*(this: var BiTgte_Blend) {.importcpp: "ComputeCenters",
+proc computeCenters*(this: var BiTgteBlend) {.importcpp: "ComputeCenters",
     header: "BiTgte_Blend.hxx".}

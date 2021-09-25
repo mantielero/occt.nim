@@ -11,31 +11,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  OpenGl_Clipping
-
 ## ! The iterator through clipping planes.
 
 type
-  OpenGl_ClippingIterator* {.importcpp: "OpenGl_ClippingIterator",
-                            header: "OpenGl_ClippingIterator.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Main
-                                                                                ## constructor.
+  OpenGlClippingIterator* {.importcpp: "OpenGl_ClippingIterator",
+                           header: "OpenGl_ClippingIterator.hxx", bycopy.} = object ## !
+                                                                               ## Main
+                                                                               ## constructor.
 
 
-proc constructOpenGl_ClippingIterator*(theClipping: OpenGl_Clipping): OpenGl_ClippingIterator {.
+proc constructOpenGlClippingIterator*(theClipping: OpenGlClipping): OpenGlClippingIterator {.
     constructor, importcpp: "OpenGl_ClippingIterator(@)",
     header: "OpenGl_ClippingIterator.hxx".}
-proc More*(this: OpenGl_ClippingIterator): bool {.noSideEffect, importcpp: "More",
+proc more*(this: OpenGlClippingIterator): bool {.noSideEffect, importcpp: "More",
     header: "OpenGl_ClippingIterator.hxx".}
-proc Next*(this: var OpenGl_ClippingIterator) {.importcpp: "Next",
+proc next*(this: var OpenGlClippingIterator) {.importcpp: "Next",
     header: "OpenGl_ClippingIterator.hxx".}
-proc IsDisabled*(this: OpenGl_ClippingIterator): bool {.noSideEffect,
+proc isDisabled*(this: OpenGlClippingIterator): bool {.noSideEffect,
     importcpp: "IsDisabled", header: "OpenGl_ClippingIterator.hxx".}
-proc Value*(this: OpenGl_ClippingIterator): handle[Graphic3d_ClipPlane] {.
+proc value*(this: OpenGlClippingIterator): Handle[Graphic3dClipPlane] {.
     noSideEffect, importcpp: "Value", header: "OpenGl_ClippingIterator.hxx".}
-proc IsGlobal*(this: OpenGl_ClippingIterator): bool {.noSideEffect,
+proc isGlobal*(this: OpenGlClippingIterator): bool {.noSideEffect,
     importcpp: "IsGlobal", header: "OpenGl_ClippingIterator.hxx".}
-proc PlaneIndex*(this: OpenGl_ClippingIterator): Standard_Integer {.noSideEffect,
+proc planeIndex*(this: OpenGlClippingIterator): int {.noSideEffect,
     importcpp: "PlaneIndex", header: "OpenGl_ClippingIterator.hxx".}

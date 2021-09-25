@@ -11,27 +11,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Macro, ../gp/gp_XY
-
 ## ! Describes a 2d circle with a size of only 3 Standard_Real
 ## ! numbers instead of gp who needs 7 Standard_Real numbers.
 
 type
-  BRepMesh_Circle* {.importcpp: "BRepMesh_Circle", header: "BRepMesh_Circle.hxx",
-                    bycopy.} = object ## ! Default constructor.
+  BRepMeshCircle* {.importcpp: "BRepMesh_Circle", header: "BRepMesh_Circle.hxx",
+                   bycopy.} = object ## ! Default constructor.
 
 
-proc constructBRepMesh_Circle*(): BRepMesh_Circle {.constructor,
+proc constructBRepMeshCircle*(): BRepMeshCircle {.constructor,
     importcpp: "BRepMesh_Circle(@)", header: "BRepMesh_Circle.hxx".}
-proc constructBRepMesh_Circle*(theLocation: gp_XY; theRadius: Standard_Real): BRepMesh_Circle {.
+proc constructBRepMeshCircle*(theLocation: Xy; theRadius: float): BRepMeshCircle {.
     constructor, importcpp: "BRepMesh_Circle(@)", header: "BRepMesh_Circle.hxx".}
-proc SetLocation*(this: var BRepMesh_Circle; theLocation: gp_XY) {.
+proc setLocation*(this: var BRepMeshCircle; theLocation: Xy) {.
     importcpp: "SetLocation", header: "BRepMesh_Circle.hxx".}
-proc SetRadius*(this: var BRepMesh_Circle; theRadius: Standard_Real) {.
-    importcpp: "SetRadius", header: "BRepMesh_Circle.hxx".}
-proc Location*(this: BRepMesh_Circle): gp_XY {.noSideEffect, importcpp: "Location",
+proc setRadius*(this: var BRepMeshCircle; theRadius: float) {.importcpp: "SetRadius",
     header: "BRepMesh_Circle.hxx".}
-proc Radius*(this: BRepMesh_Circle): Standard_Real {.noSideEffect,
-    importcpp: "Radius", header: "BRepMesh_Circle.hxx".}
+proc location*(this: BRepMeshCircle): Xy {.noSideEffect, importcpp: "Location",
+                                       header: "BRepMesh_Circle.hxx".}
+proc radius*(this: BRepMeshCircle): float {.noSideEffect, importcpp: "Radius",
+                                        header: "BRepMesh_Circle.hxx".}

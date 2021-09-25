@@ -13,40 +13,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, TColStd_PackedMapOfInteger,
-  ../Standard/Standard_Transient, ../Standard/Standard_Integer
-
 discard "forward decl of TColStd_HPackedMapOfInteger"
 discard "forward decl of TColStd_HPackedMapOfInteger"
 type
-  Handle_TColStd_HPackedMapOfInteger* = handle[TColStd_HPackedMapOfInteger]
+  HandleTColStdHPackedMapOfInteger* = Handle[TColStdHPackedMapOfInteger]
 
 ## ! Extension of TColStd_PackedMapOfInteger class to be manipulated by handle.
 
 type
-  TColStd_HPackedMapOfInteger* {.importcpp: "TColStd_HPackedMapOfInteger",
-                                header: "TColStd_HPackedMapOfInteger.hxx", bycopy.} = object of Standard_Transient
+  TColStdHPackedMapOfInteger* {.importcpp: "TColStd_HPackedMapOfInteger",
+                               header: "TColStd_HPackedMapOfInteger.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructTColStd_HPackedMapOfInteger*(NbBuckets: Standard_Integer = 1): TColStd_HPackedMapOfInteger {.
+proc constructTColStdHPackedMapOfInteger*(nbBuckets: int = 1): TColStdHPackedMapOfInteger {.
     constructor, importcpp: "TColStd_HPackedMapOfInteger(@)",
     header: "TColStd_HPackedMapOfInteger.hxx".}
-proc constructTColStd_HPackedMapOfInteger*(theOther: TColStd_PackedMapOfInteger): TColStd_HPackedMapOfInteger {.
+proc constructTColStdHPackedMapOfInteger*(theOther: TColStdPackedMapOfInteger): TColStdHPackedMapOfInteger {.
     constructor, importcpp: "TColStd_HPackedMapOfInteger(@)",
     header: "TColStd_HPackedMapOfInteger.hxx".}
-proc Map*(this: TColStd_HPackedMapOfInteger): TColStd_PackedMapOfInteger {.
+proc map*(this: TColStdHPackedMapOfInteger): TColStdPackedMapOfInteger {.
     noSideEffect, importcpp: "Map", header: "TColStd_HPackedMapOfInteger.hxx".}
-proc ChangeMap*(this: var TColStd_HPackedMapOfInteger): var TColStd_PackedMapOfInteger {.
+proc changeMap*(this: var TColStdHPackedMapOfInteger): var TColStdPackedMapOfInteger {.
     importcpp: "ChangeMap", header: "TColStd_HPackedMapOfInteger.hxx".}
 type
-  TColStd_HPackedMapOfIntegerbase_type* = Standard_Transient
+  TColStdHPackedMapOfIntegerbaseType* = StandardTransient
 
-proc get_type_name*(): cstring {.importcpp: "TColStd_HPackedMapOfInteger::get_type_name(@)",
-                              header: "TColStd_HPackedMapOfInteger.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "TColStd_HPackedMapOfInteger::get_type_name(@)",
+                            header: "TColStd_HPackedMapOfInteger.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TColStd_HPackedMapOfInteger::get_type_descriptor(@)",
     header: "TColStd_HPackedMapOfInteger.hxx".}
-proc DynamicType*(this: TColStd_HPackedMapOfInteger): handle[Standard_Type] {.
+proc dynamicType*(this: TColStdHPackedMapOfInteger): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TColStd_HPackedMapOfInteger.hxx".}

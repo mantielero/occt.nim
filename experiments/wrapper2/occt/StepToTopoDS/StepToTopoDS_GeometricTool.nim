@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
-  ../Standard/Standard_Boolean, ../Standard/Standard_Real
-
 discard "forward decl of StepGeom_SurfaceCurve"
 discard "forward decl of StepGeom_Surface"
 discard "forward decl of StepGeom_Pcurve"
@@ -30,19 +25,18 @@ type
                                header: "StepToTopoDS_GeometricTool.hxx", bycopy.} = object
 
 
-proc PCurve*(SC: handle[StepGeom_SurfaceCurve]; S: handle[StepGeom_Surface];
-            PC: var handle[StepGeom_Pcurve]; last: Standard_Integer = 0): Standard_Integer {.
+proc pCurve*(sc: Handle[StepGeomSurfaceCurve]; s: Handle[StepGeomSurface];
+            pc: var Handle[StepGeomPcurve]; last: int = 0): int {.
     importcpp: "StepToTopoDS_GeometricTool::PCurve(@)",
     header: "StepToTopoDS_GeometricTool.hxx".}
-proc IsSeamCurve*(SC: handle[StepGeom_SurfaceCurve]; S: handle[StepGeom_Surface];
-                 E: handle[StepShape_Edge]; EL: handle[StepShape_EdgeLoop]): Standard_Boolean {.
+proc isSeamCurve*(sc: Handle[StepGeomSurfaceCurve]; s: Handle[StepGeomSurface];
+                 e: Handle[StepShapeEdge]; el: Handle[StepShapeEdgeLoop]): bool {.
     importcpp: "StepToTopoDS_GeometricTool::IsSeamCurve(@)",
     header: "StepToTopoDS_GeometricTool.hxx".}
-proc IsLikeSeam*(SC: handle[StepGeom_SurfaceCurve]; S: handle[StepGeom_Surface];
-                E: handle[StepShape_Edge]; EL: handle[StepShape_EdgeLoop]): Standard_Boolean {.
+proc isLikeSeam*(sc: Handle[StepGeomSurfaceCurve]; s: Handle[StepGeomSurface];
+                e: Handle[StepShapeEdge]; el: Handle[StepShapeEdgeLoop]): bool {.
     importcpp: "StepToTopoDS_GeometricTool::IsLikeSeam(@)",
     header: "StepToTopoDS_GeometricTool.hxx".}
-proc UpdateParam3d*(C: handle[Geom_Curve]; w1: var Standard_Real;
-                   w2: var Standard_Real; preci: Standard_Real): Standard_Boolean {.
+proc updateParam3d*(c: Handle[GeomCurve]; w1: var float; w2: var float; preci: float): bool {.
     importcpp: "StepToTopoDS_GeometricTool::UpdateParam3d(@)",
     header: "StepToTopoDS_GeometricTool.hxx".}

@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ShapeAnalysis_FreeBoundData, ../NCollection/NCollection_Sequence
-
 type
-  ShapeAnalysis_SequenceOfFreeBounds* = NCollection_Sequence[
-      handle[ShapeAnalysis_FreeBoundData]]
+  ShapeAnalysisSequenceOfFreeBounds* = NCollectionSequence[
+      Handle[ShapeAnalysisFreeBoundData]]
+

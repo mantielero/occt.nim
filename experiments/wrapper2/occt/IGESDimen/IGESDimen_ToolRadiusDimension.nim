@@ -14,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESDimen_RadiusDimension"
 discard "forward decl of IGESData_IGESReaderData"
@@ -30,40 +26,40 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESDimen_ToolRadiusDimension* {.importcpp: "IGESDimen_ToolRadiusDimension",
-                                  header: "IGESDimen_ToolRadiusDimension.hxx",
-                                  bycopy.} = object ## ! Returns a ToolRadiusDimension, ready to work
+  IGESDimenToolRadiusDimension* {.importcpp: "IGESDimen_ToolRadiusDimension",
+                                 header: "IGESDimen_ToolRadiusDimension.hxx",
+                                 bycopy.} = object ## ! Returns a ToolRadiusDimension, ready to work
 
 
-proc constructIGESDimen_ToolRadiusDimension*(): IGESDimen_ToolRadiusDimension {.
+proc constructIGESDimenToolRadiusDimension*(): IGESDimenToolRadiusDimension {.
     constructor, importcpp: "IGESDimen_ToolRadiusDimension(@)",
     header: "IGESDimen_ToolRadiusDimension.hxx".}
-proc ReadOwnParams*(this: IGESDimen_ToolRadiusDimension;
-                   ent: handle[IGESDimen_RadiusDimension];
-                   IR: handle[IGESData_IGESReaderData];
-                   PR: var IGESData_ParamReader) {.noSideEffect,
-    importcpp: "ReadOwnParams", header: "IGESDimen_ToolRadiusDimension.hxx".}
-proc WriteOwnParams*(this: IGESDimen_ToolRadiusDimension;
-                    ent: handle[IGESDimen_RadiusDimension];
-                    IW: var IGESData_IGESWriter) {.noSideEffect,
+proc readOwnParams*(this: IGESDimenToolRadiusDimension;
+                   ent: Handle[IGESDimenRadiusDimension];
+                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
+    noSideEffect, importcpp: "ReadOwnParams",
+    header: "IGESDimen_ToolRadiusDimension.hxx".}
+proc writeOwnParams*(this: IGESDimenToolRadiusDimension;
+                    ent: Handle[IGESDimenRadiusDimension];
+                    iw: var IGESDataIGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESDimen_ToolRadiusDimension.hxx".}
-proc OwnShared*(this: IGESDimen_ToolRadiusDimension;
-               ent: handle[IGESDimen_RadiusDimension];
-               iter: var Interface_EntityIterator) {.noSideEffect,
+proc ownShared*(this: IGESDimenToolRadiusDimension;
+               ent: Handle[IGESDimenRadiusDimension];
+               iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESDimen_ToolRadiusDimension.hxx".}
-proc DirChecker*(this: IGESDimen_ToolRadiusDimension;
-                ent: handle[IGESDimen_RadiusDimension]): IGESData_DirChecker {.
+proc dirChecker*(this: IGESDimenToolRadiusDimension;
+                ent: Handle[IGESDimenRadiusDimension]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESDimen_ToolRadiusDimension.hxx".}
-proc OwnCheck*(this: IGESDimen_ToolRadiusDimension;
-              ent: handle[IGESDimen_RadiusDimension]; shares: Interface_ShareTool;
-              ach: var handle[Interface_Check]) {.noSideEffect,
+proc ownCheck*(this: IGESDimenToolRadiusDimension;
+              ent: Handle[IGESDimenRadiusDimension]; shares: InterfaceShareTool;
+              ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "OwnCheck", header: "IGESDimen_ToolRadiusDimension.hxx".}
-proc OwnCopy*(this: IGESDimen_ToolRadiusDimension;
-             entfrom: handle[IGESDimen_RadiusDimension];
-             entto: handle[IGESDimen_RadiusDimension]; TC: var Interface_CopyTool) {.
+proc ownCopy*(this: IGESDimenToolRadiusDimension;
+             entfrom: Handle[IGESDimenRadiusDimension];
+             entto: Handle[IGESDimenRadiusDimension]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESDimen_ToolRadiusDimension.hxx".}
-proc OwnDump*(this: IGESDimen_ToolRadiusDimension;
-             ent: handle[IGESDimen_RadiusDimension]; dumper: IGESData_IGESDumper;
-             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
-    importcpp: "OwnDump", header: "IGESDimen_ToolRadiusDimension.hxx".}
+proc ownDump*(this: IGESDimenToolRadiusDimension;
+             ent: Handle[IGESDimenRadiusDimension]; dumper: IGESDataIGESDumper;
+             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+    header: "IGESDimen_ToolRadiusDimension.hxx".}

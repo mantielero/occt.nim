@@ -14,29 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepVisual_CameraImage
-
 discard "forward decl of StepVisual_CameraImage2dWithScale"
 discard "forward decl of StepVisual_CameraImage2dWithScale"
 type
-  Handle_StepVisual_CameraImage2dWithScale* = handle[
-      StepVisual_CameraImage2dWithScale]
-  StepVisual_CameraImage2dWithScale* {.importcpp: "StepVisual_CameraImage2dWithScale", header: "StepVisual_CameraImage2dWithScale.hxx",
-                                      bycopy.} = object of StepVisual_CameraImage
+  HandleStepVisualCameraImage2dWithScale* = Handle[
+      StepVisualCameraImage2dWithScale]
+  StepVisualCameraImage2dWithScale* {.importcpp: "StepVisual_CameraImage2dWithScale", header: "StepVisual_CameraImage2dWithScale.hxx",
+                                     bycopy.} = object of StepVisualCameraImage
 
 
-proc constructStepVisual_CameraImage2dWithScale*(): StepVisual_CameraImage2dWithScale {.
+proc constructStepVisualCameraImage2dWithScale*(): StepVisualCameraImage2dWithScale {.
     constructor, importcpp: "StepVisual_CameraImage2dWithScale(@)",
     header: "StepVisual_CameraImage2dWithScale.hxx".}
 type
-  StepVisual_CameraImage2dWithScalebase_type* = StepVisual_CameraImage
+  StepVisualCameraImage2dWithScalebaseType* = StepVisualCameraImage
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_CameraImage2dWithScale::get_type_name(@)",
-                              header: "StepVisual_CameraImage2dWithScale.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_CameraImage2dWithScale::get_type_name(@)",
+                            header: "StepVisual_CameraImage2dWithScale.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_CameraImage2dWithScale::get_type_descriptor(@)",
     header: "StepVisual_CameraImage2dWithScale.hxx".}
-proc DynamicType*(this: StepVisual_CameraImage2dWithScale): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualCameraImage2dWithScale): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_CameraImage2dWithScale.hxx".}

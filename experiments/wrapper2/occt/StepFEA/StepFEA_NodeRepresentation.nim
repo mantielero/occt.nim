@@ -13,51 +13,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../StepRepr/StepRepr_Representation,
-  ../StepRepr/StepRepr_HArray1OfRepresentationItem
-
 discard "forward decl of StepFEA_FeaModel"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_RepresentationContext"
 discard "forward decl of StepFEA_NodeRepresentation"
 discard "forward decl of StepFEA_NodeRepresentation"
 type
-  Handle_StepFEA_NodeRepresentation* = handle[StepFEA_NodeRepresentation]
+  HandleStepFEA_NodeRepresentation* = Handle[StepFEA_NodeRepresentation]
 
 ## ! Representation of STEP entity NodeRepresentation
 
 type
   StepFEA_NodeRepresentation* {.importcpp: "StepFEA_NodeRepresentation",
-                               header: "StepFEA_NodeRepresentation.hxx", bycopy.} = object of StepRepr_Representation ##
-                                                                                                               ## !
-                                                                                                               ## Empty
-                                                                                                               ## constructor
+                               header: "StepFEA_NodeRepresentation.hxx", bycopy.} = object of StepReprRepresentation ##
+                                                                                                              ## !
+                                                                                                              ## Empty
+                                                                                                              ## constructor
 
 
 proc constructStepFEA_NodeRepresentation*(): StepFEA_NodeRepresentation {.
     constructor, importcpp: "StepFEA_NodeRepresentation(@)",
     header: "StepFEA_NodeRepresentation.hxx".}
-proc Init*(this: var StepFEA_NodeRepresentation;
-          aRepresentation_Name: handle[TCollection_HAsciiString];
-          aRepresentation_Items: handle[StepRepr_HArray1OfRepresentationItem];
-    aRepresentation_ContextOfItems: handle[StepRepr_RepresentationContext];
-          aModelRef: handle[StepFEA_FeaModel]) {.importcpp: "Init",
+proc init*(this: var StepFEA_NodeRepresentation;
+          aRepresentationName: Handle[TCollectionHAsciiString];
+          aRepresentationItems: Handle[StepReprHArray1OfRepresentationItem];
+          aRepresentationContextOfItems: Handle[StepReprRepresentationContext];
+          aModelRef: Handle[StepFEA_FeaModel]) {.importcpp: "Init",
     header: "StepFEA_NodeRepresentation.hxx".}
-proc ModelRef*(this: StepFEA_NodeRepresentation): handle[StepFEA_FeaModel] {.
+proc modelRef*(this: StepFEA_NodeRepresentation): Handle[StepFEA_FeaModel] {.
     noSideEffect, importcpp: "ModelRef", header: "StepFEA_NodeRepresentation.hxx".}
-proc SetModelRef*(this: var StepFEA_NodeRepresentation;
-                 ModelRef: handle[StepFEA_FeaModel]) {.importcpp: "SetModelRef",
+proc setModelRef*(this: var StepFEA_NodeRepresentation;
+                 modelRef: Handle[StepFEA_FeaModel]) {.importcpp: "SetModelRef",
     header: "StepFEA_NodeRepresentation.hxx".}
 type
-  StepFEA_NodeRepresentationbase_type* = StepRepr_Representation
+  StepFEA_NodeRepresentationbaseType* = StepReprRepresentation
 
-proc get_type_name*(): cstring {.importcpp: "StepFEA_NodeRepresentation::get_type_name(@)",
-                              header: "StepFEA_NodeRepresentation.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepFEA_NodeRepresentation::get_type_name(@)",
+                            header: "StepFEA_NodeRepresentation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepFEA_NodeRepresentation::get_type_descriptor(@)",
     header: "StepFEA_NodeRepresentation.hxx".}
-proc DynamicType*(this: StepFEA_NodeRepresentation): handle[Standard_Type] {.
+proc dynamicType*(this: StepFEA_NodeRepresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_NodeRepresentation.hxx".}

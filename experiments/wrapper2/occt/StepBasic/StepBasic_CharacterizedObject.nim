@@ -13,54 +13,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Transient
-
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_CharacterizedObject"
 discard "forward decl of StepBasic_CharacterizedObject"
 type
-  Handle_StepBasic_CharacterizedObject* = handle[StepBasic_CharacterizedObject]
+  HandleStepBasicCharacterizedObject* = Handle[StepBasicCharacterizedObject]
 
 ## ! Representation of STEP entity CharacterizedObject
 
 type
-  StepBasic_CharacterizedObject* {.importcpp: "StepBasic_CharacterizedObject",
-                                  header: "StepBasic_CharacterizedObject.hxx",
-                                  bycopy.} = object of Standard_Transient ## ! Empty constructor
+  StepBasicCharacterizedObject* {.importcpp: "StepBasic_CharacterizedObject",
+                                 header: "StepBasic_CharacterizedObject.hxx",
+                                 bycopy.} = object of StandardTransient ## ! Empty constructor
 
 
-proc constructStepBasic_CharacterizedObject*(): StepBasic_CharacterizedObject {.
+proc constructStepBasicCharacterizedObject*(): StepBasicCharacterizedObject {.
     constructor, importcpp: "StepBasic_CharacterizedObject(@)",
     header: "StepBasic_CharacterizedObject.hxx".}
-proc Init*(this: var StepBasic_CharacterizedObject;
-          aName: handle[TCollection_HAsciiString];
-          hasDescription: Standard_Boolean;
-          aDescription: handle[TCollection_HAsciiString]) {.importcpp: "Init",
+proc init*(this: var StepBasicCharacterizedObject;
+          aName: Handle[TCollectionHAsciiString]; hasDescription: bool;
+          aDescription: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepBasic_CharacterizedObject.hxx".}
-proc Name*(this: StepBasic_CharacterizedObject): handle[TCollection_HAsciiString] {.
+proc name*(this: StepBasicCharacterizedObject): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepBasic_CharacterizedObject.hxx".}
-proc SetName*(this: var StepBasic_CharacterizedObject;
-             Name: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
+proc setName*(this: var StepBasicCharacterizedObject;
+             name: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepBasic_CharacterizedObject.hxx".}
-proc Description*(this: StepBasic_CharacterizedObject): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Description",
-                               header: "StepBasic_CharacterizedObject.hxx".}
-proc SetDescription*(this: var StepBasic_CharacterizedObject;
-                    Description: handle[TCollection_HAsciiString]) {.
-    importcpp: "SetDescription", header: "StepBasic_CharacterizedObject.hxx".}
-proc HasDescription*(this: StepBasic_CharacterizedObject): Standard_Boolean {.
-    noSideEffect, importcpp: "HasDescription",
-    header: "StepBasic_CharacterizedObject.hxx".}
-type
-  StepBasic_CharacterizedObjectbase_type* = Standard_Transient
-
-proc get_type_name*(): cstring {.importcpp: "StepBasic_CharacterizedObject::get_type_name(@)",
+proc description*(this: StepBasicCharacterizedObject): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Description",
                               header: "StepBasic_CharacterizedObject.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc setDescription*(this: var StepBasicCharacterizedObject;
+                    description: Handle[TCollectionHAsciiString]) {.
+    importcpp: "SetDescription", header: "StepBasic_CharacterizedObject.hxx".}
+proc hasDescription*(this: StepBasicCharacterizedObject): bool {.noSideEffect,
+    importcpp: "HasDescription", header: "StepBasic_CharacterizedObject.hxx".}
+type
+  StepBasicCharacterizedObjectbaseType* = StandardTransient
+
+proc getTypeName*(): cstring {.importcpp: "StepBasic_CharacterizedObject::get_type_name(@)",
+                            header: "StepBasic_CharacterizedObject.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepBasic_CharacterizedObject::get_type_descriptor(@)",
     header: "StepBasic_CharacterizedObject.hxx".}
-proc DynamicType*(this: StepBasic_CharacterizedObject): handle[Standard_Type] {.
+proc dynamicType*(this: StepBasicCharacterizedObject): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_CharacterizedObject.hxx".}

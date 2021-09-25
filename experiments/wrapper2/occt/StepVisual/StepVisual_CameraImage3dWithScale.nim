@@ -14,29 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, StepVisual_CameraImage
-
 discard "forward decl of StepVisual_CameraImage3dWithScale"
 discard "forward decl of StepVisual_CameraImage3dWithScale"
 type
-  Handle_StepVisual_CameraImage3dWithScale* = handle[
-      StepVisual_CameraImage3dWithScale]
-  StepVisual_CameraImage3dWithScale* {.importcpp: "StepVisual_CameraImage3dWithScale", header: "StepVisual_CameraImage3dWithScale.hxx",
-                                      bycopy.} = object of StepVisual_CameraImage
+  HandleStepVisualCameraImage3dWithScale* = Handle[
+      StepVisualCameraImage3dWithScale]
+  StepVisualCameraImage3dWithScale* {.importcpp: "StepVisual_CameraImage3dWithScale", header: "StepVisual_CameraImage3dWithScale.hxx",
+                                     bycopy.} = object of StepVisualCameraImage
 
 
-proc constructStepVisual_CameraImage3dWithScale*(): StepVisual_CameraImage3dWithScale {.
+proc constructStepVisualCameraImage3dWithScale*(): StepVisualCameraImage3dWithScale {.
     constructor, importcpp: "StepVisual_CameraImage3dWithScale(@)",
     header: "StepVisual_CameraImage3dWithScale.hxx".}
 type
-  StepVisual_CameraImage3dWithScalebase_type* = StepVisual_CameraImage
+  StepVisualCameraImage3dWithScalebaseType* = StepVisualCameraImage
 
-proc get_type_name*(): cstring {.importcpp: "StepVisual_CameraImage3dWithScale::get_type_name(@)",
-                              header: "StepVisual_CameraImage3dWithScale.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "StepVisual_CameraImage3dWithScale::get_type_name(@)",
+                            header: "StepVisual_CameraImage3dWithScale.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "StepVisual_CameraImage3dWithScale::get_type_descriptor(@)",
     header: "StepVisual_CameraImage3dWithScale.hxx".}
-proc DynamicType*(this: StepVisual_CameraImage3dWithScale): handle[Standard_Type] {.
+proc dynamicType*(this: StepVisualCameraImage3dWithScale): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_CameraImage3dWithScale.hxx".}

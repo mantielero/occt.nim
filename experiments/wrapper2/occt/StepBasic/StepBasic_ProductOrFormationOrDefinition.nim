@@ -13,36 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../StepData/StepData_SelectType,
-  ../Standard/Standard_Integer
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_Product"
 discard "forward decl of StepBasic_ProductDefinitionFormation"
 discard "forward decl of StepBasic_ProductDefinition"
 type
-  StepBasic_ProductOrFormationOrDefinition* {.
+  StepBasicProductOrFormationOrDefinition* {.
       importcpp: "StepBasic_ProductOrFormationOrDefinition",
-      header: "StepBasic_ProductOrFormationOrDefinition.hxx", bycopy.} = object of StepData_SelectType ##
-                                                                                                ## !
-                                                                                                ## Empty
-                                                                                                ## constructor
+      header: "StepBasic_ProductOrFormationOrDefinition.hxx", bycopy.} = object of StepDataSelectType ##
+                                                                                               ## !
+                                                                                               ## Empty
+                                                                                               ## constructor
 
 
-proc constructStepBasic_ProductOrFormationOrDefinition*(): StepBasic_ProductOrFormationOrDefinition {.
+proc constructStepBasicProductOrFormationOrDefinition*(): StepBasicProductOrFormationOrDefinition {.
     constructor, importcpp: "StepBasic_ProductOrFormationOrDefinition(@)",
     header: "StepBasic_ProductOrFormationOrDefinition.hxx".}
-proc CaseNum*(this: StepBasic_ProductOrFormationOrDefinition;
-             ent: handle[Standard_Transient]): Standard_Integer {.noSideEffect,
+proc caseNum*(this: StepBasicProductOrFormationOrDefinition;
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepBasic_ProductOrFormationOrDefinition.hxx".}
-proc Product*(this: StepBasic_ProductOrFormationOrDefinition): handle[
-    StepBasic_Product] {.noSideEffect, importcpp: "Product",
-                        header: "StepBasic_ProductOrFormationOrDefinition.hxx".}
-proc ProductDefinitionFormation*(this: StepBasic_ProductOrFormationOrDefinition): handle[
-    StepBasic_ProductDefinitionFormation] {.noSideEffect,
+proc product*(this: StepBasicProductOrFormationOrDefinition): Handle[
+    StepBasicProduct] {.noSideEffect, importcpp: "Product",
+                       header: "StepBasic_ProductOrFormationOrDefinition.hxx".}
+proc productDefinitionFormation*(this: StepBasicProductOrFormationOrDefinition): Handle[
+    StepBasicProductDefinitionFormation] {.noSideEffect,
     importcpp: "ProductDefinitionFormation",
     header: "StepBasic_ProductOrFormationOrDefinition.hxx".}
-proc ProductDefinition*(this: StepBasic_ProductOrFormationOrDefinition): handle[
-    StepBasic_ProductDefinition] {.noSideEffect, importcpp: "ProductDefinition", header: "StepBasic_ProductOrFormationOrDefinition.hxx".}
+proc productDefinition*(this: StepBasicProductOrFormationOrDefinition): Handle[
+    StepBasicProductDefinition] {.noSideEffect, importcpp: "ProductDefinition", header: "StepBasic_ProductOrFormationOrDefinition.hxx".}

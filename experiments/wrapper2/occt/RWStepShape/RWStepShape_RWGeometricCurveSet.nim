@@ -14,32 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Integer
-
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_GeometricCurveSet"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShape_RWGeometricCurveSet* {.importcpp: "RWStepShape_RWGeometricCurveSet", header: "RWStepShape_RWGeometricCurveSet.hxx",
-                                    bycopy.} = object
+  RWStepShapeRWGeometricCurveSet* {.importcpp: "RWStepShape_RWGeometricCurveSet", header: "RWStepShape_RWGeometricCurveSet.hxx",
+                                   bycopy.} = object
 
 
-proc constructRWStepShape_RWGeometricCurveSet*(): RWStepShape_RWGeometricCurveSet {.
+proc constructRWStepShapeRWGeometricCurveSet*(): RWStepShapeRWGeometricCurveSet {.
     constructor, importcpp: "RWStepShape_RWGeometricCurveSet(@)",
     header: "RWStepShape_RWGeometricCurveSet.hxx".}
-proc ReadStep*(this: RWStepShape_RWGeometricCurveSet;
-              data: handle[StepData_StepReaderData]; num: Standard_Integer;
-              ach: var handle[Interface_Check];
-              ent: handle[StepShape_GeometricCurveSet]) {.noSideEffect,
+proc readStep*(this: RWStepShapeRWGeometricCurveSet;
+              data: Handle[StepDataStepReaderData]; num: int;
+              ach: var Handle[InterfaceCheck];
+              ent: Handle[StepShapeGeometricCurveSet]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWGeometricCurveSet.hxx".}
-proc WriteStep*(this: RWStepShape_RWGeometricCurveSet; SW: var StepData_StepWriter;
-               ent: handle[StepShape_GeometricCurveSet]) {.noSideEffect,
+proc writeStep*(this: RWStepShapeRWGeometricCurveSet; sw: var StepDataStepWriter;
+               ent: Handle[StepShapeGeometricCurveSet]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWGeometricCurveSet.hxx".}
-proc Share*(this: RWStepShape_RWGeometricCurveSet;
-           ent: handle[StepShape_GeometricCurveSet];
-           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+proc share*(this: RWStepShapeRWGeometricCurveSet;
+           ent: Handle[StepShapeGeometricCurveSet];
+           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWGeometricCurveSet.hxx".}

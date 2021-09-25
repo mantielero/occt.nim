@@ -14,50 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, HatchGen_PointsOnElement,
-  HatchGen_IntersectionPoint, ../Standard/Standard_Real,
-  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
-
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IntRes2d_IntersectionPoint"
 discard "forward decl of HatchGen_PointOnElement"
 type
-  HatchGen_PointOnHatching* {.importcpp: "HatchGen_PointOnHatching",
-                             header: "HatchGen_PointOnHatching.hxx", bycopy.} = object of HatchGen_IntersectionPoint ##
-                                                                                                              ## !
-                                                                                                              ## Creates
-                                                                                                              ## an
-                                                                                                              ## empty
-                                                                                                              ## point.
+  HatchGenPointOnHatching* {.importcpp: "HatchGen_PointOnHatching",
+                            header: "HatchGen_PointOnHatching.hxx", bycopy.} = object of HatchGenIntersectionPoint ##
+                                                                                                            ## !
+                                                                                                            ## Creates
+                                                                                                            ## an
+                                                                                                            ## empty
+                                                                                                            ## point.
 
 
-proc constructHatchGen_PointOnHatching*(): HatchGen_PointOnHatching {.constructor,
+proc constructHatchGenPointOnHatching*(): HatchGenPointOnHatching {.constructor,
     importcpp: "HatchGen_PointOnHatching(@)",
     header: "HatchGen_PointOnHatching.hxx".}
-proc constructHatchGen_PointOnHatching*(Point: IntRes2d_IntersectionPoint): HatchGen_PointOnHatching {.
+proc constructHatchGenPointOnHatching*(point: IntRes2dIntersectionPoint): HatchGenPointOnHatching {.
     constructor, importcpp: "HatchGen_PointOnHatching(@)",
     header: "HatchGen_PointOnHatching.hxx".}
-proc AddPoint*(this: var HatchGen_PointOnHatching; Point: HatchGen_PointOnElement;
-              Confusion: Standard_Real) {.importcpp: "AddPoint",
-                                        header: "HatchGen_PointOnHatching.hxx".}
-proc NbPoints*(this: HatchGen_PointOnHatching): Standard_Integer {.noSideEffect,
+proc addPoint*(this: var HatchGenPointOnHatching; point: HatchGenPointOnElement;
+              confusion: float) {.importcpp: "AddPoint",
+                                header: "HatchGen_PointOnHatching.hxx".}
+proc nbPoints*(this: HatchGenPointOnHatching): int {.noSideEffect,
     importcpp: "NbPoints", header: "HatchGen_PointOnHatching.hxx".}
-proc Point*(this: HatchGen_PointOnHatching; Index: Standard_Integer): HatchGen_PointOnElement {.
+proc point*(this: HatchGenPointOnHatching; index: int): HatchGenPointOnElement {.
     noSideEffect, importcpp: "Point", header: "HatchGen_PointOnHatching.hxx".}
-proc RemPoint*(this: var HatchGen_PointOnHatching; Index: Standard_Integer) {.
-    importcpp: "RemPoint", header: "HatchGen_PointOnHatching.hxx".}
-proc ClrPoints*(this: var HatchGen_PointOnHatching) {.importcpp: "ClrPoints",
+proc remPoint*(this: var HatchGenPointOnHatching; index: int) {.importcpp: "RemPoint",
     header: "HatchGen_PointOnHatching.hxx".}
-proc IsLower*(this: HatchGen_PointOnHatching; Point: HatchGen_PointOnHatching;
-             Confusion: Standard_Real): Standard_Boolean {.noSideEffect,
-    importcpp: "IsLower", header: "HatchGen_PointOnHatching.hxx".}
-proc IsEqual*(this: HatchGen_PointOnHatching; Point: HatchGen_PointOnHatching;
-             Confusion: Standard_Real): Standard_Boolean {.noSideEffect,
-    importcpp: "IsEqual", header: "HatchGen_PointOnHatching.hxx".}
-proc IsGreater*(this: HatchGen_PointOnHatching; Point: HatchGen_PointOnHatching;
-               Confusion: Standard_Real): Standard_Boolean {.noSideEffect,
-    importcpp: "IsGreater", header: "HatchGen_PointOnHatching.hxx".}
-proc Dump*(this: HatchGen_PointOnHatching; Index: Standard_Integer = 0) {.noSideEffect,
+proc clrPoints*(this: var HatchGenPointOnHatching) {.importcpp: "ClrPoints",
+    header: "HatchGen_PointOnHatching.hxx".}
+proc isLower*(this: HatchGenPointOnHatching; point: HatchGenPointOnHatching;
+             confusion: float): bool {.noSideEffect, importcpp: "IsLower",
+                                    header: "HatchGen_PointOnHatching.hxx".}
+proc isEqual*(this: HatchGenPointOnHatching; point: HatchGenPointOnHatching;
+             confusion: float): bool {.noSideEffect, importcpp: "IsEqual",
+                                    header: "HatchGen_PointOnHatching.hxx".}
+proc isGreater*(this: HatchGenPointOnHatching; point: HatchGenPointOnHatching;
+               confusion: float): bool {.noSideEffect, importcpp: "IsGreater",
+                                      header: "HatchGen_PointOnHatching.hxx".}
+proc dump*(this: HatchGenPointOnHatching; index: int = 0) {.noSideEffect,
     importcpp: "Dump", header: "HatchGen_PointOnHatching.hxx".}

@@ -13,36 +13,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../TCollection/TCollection_AsciiString
-
 ## ! This class provides units for two dimension groups:
 ## ! - lengthes (length, radius, diameter)
 ## ! - angles
 
 type
-  Prs3d_DimensionUnits* {.importcpp: "Prs3d_DimensionUnits",
-                         header: "Prs3d_DimensionUnits.hxx", bycopy.} = object ## !
-                                                                          ## Default
-                                                                          ## constructor. Sets meters as
-                                                                          ## default length units
-                                                                          ## ! and
-                                                                          ## radians as
-                                                                          ## default angle units.
+  Prs3dDimensionUnits* {.importcpp: "Prs3d_DimensionUnits",
+                        header: "Prs3d_DimensionUnits.hxx", bycopy.} = object ## ! Default
+                                                                         ## constructor. Sets meters as default length units
+                                                                         ## ! and radians as default angle units.
 
 
-proc constructPrs3d_DimensionUnits*(): Prs3d_DimensionUnits {.constructor,
+proc constructPrs3dDimensionUnits*(): Prs3dDimensionUnits {.constructor,
     importcpp: "Prs3d_DimensionUnits(@)", header: "Prs3d_DimensionUnits.hxx".}
-proc constructPrs3d_DimensionUnits*(theUnits: Prs3d_DimensionUnits): Prs3d_DimensionUnits {.
+proc constructPrs3dDimensionUnits*(theUnits: Prs3dDimensionUnits): Prs3dDimensionUnits {.
     constructor, importcpp: "Prs3d_DimensionUnits(@)",
     header: "Prs3d_DimensionUnits.hxx".}
-proc SetAngleUnits*(this: var Prs3d_DimensionUnits;
-                   theUnits: TCollection_AsciiString) {.
+proc setAngleUnits*(this: var Prs3dDimensionUnits; theUnits: TCollectionAsciiString) {.
     importcpp: "SetAngleUnits", header: "Prs3d_DimensionUnits.hxx".}
-proc GetAngleUnits*(this: Prs3d_DimensionUnits): TCollection_AsciiString {.
+proc getAngleUnits*(this: Prs3dDimensionUnits): TCollectionAsciiString {.
     noSideEffect, importcpp: "GetAngleUnits", header: "Prs3d_DimensionUnits.hxx".}
-proc SetLengthUnits*(this: var Prs3d_DimensionUnits;
-                    theUnits: TCollection_AsciiString) {.
+proc setLengthUnits*(this: var Prs3dDimensionUnits; theUnits: TCollectionAsciiString) {.
     importcpp: "SetLengthUnits", header: "Prs3d_DimensionUnits.hxx".}
-proc GetLengthUnits*(this: Prs3d_DimensionUnits): TCollection_AsciiString {.
+proc getLengthUnits*(this: Prs3dDimensionUnits): TCollectionAsciiString {.
     noSideEffect, importcpp: "GetLengthUnits", header: "Prs3d_DimensionUnits.hxx".}

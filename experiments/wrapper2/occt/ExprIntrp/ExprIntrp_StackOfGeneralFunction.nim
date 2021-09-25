@@ -14,11 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Expr/Expr_GeneralFunction, ../NCollection/NCollection_List
-
 type
-  ExprIntrp_StackOfGeneralFunction* = NCollection_List[
-      handle[Expr_GeneralFunction]]
-  ExprIntrp_ListIteratorOfStackOfGeneralFunction* = Iterator[
-      handle[Expr_GeneralFunction]]
+  ExprIntrpStackOfGeneralFunction* = NCollectionList[Handle[ExprGeneralFunction]]
+  ExprIntrpListIteratorOfStackOfGeneralFunction* = Iterator[
+      Handle[ExprGeneralFunction]]
+

@@ -13,49 +13,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type, ../XmlMDF/XmlMDF_ADriver,
-  ../Standard/Standard_Boolean, ../XmlObjMgt/XmlObjMgt_RRelocationTable,
-  ../XmlObjMgt/XmlObjMgt_SRelocationTable
-
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDataStd_IntPackedMapDriver"
 discard "forward decl of XmlMDataStd_IntPackedMapDriver"
 type
-  Handle_XmlMDataStd_IntPackedMapDriver* = handle[XmlMDataStd_IntPackedMapDriver]
+  HandleXmlMDataStdIntPackedMapDriver* = Handle[XmlMDataStdIntPackedMapDriver]
 
 ## ! TDataStd_IntPackedMap attribute Driver.
 
 type
-  XmlMDataStd_IntPackedMapDriver* {.importcpp: "XmlMDataStd_IntPackedMapDriver", header: "XmlMDataStd_IntPackedMapDriver.hxx",
-                                   bycopy.} = object of XmlMDF_ADriver
+  XmlMDataStdIntPackedMapDriver* {.importcpp: "XmlMDataStd_IntPackedMapDriver",
+                                  header: "XmlMDataStd_IntPackedMapDriver.hxx",
+                                  bycopy.} = object of XmlMDF_ADriver
 
 
-proc constructXmlMDataStd_IntPackedMapDriver*(
-    theMessageDriver: handle[Message_Messenger]): XmlMDataStd_IntPackedMapDriver {.
+proc constructXmlMDataStdIntPackedMapDriver*(
+    theMessageDriver: Handle[MessageMessenger]): XmlMDataStdIntPackedMapDriver {.
     constructor, importcpp: "XmlMDataStd_IntPackedMapDriver(@)",
     header: "XmlMDataStd_IntPackedMapDriver.hxx".}
-proc NewEmpty*(this: XmlMDataStd_IntPackedMapDriver): handle[TDF_Attribute] {.
+proc newEmpty*(this: XmlMDataStdIntPackedMapDriver): Handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty",
     header: "XmlMDataStd_IntPackedMapDriver.hxx".}
-proc Paste*(this: XmlMDataStd_IntPackedMapDriver; Source: XmlObjMgt_Persistent;
-           Target: handle[TDF_Attribute];
-           RelocTable: var XmlObjMgt_RRelocationTable): Standard_Boolean {.
-    noSideEffect, importcpp: "Paste", header: "XmlMDataStd_IntPackedMapDriver.hxx".}
-proc Paste*(this: XmlMDataStd_IntPackedMapDriver; Source: handle[TDF_Attribute];
-           Target: var XmlObjMgt_Persistent;
-           RelocTable: var XmlObjMgt_SRelocationTable) {.noSideEffect,
+proc paste*(this: XmlMDataStdIntPackedMapDriver; source: XmlObjMgtPersistent;
+           target: Handle[TDF_Attribute];
+           relocTable: var XmlObjMgtRRelocationTable): bool {.noSideEffect,
+    importcpp: "Paste", header: "XmlMDataStd_IntPackedMapDriver.hxx".}
+proc paste*(this: XmlMDataStdIntPackedMapDriver; source: Handle[TDF_Attribute];
+           target: var XmlObjMgtPersistent;
+           relocTable: var XmlObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "XmlMDataStd_IntPackedMapDriver.hxx".}
 type
-  XmlMDataStd_IntPackedMapDriverbase_type* = XmlMDF_ADriver
+  XmlMDataStdIntPackedMapDriverbaseType* = XmlMDF_ADriver
 
-proc get_type_name*(): cstring {.importcpp: "XmlMDataStd_IntPackedMapDriver::get_type_name(@)",
-                              header: "XmlMDataStd_IntPackedMapDriver.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc getTypeName*(): cstring {.importcpp: "XmlMDataStd_IntPackedMapDriver::get_type_name(@)",
+                            header: "XmlMDataStd_IntPackedMapDriver.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XmlMDataStd_IntPackedMapDriver::get_type_descriptor(@)",
     header: "XmlMDataStd_IntPackedMapDriver.hxx".}
-proc DynamicType*(this: XmlMDataStd_IntPackedMapDriver): handle[Standard_Type] {.
+proc dynamicType*(this: XmlMDataStdIntPackedMapDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMDataStd_IntPackedMapDriver.hxx".}

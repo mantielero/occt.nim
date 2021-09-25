@@ -14,11 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, ../TColStd/TColStd_HSequenceOfTransient
-
 discard "forward decl of IGESToBRep_AlgoContainer"
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of TopoDS_Shape"
@@ -43,26 +38,25 @@ type
                                                                              ## AlgoContainer.
 
 
-proc Init*() {.importcpp: "IGESToBRep::Init(@)", header: "IGESToBRep.hxx".}
-proc SetAlgoContainer*(aContainer: handle[IGESToBRep_AlgoContainer]) {.
+proc init*() {.importcpp: "IGESToBRep::Init(@)", header: "IGESToBRep.hxx".}
+proc setAlgoContainer*(aContainer: Handle[IGESToBRepAlgoContainer]) {.
     importcpp: "IGESToBRep::SetAlgoContainer(@)", header: "IGESToBRep.hxx".}
-proc AlgoContainer*(): handle[IGESToBRep_AlgoContainer] {.
+proc algoContainer*(): Handle[IGESToBRepAlgoContainer] {.
     importcpp: "IGESToBRep::AlgoContainer(@)", header: "IGESToBRep.hxx".}
-proc IsCurveAndSurface*(start: handle[IGESData_IGESEntity]): Standard_Boolean {.
+proc isCurveAndSurface*(start: Handle[IGESDataIGESEntity]): bool {.
     importcpp: "IGESToBRep::IsCurveAndSurface(@)", header: "IGESToBRep.hxx".}
-proc IsBasicCurve*(start: handle[IGESData_IGESEntity]): Standard_Boolean {.
+proc isBasicCurve*(start: Handle[IGESDataIGESEntity]): bool {.
     importcpp: "IGESToBRep::IsBasicCurve(@)", header: "IGESToBRep.hxx".}
-proc IsBasicSurface*(start: handle[IGESData_IGESEntity]): Standard_Boolean {.
+proc isBasicSurface*(start: Handle[IGESDataIGESEntity]): bool {.
     importcpp: "IGESToBRep::IsBasicSurface(@)", header: "IGESToBRep.hxx".}
-proc IsTopoCurve*(start: handle[IGESData_IGESEntity]): Standard_Boolean {.
+proc isTopoCurve*(start: Handle[IGESDataIGESEntity]): bool {.
     importcpp: "IGESToBRep::IsTopoCurve(@)", header: "IGESToBRep.hxx".}
-proc IsTopoSurface*(start: handle[IGESData_IGESEntity]): Standard_Boolean {.
+proc isTopoSurface*(start: Handle[IGESDataIGESEntity]): bool {.
     importcpp: "IGESToBRep::IsTopoSurface(@)", header: "IGESToBRep.hxx".}
-proc IsBRepEntity*(start: handle[IGESData_IGESEntity]): Standard_Boolean {.
+proc isBRepEntity*(start: Handle[IGESDataIGESEntity]): bool {.
     importcpp: "IGESToBRep::IsBRepEntity(@)", header: "IGESToBRep.hxx".}
-proc IGESCurveToSequenceOfIGESCurve*(curve: handle[IGESData_IGESEntity]; sequence: var handle[
-    TColStd_HSequenceOfTransient]): Standard_Integer {.
-    importcpp: "IGESToBRep::IGESCurveToSequenceOfIGESCurve(@)",
-    header: "IGESToBRep.hxx".}
-proc TransferPCurve*(fromedge: TopoDS_Edge; toedge: TopoDS_Edge; face: TopoDS_Face): Standard_Boolean {.
+proc iGESCurveToSequenceOfIGESCurve*(curve: Handle[IGESDataIGESEntity]; sequence: var Handle[
+    TColStdHSequenceOfTransient]): int {.importcpp: "IGESToBRep::IGESCurveToSequenceOfIGESCurve(@)",
+                                       header: "IGESToBRep.hxx".}
+proc transferPCurve*(fromedge: TopoDS_Edge; toedge: TopoDS_Edge; face: TopoDS_Face): bool {.
     importcpp: "IGESToBRep::TransferPCurve(@)", header: "IGESToBRep.hxx".}

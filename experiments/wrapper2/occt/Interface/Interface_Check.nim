@@ -14,22 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_Type,
-  ../TColStd/TColStd_HSequenceOfHAsciiString, ../Standard/Standard_Transient,
-  ../Standard/Standard_CString, ../Standard/Standard_Boolean,
-  ../Standard/Standard_Integer, Interface_CheckStatus
-
 discard "forward decl of Standard_Transient"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Message_Msg"
 discard "forward decl of TCollection_HAsciiString"
-when defined(Status):
-  discard
+# when defined(Status):
+#   discard
 discard "forward decl of Interface_Check"
 discard "forward decl of Interface_Check"
 type
-  Handle_Interface_Check* = handle[Interface_Check]
+  HandleInterfaceCheck* = Handle[InterfaceCheck]
 
 ## ! Defines a Check, as a list of Fail or Warning Messages under
 ## ! a literal form, which can be empty. A Check can also bring an
@@ -44,127 +38,119 @@ type
 ## ! such as counting messages
 
 type
-  Interface_Check* {.importcpp: "Interface_Check", header: "Interface_Check.hxx",
-                    bycopy.} = object of Standard_Transient ## ! Allows definition of a Sequence. Used also for Global Check
-                                                       ## ! of an InterfaceModel (which stores global messages for file)
+  InterfaceCheck* {.importcpp: "Interface_Check", header: "Interface_Check.hxx",
+                   bycopy.} = object of StandardTransient ## ! Allows definition of a Sequence. Used also for Global Check
+                                                     ## ! of an InterfaceModel (which stores global messages for file)
 
 
-proc constructInterface_Check*(): Interface_Check {.constructor,
+proc constructInterfaceCheck*(): InterfaceCheck {.constructor,
     importcpp: "Interface_Check(@)", header: "Interface_Check.hxx".}
-proc constructInterface_Check*(anentity: handle[Standard_Transient]): Interface_Check {.
+proc constructInterfaceCheck*(anentity: Handle[StandardTransient]): InterfaceCheck {.
     constructor, importcpp: "Interface_Check(@)", header: "Interface_Check.hxx".}
-proc SendFail*(this: var Interface_Check; amsg: Message_Msg) {.importcpp: "SendFail",
+proc sendFail*(this: var InterfaceCheck; amsg: MessageMsg) {.importcpp: "SendFail",
     header: "Interface_Check.hxx".}
-proc AddFail*(this: var Interface_Check; amess: handle[TCollection_HAsciiString]) {.
+proc addFail*(this: var InterfaceCheck; amess: Handle[TCollectionHAsciiString]) {.
     importcpp: "AddFail", header: "Interface_Check.hxx".}
-proc AddFail*(this: var Interface_Check; amess: handle[TCollection_HAsciiString];
-             orig: handle[TCollection_HAsciiString]) {.importcpp: "AddFail",
+proc addFail*(this: var InterfaceCheck; amess: Handle[TCollectionHAsciiString];
+             orig: Handle[TCollectionHAsciiString]) {.importcpp: "AddFail",
     header: "Interface_Check.hxx".}
-proc AddFail*(this: var Interface_Check; amess: Standard_CString;
-             orig: Standard_CString = "") {.importcpp: "AddFail",
-                                        header: "Interface_Check.hxx".}
-proc AddFail*(this: var Interface_Check; amsg: Message_Msg) {.importcpp: "AddFail",
+proc addFail*(this: var InterfaceCheck; amess: StandardCString;
+             orig: StandardCString = "") {.importcpp: "AddFail",
+                                       header: "Interface_Check.hxx".}
+proc addFail*(this: var InterfaceCheck; amsg: MessageMsg) {.importcpp: "AddFail",
     header: "Interface_Check.hxx".}
-proc HasFailed*(this: Interface_Check): Standard_Boolean {.noSideEffect,
-    importcpp: "HasFailed", header: "Interface_Check.hxx".}
-proc NbFails*(this: Interface_Check): Standard_Integer {.noSideEffect,
-    importcpp: "NbFails", header: "Interface_Check.hxx".}
-proc Fail*(this: Interface_Check; num: Standard_Integer;
-          final: Standard_Boolean = Standard_True): handle[TCollection_HAsciiString] {.
-    noSideEffect, importcpp: "Fail", header: "Interface_Check.hxx".}
-proc CFail*(this: Interface_Check; num: Standard_Integer;
-           final: Standard_Boolean = Standard_True): Standard_CString {.noSideEffect,
-    importcpp: "CFail", header: "Interface_Check.hxx".}
-proc Fails*(this: Interface_Check; final: Standard_Boolean = Standard_True): handle[
-    TColStd_HSequenceOfHAsciiString] {.noSideEffect, importcpp: "Fails",
-                                      header: "Interface_Check.hxx".}
-proc SendWarning*(this: var Interface_Check; amsg: Message_Msg) {.
-    importcpp: "SendWarning", header: "Interface_Check.hxx".}
-proc AddWarning*(this: var Interface_Check; amess: handle[TCollection_HAsciiString]) {.
-    importcpp: "AddWarning", header: "Interface_Check.hxx".}
-proc AddWarning*(this: var Interface_Check; amess: handle[TCollection_HAsciiString];
-                orig: handle[TCollection_HAsciiString]) {.importcpp: "AddWarning",
+proc hasFailed*(this: InterfaceCheck): bool {.noSideEffect, importcpp: "HasFailed",
     header: "Interface_Check.hxx".}
-proc AddWarning*(this: var Interface_Check; amess: Standard_CString;
-                orig: Standard_CString = "") {.importcpp: "AddWarning",
-    header: "Interface_Check.hxx".}
-proc AddWarning*(this: var Interface_Check; amsg: Message_Msg) {.
-    importcpp: "AddWarning", header: "Interface_Check.hxx".}
-proc HasWarnings*(this: Interface_Check): Standard_Boolean {.noSideEffect,
-    importcpp: "HasWarnings", header: "Interface_Check.hxx".}
-proc NbWarnings*(this: Interface_Check): Standard_Integer {.noSideEffect,
-    importcpp: "NbWarnings", header: "Interface_Check.hxx".}
-proc Warning*(this: Interface_Check; num: Standard_Integer;
-             final: Standard_Boolean = Standard_True): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "Warning",
-                               header: "Interface_Check.hxx".}
-proc CWarning*(this: Interface_Check; num: Standard_Integer;
-              final: Standard_Boolean = Standard_True): Standard_CString {.
-    noSideEffect, importcpp: "CWarning", header: "Interface_Check.hxx".}
-proc Warnings*(this: Interface_Check; final: Standard_Boolean = Standard_True): handle[
-    TColStd_HSequenceOfHAsciiString] {.noSideEffect, importcpp: "Warnings",
-                                      header: "Interface_Check.hxx".}
-proc SendMsg*(this: var Interface_Check; amsg: Message_Msg) {.importcpp: "SendMsg",
-    header: "Interface_Check.hxx".}
-proc NbInfoMsgs*(this: Interface_Check): Standard_Integer {.noSideEffect,
-    importcpp: "NbInfoMsgs", header: "Interface_Check.hxx".}
-proc InfoMsg*(this: Interface_Check; num: Standard_Integer;
-             final: Standard_Boolean = Standard_True): handle[
-    TCollection_HAsciiString] {.noSideEffect, importcpp: "InfoMsg",
-                               header: "Interface_Check.hxx".}
-proc CInfoMsg*(this: Interface_Check; num: Standard_Integer;
-              final: Standard_Boolean = Standard_True): Standard_CString {.
-    noSideEffect, importcpp: "CInfoMsg", header: "Interface_Check.hxx".}
-proc InfoMsgs*(this: Interface_Check; final: Standard_Boolean = Standard_True): handle[
-    TColStd_HSequenceOfHAsciiString] {.noSideEffect, importcpp: "InfoMsgs",
-                                      header: "Interface_Check.hxx".}
-proc Status*(this: Interface_Check): Interface_CheckStatus {.noSideEffect,
-    importcpp: "Status", header: "Interface_Check.hxx".}
-proc Complies*(this: Interface_Check; status: Interface_CheckStatus): Standard_Boolean {.
-    noSideEffect, importcpp: "Complies", header: "Interface_Check.hxx".}
-proc Complies*(this: Interface_Check; mess: handle[TCollection_HAsciiString];
-              incl: Standard_Integer; status: Interface_CheckStatus): Standard_Boolean {.
-    noSideEffect, importcpp: "Complies", header: "Interface_Check.hxx".}
-proc HasEntity*(this: Interface_Check): Standard_Boolean {.noSideEffect,
-    importcpp: "HasEntity", header: "Interface_Check.hxx".}
-proc Entity*(this: Interface_Check): handle[Standard_Transient] {.noSideEffect,
-    importcpp: "Entity", header: "Interface_Check.hxx".}
-proc Clear*(this: var Interface_Check) {.importcpp: "Clear",
-                                     header: "Interface_Check.hxx".}
-proc ClearFails*(this: var Interface_Check) {.importcpp: "ClearFails",
-    header: "Interface_Check.hxx".}
-proc ClearWarnings*(this: var Interface_Check) {.importcpp: "ClearWarnings",
-    header: "Interface_Check.hxx".}
-proc ClearInfoMsgs*(this: var Interface_Check) {.importcpp: "ClearInfoMsgs",
-    header: "Interface_Check.hxx".}
-proc Remove*(this: var Interface_Check; mess: handle[TCollection_HAsciiString];
-            incl: Standard_Integer; status: Interface_CheckStatus): Standard_Boolean {.
-    importcpp: "Remove", header: "Interface_Check.hxx".}
-proc Mend*(this: var Interface_Check; pref: Standard_CString;
-          num: Standard_Integer = 0): Standard_Boolean {.importcpp: "Mend",
-    header: "Interface_Check.hxx".}
-proc SetEntity*(this: var Interface_Check; anentity: handle[Standard_Transient]) {.
-    importcpp: "SetEntity", header: "Interface_Check.hxx".}
-proc GetEntity*(this: var Interface_Check; anentity: handle[Standard_Transient]) {.
-    importcpp: "GetEntity", header: "Interface_Check.hxx".}
-proc GetMessages*(this: var Interface_Check; other: handle[Interface_Check]) {.
-    importcpp: "GetMessages", header: "Interface_Check.hxx".}
-proc GetAsWarning*(this: var Interface_Check; other: handle[Interface_Check];
-                  failsonly: Standard_Boolean) {.importcpp: "GetAsWarning",
-    header: "Interface_Check.hxx".}
-proc Print*(this: Interface_Check; S: var Standard_OStream; level: Standard_Integer;
-           final: Standard_Integer = 1) {.noSideEffect, importcpp: "Print",
-                                      header: "Interface_Check.hxx".}
-proc Trace*(this: Interface_Check; level: Standard_Integer = -1;
-           final: Standard_Integer = 1) {.noSideEffect, importcpp: "Trace",
-                                      header: "Interface_Check.hxx".}
-type
-  Interface_Checkbase_type* = Standard_Transient
-
-proc get_type_name*(): cstring {.importcpp: "Interface_Check::get_type_name(@)",
+proc nbFails*(this: InterfaceCheck): int {.noSideEffect, importcpp: "NbFails",
+                                       header: "Interface_Check.hxx".}
+proc fail*(this: InterfaceCheck; num: int; final: bool = true): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Fail",
                               header: "Interface_Check.hxx".}
-proc get_type_descriptor*(): handle[Standard_Type] {.
+proc cFail*(this: InterfaceCheck; num: int; final: bool = true): StandardCString {.
+    noSideEffect, importcpp: "CFail", header: "Interface_Check.hxx".}
+proc fails*(this: InterfaceCheck; final: bool = true): Handle[
+    TColStdHSequenceOfHAsciiString] {.noSideEffect, importcpp: "Fails",
+                                     header: "Interface_Check.hxx".}
+proc sendWarning*(this: var InterfaceCheck; amsg: MessageMsg) {.
+    importcpp: "SendWarning", header: "Interface_Check.hxx".}
+proc addWarning*(this: var InterfaceCheck; amess: Handle[TCollectionHAsciiString]) {.
+    importcpp: "AddWarning", header: "Interface_Check.hxx".}
+proc addWarning*(this: var InterfaceCheck; amess: Handle[TCollectionHAsciiString];
+                orig: Handle[TCollectionHAsciiString]) {.importcpp: "AddWarning",
+    header: "Interface_Check.hxx".}
+proc addWarning*(this: var InterfaceCheck; amess: StandardCString;
+                orig: StandardCString = "") {.importcpp: "AddWarning",
+    header: "Interface_Check.hxx".}
+proc addWarning*(this: var InterfaceCheck; amsg: MessageMsg) {.
+    importcpp: "AddWarning", header: "Interface_Check.hxx".}
+proc hasWarnings*(this: InterfaceCheck): bool {.noSideEffect,
+    importcpp: "HasWarnings", header: "Interface_Check.hxx".}
+proc nbWarnings*(this: InterfaceCheck): int {.noSideEffect, importcpp: "NbWarnings",
+    header: "Interface_Check.hxx".}
+proc warning*(this: InterfaceCheck; num: int; final: bool = true): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Warning",
+                              header: "Interface_Check.hxx".}
+proc cWarning*(this: InterfaceCheck; num: int; final: bool = true): StandardCString {.
+    noSideEffect, importcpp: "CWarning", header: "Interface_Check.hxx".}
+proc warnings*(this: InterfaceCheck; final: bool = true): Handle[
+    TColStdHSequenceOfHAsciiString] {.noSideEffect, importcpp: "Warnings",
+                                     header: "Interface_Check.hxx".}
+proc sendMsg*(this: var InterfaceCheck; amsg: MessageMsg) {.importcpp: "SendMsg",
+    header: "Interface_Check.hxx".}
+proc nbInfoMsgs*(this: InterfaceCheck): int {.noSideEffect, importcpp: "NbInfoMsgs",
+    header: "Interface_Check.hxx".}
+proc infoMsg*(this: InterfaceCheck; num: int; final: bool = true): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "InfoMsg",
+                              header: "Interface_Check.hxx".}
+proc cInfoMsg*(this: InterfaceCheck; num: int; final: bool = true): StandardCString {.
+    noSideEffect, importcpp: "CInfoMsg", header: "Interface_Check.hxx".}
+proc infoMsgs*(this: InterfaceCheck; final: bool = true): Handle[
+    TColStdHSequenceOfHAsciiString] {.noSideEffect, importcpp: "InfoMsgs",
+                                     header: "Interface_Check.hxx".}
+proc status*(this: InterfaceCheck): InterfaceCheckStatus {.noSideEffect,
+    importcpp: "Status", header: "Interface_Check.hxx".}
+proc complies*(this: InterfaceCheck; status: InterfaceCheckStatus): bool {.
+    noSideEffect, importcpp: "Complies", header: "Interface_Check.hxx".}
+proc complies*(this: InterfaceCheck; mess: Handle[TCollectionHAsciiString];
+              incl: int; status: InterfaceCheckStatus): bool {.noSideEffect,
+    importcpp: "Complies", header: "Interface_Check.hxx".}
+proc hasEntity*(this: InterfaceCheck): bool {.noSideEffect, importcpp: "HasEntity",
+    header: "Interface_Check.hxx".}
+proc entity*(this: InterfaceCheck): Handle[StandardTransient] {.noSideEffect,
+    importcpp: "Entity", header: "Interface_Check.hxx".}
+proc clear*(this: var InterfaceCheck) {.importcpp: "Clear",
+                                    header: "Interface_Check.hxx".}
+proc clearFails*(this: var InterfaceCheck) {.importcpp: "ClearFails",
+    header: "Interface_Check.hxx".}
+proc clearWarnings*(this: var InterfaceCheck) {.importcpp: "ClearWarnings",
+    header: "Interface_Check.hxx".}
+proc clearInfoMsgs*(this: var InterfaceCheck) {.importcpp: "ClearInfoMsgs",
+    header: "Interface_Check.hxx".}
+proc remove*(this: var InterfaceCheck; mess: Handle[TCollectionHAsciiString];
+            incl: int; status: InterfaceCheckStatus): bool {.importcpp: "Remove",
+    header: "Interface_Check.hxx".}
+proc mend*(this: var InterfaceCheck; pref: StandardCString; num: int = 0): bool {.
+    importcpp: "Mend", header: "Interface_Check.hxx".}
+proc setEntity*(this: var InterfaceCheck; anentity: Handle[StandardTransient]) {.
+    importcpp: "SetEntity", header: "Interface_Check.hxx".}
+proc getEntity*(this: var InterfaceCheck; anentity: Handle[StandardTransient]) {.
+    importcpp: "GetEntity", header: "Interface_Check.hxx".}
+proc getMessages*(this: var InterfaceCheck; other: Handle[InterfaceCheck]) {.
+    importcpp: "GetMessages", header: "Interface_Check.hxx".}
+proc getAsWarning*(this: var InterfaceCheck; other: Handle[InterfaceCheck];
+                  failsonly: bool) {.importcpp: "GetAsWarning",
+                                   header: "Interface_Check.hxx".}
+proc print*(this: InterfaceCheck; s: var StandardOStream; level: int; final: int = 1) {.
+    noSideEffect, importcpp: "Print", header: "Interface_Check.hxx".}
+proc trace*(this: InterfaceCheck; level: int = -1; final: int = 1) {.noSideEffect,
+    importcpp: "Trace", header: "Interface_Check.hxx".}
+type
+  InterfaceCheckbaseType* = StandardTransient
+
+proc getTypeName*(): cstring {.importcpp: "Interface_Check::get_type_name(@)",
+                            header: "Interface_Check.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Interface_Check::get_type_descriptor(@)",
     header: "Interface_Check.hxx".}
-proc DynamicType*(this: Interface_Check): handle[Standard_Type] {.noSideEffect,
+proc dynamicType*(this: InterfaceCheck): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_Check.hxx".}

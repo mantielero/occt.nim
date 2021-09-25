@@ -14,53 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-import
-  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
-  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Face, ../TopExp/TopExp_Explorer,
-  ../Standard/Standard_Integer, ../Standard/Standard_Real,
-  ../Standard/Standard_Boolean, ../TopAbs/TopAbs_Orientation
-
 discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Lin2d"
 discard "forward decl of BRepClass_Edge"
 type
-  BRepClass_FaceExplorer* {.importcpp: "BRepClass_FaceExplorer",
-                           header: "BRepClass_FaceExplorer.hxx", bycopy.} = object ## !
-                                                                              ## Computes UV
-                                                                              ## bounds of a
-                                                                              ## face
+  BRepClassFaceExplorer* {.importcpp: "BRepClass_FaceExplorer",
+                          header: "BRepClass_FaceExplorer.hxx", bycopy.} = object ## !
+                                                                             ## Computes UV
+                                                                             ## bounds of a
+                                                                             ## face
 
 
-proc constructBRepClass_FaceExplorer*(F: TopoDS_Face): BRepClass_FaceExplorer {.
+proc constructBRepClassFaceExplorer*(f: TopoDS_Face): BRepClassFaceExplorer {.
     constructor, importcpp: "BRepClass_FaceExplorer(@)",
     header: "BRepClass_FaceExplorer.hxx".}
-proc CheckPoint*(this: var BRepClass_FaceExplorer; thePoint: var gp_Pnt2d): Standard_Boolean {.
+proc checkPoint*(this: var BRepClassFaceExplorer; thePoint: var Pnt2d): bool {.
     importcpp: "CheckPoint", header: "BRepClass_FaceExplorer.hxx".}
-proc Reject*(this: BRepClass_FaceExplorer; P: gp_Pnt2d): Standard_Boolean {.
-    noSideEffect, importcpp: "Reject", header: "BRepClass_FaceExplorer.hxx".}
-proc Segment*(this: var BRepClass_FaceExplorer; P: gp_Pnt2d; L: var gp_Lin2d;
-             Par: var Standard_Real): Standard_Boolean {.importcpp: "Segment",
+proc reject*(this: BRepClassFaceExplorer; p: Pnt2d): bool {.noSideEffect,
+    importcpp: "Reject", header: "BRepClass_FaceExplorer.hxx".}
+proc segment*(this: var BRepClassFaceExplorer; p: Pnt2d; L: var Lin2d; par: var float): bool {.
+    importcpp: "Segment", header: "BRepClass_FaceExplorer.hxx".}
+proc otherSegment*(this: var BRepClassFaceExplorer; p: Pnt2d; L: var Lin2d;
+                  par: var float): bool {.importcpp: "OtherSegment",
+                                      header: "BRepClass_FaceExplorer.hxx".}
+proc initWires*(this: var BRepClassFaceExplorer) {.importcpp: "InitWires",
     header: "BRepClass_FaceExplorer.hxx".}
-proc OtherSegment*(this: var BRepClass_FaceExplorer; P: gp_Pnt2d; L: var gp_Lin2d;
-                  Par: var Standard_Real): Standard_Boolean {.
-    importcpp: "OtherSegment", header: "BRepClass_FaceExplorer.hxx".}
-proc InitWires*(this: var BRepClass_FaceExplorer) {.importcpp: "InitWires",
-    header: "BRepClass_FaceExplorer.hxx".}
-proc MoreWires*(this: BRepClass_FaceExplorer): Standard_Boolean {.noSideEffect,
+proc moreWires*(this: BRepClassFaceExplorer): bool {.noSideEffect,
     importcpp: "MoreWires", header: "BRepClass_FaceExplorer.hxx".}
-proc NextWire*(this: var BRepClass_FaceExplorer) {.importcpp: "NextWire",
+proc nextWire*(this: var BRepClassFaceExplorer) {.importcpp: "NextWire",
     header: "BRepClass_FaceExplorer.hxx".}
-proc RejectWire*(this: BRepClass_FaceExplorer; L: gp_Lin2d; Par: Standard_Real): Standard_Boolean {.
+proc rejectWire*(this: BRepClassFaceExplorer; L: Lin2d; par: float): bool {.
     noSideEffect, importcpp: "RejectWire", header: "BRepClass_FaceExplorer.hxx".}
-proc InitEdges*(this: var BRepClass_FaceExplorer) {.importcpp: "InitEdges",
+proc initEdges*(this: var BRepClassFaceExplorer) {.importcpp: "InitEdges",
     header: "BRepClass_FaceExplorer.hxx".}
-proc MoreEdges*(this: BRepClass_FaceExplorer): Standard_Boolean {.noSideEffect,
+proc moreEdges*(this: BRepClassFaceExplorer): bool {.noSideEffect,
     importcpp: "MoreEdges", header: "BRepClass_FaceExplorer.hxx".}
-proc NextEdge*(this: var BRepClass_FaceExplorer) {.importcpp: "NextEdge",
+proc nextEdge*(this: var BRepClassFaceExplorer) {.importcpp: "NextEdge",
     header: "BRepClass_FaceExplorer.hxx".}
-proc RejectEdge*(this: BRepClass_FaceExplorer; L: gp_Lin2d; Par: Standard_Real): Standard_Boolean {.
+proc rejectEdge*(this: BRepClassFaceExplorer; L: Lin2d; par: float): bool {.
     noSideEffect, importcpp: "RejectEdge", header: "BRepClass_FaceExplorer.hxx".}
-proc CurrentEdge*(this: BRepClass_FaceExplorer; E: var BRepClass_Edge;
-                 Or: var TopAbs_Orientation) {.noSideEffect,
+proc currentEdge*(this: BRepClassFaceExplorer; e: var BRepClassEdge;
+                 `or`: var TopAbsOrientation) {.noSideEffect,
     importcpp: "CurrentEdge", header: "BRepClass_FaceExplorer.hxx".}
